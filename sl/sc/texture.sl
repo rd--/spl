@@ -1,0 +1,81 @@
+Procedure {
+
+	overlap { :self :sustainTime :transitionTime :overlap |
+		| period = (sustainTime + (transitionTime * 2)) / overlap; |
+		system::clock.schedule(0) {
+			{ self().withOverlapEnvelope(sustainTime, transitionTime) }.play;
+			period
+		}
+	}
+
+	playEvery { :self :aClock :delay |
+		// Play variant of repeatEvery.
+		if(self.numArgs = 0) {
+			{ self.play }.repeatEvery(aClock, delay)
+		} {
+			{ : d | { self(d) }.play }.repeatEvery(aClock, delay)
+		}
+	}
+
+	playEvery { :self :delay |
+		self.playEvery(system::clock, delay)
+	}
+
+	repeatEvery { :self :aClock :delay |
+		// Schedule myself at intervals given by delay.  If I accept an argument it will be the delay interval before I will execute next.
+		aClock.schedule(0) {
+			| d = delay.value; |
+			if(d.notNil) {
+				if(self.numArgs = 1) { self(d) } { self() };
+				d.asSeconds
+			} {
+				nil
+			}
+		}
+	}
+
+	recurseEvery { :self :aClock :anObject :delay |
+		aClock.scheduleInjecting(0, anObject) { :inputValue |
+			| nextDelay = delay.value; |
+			(inputValue.notNil & { nextDelay.notNil }).ifTrue {
+				[nextDelay.asSeconds, self(inputValue)]
+			}
+		}
+	}
+
+	recurseEvery { :self :anObject :delay |
+		self.recurseEvery(system::clock, anObject, delay)
+	}
+
+	xfade { :self :sustainTime :transitionTime |
+		self.overlap(sustainTime, transitionTime, 2)
+	}
+
+}
+
++ @Collection {
+
+	collectTexture { :self :aClock :aProcedure :delay |
+		| end = self.size; |
+		{ :i |
+			{ aProcedure(self[i]) }.play;
+			if(i = end) { nil } {  i + 1 }
+		}.recurseEvery(aClock, 1, delay)
+	}
+
+	collectTexture { :self :aProcedure :delay |
+		self.collectTexture(system::clock, aProcedure, delay)
+	}
+
+}
+
++ Object {
+
+	withOverlapEnvelope { :aUgen :sustainTime :transitionTime |
+		| env amp |
+		env := Env([0,1,1,0], [transitionTime,sustainTime,transitionTime], 'sin', nil, nil, 0);
+		amp := EnvGen(1, 1, 0, 1, 2, env.coord);
+		Out(0, aUgen * amp)
+	}
+
+}

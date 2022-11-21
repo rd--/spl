@@ -1,0 +1,16 @@
+loadSequence([
+	'stdlib/Dictionary.sl',
+	'stdlib/PositionableStream.sl',
+	'stdlib/Association.sl',
+	'stdlib/Duration.sl',
+	'stdlib/IdentityDictionary.sl',
+	'stdlib/IdentitySet.sl',
+	'stdlib/Interval.sl',
+	'stdlib/LinkedList.sl',
+	'stdlib/List.sl',
+	'stdlib/Point.sl',
+	'stdlib/ReadStream.sl',
+	'stdlib/RegExp.sl',
+	'stdlib/ValueLink.sl',
+	'stdlib/WriteStream.sl'
+])
