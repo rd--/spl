@@ -4,10 +4,11 @@
 - Why Spl?
 - Notation?
 - StdLib?
+- Js-Sc3?
 
 # Comments
 
-Both _*_ and _/_ are operator characters (and common operators).
+_*_ and _/_ are both operators in Spl.
 In St _//_ is quotient.
 Comment syntax can use forms that are not otherwise allowed.
 _(* ... *)_ as in Pascal and Ml &etc.
@@ -16,8 +17,8 @@ _;; ..._ as in Lisp.
 # Strings
 
 String are written _'...'_.
-_"..."_ means _parseDoubleQuotedString('...').
-_`...`_ means _parseBacktickQuotedString('...').
+_"..."_ means _parseDoubleQuotedString('...')_.
+_\`...\`_ means _parseBacktickQuotedString('...')_.
 
 # Collections
 
@@ -81,9 +82,9 @@ The standard library cannot assume:
 - tail call optimisation
 - shift/reset or call/cc
 
-Co-routines cannot be implemented in a manner that works properly where control structures are implemented as higher-order procedures.
+Co-routines cannot be implemented where control operators are implemented as higher-order procedures.
 (Js has co-routines using _function*_ and _yield_ syntaxes.
-Spl could have a syntax, say _{! ... }_, to indicate a routine however _yield_ cannot be called in-directly.
+Spl could implement a syntax _{! ... }_ to indicate a routine, however _yield_ cannot be called indirectly.
 Idiomatic Spl requires yielding from within control structures, i.e. _{! 9.timesRepeat { 3.random.yield } }.fork_, which is not allowed.)
 
 All Io is asynchronous, hence Promises.
@@ -94,7 +95,7 @@ All names, not only those that are reserved in Js, are prefixed with an undersco
 
 The built-in types are _unboxed_, that is they are encoded as their Js values.
 
-User defined types, such as for Cartesian points, are encoded as records of the form _{type: '\_Point', \_x: 0, \_y: 0}_.
+User defined types, such as for Cartesian points, are encoded as records of the form _{type: 'Point', x: 0, y: 0}_.
 
 # Smalltalk
 
@@ -107,6 +108,11 @@ User defined types, such as for Cartesian points, are encoded as records of the 
 
 Notation for methods that return procedures, i.e. [1, 2, 3].species.value(5), ([1, 2, 3].species)(5).
 Logical and is &, logical or is |, c.f. bitAnd and bitOr
+
+# Conventions
+
+Type constructors are capitalised.
+The standard library writes _F(x)_ where _F_ is a constructor, _f(x)_ where _f_ is a control operator, and _x.f_ otherwise.
 
 # St Compatibility
 
@@ -147,6 +153,11 @@ Prelude is both _kernel_ and _stdlib_.
 
 The <primitive> notation could include a language field, so that Js and Scheme implementations could be written in the same method.
 
+# Array Syntax
+
+_List[1, 2, 3]_ could mean _List([1, 2, 3])_.
+In the general case this would be a _trailing array_ syntax, so _f(p) [q..] [r..]_ would mean _f(p, [q..], [r..])_.
+
 # Unicode
 
 - U+0021 ! EXCLAMATION MARK
@@ -184,7 +195,8 @@ The <primitive> notation could include a language field, so that Js and Scheme i
 - U+226E ≮ NOT LESS-THAN
 - U+226F ≯ NOT GREATER-THAN
 - U+22C5 ⋅ DOT OPERATOR
-- U+2A75 ⩵ TWO CONSECUTIVE EQUALS SIGNS)
-- U+2A76 ⩶ THREE CONSECUTIVE EQUALS SIGNS)
+- U+2A74 ⩴ DOUBLE COLON EQUAL
+- U+2A75 ⩵ TWO CONSECUTIVE EQUALS SIGNS
+- U+2A76 ⩶ THREE CONSECUTIVE EQUALS SIGNS
 - U+2A7D ⩽ LESS-THAN OR
 - U+2A7E ⩾ GREATER-THAN OR SLANTED EQUAL TO

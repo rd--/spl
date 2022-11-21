@@ -3,14 +3,14 @@
 Simple programming language:
 a notation for working with a minimal procedural language.
 
-Requires: lexically scoped closures with mutable environments and a non-local return mechanism.
+The language consists of lexically scoped closures with mutable environments, product types, and a non-local return mechanism.
 
-Primitive types are: _Nil_, _Boolean_, _Number_, _String_, _Array_, _ByteArray_ and _Procedure_.
+The primitive types are _Array_, _Boolean_, _Nil_, _Number_, _Procedure_, and _String_. [1]
 
-In _Spl-Js_ the types _Error_, _IdentityDictionary_, _IdentitySet_ and _RegExp_ are primitive.
+# Notation
 
-Procedure application is written _f(p, q)_, or equivalently as _p.f(q)_.
-Procedures have fixed arity (number of arguments).
+Procedure application is written _f(p, q)_ or equivalently _p.f(q)_.
+Procedures have a fixed number of arguments.
 
 Operators are written _p + q_.
 There are no precedence rules.
@@ -18,7 +18,7 @@ There are no precedence rules.
 Initially the only procedures are _loadPath: String -> Nil_ and _loadSequence: [String] → Nil_.
 The file _prelude.sl_ loads the files _kernel.sl_ and _stdlib.sl_, which together define the standard environment.
 
-The standard library is defined in terms of a method table.
+The standard environment is defined in terms of a method table.
 Library procedures dispatch on arity and on the type of the first argument.
 
 In _f(x, y)_, if _f_ has no two-arity method for the type of _x_ the two-arity method for the universal type _Object_ is selected, if it exists.
@@ -30,16 +30,16 @@ for instance _p.x_ may access a slot _x_ and _p.x(i)_ may set the value of the s
 Control structures are ordinary procedures, as in Smalltalk.
 The arguments to _if_, _while_, _timesRepeat_ &etc. must be delayed manually.
 The notation to delay a value _x_ is _{ x }_.
-A _trailing closure_ syntax allows control structures to be written as _if(p) { q } { r }_ and _while { p } { q }_.
+_Trailing closure_ syntax allows control structures to be written as _if(p) { q } { r }_ and _while { p } { q }_.
 
 Arrays are one-indexed, _at(p, 1)_ reads the first element of the the array _p_.
 
-There is no procedure return and, since methods are simply procedures, no method return.
+There is no _return_ keyword.
 Instead there are _withReturn_  and _return_ methods, implementing delimited non-local return.
 
-* * *
-
 # Syntax
+
+Spl has a minimal core syntax and a moderate number of rewrite rules.
 
 ## Literals
 
@@ -55,13 +55,13 @@ Instead there are _withReturn_  and _return_ methods, implementing delimited non
 - _{ :a ...| | t ... | e; ... }_ ⇒ _Procedure_ (with temporary variables _t_)
 - _{ :a ...| | t = i, ...; | e; ... }_ ⇒ _Procedure_ (with initialisers _i_)
 
-## Kernel
+## Application and Assignment
 
 - _f()_ ⇒ apply _f_
 - _f(x, ...)_ ⇒ apply _f_ to _x, ..._
 - _x := y_ ⇒ assign _y_ to _x_
 
-## Rewrite
+## Rewrite Rules
 
 - _x.f_ ⇒ _f(x)_
 - _x.f(y, ...)_ ⇒ _f(x, y, ...)_
@@ -76,7 +76,7 @@ Instead there are _withReturn_  and _return_ methods, implementing delimited non
 - _d::k := v_ ⇒ _put(d, 'k', v)_
 - _::k_ ⇒ _at(implicitDictionary, 'k')_
 - _::k := v_ ⇒ _put(implicitDictionary, 'k', v)_
-- | _(k, ...) = v, ...; |_ ⇒ _| k = at(v, 'k'), ...; |_
+- | _(k, ...) = d, ...; |_ ⇒ _| k = at(d, 'k'), ...; |_
 - | _[e, ...] = c, ...; |_ ⇒ _| e = at(c, 1), ...; |_
 
 ## Sc Compatibility
@@ -85,20 +85,20 @@ Instead there are _withReturn_  and _return_ methods, implementing delimited non
 - _var t, ...;_ ⇒ _| t ... |_
 - _var t = i, ...;_ ⇒ _| t = i, ...; |_
 
-## Assignment, initialisation, equality, identity
+# Assignment, initialisation, equality, identity
 
 The assignment syntax is _p := q_.
 The temporary variable initialiser syntax is _p = q_.
 The standard library defines the equality predicate as _p = q_ and the identity predicate as _p == q_.
 
-## Dictionaries
+# Dictionaries
 
 The notation _(p: x, q: y)_ constructs an _IdentityDictionary_ with associations _'p' → x_ and _'q' → y_.
 The notation _p::x_ ≡ _p['x']_ ≡ _at(p, 'x')_ reads the entry _'x'_ from the dictionary _p_.
 The notation _p::x := i_ ≡ _p['x'] := i_ ≡ _put(p, 'x', i)_ sets the entry _'x'_ at the dictionary _p_ to the value _i_.
-The notation _| (x, y) = p; |_ initialises the variables _x_ and _y_ to the values _p:x_ and _p:y_.
+The notation _| (x, y) = p; |_ initialises the variables _x_ and _y_ to the values _p::x_ and _p::y_.
 
-* * *
+# Operators
 
 Operator names are rewritten as the names of the symbols, _+_ as _plus_ and _*_ as _times_, &etc.
 These names are in the same space as all other procedure names, defining _&_ defines _and_, and defining _at_ defines _@_.
@@ -118,3 +118,7 @@ Other operators:
 - \: backslash, ?: query
 
 Operator names are ordinarily used in non-operator contexts, i.e. _c.withCollect(plus)_.
+
+* * *
+
+[1]. In _Spl-Js_ the types _ByteArray_, _Error_, _Float64Array_, _IdentityDictionary_, _IdentitySet_, _LargeInteger_, _List_, _PriorityQueue_, _Promise_ and _RegExp_ are also primitive.

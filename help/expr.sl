@@ -65,6 +65,10 @@ var [x, y] = { var n = random(); [n, n] }.value; x = y
 [1, 2, 3].printString = '[1, 2, 3]'
 [1 .. 9].allButFirst = [2 .. 9]
 [1 .. 9].allButFirst(7) = [8, 9]
+{ var a = Array(1); a.at(3) }.ifError { :error | true }
+var a = Array(1); a.unsafeAt(3).isNil = true
+{ var a = Array(1); a.put(3, 'x') }.ifError { :error | true }
+var a = Array(1); a.unsafePut(3, 'x') = 'x' & { a.size = 3 }
 
 'kernel/Boolean'
 true.class = Boolean
@@ -82,30 +86,6 @@ false & { 'false &'.postLine; false } = false
 true | { 'true |'.postLine; true } = true
 false | { 'false |'.postLine; true } = true
 true.printString = 'true'
-
-'kernel/ByteArray'
-ByteArray().class = ByteArray
-ByteArray().species = ByteArray
-ByteArray().isByteArray
-ByteArray().size = 0
-ByteArray(8).size = 8
-ByteArray(8).at(1) = 0
-ByteArray(8).put(1, 179) = 179
-var a = ByteArray(8); a.put(1, 179); a.at(1) = 179
-[1 .. 9].asByteArray.isByteArray = true
-[1 .. 9].asByteArray.reversed = [9 .. 1].asByteArray
-[1 .. 3].asByteArray.printString = '[1, 2, 3].asByteArray'
-
-'kernel/Error'
-Error().isError = true
-Error('message').isError = true
-Error('message').name = 'Error'
-Error('message').message = 'message'
-
-'kernel/LargeInteger'
-(2 ** 54).asLargeInteger.squared.printString = '324518553658426726783156020576256'
-'324518553658426726783156020576256'.asLargeInteger.isLargeInteger = true
-2971215073.asLargeInteger.isPrime = true
 
 'kernel/Nil'
 nil.class = Nil
@@ -157,14 +137,6 @@ var total = 0; 9.timesRepeat { total := total + random() }; total < 7
 2971215073.nextPrime = 2971215083 & { 2971215083.isPrime }
 13.betweenAnd(11, 14) = true
 
-'kernel/PriorityQueue'
-PriorityQueue().isPriorityQueue = true
-PriorityQueue().isEmpty = true
-var p = PriorityQueue(); p.push('a', 1); p.pop = 'a'
-var p = PriorityQueue(); p.push('a', 1); p.push('b', 0); p.pop = 'b'
-var p = PriorityQueue(); p.pushAll(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 & { p.pop = 'c' }
-var p = PriorityQueue(); p.peekPriority = nil
-
 'kernel/Procedure'
 { Procedure() }.ifError { :error | true } = true
 var m = { random() }.dup(9).mean; m > 0 & { m < 1 }
@@ -172,21 +144,14 @@ var m = { random() }.dup(9).mean; m > 0 & { m < 1 }
 var i = 1; while { i < 5 } { i := i + 1 }; i = 5
 var i = 1; 1.toDo(3) { :each | i := i + each.squared } ; i = 15
 var i = 1; 3.do { :each | i := i + each.squared } ; i = 15
-var f = { 0 }; f.arity = 0
-var f = { arg i; i }; f.arity = 1
-var f = { arg i, j; [i, j] }; f.arity = 2
+var f = { 0 }; f.numArgs = 0
+var f = { arg i; i }; f.numArgs = 1
+var f = { arg i, j; [i, j] }; f.numArgs = 2
 var f = { arg i; i = nil }; { f() }.ifError { :error | true }
 var f = { arg i; i * 2 }; { f(3, 4) = 6 } .ifError { :error | true }
 collect.name = 'collect'
 var f = { :x | x * x }; [f(5), f.(5)] = [25, 25]
 var f = { :x | x * x }; var d = (p: f); [d::p(5), d::p.(5)] = [25, 25]
-
-'kernel/Promise'
-{ Promise() }.ifError { :error | true }
-var p = Promise { :t :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isPromise
-var p = Promise { :t :f | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
-var p = Promise { :t :f | f('f') }; p.then({ :t | t.postLine }).catch({ :f | (f = 'f').postLine }); p.isPromise
-var p = Promise { :t :f | f('f') }; p.thenElse({ :t | t.postLine }, { :f | (f = 'f').postLine }).finally({ 'true'.postLine }); p.isPromise
 
 'kernel/String'
 ''.class = String
@@ -201,6 +166,7 @@ String() = ''
 '€'.utf8.utf8 = '€'
 'ascii'.ascii = 'ascii'.utf8
 'ascii'.ascii.ascii = 'ascii'
+
 { '€'.ascii }.ifError { :error | true }
 'the quick brown fox jumps'.includesSubstring('fox') = true
 'the quick brown fox jumps'.includesSubstring('fix') = false
@@ -218,25 +184,6 @@ String() = ''
 "x" = 'x'
 "x" = 'x'.parseDoubleQuotedString
 
-'kernel/System'
-systemTimeInMilliseconds() > 0 = true
-systemTime().seconds > systemTime().hours = true
-systemTime().weeks < 1 = true
-unixTime().weeks > 2750 = true
-{ unixTime().postLine }.evaluateAfter(0.5.seconds).cancel = nil
-{ unixTime().postLine }.evaluateAt(unixTime() + 0.5.seconds).cancel = nil
-{ unixTime().seconds.rounded.postLine }.evaluateEvery(3.seconds).cancel = nil
-var f = { :t0 | | t1 = 2.random.seconds; | t0.postLine; f.evaluateAfter(t1, t1) }; f(2.seconds).cancel = nil
-'Collection'.traitTypes.includes('Array') = true
-'Array'.typeTraits.includes('ArrayedCollection') = true
-'add'.methodSignatures = ["IdentityDictionary>>add/2", "IdentitySet>>add/2", "LinkedList>>add/2","List>>add/2"].asList
-'sum'.methodSource(1, 'Array') = '{ :self | self.reduce(plus) }'
-'collect'.methodTypes.includes('Array') = true
-'Association'.typeMethods.includes('key') = true
-multipleArityMethodList().includes('Array') = true
-onlyZeroArityMethodList().includes('Nil') = true
-'Array'.respondsTo('select') = true
-
 'stdlib/Association'
 ('x' -> 1).class = Association
 Association('x', 1) = ('x' -> 1)
@@ -244,6 +191,19 @@ var a = 'x' -> 1; [a.key, a.value] = ['x', 1]
 ('x' -> 1).asArray = ['x', 1]
 ['x' -> 1, 'y' -> 2].collect(asArray) = [['x', 1], ['y', 2]]
 ('x' -> 1).printString = Association('x', 1)
+
+'stdlib/ByteArray'
+ByteArray().class = ByteArray
+ByteArray().species = ByteArray
+ByteArray().isByteArray
+ByteArray().size = 0
+ByteArray(8).size = 8
+ByteArray(8).at(1) = 0
+ByteArray(8).put(1, 179) = 179
+var a = ByteArray(8); a.put(1, 179); a.at(1) = 179
+[1 .. 9].asByteArray.isByteArray = true
+[1 .. 9].asByteArray.reversed = [9 .. 1].asByteArray
+[1 .. 3].asByteArray.printString = '[1, 2, 3].asByteArray'
 
 'stdlib/Duration'
 2.seconds.class = Duration
@@ -256,6 +216,30 @@ systemTime().isDuration = true
 2.weeks - 12.days = 48.hours
 0.25 + 500.milliseconds = 750.milliseconds
 500.milliseconds + 0.25 = 0.75.seconds
+
+'stdlib/Error'
+Error().isError = true
+Error('message').isError = true
+Error('message').name = 'Error'
+Error('message').message = 'message'
+
+'stdlib/Float64Array'
+Float64Array().class = Float64Array
+Float64Array().species = Float64Array
+Float64Array().isFloat64Array
+Float64Array().size = 0
+Float64Array(8).size = 8
+Float64Array(8).at(1) = 0
+Float64Array(8).put(1, pi) = pi
+var a = Float64Array(8); a.put(1, pi); a.at(1) = pi
+[1 .. 9].asFloat64Array.isFloat64Array = true
+[1 .. 9].asFloat64Array.reversed = [9 .. 1].asFloat64Array
+var a = [1 .. 9].asFloat64Array; a.reverseInPlace; a = [9 .. 1].asFloat64Array
+var a = [9 .. 1].asFloat64Array; a.sortInPlace; a = [1 .. 9].asFloat64Array
+{ Float64Array(1).put(3, 'x') }.ifError { :error | true }
+var a = Float64Array(1); a.unsafePut(1, 'x'); a.at(1).isNaN = true
+var a = Float64Array(1); a.unsafePut(3, 'x'); a.unsafeAt(3) = nil
+[1 .. 3].asFloat64Array.printString = '[1, 2, 3].asFloat64Array'
 
 'stdlib/IdentityDictionary'
 ().species = IdentityDictionary
@@ -341,6 +325,11 @@ Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 (3 .. 7).anyOne = 3
 (1 .. 9).max = 9
 
+'stdlib/LargeInteger'
+(2 ** 54).asLargeInteger.squared.printString = '324518553658426726783156020576256'
+'324518553658426726783156020576256'.asLargeInteger.isLargeInteger = true
+2971215073.asLargeInteger.isPrime = true
+
 'stdlib/LinkedList'
 LinkedList().species = Array
 LinkedList().isLinkedList = true
@@ -399,6 +388,21 @@ Point(3, 4).isPoint & { true } = true
 var p = Point(-1, 1); p.x := -3; p.y := 3; p = Point(-3, 3) = true
 var p = Point(-1, 3), a = [p]; a.first.x := -3; p = Point(-3, 3) = true
 
+'stdlib/PriorityQueue'
+PriorityQueue().isPriorityQueue = true
+PriorityQueue().isEmpty = true
+var p = PriorityQueue(); p.push('a', 1); p.pop = 'a'
+var p = PriorityQueue(); p.push('a', 1); p.push('b', 0); p.pop = 'b'
+var p = PriorityQueue(); p.pushAll(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 & { p.pop = 'c' }
+var p = PriorityQueue(); p.peekPriority = nil
+
+'stdlib/Promise'
+{ Promise() }.ifError { :error | true }
+var p = Promise { :t :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isPromise
+var p = Promise { :t :f | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
+var p = Promise { :t :f | f('f') }; p.then({ :t | t.postLine }).catch({ :f | (f = 'f').postLine }); p.isPromise
+var p = Promise { :t :f | f('f') }; p.thenElse({ :t | t.postLine }, { :f | (f = 'f').postLine }).finally({ 'true'.postLine }); p.isPromise
+
 'stdlib/ReadStream'
 var r = [1 .. 5].ReadStream; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil]
 var r = [1 .. 3].ReadStream; [r.next, r.upToEnd] = [1, [2, 3]]
@@ -421,3 +425,22 @@ var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.nextPutAll([2 .. 8]); 
 var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.nextPutAll((2 .. 8)); w.nextPut(9); w.contents = [1 .. 9]
 var a = Array(); var w = WriteStream(a); w.nextPut(1); w.contents = [1]
 var w = Utf8WriteStream(); 'bodlɛʁ'.encodeOn(w); w.contents.utf8 = 'bodlɛʁ'
+
+'stdlib/system'
+systemTimeInMilliseconds() > 0 = true
+systemTime().seconds > systemTime().hours = true
+systemTime().weeks < 1 = true
+unixTime().weeks > 2750 = true
+{ unixTime().postLine }.evaluateAfter(0.5.seconds).cancel = nil
+{ unixTime().postLine }.evaluateAt(unixTime() + 0.5.seconds).cancel = nil
+{ unixTime().seconds.rounded.postLine }.evaluateEvery(3.seconds).cancel = nil
+var f = { :t0 | | t1 = 2.random.seconds; | t0.postLine; f.evaluateAfter(t1, t1) }; f(2.seconds).cancel = nil
+'Collection'.traitTypes.includes('Array') = true
+'Array'.typeTraits.includes('ArrayedCollection') = true
+'add'.methodSignatures = ["IdentityDictionary>>add/2", "IdentitySet>>add/2", "LinkedList>>add/2","List>>add/2"].asList
+'sum'.methodSource(1, 'Array') = '{ :self | self.reduce(plus) }'
+'collect'.methodTypes.includes('Array') = true
+'Association'.typeMethods.includes('key') = true
+multipleArityMethodList().includes('Array') = true
+onlyZeroArityMethodList().includes('Nil') = true
+'Array'.respondsTo('select') = true

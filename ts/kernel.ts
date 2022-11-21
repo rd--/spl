@@ -19,9 +19,10 @@ function objectType(anObject: SlObject): TypeName {
 		 (anObject instanceof Map ? 'IdentityDictionary' :
 		  (anObject instanceof Set ? 'IdentitySet' :
 		   (anObject instanceof Uint8Array ? 'ByteArray' :
-		    (anObject instanceof Promise ? 'Promise' :
-		     (anObject instanceof PriorityQueue ? 'PriorityQueue' :
-		      (anObject.type || anObject.constructor.name)))))));
+		    (anObject instanceof Float64Array ? 'Float64Array' :
+		     (anObject instanceof Promise ? 'Promise' :
+		      (anObject instanceof PriorityQueue ? 'PriorityQueue' :
+		       (anObject.type || anObject.constructor.name))))))));
 }
 
 export function typeOf(anObject: unknown): TypeName {
@@ -204,6 +205,10 @@ export function operatorMethodName(operator: string): string {
 
 export function methodName(name: string): MethodName {
 	return isOperatorName(name) ? operatorMethodName(name) : name;
+}
+
+export function arrayCheckIndex(anArray: unknown[], anInteger: number): boolean {
+	return Number.isInteger(anInteger) && anInteger >= 0 && anInteger < anArray.length;
 }
 
 declare global {

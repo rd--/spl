@@ -6,16 +6,10 @@ loadSequence([
 	'kernel/SequenceableCollection.sl',
 	'kernel/Array.sl',
 	'kernel/Boolean.sl',
-	'kernel/ByteArray.sl',
-	'kernel/Error.sl',
-	'kernel/LargeInteger.sl',
 	'kernel/Nil.sl',
 	'kernel/Number.sl',
 	'kernel/Object.sl',
-	'kernel/PriorityQueue.sl',
 	'kernel/Procedure.sl',
-	'kernel/Promise.sl',
 	'kernel/String.sl',
-	'kernel/Void.sl',
-	'kernel/system.sl'
+	'kernel/Void.sl'
 ])

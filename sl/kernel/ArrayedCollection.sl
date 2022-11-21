@@ -1,10 +1,61 @@
 @ArrayedCollection {
 
+	asArray { :self |
+		Array(self.size).fillFromWith(self, identity)
+	}
+
+	at { :self :anInteger |
+		<primitive: if(sl.arrayCheckIndex(_self, _anInteger - 1)) { return _self[_anInteger - 1]; }>
+		error('ArrayedCollection>>at: index not an integer or out of range')
+	}
+
+	checkIndex { :self :anInteger |
+		<primitive: return Number.isInteger(_anInteger) && 0 < _anInteger && _anInteger <= _self.length;>
+	}
+
+	collect { :self :aProcedure |
+		<primitive: if(_aProcedure instanceof Function) { return _self.map(function(each) { return _aProcedure(each); }); }>
+		error('ArrayedCollection>>collect: not a procedure')
+	}
+
+	detectIfFoundIfNone { :self :aProcedure :whenFound :whenNone |
+		<primitive:
+		var item = _self.find(function(element) { return _aProcedure(element); });
+		return (item !== undefined) ? _whenFound(item) : _whenNone(item);
+		>
+	}
+
+	do { :self :aProcedure |
+		<primitive: _self.forEach(function(item) { return _aProcedure(item) }); return self;>
+	}
+
+	doWhile { :self :activity :condition |
+		| nextIndex = 1, endIndex = self.size; |
+		while { condition() & { nextIndex <= endIndex } } {
+			activity(self[nextIndex]);
+			nextIndex := nextIndex + 1
+		}
+	}
+
 	fillFromWith { :self :aCollection :aBlock |
 		aCollection.withIndexDo { :each :index |
 			self[index] := aBlock(each)
 		};
 		self
+	}
+
+	find { :self :aProcedure |
+		<primitive:
+		var item = _self.find(function(element) { return _aProcedure(element); });
+		return (item === undefined) ? null : item;
+		>
+	}
+
+	findIndex { :self :aProcedure |
+		<primitive:
+		var index = _self.findIndex(function(element) { return _aProcedure(element); });
+		return (index === -1) ? null : index + 1;
+		>
 	}
 
 	injectInto { :self :anObject :aBlock |
@@ -19,6 +70,39 @@
 			ifTrue(self[index] = anObject) { tally := tally + 1 }
 		};
 		tally
+	}
+
+	put { :self :anInteger :anObject |
+		<primitive: if(sl.arrayCheckIndex(_self, _anInteger - 1)) { _self[_anInteger - 1] = _anObject; return _anObject; }>
+		error('ArrayedCollection>>put: index not an integer')
+	}
+
+	reverseInPlace { :self |
+		<primitive: return _self.reverse();>
+	}
+
+	size { :self |
+		<primitive: return _self.length;>
+	}
+
+	sortInPlaceBy { :self :aBinaryProcedure |
+		<primitive: return _self.sort(function(p, q) { return _aBinaryProcedure(p, q) ? -1 : 1 });>
+	}
+
+	sortInPlace { :self | self.sortInPlaceBy(lessThanEquals) }
+
+	sorted { :self | self.copy.sortInPlace }
+
+	unsafeAt { :self :anInteger |
+		<primitive: return _self[_anInteger - 1];>
+	}
+
+	unsafeCollect { :self :aProcedure |
+		<primitive: return _self.map(function(each) { return _aProcedure(each); });>
+	}
+
+	unsafePut { :self :anInteger :anObject |
+		<primitive: _self[_anInteger - 1] = _anObject; return _anObject;>
 	}
 
 }
