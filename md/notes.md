@@ -153,10 +153,18 @@ Prelude is both _kernel_ and _stdlib_.
 
 The <primitive> notation could include a language field, so that Js and Scheme implementations could be written in the same method.
 
-# Array Syntax
+# Trailing Array Syntax
 
 _List[1, 2, 3]_ could mean _List([1, 2, 3])_.
 In the general case this would be a _trailing array_ syntax, so _f(p) [q..] [r..]_ would mean _f(p, [q..], [r..])_.
+Note however that the single element array form _c[i]_ is the _collection at_ syntax.
+A generalised _at_ syntax would allow _c[i, j]_ to mean _[c[i], c[j]]_.
+
+# Trailing Dictionary Syntax
+
+_f (p: x, q: y)_ means _f((p: x, q: y))_, which means _f(['p' -> x, 'q' -> y].asIdentityDictionary)_.
+This allows implementing _keyword_ like variants of procedures.
+In addition to _SinOsc(440, 0)_ there can be a single argument form at _IdentityDictionary_ written _SinOsc(freq: 440, phase: 0)_.
 
 # Unicode
 

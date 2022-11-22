@@ -11,6 +11,7 @@
 	clearBuf { :bufnum | <primitive: return sc.clearBuf(_bufnum);> }
 
 	Asr { :gate :attackTime :releaseTime :curve | <primitive: return sc.Asr(_gate, _attackTime, _releaseTime, _curve);> }
+	Adsr { :gate :attackTime :decayTime :sustainLevel :releaseTime :curve | <primitive: return sc.Adsr(_gate, _attackTime, _decayTime, _sustainLevel, _releaseTime, _curve);> }
 	AudioIn { :channelsArray | <primitive: return sc.AudioIn(_channelsArray);> }
 	BufAlloc { :numChannels :numFrames | <primitive: return sc.BufAlloc(_numChannels, _numFrames);> }
 	BufRec { :bufnum :reset :inputArray | <primitive: return sc.BufRec(_bufnum, _reset, _inputArray);> }
@@ -31,6 +32,7 @@
 	Release { :input :attackTime :dur :releaseTime | <primitive: return sc.Release(_input, _attackTime, _dur, _releaseTime);> }
 	RingzBank { :input :freq :amp :time | <primitive: return sc.RingzBank(_input, _freq, _amp, _time);> }
 	Select2 { :predicate :ifTrue :ifFalse | <primitive: return sc.Select2(_predicate, _ifTrue, _ifFalse);> }
+	SelectX { :which :array | <primitive: return sc.SelectX(_which, _array);> }
 	Seq { :repeats :list | <primitive: return sc.Seq(_repeats, _list);> }
 	Ser { :length :start :step | <primitive: return sc.Series(_length, _start, _step);> }
 	Series { :repeats :list | <primitive: return sc.Ser(_repeats, _list);> }

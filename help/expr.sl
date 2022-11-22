@@ -267,6 +267,8 @@ var d = (x: 9); d::x.sqrt = 3
 ::p := Point(-1, 1); ::p.x + ::p.y = 0
 var d = (f: { :i | i * i }); d::f(9) = 81
 { IdentityDictionary().removeKey('unknownKey') }.ifError { :error | true }
+size (x: 1, y: 2, z: 3) = 3
+var d = (x: 1); d.addAll (y: 2, z: 3); d = (x: 1, y: 2, z: 3)
 
 'stdlib/IdentitySet'
 [1, 3, 5, 3, 1].asIdentitySet.isIdentitySet = true

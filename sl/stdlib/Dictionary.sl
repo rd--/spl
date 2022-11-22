@@ -26,6 +26,10 @@
 		self.keysValuesDo { :key :value | aProcedure(key -> value) }
 	}
 
+	atIfAbsent { :self :aKey :aBlock |
+		self[aKey] ? aBlock()
+	}
+
 	collect { :self :aProcedure |
 		| answer = self.species.new; |
 		self.keysValuesDo { :key :value | answer.add(key -> aProcedure(value)) };

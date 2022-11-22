@@ -37,11 +37,13 @@ Sl {
       | AtQuotedSyntax
       | ValueSyntax
       | DotExpressionWithTrailingClosuresSyntax
+      | DotExpressionWithTrailingDictionariesSyntax
       | DotExpressionWithAssignmentSyntax
       | DotExpression
       | ImplicitDictionaryPutSyntax
       | ImplicitDictionaryAtSyntax
       | Block
+      | ApplyWithTrailingDictionariesSyntax
       | ApplyWithTrailingClosuresSyntax
       | Apply
       | reservedIdentifier
@@ -63,6 +65,7 @@ Sl {
     NonEmptyParameterList =  "(" NonemptyListOf<Expression, ","> ")"
 
     DotExpressionWithTrailingClosuresSyntax = Primary "." identifier NonEmptyParameterList? Block+
+    DotExpressionWithTrailingDictionariesSyntax = Primary "." identifier NonEmptyParameterList? NonEmptyDictionaryExpression+
     DotExpressionWithAssignmentSyntax = Primary "." identifier ":=" Expression
     DotExpression = Primary ("." identifier ~("{" | ":=") NonEmptyParameterList?)+
 
@@ -81,9 +84,11 @@ Sl {
     FinalExpression = Expression ";"?
 
     ApplyWithTrailingClosuresSyntax = Primary NonEmptyParameterList? Block+
+    ApplyWithTrailingDictionariesSyntax = Primary NonEmptyParameterList? NonEmptyDictionaryExpression+
     Apply = Primary ParameterList
     ParameterList =  "(" ListOf<Expression, ","> ")"
     ParenthesisedExpression = "(" Expression ")"
+    NonEmptyDictionaryExpression = "(" NonemptyListOf<AssociationExpression, ","> ")"
     DictionaryExpression = "(" ListOf<AssociationExpression, ","> ")"
     AssociationExpression = identifier ":" Expression
     ArrayExpression = "[" ListOf<Expression, ","> "]"

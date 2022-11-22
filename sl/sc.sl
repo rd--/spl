@@ -5,6 +5,8 @@ loadSequence([
 	'sc/alias.sl',
 	'sc/array.sl',
 	'sc/bindings.sl',
+	'sc/bindings-ext.sl',
+	'sc/keyword.sl',
 	'sc/math.sl',
 	'sc/operators.sl',
 	'sc/process.sl',

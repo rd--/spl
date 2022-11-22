@@ -74,6 +74,9 @@ const asJs: any = {
     DotExpressionWithTrailingClosuresSyntax(lhs, _dot, nm, args, tc) {
 		return `${nm.asJs}(${[lhs.asJs].concat(args.children.map(c => c.asJs), tc.children.map(c => c.asJs))})`;
 	},
+    DotExpressionWithTrailingDictionariesSyntax(lhs, _dot, nm, args, tc) {
+		return `${nm.asJs}(${[lhs.asJs].concat(args.children.map(c => c.asJs), tc.children.map(c => c.asJs))})`;
+	},
     DotExpressionWithAssignmentSyntax(lhs, _dot, nm, _asg, rhs) { return `${nm.asJs}(${lhs.asJs}, ${rhs.asJs})`; },
     DotExpression(lhs, _dot, nms, args) {
 		let rcv = lhs.asJs;
@@ -115,10 +118,15 @@ const asJs: any = {
 		const opt = arg.asJs;
 		return `${rcv.asJs}(...[${opt === '' ? '' : opt + ', '} ${commaList(tc.children)}])`;
 	},
+    ApplyWithTrailingDictionariesSyntax(rcv, arg, tc) {
+		const opt = arg.asJs;
+		return `${rcv.asJs}(...[${opt === '' ? '' : opt + ', '} ${commaList(tc.children)}])`;
+	},
     Apply(rcv, arg) { return `${rcv.asJs}(...[${arg.asJs}])`; },
     ParameterList(_l, sq, _r) { return commaList(sq.asIteration().children); },
     ParenthesisedExpression(_l, e, _r) { return '(' + e.asJs + ')'; },
     DictionaryExpression(_l, dict, _r) { return `new Map([${commaList(dict.asIteration().children)}])`; },
+    NonEmptyDictionaryExpression(_l, dict, _r) { return `new Map([${commaList(dict.asIteration().children)}])`; },
     AssociationExpression(lhs, _arrow, rhs) { return `['${lhs.sourceString}', ${rhs.asJs}]`; },
     ArrayExpression(_l, array, _r) { return `[${commaList(array.asIteration().children)}]`; },
     ArrayRangeSyntax(_l, start, _d, end, _r) { return `_asArray(_to(${start.asJs}, ${end.asJs}))`; },
