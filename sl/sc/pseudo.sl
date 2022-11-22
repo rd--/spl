@@ -16,6 +16,10 @@
 	BufRec { :bufnum :reset :inputArray | <primitive: return sc.BufRec(_bufnum, _reset, _inputArray);> }
 	BufWrite { :bufnum :phase :loop :inputArray | <primitive: return sc.BufWrite(_bufnum, _phase, _loop, _inputArray);> }
 	Choose { :repeats :list | <primitive: return sc.Choose(_repeats, _list);> }
+	ControlIn { :numChan :bus | <primitive: return sc.ControlIn(_numChan, _bus);> }
+	ControlOut { :bus :channelsArray | <primitive: return sc.ControlOut(_bus, _channelsArray);> }
+	DelayTap { :bufnum :delayTime | <primitive: return sc.DelayTap(_bufnum, _delayTime);> }
+	DelayWrite { :bufnum :input | <primitive: return sc.DelayWrite(_bufnum, _input);> }
 	DmdFor { :dur :reset :level | <primitive: return sc.DmdFor(_dur, _reset, _level);> }
 	DmdOn { :trig :reset :demandUGens | <primitive: return sc.DmdOn(_trig, _reset, _demandUGens);> }
 	DynRingzBank { :input :freq :amp :time | <primitive: return sc.DynRingzBank(_input, _freq, _amp, _time);> }

@@ -160,16 +160,20 @@ function gensym() {
 	return `__gensym${rewriteGensymCounter}`;
 }
 
+function makeMethod(slProc: string, clsNm: string, mthNm: string, mthBlk): string {
+	const blkSource = mthBlk.sourceString;
+	const blkArity = slBlockArity(blkSource);
+	return ` sl.${slProc}('${clsNm}', '${sl.methodName(mthNm)}', ${blkArity}, ${mthBlk.asJs}, ${JSON.stringify(blkSource)});`;
+}
+
 function makeMethodList(slProc: string, clsNm: string, mthNms: string[], mthBlks): string {
-	let mth = '';
+	let mthList = '';
 	while (mthNms.length > 0) {
-		const nm = mthNms.shift();
-		const blk = mthBlks.shift();
-		const blkSource = blk.sourceString;
-		const blkArity = slBlockArity(blkSource);
-		mth += ` sl.${slProc}('${clsNm}', '${sl.methodName(nm)}', ${blkArity}, ${blk.asJs}, ${JSON.stringify(blkSource)});`;
+		const mthNm = mthNms.shift();
+		const mthBlk = mthBlks.shift();
+		mthList += makeMethod(slProc, clsNm, mthNm, mthBlk);
 	}
-	return mth;
+	return mthList;
 }
 
 export function rewriteString(str: string): string {
