@@ -113,6 +113,18 @@
 		answer
 	}
 
+	rotate { :self :anInteger |
+		self.rotateRight(anInteger)
+	}
+
+	rotateLeft { :self :anInteger |
+		(1 + anInteger).toAsCollect(self.size + anInteger, self.species) { :index | self.atWrap(index) }
+	}
+
+	rotateRight { :self :anInteger |
+		(1 - anInteger).toAsCollect(self.size - anInteger, self.species) { :index | self.atWrap(index) }
+	}
+
 	select { :self :aBlock |
 		| answer = List(); |
 		1.toDo(self.size) { :index | aBlock(self[index]).ifTrue { answer.add(self[index]) } };

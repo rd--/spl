@@ -85,8 +85,12 @@ Number : [Magnitude, Numeric] {
 	}
 
 	abs { :self | <primitive: return Math.abs(_self)> }
+	acos { :self | <primitive: return Math.acos(_self)> }
+	asin { :self | <primitive: return Math.asin(_self)> }
+	atan { :self | <primitive: return Math.atan(_self)> }
 	bitNot { :self | <primitive: return ~_self;> }
 	cos { :self | <primitive: return Math.cos(_self)> }
+	cosh { :self | <primitive: return Math.cosh(_self)> }
 	even { :self | <primitive: return _self % 2 === 0;> }
 	exp { :self | <primitive: return Math.exp(_self)> }
 	floor { :self | <primitive: return Math.floor(_self)> }
@@ -101,8 +105,10 @@ Number : [Magnitude, Numeric] {
 	rounded { :self | <primitive: return Math.round(_self)> }
 	sign { :self | <primitive: return Math.sign(_self);> }
 	sin { :self | <primitive: return Math.sin(_self)> }
+	sinh { :self | <primitive: return Math.sinh(_self)> }
 	sqrt { :self | <primitive: return Math.sqrt(_self)> }
 	tan { :self | <primitive: return Math.tan(_self)> }
+	tanh { :self | <primitive: return Math.tanh(_self)> }
 	truncated { :self | <primitive: return Math.trunc(_self)> }
 
 	quotient { :self :anObject | (self / anObject).floor }
