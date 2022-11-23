@@ -39,8 +39,11 @@ async function rewriteFile(fileName: string): Promise<void> {
 
 declare global {
 	var sc: Record<string, unknown>;
+	var globalScsynth: sc.Scsynth;
 	var playUgen: (aUgen: sc.Signal) => void;
 }
+
+const cliScynth = scUdp.scsynthUdp(scUdp.defaultScsynthUdp);
 
 async function loadSpl(opt: flags.Args): Promise<void> {
 	const loadPath = opt.dir || getSplDir() || './';
@@ -50,7 +53,8 @@ async function loadSpl(opt: flags.Args): Promise<void> {
 	await io.loadFileArrayInSequence(loadPath, ['prelude.sl'].concat(opt.sc ? ['sc.sl'] : []));
 	if(opt.sc) {
 		globalThis.sc = sc;
-		globalThis.playUgen = (ugenGraph) => scUdp.playUgenUdp(scUdp.defaultScsynth, ugenGraph);
+		globalThis.globalScsynth = cliScynth;
+		globalThis.playUgen = (ugenGraph) => sc.playUgen(globalThis.globalScsynth, ugenGraph, 1);
 	}
 }
 
@@ -74,7 +78,7 @@ function scEvalText(splText: string): void {
 
 function scPlayText(splText: string): void {
 	const ugenGraph = ev.evaluateString(splText);
-	scUdp.playUgenUdp(scUdp.defaultScsynth, ugenGraph);
+	sc.playUgen(cliScynth, ugenGraph, 1);
 }
 
 async function scPlayFile(fileName: string): Promise<void> {
