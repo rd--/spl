@@ -353,3 +353,10 @@
 	MulAdd { :d | MulAdd(d::in ? 0.0, d::mul ? 0.0, d::add ? 0.0) }
 	SetBuf { :d | SetBuf(d::buf ? 0.0, d::offset ? 0.0, d::length ? 0.0, d::array ? 0.0) }
 }
+
++ IdentityDictionary {
+	DmdOn { :d | DmdOn(d::trig ? 0, d::reset ? 0, d::demandUGens) }
+	Seq { :d | Seq(d::repeats ? inf, d::list) }
+	TScramble { :d | TScramble(d::trigger ? 0, d::inputs) }
+	TXLine { :d | TXLine(d::start ? 0, d::end ? 1, d::dur ? 10, d::trig ? 0) }
+}

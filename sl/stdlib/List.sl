@@ -28,6 +28,7 @@ List : [Collection, SequenceableCollection] { | array |
 + Void {
 
 	List { List([]) }
+	OrderedCollection { List([]) }
 
 }
 
