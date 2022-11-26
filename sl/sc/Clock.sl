@@ -1,7 +1,7 @@
 Clock { | priorityQueue nextEntryTime existingDelay |
 
 	schedule { :self :deltaTime :aProcedure |
-		// Schedule aProcedure for deltaTime.  When evaluated the answer is either an interval at which to re-schedule, or nil to halt.
+		(* Schedule aProcedure for deltaTime.  When evaluated the answer is either an interval at which to re-schedule, or nil to halt. *)
 		| currentTime = systemTimeInMilliseconds(), scheduledTime = deltaTime * 1000 + currentTime, wakeupTime = self.nextEntryTime; |
 		self.priorityQueue.push(aProcedure, scheduledTime);
 		(wakeupTime = nil | { scheduledTime < wakeupTime }).ifTrue {
@@ -12,7 +12,7 @@ Clock { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	scheduleInjecting { :self :deltaTime :anObject :aProcedure |
-		// Schedule aProcedure(anObject) for deltaTime.  When evaluated the answer is a [delay, nextValue] pair to continue, or nil to halt.
+		(* Schedule aProcedure(anObject) for deltaTime.  When evaluated the answer is a [delay, nextValue] pair to continue, or nil to halt. *)
 		self.schedule(deltaTime) {
 			| reply = aProcedure(anObject); |
 			reply.ifNotNil {

@@ -36,7 +36,7 @@ String {
 	parseDoubleQuotedString { :self | self }
 	parseBacktickQuotedString { :self | self }
 
-	// ImmutableSequenceableCollection
+	(* ImmutableSequenceableCollection *)
 	allButFirst { :self | self.allButFirst(1) }
 	allButFirst { :self :n | self.copyFromTo(n + 1, self.size) }
 

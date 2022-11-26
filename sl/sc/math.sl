@@ -19,7 +19,6 @@
 	rand2 { :self | random(self.negated, self) }
 	coin { :self | random() < self }
 
-	div { :self :anObject | self.quotient(anObject) }
 	frac { :self | self.fractionPart }
 	neg { :self :anObject | self.negated(anObject) }
 	rem { :self :anObject | self.remainder(anObject) }

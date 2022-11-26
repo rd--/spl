@@ -48,7 +48,7 @@
 	}
 
 	methodSignatures { :self |
-		// Signatures of each of my implementations (I name a method)
+		(* Signatures of each of my implementations (I name a method) *)
 		self.isMethodName.if {
 			| answer = List(), table = system::genericProcedures[self]; |
 			table.keysValuesDo { :arity :dictionary |
@@ -65,7 +65,7 @@
 	}
 
 	methodTypes { :self |
-		// Types implementing myself, at any arity (I name a method)
+		(* Types implementing myself, at any arity (I name a method) *)
 		self.isMethodName.if {
 			system::genericProcedures[self].values.collect(keys).concatenation
 		} {
@@ -78,7 +78,7 @@
 	}
 
 	traitTypes { :self |
-		// Types implementing myself (I name a trait)
+		(* Types implementing myself (I name a trait) *)
 		self.isTraitName.if {
 			system::traitTypes[self]
 		} {
@@ -87,7 +87,7 @@
 	}
 
 	typeMethods { :self |
-		// Methods implemented by myself (I name a type)
+		(* Methods implemented by myself (I name a type) *)
 		self.isTypeName.if {
 			system::genericProcedures.keys.select { :each | each.methodTypes.includes(self) }
 		} {
@@ -96,7 +96,7 @@
 	}
 
 	typeTraits { :self |
-		// Traits implemented by myself (I name a type)
+		(* Traits implemented by myself (I name a type) *)
 		self.isTypeName.if {
 			| answer = List(); |
 			system::traitTypes.keysValuesDo { :key :value |

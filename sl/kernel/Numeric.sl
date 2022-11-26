@@ -1,5 +1,9 @@
 @Numeric {
 
+	// { :self :anObject |
+		self.quotient(anObject)
+	}
+
 	bitShiftLeft { :self :anObject |
 		self << anObject
 	}
@@ -51,8 +55,16 @@
 		self ** anObject
 	}
 
+	quotient { :self :anObject |
+		(self / anObject).floor
+	}
+
 	reciprocal { :self |
 		1 / self
+	}
+
+	roundTo { :self :quantum |
+		(self / quantum).rounded * quantum
 	}
 
 	squared { :self |
@@ -73,6 +85,10 @@
 			aProcedure(index);
 			index := index + 1
 		}
+	}
+
+	truncateTo { :self :aNumber |
+		self.quotient(aNumber) * aNumber
 	}
 
 }

@@ -30,3 +30,7 @@ Ugen {
 	play { :self | self.value.playUgen }
 
 }
+
++ Void {
+	resetScsynth { <primitive: return sc.resetScsynth(globalScsynth);> }
+}

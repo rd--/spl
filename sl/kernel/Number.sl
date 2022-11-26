@@ -111,9 +111,6 @@ Number : [Magnitude, Numeric] {
 	tanh { :self | <primitive: return Math.tanh(_self)> }
 	truncated { :self | <primitive: return Math.trunc(_self)> }
 
-	quotient { :self :anObject | (self / anObject).floor }
-	roundTo { :self :quantum | (self / quantum).rounded * quantum }
-	truncateTo { :self :aNumber | self.quotient(aNumber) * aNumber }
 	asInteger { :self | self.truncated }
 
 	random { :self | self * random() }

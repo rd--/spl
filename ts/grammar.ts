@@ -116,7 +116,7 @@ Sl {
 
     primitiveCharacter = ~">" sourceCharacter
 
-    comment = multiLineCComment | singleLineCppComment
+    comment = multiLineMlComment | singleLineLispComment
     multiLineMlComment = "(*" (~"*)" sourceCharacter)* "*)"
     singleLineLispComment = ";;" (~lineTerminator sourceCharacter)*
     multiLineCComment = "/*" (~"*/" sourceCharacter)* "*/"

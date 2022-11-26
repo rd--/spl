@@ -15,7 +15,7 @@ Procedures have a fixed number of arguments.
 Operators are written _p + q_.
 There are no precedence rules.
 
-Initially the only procedures are _loadPath: String -> Nil_ and _loadSequence: [String] → Nil_.
+Initially the only procedures are _loadPath: String → Nil_ and _loadSequence: [String] → Nil_.
 The file _prelude.sl_ loads the files _kernel.sl_ and _stdlib.sl_, which together define the standard environment.
 
 The standard environment is defined in terms of a method table.
@@ -63,21 +63,16 @@ Spl has a minimal core syntax and a moderate number of rewrite rules.
 
 ## Rewrite Rules
 
-- _x.f_ ⇒ _f(x)_
-- _x.f(y, ...)_ ⇒ _f(x, y, ...)_
-- _f(x, ...) { p }..._ ⇒ _f(x, ..., { p }, ...)_
-- _x.f { p }..._ ⇒ _f(x, { p }, ...)_
-- _x.f(y, ...) { p }..._ ⇒ _f(x, y, ..., { p }, ...)_
+- _x.f_ ⇒ _f(x)_ & _x.f(y, ...)_ ⇒ _f(x, y, ...)_
+- _f { p }..._ ⇒ _f({ p }, ...)_ & _f(x, ...) { p }..._ ⇒ _f(x, ..., { p }, ...)_
+- _x.f { p }..._ ⇒ _f(x, { p }, ...)_ & _x.f(y, ...) { p }..._ ⇒ _f(x, y, ..., { p }, ...)_
 - _x.f := p_ ⇒ _f(x, p)_
-- _c[k]_ ⇒ _at(c, k)_
-- _c[k] := v_ ⇒ _put(c, k, v)_
+- _c[k]_ ⇒ _at(c, k)_ & _c[k] := v_ ⇒ _put(c, k, v)_
 - _(k:v, ...)_ ⇒ _asIdentityDictionary(['k' → v, ...])_
-- _d::k_ ⇒ _at(d, 'k')_
-- _d::k := v_ ⇒ _put(d, 'k', v)_
-- _::k_ ⇒ _at(implicitDictionary, 'k')_
-- _::k := v_ ⇒ _put(implicitDictionary, 'k', v)_
-- | _(k, ...) = d, ...; |_ ⇒ _| k = at(d, 'k'), ...; |_
-- | _[e, ...] = c, ...; |_ ⇒ _| e = at(c, 1), ...; |_
+- _d::k_ ⇒ _at(d, 'k')_ & _d::k := v_ ⇒ _put(d, 'k', v)_
+- _::k_ ⇒ _at(implicitDictionary, 'k')_ & _::k := v_ ⇒ _put(implicitDictionary, 'k', v)_
+- _| (k, ...) = d, ...; |_ ⇒ _| k = at(d, 'k'), ...; |_
+- _| [e, ...] = c, ...; |_ ⇒ _| e = at(c, 1), ...; |_
 
 ## Sc Compatibility
 
@@ -121,4 +116,4 @@ Operator names are ordinarily used in non-operator contexts, i.e. _c.withCollect
 
 * * *
 
-[1]. In _Spl-Js_ the types _ByteArray_, _Error_, _Float64Array_, _IdentityDictionary_, _IdentitySet_, _LargeInteger_, _List_, _PriorityQueue_, _Promise_ and _RegExp_ are also primitive.
+[1]. In _Spl.Js_ the types _ByteArray_, _Error_, _Float64Array_, _IdentityDictionary_, _IdentitySet_, _LargeInteger_, _List_, _PriorityQueue_, _Promise_ and _RegExp_ are also primitive.

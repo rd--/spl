@@ -9,7 +9,7 @@ Procedure {
 	}
 
 	playEvery { :self :aClock :delay |
-		// Play variant of repeatEvery.
+		(* Play variant of repeatEvery. *)
 		if(self.numArgs = 0) {
 			{ self.play }.repeatEvery(aClock, delay)
 		} {
@@ -22,7 +22,7 @@ Procedure {
 	}
 
 	repeatEvery { :self :aClock :delay |
-		// Schedule myself at intervals given by delay.  If I accept an argument it will be the delay interval before I will execute next.
+		(* Schedule myself at intervals given by delay.  If I accept an argument it will be the delay interval before I will execute next. *)
 		aClock.schedule(0) {
 			| d = delay.value; |
 			if(d.notNil) {

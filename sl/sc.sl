@@ -1,6 +1,7 @@
 loadSequence([
 	'sc/Clock.sl',
 	'sc/Env.sl',
+	'sc/Scsynth.sl',
 	'sc/Ugen.sl',
 	'sc/alias.sl',
 	'sc/array.sl',
@@ -12,4 +13,6 @@ loadSequence([
 	'sc/process.sl',
 	'sc/pseudo.sl',
 	'sc/texture.sl'
-]).then { system::clock := Clock() }
+]).then {
+	system::clock := Clock()
+}
