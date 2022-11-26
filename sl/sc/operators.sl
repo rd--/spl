@@ -1,6 +1,9 @@
 + Ugen {
 
 	abs { :self | <primitive: return sc.abs(_self);> }
+	arcCos { :self | <primitive: return sc.arcCos(_self);> }
+	arcSin { :self | <primitive: return sc.arcSin(_self);> }
+	arcTan { :self | <primitive: return sc.arcTan(_self);> }
 	ceiling { :self | <primitive: return sc.ceil(_self);> }
 	cos { :self | <primitive: return sc.cos(_self);> }
 	cosh { :self | <primitive: return sc.cosh(_self);> }
