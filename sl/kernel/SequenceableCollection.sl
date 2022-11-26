@@ -37,7 +37,7 @@
 		self.at(index - 1 % self.size + 1)
 	}
 
-	choose { :self | self[randomInteger(1, self.size)] }
+	atRandom { :self | self[randomInteger(1, self.size)] }
 
 	collect { :self :aBlock |
 		| newCollection = self.species.ofSize(self.size); |
