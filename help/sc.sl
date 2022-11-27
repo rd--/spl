@@ -30,6 +30,9 @@ var c = if(0.5.coin) { 't' } { 'f' }; c = 't' | { c = 'f' }
 2 * 1.to(9).collect(squared) / 2 = [1, 4, 9, 16, 25,36, 49, 64, 81]
 2 * 1.to(9).collect(squared) / 2 * 9 / 9 = [1, 4, 9, 16, 25,36, 49, 64, 81]
 
+'sc/buffer'
+SfAcquire('piano-c5', 2, [1, 2])
+
 'sc/texture'
 system:clock.schedule(0) { var x = 1.random; x.postLine; if(x > 0.1) { x } { 'end'.postLine; nil } }
 system:clock.scheduleInjecting(0, 1) { arg i; var x = 1.random; [i, x].postLine; if(x > 0.1) { [x, i + 1] } { nil } }
