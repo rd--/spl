@@ -6,6 +6,7 @@
 ;;; Code:
 
 (require 'font-lock)
+(require 'sclang-mode)
 
 (defun spl-netcat-cmd (cmd key value)
   "Send CMD with the parameter KEY = VALUE to the Spl server."
@@ -50,10 +51,6 @@
   nil
   "Hook to run on entering spl-mode.")
 
-(defvar spl-indent-level
-  4
-  "Indentation for Spl.")
-
 (defconst spl-font-lock-keywords
   (list
    `(,(regexp-opt '("var" ":=") 'symbols) . font-lock-keyword-face)
@@ -89,9 +86,18 @@
   (spl-fill-mode-map (make-sparse-keymap))
   "Keymap used in Spl mode.")
 
+(defcustom spl-indent-level
+  8
+  "Indentation for Spl."
+  :type '(integer))
+
 (defun spl-mode-set-local-variables ()
-  (set (make-local-variable 'tab-width) 4)
   (set (make-local-variable 'indent-tabs-mode) t)
+  (set (make-local-variable 'tab-width) spl-indent-level)
+  (set (make-local-variable 'sclang-indent-level) spl-indent-level)
+  (set (make-local-variable 'indent-line-function) 'sclang-indent-line)
+  (set (make-local-variable 'comment-start) ";; ")
+  (set (make-local-variable 'comment-end) "")
   (set (make-local-variable 'font-lock-defaults) '(spl-font-lock-keywords))
   nil)
 
