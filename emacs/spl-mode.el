@@ -109,7 +109,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.sl$" . spl-mode))
 (add-to-list 'auto-mode-alist '("\\.help.sl$" . spl-mode))
-(add-to-list 'auto-mode-alist '("\\.stc$" . spl-mode))
 
 (provide 'spl-mode)
 

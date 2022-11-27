@@ -118,6 +118,7 @@ Number : [Magnitude, Numeric] {
 
 	randomInteger { :self | random(1, self).rounded }
 	randomInteger { :self :aNumber | random(self, aNumber).rounded }
+	atRandom { :self | self.randomInteger }
 
 	adaptToCollectionAndApply { :self :aCollection :aProcedure |
 		aCollection.collect({ :each | aProcedure(each, self) })

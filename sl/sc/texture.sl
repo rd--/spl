@@ -74,7 +74,7 @@ Procedure {
 	withOverlapEnvelope { :aUgen :sustainTime :transitionTime |
 		| env amp |
 		env := Env([0,1,1,0], [transitionTime,sustainTime,transitionTime], 'sin', nil, nil, 0);
-		amp := EnvGen(1, 1, 0, 1, 2, env.coord);
+		amp := EnvGen(1, 1, 0, 1, 2, env.asArray);
 		Out(0, aUgen * amp)
 	}
 

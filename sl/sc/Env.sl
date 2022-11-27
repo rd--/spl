@@ -1,10 +1,14 @@
 Env {
 
-	asEnvGen { :self :gate |
-		EnvGen(gate, 1, 0, 1, 0, self.coord)
+	asArray { :self |
+		self.coordinateArrayForEnvGen
 	}
 
-	coord { :self |
+	asEnvGen { :self :gate |
+		EnvGen(gate, 1, 0, 1, 0, self.asArray)
+	}
+
+	coordinateArrayForEnvGen { :self |
 		<primitive: return sc.envCoord(_self);>
 	}
 

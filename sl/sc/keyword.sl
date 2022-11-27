@@ -356,6 +356,7 @@
 
 + IdentityDictionary {
 	DmdOn { :d | DmdOn(d::trig ? 0, d::reset ? 0, d::demandUGens) }
+	MiBraids { :d | MiBraids(d::pitch ? 60, d::timbre ? 0.5, d::color ? 0.5, d::model ? 0, d::trig ? 0, d::resamp ? 0, d::decim ? 0, d::bits ? 0, d::ws ? 0) }
 	Seq { :d | Seq(d::repeats ? inf, d::list) }
 	TScramble { :d | TScramble(d::trigger ? 0, d::inputs) }
 	TXLine { :d | TXLine(d::start ? 0, d::end ? 1, d::dur ? 10, d::trig ? 0) }

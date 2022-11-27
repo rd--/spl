@@ -10,12 +10,16 @@
 
 	clearBuf { :bufnum | <primitive: return sc.clearBuf(_bufnum);> }
 
+	ImpulseSequencer { :self :trig |Sequencer(self, trig) * trig }
+	Sequencer { :self :trig |DmdOn(trig, 0, Seq(inf, self)) }
+
 	Asr { :gate :attackTime :releaseTime :curve | <primitive: return sc.Asr(_gate, _attackTime, _releaseTime, _curve);> }
 	Adsr { :gate :attackTime :decayTime :sustainLevel :releaseTime :curve | <primitive: return sc.Adsr(_gate, _attackTime, _decayTime, _sustainLevel, _releaseTime, _curve);> }
 	AudioIn { :channelsArray | <primitive: return sc.AudioIn(_channelsArray);> }
 	BufAlloc { :numChannels :numFrames | <primitive: return sc.BufAlloc(_numChannels, _numFrames);> }
 	BufRec { :bufnum :reset :inputArray | <primitive: return sc.BufRec(_bufnum, _reset, _inputArray);> }
 	BufWrite { :bufnum :phase :loop :inputArray | <primitive: return sc.BufWrite(_bufnum, _phase, _loop, _inputArray);> }
+	Changed { :input :threshold | <primitive: return sc.Changed(_input, _threshold);> }
 	Choose { :repeats :list | <primitive: return sc.Choose(_repeats, _list);> }
 	ControlIn { :numChan :bus | <primitive: return sc.ControlIn(_numChan, _bus);> }
 	ControlOut { :bus :channelsArray | <primitive: return sc.ControlOut(_bus, _channelsArray);> }
@@ -45,7 +49,7 @@
 	TDmdFor { :dur :reset :level | <primitive: return sc.TDmdFor(_dur, _reset, _level);> }
 	TLine { :start :end :dur :trig | <primitive: return sc.TLine(_start, _end, _dur, _trig);> }
 	TXLine { :start :end :dur :trig | <primitive: return sc.TXLine(_start, _end, _dur, _trig);> }
-	White { :length :lo :hi | <primitive: return sc.White(_length, _lo, _hi);> }
+	White { :length :lo :hi | <primitive: return sc.Dwhite(_length, _lo, _hi);> }
 	XChoose { :repeats :list | <primitive: return sc.XChoose(_repeats, _list);> }
 	XLn { :start :end :dur | <primitive: return sc.XLn(_start, _end, _dur);> }
 
@@ -54,5 +58,5 @@
 }
 
 + Array {
-	asLocalBuf { :anArray | <primitive: return sc.asLocalBuf(_anArray);> }
+	asLocalBuf { :self | <primitive: return sc.asLocalBuf(_self);> }
 }

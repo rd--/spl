@@ -30,6 +30,7 @@
 	* { :self :anObject | <primitive: return sc.mul(_self, _anObject);> }
 	- { :self :anObject | <primitive: return sc.sub(_self, _anObject);> }
 	/ { :self :anObject | <primitive: return sc.fdiv(_self, _anObject);> }
+	// { :self :anObject | <primitive: return sc.idiv(_self, _anObject);> }
 	% { :self :anObject | <primitive: return sc.mod(_self, _anObject);> }
 	= { :self :anObject | <primitive: return sc.eq(_self, _anObject);> }
 	~= { :self :anObject | <primitive: return sc.ne(_self, _anObject);> }

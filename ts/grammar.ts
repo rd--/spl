@@ -119,8 +119,6 @@ Sl {
     comment = multiLineMlComment | singleLineLispComment
     multiLineMlComment = "(*" (~"*)" sourceCharacter)* "*)"
     singleLineLispComment = ";;" (~lineTerminator sourceCharacter)*
-    multiLineCComment = "/*" (~"*/" sourceCharacter)* "*/"
-    singleLineCppComment = "//" (~lineTerminator sourceCharacter)*
     lineTerminator = "\n" | "\r"
     space += comment
 
