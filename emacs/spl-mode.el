@@ -63,6 +63,8 @@
 
 (defun spl-fill-syntax-table (st)
   "Modify the syntax table ST for Spl."
+  (modify-syntax-entry ?' "\"" st)
+  (modify-syntax-entry ?\" "\"" st)
   (modify-syntax-entry ?\( ". 1" st)
   (modify-syntax-entry ?\) ". 4" st)
   (modify-syntax-entry ?* ". 23" st)

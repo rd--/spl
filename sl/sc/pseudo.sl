@@ -13,8 +13,8 @@
 	ImpulseSequencer { :self :trig |Sequencer(self, trig) * trig }
 	Sequencer { :self :trig |DmdOn(trig, 0, Seq(inf, self)) }
 
-	Asr { :gate :attackTime :releaseTime :curve | <primitive: return sc.Asr(_gate, _attackTime, _releaseTime, _curve);> }
 	Adsr { :gate :attackTime :decayTime :sustainLevel :releaseTime :curve | <primitive: return sc.Adsr(_gate, _attackTime, _decayTime, _sustainLevel, _releaseTime, _curve);> }
+	Asr { :gate :attackTime :releaseTime :curve | <primitive: return sc.Asr(_gate, _attackTime, _releaseTime, _curve);> }
 	AudioIn { :channelsArray | <primitive: return sc.AudioIn(_channelsArray);> }
 	BufAlloc { :numChannels :numFrames | <primitive: return sc.BufAlloc(_numChannels, _numFrames);> }
 	BufRec { :bufnum :reset :inputArray | <primitive: return sc.BufRec(_bufnum, _reset, _inputArray);> }
@@ -40,9 +40,15 @@
 	Seq { :repeats :list | <primitive: return sc.Seq(_repeats, _list);> }
 	Ser { :length :start :step | <primitive: return sc.Series(_length, _start, _step);> }
 	Series { :repeats :list | <primitive: return sc.Ser(_repeats, _list);> }
+	SfDur { :sfBufferArray |<primitive: return sc.SfDur(_sfBufferArray);> }
+	SfFrames { :sfBufferArray |<primitive: return sc.SfFrames(_sfBufferArray);> }
+	SfPlay { :sfBufferArray :rate :trigger :startPos :loop |<primitive: return sc.SfPlay(_sfBufferArray, _rate, _trigger, _startPos, _loop);> }
+	SfRateScale { :sfBufferArray |<primitive: return sc.SfRateScale(_sfBufferArray);> }
+	SfRead { :sfBufferArray :phase :loop :interpolation |<primitive: return sc.SfRead(_sfBufferArray, _phase, _loop, _interpolation);> }
+	SfSampleRate { :sfBufferArray |<primitive: return sc.SfSampleRate(_sfBufferArray);> }
 	Shuf { :repeats :list | <primitive: return sc.Shuf(_repeats, _list);> }
-	Sine { :trig :dur | <primitive: return sc.Sine(_trig, _dur);> }
 	SinOscBank { :freq :amp :phase | <primitive: return sc.SinOscBank(_freq, _amp, _phase);> }
+	Sine { :trig :dur | <primitive: return sc.Sine(_trig, _dur);> }
 	Splay { :inArray :spread :level :center :levelComp | <primitive: return sc.Splay(_inArray, _spread, _level, _center, _levelComp);> }
 	Splay2 { :inArray | <primitive: return sc.Splay2(_inArray);> }
 	TChoose { :trig :array | <primitive: return sc.TChoose(_trig, _array);> }
