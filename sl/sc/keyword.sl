@@ -1,8 +1,6 @@
 + IdentityDictionary {
-	BinaryOpUGen { :d | BinaryOpUGen(d::a ? 0.0, d::b ? 0.0) }
-	UnaryOpUGen { :d | UnaryOpUGen(d::a ? 0.0) }
 	A2K { :d | A2K(d::in ? 0.0) }
-	APF { :d | APF(d::in ? 0.0, d::freq ? 440.0, d::radius ? 0.8) }
+	Apf { :d | Apf(d::in ? 0.0, d::freq ? 440.0, d::radius ? 0.8) }
 	AllpassC { :d | AllpassC(d::in ? 0.0, d::maxdelaytime ? 0.2, d::delaytime ? 0.2, d::decaytime ? 1.0) }
 	AllpassL { :d | AllpassL(d::in ? 0.0, d::maxdelaytime ? 0.2, d::delaytime ? 0.2, d::decaytime ? 1.0) }
 	AllpassN { :d | AllpassN(d::in ? 0.0, d::maxdelaytime ? 0.2, d::delaytime ? 0.2, d::decaytime ? 1.0) }
@@ -16,11 +14,11 @@
 	BHiShelf { :d | BHiShelf(d::in ? 0.0, d::freq ? 1200.0, d::rs ? 1.0, d::db ? 0.0) }
 	BLowPass { :d | BLowPass(d::in ? 0.0, d::freq ? 1200.0, d::rq ? 1.0) }
 	BLowShelf { :d | BLowShelf(d::in ? 0.0, d::freq ? 1200.0, d::rs ? 1.0, d::db ? 0.0) }
-	BPF { :d | BPF(d::in ? 0.0, d::freq ? 440.0, d::rq ? 1.0) }
-	BPZ2 { :d | BPZ2(d::in ? 0.0) }
-	BPeakEQ { :d | BPeakEQ(d::in ? 0.0, d::freq ? 1200.0, d::rq ? 1.0, d::db ? 0.0) }
-	BRF { :d | BRF(d::in ? 0.0, d::freq ? 440.0, d::rq ? 1.0) }
-	BRZ2 { :d | BRZ2(d::in ? 0.0) }
+	Bpf { :d | Bpf(d::in ? 0.0, d::freq ? 440.0, d::rq ? 1.0) }
+	Bpz2 { :d | Bpz2(d::in ? 0.0) }
+	BPeakEq { :d | BPeakEq(d::in ? 0.0, d::freq ? 1200.0, d::rq ? 1.0, d::db ? 0.0) }
+	Brf { :d | Brf(d::in ? 0.0, d::freq ? 440.0, d::rq ? 1.0) }
+	Brz2 { :d | Brz2(d::in ? 0.0) }
 	Balance2 { :d | Balance2(d::left ? 0.0, d::right ? 0.0, d::pos ? 0.0, d::level ? 1.0) }
 	Ball { :d | Ball(d::in ? 0.0, d::g ? 1.0, d::damp ? 0.0, d::friction ? 0.01) }
 	BeatTrack { :d | BeatTrack(d::chain ? 0.0, d::lock ? 0.0) }
@@ -61,7 +59,7 @@
 	Crackle { :d | Crackle(d::chaosParam ? 1.5) }
 	CuspL { :d | CuspL(d::freq ? 22050.0, d::a ? 1.0, d::b ? 1.9, d::xi ? 0.0) }
 	CuspN { :d | CuspN(d::freq ? 22050.0, d::a ? 1.0, d::b ? 1.9, d::xi ? 0.0) }
-	DC { :d | DC(d::in ? 0.0) }
+	Dc { :d | Dc(d::in ? 0.0) }
 	Dbrown { :d | Dbrown(d::length ? 100000000.0, d::lo ? 0.0, d::hi ? 1.0, d::step ? 0.01) }
 	Dbufrd { :d | Dbufrd(d::bufnum ? 0.0, d::phase ? 0.0, d::loop ? 1.0) }
 	Dbufwr { :d | Dbufwr(d::bufnum ? 0.0, d::phase ? 0.0, d::input ? 0.0, d::loop ? 1.0) }
@@ -106,11 +104,11 @@
 	Dxrand { :d | Dxrand(d::repeats ? 1.0, d::list ? 0.0) }
 	EnvGen { :d | EnvGen(d::gate ? 1.0, d::levelScale ? 1.0, d::levelBias ? 0.0, d::timeScale ? 1.0, d::doneAction ? 0.0, d::envelope ? 0.0) }
 	ExpRand { :d | ExpRand(d::lo ? 0.01, d::hi ? 1.0) }
-	FBSineC { :d | FBSineC(d::freq ? 22050.0, d::im ? 1.0, d::fb ? 0.1, d::a ? 1.1, d::c ? 0.5, d::xi ? 0.1, d::yi ? 0.1) }
-	FBSineL { :d | FBSineL(d::freq ? 22050.0, d::im ? 1.0, d::fb ? 0.1, d::a ? 1.1, d::c ? 0.5, d::xi ? 0.1, d::yi ? 0.1) }
-	FBSineN { :d | FBSineN(d::freq ? 22050.0, d::im ? 1.0, d::fb ? 0.1, d::a ? 1.1, d::c ? 0.5, d::xi ? 0.1, d::yi ? 0.1) }
-	FFT { :d | FFT(d::buffer ? 0.0, d::in ? 0.0, d::hop ? 0.5, d::wintype ? 0.0, d::active ? 1.0, d::winsize ? 0.0) }
-	FOS { :d | FOS(d::in ? 0.0, d::a0 ? 0.0, d::a1 ? 0.0, d::b1 ? 0.0) }
+	FbSineC { :d | FbSineC(d::freq ? 22050.0, d::im ? 1.0, d::fb ? 0.1, d::a ? 1.1, d::c ? 0.5, d::xi ? 0.1, d::yi ? 0.1) }
+	FbSineL { :d | FbSineL(d::freq ? 22050.0, d::im ? 1.0, d::fb ? 0.1, d::a ? 1.1, d::c ? 0.5, d::xi ? 0.1, d::yi ? 0.1) }
+	FbSineN { :d | FbSineN(d::freq ? 22050.0, d::im ? 1.0, d::fb ? 0.1, d::a ? 1.1, d::c ? 0.5, d::xi ? 0.1, d::yi ? 0.1) }
+	Fft { :d | Fft(d::buffer ? 0.0, d::in ? 0.0, d::hop ? 0.5, d::wintype ? 0.0, d::active ? 1.0, d::winsize ? 0.0) }
+	Fos { :d | Fos(d::in ? 0.0, d::a0 ? 0.0, d::a1 ? 0.0, d::b1 ? 0.0) }
 	FSinOsc { :d | FSinOsc(d::freq ? 440.0, d::iphase ? 0.0) }
 	Fold { :d | Fold(d::in ? 0.0, d::lo ? 0.0, d::hi ? 1.0) }
 	Formant { :d | Formant(d::fundfreq ? 440.0, d::formfreq ? 1760.0, d::bwfreq ? 880.0) }
@@ -129,19 +127,19 @@
 	Gendy2 { :d | Gendy2(d::ampdist ? 1.0, d::durdist ? 1.0, d::adparam ? 1.0, d::ddparam ? 1.0, d::minfreq ? 440.0, d::maxfreq ? 660.0, d::ampscale ? 0.5, d::durscale ? 0.5, d::initCPs ? 12.0, d::knum ? 0.0, d::a ? 1.17, d::c ? 0.31) }
 	Gendy3 { :d | Gendy3(d::ampdist ? 1.0, d::durdist ? 1.0, d::adparam ? 1.0, d::ddparam ? 1.0, d::freq ? 440.0, d::ampscale ? 0.5, d::durscale ? 0.5, d::initCPs ? 12.0, d::knum ? 0.0) }
 	GrainBuf { :d | GrainBuf(d::numChan ? 1.0, d::trigger ? 0.0, d::dur ? 1.0, d::sndbuf ? 0.0, d::rate ? 1.0, d::pos ? 0.0, d::interp ? 2.0, d::pan ? 0.0, d::envbufnum ? -1.0, d::maxGrains ? 512.0) }
-	GrainFM { :d | GrainFM(d::numChan ? 1.0, d::trigger ? 0.0, d::dur ? 1.0, d::carfreq ? 440.0, d::modfreq ? 200.0, d::index ? 1.0, d::pan ? 0.0, d::envbufnum ? -1.0, d::maxGrains ? 512.0) }
+	GrainFm { :d | GrainFm(d::numChan ? 1.0, d::trigger ? 0.0, d::dur ? 1.0, d::carfreq ? 440.0, d::modfreq ? 200.0, d::index ? 1.0, d::pan ? 0.0, d::envbufnum ? -1.0, d::maxGrains ? 512.0) }
 	GrainIn { :d | GrainIn(d::numChan ? 1.0, d::trigger ? 0.0, d::dur ? 1.0, d::in ? 0.0, d::pan ? 0.0, d::envbufnum ? -1.0, d::maxGrains ? 512.0) }
 	GrainSin { :d | GrainSin(d::numChan ? 1.0, d::trigger ? 0.0, d::dur ? 1.0, d::freq ? 440.0, d::pan ? 0.0, d::envbufnum ? -1.0, d::maxGrains ? 512.0) }
-	HPF { :d | HPF(d::in ? 0.0, d::freq ? 440.0) }
-	HPZ1 { :d | HPZ1(d::in ? 0.0) }
-	HPZ2 { :d | HPZ2(d::in ? 0.0) }
+	Hpf { :d | Hpf(d::in ? 0.0, d::freq ? 440.0) }
+	Hpz1 { :d | Hpz1(d::in ? 0.0) }
+	Hpz2 { :d | Hpz2(d::in ? 0.0) }
 	Hasher { :d | Hasher(d::in ? 0.0) }
 	HenonC { :d | HenonC(d::freq ? 22050.0, d::a ? 1.4, d::b ? 0.3, d::x0 ? 0.0, d::x1 ? 0.0) }
 	HenonL { :d | HenonL(d::freq ? 22050.0, d::a ? 1.4, d::b ? 0.3, d::x0 ? 0.0, d::x1 ? 0.0) }
 	HenonN { :d | HenonN(d::freq ? 22050.0, d::a ? 1.4, d::b ? 0.3, d::x0 ? 0.0, d::x1 ? 0.0) }
 	Hilbert { :d | Hilbert(d::in ? 0.0) }
 	IEnvGen { :d | IEnvGen(d::index ? 0.0, d::envelope ? 0.0) }
-	IFFT { :d | IFFT(d::buffer ? 0.0, d::wintype ? 0.0, d::winsize ? 0.0) }
+	Ifft { :d | Ifft(d::buffer ? 0.0, d::wintype ? 0.0, d::winsize ? 0.0) }
 	IRand { :d | IRand(d::lo ? 0.0, d::hi ? 127.0) }
 	Impulse { :d | Impulse(d::freq ? 440.0, d::phase ? 0.0) }
 	In { :d | In(d::numChan ? 1.0, d::bus ? 0.0) }
@@ -158,36 +156,36 @@
 	KeyTrack { :d | KeyTrack(d::chain ? 0.0, d::keydecay ? 2.0, d::chromaleak ? 0.5) }
 	Klang { :d | Klang(d::freqscale ? 1.0, d::freqoffset ? 0.0, d::specificationsArrayRef ? 0.0) }
 	Klank { :d | Klank(d::input ? 0.0, d::freqscale ? 1.0, d::freqoffset ? 0.0, d::decayscale ? 1.0, d::specificationsArrayRef ? 0.0) }
-	LFClipNoise { :d | LFClipNoise(d::freq ? 500.0) }
-	LFCub { :d | LFCub(d::freq ? 440.0, d::iphase ? 0.0) }
-	LFDClipNoise { :d | LFDClipNoise(d::freq ? 500.0) }
-	LFDNoise0 { :d | LFDNoise0(d::freq ? 500.0) }
-	LFDNoise1 { :d | LFDNoise1(d::freq ? 500.0) }
-	LFDNoise3 { :d | LFDNoise3(d::freq ? 500.0) }
-	LFGauss { :d | LFGauss(d::duration ? 1.0, d::width ? 0.1, d::iphase ? 0.0, d::loop ? 1.0, d::doneAction ? 0.0) }
-	LFNoise0 { :d | LFNoise0(d::freq ? 500.0) }
-	LFNoise1 { :d | LFNoise1(d::freq ? 500.0) }
-	LFNoise2 { :d | LFNoise2(d::freq ? 500.0) }
-	LFPar { :d | LFPar(d::freq ? 440.0, d::iphase ? 0.0) }
-	LFPulse { :d | LFPulse(d::freq ? 440.0, d::iphase ? 0.0, d::width ? 0.5) }
-	LFSaw { :d | LFSaw(d::freq ? 440.0, d::iphase ? 0.0) }
-	LFTri { :d | LFTri(d::freq ? 440.0, d::iphase ? 0.0) }
-	LPF { :d | LPF(d::in ? 0.0, d::freq ? 440.0) }
-	LPZ1 { :d | LPZ1(d::in ? 0.0) }
-	LPZ2 { :d | LPZ2(d::in ? 0.0) }
+	LfClipNoise { :d | LfClipNoise(d::freq ? 500.0) }
+	LfCub { :d | LfCub(d::freq ? 440.0, d::iphase ? 0.0) }
+	LfDclipNoise { :d | LfDclipNoise(d::freq ? 500.0) }
+	LfDNoise0 { :d | LfDNoise0(d::freq ? 500.0) }
+	LfDNoise1 { :d | LfDNoise1(d::freq ? 500.0) }
+	LfDNoise3 { :d | LfDNoise3(d::freq ? 500.0) }
+	LfGauss { :d | LfGauss(d::duration ? 1.0, d::width ? 0.1, d::iphase ? 0.0, d::loop ? 1.0, d::doneAction ? 0.0) }
+	LfNoise0 { :d | LfNoise0(d::freq ? 500.0) }
+	LfNoise1 { :d | LfNoise1(d::freq ? 500.0) }
+	LfNoise2 { :d | LfNoise2(d::freq ? 500.0) }
+	LfPar { :d | LfPar(d::freq ? 440.0, d::iphase ? 0.0) }
+	LfPulse { :d | LfPulse(d::freq ? 440.0, d::iphase ? 0.0, d::width ? 0.5) }
+	LfSaw { :d | LfSaw(d::freq ? 440.0, d::iphase ? 0.0) }
+	LfTri { :d | LfTri(d::freq ? 440.0, d::iphase ? 0.0) }
+	Lpf { :d | Lpf(d::in ? 0.0, d::freq ? 440.0) }
+	Lpz1 { :d | Lpz1(d::in ? 0.0) }
+	Lpz2 { :d | Lpz2(d::in ? 0.0) }
 	Lag { :d | Lag(d::in ? 0.0, d::lagTime ? 0.1) }
 	Lag2 { :d | Lag2(d::in ? 0.0, d::lagTime ? 0.1) }
-	Lag2UD { :d | Lag2UD(d::in ? 0.0, d::lagTimeU ? 0.1, d::lagTimeD ? 0.1) }
+	Lag2Ud { :d | Lag2Ud(d::in ? 0.0, d::lagTimeU ? 0.1, d::lagTimeD ? 0.1) }
 	Lag3 { :d | Lag3(d::in ? 0.0, d::lagTime ? 0.1) }
-	Lag3UD { :d | Lag3UD(d::in ? 0.0, d::lagTimeU ? 0.1, d::lagTimeD ? 0.1) }
+	Lag3Ud { :d | Lag3Ud(d::in ? 0.0, d::lagTimeU ? 0.1, d::lagTimeD ? 0.1) }
 	LagIn { :d | LagIn(d::numChan ? 1.0, d::bus ? 0.0, d::lag ? 0.1) }
-	LagUD { :d | LagUD(d::in ? 0.0, d::lagTimeU ? 0.1, d::lagTimeD ? 0.1) }
+	LagUd { :d | LagUd(d::in ? 0.0, d::lagTimeU ? 0.1, d::lagTimeD ? 0.1) }
 	LastValue { :d | LastValue(d::in ? 0.0, d::diff ? 0.01) }
 	Latch { :d | Latch(d::in ? 0.0, d::trig ? 0.0) }
 	LatoocarfianC { :d | LatoocarfianC(d::freq ? 22050.0, d::a ? 1.0, d::b ? 3.0, d::c ? 0.5, d::d ? 0.5, d::xi ? 0.5, d::yi ? 0.5) }
 	LatoocarfianL { :d | LatoocarfianL(d::freq ? 22050.0, d::a ? 1.0, d::b ? 3.0, d::c ? 0.5, d::d ? 0.5, d::xi ? 0.5, d::yi ? 0.5) }
 	LatoocarfianN { :d | LatoocarfianN(d::freq ? 22050.0, d::a ? 1.0, d::b ? 3.0, d::c ? 0.5, d::d ? 0.5, d::xi ? 0.5, d::yi ? 0.5) }
-	LeakDC { :d | LeakDC(d::in ? 0.0, d::coef ? 0.995) }
+	LeakDc { :d | LeakDc(d::in ? 0.0, d::coef ? 0.995) }
 	LeastChange { :d | LeastChange(d::a ? 0.0, d::b ? 0.0) }
 	Limiter { :d | Limiter(d::in ? 0.0, d::level ? 1.0, d::dur ? 0.01) }
 	LinCongC { :d | LinCongC(d::freq ? 22050.0, d::a ? 1.1, d::c ? 0.13, d::m ? 1.0, d::xi ? 0.0) }
@@ -208,9 +206,9 @@
 	MFCC { :d | MFCC(d::chain ? 0.0, d::numcoeff ? 13.0) }
 	MantissaMask { :d | MantissaMask(d::in ? 0.0, d::bits ? 3.0) }
 	Median { :d | Median(d::length ? 3.0, d::in ? 0.0) }
-	MidEQ { :d | MidEQ(d::in ? 0.0, d::freq ? 440.0, d::rq ? 1.0, d::db ? 0.0) }
+	MidEq { :d | MidEq(d::in ? 0.0, d::freq ? 440.0, d::rq ? 1.0, d::db ? 0.0) }
 	ModDif { :d | ModDif(d::x ? 0.0, d::y ? 0.0, d::mod ? 1.0) }
-	MoogFF { :d | MoogFF(d::in ? 0.0, d::freq ? 100.0, d::gain ? 2.0, d::reset ? 0.0) }
+	MoogFf { :d | MoogFf(d::in ? 0.0, d::freq ? 100.0, d::gain ? 2.0, d::reset ? 0.0) }
 	MostChange { :d | MostChange(d::a ? 0.0, d::b ? 0.0) }
 	MouseButton { :d | MouseButton(d::minval ? 0.0, d::maxval ? 1.0, d::lag ? 0.2) }
 	MouseX { :d | MouseX(d::minval ? 0.0, d::maxval ? 1.0, d::warp ? 0.0, d::lag ? 0.2) }
@@ -282,11 +280,11 @@
 	QuadC { :d | QuadC(d::freq ? 22050.0, d::a ? 1.0, d::b ? -1.0, d::c ? -0.75, d::xi ? 0.0) }
 	QuadL { :d | QuadL(d::freq ? 22050.0, d::a ? 1.0, d::b ? -1.0, d::c ? -0.75, d::xi ? 0.0) }
 	QuadN { :d | QuadN(d::freq ? 22050.0, d::a ? 1.0, d::b ? -1.0, d::c ? -0.75, d::xi ? 0.0) }
-	RHPF { :d | RHPF(d::in ? 0.0, d::freq ? 440.0, d::rq ? 1.0) }
-	RLPF { :d | RLPF(d::in ? 0.0, d::freq ? 440.0, d::rq ? 1.0) }
+	Rhpf { :d | Rhpf(d::in ? 0.0, d::freq ? 440.0, d::rq ? 1.0) }
+	Rlpf { :d | Rlpf(d::in ? 0.0, d::freq ? 440.0, d::rq ? 1.0) }
 	Ramp { :d | Ramp(d::in ? 0.0, d::lagTime ? 0.1) }
 	Rand { :d | Rand(d::lo ? 0.0, d::hi ? 1.0) }
-	RandID { :d | RandID(d::id ? 0.0) }
+	RandId { :d | RandId(d::id ? 0.0) }
 	RandSeed { :d | RandSeed(d::trig ? 0.0, d::seed ? 56789.0) }
 	RecordBuf { :d | RecordBuf(d::bufnum ? 0.0, d::offset ? 0.0, d::recLevel ? 1.0, d::preLevel ? 0.0, d::run ? 1.0, d::loop ? 1.0, d::trigger ? 1.0, d::doneAction ? 0.0, d::inputArray ? 0.0) }
 	ReplaceOut { :d | ReplaceOut(d::bus ? 0.0, d::channelsArray ? 0.0) }
@@ -296,16 +294,16 @@
 	RunningMax { :d | RunningMax(d::in ? 0.0, d::trig ? 0.0) }
 	RunningMin { :d | RunningMin(d::in ? 0.0, d::trig ? 0.0) }
 	RunningSum { :d | RunningSum(d::in ? 0.0, d::numsamp ? 40.0) }
-	SOS { :d | SOS(d::in ? 0.0, d::a0 ? 0.0, d::a1 ? 0.0, d::a2 ? 0.0, d::b1 ? 0.0, d::b2 ? 0.0) }
+	Sos { :d | Sos(d::in ? 0.0, d::a0 ? 0.0, d::a1 ? 0.0, d::a2 ? 0.0, d::b1 ? 0.0, d::b2 ? 0.0) }
 	Sanitize { :d | Sanitize(d::in ? 0.0, d::replace ? 0.0) }
 	Saw { :d | Saw(d::freq ? 440.0) }
 	Schmidt { :d | Schmidt(d::in ? 0.0, d::lo ? 0.0, d::hi ? 1.0) }
 	Select { :d | Select(d::which ? 0.0, d::array ? 0.0) }
 	SendTrig { :d | SendTrig(d::in ? 0.0, d::id ? 0.0, d::value ? 0.0) }
-	SetResetFF { :d | SetResetFF(d::trig ? 0.0, d::reset ? 0.0) }
+	SetResetFf { :d | SetResetFf(d::trig ? 0.0, d::reset ? 0.0) }
 	Shaper { :d | Shaper(d::bufnum ? 0.0, d::in ? 0.0) }
 	SinOsc { :d | SinOsc(d::freq ? 440.0, d::phase ? 0.0) }
-	SinOscFB { :d | SinOscFB(d::freq ? 440.0, d::feedback ? 0.0) }
+	SinOscFb { :d | SinOscFb(d::freq ? 440.0, d::feedback ? 0.0) }
 	Slew { :d | Slew(d::in ? 0.0, d::up ? 1.0, d::dn ? 1.0) }
 	Slope { :d | Slope(d::in ? 0.0) }
 	SpecCentroid { :d | SpecCentroid(d::buffer ? 0.0) }
@@ -327,11 +325,11 @@
 	TDuty { :d | TDuty(d::dur ? 1.0, d::reset ? 0.0, d::doneAction ? 0.0, d::level ? 1.0, d::gapFirst ? 0.0) }
 	TExpRand { :d | TExpRand(d::lo ? 0.01, d::hi ? 1.0, d::trig ? 0.0) }
 	TGrains { :d | TGrains(d::numChan ? 1.0, d::trigger ? 0.0, d::bufnum ? 0.0, d::rate ? 1.0, d::centerPos ? 0.0, d::dur ? 0.1, d::pan ? 0.0, d::amp ? 0.1, d::interp ? 4.0) }
-	TIRand { :d | TIRand(d::lo ? 0.0, d::hi ? 127.0, d::trig ? 0.0) }
+	TiRand { :d | TiRand(d::lo ? 0.0, d::hi ? 127.0, d::trig ? 0.0) }
 	TRand { :d | TRand(d::lo ? 0.0, d::hi ? 1.0, d::trig ? 0.0) }
 	TWindex { :d | TWindex(d::in ? 0.0, d::normalize ? 0.0, d::array ? 0.0) }
 	Timer { :d | Timer(d::trig ? 0.0) }
-	ToggleFF { :d | ToggleFF(d::trig ? 0.0) }
+	ToggleFf { :d | ToggleFf(d::trig ? 0.0) }
 	Trig { :d | Trig(d::in ? 0.0, d::dur ? 0.1) }
 	Trig1 { :d | Trig1(d::in ? 0.0, d::dur ? 0.1) }
 	TwoPole { :d | TwoPole(d::in ? 0.0, d::freq ? 440.0, d::radius ? 0.8) }
@@ -359,5 +357,5 @@
 	MiBraids { :d | MiBraids(d::pitch ? 60, d::timbre ? 0.5, d::color ? 0.5, d::model ? 0, d::trig ? 0, d::resamp ? 0, d::decim ? 0, d::bits ? 0, d::ws ? 0) }
 	Seq { :d | Seq(d::repeats ? inf, d::list) }
 	TScramble { :d | TScramble(d::trigger ? 0, d::inputs) }
-	TXLine { :d | TXLine(d::start ? 0, d::end ? 1, d::dur ? 10, d::trig ? 0) }
+	TxLine { :d | TxLine(d::start ? 0, d::end ? 1, d::dur ? 10, d::trig ? 0) }
 }

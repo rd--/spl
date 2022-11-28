@@ -87,13 +87,13 @@
 	DNoiseRing { arg change, chance, shift, numBits, resetval; <primitive: return sc.DNoiseRing(_change, _chance, _shift, _numBits, _resetval);> }
 	DPW3Tri { arg freq; <primitive: return sc.DPW3Tri(_freq);> }
 	DPW4Saw { arg freq; <primitive: return sc.DPW4Saw(_freq);> }
-	DWGBowed { arg freq, velb, force, gate, pos, release, c1, c3, impZ, fB; <primitive: return sc.DWGBowed(_freq, _velb, _force, _gate, _pos, _release, _c1, _c3, _impZ, _fB);> }
-	DWGBowedSimple { arg freq, velb, force, gate, pos, release, c1, c3; <primitive: return sc.DWGBowedSimple(_freq, _velb, _force, _gate, _pos, _release, _c1, _c3);> }
-	DWGBowedTor { arg freq, velb, force, gate, pos, release, c1, c3, impZ, fB, mistune, c1tor, c3tor, iZtor; <primitive: return sc.DWGBowedTor(_freq, _velb, _force, _gate, _pos, _release, _c1, _c3, _impZ, _fB, _mistune, _c1tor, _c3tor, _iZtor);> }
-	DWGPlucked { arg freq, amp, gate, pos, c1, c3, inp, release; <primitive: return sc.DWGPlucked(_freq, _amp, _gate, _pos, _c1, _c3, _inp, _release);> }
-	DWGPlucked2 { arg freq, amp, gate, pos, c1, c3, inp, release, mistune, mp, gc; <primitive: return sc.DWGPlucked2(_freq, _amp, _gate, _pos, _c1, _c3, _inp, _release, _mistune, _mp, _gc);> }
-	DWGPluckedStiff { arg freq, amp, gate, pos, c1, c3, inp, release, fB; <primitive: return sc.DWGPluckedStiff(_freq, _amp, _gate, _pos, _c1, _c3, _inp, _release, _fB);> }
-	DWGSoundBoard { arg inp, c1, c3, mix, d1, d2, d3, d4, d5, d6, d7, d8; <primitive: return sc.DWGSoundBoard(_inp, _c1, _c3, _mix, _d1, _d2, _d3, _d4, _d5, _d6, _d7, _d8);> }
+	DwgBowed { arg freq, velb, force, gate, pos, release, c1, c3, impZ, fB; <primitive: return sc.DwgBowed(_freq, _velb, _force, _gate, _pos, _release, _c1, _c3, _impZ, _fB);> }
+	DwgBowedSimple { arg freq, velb, force, gate, pos, release, c1, c3; <primitive: return sc.DwgBowedSimple(_freq, _velb, _force, _gate, _pos, _release, _c1, _c3);> }
+	DwgBowedTor { arg freq, velb, force, gate, pos, release, c1, c3, impZ, fB, mistune, c1tor, c3tor, iZtor; <primitive: return sc.DwgBowedTor(_freq, _velb, _force, _gate, _pos, _release, _c1, _c3, _impZ, _fB, _mistune, _c1tor, _c3tor, _iZtor);> }
+	DwgPlucked { arg freq, amp, gate, pos, c1, c3, inp, release; <primitive: return sc.DwgPlucked(_freq, _amp, _gate, _pos, _c1, _c3, _inp, _release);> }
+	DwgPlucked2 { arg freq, amp, gate, pos, c1, c3, inp, release, mistune, mp, gc; <primitive: return sc.DwgPlucked2(_freq, _amp, _gate, _pos, _c1, _c3, _inp, _release, _mistune, _mp, _gc);> }
+	DwgPluckedStiff { arg freq, amp, gate, pos, c1, c3, inp, release, fB; <primitive: return sc.DwgPluckedStiff(_freq, _amp, _gate, _pos, _c1, _c3, _inp, _release, _fB);> }
+	DwgSoundBoard { arg inp, c1, c3, mix, d1, d2, d3, d4, d5, d6, d7, d8; <primitive: return sc.DwgSoundBoard(_inp, _c1, _c3, _mix, _d1, _d2, _d3, _d4, _d5, _d6, _d7, _d8);> }
 	Dbrown2 { arg lo, hi, step, dist, length; <primitive: return sc.Dbrown2(_lo, _hi, _step, _dist, _length);> }
 	DbufTag { arg bufnum, v, axiom, rules, recycle, mode; <primitive: return sc.DbufTag(_bufnum, _v, _axiom, _rules, _recycle, _mode);> }
 	Decimator { arg in, rate, bits; <primitive: return sc.Decimator(_in, _rate, _bits);> }
@@ -204,9 +204,9 @@
 	KeyMode { arg chain, keydecay, chromaleak; <primitive: return sc.KeyMode(_chain, _keydecay, _chromaleak);> }
 	KmeansToBPSet1 { arg freq, numdatapoints, maxnummeans, nummeans, tnewdata, tnewmeans, soft, bufnum; <primitive: return sc.KmeansToBPSet1(_freq, _numdatapoints, _maxnummeans, _nummeans, _tnewdata, _tnewmeans, _soft, _bufnum);> }
 	LADSPA { arg nChans, id, args; <primitive: return sc.LADSPA(_nChans, _id, _args);> }
-	LFBrownNoise0 { arg freq, dev, dist; <primitive: return sc.LFBrownNoise0(_freq, _dev, _dist);> }
-	LFBrownNoise1 { arg freq, dev, dist; <primitive: return sc.LFBrownNoise1(_freq, _dev, _dist);> }
-	LFBrownNoise2 { arg freq, dev, dist; <primitive: return sc.LFBrownNoise2(_freq, _dev, _dist);> }
+	LfBrownNoise0 { arg freq, dev, dist; <primitive: return sc.LfBrownNoise0(_freq, _dev, _dist);> }
+	LfBrownNoise1 { arg freq, dev, dist; <primitive: return sc.LfBrownNoise1(_freq, _dev, _dist);> }
+	LfBrownNoise2 { arg freq, dev, dist; <primitive: return sc.LfBrownNoise2(_freq, _dev, _dist);> }
 	LPCAnalyzer { arg input, source, n, p, testE, delta, windowtype; <primitive: return sc.LPCAnalyzer(_input, _source, _n, _p, _testE, _delta, _windowtype);> }
 	LPCError { arg input, p; <primitive: return sc.LPCError(_input, _p);> }
 	LPCSynth { arg buffer, signal, pointer; <primitive: return sc.LPCSynth(_buffer, _signal, _pointer);> }
@@ -349,8 +349,8 @@
 	PosRatio { arg in, period, thresh; <primitive: return sc.PosRatio(_in, _period, _thresh);> }
 	PrintVal { arg in, numblocks, id; <primitive: return sc.PrintVal(_in, _numblocks, _id);> }
 	Qitch { arg in, databufnum, ampThreshold, algoflag, ampbufnum, minfreq, maxfreq; <primitive: return sc.Qitch(_in, _databufnum, _ampThreshold, _algoflag, _ampbufnum, _minfreq, _maxfreq);> }
-	RCD { arg clock, rotate, reset, div, spread, auto, len, down, gates; <primitive: return sc.RCD(_clock, _rotate, _reset, _div, _spread, _auto, _len, _down, _gates);> }
-	RLPFD { arg in, ffreq, res, dist; <primitive: return sc.RLPFD(_in, _ffreq, _res, _dist);> }
+	Rcd { arg clock, rotate, reset, div, spread, auto, len, down, gates; <primitive: return sc.Rcd(_clock, _rotate, _reset, _div, _spread, _auto, _len, _down, _gates);> }
+	Rlpfd { arg in, ffreq, res, dist; <primitive: return sc.Rlpfd(_in, _ffreq, _res, _dist);> }
 	RMAFoodChainL { arg freq, a1, b1, d1, a2, b2, d2, k, r, h, xi, yi, zi; <primitive: return sc.RMAFoodChainL(_freq, _a1, _b1, _d1, _a2, _b2, _d2, _k, _r, _h, _xi, _yi, _zi);> }
 	RMEQ { arg in, freq, rq, k; <primitive: return sc.RMEQ(_in, _freq, _rq, _k);> }
 	RMEQSuite { arg maxSize; <primitive: return sc.RMEQSuite(_maxSize);> }
@@ -370,7 +370,7 @@
 	RosslerL { arg freq, a, b, c, h, xi, yi, zi; <primitive: return sc.RosslerL(_freq, _a, _b, _c, _h, _xi, _yi, _zi);> }
 	RosslerResL { arg in, stiff, freq, a, b, c, h, xi, yi, zi; <primitive: return sc.RosslerResL(_in, _stiff, _freq, _a, _b, _c, _h, _xi, _yi, _zi);> }
 	Rotate { arg w, x, y, z, rotate; <primitive: return sc.Rotate(_w, _x, _y, _z, _rotate);> }
-	SCM { arg clock, bpm, rotate, slip, shuffle, skip, pw; <primitive: return sc.SCM(_clock, _bpm, _rotate, _slip, _shuffle, _skip, _pw);> }
+	Scm { arg clock, bpm, rotate, slip, shuffle, skip, pw; <primitive: return sc.Scm(_clock, _bpm, _rotate, _slip, _shuffle, _skip, _pw);> }
 	SID6581f { arg freqLo0, freqHi0, pwLo0, pwHi0, ctrl0, atkDcy0, susRel0, freqLo1, freqHi1, pwLo1, pwHi1, ctrl1, atkDcy1, susRel1, freqLo2, freqHi2, pwLo2, pwHi2, ctrl2, atkDcy2, susRel2, fcLo, fcHi, resFilt, modeVol, rate; <primitive: return sc.SID6581f(_freqLo0, _freqHi0, _pwLo0, _pwHi0, _ctrl0, _atkDcy0, _susRel0, _freqLo1, _freqHi1, _pwLo1, _pwHi1, _ctrl1, _atkDcy1, _susRel1, _freqLo2, _freqHi2, _pwLo2, _pwHi2, _ctrl2, _atkDcy2, _susRel2, _fcLo, _fcHi, _resFilt, _modeVol, _rate);> }
 	SLOnset { arg input, memorysize1, before, after, threshold, hysteresis; <primitive: return sc.SLOnset(_input, _memorysize1, _before, _after, _threshold, _hysteresis);> }
 	SMS { arg input, maxpeaks, currentpeaks, tolerance, noisefloor, freqmult, freqadd, formantpreserve, useifft, ampmult, graphicsbufnum; <primitive: return sc.SMS(_input, _maxpeaks, _currentpeaks, _tolerance, _noisefloor, _freqmult, _freqadd, _formantpreserve, _useifft, _ampmult, _graphicsbufnum);> }
@@ -457,11 +457,11 @@
 	UHJ2B { arg ls, rs; <primitive: return sc.UHJ2B(_ls, _rs);> }
 	VBAP { arg numChan, in, bufnum, azimuth, elevation, spread; <primitive: return sc.VBAP(_numChan, _in, _bufnum, _azimuth, _elevation, _spread);> }
 	VBChebyFilt { arg in, freq, mode, order; <primitive: return sc.VBChebyFilt(_in, _freq, _mode, _order);> }
-	VBFourses { arg smoother, freqarray; <primitive: return sc.VBFourses(_smoother, _freqarray);> }
-	VBJonVerb { arg in, decay, damping, inputbw, erfl, tail; <primitive: return sc.VBJonVerb(_in, _decay, _damping, _inputbw, _erfl, _tail);> }
-	VBPVoc { arg numChannels, bufnum, playpos, fftsize; <primitive: return sc.VBPVoc(_numChannels, _bufnum, _playpos, _fftsize);> }
+	VbFourses { arg smoother, freqarray; <primitive: return sc.VbFourses(_smoother, _freqarray);> }
+	VbJonVerb { arg in, decay, damping, inputbw, erfl, tail; <primitive: return sc.VbJonVerb(_in, _decay, _damping, _inputbw, _erfl, _tail);> }
+	VbPvoc { arg numChannels, bufnum, playpos, fftsize; <primitive: return sc.VbPvoc(_numChannels, _bufnum, _playpos, _fftsize);> }
 	VMScan2D { arg bufnum; <primitive: return sc.VMScan2D(_bufnum);> }
-	VOSIM { arg trig, freq, nCycles, decay; <primitive: return sc.VOSIM(_trig, _freq, _nCycles, _decay);> }
+	Vosim { arg trig, freq, nCycles, decay; <primitive: return sc.Vosim(_trig, _freq, _nCycles, _decay);> }
 	VarShapeOsc { arg freq, pw, waveshape, sync, syncfreq; <primitive: return sc.VarShapeOsc(_freq, _pw, _waveshape, _sync, _syncfreq);> }
 	VosimOsc { arg freq, form1freq, form2freq, shape; <primitive: return sc.VosimOsc(_freq, _form1freq, _form2freq, _shape);> }
 	WAmp { arg in, winSize; <primitive: return sc.WAmp(_in, _winSize);> }

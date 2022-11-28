@@ -1,8 +1,5 @@
 + Object {
 
-	TrExpRand { :trig :lo :hi | TExpRand(lo, hi, trig) }
-	TrRand { :trig :lo :hi | TRand(lo, hi, trig) }
-
 	LinLin { :self :srclo :srchi :dstlo :dsthi |
 		| scale  = (dsthi - dstlo) / (srchi - srclo), offset = dstlo - (scale * srclo); |
 		MulAdd(self, scale, offset)
@@ -31,7 +28,7 @@
 	InFb { :numChannels :bus | <primitive: return sc.InFb(_numChannels, _bus);> }
 	LinSeg { :gate :coordArray | <primitive: return sc.LinSeg(_gate, _coordArray);> }
 	Ln { :start :end :dur | <primitive: return sc.Ln(_start, _end, _dur);> }
-	PMOsc { :carfreq :modfreq :pmindex :modphase | <primitive: return sc.PMOsc(_carfreq, _modfreq, _pmindex, _modphase);> }
+	PmOsc { :carfreq :modfreq :pmindex :modphase | <primitive: return sc.PmOsc(_carfreq, _modfreq, _pmindex, _modphase);> }
 	Perc { :trig :attackTime :releaseTime :curve | <primitive: return sc.Perc(_trig, _attackTime, _releaseTime, _curve);> }
 	Release { :input :attackTime :dur :releaseTime | <primitive: return sc.Release(_input, _attackTime, _dur, _releaseTime);> }
 	RingzBank { :input :freq :amp :time | <primitive: return sc.RingzBank(_input, _freq, _amp, _time);> }
@@ -54,7 +51,7 @@
 	TChoose { :trig :array | <primitive: return sc.TChoose(_trig, _array);> }
 	TDmdFor { :dur :reset :level | <primitive: return sc.TDmdFor(_dur, _reset, _level);> }
 	TLine { :start :end :dur :trig | <primitive: return sc.TLine(_start, _end, _dur, _trig);> }
-	TXLine { :start :end :dur :trig | <primitive: return sc.TXLine(_start, _end, _dur, _trig);> }
+	TxLine { :start :end :dur :trig | <primitive: return sc.TxLine(_start, _end, _dur, _trig);> }
 	White { :length :lo :hi | <primitive: return sc.Dwhite(_length, _lo, _hi);> }
 	XChoose { :repeats :list | <primitive: return sc.XChoose(_repeats, _list);> }
 	XLn { :start :end :dur | <primitive: return sc.XLn(_start, _end, _dur);> }
@@ -65,4 +62,5 @@
 
 + Array {
 	asLocalBuf { :self | <primitive: return sc.asLocalBuf(_self);> }
+	Mix { :self | self.sum }
 }

@@ -5,8 +5,7 @@
 	ControlDur { <primitive: return sc.ControlDur();> }
 	ControlRate { <primitive: return sc.ControlRate();> }
 	GrayNoise { <primitive: return sc.GrayNoise();> }
-	InfoUGenBase { <primitive: return sc.InfoUGenBase();> }
-	NodeID { <primitive: return sc.NodeID();> }
+	NodeId { <primitive: return sc.NodeId();> }
 	NumAudioBuses { <primitive: return sc.NumAudioBuses();> }
 	NumBuffers { <primitive: return sc.NumBuffers();> }
 	NumControlBuses { <primitive: return sc.NumControlBuses();> }
@@ -23,7 +22,7 @@
 
 + Object {
 	A2K { arg in; <primitive: return sc.A2K(_in);> }
-	APF { arg in, freq, radius; <primitive: return sc.APF(_in, _freq, _radius);> }
+	Apf { arg in, freq, radius; <primitive: return sc.Apf(_in, _freq, _radius);> }
 	AllpassC { arg in, maxdelaytime, delaytime, decaytime; <primitive: return sc.AllpassC(_in, _maxdelaytime, _delaytime, _decaytime);> }
 	AllpassL { arg in, maxdelaytime, delaytime, decaytime; <primitive: return sc.AllpassL(_in, _maxdelaytime, _delaytime, _decaytime);> }
 	AllpassN { arg in, maxdelaytime, delaytime, decaytime; <primitive: return sc.AllpassN(_in, _maxdelaytime, _delaytime, _decaytime);> }
@@ -37,11 +36,11 @@
 	BHiShelf { arg in, freq, rs, db; <primitive: return sc.BHiShelf(_in, _freq, _rs, _db);> }
 	BLowPass { arg in, freq, rq; <primitive: return sc.BLowPass(_in, _freq, _rq);> }
 	BLowShelf { arg in, freq, rs, db; <primitive: return sc.BLowShelf(_in, _freq, _rs, _db);> }
-	BPF { arg in, freq, rq; <primitive: return sc.BPF(_in, _freq, _rq);> }
-	BPZ2 { arg in; <primitive: return sc.BPZ2(_in);> }
-	BPeakEQ { arg in, freq, rq, db; <primitive: return sc.BPeakEQ(_in, _freq, _rq, _db);> }
-	BRF { arg in, freq, rq; <primitive: return sc.BRF(_in, _freq, _rq);> }
-	BRZ2 { arg in; <primitive: return sc.BRZ2(_in);> }
+	Bpf { arg in, freq, rq; <primitive: return sc.Bpf(_in, _freq, _rq);> }
+	Bpz2 { arg in; <primitive: return sc.Bpz2(_in);> }
+	BPeakEq { arg in, freq, rq, db; <primitive: return sc.BPeakEq(_in, _freq, _rq, _db);> }
+	Brf { arg in, freq, rq; <primitive: return sc.Brf(_in, _freq, _rq);> }
+	Brz2 { arg in; <primitive: return sc.Brz2(_in);> }
 	Balance2 { arg left, right, pos, level; <primitive: return sc.Balance2(_left, _right, _pos, _level);> }
 	Ball { arg in, g, damp, friction; <primitive: return sc.Ball(_in, _g, _damp, _friction);> }
 	BeatTrack { arg chain, lock; <primitive: return sc.BeatTrack(_chain, _lock);> }
@@ -82,7 +81,7 @@
 	Crackle { arg chaosParam; <primitive: return sc.Crackle(_chaosParam);> }
 	CuspL { arg freq, a, b, xi; <primitive: return sc.CuspL(_freq, _a, _b, _xi);> }
 	CuspN { arg freq, a, b, xi; <primitive: return sc.CuspN(_freq, _a, _b, _xi);> }
-	DC { arg in; <primitive: return sc.DC(_in);> }
+	Dc { arg in; <primitive: return sc.Dc(_in);> }
 	Dbrown { arg length, lo, hi, step; <primitive: return sc.Dbrown(_length, _lo, _hi, _step);> }
 	Dbufrd { arg bufnum, phase, loop; <primitive: return sc.Dbufrd(_bufnum, _phase, _loop);> }
 	Dbufwr { arg bufnum, phase, input, loop; <primitive: return sc.Dbufwr(_bufnum, _phase, _input, _loop);> }
@@ -127,11 +126,11 @@
 	Dxrand { arg repeats, list; <primitive: return sc.Dxrand(_repeats, _list);> }
 	EnvGen { arg gate, levelScale, levelBias, timeScale, doneAction, envelope; <primitive: return sc.EnvGen(_gate, _levelScale, _levelBias, _timeScale, _doneAction, _envelope);> }
 	ExpRand { arg lo, hi; <primitive: return sc.ExpRand(_lo, _hi);> }
-	FBSineC { arg freq, im, fb, a, c, xi, yi; <primitive: return sc.FBSineC(_freq, _im, _fb, _a, _c, _xi, _yi);> }
-	FBSineL { arg freq, im, fb, a, c, xi, yi; <primitive: return sc.FBSineL(_freq, _im, _fb, _a, _c, _xi, _yi);> }
-	FBSineN { arg freq, im, fb, a, c, xi, yi; <primitive: return sc.FBSineN(_freq, _im, _fb, _a, _c, _xi, _yi);> }
-	FFT { arg buffer, in, hop, wintype, active, winsize; <primitive: return sc.FFT(_buffer, _in, _hop, _wintype, _active, _winsize);> }
-	FOS { arg in, a0, a1, b1; <primitive: return sc.FOS(_in, _a0, _a1, _b1);> }
+	FbSineC { arg freq, im, fb, a, c, xi, yi; <primitive: return sc.FbSineC(_freq, _im, _fb, _a, _c, _xi, _yi);> }
+	FbSineL { arg freq, im, fb, a, c, xi, yi; <primitive: return sc.FbSineL(_freq, _im, _fb, _a, _c, _xi, _yi);> }
+	FbSineN { arg freq, im, fb, a, c, xi, yi; <primitive: return sc.FbSineN(_freq, _im, _fb, _a, _c, _xi, _yi);> }
+	Fft { arg buffer, in, hop, wintype, active, winsize; <primitive: return sc.Fft(_buffer, _in, _hop, _wintype, _active, _winsize);> }
+	Fos { arg in, a0, a1, b1; <primitive: return sc.Fos(_in, _a0, _a1, _b1);> }
 	FSinOsc { arg freq, iphase; <primitive: return sc.FSinOsc(_freq, _iphase);> }
 	Fold { arg in, lo, hi; <primitive: return sc.Fold(_in, _lo, _hi);> }
 	Formant { arg fundfreq, formfreq, bwfreq; <primitive: return sc.Formant(_fundfreq, _formfreq, _bwfreq);> }
@@ -150,19 +149,19 @@
 	Gendy2 { arg ampdist, durdist, adparam, ddparam, minfreq, maxfreq, ampscale, durscale, initCPs, knum, a, c; <primitive: return sc.Gendy2(_ampdist, _durdist, _adparam, _ddparam, _minfreq, _maxfreq, _ampscale, _durscale, _initCPs, _knum, _a, _c);> }
 	Gendy3 { arg ampdist, durdist, adparam, ddparam, freq, ampscale, durscale, initCPs, knum; <primitive: return sc.Gendy3(_ampdist, _durdist, _adparam, _ddparam, _freq, _ampscale, _durscale, _initCPs, _knum);> }
 	GrainBuf { arg numChan, trigger, dur, sndbuf, rate, pos, interp, pan, envbufnum, maxGrains; <primitive: return sc.GrainBuf(_numChan, _trigger, _dur, _sndbuf, _rate, _pos, _interp, _pan, _envbufnum, _maxGrains);> }
-	GrainFM { arg numChan, trigger, dur, carfreq, modfreq, index, pan, envbufnum, maxGrains; <primitive: return sc.GrainFM(_numChan, _trigger, _dur, _carfreq, _modfreq, _index, _pan, _envbufnum, _maxGrains);> }
+	GrainFm { arg numChan, trigger, dur, carfreq, modfreq, index, pan, envbufnum, maxGrains; <primitive: return sc.GrainFm(_numChan, _trigger, _dur, _carfreq, _modfreq, _index, _pan, _envbufnum, _maxGrains);> }
 	GrainIn { arg numChan, trigger, dur, in, pan, envbufnum, maxGrains; <primitive: return sc.GrainIn(_numChan, _trigger, _dur, _in, _pan, _envbufnum, _maxGrains);> }
 	GrainSin { arg numChan, trigger, dur, freq, pan, envbufnum, maxGrains; <primitive: return sc.GrainSin(_numChan, _trigger, _dur, _freq, _pan, _envbufnum, _maxGrains);> }
-	HPF { arg in, freq; <primitive: return sc.HPF(_in, _freq);> }
-	HPZ1 { arg in; <primitive: return sc.HPZ1(_in);> }
-	HPZ2 { arg in; <primitive: return sc.HPZ2(_in);> }
+	Hpf { arg in, freq; <primitive: return sc.Hpf(_in, _freq);> }
+	Hpz1 { arg in; <primitive: return sc.Hpz1(_in);> }
+	Hpz2 { arg in; <primitive: return sc.Hpz2(_in);> }
 	Hasher { arg in; <primitive: return sc.Hasher(_in);> }
 	HenonC { arg freq, a, b, x0, x1; <primitive: return sc.HenonC(_freq, _a, _b, _x0, _x1);> }
 	HenonL { arg freq, a, b, x0, x1; <primitive: return sc.HenonL(_freq, _a, _b, _x0, _x1);> }
 	HenonN { arg freq, a, b, x0, x1; <primitive: return sc.HenonN(_freq, _a, _b, _x0, _x1);> }
 	Hilbert { arg in; <primitive: return sc.Hilbert(_in);> }
 	IEnvGen { arg index, envelope; <primitive: return sc.IEnvGen(_index, _envelope);> }
-	IFFT { arg buffer, wintype, winsize; <primitive: return sc.IFFT(_buffer, _wintype, _winsize);> }
+	Ifft { arg buffer, wintype, winsize; <primitive: return sc.Ifft(_buffer, _wintype, _winsize);> }
 	IRand { arg lo, hi; <primitive: return sc.IRand(_lo, _hi);> }
 	Impulse { arg freq, phase; <primitive: return sc.Impulse(_freq, _phase);> }
 	In { arg numChan, bus; <primitive: return sc.In(_numChan, _bus);> }
@@ -179,36 +178,36 @@
 	KeyTrack { arg chain, keydecay, chromaleak; <primitive: return sc.KeyTrack(_chain, _keydecay, _chromaleak);> }
 	Klang { arg freqscale, freqoffset, specificationsArrayRef; <primitive: return sc.Klang(_freqscale, _freqoffset, _specificationsArrayRef);> }
 	Klank { arg input, freqscale, freqoffset, decayscale, specificationsArrayRef; <primitive: return sc.Klank(_input, _freqscale, _freqoffset, _decayscale, _specificationsArrayRef);> }
-	LFClipNoise { arg freq; <primitive: return sc.LFClipNoise(_freq);> }
-	LFCub { arg freq, iphase; <primitive: return sc.LFCub(_freq, _iphase);> }
-	LFDClipNoise { arg freq; <primitive: return sc.LFDClipNoise(_freq);> }
-	LFDNoise0 { arg freq; <primitive: return sc.LFDNoise0(_freq);> }
-	LFDNoise1 { arg freq; <primitive: return sc.LFDNoise1(_freq);> }
-	LFDNoise3 { arg freq; <primitive: return sc.LFDNoise3(_freq);> }
-	LFGauss { arg duration, width, iphase, loop, doneAction; <primitive: return sc.LFGauss(_duration, _width, _iphase, _loop, _doneAction);> }
-	LFNoise0 { arg freq; <primitive: return sc.LFNoise0(_freq);> }
-	LFNoise1 { arg freq; <primitive: return sc.LFNoise1(_freq);> }
-	LFNoise2 { arg freq; <primitive: return sc.LFNoise2(_freq);> }
-	LFPar { arg freq, iphase; <primitive: return sc.LFPar(_freq, _iphase);> }
-	LFPulse { arg freq, iphase, width; <primitive: return sc.LFPulse(_freq, _iphase, _width);> }
-	LFSaw { arg freq, iphase; <primitive: return sc.LFSaw(_freq, _iphase);> }
-	LFTri { arg freq, iphase; <primitive: return sc.LFTri(_freq, _iphase);> }
-	LPF { arg in, freq; <primitive: return sc.LPF(_in, _freq);> }
-	LPZ1 { arg in; <primitive: return sc.LPZ1(_in);> }
-	LPZ2 { arg in; <primitive: return sc.LPZ2(_in);> }
+	LfClipNoise { arg freq; <primitive: return sc.LfClipNoise(_freq);> }
+	LfCub { arg freq, iphase; <primitive: return sc.LfCub(_freq, _iphase);> }
+	LfdClipNoise { arg freq; <primitive: return sc.LfdClipNoise(_freq);> }
+	LfdNoise0 { arg freq; <primitive: return sc.LfdNoise0(_freq);> }
+	LfdNoise1 { arg freq; <primitive: return sc.LfdNoise1(_freq);> }
+	LfdNoise3 { arg freq; <primitive: return sc.LfdNoise3(_freq);> }
+	LfGauss { arg duration, width, iphase, loop, doneAction; <primitive: return sc.LfGauss(_duration, _width, _iphase, _loop, _doneAction);> }
+	LfNoise0 { arg freq; <primitive: return sc.LfNoise0(_freq);> }
+	LfNoise1 { arg freq; <primitive: return sc.LfNoise1(_freq);> }
+	LfNoise2 { arg freq; <primitive: return sc.LfNoise2(_freq);> }
+	LfPar { arg freq, iphase; <primitive: return sc.LfPar(_freq, _iphase);> }
+	LfPulse { arg freq, iphase, width; <primitive: return sc.LfPulse(_freq, _iphase, _width);> }
+	LfSaw { arg freq, iphase; <primitive: return sc.LfSaw(_freq, _iphase);> }
+	LfTri { arg freq, iphase; <primitive: return sc.LfTri(_freq, _iphase);> }
+	Lpf { arg in, freq; <primitive: return sc.Lpf(_in, _freq);> }
+	Lpz1 { arg in; <primitive: return sc.Lpz1(_in);> }
+	Lpz2 { arg in; <primitive: return sc.Lpz2(_in);> }
 	Lag { arg in, lagTime; <primitive: return sc.Lag(_in, _lagTime);> }
 	Lag2 { arg in, lagTime; <primitive: return sc.Lag2(_in, _lagTime);> }
-	Lag2UD { arg in, lagTimeU, lagTimeD; <primitive: return sc.Lag2UD(_in, _lagTimeU, _lagTimeD);> }
+	Lag2Ud { arg in, lagTimeU, lagTimeD; <primitive: return sc.Lag2Ud(_in, _lagTimeU, _lagTimeD);> }
 	Lag3 { arg in, lagTime; <primitive: return sc.Lag3(_in, _lagTime);> }
-	Lag3UD { arg in, lagTimeU, lagTimeD; <primitive: return sc.Lag3UD(_in, _lagTimeU, _lagTimeD);> }
+	Lag3Ud { arg in, lagTimeU, lagTimeD; <primitive: return sc.Lag3Ud(_in, _lagTimeU, _lagTimeD);> }
 	LagIn { arg numChan, bus, lag; <primitive: return sc.LagIn(_numChan, _bus, _lag);> }
-	LagUD { arg in, lagTimeU, lagTimeD; <primitive: return sc.LagUD(_in, _lagTimeU, _lagTimeD);> }
+	LagUd { arg in, lagTimeU, lagTimeD; <primitive: return sc.LagUd(_in, _lagTimeU, _lagTimeD);> }
 	LastValue { arg in, diff; <primitive: return sc.LastValue(_in, _diff);> }
 	Latch { arg in, trig; <primitive: return sc.Latch(_in, _trig);> }
 	LatoocarfianC { arg freq, a, b, c, d, xi, yi; <primitive: return sc.LatoocarfianC(_freq, _a, _b, _c, _d, _xi, _yi);> }
 	LatoocarfianL { arg freq, a, b, c, d, xi, yi; <primitive: return sc.LatoocarfianL(_freq, _a, _b, _c, _d, _xi, _yi);> }
 	LatoocarfianN { arg freq, a, b, c, d, xi, yi; <primitive: return sc.LatoocarfianN(_freq, _a, _b, _c, _d, _xi, _yi);> }
-	LeakDC { arg in, coef; <primitive: return sc.LeakDC(_in, _coef);> }
+	LeakDc { arg in, coef; <primitive: return sc.LeakDc(_in, _coef);> }
 	LeastChange { arg a, b; <primitive: return sc.LeastChange(_a, _b);> }
 	Limiter { arg in, level, dur; <primitive: return sc.Limiter(_in, _level, _dur);> }
 	LinCongC { arg freq, a, c, m, xi; <primitive: return sc.LinCongC(_freq, _a, _c, _m, _xi);> }
@@ -229,9 +228,9 @@
 	MFCC { arg chain, numcoeff; <primitive: return sc.MFCC(_chain, _numcoeff);> }
 	MantissaMask { arg in, bits; <primitive: return sc.MantissaMask(_in, _bits);> }
 	Median { arg length, in; <primitive: return sc.Median(_length, _in);> }
-	MidEQ { arg in, freq, rq, db; <primitive: return sc.MidEQ(_in, _freq, _rq, _db);> }
+	MidEq { arg in, freq, rq, db; <primitive: return sc.MidEq(_in, _freq, _rq, _db);> }
 	ModDif { arg x, y, mod; <primitive: return sc.ModDif(_x, _y, _mod);> }
-	MoogFF { arg in, freq, gain, reset; <primitive: return sc.MoogFF(_in, _freq, _gain, _reset);> }
+	MoogFf { arg in, freq, gain, reset; <primitive: return sc.MoogFf(_in, _freq, _gain, _reset);> }
 	MostChange { arg a, b; <primitive: return sc.MostChange(_a, _b);> }
 	MouseButton { arg minval, maxval, lag; <primitive: return sc.MouseButton(_minval, _maxval, _lag);> }
 	MouseX { arg minval, maxval, warp, lag; <primitive: return sc.MouseX(_minval, _maxval, _warp, _lag);> }
@@ -246,40 +245,40 @@
 	OscN { arg bufnum, freq, phase; <primitive: return sc.OscN(_bufnum, _freq, _phase);> }
 	Out { arg bus, channelsArray; <primitive: return sc.Out(_bus, _channelsArray);> }
 	PSinGrain { arg freq, dur, amp; <primitive: return sc.PSinGrain(_freq, _dur, _amp);> }
-	PV_Add { arg bufferA, bufferB; <primitive: return sc.PV_Add(_bufferA, _bufferB);> }
-	PV_BinScramble { arg buffer, wipe, width, trig; <primitive: return sc.PV_BinScramble(_buffer, _wipe, _width, _trig);> }
-	PV_BinShift { arg buffer, stretch, shift, interp; <primitive: return sc.PV_BinShift(_buffer, _stretch, _shift, _interp);> }
-	PV_BinWipe { arg bufferA, bufferB, wipe; <primitive: return sc.PV_BinWipe(_bufferA, _bufferB, _wipe);> }
-	PV_BrickWall { arg buffer, wipe; <primitive: return sc.PV_BrickWall(_buffer, _wipe);> }
-	PV_ConformalMap { arg buffer, areal, aimag; <primitive: return sc.PV_ConformalMap(_buffer, _areal, _aimag);> }
-	PV_Conj { arg buffer; <primitive: return sc.PV_Conj(_buffer);> }
-	PV_Copy { arg bufferA, bufferB; <primitive: return sc.PV_Copy(_bufferA, _bufferB);> }
-	PV_CopyPhase { arg bufferA, bufferB; <primitive: return sc.PV_CopyPhase(_bufferA, _bufferB);> }
-	PV_Diffuser { arg buffer, trig; <primitive: return sc.PV_Diffuser(_buffer, _trig);> }
-	PV_Div { arg bufferA, bufferB; <primitive: return sc.PV_Div(_bufferA, _bufferB);> }
-	PV_HainsworthFoote { arg maxSize; <primitive: return sc.PV_HainsworthFoote(_maxSize);> }
-	PV_JensenAndersen { arg maxSize; <primitive: return sc.PV_JensenAndersen(_maxSize);> }
-	PV_LocalMax { arg buffer, threshold; <primitive: return sc.PV_LocalMax(_buffer, _threshold);> }
-	PV_MagAbove { arg buffer, threshold; <primitive: return sc.PV_MagAbove(_buffer, _threshold);> }
-	PV_MagBelow { arg buffer, threshold; <primitive: return sc.PV_MagBelow(_buffer, _threshold);> }
-	PV_MagClip { arg buffer, threshold; <primitive: return sc.PV_MagClip(_buffer, _threshold);> }
-	PV_MagDiv { arg bufferA, bufferB, zeroed; <primitive: return sc.PV_MagDiv(_bufferA, _bufferB, _zeroed);> }
-	PV_MagFreeze { arg buffer, freeze; <primitive: return sc.PV_MagFreeze(_buffer, _freeze);> }
-	PV_MagMul { arg bufferA, bufferB; <primitive: return sc.PV_MagMul(_bufferA, _bufferB);> }
-	PV_MagNoise { arg buffer; <primitive: return sc.PV_MagNoise(_buffer);> }
-	PV_MagShift { arg buffer, stretch, shift; <primitive: return sc.PV_MagShift(_buffer, _stretch, _shift);> }
-	PV_MagSmear { arg buffer, bins; <primitive: return sc.PV_MagSmear(_buffer, _bins);> }
-	PV_MagSquared { arg buffer; <primitive: return sc.PV_MagSquared(_buffer);> }
-	PV_Max { arg bufferA, bufferB; <primitive: return sc.PV_Max(_bufferA, _bufferB);> }
-	PV_Min { arg bufferA, bufferB; <primitive: return sc.PV_Min(_bufferA, _bufferB);> }
-	PV_Mul { arg bufferA, bufferB; <primitive: return sc.PV_Mul(_bufferA, _bufferB);> }
-	PV_PhaseShift { arg buffer, shift, integrate; <primitive: return sc.PV_PhaseShift(_buffer, _shift, _integrate);> }
-	PV_PhaseShift270 { arg buffer; <primitive: return sc.PV_PhaseShift270(_buffer);> }
-	PV_PhaseShift90 { arg buffer; <primitive: return sc.PV_PhaseShift90(_buffer);> }
-	PV_RandComb { arg buffer, wipe, trig; <primitive: return sc.PV_RandComb(_buffer, _wipe, _trig);> }
-	PV_RandWipe { arg bufferA, bufferB, wipe, trig; <primitive: return sc.PV_RandWipe(_bufferA, _bufferB, _wipe, _trig);> }
-	PV_RectComb { arg buffer, numTeeth, phase, width; <primitive: return sc.PV_RectComb(_buffer, _numTeeth, _phase, _width);> }
-	PV_RectComb2 { arg bufferA, bufferB, numTeeth, phase, width; <primitive: return sc.PV_RectComb2(_bufferA, _bufferB, _numTeeth, _phase, _width);> }
+	PvAdd { arg bufferA, bufferB; <primitive: return sc.PvAdd(_bufferA, _bufferB);> }
+	PvBinScramble { arg buffer, wipe, width, trig; <primitive: return sc.PvBinScramble(_buffer, _wipe, _width, _trig);> }
+	PvBinShift { arg buffer, stretch, shift, interp; <primitive: return sc.PvBinShift(_buffer, _stretch, _shift, _interp);> }
+	PvBinWipe { arg bufferA, bufferB, wipe; <primitive: return sc.PvBinWipe(_bufferA, _bufferB, _wipe);> }
+	PvBrickWall { arg buffer, wipe; <primitive: return sc.PvBrickWall(_buffer, _wipe);> }
+	PvConformalMap { arg buffer, areal, aimag; <primitive: return sc.PvConformalMap(_buffer, _areal, _aimag);> }
+	PvConj { arg buffer; <primitive: return sc.PvConj(_buffer);> }
+	PvCopy { arg bufferA, bufferB; <primitive: return sc.PvCopy(_bufferA, _bufferB);> }
+	PvCopyPhase { arg bufferA, bufferB; <primitive: return sc.PvCopyPhase(_bufferA, _bufferB);> }
+	PvDiffuser { arg buffer, trig; <primitive: return sc.PvDiffuser(_buffer, _trig);> }
+	PvDiv { arg bufferA, bufferB; <primitive: return sc.PvDiv(_bufferA, _bufferB);> }
+	PvHainsworthFoote { arg maxSize; <primitive: return sc.PvHainsworthFoote(_maxSize);> }
+	PvJensenAndersen { arg maxSize; <primitive: return sc.PvJensenAndersen(_maxSize);> }
+	PvLocalMax { arg buffer, threshold; <primitive: return sc.PvLocalMax(_buffer, _threshold);> }
+	PvMagAbove { arg buffer, threshold; <primitive: return sc.PvMagAbove(_buffer, _threshold);> }
+	PvMagBelow { arg buffer, threshold; <primitive: return sc.PvMagBelow(_buffer, _threshold);> }
+	PvMagClip { arg buffer, threshold; <primitive: return sc.PvMagClip(_buffer, _threshold);> }
+	PvMagDiv { arg bufferA, bufferB, zeroed; <primitive: return sc.PvMagDiv(_bufferA, _bufferB, _zeroed);> }
+	PvMagFreeze { arg buffer, freeze; <primitive: return sc.PvMagFreeze(_buffer, _freeze);> }
+	PvMagMul { arg bufferA, bufferB; <primitive: return sc.PvMagMul(_bufferA, _bufferB);> }
+	PvMagNoise { arg buffer; <primitive: return sc.PvMagNoise(_buffer);> }
+	PvMagShift { arg buffer, stretch, shift; <primitive: return sc.PvMagShift(_buffer, _stretch, _shift);> }
+	PvMagSmear { arg buffer, bins; <primitive: return sc.PvMagSmear(_buffer, _bins);> }
+	PvMagSquared { arg buffer; <primitive: return sc.PvMagSquared(_buffer);> }
+	PvMax { arg bufferA, bufferB; <primitive: return sc.PvMax(_bufferA, _bufferB);> }
+	PvMin { arg bufferA, bufferB; <primitive: return sc.PvMin(_bufferA, _bufferB);> }
+	PvMul { arg bufferA, bufferB; <primitive: return sc.PvMul(_bufferA, _bufferB);> }
+	PvPhaseShift { arg buffer, shift, integrate; <primitive: return sc.PvPhaseShift(_buffer, _shift, _integrate);> }
+	PvPhaseShift270 { arg buffer; <primitive: return sc.PvPhaseShift270(_buffer);> }
+	PvPhaseShift90 { arg buffer; <primitive: return sc.PvPhaseShift90(_buffer);> }
+	PvRandComb { arg buffer, wipe, trig; <primitive: return sc.PvRandComb(_buffer, _wipe, _trig);> }
+	PvRandWipe { arg bufferA, bufferB, wipe, trig; <primitive: return sc.PvRandWipe(_bufferA, _bufferB, _wipe, _trig);> }
+	PvRectComb { arg buffer, numTeeth, phase, width; <primitive: return sc.PvRectComb(_buffer, _numTeeth, _phase, _width);> }
+	PvRectComb2 { arg bufferA, bufferB, numTeeth, phase, width; <primitive: return sc.PvRectComb2(_bufferA, _bufferB, _numTeeth, _phase, _width);> }
 	Pan2 { arg in, pos, level; <primitive: return sc.Pan2(_in, _pos, _level);> }
 	Pan4 { arg in, xpos, ypos, level; <primitive: return sc.Pan4(_in, _xpos, _ypos, _level);> }
 	PanAz { arg numChan, in, pos, level, width, orientation; <primitive: return sc.PanAz(_numChan, _in, _pos, _level, _width, _orientation);> }
@@ -303,11 +302,11 @@
 	QuadC { arg freq, a, b, c, xi; <primitive: return sc.QuadC(_freq, _a, _b, _c, _xi);> }
 	QuadL { arg freq, a, b, c, xi; <primitive: return sc.QuadL(_freq, _a, _b, _c, _xi);> }
 	QuadN { arg freq, a, b, c, xi; <primitive: return sc.QuadN(_freq, _a, _b, _c, _xi);> }
-	RHPF { arg in, freq, rq; <primitive: return sc.RHPF(_in, _freq, _rq);> }
-	RLPF { arg in, freq, rq; <primitive: return sc.RLPF(_in, _freq, _rq);> }
+	Rhpf { arg in, freq, rq; <primitive: return sc.Rhpf(_in, _freq, _rq);> }
+	Rlpf { arg in, freq, rq; <primitive: return sc.Rlpf(_in, _freq, _rq);> }
 	Ramp { arg in, lagTime; <primitive: return sc.Ramp(_in, _lagTime);> }
 	Rand { arg lo, hi; <primitive: return sc.Rand(_lo, _hi);> }
-	RandID { arg id; <primitive: return sc.RandID(_id);> }
+	RandId { arg id; <primitive: return sc.RandId(_id);> }
 	RandSeed { arg trig, seed; <primitive: return sc.RandSeed(_trig, _seed);> }
 	RecordBuf { arg bufnum, offset, recLevel, preLevel, run, loop, trigger, doneAction, inputArray; <primitive: return sc.RecordBuf(_bufnum, _offset, _recLevel, _preLevel, _run, _loop, _trigger, _doneAction, _inputArray);> }
 	ReplaceOut { arg bus, channelsArray; <primitive: return sc.ReplaceOut(_bus, _channelsArray);> }
@@ -317,16 +316,16 @@
 	RunningMax { arg in, trig; <primitive: return sc.RunningMax(_in, _trig);> }
 	RunningMin { arg in, trig; <primitive: return sc.RunningMin(_in, _trig);> }
 	RunningSum { arg in, numsamp; <primitive: return sc.RunningSum(_in, _numsamp);> }
-	SOS { arg in, a0, a1, a2, b1, b2; <primitive: return sc.SOS(_in, _a0, _a1, _a2, _b1, _b2);> }
+	Sos { arg in, a0, a1, a2, b1, b2; <primitive: return sc.Sos(_in, _a0, _a1, _a2, _b1, _b2);> }
 	Sanitize { arg in, replace; <primitive: return sc.Sanitize(_in, _replace);> }
 	Saw { arg freq; <primitive: return sc.Saw(_freq);> }
 	Schmidt { arg in, lo, hi; <primitive: return sc.Schmidt(_in, _lo, _hi);> }
 	Select { arg which, array; <primitive: return sc.Select(_which, _array);> }
 	SendTrig { arg in, id, value; <primitive: return sc.SendTrig(_in, _id, _value);> }
-	SetResetFF { arg trig, reset; <primitive: return sc.SetResetFF(_trig, _reset);> }
+	SetResetFf { arg trig, reset; <primitive: return sc.SetResetFf(_trig, _reset);> }
 	Shaper { arg bufnum, in; <primitive: return sc.Shaper(_bufnum, _in);> }
 	SinOsc { arg freq, phase; <primitive: return sc.SinOsc(_freq, _phase);> }
-	SinOscFB { arg freq, feedback; <primitive: return sc.SinOscFB(_freq, _feedback);> }
+	SinOscFb { arg freq, feedback; <primitive: return sc.SinOscFb(_freq, _feedback);> }
 	Slew { arg in, up, dn; <primitive: return sc.Slew(_in, _up, _dn);> }
 	Slope { arg in; <primitive: return sc.Slope(_in);> }
 	SpecCentroid { arg buffer; <primitive: return sc.SpecCentroid(_buffer);> }
@@ -348,11 +347,11 @@
 	TDuty { arg dur, reset, doneAction, level, gapFirst; <primitive: return sc.TDuty(_dur, _reset, _doneAction, _level, _gapFirst);> }
 	TExpRand { arg lo, hi, trig; <primitive: return sc.TExpRand(_lo, _hi, _trig);> }
 	TGrains { arg numChan, trigger, bufnum, rate, centerPos, dur, pan, amp, interp; <primitive: return sc.TGrains(_numChan, _trigger, _bufnum, _rate, _centerPos, _dur, _pan, _amp, _interp);> }
-	TIRand { arg lo, hi, trig; <primitive: return sc.TIRand(_lo, _hi, _trig);> }
+	TiRand { arg lo, hi, trig; <primitive: return sc.TiRand(_lo, _hi, _trig);> }
 	TRand { arg lo, hi, trig; <primitive: return sc.TRand(_lo, _hi, _trig);> }
 	TWindex { arg in, normalize, array; <primitive: return sc.TWindex(_in, _normalize, _array);> }
 	Timer { arg trig; <primitive: return sc.Timer(_trig);> }
-	ToggleFF { arg trig; <primitive: return sc.ToggleFF(_trig);> }
+	ToggleFf { arg trig; <primitive: return sc.ToggleFf(_trig);> }
 	Trig { arg in, dur; <primitive: return sc.Trig(_in, _dur);> }
 	Trig1 { arg in, dur; <primitive: return sc.Trig1(_in, _dur);> }
 	TwoPole { arg in, freq, radius; <primitive: return sc.TwoPole(_in, _freq, _radius);> }
