@@ -74,10 +74,8 @@ Sl {
 
     Block = "{" BlockBody "}"
     BlockBody = Arguments? Temporaries? Primitive? Statements?
-    Arguments = ArgumentList | ArgumentListArgSyntax
-    ArgumentList = ArgumentName+ "|"
+    Arguments = ArgumentName+ "|"
     ArgumentName = ":" identifier
-    ArgumentListArgSyntax = "arg" NonemptyListOf<identifier, ","> ";"
     Primitive = "<primitive:" primitiveCharacter* ">"
     Statements = NonFinalExpression | FinalExpression
     NonFinalExpression = Expression ";" Statements

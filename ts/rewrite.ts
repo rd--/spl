@@ -107,9 +107,8 @@ const asJs: any = {
 		}
 		return `function(${arg.asJs}) { ${arityCheck} ${tmp.asJs} ${prm.asJs} ${stm.asJs} }`;
 	},
-    ArgumentList(arg, _r) { return commaList(arg.children); },
+    Arguments(arg, _r) { return commaList(arg.children); },
     ArgumentName(_c, nm) { return nm.asJs; },
-    ArgumentListArgSyntax(_l, arg, _r) { return commaList(arg.asIteration().children); },
     Primitive(_l, s, _r) { return s.sourceString; },
     NonFinalExpression(e, _, stm) { return e.asJs + '; ' + stm.asJs; },
     FinalExpression(e, _) { return 'return ' + e.asJs + ';'; },
