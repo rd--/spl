@@ -1,5 +1,5 @@
 bundle:
-	deno bundle --no-check sl.ts ../js/sl.js
+	deno bundle --no-check sl.ts ../dist/sl.js
 
 check-ts:
 	deno check --config deno.json *.ts

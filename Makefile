@@ -6,3 +6,9 @@ clean:
 
 push-all:
 	r.gitlab-push.sh spl
+
+remote-update:
+	ssh rd@rohandrape.net "(cd rohandrape.net/pub/spl ; git pull)"
+
+remote-dist:
+	sftp rd@rohandrape.net:rohandrape.net/pub/spl/dist/ <<< $'put dist/sl.js'
