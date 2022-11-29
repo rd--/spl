@@ -1,7 +1,6 @@
 loadSequence([
 	'kernel/ArrayedCollection.sl',
 	'kernel/Collection.sl',
-	'kernel/Dictionary.sl',
 	'kernel/Magnitude.sl',
 	'kernel/Numeric.sl',
 	'kernel/SequenceableCollection.sl',
@@ -12,6 +11,5 @@ loadSequence([
 	'kernel/Object.sl',
 	'kernel/Procedure.sl',
 	'kernel/String.sl',
-	'kernel/StringDictionary.sl',
 	'kernel/Void.sl'
 ])

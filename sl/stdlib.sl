@@ -1,4 +1,5 @@
 loadSequence([
+	'stdlib/Dictionary.sl',
 	'stdlib/PositionableStream.sl',
 	'stdlib/Association.sl',
 	'stdlib/ByteArray.sl',
@@ -16,6 +17,7 @@ loadSequence([
 	'stdlib/Promise.sl',
 	'stdlib/ReadStream.sl',
 	'stdlib/RegExp.sl',
+	'stdlib/StringDictionary.sl',
 	'stdlib/ValueLink.sl',
 	'stdlib/WriteStream.sl',
 	'stdlib/system.sl'

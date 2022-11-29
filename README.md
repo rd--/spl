@@ -29,7 +29,6 @@ Spl has a minimal core syntax and a moderate number of rewrite rules.
 
 ## Rewrite Rules
 
-- _x.f_ ⇒ _f(x)_ & _x.f(y, ...)_ ⇒ _f(x, y, ...)_
 - _x.f := p_ ⇒ _f(x, p)_
 - _| (k, ...) = d, ...; |_ ⇒ _| k = at(d, 'k'), ...; |_
 - _| [e, ...] = c, ...; |_ ⇒ _| e = at(c, 1), ...; |_
