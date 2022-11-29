@@ -1,4 +1,4 @@
-bundle:
+dist:
 	deno bundle --no-check sl.ts ../dist/sl.js
 
 check-ts:

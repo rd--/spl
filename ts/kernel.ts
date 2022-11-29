@@ -1,5 +1,5 @@
-import { PriorityQueue } from '../lib/PriorityQueue.js'
-export { PriorityQueue } from '../lib/PriorityQueue.js'
+import { PriorityQueue } from '../lib/flatqueue/PriorityQueue.js'
+export { PriorityQueue } from '../lib/flatqueue/PriorityQueue.js'
 
 import { consoleDebug, throwError } from '../lib/jssc3/ts/kernel/error.ts'
 import { stringCapitalizeFirstLetter } from '../lib/jssc3/ts/kernel/string.ts'

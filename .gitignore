@@ -1,0 +1,6 @@
+dist/spl.js
+lib/flatqueue
+lib/jssc3
+lib/osc.js
+lib/scsynth-wasm-builds
+lib/stsc3
