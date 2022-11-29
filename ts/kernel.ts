@@ -13,6 +13,11 @@ type TraitName = string;
 
 type SlObject = object & {type: TypeName};
 
+function isStringDictionary(anObject: SlObject): boolean {
+	const c = anObject.constructor;
+	return c === undefined || c.name === 'Object';
+}
+
 function objectType(anObject: SlObject): TypeName {
 	return anObject instanceof Array ? 'Array' :
 		(anObject instanceof Error ? 'Error' :
@@ -22,7 +27,8 @@ function objectType(anObject: SlObject): TypeName {
 		    (anObject instanceof Float64Array ? 'Float64Array' :
 		     (anObject instanceof Promise ? 'Promise' :
 		      (anObject instanceof PriorityQueue ? 'PriorityQueue' :
-		       (anObject.type || anObject.constructor.name))))))));
+		       (anObject.type ||
+		        (isStringDictionary(anObject) ? 'StringDictionary' : anObject.constructor.name)))))))));
 }
 
 export function typeOf(anObject: unknown): TypeName {

@@ -145,13 +145,24 @@ var i = 1; while { i < 5 } { i := i + 1 }; i = 5
 var i = 1; 1.toDo(3) { :each | i := i + each.squared } ; i = 15
 var i = 1; 3.do { :each | i := i + each.squared } ; i = 15
 var f = { 0 }; f.numArgs = 0
-var f = { arg i; i }; f.numArgs = 1
-var f = { arg i, j; [i, j] }; f.numArgs = 2
-var f = { arg i; i = nil }; { f() }.ifError { :error | true }
-var f = { arg i; i * 2 }; { f(3, 4) = 6 } .ifError { :error | true }
+var f = { :i | i }; f.numArgs = 1
+var f = { :i :j | [i, j] }; f.numArgs = 2
+var f = { :i | i = nil }; { f() }.ifError { :error | true }
+var f = { :i | i * 2 }; { f(3, 4) = 6 } .ifError { :error | true }
 collect.name = 'collect'
 var f = { :x | x * x }; [f(5), f.(5)] = [25, 25]
 var f = { :x | x * x }; var d = (p: f); [d::p(5), d::p.(5)] = [25, 25]
+
+'kernel/StringDictionary'
+StringDictionary().isStringDictionary
+StringDictionary().includesKey('x') = false
+StringDictionary().at('x') = nil
+var d = StringDictionary(); d.put('x', 1); d.at('x') = 1
+var d = StringDictionary(); d['x'] := 1; d['x'] = 1
+var d = StringDictionary(); d['x'] := 1; d['y'] := 2; d.size = 2
+var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
+['x' -> 1, 'y' -> 2].asStringDictionary['y'] = 2
+{ StringDictionary().put(1, 1) }.ifError { :error | true }
 
 'kernel/String'
 ''.class = String
@@ -166,7 +177,6 @@ String() = ''
 '€'.utf8.utf8 = '€'
 'ascii'.ascii = 'ascii'.utf8
 'ascii'.ascii.ascii = 'ascii'
-
 { '€'.ascii }.ifError { :error | true }
 'the quick brown fox jumps'.includesSubstring('fox') = true
 'the quick brown fox jumps'.includesSubstring('fix') = false
@@ -190,7 +200,7 @@ Association('x', 1) = ('x' -> 1)
 var a = 'x' -> 1; [a.key, a.value] = ['x', 1]
 ('x' -> 1).asArray = ['x', 1]
 ['x' -> 1, 'y' -> 2].collect(asArray) = [['x', 1], ['y', 2]]
-('x' -> 1).printString = Association('x', 1)
+(23 -> 3.141).printString = 'Association(23, 3.141)'
 
 'stdlib/ByteArray'
 ByteArray().class = ByteArray
@@ -439,7 +449,7 @@ unixTime().weeks > 2750 = true
 var f = { :t0 | | t1 = 2.random.seconds; | t0.postLine; f.evaluateAfter(t1, t1) }; f(2.seconds).cancel = nil
 'Collection'.traitTypes.includes('Array') = true
 'Array'.typeTraits.includes('ArrayedCollection') = true
-'add'.methodSignatures = ["IdentityDictionary>>add/2", "IdentitySet>>add/2", "LinkedList>>add/2","List>>add/2"].asList
+'add'.methodSignatures.includes("IdentityDictionary>>add/2") = true
 'sum'.methodSource(1, 'Array') = '{ :self | self.reduce(plus) }'
 'collect'.methodTypes.includes('Array') = true
 'Association'.typeMethods.includes('key') = true

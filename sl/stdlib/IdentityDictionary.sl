@@ -12,10 +12,6 @@ IdentityDictionary : [Collection, Dictionary] {
 		<primitive: return _self.has(_aKey);>
 	}
 
-	isIdentityDictionary { :self |
-		true
-	}
-
 	keys { :self |
 		<primitive: return Array.from(_self.keys());>
 	}

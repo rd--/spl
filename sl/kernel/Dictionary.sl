@@ -11,6 +11,11 @@
 		answer
 	}
 
+	add { :self :anAssociation |
+		self[anAssociation.key] := anAssociation.value;
+		anAssociation
+	}
+
 	addAll { :self :aCollection |
 		aCollection.associationsDo({ :asAssociation | self.add(asAssociation) });
 		aCollection
@@ -30,6 +35,10 @@
 		self[aKey] ? aBlock()
 	}
 
+	atIfAbsentPut { :self :key :aBlock |
+		self.atIfAbsent(key) { self[key] := aBlock() }
+	}
+
 	collect { :self :aProcedure |
 		| answer = self.species.new; |
 		self.keysValuesDo { :key :value | answer.add(key -> aProcedure(value)) };
@@ -42,7 +51,9 @@
 		answer
 	}
 
-	do { :self :aBlock | self.valuesDo(aBlock) }
+	do { :self :aBlock |
+		self.valuesDo(aBlock)
+	}
 
 	fillFromWith { :self :aCollection :aBlock |
 		aCollection.isDictionary.if {

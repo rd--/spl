@@ -1,5 +1,4 @@
 loadSequence([
-	'stdlib/Dictionary.sl',
 	'stdlib/PositionableStream.sl',
 	'stdlib/Association.sl',
 	'stdlib/ByteArray.sl',
