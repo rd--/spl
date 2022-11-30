@@ -5,6 +5,10 @@
 		MulAdd(self, scale, offset)
 	}
 
+	Range { :self :lo :hi |
+		LinLin(self, -1, 1, lo, hi)
+	}
+
 	clearBuf { :bufnum | <primitive: return sc.clearBuf(_bufnum);> }
 
 	ImpulseSequencer { :self :trig |Sequencer(self, trig) * trig }

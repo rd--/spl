@@ -15,9 +15,14 @@
     "echo '{\"command\": \"%s\", \"%s\": %s}' | netcat -C -q 0 -u 127.0.0.1 3010"
     cmd key (json-encode-string value))))
 
+(defun spl-delete-markdown-code-fences (s)
+  "Remove Mardown code fences from the string S if present."
+   (replace-regexp-in-string "^```" "" s))
+
 (defun spl-get-selection ()
-  "Get the currently selected text as a string."
-  (buffer-substring-no-properties (region-beginning) (region-end)))
+  "Get the currently selected text as a string, with code fences deleted."
+  (spl-delete-markdown-code-fences
+   (buffer-substring-no-properties (region-beginning) (region-end))))
 
 (defun spl-eval-region ()
   "Evaluate region at Spl server."
