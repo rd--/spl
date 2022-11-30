@@ -31,6 +31,11 @@
 
 + String {
 
+	doesTypeImplementMethod { :self :methodName |
+		(* Do I implement a named method (I name a type) *)
+		methodName.methodTypes.includes(self)
+	}
+
 	isMethodName { :self |
 		methodList().includes(self)
 	}
@@ -44,6 +49,7 @@
 	}
 
 	methodArities { :self |
+		(* Arities I am implemented for (I name a method) *)
 		system::genericProcedures[self].keys
 	}
 
@@ -60,8 +66,9 @@
 		}
 	}
 
-	methodSource { :self :arity :type |
-		system::genericProcedures[self][arity][type][3]
+	methodSource { :self :arity :typeName |
+		(* My implementation at arity for typeName (I name a method) *)
+		system::genericProcedures[self][arity][typeName][3]
 	}
 
 	methodTypes { :self |
@@ -71,10 +78,6 @@
 		} {
 			'methodTypes: not a method'.error
 		}
-	}
-
-	respondsTo { :self :aMethod |
-		aMethod.methodTypes.includes(self)
 	}
 
 	traitTypes { :self |
@@ -132,4 +135,8 @@
 		system::traitTypes.keys
 	}
 
+}
+
+Object {
+	respondsTo { :self :aMethod | doesTypeImplementMethod(self.typeOf, aMethod.name) }
 }

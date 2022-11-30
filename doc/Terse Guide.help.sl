@@ -455,9 +455,10 @@ var f = { :t0 | | t1 = 2.random.seconds; | t0.postLine; f.evaluateAfter(t1, t1) 
 'Collection'.traitTypes.includes('Array') = true
 'Array'.typeTraits.includes('ArrayedCollection') = true
 'add'.methodSignatures.includes("IdentityDictionary>>add/2") = true
-'sum'.methodSource(1, 'Array') = '{ :self | self.reduce(plus) }'
+methodSource('sum', 1, 'Array') = '{ :self | self.reduce(plus) }'
 'collect'.methodTypes.includes('Array') = true
 'Association'.typeMethods.includes('key') = true
 multipleArityMethodList().includes('Array') = true
 onlyZeroArityMethodList().includes('Nil') = true
-'Array'.respondsTo('select') = true
+doesTypeImplementMethod('Array', 'select') = true
+[1, 2, 3].respondsTo(select)
