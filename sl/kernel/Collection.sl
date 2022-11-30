@@ -28,6 +28,16 @@
 		}
 	}
 
+	atRandom { :self |
+		| randomIndex = self.size.atRandom, index = 1; |
+		withReturn {
+			self.do { :each |
+				ifTrue(index = randomIndex) { return(each) };
+				index := index + 1
+			}
+		}
+	}
+
 	collect { :self :aBlock |
 		| newCollection = self.species.new; |
 		self.do { :each | newCollection.add(aBlock(each)) };
@@ -78,6 +88,13 @@
 		aCollection.do { :each |
 			self.add(aBlock(each))
 		}
+	}
+
+	includesAllOf { :self :aCollection |
+		withReturn {
+			aCollection.do { :elem | self.includes(elem).ifFalse { return(false) } }
+		};
+		true
 	}
 
 	injectInto { :self :initialValue :binaryProcedure |

@@ -12,6 +12,14 @@
 		(min <= self).if { self <= max } { false }
 	}
 
+	inRangeOfAnd { :self :first :second |
+		(first < second).if {
+			self.betweenAnd(first, second)
+		} {
+			self.betweenAnd(second, first)
+		}
+	}
+
 	max { :self :aMagnitude |
 		if(self > aMagnitude) { self } { aMagnitude }
 	}

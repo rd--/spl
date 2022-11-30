@@ -53,22 +53,37 @@
 		system::genericProcedures[self].keys
 	}
 
-	methodSignatures { :self |
-		(* Signatures of each of my implementations (I name a method) *)
+	methodImplementations { :self |
+		(* Each of my implementations (I name a method) *)
 		self.isMethodName.if {
 			| answer = List(), table = system::genericProcedures[self]; |
-			table.keysValuesDo { :arity :dictionary |
-				dictionary.keys.do { :type | answer.add(type ++ '>>' ++ self ++ '/' ++ arity) }
-			};
+			table.keysValuesDo { :arity :dictionary | answer.add(dictionary)	};
 			answer
 		} {
-			'methodSignatures: not a method'.error
+			'methodImplementations: not a method'.error
 		}
+	}
+
+	methodSignatures { :self |
+		(* Signatures of each of my implementations (I name a method) *)
+		| list = self.methodImplementations, answer = List(); |
+		list.do { :dictionary |
+			dictionary.associationsDo { :each |
+				[each.key, each.value[2]].postLine;
+				answer.add(each.key ++ '>>' ++ self ++ '/' ++ each.value[2])
+			}
+		};
+		answer
 	}
 
 	methodSource { :self :arity :typeName |
 		(* My implementation at arity for typeName (I name a method) *)
 		system::genericProcedures[self][arity][typeName][3]
+	}
+
+	methodTraits { :self |
+		(* Traits implementing myself, at any arity (I name a method) *)
+		system::traitMethods.select({ :item | item.keys.includes(self) }).keys
 	}
 
 	methodTypes { :self |
@@ -77,6 +92,15 @@
 			system::genericProcedures[self].values.collect(keys).concatenation
 		} {
 			'methodTypes: not a method'.error
+		}
+	}
+
+	traitMethods { :self |
+		(* Methods I implement (I name a trait) *)
+		self.isTraitName.if {
+			system::traitMethods[self]
+		} {
+			'traitMethods: not a trait'.error
 		}
 	}
 

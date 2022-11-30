@@ -158,6 +158,19 @@ _f (p: x, q: y)_ means _f((p: x, q: y))_, which means _f(['p' -> x, 'q' -> y].as
 This allows implementing _keyword_ like variants of procedures.
 In addition to _SinOsc(440, 0)_ there can be a single argument form at _IdentityDictionary_ written _SinOsc(freq: 440, phase: 0)_.
 
+# String Traits
+
+If Strings are made Collections and SequenceableCollections then:
+
+````
+'string'.last = 'g'
+'string'.includes('i')
+'string'.indexOf('i') = 4
+'string'.atWrap(13) = 's'
+var a = Array(6); 'string'.collectInto({ :each | each.toUpperCase }, a); a.join = 'STRING'
+'string'.atRandom.isString = true
+````
+
 # Unicode
 
 - U+0021 ! EXCLAMATION MARK

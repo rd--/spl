@@ -1,4 +1,4 @@
-String {
+String : [Collection, SequenceableCollection] {
 
 	asString { :self | self }
 	= { :self :anObject | self == anObject }
@@ -22,6 +22,7 @@ String {
 	toLowerCase { :self |   <primitive: return _self.toLowerCase();> }
 	toUpperCase { :self |   <primitive: return _self.toUpperCase();> }
 
+	at { :self :index | <primitive: return _self.at(_index - 1);> }
 	charCodeAt { :self :index | <primitive: return _self.charCodeAt(_index - 1);> }
 	utf8 { :self | <primitive: return new TextEncoder().encode(_self.normalize('NFC'));> }
 

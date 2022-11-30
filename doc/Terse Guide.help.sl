@@ -198,6 +198,8 @@ String() = ''
 `x` = 'x'.parseBacktickQuotedString
 "x" = 'x'
 "x" = 'x'.parseDoubleQuotedString
+'string'[3] = 'r'
+{ 'string'[3] := 'r' }.ifError { :error | true }
 
 'stdlib/Association'
 ('x' -> 1).class = Association
@@ -292,6 +294,7 @@ var d = (x: 1); d.addAll (y: 2, z: 3); d = (x: 1, y: 2, z: 3)
 [1, 3, 5, 3, 1].asIdentitySet.includes(7) = false
 [1, 3, 5, 3, 1].asIdentitySet.asArray = [1, 3, 5]
 var s = [1, 3, 5, 3, 1].asIdentitySet; s.remove(3); s.asArray = [1, 5]
+[1 .. 9].asIdentitySet.atRandom.betweenAnd(1, 9)
 
 'stdlib/Interval'
 (1 .. 9).species = Array
@@ -462,3 +465,4 @@ multipleArityMethodList().includes('Array') = true
 onlyZeroArityMethodList().includes('Nil') = true
 doesTypeImplementMethod('Array', 'select') = true
 [1, 2, 3].respondsTo(select)
+'atRandom'.methodTraits.includesAll([ "Collection", "SequenceableCollection" ])
