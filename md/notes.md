@@ -6,14 +6,6 @@
 - StdLib?
 - Js-Sc3?
 
-# Comments
-
-_*_ and _/_ are both operators in Spl.
-In St _//_ is quotient.
-Comment syntax can use forms that are not otherwise allowed.
-_(* ... *)_ as in Pascal and Ml &etc.
-_;; ..._ as in Lisp.
-
 # Strings
 
 String are written _'...'_.

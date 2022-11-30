@@ -3,7 +3,7 @@
 Help files are written in [Markdown](https://commonmark.org/).
 The system distinguishes between plain text and formatted text files by looking at the first character.
 To be recognised as a formatted document by the [Simple Editor] files _must_ begin with a _#_ character.
-A # indicates a heading, so help files must begin with a heading.
+A # indicates a heading, so formatted help files must begin with a heading.
 
 Help files have the extension _.help.sl_ and are looked up by _topic_.
 The topic of this help file is _Help Files_.

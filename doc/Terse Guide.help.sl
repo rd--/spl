@@ -152,6 +152,11 @@ var f = { :i | i * 2 }; { f(3, 4) = 6 } .ifError { :error | true }
 collect.name = 'collect'
 var f = { :x | x * x }; [f(5), f.(5)] = [25, 25]
 var f = { :x | x * x }; var d = (p: f); [d::p(5), d::p.(5)] = [25, 25]
+var f = { 0 }; cull(f, 23) = 0
+var f = { 0 }; cullCull(f, 23, 3.141) = 0
+var f = { :x | x }; cull(f, 23) = 23
+var f = { :x | x }; cullCull(f, 23, 3.141) = 23
+var f = { :x :y | x * y }; cullCull(f, 23, 3.141) = 72.243
 
 'kernel/StringDictionary'
 StringDictionary().isStringDictionary
