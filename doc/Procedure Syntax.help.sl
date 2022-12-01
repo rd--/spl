@@ -14,7 +14,7 @@ The two argument sum of squares procedure is written _{ :x :y | (x * x) + (y * y
 
 Temporaries are written between vertical bars, statements are separated by semi-colons.
 
-A no argument procedure that returns two random numbers, the second ≤ the first, is written _{ | n | n := random(); [n, random(n)] }_.
+A one argument procedure that returns two random numbers, the second constrained by the first, is written _{ :n | | i j | i := random(0, n); j := random(0, i); [i, j] }_.
 
 Procedure application is written _f(x, y)_, where _f_ is a two-argument procedure, and _x_ and _y_ are the arguments.
 No argument procedure application is written _f()_.

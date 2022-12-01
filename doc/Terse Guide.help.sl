@@ -393,20 +393,20 @@ List.geom(7, 1, 3) = [1, 3, 9, 27, 81, 243, 729].asList
 
 'stdlib/Point'
 Point(0, 0).class = Point
-Point(-1, 1).isPoint
-Point(-1, 1).x = -1
-Point(-1, 1).y = 1
-Point(-1, 1).x(-3) = -3
-Point(-1, 1).y(3) = 3
-Point(-1, 1) * 9 = Point(-9, 9)
-Point(-1, 1) + 2 = Point(1, 3)
-2 * Point(-1, 1) * 2 = Point(-4, 4)
-Point(-1, 1).asString = 'Point(-1, 1)'
-Point(3, 4).isPoint = true
-Point(3, 4).isPoint.not = false
+Point(-1, 1).isPoint = true
 Point(3, 4).isPoint & { true } = true
-var p = Point(-1, 1); p.x := -3; p.y := 3; p = Point(-3, 3) = true
-var p = Point(-1, 3), a = [p]; a.first.x := -3; p = Point(-3, 3) = true
+(-1@1).isPoint.not = false
+-1@1 = Point(-1, 1)
+(-1@1).x = -1
+(-1@1).y = 1
+(-1@1).x(-3) = -3
+(-1@1).y(3) = 3
+-1@1 * 9 = Point(-9, 9)
+-1@1 + 2 = Point(1, 3)
+2 * (-1@1) * 2 = Point(-4, 4)
+(-1@1).asString = 'Point(-1, 1)'
+var p = -1@1; p.x := -3; p.y := 3; p = (-3@3) = true
+var p = -1@3, a = [p]; a.first.x := -3; p = (-3@3) = true
 
 'stdlib/PriorityQueue'
 PriorityQueue().isPriorityQueue = true

@@ -58,12 +58,13 @@
 
 (defconst spl-font-lock-keywords
   (list
-   `(,(regexp-opt '("var" ":=") 'symbols) . font-lock-keyword-face)
+   `(,(regexp-opt '("var") 'symbols) . font-lock-keyword-face)
+   `("\\(::\\|:=\\)" . font-lock-keyword-face)
    `(,(regexp-opt '("false" "inf" "nil" "pi" "true") 'symbols) . font-lock-builtin-face)
    `(,(regexp-opt '("do" "if" "kr" "timesRepeat" "while") 'symbols) . font-lock-function-name-face)
    `(,(regexp-opt '("error" "warn") 'symbols) . font-lock-warning-face)
-   '("\\<\\([A-Z][a-zA-Z0-9]*\\)\\>" . font-lock-type-face)
-   '(":\\<\\([a-z][a-zA-Z0-9]*\\)\\>" . 'font-lock-variable-name-face))
+   '("\\<[A-Z][a-zA-Z0-9]*\\>" . font-lock-type-face)
+   '(" :[a-z][a-zA-Z0-9]*" . 'font-lock-variable-name-face))
   "Spl font-lock rules.")
 
 (defun spl-fill-syntax-table (st)

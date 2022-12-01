@@ -57,19 +57,29 @@
 		(* Each of my implementations (I name a method) *)
 		self.isMethodName.if {
 			| answer = List(), table = system::genericProcedures[self]; |
-			table.keysValuesDo { :arity :dictionary | answer.add(dictionary)	};
+			table.keysValuesDo { :arity :dictionary | answer.add(dictionary) };
 			answer
 		} {
 			'methodImplementations: not a method'.error
 		}
 	}
 
+	methodPrintString { :self |
+		(* Print string of my implementations (I name a method) *)
+		| answer = List(); |
+		self.methodImplementations.do { :dictionary |
+			dictionary.associationsDo { :each |
+				answer.add('+ ' ++ each.key ++ ' {\n\t' ++ self ++ ' ' ++ each.value[3] ++ '\n}')
+			}
+		};
+		answer
+	}
+
 	methodSignatures { :self |
 		(* Signatures of each of my implementations (I name a method) *)
-		| list = self.methodImplementations, answer = List(); |
-		list.do { :dictionary |
+		| answer = List(); |
+		self.methodImplementations.do { :dictionary |
 			dictionary.associationsDo { :each |
-				[each.key, each.value[2]].postLine;
 				answer.add(each.key ++ '>>' ++ self ++ '/' ++ each.value[2])
 			}
 		};

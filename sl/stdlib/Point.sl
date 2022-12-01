@@ -25,3 +25,7 @@ Point { | x y |
 	asPoint { :self | Point(self, self) }
 	adaptToPointAndApply { :self :aPoint :aProcedure | apply(aProcedure, [aPoint, self.asPoint]) }
 }
+
++ @Numeric {
+	at { :self :aNumber | Point(self, aNumber) }
+}
