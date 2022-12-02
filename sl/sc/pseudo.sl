@@ -1,5 +1,9 @@
 + Object {
 
+	Silent { :numChannels |
+		if (numChannels == 1) { Dc(0) } { Dc(0) ! numChannels }
+	}
+
 	LinLin { :self :srclo :srchi :dstlo :dsthi |
 		| scale  = (dsthi - dstlo) / (srchi - srclo), offset = dstlo - (scale * srclo); |
 		MulAdd(self, scale, offset)

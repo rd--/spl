@@ -33,6 +33,9 @@ var c = if(0.5.coin) { 't' } { 'f' }; c = 't' | { c = 'f' }
 'sc/buffer'
 SfAcquire('piano-c5', 2, [1, 2])
 
+'sc/math'
+(0 .. 14).collect { :each | each.degreeToKey([0, 2, 4, 5, 7, 9, 11], 12) } = [0,  2,  4,  5,  7,  9, 11, 12, 14, 16, 17, 19, 21, 23, 24]
+
 'sc/texture'
 system:clock.schedule(0) { var x = 1.random; x.postLine; if(x > 0.1) { x } { 'end'.postLine; nil } }
 system:clock.scheduleInjecting(0, 1) { arg i; var x = 1.random; [i, x].postLine; if(x > 0.1) { [x, i + 1] } { nil } }

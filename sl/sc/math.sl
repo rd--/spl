@@ -6,6 +6,11 @@
 
 + Number {
 
+	degreeToKey { :scaleDegree :scale :stepsPerOctave |
+		| k = scale.size, d = scaleDegree.rounded, a = (scaleDegree - d) * 10 * (stepsPerOctave / 12); |
+		(stepsPerOctave * (d // k)) + scale[d % k + 1] + a
+	}
+
 	linExpFromTo { :self :lo :hi |
 		lo * ((hi / lo).log * self).exp
 	}
@@ -73,6 +78,12 @@
 	max { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, max) }
 	roundTo { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, roundTo) }
 	truncateTo { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, truncateTo) }
+
+	degreeToKey { :self :scale :stepsPerOctave |
+		self.collect { :scaleDegree |
+			scaleDegree.degreeToKey(scale, stepsPerOctave)
+		}
+	}
 
 }
 
