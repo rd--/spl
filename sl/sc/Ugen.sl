@@ -19,7 +19,7 @@ Ugen {
 	kr { :aUgen | <primitive: return sc.kr(_aUgen);> }
 	printUgen { :aUgen | <primitive: return sc.prettyPrintSyndefOf(_aUgen);> }
 	mrg { :self :aUgen | <primitive: return sc.mrg(_self, _aUgen);> }
-	playUgen { :self | <primitive: return globalThis.playUgen(_self);> }
+	playUgen { :self | <primitive: sc.scsynthEnsure(globalScsynth, function() { sc.playUgen(globalScsynth, _self, 1) });> }
 
 	<! { :self :aUgen | self.mrg(aUgen) }
 
