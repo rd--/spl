@@ -71,14 +71,6 @@
 		self * self
 	}
 
-	timesRepeat { :self :aProcedure |
-		| remaining = self; |
-		while { remaining > 0 } {
-			aProcedure();
-			remaining := remaining - 1
-		}
-	}
-
 	toDo { :self :end :aProcedure |
 		| index = self; |
 		while { index <= end } {
