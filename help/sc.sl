@@ -29,6 +29,7 @@ var c = if(0.5.coin) { 't' } { 'f' }; c = 't' | { c = 'f' }
 1.to(9).collect(squared) / 2 = [0.5, 2, 4.5, 8, 12.5, 18,24.5, 32, 40.5]
 2 * 1.to(9).collect(squared) / 2 = [1, 4, 9, 16, 25,36, 49, 64, 81]
 2 * 1.to(9).collect(squared) / 2 * 9 / 9 = [1, 4, 9, 16, 25,36, 49, 64, 81]
+23.isOutputSignal = false
 
 'sc/buffer'
 SfAcquire('piano-c5', 2, [1, 2])

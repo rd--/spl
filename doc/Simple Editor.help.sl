@@ -7,11 +7,16 @@ Help files open in the document pane.
 
 ## Key Commands
 
-- Ctrl-Enter ⇒ Evaluate selection or program
-- Ctrl-Shift-Enter ⇒ Play selection or program
+- Ctrl-Enter ⇒ Play selection or program
+- Ctrl-Shift-Enter ⇒ Evaluate selection or program
+- Ctrl-> ⇒ Clear schedule
 - Ctrl-. ⇒ Clear schedule and reset synthesiser
 - Ctrl-Shift-H ⇒ Open help document for selected text
 - Ctrl-Shift-L ⇒ Open file selection dialog and load selected file
+
+The simpler keybinding of _Ctrl-Enter_ runs wraps the selected text in _{ ... }.play_ before evaluation.
+The _play_ method inspects the answer of evaluating the procedure, and if it is an _output signal_ sends it to the synthesiser.
+This makes is safe to _play_ expressions that are not synthesiser programs.
 
 ## History
 

@@ -76,6 +76,11 @@ function scEvalText(splText: string): void {
 	ev.evaluateString(splText);
 }
 
+async function scEvalFile(fileName: string): Promise<void> {
+	const splText = await io.readTextFile(fileName);
+	scEvalText(splText);
+}
+
 function scPlayText(splText: string): void {
 	const ugenGraph = ev.evaluateString(splText);
 	sc.playUgen(cliScynth, ugenGraph, 1);
@@ -104,9 +109,10 @@ function scUdpServer(portNumber: number): void {
 				const message = JSON.parse(datagramText);
 				consoleDebug(`scUdpServer: recv: ${datagram}: ${message}`);
 				switch(message.command) {
-				case 'playFile': scPlayFile(message.fileName); break;
 				case 'evalText': scEvalText(message.text); break;
+				case 'evalFile': scEvalFile(message.fileName); break;
 				case 'playText': scPlayText(message.text); break;
+				case 'playFile': scPlayFile(message.fileName); break;
 				default: console.warn(`scUdpServer: unknown command: ${message.command}`); break;
 				}
 			} catch (err) {
