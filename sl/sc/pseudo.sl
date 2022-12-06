@@ -64,8 +64,6 @@
 	XChoose { :repeats :list | <primitive: return sc.XChoose(_repeats, _list);> }
 	XLn { :start :end :dur | <primitive: return sc.XLn(_start, _end, _dur);> }
 
-	range { :self :lo :hi | LinLin(self, -1, 1, lo, hi) }
-
 }
 
 + Array {
