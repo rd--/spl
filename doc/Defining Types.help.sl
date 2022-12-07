@@ -1,17 +1,17 @@
 # Defining Types
 
-_Types_ in _Spl_ are _records_ having a sequence of named _slots_.
+_Types_ in _Spl_ are _records_ having a sequence of named _fields_.
 
 Defining a type defines a number of associated methods.
 
 A _constructor_ is defined to make instances of the type.
-The constructor has arguments for each of the slots, in the sequence the slots were defined.
+The constructor has arguments for each of the fields, in the sequence they were defined.
 
 A predicate methods is defined that answers if a value is of the type.
 The predicate for type _T_ is named _isT_.
 
-_Reader_ and _writer_ methods are defined to read and write the slots associated with the type.
-These methods have the same names as the slots.
+_Reader_ and _writer_ methods are defined for the fields associated with the type.
+These methods have the same names as the fields.
 Reader methods have one argument, writer methods have two arguments.
 
 The expression below adds a type for representing pitch as an _(octave, pitchClass)_ tuple, with a single method _asMidi_.

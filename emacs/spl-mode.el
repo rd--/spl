@@ -9,11 +9,11 @@
 (require 'sclang-mode)
 
 (defun spl-netcat-cmd (cmd key value)
-  "Send CMD with the parameter KEY = VALUE to the Spl server."
+  "Send command CMD with the parameter KEY = VALUE to the Spl server."
   (shell-command
    (format
-    "echo '{\"command\": \"%s\", \"%s\": %s}' | netcat -C -q 0 -u 127.0.0.1 3010"
-    cmd key (json-encode-string value))))
+    "echo '%s' | netcat -C -q 0 -u 127.0.0.1 3010"
+    (json-encode `((command . ,cmd) (,key . ,value))))))
 
 (defun spl-delete-markdown-code-fences (s)
   "Remove Mardown code fences from the string S if present."
@@ -27,25 +27,25 @@
 (defun spl-eval-region ()
   "Evaluate region at Spl server."
   (interactive)
-  (spl-netcat-cmd "evalText" "text" (spl-get-selection)))
+  (spl-netcat-cmd 'evalText 'text (spl-get-selection)))
 
 (defun spl-play-region ()
   "Play region at Spl server."
   (interactive)
-  (spl-netcat-cmd "playText" "text" (spl-get-selection)))
+  (spl-netcat-cmd 'playText 'text (spl-get-selection)))
 
 (defun spl-play-current-file ()
   "Play current file at Spl server."
   (interactive)
-  (spl-netcat-cmd "playFile" "fileName" buffer-file-name))
+  (spl-netcat-cmd 'playFile 'fileName buffer-file-name))
 
 (defun spl-clear-system-clock ()
   (interactive)
-  (spl-netcat-cmd "evalText" "text" "system::clock.clear"))
+  (spl-netcat-cmd 'evalText 'text "system::clock.clear"))
 
 (defun spl-reset-scsynth ()
   (interactive)
-  (spl-netcat-cmd "evalText" "text" "globalScsynth().reset"))
+  (spl-netcat-cmd 'evalText 'text "globalScsynth().reset"))
 
 (defun spl-stop ()
   (interactive)

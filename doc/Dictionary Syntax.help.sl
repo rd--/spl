@@ -5,8 +5,6 @@ Rewrite rules:
 - _(k:v, ...)_ ⇒ _asIdentityDictionary(['k' → v, ...])_
 - _d::k_ ⇒ _at(d, 'k')_
 - _d::k := v_ ⇒ _put(d, 'k', v)_
-- _::k_ ⇒ _at(implicitDictionary, 'k')_
-- _::k := v_ ⇒ _put(implicitDictionary, 'k', v)_
 
 The notation _(p: x, q: y)_ constructs an _IdentityDictionary_ with associations _'p' → x_ and _'q' → y_.
 

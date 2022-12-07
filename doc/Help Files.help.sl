@@ -1,7 +1,7 @@
 # Help Files
 
-Help files can be formatted or plain text.
-The system distinguishes between plain text and formatted text files by looking at the first character.
+Help files can be written either as formatted or as plain text.
+The system distinguishes between the types of help files by looking at the first character.
 To be recognised as a formatted document by the [Simple Editor] files _must_ begin with a _#_ character.
 Formatted help files are written using [Markdown](https://commonmark.org/).
 A # indicates a heading, so formatted help files must begin with a heading.
