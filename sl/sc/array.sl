@@ -35,3 +35,13 @@
 	clump { :self :groupSize | <primitive: return sc.clump(_self, _groupSize);> }
 
 }
+
++ Object {
+
+	dup { :self :anInteger | self.replicateApplying(anInteger, value) }
+	dup { :self | self.dup(2) }
+	! { :self :anInteger | self.dup(anInteger) }
+	!+ { :self :anInteger | self.dup(anInteger).sum }
+	!* { :self :anInteger | self.dup(anInteger).product }
+
+}

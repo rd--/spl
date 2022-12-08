@@ -49,9 +49,6 @@ Array : [Collection, SequenceableCollection, ArrayedCollection] {
 	}
 
 	replicate { :self :anInteger | self.replicateApplying(anInteger, identity) }
-	dup { :self :anInteger | self.replicateApplying(anInteger, value) }
-	dup { :self | self.dup(2) }
-	! { :self :anInteger | self.dup(anInteger) }
 
 }
 
