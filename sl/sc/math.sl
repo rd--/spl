@@ -1,6 +1,6 @@
 + Ugen {
 
-	rounded { :self | self.RoundTo(1) }
+	rounded { :self | RoundTo(self, 1) }
 
 }
 
@@ -19,20 +19,17 @@
 		1.0.rand.linExpFromTo(self, upperBound)
 	}
 
-	rand { :self | random(self) }
-	rrand { :self :aNumber | random(self, aNumber) }
-	rand2 { :self | random(self.negated, self) }
-	coin { :self | random() < self }
+	coin { :self | randomFloat() < self }
 
 	frac { :self | self.fractionPart }
 	neg { :self :anObject | self.negated(anObject) }
 	rem { :self :anObject | self.remainder(anObject) }
 	trunc { :self | self.truncated }
 
-	ampDb { :self | self.log10 * 20 }
-	dbAmp { :self | 10 ** (self * 0.05) }
-	cpsMidi { :self | (log2 (self * (1 / 440)) * 12) + 69 }
-	midiCps { :self | 440 * (2 ** ((self - 69) * (1 / 12))) }
+	AmpDb { :self | self.log10 * 20 }
+	DbAmp { :self | 10 ** (self * 0.05) }
+	CpsMidi { :self | (log2 (self * (1 / 440)) * 12) + 69 }
+	MidiCps { :self | 440 * (2 ** ((self - 69) * (1 / 12))) }
 
 }
 
@@ -55,9 +52,9 @@
 	sqrt { :self | self.collect(sqrt) }
 	tanh { :self | self.collect(tanh) }
 
-	ampDb { :self | self.collect(ampDb) }
-	dbAmp { :self | self.collect(dbAmp) }
-	midiCps { :self | self.collect(midiCps) }
+	AmpDb { :self | self.collect(AmpDb) }
+	DbAmp { :self | self.collect(DbAmp) }
+	MidiCps { :self | self.collect(MidiCps) }
 
 }
 

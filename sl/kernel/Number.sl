@@ -113,11 +113,15 @@ Number : [Magnitude, Numeric] {
 
 	asInteger { :self | self.truncated }
 
-	random { :self | self * random() }
-	random { :self :aNumber | self + random(aNumber - self) }
+	randomFloat { :self | self * randomFloat() }
+	randomFloat { :self :aNumber | self + randomFloat(aNumber - self) }
 
-	randomInteger { :self | random(1, self).rounded }
-	randomInteger { :self :aNumber | random(self, aNumber).rounded }
+	randomInteger { :self | randomFloat(1, self).rounded }
+	randomInteger { :self :aNumber | randomFloat(self, aNumber).rounded }
+
+	random { :self | if(self.isInteger) { self.randomInteger } { self.randomFloat } }
+	random { :self :aNumber | if(self.isInteger) { randomInteger(self, aNumber) } { randomFloat(self, aNumber) } }
+
 	atRandom { :self | self.randomInteger }
 
 	adaptToCollectionAndApply { :self :aCollection :aProcedure |
@@ -136,6 +140,6 @@ Number : [Magnitude, Numeric] {
 }
 
 + Void {
-	random { <primitive: return Math.random();> }
+	randomFloat { <primitive: return Math.random();> }
 	Number { 'Number()'.error }
 }

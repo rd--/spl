@@ -13,6 +13,10 @@
 		LinLin(self, -1, 1, lo, hi)
 	}
 
+	IRand { :self | IRand(0, self) }
+	Rand { :self | Rand(0, self) }
+	Rand2 { :self | Rand(0 - self, self) }
+
 	clearBuf { :bufnum | <primitive: return sc.clearBuf(_bufnum);> }
 
 	ImpulseSequencer { :self :trig |Sequencer(self, trig) * trig }
