@@ -14,11 +14,15 @@ Help files open in the document pane.
 - Ctrl-. ⇒ Clear schedule and reset synthesiser
 - Ctrl-Shift-H ⇒ Open help document for selected text
 - Ctrl-Shift-L ⇒ Open file selection dialog and load selected file
+- Ctrl-m ⇒ Open manual document for selected text
 
 There are two distinct _evaluation_ key commands.
 _Ctrl-Enter_ wraps the selected text in _{ ... }.play_ before evaluation.
 The _play_ method inspects the answer of evaluating the procedure, and if it is an _output signal_ sends it to the synthesiser.
 This makes it possible to _play_ expressions that are not synthesiser programs, for instance [Texture Programs].
+
+The _manual_ documents the language and the standard library.
+The _help_ documents the synthesiser interface.
 
 ## History
 
