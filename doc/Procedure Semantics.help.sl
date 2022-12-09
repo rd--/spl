@@ -12,4 +12,6 @@ The procedure _numArgs_ reports the arity of a procedure.
 
 The _cull_ family of procedures (as in Smalltalk) selectively apply a procedure to fewer arguments, using  _numArgs_ to ignore excess parameters.
 
-See also [Procedure Implementation].
+* * *
+
+See also [Procedure Syntax]

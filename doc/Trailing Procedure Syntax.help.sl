@@ -2,10 +2,10 @@
 
 Rewrite rules:
 
-- _f { p } ..._ ⇒ _f({ p }, ...)_
-- _f(x, ...) { p } ..._ ⇒ _f(x, ..., { p }, ...)_
-- _x.f { p } ..._ ⇒ _f(x, { p }, ...)_
-- _x.f(y, ...) { p } ..._ ⇒ _f(x, y, ..., { p }, ...)_
+- _f { p } ..._ ≡ _f({ p }, ...)_
+- _f(x, ...) { p } ..._ ≡ _f(x, ..., { p }, ...)_
+- _x.f { p } ..._ ≡ _f(x, { p }, ...)_
+- _x.f(y, ...) { p } ..._ ≡ _f(x, y, ..., { p }, ...)_
 
 Trailing procedure syntax allows any number of concluding _literal procedure_ arguments to be written outside the parameter list.
 This notation is particularly clear for control procedures such as _if_, _while_, _timesRepeat_ &etc.
@@ -24,4 +24,6 @@ The two branches of the _if_ clause are written as trailing procedures.
 		}.dup(7).Splay2 / 7
 	}.overlap(3, 3, 3)
 
-See also [Trailing Dictionary Syntax].
+* * *
+
+See also: [Trailing Dictionary Syntax]

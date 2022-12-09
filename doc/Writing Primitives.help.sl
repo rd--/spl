@@ -4,7 +4,7 @@ Primitives have Smalltalk semantics and are written inline using a Smalltalk-lik
 
 If a primitive succeeds it returns from the method, if it fails it continues with the remainder of the method.
 
-Below is the implementation of _at_ from _ArrayedColletion_.
+Below is the implementation of _at_ from _ArrayedCollection_.
 
 ```
 	at { :self :anInteger |

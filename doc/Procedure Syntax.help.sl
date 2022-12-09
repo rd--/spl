@@ -1,6 +1,6 @@
 # Procedure Syntax
 
-The Spl _Procedure_ syntax follows the Smalltalk _Block_ syntax, with braces (`{` and `}`) replacing brackets (`[` and `]`), and semi-colons (`;`) replacing periods (`.`).
+The _Procedure_ syntax follows the Smalltalk _Block_ syntax, with braces (`{` and `}`) replacing brackets (`[` and `]`), and semi-colons (`;`) replacing periods (`.`).
 
 The general form is _{ arguments? temporaries? statements? }_.
 
@@ -22,3 +22,7 @@ No argument procedure application is written _f()_.
 There is no return operator, the value of a procedure is the value of the last statement.
 
 There are two re-writing syntax forms for procedures, [Initialised Temporaries Syntax] and [Variable Keyword Syntax].
+
+* * *
+
+See also: [Procedure Semantics]

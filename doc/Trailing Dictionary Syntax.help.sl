@@ -2,10 +2,10 @@
 
 Rewrite rules:
 
-- _f(k: v, ...) ..._ ⇒ _f((k: v, ...), ...)_
-- _f(x, ...) (k: v, ...) ..._ ⇒ _f(x, ..., (k: v, ...), ...)_
-- _x.f (k: v, ...) ..._ ⇒ _f(x, (k: v, ...), ...)_
-- _x.f(y, ...) { p }..._ ⇒ _f(x, y, ..., (k: v, ...), ...)_
+- _f(k: v, ...) ..._ ≡ _f((k: v, ...), ...)_
+- _f(x, ...) (k: v, ...) ..._ ≡ _f(x, ..., (k: v, ...), ...)_
+- _x.f (k: v, ...) ..._ ≡ _f(x, (k: v, ...), ...)_
+- _x.f(y, ...) { p }..._ ≡ _f(x, y, ..., (k: v, ...), ...)_
 
 Trailing dictionary syntax allows any number of concluding _literal dictionary_ arguments to be written outside the parameter list.
 This notation is particularly clear for procedures that accept an _options_ dictionary.
@@ -31,4 +31,6 @@ The dictionary form of the Ugen constructors _SinOsc_ and _FreqShift_ are used t
 		[left, right] / 3
 	}.overlap(3, 3, 3)
 
-See also [Trailing Procedure Syntax].
+* * *
+
+See also: [Trailing Procedure Syntax]
