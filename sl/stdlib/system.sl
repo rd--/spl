@@ -56,7 +56,7 @@
 	methodImplementations { :self |
 		(* Each of my implementations (I name a method) *)
 		self.isMethodName.if {
-			| answer = List(), table = system::genericProcedures[self]; |
+			| answer = OrderedCollection(), table = system::genericProcedures[self]; |
 			table.keysValuesDo { :arity :dictionary | answer.add(dictionary) };
 			answer
 		} {
@@ -66,7 +66,7 @@
 
 	methodPrintString { :self |
 		(* Print string of my implementations (I name a method) *)
-		| answer = List(); |
+		| answer = OrderedCollection(); |
 		self.methodImplementations.do { :dictionary |
 			dictionary.associationsDo { :each |
 				answer.add('+ ' ++ each.key ++ ' {\n\t' ++ self ++ ' ' ++ each.value[3] ++ '\n}')
@@ -77,7 +77,7 @@
 
 	methodSignatures { :self |
 		(* Signatures of each of my implementations (I name a method) *)
-		| answer = List(); |
+		| answer = OrderedCollection(); |
 		self.methodImplementations.do { :dictionary |
 			dictionary.associationsDo { :each |
 				answer.add(each.key ++ '>>' ++ self ++ '/' ++ each.value[2])
@@ -135,7 +135,7 @@
 	typeTraits { :self |
 		(* Traits implemented by myself (I name a type) *)
 		self.isTypeName.if {
-			| answer = List(); |
+			| answer = OrderedCollection(); |
 			system::traitTypes.keysValuesDo { :key :value |
 				value.includes(self).ifTrue { answer.add(key) }
 			};

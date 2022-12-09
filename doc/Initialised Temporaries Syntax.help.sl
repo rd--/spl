@@ -19,3 +19,7 @@ The second and third rules allow destructuring _Dictionary_ and _SequencableColl
 The notation _| (x, y) = p; |_ initialises the variables _x_ and _y_ to the values _p::x_ and _p::y_.
 
 _Rationale_: Initialising temporary variables as they are declared makes it clear in which cases they are used simply as names (assigned to using the `=` notation) and in which cases they are used as mutable state (assigned to using `:=`).
+
+_Subtleties_:
+The array and dictionary initialisers must only evaluate the right hand side once.
+A gensym-ed private name is used to store the initial value, and that name is used for the destructuring.

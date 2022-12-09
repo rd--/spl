@@ -45,9 +45,6 @@ var a = [5, 4, 3, 2, 1]; a.findIndex { :each | each % 3 = 0 } = 3
 [1 .. 9].shuffled.sorted = [1 .. 9]
 13.fibonacciArray = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 3.replicate('3') = ['3', '3', '3']
-'3'.dup(3) = ['3', '3', '3']
-'3' ! 3 = ['3', '3', '3']
-({ randomFloat() } ! 3).allSatisfy(isNumber) = true
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity) = 4
 [9 .. 1].indexOf(3) = 7
 [9 .. 1].includes(3) = true
@@ -143,8 +140,6 @@ pi.random.isInteger = false
 
 'kernel/Procedure'
 { Procedure() }.ifError { :error | true } = true
-var m = { randomFloat() }.dup(9).mean; m > 0 & { m < 1 }
-({ randomFloat() } ! 9).size = 9
 var i = 1; while { i < 5 } { i := i + 1 }; i = 5
 var i = 1; 1.toDo(3) { :each | i := i + each.squared } ; i = 15
 var i = 1; 3.do { :each | i := i + each.squared } ; i = 15
@@ -336,7 +331,7 @@ to(9, 1) = Interval(9, 1, -1)
 [1 .. 9] = (1 .. 9).asArray
 [9 .. 1] = (9 .. 1).asArray
 [3 - 2 .. 7 + 2] = (3 - 2 .. 7 + 2).asArray
-var l = List(); Interval(9, 1, -1).do { :each | l.add(each) }; l.asArray = [9 .. 1]
+var l = OrderedCollection(); Interval(9, 1, -1).do { :each | l.add(each) }; l.asArray = [9 .. 1]
 collect(1.to(9)) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 1.to(9).collect { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 Interval(1, 6, 2).asArray = [1, 3, 5]
@@ -376,24 +371,24 @@ LinkedList([1 .. 9]).reversed = [9 .. 1]
 { LinkedList().removeFirst }.ifError { :error | true }
 { LinkedList().removeLast }.ifError { :error | true }
 
-'stdlib/List'
-List().species = List
-List().isList = true
-List(3).size = 0
-List.ofSize(3) = [nil, nil, nil].asList
-List([1, 2, 3]).size = 3
-var l = List(); l.addFirst(1); l.addFirst(2); l.asArray = [2, 1]
-var l = List(); l.addLast(1); l.addLast(2); l.asArray = [1, 2]
-var l = List(); 5.do { :each | l.add(each) }; l.asArray = [1 .. 5]
-List([1 .. 9]).collect { :each | 10 - each } = List([9 .. 1])
-var l = List([1 .. 9]); l.removeLast = 9 & { l.size = 8 }
-var l = List([1, 2, 3]); l.addAllLast(4.to(5)); l.asArray = [1 .. 5]
-var l = List([4, 5]); l.addAllFirst(1.to(3)); l.asArray = [1 .. 5]
-13.fibonacciList = List([1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233])
-[1, 2, 3].asList ++ [4, 5, 6] = [ 1, 2, 3, 4, 5, 6 ].asList
-[1 .. 5].asList.reversed = [5 .. 1].asList
-List.series(9, 1, 1) = [1 .. 9].asList
-List.geom(7, 1, 3) = [1, 3, 9, 27, 81, 243, 729].asList
+'stdlib/OrderedCollection'
+OrderedCollection().species = OrderedCollection
+OrderedCollection().isOrderedCollection = true
+OrderedCollection(3).size = 0
+OrderedCollection.ofSize(3) = [nil, nil, nil].asOrderedCollection
+OrderedCollection([1, 2, 3]).size = 3
+var l = OrderedCollection(); l.addFirst(1); l.addFirst(2); l.asArray = [2, 1]
+var l = OrderedCollection(); l.addLast(1); l.addLast(2); l.asArray = [1, 2]
+var l = OrderedCollection(); 5.do { :each | l.add(each) }; l.asArray = [1 .. 5]
+OrderedCollection([1 .. 9]).collect { :each | 10 - each } = OrderedCollection([9 .. 1])
+var l = OrderedCollection([1 .. 9]); l.removeLast = 9 & { l.size = 8 }
+var l = OrderedCollection([1, 2, 3]); l.addAllLast(4.to(5)); l.asArray = [1 .. 5]
+var l = OrderedCollection([4, 5]); l.addAllFirst(1.to(3)); l.asArray = [1 .. 5]
+13.fibonacciSequence = OrderedCollection([1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233])
+[1, 2, 3].asOrderedCollection ++ [4, 5, 6] = [ 1, 2, 3, 4, 5, 6 ].asOrderedCollection
+[1 .. 5].asOrderedCollection.reversed = [5 .. 1].asOrderedCollection
+OrderedCollection.series(9, 1, 1) = [1 .. 9].asOrderedCollection
+OrderedCollection.geom(7, 1, 3) = [1, 3, 9, 27, 81, 243, 729].asOrderedCollection
 
 'stdlib/Point'
 Point(0, 0).class = Point

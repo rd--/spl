@@ -1,38 +1,8 @@
-# Primitive Types
-
-The primitive types are _Array_, _Boolean_, _Nil_, _Number_, _Procedure_, and _String_.
-
-In _Spl.Js_ the types _ByteArray_, _Error_, _Float64Array_, _IdentityDictionary_, _IdentitySet_, _LargeInteger_, _List_, _PriorityQueue_, _Promise_ and _RegExp_ are also primitive.
-
-# Notation
-
-Procedure application is written _f(p, q)_ or equivalently _p.f(q)_.
-Procedures have a fixed number of arguments.
-
-Initially the only procedures are _loadPath: String → Nil_ and _loadSequence: [String] → Nil_.
-The file _prelude.sl_ loads the files _kernel.sl_ and _stdlib.sl_, which together define the standard environment.
-
-Arrays are one-indexed, _at(p, 1)_ reads the first element of the the array _p_.
-
-# Syntax
-
-Spl has a minimal core syntax and a moderate number of rewrite rules.
-
 ## Application and Assignment
 
 - _f()_ ⇒ apply _f_
 - _f(x, ...)_ ⇒ apply _f_ to _x, ..._
 - _x := y_ ⇒ assign _y_ to _x_
-
-## Rewrite Rules
-
-- _x.f := p_ ⇒ _f(x, p)_
-
-# Assignment, initialisation, equality, identity
-
-The assignment syntax is _p := q_.
-The temporary variable initialiser syntax is _p = q_.
-The standard library defines the equality predicate as _p = q_ and the identity predicate as _p == q_.
 
 # Spl
 
@@ -41,12 +11,6 @@ The standard library defines the equality predicate as _p = q_ and the identity 
 - Notation?
 - StdLib?
 - Js-Sc3?
-
-# Strings
-
-String are written _'...'_.
-_"..."_ means _parseDoubleQuotedString('...')_.
-_\`...\`_ means _parseBacktickQuotedString('...')_.
 
 # Collections
 
@@ -63,12 +27,6 @@ Unordered:
 
 # Subtleties
 
-The array and dictionary initialisers must only evaluate the right hand side once.
-A gensym-ed private name is used to store the initial value, and that name is used for the destructuring.
-
-If _p.q_ is a procedure, it must be applied as _(p.q)(r)_.
-_p.q(r)_ is _q(p, r)_, not _(q(p))(r)_.
-
 The dispatch mechansim is by arity, so method calls are by definition arity-correct.
 Local (anonymous) blocks however can be called at incorrect arity.
 Arity checks are optionally added to non-method blocks.
@@ -83,25 +41,6 @@ Workspace dictionary, implicitDictionary.
 - echo '{"command": "playFile", "fileName": "/home/rohan/sw/jssc3/help/graph/jmcc-analog-bubbles.stc"}' | netcat -C -q 0 -u 127.0.0.1 3010
 - echo '{"command": "playFile", "fileName": "/home/rohan/sw/jssc3/help/graph/jmcc-analog-bubbles-mouse.stc"}' | netcat -C -q 0 -u 127.0.0.1 3010
 - hsc3-scsynth reset
-
-# Traits
-
-_Collection_ and _SequenceableCollection_ are "traits".
-_Array_ and _List_ are instances of both.
-_IdentitySet_ and _IdentityDictionary_ are instances of _Collection_.
-Traits must be loaded before Types.
-When a type is added, methods for the traits that it implements are added to the dispatch table at the new type.
-When a trait is extended methods are added both to the trait entry and to the dispatch table for all types that implement the trait.
-
-# Class Methods
-
-Since there are no classes, there are no class variables and no class methods.
-The expression _Array.series(5, 1, 2)_ means _series(Array, 5, 1, 2)_.
-_series_ uses _Array.new(5)_ to construct the collection.
-_new(f, n)_ is defined as _f(n)_.
-Similarly _Array.new_ makes an empty array because _new(f)_ is defined as _f()_.
-_List.ofSize(3)_ makes a list having three nil slots, wheras _List.new(3)_ creates an empty list.
-As in Smalltalk types can define a _species_ method to decide result types.
 
 # Implications of Js
 
@@ -132,16 +71,6 @@ User defined types, such as for Cartesian points, are encoded as records of the 
 - Trailing closure notation for control structure notation, i.e. _if(p) { q } { r }_
 - Method return must be delimited, i.e. _withReturn { ... return(...) }_
 
-# Notation
-
-Notation for methods that return procedures, i.e. [1, 2, 3].species.value(5), ([1, 2, 3].species)(5).
-Logical and is &, logical or is |, c.f. bitAnd and bitOr
-
-# Conventions
-
-Type constructors are capitalised.
-The standard library writes _F(x)_ where _F_ is a constructor, _f(x)_ where _f_ is a control operator, and _x.f_ otherwise.
-
 # St Compatibility
 
 - _f.(x...)_ ⇒ _f.value(x...)_
@@ -156,7 +85,7 @@ Variants for _update_ and _mutate_?  Pt(0,0).x(1) == Pt(1, 0)?  p.x!(1) == 1?
 # Syntax
 
 Arguments: _{ :p :q | ... }_
-Temporaries: _| p q |_ or _| p = q, r = s |_.
+Temporaries: _| p q |_ or _| p = q, r = s; |_.
 Trailing closures: _if(p) { q } { r }_ &etc.
 Keywords: _p.at(q, put: r)_ could mean _p.atPut(q, r)_.
 
@@ -187,12 +116,6 @@ _List[1, 2, 3]_ could mean _List([1, 2, 3])_.
 In the general case this would be a _trailing array_ syntax, so _f(p) [q..] [r..]_ would mean _f(p, [q..], [r..])_.
 Note however that the single element array form _c[i]_ is the _collection at_ syntax.
 A generalised _at_ syntax would allow _c[i, j]_ to mean _[c[i], c[j]]_.
-
-# Trailing Dictionary Syntax
-
-_f (p: x, q: y)_ means _f((p: x, q: y))_, which means _f(['p' -> x, 'q' -> y].asIdentityDictionary)_.
-This allows implementing _keyword_ like variants of procedures.
-In addition to _SinOsc(440, 0)_ there can be a single argument form at _IdentityDictionary_ written _SinOsc(freq: 440, phase: 0)_.
 
 # String Traits
 

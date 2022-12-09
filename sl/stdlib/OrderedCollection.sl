@@ -1,15 +1,15 @@
-List : [Collection, SequenceableCollection] { | array |
+OrderedCollection : [Collection, SequenceableCollection] { | array |
 
 	asArray { :self | self.array.copy }
 	asCollection { :self | self }
-	copy { :self | List(self.array.copy) }
+	copy { :self | OrderedCollection(self.array.copy) }
 
 	ofSize { :self :aNumber |
 		(aNumber - self.size).timesRepeat { self.add(nil) };
 		self
 	}
 
-	= { :self :aList | self.array = aList.array }
+	= { :self :anObject | anObject.isOrderedCollection & { self.array = anObject.array } }
 	at { :self :index | self.array[index] }
 	put { :self :index :anObject | self.array[index] := anObject }
 	size { :self | self.array.size }
@@ -19,7 +19,7 @@ List : [Collection, SequenceableCollection] { | array |
 	addAllLast { :self :aCollection | <primitive: return _self.array.push(..._asArray(_aCollection));> }
 	addFirst { :self :anObject | <primitive: return _self.array.unshift(_anObject);> }
 	addLast { :self :anObject | <primitive: return _self.array.push(_anObject);> }
-	collect { :self :aProcedure | List(self.array.collect(aProcedure)) }
+	collect { :self :aProcedure | OrderedCollection(self.array.collect(aProcedure)) }
 	removeFirst { :self | <primitive: return _self.array.shift();> }
 	removeLast { :self | <primitive: return _self.array.pop();> }
 
@@ -27,21 +27,20 @@ List : [Collection, SequenceableCollection] { | array |
 
 + Void {
 
-	List { List([]) }
-	OrderedCollection { List([]) }
+	OrderedCollection { OrderedCollection([]) }
 
 }
 
 + Array {
 
-	asList { :self | List(self) }
+	asOrderedCollection { :self | OrderedCollection(self) }
 
 }
 
 + Number {
 
-	fibonacciList { :self |
-		| a = 0, b = 1, i = 0, temp = nil, answer = List(); |
+	fibonacciSequence { :self |
+		| a = 0, b = 1, i = 0, temp = nil, answer = OrderedCollection(); |
 		while { i < self } {
 			answer.add(b);
 			temp := b;
@@ -52,9 +51,12 @@ List : [Collection, SequenceableCollection] { | array |
 		answer
 	}
 
-	fibonacciArray { :self | self.fibonacciList.asArray }
+	fibonacciArray { :self | self.fibonacciSequence.asArray }
 
-	List { :self | List() }
+	OrderedCollection { :self |
+		(* The array field is not a St array, it is a Js array. *)
+		OrderedCollection()
+	}
 
 }
 

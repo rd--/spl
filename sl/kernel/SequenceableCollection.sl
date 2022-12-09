@@ -126,7 +126,7 @@
 	}
 
 	select { :self :aBlock |
-		| answer = List(); |
+		| answer = OrderedCollection(); |
 		1.toDo(self.size) { :index | aBlock(self[index]).ifTrue { answer.add(self[index]) } };
 		answer
 	}

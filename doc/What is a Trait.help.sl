@@ -1,18 +1,21 @@
 # What is a Trait?
 
-A _trait_ is a collection of behaviours.
+A _trait_ is a collection of behaviours, in much the same way that _abstract classes_ are in Smalltalk.
+In Smalltalk _Collection_, _SequenceableCollection_ and _ArrayedCollection_ are abstract classes, here they are traits.
+Since _Procedures_ are the only kind of behaviour in the system, traits are a collection of _Procedures_.
 
-In SmallTalk _Collection_, _SequenceableCollection_ and _ArrayedCollection_ are abstract classes.
-Abstract classes define behaviour but cannot be instatiated.
-
-In Spl the definition of the _Array_ type begins:
-
-```
-Array : [Collection, SequenceableCollection, ArrayedCollection] {
-...
-}
-```
+Types are said to implement a trait.
+_Array_ implements all three of the above traits.
+_IdentityDictionary_ implements _Collection_.
 
 This means that _Array_ receives copies of the methods defined in each of the name traits.
 The traits are applied in sequence.
 Methods defined by traits applied later in the sequence can override methods defined by traits that are applied earlier.
+
+Traits must be loaded before Types.
+When a type is added, methods for the traits that it implements are added to the dispatch table at the new type.
+When a trait is extended methods are added both to the trait entry and to the dispatch table for all types that implement the trait.
+
+```
+'Collection'.traitMethods.keys
+```

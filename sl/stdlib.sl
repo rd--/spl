@@ -11,7 +11,7 @@ loadSequence([
 	'stdlib/Interval.sl',
 	'stdlib/LargeInteger.sl',
 	'stdlib/LinkedList.sl',
-	'stdlib/List.sl',
+	'stdlib/OrderedCollection.sl',
 	'stdlib/Point.sl',
 	'stdlib/PriorityQueue.sl',
 	'stdlib/Promise.sl',

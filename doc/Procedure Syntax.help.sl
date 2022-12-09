@@ -23,6 +23,10 @@ There is no return operator, the value of a procedure is the value of the last s
 
 There are two re-writing syntax forms for procedures, [Initialised Temporaries Syntax] and [Variable Keyword Syntax].
 
+_Subtleties:_
+If _p.q_ is a procedure, it must be applied as _(p.q)(r)_, which is usually written p.q.value(r).
+_p.q(r)_ is _q(p, r)_, not _(q(p))(r)_.
+
 * * *
 
 See also: [Procedure Semantics]
