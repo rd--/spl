@@ -1,6 +1,5 @@
 + Ugen {
 
-	rounded { :self | RoundTo(self, 1) }
 
 }
 

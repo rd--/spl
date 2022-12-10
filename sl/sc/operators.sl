@@ -1,34 +1,16 @@
 + Ugen {
 
-	abs { :self | <primitive: return sc.Abs(_self);> }
-	arcCos { :self | <primitive: return sc.ArcCos(_self);> }
-	arcSin { :self | <primitive: return sc.ArcSin(_self);> }
-	arcTan { :self | <primitive: return sc.ArcTan(_self);> }
+(*
 	ceiling { :self | <primitive: return sc.Ceil(_self);> }
-	cos { :self | <primitive: return sc.Cos(_self);> }
-	cosh { :self | <primitive: return sc.Cosh(_self);> }
-	cubed { :self | <primitive: return sc.Cubed(_self);> }
-	exp { :self | <primitive: return sc.Exp(_self);> }
-	floor { :self | <primitive: return sc.Floor(_self);> }
 	fractionPart { :self | <primitive: return sc.Frac(_self);> }
 	negated { :self | <primitive: return sc.Neg(_self);> }
 	reciprocal { :self | <primitive: return sc.Recip(_self);> }
-	sin { :self | <primitive: return sc.Sin(_self);> }
-	sinh { :self | <primitive: return sc.Sinh(_self);> }
-	sqrt { :self | <primitive: return sc.Sqrt(_self);> }
-	squared { :self | <primitive: return sc.Squared(_self);> }
-	tan { :self | <primitive: return sc.Tan(_self);> }
-	tanh { :self | <primitive: return sc.Tanh(_self);> }
+	rounded { :self | RoundTo(self, 1) }
+*)
 
 	bitShiftLeft { :self :anObject | <primitive: return sc.ShiftLeft(_self, _anObject);> }
 	bitShiftRight { :self :anObject | <primitive: return sc.ShiftRight(_self, _anObject);> }
-	bitAnd { :self :anObject | <primitive: return sc.BitAnd(_self, _anObject);> }
-	bitOr { :self :anObject | <primitive: return sc.BitOr(_self, _anObject);> }
-	bitXor { :self :anObject | <primitive: return sc.BitXor(_self, _anObject);> }
-	min { :self :anObject | <primitive: return sc.Min(_self, _anObject);> }
-	max { :self :anObject | <primitive: return sc.Max(_self, _anObject);> }
 	truncateTo { :self :anObject | <primitive: return sc.Trunc(_self, _anObject);> }
-	roundTo { :self :anObject | <primitive: return sc.RoundTo(_self, _anObject);> }
 
 	+ { :self :anObject | <primitive: return sc.Add(_self, _anObject);> }
 	* { :self :anObject | <primitive: return sc.Mul(_self, _anObject);> }
