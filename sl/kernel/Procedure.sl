@@ -55,3 +55,11 @@ Procedure {
 + Void {
 	Procedure { 'Procedure()'.error }
 }
+
++ Object {
+
+	$ { :self :aProcedure |
+		aProcedure(self)
+	}
+
+}

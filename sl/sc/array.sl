@@ -43,5 +43,6 @@
 	! { :self :anInteger | self.dup(anInteger) }
 	!+ { :self :anInteger | self.dup(anInteger).sum }
 	!* { :self :anInteger | self.dup(anInteger).product }
+	!^ { :self :anInteger | self.dup(anInteger).Splay2 }
 
 }
