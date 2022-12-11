@@ -1,5 +1,6 @@
 # reversed
 
-- _reversed(aSequence)_: answer _aSequence_ in the reverse order
+- _reversed(aSequence)_
 
-This procedure answers with a new value of the same _species_ as _aSequence_.
+Answer _aSequence_ in the reverse order.
+The answer is a new value of the same _species_ as _aSequence_.
