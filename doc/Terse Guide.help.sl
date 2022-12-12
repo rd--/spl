@@ -68,6 +68,7 @@ var [x, y] = { var n = randomFloat(); [n, n] }.value; x = y
 var a = Array(1); a.unsafeAt(3).isNil = true
 { var a = Array(1); a.put(3, 'x') }.ifError { :error | true }
 var a = Array(1); a.unsafePut(3, 'x') = 'x' & { a.size = 3 }
+Array.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 
 'kernel/Boolean'
 true.class = Boolean

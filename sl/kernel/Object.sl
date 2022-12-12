@@ -22,5 +22,6 @@ Object {
 
 	new { :self | self() }
 	new { :self :aNumber | self(aNumber) }
+	newFrom { :self :anObject | self(anObject) }
 
 }

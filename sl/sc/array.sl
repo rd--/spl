@@ -4,6 +4,17 @@
 		1.toAsCollect(size, self.species) { :index | self.atWrap(index) }
 	}
 
+	pyramid { :self :patternType |
+		| answer = OrderedCollection(), lastIndex = self.size; |
+		(patternType = 1).ifTrue {
+			(1 .. lastIndex).do { :i | answer.addAll(self.copyFromTo(1, i)) }
+		};
+		(patternType = 6).ifTrue {
+			(0 .. lastIndex - 1).do  { :i | answer.addAll(self.copyFromTo(lastIndex - i, lastIndex)) }
+		};
+		self.species.newFrom(answer)
+	}
+
 	stutter { :self :repeatCount |
 		(self.collect { :each | { each }.dup(repeatCount) }).concatenation
 	}
