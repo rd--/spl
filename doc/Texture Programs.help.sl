@@ -13,7 +13,7 @@ var dur = 12;
 			Ln(Rand(-1, 1), Rand(-1, 1), dur),
 			Rand(0.01, 0.05)
 		)
-	}.dup(3).sum
+	} !+ 3
 }.overlap(dur // 3, dur // 3, 4)
 ```
 
