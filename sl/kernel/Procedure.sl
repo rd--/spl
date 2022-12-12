@@ -1,8 +1,21 @@
 Procedure {
 
-	= { :self :anObject | self == anObject }
-	numArgs { :self | <primitive: return _self.length;> }
-	name { :self | <primitive: return _self.name;> }
+	= { :self :anObject |
+		self == anObject
+	}
+
+	numArgs { :self |
+		(*
+			Js doesn't have a proper numArgs mechanism.
+			Spl adds hasRestParameters to method functions, else it is undefined.
+			From within Spl there is no concept of a variadic procedure.
+		*)
+		<primitive: return _self.hasRestParameters ? null : _self.length;>
+	}
+
+	name { :self |
+		<primitive: return _self.name;>
+	}
 
 	ifError { :self :errorHandlerBlock |
 		<primitive: try { return _self(); } catch (exc) { return _errorHandlerBlock(exc) }>

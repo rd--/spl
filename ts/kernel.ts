@@ -172,6 +172,7 @@ export function addMethod(typeName: TypeName, name: MethodName, arity: Arity, me
 			return dispatch(name, genericProcedure, argumentsArray)
 		};
 		Object.defineProperty(globalFunction, "name", { value: name });
+		Object.defineProperty(globalFunction, "hasRestParameters", { value: true });
 	}
 	if(!genericProcedure.has(arity)) {
 		genericProcedure.set(arity, new Map());

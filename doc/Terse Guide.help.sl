@@ -22,6 +22,8 @@ var a = [1, 3, 5, 7]; a.reverseInPlace; a = [7, 5, 3, 1]
 [1, 2, 3, 5, 7, 9].reduce(times) = 1890
 [1, 2, 3, 5, 7, 9].injectInto(1, times) = 1890
 [1, 2, 3, 5, 7, 9].collect(sqrt).sum.rounded = 12
+[9, 16, 25].collect(sqrt) = [3, 4, 5]
+[9, 16, 25].collect { :each | sqrt(each) } = [3, 4, 5]
 [].allSatisfy(odd) = true
 [1, 3, 5, 7, 9].allSatisfy(odd) = true
 [1, 2].allSatisfy(odd) = false
