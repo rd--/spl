@@ -34,7 +34,7 @@ var a = [1, 3, 5, 7]; a.reverseInPlace; a = [7, 5, 3, 1]
 [[1, 2, 3], [4, 5, 6], [7, 8, 9]].concatenation = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 [[1, 2, 3], [4, 5], [6]].concatenation = [1, 2, 3, 4, 5, 6]
 var a = [1, 2, 3]; a[2] = a.at(2)
-var a = [1, 2, 3]; a.put(2, 'two'); a = [1, "two", 3]
+var a = [1, 2, 3]; a.atPut(2, 'two'); a = [1, "two", 3]
 var a = [1, 2, 3]; a[2] := 'two'; a = [1, "two", 3]
 var a = [5, 4, 3, 2, 1]; a.detect { :each | each % 2 = 0 } = 4
 var a = [5, 4, 3, 2, 1]; a.find { :each | each % 7 = 0 } = nil
@@ -66,8 +66,8 @@ var [x, y] = { var n = randomFloat(); [n, n] }.value; x = y
 [1 .. 9].allButFirst(7) = [8, 9]
 { var a = Array(1); a.at(3) }.ifError { :error | true }
 var a = Array(1); a.unsafeAt(3).isNil = true
-{ var a = Array(1); a.put(3, 'x') }.ifError { :error | true }
-var a = Array(1); a.unsafePut(3, 'x') = 'x' & { a.size = 3 }
+{ var a = Array(1); a.atPut(3, 'x') }.ifError { :error | true }
+var a = Array(1); a.unsafeAtPut(3, 'x') = 'x' & { a.size = 3 }
 Array.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 
 'kernel/Boolean'
@@ -164,12 +164,12 @@ var f = { :x :y | x * y }; cullCull(f, 23, 3.141) = 72.243
 StringDictionary().isStringDictionary
 StringDictionary().includesKey('x') = false
 StringDictionary().at('x') = nil
-var d = StringDictionary(); d.put('x', 1); d.at('x') = 1
+var d = StringDictionary(); d.atPut('x', 1); d.at('x') = 1
 var d = StringDictionary(); d['x'] := 1; d['x'] = 1
 var d = StringDictionary(); d['x'] := 1; d['y'] := 2; d.size = 2
 var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
 ['x' -> 1, 'y' -> 2].asStringDictionary['y'] = 2
-{ StringDictionary().put(1, 1) }.ifError { :error | true }
+{ StringDictionary().atPut(1, 1) }.ifError { :error | true }
 
 'kernel/String'
 ''.class = String
@@ -218,8 +218,8 @@ ByteArray().isByteArray
 ByteArray().size = 0
 ByteArray(8).size = 8
 ByteArray(8).at(1) = 0
-ByteArray(8).put(1, 179) = 179
-var a = ByteArray(8); a.put(1, 179); a.at(1) = 179
+ByteArray(8).atPut(1, 179) = 179
+var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
 [1 .. 9].asByteArray.isByteArray = true
 [1 .. 9].asByteArray.reversed = [9 .. 1].asByteArray
 [1 .. 3].asByteArray.printString = '[1, 2, 3].asByteArray'
@@ -249,15 +249,15 @@ Float64Array().isFloat64Array
 Float64Array().size = 0
 Float64Array(8).size = 8
 Float64Array(8).at(1) = 0
-Float64Array(8).put(1, pi) = pi
-var a = Float64Array(8); a.put(1, pi); a.at(1) = pi
+Float64Array(8).atPut(1, pi) = pi
+var a = Float64Array(8); a.atPut(1, pi); a.at(1) = pi
 [1 .. 9].asFloat64Array.isFloat64Array = true
 [1 .. 9].asFloat64Array.reversed = [9 .. 1].asFloat64Array
 var a = [1 .. 9].asFloat64Array; a.reverseInPlace; a = [9 .. 1].asFloat64Array
 var a = [9 .. 1].asFloat64Array; a.sortInPlace; a = [1 .. 9].asFloat64Array
-{ Float64Array(1).put(3, 'x') }.ifError { :error | true }
-var a = Float64Array(1); a.unsafePut(1, 'x'); a.at(1).isNaN = true
-var a = Float64Array(1); a.unsafePut(3, 'x'); a.unsafeAt(3) = nil
+{ Float64Array(1).atPut(3, 'x') }.ifError { :error | true }
+var a = Float64Array(1); a.unsafeAtPut(1, 'x'); a.at(1).isNaN = true
+var a = Float64Array(1); a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
 [1 .. 3].asFloat64Array.printString = '[1, 2, 3].asFloat64Array'
 
 'stdlib/IdentityDictionary'

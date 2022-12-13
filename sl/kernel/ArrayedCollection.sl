@@ -9,6 +9,11 @@
 		error('ArrayedCollection>>at: index not an integer or out of range')
 	}
 
+	atPut { :self :anInteger :anObject |
+		<primitive: if(sl.arrayCheckIndex(_self, _anInteger - 1)) { _self[_anInteger - 1] = _anObject; return _anObject; }>
+		error('ArrayedCollection>>atPut: index not an integer')
+	}
+
 	checkIndex { :self :anInteger |
 		<primitive: return Number.isInteger(_anInteger) && 0 < _anInteger && _anInteger <= _self.length;>
 	}
@@ -72,11 +77,6 @@
 		tally
 	}
 
-	put { :self :anInteger :anObject |
-		<primitive: if(sl.arrayCheckIndex(_self, _anInteger - 1)) { _self[_anInteger - 1] = _anObject; return _anObject; }>
-		error('ArrayedCollection>>put: index not an integer')
-	}
-
 	reverseInPlace { :self |
 		<primitive: return _self.reverse();>
 	}
@@ -97,12 +97,12 @@
 		<primitive: return _self[_anInteger - 1];>
 	}
 
-	unsafeCollect { :self :aProcedure |
-		<primitive: return _self.map(function(each) { return _aProcedure(each); });>
+	unsafeAtPut { :self :anInteger :anObject |
+		<primitive: _self[_anInteger - 1] = _anObject; return _anObject;>
 	}
 
-	unsafePut { :self :anInteger :anObject |
-		<primitive: _self[_anInteger - 1] = _anObject; return _anObject;>
+	unsafeCollect { :self :aProcedure |
+		<primitive: return _self.map(function(each) { return _aProcedure(each); });>
 	}
 
 }

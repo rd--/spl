@@ -8,6 +8,10 @@ IdentityDictionary : [Collection, Dictionary] {
 		<primitive: return _self.get(_aKey) || null;>
 	}
 
+	atPut { :self :aKey :aValue |
+		<primitive: _self.set(_aKey, _aValue);>
+	}
+
 	includesKey { :self :aKey |
 		<primitive: return _self.has(_aKey);>
 	}
@@ -22,10 +26,6 @@ IdentityDictionary : [Collection, Dictionary] {
 
 	printString { :self |
 		self.asArray.printString ++ '.asIdentityDictionary'
-	}
-
-	put { :self :aKey :aValue |
-		<primitive: _self.set(_aKey, _aValue);>
 	}
 
 	removeKeyIfAbsent { :self :aKey :aProcedure |

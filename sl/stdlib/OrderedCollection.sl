@@ -11,7 +11,7 @@ OrderedCollection : [Collection, SequenceableCollection] { | array |
 
 	= { :self :anObject | anObject.isOrderedCollection & { self.array = anObject.array } }
 	at { :self :index | self.array[index] }
-	put { :self :index :anObject | self.array[index] := anObject }
+	atPut { :self :index :anObject | self.array[index] := anObject }
 	size { :self | self.array.size }
 
 	add { :self :anObject | self.addLast(anObject) }

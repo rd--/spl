@@ -9,7 +9,7 @@ Help files open in the document editor.
 The ⇧ button opens a file selection dialog and loads the selected file.
 The _?_ button opens the initial help document.
 The _易_ button opens a program by chance.
-The _--Program Menu--_ opens a menu and loads the selected program.
+The _--Program Menu--_ loads the selected program.
 The ⇱ button requests full screen mode.
 
 ## Key Commands

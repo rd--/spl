@@ -31,8 +31,8 @@ Sl {
     BinaryExpression = Expression (binaryOperator Primary)+
 
     Primary
-      = PutSyntax
-      | PutQuotedSyntax
+      = AtPutSyntax
+      | AtPutQuotedSyntax
       | AtSyntax
       | AtQuotedSyntax
       | ValueSyntax
@@ -40,7 +40,7 @@ Sl {
       | DotExpressionWithTrailingDictionariesSyntax
       | DotExpressionWithAssignmentSyntax
       | DotExpression
-      | ImplicitDictionaryPutSyntax
+      | ImplicitDictionaryAtPutSyntax
       | ImplicitDictionaryAtSyntax
       | Block
       | ApplyWithTrailingDictionariesSyntax
@@ -57,8 +57,8 @@ Sl {
       | IntervalSyntax
       | IntervalThenSyntax
 
-    PutSyntax = Primary "[" Expression "]" ":=" Expression
-    PutQuotedSyntax = Primary "::" identifier ":=" Expression
+    AtPutSyntax = Primary "[" Expression "]" ":=" Expression
+    AtPutQuotedSyntax = Primary "::" identifier ":=" Expression
     AtSyntax = Primary "[" Expression "]"
     AtQuotedSyntax = Primary "::" identifier
     ValueSyntax = Primary "." NonEmptyParameterList
@@ -69,7 +69,7 @@ Sl {
     DotExpressionWithAssignmentSyntax = Primary "." identifier ":=" Expression
     DotExpression = Primary ("." identifier ~("{" | ":=") NonEmptyParameterList?)+
 
-    ImplicitDictionaryPutSyntax = "::" identifier ":=" Expression
+    ImplicitDictionaryAtPutSyntax = "::" identifier ":=" Expression
     ImplicitDictionaryAtSyntax = "::" identifier
 
     Block = "{" BlockBody "}"

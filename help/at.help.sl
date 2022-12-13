@@ -8,5 +8,5 @@ If the receiver does not have indexed variables, or if the argument is greater t
 
 * * *
 
-See also: _put_, _size_, [Put Syntax]
+See also: _atPut_, _size_, [Put Syntax]
 

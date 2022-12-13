@@ -1,6 +1,6 @@
-# put - accessing
+# atPut - accessing
 
-- _put(aCollection, anIndex, anObject)_
+- _atPut(aCollection, anIndex, anObject)_
 
 Store the argument, _anObject_, as the value of the indexed instance variable of the receiver whose index is the argument _anIndex_.
 

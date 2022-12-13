@@ -64,8 +64,8 @@ const asJs: any = {
 		return left;
 	},
 
-	PutSyntax(c, _l, k, _r, _e, v) { return `_put(${c.asJs}, ${k.asJs}, ${v.asJs})`; },
-	PutQuotedSyntax(c, _c, k, _e, v) { return `_put(${c.asJs}, '${k.sourceString}', ${v.asJs})`; },
+	AtPutSyntax(c, _l, k, _r, _e, v) { return `_atPut(${c.asJs}, ${k.asJs}, ${v.asJs})`; },
+	AtPutQuotedSyntax(c, _c, k, _e, v) { return `_atPut(${c.asJs}, '${k.sourceString}', ${v.asJs})`; },
 	AtSyntax(c, _l, k, _r) { return `_at(${c.asJs}, ${k.asJs})`; },
 	AtQuotedSyntax(c, _c, k) { return `_at(${c.asJs}, '${k.sourceString}')`; },
 	ValueSyntax(p, _d, a) { return `${p.asJs}(${a.asJs})`; },
@@ -94,7 +94,7 @@ const asJs: any = {
 		return rcv;
 	},
 
-	ImplicitDictionaryPutSyntax(_c, k, _a, e) { return `_put(_implicitDictionary, '${k.sourceString}', ${e.asJs})`; },
+	ImplicitDictionaryAtPutSyntax(_c, k, _a, e) { return `_atPut(_implicitDictionary, '${k.sourceString}', ${e.asJs})`; },
 	ImplicitDictionaryAtSyntax(_c, k) { return `_at(_implicitDictionary, '${k.sourceString}')`; },
 
     Block(_l, blk, _r) { return blk.asJs; },

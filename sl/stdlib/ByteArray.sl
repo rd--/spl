@@ -1,12 +1,12 @@
 ByteArray : [Collection, SequenceableCollection, ArrayedCollection] {
 
-	printString { :self |
-		self.asArray.printString ++ '.asByteArray'
+	atPut { :self :anInteger :aByte |
+		<primitive: if(Number.isInteger(_anInteger) && sl.isByte(_aByte)) { _self[_anInteger - 1] = _aByte; return _aByte; }>
+		error('ByteArray>>atPut: index not an integer or value not a byte')
 	}
 
-	put { :self :anInteger :aByte |
-		<primitive: if(Number.isInteger(_anInteger) && sl.isByte(_aByte)) { _self[_anInteger - 1] = _aByte; return _aByte; }>
-		error('ByteArray>>put: index not an integer or value not a byte')
+	printString { :self |
+		self.asArray.printString ++ '.asByteArray'
 	}
 
 }

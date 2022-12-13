@@ -3,9 +3,9 @@
 Rewrite rules:
 
 - _c::k_ ≡ _at(c, 'k')_
-- _c::k := v_ ≡ _put(c, 'k', v)_
+- _c::k := v_ ≡ _atPut(c, 'k', v)_
 
-Collection types implement the _at_ and _put_ protocols.
+Collection types implement the _at_ and _atPut_ protocols.
 
 Dictionaries with string keys can be used to implement simple anonymous and extensible record types.
 

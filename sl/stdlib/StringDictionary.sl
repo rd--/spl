@@ -4,6 +4,11 @@ StringDictionary : [Dictionary] {
 		<primitive: return _self[_aString] || null;>
 	}
 
+	atPut { :self :aString :anObject |
+		<primitive: if(typeof _aString === 'string') { return _self[_aString] = _anObject;}>
+		('StringDictionary>>atPut key not a string: ' ++ aString.typeOf).error
+	}
+
 	includesKey { :self :aKey |
 		<primitive: return Object.hasOwn(_aKey);>
 	}
@@ -18,11 +23,6 @@ StringDictionary : [Dictionary] {
 
 	printString { :self |
 		self.asArray.printString ++ '.asStringDictionary'
-	}
-
-	put { :self :aString :anObject |
-		<primitive: if(typeof _aString === 'string') { return _self[_aString] = _anObject;}>
-		('StringDictionary>>put key not a string: ' ++ aString.typeOf).error
 	}
 
 	removeKeyIfAbsent { :self :aKey :aProcedure |
