@@ -1,4 +1,5 @@
 export * from './eval.ts'
 export * from './kernel.ts'
 export * from './load.ts'
+export * from './operator.ts'
 export * from './rewrite.ts'

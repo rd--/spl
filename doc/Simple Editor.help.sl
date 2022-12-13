@@ -6,6 +6,12 @@ Both panes are editable and resizeable.
 Documents are _rich text_, programs are _plain text_.
 Help files open in the document editor.
 
+The ⇧ button opens a file selection dialog and loads the selected file.
+The _?_ button opens the initial help document.
+The _易_ button opens a program by chance.
+The _--Program Menu--_ opens a menu and loads the selected program.
+The ⇱ button requests full screen mode.
+
 ## Key Commands
 
 - Ctrl-Enter ⇒ Play selection or program
@@ -33,7 +39,9 @@ _Ctrl-?_ works by requesting both files, and displaying whichever arrives.
 - Ctrl-Shift-L ⇒ Open file selection dialog and load selected file
 
 The simple editor is only an experiment.
-For actual work [Emacs Editor] is more appropriate.
+The document editor could utilise something like [ProseMirror](https://prosemirror.net/).
+The program editor could utilise something like [CodeMirror](https://codemirror.net/).
+At present, for actual work [Emacs Editor] is a more appropriate environment.
 
 ## History
 

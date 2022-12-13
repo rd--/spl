@@ -12,5 +12,3 @@ Keybindings are:
 - `C-cC-s`: clear scheduler and reset synthesiser
 
 Any ``` marks from _.help.sl_ files are removed from the region before sending.
-
-![Emacs Editor](https://rohandrape.net/sw/spl/png/Emacs Editor.png)

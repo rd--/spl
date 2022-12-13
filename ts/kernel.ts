@@ -2,9 +2,8 @@ import { PriorityQueue } from '../lib/flatqueue/PriorityQueue.js'
 export { PriorityQueue } from '../lib/flatqueue/PriorityQueue.js'
 
 import { consoleDebug, throwError } from '../lib/jssc3/ts/kernel/error.ts'
-import { stringCapitalizeFirstLetter } from '../lib/jssc3/ts/kernel/string.ts'
 
-import { isOperatorName, operatorNameTable } from './operator.ts'
+import { isOperatorName, operatorMethodName } from './operator.ts'
 
 type TypeName = string;
 type Arity = number;
@@ -203,11 +202,6 @@ export function addType(typeName: TypeName, slotNames: string[]): void {
 // Until the <primitive:> parser allows escaped >...
 export function shiftRight(lhs: number, rhs: number): number {
 	return lhs >> rhs;
-}
-
-export function operatorMethodName(operator: string): string {
-	const words = [...operator].map((letter) => operatorNameTable[letter]);
-	return words.slice(0, 1).concat(words.slice(1).map(stringCapitalizeFirstLetter)).join('');
 }
 
 export function methodName(name: string): MethodName {

@@ -10,7 +10,7 @@ import * as sc from '../lib/jssc3/ts/sc3.ts'
 
 import * as ev from './eval.ts'
 import * as io from './fileio.ts'
-import * as sl from './kernel.ts'
+import * as sl from './sl.ts'
 import * as ld from './load.ts'
 import * as rw from './rewrite.ts'
 import * as repl from './repl.ts'
