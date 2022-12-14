@@ -27,7 +27,7 @@
 	isPrime { :self |
 		| i = 2; |
 		withReturn {
-			{ i * i <= self }.while  {
+			{ i * i <= self }.whileTrue  {
 				(self.remainder(i) = 0).ifTrue { return(false) };
 				i := i + 1
 			};
@@ -45,7 +45,7 @@
 
 	nextPrime { :self |
 		| maybePrime = self + 1; |
-		while { maybePrime.isPrime.not } {
+		whileTrue { maybePrime.isPrime.not } {
 			maybePrime := maybePrime + 1
 		};
 		maybePrime
@@ -73,7 +73,7 @@
 
 	timesRepeat { :self :aProcedure |
 		| remaining = self; |
-		while { remaining > 0 } {
+		whileTrue { remaining > 0 } {
 			aProcedure();
 			remaining := remaining - 1
 		}
@@ -81,7 +81,7 @@
 
 	toDo { :self :end :aProcedure |
 		| index = self; |
-		while { index <= end } {
+		whileTrue { index <= end } {
 			aProcedure(index);
 			index := index + 1
 		}

@@ -100,7 +100,7 @@
 
 	replaceFromToWithStartingAt { :self :start :stop :replacement :replacementStart |
 		| replacementOffset = replacementStart - start, index = start; |
-		while { index <= stop } {
+		whileTrue { index <= stop } {
 			self[index] := replacement[replacementOffset + index];
 			index := index + 1;
 		};

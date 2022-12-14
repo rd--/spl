@@ -143,7 +143,7 @@ pi.random.isInteger = false
 
 'kernel/Procedure'
 { Procedure() }.ifError { :error | true } = true
-var i = 1; while { i < 5 } { i := i + 1 }; i = 5
+var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5
 var i = 1; 1.toDo(3) { :each | i := i + each.squared } ; i = 15
 var i = 1; 3.do { :each | i := i + each.squared } ; i = 15
 var f = { 0 }; f.numArgs = 0

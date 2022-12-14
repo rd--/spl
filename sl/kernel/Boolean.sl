@@ -6,7 +6,9 @@ Boolean {
 	if { :self :whenTrue :whenFalse | <primitive: return _self ? _value(_whenTrue) : _value(_whenFalse);> }
 	not { :self | <primitive: return _self ? false : true;> }
 
+	asBit { :self | if(self) { 1 } { 0 } }
 	asInteger { :self | if(self) { 1 } { 0 } }
+	asFloat { :self | if(self) { 1 } { 0 } }
 	printString { :self | if(self) { 'true' } { 'false' } }
 	ifFalse { :self :whenFalse | if(self, { nil }, whenFalse) }
 	ifTrue { :self :whenTrue | if(self, whenTrue, { nil }) }
@@ -14,5 +16,5 @@ Boolean {
 }
 
 + Void {
-	Boolean { 'Boolean'.error }
+	Boolean { 'Boolean(): there are no more booleans'.error }
 }

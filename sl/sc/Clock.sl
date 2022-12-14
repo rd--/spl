@@ -34,7 +34,7 @@ Clock { | priorityQueue nextEntryTime existingDelay |
 
 	wakeup { :self :scheduledTime |
 		| currentTime = systemTimeInMilliseconds(), queue = self.priorityQueue, front = self.nextEntryTime; |
-		{ front ~= nil & { front <= currentTime } }.while {
+		{ front ~= nil & { front <= currentTime } }.whileTrue {
 			| activity = queue.pop, rescheduleAfter = activity(); |
 			rescheduleAfter.isNumber.ifTrue { self.priorityQueue.push(activity, rescheduleAfter * 1000 + scheduledTime) };
 			front := queue.peekPriority

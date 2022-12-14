@@ -32,12 +32,12 @@ Interval : [Collection, SequenceableCollection] { | start stop step |
 	do { :self :aProcedure |
 		| nextValue = self.start, endValue = self.stop; |
 		if(self.step > 0) {
-			while { nextValue <= endValue } {
+			whileTrue { nextValue <= endValue } {
 				aProcedure(nextValue);
 				nextValue := nextValue + self.step
 			}
 		} {
-			while { nextValue >= endValue } {
+			whileTrue { nextValue >= endValue } {
 				aProcedure(nextValue);
 				nextValue := nextValue + self.step
 			}

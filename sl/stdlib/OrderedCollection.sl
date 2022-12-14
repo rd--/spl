@@ -41,7 +41,7 @@ OrderedCollection : [Collection, SequenceableCollection] { | array |
 
 	fibonacciSequence { :self |
 		| a = 0, b = 1, i = 0, temp = nil, answer = OrderedCollection(); |
-		while { i < self } {
+		whileTrue { i < self } {
 			answer.add(b);
 			temp := b;
 			b := a + b;

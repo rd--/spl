@@ -36,7 +36,7 @@
 
 	doWhile { :self :activity :condition |
 		| nextIndex = 1, endIndex = self.size; |
-		while { condition() & { nextIndex <= endIndex } } {
+		whileTrue { condition() & { nextIndex <= endIndex } } {
 			activity(self[nextIndex]);
 			nextIndex := nextIndex + 1
 		}

@@ -30,7 +30,7 @@ Procedure {
 		error('Procedure>>apply')
 	}
 
-	while { :self :aProcedure |
+	whileTrue { :self :aProcedure |
 		<primitive: while(_self()) { _aProcedure(); }; return null;>
 	}
 
