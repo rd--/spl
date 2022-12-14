@@ -1,4 +1,4 @@
-# * - mathematical operator
+# * -- mathematical operator
 
 - _self * aNumber_
 - times(_self, aNumber)_

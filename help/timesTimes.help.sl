@@ -1,4 +1,4 @@
-# ** - mathematical operator
+# ** -- mathematical operator
 
 - _self ** aNumber_
 - timesTimes(_self, aNumber)_

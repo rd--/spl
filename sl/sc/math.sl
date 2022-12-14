@@ -66,7 +66,7 @@
 	< { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, lessThan) }
 	> { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, greaterThan) }
 	** { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, timesTimes) }
-	% { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, percent) }
+	% { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, modulo) }
 
 	bitAnd { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, bitAnd) }
 	bitOr { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, bitOr) }

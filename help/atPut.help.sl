@@ -1,4 +1,4 @@
-# atPut - accessing
+# atPut -- accessing
 
 - _atPut(aCollection, anIndex, anObject)_
 

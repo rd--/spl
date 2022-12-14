@@ -1,4 +1,4 @@
-# = ≡ equals - equality operator
+# = ≡ equals -- equality operator
 
 - _self = anObject_
 - _equals(self, anObject)_
@@ -7,7 +7,7 @@ This is the _structural equality_ operator, it answers _true_ if _self_ is equal
 The meaning of _equals_ is determined by the _typeOf(self)_.
 The _equals_ method is implemented as identity at _Object_.
 
-The _=_ symbol is also a part of the [Initialised Temporaries Syntax].
+The _=_ symbol is also a part of [Initialised Temporaries Syntax] and [Variable Keyword Syntax].
 
 * * *
 

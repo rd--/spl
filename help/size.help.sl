@@ -1,4 +1,4 @@
-# size - accessing
+# size -- accessing
 
 - _size(aCollection)_
 

@@ -1,4 +1,4 @@
-# timesRepeat - enumerating
+# timesRepeat -- enumerating
 
 _timesRepeat(anInteger, aBlock)_
 

@@ -1,4 +1,4 @@
-# OrderedCollection - collection type
+# OrderedCollection -- collection type
 
 A collection of objects ordered by the collector.
 

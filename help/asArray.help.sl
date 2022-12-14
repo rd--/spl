@@ -1,4 +1,4 @@
-# asArray - converting
+# asArray -- converting
 
 _asArray(aCollection)_
 

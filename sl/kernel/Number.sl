@@ -36,7 +36,7 @@ Number : [Magnitude, Numeric] {
 
 	% { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return ((_self % _anObject) + _anObject) % _anObject; }>
-		anObject.adaptToNumberAndApply(self, percent)
+		anObject.adaptToNumberAndApply(self, modulo)
 	}
 
 	remainder { :self :anObject |

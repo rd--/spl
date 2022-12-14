@@ -1,4 +1,4 @@
-# ifTrue - conditional evaluation
+# ifTrue -- conditional evaluation
 
 - _ifTrue(aBoolean, aProcedure)_ ≡ _if(aBoolean, aProcedure, { nil })_
 

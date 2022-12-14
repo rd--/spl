@@ -1,4 +1,4 @@
-# := - assignment operator syntax
+# := -- assignment operator syntax
 
 Assign a value to a variable.
 Variables must be declared.

@@ -1,4 +1,4 @@
-# inf - mathematical constant
+# inf -- mathematical constant
 
 A constant representing floating point infinity.
 

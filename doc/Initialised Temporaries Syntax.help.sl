@@ -23,3 +23,7 @@ _Rationale_: Initialising temporary variables as they are declared makes it clea
 _Subtleties_:
 The array and dictionary initialisers must only evaluate the right hand side once.
 A gensym-ed private name is used to store the initial value, and that name is used for the destructuring.
+
+* * *
+
+See also: [Variable Keyword Syntax]

@@ -1,4 +1,4 @@
-# == ≡ equalsEquals - identity operator
+# == ≡ equalsEquals -- identity operator
 
 - _self == anObject_
 - _equalsEquals(self, anObject)_

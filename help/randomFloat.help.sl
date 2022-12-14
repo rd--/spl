@@ -1,4 +1,4 @@
-# randomFloat - random number generator
+# randomFloat -- random number generator
 
 - _randomFloat()_: generate a random number between zero and one
 - _randomFloat(high)_: generate a random number between zero and high
