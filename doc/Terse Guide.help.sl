@@ -87,22 +87,6 @@ true | { 'true |'.postLine; true } = true
 false | { 'false |'.postLine; true } = true
 true.printString = 'true'
 
-'kernel/Nil'
-nil.class = Nil
-Nil() = nil
-nil.isNil
-nil = nil
-nil == nil
-nil.ifNil { true } = true
-0.ifNil { false } = nil
-ifNil(nil) { true } = true
-ifNil(0) { false } = nil
-nil ? 1 = 1
-1 ? 2 = 1
-nil ~? 1 = nil
-1 ~? 2 = 2
-nil.printString = 'nil'
-
 'kernel/Number'
 { Number() }.ifError { :error | true } = true
 0 = -0 = true
@@ -202,6 +186,21 @@ String() = ''
 "x" = 'x'.parseDoubleQuotedString
 'string'[3] = 'r'
 { 'string'[3] := 'r' }.ifError { :error | true }
+
+'kernel/UndefinedObject'
+nil.class = UndefinedObject
+nil.isNil
+nil = nil
+nil == nil
+nil.ifNil { true } = true
+0.ifNil { false } = nil
+ifNil(nil) { true } = true
+ifNil(0) { false } = nil
+nil ? 1 = 1
+1 ? 2 = 1
+nil ~? 1 = nil
+1 ~? 2 = 2
+nil.printString = 'nil'
 
 'stdlib/Association'
 ('x' -> 1).class = Association
@@ -464,7 +463,7 @@ methodSource('sum', 1, 'Array') = '{ :self | self.reduce(plus) }'
 'collect'.methodTypes.includes('Array') = true
 'Association'.typeMethods.includes('key') = true
 multipleArityMethodList().includes('Array') = true
-onlyZeroArityMethodList().includes('Nil') = true
+onlyZeroArityMethodList().includes('systemTime') = true
 doesTypeImplementMethod('Array', 'select') = true
 [1, 2, 3].respondsTo(select)
 'atRandom'.methodTraits.includesAllOf([ "Collection", "SequenceableCollection" ])

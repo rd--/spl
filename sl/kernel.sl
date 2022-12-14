@@ -6,10 +6,10 @@ loadSequence([
 	'kernel/SequenceableCollection.sl',
 	'kernel/Array.sl',
 	'kernel/Boolean.sl',
-	'kernel/Nil.sl',
 	'kernel/Number.sl',
 	'kernel/Object.sl',
 	'kernel/Procedure.sl',
 	'kernel/String.sl',
+	'kernel/UndefinedObject.sl',
 	'kernel/Void.sl'
 ])

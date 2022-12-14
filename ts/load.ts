@@ -12,7 +12,7 @@ export function setLoadPath(directoryName: string): void {
 }
 
 export function resolveFileName(fileName: string): string {
-	const resolvedName = `${loader.loadPath}/${fileName}`;
+	const resolvedName = fileName[0] === '/' ? fileName : `${loader.loadPath}/${fileName}`;
 	console.log(`resolveFileName: ${resolvedName}`);
 	return resolvedName;
 }

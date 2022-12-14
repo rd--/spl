@@ -32,7 +32,7 @@ function objectType(anObject: SlObject): TypeName {
 
 export function typeOf(anObject: unknown): TypeName {
 	if(anObject === null || anObject === undefined) {
-		return 'Nil';
+		return 'UndefinedObject';
 	} else {
 		switch (typeof anObject) {
 		case 'boolean': return 'Boolean';
