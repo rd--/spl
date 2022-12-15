@@ -228,7 +228,8 @@ export function assignGlobals() {
 		['genericProcedures', genericProcedures],
 		['traitTypes', traitTypes],
 		['traitMethods', traitMethods],
-		['typeList', typeList]
+		['typeList', typeList],
+		['nextUniqueId', 1],
 	]);
 	globalThis._workspace = new Map();
 }

@@ -13,6 +13,14 @@
 		LinLin(self, -1, 1, lo, hi)
 	}
 
+	ExpRange { :self :lo :hi |
+		LinExp(self, -1, 1, lo, hi)
+	}
+
+	EqPan2 { :self :pos |
+		Pan2(self, pos, 1)
+	}
+
 	IRand { :self | IRand(0, self) }
 	Rand { :self | Rand(0, self) }
 	Rand2 { :self | Rand(0 - self, self) }

@@ -5,6 +5,12 @@
 	unixTimeInMilliseconds { <primitive: return Date.now();> }
 	unixTime { unixTimeInMilliseconds().milliseconds }
 
+	uniqueId {
+		| answer = system::nextUniqueId; |
+		system::nextUniqueId := answer + 1;
+		answer
+	}
+
 }
 
 + Procedure {
