@@ -1,7 +1,23 @@
 + Object {
 
-	Silent { :numChannels |
-		if (numChannels == 1) { Dc(0) } { Dc(0) ! numChannels }
+	!^ { :self :anInteger |
+		Splay2(self ! anInteger)
+	}
+
+	EqPan2 { :self :pos |
+		Pan2(self, pos, 1)
+	}
+
+	ExpRange { :self :lo :hi |
+		LinExp(self, -1, 1, lo, hi)
+	}
+
+	ImpulseSequencer { :self :trig |
+		Sequencer(self, trig) * trig
+	}
+
+	IRand { :self |
+		IRand(0, self)
 	}
 
 	LinLin { :self :srclo :srchi :dstlo :dsthi |
@@ -9,26 +25,25 @@
 		MulAdd(self, scale, offset)
 	}
 
+	Rand { :self |
+		Rand(0, self)
+	}
+
+	Rand2 { :self |
+		Rand(0 - self, self)
+	}
+
 	Range { :self :lo :hi |
 		LinLin(self, -1, 1, lo, hi)
 	}
 
-	ExpRange { :self :lo :hi |
-		LinExp(self, -1, 1, lo, hi)
+	Sequencer { :self :trig |
+		DmdOn(trig, 0, Seq(inf, self))
 	}
 
-	EqPan2 { :self :pos |
-		Pan2(self, pos, 1)
+	Silent { :numChannels |
+		if (numChannels == 1) { Dc(0) } { Dc(0) ! numChannels }
 	}
-
-	IRand { :self | IRand(0, self) }
-	Rand { :self | Rand(0, self) }
-	Rand2 { :self | Rand(0 - self, self) }
-
-	clearBuf { :bufnum | <primitive: return sc.clearBuf(_bufnum);> }
-
-	ImpulseSequencer { :self :trig |Sequencer(self, trig) * trig }
-	Sequencer { :self :trig |DmdOn(trig, 0, Seq(inf, self)) }
 
 	Adsr { :gate :attackTime :decayTime :sustainLevel :releaseTime :curve | <primitive: return sc.Adsr(_gate, _attackTime, _decayTime, _sustainLevel, _releaseTime, _curve);> }
 	Asr { :gate :attackTime :releaseTime :curve | <primitive: return sc.Asr(_gate, _attackTime, _releaseTime, _curve);> }
@@ -40,6 +55,7 @@
 	BufWrite { :bufnum :phase :loop :inputArray | <primitive: return sc.BufWrite(_bufnum, _phase, _loop, _inputArray);> }
 	Changed { :input :threshold | <primitive: return sc.Changed(_input, _threshold);> }
 	Choose { :repeats :list | <primitive: return sc.Choose(_repeats, _list);> }
+	BufClear { :bufnum |	<primitive: return sc.BufClear(_bufnum);> }
 	ControlIn { :numChan :bus | <primitive: return sc.ControlIn(_numChan, _bus);> }
 	ControlOut { :bus :channelsArray | <primitive: return sc.ControlOut(_bus, _channelsArray);> }
 	DelayTap { :bufnum :delayTime | <primitive: return sc.DelayTap(_bufnum, _delayTime);> }
@@ -81,6 +97,13 @@
 }
 
 + Array {
-	asLocalBuf { :self | <primitive: return sc.asLocalBuf(_self);> }
-	Mix { :self | self.sum }
+
+	asLocalBuf { :self |
+		<primitive: return sc.asLocalBuf(_self);>
+	}
+
+	Mix { :self |
+		self.sum
+	}
+
 }

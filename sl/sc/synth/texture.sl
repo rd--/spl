@@ -8,6 +8,10 @@ Procedure {
 		}
 	}
 
+	OverlapTexture { :self :sustainTime :transitionTime :overlap |
+		<primitive: return sc.OverlapTexture(_self, _sustainTime, _transitionTime, _overlap);>
+	}
+
 	playEvery { :self :aClock :delay |
 		(* Play variant of repeatEvery. *)
 		if(self.numArgs = 0) {

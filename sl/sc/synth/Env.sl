@@ -8,6 +8,10 @@ Env {
 		EnvGen(gate, 1, 0, 1, 0, self.asArray)
 	}
 
+	asEnvGenWithDoneAction { :self :gate :doneAction |
+		EnvGen(gate, 1, 0, 1, doneAction, self.asArray)
+	}
+
 	coordinateArrayForEnvGen { :self |
 		<primitive: return sc.envCoord(_self);>
 	}
