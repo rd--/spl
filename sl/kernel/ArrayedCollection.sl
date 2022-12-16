@@ -31,7 +31,7 @@
 	}
 
 	do { :self :aProcedure |
-		<primitive: _self.forEach(function(item) { return _aProcedure(item) }); return self;>
+		<primitive: _self.forEach(function(item) { return _aProcedure(item) }); return _self;>
 	}
 
 	doWhile { :self :activity :condition |
@@ -89,9 +89,21 @@
 		<primitive: return _self.sort(function(p, q) { return _aBinaryProcedure(p, q) ? -1 : 1 });>
 	}
 
-	sortInPlace { :self | self.sortInPlaceBy(lessThanEquals) }
+	sortInPlace { :self |
+		self.sortInPlaceBy(lessThanEquals)
+	}
 
-	sorted { :self | self.copy.sortInPlace }
+	sort { :self :aSortBlockOrNil |
+		self.sortInPlaceBy(aSortBlockOrNil ? lessThan)
+	}
+
+	sorted { :self :aSortBlockOrNil |
+		self.copy.sortInPlaceBy(aSortBlockOrNil ? lessThan)
+	}
+
+	sorted { :self |
+		self.copy.sortInPlace
+	}
 
 	unsafeAt { :self :anInteger |
 		<primitive: return _self[_anInteger - 1];>

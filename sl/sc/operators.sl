@@ -89,6 +89,7 @@
 	Clip2 { :self :anObject | <primitive: return sc.Clip2(_self, _anObject);> }
 	Fold2 { :self :anObject | <primitive: return sc.Fold2(_self, _anObject);> }
 	Wrap2 { :self :anObject | <primitive: return sc.Wrap2(_self, _anObject);> }
+	FirstArg { :self :anObject | <primitive: return sc.FirstArg(_self, _anObject);> }
 	RandRange { :self :anObject | <primitive: return sc.RandRange(_self, _anObject);> }
 	ExpRandRange { :self :anObject | <primitive: return sc.ExpRandRange(_self, _anObject);> }
 

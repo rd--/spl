@@ -1,10 +1,12 @@
 @Collection {
 
-	isCollection { :self | true }
-	asCollection { :self | self }
-
 	addAll { :self :aCollection |
 		aCollection.do { :each | self.add(each) }
+	}
+
+	addIfNotPresent { :self :anObject |
+		self.includes(anObject).ifFalse { self.add(anObject) };
+		anObject
 	}
 
 	allSatisfy { :self :aProcedure |
@@ -26,6 +28,10 @@
 			self.do { :each | each.aProcedure.ifTrue { return(true) } };
 			false
 		}
+	}
+
+	asCollection { :self |
+		self
 	}
 
 	atRandom { :self |
@@ -103,21 +109,31 @@
 		nextValue
 	}
 
-	isEmpty { :self | self.size = 0 }
+	isCollection { :self |
+		true
+	}
+
+	isEmpty { :self |
+		self.size = 0
+	}
 
 	max { :self |
 		self.injectInto(self.anyOne) { :answer :each | answer.max(each) }
 	}
 
-	mean { :self | self.sum / self.size }
+	mean { :self |
+		self.sum / self.size
+	}
 
 	occurrencesOf { :self :anObject |
 		| tally = 0; |
-		self.do { :each | (anObject = each).ifTrue { tally := tally + 1 } }
-		^tally
+		self.do { :each | (anObject = each).ifTrue { tally := tally + 1 } };
+		tally
 	}
 
-	product { :self | self.reduce(times) }
+	product { :self |
+		self.reduce(times)
+	}
 
 	reduce { :self :aBinaryProcedure |
 		| first = true, nextValue = nil; |
@@ -149,7 +165,13 @@
 		tally
 	}
 
-	sum { :self | self.reduce(plus) }
+	sorted { :self :aSortBlockOrNil |
+		self.asArray.sort(aSortBlockOrNil)
+	}
+
+	sum { :self |
+		self.reduce(plus)
+	}
 
 	ofSize { :self :aNumber |
 		ifFalse(self.size = aNumber) { error('ofSize') };
@@ -160,13 +182,20 @@
 
 + Object {
 
-	isCollection { :self | false }
+	isCollection { :self |
+		false
+	}
 
 }
 
 + Procedure {
 
-	map { :self :aCollection | aCollection.collect(self) }
-	ofSize { :self :aNumber | self(aNumber).ofSize(aNumber) }
+	map { :self :aCollection |
+		aCollection.collect(self)
+	}
+
+	ofSize { :self :aNumber |
+		self(aNumber).ofSize(aNumber)
+	}
 
 }
