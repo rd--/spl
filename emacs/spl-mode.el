@@ -29,6 +29,11 @@
   (interactive)
   (spl-netcat-cmd 'evalText 'text (spl-get-selection)))
 
+(defun spl-eval-current-file ()
+  "Load current file at Spl server."
+  (interactive)
+  (spl-netcat-cmd 'evalFile 'fileName buffer-file-name))
+
 (defun spl-play-region ()
   "Play region at Spl server."
   (interactive)

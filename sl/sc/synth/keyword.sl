@@ -9,10 +9,14 @@
 	CombC { :d | CombC(d::in ? 0.0, d::maxdelaytime ? 0.2, d::delaytime ? 0.2, d::decaytime ? 1.0) }
 	CombL { :d | CombL(d::in ? 0.0, d::maxdelaytime ? 0.2, d::delaytime ? 0.2, d::decaytime ? 1.0) }
 	CombN { :d | CombN(d::in ? 0.0, d::maxdelaytime ? 0.2, d::delaytime ? 0.2, d::decaytime ? 1.0) }
+	Decay { :d | Decay(d::in ? 0.0, d::decayTime ? 1.0) }
+	Decay2 { :d | Decay2(d::in ? 0.0, d::attackTime ? 0.01, d::decayTime ? 1.0) }
 	DegreeToKey { :d | DegreeToKey(d::bufnum ? 0.0, d::in ? 0.0, d::octave ? 12.0) }
 	DelayC { :d | DelayC(d::in ? 0.0, d::maxdelaytime ? 0.2, d::delaytime ? 0.2) }
 	DelayL { :d | DelayL(d::in ? 0.0, d::maxdelaytime ? 0.2, d::delaytime ? 0.2) }
 	DelayN { :d | DelayN(d::in ? 0.0, d::maxdelaytime ? 0.2, d::delaytime ? 0.2) }
+	Dust { :d | Dust(d::density ? 0.0) }
+	Dust2 { :d | Dust2(d::density ? 0.0) }
 	EnvGen { :d | EnvGen(d::gate ? 1.0, d::levelScale ? 1.0, d::levelBias ? 0.0, d::timeScale ? 1.0, d::doneAction ? 0.0, d::envelope ? 0.0) }
 	ExpRand { :d | ExpRand(d::lo ? 0.01, d::hi ? 1.0) }
 	Fos { :d | Fos(d::in ? 0.0, d::a0 ? 0.0, d::a1 ? 0.0, d::b1 ? 0.0) }
@@ -36,6 +40,10 @@
 	IRand { :d | IRand(d::lo ? 0.0, d::hi ? 127.0) }
 	Impulse { :d | Impulse(d::freq ? 440.0, d::phase ? 0.0) }
 	LfCub { :d | LfCub(d::freq ? 440.0, d::iphase ? 0.0) }
+	LfGauss { :d | LfGauss(d::duration ? 1.0, d::width ? 0.1, d::iphase ? 0.0, d::loop ? 1.0, d::doneAction ? 0.0) }
+	LfNoise0 { :d | LfNoise0(d::freq ? 500.0) }
+	LfNoise1 { :d | LfNoise1(d::freq ? 500.0) }
+	LfNoise2 { :d | LfNoise2(d::freq ? 500.0) }
 	LfPar { :d | LfPar(d::freq ? 440.0, d::iphase ? 0.0) }
 	LfPulse { :d | LfPulse(d::freq ? 440.0, d::iphase ? 0.0, d::width ? 0.5) }
 	LfSaw { :d | LfSaw(d::freq ? 440.0, d::iphase ? 0.0) }
@@ -48,6 +56,7 @@
 	Lag3Ud { :d | Lag3Ud(d::in ? 0.0, d::lagTimeU ? 0.1, d::lagTimeD ? 0.1) }
 	LagIn { :d | LagIn(d::numChan ? 1.0, d::bus ? 0.0, d::lag ? 0.1) }
 	LagUd { :d | LagUd(d::in ? 0.0, d::lagTimeU ? 0.1, d::lagTimeD ? 0.1) }
+	Latch { :d | Latch(d::in ? 0.0, d::trig ? 0.0) }
 	LeakDc { :d | LeakDc(d::in ? 0.0, d::coef ? 0.995) }
 	LinExp { :d | LinExp(d::in ? 0.0, d::srclo ? 0.0, d::srchi ? 1.0, d::dstlo ? 1.0, d::dsthi ? 2.0) }
 	LinPan2 { :d | LinPan2(d::in ? 0.0, d::pos ? 0.0, d::level ? 1.0) }
@@ -119,7 +128,9 @@
 + IdentityDictionary {
 	DmdOn { :d | DmdOn(d::trig ? 0, d::reset ? 0, d::demandUGens) }
 	Env { :d | Env(d::levels, d::times, d::curves, d::releaseNode ? nil, d::loopNode ? nil, d::offset ? 0) }
+	EqPan2 { :d | LinPan2(d::in ? 0.0, d::pos ? 0.0, d::level ? 1.0) }
 	MiBraids { :d | MiBraids(d::pitch ? 60, d::timbre ? 0.5, d::color ? 0.5, d::model ? 0, d::trig ? 0, d::resamp ? 0, d::decim ? 0, d::bits ? 0, d::ws ? 0) }
+	MiClouds { :d | MiClouds(d::pit, d::pos, d::size, d::dens, d::tex, d::drywet, d::inGain, d::spread, d::rvb, d::fb, d::freeze, d::mode, d::lofi, d::trig, d::inputArray) }
 	Ln { :d | Ln(d::start ? 0, d::end ? 1, d::dur ? 1) }
 	Release { :d | Release(d::in, d::attackTime, d::dur, d::releaseTime) }
 	Seq { :d | Seq(d::repeats ? inf, d::list) }
