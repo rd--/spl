@@ -1,4 +1,4 @@
-# = ≡ equals -- equality operator
+# = -- equality operator
 
 - _self = anObject_
 - _equals(self, anObject)_
@@ -11,4 +11,4 @@ The _=_ symbol is also a part of [Initialised Temporaries Syntax] and [Variable 
 
 * * *
 
-See also: _==_
+See also: _~=_, _==_

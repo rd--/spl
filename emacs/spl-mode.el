@@ -87,6 +87,22 @@
   (spl-fill-syntax-table (make-syntax-table))
   "Syntax table for spl-mode")
 
+(defun spl-prettier ()
+  "Unicode symbols"
+  (setq
+   prettify-symbols-alist
+   '(("return" . #x2191) ; ↑
+     ("withReturn" . #x2193) ; ↓
+     ("->" . #x2192) ; →
+     (":=" . #x2190) ; ←
+     ("::" . #x00B7) ;  ·
+     ("~=" . #x2260) ; ≠
+     ("==" . #x2261) ; ≡
+     ("<=" . #x2264) ; ≤
+     (">=" . #x2265) ; ≥
+     ("++" . #x29FA) ; ⧺
+     )))
+
 (defun spl-fill-mode-map (map)
   "Install Spl keybindings into MAP."
   (define-key map (kbd "C-c C-a") 'spl-play-region)

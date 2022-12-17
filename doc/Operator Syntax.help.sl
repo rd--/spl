@@ -11,13 +11,13 @@ i.e. _++_ is _plusPlus_ not _append_, and _<=_ is _lessThanEquals_.
 
 Math and logic operators:
 
-- +: plus, *: times, -: minus, /: dividedBy
+- +: plus, *: times, -: minus, /: dividedBy, %: modulo
 - =: equals, <: lessThan, >: greaterThan
-- &: and, |: or
+- &: and, |: or, ~: not
 
 Other operators:
 
-- ~: tilde, !: bang, @: at, #: hash, $: dollar, %: percent, ^: hat
+- !: bang, @: at, #: hash, $: dollar, ^: hat
 - \: backslash, ?: query
 
 Operator names are ordinarily used in non-operator contexts, i.e. _c.withCollect(plus)_.

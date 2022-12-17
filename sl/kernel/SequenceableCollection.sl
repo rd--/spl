@@ -13,7 +13,9 @@
 	= { :self :anObject |
 		if(anObject.isSequenceable & { self.species = anObject.species } & { self.size = anObject.size }) {
 			withReturn {
-				self.size.do { :index | ifFalse(self[index] = anObject[index]) { return(false) } };
+				self.size.do { :index |
+					ifFalse(self[index] = anObject[index]) { return(false) }
+				};
 				true
 			}
 		} {
@@ -22,7 +24,11 @@
 	}
 
 	++ { :self :otherCollection |
-		self.copyReplaceFromToWith(self.size + 1, self.size, otherCollection.asCollection)
+		self.copyReplaceFromToWith(
+			self.size + 1,
+			self.size,
+			otherCollection.asCollection
+		)
 	}
 
 	allButFirst { :self |
@@ -46,17 +52,32 @@
 	}
 
 	concatenation { :self |
-		| answerSize = self.injectInto(0) { :sum :each | sum + each.size }, answer = self.species.ofSize(answerSize), index = 1; |
-		self.do { :each | each.do { :item | answer[index] := item; index := index + 1 } };
+		|
+			answerSize = self.injectInto(0) { :sum :each | sum + each.size },
+			answer = self.species.ofSize(answerSize),
+			index = 1;
+		|
+		self.do { :each |
+			each.do { :item |
+				answer[index] := item;
+				index := index + 1
+			}
+		};
 		answer
 	}
 
 	copyFromTo { :self :start :stop |
-		1.toAsCollect(stop - start + 1, self.species) { :index | self[index + start - 1] }
+		1.toAsCollect(stop - start + 1, self.species) { :index |
+			self[index + start - 1]
+		}
 	}
 
 	copyReplaceFromToWith { :self :start :stop :aCollection |
-		| end = start - 1 + aCollection.size, newSize = self.size + end - stop, answer = self.species.ofSize(newSize); |
+		|
+			end = start - 1 + aCollection.size,
+			newSize = self.size + end - stop,
+			answer = self.species.ofSize(newSize);
+		|
 		(start > 1).ifTrue {
 			answer.replaceFromToWithStartingAt(1, start - 1, self, 1)
 		};
@@ -88,7 +109,9 @@
 
 	indexOfStartingAt { :self :anElement :start |
 		withReturn {
-			start.toDo(self.size) { :index | (self[index] = anElement).ifTrue { return(index) } };
+			start.toDo(self.size) { :index |
+				(self[index] = anElement).ifTrue { return(index) }
+			};
 			0
 		}
 	}

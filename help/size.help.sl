@@ -6,4 +6,4 @@ Answer the receiver's number of indexed variables. This value is the same as the
 
 * * *
 
-See also: _at_, _atPut_
+See also: _at_, _atPut_, _isEmpty_

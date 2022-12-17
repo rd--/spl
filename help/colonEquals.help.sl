@@ -1,4 +1,4 @@
-# := -- assignment operator syntax
+# := -- assignment syntax
 
 Assign a value to a variable.
 Variables must be declared.
@@ -9,8 +9,10 @@ Variables must be declared.
 
 The _:=_ symbol is also part of [Put Syntax] and [Quoted Put Syntax].
 
+Where supported this operator is displayed as a leftwards arrow, ←.
+
 * * *
 
 See also: _=_
 
-Unicode: U+2254 ≔ Colon Equals
+Unicode: U+2190 ← Leftwards Arrow, U+2254 ≔ Colon Equals

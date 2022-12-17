@@ -63,13 +63,9 @@ async function replPerLine(opt: flags.Args): Promise<void> {
 	repl.perLine();
 }
 
-async function evalFile(fileName: string): Promise<void> {
-	return await io.evaluateFile(fileName);
-}
-
 async function runFile(fileName: string, opt: flags.Args): Promise<void> {
 	await loadSpl(opt);
-	console.log(await evalFile(fileName))
+	console.log(await io.evaluateFile(fileName))
 }
 
 function scEvalText(splText: string): void {

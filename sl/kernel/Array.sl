@@ -1,7 +1,9 @@
 Array : [Collection, SequenceableCollection, ArrayedCollection] {
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure |
-		self.collect { :each | aProcedure(aNumber, each) }
+		self.collect { :each |
+			aProcedure(aNumber, each)
+		}
 	}
 
 	asArray { :self |

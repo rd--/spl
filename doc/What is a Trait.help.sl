@@ -8,8 +8,8 @@ Types are said to implement a trait.
 _Array_ implements all three of the above traits.
 _IdentityDictionary_ implements _Collection_.
 
-This means that _Array_ receives copies of the methods defined in each of the name traits.
-The traits are applied in sequence.
+This means that _Array_ receives copies of the methods defined in each of the traits it implements.
+The traits are applied in the sequence they are listed in at the type definition.
 Methods defined by traits applied later in the sequence can override methods defined by traits that are applied earlier.
 
 Traits must be loaded before Types.
