@@ -1,4 +1,4 @@
-Ugen {
+Ugen : [Numeric] {
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure |
 		<primitive: return sl.applyGenericAt(_aProcedure.name, [_aNumber, _self], 'Ugen');>
@@ -14,7 +14,7 @@ Ugen {
 	encodeUgen { :self :aUgen | <primitive: return sc.encodeUgen(_self, sc.wrapOut(0, _aUgen));> }
 }
 
-+ Object {
++ [Array, Number, Ugen] {
 
 	kr { :aUgen | <primitive: return sc.kr(_aUgen);> }
 	printUgen { :aUgen | <primitive: return sc.prettyPrintSyndefOf(_aUgen);> }

@@ -10,7 +10,12 @@ const insertArityCheck = false;
 const asJs: any = {
 
     ClassExtension(_e, clsNm, _l, mthNm, mthBlk, _r) {
-		return makeMethodList('addMethod', clsNm.sourceString, mthNm.children.map(c => c.sourceString), mthBlk.children);
+		return makeMethodList('addMethod', [clsNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
+	},
+    ClassListExtension(_e, _cl, clsNmList, _cr, _ml, mthNm, mthBlk, _mr) {
+		const clsNmArray = clsNmList.asIteration().children.map(c => c.sourceString);
+		consoleDebug(`ClassListExtension: [${clsNmArray}].size = ${clsNmArray.length}`);
+		return makeMethodList('addMethod', clsNmArray, mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
     ClassDefinition(clsNm, trt, _l, tmp, mthNm, mthBlk, _r) {
 		function makeClassDefinition(clsNm: string, trt: string[], tmp, mthNms, mthBlks) {
@@ -19,7 +24,7 @@ const asJs: any = {
 			const typ = `sl.addType('${clsNm}', [${tmpNm}]);`;
 			const addTraits = `sl.addTypeTraits('${clsNm}', [${trt}]);`;
 			const cpyTraits = trt.split(', ').filter(each => each.length > 0).map(trtNm => `sl.copyTraitToType(${trtNm}, '${clsNm}');`).join(' ');
-			const mth = makeMethodList('addMethod', clsNm, mthNms, mthBlks);
+			const mth = makeMethodList('addMethod', [clsNm], mthNms, mthBlks);
 			return `${typ}${addTraits}${cpyTraits}${mth}`;
 		}
 		return makeClassDefinition(clsNm.sourceString, trt.asJs, tmp, mthNm.children.map(c => c.sourceString), mthBlk.children);
@@ -27,11 +32,11 @@ const asJs: any = {
 	TraitList(_c, _l, nm, _r) { return nm.asIteration().children.map(c => `'${c.sourceString}'`).join(', '); },
 	TraitExtension(_p, _t, trtNm, _l, mthNm, mthBlk, _r) {
 		consoleDebug(`TraitExtension: ${trtNm.sourceString}`);
-		return makeMethodList('extendTraitWithMethod', trtNm.sourceString, mthNm.children.map(c => c.sourceString), mthBlk.children);
+		return makeMethodList('extendTraitWithMethod', [trtNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
 	TraitDefinition(_t, trtNm, _l, mthNm, mthBlk, _r) {
 		const trt = `sl.addTrait('${trtNm.sourceString}');`;
-		const mth = makeMethodList('addTraitMethod', trtNm.sourceString, mthNm.children.map(c => c.sourceString), mthBlk.children);
+		const mth = makeMethodList('addTraitMethod', [trtNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
 		return `${trt}${mth}`;
 	},
     Program(tmp, stm) { return tmp.asJs + stm.asJs; },
@@ -167,18 +172,26 @@ function gensym() {
 	return `__gensym${rewriteGensymCounter}`;
 }
 
-function makeMethod(slProc: string, clsNm: string, mthNm: string, mthBlk): string {
+function makeMethod(slProc: string, clsNmArray: string[], mthNm: string, mthBlk): string {
 	const blkSource = mthBlk.sourceString;
 	const blkArity = slBlockArity(blkSource);
-	return ` sl.${slProc}('${clsNm}', '${sl.methodName(mthNm)}', ${blkArity}, ${mthBlk.asJs}, ${JSON.stringify(blkSource)});`;
+	const blkJs = mthBlk.asJs;
+	const blkSrc = JSON.stringify(blkSource);
+	const slName = sl.methodName(mthNm);
+	return clsNmArray.map(function(clsNm) {
+		consoleDebug(`makeMethod: '${slProc}', '${clsNm}', '${mthNm}'('${slName}'), ${blkArity}`);
+		return ` sl.${slProc}('${clsNm}', '${slName}', ${blkArity}, ${blkJs}, ${blkSrc});`
+	}).join(' ');
 }
 
-function makeMethodList(slProc: string, clsNm: string, mthNms: string[], mthBlks): string {
+function makeMethodList(slProc: string, clsNmArray: string[], mthNms: string[], mthBlks): string {
 	let mthList = '';
 	while (mthNms.length > 0) {
 		const mthNm = mthNms.shift();
 		const mthBlk = mthBlks.shift();
-		mthList += makeMethod(slProc, clsNm, mthNm, mthBlk);
+		const mthSrc = makeMethod(slProc, clsNmArray, mthNm, mthBlk);
+		consoleDebug(`makeMethodList: ${mthSrc}`);
+		mthList += mthSrc;
 	}
 	return mthList;
 }

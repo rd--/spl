@@ -35,10 +35,6 @@
 		}
 	}
 
-	modulo { :self :aNumber |
-		self % aNumber
-	}
-
 	negated { :self |
 		0 - self
 	}

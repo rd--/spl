@@ -8,8 +8,9 @@ Sl {
 
     TopLevel = LibraryExpression+ | Program
     LibraryExpression = ClassExpression | TraitExpression
-    ClassExpression = ClassExtension | ClassDefinition
+    ClassExpression = ClassExtension | ClassListExtension | ClassDefinition
     ClassExtension = "+" identifier "{" (methodName Block)* "}"
+    ClassListExtension = "+" "[" NonemptyListOf<identifier, ","> "]" "{" (methodName Block)* "}"
     ClassDefinition = identifier TraitList? "{" Temporaries? (methodName Block)* "}"
     TraitList = ":" "[" NonemptyListOf<identifier, ","> "]"
     TraitExpression = TraitExtension | TraitDefinition

@@ -1,4 +1,4 @@
-+ Object {
++ [Array, Number, Ugen] {
 
 	!^ { :self :anInteger |
 		Splay2(self ! anInteger)
@@ -18,11 +18,6 @@
 
 	IRand { :self |
 		IRand(0, self)
-	}
-
-	LinLin { :self :srclo :srchi :dstlo :dsthi |
-		| scale  = (dsthi - dstlo) / (srchi - srclo), offset = dstlo - (scale * srclo); |
-		MulAdd(self, scale, offset)
 	}
 
 	Rand { :self |

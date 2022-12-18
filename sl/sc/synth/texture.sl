@@ -73,7 +73,7 @@ Procedure {
 
 }
 
-+ Object {
++ [Array, Number, Ugen] {
 
 	withOverlapEnvelope { :aUgen :sustainTime :transitionTime |
 		| env amp |

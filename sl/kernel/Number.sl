@@ -119,9 +119,6 @@ Number : [Magnitude, Numeric] {
 	randomInteger { :self | randomFloat(1, self).rounded }
 	randomInteger { :self :aNumber | randomFloat(self, aNumber).rounded }
 
-	random { :self | if(self.isInteger) { self.randomInteger } { self.randomFloat } }
-	random { :self :aNumber | if(self.isInteger) { randomInteger(self, aNumber) } { randomFloat(self, aNumber) } }
-
 	atRandom { :self | self.randomInteger }
 
 	adaptToCollectionAndApply { :self :aCollection :aProcedure |

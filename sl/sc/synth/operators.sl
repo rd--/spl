@@ -30,7 +30,7 @@
 
 }
 
-+ Object {
++ [Array, Number, Ugen] {
 
 	(* Auto-generated *)
 	Neg { :self | <primitive: return sc.Neg(_self);> }
