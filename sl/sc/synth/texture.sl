@@ -3,7 +3,7 @@ Procedure {
 	overlap { :self :sustainTime :transitionTime :overlap |
 		| period = (sustainTime + (transitionTime * 2)) / overlap; |
 		system::clock.schedule(0) {
-			{ self().withOverlapEnvelope(sustainTime, transitionTime) }.play;
+			{ self.value.withOverlapEnvelope(sustainTime, transitionTime) }.play;
 			period
 		}
 	}
@@ -17,7 +17,7 @@ Procedure {
 		if(self.numArgs = 0) {
 			{ self.play }.repeatEvery(aClock, delay)
 		} {
-			{ : d | { self(d) }.play }.repeatEvery(aClock, delay)
+			{ : d | { self.value(d) }.play }.repeatEvery(aClock, delay)
 		}
 	}
 
@@ -30,7 +30,7 @@ Procedure {
 		aClock.schedule(0) {
 			| d = delay.value; |
 			if(d.notNil) {
-				if(self.numArgs = 1) { self(d) } { self() };
+				if(self.numArgs = 1) { self.value(d) } { self.value };
 				d.asSeconds
 			} {
 				nil
@@ -42,7 +42,7 @@ Procedure {
 		aClock.scheduleInjecting(0, anObject) { :inputValue |
 			| nextDelay = delay.value; |
 			(inputValue.notNil & { nextDelay.notNil }).ifTrue {
-				[nextDelay.asSeconds, self(inputValue)]
+				[nextDelay.asSeconds, self.value(inputValue)]
 			}
 		}
 	}
@@ -62,7 +62,9 @@ Procedure {
 	collectTexture { :self :aClock :aProcedure :delay |
 		| end = self.size; |
 		{ :i |
-			{ aProcedure(self[i]) }.play;
+			{
+				aProcedure.value(self[i])
+			}.play;
 			if(i = end) { nil } {  i + 1 }
 		}.recurseEvery(aClock, 1, delay)
 	}

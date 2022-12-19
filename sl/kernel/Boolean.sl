@@ -1,9 +1,9 @@
 Boolean {
 
 	= { :self :anObject | <primitive: return _self === _anObject;> }
-	& { :self :anObject | <primitive: return _self && _value(_anObject);> }
-	| { :self :anObject | <primitive: return _self || _value(_anObject);> }
-	if { :self :whenTrue :whenFalse | <primitive: return _self ? _value(_whenTrue) : _value(_whenFalse);> }
+	& { :self :anObject | <primitive: return _self && _value_1(_anObject);> }
+	| { :self :anObject | <primitive: return _self || _value_1(_anObject);> }
+	if { :self :whenTrue :whenFalse | <primitive: return _self ? _value_1(_whenTrue) : _value_1(_whenFalse);> }
 	not { :self | <primitive: return _self ? false : true;> }
 
 	asBit { :self | if(self) { 1 } { 0 } }

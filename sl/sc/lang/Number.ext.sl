@@ -9,4 +9,12 @@
 		(stepsPerOctave * (d // k)) + scale[d % k + 1] + a
 	}
 
+	SoftClip { :self |
+		if(self.abs <= 0.5) {
+			self
+		} {
+			(self.abs - 0.25) / self
+		}
+	}
+
 }

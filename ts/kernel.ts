@@ -115,69 +115,98 @@ export function extendTraitWithMethod(traitName: TraitName, name: MethodName, ar
 	});
 }
 
-type GenericProcedureTable = Map<Arity, Map<TypeName, MethodTuple>>;
+type ByTypeProcedureTable = Map<TypeName, MethodTuple>;
+type ByArityProcedureTable = Map<Arity, ByTypeProcedureTable>;
+type ByNameProcedureTable = Map<MethodName, ByArityProcedureTable>
 
-export const genericProcedures: Map<MethodName, GenericProcedureTable> = new Map();
+export const genericProcedures: ByNameProcedureTable = new Map();
+
+export function lookupGeneric(methodName: MethodName, methodArity: Arity, receiverType: TypeName): MethodTuple {
+	return genericProcedures.get(methodName)!.get(methodArity)!.get(receiverType)!;
+}
+
+export function nameWithoutArity(methodName: MethodName) {
+	return methodName.split(':')[0];
+}
 
 export function applyGenericAt(methodName: MethodName, parameterArray: unknown[], receiverType: TypeName) {
-	const method = genericProcedures.get(methodName)!.get(parameterArray.length)!.get(receiverType)!;
+	// console.log(`applyGenericAt: ${methodName}, ${parameterArray.length}, ${receiverType}`);
+	const method = lookupGeneric(methodName, parameterArray.length, receiverType);
 	return method[0].apply(null, parameterArray)
 }
 
-export function dispatch(name: string, genericProcedureTable: GenericProcedureTable, parameterArray: unknown[]) {
-	const arity = parameterArray.length;
-	const typeTable = genericProcedureTable.get(arity);
-	if(typeTable) {
-		if(arity === 0) {
-			const method = typeTable.get('Void');
-			if(method) {
-				return method[0].apply(null, [])
-			} else {
-				return throwError(`dispatch: no zero arity method: ${name}`);
-			}
+export function dispatchByType(name: string, arity: number, typeTable: ByTypeProcedureTable, parameterArray: unknown[]) {
+	if(arity === 0) {
+		const method = typeTable.get('Void');
+		if(method) {
+			return method[0].apply(null, [])
 		} else {
-			const receiver = parameterArray[0];
-			const receiverType = typeOf(receiver);
-			const typeMethod = typeTable.get(receiverType);
-			if(typeMethod) {
-				consoleDebug(`dispatch: name=${name}, arity=${arity}, type=${receiverType}`);
-				return typeMethod[0].apply(null, parameterArray)
-			} else {
-				const defaultMethod = typeTable.get('Object');
-				if(defaultMethod) {
-					return defaultMethod[0].apply(null, parameterArray)
-				} else {
-					return throwError(`dispatch: no method for type: ${receiverType}; arity=${arity} name=${name}`);
-				}
-			}
+			return throwError(`dispatchByType: no zero arity method: ${name}`);
 		}
 	} else {
-		return throwError(`dispatch: no entry for arity: name=${name}, arity=${arity}`);
+		const receiver = parameterArray[0];
+		const receiverType = typeOf(receiver);
+		const typeMethod = typeTable.get(receiverType);
+		if(typeMethod) {
+			consoleDebug(`dispatchByType: name=${name}, arity=${arity}, type=${receiverType}`);
+			return typeMethod[0].apply(null, parameterArray)
+		} else {
+			const defaultMethod = typeTable.get('Object');
+			if(defaultMethod) {
+				return defaultMethod[0].apply(null, parameterArray)
+			} else {
+				return throwError(`dispatchByType: no method for type: ${receiverType}; arity=${arity} name=${name}`);
+			}
+		}
+	}
+}
+
+export function dispatchByArity(name: string, arity: number, arityTable: ByArityProcedureTable, parameterArray: unknown[]) {
+	const typeTable = arityTable.get(arity);
+	if(typeTable) {
+		return dispatchByType(name, arity, typeTable, parameterArray);
+	} else {
+		return throwError(`dispatchbyArity: no entry for arity: name=${name}, arity=${arity}`);
 	}
 }
 
 declare var globalThis: { [key: string]: unknown };
 
+// Required for class/species.  This needs considering...
+const makeArityDispatchFunction =  true;
+
 export function addMethod(typeName: TypeName, name: MethodName, arity: Arity, method: Function, source: string): void {
 	const prefixedName = '_' + name;
-	let globalFunction = globalThis[prefixedName];
+	const prefixedNameWithArity = ['_', name, '_', String(arity)].join('');
+	let globalFunctionWithArity = globalThis[prefixedNameWithArity];
 	if(!genericProcedures.has(name)) {
 		genericProcedures.set(name, new Map());
 	}
-	let genericProcedure = genericProcedures.get(name)!;
-	if(globalFunction === undefined) {
-		globalFunction = globalThis[prefixedName] = function(...argumentsArray: unknown[]) {
-			consoleDebug(`dispatch: ${name}, ${JSON.stringify(argumentsArray)}`);
-			return dispatch(name, genericProcedure, argumentsArray)
-		};
-		Object.defineProperty(globalFunction, "name", { value: name });
-		Object.defineProperty(globalFunction, "hasRestParameters", { value: true });
+	let arityTable = genericProcedures.get(name)!;
+	if(makeArityDispatchFunction) {
+		let globalFunction = globalThis[prefixedName];
+		if(globalFunction === undefined) {
+			globalFunction = globalThis[prefixedName] = function(...argumentsArray: unknown[]) {
+				consoleDebug(`dispatchByArity: ${name}, ${JSON.stringify(argumentsArray)}`);
+				return dispatchByArity(name, argumentsArray.length, arityTable, argumentsArray);
+			};
+			Object.defineProperty(globalFunction, "name", { value: name });
+			Object.defineProperty(globalFunction, "hasRestParameters", { value: true });
+		}
 	}
-	if(!genericProcedure.has(arity)) {
-		genericProcedure.set(arity, new Map());
+	if(!arityTable.has(arity)) {
+		arityTable.set(arity, new Map());
 	}
 	consoleDebug(`addMethod: ${typeName}, ${name}, ${arity}`);
-	genericProcedure.get(arity)!.set(typeName, makeMethodTuple(method, arity, source));
+	arityTable.get(arity)!.set(typeName, makeMethodTuple(method, arity, source));
+	if(globalFunctionWithArity === undefined) {
+		const typeTable = arityTable.get(arity)!;
+		globalFunctionWithArity = globalThis[prefixedNameWithArity] = function(...argumentsArray: unknown[]) {
+			consoleDebug(`dispatchByType: ${name}, ${JSON.stringify(argumentsArray)}`);
+			return dispatchByType(name, arity, typeTable, argumentsArray);
+		};
+		Object.defineProperty(globalFunctionWithArity, "name", { value: [name, ':/', String(arity)].join('') });
+	}
 }
 
 // This is run for built-in types. The class access and predicate methods are required.  Assumes non-kernel types have at least one slot.

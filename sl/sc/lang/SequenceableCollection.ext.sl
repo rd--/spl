@@ -44,7 +44,9 @@
 
 	withExtendingCollect { :self :aCollection :aProcedure |
 		| maximumSize = self.size.max(aCollection.size); |
-		1.toAsCollect(maximumSize, self.species) { :index | aProcedure(self.atWrap(index), aCollection.atWrap(index)) }
+		1.toAsCollect(maximumSize, self.species) { :index |
+			aProcedure.value(self.atWrap(index), aCollection.atWrap(index))
+		}
 	}
 
 	withExtendingCollectOrAdaptTo { :self :anObject :aProcedure |
@@ -55,20 +57,20 @@
 		}
 	}
 
-	+ { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, plus) }
-	- { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, minus) }
-	* { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, times) }
-	/ { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, dividedBy) }
-	< { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, lessThan) }
-	> { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, greaterThan) }
-	** { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, timesTimes) }
-	% { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, modulo) }
+	+ { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, plus:/2) }
+	- { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, minus:/2) }
+	* { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, times:/2) }
+	/ { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, dividedBy:/2) }
+	< { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, lessThan:/2) }
+	> { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, greaterThan:/2) }
+	** { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, timesTimes:/2) }
+	% { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, modulo:/2) }
 
-	bitAnd { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, bitAnd) }
-	bitOr { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, bitOr) }
-	min { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, min) }
-	max { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, max) }
-	roundTo { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, roundTo) }
-	truncateTo { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, truncateTo) }
+	bitAnd { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, bitAnd:/2) }
+	bitOr { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, bitOr:/2) }
+	min { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, min:/2) }
+	max { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, max:/2) }
+	roundTo { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, roundTo:/2) }
+	truncateTo { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, truncateTo:/2) }
 
 }

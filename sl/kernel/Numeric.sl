@@ -70,7 +70,7 @@
 	timesRepeat { :self :aProcedure |
 		| remaining = self; |
 		whileTrue { remaining > 0 } {
-			aProcedure();
+			aProcedure.value;
 			remaining := remaining - 1
 		}
 	}
@@ -78,7 +78,7 @@
 	toDo { :self :end :aProcedure |
 		| index = self; |
 		whileTrue { index <= end } {
-			aProcedure(index);
+			aProcedure.value(index);
 			index := index + 1
 		}
 	}

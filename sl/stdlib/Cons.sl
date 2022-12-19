@@ -9,7 +9,7 @@ Cons : [Collection] { | car cdr |
 	collect { :self :aBlock |
 		| answer = nil; |
 		self.do { :each |
-			answer := Cons(aBlock(each), answer)
+			answer := Cons(aBlock.value(each), answer)
 		};
 		answer.reversed
 	}
@@ -25,9 +25,9 @@ Cons : [Collection] { | car cdr |
 
 	do { :self :aBlock |
 		| next = self.cdr; |
-		aBlock(self.car);
+		aBlock.value(self.car);
 		{ next.isCons }.whileTrue {
-			aBlock(next.car);
+			aBlock.value(next.car);
 			next := next.cdr
 		}
 	}

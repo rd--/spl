@@ -13,7 +13,7 @@
 	}
 
 	dup { :self :anInteger |
-		self.replicateApplying(anInteger, value)
+		self.replicateApplying(anInteger, value:/1)
 	}
 
 }

@@ -1,9 +1,16 @@
 LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 
-	isEmpty { :self | self.firstLink.isNil }
-	species { :self | Array }
+	isEmpty { :self |
+		self.firstLink.isNil
+	}
 
-	add { :self :aLinkOrObject | self.addLast(aLinkOrObject) }
+	species { :self |
+		Array:/1
+	}
+
+	add { :self :aLinkOrObject |
+		self.addLast(aLinkOrObject)
+	}
 
 	addFirst { :self :aLinkOrObject |
 		| aLink = aLinkOrObject.asLink; |
@@ -37,7 +44,7 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 	collect { :self :aBlock |
 		| aLink = self.firstLink, answer = LinkedList(); |
 		 { aLink == nil }.whileFalse {
-			 answer.add(aBlock(aLink.value));
+			 answer.add(aBlock.value(aLink.value));
 			 aLink := aLink.nextLink
 		 };
 		answer
@@ -55,7 +62,7 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 	do { :self :aBlock |
 		| aLink = self.firstLink; |
 		{ aLink == nil }.whileFalse {
-			aBlock(aLink.value);
+			aBlock.value(aLink.value);
 			aLink := aLink.nextLink
 		}
 	}
@@ -82,7 +89,7 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 	linksDo { :self :aBlock |
 		| aLink = self.firstLink; |
 		{ aLink == nil }.whileFalse {
-			aBlock(aLink);
+			aBlock.value(aLink);
 			aLink := aLink.nextLink
 		}
 	}
@@ -98,7 +105,7 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 	}
 
 	removeAllSuchThat { :self :aBlock |
-		self.do { :each | aBlock(each).ifTrue { self.remove(each) } }
+		self.do { :each | aBlock.value(each).ifTrue { self.remove(each) } }
 	}
 
 	removeFirst { :self |
@@ -114,8 +121,8 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 	}
 
 	removeIfAbsent { :self :aLinkOrObject :aBlock |
-		| link = self.linkOfIfAbsent(aLinkOrObject, { aBlock() }); |
-		self.removeLinkIfAbsent(link, { aBlock() });
+		| link = self.linkOfIfAbsent(aLinkOrObject, { aBlock.value }); |
+		self.removeLinkIfAbsent(link, { aBlock.value });
 		aLinkOrObject
 	}
 
@@ -144,7 +151,7 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 			} {
 				| tempLink = self.firstLink; |
 				{
-					tempLink.ifNil { return(aBlock()) };
+					tempLink.ifNil { return(aBlock.value) };
 					tempLink.nextLink == aLink
 				}.whileFalse {
 					tempLink := tempLink.nextLink
@@ -158,7 +165,7 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 
 	select { :self :aBlock |
 		| answer = LinkedList(); |
-		self.do { :each | aBlock(each).ifTrue { answer.add(each) } };
+		self.do { :each | aBlock.value(each).ifTrue { answer.add(each) } };
 		answer
 	}
 

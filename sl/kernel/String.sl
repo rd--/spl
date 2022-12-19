@@ -27,7 +27,7 @@ String : [Collection, SequenceableCollection] {
 	utf8 { :self | <primitive: return new TextEncoder().encode(_self.normalize('NFC'));> }
 
 	ascii { :self |
-		1.toAsCollect(self.size, ByteArray) { :index |
+		1.toAsCollect(self.size, ByteArray:/1) { :index |
 			| codePoint = self.charCodeAt(index); |
 			(codePoint > 255).ifTrue { 'String>>ascii: non-ascii character'.error };
 			codePoint

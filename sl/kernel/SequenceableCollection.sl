@@ -47,7 +47,7 @@
 
 	collect { :self :aBlock |
 		| newCollection = self.species.ofSize(self.size); |
-		1.toDo(self.size) { :index | newCollection[index] := aBlock(self[index]) };
+		1.toDo(self.size) { :index | newCollection[index] := aBlock.value(self[index]) };
 		newCollection
 	}
 
@@ -91,7 +91,7 @@
 	}
 
 	do { :self :aBlock |
-		1.toDo(self.size) { :index | aBlock(self[index]) }
+		1.toDo(self.size) { :index | aBlock.value(self[index]) }
 	}
 
 	fisherYatesShuffle { :self |
@@ -141,16 +141,20 @@
 	}
 
 	rotateLeft { :self :anInteger |
-		(1 + anInteger).toAsCollect(self.size + anInteger, self.species) { :index | self.atWrap(index) }
+		(1 + anInteger).toAsCollect(self.size + anInteger, self.species) { :index |
+			self.atWrap(index)
+		}
 	}
 
 	rotateRight { :self :anInteger |
-		(1 - anInteger).toAsCollect(self.size - anInteger, self.species) { :index | self.atWrap(index) }
+		(1 - anInteger).toAsCollect(self.size - anInteger, self.species) { :index |
+			self.atWrap(index)
+		}
 	}
 
 	select { :self :aBlock |
 		| answer = OrderedCollection(); |
-		1.toDo(self.size) { :index | aBlock(self[index]).ifTrue { answer.add(self[index]) } };
+		1.toDo(self.size) { :index | aBlock.value(self[index]).ifTrue { answer.add(self[index]) } };
 		answer
 	}
 
@@ -163,7 +167,9 @@
 	}
 
 	transpose { :self |
-		1.toAsCollect(self.first.size, self.first.species) { :c | self.collect { :r | r[c] } }
+		1.toAsCollect(self.first.size, self.first.species) { :index |
+			self.collect { :row | row[index] }
+		}
 	}
 
 	validIndex { :self :index |
@@ -171,23 +177,25 @@
 	}
 
 	withCollect { :self :aCollection :aProcedure |
-		ifFalse(isSequenceable(aCollection) & { (self.size == aCollection.size) }) {
+		ifFalse(isSequenceable(aCollection) & { self.size == aCollection.size }) {
 			error('withCollect: operand not-sequenceable or of unequal size')
 		};
-		1.toAsCollect(self.size, self.species) { :index | aProcedure(self[index], anArray[index]) }
+		1.toAsCollect(self.size, self.species) { :index |
+			aProcedure.value(self[index], anArray[index])
+		}
 	}
 
 	withIndexCollect { :self :elementAndIndexBlock |
 		| answer = self.species.ofSize(self.size); |
 		1.toDo(self.size) { :index |
-			answer[index] := elementAndIndexBlock(self[index], index)
+			answer[index] := elementAndIndexBlock.value(self[index], index)
 		};
 		answer
 	}
 
 	withIndexDo { :self :elementAndIndexBlock |
 		1.toDo(self. size) { :index |
-			elementAndIndexBlock(self[index], index)
+			elementAndIndexBlock.value(self[index], index)
 		}
 	}
 
@@ -202,7 +210,7 @@
 + Procedure {
 
 	geom { :self :size :start :grow |
-		| answer = self(size), accum = start; |
+		| answer = self.value(size), accum = start; |
 		1.to(size).collectInto({ :unusedItem |
 			| entry = accum; |
 			accum := grow * accum;
@@ -212,7 +220,7 @@
 	}
 
 	series { :self :size :start :step |
-		| answer = self(size); |
+		| answer = self.value(size); |
 		1.to(size).collectInto({ :item | (step * (item - 1)) + start }, answer);
 		answer
 	}

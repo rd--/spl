@@ -15,7 +15,7 @@ ByteArray : [Collection, SequenceableCollection, ArrayedCollection] {
 
 	asByteArray { :self |
 		| answer = ByteArray(self.size); |
-		answer.fillFromWith(self, identity)
+		answer.fillFromWith(self, identity:/1)
 	}
 
 }

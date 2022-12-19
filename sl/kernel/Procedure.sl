@@ -38,27 +38,46 @@ Procedure {
 		<primitive: while(!_self()) { _aProcedure(); }; return null;>
 	}
 
-	value { :self | apply(self, []) }
-	value { :self :p1 | apply(self, [p1]) }
-	value { :self :p1 :p2 | apply(self, [p1, p2]) }
-	value { :self :p1 :p2 :p3 | apply(self, [p1, p2, p3]) }
+	value { :self |
+		apply(self, [])
+	}
+
+	value { :self :p1 |
+		apply(self, [p1])
+	}
+
+	value { :self :p1 :p2 |
+		apply(self, [p1, p2])
+	}
+
+	value { :self :p1 :p2 :p3 |
+		apply(self, [p1, p2, p3])
+	}
+
+	value { :self :p1 :p2 :p3 :p4 |
+		apply(self, [p1, p2, p3, p4])
+	}
+
+	value { :self :p1 :p2 :p3 :p4 :p5 |
+		apply(self, [p1, p2, p3, p4, p5])
+	}
 
 	cull { :self :firstArg |
 		if(self.numArgs >= 1) {
-			self(firstArg)
+			self.value(firstArg)
 		} {
-			self()
+			self.value
 		}
 	}
 
 	cullCull { :self :firstArg :secondArg |
 		if(self.numArgs >= 2) {
-			self.(firstArg, secondArg)
+			self.value(firstArg, secondArg)
 		} {
 			if(self.numArgs = 1) {
-				self(firstArg)
+				self.value(firstArg)
 			} {
-				self()
+				self.value
 			}
 		}
 	}
@@ -72,7 +91,7 @@ Procedure {
 + Object {
 
 	$ { :self :aProcedure |
-		aProcedure(self)
+		aProcedure.value(self)
 	}
 
 }

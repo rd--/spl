@@ -1,27 +1,55 @@
 Object {
 
-	typeOf { :self | <primitive: return sl.typeOf(_self)> }
-	species { :self | self.class }
-	printString { :self | self.typeOf }
-	asString { :self | self.printString }
+	typeOf { :self |
+		<primitive: return sl.typeOf(_self)>
+	}
 
-	== { :self :anObject | <primitive: return _self === _anObject;> }
-	~~ { :self :anObject | <primitive: return _self !== _anObject;> }
+	species { :self |
+		self.class
+	}
 
-	~= { :self :anObject | not(self = anObject) }
+	printString { :self |
+		self.typeOf
+	}
 
-	throw { :self | <primitive: throw _self;> }
-	return { :self | <primitive: throw _self;> }
+	asString { :self |
+		self.printString
+	}
 
-	identity { :self | self }
-	value { :self | self }
+	== { :self :anObject |
+		<primitive: return _self === _anObject;>
+	}
+
+	~~ { :self :anObject |
+		<primitive: return _self !== _anObject;>
+	}
+
+	~= { :self :anObject |
+		not(self = anObject)
+	}
+
+	throw { :self |
+		<primitive: throw _self;>
+	}
+
+	return { :self |
+		<primitive: throw _self;>
+	}
+
+	identity { :self |
+		self
+	}
+
+	value { :self |
+		self
+	}
 
 }
 
 + Procedure {
 
-	new { :self | self() }
-	new { :self :aNumber | self(aNumber) }
-	newFrom { :self :anObject | self(anObject) }
+	new { :self | self.value }
+	new { :self :aNumber | self.value(aNumber) }
+	newFrom { :self :anObject | self.value(anObject) }
 
 }

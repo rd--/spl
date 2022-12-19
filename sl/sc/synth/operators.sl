@@ -30,19 +30,12 @@
 
 }
 
-+ [Array, Number, Ugen] {
++ [Array, Ugen] {
 
 	(* Auto-generated *)
 	Neg { :self | <primitive: return sc.Neg(_self);> }
-	Abs { :self | <primitive: return sc.Abs(_self);> }
-	Ceil { :self | <primitive: return sc.Ceil(_self);> }
-	Floor { :self | <primitive: return sc.Floor(_self);> }
-	Frac { :self | <primitive: return sc.Frac(_self);> }
-	Sign { :self | <primitive: return sc.Sign(_self);> }
 	Squared { :self | <primitive: return sc.Squared(_self);> }
 	Cubed { :self | <primitive: return sc.Cubed(_self);> }
-	Sqrt { :self | <primitive: return sc.Sqrt(_self);> }
-	Exp { :self | <primitive: return sc.Exp(_self);> }
 	Recip { :self | <primitive: return sc.Recip(_self);> }
 	MidiCps { :self | <primitive: return sc.MidiCps(_self);> }
 	CpsMidi { :self | <primitive: return sc.CpsMidi(_self);> }
@@ -50,6 +43,21 @@
 	RatioMidi { :self | <primitive: return sc.RatioMidi(_self);> }
 	DbAmp { :self | <primitive: return sc.DbAmp(_self);> }
 	AmpDb { :self | <primitive: return sc.AmpDb(_self);> }
+	Distort { :self | <primitive: return sc.Distort(_self);> }
+	SoftClip { :self | <primitive: return sc.SoftClip(_self);> }
+
+}
+
++ [Array, Number, Ugen] {
+
+	(* Auto-generated *)
+	Abs { :self | <primitive: return sc.Abs(_self);> }
+	Ceil { :self | <primitive: return sc.Ceil(_self);> }
+	Floor { :self | <primitive: return sc.Floor(_self);> }
+	Frac { :self | <primitive: return sc.Frac(_self);> }
+	Sign { :self | <primitive: return sc.Sign(_self);> }
+	Sqrt { :self | <primitive: return sc.Sqrt(_self);> }
+	Exp { :self | <primitive: return sc.Exp(_self);> }
 	Log { :self | <primitive: return sc.Log(_self);> }
 	Log2 { :self | <primitive: return sc.Log2(_self);> }
 	Log10 { :self | <primitive: return sc.Log10(_self);> }
@@ -57,8 +65,6 @@
 	Cos { :self | <primitive: return sc.Cos(_self);> }
 	Tan { :self | <primitive: return sc.Tan(_self);> }
 	Tanh { :self | <primitive: return sc.Tanh(_self);> }
-	Distort { :self | <primitive: return sc.Distort(_self);> }
-	SoftClip { :self | <primitive: return sc.SoftClip(_self);> }
 
 	(* Auto-generated *)
 	Add { :self :anObject | <primitive: return sc.Add(_self, _anObject);> }

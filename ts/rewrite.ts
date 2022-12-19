@@ -1,5 +1,6 @@
 // @ts-nocheck
 
+import { arraySum } from '../lib/jssc3/ts/kernel/array.ts'
 import { consoleDebug } from '../lib/jssc3/ts/kernel/error.ts'
 
 import { slSemantics, slParse, slBlockArity, slTemporariesSyntaxNames } from './grammar.ts'
@@ -45,13 +46,13 @@ const asJs: any = {
     TemporaryWithDictionaryInitializer(_l, lhs, _r, _e, rhs) {
 		const namesArray = lhs.asIteration().children.map(c => c.sourceString);
 		const rhsName = gensym();
-		const slots = namesArray.map((name) => `_${name} = _at(${rhsName}, '${name}')`).join(', ');
+		const slots = namesArray.map((name) => `_${name} = _at_2(${rhsName}, '${name}')`).join(', ');
 		return `${rhsName} = ${rhs.asJs}, ${slots}`;
 	},
     TemporaryWithArrayInitializer(_l, lhs, _r, _e, rhs) {
 		const namesArray = lhs.asIteration().children.map(c => c.sourceString);
 		const rhsName = gensym();
-		const slots = namesArray.map((name, index) => `_${name} = _at(${rhsName}, ${index + 1})`).join(', ');
+		const slots = namesArray.map((name, index) => `_${name} = _at_2(${rhsName}, ${index + 1})`).join(', ');
 		return `${rhsName} = ${rhs.asJs}, ${slots}`;
 	},
     TemporariesWithoutInitializers(_l, tmp, _r) { return 'var ' + commaList(tmp.children) + '; '; },
@@ -64,43 +65,45 @@ const asJs: any = {
 		while (opsArray.length > 0) {
 			const op = opsArray.shift();
 			const right = rhsArray.shift();
-			left = `_${sl.operatorMethodName(op)}(${left}, ${right})`;
+			left = `_${sl.operatorMethodName(op)}_2(${left}, ${right})`;
 		}
 		return left;
 	},
 
-	AtPutSyntax(c, _l, k, _r, _e, v) { return `_atPut(${c.asJs}, ${k.asJs}, ${v.asJs})`; },
-	AtPutQuotedSyntax(c, _c, k, _e, v) { return `_atPut(${c.asJs}, '${k.sourceString}', ${v.asJs})`; },
-	AtSyntax(c, _l, k, _r) { return `_at(${c.asJs}, ${k.asJs})`; },
-	AtQuotedSyntax(c, _c, k) { return `_at(${c.asJs}, '${k.sourceString}')`; },
-	ValueSyntax(p, _d, a) { return `${p.asJs}(${a.asJs})`; },
+	AtPutSyntax(c, _l, k, _r, _e, v) { return `_atPut_3(${c.asJs}, ${k.asJs}, ${v.asJs})`; },
+	AtPutQuotedSyntax(c, _c, k, _e, v) { return `_atPut_3(${c.asJs}, '${k.sourceString}', ${v.asJs})`; },
+	AtSyntax(c, _l, k, _r) { return `_at_2(${c.asJs}, ${k.asJs})`; },
+	AtQuotedSyntax(c, _c, k) { return `_at_2(${c.asJs}, '${k.sourceString}')`; },
+	ValueSyntax(p, _d, a) { return `${p.asJs}_${a.arityOf}(${a.asJs})`; },
     NonEmptyParameterList(_l, sq, _r) { return commaList(sq.asIteration().children); },
 
     DotExpressionWithTrailingClosuresSyntax(lhs, _dot, nm, args, tc) {
-		return `${nm.asJs}(${[lhs.asJs].concat(args.children.map(c => c.asJs), tc.children.map(c => c.asJs))})`;
+		return `${nm.asJs}_${1 + args.arityOf + tc.children.length}(${[lhs.asJs].concat(args.children.map(c => c.asJs), tc.children.map(c => c.asJs))})`;
 	},
     DotExpressionWithTrailingDictionariesSyntax(lhs, _dot, nm, args, tc) {
-		return `${nm.asJs}(${[lhs.asJs].concat(args.children.map(c => c.asJs), tc.children.map(c => c.asJs))})`;
+		return `${nm.asJs}_${1 + args.arityOf + tc.children.length}(${[lhs.asJs].concat(args.children.map(c => c.asJs), tc.children.map(c => c.asJs))})`;
 	},
-    DotExpressionWithAssignmentSyntax(lhs, _dot, nm, _asg, rhs) { return `${nm.asJs}(${lhs.asJs}, ${rhs.asJs})`; },
+    DotExpressionWithAssignmentSyntax(lhs, _dot, nm, _asg, rhs) { return `${nm.asJs}_2(${lhs.asJs}, ${rhs.asJs})`; },
     DotExpression(lhs, _dot, nms, args) {
 		let rcv = lhs.asJs;
 		const namesArray = nms.children.map(c => c.asJs);
 		const argsArray = args.children.map(c => c.asJs);
+		const arityArray = args.children.map(c => c.arityOf);
 		while (namesArray.length > 0) {
 			const nm = namesArray.shift();
 			const arg = argsArray.shift();
+			const arity = arityArray.shift();
 			if(arg.length === 0) {
-				rcv = `${nm}(${rcv})`;
+				rcv = `${nm}_1(${rcv})`;
 			} else {
-				rcv = `${nm}(${[rcv].concat([arg])})`;
+				rcv = `${nm}_${1 + arity}(${[rcv].concat([arg])})`;
 			}
 		}
 		return rcv;
 	},
 
-	ImplicitDictionaryAtPutSyntax(_c, k, _a, e) { return `_atPut(_implicitDictionary, '${k.sourceString}', ${e.asJs})`; },
-	ImplicitDictionaryAtSyntax(_c, k) { return `_at(_implicitDictionary, '${k.sourceString}')`; },
+	ImplicitDictionaryAtPutSyntax(_c, k, _a, e) { return `_atPut_3(_implicitDictionary, '${k.sourceString}', ${e.asJs})`; },
+	ImplicitDictionaryAtSyntax(_c, k) { return `_at_2(_implicitDictionary, '${k.sourceString}')`; },
 
     Block(_l, blk, _r) { return blk.asJs; },
     BlockBody(arg, tmp, prm, stm) {
@@ -120,25 +123,28 @@ const asJs: any = {
 
     ApplyWithTrailingClosuresSyntax(rcv, arg, tc) {
 		const opt = arg.asJs;
-		return `${rcv.asJs}(...[${opt === '' ? '' : opt + ', '} ${commaList(tc.children)}])`;
+		return `${rcv.asJs}_${arg.arityOf + tc.children.length}(...[${opt === '' ? '' : opt + ', '} ${commaList(tc.children)}])`;
 	},
     ApplyWithTrailingDictionariesSyntax(rcv, arg, tc) {
 		const opt = arg.asJs;
-		return `${rcv.asJs}(...[${opt === '' ? '' : opt + ', '} ${commaList(tc.children)}])`;
+		return `${rcv.asJs}_${arg.arityOf + tc.children.length}(...[${opt === '' ? '' : opt + ', '} ${commaList(tc.children)}])`;
 	},
-    Apply(rcv, arg) { return `${rcv.asJs}(...[${arg.asJs}])`; },
+    Apply(rcv, arg) { return `${rcv.asJs}_${arg.arityOf}(...[${arg.asJs}])`; },
     ParameterList(_l, sq, _r) { return commaList(sq.asIteration().children); },
     ParenthesisedExpression(_l, e, _r) { return '(' + e.asJs + ')'; },
     DictionaryExpression(_l, dict, _r) { return `new Map([${commaList(dict.asIteration().children)}])`; },
     NonEmptyDictionaryExpression(_l, dict, _r) { return `new Map([${commaList(dict.asIteration().children)}])`; },
     AssociationExpression(lhs, _arrow, rhs) { return `['${lhs.sourceString}', ${rhs.asJs}]`; },
     ArrayExpression(_l, array, _r) { return `[${commaList(array.asIteration().children)}]`; },
-    ArrayRangeSyntax(_l, start, _d, end, _r) { return `_asArray(_to(${start.asJs}, ${end.asJs}))`; },
-    ArrayRangeThenSyntax(_l, start, _c_, then, _d, end, _r) { return `_asArray(_thenTo(${start.asJs}, ${then.asJs}, ${end.asJs}))`; },
-    IntervalSyntax(_l, start, _d, end, _r) { return `_to(${start.asJs}, ${end.asJs})`; },
-    IntervalThenSyntax(_l, start, _c_, then, _d, end, _r) { return `_thenTo(${start.asJs}, ${then.asJs}, ${end.asJs})`; },
+    ArrayRangeSyntax(_l, start, _d, end, _r) { return `_asArray_1(_to_2(${start.asJs}, ${end.asJs}))`; },
+    ArrayRangeThenSyntax(_l, start, _c_, then, _d, end, _r) { return `_asArray_1(_thenTo_3(${start.asJs}, ${then.asJs}, ${end.asJs}))`; },
+    IntervalSyntax(_l, start, _d, end, _r) { return `_to_2(${start.asJs}, ${end.asJs})`; },
+    IntervalThenSyntax(_l, start, _c_, then, _d, end, _r) { return `_thenTo_3(${start.asJs}, ${then.asJs}, ${end.asJs})`; },
 
-    identifier(_l, _r) { return `_${this.sourceString}`; },
+    identifier(c1, cN, _, a) {
+		const name = `_${c1.sourceString}${cN.sourceString}${a.children.length === 0 ? '' : ('_' + a.sourceString.slice(2))}`;
+		return name;
+	},
     reservedIdentifier(id) {
 		switch(id.sourceString) {
 			case 'nil': return 'null';
@@ -150,8 +156,8 @@ const asJs: any = {
     floatLiteral(s,i,_,f) { return `${s.sourceString}${i.sourceString}.${f.sourceString}`; },
     integerLiteral(s,i) { return `${s.sourceString}${i.sourceString}`; },
     singleQuotedStringLiteral(_l, s, _r) { return `'${s.sourceString}'`; },
-    doubleQuotedStringLiteral(_l, s, _r) { return `_parseDoubleQuotedString('${s.sourceString}')`; },
-    backtickQuotedStringLiteral(_l, s, _r) { return `_parseBacktickQuotedString('${s.sourceString}')`; },
+    doubleQuotedStringLiteral(_l, s, _r) { return `_parseDoubleQuotedString_1('${s.sourceString}')`; },
+    backtickQuotedStringLiteral(_l, s, _r) { return `_parseBacktickQuotedString_1('${s.sourceString}')`; },
 
 	NonemptyListOf(first, _sep, rest) { return first.asJs + '; ' + rest.children.map(c => c.asJs); },
 	EmptyListOf() { return ''; },
@@ -160,6 +166,14 @@ const asJs: any = {
 };
 
 slSemantics.addAttribute('asJs', asJs);
+
+const arityOf: any = {
+    NonEmptyParameterList(_l, sq, _r) { return sq.asIteration().children.length },
+	ParameterList(_l, sq, _r) { return sq.asIteration().children.length },
+    _iter(...children) { return arraySum(children.map(c => c.arityOf)); },
+}
+
+slSemantics.addAttribute('arityOf', arityOf);
 
 function commaList(nodeArray): string {
     return nodeArray.map(e => e.asJs).join(', ');

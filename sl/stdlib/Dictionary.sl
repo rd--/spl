@@ -28,20 +28,24 @@
 	}
 
 	associationsDo { :self :aProcedure |
-		self.keysValuesDo { :key :value | aProcedure(key -> value) }
+		self.keysValuesDo { :key :value |
+			aProcedure.value(key -> value)
+		}
 	}
 
 	atIfAbsent { :self :aKey :aBlock |
-		self[aKey] ? aBlock()
+		self[aKey] ? aBlock.value
 	}
 
 	atIfAbsentPut { :self :key :aBlock |
-		self.atIfAbsent(key) { self[key] := aBlock() }
+		self.atIfAbsent(key) { self[key] := aBlock.value }
 	}
 
 	collect { :self :aProcedure |
 		| answer = self.species.new; |
-		self.keysValuesDo { :key :value | answer.add(key -> aProcedure(value)) };
+		self.keysValuesDo { :aKey :aValue |
+			answer.add(aKey -> aProcedure.value(aValue))
+		};
 		answer
 	}
 
@@ -58,11 +62,11 @@
 	fillFromWith { :self :aCollection :aBlock |
 		aCollection.isDictionary.if {
 			aCollection.associationsDo { :association |
-				self[association.key] := aBlock(association.value)
+				self[association.key] := aBlock.value(association.value)
 			}
 		} {
 			aCollection.do { :element |
-				self.add(aBlock(element))
+				self.add(aBlock.value(element))
 			}
 		}
 	}
@@ -76,7 +80,7 @@
 	select { :self :aBlock |
 		| newCollection = self.species.new; |
 		self.associationsDo { :each |
-			aBlock(each.value).ifTrue {
+			aBlock.value(each.value).ifTrue {
 				newCollection.add(each.copy)
 			}
 		};
@@ -84,7 +88,7 @@
 	}
 
 	valuesDo { :self :aBlock |
-		self.associationsDo { :association | aBlock(association.value) }
+		self.associationsDo { :association | aBlock.value(association.value) }
 	}
 
 }

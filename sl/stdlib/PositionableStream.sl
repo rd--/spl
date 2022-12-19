@@ -66,7 +66,7 @@
 
 	withWriteStream { :self :aBlock |
 		| aStream = WriteStream(self.collection.species.new(100)); |
-		aBlock(aStream);
+		aBlock.value(aStream);
 		aStream.contents
 	}
 

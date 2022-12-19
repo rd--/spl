@@ -6,37 +6,37 @@ Number : [Magnitude, Numeric] {
 
 	< { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return _self < _anObject; }>
-		anObject.adaptToNumberAndApply(self, lessThan)
+		anObject.adaptToNumberAndApply(self, lessThan:/2)
 	}
 
 	<= { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return _self <= _anObject; }>
-		anObject.adaptToNumberAndApply(self, lessThanEquals)
+		anObject.adaptToNumberAndApply(self, lessThanEquals:/2)
 	}
 
 	+ { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return _self + _anObject; }>
-		anObject.adaptToNumberAndApply(self, plus)
+		anObject.adaptToNumberAndApply(self, plus:/2)
 	}
 
 	- { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return _self - _anObject; }>
-		anObject.adaptToNumberAndApply(self, minus)
+		anObject.adaptToNumberAndApply(self, minus:/2)
 	}
 
 	* { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return _self * _anObject; }>
-		anObject.adaptToNumberAndApply(self, times)
+		anObject.adaptToNumberAndApply(self, times:/2)
 	}
 
 	/ { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return _self / _anObject; }>
-		anObject.adaptToNumberAndApply(self, dividedBy)
+		anObject.adaptToNumberAndApply(self, dividedBy:/2)
 	}
 
 	% { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return ((_self % _anObject) + _anObject) % _anObject; }>
-		anObject.adaptToNumberAndApply(self, modulo)
+		anObject.adaptToNumberAndApply(self, modulo:/2)
 	}
 
 	remainder { :self :anObject |
@@ -46,42 +46,42 @@ Number : [Magnitude, Numeric] {
 
 	** { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return Math.pow(_self, _anObject); }>
-		anObject.adaptToNumberAndApply(self, timesTimes)
+		anObject.adaptToNumberAndApply(self, timesTimes:/2)
 	}
 
 	bitAnd { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return _self & _anObject; }>
-		anObject.adaptToNumberAndApply(self, bitAnd)
+		anObject.adaptToNumberAndApply(self, bitAnd:/2)
 	}
 
 	bitOr { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return _self | _anObject; }>
-		anObject.adaptToNumberAndApply(self, bitOr)
+		anObject.adaptToNumberAndApply(self, bitOr:/2)
 	}
 
 	bitXor { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return _self ^ _anObject; }>
-		anObject.adaptToNumberAndApply(self, bitXor)
+		anObject.adaptToNumberAndApply(self, bitXor:/2)
 	}
 
 	<< { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return _self << _anObject; }>
-		anObject.adaptToNumberAndApply(self, lessThanLessThan)
+		anObject.adaptToNumberAndApply(self, lessThanLessThan:/2)
 	}
 
 	>> { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return sl.shiftRight(_self, _anObject); }>
-		anObject.adaptToNumberAndApply(self, greaterThanGreaterThan)
+		anObject.adaptToNumberAndApply(self, greaterThanGreaterThan:/2)
 	}
 
 	min { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return Math.min(_self, _anObject); }>
-		anObject.adaptToNumberAndApply(self, min)
+		anObject.adaptToNumberAndApply(self, min:/2)
 	}
 
 	max { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return Math.max(_self, _anObject); }>
-		anObject.adaptToNumberAndApply(self, max)
+		anObject.adaptToNumberAndApply(self, max:/2)
 	}
 
 	abs { :self | <primitive: return Math.abs(_self)> }
@@ -122,7 +122,9 @@ Number : [Magnitude, Numeric] {
 	atRandom { :self | self.randomInteger }
 
 	adaptToCollectionAndApply { :self :aCollection :aProcedure |
-		aCollection.collect({ :each | aProcedure(each, self) })
+		aCollection.collect { :each |
+			aProcedure.value(each, self)
+		}
 	}
 
 	Number { :self | self }

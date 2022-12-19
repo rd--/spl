@@ -46,7 +46,7 @@
 
 	collect { :self :aBlock |
 		| newCollection = self.species.new; |
-		self.do { :each | newCollection.add(aBlock(each)) };
+		self.do { :each | newCollection.add(aBlock.value(each)) };
 		newCollection
 	}
 
@@ -56,13 +56,17 @@
 
 	detectIfFoundIfNone { :self :aProcedure :foundProcedure :exceptionProcedure |
 		withReturn {
-			self.do { :each | aProcedure(each).ifTrue { return (foundProcedure(each)) } }
+			self.do { :each |
+				aProcedure.value(each).ifTrue {
+					return (foundProcedure.value(each))
+				}
+			}
 		};
-		exceptionProcedure()
+		exceptionProcedure.value
 	}
 
 	detectIfNone { :self :aProcedure :whenAbsent |
-		detectIfFoundIfNone(self, aProcedure, identity, whenAbsent)
+		detectIfFoundIfNone(self, aProcedure, identity:/1, whenAbsent)
 	}
 
 	detect { :self :aProcedure |
@@ -74,9 +78,9 @@
 		self.do { :each |
 			maxValue.isNil.if {
 				maxElement := each;
-				maxValue := aProcedure(each)
+				maxValue := aProcedure.value(each)
 			} {
-				| nextValue = aProcedure(each); |
+				| nextValue = aProcedure.value(each); |
 				(nextValue > maxValue).ifTrue {
 					maxElement := each;
 					maxValue := nextValue
@@ -92,7 +96,7 @@
 
 	fillFromWith { :self :aCollection :aBlock |
 		aCollection.do { :each |
-			self.add(aBlock(each))
+			self.add(aBlock.value(each))
 		}
 	}
 
@@ -132,7 +136,7 @@
 	}
 
 	product { :self |
-		self.reduce(times)
+		self.reduce(times:/2)
 	}
 
 	reduce { :self :aBinaryProcedure |
@@ -142,7 +146,7 @@
 				nextValue := each;
 				first := false
 			} {
-				nextValue := aBinaryProcedure(nextValue, each)
+				nextValue := aBinaryProcedure.value(nextValue, each)
 			}
 		};
 		first.ifTrue { error('Array>>reduce: empty collection') };
@@ -155,7 +159,7 @@
 
 	select { :self :aBlock |
 		| answer = self.species.new; |
-		self.do { :each | aBlock(each).ifTrue { answer.add(each) } };
+		self.do { :each | aBlock.value(each).ifTrue { answer.add(each) } };
 		answer
 	}
 
@@ -170,7 +174,7 @@
 	}
 
 	sum { :self |
-		self.reduce(plus)
+		self.reduce(plus:/2)
 	}
 
 	ofSize { :self :aNumber |
@@ -195,7 +199,7 @@
 	}
 
 	ofSize { :self :aNumber |
-		self(aNumber).ofSize(aNumber)
+		self.value(aNumber).ofSize(aNumber)
 	}
 
 }

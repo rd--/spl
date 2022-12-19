@@ -5,7 +5,11 @@ WriteStream { | collection position writeLimit |
 	}
 
 	growTo { :self :anInteger |
-		| oldSize = self.collection.size, newSize = anInteger + oldSize.quotient(4).max(20), grownCollection = self.collection.class.new(newSize); |
+		|
+			oldSize = self.collection.size,
+			newSize = anInteger + oldSize.quotient(4).max(20),
+			grownCollection = self.collection.class.new(newSize);
+		|
 		self.collection := grownCollection.replaceFromToWithStartingAt(1, oldSize, collection, 1);
 		self.writeLimit := self.collection.size
 	}

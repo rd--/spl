@@ -97,8 +97,8 @@ Sl {
     IntervalThenSyntax = "(" Expression "," Expression ".." Expression ")"
 
     methodName = identifier | binaryOperator
-    identifier = letter letterOrDigitOrUnderscore*
-    letterOrDigitOrUnderscore = letter | digit | "_"
+    identifier = letter letterOrDigit* (":/" digit+)?
+    letterOrDigit = letter | digit
     reservedIdentifier = "nil" | "true" | "false"
     binaryOperator = binaryChar+
     binaryChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$"

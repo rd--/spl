@@ -11,10 +11,17 @@ Duration { | milliseconds |
 	days { :self | self.hours / 24 }
 	weeks { :self | self.days / 7 }
 
-	+ { :self :anObject | Duration(self.milliseconds + anObject.asDuration.milliseconds) }
-	- { :self :anObject | Duration(self.milliseconds - anObject.asDuration.milliseconds) }
+	+ { :self :anObject |
+		Duration(self.milliseconds + anObject.asDuration.milliseconds)
+	}
 
-	adaptToNumberAndApply { :self :aNumber :aProcedure | apply(aProcedure, [aNumber.asDuration, self]) }
+	- { :self :anObject |
+		Duration(self.milliseconds - anObject.asDuration.milliseconds)
+	}
+
+	adaptToNumberAndApply { :self :aNumber :aProcedure |
+		apply(aProcedure, [aNumber.asDuration, self])
+	}
 
 }
 

@@ -6,8 +6,8 @@
 
 	extendToBeOfEqualSize { :self |
 		|
-			selfLifted = self.collect(asArray),
-			maximumSize = selfLifted.collect(size).detectMax(identity);
+			selfLifted = self.collect(asArray:/1),
+			maximumSize = selfLifted.collect(size:/1).detectMax(identity:/1);
 		|
 		selfLifted.collect({ :each |
 			each.extendTo(maximumSize)

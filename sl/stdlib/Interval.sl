@@ -1,6 +1,8 @@
 Interval : [Collection, SequenceableCollection] { | start stop step |
 
-	species { :self | Array }
+	species { :self |
+		Array:/1
+	}
 
 	printString { :self |
 		'Interval(' ++ self.start ++ ', ' ++ self.stop ++ ', ' ++ self.step ++ ')'
@@ -19,7 +21,9 @@ Interval : [Collection, SequenceableCollection] { | start stop step |
 		})
 	}
 
-	isEmpty { :self | self.size = 0 }
+	isEmpty { :self |
+		self.size = 0
+	}
 
 	at { :self :index |
 		if ((index < 1) | { index > self.size }, {
@@ -33,12 +37,12 @@ Interval : [Collection, SequenceableCollection] { | start stop step |
 		| nextValue = self.start, endValue = self.stop; |
 		if(self.step > 0) {
 			whileTrue { nextValue <= endValue } {
-				aProcedure(nextValue);
+				aProcedure.value(nextValue);
 				nextValue := nextValue + self.step
 			}
 		} {
 			whileTrue { nextValue >= endValue } {
-				aProcedure(nextValue);
+				aProcedure.value(nextValue);
 				nextValue := nextValue + self.step
 			}
 		}
@@ -46,24 +50,32 @@ Interval : [Collection, SequenceableCollection] { | start stop step |
 
 	collect { :self :aProcedure |
 		| result = Array(self.size), index = 1; |
-		self.do({ :nextValue |
-			result[index] := aProcedure(nextValue);
+		self.do { :nextValue |
+			result[index] := aProcedure.value(nextValue);
 			index := index + 1
-		});
+		};
 		result
 	}
 
 	asArray { :self |
-		self.collect(identity)
+		self.collect(identity:/1)
 	}
 
 	sum { :self |
 		self.size * ((self.size - 1) * self.step + (self.start * 2)) / 2
 	}
 
-	first { :self | self.start }
-	second { :self | self.start + self.step }
-	last { :self | self.stop - (self.stop - self.start % self.step) }
+	first { :self |
+		self.start
+	}
+
+	second { :self |
+		self.start + self.step
+	}
+
+	last { :self |
+		self.stop - (self.stop - self.start % self.step)
+	}
 
 	reversed { :self |
 		self.isEmpty.if {
@@ -74,11 +86,11 @@ Interval : [Collection, SequenceableCollection] { | start stop step |
 	}
 
 	adaptToCollectionAndApply { :self :aCollection :aBinaryProcedure |
-		aCollection.aBinaryProcedure(self.asArray)
+		aBinaryProcedure.value(aCollection, self.asArray)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBinaryProcedure |
-		self.collect { :each | aNumber.aBinaryProcedure(each) }
+		self.collect { :each | aBinaryProcedure.value(aNumber, each) }
 	}
 
 }

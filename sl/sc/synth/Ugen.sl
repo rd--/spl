@@ -1,11 +1,13 @@
 Ugen : [Numeric] {
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure |
-		<primitive: return sl.applyGenericAt(_aProcedure.name, [_aNumber, _self], 'Ugen');>
+		<primitive: return sl.applyGenericAt(sl.nameWithoutArity(_aProcedure.name), [_aNumber, _self], 'Ugen');>
 	}
 
 	adaptToCollectionAndApply { :self :aCollection :aProcedure |
-		aCollection.collect { :each | aProcedure(each, self) }
+		aCollection.collect { :each |
+			aProcedure.value(each, self)
+		}
 	}
 
 }

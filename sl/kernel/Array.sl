@@ -2,7 +2,7 @@ Array : [Collection, SequenceableCollection, ArrayedCollection] {
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure |
 		self.collect { :each |
-			aProcedure(aNumber, each)
+			aProcedure.value(aNumber, each)
 		}
 	}
 
@@ -24,12 +24,14 @@ Array : [Collection, SequenceableCollection, ArrayedCollection] {
 
 	toAsCollect { :self :stop :species :aProcedure |
 		| answerSize = stop - self + 1, answer = species.ofSize(answerSize); |
-		answerSize.do { :index | answer[index] := aProcedure(index + self - 1) };
+		answerSize.do { :index | answer[index] := aProcedure.value(index + self - 1) };
 		answer
 	}
 
 	replicate { :self :anObject |
-		1.toAsCollect(self, Array) { :unused | anObject }
+		1.toAsCollect(self, Array:/1) { :unused |
+			anObject
+		}
 	}
 
 	Array { :size |
@@ -46,11 +48,15 @@ Array : [Collection, SequenceableCollection, ArrayedCollection] {
 
 	replicateApplying { :self :anInteger :aProcedure |
 		| answer = Array(anInteger); |
-		anInteger.do { :index | answer[index] := aProcedure(self) };
+		anInteger.do { :index |
+			answer[index] := aProcedure.value(self)
+		};
 		answer
 	}
 
-	replicate { :self :anInteger | self.replicateApplying(anInteger, identity) }
+	replicate { :self :anInteger |
+		self.replicateApplying(anInteger, identity:/1)
+	}
 
 }
 

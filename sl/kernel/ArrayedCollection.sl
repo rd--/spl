@@ -1,7 +1,7 @@
 @ArrayedCollection {
 
 	asArray { :self |
-		Array(self.size).fillFromWith(self, identity)
+		Array(self.size).fillFromWith(self, identity:/1)
 	}
 
 	at { :self :anInteger |
@@ -37,14 +37,14 @@
 	doWhile { :self :activity :condition |
 		| nextIndex = 1, endIndex = self.size; |
 		whileTrue { condition() & { nextIndex <= endIndex } } {
-			activity(self[nextIndex]);
+			activity.value(self[nextIndex]);
 			nextIndex := nextIndex + 1
 		}
 	}
 
 	fillFromWith { :self :aCollection :aBlock |
 		aCollection.withIndexDo { :each :index |
-			self[index] := aBlock(each)
+			self[index] := aBlock.value(each)
 		};
 		self
 	}
@@ -65,7 +65,7 @@
 
 	injectInto { :self :anObject :aBlock |
 		| result = anObject; |
-		1.toDo(self.size) { :index | result := aBlock(result, self[index]) };
+		1.toDo(self.size) { :index | result := aBlock.value(result, self[index]) };
 		result
 	}
 

@@ -12,12 +12,24 @@
 		(self * (1 / 440)).log2 * 12 + 69
 	}
 
+	CpsOct { :self |
+		log2(self * (1 / 440)) + 4.75
+	}
+
+	Cubed { :self |
+		self * self * self
+	}
+
 	DbAmp { :self |
 		10 ** (self * 0.05)
 	}
 
 	DifSqr { :self :aNumber |
 		(self * self) - (aNumber * aNumber)
+	}
+
+	Distort { :self |
+		self / (1 + self.abs)
 	}
 
 	Hypot { :self :aNumber |
@@ -72,7 +84,7 @@
 	LinLin { :self :srclo :srchi :dstlo :dsthi |
 		|
 			mul = (dsthi - dstlo) / (srchi - srclo),
-			add = dstlo - (scale * srclo);
+			add = dstlo - (mul * srclo);
 		|
 		MulAdd(self, mul, add)
 	}
@@ -81,8 +93,32 @@
 		440 * (2 ** ((self - 69) * (1 / 12)))
 	}
 
+	MidiRatio { :self |
+		2.0 ** (self * (1 / 12))
+	}
+
+	OctCps { :self |
+		440 * (2 ** (self - 4.75))
+	}
+
 	MulAdd { :self :mul :add |
 		self * mul + add
+	}
+
+	Neg { :self |
+		0 - self
+	}
+
+	RatioMidi { :self |
+		12 * self.log2
+	}
+
+	Recip { :self |
+		1 / self
+	}
+
+	Squared { :self |
+		self * self
 	}
 
 }

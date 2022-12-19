@@ -12,10 +12,17 @@ LargeInteger : [Magnitude, Numeric] {
 	* { :self :anInteger | <primitive: return _self * _asLargeInteger(_anInteger);> }
 	/ { :self :anInteger | <primitive: return _self / _asLargeInteger(_anInteger);> }
 
-	remainder { :self :anInteger | <primitive: return _self % _asLargeInteger(_anInteger);> }
-	toNumber { :self :precision | <primitive: BigInt.asIntN(_precision, _self);> }
+	remainder { :self :anInteger |
+		<primitive: return _self % _asLargeInteger(_anInteger);>
+	}
 
-	adaptToNumberAndApply { :self :aNumber :aProcedure | aProcedure(aNumber.asLargeInteger, self) }
+	toNumber { :self :precision |
+		<primitive: BigInt.asIntN(_precision, _self);>
+	}
+
+	adaptToNumberAndApply { :self :aNumber :aProcedure |
+		aProcedure.value(aNumber.asLargeInteger, self)
+	}
 
 }
 

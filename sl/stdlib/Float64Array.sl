@@ -17,7 +17,7 @@ Float64Array : [Collection, SequenceableCollection, ArrayedCollection] {
 
 	asFloat64Array { :self |
 		| answer = Float64Array(self.size); |
-		answer.fillFromWith(self, identity)
+		answer.fillFromWith(self, identity:/1)
 	}
 
 }

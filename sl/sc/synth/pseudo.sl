@@ -20,6 +20,14 @@
 		IRand(0, self)
 	}
 
+	LinLin { :self :srclo :srchi :dstlo :dsthi |
+		|
+			mul = (dsthi - dstlo) / (srchi - srclo),
+			add = dstlo - (mul * srclo);
+		|
+		MulAdd(self, mul, add)
+	}
+
 	Rand { :self |
 		Rand(0, self)
 	}
