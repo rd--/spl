@@ -143,6 +143,9 @@ var f = { 0 }; cullCull(f, 23, 3.141) = 0
 var f = { :x | x }; cull(f, 23) = 23
 var f = { :x | x }; cullCull(f, 23, 3.141) = 23
 var f = { :x :y | x * y }; cullCull(f, 23, 3.141) = 72.243
+var f = { :x | x * x }; f(3) = 9
+var f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49]
+var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
 
 'kernel/StringDictionary'
 StringDictionary().isStringDictionary

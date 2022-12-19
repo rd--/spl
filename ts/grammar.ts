@@ -19,8 +19,13 @@ Sl {
     Program = Temporaries? ExpressionSequence
     Temporaries = TemporariesWithInitializers | TemporariesWithoutInitializers | TemporariesVarSyntax+
     TemporariesWithInitializers = "|" NonemptyListOf<TemporaryWithInitializer, ","> ";" "|"
-    TemporaryWithInitializer = TemporaryWithIdentifierInitializer | TemporaryWithDictionaryInitializer | TemporaryWithArrayInitializer
-    TemporaryWithIdentifierInitializer = identifier "=" Expression
+    TemporaryWithInitializer =
+      TemporaryWithBlockLiteralInitializer |
+      TemporaryWithExpressionInitializer |
+      TemporaryWithDictionaryInitializer |
+      TemporaryWithArrayInitializer
+    TemporaryWithBlockLiteralInitializer = identifier "=" Block
+    TemporaryWithExpressionInitializer = identifier "=" Expression
     TemporaryWithDictionaryInitializer = "("  NonemptyListOf<identifier, ","> ")" "=" Expression
     TemporaryWithArrayInitializer = "["  NonemptyListOf<identifier, ","> "]" "=" Expression
     TemporariesWithoutInitializers = "|" identifier+ "|"

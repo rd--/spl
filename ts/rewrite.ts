@@ -42,7 +42,11 @@ const asJs: any = {
 	},
     Program(tmp, stm) { return tmp.asJs + stm.asJs; },
     TemporariesWithInitializers(_l, tmp, _s, _r) { return 'var ' + commaList(tmp.asIteration().children) + ';'; },
-    TemporaryWithIdentifierInitializer(nm, _, exp) { return nm.asJs + ' = ' + exp.asJs; },
+    TemporaryWithBlockLiteralInitializer(nm, _, blk) {
+		var name = nm.asJs;
+		return `${name} = ${blk.asJs}, ${name}_${blk.arityOf} = ${name}`;
+	},
+    TemporaryWithExpressionInitializer(nm, _, exp) { return nm.asJs + ' = ' + exp.asJs; },
     TemporaryWithDictionaryInitializer(_l, lhs, _r, _e, rhs) {
 		const namesArray = lhs.asIteration().children.map(c => c.sourceString);
 		const rhsName = gensym();
@@ -170,6 +174,9 @@ slSemantics.addAttribute('asJs', asJs);
 const arityOf: any = {
     NonEmptyParameterList(_l, sq, _r) { return sq.asIteration().children.length },
 	ParameterList(_l, sq, _r) { return sq.asIteration().children.length },
+	Block(_l, blk, _r) { return blk.arityOf; },
+    BlockBody(arg, tmp, prm, stm) { return arg.arityOf; },
+    Arguments(nm, _) { return nm.children.length },
     _iter(...children) { return arraySum(children.map(c => c.arityOf)); },
 }
 

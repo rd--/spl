@@ -22,3 +22,9 @@ The notations are:
 - ~= ≠, == ≡
 - <= ≤, >= ≥
 - ++ ⧺
+- :/ °
+- pi π
+
+* * *
+
+See also: [Unicode Symbols]

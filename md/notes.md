@@ -149,6 +149,7 @@ var a = Array(6); 'string'.collectInto({ :each | each.toUpperCase }, a); a.join 
 - U+005E ^ CIRCUMFLEX ACCENT
 - U+007C | VERTICAL LINE
 - U+007E ~ TILDE
+- U+00B0 ° DEGREE SIGN
 - U+00B1 ± PLUS-MINUS SIGN
 - U+00B7 · MIDDLE DOT
 - U+00D7 × MULTIPLICATION SIGN
@@ -195,4 +196,4 @@ var a = Array(6); 'string'.collectInto({ :each | each.toUpperCase }, a); a.join 
 - U+2A7D ⩽ LESS-THAN OR SLANTED EQUAL TO
 - U+2A7E ⩾ GREATER-THAN OR SLANTED EQUAL TO
 - U+03BB λ GREEK SMALL LETTER LAMDA
-
+- U+03C0 π GREEK SMALL LETTER PI
