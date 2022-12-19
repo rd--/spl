@@ -24,7 +24,7 @@ Sl {
       TemporaryWithExpressionInitializer |
       TemporaryWithDictionaryInitializer |
       TemporaryWithArrayInitializer
-    TemporaryWithBlockLiteralInitializer = identifier "=" Block
+    TemporaryWithBlockLiteralInitializer = identifier "=" Block ~("." | binaryOperator)
     TemporaryWithExpressionInitializer = identifier "=" Expression
     TemporaryWithDictionaryInitializer = "("  NonemptyListOf<identifier, ","> ")" "=" Expression
     TemporaryWithArrayInitializer = "["  NonemptyListOf<identifier, ","> "]" "=" Expression
