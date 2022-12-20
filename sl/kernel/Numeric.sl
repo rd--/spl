@@ -75,10 +75,10 @@
 		}
 	}
 
-	toDo { :self :end :aProcedure |
+	toDo { :self :end :aProcedure:/1 |
 		| index = self; |
 		whileTrue { index <= end } {
-			aProcedure.value(index);
+			aProcedure(index);
 			index := index + 1
 		}
 	}

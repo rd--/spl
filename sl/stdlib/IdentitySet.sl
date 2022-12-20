@@ -9,7 +9,7 @@ IdentitySet : [Collection] {
 	}
 
 	do { :self :aProcedure |
-		<primitive: _self.forEach(_aProcedure); return null;>
+		<primitive: _self.forEach(function(item) { _aProcedure(item) }); return null;>
 	}
 
 	includes { :self :anObject |
@@ -32,7 +32,7 @@ IdentitySet : [Collection] {
 
 + Array {
 
-	asIdentitySet { :self |
+	IdentitySet { :self |
 		<primitive: return new Set(_self);>
 	}
 

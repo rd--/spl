@@ -36,6 +36,10 @@ IdentityDictionary : [Collection, Dictionary] {
 		<primitive: return _self.size;>
 	}
 
+	species { :self |
+		IdentityDictionary:/0
+	}
+
 	values { :self |
 		<primitive: return Array.from(_self.values());>
 	}
@@ -44,8 +48,8 @@ IdentityDictionary : [Collection, Dictionary] {
 
 + Array {
 
-	asIdentityDictionary { :self |
-		<primitive: return new Map(_self.map(function(each) { return _asArray(each) }));>
+	IdentityDictionary { :self |
+		<primitive: return new Map(_self.map(function(each) { return _asArray_1(each) }));>
 	}
 
 }

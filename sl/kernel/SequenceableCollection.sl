@@ -11,10 +11,14 @@
 	thirdLast { :self | self[self.size - 2] }
 
 	= { :self :anObject |
-		if(anObject.isSequenceable & { self.species = anObject.species } & { self.size = anObject.size }) {
+		if(
+			anObject.isSequenceable &
+			{ self.typeOf == anObject.typeOf } &
+			{ self.size == anObject.size }
+		) {
 			withReturn {
 				self.size.do { :index |
-					ifFalse(self[index] = anObject[index]) { return(false) }
+					ifFalse(self[index] = anObject[index]) { false.return }
 				};
 				true
 			}
@@ -45,9 +49,11 @@
 
 	atRandom { :self | self[randomInteger(1, self.size)] }
 
-	collect { :self :aBlock |
+	collect { :self :aBlock:/1 |
 		| newCollection = self.species.ofSize(self.size); |
-		1.toDo(self.size) { :index | newCollection[index] := aBlock.value(self[index]) };
+		1.toDo(self.size) { :index |
+			newCollection[index] := aBlock(self[index])
+		};
 		newCollection
 	}
 
@@ -90,8 +96,10 @@
 		answer
 	}
 
-	do { :self :aBlock |
-		1.toDo(self.size) { :index | aBlock.value(self[index]) }
+	do { :self :aBlock:/1 |
+		1.toDo(self.size) { :index |
+			aBlock(self[index])
+		}
 	}
 
 	fisherYatesShuffle { :self |
@@ -100,7 +108,7 @@
 	}
 
 	grownBy { :self :length |
-		self.class.ofSize(self.size + length).replaceFromToWithStartingAt(1, self.size, self, 1)
+		self.species.ofSize(self.size + length).replaceFromToWithStartingAt(1, self.size, self, 1)
 	}
 
 	includes { :self :anObject | self.indexOf(anObject) ~= 0 }
@@ -152,9 +160,13 @@
 		}
 	}
 
-	select { :self :aBlock |
+	select { :self :aBlock:/1 |
 		| answer = OrderedCollection(); |
-		1.toDo(self.size) { :index | aBlock.value(self[index]).ifTrue { answer.add(self[index]) } };
+		1.toDo(self.size) { :index |
+			aBlock(self[index]).ifTrue {
+				answer.add(self[index])
+			}
+		};
 		answer
 	}
 
@@ -176,26 +188,26 @@
 		index > 0 & { index <= self.size }
 	}
 
-	withCollect { :self :aCollection :aProcedure |
+	withCollect { :self :aCollection :aProcedure:/2 |
 		ifFalse(isSequenceable(aCollection) & { self.size == aCollection.size }) {
 			error('withCollect: operand not-sequenceable or of unequal size')
 		};
 		1.toAsCollect(self.size, self.species) { :index |
-			aProcedure.value(self[index], anArray[index])
+			aProcedure(self[index], anArray[index])
 		}
 	}
 
-	withIndexCollect { :self :elementAndIndexBlock |
+	withIndexCollect { :self :elementAndIndexBlock:/2 |
 		| answer = self.species.ofSize(self.size); |
 		1.toDo(self.size) { :index |
-			answer[index] := elementAndIndexBlock.value(self[index], index)
+			answer[index] := elementAndIndexBlock(self[index], index)
 		};
 		answer
 	}
 
-	withIndexDo { :self :elementAndIndexBlock |
+	withIndexDo { :self :elementAndIndexBlock:/2 |
 		1.toDo(self. size) { :index |
-			elementAndIndexBlock.value(self[index], index)
+			elementAndIndexBlock(self[index], index)
 		}
 	}
 
@@ -209,8 +221,8 @@
 
 + Procedure {
 
-	geom { :self :size :start :grow |
-		| answer = self.value(size), accum = start; |
+	geom { :self:/1 :size :start :grow |
+		| answer = self(size), accum = start; |
 		1.to(size).collectInto({ :unusedItem |
 			| entry = accum; |
 			accum := grow * accum;
@@ -219,9 +231,11 @@
 		answer
 	}
 
-	series { :self :size :start :step |
-		| answer = self.value(size); |
-		1.to(size).collectInto({ :item | (step * (item - 1)) + start }, answer);
+	series { :self:/1 :size :start :step |
+		| answer = self(size); |
+		1.to(size).collectInto({ :item |
+			(step * (item - 1)) + start
+		}, answer);
 		answer
 	}
 

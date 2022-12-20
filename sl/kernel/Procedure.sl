@@ -4,6 +4,39 @@ Procedure {
 		self == anObject
 	}
 
+	apply { :self :anArray |
+		<primitive: if(sl.isArray(_anArray)) { return _self(... _anArray); }>
+		error('Procedure>>apply')
+	}
+
+	cull { :self :firstArg |
+		if(self.numArgs >= 1) {
+			self.value(firstArg)
+		} {
+			self.value
+		}
+	}
+
+	cullCull { :self :firstArg :secondArg |
+		if(self.numArgs >= 2) {
+			self.value(firstArg, secondArg)
+		} {
+			if(self.numArgs = 1) {
+				self.value(firstArg)
+			} {
+				self.value
+			}
+		}
+	}
+
+	ifError { :self :errorHandlerBlock |
+		<primitive: try { return _self(); } catch (exc) { return _errorHandlerBlock(exc) }>
+	}
+
+	methodName { :self |
+		<primitive: return _self.name.split(':')[0];>
+	}
+
 	numArgs { :self |
 		(*
 			Js doesn't have a proper numArgs mechanism.
@@ -17,25 +50,8 @@ Procedure {
 		<primitive: return _self.name;>
 	}
 
-	ifError { :self :errorHandlerBlock |
-		<primitive: try { return _self(); } catch (exc) { return _errorHandlerBlock(exc) }>
-	}
-
 	withReturn { :self |
 		<primitive: try { return _self(); } catch (ret) { if(ret instanceof Error) { throw(ret); } { return ret; } }>
-	}
-
-	apply { :self :anArray |
-		<primitive: if(sl.isArray(_anArray)) { return _self(... _anArray); }>
-		error('Procedure>>apply')
-	}
-
-	whileTrue { :self :aProcedure |
-		<primitive: while(_self()) { _aProcedure(); }; return null;>
-	}
-
-	whileFalse { :self :aProcedure |
-		<primitive: while(!_self()) { _aProcedure(); }; return null;>
 	}
 
 	value { :self |
@@ -62,24 +78,12 @@ Procedure {
 		apply(self, [p1, p2, p3, p4, p5])
 	}
 
-	cull { :self :firstArg |
-		if(self.numArgs >= 1) {
-			self.value(firstArg)
-		} {
-			self.value
-		}
+	whileFalse { :self :aProcedure |
+		<primitive: while(!_self()) { _aProcedure(); }; return null;>
 	}
 
-	cullCull { :self :firstArg :secondArg |
-		if(self.numArgs >= 2) {
-			self.value(firstArg, secondArg)
-		} {
-			if(self.numArgs = 1) {
-				self.value(firstArg)
-			} {
-				self.value
-			}
-		}
+	whileTrue { :self :aProcedure |
+		<primitive: while(_self()) { _aProcedure(); }; return null;>
 	}
 
 }
@@ -90,8 +94,8 @@ Procedure {
 
 + Object {
 
-	$ { :self :aProcedure |
-		aProcedure.value(self)
+	$ { :self :aProcedure:/1 |
+		aProcedure(self)
 	}
 
 }

@@ -103,6 +103,11 @@
      (">=" . #x2265) ; ≥
      ("++" . #x29FA) ; ⧺
      ("pi" . #x03C0) ; π
+     ("true" . #x22A4) ; ⊤
+     ("false" . #x22A5) ; ⊥
+     ("not" . #x00AC) ; ¬
+     ("and" . #x2227) ; ∧
+     ("or" . #x2228) ; ∨
      )))
 
 (defun spl-fill-mode-map (map)

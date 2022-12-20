@@ -1,15 +1,21 @@
 ValueLink { | nextLink value |
 
-	asLink { :self | self }
-
 	= { :self :anObject |
-		anotherObject.isValueLink & { self.value = anotherObject.value } & { self.nextLink == anotherObject.nextLink }
+		anotherObject.isValueLink &
+		{ self.value = anotherObject.value } &
+		{ self.nextLink == anotherObject.nextLink }
+	}
+
+	asLink { :self |
+		self
 	}
 
 }
 
 + Object {
 
-	asLink { :self | ValueLink(nil, self) }
+	asLink { :self |
+		newValueLink(nil, self)
+	}
 
 }

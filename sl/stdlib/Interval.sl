@@ -33,25 +33,25 @@ Interval : [Collection, SequenceableCollection] { | start stop step |
 		})
 	}
 
-	do { :self :aProcedure |
+	do { :self :aProcedure:/1 |
 		| nextValue = self.start, endValue = self.stop; |
 		if(self.step > 0) {
 			whileTrue { nextValue <= endValue } {
-				aProcedure.value(nextValue);
+				aProcedure(nextValue);
 				nextValue := nextValue + self.step
 			}
 		} {
 			whileTrue { nextValue >= endValue } {
-				aProcedure.value(nextValue);
+				aProcedure(nextValue);
 				nextValue := nextValue + self.step
 			}
 		}
 	}
 
-	collect { :self :aProcedure |
+	collect { :self :aProcedure:/1 |
 		| result = Array(self.size), index = 1; |
 		self.do { :nextValue |
-			result[index] := aProcedure.value(nextValue);
+			result[index] := aProcedure(nextValue);
 			index := index + 1
 		};
 		result
@@ -85,12 +85,14 @@ Interval : [Collection, SequenceableCollection] { | start stop step |
 		}
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aBinaryProcedure |
-		aBinaryProcedure.value(aCollection, self.asArray)
+	adaptToCollectionAndApply { :self :aCollection :aBinaryProcedure:/2 |
+		aBinaryProcedure(aCollection, self.asArray)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBinaryProcedure |
-		self.collect { :each | aBinaryProcedure.value(aNumber, each) }
+	adaptToNumberAndApply { :self :aNumber :aBinaryProcedure:/2 |
+		self.collect { :each |
+			aBinaryProcedure(aNumber, each)
+		}
 	}
 
 }
@@ -101,6 +103,12 @@ Interval : [Collection, SequenceableCollection] { | start stop step |
 		Interval(self, last, second - self)
 	}
 
-	to { :self :stop | Interval(self, stop,  if(self <= stop) { 1 } { -1 }) }
+	Interval { :start :stop :step |
+		newInterval(start, stop, step)
+	}
+
+	to { :self :stop |
+		Interval(self, stop,  if(self <= stop) { 1 } { -1 })
+	}
 
 }

@@ -140,6 +140,8 @@ var a = Array(6); 'string'.collectInto({ :each | each.toUpperCase }, a); a.join 
 - U+002B + PLUS SIGN
 - U+002D - HYPHEN-MINUS
 - U+002F / SOLIDUS
+- U+03BB λ GREEK SMALL LETTER LAMDA
+- U+03C0 π GREEK SMALL LETTER PI
 - U+003C < LESS-THAN SIGN
 - U+003D = EQUALS SIGN
 - U+003E > GREATER-THAN SIGN
@@ -149,6 +151,7 @@ var a = Array(6); 'string'.collectInto({ :each | each.toUpperCase }, a); a.join 
 - U+005E ^ CIRCUMFLEX ACCENT
 - U+007C | VERTICAL LINE
 - U+007E ~ TILDE
+- U+00AC ¬ NOT SIGN
 - U+00B0 ° DEGREE SIGN
 - U+00B1 ± PLUS-MINUS SIGN
 - U+00B7 · MIDDLE DOT
@@ -169,6 +172,8 @@ var a = Array(6); 'string'.collectInto({ :each | each.toUpperCase }, a); a.join 
 - U+2213 ∓ MINUS-OR-PLUS SIGN
 - U+2215 ∕ DIVISION SLASH
 - U+2219 ∙ BULLET OPERATOR
+- U+2227 ∧ LOGICAL AND
+- U+2228 ∨ LOGICAL AND
 - U+2248 ≈ ALMOST EQUAL TO
 - U+2254 ≔ COLON EQUALS
 - U+2260 ≠ NOT EQUAL TO
@@ -179,6 +184,7 @@ var a = Array(6); 'string'.collectInto({ :each | each.toUpperCase }, a); a.join 
 - U+226B ≫ MUCH GREATER-THAN
 - U+226E ≮ NOT LESS-THAN
 - U+226F ≯ NOT GREATER-THAN
+- U+22A4 ⊤ DOWN TACK
 - U+22C5 ⋅ DOT OPERATOR
 - U+22EE ⋮ VERTICAL ELLIPSIS
 - U+25CB ○ WHITE CIRCLE
@@ -195,5 +201,3 @@ var a = Array(6); 'string'.collectInto({ :each | each.toUpperCase }, a); a.join 
 - U+2A76 ⩶ THREE CONSECUTIVE EQUALS SIGNS
 - U+2A7D ⩽ LESS-THAN OR SLANTED EQUAL TO
 - U+2A7E ⩾ GREATER-THAN OR SLANTED EQUAL TO
-- U+03BB λ GREEK SMALL LETTER LAMDA
-- U+03C0 π GREEK SMALL LETTER PI

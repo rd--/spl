@@ -1,39 +1,92 @@
 OrderedCollection : [Collection, SequenceableCollection] { | array |
 
-	asArray { :self | self.array.copy }
-	asCollection { :self | self }
-	copy { :self | OrderedCollection(self.array.copy) }
+	= { :self :anObject |
+		anObject.isOrderedCollection &
+		{ self.array = anObject.array }
+	}
 
-	ofSize { :self :aNumber |
-		(aNumber - self.size).timesRepeat { self.add(nil) };
+	add { :self :anObject |
+		self.addLast(anObject)
+	}
+
+	addAllFirst { :self :aCollection |
+		<primitive: return _self.array.unshift(..._asArray_1(_aCollection));>
+	}
+
+	addAllLast { :self :aCollection |
+		<primitive: return _self.array.push(..._asArray_1(_aCollection));>
+	}
+
+	addFirst { :self :anObject |
+		<primitive: return _self.array.unshift(_anObject);>
+	}
+
+	addLast { :self :anObject |
+		<primitive: return _self.array.push(_anObject);>
+	}
+
+	asArray { :self |
+		self.array.copy
+	}
+
+	asCollection { :self |
 		self
 	}
 
-	= { :self :anObject | anObject.isOrderedCollection & { self.array = anObject.array } }
-	at { :self :index | self.array[index] }
-	atPut { :self :index :anObject | self.array[index] := anObject }
-	size { :self | self.array.size }
+	at { :self :index |
+		self.array[index]
+	}
 
-	add { :self :anObject | self.addLast(anObject) }
-	addAllFirst { :self :aCollection | <primitive: return _self.array.unshift(..._asArray(_aCollection));> }
-	addAllLast { :self :aCollection | <primitive: return _self.array.push(..._asArray(_aCollection));> }
-	addFirst { :self :anObject | <primitive: return _self.array.unshift(_anObject);> }
-	addLast { :self :anObject | <primitive: return _self.array.push(_anObject);> }
-	collect { :self :aProcedure | OrderedCollection(self.array.collect(aProcedure)) }
-	removeFirst { :self | <primitive: return _self.array.shift();> }
-	removeLast { :self | <primitive: return _self.array.pop();> }
+	atPut { :self :index :anObject |
+		self.array[index] := anObject
+	}
+
+	collect { :self :aProcedure |
+		OrderedCollection(self.array.collect(aProcedure))
+	}
+
+	copy { :self |
+		OrderedCollection(self.array.copy)
+	}
+
+	ofSize { :self :aNumber |
+		(aNumber - self.size).timesRepeat {
+			self.add(nil)
+		};
+		self
+	}
+
+	size { :self |
+		self.array.size
+	}
+
+	removeFirst { :self |
+		<primitive: return _self.array.shift();>
+	}
+
+	removeLast { :self |
+		<primitive: return _self.array.pop();>
+	}
+
+	species { :self |
+		OrderedCollection:/1
+	}
 
 }
 
 + Void {
 
-	OrderedCollection { OrderedCollection([]) }
+	OrderedCollection {
+		newOrderedCollection([])
+	}
 
 }
 
 + Array {
 
-	asOrderedCollection { :self | OrderedCollection(self) }
+	OrderedCollection { :self |
+		newOrderedCollection(self)
+	}
 
 }
 
@@ -51,7 +104,9 @@ OrderedCollection : [Collection, SequenceableCollection] { | array |
 		answer
 	}
 
-	fibonacciArray { :self | self.fibonacciSequence.asArray }
+	fibonacciArray { :self |
+		self.fibonacciSequence.asArray
+	}
 
 	OrderedCollection { :self |
 		(* The array field is not a St array, it is a Js array. *)
@@ -59,4 +114,3 @@ OrderedCollection : [Collection, SequenceableCollection] { | array |
 	}
 
 }
-

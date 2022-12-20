@@ -8,14 +8,18 @@ Float64Array : [Collection, SequenceableCollection, ArrayedCollection] {
 	}
 
 	printString { :self |
-		self.asArray.printString ++ '.asFloat64Array'
+		'Float64Array(' ++ self.asArray.printString ++ ')'
+	}
+
+	species { :self |
+		Float64Array:/1
 	}
 
 }
 
 + Array {
 
-	asFloat64Array { :self |
+	Float64Array { :self |
 		| answer = Float64Array(self.size); |
 		answer.fillFromWith(self, identity:/1)
 	}

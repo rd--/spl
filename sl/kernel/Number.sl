@@ -121,9 +121,9 @@ Number : [Magnitude, Numeric] {
 
 	atRandom { :self | self.randomInteger }
 
-	adaptToCollectionAndApply { :self :aCollection :aProcedure |
+	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
 		aCollection.collect { :each |
-			aProcedure.value(each, self)
+			aProcedure(each, self)
 		}
 	}
 

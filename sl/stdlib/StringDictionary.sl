@@ -22,7 +22,7 @@ StringDictionary : [Dictionary] {
 	}
 
 	printString { :self |
-		self.asArray.printString ++ '.asStringDictionary'
+		'StringDictionary(' ++ self.Array.printString ++ ')'
 	}
 
 	removeKeyIfAbsent { :self :aKey :aProcedure |
@@ -41,14 +41,16 @@ StringDictionary : [Dictionary] {
 
 + Array {
 
-	asStringDictionary { :self |
-		<primitive: return Object.fromEntries(_self.map(function(each) { return _asArray(each); }));>
+	StringDictionary { :self |
+		<primitive: return Object.fromEntries(_self.map(function(each) { return _asArray_1(each); }));>
 	}
 
 }
 
 + Void {
 
-	StringDictionary { <primitive: return Object.create(null);> }
+	StringDictionary {
+		<primitive: return Object.create(null);>
+	}
 
 }

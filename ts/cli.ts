@@ -2,7 +2,6 @@ import * as flags from 'https://deno.land/std/flags/mod.ts'
 
 import { osc } from '../lib/osc.js/src/osc.js'
 
-import { consoleDebug } from '../lib/jssc3/ts/kernel/error.ts'
 import * as udp from '../lib/jssc3/ts/kernel/udp.ts'
 import * as scUdp from '../lib/jssc3/ts/sc3/scsynth-udp.ts'
 
@@ -94,16 +93,16 @@ echo '{"command": "playFile", "fileName": "/home/rohan/sw/jssc3/help/graph/jmcc-
 */
 
 function scUdpServer(portNumber: number): void {
-	consoleDebug(`scUdpServer: ${portNumber}`);
+	// console.debug(`scUdpServer: ${portNumber}`);
 	const hostname = '127.0.0.1';
 	udp.udpServer(hostname, portNumber, function(connection, address, datagram) {
-		consoleDebug(`scUdpServer: ${datagram}`);
+		// console.debug(`scUdpServer: ${datagram}`);
 		const datagramText = new TextDecoder().decode(datagram);
 		if(datagramText.trim().length > 0) {
-			consoleDebug(`scUdpServer: datagramText: '${datagramText}`);
+			// console.debug(`scUdpServer: datagramText: '${datagramText}`);
 			try {
 				const message = JSON.parse(datagramText);
-				consoleDebug(`scUdpServer: recv: ${datagram}: ${message}`);
+				// console.debug(`scUdpServer: recv: ${datagram}: ${message}`);
 				switch(message.command) {
 				case 'evalText': scEvalText(message.text); break;
 				case 'evalFile': scEvalFile(message.fileName); break;

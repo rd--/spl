@@ -67,7 +67,7 @@ Sl {
     AtPutQuotedSyntax = Primary "::" identifier ":=" Expression
     AtSyntax = Primary "[" Expression "]"
     AtQuotedSyntax = Primary "::" identifier
-    ValueSyntax = Primary "." NonEmptyParameterList
+    ValueSyntax = Primary "." ParameterList
     NonEmptyParameterList =  "(" NonemptyListOf<Expression, ","> ")"
 
     DotExpressionWithTrailingClosuresSyntax = Primary "." identifier NonEmptyParameterList? Block+

@@ -42,18 +42,18 @@
 		(self.collect { :each | { each }.dup(repeatCount) }).concatenation
 	}
 
-	withExtendingCollect { :self :aCollection :aProcedure |
+	withExtendingCollect { :self :aCollection :aProcedure:/2 |
 		| maximumSize = self.size.max(aCollection.size); |
 		1.toAsCollect(maximumSize, self.species) { :index |
-			aProcedure.value(self.atWrap(index), aCollection.atWrap(index))
+			aProcedure(self.atWrap(index), aCollection.atWrap(index))
 		}
 	}
 
-	withExtendingCollectOrAdaptTo { :self :anObject :aProcedure |
+	withExtendingCollectOrAdaptTo { :self :anObject :aBinaryProcedure |
 		if(isSequenceable(anObject)) {
-			withExtendingCollect(self, anObject, aProcedure)
+			withExtendingCollect(self, anObject, aBinaryProcedure)
 		} {
-			anObject.adaptToCollectionAndApply(self, aProcedure)
+			anObject.adaptToCollectionAndApply(self, aBinaryProcedure)
 		}
 	}
 

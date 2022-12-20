@@ -86,7 +86,7 @@
 		| answer = OrderedCollection(); |
 		self.methodImplementations.do { :dictionary |
 			dictionary.associationsDo { :each |
-				answer.add(each.key ++ '>>' ++ self ++ '/' ++ each.value[2])
+				answer.add(each.key ++ '>>' ++ self ++ ':/' ++ each.value[2])
 			}
 		};
 		answer
@@ -99,13 +99,15 @@
 
 	methodTraits { :self |
 		(* Traits implementing myself, at any arity (I name a method) *)
-		system::traitMethods.select({ :item | item.keys.includes(self) }).keys
+		system::traitMethods.select({
+			:item | item.keys.includes(self)
+		}).keys
 	}
 
 	methodTypes { :self |
 		(* Types implementing myself, at any arity (I name a method) *)
 		self.isMethodName.if {
-			system::genericProcedures[self].values.collect(keys).concatenation
+			system::genericProcedures[self].values.collect(keys:/1).concatenation
 		} {
 			'methodTypes: not a method'.error
 		}
@@ -132,7 +134,9 @@
 	typeMethods { :self |
 		(* Methods implemented by myself (I name a type) *)
 		self.isTypeName.if {
-			system::genericProcedures.keys.select { :each | each.methodTypes.includes(self) }
+			system::genericProcedures.keys.select {
+				:each | each.methodTypes.includes(self)
+			}
 		} {
 			'typeMethods: not a type'.error
 		}
@@ -156,7 +160,7 @@
 + Void {
 
 	allMethodSignatures {
-		methodList().collect(methodSignatures).concatenation.sorted
+		methodList().collect(methodSignatures:/1).concatenation.sorted
 	}
 
 	methodList {
@@ -178,5 +182,9 @@
 }
 
 Object {
-	respondsTo { :self :aMethod | doesTypeImplementMethod(self.typeOf, aMethod.name) }
+
+	respondsTo { :self :aMethod |
+		doesTypeImplementMethod(self.typeOf, aMethod.methodName)
+	}
+
 }

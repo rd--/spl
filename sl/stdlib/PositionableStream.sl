@@ -7,7 +7,7 @@
 	}
 
 	isBinary { :self |
-		self.collection.class = ByteArray
+		self.collection.typeOf = 'ByteArray'
 	}
 
 	isEmpty { :self |
@@ -64,9 +64,9 @@
 		self.next(anInteger - self.position)
 	}
 
-	withWriteStream { :self :aBlock |
+	withWriteStream { :self :aBlock:/1 |
 		| aStream = WriteStream(self.collection.species.new(100)); |
-		aBlock.value(aStream);
+		aBlock(aStream);
 		aStream.contents
 	}
 

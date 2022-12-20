@@ -1,11 +1,9 @@
 // @ts-nocheck
 
 import { arraySum } from '../lib/jssc3/ts/kernel/array.ts'
-import { consoleDebug } from '../lib/jssc3/ts/kernel/error.ts'
 
-import { slSemantics, slParse, slBlockArity, slTemporariesSyntaxNames } from './grammar.ts'
+import { slSemantics, slParse, slTemporariesSyntaxNames } from './grammar.ts'
 
-// This is noticeably slower because of the way the arity is checked, for now make optional.
 const insertArityCheck = false;
 
 const asJs: any = {
@@ -15,7 +13,7 @@ const asJs: any = {
 	},
     ClassListExtension(_e, _cl, clsNmList, _cr, _ml, mthNm, mthBlk, _mr) {
 		const clsNmArray = clsNmList.asIteration().children.map(c => c.sourceString);
-		consoleDebug(`ClassListExtension: [${clsNmArray}].size = ${clsNmArray.length}`);
+		// console.debug(`ClassListExtension: [${clsNmArray}].size = ${clsNmArray.length}`);
 		return makeMethodList('addMethod', clsNmArray, mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
     ClassDefinition(clsNm, trt, _l, tmp, mthNm, mthBlk, _r) {
@@ -32,7 +30,7 @@ const asJs: any = {
 	},
 	TraitList(_c, _l, nm, _r) { return nm.asIteration().children.map(c => `'${c.sourceString}'`).join(', '); },
 	TraitExtension(_p, _t, trtNm, _l, mthNm, mthBlk, _r) {
-		consoleDebug(`TraitExtension: ${trtNm.sourceString}`);
+		// console.debug(`TraitExtension: ${trtNm.sourceString}`);
 		return makeMethodList('extendTraitWithMethod', [trtNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
 	TraitDefinition(_t, trtNm, _l, mthNm, mthBlk, _r) {
@@ -78,7 +76,7 @@ const asJs: any = {
 	AtPutQuotedSyntax(c, _c, k, _e, v) { return `_atPut_3(${c.asJs}, '${k.sourceString}', ${v.asJs})`; },
 	AtSyntax(c, _l, k, _r) { return `_at_2(${c.asJs}, ${k.asJs})`; },
 	AtQuotedSyntax(c, _c, k) { return `_at_2(${c.asJs}, '${k.sourceString}')`; },
-	ValueSyntax(p, _d, a) { return `${p.asJs}_${a.arityOf}(${a.asJs})`; },
+	ValueSyntax(p, _d, a) { return `${p.asJs}(${a.asJs})`; },
     NonEmptyParameterList(_l, sq, _r) { return commaList(sq.asIteration().children); },
 
     DotExpressionWithTrailingClosuresSyntax(lhs, _dot, nm, args, tc) {
@@ -113,11 +111,9 @@ const asJs: any = {
     BlockBody(arg, tmp, prm, stm) {
 		let arityCheck = '';
 		if(insertArityCheck) {
-			const blkSource = '{ ' + this.sourceString + '}'
-			const arity = slBlockArity(blkSource);
-			arityCheck = `if(arguments.length !== ${arity}) { throw(Error('Arity')); }`;
+			arityCheck = `if(arguments.length !== ${arg.arityOf}) { console.error('Arity: expected ${arg.arityOf}, ${arg.asJs}'); }`;
 		}
-		return `function(${arg.asJs}) { ${arityCheck} ${tmp.asJs} ${prm.asJs} ${stm.asJs} }`;
+		return `(function(${arg.asJs}) { ${arityCheck} ${tmp.asJs} ${prm.asJs} ${stm.asJs} })`;
 	},
     Arguments(arg, _r) { return commaList(arg.children); },
     ArgumentName(_c, nm) { return nm.asJs; },
@@ -195,12 +191,12 @@ function gensym() {
 
 function makeMethod(slProc: string, clsNmArray: string[], mthNm: string, mthBlk): string {
 	const blkSource = mthBlk.sourceString;
-	const blkArity = slBlockArity(blkSource);
+	const blkArity = mthBlk.arityOf;
 	const blkJs = mthBlk.asJs;
 	const blkSrc = JSON.stringify(blkSource);
 	const slName = sl.methodName(mthNm);
 	return clsNmArray.map(function(clsNm) {
-		consoleDebug(`makeMethod: '${slProc}', '${clsNm}', '${mthNm}'('${slName}'), ${blkArity}`);
+		// console.debug(`makeMethod: '${slProc}', '${clsNm}', '${mthNm}'('${slName}'), ${blkArity}`);
 		return ` sl.${slProc}('${clsNm}', '${slName}', ${blkArity}, ${blkJs}, ${blkSrc});`
 	}).join(' ');
 }
@@ -211,7 +207,7 @@ function makeMethodList(slProc: string, clsNmArray: string[], mthNms: string[], 
 		const mthNm = mthNms.shift();
 		const mthBlk = mthBlks.shift();
 		const mthSrc = makeMethod(slProc, clsNmArray, mthNm, mthBlk);
-		consoleDebug(`makeMethodList: ${mthSrc}`);
+		// console.debug(`makeMethodList: ${mthSrc}`);
 		mthList += mthSrc;
 	}
 	return mthList;
@@ -219,6 +215,6 @@ function makeMethodList(slProc: string, clsNmArray: string[], mthNms: string[], 
 
 export function rewriteString(str: string): string {
 	const answer = slParse(str).asJs;
-	consoleDebug(`rewriteString: ${str} => ${answer}`);
+	// console.debug(`rewriteString: ${str} => ${answer}`);
 	return answer;
 }

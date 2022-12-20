@@ -4,10 +4,6 @@ Object {
 		<primitive: return sl.typeOf(_self)>
 	}
 
-	species { :self |
-		self.class
-	}
-
 	printString { :self |
 		self.typeOf
 	}
@@ -48,8 +44,16 @@ Object {
 
 + Procedure {
 
-	new { :self | self.value }
-	new { :self :aNumber | self.value(aNumber) }
-	newFrom { :self :anObject | self.value(anObject) }
+	new { :self:/0 |
+		self()
+	}
+
+	new { :self:/1 :aNumber |
+		self(aNumber)
+	}
+
+	newFrom { :self:/1 :anObject |
+		self(anObject)
+	}
 
 }

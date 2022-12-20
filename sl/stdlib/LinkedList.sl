@@ -41,16 +41,16 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 		self.linkAt(index).value
 	}
 
-	collect { :self :aBlock |
+	collect { :self :aBlock:/1 |
 		| aLink = self.firstLink, answer = LinkedList(); |
 		 { aLink == nil }.whileFalse {
-			 answer.add(aBlock.value(aLink.value));
+			 answer.add(aBlock(aLink.value));
 			 aLink := aLink.nextLink
 		 };
 		answer
 	}
 
-	collectThenSelect { :self :collectBlock :selectBlock |
+	collectThenSelect { :self :collectBlock:/1 :selectBlock:/1 |
 		| answer = LinkedList(); |
 		self.do { :each |
 			| next = collectBlock(each); |
@@ -59,10 +59,10 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 		answer
 	}
 
-	do { :self :aBlock |
+	do { :self :aBlock:/1 |
 		| aLink = self.firstLink; |
 		{ aLink == nil }.whileFalse {
-			aBlock.value(aLink.value);
+			aBlock(aLink.value);
 			aLink := aLink.nextLink
 		}
 	}
@@ -79,23 +79,25 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 		}
 	}
 
-	linkOfIfAbsent { :self :anObject :errorBlock |
+	linkOfIfAbsent { :self :anObject :errorBlock:/0 |
 		withReturn {
 			self.linksDo { :link | (link.value = anObject.value).ifTrue { return(link) } };
 			errorBlock()
 		}
 	}
 
-	linksDo { :self :aBlock |
+	linksDo { :self :aBlock:/1 |
 		| aLink = self.firstLink; |
 		{ aLink == nil }.whileFalse {
-			aBlock.value(aLink);
+			aBlock(aLink);
 			aLink := aLink.nextLink
 		}
 	}
 
 	ofSize { :self :aNumber |
-		(aNumber - self.size).timesRepeat { self.add(nil) };
+		(aNumber - self.size).timesRepeat {
+			self.add(nil)
+		};
 		self
 	}
 
@@ -104,8 +106,12 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 		self.lastLink := nil
 	}
 
-	removeAllSuchThat { :self :aBlock |
-		self.do { :each | aBlock.value(each).ifTrue { self.remove(each) } }
+	removeAllSuchThat { :self :aBlock:/1 |
+		self.do { :each |
+			aBlock(each).ifTrue {
+				self.remove(each)
+			}
+		}
 	}
 
 	removeFirst { :self |
@@ -157,19 +163,19 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 					tempLink := tempLink.nextLink
 				};
 				tempLink.nextLink := aLink.nextLink;
-				(aLink == lastLink).ifTrue { self.lastLink := tempLink }
+				(aLink == self.lastLink).ifTrue { self.lastLink := tempLink }
 			};
 			aLink
 		}
 	}
 
-	select { :self :aBlock |
+	select { :self :aBlock:/1 |
 		| answer = LinkedList(); |
-		self.do { :each | aBlock.value(each).ifTrue { answer.add(each) } };
+		self.do { :each | aBlock(each).ifTrue { answer.add(each) } };
 		answer
 	}
 
-	selectThenCollect { :self :selectBlock :collectBlock |
+	selectThenCollect { :self :selectBlock:/1 :collectBlock:/1 |
 		| answer = LinkedList(); |
 		self.do { :each | selectBlock(each).ifTrue { answer.add(collectBlock(each)) } };
 		answer
@@ -178,19 +184,29 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 }
 
 + Number {
-	LinkedList { :self | LinkedList() }
+
+	LinkedList { :self |
+		LinkedList()
+	}
+
 }
 
 + @Collection {
 
 	LinkedList { :self |
 		| answer = LinkedList(); |
-		self.do { :each | answer.add(each) };
+		self.do { :each |
+			answer.add(each)
+		};
 		answer
 	}
 
 }
 
 + Void {
-	LinkedList { LinkedList(nil, nil) }
+
+	LinkedList {
+		newLinkedList(nil, nil)
+	}
+
 }

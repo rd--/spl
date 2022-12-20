@@ -1,14 +1,12 @@
 import { existsSync } from "https://deno.land/std/fs/mod.ts"
 
-import { consoleDebug } from '../lib/jssc3/ts/kernel/error.ts'
-
 import { evaluateString } from './eval.ts'
 import { addMethod } from './kernel.ts'
 import { resolveFileName, setLoadPath } from './load.ts'
 import { rewriteString } from './rewrite.ts'
 
 export async function readTextFile(fileName: string): Promise<string> {
-	consoleDebug(`readFile: ${fileName}`);
+	// console.debug(`readFile: ${fileName}`);
 	if(fileName && existsSync(fileName)) {
 		return await Deno.readTextFile(fileName);
 	} else {
@@ -18,12 +16,12 @@ export async function readTextFile(fileName: string): Promise<string> {
 }
 
 export async function evaluateFile(fileName: string) {
-	consoleDebug(`evaluateFile: ${fileName}`);
+	// console.debug(`evaluateFile: ${fileName}`);
 	return await readTextFile(fileName).then(evaluateString);
 }
 
 export async function rewriteFile(fileName: string) {
-	consoleDebug(`rewriteFile: ${fileName}`);
+	// console.debug(`rewriteFile: ${fileName}`);
 	return await readTextFile(fileName).then(rewriteString);
 }
 

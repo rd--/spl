@@ -45,3 +45,11 @@ Pair { | first second |
 	}
 
 }
+
++ Object {
+
+	Pair { :first :second |
+		newPair(first, second)
+	}
+
+}

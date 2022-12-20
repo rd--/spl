@@ -6,14 +6,18 @@ ByteArray : [Collection, SequenceableCollection, ArrayedCollection] {
 	}
 
 	printString { :self |
-		self.asArray.printString ++ '.asByteArray'
+		'ByteArray(' ++ self.asArray.printString ++ ')'
+	}
+
+	species { :self |
+		ByteArray:/1
 	}
 
 }
 
 + Array {
 
-	asByteArray { :self |
+	ByteArray { :self |
 		| answer = ByteArray(self.size); |
 		answer.fillFromWith(self, identity:/1)
 	}
@@ -31,7 +35,7 @@ ByteArray : [Collection, SequenceableCollection, ArrayedCollection] {
 + Void {
 
 	ByteArray {
-		<primitive: return new Uint8Array(0);>
+		ByteArray(0)
 	}
 
 }

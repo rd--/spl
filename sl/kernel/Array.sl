@@ -1,8 +1,8 @@
 Array : [Collection, SequenceableCollection, ArrayedCollection] {
 
-	adaptToNumberAndApply { :self :aNumber :aProcedure |
+	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
 		self.collect { :each |
-			aProcedure.value(aNumber, each)
+			aProcedure(aNumber, each)
 		}
 	}
 
@@ -15,16 +15,25 @@ Array : [Collection, SequenceableCollection, ArrayedCollection] {
 	}
 
 	printString { :self |
-		'[' ++ self.collect(printString).joinSeparatedBy(', ') ++ ']'
+		'[' ++ self.collect(printString:/1).joinSeparatedBy(', ') ++ ']'
+	}
+
+	species { :self |
+		Array:/1
 	}
 
 }
 
 + Number {
 
-	toAsCollect { :self :stop :species :aProcedure |
-		| answerSize = stop - self + 1, answer = species.ofSize(answerSize); |
-		answerSize.do { :index | answer[index] := aProcedure.value(index + self - 1) };
+	toAsCollect { :self :stop :species :aProcedure:/1 |
+		|
+			answerSize = stop - self + 1,
+			answer = species.ofSize(answerSize);
+		|
+		answerSize.do { :index |
+			answer[index] := aProcedure(index + self - 1)
+		};
 		answer
 	}
 
@@ -46,10 +55,10 @@ Array : [Collection, SequenceableCollection, ArrayedCollection] {
 		[self]
 	}
 
-	replicateApplying { :self :anInteger :aProcedure |
+	replicateApplying { :self :anInteger :aProcedure:/1 |
 		| answer = Array(anInteger); |
 		anInteger.do { :index |
-			answer[index] := aProcedure.value(self)
+			answer[index] := aProcedure(self)
 		};
 		answer
 	}

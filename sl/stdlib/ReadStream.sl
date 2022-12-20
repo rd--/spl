@@ -18,7 +18,10 @@ ReadStream : [PositionableStream] { | collection position readLimit |
 	}
 
 	next { :self :anInteger |
-		| endPosition = (self.position + anInteger).min(self.readLimit), answer = self.collection.copyFromTo(self.position + 1, endPosition); |
+		|
+			endPosition = (self.position + anInteger).min(self.readLimit),
+			answer = self.collection.copyFromTo(self.position + 1, endPosition);
+		|
 		self.position := endPosition;
 		answer
 	}
@@ -57,13 +60,15 @@ ReadStream : [PositionableStream] { | collection position readLimit |
 + @SequenceableCollection {
 
 	ReadStream { :self |
-		ReadStream(self, 0, self.size)
+		newReadStream(self, 0, self.size)
 	}
 
 }
 
 + Void {
 
-	ReadStream { ReadStream([]) }
+	ReadStream {
+		ReadStream([])
+	}
 
 }

@@ -34,17 +34,17 @@
 		<primitive: _self.forEach(function(item) { return _aProcedure(item) }); return _self;>
 	}
 
-	doWhile { :self :activity :condition |
+	doWhile { :self :activity:/1 :condition:/0 |
 		| nextIndex = 1, endIndex = self.size; |
 		whileTrue { condition() & { nextIndex <= endIndex } } {
-			activity.value(self[nextIndex]);
+			activity(self[nextIndex]);
 			nextIndex := nextIndex + 1
 		}
 	}
 
-	fillFromWith { :self :aCollection :aBlock |
+	fillFromWith { :self :aCollection :aBlock:/1 |
 		aCollection.withIndexDo { :each :index |
-			self[index] := aBlock.value(each)
+			self[index] := aBlock(each)
 		};
 		self
 	}
@@ -63,9 +63,11 @@
 		>
 	}
 
-	injectInto { :self :anObject :aBlock |
+	injectInto { :self :anObject :aBlock:/2 |
 		| result = anObject; |
-		1.toDo(self.size) { :index | result := aBlock.value(result, self[index]) };
+		1.toDo(self.size) { :index |
+			result := aBlock(result, self[index])
+		};
 		result
 	}
 
@@ -90,15 +92,15 @@
 	}
 
 	sortInPlace { :self |
-		self.sortInPlaceBy(lessThanEquals)
+		self.sortInPlaceBy(lessThanEquals:/2)
 	}
 
 	sort { :self :aSortBlockOrNil |
-		self.sortInPlaceBy(aSortBlockOrNil ? lessThan)
+		self.sortInPlaceBy(aSortBlockOrNil ? lessThan:/2)
 	}
 
 	sorted { :self :aSortBlockOrNil |
-		self.copy.sortInPlaceBy(aSortBlockOrNil ? lessThan)
+		self.copy.sortInPlaceBy(aSortBlockOrNil ? lessThan:/2)
 	}
 
 	sorted { :self |

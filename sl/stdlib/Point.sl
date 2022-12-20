@@ -1,7 +1,5 @@
 Point { | x y |
 
-	printString { :self | 'Point(' ++ self.x.printString ++ ', ' ++ self.y.printString ++ ')' }
-
 	= {	:self :anObject |
 		if(anObject.isPoint) { (self.x = anObject.x) & { self.y = anObject.y } } { false }
 	}
@@ -42,10 +40,6 @@ Point { | x y |
 		apply(aProcedure, [aNumber.asPoint, self])
 	}
 
-	negate { :self |
-		Point(self.x.negate, self.y.negate)
-	}
-
 	asPoint { :self |
 		self
 	}
@@ -54,25 +48,36 @@ Point { | x y |
 		(self.x.squared + self.y.squared).sqrt
 	}
 
+	negate { :self |
+		Point(self.x.negate, self.y.negate)
+	}
+
+	printString { :self |
+		'Point(' ++ self.x.printString ++ ', ' ++ self.y.printString ++ ')'
+	}
+
 }
 
 + Number {
 
-	asPoint { :self |
-		Point(self, self)
-	}
-
-	adaptToPointAndApply {
-		:self :aPoint :aProcedure |
-		apply(aProcedure, [aPoint, self.asPoint])
+	adaptToPointAndApply { :self :aPoint :aProcedure:/2 |
+		aProcedure(aPoint, self.asPoint)
 	}
 
 }
 
 + @Numeric {
 
+	asPoint { :self |
+		Point(self, self)
+	}
+
 	at { :self :aNumber |
 		Point(self, aNumber)
+	}
+
+	Point { :self :aNumber |
+		newPoint(self, aNumber)
 	}
 
 }

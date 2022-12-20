@@ -8,7 +8,7 @@ WriteStream { | collection position writeLimit |
 		|
 			oldSize = self.collection.size,
 			newSize = anInteger + oldSize.quotient(4).max(20),
-			grownCollection = self.collection.class.new(newSize);
+			grownCollection = self.collection.species.new(newSize);
 		|
 		self.collection := grownCollection.replaceFromToWithStartingAt(1, oldSize, collection, 1);
 		self.writeLimit := self.collection.size
@@ -24,7 +24,7 @@ WriteStream { | collection position writeLimit |
 	}
 
 	nextPutAll { :self :aCollection |
-		if(self.collection.class == aCollection.class) {
+		if(self.collection.typeOf == aCollection.typeOf) {
 			| newEnd = self.position + aCollection.size; |
 			(newEnd > self.writeLimit).ifTrue { self.growTo(newEnd) };
 			self.collection.replaceFromToWithStartingAt(self.position + 1, newEnd, aCollection, 1);
@@ -62,7 +62,7 @@ WriteStream { | collection position writeLimit |
 + @ArrayedCollection {
 
 	WriteStream { :self |
-		WriteStream(self, 0, self.size)
+		newWriteStream(self, 0, self.size)
 	}
 
 }

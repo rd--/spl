@@ -46,4 +46,3 @@ function(n) {
 	return [i, j];
 }
 ```
-

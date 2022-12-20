@@ -9,23 +9,23 @@
 		anObject
 	}
 
-	allSatisfy { :self :aProcedure |
+	allSatisfy { :self :aProcedure:/1 |
 		withReturn {
-			self.do { :each | each.aProcedure.ifFalse { return(false) } };
+			self.do { :each | each.aProcedure.ifFalse { false.return } };
 			true
 		}
 	}
 
 	anyOne { :self |
 		withReturn {
-			self.do { :each | return(each) };
+			self.do { :each | each.return };
 			self.errorEmptyCollection
 		}
 	}
 
-	anySatisfy { :self :aProcedure |
+	anySatisfy { :self :aProcedure:/1 |
 		withReturn {
-			self.do { :each | each.aProcedure.ifTrue { return(true) } };
+			self.do { :each | each.aProcedure.ifTrue { true.return } };
 			false
 		}
 	}
@@ -38,31 +38,33 @@
 		| randomIndex = self.size.atRandom, index = 1; |
 		withReturn {
 			self.do { :each |
-				ifTrue(index = randomIndex) { return(each) };
+				ifTrue(index = randomIndex) { each.return };
 				index := index + 1
 			}
 		}
 	}
 
-	collect { :self :aBlock |
-		| newCollection = self.species.new; |
-		self.do { :each | newCollection.add(aBlock.value(each)) };
-		newCollection
+	collect { :self :aBlock:/1 |
+		| answer = self.species.new; |
+		self.do { :each |
+			answer.add(aBlock(each))
+		};
+		answer
 	}
 
 	collectInto { :self :aBlock :aCollection |
 		aCollection.fillFromWith(self, aBlock)
 	}
 
-	detectIfFoundIfNone { :self :aProcedure :foundProcedure :exceptionProcedure |
+	detectIfFoundIfNone { :self :aProcedure:/1 :foundProcedure:/1 :exceptionProcedure:/0 |
 		withReturn {
 			self.do { :each |
-				aProcedure.value(each).ifTrue {
-					return (foundProcedure.value(each))
+				aProcedure(each).ifTrue {
+					return (foundProcedure(each))
 				}
 			}
 		};
-		exceptionProcedure.value
+		exceptionProcedure()
 	}
 
 	detectIfNone { :self :aProcedure :whenAbsent |
@@ -73,14 +75,14 @@
 		detectIfNone(self, aProcedure) { error('Array>>detect: not found') }
 	}
 
-	detectMax { :self :aProcedure |
+	detectMax { :self :aProcedure:/1 |
 		| maxElement maxValue |
 		self.do { :each |
 			maxValue.isNil.if {
 				maxElement := each;
-				maxValue := aProcedure.value(each)
+				maxValue := aProcedure(each)
 			} {
-				| nextValue = aProcedure.value(each); |
+				| nextValue = aProcedure(each); |
 				(nextValue > maxValue).ifTrue {
 					maxElement := each;
 					maxValue := nextValue
@@ -94,22 +96,22 @@
 		self.isEmpty.ifTrue { self.errorEmptyCollection }
 	}
 
-	fillFromWith { :self :aCollection :aBlock |
+	fillFromWith { :self :aCollection :aBlock:/1 |
 		aCollection.do { :each |
-			self.add(aBlock.value(each))
+			self.add(aBlock(each))
 		}
 	}
 
 	includesAllOf { :self :aCollection |
 		withReturn {
-			aCollection.do { :elem | self.includes(elem).ifFalse { return(false) } }
+			aCollection.do { :elem | self.includes(elem).ifFalse { false.return } }
 		};
 		true
 	}
 
-	injectInto { :self :initialValue :binaryProcedure |
+	injectInto { :self :initialValue :aProcedure:/2 |
 		| nextValue = initialValue; |
-		self.do { :each | nextValue := binaryProcedure(nextValue, each) };
+		self.do { :each | nextValue := aProcedure(nextValue, each) };
 		nextValue
 	}
 
@@ -139,17 +141,19 @@
 		self.reduce(times:/2)
 	}
 
-	reduce { :self :aBinaryProcedure |
+	reduce { :self :aBinaryProcedure:/2 |
 		| first = true, nextValue = nil; |
 		self.do { :each |
 			if(first) {
 				nextValue := each;
 				first := false
 			} {
-				nextValue := aBinaryProcedure.value(nextValue, each)
+				nextValue := aBinaryProcedure(nextValue, each)
 			}
 		};
-		first.ifTrue { error('Array>>reduce: empty collection') };
+		first.ifTrue {
+			error('Array>>reduce: empty collection')
+		};
 		nextValue
 	}
 
@@ -157,9 +161,13 @@
 		self.removeIfAbsent(oldObject, { self.errorNotFound(oldObject) } )
 	}
 
-	select { :self :aBlock |
+	select { :self :aBlock:/1 |
 		| answer = self.species.new; |
-		self.do { :each | aBlock.value(each).ifTrue { answer.add(each) } };
+		self.do { :each |
+			aBlock(each).ifTrue {
+				answer.add(each)
+			}
+		};
 		answer
 	}
 
@@ -198,8 +206,8 @@
 		aCollection.collect(self)
 	}
 
-	ofSize { :self :aNumber |
-		self.value(aNumber).ofSize(aNumber)
+	ofSize { :self:/1 :aNumber |
+		self(aNumber).ofSize(aNumber)
 	}
 
 }

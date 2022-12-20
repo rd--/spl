@@ -4,9 +4,9 @@ Ugen : [Numeric] {
 		<primitive: return sl.applyGenericAt(sl.nameWithoutArity(_aProcedure.name), [_aNumber, _self], 'Ugen');>
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aProcedure |
+	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
 		aCollection.collect { :each |
-			aProcedure.value(each, self)
+			aProcedure(each, self)
 		}
 	}
 
@@ -18,13 +18,29 @@ Ugen : [Numeric] {
 
 + [Array, Number, Ugen] {
 
-	kr { :aUgen | <primitive: return sc.kr(_aUgen);> }
-	printUgen { :aUgen | <primitive: return sc.prettyPrintSyndefOf(_aUgen);> }
-	mrg { :self :aUgen | <primitive: return sc.mrg(_self, _aUgen);> }
-	isOutputSignal { :self | <primitive: return sc.isOutputSignal(_self);> }
-	playUgen { :self | <primitive: sc.scsynthEnsure(globalScsynth, function() { sc.playUgen(globalScsynth, _self, 1) });> }
+	<! { :self :aUgen |
+		self.mrg(aUgen)
+	}
 
-	<! { :self :aUgen | self.mrg(aUgen) }
+	isOutputSignal { :self |
+		<primitive: return sc.isOutputSignal(_self);>
+	}
+
+	kr { :aUgen |
+		<primitive: return sc.kr(_aUgen);>
+	}
+
+	mrg { :self :aUgen |
+		<primitive: return sc.mrg(_self, _aUgen);>
+	}
+
+	playUgen { :self |
+		<primitive: sc.scsynthEnsure(globalScsynth, function() { sc.playUgen(globalScsynth, _self, 1) });>
+	}
+
+	printUgen { :aUgen |
+		<primitive: return sc.prettyPrintSyndefOf(_aUgen);>
+	}
 
 }
 
@@ -40,5 +56,9 @@ Ugen : [Numeric] {
 }
 
 + Void {
-	resetScsynth { <primitive: return sc.resetScsynth(globalScsynth);> }
+
+	resetScsynth {
+		<primitive: return sc.resetScsynth(globalScsynth);>
+	}
+
 }

@@ -1,7 +1,7 @@
 import { PriorityQueue } from '../lib/flatqueue/PriorityQueue.js'
 export { PriorityQueue } from '../lib/flatqueue/PriorityQueue.js'
 
-import { consoleDebug, throwError } from '../lib/jssc3/ts/kernel/error.ts'
+import { throwError } from '../lib/jssc3/ts/kernel/error.ts'
 
 import { isOperatorName, operatorMethodName } from './operator.ts'
 
@@ -70,7 +70,7 @@ function makeMethodTuple(procedure: Function, arity: Arity, source: string): Met
 export const traitMethods: Map<TraitName, Map<MethodName, MethodTuple[]>> = new Map();
 
 export function addTrait(traitName: TraitName): void {
-	consoleDebug(`addTrait: ${traitName}`);
+	// console.debug(`addTrait: ${traitName}`);
 	if(!traitTypes.has(traitName)) {
 		traitTypes.set(traitName, []);
 		traitMethods.set(traitName, new Map());
@@ -79,13 +79,13 @@ export function addTrait(traitName: TraitName): void {
 
 export function addTypeTraits(typeName: TypeName, traitNameArray: TraitName[]): void {
 	traitNameArray.forEach(function(traitName: TraitName) {
-		consoleDebug(`addTypeTraits: ${typeName}, ${traitName}`);
+		// console.debug(`addTypeTraits: ${typeName}, ${traitName}`);
 		traitTypes.get(traitName)!.push(typeName);
 	});
 }
 
 export function addTraitMethod(traitName: TraitName, name: MethodName, arity: Arity, method: Function, source: string): void {
-	consoleDebug(`addTypeTrait: ${traitName}, ${name}, ${arity}`);
+	// console.debug(`addTypeTrait: ${traitName}, ${name}, ${arity}`);
 	const trait = traitMethods.get(traitName)!;
 	if(!trait.has(name)) {
 		trait.set(name, []);
@@ -94,12 +94,12 @@ export function addTraitMethod(traitName: TraitName, name: MethodName, arity: Ar
 }
 
 export function copyTraitToType(traitName: TraitName, typeName: TypeName): void {
-	consoleDebug(`copyTraitToType: ${traitName}, ${typeName}`);
+	// console.debug(`copyTraitToType: ${traitName}, ${typeName}`);
 	const methods = traitMethods.get(traitName)!;
 	for (const [name, table] of methods) {
 		table.forEach(function(item) {
 			const [procedure, arity, source] = item;
-			consoleDebug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${arity}`);
+			// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${arity}`);
 			addMethod(typeName, name, arity, procedure, source);
 		});
 	}
@@ -107,10 +107,10 @@ export function copyTraitToType(traitName: TraitName, typeName: TypeName): void 
 
 export function extendTraitWithMethod(traitName: TraitName, name: MethodName, arity: Arity, method: Function, source: string): void {
 	const types = traitTypes.get(traitName)!;
-	consoleDebug(`extendTraitWithMethod: ${traitName}, ${name}`);
+	// console.debug(`extendTraitWithMethod: ${traitName}, ${name}`);
 	addTraitMethod(traitName, name, arity, method, source);
 	types.forEach(function(typeName) {
-		consoleDebug(`extendTraitWithMethod: ${traitName}, ${typeName}, ${name}`);
+		// console.debug(`extendTraitWithMethod: ${traitName}, ${typeName}, ${name}`);
 		addMethod(typeName, name, arity, method, source);
 	});
 }
@@ -148,7 +148,7 @@ export function dispatchByType(name: string, arity: number, typeTable: ByTypePro
 		const receiverType = typeOf(receiver);
 		const typeMethod = typeTable.get(receiverType);
 		if(typeMethod) {
-			consoleDebug(`dispatchByType: name=${name}, arity=${arity}, type=${receiverType}`);
+			// console.debug(`dispatchByType: name=${name}, arity=${arity}, type=${receiverType}`);
 			return typeMethod[0].apply(null, parameterArray)
 		} else {
 			const defaultMethod = typeTable.get('Object');
@@ -173,7 +173,7 @@ export function dispatchByArity(name: string, arity: number, arityTable: ByArity
 declare var globalThis: { [key: string]: unknown };
 
 // Required for class/species.  This needs considering...
-const makeArityDispatchFunction =  true;
+const makeArityDispatchFunction =  false;
 
 export function addMethod(typeName: TypeName, name: MethodName, arity: Arity, method: Function, source: string): void {
 	const prefixedName = '_' + name;
@@ -187,7 +187,7 @@ export function addMethod(typeName: TypeName, name: MethodName, arity: Arity, me
 		let globalFunction = globalThis[prefixedName];
 		if(globalFunction === undefined) {
 			globalFunction = globalThis[prefixedName] = function(...argumentsArray: unknown[]) {
-				consoleDebug(`dispatchByArity: ${name}, ${JSON.stringify(argumentsArray)}`);
+				// console.debug(`dispatchByArity: ${name}, ${JSON.stringify(argumentsArray)}`);
 				return dispatchByArity(name, argumentsArray.length, arityTable, argumentsArray);
 			};
 			Object.defineProperty(globalFunction, "name", { value: name });
@@ -197,31 +197,29 @@ export function addMethod(typeName: TypeName, name: MethodName, arity: Arity, me
 	if(!arityTable.has(arity)) {
 		arityTable.set(arity, new Map());
 	}
-	consoleDebug(`addMethod: ${typeName}, ${name}, ${arity}`);
+	// console.debug(`addMethod: ${typeName}, ${name}, ${arity}`);
 	arityTable.get(arity)!.set(typeName, makeMethodTuple(method, arity, source));
 	if(globalFunctionWithArity === undefined) {
 		const typeTable = arityTable.get(arity)!;
 		globalFunctionWithArity = globalThis[prefixedNameWithArity] = function(...argumentsArray: unknown[]) {
-			consoleDebug(`dispatchByType: ${name}, ${JSON.stringify(argumentsArray)}`);
+			// console.debug(`dispatchByType: ${name}, ${JSON.stringify(argumentsArray)}`);
 			return dispatchByType(name, arity, typeTable, argumentsArray);
 		};
 		Object.defineProperty(globalFunctionWithArity, "name", { value: [name, ':/', String(arity)].join('') });
 	}
 }
 
-// This is run for built-in types. The class access and predicate methods are required.  Assumes non-kernel types have at least one slot.
+// This is run for built-in types. The class predicate method is required.  Assumes non-kernel types have at least one slot.
 export function addType(typeName: TypeName, slotNames: string[]): void {
 	const slots = slotNames.map(each => `${each}: ${each}`).join(', ');
-	const defType = slotNames.length === 0 ? '' : `addMethod('Object', '${typeName}', ${slotNames.length}, function(${slotNames.join(', ')}) { return {type: '${typeName}', ${slots} }; }, '<primitive>')`;
-	const defClassAccess = `addMethod('${typeName}', 'class', 1, function(anInstance) { return _${typeName}; }, '<primitive>')`;
+	const defType = slotNames.length === 0 ? '' : `addMethod('Object', 'new${typeName}', ${slotNames.length}, function(${slotNames.join(', ')}) { return {type: '${typeName}', ${slots} }; }, '<primitive>')`;
 	const defPredicateTrue = `addMethod('${typeName}', 'is${typeName}', 1, function(anInstance) { return true; }, '<primitive>')`;
 	const defPredicateFalse = `addMethod('Object', 'is${typeName}', 1, function(anObject) { return false; }, '<primitive>')`;
 	const defSlotAccess = slotNames.map(each => `addMethod('${typeName}', '${each}', 1, function(anInstance) { return anInstance.${each} }, '<primitive>');`).join('; ');
 	const defSlotMutate = slotNames.map(each => `addMethod('${typeName}', '${each}', 2, function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive>');`).join('; ');
-	consoleDebug(`addType: ${typeName}, ${slotNames}`);
+	// console.debug(`addType: ${typeName}, ${slotNames}`);
 	typeList.push(typeName);
 	eval(defType);
-	eval(defClassAccess);
 	eval(defPredicateTrue);
 	eval(defPredicateFalse);
 	eval(defSlotAccess);

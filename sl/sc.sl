@@ -17,6 +17,6 @@ loadSequence([
 	'sc/synth/operators.sl',
 	'sc/synth/pseudo.sl',
 	'sc/synth/texture.sl'
-]).then {
+]).then { :unusedValue |
 	system::clock := Clock()
 }
