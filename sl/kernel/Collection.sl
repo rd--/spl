@@ -56,6 +56,16 @@
 		aCollection.fillFromWith(self, aBlock)
 	}
 
+	count { :self :aBlock:/1 |
+		| answer = 0; |
+		self.do { :each |
+			aBlock(each).ifTrue {
+				answer := answer + 1
+			}
+		};
+		answer
+	}
+
 	detectIfFoundIfNone { :self :aProcedure:/1 :foundProcedure:/1 :exceptionProcedure:/0 |
 		withReturn {
 			self.do { :each |

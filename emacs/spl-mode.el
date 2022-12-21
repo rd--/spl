@@ -108,6 +108,9 @@
      ("not" . #x00AC) ; ¬
      ("and" . #x2227) ; ∧
      ("or" . #x2228) ; ∨
+     ("sum" . #x03A3) ; Σ
+     ("product" . #x03A0) ; Π
+     (";;" . #x22EF) ; ⋯
      )))
 
 (defun spl-fill-mode-map (map)

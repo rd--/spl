@@ -68,6 +68,7 @@ var a = Array(1); a.unsafeAt(3).isNil = true
 { var a = Array(1); a.atPut(3, 'x') }.ifError { :error | true }
 var a = Array(1); a.unsafeAtPut(3, 'x') = 'x' & { a.size = 3 }
 Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
+[1 .. 9].count(even:/1) = 4
 
 'kernel/Boolean'
 true.typeOf = 'Boolean'
