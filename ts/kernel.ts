@@ -4,6 +4,7 @@ export { PriorityQueue } from '../lib/flatqueue/PriorityQueue.js'
 import { throwError } from '../lib/jssc3/ts/kernel/error.ts'
 
 import { isOperatorName, operatorMethodName } from './operator.ts'
+import { slOptions } from './options.ts'
 
 type TypeName = string;
 type Arity = number;
@@ -172,9 +173,6 @@ export function dispatchByArity(name: string, arity: number, arityTable: ByArity
 
 declare var globalThis: { [key: string]: unknown };
 
-// Required for class/species.  This needs considering...
-const makeArityDispatchFunction =  false;
-
 export function addMethod(typeName: TypeName, name: MethodName, arity: Arity, method: Function, source: string): void {
 	const prefixedName = '_' + name;
 	const prefixedNameWithArity = ['_', name, '_', String(arity)].join('');
@@ -183,7 +181,7 @@ export function addMethod(typeName: TypeName, name: MethodName, arity: Arity, me
 		genericProcedures.set(name, new Map());
 	}
 	let arityTable = genericProcedures.get(name)!;
-	if(makeArityDispatchFunction) {
+	if(slOptions.makeArityDispatchFunction) {
 		let globalFunction = globalThis[prefixedName];
 		if(globalFunction === undefined) {
 			globalFunction = globalThis[prefixedName] = function(...argumentsArray: unknown[]) {

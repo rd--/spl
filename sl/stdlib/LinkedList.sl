@@ -41,28 +41,28 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 		self.linkAt(index).value
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aProcedure:/1 |
 		| aLink = self.firstLink, answer = LinkedList(); |
 		 { aLink == nil }.whileFalse {
-			 answer.add(aBlock(aLink.value));
+			 answer.add(aProcedure(aLink.value));
 			 aLink := aLink.nextLink
 		 };
 		answer
 	}
 
-	collectThenSelect { :self :collectBlock:/1 :selectBlock:/1 |
+	collectThenSelect { :self :collectProcedure:/1 :selectProcedure:/1 |
 		| answer = LinkedList(); |
 		self.do { :each |
-			| next = collectBlock(each); |
-			selectBlock(next).ifTrue { answer.add(next) }
+			| next = collectProcedure(each); |
+			selectProcedure(next).ifTrue { answer.add(next) }
 		};
 		answer
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aProcedure:/1 |
 		| aLink = self.firstLink; |
 		{ aLink == nil }.whileFalse {
-			aBlock(aLink.value);
+			aProcedure(aLink.value);
 			aLink := aLink.nextLink
 		}
 	}
@@ -71,25 +71,25 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 		self.linkAtIfAbsent(index, { self.errorSubscriptBounds(index) })
 	}
 
-	linkAtIfAbsent { :self :index :errorBlock |
+	linkAtIfAbsent { :self :index :errorProcedure:/0 |
 		| i  = 0; |
 		withReturn {
 			self.linksDo { :link | i := i + 1; ifTrue(i = index) { return(link) } };
-			errorBlock()
+			errorProcedure()
 		}
 	}
 
-	linkOfIfAbsent { :self :anObject :errorBlock:/0 |
+	linkOfIfAbsent { :self :anObject :errorProcedure:/0 |
 		withReturn {
 			self.linksDo { :link | (link.value = anObject.value).ifTrue { return(link) } };
-			errorBlock()
+			errorProcedure()
 		}
 	}
 
-	linksDo { :self :aBlock:/1 |
+	linksDo { :self :aProcedure:/1 |
 		| aLink = self.firstLink; |
 		{ aLink == nil }.whileFalse {
-			aBlock(aLink);
+			aProcedure(aLink);
 			aLink := aLink.nextLink
 		}
 	}
@@ -106,9 +106,9 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 		self.lastLink := nil
 	}
 
-	removeAllSuchThat { :self :aBlock:/1 |
+	removeAllSuchThat { :self :aProcedure:/1 |
 		self.do { :each |
-			aBlock(each).ifTrue {
+			aProcedure(each).ifTrue {
 				self.remove(each)
 			}
 		}
@@ -126,9 +126,11 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 		oldLink.value
 	}
 
-	removeIfAbsent { :self :aLinkOrObject :aBlock |
-		| link = self.linkOfIfAbsent(aLinkOrObject, { aBlock.value }); |
-		self.removeLinkIfAbsent(link, { aBlock.value });
+	removeIfAbsent { :self :aLinkOrObject :aProcedure:/0 |
+		| link = self.linkOfIfAbsent(aLinkOrObject, aProcedure:/0); |
+		self.removeLinkIfAbsent(link) {
+			aProcedure()
+		};
 		aLinkOrObject
 	}
 
@@ -149,7 +151,7 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 		oldLink.value
 	}
 
-	removeLinkIfAbsent { :self :aLink :aBlock |
+	removeLinkIfAbsent { :self :aLink :aProcedure:/0 |
 		withReturn {
 			if(aLink == self.firstLink) {
 				self.firstLink := aLink.nextLink;
@@ -157,7 +159,9 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 			} {
 				| tempLink = self.firstLink; |
 				{
-					tempLink.ifNil { return(aBlock.value) };
+					tempLink.ifNil {
+						aProcedure().return
+					};
 					tempLink.nextLink == aLink
 				}.whileFalse {
 					tempLink := tempLink.nextLink
@@ -169,15 +173,23 @@ LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
 		}
 	}
 
-	select { :self :aBlock:/1 |
+	select { :self :aProcedure:/1 |
 		| answer = LinkedList(); |
-		self.do { :each | aBlock(each).ifTrue { answer.add(each) } };
+		self.do { :each |
+			aProcedure(each).ifTrue {
+				answer.add(each)
+			}
+		};
 		answer
 	}
 
-	selectThenCollect { :self :selectBlock:/1 :collectBlock:/1 |
+	selectThenCollect { :self :selectProcedure:/1 :collectProcedure:/1 |
 		| answer = LinkedList(); |
-		self.do { :each | selectBlock(each).ifTrue { answer.add(collectBlock(each)) } };
+		self.do { :each |
+			selectProcedure(each).ifTrue {
+				answer.add(collectProcedure(each))
+			}
+		};
 		answer
 	}
 

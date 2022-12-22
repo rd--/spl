@@ -43,13 +43,13 @@
 		}
 	}
 
-	atIfAbsent { :self :aKey :aBlock |
-		self[aKey] ? aBlock.value
+	atIfAbsent { :self :aKey :aProcedure:/0 |
+		self[aKey] ? aProcedure()
 	}
 
-	atIfAbsentPut { :self :key :aBlock |
+	atIfAbsentPut { :self :key :aProcedure:/0 |
 		self.atIfAbsent(key) {
-			self[key] := aBlock.value
+			self[key] := aProcedure()
 		}
 	}
 
@@ -67,18 +67,18 @@
 		answer
 	}
 
-	do { :self :aBlock |
-		self.valuesDo(aBlock)
+	do { :self :aProcedure |
+		self.valuesDo(aProcedure)
 	}
 
-	fillFromWith { :self :aCollection :aBlock:/1 |
+	fillFromWith { :self :aCollection :aProcedure:/1 |
 		aCollection.isDictionary.if {
 			aCollection.associationsDo { :association |
-				self[association.key] := aBlock(association.value)
+				self[association.key] := aProcedure(association.value)
 			}
 		} {
 			aCollection.do { :element |
-				self.add(aBlock(element))
+				self.add(aProcedure(element))
 			}
 		}
 	}
@@ -91,19 +91,19 @@
 		}
 	}
 
-	select { :self :aBlock:/1 |
+	select { :self :aProcedure:/1 |
 		| answer = self.species.new; |
 		self.associationsDo { :each |
-			aBlock(each.value).ifTrue {
+			aProcedure(each.value).ifTrue {
 				answer.add(each.copy)
 			}
 		};
 		answer
 	}
 
-	valuesDo { :self :aBlock:/1 |
+	valuesDo { :self :aProcedure:/1 |
 		self.associationsDo { :association |
-			aBlock(association.value)
+			aProcedure(association.value)
 		}
 	}
 

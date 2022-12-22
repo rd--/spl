@@ -29,8 +29,8 @@ Procedure {
 		}
 	}
 
-	ifError { :self :errorHandlerBlock |
-		<primitive: try { return _self(); } catch (exc) { return _errorHandlerBlock(exc) }>
+	ifError { :self :errorHandler |
+		<primitive: try { return _self(); } catch (exc) { return _errorHandler(exc) }>
 	}
 
 	methodName { :self |

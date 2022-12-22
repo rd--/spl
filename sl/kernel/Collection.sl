@@ -44,22 +44,22 @@
 		}
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aProcedure:/1 |
 		| answer = self.species.new; |
 		self.do { :each |
-			answer.add(aBlock(each))
+			answer.add(aProcedure(each))
 		};
 		answer
 	}
 
-	collectInto { :self :aBlock :aCollection |
-		aCollection.fillFromWith(self, aBlock)
+	collectInto { :self :aProcedure :aCollection |
+		aCollection.fillFromWith(self, aProcedure)
 	}
 
-	count { :self :aBlock:/1 |
+	count { :self :aProcedure:/1 |
 		| answer = 0; |
 		self.do { :each |
-			aBlock(each).ifTrue {
+			aProcedure(each).ifTrue {
 				answer := answer + 1
 			}
 		};
@@ -106,9 +106,9 @@
 		self.isEmpty.ifTrue { self.errorEmptyCollection }
 	}
 
-	fillFromWith { :self :aCollection :aBlock:/1 |
+	fillFromWith { :self :aCollection :aProcedure:/1 |
 		aCollection.do { :each |
-			self.add(aBlock(each))
+			self.add(aProcedure(each))
 		}
 	}
 
@@ -171,10 +171,10 @@
 		self.removeIfAbsent(oldObject, { self.errorNotFound(oldObject) } )
 	}
 
-	select { :self :aBlock:/1 |
+	select { :self :aProcedure:/1 |
 		| answer = self.species.new; |
 		self.do { :each |
-			aBlock(each).ifTrue {
+			aProcedure(each).ifTrue {
 				answer.add(each)
 			}
 		};
@@ -187,8 +187,8 @@
 		tally
 	}
 
-	sorted { :self :aSortBlockOrNil |
-		self.asArray.sort(aSortBlockOrNil)
+	sorted { :self :compare |
+		self.asArray.sort(compare)
 	}
 
 	sum { :self |
@@ -196,7 +196,9 @@
 	}
 
 	ofSize { :self :aNumber |
-		ifFalse(self.size = aNumber) { error('ofSize') };
+		ifFalse(self.size = aNumber) {
+			error('ofSize')
+		};
 		self
 	}
 

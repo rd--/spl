@@ -3,8 +3,7 @@
 import { arraySum } from '../lib/jssc3/ts/kernel/array.ts'
 
 import { slSemantics, slParse, slTemporariesSyntaxNames } from './grammar.ts'
-
-const insertArityCheck = false;
+import { slOptions } from './options.ts'
 
 const asJs: any = {
 
@@ -76,7 +75,7 @@ const asJs: any = {
 	AtPutQuotedSyntax(c, _c, k, _e, v) { return `_atPut_3(${c.asJs}, '${k.sourceString}', ${v.asJs})`; },
 	AtSyntax(c, _l, k, _r) { return `_at_2(${c.asJs}, ${k.asJs})`; },
 	AtQuotedSyntax(c, _c, k) { return `_at_2(${c.asJs}, '${k.sourceString}')`; },
-	ValueSyntax(p, _d, a) { return `${p.asJs}(${a.asJs})`; },
+	ValueApplySyntax(p, _d, a) { return `${p.asJs}(${a.asJs})`; },
     NonEmptyParameterList(_l, sq, _r) { return commaList(sq.asIteration().children); },
 
     DotExpressionWithTrailingClosuresSyntax(lhs, _dot, nm, args, tc) {
@@ -110,7 +109,7 @@ const asJs: any = {
     Block(_l, blk, _r) { return blk.asJs; },
     BlockBody(arg, tmp, prm, stm) {
 		let arityCheck = '';
-		if(insertArityCheck) {
+		if(slOptions.insertArityCheck) {
 			arityCheck = `if(arguments.length !== ${arg.arityOf}) { console.error('Arity: expected ${arg.arityOf}, ${arg.asJs}'); }`;
 		}
 		return `(function(${arg.asJs}) { ${arityCheck} ${tmp.asJs} ${prm.asJs} ${stm.asJs} })`;

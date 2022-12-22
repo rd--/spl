@@ -36,8 +36,8 @@ Point { | x y |
 		}
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aProcedure |
-		apply(aProcedure, [aNumber.asPoint, self])
+	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
+		aProcedure(aNumber.asPoint, self)
 	}
 
 	asPoint { :self |

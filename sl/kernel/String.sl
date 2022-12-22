@@ -28,7 +28,7 @@ String : [Collection, SequenceableCollection] {
 		1.toAsCollect(self.size, ByteArray:/1) { :index |
 			| codePoint = self.charCodeAt(index); |
 			(codePoint > 255).ifTrue {
-				'String>>ascii: non-ascii character'.errora
+				'String>>ascii: non-ascii character'.error
 			};
 			codePoint
 		}

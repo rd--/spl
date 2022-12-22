@@ -64,9 +64,9 @@
 		self.next(anInteger - self.position)
 	}
 
-	withWriteStream { :self :aBlock:/1 |
+	withWriteStream { :self :aProcedure:/1 |
 		| aStream = WriteStream(self.collection.species.new(100)); |
-		aBlock(aStream);
+		aProcedure(aStream);
 		aStream.contents
 	}
 

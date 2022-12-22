@@ -42,9 +42,9 @@
 		}
 	}
 
-	fillFromWith { :self :aCollection :aBlock:/1 |
+	fillFromWith { :self :aCollection :aProcedure:/1 |
 		aCollection.withIndexDo { :each :index |
-			self[index] := aBlock(each)
+			self[index] := aProcedure(each)
 		};
 		self
 	}
@@ -63,10 +63,10 @@
 		>
 	}
 
-	injectInto { :self :anObject :aBlock:/2 |
+	injectInto { :self :anObject :aProcedure:/2 |
 		| result = anObject; |
 		1.toDo(self.size) { :index |
-			result := aBlock(result, self[index])
+			result := aProcedure(result, self[index])
 		};
 		result
 	}
@@ -95,12 +95,12 @@
 		self.sortInPlaceBy(lessThanEquals:/2)
 	}
 
-	sort { :self :aSortBlockOrNil |
-		self.sortInPlaceBy(aSortBlockOrNil ? lessThan:/2)
+	sort { :self :aSortProcedureOrNil |
+		self.sortInPlaceBy(aSortProcedureOrNil ? lessThan:/2)
 	}
 
-	sorted { :self :aSortBlockOrNil |
-		self.copy.sortInPlaceBy(aSortBlockOrNil ? lessThan:/2)
+	sorted { :self :aSortProcedureOrNil |
+		self.copy.sortInPlaceBy(aSortProcedureOrNil ? lessThan:/2)
 	}
 
 	sorted { :self |

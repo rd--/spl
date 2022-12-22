@@ -85,13 +85,13 @@ Interval : [Collection, SequenceableCollection] { | start stop step |
 		}
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aBinaryProcedure:/2 |
-		aBinaryProcedure(aCollection, self.asArray)
+	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
+		aProcedure(aCollection, self.asArray)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBinaryProcedure:/2 |
+	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
 		self.collect { :each |
-			aBinaryProcedure(aNumber, each)
+			aProcedure(aNumber, each)
 		}
 	}
 

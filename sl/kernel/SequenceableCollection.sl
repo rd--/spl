@@ -49,10 +49,10 @@
 
 	atRandom { :self | self[randomInteger(1, self.size)] }
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aProcedure:/1 |
 		| newCollection = self.species.ofSize(self.size); |
 		1.toDo(self.size) { :index |
-			newCollection[index] := aBlock(self[index])
+			newCollection[index] := aProcedure(self[index])
 		};
 		newCollection
 	}
@@ -96,9 +96,9 @@
 		answer
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aProcedure:/1 |
 		1.toDo(self.size) { :index |
-			aBlock(self[index])
+			aProcedure(self[index])
 		}
 	}
 
@@ -160,10 +160,10 @@
 		}
 	}
 
-	select { :self :aBlock:/1 |
+	select { :self :aProcedure:/1 |
 		| answer = OrderedCollection(); |
 		1.toDo(self.size) { :index |
-			aBlock(self[index]).ifTrue {
+			aProcedure(self[index]).ifTrue {
 				answer.add(self[index])
 			}
 		};
@@ -197,17 +197,17 @@
 		}
 	}
 
-	withIndexCollect { :self :elementAndIndexBlock:/2 |
+	withIndexCollect { :self :elementAndIndexProcedure:/2 |
 		| answer = self.species.ofSize(self.size); |
 		1.toDo(self.size) { :index |
-			answer[index] := elementAndIndexBlock(self[index], index)
+			answer[index] := elementAndIndexProcedure(self[index], index)
 		};
 		answer
 	}
 
-	withIndexDo { :self :elementAndIndexBlock:/2 |
+	withIndexDo { :self :elementAndIndexProcedure:/2 |
 		1.toDo(self. size) { :index |
-			elementAndIndexBlock(self[index], index)
+			elementAndIndexProcedure(self[index], index)
 		}
 	}
 

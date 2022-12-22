@@ -6,10 +6,10 @@ Cons : [Collection] { | car cdr |
 		{ self.cdr = anObject.cdr }
 	}
 
-	collect { :self :aBlock:/1 |
+	collect { :self :aProcedure:/1 |
 		| answer |
 		self.do { :each |
-			answer := Cons(aBlock(each), answer)
+			answer := Cons(aProcedure(each), answer)
 		};
 		answer.reversed
 	}
@@ -23,11 +23,11 @@ Cons : [Collection] { | car cdr |
 		answer
 	}
 
-	do { :self :aBlock:/1 |
+	do { :self :aProcedure:/1 |
 		| next = self.cdr; |
-		aBlock(self.car);
+		aProcedure(self.car);
 		{ next.isCons }.whileTrue {
-			aBlock(next.car);
+			aProcedure(next.car);
 			next := next.cdr
 		}
 	}
