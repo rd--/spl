@@ -86,6 +86,8 @@ false & { 'false &'.postLine; false } = false
 true | { 'true |'.postLine; true } = true
 false | { 'false |'.postLine; true } = true
 true.printString = 'true'
+true && true = true
+false || true = true
 
 'kernel/Number'
 { Number() }.ifError { :error | true } = true

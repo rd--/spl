@@ -1,31 +1,31 @@
 LargeInteger : [Magnitude, Numeric] {
 
 	= { :self :anInteger |
-		<primitive: return _self === _asLargeInteger_1(_anInteger);>
+		<primitive: return _self === BigInt(_anInteger);>
 	}
 
 	< { :self :anInteger |
-		<primitive: return _self < _asLargeInteger_1(_anInteger);>
+		<primitive: return _self < BigInt(_anInteger);>
 	}
 
 	<= { :self :anInteger |
-		<primitive: return _self <= _asLargeInteger_1(_anInteger);>
+		<primitive: return _self <= BigInt(_anInteger);>
 	}
 
 	+ { :self :anInteger |
-		<primitive: return _self + _asLargeInteger_1(_anInteger);>
+		<primitive: return _self + BigInt(_anInteger);>
 	}
 
 	- { :self :anInteger |
-		<primitive: return _self - _asLargeInteger_1(_anInteger);>
+		<primitive: return _self - BigInt(_anInteger);>
 	}
 
 	* { :self :anInteger |
-		<primitive: return _self * _asLargeInteger_1(_anInteger);>
+		<primitive: return _self * BigInt(_anInteger);>
 	}
 
 	/ { :self :anInteger |
-		<primitive: return _self / _asLargeInteger_1(_anInteger);>
+		<primitive: return _self / BigInt(_anInteger);>
 	}
 
 	asLargeInteger { :self |
@@ -41,7 +41,7 @@ LargeInteger : [Magnitude, Numeric] {
 	}
 
 	remainder { :self :anInteger |
-		<primitive: return _self % _asLargeInteger_1(_anInteger);>
+		<primitive: return _self % BigInt(_anInteger);>
 	}
 
 	toNumber { :self :precision |

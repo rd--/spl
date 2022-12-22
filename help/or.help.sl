@@ -1,9 +1,10 @@
 # | -- logic operator
 
-- _aBoolean | anotherBoolean_
-- _or(aBoolean, anotherBoolean)_
+- _aBoolean | aProcedure_
+- _or(aBoolean, aProcedure)_
 
-true if either operand is true, else false.
+true if _aBoolean_ is true or _aProcedure_ evaluates to true, else false.
+If _aBoolean_ is true then _aProcedure_ is not evaluated.
 
 Where supported _or_ is displayed as ∨.
 

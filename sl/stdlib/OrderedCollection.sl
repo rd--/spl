@@ -10,11 +10,19 @@ OrderedCollection : [Collection, SequenceableCollection] { | array |
 	}
 
 	addAllFirst { :self :aCollection |
-		<primitive: return _self.array.unshift(..._asArray_1(_aCollection));>
+		self.addArrayFirst(aCollection.asArray)
 	}
 
 	addAllLast { :self :aCollection |
-		<primitive: return _self.array.push(..._asArray_1(_aCollection));>
+		self.addArrayLast(aCollection.asArray)
+	}
+
+	addArrayFirst { :self :anArray |
+		<primitive: return _self.array.unshift(..._anArray);>
+	}
+
+	addArrayLast { :self :anArray |
+		<primitive: return _self.array.push(..._anArray);>
 	}
 
 	addFirst { :self :anObject |

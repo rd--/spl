@@ -41,8 +41,14 @@ StringDictionary : [Dictionary] {
 
 + Array {
 
+	stringDictionaryFromTwoElementArrays { :self |
+		(* I am an array of two element arrays. *)
+		<primitive: return Object.fromEntries(_self);>
+	}
+
 	StringDictionary { :self |
-		<primitive: return Object.fromEntries(_self.map(function(each) { return _asArray_1(each); }));>
+		(* I am an array of associations. *)
+		self.collect(asArray:/1).stringDictionaryFromTwoElementArrays
 	}
 
 }

@@ -1,9 +1,10 @@
 # & -- logic operator
 
-- _aBoolean & anotherBoolean_
-- _and(aBoolean, anotherBoolean)_
+- _aBoolean & aProcedure_
+- _and(aBoolean, aProcedure)_
 
-true if both operands are true, else false.
+true if _aBoolean_ is true and _aProcedure_ evaluates to true, else false.
+If _aBoolean_ is false then _aProcedure_ is not evaluated.
 
 Where supported _and_ is displayed as ∧.
 

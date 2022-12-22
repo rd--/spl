@@ -24,9 +24,9 @@ BigInt.prototype.toJSON = function () {
 
 function help(): void {
 	console.log('spl');
-	console.log('  replPerLine --dir=loadPath --sc');
+	console.log('  replPerLine --dir=loadPath --stdlib --sc');
 	console.log('  rewriteFile fileName');
-	console.log('  runFile fileName --dir=loadPath --sc');
+	console.log('  runFile fileName --dir=loadPath --stdlib --sc');
 	console.log('  sc playFile --dir=loadPath');
 	console.log('  sc udpServer portNumber --dir=loadPath');
 	console.log(`  SPL_DIR=${getSplDir()}`);
@@ -49,7 +49,7 @@ async function loadSpl(opt: flags.Args): Promise<void> {
 	console.log(`loadSpl: opt.dir=${opt.dir}, getSplDir=${getSplDir()}, loadPath=${loadPath}`);
 	io.addLoadFileMethods();
 	sl.assignGlobals();
-	await io.loadFileArrayInSequence(loadPath, ['prelude.sl'].concat(opt.sc ? ['sc.sl'] : []));
+	await io.loadFileArrayInSequence(loadPath, ['kernel.sl'].concat(opt.stdlib | opt.sc ? ['stdlib.sl'] : [], opt.sc ? ['sc.sl'] : []));
 	if(opt.sc) {
 		globalThis.sc = sc;
 		globalThis.globalScsynth = cliScynth;
@@ -122,7 +122,7 @@ declare global {
 }
 
 async function scCmd(cmd: string, opt: flags.Args): Promise<void> {
-	opt.sc = true;
+	opt.stdlib = opt.sc = true; // don't require --stdlib and --sc options for sc commands...
 	globalThis.osc = osc;
 	await loadSpl(opt);
 	switch(cmd) {

@@ -48,8 +48,14 @@ IdentityDictionary : [Collection, Dictionary] {
 
 + Array {
 
+	identityDictionaryFromTwoElementArrays { :self |
+		(* I am an array of two element arrays. *)
+		<primitive: return new Map(_self);>
+	}
+
 	IdentityDictionary { :self |
-		<primitive: return new Map(_self.map(function(each) { return _asArray_1(each) }));>
+		(* I am an array of associations. *)
+		self.collect(asArray:/1).identityDictionaryFromTwoElementArrays
 	}
 
 }

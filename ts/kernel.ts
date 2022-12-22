@@ -174,14 +174,17 @@ export function dispatchByArity(name: string, arity: number, arityTable: ByArity
 declare var globalThis: { [key: string]: unknown };
 
 export function addMethod(typeName: TypeName, name: MethodName, arity: Arity, method: Function, source: string): void {
-	const prefixedName = '_' + name;
-	const prefixedNameWithArity = ['_', name, '_', String(arity)].join('');
-	let globalFunctionWithArity = globalThis[prefixedNameWithArity];
+	// console.debug(`addMethod: ${typeName}, ${name}, ${arity}`);
 	if(!genericProcedures.has(name)) {
 		genericProcedures.set(name, new Map());
 	}
 	let arityTable = genericProcedures.get(name)!;
-	if(slOptions.makeArityDispatchFunction) {
+	if(!arityTable.has(arity)) {
+		arityTable.set(arity, new Map());
+	}
+	arityTable.get(arity)!.set(typeName, makeMethodTuple(method, arity, source));
+	if(slOptions.simpleArityModel) {
+		const prefixedName = '_' + name;
 		let globalFunction = globalThis[prefixedName];
 		if(globalFunction === undefined) {
 			globalFunction = globalThis[prefixedName] = function(...argumentsArray: unknown[]) {
@@ -191,19 +194,17 @@ export function addMethod(typeName: TypeName, name: MethodName, arity: Arity, me
 			Object.defineProperty(globalFunction, "name", { value: name });
 			Object.defineProperty(globalFunction, "hasRestParameters", { value: true });
 		}
-	}
-	if(!arityTable.has(arity)) {
-		arityTable.set(arity, new Map());
-	}
-	// console.debug(`addMethod: ${typeName}, ${name}, ${arity}`);
-	arityTable.get(arity)!.set(typeName, makeMethodTuple(method, arity, source));
-	if(globalFunctionWithArity === undefined) {
-		const typeTable = arityTable.get(arity)!;
-		globalFunctionWithArity = globalThis[prefixedNameWithArity] = function(...argumentsArray: unknown[]) {
-			// console.debug(`dispatchByType: ${name}, ${JSON.stringify(argumentsArray)}`);
-			return dispatchByType(name, arity, typeTable, argumentsArray);
-		};
-		Object.defineProperty(globalFunctionWithArity, "name", { value: [name, ':/', String(arity)].join('') });
+	} else {
+		const prefixedNameWithArity = `_${name}_${arity}`;
+		let globalFunctionWithArity = globalThis[prefixedNameWithArity];
+		if(globalFunctionWithArity === undefined) {
+			const typeTable = arityTable.get(arity)!;
+			globalFunctionWithArity = globalThis[prefixedNameWithArity] = function(...argumentsArray: unknown[]) {
+				// console.debug(`dispatchByType: ${name}, ${JSON.stringify(argumentsArray)}`);
+				return dispatchByType(name, arity, typeTable, argumentsArray);
+			};
+			Object.defineProperty(globalFunctionWithArity, "name", { value: `${name}:/${arity}` });
+		}
 	}
 }
 

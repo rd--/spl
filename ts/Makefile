@@ -4,8 +4,11 @@ dist:
 check-ts:
 	deno check --config deno.json *.ts
 
-spl-repl:
+spl-repl-kernel:
 	rlwrap --always-readline deno run --allow-read --allow-env cli.ts --dir=../sl replPerLine
+
+spl-repl-stdlib:
+	rlwrap --always-readline deno run --allow-read --allow-env cli.ts --dir=../sl --stdlib replPerLine
 
 spl-repl-sc:
 	rlwrap --always-readline deno run --allow-read --allow-env cli.ts --dir=../sl --sc replPerLine

@@ -21,7 +21,11 @@ String : [Collection, SequenceableCollection] {
 	}
 
 	++ { :self :anObject |
-		<primitive: return _self + (sl.isString(_anObject) ? _anObject : _asString_1(_anObject));>
+		self.appendString(anObject.asString)
+	}
+
+	appendString { :self :aString |
+		<primitive: return _self + _aString;>
 	}
 
 	ascii { :self |
