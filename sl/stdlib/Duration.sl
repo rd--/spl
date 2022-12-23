@@ -45,8 +45,8 @@ Duration { | milliseconds |
 		self.days / 7
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aProcedure |
-		apply(aProcedure, [aNumber.asDuration, self])
+	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
+		aProcedure(aNumber.asDuration, self)
 	}
 
 }

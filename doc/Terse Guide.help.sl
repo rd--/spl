@@ -132,19 +132,19 @@ pi.randomFloat.isInteger = false
 var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5
 var i = 1; 1.toDo(3) { :each | i := i + each.squared } ; i = 15
 var i = 1; 3.do { :each | i := i + each.squared } ; i = 15
-var f = { 0 }; f.numArgs = 0
-var f = { :i | i }; f.numArgs = 1
-var f = { :i :j | [i, j] }; f.numArgs = 2
+{ }.numArgs = 0
+{ :x | x }.numArgs = 1
+{ :i :j | i }.numArgs = 2
 var f = { :i | i = nil }; { f() }.ifError { :error | true }
 var f = { :i | i * 2 }; { f(3, 4) = 6 } .ifError { :error | true }
 collect:/2.name = 'collect:/2'
 var f = { :x | x * x }; [f(5), f.(5)] = [25, 25]
 var f = { :x | x * x }; var d = (p: f); d::p.value(5) = 25
-var f = { 0 }; cull(f, 23) = 0
-var f = { 0 }; cullCull(f, 23, 3.141) = 0
-var f = { :x | x }; cull(f, 23) = 23
-var f = { :x | x }; cullCull(f, 23, 3.141) = 23
-var f = { :x :y | x * y }; cullCull(f, 23, 3.141) = 72.243
+{ 0 }.cull(23) = 0
+{ 0 }.cull(23, 3.141) = 0
+{ :x | x }.cull(23) = 23
+{ :x | x }.cull(23, 3.141) = 23
+{ :x :y | x * y }.cull(23, 3.141) = 72.243
 var f = { :x | x * x }; f(3) = 9
 var f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49]
 var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]

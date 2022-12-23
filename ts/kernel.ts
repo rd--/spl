@@ -204,6 +204,7 @@ export function addMethod(typeName: TypeName, name: MethodName, arity: Arity, me
 				return dispatchByType(name, arity, typeTable, argumentsArray);
 			};
 			Object.defineProperty(globalFunctionWithArity, "name", { value: `${name}:/${arity}` });
+			Object.defineProperty(globalFunctionWithArity, "length", { value: arity }); // c.f. makeCheckedAritySpecificFunction
 		}
 	}
 }

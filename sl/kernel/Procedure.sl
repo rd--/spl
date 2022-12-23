@@ -5,6 +5,7 @@ Procedure {
 	}
 
 	apply { :self :anArray |
+		(* Should not be implemented. *)
 		<primitive: if(sl.isArray(_anArray)) { return _self(... _anArray); }>
 		error('Procedure>>apply')
 	}
@@ -17,7 +18,7 @@ Procedure {
 		}
 	}
 
-	cullCull { :self :firstArg :secondArg |
+	cull { :self :firstArg :secondArg |
 		if(self.numArgs >= 2) {
 			self.value(firstArg, secondArg)
 		} {
@@ -37,13 +38,21 @@ Procedure {
 		<primitive: return _self.name.split(':')[0];>
 	}
 
-	numArgs { :self |
+	numArgsIfAbsent { :self :ifAbsent:/0 |
 		(*
 			Js doesn't have a proper numArgs mechanism.
-			Spl adds hasRestParameters to method functions, else it is undefined.
+			Spl adds hasRestParameters to the arity dispatch method functions, else it is undefined.
 			From within Spl there is no concept of a variadic procedure.
 		*)
-		<primitive: return _self.hasRestParameters ? null : _self.length;>
+		<primitive: return _self.hasRestParameters ? _ifAbsent() : _self.length;>
+	}
+
+	numArgsOrNil { :self |
+		self.numArgsIfAbsent { nil }
+	}
+
+	numArgs { :self |
+		self.numArgsIfAbsent { 'numArgs: applied to arity-dispatch procedure'.error }
 	}
 
 	name { :self |
@@ -54,28 +63,28 @@ Procedure {
 		<primitive: try { return _self(); } catch (ret) { if(ret instanceof Error) { throw(ret); } { return ret; } }>
 	}
 
-	value { :self |
-		apply(self, [])
+	value { :self:/0 |
+		self()
 	}
 
-	value { :self :p1 |
-		apply(self, [p1])
+	value { :self:/1 :p1 |
+		self(p1)
 	}
 
-	value { :self :p1 :p2 |
-		apply(self, [p1, p2])
+	value { :self:/2 :p1 :p2 |
+		self(p1, p2)
 	}
 
-	value { :self :p1 :p2 :p3 |
-		apply(self, [p1, p2, p3])
+	value { :self:/3 :p1 :p2 :p3 |
+		self(p1, p2, p3)
 	}
 
-	value { :self :p1 :p2 :p3 :p4 |
-		apply(self, [p1, p2, p3, p4])
+	value { :self:/4 :p1 :p2 :p3 :p4 |
+		self(p1, p2, p3, p4)
 	}
 
-	value { :self :p1 :p2 :p3 :p4 :p5 |
-		apply(self, [p1, p2, p3, p4, p5])
+	value { :self:/5 :p1 :p2 :p3 :p4 :p5 |
+		self(p1, p2, p3, p4, p5)
 	}
 
 	whileFalse { :self :aProcedure |
