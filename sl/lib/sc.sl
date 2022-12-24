@@ -7,9 +7,9 @@ loadSequence([
 	'lib/sc/lang/Numeric.ext.sl',
 	'lib/sc/lang/Object.ext.sl',
 	'lib/sc/lang/SequenceableCollection.ext.sl',
-	'lib/sc/synth/Env.sl',
 	'lib/sc/synth/Scsynth.sl',
 	'lib/sc/synth/Ugen.sl',
+	'lib/sc/synth/Env.sl', (* requires Ugen *)
 	'lib/sc/synth/bindings.sl',
 	'lib/sc/synth/bindings-ext.sl',
 	'lib/sc/synth/buffer.sl',

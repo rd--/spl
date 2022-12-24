@@ -11,7 +11,7 @@ spl-repl-sc:
 	rlwrap --always-readline deno run --allow-read --allow-env cli.ts --dir=../sl replPerLine lib/sc.sl
 
 spl-server:
-	deno run --allow-read --allow-env --allow-net --unstable cli.ts --dir=../sl --sc sc udpServer 3010
+	deno run --allow-read --allow-env --allow-net --unstable cli.ts --dir=../sl sc udpServer 3010
 
 ln-stc:
 	ln -s ~/sw/stsc3 lib/

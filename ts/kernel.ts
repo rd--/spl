@@ -59,7 +59,7 @@ export function isByte(anObject: unknown): boolean {
 	return isNumber(anObject) && Number.isInteger(anObject) && anObject >= 0 && anObject < 256;
 }
 
-export const typeList : string[] = [];
+export const typeList : string[] = ['Array', 'ByteArray', 'Number', 'Object', 'Procedure', 'String', 'Void'];
 
 export const traitTypeTable: Map<TraitName, TypeName[]> = new Map();
 
@@ -175,6 +175,10 @@ export function dispatchByArity(name: string, arity: number, arityTable: ByArity
 declare var globalThis: { [key: string]: unknown };
 
 export function addMethod(typeName: TypeName, name: MethodName, arity: Arity, method: Function, source: string): void {
+	if(slOptions.requireTypeExists && !typeList.includes(typeName)) {
+		console.error(`addMethod: type does not exist: ${typeName}`);
+		return;
+	}
 	// console.debug(`addMethod: ${typeName}, ${name}, ${arity}`);
 	if(!methodTable.has(name)) {
 		methodTable.set(name, new Map());

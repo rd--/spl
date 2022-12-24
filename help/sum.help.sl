@@ -1,4 +1,4 @@
-# sum
+# sum -- math operator
 
 - _sum(aCollection)_
 

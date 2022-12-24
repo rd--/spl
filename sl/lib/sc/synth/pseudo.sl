@@ -1,9 +1,5 @@
 + [Array, Number, Ugen] {
 
-	!^ { :self :anInteger |
-		Splay2(self ! anInteger)
-	}
-
 	EqPan2 { :self :pos |
 		Pan2(self, pos, 1)
 	}
@@ -107,6 +103,14 @@
 
 	Mix { :self |
 		self.sum
+	}
+
+}
+
++ Procedure {
+
+	!^ { :self :anInteger |
+		Splay2(self ! anInteger)
 	}
 
 }

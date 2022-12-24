@@ -1,4 +1,4 @@
-# reversed
+# reversed -- converting
 
 - _reversed(aSequence)_
 

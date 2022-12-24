@@ -1,4 +1,4 @@
-# typeOf
+# typeOf -- reflection
 
 - _typeOf(anObject)_
 
@@ -9,5 +9,3 @@ Answers the type name of _anObject_.
 23.typeOf.typeOf = 'String'
 typeOf.typeOf = 'Procedure'
 ```
-
-

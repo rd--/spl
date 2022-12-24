@@ -1,0 +1,73 @@
+# Help Index
+
+- :/ -- arity selector syntax
+- := -- assignment syntax
+- -> -- associate with
+- ;; -- comment
+- < -- comparison operator
+- <= -- comparison operator
+- \>= -- comparison operator
+- ++ -- concatenation
+- = -- equality operator
+- == -- identity operator
+- ~= -- inequality operator
+- & -- logic operator
+- | -- logic operator
+- % -- mathematical operator
+- \* -- mathematical operator
+- \** -- mathematical operator
+- \+ -- mathematical operator
+- \- -- mathematical operator
+- / -- mathematical operator
+- :: -- quoted at syntax
+- .. -- range operator syntax
+- Array -- collection
+- Association -- associate with
+- OrderedCollection -- collection type
+- Procedure -- behaviour
+- add -- adding
+- addAll -- adding
+- allButFirst -- accesing
+- asArray -- converting
+- ascii -- encoding
+- at -- accessing
+- atPut -- accessing
+- atRandom -- random selection
+- collect -- enumerating
+- concatenation -- converting
+- count -- enumerating
+- cull -- evaluating
+- false -- boolean constant
+- if -- conditional evaluation
+- ifFalse -- conditional evaluation
+- ifNil -- conditional evaluation
+- ifTrue -- conditional evaluation
+- inf -- mathematical constant
+- injectInto -- enumerating
+- isEmpty -- testing
+- map -- enumerating
+- max -- testing
+- nil -- undefined object
+- not -- logical negation
+- numArgs -- accessing
+- ofSize -- instance creation
+- pi -- mathematical constant
+- product - math operator
+- randomFloat -- random number generator
+- randomInteger -- random number generator
+- reduce -- enumerating
+- reject -- enumerating
+- remove -- removing
+- return -- non-local control flow
+- reversed -- converting
+- select -- enumerating
+- size -- accessing
+- sorted -- sorting
+- sum -- math operator
+- timesRepeat -- enumerating
+- true -- boolean constant
+- typeOf -- reflection
+- value -- evaluation
+- whileFalse -- conditional evaluation
+- whileTrue -- conditional evaluation
+- withReturn -- non-local control flow
