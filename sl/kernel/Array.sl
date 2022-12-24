@@ -69,19 +69,13 @@ Array : [Collection, SequenceableCollection, ArrayedCollection] {
 
 }
 
-+ Void {
-
-	Array {
-		Array(0)
-	}
-
-}
-
 + @SequenceableCollection {
 
 	Array { :aCollection |
 		| newArray = Array(aCollection.size); |
-		(1 .. aCollection.size).do { :i | newArray[i] := aCollection[i] };
+		(1 .. aCollection.size).do {
+			:i | newArray[i] := aCollection[i]
+		};
 		newArray
 	}
 

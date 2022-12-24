@@ -90,3 +90,41 @@ Duration { | milliseconds |
 	}
 
 }
+
++ Procedure {
+
+	evaluateAfter { :self :delay |
+		self.evaluateAfterMilliseconds(delay.asDuration.milliseconds)
+	}
+
+	evaluateAfter { :self :delay :anObject |
+		self.evaluateAfterMilliseconds(delay.asDuration.milliseconds, anObject)
+	}
+
+	evaluateAt { :self :time |
+		| now = unixTime(); |
+		self.evaluateAfter(time.asDuration - now)
+	}
+
+	evaluateAt { :self :time :anObject |
+		| now = unixTime(); |
+		self.evaluateAfter(time.asDuration - now, anObject)
+	}
+
+	evaluateEvery { :self :delay |
+		self.evaluateEveryMilliseconds(delay.asDuration.milliseconds)
+	}
+
+}
+
++ Void {
+
+	systemTime {
+		systemTimeInMilliseconds().milliseconds
+	}
+
+	unixTime {
+		unixTimeInMilliseconds().milliseconds
+	}
+
+}

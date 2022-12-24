@@ -148,11 +148,3 @@ String : [Collection, SequenceableCollection] {
 	}
 
 }
-
-+ Void {
-
-	String {
-		''
-	}
-
-}

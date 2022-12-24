@@ -1,0 +1,15 @@
+loadSequence([
+	'std/Dictionary.sl',
+	'std/Association.sl',
+	'std/ByteArray.sl',
+	'std/Error.sl',
+	'std/Float64Array.sl',
+	'std/IdentityDictionary.sl',
+	'std/IdentitySet.sl',
+	'std/Interval.sl',
+	'std/OrderedCollection.sl',
+	'std/PriorityQueue.sl',
+	'std/Promise.sl',
+	'std/RegExp.sl',
+	'std/system.sl'
+])

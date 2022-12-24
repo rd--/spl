@@ -1,8 +1,8 @@
 'kernel/Array'
 [].typeOf = 'Array'
 [].species = Array:/1
-Array().isArray = true
-Array() = []
+[].isArray = true
+Array(0) = []
 Array(3).size = 3
 [1, 2, 3] = [1, 2, 3] = true
 [1, 2, 3] = [1, 2, 4] = false
@@ -149,20 +149,9 @@ var f = { :x | x * x }; f(3) = 9
 var f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49]
 var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
 
-'kernel/StringDictionary'
-StringDictionary().isStringDictionary
-StringDictionary().includesKey('x') = false
-StringDictionary().at('x') = nil
-var d = StringDictionary(); d.atPut('x', 1); d.at('x') = 1
-var d = StringDictionary(); d['x'] := 1; d['x'] = 1
-var d = StringDictionary(); d['x'] := 1; d['y'] := 2; d.size = 2
-var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
-['x' -> 1, 'y' -> 2].StringDictionary['y'] = 2
-{ StringDictionary().atPut(1, 1) }.ifError { :error | true }
-
 'kernel/String'
 ''.typeOf = 'String'
-String() = ''
+''.size = 0
 'x'.asString = 'x'
 'x'.asString.size = 1
 'x'.printString.size = 3
@@ -207,7 +196,7 @@ nil ~? 1 = nil
 1 ~? 2 = 2
 nil.printString = 'nil'
 
-'stdlib/Association'
+'std/Association'
 ('x' -> 1).typeOf = 'Association'
 Association('x', 1) = ('x' -> 1)
 var a = 'x' -> 1; [a.key, a.value] = ['x', 1]
@@ -215,7 +204,7 @@ var a = 'x' -> 1; [a.key, a.value] = ['x', 1]
 ['x' -> 1, 'y' -> 2].collect(asArray:/1) = [['x', 1], ['y', 2]]
 (23 -> 3.141).printString = 'Association(23, 3.141)'
 
-'stdlib/ByteArray'
+'std/ByteArray'
 ByteArray().typeOf = 'ByteArray'
 ByteArray().species = ByteArray:/1
 ByteArray().isByteArray
@@ -228,41 +217,17 @@ var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
 [1 .. 9].ByteArray.reversed = [9 .. 1].ByteArray
 [1 .. 3].ByteArray.printString = 'ByteArray([1, 2, 3])'
 
-'stdlib/Cons'
-Cons(1, nil).length = 1
-Cons(1, nil).isList = true
-Cons(1, 2).isList = false
-Cons([1 .. 9]).length = 9
-[1 .. 9].Cons.reversed.car = 9
-[1, [2, 3], [4]].Cons.isList = true
-[1, [2, 3], [4]].Cons.length = 3
-[[[[1, 2, 3]]]].Cons.length = 1
-[[[[1, 2, 3]]]].Cons.depth = 4
-[9, 16, 25].Cons.collect(sqrt:/1) = [3, 4, 5].Cons
-
-'stdlib/Duration'
-2.seconds.typeOf = 'Duration'
-5.hours.isDuration = true
-0.25.asDuration = 250.milliseconds
-3.hours.seconds = 10800
-1.5.seconds.milliseconds = 1500
-systemTime().isDuration = true
-0.5.seconds + 750.milliseconds = 1.25.seconds
-2.weeks - 12.days = 48.hours
-0.25 + 500.milliseconds = 750.milliseconds
-500.milliseconds + 0.25 = 0.75.seconds
-
-'stdlib/Error'
+'std/Error'
 Error().isError = true
 Error('message').isError = true
 Error('message').name = 'Error'
 Error('message').message = 'message'
 
-'stdlib/Float64Array'
-Float64Array().typeOf = 'Float64Array'
-Float64Array().species = Float64Array:/1
-Float64Array().isFloat64Array
-Float64Array().size = 0
+'std/Float64Array'
+Float64Array(0).typeOf = 'Float64Array'
+Float64Array(0).species = Float64Array:/1
+Float64Array(0).isFloat64Array
+Float64Array(0).size = 0
 Float64Array(8).size = 8
 Float64Array(8).at(1) = 0
 Float64Array(8).atPut(1, pi) = pi
@@ -276,7 +241,7 @@ var a = Float64Array(1); a.unsafeAtPut(1, 'x'); a.at(1).isNaN = true
 var a = Float64Array(1); a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
 [1 .. 3].Float64Array.printString = 'Float64Array([1, 2, 3])'
 
-'stdlib/IdentityDictionary'
+'std/IdentityDictionary'
 ().species = IdentityDictionary:/0
 var d = IdentityDictionary(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2
 var d = ['x' -> 1, 'y' -> 2].IdentityDictionary; d.keys = ['x', 'y']
@@ -299,13 +264,13 @@ var (x, y) = { var n = randomFloat(); (x: n, y: n) }.value; x = y
 (x:1, y:2, z:3).sum = 6
 var d = (x: 9); d::x.sqrt = 3
 ::x := 4; ::x * ::x = 16
-::p := Point(-1, 1); ::p.x + ::p.y = 0
+::a := 'x' -> 1; [::a.key, ::a.value] = ['x', 1]
 var d = (f: { :i | i * i }); d::f.value(9) = 81
 { IdentityDictionary().removeKey('unknownKey') }.ifError { :error | true }
 size (x: 1, y: 2, z: 3) = 3
 var d = (x: 1); d.addAll (y: 2, z: 3); d = (x: 1, y: 2, z: 3)
 
-'stdlib/IdentitySet'
+'std/IdentitySet'
 [1, 3, 5, 3, 1].IdentitySet.isIdentitySet = true
 [1, 3, 5, 3, 1].IdentitySet.size = 3
 [1, 3, 5, 3, 1].IdentitySet.includes(3) = true
@@ -314,7 +279,7 @@ var d = (x: 1); d.addAll (y: 2, z: 3); d = (x: 1, y: 2, z: 3)
 var s = [1, 3, 5, 3, 1].IdentitySet; s.remove(3); s.asArray = [1, 5]
 [1 .. 9].IdentitySet.atRandom.betweenAnd(1, 9)
 
-'stdlib/Interval'
+'std/Interval'
 (1 .. 9).species = Array:/1
 1.to(9).isInterval = true
 to(1, 9).size = 9
@@ -363,12 +328,89 @@ Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 (3 .. 7).anyOne = 3
 (1 .. 9).max = 9
 
-'stdlib/LargeInteger'
-(2 ** 54).asLargeInteger.squared.printString = '324518553658426726783156020576256'
-'324518553658426726783156020576256'.asLargeInteger.isLargeInteger = true
-2971215073.asLargeInteger.isPrime = true
+'std/OrderedCollection'
+OrderedCollection().species = OrderedCollection:/1
+OrderedCollection().isOrderedCollection = true
+OrderedCollection(3).size = 0
+OrderedCollection:/1.ofSize(3) = [nil, nil, nil].OrderedCollection
+OrderedCollection([1, 2, 3]).size = 3
+var l = OrderedCollection(); l.addFirst(1); l.addFirst(2); l.asArray = [2, 1]
+var l = OrderedCollection(); l.addLast(1); l.addLast(2); l.asArray = [1, 2]
+var l = OrderedCollection(); 5.do { :each | l.add(each) }; l.asArray = [1 .. 5]
+OrderedCollection([1 .. 9]).collect { :each | 10 - each } = OrderedCollection([9 .. 1])
+var l = OrderedCollection([1 .. 9]); l.removeLast = 9 & { l.size = 8 }
+var l = OrderedCollection([1, 2, 3]); l.addAllLast(4.to(5)); l.asArray = [1 .. 5]
+var l = OrderedCollection([4, 5]); l.addAllFirst(1.to(3)); l.asArray = [1 .. 5]
+13.fibonacciSequence = OrderedCollection([1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233])
+[1, 2, 3].OrderedCollection ++ [4, 5, 6] = [ 1, 2, 3, 4, 5, 6 ].OrderedCollection
+[1 .. 5].OrderedCollection.reversed = [5 .. 1].OrderedCollection
+OrderedCollection:/1.series(9, 1, 1) = [1 .. 9].OrderedCollection
+OrderedCollection:/1.geom(7, 1, 3) = [1, 3, 9, 27, 81, 243, 729].OrderedCollection
 
-'stdlib/LinkedList'
+'std/PriorityQueue'
+PriorityQueue().isPriorityQueue = true
+PriorityQueue().isEmpty = true
+var p = PriorityQueue(); p.push('a', 1); p.pop = 'a'
+var p = PriorityQueue(); p.push('a', 1); p.push('b', 0); p.pop = 'b'
+var p = PriorityQueue(); p.pushAll(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 & { p.pop = 'c' }
+var p = PriorityQueue(); p.peekPriority = nil
+
+'std/Promise'
+{ Promise() }.ifError { :error | true }
+var p = Promise { :t:/1 :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isPromise
+var p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
+var p = Promise { :t :f:/1 | f('f') }; p.then({ :t | t.postLine }).catch({ :f | (f = 'f').postLine }); p.isPromise
+var p = Promise { :t :f:/1 | f('f') }; p.thenElse({ :t | t.postLine }, { :f | (f = 'f').postLine }).finally({ 'true'.postLine }); p.isPromise
+
+'std/RegExp'
+RegExp('ab+c').isRegExp = true
+var r = RegExp('ab*c'); [r.test('ac'), r.test('abc')] = [true, true]
+var r = RegExp('ab*c', 'g'); 'ab abc ac'.allRegExpMatches(r) = ['abc', 'ac']
+
+'std/system'
+systemTimeInMilliseconds() > 0 = true
+'Collection'.traitTypes.includes('Array') = true
+'Array'.typeTraits.includes('ArrayedCollection') = true
+'add'.methodSignatures.includes("IdentityDictionary>>add:/2") = true
+methodSource('sum', 1, 'Array') = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
+'collect'.methodTypes.includes('Array') = true
+'Association'.typeMethods.includes('key') = true
+multipleArityMethodList().includes('randomFloat') = true
+onlyZeroArityMethodList().includes('systemTimeInMilliseconds') = true
+doesTypeImplementMethod('Array', 'select') = true
+[1, 2, 3].respondsTo(select:/2)
+'atRandom'.methodTraits.includesAllOf([ "Collection", "SequenceableCollection" ])
+
+'lib/cg/Point'
+Point(0, 0).typeOf = 'Point'
+Point(-1, 1).isPoint = true
+Point(3, 4).isPoint & { true } = true
+(-1@1).isPoint.not = false
+-1@1 = Point(-1, 1)
+(-1@1).x = -1
+(-1@1).y = 1
+(-1@1).x(-3) = -3
+(-1@1).y(3) = 3
+-1@1 * 9 = Point(-9, 9)
+-1@1 + 2 = Point(1, 3)
+2 * (-1@1) * 2 = Point(-4, 4)
+(-1@1).asString = 'Point(-1, 1)'
+var p = -1@1; p.x := -3; p.y := 3; p = (-3@3) = true
+var p = -1@3, a = [p]; a.first.x := -3; p = (-3@3) = true
+
+'lib/col/Cons'
+Cons(1, nil).length = 1
+Cons(1, nil).isList = true
+Cons(1, 2).isList = false
+Cons([1 .. 9]).length = 9
+[1 .. 9].Cons.reversed.car = 9
+[1, [2, 3], [4]].Cons.isList = true
+[1, [2, 3], [4]].Cons.length = 3
+[[[[1, 2, 3]]]].Cons.length = 1
+[[[[1, 2, 3]]]].Cons.depth = 4
+[9, 16, 25].Cons.collect(sqrt:/1) = [3, 4, 5].Cons
+
+'lib/col/LinkedList'
 LinkedList().typeOf = 'Array'
 LinkedList().isLinkedList = true
 LinkedList(3).size = 0
@@ -390,26 +432,7 @@ LinkedList([1 .. 9]).reversed = [9 .. 1]
 { LinkedList().removeFirst }.ifError { :error | true }
 { LinkedList().removeLast }.ifError { :error | true }
 
-'stdlib/OrderedCollection'
-OrderedCollection().species = OrderedCollection:/1
-OrderedCollection().isOrderedCollection = true
-OrderedCollection(3).size = 0
-OrderedCollection:/1.ofSize(3) = [nil, nil, nil].OrderedCollection
-OrderedCollection([1, 2, 3]).size = 3
-var l = OrderedCollection(); l.addFirst(1); l.addFirst(2); l.asArray = [2, 1]
-var l = OrderedCollection(); l.addLast(1); l.addLast(2); l.asArray = [1, 2]
-var l = OrderedCollection(); 5.do { :each | l.add(each) }; l.asArray = [1 .. 5]
-OrderedCollection([1 .. 9]).collect { :each | 10 - each } = OrderedCollection([9 .. 1])
-var l = OrderedCollection([1 .. 9]); l.removeLast = 9 & { l.size = 8 }
-var l = OrderedCollection([1, 2, 3]); l.addAllLast(4.to(5)); l.asArray = [1 .. 5]
-var l = OrderedCollection([4, 5]); l.addAllFirst(1.to(3)); l.asArray = [1 .. 5]
-13.fibonacciSequence = OrderedCollection([1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233])
-[1, 2, 3].OrderedCollection ++ [4, 5, 6] = [ 1, 2, 3, 4, 5, 6 ].OrderedCollection
-[1 .. 5].OrderedCollection.reversed = [5 .. 1].OrderedCollection
-OrderedCollection:/1.series(9, 1, 1) = [1 .. 9].OrderedCollection
-OrderedCollection:/1.geom(7, 1, 3) = [1, 3, 9, 27, 81, 243, 729].OrderedCollection
-
-'stdlib/Pair'
+'lib/col/Pair'
 Pair('x', 'y').typeOf = 'Pair'
 Pair('x', 'y').isPair = true
 Pair('x', 'y').first = 'x'
@@ -418,39 +441,23 @@ var p = Pair('x', 'y'); p[1] := 'z'; p.first = 'z'
 var p = Pair('x', 'y'); p.swapInPlace; p[1] = 'y'
 Pair('x', 'y').swapped = Pair('y', 'x')
 
-'stdlib/Point'
-Point(0, 0).typeOf = 'Point'
-Point(-1, 1).isPoint = true
-Point(3, 4).isPoint & { true } = true
-(-1@1).isPoint.not = false
--1@1 = Point(-1, 1)
-(-1@1).x = -1
-(-1@1).y = 1
-(-1@1).x(-3) = -3
-(-1@1).y(3) = 3
--1@1 * 9 = Point(-9, 9)
--1@1 + 2 = Point(1, 3)
-2 * (-1@1) * 2 = Point(-4, 4)
-(-1@1).asString = 'Point(-1, 1)'
-var p = -1@1; p.x := -3; p.y := 3; p = (-3@3) = true
-var p = -1@3, a = [p]; a.first.x := -3; p = (-3@3) = true
+'lib/col/StringDictionary'
+StringDictionary().isStringDictionary
+StringDictionary().includesKey('x') = false
+StringDictionary().at('x') = nil
+var d = StringDictionary(); d.atPut('x', 1); d.at('x') = 1
+var d = StringDictionary(); d['x'] := 1; d['x'] = 1
+var d = StringDictionary(); d['x'] := 1; d['y'] := 2; d.size = 2
+var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
+['x' -> 1, 'y' -> 2].StringDictionary['y'] = 2
+{ StringDictionary().atPut(1, 1) }.ifError { :error | true }
 
-'stdlib/PriorityQueue'
-PriorityQueue().isPriorityQueue = true
-PriorityQueue().isEmpty = true
-var p = PriorityQueue(); p.push('a', 1); p.pop = 'a'
-var p = PriorityQueue(); p.push('a', 1); p.push('b', 0); p.pop = 'b'
-var p = PriorityQueue(); p.pushAll(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 & { p.pop = 'c' }
-var p = PriorityQueue(); p.peekPriority = nil
+'lib/num/LargeInteger'
+(2 ** 54).asLargeInteger.squared.printString = '324518553658426726783156020576256'
+'324518553658426726783156020576256'.asLargeInteger.isLargeInteger = true
+2971215073.asLargeInteger.isPrime = true
 
-'stdlib/Promise'
-{ Promise() }.ifError { :error | true }
-var p = Promise { :t:/1 :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isPromise
-var p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
-var p = Promise { :t :f:/1 | f('f') }; p.then({ :t | t.postLine }).catch({ :f | (f = 'f').postLine }); p.isPromise
-var p = Promise { :t :f:/1 | f('f') }; p.thenElse({ :t | t.postLine }, { :f | (f = 'f').postLine }).finally({ 'true'.postLine }); p.isPromise
-
-'stdlib/ReadStream'
+'lib/stream/ReadStream'
 var r = [1 .. 5].ReadStream; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil]
 var r = [1 .. 3].ReadStream; [r.next, r.upToEnd] = [1, [2, 3]]
 ReadStream().atEnd = true
@@ -461,20 +468,24 @@ var r = (9 .. 1).ReadStream; r.upTo(0) = [9 .. 1]
 var r = (9 .. 1).ReadStream; [r.upTo(3), r.upToEnd] = [[9 .. 4], [2 .. 1]]
 var r = (9 .. 1).ReadStream; [r.upToPosition(3), r.upToEnd] = [[9 .. 7], [6 .. 1]]
 
-'stdlib/RegExp'
-RegExp('ab+c').isRegExp = true
-var r = RegExp('ab*c'); [r.test('ac'), r.test('abc')] = [true, true]
-var r = RegExp('ab*c', 'g'); 'ab abc ac'.allRegExpMatches(r) = ['abc', 'ac']
-
-'stdlib/WriteStream'
+'lib/stream/WriteStream'
 var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.contents = [1]
 var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.nextPutAll([2 .. 8]); w.nextPut(9); w.contents = [1 .. 9]
 var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.nextPutAll((2 .. 8)); w.nextPut(9); w.contents = [1 .. 9]
 var a = Array(); var w = WriteStream(a); w.nextPut(1); w.contents = [1]
 var w = Utf8WriteStream(); 'bodlɛʁ'.encodeOn(w); w.contents.utf8 = 'bodlɛʁ'
 
-'stdlib/system'
-systemTimeInMilliseconds() > 0 = true
+'lib/time/Duration'
+2.seconds.typeOf = 'Duration'
+5.hours.isDuration = true
+0.25.asDuration = 250.milliseconds
+3.hours.seconds = 10800
+1.5.seconds.milliseconds = 1500
+systemTime().isDuration = true
+0.5.seconds + 750.milliseconds = 1.25.seconds
+2.weeks - 12.days = 48.hours
+0.25 + 500.milliseconds = 750.milliseconds
+500.milliseconds + 0.25 = 0.75.seconds
 systemTime().seconds > systemTime().hours = true
 systemTime().weeks < 1 = true
 unixTime().weeks > 2750 = true
@@ -482,14 +493,3 @@ unixTime().weeks > 2750 = true
 { unixTime().postLine }.evaluateAt(unixTime() + 0.5.seconds).cancel = nil
 { unixTime().seconds.rounded.postLine }.evaluateEvery(3.seconds).cancel = nil
 var f = { :t0 | | t1 = 2.randomFloat.seconds; | t0.postLine; f.evaluateAfter(t1, t1) }; f(2.seconds).cancel = nil
-'Collection'.traitTypes.includes('Array') = true
-'Array'.typeTraits.includes('ArrayedCollection') = true
-'add'.methodSignatures.includes("IdentityDictionary>>add:/2") = true
-methodSource('sum', 1, 'Array') = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
-'collect'.methodTypes.includes('Array') = true
-'Association'.typeMethods.includes('key') = true
-multipleArityMethodList().includes('Array') = true
-onlyZeroArityMethodList().includes('systemTime') = true
-doesTypeImplementMethod('Array', 'select') = true
-[1, 2, 3].respondsTo(select:/2)
-'atRandom'.methodTraits.includesAllOf([ "Collection", "SequenceableCollection" ])

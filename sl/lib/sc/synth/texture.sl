@@ -26,12 +26,15 @@ Procedure {
 	}
 
 	repeatEvery { :self :aClock :delay |
-		(* Schedule myself at intervals given by delay.  If I accept an argument it will be the delay interval before I will execute next. *)
+		(*
+			Schedule myself at intervals given by delay.
+			If I accept an argument it will be the delay interval before I will execute next.
+		*)
 		aClock.schedule(0) {
-			| d = delay.value; |
-			if(d.notNil) {
-				if(self.numArgs = 1) { self.value(d) } { self.value };
-				d.asSeconds
+			| nextDelay = delay.value; |
+			if(nextDelay.notNil) {
+				self.cull(nextDelay);
+				nextDelay
 			} {
 				nil
 			}
@@ -42,7 +45,7 @@ Procedure {
 		aClock.scheduleInjecting(0, anObject) { :inputValue |
 			| nextDelay = delay.value; |
 			(inputValue.notNil & { nextDelay.notNil }).ifTrue {
-				[nextDelay.asSeconds, self(inputValue)]
+				[nextDelay, self(inputValue)]
 			}
 		}
 	}

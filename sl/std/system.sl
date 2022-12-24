@@ -1,9 +1,12 @@
 + Void {
 
-	systemTimeInMilliseconds { <primitive: return performance.now();> }
-	systemTime { systemTimeInMilliseconds().milliseconds }
-	unixTimeInMilliseconds { <primitive: return Date.now();> }
-	unixTime { unixTimeInMilliseconds().milliseconds }
+	systemTimeInMilliseconds {
+		<primitive: return performance.now();>
+	}
+
+	unixTimeInMilliseconds {
+		<primitive: return Date.now();>
+	}
 
 	uniqueId {
 		| answer = system::nextUniqueId; |
@@ -15,23 +18,25 @@
 
 + Procedure {
 
-	evaluateAfterMilliseconds { :self :delayMilliseconds | <primitive: return setTimeout(_self, _delayMilliseconds);> }
-	evaluateAfterMilliseconds { :self :delayMilliseconds :anObject | <primitive: return setTimeout(_self, _delayMilliseconds, _anObject);> }
+	evaluateAfterMilliseconds { :self :delayMilliseconds |
+		<primitive: return setTimeout(_self, _delayMilliseconds);>
+	}
 
-	evaluateAfter { :self :delay | self.evaluateAfterMilliseconds(delay.asDuration.milliseconds) }
-	evaluateAfter { :self :delay :anObject | self.evaluateAfterMilliseconds(delay.asDuration.milliseconds, anObject) }
+	evaluateAfterMilliseconds { :self :delayMilliseconds :anObject |
+		<primitive: return setTimeout(_self, _delayMilliseconds, _anObject);>
+	}
 
-	evaluateEveryMilliseconds { :self :delayMilliseconds | <primitive: return setInterval(_self, _delayMilliseconds);> }
-	evaluateEvery { :self :delay | self.evaluateEveryMilliseconds(delay.asDuration.milliseconds) }
-
-	evaluateAt { :self :time | | now = unixTime(); | self.evaluateAfter(time.asDuration - now) }
-	evaluateAt { :self :time :anObject | | now = unixTime(); | self.evaluateAfter(time.asDuration - now, anObject) }
+	evaluateEveryMilliseconds { :self :delayMilliseconds |
+		<primitive: return setInterval(_self, _delayMilliseconds);>
+	}
 
 }
 
 + Number {
 
-	cancel { :self | <primitive: clearTimeout(_self); return null;> }
+	cancel { :self |
+		<primitive: clearTimeout(_self); return null;>
+	}
 
 }
 

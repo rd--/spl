@@ -1,4 +1,4 @@
 loadSequence([
 	'kernel.sl',
-	'stdlib.sl'
+	'std.sl'
 ])
