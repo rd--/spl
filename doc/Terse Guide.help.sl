@@ -369,17 +369,6 @@ var r = RegExp('ab*c', 'g'); 'ab abc ac'.allRegExpMatches(r) = ['abc', 'ac']
 
 'std/system'
 systemTimeInMilliseconds() > 0 = true
-'Collection'.traitTypes.includes('Array') = true
-'Array'.typeTraits.includes('ArrayedCollection') = true
-'add'.methodSignatures.includes("IdentityDictionary>>add:/2") = true
-methodSource('sum', 1, 'Array') = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
-'collect'.methodTypes.includes('Array') = true
-'Association'.typeMethods.includes('key') = true
-multipleArityMethodList().includes('randomFloat') = true
-onlyZeroArityMethodList().includes('systemTimeInMilliseconds') = true
-doesTypeImplementMethod('Array', 'select') = true
-[1, 2, 3].respondsTo(select:/2)
-'atRandom'.methodTraits.includesAllOf([ "Collection", "SequenceableCollection" ])
 
 'lib/cg/Point'
 Point(0, 0).typeOf = 'Point'
@@ -474,6 +463,19 @@ var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.nextPutAll([2 .. 8]); 
 var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.nextPutAll((2 .. 8)); w.nextPut(9); w.contents = [1 .. 9]
 var a = Array(); var w = WriteStream(a); w.nextPut(1); w.contents = [1]
 var w = Utf8WriteStream(); 'bodlɛʁ'.encodeOn(w); w.contents.utf8 = 'bodlɛʁ'
+
+'lib/sys/methodTable'
+'Collection'.traitTypes.includes('Array') = true
+'Array'.typeTraits.includes('ArrayedCollection') = true
+'add'.methodSignatures.includes("IdentityDictionary>>add:/2") = true
+methodSource('sum', 1, 'Array') = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
+'collect'.methodTypes.includes('Array') = true
+'Association'.typeMethods.includes('key') = true
+multipleArityMethodList().includes('randomFloat') = true
+onlyZeroArityMethodList().includes('systemTimeInMilliseconds') = true
+doesTypeImplementMethod('Array', 'select') = true
+[1, 2, 3].respondsTo(select:/2)
+'atRandom'.methodTraits.includesAllOf([ "Collection", "SequenceableCollection" ])
 
 'lib/time/Duration'
 2.seconds.typeOf = 'Duration'

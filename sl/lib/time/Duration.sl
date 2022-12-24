@@ -97,8 +97,8 @@ Duration { | milliseconds |
 		self.evaluateAfterMilliseconds(delay.asDuration.milliseconds)
 	}
 
-	evaluateAfter { :self :delay :anObject |
-		self.evaluateAfterMilliseconds(delay.asDuration.milliseconds, anObject)
+	evaluateAfterWith { :self :delay :anObject |
+		self.evaluateAfterMillisecondsWith(delay.asDuration.milliseconds, anObject)
 	}
 
 	evaluateAt { :self :time |
@@ -108,7 +108,7 @@ Duration { | milliseconds |
 
 	evaluateAt { :self :time :anObject |
 		| now = unixTime(); |
-		self.evaluateAfter(time.asDuration - now, anObject)
+		self.evaluateAfterWith(time.asDuration - now, anObject)
 	}
 
 	evaluateEvery { :self :delay |

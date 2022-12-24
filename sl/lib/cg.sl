@@ -1,3 +1,3 @@
 loadSequence([
-	'lib/cg/Point.sl',
+	'lib/cg/Point.sl'
 ])

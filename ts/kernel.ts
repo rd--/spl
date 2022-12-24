@@ -9,6 +9,7 @@ import { slOptions } from './options.ts'
 type TypeName = string;
 type Arity = number;
 type MethodName = string;
+type MethodSourceCode = string;
 type TraitName = string;
 
 type SlObject = object & {type: TypeName};
@@ -60,43 +61,43 @@ export function isByte(anObject: unknown): boolean {
 
 export const typeList : string[] = [];
 
-export const traitTypes: Map<TraitName, TypeName[]> = new Map();
+export const traitTypeTable: Map<TraitName, TypeName[]> = new Map();
 
-type MethodTuple = [Function, Arity, string];
+type MethodEntry = [Function, Arity, MethodSourceCode];
 
-function makeMethodTuple(procedure: Function, arity: Arity, source: string): MethodTuple {
-	return [procedure, arity, source];
+function makeMethodEntry(procedure: Function, arity: Arity, sourceCode: MethodSourceCode): MethodEntry {
+	return [procedure, arity, sourceCode];
 }
 
-export const traitMethods: Map<TraitName, Map<MethodName, MethodTuple[]>> = new Map();
+export const traitMethodTable: Map<TraitName, Map<MethodName, MethodEntry[]>> = new Map();
 
 export function addTrait(traitName: TraitName): void {
 	// console.debug(`addTrait: ${traitName}`);
-	if(!traitTypes.has(traitName)) {
-		traitTypes.set(traitName, []);
-		traitMethods.set(traitName, new Map());
+	if(!traitTypeTable.has(traitName)) {
+		traitTypeTable.set(traitName, []);
+		traitMethodTable.set(traitName, new Map());
 	}
 }
 
 export function addTypeTraits(typeName: TypeName, traitNameArray: TraitName[]): void {
 	traitNameArray.forEach(function(traitName: TraitName) {
 		// console.debug(`addTypeTraits: ${typeName}, ${traitName}`);
-		traitTypes.get(traitName)!.push(typeName);
+		traitTypeTable.get(traitName)!.push(typeName);
 	});
 }
 
 export function addTraitMethod(traitName: TraitName, name: MethodName, arity: Arity, method: Function, source: string): void {
 	// console.debug(`addTypeTrait: ${traitName}, ${name}, ${arity}`);
-	const trait = traitMethods.get(traitName)!;
+	const trait = traitMethodTable.get(traitName)!;
 	if(!trait.has(name)) {
 		trait.set(name, []);
 	}
-	trait.get(name)!.push(makeMethodTuple(method, arity, source));
+	trait.get(name)!.push(makeMethodEntry(method, arity, source));
 }
 
 export function copyTraitToType(traitName: TraitName, typeName: TypeName): void {
 	// console.debug(`copyTraitToType: ${traitName}, ${typeName}`);
-	const methods = traitMethods.get(traitName)!;
+	const methods = traitMethodTable.get(traitName)!;
 	for (const [name, table] of methods) {
 		table.forEach(function(item) {
 			const [procedure, arity, source] = item;
@@ -107,7 +108,7 @@ export function copyTraitToType(traitName: TraitName, typeName: TypeName): void 
 }
 
 export function extendTraitWithMethod(traitName: TraitName, name: MethodName, arity: Arity, method: Function, source: string): void {
-	const types = traitTypes.get(traitName)!;
+	const types = traitTypeTable.get(traitName)!;
 	// console.debug(`extendTraitWithMethod: ${traitName}, ${name}`);
 	addTraitMethod(traitName, name, arity, method, source);
 	types.forEach(function(typeName) {
@@ -116,14 +117,14 @@ export function extendTraitWithMethod(traitName: TraitName, name: MethodName, ar
 	});
 }
 
-type ByTypeProcedureTable = Map<TypeName, MethodTuple>;
+type ByTypeProcedureTable = Map<TypeName, MethodEntry>;
 type ByArityProcedureTable = Map<Arity, ByTypeProcedureTable>;
 type ByNameProcedureTable = Map<MethodName, ByArityProcedureTable>
 
-export const genericProcedures: ByNameProcedureTable = new Map();
+export const methodTable: ByNameProcedureTable = new Map();
 
-export function lookupGeneric(methodName: MethodName, methodArity: Arity, receiverType: TypeName): MethodTuple {
-	return genericProcedures.get(methodName)!.get(methodArity)!.get(receiverType)!;
+export function lookupGeneric(methodName: MethodName, methodArity: Arity, receiverType: TypeName): MethodEntry {
+	return methodTable.get(methodName)!.get(methodArity)!.get(receiverType)!;
 }
 
 export function nameWithoutArity(methodName: MethodName) {
@@ -175,14 +176,14 @@ declare var globalThis: { [key: string]: unknown };
 
 export function addMethod(typeName: TypeName, name: MethodName, arity: Arity, method: Function, source: string): void {
 	// console.debug(`addMethod: ${typeName}, ${name}, ${arity}`);
-	if(!genericProcedures.has(name)) {
-		genericProcedures.set(name, new Map());
+	if(!methodTable.has(name)) {
+		methodTable.set(name, new Map());
 	}
-	let arityTable = genericProcedures.get(name)!;
+	let arityTable = methodTable.get(name)!;
 	if(!arityTable.has(arity)) {
 		arityTable.set(arity, new Map());
 	}
-	arityTable.get(arity)!.set(typeName, makeMethodTuple(method, arity, source));
+	arityTable.get(arity)!.set(typeName, makeMethodEntry(method, arity, source));
 	if(slOptions.simpleArityModel) {
 		const prefixedName = '_' + name;
 		let globalFunction = globalThis[prefixedName];
@@ -252,9 +253,9 @@ export function assignGlobals() {
 	globalThis._inf = Infinity;
 	globalThis._implicitDictionary = new Map();
 	globalThis._system = new Map([
-		['genericProcedures', genericProcedures],
-		['traitTypes', traitTypes],
-		['traitMethods', traitMethods],
+		['methodTable', methodTable],
+		['traitTypeTable', traitTypeTable],
+		['traitMethodTable', traitMethodTable],
 		['typeList', typeList],
 		['nextUniqueId', 1],
 	]);

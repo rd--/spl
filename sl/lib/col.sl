@@ -3,5 +3,5 @@ loadSequence([
 	'lib/col/LinkedList.sl',
 	'lib/col/Pair.sl',
 	'lib/col/StringDictionary.sl',
-	'lib/col/ValueLink.sl',
+	'lib/col/ValueLink.sl'
 ])

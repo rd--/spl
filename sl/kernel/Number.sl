@@ -127,18 +127,28 @@ Number : [Magnitude, Numeric] {
 		}
 	}
 
-	Number { :self | self }
+	Number { :self |
+		self
+	}
 
 }
 
 + Object {
-	isByte { :self | false }
-	isInteger { :self | false }
-	squared { :self | self * self }
-	cubed { :self | self * self * self }
+
+	isByte { :self |
+		false
+	}
+
+	isInteger { :self |
+		false
+	}
+
 }
 
 + Void {
-	randomFloat { <primitive: return Math.random();> }
-	Number { 'Number()'.error }
+
+	randomFloat {
+		<primitive: return Math.random();>
+	}
+
 }

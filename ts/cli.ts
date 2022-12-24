@@ -24,9 +24,9 @@ BigInt.prototype.toJSON = function () {
 
 function help(): void {
 	console.log('spl');
-	console.log('  replPerLine --dir=loadPath --stdlib --sc');
+	console.log('  replPerLine --dir=loadPath [lib]');
 	console.log('  rewriteFile fileName');
-	console.log('  runFile fileName --dir=loadPath --stdlib --sc');
+	console.log('  runFile fileName --dir=loadPath [lib]');
 	console.log('  sc playFile --dir=loadPath');
 	console.log('  sc udpServer portNumber --dir=loadPath');
 	console.log(`  SPL_DIR=${getSplDir()}`);
@@ -44,12 +44,12 @@ declare global {
 
 const cliScynth = scUdp.scsynthUdp(scUdp.defaultScsynthUdp);
 
-async function loadSpl(opt: flags.Args): Promise<void> {
+async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	const loadPath = opt.dir || getSplDir() || './';
 	console.log(`loadSpl: opt.dir=${opt.dir}, getSplDir=${getSplDir()}, loadPath=${loadPath}`);
 	io.addLoadFileMethods();
 	sl.assignGlobals();
-	await io.loadFileArrayInSequence(loadPath, ['kernel.sl', 'std.sl'].concat(opt.sc ? ['lib/sc.sl'] : []));
+	await io.loadFileArrayInSequence(loadPath, ['kernel.sl', 'std.sl'].concat(lib));
 	if(opt.sc) {
 		globalThis.sc = sc;
 		globalThis.globalScsynth = cliScynth;
@@ -57,8 +57,8 @@ async function loadSpl(opt: flags.Args): Promise<void> {
 	}
 }
 
-async function replPerLine(opt: flags.Args): Promise<void> {
-	await loadSpl(opt);
+async function replPerLine(opt: flags.Args, lib: string[]): Promise<void> {
+	await loadSpl(opt, lib);
 	repl.perLine();
 }
 
@@ -122,7 +122,7 @@ declare global {
 }
 
 async function scCmd(cmd: string, opt: flags.Args): Promise<void> {
-	opt.stdlib = opt.sc = true; // don't require --stdlib and --sc options for sc commands...
+	opt.sc = true; // don't require --sc option for sc commands...
 	globalThis.osc = osc;
 	await loadSpl(opt);
 	switch(cmd) {
@@ -138,7 +138,7 @@ function cli():void {
 		help();
 	} else {
 		switch(args._[0]) {
-		case 'replPerLine': replPerLine(args); break;
+		case 'replPerLine': replPerLine(args, args._.slice(1)); break;
 		case 'rewriteFile': rewriteFile(<string>args._[1]); break;
 		case 'runFile': runFile(<string>args._[1], args); break;
 		case 'sc': scCmd(<string>args._[1], args); break;
