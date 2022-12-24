@@ -1,8 +1,8 @@
 # ifFalse -- conditional evaluation
 
-- _ifFalse(self, aProcedure)_ ≡ _if(self, { nil }, aProcedure)_
+- _ifFalse(aBoolean, aProcedure:/0)_
 
-If _self_ is _false_ answer the result of  _value(aProcedure)_, else answer _nil_
+If _aBoolean_ is _false_ answer the result of  _aProcedure()_, else answer _nil_
 
 * * *
 

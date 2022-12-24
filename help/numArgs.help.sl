@@ -1,6 +1,6 @@
 # numArgs -- accessing
 
-- _numArgs(aProcedure)_
+- _numArgs(aProcedure:/n)_
 
 Answer the number of arguments that must be used to evaluate this procedure.
 

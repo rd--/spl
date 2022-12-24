@@ -1,9 +1,9 @@
 # >= -- comparison operator
 
-- _self >= aMagnitude_
-- _greaterThanEquals(self, aMagnitude)_
+- _aMagnitude >= anotherMagnitude_
+- _greaterThanEquals(aMagnitude, anotherMagnitude)_
 
-Answers _true_ is _self_ is greater than or equal to _aMagnitude_
+Answers _true_ is _aMagnitude_ is greater than or equal to _anotherMagnitude_
 
 Where supported this operator is displayed as ≥.
 

@@ -1,8 +1,8 @@
 # ifNil -- conditional evaluation
 
-- _ifNil(self, aProcedure)_ ≡ _ifTrue(self.isNil, aProcedure)_
+- _ifNil(aValue, aProcedure:/0)_
 
-If _self_ is _nil_ answer the result of  _value(aProcedure)_, else answer _nil_.
+If _aValue_ is _nil_ answer the result of  _aProcedure_, else answer _nil_.
 
 * * *
 

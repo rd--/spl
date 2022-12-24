@@ -1,5 +1,5 @@
 # timesRepeat -- enumerating
 
-_timesRepeat(anInteger, aBlock)_
+_timesRepeat(anInteger, aProcedure:/1)_
 
-Evaluate the argument, _aBlock_, the number of times represented by the receiver.
+Evaluate the argument, _aProcedure_, the number of times represented by the receiver.

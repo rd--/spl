@@ -1,6 +1,6 @@
 # * -- mathematical operator
 
-- _self * aNumber_
-- times(_self, aNumber)_
+- _aNumber * anotherNumber_
+- times(_aNumber, anotherNumber)_
 
-Answer _self_ multiplied by _aNumber_.
+Answer _aNumber_ multiplied by _anotherNumber_.

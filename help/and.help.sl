@@ -1,7 +1,7 @@
 # & -- logic operator
 
-- _aBoolean & aProcedure_
-- _and(aBoolean, aProcedure)_
+- _aBoolean & aProcedure:/0_
+- _and(aBoolean, aProcedure:/0)_
 
 true if _aBoolean_ is true and _aProcedure_ evaluates to true, else false.
 If _aBoolean_ is false then _aProcedure_ is not evaluated.

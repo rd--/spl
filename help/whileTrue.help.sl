@@ -1,10 +1,10 @@
 # whileTrue -- conditional evaluation
 
-- _whileTrue(self, aProcedure)_
+- _whileTrue(condition:/0, aProcedure:/0)_
 
-Evaluate the argument, _aProcedure_, as long as the value of _self()_ is _true_.
+Evaluate the argument, _aProcedure_, as long as the value of _condition()_ is _true_.
 
-Ordinarily _self_ and _aProcedure_ are literal no-argument procedures written using [Trailing Procedure Syntax].
+Ordinarily _condition_ and _aProcedure_ are literal no-argument procedures written using [Trailing Procedure Syntax].
 
 * * *
 
