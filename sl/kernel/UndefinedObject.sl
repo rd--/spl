@@ -21,7 +21,3 @@ UndefinedObject {
 	notNil { :self | self.isNil.not }
 
 }
-
-+ Void {
-	UndefinedObject { 'UndefinedObject(): there are no more undefined objects'.error }
-}

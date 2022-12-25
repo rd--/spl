@@ -1,15 +1,15 @@
 loadSequence([
-	'kernel/ArrayedCollection.sl',
-	'kernel/Collection.sl',
-	'kernel/Magnitude.sl',
-	'kernel/Numeric.sl',
-	'kernel/SequenceableCollection.sl',
-	'kernel/Array.sl',
 	'kernel/Boolean.sl',
-	'kernel/Number.sl',
 	'kernel/Object.sl',
 	'kernel/Procedure.sl',
-	'kernel/String.sl',
 	'kernel/UndefinedObject.sl',
-	'kernel/Void.sl'
+	'kernel/Void.sl',
+	'lib/col/ArrayedCollection.sl',
+	'lib/col/Collection.sl',
+	'lib/col/SequenceableCollection.sl',
+	'lib/col/Array.sl',
+	'lib/col/String.sl',
+	'lib/num/Magnitude.sl',
+	'lib/num/Numeric.sl',
+	'lib/num/Number.sl'
 ])

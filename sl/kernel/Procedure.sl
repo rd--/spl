@@ -97,10 +97,6 @@ Procedure {
 
 }
 
-+ Void {
-	Procedure { 'Procedure()'.error }
-}
-
 + Object {
 
 	$ { :self :aProcedure:/1 |

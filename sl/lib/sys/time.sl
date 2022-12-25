@@ -8,12 +8,6 @@
 		<primitive: return Date.now();>
 	}
 
-	uniqueId {
-		| answer = system::nextUniqueId; |
-		system::nextUniqueId := answer + 1;
-		answer
-	}
-
 }
 
 + Procedure {

@@ -64,7 +64,7 @@
 (defconst spl-font-lock-keywords
   (list
    `(,(regexp-opt '("var") 'symbols) . font-lock-keyword-face)
-   `("\\(::\\|:=\\|:/\\)" . font-lock-keyword-face)
+   `("\\(::\\|:=\\|:/\\|primitive\\)" . font-lock-keyword-face)
    `(,(regexp-opt '("false" "inf" "nil" "pi" "true") 'symbols) . font-lock-builtin-face)
    `(,(regexp-opt '("do" "if" "ifFalse" "ifNil" "ifTrue" "kr" "timesRepeat" "whileFalse" "whileTrue") 'symbols) . font-lock-function-name-face)
    `(,(regexp-opt '("error" "warn") 'symbols) . font-lock-warning-face)

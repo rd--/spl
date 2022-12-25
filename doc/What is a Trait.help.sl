@@ -9,7 +9,7 @@ _Array_ implements all three of the above traits.
 _IdentityDictionary_ implements _Collection_.
 
 This means that _Array_ receives copies of the methods defined in each of the traits it implements.
-The traits are applied in the sequence they are listed in at the type definition.
+The traits are applied in the sequence they are listed in the type definition.
 Methods defined by traits applied later in the sequence can override methods defined by traits that are applied earlier.
 
 Traits must be loaded before Types.
@@ -17,5 +17,5 @@ When a type is added, methods for the traits that it implements are added to the
 When a trait is extended methods are added both to the trait entry and to the dispatch table for all types that implement the trait.
 
 ```
-'Collection'.traitMethods.keys
+system.traitMethods('Collection').keys
 ```

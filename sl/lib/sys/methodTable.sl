@@ -1,150 +1,104 @@
-+ String {
++ IdentityDictionary {
 
-	doesTypeImplementMethod { :self :methodName |
-		(* Do I implement a named method (I name a type) *)
-		methodName.methodTypes.includes(self)
+	allMethodSignatures { :self |
+		self.methodList.collect(methodSignatures:/1).concatenation.sorted
 	}
 
-	isMethodName { :self |
-		methodList().includes(self)
+	doesTypeImplementMethod { :self :typeName :methodName |
+		self.methodTypes(methodName).includes(typeName)
 	}
 
-	isTraitName { :self |
-		traitList().includes(self)
+	isMethodName { :self :aString |
+		self.methodList.includes(aString)
 	}
 
-	isTypeName { :self |
-		system::typeList.includes(self)
+	isTypeName { :self :aString |
+		self::typeList.includes(aString)
 	}
 
-	methodArities { :self |
-		(* Arities I am implemented for (I name a method) *)
-		system::methodTable[self].keys
+	methodArities { :self :methodName |
+		(* Arities methodName is implemented for. *)
+		self::methodTable[methodName].keys
 	}
 
-	methodImplementations { :self |
-		(* Each of my implementations (I name a method) *)
-		self.isMethodName.if {
+	methodImplementations { :self :methodName |
+		(* Each of the implementations of methodName. *)
+		self.isMethodName(methodName).if {
 			|
 				answer = OrderedCollection(),
-				table = system::methodTable[self];
+				table = self::methodTable[methodName];
 			|
 			table.keysValuesDo { :arity :dictionary |
 				answer.add(dictionary)
 			};
 			answer
 		} {
-			'methodImplementations: not a method'.error
+			('methodImplementations: not a method: ' ++ methodName).error
 		}
 	}
 
-	methodPrintString { :self |
-		(* Print string of my implementations (I name a method) *)
+	methodList { :self |
+		self::methodTable.keys
+	}
+
+	methodPrintString { :self :methodName |
+		(* Print string of implementations of methodName. *)
 		| answer = OrderedCollection(); |
-		self.methodImplementations.do { :dictionary |
+		self.methodImplementations(methodName).do { :dictionary |
 			dictionary.associationsDo { :each |
-				answer.add('+ ' ++ each.key ++ ' {\n\t' ++ self ++ ' ' ++ each.value[3] ++ '\n}')
+				answer.add('+ ' ++ each.key ++ ' {\n\t' ++ methodName ++ ' ' ++ each.value[3] ++ '\n}')
 			}
 		};
 		answer
 	}
 
-	methodSignatures { :self |
-		(* Signatures of each of my implementations (I name a method) *)
+	methodSignatures { :self :methodName |
+		(* Signatures of each implementation of methodName. *)
 		| answer = OrderedCollection(); |
-		self.methodImplementations.do { :dictionary |
+		self.methodImplementations(methodName).do { :dictionary |
 			dictionary.associationsDo { :each |
-				answer.add(each.key ++ '>>' ++ self ++ ':/' ++ each.value[2])
+				answer.add(each.key ++ '>>' ++ methodName ++ ':/' ++ each.value[2])
 			}
 		};
 		answer
 	}
 
-	methodSource { :self :arity :typeName |
-		(* My implementation at arity for typeName (I name a method) *)
-		system::methodTable[self][arity][typeName][3]
+	methodSource { :self :methodName :arity :typeName |
+		(* Implementation of methodName at arity for typeName. *)
+		self::methodTable[methodName][arity][typeName][3]
 	}
 
-	methodTraits { :self |
-		(* Traits implementing myself, at any arity (I name a method) *)
-		system::traitMethodTable.select({ :item |
-			item.keys.includes(self)
-		}).keys
-	}
-
-	methodTypes { :self |
+	methodTypes { :self :methodName |
 		(* Types implementing myself, at any arity (I name a method) *)
-		self.isMethodName.if {
-			system::methodTable[self].values.collect(keys:/1).concatenation
+		self.isMethodName(methodName).if {
+			self::methodTable[methodName].values.collect(keys:/1).concatenation
 		} {
-			'methodTypes: not a method'.error
+			('methodTypes: not a method: ' ++ methodName).error
 		}
 	}
 
-	traitMethods { :self |
-		(* Methods I implement (I name a trait) *)
-		self.isTraitName.if {
-			system::traitMethodTable[self]
-		} {
-			'traitMethods: not a trait'.error
+	multipleArityMethodList { :self |
+		self.methodList.select { :methodName |
+			self.methodArities(methodName).size > 1
 		}
 	}
 
-	traitTypes { :self |
-		(* Types implementing myself (I name a trait) *)
-		self.isTraitName.if {
-			system::traitTypeTable[self]
-		} {
-			'traitTypes: not a trait'.error
+	onlyZeroArityMethodList { :self |
+		(* Methods implemented by typeName. *)
+		self.methodList.select { :methodName |
+			self.methodArities(methodName) = [0]
 		}
 	}
 
-	typeMethods { :self |
-		(* Methods implemented by myself (I name a type) *)
-		self.isTypeName.if {
-			system::methodTable.keys.select {
-				:each | each.methodTypes.includes(self)
+	typeMethods { :self :typeName |
+		(* Methods implemented by typeName. *)
+		self.isTypeName(typeName).if {
+			self::methodTable.keys.select { :methodName |
+				self.methodTypes(methodName).includes(typeName)
 			}
 		} {
 			'typeMethods: not a type'.error
 		}
-	}
-
-	typeTraits { :self |
-		(* Traits implemented by myself (I name a type) *)
-		self.isTypeName.if {
-			| answer = OrderedCollection(); |
-			system::traitTypeTable.keysValuesDo { :key :value |
-				value.includes(self).ifTrue { answer.add(key) }
-			};
-			answer
-		} {
-			'typeTraits: not a type'.error
-		}
-	}
-
-}
-
-+ Void {
-
-	allMethodSignatures {
-		methodList().collect(methodSignatures:/1).concatenation.sorted
-	}
-
-	methodList {
-		system::methodTable.keys
-	}
-
-	multipleArityMethodList {
-		methodList().select { :each | each.methodArities.size > 1 }
-	}
-
-	onlyZeroArityMethodList {
-		methodList().select { :each | each.methodArities = [0] }
-	}
-
-	traitList {
-		system::traitTypeTable.keys
 	}
 
 }
@@ -152,7 +106,7 @@
 Object {
 
 	respondsTo { :self :aMethod |
-		doesTypeImplementMethod(self.typeOf, aMethod.methodName)
+		system.doesTypeImplementMethod(self.typeOf, aMethod.methodName)
 	}
 
 }

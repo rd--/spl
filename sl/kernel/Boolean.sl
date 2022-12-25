@@ -53,11 +53,3 @@ Boolean {
 	}
 
 }
-
-+ Void {
-
-	Boolean {
-		'Boolean(): there are no more booleans'.error
-	}
-
-}

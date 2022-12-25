@@ -1,7 +1,10 @@
 ByteArray : [Collection, SequenceableCollection, ArrayedCollection] {
 
 	atPut { :self :anInteger :aByte |
-		<primitive: if(Number.isInteger(_anInteger) && sl.isByte(_aByte)) { _self[_anInteger - 1] = _aByte; return _aByte; }>
+		<primitive: if(Number.isInteger(_anInteger) && sl.isByte(_aByte)) {
+			_self[_anInteger - 1] = _aByte;
+			return _aByte;
+		}>
 		error('ByteArray>>atPut: index not an integer or value not a byte')
 	}
 
@@ -28,14 +31,6 @@ ByteArray : [Collection, SequenceableCollection, ArrayedCollection] {
 
 	ByteArray { :self |
 		<primitive: return new Uint8Array(_self);>
-	}
-
-}
-
-+ Void {
-
-	ByteArray {
-		ByteArray(0)
 	}
 
 }

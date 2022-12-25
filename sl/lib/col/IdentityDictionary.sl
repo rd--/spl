@@ -1,7 +1,10 @@
 IdentityDictionary : [Collection, Dictionary] {
 
 	add { :self :anAssociation |
-		<primitive: _self.set(_anAssociation.key, _anAssociation.value); return _anAssociation;>
+		<primitive:
+		_self.set(_anAssociation.key, _anAssociation.value);
+		return _anAssociation;
+		>
 	}
 
 	at { :self :aKey |
@@ -21,7 +24,12 @@ IdentityDictionary : [Collection, Dictionary] {
 	}
 
 	keysValuesDo { :self :aProcedure |
-		<primitive: _self.forEach(function(value, key, _) { _aProcedure(key, value) }); return null;>
+		<primitive:
+		_self.forEach(function(value, key, _) {
+			_aProcedure(key, value)
+		});
+		return null;
+		>
 	}
 
 	printString { :self |
@@ -29,7 +37,10 @@ IdentityDictionary : [Collection, Dictionary] {
 	}
 
 	removeKeyIfAbsent { :self :aKey :aProcedure |
-		<primitive: var existed = _self.delete(_aKey); if(existed) { return _aKey; } else { return _aProcedure(); }>
+		<primitive:
+		var existed = _self.delete(_aKey);
+		if(existed) { return _aKey; } else { return _aProcedure(); }
+		>
 	}
 
 	size { :self |
