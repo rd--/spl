@@ -11,6 +11,7 @@ import * as ev from './eval.ts'
 import * as io from './fileio.ts'
 import * as sl from './sl.ts'
 import * as ld from './load.ts'
+import { slOptions } from './options.ts'
 import * as rw from './rewrite.ts'
 import * as repl from './repl.ts'
 
@@ -29,7 +30,8 @@ function help(): void {
 	console.log('  runFile fileName --dir=loadPath [lib]');
 	console.log('  sc playFile --dir=loadPath');
 	console.log('  sc udpServer portNumber --dir=loadPath');
-	console.log(`  SPL_DIR=${getSplDir()}`);
+	console.log('    --strict');
+	console.log(`    SPL_DIR=${getSplDir()}`);
 }
 
 async function rewriteFile(fileName: string): Promise<void> {
@@ -136,6 +138,10 @@ function cli():void {
 	if(args._.length < 1) {
 		help();
 	} else {
+		if(args.strict) {
+			slOptions.insertArityCheck = true;
+		}
+		console.log('slOptions: ', slOptions);
 		switch(args._[0]) {
 		case 'replPerLine': replPerLine(args, args._.slice(1)); break;
 		case 'rewriteFile': rewriteFile(<string>args._[1]); break;

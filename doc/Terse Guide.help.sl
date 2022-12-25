@@ -24,7 +24,7 @@ var i = 1; 3.do { :each | i := i + each.squared } ; i = 15
 { :x | x }.numArgs = 1
 { :i :j | i }.numArgs = 2
 { :i | i = nil }.value
-var f = { :i | i * 2 }; { f(3, 4) = 6 }.ifError { :error | true }
+{ { :x | 0 - x }.value(3, 4) = -3 }.ifError { :error | true }
 collect:/2.name = 'collect:/2'
 var f = { :x | x * x }; [f(5), f.(5)] = [25, 25]
 var f = { :x | x * x }; var d = (p: f); d::p.value(5) = 25
