@@ -4,14 +4,6 @@
 		self.quotient(anObject)
 	}
 
-	bitShiftLeft { :self :anObject |
-		self << anObject
-	}
-
-	bitShiftRight { :self :anObject |
-		self >> anObject
-	}
-
 	cubed { :self |
 		self * self * self
 	}
@@ -20,31 +12,8 @@
 		toDo(1, self, aProcedure)
 	}
 
-	isByte { :self |
-		self.isInteger & { self >= 0 } & { self < 256 }
-	}
-
-	isPrime { :self |
-		| i = 2; |
-		withReturn {
-			{ i * i <= self }.whileTrue  {
-				(self.remainder(i) = 0).ifTrue { return(false) };
-				i := i + 1
-			};
-			true
-		}
-	}
-
 	negated { :self |
 		0 - self
-	}
-
-	nextPrime { :self |
-		| maybePrime = self + 1; |
-		whileTrue { maybePrime.isPrime.not } {
-			maybePrime := maybePrime + 1
-		};
-		maybePrime
 	}
 
 	pow { :self :anObject |

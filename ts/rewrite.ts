@@ -42,13 +42,19 @@ const asJs: any = {
 		return `${trt}${mth}`;
 	},
     Program(tmp, stm) { return tmp.asJs + stm.asJs; },
-    TemporariesWithInitializers(_l, tmp, _s, _r) { return 'var ' + commaList(tmp.asIteration().children) + ';'; },
+    TemporariesWithInitializers(_l, tmp, _s, _r) { return `var ${commaList(tmp.asIteration().children)};`; },
     TemporaryWithBlockLiteralInitializer(nm, _, blk) {
 		const name = nm.asJs;
-		const arityForm = slOptions.simpleArityModel ? '' : `, ${genName(name, blk.arityOf)} = ${name}`;
-		return `${name} = ${blk.asJs}${arityForm}`;
+		const genNm = `${genName(name, blk.arityOf)}`;
+		const genBind = `${genNm} = ${blk.asJs}`;
+		const reBind =
+			(!slOptions.simpleArityModel && slOptions.multipleNamesForLocalBlocks) ?
+			`, ${name} = ${genNm}` :
+			'';
+		// console.log(`TemporaryWithBlockLiteralInitializer: ${reBind}`);
+		return `${genBind}${reBind}`;
 	},
-    TemporaryWithExpressionInitializer(nm, _, exp) { return nm.asJs + ' = ' + exp.asJs; },
+    TemporaryWithExpressionInitializer(nm, _, exp) { return `${nm.asJs} = ${exp.asJs}`; },
     TemporaryWithDictionaryInitializer(_l, lhs, _r, _e, rhs) {
 		const namesArray = lhs.asIteration().children.map(c => c.sourceString);
 		const rhsName = gensym();
@@ -61,9 +67,9 @@ const asJs: any = {
 		const slots = namesArray.map((name, index) => `_${name} = _${genName('at', 2)}(${rhsName}, ${index + 1})`).join(', ');
 		return `${rhsName} = ${rhs.asJs}, ${slots}`;
 	},
-    TemporariesWithoutInitializers(_l, tmp, _r) { return 'var ' + commaList(tmp.children) + '; '; },
-    TemporariesVarSyntax(_l, tmp, _r) { return 'var ' + commaList(tmp.asIteration().children) + '; '; },
-    Assignment(lhs, _, rhs) { return lhs.asJs + ' = ' + rhs.asJs; },
+    TemporariesWithoutInitializers(_l, tmp, _r) { return `var ${commaList(tmp.children)};`; },
+    TemporariesVarSyntax(_l, tmp, _r) { return `var ${commaList(tmp.asIteration().children)};`; },
+    Assignment(lhs, _, rhs) { return `${lhs.asJs} = ${rhs.asJs}`; },
     BinaryExpression(lhs, ops, rhs) {
 		let left = lhs.asJs;
 		const opsArray = ops.children.map(c => c.asJs);
@@ -124,8 +130,8 @@ const asJs: any = {
     Arguments(arg, _r) { return commaList(arg.children); },
     ArgumentName(_c, nm) { return nm.asJs; },
     Primitive(_l, s, _r) { return s.sourceString; },
-    NonFinalExpression(e, _, stm) { return e.asJs + '; ' + stm.asJs; },
-    FinalExpression(e, _) { return 'return ' + e.asJs + ';'; },
+    NonFinalExpression(e, _, stm) { return `${e.asJs}; ${stm.asJs};`; },
+    FinalExpression(e, _) { return `return ${e.asJs};`; },
 
     ApplyWithTrailingClosuresSyntax(rcv, arg, tc) {
 		const opt = arg.asJs;
@@ -139,7 +145,7 @@ const asJs: any = {
 	},
     Apply(rcv, arg) { return `${genName(rcv.asJs, arg.arityOf)}(...[${arg.asJs}])`; },
     ParameterList(_l, sq, _r) { return commaList(sq.asIteration().children); },
-    ParenthesisedExpression(_l, e, _r) { return '(' + e.asJs + ')'; },
+    ParenthesisedExpression(_l, e, _r) { return `(${e.asJs})`; },
     DictionaryExpression(_l, dict, _r) { return `new Map([${commaList(dict.asIteration().children)}])`; },
     NonEmptyDictionaryExpression(_l, dict, _r) { return `new Map([${commaList(dict.asIteration().children)}])`; },
     AssociationExpression(lhs, _arrow, rhs) { return `['${lhs.sourceString}', ${rhs.asJs}]`; },
@@ -171,7 +177,7 @@ const asJs: any = {
     doubleQuotedStringLiteral(_l, s, _r) { return `_${genName('parseDoubleQuotedString', 1)}('${s.sourceString}')`; },
     backtickQuotedStringLiteral(_l, s, _r) { return `_${genName('parseBacktickQuotedString', 1)}('${s.sourceString}')`; },
 
-	NonemptyListOf(first, _sep, rest) { return first.asJs + '; ' + rest.children.map(c => c.asJs); },
+	NonemptyListOf(first, _sep, rest) { return `${first.asJs}; ${rest.children.map(c => c.asJs)}`; },
 	EmptyListOf() { return ''; },
     _iter(...children) { return children.map(c => c.asJs).join(''); },
     _terminal() { return this.sourceString; }

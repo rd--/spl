@@ -9,6 +9,8 @@ loadSequence([
 	'lib/col/SequenceableCollection.sl',
 	'lib/col/Array.sl',
 	'lib/col/String.sl',
+	'lib/num/Binary.sl',
+	'lib/num/Integral.sl',
 	'lib/num/Magnitude.sl',
 	'lib/num/Numeric.sl',
 	'lib/num/Number.sl'

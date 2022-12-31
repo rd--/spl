@@ -23,8 +23,8 @@ var i = 1; 3.do { :each | i := i + each.squared } ; i = 15
 { }.numArgs = 0
 { :x | x }.numArgs = 1
 { :i :j | i }.numArgs = 2
-{ :i | i = nil }.value
-{ { :x | 0 - x }.value(3, 4) = -3 }.ifError { :error | true }
+{ { :i | i = nil }.value }.ifError { :err | true }
+{ { :x | 0 - x }.value(3, 4) = -3 }.ifError { :err | true }
 collect:/2.name = 'collect:/2'
 var f = { :x | x * x }; [f(5), f.(5)] = [25, 25]
 var f = { :x | x * x }; var d = (p: f); d::p.value(5) = 25
@@ -34,7 +34,7 @@ var f = { :x | x * x }; var d = (p: f); d::p.value(5) = 25
 { :x | x }.cull(23, 3.141) = 23
 { :x :y | x * y }.cull(23, 3.141) = 72.243
 var f = { :x | x * x }; f(3) = 9
-var f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49]
+{ var f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49] }.ifError { :err | true }
 var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
 
 'kernel/UndefinedObject'
@@ -53,7 +53,7 @@ nil ~? 1 = nil
 nil.printString = 'nil'
 
 'lib/async/Promise'
-{ Promise() }.ifError { :error | true }
+{ Promise() }.ifError { :err | true }
 var p = Promise { :t:/1 :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isPromise
 var p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
 var p = Promise { :t :f:/1 | f('f') }; p.then({ :t | t.postLine }).catch({ :f | (f = 'f').postLine }); p.isPromise
@@ -124,9 +124,9 @@ var [x, y] = { var n = randomFloat(); [n, n] }.value; x = y
 [1, 2, 3].printString = '[1, 2, 3]'
 [1 .. 9].allButFirst = [2 .. 9]
 [1 .. 9].allButFirst(7) = [8, 9]
-{ var a = Array(1); a.at(3) }.ifError { :error | true }
+{ var a = Array(1); a.at(3) }.ifError { :err | true }
 var a = Array(1); a.unsafeAt(3).isNil = true
-{ var a = Array(1); a.atPut(3, 'x') }.ifError { :error | true }
+{ var a = Array(1); a.atPut(3, 'x') }.ifError { :err | true }
 var a = Array(1); a.unsafeAtPut(3, 'x') = 'x' & { a.size = 3 }
 Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(even:/1) = 4
@@ -165,7 +165,7 @@ var a = Float64Array(8); a.atPut(1, pi); a.at(1) = pi
 [1 .. 9].Float64Array.reversed = [9 .. 1].Float64Array
 var a = [1 .. 9].Float64Array; a.reverseInPlace; a = [9 .. 1].Float64Array
 var a = [9 .. 1].Float64Array; a.sortInPlace; a = [1 .. 9].Float64Array
-{ Float64Array(1).atPut(3, 'x') }.ifError { :error | true }
+{ Float64Array(1).atPut(3, 'x') }.ifError { :err | true }
 var a = Float64Array(1); a.unsafeAtPut(1, 'x'); a.at(1).isNaN = true
 var a = Float64Array(1); a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
 [1 .. 3].Float64Array.printString = 'Float64Array([1, 2, 3])'
@@ -195,7 +195,7 @@ var d = (x: 9); d::x.sqrt = 3
 ::x := 4; ::x * ::x = 16
 ::a := 'x' -> 1; [::a.key, ::a.value] = ['x', 1]
 var d = (f: { :i | i * i }); d::f.value(9) = 81
-{ IdentityDictionary().removeKey('unknownKey') }.ifError { :error | true }
+{ IdentityDictionary().removeKey('unknownKey') }.ifError { :err | true }
 size (x: 1, y: 2, z: 3) = 3
 var d = (x: 1); d.addAll (y: 2, z: 3); d = (x: 1, y: 2, z: 3)
 
@@ -297,7 +297,7 @@ var p = PriorityQueue(); p.peekPriority = nil
 '€'.utf8.utf8 = '€'
 'ascii'.ascii = 'ascii'.utf8
 'ascii'.ascii.ascii = 'ascii'
-{ '€'.ascii }.ifError { :error | true }
+{ '€'.ascii }.ifError { :err | true }
 'the quick brown fox jumps'.includesSubstring('fox') = true
 'the quick brown fox jumps'.includesSubstring('fix') = false
 'the quick brown fox jumps'.findString('fox') = 17
@@ -314,13 +314,19 @@ var p = PriorityQueue(); p.peekPriority = nil
 "x" = 'x'
 "x" = 'x'.parseDoubleQuotedString
 'string'[3] = 'r'
-{ 'string'[3] := 'r' }.ifError { :error | true }
+{ 'string'[3] := 'r' }.ifError { :err | true }
 
 'lib/err/Error'
 Error().isError = true
 Error('message').isError = true
 Error('message').name = 'Error'
 Error('message').message = 'message'
+
+'lib/num/Binary'
+16 << 3 = 128
+16 >> 3 = 2
+23 << 7 = 2944
+7 << 23 = 58720256
 
 'lib/num/Number'
 0 = -0 = true
@@ -349,8 +355,6 @@ var total = 0; 9.timesRepeat { total := total + randomFloat() }; total < 7
 3.max(7) = 7
 7.min(3) = 3
 12345.truncateTo(600) = 12000
-16 << 3 = 128
-16 >> 3 = 2
 2971215073.isPrime = true
 2971215073.nextPrime = 2971215083 & { 2971215083.isPrime }
 13.betweenAnd(11, 14) = true

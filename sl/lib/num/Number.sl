@@ -1,4 +1,4 @@
-Number : [Magnitude, Numeric] {
+Number : [Magnitude, Numeric, Integral, Binary] {
 
 	= { :self :aNumber |
 		<primitive: return _self === _aNumber;>
@@ -129,18 +129,6 @@ Number : [Magnitude, Numeric] {
 
 	Number { :self |
 		self
-	}
-
-}
-
-+ Object {
-
-	isByte { :self |
-		false
-	}
-
-	isInteger { :self |
-		false
 	}
 
 }
