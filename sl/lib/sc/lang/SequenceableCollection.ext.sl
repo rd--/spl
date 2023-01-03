@@ -1,5 +1,23 @@
 + @SequenceableCollection {
 
+	allTuples { :self |
+		(* Answer all of the possible n-tuples of each of my elements (I am an n-element sequence of any sized sequences). *)
+		| answerSize = self.collect({ :item | item.size }).product; |
+		1.to(answerSize).collect { :i |
+			| k = i - 1, nextTuple = self.species.new(self.size); |
+			self.size.toBy(1, -1).collect { :j |
+				| fromSequence = self[j]; |
+				nextTuple[j] := fromSequence[k % fromSequence.size + 1];
+				k := k // fromSequence.size
+			};
+			nextTuple
+		}
+	}
+
+	crossMultiply { :self :aSequence |
+		self.withCrossedCollect(aSequence, times:/2)
+	}
+
 	degreeToKey { :self :scale :stepsPerOctave |
 		self.collect { :scaleDegree |
 			scaleDegree.degreeToKey(scale, stepsPerOctave)
@@ -40,6 +58,21 @@
 
 	stutter { :self :repeatCount |
 		(self.collect { :each | { each }.dup(repeatCount) }).concatenation
+	}
+
+	withCrossedCollect { :self :aSequence :aProcedure:/2 |
+		(* Apply aProcedure for each of my items with each item of aSequence in turn. *)
+		|
+			answer = self.species.new(self.size * aSequence.size),
+			nextIndex = 1;
+		|
+		self.do { :leftItem |
+			aSequence.do { :rightItem |
+				answer[nextIndex] := aProcedure(leftItem, rightItem);
+				nextIndex := nextIndex + 1
+			}
+		};
+		answer
 	}
 
 	withExtendingCollect { :self :aCollection :aProcedure:/2 |

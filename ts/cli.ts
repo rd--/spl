@@ -141,7 +141,7 @@ function cli():void {
 		if(args.strict) {
 			slOptions.insertArityCheck = true;
 		}
-		console.log('slOptions: ', slOptions);
+		// console.log('slOptions: ', slOptions);
 		switch(args._[0]) {
 		case 'replPerLine': replPerLine(args, args._.slice(1)); break;
 		case 'rewriteFile': rewriteFile(<string>args._[1]); break;

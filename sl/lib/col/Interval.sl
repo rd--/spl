@@ -13,11 +13,11 @@ Interval : [Collection, SequenceableCollection] { | start stop step |
 	}
 
 	size { :self |
-		| derive = { (self.stop - self.start).quotient(self.step) + 1 }; |
+		| derive = (self.stop - self.start).quotient(self.step) + 1; |
 		if(self.step < 0, {
-			if(self.start < self.stop, { 0 }, derive)
+			if(self.start < self.stop, { 0 }, { derive })
 		}, {
-			if(self.stop < self.start, { 0 }, derive)
+			if(self.stop < self.start, { 0 }, { derive })
 		})
 	}
 
@@ -108,7 +108,11 @@ Interval : [Collection, SequenceableCollection] { | start stop step |
 	}
 
 	to { :self :stop |
-		Interval(self, stop,  if(self <= stop) { 1 } { -1 })
+		Interval(self, stop, if(self <= stop) { 1 } { -1 })
+	}
+
+	toBy { :self :stop :step |
+		Interval(self, stop, step)
 	}
 
 }
