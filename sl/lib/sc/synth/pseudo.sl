@@ -44,6 +44,14 @@
 		if (numChannels == 1) { Dc(0) } { Dc(0) ! numChannels }
 	}
 
+	AudioIn { :channelNumber |
+		In(1, NumOutputBuses() + channelNumber - 1)
+	}
+
+	AudioOut { :channelsArray |
+		Out(0, channelsArray)
+	}
+
 	Adsr { :gate :attackTime :decayTime :sustainLevel :releaseTime :curve | <primitive: return sc.Adsr(_gate, _attackTime, _decayTime, _sustainLevel, _releaseTime, _curve);> }
 	Asr { :gate :attackTime :releaseTime :curve | <primitive: return sc.Asr(_gate, _attackTime, _releaseTime, _curve);> }
 	AudioIn { :channelsArray | <primitive: return sc.AudioIn(_channelsArray);> }
