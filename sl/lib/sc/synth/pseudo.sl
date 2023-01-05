@@ -9,7 +9,7 @@
 	}
 
 	ImpulseSequencer { :self :trig |
-		Sequencer(self, trig) * trig
+		Sequencer(self, trig) * Trig(trig, SampleDur())
 	}
 
 	IRand { :self |
