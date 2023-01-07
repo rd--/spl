@@ -38,6 +38,18 @@ Procedure {
 		<primitive: return _self.name.split(':')[0];>
 	}
 
+	new { :self:/0 |
+		self()
+	}
+
+	new { :self:/1 :aNumber |
+		self(aNumber)
+	}
+
+	newFrom { :self:/1 :anObject |
+		self(anObject)
+	}
+
 	numArgsIfAbsent { :self :ifAbsent:/0 |
 		(*
 			Js doesn't have a proper numArgs mechanism.

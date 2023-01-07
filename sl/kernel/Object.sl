@@ -1,4 +1,4 @@
-Object {
++ Object {
 
 	typeOf { :self |
 		<primitive: return sl.typeOf(_self)>
@@ -38,22 +38,6 @@ Object {
 
 	value { :self |
 		self
-	}
-
-}
-
-+ Procedure {
-
-	new { :self:/0 |
-		self()
-	}
-
-	new { :self:/1 :aNumber |
-		self(aNumber)
-	}
-
-	newFrom { :self:/1 :anObject |
-		self(anObject)
 	}
 
 }

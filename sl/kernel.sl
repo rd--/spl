@@ -3,7 +3,6 @@ loadSequence([
 	'kernel/Object.sl',
 	'kernel/Procedure.sl',
 	'kernel/UndefinedObject.sl',
-	'kernel/Void.sl',
 	'lib/col/ArrayedCollection.sl',
 	'lib/col/Collection.sl',
 	'lib/col/SequenceableCollection.sl',

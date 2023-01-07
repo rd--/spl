@@ -59,14 +59,15 @@ export function isByte(anObject: unknown): boolean {
 	return isNumber(anObject) && Number.isInteger(anObject) && anObject >= 0 && anObject < 256;
 }
 
-export const typeList : string[] = ['Array', 'ByteArray', 'Number', 'Object', 'Procedure', 'String', 'Void'];
+// Void is an uninhabited type.  Object is not a type, it is an implicit trait that is implemented as type for now...
+export const typeList : string[] = ['Array', 'ByteArray', 'Number', 'Procedure', 'String', 'Void', 'Object'];
 
 export const traitTypeTable: Map<TraitName, TypeName[]> = new Map();
 
-type MethodEntry = [Function, Arity, MethodSourceCode];
+type MethodEntry = [Function, Arity, MethodSourceCode, boolean];
 
-function makeMethodEntry(procedure: Function, arity: Arity, sourceCode: MethodSourceCode): MethodEntry {
-	return [procedure, arity, sourceCode];
+function makeMethodEntry(procedure: Function, arity: Arity, sourceCode: MethodSourceCode, fromTrait: boolean): MethodEntry {
+	return [procedure, arity, sourceCode, fromTrait];
 }
 
 export const traitMethodTable: Map<TraitName, Map<MethodName, MethodEntry[]>> = new Map();
@@ -92,7 +93,7 @@ export function addTraitMethod(traitName: TraitName, name: MethodName, arity: Ar
 	if(!trait.has(name)) {
 		trait.set(name, []);
 	}
-	trait.get(name)!.push(makeMethodEntry(method, arity, source));
+	trait.get(name)!.push(makeMethodEntry(method, arity, source, true));
 }
 
 export function copyTraitToType(traitName: TraitName, typeName: TypeName): void {
@@ -187,7 +188,7 @@ export function addMethod(typeName: TypeName, name: MethodName, arity: Arity, me
 	if(!arityTable.has(arity)) {
 		arityTable.set(arity, new Map());
 	}
-	arityTable.get(arity)!.set(typeName, makeMethodEntry(method, arity, source));
+	arityTable.get(arity)!.set(typeName, makeMethodEntry(method, arity, source, false));
 	if(slOptions.simpleArityModel) {
 		const prefixedName = '_' + name;
 		let globalFunction = globalThis[prefixedName];
