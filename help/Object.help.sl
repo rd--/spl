@@ -1,5 +1,11 @@
 # Object
 
-_Object_ is an implicit _Trait_ that all types receive methods from.
+_Object_ is a _Trait_.
+Ordinarily _all_ types should implement _Object_.
 
-Note: At present this is implemented as a pseudo-type that method lookup falls back to.
+Object defined the basic system predicates.
+
+```
+system.traitTypes('Object') = system::typeList
+system.traitMethods('Object').keys.includes('respondsTo') = true
+```

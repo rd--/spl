@@ -25,7 +25,8 @@ const asJs: any = {
 			const tmpNm = tmpSrc === '' ? [] : slTemporariesSyntaxNames(tmpSrc).map(nm => `'${nm}'`);
 			const typ = `sl.addType('${clsNm}', [${tmpNm}]);`;
 			const addTraits = `sl.addTypeTraits('${clsNm}', [${trt}]);`;
-			const cpyTraits = trt.split(', ').filter(each => each.length > 0).map(trtNm => `sl.copyTraitToType(${trtNm}, '${clsNm}');`).join(' ');
+			const traitList = trt.split(', ').filter(each => each.length > 0);
+			const cpyTraits = traitList.map(trtNm => `sl.copyTraitToType(${trtNm}, '${clsNm}');`).join(' ');
 			const mth = makeMethodList('addMethod', [clsNm], mthNms, mthBlks);
 			return `${typ}${addTraits}${cpyTraits}${mth}`;
 		}

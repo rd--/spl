@@ -1,4 +1,4 @@
-LinkedList : [Collection, SequenceableCollection]  { | firstLink lastLink |
+LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLink |
 
 	isEmpty { :self |
 		self.firstLink.isNil

@@ -1,4 +1,4 @@
-UndefinedObject {
+UndefinedObject : [Object] {
 
 	= { :self :anObject | anObject.isNil }
 	? { :self :anObject | anObject.value }
@@ -10,7 +10,7 @@ UndefinedObject {
 	isNil { :self | true }
 }
 
-+ Object {
++ @Object {
 
 	? { :self :anObject | self }
 	~? { :self :anObject | anObject.value }

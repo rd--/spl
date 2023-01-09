@@ -1,4 +1,4 @@
-Interval : [Collection, SequenceableCollection] { | start stop step |
+Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
 	species { :self |
 		Array:/1

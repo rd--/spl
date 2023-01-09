@@ -1,4 +1,4 @@
-Array : [Collection, SequenceableCollection, ArrayedCollection] {
+Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
 		self.collect { :each |
@@ -49,7 +49,7 @@ Array : [Collection, SequenceableCollection, ArrayedCollection] {
 
 }
 
-+ Object {
++ @Object {
 
 	asArray { :self |
 		[self]

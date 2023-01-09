@@ -1,4 +1,4 @@
-LargeInteger : [Magnitude, Numeric] {
+LargeInteger : [Object, Magnitude, Numeric] {
 
 	= { :self :anInteger |
 		<primitive: return _self === BigInt(_anInteger);>

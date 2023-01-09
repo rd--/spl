@@ -117,7 +117,7 @@
 
 }
 
-+ Object {
++ @Object {
 
 	isDictionary { :self |
 		false

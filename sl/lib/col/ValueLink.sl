@@ -1,4 +1,4 @@
-ValueLink { | nextLink value |
+ValueLink : [Object] { | nextLink value |
 
 	= { :self :anObject |
 		anotherObject.isValueLink &
@@ -12,7 +12,7 @@ ValueLink { | nextLink value |
 
 }
 
-+ Object {
++ @Object {
 
 	asLink { :self |
 		newValueLink(nil, self)

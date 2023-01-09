@@ -1,4 +1,4 @@
-RegExp {
+RegExp : [Object] {
 
 	exec { :self :aString |
 		<primitive: return _self.exec(_aString);>
@@ -14,7 +14,7 @@ RegExp {
 
 }
 
-+ Object {
++ @Object {
 
 	isRegExp { :self |
 		false

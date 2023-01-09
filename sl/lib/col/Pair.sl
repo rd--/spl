@@ -1,4 +1,4 @@
-Pair { | first second |
+Pair : [Object] { | first second |
 
 	= { :self :anObject |
 		anObject.isPair &
@@ -46,7 +46,7 @@ Pair { | first second |
 
 }
 
-+ Object {
++ @Object {
 
 	Pair { :first :second |
 		newPair(first, second)

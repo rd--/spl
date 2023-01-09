@@ -1,4 +1,4 @@
-Scsynth {
+Scsynth : [Object] {
 
 	reset { :self |
 		<primitive: return sc.resetScsynth(_self);>
@@ -6,7 +6,7 @@ Scsynth {
 
 }
 
-Void {
++ Void {
 
 	globalScsynth {
 		<primitive: return globalScsynth;>

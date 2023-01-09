@@ -213,7 +213,7 @@
 
 }
 
-+ Object {
++ @Object {
 
 	isSequenceable { :self | false }
 

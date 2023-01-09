@@ -39,7 +39,8 @@ var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
 
 'kernel/UndefinedObject'
 nil.typeOf = 'UndefinedObject'
-nil.isNil
+nil.isNil = true
+nil.isUndefinedObject = true
 nil = nil
 nil == nil
 nil.ifNil { true } = true
@@ -373,6 +374,7 @@ system.methodSource('sum', 1, 'Array') = '{ :self |\n\t\tself.reduce(plus:/2)\n\
 system.methodOrigin('sum', 1, 'Array') = 'Collection'
 system.methodTypes('collect').includes('Array') = true
 system.typeMethods('Association').includes('key') = true
+system.typeMethods('UndefinedObject').includes('ifNil') = true
 system.multipleArityMethodList.includes('randomFloat') = true
 system.onlyZeroArityMethodList.includes('systemTimeInMilliseconds') = true
 system.doesTypeImplementMethod('Array', 'select') = true
@@ -388,3 +390,6 @@ system.traitTypes('Collection').includes('Array') = true
 system.typeTraits('Array').includes('ArrayedCollection') = true
 system.methodTraits('atRandom').includesAllOf(['Collection', 'SequenceableCollection']) = true
 system.methodTraits('sum').includesAllOf( ['Collection']) = true
+system.traitTypes('Object') = system::typeList
+system.traitMethods('Object').keys.includes('respondsTo') = true
+

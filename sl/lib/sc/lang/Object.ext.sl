@@ -1,4 +1,4 @@
-+ Object {
++ @Object {
 
 	! { :self :anInteger |
 		self.dup(anInteger)

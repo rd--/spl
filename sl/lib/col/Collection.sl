@@ -204,7 +204,7 @@
 
 }
 
-+ Object {
++ @Object {
 
 	isCollection { :self |
 		false

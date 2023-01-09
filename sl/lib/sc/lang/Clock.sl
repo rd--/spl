@@ -1,4 +1,4 @@
-Clock { | priorityQueue nextEntryTime existingDelay |
+Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	schedule { :self :deltaTime :aProcedure |
 		(*

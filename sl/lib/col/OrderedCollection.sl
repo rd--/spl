@@ -1,4 +1,4 @@
-OrderedCollection : [Collection, SequenceableCollection] { | array |
+OrderedCollection : [Object, Collection, SequenceableCollection] { | array |
 
 	= { :self :anObject |
 		anObject.isOrderedCollection &

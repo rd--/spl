@@ -1,4 +1,4 @@
-Procedure {
+Procedure : [Object] {
 
 	= { :self :anObject |
 		self == anObject
@@ -109,7 +109,7 @@ Procedure {
 
 }
 
-+ Object {
++ @Object {
 
 	$ { :self :aProcedure:/1 |
 		aProcedure(self)

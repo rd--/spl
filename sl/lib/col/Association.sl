@@ -1,4 +1,4 @@
-Association { | key value |
+Association : [Object] { | key value |
 
 	= { :self :anAssociation |
 		self.key = anAssociation.key
@@ -18,7 +18,7 @@ Association { | key value |
 
 }
 
-+ Object {
++ @Object {
 
 	-> { :self :anObject |
 		newAssociation(self, anObject)

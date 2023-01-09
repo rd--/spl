@@ -24,7 +24,11 @@
 
 	traitTypes { :self :traitName |
 		self.isTraitName(traitName).if {
-			self::traitTypeTable[traitName]
+			(traitName = 'Object').if {
+				self::typeList
+			} {
+				self::traitTypeTable[traitName]
+			}
 		} {
 			'traitTypes: not a trait'.error
 		}

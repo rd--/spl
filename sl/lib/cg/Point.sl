@@ -1,4 +1,4 @@
-Point { | x y |
+Point : [Object] { | x y |
 
 	= {	:self :anObject |
 		if(anObject.isPoint) { (self.x = anObject.x) & { self.y = anObject.y } } { false }

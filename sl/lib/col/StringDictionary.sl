@@ -1,4 +1,4 @@
-StringDictionary : [Dictionary] {
+StringDictionary : [Object, Dictionary] {
 
 	at { :self :aString |
 		<primitive: return _self[_aString] || null;>

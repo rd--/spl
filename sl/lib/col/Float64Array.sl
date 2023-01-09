@@ -1,4 +1,4 @@
-Float64Array : [Collection, SequenceableCollection, ArrayedCollection] {
+Float64Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 	atPut { :self :anInteger :aNumber |
 		<primitive: if(sl.arrayCheckIndex(_self, _anInteger - 1) && sl.isNumber(_aNumber)) {

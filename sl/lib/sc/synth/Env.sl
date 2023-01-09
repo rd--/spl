@@ -1,4 +1,4 @@
-Env {
+Env : [Object] {
 
 	asArray { :self |
 		self.coordinateArrayForEnvGen

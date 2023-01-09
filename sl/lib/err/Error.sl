@@ -1,9 +1,9 @@
-Error {
+Error : [Object] {
 	message { :self | <primitive: return _self.message;> }
 	name { :self | <primitive: return _self.name;> }
 }
 
-+ Object {
++ @Object {
 	errorEmptyCollection { :self | error('errorEmptyCollection: ' ++ self) }
 	errorNotFound { :self :anObject | error('errorNotFound: ' ++ self) }
 	errorSubscriptBounds { :self :index | error('errorSubscriptBounds: ' ++ index) }

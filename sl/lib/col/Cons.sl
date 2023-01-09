@@ -1,4 +1,4 @@
-Cons : [Collection] { | car cdr |
+Cons : [Object, Collection] { | car cdr |
 
 	= { :self :anObject |
 		anObject.isCons &
@@ -83,7 +83,7 @@ Cons : [Collection] { | car cdr |
 
 }
 
-+ Object {
++ @Object {
 
 	Cons { :car :cdr |
 		newCons(car, cdr)

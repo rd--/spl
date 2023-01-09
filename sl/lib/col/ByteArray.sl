@@ -1,4 +1,4 @@
-ByteArray : [Collection, SequenceableCollection, ArrayedCollection] {
+ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 	atPut { :self :anInteger :aByte |
 		<primitive: if(Number.isInteger(_anInteger) && sl.isByte(_aByte)) {

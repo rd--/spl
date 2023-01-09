@@ -1,4 +1,4 @@
-Ugen : [Numeric] {
+Ugen : [Object, Numeric] {
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure |
 		<primitive: return sl.applyGenericAt(sl.nameWithoutArity(_aProcedure.name), [_aNumber, _self], 'Ugen');>

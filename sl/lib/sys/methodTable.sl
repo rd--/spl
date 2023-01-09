@@ -119,7 +119,7 @@
 
 }
 
-Object {
++ @Object {
 
 	respondsTo { :self :aMethod |
 		system.doesTypeImplementMethod(self.typeOf, aMethod.methodName)

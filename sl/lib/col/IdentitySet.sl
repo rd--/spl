@@ -1,4 +1,4 @@
-IdentitySet : [Collection] {
+IdentitySet : [Object, Collection] {
 
 	add { :self :anObject |
 		<primitive: _self.add(_anObject); return _anObject;>
@@ -38,7 +38,7 @@ IdentitySet : [Collection] {
 
 }
 
-+ Object {
++ @Object {
 
 	isIdentitySet { :self |
 		false

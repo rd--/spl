@@ -10,7 +10,7 @@
 
 }
 
-+ Object {
++ @Object {
 
 	rank { :self |
 		0

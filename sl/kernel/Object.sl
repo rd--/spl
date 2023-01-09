@@ -1,4 +1,4 @@
-+ Object {
+@Object {
 
 	typeOf { :self |
 		<primitive: return sl.typeOf(_self)>

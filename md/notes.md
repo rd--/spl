@@ -180,6 +180,7 @@ var a = Array(6); 'string'.collectInto({ :each | each.toUpperCase }, a); a.join 
 - U+2254 ≔ COLON EQUALS
 - U+2260 ≠ NOT EQUAL TO
 - U+2261 ≡ IDENTICAL TO
+- U+2262 ≢ NOT IDENTICAL TO
 - U+2264 ≤ LESS-THAN OR EQUAL TO
 - U+2265 ≥ GREATER-THAN OR EQUAL TO
 - U+226A ≪ MUCH LESS-THAN

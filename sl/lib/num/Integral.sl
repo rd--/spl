@@ -29,7 +29,7 @@
 
 }
 
-+ Object {
++ @Object {
 
 	isByte { :self |
 		false

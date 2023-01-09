@@ -1,4 +1,4 @@
-PriorityQueue {
+PriorityQueue : [Object] {
 
 	clear { :self |
 		<primitive: return _self.clear();>

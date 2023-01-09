@@ -1,4 +1,4 @@
-String : [Collection, SequenceableCollection] {
+String : [Object, Collection, SequenceableCollection] {
 
 	= { :self :anObject |
 		self == anObject
@@ -116,7 +116,7 @@ String : [Collection, SequenceableCollection] {
 
 }
 
-+ Object {
++ @Object {
 
 	postLine { :self |
 		self.printString.postLine;

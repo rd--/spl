@@ -1,4 +1,4 @@
-IdentityDictionary : [Collection, Dictionary] {
+IdentityDictionary : [Object, Collection, Dictionary] {
 
 	add { :self :anAssociation |
 		<primitive:
@@ -71,7 +71,7 @@ IdentityDictionary : [Collection, Dictionary] {
 
 }
 
-+ Object {
++ @Object {
 
 	isIdentityDictionary { :self |
 		false
