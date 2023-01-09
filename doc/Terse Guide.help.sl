@@ -198,6 +198,7 @@ var d = (f: { :i | i * i }); d::f.value(9) = 81
 { IdentityDictionary().removeKey('unknownKey') }.ifError { :err | true }
 size (x: 1, y: 2, z: 3) = 3
 var d = (x: 1); d.addAll (y: 2, z: 3); d = (x: 1, y: 2, z: 3)
+(x:'x', y:'.', z:'z').associationsSelect { :each | each.key = each.value } = (x:'x', z:'z')
 
 'lib/col/IdentitySet'
 [1, 3, 5, 3, 1].IdentitySet.isIdentitySet = true
@@ -364,8 +365,12 @@ var total = 0; 9.timesRepeat { total := total + randomFloat() }; total < 7
 pi.randomFloat.isInteger = false
 
 'lib/sys/methodTable'
+system.allMethodSignatures.includes('Array>>sum:/1 (@Collection)') = true
+system.methodEntry('collect', 2, 'Array') ~= nil
+system.methodImplementations('sum')[1]['Array'][4] = 'Collection'
 system.methodSignatures('add').includes("IdentityDictionary>>add:/2") = true
 system.methodSource('sum', 1, 'Array') = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
+system.methodOrigin('sum', 1, 'Array') = 'Collection'
 system.methodTypes('collect').includes('Array') = true
 system.typeMethods('Association').includes('key') = true
 system.multipleArityMethodList.includes('randomFloat') = true
@@ -381,4 +386,5 @@ unixTimeInMilliseconds() > 1671935015392 = true
 'lib/sys/traitTable'
 system.traitTypes('Collection').includes('Array') = true
 system.typeTraits('Array').includes('ArrayedCollection') = true
-system.methodTraits('atRandom').includesAllOf(['Collection', 'SequenceableCollection'])
+system.methodTraits('atRandom').includesAllOf(['Collection', 'SequenceableCollection']) = true
+system.methodTraits('sum').includesAllOf( ['Collection']) = true

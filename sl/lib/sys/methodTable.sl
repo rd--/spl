@@ -1,7 +1,9 @@
 + IdentityDictionary {
 
 	allMethodSignatures { :self |
-		self.methodList.collect(methodSignatures:/1).concatenation.sorted
+		self.methodList.collect({ :methodName |
+			self.methodSignatures(methodName)
+		}).concatenation.sorted
 	}
 
 	doesTypeImplementMethod { :self :typeName :methodName |
@@ -21,15 +23,19 @@
 		self::methodTable[methodName].keys
 	}
 
+	methodEntry { :self :methodName :arity :typeName |
+		self::methodTable[methodName][arity][typeName]
+	}
+
 	methodImplementations { :self :methodName |
 		(* Each of the implementations of methodName. *)
 		self.isMethodName(methodName).if {
 			|
-				answer = OrderedCollection(),
+				answer = IdentityDictionary(),
 				table = self::methodTable[methodName];
 			|
 			table.keysValuesDo { :arity :dictionary |
-				answer.add(dictionary)
+				answer.add(arity -> dictionary)
 			};
 			answer
 		} {
@@ -39,6 +45,10 @@
 
 	methodList { :self |
 		self::methodTable.keys
+	}
+
+	methodOrigin { :self :methodName :arity :typeName |
+		self.methodEntry(methodName, arity, typeName)[4]
 	}
 
 	methodPrintString { :self :methodName |
@@ -57,7 +67,13 @@
 		| answer = OrderedCollection(); |
 		self.methodImplementations(methodName).do { :dictionary |
 			dictionary.associationsDo { :each |
-				answer.add(each.key ++ '>>' ++ methodName ++ ':/' ++ each.value[2])
+				|
+					typeName = each.key,
+					arity = each.value[2],
+					origin = each.value[4],
+					originNote = (origin = typeName).if { '' } { ' (@' ++ origin ++ ')' };
+				|
+				answer.add(typeName ++ '>>' ++ methodName ++ ':/' ++ arity ++ originNote)
 			}
 		};
 		answer
@@ -65,11 +81,11 @@
 
 	methodSource { :self :methodName :arity :typeName |
 		(* Implementation of methodName at arity for typeName. *)
-		self::methodTable[methodName][arity][typeName][3]
+		self.methodEntry(methodName, arity, typeName)[3]
 	}
 
 	methodTypes { :self :methodName |
-		(* Types implementing myself, at any arity (I name a method) *)
+		(* Types implementing methodName. *)
 		self.isMethodName(methodName).if {
 			self::methodTable[methodName].values.collect(keys:/1).concatenation
 		} {

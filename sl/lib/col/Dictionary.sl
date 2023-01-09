@@ -43,6 +43,14 @@
 		}
 	}
 
+	associationsSelect { :self :aBlock:/1 |
+		| answer = self.species.new; |
+		self.associationsDo { :each |
+			aBlock(each).ifTrue { answer.add(each) }
+		};
+		answer
+	}
+
 	atIfAbsent { :self :aKey :aProcedure:/0 |
 		self[aKey] ? aProcedure()
 	}
