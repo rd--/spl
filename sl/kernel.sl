@@ -1,6 +1,7 @@
 loadSequence([
 	'kernel/Object.sl',
 	'kernel/Boolean.sl',
+	'kernel/Method.sl',
 	'kernel/Procedure.sl',
 	'kernel/UndefinedObject.sl',
 	'lib/col/ArrayedCollection.sl',

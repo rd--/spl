@@ -18,13 +18,13 @@
 		self::typeList.includes(aString)
 	}
 
+	method { :self :methodName :arity :typeName |
+		self::methodTable[methodName][arity][typeName]
+	}
+
 	methodArities { :self :methodName |
 		(* Arities methodName is implemented for. *)
 		self::methodTable[methodName].keys
-	}
-
-	methodEntry { :self :methodName :arity :typeName |
-		self::methodTable[methodName][arity][typeName]
 	}
 
 	methodImplementations { :self :methodName |
@@ -47,16 +47,12 @@
 		self::methodTable.keys
 	}
 
-	methodOrigin { :self :methodName :arity :typeName |
-		self.methodEntry(methodName, arity, typeName)[4]
-	}
-
 	methodPrintString { :self :methodName |
 		(* Print string of implementations of methodName. *)
 		| answer = OrderedCollection(); |
 		self.methodImplementations(methodName).do { :dictionary |
 			dictionary.associationsDo { :each |
-				answer.add('+ ' ++ each.key ++ ' {\n\t' ++ methodName ++ ' ' ++ each.value[3] ++ '\n}')
+				answer.add('+ ' ++ each.key ++ ' {\n\t' ++ methodName ++ ' ' ++ each.value.sourceCode ++ '\n}')
 			}
 		};
 		answer
@@ -69,19 +65,14 @@
 			dictionary.associationsDo { :each |
 				|
 					typeName = each.key,
-					arity = each.value[2],
-					origin = each.value[4],
+					arity = each.value.arity,
+					origin = each.value.origin,
 					originNote = (origin = typeName).if { '' } { ' (@' ++ origin ++ ')' };
 				|
 				answer.add(typeName ++ '>>' ++ methodName ++ ':/' ++ arity ++ originNote)
 			}
 		};
 		answer
-	}
-
-	methodSource { :self :methodName :arity :typeName |
-		(* Implementation of methodName at arity for typeName. *)
-		self.methodEntry(methodName, arity, typeName)[3]
 	}
 
 	methodTypes { :self :methodName |

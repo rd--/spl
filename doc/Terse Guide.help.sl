@@ -323,6 +323,9 @@ Error().isError = true
 Error('message').isError = true
 Error('message').name = 'Error'
 Error('message').message = 'message'
+Error('message').log = nil
+{ Error('message').signal }.ifError { :err | true }
+{ error('message') }.ifError { :err | true }
 
 'lib/num/Binary'
 16 << 3 = 128
@@ -367,11 +370,12 @@ pi.randomFloat.isInteger = false
 
 'lib/sys/methodTable'
 system.allMethodSignatures.includes('Array>>sum:/1 (@Collection)') = true
-system.methodEntry('collect', 2, 'Array') ~= nil
-system.methodImplementations('sum')[1]['Array'][4] = 'Collection'
+system.method('collect', 2, 'Array').isNil = false
+system.methodImplementations('sum')[1]['Array'].origin = 'Collection'
 system.methodSignatures('add').includes("IdentityDictionary>>add:/2") = true
-system.methodSource('sum', 1, 'Array') = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
-system.methodOrigin('sum', 1, 'Array') = 'Collection'
+system.method('sum', 1, 'Array').sourceCode = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
+system.method('sum', 1, 'Array').origin = 'Collection'
+system.method('sum', 1, 'Array').name = 'sum'
 system.methodTypes('collect').includes('Array') = true
 system.typeMethods('Association').includes('key') = true
 system.typeMethods('UndefinedObject').includes('ifNil') = true
@@ -380,6 +384,10 @@ system.onlyZeroArityMethodList.includes('systemTimeInMilliseconds') = true
 system.doesTypeImplementMethod('Array', 'select') = true
 [1, 2, 3].respondsTo(select:/2) = true
 system.methodPrintString('add').size >= 3
+system.method('collect', 2, 'Array').isMethod = true
+system.method('collect', 2, 'Array').origin = 'ArrayedCollection'
+system.method('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
+system.method('sum', 1, 'Array') == system.method('sum', 1, 'OrderedCollection')
 
 'lib/sys/time'
 systemTimeInMilliseconds() > 0 = true
@@ -392,4 +400,3 @@ system.methodTraits('atRandom').includesAllOf(['Collection', 'SequenceableCollec
 system.methodTraits('sum').includesAllOf( ['Collection']) = true
 system.traitTypes('Object') = system::typeList
 system.traitMethods('Object').keys.includes('respondsTo') = true
-

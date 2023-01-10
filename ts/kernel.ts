@@ -59,21 +59,24 @@ export function isByte(anObject: unknown): boolean {
 	return isNumber(anObject) && Number.isInteger(anObject) && anObject >= 0 && anObject < 256;
 }
 
-// Void and Object are not ordinary types.
-// Void names the place in the method table for no-argument procedures.
-// Object is an implicit trait that all types inherit from.
-export const typeList : string[] = ['Array', 'ByteArray', 'Number', 'Procedure', 'String', 'Void'];
+// Void is not an ordinary type, it names the place in the method table for no-argument procedures.
+export const typeList : string[] = ['Array', 'ByteArray', 'Method', 'Number', 'Procedure', 'String', 'Void'];
 
 export const traitTypeTable: Map<TraitName, TypeName[]> = new Map();
 
 type MethodOrigin = string;
-type MethodEntry = [Function, Arity, MethodSourceCode, MethodOrigin];
 
-function makeMethodEntry(procedure: Function, arity: Arity, sourceCode: MethodSourceCode, origin: string): MethodEntry {
-	return [procedure, arity, sourceCode, origin];
+export class Method {
+	constructor(name: MethodName, procedure: Function, arity: Arity, sourceCode: MethodSourceCode, origin: MethodOrigin): Method {
+		this.name = name;
+		this.procedure = procedure;
+		this.arity = arity;
+		this.sourceCode = sourceCode;
+		this.origin = origin;
+	}
 }
 
-export const traitMethodTable: Map<TraitName, Map<MethodName, MethodEntry[]>> = new Map();
+export const traitMethodTable: Map<TraitName, Map<MethodName, Method[]>> = new Map();
 
 export function addTrait(traitName: TraitName): void {
 	// console.debug(`addTrait: ${traitName}`);
@@ -91,45 +94,47 @@ export function addTypeTraits(typeName: TypeName, traitNameArray: TraitName[]): 
 }
 
 // c.f. rewrite/makeMethodList
-export function addTraitMethod(traitName: TraitName, methodName: MethodName, arity: Arity, method: Function, source: string): void {
-	// console.debug(`addTypeTrait: ${traitName}, ${methodName}, ${arity}`);
+export function addTraitMethod(traitName: TraitName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
+	// console.debug(`addTypeTrait: ${traitName}, ${methodName}, ${method.arity}`);
 	const trait = traitMethodTable.get(traitName)!;
 	if(!trait.has(methodName)) {
 		trait.set(methodName, []);
 	}
-	trait.get(methodName)!.push(makeMethodEntry(method, arity, source, traitName));
+	const method = new Method(methodName, procedure, arity, sourceCode, traitName);
+	trait.get(methodName)!.push(method);
+	return method;
 }
 
 export function copyTraitToType(traitName: TraitName, typeName: TypeName): void {
 	// console.debug(`copyTraitToType: ${traitName}, ${typeName}`);
 	const methods = traitMethodTable.get(traitName)!;
 	for (const [name, table] of methods) {
-		table.forEach(function(item) {
-			const [procedure, arity, source] = item;
-			// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${arity}`);
-			addMethodFor(typeName, name, arity, procedure, source, traitName);
+		table.forEach(function(method) {
+			// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${method.arity}`);
+			addMethodFor(typeName, name, method);
 		});
 	}
 }
 
 // c.f. rewrite/makeMethodList
-export function extendTraitWithMethod(traitName: TraitName, name: MethodName, arity: Arity, method: Function, source: string): void {
+export function extendTraitWithMethod(traitName: TraitName, name: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
 	const types = traitName === 'Object' ? typeList : traitTypeTable.get(traitName)!;
 	// console.debug(`extendTraitWithMethod: ${traitName}, ${name}`);
-	addTraitMethod(traitName, name, arity, method, source);
+	const method = addTraitMethod(traitName, name, arity, procedure, sourceCode);
 	types.forEach(function(typeName) {
 		// console.debug(`extendTraitWithMethod: ${traitName}, ${typeName}, ${name}`);
-		addMethodFor(typeName, name, arity, method, source, traitName);
+		addMethodFor(typeName, name, method);
 	});
+	return method;
 }
 
-type ByTypeProcedureTable = Map<TypeName, MethodEntry>;
+type ByTypeProcedureTable = Map<TypeName, Method>;
 type ByArityProcedureTable = Map<Arity, ByTypeProcedureTable>;
 type ByNameProcedureTable = Map<MethodName, ByArityProcedureTable>
 
 export const methodTable: ByNameProcedureTable = new Map();
 
-export function lookupGeneric(methodName: MethodName, methodArity: Arity, receiverType: TypeName): MethodEntry {
+export function lookupGeneric(methodName: MethodName, methodArity: Arity, receiverType: TypeName): Method {
 	return methodTable.get(methodName)!.get(methodArity)!.get(receiverType)!;
 }
 
@@ -140,14 +145,14 @@ export function nameWithoutArity(methodName: MethodName) {
 export function applyGenericAt(methodName: MethodName, parameterArray: unknown[], receiverType: TypeName) {
 	// console.log(`applyGenericAt: ${methodName}, ${parameterArray.length}, ${receiverType}`);
 	const method = lookupGeneric(methodName, parameterArray.length, receiverType);
-	return method[0].apply(null, parameterArray)
+	return method.procedure.apply(null, parameterArray)
 }
 
 export function dispatchByType(name: string, arity: number, typeTable: ByTypeProcedureTable, parameterArray: unknown[]) {
 	if(arity === 0) {
 		const method = typeTable.get('Void');
 		if(method) {
-			return method[0].apply(null, [])
+			return method.procedure.apply(null, [])
 		} else {
 			return throwError(`dispatchByType: no zero arity method: ${name}`);
 		}
@@ -157,7 +162,7 @@ export function dispatchByType(name: string, arity: number, typeTable: ByTypePro
 		const typeMethod = typeTable.get(receiverType);
 		if(typeMethod) {
 			// console.debug(`dispatchByType: name=${name}, arity=${arity}, type=${receiverType}`);
-			return typeMethod[0].apply(null, parameterArray)
+			return typeMethod.procedure.apply(null, parameterArray)
 		} else {
 			return throwError(`dispatchByType: no method for type: ${receiverType}; arity=${arity} name=${name}`);
 		}
@@ -175,13 +180,14 @@ export function dispatchByArity(name: string, arity: number, arityTable: ByArity
 
 declare var globalThis: { [key: string]: unknown };
 
-export function addMethodFor(typeName: TypeName, name: MethodName, arity: Arity, method: Function, source: string, origin: string): void {
+export function addMethodFor(typeName: TypeName, name: MethodName, method: Method): Method {
 	if(slOptions.requireTypeExists && !typeList.includes(typeName)) {
 		console.error(`addMethodFor: type does not exist: ${typeName}`);
 		return;
 	}
-	// console.debug(`addMethodFor: ${typeName}, ${name}, ${arity}`);
+	// console.debug(`addMethodFor: ${typeName}, ${name}, ${method.arity}`);
 	if(!methodTable.has(name)) {
+		// console.debug(`addMethodFor: new method name`);
 		methodTable.set(name, new Map());
 		if(slOptions.simpleArityModel) {
 			const prefixedName = '_' + name;
@@ -197,34 +203,39 @@ export function addMethodFor(typeName: TypeName, name: MethodName, arity: Arity,
 		}
 	}
 	let arityTable = methodTable.get(name)!;
-	if(!arityTable.has(arity)) {
-		arityTable.set(arity, new Map());
+	if(!arityTable.has(method.arity)) {
+		// console.debug(`addMethodFor: new method arity`);
+		arityTable.set(method.arity, new Map());
 		if(!slOptions.simpleArityModel) {
-			const prefixedNameWithArity = `_${name}_${arity}`;
+			const prefixedNameWithArity = `_${name}_${method.arity}`;
+			// console.debug(`addMethodFor: generate global: ${prefixedNameWithArity}`);
 			let globalFunctionWithArity = globalThis[prefixedNameWithArity];
 			if(globalFunctionWithArity === undefined) {
-				const typeTable = arityTable.get(arity)!;
+				const typeTable = arityTable.get(method.arity)!;
 				globalFunctionWithArity = globalThis[prefixedNameWithArity] = function(...argumentsArray: unknown[]) {
 					// console.debug(`dispatchByType: ${name}, ${JSON.stringify(argumentsArray)}`);
-					return dispatchByType(name, arity, typeTable, argumentsArray);
+					return dispatchByType(name, method.arity, typeTable, argumentsArray);
 				};
-				Object.defineProperty(globalFunctionWithArity, "name", { value: `${name}:/${arity}` });
-				Object.defineProperty(globalFunctionWithArity, "length", { value: arity }); // c.f. makeCheckedAritySpecificFunction
+				Object.defineProperty(globalFunctionWithArity, "name", { value: `${name}:/${method.arity}` });
+				Object.defineProperty(globalFunctionWithArity, "length", { value: method.arity }); // c.f. makeCheckedAritySpecificFunction
 			}
 		}
 	}
-	const existingEntry = arityTable.get(arity)!.get(typeName);
+	const existingEntry = arityTable.get(method.arity)!.get(typeName);
 	// Todo: this is not a correct test, it needs to not over-write less specific traits as well... it works for stdlib
-	if(existingEntry && existingEntry[3] === typeName && origin !== typeName) {
+	if(existingEntry && existingEntry.origin === typeName && method.origin !== typeName) {
 		// console.debug('addMethodFor: existing more specific entry');
 	} else {
-		arityTable.get(arity)!.set(typeName, makeMethodEntry(method, arity, source, origin));
+		arityTable.get(method.arity)!.set(typeName, method);
 	}
+	return method;
 }
 
 // c.f. rewrite/makeMethodList
-export function addMethod(typeName: TypeName, name: MethodName, arity: Arity, method: Function, source: string): void {
-	return addMethodFor(typeName, name, arity, method, source, typeName);
+export function addMethod(typeName: TypeName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
+	// console.debug(`addMethod: ${typeName}, ${name}`);
+	const method = new Method(methodName, procedure, arity, sourceCode, typeName);
+	return addMethodFor(typeName, methodName, method);
 }
 
 // This is run for built-in types. The class predicate method is required.  Assumes non-kernel types have at least one slot.
