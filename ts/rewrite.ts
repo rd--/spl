@@ -23,12 +23,11 @@ const asJs: any = {
 		function makeClassDefinition(clsNm: string, trt: string[], tmp, mthNms, mthBlks) {
 			const tmpSrc = tmp.sourceString;
 			const tmpNm = tmpSrc === '' ? [] : slTemporariesSyntaxNames(tmpSrc).map(nm => `'${nm}'`);
-			const typ = `sl.addType('${clsNm}', [${tmpNm}]);`;
-			const addTraits = `sl.addTypeTraits('${clsNm}', [${trt}]);`;
 			const traitList = trt.split(', ').filter(each => each.length > 0);
-			const cpyTraits = traitList.map(trtNm => `sl.copyTraitToType(${trtNm}, '${clsNm}');`).join(' ');
-			const mth = makeMethodList('addMethod', [clsNm], mthNms, mthBlks);
-			return `${typ}${addTraits}${cpyTraits}${mth}`;
+			const addType = `sl.addType('${clsNm}', [${trt}], [${tmpNm}]);`;
+			const copyTraits = traitList.map(trtNm => `sl.copyTraitToType(${trtNm}, '${clsNm}');`).join(' ');
+			const addMethods = makeMethodList('addMethod', [clsNm], mthNms, mthBlks);
+			return `${addType}${copyTraits}${addMethods}`;
 		}
 		return makeClassDefinition(clsNm.sourceString, trt.asJs, tmp, mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},

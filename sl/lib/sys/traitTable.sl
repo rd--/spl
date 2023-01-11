@@ -1,50 +1,50 @@
 + IdentityDictionary {
 
 	isTraitName { :self :aString |
-		self.traitList.includes(aString)
+		self::traitDictionary.includesKey(aString)
 	}
 
-	methodTraits { :self :methodName |
-		self::traitMethodTable.select({ :each |
-			each.keys.includes(methodName)
+	methodTraits { :self :qualifiedMethodName |
+		self::traitDictionary.select({ :each |
+			each.methodDictionary.keys.includes(qualifiedMethodName)
 		}).keys
+	}
+
+	trait { :self :traitName |
+		self.isTraitName(traitName).if {
+			self::traitDictionary[traitName]
+		} {
+			('trait: not a trait: ' ++ traitName).error
+		}
 	}
 
 	traitList { :self |
 		self::traitTypeTable.keys
 	}
 
-	traitMethods { :self :traitName |
-		self.isTraitName(traitName).if {
-			self::traitMethodTable[traitName]
-		} {
-			'traitMethods: not a trait'.error
-		}
+	traitMethodDictionary { :self :traitName |
+		self.trait(traitName).methodDictionary
 	}
 
 	traitTypes { :self :traitName |
 		self.isTraitName(traitName).if {
-			(traitName = 'Object').if {
-				self::typeList
-			} {
-				self::traitTypeTable[traitName]
-			}
-		} {
-			'traitTypes: not a trait'.error
-		}
-	}
-
-	typeTraits { :self :typeName |
-		self.isTypeName(typeName).if {
 			| answer = OrderedCollection(); |
-			self::traitTypeTable.keysValuesDo { :key :value |
-				value.includes(typeName).ifTrue {
+			self::typeDictionary.keysValuesDo { :key :value |
+				value.includes(traitName).ifTrue {
 					answer.add(key)
 				}
 			};
 			answer
 		} {
-			'typeTraits: not a type'.error
+			('traitTypes: not a trait: ' ++ traitName).error
+		}
+	}
+
+	typeTraits { :self :typeName |
+		self.isTypeName(typeName).if {
+			self::typeDictionary[typeName]
+		} {
+			('typeTraits: not a type: ' ++ typeName).error
 		}
 	}
 

@@ -15,7 +15,7 @@
 	}
 
 	isTypeName { :self :aString |
-		self::typeList.includes(aString)
+		self::typeDictionary.includesKey(aString)
 	}
 
 	method { :self :methodName :arity :typeName |

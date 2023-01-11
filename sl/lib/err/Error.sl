@@ -60,7 +60,7 @@ Error : [Object] {
 	error { :self |
 		| err = Error(self); |
 		err.log;
-		err.raise;
+		err.signal
 	}
 
 }

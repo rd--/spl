@@ -111,6 +111,10 @@ var a = [5, 4, 3, 2, 1]; a.findIndex { :each | each % 3 = 0 } = 3
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity:/1) = 4
 [9 .. 1].indexOf(3) = 7
 [9 .. 1].includes(3) = true
+[].includes(3) = false
+[9 .. 1].includesAllOf([3 .. 7]) = true
+[5 .. 3].includesAllOf([3 .. 7]) = false
+[].includesAllOf([3 .. 7]) = false
 Array(5).fillFromWith([1 .. 5], negated:/1) = [-1 .. -5]
 var a = Array(5); a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
 var a = Array(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
@@ -396,7 +400,7 @@ unixTimeInMilliseconds() > 1671935015392 = true
 'lib/sys/traitTable'
 system.traitTypes('Collection').includes('Array') = true
 system.typeTraits('Array').includes('ArrayedCollection') = true
-system.methodTraits('atRandom').includesAllOf(['Collection', 'SequenceableCollection']) = true
-system.methodTraits('sum').includesAllOf( ['Collection']) = true
-system.traitTypes('Object') = system::typeList
-system.traitMethods('Object').keys.includes('respondsTo') = true
+system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'SequenceableCollection']) = true
+system.methodTraits('sum:/1').includesAllOf(['Collection']) = true
+system.traitTypes('Object').includes('Number') = true
+system.traitMethodDictionary('Object').keys.includes('respondsTo:/2') = true

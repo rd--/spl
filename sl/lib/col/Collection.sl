@@ -72,9 +72,9 @@
 				aProcedure(each).ifTrue {
 					return (foundProcedure(each))
 				}
-			}
-		};
-		exceptionProcedure()
+			};
+			exceptionProcedure()
+		}
 	}
 
 	detectIfNone { :self :aProcedure :whenAbsent |
@@ -114,9 +114,11 @@
 
 	includesAllOf { :self :aCollection |
 		withReturn {
-			aCollection.do { :elem | self.includes(elem).ifFalse { false.return } }
-		};
-		true
+			aCollection.do { :elem |
+				self.includes(elem).ifFalse { false.return }
+			};
+			true
+		}
 	}
 
 	injectInto { :self :initialValue :aProcedure:/2 |
