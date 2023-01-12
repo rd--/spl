@@ -23,6 +23,7 @@ var i = 1; 3.do { :each | i := i + each.squared } ; i = 15
 { }.numArgs = 0
 { :x | x }.numArgs = 1
 { :i :j | i }.numArgs = 2
+collect:/2.numArgs = 2
 { { :i | i = nil }.value }.ifError { :err | true }
 { { :x | 0 - x }.value(3, 4) = -3 }.ifError { :err | true }
 collect:/2.name = 'collect:/2'
@@ -373,6 +374,12 @@ var total = 0; 9.timesRepeat { total := total + randomFloat() }; total < 7
 pi.randomFloat.isInteger = false
 
 'lib/sys/methodTable'
+system.keys.includesAllOf(['methodTable', 'traitDictionary', 'typeDictionary']) = true
+system::methodTable.isIdentityDictionary = true
+system::methodTable::collect.isIdentityDictionary = true
+system::methodTable::collect[2].isIdentityDictionary = true
+system::methodTable::collect[2]::Array.isMethod = true
+system::methodTable.includesKey('collect') = true
 system.allMethodSignatures.includes('Array>>sum:/1 (@Collection)') = true
 system.method('collect', 2, 'Array').isNil = false
 system.methodImplementations('sum')[1]['Array'].origin = 'Collection'
@@ -398,9 +405,14 @@ systemTimeInMilliseconds() > 0 = true
 unixTimeInMilliseconds() > 1671935015392 = true
 
 'lib/sys/traitTable'
+system::traitDictionary.includesKey('Collection') = true
 system.traitTypes('Collection').includes('Array') = true
 system.typeTraits('Array').includes('ArrayedCollection') = true
 system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'SequenceableCollection']) = true
-system.methodTraits('sum:/1').includesAllOf(['Collection']) = true
+system.methodTraits('sum:/1') = ['Collection']
 system.traitTypes('Object').includes('Number') = true
-system.traitMethodDictionary('Object').keys.includes('respondsTo:/2') = true
+system.trait('Object').methodDictionary.includesKey('respondsTo:/2') = true
+system.trait('Collection').isTrait = true
+system.trait('Collection').name = 'Collection'
+system.trait('Collection').methodDictionary.includesKey('sum:/1') = true
+system.trait('Collection').methodDictionary::sum:/1.isMethod = true

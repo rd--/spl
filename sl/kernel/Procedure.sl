@@ -53,7 +53,7 @@ Procedure : [Object] {
 	numArgsIfAbsent { :self :ifAbsent:/0 |
 		(*
 			Js doesn't have a proper numArgs mechanism.
-			Spl adds hasRestParameters to the arity dispatch method functions, else it is undefined.
+			In the simple arity model Spl adds hasRestParameters to the arity dispatch method functions, else it is undefined.
 			From within Spl there is no concept of a variadic procedure.
 		*)
 		<primitive: return _self.hasRestParameters ? _ifAbsent() : _self.length;>

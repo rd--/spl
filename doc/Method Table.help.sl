@@ -7,6 +7,13 @@ An arity table is an _IdentityDictionary_.
 The keys are integers and the values are _type tables_.
 
 A type table is an _IdentityDictionary_.
-The keys are type names and the values are _method definitions_.
+The keys are type names and the values are _Method_ values.
 
-A method definition is (implementation: _Procedure_, arity: _Number_, definition: _String_).
+The method table is stored in the _system_ dictionary.
+
+```
+system::methodTable.isIdentityDictionary = true
+system::methodTable::collect.isIdentityDictionary = true
+system::methodTable::collect[2].isIdentityDictionary = true
+system::methodTable::collect[2]::Array.isMethod = true
+```

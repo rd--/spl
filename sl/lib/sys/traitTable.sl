@@ -18,14 +18,6 @@
 		}
 	}
 
-	traitList { :self |
-		self::traitTypeTable.keys
-	}
-
-	traitMethodDictionary { :self :traitName |
-		self.trait(traitName).methodDictionary
-	}
-
 	traitTypes { :self :traitName |
 		self.isTraitName(traitName).if {
 			| answer = OrderedCollection(); |
