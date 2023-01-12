@@ -7,5 +7,12 @@ Answers the type name of _anObject_.
 ```
 3.141.typeOf = 'Number'
 23.typeOf.typeOf = 'String'
-typeOf.typeOf = 'Procedure'
+typeOf:/1.typeOf = 'Procedure'
+```
+
+The system includes a _typeDictionary_ that maps type names to _Type_ values.
+
+```
+system.type('String').isType = true
+system.type('String').methodDictionary.includesKey('includesSubstring:/2') = true
 ```

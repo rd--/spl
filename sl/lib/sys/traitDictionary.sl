@@ -20,23 +20,9 @@
 
 	traitTypes { :self :traitName |
 		self.isTraitName(traitName).if {
-			| answer = OrderedCollection(); |
-			self::typeDictionary.keysValuesDo { :key :value |
-				value.includes(traitName).ifTrue {
-					answer.add(key)
-				}
-			};
-			answer
+			self.typesImplementingTrait(traitName)
 		} {
 			('traitTypes: not a trait: ' ++ traitName).error
-		}
-	}
-
-	typeTraits { :self :typeName |
-		self.isTypeName(typeName).if {
-			self::typeDictionary[typeName]
-		} {
-			('typeTraits: not a type: ' ++ typeName).error
 		}
 	}
 

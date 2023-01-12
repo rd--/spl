@@ -37,6 +37,7 @@ var f = { :x | x * x }; var d = (p: f); d::p.value(5) = 25
 var f = { :x | x * x }; f(3) = 9
 { var f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49] }.ifError { :err | true }
 var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
+typeOf:/1.typeOf = 'Procedure'
 
 'kernel/UndefinedObject'
 nil.typeOf = 'UndefinedObject'
@@ -388,8 +389,6 @@ system.method('sum', 1, 'Array').sourceCode = '{ :self |\n\t\tself.reduce(plus:/
 system.method('sum', 1, 'Array').origin = 'Collection'
 system.method('sum', 1, 'Array').name = 'sum'
 system.methodTypes('collect').includes('Array') = true
-system.typeMethods('Association').includes('key') = true
-system.typeMethods('UndefinedObject').includes('ifNil') = true
 system.multipleArityMethodList.includes('randomFloat') = true
 system.onlyZeroArityMethodList.includes('systemTimeInMilliseconds') = true
 system.doesTypeImplementMethod('Array', 'select') = true
@@ -404,7 +403,8 @@ system.method('sum', 1, 'Array') == system.method('sum', 1, 'OrderedCollection')
 systemTimeInMilliseconds() > 0 = true
 unixTimeInMilliseconds() > 1671935015392 = true
 
-'lib/sys/traitTable'
+'lib/sys/traitDictionary'
+system::traitDictionary.isIdentityDictionary = true
 system::traitDictionary.includesKey('Collection') = true
 system.traitTypes('Collection').includes('Array') = true
 system.typeTraits('Array').includes('ArrayedCollection') = true
@@ -416,3 +416,20 @@ system.trait('Collection').isTrait = true
 system.trait('Collection').name = 'Collection'
 system.trait('Collection').methodDictionary.includesKey('sum:/1') = true
 system.trait('Collection').methodDictionary::sum:/1.isMethod = true
+
+'lib/sys/typeDictionary'
+system::typeDictionary.isIdentityDictionary = true
+system::typeDictionary.keys.includes('Array') = true
+system::typeDictionary.includesKey('Array') = true
+system::typeDictionary::Array.isType = true
+system::typeDictionary::Array.traitArray.includes('Collection') = true
+system::typeDictionary::Association.slotArray = ['key', 'value']
+system::typeDictionary::Association.methodDictionary.keys.includes('equals:/2')
+system::typeDictionary::Association.methodDictionary.includesKey('key:/1') = true
+system::typeDictionary::UndefinedObject.methodDictionary.includesKey('ifNil:/2') = true
+system.typeMethods('Association').select({ :each | each.name = 'copy' }).size = 1
+system.typeMethods('Association').collect(name:/1).includes('copy') = true
+system.type('Array').isType = true
+system.type('Array').name = 'Array'
+system.type('Array').methodDictionary.includesKey('copy:/1') = true
+system.type('Array').methodDictionary::copy:/1.isMethod = true

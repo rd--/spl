@@ -1,4 +1,4 @@
-# UndefinedObject
+# UndefinedObject -- nil type
 
 _UndefinedObject_ is the type of the value _nil_.
 

@@ -1,4 +1,4 @@
-# Method -- behaviour
+# Method -- behaviour type
 
 _Method_ is the type of the entries in the [Method Table].
 

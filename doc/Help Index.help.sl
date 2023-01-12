@@ -9,6 +9,7 @@
 - \>= -- comparison operator
 - ++ -- concatenation
 - = -- equality operator
+- ~~ -- identity
 - == -- identity operator
 - ~= -- inequality operator
 - & -- logic operator
@@ -21,10 +22,18 @@
 - / -- mathematical operator
 - :: -- quoted at syntax
 - .. -- range operator syntax
-- Array -- collection
+- Array -- collection type
 - Association -- associate with
+- Dictionary -- collection trait
+- Method -- behaviour type
+- Number -- number type
+- Object -- trait
 - OrderedCollection -- collection type
-- Procedure -- behaviour
+- Procedure -- behaviour type
+- Trait -- behaviour type
+- Type -- value type
+- UndefinedObject -- nil type
+- Void -- uninhabited type
 - add -- adding
 - addAll -- adding
 - allButFirst -- accesing
@@ -37,6 +46,7 @@
 - concatenation -- converting
 - count -- enumerating
 - cull -- evaluating
+- error -- error handling
 - false -- boolean constant
 - if -- conditional evaluation
 - ifFalse -- conditional evaluation
@@ -61,10 +71,13 @@
 - return -- non-local control flow
 - reversed -- converting
 - select -- enumerating
+- sign -- math operator
 - size -- accessing
 - sorted -- sorting
 - sum -- math operator
+- system -- dictionary
 - timesRepeat -- enumerating
+- transpose -- rearranging
 - true -- boolean constant
 - typeOf -- reflection
 - value -- evaluation

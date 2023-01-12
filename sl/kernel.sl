@@ -4,6 +4,7 @@ loadSequence([
 	'kernel/Method.sl',
 	'kernel/Procedure.sl',
 	'kernel/Trait.sl',
+	'kernel/Type.sl',
 	'kernel/UndefinedObject.sl',
 	'lib/num/Binary.sl',
 	'lib/num/Integral.sl',

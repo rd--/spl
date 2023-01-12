@@ -60,9 +60,6 @@ export function isByte(anObject: unknown): boolean {
 	return isNumber(anObject) && Number.isInteger(anObject) && anObject >= 0 && anObject < 256;
 }
 
-// Void is not an ordinary type, it names the place in the method table for no-argument procedures.
-export const typeDictionary: Map<TypeName, TraitName[]> = new Map([['Array', []], ['String', []], ['Void', []]]);
-
 type MethodOrigin = string;
 
 export class Method {
@@ -80,7 +77,7 @@ export class Method {
 
 export class Trait {
 	name: TraitName;
-	methodDictionary: Map<QualifiedMethodName, Method[]>;
+	methodDictionary: Map<QualifiedMethodName, Method>;
 	constructor(name: TraitName) {
 		this.name = name;
 		this.methodDictionary = new Map();
@@ -88,6 +85,26 @@ export class Trait {
 }
 
 export const traitDictionary: Map<TraitName, Trait> = new Map();
+
+export class Type {
+	name: TypeName;
+	traitArray: TraitName[];
+	slotArray: string[];
+	methodDictionary: Map<QualifiedMethodName, Method>;
+	constructor(name: TypeName, traitArray, slotArray) {
+		this.name = name;
+		this.traitArray = traitArray;
+		this.slotArray = slotArray;
+		this.methodDictionary = new Map();
+	}
+}
+
+// Void is not an ordinary type, it names the place in the method table for no-argument procedures.
+export const typeDictionary: Map<TypeName, Type[]> = new Map([
+	['Array', new Type('Array', [], [])],
+	['String', new Type('String', [], [])],
+	['Void', new Type('Void', [], [])]
+]);
 
 export function addTrait(traitName: TraitName): void {
 	// console.debug(`addTrait: ${traitName}`);
@@ -116,8 +133,8 @@ export function copyTraitToType(traitName: TraitName, typeName: TypeName): void 
 
 export function traitTypeArray(traitName: TraitName): TypeName[] {
 	const answer = [];
-	for (const [typeName, traitList] of typeDictionary) {
-		if(traitList.includes(traitName)) {
+	for (const [typeName, typeValue] of typeDictionary) {
+		if(typeValue.traitArray.includes(traitName)) {
 			answer.push(typeName);
 		}
 	}
@@ -235,6 +252,9 @@ export function addMethodFor(typeName: TypeName, method: Method): Method {
 	} else {
 		arityTable.get(method.arity)!.set(typeName, method);
 	}
+	if(typeName === method.origin) {
+		typeDictionary.get(typeName)!.methodDictionary.set(method.qualifiedName(), method);
+	}
 	return method;
 }
 
@@ -254,7 +274,7 @@ export function addType(typeName: TypeName, traitList: TraitName[], slotNames: s
 	const defSlotAccess = slotNames.map(each => `addMethod('${typeName}', '${each}', 1, function(anInstance) { return anInstance.${each} }, '<primitive>');`).join('; ');
 	const defSlotMutate = slotNames.map(each => `addMethod('${typeName}', '${each}', 2, function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive>');`).join('; ');
 	// console.debug(`addType: ${typeName}, ${slotNames}`);
-	typeDictionary.set(typeName, traitList);
+	typeDictionary.set(typeName, new Type(typeName, traitList, slotNames));
 	eval(defType);
 	eval(defPredicateFalse);
 	eval(defPredicateTrue);

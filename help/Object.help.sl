@@ -1,4 +1,4 @@
-# Object
+# Object -- value trait
 
 _Object_ is a _Trait_.
 Ordinarily _all_ types should implement _Object_.

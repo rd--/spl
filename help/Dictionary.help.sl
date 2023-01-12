@@ -1,6 +1,6 @@
-# Dictionary -- collection of (key, value) associations
+# Dictionary -- collection trait
 
-_Dictionary_ is a trait holding behaviours common to collections of associations.
+_Dictionary_ is a trait holding behaviours common to collections of (key, value) associations.
 
 ```
 system.traitTypes('Dictionary')

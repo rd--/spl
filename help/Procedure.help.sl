@@ -1,4 +1,4 @@
-# Procedure -- behaviour
+# Procedure -- behaviour type
 
 * * *
 

@@ -14,10 +14,6 @@
 		self.methodList.includes(aString)
 	}
 
-	isTypeName { :self :aString |
-		self::typeDictionary.includesKey(aString)
-	}
-
 	method { :self :methodName :arity :typeName |
 		self::methodTable[methodName][arity][typeName]
 	}

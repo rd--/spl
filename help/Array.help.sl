@@ -1,4 +1,4 @@
-# Array -- collection
+# Array -- collection type
 
 - _Array(anInteger)_
 
