@@ -32,3 +32,17 @@ This is not possible in the simple model, since the method procedure is of varia
 ```
 sqrt:/1.cull(9, 25) = 3
 ```
+
+This model is a more complicated notation, but for a simpler and more uniform semantics.
+
+The _Spl_ standard libraries are written following this model.
+Libraries written in this form will work when the compiler is in [Simple Method Arity] mode.
+(The inverse is not the case.)
+
+There is a compiler switch to select if local procedures are aliased to the unqualified name.
+If the switch is selected then the program below is allowed, since the system binds _f = f:/1_.
+
+```
+var f = { :x | x * x };
+[3, 5, 7].collect(f) = [9, 25, 49]
+````

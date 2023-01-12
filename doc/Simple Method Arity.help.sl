@@ -13,4 +13,5 @@ In this model _sqrt.numArgs_ is an error, and therefore _cull_ also.
 { sqrt.cull(9, 25) }.ifError { true }
 ```
 
-The simple model encourages a style of writing that makes programs more like Smalltalk programs, using literal blocks as parameters to methods that require behaviours.
+This notation is intuitive and clear and simple.
+The name of the method value is the same as the name of the method when applied.
