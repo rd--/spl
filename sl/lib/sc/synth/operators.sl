@@ -5,8 +5,9 @@
 	fractionPart { :self | <primitive: return sc.Frac(_self);> }
 	negated { :self | <primitive: return sc.Neg(_self);> }
 	reciprocal { :self | <primitive: return sc.Recip(_self);> }
-	rounded { :self | RoundTo(self, 1) }
 *)
+
+	rounded { :self | RoundTo(self, 1) }
 
 	bitShiftLeft { :self :anObject | <primitive: return sc.ShiftLeft(_self, _anObject);> }
 	bitShiftRight { :self :anObject | <primitive: return sc.ShiftRight(_self, _anObject);> }

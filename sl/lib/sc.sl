@@ -3,6 +3,7 @@ loadSequence([
 	'lib/sc/lang/ArrayedCollection.ext.sl',
 	'lib/sc/lang/Array.ext.sl',
 	'lib/sc/lang/Collection.ext.sl',
+	'lib/sc/lang/Interval.ext.sl',
 	'lib/sc/lang/Number.ext.sl',
 	'lib/sc/lang/Numeric.ext.sl',
 	'lib/sc/lang/Object.ext.sl',
