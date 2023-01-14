@@ -81,8 +81,7 @@
 	Select2 { :predicate :ifTrue :ifFalse | <primitive: return sc.Select2(_predicate, _ifTrue, _ifFalse);> }
 	SelectX { :which :array | <primitive: return sc.SelectX(_which, _array);> }
 	Seq { :repeats :list | <primitive: return sc.Seq(_repeats, _list);> }
-	Ser { :length :start :step | <primitive: return sc.Series(_length, _start, _step);> }
-	Series { :repeats :list | <primitive: return sc.Ser(_repeats, _list);> }
+	Ser { :length :start :step | <primitive: return sc.Ser(_length, _start, _step);> }
 	SfDur { :sfBufferArray |<primitive: return sc.SfDur(_sfBufferArray);> }
 	SfFrames { :sfBufferArray |<primitive: return sc.SfFrames(_sfBufferArray);> }
 	SfPlay { :sfBufferArray :rate :trigger :startPos :loop |<primitive: return sc.SfPlay(_sfBufferArray, _rate, _trigger, _startPos, _loop);> }
