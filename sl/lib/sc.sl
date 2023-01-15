@@ -8,6 +8,7 @@ loadSequence([
 	'lib/sc/lang/Numeric.ext.sl',
 	'lib/sc/lang/Object.ext.sl',
 	'lib/sc/lang/SequenceableCollection.ext.sl',
+	'lib/sc/synth/CcEvent.sl',
 	'lib/sc/synth/Scsynth.sl',
 	'lib/sc/synth/Ugen.sl',
 	'lib/sc/synth/Env.sl', (* requires Ugen *)
