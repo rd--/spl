@@ -13,6 +13,8 @@
 	bitShiftRight { :self :anObject | <primitive: return sc.ShiftRight(_self, _anObject);> }
 	truncateTo { :self :anObject | <primitive: return sc.Trunc(_self, _anObject);> }
 
+	UnitCps { :self | (self * 127).MidiCps }
+
 	+ { :self :anObject | <primitive: return sc.Add(_self, _anObject);> }
 	* { :self :anObject | <primitive: return sc.Mul(_self, _anObject);> }
 	- { :self :anObject | <primitive: return sc.Sub(_self, _anObject);> }
