@@ -1,8 +1,8 @@
-+ Void {
++ IdentityDictionary {
 
-	uniqueId {
-		| answer = system::nextUniqueId; |
-		system::nextUniqueId := answer + 1;
+	uniqueId { :self |
+		| answer = self::nextUniqueId; |
+		self::nextUniqueId := answer + 1;
 		answer
 	}
 

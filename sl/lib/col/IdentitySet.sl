@@ -28,6 +28,10 @@ IdentitySet : [Object, Collection] {
 		<primitive: return _self.size;>
 	}
 
+	species { :self |
+		IdentitySet:/0
+	}
+
 }
 
 + Array {
