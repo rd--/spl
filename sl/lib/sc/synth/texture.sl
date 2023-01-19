@@ -58,6 +58,10 @@ Procedure {
 		self.overlap(sustainTime, transitionTime, 2)
 	}
 
+	XFadeTexture { :self :sustainTime :transitionTime |
+		<primitive: return sc.XFadeTexture(_self, _sustainTime, _transitionTime);>
+	}
+
 }
 
 + @Collection {
