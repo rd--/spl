@@ -7,13 +7,25 @@
 	reciprocal { :self | <primitive: return sc.Recip(_self);> }
 *)
 
-	rounded { :self | RoundTo(self, 1) }
+	bitShiftLeft { :self :anObject |
+		<primitive: return sc.ShiftLeft(_self, _anObject);>
+	}
 
-	bitShiftLeft { :self :anObject | <primitive: return sc.ShiftLeft(_self, _anObject);> }
-	bitShiftRight { :self :anObject | <primitive: return sc.ShiftRight(_self, _anObject);> }
-	truncateTo { :self :anObject | <primitive: return sc.Trunc(_self, _anObject);> }
+	bitShiftRight { :self :anObject |
+		<primitive: return sc.ShiftRight(_self, _anObject);>
+	}
 
-	UnitCps { :self | (self * 127).MidiCps }
+	rounded { :self |
+		RoundTo(self, 1)
+	}
+
+	truncateTo { :self :anObject |
+		<primitive: return sc.Trunc(_self, _anObject);>
+	}
+
+	UnitCps { :self |
+		(self * 100).MidiCps
+	}
 
 	+ { :self :anObject | <primitive: return sc.Add(_self, _anObject);> }
 	* { :self :anObject | <primitive: return sc.Mul(_self, _anObject);> }
