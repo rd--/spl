@@ -44,6 +44,10 @@ Boolean : [Object] {
 		self.if(whenTrue, { nil })
 	}
 
+	json { :self |
+		<primitive: return JSON.stringify(_self);>
+	}
+
 	not { :self |
 		<primitive: return _self ? false : true;>
 	}

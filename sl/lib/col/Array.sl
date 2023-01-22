@@ -14,6 +14,10 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 		<primitive: return Array.from(_self);>
 	}
 
+	json { :self |
+		<primitive: return JSON.stringify(_self);>
+	}
+
 	printString { :self |
 		'[' ++ self.collect(printString:/1).joinSeparatedBy(', ') ++ ']'
 	}

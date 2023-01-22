@@ -127,6 +127,10 @@ Number : [Object, Magnitude, Numeric, Integral, Binary] {
 		}
 	}
 
+	json { :self |
+		<primitive: return JSON.stringify(_self);>
+	}
+
 	Number { :self |
 		self
 	}

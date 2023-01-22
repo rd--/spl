@@ -9,6 +9,7 @@ loadSequence([
 	'lib/col/Interval.sl',
 	'lib/col/OrderedCollection.sl',
 	'lib/col/PriorityQueue.sl',
+	'lib/col/StringDictionary.sl',
 	'lib/err/Error.sl',
 	'lib/sys/id.sl',
 	'lib/sys/methodTable.sl',

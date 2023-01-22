@@ -55,6 +55,10 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 		<primitive: return Array.from(_self.values());>
 	}
 
+	IdentityDictionary { :self |
+		self
+	}
+
 }
 
 + Array {

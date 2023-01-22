@@ -13,6 +13,10 @@ StringDictionary : [Object, Dictionary] {
 		<primitive: return Object.hasOwn(_aKey);>
 	}
 
+	json { :self |
+		<primitive: return JSON.stringify(_self);>
+	}
+
 	keys { :self |
 		<primitive: return Object.keys(_self);>
 	}
@@ -37,6 +41,14 @@ StringDictionary : [Object, Dictionary] {
 		<primitive: return Object.values(_self);>
 	}
 
+	IdentityDictionary { :self |
+		<primitive: return new Map(Object.entries(_self));>
+	}
+
+	StringDictionary { :self |
+		self
+	}
+
 }
 
 + Array {
@@ -49,6 +61,14 @@ StringDictionary : [Object, Dictionary] {
 	StringDictionary { :self |
 		(* I am an array of associations. *)
 		self.collect(asArray:/1).stringDictionaryFromTwoElementArrays
+	}
+
+}
+
++ IdentityDictionary {
+
+	StringDictionary { :self |
+		<primitive: return Object.fromEntries(_self);>
 	}
 
 }

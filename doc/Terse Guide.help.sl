@@ -15,6 +15,8 @@ false | { 'false |'.postLine; true } = true
 true.printString = 'true'
 true && true = true
 false || true = true
+[true.json, false.json] = ['true', 'false']
+['true', 'false'].collect(parseJson:/1) = [true, false]
 
 'kernel/Procedure'
 var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5
@@ -54,6 +56,8 @@ nil ? 1 = 1
 nil ~? 1 = nil
 1 ~? 2 = 2
 nil.printString = 'nil'
+nil.json = 'null'
+'null'.parseJson = nil
 
 'lib/async/Promise'
 { Promise() }.ifError { :err | true }
@@ -137,6 +141,8 @@ var a = Array(1); a.unsafeAt(3).isNil = true
 var a = Array(1); a.unsafeAtPut(3, 'x') = 'x' & { a.size = 3 }
 Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(even:/1) = 4
+[nil, true, false, 3.141, 23, 'str'].json = '[null,true,false,3.141,23,"str"]'
+ '[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str']
 
 'lib/col/Association'
 ('x' -> 1).typeOf = 'Association'
@@ -323,6 +329,23 @@ var p = PriorityQueue(); p.peekPriority = nil
 "x" = 'x'.parseDoubleQuotedString
 'string'[3] = 'r'
 { 'string'[3] := 'r' }.ifError { :err | true }
+'{"x": 3.141, "y": 23}'.parseJson
+{ '_'.parseJson }.ifError { :err | true }
+'a text string'.json = '"a text string"'
+ '"a text string"'.parseJson = 'a text string'
+
+'lib/col/StringDictionary'
+StringDictionary().isStringDictionary
+StringDictionary().includesKey('x') = false
+StringDictionary().at('x') = nil
+var d = StringDictionary(); d.atPut('x', 1); d.at('x') = 1
+var d = StringDictionary(); d['x'] := 1; d['x'] = 1
+var d = StringDictionary(); d['x'] := 1; d['y'] := 2; d.size = 2
+var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
+['x' -> 1, 'y' -> 2].StringDictionary['y'] = 2
+{ StringDictionary().atPut(1, 1) }.ifError { :error | true }
+(x: 3.141, y: 23).StringDictionary.json = '{"x":3.141,"y":23}'
+'{"x":3.141,"y":23}'.parseJson.IdentityDictionary = (x: 3.141, y: 23)
 
 'lib/err/Error'
 Error().isError = true
@@ -373,6 +396,8 @@ var total = 0; 9.timesRepeat { total := total + randomFloat() }; total < 7
 9.randomInteger.isInteger = true
 9.randomFloat.isInteger = false
 pi.randomFloat.isInteger = false
+[3.141.json, 23.json] = ['3.141', '23']
+['3.141', '23'].collect(parseJson:/1) = [3.141, 23]
 
 'lib/sys/methodTable'
 system.keys.includesAllOf(['methodTable', 'traitDictionary', 'typeDictionary']) = true

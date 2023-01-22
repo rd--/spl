@@ -66,6 +66,10 @@ String : [Object, Collection, SequenceableCollection] {
 		<primitive: return _self.includes(_aString);>
 	}
 
+	json { :self |
+		<primitive: return JSON.stringify(_self);>
+	}
+
 	loadFile { :self |
 		<primitive: evaluateFile(_self);>
 	}
@@ -80,6 +84,10 @@ String : [Object, Collection, SequenceableCollection] {
 
 	parseDoubleQuotedString { :self |
 		self
+	}
+
+	parseJson { :self |
+		<primitive: return JSON.parse(_self);>
 	}
 
 	postLine { :self |

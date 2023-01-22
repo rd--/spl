@@ -58,17 +58,6 @@ var p = Pair('x', 'y'); p[1] := 'z'; p.first = 'z'
 var p = Pair('x', 'y'); p.swapInPlace; p[1] = 'y'
 Pair('x', 'y').swapped = Pair('y', 'x')
 
-'lib/col/StringDictionary'
-StringDictionary().isStringDictionary
-StringDictionary().includesKey('x') = false
-StringDictionary().at('x') = nil
-var d = StringDictionary(); d.atPut('x', 1); d.at('x') = 1
-var d = StringDictionary(); d['x'] := 1; d['x'] = 1
-var d = StringDictionary(); d['x'] := 1; d['y'] := 2; d.size = 2
-var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
-['x' -> 1, 'y' -> 2].StringDictionary['y'] = 2
-{ StringDictionary().atPut(1, 1) }.ifError { :error | true }
-
 'lib/num/LargeInteger'
 (2 ** 54).asLargeInteger.squared.printString = '324518553658426726783156020576256'
 '324518553658426726783156020576256'.asLargeInteger.isLargeInteger = true
