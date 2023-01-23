@@ -1,7 +1,19 @@
 Point : [Object] { | x y |
 
 	= {	:self :anObject |
-		if(anObject.isPoint) { (self.x = anObject.x) & { self.y = anObject.y } } { false }
+		if(anObject.isPoint) {
+			(self.x = anObject.x) & { self.y = anObject.y }
+		} {
+			false
+		}
+	}
+
+	< { :self :aPoint |
+		self.x < aPoint.x & { self.y < aPoint.y }
+	}
+
+	<= { :self :aPoint |
+		self.x <= aPoint.x & { self.y <= aPoint.y }
 	}
 
 	+ { :self :anObject |
@@ -46,6 +58,14 @@ Point : [Object] { | x y |
 
 	length { :self |
 		(self.x.squared + self.y.squared).sqrt
+	}
+
+	max { :self :aPoint |
+		self.x.max(aPoint.x) @ self.y.max(aPoint.y)
+	}
+
+	min { :self :aPoint |
+		self.x.min(aPoint.x) @ self.y.min(aPoint.y)
 	}
 
 	negate { :self |

@@ -1,4 +1,4 @@
-'lib/cg/Point'
+'Graphics/Point'
 Point(0, 0).typeOf = 'Point'
 Point(-1, 1).isPoint = true
 Point(3, 4).isPoint & { true } = true
@@ -15,7 +15,14 @@ Point(3, 4).isPoint & { true } = true
 var p = -1@1; p.x := -3; p.y := 3; p = (-3@3) = true
 var p = -1@3, a = [p]; a.first.x := -3; p = (-3@3) = true
 
-'lib/col/Cons'
+'Graphics/Rectangle'
+Rectangle(0@0, 1@1).printString = 'Rectangle(Point(0, 0), Point(1, 1))'
+Rectangle(0@0, 2@2).intersect(Rectangle(1@1, 4@4)) = Rectangle(1@1, 2@2)
+Rectangle(1@1, 3@3).area = 4
+Rectangle(1@1, 3@3).center = Point(2, 2)
+Rectangle(1@1, 3@3).containsPoint(2@2) = true
+
+'Collections/Cons'
 Cons(1, nil).length = 1
 Cons(1, nil).isList = true
 Cons(1, 2).isList = false
@@ -27,7 +34,7 @@ Cons([1 .. 9]).length = 9
 [[[[1, 2, 3]]]].Cons.depth = 4
 [9, 16, 25].Cons.collect(sqrt:/1) = [3, 4, 5].Cons
 
-'lib/col/LinkedList'
+'Collections/LinkedList'
 LinkedList().typeOf = 'Array'
 LinkedList().isLinkedList = true
 LinkedList(3).size = 0
@@ -49,7 +56,7 @@ LinkedList([1 .. 9]).reversed = [9 .. 1]
 { LinkedList().removeFirst }.ifError { :error | true }
 { LinkedList().removeLast }.ifError { :error | true }
 
-'lib/col/Pair'
+'Collections/Pair'
 Pair('x', 'y').typeOf = 'Pair'
 Pair('x', 'y').isPair = true
 Pair('x', 'y').first = 'x'
@@ -58,17 +65,17 @@ var p = Pair('x', 'y'); p[1] := 'z'; p.first = 'z'
 var p = Pair('x', 'y'); p.swapInPlace; p[1] = 'y'
 Pair('x', 'y').swapped = Pair('y', 'x')
 
-'lib/num/LargeInteger'
+'Number/LargeInteger'
 (2 ** 54).asLargeInteger.squared.printString = '324518553658426726783156020576256'
 '324518553658426726783156020576256'.asLargeInteger.isLargeInteger = true
 2971215073.asLargeInteger.isPrime = true
 
-'lib/rx/RegExp'
+'Text/RegExp'
 RegExp('ab+c').isRegExp = true
 var r = RegExp('ab*c'); [r.test('ac'), r.test('abc')] = [true, true]
 var r = RegExp('ab*c', 'g'); 'ab abc ac'.allRegExpMatches(r) = ['abc', 'ac']
 
-'lib/stream/ReadStream'
+'Collections/Streams/ReadStream'
 var r = [1 .. 5].ReadStream; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil]
 var r = [1 .. 3].ReadStream; [r.next, r.upToEnd] = [1, [2, 3]]
 ReadStream().atEnd = true
@@ -79,14 +86,14 @@ var r = (9 .. 1).ReadStream; r.upTo(0) = [9 .. 1]
 var r = (9 .. 1).ReadStream; [r.upTo(3), r.upToEnd] = [[9 .. 4], [2 .. 1]]
 var r = (9 .. 1).ReadStream; [r.upToPosition(3), r.upToEnd] = [[9 .. 7], [6 .. 1]]
 
-'lib/stream/WriteStream'
+'Collections/Streams/WriteStream'
 var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.contents = [1]
 var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.nextPutAll([2 .. 8]); w.nextPut(9); w.contents = [1 .. 9]
 var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.nextPutAll((2 .. 8)); w.nextPut(9); w.contents = [1 .. 9]
-var a = Array(); var w = WriteStream(a); w.nextPut(1); w.contents = [1]
+var a = Array(0); var w = WriteStream(a); w.nextPut(1); w.contents = [1]
 var w = Utf8WriteStream(); 'bodlɛʁ'.encodeOn(w); w.contents.utf8 = 'bodlɛʁ'
 
-'lib/time/Duration'
+'Time/Duration'
 2.seconds.typeOf = 'Duration'
 5.hours.isDuration = true
 0.25.asDuration = 250.milliseconds
@@ -103,4 +110,4 @@ unixTime().weeks > 2750 = true
 { unixTime().postLine }.evaluateAfter(0.5.seconds).cancel = nil
 { unixTime().postLine }.evaluateAt(unixTime() + 0.5.seconds).cancel = nil
 { unixTime().seconds.rounded.postLine }.evaluateEvery(3.seconds).cancel = nil
-var f = { :t0 | | t1 = 2.randomFloat.seconds; | t0.postLine; f.evaluateAfter(t1, t1) }; f(2.seconds).cancel = nil
+var f = { :t0 | | t1 = 2.randomFloat.seconds; | t0.postLine; f.evaluateAfterWith(t1, t1) }; f(2.seconds).cancel = nil

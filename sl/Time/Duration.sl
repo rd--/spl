@@ -1,4 +1,4 @@
-Duration { | milliseconds |
+Duration : [Object] { | milliseconds |
 
 	= { :self :aDuration |
 		aDuration.isDuration &

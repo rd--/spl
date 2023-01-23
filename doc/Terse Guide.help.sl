@@ -1,4 +1,4 @@
-'kernel/Boolean'
+'Kernel/Boolean'
 true.typeOf = 'Boolean'
 true.isBoolean
 false.isBoolean
@@ -18,7 +18,7 @@ false || true = true
 [true.json, false.json] = ['true', 'false']
 ['true', 'false'].collect(parseJson:/1) = [true, false]
 
-'kernel/Procedure'
+'Kernel/Procedure'
 var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5
 var i = 1; 1.toDo(3) { :each | i := i + each.squared } ; i = 15
 var i = 1; 3.do { :each | i := i + each.squared } ; i = 15
@@ -41,7 +41,14 @@ var f = { :x | x * x }; f(3) = 9
 var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
 typeOf:/1.typeOf = 'Procedure'
 
-'kernel/UndefinedObject'
+'Kernel/Promise'
+{ Promise() }.ifError { :err | true }
+var p = Promise { :t:/1 :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isPromise
+var p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
+var p = Promise { :t :f:/1 | f('f') }; p.then({ :t | t.postLine }).catch({ :f | (f = 'f').postLine }); p.isPromise
+var p = Promise { :t :f:/1 | f('f') }; p.thenElse({ :t | t.postLine }, { :f | (f = 'f').postLine }).finally({ 'true'.postLine }); p.isPromise
+
+'Kernel/UndefinedObject'
 nil.typeOf = 'UndefinedObject'
 nil.isNil = true
 nil.isUndefinedObject = true
@@ -59,14 +66,7 @@ nil.printString = 'nil'
 nil.json = 'null'
 'null'.parseJson = nil
 
-'lib/async/Promise'
-{ Promise() }.ifError { :err | true }
-var p = Promise { :t:/1 :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isPromise
-var p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
-var p = Promise { :t :f:/1 | f('f') }; p.then({ :t | t.postLine }).catch({ :f | (f = 'f').postLine }); p.isPromise
-var p = Promise { :t :f:/1 | f('f') }; p.thenElse({ :t | t.postLine }, { :f | (f = 'f').postLine }).finally({ 'true'.postLine }); p.isPromise
-
-'lib/col/Array'
+'Collections/Array'
 [].typeOf = 'Array'
 [].species = Array:/1
 [].isArray = true
@@ -144,7 +144,7 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [nil, true, false, 3.141, 23, 'str'].json = '[null,true,false,3.141,23,"str"]'
  '[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str']
 
-'lib/col/Association'
+'Collections/Association'
 ('x' -> 1).typeOf = 'Association'
 Association('x', 1) = ('x' -> 1)
 var a = 'x' -> 1; [a.key, a.value] = ['x', 1]
@@ -152,7 +152,7 @@ var a = 'x' -> 1; [a.key, a.value] = ['x', 1]
 ['x' -> 1, 'y' -> 2].collect(asArray:/1) = [['x', 1], ['y', 2]]
 (23 -> 3.141).printString = 'Association(23, 3.141)'
 
-'lib/col/ByteArray'
+'Collections/ByteArray'
 ByteArray(0).typeOf = 'ByteArray'
 ByteArray(0).species = ByteArray:/1
 ByteArray(0).isByteArray
@@ -165,7 +165,7 @@ var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
 [1 .. 9].ByteArray.reversed = [9 .. 1].ByteArray
 [1 .. 3].ByteArray.printString = 'ByteArray([1, 2, 3])'
 
-'lib/col/Float64Array'
+'Collections/Float64Array'
 Float64Array(0).typeOf = 'Float64Array'
 Float64Array(0).species = Float64Array:/1
 Float64Array(0).isFloat64Array
@@ -183,7 +183,7 @@ var a = Float64Array(1); a.unsafeAtPut(1, 'x'); a.at(1).isNaN = true
 var a = Float64Array(1); a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
 [1 .. 3].Float64Array.printString = 'Float64Array([1, 2, 3])'
 
-'lib/col/IdentityDictionary'
+'Collections/IdentityDictionary'
 ().species = IdentityDictionary:/0
 var d = IdentityDictionary(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2
 var d = ['x' -> 1, 'y' -> 2].IdentityDictionary; d.keys = ['x', 'y']
@@ -213,7 +213,7 @@ size (x: 1, y: 2, z: 3) = 3
 var d = (x: 1); d.addAll (y: 2, z: 3); d = (x: 1, y: 2, z: 3)
 (x:'x', y:'.', z:'z').associationsSelect { :each | each.key = each.value } = (x:'x', z:'z')
 
-'lib/col/IdentitySet'
+'Collections/IdentitySet'
 [1, 3, 5, 3, 1].IdentitySet.isIdentitySet = true
 [1, 3, 5, 3, 1].IdentitySet.size = 3
 [1, 3, 5, 3, 1].IdentitySet.includes(3) = true
@@ -222,7 +222,7 @@ var d = (x: 1); d.addAll (y: 2, z: 3); d = (x: 1, y: 2, z: 3)
 var s = [1, 3, 5, 3, 1].IdentitySet; s.remove(3); s.asArray = [1, 5]
 [1 .. 9].IdentitySet.atRandom.betweenAnd(1, 9)
 
-'lib/col/Interval'
+'Collections/Interval'
 (1 .. 9).species = Array:/1
 1.to(9).isInterval = true
 to(1, 9).size = 9
@@ -271,7 +271,7 @@ Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 (3 .. 7).anyOne = 3
 (1 .. 9).max = 9
 
-'lib/col/OrderedCollection'
+'Collections/OrderedCollection'
 OrderedCollection().species = OrderedCollection:/1
 OrderedCollection().isOrderedCollection = true
 OrderedCollection(3).size = 0
@@ -290,7 +290,7 @@ var l = OrderedCollection([4, 5]); l.addAllFirst(1.to(3)); l.asArray = [1 .. 5]
 OrderedCollection:/1.series(9, 1, 1) = [1 .. 9].OrderedCollection
 OrderedCollection:/1.geom(7, 1, 3) = [1, 3, 9, 27, 81, 243, 729].OrderedCollection
 
-'lib/col/PriorityQueue'
+'Collections/PriorityQueue'
 PriorityQueue().isPriorityQueue = true
 PriorityQueue().isEmpty = true
 var p = PriorityQueue(); p.push('a', 1); p.pop = 'a'
@@ -298,7 +298,20 @@ var p = PriorityQueue(); p.push('a', 1); p.push('b', 0); p.pop = 'b'
 var p = PriorityQueue(); p.pushAll(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 & { p.pop = 'c' }
 var p = PriorityQueue(); p.peekPriority = nil
 
-'lib/col/String'
+'Collections/StringDictionary'
+StringDictionary().isStringDictionary
+StringDictionary().includesKey('x') = false
+StringDictionary().at('x') = nil
+var d = StringDictionary(); d.atPut('x', 1); d.at('x') = 1
+var d = StringDictionary(); d['x'] := 1; d['x'] = 1
+var d = StringDictionary(); d['x'] := 1; d['y'] := 2; d.size = 2
+var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
+['x' -> 1, 'y' -> 2].StringDictionary['y'] = 2
+{ StringDictionary().atPut(1, 1) }.ifError { :error | true }
+(x: 3.141, y: 23).StringDictionary.json = '{"x":3.141,"y":23}'
+'{"x":3.141,"y":23}'.parseJson.IdentityDictionary = (x: 3.141, y: 23)
+
+'Text/String'
 ''.typeOf = 'String'
 ''.size = 0
 'x'.asString = 'x'
@@ -334,20 +347,7 @@ var p = PriorityQueue(); p.peekPriority = nil
 'a text string'.json = '"a text string"'
  '"a text string"'.parseJson = 'a text string'
 
-'lib/col/StringDictionary'
-StringDictionary().isStringDictionary
-StringDictionary().includesKey('x') = false
-StringDictionary().at('x') = nil
-var d = StringDictionary(); d.atPut('x', 1); d.at('x') = 1
-var d = StringDictionary(); d['x'] := 1; d['x'] = 1
-var d = StringDictionary(); d['x'] := 1; d['y'] := 2; d.size = 2
-var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
-['x' -> 1, 'y' -> 2].StringDictionary['y'] = 2
-{ StringDictionary().atPut(1, 1) }.ifError { :error | true }
-(x: 3.141, y: 23).StringDictionary.json = '{"x":3.141,"y":23}'
-'{"x":3.141,"y":23}'.parseJson.IdentityDictionary = (x: 3.141, y: 23)
-
-'lib/err/Error'
+'Exceptions/Error'
 Error().isError = true
 Error('message').isError = true
 Error('message').name = 'Error'
@@ -356,13 +356,13 @@ Error('message').log = nil
 { Error('message').signal }.ifError { :err | true }
 { error('message') }.ifError { :err | true }
 
-'lib/num/Binary'
+'Numbers/Binary'
 16 << 3 = 128
 16 >> 3 = 2
 23 << 7 = 2944
 7 << 23 = 58720256
 
-'lib/num/Number'
+'Numbers/Number'
 0 = -0 = true
 1 = 1 = true
 1 >= 1 = true
@@ -399,7 +399,7 @@ pi.randomFloat.isInteger = false
 [3.141.json, 23.json] = ['3.141', '23']
 ['3.141', '23'].collect(parseJson:/1) = [3.141, 23]
 
-'lib/sys/methodTable'
+'System/methodTable'
 system.keys.includesAllOf(['methodTable', 'traitDictionary', 'typeDictionary']) = true
 system::methodTable.isIdentityDictionary = true
 system::methodTable::collect.isIdentityDictionary = true
@@ -424,11 +424,11 @@ system.method('collect', 2, 'Array').origin = 'ArrayedCollection'
 system.method('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.method('sum', 1, 'Array') == system.method('sum', 1, 'OrderedCollection')
 
-'lib/sys/time'
+'System/time'
 systemTimeInMilliseconds() > 0 = true
 unixTimeInMilliseconds() > 1671935015392 = true
 
-'lib/sys/traitDictionary'
+'System/traitDictionary'
 system::traitDictionary.isIdentityDictionary = true
 system::traitDictionary.includesKey('Collection') = true
 system.traitTypes('Collection').includes('Array') = true
@@ -442,7 +442,7 @@ system.trait('Collection').name = 'Collection'
 system.trait('Collection').methodDictionary.includesKey('sum:/1') = true
 system.trait('Collection').methodDictionary::sum:/1.isMethod = true
 
-'lib/sys/typeDictionary'
+'System/typeDictionary'
 system::typeDictionary.isIdentityDictionary = true
 system::typeDictionary.keys.includes('Array') = true
 system::typeDictionary.includesKey('Array') = true
