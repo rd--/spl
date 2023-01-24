@@ -52,7 +52,7 @@ async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	io.addLoadFileMethods();
 	sl.assignGlobals();
 	await io.loadFileArrayInSequence(loadPath, ['kernel.sl', 'std.sl'].concat(lib));
-	if(lib.includes('lib/sc.sl')) {
+	if(lib.includes('sc.sl')) {
 		globalThis.sc = sc;
 		globalThis.globalScsynth = cliScynth;
 		globalThis.playUgen = (ugenGraph) => sc.playUgen(globalThis.globalScsynth, ugenGraph, 1);
@@ -125,7 +125,7 @@ declare global {
 
 async function scCmd(cmd: string, opt: flags.Args): Promise<void> {
 	globalThis.osc = osc;
-	await loadSpl(opt, ['lib/sc.sl']);
+	await loadSpl(opt, ['sc.sl']);
 	switch(cmd) {
 	case 'playFile': scPlayFile(<string>opt._[2]); break;
 	case 'udpServer': scUdpServer(Number(opt._[2])); break;
