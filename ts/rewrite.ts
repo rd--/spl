@@ -84,6 +84,7 @@ const asJs: any = {
 
 	AtPutSyntax(c, _l, k, _r, _e, v) { return `_${genName('atPut', 3)}(${c.asJs}, ${k.asJs}, ${v.asJs})`; },
 	AtPutQuotedSyntax(c, _c, k, _e, v) { return `_${genName('atPut', 3)}(${c.asJs}, '${k.sourceString}', ${v.asJs})`; },
+    AtPutDelegateSyntax(c, _d, k, _e, v) { return `_${genName('atPutDelegateTo', 4)}(${c.asJs}, '${k.sourceString}', ${v.asJs}, 'parent')`; },
 	AtSyntax(c, _l, k, _r) { return `_${genName('at', 2)}(${c.asJs}, ${k.asJs})`; },
 	AtQuotedSyntax(c, _c, k) { return `_${genName('at', 2)}(${c.asJs}, '${k.sourceString}')`; },
 	MessageSendSyntax(d, _o, k, a) {

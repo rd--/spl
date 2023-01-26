@@ -78,6 +78,27 @@
 		}
 	}
 
+	atPutDelegateToIfAbsent { :self :key :value :delegateKey :aProcedure:/0 |
+		self.includesKey(key).if {
+			self.atPut(key, value) 
+		} {
+			self.atIfAbsent(key) {
+				| parent = self[delegateKey]; |
+				parent.notNil.if {
+					parent.atPutDelegateToIfAbsent(key, value, delegateKey, aProcedure:/0)
+				} {
+					aProcedure()
+				}
+			}
+		}
+	}
+
+	atPutDelegateTo { :self :key :value :delegateKey |
+		self.atPutDelegateToIfAbsent(key, value, delegateKey) {
+			self.atPut(key, value)
+		}
+	}
+
 	collect { :self :aProcedure:/1 |
 		| answer = self.species.new; |
 		self.keysValuesDo { :key :value |

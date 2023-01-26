@@ -39,6 +39,7 @@ Sl {
     Primary
       = AtPutSyntax
       | AtPutQuotedSyntax
+      | AtPutDelegateSyntax
       | AtSyntax
       | AtQuotedSyntax
       | ValueApply
@@ -68,6 +69,7 @@ Sl {
     AtPutQuotedSyntax = Primary "::" identifier ":=" Expression
     AtSyntax = Primary "[" Expression "]"
     AtQuotedSyntax = Primary "::" identifier
+    AtPutDelegateSyntax = Primary ":." identifier ":=" Expression
     MessageSendSyntax = Primary ":." identifier NonEmptyParameterList?
     ValueApply = Primary "." ParameterList
     ParameterList =  "(" ListOf<Expression, ","> ")"
