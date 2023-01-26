@@ -86,7 +86,10 @@ const asJs: any = {
 	AtPutQuotedSyntax(c, _c, k, _e, v) { return `_${genName('atPut', 3)}(${c.asJs}, '${k.sourceString}', ${v.asJs})`; },
 	AtSyntax(c, _l, k, _r) { return `_${genName('at', 2)}(${c.asJs}, ${k.asJs})`; },
 	AtQuotedSyntax(c, _c, k) { return `_${genName('at', 2)}(${c.asJs}, '${k.sourceString}')`; },
-	ValueApplySyntax(p, _d, a) { return `${p.asJs}(${a.asJs})`; },
+	MessageSendSyntax(d, _o, k, a) {
+		return `_${genName('messageSend', 4)}(${d.asJs}, '${k.sourceString}', 'parent', [${a.children.map(c => c.asJs)}])`;
+	},
+	ValueApply(p, _d, a) { return `${p.asJs}(${a.asJs})`; },
     NonEmptyParameterList(_l, sq, _r) { return commaList(sq.asIteration().children); },
 
     DotExpressionWithTrailingClosuresSyntax(lhs, _dot, nm, args, tc) {
@@ -143,7 +146,7 @@ const asJs: any = {
 		const name = `${genName(rcv.asJs, arg.arityOf + tc.children.length)}`;
 		return `${name}(...[${opt === '' ? '' : opt + ', '} ${commaList(tc.children)}])`;
 	},
-    Apply(rcv, arg) { return `${genName(rcv.asJs, arg.arityOf)}(...[${arg.asJs}])`; },
+    ApplySyntax(rcv, arg) { return `${genName(rcv.asJs, arg.arityOf)}(...[${arg.asJs}])`; },
     ParameterList(_l, sq, _r) { return commaList(sq.asIteration().children); },
     ParenthesisedExpression(_l, e, _r) { return `(${e.asJs})`; },
     DictionaryExpression(_l, dict, _r) { return `new Map([${commaList(dict.asIteration().children)}])`; },

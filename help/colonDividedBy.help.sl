@@ -25,8 +25,8 @@ and must be called using _apply_ or _value_.
 [sqrt(9), 9.sqrt, sqrt.value(9), sqrt:/1.value(9)] = [3, 3, 3, 3]
 ```
 
-Where supported this operator is displayed as a degree sign, °.
+Where supported this operator is displayed as a big solidus, ⧸.
 
 * * *
 
-Unicode: U+00B0 ° Degree sign
+Unicode: U+00B0 ⧸ Big Solidus

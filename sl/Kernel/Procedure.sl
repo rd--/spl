@@ -5,9 +5,11 @@ Procedure : [Object] {
 	}
 
 	apply { :self :anArray |
-		(* Should not be implemented. *)
-		<primitive: if(sl.isArray(_anArray)) { return _self(... _anArray); }>
-		error('Procedure>>apply')
+		<primitive:
+		if(sl.isArray(_anArray) && (_self.length === _anArray.length)) {
+			return _self(... _anArray);
+		}>
+		error('Procedure>>apply: argument is not array or array is not of required size')
 	}
 
 	cull { :self :firstArg |

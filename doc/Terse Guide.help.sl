@@ -40,6 +40,9 @@ var f = { :x | x * x }; f(3) = 9
 { var f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49] }.ifError { :err | true }
 var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
 typeOf:/1.typeOf = 'Procedure'
+{ :x :y | x * y + y }.apply([3.141, 23]) = 95.243
+{ { :x | x }.apply(0) }.ifError { :err | true }
+{ { :x | x }.apply([]) }.ifError { :err | true }
 
 'Kernel/Promise'
 { Promise() }.ifError { :err | true }
@@ -211,7 +214,12 @@ var d = (f: { :i | i * i }); d::f.value(9) = 81
 { IdentityDictionary().removeKey('unknownKey') }.ifError { :err | true }
 size (x: 1, y: 2, z: 3) = 3
 var d = (x: 1); d.addAll (y: 2, z: 3); d = (x: 1, y: 2, z: 3)
-(x:'x', y:'.', z:'z').associationsSelect { :each | each.key = each.value } = (x:'x', z:'z')
+(x: 'x', y: '.', z: 'z').associationsSelect { :each | each.key = each.value } = (x: 'x', z: 'z')
+var d = (c: 3, parent: (a: 1, b: 2)); ['a', 'b', 'c'].collect { :each | d.atDelegateTo(each, 'parent') } = [1, 2, 3]
+var d = (c: 3, parent: (a: 1, b: 2)); ['a', 'b', 'c'].collect { :each | d.messageSend(each, 'parent', []) } = [1, 2, 3]
+var d = (c: 3, parent: (a: 1, b: 2)); [d:.a, d:.b, d:.c] = [1, 2, 3]
+var d = (length: { :self | (self::x.squared  + self::y.squared).sqrt }); var p = (x: 3.141, y: 23, parent: d); p:.length = 23.213484895637706
+var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7) = 21
 
 'Collections/IdentitySet'
 [1, 3, 5, 3, 1].IdentitySet.isIdentitySet = true

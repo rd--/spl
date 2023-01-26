@@ -51,8 +51,25 @@
 		answer
 	}
 
-	atIfAbsent { :self :aKey :aProcedure:/0 |
-		self[aKey] ? aProcedure()
+	atDelegateToIfAbsent { :self :key :delegateKey :aProcedure:/0 |
+		self.atIfAbsent(key) {
+			| parent = self[delegateKey]; |
+			parent.notNil.if {
+				parent.atDelegateToIfAbsent(key, delegateKey, aProcedure:/0)
+			} {
+				aProcedure()
+			}
+		}
+	}
+
+	atDelegateTo { :self :key :delegateKey |
+		self.atDelegateToIfAbsent(key, delegateKey) {
+			('Dictionary>>atDelegate: unknown key: ' ++ key).error
+		}
+	}
+
+	atIfAbsent { :self :key :aProcedure:/0 |
+		self[key] ? { aProcedure() }
 	}
 
 	atIfAbsentPut { :self :key :aProcedure:/0 |
@@ -63,8 +80,8 @@
 
 	collect { :self :aProcedure:/1 |
 		| answer = self.species.new; |
-		self.keysValuesDo { :aKey :aValue |
-			answer.add(aKey -> aProcedure(aValue))
+		self.keysValuesDo { :key :value |
+			answer.add(key -> aProcedure(value))
 		};
 		answer
 	}
@@ -91,10 +108,21 @@
 		}
 	}
 
-	isDictionary { :self | true }
+	isDictionary { :self |
+		true
+	}
 
-	removeKey { :self :aKey |
-		removeKeyIfAbsent(self, aKey) {
+	messageSend { :self :selector :delegateKey :argumentsArray |
+		| answer = self.atDelegateTo(selector, delegateKey); |
+		answer.isProcedure.if {
+			answer.apply([self] ++ argumentsArray)
+		} {
+			answer
+		}
+	}
+
+	removeKey { :self :key |
+		removeKeyIfAbsent(self, key) {
 			error('Dictionary:removeKey')
 		}
 	}

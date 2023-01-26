@@ -63,13 +63,12 @@
 
 (defconst spl-font-lock-keywords
   (list
-   `(,(regexp-opt '("var") 'symbols) . font-lock-keyword-face)
-   `("\\(::\\|:=\\|:/\\|primitive\\)" . font-lock-keyword-face)
+   `(,(regexp-opt '("var" "primitive") 'symbols) . font-lock-keyword-face)
    `(,(regexp-opt '("false" "inf" "nil" "pi" "true") 'symbols) . font-lock-builtin-face)
    `(,(regexp-opt '("do" "if" "ifFalse" "ifNil" "ifTrue" "kr" "timesRepeat" "whileFalse" "whileTrue") 'symbols) . font-lock-function-name-face)
    `(,(regexp-opt '("error" "warn") 'symbols) . font-lock-warning-face)
    '("\\<[A-Z][a-zA-Z0-9]*\\>" . font-lock-type-face)
-   '(" :[a-z][a-zA-Z0-9]*" . 'font-lock-variable-name-face))
+   '(":[a-z][a-zA-Z0-9]*" . 'font-lock-variable-name-face))
   "Spl font-lock rules.")
 
 (defun spl-fill-syntax-table (st)
@@ -91,27 +90,28 @@
   "Unicode symbols"
   (setq
    prettify-symbols-alist
-   '(("return" . #x2191) ; ↑
-     ("withReturn" . #x2193) ; ↓
-     ("->" . #x2192) ; →
-     (":=" . #x2190) ; ←
-     (":/" . #x00B0) ; °
-     ("::" . #x00B7) ;  ·
-     ("~=" . #x2260) ; ≠
-     ("==" . #x2261) ; ≡
-     ("~~" . #x2262) ; ≢
-     ("<=" . #x2264) ; ≤
-     (">=" . #x2265) ; ≥
-     ("++" . #x29FA) ; ⧺
-     ("pi" . #x03C0) ; π
-     ("true" . #x22A4) ; ⊤
-     ("false" . #x22A5) ; ⊥
-     ("not" . #x00AC) ; ¬
-     ("and" . #x2227) ; ∧
-     ("or" . #x2228) ; ∨
-     ("sum" . #x03A3) ; Σ
-     ("product" . #x03A0) ; Π
-     (";;" . #x22EF) ; ⋯
+   '(("return" . ?↑)
+     ("withReturn" . ?↓)
+     ("->" . ?→)
+     (":=" . ?←)
+     (":/" . ?⧸)
+     ("::" . ?·)
+     (":." . ?‣) ; .c.f ⋄
+     ("~=" . ?≠)
+     ("==" . ?≡)
+     ("~~" . ?≢)
+     ("<=" . ?≤)
+     (">=" . ?≥)
+     ("++" . ?⧺)
+     ("pi" . ?π)
+     ("true" . ?⊤)
+     ("false" . ?⊥)
+     ("not" . ?¬)
+     ("and" . ?∧)
+     ("or" . ?∨)
+     ("sum" . ?Σ)
+     ("product" . ?Π)
+     (";;" . ?⋯)
      )))
 
 (defun spl-fill-mode-map (map)
