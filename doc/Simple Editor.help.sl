@@ -14,16 +14,16 @@ The ⇱ button requests full screen mode.
 
 ## Key Commands
 
-- Ctrl-Enter ⇒ Play selection or program
-- Ctrl-Shift-Enter ⇒ Evaluate selection or program
+- Ctrl-Enter or Ctrl-Comma (,) ⇒ Play selection or program
+- Ctrl-Shift-Enter or Ctrl-Shift-Comma (,) ⇒ Evaluate selection or program
 
-There are two distinct _evaluation_ key commands.
-_Ctrl-Enter_ wraps the selected text in _{ ... }.play_ before evaluation.
+There are two distinct _evaluation_ commands.
+_Ctrl-Enter_ or Ctrl-Comma wraps the selected text in _{ ... }.play_ before evaluation.
 The _play_ method inspects the answer of evaluating the procedure, and if it is an _output signal_ sends it to the synthesiser.
 This makes it possible to _play_ expressions that are not synthesiser programs, for instance [Texture Programs].
 
-- Ctrl-. ⇒ Clear schedule and reset synthesiser
-- Ctrl-Shift-> ⇒ Clear schedule
+- Ctrl-FullStop (.) ⇒ Clear schedule and reset synthesiser
+- Ctrl-Shift-GreaterThan (>) ⇒ Clear schedule
 
 When the synthesiser is reset the schedule is cleared.
 There is a separate command to simply clear the schedule, which allows existing sounds to end ordinarily.
@@ -48,3 +48,9 @@ At present, for actual work [Emacs Editor] is a more appropriate environment.
 Whenever a file is loaded or a help file is visited an entry is made in the history of the editor.
 The address indicates these state changes, showing _?load/f0-tw-1591161283591782401.sl_ or _?help/VarSaw_ respectively.
 The ordinary mechanisms can be used to move about within this history.
+
+## Portability
+
+There can be subtle differences in behaviour between browser implementations.
+For instance some browsers will insert a newline at Ctrl-Enter.
+In this case there is an equivalent binding defined, Ctrl-Comma.

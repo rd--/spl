@@ -14,15 +14,15 @@ Keybindings are:
 Any ``` marks from _.help.sl_ files are removed from the region before sending.
 
 The function _spl-prettier_ can be used to show Ascii procedure and operator names using prettier Unicode forms.
-The notations are:
+Some of the notations are:
 
-- :=  ←, :: ·
-- return ↑, withReturn ↓
-- -> →
-- ~= ≠, == ≡
-- <= ≤, >= ≥
+- :=  as ← and :: as ·
+- return as ↑ and withReturn as ↓
+- -> as →
+- ~= as ≠ and == as ≡
+- <= ≤ and >= ≥
 - ++ ⧺
-- :/ °
+- :/ ⧸
 - pi π
 
 * * *
