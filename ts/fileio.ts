@@ -37,9 +37,9 @@ export async function loadFileSequence(fileNameArray: string[]): Promise<void> {
 
 export async function loadFileArrayInSequence(loadPath: string, fileNameArray: string[]): Promise<void> {
 	setLoadPath(loadPath);
-    for(let fileName of fileNameArray) {
-        await loadFile(fileName);
-    }
+	for(let fileName of fileNameArray) {
+		await loadFile(fileName);
+	}
 }
 
 export function addLoadFileMethods(): void {

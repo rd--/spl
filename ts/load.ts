@@ -24,8 +24,8 @@ export async function loadUrl(fileName: string): Promise<void> {
 // Fetch files asynchronously, then evaluate in sequence.
 export async function loadUrlSequence(fileNameArray: string[]): Promise<void> {
 	const resolvedFileNameArray = fileNameArray.map(resolveFileName);
-    const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(load_utf8));
-    fetchedTextArray.forEach(evaluateString);
+	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(load_utf8));
+	fetchedTextArray.forEach(evaluateString);
 }
 
 export async function loadUrlArrayInSequence(loadPath: string, urlArray: string[]): Promise<void> {

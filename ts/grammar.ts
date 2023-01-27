@@ -6,129 +6,129 @@ import { extras } from 'https://unpkg.com/ohm-js@16/dist/ohm.esm.js';
 export const slGrammar = ohm.grammar(String.raw`
 Sl {
 
-    TopLevel = LibraryExpression+ | Program
-    LibraryExpression = ClassExpression | TraitExpression
-    ClassExpression = ClassExtension | ClassListExtension | ClassDefinition
-    ClassExtension = "+" identifier "{" (methodName Block)* "}"
-    ClassListExtension = "+" "[" NonemptyListOf<identifier, ","> "]" "{" (methodName Block)* "}"
-    ClassDefinition = identifier TraitList? "{" Temporaries? (methodName Block)* "}"
-    TraitList = ":" "[" NonemptyListOf<identifier, ","> "]"
-    TraitExpression = TraitExtension | TraitDefinition
-    TraitExtension = "+" "@" identifier "{" (methodName Block)* "}"
-    TraitDefinition = "@" identifier "{" (methodName Block)* "}"
-    Program = Temporaries? ExpressionSequence
-    Temporaries = TemporariesWithInitializers | TemporariesWithoutInitializers | TemporariesVarSyntax+
-    TemporariesWithInitializers = "|" NonemptyListOf<TemporaryWithInitializer, ","> ";" "|"
-    TemporaryWithInitializer =
-      TemporaryWithBlockLiteralInitializer |
-      TemporaryWithExpressionInitializer |
-      TemporaryWithDictionaryInitializer |
-      TemporaryWithArrayInitializer
-    TemporaryWithBlockLiteralInitializer = identifier "=" Block ~("." | binaryOperator)
-    TemporaryWithExpressionInitializer = identifier "=" Expression
-    TemporaryWithDictionaryInitializer = "("  NonemptyListOf<identifier, ","> ")" "=" Expression
-    TemporaryWithArrayInitializer = "["  NonemptyListOf<identifier, ","> "]" "=" Expression
-    TemporariesWithoutInitializers = "|" identifier+ "|"
-    TemporariesVarSyntax = "var" NonemptyListOf<(TemporaryWithInitializer | identifier), ","> ";"
+	TopLevel = LibraryExpression+ | Program
+	LibraryExpression = ClassExpression | TraitExpression
+	ClassExpression = ClassExtension | ClassListExtension | ClassDefinition
+	ClassExtension = "+" identifier "{" (methodName Block)* "}"
+	ClassListExtension = "+" "[" NonemptyListOf<identifier, ","> "]" "{" (methodName Block)* "}"
+	ClassDefinition = identifier TraitList? "{" Temporaries? (methodName Block)* "}"
+	TraitList = ":" "[" NonemptyListOf<identifier, ","> "]"
+	TraitExpression = TraitExtension | TraitDefinition
+	TraitExtension = "+" "@" identifier "{" (methodName Block)* "}"
+	TraitDefinition = "@" identifier "{" (methodName Block)* "}"
+	Program = Temporaries? ExpressionSequence
+	Temporaries = TemporariesWithInitializers | TemporariesWithoutInitializers | TemporariesVarSyntax+
+	TemporariesWithInitializers = "|" NonemptyListOf<TemporaryWithInitializer, ","> ";" "|"
+	TemporaryWithInitializer =
+		TemporaryWithBlockLiteralInitializer |
+		TemporaryWithExpressionInitializer |
+		TemporaryWithDictionaryInitializer |
+		TemporaryWithArrayInitializer
+	TemporaryWithBlockLiteralInitializer = identifier "=" Block ~("." | binaryOperator)
+	TemporaryWithExpressionInitializer = identifier "=" Expression
+	TemporaryWithDictionaryInitializer = "("  NonemptyListOf<identifier, ","> ")" "=" Expression
+	TemporaryWithArrayInitializer = "["  NonemptyListOf<identifier, ","> "]" "=" Expression
+	TemporariesWithoutInitializers = "|" identifier+ "|"
+	TemporariesVarSyntax = "var" NonemptyListOf<(TemporaryWithInitializer | identifier), ","> ";"
 
-    ExpressionSequence = ListOf<Expression, ";">
-    Expression = Assignment | BinaryExpression | Primary
-    Assignment = identifier ":=" Expression
-    BinaryExpression = Expression (binaryOperator Primary)+
+	ExpressionSequence = ListOf<Expression, ";">
+	Expression = Assignment | BinaryExpression | Primary
+	Assignment = identifier ":=" Expression
+	BinaryExpression = Expression (binaryOperator Primary)+
 
-    Primary
-      = AtPutSyntax
-      | AtPutQuotedSyntax
-      | AtPutDelegateSyntax
-      | AtSyntax
-      | AtQuotedSyntax
-      | ValueApply
-      | DotExpressionWithTrailingClosuresSyntax
-      | DotExpressionWithTrailingDictionariesSyntax
-      | DotExpressionWithAssignmentSyntax
-      | DotExpression
-      | ImplicitDictionaryAtPutSyntax
-      | ImplicitDictionaryAtSyntax
-      | Block
-      | ApplyWithTrailingDictionariesSyntax
-      | ApplyWithTrailingClosuresSyntax
-      | ApplySyntax
-      | MessageSendSyntax
-      | reservedIdentifier
-      | identifier
-      | literal
-      | ParenthesisedExpression
-      | DictionaryExpression
-      | ArrayExpression
-      | ArrayRangeSyntax
-      | ArrayRangeThenSyntax
-      | IntervalSyntax
-      | IntervalThenSyntax
+	Primary
+		= AtPutSyntax
+		| AtPutQuotedSyntax
+		| AtPutDelegateSyntax
+		| AtSyntax
+		| AtQuotedSyntax
+		| ValueApply
+		| DotExpressionWithTrailingClosuresSyntax
+		| DotExpressionWithTrailingDictionariesSyntax
+		| DotExpressionWithAssignmentSyntax
+		| DotExpression
+		| ImplicitDictionaryAtPutSyntax
+		| ImplicitDictionaryAtSyntax
+		| Block
+		| ApplyWithTrailingDictionariesSyntax
+		| ApplyWithTrailingClosuresSyntax
+		| ApplySyntax
+		| MessageSendSyntax
+		| reservedIdentifier
+		| identifier
+		| literal
+		| ParenthesisedExpression
+		| DictionaryExpression
+		| ArrayExpression
+		| ArrayRangeSyntax
+		| ArrayRangeThenSyntax
+		| IntervalSyntax
+		| IntervalThenSyntax
 
-    AtPutSyntax = Primary "[" Expression "]" ":=" Expression
-    AtPutQuotedSyntax = Primary "::" identifier ":=" Expression
-    AtSyntax = Primary "[" Expression "]"
-    AtQuotedSyntax = Primary "::" identifier
-    AtPutDelegateSyntax = Primary ":." identifier ":=" Expression
-    MessageSendSyntax = Primary ":." identifier NonEmptyParameterList?
-    ValueApply = Primary "." ParameterList
-    ParameterList =  "(" ListOf<Expression, ","> ")"
-    NonEmptyParameterList =  "(" NonemptyListOf<Expression, ","> ")"
+	AtPutSyntax = Primary "[" Expression "]" ":=" Expression
+	AtPutQuotedSyntax = Primary "::" identifier ":=" Expression
+	AtSyntax = Primary "[" Expression "]"
+	AtQuotedSyntax = Primary "::" identifier
+	AtPutDelegateSyntax = Primary ":." identifier ":=" Expression
+	MessageSendSyntax = Primary ":." identifier NonEmptyParameterList?
+	ValueApply = Primary "." ParameterList
+	ParameterList =  "(" ListOf<Expression, ","> ")"
+	NonEmptyParameterList =  "(" NonemptyListOf<Expression, ","> ")"
 
-    DotExpressionWithTrailingClosuresSyntax = Primary "." identifier NonEmptyParameterList? Block+
-    DotExpressionWithTrailingDictionariesSyntax = Primary "." identifier NonEmptyParameterList? NonEmptyDictionaryExpression+
-    DotExpressionWithAssignmentSyntax = Primary "." identifier ":=" Expression
-    DotExpression = Primary ("." identifier ~("{" | ":=") NonEmptyParameterList?)+
+	DotExpressionWithTrailingClosuresSyntax = Primary "." identifier NonEmptyParameterList? Block+
+	DotExpressionWithTrailingDictionariesSyntax = Primary "." identifier NonEmptyParameterList? NonEmptyDictionaryExpression+
+	DotExpressionWithAssignmentSyntax = Primary "." identifier ":=" Expression
+	DotExpression = Primary ("." identifier ~("{" | ":=") NonEmptyParameterList?)+
 
-    ImplicitDictionaryAtPutSyntax = "::" identifier ":=" Expression
-    ImplicitDictionaryAtSyntax = "::" identifier
+	ImplicitDictionaryAtPutSyntax = "::" identifier ":=" Expression
+	ImplicitDictionaryAtSyntax = "::" identifier
 
-    Block = "{" BlockBody "}"
-    BlockBody = Arguments? Temporaries? Primitive? Statements?
-    Arguments = ArgumentName+ "|"
-    ArgumentName = ":" identifier
-    Primitive = "<primitive:" primitiveCharacter* ">"
-    Statements = NonFinalExpression | FinalExpression
-    NonFinalExpression = Expression ";" Statements
-    FinalExpression = Expression ";"?
+	Block = "{" BlockBody "}"
+	BlockBody = Arguments? Temporaries? Primitive? Statements?
+	Arguments = ArgumentName+ "|"
+	ArgumentName = ":" identifier
+	Primitive = "<primitive:" primitiveCharacter* ">"
+	Statements = NonFinalExpression | FinalExpression
+	NonFinalExpression = Expression ";" Statements
+	FinalExpression = Expression ";"?
 
-    ApplyWithTrailingClosuresSyntax = identifier NonEmptyParameterList? Block+
-    ApplyWithTrailingDictionariesSyntax = identifier NonEmptyParameterList? NonEmptyDictionaryExpression+
-    ApplySyntax = identifier ParameterList
-    ParenthesisedExpression = "(" Expression ")"
-    NonEmptyDictionaryExpression = "(" NonemptyListOf<AssociationExpression, ","> ")"
-    DictionaryExpression = "(" ListOf<AssociationExpression, ","> ")"
-    AssociationExpression = identifier ":" Expression
-    ArrayExpression = "[" ListOf<Expression, ","> "]"
-    ArrayRangeSyntax = "[" Expression ".." Expression "]"
-    ArrayRangeThenSyntax = "[" Expression "," Expression ".." Expression "]"
-    IntervalSyntax = "(" Expression ".." Expression ")"
-    IntervalThenSyntax = "(" Expression "," Expression ".." Expression ")"
+	ApplyWithTrailingClosuresSyntax = identifier NonEmptyParameterList? Block+
+	ApplyWithTrailingDictionariesSyntax = identifier NonEmptyParameterList? NonEmptyDictionaryExpression+
+	ApplySyntax = identifier ParameterList
+	ParenthesisedExpression = "(" Expression ")"
+	NonEmptyDictionaryExpression = "(" NonemptyListOf<AssociationExpression, ","> ")"
+	DictionaryExpression = "(" ListOf<AssociationExpression, ","> ")"
+	AssociationExpression = identifier ":" Expression
+	ArrayExpression = "[" ListOf<Expression, ","> "]"
+	ArrayRangeSyntax = "[" Expression ".." Expression "]"
+	ArrayRangeThenSyntax = "[" Expression "," Expression ".." Expression "]"
+	IntervalSyntax = "(" Expression ".." Expression ")"
+	IntervalThenSyntax = "(" Expression "," Expression ".." Expression ")"
 
-    methodName = identifier | binaryOperator
-    identifier = letter letterOrDigit* (":/" digit+)?
-    letterOrDigit = letter | digit
-    reservedIdentifier = "nil" | "true" | "false"
-    binaryOperator = binaryChar+
-    binaryChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$"
+	methodName = identifier | binaryOperator
+	identifier = letter letterOrDigit* (":/" digit+)?
+	letterOrDigit = letter | digit
+	reservedIdentifier = "nil" | "true" | "false"
+	binaryOperator = binaryChar+
+	binaryChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$"
 
-    literal = numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
-    numberLiteral = floatLiteral | integerLiteral
-    floatLiteral = "-"? digit+ "." digit+
-    integerLiteral = "-"? digit+
-    singleQuotedStringLiteral = "\'" (~"\'" sourceCharacter)* "\'"
-    doubleQuotedStringLiteral = "\"" (~"\"" sourceCharacter)* "\""
-    backtickQuotedStringLiteral = backtickCharacter (~backtickCharacter sourceCharacter)* backtickCharacter
-    backtickCharacter = "${String.fromCodePoint(96)}"
-    sourceCharacter = any
+	literal = numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
+	numberLiteral = floatLiteral | integerLiteral
+	floatLiteral = "-"? digit+ "." digit+
+	integerLiteral = "-"? digit+
+	singleQuotedStringLiteral = "\'" (~"\'" sourceCharacter)* "\'"
+	doubleQuotedStringLiteral = "\"" (~"\"" sourceCharacter)* "\""
+	backtickQuotedStringLiteral = backtickCharacter (~backtickCharacter sourceCharacter)* backtickCharacter
+	backtickCharacter = "${String.fromCodePoint(96)}"
+	sourceCharacter = any
 
-    primitiveCharacter = ~">" sourceCharacter
+	primitiveCharacter = ~">" sourceCharacter
 
-    comment = multiLineMlComment | singleLineLispComment
-    multiLineMlComment = "(*" (~"*)" sourceCharacter)* "*)"
-    singleLineLispComment = ";;" (~lineTerminator sourceCharacter)*
-    lineTerminator = "\n" | "\r"
-    space += comment
+	comment = multiLineMlComment | singleLineLispComment
+	multiLineMlComment = "(*" (~"*)" sourceCharacter)* "*)"
+	singleLineLispComment = ";;" (~lineTerminator sourceCharacter)*
+	lineTerminator = "\n" | "\r"
+	space += comment
 
 }
 `);
