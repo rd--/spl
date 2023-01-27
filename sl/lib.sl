@@ -7,6 +7,7 @@ loadSequence([
 	'Collections/Streams/WriteStream.sl',
 	'Collections/StringDictionary.sl',
 	'Collections/ValueLink.sl',
+	'Graphics/CartesianPoint.sl',
 	'Graphics/Point.sl',
 	'Graphics/Rectangle.sl',
 	'Numbers/LargeInteger.sl',

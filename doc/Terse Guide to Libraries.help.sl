@@ -14,6 +14,8 @@ Point(3, 4).isPoint & { true } = true
 (-1@1).asString = 'Point(-1, 1)'
 var p = -1@1; p.x := -3; p.y := 3; p = (-3@3) = true
 var p = -1@3, a = [p]; a.first.x := -3; p = (-3@3) = true
+var x = 3.141, y = 23, p = Point(x, y); p.x = x & { p.y = y }
+[Point(1, 0), Point(1, 1), Point(0, 1), Point(-1, 1), Point(-1, 0), Point(0, -1)].collect(t:/1) = (pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2])
 
 'Graphics/Rectangle'
 Rectangle(0@0, 1@1).printString = 'Rectangle(Point(0, 0), Point(1, 1))'
@@ -35,7 +37,7 @@ Cons([1 .. 9]).length = 9
 [9, 16, 25].Cons.collect(sqrt:/1) = [3, 4, 5].Cons
 
 'Collections/LinkedList'
-LinkedList().typeOf = 'Array'
+LinkedList().typeOf = 'LinkedList'
 LinkedList().isLinkedList = true
 LinkedList(3).size = 0
 LinkedList:/1.ofSize(3).size = 3

@@ -49,6 +49,11 @@ Number : [Object, Magnitude, Numeric, Integral, Binary] {
 		anObject.adaptToNumberAndApply(self, timesTimes:/2)
 	}
 
+	atan2 { :self :anObject |
+		<primitive: if(sl.isNumber(_anObject)) { return Math.atan2(_self, _anObject); }>
+		anObject.adaptToNumberAndApply(self, atan2:/2)
+	}
+
 	bitAnd { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return _self & _anObject; }>
 		anObject.adaptToNumberAndApply(self, bitAnd:/2)
