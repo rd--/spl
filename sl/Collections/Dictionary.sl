@@ -133,6 +133,12 @@
 		true
 	}
 
+	keysAndValuesDo { :self :aProcedure:/2 |
+		self.associationsDo { :association |
+			aProcedure(association.key, association.value)
+		}
+	}
+
 	messageSend { :self :selector :delegateKey :argumentsArray |
 		| answer = self.atDelegateTo(selector, delegateKey); |
 		answer.isProcedure.if {

@@ -13,7 +13,7 @@ type QualifiedMethodName = string;
 type MethodSourceCode = string;
 type TraitName = string;
 
-type SlObject = object & {type: TypeName};
+type SlObject = object & {_type: TypeName};
 
 function isStringDictionary(anObject: SlObject): boolean {
 	const c = anObject.constructor;
@@ -29,7 +29,7 @@ function objectType(anObject: SlObject): TypeName {
 		    (anObject instanceof Float64Array ? 'Float64Array' :
 		     (anObject instanceof Promise ? 'Promise' :
 		      (anObject instanceof PriorityQueue ? 'PriorityQueue' :
-		       (anObject.type ||
+		       (anObject._type ||
 		        (isStringDictionary(anObject) ? 'StringDictionary' : anObject.constructor.name)))))))));
 }
 
@@ -268,7 +268,7 @@ export function addMethod(typeName: TypeName, methodName: MethodName, arity: Ari
 // This is run for built-in types. The class predicate method is required.  Assumes non-kernel types have at least one slot.
 export function addType(typeName: TypeName, traitList: TraitName[], slotNames: string[]): void {
 	const slots = slotNames.map(each => `${each}: ${each}`).join(', ');
-	const defType = slotNames.length === 0 ? '' : `extendTraitWithMethod('Object', 'new${typeName}', ${slotNames.length}, function(${slotNames.join(', ')}) { return {type: '${typeName}', ${slots} }; }, '<primitive>')`;
+	const defType = slotNames.length === 0 ? '' : `extendTraitWithMethod('Object', 'new${typeName}', ${slotNames.length}, function(${slotNames.join(', ')}) { return {_type: '${typeName}', ${slots} }; }, '<primitive>')`;
 	const defPredicateFalse = `extendTraitWithMethod('Object', 'is${typeName}', 1, function(anObject) { return false; }, '<primitive>')`;
 	const defPredicateTrue = `addMethod('${typeName}', 'is${typeName}', 1, function(anInstance) { return true; }, '<primitive>')`;
 	const defSlotAccess = slotNames.map(each => `addMethod('${typeName}', '${each}', 1, function(anInstance) { return anInstance.${each} }, '<primitive>');`).join('; ');
