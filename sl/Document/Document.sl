@@ -1,3 +1,33 @@
+@AbstractRange {
+
+}
+
+@Document {
+
+	body { :self | <primitive: return _self.body;> }
+	createElement { :self :tagName | <primitive: return _self.createElement(_tagName);> }
+	getElementById { :self :aString | <primitive: return _self.getElementById(_aString);> }
+	getSelection { :self | <primitive: return _self.getSelection();> }
+	querySelector { :self :aString | <primitive: return _self.querySelector(_aString);> }
+	querySelectorAll { :self :aString | <primitive: return _self.querySelectorAll(_aString);> }
+
+}
+
+@Element {
+
+	attributes { :self | <primitive: return _self.attributes;> }
+	setAttribute { :self :name :value | <primitive: return _self.setAttribute(_name, _value);> }
+
+}
+
+@Event {
+
+	target { :self | <primitive: return _self.target;> }
+	timeStamp { :self | <primitive: return _self.timeStamp;> }
+	type { :self | <primitive: return _self.type;> }
+
+}
+
 @EventTarget {
 
 	addEventListener { :self :aString :aProcedure |
@@ -6,18 +36,11 @@
 
 }
 
-@Node {
+@HtmlCollection {
 
-	childNodes { :self | <primitive: return _self.childNodes;> }
-	nodeType { :self | <primitive: return _self.nodeType;> }
-	textContent { :self | <primitive: return _self.textContent;> }
-
-}
-
-@Element {
-
-	attributes { :self | <primitive: return _self.attributes;> }
-	setAttribute { :self :name :value | <primitive: return _self.setAttribute(_name, _value);> }
+	item { :self :anInteger | <primitive: return _self.item(_anInteger);> }
+	length { :self | <primitive: return _self.length;> }
+	namedItem { :self :aString | <primitive: return _self.namedItem(_aString);> }
 
 }
 
@@ -31,24 +54,14 @@
 
 }
 
-@Document {
+@Node {
 
-	body { :self | <primitive: return _self.body;> }
-	createElement { :self :tagName | <primitive: return _self.createElement(_tagName);> }
-	getElementById { :self :aString | <primitive: return _self.getElementById(_aString);> }
-	querySelector { :self :aString | <primitive: return _self.querySelector(_aString);> }
-	querySelectorAll { :self :aString | <primitive: return _self.querySelectorAll(_aString);> }
+	childNodes { :self | <primitive: return _self.childNodes;> }
+	nodeType { :self | <primitive: return _self.nodeType;> }
+	textContent { :self | <primitive: return _self.textContent;> }
 
 }
 
 @UiEvent {
-
-}
-
-@Event {
-
-	target { :self | <primitive: return _self.target;> }
-	timeStamp { :self | <primitive: return _self.timeStamp;> }
-	type { :self | <primitive: return _self.type;> }
 
 }
