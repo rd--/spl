@@ -2,6 +2,13 @@
 
 }
 
+@CharacterData {
+
+	data { :self | <primitive: return _self.data;> }
+	length { :self | <primitive: return _self.length;> }
+
+}
+
 @Document {
 
 	body { :self | <primitive: return _self.body;> }
@@ -16,6 +23,9 @@
 @Element {
 
 	attributes { :self | <primitive: return _self.attributes;> }
+	id { :self | <primitive: return _self.id;> }
+	innerHTML { :self | <primitive: return _self.innerHTML;> }
+	innerHTML { :self :aString | <primitive: return _self.innerHTML = _aString;> }
 	setAttribute { :self :name :value | <primitive: return _self.setAttribute(_name, _value);> }
 
 }
@@ -56,6 +66,7 @@
 
 @Node {
 
+	appendChild { :self :aChild | <primitive: return _self.appendChild(_aChild);> }
 	childNodes { :self | <primitive: return _self.childNodes;> }
 	nodeType { :self | <primitive: return _self.nodeType;> }
 	textContent { :self | <primitive: return _self.textContent;> }

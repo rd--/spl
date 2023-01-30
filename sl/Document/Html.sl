@@ -85,22 +85,17 @@ Selection : [Object] {
 
 }
 
+Text : [Object, EventTarget, Node, CharacterData] {
+
+	wholeText { :self | <primitive: return _self.wholeText;> }
+
+}
+
 Window : [Object] {
 
 	alert { :self :aString | <primitive: return _self.alert(_aString);> }
 	confirm { :self :aString | <primitive: return _self.confirm(_aString);> }
 	prompt { :self :message :defaultValue | <primitive: return _self.prompt(_message, _defaultValue);> }
-
-}
-
-+ String {
-
-	TextButton { :self :aDictionary |
-		| b = document().createElement('button'); |
-		b.innerText(self);
-		aDictionary.keysAndValuesDo { :key :value | b.setAttribute(key, value) };
-		b
-	}
 
 }
 

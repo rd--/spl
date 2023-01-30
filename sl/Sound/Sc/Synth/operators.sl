@@ -101,6 +101,7 @@
 	Gcd { :self :anObject | <primitive: return sc.Gcd(_self, _anObject);> }
 	RoundTo { :self :anObject | <primitive: return sc.RoundTo(_self, _anObject);> }
 	Trunc { :self :anObject | <primitive: return sc.Trunc(_self, _anObject);> }
+	Atan2 { :self :anObject | <primitive: return sc.Atan2(_self, _anObject);> }
 	Hypot { :self :anObject | <primitive: return sc.Hypot(_self, _anObject);> }
 	Pow { :self :anObject | <primitive: return sc.Pow(_self, _anObject);> }
 	ShiftLeft { :self :anObject | <primitive: return sc.ShiftLeft(_self, _anObject);> }
