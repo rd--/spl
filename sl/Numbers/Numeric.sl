@@ -8,8 +8,8 @@
 		self * self * self
 	}
 
-	do { :self :aProcedure |
-		toDo(1, self, aProcedure)
+	do { :self :aProcedure:/1 |
+		1.toDo(self, aProcedure:/1)
 	}
 
 	negated { :self |
@@ -36,10 +36,10 @@
 		self * self
 	}
 
-	timesRepeat { :self :aProcedure |
+	timesRepeat { :self :aProcedure:/0 |
 		| remaining = self; |
 		whileTrue { remaining > 0 } {
-			aProcedure.value;
+			aProcedure();
 			remaining := remaining - 1
 		}
 	}

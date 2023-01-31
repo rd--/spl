@@ -24,6 +24,16 @@
 		}
 	}
 
+	differentiate { :self |
+		| prev = 0, index = 1, answer = self.species.new(self.size); |
+		self.do { :item |
+			answer[index] := item - prev;
+			prev := item;
+			index := index + 1
+		};
+		answer
+	}
+
 	extendTo { :self :size |
 		1.toAsCollect(size, self.species) { :index |
 			self.atWrap(index)

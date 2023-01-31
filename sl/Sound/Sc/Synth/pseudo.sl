@@ -4,6 +4,18 @@
 		Pan2(self, pos, 1)
 	}
 
+	EnvBreakPoint { :breakPointArray :curves |
+		| n = breakPointArray.size; |
+		Env(
+			Interval(1, n, 2).collect { :index | breakPointArray[index] },
+			Interval(2, n - 1, 2).collect({ :index | breakPointArray[index] }).differentiate,
+			curves,
+			nil,
+			nil,
+			0
+		)
+	}
+
 	ExpRange { :self :lo :hi |
 		LinExp(self, -1, 1, lo, hi)
 	}

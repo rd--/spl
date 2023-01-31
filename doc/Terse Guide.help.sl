@@ -408,6 +408,8 @@ var total = 0; 9.timesRepeat { total := total + randomFloat() }; total < 7
 pi.randomFloat.isInteger = false
 [3.141.json, 23.json] = ['3.141', '23']
 ['3.141', '23'].collect(parseJson:/1) = [3.141, 23]
+var r; 5.do { :each | r := each }; r = 5
+var r; 0.do { :each | r := each }; r = nil
 
 'System/methodTable'
 system.keys.includesAllOf(['methodTable', 'traitDictionary', 'typeDictionary']) = true

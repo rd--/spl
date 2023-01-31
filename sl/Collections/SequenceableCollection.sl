@@ -1,15 +1,5 @@
 @SequenceableCollection {
 
-	isSequenceable { :self | true }
-
-	first { :self | self[1] }
-	second { :self | self[2] }
-	third { :self | self[3] }
-
-	last { :self | self[self.size] }
-	secondLast { :self | self[self.size - 1] }
-	thirdLast { :self | self[self.size - 2] }
-
 	= { :self :anObject |
 		if(
 			anObject.isSequenceable &
@@ -102,6 +92,14 @@
 		}
 	}
 
+	first { :self |
+		self[1]
+	}
+
+	first { :self :n |
+		self.copyFromTo(1, n)
+	}
+
 	fisherYatesShuffle { :self |
 		[self.size .. 2].do { :item | self.swapWith(item, randomInteger(1, item)) };
 		self
@@ -122,6 +120,14 @@
 			};
 			0
 		}
+	}
+
+	isSequenceable { :self |
+		true
+	}
+
+	last { :self |
+		self[self.size]
 	}
 
 	last { :self :n |
@@ -160,6 +166,14 @@
 		}
 	}
 
+	second { :self |
+		self[2]
+	}
+
+	secondLast { :self |
+		self[self.size - 1]
+	}
+
 	select { :self :aProcedure:/1 |
 		| answer = OrderedCollection(); |
 		1.toDo(self.size) { :index |
@@ -176,6 +190,14 @@
 		| element = self[oneIndex]; |
 		self[oneIndex] := self[anotherIndex];
 		self[anotherIndex] := element
+	}
+
+	third { :self |
+		self[3]
+	}
+
+	thirdLast { :self |
+		self[self.size - 2]
 	}
 
 	transpose { :self |
