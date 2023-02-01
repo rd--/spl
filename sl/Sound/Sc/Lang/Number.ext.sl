@@ -9,6 +9,21 @@
 		(stepsPerOctave * (d // k)) + scale[d % k + 1] + a
 	}
 
+	geom { :self :start :grow |
+		| accum = start; |
+		1.to(self).collect { :unusedItem |
+			| entry = accum; |
+			accum := grow * accum;
+			entry
+		}
+	}
+
+	series { :self :start :step |
+		1.to(self).collect { :item |
+			(step * (item - 1)) + start
+		}
+	}
+
 	SoftClip { :self |
 		if(self.abs <= 0.5) {
 			self

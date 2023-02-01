@@ -4,6 +4,10 @@
 		self.quotient(anObject)
 	}
 
+	clamp { :self :low :high |
+		low.max(self.min(high))
+	}
+
 	cubed { :self |
 		self * self * self
 	}

@@ -240,25 +240,3 @@
 	isSequenceable { :self | false }
 
 }
-
-+ Procedure {
-
-	geom { :self:/1 :size :start :grow |
-		| answer = self(size), accum = start; |
-		1.to(size).collectInto({ :unusedItem |
-			| entry = accum; |
-			accum := grow * accum;
-			entry
-		}, answer);
-		answer
-	}
-
-	series { :self:/1 :size :start :step |
-		| answer = self(size); |
-		1.to(size).collectInto({ :item |
-			(step * (item - 1)) + start
-		}, answer);
-		answer
-	}
-
-}
