@@ -49,7 +49,7 @@
 	}
 
 	Sequencer { :self :trig |
-		DmdOn(trig, 0, Seq(inf, self))
+		DmdOn(trig, 0, Lseq(inf, self))
 	}
 
 	Silent { :numChannels |
