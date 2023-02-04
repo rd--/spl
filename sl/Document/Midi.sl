@@ -29,6 +29,14 @@ MIDIAccess : [Object, EventTarget] {
 	outputs { :self | <primitive: return _self.outputs;> }
 	sysexEnabled { :self | <primitive: return _self.sysexEnabled;> }
 
+	onstatechange { :self :aProcedure | <primitive: return _self.onstatechange = _aProcedure;> }
+
+}
+
+MIDIConnectionEvent : [Object, Event] {
+
+	port { :self | <primitive: return _self.port;> }
+
 }
 
 MIDIInput : [Object, EventTarget, MidiPort] {
