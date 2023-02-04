@@ -102,6 +102,10 @@
 		maxElement
 	}
 
+	do { :self :aProcedure |
+		<primitive: return _self.forEach(_aProcedure);>
+	}
+
 	emptyCheck { :self |
 		self.isEmpty.ifTrue { self.errorEmptyCollection }
 	}
