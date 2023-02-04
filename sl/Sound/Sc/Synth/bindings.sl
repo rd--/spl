@@ -50,6 +50,7 @@
 	CuspL { :freq :a :b :xi | <primitive: return sc.CuspL(_freq, _a, _b, _xi);> }
 	CuspN { :freq :a :b :xi | <primitive: return sc.CuspN(_freq, _a, _b, _xi);> }
 	Dc { :in | <primitive: return sc.Dc(_in);> }
+	Dbrown { :length :lo :hi :step | <primitive: return sc.Dbrown(_length, _lo, _hi, _step);> }
 	Dbufrd { :bufnum :phase :loop | <primitive: return sc.Dbufrd(_bufnum, _phase, _loop);> }
 	Dbufwr { :bufnum :phase :input :loop | <primitive: return sc.Dbufwr(_bufnum, _phase, _input, _loop);> }
 	Decay { :in :decayTime | <primitive: return sc.Decay(_in, _decayTime);> }
@@ -62,15 +63,20 @@
 	DelayN { :in :maxdelaytime :delaytime | <primitive: return sc.DelayN(_in, _maxdelaytime, _delaytime);> }
 	Demand { :trig :reset :demandUGens | <primitive: return sc.Demand(_trig, _reset, _demandUGens);> }
 	DetectSilence { :in :amp :time :doneAction | <primitive: return sc.DetectSilence(_in, _amp, _time, _doneAction);> }
+	Dibrown { :length :lo :hi :step | <primitive: return sc.Dibrown(_length, _lo, _hi, _step);> }
 	Diwhite { :length :lo :hi | <primitive: return sc.Diwhite(_length, _lo, _hi);> }
 	Drand { :repeats :list | <primitive: return sc.Drand(_repeats, _list);> }
 	Dseq { :repeats :list | <primitive: return sc.Dseq(_repeats, _list);> }
+	Dser { :repeats :list | <primitive: return sc.Dser(_repeats, _list);> }
 	Dseries { :length :start :step | <primitive: return sc.Dseries(_length, _start, _step);> }
 	Dshuf { :repeats :list | <primitive: return sc.Dshuf(_repeats, _list);> }
+	Dswitch { :index :list | <primitive: return sc.Dswitch(_index, _list);> }
+	Dswitch1 { :index :list | <primitive: return sc.Dswitch1(_index, _list);> }
 	Dust { :density | <primitive: return sc.Dust(_density);> }
 	Dust2 { :density | <primitive: return sc.Dust2(_density);> }
 	Duty { :dur :reset :doneAction :level | <primitive: return sc.Duty(_dur, _reset, _doneAction, _level);> }
 	Dwhite { :length :lo :hi | <primitive: return sc.Dwhite(_length, _lo, _hi);> }
+	Dwrand { :repeats :weights :list | <primitive: return sc.Dwrand(_repeats, _weights, _list);> }
 	Dxrand { :repeats :list | <primitive: return sc.Dxrand(_repeats, _list);> }
 	EnvGen { :gate :levelScale :levelBias :timeScale :doneAction :envelope | <primitive: return sc.EnvGen(_gate, _levelScale, _levelBias, _timeScale, _doneAction, _envelope);> }
 	ExpRand { :lo :hi | <primitive: return sc.ExpRand(_lo, _hi);> }

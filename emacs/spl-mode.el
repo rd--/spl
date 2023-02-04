@@ -5,8 +5,29 @@
 
 ;;; Code:
 
+(require 'find-lisp)
 (require 'font-lock)
 (require 'sclang-mode)
+(require 'thingatpt)
+
+(defvar spl-directory nil
+  "The Spl directory (default=nil).")
+
+(defvar stsc3-directory nil
+  "The StSc3 directory (default=nil).")
+
+(defun spl-find-files (dir rgx)
+  "Find files at DIR matching RGX."
+  (mapc (lambda (filename)
+          (find-file-other-window filename))
+        (find-lisp-find-files dir rgx)))
+
+(defun spl-help ()
+  "Lookup up the name at point in the Spl help files."
+  (interactive)
+  (let ((rgx (concat "^" (thing-at-point 'symbol) "\\.help\\.sl$")))
+    (spl-find-files (concat spl-directory "help/") rgx)
+    (spl-find-files (concat stsc3-directory "help/") rgx)))
 
 (defun spl-netcat-cmd (cmd key value)
   "Send command CMD with the parameter KEY = VALUE to the Spl server."
@@ -116,6 +137,7 @@
 
 (defun spl-fill-mode-map (map)
   "Install Spl keybindings into MAP."
+  (define-key map (kbd "C-c C-h") 'spl-help)
   (define-key map (kbd "C-c C-a") 'spl-play-region)
   (define-key map (kbd "C-c C-e") 'spl-eval-region)
   (define-key map (kbd "C-c C-k") 'spl-reset-scsynth)

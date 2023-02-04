@@ -126,7 +126,6 @@
 }
 
 + IdentityDictionary {
-	DmdOn { :d | DmdOn(d::trig ? 0, d::reset ? 0, d::demandUGens) }
 	Env { :d | Env(d::levels, d::times, d::curves, d::releaseNode ? nil, d::loopNode ? nil, d::offset ? 0) }
 	EqPan2 { :d | LinPan2(d::in ? 0.0, d::pos ? 0.0, d::level ? 1.0) }
 	MiBraids { :d | MiBraids(d::pitch ? 60, d::timbre ? 0.5, d::color ? 0.5, d::model ? 0, d::trig ? 0, d::resamp ? 0, d::decim ? 0, d::bits ? 0, d::ws ? 0) }

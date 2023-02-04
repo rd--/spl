@@ -49,7 +49,7 @@
 	}
 
 	Sequencer { :self :trig |
-		DmdOn(trig, 0, Lseq(inf, self))
+		Demand(trig, 0, Dseq(inf, self))
 	}
 
 	Silent { :numChannels |
@@ -79,17 +79,10 @@
 	DelayTap { :bufnum :delayTime | <primitive: return sc.DelayTap(_bufnum, _delayTime);> }
 	DelayWrite { :bufnum :input | <primitive: return sc.DelayWrite(_bufnum, _input);> }
 	DmdFor { :dur :reset :level | <primitive: return sc.DmdFor(_dur, _reset, _level);> }
-	DmdOn { :trig :reset :demandUGens | <primitive: return sc.DmdOn(_trig, _reset, _demandUGens);> }
 	DynRingzBank { :input :freq :amp :time | <primitive: return sc.DynRingzBank(_input, _freq, _amp, _time);> }
 	InFb { :numChannels :bus | <primitive: return sc.InFb(_numChannels, _bus);> }
 	LinSeg { :gate :coordArray | <primitive: return sc.LinSeg(_gate, _coordArray);> }
 	Ln { :start :end :dur | <primitive: return sc.Ln(_start, _end, _dur);> }
-	Lrand { :repeats :list | <primitive: return sc.Lrand(_repeats, _list);> }
-	Lseq { :repeats :list | <primitive: return sc.Lseq(_repeats, _list);> }
-	Lseries { :length :start :step | <primitive: return sc.Lseries(_length, _start, _step);> }
-	Lshuf { :repeats :list | <primitive: return sc.Lshuf(_repeats, _list);> }
-	Lwhite { :length :lo :hi | <primitive: return sc.Lwhite(_length, _lo, _hi);> }
-	Lxrand { :repeats :list | <primitive: return sc.Lxrand(_repeats, _list);> }
 	Perc { :trig :attackTime :releaseTime :curve | <primitive: return sc.Perc(_trig, _attackTime, _releaseTime, _curve);> }
 	PmOsc { :carfreq :modfreq :pmindex :modphase | <primitive: return sc.PmOsc(_carfreq, _modfreq, _pmindex, _modphase);> }
 	Release { :input :attackTime :dur :releaseTime | <primitive: return sc.Release(_input, _attackTime, _dur, _releaseTime);> }
