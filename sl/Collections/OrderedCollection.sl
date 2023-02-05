@@ -80,6 +80,10 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | array |
 		OrderedCollection:/1
 	}
 
+	OrderedCollection { :self |
+		self
+	}
+
 }
 
 + Void {

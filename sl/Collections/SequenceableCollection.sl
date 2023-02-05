@@ -181,7 +181,7 @@
 				answer.add(self[index])
 			}
 		};
-		answer
+		self.species.newFrom(answer)
 	}
 
 	shuffled { :self | self.copy.fisherYatesShuffle }

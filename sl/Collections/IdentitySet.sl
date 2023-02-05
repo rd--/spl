@@ -1,5 +1,15 @@
 IdentitySet : [Object, Collection] {
 
+	= { :self :anObject |
+		anObject.isIdentitySet & {
+			self.size = anObject.size & {
+				self.allSatisfy { :each |
+					anObject.includes(each)
+				}
+			}
+		}
+	}
+
 	add { :self :anObject |
 		<primitive: _self.add(_anObject); return _anObject;>
 	}

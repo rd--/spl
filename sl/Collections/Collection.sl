@@ -174,7 +174,9 @@
 	}
 
 	reject { :self :aProcedure:/1 |
-		self.select { :element | aProcedure(element) = false }
+		self.select { :element |
+			aProcedure(element) = false
+		}
 	}
 
 	remove { :self :oldObject |

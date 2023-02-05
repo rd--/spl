@@ -18,8 +18,16 @@ false || true = true
 [true.json, false.json] = ['true', 'false']
 ['true', 'false'].collect(parseJson:/1) = [true, false]
 
+'Kernel/Object'
+[1, 3, 5].typeOf = 'Array'
+[1, 3, 5].species = Array:/1
+[1, 3, 5].IdentitySet.species = IdentitySet:/0
+[1, 3, 5].OrderedCollection.species = OrderedCollection:/1
+(x: 1, y: 3, z: 5).species = IdentityDictionary:/0
+
 'Kernel/Procedure'
 var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5
+var i = 1; { i < 5 }.whileTrue { i := i + 1 }; i = 5
 var i = 1; 1.toDo(3) { :each | i := i + each.squared } ; i = 15
 var i = 1; 3.do { :each | i := i + each.squared } ; i = 15
 { }.numArgs = 0
@@ -144,6 +152,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(even:/1) = 4
 [nil, true, false, 3.141, 23, 'str'].json = '[null,true,false,3.141,23,"str"]'
  '[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str']
+[1, 2, 3].select { :x | x > 1 } = [2, 3]
+[1, 2, 3].reject { :x | x > 1 } = [1]
 
 'Collections/Association'
 ('x' -> 1).typeOf = 'Association'
@@ -165,6 +175,12 @@ var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
 [1 .. 9].ByteArray.isByteArray = true
 [1 .. 9].ByteArray.reversed = [9 .. 1].ByteArray
 [1 .. 3].ByteArray.printString = 'ByteArray([1, 2, 3])'
+
+'Collections/Collection'
+[1, 3, 5].select { :x | x > 1 } = [3, 5]
+[1, 3, 5].IdentitySet.select { :x | x > 1 } = [3, 5].IdentitySet
+[1, 3, 5].OrderedCollection.select { :x | x > 1 } = [3, 5].OrderedCollection
+(x: 1, y: 3, z: 5).select { :x | x > 1 } = (y: 3, z: 5)
 
 'Collections/Float64Array'
 Float64Array(0).typeOf = 'Float64Array'

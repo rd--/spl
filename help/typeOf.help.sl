@@ -16,3 +16,7 @@ The system includes a _typeDictionary_ that maps type names to _Type_ values.
 system.type('String').isType = true
 system.type('String').methodDictionary.includesKey('includesSubstring:/2') = true
 ```
+
+* * *
+
+See also: _species_
