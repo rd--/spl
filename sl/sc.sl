@@ -10,7 +10,9 @@ loadSequence([
 	'Sound/Sc/Lang/SequenceableCollection.ext.sl',
 	'Sound/Sc/Synth/CcEvent.sl',
 	'Sound/Sc/Synth/Scsynth.sl',
+	'Sound/Sc/Synth/ScUgen.sl',
 	'Sound/Sc/Synth/Ugen.sl',
+	'Sound/Sc/Synth/UgenGraph.sl',
 	'Sound/Sc/Synth/Env.sl', (* requires Ugen *)
 	'Sound/Sc/Synth/bindings.sl',
 	'Sound/Sc/Synth/bindings-ext.sl',

@@ -13,7 +13,15 @@ Ugen : [Object, Numeric] {
 }
 
 + String {
-	encodeUgen { :self :aUgen | <primitive: return sc.encodeUgen(_self, sc.wrapOut(0, _aUgen));> }
+
+	encodeUgen { :self :aUgen |
+		<primitive: return sc.encodeUgen(_self, sc.wrapOut(0, _aUgen));>
+	}
+
+	ugenGraph { :self :aUgen |
+		<primitive: return sc.makeUgenGraph(_self, sc.wrapOut(0, _aUgen));>
+	}
+
 }
 
 + [Array, Number, Ugen] {
@@ -59,6 +67,14 @@ Ugen : [Object, Numeric] {
 
 	resetScsynth {
 		<primitive: return sc.resetScsynth(globalScsynth);>
+	}
+
+}
+
++ IdentityDictionary {
+
+	localControls { :self |
+		<primitive: return sc.localControls(Object.fromEntries(_self));>
 	}
 
 }
