@@ -63,6 +63,11 @@ export function isByte(anObject: unknown): boolean {
 type MethodOrigin = string;
 
 export class Method {
+	name: MethodName;
+	procedure:  Function;
+	arity: Arity;
+	sourceCode: MethodSourceCode;
+	origin: MethodOrigin;
 	constructor(name: MethodName, procedure: Function, arity: Arity, sourceCode: MethodSourceCode, origin: MethodOrigin) {
 		this.name = name;
 		this.procedure = procedure;
@@ -84,14 +89,14 @@ export class Trait {
 	}
 }
 
-export const traitDictionary: Map<TraitName, Trait> = new Map();
+//export const traitDictionary: Map<TraitName, Trait> = new Map();
 
 export class Type {
 	name: TypeName;
 	traitArray: TraitName[];
 	slotArray: string[];
 	methodDictionary: Map<QualifiedMethodName, Method>;
-	constructor(name: TypeName, traitArray, slotArray) {
+	constructor(name: TypeName, traitArray: TraitName[], slotArray: string[]) {
 		this.name = name;
 		this.traitArray = traitArray;
 		this.slotArray = slotArray;
@@ -99,24 +104,42 @@ export class Type {
 	}
 }
 
-// Void is not an ordinary type, it names the place in the method table for no-argument procedures.
-export const typeDictionary: Map<TypeName, Type[]> = new Map([
-	['Array', new Type('Array', [], [])],
-	['String', new Type('String', [], [])],
-	['Void', new Type('Void', [], [])]
-]);
+
+export type MethodTable = ByNameProcedureTable;
+export type TraitDictionary = Map<TraitName, Trait>;
+export type TypeDictionary = Map<TypeName, Type>;
+
+export class System {
+	methodTable: ByNameProcedureTable;
+	traitDictionary: Map<TraitName, Trait>;
+	typeDictionary: Map<TypeName, Type>;
+	nextUniqueId: number;
+	constructor() {
+		this.methodTable = new Map();
+		this.traitDictionary = new Map();
+		// Void is not an ordinary type, it names the place in the method table for no-argument procedures.
+		this.typeDictionary = new Map([
+			['Array', new Type('Array', [], [])],
+			['String', new Type('String', [], [])],
+			['Void', new Type('Void', [], [])]
+		]);
+		this.nextUniqueId = 1;
+	}
+}
+
+export const system: System = new System();
 
 export function addTrait(traitName: TraitName): void {
 	// console.debug(`addTrait: ${traitName}`);
-	if(!traitDictionary.has(traitName)) {
-		traitDictionary.set(traitName, new Trait(traitName));
+	if(!system.traitDictionary.has(traitName)) {
+		system.traitDictionary.set(traitName, new Trait(traitName));
 	}
 }
 
 // c.f. rewrite/makeMethodList
 export function addTraitMethod(traitName: TraitName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
 	// console.debug(`addTypeTrait: ${traitName}, ${methodName}, ${method.arity}`);
-	const trait = traitDictionary.get(traitName)!;
+	const trait = system.traitDictionary.get(traitName)!;
 	const method = new Method(methodName, procedure, arity, sourceCode, traitName);
 	trait.methodDictionary.set(method.qualifiedName(), method);
 	return method;
@@ -124,7 +147,7 @@ export function addTraitMethod(traitName: TraitName, methodName: MethodName, ari
 
 export function copyTraitToType(traitName: TraitName, typeName: TypeName): void {
 	// console.debug(`copyTraitToType: ${traitName}, ${typeName}`);
-	const methodDictionary = traitDictionary.get(traitName)!.methodDictionary;
+	const methodDictionary = system.traitDictionary.get(traitName)!.methodDictionary;
 	for (const [name, method] of methodDictionary) {
 		// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${method.arity}`);
 		addMethodFor(typeName, method);
@@ -133,7 +156,7 @@ export function copyTraitToType(traitName: TraitName, typeName: TypeName): void 
 
 export function traitTypeArray(traitName: TraitName): TypeName[] {
 	const answer = [];
-	for (const [typeName, typeValue] of typeDictionary) {
+	for (const [typeName, typeValue] of system.typeDictionary) {
 		if(typeValue.traitArray.includes(traitName)) {
 			answer.push(typeName);
 		}
@@ -156,10 +179,10 @@ type ByTypeProcedureTable = Map<TypeName, Method>;
 type ByArityProcedureTable = Map<Arity, ByTypeProcedureTable>;
 type ByNameProcedureTable = Map<MethodName, ByArityProcedureTable>
 
-export const methodTable: ByNameProcedureTable = new Map();
+//export const methodTable: ByNameProcedureTable = new Map();
 
 export function lookupGeneric(methodName: MethodName, methodArity: Arity, receiverType: TypeName): Method {
-	return methodTable.get(methodName)!.get(methodArity)!.get(receiverType)!;
+	return system.methodTable.get(methodName)!.get(methodArity)!.get(receiverType)!;
 }
 
 export function nameWithoutArity(methodName: MethodName) {
@@ -205,14 +228,13 @@ export function dispatchByArity(name: string, arity: number, arityTable: ByArity
 declare var globalThis: { [key: string]: unknown };
 
 export function addMethodFor(typeName: TypeName, method: Method): Method {
-	if(slOptions.requireTypeExists && !typeDictionary.has(typeName)) {
-		console.error(`addMethodFor: type does not exist: ${typeName}`);
-		return;
+	if(slOptions.requireTypeExists && !system.typeDictionary.has(typeName)) {
+		throw(`addMethodFor: type does not exist: ${typeName}`);
 	}
 	// console.debug(`addMethodFor: ${typeName}, ${method.name}, ${method.arity}`);
-	if(!methodTable.has(method.name)) {
+	if(!system.methodTable.has(method.name)) {
 		// console.debug(`addMethodFor: new method name`);
-		methodTable.set(method.name, new Map());
+		system.methodTable.set(method.name, new Map());
 		if(slOptions.simpleArityModel) {
 			const prefixedName = '_' + method.name;
 			let globalFunction = globalThis[prefixedName];
@@ -226,7 +248,7 @@ export function addMethodFor(typeName: TypeName, method: Method): Method {
 			}
 		}
 	}
-	let arityTable = methodTable.get(method.name)!;
+	let arityTable = system.methodTable.get(method.name)!;
 	if(!arityTable.has(method.arity)) {
 		// console.debug(`addMethodFor: new method arity`);
 		arityTable.set(method.arity, new Map());
@@ -253,7 +275,7 @@ export function addMethodFor(typeName: TypeName, method: Method): Method {
 		arityTable.get(method.arity)!.set(typeName, method);
 	}
 	if(typeName === method.origin) {
-		typeDictionary.get(typeName)!.methodDictionary.set(method.qualifiedName(), method);
+		system.typeDictionary.get(typeName)!.methodDictionary.set(method.qualifiedName(), method);
 	}
 	return method;
 }
@@ -274,7 +296,7 @@ export function addType(typeName: TypeName, traitList: TraitName[], slotNames: s
 	const defSlotAccess = slotNames.map(each => `addMethod('${typeName}', '${each}', 1, function(anInstance) { return anInstance.${each} }, '<primitive>');`).join('; ');
 	const defSlotMutate = slotNames.map(each => `addMethod('${typeName}', '${each}', 2, function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive>');`).join('; ');
 	// console.debug(`addType: ${typeName}, ${slotNames}`);
-	typeDictionary.set(typeName, new Type(typeName, traitList, slotNames));
+	system.typeDictionary.set(typeName, new Type(typeName, traitList, slotNames));
 	eval(defType);
 	eval(defPredicateFalse);
 	eval(defPredicateTrue);
@@ -299,7 +321,7 @@ declare global {
 	var _pi: number;
 	var _inf: number;
 	var _implicitDictionary: Map<string,unknown>;
-	var _system: Map<string,any>;
+	var _system: System;
 	var _workspace: Map<string,unknown>;
 }
 
@@ -307,11 +329,6 @@ export function assignGlobals() {
 	globalThis._pi = Math.PI;
 	globalThis._inf = Infinity;
 	globalThis._implicitDictionary = new Map();
-	globalThis._system = new Map([
-		['methodTable', methodTable],
-		['traitDictionary', traitDictionary],
-		['typeDictionary', typeDictionary],
-		['nextUniqueId', 1],
-	]);
+	globalThis._system = system;
 	globalThis._workspace = new Map();
 }

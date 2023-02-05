@@ -13,8 +13,8 @@ Methods have the fields:
 The _methodTable_ is stored in the _system_ dictionary.
 
 ```
-system::methodTable.isIdentityDictionary = true
-system::methodTable.includesKey('collect') = true
+system.methodTable.isIdentityDictionary = true
+system.methodTable.includesKey('collect') = true
 system.method('collect', 2, 'Array').isMethod = true
 system.method('collect', 2, 'Array').origin = 'ArrayedCollection'
 system.method('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = [9, 16, 25]

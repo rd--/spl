@@ -1,4 +1,4 @@
-+ IdentityDictionary {
++ System {
 
 	allMethodSignatures { :self |
 		self.methodList.collect({ :methodName |
@@ -15,12 +15,12 @@
 	}
 
 	method { :self :methodName :arity :typeName |
-		self::methodTable[methodName][arity][typeName]
+		self.methodTable[methodName][arity][typeName]
 	}
 
 	methodArities { :self :methodName |
 		(* Arities methodName is implemented for. *)
-		self::methodTable[methodName].keys
+		self.methodTable[methodName].keys
 	}
 
 	methodImplementations { :self :methodName |
@@ -28,7 +28,7 @@
 		self.isMethodName(methodName).if {
 			|
 				answer = IdentityDictionary(),
-				table = self::methodTable[methodName];
+				table = self.methodTable[methodName];
 			|
 			table.keysValuesDo { :arity :dictionary |
 				answer.add(arity -> dictionary)
@@ -40,7 +40,7 @@
 	}
 
 	methodList { :self |
-		self::methodTable.keys
+		self.methodTable.keys
 	}
 
 	methodPrintString { :self :methodName |
@@ -74,7 +74,7 @@
 	methodTypes { :self :methodName |
 		(* Types implementing methodName. *)
 		self.isMethodName(methodName).if {
-			self::methodTable[methodName].values.collect(keys:/1).concatenation
+			self.methodTable[methodName].values.collect(keys:/1).concatenation
 		} {
 			('methodTypes: not a method: ' ++ methodName).error
 		}
@@ -96,7 +96,7 @@
 	typeMethods { :self :typeName |
 		(* Methods implemented by typeName. *)
 		self.isTypeName(typeName).if {
-			self::methodTable.keys.select { :methodName |
+			self.methodTable.keys.select { :methodName |
 				self.methodTypes(methodName).includes(typeName)
 			}
 		} {

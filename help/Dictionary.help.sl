@@ -4,7 +4,7 @@ _Dictionary_ is a trait holding behaviours common to collections of (key, value)
 
 ```
 system.traitTypes('Dictionary')
-system.traitMethods('Dictionary').keys
+system.traitDictionary['Dictionary']
 ```
 
 * * *

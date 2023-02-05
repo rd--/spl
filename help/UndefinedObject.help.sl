@@ -4,6 +4,6 @@ _UndefinedObject_ is the type of the value _nil_.
 
 ```
 nil.typeOf = 'UndefinedObject'
-system.typeMethods('UndefinedObject').includes('ifNil') = true
+system.typeDictionary['UndefinedObject'].methodDictionary.keys.includes('ifNil:/2') = true
 nil.respondsTo(ifNil:/2) = true
 ```

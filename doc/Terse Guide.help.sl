@@ -127,8 +127,6 @@ var a = [5, 4, 3, 2, 1]; a.findIndex { :each | each % 3 = 0 } = 3
 Array(5).fillFromWith([1 .. 5], negated:/1) = [-1 .. -5]
 var a = Array(5); a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
 var a = Array(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
-Array:/1.series(5, 1, 2) = [1, 3, 5, 7, 9]
-Array:/1.geom(7, 1, 3) = [1, 3, 9, 27, 81, 243, 729]
 [1, 2, 3, 4, 3, 2, 1].occurrencesOf(3) = 2
 var a = [1, 2], [x, y] = a; [y, x] = [2, 1]
 var i = (1 .. 9); var [x, y, z] = i; [z, y, x] = [3 .. 1]
@@ -217,7 +215,7 @@ var d = (x: 1); d.addAll (y: 2, z: 3); d = (x: 1, y: 2, z: 3)
 (x: 'x', y: '.', z: 'z').associationsSelect { :each | each.key = each.value } = (x: 'x', z: 'z')
 var d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.atDelegateTo(each, 'parent') } = [1, 2, 3]
 var d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.messageSend(each, 'parent', []) } = [1, 2, 3]
-var d = (x: 1, parent: (y: 2, parent: (z: 3))); d.atPutDelegate('z', -3); d.atDelegateTo('z', 'parent') = -3
+var d = (x: 1, parent: (y: 2, parent: (z: 3))); d.atPutDelegateTo('z', -3, 'parent'); d.atDelegateTo('z', 'parent') = -3
 var d = (c: 3, parent: (b: 2, parent: (a: 1))); [d:.a, d:.b, d:.c] = [1, 2, 3]
 var d = (x: 1, parent: (y: 2, parent: (z: 3))); d:.z := -3; [d:.x, d:.y, d:.z] = [1, 2, -3]
 var d = (length: { :self | (self::x.squared  + self::y.squared).sqrt }); var p = (x: 3.141, y: 23, parent: d); p:.length = 23.213484895637706
@@ -297,8 +295,6 @@ var l = OrderedCollection([4, 5]); l.addAllFirst(1.to(3)); l.asArray = [1 .. 5]
 13.fibonacciSequence = OrderedCollection([1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233])
 [1, 2, 3].OrderedCollection ++ [4, 5, 6] = [ 1, 2, 3, 4, 5, 6 ].OrderedCollection
 [1 .. 5].OrderedCollection.reversed = [5 .. 1].OrderedCollection
-OrderedCollection:/1.series(9, 1, 1) = [1 .. 9].OrderedCollection
-OrderedCollection:/1.geom(7, 1, 3) = [1, 3, 9, 27, 81, 243, 729].OrderedCollection
 
 'Collections/PriorityQueue'
 PriorityQueue().isPriorityQueue = true
@@ -412,12 +408,12 @@ var r; 5.do { :each | r := each }; r = 5
 var r; 0.do { :each | r := each }; r = nil
 
 'System/methodTable'
-system.keys.includesAllOf(['methodTable', 'traitDictionary', 'typeDictionary']) = true
-system::methodTable.isIdentityDictionary = true
-system::methodTable::collect.isIdentityDictionary = true
-system::methodTable::collect[2].isIdentityDictionary = true
-system::methodTable::collect[2]::Array.isMethod = true
-system::methodTable.includesKey('collect') = true
+system.typeOf = 'System'
+system.methodTable.isIdentityDictionary = true
+system.methodTable::collect.isIdentityDictionary = true
+system.methodTable::collect[2].isIdentityDictionary = true
+system.methodTable::collect[2]::Array.isMethod = true
+system.methodTable.includesKey('collect') = true
 system.allMethodSignatures.includes('Array>>sum:/1 (@Collection)') = true
 system.method('collect', 2, 'Array').isNil = false
 system.methodImplementations('sum')[1]['Array'].origin = 'Collection'
@@ -441,8 +437,8 @@ systemTimeInMilliseconds() > 0 = true
 unixTimeInMilliseconds() > 1671935015392 = true
 
 'System/traitDictionary'
-system::traitDictionary.isIdentityDictionary = true
-system::traitDictionary.includesKey('Collection') = true
+system.traitDictionary.isIdentityDictionary = true
+system.traitDictionary.includesKey('Collection') = true
 system.traitTypes('Collection').includes('Array') = true
 system.typeTraits('Array').includes('ArrayedCollection') = true
 system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'SequenceableCollection']) = true
@@ -455,15 +451,15 @@ system.trait('Collection').methodDictionary.includesKey('sum:/1') = true
 system.trait('Collection').methodDictionary::sum:/1.isMethod = true
 
 'System/typeDictionary'
-system::typeDictionary.isIdentityDictionary = true
-system::typeDictionary.keys.includes('Array') = true
-system::typeDictionary.includesKey('Array') = true
-system::typeDictionary::Array.isType = true
-system::typeDictionary::Array.traitArray.includes('Collection') = true
-system::typeDictionary::Association.slotArray = ['key', 'value']
-system::typeDictionary::Association.methodDictionary.keys.includes('equals:/2')
-system::typeDictionary::Association.methodDictionary.includesKey('key:/1') = true
-system::typeDictionary::UndefinedObject.methodDictionary.includesKey('ifNil:/2') = true
+system.typeDictionary.isIdentityDictionary = true
+system.typeDictionary.keys.includes('Array') = true
+system.typeDictionary.includesKey('Array') = true
+system.typeDictionary::Array.isType = true
+system.typeDictionary::Array.traitArray.includes('Collection') = true
+system.typeDictionary::Association.slotArray = ['key', 'value']
+system.typeDictionary::Association.methodDictionary.keys.includes('equals:/2')
+system.typeDictionary::Association.methodDictionary.includesKey('key:/1') = true
+system.typeDictionary::UndefinedObject.methodDictionary.includesKey('ifNil:/2') = true
 system.typeMethods('Association').select({ :each | each.name = 'copy' }).size = 1
 system.typeMethods('Association').collect(name:/1).includes('copy') = true
 system.type('Array').isType = true

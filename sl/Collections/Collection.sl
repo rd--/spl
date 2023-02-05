@@ -173,8 +173,14 @@
 		nextValue
 	}
 
+	reject { :self :aProcedure:/1 |
+		self.select { :element | aProcedure(element) = false }
+	}
+
 	remove { :self :oldObject |
-		self.removeIfAbsent(oldObject, { self.errorNotFound(oldObject) } )
+		self.removeIfAbsent(oldObject) {
+			self.errorNotFound(oldObject)
+		}
 	}
 
 	select { :self :aProcedure:/1 |

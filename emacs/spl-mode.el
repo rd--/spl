@@ -65,9 +65,9 @@
   (interactive)
   (spl-netcat-cmd 'playFile 'fileName buffer-file-name))
 
-(defun spl-clear-system-clock ()
+(defun spl-clear-clock ()
   (interactive)
-  (spl-netcat-cmd 'evalText 'text "system::clock.clear"))
+  (spl-netcat-cmd 'evalText 'text "workspace::clock.clear"))
 
 (defun spl-reset-scsynth ()
   (interactive)
@@ -75,7 +75,7 @@
 
 (defun spl-stop ()
   (interactive)
-  (spl-clear-system-clock)
+  (spl-clear-clock)
   (spl-reset-scsynth))
 
 (defvar spl-mode-hook

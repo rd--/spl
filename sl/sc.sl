@@ -22,5 +22,5 @@ loadSequence([
 	'Sound/Sc/Synth/pseudo.sl',
 	'Sound/Sc/Synth/texture.sl'
 ]).then { :unusedValue |
-	system::clock := Clock()
+	workspace::clock := Clock()
 }

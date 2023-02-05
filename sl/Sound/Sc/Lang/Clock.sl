@@ -58,11 +58,11 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 + Number {
 
 	schedule { :self :aProcedure |
-		system::clock.schedule(self, aProcedure)
+		workspace::clock.schedule(self, aProcedure)
 	}
 
 	scheduleInjecting { :self :anObject :aProcedure |
-		system::clock.scheduleInjecting(self, anObject, aProcedure)
+		workspace::clock.scheduleInjecting(self, anObject, aProcedure)
 	}
 
 }
@@ -70,11 +70,11 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 + Procedure {
 
 	schedule { :self |
-		system::clock.schedule(0, self)
+		workspace::clock.schedule(0, self)
 	}
 
 	scheduleInjecting { :self :anObject |
-		system::clock.scheduleInjecting(0, anObject, self)
+		workspace::clock.scheduleInjecting(0, anObject, self)
 	}
 
 }

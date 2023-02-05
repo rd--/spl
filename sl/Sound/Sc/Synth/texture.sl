@@ -2,7 +2,7 @@ Procedure {
 
 	overlap { :self:/0 :sustainTime :transitionTime :overlap |
 		| period = (sustainTime + (transitionTime * 2)) / overlap; |
-		system::clock.schedule(0) {
+		workspace::clock.schedule(0) {
 			{ self().withOverlapEnvelope(sustainTime, transitionTime) }.play;
 			period
 		}
@@ -22,7 +22,7 @@ Procedure {
 	}
 
 	playEvery { :self :delay |
-		self.playEvery(system::clock, delay)
+		self.playEvery(workspace::clock, delay)
 	}
 
 	repeatEvery { :self :aClock :delay |
@@ -51,7 +51,7 @@ Procedure {
 	}
 
 	recurseEvery { :self :anObject :delay |
-		self.recurseEvery(system::clock, anObject, delay)
+		self.recurseEvery(workspace::clock, anObject, delay)
 	}
 
 	xfade { :self :sustainTime :transitionTime |
@@ -77,7 +77,7 @@ Procedure {
 	}
 
 	collectTexture { :self :aProcedure :delay |
-		self.collectTexture(system::clock, aProcedure, delay)
+		self.collectTexture(workspace::clock, aProcedure, delay)
 	}
 
 }
