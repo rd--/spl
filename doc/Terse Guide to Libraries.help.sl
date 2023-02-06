@@ -101,15 +101,15 @@ var w = Utf8WriteStream(); 'bodlɛʁ'.encodeOn(w); w.contents.utf8 = 'bodlɛʁ'
 0.25.asDuration = 250.milliseconds
 3.hours.seconds = 10800
 1.5.seconds.milliseconds = 1500
-systemTime().isDuration = true
+system.systemTime.isDuration = true
 0.5.seconds + 750.milliseconds = 1.25.seconds
 2.weeks - 12.days = 48.hours
 0.25 + 500.milliseconds = 750.milliseconds
 500.milliseconds + 0.25 = 0.75.seconds
-systemTime().seconds > systemTime().hours = true
-systemTime().weeks < 1 = true
-unixTime().weeks > 2750 = true
-{ unixTime().postLine }.evaluateAfter(0.5.seconds).cancel = nil
-{ unixTime().postLine }.evaluateAt(unixTime() + 0.5.seconds).cancel = nil
-{ unixTime().seconds.rounded.postLine }.evaluateEvery(3.seconds).cancel = nil
+system.systemTime.seconds > system.systemTime.hours = true
+system.systemTime.weeks < 1 = true
+system.unixTime.weeks > 2750 = true
+{ system.unixTime.postLine }.evaluateAfter(0.5.seconds).cancel = nil
+{ system.unixTime.postLine }.evaluateAt(system.unixTime + 0.5.seconds).cancel = nil
+{ system.unixTime.seconds.rounded.postLine }.evaluateEvery(3.seconds).cancel = nil
 var f = { :t0 | | t1 = 2.randomFloat.seconds; | t0.postLine; f.evaluateAfterWith(t1, t1) }; f(2.seconds).cancel = nil

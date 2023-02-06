@@ -118,11 +118,11 @@ Number : [Object, Magnitude, Numeric, Integral, Binary] {
 
 	asInteger { :self | self.truncated }
 
-	randomFloat { :self | self * randomFloat() }
-	randomFloat { :self :aNumber | self + randomFloat(aNumber - self) }
+	randomFloat { :self | self * system.randomFloat }
+	randomFloat { :self :aNumber | self + (aNumber - self).randomFloat }
 
-	randomInteger { :self | randomFloat(1, self).rounded }
-	randomInteger { :self :aNumber | randomFloat(self, aNumber).rounded }
+	randomInteger { :self | 1.randomFloat(self).rounded }
+	randomInteger { :self :aNumber | self.randomFloat(aNumber).rounded }
 
 	atRandom { :self | self.randomInteger }
 
@@ -138,14 +138,6 @@ Number : [Object, Magnitude, Numeric, Integral, Binary] {
 
 	Number { :self |
 		self
-	}
-
-}
-
-+ Void {
-
-	randomFloat {
-		<primitive: return Math.random();>
 	}
 
 }

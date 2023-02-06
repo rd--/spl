@@ -5,7 +5,7 @@
 	}
 
 	coin { :self |
-		randomFloat() < self
+		system.randomFloat < self
 	}
 
 	CpsMidi { :self |

@@ -6,7 +6,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 			When aProcedure is evaluated the answer is either an interval at which to re-schedule, or nil to halt.
 		*)
 		|
-			currentTime = systemTimeInMilliseconds(),
+			currentTime = system.systemTimeInMilliseconds,
 			scheduledTime = deltaTime * 1000 + currentTime,
 			wakeupTime = self.nextEntryTime;
 		|
@@ -33,7 +33,11 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	wakeup { :self :scheduledTime |
-		| currentTime = systemTimeInMilliseconds(), queue = self.priorityQueue, front = self.nextEntryTime; |
+		|
+			currentTime = system.systemTimeInMilliseconds,
+			queue = self.priorityQueue,
+			front = self.nextEntryTime;
+		|
 		{ front ~= nil & { front <= currentTime } }.whileTrue {
 			| activity = queue.pop, rescheduleAfter = activity.value; |
 			rescheduleAfter.isNumber.ifTrue { self.priorityQueue.push(activity, rescheduleAfter * 1000 + scheduledTime) };

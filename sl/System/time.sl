@@ -1,10 +1,10 @@
-+ Void {
++ System {
 
-	systemTimeInMilliseconds {
+	systemTimeInMilliseconds { :self |
 		<primitive: return performance.now();>
 	}
 
-	unixTimeInMilliseconds {
+	unixTimeInMilliseconds { :self |
 		<primitive: return Date.now();>
 	}
 

@@ -43,7 +43,7 @@ Ugen : [Object, Numeric] {
 	}
 
 	playUgen { :self |
-		<primitive: sc.scsynthEnsure(globalScsynth, function() { sc.playUgen(globalScsynth, _self, 1) });>
+		<primitive: sc.scSynthEnsure(globalScSynth, function() { sc.playUgen(globalScSynth, _self, 1) });>
 	}
 
 	printUgen { :aUgen |
@@ -59,14 +59,6 @@ Ugen : [Object, Numeric] {
 		answer.isOutputSignal.ifTrue {
 			playUgen(answer)
 		}
-	}
-
-}
-
-+ Void {
-
-	resetScsynth {
-		<primitive: return sc.resetScsynth(globalScsynth);>
 	}
 
 }

@@ -9,7 +9,7 @@ loadSequence([
 	'Sound/Sc/Lang/Object.ext.sl',
 	'Sound/Sc/Lang/SequenceableCollection.ext.sl',
 	'Sound/Sc/Synth/CcEvent.sl',
-	'Sound/Sc/Synth/Scsynth.sl',
+	'Sound/Sc/Synth/ScSynth.sl',
 	'Sound/Sc/Synth/ScUgen.sl',
 	'Sound/Sc/Synth/Ugen.sl',
 	'Sound/Sc/Synth/UgenGraph.sl',

@@ -40,11 +40,11 @@ async function rewriteFile(fileName: string): Promise<void> {
 
 declare global {
 	var sc: Record<string, unknown>;
-	var globalScsynth: sc.Scsynth;
+	var globalScSynth: sc.ScSynth;
 	var playUgen: (aUgen: sc.Signal) => void;
 }
 
-const cliScynth = scUdp.scsynthUdp(scUdp.defaultScsynthUdp);
+const cliScSynth = scUdp.scSynthUdp(scUdp.defaultScSynthUdp);
 
 async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	const loadPath = opt.dir || getSplDir() || './';
@@ -54,8 +54,8 @@ async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	await io.loadFileArrayInSequence(loadPath, ['kernel.sl', 'std.sl'].concat(lib));
 	if(lib.includes('sc.sl')) {
 		globalThis.sc = sc;
-		globalThis.globalScsynth = cliScynth;
-		globalThis.playUgen = (ugenGraph) => sc.playUgen(globalThis.globalScsynth, ugenGraph, 1);
+		globalThis.globalScSynth = cliScSynth;
+		globalThis.playUgen = (ugenGraph) => sc.playUgen(globalThis.globalScSynth, ugenGraph, 1);
 	}
 }
 
@@ -80,7 +80,7 @@ async function scEvalFile(fileName: string): Promise<void> {
 
 function scPlayText(splText: string): void {
 	const ugenGraph = ev.evaluateString(splText);
-	sc.playUgen(cliScynth, ugenGraph, 1);
+	sc.playUgen(cliScSynth, ugenGraph, 1);
 }
 
 async function scPlayFile(fileName: string): Promise<void> {

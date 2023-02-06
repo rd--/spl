@@ -102,12 +102,12 @@ Duration : [Object] { | milliseconds |
 	}
 
 	evaluateAt { :self :time |
-		| now = unixTime(); |
+		| now = system.unixTime; |
 		self.evaluateAfter(time.asDuration - now)
 	}
 
 	evaluateAt { :self :time :anObject |
-		| now = unixTime(); |
+		| now = system.unixTime; |
 		self.evaluateAfterWith(time.asDuration - now, anObject)
 	}
 
@@ -117,14 +117,14 @@ Duration : [Object] { | milliseconds |
 
 }
 
-+ Void {
++ System {
 
-	systemTime {
-		systemTimeInMilliseconds().milliseconds
+	systemTime { :self |
+		self.systemTimeInMilliseconds.milliseconds
 	}
 
-	unixTime {
-		unixTimeInMilliseconds().milliseconds
+	unixTime { :self |
+		self.unixTimeInMilliseconds.milliseconds
 	}
 
 }

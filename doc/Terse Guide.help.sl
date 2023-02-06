@@ -138,7 +138,7 @@ var a = Array(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9
 [1, 2, 3, 4, 3, 2, 1].occurrencesOf(3) = 2
 var a = [1, 2], [x, y] = a; [y, x] = [2, 1]
 var i = (1 .. 9); var [x, y, z] = i; [z, y, x] = [3 .. 1]
-var [x, y] = { var n = randomFloat(); [n, n] }.value; x = y
+var [x, y] = { var n = system.randomFloat; [n, n] }.value; x = y
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
 [1, 2, 3].printString = '[1, 2, 3]'
@@ -218,7 +218,7 @@ var d = (x: 23, y: 3.141); d.copy ~~ d
 (x:1, y:2) ++ (z:3) = (x:1, y:2, z:3)
 (x: 1, y: 2).asArray = ['x' -> 1, 'y' -> 2]
 var d = (x:1, y:2, z:3), (x, z) = d; [x, z] = [1, 3]
-var (x, y) = { var n = randomFloat(); (x: n, y: n) }.value; x = y
+var (x, y) = { var n = system.randomFloat; (x: n, y: n) }.value; x = y
 (x:1, y:2, z:3).select(even:/1) = (y: 2)
 (x:1, y:2, z:3).sum = 6
 var d = (x: 9); d::x.sqrt = 3
@@ -407,7 +407,7 @@ Error('message').log = nil
 3 * 4 = 12
 3 * 4 + 9 = 21
 7.quotient(2) = 3
-var total = 0; 9.timesRepeat { total := total + randomFloat() }; total < 7
+var total = 0; 9.timesRepeat { total := total + system.randomFloat }; total < 7
 3.max(7) = 7
 7.min(3) = 3
 12345.truncateTo(600) = 12000
@@ -423,8 +423,13 @@ pi.randomFloat.isInteger = false
 var r; 5.do { :each | r := each }; r = 5
 var r; 0.do { :each | r := each }; r = nil
 
-'System/methodTable'
+'System/system'
 system.typeOf = 'System'
+system.typeDictionary.keys.includes('System') = true
+system.randomFloat < 1
+system.uniqueId ~= system.uniqueId
+
+'System/methodTable'
 system.methodTable.isIdentityDictionary = true
 system.methodTable::collect.isIdentityDictionary = true
 system.methodTable::collect[2].isIdentityDictionary = true
@@ -439,7 +444,7 @@ system.method('sum', 1, 'Array').origin = 'Collection'
 system.method('sum', 1, 'Array').name = 'sum'
 system.methodTypes('collect').includes('Array') = true
 system.multipleArityMethodList.includes('randomFloat') = true
-system.onlyZeroArityMethodList.includes('systemTimeInMilliseconds') = true
+system.onlyZeroArityMethodList.includes('PriorityQueue') = true
 system.doesTypeImplementMethod('Array', 'select') = true
 [1, 2, 3].respondsTo(select:/2) = true
 system.methodPrintString('add').size >= 3
@@ -449,8 +454,8 @@ system.method('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = c
 system.method('sum', 1, 'Array') == system.method('sum', 1, 'OrderedCollection')
 
 'System/time'
-systemTimeInMilliseconds() > 0 = true
-unixTimeInMilliseconds() > 1671935015392 = true
+system.systemTimeInMilliseconds > 0 = true
+system.unixTimeInMilliseconds > 1671935015392 = true
 
 'System/traitDictionary'
 system.traitDictionary.isIdentityDictionary = true
