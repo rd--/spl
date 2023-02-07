@@ -105,6 +105,7 @@
 	TDmdFor { :dur :reset :level | <primitive: return sc.TDmdFor(_dur, _reset, _level);> }
 	TLine { :start :end :dur :trig | <primitive: return sc.TLine(_start, _end, _dur, _trig);> }
 	TxLine { :start :end :dur :trig | <primitive: return sc.TxLine(_start, _end, _dur, _trig);> }
+	VarLag { :input :time :curve | <primitive: return sc.VarLag(_input, _time, _curve);> }
 	XChoose { :repeats :list | <primitive: return sc.XChoose(_repeats, _list);> }
 	XLn { :start :end :dur | <primitive: return sc.XLn(_start, _end, _dur);> }
 
@@ -113,6 +114,10 @@
 + Array {
 
 	asLocalBuf { :self |
+		<primitive: return sc.asLocalBuf(_self);>
+	}
+
+	LocalBuf { :self |
 		<primitive: return sc.asLocalBuf(_self);>
 	}
 

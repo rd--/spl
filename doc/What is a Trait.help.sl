@@ -23,6 +23,8 @@ When a trait is extended methods are added both to the trait entry and to the di
 system.trait('Collection').methodDictionary.includesKey('sum:/1') = true
 ```
 
+To distinguish traits from types traits are sometimes written with an _@_ prefix, which corresponds to the syntax used to define them.
+
 _Note:_ At present re-defining methods of traits is not safe.
 Redefinitions should not be applied to a type if there is a more specific method defined.
 A definition is more specific if it is defined at the type, or at a trait that is later in the trait sequence.
