@@ -10,11 +10,11 @@ Methods have the fields:
 - _procedure_: the compiled implementation of the method
 - _sourceCode_: the definition of the method string
 
-The _methodTable_ is stored in the _system_ dictionary.
+The _methodDictionary_ is reflected in the _system_ type.
 
 ```
-system.methodTable.isIdentityDictionary = true
-system.methodTable.includesKey('collect') = true
+system.methodDictionary.isIdentityDictionary = true
+system.methodDictionary.includesKey('collect') = true
 system.method('collect', 2, 'Array').isMethod = true
 system.method('collect', 2, 'Array').origin = 'ArrayedCollection'
 system.method('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = [9, 16, 25]

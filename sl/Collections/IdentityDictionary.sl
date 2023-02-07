@@ -19,6 +19,14 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 		<primitive: return _self.has(_aKey);>
 	}
 
+	json { :self |
+		self.keys.allSatisfy(isString:/1).if {
+			self.StringDictionary.json
+		} {
+			'IdentityDictionary>>json: not all keys are strings'.error
+		}
+	}
+
 	keys { :self |
 		<primitive: return Array.from(_self.keys());>
 	}

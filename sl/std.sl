@@ -11,10 +11,5 @@ loadSequence([
 	'Collections/StringDictionary.sl',
 	'Exceptions/Error.sl',
 	'Kernel/Promise.sl',
-	'System/System.sl',
-	'System/id.sl',
-	'System/methodTable.sl',
-	'System/time.sl',
-	'System/traitDictionary.sl',
-	'System/typeDictionary.sl'
+	'System/System.sl'
 ])

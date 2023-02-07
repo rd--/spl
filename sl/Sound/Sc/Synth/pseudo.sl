@@ -8,7 +8,7 @@
 		| n = breakPointArray.size; |
 		Env(
 			Interval(1, n, 2).collect { :index | breakPointArray[index] },
-			Interval(2, n - 1, 2).collect({ :index | breakPointArray[index] }).differentiate,
+			Interval(2, n - 1, 2).collect { :index | breakPointArray[index] }.differentiate,
 			curves,
 			nil,
 			nil,

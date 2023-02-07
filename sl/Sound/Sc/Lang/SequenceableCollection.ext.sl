@@ -2,7 +2,7 @@
 
 	allTuples { :self |
 		(* Answer all of the possible n-tuples of each of my elements (I am an n-element sequence of any sized sequences). *)
-		| answerSize = self.collect({ :item | item.size }).product; |
+		| answerSize = self.collect { :item | item.size }.product; |
 		1.to(answerSize).collect { :i |
 			| k = i - 1, nextTuple = self.species.new(self.size); |
 			self.size.toBy(1, -1).collect { :j |

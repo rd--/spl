@@ -12,6 +12,6 @@ window().prompt('Integer: ', '23')
 window().navigator.userAgent
 window().navigator.maxTouchPoints
 
-window().navigator.requestMidiAccess.thenElse { :midiAccess | system::midi := midiAccess } { :message | ('no midi: ' + message).postLine }
-system::midi.inputs.do { :each | each.postLine; each.onmidimessage { :event | event.data.postLine } }
-system::midi.sysexEnabled
+window().navigator.requestMidiAccess.thenElse { :midiAccess | workspace::midi := midiAccess } { :message | ('no midi: ' + message).postLine }
+workspace::midi.inputs.do { :each | each.postLine; each.onmidimessage { :event | event.data.postLine } }
+workspace::midi.sysexEnabled

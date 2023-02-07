@@ -53,22 +53,25 @@ StringDictionary : [Object, Dictionary] {
 
 + Array {
 
-	stringDictionaryFromTwoElementArrays { :self |
-		(* I am an array of two element arrays. *)
-		<primitive: return Object.fromEntries(_self);>
-	}
-
 	StringDictionary { :self |
 		(* I am an array of associations. *)
-		self.collect(asArray:/1).stringDictionaryFromTwoElementArrays
+		self.IdentityDictionary.StringDictionary
 	}
 
 }
 
 + IdentityDictionary {
 
-	StringDictionary { :self |
+	unsafeStringDictionary { :self |
 		<primitive: return Object.fromEntries(_self);>
+	}
+
+	StringDictionary { :self |
+		self.keys.allSatisfy(isString:/1).if {
+			self.unsafeStringDictionary
+		} {
+			'IdentityDictionary>>StringDictionary: not all keys are strings'.error
+		}
 	}
 
 }

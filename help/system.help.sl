@@ -5,7 +5,7 @@ _system_ is the name of the system dictionary.
 It holds the Method, Trait and Type dictionaries.
 
 ```
-system.methodTable
+system.methodDictionary
 system.traitDictionary
 system.typeDictionary
 ```

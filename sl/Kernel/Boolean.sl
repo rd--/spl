@@ -36,12 +36,12 @@ Boolean : [Object] {
 		<primitive: return _self ? _whenTrue() : _whenFalse();>
 	}
 
-	ifFalse { :self :whenFalse |
-		self.if({ nil }, whenFalse)
+	ifFalse { :self :whenFalse:/0 |
+		self.if({ nil }, whenFalse:/0)
 	}
 
-	ifTrue { :self :whenTrue |
-		self.if(whenTrue, { nil })
+	ifTrue { :self :whenTrue:/0 |
+		self.if(whenTrue:/0, { nil })
 	}
 
 	json { :self |

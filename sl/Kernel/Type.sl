@@ -8,6 +8,10 @@ Type : [Object] {
 		<primitive: return _self.name;>
 	}
 
+	prefixedName { :self |
+		self.name
+	}
+
 	slotArray { :self |
 		<primitive: return _self.slotArray;>
 	}

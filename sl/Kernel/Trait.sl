@@ -8,4 +8,8 @@ Trait : [Object] {
 		<primitive: return _self.name;>
 	}
 
+	prefixedName { :self |
+		'@' ++ self.name
+	}
+
 }

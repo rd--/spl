@@ -14,10 +14,6 @@ IdentitySet : [Object, Collection] {
 		<primitive: _self.add(_anObject); return _anObject;>
 	}
 
-	asArray { :self |
-		<primitive: return Array.from(_self);>
-	}
-
 	do { :self :aProcedure |
 		<primitive: _self.forEach(function(item) { _aProcedure(item) }); return null;>
 	}
@@ -40,6 +36,10 @@ IdentitySet : [Object, Collection] {
 
 	species { :self |
 		IdentitySet:/0
+	}
+
+	Array { :self |
+		<primitive: return Array.from(_self);>
 	}
 
 }

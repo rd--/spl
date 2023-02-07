@@ -16,6 +16,10 @@ Method : [Object] {
 		<primitive: return _self.procedure;>
 	}
 
+	signature { :self |
+		self.origin.prefixedName ++ '>>' ++ self.name ++ ':/' ++ self.arity
+	}
+
 	sourceCode { :self |
 		<primitive: return _self.sourceCode;>
 	}

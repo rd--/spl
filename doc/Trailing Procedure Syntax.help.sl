@@ -24,6 +24,13 @@ The two branches of the _if_ clause are written as trailing procedures.
 		}.dup(7).Splay2 / 7
 	}.overlap(3, 3, 3)
 
+The syntax does not preclude further message sends:
+
+```
+(1 .. 9).collect{ :x | x * x }.last = 81
+(1 .. 9).collect{ :x | x * x }.collect{ :x | x * x }.last = 6561
+```
+
 * * *
 
 See also: [Trailing Dictionary Syntax]

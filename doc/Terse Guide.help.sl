@@ -154,6 +154,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
  '[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str']
 [1, 2, 3].select { :x | x > 1 } = [2, 3]
 [1, 2, 3].reject { :x | x > 1 } = [1]
+(1 .. 9).collect{ :x | x * x }.last = 81
+(1 .. 9).collect{ :x | x * x }.collect{ :x | x * x }.last = 6561
 
 'Collections/Association'
 ('x' -> 1).typeOf = 'Association'
@@ -364,7 +366,7 @@ var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
 "x" = 'x'.parseDoubleQuotedString
 'string'[3] = 'r'
 { 'string'[3] := 'r' }.ifError { :err | true }
-'{"x": 3.141, "y": 23}'.parseJson
+'{"x": 3.141, "y": 23}'.parseJson = (x: 3.141, y: 23)
 { '_'.parseJson }.ifError { :err | true }
 'a text string'.json = '"a text string"'
  '"a text string"'.parseJson = 'a text string'
@@ -429,18 +431,18 @@ system.typeDictionary.keys.includes('System') = true
 system.randomFloat < 1
 system.uniqueId ~= system.uniqueId
 
-'System/methodTable'
-system.methodTable.isIdentityDictionary = true
-system.methodTable::collect.isIdentityDictionary = true
-system.methodTable::collect[2].isIdentityDictionary = true
-system.methodTable::collect[2]::Array.isMethod = true
-system.methodTable.includesKey('collect') = true
-system.allMethodSignatures.includes('Array>>sum:/1 (@Collection)') = true
+'System/methodDictionary'
+system.methodDictionary.isIdentityDictionary = true
+system.methodDictionary::collect.isIdentityDictionary = true
+system.methodDictionary::collect[2].isIdentityDictionary = true
+system.methodDictionary::collect[2]::Array.isMethod = true
+system.methodDictionary.includesKey('collect') = true
+system.allMethodSignatures.includes('@Collection>>sum:/1') = true
 system.method('collect', 2, 'Array').isNil = false
-system.methodImplementations('sum')[1]['Array'].origin = 'Collection'
+system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Interval') = true
 system.methodSignatures('add').includes("IdentityDictionary>>add:/2") = true
 system.method('sum', 1, 'Array').sourceCode = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
-system.method('sum', 1, 'Array').origin = 'Collection'
+system.method('sum', 1, 'Array').origin.name = 'Collection'
 system.method('sum', 1, 'Array').name = 'sum'
 system.methodTypes('collect').includes('Array') = true
 system.multipleArityMethodList.includes('randomFloat') = true
@@ -449,7 +451,7 @@ system.doesTypeImplementMethod('Array', 'select') = true
 [1, 2, 3].respondsTo(select:/2) = true
 system.methodPrintString('add').size >= 3
 system.method('collect', 2, 'Array').isMethod = true
-system.method('collect', 2, 'Array').origin = 'ArrayedCollection'
+system.method('collect', 2, 'Array').origin.name = 'ArrayedCollection'
 system.method('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.method('sum', 1, 'Array') == system.method('sum', 1, 'OrderedCollection')
 
@@ -470,6 +472,8 @@ system.trait('Collection').isTrait = true
 system.trait('Collection').name = 'Collection'
 system.trait('Collection').methodDictionary.includesKey('sum:/1') = true
 system.trait('Collection').methodDictionary::sum:/1.isMethod = true
+system.traitTypes('Dictionary').includes('IdentityDictionary') = true
+system.traitDictionary['Dictionary'].isTrait = true
 
 'System/typeDictionary'
 system.typeDictionary.isIdentityDictionary = true
