@@ -42,16 +42,12 @@ MethodBrowser { |
 			'width' -> '50em'
 		]);
 		self.typeTraitPane.style.setProperties([
-			;;'resize' -> 'both',
-			;;'overflow' -> 'auto',
 			'display' -> 'flex',
 			'flex-direction' -> 'column',
 			'margin' -> '2px',
 			'flex-grow' -> '1'
 		]);
 		self.selectionPane.style.setProperties([
-			;;'resize' -> 'both',
-			;;'overflow' -> 'auto',
 			'display' -> 'flex',
 			'flex-direction' -> 'row',
 			'flex-grow' -> '1',
@@ -59,8 +55,6 @@ MethodBrowser { |
 		]);
 		[self.typeList, self.traitList].do { :each |
 			each.style.setProperties([
-				;;'resize' -> 'both',
-				;;'overflow' -> 'auto',
 				'flex-grow' -> '1',
 				'flex-basis' -> '6em',
 				'margin' -> '1px',
@@ -68,8 +62,6 @@ MethodBrowser { |
 			])
 		};
 		self.methodList.style.setProperties([
-			;;'resize' -> 'both',
-			;;'overflow' -> 'auto',
 			'flex-grow' -> '3',
 			'flex-basis' -> '8em',
 			'margin' -> '2px'

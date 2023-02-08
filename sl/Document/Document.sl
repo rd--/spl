@@ -13,6 +13,30 @@
 
 }
 
+@CssProperties {
+
+	cssText { :self | <primitive: return _self.cssText;> }
+	cssText { :self :aString | <primitive: return _self.cssText = _aString;> }
+	getPropertyValue { :self :name | <primitive: return _self.getPropertyValue(_name);> }
+	removeProperty { :self :name | <primitive: return _self.removeProperty(_name);> }
+	setProperty { :self :name :value :priority | <primitive: return _self.setProperty(_name, _value, _priority);> }
+
+	at { :self :name |
+		self.getPropertyValue(name)
+	}
+
+	atPut { :self :name :value |
+		self.setProperty(name, value, '')
+	}
+
+	setProperties { :self :aDictionary |
+		aDictionary.StringDictionary.keysAndValuesDo { :key :value |
+			self.setProperty(key, value, '')
+		}
+	}
+
+}
+
 @Document {
 
 	body { :self | <primitive: return _self.body;> }
