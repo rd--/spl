@@ -16,12 +16,29 @@ Method : [Object] {
 		<primitive: return _self.procedure;>
 	}
 
+	qualifiedName { :self |
+		self.name ++ ':/' ++ self.arity
+	}
+
 	signature { :self |
-		self.origin.prefixedName ++ '>>' ++ self.name ++ ':/' ++ self.arity
+		self.origin.prefixedName ++ '>>' ++ self.qualifiedName
 	}
 
 	sourceCode { :self |
 		<primitive: return _self.sourceCode;>
+	}
+
+}
+
++ String {
+
+	parseQualifiedMethodName { :self |
+		| parts = self.splitBy(':/'); |
+		(parts.size = 2).if {
+			[parts[1], parts[2].parseInteger(10)]
+		} {
+			('String>>parseQualifiedMethodName: ' ++ self).error
+		}
 	}
 
 }

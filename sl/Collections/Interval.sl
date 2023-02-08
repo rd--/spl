@@ -9,7 +9,11 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 	}
 
 	= { :self :anInterval |
-		(self.start = anInterval.start) & { self.stop = anInterval.stop} & { self.step = anInterval.step }
+		self.start = anInterval.start & {
+			self.stop = anInterval.stop & {
+				self.step = anInterval.step
+			}
+		}
 	}
 
 	size { :self |

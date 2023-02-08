@@ -1,10 +1,17 @@
 + String {
 
 	TextButton { :self :aDictionary |
-		| b = document().createElement('button'); |
-		b.innerText(self);
-		aDictionary.keysAndValuesDo { :key :value | b.setAttribute(key, value) };
-		b
+		| button = 'button'.createElement; |
+		button.innerText := self;
+		button.setAttributes(aDictionary);
+		button
+	}
+
+	TextOption { :self :value |
+		| option = 'option'.createElement; |
+		option.text := self;
+		option.value := value;
+		option
 	}
 
 }

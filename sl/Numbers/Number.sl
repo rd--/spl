@@ -141,3 +141,15 @@ Number : [Object, Magnitude, Numeric, Integral, Binary] {
 	}
 
 }
+
++ String {
+
+	parseInteger { :self :radix |
+		<primitive: return parseInt(_self, _radix);>
+	}
+
+	parseNumber { :self |
+		<primitive: return parseFloat(_self);>
+	}
+
+}

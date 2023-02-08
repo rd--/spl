@@ -9,6 +9,10 @@ function genName(name, arity) {
 	return slOptions.simpleArityModel ? name : `${name}_${arity}`;
 }
 
+function quoteNewLines(input: string): string {
+	return input.replaceAll('\n', '\\n');
+}
+
 const asJs: any = {
 
 	ClassExtension(_e, clsNm, _l, mthNm, mthBlk, _r) {
@@ -177,7 +181,7 @@ const asJs: any = {
 
 	floatLiteral(s,i,_,f) { return `${s.sourceString}${i.sourceString}.${f.sourceString}`; },
 	integerLiteral(s,i) { return `${s.sourceString}${i.sourceString}`; },
-	singleQuotedStringLiteral(_l, s, _r) { return `'${s.sourceString}'`; },
+	singleQuotedStringLiteral(_l, s, _r) { return `'${quoteNewLines(s.sourceString)}'`; },
 	doubleQuotedStringLiteral(_l, s, _r) { return `_${genName('parseDoubleQuotedString', 1)}('${s.sourceString}')`; },
 	backtickQuotedStringLiteral(_l, s, _r) { return `_${genName('parseBacktickQuotedString', 1)}('${s.sourceString}')`; },
 

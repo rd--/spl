@@ -195,6 +195,10 @@ System : [Object] {
 		<primitive: return Date.now();>
 	}
 
+	window { :self |
+		<primitive: return _self.window;>
+	}
+
 }
 
 + Number {

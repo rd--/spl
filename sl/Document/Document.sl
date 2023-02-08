@@ -9,10 +9,15 @@
 
 }
 
+@CSSRule {
+
+}
+
 @Document {
 
 	body { :self | <primitive: return _self.body;> }
 	createElement { :self :tagName | <primitive: return _self.createElement(_tagName);> }
+	defaultView { :self | <primitive: return _self.defaultView;> }
 	getElementById { :self :aString | <primitive: return _self.getElementById(_aString);> }
 	getSelection { :self | <primitive: return _self.getSelection();> }
 	querySelector { :self :aString | <primitive: return _self.querySelector(_aString);> }
@@ -22,11 +27,33 @@
 
 @Element {
 
+	append { :self :anArray | <primitive: return _self.append(..._anArray);> }
 	attributes { :self | <primitive: return _self.attributes;> }
+	getAttribute { :self :name | <primitive: return _self.getAttribute(_name);> }
 	id { :self | <primitive: return _self.id;> }
 	innerHTML { :self | <primitive: return _self.innerHTML;> }
 	innerHTML { :self :aString | <primitive: return _self.innerHTML = _aString;> }
 	setAttribute { :self :name :value | <primitive: return _self.setAttribute(_name, _value);> }
+
+(*
+	++ { :self :anArray |
+		self.append(anArray)
+	}
+
+	at { :self :key |
+		self.getAttribute(key)
+	}
+
+	atPut { :self :key :value |
+		self.setAttribute(key, value)
+	}
+*)
+
+	setAttributes { :self :aDictionary |
+		aDictionary.keysAndValuesDo { :key :value |
+			self.setAttribute(key, value)
+		}
+	}
 
 }
 
@@ -56,11 +83,21 @@
 
 @HtmlElement {
 
+	accessKey { :self | <primitive: return _self.accessKey;> }
+	accessKey { :self :aString | <primitive: return _self.accessKey = _aString;> }
 	blur { :self | <primitive: return _self.blur();> }
 	click { :self | <primitive: return _self.click();> }
+	contentEditable  { :self | <primitive: return _self.contentEditable;> }
+	contentEditable  { :self :aString | <primitive: return _self.contentEditable = _aString;> }
 	focus { :self | <primitive: return _self.focus();> }
 	innerText { :self | <primitive: return _self.innerText;> }
 	innerText { :self :aString | <primitive: return _self.innerText = _aString;> }
+	isContentEditable  { :self | <primitive: return _self.isContentEditable;> }
+	style { :self | <primitive: return _self.style;> }
+	tabIndex { :self | <primitive: return _self.tabIndex;> }
+	tabIndex { :self :anInteger | <primitive: return _self.tabIndex = _anInteger;> }
+	title { :self | <primitive: return _self.title;> }
+	title { :self :aString | <primitive: return _self.title = _aString;> }
 
 }
 
@@ -70,9 +107,33 @@
 	childNodes { :self | <primitive: return _self.childNodes;> }
 	nodeType { :self | <primitive: return _self.nodeType;> }
 	textContent { :self | <primitive: return _self.textContent;> }
+	textContent { :self :aString | <primitive: return _self.textContent = _aString;> }
+
+	appendChildren { :self :anArray |
+		anArray.do { :each |
+			self.appendChild(each)
+		}
+	}
 
 }
 
 @UiEvent {
+
+}
+
++ String {
+
+
+	createElement { :self |
+		system.window.document.createElement(self)
+	}
+
+	getElementById { :self |
+		system.window.document.getElementById(self)
+	}
+
+	querySelector { :self |
+		system.window.document.querySelector(self)
+	}
 
 }

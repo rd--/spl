@@ -281,6 +281,7 @@ to(1, -1).asString = 'Interval(1, -1, -1)'
 to(1, 9) = Interval(1, 9, 1)
 to(9, 1) = Interval(9, 1, -1)
 1.thenTo(3, 9) = Interval(1, 9, 2)
+(1 .. 9) = (1 .. 9)
 [1 .. 9] = (1 .. 9).asArray
 [9 .. 1] = (9 .. 1).asArray
 [3 - 2 .. 7 + 2] = (3 - 2 .. 7 + 2).asArray
@@ -357,6 +358,7 @@ var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
 ['the', 'quick', 'brown', 'fox'].joinSeparatedBy(' ') = 'the quick brown fox'
 ['the', 'quick', 'brown', 'fox'].join = 'thequickbrownfox'
 'the quick brown fox jumps'.splitBy(' ') = ['the', 'quick', 'brown', 'fox', 'jumps']
+'sum:/1'.splitBy(':/') = ['sum', '1']
 'ascii'.toUpperCase = 'ASCII'
 'ASCII'.toLowerCase = 'ascii'
 `x` = 'x'
@@ -454,6 +456,7 @@ system.method('collect', 2, 'Array').isMethod = true
 system.method('collect', 2, 'Array').origin.name = 'ArrayedCollection'
 system.method('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.method('sum', 1, 'Array') == system.method('sum', 1, 'OrderedCollection')
+'sum:/1'.parseQualifiedMethodName = ['sum', 1]
 
 'System/time'
 system.systemTimeInMilliseconds > 0 = true

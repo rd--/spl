@@ -36,7 +36,7 @@
 
 	doWhile { :self :activity:/1 :condition:/0 |
 		| nextIndex = 1, endIndex = self.size; |
-		whileTrue { condition() & { nextIndex <= endIndex } } {
+		{ condition() & { nextIndex <= endIndex } }. {
 			activity(self[nextIndex]);
 			nextIndex := nextIndex + 1
 		}
@@ -74,7 +74,9 @@
 	occurrencesOf { :self :anObject |
 		| tally = 0; |
 		1.toDo(self.size) { :index |
-			ifTrue(self[index] = anObject) { tally := tally + 1 }
+			(self[index] = anObject).ifTrue {
+				tally := tally + 1
+			}
 		};
 		tally
 	}

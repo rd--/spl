@@ -114,6 +114,7 @@ export class System {
 	traitDictionary: Map<TraitName, Trait>;
 	typeDictionary: Map<TypeName, Type>;
 	nextUniqueId: number;
+	window: Window;
 	constructor() {
 		this.methodDictionary = new Map();
 		this.traitDictionary = new Map();
@@ -124,6 +125,7 @@ export class System {
 			['Void', new Type('Void', [], [])]
 		]);
 		this.nextUniqueId = 1;
+		this.window = window;
 	}
 }
 
