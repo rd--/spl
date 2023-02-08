@@ -9,7 +9,11 @@
 	}
 
 	betweenAnd { :self :min :max |
-		(min <= self).if { self <= max } { false }
+		(min <= self).if {
+			self <= max
+		} {
+			false
+		}
 	}
 
 	inRangeOfAnd { :self :first :second |
@@ -21,11 +25,19 @@
 	}
 
 	max { :self :aMagnitude |
-		if(self > aMagnitude) { self } { aMagnitude }
+		if(self > aMagnitude) {
+			self
+		} {
+			aMagnitude
+		}
 	}
 
 	min { :self :aMagnitude |
-		if(self < aMagnitude) { self } { aMagnitude }
+		if(self < aMagnitude) {
+			self
+		} {
+			aMagnitude
+		}
 	}
 
 	minMax { :self :aMin :aMax |
@@ -33,4 +45,3 @@
 	}
 
 }
-

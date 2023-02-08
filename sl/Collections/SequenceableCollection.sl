@@ -1,11 +1,11 @@
 @SequenceableCollection {
 
 	= { :self :anObject |
-		if(
-			anObject.isSequenceable &
-			{ self.typeOf == anObject.typeOf } &
-			{ self.size == anObject.size }
-		) {
+		(anObject.isSequenceable &
+			{ self.typeOf == anObject.typeOf &
+				{ self.size == anObject.size }
+			}
+		).if {
 			withReturn {
 				self.size.do { :index |
 					ifFalse(self[index] = anObject[index]) { false.return }
@@ -37,7 +37,9 @@
 		self.at(index - 1 % self.size + 1)
 	}
 
-	atRandom { :self | self[randomInteger(1, self.size)] }
+	atRandom { :self |
+		self[randomInteger(1, self.size)]
+	}
 
 	collect { :self :aProcedure:/1 |
 		| newCollection = self.species.ofSize(self.size); |

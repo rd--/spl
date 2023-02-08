@@ -4,6 +4,6 @@ loadSequence([
 	'Document/Midi.sl',
 	'Document/Navigator.sl',
 	'Document/ui.sl',
-	'Document/MethodBrowser.sl'
+	'Document/ColumnBrowser.sl'
 ]).then { :unusedValue |
 }

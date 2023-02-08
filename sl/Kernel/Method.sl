@@ -4,6 +4,10 @@ Method : [Object] {
 		<primitive: return _self.arity;>
 	}
 
+	definition { :self |
+		'	' ++ self.name ++ ' ' ++ self.sourceCode
+	}
+
 	name { :self |
 		<primitive: return _self.name;>
 	}

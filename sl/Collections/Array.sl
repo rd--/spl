@@ -77,8 +77,8 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 	Array { :aCollection |
 		| newArray = Array(aCollection.size); |
-		(1 .. aCollection.size).do {
-			:i | newArray[i] := aCollection[i]
+		(1 .. aCollection.size).do { :i |
+			newArray[i] := aCollection[i]
 		};
 		newArray
 	}

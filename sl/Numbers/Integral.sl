@@ -1,7 +1,11 @@
 @Integral {
 
 	isByte { :self |
-		self.isInteger & { self >= 0 } & { self < 256 }
+		self.isInteger & {
+			self >= 0 & {
+				self < 256
+			}
+		}
 	}
 
 	isInteger { :self |

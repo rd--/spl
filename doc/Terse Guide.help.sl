@@ -24,6 +24,8 @@ false || true = true
 [1, 3, 5].IdentitySet.species = IdentitySet:/0
 [1, 3, 5].OrderedCollection.species = OrderedCollection:/1
 (x: 1, y: 3, z: 5).species = IdentityDictionary:/0
+'b'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) = 2
+{ 'd'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) }.ifError { :error | true }
 
 'Kernel/Procedure'
 var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5

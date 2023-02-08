@@ -34,6 +34,10 @@
 		self
 	}
 
+	associationsDo { :self :aBlock:/1 |
+		self.do(aBlock:/1)
+	}
+
 	atRandom { :self |
 		| randomIndex = self.size.atRandom, index = 1; |
 		withReturn {
