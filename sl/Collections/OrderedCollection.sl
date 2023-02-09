@@ -38,10 +38,6 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | array | (* 
 		self.array.copy
 	}
 
-	asCollection { :self |
-		self
-	}
-
 	at { :self :index |
 		self.array[index]
 	}
@@ -98,7 +94,7 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | array | (* 
 + Void {
 
 	OrderedCollection {
-		newOrderedCollection([])
+		[].OrderedCollection
 	}
 
 }
@@ -106,7 +102,7 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | array | (* 
 + Array {
 
 	OrderedCollection { :self |
-		newOrderedCollection(self)
+		newOrderedCollection().initialize(self)
 	}
 
 }

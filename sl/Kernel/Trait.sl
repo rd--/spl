@@ -9,7 +9,7 @@ Trait : [Object] {
 	}
 
 	prefixedName { :self |
-		'@' ++ self.name
+		'𝒯' ++ self.name (*  𝜏 𝑡 𝑇 @ *)
 	}
 
 }

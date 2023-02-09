@@ -120,7 +120,7 @@ Rectangle : [Object] { | origin corner |
 + Point {
 
 	Rectangle { :self :aPoint |
-		newRectangle(self, aPoint)
+		newRectangle().initialize(self, aPoint)
 	}
 
 }

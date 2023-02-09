@@ -21,11 +21,11 @@ Association : [Object] { | key value |
 + @Object {
 
 	-> { :self :anObject |
-		newAssociation(self, anObject)
+		Association(self, anObject)
 	}
 
 	Association { :self :anObject |
-		newAssociation(self, anObject)
+		newAssociation().initialize(self, anObject)
 	}
 
 }

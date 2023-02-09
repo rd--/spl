@@ -76,11 +76,11 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 + @SequenceableCollection {
 
 	Array { :aCollection |
-		| newArray = Array(aCollection.size); |
+		| answer = Array(aCollection.size); |
 		(1 .. aCollection.size).do { :i |
-			newArray[i] := aCollection[i]
+			answer[i] := aCollection[i]
 		};
-		newArray
+		answer
 	}
 
 }

@@ -12,6 +12,7 @@ ColumnBrowser { | browserPane columnsPane viewerPane columnLists viewerText |
 	}
 
 	setAttributes { :self :columnProportions :listSize |
+		self.browserPane.setAttribute('class', 'columnBrowser');
 		self.viewerPane.setAttribute('class', 'documentContainer');
 		self.browserPane.style.setProperties([
 			'display' -> 'flex',
@@ -74,7 +75,7 @@ ColumnBrowser { | browserPane columnsPane viewerPane columnLists viewerText |
 + Array {
 
 	ColumnBrowser { :columnProportions :onChange:/1 |
-		| numberOfColumns = columnProportions.size, browser = newColumnBrowser(nil, nil, nil, nil, nil); |
+		| numberOfColumns = columnProportions.size, browser = newColumnBrowser(); |
 		browser.createElements(numberOfColumns);
 		browser.setColumnEntries(1, onChange([]));
 		browser.setAttributes(columnProportions, 6);

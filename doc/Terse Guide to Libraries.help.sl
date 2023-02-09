@@ -72,11 +72,6 @@ Pair('x', 'y').swapped = Pair('y', 'x')
 '324518553658426726783156020576256'.asLargeInteger.isLargeInteger = true
 2971215073.asLargeInteger.isPrime = true
 
-'Text/RegExp'
-RegExp('ab+c').isRegExp = true
-var r = RegExp('ab*c'); [r.test('ac'), r.test('abc')] = [true, true]
-var r = RegExp('ab*c', 'g'); 'ab abc ac'.allRegExpMatches(r) = ['abc', 'ac']
-
 'Collections/Streams/ReadStream'
 var r = [1 .. 5].ReadStream; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil]
 var r = [1 .. 3].ReadStream; [r.next, r.upToEnd] = [1, [2, 3]]

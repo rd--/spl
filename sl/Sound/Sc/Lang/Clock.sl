@@ -86,7 +86,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 + Void {
 
 	Clock {
-		newClock(PriorityQueue(), nil, nil)
+		newClock().initialize(PriorityQueue(), nil, nil)
 	}
 
 }

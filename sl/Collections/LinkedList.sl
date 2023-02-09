@@ -218,7 +218,7 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 + Void {
 
 	LinkedList {
-		newLinkedList(nil, nil)
+		newLinkedList()
 	}
 
 }

@@ -341,6 +341,13 @@ var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
 (x: 3.141, y: 23).StringDictionary.json = '{"x":3.141,"y":23}'
 '{"x":3.141,"y":23}'.parseJson.IdentityDictionary = (x: 3.141, y: 23)
 
+'Text/RegExp'
+RegExp('ab+c').isRegExp = true
+var r = RegExp('ab*c'); [r.test('ac'), r.test('abc')] = [true, true]
+var r = RegExp('ab*c', 'g'); 'ab abc ac'.allRegExpMatches(r) = ['abc', 'ac']
+RegExp('x.x', 'g').stringLiteral = '/x.x/g'
+RegExp('x.x', 'g').printString.size = 18
+
 'Text/String'
 ''.typeOf = 'String'
 ''.size = 0

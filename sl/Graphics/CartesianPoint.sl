@@ -39,19 +39,3 @@
 	}
 
 }
-
-+ @Numeric {
-
-	asPoint { :self |
-		Point(self, self)
-	}
-
-	at { :self :aNumber |
-		Point(self, aNumber)
-	}
-
-	Point { :self :aNumber |
-		newPoint(self, aNumber)
-	}
-
-}

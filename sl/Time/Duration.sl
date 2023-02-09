@@ -54,7 +54,7 @@ Duration : [Object] { | milliseconds |
 + Number {
 
 	Duration { :self |
-		newDuration(self)
+		newDuration().initialize(self)
 	}
 
 	asDuration { :self |

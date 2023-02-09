@@ -44,11 +44,11 @@
 	}
 
 	collect { :self :aProcedure:/1 |
-		| newCollection = self.species.ofSize(self.size); |
+		| answer = self.species.ofSize(self.size); |
 		1.toDo(self.size) { :index |
-			newCollection[index] := aProcedure(self[index])
+			answer[index] := aProcedure(self[index])
 		};
-		newCollection
+		answer
 	}
 
 	concatenation { :self |

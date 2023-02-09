@@ -39,34 +39,9 @@ Number : [Object, Magnitude, Numeric, Integral, Binary] {
 		anObject.adaptToNumberAndApply(self, modulo:/2)
 	}
 
-	remainder { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self % _anObject; }>
-		error('Number>>remainder');
-	}
-
 	** { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return Math.pow(_self, _anObject); }>
 		anObject.adaptToNumberAndApply(self, timesTimes:/2)
-	}
-
-	atan2 { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return Math.atan2(_self, _anObject); }>
-		anObject.adaptToNumberAndApply(self, atan2:/2)
-	}
-
-	bitAnd { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self & _anObject; }>
-		anObject.adaptToNumberAndApply(self, bitAnd:/2)
-	}
-
-	bitOr { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self | _anObject; }>
-		anObject.adaptToNumberAndApply(self, bitOr:/2)
-	}
-
-	bitXor { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self ^ _anObject; }>
-		anObject.adaptToNumberAndApply(self, bitXor:/2)
 	}
 
 	<< { :self :anObject |
@@ -77,16 +52,6 @@ Number : [Object, Magnitude, Numeric, Integral, Binary] {
 	>> { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return sl.shiftRight(_self, _anObject); }>
 		anObject.adaptToNumberAndApply(self, greaterThanGreaterThan:/2)
-	}
-
-	min { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return Math.min(_self, _anObject); }>
-		anObject.adaptToNumberAndApply(self, min:/2)
-	}
-
-	max { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return Math.max(_self, _anObject); }>
-		anObject.adaptToNumberAndApply(self, max:/2)
 	}
 
 	abs { :self | <primitive: return Math.abs(_self)> }
@@ -116,24 +81,77 @@ Number : [Object, Magnitude, Numeric, Integral, Binary] {
 	tanh { :self | <primitive: return Math.tanh(_self)> }
 	truncated { :self | <primitive: return Math.trunc(_self)> }
 
-	asInteger { :self | self.truncated }
-
-	randomFloat { :self | self * system.randomFloat }
-	randomFloat { :self :aNumber | self + (aNumber - self).randomFloat }
-
-	randomInteger { :self | 1.randomFloat(self).rounded }
-	randomInteger { :self :aNumber | self.randomFloat(aNumber).rounded }
-
-	atRandom { :self | self.randomInteger }
-
 	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
 		aCollection.collect { :each |
 			aProcedure(each, self)
 		}
 	}
 
+	asFloat { :self |
+		self
+	}
+
+	asInteger { :self |
+		self.truncated
+	}
+
+	atan2 { :self :anObject |
+		<primitive: if(sl.isNumber(_anObject)) { return Math.atan2(_self, _anObject); }>
+		anObject.adaptToNumberAndApply(self, atan2:/2)
+	}
+
+	atRandom { :self |
+		self.randomInteger
+	}
+
+	bitAnd { :self :anObject |
+		<primitive: if(sl.isNumber(_anObject)) { return _self & _anObject; }>
+		anObject.adaptToNumberAndApply(self, bitAnd:/2)
+	}
+
+	bitOr { :self :anObject |
+		<primitive: if(sl.isNumber(_anObject)) { return _self | _anObject; }>
+		anObject.adaptToNumberAndApply(self, bitOr:/2)
+	}
+
+	bitXor { :self :anObject |
+		<primitive: if(sl.isNumber(_anObject)) { return _self ^ _anObject; }>
+		anObject.adaptToNumberAndApply(self, bitXor:/2)
+	}
+
 	json { :self |
 		<primitive: return JSON.stringify(_self);>
+	}
+
+	min { :self :anObject |
+		<primitive: if(sl.isNumber(_anObject)) { return Math.min(_self, _anObject); }>
+		anObject.adaptToNumberAndApply(self, min:/2)
+	}
+
+	max { :self :anObject |
+		<primitive: if(sl.isNumber(_anObject)) { return Math.max(_self, _anObject); }>
+		anObject.adaptToNumberAndApply(self, max:/2)
+	}
+
+	randomFloat { :self |
+		self * system.randomFloat
+	}
+
+	randomFloat { :self :aNumber |
+		self + (aNumber - self).randomFloat
+	}
+
+	randomInteger { :self |
+		1.randomFloat(self).rounded
+	}
+
+	randomInteger { :self :aNumber |
+		self.randomFloat(aNumber).rounded
+	}
+
+	remainder { :self :anObject |
+		<primitive: if(sl.isNumber(_anObject)) { return _self % _anObject; }>
+		error('Number>>remainder');
 	}
 
 	Number { :self |

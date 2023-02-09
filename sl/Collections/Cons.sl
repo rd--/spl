@@ -86,7 +86,7 @@ Cons : [Object, Collection] { | car cdr |
 + @Object {
 
 	Cons { :car :cdr |
-		newCons(car, cdr)
+		newCons().initialize(car, cdr)
 	}
 
 }

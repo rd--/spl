@@ -15,7 +15,7 @@ ValueLink : [Object] { | nextLink value |
 + @Object {
 
 	asLink { :self |
-		newValueLink(nil, self)
+		newValueLink.initialize().(nil, self)
 	}
 
 }

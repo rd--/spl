@@ -108,7 +108,7 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 	}
 
 	Interval { :start :stop :step |
-		newInterval(start, stop, step)
+		newInterval().initialize(start, stop, step)
 	}
 
 	to { :self :stop |

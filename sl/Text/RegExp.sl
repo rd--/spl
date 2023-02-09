@@ -1,15 +1,19 @@
 RegExp : [Object] {
 
-	asString { :self |
-		<primitive: return _self.toString();>
-	}
-
 	exec { :self :aString |
 		<primitive: return _self.exec(_aString);>
 	}
 
 	isRegExp { :self |
 		true
+	}
+
+	printString { :self |
+		<primitive: return `RegExp('${_self.source}', '${_self.flags}')`;>
+	}
+
+	stringLiteral { :self |
+		<primitive: return _self.toString();>
 	}
 
 	test { :self :aString |

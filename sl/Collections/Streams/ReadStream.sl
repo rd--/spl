@@ -60,7 +60,7 @@ ReadStream : [PositionableStream] { | collection position readLimit |
 + @SequenceableCollection {
 
 	ReadStream { :self |
-		newReadStream(self, 0, self.size)
+		newReadStream().initialize(self, 0, self.size)
 	}
 
 }
