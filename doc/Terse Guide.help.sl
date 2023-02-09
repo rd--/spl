@@ -25,7 +25,7 @@ false || true = true
 [1, 3, 5].OrderedCollection.species = OrderedCollection:/1
 (x: 1, y: 3, z: 5).species = IdentityDictionary:/0
 'b'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) = 2
-{ 'd'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) }.ifError { :error | true }
+{ 'd'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) }.ifError { :err | true }
 
 'Kernel/Procedure'
 var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5
@@ -114,8 +114,8 @@ var a = [1, 3, 5, 7]; a.reverseInPlace; a = [7, 5, 3, 1]
 [[1, 2, 3], [4, 5, 6], [7, 8, 9]].concatenation = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 [[1, 2, 3], [4, 5], [6]].concatenation = [1, 2, 3, 4, 5, 6]
 var a = [1, 2, 3]; a[2] = a.at(2)
-var a = [1, 2, 3]; a.atPut(2, 'two'); a = [1, "two", 3]
-var a = [1, 2, 3]; a[2] := 'two'; a = [1, "two", 3]
+var a = [1, 2, 3]; a.atPut(2, 'two'); a = [1, 'two', 3]
+var a = [1, 2, 3]; a[2] := 'two'; a = [1, 'two', 3]
 var a = [5, 4, 3, 2, 1]; a.detect { :each | each % 2 = 0 } = 4
 var a = [5, 4, 3, 2, 1]; a.find { :each | each % 7 = 0 } = nil
 var a = [5, 4, 3, 2, 1]; a.findIndex { :each | each % 3 = 0 } = 3
@@ -185,6 +185,9 @@ var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
 [1, 3, 5].IdentitySet.select { :x | x > 1 } = [3, 5].IdentitySet
 [1, 3, 5].OrderedCollection.select { :x | x > 1 } = [3, 5].OrderedCollection
 (x: 1, y: 3, z: 5).select { :x | x > 1 } = (y: 3, z: 5)
+[].select { :each | 'select'.error } = []
+[].species.newFrom(OrderedCollection()) = []
+OrderedCollection().Array = []
 
 'Collections/Float64Array'
 Float64Array(0).typeOf = 'Float64Array'
@@ -334,7 +337,7 @@ var d = StringDictionary(); d['x'] := 1; d['x'] = 1
 var d = StringDictionary(); d['x'] := 1; d['y'] := 2; d.size = 2
 var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
 ['x' -> 1, 'y' -> 2].StringDictionary['y'] = 2
-{ StringDictionary().atPut(1, 1) }.ifError { :error | true }
+{ StringDictionary().atPut(1, 1) }.ifError { :err | true }
 (x: 3.141, y: 23).StringDictionary.json = '{"x":3.141,"y":23}'
 '{"x":3.141,"y":23}'.parseJson.IdentityDictionary = (x: 3.141, y: 23)
 
@@ -355,11 +358,18 @@ var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
 'the quick brown fox jumps'.includesSubstring('fox') = true
 'the quick brown fox jumps'.includesSubstring('fix') = false
 'the quick brown fox jumps'.findString('fox') = 17
+'the quick brown fox jumps'.findString('rat') = 0
 'the quick brown fox jumps'.findStringStartingAt('fox', 1) = 17
 'the quick brown fox jumps'.copyFromTo(17, 19) = 'fox'
 ['the', 'quick', 'brown', 'fox'].joinSeparatedBy(' ') = 'the quick brown fox'
 ['the', 'quick', 'brown', 'fox'].join = 'thequickbrownfox'
 'the quick brown fox jumps'.splitBy(' ') = ['the', 'quick', 'brown', 'fox', 'jumps']
+'once at end'.occurrencesOf('d') = 1
+'abracadabra'.occurrencesOf('a') = 5
+'once at end'.indicesOf('d') = [11]
+'abracadabra'.indicesOf('a') = [1, 4, 6, 8, 11]
+'turramurra'.occurrencesOf('urra') = 2
+'turramurra'.indicesOf('urra') = [2, 7]
 'sum:/1'.splitBy(':/') = ['sum', '1']
 'ascii'.toUpperCase = 'ASCII'
 'ASCII'.toLowerCase = 'ascii'
@@ -374,6 +384,7 @@ var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
 { '_'.parseJson }.ifError { :err | true }
 'a text string'.json = '"a text string"'
  '"a text string"'.parseJson = 'a text string'
+'string'.last = 'g'
 
 'Exceptions/Error'
 Error().isError = true
@@ -428,6 +439,7 @@ pi.randomFloat.isInteger = false
 ['3.141', '23'].collect(parseJson:/1) = [3.141, 23]
 var r; 5.do { :each | r := each }; r = 5
 var r; 0.do { :each | r := each }; r = nil
+1.toDo(0) { :each | 'toDo'.error }; true
 
 'System/system'
 system.typeOf = 'System'
@@ -435,29 +447,44 @@ system.typeDictionary.keys.includes('System') = true
 system.randomFloat < 1
 system.uniqueId ~= system.uniqueId
 
+'System/categoryDictionary'
+system.categoryDictionary.isIdentityDictionary = true
+'accessing/'.isValidCategoryName = true
+{ system.categorise('accessing', 'at') }.ifError { :err | true }
+system.categoriseAll('accessing/', ['at', 'atPut', 'first', 'key', 'last', 'value']) = nil
+system.isCategoryName('accessing/') = true
+system.categoryDictionary['accessing/'].isIdentitySet = true
+system.categoriesOf('at').includes('accessing/') = true
+system.categoriesOf('notInCategorySystem') = []
+system.isCategorised('at') = true
+system.isCategorised('notInCategorySystem') = false
+system.categoriseAll('Collections/Abstract/', ['ArrayedCollection', 'Collection', 'SequenceableCollection']) = nil
+'Collections/Abstract/'.categoryNameParts = ['Collections/', 'Abstract/']
+
 'System/methodDictionary'
 system.methodDictionary.isIdentityDictionary = true
 system.methodDictionary::collect.isIdentityDictionary = true
 system.methodDictionary::collect[2].isIdentityDictionary = true
 system.methodDictionary::collect[2]::Array.isMethod = true
 system.methodDictionary.includesKey('collect') = true
-system.allMethodSignatures.includes('@Collection>>sum:/1') = true
-system.method('collect', 2, 'Array').isNil = false
+system.allMethods.collect { :each | each.signature }.includes('Collection>>sum:/1') = true
+system.methodLookup('collect', 2, 'Array').isNil = false
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Interval') = true
-system.methodSignatures('add').includes("IdentityDictionary>>add:/2") = true
-system.method('sum', 1, 'Array').sourceCode = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
-system.method('sum', 1, 'Array').origin.name = 'Collection'
-system.method('sum', 1, 'Array').name = 'sum'
-system.methodTypes('collect').includes('Array') = true
+system.methodSignatures('add').includes('IdentityDictionary>>add:/2') = true
+system.methodLookup('sum', 1, 'Array').sourceCode = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
+system.methodLookup('sum', 1, 'Array').origin.name = 'Collection'
+system.methodLookup('sum', 1, 'Array').name = 'sum'
+system.methodTypes('last:/1').includes('Interval') = true
 system.multipleArityMethodList.includes('randomFloat') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
-system.doesTypeImplementMethod('Array', 'select') = true
+system.doesTraitImplementMethod('Collection', 'select') = true
+system.doesTypeImplementMethod('Array', 'adaptToNumberAndApply') = true
 [1, 2, 3].respondsTo(select:/2) = true
 system.methodPrintString('add').size >= 3
-system.method('collect', 2, 'Array').isMethod = true
-system.method('collect', 2, 'Array').origin.name = 'ArrayedCollection'
-system.method('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
-system.method('sum', 1, 'Array') == system.method('sum', 1, 'OrderedCollection')
+system.methodLookup('collect', 2, 'Array').isMethod = true
+system.methodLookup('collect', 2, 'Array').origin.name = 'ArrayedCollection'
+system.methodLookup('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
+system.methodLookup('sum', 1, 'Array') == system.methodLookup('sum', 1, 'OrderedCollection')
 'sum:/1'.parseQualifiedMethodName = ['sum', 1]
 
 'System/time'

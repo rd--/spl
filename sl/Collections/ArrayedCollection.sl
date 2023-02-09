@@ -6,7 +6,7 @@
 
 	at { :self :anInteger |
 		<primitive: if(sl.arrayCheckIndex(_self, _anInteger - 1)) { return _self[_anInteger - 1]; }>
-		error('ArrayedCollection>>at: index not an integer or out of range')
+		error('ArrayedCollection>>at: index not an integer or out of range: ' ++ anInteger)
 	}
 
 	atPut { :self :anInteger :anObject |

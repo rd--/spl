@@ -17,7 +17,7 @@ loadSequence([
 	'Sound/Sc/Synth/bindings.sl',
 	'Sound/Sc/Synth/bindings-ext.sl',
 	'Sound/Sc/Synth/buffer.sl',
-	'Sound/Sc/Synth/keyword.sl',
+	;; 'Sound/Sc/Synth/keyword.sl',
 	'Sound/Sc/Synth/operators.sl',
 	'Sound/Sc/Synth/pseudo.sl',
 	'Sound/Sc/Synth/texture.sl'

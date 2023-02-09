@@ -1,14 +1,16 @@
 @SequenceableCollection {
 
 	= { :self :anObject |
-		(anObject.isSequenceable &
-			{ self.typeOf == anObject.typeOf &
-				{ self.size == anObject.size }
+		(anObject.isSequenceable & {
+			self.typeOf == anObject.typeOf & {
+				self.size == anObject.size
 			}
-		).if {
+		}).if {
 			withReturn {
 				self.size.do { :index |
-					ifFalse(self[index] = anObject[index]) { false.return }
+					(self[index] = anObject[index]).ifFalse {
+						false.return
+					}
 				};
 				true
 			}
@@ -51,7 +53,9 @@
 
 	concatenation { :self |
 		|
-			answerSize = self.injectInto(0) { :sum :each | sum + each.size },
+			answerSize = self.injectInto(0) { :sum :each |
+				sum + each.size
+			},
 			answer = self.species.ofSize(answerSize),
 			index = 1;
 		|
@@ -103,7 +107,9 @@
 	}
 
 	fisherYatesShuffle { :self |
-		[self.size .. 2].do { :item | self.swapWith(item, randomInteger(1, item)) };
+		[self.size .. 2].do { :item |
+			self.swapWith(item, randomInteger(1, item))
+		};
 		self
 	}
 
@@ -118,7 +124,9 @@
 	indexOfStartingAt { :self :anElement :start |
 		withReturn {
 			start.toDo(self.size) { :index |
-				(self[index] = anElement).ifTrue { return(index) }
+				(self[index] = anElement).ifTrue {
+					return(index)
+				}
 			};
 			0
 		}
@@ -139,7 +147,7 @@
 
 	replaceFromToWithStartingAt { :self :start :stop :replacement :replacementStart |
 		| replacementOffset = replacementStart - start, index = start; |
-		whileTrue { index <= stop } {
+		{ index <= stop }.whileTrue {
 			self[index] := replacement[replacementOffset + index];
 			index := index + 1;
 		};
@@ -147,8 +155,11 @@
 	}
 
 	reversed { :self |
-		| n = self.size, answer = self.species.ofSize(n), src = n + 1; |
-		toDo(1, n) { :i | answer[i] := self[src - 1]; src := src - 1 };
+		| answer = self.species.ofSize(self.size), fromIndex = self.size + 1; |
+		toDo(1, self.size) { :toIndex |
+			answer[toIndex] := self[fromIndex - 1];
+			fromIndex := fromIndex - 1
+		};
 		answer
 	}
 
@@ -186,7 +197,9 @@
 		self.species.newFrom(answer)
 	}
 
-	shuffled { :self | self.copy.fisherYatesShuffle }
+	shuffled { :self |
+		self.copy.fisherYatesShuffle
+	}
 
 	swapWith { :self :oneIndex :anotherIndex |
 		| element = self[oneIndex]; |
@@ -204,20 +217,27 @@
 
 	transpose { :self |
 		1.toAsCollect(self.first.size, self.first.species) { :index |
-			self.collect { :row | row[index] }
+			self.collect { :row |
+				row[index]
+			}
 		}
 	}
 
 	validIndex { :self :index |
-		index > 0 & { index <= self.size }
+		index > 0 & {
+			index <= self.size
+		}
 	}
 
 	withCollect { :self :aCollection :aProcedure:/2 |
-		ifFalse(isSequenceable(aCollection) & { self.size == aCollection.size }) {
-			error('withCollect: operand not-sequenceable or of unequal size')
-		};
-		1.toAsCollect(self.size, self.species) { :index |
-			aProcedure(self[index], anArray[index])
+		(isSequenceable(aCollection) & {
+			self.size == aCollection.size
+		}).if {
+			1.toAsCollect(self.size, self.species) { :index |
+				aProcedure(self[index], anArray[index])
+			}
+		} {
+			error('SequenceableCollection>>withCollect: operand not-sequenceable or of unequal size')
 		}
 	}
 
@@ -239,6 +259,8 @@
 
 + @Object {
 
-	isSequenceable { :self | false }
+	isSequenceable { :self |
+		false
+	}
 
 }

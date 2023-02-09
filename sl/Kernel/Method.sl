@@ -25,7 +25,7 @@ Method : [Object] {
 	}
 
 	signature { :self |
-		self.origin.prefixedName ++ '>>' ++ self.qualifiedName
+		self.origin.name ++ '>>' ++ self.qualifiedName
 	}
 
 	sourceCode { :self |

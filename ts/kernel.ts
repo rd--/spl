@@ -10,6 +10,7 @@ type Arity = number;
 type TypeName = string;
 type TraitName = string;
 type MethodName = string;
+type CategoryName = string;
 type QualifiedMethodName = string; // i.e. MethodName:/Arity
 type MethodSourceCode = string;
 type MethodOrigin = Trait | Type;
@@ -113,6 +114,7 @@ export class System {
 	methodDictionary: MethodDictionary;
 	traitDictionary: Map<TraitName, Trait>;
 	typeDictionary: Map<TypeName, Type>;
+	categoryDictionary: Map<CategoryName, Set<string>>
 	nextUniqueId: number;
 	window: Window;
 	constructor() {
@@ -124,6 +126,7 @@ export class System {
 			['String', new Type('String', [], [])],
 			['Void', new Type('Void', [], [])]
 		]);
+		this.categoryDictionary = new Map();
 		this.nextUniqueId = 1;
 		this.window = window;
 	}

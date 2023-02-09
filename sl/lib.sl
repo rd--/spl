@@ -11,6 +11,5 @@ loadSequence([
 	'Graphics/Point.sl',
 	'Graphics/Rectangle.sl',
 	'Numbers/LargeInteger.sl',
-	'Text/RegExp.sl',
 	'Time/Duration.sl'
 ])

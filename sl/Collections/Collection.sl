@@ -1,31 +1,45 @@
 @Collection {
 
 	addAll { :self :aCollection |
-		aCollection.do { :each | self.add(each) }
+		aCollection.do { :each |
+			self.add(each)
+		}
 	}
 
 	addIfNotPresent { :self :anObject |
-		self.includes(anObject).ifFalse { self.add(anObject) };
+		self.includes(anObject).ifFalse {
+			self.add(anObject)
+		};
 		anObject
 	}
 
 	allSatisfy { :self :aProcedure:/1 |
 		withReturn {
-			self.do { :each | each.aProcedure.ifFalse { false.return } };
+			self.do { :each |
+				each.aProcedure.ifFalse {
+					false.return
+				}
+			};
 			true
 		}
 	}
 
 	anyOne { :self |
 		withReturn {
-			self.do { :each | each.return };
+			self.do { :each |
+				each.return
+			};
 			self.errorEmptyCollection
 		}
 	}
 
 	anySatisfy { :self :aProcedure:/1 |
 		withReturn {
-			self.do { :each | each.aProcedure.ifTrue { true.return } };
+			self.do { :each |
+				each.aProcedure.ifTrue {
+					true.return
+				}
+			};
 			false
 		}
 	}
@@ -42,7 +56,9 @@
 		| randomIndex = self.size.atRandom, index = 1; |
 		withReturn {
 			self.do { :each |
-				ifTrue(index = randomIndex) { each.return };
+				(index = randomIndex).ifTrue {
+					each.return
+				};
 				index := index + 1
 			}
 		}
@@ -81,12 +97,14 @@
 		}
 	}
 
-	detectIfNone { :self :aProcedure :whenAbsent |
-		detectIfFoundIfNone(self, aProcedure, identity:/1, whenAbsent)
+	detectIfNone { :self :aProcedure:/1 :whenAbsent:/0 |
+		detectIfFoundIfNone(self, aProcedure:/1, identity:/1, whenAbsent:/0)
 	}
 
 	detect { :self :aProcedure |
-		detectIfNone(self, aProcedure) { error('Array>>detect: not found') }
+		detectIfNone(self, aProcedure) {
+			error('Array>>detect: not found')
+		}
 	}
 
 	detectMax { :self :aProcedure:/1 |
@@ -111,7 +129,9 @@
 	}
 
 	emptyCheck { :self |
-		self.isEmpty.ifTrue { self.errorEmptyCollection }
+		self.isEmpty.ifTrue {
+			self.errorEmptyCollection
+		}
 	}
 
 	fillFromWith { :self :aCollection :aProcedure:/1 |
@@ -123,7 +143,9 @@
 	includesAllOf { :self :aCollection |
 		withReturn {
 			aCollection.do { :elem |
-				self.includes(elem).ifFalse { false.return }
+				self.includes(elem).ifFalse {
+					false.return
+				}
 			};
 			true
 		}
@@ -131,7 +153,9 @@
 
 	injectInto { :self :initialValue :aProcedure:/2 |
 		| nextValue = initialValue; |
-		self.do { :each | nextValue := aProcedure(nextValue, each) };
+		self.do { :each |
+			nextValue := aProcedure(nextValue, each)
+		};
 		nextValue
 	}
 
@@ -144,16 +168,26 @@
 	}
 
 	max { :self |
-		self.injectInto(self.anyOne) { :answer :each | answer.max(each) }
+		self.injectInto(self.anyOne) { :answer :each |
+			answer.max(each)
+		}
 	}
 
 	mean { :self |
 		self.sum / self.size
 	}
 
+	notEmpty { :self |
+		self.isEmpty.not
+	}
+
 	occurrencesOf { :self :anObject |
 		| tally = 0; |
-		self.do { :each | (anObject = each).ifTrue { tally := tally + 1 } };
+		self.do { :each |
+			(anObject = each).ifTrue {
+				tally := tally + 1
+			}
+		};
 		tally
 	}
 
@@ -164,7 +198,7 @@
 	reduce { :self :aBinaryProcedure:/2 |
 		| first = true, nextValue = nil; |
 		self.do { :each |
-			if(first) {
+			first.if {
 				nextValue := each;
 				first := false
 			} {
@@ -201,7 +235,9 @@
 
 	size { :self |
 		| tally = 0; |
-		self.do { :each | tally := tally + 1 };
+		self.do { :each |
+			tally := tally + 1
+		};
 		tally
 	}
 
@@ -214,7 +250,7 @@
 	}
 
 	ofSize { :self :aNumber |
-		ifFalse(self.size = aNumber) {
+		(self.size = aNumber).ifFalse {
 			error('ofSize')
 		};
 		self

@@ -15,9 +15,9 @@ The _methodDictionary_ is reflected in the _system_ type.
 ```
 system.methodDictionary.isIdentityDictionary = true
 system.methodDictionary.includesKey('collect') = true
-system.method('collect', 2, 'Array').isMethod = true
-system.method('collect', 2, 'Array').origin = 'ArrayedCollection'
-system.method('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = [9, 16, 25]
+system.methodLookup('collect', 2, 'Array').isMethod = true
+system.methodLookup('collect', 2, 'Array').origin = 'ArrayedCollection'
+system.methodLookup('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = [9, 16, 25]
 collect([3, 4, 5], { :x | x * x }) = [9, 16, 25]
-system.method('sum', 1, 'Array') == system.method('sum', 1, 'OrderedCollection')
+system.methodLookup('sum', 1, 'Array') == system.methodLookup('sum', 1, 'OrderedCollection')
 ```

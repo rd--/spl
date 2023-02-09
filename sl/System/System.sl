@@ -1,17 +1,78 @@
 System : [Object] {
 
-	allMethodNames { :self |
-		self.methodDictionary.keys
+	addAllTraitMethodsTo { :self :aCollection |
+		system.traitDictionary.values.do { :trait |
+			trait.methodDictionary.values.do { :method |
+				aCollection.add(method)
+			}
+		}
 	}
 
-	allMethodSignatures { :self |
-		self.methodDictionary.keys.collect { :methodName |
-			self.methodSignatures(methodName)
-		}.concatenation.sorted
+	addAllTypeMethodsTo { :self :aCollection |
+		system.typeDictionary.values.do { :trait |
+			trait.methodDictionary.values.do { :method |
+				aCollection.add(method)
+			}
+		}
+	}
+
+	allMethods { :self |
+		| answer = OrderedCollection(); |
+		system.addAllTraitMethodsTo(answer);
+		system.addAllTypeMethodsTo(answer);
+		answer
+	}
+
+	categoriesOf { :self :value |
+		self.categoryDictionary.keys.select { :each |
+			self.categoryDictionary[each].includes(value)
+		}
+	}
+
+	categorise { :self :key :value |
+		key.isValidCategoryName.if {
+			self.categoryDictionary.includesKey(key).if {
+				self.categoryDictionary[key].add(value)
+			} {
+				self.categoryDictionary[key] := [value].IdentitySet
+			}
+		} {
+			('categorise: not a valid category name: ' ++ key).error
+		}
+	}
+
+	categoriseAll { :self :key :valueArray |
+		key.isValidCategoryName.if {
+			self.categoryDictionary.includesKey(key).if {
+				self.categoryDictionary[key].addAll(valueArray)
+			} {
+				self.categoryDictionary[key] := valueArray.IdentitySet
+			}
+		} {
+			('categoriseAll: not a valid category name: ' ++ key).error
+		}
+	}
+
+	categoryDictionary { :self |
+		<primitive: return _self.categoryDictionary;>
+	}
+
+	doesTraitImplementMethod { :self :traitName :methodName |
+		self.traitMethods(traitName).collect(name:/1).includes(methodName)
 	}
 
 	doesTypeImplementMethod { :self :typeName :methodName |
-		self.methodTypes(methodName).includes(typeName)
+		self.typeMethods(typeName).collect(name:/1).includes(methodName)
+	}
+
+	isCategorised { :self :aString |
+		self.categoryDictionary.anySatisfy { :each |
+			each.includes(aString)
+		}
+	}
+
+	isCategoryName { :self :aString |
+		self.categoryDictionary.includesKey(aString)
 	}
 
 	isMethodName { :self :aString |
@@ -24,10 +85,6 @@ System : [Object] {
 
 	isTypeName { :self :aString |
 		self.typeDictionary.includesKey(aString)
-	}
-
-	method { :self :methodName :arity :typeName |
-		self.methodDictionary[methodName][arity][typeName]
 	}
 
 	methodArities { :self :methodName |
@@ -53,12 +110,16 @@ System : [Object] {
 			};
 			answer.Array
 		} {
-			('methodImplementations: not a method: ' ++ methodName).error
+			('methodImplementations: not a methodName: ' ++ methodName).error
 		}
 	}
 
 	methodImplementors { :self :methodName |
 		system.methodImplementations(methodName).collect(origin:/1)
+	}
+
+	methodLookup { :self :methodName :arity :typeName |
+		self.methodDictionary[methodName][arity][typeName]
 	}
 
 	methodPrintString { :self :methodName |
@@ -81,13 +142,10 @@ System : [Object] {
 		}.keys
 	}
 
-	methodTypes { :self :methodName |
-		(* Types implementing methodName. *)
-		self.isMethodName(methodName).if {
-			self.methodDictionary[methodName].values.collect(keys:/1).concatenation
-		} {
-			('methodTypes: not a method: ' ++ methodName).error
-		}
+	methodTypes { :self :qualifiedMethodName |
+		self.typeDictionary.select { :each |
+			each.methodDictionary.keys.includes(qualifiedMethodName)
+		}.keys
 	}
 
 	multipleArityMethodList { :self |
@@ -119,12 +177,28 @@ System : [Object] {
 		self.isTraitName(traitName).if {
 			self.traitDictionary[traitName]
 		} {
-			('trait: not a trait: ' ++ traitName).error
+			('System>>trait: not a trait: ' ++ traitName).error
 		}
 	}
 
 	traitDictionary { :self |
 		<primitive: return _self.traitDictionary;>
+	}
+
+	traitMethods { :self :traitName |
+		self.trait(traitName).methodDictionary.values
+	}
+
+	traitOrType { :self :traitOrTypeName |
+		self.isTraitName(traitOrTypeName).if {
+			self.traitDictionary[traitOrTypeName]
+		} {
+			self.isTypeName(traitOrTypeName).if {
+				self.typeDictionary[traitOrTypeName]
+			} {
+				('System>>traitOrType: not a trait or type: ' ++ traitOrTypeName).error
+			}
+		}
 	}
 
 	traitTypes { :self :traitName |
@@ -149,11 +223,7 @@ System : [Object] {
 
 	typeMethods { :self :typeName |
 		(* Methods implemented directly at typeName, i.e. non-Trait methods. *)
-		self.isTypeName(typeName).if {
-			self.typeDictionary[typeName].methodDictionary.values
-		} {
-			('typeMethods: not a type: ' ++ typeName).error
-		}
+		self.type(typeName).methodDictionary.values
 	}
 
 	typeProtocols { :self :typeName |
@@ -168,11 +238,7 @@ System : [Object] {
 	}
 
 	typeTraits { :self :typeName |
-		self.isTypeName(typeName).if {
-			self.typeDictionary[typeName].traitArray
-		} {
-			('typeTraits: not a type: ' ++ typeName).error
-		}
+		self.type(typeName).traitArray
 	}
 
 	typesImplementingTrait { :self :traitName |
@@ -229,6 +295,18 @@ System : [Object] {
 
 	evaluateEveryMilliseconds { :self :delayMilliseconds |
 		<primitive: return setInterval(_self, _delayMilliseconds);>
+	}
+
+}
+
++ String {
+
+	categoryNameParts { :self |
+		self.splitRegExp(RegExp('(?<=/)', 'g'))
+	}
+
+	isValidCategoryName { :self |
+		self.last = '/'
 	}
 
 }

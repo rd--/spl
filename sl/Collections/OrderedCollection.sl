@@ -1,8 +1,9 @@
-OrderedCollection : [Object, Collection, SequenceableCollection] { | array |
+OrderedCollection : [Object, Collection, SequenceableCollection] { | array | (* Note: a Js array, not an St array  *)
 
 	= { :self :anObject |
-		anObject.isOrderedCollection &
-		{ self.array = anObject.array }
+		anObject.isOrderedCollection & {
+			self.array = anObject.array
+		}
 	}
 
 	add { :self :anObject |
@@ -10,11 +11,11 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | array |
 	}
 
 	addAllFirst { :self :aCollection |
-		self.addArrayFirst(aCollection.asArray)
+		self.addArrayFirst(aCollection.Array)
 	}
 
 	addAllLast { :self :aCollection |
-		self.addArrayLast(aCollection.asArray)
+		self.addArrayLast(aCollection.Array)
 	}
 
 	addArrayFirst { :self :anArray |
@@ -80,6 +81,14 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | array |
 		OrderedCollection:/1
 	}
 
+	Array { :self |
+		self.array.copy
+	}
+
+	IdentitySet { :self |
+		self.array.IdentitySet
+	}
+
 	OrderedCollection { :self |
 		self
 	}
@@ -121,7 +130,6 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | array |
 	}
 
 	OrderedCollection { :self |
-		(* The array field is not a St array, it is a Js array. *)
 		OrderedCollection()
 	}
 

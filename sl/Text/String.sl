@@ -62,12 +62,36 @@ String : [Object] {
 		<primitive: return _self.indexOf(_aString) + 1;>
 	}
 
+	indicesOf { :self :aString |
+		aString.isString.if {
+			| answer = OrderedCollection(), index = 1, end = self.size; |
+			{ index > 0 & { index <= end } }.whileTrue {
+				index := self.findStringStartingAt(aString, index);
+				(index ~= 0).ifTrue {
+					answer.add(index);
+					index := index + 1
+				}
+			};
+			answer.Array
+		} {
+			('String>>indicesOf: not a string: ' ++ aString).error
+		}
+	}
+
 	includesSubstring { :self :aString |
 		<primitive: return _self.includes(_aString);>
 	}
 
+	isEmpty { :self |
+		self.size = 0
+	}
+
 	json { :self |
 		<primitive: return JSON.stringify(_self);>
+	}
+
+	last { :self |
+		self[self.size]
 	}
 
 	loadFile { :self |
@@ -76,6 +100,26 @@ String : [Object] {
 
 	loadUrl { :self |
 		<primitive: evaluateUrl(_self);>
+	}
+
+	notEmpty { :self |
+		self.isEmpty.not
+	}
+
+	occurrencesOf { :self :aString |
+		aString.isString.if {
+			| index = 1, end = self.size, tally = 0; |
+			{ index > 0 & { index <= end } }.whileTrue {
+				index := self.findStringStartingAt(aString, index);
+				(index ~= 0).ifTrue {
+					tally := tally + 1;
+					index := index + 1
+				}
+			};
+			tally
+		} {
+			('String>>occurrencesOf: not a string: ' ++ aString).error
+		}
 	}
 
 	parseBacktickQuotedString { :self |

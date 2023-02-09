@@ -16,5 +16,6 @@ loadSequence([
 	'Collections/SequenceableCollection.sl',
 	'Collections/Array.sl',
 	'Collections/ByteArray.sl',
+	'Text/RegExp.sl',
 	'Text/String.sl'
 ])
