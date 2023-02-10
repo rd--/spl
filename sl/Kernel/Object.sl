@@ -45,6 +45,10 @@
 		<primitive: throw _self;>
 	}
 
+	then { :self :aProcedure:/1 |
+		self.aProcedure
+	}
+
 	throw { :self |
 		<primitive: throw _self;>
 	}

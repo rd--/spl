@@ -45,7 +45,9 @@ ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statu
 			self.columnLists[index].addEventListener('change', { :event |
 				| next = onChange(self, (1 .. index).collect { :each | self.columnLists[each].value }); |
 				(index = numberOfColumns).if {
-					self.viewerText.textContent := next.asString
+					next.then { :view |
+						self.viewerText.textContent := view.asString
+					}
 				} {
 					self.viewerText.textContent := '';
 					(numberOfColumns - index - 1).do { :each |
@@ -53,7 +55,16 @@ ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statu
 					};
 					self.setColumnEntries(index + 1, next)				}
 			})
-		}
+		};
+		self.viewerText.addEventListener('keydown', { :event |
+			(event.ctrlKey & { event.key = 'Enter' }).ifTrue {
+				('{ ' ++ event.target.textContent ++ ' }.play').eval
+			};
+			(event.ctrlKey & { event.key = '.' }).ifTrue {
+				workspace::clock.clear;
+				system.defaultScSynth.reset;
+			};
+		})
 	}
 
 	setStatus { :self :aString |
@@ -184,6 +195,25 @@ ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statu
 		})
 	}
 
+	SmallHoursProgramBrowser {
+		ColumnBrowser('SmallHoursProgramBrowser', [1, 1, 3], { :browser :path |
+			path.size.caseOf([
+				0 -> {
+					smallHoursProgramCategories()
+				},
+				1 -> {
+					smallHoursProgramAuthors(path[1])
+				},
+				2 -> {
+					smallHoursProgramNames(path[1], path[2])
+				},
+				3 -> {
+					smallHoursProgramFetch(path[1], path[2], path[3])
+				}
+			])
+		})
+	}
+
 }
 
 (*
@@ -192,4 +222,53 @@ ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statu
 	system.window.document.body.appendChild(SystemBrowser().browserPane)
 	system.window.document.body.appendChild(TypeBrowser().browserPane)
 	system.window.document.body.appendChild(TraitBrowser().browserPane)
+	system.window.document.body.appendChild(SmallHoursProgramBrowser().browserPane)
+
+	loadSmallHoursPrograms()
+
 *)
+ + Void {
+
+	 loadSmallHoursPrograms {
+		 system.window.fetchString('./text/smallhours-programs.text').then { :aString |
+			 workspace::smallHoursPrograms := aString.lines.select(notEmpty:/1).collect(smallHoursProgramParse:/1)
+		 }
+	 }
+
+	 smallHoursProgramCategories {
+		 workspace::smallHoursPrograms.collect(first:/1).IdentitySet.Array.sorted.reject {
+			 :each | each = 'collect'
+		 }
+	 }
+
+}
+
++ String {
+
+	 smallHoursProgramParse { :self |
+		 self.splitRegExp(RegExp(' - |/'))
+	 }
+
+	 smallHoursProgramUrl { :category :author :name |
+		 './lib/stsc3/help/' ++ category ++ '/' ++ author ++ ' - ' ++ name
+	 }
+
+	 smallHoursProgramFetch { :category :author :name |
+		 system.window.fetchString(smallHoursProgramUrl(category, author, name))
+	 }
+
+	 smallHoursProgramAuthors { :category |
+		 workspace::smallHoursPrograms.select { :each |
+			 each.first = category
+		 }.collect(second:/1).IdentitySet.Array.sorted
+	 }
+
+	 smallHoursProgramNames { :category :author |
+		 workspace::smallHoursPrograms.select { :each |
+			 each.first = category & {
+				 each.second = author
+			 }
+		 }.collect(third:/1).IdentitySet.Array.sorted
+	 }
+
+}

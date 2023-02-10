@@ -394,6 +394,8 @@ RegExp('x.x', 'g').printString.size = 18
 'a text string'.json = '"a text string"'
  '"a text string"'.parseJson = 'a text string'
 'string'.last = 'g'
+var x = ['a', 'bc', 'def']; x.unlines.lines = x
+'3 + 4'.eval = 7
 
 'Exceptions/Error'
 Error().isError = true

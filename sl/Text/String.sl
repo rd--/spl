@@ -54,6 +54,10 @@ String : [Object] {
 		<primitive: return _self.substring(_start - 1, _end);>
 	}
 
+	eval { :self |
+		<primitive: return sl.evaluateString(_self);>
+	}
+
 	findStringStartingAt { :self :aString :aNumber |
 		<primitive: return _self.indexOf(_aString, _aNumber - 1) + 1;>
 	}
@@ -92,6 +96,10 @@ String : [Object] {
 
 	last { :self |
 		self[self.size]
+	}
+
+	lines { :self |
+		<primitive: return _self.split(/\r?\n/);>
 	}
 
 	loadFile { :self |
@@ -189,6 +197,10 @@ String : [Object] {
 
 	joinSeparatedBy { :self :aString |
 		<primitive: return _self.join(_aString);>
+	}
+
+	unlines { :self |
+		<primitive: return _self.join('\n');>
 	}
 
 }

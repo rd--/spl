@@ -15,5 +15,6 @@ loadSequence([
 	'Collections/Array.sl',
 	'Collections/ByteArray.sl',
 	'System/System.sl',
+	'System/Window.sl',
 	'Text/String.sl'
 ])

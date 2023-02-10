@@ -130,6 +130,30 @@ var a = Array(6); 'string'.collectInto({ :each | each.toUpperCase }, a); a.join 
 'string'.atRandom.isString = true
 ````
 
+# Input/Output
+
+```
+system.window.fetch('./text/smallhours-programs.text').then { :aResponse |
+	aResponse.text.then { :aString |
+		aString.postLine
+	}
+}
+
+system.window.fetchString('./text/smallhours-programs.text').then { :aString |
+	aString.lines.collect { :each | each.splitRegExp(RegExp(' - |/')) }.postLine
+}
+
+system.window.fetch('./png/os.512.png').then { :aResponse |
+	aResponse.byteArray.then { :aByteArray |
+		aByteArray.size.postLine
+	}
+}
+
+system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
+	aByteArray.size.postLine
+}
+```
+
 # Unicode
 
 - U+0021 ! EXCLAMATION MARK
