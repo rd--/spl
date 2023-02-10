@@ -13,7 +13,7 @@
 		}
 	}
 
-	crossMultiply { :self :aSequence |
+	crossedMultiply { :self :aSequence |
 		self.withCrossedCollect(aSequence, times:/2)
 	}
 
@@ -96,6 +96,12 @@
 			withExtendingCollect(self, anObject, aBinaryProcedure)
 		} {
 			anObject.adaptToCollectionAndApply(self, aBinaryProcedure)
+		}
+	}
+
+	withTableCollect { :self :aSequence :aProcedure:/2 |
+		self.collect { :each |
+			each.aProcedure(aSequence)
 		}
 	}
 

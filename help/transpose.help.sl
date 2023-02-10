@@ -5,3 +5,7 @@ _transpose(aMatrix)_
 ```
 [[1, 2, 3], [4, 5, 6]].tranpose = [[1, 4], [2, 5], [3, 6]]
 ```
+
+* * *
+
+Unicode: ᵀ U+1D40 Modifier Letter Capital T

@@ -230,7 +230,7 @@ ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statu
  + Void {
 
 	 loadSmallHoursPrograms {
-		 system.window.fetchString('./text/smallhours-programs.text').then { :aString |
+		 system.window.fetchString('./text/smallhours-programs.text', (cache: 'no-cache')).then { :aString |
 			 workspace::smallHoursPrograms := aString.lines.select(notEmpty:/1).collect(smallHoursProgramParse:/1)
 		 }
 	 }
@@ -254,7 +254,7 @@ ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statu
 	 }
 
 	 smallHoursProgramFetch { :category :author :name |
-		 system.window.fetchString(smallHoursProgramUrl(category, author, name))
+		 system.window.fetchString(smallHoursProgramUrl(category, author, name), (cache: 'no-cache'))
 	 }
 
 	 smallHoursProgramAuthors { :category |
