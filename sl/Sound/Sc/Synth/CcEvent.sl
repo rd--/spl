@@ -1,4 +1,4 @@
-CcEvent {
+CcEvent : [Object] {
 
 	v { :self |
 		<primitive: return _self.v;>

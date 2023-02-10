@@ -54,6 +54,10 @@ HTMLOptionElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
+HTMLParagraphElement : [Object, EventTarget, Node, Element, HtmlElement] {
+
+}
+
 HTMLPreElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }

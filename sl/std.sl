@@ -1,7 +1,7 @@
 loadSequence([
-	'Collections/Dictionary.sl',
 	'Collections/Association.sl',
 	'Collections/ByteArray.sl',
+	'Collections/Dictionary.sl',
 	'Collections/Float64Array.sl',
 	'Collections/IdentityDictionary.sl',
 	'Collections/IdentitySet.sl',
@@ -10,6 +10,9 @@ loadSequence([
 	'Collections/PriorityQueue.sl',
 	'Collections/StringDictionary.sl',
 	'Exceptions/Error.sl',
-	'Kernel/Promise.sl',
-	'System/System.sl'
+	'Kernel/Method.sl',
+	'Kernel/Trait.sl',
+	'Kernel/Type.sl',
+	'Text/RegExp.sl',
+	'Time/Duration.sl'
 ])

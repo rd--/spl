@@ -1,6 +1,6 @@
 loadSequence([
 	'Sound/Sc/Lang/Clock.sl',
-	'Sound/Sc/Lang/ArrayedCollection.ext.sl',
+	;; 'Sound/Sc/Lang/ArrayedCollection.ext.sl',
 	'Sound/Sc/Lang/Array.ext.sl',
 	'Sound/Sc/Lang/Collection.ext.sl',
 	'Sound/Sc/Lang/Interval.ext.sl',

@@ -110,11 +110,3 @@ Procedure : [Object] {
 	}
 
 }
-
-+ @Object {
-
-	$ { :self :aProcedure:/1 |
-		aProcedure(self)
-	}
-
-}

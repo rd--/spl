@@ -1,50 +1,36 @@
-ColumnBrowser { | browserPane columnsPane viewerPane columnLists viewerText |
+ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statusPane titleText viewerText statusText |
 
 	createElements { :self :numberOfColumns |
 		self.browserPane := 'div'.createElement;
+		self.titlePane :=  'div'.createElement;
 		self.columnsPane :=  'div'.createElement;
 		self.viewerPane := 'div'.createElement;
+		self.statusPane := 'div'.createElement;
+		self.titleText := 'pre'.createElement;
 		self.columnLists := { 'select'.createElement } ! numberOfColumns;
 		self.viewerText := 'pre'.createElement;
+		self.statusText := 'pre'.createElement;
+		self.titlePane.appendChild(self.titleText);
 		self.columnsPane.appendChildren(self.columnLists);
 		self.viewerPane.appendChild(self.viewerText);
-		self.browserPane.appendChildren([self.columnsPane, self.viewerPane]);
+		self.statusPane.appendChild(self.statusText);
+		self.browserPane.appendChildren([self.titlePane, self.columnsPane, self.viewerPane, self.statusPane]);
 	}
 
 	setAttributes { :self :columnProportions :listSize |
-		self.browserPane.setAttribute('class', 'columnBrowser');
-		self.viewerPane.setAttribute('class', 'documentContainer');
-		self.browserPane.style.setProperties([
-			'display' -> 'flex',
-			'flex-direction' -> 'column',
-			'flex-wrap' -> 'nowrap',
-			'resize' -> 'both',
-			'overflow' -> 'auto',
-			'height' -> '25em',
-			'width' -> '50em'
-		]);
-		self.columnsPane.style.setProperties([
-			'display' -> 'flex',
-			'flex-direction' -> 'row',
-			'flex-grow' -> '1',
-			'margin' -> '2px'
-		]);
+		self.browserPane.setAttribute('class', 'browserPane');
+		self.titlePane.setAttribute('class', 'titlePane');
+		self.columnsPane.setAttribute('class', 'columnsPane');
+		self.viewerPane.setAttribute('class', 'viewerPane');
+		self.statusPane.setAttribute('class', 'statusPane');
 		columnProportions.size.do { :index |
 			| list = self.columnLists[index]; |
 			list.size := listSize;
 			list.style.setProperties([
-				'flex-grow' -> columnProportions[index].asString,
-				'flex-basis' -> '6em',
-				'margin' -> '1px',
-				'width' -> '100%'
+				'flex-grow' -> columnProportions[index].asString
 			])
 		};
-		self.viewerPane.style.setProperties([
-			'flex-grow' -> '1',
-			'flex-basis' -> '6em',
-			'margin' -> '4px'
-		]);
-		self.viewerText.setAttributes((contentEditable: 'true', spellcheck: 'false'))
+		self.viewerText.setAttributes((contentEditable: 'true', spellcheck: 'false'));
 	}
 
 	setColumnEntries { :self :index :entries |
@@ -54,10 +40,10 @@ ColumnBrowser { | browserPane columnsPane viewerPane columnLists viewerText |
 		})
 	}
 
-	setEventHandlers { :self :numberOfColumns :onChange:/1 |
+	setEventHandlers { :self :numberOfColumns :onChange:/2 |
 		numberOfColumns.do { :index |
 			self.columnLists[index].addEventListener('change', { :event |
-				| next = (1 .. index).collect { :each | self.columnLists[each].value }.onChange; |
+				| next = onChange(self, (1 .. index).collect { :each | self.columnLists[each].value }); |
 				(index = numberOfColumns).if {
 					self.viewerText.textContent := next.asString
 				} {
@@ -70,16 +56,26 @@ ColumnBrowser { | browserPane columnsPane viewerPane columnLists viewerText |
 		}
 	}
 
+	setStatus { :self :aString |
+		self.statusText.textContent := aString
+	}
+
+	setTitle { :self :aString |
+		self.titleText.textContent := aString
+	}
+
 }
 
-+ Array {
++ String {
 
-	ColumnBrowser { :columnProportions :onChange:/1 |
+	ColumnBrowser { :title :columnProportions :onChange:/2 |
 		| numberOfColumns = columnProportions.size, browser = newColumnBrowser(); |
 		browser.createElements(numberOfColumns);
-		browser.setColumnEntries(1, onChange([]));
+		browser.setTitle(title);
+		browser.setColumnEntries(1, onChange(browser, []));
+		browser.columnLists[1].selectedIndex(-1);
 		browser.setAttributes(columnProportions, 6);
-		browser.setEventHandlers(numberOfColumns, onChange:/1);
+		browser.setEventHandlers(numberOfColumns, onChange:/2);
 		browser
 	}
 
@@ -89,7 +85,7 @@ ColumnBrowser { | browserPane columnsPane viewerPane columnLists viewerText |
 
 	MethodBrowser {
 		| methodNames = system.allMethods.collect(qualifiedName:/1).IdentitySet.Array.sorted ; |
-		ColumnBrowser([3, 1], { :path |
+		ColumnBrowser('MethodBrowser', [3, 1], { :browser :path |
 			path.size.caseOf([
 				0 -> { methodNames },
 				1 -> { system.methodTraits(path[1]) ++ system.methodTypes(path[1]) },
@@ -98,35 +94,92 @@ ColumnBrowser { | browserPane columnsPane viewerPane columnLists viewerText |
 		})
 	}
 
-	SystemBrowser {
-		| systemNames = (system.traitDictionary.keys ++ system.typeDictionary.keys).sorted; |
-		ColumnBrowser([1, 3], { :path |
+	CategoryBrowser {
+		|
+			typeNames = system.typeDictionary.keys.sorted,
+			categoryNames = typeNames.collect { :each | system.categoryOf(each) }.IdentitySet.Array.sorted,
+			methodSet = nil;
+		|
+		ColumnBrowser('CategoryBrowser', [1, 1, 3], { :browser :path |
 			path.size.caseOf([
-				0 -> { systemNames },
-				1 -> { system.traitOrType(path[1]).methodDictionary.keys.sorted },
-				2 -> { system.traitOrType(path[1]).methodDictionary[path[2]].definition }
+				0 -> {
+					browser.setStatus('');
+					categoryNames
+				},
+				1 -> {
+					browser.setStatus('');
+					system.categoryDictionary[path[1]].select { :each | system.isTypeName(each) }.Array.sorted
+				},
+				2 -> {
+					browser.setStatus(system.typeTraits(path[2]).joinSeparatedBy(', '));
+					methodSet := system.typeMethodSet(path[2]).select { :each | each.origin.name ~= 'Object' };
+					methodSet.collect(qualifiedName:/1).Array.sorted
+				},
+				3 -> {
+					| method = methodSet.detect { :each | each.qualifiedName = path[3] }; |
+					browser.setStatus(method.origin.name);
+					method.definition
+				}
+			])
+		})
+	}
+
+	SystemBrowser {
+		| typeNames = system.typeDictionary.keys.sorted, methodSet = nil; |
+		ColumnBrowser('SystemBrowser', [1, 3], { :browser :path |
+			path.size.caseOf([
+				0 -> {
+					browser.setStatus('');
+					typeNames
+				},
+				1 -> {
+					browser.setStatus(system.typeTraits(path[1]).joinSeparatedBy(', '));
+					methodSet := system.typeMethodSet(path[1]).select { :each | each.origin.name ~= 'Object' };
+					methodSet.collect(qualifiedName:/1).Array.sorted
+				},
+				2 -> {
+					| method = methodSet.detect { :each | each.qualifiedName = path[2] }; |
+					browser.setStatus(method.origin.name);
+					method.definition
+				}
 			])
 		})
 	}
 
 	TraitBrowser {
 		| traitNames = system.traitDictionary.keys.sorted; |
-		ColumnBrowser([1, 3], { :path |
+		ColumnBrowser('TraitBrowser', [1, 3], { :browser :path |
 			path.size.caseOf([
-				0 -> { traitNames },
-				1 -> { system.traitDictionary[path[1]].methodDictionary.keys.sorted },
-				2 -> { system.traitDictionary[path[1]].methodDictionary[path[2]].definition }
+				0 -> {
+					browser.setStatus('');
+					traitNames
+				},
+				1 -> {
+					browser.setStatus(system.traitTypes(path[1]).joinSeparatedBy(', '));
+					system.traitDictionary[path[1]].methodDictionary.keys.sorted
+				},
+				2 -> {
+					system.traitDictionary[path[1]].methodDictionary[path[2]].definition
+				}
 			])
 		})
 	}
 
 	TypeBrowser {
 		| typeNames = system.typeDictionary.keys.sorted; |
-		ColumnBrowser([1, 3], { :path |
+		ColumnBrowser('TypeBrowser', [1, 3], { :browser :path |
 			path.size.caseOf([
-				0 -> { typeNames },
-				1 -> { system.typeDictionary[path[1]].methodDictionary.keys.sorted },
-				2 -> { system.typeDictionary[path[1]].methodDictionary[path[2]].definition }
+				0 -> {
+					browser.setStatus('');
+					typeNames
+				},
+				1 -> {
+					browser.setStatus(system.typeTraits(path[1]).joinSeparatedBy(', '));
+					system.typeDictionary[path[1]].methodDictionary.keys.sorted
+				},
+				2 -> {
+					system.typeDictionary[path[1]].methodDictionary[path[2]].definition
+				}
 			])
 		})
 	}
@@ -134,8 +187,9 @@ ColumnBrowser { | browserPane columnsPane viewerPane columnLists viewerText |
 }
 
 (*
-	system.window.document.body.appendChild(TypeBrowser().browserPane)
-	system.window.document.body.appendChild(TraitBrowser().browserPane)
+	system.window.document.body.appendChild(CategoryBrowser().browserPane)
 	system.window.document.body.appendChild(MethodBrowser().browserPane)
 	system.window.document.body.appendChild(SystemBrowser().browserPane)
+	system.window.document.body.appendChild(TypeBrowser().browserPane)
+	system.window.document.body.appendChild(TraitBrowser().browserPane)
 *)

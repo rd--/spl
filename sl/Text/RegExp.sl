@@ -4,10 +4,6 @@ RegExp : [Object] {
 		<primitive: return _self.exec(_aString);>
 	}
 
-	isRegExp { :self |
-		true
-	}
-
 	printString { :self |
 		<primitive: return `RegExp('${_self.source}', '${_self.flags}')`;>
 	}
@@ -18,14 +14,6 @@ RegExp : [Object] {
 
 	test { :self :aString |
 		<primitive: return _self.test(_aString);>
-	}
-
-}
-
-+ @Object {
-
-	isRegExp { :self |
-		false
 	}
 
 }

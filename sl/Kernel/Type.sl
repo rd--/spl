@@ -1,5 +1,9 @@
 Type : [Object] {
 
+	category { :self |
+		system.categoryOf(self.name)
+	}
+
 	methodDictionary { :self |
 		<primitive: return _self.methodDictionary;>
 	}
@@ -12,12 +16,12 @@ Type : [Object] {
 		self.name
 	}
 
-	slotArray { :self |
-		<primitive: return _self.slotArray;>
+	slotNameArray { :self |
+		<primitive: return _self.slotNameArray;>
 	}
 
-	traitArray { :self |
-		<primitive: return _self.traitArray;>
+	traitNameArray { :self |
+		<primitive: return _self.traitNameArray;>
 	}
 
 }

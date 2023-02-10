@@ -99,13 +99,13 @@ export class Trait {
 
 export class Type {
 	name: TypeName;
-	traitArray: TraitName[];
-	slotArray: string[];
+	traitNameArray: TraitName[];
+	slotNameArray: string[];
 	methodDictionary: QualifiedMethodDictionary;
-	constructor(name: TypeName, traitArray: TraitName[], slotArray: string[]) {
+	constructor(name: TypeName, traitNameArray: TraitName[], slotNameArray: string[]) {
 		this.name = name;
-		this.traitArray = traitArray;
-		this.slotArray = slotArray;
+		this.traitNameArray = traitNameArray;
+		this.slotNameArray = slotNameArray;
 		this.methodDictionary = new Map();
 	}
 }
@@ -162,7 +162,7 @@ export function copyTraitToType(traitName: TraitName, typeName: TypeName): void 
 export function traitTypeArray(traitName: TraitName): TypeName[] {
 	const answer = [];
 	for (const [typeName, typeValue] of system.typeDictionary) {
-		if(typeValue.traitArray.includes(traitName)) {
+		if(typeValue.traitNameArray.includes(traitName)) {
 			answer.push(typeName);
 		}
 	}

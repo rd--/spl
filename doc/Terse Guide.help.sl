@@ -243,6 +243,8 @@ var d = (c: 3, parent: (b: 2, parent: (a: 1))); [d:.a, d:.b, d:.c] = [1, 2, 3]
 var d = (x: 1, parent: (y: 2, parent: (z: 3))); d:.z := -3; [d:.x, d:.y, d:.z] = [1, 2, -3]
 var d = (length: { :self | (self::x.squared  + self::y.squared).sqrt }); var p = (x: 3.141, y: 23, parent: d); p:.length = 23.213484895637706
 var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7) = 21
+(x: 1) = ('x': 1)
+('font-size': '11pt', 'font-style': 'italic').keys = ['font-size', 'font-style']
 
 'Collections/IdentitySet'
 [1, 3, 5, 3, 1].IdentitySet.isIdentitySet = true
@@ -456,17 +458,17 @@ system.uniqueId ~= system.uniqueId
 
 'System/categoryDictionary'
 system.categoryDictionary.isIdentityDictionary = true
-'accessing/'.isValidCategoryName = true
-{ system.categorise('accessing', 'at') }.ifError { :err | true }
-system.categoriseAll('accessing/', ['at', 'atPut', 'first', 'key', 'last', 'value']) = nil
-system.isCategoryName('accessing/') = true
-system.categoryDictionary['accessing/'].isIdentitySet = true
-system.categoriesOf('at').includes('accessing/') = true
+system.categoriseAll('accessing', ['at', 'atPut', 'first', 'key', 'last', 'value']) = nil
+system.isCategoryName('accessing') = true
+system.category('accessing').isIdentitySet = true
+system.categoriesOf('at').includes('accessing') = true
 system.categoriesOf('notInCategorySystem') = []
 system.isCategorised('at') = true
 system.isCategorised('notInCategorySystem') = false
-system.categoriseAll('Collections/Abstract/', ['ArrayedCollection', 'Collection', 'SequenceableCollection']) = nil
-'Collections/Abstract/'.categoryNameParts = ['Collections/', 'Abstract/']
+system.categoriseAll('Collections/Abstract', ['ArrayedCollection', 'Collection', 'SequenceableCollection']) = nil
+'Collections/Abstract'.categoryNameParts = ['Collections', 'Abstract']
+['/home/rohan/sw/spl/sl/cat.sl'].loadSequence
+system.typeDictionary.keys.collect { :each | system.categoryOf(each) }
 
 'System/methodDictionary'
 system.methodDictionary.isIdentityDictionary = true
@@ -519,8 +521,8 @@ system.typeDictionary.isIdentityDictionary = true
 system.typeDictionary.keys.includes('Array') = true
 system.typeDictionary.includesKey('Array') = true
 system.typeDictionary::Array.isType = true
-system.typeDictionary::Array.traitArray.includes('Collection') = true
-system.typeDictionary::Association.slotArray = ['key', 'value']
+system.typeDictionary::Array.traitNameArray.includes('Collection') = true
+system.typeDictionary::Association.slotNameArray = ['key', 'value']
 system.typeDictionary::Association.methodDictionary.keys.includes('equals:/2')
 system.typeDictionary::Association.methodDictionary.includesKey('key:/1') = true
 system.typeDictionary::UndefinedObject.methodDictionary.includesKey('ifNil:/2') = true
@@ -530,3 +532,4 @@ system.type('Array').isType = true
 system.type('Array').name = 'Array'
 system.type('Array').methodDictionary.includesKey('copy:/1') = true
 system.type('Array').methodDictionary::copy:/1.isMethod = true
+system.typeMethodSet('Array').collect(name:/1).includes('select') = true

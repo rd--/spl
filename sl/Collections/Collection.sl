@@ -103,7 +103,7 @@
 
 	detect { :self :aProcedure |
 		detectIfNone(self, aProcedure) {
-			error('Array>>detect: not found')
+			error('Collection>>detect: not found')
 		}
 	}
 
@@ -206,7 +206,7 @@
 			}
 		};
 		first.ifTrue {
-			error('Array>>reduce: empty collection')
+			error('Collection>>reduce: empty collection')
 		};
 		nextValue
 	}
@@ -251,7 +251,7 @@
 
 	ofSize { :self :aNumber |
 		(self.size = aNumber).ifFalse {
-			error('ofSize')
+			'ofSize'.error
 		};
 		self
 	}

@@ -1,10 +1,8 @@
 loadSequence([
 	'Kernel/Object.sl',
 	'Kernel/Boolean.sl',
-	'Kernel/Method.sl',
 	'Kernel/Procedure.sl',
-	'Kernel/Trait.sl',
-	'Kernel/Type.sl',
+	'Kernel/Promise.sl',
 	'Kernel/UndefinedObject.sl',
 	'Numbers/Binary.sl',
 	'Numbers/Integral.sl',
@@ -16,6 +14,6 @@ loadSequence([
 	'Collections/SequenceableCollection.sl',
 	'Collections/Array.sl',
 	'Collections/ByteArray.sl',
-	'Text/RegExp.sl',
+	'System/System.sl',
 	'Text/String.sl'
 ])

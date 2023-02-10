@@ -98,7 +98,9 @@ Sl {
 	ParenthesisedExpression = "(" Expression ")"
 	NonEmptyDictionaryExpression = "(" NonemptyListOf<AssociationExpression, ","> ")"
 	DictionaryExpression = "(" ListOf<AssociationExpression, ","> ")"
-	AssociationExpression = identifier ":" Expression
+	AssociationExpression = IdentifierAssociation | StringAssociation
+	IdentifierAssociation = identifier ":" Expression
+	StringAssociation = singleQuotedStringLiteral ":" Expression
 	ArrayExpression = "[" ListOf<Expression, ","> "]"
 	ArrayRangeSyntax = "[" Expression ".." Expression "]"
 	ArrayRangeThenSyntax = "[" Expression "," Expression ".." Expression "]"

@@ -1,4 +1,4 @@
-UgenGraph {
+UgenGraph : [Object] {
 
 	encode { :self |
 		<primitive: return sc.graphEncodeSyndef(_self);>

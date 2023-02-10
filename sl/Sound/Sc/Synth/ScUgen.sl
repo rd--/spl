@@ -1,4 +1,4 @@
-ScUgen {
+ScUgen : [Object] {
 
 	id { :self | <primitive: return _self.id> }
 	inputArray { :self | <primitive: return _self.inputArray> }

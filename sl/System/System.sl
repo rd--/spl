@@ -23,33 +23,42 @@ System : [Object] {
 		answer
 	}
 
-	categoriesOf { :self :value |
+	categoriesOf { :self :entry |
 		self.categoryDictionary.keys.select { :each |
-			self.categoryDictionary[each].includes(value)
+			self.categoryDictionary[each].includes(entry)
 		}
 	}
 
-	categorise { :self :key :value |
-		key.isValidCategoryName.if {
-			self.categoryDictionary.includesKey(key).if {
-				self.categoryDictionary[key].add(value)
-			} {
-				self.categoryDictionary[key] := [value].IdentitySet
-			}
+	categorize { :self :categoryName :entry |
+		self.categoryDictionary.includesKey(categoryName).if {
+			self.categoryDictionary[categoryName].add(entry)
 		} {
-			('categorise: not a valid category name: ' ++ key).error
+			self.categoryDictionary[categoryName] := [entry].IdentitySet
 		}
 	}
 
-	categoriseAll { :self :key :valueArray |
-		key.isValidCategoryName.if {
-			self.categoryDictionary.includesKey(key).if {
-				self.categoryDictionary[key].addAll(valueArray)
-			} {
-				self.categoryDictionary[key] := valueArray.IdentitySet
-			}
+	categorizeAll { :self :categoryName :entryArray |
+		self.categoryDictionary.includesKey(categoryName).if {
+			self.categoryDictionary[categoryName].addAll(entryArray)
 		} {
-			('categoriseAll: not a valid category name: ' ++ key).error
+			self.categoryDictionary[categoryName] := entryArray.IdentitySet
+		}
+	}
+
+	category { :self :categoryName |
+		self.isCategoryName(categoryName).if {
+			self.categoryDictionary[categoryName]
+		} {
+			('System>>category: not a category: ' ++ categoryName).error
+		}
+	}
+
+	categoryOf { :self :aString |
+		| all = self.categoriesOf(aString); |
+		(all.size = 1).if {
+			all[1]
+		} {
+			('System>>categoryOf: no or multiple categories: ' ++ aString).error
 		}
 	}
 
@@ -65,7 +74,7 @@ System : [Object] {
 		self.typeMethods(typeName).collect(name:/1).includes(methodName)
 	}
 
-	isCategorised { :self :aString |
+	isCategorized { :self :aString |
 		self.categoryDictionary.anySatisfy { :each |
 			each.includes(aString)
 		}
@@ -226,24 +235,26 @@ System : [Object] {
 		self.type(typeName).methodDictionary.values
 	}
 
-	typeProtocols { :self :typeName |
-		(* Methods understood by typeName. *)
-		self.isTypeName(typeName).if {
-			self.methodDictionary.keys.select { :methodName |
-				self.methodTypes(methodName).includes(typeName)
+	typeMethodSet { :self :typeName |
+		| type = self.type(typeName), answer = IdentitySet(); |
+		type.traitNameArray.do { :traitName |
+			self.trait(traitName).methodDictionary.valuesDo { :method |
+				answer.add(method)
 			}
-		} {
-			'typeProtocols: not a type'.error
-		}
+		};
+		type.methodDictionary.valuesDo { :method |
+			answer.add(method)
+		};
+		answer
 	}
 
 	typeTraits { :self :typeName |
-		self.type(typeName).traitArray
+		self.type(typeName).traitNameArray
 	}
 
 	typesImplementingTrait { :self :traitName |
 		system.typeDictionary.select { :each |
-			each.traitArray.includes(traitName)
+			each.traitNameArray.includes(traitName)
 		}.keys
 	}
 
@@ -277,8 +288,10 @@ System : [Object] {
 
 + @Object {
 
-	respondsTo { :self :aMethod |
-		system.doesTypeImplementMethod(self.typeOf, aMethod.methodName)
+	respondsTo { :self :aProcedure |
+		system.typeMethodSet(self.typeOf).anySatisfy { :each |
+			each.qualifiedName = aProcedure.name
+		}
 	}
 
 }
@@ -302,11 +315,7 @@ System : [Object] {
 + String {
 
 	categoryNameParts { :self |
-		self.splitRegExp(RegExp('(?<=/)', 'g'))
-	}
-
-	isValidCategoryName { :self |
-		self.last = '/'
+		self.splitBy('/')
 	}
 
 }
