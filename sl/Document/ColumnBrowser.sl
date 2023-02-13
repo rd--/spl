@@ -14,7 +14,12 @@ ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statu
 		self.columnsPane.appendChildren(self.columnLists);
 		self.viewerPane.appendChild(self.viewerText);
 		self.statusPane.appendChild(self.statusText);
-		self.browserPane.appendChildren([self.titlePane, self.columnsPane, self.viewerPane, self.statusPane]);
+		self.browserPane.appendChildren([
+			self.titlePane,
+			self.columnsPane,
+			self.viewerPane,
+			self.statusPane
+		]);
 		self.inMove := false
 	}
 
@@ -48,10 +53,8 @@ ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statu
 			self.inMove := true;
 			self.x0 := event.x - rect.x;
 			self.y0 := event.y - rect.y;
-			['titlePane>down', rect.x, rect.y, event.x, event.y, self.x0, self.y0].postLine
 		});
 		self.titlePane.addEventListener('pointermove', { :event |
-			'titlePane>move'.postLine;
 			self.inMove.ifTrue {
 				event.stopPropagation;
 				event.cancelable.ifTrue {
@@ -62,13 +65,16 @@ ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statu
 			}
 		});
 		self.titlePane.addEventListener('pointerup', { :event |
-			'titlePane>up'.postLine;
 			event.target.releasePointerCapture(event.pointerId);
 			self.inMove := false
 		});
 		numberOfColumns.do { :index |
 			self.columnLists[index].addEventListener('change', { :event |
-				| next = onChange(self, (1 .. index).collect { :each | self.columnLists[each].value }); |
+				|
+					next = onChange(self, (1 .. index).collect { :each |
+						self.columnLists[each].value
+					});
+				|
 				(index = numberOfColumns).if {
 					next.then { :view |
 						self.viewerText.textContent := view.asString
@@ -123,9 +129,15 @@ ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statu
 		| methodNames = system.allMethods.collect(qualifiedName:/1).IdentitySet.Array.sorted ; |
 		ColumnBrowser('MethodBrowser', [3, 1], { :browser :path |
 			path.size.caseOf([
-				0 -> { methodNames },
-				1 -> { system.methodTraits(path[1]) ++ system.methodTypes(path[1]) },
-				2 -> { system.traitOrType(path[2]).methodDictionary[path[1]].definition }
+				0 -> {
+					methodNames
+				},
+				1 -> {
+					system.methodTraits(path[1]) ++ system.methodTypes(path[1])
+				},
+				2 -> {
+					system.traitOrType(path[2]).methodDictionary[path[1]].definition
+				}
 			])
 		})
 	}
