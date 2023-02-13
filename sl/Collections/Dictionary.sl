@@ -43,10 +43,12 @@
 		}
 	}
 
-	associationsSelect { :self :aBlock:/1 |
+	associationsSelect { :self :aProcedure:/1 |
 		| answer = self.species.new; |
 		self.associationsDo { :each |
-			aBlock(each).ifTrue { answer.add(each) }
+			each.aProcedure.ifTrue {
+				answer.add(each)
+			}
 		};
 		answer
 	}
@@ -157,7 +159,7 @@
 	select { :self :aProcedure:/1 |
 		| answer = self.species.new; |
 		self.associationsDo { :each |
-			aProcedure(each.value).ifTrue {
+			each.value.aProcedure.ifTrue {
 				answer.add(each.copy)
 			}
 		};

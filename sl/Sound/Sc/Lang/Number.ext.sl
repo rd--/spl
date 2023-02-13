@@ -25,7 +25,7 @@
 	}
 
 	SoftClip { :self |
-		if(self.abs <= 0.5) {
+		(self.abs <= 0.5).if {
 			self
 		} {
 			(self.abs - 0.25) / self

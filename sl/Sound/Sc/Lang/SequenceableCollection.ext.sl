@@ -92,7 +92,7 @@
 	}
 
 	withExtendingCollectOrAdaptTo { :self :anObject :aBinaryProcedure |
-		if(isSequenceable(anObject)) {
+		anObject.isSequenceable.if {
 			withExtendingCollect(self, anObject, aBinaryProcedure)
 		} {
 			anObject.adaptToCollectionAndApply(self, aBinaryProcedure)

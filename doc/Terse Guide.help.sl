@@ -460,17 +460,15 @@ system.uniqueId ~= system.uniqueId
 
 'System/categoryDictionary'
 system.categoryDictionary.isIdentityDictionary = true
-system.categoriseAll('accessing', ['at', 'atPut', 'first', 'key', 'last', 'value']) = nil
+system.categorizeAll('accessing', ['at', 'atPut', 'first', 'key', 'last', 'value']) = nil
 system.isCategoryName('accessing') = true
 system.category('accessing').isIdentitySet = true
 system.categoriesOf('at').includes('accessing') = true
 system.categoriesOf('notInCategorySystem') = []
-system.isCategorised('at') = true
-system.isCategorised('notInCategorySystem') = false
-system.categoriseAll('Collections/Abstract', ['ArrayedCollection', 'Collection', 'SequenceableCollection']) = nil
+system.isCategorized('at') = true
+system.isCategorized('notInCategorySystem') = false
+system.categorizeAll('Collections/Abstract', ['ArrayedCollection', 'Collection', 'SequenceableCollection']) = nil
 'Collections/Abstract'.categoryNameParts = ['Collections', 'Abstract']
-['/home/rohan/sw/spl/sl/cat.sl'].loadSequence
-system.typeDictionary.keys.collect { :each | system.categoryOf(each) }
 
 'System/methodDictionary'
 system.methodDictionary.isIdentityDictionary = true

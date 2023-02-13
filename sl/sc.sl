@@ -7,6 +7,7 @@ loadSequence([
 	'Sound/Sc/Lang/Number.ext.sl',
 	'Sound/Sc/Lang/Numeric.ext.sl',
 	'Sound/Sc/Lang/Object.ext.sl',
+	'Sound/Sc/Lang/Procedure.ext.sl',
 	'Sound/Sc/Lang/SequenceableCollection.ext.sl',
 	'Sound/Sc/Synth/CcEvent.sl',
 	'Sound/Sc/Synth/ScSynth.sl',
@@ -14,13 +15,13 @@ loadSequence([
 	'Sound/Sc/Synth/Ugen.sl',
 	'Sound/Sc/Synth/UgenGraph.sl',
 	'Sound/Sc/Synth/Env.sl', (* requires Ugen *)
+	'Sound/Sc/Synth/Procedure.ext.sl',
 	'Sound/Sc/Synth/bindings.sl',
 	'Sound/Sc/Synth/bindings-ext.sl',
 	'Sound/Sc/Synth/buffer.sl',
 	;; 'Sound/Sc/Synth/keyword.sl',
 	'Sound/Sc/Synth/operators.sl',
-	'Sound/Sc/Synth/pseudo.sl',
-	'Sound/Sc/Synth/texture.sl'
+	'Sound/Sc/Synth/pseudo.sl'
 ]).then { :unusedValue |
 	workspace::clock := Clock()
 }

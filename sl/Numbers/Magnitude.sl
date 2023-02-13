@@ -25,7 +25,7 @@
 	}
 
 	max { :self :aMagnitude |
-		if(self > aMagnitude) {
+		(self > aMagnitude).if {
 			self
 		} {
 			aMagnitude
@@ -33,7 +33,7 @@
 	}
 
 	min { :self :aMagnitude |
-		if(self < aMagnitude) {
+		(self < aMagnitude).if {
 			self
 		} {
 			aMagnitude

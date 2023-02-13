@@ -1,7 +1,7 @@
 Point : [Object, CartesianPoint] { | x y |
 
 	= { :self :anObject |
-		if(anObject.isPoint) {
+		anObject.isPoint.if {
 			(self.x = anObject.x) & { self.y = anObject.y }
 		} {
 			false
@@ -9,7 +9,7 @@ Point : [Object, CartesianPoint] { | x y |
 	}
 
 	+ { :self :anObject |
-		if(anObject.isPoint) {
+		anObject.isPoint.if {
 			Point(self.x + anObject.x, self.y + anObject.y)
 		} {
 			anObject.adaptToPointAndApply(self, plus:/2)
@@ -17,7 +17,7 @@ Point : [Object, CartesianPoint] { | x y |
 	}
 
 	- { :self :anObject |
-		if(anObject.isPoint) {
+		anObject.isPoint.if {
 			Point(self.x - anObject.x, self.y - anObject.y)
 		} {
 			anObject.adaptToPointAndApply(self, minus:/2)
@@ -25,7 +25,7 @@ Point : [Object, CartesianPoint] { | x y |
 	}
 
 	* { :self :anObject |
-		if(anObject.isPoint) {
+		anObject.isPoint.if {
 			Point(self.x * anObject.x, self.y * anObject.y)
 		} {
 			anObject.adaptToPointAndApply(self, times:/2)
@@ -33,7 +33,7 @@ Point : [Object, CartesianPoint] { | x y |
 	}
 
 	/ { :self :anObject |
-		if(anObject.isPoint) {
+		anObject.isPoint.if {
 			Point(self.x / anObject.x, self.y / anObject.y)
 		} {
 			anObject.adaptToPointAndApply(self, dividedBy:/2)

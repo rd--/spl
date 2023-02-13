@@ -45,13 +45,13 @@
 	}
 
 	foldOnce { :self :lo :hi |
-		if(self >= hi) {
+		(self >= hi).if {
 			hi + hi - self
 		} {
-			if(self < lo) {
+			(self < lo).if {
 				lo + lo - self
 			} {
-				if(self = hi) {
+				(self = hi).if {
 					lo
 				} {
 					self
@@ -61,7 +61,9 @@
 	}
 
 	fold { :self :lo :hi |
-		if(self >= lo & { self < hi }) {
+		(self >= lo & {
+			self < hi
+		}).if {
 			self
 		} {
 			|

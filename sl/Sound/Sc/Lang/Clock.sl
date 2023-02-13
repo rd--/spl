@@ -1,5 +1,56 @@
 Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
+
+	collectTexture { :self :aCollection :aProcedure:/1 :delay |
+		| end = aCollection.size; |
+		self.recurseEvery({ :index |
+			{
+				aProcedure(aCollection[index])
+			}.play;
+			(index = end).if {
+				nil
+			} {
+				index + 1
+			}
+		}, 1, delay)
+	}
+
+	playEvery { :self :aProcedure :delay |
+		(* Play variant of repeatEvery. *)
+		self.repeatEvery({ : nextDelay |
+			{
+				aProcedure.cull(nextDelay)
+			}.play
+		}, delay)
+	}
+
+	recurseEvery { :self :aProcedure:/1 :anObject :delay |
+		self.scheduleInjecting(0, anObject) { :inputValue |
+			| nextDelay = delay.value; |
+			(inputValue.notNil & {
+				nextDelay.notNil
+			}).ifTrue {
+				[nextDelay, aProcedure(inputValue)]
+			}
+		}
+	}
+
+	repeatEvery { :self :aProcedure :delay |
+		(*
+			Schedule myself at intervals given by delay.
+			If I accept an argument it will be the delay interval before I will execute next.
+		*)
+		self.schedule(0) {
+			| nextDelay = delay.value; |
+			nextDelay.notNil.if {
+				aProcedure.cull(nextDelay);
+				nextDelay
+			} {
+				nil
+			}
+		}
+	}
+
 	schedule { :self :deltaTime :aProcedure |
 		(*
 			Schedule aProcedure for deltaTime.

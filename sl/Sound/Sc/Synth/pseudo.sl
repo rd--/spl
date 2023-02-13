@@ -64,6 +64,14 @@
 		Out(0, channelsArray)
 	}
 
+
+	withOverlapEnvelope { :aUgen :sustainTime :transitionTime |
+		| env amp |
+		env := Env([0,1,1,0], [transitionTime,sustainTime,transitionTime], 'sin', nil, nil, 0);
+		amp := EnvGen(1, 1, 0, 1, 2, env.asArray);
+		Out(0, aUgen * amp)
+	}
+
 	Adsr { :gate :attackTime :decayTime :sustainLevel :releaseTime :curve | <primitive: return sc.Adsr(_gate, _attackTime, _decayTime, _sustainLevel, _releaseTime, _curve);> }
 	Asr { :gate :attackTime :releaseTime :curve | <primitive: return sc.Asr(_gate, _attackTime, _releaseTime, _curve);> }
 	AudioIn { :channelsArray | <primitive: return sc.AudioIn(_channelsArray);> }

@@ -13,7 +13,7 @@ Procedure : [Object] {
 	}
 
 	cull { :self :firstArg |
-		if(self.numArgs >= 1) {
+		(self.numArgs >= 1).if {
 			self.value(firstArg)
 		} {
 			self.value
@@ -21,10 +21,10 @@ Procedure : [Object] {
 	}
 
 	cull { :self :firstArg :secondArg |
-		if(self.numArgs >= 2) {
+		(self.numArgs >= 2).if {
 			self.value(firstArg, secondArg)
 		} {
-			if(self.numArgs = 1) {
+			(self.numArgs = 1).if {
 				self.value(firstArg)
 			} {
 				self.value

@@ -18,11 +18,19 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
 	size { :self |
 		| derive = (self.stop - self.start).quotient(self.step) + 1; |
-		if(self.step < 0, {
-			if(self.start < self.stop, { 0 }, { derive })
-		}, {
-			if(self.stop < self.start, { 0 }, { derive })
-		})
+		(self.step < 0).if {
+			(self.start < self.stop).if {
+				0
+			} {
+				derive
+			}
+		} {
+			(self.stop < self.start).if {
+				0
+			} {
+				derive
+			}
+		}
 	}
 
 	isEmpty { :self |
@@ -39,13 +47,13 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
 	do { :self :aProcedure:/1 |
 		| nextValue = self.start, endValue = self.stop; |
-		if(self.step > 0) {
-			whileTrue { nextValue <= endValue } {
+		(self.step > 0).if {
+			{ nextValue <= endValue }.whileTrue {
 				aProcedure(nextValue);
 				nextValue := nextValue + self.step
 			}
 		} {
-			whileTrue { nextValue >= endValue } {
+			{ nextValue >= endValue }.whileTrue {
 				aProcedure(nextValue);
 				nextValue := nextValue + self.step
 			}

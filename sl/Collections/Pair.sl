@@ -7,10 +7,10 @@ Pair : [Object] { | first second |
 	}
 
 	at { :self :index |
-		if(index = 1) {
+		(index = 1).if {
 			self.first
 		} {
-			if(index = 2) {
+			(index = 2).if {
 				self.second
 			} {
 				'Pair>>at: invalid index'.error
@@ -19,10 +19,10 @@ Pair : [Object] { | first second |
 	}
 
 	atPut { :self :index :value |
-		if(index = 1) {
+		(index = 1).if {
 			self.first := value
 		} {
-			if(index = 2) {
+			(index = 2).if {
 				self.second := value
 			} {
 				'Pair>>atPut: invalid index'.error

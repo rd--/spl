@@ -54,7 +54,9 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 		| answer = LinkedList(); |
 		self.do { :each |
 			| next = collectProcedure(each); |
-			selectProcedure(next).ifTrue { answer.add(next) }
+			selectProcedure(next).ifTrue {
+				answer.add(next)
+			}
 		};
 		answer
 	}
@@ -81,7 +83,11 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 
 	linkOfIfAbsent { :self :anObject :errorProcedure:/0 |
 		withReturn {
-			self.linksDo { :link | (link.value = anObject.value).ifTrue { return(link) } };
+			self.linksDo { :link |
+				(link.value = anObject.value).ifTrue {
+					link.return
+				}
+			};
 			errorProcedure()
 		}
 	}
@@ -117,7 +123,7 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 	removeFirst { :self |
 		| oldLink = self.firstLink; |
 		self.emptyCheck;
-		if(self.firstLink == self.lastLink) {
+		(self.firstLink == self.lastLink).if {
 			self.removeAll
 		} {
 			self.firstLink := oldLink.nextLink
@@ -137,7 +143,7 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 	removeLast { :self |
 		| oldLink = self.lastLink, aLink = nil; |
 		self.emptyCheck;
-		if(self.firstLink == self.lastLink) {
+		(self.firstLink == self.lastLink).if {
 			self.removeAll
 		} {
 			aLink := self.firstLink;
@@ -153,7 +159,7 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 
 	removeLinkIfAbsent { :self :aLink :aProcedure:/0 |
 		withReturn {
-			if(aLink == self.firstLink) {
+			(aLink == self.firstLink).if {
 				self.firstLink := aLink.nextLink;
 				(aLink == self.lastLink).ifTrue { self.lastLink := nil }
 			} {
@@ -176,7 +182,7 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 	select { :self :aProcedure:/1 |
 		| answer = LinkedList(); |
 		self.do { :each |
-			aProcedure(each).ifTrue {
+			each.aProcedure.ifTrue {
 				answer.add(each)
 			}
 		};
@@ -186,7 +192,7 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 	selectThenCollect { :self :selectProcedure:/1 :collectProcedure:/1 |
 		| answer = LinkedList(); |
 		self.do { :each |
-			selectProcedure(each).ifTrue {
+			each.selectProcedure.ifTrue {
 				answer.add(collectProcedure(each))
 			}
 		};

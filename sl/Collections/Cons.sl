@@ -46,7 +46,7 @@ Cons : [Object, Collection] { | car cdr |
 			answer := answer + 1;
 			next := next.cdr
 		};
-		if(next = nil) {
+		(next = nil).if {
 			answer
 		} {
 			'Cons>>length: not proper list'.error
@@ -59,7 +59,7 @@ Cons : [Object, Collection] { | car cdr |
 			answer := Cons(next.car, answer);
 			next := next.cdr
 		};
-		if(next = nil) {
+		(next = nil).if {
 			answer
 		} {
 			'Cons>>reversed: not proper list'.error

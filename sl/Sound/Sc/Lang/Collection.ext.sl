@@ -21,4 +21,8 @@
 	DbAmp { :self | self.collect(DbAmp:/1) }
 	MidiCps { :self | self.collect(MidiCps:/1) }
 
+	collectTexture { :self :aProcedure:/1 :delay |
+		workspace::clock.collectTexture(self, aProcedure:/1, delay)
+	}
+
 }
