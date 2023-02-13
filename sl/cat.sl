@@ -9,8 +9,8 @@ system.categorizeAll('Sound/Sc/Lang', ['Clock']);
 system.categorizeAll('Sound/Sc/Synth', ['CcEvent', 'Env', 'ScSynth', 'ScUgen', 'Ugen', 'UgenGraph']);
 
 system.categorizeAll('Ui/Css', ['CSSStyleDeclaration', 'CSS2Properties']);
-system.categorizeAll('Ui/Event', ['Event', 'KeyboardEvent', 'MouseEvent']);
-system.categorizeAll('Ui/Html', ['HTMLBodyElement', 'HTMLButtonElement', 'HTMLDivElement', 'HTMLDocument', 'HTMLElement', 'HTMLOptionElement', 'HTMLOptionsCollection', 'HTMLParagraphElement', 'HTMLPreElement', 'HTMLSelectElement', 'HTMLSpanElement', 'HTMLTextAreaElement']);
+system.categorizeAll('Ui/Event', ['Event', 'KeyboardEvent', 'MouseEvent', 'PointerEvent']);
+system.categorizeAll('Ui/Html', ['DOMRect', 'DOMTokenList', 'HTMLBodyElement', 'HTMLButtonElement', 'HTMLDivElement', 'HTMLDocument', 'HTMLElement', 'HTMLOptionElement', 'HTMLOptionsCollection', 'HTMLParagraphElement', 'HTMLPreElement', 'HTMLSelectElement', 'HTMLSpanElement', 'HTMLTextAreaElement']);
 system.categorizeAll('Ui/Midi', ['MIDIAccess', 'MIDIConnectionEvent', 'MIDIInput', 'MIDIInputMap', 'MIDIMessageEvent', 'MIDIOutputMap']);
 system.categorizeAll('Ui/Navigator', ['Navigator', 'Response', 'Window']);
 system.categorizeAll('Ui/Node', ['Attr', 'NamedNodeMap', 'NodeList', 'Range', 'Selection', 'Text']);

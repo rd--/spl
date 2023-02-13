@@ -1,4 +1,4 @@
-Procedure {
++ Procedure {
 
 	overlap { :self:/0 :sustainTime :transitionTime :overlap |
 		| period = (sustainTime + (transitionTime * 2)) / overlap; |
@@ -14,10 +14,12 @@ Procedure {
 
 	playEvery { :self :aClock :delay |
 		(* Play variant of repeatEvery. *)
-		if(self.numArgs = 0) {
+		(self.numArgs = 0).if {
 			{ self.play }.repeatEvery(aClock, delay)
 		} {
-			{ : d | { self.value(d) }.play }.repeatEvery(aClock, delay)
+			{ : d |
+				{ self.value(d) }.play
+			}.repeatEvery(aClock, delay)
 		}
 	}
 

@@ -14,11 +14,24 @@ CSS2Properties : [Object, CssProperties] {
 	(* Firefox... *)
 }
 
-Event : [Object, UiEvent, Event] {
+DOMRect : [Object] {
 
-	preventDefault { :self | <primitive: _self.preventDefault();> }
-	stopPropagation { :self | <primitive: _self.stopPropagation();> }
-	stopImmediatePropagation { :self | <primitive: _self.stopImmediatePropagation();> }
+	height { :self | <primitive: return _self.height;> }
+	width { :self | <primitive: return _self.width;> }
+	x { :self | <primitive: return _self.x;> }
+	y { :self | <primitive: return _self.y;> }
+
+}
+
+DOMTokenList : [Object] {
+
+	add { :self :aString | <primitive: return _self.add(_aString);> }
+	contains { :self :aString | <primitive: return _self.contains(_aString);> }
+	remove { :self :aString | <primitive: return _self.remove(_aString);> }
+
+}
+
+Event : [Object, UiEvent, Event] {
 
 }
 
@@ -109,7 +122,7 @@ KeyboardEvent : [Object, UiEvent, Event] {
 
 }
 
-MouseEvent : [Object, UiEvent, Event] {
+MouseEvent : [Object, UiEvent, Event, MouseEvent] {
 
 	buttons { :self | <primitive: return _self.buttons;> }
 	x { :self | <primitive: return _self.x;> }
@@ -129,6 +142,15 @@ NodeList : [Object] {
 
 	item { :self :anInteger | <primitive: return _self.item(_anInteger);> }
 	length { :self | <primitive: return _self.length;> }
+
+}
+
+PointerEvent : [Object, UiEvent, Event, MouseEvent] {
+
+	isPrimary { :self | <primitive: return _self.isPrimary;> }
+	pointerId { :self | <primitive: return _self.pointerId;> }
+	pointerPressure { :self | <primitive: return _self.pointerPressure;> }
+	pointerType { :self | <primitive: return _self.pointerType;> }
 
 }
 

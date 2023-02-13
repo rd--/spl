@@ -1,4 +1,4 @@
-ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statusPane titleText viewerText statusText |
+ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statusPane titleText viewerText statusText inMove x0 y0 |
 
 	createElements { :self :numberOfColumns |
 		self.browserPane := 'div'.createElement;
@@ -15,6 +15,7 @@ ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statu
 		self.viewerPane.appendChild(self.viewerText);
 		self.statusPane.appendChild(self.statusText);
 		self.browserPane.appendChildren([self.titlePane, self.columnsPane, self.viewerPane, self.statusPane]);
+		self.inMove := false
 	}
 
 	setAttributes { :self :columnProportions :listSize |
@@ -41,6 +42,30 @@ ColumnBrowser { | browserPane titlePane columnsPane viewerPane columnLists statu
 	}
 
 	setEventHandlers { :self :numberOfColumns :onChange:/2 |
+		self.titlePane.addEventListener('pointerdown', { :event |
+			| rect = event.target.getBoundingClientRect; |
+			event.target.setPointerCapture(event.pointerId);
+			self.inMove := true;
+			self.x0 := event.x - rect.x;
+			self.y0 := event.y - rect.y;
+			['titlePane>down', rect.x, rect.y, event.x, event.y, self.x0, self.y0].postLine
+		});
+		self.titlePane.addEventListener('pointermove', { :event |
+			'titlePane>move'.postLine;
+			self.inMove.ifTrue {
+				event.stopPropagation;
+				event.cancelable.ifTrue {
+					event.preventDefault;
+				};
+				self.browserPane.style.setProperty('left', (event.x - self.x0).asString ++ 'px', '');
+				self.browserPane.style.setProperty('top', (event.y- self.y0).asString ++ 'px', '')
+			}
+		});
+		self.titlePane.addEventListener('pointerup', { :event |
+			'titlePane>up'.postLine;
+			event.target.releasePointerCapture(event.pointerId);
+			self.inMove := false
+		});
 		numberOfColumns.do { :index |
 			self.columnLists[index].addEventListener('change', { :event |
 				| next = onChange(self, (1 .. index).collect { :each | self.columnLists[each].value }); |

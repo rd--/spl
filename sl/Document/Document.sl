@@ -53,11 +53,18 @@
 
 	append { :self :anArray | <primitive: return _self.append(..._anArray);> }
 	attributes { :self | <primitive: return _self.attributes;> }
+	classList { :self | <primitive: return _self.classList;> }
+	className { :self | <primitive: return _self.className;> }
+	className { :self :aString | <primitive: return _self.className = _aString;> }
 	getAttribute { :self :name | <primitive: return _self.getAttribute(_name);> }
+	getBoundingClientRect { :self | <primitive: return _self.getBoundingClientRect();> }
 	id { :self | <primitive: return _self.id;> }
 	innerHTML { :self | <primitive: return _self.innerHTML;> }
 	innerHTML { :self :aString | <primitive: return _self.innerHTML = _aString;> }
+	releasePointerCapture { :self :pointerId | <primitive: return _self.releasePointerCapture(_pointerId);> }
+	removeAttribute { :self :aString | <primitive: return _self.removeAttribute(_aString);> }
 	setAttribute { :self :name :value | <primitive: return _self.setAttribute(_name, _value);> }
+	setPointerCapture { :self :pointerId | <primitive: return _self.setPointerCapture(_pointerId);> }
 
 (*
 	++ { :self :anArray |
@@ -83,6 +90,10 @@
 
 @Event {
 
+	cancelable { :self | <primitive: return _self.cancelable;> }
+	preventDefault { :self | <primitive: return _self.preventDefault();> }
+	stopPropagation { :self | <primitive: return _self.stopPropagation();> }
+	stopImmediatePropagation { :self | <primitive: return _self.stopImmediatePropagation();> }
 	target { :self | <primitive: return _self.target;> }
 	timeStamp { :self | <primitive: return _self.timeStamp;> }
 	type { :self | <primitive: return _self.type;> }
@@ -114,6 +125,7 @@
 	contentEditable  { :self | <primitive: return _self.contentEditable;> }
 	contentEditable  { :self :aString | <primitive: return _self.contentEditable = _aString;> }
 	focus { :self | <primitive: return _self.focus();> }
+	focus { :self :options | <primitive: return _self.focus(options);> }
 	innerText { :self | <primitive: return _self.innerText;> }
 	innerText { :self :aString | <primitive: return _self.innerText = _aString;> }
 	isContentEditable  { :self | <primitive: return _self.isContentEditable;> }
@@ -125,10 +137,21 @@
 
 }
 
+@MouseEvent {
+
+	buttons { :self | <primitive: return _self.buttons;> }
+	clientX { :self | <primitive: return _self.clientX;> }
+	clientY { :self | <primitive: return _self.clientY;> }
+	x { :self | <primitive: return _self.x;> }
+	y { :self | <primitive: return _self.y;> }
+
+}
+
 @Node {
 
 	appendChild { :self :aChild | <primitive: return _self.appendChild(_aChild);> }
 	childNodes { :self | <primitive: return _self.childNodes;> }
+	firstChild { :self | <primitive: return _self.firstChild;> }
 	nodeType { :self | <primitive: return _self.nodeType;> }
 	textContent { :self | <primitive: return _self.textContent;> }
 	textContent { :self :aString | <primitive: return _self.textContent = _aString;> }
