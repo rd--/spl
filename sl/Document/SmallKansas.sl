@@ -14,6 +14,10 @@ SmallKansas : [Object] { | container frameSet |
 		self.addFrame(MethodBrowser())
 	}
 
+	smallHoursHelpBrowser { :self |
+		self.addFrame(workspace::smallHours.helpBrowser)
+	}
+
 	smallHoursProgramBrowser { :self |
 		self.addFrame(workspace::smallHours.programBrowser)
 	}
@@ -37,6 +41,7 @@ SmallKansas : [Object] { | container frameSet |
 				[
 					'CategoryBrowser' -> { self.categoryBrowser },
 					'MethodBrowser' -> { self.methodBrowser },
+					'SmallHoursHelpBrowser' -> { self.smallHoursHelpBrowser },
 					'SmallHoursProgramBrowser' -> { self.smallHoursProgramBrowser },
 					'SystemBrowser' -> { self.systemBrowser },
 					'TraitBrowser' -> { self.traitBrowser },
@@ -59,7 +64,7 @@ SmallKansas : [Object] { | container frameSet |
 
 	MethodBrowser {
 		| methodNames = system.allMethods.collect(qualifiedName:/1).IdentitySet.Array.sorted ; |
-		ColumnBrowser('MethodBrowser', [3, 1], { :browser :path |
+		ColumnBrowser('MethodBrowser', false, [3, 1], { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					methodNames
@@ -80,7 +85,7 @@ SmallKansas : [Object] { | container frameSet |
 			categoryNames = typeNames.collect { :each | system.categoryOf(each) }.IdentitySet.Array.sorted,
 			methodSet = nil;
 		|
-		ColumnBrowser('CategoryBrowser', [1, 1, 3], { :browser :path |
+		ColumnBrowser('CategoryBrowser', false, [1, 1, 3], { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -106,7 +111,7 @@ SmallKansas : [Object] { | container frameSet |
 
 	SystemBrowser {
 		| typeNames = system.typeDictionary.keys.sorted, methodSet = nil; |
-		ColumnBrowser('SystemBrowser', [1, 3], { :browser :path |
+		ColumnBrowser('SystemBrowser', false, [1, 3], { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -128,7 +133,7 @@ SmallKansas : [Object] { | container frameSet |
 
 	TraitBrowser {
 		| traitNames = system.traitDictionary.keys.sorted; |
-		ColumnBrowser('TraitBrowser', [1, 3], { :browser :path |
+		ColumnBrowser('TraitBrowser', false, [1, 3], { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -147,7 +152,7 @@ SmallKansas : [Object] { | container frameSet |
 
 	TypeBrowser {
 		| typeNames = system.typeDictionary.keys.sorted; |
-		ColumnBrowser('TypeBrowser', [1, 3], { :browser :path |
+		ColumnBrowser('TypeBrowser', false, [1, 3], { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');

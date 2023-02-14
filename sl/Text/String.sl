@@ -110,6 +110,14 @@ String : [Object] {
 		<primitive: evaluateUrl(_self);>
 	}
 
+	markdownToHtml { :self |
+		<primitive:
+		var reader = new commonmark.Parser({smart: true});
+		var writer = new commonmark.HtmlRenderer();
+		return writer.render(reader.parse(_self));>
+	}
+
+
 	notEmpty { :self |
 		self.isEmpty.not
 	}

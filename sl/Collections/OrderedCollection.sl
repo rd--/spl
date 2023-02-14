@@ -111,7 +111,7 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | array | (* 
 
 	fibonacciSequence { :self |
 		| a = 0, b = 1, i = 0, temp = nil, answer = OrderedCollection(); |
-		whileTrue { i < self } {
+		{ i < self }.whileTrue {
 			answer.add(b);
 			temp := b;
 			b := a + b;

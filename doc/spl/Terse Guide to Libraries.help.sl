@@ -108,3 +108,6 @@ system.unixTime.weeks > 2750 = true
 { system.unixTime.postLine }.evaluateAt(system.unixTime + 0.5.seconds).cancel = nil
 { system.unixTime.seconds.rounded.postLine }.evaluateEvery(3.seconds).cancel = nil
 var f = { :t0 | | t1 = 2.randomFloat.seconds; | t0.postLine; f.evaluateAfterWith(t1, t1) }; f(2.seconds).cancel = nil
+
+'String/Markdown'
+'# A Heading'.markdownToHtml.lines[1] = '<h1>A Heading</h1>'

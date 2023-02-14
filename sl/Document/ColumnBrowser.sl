@@ -1,4 +1,4 @@
-ColumnBrowser : [Object] { | browserPane columnsPane viewerPane columnLists statusPane viewerText statusText title |
+ColumnBrowser : [Object] { | browserPane columnsPane viewerPane columnLists statusPane viewerText statusText richText title |
 
 	createElements { :self :numberOfColumns |
 		self.browserPane := 'div'.createElement;
@@ -6,7 +6,11 @@ ColumnBrowser : [Object] { | browserPane columnsPane viewerPane columnLists stat
 		self.viewerPane := 'div'.createElement;
 		self.statusPane := 'div'.createElement;
 		self.columnLists := { 'select'.createElement } ! numberOfColumns;
-		self.viewerText := 'pre'.createElement;
+		self.viewerText := self.richText.if {
+			'div'.createElement
+		} {
+			'pre'.createElement
+		};
 		self.statusText := 'pre'.createElement;
 		self.columnsPane.appendChildren(self.columnLists);
 		self.viewerPane.appendChild(self.viewerText);
@@ -54,25 +58,37 @@ ColumnBrowser : [Object] { | browserPane columnsPane viewerPane columnLists stat
 				|
 				(index = numberOfColumns).if {
 					next.then { :view |
-						self.viewerText.textContent := view.asString
+						self.setViewerText(view.asString)
 					}
 				} {
-					self.viewerText.textContent := '';
+					self.setViewerText('');
 					(numberOfColumns - index - 1).do { :each |
 						self.columnLists[index + each + 1].removeAll
 					};
 					self.setEntries(index + 1, next)				}
 			})
 		};
-		self.viewerText.addEventListener('keydown', { :event |
+		self.viewerPane.addEventListener('keydown', { :event |
 			(event.ctrlKey & { event.key = 'Enter' }).ifTrue {
-				('{ ' ++ event.target.textContent ++ ' }.play').eval
+				| text = system.window.getSelectedText; |
+				text.isEmpty.ifTrue {
+					text := event.target.textContent
+				};
+				('{ ' ++  text ++ ' }.play').eval
 			};
 			(event.ctrlKey & { event.key = '.' }).ifTrue {
 				workspace::clock.clear;
 				system.defaultScSynth.reset;
 			};
 		})
+	}
+
+	setViewerText { :self :aString |
+		self.richText.if {
+			self.viewerText.innerHTML := aString.markdownToHtml
+		} {
+			self.viewerText.textContent := aString
+		}
 	}
 
 	setStatus { :self :aString |
@@ -83,14 +99,15 @@ ColumnBrowser : [Object] { | browserPane columnsPane viewerPane columnLists stat
 
 + String {
 
-	ColumnBrowser { :title :columnProportions :onChange:/2 |
+	ColumnBrowser { :title :richText :columnProportions :onChange:/2 |
 		| numberOfColumns = columnProportions.size, browser = newColumnBrowser(); |
+		browser.title := title;
+		browser.richText := richText;
 		browser.createElements(numberOfColumns);
 		browser.setEntries(1, onChange(browser, []));
 		browser.columnLists[1].selectedIndex(-1);
 		browser.setAttributes(columnProportions, 6);
 		browser.setEventHandlers(numberOfColumns, onChange:/2);
-		browser.title := title;
 		browser
 	}
 

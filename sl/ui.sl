@@ -12,5 +12,6 @@ loadSequence([
 ]).then { :unusedValue |
 	workspace::smallKansas := SmallKansas();
 	workspace::smallHours := SmallHours();
+	workspace::smallHours.loadHelp;
 	workspace::smallHours.loadPrograms
 }

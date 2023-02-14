@@ -25,7 +25,7 @@
 
 	nextPrime { :self |
 		| maybePrime = self + 1; |
-		whileTrue { maybePrime.isPrime.not } {
+		{ maybePrime.isPrime.not }.whileTrue {
 			maybePrime := maybePrime + 1
 		};
 		maybePrime
