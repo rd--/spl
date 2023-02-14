@@ -40,14 +40,6 @@
 		self * self
 	}
 
-	timesRepeat { :self :aProcedure:/0 |
-		| remaining = self; |
-		{ remaining > 0 }.whileTrue {
-			aProcedure();
-			remaining := remaining - 1
-		}
-	}
-
 	toDo { :self :end :aProcedure:/1 |
 		| index = self; |
 		{ index <= end }.whileTrue  {

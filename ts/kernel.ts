@@ -292,7 +292,7 @@ export function addType(typeName: TypeName, traitList: TraitName[], slotNames: s
 	const initializeSlots = slotNames.map(each => `anInstance.${each} = ${each}`).join('; ');
 	const nilSlots = slotNames.map(each => `${each}: null`).join(', ');
 	const defNilType = slotNames.length === 0 ? '' : `addMethod('Void', 'new${typeName}', 0, function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
-	const defInitializer = slotNames.length === 0 ? '' : `addMethod('${typeName}', 'initialize', ${slotNames.length + 1}, function(anInstance, ${slotNames.join(', ')}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
+	const defInitializeSlots = slotNames.length === 0 ? '' : `addMethod('${typeName}', 'initializeSlots', ${slotNames.length + 1}, function(anInstance, ${slotNames.join(', ')}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
 	const defPredicateFalse = `extendTraitWithMethod('Object', 'is${typeName}', 1, function(anObject) { return false; }, '<primitive: predicate>')`;
 	const defPredicateTrue = `addMethod('${typeName}', 'is${typeName}', 1, function(anInstance) { return true; }, '<primitive: predicate>')`;
 	const defSlotAccess = slotNames.map(each => `addMethod('${typeName}', '${each}', 1, function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`).join('; ');
@@ -300,7 +300,7 @@ export function addType(typeName: TypeName, traitList: TraitName[], slotNames: s
 	// console.debug(`addType: ${typeName}, ${slotNames}`);
 	system.typeDictionary.set(typeName, new Type(typeName, traitList, slotNames));
 	eval(defNilType);
-	eval(defInitializer);
+	eval(defInitializeSlots);
 	eval(defPredicateFalse);
 	eval(defPredicateTrue);
 	eval(defSlotAccess);

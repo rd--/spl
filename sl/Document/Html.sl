@@ -55,6 +55,10 @@ HTMLElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
+HTMLLIElement : [Object, EventTarget, Node, Element, HtmlElement] {
+
+}
+
 HTMLOptionsCollection : [Object, HtmlCollection] {
 
 }
@@ -111,6 +115,10 @@ HTMLTextAreaElement  : [Object, EventTarget, Node, Element, HtmlElement] {
 	cols { :self :anInteger | <primitive: return _self.cols = _anInteger;> }
 	rows { :self | <primitive: return _self.rows;> }
 	rows { :self :anInteger | <primitive: return _self.rows = _anInteger;> }
+
+}
+
+HTMLUListElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 

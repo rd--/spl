@@ -77,7 +77,7 @@ Point : [Object, CartesianPoint] { | x y |
 	}
 
 	Point { :self :aNumber |
-		newPoint().initialize(self, aNumber)
+		newPoint().initializeSlots(self, aNumber)
 	}
 
 }

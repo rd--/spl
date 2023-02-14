@@ -25,7 +25,7 @@ Association : [Object] { | key value |
 	}
 
 	Association { :self :anObject |
-		newAssociation().initialize(self, anObject)
+		newAssociation().initializeSlots(self, anObject)
 	}
 
 }

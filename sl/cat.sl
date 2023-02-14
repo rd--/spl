@@ -10,11 +10,11 @@ system.categorizeAll('Sound/Sc/Synth', ['CcEvent', 'Env', 'ScSynth', 'ScUgen', '
 
 system.categorizeAll('Ui/Css', ['CSSStyleDeclaration', 'CSS2Properties']);
 system.categorizeAll('Ui/Event', ['Event', 'KeyboardEvent', 'MouseEvent', 'PointerEvent']);
-system.categorizeAll('Ui/Html', ['DOMRect', 'DOMTokenList', 'HTMLBodyElement', 'HTMLButtonElement', 'HTMLDivElement', 'HTMLDocument', 'HTMLElement', 'HTMLOptionElement', 'HTMLOptionsCollection', 'HTMLParagraphElement', 'HTMLPreElement', 'HTMLSelectElement', 'HTMLSpanElement', 'HTMLTextAreaElement']);
+system.categorizeAll('Ui/Html', ['DOMRect', 'DOMTokenList', 'HTMLBodyElement', 'HTMLButtonElement', 'HTMLDivElement', 'HTMLDocument', 'HTMLElement', 'HTMLLIElement', 'HTMLOptionElement', 'HTMLOptionsCollection', 'HTMLParagraphElement', 'HTMLPreElement', 'HTMLSelectElement', 'HTMLSpanElement', 'HTMLTextAreaElement', 'HTMLUListElement']);
 system.categorizeAll('Ui/Midi', ['MIDIAccess', 'MIDIConnectionEvent', 'MIDIInput', 'MIDIInputMap', 'MIDIMessageEvent', 'MIDIOutputMap']);
 system.categorizeAll('Ui/Navigator', ['Navigator', 'Response', 'Window']);
 system.categorizeAll('Ui/Node', ['Attr', 'NamedNodeMap', 'NodeList', 'Range', 'Selection', 'Text']);
-system.categorizeAll('Ui/System', ['ColumnBrowser']);
+system.categorizeAll('Ui/System', ['ColumnBrowser', 'Frame', 'Menu', 'SmallHours', 'SmallKansas']);
 
 system.categorizeAll('Collections/Ordered', ['Cons', 'LinkedList', 'Pair', 'ValueLink']);
 system.categorizeAll('Collections/Streams', ['PositionableStream', 'ReadStream', 'WriteStream']);

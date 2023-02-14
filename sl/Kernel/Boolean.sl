@@ -20,6 +20,10 @@ Boolean : [Object] {
 		self | { anObject.value }
 	}
 
+	always { :self :aProcedure:/0 |
+		aProcedure()
+	}
+
 	asBit { :self |
 		self.if { 1 } { 0 }
 	}

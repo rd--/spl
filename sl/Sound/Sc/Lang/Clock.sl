@@ -62,10 +62,16 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 			wakeupTime = self.nextEntryTime;
 		|
 		self.priorityQueue.push(aProcedure, scheduledTime);
-		(wakeupTime = nil | { scheduledTime < wakeupTime }).ifTrue {
+		(wakeupTime = nil | {
+			scheduledTime < wakeupTime
+		}).ifTrue {
 			self.nextEntryTime := scheduledTime;
-			self.existingDelay.ifNotNil { self.existingDelay.cancel };
-			self.existingDelay := { self.wakeup(scheduledTime) }.evaluateAfterMilliseconds(deltaTime * 1000)
+			self.existingDelay.ifNotNil {
+				self.existingDelay.cancel
+			};
+			self.existingDelay := {
+				self.wakeup(scheduledTime)
+			}.evaluateAfterMilliseconds(deltaTime * 1000)
 		};
 	}
 
@@ -89,21 +95,33 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 			queue = self.priorityQueue,
 			front = self.nextEntryTime;
 		|
-		{ front ~= nil & { front <= currentTime } }.whileTrue {
+		{
+			front ~= nil & {
+				front <= currentTime
+			}
+		}.whileTrue {
 			| activity = queue.pop, rescheduleAfter = activity.value; |
-			rescheduleAfter.isNumber.ifTrue { self.priorityQueue.push(activity, rescheduleAfter * 1000 + scheduledTime) };
+			rescheduleAfter.isNumber.ifTrue {
+				self.priorityQueue.push(activity, rescheduleAfter * 1000 + scheduledTime)
+			};
 			front := queue.peekPriority
 		};
 		self.nextEntryTime := front;
 		front.ifNotNil {
-			self.existingDelay.ifNotNil { self.existingDelay.cancel };
-			self.existingDelay := { self.wakeup(front) }.evaluateAfterMilliseconds(front - currentTime)
+			self.existingDelay.ifNotNil {
+				self.existingDelay.cancel
+			};
+			self.existingDelay := {
+				self.wakeup(front)
+			}.evaluateAfterMilliseconds(front - currentTime)
 		}
 	}
 
 	clear { :self |
 		self.priorityQueue.clearAndShrink;
-		self.existingDelay.ifNotNil { self.existingDelay.cancel };
+		self.existingDelay.ifNotNil {
+			self.existingDelay.cancel
+		};
 		self.nextEntryTime := nil;
 		self.existingDelay := nil;
 	}
@@ -137,7 +155,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 + Void {
 
 	Clock {
-		newClock().initialize(PriorityQueue(), nil, nil)
+		newClock().initializeSlots(PriorityQueue(), nil, nil)
 	}
 
 }

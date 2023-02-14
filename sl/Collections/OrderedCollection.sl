@@ -102,7 +102,7 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | array | (* 
 + Array {
 
 	OrderedCollection { :self |
-		newOrderedCollection().initialize(self)
+		newOrderedCollection().initializeSlots(self)
 	}
 
 }

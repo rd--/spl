@@ -54,7 +54,7 @@ Duration : [Object] { | milliseconds |
 + Number {
 
 	Duration { :self |
-		newDuration().initialize(self)
+		newDuration().initializeSlots(self)
 	}
 
 	asDuration { :self |

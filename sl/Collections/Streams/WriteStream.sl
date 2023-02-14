@@ -62,7 +62,7 @@ WriteStream { | collection position writeLimit |
 + @ArrayedCollection {
 
 	WriteStream { :self |
-		newWriteStream().initialize(self, 0, self.size)
+		newWriteStream().initializeSlots(self, 0, self.size)
 	}
 
 }

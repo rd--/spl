@@ -31,6 +31,14 @@
 		maybePrime
 	}
 
+	timesRepeat { :self :aProcedure:/0 |
+		| remaining = self; |
+		{ remaining > 0 }.whileTrue {
+			aProcedure();
+			remaining := remaining - 1
+		}
+	}
+
 }
 
 + @Object {
