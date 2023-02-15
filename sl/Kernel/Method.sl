@@ -45,4 +45,13 @@ Method : [Object] {
 		}
 	}
 
+	parseMethodSignature { :self |
+		| parts = self.splitRegExp(RegExp('>>|:/')); |
+		(parts.size = 3).if {
+			[parts[1], parts[2], parts[3].parseInteger(10)]
+		} {
+			('String>>parseMethodSignature: ' ++ self).error
+		}
+	}
+
 }

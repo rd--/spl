@@ -348,7 +348,10 @@ RegExp('ab+c').isRegExp = true
 var r = RegExp('ab*c'); [r.test('ac'), r.test('abc')] = [true, true]
 var r = RegExp('ab*c', 'g'); 'ab abc ac'.allRegExpMatches(r) = ['abc', 'ac']
 RegExp('x.x', 'g').stringLiteral = '/x.x/g'
+RegExp('x.x', 'g').source = 'x.x'
+RegExp('x.x', 'g').flags = 'g'
 RegExp('x.x', 'g').printString.size = 18
+'a-b:c'.splitRegExp(RegExp('-|:')) = ['a', 'b', 'c']
 
 'Text/String'
 ''.typeOf = 'String'
@@ -482,12 +485,13 @@ system.methodDictionary::collect[2].isIdentityDictionary = true
 system.methodDictionary::collect[2]::Array.isMethod = true
 system.methodDictionary.includesKey('collect') = true
 system.allMethods.collect { :each | each.signature }.includes('Collection>>sum:/1') = true
-system.methodLookup('collect', 2, 'Array').isNil = false
+'Collection>>sum:/1'.splitRegExp(RegExp('>>|:/')) = ['Collection', 'sum', '1']
+'Collection>>sum:/1'.parseMethodSignature = ['Collection', 'sum', 1]
+system.methodLookup('collect', 2, 'Array').isNil = true
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Interval') = true
 system.methodSignatures('add').includes('IdentityDictionary>>add:/2') = true
-system.methodLookup('sum', 1, 'Array').sourceCode = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
-system.methodLookup('sum', 1, 'Array').origin.name = 'Collection'
-system.methodLookup('sum', 1, 'Array').name = 'sum'
+system.methodLookup('sum', 1, 'Collection').isMethod = true
+system.methodLookup('sum', 1, 'Collection').sourceCode = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
 system.methodTypes('last:/1').includes('Interval') = true
 system.multipleArityMethodList.includes('randomFloat') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
@@ -495,11 +499,12 @@ system.doesTraitImplementMethod('Collection', 'select') = true
 system.doesTypeImplementMethod('Array', 'adaptToNumberAndApply') = true
 [1, 2, 3].respondsTo(select:/2) = true
 system.methodPrintString('add').size >= 3
-system.methodLookup('collect', 2, 'Array').isMethod = true
-system.methodLookup('collect', 2, 'Array').origin.name = 'ArrayedCollection'
-system.methodLookup('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
-system.methodLookup('sum', 1, 'Array') == system.methodLookup('sum', 1, 'OrderedCollection')
+system.methodLookupAtType('collect', 2, 'Array').isMethod = true
+system.methodLookupAtType('collect', 2, 'Array').origin.name = 'ArrayedCollection'
+system.methodLookupAtType('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
+system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum', 1, 'OrderedCollection')
 'sum:/1'.parseQualifiedMethodName = ['sum', 1]
+'Collection>>sum:/1'
 
 'System/time'
 system.systemTimeInMilliseconds > 0 = true

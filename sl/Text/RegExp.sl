@@ -4,8 +4,16 @@ RegExp : [Object] {
 		<primitive: return _self.exec(_aString);>
 	}
 
+	flags { :self |
+		<primitive: return _self.flags;>
+	}
+
 	printString { :self |
 		<primitive: return `RegExp('${_self.source}', '${_self.flags}')`;>
+	}
+
+	source { :self |
+		<primitive: return _self.source;>
 	}
 
 	stringLiteral { :self |

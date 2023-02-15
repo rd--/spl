@@ -16,8 +16,22 @@ SmallKansas : [Object] { | container frameSet |
 		}
 	}
 
+	implementorsOf { :self :subject |
+		|
+			bracketedSubject = '>>' ++ subject ++ ':/',
+			methodSignatures = system.allMethods.collect(signature:/1).select { :each |
+				each.includesSubstring(bracketedSubject)
+			}.IdentitySet.Array.sorted ;
+		|
+		self.addFrame(MethodSignatureBrowser(methodSignatures))
+	}
+
 	methodBrowser { :self |
 		self.addFrame(MethodBrowser())
+	}
+
+	methodSignatureBrowser { :self |
+		self.addFrame(MethodSignatureBrowser())
 	}
 
 	removeFrame { :self :frame |
@@ -31,6 +45,7 @@ SmallKansas : [Object] { | container frameSet |
 				'Selected Text Menu',
 				[
 					'Evaluate' -> { system.window.getSelectedText.eval },
+					'Implementors Of' -> { workspace::smallKansas.implementorsOf(system.window.getSelectedText) },
 					'Help For' -> { workspace::smallKansas.helpFor(system.window.getSelectedText) },
 					'Play' -> { ('{ ' ++  system.window.getSelectedText ++ ' }.play').eval }
 				]
@@ -65,6 +80,7 @@ SmallKansas : [Object] { | container frameSet |
 				[
 					'Category Browser' -> { self.categoryBrowser },
 					'Method Browser' -> { self.methodBrowser },
+					'Method Signature Browser' -> { self.methodSignatureBrowser },
 					'Reset Synthesiser' -> {
 						workspace::clock.clear;
 						system.defaultScSynth.reset
@@ -74,10 +90,30 @@ SmallKansas : [Object] { | container frameSet |
 					'Small Hours Program Browser' -> { self.smallHoursProgramBrowser },
 					'System Browser' -> { self.systemBrowser },
 					'Trait Browser' -> { self.traitBrowser },
-					'Type Browser' -> { self.typeBrowser }
+					'Type Browser' -> { self.typeBrowser },
+					'Workspace' -> { self.addFrame(TextEditor('Workspace', false, '(* Workspace *)')) }
 				]
 			)
 		)
+	}
+
+}
+
++ Array {
+
+
+	MethodSignatureBrowser { :self |
+		ColumnBrowser('MethodSignatureBrowser', false, [1], { :browser :path |
+			path.size.caseOf([
+				0 -> {
+					self
+				},
+				1 -> {
+					| [traitOrTypeName, methodName, arity] = path[1].parseMethodSignature; |
+					system.methodLookup(methodName, arity, traitOrTypeName).definition
+				}
+			])
+		})
 	}
 
 }
@@ -108,6 +144,21 @@ SmallKansas : [Object] { | container frameSet |
 		})
 	}
 
+	MethodSignatureBrowser {
+		| methodSignatures = system.allMethods.collect(signature:/1).IdentitySet.Array.sorted ; |
+		ColumnBrowser('MethodSignatureBrowser', false, [1], { :browser :path |
+			path.size.caseOf([
+				0 -> {
+					methodSignatures
+				},
+				1 -> {
+					| [traitOrTypeName, methodName, arity] = path[1].parseMethodSignature; |
+					system.methodLookup(methodName, arity, traitOrTypeName).definition
+				}
+			])
+		})
+	}
+
 	CategoryBrowser {
 		|
 			typeNames = system.typeDictionary.keys.sorted,
@@ -122,11 +173,15 @@ SmallKansas : [Object] { | container frameSet |
 				},
 				1 -> {
 					browser.setStatus('');
-					system.categoryDictionary[path[1]].select { :each | system.isTypeName(each) }.Array.sorted
+					system.categoryDictionary[path[1]].select { :each |
+						system.isTypeName(each)
+					}.Array.sorted
 				},
 				2 -> {
 					browser.setStatus(system.typeTraits(path[2]).joinSeparatedBy(', '));
-					methodSet := system.typeMethodSet(path[2]).select { :each | each.origin.name ~= 'Object' };
+					methodSet := system.typeMethodSet(path[2]).select { :each |
+						each.origin.name ~= 'Object'
+					};
 					methodSet.collect(qualifiedName:/1).Array.sorted
 				},
 				3 -> {

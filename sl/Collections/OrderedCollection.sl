@@ -1,8 +1,8 @@
-OrderedCollection : [Object, Collection, SequenceableCollection] { | array | (* Note: a Js array, not an St array  *)
+OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveArray | (* i.e. a Js array, not an Spl array  *)
 
 	= { :self :anObject |
 		anObject.isOrderedCollection & {
-			self.array = anObject.array
+			self.primitiveArray = anObject.primitiveArray
 		}
 	}
 
@@ -19,39 +19,39 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | array | (* 
 	}
 
 	addArrayFirst { :self :anArray |
-		<primitive: return _self.array.unshift(..._anArray);>
+		<primitive: return _self.primitiveArray.unshift(..._anArray);>
 	}
 
 	addArrayLast { :self :anArray |
-		<primitive: return _self.array.push(..._anArray);>
+		<primitive: return _self.primitiveArray.push(..._anArray);>
 	}
 
 	addFirst { :self :anObject |
-		<primitive: return _self.array.unshift(_anObject);>
+		<primitive: return _self.primitiveArray.unshift(_anObject);>
 	}
 
 	addLast { :self :anObject |
-		<primitive: return _self.array.push(_anObject);>
+		<primitive: return _self.primitiveArray.push(_anObject);>
 	}
 
 	asArray { :self |
-		self.array.copy
+		self.primitiveArray.copy
 	}
 
 	at { :self :index |
-		self.array[index]
+		self.primitiveArray[index]
 	}
 
 	atPut { :self :index :anObject |
-		self.array[index] := anObject
+		self.primitiveArray[index] := anObject
 	}
 
 	collect { :self :aProcedure |
-		OrderedCollection(self.array.collect(aProcedure))
+		OrderedCollection(self.primitiveArray.collect(aProcedure))
 	}
 
 	copy { :self |
-		OrderedCollection(self.array.copy)
+		OrderedCollection(self.primitiveArray.copy)
 	}
 
 	ofSize { :self :aNumber |
@@ -62,15 +62,15 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | array | (* 
 	}
 
 	size { :self |
-		self.array.size
+		self.primitiveArray.size
 	}
 
 	removeFirst { :self |
-		<primitive: return _self.array.shift();>
+		<primitive: return _self.primitiveArray.shift();>
 	}
 
 	removeLast { :self |
-		<primitive: return _self.array.pop();>
+		<primitive: return _self.primitiveArray.pop();>
 	}
 
 	species { :self |
@@ -78,11 +78,11 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | array | (* 
 	}
 
 	Array { :self |
-		self.array.copy
+		self.primitiveArray.copy
 	}
 
 	IdentitySet { :self |
-		self.array.IdentitySet
+		self.primitiveArray.IdentitySet
 	}
 
 	OrderedCollection { :self |

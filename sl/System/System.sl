@@ -127,7 +127,11 @@ System : [Object] {
 		system.methodImplementations(methodName).collect(origin:/1)
 	}
 
-	methodLookup { :self :methodName :arity :typeName |
+	methodLookup { :self :methodName :arity :traitOrTypeName |
+		self.traitOrType(traitOrTypeName).methodDictionary[methodName ++ ':/' ++ arity]
+	}
+
+	methodLookupAtType { :self :methodName :arity :typeName |
 		self.methodDictionary[methodName][arity][typeName]
 	}
 

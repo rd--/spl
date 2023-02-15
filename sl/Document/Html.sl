@@ -132,10 +132,6 @@ KeyboardEvent : [Object, UiEvent, Event] {
 
 MouseEvent : [Object, UiEvent, Event, MouseEvent] {
 
-	buttons { :self | <primitive: return _self.buttons;> }
-	x { :self | <primitive: return _self.x;> }
-	y { :self | <primitive: return _self.y;> }
-
 }
 
 NamedNodeMap : [Object] {
