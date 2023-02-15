@@ -62,6 +62,7 @@
 	innerHTML { :self | <primitive: return _self.innerHTML;> }
 	innerHTML { :self :aString | <primitive: return _self.innerHTML = _aString;> }
 	releasePointerCapture { :self :pointerId | <primitive: return _self.releasePointerCapture(_pointerId);> }
+	remove { :self | <primitive: return _self.remove();> }
 	removeAttribute { :self :aString | <primitive: return _self.removeAttribute(_aString);> }
 	setAttribute { :self :name :value | <primitive: return _self.setAttribute(_name, _value);> }
 	setPointerCapture { :self :pointerId | <primitive: return _self.setPointerCapture(_pointerId);> }

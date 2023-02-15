@@ -1,22 +1,27 @@
-Frame : [Object] { | framePane titlePane titleText inMove x y x0 y0 |
+Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 |
 
 	createElements { :self :contents |
 		self.framePane := 'div'.createElement;
 		self.titlePane :=  'div'.createElement;
+		self.closeButton := 'pre'.createElement;
 		self.titleText := 'pre'.createElement;
-		self.titlePane.appendChild(self.titleText);
+		self.titlePane.appendChildren([
+			self.closeButton,
+			self.titleText
+		]);
 		self.framePane.appendChildren([
 			self.titlePane,
 			contents
 		]);
+		self.closeButton.textContent := '×';
 		self.inMove := false
 	}
 
-	initialize { :self :title :kind :contents |
+	initialize { :self :title :kind :contents :onClose:/1 |
 		self.createElements(contents);
 		self.setTitle(title);
 		self.setAttributes(kind);
-		self.setEventHandlers;
+		self.setEventHandlers(onClose:/1);
 		self
 	}
 
@@ -26,10 +31,14 @@ Frame : [Object] { | framePane titlePane titleText inMove x y x0 y0 |
 
 	setAttributes { :self :kind |
 		self.framePane.setAttribute('class', ['framePane', kind].unwords);
-		self.titlePane.setAttribute('class', 'titlePane')
+		self.titlePane.setAttribute('class', 'titlePane');
+		self.closeButton.setAttribute('class', 'closeButton')
 	}
 
-	setEventHandlers { :self |
+	setEventHandlers { :self :onClose:/1 |
+		self.closeButton.addEventListener('pointerup', { :unusedEvent |
+			onClose(self)
+		});
 		self.titlePane.addEventListener('pointerdown', { :event |
 			| titleRect = event.target.getBoundingClientRect; |
 			event.target.setPointerCapture(event.pointerId);
@@ -66,9 +75,9 @@ Frame : [Object] { | framePane titlePane titleText inMove x y x0 y0 |
 
 + @Object {
 
-	Frame { :self |
+	Frame { :self :onClose:/1 |
 		(* To frame a value it must answer title & outerElement *)
-		newFrame().initialize(self.title, self.typeOf, self.outerElement)
+		newFrame().initialize(self.title, self.typeOf, self.outerElement, onClose:/1)
 
 	}
 

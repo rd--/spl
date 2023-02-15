@@ -1,7 +1,7 @@
 SmallKansas : [Object] { | container frameSet |
 
 	addFrame { :self :subject |
-		| frame = Frame(subject); |
+		| frame = Frame(subject, { :frame | self.removeFrame(frame) }); |
 		self.frameSet.add(frame);
 		self.container.appendChild(frame.outerElement)
 	}
@@ -10,8 +10,31 @@ SmallKansas : [Object] { | container frameSet |
 		self.addFrame(CategoryBrowser())
 	}
 
+	helpFor { :self :subject |
+		workspace::smallHours.helpFor(subject).then { :aString |
+			self.addFrame(TextEditor('Help For: ' ++ subject, true, aString))
+		}
+	}
+
 	methodBrowser { :self |
 		self.addFrame(MethodBrowser())
+	}
+
+	removeFrame { :self :frame |
+		frame.outerElement.remove;
+		self.frameSet.remove(frame)
+	}
+
+	selectedTextMenu { :self |
+		self.addFrame(
+			Menu(
+				'Selected Text Menu',
+				[
+					'Help For' -> { workspace::smallKansas.helpFor(system.window.getSelectedText) },
+					'Play' -> { ('{ ' ++  system.window.getSelectedText ++ ' }.play').eval }
+				]
+			)
+		)
 	}
 
 	smallHoursHelpBrowser { :self |
@@ -26,12 +49,6 @@ SmallKansas : [Object] { | container frameSet |
 		self.addFrame(SystemBrowser())
 	}
 
-	helpFor { :self :subject |
-		workspace::smallHours.helpFor(subject).then { :aString |
-			self.addFrame(TextEditor('Help For: ' ++ subject, true, aString))
-		}
-	}
-
 	traitBrowser { :self |
 		self.addFrame(TraitBrowser())
 	}
@@ -43,10 +60,15 @@ SmallKansas : [Object] { | container frameSet |
 	worldMenu { :self |
 		self.addFrame(
 			Menu(
-				'WorldMenu',
+				'World Menu',
 				[
 					'Category Browser' -> { self.categoryBrowser },
 					'Method Browser' -> { self.methodBrowser },
+					'Reset Synthesiser' -> {
+						workspace::clock.clear;
+						system.defaultScSynth.reset
+					},
+					'Selected Text Menu' -> { self.selectedTextMenu },
 					'Small Hours Help Browser' -> { self.smallHoursHelpBrowser },
 					'Small Hours Program Browser' -> { self.smallHoursProgramBrowser },
 					'System Browser' -> { self.systemBrowser },
