@@ -396,6 +396,11 @@ RegExp('x.x', 'g').printString.size = 18
 'string'.last = 'g'
 var x = ['a', 'bc', 'def']; x.unlines.lines = x
 '3 + 4'.eval = 7
+'a short string'.replace('short', 'longer') = 'a longer string'
+'x x x'.replace('x', 'y') = 'y x x'
+'x x x'.replaceAll('x', 'y') = 'y y y'
+'x y z'.replaceRegExp(RegExp('x|z', 'g'), '-') = '- y -'
+
 
 'Exceptions/Error'
 Error().isError = true

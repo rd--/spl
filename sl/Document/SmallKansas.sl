@@ -26,6 +26,12 @@ SmallKansas : [Object] { | container frameSet |
 		self.addFrame(SystemBrowser())
 	}
 
+	helpFor { :self :subject |
+		workspace::smallHours.helpFor(subject).then { :aString |
+			self.addFrame(TextEditor('Help For: ' ++ subject, true, aString))
+		}
+	}
+
 	traitBrowser { :self |
 		self.addFrame(TraitBrowser())
 	}
@@ -39,13 +45,13 @@ SmallKansas : [Object] { | container frameSet |
 			Menu(
 				'WorldMenu',
 				[
-					'CategoryBrowser' -> { self.categoryBrowser },
-					'MethodBrowser' -> { self.methodBrowser },
-					'SmallHoursHelpBrowser' -> { self.smallHoursHelpBrowser },
-					'SmallHoursProgramBrowser' -> { self.smallHoursProgramBrowser },
-					'SystemBrowser' -> { self.systemBrowser },
-					'TraitBrowser' -> { self.traitBrowser },
-					'TypeBrowser' -> { self.typeBrowser }
+					'Category Browser' -> { self.categoryBrowser },
+					'Method Browser' -> { self.methodBrowser },
+					'Small Hours Help Browser' -> { self.smallHoursHelpBrowser },
+					'Small Hours Program Browser' -> { self.smallHoursProgramBrowser },
+					'System Browser' -> { self.systemBrowser },
+					'Trait Browser' -> { self.traitBrowser },
+					'Type Browser' -> { self.typeBrowser }
 				]
 			)
 		)

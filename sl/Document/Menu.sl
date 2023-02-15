@@ -5,7 +5,15 @@ Menu : [Object] { | menuPane listPane menuList title |
 		self.listPane := 'div'.createElement;
 		self.menuList := 'ul'.createElement;
 		self.listPane.appendChild(self.menuList);
-		self.menuPane.appendChild(self.listPane);
+		self.menuPane.appendChild(self.listPane)
+	}
+
+	initialize { :self :title :entries |
+		self.title := title;
+		self.createElements;
+		self.setAttributes;
+		self.setEntries(entries);
+		self
 	}
 
 	outerElement { :self |
@@ -14,7 +22,7 @@ Menu : [Object] { | menuPane listPane menuList title |
 
 	setAttributes { :self |
 		self.menuPane.setAttribute('class', 'menuPane');
-		self.listPane.setAttribute('class', 'listPane');
+		self.listPane.setAttribute('class', 'listPane')
 	}
 
 	setEntries { :self :entries |
@@ -32,12 +40,7 @@ Menu : [Object] { | menuPane listPane menuList title |
 + String {
 
 	Menu { :title :entries |
-		| menu = newMenu(); |
-		menu.createElements;
-		menu.setEntries(entries);
-		menu.setAttributes;
-		menu.title := title;
-		menu
+		newMenu().initialize(title, entries)
 	}
 
 }

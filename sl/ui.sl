@@ -8,10 +8,11 @@ loadSequence([
 	'Document/Frame.sl',
 	'Document/Menu.sl',
 	'Document/SmallHours.sl',
-	'Document/SmallKansas.sl'
+	'Document/SmallKansas.sl',
+	'Document/TextEditor.sl'
 ]).then { :unusedValue |
 	workspace::smallKansas := SmallKansas();
 	workspace::smallHours := SmallHours();
-	workspace::smallHours.loadHelp;
-	workspace::smallHours.loadPrograms
+	workspace::smallHours.loadHelpIndex;
+	workspace::smallHours.loadProgramIndex
 }

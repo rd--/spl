@@ -1,25 +1,32 @@
-ColumnBrowser : [Object] { | browserPane columnsPane viewerPane columnLists statusPane viewerText statusText richText title |
+ColumnBrowser : [Object] { | browserPane columnsPane textEditor columnLists statusPane statusText title |
 
-	createElements { :self :numberOfColumns |
+	createElements { :self :numberOfColumns :isRichText |
 		self.browserPane := 'div'.createElement;
 		self.columnsPane :=  'div'.createElement;
-		self.viewerPane := 'div'.createElement;
+		self.textEditor := newTextEditor().initialize(
+			'ColumnBrowserTextEditor', isRichText, ''
+		);
 		self.statusPane := 'div'.createElement;
 		self.columnLists := { 'select'.createElement } ! numberOfColumns;
-		self.viewerText := self.richText.if {
-			'div'.createElement
-		} {
-			'pre'.createElement
-		};
 		self.statusText := 'pre'.createElement;
 		self.columnsPane.appendChildren(self.columnLists);
-		self.viewerPane.appendChild(self.viewerText);
 		self.statusPane.appendChild(self.statusText);
 		self.browserPane.appendChildren([
 			self.columnsPane,
-			self.viewerPane,
+			self.textEditor.outerElement,
 			self.statusPane
-		]);
+		])
+	}
+
+	initialize { :self :title :isRichText :columnProportions :onChange:/2 |
+		| numberOfColumns = columnProportions.size; |
+		self.title := title;
+		self.createElements(numberOfColumns, isRichText);
+		self.setEntries(1, onChange(self, []));
+		self.columnLists[1].selectedIndex(-1);
+		self.setAttributes(columnProportions, 6);
+		self.setEventHandlers(numberOfColumns, onChange:/2);
+		self
 	}
 
 	outerElement { :self |
@@ -29,7 +36,6 @@ ColumnBrowser : [Object] { | browserPane columnsPane viewerPane columnLists stat
 	setAttributes { :self :columnProportions :listSize |
 		self.browserPane.setAttribute('class', 'browserPane');
 		self.columnsPane.setAttribute('class', 'columnsPane');
-		self.viewerPane.setAttribute('class', 'viewerPane');
 		self.statusPane.setAttribute('class', 'statusPane');
 		columnProportions.size.do { :index |
 			| list = self.columnLists[index]; |
@@ -37,8 +43,7 @@ ColumnBrowser : [Object] { | browserPane columnsPane viewerPane columnLists stat
 			list.style.setProperties([
 				'flex-grow' -> columnProportions[index].asString
 			])
-		};
-		self.viewerText.setAttributes((contentEditable: 'true', spellcheck: 'false'));
+		}
 	}
 
 	setEntries { :self :columnIndex :entries |
@@ -58,36 +63,15 @@ ColumnBrowser : [Object] { | browserPane columnsPane viewerPane columnLists stat
 				|
 				(index = numberOfColumns).if {
 					next.then { :view |
-						self.setViewerText(view.asString)
+						self.textEditor.setEditorText(view.asString)
 					}
 				} {
-					self.setViewerText('');
+					self.textEditor.setEditorText('');
 					(numberOfColumns - index - 1).do { :each |
 						self.columnLists[index + each + 1].removeAll
 					};
 					self.setEntries(index + 1, next)				}
 			})
-		};
-		self.viewerPane.addEventListener('keydown', { :event |
-			(event.ctrlKey & { event.key = 'Enter' }).ifTrue {
-				| text = system.window.getSelectedText; |
-				text.isEmpty.ifTrue {
-					text := event.target.textContent
-				};
-				('{ ' ++  text ++ ' }.play').eval
-			};
-			(event.ctrlKey & { event.key = '.' }).ifTrue {
-				workspace::clock.clear;
-				system.defaultScSynth.reset;
-			};
-		})
-	}
-
-	setViewerText { :self :aString |
-		self.richText.if {
-			self.viewerText.innerHTML := aString.markdownToHtml
-		} {
-			self.viewerText.textContent := aString
 		}
 	}
 
@@ -99,16 +83,8 @@ ColumnBrowser : [Object] { | browserPane columnsPane viewerPane columnLists stat
 
 + String {
 
-	ColumnBrowser { :title :richText :columnProportions :onChange:/2 |
-		| numberOfColumns = columnProportions.size, browser = newColumnBrowser(); |
-		browser.title := title;
-		browser.richText := richText;
-		browser.createElements(numberOfColumns);
-		browser.setEntries(1, onChange(browser, []));
-		browser.columnLists[1].selectedIndex(-1);
-		browser.setAttributes(columnProportions, 6);
-		browser.setEventHandlers(numberOfColumns, onChange:/2);
-		browser
+	ColumnBrowser { :title :isRichText :columnProportions :onChange:/2 |
+		newColumnBrowser().initialize(title, isRichText, columnProportions, onChange:/2)
 	}
 
 }

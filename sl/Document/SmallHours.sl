@@ -1,4 +1,4 @@
-SmallHours : [Object] { | help programs |
+SmallHours : [Object] { | helpIndex programIndex |
 
 	helpAreas { :self |
 		['spl', 'sc']
@@ -22,30 +22,45 @@ SmallHours : [Object] { | help programs |
 						self.helpKind(path[1])
 					},
 					2 -> {
-						self.helpNames(path[2], path[1])
+						self.helpNames(path[1], path[2])
 					},
 					3 -> {
-						self.helpFetch(path[2], path[1], path[3])
+						self.helpFetch(path)
 					}
 				])
 			}
 		)
 	}
 
-	helpFetch { :self :kind :area :name |
-		system.window.fetchString(self.helpUrl(kind, area, name), (cache: 'no-cache'))
+	helpFetch { :self :path |
+		('SmallHours>helpFetch: ' ++ path.joinSeparatedBy('/')).postLine;
+		system.window.fetchString(self.helpUrl(path[1], path[2], path[3]), (cache: 'no-cache'))
 	}
 
-	helpNames { :self :kind :area |
-		self.help.select { :each |
-			each.first = kind & {
-				each.second = area
+
+	helpFind { :self :name |
+		self.helpIndex.detectIfNone { :each |
+			each[3] = name
+		} {
+			('SmallHours>>helpFind: no help for: ' ++ name).postLine
+		}
+	}
+
+	helpFor { :self :subject |
+		self.helpFetch(self.helpFind(subject))
+	}
+
+	helpNames { :self :area :kind |
+		self.helpIndex.select { :each |
+			each[1] = area & {
+				each[2] = kind
 			}
 		}.collect(third:/1).IdentitySet.Array.sorted
 	}
 
 	helpParse { :self :aString |
-		aString.splitRegExp(RegExp('/'))
+		| [kind, area, name] = aString.replace('.help.sl', '').splitRegExp(RegExp('/')); |
+		[area, kind, name]
 	}
 
 	helpProject { :self :area |
@@ -56,29 +71,29 @@ SmallHours : [Object] { | help programs |
 		}
 	}
 
-	helpUrl { :self :kind :area :name |
-		['./lib/', self.helpProject(area), '/', kind, '/', area, '/', name].join
+	helpUrl { :self :area :kind :name |
+		['./lib/', self.helpProject(area), '/', kind, '/', area, '/', name, '.help.sl'].join
 	}
 
-	loadHelp { :self |
+	loadHelpIndex { :self |
 		system.window.fetchString('./text/smallhours-help.text', (cache: 'no-cache')).then { :aString |
-			self.help := aString.lines.select(notEmpty:/1).collect { :each |
+			self.helpIndex := aString.lines.select(notEmpty:/1).collect { :each |
 				self.helpParse(each)
 			}
 		}
 	}
 
-	loadPrograms { :self |
+	loadProgramIndex { :self |
 		system.window.fetchString('./text/smallhours-programs.text', (cache: 'no-cache')).then { :aString |
-			self.programs := aString.lines.select(notEmpty:/1).collect { :each |
+			self.programIndex := aString.lines.select(notEmpty:/1).collect { :each |
 				self.programParse(each)
 			}
 		}
 	}
 
 	programAuthors { :self :category |
-		self.programs.select { :each |
-			each.first = category
+		self.programIndex.select { :each |
+			each[1] = category
 		}.collect(second:/1).IdentitySet.Array.sorted
 	}
 
@@ -107,7 +122,7 @@ SmallHours : [Object] { | help programs |
 	}
 
 	programCategories { :self |
-		self.programs.collect(first:/1).IdentitySet.Array.sorted.reject { :each |
+		self.programIndex.collect(first:/1).IdentitySet.Array.sorted.reject { :each |
 			each = 'collect'
 		}
 	}
@@ -117,19 +132,19 @@ SmallHours : [Object] { | help programs |
 	}
 
 	programNames { :self :category :author |
-		self.programs.select { :each |
-			each.first = category & {
-				each.second = author
+		self.programIndex.select { :each |
+			each[1] = category & {
+				each[2] = author
 			}
 		}.collect(third:/1).IdentitySet.Array.sorted
 	}
 
 	programParse { :self :aString |
-		aString.splitRegExp(RegExp(' - |/'))
+		aString.replace('.sl', '').splitRegExp(RegExp(' - |/'))
 	}
 
 	programUrl { :self :category :author :name |
-		['./lib/stsc3/help/', category, '/', author, ' - ', name].join
+		['./lib/stsc3/help/', category, '/', author, ' - ', name, '.sl'].join
 	}
 
 }

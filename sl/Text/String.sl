@@ -162,6 +162,18 @@ String : [Object] {
 		<primitive: return `'${_self}'`;>
 	}
 
+	replace { :self :stringToFind :stringToReplaceWith |
+		 <primitive: return _self.replace(_stringToFind, _stringToReplaceWith);>
+	}
+
+	replaceAll { :self :stringToFind :stringToReplaceWith |
+		 <primitive: return _self.replaceAll(_stringToFind, _stringToReplaceWith);>
+	}
+
+	replaceRegExp { :self :regExpToFind :stringToReplaceWith |
+		 <primitive: return _self.replace(_regExpToFind, _stringToReplaceWith);>
+	}
+
 	size { :self |
 		<primitive: return _self.length;>
 	}
@@ -200,7 +212,7 @@ String : [Object] {
 + Array {
 
 	join { :self |
-		<primitive: return _self.join('');>
+		self.joinSeparatedBy('')
 	}
 
 	joinSeparatedBy { :self :aString |
@@ -209,6 +221,10 @@ String : [Object] {
 
 	unlines { :self |
 		<primitive: return _self.join('\n');>
+	}
+
+	unwords { :self |
+		self.joinSeparatedBy(' ')
 	}
 
 }

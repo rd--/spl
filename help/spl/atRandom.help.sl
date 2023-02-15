@@ -1,4 +1,8 @@
 # atRandom -- random selection
 
-- _atRandom(aCollection)_: select an element of _aCollection_ at random
-- _atRandom(anInteger)_: select an integer between one and _anInteger_ at random
+- _atRandom(aCollection)_
+- _atRandom(anInteger)_
+
+Select an element of _aCollection_ at random.
+
+Select an integer between one and _anInteger_ at random.

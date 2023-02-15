@@ -6,16 +6,16 @@ Instead there are _withReturn_  and _return_ methods, implementing delimited non
 ```
 | answer |
 answer := withReturn {
-	while { true } {
-		| n = random(); |
-		if(n > 0.9) {
-			return(0 - n)
+	{ true }.whileTrue {
+		| n = system.randomFloat; |
+		(n > 0.9).if {
+			(0 - n).return
 		} {
 			n.postLine
 		}
 	}
 };
-answer.postLine
+['Answer', answer].postLine
 ```
 
 _Rationale_:
