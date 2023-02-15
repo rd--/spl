@@ -30,6 +30,7 @@ SmallKansas : [Object] { | container frameSet |
 			Menu(
 				'Selected Text Menu',
 				[
+					'Evaluate' -> { system.window.getSelectedText.eval },
 					'Help For' -> { workspace::smallKansas.helpFor(system.window.getSelectedText) },
 					'Play' -> { ('{ ' ++  system.window.getSelectedText ++ ' }.play').eval }
 				]
