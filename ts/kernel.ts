@@ -143,7 +143,7 @@ export function addTrait(traitName: TraitName): void {
 
 // c.f. rewrite/makeMethodList
 export function addTraitMethod(traitName: TraitName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
-	// console.debug(`addTypeTrait: ${traitName}, ${methodName}, ${method.arity}`);
+	// console.debug(`addTraitMethod: ${traitName}, ${methodName}, ${method.arity}`);
 	const trait = system.traitDictionary.get(traitName)!;
 	const method = new Method(methodName, procedure, arity, sourceCode, trait);
 	trait.methodDictionary.set(method.qualifiedName(), method);

@@ -10,7 +10,7 @@ SmallHours : [Object] { | helpIndex programIndex |
 
 	helpBrowser { :self |
 		ColumnBrowser(
-			'SmallHoursHelpBrowser',
+			'Help Browser',
 			true,
 			[1, 1, 3],
 			{ :browser :path |
@@ -33,8 +33,10 @@ SmallHours : [Object] { | helpIndex programIndex |
 	}
 
 	helpFetch { :self :path |
-		('SmallHours>helpFetch: ' ++ path.joinSeparatedBy('/')).postLine;
-		system.window.fetchString(self.helpUrl(path[1], path[2], path[3]), (cache: 'no-cache'))
+		path.ifNotNil {
+			('SmallHours>>helpFetch: ' ++ path.joinSeparatedBy('/')).postLine;
+			system.window.fetchString(self.helpUrl(path[1], path[2], path[3]), (cache: 'no-cache'))
+		}
 	}
 
 
@@ -42,7 +44,8 @@ SmallHours : [Object] { | helpIndex programIndex |
 		self.helpIndex.detectIfNone { :each |
 			each[3] = name
 		} {
-			('SmallHours>>helpFind: no help for: ' ++ name).postLine
+			('SmallHours>>helpFind: no help for: ' ++ name).postLine;
+			nil
 		}
 	}
 
@@ -99,7 +102,7 @@ SmallHours : [Object] { | helpIndex programIndex |
 
 	programBrowser { :self |
 		ColumnBrowser(
-			'SmallHoursProgramBrowser',
+			'Program Browser',
 			false,
 			[1, 1, 3],
 			{ :browser :path |

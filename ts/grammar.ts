@@ -7,11 +7,11 @@ export const slGrammar = ohm.grammar(String.raw`
 Sl {
 
 	TopLevel = LibraryExpression+ | Program
-	LibraryExpression = ClassExpression | TraitExpression
-	ClassExpression = ClassExtension | ClassListExtension | ClassDefinition
-	ClassExtension = "+" identifier "{" (methodName Block)* "}"
-	ClassListExtension = "+" "[" NonemptyListOf<identifier, ","> "]" "{" (methodName Block)* "}"
-	ClassDefinition = identifier TraitList? "{" Temporaries? (methodName Block)* "}"
+	LibraryExpression = TypeExpression | TraitExpression
+	TypeExpression = TypeExtension | TypeListExtension | TypeDefinition
+	TypeExtension = "+" identifier "{" (methodName Block)* "}"
+	TypeListExtension = "+" "[" NonemptyListOf<identifier, ","> "]" "{" (methodName Block)* "}"
+	TypeDefinition = identifier TraitList? "{" Temporaries? (methodName Block)* "}"
 	TraitList = ":" "[" NonemptyListOf<identifier, ","> "]"
 	TraitExpression = TraitExtension | TraitDefinition
 	TraitExtension = "+" "@" identifier "{" (methodName Block)* "}"

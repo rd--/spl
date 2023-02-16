@@ -16,7 +16,7 @@ In this model _:/_ is the syntax for writing the name of a method.
 ```
 
 This rewriting rule can also be applied to local procedure definitions.
-Writing _| f = { :x | x + 1 }; |_ means _|f:/1 = { :x | x + 1 }; |_.
+Writing _| f = { :x | x + 1 }; |_ means _| f:/1 = { :x | x + 1 }; |_.
 (This rule cannot be applied when assigning a procedure to a variable.)
 
 However re-writing restricts how the application syntax can be used.

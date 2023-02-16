@@ -97,10 +97,40 @@ HTMLSelectElement : [Object, EventTarget, Node, Element, HtmlElement] {
 	size { :self | <primitive: return _self.size;> }
 	size { :self :anInteger | <primitive: return _self.size = _anInteger;> }
 	type { :self | <primitive: return _self.type;> }
-	value { :self | <primitive: return _self.value;> }
+
+	deselect { :self |
+		self.selectedIndex := -1
+	}
+
+	indexOf { :self :aString |
+		aString.isEmpty.if {
+			-1
+		} {
+			withReturn {
+				(0 .. self.length - 1).do { :index |
+					(self.options.item(index).value = aString).ifTrue {
+						index.return
+					}
+				};
+				-1
+			}
+		}
+	}
 
 	removeAll { :self |
 		self.length := 0
+	}
+
+	select { :self :aString |
+		self.selectedIndex := self.indexOf(aString)
+	}
+
+	value { :self |
+		(self.selectedIndex = -1).if {
+			''
+		} {
+			self.item(self.selectedIndex).value
+		}
 	}
 
 }
@@ -172,5 +202,13 @@ Selection : [Object] {
 Text : [Object, EventTarget, Node, CharacterData] {
 
 	wholeText { :self | <primitive: return _self.wholeText;> }
+
+}
+
++ String {
+
+	Event { :self |
+		<primitive: return new Event(_self);>
+	}
 
 }

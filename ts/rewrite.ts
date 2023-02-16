@@ -15,16 +15,16 @@ function quoteNewLines(input: string): string {
 
 const asJs: any = {
 
-	ClassExtension(_e, clsNm, _l, mthNm, mthBlk, _r) {
+	TypeExtension(_e, clsNm, _l, mthNm, mthBlk, _r) {
 		return makeMethodList('addMethod', [clsNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
-	ClassListExtension(_e, _cl, clsNmList, _cr, _ml, mthNm, mthBlk, _mr) {
+	TypeListExtension(_e, _cl, clsNmList, _cr, _ml, mthNm, mthBlk, _mr) {
 		const clsNmArray = clsNmList.asIteration().children.map(c => c.sourceString);
-		// console.debug(`ClassListExtension: [${clsNmArray}].size = ${clsNmArray.length}`);
+		// console.debug(`TypeListExtension: [${clsNmArray}].size = ${clsNmArray.length}`);
 		return makeMethodList('addMethod', clsNmArray, mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
-	ClassDefinition(clsNm, trt, _l, tmp, mthNm, mthBlk, _r) {
-		function makeClassDefinition(clsNm: string, trt: string[], tmp, mthNms, mthBlks) {
+	TypeDefinition(clsNm, trt, _l, tmp, mthNm, mthBlk, _r) {
+		function makeTypeDefinition(clsNm: string, trt: string[], tmp, mthNms, mthBlks) {
 			const tmpSrc = tmp.sourceString;
 			const tmpNm = tmpSrc === '' ? [] : slTemporariesSyntaxNames(tmpSrc).map(nm => `'${nm}'`);
 			const traitList = trt.split(', ').filter(each => each.length > 0);
@@ -33,7 +33,7 @@ const asJs: any = {
 			const addMethods = makeMethodList('addMethod', [clsNm], mthNms, mthBlks);
 			return `${addType}${copyTraits}${addMethods}`;
 		}
-		return makeClassDefinition(clsNm.sourceString, trt.asJs, tmp, mthNm.children.map(c => c.sourceString), mthBlk.children);
+		return makeTypeDefinition(clsNm.sourceString, trt.asJs, tmp, mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
 	TraitList(_c, _l, nm, _r) { return nm.asIteration().children.map(c => `'${c.sourceString}'`).join(', '); },
 	TraitExtension(_p, _t, trtNm, _l, mthNm, mthBlk, _r) {

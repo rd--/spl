@@ -10,6 +10,15 @@ TextEditor : [Object] { | editorPane editorText isRichText title |
 		self.editorPane.appendChild(self.editorText)
 	}
 
+	currentText { :self |
+		| text = system.window.getSelectedText; |
+		text.isEmpty.ifTrue {
+			text := self.editorText.textContent
+		};
+		text
+	}
+
+
 	initialize { :self :title :isRichText :contents |
 		self.title := title;
 		self.isRichText := isRichText;
@@ -19,6 +28,41 @@ TextEditor : [Object] { | editorPane editorText isRichText title |
 		self.setEditorText(contents);
 		self
 	}
+
+	keyBindings { :self |
+		(
+			'Browse It': 'b' -> {
+				workspace::smallKansas.browserOn([system.window.getSelectedText])
+			},
+			'Do It': 'd' -> {
+				self.currentText.eval
+			},
+			'Help For It': 'h' -> {
+				workspace::smallKansas.helpFor(system.window.getSelectedText.asMethodName)
+			},
+			'Implementors Of It': 'm' -> {
+				workspace::smallKansas.implementorsOf(system.window.getSelectedText.asMethodName)
+			},
+			'Play It': 'Enter' -> {
+				('{ ' ++ self.currentText ++ ' }.play').eval
+			},
+			'Reset': '.' -> {
+				workspace::clock.clear;
+				system.defaultScSynth.reset;
+			}
+		)
+	}
+
+	keyBindingsArray { :self |
+		self.keyBindings.values.collect { :each |
+				each.key -> {
+					event.stopPropogation;
+					event.preventDefault;
+					each.value.value
+				}
+		}
+	}
+
 
 	outerElement { :self |
 		self.editorPane
@@ -31,25 +75,19 @@ TextEditor : [Object] { | editorPane editorText isRichText title |
 
 	setEventHandlers { :self |
 		self.editorText.addEventListener('keydown', { :event |
+			| bindingsArray = self.keyBindings.values.collect { :each |
+				each.key -> {
+					event.preventDefault;
+					each.value.value
+				}
+			}; |
 			event.ctrlKey.ifTrue {
-				event.key.caseOfOtherwise([
-					'Enter' -> {
-						| text = system.window.getSelectedText; |
-						text.isEmpty.ifTrue {
-							text := event.target.textContent
-						};
-						('{ ' ++  text ++ ' }.play').eval
-					},
-					'.' -> {
-						workspace::clock.clear;
-						system.defaultScSynth.reset;
-					},
-					'?' -> {
-						workspace::smallKansas.helpFor(system.window.getSelectedText)
+				event.key.caseOfOtherwise(
+					bindingsArray,
+					{ :key |
+						('TextEditor>keydown: not handled: ' ++ key).postLine
 					}
-				], { :key |
-					('TextEditor>keydown: not handled: ' ++ key).postLine
-				})
+				)
 			}
 		})
 	}

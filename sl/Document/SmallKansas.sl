@@ -6,8 +6,24 @@ SmallKansas : [Object] { | container frameSet |
 		self.container.appendChild(frame.outerElement)
 	}
 
+	browserOn { :self :path |
+		system.isTraitName(path[1]).if {
+			self.addFrame(TraitBrowser().path(path))
+		} {
+			system.isTypeName(path[1]).if {
+				self.addFrame(TypeBrowser().path(path))
+			} {
+				('SmallKansas>>browserOn: not a trait or type: ' ++ path[1]).postLine
+			}
+		}
+	}
+
 	categoryBrowser { :self |
 		self.addFrame(CategoryBrowser())
+	}
+
+	helpBrowser { :self |
+		self.addFrame(workspace::smallHours.helpBrowser)
 	}
 
 	helpFor { :self :subject |
@@ -34,6 +50,10 @@ SmallKansas : [Object] { | container frameSet |
 		self.addFrame(MethodSignatureBrowser())
 	}
 
+	programBrowser { :self |
+		self.addFrame(workspace::smallHours.programBrowser)
+	}
+
 	removeFrame { :self :frame |
 		frame.outerElement.remove;
 		self.frameSet.remove(frame)
@@ -44,21 +64,14 @@ SmallKansas : [Object] { | container frameSet |
 			Menu(
 				'Selected Text Menu',
 				[
-					'Evaluate' -> { system.window.getSelectedText.eval },
-					'Implementors Of' -> { workspace::smallKansas.implementorsOf(system.window.getSelectedText) },
-					'Help For' -> { workspace::smallKansas.helpFor(system.window.getSelectedText) },
-					'Play' -> { ('{ ' ++  system.window.getSelectedText ++ ' }.play').eval }
+					'Browse It (b)' -> { self.browserOn([system.window.getSelectedText]) },
+					'Do It (d)' -> { system.window.getSelectedText.eval },
+					'Help For It (h)' -> { workspace::smallKansas.helpFor(system.window.getSelectedText.asMethodName) },
+					'Implementors Of It (m)' -> { workspace::smallKansas.implementorsOf(system.window.getSelectedText.asMethodName) },
+					'Play It (Enter)' -> { ('{ ' ++  system.window.getSelectedText ++ ' }.play').eval }
 				]
 			)
 		)
-	}
-
-	smallHoursHelpBrowser { :self |
-		self.addFrame(workspace::smallHours.helpBrowser)
-	}
-
-	smallHoursProgramBrowser { :self |
-		self.addFrame(workspace::smallHours.programBrowser)
 	}
 
 	systemBrowser { :self |
@@ -79,15 +92,15 @@ SmallKansas : [Object] { | container frameSet |
 				'World Menu',
 				[
 					'Category Browser' -> { self.categoryBrowser },
+					'Help Browser' -> { self.helpBrowser },
 					'Method Browser' -> { self.methodBrowser },
 					'Method Signature Browser' -> { self.methodSignatureBrowser },
+					'Program Browser' -> { self.programBrowser },
 					'Reset Synthesiser' -> {
 						workspace::clock.clear;
 						system.defaultScSynth.reset
 					},
 					'Selected Text Menu' -> { self.selectedTextMenu },
-					'Small Hours Help Browser' -> { self.smallHoursHelpBrowser },
-					'Small Hours Program Browser' -> { self.smallHoursProgramBrowser },
 					'System Browser' -> { self.systemBrowser },
 					'Trait Browser' -> { self.traitBrowser },
 					'Type Browser' -> { self.typeBrowser },
@@ -103,7 +116,7 @@ SmallKansas : [Object] { | container frameSet |
 
 
 	MethodSignatureBrowser { :self |
-		ColumnBrowser('MethodSignatureBrowser', false, [1], { :browser :path |
+		ColumnBrowser('Method Signature Browser On', false, [1], { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					self
@@ -129,7 +142,7 @@ SmallKansas : [Object] { | container frameSet |
 
 	MethodBrowser {
 		| methodNames = system.allMethods.collect(qualifiedName:/1).IdentitySet.Array.sorted ; |
-		ColumnBrowser('MethodBrowser', false, [3, 1], { :browser :path |
+		ColumnBrowser('Method Browser', false, [3, 1], { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					methodNames
@@ -145,18 +158,9 @@ SmallKansas : [Object] { | container frameSet |
 	}
 
 	MethodSignatureBrowser {
-		| methodSignatures = system.allMethods.collect(signature:/1).IdentitySet.Array.sorted ; |
-		ColumnBrowser('MethodSignatureBrowser', false, [1], { :browser :path |
-			path.size.caseOf([
-				0 -> {
-					methodSignatures
-				},
-				1 -> {
-					| [traitOrTypeName, methodName, arity] = path[1].parseMethodSignature; |
-					system.methodLookup(methodName, arity, traitOrTypeName).definition
-				}
-			])
-		})
+		MethodSignatureBrowser(
+			system.allMethods.collect(signature:/1).IdentitySet.Array.sorted
+		)
 	}
 
 	CategoryBrowser {
@@ -165,7 +169,7 @@ SmallKansas : [Object] { | container frameSet |
 			categoryNames = typeNames.collect { :each | system.categoryOf(each) }.IdentitySet.Array.sorted,
 			methodSet = nil;
 		|
-		ColumnBrowser('CategoryBrowser', false, [1, 1, 3], { :browser :path |
+		ColumnBrowser('Category Browser', false, [1, 1, 3], { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -195,7 +199,7 @@ SmallKansas : [Object] { | container frameSet |
 
 	SystemBrowser {
 		| typeNames = system.typeDictionary.keys.sorted, methodSet = nil; |
-		ColumnBrowser('SystemBrowser', false, [1, 3], { :browser :path |
+		ColumnBrowser('System Browser', false, [1, 3], { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -217,7 +221,7 @@ SmallKansas : [Object] { | container frameSet |
 
 	TraitBrowser {
 		| traitNames = system.traitDictionary.keys.sorted; |
-		ColumnBrowser('TraitBrowser', false, [1, 3], { :browser :path |
+		ColumnBrowser('Trait Browser', false, [1, 3], { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -236,7 +240,7 @@ SmallKansas : [Object] { | container frameSet |
 
 	TypeBrowser {
 		| typeNames = system.typeDictionary.keys.sorted; |
-		ColumnBrowser('TypeBrowser', false, [1, 3], { :browser :path |
+		ColumnBrowser('Type Browser', false, [1, 3], { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');

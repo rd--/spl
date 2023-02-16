@@ -41,3 +41,8 @@ Method syntax can make writing from left to right simpler.
 Extending _f(x)_ to _g(f(x), y)_ requires inserting characters to both the left and the right of the existing text.
 Extending _f(x)_ to _f(x).g(y)_ requires inserting characters only at the right of the existing text.
 Method syntax is particularly useful if the insertion cursor is already at the end of the existing text.
+
+
+_Note:_
+[Dictionary Syntax] allows _()_ to be the empty dictionary,
+_().f_ means _f(())_.

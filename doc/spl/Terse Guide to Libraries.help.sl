@@ -111,3 +111,6 @@ var f = { :t0 | | t1 = 2.randomFloat.seconds; | t0.postLine; f.evaluateAfterWith
 
 'String/Markdown'
 '# A Heading'.markdownToHtml.lines[1] = '<h1>A Heading</h1>'
+
+'SmallHours'
+workspace::smallHours.helpFind('Collection')

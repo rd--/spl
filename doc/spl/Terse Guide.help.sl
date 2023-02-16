@@ -158,6 +158,7 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1, 2, 3].reject { :x | x > 1 } = [1]
 (1 .. 9).collect{ :x | x * x }.last = 81
 (1 .. 9).collect{ :x | x * x }.collect{ :x | x * x }.last = 6561
+[].species.new(3) = [nil, nil, nil]
 
 'Collections/Association'
 ('x' -> 1).typeOf = 'Association'
@@ -465,6 +466,9 @@ system.typeOf = 'System'
 system.typeDictionary.keys.includes('System') = true
 system.randomFloat < 1
 system.uniqueId ~= system.uniqueId
+'!'.isOperatorName = true
+'*'.operatorMethodName = 'times'
+'!^'.operatorMethodName = 'bangHat'
 
 'System/categoryDictionary'
 system.categoryDictionary.isIdentityDictionary = true

@@ -12,9 +12,9 @@ loadSequence([
 	'Collections/ArrayedCollection.sl',
 	'Collections/Collection.sl',
 	'Collections/SequenceableCollection.sl',
-	'Collections/Array.sl',
-	'Collections/ByteArray.sl',
+	'Collections/Array.sl', (* +Number *)
+	'Collections/ByteArray.sl', (* +Array, +Number *)
 	'System/System.sl',
 	'System/Window.sl',
-	'Text/String.sl'
+	'Text/String.sl' (* +Array +ByteArray *)
 ])

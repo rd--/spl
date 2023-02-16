@@ -23,7 +23,6 @@ ColumnBrowser : [Object] { | browserPane columnsPane textEditor columnLists stat
 		self.title := title;
 		self.createElements(numberOfColumns, isRichText);
 		self.setEntries(1, onChange(self, []));
-		self.columnLists[1].selectedIndex(-1);
 		self.setAttributes(columnProportions, 6);
 		self.setEventHandlers(numberOfColumns, onChange:/2);
 		self
@@ -32,6 +31,19 @@ ColumnBrowser : [Object] { | browserPane columnsPane textEditor columnLists stat
 	outerElement { :self |
 		self.browserPane
 	}
+
+	path { :self |
+		self.columnLists.collect(value:/1)
+	}
+
+	path { :self :path |
+		path.withCollect(self.columnLists.first(path.size)) { :aString :aSelect |
+			aSelect.select(aString)
+		};
+		self.columnLists[path.size].dispatchEvent(Event('change'));
+		self
+	}
+
 
 	setAttributes { :self :columnProportions :listSize |
 		self.browserPane.setAttribute('class', 'browserPane');
@@ -50,7 +62,8 @@ ColumnBrowser : [Object] { | browserPane columnsPane textEditor columnLists stat
 		self.columnLists[columnIndex].removeAll;
 		self.columnLists[columnIndex].appendChildren(entries.collect { :each |
 			TextOption(each, each)
-		})
+		});
+		self.columnLists[columnIndex].deselect
 	}
 
 	setEventHandlers { :self :numberOfColumns :onChange:/2 |
@@ -70,7 +83,8 @@ ColumnBrowser : [Object] { | browserPane columnsPane textEditor columnLists stat
 					(numberOfColumns - index - 1).do { :each |
 						self.columnLists[index + each + 1].removeAll
 					};
-					self.setEntries(index + 1, next)				}
+					self.setEntries(index + 1, next)
+				}
 			})
 		}
 	}

@@ -234,7 +234,7 @@
 			self.size == aCollection.size
 		}).if {
 			1.toAsCollect(self.size, self.species) { :index |
-				aProcedure(self[index], anArray[index])
+				aProcedure(self[index], aCollection[index])
 			}
 		} {
 			error('SequenceableCollection>>withCollect: operand not-sequenceable or of unequal size')

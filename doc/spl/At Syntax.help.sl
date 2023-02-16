@@ -8,4 +8,4 @@ Syntax for the _at_ protocol.
 
 * * *
 
-See also: [Quoted At Syntax], [Put Syntax]
+See also: [AtPut Syntax], [Quoted At Syntax]

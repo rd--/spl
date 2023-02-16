@@ -6,6 +6,6 @@ Ordinarily _all_ types should implement _Object_.
 Object defines the basic system predicates.
 
 ```
-system.traitTypes('Object') + 1 = system.typeDictionary.size
+system.traitTypes('Object').size + 1 = system.typeDictionary.size
 system.traitDictionary['Object'].methodDictionary.keys.includes('respondsTo:/2') = true
 ```

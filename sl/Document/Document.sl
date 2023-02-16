@@ -107,6 +107,10 @@
 		<primitive: return _self.addEventListener(_aString, _aProcedure);>
 	}
 
+	dispatchEvent { :self :event |
+		<primitive: return _self.dispatchEvent(_event);>
+	}
+
 }
 
 @HtmlCollection {

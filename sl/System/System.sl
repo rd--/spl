@@ -92,6 +92,12 @@ System : [Object] {
 		self.traitDictionary.includesKey(aString)
 	}
 
+	isTraitOrTypeName { :self :aString |
+		self.isTraitName(aString) | {
+			self.isTypeName(aString)
+		}
+	}
+
 	isTypeName { :self :aString |
 		self.typeDictionary.includesKey(aString)
 	}
@@ -318,8 +324,24 @@ System : [Object] {
 
 + String {
 
+	asMethodName { :self |
+		self.isOperatorName.if {
+			self.operatorMethodName
+		} {
+			self
+		}
+	}
+
 	categoryNameParts { :self |
 		self.splitBy('/')
+	}
+
+	isOperatorName { :self |
+		<primitive: return sl.isOperatorName(_self);>
+	}
+
+	operatorMethodName { :self |
+		<primitive: return sl.operatorMethodName(_self);>
 	}
 
 }
