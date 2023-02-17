@@ -1,4 +1,19 @@
-TextEditor : [Object] { | editorPane editorText isRichText title |
+TextEditor : [Object, View] { | editorPane editorText isRichText title |
+
+	contextMenuEntries { :self |
+		| k = self.keyBindings; |
+		k.keys.withCollect(k.values, { :aString :anAssociation |
+			aString -> anAssociation.value
+		})
+	}
+
+
+	contextMenu { :self :event |
+		workspace::smallKansas.contextMenu(
+			Menu('Text Editor Menu', self.contextMenuEntries),
+			event
+		)
+	}
 
 	createElements { :self |
 		self.editorPane := 'div'.createElement;
@@ -18,6 +33,14 @@ TextEditor : [Object] { | editorPane editorText isRichText title |
 		text
 	}
 
+	currentWord { :self |
+		| text = system.window.getSelectedText; |
+		text.isEmpty.ifTrue {
+			(* This should get the word at point, but it doesn't! *)
+			nil
+		};
+		text
+	}
 
 	initialize { :self :title :isRichText :contents |
 		self.title := title;
@@ -31,36 +54,26 @@ TextEditor : [Object] { | editorPane editorText isRichText title |
 
 	keyBindings { :self |
 		(
-			'Browse It': 'b' -> {
-				workspace::smallKansas.browserOn([system.window.getSelectedText])
+			'Browse It (b)': 'b' -> { :event |
+				workspace::smallKansas.browserOn([self.currentWord], event)
 			},
-			'Do It': 'd' -> {
+			'Do It (d)': 'd' -> { :event |
 				self.currentText.eval
 			},
-			'Help For It': 'h' -> {
-				workspace::smallKansas.helpFor(system.window.getSelectedText.asMethodName)
+			'Help For It (h)': 'h' -> { :event |
+				workspace::smallKansas.helpFor(self.currentWord.asMethodName, event)
 			},
-			'Implementors Of It': 'm' -> {
-				workspace::smallKansas.implementorsOf(system.window.getSelectedText.asMethodName)
+			'Implementors Of It (m)': 'm' -> { :event |
+				workspace::smallKansas.implementorsOf(self.currentWord.asMethodName, event)
 			},
-			'Play It': 'Enter' -> {
+			'Play It (Enter)': 'Enter' -> { :event |
 				('{ ' ++ self.currentText ++ ' }.play').eval
 			},
-			'Reset': '.' -> {
+			'Reset Synthesiser (.)': '.' -> { :event |
 				workspace::clock.clear;
 				system.defaultScSynth.reset;
 			}
 		)
-	}
-
-	keyBindingsArray { :self |
-		self.keyBindings.values.collect { :each |
-				each.key -> {
-					event.stopPropogation;
-					event.preventDefault;
-					each.value.value
-				}
-		}
 	}
 
 
@@ -74,11 +87,16 @@ TextEditor : [Object] { | editorPane editorText isRichText title |
 	}
 
 	setEventHandlers { :self |
+		self.editorPane.addEventListener('contextmenu', { :event |
+			event.stopPropagation;
+			event.preventDefault;
+			self.contextMenu(event)
+		});
 		self.editorText.addEventListener('keydown', { :event |
 			| bindingsArray = self.keyBindings.values.collect { :each |
 				each.key -> {
 					event.preventDefault;
-					each.value.value
+					each.value.value(nil)
 				}
 			}; |
 			event.ctrlKey.ifTrue {

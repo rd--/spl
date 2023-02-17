@@ -4,8 +4,8 @@ loadSequence([
 	'Document/Midi.sl',
 	'Document/Navigator.sl',
 	'Document/ui.sl',
+	'Document/Frame.sl', (* @View *)
 	'Document/ColumnBrowser.sl',
-	'Document/Frame.sl',
 	'Document/Menu.sl',
 	'Document/SmallHours.sl',
 	'Document/SmallKansas.sl',

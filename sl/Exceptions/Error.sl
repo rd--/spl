@@ -22,11 +22,11 @@ Error : [Object] {
 + @Collection {
 
 	errorEmptyCollection { :self |
-		error('errorEmptyCollection: ' ++ self)
+		(self.typeOf ++ '>>errorEmptyCollection: ' ++ self).error
 	}
 
 	errorNotFound { :self :anObject |
-		error('errorNotFound: ' ++ self)
+		(self.typeOf ++ '>>errorNotFound: ' ++ self).error
 	}
 
 }
@@ -34,7 +34,7 @@ Error : [Object] {
 + @SequenceableCollection {
 
 	errorSubscriptBounds { :self :index |
-		error('errorSubscriptBounds: ' ++ index)
+		(self.typeOf ++ '>>errorSubscriptBounds: ' ++ index).error
 	}
 
 }
@@ -42,11 +42,11 @@ Error : [Object] {
 + @Object {
 
 	shouldNotImplement { :self |
-		error('shouldNotImplement: ' ++ self)
+		(self.typeOf ++ '>>shouldNotImplement: ' ++ self).error
 	}
 
 	subclassResponsibility { :self |
-		error('subclassResponsibility: ' ++ self)
+		(self.typeOf ++ '>>subclassResponsibility: ' ++ self).error
 	}
 
 }

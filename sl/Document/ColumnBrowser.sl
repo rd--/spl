@@ -1,4 +1,4 @@
-ColumnBrowser : [Object] { | browserPane columnsPane textEditor columnLists statusPane statusText title |
+ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnLists statusPane statusText title |
 
 	createElements { :self :numberOfColumns :isRichText |
 		self.browserPane := 'div'.createElement;

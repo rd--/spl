@@ -1,4 +1,4 @@
-Menu : [Object] { | menuPane listPane menuList title |
+Menu : [Object, View] { | menuPane listPane menuList title onSelect |
 
 	createElements { :self |
 		self.menuPane := 'div'.createElement;
@@ -29,8 +29,11 @@ Menu : [Object] { | menuPane listPane menuList title |
 		entries.collect { :each |
 			| listItem = TextListItem(each.key); |
 			self.menuList.appendChild(listItem);
-			listItem.addEventListener('pointerdown', { :unusedEvent |
-				each.value.value
+			listItem.addEventListener('pointerdown', { :event |
+				each.value . (event);
+				self.onSelect.ifNotNil {
+					self.onSelect . (each.key)
+				}
 			})
 		}
 	}

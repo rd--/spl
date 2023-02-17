@@ -1,57 +1,99 @@
 SmallKansas : [Object] { | container frameSet |
 
 	addFrame { :self :subject |
-		| frame = Frame(subject, { :frame | self.removeFrame(frame) }); |
+		| frame = Frame(subject, { :frame |
+			self.removeFrame(frame)
+		}); |
 		self.frameSet.add(frame);
-		self.container.appendChild(frame.outerElement)
+		self.container.appendChild(frame.outerElement);
+		frame
 	}
 
-	browserOn { :self :path |
+	addFrameFor { :self :subject :event |
+		| frame = self.addFrame(subject); |
+		event.ifNotNil {
+			frame.setPosition(event.x, event.y)
+		};
+		frame
+	}
+
+	browserOn { :self :path :event |
 		system.isTraitName(path[1]).if {
 			self.addFrame(TraitBrowser().path(path))
 		} {
 			system.isTypeName(path[1]).if {
-				self.addFrame(TypeBrowser().path(path))
+				self.addFrameFor(TypeBrowser().path(path), event)
 			} {
 				('SmallKansas>>browserOn: not a trait or type: ' ++ path[1]).postLine
 			}
 		}
 	}
 
-	categoryBrowser { :self |
-		self.addFrame(CategoryBrowser())
+	categoryBrowser { :self :event |
+		self.addFrameFor(CategoryBrowser(), event)
 	}
 
-	helpBrowser { :self |
-		self.addFrame(workspace::smallHours.helpBrowser)
+	contextMenu { :self :menu :event |
+		| frame = self.addFrameFor(menu, event); |
+		menu.onSelect := {
+			self.removeFrame(frame)
+		};
+		frame
 	}
 
-	helpFor { :self :subject |
+	contextMenuDialog { :self :menu :event |
+		| dialog = 'dialog'.createElement; |
+		dialog.appendChild(menu.outerElement);
+		dialog.style.setProperty('left', event.x.asString ++ 'px', '');
+		dialog.style.setProperty('top', event.y.asString ++ 'px', '');
+		self.container.appendChild(dialog);
+		dialog.showModal;
+		menu.onSelect := {
+			dialog.close
+		};
+		dialog
+	}
+
+	helpBrowser { :self :event |
+		self.addFrameFor(workspace::smallHours.helpBrowser, event)
+	}
+
+	helpFor { :self :subject :event |
 		workspace::smallHours.helpFor(subject).then { :aString |
-			self.addFrame(TextEditor('Help For: ' ++ subject, true, aString))
+			self.addFrameFor(TextEditor('Help For: ' ++ subject, true, aString), event)
 		}
 	}
 
-	implementorsOf { :self :subject |
+	implementorsOf { :self :subject :event |
 		|
 			bracketedSubject = '>>' ++ subject ++ ':/',
 			methodSignatures = system.allMethods.collect(signature:/1).select { :each |
 				each.includesSubstring(bracketedSubject)
 			}.IdentitySet.Array.sorted ;
 		|
-		self.addFrame(MethodSignatureBrowser(methodSignatures))
+		self.addFrameFor(MethodSignatureBrowser(methodSignatures), event)
 	}
 
-	methodBrowser { :self |
-		self.addFrame(MethodBrowser())
+	initialize { :self |
+		self.container.addEventListener('contextmenu', { :event |
+			event.preventDefault;
+			(event.target == self.container).ifTrue {
+				self.worldContextMenu(event)
+			}
+		});
+		self
 	}
 
-	methodSignatureBrowser { :self |
-		self.addFrame(MethodSignatureBrowser())
+	methodBrowser { :self :event |
+		self.addFrameFor(MethodBrowser(), event)
 	}
 
-	programBrowser { :self |
-		self.addFrame(workspace::smallHours.programBrowser)
+	methodSignatureBrowser { :self :event |
+		self.addFrameFor(MethodSignatureBrowser(), event)
+	}
+
+	programBrowser { :self :event |
+		self.addFrameFor(workspace::smallHours.programBrowser, event)
 	}
 
 	removeFrame { :self :frame |
@@ -59,55 +101,60 @@ SmallKansas : [Object] { | container frameSet |
 		self.frameSet.remove(frame)
 	}
 
-	selectedTextMenu { :self |
-		self.addFrame(
-			Menu(
-				'Selected Text Menu',
-				[
-					'Browse It (b)' -> { self.browserOn([system.window.getSelectedText]) },
-					'Do It (d)' -> { system.window.getSelectedText.eval },
-					'Help For It (h)' -> { workspace::smallKansas.helpFor(system.window.getSelectedText.asMethodName) },
-					'Implementors Of It (m)' -> { workspace::smallKansas.implementorsOf(system.window.getSelectedText.asMethodName) },
-					'Play It (Enter)' -> { ('{ ' ++  system.window.getSelectedText ++ ' }.play').eval }
-				]
-			)
-		)
+	systemBrowser { :self :event |
+		self.addFrameFor(SystemBrowser(), event)
 	}
 
-	systemBrowser { :self |
-		self.addFrame(SystemBrowser())
+	traitBrowser { :self :event |
+		self.addFrameFor(TraitBrowser(), event)
 	}
 
-	traitBrowser { :self |
-		self.addFrame(TraitBrowser())
+	typeBrowser { :self :event |
+		self.addFrameFor(TypeBrowser(), event)
 	}
 
-	typeBrowser { :self |
-		self.addFrame(TypeBrowser())
+	worldContextMenu { :self :event |
+		self.contextMenu(Menu('World Menu', self.worldMenuEntries), event)
 	}
 
 	worldMenu { :self |
-		self.addFrame(
-			Menu(
-				'World Menu',
-				[
-					'Category Browser' -> { self.categoryBrowser },
-					'Help Browser' -> { self.helpBrowser },
-					'Method Browser' -> { self.methodBrowser },
-					'Method Signature Browser' -> { self.methodSignatureBrowser },
-					'Program Browser' -> { self.programBrowser },
-					'Reset Synthesiser' -> {
-						workspace::clock.clear;
-						system.defaultScSynth.reset
-					},
-					'Selected Text Menu' -> { self.selectedTextMenu },
-					'System Browser' -> { self.systemBrowser },
-					'Trait Browser' -> { self.traitBrowser },
-					'Type Browser' -> { self.typeBrowser },
-					'Workspace' -> { self.addFrame(TextEditor('Workspace', false, '(* Workspace *)')) }
-				]
-			)
-		)
+		self.addFrameFor(Menu('World Menu', self.worldMenuEntries), nil)
+	}
+
+	worldMenuEntries { :self |
+		[
+			'Category Browser' -> { :event |
+				self.categoryBrowser(event)
+			},
+			'Help Browser' -> { :event |
+				self.helpBrowser(event)
+			},
+			'Method Browser' -> { :event |
+				self.methodBrowser(event)
+			},
+			'Method Signature Browser' -> { :event |
+				self.methodSignatureBrowser(event)
+			},
+			'Program Browser' -> { :event |
+				self.programBrowser(event)
+			},
+			'Reset Synthesiser' -> { :event |
+				workspace::clock.clear;
+				system.defaultScSynth.reset
+			},
+			'System Browser' -> { :event |
+				self.systemBrowser(event)
+			},
+			'Trait Browser' -> { :event |
+				self.traitBrowser(event)
+			},
+			'Type Browser' -> { :event |
+				self.typeBrowser(event)
+			},
+			'Workspace' -> { :event |
+				self.addFrameFor(TextEditor('Workspace', false, '(* Workspace *)'), event)
+			}
+		]
 	}
 
 }
@@ -116,7 +163,7 @@ SmallKansas : [Object] { | container frameSet |
 
 
 	MethodSignatureBrowser { :self |
-		ColumnBrowser('Method Signature Browser On', false, [1], { :browser :path |
+		ColumnBrowser('Method Signature Browser', false, [1], { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					self
@@ -137,7 +184,7 @@ SmallKansas : [Object] { | container frameSet |
 		newSmallKansas().initializeSlots(
 			'smallKansas'.getElementById,
 			IdentitySet()
-		)
+		).initialize
 	}
 
 	MethodBrowser {

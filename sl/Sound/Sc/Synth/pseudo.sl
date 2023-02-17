@@ -36,6 +36,11 @@
 		MulAdd(self, mul, add)
 	}
 
+	PingPongDelay { :left :right :maxDelayTime :delayTime :feedback |
+		<primitive: return sc.PingPongDelay(_left, _right, _maxDelayTime, _delayTime, _feedback);>
+	}
+
+
 	Rand { :self |
 		Rand(0, self)
 	}
