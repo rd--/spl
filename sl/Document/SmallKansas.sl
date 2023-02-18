@@ -4,6 +4,7 @@ SmallKansas : [Object] { | container frameSet midi |
 		| frame = Frame(subject, { :frame |
 			self.removeFrame(frame)
 		}); |
+		frame.zIndex := self.zIndices.max + 1;
 		self.frameSet.add(frame);
 		self.container.appendChild(frame.outerElement);
 		frame
@@ -12,7 +13,7 @@ SmallKansas : [Object] { | container frameSet midi |
 	addFrameFor { :self :subject :event |
 		| frame = self.addFrame(subject); |
 		event.ifNotNil {
-			frame.setPosition(event.x, event.y)
+			frame.moveTo(event.x, event.y)
 		};
 		frame
 	}
@@ -52,6 +53,27 @@ SmallKansas : [Object] { | container frameSet midi |
 			dialog.close
 		};
 		dialog
+	}
+
+	font { :self |
+		self.container.style.getPropertyValue('--font-family')
+	}
+
+	font { :self :fontName|
+		self.container.style.setProperty('--font-family', fontName, '')
+	}
+
+	fontMenuEntries { :self |
+		| makeEntry = { :fontName |
+			fontName -> { :unusedEvent |
+				self.font(fontName)
+			}
+		}; |
+		['APL333', 'Los Altos', 'Parc Place'].collect(makeEntry:/1)
+	}
+
+	fontMenu { :self :event |
+		self.addFrameFor(Menu('Font Menu', self.fontMenuEntries), event)
 	}
 
 	helpBrowser { :self :event |
@@ -128,6 +150,20 @@ SmallKansas : [Object] { | container frameSet midi |
 		self.addFrameFor(TypeBrowser(), event)
 	}
 
+
+	windowMenuEntries { :self |
+		| makeEntry = { :frame |
+			frame.title -> { :unusedEvent |
+				frame.bringToFront
+			}
+		}; |
+		self.frameSet.Array.collect(makeEntry:/1)
+	}
+
+	windowMenu { :self :event |
+		self.contextMenu(Menu('Window Menu', self.windowMenuEntries), event)
+	}
+
 	worldContextMenu { :self :event |
 		self.contextMenu(Menu('World Menu', self.worldMenuEntries), event)
 	}
@@ -140,6 +176,9 @@ SmallKansas : [Object] { | container frameSet midi |
 		[
 			'Category Browser' -> { :event |
 				self.categoryBrowser(event)
+			},
+			'Font Menu' -> { :event |
+				self.fontMenu(event)
 			},
 			'Help Browser' -> { :event |
 				self.helpBrowser(event)
@@ -166,10 +205,21 @@ SmallKansas : [Object] { | container frameSet midi |
 			'Type Browser' -> { :event |
 				self.typeBrowser(event)
 			},
+			'Window Menu' -> { :event |
+				self.windowMenu(event)
+			},
 			'Workspace' -> { :event |
 				self.addFrameFor(TextEditor('Workspace', false, '(* Workspace *)'), event)
 			}
 		]
+	}
+
+	zIndices { :self |
+		self.frameSet.isEmpty.if { 
+			[0]
+		} {
+			self.frameSet.collect(zIndex:/1)
+		}
 	}
 
 }

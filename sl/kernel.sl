@@ -8,7 +8,7 @@ loadSequence([
 	'Numbers/Integral.sl',
 	'Numbers/Magnitude.sl',
 	'Numbers/Numeric.sl',
-	'Numbers/Number.sl',
+	'Numbers/Number.sl', (* +String *)
 	'Collections/ArrayedCollection.sl',
 	'Collections/Collection.sl',
 	'Collections/SequenceableCollection.sl',

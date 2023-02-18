@@ -148,6 +148,8 @@
 	title { :self | <primitive: return _self.title;> }
 	title { :self :aString | <primitive: return _self.title = _aString;> }
 
+	computedStyle { :self | <primitive: return window.getComputedStyle(_self);> }
+
 }
 
 @MouseEvent {

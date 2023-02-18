@@ -460,6 +460,9 @@ pi.randomFloat.isInteger = false
 var r; 5.do { :each | r := each }; r = 5
 var r; 0.do { :each | r := each }; r = nil
 1.toDo(0) { :each | 'toDo'.error }; true
+'3.141'.parseNumber = 3.141
+'23'.parseInteger(10) = 23
+
 
 'System/system'
 system.typeOf = 'System'

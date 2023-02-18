@@ -15,6 +15,10 @@
 
 Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 |
 
+	bringToFront { :self |
+		self.zIndex := workspace::smallKansas.zIndices.max + 1;
+	}
+
 	createElements { :self :contents |
 		self.framePane := 'div'.createElement;
 		self.titlePane :=  'div'.createElement;
@@ -34,14 +38,21 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 
 	initialize { :self :title :kind :contents :onClose:/1 |
 		self.createElements(contents);
-		self.setTitle(title);
 		self.setAttributes(kind);
 		self.setEventHandlers(onClose:/1);
+		self.title := title;
 		self
 	}
 
 	outerElement { :self |
 		self.framePane
+	}
+
+	moveTo { :self :x :y |
+		self.x := x;
+		self.y := y;
+		self.framePane.style.setProperty('left', x.asString ++ 'px', '');
+		self.framePane.style.setProperty('top', y.asString ++ 'px', '');
 	}
 
 	setAttributes { :self :kind |
@@ -56,6 +67,7 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 		});
 		self.titlePane.addEventListener('pointerdown', { :event |
 			| titleRect = event.target.getBoundingClientRect; |
+			self.bringToFront;
 			event.target.setPointerCapture(event.pointerId);
 			self.inMove := true;
 			self.x0 := event.x - titleRect.x;
@@ -67,7 +79,7 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 				event.cancelable.ifTrue {
 					event.preventDefault;
 				};
-				self.setPosition(
+				self.moveTo(
 					event.x - self.x0,
 					event.y- self.y0
 				);
@@ -79,15 +91,20 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 		});
 	}
 
-	setPosition { :self :x :y |
-		self.x := x;
-		self.y := y;
-		self.framePane.style.setProperty('left', x.asString ++ 'px', '');
-		self.framePane.style.setProperty('top', y.asString ++ 'px', '');
+	title { :self |
+		self.titleText.textContent
 	}
 
-	setTitle { :self :aString |
+	title { :self :aString |
 		self.titleText.textContent := aString
+	}
+
+	zIndex { :self |
+		self.framePane.style.getPropertyValue('z-index').parseInteger(10)
+	}
+
+	zIndex { :self :anInteger |
+		self.framePane.style.setProperty('z-index', anInteger.asString, '')
 	}
 
 }
