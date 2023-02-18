@@ -1,4 +1,4 @@
-SmallKansas : [Object] { | container frameSet |
+SmallKansas : [Object] { | container frameSet midi |
 
 	addFrame { :self :subject |
 		| frame = Frame(subject, { :frame |
@@ -75,6 +75,11 @@ SmallKansas : [Object] { | container frameSet |
 	}
 
 	initialize { :self |
+		self.initializeSlots(
+			'smallKansas'.getElementById,
+			IdentitySet(),
+			nil
+		);
 		self.container.addEventListener('contextmenu', { :event |
 			event.preventDefault;
 			(event.target == self.container).ifTrue {
@@ -82,6 +87,16 @@ SmallKansas : [Object] { | container frameSet |
 			}
 		});
 		self
+	}
+
+	initializeMidi { :self |
+		self.midi.ifNil {
+			system.window.navigator.requestMidiAccess.thenElse { :midiAccess |
+				self.midi := midiAccess
+			} { :message |
+				('SmallKansas>>initializeMidi: no midi: ' + message).postLine
+			}
+		}
 	}
 
 	methodBrowser { :self :event |
@@ -170,6 +185,13 @@ SmallKansas : [Object] { | container frameSet |
 				},
 				1 -> {
 					| [traitOrTypeName, methodName, arity] = path[1].parseMethodSignature; |
+					browser.setStatus(
+						system.isTraitName(traitOrTypeName).if {
+							'Trait'
+						} {
+							'Type'
+						}
+					);
 					system.methodLookup(methodName, arity, traitOrTypeName).definition
 				}
 			])
@@ -181,10 +203,7 @@ SmallKansas : [Object] { | container frameSet |
 + Void {
 
 	SmallKansas {
-		newSmallKansas().initializeSlots(
-			'smallKansas'.getElementById,
-			IdentitySet()
-		).initialize
+		newSmallKansas().initialize
 	}
 
 	MethodBrowser {
@@ -198,6 +217,13 @@ SmallKansas : [Object] { | container frameSet |
 					system.methodTraits(path[1]) ++ system.methodTypes(path[1])
 				},
 				2 -> {
+					browser.setStatus(
+						system.isTraitName(path[2]).if {
+							'Trait'
+						} {
+							'Type'
+						}
+					);
 					system.traitOrType(path[2]).methodDictionary[path[1]].definition
 				}
 			])

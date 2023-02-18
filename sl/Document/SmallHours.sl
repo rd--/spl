@@ -1,7 +1,7 @@
 SmallHours : [Object] { | helpIndex programIndex |
 
 	helpAreas { :self |
-		['spl', 'sc']
+		['spl', 'sc', 'sk']
 	}
 
 	helpKind { :self :area |
@@ -67,11 +67,11 @@ SmallHours : [Object] { | helpIndex programIndex |
 	}
 
 	helpProject { :self :area |
-		(area = 'sc').if {
-			'stsc3'
-		} {
-			area
-		}
+		area.caseOf([
+			'sc' -> { 'stsc3' },
+			'sk' -> { 'spl' },
+			'spl' -> { 'spl' }
+		])
 	}
 
 	helpUrl { :self :area :kind :name |

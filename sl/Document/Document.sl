@@ -107,8 +107,16 @@
 		<primitive: return _self.addEventListener(_aString, _aProcedure);>
 	}
 
+	addEventListener { :self :aString :aProcedure :options |
+		<primitive: return _self.addEventListener(_aString, _aProcedure, Object.fromEntries(_options));>
+	}
+
 	dispatchEvent { :self :event |
 		<primitive: return _self.dispatchEvent(_event);>
+	}
+
+	removeEventListener { :self :aString :aProcedure |
+		<primitive: return _self.removeEventListener(_aString, _aProcedure);>
 	}
 
 }

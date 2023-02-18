@@ -1,5 +1,13 @@
 Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
+	clear { :self |
+		self.priorityQueue.clearAndShrink;
+		self.existingDelay.ifNotNil {
+			self.existingDelay.cancel
+		};
+		self.nextEntryTime := nil;
+		self.existingDelay := nil
+	}
 
 	collectTexture { :self :aCollection :aProcedure:/1 :delay |
 		| end = aCollection.size; |
@@ -13,6 +21,10 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 				index + 1
 			}
 		}, 1, delay)
+	}
+
+	initialize { :self |
+		self.initializeSlots(PriorityQueue(), nil, nil)
 	}
 
 	playEvery { :self :aProcedure :delay |
@@ -117,15 +129,6 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		}
 	}
 
-	clear { :self |
-		self.priorityQueue.clearAndShrink;
-		self.existingDelay.ifNotNil {
-			self.existingDelay.cancel
-		};
-		self.nextEntryTime := nil;
-		self.existingDelay := nil;
-	}
-
 }
 
 + Number {
@@ -155,7 +158,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 + Void {
 
 	Clock {
-		newClock().initializeSlots(PriorityQueue(), nil, nil)
+		newClock().initialize
 	}
 
 }
