@@ -550,3 +550,7 @@ system.type('Array').name = 'Array'
 system.type('Array').methodDictionary.includesKey('copy:/1') = true
 system.type('Array').methodDictionary::copy:/1.isMethod = true
 system.typeMethodSet('Array').collect(name:/1).includes('select') = true
+
+'Time/TimeStamp'
+1676784053576.TimeStamp.iso8601 = '2023-02-19T05:20:53.576Z'
+system.unixTimeInMilliseconds.TimeStamp.iso8601.size = 24

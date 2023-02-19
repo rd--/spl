@@ -1,4 +1,17 @@
-Menu : [Object, View] { | menuPane listPane menuList title onSelect |
+Menu : [Object, View] { | frame menuPane listPane menuList title persistent onSelect |
+
+	contextMenu { :self :event |
+		workspace::smallKansas.contextMenu(
+			Menu(
+				'Menu Menu',
+				[
+					'persistent' -> { :unusedEvent | self.persistent := true },
+					'transient' -> { :unusedEvent | self.persistent := false }
+				]
+			),
+			event
+		);
+	}
 
 	createElements { :self |
 		self.menuPane := 'div'.createElement;
@@ -10,6 +23,7 @@ Menu : [Object, View] { | menuPane listPane menuList title onSelect |
 
 	initialize { :self :title :entries |
 		self.title := title;
+		self.persistent := true;
 		self.createElements;
 		self.setAttributes;
 		self.setEntries(entries);
@@ -31,6 +45,11 @@ Menu : [Object, View] { | menuPane listPane menuList title onSelect |
 			self.menuList.appendChild(listItem);
 			listItem.addEventListener('pointerdown', { :event |
 				each.value . (event);
+				self.persistent.ifFalse {
+					self.frame.ifNotNil {
+						self.frame.close
+					}
+				};
 				self.onSelect.ifNotNil {
 					self.onSelect . (each.key)
 				}

@@ -3,7 +3,7 @@ system.categorizeAll('Collections/Unordered', ['Association', 'IdentityDictionar
 system.categorizeAll('Kernel', ['Boolean', 'Error', 'LargeInteger', 'Number', 'Procedure', 'Promise', 'UndefinedObject', 'Void']);
 system.categorizeAll('Kernel/System', ['Method', 'System', 'Trait', 'Type']);
 system.categorizeAll('Text', ['String', 'RegExp']);
-system.categorizeAll('Time', ['Duration']);
+system.categorizeAll('Time', ['Duration', 'TimeStamp']);
 
 system.categorizeAll('Sound/Sc/Lang', ['Clock']);
 system.categorizeAll('Sound/Sc/Synth', ['CcEvent', 'Env', 'ScSynth', 'ScUgen', 'Ugen', 'UgenGraph']);

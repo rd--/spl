@@ -1,9 +1,8 @@
 SmallKansas : [Object] { | container frameSet midi |
 
 	addFrame { :self :subject |
-		| frame = Frame(subject, { :frame |
-			self.removeFrame(frame)
-		}); |
+		| frame = Frame(subject); |
+		subject.frame := frame;
 		frame.zIndex := self.zIndices.max + 1;
 		self.frameSet.add(frame);
 		self.container.appendChild(frame.outerElement);
@@ -34,11 +33,29 @@ SmallKansas : [Object] { | container frameSet midi |
 		self.addFrameFor(CategoryBrowser(), event)
 	}
 
+	clock { :self :event |
+		|
+			textEditor = TextEditor('Clock', false, ''),
+			setTime = {
+				textEditor.setEditorText(system.unixTimeInMilliseconds.roundTo(1000).TimeStamp.iso8601)
+			},
+			timerId = setTime.evaluateEveryMilliseconds(1000),
+			frame = self.addFrameFor(textEditor, event);
+		|
+		textEditor.editable := false;
+		frame.outerElement.style.setProperties((height: '5em', width: '20em'));
+		frame.addListener { :event |
+			(event = 'close').ifTrue {
+				timerId.cancel
+			}
+		};
+		setTime();
+		frame
+	}
+
 	contextMenu { :self :menu :event |
 		| frame = self.addFrameFor(menu, event); |
-		menu.onSelect := {
-			self.removeFrame(frame)
-		};
+		menu.persistent := false;
 		frame
 	}
 
@@ -63,17 +80,49 @@ SmallKansas : [Object] { | container frameSet midi |
 		self.container.style.setProperty('--font-family', fontName, '')
 	}
 
-	fontMenuEntries { :self |
-		| makeEntry = { :fontName |
-			fontName -> { :unusedEvent |
-				self.font(fontName)
-			}
-		}; |
-		['APL333', 'Los Altos', 'Parc Place'].collect(makeEntry:/1)
+	fontMenu { :self :event |
+		self.addFrameFor(Menu('Font Menu', self.fontMenuEntriesOn(self)), event)
 	}
 
-	fontMenu { :self :event |
-		self.addFrameFor(Menu('Font Menu', self.fontMenuEntries), event)
+	fontMenuEntriesOn { :self :subject |
+		['APL333', 'Los Altos', 'Parc Place'].collect { :fontName |
+			fontName -> { :unusedEvent |
+				subject.font := fontName
+			}
+		}
+	}
+
+	fontMenuOn { :self :subject :event |
+		self.addFrameFor(Menu('Font Menu', self.fontMenuEntriesOn(subject)), event)
+	}
+
+	fontSize { :self :fontSize |
+		['fontSize', fontSize.asString ++ 'em'].postLine;
+		self.container.style.setProperty('--font-size', fontSize.asString ++ 'em', '')
+	}
+
+	fontSizeMenuEntries { :self |
+(*
+			'½' -> 0.5, '⅗' -> 0.6, '⅝' -> 0.625, '⅔' -> 0.666, '¾' -> 0.75, '⅘' -> 0.8, '⅚' -> 0.833 , '⅞' -> 0.875,
+			'1' -> 1,
+			'1+⅒' -> 1.1, '1+⅑' -> 1.111, '1+⅛' -> 1.125, '1+⅐' -> 1.142, '1+⅙' -> 1.166, '1+⅕' -> 1.2, '1+¼' -> 1.25, '1+⅓' -> 1.333, '1+⅜' -> 1.375, '1+⅖' -> 1.4,
+			'1+½' -> 1.5, '1+⅗' -> 1.6, '1+⅔' -> 1.666, '1+¾' -> 1.75, '1+⅘' -> 1.8,
+			'2' -> 2
+*)
+		[
+			'½' -> 0.5, '⅔' -> 0.666, '¾' -> 0.75, '⅞' -> 0.875,
+			'1' -> 1,
+			'1+¼' -> 1.25, '1+½' -> 1.5, '1+¾' -> 1.75,
+			'2' -> 2
+		].collect { :fontSize |
+			fontSize.key -> { :unusedEvent |
+				self.fontSize := fontSize.value
+			}
+		}
+	}
+
+	fontSizeMenu { :self :event |
+		self.addFrameFor(Menu('Font Size Menu', self.fontSizeMenuEntries), event)
 	}
 
 	helpBrowser { :self :event |
@@ -82,7 +131,10 @@ SmallKansas : [Object] { | container frameSet midi |
 
 	helpFor { :self :subject :event |
 		workspace::smallHours.helpFor(subject).then { :aString |
-			self.addFrameFor(TextEditor('Help For: ' ++ subject, true, aString), event)
+			self.addFrameFor(
+				TextEditor('Help For: ' ++ subject, true, aString),
+				event
+			)
 		}
 	}
 
@@ -177,8 +229,14 @@ SmallKansas : [Object] { | container frameSet midi |
 			'Category Browser' -> { :event |
 				self.categoryBrowser(event)
 			},
+			'Clock' -> { :event |
+				self.clock(event)
+			},
 			'Font Menu' -> { :event |
 				self.fontMenu(event)
+			},
+			'Font Size Menu' -> { :event |
+				self.fontSizeMenu(event)
 			},
 			'Help Browser' -> { :event |
 				self.helpBrowser(event)
@@ -209,7 +267,10 @@ SmallKansas : [Object] { | container frameSet midi |
 				self.windowMenu(event)
 			},
 			'Workspace' -> { :event |
-				self.addFrameFor(TextEditor('Workspace', false, '(* Workspace *)'), event)
+				self.addFrameFor(
+					TextEditor('Workspace', false, '(* Workspace *)'),
+					event
+				)
 			}
 		]
 	}

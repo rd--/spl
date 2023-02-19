@@ -16,5 +16,6 @@ loadSequence([
 	'Collections/ByteArray.sl', (* +Array, +Number *)
 	'System/System.sl',
 	'System/Window.sl',
-	'Text/String.sl' (* +Array +ByteArray *)
+	'Text/String.sl', (* +Array +ByteArray *)
+	'Time/TimeStamp.sl' (* +Number *)
 ])

@@ -1,6 +1,13 @@
 @View {
 
-	onClose { :self |
+	contextMenu { :self :event |
+		['View>>contextMenu', self.title].postLine
+	}
+
+	frame { :self :aFrame |
+	}
+
+	onFrameEvent { :self :frameEvent |
 	}
 
 	outerElement { :self |
@@ -13,13 +20,24 @@
 
 }
 
-Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 |
+Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 listenerSet |
+
+	addListener { :self :aProcedure:/1 |
+		self.listenerSet.add(aProcedure:/1)
+	}
 
 	bringToFront { :self |
 		self.zIndex := workspace::smallKansas.zIndices.max + 1;
 	}
 
-	createElements { :self :contents |
+	close { :self |
+		self.listenerSet.do { :each |
+			each.value('close')
+		};
+		workspace::smallKansas.removeFrame(self)
+	}
+
+	createElements { :self :subject |
 		self.framePane := 'div'.createElement;
 		self.titlePane :=  'div'.createElement;
 		self.closeButton := 'pre'.createElement;
@@ -30,17 +48,18 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 		]);
 		self.framePane.appendChildren([
 			self.titlePane,
-			contents
+			subject
 		]);
 		self.closeButton.textContent := '×';
 		self.inMove := false
 	}
 
-	initialize { :self :title :kind :contents :onClose:/1 |
-		self.createElements(contents);
-		self.setAttributes(kind);
-		self.setEventHandlers(onClose:/1);
-		self.title := title;
+	initialize { :self :subject |
+		self.createElements(subject.outerElement);
+		self.setAttributes(subject.typeOf);
+		self.setEventHandlers(subject);
+		self.title := subject.title;
+		self.listenerSet := IdentitySet();
 		self
 	}
 
@@ -61,9 +80,13 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 		self.closeButton.setAttribute('class', 'closeButton')
 	}
 
-	setEventHandlers { :self :onClose:/1 |
+	setEventHandlers { :self :subject |
 		self.closeButton.addEventListener('pointerup', { :unusedEvent |
-			onClose(self)
+			self.close
+		});
+		self.titlePane.addEventListener('contextmenu', { :event |
+			event.preventDefault;
+			subject.contextMenu(event)
 		});
 		self.titlePane.addEventListener('pointerdown', { :event |
 			| titleRect = event.target.getBoundingClientRect; |
@@ -110,15 +133,10 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 }
 
 
-+ @Object {
++ @View {
 
-	Frame { :self :onClose:/1 |
-		newFrame().initialize(
-			self.title,
-			self.typeOf,
-			self.outerElement, onClose:/1
-		)
-
+	Frame { :self |
+		newFrame().initialize(self)
 	}
 
 }

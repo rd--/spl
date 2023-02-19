@@ -42,6 +42,14 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 		text
 	}
 
+	editable { :self :aBoolean |
+		self.editorText.setAttribute('contentEditable', aBoolean.printString)
+	}
+
+	font { :self :fontName|
+		self.editorPane.style.setProperty('--font-family', fontName, '')
+	}
+
 	initialize { :self :title :isRichText :contents |
 		self.title := title;
 		self.isRichText := isRichText;
@@ -59,6 +67,9 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 			},
 			'Do It (d)': 'd' -> { :event |
 				self.currentText.eval
+			},
+			'Font Menu (f)' : 'f' -> { :event |
+				workspace::smallKansas.fontMenuOn(self, event)
 			},
 			'Help For It (h)': 'h' -> { :event |
 				workspace::smallKansas.helpFor(self.currentWord.asMethodName, event)
@@ -111,8 +122,13 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 	}
 
 	setEditorText { :self :aString |
+		| isMarkdown = aString.isEmpty | { aString[1] = '#' }; |
 		self.isRichText.if {
-			self.editorText.innerHTML := aString.markdownToHtml
+			self.editorText.innerHTML := isMarkdown.if {
+				aString.markdownToHtml
+			} {
+				'<pre>' ++ aString ++ '</pre>'
+			}
 		} {
 			self.editorText.textContent := aString
 		}
