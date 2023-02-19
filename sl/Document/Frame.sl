@@ -7,9 +7,6 @@
 	frame { :self :aFrame |
 	}
 
-	onFrameEvent { :self :frameEvent |
-	}
-
 	outerElement { :self |
 		self.subclassResponsibility
 	}
@@ -22,7 +19,7 @@
 
 Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 listenerSet |
 
-	addListener { :self :aProcedure:/1 |
+	addEventListener { :self :aProcedure:/1 |
 		self.listenerSet.add(aProcedure:/1)
 	}
 
@@ -32,7 +29,7 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 
 	close { :self |
 		self.listenerSet.do { :each |
-			each.value('close')
+			each.value(Event('close'))
 		};
 		workspace::smallKansas.removeFrame(self)
 	}
@@ -48,15 +45,15 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 		]);
 		self.framePane.appendChildren([
 			self.titlePane,
-			subject
+			subject.outerElement
 		]);
 		self.closeButton.textContent := '×';
 		self.inMove := false
 	}
 
 	initialize { :self :subject |
-		self.createElements(subject.outerElement);
-		self.setAttributes(subject.typeOf);
+		self.createElements(subject);
+		self.setAttributes(subject);
 		self.setEventHandlers(subject);
 		self.title := subject.title;
 		self.listenerSet := IdentitySet();
@@ -74,8 +71,8 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 		self.framePane.style.setProperty('top', y.asString ++ 'px', '');
 	}
 
-	setAttributes { :self :kind |
-		self.framePane.setAttribute('class', ['framePane', kind].unwords);
+	setAttributes { :self :subject |
+		self.framePane.setAttribute('class', ['framePane', subject.typeOf].unwords);
 		self.titlePane.setAttribute('class', 'titlePane');
 		self.closeButton.setAttribute('class', 'closeButton')
 	}

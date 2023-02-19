@@ -44,8 +44,8 @@ SmallKansas : [Object] { | container frameSet midi |
 		|
 		textEditor.editable := false;
 		frame.outerElement.style.setProperties((height: '5em', width: '20em'));
-		frame.addListener { :event |
-			(event = 'close').ifTrue {
+		frame.addEventListener { :event |
+			(event.type = 'close').ifTrue {
 				timerId.cancel
 			}
 		};
