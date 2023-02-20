@@ -84,7 +84,8 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 	}
 
 	setEventHandlers { :self :subject |
-		self.closeButton.addEventListener('pointerup', { :unusedEvent |
+		self.closeButton.addEventListener('pointerup', { :event |
+			event.preventDefault;
 			self.close
 		});
 		self.titlePane.addEventListener('contextmenu', { :event |
@@ -93,6 +94,7 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 		});
 		self.titlePane.addEventListener('pointerdown', { :event |
 			| titleRect = event.target.getBoundingClientRect; |
+			event.preventDefault;
 			self.bringToFront;
 			event.target.setPointerCapture(event.pointerId);
 			self.inMove := true;

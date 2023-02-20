@@ -1,4 +1,4 @@
-Menu : [Object, View] { | frame menuPane listPane menuList title isTransient onSelect |
+Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 
 	contextMenu { :self :event |
 		|
@@ -42,15 +42,13 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient onS
 		entries.collect { :each |
 			| listItem = TextListItem(each.key); |
 			self.menuList.appendChild(listItem);
-			listItem.addEventListener('pointerup', { :event |
+			listItem.addEventListener('pointerdown', { :event |
+				event.preventDefault;
 				each.value . (event);
 				self.isTransient.ifTrue {
 					self.frame.ifNotNil {
 						self.frame.close
 					}
-				};
-				self.onSelect.ifNotNil {
-					self.onSelect . (each.key)
 				}
 			})
 		}
