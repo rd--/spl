@@ -43,6 +43,10 @@ HTMLButtonElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
+HTMLCollection : [Object, HtmlCollection] {
+
+}
+
 HTMLDialogElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	close { :self | <primitive: return _self.close();> }

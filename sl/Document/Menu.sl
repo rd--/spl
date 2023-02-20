@@ -1,16 +1,14 @@
-Menu : [Object, View] { | frame menuPane listPane menuList title persistent onSelect |
+Menu : [Object, View] { | frame menuPane listPane menuList title isTransient onSelect |
 
 	contextMenu { :self :event |
-		workspace::smallKansas.contextMenu(
-			Menu(
-				'Menu Menu',
-				[
-					'persistent' -> { :unusedEvent | self.persistent := true },
-					'transient' -> { :unusedEvent | self.persistent := false }
-				]
-			),
-			event
-		);
+		|
+			entries = self.isTransient.if {
+				[ 'markNotTransient' -> { :unusedEvent | self.isTransient := false } ]
+			} {
+				[ 'markTransient' -> { :unusedEvent | self.isTransient := true } ]
+			};
+		|
+		workspace::smallKansas.menu('Menu Context Menu', entries, true, event);
 	}
 
 	createElements { :self |
@@ -23,7 +21,7 @@ Menu : [Object, View] { | frame menuPane listPane menuList title persistent onSe
 
 	initialize { :self :title :entries |
 		self.title := title;
-		self.persistent := true;
+		self.isTransient := false;
 		self.createElements;
 		self.setAttributes;
 		self.setEntries(entries);
@@ -40,12 +38,13 @@ Menu : [Object, View] { | frame menuPane listPane menuList title persistent onSe
 	}
 
 	setEntries { :self :entries |
+		self.menuList.removeAllChildren;
 		entries.collect { :each |
 			| listItem = TextListItem(each.key); |
 			self.menuList.appendChild(listItem);
-			listItem.addEventListener('pointerdown', { :event |
+			listItem.addEventListener('pointerup', { :event |
 				each.value . (event);
-				self.persistent.ifFalse {
+				self.isTransient.ifTrue {
 					self.frame.ifNotNil {
 						self.frame.close
 					}

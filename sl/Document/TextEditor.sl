@@ -9,8 +9,10 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 
 
 	contextMenu { :self :event |
-		workspace::smallKansas.contextMenu(
-			Menu('Text Editor Menu', self.contextMenuEntries),
+		workspace::smallKansas.menu(
+			'Text Editor Menu',
+			self.contextMenuEntries,
+			true,
 			event
 		)
 	}
@@ -50,6 +52,10 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 		self.editorPane.style.setProperty('--font-family', fontName, '')
 	}
 
+	fontSize { :self :fontSize |
+		self.editorPane.style.setProperty('--font-size', fontSize.asString ++ 'em', '')
+	}
+
 	initialize { :self :title :isRichText :contents |
 		self.title := title;
 		self.isRichText := isRichText;
@@ -69,7 +75,10 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 				self.currentText.eval
 			},
 			'Font Menu (f)' : 'f' -> { :event |
-				workspace::smallKansas.fontMenuOn(self, event)
+				workspace::smallKansas.fontMenuOn(self, true, event)
+			},
+			'Font Size Menu (s)' : 's' -> { :event |
+				workspace::smallKansas.fontSizeMenuOn(self, true, event)
 			},
 			'Help For It (h)': 'h' -> { :event |
 				workspace::smallKansas.helpFor(self.currentWord.asMethodName, event)

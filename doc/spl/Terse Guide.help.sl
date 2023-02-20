@@ -159,6 +159,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 (1 .. 9).collect{ :x | x * x }.last = 81
 (1 .. 9).collect{ :x | x * x }.collect{ :x | x * x }.last = 6561
 [].species.new(3) = [nil, nil, nil]
+[1 .. 9].last(5) = [5 .. 9]
+{ [1 .. 3].last(5) }.ifError { :err | true }
 
 'Collections/Association'
 ('x' -> 1).typeOf = 'Association'
@@ -554,3 +556,8 @@ system.typeMethodSet('Array').collect(name:/1).includes('select') = true
 'Time/TimeStamp'
 1676784053576.TimeStamp.iso8601 = '2023-02-19T05:20:53.576Z'
 system.unixTimeInMilliseconds.TimeStamp.iso8601.size = 24
+
+'Syntax/Trailing Procedures'
+1.to(9).collect{ :x | x * x }.last = 81
+[1, 3, 5].withCollect([1, 3, 5]) { :p :q | p -> q } = [1 -> 1, 3 -> 3, 5 -> 5]
+[1, 3, 5].reversed.withCollect([5, 3, 1]) { :p :q | p -> q }

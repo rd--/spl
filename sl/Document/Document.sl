@@ -53,6 +53,8 @@
 
 	append { :self :anArray | <primitive: return _self.append(..._anArray);> }
 	attributes { :self | <primitive: return _self.attributes;> }
+	childElementCount { :self | <primitive: return _self.childElementCount;> }
+	children { :self | <primitive: return _self.children;> }
 	classList { :self | <primitive: return _self.classList;> }
 	className { :self | <primitive: return _self.className;> }
 	className { :self :aString | <primitive: return _self.className = _aString;> }
@@ -80,6 +82,12 @@
 		self.setAttribute(key, value)
 	}
 *)
+
+	removeAllChildren { :self |
+		self.children.Array.do { :each |
+			each.remove
+		}
+	}
 
 	setAttributes { :self :aDictionary |
 		aDictionary.keysAndValuesDo { :key :value |
@@ -126,6 +134,8 @@
 	item { :self :anInteger | <primitive: return _self.item(_anInteger);> }
 	length { :self | <primitive: return _self.length;> }
 	namedItem { :self :aString | <primitive: return _self.namedItem(_aString);> }
+
+	Array { :self | <primitive: return Array.from(_self);> }
 
 }
 

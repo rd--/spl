@@ -3,6 +3,9 @@
 	do { :self :aProcedure | <primitive: return _self.forEach(_aProcedure);> }
 	size { :self | <primitive: return _self.size;> }
 
+
+	ports { :self | <primitive: return Array.from(_self.values());> }
+
 }
 
 @MidiPort {
@@ -15,21 +18,48 @@
 	type { :self | <primitive: return _self.type;> }
 	version { :self | <primitive: return _self.version;> }
 
-	postLine { :self |
-		[
-			self.type, self.id, self.manufacturer, self.name, self.version
-		].joinSeparatedBy(', ').postLine
+	asDictionary { :self |
+		(
+			type: self.type,
+			id: self.id,
+			manufacturer: self.manufacturer,
+			name: self.name,
+			version: self.version,
+			state: self.state,
+			connection: self.connection
+		)
 	}
+
+	printString { :self |
+		self.asDictionary.json
+	}
+
 
 }
 
 MIDIAccess : [Object, EventTarget] {
 
 	inputs { :self | <primitive: return _self.inputs;> }
+	onstatechange { :self :aProcedure | <primitive: return _self.onstatechange = _aProcedure;> }
 	outputs { :self | <primitive: return _self.outputs;> }
 	sysexEnabled { :self | <primitive: return _self.sysexEnabled;> }
 
-	onstatechange { :self :aProcedure | <primitive: return _self.onstatechange = _aProcedure;> }
+
+	portByName { :self :type :manufacturer :name |
+		self.ports(type).detect { :port |
+			port.manufacturer = manufacturer & {
+				port.name = name
+			}
+		}
+	}
+
+	ports { :self :type |
+		(type = 'input').if {
+			self.inputs.ports
+		} {
+			self.outputs.ports
+		}
+	}
 
 }
 
@@ -59,4 +89,6 @@ MIDIOutputMap : [Object, MidiMap] {
 
 }
 
+MIDIOutput : [Object, EventTarget, MidiPort] {
 
+}

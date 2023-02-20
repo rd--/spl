@@ -1,28 +1,34 @@
-SmallKansas : [Object] { | container frameSet midi |
+SmallKansas : [Object] { | container frameSet midiAccess |
 
-	addFrame { :self :subject |
+	addFrameWithAnimator { :self :subject :event :intervalInSeconds :aProcedure:/0 |
+		|
+			timerId = aProcedure:/0.evaluateEveryMilliseconds(intervalInSeconds * 1000),
+			frame = self.addFrame(subject, event);
+		|
+		frame.addEventListener('close', { :unusedEvent |
+			timerId.cancel
+		});
+		frame
+	}
+
+	addFrame { :self :subject :event |
 		| frame = Frame(subject); |
 		subject.frame := frame;
 		frame.zIndex := self.zIndices.max + 1;
+		event.ifNotNil {
+			frame.moveTo(event.x, event.y)
+		};
 		self.frameSet.add(frame);
 		self.container.appendChild(frame.outerElement);
 		frame
 	}
 
-	addFrameFor { :self :subject :event |
-		| frame = self.addFrame(subject); |
-		event.ifNotNil {
-			frame.moveTo(event.x, event.y)
-		};
-		frame
-	}
-
 	browserOn { :self :path :event |
 		system.isTraitName(path[1]).if {
-			self.addFrame(TraitBrowser().path(path))
+			self.addFrame(TraitBrowser().path(path), event)
 		} {
 			system.isTypeName(path[1]).if {
-				self.addFrameFor(TypeBrowser().path(path), event)
+				self.addFrame(TypeBrowser().path(path), event)
 			} {
 				('SmallKansas>>browserOn: not a trait or type: ' ++ path[1]).postLine
 			}
@@ -30,45 +36,32 @@ SmallKansas : [Object] { | container frameSet midi |
 	}
 
 	categoryBrowser { :self :event |
-		self.addFrameFor(CategoryBrowser(), event)
+		self.addFrame(CategoryBrowser(), event)
 	}
 
 	clock { :self :event |
 		|
-			textEditor = TextEditor('Clock', false, ''),
-			setTime = {
-				textEditor.setEditorText(system.unixTimeInMilliseconds.roundTo(1000).TimeStamp.iso8601)
+			getTime = {
+				system.unixTimeInMilliseconds.roundTo(1000).TimeStamp.iso8601
 			},
-			timerId = setTime.evaluateEveryMilliseconds(1000),
-			frame = self.addFrameFor(textEditor, event);
+			textEditor = TextEditor('Clock', false, getTime()),
+			frame = self.addFrameWithAnimator(textEditor, event, 1, {
+				textEditor.setEditorText(getTime())
+			});
 		|
 		textEditor.editable := false;
-		frame.outerElement.style.setProperties((height: '5em', width: '20em'));
-		frame.addEventListener { :event |
-			(event.type = 'close').ifTrue {
-				timerId.cancel
-			}
-		};
-		setTime();
+		frame.outerElement.style.setProperties((height: '75px', width: '275px'));
 		frame
 	}
 
-	contextMenu { :self :menu :event |
-		| frame = self.addFrameFor(menu, event); |
-		menu.persistent := false;
-		frame
-	}
-
-	contextMenuDialog { :self :menu :event |
+	dialog { :self :subject :event |
 		| dialog = 'dialog'.createElement; |
-		dialog.appendChild(menu.outerElement);
+		dialog.appendChild(subject.outerElement);
 		dialog.style.setProperty('left', event.x.asString ++ 'px', '');
 		dialog.style.setProperty('top', event.y.asString ++ 'px', '');
 		self.container.appendChild(dialog);
+		subject.dialog(dialog);
 		dialog.showModal;
-		menu.onSelect := {
-			dialog.close
-		};
 		dialog
 	}
 
@@ -80,10 +73,6 @@ SmallKansas : [Object] { | container frameSet midi |
 		self.container.style.setProperty('--font-family', fontName, '')
 	}
 
-	fontMenu { :self :event |
-		self.addFrameFor(Menu('Font Menu', self.fontMenuEntriesOn(self)), event)
-	}
-
 	fontMenuEntriesOn { :self :subject |
 		['APL333', 'Los Altos', 'Parc Place'].collect { :fontName |
 			fontName -> { :unusedEvent |
@@ -92,46 +81,36 @@ SmallKansas : [Object] { | container frameSet midi |
 		}
 	}
 
-	fontMenuOn { :self :subject :event |
-		self.addFrameFor(Menu('Font Menu', self.fontMenuEntriesOn(subject)), event)
+	fontMenuOn { :self :subject :isTransient :event |
+		self.menu('Font Menu', self.fontMenuEntriesOn(subject), isTransient, event)
 	}
 
 	fontSize { :self :fontSize |
-		['fontSize', fontSize.asString ++ 'em'].postLine;
 		self.container.style.setProperty('--font-size', fontSize.asString ++ 'em', '')
 	}
 
-	fontSizeMenuEntries { :self |
-(*
-			'½' -> 0.5, '⅗' -> 0.6, '⅝' -> 0.625, '⅔' -> 0.666, '¾' -> 0.75, '⅘' -> 0.8, '⅚' -> 0.833 , '⅞' -> 0.875,
-			'1' -> 1,
-			'1+⅒' -> 1.1, '1+⅑' -> 1.111, '1+⅛' -> 1.125, '1+⅐' -> 1.142, '1+⅙' -> 1.166, '1+⅕' -> 1.2, '1+¼' -> 1.25, '1+⅓' -> 1.333, '1+⅜' -> 1.375, '1+⅖' -> 1.4,
-			'1+½' -> 1.5, '1+⅗' -> 1.6, '1+⅔' -> 1.666, '1+¾' -> 1.75, '1+⅘' -> 1.8,
-			'2' -> 2
-*)
+	fontSizeMenuEntriesOn { :self :subject |
 		[
-			'½' -> 0.5, '⅔' -> 0.666, '¾' -> 0.75, '⅞' -> 0.875,
-			'1' -> 1,
-			'1+¼' -> 1.25, '1+½' -> 1.5, '1+¾' -> 1.75,
-			'2' -> 2
+			'0.5' -> 0.5, '0.75' -> 0.75, '0.925' -> 0.925,
+			'1' -> 1, '1.25' -> 1.25, '1.5' -> 1.5, '2' -> 2
 		].collect { :fontSize |
 			fontSize.key -> { :unusedEvent |
-				self.fontSize := fontSize.value
+				subject.fontSize := fontSize.value
 			}
 		}
 	}
 
-	fontSizeMenu { :self :event |
-		self.addFrameFor(Menu('Font Size Menu', self.fontSizeMenuEntries), event)
+	fontSizeMenuOn { :self :subject :isTransient :event |
+		self.menu('Font Size Menu', self.fontSizeMenuEntriesOn(subject), isTransient, event)
 	}
 
 	helpBrowser { :self :event |
-		self.addFrameFor(workspace::smallHours.helpBrowser, event)
+		self.addFrame(workspace::smallHours.helpBrowser, event)
 	}
 
 	helpFor { :self :subject :event |
 		workspace::smallHours.helpFor(subject).then { :aString |
-			self.addFrameFor(
+			self.addFrame(
 				TextEditor('Help For: ' ++ subject, true, aString),
 				event
 			)
@@ -145,7 +124,7 @@ SmallKansas : [Object] { | container frameSet midi |
 				each.includesSubstring(bracketedSubject)
 			}.IdentitySet.Array.sorted ;
 		|
-		self.addFrameFor(MethodSignatureBrowser(methodSignatures), event)
+		self.addFrame(MethodSignatureBrowser(methodSignatures), event)
 	}
 
 	initialize { :self |
@@ -157,32 +136,88 @@ SmallKansas : [Object] { | container frameSet midi |
 		self.container.addEventListener('contextmenu', { :event |
 			event.preventDefault;
 			(event.target == self.container).ifTrue {
-				self.worldContextMenu(event)
+				self.worldMenu(true, event)
 			}
 		});
 		self
 	}
 
-	initializeMidi { :self |
-		self.midi.ifNil {
+	initializeMidi { :self :ifPresent:/1 |
+		self.midiAccess.isNil.if {
 			system.window.navigator.requestMidiAccess.thenElse { :midiAccess |
-				self.midi := midiAccess
+				self.midiAccess := midiAccess;
+				ifPresent(midiAccess)
 			} { :message |
-				('SmallKansas>>initializeMidi: no midi: ' + message).postLine
+				('SmallKansas>>initializeMidi: no midiAccess: ' + message).postLine
+			}
+		} {
+			ifPresent(self.midiAccess)
+		}
+	}
+
+	menu { :self :title :entries :isTransient :event |
+		|
+			menu = Menu(title, entries),
+			frame = self.addFrame(menu, event);
+		|
+		menu.isTransient := isTransient;
+		frame
+	}
+
+	methodBrowser { :self :event |
+		self.addFrame(MethodBrowser(), event)
+	}
+
+	methodSignatureBrowser { :self :event |
+		self.addFrame(MethodSignatureBrowser(), event)
+	}
+
+	midiMonitorMenu { :self :event |
+		self.initializeMidi { :unusedMidiAcccess |
+			|
+				onSelect = { :midiPort :event |
+					self.midiMonitorOn(midiPort, event)
+				},
+				menu = Menu('Midi Monitor Menu', self.midiPortListEntries(onSelect:/2));
+			|
+			menu.isTransient := true;
+			self.addFrameWithAnimator(menu, event, 1, {
+				menu.setEntries(self.midiPortListEntries(onSelect:/2))
+			})
+		}
+	}
+
+	midiMonitorOn { :self :midiPort :event |
+		|
+			textEditor = TextEditor('Midi Monitor On ' ++ midiPort.name, false, ''),
+			messages = OrderedCollection(),
+			onMidiMessage = { :midiMessageEvent |
+				messages.add(midiMessageEvent);
+				textEditor.setEditorText(messages.last(25.min(messages.size)).Array.collect { :midi |
+					midi.data.asString
+				}.unlines)
+			},
+			frame = self.addFrame(textEditor, event);
+		|
+		textEditor.editable := false;
+		midiPort.addEventListener('midimessage', onMidiMessage);
+		frame.addEventListener('close', { :unusedEvent |
+			midiPort.removeEventListener('midimessage', onMidiMessage)
+		});
+		frame
+	}
+
+
+	midiPortListEntries { :self :onSelect:/2|
+		(self.midiAccess.inputs.ports ++ self.midiAccess.outputs.ports).collect { :midiPort |
+			midiPort.type ++ '/' ++ midiPort.name -> { :event |
+				onSelect(midiPort, event)
 			}
 		}
 	}
 
-	methodBrowser { :self :event |
-		self.addFrameFor(MethodBrowser(), event)
-	}
-
-	methodSignatureBrowser { :self :event |
-		self.addFrameFor(MethodSignatureBrowser(), event)
-	}
-
 	programBrowser { :self :event |
-		self.addFrameFor(workspace::smallHours.programBrowser, event)
+		self.addFrame(workspace::smallHours.programBrowser, event)
 	}
 
 	removeFrame { :self :frame |
@@ -191,37 +226,35 @@ SmallKansas : [Object] { | container frameSet midi |
 	}
 
 	systemBrowser { :self :event |
-		self.addFrameFor(SystemBrowser(), event)
+		self.addFrame(SystemBrowser(), event)
 	}
 
 	traitBrowser { :self :event |
-		self.addFrameFor(TraitBrowser(), event)
+		self.addFrame(TraitBrowser(), event)
 	}
 
 	typeBrowser { :self :event |
-		self.addFrameFor(TypeBrowser(), event)
+		self.addFrame(TypeBrowser(), event)
 	}
 
 
 	windowMenuEntries { :self |
-		| makeEntry = { :frame |
+		self.frameSet.Array.collect { :frame |
 			frame.title -> { :unusedEvent |
 				frame.bringToFront
 			}
-		}; |
-		self.frameSet.Array.collect(makeEntry:/1)
+		}
 	}
 
 	windowMenu { :self :event |
-		self.contextMenu(Menu('Window Menu', self.windowMenuEntries), event)
+		| menu = Menu('Window Menu', self.windowMenuEntries); |
+		self.addFrameWithAnimator(menu, event, 1, {
+			menu.setEntries(self.windowMenuEntries)
+		})
 	}
 
-	worldContextMenu { :self :event |
-		self.contextMenu(Menu('World Menu', self.worldMenuEntries), event)
-	}
-
-	worldMenu { :self |
-		self.addFrameFor(Menu('World Menu', self.worldMenuEntries), nil)
+	worldMenu { :self :isTransient :event |
+		self.menu('World Menu', self.worldMenuEntries, isTransient, event)
 	}
 
 	worldMenuEntries { :self |
@@ -233,10 +266,10 @@ SmallKansas : [Object] { | container frameSet midi |
 				self.clock(event)
 			},
 			'Font Menu' -> { :event |
-				self.fontMenu(event)
+				self.fontMenuOn(self, false, event)
 			},
 			'Font Size Menu' -> { :event |
-				self.fontSizeMenu(event)
+				self.fontSizeMenuOn(self, false, event)
 			},
 			'Help Browser' -> { :event |
 				self.helpBrowser(event)
@@ -246,6 +279,14 @@ SmallKansas : [Object] { | container frameSet midi |
 			},
 			'Method Signature Browser' -> { :event |
 				self.methodSignatureBrowser(event)
+			},
+			'Midi Monitor Menu' -> { :event |
+				self.midiMonitorMenu(event)
+			},
+			'Midi Port Browser' -> { :event |
+				self.initializeMidi { :unusedMidiAccess |
+					self.addFrame(self.MidiPortBrowser, event)
+				}
 			},
 			'Program Browser' -> { :event |
 				self.programBrowser(event)
@@ -267,7 +308,7 @@ SmallKansas : [Object] { | container frameSet midi |
 				self.windowMenu(event)
 			},
 			'Workspace' -> { :event |
-				self.addFrameFor(
+				self.addFrame(
 					TextEditor('Workspace', false, '(* Workspace *)'),
 					event
 				)
@@ -281,6 +322,27 @@ SmallKansas : [Object] { | container frameSet midi |
 		} {
 			self.frameSet.collect(zIndex:/1)
 		}
+	}
+
+	MidiPortBrowser { :self |
+		ColumnBrowser('Midi Port Browser', false, [1, 1, 3], { :browser :path |
+			path.size.caseOf([
+				0 -> {
+					['input', 'output']
+				},
+				1 -> {
+					self.midiAccess.ports(path[1]).collect(manufacturer:/1).IdentitySet.Array
+				},
+				2 -> {
+					self.midiAccess.ports(path[1]).select { :port |
+						port.manufacturer = path[2]
+					}.collect(name:/1)
+				},
+				3 -> {
+					self.midiAccess.portByName(path[1], path[2], path[3]).asString
+				}
+			])
+		})
 	}
 
 }
@@ -346,6 +408,7 @@ SmallKansas : [Object] { | container frameSet midi |
 			system.allMethods.collect(signature:/1).IdentitySet.Array.sorted
 		)
 	}
+
 
 	CategoryBrowser {
 		|

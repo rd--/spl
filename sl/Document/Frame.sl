@@ -17,10 +17,14 @@
 
 }
 
-Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 listenerSet |
+Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 eventListeners |
 
-	addEventListener { :self :aProcedure:/1 |
-		self.listenerSet.add(aProcedure:/1)
+	addEventListener { :self :aString :aProcedure:/1 |
+		self.eventListeners.atIfPresentIfAbsent(aString, { :aSet |
+			aSet.add(aProcedure:/1)
+		}, {
+			self.eventListeners[aString] := IdentitySet([aProcedure:/1])
+		})
 	}
 
 	bringToFront { :self |
@@ -28,9 +32,11 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 	}
 
 	close { :self |
-		self.listenerSet.do { :each |
-			each.value(Event('close'))
-		};
+		self.eventListeners.atIfPresent('close', { :aSet |
+			aSet.do { :each |
+				each.value(Event('close'))
+			}
+		});
 		workspace::smallKansas.removeFrame(self)
 	}
 
@@ -56,7 +62,7 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 		self.setAttributes(subject);
 		self.setEventHandlers(subject);
 		self.title := subject.title;
-		self.listenerSet := IdentitySet();
+		self.eventListeners := IdentityDictionary();
 		self
 	}
 

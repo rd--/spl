@@ -80,9 +80,23 @@
 		}
 	}
 
+	atIfPresent { :self :key :ifPresent:/1 |
+		self.includesKey(key).ifTrue {
+			ifPresent(self[key])
+		}
+	}
+
+	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
+		self.includesKey(key).if {
+			ifPresent(self[key])
+		} {
+			ifAbsent()
+		}
+	}
+
 	atPutDelegateToIfAbsent { :self :key :value :delegateKey :aProcedure:/0 |
 		self.includesKey(key).if {
-			self.atPut(key, value) 
+			self.atPut(key, value)
 		} {
 			self.atIfAbsent(key) {
 				| parent = self[delegateKey]; |

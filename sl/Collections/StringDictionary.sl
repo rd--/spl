@@ -14,7 +14,7 @@ StringDictionary : [Object, Dictionary] {
 	}
 
 	json { :self |
-		<primitive: return JSON.stringify(_self);>
+		<primitive: return JSON.stringify(_self, null, '\t');>
 	}
 
 	keys { :self |
