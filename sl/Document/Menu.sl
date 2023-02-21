@@ -1,20 +1,9 @@
 Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 
-	contextMenu { :self :event |
-		|
-			entries = self.isTransient.if {
-				[ 'markNotTransient' -> { :unusedEvent | self.isTransient := false } ]
-			} {
-				[ 'markTransient' -> { :unusedEvent | self.isTransient := true } ]
-			};
-		|
-		workspace::smallKansas.menu('Menu Context Menu', entries, true, event);
-	}
-
 	createElements { :self |
 		self.menuPane := 'div'.createElement;
 		self.listPane := 'div'.createElement;
-		self.menuList := 'ul'.createElement;
+		self.menuList := 'select'.createElement;
 		self.listPane.appendChild(self.menuList);
 		self.menuPane.appendChild(self.listPane)
 	}
@@ -39,19 +28,40 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 
 	setEntries { :self :entries |
 		self.menuList.removeAllChildren;
+		self.menuList.size := entries.size;
 		entries.collect { :each |
-			| listItem = TextListItem(each.key); |
-			self.menuList.appendChild(listItem);
-			listItem.addEventListener('pointerdown', { :event |
-				event.preventDefault;
-				each.value . (event);
-				self.isTransient.ifTrue {
-					self.frame.ifNotNil {
-						self.frame.close
+			|
+				listItem = TextOption(each.key, each.key),
+				onSelect = { :event |
+					event.preventDefault;
+					each.value . (event);
+					self.isTransient.ifTrue {
+						self.frame.ifNotNil {
+							self.frame.close
+						}
 					}
+				};
+			|
+			self.menuList.appendChild(listItem);
+			listItem.addEventListener('pointerdown', onSelect);
+			listItem.addEventListener('keydown', { :event |
+				['keydown', event.key].postLine;
+				(event.key = 'Enter').ifTrue {
+					onSelect(event)
 				}
 			})
 		}
+	}
+
+	titlePaneContextMenu { :self :event |
+		|
+			entries = self.isTransient.if {
+				[ 'markNotTransient' -> { :unusedEvent | self.isTransient := false } ]
+			} {
+				[ 'markTransient' -> { :unusedEvent | self.isTransient := true } ]
+			};
+		|
+		workspace::smallKansas.menu('Menu Context Menu', entries, true, event);
 	}
 
 }

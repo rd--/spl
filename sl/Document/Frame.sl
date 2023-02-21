@@ -1,7 +1,7 @@
 @View {
 
-	contextMenu { :self :event |
-		['View>>contextMenu', self.title].postLine
+	titlePaneContextMenu { :self :event |
+		['View>>titlePaneContextMenu', self.title].postLine
 	}
 
 	frame { :self :aFrame |
@@ -90,7 +90,7 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 		});
 		self.titlePane.addEventListener('contextmenu', { :event |
 			event.preventDefault;
-			subject.contextMenu(event)
+			subject.titlePaneContextMenu(event)
 		});
 		self.titlePane.addEventListener('pointerdown', { :event |
 			| titleRect = event.target.getBoundingClientRect; |

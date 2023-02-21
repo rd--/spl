@@ -15,7 +15,11 @@
 
 	TextOption { :self :value |
 		| option = 'option'.createElement; |
-		option.text := self;
+		option.text := self.isEmpty.if {
+			'Unspecified*'
+		} {
+			self
+		};
 		option.value := value;
 		option
 	}

@@ -8,15 +8,6 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 	}
 
 
-	contextMenu { :self :event |
-		workspace::smallKansas.menu(
-			'Text Editor Menu',
-			self.contextMenuEntries,
-			true,
-			event
-		)
-	}
-
 	createElements { :self |
 		self.editorPane := 'div'.createElement;
 		self.editorText := self.isRichText.if {
@@ -103,14 +94,14 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 
 	setAttributes { :self |
 		self.editorPane.setAttribute('class', 'editorPane');
+		self.editorText.setAttribute('class', 'editorText');
 		self.editorText.setAttributes((contentEditable: 'true', spellcheck: 'false'))
 	}
 
 	setEventHandlers { :self |
-		self.editorPane.addEventListener('contextmenu', { :event |
-			event.stopPropagation;
+		self.editorText.addEventListener('contextmenu', { :event |
 			event.preventDefault;
-			self.contextMenu(event)
+			self.textEditorMenu(event)
 		});
 		self.editorText.addEventListener('keydown', { :event |
 			| bindingsArray = self.keyBindings.values.collect { :each |
@@ -141,6 +132,15 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 		} {
 			self.editorText.textContent := aString
 		}
+	}
+
+	textEditorMenu { :self :event |
+		workspace::smallKansas.menu(
+			'Text Editor Menu',
+			self.contextMenuEntries,
+			true,
+			event
+		)
 	}
 
 }

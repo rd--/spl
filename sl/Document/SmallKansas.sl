@@ -309,7 +309,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 			},
 			'Workspace' -> { :event |
 				self.addFrame(
-					TextEditor('Workspace', false, '(* Workspace *)'),
+					TextEditor('Workspace', false, ''),
 					event
 				)
 			}
