@@ -130,6 +130,15 @@ var a = Array(6); 'string'.collectInto({ :each | each.toUpperCase }, a); a.join 
 'string'.atRandom.isString = true
 ````
 
+However, Strings are not collections in the ordinary sense.
+
+# Ohm
+
+- Whitespace is implicitly skipped inside a rule application if the
+	rule name begins with an uppercase letter.  (A syntactic rule is a
+	rule whose name begins with an uppercase letter, and lexical rule
+	is one whose name begins with a lowercase letter.)
+
 # Input/Output
 
 ```

@@ -44,12 +44,12 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 			|
 			self.menuList.appendChild(listItem);
 			listItem.addEventListener('pointerdown', onSelect);
-			listItem.addEventListener('keydown', { :event |
+			listItem.addEventListener('keydown') { :event |
 				['keydown', event.key].postLine;
 				(event.key = 'Enter').ifTrue {
 					onSelect(event)
 				}
-			})
+			}
 		}
 	}
 
@@ -61,7 +61,7 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 				[ 'markTransient' -> { :unusedEvent | self.isTransient := true } ]
 			};
 		|
-		workspace::smallKansas.menu('Menu Context Menu', entries, true, event);
+		workspace::smallKansas.menu('Menu Context Menu', entries, true, event)
 	}
 
 }

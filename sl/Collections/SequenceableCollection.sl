@@ -149,7 +149,7 @@
 		| replacementOffset = replacementStart - start, index = start; |
 		{ index <= stop }.whileTrue {
 			self[index] := replacement[replacementOffset + index];
-			index := index + 1;
+			index := index + 1
 		};
 		self
 	}

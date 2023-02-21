@@ -5,9 +5,9 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 			timerId = aProcedure:/0.evaluateEveryMilliseconds(intervalInSeconds * 1000),
 			frame = self.addFrame(subject, event);
 		|
-		frame.addEventListener('close', { :unusedEvent |
+		frame.addEventListener('close') { :unusedEvent |
 			timerId.cancel
-		});
+		};
 		frame
 	}
 
@@ -45,9 +45,9 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 				system.unixTimeInMilliseconds.roundTo(1000).TimeStamp.iso8601
 			},
 			textEditor = TextEditor('Clock', false, getTime()),
-			frame = self.addFrameWithAnimator(textEditor, event, 1, {
+			frame = self.addFrameWithAnimator(textEditor, event, 1) {
 				textEditor.setEditorText(getTime())
-			});
+			};
 		|
 		textEditor.editable := false;
 		frame.outerElement.style.setProperties((height: '75px', width: '275px'));
@@ -133,12 +133,12 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 			IdentitySet(),
 			nil
 		);
-		self.container.addEventListener('contextmenu', { :event |
+		self.container.addEventListener('contextmenu') { :event |
 			event.preventDefault;
 			(event.target == self.container).ifTrue {
 				self.worldMenu(true, event)
 			}
-		});
+		};
 		self
 	}
 
@@ -181,9 +181,9 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 				menu = Menu('Midi Monitor Menu', self.midiPortListEntries(onSelect:/2));
 			|
 			menu.isTransient := true;
-			self.addFrameWithAnimator(menu, event, 1, {
+			self.addFrameWithAnimator(menu, event, 1) {
 				menu.setEntries(self.midiPortListEntries(onSelect:/2))
-			})
+			}
 		}
 	}
 
@@ -201,9 +201,9 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 		|
 		textEditor.editable := false;
 		midiPort.addEventListener('midimessage', onMidiMessage);
-		frame.addEventListener('close', { :unusedEvent |
+		frame.addEventListener('close') { :unusedEvent |
 			midiPort.removeEventListener('midimessage', onMidiMessage)
-		});
+		};
 		frame
 	}
 
@@ -248,9 +248,9 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 
 	windowMenu { :self :event |
 		| menu = Menu('Window Menu', self.windowMenuEntries); |
-		self.addFrameWithAnimator(menu, event, 1, {
+		self.addFrameWithAnimator(menu, event, 1) {
 			menu.setEntries(self.windowMenuEntries)
-		})
+		}
 	}
 
 	worldMenu { :self :isTransient :event |
@@ -325,7 +325,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 	}
 
 	MidiPortBrowser { :self |
-		ColumnBrowser('Midi Port Browser', false, [1, 1, 3], { :browser :path |
+		ColumnBrowser('Midi Port Browser', false, [1, 1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					['input', 'output']
@@ -342,7 +342,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 					self.midiAccess.portByName(path[1], path[2], path[3]).asString
 				}
 			])
-		})
+		}
 	}
 
 }
@@ -351,7 +351,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 
 
 	MethodSignatureBrowser { :self |
-		ColumnBrowser('Method Signature Browser', false, [1], { :browser :path |
+		ColumnBrowser('Method Signature Browser', false, [1]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					self
@@ -368,7 +368,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 					system.methodLookup(methodName, arity, traitOrTypeName).definition
 				}
 			])
-		})
+		}
 	}
 
 }
@@ -381,7 +381,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 
 	MethodBrowser {
 		| methodNames = system.allMethods.collect(qualifiedName:/1).IdentitySet.Array.sorted ; |
-		ColumnBrowser('Method Browser', false, [3, 1], { :browser :path |
+		ColumnBrowser('Method Browser', false, [3, 1]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					methodNames
@@ -400,7 +400,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 					system.traitOrType(path[2]).methodDictionary[path[1]].definition
 				}
 			])
-		})
+		}
 	}
 
 	MethodSignatureBrowser {
@@ -416,7 +416,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 			categoryNames = typeNames.collect { :each | system.categoryOf(each) }.IdentitySet.Array.sorted,
 			methodSet = nil;
 		|
-		ColumnBrowser('Category Browser', false, [1, 1, 3], { :browser :path |
+		ColumnBrowser('Category Browser', false, [1, 1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -441,12 +441,12 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 					method.definition
 				}
 			])
-		})
+		}
 	}
 
 	SystemBrowser {
 		| typeNames = system.typeDictionary.keys.sorted, methodSet = nil; |
-		ColumnBrowser('System Browser', false, [1, 3], { :browser :path |
+		ColumnBrowser('System Browser', false, [1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -463,12 +463,12 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 					method.definition
 				}
 			])
-		})
+		}
 	}
 
 	TraitBrowser {
 		| traitNames = system.traitDictionary.keys.sorted; |
-		ColumnBrowser('Trait Browser', false, [1, 3], { :browser :path |
+		ColumnBrowser('Trait Browser', false, [1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -482,12 +482,12 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 					system.traitDictionary[path[1]].methodDictionary[path[2]].definition
 				}
 			])
-		})
+		}
 	}
 
 	TypeBrowser {
 		| typeNames = system.typeDictionary.keys.sorted; |
-		ColumnBrowser('Type Browser', false, [1, 3], { :browser :path |
+		ColumnBrowser('Type Browser', false, [1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -501,7 +501,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 					system.typeDictionary[path[1]].methodDictionary[path[2]].definition
 				}
 			])
-		})
+		}
 	}
 
 }

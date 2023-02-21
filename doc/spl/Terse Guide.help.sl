@@ -17,6 +17,8 @@ true && true = true
 false || true = true
 [true.json, false.json] = ['true', 'false']
 ['true', 'false'].collect(parseJson:/1) = [true, false]
+true.ifTrue { true }
+false.ifFalse { true }
 
 'Kernel/Object'
 [1, 3, 5].typeOf = 'Array'
@@ -254,8 +256,8 @@ var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7
 [1, 3, 5, 3, 1].IdentitySet.size = 3
 [1, 3, 5, 3, 1].IdentitySet.includes(3) = true
 [1, 3, 5, 3, 1].IdentitySet.includes(7) = false
-[1, 3, 5, 3, 1].IdentitySet.asArray = [1, 3, 5]
-var s = [1, 3, 5, 3, 1].IdentitySet; s.remove(3); s.asArray = [1, 5]
+[1, 3, 5, 3, 1].IdentitySet.Array = [1, 3, 5]
+var s = [1, 3, 5, 3, 1].IdentitySet; s.remove(3); s.Array = [1, 5]
 [1 .. 9].IdentitySet.atRandom.betweenAnd(1, 9)
 
 'Collections/Interval'
@@ -560,4 +562,4 @@ system.unixTimeInMilliseconds.TimeStamp.iso8601.size = 24
 'Syntax/Trailing Procedures'
 1.to(9).collect{ :x | x * x }.last = 81
 [1, 3, 5].withCollect([1, 3, 5]) { :p :q | p -> q } = [1 -> 1, 3 -> 3, 5 -> 5]
-[1, 3, 5].reversed.withCollect([5, 3, 1]) { :p :q | p -> q }
+[1, 3, 5].reversed.withCollect([1, 3, 5]) { :p :q | p -> q } = [5 -> 1, 3 -> 3, 1 -> 5]

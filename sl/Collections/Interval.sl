@@ -38,11 +38,13 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 	}
 
 	at { :self :index |
-		if ((index < 1) | { index > self.size }, {
+		((index < 1) | {
+			index > self.size
+		}).if {
 			nil
-		}, {
+		} {
 			self.step * (index - 1) + self.start
-		})
+		}
 	}
 
 	do { :self :aProcedure:/1 |

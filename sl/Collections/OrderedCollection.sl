@@ -116,7 +116,7 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveAr
 			temp := b;
 			b := a + b;
 			a := temp;
-			i := i + 1;
+			i := i + 1
 		};
 		answer
 	}

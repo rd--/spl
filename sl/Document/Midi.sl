@@ -31,7 +31,7 @@
 	}
 
 	printString { :self |
-		self.asDictionary.json
+		self.asDictionary.json(nil, '	')
 	}
 
 

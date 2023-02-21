@@ -78,7 +78,7 @@ Sl {
 	DotExpressionWithTrailingClosuresSyntax = Primary "." identifier NonEmptyParameterList? Block+
 	DotExpressionWithTrailingDictionariesSyntax = Primary "." identifier NonEmptyParameterList? NonEmptyDictionaryExpression+
 	DotExpressionWithAssignmentSyntax = Primary "." identifier ":=" Expression
-	DotExpression = Primary ("." identifier ~("{" | ":=") NonEmptyParameterList?)+
+	DotExpression = Primary ("." identifier ~("{" | ":=") NonEmptyParameterList?~("{"))+
 
 	ImplicitDictionaryAtPutSyntax = "::" identifier ":=" Expression
 	ImplicitDictionaryAtSyntax = "::" identifier
@@ -90,7 +90,7 @@ Sl {
 	Primitive = "<primitive:" primitiveCharacter* ">"
 	Statements = NonFinalExpression | FinalExpression
 	NonFinalExpression = Expression ";" Statements
-	FinalExpression = Expression ";"?
+	FinalExpression = Expression
 
 	ApplyWithTrailingClosuresSyntax = identifier NonEmptyParameterList? Block+
 	ApplyWithTrailingDictionariesSyntax = identifier NonEmptyParameterList? NonEmptyDictionaryExpression+

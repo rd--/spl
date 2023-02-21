@@ -20,8 +20,12 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 	}
 
 	json { :self |
+		self.json(nil, '')
+	}
+
+	json { :self :replacer :space |
 		self.keys.allSatisfy(isString:/1).if {
-			self.StringDictionary.json
+			self.StringDictionary.json(replacer, space)
 		} {
 			'IdentityDictionary>>json: not all keys are strings'.error
 		}

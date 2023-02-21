@@ -139,7 +139,7 @@ const asJs: any = {
 	ArgumentName(_c, nm) { return nm.asJs; },
 	Primitive(_l, s, _r) { return s.sourceString; },
 	NonFinalExpression(e, _, stm) { return `${e.asJs}; ${stm.asJs};`; },
-	FinalExpression(e, _) { return `return ${e.asJs};`; },
+	FinalExpression(e) { return `return ${e.asJs};`; },
 
 	ApplyWithTrailingClosuresSyntax(rcv, arg, tc) {
 		const opt = arg.asJs;

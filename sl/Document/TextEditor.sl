@@ -2,9 +2,9 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 
 	contextMenuEntries { :self |
 		| k = self.keyBindings; |
-		k.keys.withCollect(k.values, { :aString :anAssociation |
+		k.keys.withCollect(k.values) { :aString :anAssociation |
 			aString -> anAssociation.value
-		})
+		}
 	}
 
 
@@ -82,7 +82,7 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 			},
 			'Reset Synthesiser (.)': '.' -> { :event |
 				workspace::clock.clear;
-				system.defaultScSynth.reset;
+				system.defaultScSynth.reset
 			}
 		)
 	}
@@ -99,11 +99,11 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 	}
 
 	setEventHandlers { :self |
-		self.editorText.addEventListener('contextmenu', { :event |
+		self.editorText.addEventListener('contextmenu') { :event |
 			event.preventDefault;
 			self.textEditorMenu(event)
-		});
-		self.editorText.addEventListener('keydown', { :event |
+		};
+		self.editorText.addEventListener('keydown') { :event |
 			| bindingsArray = self.keyBindings.values.collect { :each |
 				each.key -> {
 					event.preventDefault;
@@ -118,7 +118,7 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 					}
 				)
 			}
-		})
+		}
 	}
 
 	setEditorText { :self :aString |

@@ -68,7 +68,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnList
 
 	setEventHandlers { :self :numberOfColumns :onChange:/2 |
 		numberOfColumns.do { :index |
-			self.columnLists[index].addEventListener('change', { :unusedEvent |
+			self.columnLists[index].addEventListener('change') { :unusedEvent |
 				|
 					next = onChange(self, (1 .. index).collect { :each |
 						self.columnLists[each].value
@@ -85,7 +85,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnList
 					};
 					self.setEntries(index + 1, next)
 				}
-			})
+			}
 		}
 	}
 

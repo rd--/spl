@@ -151,7 +151,7 @@ Number : [Object, Magnitude, Numeric, Integral, Binary] {
 
 	remainder { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return _self % _anObject; }>
-		error('Number>>remainder');
+		error('Number>>remainder')
 	}
 
 	Number { :self |

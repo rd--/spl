@@ -70,7 +70,7 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 	}
 
 	linkAt { :self :index |
-		self.linkAtIfAbsent(index, { self.errorSubscriptBounds(index) })
+		self.linkAtIfAbsent(index) { self.errorSubscriptBounds(index) }
 	}
 
 	linkAtIfAbsent { :self :index :errorProcedure:/0 |

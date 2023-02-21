@@ -84,7 +84,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 			self.existingDelay := {
 				self.wakeup(scheduledTime)
 			}.evaluateAfterMilliseconds(deltaTime * 1000)
-		};
+		}
 	}
 
 	scheduleInjecting { :self :deltaTime :anObject :aProcedure:/1 |

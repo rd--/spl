@@ -44,6 +44,10 @@
 		}
 	}
 
+	asArray { :self |
+		self.Array
+	}
+
 	asCollection { :self |
 		self
 	}

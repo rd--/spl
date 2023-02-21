@@ -20,23 +20,23 @@
 Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 eventListeners |
 
 	addEventListener { :self :aString :aProcedure:/1 |
-		self.eventListeners.atIfPresentIfAbsent(aString, { :aSet |
+		self.eventListeners.atIfPresentIfAbsent(aString) { :aSet |
 			aSet.add(aProcedure:/1)
-		}, {
+		} {
 			self.eventListeners[aString] := IdentitySet([aProcedure:/1])
-		})
+		}
 	}
 
 	bringToFront { :self |
-		self.zIndex := workspace::smallKansas.zIndices.max + 1;
+		self.zIndex := workspace::smallKansas.zIndices.max + 1
 	}
 
 	close { :self |
-		self.eventListeners.atIfPresent('close', { :aSet |
+		self.eventListeners.atIfPresent('close') { :aSet |
 			aSet.do { :each |
 				each.value(Event('close'))
 			}
-		});
+		};
 		workspace::smallKansas.removeFrame(self)
 	}
 
@@ -74,7 +74,7 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 		self.x := x;
 		self.y := y;
 		self.framePane.style.setProperty('left', x.asString ++ 'px', '');
-		self.framePane.style.setProperty('top', y.asString ++ 'px', '');
+		self.framePane.style.setProperty('top', y.asString ++ 'px', '')
 	}
 
 	setAttributes { :self :subject |
@@ -84,39 +84,39 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 	}
 
 	setEventHandlers { :self :subject |
-		self.closeButton.addEventListener('pointerup', { :event |
+		self.closeButton.addEventListener('pointerup') { :event |
 			event.preventDefault;
 			self.close
-		});
-		self.titlePane.addEventListener('contextmenu', { :event |
+		};
+		self.titlePane.addEventListener('contextmenu') { :event |
 			event.preventDefault;
 			subject.titlePaneContextMenu(event)
-		});
-		self.titlePane.addEventListener('pointerdown', { :event |
+		};
+		self.titlePane.addEventListener('pointerdown') { :event |
 			| titleRect = event.target.getBoundingClientRect; |
 			event.preventDefault;
 			self.bringToFront;
 			event.target.setPointerCapture(event.pointerId);
 			self.inMove := true;
 			self.x0 := event.x - titleRect.x;
-			self.y0 := event.y - titleRect.y;
-		});
-		self.titlePane.addEventListener('pointermove', { :event |
+			self.y0 := event.y - titleRect.y
+		};
+		self.titlePane.addEventListener('pointermove') { :event |
 			self.inMove.ifTrue {
 				event.stopPropagation;
 				event.cancelable.ifTrue {
-					event.preventDefault;
+					event.preventDefault
 				};
 				self.moveTo(
 					event.x - self.x0,
 					event.y- self.y0
-				);
+				)
 			}
-		});
-		self.titlePane.addEventListener('pointerup', { :event |
+		};
+		self.titlePane.addEventListener('pointerup') { :event |
 			event.target.releasePointerCapture(event.pointerId);
 			self.inMove := false
-		});
+		}
 	}
 
 	title { :self |
