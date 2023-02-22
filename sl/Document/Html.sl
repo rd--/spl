@@ -67,6 +67,10 @@ HTMLElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
+HTMLHeadingElement : [Object, EventTarget, Node, Element, HtmlElement] {
+
+}
+
 HTMLLIElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }

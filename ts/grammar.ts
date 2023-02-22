@@ -3,7 +3,7 @@
 import ohm from 'https://unpkg.com/ohm-js@16/dist/ohm.esm.js';
 import { extras } from 'https://unpkg.com/ohm-js@16/dist/ohm.esm.js';
 
-export const slGrammar = ohm.grammar(String.raw`
+export const slGrammarDefinition = String.raw`
 Sl {
 
 	TopLevel = LibraryExpression+ | Program
@@ -133,7 +133,9 @@ Sl {
 	space += comment
 
 }
-`);
+`;
+
+export const slGrammar = ohm.grammar(slGrammarDefinition);
 
 export const slSemantics = slGrammar.createSemantics();
 
