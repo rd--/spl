@@ -28,7 +28,6 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	playEvery { :self :aProcedure :delay |
-		(* Play variant of repeatEvery. *)
 		self.repeatEvery({ : nextDelay |
 			{
 				aProcedure.cull(nextDelay)
@@ -48,10 +47,6 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	repeatEvery { :self :aProcedure :delay |
-		(*
-			Schedule myself at intervals given by delay.
-			If I accept an argument it will be the delay interval before I will execute next.
-		*)
 		self.schedule(0) {
 			| nextDelay = delay.value; |
 			nextDelay.notNil.if {
@@ -64,10 +59,6 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	schedule { :self :deltaTime :aProcedure |
-		(*
-			Schedule aProcedure for deltaTime.
-			When aProcedure is evaluated the answer is either an interval at which to re-schedule, or nil to halt.
-		*)
 		|
 			currentTime = system.systemTimeInMilliseconds,
 			scheduledTime = deltaTime * 1000 + currentTime,
@@ -88,10 +79,6 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	scheduleInjecting { :self :deltaTime :anObject :aProcedure:/1 |
-		(*
-			Schedule applying aProcedure to anObject for deltaTime.
-			When evaluated the answer is a [delay, nextValue] pair to continue, or nil to halt.
-		*)
 		self.schedule(deltaTime) {
 			| reply = aProcedure(anObject); |
 			reply.ifNotNil {

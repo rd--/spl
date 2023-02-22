@@ -1,6 +1,5 @@
 loadSequence([
 	'Collections/Association.sl',
-	'Collections/ByteArray.sl',
 	'Collections/Dictionary.sl',
 	'Collections/Float64Array.sl',
 	'Collections/IdentityDictionary.sl',

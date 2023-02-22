@@ -36,9 +36,9 @@ export async function loadUrlArrayInSequence(loadPath: string, urlArray: string[
 }
 
 export function addLoadUrlMethods(): void {
-	addMethod('String', 'loadPath', 1, setLoadPath, '<primitive>');
-	addMethod('String', 'loadUrl', 1, loadUrl, '<primitive>');
-	addMethod('String', 'load', 1, loadUrl, '<primitive>');
-	addMethod('Array', 'loadUrlSequence', 1, loadUrlSequence, '<primitive>');
-	addMethod('Array', 'loadSequence', 1, loadUrlSequence, '<primitive>');
+	addMethod('String', 'loadPath', 1, setLoadPath, '<primitive: loader>');
+	addMethod('String', 'loadUrl', 1, loadUrl, '<primitive: loader>');
+	addMethod('String', 'load', 1, loadUrl, '<primitive: loader>');
+	addMethod('Array', 'loadUrlSequence', 1, loadUrlSequence, '<primitive: loader>');
+	addMethod('Array', 'loadSequence', 1, loadUrlSequence, '<primitive: loader>');
 }

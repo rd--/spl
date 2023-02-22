@@ -102,13 +102,15 @@ export class Type {
 	traitNameArray: TraitName[];
 	slotNameArray: string[];
 	methodDictionary: QualifiedMethodDictionary;
-	constructor(name: TypeName, traitNameArray: TraitName[], slotNameArray: string[]) {
+	constructor(name: TypeName, traitNameArray: TraitName[], slotNameArray: string[], methodDictionary: QualifiedMethodDictionary) {
 		this.name = name;
 		this.traitNameArray = traitNameArray;
 		this.slotNameArray = slotNameArray;
-		this.methodDictionary = new Map();
+		this.methodDictionary = methodDictionary;
 	}
 }
+
+const preinstalledTypes = ['Array', 'String', 'Void']; // ?
 
 export class System {
 	methodDictionary: MethodDictionary;
@@ -121,11 +123,7 @@ export class System {
 		this.methodDictionary = new Map();
 		this.traitDictionary = new Map();
 		// Void is not an ordinary type, it names the place in the method table for no-argument procedures.
-		this.typeDictionary = new Map([
-			['Array', new Type('Array', [], [])],
-			['String', new Type('String', [], [])],
-			['Void', new Type('Void', [], [])]
-		]);
+		this.typeDictionary = new Map(preinstalledTypes.map(function(each) { return [each, new Type(each, [], [], new Map())]; }));
 		this.categoryDictionary = new Map();
 		this.nextUniqueId = 1;
 		this.window = window;
@@ -134,28 +132,47 @@ export class System {
 
 export const system: System = new System();
 
+function traitExists(traitName: TraitName): boolean {
+	return system.traitDictionary.has(traitName);
+}
+
+function typeExists(typeName: TypeName): boolean {
+	return system.typeDictionary.has(typeName);
+}
+
+function methodExists(methodName: MethodName): boolean {
+	return system.methodDictionary.has(methodName);
+}
+
 export function addTrait(traitName: TraitName): void {
-	// console.debug(`addTrait: ${traitName}`);
-	if(!system.traitDictionary.has(traitName)) {
+	if(!traitExists(traitName)) {
 		system.traitDictionary.set(traitName, new Trait(traitName));
+	} else {
+		throw(`addTrait: trait exists: ${traitName}`);
 	}
 }
 
 // c.f. rewrite/makeMethodList
 export function addTraitMethod(traitName: TraitName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
-	// console.debug(`addTraitMethod: ${traitName}, ${methodName}, ${method.arity}`);
-	const trait = system.traitDictionary.get(traitName)!;
-	const method = new Method(methodName, procedure, arity, sourceCode, trait);
-	trait.methodDictionary.set(method.qualifiedName(), method);
-	return method;
+	if(traitExists(traitName)) {
+		const trait = system.traitDictionary.get(traitName)!;
+		const method = new Method(methodName, procedure, arity, sourceCode, trait);
+		trait.methodDictionary.set(method.qualifiedName(), method);
+		return method;
+	} else {
+		throw(`addTraitMethod: trait does not exist: ${traitName}, ${methodName}, ${arity}`);
+	}
 }
 
 export function copyTraitToType(traitName: TraitName, typeName: TypeName): void {
-	// console.debug(`copyTraitToType: ${traitName}, ${typeName}`);
-	const methodDictionary = system.traitDictionary.get(traitName)!.methodDictionary;
-	for (const [name, method] of methodDictionary) {
-		// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${method.arity}`);
-		addMethodFor(typeName, method);
+	if(traitExists(traitName) && typeExists(typeName)) {
+		const methodDictionary = system.traitDictionary.get(traitName)!.methodDictionary;
+		for (const [name, method] of methodDictionary) {
+			// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${method.arity}`);
+			addMethodFor(typeName, method);
+		}
+	} else {
+		throw(`copyTraitToType: trait or type does not exist: ${traitName}, ${typeName}`);
 	}
 }
 
@@ -171,13 +188,15 @@ export function traitTypeArray(traitName: TraitName): TypeName[] {
 
 // c.f. rewrite/makeMethodList
 export function extendTraitWithMethod(traitName: TraitName, name: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
-	// console.debug(`extendTraitWithMethod: ${traitName}, ${name}`);
-	const method = addTraitMethod(traitName, name, arity, procedure, sourceCode);
-	traitTypeArray(traitName).forEach(function(typeName) {
-		// console.debug(`extendTraitWithMethod: ${traitName}, ${typeName}, ${name}`);
-		addMethodFor(typeName, method);
-	});
-	return method;
+	if(traitExists(traitName)) {
+		const method = addTraitMethod(traitName, name, arity, procedure, sourceCode);
+		traitTypeArray(traitName).forEach(function(typeName) {
+			addMethodFor(typeName, method);
+		});
+		return method;
+	} else {
+		throw(`extendTraitWithMethod: ${traitName}, ${name}`);
+	}
 }
 
 export function lookupGeneric(methodName: MethodName, methodArity: Arity, receiverType: TypeName): Method {
@@ -227,11 +246,11 @@ export function dispatchByArity(name: string, arity: number, arityTable: ByArity
 declare var globalThis: { [key: string]: unknown };
 
 export function addMethodFor(typeName: TypeName, method: Method): Method {
-	if(slOptions.requireTypeExists && !system.typeDictionary.has(typeName)) {
-		throw(`addMethodFor: type does not exist: ${typeName}`);
+	if(slOptions.requireTypeExists && !typeExists(typeName)) {
+		throw(`addMethodFor: type does not exist: ${typeName} (${method})`);
 	}
 	// console.debug(`addMethodFor: ${typeName}, ${method.name}, ${method.arity}`);
-	if(!system.methodDictionary.has(method.name)) {
+	if(!methodExists(method.name)) {
 		// console.debug(`addMethodFor: new method name`);
 		system.methodDictionary.set(method.name, new Map());
 		if(slOptions.simpleArityModel) {
@@ -281,30 +300,40 @@ export function addMethodFor(typeName: TypeName, method: Method): Method {
 
 // c.f. rewrite/makeMethodList
 export function addMethod(typeName: TypeName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
-	// console.debug(`addMethod: ${typeName}, ${name}`);
-	const typeValue = system.typeDictionary.get(typeName)!;
-	const method = new Method(methodName, procedure, arity, sourceCode, typeValue);
-	return addMethodFor(typeName, method);
+	if(typeExists(typeName)) {
+		const typeValue = system.typeDictionary.get(typeName)!;
+		const method = new Method(methodName, procedure, arity, sourceCode, typeValue);
+		return addMethodFor(typeName, method);
+	} else {
+		throw(`addMethod: ${typeName}, ${methodName}, ${arity}`);
+	}
 }
 
-// This is run for built-in types. The class predicate method is required.  Assumes non-kernel types have at least one slot.
+// Allows methods to be added to 'pre-installed' types before the type is added, c.f. load &etc. (& parseInteger ...).
+// It'd be possible to only allow this for the 'pre-installed' methods, which might be saner.
+// Run for built-in types, which may have traits.  Assumes non-kernel types have at least one slot.
 export function addType(typeName: TypeName, traitList: TraitName[], slotNames: string[]): void {
-	const initializeSlots = slotNames.map(each => `anInstance.${each} = ${each}`).join('; ');
-	const nilSlots = slotNames.map(each => `${each}: null`).join(', ');
-	const defNilType = slotNames.length === 0 ? '' : `addMethod('Void', 'new${typeName}', 0, function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
-	const defInitializeSlots = slotNames.length === 0 ? '' : `addMethod('${typeName}', 'initializeSlots', ${slotNames.length + 1}, function(anInstance, ${slotNames.join(', ')}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
-	const defPredicateFalse = `extendTraitWithMethod('Object', 'is${typeName}', 1, function(anObject) { return false; }, '<primitive: predicate>')`;
-	const defPredicateTrue = `addMethod('${typeName}', 'is${typeName}', 1, function(anInstance) { return true; }, '<primitive: predicate>')`;
-	const defSlotAccess = slotNames.map(each => `addMethod('${typeName}', '${each}', 1, function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`).join('; ');
-	const defSlotMutate = slotNames.map(each => `addMethod('${typeName}', '${each}', 2, function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`).join('; ');
-	// console.debug(`addType: ${typeName}, ${slotNames}`);
-	system.typeDictionary.set(typeName, new Type(typeName, traitList, slotNames));
-	eval(defNilType);
-	eval(defInitializeSlots);
-	eval(defPredicateFalse);
-	eval(defPredicateTrue);
-	eval(defSlotAccess);
-	eval(defSlotMutate);
+	if(!typeExists(typeName) || preinstalledTypes.includes(typeName)) {
+		const initializeSlots = slotNames.map(each => `anInstance.${each} = ${each}`).join('; ');
+		const nilSlots = slotNames.map(each => `${each}: null`).join(', ');
+		const defNilType = slotNames.length === 0 ? '' : `addMethod('Void', 'new${typeName}', 0, function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
+		const defInitializeSlots = slotNames.length === 0 ? '' : `addMethod('${typeName}', 'initializeSlots', ${slotNames.length + 1}, function(anInstance, ${slotNames.join(', ')}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
+		const defPredicateFalse = `extendTraitWithMethod('Object', 'is${typeName}', 1, function(anObject) { return false; }, '<primitive: predicate>')`;
+		const defPredicateTrue = `addMethod('${typeName}', 'is${typeName}', 1, function(anInstance) { return true; }, '<primitive: predicate>')`;
+		const defSlotAccess = slotNames.map(each => `addMethod('${typeName}', '${each}', 1, function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`).join('; ');
+		const defSlotMutate = slotNames.map(each => `addMethod('${typeName}', '${each}', 2, function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`).join('; ');
+		// console.debug(`addType: ${typeName}, ${slotNames}`);
+		const methodDictionary = typeExists(typeName) ? system.typeDictionary.get(typeName)!.methodDictionary : new Map();
+		system.typeDictionary.set(typeName, new Type(typeName, traitList, slotNames, methodDictionary));
+		eval(defNilType);
+		eval(defInitializeSlots);
+		eval(defPredicateFalse);
+		eval(defPredicateTrue);
+		eval(defSlotAccess);
+		eval(defSlotMutate);
+	} else {
+		throw(`addType: type exists: ${typeName}`);
+	}
 }
 
 // Until the <primitive:> parser allows escaped >...
