@@ -46,6 +46,7 @@
 	getSelection { :self | <primitive: return _self.getSelection();> }
 	querySelector { :self :aString | <primitive: return _self.querySelector(_aString);> }
 	querySelectorAll { :self :aString | <primitive: return _self.querySelectorAll(_aString);> }
+	visibilityState { :self | <primitive: return _self.visibilityState;> }
 
 }
 

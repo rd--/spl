@@ -116,7 +116,15 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 		self.titlePane.addEventListener('pointerup') { :event |
 			event.target.releasePointerCapture(event.pointerId);
 			self.inMove := false
+		};
+		self.framePane.addEventListener('keydown') { :event |
+			event.ctrlKey.ifTrue {
+				(event.key = 'Escape').ifTrue {
+					self.close
+				}
+			}
 		}
+
 	}
 
 	title { :self |
