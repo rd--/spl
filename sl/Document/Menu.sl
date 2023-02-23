@@ -1,3 +1,27 @@
+MenuItem : [Object] { | name accessKey onSelect |
+
+	accessKeyDislayText { :self |
+		self.accessKey.notNil.if {
+			'(' ++ self.accessKey ++ ')'
+		} {
+			nil
+		}
+	}
+
+	displayText { :self |
+		self.name ++? self.accessKeyDislayText
+	}
+
+}
+
++ String {
+
+	MenuItem { :self :accessKey :onSelect |
+		newMenuItem().initializeSlots(self, accessKey, onSelect)
+	}
+
+}
+
 Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 
 	createElements { :self |
@@ -6,6 +30,17 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 		self.menuList := 'select'.createElement;
 		self.listPane.appendChild(self.menuList);
 		self.menuPane.appendChild(self.listPane)
+	}
+
+	frameMenuItems { :self |
+		[
+			self.isTransient.if {
+				MenuItem('Mark Not Transient', nil) {
+					:unusedEvent | self.isTransient := false }
+			} {
+				MenuItem('Mark Transient', nil) { :unusedEvent | self.isTransient := true }
+			}
+		]
 	}
 
 	initialize { :self :title :entries |
@@ -29,12 +64,13 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 	setEntries { :self :entries |
 		self.menuList.removeAllChildren;
 		self.menuList.size := entries.size;
-		entries.collect { :each |
+		entries.collect { :menuItem |
 			|
-				listItem = TextOption(each.key, each.key),
-				onSelect = { :event |
+				listItem = TextOption(menuItem.displayText, menuItem.displayText),
+				dispatchEvent = { :event |
+					['menuDispatch', event].postLine;
 					event.preventDefault;
-					each.value . (event);
+					menuItem.onSelect . (event);
 					self.isTransient.ifTrue {
 						self.frame.ifNotNil {
 							self.frame.close
@@ -43,25 +79,8 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 				};
 			|
 			self.menuList.appendChild(listItem);
-			listItem.addEventListener('pointerdown', onSelect);
-			listItem.addEventListener('keydown') { :event |
-				['keydown', event.key].postLine;
-				(event.key = 'Enter').ifTrue {
-					onSelect(event)
-				}
-			}
+			listItem.addEventListener('pointerdown', dispatchEvent)
 		}
-	}
-
-	titlePaneContextMenu { :self :event |
-		|
-			entries = self.isTransient.if {
-				[ 'markNotTransient' -> { :unusedEvent | self.isTransient := false } ]
-			} {
-				[ 'markTransient' -> { :unusedEvent | self.isTransient := true } ]
-			};
-		|
-		workspace::smallKansas.menu('Menu Context Menu', entries, true, event)
 	}
 
 }

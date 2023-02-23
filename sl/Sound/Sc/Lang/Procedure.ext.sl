@@ -2,7 +2,7 @@
 
 	overlap { :self:/0 :sustainTime :transitionTime :overlap |
 		| period = (sustainTime + (transitionTime * 2)) / overlap; |
-		workspace::clock.schedule(0) {
+		workspace::clock.schedule(0) { :unusedCurrentTime |
 			{
 				self().withOverlapEnvelope(sustainTime, transitionTime)
 			}.play;

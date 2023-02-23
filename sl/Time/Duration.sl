@@ -116,15 +116,3 @@ Duration : [Object] { | milliseconds |
 	}
 
 }
-
-+ System {
-
-	systemTime { :self |
-		self.systemTimeInMilliseconds.milliseconds
-	}
-
-	unixTime { :self |
-		self.unixTimeInMilliseconds.milliseconds
-	}
-
-}

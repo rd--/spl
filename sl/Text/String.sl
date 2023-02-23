@@ -24,6 +24,14 @@ String : [Object] {
 		self.appendString(anObject.asString)
 	}
 
+	++? { :self :anObject |
+		anObject.isNil.if {
+			self
+		} {
+			self ++ anObject
+		}
+	}
+
 	appendString { :self :aString |
 		<primitive: return _self + _aString;>
 	}

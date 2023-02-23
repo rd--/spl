@@ -4,11 +4,7 @@ SmallHours : [Object] { | helpIndex programIndex |
 		['spl', 'sc', 'sk']
 	}
 
-	helpKind { :self :area |
-		['doc', 'help']
-	}
-
-	helpBrowser { :self |
+	HelpBrowser { :self |
 		ColumnBrowser(
 			'Help Browser',
 			true,
@@ -51,6 +47,10 @@ SmallHours : [Object] { | helpIndex programIndex |
 
 	helpFor { :self :subject |
 		self.helpFetch(self.helpFind(subject))
+	}
+
+	helpKind { :self :area |
+		['doc', 'help']
 	}
 
 	helpNames { :self :area :kind |
@@ -100,7 +100,7 @@ SmallHours : [Object] { | helpIndex programIndex |
 		}.collect(second:/1).IdentitySet.Array.sorted
 	}
 
-	programBrowser { :self |
+	ProgramBrowser { :self |
 		ColumnBrowser(
 			'Program Browser',
 			false,
@@ -153,6 +153,14 @@ SmallHours : [Object] { | helpIndex programIndex |
 }
 
 + Void {
+
+	HelpBrowser {
+		workspace::smallHours.HelpBrowser
+	}
+
+	ProgramBrowser {
+		workspace::smallHours.ProgramBrowser
+	}
 
 	SmallHours {
 		newSmallHours()

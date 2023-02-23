@@ -1,10 +1,7 @@
 TextEditor : [Object, View] { | editorPane editorText isRichText title |
 
 	contextMenuEntries { :self |
-		| k = self.keyBindings; |
-		k.keys.withCollect(k.values) { :aString :anAssociation |
-			aString -> anAssociation.value
-		}
+		self.keyBindings
 	}
 
 
@@ -39,14 +36,6 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 		self.editorText.setAttribute('contentEditable', aBoolean.printString)
 	}
 
-	font { :self :fontName|
-		self.editorPane.style.setProperty('--font-family', fontName, '')
-	}
-
-	fontSize { :self :fontSize |
-		self.editorPane.style.setProperty('--font-size', fontSize.asString ++ 'em', '')
-	}
-
 	initialize { :self :title :isRichText :contents |
 		self.title := title;
 		self.isRichText := isRichText;
@@ -58,33 +47,27 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 	}
 
 	keyBindings { :self |
-		(
-			'Browse It (b)': 'b' -> { :event |
+		[
+			MenuItem('Browse It', 'b') { :event |
 				workspace::smallKansas.browserOn([self.currentWord], event)
 			},
-			'Do It (d)': 'd' -> { :event |
+			MenuItem('Do It', 'd') { :event |
 				self.currentText.eval
 			},
-			'Font Menu (f)' : 'f' -> { :event |
-				workspace::smallKansas.fontMenuOn(self, true, event)
-			},
-			'Font Size Menu (s)' : 's' -> { :event |
-				workspace::smallKansas.fontSizeMenuOn(self, true, event)
-			},
-			'Help For It (h)': 'h' -> { :event |
+			MenuItem('Help For It', 'h') { :event |
 				workspace::smallKansas.helpFor(self.currentWord.asMethodName, event)
 			},
-			'Implementors Of It (m)': 'm' -> { :event |
+			MenuItem('Implementors Of It', 'm') { :event |
 				workspace::smallKansas.implementorsOf(self.currentWord.asMethodName, event)
 			},
-			'Play It (Enter)': 'Enter' -> { :event |
+			MenuItem('Play It', 'Enter') { :event |
 				('{ ' ++ self.currentText ++ ' }.play').eval
 			},
-			'Reset Synthesiser (.)': '.' -> { :event |
+			MenuItem('Reset Synthesiser', '.') { :event |
 				workspace::clock.clear;
 				system.defaultScSynth.reset
 			}
-		)
+		]
 	}
 
 
@@ -104,10 +87,10 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 			self.textEditorMenu(event)
 		};
 		self.editorText.addEventListener('keydown') { :event |
-			| bindingsArray = self.keyBindings.values.collect { :each |
-				each.key -> {
+			| bindingsArray = self.keyBindings.collect { :menuItem |
+				menuItem.accessKey -> {
 					event.preventDefault;
-					each.value.value(nil)
+					menuItem.onSelect . (nil)
 				}
 			}; |
 			event.ctrlKey.ifTrue {

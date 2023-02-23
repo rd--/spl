@@ -8,7 +8,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnList
 		);
 		self.statusPane := 'div'.createElement;
 		self.columnLists := { 'select'.createElement } ! numberOfColumns;
-		self.statusText := 'pre'.createElement;
+		self.statusText := 'span'.createElement;
 		self.columnsPane.appendChildren(self.columnLists);
 		self.statusPane.appendChild(self.statusText);
 		self.browserPane.appendChildren([

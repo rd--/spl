@@ -91,11 +91,11 @@
 		}
 	}
 
-	withExtendingCollectOrAdaptTo { :self :anObject :aBinaryProcedure |
+	withExtendingCollectOrAdaptTo { :self :anObject :aProcedure:/2 |
 		anObject.isSequenceable.if {
-			withExtendingCollect(self, anObject, aBinaryProcedure)
+			withExtendingCollect(self, anObject, aProcedure:/2)
 		} {
-			anObject.adaptToCollectionAndApply(self, aBinaryProcedure)
+			anObject.adaptToCollectionAndApply(self, aProcedure:/2)
 		}
 	}
 

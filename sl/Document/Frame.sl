@@ -1,10 +1,14 @@
 @View {
 
-	titlePaneContextMenu { :self :event |
-		['View>>titlePaneContextMenu', self.title].postLine
+	frame { :self :aFrame |
 	}
 
-	frame { :self :aFrame |
+	frameMenuItems { :self |
+		[]
+	}
+
+	name { :self |
+		self.title.replaceAll(' ', '')
 	}
 
 	outerElement { :self |
@@ -17,7 +21,7 @@
 
 }
 
-Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 eventListeners |
+Frame : [Object] { | framePane titlePane closeButton menuButton titleText inMove x y x0 y0 eventListeners |
 
 	addEventListener { :self :aString :aProcedure:/1 |
 		self.eventListeners.atIfPresentIfAbsent(aString) { :aSet |
@@ -43,18 +47,29 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 	createElements { :self :subject |
 		self.framePane := 'div'.createElement;
 		self.titlePane :=  'div'.createElement;
-		self.closeButton := 'pre'.createElement;
-		self.titleText := 'pre'.createElement;
+		self.closeButton := 'span'.createElement;
+		self.titleText := 'span'.createElement;
+		self.menuButton := 'span'.createElement;
 		self.titlePane.appendChildren([
 			self.closeButton,
-			self.titleText
+			self.titleText,
+			self.menuButton
 		]);
 		self.framePane.appendChildren([
 			self.titlePane,
 			subject.outerElement
 		]);
 		self.closeButton.textContent := '×';
+		self.menuButton.textContent := '☰';
 		self.inMove := false
+	}
+
+	font { :self :fontName|
+		self.framePane.style.setProperty('--font-family', fontName, '')
+	}
+
+	fontSize { :self :fontSize |
+		self.framePane.style.setProperty('--font-size', fontSize, '')
 	}
 
 	initialize { :self :subject |
@@ -70,6 +85,18 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 		self.framePane
 	}
 
+	menuItems { :self |
+		[
+			MenuItem('Font Menu', nil) { :event |
+				workspace::smallKansas.fontMenuOn(self, true, event)
+			},
+			MenuItem('Font Size Menu', nil) { :event |
+				workspace::smallKansas.fontSizeMenuOn(self, true, event)
+			}
+		]
+	}
+
+
 	moveTo { :self :x :y |
 		self.x := x;
 		self.y := y;
@@ -80,13 +107,19 @@ Frame : [Object] { | framePane titlePane closeButton titleText inMove x y x0 y0 
 	setAttributes { :self :subject |
 		self.framePane.setAttribute('class', ['framePane', subject.typeOf].unwords);
 		self.titlePane.setAttribute('class', 'titlePane');
-		self.closeButton.setAttribute('class', 'closeButton')
+		self.closeButton.setAttribute('class', 'closeButton');
+		self.titleText.setAttribute('class', 'titleText');
+		self.menuButton.setAttribute('class', 'menuButton')
 	}
 
 	setEventHandlers { :self :subject |
 		self.closeButton.addEventListener('pointerup') { :event |
 			event.preventDefault;
 			self.close
+		};
+		self.menuButton.addEventListener('pointerup') { :event |
+			event.preventDefault;
+			workspace::smallKansas.menu('Frame Menu', subject.frameMenuItems ++ self.menuItems, true, event)
 		};
 		self.titlePane.addEventListener('contextmenu') { :event |
 			event.preventDefault;

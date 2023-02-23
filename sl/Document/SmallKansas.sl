@@ -50,7 +50,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 			};
 		|
 		textEditor.editable := false;
-		frame.outerElement.style.setProperties((height: '75px', width: '275px'));
+		frame.outerElement.style.setProperties((height: '6em', width: '18em'));
 		frame
 	}
 
@@ -75,7 +75,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 
 	fontMenuEntriesOn { :self :subject |
 		['APL333', 'Los Altos', 'Parc Place'].collect { :fontName |
-			fontName -> { :unusedEvent |
+			MenuItem(fontName, nil) { :unusedEvent |
 				subject.font := fontName
 			}
 		}
@@ -86,16 +86,13 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 	}
 
 	fontSize { :self :fontSize |
-		self.container.style.setProperty('--font-size', fontSize.asString ++ 'em', '')
+		self.container.style.setProperty('--font-size', fontSize.asString, '')
 	}
 
 	fontSizeMenuEntriesOn { :self :subject |
-		[
-			'0.5' -> 0.5, '0.75' -> 0.75, '0.925' -> 0.925,
-			'1' -> 1, '1.25' -> 1.25, '1.5' -> 1.5, '2' -> 2
-		].collect { :fontSize |
-			fontSize.key -> { :unusedEvent |
-				subject.fontSize := fontSize.value
+		['8pt', '10pt', '12pt', '16pt', '24pt', '32pt'].collect { :fontSize |
+			MenuItem(fontSize, nil) { :unusedEvent |
+				subject.fontSize := fontSize
 			}
 		}
 	}
@@ -104,8 +101,8 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 		self.menu('Font Size Menu', self.fontSizeMenuEntriesOn(subject), isTransient, event)
 	}
 
-	helpBrowser { :self :event |
-		self.addFrame(workspace::smallHours.helpBrowser, event)
+	HelpBrowser { :self :event |
+		self.addFrame(HelpBrowser(), event)
 	}
 
 	helpFor { :self :subject :event |
@@ -210,14 +207,14 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 
 	midiPortListEntries { :self :onSelect:/2|
 		(self.midiAccess.inputs.ports ++ self.midiAccess.outputs.ports).collect { :midiPort |
-			midiPort.type ++ '/' ++ midiPort.name -> { :event |
+			MenuItem(midiPort.type ++ '/' ++ midiPort.name, nil)  { :event |
 				onSelect(midiPort, event)
 			}
 		}
 	}
 
-	programBrowser { :self :event |
-		self.addFrame(workspace::smallHours.programBrowser, event)
+	ProgramBrowser { :self :event |
+		self.addFrame(ProgramBrowser(), event)
 	}
 
 	removeFrame { :self :frame |
@@ -240,7 +237,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 
 	windowMenuEntries { :self |
 		self.frameSet.Array.collect { :frame |
-			frame.title -> { :unusedEvent |
+			MenuItem(frame.title, nil) { :unusedEvent |
 				frame.bringToFront
 			}
 		}
@@ -259,55 +256,55 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 
 	worldMenuEntries { :self |
 		[
-			'Category Browser' -> { :event |
+			MenuItem('Category Browser', nil) { :event |
 				self.categoryBrowser(event)
 			},
-			'Clock' -> { :event |
+			MenuItem('Clock', nil) { :event |
 				self.clock(event)
 			},
-			'Font Menu' -> { :event |
+			MenuItem('Font Menu', nil) { :event |
 				self.fontMenuOn(self, false, event)
 			},
-			'Font Size Menu' -> { :event |
+			MenuItem('Font Size Menu', nil) { :event |
 				self.fontSizeMenuOn(self, false, event)
 			},
-			'Help Browser' -> { :event |
-				self.helpBrowser(event)
+			MenuItem('Help Browser', nil) { :event |
+				self.HelpBrowser(event)
 			},
-			'Method Browser' -> { :event |
+			MenuItem('Method Browser', nil) { :event |
 				self.methodBrowser(event)
 			},
-			'Method Signature Browser' -> { :event |
+			MenuItem('Method Signature Browser', nil) { :event |
 				self.methodSignatureBrowser(event)
 			},
-			'Midi Monitor Menu' -> { :event |
+			MenuItem('Midi Monitor Menu', nil) { :event |
 				self.midiMonitorMenu(event)
 			},
-			'Midi Port Browser' -> { :event |
+			MenuItem('Midi Port Browser', nil) { :event |
 				self.initializeMidi { :unusedMidiAccess |
 					self.addFrame(self.MidiPortBrowser, event)
 				}
 			},
-			'Program Browser' -> { :event |
-				self.programBrowser(event)
+			MenuItem('Program Browser', nil) { :event |
+				self.ProgramBrowser(event)
 			},
-			'Reset Synthesiser' -> { :event |
+			MenuItem('Reset Synthesiser', nil) { :event |
 				workspace::clock.clear;
 				system.defaultScSynth.reset
 			},
-			'System Browser' -> { :event |
+			MenuItem('System Browser', nil) { :event |
 				self.systemBrowser(event)
 			},
-			'Trait Browser' -> { :event |
+			MenuItem('Trait Browser', nil) { :event |
 				self.traitBrowser(event)
 			},
-			'Type Browser' -> { :event |
+			MenuItem('Type Browser', nil) { :event |
 				self.typeBrowser(event)
 			},
-			'Window Menu' -> { :event |
+			MenuItem('Window Menu', nil) { :event |
 				self.windowMenu(event)
 			},
-			'Workspace' -> { :event |
+			MenuItem('Workspace', nil) { :event |
 				self.addFrame(
 					TextEditor('Workspace', false, ''),
 					event
@@ -317,7 +314,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 	}
 
 	zIndices { :self |
-		self.frameSet.isEmpty.if { 
+		self.frameSet.isEmpty.if {
 			[0]
 		} {
 			self.frameSet.collect(zIndex:/1)

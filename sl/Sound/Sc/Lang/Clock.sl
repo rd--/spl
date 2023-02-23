@@ -11,7 +11,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	collectTexture { :self :aCollection :aProcedure:/1 :delay |
 		| end = aCollection.size; |
-		self.recurseEvery({ :index |
+		self.recurseEvery({ :currentTime :index |
 			{
 				aProcedure(aCollection[index])
 			}.play;
@@ -20,37 +20,37 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 			} {
 				index + 1
 			}
-		}, 1, delay)
+		}, 1, delay.value)
 	}
 
 	initialize { :self |
 		self.initializeSlots(PriorityQueue(), nil, nil)
 	}
 
-	playEvery { :self :aProcedure :delay |
-		self.repeatEvery({ : nextDelay |
+	playEvery { :self :aProcedure:/1 :delay |
+		self.repeatEvery({ :currentTime :nextDelay |
 			{
-				aProcedure.cull(nextDelay)
+				aProcedure(nextDelay)
 			}.play
 		}, delay)
 	}
 
-	recurseEvery { :self :aProcedure:/1 :anObject :delay |
-		self.scheduleInjecting(0, anObject) { :inputValue |
+	recurseEvery { :self :aProcedure:/2 :anObject :delay |
+		self.scheduleInjecting(0, anObject) { :currentTime :inputValue |
 			| nextDelay = delay.value; |
 			(inputValue.notNil & {
 				nextDelay.notNil
 			}).ifTrue {
-				[nextDelay, aProcedure(inputValue)]
+				[nextDelay, aProcedure(currentTime, inputValue)]
 			}
 		}
 	}
 
-	repeatEvery { :self :aProcedure :delay |
-		self.schedule(0) {
+	repeatEvery { :self :aProcedure:/2 :delay |
+		self.schedule(0) { :currentTime |
 			| nextDelay = delay.value; |
 			nextDelay.notNil.if {
-				aProcedure.cull(nextDelay);
+				aProcedure(currentTime, nextDelay);
 				nextDelay
 			} {
 				nil
@@ -58,13 +58,13 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		}
 	}
 
-	schedule { :self :deltaTime :aProcedure |
+	schedule { :self :deltaTime :aProcedure:/1 |
 		|
 			currentTime = system.systemTimeInMilliseconds,
 			scheduledTime = deltaTime * 1000 + currentTime,
 			wakeupTime = self.nextEntryTime;
 		|
-		self.priorityQueue.push(aProcedure, scheduledTime);
+		self.priorityQueue.push(aProcedure:/1, scheduledTime);
 		(wakeupTime = nil | {
 			scheduledTime < wakeupTime
 		}).ifTrue {
@@ -78,11 +78,11 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		}
 	}
 
-	scheduleInjecting { :self :deltaTime :anObject :aProcedure:/1 |
-		self.schedule(deltaTime) {
-			| reply = aProcedure(anObject); |
+	scheduleInjecting { :self :deltaTime :anObject :aProcedure:/2 |
+		self.schedule(deltaTime) { :currentTime |
+			| reply = aProcedure(currentTime, anObject); |
 			reply.ifNotNil {
-				self.scheduleInjecting(reply[1], reply[2], aProcedure:/1)
+				self.scheduleInjecting(reply[1], reply[2], aProcedure:/2)
 			};
 			nil
 		}
@@ -99,9 +99,12 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 				front <= currentTime
 			}
 		}.whileTrue {
-			| activity = queue.pop, rescheduleAfter = activity.value; |
+			|
+				activityProcedure:/1 = queue.pop,
+				rescheduleAfter = activityProcedure(scheduledTime);
+			|
 			rescheduleAfter.isNumber.ifTrue {
-				self.priorityQueue.push(activity, rescheduleAfter * 1000 + scheduledTime)
+				self.priorityQueue.push(activityProcedure:/1, rescheduleAfter * 1000 + scheduledTime)
 			};
 			front := queue.peekPriority
 		};
@@ -120,24 +123,24 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 + Number {
 
-	schedule { :self :aProcedure |
-		workspace::clock.schedule(self, aProcedure)
+	schedule { :self :aProcedure:/2 |
+		workspace::clock.schedule(self, aProcedure:/2)
 	}
 
-	scheduleInjecting { :self :anObject :aProcedure |
-		workspace::clock.scheduleInjecting(self, anObject, aProcedure)
+	scheduleInjecting { :self :anObject :aProcedure:/2 |
+		workspace::clock.scheduleInjecting(self, anObject, aProcedure:/2)
 	}
 
 }
 
 + Procedure {
 
-	schedule { :self |
-		workspace::clock.schedule(0, self)
+	schedule { :self:/1 |
+		workspace::clock.schedule(0, self:/1)
 	}
 
-	scheduleInjecting { :self :anObject |
-		workspace::clock.scheduleInjecting(0, anObject, self)
+	scheduleInjecting { :self:/2 :anObject |
+		workspace::clock.scheduleInjecting(0, anObject, self:/2)
 	}
 
 }

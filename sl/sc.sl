@@ -1,4 +1,5 @@
 loadSequence([
+	'Sound/Osc.sl',
 	'Sound/Sc/Lang/Clock.sl',
 	;; 'Sound/Sc/Lang/ArrayedCollection.ext.sl',
 	'Sound/Sc/Lang/Array.ext.sl',

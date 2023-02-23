@@ -1,0 +1,69 @@
+OscParameter : [Object] { | type value |
+
+	dictionary { :self |
+		(
+			type: self.type,
+			value: self.value
+		).StringDictionary
+	}
+
+	OscParameter { :self |
+		self
+	}
+
+}
+
+OscMessage : [Object] { | address parameterArray |
+
+	dictionary { :self |
+		(
+			address: self.address,
+			args: self.parameterArray.collect(dictionary:/1)
+		).StringDictionary
+	}
+
+	encode { :self |
+		<primitive: return sc.encodeServerPacket(_dictionary_1(_self), {metadata: true});>
+	}
+
+}
+
++ Number {
+
+	OscParameter { :self |
+		self.isInteger.if {
+			OscParameter('i', self)
+		} {
+			OscParameter('f', self)
+		}
+	}
+
+}
+
++ String {
+
+	OscParameter { :self |
+		OscParameter('s', self)
+	}
+
+	OscParameter { :self :anObject |
+		newOscParameter().initializeSlots(self, anObject)
+	}
+
+}
+
++ ByteArray {
+
+	OscParameter { :self |
+		OscParameter('b', self)
+	}
+
+}
+
++ String {
+
+	OscMessage { :self :parameterArray |
+		newOscMessage().initializeSlots(self, parameterArray.collect(OscParameter:/1))
+	}
+
+}

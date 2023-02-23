@@ -43,7 +43,11 @@ Ugen : [Object, Numeric] {
 	}
 
 	playUgen { :self |
-		<primitive: sc.scSynthEnsure(globalScSynth, function() { sc.playUgen(globalScSynth, _self, 1) });>
+		<primitive:
+		sc.scSynthEnsure(globalScSynth, function() {
+			sc.playUgen(globalScSynth, _self, 1)
+		});
+		>
 	}
 
 	printUgen { :aUgen |

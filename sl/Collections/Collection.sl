@@ -199,14 +199,14 @@
 		self.reduce(times:/2)
 	}
 
-	reduce { :self :aBinaryProcedure:/2 |
+	reduce { :self :aProcedure:/2 |
 		| first = true, nextValue = nil; |
 		self.do { :each |
 			first.if {
 				nextValue := each;
 				first := false
 			} {
-				nextValue := aBinaryProcedure(nextValue, each)
+				nextValue := aProcedure(nextValue, each)
 			}
 		};
 		first.ifTrue {

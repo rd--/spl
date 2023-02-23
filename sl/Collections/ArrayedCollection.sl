@@ -89,8 +89,8 @@
 		<primitive: return _self.length;>
 	}
 
-	sortInPlaceBy { :self :aBinaryProcedure |
-		<primitive: return _self.sort(function(p, q) { return _aBinaryProcedure(p, q) ? -1 : 1 });>
+	sortInPlaceBy { :self :aProcedure:/2 |
+		<primitive: return _self.sort(function(p, q) { return _aProcedure_2(p, q) ? -1 : 1 });>
 	}
 
 	sortInPlace { :self |

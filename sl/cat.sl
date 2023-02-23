@@ -5,6 +5,7 @@ system.categorizeAll('Kernel/System', ['Method', 'System', 'Trait', 'Type']);
 system.categorizeAll('Text', ['String', 'RegExp']);
 system.categorizeAll('Time', ['Duration', 'TimeStamp']);
 
+system.categorizeAll('Sound/Osc', ['OscBundle', 'OscMessage', 'OscParameter']);
 system.categorizeAll('Sound/Sc/Lang', ['Clock']);
 system.categorizeAll('Sound/Sc/Synth', ['CcEvent', 'Env', 'ScSynth', 'ScUgen', 'Ugen', 'UgenGraph']);
 
@@ -14,7 +15,7 @@ system.categorizeAll('Ui/Html', ['DOMRect', 'DOMTokenList', 'HTMLBodyElement', '
 system.categorizeAll('Ui/Midi', ['MIDIAccess', 'MIDIConnectionEvent', 'MIDIInput', 'MIDIInputMap', 'MIDIMessageEvent', 'MIDIOutput', 'MIDIOutputMap']);
 system.categorizeAll('Ui/Navigator', ['Navigator', 'Response', 'Window']);
 system.categorizeAll('Ui/Node', ['Attr', 'NamedNodeMap', 'NodeList', 'Range', 'Selection', 'Text']);
-system.categorizeAll('Ui/System', ['ColumnBrowser', 'Frame', 'Menu', 'SmallHours', 'SmallKansas', 'TextEditor']);
+system.categorizeAll('Ui/System', ['ColumnBrowser', 'Frame', 'MenuItem', 'Menu', 'SmallHours', 'SmallKansas', 'TextEditor']);
 
 system.categorizeAll('Collections/Ordered', ['Cons', 'LinkedList', 'Pair', 'ValueLink']);
 system.categorizeAll('Collections/Streams', ['PositionableStream', 'ReadStream', 'WriteStream']);
