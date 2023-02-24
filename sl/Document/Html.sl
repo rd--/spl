@@ -71,6 +71,11 @@ HTMLHeadingElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
+HTMLInputElement : [Object, EventTarget, Node, Element, HtmlElement] {
+
+}
+
+
 HTMLLIElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }

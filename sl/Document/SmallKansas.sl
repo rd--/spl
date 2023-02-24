@@ -54,6 +54,11 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 		frame
 	}
 
+	colourChooser { :self :subject :event |
+		self.addFrame(ColourChooser({ :colour | colour.postLine }), event)
+	}
+
+
 	dialog { :self :subject :event |
 		| dialog = 'dialog'.createElement; |
 		dialog.appendChild(subject.outerElement);
@@ -261,6 +266,9 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 			},
 			MenuItem('Clock', nil) { :event |
 				self.clock(event)
+			},
+			MenuItem('ColourChooser', nil) { :event |
+				self.colourChooser(self, event)
 			},
 			MenuItem('Font Menu', nil) { :event |
 				self.fontMenuOn(self, false, event)

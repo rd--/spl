@@ -72,6 +72,7 @@ Number : [Object, Magnitude, Numeric, Integral, Binary] {
 	log10 { :self | <primitive: return Math.log10(_self)> }
 	odd { :self | <primitive: return Math.abs(_self % 2) === 1;> }
 	printString { :self | <primitive: return _self.toString();> }
+	printString { :self :radix | <primitive: return _self.toString(_radix);> }
 	rounded { :self | <primitive: return Math.round(_self)> }
 	sign { :self | <primitive: return Math.sign(_self);> }
 	sin { :self | <primitive: return Math.sin(_self)> }
