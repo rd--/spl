@@ -70,20 +70,6 @@
 	setAttribute { :self :name :value | <primitive: return _self.setAttribute(_name, _value);> }
 	setPointerCapture { :self :pointerId | <primitive: return _self.setPointerCapture(_pointerId);> }
 
-(*
-	++ { :self :anArray |
-		self.append(anArray)
-	}
-
-	at { :self :key |
-		self.getAttribute(key)
-	}
-
-	atPut { :self :key :value |
-		self.setAttribute(key, value)
-	}
-*)
-
 	removeAllChildren { :self |
 		self.children.Array.do { :each |
 			each.remove

@@ -11,7 +11,7 @@ system.categorizeAll('Sound/Sc/Synth', ['CcEvent', 'Env', 'ScSynth', 'ScUgen', '
 
 system.categorizeAll('Ui/Css', ['CSSStyleDeclaration', 'CSS2Properties']);
 system.categorizeAll('Ui/Event', ['Event', 'KeyboardEvent', 'MouseEvent', 'PointerEvent']);
-system.categorizeAll('Ui/Html', ['DOMRect', 'DOMTokenList', 'HTMLBodyElement', 'HTMLButtonElement', 'HTMLCollection', 'HTMLDialogElement', 'HTMLDivElement', 'HTMLDocument', 'HTMLElement', 'HTMLHeadingElement', 'HTMLLIElement', 'HTMLOptionElement', 'HTMLOptionsCollection', 'HTMLParagraphElement', 'HTMLPreElement', 'HTMLSelectElement', 'HTMLSpanElement', 'HTMLTextAreaElement', 'HTMLUListElement']);
+system.categorizeAll('Ui/Html', ['DOMRect', 'DOMTokenList', 'HTMLBodyElement', 'HTMLButtonElement', 'HTMLCollection', 'HTMLDialogElement', 'HTMLDivElement', 'HTMLDocument', 'HTMLElement', 'HTMLHeadingElement', 'HTMLInputElement', 'HTMLLIElement', 'HTMLOptionElement', 'HTMLOptionsCollection', 'HTMLParagraphElement', 'HTMLPreElement', 'HTMLSelectElement', 'HTMLSpanElement', 'HTMLTextAreaElement', 'HTMLUListElement']);
 system.categorizeAll('Ui/Midi', ['MIDIAccess', 'MIDIConnectionEvent', 'MIDIInput', 'MIDIInputMap', 'MIDIMessageEvent', 'MIDIOutput', 'MIDIOutputMap']);
 system.categorizeAll('Ui/Navigator', ['Navigator', 'Response', 'Window']);
 system.categorizeAll('Ui/Node', ['Attr', 'NamedNodeMap', 'NodeList', 'Range', 'Selection', 'Text']);

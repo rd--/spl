@@ -44,6 +44,10 @@ Frame : [Object] { | framePane titlePane closeButton menuButton titleText inMove
 		workspace::smallKansas.removeFrame(self)
 	}
 
+	colour { :self :aColour |
+		self.framePane.style.setProperty('background-color', aColour.hexString, '')
+	}
+
 	createElements { :self :subject |
 		self.framePane := 'div'.createElement;
 		self.titlePane :=  'div'.createElement;
@@ -87,6 +91,9 @@ Frame : [Object] { | framePane titlePane closeButton menuButton titleText inMove
 
 	menuItems { :self |
 		[
+			MenuItem('Colour Chooser', nil) { :event |
+				workspace::smallKansas.colourChooser(self, event)
+			},
 			MenuItem('Font Menu', nil) { :event |
 				workspace::smallKansas.fontMenuOn(self, true, event)
 			},
@@ -105,7 +112,7 @@ Frame : [Object] { | framePane titlePane closeButton menuButton titleText inMove
 	}
 
 	setAttributes { :self :subject |
-		self.framePane.setAttribute('class', ['framePane', subject.typeOf].unwords);
+		self.framePane.setAttribute('class', ['framePane', subject.typeOf, subject.name].unwords);
 		self.titlePane.setAttribute('class', 'titlePane');
 		self.closeButton.setAttribute('class', 'closeButton');
 		self.titleText.setAttribute('class', 'titleText');

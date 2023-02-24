@@ -2,8 +2,16 @@ Colour : [Object] { | red green blue alpha |
 
 	hexString { :self |
 		'#' ++ [self.red, self.green, self.blue].collect { :each |
-			(each * 255).rounded.printString(16)
+			(each * 255).rounded.byteHexString
 		}.join
+	}
+
+	printString { :self |
+		[
+			'Colour(',
+			[self.red, self.green, self.blue, self.alpha].collect(printString:/1).joinSeparatedBy(','),
+			')'
+		].join
 	}
 
 }
@@ -23,17 +31,23 @@ Colour : [Object] { | red green blue alpha |
 + Array {
 
 	Colour { :self |
-		| [r, g, b] = self; |
-		Colour(r, g, b)
+		| [r, g, b, a] = self; |
+		Colour(r, g, b, a)
 	}
 
 }
 
 + String {
 
-	parseHexColourString { :self |
-		| r = self.copyFromTo(2, 3), g = self.copyFromTo(4, 5), b = self.copyFromTo(6, 7); |
-		[r, b, g].collect { :each | each.parseInteger(16) }.Colour
+	parseHexColour { :self |
+		(self.size = 7).if {
+			| r = self.copyFromTo(2, 3), g = self.copyFromTo(4, 5), b = self.copyFromTo(6, 7); |
+			[r, g, b, 'ff'].collect { :each |
+				each.parseInteger(16) / 255
+			}.Colour
+		} {
+			('String>>parseHexColour: ' ++ self).error
+		}
 	}
 
 }
@@ -47,12 +61,13 @@ ColourChooser : [Object, View] { | colourChooserPane colourInput |
 	initialize { :self :initialColour :onSelect:/1 |
 		self.colourChooserPane := 'div'.createElement;
 		self.colourInput := 'input'.createElement;
-		self.colourInput.setAttributes((type: 'color', value: initialColour.hexString));
+		self.colourInput.setAttribute('type', 'color');
+		self.colourInput.setAttribute('value', initialColour.hexString);
 		self.colourChooserPane.appendChild(self.colourInput);
 		self.colourChooserPane.setAttribute('class', 'colourChooser');
 		self.colourChooserPane.setAttribute('class', 'colourInput');
-		self.colourInput.addEventListener('change') { :event |
-			onSelect(self.hexString.parseHexColourString)
+		self.colourInput.addEventListener('input') { :event |
+			onSelect(event.target.value.parseHexColour)
 		};
 		self
 	}
@@ -78,7 +93,7 @@ ColourChooser : [Object, View] { | colourChooserPane colourInput |
 + Procedure {
 
 	ColourChooser { :self |
-		Colour(1, 1, 1, 1).ColourChooser(self)
+		Colour(0.5, 0.5, 0.5, 0.5).ColourChooser(self)
 	}
 
 }
@@ -154,7 +169,6 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 			|
 				listItem = TextOption(menuItem.displayText, menuItem.displayText),
 				dispatchEvent = { :event |
-					['menuDispatch', event].postLine;
 					event.preventDefault;
 					menuItem.onSelect . (event);
 					self.isTransient.ifTrue {

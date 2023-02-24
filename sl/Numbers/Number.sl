@@ -120,6 +120,19 @@ Number : [Object, Magnitude, Numeric, Integral, Binary] {
 		anObject.adaptToNumberAndApply(self, bitXor:/2)
 	}
 
+	byteHexString { :self |
+		self.isByte.if {
+			| hexString = self.printString(16); |
+			(self < 16).if {
+				'0' ++ hexString
+			} {
+				hexString
+			}
+		} {
+			'Number>>byteHexString: not a byte'.error
+		}
+	}
+
 	json { :self |
 		<primitive: return JSON.stringify(_self);>
 	}

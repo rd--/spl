@@ -63,6 +63,9 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 			MenuItem('Play It', 'Enter') { :event |
 				('{ ' ++ self.currentText ++ ' }.play').eval
 			},
+			MenuItem('Print It', 'p') { :event |
+				self.currentText.eval.postLine
+			},
 			MenuItem('Reset Synthesiser', '.') { :event |
 				workspace::clock.clear;
 				system.defaultScSynth.reset

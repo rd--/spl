@@ -54,8 +54,14 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 		frame
 	}
 
+	colour { :self :aColour |
+		self.container.style.setProperty('background-color', aColour.hexString, '')
+	}
+
 	colourChooser { :self :subject :event |
-		self.addFrame(ColourChooser({ :colour | colour.postLine }), event)
+		self.addFrame(ColourChooser({ :aColour |
+			subject.colour(aColour)
+		}), event)
 	}
 
 
@@ -113,7 +119,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 	helpFor { :self :subject :event |
 		workspace::smallHours.helpFor(subject).then { :aString |
 			self.addFrame(
-				TextEditor('Help For: ' ++ subject, true, aString),
+				TextEditor('Help For', true, aString),
 				event
 			)
 		}

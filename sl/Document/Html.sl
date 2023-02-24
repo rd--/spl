@@ -73,6 +73,14 @@ HTMLHeadingElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 HTMLInputElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
+	value { :self |
+		<primitive: return _self.value;>
+	}
+
+	value { :self :aValue |
+		<primitive: return _self.value = _aValue;>
+	}
+
 }
 
 
