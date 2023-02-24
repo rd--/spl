@@ -9,6 +9,7 @@ loadSequence([
 	'Numbers/Magnitude.sl',
 	'Numbers/Numeric.sl',
 	'Numbers/Number.sl', (* +String *)
+	'Numbers/Fraction.sl',
 	'Collections/ArrayedCollection.sl',
 	'Collections/Collection.sl',
 	'Collections/SequenceableCollection.sl',

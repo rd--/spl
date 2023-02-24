@@ -426,6 +426,11 @@ Error('message').log = nil
 23 << 7 = 2944
 7 << 23 = 58720256
 
+'Numbers/Fraction'
+Fraction(6, 4) = Fraction(3, 2)
+Fraction(-6, 4) = Fraction(-3, 2)
+Fraction(6, -4) = Fraction(-3, 2)
+
 'Numbers/Number'
 0 = -0 = true
 1 = 1 = true
