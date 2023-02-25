@@ -9,14 +9,18 @@ Fraction : [Object, Magnitude, Numeric] { | numerator denominator |
 	}
 
 	reduce { :self |
-		|
-			x = self.numerator * self.denominator.sign,
-			y = self.denominator.abs,
-			d = x.gcd(y);
-		|
-		self.numerator := x // d;
-		self.denominator := y // d;
-		self
+		(self.denominator = 0).if {
+			'Fraction>>reduce: zeroDenominatorError'.error
+		} {
+			|
+				x = self.numerator * self.denominator.sign,
+				y = self.denominator.abs,
+				d = x.gcd(y);
+			|
+			self.numerator := x // d;
+			self.denominator := y // d;
+			self
+		}
 	}
 
 }

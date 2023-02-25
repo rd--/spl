@@ -430,6 +430,7 @@ Error('message').log = nil
 Fraction(6, 4) = Fraction(3, 2)
 Fraction(-6, 4) = Fraction(-3, 2)
 Fraction(6, -4) = Fraction(-3, 2)
+{ Fraction(6, 0) }.ifError { :err | true }
 
 'Numbers/Number'
 0 = -0 = true
