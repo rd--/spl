@@ -120,11 +120,11 @@ Frame : [Object] { | framePane titlePane closeButton menuButton titleText inMove
 	}
 
 	setEventHandlers { :self :subject |
-		self.closeButton.addEventListener('pointerup') { :event |
+		self.closeButton.addEventListener('click') { :event |
 			event.preventDefault;
 			self.close
 		};
-		self.menuButton.addEventListener('pointerup') { :event |
+		self.menuButton.addEventListener('click') { :event |
 			event.preventDefault;
 			workspace::smallKansas.menu('Frame Menu', subject.frameMenuItems ++ self.menuItems, true, event)
 		};

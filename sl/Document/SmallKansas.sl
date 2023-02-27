@@ -50,7 +50,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 			};
 		|
 		textEditor.editable := false;
-		frame.outerElement.style.setProperties((height: '6em', width: '18em'));
+		frame.outerElement.style.setProperties((height: '1em', width: '18em'));
 		frame
 	}
 
