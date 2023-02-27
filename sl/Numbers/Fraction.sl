@@ -99,7 +99,7 @@ Fraction : [Object, Magnitude, Numeric] { | numerator denominator |
 		aNumber.isInteger.if {
 			Fraction(aNumber, 1).aProcedure(self)
 		} {
-			'Fraction>>adaptToNumberAndApply: not integral'.error
+			aNumber.aProcedure(self.asFloat)
 		}
 	}
 

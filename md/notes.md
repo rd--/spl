@@ -1,4 +1,9 @@
-## Application and Assignment
+# Traits For
+
+Allow specifying existing types a Trait should apply to.
+Replace definitions at multiple types (i.e. SinOsc at Array & Number & Ugen) with a Trait defined at the types (ie. @UgenInput : [Array, Number, Ugen])
+
+# Application and Assignment
 
 - _f()_ ⇒ apply _f_
 - _f(x, ...)_ ⇒ apply _f_ to _x, ..._

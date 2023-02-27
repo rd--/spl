@@ -7,6 +7,15 @@
 		button
 	}
 
+	TextInput { :self |
+		| input = 'input'.createElement; |
+		input.setAttributes((
+			type: 'text',
+			value: self
+		));
+		input
+	}
+
 	TextListItem { :self |
 		| listItem = 'li'.createElement; |
 		listItem.textContent := self;

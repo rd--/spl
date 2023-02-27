@@ -8,6 +8,7 @@ SmallHours : [Object] { | helpIndex programIndex |
 		ColumnBrowser(
 			'Help Browser',
 			true,
+			false,
 			[1, 1, 3],
 			{ :browser :path |
 				path.size.caseOf([
@@ -103,6 +104,7 @@ SmallHours : [Object] { | helpIndex programIndex |
 	ProgramBrowser { :self |
 		ColumnBrowser(
 			'Program Browser',
+			false,
 			false,
 			[1, 1, 3],
 			{ :browser :path |

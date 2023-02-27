@@ -15,7 +15,7 @@ system.categorizeAll('Ui/Html', ['DOMRect', 'DOMTokenList', 'HTMLBodyElement', '
 system.categorizeAll('Ui/Midi', ['MIDIAccess', 'MIDIConnectionEvent', 'MIDIInput', 'MIDIInputMap', 'MIDIMessageEvent', 'MIDIOutput', 'MIDIOutputMap']);
 system.categorizeAll('Ui/Navigator', ['Navigator', 'Response', 'Window']);
 system.categorizeAll('Ui/Node', ['Attr', 'NamedNodeMap', 'NodeList', 'Range', 'Selection', 'Text']);
-system.categorizeAll('Ui/System', ['ColourChooser', 'ColumnBrowser', 'Frame', 'MenuItem', 'Menu', 'SmallHours', 'SmallKansas', 'TextEditor']);
+system.categorizeAll('Ui/System', ['ColourChooser', 'ColumnBrowser', 'ColumnBrowserColumn', 'Frame', 'MenuItem', 'Menu', 'SmallHours', 'SmallKansas', 'TextEditor']);
 
 system.categorizeAll('Collections/Ordered', ['Cons', 'LinkedList', 'Pair', 'ValueLink']);
 system.categorizeAll('Collections/Streams', ['PositionableStream', 'ReadStream', 'WriteStream']);

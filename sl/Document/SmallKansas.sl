@@ -132,7 +132,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 				each.includesSubstring(bracketedSubject)
 			}.IdentitySet.Array.sorted ;
 		|
-		self.addFrame(MethodSignatureBrowser(methodSignatures), event)
+		self.addFrame(MethodSignatureBrowser(methodSignatures, false), event)
 	}
 
 	initialize { :self |
@@ -336,7 +336,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 	}
 
 	MidiPortBrowser { :self |
-		ColumnBrowser('Midi Port Browser', false, [1, 1, 3]) { :browser :path |
+		ColumnBrowser('Midi Port Browser', false, false, [1, 1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					['input', 'output']
@@ -361,8 +361,8 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 + Array {
 
 
-	MethodSignatureBrowser { :self |
-		ColumnBrowser('Method Signature Browser', false, [1]) { :browser :path |
+	MethodSignatureBrowser { :self :withFilter |
+		ColumnBrowser('Method Signature Browser', false, withFilter, [1]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					self
@@ -392,7 +392,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 
 	MethodBrowser {
 		| methodNames = system.allMethods.collect(qualifiedName:/1).IdentitySet.Array.sorted ; |
-		ColumnBrowser('Method Browser', false, [3, 1]) { :browser :path |
+		ColumnBrowser('Method Browser', false, true, [3, 1]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					methodNames
@@ -416,10 +416,10 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 
 	MethodSignatureBrowser {
 		MethodSignatureBrowser(
-			system.allMethods.collect(signature:/1).IdentitySet.Array.sorted
+			system.allMethods.collect(signature:/1).IdentitySet.Array.sorted,
+			true
 		)
 	}
-
 
 	CategoryBrowser {
 		|
@@ -427,7 +427,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 			categoryNames = typeNames.collect { :each | system.categoryOf(each) }.IdentitySet.Array.sorted,
 			methodSet = nil;
 		|
-		ColumnBrowser('Category Browser', false, [1, 1, 3]) { :browser :path |
+		ColumnBrowser('Category Browser', false, false, [1, 1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -457,7 +457,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 
 	SystemBrowser {
 		| typeNames = system.typeDictionary.keys.sorted, methodSet = nil; |
-		ColumnBrowser('System Browser', false, [1, 3]) { :browser :path |
+		ColumnBrowser('System Browser', false, false, [1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -479,7 +479,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 
 	TraitBrowser {
 		| traitNames = system.traitDictionary.keys.sorted; |
-		ColumnBrowser('Trait Browser', false, [1, 3]) { :browser :path |
+		ColumnBrowser('Trait Browser', false, false, [1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -498,7 +498,7 @@ SmallKansas : [Object] { | container frameSet midiAccess |
 
 	TypeBrowser {
 		| typeNames = system.typeDictionary.keys.sorted; |
-		ColumnBrowser('Type Browser', false, [1, 3]) { :browser :path |
+		ColumnBrowser('Type Browser', false, false, [1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');

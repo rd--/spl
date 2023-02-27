@@ -488,6 +488,10 @@ Fraction(4, 6).reduced.denominator = 3
 -3:2 * 4:3 = -2
 5:3 + 1:3 = 2
 3:2.asFloat = 1.5
+0.5 < 2:3 = true
+2:3 > 0.5 = true
+1 < 3:2 = true
+3:2 > 1 = true
 
 'Numbers/Number'
 0 = -0 = true
