@@ -1,5 +1,13 @@
 @Integral {
 
+	adaptToFractionAndApply { :self :aFraction :aProcedure:/2 |
+		aFraction.aProcedure(Fraction(self, 1))
+	}
+
+	denominator { :self |
+		1
+	}
+
 	gcd { :self :anInteger |
 		| a = self.abs, b = anInteger.abs; |
 		{ b = 0 }.whileFalse {
@@ -56,6 +64,10 @@
 			maybePrime := maybePrime + 1
 		};
 		maybePrime
+	}
+
+	numerator { :self |
+		self
 	}
 
 	timesRepeat { :self :aProcedure:/0 |

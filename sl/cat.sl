@@ -1,6 +1,6 @@
 system.categorizeAll('Collections/Ordered', ['Array', 'ArrayBuffer', 'ByteArray', 'Float64Array', 'Interval', 'OrderedCollection', 'PriorityQueue']);
 system.categorizeAll('Collections/Unordered', ['Association', 'IdentityDictionary', 'IdentitySet', 'StringDictionary']);
-system.categorizeAll('Kernel', ['Boolean', 'Error', 'LargeInteger', 'Number', 'Procedure', 'Promise', 'UndefinedObject', 'Void']);
+system.categorizeAll('Kernel', ['Boolean', 'Error', 'Fraction', 'LargeInteger', 'Number', 'Procedure', 'Promise', 'UndefinedObject', 'Void']);
 system.categorizeAll('Kernel/System', ['Method', 'System', 'Trait', 'Type']);
 system.categorizeAll('Text', ['String', 'RegExp']);
 system.categorizeAll('Time', ['Duration', 'TimeStamp']);

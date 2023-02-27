@@ -115,8 +115,9 @@ Sl {
 	binaryChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$"
 
 	literal = numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
-	numberLiteral = floatLiteral | integerLiteral
+	numberLiteral = floatLiteral | fractionLiteral | integerLiteral
 	floatLiteral = "-"? digit+ "." digit+
+	fractionLiteral = "-"? digit+ ":" digit+
 	integerLiteral = "-"? digit+
 	singleQuotedStringLiteral = "\'" (~"\'" sourceCharacter)* "\'"
 	doubleQuotedStringLiteral = "\"" (~"\"" sourceCharacter)* "\""

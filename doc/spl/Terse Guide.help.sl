@@ -427,10 +427,67 @@ Error('message').log = nil
 7 << 23 = 58720256
 
 'Numbers/Fraction'
-Fraction(6, 4) = Fraction(3, 2)
-Fraction(-6, 4) = Fraction(-3, 2)
-Fraction(6, -4) = Fraction(-3, 2)
+Fraction(6, 4).reduced = Fraction(3, 2)
+Fraction(-6, 4).reduced = Fraction(-3, 2)
+Fraction(6, -4).reduced = Fraction(-3, 2)
 { Fraction(6, 0) }.ifError { :err | true }
+1:2 = 2:4 = true
+1:2 * 2 = 1
+2 * 1:2 = 1
+23.isFraction = true
+23.numerator = 23
+23.denominator = 1
+1:3 + 1:7 = 10:21
+Fraction(3, 1)
+Fraction(3, 1) = 3:1
+-3:2.negated = 3:2
+-3:2.abs = 3:2
+3:2.ceiling = 2
+-3:2.ceiling = -1
+3:2.floor = 1
+-3:2.floor = -2
+353:359.printString = '353:359'
+59:61.printString = '59:61'
+4 / (2:3) = 6
+4 / (-2:3) = -6
+-4 / (-2:3) = 6
+-4 / (2:3) = -6
+4 * (3:2) = 6
+4 * (-3:2) = -6
+-4 * (-3:2) = 6
+-4 * (3:2) = -6
+1:2.reciprocal = 2
+3:4.reciprocal = 4:3
+-1:3.reciprocal = -3
+-3:5.reciprocal = -5:3
+4:5.rounded = 1
+6:5.rounded = 1
+-4:5.rounded = -1
+-6:5.rounded = -1
+3:2.rounded = 2
+-3:2.rounded = -2
+-3:2.numerator.negative
+-3:2.denominator.positive
+4:6.numerator = 2
+4:6.denominator = 3
+4:2 = 2
+Fraction(4, 6).numerator = 4
+Fraction(4, 6).denominator = 6
+Fraction(4, 6).reduced.numerator = 2
+Fraction(4, 6).reduced.denominator = 3
+3:2.truncated = 1
+-3:2.truncated = -1
+2:3 - 5:3 = -1
+3:2 / 3:4 = 2
+3:2 / -3:4  = -2
+-3:2 / -3:4 = 2
+-3:2 / 3:4 = -2
+3:2 * 4:3 = 2
+3:2 * -4:3  = -2
+-3:2 * -4:3 = 2
+-3:2 * 4:3 = -2
+5:3 + 1:3 = 2
+3:2.asFloat = 1.5
 
 'Numbers/Number'
 0 = -0 = true
@@ -473,7 +530,12 @@ var r; 0.do { :each | r := each }; r = nil
 1.toDo(0) { :each | 'toDo'.error }; true
 '3.141'.parseNumber = 3.141
 '23'.parseInteger(10) = 23
-
+-1.5.ceiling = -1
+-9.quotient(4) = -2
+-0.9.quotient(0.4) = -2
+9.remainder(4) = 1
+-9.remainder(4) = -1
+0.9.remainder(0.5) = 0.4
 
 'System/system'
 system.typeOf = 'System'

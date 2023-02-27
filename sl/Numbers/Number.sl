@@ -65,9 +65,6 @@ Number : [Object, Magnitude, Numeric, Integral, Binary] {
 	exp { :self | <primitive: return Math.exp(_self)> }
 	floor { :self | <primitive: return Math.floor(_self)> }
 	fractionPart { :self | <primitive: return _self % 1;> }
-	isInteger { :self | <primitive: return Number.isInteger(_self);> }
-	isNaN { :self | <primitive: return Number.isNaN(_self);> }
-	log { :self | <primitive: return Math.log(_self)> }
 	log2 { :self | <primitive: return Math.log2(_self)> }
 	log10 { :self | <primitive: return Math.log10(_self)> }
 	odd { :self | <primitive: return Math.abs(_self % 2) === 1;> }
@@ -133,9 +130,23 @@ Number : [Object, Magnitude, Numeric, Integral, Binary] {
 		}
 	}
 
+	isFraction { :self |
+		self.isInteger
+	}
+
+	isInteger { :self |
+		<primitive: return Number.isInteger(_self);>
+	}
+
+	isNaN { :self |
+		<primitive: return Number.isNaN(_self);>
+	}
+
 	json { :self |
 		<primitive: return JSON.stringify(_self);>
 	}
+
+	log { :self | <primitive: return Math.log(_self)> }
 
 	min { :self :anObject |
 		<primitive: if(sl.isNumber(_anObject)) { return Math.min(_self, _anObject); }>

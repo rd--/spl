@@ -181,6 +181,7 @@ const asJs: any = {
 	},
 
 	floatLiteral(s,i,_,f) { return `${s.sourceString}${i.sourceString}.${f.sourceString}`; },
+	fractionLiteral(s,i,_,f) { return `_reduced_1(_Fraction_2(${s.sourceString}${i.sourceString}, ${f.sourceString}))`; },
 	integerLiteral(s,i) { return `${s.sourceString}${i.sourceString}`; },
 	singleQuotedStringLiteral(_l, s, _r) { return `'${quoteNewLines(s.sourceString)}'`; },
 	doubleQuotedStringLiteral(_l, s, _r) { return `_${genName('parseDoubleQuotedString', 1)}('${s.sourceString}')`; },
