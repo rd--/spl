@@ -5,21 +5,38 @@
 	}
 
 	at { :self :anInteger |
-		<primitive: if(sl.arrayCheckIndex(_self, _anInteger - 1)) { return _self[_anInteger - 1]; }>
+		<primitive:
+		if(sl.arrayCheckIndex(_self, _anInteger - 1)) {
+			return _self[_anInteger - 1];
+		}
+		>
 		error('ArrayedCollection>>at: index not an integer or out of range: ' ++ anInteger)
 	}
 
 	atPut { :self :anInteger :anObject |
-		<primitive: if(sl.arrayCheckIndex(_self, _anInteger - 1)) { _self[_anInteger - 1] = _anObject; return _anObject; }>
+		<primitive:
+		if(sl.arrayCheckIndex(_self, _anInteger - 1)) {
+			_self[_anInteger - 1] = _anObject;
+			return _anObject;
+		}
+		>
 		error('ArrayedCollection>>atPut: index not an integer')
 	}
 
 	checkIndex { :self :anInteger |
-		<primitive: return Number.isInteger(_anInteger) && 0 < _anInteger && _anInteger <= _self.length;>
+		<primitive:
+		return Number.isInteger(_anInteger) && 0 < _anInteger && _anInteger <= _self.length;
+		>
 	}
 
 	collect { :self :aProcedure |
-		<primitive: if(_aProcedure instanceof Function) { return _self.map(function(each) { return _aProcedure(each); }); }>
+		<primitive:
+		if(_aProcedure instanceof Function) {
+			return _self.map(function(each) {
+				return _aProcedure(each);
+			});
+		}
+		>
 		error('ArrayedCollection>>collect: not a procedure')
 	}
 
@@ -736,9 +753,13 @@
 		self.species.ofSize(self.size + length).replaceFromToWithStartingAt(1, self.size, self, 1)
 	}
 
-	includes { :self :anObject | self.indexOf(anObject) ~= 0 }
+	includes { :self :anObject |
+		self.indexOf(anObject) ~= 0
+	}
 
-	indexOf { :self :anElement |self.indexOfStartingAt(anElement, 1) }
+	indexOf { :self :anElement |
+		self.indexOfStartingAt(anElement, 1)
+	}
 
 	indexOfStartingAt { :self :anElement :start |
 		withReturn {

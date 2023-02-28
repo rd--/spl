@@ -9,6 +9,7 @@
 (require 'font-lock)
 (require 'sclang-mode)
 (require 'thingatpt)
+(require 'imenu)
 
 (defvar spl-directory nil
   "The Spl directory (default=nil).")
@@ -81,6 +82,21 @@
 (defvar spl-mode-hook
   nil
   "Hook to run on entering spl-mode.")
+
+(defvar spl-imenu-generic-expression-categorised
+  (list
+   (list "Traits" "^@\\([A-Z][A-Za-z]+\\) {" 1)
+   (list "Trait Extensions" "^\+?@\\([A-Z][A-Za-z]+\\) {" 1)
+   (list "Types" "^\\([A-Z][A-Za-z]+\\) : " 1)
+   (list "Type Extensions" "^\+?\\([A-Z][A-Za-z]+\\) : " 1)
+   (list "Methods" "^\t\\([a-z][A-Za-z]+\\) {" 1))
+  "Value for `imenu-generic-expression' in Spl mode.")
+
+(defvar spl-imenu-generic-expression
+  (list
+   (list nil "^\\(\+?@?[A-Z][A-Za-z]+\\) {" 1)
+   (list nil "^\\(\t[a-z][A-Za-z]+\\) {" 1))
+  "Value for `imenu-generic-expression' in Spl mode.")
 
 (defconst spl-font-lock-keywords
   (list
@@ -170,7 +186,8 @@
   (set (make-local-variable 'comment-start) ";; ")
   (set (make-local-variable 'comment-end) "")
   (set (make-local-variable 'font-lock-defaults) '(spl-font-lock-keywords))
-  nil)
+  (setq-local imenu-sort-function 'imenu--sort-by-name)
+  (setq-local imenu-generic-expression spl-imenu-generic-expression))
 
 (define-derived-mode spl-mode prog-mode "Spl"
   "Major mode for editing Simple Programming Language files."
