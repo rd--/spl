@@ -73,7 +73,6 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnList
 		self
 	}
 
-
 	setAttributes { :self :columnProportions :listSize |
 		self.browserPane.setAttribute('class', 'browserPane');
 		self.columnsPane.setAttribute('class', 'columnsPane');
@@ -268,7 +267,6 @@ Frame : [Object] { | framePane titlePane closeButton menuButton titleText inMove
 		]
 	}
 
-
 	moveTo { :self :x :y |
 		self.x := x;
 		self.y := y;
@@ -350,7 +348,6 @@ Frame : [Object] { | framePane titlePane closeButton menuButton titleText inMove
 
 }
 
-
 +@View {
 
 	Frame { :self |
@@ -418,7 +415,6 @@ MenuItem : [Object] { | name accessKey onSelect |
 	displayText { :self |
 		self.name ++? self.accessKeyDislayText
 	}
-
 
 }
 
@@ -566,7 +562,6 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		}), event)
 	}
 
-
 	dialog { :self :subject :event |
 		| dialog = 'dialog'.createElement; |
 		dialog.appendChild(subject.outerElement);
@@ -650,7 +645,6 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 			system.window.fetchString(self.helpUrl(path[1], path[2], path[3]), (cache: 'no-cache'))
 		}
 	}
-
 
 	helpFetchFor { :self :subject |
 		self.helpFetch(self.helpFind(subject))
@@ -812,7 +806,6 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		frame
 	}
 
-
 	midiPortListEntries { :self :onSelect:/2|
 		(self.midiAccess.inputs.ports ++ self.midiAccess.outputs.ports).collect { :midiPort |
 			MenuItem(midiPort.type ++ '/' ++ midiPort.name, nil)  { :event |
@@ -888,6 +881,10 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		self.frameSet.remove(frame)
 	}
 
+	svgViewer { :self :title :svg |
+		self.addFrame(SvgViewer(title, svg), nil)
+	}
+
 	systemBrowser { :self :event |
 		self.addFrame(SystemBrowser(), event)
 	}
@@ -899,7 +896,6 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 	typeBrowser { :self :event |
 		self.addFrame(TypeBrowser(), event)
 	}
-
 
 	windowMenuEntries { :self |
 		self.frameSet.Array.collect { :frame |
@@ -1075,7 +1071,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 			categoryNames = typeNames.collect { :each | system.categoryOf(each) }.IdentitySet.Array.sorted,
 			methodSet = nil;
 		|
-		ColumnBrowser('Category Browser', false, true, true, [1, 1, 3]) { :browser :path |
+		ColumnBrowser('Category Browser', false, false, true, [1, 1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -1105,7 +1101,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 	SystemBrowser {
 		| typeNames = system.typeDictionary.keys.sorted, methodSet = nil; |
-		ColumnBrowser('System Browser', false, true, true, [1, 3]) { :browser :path |
+		ColumnBrowser('System Browser', false, false, true, [1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -1127,7 +1123,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 	TraitBrowser {
 		| traitNames = system.traitDictionary.keys.sorted; |
-		ColumnBrowser('Trait Browser', false, true, true, [1, 3]) { :browser :path |
+		ColumnBrowser('Trait Browser', false, false, true, [1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -1165,12 +1161,41 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 }
 
+SvgViewer : [Object, View] { | svgPane title svg |
+
+	createElements { :self |
+		self.svgPane := 'div'.createElement;
+		self.svgPane.setAttribute('class', 'svgPane');
+		self.svgPane.appendChild(self.svg)
+	}
+
+	initialize { :self :title :svg |
+		self.title := title;
+		self.svg := svg;
+		self.createElements;
+		self
+	}
+
+	outerElement { :self |
+		self.svgPane
+	}
+
+}
+
++String {
+
+	SvgViewer { :title :svg |
+		newSvgViewer().initialize(title, svg)
+	}
+
+}
+
+
 TextEditor : [Object, View] { | editorPane editorText isRichText title |
 
 	contextMenuEntries { :self |
 		self.keyBindings
 	}
-
 
 	createElements { :self |
 		self.editorPane := 'div'.createElement;
@@ -1240,7 +1265,6 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 		]
 	}
 
-
 	outerElement { :self |
 		self.editorPane
 	}
@@ -1305,7 +1329,6 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 	}
 
 }
-
 
 +String {
 

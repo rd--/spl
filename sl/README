@@ -8,9 +8,7 @@ loadSequence([
 	'Collections/ValueLink.sl'
 ])
 
-
 (*
 system.categorizeAll('Collections-Ordered', ['Cons', 'LinkedList', 'Pair', 'ValueLink']);
 system.categorizeAll('Collections-Streams', ['PositionableStream', 'ReadStream', 'WriteStream']);
 *)
-

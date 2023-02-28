@@ -41,12 +41,44 @@
 
 	body { :self | <primitive: return _self.body;> }
 	createElement { :self :tagName | <primitive: return _self.createElement(_tagName);> }
+	createElementNS { :self :namespaceURI :qualifiedName | <primitive: return _self.createElementNS(_namespaceURI, _qualifiedName);> }
 	defaultView { :self | <primitive: return _self.defaultView;> }
+	documentElement { :self | <primitive: return _self.documentElement;> }
 	getElementById { :self :aString | <primitive: return _self.getElementById(_aString);> }
 	getSelection { :self | <primitive: return _self.getSelection();> }
 	querySelector { :self :aString | <primitive: return _self.querySelector(_aString);> }
 	querySelectorAll { :self :aString | <primitive: return _self.querySelectorAll(_aString);> }
 	visibilityState { :self | <primitive: return _self.visibilityState;> }
+
+	createSvgElement { :self :tagName |
+		self.createElementNS('http://www.w3.org/2000/svg', tagName)
+	}
+
+	createSvgElement { :self :tagName :attributeDictionary |
+		| element = self.createSvgElement(tagName); |
+		element.setAttributesNS(nil, attributeDictionary);
+		element
+	}
+
+}
+
+@DOMMatrixReadOnly {
+
+	is2D { :self | <primitive: return _self.is2D;> }
+	isIdentity { :self | <primitive: return _self.isIdentity;> }
+
+	transformPoint { :self :point | <primitive: return _self.transformPoint(_point);> }
+
+}
+
+@DOMPointReadOnly {
+
+	x { :self | <primitive: return _self.x;> }
+	y { :self | <primitive: return _self.y;> }
+	z { :self | <primitive: return _self.z;> }
+	w { :self | <primitive: return _self.w;> }
+
+	matrixTransform { :self :matrix | <primitive: return _self.matrixTransform(_matrix);> }
 
 }
 
@@ -68,6 +100,7 @@
 	remove { :self | <primitive: return _self.remove();> }
 	removeAttribute { :self :aString | <primitive: return _self.removeAttribute(_aString);> }
 	setAttribute { :self :name :value | <primitive: return _self.setAttribute(_name, _value);> }
+	setAttributeNS { :self :namespace :name :value | <primitive: return _self.setAttributeNS(_namespace, _name, _value);> }
 	setPointerCapture { :self :pointerId | <primitive: return _self.setPointerCapture(_pointerId);> }
 
 	removeAllChildren { :self |
@@ -79,6 +112,12 @@
 	setAttributes { :self :aDictionary |
 		aDictionary.keysAndValuesDo { :key :value |
 			self.setAttribute(key, value)
+		}
+	}
+
+	setAttributesNS { :self :namespace :aDictionary |
+		aDictionary.keysAndValuesDo { :key :value |
+			self.setAttributeNS(namespace, key, value)
 		}
 	}
 
@@ -176,6 +215,26 @@
 
 }
 
+@SVGElement {
+
+}
+
+@SVGGeometryElement {
+
+}
+
+@SVGGraphicsElement {
+
+}
+
+@SVGTextContentElement {
+
+}
+
+@SVGTextPositioningElement {
+
+}
+
 @UiEvent {
 
 }
@@ -194,6 +253,78 @@ CSSStyleDeclaration : [Object, CssProperties] {
 
 CSS2Properties : [Object, CssProperties] {
 	(* Firefox... *)
+}
+
+DOMParser : [Object] {
+
+	parseFromString { :self :aString :mimeType |
+		<primitive: return _self.parseFromString(_aString, _mimeType);>
+	}
+
+}
+
++Void {
+
+	DOMParser {
+		<primitive: return new DOMParser();>
+	}
+
+}
+
++ String {
+
+	parseSvg { :self |
+		DOMParser().parseFromString(self, 'image/svg+xml').documentElement
+	}
+
+}
+
+DOMMatrix : [Object, DOMMatrixReadOnly] {
+
+}
+
+DOMMatrixReadOnly : [Object, DOMMatrixReadOnly] {
+
+}
+
++Array {
+
+	DOMMatrix { :self |
+		<primitive: return new DOMMatrix(_self);>
+	}
+
+	DOMMatrixReadOnly { :self |
+		<primitive: return new DOMMatrixReadOnly(_self);>
+	}
+
+}
+
+DOMPoint : [Object, DOMPointReadOnly] {
+
+}
+
+DOMPointReadOnly : [Object, DOMPointReadOnly] {
+
+}
+
++Number {
+
+	DOMPoint { :x :y :z :w |
+		<primitive: return new DOMPoint(_x, _y, _z, _w);>
+	}
+
+	DOMPointReadOnly { :x :y :z :w |
+		<primitive: return new DOMPointReadOnly(_x, _y, _z, _w);>
+	}
+
+}
+
++StringDictionary {
+
+	DOMPointReadOnly { :self |
+		<primitive: return DOMPointReadOnly.fromPoint(_self);>
+	}
+
 }
 
 DOMRect : [Object] {
@@ -264,7 +395,6 @@ HTMLInputElement : [Object, EventTarget, Node, Element, HtmlElement] {
 	}
 
 }
-
 
 HTMLLIElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
@@ -438,14 +568,68 @@ Selection : [Object] {
 
 }
 
+SVGCircleElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+
+}
+
+SVGLineElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+
+}
+
+SVGPathElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+
+}
+
+SVGPointList : [Object] {
+
+	clear { :self | <primitive: return _self.clear();> }
+	getItem { :self :index | <primitive: return _self.getItem(_index);> }
+	length { :self | <primitive: return _self.length;> }
+	numberOfItems { :self | <primitive: return _self.numberOfItems;> }
+
+}
+
+SVGPolygonElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+
+	points { :self | <primitive: return _self.points;> }
+
+}
+
+SVGPolylineElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+
+}
+
+SVGRectElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+
+}
+
+SVGSVGElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement] {
+
+}
+
+SVGTextElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGTextContentElement, SVGTextPositioningElement] {
+
+}
+
+SVGTextPathElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGTextContentElement] {
+
+}
+
+SVGTitleElement : [Object, EventTarget, Node, Element, SVGElement] {
+
+}
+
 Text : [Object, EventTarget, Node, CharacterData] {
 
 	wholeText { :self | <primitive: return _self.wholeText;> }
 
 }
 
-+String {
+XMLDocument : [Object, EventTarget, Node, Document] {
 
+}
+
++String {
 
 	createElement { :self |
 		system.window.document.createElement(self)

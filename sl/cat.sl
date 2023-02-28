@@ -77,6 +77,7 @@ system.categorizeDictionary(
 			'Menu',
 			'MenuItem',
 			'SmallKansas',
+			'SvgViewer',
 			'TextEditor'
 		],
 		'Navigator': [
@@ -95,6 +96,11 @@ system.categorizeDictionary(
 			'CSS2Properties'
 		],
 		'Navigator-Dom': [
+			'DOMMatrix',
+			'DOMMatrixReadOnly',
+			'DOMParser',
+			'DOMPoint',
+			'DOMPointReadOnly',
 			'DOMRect',
 			'DOMTokenList'
 		],
@@ -132,6 +138,22 @@ system.categorizeDictionary(
 			'MIDIMessageEvent',
 			'MIDIOutput',
 			'MIDIOutputMap'
+		],
+		'Navigator-Svg': [
+			'SVGCircleElement',
+			'SVGLineElement',
+			'SVGPathElement',
+			'SVGPointList',
+			'SVGPolygonElement',
+			'SVGPolylineElement',
+			'SVGRectElement',
+			'SVGSVGElement',
+			'SVGTextElement',
+			'SVGTextPathElement',
+			'SVGTitleElement'
+		],
+		'Navigator-Xml': [
+			'XMLDocument'
 		]
 	)
 )

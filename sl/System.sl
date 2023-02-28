@@ -502,6 +502,8 @@ Window : [Object] {
 	getComputedStyle { :self :element | <primitive: return _self.getComputedStyle(_element);> }
 	getSelectedText { :self | <primitive: return _self.getSelection().toString();> }
 	getSelection { :self | <primitive: return _self.getSelection();> }
+	innerHeight { :self | <primitive: return _self.innerHeight;> }
+	innerWidth { :self | <primitive: return _self.innerWidth;> }
 	localStorage { :self | <primitive: return _self.localStorage;> }
 	location { :self | <primitive: return _self.location;> }
 	name { :self | <primitive: return _self.name;> }
