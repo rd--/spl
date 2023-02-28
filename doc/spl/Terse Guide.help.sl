@@ -540,6 +540,14 @@ var r; 0.do { :each | r := each }; r = nil
 9.remainder(4) = 1
 -9.remainder(4) = -1
 0.9.remainder(0.5) = 0.4
+(1 .. 99).select(isPrime:/1) = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97]
+(1 .. 999).select(isPrime:/1).size = 168
+(1 .. 9999).select(isPrime:/1).size = 1229
+2588.primeFactors = [2, 2, 647]
+(2 .. 30).select { :each | each.primeFactors.max <= 5 } = [2,  3,  4,  5,  6,  8,  9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30]
+(2 .. 15).select { :each | each.primeLimit <= 5 } = [2,  3,  4,  5,  6,  8,  9, 10, 12, 15]
+60.divisors = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60]
+1729.divisors = [1, 7, 13, 19, 91, 133, 247, 1729]
 
 'System/system'
 system.typeOf = 'System'
@@ -568,14 +576,14 @@ system.methodDictionary::collect.isIdentityDictionary = true
 system.methodDictionary::collect[2].isIdentityDictionary = true
 system.methodDictionary::collect[2]::Array.isMethod = true
 system.methodDictionary.includesKey('collect') = true
-system.allMethods.collect { :each | each.signature }.includes('Collection>>sum:/1') = true
-'Collection>>sum:/1'.splitRegExp(RegExp('>>|:/')) = ['Collection', 'sum', '1']
-'Collection>>sum:/1'.parseMethodSignature = ['Collection', 'sum', 1]
-system.methodLookup('collect', 2, 'Array').isNil = true
+system.allMethods.collect { :each | each.signature }.includes('Collection*>>sum:/1') = true
+'Collection*>>sum:/1'.parseMethodSignature = ['Collection*', 'sum:/1']
+'Collection*'.parseQualifiedTraitName = 'Collection'
+system.methodLookupAtType('collect', 2, 'Array').isMethod = true
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Interval') = true
 system.methodSignatures('add').includes('IdentityDictionary>>add:/2') = true
-system.methodLookup('sum', 1, 'Collection').isMethod = true
-system.methodLookup('sum', 1, 'Collection').sourceCode = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
+system.methodLookupAtSignature('Collection*>>sum:/1').isMethod = true
+system.methodLookupAtType('sum', 1, 'Array').sourceCode = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
 system.methodTypes('last:/1').includes('Interval') = true
 system.multipleArityMethodList.includes('randomFloat') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
@@ -588,7 +596,6 @@ system.methodLookupAtType('collect', 2, 'Array').origin.name = 'ArrayedCollectio
 system.methodLookupAtType('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum', 1, 'OrderedCollection')
 'sum:/1'.parseQualifiedMethodName = ['sum', 1]
-'Collection>>sum:/1'
 
 'System/time'
 system.systemTimeInMilliseconds > 0 = true

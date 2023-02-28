@@ -7,14 +7,11 @@ check-ts:
 spl-repl:
 	rlwrap --always-readline deno run --allow-read --allow-env --allow-net cli.ts --dir=../sl replPerLine --strict
 
-spl-repl-lib:
-	rlwrap --always-readline deno run --allow-read --allow-env cli.ts --dir=../sl replPerLine lib.sl --strict
-
 spl-repl-sc:
 	rlwrap --always-readline deno run --allow-read --allow-env cli.ts --dir=../sl replPerLine sc.sl --strict
 
 spl-repl-ui:
-	rlwrap --always-readline deno run --allow-read --allow-env cli.ts --dir=../sl replPerLine lib.sl sc.sl ui.sl --strict
+	rlwrap --always-readline deno run --allow-read --allow-env cli.ts --dir=../sl replPerLine sc.sl sk.sl --strict
 
 spl-server:
 	deno run --allow-read --allow-env --allow-net --unstable cli.ts --dir=../sl sc udpServer 3010

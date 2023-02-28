@@ -51,7 +51,7 @@ async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	console.log(`loadSpl: opt.dir=${opt.dir}, getSplDir=${getSplDir()}, loadPath=${loadPath}`);
 	io.addLoadFileMethods();
 	sl.assignGlobals();
-	await io.loadFileArrayInSequence(loadPath, ['kernel.sl', 'std.sl'].concat(lib)); // ['cat.sl']
+	await io.loadFileArrayInSequence(loadPath, ['std.sl'].concat(lib)); // ['cat.sl']
 	if(lib.includes('sc.sl')) {
 		globalThis.sc = sc;
 		globalThis.globalScSynth = cliScSynth;

@@ -93,7 +93,7 @@ var w = Utf8WriteStream(); 'bodlɛʁ'.encodeOn(w); w.contents.utf8 = 'bodlɛʁ'
 'Time/Duration'
 2.seconds.typeOf = 'Duration'
 5.hours.isDuration = true
-0.25.asDuration = 250.milliseconds
+0.25.Duration = 250.milliseconds
 3.hours.seconds = 10800
 1.5.seconds.milliseconds = 1500
 system.systemTime.isDuration = true

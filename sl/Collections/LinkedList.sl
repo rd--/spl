@@ -201,15 +201,7 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 
 }
 
-+ Number {
-
-	LinkedList { :self |
-		LinkedList()
-	}
-
-}
-
-+ @Collection {
++@Collection {
 
 	LinkedList { :self |
 		| answer = LinkedList(); |
@@ -221,7 +213,15 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 
 }
 
-+ Void {
++Number {
+
+	LinkedList { :self |
+		LinkedList()
+	}
+
+}
+
++Void {
 
 	LinkedList {
 		newLinkedList()

@@ -10,14 +10,18 @@ Methods have the fields:
 - _procedure_: the compiled implementation of the method
 - _sourceCode_: the definition of the method string
 
-The _methodDictionary_ is reflected in the _system_ type.
+The _methodDictionary_ is reflected in the _System_ type.
 
 ```
 system.methodDictionary.isIdentityDictionary = true
 system.methodDictionary.includesKey('collect') = true
-system.methodLookup('collect', 2, 'Array').isMethod = true
-system.methodLookup('collect', 2, 'Array').origin = 'ArrayedCollection'
-system.methodLookup('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = [9, 16, 25]
+system.methodLookupAtType('collect', 2, 'Array').isMethod = true
+system.methodLookupAtType('collect', 2, 'Array').origin.name = 'ArrayedCollection'
+system.methodLookupAtType('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = [9, 16, 25]
 collect([3, 4, 5], { :x | x * x }) = [9, 16, 25]
-system.methodLookup('sum', 1, 'Array') == system.methodLookup('sum', 1, 'OrderedCollection')
+system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum', 1, 'OrderedCollection')
 ```
+
+* * *
+
+See also: _System_, _Trait_, _Type_

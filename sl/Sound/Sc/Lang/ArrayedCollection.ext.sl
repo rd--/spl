@@ -1,4 +1,4 @@
-+ @ArrayedCollection {
++@ArrayedCollection {
 
 	rank { :self |
 		1 + self.first.rank
@@ -10,7 +10,7 @@
 
 }
 
-+ @Object {
++@Object {
 
 	rank { :self |
 		0

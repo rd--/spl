@@ -1,17 +1,6 @@
 loadSequence([
-	'Collections/Association.sl',
-	'Collections/Dictionary.sl',
-	'Collections/Float64Array.sl',
-	'Collections/IdentityDictionary.sl',
-	'Collections/IdentitySet.sl',
-	'Collections/Interval.sl',
-	'Collections/OrderedCollection.sl',
-	'Collections/PriorityQueue.sl',
-	'Collections/StringDictionary.sl',
-	'Exceptions/Error.sl',
-	'Kernel/Method.sl',
-	'Kernel/Trait.sl',
-	'Kernel/Type.sl',
-	'Text/RegExp.sl',
-	'Time/Duration.sl'
+	'Kernel.sl',
+	'Collections.sl',
+	'System.sl',
+	'Time.sl'
 ])

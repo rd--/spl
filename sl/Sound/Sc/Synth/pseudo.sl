@@ -1,81 +1,6 @@
 + [Array, Number, Ugen] {
 
-	EqPan2 { :self :pos |
-		Pan2(self, pos, 1)
-	}
-
-	EnvBreakPoint { :breakPointArray :curves |
-		| n = breakPointArray.size; |
-		Env(
-			Interval(1, n, 2).collect { :index | breakPointArray[index] },
-			Interval(2, n - 1, 2).collect { :index | breakPointArray[index] }.differentiate,
-			curves,
-			nil,
-			nil,
-			0
-		)
-	}
-
-	ExpRange { :self :lo :hi |
-		LinExp(self, -1, 1, lo, hi)
-	}
-
-	ImpulseSequencer { :self :trig |
-		Sequencer(self, trig) * Trig(trig, SampleDur())
-	}
-
-	IRand { :self |
-		IRand(0, self)
-	}
-
-	LinLin { :self :srclo :srchi :dstlo :dsthi |
-		|
-			mul = (dsthi - dstlo) / (srchi - srclo),
-			add = dstlo - (mul * srclo);
-		|
-		MulAdd(self, mul, add)
-	}
-
-	PingPongDelay { :left :right :maxDelayTime :delayTime :feedback |
-		<primitive: return sc.PingPongDelay(_left, _right, _maxDelayTime, _delayTime, _feedback);>
-	}
-
-
-	Rand { :self |
-		Rand(0, self)
-	}
-
-	Rand2 { :self |
-		Rand(0 - self, self)
-	}
-
-	Range { :self :lo :hi |
-		LinLin(self, -1, 1, lo, hi)
-	}
-
-	Sequencer { :self :trig |
-		Demand(trig, 0, Dseq(inf, self))
-	}
-
-	Silent { :numChannels |
-		if (numChannels == 1) { Dc(0) } { Dc(0) ! numChannels }
-	}
-
-	AudioIn { :channelNumber |
-		In(1, NumOutputBuses() + channelNumber - 1)
-	}
-
-	AudioOut { :channelsArray |
-		Out(0, channelsArray)
-	}
-
-
-	withOverlapEnvelope { :aUgen :sustainTime :transitionTime |
-		| env amp |
-		env := Env([0,1,1,0], [transitionTime,sustainTime,transitionTime], 'sin', nil, nil, 0);
-		amp := EnvGen(1, 1, 0, 1, 2, env.asArray);
-		Out(0, aUgen * amp)
-	}
+	Env { :levels :times :curves :releaseNode :loopNode :offset | <primitive: return new sc.Env(_levels, _times, _curves, _releaseNode, _loopNode, _offset);> }
 
 	Adsr { :gate :attackTime :decayTime :sustainLevel :releaseTime :curve | <primitive: return sc.Adsr(_gate, _attackTime, _decayTime, _sustainLevel, _releaseTime, _curve);> }
 	Asr { :gate :attackTime :releaseTime :curve | <primitive: return sc.Asr(_gate, _attackTime, _releaseTime, _curve);> }
@@ -97,6 +22,7 @@
 	LinSeg { :gate :coordArray | <primitive: return sc.LinSeg(_gate, _coordArray);> }
 	Ln { :start :end :dur | <primitive: return sc.Ln(_start, _end, _dur);> }
 	Perc { :trig :attackTime :releaseTime :curve | <primitive: return sc.Perc(_trig, _attackTime, _releaseTime, _curve);> }
+	PingPongDelay { :left :right :maxDelayTime :delayTime :feedback | <primitive: return sc.PingPongDelay(_left, _right, _maxDelayTime, _delayTime, _feedback);> }
 	PmOsc { :carfreq :modfreq :pmindex :modphase | <primitive: return sc.PmOsc(_carfreq, _modfreq, _pmindex, _modphase);> }
 	Release { :input :attackTime :dur :releaseTime | <primitive: return sc.Release(_input, _attackTime, _dur, _releaseTime);> }
 	RingzBank { :input :freq :amp :time | <primitive: return sc.RingzBank(_input, _freq, _amp, _time);> }
@@ -121,29 +47,5 @@
 	VarLag { :input :time :curve | <primitive: return sc.VarLag(_input, _time, _curve);> }
 	XChoose { :repeats :list | <primitive: return sc.XChoose(_repeats, _list);> }
 	XLn { :start :end :dur | <primitive: return sc.XLn(_start, _end, _dur);> }
-
-}
-
-+ Array {
-
-	asLocalBuf { :self |
-		<primitive: return sc.asLocalBuf(_self);>
-	}
-
-	LocalBuf { :self |
-		<primitive: return sc.asLocalBuf(_self);>
-	}
-
-	Mix { :self |
-		self.sum
-	}
-
-}
-
-+ Procedure {
-
-	!^ { :self :anInteger |
-		Splay2(self ! anInteger)
-	}
 
 }

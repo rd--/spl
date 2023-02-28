@@ -1,5 +1,5 @@
 (* Auto-generated *)
-+ Void {
++Void {
 	BlockSize { <primitive: return sc.BlockSize();> }
 	BrownNoise { <primitive: return sc.BrownNoise();> }
 	ClipNoise { <primitive: return sc.ClipNoise();> }
@@ -14,7 +14,7 @@
 }
 
 (* Auto-generated *)
-+ [Array, Number, Ugen] {
++[Array, Number, Ugen] {
 	AllpassC { :in :maxdelaytime :delaytime :decaytime | <primitive: return sc.AllpassC(_in, _maxdelaytime, _delaytime, _decaytime);> }
 	AllpassL { :in :maxdelaytime :delaytime :decaytime | <primitive: return sc.AllpassL(_in, _maxdelaytime, _delaytime, _decaytime);> }
 	AllpassN { :in :maxdelaytime :delaytime :decaytime | <primitive: return sc.AllpassN(_in, _maxdelaytime, _delaytime, _decaytime);> }
@@ -232,4 +232,159 @@
 	MaxLocalBufs { :count | <primitive: return sc.MaxLocalBufs(_count);> }
 	MulAdd { :in :mul :add | <primitive: return sc.MulAdd(_in, _mul, _add);> }
 	SetBuf { :buf :offset :length :array | <primitive: return sc.SetBuf(_buf, _offset, _length, _array);> }
+}
+
+(* Auto-generated *)
++[Array, Number, Ugen] {
+	AnalogFoldOsc { :freq :amp | <primitive: return sc.AnalogFoldOsc(_freq, _amp);> }
+	Bezier { :haltAfter :dx :freq :phase :param | <primitive: return sc.Bezier(_haltAfter, _dx, _freq, _phase, _param);> }
+	CrossoverDistortion { :in :amp :smooth | <primitive: return sc.CrossoverDistortion(_in, _amp, _smooth);> }
+	Dfm1 { :in :freq :res :inputgain :type :noiselevel | <primitive: return sc.Dfm1(_in, _freq, _res, _inputgain, _type, _noiselevel);> }
+	DwgPluckedStiff { :freq :amp :gate :pos :c1 :c3 :inp :release :fB | <primitive: return sc.DwgPluckedStiff(_freq, _amp, _gate, _pos, _c1, _c3, _inp, _release, _fB);> }
+	DustRange { :iotMin :iotMax | <primitive: return sc.DustRange(_iotMin, _iotMax);> }
+	Dx7 { :bufnum :on :off :data :vc :mnn :vel :pw :mw :bc :fc | <primitive: return sc.Dx7(_bufnum, _on, _off, _data, _vc, _mnn, _vel, _pw, _mw, _bc, _fc);> }
+	Dx7Env { :gate :data :r1 :r2 :r3 :r4 :l1 :l2 :l3 :l4 :ol | <primitive: return sc.Dx7Env(_gate, _data, _r1, _r2, _r3, _r4, _l1, _l2, _l3, _l4, _ol);> }
+	ExpRandN { :numChan :lo :hi | <primitive: return sc.ExpRandN(_numChan, _lo, _hi);> }
+	Fm7 { :ctlMatrix :modMatrix | <primitive: return sc.Fm7(_ctlMatrix, _modMatrix);> }
+	Freezer { :bufnum :left :right :gain :increment :incrementOffset :incrementRandom :rightRandom :syncPhaseTrigger :randomizePhaseTrigger :numberOfLoops | <primitive: return sc.Freezer(_bufnum, _left, _right, _gain, _increment, _incrementOffset, _incrementRandom, _rightRandom, _syncPhaseTrigger, _randomizePhaseTrigger, _numberOfLoops);> }
+	Friction { :in :friction :spring :damp :mass :beltmass | <primitive: return sc.Friction(_in, _friction, _spring, _damp, _mass, _beltmass);> }
+	GreyholeRaw { :in1 :in2 :damping :delaytime :diffusion :feedback :moddepth :modfreq :size | <primitive: return sc.GreyholeRaw(_in1, _in2, _damping, _delaytime, _diffusion, _feedback, _moddepth, _modfreq, _size);> }
+	LfBrownNoise1 { :freq :dev :dist | <primitive: return sc.LfBrownNoise1(_freq, _dev, _dist);> }
+	LinRandN { :numChan :lo :hi :minmax | <primitive: return sc.LinRandN(_numChan, _lo, _hi, _minmax);> }
+	MembraneCircle { :excitation :tension :loss | <primitive: return sc.MembraneCircle(_excitation, _tension, _loss);> }
+	MiBraids { :pitch :timbre :color :model :trig :resamp :decim :bits :ws | <primitive: return sc.MiBraids(_pitch, _timbre, _color, _model, _trig, _resamp, _decim, _bits, _ws);> }
+	MiClouds { :pit :pos :size :dens :tex :drywet :inGain :spread :rvb :fb :freeze :mode :lofi :trig :inputArray | <primitive: return sc.MiClouds(_pit, _pos, _size, _dens, _tex, _drywet, _inGain, _spread, _rvb, _fb, _freeze, _mode, _lofi, _trig, _inputArray);> }
+	MiRings { :in :trig :pit :struct :bright :damp :pos :model :poly :internExciter :easteregg :bypass | <primitive: return sc.MiRings(_in, _trig, _pit, _struct, _bright, _damp, _pos, _model, _poly, _internExciter, _easteregg, _bypass);> }
+	MoogLadder { :in :ffreq :res | <primitive: return sc.MoogLadder(_in, _ffreq, _res);> }
+	ObxdFilter { :in :cutoff :resonance :multimode :bandpass :fourpole | <primitive: return sc.ObxdFilter(_in, _cutoff, _resonance, _multimode, _bandpass, _fourpole);> }
+	Perlin3 { :x :y :z | <primitive: return sc.Perlin3(_x, _y, _z);> }
+	Rcd { :clock :rotate :reset :div :spread :auto :len :down :gates | <primitive: return sc.Rcd(_clock, _rotate, _reset, _div, _spread, _auto, _len, _down, _gates);> }
+	RandN { :numChan :lo :hi | <primitive: return sc.RandN(_numChan, _lo, _hi);> }
+	Scm { :clock :bpm :rotate :slip :shuffle :skip :pw | <primitive: return sc.Scm(_clock, _bpm, _rotate, _slip, _shuffle, _skip, _pw);> }
+	SinGrain { :trigger :dur :freq | <primitive: return sc.SinGrain(_trigger, _dur, _freq);> }
+	SvfBp { :in :freq :q | <primitive: return sc.SvfBp(_in, _freq, _q);> }
+	SvfHp { :in :freq :q | <primitive: return sc.SvfHp(_in, _freq, _q);> }
+	SvfLp { :in :freq :q | <primitive: return sc.SvfLp(_in, _freq, _q);> }
+	TLinRand { :lo :hi :minmax :trigger | <primitive: return sc.TLinRand(_lo, _hi, _minmax, _trigger);> }
+	TScramble { :trigger :inputs | <primitive: return sc.TScramble(_trigger, _inputs);> }
+	VbJonVerb { :in :decay :damping :inputbw :erfl :tail | <primitive: return sc.VbJonVerb(_in, _decay, _damping, _inputbw, _erfl, _tail);> }
+	Vosim { :trig :freq :nCycles :decay | <primitive: return sc.Vosim(_trig, _freq, _nCycles, _decay);> }
+	WaveLoss { :in :drop :outof :mode | <primitive: return sc.WaveLoss(_in, _drop, _outof, _mode);> }
+}
+
+(* Auto-generated *)
++[Array, Ugen] {
+	Neg { :self | <primitive: return sc.Neg(_self);> }
+	Squared { :self | <primitive: return sc.Squared(_self);> }
+	Cubed { :self | <primitive: return sc.Cubed(_self);> }
+	Recip { :self | <primitive: return sc.Recip(_self);> }
+	MidiCps { :self | <primitive: return sc.MidiCps(_self);> }
+	CpsMidi { :self | <primitive: return sc.CpsMidi(_self);> }
+	MidiRatio { :self | <primitive: return sc.MidiRatio(_self);> }
+	RatioMidi { :self | <primitive: return sc.RatioMidi(_self);> }
+	DbAmp { :self | <primitive: return sc.DbAmp(_self);> }
+	AmpDb { :self | <primitive: return sc.AmpDb(_self);> }
+	Distort { :self | <primitive: return sc.Distort(_self);> }
+	SoftClip { :self | <primitive: return sc.SoftClip(_self);> }
+}
+
+(* Auto-generated *)
++[Array, Number, Ugen] {
+	Abs { :self | <primitive: return sc.Abs(_self);> }
+	Ceil { :self | <primitive: return sc.Ceil(_self);> }
+	Floor { :self | <primitive: return sc.Floor(_self);> }
+	Frac { :self | <primitive: return sc.Frac(_self);> }
+	Sign { :self | <primitive: return sc.Sign(_self);> }
+	Sqrt { :self | <primitive: return sc.Sqrt(_self);> }
+	Exp { :self | <primitive: return sc.Exp(_self);> }
+	Log { :self | <primitive: return sc.Log(_self);> }
+	Log2 { :self | <primitive: return sc.Log2(_self);> }
+	Log10 { :self | <primitive: return sc.Log10(_self);> }
+	Sin { :self | <primitive: return sc.Sin(_self);> }
+	Cos { :self | <primitive: return sc.Cos(_self);> }
+	Tan { :self | <primitive: return sc.Tan(_self);> }
+	Tanh { :self | <primitive: return sc.Tanh(_self);> }
+}
+
+(* Auto-generated *)
++[Array, Number, Ugen] {
+	Add { :self :anObject | <primitive: return sc.Add(_self, _anObject);> }
+	Sub { :self :anObject | <primitive: return sc.Sub(_self, _anObject);> }
+	Mul { :self :anObject | <primitive: return sc.Mul(_self, _anObject);> }
+	Idiv { :self :anObject | <primitive: return sc.Idiv(_self, _anObject);> }
+	Fdiv { :self :anObject | <primitive: return sc.Fdiv(_self, _anObject);> }
+	Mod { :self :anObject | <primitive: return sc.Mod(_self, _anObject);> }
+	Ne { :self :anObject | <primitive: return sc.Ne(_self, _anObject);> }
+	Lt { :self :anObject | <primitive: return sc.Lt(_self, _anObject);> }
+	Gt { :self :anObject | <primitive: return sc.Gt(_self, _anObject);> }
+	Le { :self :anObject | <primitive: return sc.Le(_self, _anObject);> }
+	Ge { :self :anObject | <primitive: return sc.Ge(_self, _anObject);> }
+	Min { :self :anObject | <primitive: return sc.Min(_self, _anObject);> }
+	Max { :self :anObject | <primitive: return sc.Max(_self, _anObject);> }
+	BitAnd { :self :anObject | <primitive: return sc.BitAnd(_self, _anObject);> }
+	BitOr { :self :anObject | <primitive: return sc.BitOr(_self, _anObject);> }
+	Lcm { :self :anObject | <primitive: return sc.Lcm(_self, _anObject);> }
+	Gcd { :self :anObject | <primitive: return sc.Gcd(_self, _anObject);> }
+	RoundTo { :self :anObject | <primitive: return sc.RoundTo(_self, _anObject);> }
+	Trunc { :self :anObject | <primitive: return sc.Trunc(_self, _anObject);> }
+	Atan2 { :self :anObject | <primitive: return sc.Atan2(_self, _anObject);> }
+	Hypot { :self :anObject | <primitive: return sc.Hypot(_self, _anObject);> }
+	Pow { :self :anObject | <primitive: return sc.Pow(_self, _anObject);> }
+	ShiftLeft { :self :anObject | <primitive: return sc.ShiftLeft(_self, _anObject);> }
+	ShiftRight { :self :anObject | <primitive: return sc.ShiftRight(_self, _anObject);> }
+	AmClip { :self :anObject | <primitive: return sc.AmClip(_self, _anObject);> }
+	ScaleNeg { :self :anObject | <primitive: return sc.ScaleNeg(_self, _anObject);> }
+	Clip2 { :self :anObject | <primitive: return sc.Clip2(_self, _anObject);> }
+	Fold2 { :self :anObject | <primitive: return sc.Fold2(_self, _anObject);> }
+	Wrap2 { :self :anObject | <primitive: return sc.Wrap2(_self, _anObject);> }
+	FirstArg { :self :anObject | <primitive: return sc.FirstArg(_self, _anObject);> }
+	RandRange { :self :anObject | <primitive: return sc.RandRange(_self, _anObject);> }
+	ExpRandRange { :self :anObject | <primitive: return sc.ExpRandRange(_self, _anObject);> }
+}
+
++Ugen {
+
+(*
+	ceiling { :self | <primitive: return sc.Ceil(_self);> }
+	fractionPart { :self | <primitive: return sc.Frac(_self);> }
+	negated { :self | <primitive: return sc.Neg(_self);> }
+	reciprocal { :self | <primitive: return sc.Recip(_self);> }
+*)
+
+	bitShiftLeft { :self :anObject |
+		<primitive: return sc.ShiftLeft(_self, _anObject);>
+	}
+
+	bitShiftRight { :self :anObject |
+		<primitive: return sc.ShiftRight(_self, _anObject);>
+	}
+
+	rounded { :self |
+		RoundTo(self, 1)
+	}
+
+	truncateTo { :self :anObject |
+		<primitive: return sc.Trunc(_self, _anObject);>
+	}
+
+	UnitCps { :self |
+		(self * 100).MidiCps
+	}
+
+	+ { :self :anObject | <primitive: return sc.Add(_self, _anObject);> }
+	* { :self :anObject | <primitive: return sc.Mul(_self, _anObject);> }
+	- { :self :anObject | <primitive: return sc.Sub(_self, _anObject);> }
+	/ { :self :anObject | <primitive: return sc.Fdiv(_self, _anObject);> }
+	// { :self :anObject | <primitive: return sc.Idiv(_self, _anObject);> }
+	% { :self :anObject | <primitive: return sc.Mod(_self, _anObject);> }
+	= { :self :anObject | <primitive: return sc.Eq(_self, _anObject);> }
+	~= { :self :anObject | <primitive: return sc.Ne(_self, _anObject);> }
+	< { :self :anObject | <primitive: return sc.Lt(_self, _anObject);> }
+	> { :self :anObject | <primitive: return sc.Gt(_self, _anObject);> }
+	<= { :self :anObject | <primitive: return sc.Le(_self, _anObject);> }
+	>= { :self :anObject | <primitive: return sc.Ge(_self, _anObject);> }
+	** { :self :anObject | <primitive: return sc.Pow(_self, _anObject);> }
+	<< { :self :anObject | <primitive: return sc.ShiftLeft(_self, _anObject);> }
+	>> { :self :anObject | <primitive: return sc.ShiftRight(_self, _anObject);> }
+
 }

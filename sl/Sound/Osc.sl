@@ -13,6 +13,39 @@ OscParameter : [Object] { | type value |
 
 }
 
++ByteArray {
+
+	OscParameter { :self |
+		OscParameter('b', self)
+	}
+
+}
+
++Number {
+
+	OscParameter { :self |
+		self.isInteger.if {
+			OscParameter('i', self)
+		} {
+			OscParameter('f', self)
+		}
+	}
+
+}
+
++String {
+
+	OscParameter { :self |
+		OscParameter('s', self)
+	}
+
+	OscParameter { :self :anObject |
+		newOscParameter().initializeSlots(self, anObject)
+	}
+
+}
+
+
 OscMessage : [Object] { | address parameterArray |
 
 	dictionary { :self |
@@ -28,39 +61,7 @@ OscMessage : [Object] { | address parameterArray |
 
 }
 
-+ Number {
-
-	OscParameter { :self |
-		self.isInteger.if {
-			OscParameter('i', self)
-		} {
-			OscParameter('f', self)
-		}
-	}
-
-}
-
-+ String {
-
-	OscParameter { :self |
-		OscParameter('s', self)
-	}
-
-	OscParameter { :self :anObject |
-		newOscParameter().initializeSlots(self, anObject)
-	}
-
-}
-
-+ ByteArray {
-
-	OscParameter { :self |
-		OscParameter('b', self)
-	}
-
-}
-
-+ String {
++String {
 
 	OscMessage { :self :parameterArray |
 		newOscMessage().initializeSlots(self, parameterArray.collect(OscParameter:/1))
