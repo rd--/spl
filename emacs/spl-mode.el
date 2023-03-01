@@ -86,8 +86,8 @@
 (defvar spl-imenu-generic-expression
   (list
    (list nil "^\\(;; .*\\)$" 1)
-   (list "Constant" "^\\([a-zA-Z]+\\) = " 1)
-   (list nil "^\\(\+?@?\[?[A-Z][, A-Za-z]+[a-z]\]?\\).*{" 1)
+   (list nil "^\\(# .*\\)$" 1)
+   (list nil "^\\(\+?@?\[?[A-Z][, A-Za-z0-9]+[A-Za-z0-9]\]?\\).*{" 1)
    (list nil "^\\(\t[*&|~+-/%><=?!^a-zA-Z]+\\) {" 1))
   "Value for `imenu-generic-expression' in Spl mode.")
 

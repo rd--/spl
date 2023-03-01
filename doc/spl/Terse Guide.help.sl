@@ -558,6 +558,12 @@ var r; 0.do { :each | r := each }; r = nil
 e() = 1.exp
 epsilon() < (10 ** -15)
 epsilon() > (10 ** -16)
+inf.isFinite = false
+pi.isFinite = true
+
+'System/Blob'
+[1 .. 9].ByteArray.Blob.size = 9
+[65 .. 69].ByteArray.Blob.text.then { :answer | (answer = 'ABCDE').postLine }; true
 
 'System/system'
 system.typeOf = 'System'
@@ -644,6 +650,16 @@ system.type('Array').name = 'Array'
 system.type('Array').methodDictionary.includesKey('copy:/1') = true
 system.type('Array').methodDictionary::copy:/1.isMethod = true
 system.typeMethodSet('Array').collect(name:/1).includes('select') = true
+
+'System/URL'
+'http://cern.ch/'.URL.isURL = true
+'http://cern.ch/'.URL.hostname = 'cern.ch'
+'http://cern.ch/'.URL.port = ''
+'http://cern.ch/'.URL.protocol = 'http:'
+
+'System/URLSearchParams'
+'x=3.141&y=23'.URLSearchParams.has('x') = true
+'x=3.141&y=23'.URLSearchParams.get('y') = '23'
 
 'Time/TimeStamp'
 1676784053576.TimeStamp.iso8601 = '2023-02-19T05:20:53.576Z'

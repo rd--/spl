@@ -496,6 +496,39 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 
 }
 
+PngViewer : [Object, View] { | pngPane title pngData pngUrl |
+
+	createElements { :self |
+		| img = 'img'.createElement; |
+		self.pngPane := 'div'.createElement;
+		self.pngPane.setAttribute('class', 'pngPane');
+		img.src := self.pngUrl;
+		self.pngPane.appendChild(img)
+	}
+
+	initialize { :self :title :pngData |
+		self.title := title;
+		self.pngData := pngData;
+		self.pngUrl := pngData.createObjectURL;
+		self.createElements;
+		self
+	}
+
+	outerElement { :self |
+		self.pngPane
+	}
+
+}
+
+
++String {
+
+	PngViewer { :title :pngData |
+		newPngViewer().initialize(title, pngData)
+	}
+
+}
+
 SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex |
 
 	addFrameWithAnimator { :self :subject :event :intervalInSeconds :aProcedure:/0 |
@@ -812,6 +845,10 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 				onSelect(midiPort, event)
 			}
 		}
+	}
+
+	pngViewer { :self :title :png |
+		self.addFrame(PngViewer(title, png), nil)
 	}
 
 	programAuthors { :self :category |
@@ -1189,7 +1226,6 @@ SvgViewer : [Object, View] { | svgPane title svg |
 	}
 
 }
-
 
 TextEditor : [Object, View] { | editorPane editorText isRichText title |
 

@@ -1,3 +1,40 @@
+@Blob {
+
+	size { :self | <primitive: return _self.size;> } (* read only *)
+	type { :self | <primitive: return _self.type;> } (* read only *)
+
+	arrayBuffer { :self | <primitive: return _self.arrayBuffer();> }
+	slice { :self :start :end :contentType | <primitive: return _self.slice(_start, _end, _contentType);> }
+	text { :self | <primitive: return _self.text();> }
+
+}
+
+Blob : [Object, Blob] {
+
+}
+
++Array {
+
+	Blob { :self | <primitive: return new Blob(_self);> }
+	Blob { :self :options | <primitive: return new Blob(_self, _options);> }
+
+}
+
++[ByteArray, Float64Array] {
+
+	Blob { :self |
+		[self].Blob
+	}
+
+}
+
+File : [Object, Blob] {
+
+	lastModified { :self | <primitive: return _self.lastModified;> } (* read only *)
+	name { :self | <primitive: return _self.name;> } (* read only *)
+
+}
+
 Method : [Object] {
 
 	arity { :self |
@@ -201,9 +238,17 @@ System : [Object] {
 	methodLookupAtSignature { :self :signature |
 		| [qualifiedOriginName, qualifiedMethodName] = signature.parseMethodSignature; |
 		qualifiedOriginName.isQualifiedTraitName.if {
-			self.traitDictionary[qualifiedOriginName.parseQualifiedTraitName].methodDictionary[qualifiedMethodName]
+			self.traitDictionary[
+				qualifiedOriginName.parseQualifiedTraitName
+			].methodDictionary[
+				qualifiedMethodName
+			]
 		} {
-			self.typeDictionary[qualifiedOriginName].methodDictionary[qualifiedMethodName]
+			self.typeDictionary[
+				qualifiedOriginName
+			].methodDictionary[
+				qualifiedMethodName
+			]
 		}
 	}
 
@@ -215,7 +260,17 @@ System : [Object] {
 		(* Print string of implementations of methodName. *)
 		| answer = OrderedCollection(); |
 		self.methodImplementations(methodName).do { :method |
-			answer.add('+ ' ++ method.origin.qualifiedName ++ ' {\n\t' ++ method.name ++ ' ' ++ method.sourceCode ++ '\n}')
+			answer.add(
+				[
+					'+ ',
+					method.origin.qualifiedName,
+					' {\n\t',
+					method.name,
+					' ',
+					method.sourceCode,
+					'\n}'
+				].join
+			)
 		};
 		answer
 	}
@@ -422,6 +477,10 @@ Response : [Object] {
 		<primitive: return _self.arrayBuffer();>
 	}
 
+	blob { :self |
+		<primitive: return _self.blob();>
+	}
+
 	byteArray { :self |
 		<primitive: return _self.arrayBuffer().then(function(b) { return new Uint8Array(b); });>
 	}
@@ -492,6 +551,58 @@ Type : [Object] {
 
 }
 
+
+URL : [Object] {
+
+	hash { :self | <primitive: return _self.hash;> }
+	host { :self | <primitive: return _self.host;> }
+	hostname { :self | <primitive: return _self.hostname;> }
+	href { :self | <primitive: return _self.href;> }
+	origin { :self | <primitive: return _self.origin;> } (* read only *)
+	href { :self | <primitive: return _self.href;> }
+	password { :self | <primitive: return _self.password;> }
+	pathname { :self | <primitive: return _self.pathname;> }
+	port { :self | <primitive: return _self.port;> }
+	protocol { :self | <primitive: return _self.protocol;> }
+	search { :self | <primitive: return _self.search;> }
+	searchParams { :self | <primitive: return _self.searchParams;> } (* read only *)
+	username { :self | <primitive: return _self.username;> }
+
+}
+
++String {
+
+	decodeURI { :self | <primitive: return decodeURI(_self);> }
+	decodeURIComponent { :self | <primitive: return decodeURIComponent(_self);> }
+	encodeURI { :self | <primitive: return encodeURI(_self);> }
+	encodeURIComponent { :self | <primitive: return encodeURIComponent(_self);> }
+	revokeObjectURL { :self | <primitive: return URL.revokeObjectURL(_url, _base);> }
+	URL { :url | <primitive: return new URL(_url);> }
+	URL { :url :base | <primitive: return new URL(_url, _base);> }
+
+}
+
++[File, Blob] {
+
+	createObjectURL { :self | <primitive: return URL.createObjectURL(_self);> }
+
+}
+
+URLSearchParams : [Object] {
+
+	append { :self :name :value | <primitive: return _self.delete(_name, _value);> }
+	delete { :self :name | <primitive: return _self.delete(_name);> }
+	get { :self :name | <primitive: return _self.get(_name);> }
+	has { :self :name | <primitive: return _self.has(_name);> }
+
+}
+
++[String, StringDictionary] {
+
+	URLSearchParams { :self | <primitive: return new URLSearchParams(_self);> }
+
+}
+
 Window : [Object] {
 
 	alert { :self :aString | <primitive: return _self.alert(_aString);> }
@@ -510,6 +621,12 @@ Window : [Object] {
 	navigator { :self | <primitive: return _self.navigator;> }
 	prompt { :self :message :defaultValue | <primitive: return _self.prompt(_message, _defaultValue);> }
 	sessionStorage { :self | <primitive: return _self.sessionStorage;> }
+
+	fetchBlob { :self :resource :options |
+		self.fetch(resource, options).then { :response |
+			response.blob
+		}
+	}
 
 	fetchByteArray { :self :resource :options |
 		self.fetch(resource, options).then { :response |

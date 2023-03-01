@@ -943,6 +943,10 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 		<primitive: return _self % 1;>
 	}
 
+	isFinite { :self |
+		<primitive: return Number.isFinite(_self);>
+	}
+
 	isFraction { :self |
 		self.isInteger
 	}
@@ -953,6 +957,10 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 
 	isNaN { :self |
 		<primitive: return Number.isNaN(_self);>
+	}
+
+	isSmallInteger { :self |
+		<primitive: return Number.isSafeInteger(_self);>
 	}
 
 	json { :self |
@@ -1080,11 +1088,11 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 +String {
 
 	parseInteger { :self :radix |
-		<primitive: return parseInt(_self, _radix);>
+		<primitive: return Number.parseInt(_self, _radix);>
 	}
 
 	parseNumber { :self |
-		<primitive: return parseFloat(_self);>
+		<primitive: return Number.parseFloat(_self);>
 	}
 
 }

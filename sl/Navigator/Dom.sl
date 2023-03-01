@@ -384,6 +384,26 @@ HTMLHeadingElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
+HTMLImageElement : [Object, EventTarget, Node, Element, HtmlElement] {
+
+	alt { :self | <primitive: return _self.value;> }
+	complete { :self | <primitive: return _self.complete;> } (* read only *)
+	height { :self | <primitive: return _self.height;> }
+	width { :self | <primitive: return _self.width;> }
+	x { :self | <primitive: return _self.x;> } (* read only *)
+	y { :self | <primitive: return _self.y;> } (* read only *)
+
+	src { :self | <primitive: return _self.src;> }
+	src { :self :url | <primitive: return _self.src = _url;> }
+
+}
+
++SmallFloat {
+
+	Image { :width :height | <primitive: return new Image(_width, _height);> }
+
+}
+
 HTMLInputElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	value { :self |
@@ -493,11 +513,38 @@ HTMLUListElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
+ImageBitmap : [Object] {
+
+	close { :self | <primitive: return _self.close();> }
+	height { :self | <primitive: return _self.height;> } (* read only *)
+	width { :self | <primitive: return _self.width;> } (* read only *)
+
+}
+
++[Blob, HTMLImageElement] {
+
+	ImageBitmap { :self | <primitive: return createImageBitmap(_self);> }
+
+}
+
+ImageData : [Object] {
+
+	data { :self | <primitive: return _self.data;> } (* read only *)
+	colorSpace { :self | <primitive: return _self.colorSpace;> } (* read only *)
+	height { :self | <primitive: return _self.height;> } (* read only *)
+	width { :self | <primitive: return _self.width;> } (* read only *)
+
+}
+
 KeyboardEvent : [Object, UiEvent, Event] {
 
 	ctrlKey { :self | <primitive: return _self.ctrlKey;> }
 	key { :self | <primitive: return _self.key;> }
 	shiftKey { :self | <primitive: return _self.shiftKey;> }
+
+}
+
+MediaSource : [Object, EventTarget] {
 
 }
 

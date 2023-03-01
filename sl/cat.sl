@@ -64,11 +64,15 @@ system.categorizeDictionary(
 			'UgenGraph'
 		],
 		'System': [
+			'Blob',
+			'File',
 			'Method',
 			'Response',
 			'System',
 			'Trait',
 			'Type',
+			'URL',
+			'URLSearchParams',
 			'Window'
 		],
 		'SmallKansas': [
@@ -78,6 +82,7 @@ system.categorizeDictionary(
 			'Frame',
 			'Menu',
 			'MenuItem',
+			'PngViewer',
 			'SmallKansas',
 			'SvgViewer',
 			'TextEditor'
@@ -121,6 +126,7 @@ system.categorizeDictionary(
 			'HTMLDocument',
 			'HTMLElement',
 			'HTMLHeadingElement',
+			'HTMLImageElement',
 			'HTMLInputElement',
 			'HTMLLIElement',
 			'HTMLOptionElement',
@@ -131,6 +137,13 @@ system.categorizeDictionary(
 			'HTMLSpanElement',
 			'HTMLTextAreaElement',
 			'HTMLUListElement'
+		],
+		'Navigator-Image': [
+			'ImageBitmap',
+			'ImageData'
+		],
+		'Navigator-Media': [
+			'MediaSource'
 		],
 		'Navigator-Midi': [
 			'MIDIAccess',
