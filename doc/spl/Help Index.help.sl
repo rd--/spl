@@ -16,7 +16,7 @@
 - | -- logic operator
 - % -- mathematical operator
 - \* -- mathematical operator
-- \** -- mathematical operator
+- ** -- mathematical operator
 - \+ -- mathematical operator
 - \- -- mathematical operator
 - / -- mathematical operator
@@ -24,12 +24,21 @@
 - .. -- range operator syntax
 - Array -- collection type
 - Association -- associate with
+- Boolean -- logic
+- Collection -- collection trait
 - Dictionary -- collection trait
+- Duration -- time
+- Fraction -- arithmetic
+- IdentityDictionary -- dictionary
 - Method -- behaviour type
 - Number -- number type
-- Object -- trait
+- Object -- value trait
 - OrderedCollection -- collection type
 - Procedure -- behaviour type
+- String -- text
+- StringDictionary -- dictionary
+- System -- system
+- TimeStamp -- time
 - Trait -- behaviour type
 - Type -- value type
 - UndefinedObject -- nil type
@@ -46,6 +55,10 @@
 - concatenation -- converting
 - count -- enumerating
 - cull -- evaluating
+- currentTime -- time
+- denominator -- arithmetic
+- divisors -- arithmetic
+- do -- enumerating
 - error -- error handling
 - false -- boolean constant
 - if -- conditional evaluation
@@ -55,18 +68,31 @@
 - inf -- mathematical constant
 - injectInto -- enumerating
 - isEmpty -- testing
+- isFraction -- arithmetic
+- isInteger -- predicate
+- isPrime -- arithmetic
+- iso8601 -- time
+- json -- protocol
+- lines - accessing
 - map -- enumerating
 - max -- testing
+- nextPrime -- arithmetic
 - nil -- undefined object
 - not -- logical negation
 - numArgs -- accessing
+- numerator -- arithmetic
 - ofSize -- instance creation
+- parseJson -- protocol
 - pi -- mathematical constant
+- primeFactors -- arithmetic
+- primeLimit -- arithmetic
 - product - math operator
+- quotient -- arithmetic
 - randomFloat -- random number generator
 - randomInteger -- random number generator
 - reduce -- enumerating
 - reject -- enumerating
+- remainder -- arithmetic
 - remove -- removing
 - return -- non-local control flow
 - reversed -- converting
@@ -74,12 +100,17 @@
 - sign -- math operator
 - size -- accessing
 - sorted -- sorting
+- species -- reflection
 - sum -- math operator
-- system -- dictionary
+- system -- reflection
 - timesRepeat -- enumerating
 - transpose -- rearranging
 - true -- boolean constant
 - typeOf -- reflection
+- unicode -- printing
+- unixTimeInMilliseconds -- time
+- unlines - accessing
+- utf8 -- encoding
 - value -- evaluation
 - whileFalse -- conditional evaluation
 - whileTrue -- conditional evaluation
