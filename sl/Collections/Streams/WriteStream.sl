@@ -59,7 +59,7 @@ WriteStream { | collection position writeLimit |
 
 }
 
-+ @ArrayedCollection {
++@ArrayedCollection {
 
 	WriteStream { :self |
 		newWriteStream().initializeSlots(self, 0, self.size)
@@ -67,7 +67,7 @@ WriteStream { | collection position writeLimit |
 
 }
 
-+ Number {
++SmallFloat {
 
 	WriteStream { :self |
 		WriteStream(Array(self))
@@ -79,7 +79,7 @@ WriteStream { | collection position writeLimit |
 
 }
 
-+ String {
++String {
 
 	encodeOn { :self :aStream |
 		aStream.nextPutAll(self.utf8)
@@ -95,7 +95,7 @@ WriteStream { | collection position writeLimit |
 
 }
 
-+ Void {
++Void {
 
 	WriteStream {
 		WriteStream(Array(100))

@@ -14,7 +14,7 @@
 }
 
 (* Auto-generated *)
-+[Array, Number, Ugen] {
++[Array, SmallFloat, Ugen] {
 	AllpassC { :in :maxdelaytime :delaytime :decaytime | <primitive: return sc.AllpassC(_in, _maxdelaytime, _delaytime, _decaytime);> }
 	AllpassL { :in :maxdelaytime :delaytime :decaytime | <primitive: return sc.AllpassL(_in, _maxdelaytime, _delaytime, _decaytime);> }
 	AllpassN { :in :maxdelaytime :delaytime :decaytime | <primitive: return sc.AllpassN(_in, _maxdelaytime, _delaytime, _decaytime);> }
@@ -235,7 +235,7 @@
 }
 
 (* Auto-generated *)
-+[Array, Number, Ugen] {
++[Array, SmallFloat, Ugen] {
 	AnalogFoldOsc { :freq :amp | <primitive: return sc.AnalogFoldOsc(_freq, _amp);> }
 	Bezier { :haltAfter :dx :freq :phase :param | <primitive: return sc.Bezier(_haltAfter, _dx, _freq, _phase, _param);> }
 	CrossoverDistortion { :in :amp :smooth | <primitive: return sc.CrossoverDistortion(_in, _amp, _smooth);> }
@@ -289,7 +289,7 @@
 }
 
 (* Auto-generated *)
-+[Array, Number, Ugen] {
++[Array, SmallFloat, Ugen] {
 	Abs { :self | <primitive: return sc.Abs(_self);> }
 	Ceil { :self | <primitive: return sc.Ceil(_self);> }
 	Floor { :self | <primitive: return sc.Floor(_self);> }
@@ -307,7 +307,7 @@
 }
 
 (* Auto-generated *)
-+[Array, Number, Ugen] {
++[Array, SmallFloat, Ugen] {
 	Add { :self :anObject | <primitive: return sc.Add(_self, _anObject);> }
 	Sub { :self :anObject | <primitive: return sc.Sub(_self, _anObject);> }
 	Mul { :self :anObject | <primitive: return sc.Mul(_self, _anObject);> }

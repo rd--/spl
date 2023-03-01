@@ -21,7 +21,7 @@ OscParameter : [Object] { | type value |
 
 }
 
-+Number {
++SmallFloat {
 
 	OscParameter { :self |
 		self.isInteger.if {

@@ -976,7 +976,7 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 }
 
-+Number {
++SmallFloat {
 
 	Array { :size |
 		<primitive: return Array(_size);>
@@ -1122,7 +1122,7 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 }
 
-+Number {
++SmallFloat {
 
 	ByteArray { :self |
 		<primitive: return new Uint8Array(_self);>
@@ -1133,7 +1133,7 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 Float64Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 	atPut { :self :anInteger :aNumber |
-		<primitive: if(sl.arrayCheckIndex(_self, _anInteger - 1) && sl.isNumber(_aNumber)) {
+		<primitive: if(sl.arrayCheckIndex(_self, _anInteger - 1) && sl.isSmallFloat(_aNumber)) {
 			_self[_anInteger - 1] = _aNumber;
 			return _aNumber;
 		}>
@@ -1159,7 +1159,7 @@ Float64Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 }
 
-+Number {
++SmallFloat {
 
 	Float64Array { :self |
 		<primitive: return new Float64Array(_self);>
@@ -1453,7 +1453,7 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
 }
 
-+Number {
++SmallFloat {
 
 	thenTo { :self :second :last |
 		Interval(self, last, second - self)
@@ -1582,7 +1582,7 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveAr
 
 }
 
-+Number {
++SmallFloat {
 
 	fibonacciSequence { :self |
 		| a = 0, b = 1, i = 0, temp = nil, answer = OrderedCollection(); |

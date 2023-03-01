@@ -358,7 +358,7 @@ System : [Object] {
 
 }
 
-+Number {
++SmallFloat {
 
 	cancel { :self |
 		<primitive: clearTimeout(_self); return null;>

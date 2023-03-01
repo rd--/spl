@@ -38,7 +38,7 @@ CcEvent : [Object] {
 
 }
 
-+Number {
++SmallFloat {
 
 	CcEvent { :self :anArray |
 		<primitive: return new sc.CcEvent(_self, _anArray);>
@@ -156,7 +156,7 @@ Ugen : [Object, Number] {
 
 }
 
-+[Array, Number, Ugen] {
++[Array, SmallFloat, Ugen] {
 
 	<! { :self :aUgen |
 		self.mrg(aUgen)
@@ -227,7 +227,7 @@ Ugen : [Object, Number] {
 
 }
 
-+ [Array, Number, Ugen] {
++ [Array, SmallFloat, Ugen] {
 
 	AudioIn { :channelNumber |
 		In(1, NumOutputBuses() + channelNumber - 1)

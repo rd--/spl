@@ -52,7 +52,7 @@ Duration : [Object] { | milliseconds |
 
 }
 
-+Number {
++SmallFloat {
 
 	asSeconds { :self |
 		self
@@ -136,7 +136,7 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 
 }
 
-+Number {
++SmallFloat {
 
 	TimeStamp { :self |
 		newTimeStamp().initializeSlots(self)

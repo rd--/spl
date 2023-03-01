@@ -216,7 +216,7 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 
 }
 
-+Number {
++SmallFloat {
 
 	LinkedList { :self |
 		LinkedList()

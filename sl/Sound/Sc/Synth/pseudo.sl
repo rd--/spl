@@ -1,4 +1,4 @@
-+ [Array, Number, Ugen] {
++ [Array, SmallFloat, Ugen] {
 
 	Env { :levels :times :curves :releaseNode :loopNode :offset | <primitive: return new sc.Env(_levels, _times, _curves, _releaseNode, _loopNode, _offset);> }
 

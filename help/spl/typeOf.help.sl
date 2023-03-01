@@ -5,7 +5,7 @@
 Answers the type name of _anObject_.
 
 ```
-3.141.typeOf = 'Number'
+3.141.typeOf = 'SmallFloat'
 23.typeOf.typeOf = 'String'
 typeOf:/1.typeOf = 'Procedure'
 ```

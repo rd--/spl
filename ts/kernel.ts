@@ -50,7 +50,7 @@ export function typeOf(anObject: unknown): TypeName {
 		switch (typeof anObject) {
 		case 'boolean': return 'Boolean';
 		case 'function': return 'Procedure';
-		case 'number': return 'Number';
+		case 'number': return 'SmallFloat';
 		case 'bigint': return 'LargeInteger';
 		case 'string': return 'String';
 		case 'object': return objectType(<SlObject>anObject);
@@ -62,12 +62,12 @@ export function typeOf(anObject: unknown): TypeName {
 export function isArray<T>(anObject: unknown): anObject is Array<T> { return Array.isArray(anObject); }
 export function isByteArray(anObject: unknown): anObject is Uint8Array { return anObject instanceof Uint8Array; }
 export function isFunction(anObject: unknown): anObject is Function { return anObject instanceof Function; }
-export function isNumber(anObject: unknown): anObject is number { return typeof anObject === 'number'; }
+export function isSmallFloat(anObject: unknown): anObject is number { return typeof anObject === 'number'; }
 export function isIdentitySet<T>(anObject: unknown): anObject is Set<T> { return anObject instanceof Set; }
 export function isString(anObject: unknown): anObject is string { return typeof anObject === 'string'; }
 
 export function isByte(anObject: unknown): boolean {
-	return isNumber(anObject) && Number.isInteger(anObject) && anObject >= 0 && anObject < 256;
+	return isSmallFloat(anObject) && Number.isInteger(anObject) && anObject >= 0 && anObject < 256;
 }
 
 export class Method {
@@ -350,7 +350,6 @@ export function arrayCheckIndex(anArray: unknown[], anInteger: number): boolean 
 }
 
 declare global {
-	var _pi: number;
 	var _inf: number;
 	var _constant: Map<string,unknown>;
 	var _implicitDictionary: Map<string,unknown>;
@@ -359,7 +358,6 @@ declare global {
 }
 
 export function assignGlobals() {
-	globalThis._pi = Math.PI;
 	globalThis._inf = Infinity;
 	globalThis._constant = new Map();
 	globalThis._implicitDictionary = new Map();

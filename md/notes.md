@@ -1,5 +1,7 @@
 # Constants
 
+There is a syntax for defining constants, ie. pi, e & epsilon (c.f. Kernel.sl).
+
 Implement a dictionary for constants, either _constant_ or _system.constant_.
 Instead of _Void>>unicodeFractions_ there would be _constant::unicodeFractions_
 Add values such as _system.constant::epsilon = 2 ** -52_.
@@ -23,9 +25,6 @@ In Ohm the ListOf rule is not allowed in literal contexts.
 	dictionaryLiteral(_l, dict, _r) { return `new Map([${commaList(dict.asIteration().children)}])`; },
 	identifierAssociationLiteral(lhs, _colon, _maybeSpace, rhs) { return `['${lhs.sourceString}', ${rhs.asJs}]`; },
 	stringAssociationLiteral(lhs, _colon, _maybeSpace, rhs) { return `[${lhs.sourceString}, ${rhs.asJs}]`; },
-
-constant::e := 2.71828182845904523536028747135266249775724709369995;
-constant::epsilon := 0.0000000000000001;
 
 # Traits For
 

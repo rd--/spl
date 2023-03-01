@@ -307,7 +307,7 @@ DOMPointReadOnly : [Object, DOMPointReadOnly] {
 
 }
 
-+Number {
++SmallFloat {
 
 	DOMPoint { :x :y :z :w |
 		<primitive: return new DOMPoint(_x, _y, _z, _w);>

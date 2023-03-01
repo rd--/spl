@@ -18,7 +18,9 @@ system.categorizeDictionary(
 			'StringDictionary'
 		],
 		'Kernel-Logic': [
-			'Boolean',
+			'Boolean'
+		],
+		'Kernel-Objects': [
 			'UndefinedObject',
 			'Void'
 		],
@@ -33,10 +35,10 @@ system.categorizeDictionary(
 			'Duration',
 			'TimeStamp'
 		],
-		'Kernel-Number': [
+		'Kernel-Numbers': [
 			'Fraction',
 			'LargeInteger',
-			'Number'
+			'SmallFloat'
 		],
 		'Kernel-Text': [
 			'RegExp',

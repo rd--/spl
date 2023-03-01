@@ -1,4 +1,4 @@
-'Kernel/Boolean'
+'Kernel-Logic/Boolean'
 true.typeOf = 'Boolean'
 true.isBoolean
 false.isBoolean
@@ -20,7 +20,7 @@ false || true = true
 true.ifTrue { true }
 false.ifFalse { true }
 
-'Kernel/Object'
+'Kernel-Objects/Object'
 [1, 3, 5].typeOf = 'Array'
 [1, 3, 5].species = Array:/1
 [1, 3, 5].IdentitySet.species = IdentitySet:/0
@@ -29,7 +29,7 @@ false.ifFalse { true }
 'b'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) = 2
 { 'd'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) }.ifError { :err | true }
 
-'Kernel/Procedure'
+'Kernel-Behaviour/Procedure'
 var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5
 var i = 1; { i < 5 }.whileTrue { i := i + 1 }; i = 5
 var i = 1; 1.toDo(3) { :each | i := i + each.squared } ; i = 15
@@ -56,14 +56,14 @@ typeOf:/1.typeOf = 'Procedure'
 { { :x | x }.apply(0) }.ifError { :err | true }
 { { :x | x }.apply([]) }.ifError { :err | true }
 
-'Kernel/Promise'
+'Kernel-Behaviour/Promise'
 { Promise() }.ifError { :err | true }
 var p = Promise { :t:/1 :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isPromise
 var p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
 var p = Promise { :t :f:/1 | f('f') }; p.then({ :t | t.postLine }).catch({ :f | (f = 'f').postLine }); p.isPromise
 var p = Promise { :t :f:/1 | f('f') }; p.thenElse({ :t | t.postLine }, { :f | (f = 'f').postLine }).finally({ 'true'.postLine }); p.isPromise
 
-'Kernel/UndefinedObject'
+'Kernel-Objects/UndefinedObject'
 nil.typeOf = 'UndefinedObject'
 nil.isNil = true
 nil.isUndefinedObject = true
@@ -81,7 +81,7 @@ nil.printString = 'nil'
 nil.json = 'null'
 'null'.parseJson = nil
 
-'Collections/Array'
+'Collections-Arrayed/Array'
 [].typeOf = 'Array'
 [].species = Array:/1
 [].isArray = true
@@ -164,7 +164,7 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].last(5) = [5 .. 9]
 { [1 .. 3].last(5) }.ifError { :err | true }
 
-'Collections/Association'
+'Collections-Unordered/Association'
 ('x' -> 1).typeOf = 'Association'
 Association('x', 1) = ('x' -> 1)
 var a = 'x' -> 1; [a.key, a.value] = ['x', 1]
@@ -172,7 +172,7 @@ var a = 'x' -> 1; [a.key, a.value] = ['x', 1]
 ['x' -> 1, 'y' -> 2].collect(asArray:/1) = [['x', 1], ['y', 2]]
 (23 -> 3.141).printString = 'Association(23, 3.141)'
 
-'Collections/ByteArray'
+'Collections-Arrayed/ByteArray'
 ByteArray(0).typeOf = 'ByteArray'
 ByteArray(0).species = ByteArray:/1
 ByteArray(0).isByteArray
@@ -185,7 +185,7 @@ var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
 [1 .. 9].ByteArray.reversed = [9 .. 1].ByteArray
 [1 .. 3].ByteArray.printString = 'ByteArray([1, 2, 3])'
 
-'Collections/Collection'
+'Collections-Abstract/Collection'
 [1, 3, 5].select { :x | x > 1 } = [3, 5]
 [1, 3, 5].IdentitySet.select { :x | x > 1 } = [3, 5].IdentitySet
 [1, 3, 5].OrderedCollection.select { :x | x > 1 } = [3, 5].OrderedCollection
@@ -194,11 +194,11 @@ var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
 [].species.newFrom(OrderedCollection()) = []
 OrderedCollection().Array = []
 
-'Collections/Dictionary'
+'Collections-Unordered/Dictionary'
 unicodeFractions().isDictionary = true
 unicodeFractions().associations.isArray = true
 
-'Collections/Float64Array'
+'Collections-Arrayed/Float64Array'
 Float64Array(0).typeOf = 'Float64Array'
 Float64Array(0).species = Float64Array:/1
 Float64Array(0).isFloat64Array
@@ -216,7 +216,7 @@ var a = Float64Array(1); a.unsafeAtPut(1, 'x'); a.at(1).isNaN = true
 var a = Float64Array(1); a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
 [1 .. 3].Float64Array.printString = 'Float64Array([1, 2, 3])'
 
-'Collections/IdentityDictionary'
+'Collections-Unordered/IdentityDictionary'
 ().species = IdentityDictionary:/0
 var d = IdentityDictionary(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2
 var d = ['x' -> 1, 'y' -> 2].IdentityDictionary; d.keys = ['x', 'y']
@@ -255,7 +255,7 @@ var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7
 (x: 1) = ('x': 1)
 ('font-size': '11pt', 'font-style': 'italic').keys = ['font-size', 'font-style']
 
-'Collections/IdentitySet'
+'Collections-Unordered/IdentitySet'
 [1, 3, 5, 3, 1].IdentitySet.isIdentitySet = true
 [1, 3, 5, 3, 1].IdentitySet.size = 3
 [1, 3, 5, 3, 1].IdentitySet.includes(3) = true
@@ -264,7 +264,7 @@ var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7
 var s = [1, 3, 5, 3, 1].IdentitySet; s.remove(3); s.Array = [1, 5]
 [1 .. 9].IdentitySet.atRandom.betweenAnd(1, 9)
 
-'Collections/Interval'
+'Collections-Ordered/Interval'
 (1 .. 9).species = Array:/1
 1.to(9).isInterval = true
 to(1, 9).size = 9
@@ -314,7 +314,7 @@ Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 (3 .. 7).anyOne = 3
 (1 .. 9).max = 9
 
-'Collections/OrderedCollection'
+'Collections-Ordered/OrderedCollection'
 OrderedCollection().species = OrderedCollection:/1
 OrderedCollection().isOrderedCollection = true
 OrderedCollection(3).size = 0
@@ -331,7 +331,7 @@ var l = OrderedCollection([4, 5]); l.addAllFirst(1.to(3)); l.asArray = [1 .. 5]
 [1, 2, 3].OrderedCollection ++ [4, 5, 6] = [ 1, 2, 3, 4, 5, 6 ].OrderedCollection
 [1 .. 5].OrderedCollection.reversed = [5 .. 1].OrderedCollection
 
-'Collections/PriorityQueue'
+'Collections-Ordered/PriorityQueue'
 PriorityQueue().isPriorityQueue = true
 PriorityQueue().isEmpty = true
 var p = PriorityQueue(); p.push('a', 1); p.pop = 'a'
@@ -339,7 +339,7 @@ var p = PriorityQueue(); p.push('a', 1); p.push('b', 0); p.pop = 'b'
 var p = PriorityQueue(); p.pushAll(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 & { p.pop = 'c' }
 var p = PriorityQueue(); p.peekPriority = nil
 
-'Collections/StringDictionary'
+'Collections-Unordered/StringDictionary'
 StringDictionary().isStringDictionary
 StringDictionary().includesKey('x') = false
 StringDictionary().at('x') = nil
@@ -352,7 +352,7 @@ var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
 (x: 3.141, y: 23).StringDictionary.json = '{"x":3.141,"y":23}'
 '{"x":3.141,"y":23}'.parseJson.IdentityDictionary = (x: 3.141, y: 23)
 
-'Text/RegExp'
+'Kernel-Text/RegExp'
 RegExp('ab+c').isRegExp = true
 var r = RegExp('ab*c'); [r.test('ac'), r.test('abc')] = [true, true]
 var r = RegExp('ab*c', 'g'); 'ab abc ac'.allRegExpMatches(r) = ['abc', 'ac']
@@ -362,7 +362,7 @@ RegExp('x.x', 'g').flags = 'g'
 RegExp('x.x', 'g').printString.size = 18
 'a-b:c'.splitRegExp(RegExp('-|:')) = ['a', 'b', 'c']
 
-'Text/String'
+'Kernel-Text/String'
 ''.typeOf = 'String'
 ''.size = 0
 'x'.asString = 'x'
@@ -415,7 +415,7 @@ var x = ['a', 'bc', 'def']; x.unlines.lines = x
 'x y z'.replaceRegExp(RegExp('x|z', 'g'), '-') = '- y -'
 
 
-'Exceptions/Error'
+'Kernel-Exceptions/Error'
 Error().isError = true
 Error('message').isError = true
 Error('message').name = 'Error'
@@ -424,13 +424,13 @@ Error('message').log = nil
 { Error('message').signal }.ifError { :err | true }
 { error('message') }.ifError { :err | true }
 
-'Numbers/Binary'
+'Kernel-Numbers/Binary'
 16 << 3 = 128
 16 >> 3 = 2
 23 << 7 = 2944
 7 << 23 = 58720256
 
-'Numbers/Fraction'
+'Kernel-Numbers/Fraction'
 Fraction(6, 4).reduced = Fraction(3, 2)
 Fraction(-6, 4).reduced = Fraction(-3, 2)
 Fraction(6, -4).reduced = Fraction(-3, 2)
@@ -442,7 +442,6 @@ Fraction(6, -4).reduced = Fraction(-3, 2)
 23.numerator = 23
 23.denominator = 1
 1:3 + 1:7 = 10:21
-Fraction(3, 1)
 Fraction(3, 1) = 3:1
 -3:2.negated = 3:2
 -3:2.abs = 3:2
@@ -500,7 +499,8 @@ Fraction(4, 6).reduced.denominator = 3
 2:3.unicode = '⅔'
 var n = unicodeFractions().associations.collect(value:/1); n = n.sorted
 
-'Numbers/Number'
+'Kernel-Numbers/SmallFloat'
+3.141.typeOf = 'SmallFloat'
 0 = -0 = true
 1 = 1 = true
 1 >= 1 = true
@@ -618,7 +618,7 @@ system.traitTypes('Collection').includes('Array') = true
 system.typeTraits('Array').includes('ArrayedCollection') = true
 system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'SequenceableCollection']) = true
 system.methodTraits('sum:/1') = ['Collection']
-system.traitTypes('Object').includes('Number') = true
+system.traitTypes('Object').includes('SmallFloat') = true
 system.trait('Object').methodDictionary.includesKey('respondsTo:/2') = true
 system.trait('Collection').isTrait = true
 system.trait('Collection').name = 'Collection'

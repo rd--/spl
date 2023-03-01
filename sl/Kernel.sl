@@ -792,59 +792,59 @@ LargeInteger : [Object, Magnitude, Number, Integral] {
 
 }
 
-Number : [Object, Magnitude, Number, Integral, Binary] {
+SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 
 	= { :self :aNumber |
 		<primitive: return _self === _aNumber;>
 	}
 
 	< { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self < _anObject; }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return _self < _anObject; }>
 		anObject.adaptToNumberAndApply(self, lessThan:/2)
 	}
 
 	<= { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self <= _anObject; }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return _self <= _anObject; }>
 		anObject.adaptToNumberAndApply(self, lessThanEquals:/2)
 	}
 
 	+ { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self + _anObject; }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return _self + _anObject; }>
 		anObject.adaptToNumberAndApply(self, plus:/2)
 	}
 
 	- { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self - _anObject; }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return _self - _anObject; }>
 		anObject.adaptToNumberAndApply(self, minus:/2)
 	}
 
 	* { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self * _anObject; }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return _self * _anObject; }>
 		anObject.adaptToNumberAndApply(self, times:/2)
 	}
 
 	/ { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self / _anObject; }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return _self / _anObject; }>
 		anObject.adaptToNumberAndApply(self, dividedBy:/2)
 	}
 
 	% { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return ((_self % _anObject) + _anObject) % _anObject; }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return ((_self % _anObject) + _anObject) % _anObject; }>
 		anObject.adaptToNumberAndApply(self, modulo:/2)
 	}
 
 	** { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return Math.pow(_self, _anObject); }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return Math.pow(_self, _anObject); }>
 		anObject.adaptToNumberAndApply(self, timesTimes:/2)
 	}
 
 	<< { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self << _anObject; }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return _self << _anObject; }>
 		anObject.adaptToNumberAndApply(self, lessThanLessThan:/2)
 	}
 
 	>> { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return sl.shiftRight(_self, _anObject); }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return sl.shiftRight(_self, _anObject); }>
 		anObject.adaptToNumberAndApply(self, greaterThanGreaterThan:/2)
 	}
 
@@ -879,7 +879,7 @@ Number : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	atan2 { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return Math.atan2(_self, _anObject); }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return Math.atan2(_self, _anObject); }>
 		anObject.adaptToNumberAndApply(self, atan2:/2)
 	}
 
@@ -888,7 +888,7 @@ Number : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	bitAnd { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self & _anObject; }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return _self & _anObject; }>
 		anObject.adaptToNumberAndApply(self, bitAnd:/2)
 	}
 
@@ -897,12 +897,12 @@ Number : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	bitOr { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self | _anObject; }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return _self | _anObject; }>
 		anObject.adaptToNumberAndApply(self, bitOr:/2)
 	}
 
 	bitXor { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self ^ _anObject; }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return _self ^ _anObject; }>
 		anObject.adaptToNumberAndApply(self, bitXor:/2)
 	}
 
@@ -972,12 +972,12 @@ Number : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	min { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return Math.min(_self, _anObject); }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return Math.min(_self, _anObject); }>
 		anObject.adaptToNumberAndApply(self, min:/2)
 	}
 
 	max { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return Math.max(_self, _anObject); }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return Math.max(_self, _anObject); }>
 		anObject.adaptToNumberAndApply(self, max:/2)
 	}
 
@@ -1031,7 +1031,7 @@ Number : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	remainder { :self :anObject |
-		<primitive: if(sl.isNumber(_anObject)) { return _self % _anObject; }>
+		<primitive: if(sl.isSmallFloat(_anObject)) { return _self % _anObject; }>
 		error('Number>>remainder')
 	}
 
@@ -1591,3 +1591,7 @@ UndefinedObject : [Object] {
 	}
 
 }
+
+pi = 3.1415926535897932384626433
+e = 2.71828182845904523536028747135266249775724709369995
+epsilon = 0.000000000000001

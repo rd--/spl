@@ -7,7 +7,7 @@ export const slGrammarDefinition = String.raw`
 Sl {
 
 	TopLevel = LibraryExpression+ | Program
-	LibraryExpression = TypeExpression | TraitExpression
+	LibraryExpression = TypeExpression | TraitExpression | ConstantDefinition
 	TypeExpression = TypeExtension | TypeListExtension | TypeDefinition
 	TypeExtension = "+" identifier "{" (methodName Block)* "}"
 	TypeListExtension = "+" "[" NonemptyListOf<identifier, ","> "]" "{" (methodName Block)* "}"
@@ -16,6 +16,7 @@ Sl {
 	TraitExpression = TraitExtension | TraitDefinition
 	TraitExtension = "+" "@" identifier "{" (methodName Block)* "}"
 	TraitDefinition = "@" identifier "{" (methodName Block)* "}"
+	ConstantDefinition = unqualifiedIdentifier "=" literal
 	Program = Temporaries? ExpressionSequence
 	Temporaries = TemporariesWithInitializers | TemporariesWithoutInitializers | TemporariesVarSyntax+
 	TemporariesWithInitializers = "|" NonemptyListOf<TemporaryWithInitializer, ","> ";" "|"
@@ -108,6 +109,7 @@ Sl {
 	IntervalThenSyntax = "(" Expression "," Expression ".." Expression ")"
 
 	methodName = identifier | binaryOperator
+	unqualifiedIdentifier = letter letterOrDigit*
 	identifier = letter letterOrDigit* (":/" digit+)?
 	letterOrDigit = letter | digit
 	reservedIdentifier = "nil" | "true" | "false"

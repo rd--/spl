@@ -86,6 +86,7 @@
 (defvar spl-imenu-generic-expression
   (list
    (list nil "^\\(;; .*\\)$" 1)
+   (list "Constant" "^\\([a-zA-Z]+\\) = " 1)
    (list nil "^\\(\+?@?\[?[A-Z][, A-Za-z]+[a-z]\]?\\).*{" 1)
    (list nil "^\\(\t[*&|~+-/%><=?!^a-zA-Z]+\\) {" 1))
   "Value for `imenu-generic-expression' in Spl mode.")
@@ -93,7 +94,7 @@
 (defconst spl-font-lock-keywords
   (list
    `(,(regexp-opt '("var" "primitive:") 'symbols) . font-lock-keyword-face)
-   `(,(regexp-opt '("false" "inf" "nil" "pi" "true") 'symbols) . font-lock-builtin-face)
+   `(,(regexp-opt '("false" "inf" "nil" "pi" "e" "epsilon" "true") 'symbols) . font-lock-builtin-face)
    `(,(regexp-opt '("do" "if" "ifFalse" "ifNil" "ifTrue" "kr" "timesRepeat" "whileFalse" "whileTrue") 'symbols) . font-lock-function-name-face)
    `(,(regexp-opt '("error" "warn") 'symbols) . font-lock-warning-face)
    '("\\<[A-Z][a-zA-Z0-9]*\\>" . font-lock-type-face)
@@ -136,6 +137,8 @@
      ("transpose" .?ᵀ)
      ("reversed" .?ᴙ)
      ("pi" . ?π)
+     ("epsilon" . ?ε)
+     ("e" . ?𝑒)
      ("*" . ?×)
      ("**" . ?⇈)
      ("/" . ?÷)

@@ -21,7 +21,7 @@ Colour : [Object] { | red green blue alpha |
 
 }
 
-+Number {
++SmallFloat {
 
 	Colour { :r :g :b |
 		Colour(r, g, b, 1)

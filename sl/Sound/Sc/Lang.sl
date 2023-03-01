@@ -121,7 +121,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 }
 
-+Number {
++SmallFloat {
 
 	schedule { :self :aProcedure:/2 |
 		workspace::clock.schedule(self, aProcedure:/2)
@@ -490,7 +490,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 }
 
-+Number {
++SmallFloat {
 
 	degreeToKey { :scaleDegree :scale :stepsPerOctave |
 		|
