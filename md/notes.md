@@ -1,3 +1,32 @@
+# Constants
+
+Implement a dictionary for constants, either _constant_ or _system.constant_.
+Instead of _Void>>unicodeFractions_ there would be _constant::unicodeFractions_
+Add values such as _system.constant::epsilon = 2 ** -52_.
+Defining constants in .sl library files requires adding a ConstantDefinition clause to the grammar.
+To define array and dictionary constants requires adding arrayLiteral & dictionaryLiteral clauses.
+In Ohm the ListOf rule is not allowed in literal contexts.
+
+	LibraryExpression = TypeExpression | TraitExpression | ConstantDefinition
+	ConstantDefinition = "constant" "::" identifier ":=" literal ";"
+	literal = numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral | arrayLiteral | dictionaryLiteral
+	arrayLiteral = "[" listOf<literal, ","> "]"
+	dictionaryLiteral = "(" listOf<associationLiteral, ","> ")"
+	associationLiteral = identifierAssociationLiteral | stringAssociationLiteral
+	identifierAssociationLiteral = identifier ":" " "? literal
+	stringAssociationLiteral = singleQuotedStringLiteral ":" " "? literal
+
+	ConstantDefinition(_constant, _colonColon, name, _colonEquals, value, _semicolon) {
+		return `_constant.set('${name.sourceString}', ${value.asJs});`
+	},
+	arrayLiteral(_l, array, _r) { return `[${commaList(array.asIteration().children)}]`; },
+	dictionaryLiteral(_l, dict, _r) { return `new Map([${commaList(dict.asIteration().children)}])`; },
+	identifierAssociationLiteral(lhs, _colon, _maybeSpace, rhs) { return `['${lhs.sourceString}', ${rhs.asJs}]`; },
+	stringAssociationLiteral(lhs, _colon, _maybeSpace, rhs) { return `[${lhs.sourceString}, ${rhs.asJs}]`; },
+
+constant::e := 2.71828182845904523536028747135266249775724709369995;
+constant::epsilon := 0.0000000000000001;
+
 # Traits For
 
 Allow specifying existing types a Trait should apply to.

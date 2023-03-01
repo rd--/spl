@@ -83,19 +83,11 @@
   nil
   "Hook to run on entering spl-mode.")
 
-(defvar spl-imenu-generic-expression-categorised
-  (list
-   (list "Traits" "^@\\([A-Z][A-Za-z]+\\) {" 1)
-   (list "Trait Extensions" "^\+?@\\([A-Z][A-Za-z]+\\) {" 1)
-   (list "Types" "^\\([A-Z][A-Za-z]+\\) : " 1)
-   (list "Type Extensions" "^\+?\\([A-Z][A-Za-z]+\\) : " 1)
-   (list "Methods" "^\t\\([a-z][A-Za-z]+\\) {" 1))
-  "Value for `imenu-generic-expression' in Spl mode.")
-
 (defvar spl-imenu-generic-expression
   (list
-   (list nil "^\\(\+?@?[A-Z][A-Za-z]+\\) {" 1)
-   (list nil "^\\(\t[a-z][A-Za-z]+\\) {" 1))
+   (list nil "^\\(;; .*\\)$" 1)
+   (list nil "^\\(\+?@?\[?[A-Z][, A-Za-z]+[a-z]\]?\\).*{" 1)
+   (list nil "^\\(\t[*&|~+-/%><=?!^a-zA-Z]+\\) {" 1))
   "Value for `imenu-generic-expression' in Spl mode.")
 
 (defconst spl-font-lock-keywords

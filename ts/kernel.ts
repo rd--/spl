@@ -352,6 +352,7 @@ export function arrayCheckIndex(anArray: unknown[], anInteger: number): boolean 
 declare global {
 	var _pi: number;
 	var _inf: number;
+	var _constant: Map<string,unknown>;
 	var _implicitDictionary: Map<string,unknown>;
 	var _system: System;
 	var _workspace: Map<string,unknown>;
@@ -360,6 +361,7 @@ declare global {
 export function assignGlobals() {
 	globalThis._pi = Math.PI;
 	globalThis._inf = Infinity;
+	globalThis._constant = new Map();
 	globalThis._implicitDictionary = new Map();
 	globalThis._system = system;
 	globalThis._workspace = new Map();

@@ -63,9 +63,9 @@ Colour : [Object] { | red green blue alpha |
 
 @Point {
 
-	= { :self :anObject |
-		self.x = anObject.x & {
-			self.y = anObject.y
+	= { :self :aPoint |
+		self.x = aPoint.x & {
+			self.y = aPoint.y
 		}
 	}
 

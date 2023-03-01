@@ -1,13 +1,5 @@
 LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLink |
 
-	isEmpty { :self |
-		self.firstLink.isNil
-	}
-
-	species { :self |
-		Array:/1
-	}
-
 	add { :self :aLinkOrObject |
 		self.addLast(aLinkOrObject)
 	}
@@ -31,9 +23,12 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 		aLink
 	}
 
-	asArray { :self |
+	Array { :self |
 		| answer = Array(self.size), index = 1; |
-		self.do { :each | answer[index] := each; index := index + 1 };
+		self.do { :each |
+			answer[index] := each;
+			index := index + 1
+		};
 		answer
 	}
 
@@ -67,6 +62,10 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 			aProcedure(aLink.value);
 			aLink := aLink.nextLink
 		}
+	}
+
+	isEmpty { :self |
+		self.firstLink.isNil
 	}
 
 	linkAt { :self :index |
@@ -197,6 +196,10 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 			}
 		};
 		answer
+	}
+
+	species { :self |
+		Array:/1
 	}
 
 }

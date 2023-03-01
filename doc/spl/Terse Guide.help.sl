@@ -194,6 +194,10 @@ var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
 [].species.newFrom(OrderedCollection()) = []
 OrderedCollection().Array = []
 
+'Collections/Dictionary'
+unicodeFractions().isDictionary = true
+unicodeFractions().associations.isArray = true
+
 'Collections/Float64Array'
 Float64Array(0).typeOf = 'Float64Array'
 Float64Array(0).species = Float64Array:/1
@@ -492,6 +496,9 @@ Fraction(4, 6).reduced.denominator = 3
 2:3 > 0.5 = true
 1 < 3:2 = true
 3:2 > 1 = true
+3:4.unicode = '¾'
+2:3.unicode = '⅔'
+var n = unicodeFractions().associations.collect(value:/1); n = n.sorted
 
 'Numbers/Number'
 0 = -0 = true
@@ -548,6 +555,9 @@ var r; 0.do { :each | r := each }; r = nil
 (2 .. 15).select { :each | each.primeLimit <= 5 } = [2,  3,  4,  5,  6,  8,  9, 10, 12, 15]
 60.divisors = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60]
 1729.divisors = [1, 7, 13, 19, 91, 133, 247, 1729]
+e() = 1.exp
+epsilon() < (10 ** -15)
+epsilon() > (10 ** -16)
 
 'System/system'
 system.typeOf = 'System'

@@ -1,6 +1,6 @@
 @ArrayedCollection {
 
-	asArray { :self |
+	Array { :self |
 		Array(self.size).fillFromWith(self, identity:/1)
 	}
 
@@ -462,13 +462,21 @@
 		aCollection
 	}
 
-	asArray { :self |
+	Array { :self |
 		| answer = Array(self.size), index = 1; |
 		self.associationsDo { :each |
 			answer[index] := each;
 			index := index + 1
 		};
 		answer
+	}
+
+	associations { :self |
+		| answer = OrderedCollection(); |
+		self.associationsDo { :each |
+			answer.add(each)
+		};
+		answer.sharedArray
 	}
 
 	associationsDo { :self :aProcedure:/1 |
@@ -581,6 +589,23 @@
 
 	isDictionary { :self |
 		true
+	}
+
+	keyAtValue { :self :value |
+		self.keyAtValueIfAbsent(value) {
+			'Dictionary>>keyAtValue: errorValueNotFound'.error
+		}
+	}
+
+	keyAtValueIfAbsent { :self :value :exceptionProcedure:/0 |
+		withReturn {
+			self.associationsDo { :association |
+				(value = association.value).ifTrue {
+					association.key.return
+				}
+			};
+			exceptionProcedure()
+		}
 	}
 
 	keysAndValuesDo { :self :aProcedure:/2 |
@@ -913,7 +938,7 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 		}
 	}
 
-	asArray { :self |
+	Array { :self |
 		self
 	}
 
@@ -953,6 +978,16 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 +Number {
 
+	Array { :size |
+		<primitive: return Array(_size);>
+	}
+
+	replicate { :self :anObject |
+		1.toAsCollect(self, Array:/1) { :unused |
+			anObject
+		}
+	}
+
 	toAsCollect { :self :stop :species :aProcedure:/1 |
 		|
 			answerSize = stop - self + 1,
@@ -962,16 +997,6 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 			answer[index] := aProcedure(index + self - 1)
 		};
 		answer
-	}
-
-	replicate { :self :anObject |
-		1.toAsCollect(self, Array:/1) { :unused |
-			anObject
-		}
-	}
-
-	Array { :size |
-		<primitive: return Array(_size)>
 	}
 
 }
@@ -1159,6 +1184,10 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 		<primitive: _self.set(_aKey, _aValue);>
 	}
 
+	IdentityDictionary { :self |
+		self
+	}
+
 	includesKey { :self :aKey |
 		<primitive: return _self.has(_aKey);>
 	}
@@ -1211,10 +1240,6 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 		<primitive: return Array.from(_self.values());>
 	}
 
-	IdentityDictionary { :self |
-		self
-	}
-
 }
 
 +Array {
@@ -1261,6 +1286,10 @@ IdentitySet : [Object, Collection] {
 		<primitive: _self.add(_anObject); return _anObject;>
 	}
 
+	Array { :self |
+		<primitive: return Array.from(_self);>
+	}
+
 	do { :self :aProcedure |
 		<primitive: _self.forEach(function(item) { _aProcedure(item) }); return null;>
 	}
@@ -1283,10 +1312,6 @@ IdentitySet : [Object, Collection] {
 
 	species { :self |
 		IdentitySet:/0
-	}
-
-	Array { :self |
-		<primitive: return Array.from(_self);>
 	}
 
 }
@@ -1317,20 +1342,88 @@ IdentitySet : [Object, Collection] {
 
 Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
-	species { :self |
-		Array:/1
-	}
-
-	printString { :self |
-		'Interval(' ++ self.start ++ ', ' ++ self.stop ++ ', ' ++ self.step ++ ')'
-	}
-
 	= { :self :anInterval |
 		self.start = anInterval.start & {
 			self.stop = anInterval.stop & {
 				self.step = anInterval.step
 			}
 		}
+	}
+
+	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
+		aProcedure(aCollection, self.asArray)
+	}
+
+	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
+		self.collect { :each |
+			aProcedure(aNumber, each)
+		}
+	}
+
+	Array { :self |
+		self.collect(identity:/1)
+	}
+
+	at { :self :index |
+		((index < 1) | {
+			index > self.size
+		}).if {
+			nil
+		} {
+			self.step * (index - 1) + self.start
+		}
+	}
+
+	collect { :self :aProcedure:/1 |
+		| result = Array(self.size), index = 1; |
+		self.do { :nextValue |
+			result[index] := aProcedure(nextValue);
+			index := index + 1
+		};
+		result
+	}
+
+	do { :self :aProcedure:/1 |
+		| nextValue = self.start, endValue = self.stop; |
+		(self.step > 0).if {
+			{ nextValue <= endValue }.whileTrue {
+				aProcedure(nextValue);
+				nextValue := nextValue + self.step
+			}
+		} {
+			{ nextValue >= endValue }.whileTrue {
+				aProcedure(nextValue);
+				nextValue := nextValue + self.step
+			}
+		}
+	}
+
+	first { :self |
+		self.start
+	}
+
+	isEmpty { :self |
+		self.size = 0
+	}
+
+	last { :self |
+		self.stop - (self.stop - self.start % self.step)
+	}
+
+	printString { :self |
+		'Interval(' ++ self.start ++ ', ' ++ self.stop ++ ', ' ++ self.step ++ ')'
+	}
+
+	reversed { :self |
+		self.isEmpty.if {
+			Interval(self.stop, self.start, self.step.negated)
+		} {
+			Interval(self.last, self.start, self.step.negated)
+		}
+	}
+
+	second { :self |
+		self.start + self.step
 	}
 
 	size { :self |
@@ -1350,80 +1443,12 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 		}
 	}
 
-	isEmpty { :self |
-		self.size = 0
-	}
-
-	at { :self :index |
-		((index < 1) | {
-			index > self.size
-		}).if {
-			nil
-		} {
-			self.step * (index - 1) + self.start
-		}
-	}
-
-	do { :self :aProcedure:/1 |
-		| nextValue = self.start, endValue = self.stop; |
-		(self.step > 0).if {
-			{ nextValue <= endValue }.whileTrue {
-				aProcedure(nextValue);
-				nextValue := nextValue + self.step
-			}
-		} {
-			{ nextValue >= endValue }.whileTrue {
-				aProcedure(nextValue);
-				nextValue := nextValue + self.step
-			}
-		}
-	}
-
-	collect { :self :aProcedure:/1 |
-		| result = Array(self.size), index = 1; |
-		self.do { :nextValue |
-			result[index] := aProcedure(nextValue);
-			index := index + 1
-		};
-		result
-	}
-
-	asArray { :self |
-		self.collect(identity:/1)
+	species { :self |
+		Array:/1
 	}
 
 	sum { :self |
 		self.size * ((self.size - 1) * self.step + (self.start * 2)) / 2
-	}
-
-	first { :self |
-		self.start
-	}
-
-	second { :self |
-		self.start + self.step
-	}
-
-	last { :self |
-		self.stop - (self.stop - self.start % self.step)
-	}
-
-	reversed { :self |
-		self.isEmpty.if {
-			Interval(self.stop, self.start, self.step.negated)
-		} {
-			Interval(self.last, self.start, self.step.negated)
-		}
-	}
-
-	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
-		aProcedure(aCollection, self.asArray)
-	}
-
-	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
-		self.collect { :each |
-			aProcedure(aNumber, each)
-		}
 	}
 
 }
@@ -1448,7 +1473,7 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
 }
 
-OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveArray | (* i.e. a Js array, not an Spl array  *)
+OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveArray | (* i.e. Js array *)
 
 	= { :self :anObject |
 		anObject.isOrderedCollection & {
@@ -1484,7 +1509,7 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveAr
 		<primitive: return _self.primitiveArray.push(_anObject);>
 	}
 
-	asArray { :self |
+	Array { :self |
 		self.primitiveArray.copy
 	}
 
@@ -1504,10 +1529,18 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveAr
 		OrderedCollection(self.primitiveArray.copy)
 	}
 
+	IdentitySet { :self |
+		self.primitiveArray.IdentitySet
+	}
+
 	ofSize { :self :aNumber |
 		(aNumber - self.size).timesRepeat {
 			self.add(nil)
 		};
+		self
+	}
+
+	OrderedCollection { :self |
 		self
 	}
 
@@ -1523,20 +1556,12 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveAr
 		<primitive: return _self.primitiveArray.pop();>
 	}
 
+	sharedArray { :self |
+		self.primitiveArray
+	}
+
 	species { :self |
 		OrderedCollection:/1
-	}
-
-	Array { :self |
-		self.primitiveArray.copy
-	}
-
-	IdentitySet { :self |
-		self.primitiveArray.IdentitySet
-	}
-
-	OrderedCollection { :self |
-		self
 	}
 
 }
@@ -1647,6 +1672,10 @@ StringDictionary : [Object, Dictionary] {
 		('StringDictionary>>atPut key not a string: ' ++ aString.typeOf).error
 	}
 
+	IdentityDictionary { :self |
+		<primitive: return new Map(Object.entries(_self));>
+	}
+
 	includesKey { :self :aKey |
 		<primitive: return Object.hasOwn(_aKey);>
 	}
@@ -1679,16 +1708,12 @@ StringDictionary : [Object, Dictionary] {
 		<primitive: return Object.keys(_self).length;>
 	}
 
-	values { :self |
-		<primitive: return Object.values(_self);>
-	}
-
-	IdentityDictionary { :self |
-		<primitive: return new Map(Object.entries(_self));>
-	}
-
 	StringDictionary { :self |
 		self
+	}
+
+	values { :self |
+		<primitive: return Object.values(_self);>
 	}
 
 }
@@ -1704,16 +1729,16 @@ StringDictionary : [Object, Dictionary] {
 
 +IdentityDictionary {
 
-	unsafeStringDictionary { :self |
-		<primitive: return Object.fromEntries(_self);>
-	}
-
 	StringDictionary { :self |
 		self.keys.allSatisfy(isString:/1).if {
 			self.unsafeStringDictionary
 		} {
 			'IdentityDictionary>>StringDictionary: not all keys are strings'.error
 		}
+	}
+
+	unsafeStringDictionary { :self |
+		<primitive: return Object.fromEntries(_self);>
 	}
 
 }

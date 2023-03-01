@@ -15,39 +15,45 @@ function quoteNewLines(input: string): string {
 
 const asJs: any = {
 
-	TypeExtension(_e, clsNm, _l, mthNm, mthBlk, _r) {
-		return makeMethodList('addMethod', [clsNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
+	TypeExtension(_plus, typNm, _leftBrace, mthNm, mthBlk, _rightBrace) {
+		return makeMethodList('addMethod', [typNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
-	TypeListExtension(_e, _cl, clsNmList, _cr, _ml, mthNm, mthBlk, _mr) {
-		const clsNmArray = clsNmList.asIteration().children.map(c => c.sourceString);
-		// console.debug(`TypeListExtension: [${clsNmArray}].size = ${clsNmArray.length}`);
-		return makeMethodList('addMethod', clsNmArray, mthNm.children.map(c => c.sourceString), mthBlk.children);
+	TypeListExtension(_plus, _leftBracket, typNmList, _rightBracket, _leftBrace, mthNm, mthBlk, _rightBrace) {
+		const typNmArray = typNmList.asIteration().children.map(c => c.sourceString);
+		// console.debug(`TypeListExtension: [${typNmArray}].size = ${typNmArray.length}`);
+		return makeMethodList('addMethod', typNmArray, mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
-	TypeDefinition(clsNm, trt, _l, tmp, mthNm, mthBlk, _r) {
-		function makeTypeDefinition(clsNm: string, trt: string[], tmp, mthNms, mthBlks) {
+	TypeDefinition(typNm, trt, _leftBrace, tmp, mthNm, mthBlk, _rightBrace) {
+		function makeTypeDefinition(typNm: string, trt: string[], tmp, mthNms, mthBlks) {
 			const tmpSrc = tmp.sourceString;
 			const tmpNm = tmpSrc === '' ? [] : slTemporariesSyntaxNames(tmpSrc).map(nm => `'${nm}'`);
 			const traitList = trt.split(', ').filter(each => each.length > 0);
-			const addType = `sl.addType('${clsNm}', [${trt}], [${tmpNm}]);`;
-			const copyTraits = traitList.map(trtNm => `sl.copyTraitToType(${trtNm}, '${clsNm}');`).join(' ');
-			const addMethods = makeMethodList('addMethod', [clsNm], mthNms, mthBlks);
+			const addType = `sl.addType('${typNm}', [${trt}], [${tmpNm}]);`;
+			const copyTraits = traitList.map(trtNm => `sl.copyTraitToType(${trtNm}, '${typNm}');`).join(' ');
+			const addMethods = makeMethodList('addMethod', [typNm], mthNms, mthBlks);
 			return `${addType}${copyTraits}${addMethods}`;
 		}
-		return makeTypeDefinition(clsNm.sourceString, trt.asJs, tmp, mthNm.children.map(c => c.sourceString), mthBlk.children);
+		return makeTypeDefinition(typNm.sourceString, trt.asJs, tmp, mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
-	TraitList(_c, _l, nm, _r) { return nm.asIteration().children.map(c => `'${c.sourceString}'`).join(', '); },
-	TraitExtension(_p, _t, trtNm, _l, mthNm, mthBlk, _r) {
+	TraitList(_colon, _leftBracket, nm, _rightBracket) {
+		return nm.asIteration().children.map(c => `'${c.sourceString}'`).join(', ');
+	},
+	TraitExtension(_plus, _at, trtNm, _leftBrace, mthNm, mthBlk, _rightBrace) {
 		// console.debug(`TraitExtension: ${trtNm.sourceString}`);
 		return makeMethodList('extendTraitWithMethod', [trtNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
-	TraitDefinition(_t, trtNm, _l, mthNm, mthBlk, _r) {
+	TraitDefinition(_at, trtNm, _leftBrace, mthNm, mthBlk, _rightBrace) {
 		const trt = `sl.addTrait('${trtNm.sourceString}');`;
 		const mth = makeMethodList('addTraitMethod', [trtNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
 		return `${trt}${mth}`;
 	},
-	Program(tmp, stm) { return tmp.asJs + stm.asJs; },
-	TemporariesWithInitializers(_l, tmp, _s, _r) { return `var ${commaList(tmp.asIteration().children)};`; },
-	TemporaryWithBlockLiteralInitializer(nm, _, blk) {
+	Program(tmp, stm) {
+		return tmp.asJs + stm.asJs;
+	},
+	TemporariesWithInitializers(_verticalBar1, tmp, _commas, _verticalBar2) {
+		return `var ${commaList(tmp.asIteration().children)};`;
+	},
+	TemporaryWithBlockLiteralInitializer(nm, _equals, blk) {
 		const name = nm.asJs;
 		const genNm = `${genName(name, blk.arityOf)}`;
 		const genBind = `${genNm} = ${blk.asJs}`;
@@ -58,22 +64,30 @@ const asJs: any = {
 		// console.log(`TemporaryWithBlockLiteralInitializer: ${reBind}`);
 		return `${genBind}${reBind}`;
 	},
-	TemporaryWithExpressionInitializer(nm, _, exp) { return `${nm.asJs} = ${exp.asJs}`; },
-	TemporaryWithDictionaryInitializer(_l, lhs, _r, _e, rhs) {
+	TemporaryWithExpressionInitializer(nm, _equals, exp) {
+		return `${nm.asJs} = ${exp.asJs}`;
+	},
+	TemporaryWithDictionaryInitializer(_leftParen, lhs, _rightParen, _equals, rhs) {
 		const namesArray = lhs.asIteration().children.map(c => c.sourceString);
 		const rhsName = gensym();
 		const slots = namesArray.map((name) => `_${name} = _${genName('at', 2)}(${rhsName}, '${name}')`).join(', ');
 		return `${rhsName} = ${rhs.asJs}, ${slots}`;
 	},
-	TemporaryWithArrayInitializer(_l, lhs, _r, _e, rhs) {
+	TemporaryWithArrayInitializer(_leftBracket, lhs, _rightBracket, _equals, rhs) {
 		const namesArray = lhs.asIteration().children.map(c => c.sourceString);
 		const rhsName = gensym();
 		const slots = namesArray.map((name, index) => `_${name} = _${genName('at', 2)}(${rhsName}, ${index + 1})`).join(', ');
 		return `${rhsName} = ${rhs.asJs}, ${slots}`;
 	},
-	TemporariesWithoutInitializers(_l, tmp, _r) { return `var ${commaList(tmp.children)};`; },
-	TemporariesVarSyntax(_l, tmp, _r) { return `var ${commaList(tmp.asIteration().children)};`; },
-	Assignment(lhs, _, rhs) { return `${lhs.asJs} = ${rhs.asJs}`; },
+	TemporariesWithoutInitializers(_verticalBar1, tmp, _verticalBar2) {
+		return `var ${commaList(tmp.children)};`;
+	},
+	TemporariesVarSyntax(_var, tmp, _semicolon) {
+		return `var ${commaList(tmp.asIteration().children)};`;
+	},
+	Assignment(lhs, _colonEquals, rhs) {
+		return `${lhs.asJs} = ${rhs.asJs}`;
+	},
 	BinaryExpression(lhs, ops, rhs) {
 		let left = lhs.asJs;
 		const opsArray = ops.children.map(c => c.asJs);
@@ -86,16 +100,30 @@ const asJs: any = {
 		return left;
 	},
 
-	AtPutSyntax(c, _l, k, _r, _e, v) { return `_${genName('atPut', 3)}(${c.asJs}, ${k.asJs}, ${v.asJs})`; },
-	AtPutQuotedSyntax(c, _c, k, _e, v) { return `_${genName('atPut', 3)}(${c.asJs}, '${k.sourceString}', ${v.asJs})`; },
-	AtPutDelegateSyntax(c, _d, k, _e, v) { return `_${genName('atPutDelegateTo', 4)}(${c.asJs}, '${k.sourceString}', ${v.asJs}, 'parent')`; },
-	AtSyntax(c, _l, k, _r) { return `_${genName('at', 2)}(${c.asJs}, ${k.asJs})`; },
-	AtQuotedSyntax(c, _c, k) { return `_${genName('at', 2)}(${c.asJs}, '${k.sourceString}')`; },
-	MessageSendSyntax(d, _o, k, a) {
+	AtPutSyntax(c, _leftBracket, k, _rightBracket, _equals, v) {
+		return `_${genName('atPut', 3)}(${c.asJs}, ${k.asJs}, ${v.asJs})`;
+	},
+	AtPutQuotedSyntax(c, _colonColon, k, _equals, v) {
+		return `_${genName('atPut', 3)}(${c.asJs}, '${k.sourceString}', ${v.asJs})`;
+	},
+	AtPutDelegateSyntax(c, _colonDot, k, _equals, v) {
+		return `_${genName('atPutDelegateTo', 4)}(${c.asJs}, '${k.sourceString}', ${v.asJs}, 'parent')`;
+	},
+	AtSyntax(c, _leftBracket, k, _rightBracket) {
+		return `_${genName('at', 2)}(${c.asJs}, ${k.asJs})`;
+	},
+	AtQuotedSyntax(c, _colonColon, k) {
+		return `_${genName('at', 2)}(${c.asJs}, '${k.sourceString}')`;
+	},
+	MessageSendSyntax(d, _colonDot, k, a) {
 		return `_${genName('messageSend', 4)}(${d.asJs}, '${k.sourceString}', 'parent', [${a.children.map(c => c.asJs)}])`;
 	},
-	ValueApply(p, _d, a) { return `${p.asJs}(${a.asJs})`; },
-	NonEmptyParameterList(_l, sq, _r) { return commaList(sq.asIteration().children); },
+	ValueApply(p, _dot, a) {
+		return `${p.asJs}(${a.asJs})`;
+	},
+	NonEmptyParameterList(_leftParen, sq, _rightParen) {
+		return commaList(sq.asIteration().children);
+	},
 
 	DotExpressionWithTrailingClosuresSyntax(lhs, _dot, nm, args, tc) {
 		const name = `${genName(nm.asJs, 1 + args.arityOf + tc.children.length)}`;
@@ -105,7 +133,9 @@ const asJs: any = {
 		const name = `${genName(nm.asJs, 1 + args.arityOf + tc.children.length)}`;
 		return `${name}(${[lhs.asJs].concat(args.children.map(c => c.asJs), tc.children.map(c => c.asJs))})`;
 	},
-	DotExpressionWithAssignmentSyntax(lhs, _dot, nm, _asg, rhs) { return `${genName(nm.asJs, 2)}(${lhs.asJs}, ${rhs.asJs})`; },
+	DotExpressionWithAssignmentSyntax(lhs, _dot, nm, _colonEquals, rhs) {
+		return `${genName(nm.asJs, 2)}(${lhs.asJs}, ${rhs.asJs})`;
+	},
 	DotExpression(lhs, _dot, nms, args) {
 		let rcv = lhs.asJs;
 		const namesArray = nms.children.map(c => c.asJs);
@@ -124,10 +154,13 @@ const asJs: any = {
 		return rcv;
 	},
 
-	ImplicitDictionaryAtPutSyntax(_c, k, _a, e) { return `_${genName('atPut', 3)}(_implicitDictionary, '${k.sourceString}', ${e.asJs})`; },
-	ImplicitDictionaryAtSyntax(_c, k) { return `_${genName('at', 2)}(_implicitDictionary, '${k.sourceString}')`; },
+	ImplicitDictionaryAtPutSyntax(_colonColon, k, _colonEquals, e) {
+		return `_${genName('atPut', 3)}(_implicitDictionary, '${k.sourceString}', ${e.asJs})`; },
+	ImplicitDictionaryAtSyntax(_colonColon, k) {
+		return `_${genName('at', 2)}(_implicitDictionary, '${k.sourceString}')`; },
 
-	Block(_l, blk, _r) { return blk.asJs; },
+	Block(_leftBrace, blk, _rightBrace) {
+		return blk.asJs; },
 	BlockBody(arg, tmp, prm, stm) {
 		let arityCheck = '';
 		if(slOptions.insertArityCheck) {
@@ -135,11 +168,20 @@ const asJs: any = {
 		}
 		return `(function(${arg.asJs}) { ${arityCheck} ${tmp.asJs} ${prm.asJs} ${stm.asJs} })`;
 	},
-	Arguments(arg, _r) { return commaList(arg.children); },
-	ArgumentName(_c, nm) { return nm.asJs; },
-	Primitive(_l, s, _r) { return s.sourceString; },
-	NonFinalExpression(e, _, stm) { return `${e.asJs}; ${stm.asJs};`; },
-	FinalExpression(e) { return `return ${e.asJs};`; },
+	Arguments(arg, _verticalBar) {
+		return commaList(arg.children);
+	},
+	ArgumentName(_colon, nm) {
+		return nm.asJs; },
+	Primitive(_beginPrimitive, s, _endPrimitive) {
+		return s.sourceString;
+	},
+	NonFinalExpression(e, _semicolon, stm) {
+		return `${e.asJs}; ${stm.asJs};`;
+	},
+	FinalExpression(e) {
+		return `return ${e.asJs};`;
+	},
 
 	ApplyWithTrailingClosuresSyntax(rcv, arg, tc) {
 		const opt = arg.asJs;
@@ -151,20 +193,44 @@ const asJs: any = {
 		const name = `${genName(rcv.asJs, arg.arityOf + tc.children.length)}`;
 		return `${name}(...[${opt === '' ? '' : opt + ', '} ${commaList(tc.children)}])`;
 	},
-	ApplySyntax(rcv, arg) { return `${genName(rcv.asJs, arg.arityOf)}(...[${arg.asJs}])`; },
-	ParameterList(_l, sq, _r) { return commaList(sq.asIteration().children); },
-	ParenthesisedExpression(_l, e, _r) { return `(${e.asJs})`; },
-	DictionaryExpression(_l, dict, _r) { return `new Map([${commaList(dict.asIteration().children)}])`; },
-	NonEmptyDictionaryExpression(_l, dict, _r) { return `new Map([${commaList(dict.asIteration().children)}])`; },
-	IdentifierAssociation(lhs, _arrow, rhs) { return `['${lhs.sourceString}', ${rhs.asJs}]`; },
-	StringAssociation(lhs, _arrow, rhs) { return `[${lhs.sourceString}, ${rhs.asJs}]`; },
-	ArrayExpression(_l, array, _r) { return `[${commaList(array.asIteration().children)}]`; },
-	ArrayRangeSyntax(_l, start, _d, end, _r) { return `_${genName('asArray', 1)}(_${genName('to', 2)}(${start.asJs}, ${end.asJs}))`; },
-	ArrayRangeThenSyntax(_l, start, _c_, then, _d, end, _r) { return `_${genName('asArray', 1)}(_${genName('thenTo', 3)}(${start.asJs}, ${then.asJs}, ${end.asJs}))`; },
-	IntervalSyntax(_l, start, _d, end, _r) { return `_${genName('to', 2)}(${start.asJs}, ${end.asJs})`; },
-	IntervalThenSyntax(_l, start, _c_, then, _d, end, _r) { return `_${genName('thenTo', 3)}(${start.asJs}, ${then.asJs}, ${end.asJs})`; },
+	ApplySyntax(rcv, arg) {
+		return `${genName(rcv.asJs, arg.arityOf)}(...[${arg.asJs}])`;
+	},
+	ParameterList(_leftParen, sq, _rightParen) {
+		return commaList(sq.asIteration().children);
+	},
+	ParenthesisedExpression(_leftParen, e, _rightParen) {
+		return `(${e.asJs})`;
+	},
+	DictionaryExpression(_leftParen, dict, _rightParen) {
+		return `new Map([${commaList(dict.asIteration().children)}])`;
+	},
+	NonEmptyDictionaryExpression(_leftParen, dict, _rightParen) {
+		return `new Map([${commaList(dict.asIteration().children)}])`;
+	},
+	IdentifierAssociation(lhs, _colon, rhs) {
+		return `['${lhs.sourceString}', ${rhs.asJs}]`;
+	},
+	StringAssociation(lhs, _colon, rhs) {
+		return `[${lhs.sourceString}, ${rhs.asJs}]`;
+	},
+	ArrayExpression(_leftBracket, array, _rightBracket) {
+		return `[${commaList(array.asIteration().children)}]`;
+	},
+	ArrayRangeSyntax(_leftBracket, start, _dotDot, end, _rightBracket) {
+		return `_${genName('asArray', 1)}(_${genName('to', 2)}(${start.asJs}, ${end.asJs}))`;
+	},
+	ArrayRangeThenSyntax(_leftBracket, start, _comma_, then, _dotDot, end, _rightBracket) {
+		return `_${genName('asArray', 1)}(_${genName('thenTo', 3)}(${start.asJs}, ${then.asJs}, ${end.asJs}))`;
+	},
+	IntervalSyntax(_leftParen, start, _dotDot, end, _rightParen) {
+		return `_${genName('to', 2)}(${start.asJs}, ${end.asJs})`;
+	},
+	IntervalThenSyntax(_leftParen, start, _comma_, then, _dotDot, end, _rightParen) {
+		return `_${genName('thenTo', 3)}(${start.asJs}, ${then.asJs}, ${end.asJs})`;
+	},
 
-	identifier(c1, cN, _, a) {
+	identifier(c1, cN, _colonDividedBy, a) {
 		const arityPart =
 			slOptions.simpleArityModel ?
 			'' :
@@ -180,28 +246,60 @@ const asJs: any = {
 		}
 	},
 
-	floatLiteral(s,i,_,f) { return `${s.sourceString}${i.sourceString}.${f.sourceString}`; },
-	fractionLiteral(s,i,_,f) { return `_reduced_1(_Fraction_2(${s.sourceString}${i.sourceString}, ${f.sourceString}))`; },
-	integerLiteral(s,i) { return `${s.sourceString}${i.sourceString}`; },
-	singleQuotedStringLiteral(_l, s, _r) { return `'${quoteNewLines(s.sourceString)}'`; },
-	doubleQuotedStringLiteral(_l, s, _r) { return `_${genName('parseDoubleQuotedString', 1)}('${s.sourceString}')`; },
-	backtickQuotedStringLiteral(_l, s, _r) { return `_${genName('parseBacktickQuotedString', 1)}('${s.sourceString}')`; },
+	floatLiteral(s,i,_,f) {
+		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
+	},
+	fractionLiteral(s,i,_,f) {
+		return `_reduced_1(_Fraction_2(${s.sourceString}${i.sourceString}, ${f.sourceString}))`;
+	},
+	integerLiteral(s,i) {
+		return `${s.sourceString}${i.sourceString}`;
+	},
+	singleQuotedStringLiteral(_l, s, _r) {
+		return `'${quoteNewLines(s.sourceString)}'`;
+	},
+	doubleQuotedStringLiteral(_l, s, _r) {
+		return `_${genName('parseDoubleQuotedString', 1)}('${s.sourceString}')`;
+	},
+	backtickQuotedStringLiteral(_l, s, _r) {
+		return `_${genName('parseBacktickQuotedString', 1)}('${s.sourceString}')`;
+	},
 
-	NonemptyListOf(first, _sep, rest) { return `${first.asJs}; ${rest.children.map(c => c.asJs)}`; },
-	EmptyListOf() { return ''; },
-	_iter(...children) { return children.map(c => c.asJs).join(''); },
-	_terminal() { return this.sourceString; }
+	NonemptyListOf(first, _sep, rest) {
+		return `${first.asJs}; ${rest.children.map(c => c.asJs)}`;
+	},
+	EmptyListOf() {
+		return '';
+	},
+	_iter(...children) {
+		return children.map(c => c.asJs).join('');
+	},
+	_terminal() {
+		return this.sourceString;
+	}
 };
 
 slSemantics.addAttribute('asJs', asJs);
 
 const arityOf: any = {
-	NonEmptyParameterList(_l, sq, _r) { return sq.asIteration().children.length },
-	ParameterList(_l, sq, _r) { return sq.asIteration().children.length },
-	Block(_l, blk, _r) { return blk.arityOf; },
-	BlockBody(arg, tmp, prm, stm) { return arg.arityOf; },
-	Arguments(nm, _) { return nm.children.length },
-	_iter(...children) { return arraySum(children.map(c => c.arityOf)); },
+	NonEmptyParameterList(_l, sq, _r) {
+		return sq.asIteration().children.length
+	},
+	ParameterList(_l, sq, _r) {
+		return sq.asIteration().children.length
+	},
+	Block(_l, blk, _r) {
+		return blk.arityOf;
+	},
+	BlockBody(arg, tmp, prm, stm) {
+		return arg.arityOf;
+	},
+	Arguments(nm, _) {
+		return nm.children.length
+	},
+	_iter(...children) {
+		return arraySum(children.map(c => c.arityOf));
+	},
 }
 
 slSemantics.addAttribute('arityOf', arityOf);

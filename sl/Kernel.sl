@@ -633,6 +633,21 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.numerator.printString ++ ':' ++ self.denominator.printString
 	}
 
+	raisedToInteger { :self :anInteger |
+		(anInteger = 0).if {
+			1
+		} {
+			(anInteger < 0).if {
+				self.reciprocal.raisedToInteger(anInteger.negated)
+			} {
+				Fraction(
+					self.numerator.raisedToInteger(anInteger),
+					self.denominator.raisedToInteger(anInteger)
+				)
+			}
+		}
+	}
+
 	reciprocal { :self |
 		(self.numerator.abs = 1).if {
 			self.denominator * self.numerator
@@ -656,12 +671,20 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			|
 			self.numerator := x // d;
 			self.denominator := y // d;
-			self
+			(self.denominator = 1).if {
+				self.numerator
+			} {
+				self
+			}
 		}
 	}
 
 	truncated { :self |
 		self.numerator.quotient(self.denominator)
+	}
+
+	unicode { :self |
+		unicodeFractions().keyAtValue(self)
 	}
 
 }
@@ -674,6 +697,33 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		} {
 			newFraction().initializeSlots(numerator, denominator)
 		}
+	}
+
+}
+
++ Void {
+
+	unicodeFractions {
+		(
+			'⅒': 1:10, (* 0.1 *)
+			'⅑': 1:9, (* 1.111 *)
+			'⅛': 1:8, (* 0.125 *)
+			'⅐': 1:7, (* 0.142 *)
+			'⅙': 1:6, (* 0.166 *)
+			'⅕': 1:5, (* 0.2 *)
+			'¼': 1:4, (* 0.25 *)
+			'⅓': 1:3, (* 0.333 *)
+			'⅜': 3:8, (* 0.375 *)
+			'⅖': 2:5, (* 0.4 *)
+			'½': 1:2, (* 0.5 *)
+			'⅗': 3:5, (* 0.6 *)
+			'⅝': 5:8, (* 0.625 *)
+			'⅔': 2:3, (* 0.666*)
+			'¾': 3:4, (* 0.75 *)
+			'⅘': 4:5, (* 0.8 *)
+			'⅚': 5:6, (* 0.833 *)
+			'⅞': 7:8 (* 0.875 *)
+		)
 	}
 
 }
@@ -960,6 +1010,10 @@ Number : [Object, Magnitude, Number, Integral, Binary] {
 		<primitive: return _self.toString(_radix);>
 	}
 
+	raisedToInteger { :self :anInteger |
+		self ** anInteger
+	}
+
 	randomFloat { :self |
 		self * system.randomFloat
 	}
@@ -1031,6 +1085,18 @@ Number : [Object, Magnitude, Number, Integral, Binary] {
 
 	parseNumber { :self |
 		<primitive: return parseFloat(_self);>
+	}
+
+}
+
++Void {
+
+	e {
+		1.exp
+	}
+
+	epsilon {
+		<primitive: return Number.EPSILON;>
 	}
 
 }
@@ -1458,34 +1524,6 @@ String : [Object] {
 	postLine { :self |
 		self.printString.postLine;
 		self
-	}
-
-}
-
-+Void {
-
-	unicodeFractions {
-		[
-			'⅒' -> 0.1,
-			'⅑' -> (1/9), (* 1.111 *)
-			'⅛' -> 1.125,
-			'⅐' -> (1/7), (* 0.142 *)
-			'⅙' -> (1/6), (* 0.166 *)
-			'⅕' -> 0.2,
-			'¼' -> 0.25,
-			'⅓' -> (1/3), (* 0.333 *)
-			'⅜' -> 0.375,
-			'⅖' -> 0.4,
-			'½' -> 0.5,
-			'⅗' -> 0.6,
-			'⅝' -> 0.625,
-			'⅔' -> (2/3), (* 0.666*)
-			'¾' -> 0.75,
-			'⅘' -> 0.8,
-			'⅚' -> (5/6), (* 0.833 *)
-			'⅞' -> 0.875,
-			'1' -> 1
-		]
 	}
 
 }
