@@ -2,9 +2,11 @@
 
 - _parseJson(aString)_
 
+Answer the value represented by the Json encoded _aString_.
+
 ```
-["null", "true", "false"].collect(parseJson:/1) = [nil, true, false]
-["3.141", "23"].collect(parseJson:/1) = [3.141, 23]
+['null', 'true', 'false'].collect(parseJson:/1) = [nil, true, false]
+['3.141', '23'].collect(parseJson:/1) = [3.141, 23]
 '"str"'.parseJson = 'str'
 '[3.141,23]'.parseJson = [3.141, 23]
 '{"x":3.141,"y":23}'.parseJson = (x: 3.141, y: 23)

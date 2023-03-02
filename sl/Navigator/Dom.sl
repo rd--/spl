@@ -142,7 +142,7 @@
 	}
 
 	addEventListener { :self :aString :aProcedure :options |
-		<primitive: return _self.addEventListener(_aString, _aProcedure, Object.fromEntries(_options));>
+		<primitive: return _self.addEventListener(_aString, _aProcedure, _options);>
 	}
 
 	dispatchEvent { :self :event |
@@ -596,7 +596,7 @@ Navigator : [Object] {
 	}
 
 	requestMidiAccess { :self :midiOptions |
-		<primitive: return _self.requestMIDIAccess(Object.fromEntries(_midiOptions));>
+		<primitive: return _self.requestMIDIAccess(_midiOptions);>
 	}
 
 	sendBeacon { :url :data |

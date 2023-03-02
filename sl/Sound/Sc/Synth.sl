@@ -199,10 +199,10 @@ Ugen : [Object, Number] {
 
 }
 
-+IdentityDictionary {
++StringDictionary {
 
 	localControls { :self |
-		<primitive: return sc.localControls(Object.fromEntries(_self));>
+		<primitive: return sc.localControls(_self);>
 	}
 
 }

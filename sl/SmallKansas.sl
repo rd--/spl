@@ -79,9 +79,9 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnList
 		columnProportions.size.do { :index |
 			| list = self.columnLists[index].select; |
 			list.size := listSize;
-			list.style.setProperties([
-				'flex-grow' -> columnProportions[index].asString
-			])
+			list.style.setProperties((
+				'flex-grow': columnProportions[index].asString
+			))
 		}
 	}
 

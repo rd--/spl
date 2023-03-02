@@ -615,7 +615,7 @@ Window : [Object] {
 	confirm { :self :aString | <primitive: return _self.confirm(_aString);> }
 	document { :self | <primitive: return _self.document;> }
 	fetch { :self :resource | <primitive: return _self.fetch(_resource);> }
-	fetch { :self :resource :options | <primitive: return _self.fetch(_resource, Object.fromEntries(_options));> }
+	fetch { :self :resource :options | <primitive: return _self.fetch(_resource, _options);> }
 	getComputedStyle { :self :element | <primitive: return _self.getComputedStyle(_element);> }
 	getSelectedText { :self | <primitive: return _self.getSelection().toString();> }
 	getSelection { :self | <primitive: return _self.getSelection();> }

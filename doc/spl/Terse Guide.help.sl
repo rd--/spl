@@ -354,6 +354,7 @@ var d = (length: { :self | (self::x.squared  + self::y.squared).sqrt }); var p =
 var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7) = 21
 (x: 1) = ('x': 1)
 ('font-size': '11pt', 'font-style': 'italic').keys = ['font-size', 'font-style']
+(x: 1).IdentityDictionary.StringDictionary = (x: 1)
 
 'Kernel-Text/RegExp'
 RegExp('ab+c').isRegExp = true
