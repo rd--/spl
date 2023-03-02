@@ -103,7 +103,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 				activityProcedure:/1 = queue.pop,
 				rescheduleAfter = activityProcedure(scheduledTime);
 			|
-			rescheduleAfter.isNumber.ifTrue {
+			rescheduleAfter.ifNotNil {
 				self.priorityQueue.push(activityProcedure:/1, rescheduleAfter * 1000 + scheduledTime)
 			};
 			front := queue.peekPriority

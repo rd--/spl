@@ -233,6 +233,10 @@
 		}
 	}
 
+	isNumber { :self |
+		true
+	}
+
 	negated { :self |
 		0 - self
 	}
@@ -348,6 +352,10 @@
 	}
 
 	isInteger { :self |
+		false
+	}
+
+	isNumber { :self |
 		false
 	}
 
