@@ -580,7 +580,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 			getTime = {
 				system.unixTimeInMilliseconds.roundTo(1000).TimeStamp.iso8601
 			},
-			textEditor = TextEditor('Clock', false, getTime()),
+			textEditor = TextEditor('Clock', 'text/plain', getTime()),
 			frame = self.addFrameWithAnimator(textEditor, event, 1) {
 				textEditor.setEditorText(getTime())
 			};
@@ -700,7 +700,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 	helpFor { :self :subject :event |
 		self.helpFetchFor(subject).then { :aString |
 			self.addFrame(
-				TextEditor('Help For', true, aString),
+				TextEditor('Help For', 'text/markdown', aString),
 				event
 			)
 		}
@@ -826,7 +826,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 	midiMonitorOn { :self :midiPort :event |
 		|
-			textEditor = TextEditor('Midi Monitor On ' ++ midiPort.name, false, ''),
+			textEditor = TextEditor('Midi Monitor On ' ++ midiPort.name, 'text/plain', ''),
 			messages = OrderedCollection(),
 			onMidiMessage = { :midiMessageEvent |
 				messages.add(midiMessageEvent);
@@ -1017,7 +1017,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 			},
 			MenuItem('Workspace', nil) { :event |
 				self.addFrame(
-					TextEditor('Workspace', false, ''),
+					TextEditor('Workspace', 'text/plain', ''),
 					event
 				)
 			}
@@ -1393,7 +1393,7 @@ TextEditor : [Object, View] { | editorPane editorText mimeType title |
 				self.editorText.textContent := aString
 			}
 		]) {
-			'TextEditor>>setEditorText: unkown mimeType'.postLine
+			('TextEditor>>setEditorText: unkown mimeType: ' ++ self.mimeType).postLine
 		}
 	}
 
