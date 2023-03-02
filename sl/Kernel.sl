@@ -1474,11 +1474,7 @@ String : [Object] {
 	}
 
 	parseJson { :self |
-		(* Rewrite StringDictionary entries as IdentityDictionary. *)
-		<primitive:
-		return JSON.parse(_self, function(key, value) {
-			return sl.typeOf(value) === 'StringDictionary' ? new Map(Object.entries(value)) : value;
-		});>
+		<primitive: return JSON.parse(_self);>
 	}
 
 	postLine { :self |

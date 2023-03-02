@@ -23,11 +23,11 @@
 
 ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnLists statusPane statusText title |
 
-	createElements { :self :numberOfColumns :isRichText :withFilter :withStatus |
+	createElements { :self :numberOfColumns :mimeType :withFilter :withStatus |
 		self.browserPane := 'div'.createElement;
 		self.columnsPane :=  'div'.createElement;
 		self.textEditor := newTextEditor().initialize(
-			'ColumnBrowserTextEditor', isRichText, ''
+			'ColumnBrowserTextEditor', mimeType, ''
 		);
 		self.columnLists := (1 .. numberOfColumns).collect { :index |
 			FilterSelect(withFilter & { index = 1 })
@@ -47,10 +47,10 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnList
 		}
 	}
 
-	initialize { :self :title :isRichText :withFilter :withStatus :columnProportions :onChange:/2 |
+	initialize { :self :title :mimeType :withFilter :withStatus :columnProportions :onChange:/2 |
 		| numberOfColumns = columnProportions.size; |
 		self.title := title;
-		self.createElements(numberOfColumns, isRichText, withFilter, withStatus);
+		self.createElements(numberOfColumns, mimeType, withFilter, withStatus);
 		self.setEntries(1, onChange(self, []));
 		self.setAttributes(columnProportions, 6);
 		self.setEventHandlers(numberOfColumns, onChange:/2);
@@ -122,8 +122,8 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnList
 
 +String {
 
-	ColumnBrowser { :title :isRichText :withFilter :withStatus :columnProportions :onChange:/2 |
-		newColumnBrowser().initialize(title, isRichText, withFilter, withStatus, columnProportions, onChange:/2)
+	ColumnBrowser { :title :mimeType :withFilter :withStatus :columnProportions :onChange:/2 |
+		newColumnBrowser().initialize(title, mimeType, withFilter, withStatus, columnProportions, onChange:/2)
 	}
 
 }
@@ -292,8 +292,7 @@ Frame : [Object] { | framePane titlePane closeButton menuButton titleText inMove
 			workspace::smallKansas.menu('Frame Menu', subject.frameMenuItems ++ self.menuItems, true, event)
 		};
 		self.titlePane.addEventListener('contextmenu') { :event |
-			event.preventDefault;
-			subject.titlePaneContextMenu(event)
+			(* ... *)
 		};
 		self.titlePane.addEventListener('pointerdown') { :event |
 			| titleRect = event.target.getBoundingClientRect; |
@@ -506,6 +505,12 @@ PngViewer : [Object, View] { | pngPane title pngData pngUrl |
 		self.pngPane.appendChild(img)
 	}
 
+	frame { :self :aFrame |
+		aFrame.addEventListener('close') { :event |
+			self.pngUrl.revokeObjectURL
+		}
+	}
+
 	initialize { :self :title :pngData |
 		self.title := title;
 		self.pngData := pngData;
@@ -649,7 +654,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 	helpBrowser { :self |
 		ColumnBrowser(
 			'Help Browser',
-			true,
+			'text/markdown',
 			false,
 			false,
 			[1, 1, 3],
@@ -860,7 +865,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 	programBrowser { :self |
 		ColumnBrowser(
 			'Program Browser',
-			false,
+			'text/plain',
 			false,
 			false,
 			[1, 1, 3],
@@ -924,6 +929,10 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 	systemBrowser { :self :event |
 		self.addFrame(SystemBrowser(), event)
+	}
+
+	tableViewer { :self :title :tableData |
+		self.addFrame(TableViewer(title, tableData), nil)
 	}
 
 	traitBrowser { :self :event |
@@ -1024,7 +1033,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 	}
 
 	MidiPortBrowser { :self |
-		ColumnBrowser('Midi Port Browser', false, false, false, [1, 1, 3]) { :browser :path |
+		ColumnBrowser('Midi Port Browser', 'text/plain', false, false, [1, 1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					['input', 'output']
@@ -1049,7 +1058,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 +Array {
 
 	MethodSignatureBrowser { :self :withFilter |
-		ColumnBrowser('Method Signature Browser', false, withFilter, true, [1]) { :browser :path |
+		ColumnBrowser('Method Signature Browser', 'text/plain', withFilter, true, [1]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					self
@@ -1073,7 +1082,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 	MethodBrowser {
 		| methodNames = system.allMethods.collect(qualifiedName:/1).IdentitySet.Array.sorted ; |
-		ColumnBrowser('Method Browser', false, true, true, [3, 1]) { :browser :path |
+		ColumnBrowser('Method Browser', 'text/plain', true, true, [3, 1]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					methodNames
@@ -1108,7 +1117,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 			categoryNames = typeNames.collect { :each | system.categoryOf(each) }.IdentitySet.Array.sorted,
 			methodSet = nil;
 		|
-		ColumnBrowser('Category Browser', false, false, true, [1, 1, 3]) { :browser :path |
+		ColumnBrowser('Category Browser', 'text/plain', false, true, [1, 1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -1138,7 +1147,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 	SystemBrowser {
 		| typeNames = system.typeDictionary.keys.sorted, methodSet = nil; |
-		ColumnBrowser('System Browser', false, false, true, [1, 3]) { :browser :path |
+		ColumnBrowser('System Browser', 'text/plain', false, true, [1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -1160,7 +1169,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 	TraitBrowser {
 		| traitNames = system.traitDictionary.keys.sorted; |
-		ColumnBrowser('Trait Browser', false, false, true, [1, 3]) { :browser :path |
+		ColumnBrowser('Trait Browser', 'text/plain', false, true, [1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -1179,7 +1188,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 	TypeBrowser {
 		| typeNames = system.typeDictionary.keys.sorted; |
-		ColumnBrowser('Type Browser', false, false, true, [1, 3]) { :browser :path |
+		ColumnBrowser('Type Browser', 'text/plain', false, true, [1, 3]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -1227,7 +1236,45 @@ SvgViewer : [Object, View] { | svgPane title svg |
 
 }
 
-TextEditor : [Object, View] { | editorPane editorText isRichText title |
+TableViewer : [Object, View] { | title tablePane |
+
+	createElements { :self :tableData |
+		| table = 'table'.createElement; |
+		self.tablePane := 'div'.createElement;
+		self.tablePane.setAttribute('class', 'tablePane');
+		tableData.do { :row |
+			 | tr = 'tr'.createElement; |
+			 row.do { :cell |
+				 | td = 'td'.createElement; |
+				 td.textContent(cell.asString);
+				 tr.appendChild(td)
+			 };
+			 table.appendChild(tr)
+		 };
+		self.tablePane.appendChild(table)
+	}
+
+	initialize { :self :title :tableData |
+		self.title := title;
+		self.createElements(tableData);
+		self
+	}
+
+	outerElement { :self |
+		self.tablePane
+	}
+
+}
+
++String {
+
+	TableViewer { :title :tableData |
+		newTableViewer().initialize(title, tableData)
+	}
+
+}
+
+TextEditor : [Object, View] { | editorPane editorText mimeType title |
 
 	contextMenuEntries { :self |
 		self.keyBindings
@@ -1235,10 +1282,10 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 
 	createElements { :self |
 		self.editorPane := 'div'.createElement;
-		self.editorText := self.isRichText.if {
-			'div'.createElement
-		} {
+		self.editorText := (self.mimeType = 'text/plain').if {
 			'pre'.createElement
+		} {
+			'div'.createElement
 		};
 		self.editorPane.appendChild(self.editorText)
 	}
@@ -1264,9 +1311,9 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 		self.editorText.setAttribute('contentEditable', aBoolean.printString)
 	}
 
-	initialize { :self :title :isRichText :contents |
+	initialize { :self :title :mimeType :contents |
 		self.title := title;
-		self.isRichText := isRichText;
+		self.mimeType := mimeType;
 		self.createElements;
 		self.setAttributes;
 		self.setEventHandlers;
@@ -1335,15 +1382,18 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 	}
 
 	setEditorText { :self :aString |
-		| isMarkdown = aString.isEmpty | { aString[1] = '#' }; |
-		self.isRichText.if {
-			self.editorText.innerHTML := isMarkdown.if {
-				aString.markdownToHtml
-			} {
-				'<pre>' ++ aString ++ '</pre>'
+		self.mimeType.caseOfOtherwise([
+			'text/html' -> {
+				self.editorText.innerHTML := aString
+			},
+			'text/markdown' -> {
+				self.editorText.innerHTML := aString.markdownToHtml
+			},
+			'text/plain' -> {
+				self.editorText.textContent := aString
 			}
-		} {
-			self.editorText.textContent := aString
+		]) {
+			'TextEditor>>setEditorText: unkown mimeType'.postLine
 		}
 	}
 
@@ -1360,8 +1410,8 @@ TextEditor : [Object, View] { | editorPane editorText isRichText title |
 
 +String {
 
-	TextEditor { :title :isRichText :contents |
-		newTextEditor().initialize(title, isRichText, contents)
+	TextEditor { :title :mimeType :contents |
+		newTextEditor().initialize(title, mimeType, contents)
 	}
 
 }

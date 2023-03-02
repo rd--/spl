@@ -480,7 +480,7 @@
 	}
 
 	associationsDo { :self :aProcedure:/1 |
-		self.keysValuesDo { :key :value |
+		self.keysAndValuesDo { :key :value |
 			aProcedure(key -> value)
 		}
 	}
@@ -559,7 +559,7 @@
 
 	collect { :self :aProcedure:/1 |
 		| answer = self.species.new; |
-		self.keysValuesDo { :key :value |
+		self.keysAndValuesDo { :key :value |
 			answer.add(key -> aProcedure(value))
 		};
 		answer
@@ -1068,6 +1068,10 @@ Association : [Object] { | key value |
 	}
 
 	printString { :self |
+		self.key.printString ++ ' -> ' ++ self.value.printString
+	}
+
+	storeString { :self |
 		'Association(' ++ self.key.printString ++ ', ' ++ self.value.printString ++ ')'
 	}
 
@@ -1100,7 +1104,7 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 	}
 
 	printString { :self |
-		'ByteArray(' ++ self.asArray.printString ++ ')'
+		self.asArray.printString ++ '.ByteArray'
 	}
 
 	species { :self |
@@ -1141,7 +1145,7 @@ Float64Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 	}
 
 	printString { :self |
-		'Float64Array(' ++ self.asArray.printString ++ ')'
+		self.asArray.printString ++ '.Float64Array'
 	}
 
 	species { :self |
@@ -1208,7 +1212,7 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 		<primitive: return Array.from(_self.keys());>
 	}
 
-	keysValuesDo { :self :aProcedure |
+	keysAndValuesDo { :self :aProcedure |
 		<primitive:
 		_self.forEach(function(value, key, _) {
 			_aProcedure(key, value)
@@ -1218,7 +1222,7 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 	}
 
 	printString { :self |
-		self.asArray.printString ++ '.asIdentityDictionary'
+		self.asArray.printString ++ '.IdentityDictionary'
 	}
 
 	removeKeyIfAbsent { :self :aKey :aProcedure |
@@ -1234,6 +1238,10 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 
 	species { :self |
 		IdentityDictionary:/0
+	}
+
+	storeString { :self |
+		self.asArray.storeString ++ '.IdentityDictionary'
 	}
 
 	values { :self |
@@ -1411,7 +1419,11 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 	}
 
 	printString { :self |
-		'Interval(' ++ self.start ++ ', ' ++ self.stop ++ ', ' ++ self.step ++ ')'
+		(self.step = 1).if {
+			'(' ++ self.start ++ ' .. ' ++ self.stop ++ ')'
+		} {
+			self.storeString
+		}
 	}
 
 	reversed { :self |
@@ -1445,6 +1457,10 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
 	species { :self |
 		Array:/1
+	}
+
+	storeString { :self |
+		'Interval(' ++ self.start ++ ', ' ++ self.stop ++ ', ' ++ self.step ++ ')'
 	}
 
 	sum { :self |
@@ -1661,7 +1677,7 @@ PriorityQueue : [Object] {
 
 }
 
-StringDictionary : [Object, Dictionary] {
+StringDictionary : [Object, Collection, Dictionary] {
 
 	at { :self :aString |
 		<primitive: return _self[_aString] || null;>
@@ -1677,7 +1693,7 @@ StringDictionary : [Object, Dictionary] {
 	}
 
 	includesKey { :self :aKey |
-		<primitive: return Object.hasOwn(_aKey);>
+		<primitive: return Object.hasOwn(_self, _aKey);>
 	}
 
 	json { :self |
@@ -1692,12 +1708,23 @@ StringDictionary : [Object, Dictionary] {
 		<primitive: return Object.keys(_self);>
 	}
 
-	keysValuesDo { :self :aProcedure |
-		<primitive: Object.entries(_self).forEach(function(entry) { _aProcedure(entry[0], entry[1]); }); return null;>
+	keysAndValuesDo { :self :aProcedure:/2 |
+		<primitive:
+		Object.entries(_self).forEach(function(entry) {
+			_aProcedure_2(entry[0], entry[1]);
+		});
+		return null;
+		>
 	}
 
 	printString { :self |
-		'StringDictionary(' ++ self.Array.printString ++ ')'
+		[
+			'(',
+			self.Array.collect { :each |
+				each.key ++ ': ' ++ each.value.printString
+			}.joinSeparatedBy(', '),
+			')'
+		].join
 	}
 
 	removeKeyIfAbsent { :self :aKey :aProcedure |
@@ -1706,6 +1733,14 @@ StringDictionary : [Object, Dictionary] {
 
 	size { :self |
 		<primitive: return Object.keys(_self).length;>
+	}
+
+	species { :self |
+		StringDictionary:/0
+	}
+
+	storeString { :self |
+		self.Array.storeString ++ '.StringDictionary'
 	}
 
 	StringDictionary { :self |
@@ -1722,7 +1757,16 @@ StringDictionary : [Object, Dictionary] {
 
 	StringDictionary { :self |
 		(* I am an array of associations. *)
-		self.IdentityDictionary.StringDictionary
+		self.collect(key:/1).allSatisfy(isString:/1).if {
+			self.collect(asArray:/1).unsafeStringDictionary
+		} {
+			'Array>>StringDictionary: not all keys are strings'.error
+		}
+	}
+
+	unsafeStringDictionary { :self |
+		(* I am an array of two-element arrays. *)
+		<primitive: return Object.fromEntries(_self);>
 	}
 
 }

@@ -206,10 +206,10 @@ const asJs: any = {
 		return `(${e.asJs})`;
 	},
 	DictionaryExpression(_leftParen, dict, _rightParen) {
-		return `new Map([${commaList(dict.asIteration().children)}])`;
+		return `Object.fromEntries([${commaList(dict.asIteration().children)}])`;
 	},
 	NonEmptyDictionaryExpression(_leftParen, dict, _rightParen) {
-		return `new Map([${commaList(dict.asIteration().children)}])`;
+		return `Object.fromEntries([${commaList(dict.asIteration().children)}])`;
 	},
 	IdentifierAssociation(lhs, _colon, rhs) {
 		return `['${lhs.sourceString}', ${rhs.asJs}]`;

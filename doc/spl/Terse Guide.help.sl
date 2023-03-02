@@ -25,7 +25,7 @@ false.ifFalse { true }
 [1, 3, 5].species = Array:/1
 [1, 3, 5].IdentitySet.species = IdentitySet:/0
 [1, 3, 5].OrderedCollection.species = OrderedCollection:/1
-(x: 1, y: 3, z: 5).species = IdentityDictionary:/0
+(x: 1, y: 3, z: 5).species = StringDictionary:/0
 'b'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) = 2
 { 'd'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) }.ifError { :err | true }
 
@@ -170,7 +170,8 @@ Association('x', 1) = ('x' -> 1)
 var a = 'x' -> 1; [a.key, a.value] = ['x', 1]
 ('x' -> 1).asArray = ['x', 1]
 ['x' -> 1, 'y' -> 2].collect(asArray:/1) = [['x', 1], ['y', 2]]
-(23 -> 3.141).printString = 'Association(23, 3.141)'
+(23 -> 3.141).printString = '23 -> 3.141'
+(23 -> 3.141).storeString = 'Association(23, 3.141)'
 
 'Collections-Arrayed/ByteArray'
 ByteArray(0).typeOf = 'ByteArray'
@@ -183,7 +184,7 @@ ByteArray(8).atPut(1, 179) = 179
 var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
 [1 .. 9].ByteArray.isByteArray = true
 [1 .. 9].ByteArray.reversed = [9 .. 1].ByteArray
-[1 .. 3].ByteArray.printString = 'ByteArray([1, 2, 3])'
+[1 .. 3].ByteArray.printString = '[1, 2, 3].ByteArray'
 
 'Collections-Abstract/Collection'
 [1, 3, 5].select { :x | x > 1 } = [3, 5]
@@ -214,46 +215,18 @@ var a = [9 .. 1].Float64Array; a.sortInPlace; a = [1 .. 9].Float64Array
 { Float64Array(1).atPut(3, 'x') }.ifError { :err | true }
 var a = Float64Array(1); a.unsafeAtPut(1, 'x'); a.at(1).isNaN = true
 var a = Float64Array(1); a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
-[1 .. 3].Float64Array.printString = 'Float64Array([1, 2, 3])'
+[1 .. 3].Float64Array.printString = '[1, 2, 3].Float64Array'
 
 'Collections-Unordered/IdentityDictionary'
-().species = IdentityDictionary:/0
 var d = IdentityDictionary(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2
 var d = ['x' -> 1, 'y' -> 2].IdentityDictionary; d.keys = ['x', 'y']
 var d = ['x' -> 1, 'y' -> 2].IdentityDictionary; d.values = [1, 2]
 var d = ['x' -> 1, 'y' -> 2].IdentityDictionary; d.at('x') = 1
-var d = (x: 1, y: 2), i = 9; d.associationsDo { :each | i := i - each.value } ; i = 6
-var d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
 var d = IdentityDictionary(); d.add('x' -> 1); d.removeKey('x'); d.isEmpty = true
-(x: 23, y: 3.141).isIdentityDictionary
-(x: pi)::x = pi
-(x : pi) :: x = pi
-var d = (x: 23, y: 3.141); d::x = 23
-var d = (x: 23, y: 3.141); d::x := 42; d = (x: 42, y: 3.141)
-var d = (x: 23, y: 3.141); d.copy ~~ d
-(x:1, y:2) ++ (z:3) = (x:1, y:2, z:3)
-(x: 1, y: 2).asArray = ['x' -> 1, 'y' -> 2]
-var d = (x:1, y:2, z:3), (x, z) = d; [x, z] = [1, 3]
-var (x, y) = { var n = system.randomFloat; (x: n, y: n) }.value; x = y
-(x:1, y:2, z:3).select(even:/1) = (y: 2)
-(x:1, y:2, z:3).sum = 6
-var d = (x: 9); d::x.sqrt = 3
 ::x := 4; ::x * ::x = 16
 ::a := 'x' -> 1; [::a.key, ::a.value] = ['x', 1]
 var d = (f: { :i | i * i }); d::f.value(9) = 81
 { IdentityDictionary().removeKey('unknownKey') }.ifError { :err | true }
-size (x: 1, y: 2, z: 3) = 3
-var d = (x: 1); d.addAll (y: 2, z: 3); d = (x: 1, y: 2, z: 3)
-(x: 'x', y: '.', z: 'z').associationsSelect { :each | each.key = each.value } = (x: 'x', z: 'z')
-var d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.atDelegateTo(each, 'parent') } = [1, 2, 3]
-var d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.messageSend(each, 'parent', []) } = [1, 2, 3]
-var d = (x: 1, parent: (y: 2, parent: (z: 3))); d.atPutDelegateTo('z', -3, 'parent'); d.atDelegateTo('z', 'parent') = -3
-var d = (c: 3, parent: (b: 2, parent: (a: 1))); [d:.a, d:.b, d:.c] = [1, 2, 3]
-var d = (x: 1, parent: (y: 2, parent: (z: 3))); d:.z := -3; [d:.x, d:.y, d:.z] = [1, 2, -3]
-var d = (length: { :self | (self::x.squared  + self::y.squared).sqrt }); var p = (x: 3.141, y: 23, parent: d); p:.length = 23.213484895637706
-var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7) = 21
-(x: 1) = ('x': 1)
-('font-size': '11pt', 'font-style': 'italic').keys = ['font-size', 'font-style']
 
 'Collections-Unordered/IdentitySet'
 [1, 3, 5, 3, 1].IdentitySet.isIdentitySet = true
@@ -276,7 +249,8 @@ Interval(-2, 2, 1).collect(even:/1) = [true, false, true, false, true]
 1.to(9).asArray = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 (1 .. 9).asArray.copyFromTo(3, 7) = [3, 4, 5, 6, 7]
 var i = 1; 1.to(9).do { :each | i := i + each }; i = 46
-Interval(-1, 1, 1).printString = 'Interval(-1, 1, 1)'
+Interval(-1, 1, 1).storeString = 'Interval(-1, 1, 1)'
+Interval(-1, 1, 1).printString = '(-1 .. 1)'
 Interval(1, 9, 1) = (1 .. 9)
 Interval(1, 10, 3).size = 4
 Interval(1, 10, 3).asArray = [1, 4, 7, 10]
@@ -286,7 +260,7 @@ Interval(1, 10, 3).asArray = [1, 4, 7, 10]
 to(1, 6).last = 6
 (1 .. 6).sum = 21
 Interval(-1, 1, 1).asArray = [-1, 0, 1]
-1.to(99).asString = 'Interval(1, 99, 1)'
+1.to(99).asString = '(1 .. 99)'
 to(1, -1).asString = 'Interval(1, -1, -1)'
 1.to(99).sum = 4950
 1.to(99).asArray.sum = 4950
@@ -340,8 +314,10 @@ var p = PriorityQueue(); p.pushAll(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 &
 var p = PriorityQueue(); p.peekPriority = nil
 
 'Collections-Unordered/StringDictionary'
+().species = StringDictionary:/0
 StringDictionary().isStringDictionary
 StringDictionary().includesKey('x') = false
+(x: 1).includesKey('x') = true
 StringDictionary().at('x') = nil
 var d = StringDictionary(); d.atPut('x', 1); d.at('x') = 1
 var d = StringDictionary(); d['x'] := 1; d['x'] = 1
@@ -351,6 +327,33 @@ var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
 { StringDictionary().atPut(1, 1) }.ifError { :err | true }
 (x: 3.141, y: 23).StringDictionary.json = '{"x":3.141,"y":23}'
 '{"x":3.141,"y":23}'.parseJson.IdentityDictionary = (x: 3.141, y: 23)
+var d = (x: 1, y: 2), i = 9; d.associationsDo { :each | i := i - each.value } ; i = 6
+var d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
+(x: 23, y: 3.141).isDictionary
+(x: pi)::x = pi
+(x : pi) :: x = pi
+var d = (x: 23, y: 3.141); d::x = 23
+var d = (x: 23, y: 3.141); d::x := 42; d = (x: 42, y: 3.141)
+var d = (x: 23, y: 3.141); d.copy ~~ d
+(x:1, y:2) ++ (z:3) = (x:1, y:2, z:3)
+(x: 1, y: 2).asArray = ['x' -> 1, 'y' -> 2]
+var d = (x:1, y:2, z:3), (x, z) = d; [x, z] = [1, 3]
+var (x, y) = { var n = system.randomFloat; (x: n, y: n) }.value; x = y
+(x:1, y:2, z:3).select(even:/1) = (y: 2)
+(x:1, y:2, z:3).sum = 6
+var d = (x: 9); d::x.sqrt = 3
+size (x: 1, y: 2, z: 3) = 3
+var d = (x: 1); d.addAll (y: 2, z: 3); d = (x: 1, y: 2, z: 3)
+(x: 'x', y: '.', z: 'z').associationsSelect { :each | each.key = each.value } = (x: 'x', z: 'z')
+var d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.atDelegateTo(each, 'parent') } = [1, 2, 3]
+var d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.messageSend(each, 'parent', []) } = [1, 2, 3]
+var d = (x: 1, parent: (y: 2, parent: (z: 3))); d.atPutDelegateTo('z', -3, 'parent'); d.atDelegateTo('z', 'parent') = -3
+var d = (c: 3, parent: (b: 2, parent: (a: 1))); [d:.a, d:.b, d:.c] = [1, 2, 3]
+var d = (x: 1, parent: (y: 2, parent: (z: 3))); d:.z := -3; [d:.x, d:.y, d:.z] = [1, 2, -3]
+var d = (length: { :self | (self::x.squared  + self::y.squared).sqrt }); var p = (x: 3.141, y: 23, parent: d); p:.length = 23.213484895637706
+var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7) = 21
+(x: 1) = ('x': 1)
+('font-size': '11pt', 'font-style': 'italic').keys = ['font-size', 'font-style']
 
 'Kernel-Text/RegExp'
 RegExp('ab+c').isRegExp = true
@@ -585,6 +588,8 @@ system.isCategorized('at') = true
 system.isCategorized('notInCategorySystem') = false
 system.categorizeAll('Collections/Abstract', ['ArrayedCollection', 'Collection', 'SequenceableCollection']) = nil
 'Collections/Abstract'.categoryNameParts = ['Collections', 'Abstract']
+system.categoryOf('at') = 'accessing'
+system.categoryOf('notInCategorySystem') = '*Uncategorized*'
 
 'System/methodDictionary'
 system.methodDictionary.isIdentityDictionary = true

@@ -85,6 +85,7 @@ system.categorizeDictionary(
 			'PngViewer',
 			'SmallKansas',
 			'SvgViewer',
+			'TableViewer',
 			'TextEditor'
 		],
 		'Navigator': [
@@ -135,6 +136,11 @@ system.categorizeDictionary(
 			'HTMLPreElement',
 			'HTMLSelectElement',
 			'HTMLSpanElement',
+			'HTMLTableCellElement',
+			'HTMLTableColElement',
+			'HTMLTableElement',
+			'HTMLTableRowElement',
+			'HTMLTableSectionElement',
 			'HTMLTextAreaElement',
 			'HTMLUListElement'
 		],

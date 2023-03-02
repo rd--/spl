@@ -157,10 +157,16 @@ System : [Object] {
 
 	categoryOf { :self :aString |
 		| all = self.categoriesOf(aString); |
-		(all.size = 1).if {
-			all[1]
-		} {
-			('System>>categoryOf: no or multiple categories: ' ++ aString).error
+		all.size.caseOfOtherwise([
+			0 -> {
+				self.categorize('*Uncategorized*', aString);
+				'*Uncategorized*'
+			},
+			1 -> {
+				all[1]
+			}
+		]) {
+			('System>>categoryOf: multiple categories: ' ++ aString).error
 		}
 	}
 
@@ -576,7 +582,7 @@ URL : [Object] {
 	decodeURIComponent { :self | <primitive: return decodeURIComponent(_self);> }
 	encodeURI { :self | <primitive: return encodeURI(_self);> }
 	encodeURIComponent { :self | <primitive: return encodeURIComponent(_self);> }
-	revokeObjectURL { :self | <primitive: return URL.revokeObjectURL(_url, _base);> }
+	revokeObjectURL { :self | <primitive: return URL.revokeObjectURL(_self);> }
 	URL { :url | <primitive: return new URL(_url);> }
 	URL { :url :base | <primitive: return new URL(_url, _base);> }
 

@@ -4,7 +4,7 @@ OscParameter : [Object] { | type value |
 		(
 			type: self.type,
 			value: self.value
-		).StringDictionary
+		)
 	}
 
 	OscParameter { :self |
@@ -52,7 +52,7 @@ OscMessage : [Object] { | address parameterArray |
 		(
 			address: self.address,
 			args: self.parameterArray.collect(dictionary:/1)
-		).StringDictionary
+		)
 	}
 
 	encode { :self |

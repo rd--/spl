@@ -4,7 +4,7 @@
 
 Add a window displaying a Png image.
 
-The expression below fetches an Png file from a Url and displays it when it arrives.
+The expression below fetches a Png file from a Url and displays it when it arrives.
 
 ```
 system.window.fetchBlob(

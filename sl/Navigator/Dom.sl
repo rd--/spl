@@ -30,7 +30,7 @@
 	}
 
 	setProperties { :self :aDictionary |
-		aDictionary.StringDictionary.keysAndValuesDo { :key :value |
+		aDictionary.keysAndValuesDo { :key :value |
 			self.setProperty(key, value, '')
 		}
 	}
@@ -387,11 +387,11 @@ HTMLHeadingElement : [Object, EventTarget, Node, Element, HtmlElement] {
 HTMLImageElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	alt { :self | <primitive: return _self.value;> }
-	complete { :self | <primitive: return _self.complete;> } (* read only *)
+	complete { :self | <primitive: return _self.complete;> } (* Read only *)
 	height { :self | <primitive: return _self.height;> }
 	width { :self | <primitive: return _self.width;> }
-	x { :self | <primitive: return _self.x;> } (* read only *)
-	y { :self | <primitive: return _self.y;> } (* read only *)
+	x { :self | <primitive: return _self.x;> } (* Read only *)
+	y { :self | <primitive: return _self.y;> } (* Read only *)
 
 	src { :self | <primitive: return _self.src;> }
 	src { :self :url | <primitive: return _self.src = _url;> }
@@ -500,6 +500,31 @@ HTMLSpanElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
+HTMLTableElement : [Object, EventTarget, Node, Element, HtmlElement] {
+
+	caption { :self | <primitive: return _self.caption;> }
+	rows { :self | <primitive: return _self.rows;> } (* Read only *)
+
+}
+
+HTMLTableCellElement : [Object, EventTarget, Node, Element, HtmlElement] {
+
+	cellIndex { :self | <primitive: return _self.cellIndex;> } (* Read only *)
+
+}
+
+HTMLTableColElement : [Object, EventTarget, Node, Element, HtmlElement] {
+
+}
+
+HTMLTableRowElement : [Object, EventTarget, Node, Element, HtmlElement] {
+
+}
+
+HTMLTableSectionElement : [Object, EventTarget, Node, Element, HtmlElement] {
+
+}
+
 HTMLTextAreaElement  : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	cols { :self | <primitive: return _self.cols;> }
@@ -516,8 +541,8 @@ HTMLUListElement : [Object, EventTarget, Node, Element, HtmlElement] {
 ImageBitmap : [Object] {
 
 	close { :self | <primitive: return _self.close();> }
-	height { :self | <primitive: return _self.height;> } (* read only *)
-	width { :self | <primitive: return _self.width;> } (* read only *)
+	height { :self | <primitive: return _self.height;> } (* Read only *)
+	width { :self | <primitive: return _self.width;> } (* Read only *)
 
 }
 
@@ -529,10 +554,10 @@ ImageBitmap : [Object] {
 
 ImageData : [Object] {
 
-	data { :self | <primitive: return _self.data;> } (* read only *)
-	colorSpace { :self | <primitive: return _self.colorSpace;> } (* read only *)
-	height { :self | <primitive: return _self.height;> } (* read only *)
-	width { :self | <primitive: return _self.width;> } (* read only *)
+	data { :self | <primitive: return _self.data;> } (* Read only *)
+	colorSpace { :self | <primitive: return _self.colorSpace;> } (* Read only *)
+	height { :self | <primitive: return _self.height;> } (* Read only *)
+	width { :self | <primitive: return _self.width;> } (* Read only *)
 
 }
 
