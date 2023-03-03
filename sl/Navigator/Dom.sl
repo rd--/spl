@@ -186,6 +186,18 @@
 
 	computedStyle { :self | <primitive: return window.getComputedStyle(_self);> }
 
+	isHtmlElement { :self |
+		true
+	}
+
+}
+
++@Object {
+
+	isHtmlElement { :self |
+		false
+	}
+
 }
 
 @MouseEvent {
@@ -504,6 +516,32 @@ HTMLTableElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	caption { :self | <primitive: return _self.caption;> }
 	rows { :self | <primitive: return _self.rows;> } (* Read only *)
+
+	asHtmlTable { :self |
+		self
+	}
+
+}
+
++Array {
+
+	asHtmlTable { :self |
+		self.asHtmlTable(asString:/1)
+	}
+
+	asHtmlTable { :self :toString:/1 |
+		| table = 'table'.createElement; |
+		self.do { :row |
+			| tr = 'tr'.createElement; |
+			row.do { :cell |
+				| td = 'td'.createElement; |
+				td.textContent(cell.toString);
+				tr.appendChild(td)
+			};
+			table.appendChild(tr)
+		};
+		table
+	}
 
 }
 

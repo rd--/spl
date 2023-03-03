@@ -1239,19 +1239,11 @@ SvgViewer : [Object, View] { | svgPane title svg |
 TableViewer : [Object, View] { | title tablePane |
 
 	createElements { :self :tableData |
-		| table = 'table'.createElement; |
 		self.tablePane := 'div'.createElement;
 		self.tablePane.setAttribute('class', 'tablePane');
-		tableData.do { :row |
-			 | tr = 'tr'.createElement; |
-			 row.do { :cell |
-				 | td = 'td'.createElement; |
-				 td.textContent(cell.asString);
-				 tr.appendChild(td)
-			 };
-			 table.appendChild(tr)
-		 };
-		self.tablePane.appendChild(table)
+		self.tablePane.appendChild(
+			tableData.asHtmlTable
+		)
 	}
 
 	initialize { :self :title :tableData |
