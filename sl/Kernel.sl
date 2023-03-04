@@ -383,6 +383,10 @@
 		self
 	}
 
+	yourself { :self |
+		self
+	}
+
 }
 
 Boolean : [Object] {

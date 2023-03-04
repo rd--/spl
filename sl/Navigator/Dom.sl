@@ -39,16 +39,17 @@
 
 @Document {
 
-	body { :self | <primitive: return _self.body;> }
-	createElement { :self :tagName | <primitive: return _self.createElement(_tagName);> }
-	createElementNS { :self :namespaceURI :qualifiedName | <primitive: return _self.createElementNS(_namespaceURI, _qualifiedName);> }
-	defaultView { :self | <primitive: return _self.defaultView;> }
-	documentElement { :self | <primitive: return _self.documentElement;> }
-	getElementById { :self :aString | <primitive: return _self.getElementById(_aString);> }
-	getSelection { :self | <primitive: return _self.getSelection();> }
-	querySelector { :self :aString | <primitive: return _self.querySelector(_aString);> }
-	querySelectorAll { :self :aString | <primitive: return _self.querySelectorAll(_aString);> }
-	visibilityState { :self | <primitive: return _self.visibilityState;> }
+	body { :self |
+		<primitive: return _self.body;>
+	}
+
+	createElement { :self :tagName |
+		<primitive: return _self.createElement(_tagName);>
+	}
+
+	createElementNS { :self :namespaceURI :qualifiedName |
+		<primitive: return _self.createElementNS(_namespaceURI, _qualifiedName);>
+	}
 
 	createSvgElement { :self :tagName |
 		self.createElementNS('http://www.w3.org/2000/svg', tagName)
@@ -58,6 +59,38 @@
 		| element = self.createSvgElement(tagName); |
 		element.setAttributesNS(nil, attributeDictionary);
 		element
+	}
+
+	createTextNode { :self :aString |
+		<primitive: return _self.createTextNode(_aString);>
+	}
+
+	defaultView { :self |
+		<primitive: return _self.defaultView;>
+	}
+
+	documentElement { :self |
+		<primitive: return _self.documentElement;>
+	}
+
+	getElementById { :self :aString |
+		<primitive: return _self.getElementById(_aString);>
+	}
+
+	getSelection { :self |
+		<primitive: return _self.getSelection();>
+	}
+
+	querySelector { :self :aString |
+		<primitive: return _self.querySelector(_aString);>
+	}
+
+	querySelectorAll { :self :aString |
+		<primitive: return _self.querySelectorAll(_aString);>
+	}
+
+	visibilityState { :self |
+		<primitive: return _self.visibilityState;>
 	}
 
 }
@@ -267,6 +300,20 @@ CSSStyleDeclaration : [Object, CssProperties] {
 
 CSS2Properties : [Object, CssProperties] {
 	(* Firefox... *)
+}
+
+CustomEvent : [Object, Event] {
+
+	detail { :self | <primitive: return _self.detail;> } (* Read only *)
+
+}
+
++String {
+
+	CustomEvent { :type :options |
+		<primitive: return new CustomEvent(_type, _options);>
+	}
+
 }
 
 DOMParser : [Object] {
@@ -671,12 +718,20 @@ PointerEvent : [Object, UiEvent, Event, MouseEvent] {
 
 Range : [Object, AbstractRange] {
 
+	deleteContents { :self | <primitive: return _self.deleteContents();> }
+	insertNode { :self :aNode | <primitive: return _self.insertNode(_aNode);> }
+
 }
 
 Selection : [Object] {
 
-	getRangeAt { :self :anInteger | <primitive: return _self.getRangeAt(anInteger);> }
-	toString { :self | <primitive: return _self.toString();> }
+	getRangeAt { :self :anInteger |
+		<primitive: return _self.getRangeAt(_anInteger);>
+	}
+
+	toString { :self |
+		<primitive: return _self.toString();>
+	}
 
 }
 
@@ -737,6 +792,17 @@ Text : [Object, EventTarget, Node, CharacterData] {
 
 }
 
++Window {
+
+	document { :self | <primitive: return _self.document;> }
+	getComputedStyle { :self :element | <primitive: return _self.getComputedStyle(_element);> }
+	getSelectedText { :self | <primitive: return _self.getSelection().toString();> }
+	getSelection { :self | <primitive: return _self.getSelection();> }
+	innerHeight { :self | <primitive: return _self.innerHeight;> }
+	innerWidth { :self | <primitive: return _self.innerWidth;> }
+
+}
+
 XMLDocument : [Object, EventTarget, Node, Document] {
 
 }
@@ -749,6 +815,16 @@ XMLDocument : [Object, EventTarget, Node, Document] {
 
 	getElementById { :self |
 		system.window.document.getElementById(self)
+	}
+
+	insertAtCursor { :self |
+		system.window.getSelection.getRangeAt(
+			0
+		).insertNode(
+			system.window.document.createTextNode(
+				self
+			)
+		)
 	}
 
 	querySelector { :self |

@@ -516,7 +516,7 @@ Trait : [Object] {
 	}
 
 	qualifiedName { :self |
-		self.name ++ '*' (* 𝒯 𝜏 𝑡 ᵗ 𝑇 @ *)
+		'@' ++ self.name
 	}
 
 }
@@ -524,12 +524,12 @@ Trait : [Object] {
 +String {
 
 	isQualifiedTraitName { :self |
-		self.last(1) = '*' (* Unicode *)
+		self[1] = '@'
 	}
 
 	parseQualifiedTraitName { :self |
 		self.isQualifiedTraitName.if {
-			self.copyFromTo(1, self.size - 1) (* Unicode *)
+			self.copyFromTo(2, self.size)
 		} {
 			self
 		}
@@ -621,14 +621,8 @@ Window : [Object] {
 
 	alert { :self :aString | <primitive: return _self.alert(_aString);> }
 	confirm { :self :aString | <primitive: return _self.confirm(_aString);> }
-	document { :self | <primitive: return _self.document;> }
 	fetch { :self :resource | <primitive: return _self.fetch(_resource);> }
 	fetch { :self :resource :options | <primitive: return _self.fetch(_resource, _options);> }
-	getComputedStyle { :self :element | <primitive: return _self.getComputedStyle(_element);> }
-	getSelectedText { :self | <primitive: return _self.getSelection().toString();> }
-	getSelection { :self | <primitive: return _self.getSelection();> }
-	innerHeight { :self | <primitive: return _self.innerHeight;> }
-	innerWidth { :self | <primitive: return _self.innerWidth;> }
 	localStorage { :self | <primitive: return _self.localStorage;> }
 	location { :self | <primitive: return _self.location;> }
 	name { :self | <primitive: return _self.name;> }

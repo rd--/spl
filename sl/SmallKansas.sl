@@ -23,6 +23,10 @@
 
 ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnLists statusPane statusText title |
 
+	addKeyBindings { :self :aProcedure:/1 |
+		self.textEditor.addKeyBindings(self.textEditor.aProcedure)
+	}
+
 	createElements { :self :numberOfColumns :mimeType :withFilter :withStatus |
 		self.browserPane := 'div'.createElement;
 		self.columnsPane :=  'div'.createElement;
@@ -47,13 +51,16 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnList
 		}
 	}
 
-	initialize { :self :title :mimeType :withFilter :withStatus :columnProportions :onChange:/2 |
+	initialize { :self :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onChange:/2  |
 		| numberOfColumns = columnProportions.size; |
 		self.title := title;
 		self.createElements(numberOfColumns, mimeType, withFilter, withStatus);
 		self.setEntries(1, onChange(self, []));
 		self.setAttributes(columnProportions, 6);
 		self.setEventHandlers(numberOfColumns, onChange:/2);
+		clientKeyBindings.isProcedure.ifTrue {
+			self.addKeyBindings(clientKeyBindings)
+		};
 		self
 	}
 
@@ -122,13 +129,14 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnList
 
 +String {
 
-	ColumnBrowser { :title :mimeType :withFilter :withStatus :columnProportions :onChange:/2 |
+	ColumnBrowser { :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onChange:/2 |
 		newColumnBrowser().initialize(
 			title,
 			mimeType,
 			withFilter,
 			withStatus,
 			columnProportions,
+			clientKeyBindings,
 			onChange:/2
 		)
 	}
@@ -445,10 +453,13 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 	frameMenuItems { :self |
 		[
 			self.isTransient.if {
-				MenuItem('Mark Not Transient', nil) {
-					:unusedEvent | self.isTransient := false }
+				MenuItem('Mark Not Transient', nil) { :unusedEvent |
+					self.isTransient := false
+				}
 			} {
-				MenuItem('Mark Transient', nil) { :unusedEvent | self.isTransient := true }
+				MenuItem('Mark Transient', nil) { :unusedEvent |
+					self.isTransient := true
+				}
 			}
 		]
 	}
@@ -665,6 +676,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 			false,
 			false,
 			[1, 1, 3],
+			nil,
 			{ :browser :path |
 				path.size.caseOf([
 					0 -> {
@@ -852,7 +864,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 	}
 
 	MidiPortBrowser { :self |
-		ColumnBrowser('Midi Port Browser', 'text/plain', false, false, [1, 1, 3]) { :browser :path |
+		ColumnBrowser('Midi Port Browser', 'text/plain', false, false, [1, 1, 3], nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					['input', 'output']
@@ -869,6 +881,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 					self.midiAccess.portByName(path[1], path[2], path[3]).asString
 				}
 			])
+		} { :textEditor |
 		}
 	}
 
@@ -897,6 +910,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 			false,
 			false,
 			[1, 1, 3],
+			nil,
 			{ :browser :path |
 				path.size.caseOf([
 					0 -> {
@@ -1074,7 +1088,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 				each::degree
 			}.IdentitySet.Array.sorted.collect(asString:/1);
 		|
-		ColumnBrowser('Scala Ji Browser', 'text/html', false, true, [1, 1, 4]) { :browser :path |
+		ColumnBrowser('Scala Ji Browser', 'text/html', false, true, [1, 1, 4], nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('Degree (number of tones)');
@@ -1123,7 +1137,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 	}
 
 	MethodSignatureBrowser { :self :withFilter |
-		ColumnBrowser('Method Signature Browser', 'text/plain', withFilter, true, [1]) { :browser :path |
+		ColumnBrowser('Method Signature Browser', 'text/plain', withFilter, true, [1], nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					self
@@ -1146,8 +1160,23 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 	}
 
 	MethodBrowser {
-		| methodNames = system.allMethods.collect(qualifiedName:/1).IdentitySet.Array.sorted ; |
-		ColumnBrowser('Method Browser', 'text/plain', true, true, [3, 1]) { :browser :path |
+		|
+			methodNames = system.allMethods.collect(qualifiedName:/1).IdentitySet.Array.sorted,
+			selectedMethod = nil;
+		|
+		ColumnBrowser('Method Browser', 'text/plain', true, true, [3, 1]) { :textEditor |
+			[
+				MenuItem('Accept It', 'a') { :event |
+					[
+						'+',
+						selectedMethod.origin.qualifiedName,
+						'{ ',
+						textEditor.currentText,
+						' }'
+					].join.eval
+				}
+			]
+		} { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					methodNames
@@ -1163,7 +1192,8 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 							'Trait'
 						}
 					);
-					system.traitOrType(path[2]).methodDictionary[path[1]].definition
+					selectedMethod := system.traitOrType(path[2]).methodDictionary[path[1]];
+					selectedMethod.definition
 				}
 			])
 		}
@@ -1182,7 +1212,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 			categoryNames = typeNames.collect { :each | system.categoryOf(each) }.IdentitySet.Array.sorted,
 			methodSet = nil;
 		|
-		ColumnBrowser('Category Browser', 'text/plain', false, true, [1, 1, 3]) { :browser :path |
+		ColumnBrowser('Category Browser', 'text/plain', false, true, [1, 1, 3], nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -1212,7 +1242,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 	SystemBrowser {
 		| typeNames = system.typeDictionary.keys.sorted, methodSet = nil; |
-		ColumnBrowser('System Browser', 'text/plain', false, true, [1, 3]) { :browser :path |
+		ColumnBrowser('System Browser', 'text/plain', false, true, [1, 3], nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -1234,7 +1264,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 	TraitBrowser {
 		| traitNames = system.traitDictionary.keys.sorted; |
-		ColumnBrowser('Trait Browser', 'text/plain', false, true, [1, 3]) { :browser :path |
+		ColumnBrowser('Trait Browser', 'text/plain', false, true, [1, 3], nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -1253,7 +1283,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 	TypeBrowser {
 		| typeNames = system.typeDictionary.keys.sorted; |
-		ColumnBrowser('Type Browser', 'text/plain', false, true, [1, 3]) { :browser :path |
+		ColumnBrowser('Type Browser', 'text/plain', false, true, [1, 3], nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -1331,10 +1361,10 @@ TableViewer : [Object, View] { | title tablePane |
 
 }
 
-TextEditor : [Object, View] { | editorPane editorText mimeType title |
+TextEditor : [Object, View] { | editorPane editorText mimeType title clientKeyBindings |
 
-	contextMenuEntries { :self |
-		self.keyBindings
+	addKeyBindings { :self :aCollection |
+		self.clientKeyBindings.addAll(aCollection)
 	}
 
 	createElements { :self |
@@ -1371,11 +1401,15 @@ TextEditor : [Object, View] { | editorPane editorText mimeType title |
 	initialize { :self :title :mimeType :contents |
 		self.title := title;
 		self.mimeType := mimeType;
+		self.clientKeyBindings := OrderedCollection();
 		self.createElements;
 		self.setAttributes;
 		self.setEventHandlers;
 		self.setEditorText(contents);
 		self
+	}
+
+	insertText { :self :aString |
 	}
 
 	keyBindings { :self |
@@ -1396,13 +1430,13 @@ TextEditor : [Object, View] { | editorPane editorText mimeType title |
 				('{ ' ++ self.currentText ++ ' }.play').eval
 			},
 			MenuItem('Print It', 'p') { :event |
-				self.currentText.eval.postLine
+				(' ' ++ self.currentText.eval.asString).insertAtCursor
 			},
 			MenuItem('Reset Synthesiser', '.') { :event |
 				workspace::clock.clear;
 				system.defaultScSynth.reset
 			}
-		]
+		] ++ self.clientKeyBindings.Array
 	}
 
 	outerElement { :self |
@@ -1457,7 +1491,7 @@ TextEditor : [Object, View] { | editorPane editorText mimeType title |
 	textEditorMenu { :self :event |
 		workspace::smallKansas.menu(
 			'Text Editor Menu',
-			self.contextMenuEntries,
+			self.keyBindings,
 			true,
 			event
 		)
