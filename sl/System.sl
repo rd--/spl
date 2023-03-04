@@ -488,7 +488,15 @@ Response : [Object] {
 	}
 
 	byteArray { :self |
-		<primitive: return _self.arrayBuffer().then(function(b) { return new Uint8Array(b); });>
+		<primitive:
+		return _self.arrayBuffer().then(function(b) {
+			return new Uint8Array(b);
+		});
+		>
+	}
+
+	json { :self |
+		<primitive: return _self.json();>
 	}
 
 	text { :self |
@@ -637,6 +645,12 @@ Window : [Object] {
 	fetchByteArray { :self :resource :options |
 		self.fetch(resource, options).then { :response |
 			response.byteArray
+		}
+	}
+
+	fetchJson { :self :resource :options |
+		self.fetch(resource, options).then { :response |
+			response.json
 		}
 	}
 

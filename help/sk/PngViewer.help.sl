@@ -1,6 +1,6 @@
-# pngViewer -- image viewer
+# PngViewer -- image viewer
 
-- _pngViewer(aSmallKansas, aString, aByteArray)_
+- _PngViewer(aSmallKansas, aString, aByteArray)_
 
 Add a window displaying a Png image.
 
@@ -11,7 +11,7 @@ system.window.fetchBlob(
 	'https://rohandrape.net/sw/stsc3/lib/png/smalltalk-balloon.png',
 	 ()
  ).then { :answer |
-	workspace::smallKansas.pngViewer(
+	workspace::smallKansas.PngViewer(
 		'Smalltalk Balloon',
 		answer
 	)

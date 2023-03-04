@@ -305,6 +305,10 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		0 - self
 	}
 
+	RatioCents { :self |
+		self.RatioMidi * 100
+	}
+
 	RatioMidi { :self |
 		12 * self.log2
 	}

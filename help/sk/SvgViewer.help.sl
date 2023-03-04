@@ -1,6 +1,6 @@
-# svgViewer -- image viewer
+# SvgViewer -- image viewer
 
-- _svgViewer(aSmallKansas, aString, anSvg)_
+- _SvgViewer(aSmallKansas, aString, anSvg)_
 
 Add a window displaying an Svg image.
 
@@ -11,7 +11,7 @@ system.window.fetchString(
 	'https://rohandrape.net/sw/stsc3/lib/svg/smalltalk-balloon.svg',
 	 ()
  ).then { :answer |
-	workspace::smallKansas.svgViewer(
+	workspace::smallKansas.SvgViewer(
 		'Smalltalk Balloon',
 		answer.parseSvg
 	)
@@ -41,5 +41,5 @@ var circle = document.createSvgElement(
 	)
 );
 svg.appendChild(circle);
-workspace::smallKansas.svgViewer('Circle', svg)
+workspace::smallKansas.SvgViewer('Circle', svg)
 ```

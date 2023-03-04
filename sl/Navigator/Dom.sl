@@ -96,6 +96,8 @@
 	id { :self | <primitive: return _self.id;> }
 	innerHTML { :self | <primitive: return _self.innerHTML;> }
 	innerHTML { :self :aString | <primitive: return _self.innerHTML = _aString;> }
+	outerHTML { :self | <primitive: return _self.outerHTML;> }
+	outerHTML { :self :aString | <primitive: return _self.outerHTML = _aString;> }
 	releasePointerCapture { :self :pointerId | <primitive: return _self.releasePointerCapture(_pointerId);> }
 	remove { :self | <primitive: return _self.remove();> }
 	removeAttribute { :self :aString | <primitive: return _self.removeAttribute(_aString);> }

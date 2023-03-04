@@ -123,7 +123,14 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnList
 +String {
 
 	ColumnBrowser { :title :mimeType :withFilter :withStatus :columnProportions :onChange:/2 |
-		newColumnBrowser().initialize(title, mimeType, withFilter, withStatus, columnProportions, onChange:/2)
+		newColumnBrowser().initialize(
+			title,
+			mimeType,
+			withFilter,
+			withStatus,
+			columnProportions,
+			onChange:/2
+		)
 	}
 
 }
@@ -571,30 +578,15 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		}
 	}
 
-	categoryBrowser { :self :event |
+	CategoryBrowser { :self :event |
 		self.addFrame(CategoryBrowser(), event)
-	}
-
-	clock { :self :event |
-		|
-			getTime = {
-				system.unixTimeInMilliseconds.roundTo(1000).TimeStamp.iso8601
-			},
-			textEditor = TextEditor('Clock', 'text/plain', getTime()),
-			frame = self.addFrameWithAnimator(textEditor, event, 1) {
-				textEditor.setEditorText(getTime())
-			};
-		|
-		textEditor.editable := false;
-		frame.outerElement.style.setProperties((height: '1em', width: '18em'));
-		frame
 	}
 
 	colour { :self :aColour |
 		self.container.style.setProperty('background-color', aColour.hexString, '')
 	}
 
-	colourChooser { :self :subject :event |
+	ColourChooser { :self :subject :event |
 		self.addFrame(ColourChooser({ :aColour |
 			subject.colour(aColour)
 		}), event)
@@ -609,6 +601,21 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		subject.dialog(dialog);
 		dialog.showModal;
 		dialog
+	}
+
+	DigitalClock { :self :event |
+		|
+			getTime = {
+				system.unixTimeInMilliseconds.roundTo(1000).TimeStamp.iso8601
+			},
+			textEditor = TextEditor('Clock', 'text/plain', getTime()),
+			frame = self.addFrameWithAnimator(textEditor, event, 1) {
+				textEditor.setEditorText(getTime())
+			};
+		|
+		textEditor.editable := false;
+		frame.outerElement.style.setProperties((height: '1em', width: '18em'));
+		frame
 	}
 
 	font { :self |
@@ -651,7 +658,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		['spl', 'sc', 'sk']
 	}
 
-	helpBrowser { :self |
+	HelpBrowser { :self |
 		ColumnBrowser(
 			'Help Browser',
 			'text/markdown',
@@ -675,6 +682,10 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 				])
 			}
 		)
+	}
+
+	HelpBrowser { :self :event |
+		self.addFrame(self.HelpBrowser, event)
 	}
 
 	helpFetch { :self :path |
@@ -735,10 +746,6 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		['./lib/', self.helpProject(area), '/', kind, '/', area, '/', name, '.help.sl'].join
 	}
 
-	HelpBrowser { :self :event |
-		self.addFrame(self.helpBrowser, event)
-	}
-
 	implementorsOf { :self :subject :event |
 		|
 			bracketedSubject = '>>' ++ subject ++ ':/',
@@ -755,7 +762,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		self.container.addEventListener('contextmenu') { :event |
 			event.preventDefault;
 			(event.target == self.container).ifTrue {
-				self.worldMenu(true, event)
+				self.WorldMenu(true, event)
 			}
 		};
 		self.loadHelpIndex;
@@ -801,15 +808,15 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		frame
 	}
 
-	methodBrowser { :self :event |
+	MethodBrowser { :self :event |
 		self.addFrame(MethodBrowser(), event)
 	}
 
-	methodSignatureBrowser { :self :event |
+	MethodSignatureBrowser { :self :event |
 		self.addFrame(MethodSignatureBrowser(), event)
 	}
 
-	midiMonitorMenu { :self :event |
+	MidiMonitorMenu { :self :event |
 		self.initializeMidi { :unusedMidiAcccess |
 			|
 				onSelect = { :midiPort :event |
@@ -844,6 +851,27 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		frame
 	}
 
+	MidiPortBrowser { :self |
+		ColumnBrowser('Midi Port Browser', 'text/plain', false, false, [1, 1, 3]) { :browser :path |
+			path.size.caseOf([
+				0 -> {
+					['input', 'output']
+				},
+				1 -> {
+					self.midiAccess.ports(path[1]).collect(manufacturer:/1).IdentitySet.Array
+				},
+				2 -> {
+					self.midiAccess.ports(path[1]).select { :port |
+						port.manufacturer = path[2]
+					}.collect(name:/1)
+				},
+				3 -> {
+					self.midiAccess.portByName(path[1], path[2], path[3]).asString
+				}
+			])
+		}
+	}
+
 	midiPortListEntries { :self :onSelect:/2|
 		(self.midiAccess.inputs.ports ++ self.midiAccess.outputs.ports).collect { :midiPort |
 			MenuItem(midiPort.type ++ '/' ++ midiPort.name, nil)  { :event |
@@ -852,7 +880,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		}
 	}
 
-	pngViewer { :self :title :png |
+	PngViewer { :self :title :png |
 		self.addFrame(PngViewer(title, png), nil)
 	}
 
@@ -862,7 +890,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		}.collect(second:/1).IdentitySet.Array.sorted
 	}
 
-	programBrowser { :self |
+	ProgramBrowser { :self |
 		ColumnBrowser(
 			'Program Browser',
 			'text/plain',
@@ -886,6 +914,10 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 				])
 			}
 		)
+	}
+
+	ProgramBrowser { :self :event |
+		self.addFrame(self.ProgramBrowser, event)
 	}
 
 	programCategories { :self |
@@ -914,32 +946,32 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		['./lib/stsc3/help/', category, '/', author, ' - ', name, '.sl'].join
 	}
 
-	ProgramBrowser { :self :event |
-		self.addFrame(self.programBrowser, event)
-	}
-
 	removeFrame { :self :frame |
 		frame.outerElement.remove;
 		self.frameSet.remove(frame)
 	}
 
-	svgViewer { :self :title :svg |
+	ScalaJiBrowser { :self :scalaJi :event |
+		self.addFrame(scalaJi.ScalaJiBrowser, event)
+	}
+
+	SvgViewer { :self :title :svg |
 		self.addFrame(SvgViewer(title, svg), nil)
 	}
 
-	systemBrowser { :self :event |
+	SystemBrowser { :self :event |
 		self.addFrame(SystemBrowser(), event)
 	}
 
-	tableViewer { :self :title :tableData |
+	TableViewer { :self :title :tableData |
 		self.addFrame(TableViewer(title, tableData), nil)
 	}
 
-	traitBrowser { :self :event |
+	TraitBrowser { :self :event |
 		self.addFrame(TraitBrowser(), event)
 	}
 
-	typeBrowser { :self :event |
+	TypeBrowser { :self :event |
 		self.addFrame(TypeBrowser(), event)
 	}
 
@@ -951,27 +983,27 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		}
 	}
 
-	windowMenu { :self :event |
+	WindowMenu { :self :event |
 		| menu = Menu('Window Menu', self.windowMenuEntries); |
 		self.addFrameWithAnimator(menu, event, 1) {
 			menu.setEntries(self.windowMenuEntries)
 		}
 	}
 
-	worldMenu { :self :isTransient :event |
+	WorldMenu { :self :isTransient :event |
 		self.menu('World Menu', self.worldMenuEntries, isTransient, event)
 	}
 
 	worldMenuEntries { :self |
 		[
 			MenuItem('Category Browser', nil) { :event |
-				self.categoryBrowser(event)
-			},
-			MenuItem('Clock', nil) { :event |
-				self.clock(event)
+				self.CategoryBrowser(event)
 			},
 			MenuItem('ColourChooser', nil) { :event |
-				self.colourChooser(self, event)
+				self.ColourChooser(self, event)
+			},
+			MenuItem('Digital Clock', nil) { :event |
+				self.DigitalClock(event)
 			},
 			MenuItem('Font Menu', nil) { :event |
 				self.fontMenuOn(self, false, event)
@@ -983,13 +1015,13 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 				self.HelpBrowser(event)
 			},
 			MenuItem('Method Browser', nil) { :event |
-				self.methodBrowser(event)
+				self.MethodBrowser(event)
 			},
 			MenuItem('Method Signature Browser', nil) { :event |
-				self.methodSignatureBrowser(event)
+				self.MethodSignatureBrowser(event)
 			},
 			MenuItem('Midi Monitor Menu', nil) { :event |
-				self.midiMonitorMenu(event)
+				self.MidiMonitorMenu(event)
 			},
 			MenuItem('Midi Port Browser', nil) { :event |
 				self.initializeMidi { :unusedMidiAccess |
@@ -1004,16 +1036,16 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 				system.defaultScSynth.reset
 			},
 			MenuItem('System Browser', nil) { :event |
-				self.systemBrowser(event)
+				self.SystemBrowser(event)
 			},
 			MenuItem('Trait Browser', nil) { :event |
-				self.traitBrowser(event)
+				self.TraitBrowser(event)
 			},
 			MenuItem('Type Browser', nil) { :event |
-				self.typeBrowser(event)
+				self.TypeBrowser(event)
 			},
 			MenuItem('Window Menu', nil) { :event |
-				self.windowMenu(event)
+				self.WindowMenu(event)
 			},
 			MenuItem('Workspace', nil) { :event |
 				self.addFrame(
@@ -1032,30 +1064,63 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		}
 	}
 
-	MidiPortBrowser { :self |
-		ColumnBrowser('Midi Port Browser', 'text/plain', false, false, [1, 1, 3]) { :browser :path |
+}
+
++Array {
+
+	ScalaJiBrowser { :self |
+		|
+			degrees = self.collect { :each |
+				each::degree
+			}.IdentitySet.Array.sorted.collect(asString:/1);
+		|
+		ColumnBrowser('Scala Ji Browser', 'text/html', false, true, [1, 1, 4]) { :browser :path |
 			path.size.caseOf([
 				0 -> {
-					['input', 'output']
+					browser.setStatus('Degree (number of tones)');
+					degrees
 				},
 				1 -> {
-					self.midiAccess.ports(path[1]).collect(manufacturer:/1).IdentitySet.Array
+					browser.setStatus('Limit (largest prime factor)');
+					self.select { :each |
+						each::degree = path[1].parseInteger(10)
+					}.collect { :each |
+						each::limit
+					}.IdentitySet.Array.sorted.collect(asString:/1)
 				},
 				2 -> {
-					self.midiAccess.ports(path[1]).select { :port |
-						port.manufacturer = path[2]
-					}.collect(name:/1)
+					browser.setStatus('Scala Name');
+					self.select { :each |
+						each::degree = path[1].parseInteger(10) & {
+							each::limit = path[2].parseInteger(10)
+						}
+					}.collect { :each |
+						each::name
+					}
 				},
 				3 -> {
-					self.midiAccess.portByName(path[1], path[2], path[3]).asString
+					|
+						selected = self.detect { :each |
+							each::name = path[3]
+						},
+						ratio1 = selected::tuning[1],
+						ratios = selected::tuning.collect { :each |
+							Fraction(each, ratio1).reduced
+						};
+					|
+					browser.setStatus(selected::description);
+					[
+						[1 .. selected::degree],
+						ratios,
+						ratios.collect { :each |
+							(each.asFloat.RatioMidi * 100).rounded
+						},
+						selected::tuning
+					].transpose.asHtmlTable.outerHTML
 				}
 			])
 		}
 	}
-
-}
-
-+Array {
 
 	MethodSignatureBrowser { :self :withFilter |
 		ColumnBrowser('Method Signature Browser', 'text/plain', withFilter, true, [1]) { :browser :path |
