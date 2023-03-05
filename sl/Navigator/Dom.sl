@@ -366,8 +366,8 @@ CustomEvent : [Object, Event] {
 
 +String {
 
-	CustomEvent { :type :options |
-		<primitive: return new CustomEvent(_type, _options);>
+	CustomEvent { :self :options |
+		<primitive: return new CustomEvent(_self, _options);>
 	}
 
 }
@@ -426,12 +426,12 @@ DOMPointReadOnly : [Object, DOMPointReadOnly] {
 
 +SmallFloat {
 
-	DOMPoint { :x :y :z :w |
-		<primitive: return new DOMPoint(_x, _y, _z, _w);>
+	DOMPoint { :self :y :z :w |
+		<primitive: return new DOMPoint(_self, _y, _z, _w);>
 	}
 
-	DOMPointReadOnly { :x :y :z :w |
-		<primitive: return new DOMPointReadOnly(_x, _y, _z, _w);>
+	DOMPointReadOnly { :self :y :z :w |
+		<primitive: return new DOMPointReadOnly(_self, _y, _z, _w);>
 	}
 
 }
@@ -533,7 +533,9 @@ HTMLImageElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 +SmallFloat {
 
-	Image { :width :height | <primitive: return new Image(_width, _height);> }
+	Image { :self :height |
+		<primitive: return new Image(_self, _height);>
+	}
 
 }
 
@@ -758,8 +760,8 @@ Navigator : [Object] {
 		<primitive: return _self.requestMIDIAccess(_midiOptions);>
 	}
 
-	sendBeacon { :url :data |
-		<primitive: return _self.sendBeacon(_url, _data);>
+	sendBeacon { :self :data |
+		<primitive: return _self.sendBeacon(_self, _data);>
 	}
 
 	storage { :self |
@@ -793,8 +795,8 @@ OffscreenCanvasRenderingContext2D : [Object] {
 
 +SmallFloat {
 
-	OffscreenCanvas { :width :height |
-		<primitive: return new OffscreenCanvas(_width, _height);>
+	OffscreenCanvas { :self :height |
+		<primitive: return new OffscreenCanvas(_self, _height);>
 	}
 
 }

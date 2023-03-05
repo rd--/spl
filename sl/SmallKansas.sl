@@ -16,7 +16,137 @@
 	}
 
 	title { :self |
-		'Untitled'
+		self.typeOf
+	}
+
+}
+
+AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
+
+	createElements { :self |
+		|
+		document = system.window.document,
+		svg = document.createSvgElement(
+			'svg',
+			(
+				height: '200',
+				width: '200'
+			)
+		),
+		group = document.createSvgElement(
+			'g',
+			(
+				transform: 'translate(100, 100) scale(1, -1)'
+			)
+		),
+		circle = document.createSvgElement(
+			'circle',
+			(
+				cx: '0',
+				cy: '0',
+				r: '90',
+				fill: 'aquamarine'
+			)
+		);
+		|
+		self.clockPane := 'div'.createElement;
+		self.clockPane.setAttribute('class', 'clockPane');
+		self.hourHand := document.createSvgElement(
+			'line',
+			(
+				x1: '0',
+				y1: '0',
+				x2: '0',
+				y2: '60',
+				stroke: 'cornflowerblue',
+				'stroke-width': '2'
+			)
+		);
+		self.hourHand.setAttribute('class', 'hourHand');
+		self.minuteHand := document.createSvgElement(
+			'line',
+			(
+				x1: '0',
+				y1: '0',
+				x2: '0',
+				y2: '90',
+				stroke: 'coral',
+				'stroke-width': '2'
+			)
+		);
+		self.minuteHand.setAttribute('class', 'minuteHand');
+		self.secondHand := document.createSvgElement(
+			'line',
+			(
+				x1: '0',
+				y1: '0',
+				x2: '0',
+				y2: '90',
+				stroke: 'darkseagreen',
+				'stroke-width': '1'
+			)
+		);
+		self.secondHand.setAttribute('class', 'secondHand');
+		group.appendChildren([
+			circle,
+			self.hourHand,
+			self.minuteHand,
+			self.secondHand
+		]);
+		svg.appendChild(group);
+		self.clockPane.appendChild(svg)
+	}
+
+	initialize { :self |
+		self.createElements;
+		self.tick;
+		self
+	}
+
+	moveHourHand { :self :hour |
+		|
+			theta = hour - 3 / 12 * 2 * pi,
+			point = PolarPoint(70, theta.negated);
+		|
+		self.hourHand.setAttribute('x2', point.x);
+		self.hourHand.setAttribute('y2', point.y)
+	}
+
+	moveMinuteHand { :self :minute |
+		|
+			theta = minute - 15 / 60 * 2 * pi,
+			point = PolarPoint(90, theta.negated);
+		|
+		self.minuteHand.setAttribute('x2', point.x);
+		self.minuteHand.setAttribute('y2', point.y)
+	}
+
+	moveSecondHand { :self :minute |
+		|
+			theta = minute - 15 / 60 * 2 * pi,
+			point = PolarPoint(90, theta.negated);
+		|
+		self.secondHand.setAttribute('x2', point.x);
+		self.secondHand.setAttribute('y2', point.y)
+	}
+
+	outerElement { :self |
+		self.clockPane
+	}
+
+	tick { :self |
+		| dateAndTime = system.Date; |
+		self.moveHourHand(dateAndTime.hours);
+		self.moveMinuteHand(dateAndTime.minutes);
+		self.moveSecondHand(dateAndTime.seconds)
+	}
+
+}
+
++Void {
+
+	AnalogueClock {
+		newAnalogueClock().initialize
 	}
 
 }
@@ -49,7 +179,6 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 			self.statusText := 'span'.createElement;
 			self.statusPane.appendChild(self.statusText);
 			self.browserPane.appendChild(self.statusPane)
-
 		}
 	}
 
@@ -132,9 +261,9 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 
 +String {
 
-	ColumnBrowser { :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onChange:/2 |
+	ColumnBrowser { :self :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onChange:/2 |
 		newColumnBrowser().initialize(
-			title,
+			self,
 			mimeType,
 			withFilter,
 			withStatus,
@@ -156,7 +285,9 @@ FilterSelect : [Object] { | container filterText select entries ignoreCase |
 			identity:/1
 		},
 		filter = self.filterText.isNil.if {
-			{ true }
+			{
+				true
+			}
 		} {
 			| matchString = self.filterText.value.caseRule; |
 			{ :aString |
@@ -203,8 +334,8 @@ FilterSelect : [Object] { | container filterText select entries ignoreCase |
 
 +Boolean {
 
-	FilterSelect { :withFilter |
-		newFilterSelect().initialize(withFilter)
+	FilterSelect { :self |
+		newFilterSelect().initialize(self)
 	}
 
 }
@@ -516,8 +647,8 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 
 +String {
 
-	Menu { :title :entries |
-		newMenu().initialize(title, entries)
+	Menu { :self :entries |
+		newMenu().initialize(self, entries)
 	}
 
 }
@@ -555,8 +686,8 @@ PngViewer : [Object, View] { | pngPane title pngData pngUrl |
 
 +String {
 
-	PngViewer { :title :pngData |
-		newPngViewer().initialize(title, pngData)
+	PngViewer { :self :pngData |
+		newPngViewer().initialize(self, pngData)
 	}
 
 }
@@ -583,6 +714,16 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		};
 		self.frameSet.add(frame);
 		self.container.appendChild(frame.outerElement);
+		frame
+	}
+
+	AnalogueClock { :self :event |
+		|
+			clock = AnalogueClock(),
+			frame = self.addFrameWithAnimator(clock, event, 1) {
+				clock.tick
+			};
+		|
 		frame
 	}
 
@@ -628,7 +769,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 			getTime = {
 				system.unixTimeInMilliseconds.roundTo(1000).TimeStamp.iso8601
 			},
-			textEditor = TextEditor('Clock', 'text/plain', getTime()),
+			textEditor = TextEditor('Digital Clock', 'text/plain', getTime()),
 			frame = self.addFrameWithAnimator(textEditor, event, 1) {
 				textEditor.setEditorText(getTime())
 			};
@@ -1019,6 +1160,9 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 	worldMenuEntries { :self |
 		[
+			MenuItem('Analogue Clock', nil) { :event |
+				self.AnalogueClock(event)
+			},
 			MenuItem('Category Browser', nil) { :event |
 				self.CategoryBrowser(event)
 			},
@@ -1334,8 +1478,8 @@ SvgViewer : [Object, View] { | svgPane title svg |
 
 +String {
 
-	SvgViewer { :title :svg |
-		newSvgViewer().initialize(title, svg)
+	SvgViewer { :self :svg |
+		newSvgViewer().initialize(self, svg)
 	}
 
 }
@@ -1364,8 +1508,8 @@ TableViewer : [Object, View] { | title tablePane |
 
 +String {
 
-	TableViewer { :title :tableData |
-		newTableViewer().initialize(title, tableData)
+	TableViewer { :self :tableData |
+		newTableViewer().initialize(self, tableData)
 	}
 
 }
@@ -1510,8 +1654,8 @@ TextEditor : [Object, View] { | editorPane editorText mimeType title clientKeyBi
 
 +String {
 
-	TextEditor { :title :mimeType :contents |
-		newTextEditor().initialize(title, mimeType, contents)
+	TextEditor { :self :mimeType :contents |
+		newTextEditor().initialize(self, mimeType, contents)
 	}
 
 }

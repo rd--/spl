@@ -48,8 +48,8 @@ Pair : [Object] { | first second |
 
 + @Object {
 
-	Pair { :first :second |
-		newPair().initializeSlots(first, second)
+	Pair { :self :second |
+		newPair().initializeSlots(self, second)
 	}
 
 }

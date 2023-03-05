@@ -591,8 +591,8 @@ URL : [Object] {
 	encodeURI { :self | <primitive: return encodeURI(_self);> }
 	encodeURIComponent { :self | <primitive: return encodeURIComponent(_self);> }
 	revokeObjectURL { :self | <primitive: return URL.revokeObjectURL(_self);> }
-	URL { :url | <primitive: return new URL(_url);> }
-	URL { :url :base | <primitive: return new URL(_url, _base);> }
+	URL { :self | <primitive: return new URL(_self);> }
+	URL { :self :base | <primitive: return new URL(_self, _base);> }
 
 }
 

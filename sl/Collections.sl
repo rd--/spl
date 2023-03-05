@@ -1023,10 +1023,10 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 +@SequenceableCollection {
 
-	Array { :aCollection |
-		| answer = Array(aCollection.size); |
-		(1 .. aCollection.size).do { :i |
-			answer[i] := aCollection[i]
+	Array { :self |
+		| answer = Array(self.size); |
+		(1 .. self.size).do { :i |
+			answer[i] := self[i]
 		};
 		answer
 	}

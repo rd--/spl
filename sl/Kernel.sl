@@ -703,11 +703,11 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 +@Integral {
 
-	Fraction { :numerator :denominator |
+	Fraction { :self :denominator |
 		(denominator = 0).if {
 			'Integral>>Fraction: zeroDenominatorError'.error
 		} {
-			newFraction().initializeSlots(numerator, denominator)
+			newFraction().initializeSlots(self, denominator)
 		}
 	}
 

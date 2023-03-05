@@ -1,3 +1,39 @@
+Date : [Object] {
+
+	hours { :self |
+		<primitive: return _self.getHours();>
+	}
+
+	iso8601 { :self |
+		<primitive: return _self.toISOString();>
+	}
+
+	minutes { :self |
+		<primitive: return _self.getMinutes();>
+	}
+
+	seconds { :self |
+		<primitive: return _self.getSeconds();>
+	}
+
+}
+
++SmallFloat {
+
+	Date { :self |
+		<primitive: return new Date(_self);>
+	}
+
+}
+
++System {
+
+	Date { :self |
+		self.unixTimeInMilliseconds.Date
+	}
+
+}
+
 Duration : [Object] { | milliseconds |
 
 	= { :self :aDuration |
@@ -119,7 +155,7 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 	}
 
 	iso8601 { :self |
-		<primitive: const date = new Date(_self.unixTimeInMilliseconds); return date.toISOString();>
+		self.unixTimeInMilliseconds.Date.iso8601
 	}
 
 	roundTo { :self :aDuration |

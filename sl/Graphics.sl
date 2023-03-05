@@ -23,12 +23,12 @@ Colour : [Object] { | red green blue alpha |
 
 +SmallFloat {
 
-	Colour { :r :g :b |
-		Colour(r, g, b, 1)
+	Colour { :self :g :b |
+		Colour(self, g, b, 1)
 	}
 
-	Colour { :r :g :b :a |
-		newColour().initializeSlots(r, g, b, a)
+	Colour { :self :g :b :a |
+		newColour().initializeSlots(self, g, b, a)
 	}
 
 }
@@ -91,24 +91,6 @@ Colour : [Object] { | red green blue alpha |
 
 	min { :self :aPoint |
 		self.x.min(aPoint.x) @ self.y.min(aPoint.y)
-	}
-
-	r { :self |
-		(* r = radius = rho *)
-		(self.x.squared + self.y.squared).sqrt
-	}
-
-	t { :self |
-		(* t = theta *)
-		atan2(self.y, self.x)
-	}
-
-	x { :self |
-		self.r * self.t.cos
-	}
-
-	y { :self |
-		self.r * self.t.sin
 	}
 
 }
@@ -175,6 +157,16 @@ Point : [Object, Point] { | x y |
 		self
 	}
 
+	r { :self |
+		(* r = radius = rho *)
+		(self.x.squared + self.y.squared).sqrt
+	}
+
+	t { :self |
+		(* t = theta *)
+		atan2(self.y, self.x)
+	}
+
 }
 
 +@Number {
@@ -193,6 +185,30 @@ Point : [Object, Point] { | x y |
 
 	Point { :self :aNumber |
 		newPoint().initializeSlots(self, aNumber)
+	}
+
+}
+
+PolarPoint : [Object, Point] { | r t |
+
+	PolarPoint { :self |
+		self
+	}
+
+	x { :self |
+		self.r * self.t.cos
+	}
+
+	y { :self |
+		self.r * self.t.sin
+	}
+
+}
+
++@Number {
+
+	PolarPoint { :self :t |
+		newPolarPoint().initializeSlots(self, t)
 	}
 
 }
