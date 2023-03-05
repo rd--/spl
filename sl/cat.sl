@@ -32,6 +32,7 @@ system.categorizeDictionary(
 			'Error'
 		],
 		'Kernel-Chronology': [
+			'Date',
 			'Duration',
 			'TimeStamp'
 		],
@@ -47,6 +48,7 @@ system.categorizeDictionary(
 		'Kernel-Graphics': [
 			'Colour',
 			'Point',
+			'PolarPoint',
 			'Rectangle'
 		],
 		'Sound-Osc': [
@@ -78,6 +80,7 @@ system.categorizeDictionary(
 		'SmallKansas': [
 			'ColourChooser',
 			'ColumnBrowser',
+			'AnalogueClock',
 			'FilterSelect',
 			'Frame',
 			'Menu',

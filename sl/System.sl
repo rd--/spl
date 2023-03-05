@@ -45,6 +45,16 @@ Method : [Object] {
 		'	' ++ self.name ++ ' ' ++ self.sourceCode
 	}
 
+	definition { :self :aString |
+		[
+			'+',
+			self.origin.qualifiedName,
+			'{ ',
+			aString,
+			' }'
+		].join.eval
+	}
+
 	name { :self |
 		<primitive: return _self.name;>
 	}
