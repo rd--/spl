@@ -29,17 +29,38 @@ var svg = document.createSvgElement(
 		width: '50'
 	)
 );
+var group = document.createSvgElement(
+	'g',
+	(
+		transform: 'translate(25, 25) scale(1, -1)'
+	)
+);
 var circle = document.createSvgElement(
 	'circle',
 	(
-		cx: '25',
-		cy: '25',
+		cx: '0',
+		cy: '0',
 		r: '20',
 		stroke: '#5588ff',
 		fill: '#ee6655',
 		'stroke-width': '2'
 	)
 );
-svg.appendChild(circle);
-workspace::smallKansas.SvgViewer('Circle', svg)
+var line = document.createSvgElement(
+	'line',
+	(
+		x1: '0',
+		y1: '0',
+		x2: '12',
+		y2: '12',
+		stroke: '#88ff55',
+		'stroke-width': '2'
+	)
+);
+group.appendChildren([
+	circle,
+	line
+]);
+svg.appendChild(group);
+workspace::smallKansas.SvgViewer('Circle and Line', svg)
 ```

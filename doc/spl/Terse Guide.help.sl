@@ -417,7 +417,9 @@ var x = ['a', 'bc', 'def']; x.unlines.lines = x
 'x x x'.replaceAll('x', 'y') = 'y y y'
 'A Bc Def'.replaceAll(' ', '') = 'ABcDef'
 'x y z'.replaceRegExp(RegExp('x|z', 'g'), '-') = '- y -'
-
+'Word'.asLowercase = 'word'
+'Word'.asUppercase = 'WORD'
+'word'.capitalized = 'Word'
 
 'Kernel-Exceptions/Error'
 Error().isError = true

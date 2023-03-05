@@ -264,6 +264,14 @@
 
 @SVGElement {
 
+	transform { :self |
+		<primitive: return _self.transform;>
+	}
+
+	transform { :self :transformList |
+		<primitive: return _self.transform = transformList;>
+	}
+
 }
 
 @SVGGeometryElement {
@@ -291,6 +299,54 @@ Attr : [Object, Node] {
 	name { :self | <primitive: return _self.name;> }
 	ownerElement { :self | <primitive: return _self.ownerElement;> }
 	value { :self | <primitive: return _self.value;> }
+
+}
+
+CanvasGradient : [Object] {
+
+}
+
+CanvasPattern : [Object] {
+
+}
+
+CanvasRenderingContext2D : [Object] {
+
+	arcTo { :self :x1 :y1 :x2 :y2 :radius |
+		<primitive: return _self.arcTo(_x1, _y1, _x2, _y2, _radius);>
+	}
+
+	ellipse { :self :x :y :radiusX :radiusY :rotation :startAngle :endAngle |
+		<primitive: return _self.ellipse(_x, _y, _radiusX, _radiusY, _rotation, _startAngle, _endAngle);>
+	}
+
+	fill { :self |
+		<primitive: return _self.fill();>
+	}
+
+	fillStyle { :self |
+		<primitive: return _self.fillStyle;>
+	}
+
+	fillStyle { :self :anObject |
+		<primitive: return _self.fillStyle = _anObject;>
+	}
+
+	moveTo { :self :x :y |
+		<primitive: return _self.moveTo(_x, _y);>
+	}
+
+	rotate { :self :angle |
+		<primitive: return _self.rotate(_angle);>
+	}
+
+	transform { :self :a :b :c :d :e :f |
+		<primitive: return _self.transform(_a, _b, _c, _d, _e, _f);>
+	}
+
+	translate { :self :x :y |
+		<primitive: return _self.translate(_x, _y);>
+	}
 
 }
 
@@ -414,6 +470,22 @@ HTMLBodyElement : [Object, EventTarget, Node, Element, HtmlElement] {
 }
 
 HTMLButtonElement : [Object, EventTarget, Node, Element, HtmlElement] {
+
+}
+
+HTMLCanvasElement : [Object, EventTarget, Node, Element, HtmlElement] {
+
+	getContext { :self :contextType :contextAttributes |
+		<primitive: return _self.getContext(_contextType, _contextAttributes);>
+	}
+
+	height { :self |
+		<primitive: return _self.height;>
+	}
+
+	width { :self |
+		<primitive: return _self.width;>
+	}
 
 }
 
@@ -707,6 +779,30 @@ NodeList : [Object] {
 
 }
 
+OffscreenCanvas : [Object, EventTarget] {
+
+	getContext { :self :contextType :contextAttributes |
+		<primitive: return _self.getContext(_contextType, _contextAttributes);>
+	}
+
+}
+
+OffscreenCanvasRenderingContext2D : [Object] {
+
+}
+
++SmallFloat {
+
+	OffscreenCanvas { :width :height |
+		<primitive: return new OffscreenCanvas(_width, _height);>
+	}
+
+}
+
+Path2D : [Object] {
+
+}
+
 PointerEvent : [Object, UiEvent, Event, MouseEvent] {
 
 	isPrimary { :self | <primitive: return _self.isPrimary;> }
@@ -735,15 +831,19 @@ Selection : [Object] {
 
 }
 
-SVGCircleElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+SVGCircleElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
 
 }
 
-SVGLineElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+SVGGElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement] {
 
 }
 
-SVGPathElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+SVGLineElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+
+}
+
+SVGPathElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
 
 }
 
@@ -756,33 +856,65 @@ SVGPointList : [Object] {
 
 }
 
-SVGPolygonElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+SVGPolygonElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
 
 	points { :self | <primitive: return _self.points;> }
 
 }
 
-SVGPolylineElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+SVGPolylineElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
 
 }
 
-SVGRectElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+SVGRectElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
 
 }
 
 SVGSVGElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement] {
 
+	createSVGMatrix { :self | <primitive: return _self.createSVGMatrix();> }
+	createSVGRect { :self | <primitive: return _self.createSVGRect();> }
+	createSVGTransform { :self | <primitive: return _self.createSVGTransform();> }
+	createSVGTransformFromMatrix { :self :aMatrix | <primitive: return _self.createSVGTransformFromMatrix(_aMatrix);> }
+
 }
 
-SVGTextElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGTextContentElement, SVGTextPositioningElement] {
+SVGTextElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGTextContentElement, SVGTextPositioningElement] {
 
 }
 
-SVGTextPathElement : [EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGTextContentElement] {
+SVGTextPathElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGTextContentElement] {
 
 }
 
 SVGTitleElement : [Object, EventTarget, Node, Element, SVGElement] {
+
+}
+
+SVGTransform : [Object] {
+
+	setMatrix { :self :aMatric |
+		<primitive: _self.setMatrix(_aMatrix);>
+	}
+
+	setTranslate { :self :x :y |
+		<primitive: _self.setTranslate(_x, _y);>
+	}
+
+	setScale { :self :x :y |
+		<primitive: _self.setScale(_x, _y);>
+	}
+
+	setRotate { :self :angle :x :y |
+		<primitive: _self.setMatrix(_angle, _x, _y);>
+	}
+
+}
+
+SVGTransformList : [Object] {
+
+	appendItem { :self :aTransform | <primitive: return _self.appendItem(_aTransform);> }
+	getItem { :self :index | <primitive: return _self.getItem(_index);> }
 
 }
 
@@ -800,6 +932,10 @@ Text : [Object, EventTarget, Node, CharacterData] {
 	getSelection { :self | <primitive: return _self.getSelection();> }
 	innerHeight { :self | <primitive: return _self.innerHeight;> }
 	innerWidth { :self | <primitive: return _self.innerWidth;> }
+
+}
+
+WebGLRenderingContext : [Object] {
 
 }
 

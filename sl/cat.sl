@@ -99,6 +99,14 @@ system.categorizeDictionary(
 			'Selection',
 			'Text'
 		],
+		'Navigator-Canvas': [
+			'CanvasGradient',
+			'CanvasPattern',
+			'CanvasRenderingContext2D',
+			'OffscreenCanvas',
+			'OffscreenCanvasRenderingContext2D',
+			'Path2D'
+		],
 		'Navigator-Css': [
 			'CSSStyleDeclaration',
 			'CSS2Properties'
@@ -113,6 +121,7 @@ system.categorizeDictionary(
 			'DOMTokenList'
 		],
 		'Navigator-Event': [
+			'CustomEvent',
 			'Event',
 			'KeyboardEvent',
 			'MouseEvent',
@@ -121,6 +130,7 @@ system.categorizeDictionary(
 		'Navigator-Html': [
 			'HTMLBodyElement',
 			'HTMLButtonElement',
+			'HTMLCanvasElement',
 			'HTMLCollection',
 			'HTMLDialogElement',
 			'HTMLDivElement',
@@ -162,6 +172,7 @@ system.categorizeDictionary(
 		],
 		'Navigator-Svg': [
 			'SVGCircleElement',
+			'SVGGElement',
 			'SVGLineElement',
 			'SVGPathElement',
 			'SVGPointList',
@@ -171,7 +182,12 @@ system.categorizeDictionary(
 			'SVGSVGElement',
 			'SVGTextElement',
 			'SVGTextPathElement',
-			'SVGTitleElement'
+			'SVGTitleElement',
+			'SVGTransform',
+			'SVGTransformList'
+		],
+		'Navigator-WebGl': [
+			'WebGLRenderingContext'
 		],
 		'Navigator-Xml': [
 			'XMLDocument'

@@ -21,7 +21,7 @@
 
 }
 
-ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnLists statusPane statusText title |
+ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEditor columnLists statusPane statusText title |
 
 	addKeyBindings { :self :aProcedure:/1 |
 		self.textEditor.addKeyBindings(self.textEditor.aProcedure)
@@ -30,6 +30,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnList
 	createElements { :self :numberOfColumns :mimeType :withFilter :withStatus |
 		self.browserPane := 'div'.createElement;
 		self.columnsPane :=  'div'.createElement;
+		self.previewPane := 'div'.createElement;
 		self.textEditor := newTextEditor().initialize(
 			'ColumnBrowserTextEditor', mimeType, ''
 		);
@@ -37,9 +38,10 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnList
 			FilterSelect(withFilter & { index = 1 })
 		};
 		self.columnsPane.appendChildren(self.columnLists.collect(container:/1));
+		self.previewPane.appendChild(self.textEditor.outerElement);
 		self.browserPane.appendChildren([
 			self.columnsPane,
-			self.textEditor.outerElement
+			self.previewPane
 		]);
 		withStatus.ifTrue {
 			self.statusPane := 'div'.createElement;
@@ -89,7 +91,8 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnList
 			list.style.setProperties((
 				'flex-grow': columnProportions[index].asString
 			))
-		}
+		};
+		self.previewPane.setAttribute('class', 'previewPane')
 	}
 
 	setEntries { :self :columnIndex :entries |
@@ -143,16 +146,21 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane textEditor columnList
 
 }
 
-FilterSelect : [Object] { | container filterText select entries |
+FilterSelect : [Object] { | container filterText select entries ignoreCase |
 
 	applyFilter { :self |
 		|
+		caseRule:/1 = self.ignoreCase.if {
+			asLowercase:/1
+		} {
+			identity:/1
+		},
 		filter = self.filterText.isNil.if {
 			{ true }
 		} {
-			| matchString = self.filterText.value; |
+			| matchString = self.filterText.value.caseRule; |
 			{ :aString |
-				aString.includesSubstring(matchString)
+				aString.caseRule.includesSubstring(matchString)
 			}
 		};
 		|
@@ -164,6 +172,7 @@ FilterSelect : [Object] { | container filterText select entries |
 	}
 
 	initialize { :self :withFilter |
+		self.ignoreCase := true;
 		withFilter.if {
 			self.container := 'div'.createElement;
 			self.filterText := TextInput('');
@@ -965,8 +974,8 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		self.frameSet.remove(frame)
 	}
 
-	ScalaJiBrowser { :self :scalaJi :event |
-		self.addFrame(scalaJi.ScalaJiBrowser, event)
+	ScalaJiTuningBrowser { :self :scalaJi :event |
+		self.addFrame(scalaJi.ScalaJiTuningBrowser, event)
 	}
 
 	SvgViewer { :self :title :svg |
@@ -1082,20 +1091,20 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 +Array {
 
-	ScalaJiBrowser { :self |
+	ScalaJiTuningBrowser { :self |
 		|
 			degrees = self.collect { :each |
 				each::degree
 			}.IdentitySet.Array.sorted.collect(asString:/1);
 		|
-		ColumnBrowser('Scala Ji Browser', 'text/html', false, true, [1, 1, 4], nil) { :browser :path |
+		ColumnBrowser('Scala Ji Tuning Browser', 'text/html', false, true, [1, 1, 4], nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
-					browser.setStatus('Degree (number of tones)');
+					browser.setStatus('Degree/Limit/Name');
 					degrees
 				},
 				1 -> {
-					browser.setStatus('Limit (largest prime factor)');
+					browser.setStatus('Degree = ' ++ path[1]);
 					self.select { :each |
 						each::degree = path[1].parseInteger(10)
 					}.collect { :each |
@@ -1103,7 +1112,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 					}.IdentitySet.Array.sorted.collect(asString:/1)
 				},
 				2 -> {
-					browser.setStatus('Scala Name');
+					browser.setStatus(['Degree = ', path[1], ', Limit = ', path[2]].join);
 					self.select { :each |
 						each::degree = path[1].parseInteger(10) & {
 							each::limit = path[2].parseInteger(10)

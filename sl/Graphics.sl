@@ -81,6 +81,10 @@ Colour : [Object] { | red green blue alpha |
 		}
 	}
 
+	dotProduct { :self :aPoint |
+		(self.x * aPoint.x) + (self.y * aPoint.y)
+	}
+
 	max { :self :aPoint |
 		self.x.max(aPoint.x) @ self.y.max(aPoint.y)
 	}

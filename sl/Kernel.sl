@@ -1373,12 +1373,24 @@ String : [Object] {
 		}
 	}
 
+	asLowercase { :self |
+		<primitive: return _self.toLowerCase(); >
+	}
+
 	asString { :self |
 		self
 	}
 
+	asUppercase { :self |
+		<primitive: return _self.toUpperCase(); >
+	}
+
 	at { :self :index |
 		<primitive: return _self.at(_index - 1);>
+	}
+
+	capitalized { :self |
+		<primitive: return _self[0].toUpperCase() + _self.slice(1);>
 	}
 
 	charCodeAt { :self :index |
