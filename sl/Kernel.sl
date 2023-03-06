@@ -134,6 +134,12 @@
 
 @Magnitude {
 
+	<= { :self :aMagnitude |
+		self < aMagnitude | {
+			self = aMagnitude
+		}
+	}
+
 	> { :self :aMagnitude |
 		aMagnitude < self
 	}
@@ -1016,6 +1022,10 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 			}
 		};
 		factors.Array
+	}
+
+	primeFactorization { :self |
+		self.primeFactors.IdentityBag
 	}
 
 	primeLimit { :self |

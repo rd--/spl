@@ -95,6 +95,26 @@
 
 }
 
++String {
+
+	createElement { :self |
+		system.window.document.createElement(self)
+	}
+
+	createSvgElement { :self :attributeDictionary |
+		system.window.document.createSvgElement(self, attributeDictionary)
+	}
+
+	getElementById { :self |
+		system.window.document.getElementById(self)
+	}
+
+	querySelector { :self |
+		system.window.document.querySelector(self)
+	}
+
+}
+
 @DOMMatrixReadOnly {
 
 	is2D { :self | <primitive: return _self.is2D;> }
@@ -462,6 +482,14 @@ DOMTokenList : [Object] {
 }
 
 Event : [Object, UiEvent, Event] {
+
+}
+
++String {
+
+	Event { :self |
+		<primitive: return new Event(_self);>
+	}
 
 }
 
@@ -843,6 +871,11 @@ SVGGElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElemen
 
 SVGLineElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
 
+	p2 { :self :aPoint |
+		self.setAttribute('x2', aPoint.x);
+		self.setAttribute('y2', aPoint.y)
+	}
+
 }
 
 SVGPathElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
@@ -937,23 +970,7 @@ Text : [Object, EventTarget, Node, CharacterData] {
 
 }
 
-WebGLRenderingContext : [Object] {
-
-}
-
-XMLDocument : [Object, EventTarget, Node, Document] {
-
-}
-
 +String {
-
-	createElement { :self |
-		system.window.document.createElement(self)
-	}
-
-	getElementById { :self |
-		system.window.document.getElementById(self)
-	}
 
 	insertAtCursor { :self |
 		system.window.getSelection.getRangeAt(
@@ -965,12 +982,12 @@ XMLDocument : [Object, EventTarget, Node, Document] {
 		)
 	}
 
-	querySelector { :self |
-		system.window.document.querySelector(self)
-	}
+}
 
-	Event { :self |
-		<primitive: return new Event(_self);>
-	}
+WebGLRenderingContext : [Object] {
+
+}
+
+XMLDocument : [Object, EventTarget, Node, Document] {
 
 }

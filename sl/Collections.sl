@@ -1059,6 +1059,14 @@ Association : [Object] { | key value |
 		self.key = anAssociation.key
 	}
 
+	< { :self :anAssociation |
+		self.key < anAssociation.key
+	}
+
+	<= { :self :anAssociation |
+		self.key <= anAssociation.key
+	}
+
 	asArray { :self |
 		[self.key, self.value]
 	}
@@ -1167,6 +1175,136 @@ Float64Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 	Float64Array { :self |
 		<primitive: return new Float64Array(_self);>
+	}
+
+}
+
+IdentityBag : [Object, Collection] { | contents |
+
+	= { :self :aBag |
+		aBag.isIdentityBag & {
+			self.size = aBag.size & {
+				withReturn {
+					self.contents.associationsDo { :assoc |
+						(aBag.occurrencesOf(assoc.key) = assoc.value).ifFalse {
+							false.return
+						}
+					};
+					true
+				}
+			}
+		}
+	}
+
+	add { :self :anObject |
+		self.addWithOccurrences(anObject, 1)
+	}
+
+	addWithOccurrences { :self :anObject :anInteger |
+		self.includes(anObject).if {
+			self.contents[anObject] := anInteger + self.contents[anObject]
+		} {
+			self.contents[anObject] := anInteger
+		};
+		anObject
+	}
+
+	cumulativeCounts { :self |
+		| s = self.size / 100.0, n = 0; |
+		self.sortedCounts.collect { :a |
+			n := n + a.key;
+			(n / s.roundTo(0.1)) -> a.value
+		}
+	}
+
+	do { :self :aProcedure:/1 |
+		self.contents.associationsDo { :assoc |
+			assoc.value.timesRepeat {
+				aProcedure(assoc.key)
+			}
+		}
+	}
+
+	IdentityBag { :self |
+		self
+	}
+
+	IdentitySet { :self |
+		self.contents.keys.IdentitySet
+	}
+
+	includes { :self :anObject |
+		self.contents.includesKey(anObject)
+	}
+
+	occurrencesOf { :self :anObject |
+		self.contents.atIfAbsent(anObject) {
+			0
+		}
+	}
+
+	removeIfAbsent { :self :oldObject :whenAbsent:/0 |
+		self.includes(oldObject).if {
+			| count = self.contents[oldObject]; |
+			(count = 1).if {
+				self.contents.removeKey(oldObject)
+			} {
+				self.contents[oldObject] := count - 1
+			}
+		} {
+			whenAbsent()
+		};
+		oldObject
+	}
+
+	removeAll { :self |
+		self.contents.removeAll
+	}
+
+	setContents { :self :aDictionary |
+		self.contents := aDictionary
+	}
+
+	size { :self |
+		| tally = 0; |
+		self.contents.do { :each |
+			tally := tally + each
+		};
+		tally
+	}
+
+	sortedCounts { :self |
+		| answer = OrderedCollection(); |
+		self.contents.associationsDo { :anAssociation |
+			answer.add(anAssociation.value -> anAssociation.key)
+		};
+		answer.sharedArray.sorted
+	}
+
+	sortedElements { :self |
+		| answer = OrderedCollection(); |
+		self.contents.associationsDo { :anAssociation |
+			answer.add(anAssociation)
+		};
+		answer.sharedArray.sorted
+	}
+
+}
+
++Void {
+
+	IdentityBag {
+		newIdentityBag().initializeSlots(IdentityDictionary())
+	}
+
+}
+
++@Collection {
+
+	IdentityBag { :self |
+		| answer = IdentityBag(); |
+		answer.addAll(self);
+		answer
 	}
 
 }

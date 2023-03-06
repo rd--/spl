@@ -217,6 +217,14 @@ var a = Float64Array(1); a.unsafeAtPut(1, 'x'); a.at(1).isNaN = true
 var a = Float64Array(1); a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
 [1 .. 3].Float64Array.printString = '[1, 2, 3].Float64Array'
 
+'Collections-Unordered/IdentityBag'
+IdentityBag().typeOf = 'IdentityBag'
+var b = IdentityBag(); b.add('x'); b.add('x'); b.size = 2
+var b = IdentityBag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6
+[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].IdentityBag.size = 10
+[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].IdentityBag.sortedCounts = [1 -> 2, 2 -> 3, 3 -> 5, 4 -> 7]
+[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].IdentityBag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
+
 'Collections-Unordered/IdentityDictionary'
 var d = IdentityDictionary(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2
 var d = ['x' -> 1, 'y' -> 2].IdentityDictionary; d.keys = ['x', 'y']

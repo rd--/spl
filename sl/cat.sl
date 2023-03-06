@@ -13,6 +13,7 @@ system.categorizeDictionary(
 		],
 		'Collections-Unordered': [
 			'Association',
+			'IdentityBag',
 			'IdentityDictionary',
 			'IdentitySet',
 			'StringDictionary'

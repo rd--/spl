@@ -45,74 +45,65 @@ AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 
 	createElements { :self |
 		|
-		document = system.window.document,
-		svg = document.createSvgElement(
-			'svg',
-			(
+			svg = 'svg'.createSvgElement (
 				height: '200',
 				width: '200'
-			)
-		),
-		group = document.createSvgElement(
-			'g',
-			(
+			),
+			group = 'g'.createSvgElement (
 				transform: 'translate(100, 100) scale(1, -1)'
-			)
-		),
-		circle = document.createSvgElement(
-			'circle',
-			(
+			);
+		|
+		self.clockPane := 'div'.createElement;
+		self.hourHand := 'line'.createSvgElement (
+			x1: '0',
+			y1: '0',
+			x2: '0',
+			y2: '50',
+			stroke: 'cornflowerblue',
+			'stroke-width': '2'
+		);
+		self.minuteHand := 'line'.createSvgElement (
+			x1: '0',
+			y1: '0',
+			x2: '0',
+			y2: '80',
+			stroke: 'coral',
+			'stroke-width': '2'
+		);
+		self.secondHand := 'line'.createSvgElement (
+			x1: '0',
+			y1: '0',
+			x2: '0',
+			y2: '80',
+			stroke: 'darkseagreen'
+		);
+		group.appendChildren([
+			'circle'.createSvgElement (
 				cx: '0',
 				cy: '0',
 				r: '90',
 				fill: 'aquamarine'
-			)
-		);
-		|
-		self.clockPane := 'div'.createElement;
-		self.clockPane.setAttribute('class', 'clockPane');
-		self.hourHand := document.createSvgElement(
-			'line',
-			(
-				x1: '0',
-				y1: '0',
-				x2: '0',
-				y2: '60',
-				stroke: 'cornflowerblue',
-				'stroke-width': '2'
-			)
-		);
-		self.hourHand.setAttribute('class', 'hourHand');
-		self.minuteHand := document.createSvgElement(
-			'line',
-			(
-				x1: '0',
-				y1: '0',
-				x2: '0',
-				y2: '90',
-				stroke: 'coral',
-				'stroke-width': '2'
-			)
-		);
-		self.minuteHand.setAttribute('class', 'minuteHand');
-		self.secondHand := document.createSvgElement(
-			'line',
-			(
-				x1: '0',
-				y1: '0',
-				x2: '0',
-				y2: '90',
-				stroke: 'darkseagreen',
-				'stroke-width': '1'
-			)
-		);
-		self.secondHand.setAttribute('class', 'secondHand');
-		group.appendChildren([
-			circle,
+			),
 			self.hourHand,
 			self.minuteHand,
 			self.secondHand
 		]);
+		group.appendChildren([1 .. 12].collect { :each |
+			|
+			theta = each - 3 / 12 * 2 * pi,
+			point = PolarPoint(80, theta),
+			text = 'text'.createSvgElement (
+				x: point.x,
+				y: point.y,
+				'font-size': '11pt',
+				'text-anchor': 'middle',
+				'dominant-baseline': 'middle',
+				transform: 'scale(1, -1)'
+			);
+			|
+			text.textContent := each.printString;
+			text
+		});
 		svg.appendChild(group);
 		self.clockPane.appendChild(svg)
 	}
@@ -123,32 +114,19 @@ AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 		self
 	}
 
-	moveHourHand { :self :hour :minute |
-		|
-			fractionalHour = hour + (minute / 60),
-			theta = fractionalHour - 3 / 12 * 2 * pi,
-			point = PolarPoint(70, theta.negated);
-		|
-		self.hourHand.setAttribute('x2', point.x);
-		self.hourHand.setAttribute('y2', point.y)
+	moveHourHand { :self :fractionalHour |
+		| theta = fractionalHour - 3 / 12 * 2 * pi; |
+		self.hourHand.p2 := PolarPoint(55, theta.negated)
 	}
 
 	moveMinuteHand { :self :minute |
-		|
-			theta = minute - 15 / 60 * 2 * pi,
-			point = PolarPoint(90, theta.negated);
-		|
-		self.minuteHand.setAttribute('x2', point.x);
-		self.minuteHand.setAttribute('y2', point.y)
+		| theta = minute - 15 / 60 * 2 * pi; |
+		self.minuteHand.p2 := PolarPoint(80, theta.negated)
 	}
 
 	moveSecondHand { :self :minute |
-		|
-			theta = minute - 15 / 60 * 2 * pi,
-			point = PolarPoint(90, theta.negated);
-		|
-		self.secondHand.setAttribute('x2', point.x);
-		self.secondHand.setAttribute('y2', point.y)
+		| theta = minute - 15 / 60 * 2 * pi; |
+		self.secondHand.p2 := PolarPoint(85, theta.negated)
 	}
 
 	outerElement { :self |
@@ -157,7 +135,7 @@ AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 
 	tick { :self |
 		| dateAndTime = system.Date; |
-		self.moveHourHand(dateAndTime.hours, dateAndTime.minutes);
+		self.moveHourHand(dateAndTime.hours + (dateAndTime.minutes / 60));
 		self.moveMinuteHand(dateAndTime.minutes);
 		self.moveSecondHand(dateAndTime.seconds)
 	}
