@@ -1232,7 +1232,49 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 }
 
++Fraction {
+
+	latticeVector { :self :limit |
+		|
+		pf1 = self.numerator.primeFactors,
+		pf2 = self.denominator.primeFactors.collect(negated:/1),
+		pf3 = (pf1 ++ pf2).IdentityBag;
+		|
+		[3, 5, 7, 11, 13].select { :each |
+			each <= limit
+		}.collect { :each |
+			pf3.occurrencesOf(each) - pf3.occurrencesOf(each.negated)
+		}
+	}
+
+}
+
+
 +Array {
+
+	latticeVectorCoordinates { :self :unitVector |
+		self.withCollect(unitVector.first(self.size)) { :count :unit |
+			count * unit
+		}.sum
+	}
+
+	latticeVectorDistance { :self :anArray |
+		(self - anArray).abs.sum
+	}
+
+	wilsonLatticeVectorCoordinates { :self |
+		self.latticeVectorCoordinates([Point(20, 0), Point(0, 20), Point(4, 3), Point(-3, 4), Point(-1,2)])
+	}
+
+	tuningLattice { :self :limit |
+		self.collect { :each |
+			each.latticeVector(limit)
+		}
+	}
+
+	latticeWilson { :self :limit |
+		self.collect(wilsonLatticeVectorCoordinates:/1)
+	}
 
 	ScalaJiTuningBrowser { :self |
 		|
@@ -1271,13 +1313,18 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 						},
 						ratio1 = selected::tuning[1],
 						ratios = selected::tuning.collect { :each |
-							Fraction(each, ratio1).reduced
+							Fraction(each, ratio1).normalized
 						};
 					|
 					browser.setStatus(selected::description);
 					[
 						[1 .. selected::degree],
 						ratios,
+						ratios.collect { :each |
+							each.latticeVector(selected::limit).collect { :each |
+								each.asString.padLeft(2, ' ')
+							}.joinSeparatedBy(' ')
+						},
 						ratios.collect { :each |
 							(each.asFloat.RatioMidi * 100).rounded
 						},
@@ -1573,7 +1620,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 
 	keyBindings { :self |
 		[
-			MenuItem('Accept It', 'a') { :event |
+			MenuItem('Accept It', 's') { :event |
 				self.dispatchEvent(
 					CustomEvent(
 						'accept',
@@ -1712,3 +1759,62 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 	}
 
 }
+
++Array {
+
+	JiTuningLatticeDrawing { :self :limit |
+		|
+			svg = 'svg'.createSvgElement (
+				height: '200',
+				width: '200'
+			),
+			group = 'g'.createSvgElement (
+				transform: 'translate(100, 100) scale(1, -1)'
+			),
+			lattice = self.tuningLattice(limit),
+			points = lattice.collect(wilsonLatticeVectorCoordinates:/1) * 4,
+			dots = points.collect { :each |
+				'circle'.createSvgElement (
+					cx: each.x,
+					cy: each.y,
+					r: '1',
+					fill: 'black'
+				)
+			},
+			edges = [[1 .. self.size], [1 .. self.size]].allTuples.select { :each |
+				| [i, j] = each; |
+				i < j & {
+					lattice[i].latticeVectorDistance(lattice[j]) = 1
+				}
+			},
+			lines = edges.collect { :each |
+				| [i, j] = each; |
+				'line'.createSvgElement (
+					x1: points[i].x,
+					y1: points[i].y,
+					x2: points[j].x,
+					y2: points[j].y,
+					stroke: 'black',
+					'stroke-width': '0.25'
+				)
+			};
+		|
+		group.appendChildren(dots);
+		group.appendChildren(lines);
+		svg.appendChild(group);
+		svg
+	}
+
+}
+
+(*
+[1:1, 49:48, 9:8, 7:6, 9:7, 21:16, 49:36, 3:2, 49:32, 12:7, 7:4, 27:14]
+[2016, 2058, 2268, 2352, 2592, 2646, 2744, 3024, 3087, 3456, 3528, 3888].collect { :each | Fraction(each, 2016).normalized }
+
+workspace::smallKansas.SvgViewer(
+	'Alves',
+	[1:1, 49:48, 9:8, 7:6, 9:7, 21:16, 49:36, 3:2, 49:32, 12:7, 7:4, 27:14].JiTuningLatticeDrawing(7)
+)
+
+*)
+

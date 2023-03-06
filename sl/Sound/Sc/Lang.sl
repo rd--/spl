@@ -346,7 +346,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 +@SequenceableCollection {
 
 	allTuples { :self |
-		| answerSize = self.collect { :item | item.size }.product; |
+		| answerSize = self.collect(size:/1).product; |
 		1.to(answerSize).collect { :i |
 			| k = i - 1, nextTuple = self.species.new(self.size); |
 			self.size.toBy(1, -1).collect { :j |

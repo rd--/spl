@@ -253,7 +253,7 @@ const asJs: any = {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
 	},
 	fractionLiteral(s,i,_,f) {
-		return `_reduced_1(_Fraction_2(${s.sourceString}${i.sourceString}, ${f.sourceString}))`;
+		return `_normalized_1(_Fraction_2(${s.sourceString}${i.sourceString}, ${f.sourceString}))`;
 	},
 	integerLiteral(s,i) {
 		return `${s.sourceString}${i.sourceString}`;

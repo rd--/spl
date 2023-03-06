@@ -534,7 +534,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 				Fraction(
 					(self.numerator // d1) * (aNumber.numerator // d2),
 					(self.denominator // d2) * (aNumber.denominator // d1)
-				).reduced
+				).normalized
 			}
 		} {
 			aNumber.adaptToFractionAndApply(self, times:/2)
@@ -647,6 +647,25 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.numerator.negative
 	}
 
+	normalize { :self |
+		self.copy.normalized
+	}
+
+	normalized { :self |
+		(self.denominator = 0).if {
+			'Fraction>>normalized: zeroDenominatorError'.error
+		} {
+			|
+				x = self.numerator * self.denominator.sign,
+				y = self.denominator.abs,
+				d = x.gcd(y);
+			|
+			self.numerator := x // d;
+			self.denominator := y // d;
+			self
+		}
+	}
+
 	printString { :self |
 		self.numerator.printString ++ ':' ++ self.denominator.printString
 	}
@@ -670,7 +689,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		(self.numerator.abs = 1).if {
 			self.denominator * self.numerator
 		} {
-			Fraction(self.denominator, self.numerator).reduced
+			Fraction(self.denominator, self.numerator).normalized
 		}
 	}
 
@@ -680,7 +699,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	reduced { :self |
 		(self.denominator = 0).if {
-			'Fraction>>reduce: zeroDenominatorError'.error
+			'Fraction>>reduced: zeroDenominatorError'.error
 		} {
 			|
 				x = self.numerator * self.denominator.sign,
@@ -1497,6 +1516,15 @@ String : [Object] {
 		} {
 			('String>>occurrencesOf: not a string: ' ++ aString).error
 		}
+	}
+
+	padLeft { :self :anInteger :aString |
+		<primitive: return _self.padStart(_anInteger, _aString);>
+	}
+
+
+	padRight { :self :anInteger :aString |
+		<primitive: return _self.padEnd(_anInteger, _aString);>
 	}
 
 	parseBacktickQuotedString { :self |
