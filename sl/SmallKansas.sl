@@ -46,8 +46,8 @@ AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 	createElements { :self |
 		|
 			svg = 'svg'.createSvgElement (
-				height: '200',
-				width: '200'
+				viewBox: '0 0 200 200',
+				preserveAspectRatio: 'xMidYMid meet'
 			),
 			group = 'g'.createSvgElement (
 				transform: 'translate(100, 100) scale(1, -1)'
@@ -1232,56 +1232,10 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 }
 
-+Fraction {
-
-	latticeVector { :self :limit |
-		|
-		pf1 = self.numerator.primeFactors,
-		pf2 = self.denominator.primeFactors.collect(negated:/1),
-		pf3 = (pf1 ++ pf2).IdentityBag;
-		|
-		[3, 5, 7, 11, 13].select { :each |
-			each <= limit
-		}.collect { :each |
-			pf3.occurrencesOf(each) - pf3.occurrencesOf(each.negated)
-		}
-	}
-
-}
-
-
 +Array {
 
-	latticeVectorCoordinates { :self :unitVector |
-		self.withCollect(unitVector.first(self.size)) { :count :unit |
-			count * unit
-		}.sum
-	}
-
-	latticeVectorDistance { :self :anArray |
-		(self - anArray).abs.sum
-	}
-
-	wilsonLatticeVectorCoordinates { :self |
-		self.latticeVectorCoordinates([Point(20, 0), Point(0, 20), Point(4, 3), Point(-3, 4), Point(-1,2)])
-	}
-
-	tuningLattice { :self :limit |
-		self.collect { :each |
-			each.latticeVector(limit)
-		}
-	}
-
-	latticeWilson { :self :limit |
-		self.collect(wilsonLatticeVectorCoordinates:/1)
-	}
-
 	ScalaJiTuningBrowser { :self |
-		|
-			degrees = self.collect { :each |
-				each::degree
-			}.IdentitySet.Array.sorted.collect(asString:/1);
-		|
+		| degrees = self.collect(degree:/1).IdentitySet.Array.sorted.collect(asString:/1); |
 		ColumnBrowser('Scala Ji Tuning Browser', 'text/html', false, true, [1, 1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
@@ -1291,45 +1245,41 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 				1 -> {
 					browser.setStatus('Degree = ' ++ path[1]);
 					self.select { :each |
-						each::degree = path[1].parseInteger(10)
+						each.degree = path[1].parseInteger(10)
 					}.collect { :each |
-						each::limit
+						each.limit
 					}.IdentitySet.Array.sorted.collect(asString:/1)
 				},
 				2 -> {
 					browser.setStatus(['Degree = ', path[1], ', Limit = ', path[2]].join);
 					self.select { :each |
-						each::degree = path[1].parseInteger(10) & {
-							each::limit = path[2].parseInteger(10)
+						each.degree = path[1].parseInteger(10) & {
+							each.limit = path[2].parseInteger(10)
 						}
-					}.collect { :each |
-						each::name
-					}
+					}.collect(name:/1)
 				},
 				3 -> {
 					|
 						selected = self.detect { :each |
-							each::name = path[3]
+							each.name = path[3]
 						},
-						ratio1 = selected::tuning[1],
-						ratios = selected::tuning.collect { :each |
-							Fraction(each, ratio1).normalized
-						};
+						ratios = selected.ratios,
+						div = 'div'.createElement;
 					|
-					browser.setStatus(selected::description);
-					[
-						[1 .. selected::degree],
-						ratios,
-						ratios.collect { :each |
-							each.latticeVector(selected::limit).collect { :each |
-								each.asString.padLeft(2, ' ')
-							}.joinSeparatedBy(' ')
-						},
-						ratios.collect { :each |
-							(each.asFloat.RatioMidi * 100).rounded
-						},
-						selected::tuning
-					].transpose.asHtmlTable.outerHTML
+					browser.setStatus(selected.description);
+					div.appendChildren([
+						[
+							[1 .. selected.degree],
+							ratios,
+							ratios.collect { :each |
+								each.latticeVectorString(selected.limit)
+							},
+							selected.cents,
+							selected.pitches
+						].transpose.asHtmlTable,
+						selected.latticeDrawing
+					]);
+					div.outerHTML
 				}
 			])
 		}
@@ -1760,19 +1710,15 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 
 }
 
-+Array {
++JiTuning {
 
-	JiTuningLatticeDrawing { :self :limit |
+	latticeDrawing { :self |
 		|
-			svg = 'svg'.createSvgElement (
-				height: '200',
-				width: '200'
-			),
-			group = 'g'.createSvgElement (
-				transform: 'translate(100, 100) scale(1, -1)'
-			),
-			lattice = self.tuningLattice(limit),
-			points = lattice.collect(wilsonLatticeVectorCoordinates:/1) * 4,
+			vertices = self.latticeVertices,
+			edges = self.latticeEdges(vertices),
+			points = vertices.collect(wilsonLatticeCoordinates:/1) * 4,
+			xMax = points.collect(x:/1).abs.max + 5,
+			yMax = points.collect(y:/1).abs.max + 5,
 			dots = points.collect { :each |
 				'circle'.createSvgElement (
 					cx: each.x,
@@ -1780,12 +1726,6 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 					r: '1',
 					fill: 'black'
 				)
-			},
-			edges = [[1 .. self.size], [1 .. self.size]].allTuples.select { :each |
-				| [i, j] = each; |
-				i < j & {
-					lattice[i].latticeVectorDistance(lattice[j]) = 1
-				}
 			},
 			lines = edges.collect { :each |
 				| [i, j] = each; |
@@ -1795,9 +1735,18 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 					x2: points[j].x,
 					y2: points[j].y,
 					stroke: 'black',
-					'stroke-width': '0.25'
+					'stroke-width': '0.5'
 				)
-			};
+			},
+			svg = 'svg'.createSvgElement (
+				width: xMax * 2,
+				height: yMax * 2,
+				viewBox: '0 0 ' ++ (xMax * 2) ++ ' ' ++ (yMax * 2),
+				preserveAspectRatio: 'xMidYMid meet'
+			),
+			group = 'g'.createSvgElement (
+				transform: 'translate(' ++ xMax ++ ', ' ++ yMax ++ ') scale(1, -1)'
+			);
 		|
 		group.appendChildren(dots);
 		group.appendChildren(lines);
@@ -1808,12 +1757,10 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 }
 
 (*
-[1:1, 49:48, 9:8, 7:6, 9:7, 21:16, 49:36, 3:2, 49:32, 12:7, 7:4, 27:14]
-[2016, 2058, 2268, 2352, 2592, 2646, 2744, 3024, 3087, 3456, 3528, 3888].collect { :each | Fraction(each, 2016).normalized }
 
 workspace::smallKansas.SvgViewer(
 	'Alves',
-	[1:1, 49:48, 9:8, 7:6, 9:7, 21:16, 49:36, 3:2, 49:32, 12:7, 7:4, 27:14].JiTuningLatticeDrawing(7)
+	[2016, 2058, 2268, 2352, 2592, 2646, 2744, 3024, 3087, 3456, 3528, 3888].JiTuning.latticeDrawing
 )
 
 *)

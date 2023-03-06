@@ -9,7 +9,7 @@ system.window.fetchJson(
 	'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
 	()
 ).then { :answer |
-	workspace::ji := answer;
+	workspace::ji := answer.collect(JiTuning:/1);
 	workspace::smallKansas.ScalaJiTuningBrowser(workspace::ji, nil)
 }
 ```

@@ -1,4 +1,5 @@
 loadSequence([
+	'Music.sl',
 	'Sound/Osc.sl',
 	'Sound/Sc/Lang.sl',
 	'Sound/Sc/Synth.sl',
