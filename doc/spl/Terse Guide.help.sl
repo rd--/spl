@@ -32,7 +32,6 @@ false.ifFalse { true }
 (3 -> 2).perform('key') = 3
 3.perform('plus', 4) = 7
 4:3.slotNameArray = ['numerator', 'denominator']
-4:3.slotValueArray = [4, 3]
 4:3.slotArray = ['numerator' -> 4, 'denominator' -> 3]
 
 'Kernel-Behaviour/Procedure'

@@ -507,6 +507,49 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 
 }
 
+Inspector : [Object, View] { | inspectorPane |
+
+	addInspector { :self :aValue |
+		|
+		container = 'div'.createElement,
+		title = 'pre'.createElement,
+		select = 'select'.createElement;
+		|
+		container.setAttribute('class', 'inspector');
+		title.textContent := aValue.printString;
+		select.size := 6;
+		select.appendChildren(aValue.inspectAsArray.collect { :each |
+			TextOption(each.key ++ ': ' ++ each.value.printString, each.key)
+		});
+		select.deselect;
+		container.appendChildren([
+			title,
+			select
+		]);
+		self.inspectorPane.appendChild(container)
+	}
+
+	initialize { :self :aValue |
+		self.inspectorPane := 'div'.createElement;
+		self.inspectorPane.setAttribute('class', 'inspectorPane');
+		self.addInspector(aValue);
+		self
+	}
+
+	outerElement { :self |
+		self.inspectorPane
+	}
+
+}
+
++@Object {
+
+	Inspector { :self |
+		newInspector().initialize(self)
+	}
+
+}
+
 ColourChooser : [Object, View] { | colourChooserPane colourInput |
 
 	hexString { :self |
@@ -914,6 +957,10 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 			}.IdentitySet.Array.sorted ;
 		|
 		self.addFrame(MethodSignatureBrowser(methodSignatures, false), event)
+	}
+
+	inspectorOn { :self :aValue :event |
+		self.addFrame(Inspector(aValue), event)
 	}
 
 	initialize { :self |
@@ -1605,6 +1652,9 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 			MenuItem('Implementors Of It', 'm') { :event |
 				workspace::smallKansas.implementorsOf(self.currentWord.asMethodName, event)
 			},
+			MenuItem('Inspect It', 'i') { :event |
+				workspace::smallKansas.inspectorOn(self.currentWord.eval, event)
+			},
 			MenuItem('Play It', 'Enter') { :event |
 				('{ ' ++ self.currentText ++ ' }.play').eval
 			},
@@ -1783,53 +1833,8 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 
 +@Object {
 
-	inspectorQueries { :self |
-		self.slotNameArray.collect { :each |
-			each -> {
-				self.perform(each)
-			}
-		} ++ [
-			self.typeOf -> {
-				self.Type
-			}
-		]
+	inspect { :self |
+		workspace::smallKansas.inspectOn(self, nil)
 	}
 
 }
-
-+@Dictionary {
-
-	inspectorQueries { :self |
-		[
-			self.typeOf -> {
-				self.Type
-			},
-			'size' -> {
-				self.size
-			}
-		] ++ self.keys.collect { :each |
-			each.asString -> {
-				self[each]
-			}
-		}
-	}
-
-}
-
-+Type {
-
-	inspectorQueries { :self |
-		[
-			'methodDictionary' -> {
-				self.methodDictionary
-			}
-			'traitArray' -> {
-				self.traitNameArray.collect { :each |
-					system.traitLookup(each)
-				}
-			}
-		]
-	}
-
-}
-

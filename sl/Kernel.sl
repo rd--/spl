@@ -353,6 +353,21 @@
 		self
 	}
 
+	inspectAsArray { :self |
+		[
+			['Type' -> self.Type],
+			self.slotArray,
+			self.pseudoSlotArray,
+			self.isCollection.if {
+				self.indices.collect { :each |
+					each.asString -> self[each]
+				}
+			} {
+				[]
+			}
+		].concatenation
+	}
+
 	isByte { :self |
 		false
 	}
@@ -377,6 +392,16 @@
 		self.typeOf
 	}
 
+	pseudoSlotArray { :self |
+		self.pseudoSlotNameArray.collect { :each |
+			each -> self.perform(each)
+		}
+	}
+
+	pseudoSlotNameArray { :self |
+		[]
+	}
+
 	return { :self |
 		<primitive: throw _self;>
 	}
@@ -389,12 +414,6 @@
 
 	slotNameArray { :self |
 		self.Type.slotNameArray
-	}
-
-	slotValueArray { :self |
-		self.slotNameArray.collect { :each |
-			self.perform(each)
-		}
 	}
 
 	then { :self :aProcedure:/1 |
@@ -1254,7 +1273,17 @@ Procedure : [Object] {
 	}
 
 	withReturn { :self |
-		<primitive: try { return _self(); } catch (ret) { if(ret instanceof Error) { throw(ret); } { return ret; } }>
+		<primitive:
+		try {
+			return _self();
+		} catch (ret) {
+			if(ret instanceof Error) {
+				throw(ret);
+			} {
+				return ret;
+			}
+		}
+		>
 	}
 
 	value { :self:/0 |

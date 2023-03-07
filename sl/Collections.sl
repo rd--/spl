@@ -294,6 +294,10 @@
 		}
 	}
 
+	indices { :self |
+		nil
+	}
+
 	includesAllOf { :self :aCollection |
 		withReturn {
 			aCollection.do { :elem |
@@ -315,6 +319,10 @@
 
 	isCollection { :self |
 		true
+	}
+
+	isIndexable { :self |
+		false
 	}
 
 	isEmpty { :self |
@@ -347,6 +355,10 @@
 
 	product { :self |
 		self.reduce(times:/2)
+	}
+
+	pseudoSlotNameArray { :self |
+		['size']
 	}
 
 	reduce { :self :aProcedure:/2 |
@@ -587,8 +599,16 @@
 		}
 	}
 
+	indices { :self |
+		self.keys
+	}
+
 	isDictionary { :self |
 		true
+	}
+
+	isIndexable { :self |
+		false
 	}
 
 	keyAtValue { :self :value |
@@ -795,6 +815,14 @@
 			};
 			0
 		}
+	}
+
+	indices { :self |
+		(1 .. self.size)
+	}
+
+	isIndexable { :self |
+		false
 	}
 
 	isSequenceable { :self |
@@ -1785,6 +1813,10 @@ PriorityQueue : [Object] {
 
 	pop { :self |
 		<primitive: return _self.pop();>
+	}
+
+	pseudoSlotNameArray { :self |
+		['size']
 	}
 
 	push { :self :item :priority |

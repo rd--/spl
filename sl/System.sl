@@ -67,6 +67,10 @@ Method : [Object] {
 		<primitive: return _self.procedure;>
 	}
 
+	pseudoSlotNameArray { :self |
+		['name', 'procedure', 'arity', 'sourceCode', 'origin']
+	}
+
 	qualifiedName { :self |
 		self.name ++ ':/' ++ self.arity
 	}
@@ -525,6 +529,10 @@ Trait : [Object] {
 		<primitive: return _self.name;>
 	}
 
+	pseudoSlotNameArray { :self |
+		['name', 'methodDictionary']
+	}
+
 	printString { :self |
 		self.qualifiedName
 	}
@@ -567,6 +575,10 @@ Type : [Object] {
 
 	printString { :self |
 		self.qualifiedName
+	}
+
+	pseudoSlotNameArray { :self |
+		['name', 'traitNameArray', 'slotNameArray', 'methodDictionary']
 	}
 
 	qualifiedName { :self |
