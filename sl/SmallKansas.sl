@@ -785,7 +785,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 	}
 
 	fontMenuEntriesOn { :self :subject |
-		['APL333', 'Los Altos', 'Parc Place'].collect { :fontName |
+		['APL333', 'Los Altos', 'Monaco', 'Parc Place'].collect { :fontName |
 			MenuItem(fontName, nil) { :unusedEvent |
 				subject.font := fontName
 			}
@@ -1710,6 +1710,19 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 
 }
 
++Rectangle {
+
+	viewBoxString { :self :margin |
+		[
+			self.origin.x - margin,
+			self.origin.y - margin,
+			self.width + (margin * 2),
+			self.height + (margin * 2)
+		].collect(asString:/1).unwords
+	}
+
+}
+
 +JiTuning {
 
 	latticeDrawing { :self |
@@ -1717,8 +1730,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 			vertices = self.latticeVertices,
 			edges = self.latticeEdges(vertices),
 			points = vertices.collect(wilsonLatticeCoordinates:/1) * 4,
-			xMax = points.collect(x:/1).abs.max + 5,
-			yMax = points.collect(y:/1).abs.max + 5,
+			bbox = points.computeBoundingBox,
 			dots = points.collect { :each |
 				'circle'.createSvgElement (
 					cx: each.x,
@@ -1739,13 +1751,13 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 				)
 			},
 			svg = 'svg'.createSvgElement (
-				width: xMax * 2,
-				height: yMax * 2,
-				viewBox: '0 0 ' ++ (xMax * 2) ++ ' ' ++ (yMax * 2),
+				width: bbox.width,
+				height: bbox.height,
+				viewBox: bbox.viewBoxString(5),
 				preserveAspectRatio: 'xMidYMid meet'
 			),
 			group = 'g'.createSvgElement (
-				transform: 'translate(' ++ xMax ++ ', ' ++ yMax ++ ') scale(1, -1)'
+				transform: 'translate(0, ' ++ (bbox.height + (2 * bbox.origin.y)) ++ ') scale(1, -1)'
 			);
 		|
 		group.appendChildren(dots);

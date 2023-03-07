@@ -1,3 +1,49 @@
+@Point {
+
+	= { :self :aPoint |
+		self.x = aPoint.x & {
+			self.y = aPoint.y
+		}
+	}
+
+	< { :self :aPoint |
+		self.x < aPoint.x & {
+			self.y < aPoint.y
+		}
+	}
+
+	<= { :self :aPoint |
+		self.x <= aPoint.x & {
+			self.y <= aPoint.y
+		}
+	}
+
+	dotProduct { :self :aPoint |
+		(self.x * aPoint.x) + (self.y * aPoint.y)
+	}
+
+	isPoint { :self |
+		true
+	}
+
+	max { :self :aPoint |
+		self.x.max(aPoint.x) @ self.y.max(aPoint.y)
+	}
+
+	min { :self :aPoint |
+		self.x.min(aPoint.x) @ self.y.min(aPoint.y)
+	}
+
+}
+
++@Object {
+
+	isPoint { :self |
+		false
+	}
+
+}
+
 Colour : [Object] { | red green blue alpha |
 
 	hexString { :self |
@@ -57,134 +103,6 @@ Colour : [Object] { | red green blue alpha |
 		} {
 			('String>>parseHexColour: ' ++ self).error
 		}
-	}
-
-}
-
-@Point {
-
-	= { :self :aPoint |
-		self.x = aPoint.x & {
-			self.y = aPoint.y
-		}
-	}
-
-	< { :self :aPoint |
-		self.x < aPoint.x & {
-			self.y < aPoint.y
-		}
-	}
-
-	<= { :self :aPoint |
-		self.x <= aPoint.x & {
-			self.y <= aPoint.y
-		}
-	}
-
-	dotProduct { :self :aPoint |
-		(self.x * aPoint.x) + (self.y * aPoint.y)
-	}
-
-	max { :self :aPoint |
-		self.x.max(aPoint.x) @ self.y.max(aPoint.y)
-	}
-
-	min { :self :aPoint |
-		self.x.min(aPoint.x) @ self.y.min(aPoint.y)
-	}
-
-}
-
-Point : [Object, Point] { | x y |
-
-	= { :self :anObject |
-		anObject.isPoint.if {
-			(self.x = anObject.x) & { self.y = anObject.y }
-		} {
-			false
-		}
-	}
-
-	+ { :self :anObject |
-		anObject.isPoint.if {
-			Point(self.x + anObject.x, self.y + anObject.y)
-		} {
-			anObject.adaptToPointAndApply(self, plus:/2)
-		}
-	}
-
-	- { :self :anObject |
-		anObject.isPoint.if {
-			Point(self.x - anObject.x, self.y - anObject.y)
-		} {
-			anObject.adaptToPointAndApply(self, minus:/2)
-		}
-	}
-
-	* { :self :anObject |
-		anObject.isPoint.if {
-			Point(self.x * anObject.x, self.y * anObject.y)
-		} {
-			anObject.adaptToPointAndApply(self, times:/2)
-		}
-	}
-
-	/ { :self :anObject |
-		anObject.isPoint.if {
-			Point(self.x / anObject.x, self.y / anObject.y)
-		} {
-			anObject.adaptToPointAndApply(self, dividedBy:/2)
-		}
-	}
-
-	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
-		aProcedure(aNumber.Point, self)
-	}
-
-	collect { :self :aProcedure:/1 |
-		Point(self.x.aProcedure, self.y.aProcedure)
-	}
-
-	negate { :self |
-		self.collect(negate:/1)
-	}
-
-	printString { :self |
-		'Point(' ++ self.x.printString ++ ', ' ++ self.y.printString ++ ')'
-	}
-
-	Point { :self |
-		self
-	}
-
-	r { :self |
-		(* r = radius = rho *)
-		(self.x.squared + self.y.squared).sqrt
-	}
-
-	t { :self |
-		(* t = theta *)
-		atan2(self.y, self.x)
-	}
-
-}
-
-+@Number {
-
-	adaptToPointAndApply { :self :aPoint :aProcedure:/2 |
-		aProcedure(aPoint, self.Point)
-	}
-
-	at { :self :aNumber |
-		Point(self, aNumber)
-	}
-
-	Point { :self |
-		Point(self, self)
-	}
-
-	Point { :self :aNumber |
-		newPoint().initializeSlots(self, aNumber)
 	}
 
 }
@@ -306,6 +224,11 @@ Rectangle : [Object] { | origin corner |
 		Rectangle(self.origin * scale, self.corner * scale)
 	}
 
+	swallow { :self :aRectangle |
+		self.origin := self.origin.min(aRectangle.origin);
+		self.corner := self.corner.max(aRectangle.corner)
+	}
+
 	topLeft { :self |
 		self.origin
 	}
@@ -319,7 +242,7 @@ Rectangle : [Object] { | origin corner |
 	}
 
 	width { :self |
-		self.corner.y - self.origin.y
+		self.corner.x - self.origin.x
 	}
 
 	x { :self |
@@ -332,10 +255,160 @@ Rectangle : [Object] { | origin corner |
 
 }
 
-+Point {
++@Point {
 
 	Rectangle { :self :aPoint |
 		newRectangle().initializeSlots(self, aPoint)
+	}
+
+}
+
++Array {
+
+	computeBoundingBox { :self |
+		| box = Rectangle(self[1], self[1]); |
+		self.do { :aPoint |
+			box.swallow(Rectangle(aPoint, aPoint))
+		};
+		box
+	}
+
+}
+
+Vector2 : [Object, Point] { | x y |
+
+	= { :self :anObject |
+		anObject.isPoint.if {
+			(self.x = anObject.x) & { self.y = anObject.y }
+		} {
+			false
+		}
+	}
+
+	+ { :self :anObject |
+		anObject.isPoint.if {
+			Point(self.x + anObject.x, self.y + anObject.y)
+		} {
+			anObject.adaptToPointAndApply(self, plus:/2)
+		}
+	}
+
+	- { :self :anObject |
+		anObject.isPoint.if {
+			Point(self.x - anObject.x, self.y - anObject.y)
+		} {
+			anObject.adaptToPointAndApply(self, minus:/2)
+		}
+	}
+
+	* { :self :anObject |
+		anObject.isPoint.if {
+			Point(self.x * anObject.x, self.y * anObject.y)
+		} {
+			anObject.adaptToPointAndApply(self, times:/2)
+		}
+	}
+
+	/ { :self :anObject |
+		anObject.isPoint.if {
+			Point(self.x / anObject.x, self.y / anObject.y)
+		} {
+			anObject.adaptToPointAndApply(self, dividedBy:/2)
+		}
+	}
+
+	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
+		aProcedure(aNumber.Point, self)
+	}
+
+	collect { :self :aProcedure:/1 |
+		Point(self.x.aProcedure, self.y.aProcedure)
+	}
+
+	negate { :self |
+		self.collect(negate:/1)
+	}
+
+	printString { :self |
+		self.x.printString ++ '@' ++ self.y.printString
+	}
+
+	Point { :self |
+		self
+	}
+
+	r { :self |
+		(* r = radius = rho *)
+		(self.x.squared + self.y.squared).sqrt
+	}
+
+	storeString { :self |
+		'Point(' ++ self.x.printString ++ ', ' ++ self.y.printString ++ ')'
+	}
+
+	t { :self |
+		(* t = theta *)
+		atan2(self.y, self.x)
+	}
+
+}
+
++@Number {
+
+	adaptToPointAndApply { :self :aPoint :aProcedure:/2 |
+		aProcedure(aPoint, self.Point)
+	}
+
+	at { :self :y |
+		Vector2(self, y)
+	}
+
+	Point { :self |
+		Point(self, self)
+	}
+
+	Point { :self :y |
+		Vector2(self, y)
+	}
+
+	Vector2 { :self :y |
+		newVector2().initializeSlots(self, y)
+	}
+
+}
+
+Vector3 : [Object] { | x y z |
+
+	Vector2 { :self |
+		Vector2(x, y)
+	}
+
+}
+
++@Number {
+
+	Vector3 { :self :y :z |
+		newVector3().initializeSlots(self, y, z)
+	}
+
+}
+
+Vector4 : [Object] { | x y z w |
+
+	Vector2 { :self |
+		Vector2(x, y)
+	}
+
+	Vector3 { :self |
+		Vector3(x, y, z)
+	}
+
+}
+
++@Number {
+
+	Vector4 { :self :y :z :w |
+		newVector4().initializeSlots(self, y, z, w)
 	}
 
 }
