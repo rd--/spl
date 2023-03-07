@@ -365,6 +365,14 @@
 		false
 	}
 
+	perform { :self :aString |
+		system.methodLookupAtType(aString, 1, self.typeOf).procedure . (self)
+	}
+
+	perform { :self :aString :aValue |
+		system.methodLookupAtType(aString, 2, self.typeOf).procedure . (self, aValue)
+	}
+
 	printString { :self |
 		self.typeOf
 	}
@@ -373,12 +381,32 @@
 		<primitive: throw _self;>
 	}
 
+	slotArray { :self |
+		self.Type.slotNameArray.collect { :each |
+			each -> self.perform(each)
+		}
+	}
+
+	slotNameArray { :self |
+		self.Type.slotNameArray
+	}
+
+	slotValueArray { :self |
+		self.slotNameArray.collect { :each |
+			self.perform(each)
+		}
+	}
+
 	then { :self :aProcedure:/1 |
 		self.aProcedure
 	}
 
 	throw { :self |
 		<primitive: throw _self;>
+	}
+
+	Type { :self |
+		system.typeLookup(self.typeOf)
 	}
 
 	typeOf { :self |

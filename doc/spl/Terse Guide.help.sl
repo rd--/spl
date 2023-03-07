@@ -20,7 +20,7 @@ false || true = true
 true.ifTrue { true }
 false.ifFalse { true }
 
-'Kernel-Objects/Object'
+'Kernel-Objects/@Object'
 [1, 3, 5].typeOf = 'Array'
 [1, 3, 5].species = Array:/1
 [1, 3, 5].IdentitySet.species = IdentitySet:/0
@@ -28,6 +28,12 @@ false.ifFalse { true }
 (x: 1, y: 3, z: 5).species = StringDictionary:/0
 'b'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) = 2
 { 'd'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) }.ifError { :err | true }
+3:2.perform('numerator') = 3
+(3 -> 2).perform('key') = 3
+3.perform('plus', 4) = 7
+4:3.slotNameArray = ['numerator', 'denominator']
+4:3.slotValueArray = [4, 3]
+4:3.slotArray = ['numerator' -> 4, 'denominator' -> 3]
 
 'Kernel-Behaviour/Procedure'
 var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5
@@ -186,7 +192,7 @@ var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
 [1 .. 9].ByteArray.reversed = [9 .. 1].ByteArray
 [1 .. 3].ByteArray.printString = '[1, 2, 3].ByteArray'
 
-'Collections-Abstract/Collection'
+'Collections-Abstract/@Collection'
 [1, 3, 5].select { :x | x > 1 } = [3, 5]
 [1, 3, 5].IdentitySet.select { :x | x > 1 } = [3, 5].IdentitySet
 [1, 3, 5].OrderedCollection.select { :x | x > 1 } = [3, 5].OrderedCollection
@@ -195,7 +201,7 @@ var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
 [].species.newFrom(OrderedCollection()) = []
 OrderedCollection().Array = []
 
-'Collections-Unordered/Dictionary'
+'Collections-Unordered/@Dictionary'
 unicodeFractions().isDictionary = true
 unicodeFractions().associations.isArray = true
 
@@ -438,7 +444,7 @@ Error('message').log = nil
 { Error('message').signal }.ifError { :err | true }
 { error('message') }.ifError { :err | true }
 
-'Kernel-Numbers/Binary'
+'Kernel-Numbers/@Binary'
 16 << 3 = 128
 16 >> 3 = 2
 23 << 7 = 2944
@@ -608,13 +614,13 @@ system.methodDictionary::collect.isIdentityDictionary = true
 system.methodDictionary::collect[2].isIdentityDictionary = true
 system.methodDictionary::collect[2]::Array.isMethod = true
 system.methodDictionary.includesKey('collect') = true
-system.allMethods.collect { :each | each.signature }.includes('Collection*>>sum:/1') = true
-'Collection*>>sum:/1'.parseMethodSignature = ['Collection*', 'sum:/1']
-'Collection*'.parseQualifiedTraitName = 'Collection'
+system.allMethods.collect { :each | each.signature }.includes('@Collection>>sum:/1') = true
+'@Collection>>sum:/1'.parseMethodSignature = ['@Collection', 'sum:/1']
+'@Collection'.parseQualifiedTraitName = 'Collection'
 system.methodLookupAtType('collect', 2, 'Array').isMethod = true
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Interval') = true
 system.methodSignatures('add').includes('IdentityDictionary>>add:/2') = true
-system.methodLookupAtSignature('Collection*>>sum:/1').isMethod = true
+system.methodLookupAtSignature('@Collection>>sum:/1').isMethod = true
 system.methodLookupAtType('sum', 1, 'Array').sourceCode = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
 system.methodTypes('last:/1').includes('Interval') = true
 system.multipleArityMethodList.includes('randomFloat') = true
@@ -661,11 +667,12 @@ system.typeDictionary::Association.methodDictionary.includesKey('key:/1') = true
 system.typeDictionary::UndefinedObject.methodDictionary.includesKey('ifNil:/2') = true
 system.typeMethods('Association').select({ :each | each.name = 'copy' }).size = 1
 system.typeMethods('Association').collect(name:/1).includes('copy') = true
-system.type('Array').isType = true
-system.type('Array').name = 'Array'
-system.type('Array').methodDictionary.includesKey('copy:/1') = true
-system.type('Array').methodDictionary::copy:/1.isMethod = true
+system.typeLookup('Array').isType = true
+system.typeLookup('Array').name = 'Array'
+system.typeLookup('Array').methodDictionary.includesKey('copy:/1') = true
+system.typeLookup('Array').methodDictionary::copy:/1.isMethod = true
 system.typeMethodSet('Array').collect(name:/1).includes('select') = true
+system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 
 'System/URL'
 'http://cern.ch/'.URL.isURL = true

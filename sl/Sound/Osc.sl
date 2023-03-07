@@ -1,8 +1,8 @@
-OscParameter : [Object] { | type value |
+OscParameter : [Object] { | typeTag value |
 
 	dictionary { :self |
 		(
-			type: self.type,
+			type: self.typeTag,
 			value: self.value
 		)
 	}
@@ -56,7 +56,12 @@ OscMessage : [Object] { | address parameterArray |
 	}
 
 	encode { :self |
-		<primitive: return sc.encodeServerPacket(_dictionary_1(_self), {metadata: true});>
+		<primitive: return
+		sc.encodeServerPacket(
+			_dictionary_1(_self),
+			{metadata: true}
+		);
+		>
 	}
 
 }
@@ -64,7 +69,10 @@ OscMessage : [Object] { | address parameterArray |
 +String {
 
 	OscMessage { :self :parameterArray |
-		newOscMessage().initializeSlots(self, parameterArray.collect(OscParameter:/1))
+		newOscMessage().initializeSlots(
+			self,
+			parameterArray.collect(OscParameter:/1)
+		)
 	}
 
 }

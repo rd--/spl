@@ -1201,6 +1201,19 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 				workspace::clock.clear;
 				system.defaultScSynth.reset
 			},
+			MenuItem('Scala Ji Tuning Browser', nil) { :event |
+				workspace::ji.isNil.if {
+					system.window.fetchJson(
+						'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
+						()
+					).then { :answer |
+						workspace::ji := answer.collect(JiTuning:/1);
+						workspace::smallKansas.ScalaJiTuningBrowser(workspace::ji, nil)
+					}
+				} {
+					workspace::smallKansas.ScalaJiTuningBrowser(workspace::ji, nil)
+				}
+			},
 			MenuItem('System Browser', nil) { :event |
 				self.SystemBrowser(event)
 			},
@@ -1768,12 +1781,55 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 
 }
 
-(*
++@Object {
 
-workspace::smallKansas.SvgViewer(
-	'Alves',
-	[2016, 2058, 2268, 2352, 2592, 2646, 2744, 3024, 3087, 3456, 3528, 3888].JiTuning.latticeDrawing
-)
+	inspectorQueries { :self |
+		self.slotNameArray.collect { :each |
+			each -> {
+				self.perform(each)
+			}
+		} ++ [
+			self.typeOf -> {
+				self.Type
+			}
+		]
+	}
 
-*)
+}
+
++@Dictionary {
+
+	inspectorQueries { :self |
+		[
+			self.typeOf -> {
+				self.Type
+			},
+			'size' -> {
+				self.size
+			}
+		] ++ self.keys.collect { :each |
+			each.asString -> {
+				self[each]
+			}
+		}
+	}
+
+}
+
++Type {
+
+	inspectorQueries { :self |
+		[
+			'methodDictionary' -> {
+				self.methodDictionary
+			}
+			'traitArray' -> {
+				self.traitNameArray.collect { :each |
+					system.traitLookup(each)
+				}
+			}
+		]
+	}
+
+}
 

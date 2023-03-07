@@ -333,7 +333,11 @@ System : [Object] {
 		<primitive: return Math.random();>
 	}
 
-	trait { :self :traitName |
+	traitDictionary { :self |
+		<primitive: return _self.traitDictionary;>
+	}
+
+	traitLookup { :self :traitName |
 		self.isTraitName(traitName).if {
 			self.traitDictionary[traitName]
 		} {
@@ -341,12 +345,8 @@ System : [Object] {
 		}
 	}
 
-	traitDictionary { :self |
-		<primitive: return _self.traitDictionary;>
-	}
-
 	traitMethods { :self :traitName |
-		self.trait(traitName).methodDictionary.values
+		self.traitLookup(traitName).methodDictionary.values
 	}
 
 	traitOrType { :self :traitOrTypeName |
@@ -369,7 +369,7 @@ System : [Object] {
 		}
 	}
 
-	type { :self :typeName |
+	typeLookup { :self :typeName |
 		self.isTypeName(typeName).if {
 			self.typeDictionary[typeName]
 		} {
@@ -383,13 +383,13 @@ System : [Object] {
 
 	typeMethods { :self :typeName |
 		(* Methods implemented directly at typeName, i.e. non-Trait methods. *)
-		self.type(typeName).methodDictionary.values
+		self.typeLookup(typeName).methodDictionary.values
 	}
 
 	typeMethodSet { :self :typeName |
-		| type = self.type(typeName), answer = IdentitySet(); |
+		| type = self.typeLookup(typeName), answer = IdentitySet(); |
 		type.traitNameArray.do { :traitName |
-			self.trait(traitName).methodDictionary.valuesDo { :method |
+			self.traitLookup(traitName).methodDictionary.valuesDo { :method |
 				answer.add(method)
 			}
 		};
@@ -400,7 +400,7 @@ System : [Object] {
 	}
 
 	typeTraits { :self :typeName |
-		self.type(typeName).traitNameArray
+		self.typeLookup(typeName).traitNameArray
 	}
 
 	typesImplementingTrait { :self :traitName |
@@ -525,6 +525,10 @@ Trait : [Object] {
 		<primitive: return _self.name;>
 	}
 
+	printString { :self |
+		self.qualifiedName
+	}
+
 	qualifiedName { :self |
 		'@' ++ self.name
 	}
@@ -561,12 +565,22 @@ Type : [Object] {
 		<primitive: return _self.name;>
 	}
 
+	printString { :self |
+		self.qualifiedName
+	}
+
 	qualifiedName { :self |
 		self.name
 	}
 
 	slotNameArray { :self |
 		<primitive: return _self.slotNameArray;>
+	}
+
+	traitArray { :self |
+		self.traitNameArray.collect { :each |
+			system.traitLookup(each)
+		}
 	}
 
 	traitNameArray { :self |
