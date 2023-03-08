@@ -48,9 +48,14 @@ system.categorizeDictionary(
 		],
 		'Kernel-Graphics': [
 			'Colour',
-			'Point',
 			'PolarPoint',
-			'Rectangle'
+			'Rectangle',
+			'Vector2',
+			'Vector3',
+			'Vector4'
+		],
+		'Music-Tuning': [
+			'JiTuning'
 		],
 		'Sound-Osc': [
 			'OscBundle',
@@ -82,8 +87,9 @@ system.categorizeDictionary(
 			'ColourChooser',
 			'ColumnBrowser',
 			'AnalogueClock',
-			'FilterSelect',
 			'Frame',
+			'Inspector',
+			'ListChooser',
 			'Menu',
 			'MenuItem',
 			'PngViewer',

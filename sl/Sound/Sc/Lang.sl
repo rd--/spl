@@ -177,6 +177,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	squared { :self | self.collect(squared:/1) }
 	tan { :self | self.collect(tan:/1) }
 	tanh { :self | self.collect(tanh:/1) }
+	truncated { :self | self.collect(truncated:/1) }
 
 	AmpDb { :self | self.collect(AmpDb:/1) }
 	DbAmp { :self | self.collect(DbAmp:/1) }
@@ -193,6 +194,10 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 }
 
 +@Number {
+
+	ampComp { :freq :root :exp |
+		(root / freq) ** exp
+	}
 
 	AmpDb { :self |
 		self.log10 * 20

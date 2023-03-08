@@ -47,6 +47,12 @@
 		<primitive: return _self.createElement(_tagName);>
 	}
 
+	createElement { :self :tagName :attributeDictionary |
+		| element = self.createElement(tagName); |
+		element.setAttributes(attributeDictionary);
+		element
+	}
+
 	createElementNS { :self :namespaceURI :qualifiedName |
 		<primitive: return _self.createElementNS(_namespaceURI, _qualifiedName);>
 	}
@@ -99,6 +105,10 @@
 
 	createElement { :self |
 		system.window.document.createElement(self)
+	}
+
+	createElement { :self :attributeDictionary |
+		system.window.document.createElement(self, attributeDictionary)
 	}
 
 	createSvgElement { :self :attributeDictionary |
@@ -290,6 +300,19 @@
 
 	transform { :self :transformList |
 		<primitive: return _self.transform = transformList;>
+	}
+
+}
+
++Rectangle {
+
+	viewBoxString { :self :margin |
+		[
+			self.origin.x - margin,
+			self.origin.y - margin,
+			self.width + (margin * 2),
+			self.height + (margin * 2)
+		].collect(asString:/1).unwords
 	}
 
 }
@@ -758,6 +781,27 @@ KeyboardEvent : [Object, UiEvent, Event] {
 
 }
 
+Location : [Object] {
+
+	hash { :self | <primitive: return _self.hash;> }
+	host { :self | <primitive: return _self.host;> }
+	hostname { :self | <primitive: return _self.hostname;> }
+	href { :self | <primitive: return _self.href;> }
+	origin { :self | <primitive: return _self.origin;> } (* read only *)
+	pathname { :self | <primitive: return _self.pathname;> }
+	port { :self | <primitive: return _self.port;> }
+	protocol { :self | <primitive: return _self.protocol;> }
+	search { :self | <primitive: return _self.search;> }
+
+	reload { :self | <primitive: return _self.reload();> }
+	replace { :self :url | <primitive: return _self.reload(_url);> }
+
+	pseudoSlotNameArray { :self |
+		['protocol', 'hostname', 'port', 'pathname', 'search', 'hash']
+	}
+
+}
+
 MediaSource : [Object, EventTarget] {
 
 }
@@ -857,6 +901,35 @@ Selection : [Object] {
 
 	toString { :self |
 		<primitive: return _self.toString();>
+	}
+
+}
+
+Storage : [Object, Collection, Dictionary] {
+
+	length { :self | <primitive: return _self.length;> }
+	key { :self :index | <primitive: return _self.key(_index);> }
+	getItem { :self :key | <primitive: return _self.getItem(_key);> }
+	setItem { :self :key :value | <primitive: return _self.setItem(_key, _value);> }
+	removeItem { :self :key | <primitive: return _self.removeItem(_key);> }
+	clear { :self | <primitive: return _self.clear();> }
+
+	at { :self :key |
+		self.getItem(key)
+	}
+
+	atPut { :self :key :value |
+		self.setItem(key, value)
+	}
+
+	keys { :self |
+		(0 .. self.length - 1).collect { :index |
+			self.key(index)
+		}
+	}
+
+	size { :self |
+		self.length
 	}
 
 }

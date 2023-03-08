@@ -154,32 +154,95 @@ AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 
 }
 
+ColourChooser : [Object, View] { | colourChooserPane colourInput |
+
+	hexString { :self |
+		self.colourInput.getAttribute('value')
+	}
+
+	initialize { :self :initialColour :onSelect:/1 |
+		self.colourChooserPane := 'div'.createElement (
+			class: 'colourChooser'
+		);
+		self.colourInput := 'input'.createElement (
+			class: 'colourInput',
+			type: 'color',
+			value: initialColour.hexString
+		);
+		self.colourChooserPane.appendChild(self.colourInput);
+		self.colourInput.addEventListener('input') { :event |
+			onSelect(event.target.value.parseHexColour)
+		};
+		self
+	}
+
+	outerElement { :self |
+		self.colourChooserPane
+	}
+
+	title { :self |
+		'Colour Chooser'
+	}
+
+}
+
++Colour {
+
+	ColourChooser { :self :onSelect:/1 |
+		newColourChooser().initialize(self, onSelect:/1)
+	}
+
+}
+
++Procedure {
+
+	ColourChooser { :self |
+		Colour(0.5, 0.5, 0.5, 0.5).ColourChooser(self)
+	}
+
+}
+
 ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEditor columnLists statusPane statusText title |
 
 	addKeyBindings { :self :aProcedure:/1 |
 		self.textEditor.addKeyBindings(self.textEditor.aProcedure)
 	}
 
-	createElements { :self :numberOfColumns :mimeType :withFilter :withStatus |
-		self.browserPane := 'div'.createElement;
-		self.columnsPane :=  'div'.createElement;
-		self.previewPane := 'div'.createElement;
+	createElements { :self :numberOfColumns :mimeType :withFilter :withStatus :columnProportions :listSize |
+		self.browserPane := 'div'.createElement (
+			class: 'browserPane'
+		);
+		self.columnsPane :=  'div'.createElement (
+			class: 'columnsPane'
+		);
+		self.previewPane := 'div'.createElement (
+			class: 'previewPane'
+		);
 		self.textEditor := newTextEditor().initialize(
 			'ColumnBrowserTextEditor', mimeType, ''
 		);
 		self.columnLists := (1 .. numberOfColumns).collect { :index |
-			FilterSelect(withFilter & { index = 1 })
+			ListChooser(withFilter & { index = 1 }, nil, listSize)
 		};
-		self.columnsPane.appendChildren(self.columnLists.collect(container:/1));
+		columnProportions.size.do { :index |
+			| list = self.columnLists[index].select; |
+			list.style.setProperties((
+				'flex-grow': columnProportions[index].asString
+			))
+		};
+		self.columnsPane.appendChildren(self.columnLists.collect(listChooserPane:/1));
 		self.previewPane.appendChild(self.textEditor.outerElement);
 		self.browserPane.appendChildren([
 			self.columnsPane,
 			self.previewPane
 		]);
 		withStatus.ifTrue {
-			self.statusPane := 'div'.createElement;
-			self.statusPane.setAttribute('class', 'statusPane');
-			self.statusText := 'span'.createElement;
+			self.statusPane := 'div'.createElement (
+				class: 'statusPane'
+			);
+			self.statusText := 'span'.createElement (
+				class: 'statusText'
+			);
 			self.statusPane.appendChild(self.statusText);
 			self.browserPane.appendChild(self.statusPane)
 		}
@@ -188,9 +251,8 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 	initialize { :self :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept:/1 :onChange:/2  |
 		| numberOfColumns = columnProportions.size; |
 		self.title := title;
-		self.createElements(numberOfColumns, mimeType, withFilter, withStatus);
+		self.createElements(numberOfColumns, mimeType, withFilter, withStatus, columnProportions, 6);
 		self.setEntries(1, onChange(self, []));
-		self.setAttributes(columnProportions, 6);
 		self.setEventHandlers(numberOfColumns, onChange:/2);
 		clientKeyBindings.isProcedure.ifTrue {
 			self.addKeyBindings(clientKeyBindings)
@@ -217,19 +279,6 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 		};
 		self.columnLists[path.size].select.dispatchEvent(Event('change'));
 		self
-	}
-
-	setAttributes { :self :columnProportions :listSize |
-		self.browserPane.setAttribute('class', 'browserPane');
-		self.columnsPane.setAttribute('class', 'columnsPane');
-		columnProportions.size.do { :index |
-			| list = self.columnLists[index].select; |
-			list.size := listSize;
-			list.style.setProperties((
-				'flex-grow': columnProportions[index].asString
-			))
-		};
-		self.previewPane.setAttribute('class', 'previewPane')
 	}
 
 	setEntries { :self :columnIndex :entries |
@@ -284,71 +333,6 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 
 }
 
-FilterSelect : [Object] { | container filterText select entries ignoreCase |
-
-	applyFilter { :self |
-		|
-		caseRule:/1 = self.ignoreCase.if {
-			asLowercase:/1
-		} {
-			identity:/1
-		},
-		filter = self.filterText.isNil.if {
-			{
-				true
-			}
-		} {
-			| matchString = self.filterText.value.caseRule; |
-			{ :aString |
-				aString.caseRule.includesSubstring(matchString)
-			}
-		};
-		|
-		self.select.removeAll;
-		self.select.appendChildren(self.entries.select(filter).collect { :each |
-			TextOption(each, each)
-		});
-		self.select.deselect
-	}
-
-	initialize { :self :withFilter |
-		self.ignoreCase := true;
-		withFilter.if {
-			self.container := 'div'.createElement;
-			self.filterText := TextInput('');
-			self.select := 'select'.createElement;
-			self.container.setAttribute('class', 'column');
-			self.filterText.setAttribute('class', 'filterText');
-			self.filterText.addEventListener('change') { :event |
-				self.applyFilter
-			};
-			self.container.appendChildren([
-				self.filterText,
-				self.select
-			])
-		} {
-			self.select := 'select'.createElement;
-			self.filterText := nil;
-			self.container := self.select
-		};
-		self
-	}
-
-	setEntries { :self :entries |
-		self.entries := entries;
-		self.applyFilter
-	}
-
-}
-
-+Boolean {
-
-	FilterSelect { :self |
-		newFilterSelect().initialize(self)
-	}
-
-}
-
 Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton titleText inMove x y x0 y0 eventListeners |
 
 	bringToFront { :self |
@@ -365,11 +349,21 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 	}
 
 	createElements { :self :subject |
-		self.framePane := 'div'.createElement;
-		self.titlePane :=  'div'.createElement;
-		self.closeButton := 'span'.createElement;
-		self.titleText := 'span'.createElement;
-		self.menuButton := 'span'.createElement;
+		self.framePane := 'div'.createElement (
+			class: ['framePane', subject.typeOf, subject.name].unwords
+		);
+		self.titlePane :=  'div'.createElement (
+			class: 'titlePane'
+		);
+		self.closeButton := 'span'.createElement (
+			class: 'closeButton'
+		);
+		self.titleText := 'span'.createElement (
+			class: 'titleText'
+		);
+		self.menuButton := 'span'.createElement (
+			class: 'menuButton'
+		);
 		self.titlePane.appendChildren([
 			self.closeButton,
 			self.titleText,
@@ -394,7 +388,6 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 
 	initialize { :self :subject |
 		self.createElements(subject);
-		self.setAttributes(subject);
 		self.setEventHandlers(subject);
 		self.title := subject.title;
 		self.eventListeners := IdentityDictionary();
@@ -408,7 +401,7 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 	menuItems { :self |
 		[
 			MenuItem('Colour Chooser', nil) { :event |
-				workspace::smallKansas.colourChooser(self, event)
+				workspace::smallKansas.ColourChooser(self, event)
 			},
 			MenuItem('Font Menu', nil) { :event |
 				workspace::smallKansas.fontMenuOn(self, true, event)
@@ -424,14 +417,6 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 		self.y := y;
 		self.framePane.style.setProperty('left', x.asString ++ 'px', '');
 		self.framePane.style.setProperty('top', y.asString ++ 'px', '')
-	}
-
-	setAttributes { :self :subject |
-		self.framePane.setAttribute('class', ['framePane', subject.typeOf, subject.name].unwords);
-		self.titlePane.setAttribute('class', 'titlePane');
-		self.closeButton.setAttribute('class', 'closeButton');
-		self.titleText.setAttribute('class', 'titleText');
-		self.menuButton.setAttribute('class', 'menuButton')
 	}
 
 	setEventHandlers { :self :subject |
@@ -507,34 +492,44 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 
 }
 
-Inspector : [Object, View] { | inspectorPane |
+Inspector : [Object, View] { | inspectorPane inspectorList |
 
-	addInspector { :self :aValue |
+	addInspector { :self :aValue :index |
 		|
-		container = 'div'.createElement,
-		title = 'pre'.createElement,
-		select = 'select'.createElement;
+		fields = aValue.inspectAsArray,
+		listChooser = ListChooser(false, aValue.printStringConcise(24), 6),
+		select = listChooser.select;
 		|
-		container.setAttribute('class', 'inspector');
-		title.textContent := aValue.printString;
-		select.size := 6;
-		select.appendChildren(aValue.inspectAsArray.collect { :each |
-			TextOption(each.key ++ ': ' ++ each.value.printString, each.key)
+		listChooser.setEntries(fields.collect { :each |
+			each.key ++ ': ' ++ each.value.printStringConcise(24)
 		});
 		select.deselect;
-		container.appendChildren([
-			title,
-			select
-		]);
-		self.inspectorPane.appendChild(container)
+		select.addEventListener('change') { :event |
+			fields.atIfPresent(select.selectedIndex + 1) { :item |
+				self.removeInspectorsFrom(index + 1);
+				self.addInspector(item.value, index + 1)
+			}
+		};
+		self.inspectorPane.appendChild(listChooser.listChooserPane);
+		self.inspectorList.add(listChooser)
 	}
 
 	initialize { :self :aValue |
-		self.inspectorPane := 'div'.createElement;
-		self.inspectorPane.setAttribute('class', 'inspectorPane');
-		self.addInspector(aValue);
+		self.inspectorPane := 'div'.createElement (
+			class: 'inspectorPane'
+		);
+		self.inspectorList(OrderedCollection());
+		self.addInspector(aValue, 1);
 		self
 	}
+
+	removeInspectorsFrom { :self :index |
+		(index <= self.inspectorList.size).ifTrue {
+			self.inspectorList.removeLast(self.inspectorList.size - index + 1).do { :each |
+				each.listChooserPane.remove
+			}
+		}
+		}
 
 	outerElement { :self |
 		self.inspectorPane
@@ -548,50 +543,74 @@ Inspector : [Object, View] { | inspectorPane |
 		newInspector().initialize(self)
 	}
 
-}
-
-ColourChooser : [Object, View] { | colourChooserPane colourInput |
-
-	hexString { :self |
-		self.colourInput.getAttribute('value')
+	inspect { :self |
+		workspace::smallKansas.inspectorOn(self, nil)
 	}
 
-	initialize { :self :initialColour :onSelect:/1 |
-		self.colourChooserPane := 'div'.createElement;
-		self.colourInput := 'input'.createElement;
-		self.colourInput.setAttribute('type', 'color');
-		self.colourInput.setAttribute('value', initialColour.hexString);
-		self.colourChooserPane.appendChild(self.colourInput);
-		self.colourChooserPane.setAttribute('class', 'colourChooser');
-		self.colourChooserPane.setAttribute('class', 'colourInput');
-		self.colourInput.addEventListener('input') { :event |
-			onSelect(event.target.value.parseHexColour)
+}
+
+ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase |
+
+	applyFilter { :self |
+		|
+		caseRule:/1 = self.ignoreCase.if {
+			asLowercase:/1
+		} {
+			identity:/1
+		},
+		filter = self.filterText.isNil.if {
+			{
+				true
+			}
+		} {
+			| matchString = self.filterText.value.caseRule; |
+			{ :aString |
+				aString.caseRule.includesSubstring(matchString)
+			}
 		};
+		|
+		self.select.removeAll;
+		self.select.appendChildren(self.entries.select(filter).collect { :each |
+			TextOption(each, each)
+		});
+		self.select.deselect
+	}
+
+	initialize { :self :withFilter :titleText :listSize |
+		self.ignoreCase := true;
+		self.listChooserPane := 'div'.createElement (
+			class: 'listChooserPane'
+		);
+		titleText.ifNotNil {
+			| title = TextButton(titleText, (class: 'listTitle')); |
+			self.listChooserPane.appendChild(title)
+		};
+		withFilter.if {
+			self.filterText := TextInput('', (class: 'filterText'));
+			self.filterText.addEventListener('change') { :event |
+				self.applyFilter
+			};
+			self.listChooserPane.appendChild(self.filterText)
+		} {
+			self.filterText := nil
+		};
+		self.select := 'select'.createElement;
+		self.select.size := listSize;
+		self.listChooserPane.appendChild(self.select);
 		self
 	}
 
-	outerElement { :self |
-		self.colourChooserPane
-	}
-
-	title { :self |
-		'Colour Chooser'
+	setEntries { :self :entries |
+		self.entries := entries;
+		self.applyFilter
 	}
 
 }
 
-+Colour {
++Boolean {
 
-	ColourChooser { :self :onSelect:/1 |
-		newColourChooser().initialize(self, onSelect:/1)
-	}
-
-}
-
-+Procedure {
-
-	ColourChooser { :self |
-		Colour(0.5, 0.5, 0.5, 0.5).ColourChooser(self)
+	ListChooser { :self :title :listSize |
+		newListChooser().initialize(self, title, listSize)
 	}
 
 }
@@ -623,8 +642,12 @@ MenuItem : [Object] { | name accessKey onSelect |
 Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 
 	createElements { :self |
-		self.menuPane := 'div'.createElement;
-		self.listPane := 'div'.createElement;
+		self.menuPane := 'div'.createElement (
+			class: 'menuPane'
+		);
+		self.listPane := 'div'.createElement (
+			class: 'listPane'
+		);
 		self.menuList := 'select'.createElement;
 		self.listPane.appendChild(self.menuList);
 		self.menuPane.appendChild(self.listPane)
@@ -648,18 +671,12 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 		self.title := title;
 		self.isTransient := false;
 		self.createElements;
-		self.setAttributes;
 		self.setEntries(entries);
 		self
 	}
 
 	outerElement { :self |
 		self.menuPane
-	}
-
-	setAttributes { :self |
-		self.menuPane.setAttribute('class', 'menuPane');
-		self.listPane.setAttribute('class', 'listPane')
 	}
 
 	setEntries { :self :entries |
@@ -697,8 +714,9 @@ PngViewer : [Object, View] { | pngPane title pngData pngUrl |
 
 	createElements { :self |
 		| img = 'img'.createElement; |
-		self.pngPane := 'div'.createElement;
-		self.pngPane.setAttribute('class', 'pngPane');
+		self.pngPane := 'div'.createElement (
+			class: 'pngPane'
+		);
 		img.src := self.pngUrl;
 		self.pngPane.appendChild(img)
 	}
@@ -1076,7 +1094,6 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 					self.midiAccess.portByName(path[1], path[2], path[3]).asString
 				}
 			])
-		} { :textEditor |
 		}
 	}
 
@@ -1288,6 +1305,51 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		} {
 			self.frameSet.collect(zIndex:/1)
 		}
+	}
+
+}
+
++JiTuning {
+
+	latticeDrawing { :self |
+		|
+			vertices = self.latticeVertices,
+			edges = self.latticeEdges(vertices),
+			points = vertices.collect(wilsonLatticeCoordinates:/1) * 4,
+			bbox = points.computeBoundingBox,
+			dots = points.collect { :each |
+				'circle'.createSvgElement (
+					cx: each.x,
+					cy: each.y,
+					r: '1',
+					fill: 'black'
+				)
+			},
+			lines = edges.collect { :each |
+				| [i, j] = each; |
+				'line'.createSvgElement (
+					x1: points[i].x,
+					y1: points[i].y,
+					x2: points[j].x,
+					y2: points[j].y,
+					stroke: 'black',
+					'stroke-width': '0.5'
+				)
+			},
+			svg = 'svg'.createSvgElement (
+				width: bbox.width,
+				height: bbox.height,
+				viewBox: bbox.viewBoxString(5),
+				preserveAspectRatio: 'xMidYMid meet'
+			),
+			group = 'g'.createSvgElement (
+				transform: 'translate(0, ' ++ (bbox.height + (2 * bbox.origin.y)) ++ ') scale(1, -1)'
+			);
+		|
+		group.appendChildren(dots);
+		group.appendChildren(lines);
+		svg.appendChild(group);
+		svg
 	}
 
 }
@@ -1519,8 +1581,9 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 SvgViewer : [Object, View] { | svgPane title svg |
 
 	createElements { :self |
-		self.svgPane := 'div'.createElement;
-		self.svgPane.setAttribute('class', 'svgPane');
+		self.svgPane := 'div'.createElement (
+			class: 'svgPane'
+		);
 		self.svgPane.appendChild(self.svg)
 	}
 
@@ -1548,8 +1611,9 @@ SvgViewer : [Object, View] { | svgPane title svg |
 TableViewer : [Object, View] { | title tablePane |
 
 	createElements { :self :tableData |
-		self.tablePane := 'div'.createElement;
-		self.tablePane.setAttribute('class', 'tablePane');
+		self.tablePane := 'div'.createElement (
+			class: 'tablePane'
+		);
 		self.tablePane.appendChild(
 			tableData.asHtmlTable
 		)
@@ -1582,12 +1646,19 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 	}
 
 	createElements { :self |
-		self.editorPane := 'div'.createElement;
+		self.editorPane := 'div'.createElement (
+			class: 'editorPane'
+		);
 		self.editorText := (self.mimeType = 'text/plain').if {
 			'pre'.createElement
 		} {
 			'div'.createElement
 		};
+		self.editorText.setAttributes((
+			class: 'editorText',
+			contentEditable: 'true',
+			spellcheck: 'false'
+		));
 		self.editorPane.appendChild(self.editorText)
 	}
 
@@ -1617,7 +1688,6 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 		self.mimeType := mimeType;
 		self.clientKeyBindings := OrderedCollection();
 		self.createElements;
-		self.setAttributes;
 		self.setEventHandlers;
 		self.setEditorText(contents);
 		self.eventListeners := IdentityDictionary();
@@ -1670,12 +1740,6 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 
 	outerElement { :self |
 		self.editorPane
-	}
-
-	setAttributes { :self |
-		self.editorPane.setAttribute('class', 'editorPane');
-		self.editorText.setAttribute('class', 'editorText');
-		self.editorText.setAttributes((contentEditable: 'true', spellcheck: 'false'))
 	}
 
 	setEventHandlers { :self |
@@ -1738,15 +1802,14 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 
 +String {
 
-	TextButton { :self :aDictionary |
-		| button = 'button'.createElement; |
+	TextButton { :self :attributeDictionary |
+		| button = 'button'.createElement(attributeDictionary); |
 		button.innerText := self;
-		button.setAttributes(aDictionary);
 		button
 	}
 
-	TextInput { :self |
-		| input = 'input'.createElement; |
+	TextInput { :self :attributeDictionary |
+		| input = 'input'.createElement(attributeDictionary); |
 		input.setAttributes((
 			type: 'text',
 			value: self
@@ -1769,72 +1832,6 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 		};
 		option.value := value;
 		option
-	}
-
-}
-
-+Rectangle {
-
-	viewBoxString { :self :margin |
-		[
-			self.origin.x - margin,
-			self.origin.y - margin,
-			self.width + (margin * 2),
-			self.height + (margin * 2)
-		].collect(asString:/1).unwords
-	}
-
-}
-
-+JiTuning {
-
-	latticeDrawing { :self |
-		|
-			vertices = self.latticeVertices,
-			edges = self.latticeEdges(vertices),
-			points = vertices.collect(wilsonLatticeCoordinates:/1) * 4,
-			bbox = points.computeBoundingBox,
-			dots = points.collect { :each |
-				'circle'.createSvgElement (
-					cx: each.x,
-					cy: each.y,
-					r: '1',
-					fill: 'black'
-				)
-			},
-			lines = edges.collect { :each |
-				| [i, j] = each; |
-				'line'.createSvgElement (
-					x1: points[i].x,
-					y1: points[i].y,
-					x2: points[j].x,
-					y2: points[j].y,
-					stroke: 'black',
-					'stroke-width': '0.5'
-				)
-			},
-			svg = 'svg'.createSvgElement (
-				width: bbox.width,
-				height: bbox.height,
-				viewBox: bbox.viewBoxString(5),
-				preserveAspectRatio: 'xMidYMid meet'
-			),
-			group = 'g'.createSvgElement (
-				transform: 'translate(0, ' ++ (bbox.height + (2 * bbox.origin.y)) ++ ') scale(1, -1)'
-			);
-		|
-		group.appendChildren(dots);
-		group.appendChildren(lines);
-		svg.appendChild(group);
-		svg
-	}
-
-}
-
-+@Object {
-
-	inspect { :self |
-		workspace::smallKansas.inspectOn(self, nil)
 	}
 
 }

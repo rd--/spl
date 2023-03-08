@@ -4,29 +4,39 @@
 		Array(self.size).fillFromWith(self, identity:/1)
 	}
 
-	at { :self :anInteger |
+	at { :self :index |
 		<primitive:
-		if(sl.arrayCheckIndex(_self, _anInteger - 1)) {
-			return _self[_anInteger - 1];
+		if(sl.arrayCheckIndex(_self, _index - 1)) {
+			return _self[_index - 1];
 		}
 		>
-		error('ArrayedCollection>>at: index not an integer or out of range: ' ++ anInteger)
+		self.indexError(index)
 	}
 
-	atPut { :self :anInteger :anObject |
+	atIfPresent { :self :index :ifPresent:/1 |
+		self.atIfPresentIfAbsent(index, ifPresent:/1) {
+			nil
+		}
+	}
+
+	atIfPresentIfAbsent { :self :index :ifPresent:/1 :ifAbsent:/0 |
 		<primitive:
-		if(sl.arrayCheckIndex(_self, _anInteger - 1)) {
-			_self[_anInteger - 1] = _anObject;
+		if(sl.arrayCheckIndex(_self, _index - 1)) {
+			return _ifPresent_1(_self[_index - 1]);
+		} {
+			return _ifAbsent_0();
+		}
+		>
+	}
+
+	atPut { :self :index :anObject |
+		<primitive:
+		if(sl.arrayCheckIndex(_self, _index - 1)) {
+			_self[_index - 1] = _anObject;
 			return _anObject;
 		}
 		>
-		error('ArrayedCollection>>atPut: index not an integer')
-	}
-
-	checkIndex { :self :anInteger |
-		<primitive:
-		return Number.isInteger(_anInteger) && 0 < _anInteger && _anInteger <= _self.length;
-		>
+		self.indexError(index)
 	}
 
 	collect { :self :aProcedure |
@@ -37,7 +47,7 @@
 			});
 		}
 		>
-		error('ArrayedCollection>>collect: not a procedure')
+		'ArrayedCollection>>collect: not a procedure'.error
 	}
 
 	detectIfFoundIfNone { :self :aProcedure :whenFound :whenNone |
@@ -86,6 +96,12 @@
 			result := aProcedure(result, self[index])
 		};
 		result
+	}
+
+	isValidIndex { :self :index |
+		<primitive:
+		return Number.isInteger(_index) && 0 < _index && _index <= _self.length;
+		>
 	}
 
 	occurrencesOf { :self :anObject |
@@ -163,6 +179,28 @@
 				}
 			};
 			true
+		}
+	}
+
+	any { :self :numberOfElements |
+		self.anyAs(numberOfElements, self.species)
+	}
+
+	anyAs { :self :numberOfElements :aProcedure:/1 |
+		| index = 0, result = numberOfElements.aProcedure; |
+		withReturn {
+			result.fillFromWith(self) { :each |
+				index := index + 1;
+				(index > numberOfElements).if {
+					result.return
+				} {
+					each
+				}
+			};
+			(index = numberOfElements).ifFalse {
+				'@Collection>>any: Not enough elements in this collection'.error
+			};
+			result
 		}
 	}
 
@@ -353,6 +391,13 @@
 		tally
 	}
 
+	ofSize { :self :aNumber |
+		(self.size = aNumber).ifFalse {
+			'ofSize'.error
+		};
+		self
+	}
+
 	product { :self |
 		self.reduce(times:/2)
 	}
@@ -415,11 +460,8 @@
 		self.reduce(plus:/2)
 	}
 
-	ofSize { :self :aNumber |
-		(self.size = aNumber).ifFalse {
-			'ofSize'.error
-		};
-		self
+	take { :self :maxNumberOfElements |
+		self.any(maxNumberOfElements.min(self.size))
 	}
 
 }
@@ -599,6 +641,10 @@
 		}
 	}
 
+	includesKey { :self :key |
+		self.keys.includes(key)
+	}
+
 	indices { :self |
 		self.keys
 	}
@@ -608,7 +654,7 @@
 	}
 
 	isIndexable { :self |
-		false
+		true
 	}
 
 	keyAtValue { :self :value |
@@ -802,6 +848,10 @@
 		self.indexOf(anObject) ~= 0
 	}
 
+	indexError { :self :index |
+		(self.typeOf ++ '>>at: index not an integer or out of range: ' ++ index).error
+	}
+
 	indexOf { :self :anElement |
 		self.indexOfStartingAt(anElement, 1)
 	}
@@ -822,11 +872,19 @@
 	}
 
 	isIndexable { :self |
-		false
+		true
 	}
 
 	isSequenceable { :self |
 		true
+	}
+
+	isValidIndex { :self :index |
+		index.isInteger & {
+			index > 0 & {
+				index <= self.size
+			}
+		}
 	}
 
 	last { :self |
@@ -913,12 +971,6 @@
 			self.collect { :row |
 				row[index]
 			}
-		}
-	}
-
-	validIndex { :self :index |
-		index > 0 & {
-			index <= self.size
 		}
 	}
 
@@ -1172,12 +1224,12 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 Float64Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
-	atPut { :self :anInteger :aNumber |
-		<primitive: if(sl.arrayCheckIndex(_self, _anInteger - 1) && sl.isSmallFloat(_aNumber)) {
-			_self[_anInteger - 1] = _aNumber;
-			return _aNumber;
+	atPut { :self :index :aFloat |
+		<primitive: if(sl.arrayCheckIndex(_self, _index - 1) && sl.isSmallFloat(_aFloat)) {
+			_self[_index - 1] = _aFloat;
+			return _aFloat;
 		}>
-		error('Float64Array>>atPut: invalid index or value not a number')
+		self.indexError(index)
 	}
 
 	printString { :self |
@@ -1457,7 +1509,10 @@ IdentitySet : [Object, Collection] {
 	}
 
 	add { :self :anObject |
-		<primitive: _self.add(_anObject); return _anObject;>
+		<primitive:
+		_self.add(_anObject);
+		return _anObject;
+		>
 	}
 
 	Array { :self |
@@ -1465,7 +1520,12 @@ IdentitySet : [Object, Collection] {
 	}
 
 	do { :self :aProcedure |
-		<primitive: _self.forEach(function(item) { _aProcedure(item) }); return null;>
+		<primitive:
+		_self.forEach(function(item) {
+			_aProcedure(item)
+		});
+		return null;
+		>
 	}
 
 	includes { :self :anObject |
@@ -1474,6 +1534,10 @@ IdentitySet : [Object, Collection] {
 
 	isIdentitySet { :self |
 		true
+	}
+
+	pseudoSlotNameArray { :self |
+		['size', 'Array']
 	}
 
 	remove { :self :anObject |
@@ -1539,12 +1603,10 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 	}
 
 	at { :self :index |
-		((index < 1) | {
-			index > self.size
-		}).if {
-			nil
-		} {
+		self.isValidIndex(index).if {
 			self.step * (index - 1) + self.start
+		} {
+			self.indexError(index)
 		}
 	}
 
@@ -1730,12 +1792,24 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveAr
 		self.primitiveArray.size
 	}
 
+	removeAt { :self :index |
+		<primitive: return _self.primitiveArray.splice(_index - 1, 1)[0];>
+	}
+
 	removeFirst { :self |
 		<primitive: return _self.primitiveArray.shift();>
 	}
 
+	removeFirst { :self :count |
+		<primitive: return _self.primitiveArray.splice(0, _count);>
+	}
+
 	removeLast { :self |
 		<primitive: return _self.primitiveArray.pop();>
+	}
+
+	removeLast { :self :count |
+		<primitive: return _self.primitiveArray.splice(_self.primitiveArray.length - _count, _count);>
 	}
 
 	sharedArray { :self |

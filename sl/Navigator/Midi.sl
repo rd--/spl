@@ -8,6 +8,10 @@
 		<primitive: return Array.from(_self.values());>
 	}
 
+	pseudoSlotNameArray { :self |
+		['size', 'ports']
+	}
+
 	size { :self |
 		<primitive: return _self.size;>
 	}
@@ -40,16 +44,19 @@
 		self.asDictionary.json(nil, '	')
 	}
 
+	pseudoSlotNameArray { :self |
+		['type', 'id', 'manufacturer', 'name', 'version', 'state', 'connection']
+	}
 
 }
 
 MIDIAccess : [Object, EventTarget] {
 
-	inputs { :self | <primitive: return _self.inputs;> }
-	onstatechange { :self :aProcedure | <primitive: return _self.onstatechange = _aProcedure;> }
-	outputs { :self | <primitive: return _self.outputs;> }
-	sysexEnabled { :self | <primitive: return _self.sysexEnabled;> }
+	inputs { :self | <primitive: return _self.inputs;> } (* Read only *)
+	outputs { :self | <primitive: return _self.outputs;> } (* Read only *)
+	sysexEnabled { :self | <primitive: return _self.sysexEnabled;> } (* Read only *)
 
+	onstatechange { :self :aProcedure | <primitive: return _self.onstatechange = _aProcedure;> }
 
 	portByName { :self :type :manufacturer :name |
 		self.ports(type).detect { :port |
@@ -65,6 +72,10 @@ MIDIAccess : [Object, EventTarget] {
 		} {
 			self.outputs.ports
 		}
+	}
+
+	pseudoSlotNameArray { :self |
+		['inputs', 'outputs', 'sysexEnabled']
 	}
 
 }

@@ -168,6 +168,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [].species.new(3) = [nil, nil, nil]
 [1 .. 9].last(5) = [5 .. 9]
 { [1 .. 3].last(5) }.ifError { :err | true }
+[1 .. 9].any(3) = [1 .. 3]
+[1 .. 9].take(11) = [1 .. 9]
 
 'Collections-Unordered/Association'
 ('x' -> 1).typeOf = 'Association'
@@ -317,6 +319,10 @@ var l = OrderedCollection([4, 5]); l.addAllFirst(1.to(3)); l.asArray = [1 .. 5]
 13.fibonacciSequence = OrderedCollection([1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233])
 [1, 2, 3].OrderedCollection ++ [4, 5, 6] = [ 1, 2, 3, 4, 5, 6 ].OrderedCollection
 [1 .. 5].OrderedCollection.reversed = [5 .. 1].OrderedCollection
+var c = [1 .. 5].OrderedCollection; [c.removeAt(1), c] = [1, [2, 3, 4, 5].OrderedCollection]
+var c = [1 .. 5].OrderedCollection; [c.removeAt(3), c] = [3, [1, 2, 4, 5].OrderedCollection]
+var c = [1 .. 5].OrderedCollection; [c.removeFirst(3), c] = [[1, 2, 3], [4, 5].OrderedCollection]
+var c = [1 .. 5].OrderedCollection; [c.removeLast(3), c] = [[3, 4, 5], [1, 2].OrderedCollection]
 
 'Collections-Ordered/PriorityQueue'
 PriorityQueue().isPriorityQueue = true

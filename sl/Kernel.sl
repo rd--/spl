@@ -358,8 +358,8 @@
 			['Type' -> self.Type],
 			self.slotArray,
 			self.pseudoSlotArray,
-			self.isCollection.if {
-				self.indices.collect { :each |
+			self.isIndexable.if {
+				self.indices.take(99).collect { :each |
 					each.asString -> self[each]
 				}
 			} {
@@ -369,6 +369,10 @@
 	}
 
 	isByte { :self |
+		false
+	}
+
+	isIndexable { :self |
 		false
 	}
 
@@ -390,6 +394,24 @@
 
 	printString { :self |
 		self.typeOf
+	}
+
+	printStringConcise { :self :count |
+		| answer = self.printString; |
+		(answer.size > count).if {
+			'<' ++ self.typeOf ++ '>'
+		} {
+			answer
+		}
+	}
+
+	printStringLimitedTo { :self :count |
+		| answer = self.printString; |
+		(answer.size > count).if {
+			answer.truncateTo(count - 8) ++ '... &etc'
+		} {
+			answer
+		}
 	}
 
 	pseudoSlotArray { :self |
@@ -1499,6 +1521,10 @@ String : [Object] {
 		<primitive: return _self.indexOf(_aString) + 1;>
 	}
 
+	indices { :self |
+		(1 .. self.size)
+	}
+
 	indicesOf { :self :aString |
 		aString.isString.if {
 			| answer = OrderedCollection(), index = 1, end = self.size; |
@@ -1517,6 +1543,10 @@ String : [Object] {
 
 	includesSubstring { :self :aString |
 		<primitive: return _self.includes(_aString);>
+	}
+
+	isIndexable { :self |
+		true
 	}
 
 	isEmpty { :self |
@@ -1604,6 +1634,10 @@ String : [Object] {
 		<primitive: return `'${_self}'`;>
 	}
 
+	pseudoSlotNameArray { :self |
+		['size']
+	}
+
 	replace { :self :stringToFind :stringToReplaceWith |
 		 <primitive: return _self.replace(_stringToFind, _stringToReplaceWith);>
 	}
@@ -1630,6 +1664,14 @@ String : [Object] {
 
 	toUpperCase { :self |
 		  <primitive: return _self.toUpperCase();>
+	}
+
+	truncateTo { :self :smallSize |
+		(self.size <= smallSize).if {
+			self
+		} {
+			self.copyFromTo(1, smallSize)
+		}
 	}
 
 	utf8 { :self |

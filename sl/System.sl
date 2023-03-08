@@ -333,6 +333,17 @@ System : [Object] {
 		}
 	}
 
+	pseudoSlotNameArray { :self |
+		[
+			'methodDictionary',
+			'traitDictionary',
+			'typeDictionary',
+			'categoryDictionary',
+			'nextUniqueId',
+			'window'
+		]
+	}
+
 	randomFloat { :self |
 		<primitive: return Math.random();>
 	}
@@ -609,7 +620,6 @@ URL : [Object] {
 	hostname { :self | <primitive: return _self.hostname;> }
 	href { :self | <primitive: return _self.href;> }
 	origin { :self | <primitive: return _self.origin;> } (* read only *)
-	href { :self | <primitive: return _self.href;> }
 	password { :self | <primitive: return _self.password;> }
 	pathname { :self | <primitive: return _self.pathname;> }
 	port { :self | <primitive: return _self.port;> }
@@ -688,6 +698,10 @@ Window : [Object] {
 		self.fetch(resource, options).then { :response |
 			response.text
 		}
+	}
+
+	pseudoSlotNameArray { :self |
+		['localStorage', 'location', 'name', 'navigator', 'sessionStorage']
 	}
 
 }
