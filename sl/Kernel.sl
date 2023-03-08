@@ -353,13 +353,13 @@
 		self
 	}
 
-	inspectAsArray { :self |
+	inspectAsArray { :self :maxIndices |
 		[
 			['Type' -> self.Type],
 			self.slotArray,
 			self.pseudoSlotArray,
 			self.isIndexable.if {
-				self.indices.take(99).collect { :each |
+				self.indices.take(maxIndices).collect { :each |
 					each.asString -> self[each]
 				}
 			} {

@@ -496,12 +496,14 @@ Inspector : [Object, View] { | inspectorPane inspectorList |
 
 	addInspector { :self :aValue :index |
 		|
-		fields = aValue.inspectAsArray,
-		listChooser = ListChooser(false, aValue.printStringConcise(24), 6),
+		maxStringSize = 32,
+		maxIndices = 2048,
+		fields = aValue.inspectAsArray(maxIndices),
+		listChooser = ListChooser(false, aValue.printStringConcise(maxStringSize), 6),
 		select = listChooser.select;
 		|
 		listChooser.setEntries(fields.collect { :each |
-			each.key ++ ': ' ++ each.value.printStringConcise(24)
+			each.key ++ ': ' ++ each.value.printStringConcise(maxStringSize)
 		});
 		select.deselect;
 		select.addEventListener('change') { :event |

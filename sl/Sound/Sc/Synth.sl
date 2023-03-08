@@ -83,6 +83,20 @@ Env : [Object] {
 
 }
 
+LocalControl : [Object] {
+
+	name { :self | <primitive: return _self.name> }
+	index { :self | <primitive: return _self.index> }
+	defaultValue { :self | <primitive: return _self.defaultValue> }
+	operatingRate { :self | <primitive: return _self.operatingRate> }
+	isTriggered { :self | <primitive: return _self.isTriggered> }
+
+	pseudoSlotNameArray { :self |
+		['name', 'index', 'defaultValue', 'operatingRate', 'isTriggered']
+	}
+
+}
+
 ScSynth : [Object] {
 
 	reset { :self |
@@ -104,27 +118,31 @@ ScUgen : [Object] {
 	id { :self | <primitive: return _self.id> }
 	inputArray { :self | <primitive: return _self.inputArray> }
 	localControl { :self | <primitive: return _self.localControl> }
-	mrg { :self | <primitive: return _self.inputArray> }
+	mrg { :self | <primitive: return _self.mrg> }
 	name { :self | <primitive: return _self.name> }
 	numChan { :self | <primitive: return _self.numChan> }
 	rate { :self | <primitive: return _self.rate> }
 	specialIndex { :self | <primitive: return _self.specialIndex> }
 
-}
-
-UgenGraph : [Object] {
-
-	encode { :self |
-		<primitive: return sc.graphEncodeSyndef(_self);>
+	printString { :self |
+		[
+			self.name,
+			'(',
+			self.inputArray.collect(printString:/1).joinSeparatedBy(', ')
+			,')'
+		].join
 	}
 
-	name { :self |
-		<primitive: return _self.name>
+	pseudoSlotNameArray { :self |
+		['name', 'numChan', 'rate', 'specialIndex', 'id', 'inputArray', 'mrg', 'localControl']
 	}
 
 }
 
 Ugen : [Object, Number] {
+
+	scUgen { :self | <primitive: return _self.scUgen> }
+	port { :self | <primitive: return _self.port> }
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure |
 		<primitive:
@@ -140,6 +158,46 @@ Ugen : [Object, Number] {
 		aCollection.collect { :each |
 			aProcedure(each, self)
 		}
+	}
+
+	printString { :self |
+		[
+			self.scUgen.printString,
+			':',
+			self.port.printString
+		].join
+	}
+
+	pseudoSlotNameArray { :self |
+		['scUgen', 'port']
+	}
+
+}
+
+UgenGraph : [Object] {
+
+	controlArray { :self |
+		<primitive: return _self.controlArray>
+	}
+
+	constantArray { :self |
+		<primitive: return _self.constantArray>
+	}
+
+	encode { :self |
+		<primitive: return sc.graphEncodeSyndef(_self);>
+	}
+
+	name { :self |
+		<primitive: return _self.name>
+	}
+
+	pseudoSlotNameArray { :self |
+		['name', 'ugenArray', 'constantArray', 'controlArray']
+	}
+
+	ugenArray { :self |
+		<primitive: return _self.ugenArray>
 	}
 
 }
