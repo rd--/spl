@@ -1282,38 +1282,13 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 				system.defaultScSynth.reset
 			},
 			MenuItem('Scala Ji Meta Browser', nil) { :event |
-				workspace::jiMeta.isNil.if {
-					system.window.fetchJson(
-						'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
-						()
-					).then { :answer |
-						workspace::jiMeta := answer.collect { :anArray |
-							anArray.collect { :aName |
-								['jiMeta', aName].postLine;
-								workspace::ji.detectIfNone { :each |
-									each.name = aName
-								} {
-									nil
-								}
-							}.select(notNil:/1)
-						};
-						workspace::smallKansas.ScalaJiMetaBrowser(workspace::ji, workspace::jiMeta, nil)
-					}
-				} {
-					workspace::smallKansas.ScalaJiMetaBrowser(workspace::ji, workspace::jiMeta, nil)
+				system.library::jiMeta.require { :unused |
+					workspace::smallKansas.ScalaJiMetaBrowser(workspace::jiScala, workspace::jiMeta, nil)
 				}
 			},
 			MenuItem('Scala Ji Tuning Browser', nil) { :event |
-				workspace::ji.isNil.if {
-					system.window.fetchJson(
-						'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
-						()
-					).then { :answer |
-						workspace::ji := answer.collect(JiTuning:/1);
-						workspace::smallKansas.ScalaJiTuningBrowser(workspace::ji, nil)
-					}
-				} {
-					workspace::smallKansas.ScalaJiTuningBrowser(workspace::ji, nil)
+				system.library::jiScala.require { :unused |
+					workspace::smallKansas.ScalaJiTuningBrowser(workspace::jiScala, nil)
 				}
 			},
 			MenuItem('System Browser', nil) { :event |

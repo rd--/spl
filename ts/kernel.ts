@@ -112,6 +112,21 @@ export class Type {
 
 const preinstalledTypes = ['Array', 'String', 'Void']; // ?
 
+export class LibraryItem {
+	name: string;
+	url: string;
+	mimeType: string;
+	parser: (aValue: string) => unknown;
+	useLocalStorage: boolean;
+	constructor(name: string, url: string, mimeType: string, parser: (aValue: string) => unknown, useLocalStorage: boolean) {
+		this.name = name;
+		this.url = url;
+		this.mimeType = mimeType;
+		this.parser = parser;
+		this.useLocalStorage = useLocalStorage;
+	}
+}
+
 export class System {
 	methodDictionary: MethodDictionary;
 	traitDictionary: Map<TraitName, Trait>;
@@ -119,6 +134,7 @@ export class System {
 	categoryDictionary: Map<CategoryName, Set<string>>
 	nextUniqueId: number;
 	window: Window;
+	library: Map<string, LibraryItem>;
 	constructor() {
 		this.methodDictionary = new Map();
 		this.traitDictionary = new Map();
@@ -127,6 +143,7 @@ export class System {
 		this.categoryDictionary = new Map();
 		this.nextUniqueId = 1;
 		this.window = window;
+		this.library = new Map();
 	}
 }
 

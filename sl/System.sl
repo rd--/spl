@@ -35,6 +35,61 @@ File : [Object, Blob] {
 
 }
 
+LibraryItem : [Object] {
+
+	name { :self |
+		<primitive: return _self.name;>
+	}
+
+	mimeType { :self |
+		<primitive: return _self.mimeType;>
+	}
+
+	parser { :self |
+		<primitive: return _self.parser;>
+	}
+
+	pseudoSlotNameArray { :self |
+		['name', 'url', 'mimeType', 'parser', 'useLocalStorage']
+	}
+
+	require { :self :continue:/1 |
+		workspace.includesKey(self.name).if {
+			workspace[self.name].continue
+		} {
+			system.window.localStorage.includesKey(self.url).if {
+				workspace[self.name] := self.parser . (system.window.localStorage[self.url].parseJson);
+				workspace[self.name].continue
+			} {
+				window.fetchMimeType(self.url, self.mimeType, ()).then { :answer |
+					system.useLocalStorage.ifTrue {
+						self.system.window.localStorage[self.url] := answer.json;
+					}
+					workspace[self.name] := self.parser . (answer);
+					workspace[self.name].continue
+				}
+			}
+		}
+	}
+
+	url { :self |
+		<primitive: return _self.url;>
+	}
+
+	useLocalStorage { :self |
+		<primitive: return _self.useLocalStorage;>
+	}
+
+}
+
++String {
+
+	LibraryItem { :self :url :mimeType :parser |
+		<primitive: return new sl.LibraryItem(_self, _url, _mimeType, _parser);>
+	}
+
+}
+
 Method : [Object] {
 
 	arity { :self |
@@ -125,11 +180,15 @@ System : [Object] {
 		}
 	}
 
+	addLibraryItem { :self :libraryItem |
+		self.library[libraryItem.name] := libraryItem
+	}
+
 	allMethods { :self |
 		| answer = OrderedCollection(); |
 		system.addAllTraitMethodsTo(answer);
 		system.addAllTypeMethodsTo(answer);
-		answer
+		answer.sharedArray
 	}
 
 	categoriesOf { :self :entry |
@@ -224,16 +283,17 @@ System : [Object] {
 		self.typeDictionary.includesKey(aString)
 	}
 
+	library { :self |
+		<primitive: return _self.library;>
+	}
+
 	methodArities { :self :methodName |
 		(* Arities methodName is implemented for. *)
 		self.methodDictionary[methodName].keys
 	}
 
 	methodArray { :self |
-		[
-			self.traitDictionary.values.collect(methodArray:/1).concatenation,
-			self.typeDictionary.values.collect(methodArray:/1).concatenation
-		].concatenation
+		self.allMethods
 	}
 
 	methodDictionary { :self |
@@ -370,7 +430,8 @@ System : [Object] {
 			'typeDictionary',
 			'categoryDictionary',
 			'nextUniqueId',
-			'window'
+			'window',
+			'library'
 		]
 	}
 
@@ -550,6 +611,22 @@ Response : [Object] {
 		>
 	}
 
+	mimeType { :self :mimeType |
+		mimeType.caseOfOtherwise([
+			'application/json' -> {
+				self.json
+			},
+			'application/octet-stream' -> {
+				self.byteArray
+			},
+			'text/plain' -> {
+				self.text
+			}
+		]) { :unused |
+			('Response>>mimeType: unknown mimeType: ' ++ mimeType).error
+		}
+	}
+
 	json { :self |
 		<primitive: return _self.json();>
 	}
@@ -560,7 +637,47 @@ Response : [Object] {
 
 }
 
+
+Storage : [Object, Collection, Dictionary] {
+
+	length { :self | <primitive: return _self.length;> }
+	key { :self :index | <primitive: return _self.key(_index);> }
+	getItem { :self :key | <primitive: return _self.getItem(_key);> }
+	setItem { :self :key :value | <primitive: return _self.setItem(_key, _value);> }
+	removeItem { :self :key | <primitive: return _self.removeItem(_key);> }
+	clear { :self | <primitive: return _self.clear();> }
+
+	at { :self :key |
+		self.getItem(key)
+	}
+
+	atPut { :self :key :value |
+		self.setItem(key, value)
+	}
+
+	includesKey { :self :key |
+		self[key].notNil
+	}
+
+	keys { :self |
+		(0 .. self.length - 1).collect { :index |
+			self.key(index)
+		}
+	}
+
+	size { :self |
+		self.length
+	}
+
+}
+
 Trait : [Object] {
+
+	addMethodsTo { :self :aCollection |
+		trait.methodDictionary.values.do { :method |
+			aCollection.add(method)
+		}
+	}
 
 	methodArray { :self |
 		self.methodDictionary.values
@@ -729,6 +846,21 @@ Window : [Object] {
 	fetchJson { :self :resource :options |
 		self.fetch(resource, options).then { :response |
 			response.json
+		}
+	}
+
+	fetchMimeType { :self :resource :mimeType :options |
+		self.fetch(resource, options).then { :response |
+			mimeType.caseOfOtherwise([
+				'application/json' -> {
+					response.json
+				},
+				'text/plain' -> {
+					response.text
+				}
+			]) { :unused |
+				('fetchMimeType: unknown mimeType: ' ++ mimeType).error
+			}
 		}
 	}
 

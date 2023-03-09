@@ -66,6 +66,7 @@ system.categorizeDictionary(
 			'CcEvent',
 			'Clock',
 			'Env',
+			'LocalControl',
 			'ScSynth',
 			'ScUgen',
 			'Ugen',
@@ -74,8 +75,10 @@ system.categorizeDictionary(
 		'System': [
 			'Blob',
 			'File',
+			'LibraryItem',
 			'Method',
 			'Response',
+			'Storage',
 			'System',
 			'Trait',
 			'Type',
@@ -99,6 +102,7 @@ system.categorizeDictionary(
 			'TextEditor'
 		],
 		'Navigator': [
+			'Location',
 			'Navigator'
 		],
 		'Navigator-Node': [
