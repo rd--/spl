@@ -225,9 +225,9 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 			ListChooser(withFilter & { index = 1 }, nil, listSize)
 		};
 		columnProportions.size.do { :index |
-			| list = self.columnLists[index].select; |
+			| list = self.columnLists[index].listChooserPane; |
 			list.style.setProperties((
-				'flex-grow': columnProportions[index].asString
+				'flex': columnProportions[index].asString ++ ' 1 16em'
 			))
 		};
 		self.columnsPane.appendChildren(self.columnLists.collect(listChooserPane:/1));
@@ -1175,9 +1175,23 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		['./lib/stsc3/help/', category, '/', author, ' - ', name, '.sl'].join
 	}
 
+	referencesTo { :self :subject :event |
+		self.addFrame(
+			MethodSignatureBrowser(
+				system.methodSourceCodeSearch(subject).collect(signature:/1),
+				false
+			),
+			event
+		)
+	}
+
 	removeFrame { :self :frame |
 		frame.outerElement.remove;
 		self.frameSet.remove(frame)
+	}
+
+	ScalaJiMetaBrowser { :self :scalaJi :jiMeta :event |
+		self.addFrame(scalaJi.ScalaJiMetaBrowser(jiMeta), event)
 	}
 
 	ScalaJiTuningBrowser { :self :scalaJi :event |
@@ -1267,6 +1281,28 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 				workspace::clock.clear;
 				system.defaultScSynth.reset
 			},
+			MenuItem('Scala Ji Meta Browser', nil) { :event |
+				workspace::jiMeta.isNil.if {
+					system.window.fetchJson(
+						'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
+						()
+					).then { :answer |
+						workspace::jiMeta := answer.collect { :anArray |
+							anArray.collect { :aName |
+								['jiMeta', aName].postLine;
+								workspace::ji.detectIfNone { :each |
+									each.name = aName
+								} {
+									nil
+								}
+							}.select(notNil:/1)
+						};
+						workspace::smallKansas.ScalaJiMetaBrowser(workspace::ji, workspace::jiMeta, nil)
+					}
+				} {
+					workspace::smallKansas.ScalaJiMetaBrowser(workspace::ji, workspace::jiMeta, nil)
+				}
+			},
 			MenuItem('Scala Ji Tuning Browser', nil) { :event |
 				workspace::ji.isNil.if {
 					system.window.fetchJson(
@@ -1313,6 +1349,23 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 +JiTuning {
 
+	htmlView { :self |
+		| ratios = self.ratios, div = 'div'.createElement; |
+		div.appendChildren([
+			[
+				[1 .. self.degree],
+				ratios,
+				ratios.collect { :each |
+					each.latticeVectorString(self.limit)
+				},
+				self.cents,
+				self.pitches
+			].transpose.asHtmlTable,
+			self.latticeDrawing
+		]);
+		div
+	}
+
 	latticeDrawing { :self |
 		|
 			vertices = self.latticeVertices,
@@ -1358,6 +1411,24 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 +Array {
 
+	ScalaJiMetaBrowser { :self :meta |
+		ColumnBrowser('Scala Ji Meta Browser', 'text/html', false, false, [1, 4], nil, nil) { :browser :path |
+			path.size.caseOf([
+				0 -> {
+					meta.keys
+				},
+				1 -> {
+					meta[path[1]].collect(description:/1)
+				},
+				2 -> {
+					meta[path[1]].detect { :each |
+						each.description = path[2]
+					}.htmlView.outerHTML
+				}
+			])
+		}
+	}
+
 	ScalaJiTuningBrowser { :self |
 		| degrees = self.collect(degree:/1).IdentitySet.Array.sorted.collect(asString:/1); |
 		ColumnBrowser('Scala Ji Tuning Browser', 'text/html', false, true, [1, 1, 4], nil, nil) { :browser :path |
@@ -1383,27 +1454,9 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 					}.collect(name:/1)
 				},
 				3 -> {
-					|
-						selected = self.detect { :each |
-							each.name = path[3]
-						},
-						ratios = selected.ratios,
-						div = 'div'.createElement;
-					|
-					browser.setStatus(selected.description);
-					div.appendChildren([
-						[
-							[1 .. selected.degree],
-							ratios,
-							ratios.collect { :each |
-								each.latticeVectorString(selected.limit)
-							},
-							selected.cents,
-							selected.pitches
-						].transpose.asHtmlTable,
-						selected.latticeDrawing
-					]);
-					div.outerHTML
+					self.detect { :each |
+						each.name = path[3]
+					}.htmlView.outerHTML
 				}
 			])
 		}
@@ -1732,6 +1785,9 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 			},
 			MenuItem('Print It', 'p') { :event |
 				self.insertText(' ' ++ self.currentText.eval.asString)
+			},
+			MenuItem('References To It', nil) { :event |
+				workspace::smallKansas.referencesTo(self.currentWord.asMethodName, event)
 			},
 			MenuItem('Reset Synthesiser', '.') { :event |
 				workspace::clock.clear;

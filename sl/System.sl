@@ -229,8 +229,28 @@ System : [Object] {
 		self.methodDictionary[methodName].keys
 	}
 
+	methodArray { :self |
+		[
+			self.traitDictionary.values.collect(methodArray:/1).concatenation,
+			self.typeDictionary.values.collect(methodArray:/1).concatenation
+		].concatenation
+	}
+
 	methodDictionary { :self |
 		<primitive: return _self.methodDictionary;>
+	}
+
+	methodDo { :self :aProcedure:/1 |
+		self.traitDictionary.do { :aTrait |
+			aTrait.methodDictionary.do { :aMethod |
+				aMethod.aProcedure
+			}
+		};
+		self.typeDictionary.do { :aType |
+			aType.methodDictionary.do { :aMethod |
+				aMethod.aProcedure
+			}
+		}
 	}
 
 	methodImplementations { :self :methodName |
@@ -298,6 +318,16 @@ System : [Object] {
 	methodSignatures { :self :methodName |
 		(* Signatures of each implementation of methodName. *)
 		self.methodImplementations(methodName).collect(signature:/1)
+	}
+
+	methodSourceCodeSearch { :self :aString |
+		| answer = OrderedCollection(); |
+		self.methodDo { :aMethod |
+			aMethod.sourceCode.includesSubstring(aString).ifTrue {
+				answer.add(aMethod)
+			}
+		};
+		answer.sharedArray
 	}
 
 	methodTraits { :self :qualifiedMethodName |
@@ -532,6 +562,10 @@ Response : [Object] {
 
 Trait : [Object] {
 
+	methodArray { :self |
+		self.methodDictionary.values
+	}
+
 	methodDictionary { :self |
 		<primitive: return _self.methodDictionary;>
 	}
@@ -574,6 +608,10 @@ Type : [Object] {
 
 	category { :self |
 		system.categoryOf(self.name)
+	}
+
+	methodArray { :self |
+		self.methodDictionary.values
 	}
 
 	methodDictionary { :self |
