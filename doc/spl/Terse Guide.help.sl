@@ -586,6 +586,15 @@ epsilon() > (10 ** -16)
 inf.isFinite = false
 pi.isFinite = true
 
+'Kernel-Numbers/LargeInteger'
+23n.typeOf = 'LargeInteger'
+(2 ** 54).LargeInteger.squared.printString = '324518553658426726783156020576256'
+'324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
+2971215073.LargeInteger.isPrime = true
+[-1n, 0n, 1n].collect(sign:/1) = [-1n, 0n, 1n]
+6n / 8n = Fraction(3n, 4n)
+2 / 3n = Fraction(2n, 3n)
+
 'System/Blob'
 [1 .. 9].ByteArray.Blob.size = 9
 [65 .. 69].ByteArray.Blob.text.then { :answer | (answer = 'ABCDE').postLine }; true

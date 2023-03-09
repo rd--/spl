@@ -252,8 +252,11 @@ const asJs: any = {
 	floatLiteral(s,i,_,f) {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
 	},
-	fractionLiteral(s,i,_,f) {
-		return `_normalized_1(_Fraction_2(${s.sourceString}${i.sourceString}, ${f.sourceString}))`;
+	fractionLiteral(s,n,_colon,d) {
+		return `_normalized_1(_Fraction_2(${s.sourceString}${n.sourceString}, ${d.sourceString}))`;
+	},
+	largeIntegerLiteral(s,i,_n) {
+		return `${s.sourceString}${i.sourceString}n`;
 	},
 	integerLiteral(s,i) {
 		return `${s.sourceString}${i.sourceString}`;

@@ -349,6 +349,32 @@ export function arrayCheckIndex(anArray: unknown[], anInteger: number): boolean 
 	return Number.isInteger(anInteger) && anInteger >= 0 && anInteger < anArray.length;
 }
 
+/* https://github.com/Aisse-258/bigint-isqrt */
+export function bigIntSqrt(anInteger: bigint): bigint {
+	if(anInteger < 2n) {
+		return anInteger;
+	}
+	if(anInteger < 16n) {
+		return BigInt(Math.sqrt(Number(anInteger))|0);
+	}
+	let x0, x1;
+	if(anInteger < 4503599627370496n) {
+		x1 = BigInt(Math.sqrt(Number(anInteger))|0)-3n;
+	} else {
+		let vlen = anInteger.toString().length;
+		if(!(vlen&1)) {
+			x1 = 10n**(BigInt(vlen/2));
+		} else {
+			x1 = 4n*10n**(BigInt((vlen/2)|0));
+		}
+	}
+	do {
+		x0 = x1;
+		x1 = ((anInteger / x0) + x0) >> 1n;
+	} while((x0 !== x1 && x0 !== (x1 - 1n)));
+	return x0;
+}
+
 declare global {
 	var _inf: number;
 	var _constant: Map<string,unknown>;

@@ -285,12 +285,12 @@
 
 	sign { :self |
 		(self > 0).if {
-			1
+			self.unit
 		} {
 			(self < 0).if {
-				-1
+				self.unit.negated
 			} {
-				0
+				self.zero
 			}
 		}
 	}
@@ -310,6 +310,14 @@
 
 	truncateTo { :self :aNumber |
 		self.quotient(aNumber) * aNumber
+	}
+
+	unit { :self |
+		1
+	}
+
+	zero { :self |
+		0
 	}
 
 }
@@ -836,6 +844,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 LargeInteger : [Object, Magnitude, Number, Integral] {
 
+	== { :self :anInteger |
+		<primitive: return _self === _anInteger;>
+	}
+
 	= { :self :anInteger |
 		<primitive: return _self === BigInt(_anInteger);>
 	}
@@ -861,7 +873,19 @@ LargeInteger : [Object, Magnitude, Number, Integral] {
 	}
 
 	/ { :self :anInteger |
+		Fraction(self, anInteger.LargeInteger).normalized
+	}
+
+	// { :self :anInteger |
 		<primitive: return _self / BigInt(_anInteger);>
+	}
+
+	% { :self :anInteger |
+		<primitive: return ((_self % BigInt(_anInteger)) + BigInt(_anInteger)) % BigInt(_anInteger);>
+	}
+
+	** { :self :anInteger |
+		<primitive: return _self ** BigInt(_anInteger);>
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
@@ -872,20 +896,36 @@ LargeInteger : [Object, Magnitude, Number, Integral] {
 		true
 	}
 
+	LargeInteger { :self |
+		self
+	}
+
 	printString { :self |
 		<primitive: return _self.toString();>
+	}
+
+	storeString { :self |
+		self.printString ++ 'n'
 	}
 
 	remainder { :self :anInteger |
 		<primitive: return _self % BigInt(_anInteger);>
 	}
 
+	sqrt { :self |
+		<primitive: return sl.bigIntSqrt(_self);>
+	}
+
 	toNumber { :self :precision |
 		<primitive: BigInt.asIntN(_precision, _self);>
 	}
 
-	LargeInteger { :self |
-		self
+	unit { :self |
+		1n
+	}
+
+	zero { :self |
+		0n
 	}
 
 }
