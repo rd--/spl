@@ -156,6 +156,7 @@
 	className { :self :aString | <primitive: return _self.className = _aString;> }
 	getAttribute { :self :name | <primitive: return _self.getAttribute(_name);> }
 	getBoundingClientRect { :self | <primitive: return _self.getBoundingClientRect();> }
+	hasPointerCapture { :self :pointerId | <primitive: return _self.hasPointerCapture(pointerId);> }
 	id { :self | <primitive: return _self.id;> }
 	innerHTML { :self | <primitive: return _self.innerHTML;> }
 	innerHTML { :self :aString | <primitive: return _self.innerHTML = _aString;> }
@@ -197,6 +198,14 @@
 	target { :self | <primitive: return _self.target;> }
 	timeStamp { :self | <primitive: return _self.timeStamp;> }
 	type { :self | <primitive: return _self.type;> }
+
+	stopPropagationAndPreventDefault { :self |
+		self.stopPropagation;
+		self.cancelable.ifTrue {
+			self.preventDefault
+		}
+	}
+
 
 }
 

@@ -35,22 +35,14 @@ File : [Object, Blob] {
 
 }
 
-LibraryItem : [Object] {
+LibraryItem : [Object] { | name url mimeType parser useLocalStorage |
 
-	name { :self |
-		<primitive: return _self.name;>
-	}
-
-	mimeType { :self |
-		<primitive: return _self.mimeType;>
-	}
-
-	parser { :self |
-		<primitive: return _self.parser;>
-	}
-
-	pseudoSlotNameArray { :self |
-		['name', 'url', 'mimeType', 'parser', 'useLocalStorage']
+	readLocalStorage { :self |
+		(self.mimeType = 'application/json').if {
+			self.parser . (system.window.localStorage[self.url].parseJson)
+		} {
+			'LibraryItem>>readLocalStorage: mimeType ~= json'.error
+		}
 	}
 
 	require { :self :continue:/1 |
@@ -58,13 +50,13 @@ LibraryItem : [Object] {
 			workspace[self.name].continue
 		} {
 			system.window.localStorage.includesKey(self.url).if {
-				workspace[self.name] := self.parser . (system.window.localStorage[self.url].parseJson);
+				workspace[self.name] := self.readLocalStorage;
 				workspace[self.name].continue
 			} {
-				window.fetchMimeType(self.url, self.mimeType, ()).then { :answer |
-					system.useLocalStorage.ifTrue {
-						self.system.window.localStorage[self.url] := answer.json;
-					}
+				system.window.fetchMimeType(self.url, self.mimeType, ()).then { :answer |
+					self.useLocalStorage.ifTrue {
+						self.writeLocalStorage(answer)
+					};
 					workspace[self.name] := self.parser . (answer);
 					workspace[self.name].continue
 				}
@@ -72,20 +64,20 @@ LibraryItem : [Object] {
 		}
 	}
 
-	url { :self |
-		<primitive: return _self.url;>
-	}
-
-	useLocalStorage { :self |
-		<primitive: return _self.useLocalStorage;>
+	writeLocalStorage { :self :anObject |
+		(self.mimeType = 'application/json').if {
+			system.window.localStorage[self.url] := anObject.json
+		} {
+			'LibraryItem>>writeLocalStorage: mimeType ~= json'.error
+		}
 	}
 
 }
 
 +String {
 
-	LibraryItem { :self :url :mimeType :parser |
-		<primitive: return new sl.LibraryItem(_self, _url, _mimeType, _parser);>
+	LibraryItem { :name :url :mimeType :parser |
+		newLibraryItem().initializeSlots(name, url, mimeType, parser, true)
 	}
 
 }
@@ -437,6 +429,22 @@ System : [Object] {
 
 	randomFloat { :self |
 		<primitive: return Math.random();>
+	}
+
+	requireLibraryItem { :self :item :continue:/0 |
+		system.library[item].require { :unused |
+			continue()
+		}
+	}
+
+	requireLibraryItems { :self :items :continue:/0 |
+		(items.size = 1).if {
+			self.requireLibraryItem(items.first, continue:/0)
+		} {
+			self.requireLibraryItem(items.first) {
+				self.requireLibraryItems(items.copyFromTo(2, items.size), continue:/0)
+			}
+		}
 	}
 
 	traitDictionary { :self |

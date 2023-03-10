@@ -420,42 +420,43 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 	}
 
 	setEventHandlers { :self :subject |
+		|
+			pointerBegin = { :event |
+				| titleRect = event.target.getBoundingClientRect; |
+				event.stopPropagationAndPreventDefault;
+				self.bringToFront;
+				event.target.setPointerCapture(event.pointerId);
+				self.inMove := true;
+				self.x0 := event.x - titleRect.x;
+				self.y0 := event.y - titleRect.y
+			},
+			pointerMove = { :event |
+				self.inMove.ifTrue {
+					self.moveTo(
+						event.x - self.x0,
+						event.y- self.y0
+					)
+				}
+			},
+			pointerEnd = { :event |
+				event.target.releasePointerCapture(event.pointerId);
+				self.inMove := false
+			};
+		|
 		self.closeButton.addEventListener('click') { :event |
-			event.preventDefault;
 			self.close
 		};
 		self.menuButton.addEventListener('click') { :event |
-			event.preventDefault;
 			workspace::smallKansas.menu('Frame Menu', subject.frameMenuItems ++ self.menuItems, true, event)
 		};
 		self.titlePane.addEventListener('contextmenu') { :event |
 			(* ... *)
 		};
-		self.titlePane.addEventListener('pointerdown') { :event |
-			| titleRect = event.target.getBoundingClientRect; |
-			event.preventDefault;
-			self.bringToFront;
-			event.target.setPointerCapture(event.pointerId);
-			self.inMove := true;
-			self.x0 := event.x - titleRect.x;
-			self.y0 := event.y - titleRect.y
-		};
-		self.titlePane.addEventListener('pointermove') { :event |
-			self.inMove.ifTrue {
-				event.stopPropagation;
-				event.cancelable.ifTrue {
-					event.preventDefault
-				};
-				self.moveTo(
-					event.x - self.x0,
-					event.y- self.y0
-				)
-			}
-		};
-		self.titlePane.addEventListener('pointerup') { :event |
-			event.target.releasePointerCapture(event.pointerId);
-			self.inMove := false
-		};
+		self.titlePane.addEventListener('pointerdown', pointerBegin);
+		self.titlePane.addEventListener('pointermove', pointerMove, (capture: true, passive: true));
+		self.titlePane.addEventListener('pointercancel', pointerEnd);
+		self.titlePane.addEventListener('pointerup', pointerEnd);
+		self.titlePane.addEventListener('pointerout', pointerEnd);
 		self.framePane.addEventListener('keydown') { :event |
 			event.ctrlKey.ifTrue {
 				(event.key = 'Escape').ifTrue {
@@ -496,11 +497,11 @@ Inspector : [Object, View] { | inspectorPane inspectorList |
 
 	addInspector { :self :aValue :index |
 		|
-		maxStringSize = 32,
-		maxIndices = 2048,
-		fields = aValue.inspectAsArray(maxIndices),
-		listChooser = ListChooser(false, aValue.printStringConcise(maxStringSize), 6),
-		select = listChooser.select;
+			maxStringSize = 32,
+			maxIndices = 2048,
+			fields = aValue.inspectAsArray(maxIndices),
+			listChooser = ListChooser(false, aValue.printStringConcise(maxStringSize), 6),
+			select = listChooser.select;
 		|
 		listChooser.setEntries(fields.collect { :each |
 			each.key ++ ': ' ++ each.value.printStringConcise(maxStringSize)
@@ -573,7 +574,7 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 		|
 		self.select.removeAll;
 		self.select.appendChildren(self.entries.select(filter).collect { :each |
-			TextOption(each, each)
+			TextOption(each)
 		});
 		self.select.deselect
 	}
@@ -686,9 +687,9 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 		self.menuList.size := entries.size;
 		entries.collect { :menuItem |
 			|
-				listItem = TextOption(menuItem.displayText, menuItem.displayText),
-				dispatchEvent = { :event |
-					event.preventDefault;
+				listItem = TextOption(menuItem.displayText),
+				pointerBegin = { :event |
+					event.stopPropagationAndPreventDefault;
 					menuItem.onSelect . (event);
 					self.isTransient.ifTrue {
 						self.frame.ifNotNil {
@@ -698,7 +699,7 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 				};
 			|
 			self.menuList.appendChild(listItem);
-			listItem.addEventListener('pointerdown', dispatchEvent)
+			listItem.addEventListener('pointerdown', pointerBegin)
 		}
 	}
 
@@ -987,8 +988,8 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		self.container := 'smallKansas'.getElementById;
 		self.frameSet := IdentitySet();
 		self.container.addEventListener('contextmenu') { :event |
-			event.preventDefault;
 			(event.target == self.container).ifTrue {
+				event.preventDefault;
 				self.WorldMenu(true, event)
 			}
 		};
@@ -1282,12 +1283,12 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 				system.defaultScSynth.reset
 			},
 			MenuItem('Scala Ji Meta Browser', nil) { :event |
-				system.library::jiMeta.require { :unused |
+				system.requireLibraryItems(['jiScala', 'jiMeta']) {
 					workspace::smallKansas.ScalaJiMetaBrowser(workspace::jiScala, workspace::jiMeta, nil)
 				}
 			},
 			MenuItem('Scala Ji Tuning Browser', nil) { :event |
-				system.library::jiScala.require { :unused |
+				system.requireLibraryItem('jiScala') {
 					workspace::smallKansas.ScalaJiTuningBrowser(workspace::jiScala, nil)
 				}
 			},
@@ -1429,9 +1430,9 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 					}.collect(name:/1)
 				},
 				3 -> {
-					self.detect { :each |
-						each.name = path[3]
-					}.htmlView.outerHTML
+					| ji = self.detect { :each | each.name = path[3] }; |
+					browser.setStatus(ji.description);
+					ji.htmlView.outerHTML
 				}
 			])
 		}
@@ -1854,6 +1855,10 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 		| listItem = 'li'.createElement; |
 		listItem.textContent := self;
 		listItem
+	}
+
+	TextOption { :self |
+		TextOption(self, self)
 	}
 
 	TextOption { :self :value |

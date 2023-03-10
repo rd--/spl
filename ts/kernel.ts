@@ -112,20 +112,7 @@ export class Type {
 
 const preinstalledTypes = ['Array', 'String', 'Void']; // ?
 
-export class LibraryItem {
-	name: string;
-	url: string;
-	mimeType: string;
-	parser: (aValue: string) => unknown;
-	useLocalStorage: boolean;
-	constructor(name: string, url: string, mimeType: string, parser: (aValue: string) => unknown, useLocalStorage: boolean) {
-		this.name = name;
-		this.url = url;
-		this.mimeType = mimeType;
-		this.parser = parser;
-		this.useLocalStorage = useLocalStorage;
-	}
-}
+type LibraryItem = unknown;
 
 export class System {
 	methodDictionary: MethodDictionary;
