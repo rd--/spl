@@ -1199,6 +1199,24 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		self.addFrame(scalaJi.ScalaJiTuningBrowser, event)
 	}
 
+	ScSynthStatus { :self :event |
+		|
+			textEditor = TextEditor('ScSynth Status', 'text/plain', '---'),
+			frame = self.addFrameWithAnimator(textEditor, event, 1) {
+				textEditor.setEditorText(
+					system.defaultScSynth.isAlive.if {
+						system.defaultScSynth.status.printString
+					} {
+						'---'
+					}
+				)
+			};
+		|
+		textEditor.editable := false;
+		frame.outerElement.style.setProperties((height: '1em', width: '18em'));
+		frame
+	}
+
 	SvgViewer { :self :title :svg |
 		self.addFrame(SvgViewer(title, svg), nil)
 	}
@@ -1278,9 +1296,12 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 			MenuItem('Program Browser', nil) { :event |
 				self.ProgramBrowser(event)
 			},
-			MenuItem('Reset Synthesiser', nil) { :event |
+			MenuItem('ScSynth Reset', nil) { :event |
 				workspace::clock.clear;
 				system.defaultScSynth.reset
+			},
+			MenuItem('ScSynth Status', nil) { :event |
+				self.ScSynthStatus(event)
 			},
 			MenuItem('Scala Ji Meta Browser', nil) { :event |
 				system.requireLibraryItems(['jiScala', 'jiMeta']) {

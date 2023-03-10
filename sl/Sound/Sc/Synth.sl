@@ -97,10 +97,88 @@ LocalControl : [Object] {
 
 }
 
+ScSynthOptions : [Object] {
+
+	blockSize { :self |
+		<primitive: return _self.blockSize;>
+	}
+
+	hardwareBufferSize { :self |
+		<primitive: return _self.hardwareBufferSize;>
+	}
+
+	numInputs { :self |
+		<primitive: return _self.numInputs;>
+	}
+
+	numOutputs { :self |
+		<primitive: return _self.numOutputs;>
+	}
+
+	pseudoSlotNameArray { :self |
+		['hardwareBufferSize', 'blockSize', 'numInputs', 'numOutputs']
+	}
+
+}
+
 ScSynth : [Object] {
+
+	addOscListener { :self :address :onMessage |
+		<primitive: sc.scSynthAddOscListener(_self, _address, _onMessage);>
+		onMessage
+	}
+
+	boot { :self |
+		<primitive: return _self.boot();>
+	}
+
+	isAlive { :self |
+		<primitive: return _self.isAlive;>
+	}
+
+	isStarting { :self |
+		<primitive: return _self.isStarting;>
+	}
+
+	hasIoUgens { :self |
+		<primitive: return _self.hasIoUgens;>
+	}
+
+	langPort { :self |
+		<primitive: return _self.langPort;>
+	}
+
+	options { :self |
+		<primitive: return _self.options;>
+	}
+
+	oscListeners { :self |
+		<primitive: return _self.oscListeners;>
+	}
+
+	pseudoSlotNameArray { :self |
+		['options', 'oscListeners', 'isAlive', 'isStarting', 'hasIoUgens', 'synthPort', 'langPort', 'status']
+	}
+
+	removeOscListener { :self :address :onMessage |
+		<primitive: sc.scSynthRemoveOscListener(_self, _address, _onMessage);>
+		onMessage
+	}
 
 	reset { :self |
 		<primitive: return sc.resetScSynth(_self);>
+	}
+
+	sendOsc { :self :oscPacket |
+		<primitive: return _self.sendOsc(_oscPacket);>
+	}
+
+	status { :self |
+		<primitive: return _self.status;>
+	}
+
+	synthPort { :self |
+		<primitive: return _self.synthPort;>
 	}
 
 }
