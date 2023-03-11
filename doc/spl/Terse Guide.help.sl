@@ -524,6 +524,8 @@ Fraction(4, 6).reduced.denominator = 3
 3:4.unicode = '¾'
 2:3.unicode = '⅔'
 var n = unicodeFractions().associations.collect(value:/1); n = n.sorted
+'4:3'.parseFraction = 4:3
+'4/3'.parseFraction('/') = 4:3
 
 'Kernel-Numbers/SmallFloat'
 3.141.typeOf = 'SmallFloat'

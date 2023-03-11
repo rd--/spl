@@ -68,6 +68,7 @@ system.categorizeDictionary(
 			'Env',
 			'LocalControl',
 			'ScSynth',
+			'ScSynthOptions',
 			'ScUgen',
 			'Ugen',
 			'UgenGraph'
@@ -91,6 +92,7 @@ system.categorizeDictionary(
 			'ColumnBrowser',
 			'AnalogueClock',
 			'Frame',
+			'HelpSystem',
 			'Inspector',
 			'ListChooser',
 			'Menu',

@@ -30,5 +30,29 @@ loadSequence([
 				}
 			}
 		)
+	);
+	system.addLibraryItem(
+		LibraryItem(
+			'helpIndex',
+			'https://rohandrape.net/sw/jssc3/text/smallhours-help.text',
+			'text/plain',
+			identity:/1
+		)
+	);
+	system.addLibraryItem(
+		LibraryItem(
+			'programIndex',
+			'https://rohandrape.net/sw/jssc3/text/smallhours-programs.text',
+			'text/plain',
+			identity:/1
+		)
+	);
+	system.addLibraryItem(
+		LibraryItem(
+			'programOracle',
+			'https://rohandrape.net/sw/jssc3/text/smallhours-oracle.text',
+			'text/plain',
+			identity:/1
+		)
 	)
 }

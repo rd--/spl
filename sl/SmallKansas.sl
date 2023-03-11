@@ -202,13 +202,13 @@ ColourChooser : [Object, View] { | colourChooserPane colourInput |
 
 }
 
-ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEditor columnLists statusPane statusText title |
+ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEditor numberOfColumns columnLists statusPane statusText title |
 
 	addKeyBindings { :self :aProcedure:/1 |
 		self.textEditor.addKeyBindings(self.textEditor.aProcedure)
 	}
 
-	createElements { :self :numberOfColumns :mimeType :withFilter :withStatus :columnProportions :listSize |
+	createElements { :self :mimeType :withFilter :withStatus :columnProportions :listSize |
 		self.browserPane := 'div'.createElement (
 			class: 'browserPane'
 		);
@@ -221,7 +221,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 		self.textEditor := newTextEditor().initialize(
 			'ColumnBrowserTextEditor', mimeType, ''
 		);
-		self.columnLists := (1 .. numberOfColumns).collect { :index |
+		self.columnLists := (1 .. self.numberOfColumns).collect { :index |
 			ListChooser(withFilter & { index = 1 }, nil, listSize)
 		};
 		columnProportions.size.do { :index |
@@ -249,11 +249,11 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 	}
 
 	initialize { :self :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept:/1 :onChange:/2  |
-		| numberOfColumns = columnProportions.size; |
 		self.title := title;
-		self.createElements(numberOfColumns, mimeType, withFilter, withStatus, columnProportions, 6);
-		self.setEntries(1, onChange(self, []));
-		self.setEventHandlers(numberOfColumns, onChange:/2);
+		self.numberOfColumns := columnProportions.size;
+		self.createElements(mimeType, withFilter, withStatus, columnProportions, 6);
+		self.setColumnEntries(1, onChange(self, []));
+		self.setEventHandlers(onChange:/2);
 		clientKeyBindings.isProcedure.ifTrue {
 			self.addKeyBindings(clientKeyBindings)
 		};
@@ -269,43 +269,52 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 		self.browserPane
 	}
 
-	path { :self |
-		self.columnLists.collect { :each | each.select.value }
+	pathUpTo { :self :size |
+		(1 .. size).collect { :each |
+			self.columnLists[each].select.value
+		}
 	}
 
-	path { :self :path |
-		path.withCollect(self.columnLists.first(path.size)) { :aString :aColumn |
-			aColumn.select.select(aString)
-		};
-		self.columnLists[path.size].select.dispatchEvent(Event('change'));
-		self
+	columnEdited { :self :index :onChange:/2 |
+		|
+			next = onChange(self, self.pathUpTo(index));
+		|
+		(index = self.numberOfColumns).if {
+			next.then { :view |
+				self.textEditor.setEditorText(view.asString)
+			}
+		} {
+			self.textEditor.setEditorText('');
+			(self.numberOfColumns - index - 1).do { :each |
+				self.columnLists[index + each + 1].select.removeAll
+			};
+			self.setColumnEntries(index + 1, next)
+		}
 	}
 
-	setEntries { :self :columnIndex :entries |
-		self.columnLists[columnIndex].setEntries(entries)
+	setColumnEntries { :self :index :entries |
+		self.columnLists[index].setEntries(entries)
 	}
 
-	setEventHandlers { :self :numberOfColumns :onChange:/2 |
-		numberOfColumns.do { :index |
-			self.columnLists[index].select.addEventListener('change') { :unusedEvent |
-				|
-					next = onChange(self, (1 .. index).collect { :each |
-						self.columnLists[each].select.value
-					});
-				|
-				(index = numberOfColumns).if {
-					next.then { :view |
-						self.textEditor.setEditorText(view.asString)
-					}
-				} {
-					self.textEditor.setEditorText('');
-					(numberOfColumns - index - 1).do { :each |
-						self.columnLists[index + each + 1].select.removeAll
-					};
-					self.setEntries(index + 1, next)
-				}
+	setColumnValue { :self :index :value |
+		| select = self.columnLists[index].select; |
+		select.select(value);
+		select.dispatchEvent(Event('change'))
+	}
+
+	setEventHandlers { :self :onChange:/2 |
+		self.numberOfColumns.do { :index |
+			self.columnLists[index].select.addEventListener('change') { :event |
+				self.columnEdited(index, onChange:/2)
 			}
 		}
+	}
+
+	setPath { :self :path |
+		1.upTo(path.size).do { :index |
+			self.setColumnValue(index, path[index])
+		};
+		self
 	}
 
 	setStatus { :self :aString |
@@ -489,6 +498,184 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 
 	Frame { :self |
 		newFrame().initialize(self)
+	}
+
+}
+
+HelpSystem : [Object] { | helpIndex programIndex programOracle |
+
+	helpAreas { :self |
+		['spl', 'sc', 'sk']
+	}
+
+	HelpBrowser { :self |
+		ColumnBrowser(
+			'Help Browser',
+			'text/markdown',
+			false,
+			false,
+			[1, 1, 3],
+			nil,
+			nil,
+			{ :browser :path |
+				path.size.caseOf([
+					0 -> {
+						self.helpAreas
+					},
+					1 -> {
+						self.helpKind(path[1])
+					},
+					2 -> {
+						self.helpNames(path[1], path[2])
+					},
+					3 -> {
+						self.helpFetch(path)
+					}
+				])
+			}
+		)
+	}
+
+	helpFetch { :self :path |
+		path.ifNotNil {
+			('HelpSystem>>helpFetch: ' ++ path.joinSeparatedBy('/')).postLine;
+			system.window.fetchString(self.helpUrl(path[1], path[2], path[3]), (cache: 'no-cache'))
+		}
+	}
+
+	helpFetchFor { :self :subject |
+		self.helpFetch(self.helpFind(subject))
+	}
+
+	helpFind { :self :name |
+		self.helpIndex.detectIfNone { :each |
+			each[3] = name
+		} {
+			('HelpSystem>>helpFind: no help for: ' ++ name).postLine;
+			nil
+		}
+	}
+
+	helpKind { :self :area |
+		['doc', 'help']
+	}
+
+	helpNames { :self :area :kind |
+		self.helpIndex.select { :each |
+			each[1] = area & {
+				each[2] = kind
+			}
+		}.collect(third:/1).IdentitySet.Array.sorted
+	}
+
+	helpProject { :self :area |
+		area.caseOf([
+			'sc' -> { 'stsc3' },
+			'sk' -> { 'spl' },
+			'spl' -> { 'spl' }
+		])
+	}
+
+	helpUrl { :self :area :kind :name |
+		['./lib/', self.helpProject(area), '/', kind, '/', area, '/', name, '.help.sl'].join
+	}
+
+	initialize { :self |
+		system.requireLibraryItem('helpIndex') { :aString |
+			self.helpIndex := self.parseHelpIndex(aString)
+		};
+		system.requireLibraryItem('programIndex') { :aString |
+			self.programIndex := self.parseProgramIndex(aString)
+		};
+		system.requireLibraryItem('programOracle') { :aString |
+			self.programOracle := self.parseProgramIndex(aString)
+		};
+		self
+	}
+
+	parseHelpIndex { :self :aString |
+		aString.lines.select(notEmpty:/1).collect { :each |
+			| [kind, area, name] = each.replace('.help.sl', '').splitRegExp(RegExp('/')); |
+			[area, kind, name]
+		}
+	}
+
+	parseProgramIndex { :self :aString |
+		aString.lines.select(notEmpty:/1).collect { :each |
+			each.replace('.sl', '').splitRegExp(RegExp(' - |/'))
+		}
+	}
+
+	programAuthors { :self :category |
+		self.programIndex.select { :each |
+			each[1] = category
+		}.collect(second:/1).IdentitySet.Array.sorted
+	}
+
+	ProgramBrowser { :self :path |
+		ColumnBrowser(
+			'Program Browser',
+			'text/plain',
+			false,
+			false,
+			[1, 1, 3],
+			nil,
+			nil,
+			{ :browser :path |
+				path.size.caseOf([
+					0 -> {
+						self.programCategories
+					},
+					1 -> {
+						self.programAuthors(path[1])
+					},
+					2 -> {
+						self.programNames(path[1], path[2])
+					},
+					3 -> {
+						self.programFetch(path[1], path[2], path[3])
+					}
+				])
+			}
+		).setPath(path)
+	}
+
+	ProgramBrowser { :self |
+		self.ProgramBrowser([])
+	}
+
+	programCategories { :self |
+		self.programIndex.collect(first:/1).IdentitySet.Array.sorted.reject { :each |
+			each = 'collect'
+		}
+	}
+
+	programFetch { :self :category :author :name |
+		system.window.fetchString(self.programUrl(category, author, name), (cache: 'no-cache'))
+	}
+
+	programNames { :self :category :author |
+		self.programIndex.select { :each |
+			each[1] = category & {
+				each[2] = author
+			}
+		}.collect(third:/1).sorted
+	}
+
+	ProgramOracle { :self |
+		self.ProgramBrowser(self.programOracle.atRandom)
+	}
+
+	programUrl { :self :category :author :name |
+		['./lib/stsc3/help/', category, '/', author, ' - ', name, '.sl'].join
+	}
+
+}
+
++Void {
+
+	HelpSystem {
+		newHelpSystem().initialize
 	}
 
 }
@@ -753,7 +940,7 @@ PngViewer : [Object, View] { | pngPane title pngData pngUrl |
 
 }
 
-SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex |
+SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	addFrameWithAnimator { :self :subject :event :intervalInSeconds :aProcedure:/0 |
 		|
@@ -790,10 +977,10 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 	browserOn { :self :path :event |
 		system.isTypeName(path[1]).if {
-			self.addFrame(TypeBrowser().path(path), event)
+			self.addFrame(TypeBrowser().setPath(path), event)
 		} {
 			system.isTraitName(path[1]).if {
-				self.addFrame(TraitBrowser().path(path), event)
+				self.addFrame(TraitBrowser().setPath(path), event)
 			} {
 				('SmallKansas>>browserOn: not type or trait: ' ++ path[1]).postLine
 			}
@@ -876,64 +1063,15 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		self.menu('Font Size Menu', self.fontSizeMenuEntriesOn(subject), isTransient, event)
 	}
 
-	helpAreas { :self |
-		['spl', 'sc', 'sk']
-	}
-
-	HelpBrowser { :self |
-		ColumnBrowser(
-			'Help Browser',
-			'text/markdown',
-			false,
-			false,
-			[1, 1, 3],
-			nil,
-			nil,
-			{ :browser :path |
-				path.size.caseOf([
-					0 -> {
-						self.helpAreas
-					},
-					1 -> {
-						self.helpKind(path[1])
-					},
-					2 -> {
-						self.helpNames(path[1], path[2])
-					},
-					3 -> {
-						self.helpFetch(path)
-					}
-				])
-			}
-		)
-	}
-
-	HelpBrowser { :self :event |
-		self.addFrame(self.HelpBrowser, event)
-	}
-
-	helpFetch { :self :path |
-		path.ifNotNil {
-			('SmallKansas>>helpFetch: ' ++ path.joinSeparatedBy('/')).postLine;
-			system.window.fetchString(self.helpUrl(path[1], path[2], path[3]), (cache: 'no-cache'))
-		}
-	}
-
-	helpFetchFor { :self :subject |
-		self.helpFetch(self.helpFind(subject))
-	}
-
-	helpFind { :self :name |
-		self.helpIndex.detectIfNone { :each |
-			each[3] = name
-		} {
-			('SmallKansas>>helpFind: no help for: ' ++ name).postLine;
-			nil
-		}
+	help { :self |
+		self.helpSystem.ifNil {
+			self.helpSystem := HelpSystem()
+		};
+		self.helpSystem
 	}
 
 	helpFor { :self :subject :event |
-		self.helpFetchFor(subject).then { :aString |
+		self.help.helpFetchFor(subject).then { :aString |
 			self.addFrame(
 				TextEditor('Help For', 'text/markdown', aString),
 				event
@@ -941,33 +1079,8 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		}
 	}
 
-	helpKind { :self :area |
-		['doc', 'help']
-	}
-
-	helpNames { :self :area :kind |
-		self.helpIndex.select { :each |
-			each[1] = area & {
-				each[2] = kind
-			}
-		}.collect(third:/1).IdentitySet.Array.sorted
-	}
-
-	helpParse { :self :aString |
-		| [kind, area, name] = aString.replace('.help.sl', '').splitRegExp(RegExp('/')); |
-		[area, kind, name]
-	}
-
-	helpProject { :self :area |
-		area.caseOf([
-			'sc' -> { 'stsc3' },
-			'sk' -> { 'spl' },
-			'spl' -> { 'spl' }
-		])
-	}
-
-	helpUrl { :self :area :kind :name |
-		['./lib/', self.helpProject(area), '/', kind, '/', area, '/', name, '.help.sl'].join
+	HelpBrowser { :self :event |
+		self.addFrame(self.help.HelpBrowser, event)
 	}
 
 	implementorsOf { :self :subject :event |
@@ -993,8 +1106,6 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 				self.WorldMenu(true, event)
 			}
 		};
-		self.loadHelpIndex;
-		self.loadProgramIndex;
 		self
 	}
 
@@ -1008,22 +1119,6 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 			}
 		} {
 			ifPresent(self.midiAccess)
-		}
-	}
-
-	loadHelpIndex { :self |
-		system.window.fetchString('./text/smallhours-help.text', (cache: 'no-cache')).then { :aString |
-			self.helpIndex := aString.lines.select(notEmpty:/1).collect { :each |
-				self.helpParse(each)
-			}
-		}
-	}
-
-	loadProgramIndex { :self |
-		system.window.fetchString('./text/smallhours-programs.text', (cache: 'no-cache')).then { :aString |
-			self.programIndex := aString.lines.select(notEmpty:/1).collect { :each |
-				self.programParse(each)
-			}
 		}
 	}
 
@@ -1112,68 +1207,12 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		self.addFrame(PngViewer(title, png), nil)
 	}
 
-	programAuthors { :self :category |
-		self.programIndex.select { :each |
-			each[1] = category
-		}.collect(second:/1).IdentitySet.Array.sorted
-	}
-
-	ProgramBrowser { :self |
-		ColumnBrowser(
-			'Program Browser',
-			'text/plain',
-			false,
-			false,
-			[1, 1, 3],
-			nil,
-			nil,
-			{ :browser :path |
-				path.size.caseOf([
-					0 -> {
-						self.programCategories
-					},
-					1 -> {
-						self.programAuthors(path[1])
-					},
-					2 -> {
-						self.programNames(path[1], path[2])
-					},
-					3 -> {
-						self.programFetch(path[1], path[2], path[3])
-					}
-				])
-			}
-		)
-	}
-
 	ProgramBrowser { :self :event |
-		self.addFrame(self.ProgramBrowser, event)
+		self.addFrame(self.help.ProgramBrowser, event)
 	}
 
-	programCategories { :self |
-		self.programIndex.collect(first:/1).IdentitySet.Array.sorted.reject { :each |
-			each = 'collect'
-		}
-	}
-
-	programFetch { :self :category :author :name |
-		system.window.fetchString(self.programUrl(category, author, name), (cache: 'no-cache'))
-	}
-
-	programNames { :self :category :author |
-		self.programIndex.select { :each |
-			each[1] = category & {
-				each[2] = author
-			}
-		}.collect(third:/1).IdentitySet.Array.sorted
-	}
-
-	programParse { :self :aString |
-		aString.replace('.sl', '').splitRegExp(RegExp(' - |/'))
-	}
-
-	programUrl { :self :category :author :name |
-		['./lib/stsc3/help/', category, '/', author, ' - ', name, '.sl'].join
+	ProgramOracle { :self :event |
+		self.addFrame(self.help.ProgramOracle, event)
 	}
 
 	referencesTo { :self :subject :event |
@@ -1295,6 +1334,9 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 			},
 			MenuItem('Program Browser', nil) { :event |
 				self.ProgramBrowser(event)
+			},
+			MenuItem('Program Oracle', nil) { :event |
+				self.ProgramOracle(event)
 			},
 			MenuItem('ScSynth Reset', nil) { :event |
 				workspace::clock.clear;

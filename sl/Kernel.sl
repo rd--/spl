@@ -815,7 +815,28 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 }
 
-+ Void {
++String {
+
+	parseFraction { :self :separator |
+		self.includesSubstring(separator).if {
+			| parts = self.splitBy(separator); |
+			(parts.size = 2).if {
+				Fraction(parts[1].parseInteger(10), parts[2].parseInteger(10))
+			} {
+				'String>>parseFraction: parse failed'.error
+			}
+		} {
+			Fraction(self.parseInteger(10), 1)
+		}
+	}
+
+	parseFraction { :self |
+		self.parseFraction(':')
+	}
+
+}
+
++Void {
 
 	unicodeFractions {
 		(

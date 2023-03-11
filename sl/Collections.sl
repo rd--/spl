@@ -1052,12 +1052,20 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 		<primitive: return JSON.stringify(_self);>
 	}
 
+	printString { :self :toString:/1 |
+		'[' ++ self.collect(toString:/1).joinSeparatedBy(', ') ++ ']'
+	}
+
 	printString { :self |
-		'[' ++ self.collect(printString:/1).joinSeparatedBy(', ') ++ ']'
+		self.printString(printString:/1)
 	}
 
 	species { :self |
 		Array:/1
+	}
+
+	storeString { :self |
+		self.printString(storeString:/1)
 	}
 
 	unlines { :self |
@@ -1709,20 +1717,28 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
 +SmallFloat {
 
-	thenTo { :self :second :last |
-		Interval(self, last, second - self)
+	downTo { :self :stop |
+		Interval(1, stop, -1)
 	}
 
 	Interval { :start :stop :step |
 		newInterval().initializeSlots(start, stop, step)
 	}
 
+	thenTo { :self :second :last |
+		Interval(self, last, second - self)
+	}
+
 	to { :self :stop |
-		Interval(self, stop, if(self <= stop) { 1 } { -1 })
+		Interval(self, stop, (self <= stop).if { 1 } { -1 })
 	}
 
 	toBy { :self :stop :step |
 		Interval(self, stop, step)
+	}
+
+	upTo { :self :stop |
+		Interval(1, stop, 1)
 	}
 
 }

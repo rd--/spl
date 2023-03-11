@@ -38,10 +38,16 @@ File : [Object, Blob] {
 LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 
 	readLocalStorage { :self |
-		(self.mimeType = 'application/json').if {
-			self.parser . (system.window.localStorage[self.url].parseJson)
-		} {
-			'LibraryItem>>readLocalStorage: mimeType ~= json'.error
+		| text = system.window.localStorage[self.url]; |
+		self.mimeType.caseOfOtherwise([
+			'application/json' -> {
+				self.parser . (text.parseJson)
+			},
+			'text/plain' -> {
+				self.parser . (text)
+			}
+		]) {
+			'LibraryItem>>readLocalStorage: unsupported mimeType'.error
 		}
 	}
 
@@ -65,10 +71,15 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 	}
 
 	writeLocalStorage { :self :anObject |
-		(self.mimeType = 'application/json').if {
-			system.window.localStorage[self.url] := anObject.json
-		} {
-			'LibraryItem>>writeLocalStorage: mimeType ~= json'.error
+		self.mimeType.caseOfOtherwise([
+			'application/json' -> {
+				system.window.localStorage[self.url] := anObject.json
+			},
+			'text/plain' -> {
+				system.window.localStorage[self.url] := anObject.asString
+			}
+		]) {
+			'LibraryItem>>writeLocalStorage: unsupported mimeType'.error
 		}
 	}
 
