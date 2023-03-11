@@ -21,7 +21,7 @@ loadSequence([
 			'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
 			'application/json',
 			{ :item |
-				system.requireLibraryItem('jiScala') { :jiScala |
+				system.requireLibraryItem('jiScala').then { :jiScala |
 					item.collect { :anArray |
 						anArray.collect { :aName |
 							jiScala[aName]

@@ -51,20 +51,22 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 		}
 	}
 
-	require { :self :continue:/1 |
-		self.value.notNil.if {
-			self.value.continue
-		} {
-			system.window.localStorage.includesKey(self.url).if {
-				self.value := self.readLocalStorage;
-				self.value.continue
+	require { :self |
+		Promise { :resolve:/1 :reject:/1 |
+			self.value.notNil.if {
+				self.value.resolve
 			} {
-				system.window.fetchMimeType(self.url, self.mimeType, ()).then { :answer |
-					self.useLocalStorage.ifTrue {
-						self.writeLocalStorage(answer)
-					};
-					self.value := self.parser . (answer);
-					self.value.continue
+				system.window.localStorage.includesKey(self.url).if {
+					self.value := self.readLocalStorage;
+					self.value.resolve
+				} {
+					system.window.fetchMimeType(self.url, self.mimeType, ()).then { :answer |
+						self.useLocalStorage.ifTrue {
+							self.writeLocalStorage(answer)
+						};
+						self.value := self.parser . (answer);
+						self.value.resolve
+					}
 				}
 			}
 		}
@@ -442,20 +444,14 @@ System : [Object] {
 		<primitive: return Math.random();>
 	}
 
-	requireLibraryItem { :self :name :continue:/1 |
-		system.library[name].require { :item |
-			item.continue
-		}
+	requireLibraryItem { :self :name |
+		system.library[name].require
 	}
 
-	requireLibraryItems { :self :names :continue:/0 |
-		(names.size = 1).if {
-			self.requireLibraryItem(names.first, continue:/0)
-		} {
-			self.requireLibraryItem(names.first) {
-				self.requireLibraryItems(names.copyFromTo(2, names.size), continue:/0)
-			}
-		}
+	requireLibraryItems { :self :names |
+		name.collect { :each |
+			system.library[each].require
+		}.Promise
 	}
 
 	traitDictionary { :self |

@@ -1437,6 +1437,13 @@ Promise : [Object] {
 
 }
 
++Array {
+
+	Promise { :self |
+		<primitive: return Promise.all(_self);>
+	}
+
+}
 
 RegExp : [Object] {
 

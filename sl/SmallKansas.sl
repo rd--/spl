@@ -580,19 +580,6 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 		['./lib/', self.helpProject(area), '/', kind, '/', area, '/', name, '.help.sl'].join
 	}
 
-	initialize { :self |
-		system.requireLibraryItem('helpIndex') { :aString |
-			self.helpIndex := self.parseHelpIndex(aString)
-		};
-		system.requireLibraryItem('programIndex') { :aString |
-			self.programIndex := self.parseProgramIndex(aString)
-		};
-		system.requireLibraryItem('programOracle') { :aString |
-			self.programOracle := self.parseProgramIndex(aString)
-		};
-		self
-	}
-
 	parseHelpIndex { :self :aString |
 		aString.lines.select(notEmpty:/1).collect { :each |
 			| [kind, area, name] = each.replace('.help.sl', '').splitRegExp(RegExp('/')); |
@@ -670,12 +657,28 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 		['./lib/stsc3/help/', category, '/', author, ' - ', name, '.sl'].join
 	}
 
+	requireLibraries { :self |
+		[
+			system.requireLibraryItem('helpIndex').then { :aString |
+				self.helpIndex := self.parseHelpIndex(aString)
+			},
+			system.requireLibraryItem('programIndex').then { :aString |
+				self.programIndex := self.parseProgramIndex(aString)
+			},
+			system.requireLibraryItem('programOracle').then { :aString |
+				self.programOracle := self.parseProgramIndex(aString)
+			}
+		].Promise.then { :unused |
+			self
+		}
+	}
+
 }
 
 +Void {
 
 	HelpSystem {
-		newHelpSystem().initialize
+		newHelpSystem().requireLibraries
 	}
 
 }
@@ -1063,24 +1066,38 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 		self.menu('Font Size Menu', self.fontSizeMenuEntriesOn(subject), isTransient, event)
 	}
 
-	help { :self |
-		self.helpSystem.ifNil {
-			self.helpSystem := HelpSystem()
-		};
-		self.helpSystem
+	getHelp { :self :helpProcedure:/1 |
+		(*
+			The HelpSystem requires resources that are acquired asynchronously.
+			self.getHelp checks if the HelpSystem is acquired, else it acquires it.
+			Eventually the helpProcedure is run with a valud HelpSystem.
+		*)
+		self.helpSystem.isNil.if {
+			HelpSystem().then { :helpSystem |
+				self.helpSystem := helpSystem;
+				helpProcedure(self.helpSystem)
+			}
+		} {
+			helpProcedure(self.helpSystem)
+		}
 	}
 
 	helpFor { :self :subject :event |
-		self.help.helpFetchFor(subject).then { :aString |
-			self.addFrame(
-				TextEditor('Help For', 'text/markdown', aString),
-				event
-			)
+		self.getHelp { :help |
+			help.helpFetchFor(subject).then { :aString |
+				self.addFrame(
+					TextEditor('Help For', 'text/markdown', aString),
+					event
+				)
+			}
 		}
 	}
 
 	HelpBrowser { :self :event |
-		self.addFrame(self.help.HelpBrowser, event)
+		self.getHelp { :help |
+			['HelpBrowser', help].postLine;
+			self.addFrame(help.HelpBrowser, event)
+		}
 	}
 
 	implementorsOf { :self :subject :event |
@@ -1208,11 +1225,15 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	ProgramBrowser { :self :event |
-		self.addFrame(self.help.ProgramBrowser, event)
+		self.getHelp { :help |
+			self.addFrame(help.ProgramBrowser, event)
+		}
 	}
 
 	ProgramOracle { :self :event |
-		self.addFrame(self.help.ProgramOracle, event)
+		self.getHelp { :help |
+			self.addFrame(help.ProgramOracle, event)
+		}
 	}
 
 	referencesTo { :self :subject :event |
@@ -1346,12 +1367,12 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				self.ScSynthStatus(event)
 			},
 			MenuItem('Scala Ji Meta Browser', nil) { :event |
-				system.requireLibraryItem('jiMeta') { :jiMeta |
+				system.requireLibraryItem('jiMeta').then { :jiMeta |
 					workspace::smallKansas.ScalaJiMetaBrowser(jiMeta, nil)
 				}
 			},
 			MenuItem('Scala Ji Tuning Browser', nil) { :event |
-				system.requireLibraryItem('jiScala') { :jiScala |
+				system.requireLibraryItem('jiScala').then { :jiScala |
 					workspace::smallKansas.ScalaJiTuningBrowser(jiScala, nil)
 				}
 			},
