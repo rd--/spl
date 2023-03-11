@@ -355,7 +355,8 @@ var d = (x: 23, y: 3.141); d::x = 23
 var d = (x: 23, y: 3.141); d::x := 42; d = (x: 42, y: 3.141)
 var d = (x: 23, y: 3.141); d.copy ~~ d
 (x:1, y:2) ++ (z:3) = (x:1, y:2, z:3)
-(x: 1, y: 2).asArray = ['x' -> 1, 'y' -> 2]
+(x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2]
+(x: 1, y: 2).asArray = [1, 2]
 var d = (x:1, y:2, z:3), (x, z) = d; [x, z] = [1, 3]
 var (x, y) = { var n = system.randomFloat; (x: n, y: n) }.value; x = y
 (x:1, y:2, z:3).select(even:/1) = (y: 2)
@@ -661,11 +662,11 @@ system.typeTraits('Array').includes('ArrayedCollection') = true
 system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'SequenceableCollection']) = true
 system.methodTraits('sum:/1') = ['Collection']
 system.traitTypes('Object').includes('SmallFloat') = true
-system.trait('Object').methodDictionary.includesKey('respondsTo:/2') = true
-system.trait('Collection').isTrait = true
-system.trait('Collection').name = 'Collection'
-system.trait('Collection').methodDictionary.includesKey('sum:/1') = true
-system.trait('Collection').methodDictionary::sum:/1.isMethod = true
+system.Trait('Object').methodDictionary.includesKey('respondsTo:/2') = true
+system.Trait('Collection').isTrait = true
+system.Trait('Collection').name = 'Collection'
+system.Trait('Collection').methodDictionary.includesKey('sum:/1') = true
+system.Trait('Collection').methodDictionary::sum:/1.isMethod = true
 system.traitTypes('Dictionary').includes('IdentityDictionary') = true
 system.traitDictionary['Dictionary'].isTrait = true
 

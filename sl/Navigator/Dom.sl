@@ -706,7 +706,17 @@ HTMLTableElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-+Array {
++@SequenceableCollection {
+
+	asHtmlRow { :self :toString:/1 |
+		| tr = 'tr'.createElement; |
+		self.do { :cell |
+			| td = 'td'.createElement; |
+			td.textContent(cell.toString);
+			tr.appendChild(td)
+		};
+		tr
+	}
 
 	asHtmlTable { :self |
 		self.asHtmlTable(asString:/1)
@@ -715,15 +725,27 @@ HTMLTableElement : [Object, EventTarget, Node, Element, HtmlElement] {
 	asHtmlTable { :self :toString:/1 |
 		| table = 'table'.createElement; |
 		self.do { :row |
-			| tr = 'tr'.createElement; |
-			row.do { :cell |
-				| td = 'td'.createElement; |
-				td.textContent(cell.toString);
-				tr.appendChild(td)
-			};
-			table.appendChild(tr)
+			table.appendChild(
+				row.asHtmlRow(toString:/1)
+			)
 		};
 		table
+	}
+
+}
+
++Association {
+
+	asHtmlRow { :self :toString:/1 |
+		self.Array.asHtmlRow(toString:/1)
+	}
+
+}
+
++@Dictionary {
+
+	asHtmlTable { :self :toString:/1 |
+		self.associations.asHtmlTable(toString:/1)
 	}
 
 }

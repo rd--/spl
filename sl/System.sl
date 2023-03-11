@@ -35,7 +35,7 @@ File : [Object, Blob] {
 
 }
 
-LibraryItem : [Object] { | name url mimeType parser useLocalStorage |
+LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 
 	readLocalStorage { :self |
 		(self.mimeType = 'application/json').if {
@@ -46,19 +46,19 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage |
 	}
 
 	require { :self :continue:/1 |
-		workspace.includesKey(self.name).if {
-			workspace[self.name].continue
+		self.value.notNil.if {
+			self.value.continue
 		} {
 			system.window.localStorage.includesKey(self.url).if {
-				workspace[self.name] := self.readLocalStorage;
-				workspace[self.name].continue
+				self.value := self.readLocalStorage;
+				self.value.continue
 			} {
 				system.window.fetchMimeType(self.url, self.mimeType, ()).then { :answer |
 					self.useLocalStorage.ifTrue {
 						self.writeLocalStorage(answer)
 					};
-					workspace[self.name] := self.parser . (answer);
-					workspace[self.name].continue
+					self.value := self.parser . (answer);
+					self.value.continue
 				}
 			}
 		}
@@ -77,7 +77,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage |
 +String {
 
 	LibraryItem { :name :url :mimeType :parser |
-		newLibraryItem().initializeSlots(name, url, mimeType, parser, true)
+		newLibraryItem().initializeSlots(name, url, mimeType, parser, true, nil)
 	}
 
 }
@@ -431,18 +431,18 @@ System : [Object] {
 		<primitive: return Math.random();>
 	}
 
-	requireLibraryItem { :self :item :continue:/0 |
-		system.library[item].require { :unused |
-			continue()
+	requireLibraryItem { :self :name :continue:/1 |
+		system.library[name].require { :item |
+			item.continue
 		}
 	}
 
-	requireLibraryItems { :self :items :continue:/0 |
-		(items.size = 1).if {
-			self.requireLibraryItem(items.first, continue:/0)
+	requireLibraryItems { :self :names :continue:/0 |
+		(names.size = 1).if {
+			self.requireLibraryItem(names.first, continue:/0)
 		} {
-			self.requireLibraryItem(items.first) {
-				self.requireLibraryItems(items.copyFromTo(2, items.size), continue:/0)
+			self.requireLibraryItem(names.first) {
+				self.requireLibraryItems(names.copyFromTo(2, names.size), continue:/0)
 			}
 		}
 	}

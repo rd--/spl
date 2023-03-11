@@ -104,6 +104,10 @@
 		>
 	}
 
+	printString { :self |
+		self.asArray.printString ++ '.ByteArray'
+	}
+
 	occurrencesOf { :self :anObject |
 		| tally = 0; |
 		1.toDo(self.size) { :index |
@@ -453,7 +457,7 @@
 	}
 
 	sorted { :self :compare |
-		self.asArray.sort(compare)
+		self.Array.sort(compare)
 	}
 
 	sum { :self |
@@ -516,9 +520,10 @@
 		aCollection
 	}
 
+
 	Array { :self |
 		| answer = Array(self.size), index = 1; |
-		self.associationsDo { :each |
+		self.valuesDo { :each |
 			answer[index] := each;
 			index := index + 1
 		};
@@ -526,11 +531,12 @@
 	}
 
 	associations { :self |
-		| answer = OrderedCollection(); |
+		| answer = Array(self.size), index = 1; |
 		self.associationsDo { :each |
-			answer.add(each)
+			answer[index] := each;
+			index := index + 1
 		};
-		answer.sharedArray
+		answer
 	}
 
 	associationsDo { :self :aProcedure:/1 |
@@ -689,6 +695,10 @@
 		}
 	}
 
+	printString { :self |
+		self.storeString
+	}
+
 	removeKey { :self :key |
 		removeKeyIfAbsent(self, key) {
 			error('Dictionary:removeKey')
@@ -703,6 +713,10 @@
 			}
 		};
 		answer
+	}
+
+	storeString { :self |
+		self.associations.printString ++ '.' ++ self.typeOf
 	}
 
 	valuesDo { :self :aProcedure:/1 |
@@ -1147,7 +1161,7 @@ Association : [Object] { | key value |
 		self.key <= anAssociation.key
 	}
 
-	asArray { :self |
+	Array { :self |
 		[self.key, self.value]
 	}
 
@@ -1191,10 +1205,6 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 		error('ByteArray>>atPut: index not an integer or value not a byte')
 	}
 
-	printString { :self |
-		self.asArray.printString ++ '.ByteArray'
-	}
-
 	species { :self |
 		ByteArray:/1
 	}
@@ -1230,10 +1240,6 @@ Float64Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 			return _aFloat;
 		}>
 		self.indexError(index)
-	}
-
-	printString { :self |
-		self.asArray.printString ++ '.Float64Array'
 	}
 
 	species { :self |
@@ -1439,10 +1445,6 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 		>
 	}
 
-	printString { :self |
-		self.asArray.printString ++ '.IdentityDictionary'
-	}
-
 	removeKeyIfAbsent { :self :aKey :aProcedure |
 		<primitive:
 		var existed = _self.delete(_aKey);
@@ -1459,7 +1461,7 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 	}
 
 	storeString { :self |
-		self.asArray.storeString ++ '.IdentityDictionary'
+		self.associations.storeString ++ '.IdentityDictionary'
 	}
 
 	values { :self |
@@ -1562,6 +1564,14 @@ IdentitySet : [Object, Collection] {
 
 }
 
++@Dictionary {
+
+	IdentitySet { :self |
+		self.values.IdentitySet
+	}
+
+}
+
 +@Object {
 
 	isIdentitySet { :self |
@@ -1589,7 +1599,7 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 	}
 
 	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
-		aProcedure(aCollection, self.asArray)
+		aProcedure(aCollection, self.Array)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
@@ -1853,7 +1863,7 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveAr
 	}
 
 	fibonacciArray { :self |
-		self.fibonacciSequence.asArray
+		self.fibonacciSequence.Array
 	}
 
 	OrderedCollection { :self |
@@ -1964,7 +1974,7 @@ StringDictionary : [Object, Collection, Dictionary] {
 	printString { :self |
 		[
 			'(',
-			self.Array.collect { :each |
+			self.associations.collect { :each |
 				each.key ++ ': ' ++ each.value.printString
 			}.joinSeparatedBy(', '),
 			')'
@@ -1983,10 +1993,6 @@ StringDictionary : [Object, Collection, Dictionary] {
 		StringDictionary:/0
 	}
 
-	storeString { :self |
-		self.Array.storeString ++ '.StringDictionary'
-	}
-
 	StringDictionary { :self |
 		self
 	}
@@ -2000,16 +2006,14 @@ StringDictionary : [Object, Collection, Dictionary] {
 +Array {
 
 	StringDictionary { :self |
-		(* I am an array of associations. *)
 		self.collect(key:/1).allSatisfy(isString:/1).if {
-			self.collect(asArray:/1).unsafeStringDictionary
+			self.collect(asArray:/1).stringDictionaryFromTwoElementArrays
 		} {
 			'Array>>StringDictionary: not all keys are strings'.error
 		}
 	}
 
-	unsafeStringDictionary { :self |
-		(* I am an array of two-element arrays. *)
+	stringDictionaryFromTwoElementArrays { :self |
 		<primitive: return Object.fromEntries(_self);>
 	}
 

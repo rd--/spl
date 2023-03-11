@@ -1191,8 +1191,8 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 		self.frameSet.remove(frame)
 	}
 
-	ScalaJiMetaBrowser { :self :scalaJi :jiMeta :event |
-		self.addFrame(scalaJi.ScalaJiMetaBrowser(jiMeta), event)
+	ScalaJiMetaBrowser { :self :jiMeta :event |
+		self.addFrame(jiMeta.ScalaJiMetaBrowser, event)
 	}
 
 	ScalaJiTuningBrowser { :self :scalaJi :event |
@@ -1201,11 +1201,11 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 	ScSynthStatus { :self :event |
 		|
-			textEditor = TextEditor('ScSynth Status', 'text/plain', '---'),
+			textEditor = TextEditor('ScSynth Status', 'text/html', '---'),
 			frame = self.addFrameWithAnimator(textEditor, event, 1) {
 				textEditor.setEditorText(
 					system.defaultScSynth.isAlive.if {
-						system.defaultScSynth.status.printString
+						system.defaultScSynth.status.asHtmlTable(asString:/1).outerHTML
 					} {
 						'---'
 					}
@@ -1213,7 +1213,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 			};
 		|
 		textEditor.editable := false;
-		frame.outerElement.style.setProperties((height: '1em', width: '18em'));
+		frame.outerElement.style.setProperties((height: '14em', width: '18em'));
 		frame
 	}
 
@@ -1304,13 +1304,13 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 				self.ScSynthStatus(event)
 			},
 			MenuItem('Scala Ji Meta Browser', nil) { :event |
-				system.requireLibraryItems(['jiScala', 'jiMeta']) {
-					workspace::smallKansas.ScalaJiMetaBrowser(workspace::jiScala, workspace::jiMeta, nil)
+				system.requireLibraryItem('jiMeta') { :jiMeta |
+					workspace::smallKansas.ScalaJiMetaBrowser(jiMeta, nil)
 				}
 			},
 			MenuItem('Scala Ji Tuning Browser', nil) { :event |
-				system.requireLibraryItem('jiScala') {
-					workspace::smallKansas.ScalaJiTuningBrowser(workspace::jiScala, nil)
+				system.requireLibraryItem('jiScala') { :jiScala |
+					workspace::smallKansas.ScalaJiTuningBrowser(jiScala, nil)
 				}
 			},
 			MenuItem('System Browser', nil) { :event |
@@ -1406,19 +1406,19 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 
 }
 
-+Array {
++StringDictionary {
 
-	ScalaJiMetaBrowser { :self :meta |
+	ScalaJiMetaBrowser { :self |
 		ColumnBrowser('Scala Ji Meta Browser', 'text/html', false, false, [1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
-					meta.keys
+					self.keys
 				},
 				1 -> {
-					meta[path[1]].collect(description:/1)
+					self[path[1]].collect(description:/1)
 				},
 				2 -> {
-					meta[path[1]].detect { :each |
+					self[path[1]].detect { :each |
 						each.description = path[2]
 					}.htmlView.outerHTML
 				}
@@ -1448,16 +1448,20 @@ SmallKansas : [Object] { | container frameSet midiAccess helpIndex programIndex 
 						each.degree = path[1].parseInteger(10) & {
 							each.limit = path[2].parseInteger(10)
 						}
-					}.collect(name:/1)
+					}.keys
 				},
 				3 -> {
-					| ji = self.detect { :each | each.name = path[3] }; |
+					| ji = self[path[3]]; |
 					browser.setStatus(ji.description);
 					ji.htmlView.outerHTML
 				}
 			])
 		}
 	}
+
+}
+
++Array {
 
 	MethodSignatureBrowser { :self :withFilter |
 		| selectedMethod = nil; |
