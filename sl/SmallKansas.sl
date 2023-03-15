@@ -218,7 +218,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 		self.previewPane := 'div'.createElement (
 			class: 'previewPane'
 		);
-		self.textEditor := newTextEditor().initialize(
+		self.textEditor := TextEditor(
 			'ColumnBrowserTextEditor', mimeType, ''
 		);
 		self.columnLists := (1 .. self.numberOfColumns).collect { :index |
@@ -342,7 +342,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 
 }
 
-Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton titleText inMove x y x0 y0 eventListeners |
+Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton titleText inMove x y x0 y0 subject eventListeners |
 
 	bringToFront { :self |
 		self.zIndex := workspace::smallKansas.zIndices.max + 1
@@ -357,9 +357,9 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 		self.framePane.style.setProperty('background-color', aColour.hexString, '')
 	}
 
-	createElements { :self :subject |
+	createElements { :self |
 		self.framePane := 'div'.createElement (
-			class: ['framePane', subject.typeOf, subject.name].unwords
+			class: ['framePane', self.subject.typeOf, self.subject.name].unwords
 		);
 		self.titlePane :=  'div'.createElement (
 			class: 'titlePane'
@@ -380,7 +380,7 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 		]);
 		self.framePane.appendChildren([
 			self.titlePane,
-			subject.outerElement
+			self.subject.outerElement
 		]);
 		self.closeButton.textContent := '×';
 		self.menuButton.textContent := '☰';
@@ -396,8 +396,9 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 	}
 
 	initialize { :self :subject |
-		self.createElements(subject);
-		self.setEventHandlers(subject);
+		self.subject := subject;
+		self.createElements;
+		self.setEventHandlers;
 		self.title := subject.title;
 		self.eventListeners := IdentityDictionary();
 		self
@@ -409,6 +410,9 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 
 	menuItems { :self |
 		[
+			MenuItem('Help', nil) { :event |
+				workspace::smallKansas.helpFor(self.subject.name, event)
+			},
 			MenuItem('Colour Chooser', nil) { :event |
 				workspace::smallKansas.ColourChooser(self, event)
 			},
@@ -428,7 +432,7 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 		self.framePane.style.setProperty('top', y.asString ++ 'px', '')
 	}
 
-	setEventHandlers { :self :subject |
+	setEventHandlers { :self |
 		|
 			pointerBegin = { :event |
 				| titleRect = event.target.getBoundingClientRect; |
@@ -456,7 +460,7 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 			self.close
 		};
 		self.menuButton.addEventListener('click') { :event |
-			workspace::smallKansas.menu('Frame Menu', subject.frameMenuItems ++ self.menuItems, true, event)
+			workspace::smallKansas.menu('Frame Menu', self.subject.frameMenuItems ++ self.menuItems, true, event)
 		};
 		self.titlePane.addEventListener('contextmenu') { :event |
 			(* ... *)
@@ -1095,7 +1099,6 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	HelpBrowser { :self :event |
 		self.getHelp { :help |
-			['HelpBrowser', help].postLine;
 			self.addFrame(help.HelpBrowser, event)
 		}
 	}
@@ -1293,6 +1296,16 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 		self.addFrame(TraitBrowser(), event)
 	}
 
+	TranscriptViewer { :self :event |
+		|
+			transcriptViewer = TranscriptViewer(),
+			frame = self.addFrameWithAnimator(transcriptViewer, event, 1) {
+				transcriptViewer.update
+			};
+		|
+		frame
+	}
+
 	TypeBrowser { :self :event |
 		self.addFrame(TypeBrowser(), event)
 	}
@@ -1318,6 +1331,9 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	worldMenuEntries { :self |
 		[
+			MenuItem('About Small Kansas', nil) { :event |
+				self.helpFor('Small Kansas', event)
+			},
 			MenuItem('Analogue Clock', nil) { :event |
 				self.AnalogueClock(event)
 			},
@@ -1381,6 +1397,9 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 			},
 			MenuItem('Trait Browser', nil) { :event |
 				self.TraitBrowser(event)
+			},
+			MenuItem('Transcript Viewer', nil) { :event |
+				self.TranscriptViewer(event)
 			},
 			MenuItem('Type Browser', nil) { :event |
 				self.TypeBrowser(event)
@@ -1870,18 +1889,18 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 			self.textEditorMenu(event)
 		};
 		self.editorText.addEventListener('keydown') { :event |
-			| bindingsArray = self.keyBindings.collect { :menuItem |
-				menuItem.accessKey -> {
-					event.preventDefault;
-					menuItem.onSelect . (nil)
-				}
-			}; |
+			|
+				bindingsArray = self.keyBindings.collect { :menuItem |
+					menuItem.accessKey -> {
+						event.preventDefault;
+						menuItem.onSelect . (nil)
+					}
+				};
+			|
 			event.ctrlKey.ifTrue {
 				event.key.caseOfOtherwise(
 					bindingsArray,
-					{ :key |
-						('TextEditor>keydown: not handled: ' ++ key).postLine
-					}
+					{ :key | nil }
 				)
 			}
 		}
@@ -1918,6 +1937,36 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 
 	TextEditor { :self :mimeType :contents |
 		newTextEditor().initialize(self, mimeType, contents)
+	}
+
+}
+
+
+TranscriptViewer : [Object, View] { | textEditor entryCount |
+
+	initialize { :self |
+		self.textEditor := TextEditor('', 'text/plain', '');
+		self.entryCount := 0;
+		self
+	}
+
+	outerElement { :self |
+		self.textEditor.outerElement
+	}
+
+	update { :self |
+		(self.entryCount ~= system.transcript.entries.size).ifTrue {
+			self.entryCount := system.transcript.entries.size;
+			self.textEditor.setEditorText(system.transcript.String)
+		}
+	}
+
+}
+
++Void {
+
+	TranscriptViewer {
+		newTranscriptViewer().initialize
 	}
 
 }

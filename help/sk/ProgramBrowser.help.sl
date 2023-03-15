@@ -1,6 +1,6 @@
-# Program Browser
+# ProgramBrowser
 
-A [_Column Browser_] where column one lists the kinds of programs the system knows of.
+A _ColumnBrowser_ where column one lists the kinds of programs the system knows of.
 
 Column two shows the initials of the authors of the programs of the selected kind.
 
@@ -11,4 +11,4 @@ The context menu of the [_Text Editor_] can be used to play the program, and to 
 
 * * *
 
-See also: [Category Browser], [Method Signature Browser], [Trait Browser], [Type Browser], [System Browser]
+See also: CategoryBrowser, MethodSignatureBrowser, TraitBrowser, TypeBrowser, SystemBrowser

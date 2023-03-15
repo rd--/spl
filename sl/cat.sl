@@ -44,7 +44,8 @@ system.categorizeDictionary(
 		],
 		'Kernel-Text': [
 			'RegExp',
-			'String'
+			'String',
+			'Transcript'
 		],
 		'Kernel-Graphics': [
 			'Colour',
@@ -101,7 +102,8 @@ system.categorizeDictionary(
 			'SmallKansas',
 			'SvgViewer',
 			'TableViewer',
-			'TextEditor'
+			'TextEditor',
+			'TranscriptViewer'
 		],
 		'Navigator': [
 			'Location',

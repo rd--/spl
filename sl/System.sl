@@ -436,7 +436,8 @@ System : [Object] {
 			'categoryDictionary',
 			'nextUniqueId',
 			'window',
-			'library'
+			'library',
+			'transcript'
 		]
 	}
 
@@ -488,6 +489,10 @@ System : [Object] {
 		} {
 			('traitTypes: not a trait: ' ++ traitName).error
 		}
+	}
+
+	transcript { :self |
+		<primitive: return _self.transcript;>
 	}
 
 	typeLookup { :self :typeName |

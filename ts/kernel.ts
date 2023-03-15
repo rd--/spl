@@ -112,6 +112,29 @@ export class Type {
 
 const preinstalledTypes = ['Array', 'String', 'Void']; // ?
 
+export class Transcript {
+	entries: [string, string][];
+	constructor() {
+		this.entries = [];
+	}
+	error(text: string): void {
+		this.entries.push(['error', text]);
+		console.error(text);
+	}
+	clear(): void {
+		this.entries = [];
+		console.clear();
+	}
+	log(text: string): void {
+		this.entries.push(['log', text]);
+		console.log(text);
+	}
+	warn(text: string): void {
+		this.entries.push(['warn', text]);
+		console.warn(text);
+	}
+}
+
 type LibraryItem = unknown;
 
 export class System {
@@ -122,6 +145,7 @@ export class System {
 	nextUniqueId: number;
 	window: Window;
 	library: Map<string, LibraryItem>;
+	transcript: Transcript;
 	constructor() {
 		this.methodDictionary = new Map();
 		this.traitDictionary = new Map();
@@ -131,6 +155,7 @@ export class System {
 		this.nextUniqueId = 1;
 		this.window = window;
 		this.library = new Map();
+		this.transcript = new Transcript();
 	}
 }
 

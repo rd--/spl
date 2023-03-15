@@ -1,6 +1,34 @@
 # Small Kansas
 
-Small Kansass - 2023-02-17 ; Context Menus, Windows at Hand
+Small Kansas - 2023-03-12 ; Program Oracle
+
+<iframe src="https://player.vimeo.com/video/807122251" frameborder="0" allowfullscreen="true" width="640" height="360" ></iframe>
+
+Small Kansas - 2023-03-11 ; Mark Not Transient, Synthesiser Status
+
+<iframe src="https://player.vimeo.com/video/806969608" frameborder="0" allowfullscreen="true" width="640" height="360" ></iframe>
+
+Small Kansas - 2023-03-10 ; References To It
+
+<iframe src="https://player.vimeo.com/video/806504803" frameborder="0" allowfullscreen="true" width="640" height="360" ></iframe>
+
+Small Kansas - 2023-03-10 ; Vector Graphics, Acccept It
+
+<iframe src="https://player.vimeo.com/video/806504624" frameborder="0" allowfullscreen="true" width="640" height="360" ></iframe>
+
+Small Kansas - 2023-03-10 ; Fonts, Tunings
+
+<iframe src="https://player.vimeo.com/video/806504967" frameborder="0" allowfullscreen="true" width="640" height="360" ></iframe>
+
+Small Kansas - 2023-03-10 ; Colourful Windows, Font Menus
+
+<iframe src="https://player.vimeo.com/video/806504336" frameborder="0" allowfullscreen="true" width="640" height="360" ></iframe>
+
+Small Kansas - 2023-03-10 ; Inspector, Ugen
+
+<iframe src="https://player.vimeo.com/video/806505157" frameborder="0" allowfullscreen="true" width="640" height="360" ></iframe>
+
+Small Kansas - 2023-02-17 ; Context Menus, Windows at Hand
 
 <iframe src="https://player.vimeo.com/video/799338692" frameborder="0" allowfullscreen="true" width="640" height="360" ></iframe>
 

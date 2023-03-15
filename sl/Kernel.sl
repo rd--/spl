@@ -543,8 +543,7 @@ Boolean : [Object] {
 Error : [Object] {
 
 	log { :self |
-		<primitive: console.error(_self.message);>
-		nil
+		system.transcript.error(self.message)
 	}
 
 	message { :self |
@@ -1695,7 +1694,7 @@ String : [Object] {
 	}
 
 	postLine { :self |
-		<primitive: console.log(_self); return null;>
+		system.transcript.log(self)
 	}
 
 	printString { :self |
@@ -1757,6 +1756,36 @@ String : [Object] {
 	postLine { :self |
 		self.printString.postLine;
 		self
+	}
+
+}
+
+Transcript : [Object] {
+
+	clear { :self |
+		<primitive: return _self.clear();>
+	}
+
+	entries { :self |
+		<primitive: return _self.entries;>
+	}
+
+	error { :self :message |
+		<primitive: return _self.error(_message);>
+	}
+
+	log { :self :message |
+		<primitive: return _self.log(_message);>
+	}
+
+	pseudoSlotNameArray { :self |
+		['entries']
+	}
+
+	String { :self |
+		self.entries.collect { :each |
+			each.first ++ ': ' ++ each.second
+		}.unlines
 	}
 
 }

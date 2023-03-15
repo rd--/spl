@@ -1,5 +1,5 @@
 dist:
-	deno bundle --no-check sl.ts ../dist/sl.js
+	deno run --allow-net --allow-read --allow-env mk-dist.js > ../dist/sl.js
 
 check-ts:
 	deno check --config deno.json *.ts
