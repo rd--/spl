@@ -379,8 +379,16 @@ Vector2 : [Object, Point] { | x y |
 
 Vector3 : [Object] { | x y z |
 
-	Vector2 { :self |
+	xy { :self |
 		Vector2(x, y)
+	}
+
+	xz { :self |
+		Vector2(x, z)
+	}
+
+	yz { :self |
+		Vector2(y, z)
 	}
 
 }
@@ -393,13 +401,26 @@ Vector3 : [Object] { | x y z |
 
 }
 
++Array {
+
+	Vector3 { :self |
+		(self.size ~= 3).if {
+			'Array>>Vector3: not 3-element array'.error
+		} {
+			| [x, y, z] = self; |
+			Vector3(x, y, z)
+		}
+	}
+
+}
+
 Vector4 : [Object] { | x y z w |
 
-	Vector2 { :self |
+	xy { :self |
 		Vector2(x, y)
 	}
 
-	Vector3 { :self |
+	xyz { :self |
 		Vector3(x, y, z)
 	}
 
@@ -409,6 +430,113 @@ Vector4 : [Object] { | x y z w |
 
 	Vector4 { :self :y :z :w |
 		newVector4().initializeSlots(self, y, z, w)
+	}
+
+}
+
++Array {
+
+	Vector4 { :self |
+		(self.size ~= 4).if {
+			'Array>>Vector4: not 4-element array'.error
+		} {
+			| [x, y, z, w] = self; |
+			Vector4(x, y, z, w)
+		}
+	}
+
+}
+
+Matrix33 : [Object] { | array |
+
+	apply { :self :vector |
+		| [a, b, c, d, e, f, g, h, i] = self.array, [x, y, z] = vector; |
+		[
+			a * x + b * y + c * z,
+			d * x + e * y + f * z,
+			g * x + h * y + i * z
+		].Vector3
+	}
+
+	identity { :self |
+		self.initializeSlots([
+			1, 0, 0,
+			0, 1, 0,
+			0, 0, 1
+		])
+	}
+
+	xy { :self |
+		self.initializeSlots([
+			1, 0, 0,
+			0, 1, 0,
+			0, 0, 0
+		])
+	}
+
+	xz { :self |
+		self.initializeSlots([
+			1, 0, 0,
+			0, 0, 1,
+			0, 0, 0
+		])
+	}
+
+	yz { :self |
+		self.initializeSlots([
+			0, 1, 0,
+			0, 0, 1,
+			0, 0, 0
+		])
+	}
+
+}
+
+
++Array {
+
+	Matrix33 { :self |
+		(self.size ~= 9).if {
+			'Array>>Matrix33: not 9-element array'.error
+		} {
+			newMatrix33().initializeSlots(self)
+		}
+	}
+
+}
+
+Projection3 : [Object] { | alpha beta x y z |
+
+	apply { :self :vector |
+		self.Matrix33.apply(vector)
+	}
+
+	chinese { :self |
+		self.initializeSlots(pi / 6, 0, 1, 1, 1 / 2)
+	}
+
+	identity { :self |
+		self.initializeSlots(0, 0, 1, 1, 1)
+	}
+
+	isometric { :self |
+		self.initializeSlots(pi / 6, pi / 6, 1, 1, 1)
+	}
+
+	Matrix33 { :self |
+		[
+			x * beta.cos.negated, 0, z * alpha.cos,
+			x * beta.sin, y , z * alpha.sin,
+			0, 0, 0
+		].Matrix33
+	}
+
+}
+
++Void {
+
+	Projection3 {
+		newProjection3().identity
 	}
 
 }

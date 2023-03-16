@@ -24,6 +24,9 @@ Rectangle(1@1, 3@3).area = 4
 Rectangle(1@1, 3@3).center = Point(2, 2)
 Rectangle(1@1, 3@3).containsPoint(2@2) = true
 
+'Graphics/Vector3'
+[1, 2, 3].Vector3
+
 'Collections/Cons'
 Cons(1, nil).length = 1
 Cons(1, nil).isList = true

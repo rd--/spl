@@ -49,7 +49,9 @@ system.categorizeDictionary(
 		],
 		'Kernel-Graphics': [
 			'Colour',
+			'Matrix33',
 			'PolarPoint',
+			'Projection3',
 			'Rectangle',
 			'Vector2',
 			'Vector3',
