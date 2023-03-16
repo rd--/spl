@@ -340,9 +340,17 @@
 		self.printString
 	}
 
+	at { :self :index |
+		(*
+			This may be faster than the provided accessor functions, if they are not inlined.
+			This should not be used in the ordinary case.
+		*)
+		<primitive: return _self[_index];>
+	}
+
 	caseOf { :self :aBlockAssociationCollection |
 		self.caseOfOtherwise(aBlockAssociationCollection) { :case |
-			('Case not found, and no otherwise clause: ' ++  case.printString).error
+			('Object>>caseOf: case not found, and no otherwise clause: ' ++  case.printString).error
 		}
 	}
 

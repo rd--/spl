@@ -33,6 +33,8 @@ false.ifFalse { true }
 3.perform('plus', 4) = 7
 4:3.slotNameArray = ['numerator', 'denominator']
 4:3.slotArray = ['numerator' -> 4, 'denominator' -> 3]
+4:3.numerator = 4:3['numerator']
+4:3.denominator = 4:3::denominator
 
 'Kernel-Behaviour/Procedure'
 var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5

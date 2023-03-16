@@ -447,51 +447,191 @@ Vector4 : [Object] { | x y z w |
 
 }
 
-Matrix33 : [Object] { | array |
+Matrix22 : [Object] { | a b c d |
+
+	= { :self :aMatrix |
+		aMatrix.isMatrix22 & {
+			self.a = aMatrix.a & {
+				self.b = aMatrix.b & {
+					self.c = aMatrix.c & {
+						self.d = aMatrix.d
+					}
+				}
+			}
+		}
+	}
 
 	apply { :self :vector |
-		| [a, b, c, d, e, f, g, h, i] = self.array, [x, y, z] = vector; |
-		[
-			a * x + b * y + c * z,
-			d * x + e * y + f * z,
-			g * x + h * y + i * z
-		].Vector3
+		Vector2(
+			(self.a * vector.x) + (self.b * vector.y),
+			(self.c * vector.x) + (self.d * vector.y)
+		)
+	}
+
+	Array { :self |
+		[self.a, self.b, self.c, self.d]
+	}
+
+	collect { :self :aProcedure:/1 |
+		Matrix22(
+			self.a.aProcedure, self.b.aProcedure,
+			self.c.aProcedure, self.d.aProcedure
+		)
+	}
+
+	determinant { :self |
+		(self.a * self.d) - (self.b * self.c)
 	}
 
 	identity { :self |
-		self.initializeSlots([
-			1, 0, 0,
-			0, 1, 0,
-			0, 0, 1
-		])
+		self.initializeSlots(
+			1, 0,
+			0, 1
+		)
 	}
 
-	xy { :self |
-		self.initializeSlots([
-			1, 0, 0,
-			0, 1, 0,
-			0, 0, 0
-		])
+	inverse { :self |
+		| mul = 1 / self.determinant; |
+		Matrix22(
+			self.d, self.b.negated,
+			self.c.negated, self.a
+		).collect { :each |
+			each * mul
+		}
 	}
 
-	xz { :self |
-		self.initializeSlots([
-			1, 0, 0,
-			0, 0, 1,
-			0, 0, 0
-		])
+	rotation { :self :n |
+		self.initializeSlots(
+			n.cos, n.sin,
+			n.sin.negated, n.cos
+		)
 	}
 
-	yz { :self |
-		self.initializeSlots([
-			0, 1, 0,
-			0, 0, 1,
-			0, 0, 0
-		])
+	transpose { :self |
+		| b = self.b, c = self.c; |
+		self.b := c;
+		self.c := b
+	}
+
+	transposed { :self |
+		Matrix22(self.a, self.b, self.c, self.d)
 	}
 
 }
 
++Void {
+
+	Matrix22 {
+		newMatrix22()
+	}
+
+}
+
++@Number {
+
+	Matrix22 { :a :b :c :d |
+		newMatrix22().initializeSlots(a, b, c, d)
+	}
+
+}
+
++Array {
+
+	Matrix22 { :self |
+		(self.size ~= 4).if {
+			'Array>>Matrix22: not 4-element array'.error
+		} {
+			| [a, b, c, d] = self; |
+			Matrix22(a, b, c, d)
+		}
+	}
+
+}
+
+Matrix33 : [Object] { | a b c d e f g h i |
+
+	= { :self :aMatrix |
+		aMatrix.isMatrix33 & {
+			self.Array = aMatrix.Array
+		}
+	}
+
+	apply { :self :vector |
+		Vector3(
+			(self.a * vector.x) + (self.b * vector.y) + (self.c * vector.z),
+			(self.d * vector.x) + (self.e * vector.y) + (self.f * vector.z),
+			(self.g * vector.x) + (self.h * vector.y) + (self.i * vector.z)
+		)
+	}
+
+	Array { :self |
+		[self.a, self.b, self.c, self.d, self.e, self.f, self.g, self.h, self.i]
+	}
+
+	collect { :self :aProcedure:/1 |
+		Matrix33(
+			self.a.aProcedure, self.b.aProcedure, self.c.aProcedure,
+			self.d.aProcedure, self.e.aProcedure, self.f.aProcedure,
+			self.g.aProcedure, self.h.aProcedure, self.i.aProcedure
+		)
+	}
+
+	determinant { :self |
+		(self.a * self.e * self.i) + (self.b * self.f * self.g) + (self.c * self.d * self.h) - (self.c * self.e * self.g) - (self.b * self.d * self.i) - (self.a * self.f * self.h)
+	}
+
+	inverse { :self |
+		| mul = self.determinant; |
+		Matrix33(
+			(self.e * self.i) - (self.f * self.h), ((self.b * self.i) - (self.c * self.h)).negated, (self.b * self.f) - (self.c * self.e),
+			((self.d * self.i) - (self.f * self.g)).negated, (self.a * self.i) - (self.c * self.g), ((self.a * self.f) - (self.c * self.d)).negated,
+			(self.d * self.h) - (self.e * self.g), ((self.a * self.h).negated - (self.b * self.g)), (self.a * self.e) - (self.b * self.d)
+		).collect { :each |
+			each * mul
+		}
+	}
+
+	identity { :self |
+		self.initializeSlots(
+			1, 0, 0,
+			0, 1, 0,
+			0, 0, 1
+		)
+	}
+
+	xy { :self |
+		self.initializeSlots(
+			1, 0, 0,
+			0, 1, 0,
+			0, 0, 0
+		)
+	}
+
+	xz { :self |
+		self.initializeSlots(
+			1, 0, 0,
+			0, 0, 1,
+			0, 0, 0
+		)
+	}
+
+	yz { :self |
+		self.initializeSlots(
+			0, 1, 0,
+			0, 0, 1,
+			0, 0, 0
+		)
+	}
+
+}
+
++@Number {
+
+	Matrix33 { :a :b :c :d :e :f :g :h :i |
+		newMatrix33().initializeSlots(a, b, c, d, e, f, g, h, i)
+	}
+
+}
 
 +Array {
 
@@ -499,7 +639,8 @@ Matrix33 : [Object] { | array |
 		(self.size ~= 9).if {
 			'Array>>Matrix33: not 9-element array'.error
 		} {
-			newMatrix33().initializeSlots(self)
+			| [a, b, c, d, e, f, g, h, i] = self; |
+			Matrix33(a, b, c, d, e, f, g, h, i)
 		}
 	}
 
@@ -524,11 +665,11 @@ Projection3 : [Object] { | alpha beta x y z |
 	}
 
 	Matrix33 { :self |
-		[
+		Matrix33(
 			x * beta.cos.negated, 0, z * alpha.cos,
 			x * beta.sin, y , z * alpha.sin,
 			0, 0, 0
-		].Matrix33
+		)
 	}
 
 }
