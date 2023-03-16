@@ -1,7 +1,7 @@
 @Blob {
 
-	size { :self | <primitive: return _self.size;> } (* read only *)
-	type { :self | <primitive: return _self.type;> } (* read only *)
+	size { :self | <primitive: return _self.size;> } (* Read only *)
+	type { :self | <primitive: return _self.type;> } (* Read only *)
 
 	arrayBuffer { :self | <primitive: return _self.arrayBuffer();> }
 	slice { :self :start :end :contentType | <primitive: return _self.slice(_start, _end, _contentType);> }
@@ -30,15 +30,19 @@ Blob : [Object, Blob] {
 
 File : [Object, Blob] {
 
-	lastModified { :self | <primitive: return _self.lastModified;> } (* read only *)
-	name { :self | <primitive: return _self.name;> } (* read only *)
+	lastModified { :self | <primitive: return _self.lastModified;> } (* Read only *)
+	name { :self | <primitive: return _self.name;> } (* Read only *)
 
 }
 
 LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 
+	key { :self |
+		'sl/library/' ++ self.url.hostname ++ self.url.pathname
+	}
+
 	readLocalStorage { :self |
-		| text = system.window.localStorage[self.url]; |
+		| text = system.window.localStorage[self.key]; |
 		self.mimeType.caseOfOtherwise([
 			'application/json' -> {
 				self.parser . (text.parseJson)
@@ -52,11 +56,12 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 	}
 
 	require { :self |
+		('LibraryItem>>require' ++ self.name).postLine;
 		Promise { :resolve:/1 :reject:/1 |
 			self.value.notNil.if {
 				self.value.resolve
 			} {
-				system.window.localStorage.includesKey(self.url).if {
+				system.window.localStorage.includesKey(self.key).if {
 					self.value := self.readLocalStorage;
 					self.value.resolve
 				} {
@@ -75,10 +80,10 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 	writeLocalStorage { :self :anObject |
 		self.mimeType.caseOfOtherwise([
 			'application/json' -> {
-				system.window.localStorage[self.url] := anObject.json
+				system.window.localStorage[self.key] := anObject.json
 			},
 			'text/plain' -> {
-				system.window.localStorage[self.url] := anObject.asString
+				system.window.localStorage[self.key] := anObject.asString
 			}
 		]) {
 			'LibraryItem>>writeLocalStorage: unsupported mimeType'.error
@@ -90,7 +95,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 +String {
 
 	LibraryItem { :name :url :mimeType :parser |
-		newLibraryItem().initializeSlots(name, url, mimeType, parser, true, nil)
+		newLibraryItem().initializeSlots(name, url.Url, mimeType, parser, true, nil)
 	}
 
 }
@@ -186,7 +191,11 @@ System : [Object] {
 	}
 
 	addLibraryItem { :self :libraryItem |
-		self.library[libraryItem.name] := libraryItem
+		self.library.includesKey(libraryItem.name).if {
+			('System>>addLibraryItem: item exists: ' ++ libraryItem.name).postLine
+		} {
+			self.library[libraryItem.name] := libraryItem
+		}
 	}
 
 	allMethods { :self |
@@ -446,12 +455,16 @@ System : [Object] {
 	}
 
 	requireLibraryItem { :self :name |
-		system.library[name].require
+		system.library.includesKey(name).if {
+			system.library[name].require
+		} {
+			('System>>requireLibraryItem: does not exist: ' ++ name).postLine
+		}
 	}
 
 	requireLibraryItems { :self :names |
 		name.collect { :each |
-			system.library[each].require
+			system.requireLibraryItem(each)
 		}.Promise
 	}
 
@@ -794,14 +807,18 @@ URL : [Object] {
 	host { :self | <primitive: return _self.host;> }
 	hostname { :self | <primitive: return _self.hostname;> }
 	href { :self | <primitive: return _self.href;> }
-	origin { :self | <primitive: return _self.origin;> } (* read only *)
+	origin { :self | <primitive: return _self.origin;> } (* Read only *)
 	password { :self | <primitive: return _self.password;> }
 	pathname { :self | <primitive: return _self.pathname;> }
 	port { :self | <primitive: return _self.port;> }
 	protocol { :self | <primitive: return _self.protocol;> }
 	search { :self | <primitive: return _self.search;> }
-	searchParams { :self | <primitive: return _self.searchParams;> } (* read only *)
+	searchParams { :self | <primitive: return _self.searchParams;> } (* Read only *)
 	username { :self | <primitive: return _self.username;> }
+
+	Url { :self |
+		self
+	}
 
 }
 
@@ -814,6 +831,10 @@ URL : [Object] {
 	revokeObjectURL { :self | <primitive: return URL.revokeObjectURL(_self);> }
 	URL { :self | <primitive: return new URL(_self);> }
 	URL { :self :base | <primitive: return new URL(_self, _base);> }
+
+	Url { :self |
+		self.URL
+	}
 
 }
 

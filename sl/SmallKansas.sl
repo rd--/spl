@@ -1073,8 +1073,8 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	getHelp { :self :helpProcedure:/1 |
 		(*
 			The HelpSystem requires resources that are acquired asynchronously.
-			self.getHelp checks if the HelpSystem is acquired, else it acquires it.
-			Eventually the helpProcedure is run with a valud HelpSystem.
+			SmallKansas>>getHelp checks if the HelpSystem is acquired, else it acquires it.
+			Eventually the helpProcedure is run with a valid HelpSystem.
 		*)
 		self.helpSystem.isNil.if {
 			HelpSystem().then { :helpSystem |
@@ -1090,7 +1090,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 		self.getHelp { :help |
 			help.helpFetchFor(subject).then { :aString |
 				self.addFrame(
-					TextEditor('Help For', 'text/markdown', aString),
+					TextEditor('HelpViewer', 'text/markdown', aString),
 					event
 				)
 			}
@@ -1126,7 +1126,61 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				self.WorldMenu(true, event)
 			}
 		};
+		self.initializeLibraryItems;
 		self
+	}
+
+	initializeLibraryItems { :self |
+		system.addLibraryItem(
+			LibraryItem(
+				'helpIndex',
+				'https://rohandrape.net/sw/jssc3/text/smallhours-help.text',
+				'text/plain',
+				identity:/1
+			)
+		);
+		system.addLibraryItem(
+			LibraryItem(
+				'jiMeta',
+				'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
+				'application/json',
+				{ :item |
+					system.requireLibraryItem('jiScala').then { :jiScala |
+						item.collect { :anArray |
+							anArray.collect { :aName |
+								jiScala[aName]
+							}.select(notNil:/1)
+						}
+					}
+				}
+			)
+		);
+		system.addLibraryItem(
+			LibraryItem(
+				'jiScala',
+				'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
+				'application/json',
+				{ :item |
+					item.collect(JiTuning:/1)
+				}
+			)
+		);
+		system.addLibraryItem(
+			LibraryItem(
+				'programIndex',
+				'https://rohandrape.net/sw/jssc3/text/smallhours-programs.text',
+				'text/plain',
+				identity:/1
+			)
+		);
+		system.addLibraryItem(
+			LibraryItem(
+				'programOracle',
+				'https://rohandrape.net/sw/jssc3/text/smallhours-oracle.text',
+				'text/plain',
+				identity:/1
+			)
+		)
 	}
 
 	initializeMidi { :self :ifPresent:/1 |
@@ -1254,12 +1308,16 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 		self.frameSet.remove(frame)
 	}
 
-	ScalaJiMetaBrowser { :self :jiMeta :event |
-		self.addFrame(jiMeta.ScalaJiMetaBrowser, event)
+	ScalaJiMetaBrowser { :self :event |
+		system.requireLibraryItem('jiMeta').then { :jiMeta |
+			self.addFrame(jiMeta.ScalaJiMetaBrowser, event)
+		}
 	}
 
-	ScalaJiTuningBrowser { :self :scalaJi :event |
-		self.addFrame(scalaJi.ScalaJiTuningBrowser, event)
+	ScalaJiTuningBrowser { :self :event |
+		system.requireLibraryItem('jiScala').then { :jiTuning |
+			self.addFrame(jiTuning.ScalaJiTuningBrowser, event)
+		}
 	}
 
 	ScSynthStatus { :self :event |
@@ -1383,14 +1441,10 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				self.ScSynthStatus(event)
 			},
 			MenuItem('Scala Ji Meta Browser', nil) { :event |
-				system.requireLibraryItem('jiMeta').then { :jiMeta |
-					workspace::smallKansas.ScalaJiMetaBrowser(jiMeta, nil)
-				}
+				self.ScalaJiMetaBrowser(event)
 			},
 			MenuItem('Scala Ji Tuning Browser', nil) { :event |
-				system.requireLibraryItem('jiScala').then { :jiScala |
-					workspace::smallKansas.ScalaJiTuningBrowser(jiScala, nil)
-				}
+				self.ScalaJiTuningBrowser(event)
 			},
 			MenuItem('System Browser', nil) { :event |
 				self.SystemBrowser(event)
