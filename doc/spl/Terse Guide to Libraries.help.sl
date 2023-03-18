@@ -27,7 +27,7 @@ Rectangle(1@1, 3@3).containsPoint(2@2) = true
 'Graphics/Matrix22'
 Matrix22(1, 4, -1, 9).determinant = 13
 Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2)
-Matrix22().rotation(pi / 2).apply(Vector2(0, 1)) -- ~= (1,0)
+Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1))
 
 'Graphics/Matrix33'
 Matrix33(1, 1, 1, 1, 0, 0, 0, 1, 0).inverse = Matrix33(0, 1, 0, 0, 0, 1, 1, -1, -1)

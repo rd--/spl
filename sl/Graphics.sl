@@ -461,7 +461,7 @@ Matrix22 : [Object] { | a b c d |
 		}
 	}
 
-	apply { :self :vector |
+	applyTo { :self :vector |
 		Vector2(
 			(self.a * vector.x) + (self.b * vector.y),
 			(self.c * vector.x) + (self.d * vector.y)
@@ -472,11 +472,8 @@ Matrix22 : [Object] { | a b c d |
 		[self.a, self.b, self.c, self.d]
 	}
 
-	collect { :self :aProcedure:/1 |
-		Matrix22(
-			self.a.aProcedure, self.b.aProcedure,
-			self.c.aProcedure, self.d.aProcedure
-		)
+	copy { :self |
+		Matrix22(self.a, self.b, self.c, self.d)
 	}
 
 	determinant { :self |
@@ -491,13 +488,15 @@ Matrix22 : [Object] { | a b c d |
 	}
 
 	inverse { :self |
-		| mul = 1 / self.determinant; |
-		Matrix22(
-			self.d, self.b.negated,
-			self.c.negated, self.a
-		).collect { :each |
-			each * mul
-		}
+		self.copy.invert
+	}
+
+	invert { :self |
+		| m = 1 / self.determinant; |
+		self.initializeSlots(
+			self.d * m, self.b.negated * m,
+			self.c.negated * m, self.a * m
+		)
 	}
 
 	rotation { :self :n |
@@ -514,7 +513,7 @@ Matrix22 : [Object] { | a b c d |
 	}
 
 	transposed { :self |
-		Matrix22(self.a, self.b, self.c, self.d)
+		Matrix22(self.a, self.c, self.b, self.d)
 	}
 
 }
@@ -529,8 +528,8 @@ Matrix22 : [Object] { | a b c d |
 
 +@Number {
 
-	Matrix22 { :a :b :c :d |
-		newMatrix22().initializeSlots(a, b, c, d)
+	Matrix22 { :self :b :c :d |
+		newMatrix22().initializeSlots(self, b, c, d)
 	}
 
 }
@@ -548,87 +547,88 @@ Matrix22 : [Object] { | a b c d |
 
 }
 
-Matrix33 : [Object] { | a b c d e f g h i |
+Matrix33 : [Object] { | elements |
 
 	= { :self :aMatrix |
 		aMatrix.isMatrix33 & {
-			self.Array = aMatrix.Array
+			self.elements = aMatrix.elements
 		}
 	}
 
-	apply { :self :vector |
+	applyTo { :self :vector |
+		| [a, b, c, d, e, f, g, h, i] = self.elements, [x, y, z] = vector; |
 		Vector3(
-			(self.a * vector.x) + (self.b * vector.y) + (self.c * vector.z),
-			(self.d * vector.x) + (self.e * vector.y) + (self.f * vector.z),
-			(self.g * vector.x) + (self.h * vector.y) + (self.i * vector.z)
+			a * x + b * y + c * z,
+			d * x + e * y + f * z,
+			g * x + h * y + i * z
 		)
 	}
 
 	Array { :self |
-		[self.a, self.b, self.c, self.d, self.e, self.f, self.g, self.h, self.i]
+		self.elements.copy
 	}
 
-	collect { :self :aProcedure:/1 |
-		Matrix33(
-			self.a.aProcedure, self.b.aProcedure, self.c.aProcedure,
-			self.d.aProcedure, self.e.aProcedure, self.f.aProcedure,
-			self.g.aProcedure, self.h.aProcedure, self.i.aProcedure
-		)
+	copy { :self |
+		self.elements.copy.Matrix33
 	}
 
 	determinant { :self |
-		(self.a * self.e * self.i) + (self.b * self.f * self.g) + (self.c * self.d * self.h) - (self.c * self.e * self.g) - (self.b * self.d * self.i) - (self.a * self.f * self.h)
+		| [a, b, c, d, e, f, g, h, i] = self.elements; |
+		(a * e * i) + (b * f * g) + (c * d * h) - (c * e * g) - (b * d * i) - (a * f * h)
 	}
 
 	inverse { :self |
-		| mul = self.determinant; |
-		Matrix33(
-			(self.e * self.i) - (self.f * self.h), ((self.b * self.i) - (self.c * self.h)).negated, (self.b * self.f) - (self.c * self.e),
-			((self.d * self.i) - (self.f * self.g)).negated, (self.a * self.i) - (self.c * self.g), ((self.a * self.f) - (self.c * self.d)).negated,
-			(self.d * self.h) - (self.e * self.g), ((self.a * self.h).negated - (self.b * self.g)), (self.a * self.e) - (self.b * self.d)
-		).collect { :each |
-			each * mul
-		}
+		self.copy.invert
+	}
+
+	invert { :self |
+		| [a, b, c, d, e, f, g, h, i] = self.elements; |
+		self.elements := [
+			(e * i) - (f * h), ((b * i) - (c * h)).negated, (b * f) - (c * e),
+			((d * i) - (f * g)).negated, (a * i) - (c * g), ((a * f) - (c * d)).negated,
+			(d * h) - (e * g), ((a * h).negated - (b * g)), (a * e) - (b * d)
+		] * self.determinant;
+		self
 	}
 
 	identity { :self |
-		self.initializeSlots(
+		self.elements := [
 			1, 0, 0,
 			0, 1, 0,
 			0, 0, 1
-		)
+		]
 	}
 
 	xy { :self |
-		self.initializeSlots(
+		self.elements := [
 			1, 0, 0,
 			0, 1, 0,
 			0, 0, 0
-		)
+		]
 	}
 
 	xz { :self |
-		self.initializeSlots(
+		self.elements := [
 			1, 0, 0,
 			0, 0, 1,
 			0, 0, 0
-		)
+		]
 	}
 
 	yz { :self |
-		self.initializeSlots(
+		self.elements := [
 			0, 1, 0,
 			0, 0, 1,
 			0, 0, 0
-		)
+		]
 	}
 
 }
 
 +@Number {
 
-	Matrix33 { :a :b :c :d :e :f :g :h :i |
-		newMatrix33().initializeSlots(a, b, c, d, e, f, g, h, i)
+	Matrix33 { :self :b :c :d :e :f :g :h :i |
+		[self, b, c, d, e, f, g, h, i].Matrix33
 	}
 
 }
@@ -639,8 +639,7 @@ Matrix33 : [Object] { | a b c d e f g h i |
 		(self.size ~= 9).if {
 			'Array>>Matrix33: not 9-element array'.error
 		} {
-			| [a, b, c, d, e, f, g, h, i] = self; |
-			Matrix33(a, b, c, d, e, f, g, h, i)
+			newMatrix33().initializeSlots(self)
 		}
 	}
 
@@ -648,8 +647,8 @@ Matrix33 : [Object] { | a b c d e f g h i |
 
 Projection3 : [Object] { | alpha beta x y z |
 
-	apply { :self :vector |
-		self.Matrix33.apply(vector)
+	applyTo { :self :vector |
+		self.Matrix33.applyTo(vector)
 	}
 
 	chinese { :self |

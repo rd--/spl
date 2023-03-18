@@ -2,9 +2,9 @@
 
 	latticeVector { :self :limit |
 		|
-		pf1 = self.numerator.primeFactors,
-		pf2 = self.denominator.primeFactors.collect(negated:/1),
-		pf3 = (pf1 ++ pf2).IdentityBag;
+			pf1 = self.numerator.primeFactors,
+			pf2 = self.denominator.primeFactors.collect(negated:/1),
+			pf3 = (pf1 ++ pf2).IdentityBag;
 		|
 		[3, 5, 7, 11, 13].select { :each |
 			each <= limit
@@ -30,23 +30,25 @@ JiTuning : [Object] { | name description pitches limit degree |
 	}
 
 	initialize { :self :name :description :pitches |
-		self.name := name;
-		self.description := description;
-		self.pitches := pitches;
-		self.degree := pitches.size;
-		self.limit := self.pitches.collect { :each |
-			each.primeFactors.max
-		}.max;
-		self
+		self.initializeSlots(
+			name,
+			description,
+			pitches,
+			self.pitches.collect { :each |
+				each.primeFactors.max
+			}.max,
+			pitches.size
+		)
 	}
 
 	initializeFromDictionary { :self :aDictionary |
-		self.name := aDictionary::name;
-		self.description := aDictionary::description;
-		self.pitches := aDictionary::tuning;
-		self.degree := aDictionary::degree;
-		self.limit := aDictionary::limit;
-		self
+		self.initializeSlots(
+			aDictionary::name,
+			aDictionary::description,
+			aDictionary::tuning,
+			aDictionary::limit,
+			aDictionary::degree
+		)
 	}
 
 	latticeVertices { :self |

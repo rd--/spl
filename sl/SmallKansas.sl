@@ -1180,6 +1180,16 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				'text/plain',
 				identity:/1
 			)
+		);
+		system.addLibraryItem(
+			LibraryItem(
+				'clsLeitner',
+				'https://rohandrape.net/sw/hsc3-data/data/chemistry/json/cls.json',
+				'application/json',
+				{ :item |
+					item.collect(CrystalLatticeStructure:/1)
+				}
+			)
 		)
 	}
 
@@ -1401,6 +1411,11 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 			MenuItem('ColourChooser', nil) { :event |
 				self.ColourChooser(self, event)
 			},
+			MenuItem('CrystalLatticeStructureBrowser', nil) { :event |
+				system.requireLibraryItem('clsLeitner').then { :clsLeitner |
+					clsLeitner.inspect
+				}
+			},
 			MenuItem('Digital Clock', nil) { :event |
 				self.DigitalClock(event)
 			},
@@ -1500,20 +1515,35 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	latticeDrawing { :self |
+		self.latticeGraph.drawing(0.5)
+	}
+
+	latticeGraph { :self |
 		|
 			vertices = self.latticeVertices,
 			edges = self.latticeEdges(vertices),
-			points = vertices.collect(wilsonLatticeCoordinates:/1) * 4,
+			points = vertices.collect(wilsonLatticeCoordinates:/1) * 4;
+		|
+		Graph(vertices.size, edges, points, nil)
+	}
+
+}
+
++Graph {
+
+	drawing { :self :lineWidth |
+		|
+			points = self.vertexLabels,
 			bbox = points.computeBoundingBox,
 			dots = points.collect { :each |
 				'circle'.createSvgElement (
 					cx: each.x,
 					cy: each.y,
-					r: '1',
+					r: lineWidth * 2,
 					fill: 'black'
 				)
 			},
-			lines = edges.collect { :each |
+			lines = self.edges.collect { :each |
 				| [i, j] = each; |
 				'line'.createSvgElement (
 					x1: points[i].x,
@@ -1521,7 +1551,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 					x2: points[j].x,
 					y2: points[j].y,
 					stroke: 'black',
-					'stroke-width': '0.5'
+					'stroke-width': lineWidth
 				)
 			},
 			svg = 'svg'.createSvgElement (
@@ -2061,6 +2091,29 @@ TranscriptViewer : [Object, View] { | textEditor entryCount |
 		};
 		option.value := value;
 		option
+	}
+
+}
+
+CrystalLatticeStructure : [Object] { | name description atoms bonds |
+
+}
+
++StringDictionary {
+
+	CrystalLatticeStructure { :self |
+		newCrystalLatticeStructure().initializeSlots(
+			self::name,
+			self::description,
+			self::vertexLabels.withCollect(self::vertexCoordinates) { :label :coordinate |
+				[label, coordinate.Vector3]
+			},
+			self::edges.collect { :item |
+				item.collect { :each |
+					each + 1
+				}
+			}
+		)
 	}
 
 }
