@@ -1515,7 +1515,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	latticeDrawing { :self |
-		self.latticeGraph.drawing(0.5)
+		self.latticeGraph.drawing(identity:/1, 0.5)
 	}
 
 	latticeGraph { :self |
@@ -1531,9 +1531,9 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 +Graph {
 
-	drawing { :self :lineWidth |
+	drawing { :self :derivePoint:/1 :lineWidth |
 		|
-			points = self.vertexLabels,
+			points = self.vertexLabels.collect(derivePoint:/1),
 			bbox = points.computeBoundingBox,
 			dots = points.collect { :each |
 				'circle'.createSvgElement (
@@ -2096,6 +2096,16 @@ TranscriptViewer : [Object, View] { | textEditor entryCount |
 }
 
 CrystalLatticeStructure : [Object] { | name description atoms bonds |
+
+	drawing { :self :projection:/1 |
+		self.graph.drawing({ :each |
+			each.second.projection
+		}, 1)
+	}
+
+	graph { :self |
+		Graph(self.atoms.size, self.bonds, self.atoms, nil)
+	}
 
 }
 

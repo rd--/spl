@@ -1,3 +1,8 @@
+# Self-like objects
+
+- ⦃p: q…⦄ → PrototypeObject.newFrom(['p' -> q…])
+- p‣q(r…) → p.performMessageSendWithSelfSemantics('q', [r…])
+
 # Constants
 
 There is a syntax for defining constants, ie. pi, e & epsilon (c.f. Kernel.sl).

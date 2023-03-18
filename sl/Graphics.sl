@@ -321,6 +321,10 @@ Vector2 : [Object, Point] { | x y |
 		aProcedure(aNumber.Point, self)
 	}
 
+	Array { :self |
+		[self.x, self.y]
+	}
+
 	collect { :self :aProcedure:/1 |
 		Point(self.x.aProcedure, self.y.aProcedure)
 	}
@@ -379,16 +383,20 @@ Vector2 : [Object, Point] { | x y |
 
 Vector3 : [Object] { | x y z |
 
+	Array { :self |
+		[self.x, self.y, self.z]
+	}
+
 	xy { :self |
-		Vector2(x, y)
+		Vector2(self.x, self.y)
 	}
 
 	xz { :self |
-		Vector2(x, z)
+		Vector2(self.x, self.z)
 	}
 
 	yz { :self |
-		Vector2(y, z)
+		Vector2(self.y, self.z)
 	}
 
 }
@@ -416,12 +424,16 @@ Vector3 : [Object] { | x y z |
 
 Vector4 : [Object] { | x y z w |
 
+	Array { :self |
+		[self.x, self.y, self.z, self.w]
+	}
+
 	xy { :self |
-		Vector2(x, y)
+		Vector2(self.x, self.y)
 	}
 
 	xyz { :self |
-		Vector3(x, y, z)
+		Vector3(self.x, self.y, self.z)
 	}
 
 }
@@ -556,11 +568,11 @@ Matrix33 : [Object] { | elements |
 	}
 
 	applyTo { :self :vector |
-		| [a, b, c, d, e, f, g, h, i] = self.elements, [x, y, z] = vector; |
+		| [a, b, c, d, e, f, g, h, i] = self.elements, [x, y, z] = vector.Array; |
 		Vector3(
-			a * x + b * y + c * z,
-			d * x + e * y + f * z,
-			g * x + h * y + i * z
+			(a * x) + (b * y) + (c * z),
+			(d * x) + (e * y) + (f * z),
+			(g * x) + (h * y) + (i * z)
 		)
 	}
 
@@ -665,8 +677,8 @@ Projection3 : [Object] { | alpha beta x y z |
 
 	Matrix33 { :self |
 		Matrix33(
-			x * beta.cos.negated, 0, z * alpha.cos,
-			x * beta.sin, y , z * alpha.sin,
+			self.x * self.beta.cos.negated, 0, self.z * self.alpha.cos,
+			self.x * self.beta.sin, self.y , self.z * self.alpha.sin,
 			0, 0, 0
 		)
 	}
