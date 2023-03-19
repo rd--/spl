@@ -275,7 +275,7 @@ Rectangle : [Object] { | origin corner |
 
 }
 
-Vector2 : [Object, Point] { | x y |
+Vector2 : [Object, Number, Point] { | x y |
 
 	= { :self :anObject |
 		anObject.isPoint.if {
@@ -660,7 +660,7 @@ Matrix33 : [Object] { | elements |
 Projection3 : [Object] { | alpha beta x y z |
 
 	applyTo { :self :vector |
-		self.Matrix33.applyTo(vector)
+		self.Matrix33.applyTo(vector).xy
 	}
 
 	chinese { :self |
@@ -681,6 +681,13 @@ Projection3 : [Object] { | alpha beta x y z |
 			self.x * self.beta.sin, self.y , self.z * self.alpha.sin,
 			0, 0, 0
 		)
+	}
+
+	procedure { :self |
+		| matrix = self.Matrix33; |
+		{ :aVector |
+			matrix.applyTo(aVector).xy
+		}
 	}
 
 }

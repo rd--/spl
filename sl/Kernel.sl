@@ -239,6 +239,10 @@
 		}
 	}
 
+	halved { :self |
+		self / 2
+	}
+
 	isNumber { :self |
 		true
 	}
@@ -310,6 +314,10 @@
 
 	truncateTo { :self :aNumber |
 		self.quotient(aNumber) * aNumber
+	}
+
+	twice { :self |
+		self * 2
 	}
 
 	unit { :self |

@@ -13,6 +13,7 @@ system.categorizeDictionary(
 		],
 		'Collections-Unordered': [
 			'Association',
+			'Graph',
 			'IdentityBag',
 			'IdentityDictionary',
 			'IdentitySet',
@@ -49,6 +50,7 @@ system.categorizeDictionary(
 		],
 		'Kernel-Graphics': [
 			'Colour',
+			'Matrix22',
 			'Matrix33',
 			'PolarPoint',
 			'Projection3',
@@ -56,6 +58,9 @@ system.categorizeDictionary(
 			'Vector2',
 			'Vector3',
 			'Vector4'
+		],
+		'Data-Chemistry': [
+			'CrystalLatticeStructure'
 		],
 		'Music-Tuning': [
 			'JiTuning'

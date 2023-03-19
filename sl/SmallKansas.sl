@@ -1413,7 +1413,19 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 			},
 			MenuItem('CrystalLatticeStructureBrowser', nil) { :event |
 				system.requireLibraryItem('clsLeitner').then { :clsLeitner |
-					clsLeitner.inspect
+					self.addFrame(CrystalLatticeStructureBrowser(clsLeitner), event)
+				}
+			},
+			MenuItem('CrystalLatticeStructureOracle', nil) { :event |
+				system.requireLibraryItem('clsLeitner').then { :clsLeitner |
+					| cls = clsLeitner.atRandom, mtx = Projection3().chinese.Matrix33; |
+					self.addFrame(SvgViewer(
+						'Cls - ' ++ cls.name,
+						cls.drawing(0.25) { :each |
+							mtx.applyTo(each).xy * 50
+						}),
+						event
+					)
 				}
 			},
 			MenuItem('Digital Clock', nil) { :event |
@@ -1515,7 +1527,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	latticeDrawing { :self |
-		self.latticeGraph.drawing(identity:/1, 0.5)
+		self.latticeGraph.drawing(1, identity:/1)
 	}
 
 	latticeGraph { :self |
@@ -1531,10 +1543,12 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 +Graph {
 
-	drawing { :self :derivePoint:/1 :lineWidth |
+	drawing { :self :scale :derivePoint:/1 |
 		|
+			lineWidth = 1,
 			points = self.vertexLabels.collect(derivePoint:/1),
-			bbox = points.computeBoundingBox,
+			bbox = points.computeBoundingBox.scaleBy(scale),
+			lineWidth = 1,
 			dots = points.collect { :each |
 				'circle'.createSvgElement (
 					cx: each.x,
@@ -1561,7 +1575,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				preserveAspectRatio: 'xMidYMid meet'
 			),
 			group = 'g'.createSvgElement (
-				transform: 'translate(0, ' ++ (bbox.height + (2 * bbox.origin.y)) ++ ') scale(1, -1)'
+				transform: 'translate(0, ' ++ (bbox.height + (2 * bbox.origin.y)) ++ ') scale(' ++ scale ++ ', -' ++ scale ++ ')'
 			);
 		|
 		group.appendChildren(dots);
@@ -2097,14 +2111,44 @@ TranscriptViewer : [Object, View] { | textEditor entryCount |
 
 CrystalLatticeStructure : [Object] { | name description atoms bonds |
 
-	drawing { :self :projection:/1 |
-		self.graph.drawing({ :each |
+	drawing { :self :scale :projection:/1 |
+		self.graph.drawing(scale) { :each |
 			each.second.projection
-		}, 1)
+		}
 	}
 
 	graph { :self |
 		Graph(self.atoms.size, self.bonds, self.atoms, nil)
+	}
+
+	summary { :self |
+		|
+			container = 'div'.createElement,
+			description = 'p'.createElement,
+			projectionsA = 'p'.createElement,
+			projectionsB = 'p'.createElement,
+			scaledDrawing = { :projection:/1 |
+				self.drawing(0.25) { :each |
+					each.projection * 50
+				}
+			};
+		|
+		description.textContent := self.description;
+		projectionsA.appendChildren([
+			scaledDrawing(xy:/1),
+			scaledDrawing(yz:/1),
+			scaledDrawing(xz:/1)
+		]);
+		projectionsB.appendChildren([
+			scaledDrawing(Projection3().chinese.procedure),
+			scaledDrawing(Projection3().isometric.procedure)
+		]);
+		container.appendChildren([
+			description,
+			projectionsA,
+			projectionsB
+		]);
+		container
 	}
 
 }
@@ -2124,6 +2168,24 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 				}
 			}
 		)
+	}
+
+}
+
++Array {
+
+	CrystalLatticeStructureBrowser { :self |
+		ColumnBrowser('Crystal Lattice Structure Browser', 'text/html', false, false, [1], nil, nil) { :browser :path |
+			path.size.caseOf([
+				0 -> {
+					self.collect(name:/1)
+				},
+				1 -> {
+					| cls = self.detect { :each | each.name = path[1] }; |
+					cls.summary.outerHTML
+				}
+			])
+		}
 	}
 
 }
