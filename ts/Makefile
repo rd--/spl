@@ -1,5 +1,5 @@
 dist:
-	deno run --allow-net --allow-read --allow-env mk-dist.js > ../dist/sl.js
+	deno run --allow-net --allow-read --allow-env mk-dist.js | grep -v "//#" > ../dist/sl.js
 
 check-ts:
 	deno check --config deno.json *.ts
