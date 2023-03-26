@@ -1,3 +1,12 @@
+# Thoughts
+
+- ProgramCollectionBrowser
+- DocumentBrowser for structured texts, i.e. Adc Create Tutorial
+- System -> SimpleLanguageInterpreter
+- "Global" namespace
+  + Are "workspace" variables a good idea?
+  + Dictionary at Interpreter that can be "set"
+
 # Self-like objects
 
 - ⦃p: q…⦄ → PrototypeObject.newFrom(['p' -> q…])

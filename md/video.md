@@ -1,5 +1,9 @@
 # Small Kansas
 
+Small Kansas - 2023-03-20 ; Crystal Lattice Structure Browser
+
+<iframe src="https://player.vimeo.com/video/809592857" frameborder="0" allowfullscreen="true" width="640" height="360" ></iframe>
+
 Small Kansas - 2023-03-12 ; Program Oracle
 
 <iframe src="https://player.vimeo.com/video/807122251" frameborder="0" allowfullscreen="true" width="640" height="360" ></iframe>
