@@ -552,6 +552,10 @@ System : [Object] {
 		<primitive: return performance.now();>
 	}
 
+	systemTimeInSeconds { :self |
+		<primitive: return performance.now() * 0.001;>
+	}
+
 	uniqueId { :self |
 		| answer = self.nextUniqueId; |
 		self.nextUniqueId := answer + 1;
@@ -588,16 +592,34 @@ System : [Object] {
 
 +Procedure {
 
-	evaluateAfterMilliseconds { :self :delayMilliseconds |
-		<primitive: return setTimeout(_self, _delayMilliseconds);>
+	evaluateAfterMilliseconds { :self:/0 :delayInMilliseconds |
+		<primitive:
+		if(!sl.isSmallFloat(_delayInMilliseconds)) {
+			return Error('evaluateAfterMilliseconds: not a number');
+		} else {
+			return setTimeout(_self_0, _delayInMilliseconds);
+		}
+		>
 	}
 
-	evaluateAfterMillisecondsWith { :self :delayMilliseconds :anObject |
-		<primitive: return setTimeout(_self, _delayMilliseconds, _anObject);>
+	evaluateAfterMillisecondsWith { :self:/1 :delayInMilliseconds :anObject |
+		<primitive:
+		if(!sl.isSmallFloat(_delayInMilliseconds)) {
+			return Error('evaluateAfterMillisecondsWith: not a number');
+		} else {
+			return setTimeout(_self_1, _delayInMilliseconds, _anObject);
+		}
+		>
 	}
 
-	evaluateEveryMilliseconds { :self :delayMilliseconds |
-		<primitive: return setInterval(_self, _delayMilliseconds);>
+	evaluateEveryMilliseconds { :self:/0 :delayInMilliseconds |
+		<primitive:
+		if(!sl.isSmallFloat(_delayInMilliseconds)) {
+			return Error('evaluateEveryMilliseconds: not a number');
+		} else {
+			return setInterval(_self_0, _delayInMilliseconds);
+		}
+		>
 	}
 
 }

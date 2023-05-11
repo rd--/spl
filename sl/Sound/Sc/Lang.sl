@@ -14,7 +14,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.recurseEvery({ :currentTime :index |
 			{
 				aProcedure(aCollection[index])
-			}.play;
+			}.playAt(currentTime + 0.5); (* fixed delay... *)
 			(index = end).if {
 				nil
 			} {
@@ -31,7 +31,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.repeatEvery({ :currentTime :nextDelay |
 			{
 				aProcedure(nextDelay)
-			}.play
+			}.playAt(currentTime + 0.5) (* fixed delay... *)
 		}, delay)
 	}
 
@@ -60,8 +60,8 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	schedule { :self :deltaTime :aProcedure:/1 |
 		|
-			currentTime = system.systemTimeInMilliseconds,
-			scheduledTime = deltaTime * 1000 + currentTime,
+			currentTime = system.systemTimeInSeconds,
+			scheduledTime = currentTime + deltaTime,
 			wakeupTime = self.nextEntryTime;
 		|
 		self.priorityQueue.push(aProcedure:/1, scheduledTime);
@@ -90,13 +90,13 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	wakeup { :self :scheduledTime |
 		|
-			currentTime = system.systemTimeInMilliseconds,
+			currentTime = system.systemTimeInSeconds,
 			queue = self.priorityQueue,
-			front = self.nextEntryTime;
+			frontOfQueueTime = self.nextEntryTime;
 		|
 		{
-			front ~= nil & {
-				front <= currentTime
+			frontOfQueueTime ~= nil & {
+				frontOfQueueTime <= currentTime
 			}
 		}.whileTrue {
 			|
@@ -104,18 +104,18 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 				rescheduleAfter = activityProcedure(scheduledTime);
 			|
 			rescheduleAfter.ifNotNil {
-				self.priorityQueue.push(activityProcedure:/1, rescheduleAfter * 1000 + scheduledTime)
+				self.priorityQueue.push(activityProcedure:/1, scheduledTime + rescheduleAfter)
 			};
-			front := queue.peekPriority
+			frontOfQueueTime := queue.peekPriority
 		};
-		self.nextEntryTime := front;
-		front.ifNotNil {
+		self.nextEntryTime := frontOfQueueTime;
+		frontOfQueueTime.ifNotNil {
 			self.existingDelay.ifNotNil {
 				self.existingDelay.cancel
 			};
 			self.existingDelay := {
-				self.wakeup(front)
-			}.evaluateAfterMilliseconds(front - currentTime)
+				self.wakeup(frontOfQueueTime)
+			}.evaluateAfterMilliseconds(frontOfQueueTime - currentTime * 1000)
 		}
 	}
 
@@ -157,18 +157,30 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	abs { :self | self.collect(abs:/1) }
 	acos { :self | self.collect(acos:/1) }
+	AmpDb { :self | self.collect(AmpDb:/1) }
 	asin { :self | self.collect(asin:/1) }
 	atan { :self | self.collect(atan:/1) }
 	ceiling { :self | self.collect(ceiling:/1) }
+
+	collectTexture { :self :aProcedure:/1 :delay |
+		workspace::clock.collectTexture(
+			self,
+			aProcedure:/1,
+			delay
+		)
+	}
+
 	cos { :self | self.collect(cos:/1) }
 	cosh { :self | self.collect(cosh:/1) }
 	cubed { :self | self.collect(cubed:/1) }
+	DbAmp { :self | self.collect(DbAmp:/1) }
 	exp { :self | self.collect(exp:/1) }
 	floor { :self | self.collect(floor:/1) }
 	fractionPart { :self | self.collect(fractionPart:/1) }
 	log { :self | self.collect(log:/1) }
 	log10 { :self | self.collect(log10:/1) }
 	log2 { :self | self.collect(log2:/1) }
+	MidiCps { :self | self.collect(MidiCps:/1) }
 	negated { :self | self.collect(negated:/1) }
 	rounded { :self | self.collect(rounded:/1) }
 	sin { :self | self.collect(sin:/1) }
@@ -178,18 +190,6 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	tan { :self | self.collect(tan:/1) }
 	tanh { :self | self.collect(tanh:/1) }
 	truncated { :self | self.collect(truncated:/1) }
-
-	AmpDb { :self | self.collect(AmpDb:/1) }
-	DbAmp { :self | self.collect(DbAmp:/1) }
-	MidiCps { :self | self.collect(MidiCps:/1) }
-
-	collectTexture { :self :aProcedure:/1 :delay |
-		workspace::clock.collectTexture(
-			self,
-			aProcedure:/1,
-			delay
-		)
-	}
 
 }
 
@@ -539,20 +539,20 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	overlap { :self:/0 :sustainTime :transitionTime :overlap |
 		| period = (sustainTime + (transitionTime * 2)) / overlap; |
-		workspace::clock.schedule(0) { :unusedCurrentTime |
+		workspace::clock.schedule(0) { :currentTime |
 			{
 				self().withOverlapEnvelope(sustainTime, transitionTime)
-			}.play;
+			}.playAt(currentTime + 0.5); (* fixed delay... *)
 			period
 		}
 	}
 
-	playEvery { :self :delay |
-		workspace::clock.playEvery(self, delay)
+	playEvery { :self:/1 :delay |
+		workspace::clock.playEvery(self:/1, delay)
 	}
 
-	recurseEvery { :self :anObject :delay |
-		workspace::clock.recurseEvery(self, anObject, delay)
+	recurseEvery { :self:/2 :anObject :delay |
+		workspace::clock.recurseEvery(self:/2, anObject, delay)
 	}
 
 	xfade { :self :sustainTime :transitionTime |

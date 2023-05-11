@@ -1,6 +1,14 @@
 Date : [Object] {
 
-	hours { :self |
+	dayOfWeek { :self |
+		<primitive: return _self.getDay() + 1;>
+	}
+
+	dayOfMonth { :self |
+		<primitive: return _self.getDate();>
+	}
+
+	hour { :self |
 		<primitive: return _self.getHours();>
 	}
 
@@ -8,17 +16,33 @@ Date : [Object] {
 		<primitive: return _self.toISOString();>
 	}
 
-	minutes { :self |
+	localeTimeString { :self :localeName |
+		<primitive: return _self.toLocaleTimeString(_localeName);>
+	}
+
+	millisecond { :self |
+		<primitive: return _self.getMilliseconds();>
+	}
+
+	minute { :self |
 		<primitive: return _self.getMinutes();>
 	}
 
-	seconds { :self |
+	month { :self |
+		<primitive: return _self.getMonth() + 1;>
+	}
+
+	second { :self |
 		<primitive: return _self.getSeconds();>
+	}
+
+	year { :self |
+		<primitive: return _self.getFullYear();>
 	}
 
 }
 
-+SmallFloat {
++String {
 
 	Date { :self |
 		<primitive: return new Date(_self);>
@@ -29,7 +53,7 @@ Date : [Object] {
 +System {
 
 	Date { :self |
-		self.unixTimeInMilliseconds.Date
+		<primitive: return new Date();>
 	}
 
 }
@@ -43,15 +67,11 @@ Duration : [Object] { | milliseconds |
 	}
 
 	+ { :self :aDuration |
-		Duration(self.milliseconds + aDuration.Duration.milliseconds)
+		(self.milliseconds + aDuration.Duration.milliseconds).milliseconds
 	}
 
 	- { :self :aDuration |
-		Duration(self.milliseconds - aDuration.Duration.milliseconds)
-	}
-
-	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
-		aProcedure(aNumber.Duration, self)
+		(self.milliseconds - aDuration.Duration.milliseconds).milliseconds
 	}
 
 	asSeconds { :self |
@@ -71,7 +91,7 @@ Duration : [Object] { | milliseconds |
 	}
 
 	printString { :self |
-		'Duration(' ++ self.milliseconds.printString ++ ')'
+		self.milliseconds.printString ++ '.milliseconds'
 	}
 
 	seconds {  :self |
@@ -103,7 +123,7 @@ Duration : [Object] { | milliseconds |
 	}
 
 	milliseconds { :self |
-		self.Duration
+		newDuration().initializeSlots(self)
 	}
 
 	minutes { :self |
@@ -119,23 +139,23 @@ Duration : [Object] { | milliseconds |
 	}
 
 	Duration { :self |
-		newDuration().initializeSlots(self)
+		'SmallFloat>>Duration: no units specified'.error
 	}
 
 }
 
 +Procedure {
 
-	evaluateAfter { :self :delay |
-		self.evaluateAfterMilliseconds(delay.Duration.milliseconds)
+	evaluateAfter { :self:/0 :delay |
+		self:/0.evaluateAfterMilliseconds(delay.asSeconds * 1000)
 	}
 
-	evaluateAfterWith { :self :delay :anObject |
-		self.evaluateAfterMillisecondsWith(delay.Duration.milliseconds, anObject)
+	evaluateAfterWith { :self:/1 :delay :anObject |
+		self:/1.evaluateAfterMillisecondsWith(delay.asSeconds * 1000, anObject)
 	}
 
-	evaluateEvery { :self :delay |
-		self.evaluateEveryMilliseconds(delay.Duration.milliseconds)
+	evaluateEvery { :self:/0 :delay |
+		self:/0.evaluateEveryMilliseconds(delay.asSeconds * 1000)
 	}
 
 }
@@ -162,20 +182,24 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 		self.unixTimeInMilliseconds := self.unixTimeInMilliseconds.roundTo(aDuration.milliseconds)
 	}
 
-	unixTimeInSeconds { :self |
-		self.unixTimeInMilliseconds / 1000
-	}
-
 	TimeStamp { :self |
 		self
 	}
 
 }
 
++System {
+
+	currentTime { :self |
+		newTimeStamp().initializeSlots(self)
+	}
+
+}
+
 +SmallFloat {
 
-	TimeStamp { :self |
-		newTimeStamp().initializeSlots(self)
+	unixTimeInMilliseconds { :self |
+		self
 	}
 
 }
@@ -184,20 +208,12 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 
 	evaluateAt { :self :time |
 		| now = system.unixTimeInMilliseconds; |
-		self.evaluateAfter(time.TimeStamp.unixTimeInMilliseconds - now)
+		self.evaluateAfterMilliseconds(time.unixTimeInMilliseconds - now)
 	}
 
-	evaluateAt { :self :time :anObject |
+	evaluateAtWith { :self :time :anObject |
 		| now = system.unixTimeInMilliseconds; |
-		self.evaluateAfterWith(time.TimeStamp.unixTimeInMilliseconds - now, anObject)
-	}
-
-}
-
-+System {
-
-	currentTime { :self |
-		TimeStamp(self.unixTimeInMilliseconds)
+		self.evaluateAfterMillisecondsWith(time.unixTimeInMilliseconds - now, anObject)
 	}
 
 }

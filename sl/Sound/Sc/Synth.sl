@@ -310,12 +310,16 @@ UgenGraph : [Object] {
 		<primitive: return sc.mrg(_self, _aUgen);>
 	}
 
-	playUgen { :self |
+	playUgenAt { :self :systemTimeInSeconds |
 		<primitive:
 		sc.scSynthEnsure(globalScSynth, function() {
-			sc.playUgen(globalScSynth, _self, 1)
+			sc.playUgenAt(globalScSynth, _self, 1, _systemTimeInSeconds)
 		});
 		>
+	}
+
+	playUgen { :self |
+		self.playUgenAt(nil)
 	}
 
 	printUgen { :aUgen |
@@ -326,10 +330,14 @@ UgenGraph : [Object] {
 
 +Procedure {
 
-	play { :self |
-		| answer = self.value; |
+	play { :self:/0 |
+		self:/0.playAt(nil)
+	}
+
+	playAt { :self:/0 :systemTimeInSeconds |
+		| answer = self(); |
 		answer.isOutputSignal.ifTrue {
-			playUgen(answer)
+			answer.playUgenAt(systemTimeInSeconds)
 		}
 	}
 

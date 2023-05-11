@@ -135,9 +135,9 @@ AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 
 	tick { :self |
 		| dateAndTime = system.Date; |
-		self.moveHourHand(dateAndTime.hours + (dateAndTime.minutes / 60));
-		self.moveMinuteHand(dateAndTime.minutes);
-		self.moveSecondHand(dateAndTime.seconds)
+		self.moveHourHand(dateAndTime.hour + (dateAndTime.minute / 60));
+		self.moveMinuteHand(dateAndTime.minute);
+		self.moveSecondHand(dateAndTime.second)
 	}
 
 	title { :self |
@@ -949,9 +949,9 @@ PngViewer : [Object, View] { | pngPane title pngData pngUrl |
 
 SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
-	addFrameWithAnimator { :self :subject :event :intervalInSeconds :aProcedure:/0 |
+	addFrameWithAnimator { :self :subject :event :delay :aProcedure:/0 |
 		|
-			timerId = aProcedure:/0.evaluateEveryMilliseconds(intervalInSeconds * 1000),
+			timerId = aProcedure:/0.evaluateEveryMilliseconds(delay.asSeconds * 1000),
 			frame = self.addFrame(subject, event);
 		|
 		frame.addEventListener('close') { :unusedEvent |
@@ -1022,7 +1022,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	DigitalClock { :self :event |
 		|
 			getTime = {
-				system.unixTimeInMilliseconds.roundTo(1000).TimeStamp.iso8601
+				system.Date.localeTimeString('en-US')
 			},
 			textEditor = TextEditor('Digital Clock', 'text/plain', getTime()),
 			frame = self.addFrameWithAnimator(textEditor, event, 1) {
