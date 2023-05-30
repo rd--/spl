@@ -1,10 +1,13 @@
 # Date -- time
 
 - _Date(aString)_
+- _Date(aNumber)_
 
 An object representing a date and time.
 
 The string constructor will recognize subsets of the ISO 8601 specification, _YYYY-MM-DDTHH:mm:ss.sssZ_.
+
+The number constructor translates from unix time in milliseconds.
 
 ```
 Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'

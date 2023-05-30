@@ -172,13 +172,15 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 { [1 .. 3].last(5) }.ifError { :err | true }
 [1 .. 9].any(3) = [1 .. 3]
 [1 .. 9].take(11) = [1 .. 9]
+[1 .. 5].beginsWith([1 .. 3]) = true
+[1 .. 5].beginsWithAnyOf([[5], [4], [3], [2]])= false
 
 'Collections-Unordered/Association'
 ('x' -> 1).typeOf = 'Association'
 Association('x', 1) = ('x' -> 1)
 var a = 'x' -> 1; [a.key, a.value] = ['x', 1]
-('x' -> 1).asArray = ['x', 1]
-['x' -> 1, 'y' -> 2].collect(asArray:/1) = [['x', 1], ['y', 2]]
+('x' -> 1).Array = ['x', 1]
+['x' -> 1, 'y' -> 2].collect(Array:/1) = [['x', 1], ['y', 2]]
 (23 -> 3.141).printString = '23 -> 3.141'
 (23 -> 3.141).storeString = 'Association(23, 3.141)'
 
@@ -304,6 +306,9 @@ Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 (9, 7 .. 1) = Interval(9, 1, -2)
 (3 .. 7).anyOne = 3
 (1 .. 9).max = 9
+(1 .. 0).size = 2
+1.upTo(0).size = 0
+0.downTo(1).size = 0
 
 'Collections-Ordered/OrderedCollection'
 OrderedCollection().species = OrderedCollection:/1
@@ -442,6 +447,8 @@ var x = ['a', 'bc', 'def']; x.unlines.lines = x
 'Word'.asLowercase = 'word'
 'Word'.asUppercase = 'WORD'
 'word'.capitalized = 'Word'
+'testAt'.beginsWith('test') = true
+'testAt'.beginsWith('At') = false
 
 'Kernel-Exceptions/Error'
 Error().isError = true
@@ -590,6 +597,12 @@ epsilon() < (10 ** -15)
 epsilon() > (10 ** -16)
 inf.isFinite = false
 pi.isFinite = true
+5.closeTo(5) = true
+5.closeTo('5') = false
+5.closeTo(3) = false
+(5/3).closeTo(5/3) = true
+(1/3).closeTo(0.3333) = true
+(1/3).closeTo(0.333) = false
 
 'Kernel-Numbers/LargeInteger'
 23n.typeOf = 'LargeInteger'
@@ -599,6 +612,26 @@ pi.isFinite = true
 [-1n, 0n, 1n].collect(sign:/1) = [-1n, 0n, 1n]
 6n / 8n = Fraction(3n, 4n)
 2 / 3n = Fraction(2n, 3n)
+
+'Kernel-Numbers/Complex'
+(5 - 6.i) + (-5 + 8.i) = (0 + 2.i)
+5 * (5 - 6.i) = (25 - 30.i)
+2 * [1 + 2.i, 3 + 4.i, 5 + 6.i] = [2 + 4.i, 6 + 8.i, 10 + 12.i]
+5 + 5.i * [1 + 2.i, 3, 5 + 6.i] = [-5 + 15.i, 15 + 15.i, -5 + 55.i]
+(5 = 5.i) = false
+1 ~= 1.i
+(6 - 6.i).abs = 72.sqrt
+((1 + 2.i) + 1) =  (2 + 2.i)
+(1 + (1 + 2.i)) =  (2 + 2.i)
+((1 + 2.i) + 1) =  (2 + 2.i)
+(1 + (1 + 2.i)) =  (2 + 2.i)
+((1 + 2.i) + (2 / 3)).closeTo((5 / 3) + 2.i)
+((2 / 3) + (1 + 2.i)).closeTo((5 / 3) + 2.i)
+(0 + 5.i).arg = (pi / 2)
+var c = (5 - 6.i); (c * 1.i) = c.i
+(2 + 5.i).negated = (-2 - 5.i)
+(2 + 5.i).reciprocal = ((2 / 29) - (5 / 29).i)
+(6 - 6.i).squared = -72.i
 
 'System/Blob'
 [1 .. 9].ByteArray.Blob.size = 9
@@ -666,11 +699,11 @@ system.typeTraits('Array').includes('ArrayedCollection') = true
 system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'SequenceableCollection']) = true
 system.methodTraits('sum:/1') = ['Collection']
 system.traitTypes('Object').includes('SmallFloat') = true
-system.Trait('Object').methodDictionary.includesKey('respondsTo:/2') = true
-system.Trait('Collection').isTrait = true
-system.Trait('Collection').name = 'Collection'
-system.Trait('Collection').methodDictionary.includesKey('sum:/1') = true
-system.Trait('Collection').methodDictionary::sum:/1.isMethod = true
+system.traitLookup('Object').methodDictionary.includesKey('respondsTo:/2') = true
+system.traitLookup('Collection').isTrait = true
+system.traitLookup('Collection').name = 'Collection'
+system.traitLookup('Collection').methodDictionary.includesKey('sum:/1') = true
+system.traitLookup('Collection').methodDictionary::sum:/1.isMethod = true
 system.traitTypes('Dictionary').includes('IdentityDictionary') = true
 system.traitDictionary['Dictionary'].isTrait = true
 
@@ -705,7 +738,7 @@ system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 
 'Time/TimeStamp'
 1676784053576.TimeStamp.iso8601 = '2023-02-19T05:20:53.576Z'
-system.unixTimeInMilliseconds.TimeStamp.iso8601.size = 24
+system.currentTime.iso8601.size = 24
 
 'Syntax/Trailing Procedures'
 1.to(9).collect{ :x | x * x }.last = 81

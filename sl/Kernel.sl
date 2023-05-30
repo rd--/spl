@@ -1044,6 +1044,10 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 		}
 	}
 
+	arcTan { :self :anObject |
+		self.atan2(anObject)
+	}
+
 	asFloat { :self |
 		self
 	}
@@ -1101,6 +1105,29 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 		}
 	}
 
+	closeTo { :self :aNumber |
+		aNumber.isNumber.not.if {
+			{ self = aNumber }.ifError { false }
+		} {
+			(self = 0).if {
+				aNumber.abs < 0.0001
+			} {
+				(aNumber = 0).if {
+					self.abs < 0.0001
+				} {
+					(self = aNumber.asFloat) | {
+						| z = self.abs; |
+						(z < 0.0001).if {
+							aNumber.abs < 0.0001
+						} {
+							(self - aNumber).abs / (z.max(aNumber.abs)) < 0.0001
+						}
+					}
+				}
+			}
+		}
+	}
+
 	cos { :self |
 		<primitive: return Math.cos(_self)>
 	}
@@ -1143,6 +1170,10 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 
 	isSmallInteger { :self |
 		<primitive: return Number.isSafeInteger(_self);>
+	}
+
+	isZero { :self |
+		self = 0
 	}
 
 	json { :self |
@@ -1578,6 +1609,10 @@ String : [Object] {
 
 	at { :self :index |
 		<primitive: return _self.at(_index - 1);>
+	}
+
+	beginsWith { :self :aString |
+		<primitive: return _self.startsWith(_aString);>
 	}
 
 	capitalized { :self |

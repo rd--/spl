@@ -9,30 +9,8 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.existingDelay := nil
 	}
 
-	collectTexture { :self :aCollection :aProcedure:/1 :delay |
-		| end = aCollection.size; |
-		self.recurseEvery({ :currentTime :index |
-			{
-				aProcedure(aCollection[index])
-			}.playAt(currentTime + 0.5); (* fixed delay... *)
-			(index = end).if {
-				nil
-			} {
-				index + 1
-			}
-		}, 1, delay.value)
-	}
-
 	initialize { :self |
 		self.initializeSlots(PriorityQueue(), nil, nil)
-	}
-
-	playEvery { :self :aProcedure:/1 :delay |
-		self.repeatEvery({ :currentTime :nextDelay |
-			{
-				aProcedure(nextDelay)
-			}.playAt(currentTime + 0.5) (* fixed delay... *)
-		}, delay)
 	}
 
 	recurseEvery { :self :aProcedure:/2 :anObject :delay |
@@ -149,6 +127,32 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	Clock {
 		newClock().initialize
+	}
+
+}
+
++Clock {
+
+	collectTexture { :self :aCollection :aProcedure:/1 :delay |
+		| end = aCollection.size; |
+		self.recurseEvery({ :currentTime :index |
+			{
+				aProcedure(aCollection[index])
+			}.playAt(currentTime + 0.5); (* fixed delay... *)
+			(index = end).if {
+				nil
+			} {
+				index + 1
+			}
+		}, 1, delay.value)
+	}
+
+	playEvery { :self :aProcedure:/1 :delay |
+		self.repeatEvery({ :currentTime :nextDelay |
+			{
+				aProcedure(nextDelay)
+			}.playAt(currentTime + 0.5) (* fixed delay... *)
+		}, delay)
 	}
 
 }

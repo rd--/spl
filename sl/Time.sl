@@ -42,6 +42,14 @@ Date : [Object] {
 
 }
 
++SmallFloat {
+
+	Date { :self |
+		<primitive: return new Date(_self);>
+	}
+
+}
+
 +String {
 
 	Date { :self |
@@ -191,12 +199,16 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 +System {
 
 	currentTime { :self |
-		newTimeStamp().initializeSlots(self)
+		self.unixTimeInMilliseconds.TimeStamp
 	}
 
 }
 
 +SmallFloat {
+
+	TimeStamp { :self |
+		newTimeStamp().initializeSlots(self)
+	}
 
 	unixTimeInMilliseconds { :self |
 		self

@@ -174,10 +174,10 @@ function methodExists(methodName: MethodName): boolean {
 }
 
 export function addTrait(traitName: TraitName): void {
-	if(!traitExists(traitName)) {
-		system.traitDictionary.set(traitName, new Trait(traitName));
-	} else {
+	if(traitExists(traitName)) {
 		throw(`addTrait: trait exists: ${traitName}`);
+	} else {
+		system.traitDictionary.set(traitName, new Trait(traitName));
 	}
 }
 

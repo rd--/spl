@@ -57,16 +57,13 @@
 		>
 	}
 
-	do { :self :aProcedure |
-		<primitive: _self.forEach(function(item) { return _aProcedure(item) }); return _self;>
-	}
-
-	doWhile { :self :activity:/1 :condition:/0 |
-		| nextIndex = 1, endIndex = self.size; |
-		{ condition() & { nextIndex <= endIndex } }.whileTrue {
-			activity(self[nextIndex]);
-			nextIndex := nextIndex + 1
-		}
+	do { :self :aProcedure:/1 |
+		<primitive:
+			_self.forEach(function(item) {
+				return _aProcedure_1(item)
+			});
+			return _self;
+		>
 	}
 
 	fillFromWith { :self :aCollection :aProcedure:/1 |
@@ -105,7 +102,7 @@
 	}
 
 	printString { :self |
-		self.asArray.printString ++ '.ByteArray'
+		self.Array.printString ++ '.' ++ self.Type.name
 	}
 
 	occurrencesOf { :self :anObject |
@@ -780,6 +777,27 @@
 		self[randomInteger(1, self.size)]
 	}
 
+	beginsWith { :self :sequence |
+		| sequenceSize = sequence.size; |
+		withReturn {
+			(self.size < sequenceSize).ifTrue {
+				false.return
+			};
+			1.upTo(sequenceSize).do { :index |
+				(sequence[index] = self[index]).ifFalse {
+					false.return
+				}
+			};
+			true
+		}
+	}
+
+	beginsWithAnyOf { :self :aCollection |
+		aCollection.anySatisfy { :prefix |
+			self.beginsWith(prefix)
+		}
+	}
+
 	collect { :self :aProcedure:/1 |
 		| answer = self.species.ofSize(self.size); |
 		1.toDo(self.size) { :index |
@@ -832,6 +850,14 @@
 	do { :self :aProcedure:/1 |
 		1.toDo(self.size) { :index |
 			aProcedure(self[index])
+		}
+	}
+
+	doWhile { :self :activity:/1 :condition:/0 |
+		| nextIndex = 1, endIndex = self.size; |
+		{ condition() & { nextIndex <= endIndex } }.whileTrue {
+			activity(self[nextIndex]);
+			nextIndex := nextIndex + 1
 		}
 	}
 
@@ -1518,7 +1544,7 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 	}
 
 	IdentityDictionary { :self |
-		self.collect(asArray:/1).identityDictionaryFromTwoElementArrays
+		self.collect(Array:/1).identityDictionaryFromTwoElementArrays
 	}
 
 }
@@ -1751,7 +1777,7 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 +SmallFloat {
 
 	downTo { :self :stop |
-		Interval(1, stop, -1)
+		Interval(self, stop, -1)
 	}
 
 	Interval { :start :stop :step |
@@ -2056,7 +2082,7 @@ StringDictionary : [Object, Collection, Dictionary] {
 
 	StringDictionary { :self |
 		self.collect(key:/1).allSatisfy(isString:/1).if {
-			self.collect(asArray:/1).stringDictionaryFromTwoElementArrays
+			self.collect(Array:/1).stringDictionaryFromTwoElementArrays
 		} {
 			'Array>>StringDictionary: not all keys are strings'.error
 		}
