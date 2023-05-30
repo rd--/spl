@@ -63,7 +63,9 @@ Complex : [Object] { | real imaginary |
 	= { :self :anObject |
 		anObject.isNumber.if {
 			anObject.isComplex.if {
-				(self.real = anObject.real) & { self.imaginary = anObject.imaginary }
+				(self.real = anObject.real) & {
+					self.imaginary = anObject.imaginary
+				}
 			} {
 				anObject.adaptToComplexAndApply(self, equals:/2)
 			}
@@ -99,7 +101,9 @@ Complex : [Object] { | real imaginary |
 	closeTo { :self :anObject |
 		anObject.isNumber.if {
 			anObject.isComplex.if {
-				(self.real.closeTo(anObject.real)) & { self.imaginary.closeTo(anObject.imaginary) }
+				(self.real.closeTo(anObject.real)) & {
+					self.imaginary.closeTo(anObject.imaginary)
+				}
 			} {
 				anObject.adaptToComplexAndApply(self, closeTo:/2)
 			}
@@ -140,7 +144,9 @@ Complex : [Object] { | real imaginary |
 	}
 
 	isZero { :self |
-		self.real.isZero & { self.imaginary.isZero }
+		self.real.isZero & {
+			self.imaginary.isZero
+		}
 	}
 
 	ln { :self |
@@ -183,7 +189,9 @@ Complex : [Object] { | real imaginary |
 	}
 
 	sqrt { :self |
-		(imaginary = 0 & { real >= 0 }).if {
+		(imaginary = 0 & {
+			real >= 0
+		}).if {
 			Complex(self.real.sqrt, 0)
 		} {
 			|

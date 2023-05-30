@@ -39,6 +39,7 @@ system.categorizeDictionary(
 			'TimeStamp'
 		],
 		'Kernel-Numbers': [
+			'Complex',
 			'Fraction',
 			'LargeInteger',
 			'SmallFloat'
