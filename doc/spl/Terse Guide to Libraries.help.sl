@@ -123,3 +123,4 @@ workspace::smallHours.helpFind('Collection')
 
 'Cli'
 '/home/rohan/sw/spl/doc/spl/Terse Guide.help.sl'.readTextFile.then { :text | text.paragraphs.do { :each | each.lines.postLine } }
+'/home/rohan/sw/spl/doc/spl/Terse Guide.help.sl'.terseGuideSummary

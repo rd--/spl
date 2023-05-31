@@ -177,7 +177,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 5].groupBy(even:/1)[true].Array = [2, 4]
 var c = IdentityDictionary(); [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | c.add(q -> p) }; c['elmer'] = 3
 [1 .. 9].indexOfSubCollection([3 .. 5]) = 3
-[1 .. 9].indexOfSubCollectionStartingAt([3 .. 5], 5) = 0
+[1 .. 9].indexOfSubCollectionStartingAt([3 .. 5], 9) = 0
+[1 .. 9].indexOfSubCollectionStartingAt([9], 9) = 9
 var c = OrderedCollection(); [1 .. 9].splitByDo([3 .. 5]) { :each | c.add(each) }; c.Array = [[1, 2], [6, 7, 8, 9]]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].indicesOfSubCollection(['']) = [3, 5, 7]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f']]
@@ -316,6 +317,7 @@ Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 (1 .. 9).max = 9
 (1 .. 0).size = 2
 1.upTo(0).size = 0
+3.upTo(5) = (3 .. 5)
 0.downTo(1).size = 0
 
 'Collections-Ordered/OrderedCollection'
@@ -446,7 +448,7 @@ RegExp('x.x', 'g').printString.size = 18
  '"a text string"'.parseJson = 'a text string'
 'string'.last = 'g'
 var x = ['a', 'bc', 'def']; x.unlines.lines = x
-'3 + 4'.eval = 7
+'3 + 4'.evaluate = 7
 'a short string'.replace('short', 'longer') = 'a longer string'
 'x x x'.replace('x', 'y') = 'y x x'
 'x x x'.replaceAll('x', 'y') = 'y y y'

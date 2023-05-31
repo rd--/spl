@@ -1627,7 +1627,7 @@ String : [Object] {
 		<primitive: return _self.substring(_start - 1, _end);>
 	}
 
-	eval { :self |
+	evaluate { :self |
 		<primitive: return sl.evaluateString(_self);>
 	}
 
@@ -1779,6 +1779,29 @@ String : [Object] {
 
 	splitBy { :self :aString |
 		 <primitive: return _self.split(_aString);>
+	}
+
+	terseGuideSummary { :self |
+		self.readTextFile.then { :text |
+			| totalTestCount = 0, totalPassCount = 0, areas = text.paragraphs; |
+			('Terse Guide Summary: Areas = ' ++ areas.size.printString).postLine;
+			areas.do { :area |
+				| entries = area.lines.reject(isEmpty:/1), testCount = entries.size - 1, passCount = 0; |
+				entries[1].postLine;
+				(2 .. testCount + 1).collect { :index |
+					| test = entries[index], answer = test.evaluate; |
+					answer.if {
+						passCount := passCount + 1
+					} {
+						('	Error: ' ++ test).postLine
+					}
+				};
+				totalTestCount := totalTestCount + testCount;
+				totalPassCount := totalPassCount + passCount;
+				('	=> ' ++ passCount.printString ++ ' / ' ++ testCount.printString).postLine
+			};
+			('Total => ' ++ totalPassCount.printString ++ ' / ' ++ totalTestCount.printString).postLine
+		}
 	}
 
 	toLowerCase { :self |

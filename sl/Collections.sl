@@ -884,7 +884,7 @@
 	}
 
 	fisherYatesShuffle { :self |
-		[self.size .. 2].do { :item |
+		(self.size .. 2).do { :item |
 			self.swapWith(item, randomInteger(1, item))
 		};
 		self
@@ -941,11 +941,11 @@
 		(subCollectionSize = 0).if {
 			0
 		} {
-			| first = subCollection[1], index = nil; |
+			| first = subCollection[1]; |
 			withReturn {
-				(start.max(1) .. self.size - subCollectionSize + 1).do { :startIndex |
+				start.max(1).upTo(self.size - subCollectionSize + 1).do { :startIndex |
 					(self[startIndex] = first).ifTrue {
-						index := 2;
+						| index = 2; |
 						{
 							(index <= subCollectionSize) & {
 								self[startIndex + index - 1] = subCollection[index]
@@ -1883,7 +1883,7 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 	}
 
 	upTo { :self :stop |
-		Interval(1, stop, 1)
+		Interval(self, stop, 1)
 	}
 
 }

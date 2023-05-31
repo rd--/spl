@@ -117,7 +117,7 @@ Method : [Object] {
 			'{ ',
 			aString,
 			' }'
-		].join.eval
+		].join.evaluate
 	}
 
 	name { :self |

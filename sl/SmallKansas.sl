@@ -1950,7 +1950,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 				workspace::smallKansas.browserOn([self.currentWord], event)
 			},
 			MenuItem('Do It', 'd') { :event |
-				self.currentText.eval
+				self.currentText.evaluate
 			},
 			MenuItem('Help For It', 'h') { :event |
 				workspace::smallKansas.helpFor(self.currentWord.asMethodName, event)
@@ -1959,13 +1959,13 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 				workspace::smallKansas.implementorsOf(self.currentWord.asMethodName, event)
 			},
 			MenuItem('Inspect It', 'i') { :event |
-				workspace::smallKansas.inspectorOn(self.currentWord.eval, event)
+				workspace::smallKansas.inspectorOn(self.currentWord.evaluate, event)
 			},
 			MenuItem('Play It', 'Enter') { :event |
-				('{ ' ++ self.currentText ++ ' }.play').eval
+				('{ ' ++ self.currentText ++ ' }.play').evaluate
 			},
 			MenuItem('Print It', 'p') { :event |
-				self.insertText(' ' ++ self.currentText.eval.asString)
+				self.insertText(' ' ++ self.currentText.evaluate.asString)
 			},
 			MenuItem('References To It', nil) { :event |
 				workspace::smallKansas.referencesTo(self.currentWord.asMethodName, event)
