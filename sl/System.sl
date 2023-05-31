@@ -594,31 +594,31 @@ System : [Object] {
 
 	evaluateAfterMilliseconds { :self:/0 :delayInMilliseconds |
 		<primitive:
-		if(!sl.isSmallFloat(_delayInMilliseconds)) {
-			return Error('evaluateAfterMilliseconds: not a number');
-		} else {
-			return setTimeout(_self_0, _delayInMilliseconds);
-		}
+			if(!sl.isSmallFloat(_delayInMilliseconds)) {
+				return Error('evaluateAfterMilliseconds: not a number');
+			} else {
+				return setTimeout(_self_0, _delayInMilliseconds);
+			}
 		>
 	}
 
 	evaluateAfterMillisecondsWith { :self:/1 :delayInMilliseconds :anObject |
 		<primitive:
-		if(!sl.isSmallFloat(_delayInMilliseconds)) {
-			return Error('evaluateAfterMillisecondsWith: not a number');
-		} else {
-			return setTimeout(_self_1, _delayInMilliseconds, _anObject);
-		}
+			if(!sl.isSmallFloat(_delayInMilliseconds)) {
+				return Error('evaluateAfterMillisecondsWith: not a number');
+			} else {
+				return setTimeout(_self_1, _delayInMilliseconds, _anObject);
+			}
 		>
 	}
 
 	evaluateEveryMilliseconds { :self:/0 :delayInMilliseconds |
 		<primitive:
-		if(!sl.isSmallFloat(_delayInMilliseconds)) {
-			return Error('evaluateEveryMilliseconds: not a number');
-		} else {
-			return setInterval(_self_0, _delayInMilliseconds);
-		}
+			if(!sl.isSmallFloat(_delayInMilliseconds)) {
+				return Error('evaluateEveryMilliseconds: not a number');
+			} else {
+				return setInterval(_self_0, _delayInMilliseconds);
+			}
 		>
 	}
 
@@ -660,9 +660,9 @@ Response : [Object] {
 
 	byteArray { :self |
 		<primitive:
-		return _self.arrayBuffer().then(function(b) {
-			return new Uint8Array(b);
-		});
+			return _self.arrayBuffer().then(function(b) {
+				return new Uint8Array(b);
+			});
 		>
 	}
 

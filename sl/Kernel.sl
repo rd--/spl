@@ -1403,15 +1403,15 @@ Procedure : [Object] {
 
 	withReturn { :self |
 		<primitive:
-		try {
-			return _self();
-		} catch (ret) {
-			if(ret instanceof Error) {
-				throw(ret);
-			} {
-				return ret;
+			try {
+				return _self();
+			} catch (ret) {
+				if(ret instanceof Error) {
+					throw(ret);
+				} {
+					return ret;
+				}
 			}
-		}
 		>
 	}
 
@@ -1697,9 +1697,10 @@ String : [Object] {
 
 	markdownToHtml { :self |
 		<primitive:
-		var reader = new commonmark.Parser({smart: true});
-		var writer = new commonmark.HtmlRenderer();
-		return writer.render(reader.parse(_self));>
+			var reader = new commonmark.Parser({smart: true});
+			var writer = new commonmark.HtmlRenderer();
+			return writer.render(reader.parse(_self));
+		>
 	}
 
 
@@ -1730,6 +1731,10 @@ String : [Object] {
 
 	padRight { :self :anInteger :aString |
 		<primitive: return _self.padEnd(_anInteger, _aString);>
+	}
+
+	paragraphs { :self |
+		<primitive: return _self.split('\n\n');>
 	}
 
 	parseBacktickQuotedString { :self |

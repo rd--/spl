@@ -6,9 +6,9 @@
 
 	at { :self :index |
 		<primitive:
-		if(sl.arrayCheckIndex(_self, _index - 1)) {
-			return _self[_index - 1];
-		}
+			if(sl.arrayCheckIndex(_self, _index - 1)) {
+				return _self[_index - 1];
+			}
 		>
 		self.indexError(index)
 	}
@@ -21,39 +21,39 @@
 
 	atIfPresentIfAbsent { :self :index :ifPresent:/1 :ifAbsent:/0 |
 		<primitive:
-		if(sl.arrayCheckIndex(_self, _index - 1)) {
-			return _ifPresent_1(_self[_index - 1]);
-		} {
-			return _ifAbsent_0();
-		}
+			if(sl.arrayCheckIndex(_self, _index - 1)) {
+				return _ifPresent_1(_self[_index - 1]);
+			} {
+				return _ifAbsent_0();
+			}
 		>
 	}
 
 	atPut { :self :index :anObject |
 		<primitive:
-		if(sl.arrayCheckIndex(_self, _index - 1)) {
-			_self[_index - 1] = _anObject;
-			return _anObject;
-		}
+			if(sl.arrayCheckIndex(_self, _index - 1)) {
+				_self[_index - 1] = _anObject;
+				return _anObject;
+			}
 		>
 		self.indexError(index)
 	}
 
 	collect { :self :aProcedure |
 		<primitive:
-		if(_aProcedure instanceof Function) {
-			return _self.map(function(each) {
-				return _aProcedure(each);
-			});
-		}
+			if(_aProcedure instanceof Function) {
+				return _self.map(function(each) {
+					return _aProcedure(each);
+				});
+			}
 		>
-		'ArrayedCollection>>collect: not a procedure'.error
+		'@ArrayedCollection>>collect: not a procedure'.error
 	}
 
 	detectIfFoundIfNone { :self :aProcedure :whenFound :whenNone |
 		<primitive:
-		var item = _self.find(function(element) { return _aProcedure(element); });
-		return (item !== undefined) ? _whenFound(item) : _whenNone(item);
+			var item = _self.find(function(element) { return _aProcedure(element); });
+			return (item !== undefined) ? _whenFound(item) : _whenNone(item);
 		>
 	}
 
@@ -82,8 +82,8 @@
 
 	findIndex { :self :aProcedure |
 		<primitive:
-		var index = _self.findIndex(function(element) { return _aProcedure(element); });
-		return (index === -1) ? null : index + 1;
+			var index = _self.findIndex(function(element) { return _aProcedure(element); });
+			return (index === -1) ? null : index + 1;
 		>
 	}
 
@@ -97,7 +97,7 @@
 
 	isValidIndex { :self :index |
 		<primitive:
-		return Number.isInteger(_index) && 0 < _index && _index <= _self.length;
+			return Number.isInteger(_index) && 0 < _index && _index <= _self.length;
 		>
 	}
 
@@ -288,7 +288,7 @@
 
 	detect { :self :aProcedure |
 		detectIfNone(self, aProcedure) {
-			error('Collection>>detect: not found')
+			error('@Collection>>detect: not found')
 		}
 	}
 
@@ -331,6 +331,15 @@
 		aCollection.do { :each |
 			self.add(aProcedure(each))
 		}
+	}
+
+	groupBy { :self :keyBlock:/1 |
+		| result = IdentityDictionary(); |
+		self.do { :each |
+			| key = keyBlock(each); |
+			result.atIfAbsentPut(key, { OrderedCollection() }).add(each)
+		};
+		result
 	}
 
 	indices { :self |
@@ -565,7 +574,7 @@
 
 	atDelegateTo { :self :key :delegateKey |
 		self.atDelegateToIfAbsent(key, delegateKey) {
-			('Dictionary>>atDelegate: unknown key: ' ++ key).error
+			('@Dictionary>>atDelegate: unknown key: ' ++ key).error
 		}
 	}
 
@@ -576,7 +585,8 @@
 	atIfAbsentPut { :self :key :aProcedure:/0 |
 		self.atIfAbsent(key) {
 			self[key] := aProcedure()
-		}
+		};
+		self[key]
 	}
 
 	atIfPresent { :self :key :ifPresent:/1 |
@@ -900,10 +910,56 @@
 		withReturn {
 			start.toDo(self.size) { :index |
 				(self[index] = anElement).ifTrue {
-					return(index)
+					index.return
 				}
 			};
 			0
+		}
+	}
+
+	indicesOfSubCollection { :self :subCollection |
+		self.indicesOfSubCollectionStartingAt(subCollection, 1)
+	}
+
+	indicesOfSubCollectionStartingAt { :self :subCollection :initialIndex |
+		| answer = OrderedCollection(), index = initialIndex - 1; |
+		{
+			index := self.indexOfSubCollectionStartingAt(subCollection, index + 1);
+			index = 0
+		}.whileFalse {
+			answer.add(index)
+		};
+		answer.Array
+	}
+
+	indexOfSubCollection { :self :aSubCollection |
+		self.indexOfSubCollectionStartingAt(aSubCollection, 1)
+	}
+
+	indexOfSubCollectionStartingAt { :self :subCollection :start |
+		| subCollectionSize = subCollection.size; |
+		(subCollectionSize = 0).if {
+			0
+		} {
+			| first = subCollection[1], index = nil; |
+			withReturn {
+				(start.max(1) .. self.size - subCollectionSize + 1).do { :startIndex |
+					(self[startIndex] = first).ifTrue {
+						index := 2;
+						{
+							(index <= subCollectionSize) & {
+								self[startIndex + index - 1] = subCollection[index]
+							}
+						}.whileTrue {
+							index := index + 1
+						};
+						(index <= subCollectionSize).ifFalse {
+							startIndex.return
+						}
+					}
+				};
+				0
+			}
 		}
 	}
 
@@ -934,6 +990,12 @@
 	last { :self :n |
 		| size = self.size; |
 		self.copyFromTo(size - n + 1, size)
+	}
+
+	pairsDo { :self :aProcedure:/2 |
+		(1 .. self.size // 2).do { :index |
+			aProcedure(self[2 * index - 1], self[2 * index])
+		}
 	}
 
 	replaceFromToWithStartingAt { :self :start :stop :replacement :replacementStart |
@@ -990,6 +1052,26 @@
 
 	shuffled { :self |
 		self.copy.fisherYatesShuffle
+	}
+
+	splitBy { :self :aCollection |
+		| answer = OrderedCollection(); |
+		self.splitByDo(aCollection) { :each |
+			answer.add(each)
+		};
+		answer.Array
+	}
+
+	splitByDo { :self :aCollection :aProcedure:/1 |
+		| lastIndex = 1, nextIndex = nil; |
+		{
+			nextIndex := self.indexOfSubCollectionStartingAt(aCollection, lastIndex);
+			nextIndex = 0
+		}.whileFalse {
+			aProcedure(self.copyFromTo(lastIndex, nextIndex - 1));
+			lastIndex := nextIndex + aCollection.size
+		};
+		aProcedure(self.copyFromTo(lastIndex, self.size))
 	}
 
 	swapWith { :self :oneIndex :anotherIndex |
@@ -1466,8 +1548,8 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 
 	add { :self :anAssociation |
 		<primitive:
-		_self.set(_anAssociation.key, _anAssociation.value);
-		return _anAssociation;
+			_self.set(_anAssociation.key, _anAssociation.value);
+			return _anAssociation;
 		>
 	}
 
@@ -1505,17 +1587,21 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 
 	keysAndValuesDo { :self :aProcedure |
 		<primitive:
-		_self.forEach(function(value, key, _) {
-			_aProcedure(key, value)
-		});
-		return null;
+			_self.forEach(function(value, key, _) {
+				_aProcedure(key, value);
+			});
+			return null;
 		>
 	}
 
 	removeKeyIfAbsent { :self :aKey :aProcedure |
 		<primitive:
-		var existed = _self.delete(_aKey);
-		if(existed) { return _aKey; } else { return _aProcedure(); }
+			var existed = _self.delete(_aKey);
+			if(existed) {
+				return _aKey;
+			} else {
+				return _aProcedure();
+			}
 		>
 	}
 
@@ -1579,8 +1665,8 @@ IdentitySet : [Object, Collection] {
 
 	add { :self :anObject |
 		<primitive:
-		_self.add(_anObject);
-		return _anObject;
+			_self.add(_anObject);
+			return _anObject;
 		>
 	}
 
@@ -1590,10 +1676,10 @@ IdentitySet : [Object, Collection] {
 
 	do { :self :aProcedure |
 		<primitive:
-		_self.forEach(function(item) {
-			_aProcedure(item)
-		});
-		return null;
+			_self.forEach(function(item) {
+				_aProcedure(item);
+			});
+			return null;
 		>
 	}
 
@@ -2039,10 +2125,10 @@ StringDictionary : [Object, Collection, Dictionary] {
 
 	keysAndValuesDo { :self :aProcedure:/2 |
 		<primitive:
-		Object.entries(_self).forEach(function(entry) {
-			_aProcedure_2(entry[0], entry[1]);
-		});
-		return null;
+			Object.entries(_self).forEach(function(entry) {
+				_aProcedure_2(entry[0], entry[1]);
+			});
+			return null;
 		>
 	}
 

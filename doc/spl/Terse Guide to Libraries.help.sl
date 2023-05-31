@@ -120,3 +120,6 @@ var f = { :t0 | | t1 = 2.randomFloat.seconds; | t0.postLine; f.evaluateAfterWith
 
 'SmallHours'
 workspace::smallHours.helpFind('Collection')
+
+'Cli'
+'/home/rohan/sw/spl/doc/spl/Terse Guide.help.sl'.readTextFile.then { :text | text.paragraphs.do { :each | each.lines.postLine } }

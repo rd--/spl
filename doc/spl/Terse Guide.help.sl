@@ -174,6 +174,14 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].take(11) = [1 .. 9]
 [1 .. 5].beginsWith([1 .. 3]) = true
 [1 .. 5].beginsWithAnyOf([[5], [4], [3], [2]])= false
+[1 .. 5].groupBy(even:/1)[true].Array = [2, 4]
+var c = IdentityDictionary(); [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | c.add(q -> p) }; c['elmer'] = 3
+[1 .. 9].indexOfSubCollection([3 .. 5]) = 3
+[1 .. 9].indexOfSubCollectionStartingAt([3 .. 5], 5) = 0
+var c = OrderedCollection(); [1 .. 9].splitByDo([3 .. 5]) { :each | c.add(each) }; c.Array = [[1, 2], [6, 7, 8, 9]]
+['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].indicesOfSubCollection(['']) = [3, 5, 7]
+['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f']]
+['a', 'b', '', 'c', '', 'd', '', 'e', 'f', ''].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f'], []]
 
 'Collections-Unordered/Association'
 ('x' -> 1).typeOf = 'Association'
@@ -449,6 +457,7 @@ var x = ['a', 'bc', 'def']; x.unlines.lines = x
 'word'.capitalized = 'Word'
 'testAt'.beginsWith('test') = true
 'testAt'.beginsWith('At') = false
+['a','b','','c'].unlines.paragraphs.collect(lines:/1) = [['a', 'b'], ['c']]
 
 'Kernel-Exceptions/Error'
 Error().isError = true

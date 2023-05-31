@@ -48,4 +48,5 @@ export function addLoadFileMethods(): void {
 	addMethod('String', 'load', 1, loadFile, '<primitive>');
 	addMethod('Array', 'loadFileSequence', 1, loadFileSequence, '<primitive>');
 	addMethod('Array', 'loadSequence', 1, loadFileSequence, '<primitive>');
+	addMethod('String', 'readTextFile', 1, readTextFile, '<primitive>');
 }
