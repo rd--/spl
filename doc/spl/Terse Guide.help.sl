@@ -67,8 +67,8 @@ typeOf:/1.typeOf = 'Procedure'
 { Promise() }.ifError { :err | true }
 var p = Promise { :t:/1 :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isPromise
 var p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
-var p = Promise { :t :f:/1 | f('f') }; p.then({ :t | t.postLine }).catch({ :f | (f = 'f').postLine }); p.isPromise
-var p = Promise { :t :f:/1 | f('f') }; p.thenElse({ :t | t.postLine }, { :f | (f = 'f').postLine }).finally({ 'true'.postLine }); p.isPromise
+var p = Promise { :t :f:/1 | f('f') }; p.then { :t | t.postLine }.catch { :f | (f = 'f').postLine }; p.isPromise
+var p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }.finally { 'true'.postLine }; p.isPromise
 
 'Kernel-Objects/UndefinedObject'
 nil.typeOf = 'UndefinedObject'
@@ -105,6 +105,7 @@ var a = [1, 2, 3]; a == a = true
  [1, 3, 5, 7].reversed = [7, 5, 3, 1]
 var a = [1, 3, 5, 7]; a.reverseInPlace; a = [7, 5, 3, 1]
 [1, 2, 3, 5, 7, 9].sum = 27
+[1, 2, 3].reduce { :a :b | a + b } = 6
 [1, 2, 3, 5, 7, 9].reduce(plus:/2) = 27
 [1, 2, 3, 5, 7, 9].injectInto(0, plus:/2) = 27
 [1, 2, 3, 5, 7, 9].product = 1890
@@ -172,6 +173,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 { [1 .. 3].last(5) }.ifError { :err | true }
 [1 .. 9].any(3) = [1 .. 3]
 [1 .. 9].take(11) = [1 .. 9]
+[1, 2]. take(5).size = 2
+{ [1, 2].take(-1) }.ifError { :err | true }
 [1 .. 5].beginsWith([1 .. 3]) = true
 [1 .. 5].beginsWithAnyOf([[5], [4], [3], [2]])= false
 [1 .. 5].groupBy(even:/1)[true].Array = [2, 4]
@@ -183,6 +186,16 @@ var c = OrderedCollection(); [1 .. 9].splitByDo([3 .. 5]) { :each | c.add(each) 
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].indicesOfSubCollection(['']) = [3, 5, 7]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f']]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f', ''].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f'], []]
+[5, 6, 3, -3, 2, 1, 0, 4].minMax = [-3, 6]
+[2834.83, -293482.28, 99283, 23, 959323].minMax = [-293482.28, 959323]
+['x'].detect { :each | each.isString } = 'x'
+{ ['x'].detect { :each | each.isNumber } }.ifError { :err | true }
+['x'].detectIfFound { :each | each.isString } { :x | 42 } = 42
+['x'].detectIfFound { :each | each.isNumber } { :x | 'x' } = nil
+['x'].detectIfFoundIfNone { :each | each.isNumber } { :x | 'x' } { 'x' } = 'x'
+{ ['x'].detect { :each | each.isNumber } }.ifError { :err | true }
+['x'].detectIfNone { :each | each.isString } { 42 } = 'x'
+['x'].detectIfNone { :each | each.isNumber } { 42 } = 42
 
 'Collections-Unordered/Association'
 ('x' -> 1).typeOf = 'Association'
@@ -192,6 +205,12 @@ var a = 'x' -> 1; [a.key, a.value] = ['x', 1]
 ['x' -> 1, 'y' -> 2].collect(Array:/1) = [['x', 1], ['y', 2]]
 (23 -> 3.141).printString = '23 -> 3.141'
 (23 -> 3.141).storeString = 'Association(23, 3.141)'
+(1 -> '1').key = (1 -> 'one').key
+(1 -> '1').value ~= (1 -> 'one').value
+(1 -> '1') ~= (1 -> 'one')
+(1 -> 2) = ((1 -> 2).storeString.evaluate)
+(false -> true) = ((false -> true).storeString.evaluate)
+('+' -> 'plus') = (('+' -> 'plus').storeString.evaluate)
 
 'Collections-Arrayed/ByteArray'
 ByteArray(0).typeOf = 'ByteArray'
@@ -426,6 +445,7 @@ RegExp('x.x', 'g').printString.size = 18
 ['the', 'quick', 'brown', 'fox'].joinSeparatedBy(' ') = 'the quick brown fox'
 ['the', 'quick', 'brown', 'fox'].join = 'thequickbrownfox'
 'the quick brown fox jumps'.splitBy(' ') = ['the', 'quick', 'brown', 'fox', 'jumps']
+'string'.splitBy('') = ['s', 't', 'r', 'i', 'n', 'g']
 'once at end'.occurrencesOf('d') = 1
 'abracadabra'.occurrencesOf('a') = 5
 'once at end'.indicesOf('d') = [11]
@@ -573,7 +593,9 @@ var n = unicodeFractions().associations.collect(value:/1); n = n.sorted
 7.quotient(2) = 3
 var total = 0; 9.timesRepeat { total := total + system.randomFloat }; total < 7
 3.max(7) = 7
+3.max(7) = 7.max(3)
 7.min(3) = 3
+3.min(7) = 7.min(3)
 12345.truncateTo(600) = 12000
 2971215073.isPrime = true
 2971215073.nextPrime = 2971215083 & { 2971215083.isPrime }
@@ -728,7 +750,7 @@ system.typeDictionary::Association.slotNameArray = ['key', 'value']
 system.typeDictionary::Association.methodDictionary.keys.includes('equals:/2')
 system.typeDictionary::Association.methodDictionary.includesKey('key:/1') = true
 system.typeDictionary::UndefinedObject.methodDictionary.includesKey('ifNil:/2') = true
-system.typeMethods('Association').select({ :each | each.name = 'copy' }).size = 1
+system.typeMethods('Association').select { :each | each.name = 'copy' }.size = 1
 system.typeMethods('Association').collect(name:/1).includes('copy') = true
 system.typeLookup('Array').isType = true
 system.typeLookup('Array').name = 'Array'
@@ -747,9 +769,27 @@ system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 'x=3.141&y=23'.URLSearchParams.has('x') = true
 'x=3.141&y=23'.URLSearchParams.get('y') = '23'
 
+'Time/Duration'
+2.seconds.typeOf = 'Duration'
+5.hours.isDuration = true
+0.25.seconds = 250.milliseconds
+3.hours.seconds = 10800
+1.5.seconds.milliseconds = 1500
+0.5.seconds + 750.milliseconds = 1.25.seconds
+2.weeks - 12.days = 48.hours
+0.25.seconds + 500.milliseconds = 750.milliseconds
+500.milliseconds + 0.25.seconds = 0.75.seconds
+
 'Time/TimeStamp'
+1676784053576.TimeStamp.printString = 'TimeStamp(1676784053576)'
 1676784053576.TimeStamp.iso8601 = '2023-02-19T05:20:53.576Z'
-system.currentTime.iso8601.size = 24
+system.unixTime.isTimeStamp = true
+system.unixTime.iso8601.size = 24
+var t = system.unixTime; t - 0.seconds = t
+{ system.unixTime.postLine }.evaluateAfter(0.5.seconds).cancel = nil
+{ system.unixTime.postLine }.evaluateAt(system.unixTime + 0.5.seconds).cancel = nil
+{ system.unixTime.postLine }.evaluateEvery(3.seconds).cancel = nil
+var f = { :t0 | | t1 = 2.randomFloat.seconds; | t0.postLine; f.evaluateAfterWith(t1, t1) }; f(2.seconds).cancel = nil
 
 'Syntax/Trailing Procedures'
 1.to(9).collect{ :x | x * x }.last = 81

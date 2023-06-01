@@ -18,6 +18,12 @@
 		}
 	}
 
+	closeTo { :self :aPoint |
+		self.x.closeTo(aPoint.x) & {
+			self.y.closeTo(aPoint.y)
+		}
+	}
+
 	dotProduct { :self :aPoint |
 		(self.x * aPoint.x) + (self.y * aPoint.y)
 	}
@@ -363,7 +369,7 @@ Vector2 : [Object, Number, Point] { | x y |
 		aProcedure(aPoint, self.Point)
 	}
 
-	at { :self :y |
+	atSign { :self :y |
 		Vector2(self, y)
 	}
 
@@ -382,6 +388,14 @@ Vector2 : [Object, Number, Point] { | x y |
 }
 
 Vector3 : [Object] { | x y z |
+
+	= { :self :anObject |
+		anObject.isVector3.if {
+			(self.x = anObject.x) & { self.y = anObject.y } & { self.z = anObject.z }
+		} {
+			false
+		}
+	}
 
 	Array { :self |
 		[self.x, self.y, self.z]
@@ -595,11 +609,11 @@ Matrix33 : [Object] { | elements |
 
 	invert { :self |
 		| [a, b, c, d, e, f, g, h, i] = self.elements; |
-		self.elements := [
+		self.elements := self.determinant * [
 			(e * i) - (f * h), ((b * i) - (c * h)).negated, (b * f) - (c * e),
 			((d * i) - (f * g)).negated, (a * i) - (c * g), ((a * f) - (c * d)).negated,
 			(d * h) - (e * g), ((a * h).negated - (b * g)), (a * e) - (b * d)
-		] * self.determinant;
+		];
 		self
 	}
 

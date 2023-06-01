@@ -50,10 +50,10 @@
 		'@ArrayedCollection>>collect: not a procedure'.error
 	}
 
-	detectIfFoundIfNone { :self :aProcedure :whenFound :whenNone |
+	detectIfFoundIfNone { :self :aProcedure:/1 :whenFound:/1 :whenNone:/0 |
 		<primitive:
-			var item = _self.find(function(element) { return _aProcedure(element); });
-			return (item !== undefined) ? _whenFound(item) : _whenNone(item);
+			var item = _self.find(function(element) { return _aProcedure_1(element); });
+			return (item !== undefined) ? _whenFound_1(item) : _whenNone_0();
 		>
 	}
 
@@ -271,11 +271,15 @@
 		answer
 	}
 
+	detectIfFound { :self :aProcedure:/1 :foundProcedure:/1 |
+		self.detectIfFoundIfNone(aProcedure:/1, foundProcedure:/1, { nil })
+	}
+
 	detectIfFoundIfNone { :self :aProcedure:/1 :foundProcedure:/1 :exceptionProcedure:/0 |
 		withReturn {
 			self.do { :each |
 				aProcedure(each).ifTrue {
-					return (foundProcedure(each))
+					foundProcedure(each).return
 				}
 			};
 			exceptionProcedure()
@@ -283,11 +287,11 @@
 	}
 
 	detectIfNone { :self :aProcedure:/1 :whenAbsent:/0 |
-		detectIfFoundIfNone(self, aProcedure:/1, identity:/1, whenAbsent:/0)
+		self.detectIfFoundIfNone(aProcedure:/1, identity:/1, whenAbsent:/0)
 	}
 
-	detect { :self :aProcedure |
-		detectIfNone(self, aProcedure) {
+	detect { :self :aProcedure:/1 |
+		self.detectIfNone(aProcedure:/1) {
 			error('@Collection>>detect: not found')
 		}
 	}
@@ -385,6 +389,21 @@
 
 	mean { :self |
 		self.sum / self.size
+	}
+
+	min { :self |
+		self.injectInto(self.anyOne) { :answer :each |
+			answer.min(each)
+		}
+	}
+
+	minMax { :self |
+		| min = self.anyOne, max = min; |
+		self.do { :each |
+			min := min.min(each);
+			max := max.max(each)
+		};
+		[min, max]
 	}
 
 	notEmpty { :self |
@@ -1266,7 +1285,7 @@ ArrayBuffer : [Object] {
 Association : [Object] { | key value |
 
 	= { :self :anAssociation |
-		self.key = anAssociation.key
+		self.value = anAssociation.value
 	}
 
 	< { :self :anAssociation |

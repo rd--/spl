@@ -1,39 +1,40 @@
-'Graphics/Point'
-Point(0, 0).typeOf = 'Point'
-Point(-1, 1).isPoint = true
-Point(3, 4).isPoint & { true } = true
-(-1@1).isPoint.not = false
--1@1 = Point(-1, 1)
+'Graphics/Vector2'
+Vector2(0, 0).typeOf = 'Vector2'
+Vector2(-1, 1).isVector2 = true
+Vector2(3, 4).isVector2 & { true } = true
+(-1@1).isVector2.not = false
+-1@1 = Vector2(-1, 1)
 (-1@1).x = -1
 (-1@1).y = 1
 (-1@1).x(-3) = -3
 (-1@1).y(3) = 3
--1@1 * 9 = Point(-9, 9)
--1@1 + 2 = Point(1, 3)
-2 * (-1@1) * 2 = Point(-4, 4)
-(-1@1).asString = 'Point(-1, 1)'
+-1@1 * 9 = (-9@9)
+-1@1 + 2 = (1@3)
+2 * (-1@1) * 2 = (-4@4)
+(-1@1).asString = '-1@1'
 var p = -1@1; p.x := -3; p.y := 3; p = (-3@3) = true
 var p = -1@3, a = [p]; a.first.x := -3; p = (-3@3) = true
-var x = 3.141, y = 23, p = Point(x, y); p.x = x & { p.y = y }
-[Point(1, 0), Point(1, 1), Point(0, 1), Point(-1, 1), Point(-1, 0), Point(0, -1)].collect(t:/1) = (pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2])
+var x = 3.141, y = 23, p = x@y; p.x = x & { p.y = y }
+[1@0, 1@1, 0@1, -1@1, -1@0, 0 @ -1].collect(t:/1) = (pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2])
+0@0 = Point(0,0)
 
 'Graphics/Rectangle'
-Rectangle(0@0, 1@1).printString = 'Rectangle(Point(0, 0), Point(1, 1))'
+Rectangle(0@0, 1@1).printString = 'Rectangle(0@0, 1@1)'
 Rectangle(0@0, 2@2).intersect(Rectangle(1@1, 4@4)) = Rectangle(1@1, 2@2)
 Rectangle(1@1, 3@3).area = 4
-Rectangle(1@1, 3@3).center = Point(2, 2)
+Rectangle(1@1, 3@3).center = Vector2(2, 2)
 Rectangle(1@1, 3@3).containsPoint(2@2) = true
 
 'Graphics/Matrix22'
 Matrix22(1, 4, -1, 9).determinant = 13
 Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2)
-Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1))
+Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1)).closeTo(1@0)
 
 'Graphics/Matrix33'
 Matrix33(1, 1, 1, 1, 0, 0, 0, 1, 0).inverse = Matrix33(0, 1, 0, 0, 0, 1, 1, -1, -1)
 
 'Graphics/Vector3'
-[1, 2, 3].Vector3
+[1, 2, 3].Vector3 = Vector3(1, 2, 3)
 
 'Collections/Cons'
 Cons(1, nil).length = 1

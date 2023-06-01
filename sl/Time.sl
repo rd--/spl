@@ -182,8 +182,20 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 		self.unixTimeInMilliseconds < aTimeStamp.unixTimeInMilliseconds
 	}
 
+	+ { :self :aDuration |
+		(self.unixTimeInMilliseconds + aDuration.milliseconds).TimeStamp
+	}
+
+	- { :self :aDuration |
+		(self.unixTimeInMilliseconds - aDuration.milliseconds).TimeStamp
+	}
+
 	iso8601 { :self |
 		self.unixTimeInMilliseconds.Date.iso8601
+	}
+
+	printString { :self |
+		'TimeStamp(' ++ self.unixTimeInMilliseconds.printString ++ ')'
 	}
 
 	roundTo { :self :aDuration |
@@ -198,7 +210,7 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 
 +System {
 
-	currentTime { :self |
+	unixTime { :self |
 		self.unixTimeInMilliseconds.TimeStamp
 	}
 

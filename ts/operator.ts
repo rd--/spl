@@ -14,7 +14,7 @@ export const operatorNameTable: Record<string,string> = {
 	'/': 'dividedBy',
 	'&': 'and',
 	'|': 'or',
-	'@': 'at',
+	'@': 'commercialAt', // p[q] == at(p,q)
 	'<': 'lessThan',
 	'>': 'greaterThan',
 	'=': 'equals',
