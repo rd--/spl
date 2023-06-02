@@ -365,15 +365,15 @@ Vector2 : [Object, Number, Point] { | x y |
 
 +@Number {
 
+	@ { :self :y |
+		Vector2(self, y)
+	}
+
 	adaptToPointAndApply { :self :aPoint :aProcedure:/2 |
 		aProcedure(aPoint, self.Point)
 	}
 
-	atSign { :self :y |
-		Vector2(self, y)
-	}
-
-	Point { :self |
+	Point { :self | (* ? *)
 		Point(self, self)
 	}
 
