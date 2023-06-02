@@ -50,6 +50,14 @@
 		'@ArrayedCollection>>collect: not a procedure'.error
 	}
 
+	copy { :self |
+		| answer = self.species.new; |
+		(1 .. self.size).do { :index |
+			answer[index] := self[index]
+		};
+		answer
+	}
+
 	detectIfFoundIfNone { :self :aProcedure:/1 :whenFound:/1 :whenNone:/0 |
 		<primitive:
 			var item = _self.find(function(element) { return _aProcedure_1(element); });
@@ -113,6 +121,14 @@
 			}
 		};
 		tally
+	}
+
+	remove { :self :anObject |
+		self.shouldNotImplement
+	}
+
+	removeAll { :self |
+		self.shouldNotImplement
 	}
 
 	reverseInPlace { :self |
@@ -261,6 +277,18 @@
 		aCollection.fillFromWith(self, aProcedure)
 	}
 
+	copy { :self |
+		| answer = self.species.new; |
+		answer.addAll(self);
+		answer
+	}
+
+	copyWithout{ :self :oldElement |
+		self.reject { :each |
+			each = oldElement
+		}
+	}
+
 	count { :self :aProcedure:/1 |
 		| answer = 0; |
 		self.do { :each |
@@ -311,6 +339,12 @@
 			}
 		};
 		maxElement
+	}
+
+	difference { :self :aCollection |
+		self.reject { :each |
+			aCollection.includes(each)
+		}
 	}
 
 	do { :self :aProcedure |
@@ -367,6 +401,12 @@
 			nextValue := aProcedure(nextValue, each)
 		};
 		nextValue
+	}
+
+	intersection { :self :aCollection |
+		self.select { :each |
+			aCollection.includes(each)
+		}
 	}
 
 	isCollection { :self |
@@ -460,6 +500,12 @@
 	remove { :self :oldObject |
 		self.removeIfAbsent(oldObject) {
 			self.errorNotFound(oldObject)
+		}
+	}
+
+	removeAll { :self |
+		self.do { :each |
+			self.remove(each)
 		}
 	}
 
@@ -648,12 +694,6 @@
 		self.keysAndValuesDo { :key :value |
 			answer.add(key -> aProcedure(value))
 		};
-		answer
-	}
-
-	copy { :self |
-		| answer = self.species.new; |
-		answer.addAll(self);
 		answer
 	}
 
@@ -1693,6 +1733,10 @@ IdentitySet : [Object, Collection] {
 		<primitive: return Array.from(_self);>
 	}
 
+	copy { :self |
+		<primitive: return new Set(_self);>
+	}
+
 	do { :self :aProcedure |
 		<primitive:
 			_self.forEach(function(item) {
@@ -1718,6 +1762,10 @@ IdentitySet : [Object, Collection] {
 		<primitive: _self.delete(_anObject); return _anObject;>
 	}
 
+	removeAll { :self |
+		<primitive: _self.clear(); return null;>
+	}
+
 	size { :self |
 		<primitive: return _self.size;>
 	}
@@ -1726,12 +1774,28 @@ IdentitySet : [Object, Collection] {
 		IdentitySet:/0
 	}
 
+	union { :self :aCollection |
+		| answer = self.copy; |
+		answer.addAll(aCollection);
+		answer
+	}
+
 }
 
 +Array {
 
 	IdentitySet { :self |
 		<primitive: return new Set(_self);>
+	}
+
+}
+
++@Collection {
+
+	IdentitySet { :self |
+		| answer = IdentitySet(); |
+		answer.addAll(self);
+		answer
 	}
 
 }
@@ -1980,6 +2044,10 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveAr
 
 	size { :self |
 		self.primitiveArray.size
+	}
+
+	removeAll { :self |
+		self.primitiveArray := Array(self.primitiveArray.size)
 	}
 
 	removeAt { :self :index |

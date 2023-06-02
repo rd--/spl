@@ -110,7 +110,7 @@ export class Type {
 	}
 }
 
-const preinstalledTypes = ['Array', 'String', 'Void']; // ?
+const preinstalledTypes = ['Array', 'SmallFloat', 'String', 'Void']; // required if methods are added before type definition
 
 export class Transcript {
 	entries: [string, string][];

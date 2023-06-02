@@ -283,6 +283,28 @@ var d = (f: { :i | i * i }); d::f.value(9) = 81
 [1, 3, 5, 3, 1].IdentitySet.Array = [1, 3, 5]
 var s = [1, 3, 5, 3, 1].IdentitySet; s.remove(3); s.Array = [1, 5]
 [1 .. 9].IdentitySet.atRandom.betweenAnd(1, 9)
+var s = IdentitySet(); s.add(5); s.includes(5) = true
+var s = ['x', 5].IdentitySet; var t = s.copy; t.add(5); s = t
+var s = [1 .. 4].IdentitySet; s.includes(s.atRandom) = true
+var s = (1 .. 10).IdentitySet; var t = s.collect { :each | (each >= 1).if { each } { 'no' } }; s = t
+var s = (1 .. 10).IdentitySet.collect { :each | (each >= 5).if { each } { 'no' } }; s = [5, 6, 7, 8, 9, 10, 'no'].IdentitySet
+var s = (1 .. 10).IdentitySet; s.size = s.copy.size
+var s = (1 .. 10).IdentitySet; var t = s.copy; s.select { :each | t.includes(each).not }.isEmpty
+var s = (1 .. 10).IdentitySet; var t = s.copy; t.select { :each | s.includes(each).not }.isEmpty
+var s = (1 .. 10).IdentitySet; var t = s.copyWithout(3); s.size - 1 = t.size
+var s = (1 .. 10).IdentitySet; s.copyWithout(3).includes(3) = false
+var s = (1 .. 10).IdentitySet; var t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].IdentitySet
+var s = (1 .. 5).IdentitySet; var n = 0; s.do { :each | n := n + each }; n = 15
+var s = [].IdentitySet; s.addAll([1 .. 100]); s.size = 100
+var s = ['x', 5].IdentitySet; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
+var s = (1 .. 5).IdentitySet; var n = 0; s.do { :each | n := n + each }; n = 15
+var s = (1 .. 9).IdentitySet; s.intersection(s) = s
+(1 .. 4).IdentitySet.intersection((5 .. 9).IdentitySet) = [].IdentitySet
+(1 .. 5).IdentitySet.intersection((4 .. 9).IdentitySet) = [4, 5].IdentitySet
+var s = (1 .. 9).IdentitySet; s.remove(5); [s.includes(5), s.includes(9)] = [false, true]
+var s = (1 .. 9).IdentitySet; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, t.size = n] = [true, true]
+(1 .. 4).IdentitySet.union((5 .. 9).IdentitySet) = (1 .. 9).IdentitySet
+var s = (1 .. 4).IdentitySet; var t = (5 .. 9).IdentitySet; var u = s.union(t); u.size = (s.size + t.size)
 
 'Collections-Ordered/Interval'
 (1 .. 9).species = Array:/1
