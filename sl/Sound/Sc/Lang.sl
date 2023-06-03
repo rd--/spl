@@ -186,6 +186,14 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	log2 { :self | self.collect(log2:/1) }
 	MidiCps { :self | self.collect(MidiCps:/1) }
 	negated { :self | self.collect(negated:/1) }
+
+	normalize { :self |
+		| min = self.min, max = self.max, mul = 1 / (max - min), add = 0 - (mul * min); |
+		self.collect { :each |
+			each * mul + add
+		}
+	}
+
 	rounded { :self | self.collect(rounded:/1) }
 	sin { :self | self.collect(sin:/1) }
 	sinh { :self | self.collect(sinh:/1) }
@@ -387,6 +395,14 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		answer
 	}
 
+	drop { :self :n |
+		self.copyFromTo(n + 1, self.size)
+	}
+
+	dropLast { :self :n |
+		self.copyFromTo(1, self.size - n)
+	}
+
 	extendTo { :self :size |
 		1.toAsCollect(size, self.species) { :index |
 			self.atWrap(index)
@@ -395,6 +411,23 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	flop { :self |
 		self.extendToBeOfEqualSize.transpose
+	}
+
+	keep { :self :n |
+		self.copyFromTo(1, n)
+	}
+
+	keepAtMost { :self :n |
+		(n > self.size).if {
+			self
+		} {
+			self.keep(n)
+		}
+	}
+
+	keepLast { :self :n |
+		| size = self.size; |
+		self.copyFromTo(size - n, size)
 	}
 
 	pyramid { :self :patternType |

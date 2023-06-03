@@ -157,6 +157,7 @@ var [x, y] = { var n = system.randomFloat; [n, n] }.value; x = y
 [1 .. 9].allButFirst = [2 .. 9]
 [1 .. 9].allButFirst(7) = [8, 9]
 { var a = Array(1); a.at(3) }.ifError { :err | true }
+var a = Array(1); x[1].isNil = true
 var a = Array(1); a.unsafeAt(3).isNil = true
 { var a = Array(1); a.atPut(3, 'x') }.ifError { :err | true }
 var a = Array(1); a.unsafeAtPut(3, 'x') = 'x' & { a.size = 3 }
@@ -621,6 +622,7 @@ var total = 0; 9.timesRepeat { total := total + system.randomFloat }; total < 7
 12345.truncateTo(600) = 12000
 2971215073.isPrime = true
 2971215073.nextPrime = 2971215083 & { 2971215083.isPrime }
+100.primesUpTo = [2, 3, 5, 7,11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 13.betweenAnd(11, 14) = true
 9.atRandom.isInteger = true
 9.randomInteger.isInteger = true

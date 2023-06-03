@@ -119,6 +119,13 @@ var f = { :t0 | | t1 = 2.randomFloat.seconds; | t0.postLine; f.evaluateAfterWith
 'String/Markdown'
 '# A Heading'.markdownToHtml.lines[1] = '<h1>A Heading</h1>'
 
+'Sound/Lang'
+(1 .. 9).drop(3) = [4 .. 9]
+(1 .. 9).dropLast(3) = [1 .. 6]
+(1 .. 9).keep(3) = [1 .. 3]
+(1 .. 9).keepLast(3) = [6 .. 9]
+[3, 5, 4].normalize = [0, 1, 1/2]
+
 'SmallHours'
 workspace::smallHours.helpFind('Collection')
 

@@ -118,6 +118,37 @@
 		maybePrime
 	}
 
+	nthPrime { :self |
+		| nPrimes = 6542; |
+		(self <= nPrimes).if {
+			workspace::primesArray.ifNil {
+				| n = 1; |
+				workspace::primesArray := Array(nPrimes);
+				(1 .. nPrimes).do { :index |
+					n := n.nextPrime;
+					workspace::primesArray[index] := n
+				}
+			};
+			workspace::primesArray[self]
+		} {
+			'@Integral>>nthPrime: out of range'.error
+		}
+	}
+
+	primesUpTo { :self |
+		| answer = OrderedCollection(); |
+		self.primesUpToDo { :n | answer.add(n) };
+		answer.Array
+	}
+
+	primesUpToDo { :self :aProcedure:/1 |
+		| n = 2; |
+		{ n <= self }.whileTrue {
+			aProcedure(n);
+			n := n.nextPrime
+		}
+	}
+
 	numerator { :self |
 		self
 	}
