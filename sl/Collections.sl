@@ -1075,6 +1075,12 @@
 		answer
 	}
 
+	reverseDo { :self :aProcedure:/1 |
+		self.size.toBy(1, -1).do { :index | 
+			aProcedure(self[index])
+		}
+	}
+
 	rotate { :self :anInteger |
 		self.rotateRight(anInteger)
 	}
@@ -1909,6 +1915,21 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 			Interval(self.stop, self.start, self.step.negated)
 		} {
 			Interval(self.last, self.start, self.step.negated)
+		}
+	}
+
+	reverseDo { :self :aProcedure:/1 |
+		|
+			each = self.last,
+			predicate = (self.step < 0).if {
+				{ self.start >= each }
+			} {
+				{ self.start <= each }
+			};
+		|
+		predicate.whileTrue {
+			aProcedure(each);
+			each := each - self.step
 		}
 	}
 

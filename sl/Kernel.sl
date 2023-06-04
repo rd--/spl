@@ -378,9 +378,12 @@
 		}
 	}
 
-
 	squared { :self |
 		self * self
+	}
+
+	strictlyPositive { :self |
+		self > 0
 	}
 
 	toDo { :self :end :aProcedure:/1 |
@@ -2004,6 +2007,14 @@ String : [Object] {
 
 	isEmpty { :self |
 		self.size = 0
+	}
+
+	isLowercase { :self |
+		<primitive: return /^[a-z]+$/.test(_self);>
+	}
+
+	isUppercase { :self |
+		<primitive: return /^[A-Z]+$/.test(_self);>
 	}
 
 	json { :self |

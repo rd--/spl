@@ -55,6 +55,100 @@ var n = 100.randomFloat; (n > 0) && { n < 100 }             (* random number in 
 2 << 3 = 16                                                 (* left shift operator *)
 16 >> 3 = 2                                                 (* right shift operator *)
 
+'Booleans'
+true = true                                                 (* constant *)
+false = false                                               (* constant *)
+1 = 1 = true                                                (* equality predicate (operator) *)
+1 ~= 2 = true                                               (* equality predicate (operator) *)
+true.and { false } = false                                  (* logical and *)
+true.or { false } = true                                    (* logical or *)
+true & { false } = false                                    (* logical and (operator) *)
+true | { false } = true                                     (* logical or (operator) *)
+true.ifTrue { 'T' } = 'T'                                   (* if then, c.f. conditional statements *)
+false.if { 'T' } { 'F' } = 'F'                              (* if then else (do) *)
+true.if { 'T' } { 'F' } = 'T'                               (* if then else (value) *)
+true.not.not = true                                         (* not *)
+1.isNumber = true                                           (* test if object is a number *)
+1.isInteger = true                                          (* test if object is an integer *)
+1.respondsTo(sqrt:/1) = true                                (* test if object responds to message *)
+nil.isNil = true                                            (* test if object is nil *)
+0.positive = (0 >= 0)                                       (* test if number is non-negative *)
+0.strictlyPositive = (0 > 0)                                (* test if number is greater than zero *)
+-1.negative = true                                          (* test if number is negative *)
+2.even = true                                               (* test if number is even *)
+1.odd = true                                                (* test if number is odd *)
+'A'.isUppercase = true                                      (* test if upper case character *)
+'a'.isLowercase = true                                      (* test if lower case character *)
+
+'Collection'
+[].isEmpty = true                                           (* is collection empty *)
+[1, 2, 3] = [1, 2, 3]                                       (* are collections equal *)
+[9, 4, 5, 7, 8, 6].size = 6                                 (* size of collection *)
+[9, 4, 5, 7, 8, 6].max = 9                                  (* maximum item in collection *)
+[9, 4, 5, 7, 8, 6].min = 4                                  (* minimum item in collection *)
+[9, 4, 5, 7, 8, 6].sum = 39                                 (* sum of collection *)
+[9, 4, 5, 7, 8, 6].mean = 6.5                               (* sum of collection divided by size *)
+[9, 4, 5, 7, 8, 6].product = 60480                          (* product of collection *)
+[9, 4, 5, 7, 8, 6].injectInto(0) { :z :e | e + z } = 39     (* sum of collection *)
+[9, 4, 5, 7, 8, 6].injectInto(1) { :z :e | e * z } = 60480  (* product of collection *)
+[9, 4, 5, 7, 8, 6].includes(7) = true                       (* is element in collection *)
+[9, 4, 5, 7, 8, 6].count { :item | item.even } = 3          (* count elements that satisfy predicate *)
+[9, 4, 5, 7, 8, 6].anySatisfy { :item | item.even } = true  (* do any elements satisfy predicate *)
+[9, 4, 5, 7, 8, 6].allSatisfy { :item | item.even } = false (* do all elements satisfy predicate *)
+[9, 4, 5, 7, 8, 6].occurrencesOf(7) = 1                     (* count elements that are equal to object *)
+[1, 2, 3, 4, 5].atRandom <= 5                               (* random element of collection *)
+
+'Complex'
+Complex(0, 0).isComplex			                    (* complex numbers *)
+Complex(-1, 0).real = -1                                    (* real part of complex number *)
+Complex(-1, 0).imaginary = 0                                (* imaginary part of complex number *)
+Complex(-1, 0) + 1 = Complex(0, 0)                          (* complex addition with scalar *)
+
+'Conditional Statements'
+true.ifTrue { 'T' } = 'T'                                   (* if then *)
+true.ifFalse { 'F' } = nil				    (* if not then *)
+true.if { 'T' } { 'F' } = 'T'     			    (* if then else *)
+
+'Constants'
+true                                                        (* true constant *)
+false.not                                                   (* false constant *)
+nil.isNil                                                   (* nil object constant *)
+inf.isNumber                                           	    (* Infinity constant *)
+pi.isNumber                                            	    (* pi constant *)
+1.isNumber                                                  (* integer constants *)
+3.14.isNumber                                               (* float constants *)
+-1.isNumber                                                 (* negative integer constants *)
+-3.14.isNumber                                              (* negative float constants *)
+'Hello'.isString                                            (* string constant *)
+[3, 2, 1].size = 3                                          (* array constants *)
+['one', 2, 3.141].size = 3                                  (* mixing of types allowed *)
+
+'Floating point'
+1.0 * 3.0 > 3.0 = false                                     (* integral floating point math *)
+0.1 * 3.0 > 0.3 = true                                      (* general floating point math *)
+1.0 * 3.0 = 3.0 = true                                      (* integral floating point math *)
+0.1 * 3.0 = 0.3 = false                                     (* general floating point math *)
+1.0 + 1.0 + 1.0 = 3.0 = true                                (* integral floating point math *)
+0.1 + 0.1 + 0.1 = 0.3 = false                               (* general floating point math *)
+
+'Interval'
+Interval(0, 12, 3).asArray = [0, 3, 6, 9, 12]               (* elements of interval as array *)
+Interval(0, 12, 3).size = 5                                 (* number of elements in interval *)
+2.toBy(14, 4).collect { :x | x * x } = [4, 36, 100, 196]    (* toBy method at Integer *)
+(2, 6 .. 14).collect { :x | x * x } = [4, 36, 100, 196]     (* toBy syntax *)
+Interval(-1, 1, 0.000001).size = 2000001                    (* 2000001 places between -1 and 1 *)
+Interval(-1, 1, 0.000001).at(1000001) = 0                   (* access value at 1000001st place *)
+
+'Iteration'
+var n = 0; 4.timesRepeat { n := n + 1 }; n = 4              (* times repeat loop (int) *)
+var n = 0; 4.do { :x | n := n + x }; n = 10                 (* times repeat loop (int) *)
+var n = 0; 4.do { :x | n := n + x }; n = 10                 (* for loop (int) *)
+var s = ''; 4.do { :x | s := s ++ x }; s = '1234'           (* for loop (int) *)
+var s = ''; 1.to(5).do { :x | s := s ++ x }; s = '12345'    (* for loop (interval) *)
+var s = ''; 1.to(3).reverseDo { :x | s := s ++ x }; s = '321' (* for loop (interval, reversed) *)
+var s = ''; [1, 3, 5].do { :x | s := s ++ x }; s = '135'    (* for loop (collection) *)
+var n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3        (* while loop *)
+
 'Kernel-Logic/Boolean'
 true.typeOf = 'Boolean'
 true.isBoolean
@@ -65,10 +159,10 @@ true ~= false
 false ~= true
 true == true
 false == false
-true & { 'true &'.postLine; false } = false
+true & { false } = false
 false & { 'false &'.postLine; false } = false
 true | { 'true |'.postLine; true } = true
-false | { 'false |'.postLine; true } = true
+false | { true } = true
 true.printString = 'true'
 true && true = true
 false || true = true
@@ -419,6 +513,7 @@ Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 1.upTo(0).size = 0
 3.upTo(5) = (3 .. 5)
 0.downTo(1).size = 0
+var s = ''; (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531'
 
 'Collections-Ordered/OrderedCollection'
 OrderedCollection().species = OrderedCollection:/1
