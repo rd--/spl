@@ -18,6 +18,10 @@
 		}
 	}
 
+	abs { :self |
+		self.x.abs @ self.y.abs
+	}
+
 	closeTo { :self :aPoint |
 		self.x.closeTo(aPoint.x) & {
 			self.y.closeTo(aPoint.y)
@@ -323,8 +327,24 @@ Vector2 : [Object, Number, Point] { | x y |
 		}
 	}
 
+	// { :self :anObject |
+		anObject.isPoint.if {
+			Point(self.x // anObject.x, self.y // anObject.y)
+		} {
+			anObject.adaptToPointAndApply(self, dividedByDividedBy:/2)
+		}
+	}
+
+	% { :self :anObject |
+		anObject.isPoint.if {
+			Point(self.x % anObject.x, self.y % anObject.y)
+		} {
+			anObject.adaptToPointAndApply(self, modulo:/2)
+		}
+	}
+
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
-		aProcedure(aNumber.Point, self)
+		aProcedure(aNumber @ aNumber, self)
 	}
 
 	Array { :self |

@@ -82,6 +82,10 @@ Duration : [Object] { | milliseconds |
 		(self.milliseconds - aDuration.Duration.milliseconds).milliseconds
 	}
 
+	asDuration { :self |
+		self
+	}
+
 	asSeconds { :self |
 		self.seconds
 	}
@@ -92,6 +96,10 @@ Duration : [Object] { | milliseconds |
 
 	hours { :self |
 		self.minutes / 60
+	}
+
+	isZero { :self |
+		self.milliseconds = 0
 	}
 
 	minutes {  :self |
@@ -117,6 +125,10 @@ Duration : [Object] { | milliseconds |
 }
 
 +SmallFloat {
+
+	asDuration { :self |
+		'SmallFloat>>asDuration: no units specified'.error
+	}
 
 	asSeconds { :self |
 		self
@@ -144,10 +156,6 @@ Duration : [Object] { | milliseconds |
 
 	weeks { :self |
 		(self * 7 * 24 * 60 * 60 * 1000).milliseconds
-	}
-
-	Duration { :self |
-		'SmallFloat>>Duration: no units specified'.error
 	}
 
 }
@@ -188,6 +196,10 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 
 	- { :self :aDuration |
 		(self.unixTimeInMilliseconds - aDuration.milliseconds).TimeStamp
+	}
+
+	asTimeStamp { :self |
+		self
 	}
 
 	iso8601 { :self |

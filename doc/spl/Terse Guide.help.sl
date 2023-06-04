@@ -157,7 +157,7 @@ var [x, y] = { var n = system.randomFloat; [n, n] }.value; x = y
 [1 .. 9].allButFirst = [2 .. 9]
 [1 .. 9].allButFirst(7) = [8, 9]
 { var a = Array(1); a.at(3) }.ifError { :err | true }
-var a = Array(1); x[1].isNil = true
+var a = Array(1); a[1].isNil = true
 var a = Array(1); a.unsafeAt(3).isNil = true
 { var a = Array(1); a.atPut(3, 'x') }.ifError { :err | true }
 var a = Array(1); a.unsafeAtPut(3, 'x') = 'x' & { a.size = 3 }
@@ -803,6 +803,7 @@ system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 2.weeks - 12.days = 48.hours
 0.25.seconds + 500.milliseconds = 750.milliseconds
 500.milliseconds + 0.25.seconds = 0.75.seconds
+var f = { :t0 | | t1 = 2.randomFloat.seconds; | f.evaluateAfterWith(t1, t1) }; f(2.seconds).cancel = nil
 
 'Time/TimeStamp'
 1676784053576.TimeStamp.printString = 'TimeStamp(1676784053576)'
@@ -813,7 +814,6 @@ var t = system.unixTime; t - 0.seconds = t
 { system.unixTime.postLine }.evaluateAfter(0.5.seconds).cancel = nil
 { system.unixTime.postLine }.evaluateAt(system.unixTime + 0.5.seconds).cancel = nil
 { system.unixTime.postLine }.evaluateEvery(3.seconds).cancel = nil
-var f = { :t0 | | t1 = 2.randomFloat.seconds; | t0.postLine; f.evaluateAfterWith(t1, t1) }; f(2.seconds).cancel = nil
 
 'Syntax/Trailing Procedures'
 1.to(9).collect{ :x | x * x }.last = 81

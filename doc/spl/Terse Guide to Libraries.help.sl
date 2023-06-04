@@ -1,41 +1,3 @@
-'Graphics/Vector2'
-Vector2(0, 0).typeOf = 'Vector2'
-Vector2(-1, 1).isVector2 = true
-Vector2(3, 4).isVector2 & { true } = true
-(-1@1).isVector2.not = false
--1@1 = Vector2(-1, 1)
-(-1@1).x = -1
-(-1@1).y = 1
-(-1@1).x(-3) = -3
-(-1@1).y(3) = 3
--1@1 * 9 = (-9@9)
--1@1 + 2 = (1@3)
-2 * (-1@1) * 2 = (-4@4)
-(-1@1).asString = '-1@1'
-var p = -1@1; p.x := -3; p.y := 3; p = (-3@3) = true
-var p = -1@3, a = [p]; a.first.x := -3; p = (-3@3) = true
-var x = 3.141, y = 23, p = x@y; p.x = x & { p.y = y }
-[1@0, 1@1, 0@1, -1@1, -1@0, 0 @ -1].collect(t:/1) = (pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2])
-0@0 = Point(0,0)
-
-'Graphics/Rectangle'
-Rectangle(0@0, 1@1).printString = 'Rectangle(0@0, 1@1)'
-Rectangle(0@0, 2@2).intersect(Rectangle(1@1, 4@4)) = Rectangle(1@1, 2@2)
-Rectangle(1@1, 3@3).area = 4
-Rectangle(1@1, 3@3).center = Vector2(2, 2)
-Rectangle(1@1, 3@3).containsPoint(2@2) = true
-
-'Graphics/Matrix22'
-Matrix22(1, 4, -1, 9).determinant = 13
-Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2)
-Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1)).closeTo(1@0)
-
-'Graphics/Matrix33'
-Matrix33(1, 1, 1, 1, 0, 0, 0, 1, 0).inverse = Matrix33(0, 1, 0, 0, 0, 1, 1, -1, -1)
-
-'Graphics/Vector3'
-[1, 2, 3].Vector3 = Vector3(1, 2, 3)
-
 'Collections/Cons'
 Cons(1, nil).length = 1
 Cons(1, nil).isList = true
@@ -97,34 +59,8 @@ var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.nextPutAll((2 .. 8)); 
 var a = Array(0); var w = WriteStream(a); w.nextPut(1); w.contents = [1]
 var w = Utf8WriteStream(); 'bodlɛʁ'.encodeOn(w); w.contents.utf8 = 'bodlɛʁ'
 
-'Time/Duration'
-2.seconds.typeOf = 'Duration'
-5.hours.isDuration = true
-0.25.Duration = 250.milliseconds
-3.hours.seconds = 10800
-1.5.seconds.milliseconds = 1500
-system.systemTime.isDuration = true
-0.5.seconds + 750.milliseconds = 1.25.seconds
-2.weeks - 12.days = 48.hours
-0.25 + 500.milliseconds = 750.milliseconds
-500.milliseconds + 0.25 = 0.75.seconds
-system.systemTime.seconds > system.systemTime.hours = true
-system.systemTime.weeks < 1 = true
-system.unixTime.weeks > 2750 = true
-{ system.unixTime.postLine }.evaluateAfter(0.5.seconds).cancel = nil
-{ system.unixTime.postLine }.evaluateAt(system.unixTime + 0.5.seconds).cancel = nil
-{ system.unixTime.seconds.rounded.postLine }.evaluateEvery(3.seconds).cancel = nil
-var f = { :t0 | | t1 = 2.randomFloat.seconds; | t0.postLine; f.evaluateAfterWith(t1, t1) }; f(2.seconds).cancel = nil
-
 'String/Markdown'
 '# A Heading'.markdownToHtml.lines[1] = '<h1>A Heading</h1>'
-
-'Sound/Lang'
-(1 .. 9).drop(3) = [4 .. 9]
-(1 .. 9).dropLast(3) = [1 .. 6]
-(1 .. 9).keep(3) = [1 .. 3]
-(1 .. 9).keepLast(3) = [6 .. 9]
-[3, 5, 4].normalize = [0, 1, 1/2]
 
 'SmallHours'
 workspace::smallHours.helpFind('Collection')
@@ -132,3 +68,5 @@ workspace::smallHours.helpFind('Collection')
 'Cli'
 '/home/rohan/sw/spl/doc/spl/Terse Guide.help.sl'.readTextFile.then { :text | text.paragraphs.do { :each | each.lines.postLine } }
 '/home/rohan/sw/spl/doc/spl/Terse Guide.help.sl'.terseGuideSummary
+'/home/rohan/sw/spl/doc/spl/Terse Guide to Graphics.help.sl'.terseGuideSummary
+'/home/rohan/sw/spl/doc/spl/Terse Guide to Sound.help.sl'.terseGuideSummary
