@@ -622,6 +622,12 @@ System : [Object] {
 		>
 	}
 
+	millisecondsToRun { :self:/0 |
+		| startTime = system.systemTimeInMilliseconds; |
+		self();
+		system.systemTimeInMilliseconds - startTime
+	}
+
 }
 
 +String {

@@ -1,3 +1,60 @@
+'Arithmetic expressions'
+6 + 3 = 9                                                   (* addition *)
+6 - 3 = 3                                                   (* subtraction *)
+6 * 3 = 18                                                  (* multiplication *)
+1 + 2 * 3 = 9                                               (* evaluation always left to right (1 + 2) * 3 *)
+(5 / 3).isInteger.not                                       (* division with fractional result *)
+5 / 2 = 2.5                                                 (* division with float result *)
+5 // 3 = 1                                                  (* integer divide *)
+5 % 3 = 2                                                   (* modulo *)
+-5 = 5.negated                                              (* unary minus *)
+5.sign = 1                                                  (* numeric sign (1, -1 or 0) *)
+5.negated = -5                                              (* negate receiver *)
+1.25.truncated = 1                                          (* integer part of number *)
+1.25.fractionPart = 0.25                                    (* fractional part *)
+5.reciprocal = (1/5)                                        (* reciprocal function *)
+6 * 3.1 = 18.6                                              (* auto convert to float *)
+5.squared = 25                                              (* square function *)
+25.sqrt = 5.0                                               (* square root *)
+5.0 ** 2.0 = 25.0                                           (* power function *)
+5 ** 2 = 25                                                 (* power function with integer *)
+1.exp.closeTo(2.718281828459)                               (* exponential *)
+-5.abs = 5                                                  (* absolute value *)
+3.99.rounded = 4                                            (* round ; c.f. rounded *)
+3.99.truncated = 3                                          (* truncate *)
+3.99.roundTo(1) = 4.0                                       (* round to specified decimal places ; c.f. roundTo: *)
+3.99.truncateTo(1) = 3.0                                    (* truncate to specified decimal places *)
+12345.truncateTo(600) = 12000                               (* truncate to integer *)
+3.99.floor = 3                                              (* round down *)
+3.99.ceiling = 4                                            (* round up *)
+5.factorial = 120                                           (* factorial *)
+28.gcd(12) = 4                                              (* greatest common denominator *)
+28.lcm(12) = 84                                             (* least common multiple *)
+1.0.exp.log = 1.0                                           (* natural logarithm *)
+100.log10 = 2.0                                             (* base 10 logarithm *)
+180.degreesToRadians = pi                                   (* convert degrees to radians *)
+pi.radiansToDegrees = 180                                   (* convert radians to degrees *)
+(pi / 2).sin = 1.0                                          (* sine *)
+0.0.cos = 1.0                                               (* cosine *)
+0.0.tan = 0.0                                               (* tangent *)
+10.max(20) = 20                                             (* get maximum of two numbers *)
+10.min(20) = 10                                             (* get minimum of two numbers *)
+pi.closeTo(3.141592653589793)                               (* pi = 3.141592653589793 *)
+1.exp.closeTo(2.718281828459)                               (* e = 2.718281828459 *)
+var n = 100.randomFloat; (n > 0) && { n < 100 }             (* random number in (0, self-1) *)
+4 + 5 * 6 = 54                                              (* operators are evaluated left to right *)
+
+'Bitwise Manipulation'
+2.bitAnd(3) = 2                                             (* and bits *)
+2.bitOr(3) = 3                                              (* or bits *)
+2.bitXor(3) = 1                                             (* xor bits *)
+3.bitNot = -4                                               (* invert bits *)
+2.bitShiftLeft(3) = 16                                      (* left shift *)
+16.bitShiftRight(3) = 2                                     (* right shift *)
+(1 .. 4).select { :bit | 6.bitTest(bit) } = [2, 3]          (* bit at position (0|1) [!Squeak] *)
+2 << 3 = 16                                                 (* left shift operator *)
+16 >> 3 = 2                                                 (* right shift operator *)
+
 'Kernel-Logic/Boolean'
 true.typeOf = 'Boolean'
 true.isBoolean
@@ -197,6 +254,7 @@ var c = OrderedCollection(); [1 .. 9].splitByDo([3 .. 5]) { :each | c.add(each) 
 { ['x'].detect { :each | each.isNumber } }.ifError { :err | true }
 ['x'].detectIfNone { :each | each.isString } { 42 } = 'x'
 ['x'].detectIfNone { :each | each.isNumber } { 42 } = 42
+Array(9).atAllPut('x').last = 'x'
 
 'Collections-Unordered/Association'
 ('x' -> 1).typeOf = 'Association'
@@ -819,3 +877,7 @@ var t = system.unixTime; t - 0.seconds = t
 1.to(9).collect{ :x | x * x }.last = 81
 [1, 3, 5].withCollect([1, 3, 5]) { :p :q | p -> q } = [1 -> 1, 3 -> 3, 5 -> 5]
 [1, 3, 5].reversed.withCollect([1, 3, 5]) { :p :q | p -> q } = [5 -> 1, 3 -> 3, 1 -> 5]
+
+'Benchmarks'
+| r t | t := { r := 26.benchFib }.millisecondsToRun; r = 392835 & { t < 500 }
+| r t | t := { r := 10.benchmark }.millisecondsToRun; r = 1028 & { t < 500 }

@@ -40,6 +40,34 @@
 		aFraction.aProcedure(Fraction(self, 1))
 	}
 
+
+	benchFib { :self |
+		(self < 2).if {
+			1
+		} {
+			(self - 1).benchFib + (self - 2).benchFib + 1
+		}
+	}
+
+	benchmark  { :self |
+		| size = 8190, count = nil; |
+		self.timesRepeat {
+			| flags = Array(size).atAllPut(true); |
+			count := 0;
+			(1 .. size).do { :i |
+				flags[i].ifTrue {
+					| prime = i + 1, k = i + prime; |
+					{ k <= size}.whileTrue {
+						flags[k] := false;
+						k := k + prime
+					};
+					count := count + 1
+				}
+			}
+		};
+		count
+	}
+
 	denominator { :self |
 		1
 	}
@@ -47,6 +75,18 @@
 	divisors { :self |
 		(1 .. self).select { :each |
 			self.remainder(each) = 0
+		}
+	}
+
+	factorial { :self |
+		(self = 0).if {
+			1
+		} {
+			(self > 0).if {
+				self * (self - 1).factorial
+			} {
+				'Integral>>factorial: not valid for negative integers'.error
+			}
 		}
 	}
 
@@ -253,6 +293,10 @@
 		self * self * self
 	}
 
+	degreesToRadians { :self |
+		self * 0.01745329251994329547 (* pi / 180 *)
+	}
+
 	do { :self :aProcedure:/1 |
 		1.toDo(self, aProcedure:/1)
 	}
@@ -300,6 +344,10 @@
 		} {
 			(self / aNumber).truncated
 		}
+	}
+
+	radiansToDegrees { :self |
+		self * 57.29577951308232286465 (* 180 / pi *)
 	}
 
 	reciprocal { :self |
@@ -1368,6 +1416,10 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 	bitOr { :self :anObject |
 		<primitive: if(sl.isSmallFloat(_anObject)) { return _self | _anObject; }>
 		anObject.adaptToNumberAndApply(self, bitOr:/2)
+	}
+
+	bitTest { :self :anInteger |
+		self.bitAnd(1 << (anInteger - 1)) ~= 0
 	}
 
 	bitXor { :self :anObject |

@@ -1203,6 +1203,10 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 		self
 	}
 
+	atAllPut { :self :anObject |
+		<primitive: _self.fill(_anObject); return _self;>
+	}
+
 	copy { :self |
 		<primitive: return Array.from(_self);>
 	}
