@@ -103,6 +103,28 @@
 		result
 	}
 
+	isSorted { :self |
+		self.isSortedBetweenAnd(1, self.size)
+	}
+
+	isSortedBetweenAnd { :self :startIndex :endIndex |
+		(endIndex < startIndex).if {
+			true
+		} {
+			| previousElement = self[startIndex]; |
+			withReturn {
+				(startIndex + 1 .. endIndex).do { :index |
+					| element = self[index]; |
+					(previousElement <= element).ifFalse {
+						false.return
+					};
+					previousElement := element
+				};
+				true
+			}
+		}
+	}
+
 	isValidIndex { :self :index |
 		<primitive:
 			return Number.isInteger(_index) && 0 < _index && _index <= _self.length;
@@ -1051,6 +1073,10 @@
 		self.copyFromTo(size - n + 1, size)
 	}
 
+	middle { :self |
+		self[self.size // 2 + 1]
+	}
+
 	pairsDo { :self :aProcedure:/2 |
 		(1 .. self.size // 2).do { :index |
 			aProcedure(self[2 * index - 1], self[2 * index])
@@ -1837,9 +1863,11 @@ IdentitySet : [Object, Collection] {
 Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
 	= { :self :anInterval |
-		self.start = anInterval.start & {
-			self.stop = anInterval.stop & {
-				self.step = anInterval.step
+		anInterval.isInterval & {
+			self.start = anInterval.start & {
+				self.stop = anInterval.stop & {
+					self.step = anInterval.step
+				}
 			}
 		}
 	}

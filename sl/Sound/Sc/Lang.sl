@@ -395,6 +395,12 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		answer
 	}
 
+	doAdjacentPairs { :self :aProcedure:/2 |
+		(2 .. self.size).do { :i |
+			aProcedure(self[i - 1], self[i])
+		}
+	}
+
 	drop { :self :n |
 		self.copyFromTo(n + 1, self.size)
 	}
@@ -412,6 +418,31 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	flop { :self |
 		self.extendToBeOfEqualSize.transpose
 	}
+
+	isSeries { :self |
+		self.isSeriesBy(nil)
+	}
+
+	isSeriesBy { :self :step |
+		(self.size <= 1).if {
+			true
+		} {
+			withReturn {
+				self.doAdjacentPairs { :a :b |
+					| diff = b - a; |
+					step.isNil.if {
+						step := diff
+					} {
+						(step ~= diff).ifTrue {
+							false.return
+						}
+					}
+				}
+			};
+			true
+		}
+	}
+
 
 	keep { :self :n |
 		self.copyFromTo(1, n)
@@ -573,6 +604,12 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 }
 
 +Procedure {
+
+	<> { :self:/1 :aProcedure:/1 |
+		{ :x |
+			self(aProcedure(x))
+		}
+	}
 
 	overlap { :self:/0 :sustainTime :transitionTime :overlap |
 		| period = (sustainTime + (transitionTime * 2)) / overlap; |

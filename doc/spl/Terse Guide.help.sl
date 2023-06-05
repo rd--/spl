@@ -1,153 +1,318 @@
 'Arithmetic expressions'
-6 + 3 = 9                                                   (* addition *)
-6 - 3 = 3                                                   (* subtraction *)
-6 * 3 = 18                                                  (* multiplication *)
-1 + 2 * 3 = 9                                               (* evaluation always left to right (1 + 2) * 3 *)
-(5 / 3).isInteger.not                                       (* division with fractional result *)
-5 / 2 = 2.5                                                 (* division with float result *)
-5 // 3 = 1                                                  (* integer divide *)
-5 % 3 = 2                                                   (* modulo *)
--5 = 5.negated                                              (* unary minus *)
-5.sign = 1                                                  (* numeric sign (1, -1 or 0) *)
-5.negated = -5                                              (* negate receiver *)
-1.25.truncated = 1                                          (* integer part of number *)
-1.25.fractionPart = 0.25                                    (* fractional part *)
-5.reciprocal = (1/5)                                        (* reciprocal function *)
-6 * 3.1 = 18.6                                              (* auto convert to float *)
-5.squared = 25                                              (* square function *)
-25.sqrt = 5.0                                               (* square root *)
-5.0 ** 2.0 = 25.0                                           (* power function *)
-5 ** 2 = 25                                                 (* power function with integer *)
-1.exp.closeTo(2.718281828459)                               (* exponential *)
--5.abs = 5                                                  (* absolute value *)
-3.99.rounded = 4                                            (* round ; c.f. rounded *)
-3.99.truncated = 3                                          (* truncate *)
-3.99.roundTo(1) = 4.0                                       (* round to specified decimal places ; c.f. roundTo: *)
-3.99.truncateTo(1) = 3.0                                    (* truncate to specified decimal places *)
-12345.truncateTo(600) = 12000                               (* truncate to integer *)
-3.99.floor = 3                                              (* round down *)
-3.99.ceiling = 4                                            (* round up *)
-5.factorial = 120                                           (* factorial *)
-28.gcd(12) = 4                                              (* greatest common denominator *)
-28.lcm(12) = 84                                             (* least common multiple *)
-1.0.exp.log = 1.0                                           (* natural logarithm *)
-100.log10 = 2.0                                             (* base 10 logarithm *)
-180.degreesToRadians = pi                                   (* convert degrees to radians *)
-pi.radiansToDegrees = 180                                   (* convert radians to degrees *)
-(pi / 2).sin = 1.0                                          (* sine *)
-0.0.cos = 1.0                                               (* cosine *)
-0.0.tan = 0.0                                               (* tangent *)
-10.max(20) = 20                                             (* get maximum of two numbers *)
-10.min(20) = 10                                             (* get minimum of two numbers *)
-pi.closeTo(3.141592653589793)                               (* pi = 3.141592653589793 *)
-1.exp.closeTo(2.718281828459)                               (* e = 2.718281828459 *)
-var n = 100.randomFloat; (n > 0) && { n < 100 }             (* random number in (0, self-1) *)
-4 + 5 * 6 = 54                                              (* operators are evaluated left to right *)
+6 + 3 = 9 (* addition *)
+6 - 3 = 3 (* subtraction *)
+6 * 3 = 18 (* multiplication *)
+1 + 2 * 3 = 9 (* evaluation always left to right, all operators have equal precedence *)
+1 + 2 * 3 = ((1 + 2) * 3) (* equals predicate is also left to right *)
+1 + (2 * 3) = 7 (* parentheses group sub-expressions *)
+(5 / 3).isInteger.not (* division with fractional result *)
+5 / 2 = 2.5 (* division with float result *)
+5 // 3 = 1 (* integer divide *)
+5 % 3 = 2 (* modulo *)
+-5 = 5.negated (* unary minus *)
+5.sign = 1 (* numeric sign (1, -1 or 0) *)
+5.negated = -5 (* negate receiver *)
+1.25.truncated = 1 (* integer part of number *)
+1.25.fractionPart = 0.25 (* fractional part *)
+5.reciprocal = (1/5) (* reciprocal function *)
+6 * 3.1 = 18.6 (* auto convert to float *)
+5.squared = 25 (* square function *)
+25.sqrt = 5.0 (* square root *)
+5.0 ** 2.0 = 25.0 (* power function *)
+5 ** 2 = 25 (* power function with integer *)
+1.exp.closeTo(2.718281828459) (* exponential *)
+-5.abs = 5 (* absolute value *)
+3.99.rounded = 4 (* round ; c.f. rounded *)
+3.99.truncated = 3 (* truncate *)
+3.99.roundTo(1) = 4.0 (* round to specified decimal places ; c.f. roundTo: *)
+3.99.truncateTo(1) = 3.0 (* truncate to specified decimal places *)
+12345.truncateTo(600) = 12000 (* truncate to integer *)
+3.99.floor = 3 (* round down *)
+3.99.ceiling = 4 (* round up *)
+5.factorial = 120 (* factorial *)
+28.gcd(12) = 4 (* greatest common denominator *)
+28.lcm(12) = 84 (* least common multiple *)
+1.0.exp.log = 1.0 (* natural logarithm *)
+100.log10 = 2.0 (* base 10 logarithm *)
+180.degreesToRadians = pi (* convert degrees to radians *)
+pi.radiansToDegrees = 180 (* convert radians to degrees *)
+(pi / 2).sin = 1.0 (* sine *)
+0.0.cos = 1.0 (* cosine *)
+0.0.tan = 0.0 (* tangent *)
+10.max(20) = 20 (* get maximum of two numbers *)
+10.min(20) = 10 (* get minimum of two numbers *)
+pi.closeTo(3.141592653589793) (* pi = 3.141592653589793 *)
+1.exp.closeTo(2.718281828459) (* e = 2.718281828459 *)
+var n = 100.randomFloat; (n > 0) && { n < 100 } (* random number in (0, self-1) *)
+4 + 5 * 6 = 54 (* operators are evaluated left to right *)
 
 'Bitwise Manipulation'
-2.bitAnd(3) = 2                                             (* and bits *)
-2.bitOr(3) = 3                                              (* or bits *)
-2.bitXor(3) = 1                                             (* xor bits *)
-3.bitNot = -4                                               (* invert bits *)
-2.bitShiftLeft(3) = 16                                      (* left shift *)
-16.bitShiftRight(3) = 2                                     (* right shift *)
-(1 .. 4).select { :bit | 6.bitTest(bit) } = [2, 3]          (* bit at position (0|1) [!Squeak] *)
-2 << 3 = 16                                                 (* left shift operator *)
-16 >> 3 = 2                                                 (* right shift operator *)
+2.bitAnd(3) = 2 (* and bits *)
+2.bitOr(3) = 3 (* or bits *)
+2.bitXor(3) = 1 (* xor bits *)
+3.bitNot = -4 (* invert bits *)
+2.bitShiftLeft(3) = 16 (* left shift *)
+16.bitShiftRight(3) = 2 (* right shift *)
+(1 .. 4).select { :bit | 6.bitTest(bit) } = [2, 3] (* bit at position (0|1) [!Squeak] *)
+2 << 3 = 16 (* left shift operator *)
+16 >> 3 = 2 (* right shift operator *)
 
 'Booleans'
-true = true                                                 (* constant *)
-false = false                                               (* constant *)
-1 = 1 = true                                                (* equality predicate (operator) *)
-1 ~= 2 = true                                               (* equality predicate (operator) *)
-true.and { false } = false                                  (* logical and *)
-true.or { false } = true                                    (* logical or *)
-true & { false } = false                                    (* logical and (operator) *)
-true | { false } = true                                     (* logical or (operator) *)
-true.ifTrue { 'T' } = 'T'                                   (* if then, c.f. conditional statements *)
-false.if { 'T' } { 'F' } = 'F'                              (* if then else (do) *)
-true.if { 'T' } { 'F' } = 'T'                               (* if then else (value) *)
-true.not.not = true                                         (* not *)
-1.isNumber = true                                           (* test if object is a number *)
-1.isInteger = true                                          (* test if object is an integer *)
-1.respondsTo(sqrt:/1) = true                                (* test if object responds to message *)
-nil.isNil = true                                            (* test if object is nil *)
-0.positive = (0 >= 0)                                       (* test if number is non-negative *)
-0.strictlyPositive = (0 > 0)                                (* test if number is greater than zero *)
--1.negative = true                                          (* test if number is negative *)
-2.even = true                                               (* test if number is even *)
-1.odd = true                                                (* test if number is odd *)
-'A'.isUppercase = true                                      (* test if upper case character *)
-'a'.isLowercase = true                                      (* test if lower case character *)
+true = true (* constant *)
+false = false (* constant *)
+1 = 1 = true (* equality predicate (operator) *)
+1 ~= 2 = true (* equality predicate (operator) *)
+true.and { false } = false (* logical and *)
+true.or { false } = true (* logical or *)
+true & { false } = false (* logical and (operator) *)
+true | { false } = true (* logical or (operator) *)
+true.ifTrue { 'T' } = 'T' (* if then, c.f. conditional statements *)
+false.if { 'T' } { 'F' } = 'F' (* if then else (do) *)
+true.if { 'T' } { 'F' } = 'T' (* if then else (value) *)
+true.not.not = true (* not *)
+1.isNumber = true (* test if object is a number *)
+1.isInteger = true (* test if object is an integer *)
+1.respondsTo(sqrt:/1) = true (* test if object responds to message *)
+nil.isNil = true (* test if object is nil *)
+0.positive = (0 >= 0) (* test if number is non-negative *)
+0.strictlyPositive = (0 > 0) (* test if number is greater than zero *)
+-1.negative = true (* test if number is negative *)
+2.even = true (* test if number is even *)
+1.odd = true (* test if number is odd *)
+'A'.isUppercase = true (* test if upper case character *)
+'a'.isLowercase = true (* test if lower case character *)
 
 'Collection'
-[].isEmpty = true                                           (* is collection empty *)
-[1, 2, 3] = [1, 2, 3]                                       (* are collections equal *)
-[9, 4, 5, 7, 8, 6].size = 6                                 (* size of collection *)
-[9, 4, 5, 7, 8, 6].max = 9                                  (* maximum item in collection *)
-[9, 4, 5, 7, 8, 6].min = 4                                  (* minimum item in collection *)
-[9, 4, 5, 7, 8, 6].sum = 39                                 (* sum of collection *)
-[9, 4, 5, 7, 8, 6].mean = 6.5                               (* sum of collection divided by size *)
-[9, 4, 5, 7, 8, 6].product = 60480                          (* product of collection *)
-[9, 4, 5, 7, 8, 6].injectInto(0) { :z :e | e + z } = 39     (* sum of collection *)
-[9, 4, 5, 7, 8, 6].injectInto(1) { :z :e | e * z } = 60480  (* product of collection *)
-[9, 4, 5, 7, 8, 6].includes(7) = true                       (* is element in collection *)
-[9, 4, 5, 7, 8, 6].count { :item | item.even } = 3          (* count elements that satisfy predicate *)
-[9, 4, 5, 7, 8, 6].anySatisfy { :item | item.even } = true  (* do any elements satisfy predicate *)
+[].isEmpty = true (* is collection empty *)
+[1, 2, 3] = [1, 2, 3] (* are collections equal *)
+[9, 4, 5, 7, 8, 6].size = 6 (* size of collection *)
+[9, 4, 5, 7, 8, 6].max = 9 (* maximum item in collection *)
+[9, 4, 5, 7, 8, 6].min = 4 (* minimum item in collection *)
+[9, 4, 5, 7, 8, 6].sum = 39 (* sum of collection *)
+[9, 4, 5, 7, 8, 6].mean = 6.5 (* sum of collection divided by size *)
+[9, 4, 5, 7, 8, 6].product = 60480 (* product of collection *)
+[9, 4, 5, 7, 8, 6].injectInto(0) { :z :e | e + z } = 39 (* sum of collection *)
+[9, 4, 5, 7, 8, 6].injectInto(1) { :z :e | e * z } = 60480 (* product of collection *)
+[9, 4, 5, 7, 8, 6].includes(7) = true (* is element in collection *)
+[9, 4, 5, 7, 8, 6].count { :item | item.even } = 3 (* count elements that satisfy predicate *)
+[9, 4, 5, 7, 8, 6].anySatisfy { :item | item.even } = true (* do any elements satisfy predicate *)
 [9, 4, 5, 7, 8, 6].allSatisfy { :item | item.even } = false (* do all elements satisfy predicate *)
-[9, 4, 5, 7, 8, 6].occurrencesOf(7) = 1                     (* count elements that are equal to object *)
-[1, 2, 3, 4, 5].atRandom <= 5                               (* random element of collection *)
+[9, 4, 5, 7, 8, 6].occurrencesOf(7) = 1 (* count elements that are equal to object *)
+[1, 2, 3, 4, 5].atRandom <= 5 (* random element of collection *)
 
 'Complex'
-Complex(0, 0).isComplex			                    (* complex numbers *)
-Complex(-1, 0).real = -1                                    (* real part of complex number *)
-Complex(-1, 0).imaginary = 0                                (* imaginary part of complex number *)
-Complex(-1, 0) + 1 = Complex(0, 0)                          (* complex addition with scalar *)
+Complex(0, 0).isComplex			 (* complex numbers *)
+Complex(-1, 0).real = -1 (* real part of complex number *)
+Complex(-1, 0).imaginary = 0 (* imaginary part of complex number *)
+Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 
 'Conditional Statements'
-true.ifTrue { 'T' } = 'T'                                   (* if then *)
-true.ifFalse { 'F' } = nil				    (* if not then *)
-true.if { 'T' } { 'F' } = 'T'     			    (* if then else *)
+true.ifTrue { 'T' } = 'T' (* if then *)
+true.ifFalse { 'F' } = nil				 (* if not then *)
+true.if { 'T' } { 'F' } = 'T' 			 (* if then else *)
 
 'Constants'
-true                                                        (* true constant *)
-false.not                                                   (* false constant *)
-nil.isNil                                                   (* nil object constant *)
-inf.isNumber                                           	    (* Infinity constant *)
-pi.isNumber                                            	    (* pi constant *)
-1.isNumber                                                  (* integer constants *)
-3.14.isNumber                                               (* float constants *)
--1.isNumber                                                 (* negative integer constants *)
--3.14.isNumber                                              (* negative float constants *)
-'Hello'.isString                                            (* string constant *)
-[3, 2, 1].size = 3                                          (* array constants *)
-['one', 2, 3.141].size = 3                                  (* mixing of types allowed *)
+true (* true constant *)
+false.not (* false constant *)
+nil.isNil (* nil object constant *)
+inf.isNumber 	 (* Infinity constant *)
+pi.isNumber 	 (* pi constant *)
+1.isNumber (* integer constants *)
+3.14.isNumber (* float constants *)
+-1.isNumber (* negative integer constants *)
+-3.14.isNumber (* negative float constants *)
+'Hello'.isString (* string constant *)
+[3, 2, 1].size = 3 (* array constants *)
+['one', 2, 3.141].size = 3 (* mixing of types allowed *)
 
 'Floating point'
-1.0 * 3.0 > 3.0 = false                                     (* integral floating point math *)
-0.1 * 3.0 > 0.3 = true                                      (* general floating point math *)
-1.0 * 3.0 = 3.0 = true                                      (* integral floating point math *)
-0.1 * 3.0 = 0.3 = false                                     (* general floating point math *)
-1.0 + 1.0 + 1.0 = 3.0 = true                                (* integral floating point math *)
-0.1 + 0.1 + 0.1 = 0.3 = false                               (* general floating point math *)
+1.0 * 3.0 > 3.0 = false (* integral floating point math *)
+0.1 * 3.0 > 0.3 = true (* general floating point math *)
+1.0 * 3.0 = 3.0 = true (* integral floating point math *)
+0.1 * 3.0 = 0.3 = false (* general floating point math *)
+1.0 + 1.0 + 1.0 = 3.0 = true (* integral floating point math *)
+0.1 + 0.1 + 0.1 = 0.3 = false (* general floating point math *)
+
+'Fraction'
+Fraction(2, 3).isFraction (* fractional type *)
+2:3 = Fraction(2, 3) (* literal syntax *)
+Fraction(2, 3).reduced = 2:3 (* reduced fraction *)
+Fraction(4, 6) ~= 2:3 (* non-reduced fraction *)
+2:3 = 4:6 (* literals are reduced by construction *)
+2 / 3:4 = 8:3 (* division *)
+2:3 + 2:3 = 4:3 (* addition *)
+2:3 + 1:2 = 7:6 (* reduction to common denominator *)
+2:3 + 4:3 = 2 (* addition to integer *)
+3:2.ceiling = 2 (* ceiling *)
+-3:2.ceiling = -1 (* ceiling *)
+4:3.denominator = 3 (* denominator *)
+4:3.gcd(7:5) = 1:15 (* greatest common denominator *)
+4:3.lcm(7:5) = 28 (* least common multiple *)
+4:3.negated = -4:3 (* negation *)
+4:3.negative.not (* is negative? *)
+4:3.numerator = 4 (* numerator *)
+2:3.raisedToInteger(5) = 32:243 (* fractions also can be exponentiated *)
+9:5.reciprocal = 5:9 (* reciprocal *)
+7:5.squared = 49:25 (* square of *)
+3:2.truncated = 1 (* truncation *)
+
+'Procedures (Functions, Blocks)'
+var x = { }; x.isProcedure (* blocks are objects and may be assigned to a variable *)
+{ nil; 1 }.value = 1 (* value is last expression evaluated *)
+{ { 1 }.value }.value = 1 (* blocks may be nested *)
+{ :x | var y = x; y }.value(1) = 1 (* specification { arguments localvars expressions } *)
+{ 'x' }.value = 'x' (* simple block usage *)
+{ :p1 :p2| p1 ++ ' & ' ++ p2 }.value('x', 'y') = "x & y" (* block with argument passing *)
+{ :x | x + 1 }.numArgs = 1 (* the number of arguments can be retrieved *)
+{ :x | x := nil }.value(42).isNil (* arguments are mutable *)
 
 'Interval'
-Interval(0, 12, 3).asArray = [0, 3, 6, 9, 12]               (* elements of interval as array *)
-Interval(0, 12, 3).size = 5                                 (* number of elements in interval *)
-2.toBy(14, 4).collect { :x | x * x } = [4, 36, 100, 196]    (* toBy method at Integer *)
-(2, 6 .. 14).collect { :x | x * x } = [4, 36, 100, 196]     (* toBy syntax *)
-Interval(-1, 1, 0.000001).size = 2000001                    (* 2000001 places between -1 and 1 *)
-Interval(-1, 1, 0.000001).at(1000001) = 0                   (* access value at 1000001st place *)
+Interval(0, 12, 3).asArray = [0, 3, 6, 9, 12] (* elements of interval as array *)
+Interval(0, 12, 3).size = 5 (* number of elements in interval *)
+2.toBy(14, 4).collect { :x | x * x } = [4, 36, 100, 196] (* toBy method at Integer *)
+(2, 6 .. 14).collect { :x | x * x } = [4, 36, 100, 196] (* toBy syntax *)
+Interval(-1, 1, 0.000001).size = 2000001 (* 2000001 places between -1 and 1 *)
+Interval(-1, 1, 0.000001).at(1000001) = 0 (* access value at 1000001st place *)
+Interval(5, 10, 1).isInterval (* create interval object *)
+Interval(5, 10, 1) = 5.to(10) (* interval from 5 to 10 *)
+Interval(5, 10, 2).last = 9 (* create interval object with specified increment *)
+5.toBy(10, 2).last = 9 (* interval from 5 to 10 by 2 *)
+(1 .. 5).isEmpty.not (* test if empty *)
+(1 .. 5).size = 5 (* number of elements *)
+(1 .. 9).includes(9) (* test if element is in collection *)
+(1 .. 9).select { :item | item > 7 } = [8, 9] (* return elements that pass test *)
+(1 .. 9).reject { :item | item < 7 } = [7, 8, 9] (* return elements that fail test *)
+(1 .. 9).collect { :item | item + item }.last = 18 (* transform each element *)
+(1 .. 9).detect { :item | item > 3 } = 4 (* find position of first element that passes test *)
+(1 .. 9).injectInto(0) { :sum :item | sum + item } = 45(* sum elements *)
+(1 .. 9).asArray = [1 .. 9] (* convert to array *)
+(1 .. 9) ~= [1 .. 9] (* intervals are not equal to arrays *)
+10.toBy(90, 10).includes(30)
+10.toBy(90, 10) = (10, 20 .. 90)
+(0, 1:10 .. 1).size = 11
+(0, 1:10 .. 1).last = 1
+(9 .. 1).asArray = [9 .. 1]
+(5 .. 1).asArray = [5 .. 1]
+(5, 3 .. 1).asArray = [5, 3 .. 1]
+5.downTo(1).asArray = [5, 4, 3, 2, 1]
+5.toBy(1, -2).asArray = [5, 3, 1]
 
 'Iteration'
-var n = 0; 4.timesRepeat { n := n + 1 }; n = 4              (* times repeat loop (int) *)
-var n = 0; 4.do { :x | n := n + x }; n = 10                 (* times repeat loop (int) *)
-var n = 0; 4.do { :x | n := n + x }; n = 10                 (* for loop (int) *)
-var s = ''; 4.do { :x | s := s ++ x }; s = '1234'           (* for loop (int) *)
-var s = ''; 1.to(5).do { :x | s := s ++ x }; s = '12345'    (* for loop (interval) *)
+var n = 0; 4.timesRepeat { n := n + 1 }; n = 4 (* times repeat loop (int) *)
+var n = 0; 4.do { :x | n := n + x }; n = 10 (* times repeat loop (int) *)
+var n = 0; 4.do { :x | n := n + x }; n = 10 (* for loop (int) *)
+var s = ''; 4.do { :x | s := s ++ x }; s = '1234' (* for loop (int) *)
+var s = ''; 1.to(5).do { :x | s := s ++ x }; s = '12345' (* for loop (interval) *)
 var s = ''; 1.to(3).reverseDo { :x | s := s ++ x }; s = '321' (* for loop (interval, reversed) *)
-var s = ''; [1, 3, 5].do { :x | s := s ++ x }; s = '135'    (* for loop (collection) *)
-var n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3        (* while loop *)
+var s = ''; [1, 3, 5].do { :x | s := s ++ x }; s = '135' (* for loop (collection) *)
+var n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 (* while loop *)
+
+'Magnitude'
+1 < 3 = true (* less than *)
+3 <= 3 = true (* less than or equal to *)
+3 > 1 = true (* greater than *)
+1 >= 1 = true (* greater than or equal to *)
+2 = 2 = true (* equal to *)
+
+'Math'
+-3.abs = 3 (* absolute value *)
+1.5.ceiling = 2 (* ceiling (round up) *)
+0.cos = 1 (* cosine *)
+180.degreesToRadians = pi (* degreesToRadians *)
+2.even = true (* eveness predicate *)
+1.exp.closeTo(2.718281828459045) (* base e exponent function *)
+1.5.floor = 1 (* floor (round down) *)
+1.exp.log = 1 (* base e (natural) logarithm *)
+1.2.isNumber = true (* is x a number *)
+0.isInteger = true (* is x an integer *)
+3.positive = true (* is x > 0 *)
+1.max(2) = 2 (* maximum *)
+1.min(2) = 1 (* minimum *)
+3.negated = -3 (* negation *)
+3.odd = true (* oddness predicate *)
+pi.closeTo(3.1415926535898) (* constant pi (Float pi) *)
+inf.isNumber (* constant positive infinity (is a number) *)
+2 ** 3 = 8 (* i to the power of j *)
+5.reciprocal = 0.2 (* 1 / x *)
+(pi / 2).sin = 1 (* sine *)
+9.sqrt = 3 (* square root *)
+3.squared = 9 (* x * x *)
+pi.radiansToDegrees = 180 (* radiansToDegrees *)
+
+'Nil'
+nil.typeOf = 'UndefinedObject' (* nil *)
+nil ? 'x' = 'x' (* right hand side if nil *)
+'x' ? 'y' = 'x' (* left hand side unless nil *)
+nil.isNil = true (* is nil *)
+
+'Pseudo variables'
+false.isBoolean (* constant *)
+false.isBoolean (* constant *)
+nil.isNil (* constant *)
+pi.isNumber (* constant *)
+inf.isNumber (* constant (infinity) *)
+
+'Random values'
+9.randomInteger.isInteger (* random integers (1 to self) *)
+9.randomFloat.isNumber (* random floating point number (0 to self) *)
+[1, 2, 3, 4, 5].atRandom.isInteger (* random element of collection *)
+3.randomInteger(9).isInteger (* random integer in range *)
+3.randomFloat(9).isNumber (* random float in range *)
+
+'SequenceableCollection'
+[1, 3, 2] ++ [4, 5] = [1, 3, 2, 4, 5] (* append sequences *)
+[1, 3, 2, 4, 5].reversed = [5, 4, 2, 3, 1] (* reverse sequence *)
+[1, 3, 2, 4, 5].sorted = [1, 2, 3, 4, 5] (* sort using default comparison *)
+[1, 3, 2, 4, 5].sorted { :i :j | i > j }.first = 5 (* sort using provided comparison *)
+[3, 3, 3, 2, 2, 1].sorted.size = 6 (* sort retains duplicates *)
+var c = [3, 2, 1]; c.sortInPlace ; c = [1, 2, 3] (* sort is in place (mutating) *)
+[1 .. 5].isSorted (* is sequence sorted *)
+[1, 5, 3].isSorted.not (* is sequence sorted *)
+[1, 3, 5, 7, 9].copyFromTo(3, 5) = [5, 7, 9] (* copy part of collection (one-indexed) *)
+[1, 3, 5, 7, 9].indexOfSubCollection([5, 7, 9]) = 3 (* locate index of subsequence *)
+[1, 3, 5, 7, 9].indexOf(5) = 3 (* index of element (compared using =) *)
+[1, 3, 5, 7, 9].first = 1 (* first element of *)
+var a = (1 .. 9); a.first = a[1] (* one-indexed *)
+[1, 3, 5, 7, 9].last = 9 (* last element of *)
+var a = (1 .. 9); a.last = a[9] (* one-indexed *)
+[1, 3, 5, 7, 9].middle = 5 (* middle element of *)
+
+'String'
+'quoted string'.isString (* quoted string *)
+'x' ++ 'y' = 'xy' (* catenation *)
+'string'.ascii = [115, 116, 114, 105, 110, 103].ByteArray (* String -> [Int] *)
+'3.4'.asNumber = 3.4 (* parse float *)
+'3'.asInteger = 3 (* parse integer *)
+'string'.at(4) = 'i' (* one-indexing *)
+'string'[4] = 'i' (* one-indexing (bracket notation) *)
+''.isEmpty = true (* empty string predicate *)
+'string'.isEmpty = false (* is empty string *)
+'string'.size = 6 (* length *)
+['m', 'ss', 'ss', 'pp', ''].join = 'msssspp' (* join *)
+['m', 'ss', 'ss', 'pp', ''].joinSeparatedBy('i') = 'mississippi' (* join using string *)
+'mississippi'.splitBy('i') = ['m', 'ss', 'ss', 'pp', ''] (* split at string *)
+'str ing'.splitBy(' ') = ['str', 'ing'] (* split at char *)
+'a b=2'.splitBy(' ').collect { :e | e.splitBy('=') }[2][2] = '2'(* split as parser *)
+'a' < 'b' = true (* string comparison *)
+'text'.copyFromTo(2, 3) = 'ex' (* substring, one indexed *)
+'text'.copyFromTo(3 ,3) = 'x' (* substring (single character) *)
+{ 'string'.add('!') }.ifError { :err | 'oh oh...' } = 'oh oh...' (* strings are immutable *)
+
+'Temporaries'
+var x; x = nil (* uninitialised variables are nil *)
+var x = 1, y = 2; [x, y] = [1, 2] (* var can introduce multiple temporaries *)
+var x; var y = 0, z; [x, y, z] = [nil, 0, nil] (* there can be multiple var sequences *)
+
+'Collection access and mutation syntax'
+'text'[3].toUppercase = 'X' (* c[k] is syntax for c.at(k) *)
+var x = [1 .. 5]; x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, v) *)
+
+'Dictionary syntax'
+(x: 1, y: 2) = ['x' -> 1, 'y' -> 2].IdentityDictionary (* (x: 1, ...) is dictionary syntax *)
+() = [].IdentityDictionary (* empty dictionary *)
+
+'Setter Syntax'
+var a = 'one' -> 1; a.key := 9; a.key = 9 (* p.x := y is syntax for p.x(y) *)
 
 'Kernel-Logic/Boolean'
 true.typeOf = 'Boolean'
@@ -480,6 +645,8 @@ Interval(1, 10, 3).asArray = [1, 4, 7, 10]
 1.to(6).first = 1
 (1 .. 6).second = 2
 to(1, 6).last = 6
+var i = (1 .. 9); i.first = i[1] (* one-indexed *)
+var i = (1 .. 9); i.last = i[9] (* one-indexed *)
 (1 .. 6).sum = 21
 Interval(-1, 1, 1).asArray = [-1, 0, 1]
 1.to(99).asString = '(1 .. 99)'
@@ -582,7 +749,7 @@ var d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each 
 var d = (x: 1, parent: (y: 2, parent: (z: 3))); d.atPutDelegateTo('z', -3, 'parent'); d.atDelegateTo('z', 'parent') = -3
 var d = (c: 3, parent: (b: 2, parent: (a: 1))); [d:.a, d:.b, d:.c] = [1, 2, 3]
 var d = (x: 1, parent: (y: 2, parent: (z: 3))); d:.z := -3; [d:.x, d:.y, d:.z] = [1, 2, -3]
-var d = (length: { :self | (self::x.squared  + self::y.squared).sqrt }); var p = (x: 3.141, y: 23, parent: d); p:.length = 23.213484895637706
+var d = (length: { :self | (self::x.squared + self::y.squared).sqrt }); var p = (x: 3.141, y: 23, parent: d); p:.length = 23.213484895637706
 var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7) = 21
 (x: 1) = ('x': 1)
 ('font-size': '11pt', 'font-style': 'italic').keys = ['font-size', 'font-style']
@@ -629,8 +796,8 @@ RegExp('x.x', 'g').printString.size = 18
 'turramurra'.occurrencesOf('urra') = 2
 'turramurra'.indicesOf('urra') = [2, 7]
 'sum:/1'.splitBy(':/') = ['sum', '1']
-'ascii'.toUpperCase = 'ASCII'
-'ASCII'.toLowerCase = 'ascii'
+'ascii'.toUppercase = 'ASCII'
+'ASCII'.toLowercase = 'ascii'
 `x` = 'x'
 `"x"` = '"x"'
 `x` = 'x'.parseBacktickQuotedString
@@ -663,8 +830,8 @@ Error('message').isError = true
 Error('message').name = 'Error'
 Error('message').message = 'message'
 Error('message').log = nil
-{ Error('message').signal }.ifError { :err | true }
-{ error('message') }.ifError { :err | true }
+{ Error('Error message').signal }.ifError { :err | true }
+{ error('error message') }.ifError { :err | true }
 
 'Kernel-Numbers/@Binary'
 16 << 3 = 128
@@ -724,11 +891,11 @@ Fraction(4, 6).reduced.denominator = 3
 -3:2.truncated = -1
 2:3 - 5:3 = -1
 3:2 / 3:4 = 2
-3:2 / -3:4  = -2
+3:2 / -3:4 = -2
 -3:2 / -3:4 = 2
 -3:2 / 3:4 = -2
 3:2 * 4:3 = 2
-3:2 * -4:3  = -2
+3:2 * -4:3 = -2
 -3:2 * -4:3 = 2
 -3:2 * 4:3 = -2
 5:3 + 1:3 = 2
@@ -798,8 +965,8 @@ var r; 0.do { :each | r := each }; r = nil
 (1 .. 999).select(isPrime:/1).size = 168
 (1 .. 9999).select(isPrime:/1).size = 1229
 2588.primeFactors = [2, 2, 647]
-(2 .. 30).select { :each | each.primeFactors.max <= 5 } = [2,  3,  4,  5,  6,  8,  9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30]
-(2 .. 15).select { :each | each.primeLimit <= 5 } = [2,  3,  4,  5,  6,  8,  9, 10, 12, 15]
+(2 .. 30).select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30]
+(2 .. 15).select { :each | each.primeLimit <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
 60.divisors = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60]
 1729.divisors = [1, 7, 13, 19, 91, 133, 247, 1729]
 e() = 1.exp
@@ -831,10 +998,10 @@ pi.isFinite = true
 (5 = 5.i) = false
 1 ~= 1.i
 (6 - 6.i).abs = 72.sqrt
-((1 + 2.i) + 1) =  (2 + 2.i)
-(1 + (1 + 2.i)) =  (2 + 2.i)
-((1 + 2.i) + 1) =  (2 + 2.i)
-(1 + (1 + 2.i)) =  (2 + 2.i)
+((1 + 2.i) + 1) = (2 + 2.i)
+(1 + (1 + 2.i)) = (2 + 2.i)
+((1 + 2.i) + 1) = (2 + 2.i)
+(1 + (1 + 2.i)) = (2 + 2.i)
 ((1 + 2.i) + (2 / 3)).closeTo((5 / 3) + 2.i)
 ((2 / 3) + (1 + 2.i)).closeTo((5 / 3) + 2.i)
 (0 + 5.i).arg = (pi / 2)

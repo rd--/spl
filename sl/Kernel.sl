@@ -263,6 +263,10 @@
 		self.quotient(anObject)
 	}
 
+	% { :self :aNumber  |
+		self - (self // aNumber * aNumber)
+	}
+
 	abs { :self |
 		(self < 0).if {
 			self.negated
@@ -606,6 +610,10 @@ Boolean : [Object] {
 
 	asInteger { :self |
 		self.if { 1 } { 0 }
+	}
+
+	asNumber { :self |
+		self.asInteger
 	}
 
 	if { :self :whenTrue :whenFalse |
@@ -1065,6 +1073,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		)
 	}
 
+	lcm { :self :n |
+		self // self.gcd(n) * n
+	}
+
 	negated { :self |
 		Fraction(self.numerator.negated, self.denominator)
 	}
@@ -1390,6 +1402,10 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 		self.truncated
 	}
 
+	asNumber { :self |
+		self
+	}
+
 	asin { :self |
 		<primitive: return Math.asin(_self)>
 	}
@@ -1641,6 +1657,14 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 }
 
 +String {
+
+	asInteger { :self |
+		self.parseInteger(10)
+	}
+
+	asNumber { :self |
+		self.parseNumber
+	}
 
 	parseInteger { :self :radix |
 		<primitive: return Number.parseInt(_self, _radix);>
@@ -2132,29 +2156,43 @@ String : [Object] {
 			| totalTestCount = 0, totalPassCount = 0, areas = text.paragraphs; |
 			('Terse Guide Summary: Areas = ' ++ areas.size.printString).postLine;
 			areas.do { :area |
-				| entries = area.lines.reject(isEmpty:/1), testCount = entries.size - 1, passCount = 0; |
+				|
+					entries = area.lines.reject(isEmpty:/1),
+					testCount = entries.size - 1,
+					failCount = 0,
+					passCount = 0;
+				|
 				entries[1].postLine;
 				(2 .. testCount + 1).collect { :index |
 					| test = entries[index], answer = test.evaluate; |
 					answer.if {
 						passCount := passCount + 1
 					} {
+						failCount := failCount + 1;
 						('	Error: ' ++ test).postLine
 					}
 				};
 				totalTestCount := totalTestCount + testCount;
 				totalPassCount := totalPassCount + passCount;
-				('	=> ' ++ passCount.printString ++ ' / ' ++ testCount.printString).postLine
+				[
+					'	=> ',
+					passCount.printString, ' / ', testCount.printString,
+					(failCount > 0).if {
+						' (' ++ failCount.printString ++ ' Failures)'
+					} {
+						''
+					}
+				].join.postLine
 			};
 			('Total => ' ++ totalPassCount.printString ++ ' / ' ++ totalTestCount.printString).postLine
 		}
 	}
 
-	toLowerCase { :self |
+	toLowercase { :self |
 		  <primitive: return _self.toLowerCase();>
 	}
 
-	toUpperCase { :self |
+	toUppercase { :self |
 		  <primitive: return _self.toUpperCase();>
 	}
 
