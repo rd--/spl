@@ -7,8 +7,8 @@ The _system_ dictionary holds a _typeDictionary_.
 ```
 system.typeDictionary.isIdentityDictionary = true
 system.typeDictionary.includesKey('Array') = true
-system.type('Array').isType = true
-system.type('Array').name = 'Array'
-system.type('Array').methodDictionary.includesKey('copy:/1') = true
-system.type('Array').methodDictionary::copy:/1.isMethod = true
+system.typeLookup('Array').isType = true
+system.typeLookup('Array').name = 'Array'
+system.typeLookup('Array').methodDictionary.includesKey('copy:/1') = true
+system.typeLookup('Array').methodDictionary::copy:/1.isMethod = true
 ```

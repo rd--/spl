@@ -340,6 +340,31 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 }
 
++@Integral {
+
+	asBinaryDigits { :self :numDigits |
+		| list = OrderedCollection(numDigits); |
+		(0 .. numDigits - 1).do { :i |
+			list.addFirst(self.bitShiftRight(i).bitAnd(1))
+		};
+		list.Array
+	}
+
+	asDigits { :self :base :numDigits |
+		| list = OrderedCollection(numDigits), num = self; |
+		numDigits.timesRepeat {
+			list.addFirst(num % base);
+			num := num // base
+		};
+		list.Array
+	}
+
+	asDigits { :self :base |
+		self.asDigits(base, (self.log / base.log + 0.0000000001).asInteger + 1)
+	}
+
+}
+
 +@Object {
 
 	! { :self :anInteger |
@@ -634,3 +659,16 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 }
+
++String {
+
+	+ { :self :aString |
+		self ++ ' ' ++ aString
+	}
+
+	+/+ { :self :aString |
+		self ++ '/' ++ aString
+	}
+
+}
+

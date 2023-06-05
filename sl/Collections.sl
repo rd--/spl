@@ -860,6 +860,23 @@
 		self.copyFromTo(n + 1, self.size)
 	}
 
+	asDigitsAtInDo { :self :anInteger :aCollection :aBlock:/1 |
+		self.do { :each |
+			aCollection[anInteger] := each;
+			(anInteger = aCollection.size).if {
+				aBlock(aCollection)
+			} {
+				self.asDigitsAtInDo(anInteger + 1, aCollection, aBlock:/1)
+			}
+		}
+	}
+
+	asDigitsToPowerDo { :self :anInteger :aBlock:/1 |
+		| aCollection = Array(anInteger); |
+		self.asDigitsAtInDo(1, aCollection, aBlock:/1)
+	}
+
+
 	atWrap { :self :index |
 		self.at(index - 1 % self.size + 1)
 	}
@@ -1077,9 +1094,35 @@
 		self[self.size // 2 + 1]
 	}
 
+	pairsCollect { :self :aBlock:/2 |
+		(1 .. self.size // 2).collect { :index |
+			aBlock(self[2 * index - 1], self[2 * index])
+		}
+	}
+
 	pairsDo { :self :aProcedure:/2 |
 		(1 .. self.size // 2).do { :index |
 			aProcedure(self[2 * index - 1], self[2 * index])
+		}
+	}
+
+	permutationsDo { :self :aBlock:/1 |
+		self.copy.permutationsStartingAtDo(1, aBlock:/1)
+	}
+
+	permutationsStartingAtDo { :self :anInteger :aBlock:/1 |
+		(anInteger > self.size).if {
+			self
+		} {
+			(anInteger = self.size).if {
+				aBlock(self)
+			} {
+				(anInteger .. self.size).do { :i |
+					self.swapWith(anInteger, i);
+					self.permutationsStartingAtDo(anInteger + 1, aBlock:/1);
+					self.swapWith(anInteger, i)
+				}
+			}
 		}
 	}
 

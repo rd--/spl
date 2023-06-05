@@ -1855,6 +1855,10 @@ Promise : [Object] {
 
 RegExp : [Object] {
 
+	asRegExp { :self |
+		self
+	}
+
 	exec { :self :aString |
 		<primitive: return _self.exec(_aString);>
 	}
@@ -1892,7 +1896,7 @@ RegExp : [Object] {
 	}
 
 	matchesRegExp { :self :aRegExp |
-		aRegExp.test(self)
+		aRegExp.asRegExp.test(self)
 	}
 
 	splitRegExp { :self :aRegExp |

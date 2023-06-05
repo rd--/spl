@@ -101,22 +101,22 @@ nil.isNil = true (* test if object is nil *)
 [1, 2, 3, 4, 5].atRandom <= 5 (* random element of collection *)
 
 'Complex'
-Complex(0, 0).isComplex			 (* complex numbers *)
+Complex(0, 0).isComplex (* complex numbers *)
 Complex(-1, 0).real = -1 (* real part of complex number *)
 Complex(-1, 0).imaginary = 0 (* imaginary part of complex number *)
 Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 
 'Conditional Statements'
 true.ifTrue { 'T' } = 'T' (* if then *)
-true.ifFalse { 'F' } = nil				 (* if not then *)
-true.if { 'T' } { 'F' } = 'T' 			 (* if then else *)
+true.ifFalse { 'F' } = nil (* if not then *)
+true.if { 'T' } { 'F' } = 'T' (* if then else *)
 
 'Constants'
 true (* true constant *)
 false.not (* false constant *)
 nil.isNil (* nil object constant *)
-inf.isNumber 	 (* Infinity constant *)
-pi.isNumber 	 (* pi constant *)
+inf.isNumber (* Infinity constant *)
+pi.isNumber (* pi constant *)
 1.isNumber (* integer constants *)
 3.14.isNumber (* float constants *)
 -1.isNumber (* negative integer constants *)
@@ -259,6 +259,17 @@ inf.isNumber (* constant (infinity) *)
 3.randomInteger(9).isInteger (* random integer in range *)
 3.randomFloat(9).isNumber (* random float in range *)
 
+'Regular Expressions'
+'car'.matchesRegExp('c(a|d)+r')
+'cdr'.matchesRegExp('c(a|d)+r')
+'caar'.matchesRegExp('c(a|d)+r')
+'cadr'.matchesRegExp('c(a|d)+r')
+'caddar'.matchesRegExp('c(a|d)+r')
+'aabbcc'.matchesRegExp('a+b+c+')
+'aabbcc'.matchesRegExp('a+$').not
+'aabbcc'.matchesRegExp('^b+c+').not
+'aabbcc'.matchesRegExp('a+b+c+')
+
 'SequenceableCollection'
 [1, 3, 2] ++ [4, 5] = [1, 3, 2, 4, 5] (* append sequences *)
 [1, 3, 2, 4, 5].reversed = [5, 4, 2, 3, 1] (* reverse sequence *)
@@ -276,6 +287,12 @@ var a = (1 .. 9); a.first = a[1] (* one-indexed *)
 [1, 3, 5, 7, 9].last = 9 (* last element of *)
 var a = (1 .. 9); a.last = a[9] (* one-indexed *)
 [1, 3, 5, 7, 9].middle = 5 (* middle element of *)
+[1 .. 4].beginsWith([1, 2]) = true (* is prefix of *)
+[1 .. 4].beginsWith([]) = true (* empty prefix *)
+var n = 0; [1 .. 4].permutationsDo { :each | n := n + 1}; n = 24 (* permutations *)
+[1, 9, 2, 8, 3, 7, 4, 6].pairsCollect { :i :j | i + j } = [10, 10, 10, 10]
+var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printString }; s = '10101010'
+var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291'
 
 'String'
 'quoted string'.isString (* quoted string *)
@@ -940,6 +957,7 @@ var total = 0; 9.timesRepeat { total := total + system.randomFloat }; total < 7
 7.min(3) = 3
 3.min(7) = 7.min(3)
 12345.truncateTo(600) = 12000
+23.isPrime = true
 2971215073.isPrime = true
 2971215073.nextPrime = 2971215083 & { 2971215083.isPrime }
 100.primesUpTo = [2, 3, 5, 7,11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
@@ -1081,6 +1099,7 @@ system.traitLookup('Collection').isTrait = true
 system.traitLookup('Collection').name = 'Collection'
 system.traitLookup('Collection').methodDictionary.includesKey('sum:/1') = true
 system.traitLookup('Collection').methodDictionary::sum:/1.isMethod = true
+system.traitTypes('Collection').includes('Array') = true
 system.traitTypes('Dictionary').includes('IdentityDictionary') = true
 system.traitDictionary['Dictionary'].isTrait = true
 
@@ -1101,6 +1120,8 @@ system.typeLookup('Array').name = 'Array'
 system.typeLookup('Array').methodDictionary.includesKey('copy:/1') = true
 system.typeLookup('Array').methodDictionary::copy:/1.isMethod = true
 system.typeMethodSet('Array').collect(name:/1).includes('select') = true
+system.typeLookup('String').isType = true
+system.typeLookup('String').methodDictionary.includesKey('includesSubstring:/2') = true
 system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 
 'System/URL'

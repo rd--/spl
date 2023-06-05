@@ -45,7 +45,7 @@ If the switch is selected then the program below is allowed, since the system bi
 ```
 var f = { :x | x * x };
 [3, 5, 7].collect(f) = [9, 25, 49]
-````
+```
 
 This model has different shadowing behaviour to the simple model.
 If the type _Point_ implements _x_ and _y_ methods, these would be shadowed by _x_ and _y_ temporaries in the simple model.

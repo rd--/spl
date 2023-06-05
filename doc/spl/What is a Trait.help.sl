@@ -4,7 +4,7 @@ A _Trait_ is a collection of behaviours, in much the same way that _abstract cla
 In Smalltalk _Collection_, _SequenceableCollection_ and _ArrayedCollection_ are abstract classes, here they are Traits.
 
 ```
-system.trait('Collection').isTrait = true
+system.traitLookup('Collection').isTrait = true
 ```
 
 Types are said to implement a trait.
@@ -20,7 +20,7 @@ When a type is added, methods for the traits that it implements are added to the
 When a trait is extended methods are added both to the trait entry and to the dispatch table for all types that implement the trait.
 
 ```
-system.trait('Collection').methodDictionary.includesKey('sum:/1') = true
+system.traitLookup('Collection').methodDictionary.includesKey('sum:/1') = true
 ```
 
 To distinguish traits from types traits are sometimes written with an _@_ prefix, which corresponds to the syntax used to define them.
