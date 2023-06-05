@@ -370,6 +370,7 @@ false.ifFalse { true }
 4:3.denominator = 4:3::denominator
 
 'Kernel-Behaviour/Procedure'
+{ }.typeOf = 'Procedure'
 var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5
 var i = 1; { i < 5 }.whileTrue { i := i + 1 }; i = 5
 var i = 1; 1.toDo(3) { :each | i := i + each.squared } ; i = 15
@@ -559,6 +560,17 @@ var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
 [1 .. 9].ByteArray.isByteArray = true
 [1 .. 9].ByteArray.reversed = [9 .. 1].ByteArray
 [1 .. 3].ByteArray.printString = '[1, 2, 3].ByteArray'
+ByteArray(4).hex = '00000000'
+'text'.ascii[1] = 116
+var b = ByteArray(4); b[1] := 15; b[3] := 240; b.hex = '0f00f000'
+var b = ByteArray(4); b[2] := 15; b[4] := 240; b.hex = '000f00f0'
+[1 .. 4].ByteArray.hex =  '01020304'
+'string'.ascii.hex = '737472696e67'
+var b = ByteArray(4); b.atAllPut(15); b.hex = '0f0f0f0f'
+'string'.ascii.asArray = [115, 116, 114, 105, 110, 103]
+'0f00f010'.parseHexString = [15, 0, 240, 16].ByteArray
+'string'.ascii.hex = '737472696e67'
+'737472696e67'.parseHexString.ascii = 'string'
 
 'Collections-Abstract/@Collection'
 [1, 3, 5].select { :x | x > 1 } = [3, 5]
@@ -568,6 +580,12 @@ var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
 [].select { :each | 'select'.error } = []
 [].species.newFrom(OrderedCollection()) = []
 OrderedCollection().Array = []
+[1 .. 9].includesAnyOf([0, 6]) (*includes any element of a collection *)
+[2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6]
+{ [1, 2].take(-1) }.ifError { :err | true }
+[].select { :each | each > 0 } = []
+[1, 2, 2, 3, 3, 3].histogramOf { :each | each }.asArray = [1, 2, 2, 3, 3, 3]
+[1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].asIdentityBag
 
 'Collections-Unordered/@Dictionary'
 unicodeFractions().isDictionary = true

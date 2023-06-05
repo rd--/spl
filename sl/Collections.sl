@@ -264,11 +264,19 @@
 	}
 
 	asArray { :self |
-		self.Array
+		| array = Array(self.size), index = 0; |
+		self.do { :each |
+			array[index := index + 1] := each
+		};
+		array
 	}
 
 	asCollection { :self |
 		self
+	}
+
+	asIdentityBag { :self |
+		IdentityBag(self)
 	}
 
 	associationsDo { :self :aBlock:/1 |
@@ -402,8 +410,25 @@
 		result
 	}
 
+	histogramOf { :self :aBlock:/1 |
+		| answer = IdentityBag(); |
+		self.collectInto(aBlock:/1, answer);
+		answer
+	}
+
 	indices { :self |
 		nil
+	}
+
+	includesAnyOf { :self :aCollection |
+		withReturn {
+			aCollection.do { :elem |
+				self.includes(elem).ifTrue {
+					true.return
+				}
+			};
+			false
+		}
 	}
 
 	includesAllOf { :self :aCollection |
@@ -876,6 +901,16 @@
 		self.asDigitsAtInDo(1, aCollection, aBlock:/1)
 	}
 
+	atAllPut { :self :anObject |
+		| size = self.size; |
+		(size > 50).if {
+			self.fromToPut(1, size, anObject)
+		} {
+			(1 .. size).do { :index |
+				self[index] := anObject
+			}
+		}
+	}
 
 	atWrap { :self :index |
 		self.at(index - 1 % self.size + 1)
@@ -986,6 +1021,26 @@
 			self.swapWith(item, randomInteger(1, item))
 		};
 		self
+	}
+
+	fromToPut { :self :startIndex :endIndex :anObject |
+		(startIndex > endIndex).if {
+			self
+		} {
+			| written = 1, toWrite = endIndex - startIndex + 1, thisWrite = nil; |
+			self[startIndex] := anObject;
+			(written < toWrite).whileTrue {
+				thisWrite := written.min(toWrite - written);
+				self.replaceFromToWithStartingAt(
+					startIndex + written,
+					startIndex + written + thisWrite - 1,
+					self,
+					startIndex
+				)
+			};
+			written := written + thisWrite
+		};
+		anObject
 	}
 
 	grownBy { :self :length |
@@ -1459,6 +1514,21 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 		error('ByteArray>>atPut: index not an integer or value not a byte')
 	}
 
+	hex { :self |
+		|
+			map = '0123456789abcdef'.ascii,
+			array = ByteArray(self.size * 2),
+			index = 1;
+		|
+		(1 .. self.size).do { :i |
+			| v = self[i]; |
+			array[index] := map[v.bitShiftRight(4) + 1];
+			array[index + 1] := map[v.bitAnd(15) + 1];
+			index := index + 2
+		};
+		array.ascii
+	}
+
 	species { :self |
 		ByteArray:/1
 	}
@@ -1482,6 +1552,20 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 	ByteArray { :self |
 		<primitive: return new Uint8Array(_self);>
+	}
+
+}
+
++String {
+
+	parseHexString { :self |
+		<primitive:
+			const bytes = new Uint8Array(_self.length / 2);
+			for (let i = 0; i < _self.length; i ++) {
+				bytes[i] = parseInt(_self.substr(i * 2, 2), 16);
+			}
+			return bytes;
+		>
 	}
 
 }
@@ -1582,6 +1666,14 @@ IdentityBag : [Object, Collection] { | contents |
 		anObject
 	}
 
+	asBag { :self |
+		self
+	}
+
+	asSet { :self |
+		self.contents.keys.asSet
+	}
+
 	cumulativeCounts { :self |
 		| s = self.size / 100.0, n = 0; |
 		self.sortedCounts.collect { :a |
@@ -1614,6 +1706,10 @@ IdentityBag : [Object, Collection] { | contents |
 		self.contents.atIfAbsent(anObject) {
 			0
 		}
+	}
+
+	printString { :self |
+		'Bag(' ++ self.contents.printString ++ ')'
 	}
 
 	removeIfAbsent { :self :oldObject :whenAbsent:/0 |

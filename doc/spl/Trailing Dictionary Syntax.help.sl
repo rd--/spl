@@ -16,7 +16,7 @@ The dictionary form of the Ugen constructors _SinOsc_ and _FreqShift_ are used t
 	{
 		var oct = [36, 48, 60].atRandom;
 		var note = [0, 2, 4, 5, 7, 9, 11].atRandom;
-		var freq = (oct + note).midiCps;
+		var freq = (oct + note).MidiCps;
 		var osc = SinOsc(freq: freq, phase: 0) * 0.1;
 		var left = osc + FreqShift(
 			in: osc,
