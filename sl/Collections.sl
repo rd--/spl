@@ -275,8 +275,8 @@
 		self
 	}
 
-	asIdentityBag { :self |
-		IdentityBag(self)
+	asBag { :self |
+		Bag(self)
 	}
 
 	associationsDo { :self :aBlock:/1 |
@@ -402,16 +402,16 @@
 	}
 
 	groupBy { :self :keyBlock:/1 |
-		| result = IdentityDictionary(); |
+		| result = Dictionary(); |
 		self.do { :each |
 			| key = keyBlock(each); |
-			result.atIfAbsentPut(key, { OrderedCollection() }).add(each)
+			result.atIfAbsentPut(key, { [] }).add(each)
 		};
 		result
 	}
 
 	histogramOf { :self :aBlock:/1 |
-		| answer = IdentityBag(); |
+		| answer = Bag(); |
 		self.collectInto(aBlock:/1, answer);
 		answer
 	}
@@ -1075,14 +1075,14 @@
 	}
 
 	indicesOfSubCollectionStartingAt { :self :subCollection :initialIndex |
-		| answer = OrderedCollection(), index = initialIndex - 1; |
+		| answer = [], index = initialIndex - 1; |
 		{
 			index := self.indexOfSubCollectionStartingAt(subCollection, index + 1);
 			index = 0
 		}.whileFalse {
 			answer.add(index)
 		};
-		answer.Array
+		answer
 	}
 
 	indexOfSubCollection { :self :aSubCollection |
@@ -1230,7 +1230,7 @@
 	}
 
 	select { :self :aProcedure:/1 |
-		| answer = OrderedCollection(); |
+		| answer = []; |
 		1.toDo(self.size) { :index |
 			aProcedure(self[index]).ifTrue {
 				answer.add(self[index])
@@ -1244,11 +1244,11 @@
 	}
 
 	splitBy { :self :aCollection |
-		| answer = OrderedCollection(); |
+		| answer = []; |
 		self.splitByDo(aCollection) { :each |
 			answer.add(each)
 		};
-		answer.Array
+		answer
 	}
 
 	splitByDo { :self :aCollection :aProcedure:/1 |
@@ -1400,6 +1400,14 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 			answer[index] := aProcedure(index + self - 1)
 		};
 		answer
+	}
+
+}
+
++Void {
+
+	Array {
+		<primitive: return [];>
 	}
 
 }
@@ -1636,10 +1644,10 @@ Graph : [Object] { | degree edges vertexLabels edgeLabels |
 
 }
 
-IdentityBag : [Object, Collection] { | contents |
+Bag : [Object, Collection] { | contents |
 
 	= { :self :aBag |
-		aBag.isIdentityBag & {
+		aBag.isBag & {
 			self.size = aBag.size & {
 				withReturn {
 					self.contents.associationsDo { :assoc |
@@ -1690,12 +1698,12 @@ IdentityBag : [Object, Collection] { | contents |
 		}
 	}
 
-	IdentityBag { :self |
+	Bag { :self |
 		self
 	}
 
-	IdentitySet { :self |
-		self.contents.keys.IdentitySet
+	Set { :self |
+		self.contents.keys.Set
 	}
 
 	includes { :self :anObject |
@@ -1743,42 +1751,46 @@ IdentityBag : [Object, Collection] { | contents |
 	}
 
 	sortedCounts { :self |
-		| answer = OrderedCollection(); |
+		| answer = []; |
 		self.contents.associationsDo { :anAssociation |
 			answer.add(anAssociation.value -> anAssociation.key)
 		};
-		answer.sharedArray.sorted
+		answer.sortInPlace
 	}
 
 	sortedElements { :self |
-		| answer = OrderedCollection(); |
+		| answer = []; |
 		self.contents.associationsDo { :anAssociation |
 			answer.add(anAssociation)
 		};
-		answer.sharedArray.sorted
+		answer.sortInPlace
+	}
+
+	species { :self |
+		Bag:/0
 	}
 
 }
 
 +Void {
 
-	IdentityBag {
-		newIdentityBag().initializeSlots(IdentityDictionary())
+	Bag {
+		newBag().initializeSlots(Dictionary())
 	}
 
 }
 
 +@Collection {
 
-	IdentityBag { :self |
-		| answer = IdentityBag(); |
+	Bag { :self |
+		| answer = Bag(); |
 		answer.addAll(self);
 		answer
 	}
 
 }
 
-IdentityDictionary : [Object, Collection, Dictionary] {
+Dictionary : [Object, Collection, Dictionary] {
 
 	add { :self :anAssociation |
 		<primitive:
@@ -1795,7 +1807,7 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 		<primitive: _self.set(_aKey, _aValue);>
 	}
 
-	IdentityDictionary { :self |
+	Dictionary { :self |
 		self
 	}
 
@@ -1811,7 +1823,7 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 		self.keys.allSatisfy(isString:/1).if {
 			self.StringDictionary.json(replacer, space)
 		} {
-			'IdentityDictionary>>json: not all keys are strings'.error
+			'Dictionary>>json: not all keys are strings'.error
 		}
 	}
 
@@ -1844,11 +1856,11 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 	}
 
 	species { :self |
-		IdentityDictionary:/0
+		Dictionary:/0
 	}
 
 	storeString { :self |
-		self.associations.storeString ++ '.IdentityDictionary'
+		self.associations.storeString ++ '.Dictionary'
 	}
 
 	values { :self |
@@ -1863,7 +1875,7 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 		<primitive: return new Map(_self);>
 	}
 
-	IdentityDictionary { :self |
+	Dictionary { :self |
 		self.collect(Array:/1).identityDictionaryFromTwoElementArrays
 	}
 
@@ -1871,7 +1883,7 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 
 +@Object {
 
-	isIdentityDictionary { :self |
+	isDictionary { :self |
 		false
 	}
 
@@ -1879,16 +1891,16 @@ IdentityDictionary : [Object, Collection, Dictionary] {
 
 +Void {
 
-	IdentityDictionary {
+	Dictionary {
 		<primitive: return new Map();>
 	}
 
 }
 
-IdentitySet : [Object, Collection] {
+Set : [Object, Collection] {
 
 	= { :self :anObject |
-		anObject.isIdentitySet & {
+		anObject.isSet & {
 			self.size = anObject.size & {
 				self.allSatisfy { :each |
 					anObject.includes(each)
@@ -1925,7 +1937,7 @@ IdentitySet : [Object, Collection] {
 		<primitive: return _self.has(_anObject);>
 	}
 
-	isIdentitySet { :self |
+	isSet { :self |
 		true
 	}
 
@@ -1946,7 +1958,7 @@ IdentitySet : [Object, Collection] {
 	}
 
 	species { :self |
-		IdentitySet:/0
+		Set:/0
 	}
 
 	union { :self :aCollection |
@@ -1959,7 +1971,7 @@ IdentitySet : [Object, Collection] {
 
 +Array {
 
-	IdentitySet { :self |
+	Set { :self |
 		<primitive: return new Set(_self);>
 	}
 
@@ -1967,8 +1979,8 @@ IdentitySet : [Object, Collection] {
 
 +@Collection {
 
-	IdentitySet { :self |
-		| answer = IdentitySet(); |
+	Set { :self |
+		| answer = Set(); |
 		answer.addAll(self);
 		answer
 	}
@@ -1977,15 +1989,15 @@ IdentitySet : [Object, Collection] {
 
 +@Dictionary {
 
-	IdentitySet { :self |
-		self.values.IdentitySet
+	Set { :self |
+		self.values.Set
 	}
 
 }
 
 +@Object {
 
-	isIdentitySet { :self |
+	isSet { :self |
 		false
 	}
 
@@ -1993,7 +2005,7 @@ IdentitySet : [Object, Collection] {
 
 +Void {
 
-	IdentitySet {
+	Set {
 		<primitive: return new Set();>
 	}
 
@@ -2163,13 +2175,9 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
 }
 
-OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveArray | (* i.e. Js array *)
+(* OrderedCollection *)
 
-	= { :self :anObject |
-		anObject.isOrderedCollection & {
-			self.primitiveArray = anObject.primitiveArray
-		}
-	}
++Array {
 
 	add { :self :anObject |
 		self.addLast(anObject)
@@ -2184,43 +2192,19 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveAr
 	}
 
 	addArrayFirst { :self :anArray |
-		<primitive: return _self.primitiveArray.unshift(..._anArray);>
+		<primitive: return _self.unshift(..._anArray);>
 	}
 
 	addArrayLast { :self :anArray |
-		<primitive: return _self.primitiveArray.push(..._anArray);>
+		<primitive: return _self.push(..._anArray);>
 	}
 
 	addFirst { :self :anObject |
-		<primitive: return _self.primitiveArray.unshift(_anObject);>
+		<primitive: return _self.unshift(_anObject);>
 	}
 
 	addLast { :self :anObject |
-		<primitive: return _self.primitiveArray.push(_anObject);>
-	}
-
-	Array { :self |
-		self.primitiveArray.copy
-	}
-
-	at { :self :index |
-		self.primitiveArray[index]
-	}
-
-	atPut { :self :index :anObject |
-		self.primitiveArray[index] := anObject
-	}
-
-	collect { :self :aProcedure |
-		OrderedCollection(self.primitiveArray.collect(aProcedure))
-	}
-
-	copy { :self |
-		OrderedCollection(self.primitiveArray.copy)
-	}
-
-	IdentitySet { :self |
-		self.primitiveArray.IdentitySet
+		<primitive: return _self.push(_anObject);>
 	}
 
 	ofSize { :self :aNumber |
@@ -2230,60 +2214,28 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveAr
 		self
 	}
 
-	OrderedCollection { :self |
-		self
-	}
-
-	size { :self |
-		self.primitiveArray.size
-	}
-
 	removeAll { :self |
-		self.primitiveArray := Array(self.primitiveArray.size)
+		<primitive: return _self.splice(0);>
 	}
 
 	removeAt { :self :index |
-		<primitive: return _self.primitiveArray.splice(_index - 1, 1)[0];>
+		<primitive: return _self.splice(_index - 1, 1)[0];>
 	}
 
 	removeFirst { :self |
-		<primitive: return _self.primitiveArray.shift();>
+		<primitive: return _self.shift();>
 	}
 
 	removeFirst { :self :count |
-		<primitive: return _self.primitiveArray.splice(0, _count);>
+		<primitive: return _self.splice(0, _count);>
 	}
 
 	removeLast { :self |
-		<primitive: return _self.primitiveArray.pop();>
+		<primitive: return _self.pop();>
 	}
 
 	removeLast { :self :count |
-		<primitive: return _self.primitiveArray.splice(_self.primitiveArray.length - _count, _count);>
-	}
-
-	sharedArray { :self |
-		self.primitiveArray
-	}
-
-	species { :self |
-		OrderedCollection:/1
-	}
-
-}
-
-+Void {
-
-	OrderedCollection {
-		[].OrderedCollection
-	}
-
-}
-
-+Array {
-
-	OrderedCollection { :self |
-		newOrderedCollection().initializeSlots(self)
+		<primitive: return _self.splice(_self.length - _count, _count);>
 	}
 
 }
@@ -2291,7 +2243,7 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveAr
 +SmallFloat {
 
 	fibonacciSequence { :self |
-		| a = 0, b = 1, i = 0, temp = nil, answer = OrderedCollection(); |
+		| a = 0, b = 1, i = 0, temp = nil, answer = []; |
 		{ i < self }.whileTrue {
 			answer.add(b);
 			temp := b;
@@ -2304,10 +2256,6 @@ OrderedCollection : [Object, Collection, SequenceableCollection] { | primitiveAr
 
 	fibonacciArray { :self |
 		self.fibonacciSequence.Array
-	}
-
-	OrderedCollection { :self |
-		OrderedCollection()
 	}
 
 }
@@ -2382,7 +2330,7 @@ StringDictionary : [Object, Collection, Dictionary] {
 		('StringDictionary>>atPut key not a string: ' ++ aString.typeOf).error
 	}
 
-	IdentityDictionary { :self |
+	Dictionary { :self |
 		<primitive: return new Map(Object.entries(_self));>
 	}
 
@@ -2459,13 +2407,13 @@ StringDictionary : [Object, Collection, Dictionary] {
 
 }
 
-+IdentityDictionary {
++Dictionary {
 
 	StringDictionary { :self |
 		self.keys.allSatisfy(isString:/1).if {
 			self.unsafeStringDictionary
 		} {
-			'IdentityDictionary>>StringDictionary: not all keys are strings'.error
+			'Dictionary>>StringDictionary: not all keys are strings'.error
 		}
 	}
 

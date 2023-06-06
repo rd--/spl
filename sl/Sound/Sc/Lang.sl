@@ -343,20 +343,20 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 +@Integral {
 
 	asBinaryDigits { :self :numDigits |
-		| list = OrderedCollection(numDigits); |
+		| answer = []; |
 		(0 .. numDigits - 1).do { :i |
-			list.addFirst(self.bitShiftRight(i).bitAnd(1))
+			answer.addFirst(self.bitShiftRight(i).bitAnd(1))
 		};
-		list.Array
+		answer
 	}
 
 	asDigits { :self :base :numDigits |
-		| list = OrderedCollection(numDigits), num = self; |
+		| answer = [], num = self; |
 		numDigits.timesRepeat {
-			list.addFirst(num % base);
+			answer.addFirst(num % base);
 			num := num // base
 		};
-		list.Array
+		answer
 	}
 
 	asDigits { :self :base |
@@ -488,7 +488,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	pyramid { :self :patternType |
 		|
-			answer = OrderedCollection(),
+			answer = [],
 			lastIndex = self.size;
 		|
 		(patternType = 1).ifTrue {

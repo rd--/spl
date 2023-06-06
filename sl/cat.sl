@@ -8,15 +8,14 @@ system.categorizeDictionary(
 		],
 		'Collections-Ordered': [
 			'Interval',
-			'OrderedCollection',
 			'PriorityQueue'
 		],
 		'Collections-Unordered': [
 			'Association',
+			'Bag',
+			'Dictionary',
 			'Graph',
-			'IdentityBag',
-			'IdentityDictionary',
-			'IdentitySet',
+			'Set',
 			'StringDictionary'
 		],
 		'Kernel-Logic': [

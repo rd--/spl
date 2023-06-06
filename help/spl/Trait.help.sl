@@ -5,10 +5,10 @@ A _Trait_ is a named _Method_ dictionary.
 The dictionary keys are _qualified_ method names, i.e. _sum:/1_.
 
 ```
-system.traitDictionary.isIdentityDictionary = true
+system.traitDictionary.isDictionary = true
 system.traitDictionary.includesKey('Collection') = true
-system.trait('Collection').isTrait = true
-system.trait('Collection').name = 'Collection'
-system.trait('Collection').methodDictionary.includesKey('sum:/1') = true
-system.trait('Collection').methodDictionary::sum:/1.isMethod = true
+system.traitLookup('Collection').isTrait = true
+system.traitLookup('Collection').name = 'Collection'
+system.traitLookup('Collection').methodDictionary.includesKey('sum:/1') = true
+system.traitLookup('Collection').methodDictionary::sum:/1.isMethod = true
 ```

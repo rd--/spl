@@ -199,10 +199,10 @@ System : [Object] {
 	}
 
 	allMethods { :self |
-		| answer = OrderedCollection(); |
+		| answer = []; |
 		system.addAllTraitMethodsTo(answer);
 		system.addAllTypeMethodsTo(answer);
-		answer.sharedArray
+		answer
 	}
 
 	categoriesOf { :self :entry |
@@ -215,7 +215,7 @@ System : [Object] {
 		self.categoryDictionary.includesKey(categoryName).if {
 			self.categoryDictionary[categoryName].add(entry)
 		} {
-			self.categoryDictionary[categoryName] := [entry].IdentitySet
+			self.categoryDictionary[categoryName] := [entry].Set
 		}
 	}
 
@@ -224,7 +224,7 @@ System : [Object] {
 		self.categoryDictionary.includesKey(simpleCategtory).if {
 			self.categoryDictionary[simpleCategtory].addAll(entryArray)
 		} {
-			self.categoryDictionary[simpleCategtory] := entryArray.IdentitySet
+			self.categoryDictionary[simpleCategtory] := entryArray.Set
 		}
 	}
 
@@ -331,7 +331,7 @@ System : [Object] {
 		(* Implementations of methodName. *)
 		self.isMethodName(methodName).if {
 			|
-				answer = IdentitySet(),
+				answer = Set(),
 				table = self.methodDictionary[methodName];
 			|
 			table.do { :dictionary |
@@ -372,7 +372,7 @@ System : [Object] {
 
 	methodPrintString { :self :methodName |
 		(* Print string of implementations of methodName. *)
-		| answer = OrderedCollection(); |
+		| answer = []; |
 		self.methodImplementations(methodName).do { :method |
 			answer.add(
 				[
@@ -395,13 +395,13 @@ System : [Object] {
 	}
 
 	methodSourceCodeSearch { :self :aString |
-		| answer = OrderedCollection(); |
+		| answer = []; |
 		self.methodDo { :aMethod |
 			aMethod.sourceCode.includesSubstring(aString).ifTrue {
 				answer.add(aMethod)
 			}
 		};
-		answer.sharedArray
+		answer
 	}
 
 	methodTraits { :self :qualifiedMethodName |
@@ -526,7 +526,7 @@ System : [Object] {
 	}
 
 	typeMethodSet { :self :typeName |
-		| type = self.typeLookup(typeName), answer = IdentitySet(); |
+		| type = self.typeLookup(typeName), answer = Set(); |
 		type.traitNameArray.do { :traitName |
 			self.traitLookup(traitName).methodDictionary.valuesDo { :method |
 				answer.add(method)

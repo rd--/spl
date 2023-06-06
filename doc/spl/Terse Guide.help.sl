@@ -325,8 +325,8 @@ var x; var y = 0, z; [x, y, z] = [nil, 0, nil] (* there can be multiple var sequ
 var x = [1 .. 5]; x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, v) *)
 
 'Dictionary syntax'
-(x: 1, y: 2) = ['x' -> 1, 'y' -> 2].IdentityDictionary (* (x: 1, ...) is dictionary syntax *)
-() = [].IdentityDictionary (* empty dictionary *)
+(x: 1, y: 2) = ['x' -> 1, 'y' -> 2].Dictionary (* (x: 1, ...) is dictionary syntax *)
+() = [].Dictionary (* empty dictionary *)
 
 'Setter Syntax'
 var a = 'one' -> 1; a.key := 9; a.key = 9 (* p.x := y is syntax for p.x(y) *)
@@ -356,8 +356,8 @@ false.ifFalse { true }
 'Kernel-Objects/@Object'
 [1, 3, 5].typeOf = 'Array'
 [1, 3, 5].species = Array:/1
-[1, 3, 5].IdentitySet.species = IdentitySet:/0
-[1, 3, 5].OrderedCollection.species = OrderedCollection:/1
+[1, 3, 5].Set.species = Set:/0
+[1, 3, 5].Bag.species = Bag:/0
 (x: 1, y: 3, z: 5).species = StringDictionary:/0
 'b'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) = 2
 { 'd'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) }.ifError { :err | true }
@@ -513,11 +513,11 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 5].beginsWith([1 .. 3]) = true
 [1 .. 5].beginsWithAnyOf([[5], [4], [3], [2]])= false
 [1 .. 5].groupBy(even:/1)[true].Array = [2, 4]
-var c = IdentityDictionary(); [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | c.add(q -> p) }; c['elmer'] = 3
+var c = Dictionary(); [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | c.add(q -> p) }; c['elmer'] = 3
 [1 .. 9].indexOfSubCollection([3 .. 5]) = 3
 [1 .. 9].indexOfSubCollectionStartingAt([3 .. 5], 9) = 0
 [1 .. 9].indexOfSubCollectionStartingAt([9], 9) = 9
-var c = OrderedCollection(); [1 .. 9].splitByDo([3 .. 5]) { :each | c.add(each) }; c.Array = [[1, 2], [6, 7, 8, 9]]
+var c = []; [1 .. 9].splitByDo([3 .. 5]) { :each | c.add(each) }; c = [[1, 2], [6, 7, 8, 9]]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].indicesOfSubCollection(['']) = [3, 5, 7]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f']]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f', ''].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f'], []]
@@ -532,6 +532,9 @@ var c = OrderedCollection(); [1 .. 9].splitByDo([3 .. 5]) { :each | c.add(each) 
 ['x'].detectIfNone { :each | each.isString } { 42 } = 'x'
 ['x'].detectIfNone { :each | each.isNumber } { 42 } = 42
 Array(9).atAllPut('x').last = 'x'
+[1 .. 9].collect { :each | 10 - each } = [9 .. 1]
+[1, 2, 3] ++ [4, 5, 6] = [ 1, 2, 3, 4, 5, 6 ]
+[1 .. 5].reversed = [5 .. 1]
 
 'Collections-Unordered/Association'
 ('x' -> 1).typeOf = 'Association'
@@ -574,18 +577,18 @@ var b = ByteArray(4); b.atAllPut(15); b.hex = '0f0f0f0f'
 
 'Collections-Abstract/@Collection'
 [1, 3, 5].select { :x | x > 1 } = [3, 5]
-[1, 3, 5].IdentitySet.select { :x | x > 1 } = [3, 5].IdentitySet
-[1, 3, 5].OrderedCollection.select { :x | x > 1 } = [3, 5].OrderedCollection
+[1, 3, 5].Set.select { :x | x > 1 } = [3, 5].Set
+[1, 3, 5].Bag.select { :x | x > 1 } = [3, 5].Bag
 (x: 1, y: 3, z: 5).select { :x | x > 1 } = (y: 3, z: 5)
 [].select { :each | 'select'.error } = []
-[].species.newFrom(OrderedCollection()) = []
-OrderedCollection().Array = []
+[].species.newFrom(Set()) = []
+Set().Array = []
 [1 .. 9].includesAnyOf([0, 6]) (*includes any element of a collection *)
 [2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6]
 { [1, 2].take(-1) }.ifError { :err | true }
 [].select { :each | each > 0 } = []
 [1, 2, 2, 3, 3, 3].histogramOf { :each | each }.asArray = [1, 2, 2, 3, 3, 3]
-[1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].asIdentityBag
+[1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].asBag
 
 'Collections-Unordered/@Dictionary'
 unicodeFractions().isDictionary = true
@@ -609,55 +612,55 @@ var a = Float64Array(1); a.unsafeAtPut(1, 'x'); a.at(1).isNaN = true
 var a = Float64Array(1); a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
 [1 .. 3].Float64Array.printString = '[1, 2, 3].Float64Array'
 
-'Collections-Unordered/IdentityBag'
-IdentityBag().typeOf = 'IdentityBag'
-var b = IdentityBag(); b.add('x'); b.add('x'); b.size = 2
-var b = IdentityBag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6
-[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].IdentityBag.size = 10
-[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].IdentityBag.sortedCounts = [1 -> 2, 2 -> 3, 3 -> 5, 4 -> 7]
-[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].IdentityBag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
+'Collections-Unordered/Bag'
+Bag().typeOf = 'Bag'
+var b = Bag(); b.add('x'); b.add('x'); b.size = 2
+var b = Bag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6
+[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.size = 10
+[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.sortedCounts = [1 -> 2, 2 -> 3, 3 -> 5, 4 -> 7]
+[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
 
-'Collections-Unordered/IdentityDictionary'
-var d = IdentityDictionary(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2
-var d = ['x' -> 1, 'y' -> 2].IdentityDictionary; d.keys = ['x', 'y']
-var d = ['x' -> 1, 'y' -> 2].IdentityDictionary; d.values = [1, 2]
-var d = ['x' -> 1, 'y' -> 2].IdentityDictionary; d.at('x') = 1
-var d = IdentityDictionary(); d.add('x' -> 1); d.removeKey('x'); d.isEmpty = true
+'Collections-Unordered/Dictionary'
+var d = Dictionary(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2
+var d = ['x' -> 1, 'y' -> 2].Dictionary; d.keys = ['x', 'y']
+var d = ['x' -> 1, 'y' -> 2].Dictionary; d.values = [1, 2]
+var d = ['x' -> 1, 'y' -> 2].Dictionary; d.at('x') = 1
+var d = Dictionary(); d.add('x' -> 1); d.removeKey('x'); d.isEmpty = true
 ::x := 4; ::x * ::x = 16
 ::a := 'x' -> 1; [::a.key, ::a.value] = ['x', 1]
 var d = (f: { :i | i * i }); d::f.value(9) = 81
-{ IdentityDictionary().removeKey('unknownKey') }.ifError { :err | true }
+{ Dictionary().removeKey('unknownKey') }.ifError { :err | true }
 
-'Collections-Unordered/IdentitySet'
-[1, 3, 5, 3, 1].IdentitySet.isIdentitySet = true
-[1, 3, 5, 3, 1].IdentitySet.size = 3
-[1, 3, 5, 3, 1].IdentitySet.includes(3) = true
-[1, 3, 5, 3, 1].IdentitySet.includes(7) = false
-[1, 3, 5, 3, 1].IdentitySet.Array = [1, 3, 5]
-var s = [1, 3, 5, 3, 1].IdentitySet; s.remove(3); s.Array = [1, 5]
-[1 .. 9].IdentitySet.atRandom.betweenAnd(1, 9)
-var s = IdentitySet(); s.add(5); s.includes(5) = true
-var s = ['x', 5].IdentitySet; var t = s.copy; t.add(5); s = t
-var s = [1 .. 4].IdentitySet; s.includes(s.atRandom) = true
-var s = (1 .. 10).IdentitySet; var t = s.collect { :each | (each >= 1).if { each } { 'no' } }; s = t
-var s = (1 .. 10).IdentitySet.collect { :each | (each >= 5).if { each } { 'no' } }; s = [5, 6, 7, 8, 9, 10, 'no'].IdentitySet
-var s = (1 .. 10).IdentitySet; s.size = s.copy.size
-var s = (1 .. 10).IdentitySet; var t = s.copy; s.select { :each | t.includes(each).not }.isEmpty
-var s = (1 .. 10).IdentitySet; var t = s.copy; t.select { :each | s.includes(each).not }.isEmpty
-var s = (1 .. 10).IdentitySet; var t = s.copyWithout(3); s.size - 1 = t.size
-var s = (1 .. 10).IdentitySet; s.copyWithout(3).includes(3) = false
-var s = (1 .. 10).IdentitySet; var t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].IdentitySet
-var s = (1 .. 5).IdentitySet; var n = 0; s.do { :each | n := n + each }; n = 15
-var s = [].IdentitySet; s.addAll([1 .. 100]); s.size = 100
-var s = ['x', 5].IdentitySet; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
-var s = (1 .. 5).IdentitySet; var n = 0; s.do { :each | n := n + each }; n = 15
-var s = (1 .. 9).IdentitySet; s.intersection(s) = s
-(1 .. 4).IdentitySet.intersection((5 .. 9).IdentitySet) = [].IdentitySet
-(1 .. 5).IdentitySet.intersection((4 .. 9).IdentitySet) = [4, 5].IdentitySet
-var s = (1 .. 9).IdentitySet; s.remove(5); [s.includes(5), s.includes(9)] = [false, true]
-var s = (1 .. 9).IdentitySet; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, t.size = n] = [true, true]
-(1 .. 4).IdentitySet.union((5 .. 9).IdentitySet) = (1 .. 9).IdentitySet
-var s = (1 .. 4).IdentitySet; var t = (5 .. 9).IdentitySet; var u = s.union(t); u.size = (s.size + t.size)
+'Collections-Unordered/Set'
+[1, 3, 5, 3, 1].Set.isSet = true
+[1, 3, 5, 3, 1].Set.size = 3
+[1, 3, 5, 3, 1].Set.includes(3) = true
+[1, 3, 5, 3, 1].Set.includes(7) = false
+[1, 3, 5, 3, 1].Set.Array = [1, 3, 5]
+var s = [1, 3, 5, 3, 1].Set; s.remove(3); s.Array = [1, 5]
+[1 .. 9].Set.atRandom.betweenAnd(1, 9)
+var s = Set(); s.add(5); s.includes(5) = true
+var s = ['x', 5].Set; var t = s.copy; t.add(5); s = t
+var s = [1 .. 4].Set; s.includes(s.atRandom) = true
+var s = (1 .. 10).Set; var t = s.collect { :each | (each >= 1).if { each } { 'no' } }; s = t
+var s = (1 .. 10).Set.collect { :each | (each >= 5).if { each } { 'no' } }; s = [5, 6, 7, 8, 9, 10, 'no'].Set
+var s = (1 .. 10).Set; s.size = s.copy.size
+var s = (1 .. 10).Set; var t = s.copy; s.select { :each | t.includes(each).not }.isEmpty
+var s = (1 .. 10).Set; var t = s.copy; t.select { :each | s.includes(each).not }.isEmpty
+var s = (1 .. 10).Set; var t = s.copyWithout(3); s.size - 1 = t.size
+var s = (1 .. 10).Set; s.copyWithout(3).includes(3) = false
+var s = (1 .. 10).Set; var t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].Set
+var s = (1 .. 5).Set; var n = 0; s.do { :each | n := n + each }; n = 15
+var s = [].Set; s.addAll([1 .. 100]); s.size = 100
+var s = ['x', 5].Set; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
+var s = (1 .. 5).Set; var n = 0; s.do { :each | n := n + each }; n = 15
+var s = (1 .. 9).Set; s.intersection(s) = s
+(1 .. 4).Set.intersection((5 .. 9).Set) = [].Set
+(1 .. 5).Set.intersection((4 .. 9).Set) = [4, 5].Set
+var s = (1 .. 9).Set; s.remove(5); [s.includes(5), s.includes(9)] = [false, true]
+var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, t.size = n] = [true, true]
+(1 .. 4).Set.union((5 .. 9).Set) = (1 .. 9).Set
+var s = (1 .. 4).Set; var t = (5 .. 9).Set; var u = s.union(t); u.size = (s.size + t.size)
 
 'Collections-Ordered/Interval'
 (1 .. 9).species = Array:/1
@@ -699,7 +702,7 @@ to(9, 1) = Interval(9, 1, -1)
 [1 .. 9] = (1 .. 9).asArray
 [9 .. 1] = (9 .. 1).asArray
 [3 - 2 .. 7 + 2] = (3 - 2 .. 7 + 2).asArray
-var l = OrderedCollection(); Interval(9, 1, -1).do { :each | l.add(each) }; l.asArray = [9 .. 1]
+var l = []; Interval(9, 1, -1).do { :each | l.add(each) }; l = [9 .. 1]
 collect(1.to(9)) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 1.to(9).collect { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 Interval(1, 6, 2).asArray = [1, 3, 5]
@@ -717,26 +720,20 @@ Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 0.downTo(1).size = 0
 var s = ''; (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531'
 
-'Collections-Ordered/OrderedCollection'
-OrderedCollection().species = OrderedCollection:/1
-OrderedCollection().isOrderedCollection = true
-OrderedCollection(3).size = 0
-OrderedCollection:/1.ofSize(3) = [nil, nil, nil].OrderedCollection
-OrderedCollection([1, 2, 3]).size = 3
-var l = OrderedCollection(); l.addFirst(1); l.addFirst(2); l.asArray = [2, 1]
-var l = OrderedCollection(); l.addLast(1); l.addLast(2); l.asArray = [1, 2]
-var l = OrderedCollection(); 5.do { :each | l.add(each) }; l.asArray = [1 .. 5]
-OrderedCollection([1 .. 9]).collect { :each | 10 - each } = OrderedCollection([9 .. 1])
-var l = OrderedCollection([1 .. 9]); l.removeLast = 9 & { l.size = 8 }
-var l = OrderedCollection([1, 2, 3]); l.addAllLast(4.to(5)); l.asArray = [1 .. 5]
-var l = OrderedCollection([4, 5]); l.addAllFirst(1.to(3)); l.asArray = [1 .. 5]
-13.fibonacciSequence = OrderedCollection([1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233])
-[1, 2, 3].OrderedCollection ++ [4, 5, 6] = [ 1, 2, 3, 4, 5, 6 ].OrderedCollection
-[1 .. 5].OrderedCollection.reversed = [5 .. 1].OrderedCollection
-var c = [1 .. 5].OrderedCollection; [c.removeAt(1), c] = [1, [2, 3, 4, 5].OrderedCollection]
-var c = [1 .. 5].OrderedCollection; [c.removeAt(3), c] = [3, [1, 2, 4, 5].OrderedCollection]
-var c = [1 .. 5].OrderedCollection; [c.removeFirst(3), c] = [[1, 2, 3], [4, 5].OrderedCollection]
-var c = [1 .. 5].OrderedCollection; [c.removeLast(3), c] = [[3, 4, 5], [1, 2].OrderedCollection]
+'Collections-Ordered/Array (OrderedCollection, List)'
+Array(3).size = 3
+Array:/1.ofSize(3) = [nil, nil, nil]
+var l = []; l.addFirst(1); l.addFirst(2); l = [2, 1]
+var l = []; l.addLast(1); l.addLast(2); l = [1, 2]
+var l = []; 5.do { :each | l.add(each) }; l = [1 .. 5]
+var l = [1 .. 9]; l.removeLast = 9 & { l.size = 8 }
+var l = [1, 2, 3]; l.addAllLast(4.to(5)); l = [1 .. 5]
+var l = [4, 5]; l.addAllFirst(1.to(3)); l = [1 .. 5]
+13.fibonacciSequence = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
+var c = [1 .. 5]; [c.removeAt(1), c] = [1, [2, 3, 4, 5]]
+var c = [1 .. 5]; [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
+var c = [1 .. 5]; [c.removeFirst(3), c] = [[1, 2, 3], [4, 5]]
+var c = [1 .. 5]; [c.removeLast(3), c] = [[3, 4, 5], [1, 2]]
 
 'Collections-Ordered/PriorityQueue'
 PriorityQueue().isPriorityQueue = true
@@ -759,7 +756,7 @@ var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
 ['x' -> 1, 'y' -> 2].StringDictionary['y'] = 2
 { StringDictionary().atPut(1, 1) }.ifError { :err | true }
 (x: 3.141, y: 23).StringDictionary.json = '{"x":3.141,"y":23}'
-'{"x":3.141,"y":23}'.parseJson.IdentityDictionary = (x: 3.141, y: 23)
+'{"x":3.141,"y":23}'.parseJson.Dictionary = (x: 3.141, y: 23)
 var d = (x: 1, y: 2), i = 9; d.associationsDo { :each | i := i - each.value } ; i = 6
 var d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
 (x: 23, y: 3.141).isDictionary
@@ -788,7 +785,7 @@ var d = (length: { :self | (self::x.squared + self::y.squared).sqrt }); var p = 
 var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7) = 21
 (x: 1) = ('x': 1)
 ('font-size': '11pt', 'font-style': 'italic').keys = ['font-size', 'font-style']
-(x: 1).IdentityDictionary.StringDictionary = (x: 1)
+(x: 1).Dictionary.StringDictionary = (x: 1)
 
 'Kernel-Text/RegExp'
 RegExp('ab+c').isRegExp = true
@@ -1060,10 +1057,10 @@ system.uniqueId ~= system.uniqueId
 '!^'.operatorMethodName = 'bangHat'
 
 'System/categoryDictionary'
-system.categoryDictionary.isIdentityDictionary = true
+system.categoryDictionary.isDictionary = true
 system.categorizeAll('accessing', ['at', 'atPut', 'first', 'key', 'last', 'value']) = nil
 system.isCategoryName('accessing') = true
-system.category('accessing').isIdentitySet = true
+system.category('accessing').isSet = true
 system.categoriesOf('at').includes('accessing') = true
 system.categoriesOf('notInCategorySystem') = []
 system.isCategorized('at') = true
@@ -1074,9 +1071,9 @@ system.categoryOf('at') = 'accessing'
 system.categoryOf('notInCategorySystem') = '*Uncategorized*'
 
 'System/methodDictionary'
-system.methodDictionary.isIdentityDictionary = true
-system.methodDictionary::collect.isIdentityDictionary = true
-system.methodDictionary::collect[2].isIdentityDictionary = true
+system.methodDictionary.isDictionary = true
+system.methodDictionary::collect.isDictionary = true
+system.methodDictionary::collect[2].isDictionary = true
 system.methodDictionary::collect[2]::Array.isMethod = true
 system.methodDictionary.includesKey('collect') = true
 system.allMethods.collect { :each | each.signature }.includes('@Collection>>sum:/1') = true
@@ -1084,7 +1081,7 @@ system.allMethods.collect { :each | each.signature }.includes('@Collection>>sum:
 '@Collection'.parseQualifiedTraitName = 'Collection'
 system.methodLookupAtType('collect', 2, 'Array').isMethod = true
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Interval') = true
-system.methodSignatures('add').includes('IdentityDictionary>>add:/2') = true
+system.methodSignatures('add').includes('Dictionary>>add:/2') = true
 system.methodLookupAtSignature('@Collection>>sum:/1').isMethod = true
 system.methodLookupAtType('sum', 1, 'Array').sourceCode = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
 system.methodTypes('last:/1').includes('Interval') = true
@@ -1097,7 +1094,7 @@ system.methodPrintString('add').size >= 3
 system.methodLookupAtType('collect', 2, 'Array').isMethod = true
 system.methodLookupAtType('collect', 2, 'Array').origin.name = 'ArrayedCollection'
 system.methodLookupAtType('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
-system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum', 1, 'OrderedCollection')
+system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum', 1, 'Set')
 'sum:/1'.parseQualifiedMethodName = ['sum', 1]
 
 'System/time'
@@ -1105,7 +1102,7 @@ system.systemTimeInMilliseconds > 0 = true
 system.unixTimeInMilliseconds > 1671935015392 = true
 
 'System/traitDictionary'
-system.traitDictionary.isIdentityDictionary = true
+system.traitDictionary.isDictionary = true
 system.traitDictionary.includesKey('Collection') = true
 system.traitTypes('Collection').includes('Array') = true
 system.typeTraits('Array').includes('ArrayedCollection') = true
@@ -1118,11 +1115,11 @@ system.traitLookup('Collection').name = 'Collection'
 system.traitLookup('Collection').methodDictionary.includesKey('sum:/1') = true
 system.traitLookup('Collection').methodDictionary::sum:/1.isMethod = true
 system.traitTypes('Collection').includes('Array') = true
-system.traitTypes('Dictionary').includes('IdentityDictionary') = true
+system.traitTypes('Dictionary').includes('Dictionary') = true
 system.traitDictionary['Dictionary'].isTrait = true
 
 'System/typeDictionary'
-system.typeDictionary.isIdentityDictionary = true
+system.typeDictionary.isDictionary = true
 system.typeDictionary.keys.includes('Array') = true
 system.typeDictionary.includesKey('Array') = true
 system.typeDictionary::Array.isType = true

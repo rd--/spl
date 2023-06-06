@@ -26,17 +26,15 @@
 - Association -- associate with
 - Boolean -- logic
 - Collection -- collection trait
-- Dictionary -- collection trait
+- Dictionary -- collection trait & type
 - Duration -- time
 - Fraction -- arithmetic
-- IdentityDictionary -- dictionary
 - Method -- behaviour type
 - Number -- number type
 - Object -- value trait
-- OrderedCollection -- collection type
 - Procedure -- behaviour type
 - String -- text
-- StringDictionary -- dictionary
+- StringDictionary -- dictionary type
 - System -- system
 - TimeStamp -- time
 - Trait -- behaviour type

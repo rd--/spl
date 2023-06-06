@@ -33,8 +33,8 @@ function isStringDictionary(anObject: SlObject): boolean {
 function objectType(anObject: SlObject): TypeName {
 	return anObject instanceof Array ? 'Array' :
 		(anObject instanceof Error ? 'Error' :
-		 (anObject instanceof Map ? 'IdentityDictionary' :
-		  (anObject instanceof Set ? 'IdentitySet' :
+		 (anObject instanceof Map ? 'Dictionary' :
+		  (anObject instanceof Set ? 'Set' :
 		   (anObject instanceof Uint8Array ? 'ByteArray' :
 		    (anObject instanceof Float64Array ? 'Float64Array' :
 		     (anObject instanceof Promise ? 'Promise' :
@@ -63,7 +63,7 @@ export function isArray<T>(anObject: unknown): anObject is Array<T> { return Arr
 export function isByteArray(anObject: unknown): anObject is Uint8Array { return anObject instanceof Uint8Array; }
 export function isFunction(anObject: unknown): anObject is Function { return anObject instanceof Function; }
 export function isSmallFloat(anObject: unknown): anObject is number { return typeof anObject === 'number'; }
-export function isIdentitySet<T>(anObject: unknown): anObject is Set<T> { return anObject instanceof Set; }
+export function isSet<T>(anObject: unknown): anObject is Set<T> { return anObject instanceof Set; }
 export function isString(anObject: unknown): anObject is string { return typeof anObject === 'string'; }
 
 export function isByte(anObject: unknown): boolean {

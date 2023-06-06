@@ -4,7 +4,7 @@
 		|
 			pf1 = self.numerator.primeFactors,
 			pf2 = self.denominator.primeFactors.collect(negated:/1),
-			pf3 = (pf1 ++ pf2).IdentityBag;
+			pf3 = (pf1 ++ pf2).Bag;
 		|
 		[3, 5, 7, 11, 13].select { :each |
 			each <= limit

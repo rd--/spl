@@ -13,13 +13,13 @@ Methods have the fields:
 The _methodDictionary_ is reflected in the _System_ type.
 
 ```
-system.methodDictionary.isIdentityDictionary = true
+system.methodDictionary.isDictionary = true
 system.methodDictionary.includesKey('collect') = true
 system.methodLookupAtType('collect', 2, 'Array').isMethod = true
 system.methodLookupAtType('collect', 2, 'Array').origin.name = 'ArrayedCollection'
 system.methodLookupAtType('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = [9, 16, 25]
 collect([3, 4, 5], { :x | x * x }) = [9, 16, 25]
-system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum', 1, 'OrderedCollection')
+system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum', 1, 'Set')
 ```
 
 * * *

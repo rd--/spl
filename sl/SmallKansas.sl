@@ -4,7 +4,7 @@
 		self.eventListeners.atIfPresentIfAbsent(aString) { :aSet |
 			aSet.add(aProcedure:/1)
 		} {
-			self.eventListeners[aString] := IdentitySet([aProcedure:/1])
+			self.eventListeners[aString] := Set([aProcedure:/1])
 		}
 	}
 
@@ -400,7 +400,7 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 		self.createElements;
 		self.setEventHandlers;
 		self.title := subject.title;
-		self.eventListeners := IdentityDictionary();
+		self.eventListeners := Dictionary();
 		self
 	}
 
@@ -569,7 +569,7 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 			each[1] = area & {
 				each[2] = kind
 			}
-		}.collect(third:/1).IdentitySet.Array.sorted
+		}.collect(third:/1).Set.Array.sorted
 	}
 
 	helpProject { :self :area |
@@ -600,7 +600,7 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 	programAuthors { :self :category |
 		self.programIndex.select { :each |
 			each[1] = category
-		}.collect(second:/1).IdentitySet.Array.sorted
+		}.collect(second:/1).Set.Array.sorted
 	}
 
 	ProgramBrowser { :self :path |
@@ -636,7 +636,7 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 	}
 
 	programCategories { :self |
-		self.programIndex.collect(first:/1).IdentitySet.Array.sorted.reject { :each |
+		self.programIndex.collect(first:/1).Set.Array.sorted.reject { :each |
 			each = 'collect'
 		}
 	}
@@ -715,7 +715,7 @@ Inspector : [Object, View] { | inspectorPane inspectorList |
 		self.inspectorPane := 'div'.createElement (
 			class: 'inspectorPane'
 		);
-		self.inspectorList(OrderedCollection());
+		self.inspectorList([]);
 		self.addInspector(aValue, 1);
 		self
 	}
@@ -1108,7 +1108,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 			bracketedSubject = '>>' ++ subject ++ ':/',
 			methodSignatures = system.allMethods.collect(signature:/1).select { :each |
 				each.includesSubstring(bracketedSubject)
-			}.IdentitySet.Array.sorted ;
+			}.Set.Array.sorted ;
 		|
 		self.addFrame(MethodSignatureBrowser(methodSignatures, false), event)
 	}
@@ -1119,7 +1119,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	initialize { :self |
 		self.container := 'smallKansas'.getElementById;
-		self.frameSet := IdentitySet();
+		self.frameSet := Set();
 		self.container.addEventListener('contextmenu') { :event |
 			(event.target == self.container).ifTrue {
 				event.preventDefault;
@@ -1241,10 +1241,10 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	midiMonitorOn { :self :midiPort :event |
 		|
 			textEditor = TextEditor('Midi Monitor On ' ++ midiPort.name, 'text/plain', ''),
-			messages = OrderedCollection(),
+			messages = [],
 			onMidiMessage = { :midiMessageEvent |
 				messages.add(midiMessageEvent);
-				textEditor.setEditorText(messages.last(25.min(messages.size)).Array.collect { :midi |
+				textEditor.setEditorText(messages.last(25.min(messages.size)).collect { :midi |
 					midi.data.asString
 				}.unlines)
 			},
@@ -1265,7 +1265,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 					['input', 'output']
 				},
 				1 -> {
-					self.midiAccess.ports(path[1]).collect(manufacturer:/1).IdentitySet.Array
+					self.midiAccess.ports(path[1]).collect(manufacturer:/1).Set.Array
 				},
 				2 -> {
 					self.midiAccess.ports(path[1]).select { :port |
@@ -1607,7 +1607,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	ScalaJiTuningBrowser { :self |
-		| degrees = self.collect(degree:/1).IdentitySet.Array.sorted.collect(asString:/1); |
+		| degrees = self.collect(degree:/1).Set.Array.sorted.collect(asString:/1); |
 		ColumnBrowser('Scala Ji Tuning Browser', 'text/html', false, true, [1, 1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
@@ -1620,7 +1620,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 						each.degree = path[1].parseInteger(10)
 					}.collect { :each |
 						each.limit
-					}.IdentitySet.Array.sorted.collect(asString:/1)
+					}.Set.Array.sorted.collect(asString:/1)
 				},
 				2 -> {
 					browser.setStatus(['Degree = ', path[1], ', Limit = ', path[2]].join);
@@ -1671,7 +1671,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	MethodBrowser {
 		|
-			methodNames = system.allMethods.collect(qualifiedName:/1).IdentitySet.Array.sorted,
+			methodNames = system.allMethods.collect(qualifiedName:/1).Set.Array.sorted,
 			selectedMethod = nil;
 		|
 		ColumnBrowser('Method Browser', 'text/plain', true, true, [3, 1], nil) { :accepted |
@@ -1701,7 +1701,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	MethodSignatureBrowser {
 		MethodSignatureBrowser(
-			system.allMethods.collect(signature:/1).IdentitySet.Array.sorted,
+			system.allMethods.collect(signature:/1).Set.Array.sorted,
 			true
 		)
 	}
@@ -1709,7 +1709,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	CategoryBrowser {
 		|
 			typeNames = system.typeDictionary.keys.sorted,
-			categoryNames = typeNames.collect { :each | system.categoryOf(each) }.IdentitySet.Array.sorted,
+			categoryNames = typeNames.collect { :each | system.categoryOf(each) }.Set.Array.sorted,
 			methodSet = nil,
 			selectedMethod = nil;
 		|
@@ -1922,11 +1922,11 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 	initialize { :self :title :mimeType :contents |
 		self.title := title;
 		self.mimeType := mimeType;
-		self.clientKeyBindings := OrderedCollection();
+		self.clientKeyBindings := [];
 		self.createElements;
 		self.setEventHandlers;
 		self.setEditorText(contents);
-		self.eventListeners := IdentityDictionary();
+		self.eventListeners := Dictionary();
 		self
 	}
 

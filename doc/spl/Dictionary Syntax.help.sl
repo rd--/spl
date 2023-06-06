@@ -2,9 +2,9 @@
 
 Rewrite rule:
 
-- _(k:v, ...)_ ≡ _asIdentityDictionary(['k' → v, ...])_
+- _(k:v, ...)_ ≡ _asDictionary(['k' → v, ...])_
 
-The notation _(p: x, q: y)_ constructs an _IdentityDictionary_ with associations _'p' → x_ and _'q' → y_.
+The notation _(p: x, q: y)_ constructs an _Dictionary_ with associations _'p' → x_ and _'q' → y_.
 
 * * *
 

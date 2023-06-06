@@ -176,9 +176,11 @@
 	}
 
 	primesUpTo { :self |
-		| answer = OrderedCollection(); |
-		self.primesUpToDo { :n | answer.add(n) };
-		answer.Array
+		| answer = []; |
+		self.primesUpToDo { :n |
+			answer.add(n)
+		};
+		answer
 	}
 
 	primesUpToDo { :self :aProcedure:/1 |
@@ -1561,7 +1563,7 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	primeFactors { :self |
-		| factors = OrderedCollection(), divisor = 2, n = self; |
+		| factors = [], divisor = 2, n = self; |
 		{ n >= 2 }.whileTrue {
 			(n % divisor = 0).if {
 				factors.add(divisor);
@@ -1570,11 +1572,11 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 				divisor := divisor + 1
 			}
 		};
-		factors.Array
+		factors
 	}
 
 	primeFactorization { :self |
-		self.primeFactors.IdentityBag
+		self.primeFactors.Bag
 	}
 
 	primeLimit { :self |
@@ -2011,7 +2013,7 @@ String : [Object] {
 
 	indicesOf { :self :aString |
 		aString.isString.if {
-			| answer = OrderedCollection(), index = 1, end = self.size; |
+			| answer = [], index = 1, end = self.size; |
 			{ index > 0 & { index <= end } }.whileTrue {
 				index := self.findStringStartingAt(aString, index);
 				(index ~= 0).ifTrue {
@@ -2019,7 +2021,7 @@ String : [Object] {
 					index := index + 1
 				}
 			};
-			answer.Array
+			answer
 		} {
 			('String>>indicesOf: not a string: ' ++ aString).error
 		}
