@@ -127,7 +127,6 @@ pi.isNumber (* pi constant *)
 -1.isNumber (* negative integer constants *)
 -3.14.isNumber (* negative float constants *)
 'Hello'.isString (* string constant *)
-'I''m here' isString (* single quote escape *)
 [3, 2, 1].isArray (* array constants *)
 ['one', 2, 3.141].isArray (* mixing of types allowed *)
 
@@ -193,7 +192,7 @@ var x = { }; x.isProcedure (* blocks are objects and may be assigned to a variab
 { { 1 }.value }.value = 1 (* blocks may be nested *)
 { :x | var y = x; y }.value(1) = 1 (* specification { arguments localvars expressions } *)
 { 'x' }.value = 'x' (* simple block usage *)
-{ :p1 :p2| p1 ++ ' & ' ++ p2 }.value('x', 'y') = "x & y" (* block with argument passing *)
+{ :p1 :p2| p1 ++ ' & ' ++ p2 }.value('x', 'y') = 'x & y' (* block with argument passing *)
 { :x | x + 1 }.numArgs = 1 (* the number of arguments can be retrieved *)
 { :x | x := nil }.value(42).isNil (* arguments are mutable *)
 
@@ -654,10 +653,24 @@ var a = Float64Array(1); a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
 'Collections-Unordered/Bag'
 Bag().typeOf = 'Bag'
 var b = Bag(); b.add('x'); b.add('x'); b.size = 2
+var b = Bag(); b.add('x'); b.add('y'); b.add('x'); b.size = 3
 var b = Bag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.size = 10
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.sortedCounts = [1 -> 2, 2 -> 3, 3 -> 5, 4 -> 7]
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
+var c1 = [2, 3, 3, 4, 4, 4].Bag, c2 = c1.copy, s2 = c2.size; c1.removeAll; c1.size = 0 & { c2.size = s2 }
+var c = Bag(), x = 'x'; c.add(x); c.remove(x); c.size = 0
+var c = ['x', 'x'].Bag; c.remove('x'); c.remove('x'); c.size = 0
+var c = Bag(); { c.remove('x') }.ifError { :err | true }
+[2, 3, 3, 4, 4, 4].Bag.occurrencesOf(3) = 2
+[2, 3, 3, 4, 4, 4].Bag.occurrencesOf(4) = 3
+[2, 3, 3, 4, 4, 4].Bag.occurrencesOf(5) = 0
+[2, 3, 3, 4, 4, 4].Bag.occurrencesOf(nil) = 0
+[nil].Bag.occurrencesOf(nil) = 1
+var c = [2, 3, 3, 4, 4, 4].Bag; c.copy = c (* copy *)
+var c = Bag(); c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
+[2, 3, 3, 4, 4, 4].Bag.Set.size = 3
+[2, 3, 3, 4, 4, 4].Bag.Set.occurrencesOf(3) = 1
 
 'Collections-Unordered/Dictionary'
 var d = Dictionary(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2
@@ -870,17 +883,17 @@ RegExp('x.x', 'g').printString.size = 18
 'sum:/1'.splitBy(':/') = ['sum', '1']
 'ascii'.toUppercase = 'ASCII'
 'ASCII'.toLowercase = 'ascii'
-`x` = 'x'
+`x` = 'x' (* backtick quotes *)
 `"x"` = '"x"'
 `x` = 'x'.parseBacktickQuotedString
-"x" = 'x'
+"x" = 'x' (* double quotes *)
 "x" = 'x'.parseDoubleQuotedString
-'string'[3] = 'r'
+'string'[3] = 'r' (* string indexing *)
 { 'string'[3] := 'r' }.ifError { :err | true }
 '{"x": 3.141, "y": 23}'.parseJson = (x: 3.141, y: 23)
 { '_'.parseJson }.ifError { :err | true }
 'a text string'.json = '"a text string"'
- '"a text string"'.parseJson = 'a text string'
+'"a text string"'.parseJson = 'a text string'
 'string'.last = 'g'
 var x = ['a', 'bc', 'def']; x.unlines.lines = x
 '3 + 4'.evaluate = 7

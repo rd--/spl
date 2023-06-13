@@ -210,6 +210,13 @@
 		anObject
 	}
 
+	addWithOccurrences { :self :newObject :anInteger |
+		anInteger.timesRepeat {
+			self.add(newObject)
+		};
+		newObject
+	}
+
 	allSatisfy { :self :aProcedure:/1 |
 		withReturn {
 			self.do { :each |
@@ -279,8 +286,8 @@
 		Bag(self)
 	}
 
-	associationsDo { :self :aBlock:/1 |
-		self.do(aBlock:/1)
+	associationsDo { :self :aProcedure:/1 |
+		self.do(aProcedure:/1)
 	}
 
 	atRandom { :self |
@@ -567,6 +574,21 @@
 		}
 	}
 
+	removeAll { :self :aCollection |
+		(aCollection == self).if {
+			self.removeAll
+		} {
+			aCollection.do { :each |
+				self.remove(each)
+			}
+		};
+		aCollection
+	}
+
+	removeIfAbsent { :self :oldObject :anExceptionBlock |
+		self.subclassResponsibility
+	}
+
 	select { :self :aProcedure:/1 |
 		| answer = self.species.new; |
 		self.do { :each |
@@ -823,10 +845,19 @@
 		self.storeString
 	}
 
+	removeAll { :self |
+		<primitive: _self.clear();>
+		self
+	}
+
 	removeKey { :self :key |
 		removeKeyIfAbsent(self, key) {
 			error('Dictionary:removeKey')
 		}
+	}
+
+	removeIfAbsent { :self :oldObject :anExceptionBlock |
+		self.shouldNotImplement
 	}
 
 	select { :self :aProcedure:/1 |
@@ -1700,6 +1731,10 @@ Bag : [Object, Collection] { | contents |
 		self.contents.keys.asSet
 	}
 
+	Bag { :self |
+		self
+	}
+
 	cumulativeCounts { :self |
 		| s = self.size / 100.0, n = 0; |
 		self.sortedCounts.collect { :a |
@@ -1714,14 +1749,6 @@ Bag : [Object, Collection] { | contents |
 				aProcedure(assoc.key)
 			}
 		}
-	}
-
-	Bag { :self |
-		self
-	}
-
-	Set { :self |
-		self.contents.keys.Set
 	}
 
 	includes { :self :anObject |
@@ -1754,6 +1781,10 @@ Bag : [Object, Collection] { | contents |
 
 	removeAll { :self |
 		self.contents.removeAll
+	}
+
+	Set { :self |
+		self.contents.keys.Set
 	}
 
 	setContents { :self :aDictionary |
@@ -1966,6 +1997,14 @@ Set : [Object, Collection] {
 
 	isSet { :self |
 		true
+	}
+
+	occurrencesOf { :self :anObject |
+		self.includes(anObject).if {
+			1
+		} {
+			0
+		}
 	}
 
 	pseudoSlotNameArray { :self |
