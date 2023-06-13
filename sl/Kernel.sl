@@ -40,7 +40,6 @@
 		aFraction.aProcedure(Fraction(self, 1))
 	}
 
-
 	benchFib { :self |
 		(self < 2).if {
 			1
@@ -1010,7 +1009,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			aNumber.isFraction.if {
 				self + aNumber.negated
 			} {
-				aNumber.adaptToFractionAndSend(minus:/2)
+				aNumber.adaptToFractionAndApply(self, minus:/2)
 			}
 		}
 	}
@@ -1019,7 +1018,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		aNumber.isFraction.if {
 			self * aNumber.reciprocal
 		} {
-			aNumber.adaptToFractionAndSend(dividedBy:/2)
+			aNumber.adaptToFractionAndApply(self, dividedBy:/2)
 		}
 	}
 
@@ -1390,6 +1389,10 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 		aCollection.collect { :each |
 			aProcedure(each, self)
 		}
+	}
+
+	adaptToFractionAndApply { :self :aFraction :aProcedure:/2 |
+		aFraction.asFloat.aProcedure(self)
 	}
 
 	arcTan { :self :anObject |

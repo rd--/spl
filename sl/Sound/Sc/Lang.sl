@@ -205,6 +205,22 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 }
 
++@Magnitude {
+
+	exclusivelyBetween { :self :lo :hi |
+		(lo < self) & {
+			self < hi
+		}
+	}
+
+	inclusivelyBetween { :self :lo :hi |
+		(lo <= self) & {
+			self <= hi
+		}
+	}
+
+}
+
 +@Number {
 
 	ampComp { :freq :root :exp |

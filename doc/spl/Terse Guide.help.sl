@@ -2,7 +2,7 @@
 6 + 3 = 9 (* addition *)
 6 - 3 = 3 (* subtraction *)
 6 * 3 = 18 (* multiplication *)
-1 + 2 * 3 = 9 (* evaluation always left to right, all operators have equal precedence *)
+1 + 2 * 3 = 9 (* evaluation always left to right, operators equal precedence *)
 1 + 2 * 3 = ((1 + 2) * 3) (* equals predicate is also left to right *)
 1 + (2 * 3) = 7 (* parentheses group sub-expressions *)
 (5 / 3).isInteger.not (* division with fractional result *)
@@ -11,7 +11,7 @@
 5 % 3 = 2 (* modulo *)
 -5 = 5.negated (* unary minus *)
 5.sign = 1 (* numeric sign (1, -1 or 0) *)
-5.negated = -5 (* negate receiver *)
+5.negated = -5 (* negate receiver, unary minus *)
 1.25.truncated = 1 (* integer part of number *)
 1.25.fractionPart = 0.25 (* fractional part *)
 5.reciprocal = (1/5) (* reciprocal function *)
@@ -61,7 +61,9 @@ var n = 100.randomFloat; (n > 0) && { n < 100 } (* random number in (0, self-1) 
 true = true (* constant *)
 false = false (* constant *)
 1 = 1 = true (* equality predicate (operator) *)
-1 ~= 2 = true (* equality predicate (operator) *)
+1 ~= 2 = true (* inequality predicate (operator) *)
+(1 == 1) = true (* identical *)
+(1 ~~ 2) = true (* not identical *)
 true.and { false } = false (* logical and *)
 true.or { false } = true (* logical or *)
 true & { false } = false (* logical and (operator) *)
@@ -81,6 +83,9 @@ nil.isNil = true (* test if object is nil *)
 1.odd = true (* test if number is odd *)
 'A'.isUppercase = true (* test if upper case character *)
 'a'.isLowercase = true (* test if lower case character *)
+false.asBit = 0 (* boolean as bit, false is zero *)
+true.asBit = 1 (* boolean as bit, true is one *)
+true.asInteger > false.asInteger (* boolean as integer, false is zero, true is one *)
 
 'Collection'
 [].isEmpty = true (* is collection empty *)
@@ -122,8 +127,9 @@ pi.isNumber (* pi constant *)
 -1.isNumber (* negative integer constants *)
 -3.14.isNumber (* negative float constants *)
 'Hello'.isString (* string constant *)
-[3, 2, 1].size = 3 (* array constants *)
-['one', 2, 3.141].size = 3 (* mixing of types allowed *)
+'I''m here' isString (* single quote escape *)
+[3, 2, 1].isArray (* array constants *)
+['one', 2, 3.141].isArray (* mixing of types allowed *)
 
 'Floating point'
 1.0 * 3.0 > 3.0 = false (* integral floating point math *)
@@ -132,6 +138,7 @@ pi.isNumber (* pi constant *)
 0.1 * 3.0 = 0.3 = false (* general floating point math *)
 1.0 + 1.0 + 1.0 = 3.0 = true (* integral floating point math *)
 0.1 + 0.1 + 0.1 = 0.3 = false (* general floating point math *)
+'-1.4'.asNumber = -1.4 (* parse float *)
 
 'Fraction'
 Fraction(2, 3).isFraction (* fractional type *)
@@ -143,6 +150,8 @@ Fraction(4, 6) ~= 2:3 (* non-reduced fraction *)
 2:3 + 2:3 = 4:3 (* addition *)
 2:3 + 1:2 = 7:6 (* reduction to common denominator *)
 2:3 + 4:3 = 2 (* addition to integer *)
+1:2 - 1:2 = 0 (* subtraction *)
+3:4 - 1:2 = 1:4 (* subtraction *)
 3:2.ceiling = 2 (* ceiling *)
 -3:2.ceiling = -1 (* ceiling *)
 4:3.denominator = 3 (* denominator *)
@@ -155,6 +164,28 @@ Fraction(4, 6) ~= 2:3 (* non-reduced fraction *)
 9:5.reciprocal = 5:9 (* reciprocal *)
 7:5.squared = 49:25 (* square of *)
 3:2.truncated = 1 (* truncation *)
+1:2 < 0.5 = false
+1:3 > 0.25
+0.5 < 1:2 = false
+0.25 < 1:3
+0.5 < 1:4 = false
+0.5 < 1:2 = false
+0.5 < 3:4
+0.5 <= 1:4 = false
+0.5 <= 1:2
+0.5 <= 3:4
+0.5 > 1:4
+0.5 > 1:2 = false
+0.5 > 3:4 = false
+0.5 >= 1:4
+0.5 >= 1:2
+0.5 >= 3:4 = false
+0.5 = 1:4 = false
+0.5 - 1:2 = 0
+0.5 = 3:4 = false
+0.5 ~= 1:4
+1:2 - 0.5 = 0
+0.5 ~= 3:4
 
 'Procedures (Functions, Blocks)'
 var x = { }; x.isProcedure (* blocks are objects and may be assigned to a variable *)
@@ -165,6 +196,12 @@ var x = { }; x.isProcedure (* blocks are objects and may be assigned to a variab
 { :p1 :p2| p1 ++ ' & ' ++ p2 }.value('x', 'y') = "x & y" (* block with argument passing *)
 { :x | x + 1 }.numArgs = 1 (* the number of arguments can be retrieved *)
 { :x | x := nil }.value(42).isNil (* arguments are mutable *)
+
+'Integral'
+1.isInteger = true (* integer predicate *)
+123.printString = '123' (* integer print string *)
+-987654321.printString = '-987654321' (* negative integer print string *)
+4 / 2 = 2 (* integer division with integer result *)
 
 'Interval'
 Interval(0, 12, 3).asArray = [0, 3, 6, 9, 12] (* elements of interval as array *)
@@ -640,7 +677,7 @@ var d = (f: { :i | i * i }); d::f.value(9) = 81
 [1, 3, 5, 3, 1].Set.includes(7) = false
 [1, 3, 5, 3, 1].Set.Array = [1, 3, 5]
 var s = [1, 3, 5, 3, 1].Set; s.remove(3); s.Array = [1, 5]
-[1 .. 9].Set.atRandom.betweenAnd(1, 9)
+[1 .. 9].Set.atRandom.betweenAnd(1, 9) (* inclusive *)
 var s = Set(); s.add(5); s.includes(5) = true
 var s = ['x', 5].Set; var t = s.copy; t.add(5); s = t
 var s = [1 .. 4].Set; s.includes(s.atRandom) = true
