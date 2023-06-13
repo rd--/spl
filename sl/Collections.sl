@@ -493,6 +493,17 @@
 		[min, max]
 	}
 
+	noneSatisfy { :self :aProcedure:/1 |
+		withReturn {
+			self.do { :each |
+				each.aProcedure.ifTrue {
+					false.return
+				}
+			};
+			true
+		}
+	}
+
 	notEmpty { :self |
 		self.isEmpty.not
 	}
@@ -1311,6 +1322,13 @@
 		}
 	}
 
+	withoutDuplicates { :self |
+		| seen = Set(); |
+		self.select { :each |
+			seen.ifAbsentAdd(each)
+		}
+	}
+
 }
 
 +@Object {
@@ -1931,6 +1949,15 @@ Set : [Object, Collection] {
 			});
 			return null;
 		>
+	}
+
+	ifAbsentAdd { :self :anObject |
+		self.includes(anObject).if {
+			false
+		} {
+			self.add(anObject);
+			true
+		}
 	}
 
 	includes { :self :anObject |

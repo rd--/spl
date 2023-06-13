@@ -293,6 +293,8 @@ var n = 0; [1 .. 4].permutationsDo { :each | n := n + 1}; n = 24 (* permutations
 [1, 9, 2, 8, 3, 7, 4, 6].pairsCollect { :i :j | i + j } = [10, 10, 10, 10]
 var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printString }; s = '10101010'
 var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291'
+[1, 2, 2, 3, 3, 3, 4, 4, 4, 4].withoutDuplicates = [1, 2, 3, 4] (* copy without duplicates, retain order *)
+([1, 3 .. 9] ++ [1, 3 .. 9] ++ [2, 4 .. 10] ++ [2, 4 .. 10]).withoutDuplicates = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
 
 'String'
 'quoted string'.isString (* quoted string *)
@@ -661,6 +663,7 @@ var s = (1 .. 9).Set; s.remove(5); [s.includes(5), s.includes(9)] = [false, true
 var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, t.size = n] = [true, true]
 (1 .. 4).Set.union((5 .. 9).Set) = (1 .. 9).Set
 var s = (1 .. 4).Set; var t = (5 .. 9).Set; var u = s.union(t); u.size = (s.size + t.size)
+(1 .. 5).Set.ifAbsentAdd(3) = false
 
 'Collections-Ordered/Interval'
 (1 .. 9).species = Array:/1
@@ -1013,6 +1016,9 @@ pi.isFinite = true
 (5/3).closeTo(5/3) = true
 (1/3).closeTo(0.3333) = true
 (1/3).closeTo(0.333) = false
+[-1000000000000000, -100, -5, -3, -2, -1, 0, 1].select(isPrime:/1).isEmpty
+[17, 78901, 104729, 15485863, 2038074743].allSatisfy(isPrime:/1)
+[561, 2821, 6601, 10585, 15841, 256, 29996224275831].noneSatisfy(isPrime:/1)
 
 'Kernel-Numbers/LargeInteger'
 23n.typeOf = 'LargeInteger'
