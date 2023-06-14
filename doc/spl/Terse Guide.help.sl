@@ -352,6 +352,7 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString };
 'text'.copyFromTo(2, 3) = 'ex' (* substring, one indexed *)
 'text'.copyFromTo(3 ,3) = 'x' (* substring (single character) *)
 { 'string'.add('!') }.ifError { :err | 'oh oh...' } = 'oh oh...' (* strings are immutable *)
+'quoted string with \'escaped\' quote characters'.words[4].copyFromTo(2, 8) = 'escaped'
 
 'Temporaries'
 var x; x = nil (* uninitialised variables are nil *)

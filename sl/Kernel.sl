@@ -2082,7 +2082,6 @@ String : [Object] {
 		>
 	}
 
-
 	notEmpty { :self |
 		self.isEmpty.not
 	}
@@ -2215,6 +2214,10 @@ String : [Object] {
 
 	utf8 { :self |
 		<primitive: return new TextEncoder().encode(_self.normalize('NFC'));>
+	}
+
+	words { :self |
+		self.splitBy(' ')
 	}
 
 	(* ImmutableSequenceableCollection *)
