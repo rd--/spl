@@ -467,12 +467,16 @@
 		true
 	}
 
+	isEmpty { :self |
+		self.size = 0
+	}
+
 	isIndexable { :self |
 		false
 	}
 
-	isEmpty { :self |
-		self.size = 0
+	isSequenceable { :self |
+		false
 	}
 
 	max { :self |
@@ -617,6 +621,13 @@
 
 	take { :self :maxNumberOfElements |
 		self.any(maxNumberOfElements.min(self.size))
+	}
+
+	withoutDuplicates { :self |
+		| seen = Set(); |
+		self.select { :each |
+			seen.ifAbsentAdd(each)
+		}
 	}
 
 }
@@ -893,21 +904,10 @@
 @SequenceableCollection {
 
 	= { :self :anObject |
-		(anObject.isSequenceable & {
-			self.typeOf == anObject.typeOf & {
-				self.size == anObject.size
+		(self == anObject) | {
+			(self.typeOf == anObject.typeOf) & {
+				self.hasEqualElements(anObject)
 			}
-		}).if {
-			withReturn {
-				self.size.do { :index |
-					(self[index] = anObject[index]).ifFalse {
-						false.return
-					}
-				};
-				true
-			}
-		} {
-			false
 		}
 	}
 
@@ -1083,6 +1083,23 @@
 			written := written + thisWrite
 		};
 		anObject
+	}
+
+	hasEqualElements { :self :otherCollection |
+		(otherCollection.isSequenceable & {
+			self.size = otherCollection.size
+		}).if {
+			withReturn {
+				self.size.do { :index |
+					(self[index] = otherCollection[index]).ifFalse {
+						false.return
+					}
+				};
+				true
+			}
+		} {
+			false
+		}
 	}
 
 	grownBy { :self :length |
@@ -1351,21 +1368,6 @@
 		1.toDo(self. size) { :index |
 			elementAndIndexProcedure(self[index], index)
 		}
-	}
-
-	withoutDuplicates { :self |
-		| seen = Set(); |
-		self.select { :each |
-			seen.ifAbsentAdd(each)
-		}
-	}
-
-}
-
-+@Object {
-
-	isSequenceable { :self |
-		false
 	}
 
 }

@@ -331,6 +331,10 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printSt
 var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291'
 [1, 2, 2, 3, 3, 3, 4, 4, 4, 4].withoutDuplicates = [1, 2, 3, 4] (* copy without duplicates, retain order *)
 ([1, 3 .. 9] ++ [1, 3 .. 9] ++ [2, 4 .. 10] ++ [2, 4 .. 10]).withoutDuplicates = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
+[1 .. 9].hasEqualElements((1 .. 9))
+(1 .. 9).hasEqualElements([1 .. 9])
+[1 .. 9] ~= (1 .. 9)
+(1 .. 9) ~= [1 .. 9]
 
 'String'
 'quoted string'.isString (* quoted string *)
@@ -683,6 +687,7 @@ var d = Dictionary(); d.add('x' -> 1); d.removeKey('x'); d.isEmpty = true
 ::a := 'x' -> 1; [::a.key, ::a.value] = ['x', 1]
 var d = (f: { :i | i * i }); d::f.value(9) = 81
 { Dictionary().removeKey('unknownKey') }.ifError { :err | true }
+(x: 1, y: 1).withoutDuplicates = (x: 1)
 
 'Collections-Unordered/Set'
 [1, 3, 5, 3, 1].Set.isSet = true
