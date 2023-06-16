@@ -6,7 +6,7 @@
 
 	at { :self :index |
 		<primitive:
-			if(sl.arrayCheckIndex(_self, _index - 1)) {
+			if(sl.arrayCheckIndex(_self, _index)) {
 				return _self[_index - 1];
 			}
 		>
@@ -21,7 +21,7 @@
 
 	atIfPresentIfAbsent { :self :index :ifPresent:/1 :ifAbsent:/0 |
 		<primitive:
-			if(sl.arrayCheckIndex(_self, _index - 1)) {
+			if(sl.arrayCheckIndex(_self, _index)) {
 				return _ifPresent_1(_self[_index - 1]);
 			} {
 				return _ifAbsent_0();
@@ -31,7 +31,7 @@
 
 	atPut { :self :index :anObject |
 		<primitive:
-			if(sl.arrayCheckIndex(_self, _index - 1)) {
+			if(sl.arrayCheckIndex(_self, _index)) {
 				_self[_index - 1] = _anObject;
 				return _anObject;
 			}
@@ -1632,10 +1632,12 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 Float64Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 	atPut { :self :index :aFloat |
-		<primitive: if(sl.arrayCheckIndex(_self, _index - 1) && sl.isSmallFloat(_aFloat)) {
-			_self[_index - 1] = _aFloat;
-			return _aFloat;
-		}>
+		<primitive:
+			if(sl.arrayCheckIndex(_self, _index) && sl.isSmallFloat(_aFloat)) {
+				_self[_index - 1] = _aFloat;
+				return _aFloat;
+			}
+		>
 		self.indexError(index)
 	}
 

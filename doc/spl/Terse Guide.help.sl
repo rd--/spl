@@ -71,6 +71,8 @@ true | { false } = true (* logical or (operator) *)
 true.ifTrue { 'T' } = 'T' (* if then, c.f. conditional statements *)
 false.if { 'T' } { 'F' } = 'F' (* if then else (do) *)
 true.if { 'T' } { 'F' } = 'T' (* if then else (value) *)
+true.not = false (* not *)
+false.not = true (* not *)
 true.not.not = true (* not *)
 1.isNumber = true (* test if object is a number *)
 1.isInteger = true (* test if object is an integer *)
@@ -86,9 +88,29 @@ nil.isNil = true (* test if object is nil *)
 false.asBit = 0 (* boolean as bit, false is zero *)
 true.asBit = 1 (* boolean as bit, true is one *)
 true.asInteger > false.asInteger (* boolean as integer, false is zero, true is one *)
+true.printString = 'true'
+false.printString = 'false'
+true.typeOf = 'Boolean'
+false.typeOf = 'Boolean'
+true.isInteger.not
+
+'Booleans/Equality'
+true = true
+true ~= false
+false ~= true
+false == false
+true ~= 1
+false ~= 0
+true ~= 'true'
+false ~= 'false'
+false ~= ''
+false ~= nil
+(true ~= true) = false
+(false ~= false) = false
 
 'Collection'
 [].isEmpty = true (* is collection empty *)
+[].size = 0
 [1, 2, 3] = [1, 2, 3] (* are collections equal *)
 [9, 4, 5, 7, 8, 6].size = 6 (* size of collection *)
 [9, 4, 5, 7, 8, 6].max = 9 (* maximum item in collection *)
@@ -98,7 +120,8 @@ true.asInteger > false.asInteger (* boolean as integer, false is zero, true is o
 [9, 4, 5, 7, 8, 6].product = 60480 (* product of collection *)
 [9, 4, 5, 7, 8, 6].injectInto(0) { :z :e | e + z } = 39 (* sum of collection *)
 [9, 4, 5, 7, 8, 6].injectInto(1) { :z :e | e * z } = 60480 (* product of collection *)
-[9, 4, 5, 7, 8, 6].includes(7) = true (* is element in collection *)
+[9, 4, 5, 7, 8, 6].includes(7) = true (* is element in collection, i.e. contains *)
+[9, 4, 5, 7, 8, 6].includes(3) = false (* is element in collection *)
 [9, 4, 5, 7, 8, 6].count { :item | item.even } = 3 (* count elements that satisfy predicate *)
 [9, 4, 5, 7, 8, 6].anySatisfy { :item | item.even } = true (* do any elements satisfy predicate *)
 [9, 4, 5, 7, 8, 6].allSatisfy { :item | item.even } = false (* do all elements satisfy predicate *)
@@ -195,6 +218,15 @@ var x = { }; x.isProcedure (* blocks are objects and may be assigned to a variab
 { :p1 :p2| p1 ++ ' & ' ++ p2 }.value('x', 'y') = 'x & y' (* block with argument passing *)
 { :x | x + 1 }.numArgs = 1 (* the number of arguments can be retrieved *)
 { :x | x := nil }.value(42).isNil (* arguments are mutable *)
+{ } ~=  { } (* inequality *)
+({ } = { }).not (* inequality *)
+{ 1 } ~=  { 1 } (* inequality *)
+{ 1 } ~= 1 (* inequality *)
+{ } ~~ { } (* non-identity *)
+var f = { }; f == f (* identity *)
+{ }.printString = 'Procedure'
+{ :x | x }.printString = 'Procedure'
+{ }.typeOf = 'Procedure'
 
 'Integral'
 1.isInteger = true (* integer predicate *)
@@ -275,6 +307,10 @@ inf.isNumber (* constant positive infinity (is a number) *)
 3.squared = 9 (* x * x *)
 pi.radiansToDegrees = 180 (* radiansToDegrees *)
 
+'Method'
+{ true + false }.ifError { :err | true } (* boolean does not implement + *)
+var f = { :x :y | x + y }; { f(true, false) }.ifError { :err | true } (* boolean does not implement + *)
+
 'Nil'
 nil.typeOf = 'UndefinedObject' (* nil *)
 nil ? 'x' = 'x' (* right hand side if nil *)
@@ -335,6 +371,9 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString };
 (1 .. 9).hasEqualElements([1 .. 9])
 [1 .. 9] ~= (1 .. 9)
 (1 .. 9) ~= [1 .. 9]
+[1.5 .. 9.5].middle = 5.5 (* range start need not be an integer *)
+var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
+{ [1 .. 5].swapWith(1, 9) }.ifError { :err | true }
 
 'String'
 'quoted string'.isString (* quoted string *)
@@ -348,6 +387,7 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString };
 'string'.isEmpty = false (* is empty string *)
 'string'.size = 6 (* length *)
 ['m', 'ss', 'ss', 'pp', ''].join = 'msssspp' (* join *)
+[].join = '' (* join of empty sequence is the empty string *)
 ['m', 'ss', 'ss', 'pp', ''].joinSeparatedBy('i') = 'mississippi' (* join using string *)
 'mississippi'.splitBy('i') = ['m', 'ss', 'ss', 'pp', ''] (* split at string *)
 'str ing'.splitBy(' ') = ['str', 'ing'] (* split at char *)
@@ -418,12 +458,14 @@ var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5
 var i = 1; { i < 5 }.whileTrue { i := i + 1 }; i = 5
 var i = 1; 1.toDo(3) { :each | i := i + each.squared } ; i = 15
 var i = 1; 3.do { :each | i := i + each.squared } ; i = 15
-{ }.numArgs = 0
+{ }.numArgs = 0 (* procedure arity *)
 { :x | x }.numArgs = 1
 { :i :j | i }.numArgs = 2
-collect:/2.numArgs = 2
-{ { :i | i = nil }.value }.ifError { :err | true }
-{ { :x | 0 - x }.value(3, 4) = -3 }.ifError { :err | true }
+{ :i :j :k | i }.numArgs = 3
+{ :i :j :k :l | i }.numArgs = 4
+collect:/2.numArgs = 2 (* method arity *)
+{ { :i | i = nil }.value }.ifError { :err | true } (* too few arguments *)
+{ { :x | 0 - x }.value(3, 4) = -3 }.ifError { :err | true } (* too many arguments *)
 collect:/2.name = 'collect:/2'
 var f = { :x | x * x }; [f(5), f.(5)] = [25, 25]
 var f = { :x | x * x }; var d = (p: f); d::p.value(5) = 25
@@ -435,6 +477,7 @@ var f = { :x | x * x }; var d = (p: f); d::p.value(5) = 25
 var f = { :x | x * x }; f(3) = 9
 { var f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49] }.ifError { :err | true }
 var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
+{ :x | x * x }.map([3, 5, 7]) = [9, 25, 49] (* map is flipped collect *)
 typeOf:/1.typeOf = 'Procedure'
 { :x :y | x * y + y }.apply([3.141, 23]) = 95.243
 { { :x | x }.apply(0) }.ifError { :err | true }
@@ -541,7 +584,7 @@ var a = Array(1); a.unsafeAtPut(3, 'x') = 'x' & { a.size = 3 }
 Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(even:/1) = 4
 [nil, true, false, 3.141, 23, 'str'].json = '[null,true,false,3.141,23,"str"]'
- '[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str']
+'[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str']
 [1, 2, 3].select { :x | x > 1 } = [2, 3]
 [1, 2, 3].reject { :x | x > 1 } = [1]
 (1 .. 9).collect{ :x | x * x }.last = 81
@@ -578,6 +621,9 @@ Array(9).atAllPut('x').last = 'x'
 [1 .. 9].collect { :each | 10 - each } = [9 .. 1]
 [1, 2, 3] ++ [4, 5, 6] = [ 1, 2, 3, 4, 5, 6 ]
 [1 .. 5].reversed = [5 .. 1]
+var c = [1 .. 5]; { c[1.5] }.ifError { :err | true } (* index not an integer *)
+var c = [1 .. 5]; { c['1'] }.ifError { :err | true } (* index not an integer *)
+{ [1 .. 5].not }.ifError { :err | true } (* cannot be negated *)
 
 'Collections-Unordered/Association'
 ('x' -> 1).typeOf = 'Association'
@@ -682,12 +728,17 @@ var d = Dictionary(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2
 var d = ['x' -> 1, 'y' -> 2].Dictionary; d.keys = ['x', 'y']
 var d = ['x' -> 1, 'y' -> 2].Dictionary; d.values = [1, 2]
 var d = ['x' -> 1, 'y' -> 2].Dictionary; d.at('x') = 1
+var d = ['x' -> 1, 'y' -> 2].Dictionary; d['x'] = 1
 var d = Dictionary(); d.add('x' -> 1); d.removeKey('x'); d.isEmpty = true
+var d = Dictionary(); d['x'] := 1; d['x'] = 1
+var d = Dictionary(); d[1] := 'x'; d[1] = 'x'
+var d = Dictionary(); d['x'] := 1; d.removeKey('x'); d.isEmpty = true
 ::x := 4; ::x * ::x = 16
 ::a := 'x' -> 1; [::a.key, ::a.value] = ['x', 1]
 var d = (f: { :i | i * i }); d::f.value(9) = 81
 { Dictionary().removeKey('unknownKey') }.ifError { :err | true }
 (x: 1, y: 1).withoutDuplicates = (x: 1)
+var d = Dictionary(); 100.do { :i | d[i] := i; (i > 10).ifTrue { d.removeKey(i - 10) } }; d.size = 10
 
 'Collections-Unordered/Set'
 [1, 3, 5, 3, 1].Set.isSet = true
@@ -786,6 +837,9 @@ var l = []; l.addFirst(1); l.addFirst(2); l = [2, 1]
 var l = []; l.addLast(1); l.addLast(2); l = [1, 2]
 var l = []; 5.do { :each | l.add(each) }; l = [1 .. 5]
 var l = [1 .. 9]; l.removeLast = 9 & { l.size = 8 }
+var l = [1]; l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6]
+[1].add(2) = 2 (* answer is argument *)
+[1].addAll([2, 3]) = [2, 3] (* answer is argument *)
 var l = [1, 2, 3]; l.addAllLast(4.to(5)); l = [1 .. 5]
 var l = [4, 5]; l.addAllFirst(1.to(3)); l = [1 .. 5]
 13.fibonacciSequence = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
@@ -793,6 +847,7 @@ var c = [1 .. 5]; [c.removeAt(1), c] = [1, [2, 3, 4, 5]]
 var c = [1 .. 5]; [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
 var c = [1 .. 5]; [c.removeFirst(3), c] = [[1, 2, 3], [4, 5]]
 var c = [1 .. 5]; [c.removeLast(3), c] = [[3, 4, 5], [1, 2]]
+var c = [1 .. 5]; c.removeAll; c = []
 
 'Collections-Ordered/PriorityQueue'
 PriorityQueue().isPriorityQueue = true

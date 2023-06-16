@@ -374,8 +374,9 @@ export function methodName(name: string): MethodName {
 	return isOperatorName(name) ? operatorMethodName(name) : name;
 }
 
+/* spl = one-indexed.  The index is not decremented because in Js '1' - 1 is 0 &etc. */
 export function arrayCheckIndex(anArray: unknown[], anInteger: number): boolean {
-	return Number.isInteger(anInteger) && anInteger >= 0 && anInteger < anArray.length;
+	return Number.isInteger(anInteger) && anInteger >= 1 && anInteger <= anArray.length;
 }
 
 /* https://github.com/Aisse-258/bigint-isqrt */
