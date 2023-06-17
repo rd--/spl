@@ -927,6 +927,14 @@
 		self.copyFromTo(n + 1, self.size)
 	}
 
+	allButLast { :self |
+		self.allButLast(1)
+	}
+
+	allButLast { :self :n |
+		self.copyFromTo(1, self.size - n)
+	}
+
 	asDigitsAtInDo { :self :anInteger :aCollection :aBlock:/1 |
 		self.do { :each |
 			aCollection[anInteger] := each;
@@ -1063,6 +1071,18 @@
 			self.swapWith(item, randomInteger(1, item))
 		};
 		self
+	}
+
+	flatten { :self |
+		| answer = []; |
+		self.do { :item |
+			item.isCollection.if {
+				answer.addAll(item.flatten)
+			} {
+				answer.add(item)
+			}
+		};
+		answer
 	}
 
 	fromToPut { :self :startIndex :endIndex :anObject |
@@ -2253,6 +2273,16 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 		self.addLast(anObject)
 	}
 
+	addAfter { :self :newObject :oldObject |
+		| index = self.indexOf(oldObject); |
+		self.insertAt(newObject, index + 1)
+	}
+
+	addBefore { :self :newObject :oldObject |
+		| index = self.indexOf(oldObject); |
+		self.insertAt(newObject, index)
+	}
+
 	addAllFirst { :self :aCollection |
 		self.addArrayFirst(aCollection.Array)
 	}
@@ -2275,6 +2305,10 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
 	addLast { :self :anObject |
 		<primitive: return _self.push(_anObject);>
+	}
+
+	insertAt { :self :anObject :index |
+		<primitive: _self.splice(_index - 1, 0, _anObject); return _anObject;>
 	}
 
 	ofSize { :self :aNumber |

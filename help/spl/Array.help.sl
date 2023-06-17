@@ -11,6 +11,8 @@ The array is of variable size, elements can be added at the start, at the end, o
 
 Array implements _Collection_, _SequencableCollection_ and _ArrayedCollection_.
 
+- addAfter(self, oldObject, newObject): Add the argument, newObject, as an element of the receiver. Put it in the sequence just succeeding oldObject. Answer newObject.
+
 * * *
 
 See also: _ByteArray_, _Float64Array_

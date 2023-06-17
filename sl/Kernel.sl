@@ -107,6 +107,10 @@
 		}
 	}
 
+	isCoprime { :self :anInteger |
+		self.gcd(anInteger) = 1
+	}
+
 	isInteger { :self |
 		self.subclassResponsibility
 	}
@@ -226,6 +230,18 @@
 		} {
 			false
 		}
+	}
+
+	clamp { :self :lowMagnitude :highMagnitude |
+		self.min(highMagnitude).max(lowMagnitude)
+	}
+
+	clampLow { :self :lowMagnitude |
+		self.max(lowMagnitude)
+	}
+
+	clampHigh { :self :highMagnitude |
+		self.min(highMagnitude)
 	}
 
 	inRangeOfAnd { :self :first :second |
@@ -562,7 +578,7 @@
 	}
 
 	typeOf { :self |
-		<primitive: return sl.typeOf(_self)>
+		<primitive: return sl.typeOf(_self);>
 	}
 
 	value { :self |
@@ -1464,22 +1480,22 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 		}
 	}
 
-	closeTo { :self :aNumber |
+	closeToBy { :self :aNumber :epsilon |
 		aNumber.isNumber.not.if {
 			{ self = aNumber }.ifError { false }
 		} {
 			(self = 0).if {
-				aNumber.abs < 0.0001
+				aNumber.abs < epsilon
 			} {
 				(aNumber = 0).if {
-					self.abs < 0.0001
+					self.abs < epsilon
 				} {
 					(self = aNumber.asFloat) | {
 						| z = self.abs; |
-						(z < 0.0001).if {
-							aNumber.abs < 0.0001
+						(z < epsilon).if {
+							aNumber.abs < epsilon
 						} {
-							(self - aNumber).abs / (z.max(aNumber.abs)) < 0.0001
+							(self - aNumber).abs / (z.max(aNumber.abs)) < epsilon
 						}
 					}
 				}
@@ -1487,12 +1503,20 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 		}
 	}
 
+	closeTo { :self :aNumber |
+		self.closeToBy(aNumber, 0.0001)
+	}
+
 	cos { :self |
-		<primitive: return Math.cos(_self)>
+		<primitive: return Math.cos(_self);>
 	}
 
 	cosh { :self |
-		<primitive: return Math.cosh(_self)>
+		<primitive: return Math.cosh(_self);>
+	}
+
+	cubeRoot { :self |
+		<primitive: return Math.cbrt(_self);>
 	}
 
 	even { :self |
@@ -1539,6 +1563,10 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 		<primitive: return JSON.stringify(_self);>
 	}
 
+	LargeInteger { :self |
+		<primitive: return BigInt(_self);>
+	}
+
 	log { :self |
 		<primitive: return Math.log(_self)>
 	}
@@ -1559,6 +1587,10 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 	max { :self :anObject |
 		<primitive: if(sl.isSmallFloat(_anObject)) { return Math.max(_self, _anObject); }>
 		anObject.adaptToNumberAndApply(self, max:/2)
+	}
+
+	Number { :self |
+		self
 	}
 
 	odd { :self |
@@ -1651,12 +1683,8 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 		<primitive: return Math.trunc(_self)>
 	}
 
-	LargeInteger { :self |
-		<primitive: return BigInt(_self);>
-	}
-
-	Number { :self |
-		self
+	veryCloseTo { :self :aNumber |
+		self.closeToBy(aNumber, 0.000000000001)
 	}
 
 }
@@ -1983,7 +2011,8 @@ String : [Object] {
 	}
 
 	beginsWith { :self :aString |
-		<primitive: return _self.startsWith(_aString);>
+		<primitive: if(typeof _aString == 'string') { return _self.startsWith(_aString); }>
+		'String>>beginsWith: non string operand'.error
 	}
 
 	capitalized { :self |
@@ -1996,6 +2025,11 @@ String : [Object] {
 
 	copyFromTo { :self :start :end |
 		<primitive: return _self.substring(_start - 1, _end);>
+	}
+
+	endsWith { :self :aString |
+		<primitive: if(typeof _aString == 'string') { return _self.endsWith(_aString); }>
+		'String>>endsWith: non string operand'.error
 	}
 
 	evaluate { :self |
@@ -2214,6 +2248,18 @@ String : [Object] {
 
 	utf8 { :self |
 		<primitive: return new TextEncoder().encode(_self.normalize('NFC'));>
+	}
+
+	withBlanksTrimmed { :self |
+		<primitive: return _self.trim();>
+	}
+
+	withoutLeadingBlanks { :self |
+		<primitive: return _self.trimStart();>
+	}
+
+	withoutTrailingBlanks { :self |
+		<primitive: return _self.trimEnd();>
 	}
 
 	words { :self |

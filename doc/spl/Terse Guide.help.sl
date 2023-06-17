@@ -9,6 +9,9 @@
 5 / 2 = 2.5 (* division with float result *)
 5 // 3 = 1 (* integer divide *)
 5 % 3 = 2 (* modulo *)
+[10 % 5, -4 % 3, 4 % -3, -4 % -3] = [0, 2, -2, -1] (* modulo, negative operands *)
+13 % 7 % 4 = 2 (* left assocative *)
+13 + 1 % 7 = 0 (* equal precedence *)
 -5 = 5.negated (* unary minus *)
 5.sign = 1 (* numeric sign (1, -1 or 0) *)
 5.negated = -5 (* negate receiver, unary minus *)
@@ -17,11 +20,14 @@
 5.reciprocal = (1/5) (* reciprocal function *)
 6 * 3.1 = 18.6 (* auto convert to float *)
 5.squared = 25 (* square function *)
-25.sqrt = 5.0 (* square root *)
+25.sqrt = 5 (* square root *)
+-1.sqrt.isNaN (* square root of a negative number is not a number *)
 5.0 ** 2.0 = 25.0 (* power function *)
 5 ** 2 = 25 (* power function with integer *)
-1.exp.closeTo(2.718281828459) (* exponential *)
+1.exp.veryCloseTo(2.718281828459) (* exponential *)
 -5.abs = 5 (* absolute value *)
+0.abs = 0 & { 5.abs = 5 } (* absolute value of zero and positive numbers *)
+-0 = 0 (* negative zero is equal to zero *)
 3.99.rounded = 4 (* round ; c.f. rounded *)
 3.99.truncated = 3 (* truncate *)
 3.99.roundTo(1) = 4.0 (* round to specified decimal places ; c.f. roundTo: *)
@@ -32,19 +38,50 @@
 5.factorial = 120 (* factorial *)
 28.gcd(12) = 4 (* greatest common denominator *)
 28.lcm(12) = 84 (* least common multiple *)
-1.0.exp.log = 1.0 (* natural logarithm *)
+1.exp.log = 1 (* natural logarithm *)
+3.log = 1.0986122886681096
+100.log = 4.605170185988092
+-1.log.isNaN
 100.log10 = 2.0 (* base 10 logarithm *)
+1024.log2 = 10 (* base 2 logarithm *)
+2048.log2 = 11
+100.log2 = 6.643856189774724
+-1.log2.isNaN
 180.degreesToRadians = pi (* convert degrees to radians *)
 pi.radiansToDegrees = 180 (* convert radians to degrees *)
 (pi / 2).sin = 1.0 (* sine *)
 0.0.cos = 1.0 (* cosine *)
+0.cos = 1
+pi.cos = -1
+(2 * pi).cos = 1
+(pi / 2).cos.veryCloseTo(0)
 0.0.tan = 0.0 (* tangent *)
 10.max(20) = 20 (* get maximum of two numbers *)
 10.min(20) = 10 (* get minimum of two numbers *)
-pi.closeTo(3.141592653589793) (* pi = 3.141592653589793 *)
-1.exp.closeTo(2.718281828459) (* e = 2.718281828459 *)
+pi.veryCloseTo(3.141592653589793) (* pi = 3.141592653589793 *)
+1.exp.veryCloseTo(2.718281828459) (* e = 2.718281828459 *)
 var n = 100.randomFloat; (n > 0) && { n < 100 } (* random number in (0, self-1) *)
 4 + 5 * 6 = 54 (* operators are evaluated left to right *)
+0.acos = (pi / 2) (* arc cosine *)
+1.acos = 0
+-1.acos = pi
+0.asin = 0 (* arc sine *)
+1.asin =(pi / 2)
+-1.asin = (pi / 2).negated
+0.atan2(0) = 0
+0.atan2(1) = 0
+1.atan2(0) = (pi / 2)
+{ 1.atan2(nil) }.ifError { :err | true } (* operand not adaptable to number *)
+8.cubeRoot = 2 (* nthRoot 3 *)
+1000000.cubeRoot = 100
+1.cubeRoot = 1
+-0.cubeRoot = -0
+0.cubeRoot = 0
+-2.cubeRoot = -1.2599210498948732
+3 / 0 = inf (* division by zero is infinity *)
+-3 / 0 = inf.negated
+(0 / 0).isNaN (* division of zero by zero is NaN *)
+1.isNaN = false (* one is a number *)
 
 'Bitwise Manipulation'
 2.bitAnd(3) = 2 (* and bits *)
@@ -56,6 +93,9 @@ var n = 100.randomFloat; (n > 0) && { n < 100 } (* random number in (0, self-1) 
 (1 .. 4).select { :bit | 6.bitTest(bit) } = [2, 3] (* bit at position (0|1) [!Squeak] *)
 2 << 3 = 16 (* left shift operator *)
 16 >> 3 = 2 (* right shift operator *)
+{ 1.bitAnd(nil) }.ifError { :err | true } (* operand not adaptable to number *)
+{ 1 << nil }.ifError { :err | true } (* operand not adaptable to number *)
+0.bitAnd(0) = 0 (* and bits *)
 
 'Booleans'
 true = true (* constant *)
@@ -124,7 +164,9 @@ false ~= nil
 [9, 4, 5, 7, 8, 6].includes(3) = false (* is element in collection *)
 [9, 4, 5, 7, 8, 6].count { :item | item.even } = 3 (* count elements that satisfy predicate *)
 [9, 4, 5, 7, 8, 6].anySatisfy { :item | item.even } = true (* do any elements satisfy predicate *)
+[].anySatisfy { :item | true } = false
 [9, 4, 5, 7, 8, 6].allSatisfy { :item | item.even } = false (* do all elements satisfy predicate *)
+[].allSatisfy { :item | false } = true
 [9, 4, 5, 7, 8, 6].occurrencesOf(7) = 1 (* count elements that are equal to object *)
 [1, 2, 3, 4, 5].atRandom <= 5 (* random element of collection *)
 
@@ -247,13 +289,16 @@ Interval(5, 10, 2).last = 9 (* create interval object with specified increment *
 5.toBy(10, 2).last = 9 (* interval from 5 to 10 by 2 *)
 (1 .. 5).isEmpty.not (* test if empty *)
 (1 .. 5).size = 5 (* number of elements *)
-(1 .. 9).includes(9) (* test if element is in collection *)
+(1 .. 9).includes(9) (* test if element is in collection, interval is inclusive *)
+(1 .. 9).includes(11).not
 (1 .. 9).select { :item | item > 7 } = [8, 9] (* return elements that pass test *)
 (1 .. 9).reject { :item | item < 7 } = [7, 8, 9] (* return elements that fail test *)
 (1 .. 9).collect { :item | item + item }.last = 18 (* transform each element *)
 (1 .. 9).detect { :item | item > 3 } = 4 (* find position of first element that passes test *)
 (1 .. 9).injectInto(0) { :sum :item | sum + item } = 45(* sum elements *)
 (1 .. 9).asArray = [1 .. 9] (* convert to array *)
+(1 .. 9) = (1 .. 9) (* equality *)
+(1 .. 9) ~= (9 .. 1) (* inequality *)
 (1 .. 9) ~= [1 .. 9] (* intervals are not equal to arrays *)
 10.toBy(90, 10).includes(30)
 10.toBy(90, 10) = (10, 20 .. 90)
@@ -264,6 +309,9 @@ Interval(5, 10, 2).last = 9 (* create interval object with specified increment *
 (5, 3 .. 1).asArray = [5, 3 .. 1]
 5.downTo(1).asArray = [5, 4, 3, 2, 1]
 5.toBy(1, -2).asArray = [5, 3, 1]
+(1.5 .. 4.5).Array = [1.5, 2.5, 3.5, 4.5] (* non-integer start and end *)
+(1 .. 9).min = 1 & { (9 .. 1).min = 1 } (* minima *)
+(1 .. 9).max = 9 & { (9 .. 1).max = 9 } (* maxima *)
 
 'Iteration'
 var n = 0; 4.timesRepeat { n := n + 1 }; n = 4 (* times repeat loop (int) *)
@@ -277,10 +325,23 @@ var n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 (* while loop *)
 
 'Magnitude'
 1 < 3 = true (* less than *)
-3 <= 3 = true (* less than or equal to *)
+2 < 2 = false
+3 < 1 = false
+1 <= 3 = true (* less than or equal to *)
+2 <= 2 = true
+3 <= 1 = false
 3 > 1 = true (* greater than *)
-1 >= 1 = true (* greater than or equal to *)
+2 > 2 = false
+1 > 3 = false
+3 >= 1 = true (* greater than or equal to *)
+2 >= 2 = true
+1 >= 3 = false
 2 = 2 = true (* equal to *)
+4.clamp(0, 10) = 4
+4.clamp(0, 1) = 1
+2.clamp(0, 1) = 1
+-1.clamp(0, 1) = 0
+-1.clamp(-20, 0) = -1
 
 'Math'
 -3.abs = 3 (* absolute value *)
@@ -288,7 +349,7 @@ var n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 (* while loop *)
 0.cos = 1 (* cosine *)
 180.degreesToRadians = pi (* degreesToRadians *)
 2.even = true (* eveness predicate *)
-1.exp.closeTo(2.718281828459045) (* base e exponent function *)
+1.exp.veryCloseTo(2.718281828459045) (* base e exponent function *)
 1.5.floor = 1 (* floor (round down) *)
 1.exp.log = 1 (* base e (natural) logarithm *)
 1.2.isNumber = true (* is x a number *)
@@ -298,7 +359,7 @@ var n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 (* while loop *)
 1.min(2) = 1 (* minimum *)
 3.negated = -3 (* negation *)
 3.odd = true (* oddness predicate *)
-pi.closeTo(3.1415926535898) (* constant pi (Float pi) *)
+pi.veryCloseTo(3.1415926535898) (* constant pi (Float pi) *)
 inf.isNumber (* constant positive infinity (is a number) *)
 2 ** 3 = 8 (* i to the power of j *)
 5.reciprocal = 0.2 (* 1 / x *)
@@ -306,6 +367,7 @@ inf.isNumber (* constant positive infinity (is a number) *)
 9.sqrt = 3 (* square root *)
 3.squared = 9 (* x * x *)
 pi.radiansToDegrees = 180 (* radiansToDegrees *)
+{ 1 / nil }.ifError { :err | true } (* operand not apatable to number *)
 
 'Method'
 { true + false }.ifError { :err | true } (* boolean does not implement + *)
@@ -342,7 +404,7 @@ inf.isNumber (* constant (infinity) *)
 'aabbcc'.matchesRegExp('^b+c+').not
 'aabbcc'.matchesRegExp('a+b+c+')
 
-'SequenceableCollection'
+'@SequenceableCollection'
 [1, 3, 2] ++ [4, 5] = [1, 3, 2, 4, 5] (* append sequences *)
 [1, 3, 2, 4, 5].reversed = [5, 4, 2, 3, 1] (* reverse sequence *)
 [1, 3, 2, 4, 5].sorted = [1, 2, 3, 4, 5] (* sort using default comparison *)
@@ -374,6 +436,9 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString };
 [1.5 .. 9.5].middle = 5.5 (* range start need not be an integer *)
 var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 { [1 .. 5].swapWith(1, 9) }.ifError { :err | true }
+[1, [2, [3, [4, [5], 6], 7], 8], 9].flatten = [1 .. 9]
+[1 .. 9].rotateLeft(3) = ([4 .. 9] ++ [1 .. 3]) (* rotate left *)
+[1 .. 9].rotateRight(3) = ([7 .. 9] ++ [1 .. 6]) (* rotate right *)
 
 'String'
 'quoted string'.isString (* quoted string *)
@@ -391,12 +456,16 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 ['m', 'ss', 'ss', 'pp', ''].joinSeparatedBy('i') = 'mississippi' (* join using string *)
 'mississippi'.splitBy('i') = ['m', 'ss', 'ss', 'pp', ''] (* split at string *)
 'str ing'.splitBy(' ') = ['str', 'ing'] (* split at char *)
-'a b=2'.splitBy(' ').collect { :e | e.splitBy('=') }[2][2] = '2'(* split as parser *)
+'a b=2'.splitBy(' ').collect { :e | e.splitBy('=') }[2][2] = '2' (* split as parser *)
+'string'.splitBy('ing') = ['str', '']
+'string'.splitBy('trin') = ['s', 'g']
+'string'.splitBy('absent') = ['string']
 'a' < 'b' = true (* string comparison *)
 'text'.copyFromTo(2, 3) = 'ex' (* substring, one indexed *)
 'text'.copyFromTo(3 ,3) = 'x' (* substring (single character) *)
 { 'string'.add('!') }.ifError { :err | 'oh oh...' } = 'oh oh...' (* strings are immutable *)
 'quoted string with \'escaped\' quote characters'.words[4].copyFromTo(2, 8) = 'escaped'
+'øéஃî'.utf8 = [195, 184, 195, 169, 224, 174, 131, 195, 174].ByteArray (* unicode *)
 
 'Temporaries'
 var x; x = nil (* uninitialised variables are nil *)
@@ -407,7 +476,7 @@ var x; var y = 0, z; [x, y, z] = [nil, 0, nil] (* there can be multiple var sequ
 'text'[3].toUppercase = 'X' (* c[k] is syntax for c.at(k) *)
 var x = [1 .. 5]; x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, v) *)
 
-'Dictionary syntax'
+'StringDictionary syntax'
 (x: 1, y: 2) = ['x' -> 1, 'y' -> 2].Dictionary (* (x: 1, ...) is dictionary syntax *)
 () = [].Dictionary (* empty dictionary *)
 
@@ -522,7 +591,7 @@ Array(3).size = 3
 var a = [1, 2, 3]; a == a = true
 [1, 2, 3].isArray = true
 4 * [1, 2, 3] = [4, 8, 12]
- [1, 3, 5, 7].reversed = [7, 5, 3, 1]
+[1, 3, 5, 7].reversed = [7, 5, 3, 1]
 var a = [1, 3, 5, 7]; a.reverseInPlace; a = [7, 5, 3, 1]
 [1, 2, 3, 5, 7, 9].sum = 27
 [1, 2, 3].reduce { :a :b | a + b } = 6
@@ -576,6 +645,10 @@ var [x, y] = { var n = system.randomFloat; [n, n] }.value; x = y
 [1, 2, 3].printString = '[1, 2, 3]'
 [1 .. 9].allButFirst = [2 .. 9]
 [1 .. 9].allButFirst(7) = [8, 9]
+{ [].allButFirst }.ifError { :err | true }
+[1 .. 9].allButLast = [1 .. 8]
+[1 .. 9].allButLast(7) = [1, 2]
+{ [].allButLast }.ifError { :err | true }
 { var a = Array(1); a.at(3) }.ifError { :err | true }
 var a = Array(1); a[1].isNil = true
 var a = Array(1); a.unsafeAt(3).isNil = true
@@ -624,6 +697,9 @@ Array(9).atAllPut('x').last = 'x'
 var c = [1 .. 5]; { c[1.5] }.ifError { :err | true } (* index not an integer *)
 var c = [1 .. 5]; { c['1'] }.ifError { :err | true } (* index not an integer *)
 { [1 .. 5].not }.ifError { :err | true } (* cannot be negated *)
+var a = [1, 2, 4]; a.insertAt(3, 3); a = [1 .. 4] (* insert value at index *)
+var a = [1, 2, 4]; a.addAfter(3, 2); a = [1 .. 4] (* insert value after existing value *)
+var a = [1, 2, 4]; a.addBefore(3, 4); a = [1 .. 4] (* insert value before existing value *)
 
 'Collections-Unordered/Association'
 ('x' -> 1).typeOf = 'Association'
@@ -739,6 +815,7 @@ var d = (f: { :i | i * i }); d::f.value(9) = 81
 { Dictionary().removeKey('unknownKey') }.ifError { :err | true }
 (x: 1, y: 1).withoutDuplicates = (x: 1)
 var d = Dictionary(); 100.do { :i | d[i] := i; (i > 10).ifTrue { d.removeKey(i - 10) } }; d.size = 10
+var c = Dictionary(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.removeKey(1); c.includesKey(1) = false
 
 'Collections-Unordered/Set'
 [1, 3, 5, 3, 1].Set.isSet = true
@@ -858,11 +935,14 @@ var p = PriorityQueue(); p.pushAll(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 &
 var p = PriorityQueue(); p.peekPriority = nil
 
 'Collections-Unordered/StringDictionary'
+().typeOf = 'StringDictionary'
+().isStringDictionary
 ().species = StringDictionary:/0
 StringDictionary().isStringDictionary
 StringDictionary().includesKey('x') = false
 (x: 1).includesKey('x') = true
-StringDictionary().at('x') = nil
+StringDictionary().at('x') = nil (* lookup for non-existing key answers nil *)
+()['x'] = nil (* lookup for non-existing key answers nil *)
 var d = StringDictionary(); d.atPut('x', 1); d.at('x') = 1
 var d = StringDictionary(); d['x'] := 1; d['x'] = 1
 var d = StringDictionary(); d['x'] := 1; d['y'] := 2; d.size = 2
@@ -925,10 +1005,11 @@ RegExp('x.x', 'g').printString.size = 18
 'ascii'.ascii = 'ascii'.utf8
 'ascii'.ascii.ascii = 'ascii'
 { '€'.ascii }.ifError { :err | true }
+'the quick brown fox jumps'.includesSubstring('') = true
 'the quick brown fox jumps'.includesSubstring('fox') = true
 'the quick brown fox jumps'.includesSubstring('fix') = false
-'the quick brown fox jumps'.findString('fox') = 17
-'the quick brown fox jumps'.findString('rat') = 0
+'the quick brown fox jumps'.findString('fox') = 17 (* index of sub-string *)
+'the quick brown fox jumps'.findString('rat') = 0 (* index of sub-string, zero indicates absence *)
 'the quick brown fox jumps'.findStringStartingAt('fox', 1) = 17
 'the quick brown fox jumps'.copyFromTo(17, 19) = 'fox'
 ['the', 'quick', 'brown', 'fox'].joinSeparatedBy(' ') = 'the quick brown fox'
@@ -968,7 +1049,16 @@ var x = ['a', 'bc', 'def']; x.unlines.lines = x
 'word'.capitalized = 'Word'
 'testAt'.beginsWith('test') = true
 'testAt'.beginsWith('At') = false
+{ 'testAt'.beginsWith(nil) }.ifError { :err | true }
+'testAt'.endsWith('test') = false
+'testAt'.endsWith('At') = true
+{ 'testAt'.endsWith(nil) }.ifError { :err | true }
 ['a','b','','c'].unlines.paragraphs.collect(lines:/1) = [['a', 'b'], ['c']]
+'string'.at(3) = 'r' (* string indexing *)
+var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
+' x '.withBlanksTrimmed = 'x'
+' x '.withoutLeadingBlanks = 'x '
+' x '.withoutTrailingBlanks = ' x'
 
 'Kernel-Exceptions/Error'
 Error().isError = true
@@ -1090,6 +1180,8 @@ var total = 0; 9.timesRepeat { total := total + system.randomFloat }; total < 7
 2971215073.isPrime = true
 2971215073.nextPrime = 2971215083 & { 2971215083.isPrime }
 100.primesUpTo = [2, 3, 5, 7,11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+35.isCoprime(64)
+1173.isCoprime(1547).not
 13.betweenAnd(11, 14) = true
 9.atRandom.isInteger = true
 9.randomInteger.isInteger = true
@@ -1111,6 +1203,7 @@ var r; 0.do { :each | r := each }; r = nil
 (1 .. 99).select(isPrime:/1) = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97]
 (1 .. 999).select(isPrime:/1).size = 168
 (1 .. 9999).select(isPrime:/1).size = 1229
+315.primeFactors = [3, 3, 5, 7]
 2588.primeFactors = [2, 2, 647]
 (2 .. 30).select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30]
 (2 .. 15).select { :each | each.primeLimit <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
