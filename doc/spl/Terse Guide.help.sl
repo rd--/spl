@@ -437,8 +437,12 @@ var c = [3, 2, 1]; c.sortInPlace ; c = [1, 2, 3] (* sort is in place (mutating) 
 [1, 3, 5, 7, 9].indexOfSubCollection([5, 7, 9]) = 3 (* locate index of subsequence *)
 [1, 3, 5, 7, 9].indexOf(5) = 3 (* index of element (compared using =) *)
 [1, 3, 5, 7, 9].first = 1 (* first element of *)
+[1 .. 9].first(5) = [1 .. 5] (* first n elements of *)
+{ [1 .. 9].first(11) }.ifError { :err | true } (* too few elements *)
 var a = (1 .. 9); a.first = a[1] (* one-indexed *)
 [1, 3, 5, 7, 9].last = 9 (* last element of *)
+[1 .. 9].last(5) = [5 .. 9] (* last n elements of *)
+{ [1 .. 9].last(11) }.ifError { :err | true } (* too few elements *)
 var a = (1 .. 9); a.last = a[9] (* one-indexed *)
 [1, 3, 5, 7, 9].middle = 5 (* middle element of *)
 [1 .. 4].beginsWith([1, 2]) = true (* is prefix of *)
@@ -684,11 +688,11 @@ var [x, y] = { var n = system.randomFloat; [n, n] }.value; x = y
 [1 .. 9].allButLast = [1 .. 8]
 [1 .. 9].allButLast(7) = [1, 2]
 { [].allButLast }.ifError { :err | true }
-{ var a = Array(1); a.at(3) }.ifError { :err | true }
-var a = Array(1); a[1].isNil = true
-var a = Array(1); a.unsafeAt(3).isNil = true
-{ var a = Array(1); a.atPut(3, 'x') }.ifError { :err | true }
-var a = Array(1); a.unsafeAtPut(3, 'x') = 'x' & { a.size = 3 }
+{ var a = Array(1); a.at(3) }.ifError { :err | true } (* out of bound indexing is an error *)
+var a = Array(1); a[1].isNil = true (* array slots are initialised to nil *)
+var a = Array(1); a.unsafeAt(3).isNil = true (* unsafe indexing, out of bounds indexes answer nil *)
+{ var a = Array(1); a.atPut(3, 'x') }.ifError { :err | true } (* out of bound mutation is an error *)
+var a = Array(1); a.unsafeAtPut(3, 'x') = 'x' & { a.size = 3 } (* unsafe mutation, out of bounds indices extend array *)
 Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(even:/1) = 4
 [nil, true, false, 3.141, 23, 'str'].json = '[null,true,false,3.141,23,"str"]'

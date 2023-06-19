@@ -460,6 +460,25 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.extendToBeOfEqualSize.transpose
 	}
 
+	hammingDistance { :self :other |
+		| size = self.size.min(other.size), count = (self.size - other.size).abs; |
+		(1 .. size).do { :index |
+			(self[index] ~= other[index]).ifTrue {
+				count := count + 1
+			}
+		};
+		count
+	}
+
+	integrate { :self|
+		| answer = [], sum = 0; |
+		self.do { :item |
+			sum := sum + item;
+			answer.add(sum)
+		};
+		answer
+	}
+
 	isSeries { :self |
 		self.isSeriesBy(nil)
 	}
@@ -486,7 +505,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 
 	keep { :self :n |
-		self.copyFromTo(1, n)
+		self.first(n)
 	}
 
 	keepAtMost { :self :n |
@@ -524,8 +543,26 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.shuffled
 	}
 
+	separate { :self :aProcedure:/2 |
+		| answer = [], segment = []; |
+		self.doAdjacentPairs { :a :b |
+			segment.add(a);
+			aProcedure(a, b).ifTrue {
+				answer.add(segment);
+				segment := []
+			}
+		};
+		self.notEmpty.ifTrue {
+			segment.add(self.last)
+		};
+		answer.add(segment);
+		answer
+	}
+
 	stutter { :self :repeatCount |
-		(self.collect { :each | { each }.dup(repeatCount) }).concatenation
+		self.collect { :each |
+			{ each } ! repeatCount
+		}.concatenation
 	}
 
 	withCrossedCollect { :self :aSequence :aProcedure:/2 |
