@@ -521,6 +521,32 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.copyFromTo(size - n, size)
 	}
 
+	levenshteinDistance { :self :other |
+		self.levenshteinDistance(other, equals:/2)
+	}
+
+	levenshteinDistance { :self :other :equalityProcedure:/2 |
+		(self.isEmpty | { other.isEmpty }).if {
+			self.size
+		} {
+			| matrix = [0 .. other.size]; |
+			self.size.do { :xIndex |
+				| corner = xIndex - 1; |
+				matrix[1] := xIndex - 1;
+				other.size.do { :yIndex |
+					| upper = matrix[yIndex + 1]; |
+					matrix[yIndex + 1] := equalityProcedure(self[xIndex], other[yIndex]).if {
+						corner
+					} {
+						[upper, corner, matrix[yIndex]].min + 1
+					};
+					corner := upper
+				}
+			};
+			matrix[other.size + 1]
+		}
+	}
+
 	pyramid { :self :patternType |
 		|
 			answer = [],
