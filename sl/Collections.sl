@@ -145,14 +145,6 @@
 		tally
 	}
 
-	remove { :self :anObject |
-		self.shouldNotImplement
-	}
-
-	removeAll { :self |
-		self.shouldNotImplement
-	}
-
 	reverseInPlace { :self |
 		<primitive: return _self.reverse();>
 	}
@@ -2348,6 +2340,15 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
 	removeFirst { :self :count |
 		<primitive: return _self.splice(0, _count);>
+	}
+
+	removeIfAbsent { :self :oldObject :anExceptionBlock:/0 |
+		| index = self.indexOf(oldObject); |
+		(index = 0).if {
+			anExceptionBlock()
+		} {
+			self.removeAt(index)
+		}
 	}
 
 	removeLast { :self |

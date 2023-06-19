@@ -1646,6 +1646,14 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 		self.randomFloat(aNumber + 1).floor
 	}
 
+	reduce { :self |
+		self.closeTo(self.rounded).if {
+			self.rounded
+		} {
+			self
+		}
+	}
+
 	remainder { :self :anObject |
 		<primitive: if(sl.isSmallFloat(_anObject)) { return _self % _anObject; }>
 		error('Number>>remainder')

@@ -13,7 +13,8 @@
 13 % 7 % 4 = 2 (* left assocative *)
 13 + 1 % 7 = 0 (* equal precedence *)
 -5 = 5.negated (* unary minus *)
-5.sign = 1 (* numeric sign (1, -1 or 0) *)
+5.sign = 1 (* numeric sign, positive->1 *)
+[-9, 0, 9].collect(sign:/1) = [-1, 0, 1] (* numeric sign (-1 or 0 or 1) *)
 5.negated = -5 (* negate receiver, unary minus *)
 1.25.truncated = 1 (* integer part of number *)
 1.25.fractionPart = 0.25 (* fractional part *)
@@ -22,6 +23,10 @@
 5.squared = 25 (* square function *)
 25.sqrt = 5 (* square root *)
 -1.sqrt.isNaN (* square root of a negative number is not a number *)
+4.sqrt = 2 & { 1000000.sqrt = 1000 & { 1.sqrt = 1 } & { 0.sqrt = 0 } }
+2.sqrt = 1.4142135623730951
+2.sqrt.squared.closeTo(2) (* floating point errors *)
+2.sqrt.squared.veryCloseTo(2) (* floating point errors *)
 5.0 ** 2.0 = 25.0 (* power function *)
 5 ** 2 = 25 (* power function with integer *)
 1.exp.veryCloseTo(2.718281828459) (* exponential *)
@@ -125,7 +130,9 @@ nil.isNil = true (* test if object is nil *)
 0.strictlyPositive = (0 > 0) (* test if number is greater than zero *)
 -1.negative = true (* test if number is negative *)
 2.even = true (* test if number is even *)
+1.even = false (* one is not even *)
 1.odd = true (* test if number is odd *)
+2.odd = false (* two is not odd *)
 'A'.isUppercase = true (* test if upper case character *)
 'a'.isLowercase = true (* test if lower case character *)
 false.asBit = 0 (* boolean as bit, false is zero *)
@@ -138,10 +145,10 @@ false.typeOf = 'Boolean'
 true.isInteger.not
 
 'Booleans/Equality'
-true = true
-true ~= false
-false ~= true
-false == false
+true = true & { false = false }
+true ~= false & { false ~= true }
+true == true & { false == false }
+true ~~ false & { false ~~ true }
 true ~= 1
 false ~= 0
 true ~= 'true'
@@ -153,7 +160,7 @@ false ~= nil
 
 'Collection'
 [].isEmpty = true (* is collection empty *)
-[].size = 0
+[].size = 0 (* the empty array has no elements *)
 [1, 2, 3] = [1, 2, 3] (* are collections equal *)
 [9, 4, 5, 7, 8, 6].size = 6 (* size of collection *)
 [9, 4, 5, 7, 8, 6].max = 9 (* maximum item in collection *)
@@ -180,9 +187,9 @@ Complex(-1, 0).imaginary = 0 (* imaginary part of complex number *)
 Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 
 'Conditional Statements'
-true.ifTrue { 'T' } = 'T' (* if then *)
-true.ifFalse { 'F' } = nil (* if not then *)
-true.if { 'T' } { 'F' } = 'T' (* if then else *)
+true.ifTrue { 'T' } = 'T' (* if true then *)
+true.ifFalse { 'F' } = nil (* if false then *)
+true.if { 'T' } { 'F' } = 'T' (* if true then else if false then *)
 
 'Constants'
 true (* true constant *)
@@ -322,10 +329,12 @@ var n = 0; 4.timesRepeat { n := n + 1 }; n = 4 (* times repeat loop (int) *)
 var n = 0; 4.do { :x | n := n + x }; n = 10 (* times repeat loop (int) *)
 var n = 0; 4.do { :x | n := n + x }; n = 10 (* for loop (int) *)
 var s = ''; 4.do { :x | s := s ++ x }; s = '1234' (* for loop (int) *)
-var s = ''; 1.to(5).do { :x | s := s ++ x }; s = '12345' (* for loop (interval) *)
-var s = ''; 1.to(3).reverseDo { :x | s := s ++ x }; s = '321' (* for loop (interval, reversed) *)
+var s = ''; (1 .. 5).do { :x | s := s ++ x }; s = '12345' (* for loop (interval) *)
+var s = ''; 1.toDo(5) { :x | s := s ++ x }; s = '12345' (* for loop (start & end indices) *)
+var s = ''; (1 .. 3).reverseDo { :x | s := s ++ x }; s = '321' (* for loop (interval, reversed) *)
 var s = ''; [1, 3, 5].do { :x | s := s ++ x }; s = '135' (* for loop (collection) *)
-var n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 (* while loop *)
+var n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 (* while true loop *)
+var n = 9; { n < 7 }.whileFalse { n := n - 1 }; n = 6 (* while false loop *)
 
 'Magnitude'
 1 < 3 = true (* less than *)
@@ -600,9 +609,10 @@ nil.json = 'null'
 'Collections-Arrayed/Array'
 [].typeOf = 'Array'
 [].species = Array:/1
-[].isArray = true
+[].isArray = true (* the empty array is an array *)
 Array(0) = []
-Array(3).size = 3
+Array(3).size = 3 (* new array of indicated size *)
+Array(5) = [nil, nil, nil, nil, nil] (* array slots are initialised to nil *)
 [1, 2, 3] = [1, 2, 3] = true
 [1, 2, 3] = [1, 2, 4] = false
 [1, 2] = [1, 2, 3, 4] = false
@@ -616,6 +626,10 @@ var a = [1, 3, 5, 7]; a.reverseInPlace; a = [7, 5, 3, 1]
 [1, 2, 3, 5, 7, 9].sum = 27
 [1, 2, 3].reduce { :a :b | a + b } = 6
 [1, 2, 3, 5, 7, 9].reduce(plus:/2) = 27
+[1, 4, 2, 3, 5].reduce(min:/2) = 1
+[1, 4, 2, 3, 5].reduce(max:/2) = 5
+{ [].reduce { :a :b | a + b } }.ifError { :err | true } (* cannot reduce empty collection *)
+[1].reduce { :a :b | nil } = 1 (* reduce one-element collection *)
 [1, 2, 3, 5, 7, 9].injectInto(0, plus:/2) = 27
 [1, 2, 3, 5, 7, 9].product = 1890
 [1, 2, 3, 5, 7, 9].reduce(times:/2) = 1890
@@ -722,6 +736,7 @@ var c = [1 .. 5]; { c['1'] }.ifError { :err | true } (* index not an integer *)
 var a = [1, 2, 4]; a.insertAt(3, 3); a = [1 .. 4] (* insert value at index *)
 var a = [1, 2, 4]; a.addAfter(3, 2); a = [1 .. 4] (* insert value after existing value *)
 var a = [1, 2, 4]; a.addBefore(3, 4); a = [1 .. 4] (* insert value before existing value *)
+[2, 7, 5, 0, 1, -2].collect { :index | [5, 6, 8].atWrap(index) } = [6, 5, 6, 8, 5, 5] (* index with wrap-around *)
 
 'Collections-Unordered/Association'
 ('x' -> 1).typeOf = 'Association'
@@ -800,13 +815,14 @@ var a = Float64Array(1); a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
 [1 .. 3].Float64Array.printString = '[1, 2, 3].Float64Array'
 
 'Collections-Unordered/Bag'
+Bag().isBag = true
 Bag().typeOf = 'Bag'
-var b = Bag(); b.add('x'); b.add('x'); b.size = 2
+var b = Bag(); b.add('x'); b.add('x'); b.size = 2 (* number of objects in bag *)
 var b = Bag(); b.add('x'); b.add('y'); b.add('x'); b.size = 3
 var b = Bag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.size = 10
-[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.sortedCounts = [1 -> 2, 2 -> 3, 3 -> 5, 4 -> 7]
-[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
+[2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedCounts = [1 -> 2, 2 -> 3, 3 -> 5, 4 -> 7]
+[2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
 var c1 = [2, 3, 3, 4, 4, 4].Bag, c2 = c1.copy, s2 = c2.size; c1.removeAll; c1.size = 0 & { c2.size = s2 }
 var c = Bag(), x = 'x'; c.add(x); c.remove(x); c.size = 0
 var c = ['x', 'x'].Bag; c.remove('x'); c.remove('x'); c.size = 0
@@ -818,7 +834,7 @@ var c = Bag(); { c.remove('x') }.ifError { :err | true }
 [nil].Bag.occurrencesOf(nil) = 1
 var c = [2, 3, 3, 4, 4, 4].Bag; c.copy = c (* copy *)
 var c = Bag(); c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
-[2, 3, 3, 4, 4, 4].Bag.Set.size = 3
+[2, 3, 3, 4, 4, 4].Bag.Set.size = 3 (* number of unique elements *)
 [2, 3, 3, 4, 4, 4].Bag.Set.occurrencesOf(3) = 1
 var s = Bag(); 250.timesRepeat { s.add([1 .. 4].shuffled.asString) }; s.Set.size = 24
 
@@ -937,7 +953,8 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 var l = []; l.addFirst(1); l.addFirst(2); l = [2, 1]
 var l = []; l.addLast(1); l.addLast(2); l = [1, 2]
 var l = []; 5.do { :each | l.add(each) }; l = [1 .. 5]
-var l = [1 .. 9]; l.removeLast = 9 & { l.size = 8 }
+var l = [1 .. 9]; l.removeFirst = 1 & { l.size = 8 } (* remove first object from array *)
+var l = [1 .. 9]; l.removeLast = 9 & { l.size = 8 } (* remove last object from array *)
 var l = [1]; l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6]
 [1].add(2) = 2 (* answer is argument *)
 [1].addAll([2, 3]) = [2, 3] (* answer is argument *)
@@ -946,9 +963,11 @@ var l = [4, 5]; l.addAllFirst(1.to(3)); l = [1 .. 5]
 13.fibonacciSequence = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 var c = [1 .. 5]; [c.removeAt(1), c] = [1, [2, 3, 4, 5]]
 var c = [1 .. 5]; [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
-var c = [1 .. 5]; [c.removeFirst(3), c] = [[1, 2, 3], [4, 5]]
-var c = [1 .. 5]; [c.removeLast(3), c] = [[3, 4, 5], [1, 2]]
-var c = [1 .. 5]; c.removeAll; c = []
+var c = [1 .. 5]; [c.removeFirst(3), c] = [[1, 2, 3], [4, 5]] (* remove first three objects from array *)
+var c = [1 .. 5]; [c.removeLast(3), c] = [[3, 4, 5], [1, 2]] (* remove last three objects from array *)
+var c = [1 .. 5]; c.removeAll; c = []  (* remove all objects from array *)
+var c = [1 .. 5]; [c.remove(3), c] = [3, [1, 2, 4, 5]] (* remove object from array *)
+var c = [1 .. 5]; c.removeIfAbsent(9) { true } & { c = [1 .. 5] } (* remove object from array, handle absence *)
 
 'Collections-Ordered/PriorityQueue'
 PriorityQueue().isPriorityQueue = true
@@ -1247,6 +1266,8 @@ pi.isFinite = true
 [-1000000000000000, -100, -5, -3, -2, -1, 0, 1].select(isPrime:/1).isEmpty
 [17, 78901, 104729, 15485863, 2038074743].allSatisfy(isPrime:/1)
 [561, 2821, 6601, 10585, 15841, 256, 29996224275831].noneSatisfy(isPrime:/1)
+1.00001.reduce = 1 (* round if number is closeTo an integer *)
+1.5.reduce = 1.5 (* identity if number is not closeTo an integer *)
 
 'Kernel-Numbers/LargeInteger'
 23n.typeOf = 'LargeInteger'
