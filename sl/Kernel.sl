@@ -1639,11 +1639,11 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	randomInteger { :self |
-		1.randomFloat(self).rounded
+		1.randomFloat(self + 1).floor
 	}
 
 	randomInteger { :self :aNumber |
-		self.randomFloat(aNumber).rounded
+		self.randomFloat(aNumber + 1).floor
 	}
 
 	remainder { :self :anObject |
@@ -1729,9 +1729,10 @@ Procedure : [Object] {
 
 	apply { :self :anArray |
 		<primitive:
-		if(sl.isArray(_anArray) && (_self.length === _anArray.length)) {
-			return _self(... _anArray);
-		}>
+			if(sl.isArray(_anArray) && (_self.length === _anArray.length)) {
+				return _self(... _anArray);
+			}
+		>
 		error('Procedure>>apply: argument is not array or array is not of required size')
 	}
 

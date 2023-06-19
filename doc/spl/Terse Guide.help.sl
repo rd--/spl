@@ -60,7 +60,7 @@ pi.cos = -1
 10.min(20) = 10 (* get minimum of two numbers *)
 pi.veryCloseTo(3.141592653589793) (* pi = 3.141592653589793 *)
 1.exp.veryCloseTo(2.718281828459) (* e = 2.718281828459 *)
-var n = 100.randomFloat; (n > 0) && { n < 100 } (* random number in (0, self-1) *)
+var n = 100.randomFloat; (n >= 0) & { n < 100 } (* random number in (0, self-1) *)
 4 + 5 * 6 = 54 (* operators are evaluated left to right *)
 0.acos = (pi / 2) (* arc cosine *)
 1.acos = 0
@@ -82,6 +82,9 @@ var n = 100.randomFloat; (n > 0) && { n < 100 } (* random number in (0, self-1) 
 -3 / 0 = inf.negated
 (0 / 0).isNaN (* division of zero by zero is NaN *)
 1.isNaN = false (* one is a number *)
+
+'Assignment'
+var a = 'a', b = 'b', c = 'c'; a := b := c; [a, b, c] = ['c', 'c', 'c'] (* assignment is right-associative *)
 
 'Bitwise Manipulation'
 2.bitAnd(3) = 2 (* and bits *)
@@ -269,6 +272,7 @@ var f = { }; f == f (* identity *)
 { }.printString = 'Procedure'
 { :x | x }.printString = 'Procedure'
 { }.typeOf = 'Procedure'
+{ } . () = nil (* empty procedure evaluates to nil *)
 
 'Integral'
 1.isInteger = true (* integer predicate *)
@@ -388,10 +392,17 @@ inf.isNumber (* constant (infinity) *)
 
 'Random values'
 9.randomInteger.isInteger (* random integers (1 to self) *)
+var s = Set(); 45.timesRepeat { s.add(9.randomInteger) }; s.minMax = [1, 9] (* check distribution *)
+var s = Set(); 81.timesRepeat { s.add(9.randomInteger) }; s.Array.sorted = [1 .. 9] (* check distribution *)
 9.randomFloat.isNumber (* random floating point number (0 to self) *)
-[1, 2, 3, 4, 5].atRandom.isInteger (* random element of collection *)
+var s = Set(); 81.timesRepeat { s.add(9.randomFloat.rounded) }; s.minMax = [0, 9] (* check distribution *)
 3.randomInteger(9).isInteger (* random integer in range *)
 3.randomFloat(9).isNumber (* random float in range *)
+var b = Bag(); 5000.timesRepeat { b.add(5.atRandom) }; b.contents.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
+{ [].atRandom }.ifError { :err | true } (* random element of empty collection *)
+[1].atRandom = 1 (* random element of one-element collection *)
+var c = [1 .. 5]; c.includes(c.atRandom) (* random element of collection *)
+var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.Set (* random element of collection *)
 
 'Regular Expressions'
 'car'.matchesRegExp('c(a|d)+r')
@@ -472,6 +483,11 @@ var x; x = nil (* uninitialised variables are nil *)
 var x = 1, y = 2; [x, y] = [1, 2] (* var can introduce multiple temporaries *)
 var x; var y = 0, z; [x, y, z] = [nil, 0, nil] (* there can be multiple var sequences *)
 
+'Whitespace'
+{:x|x+1}.(1)=2 (* no white space *)
+{ :x | x + 1 } . ( 1 ) = 2 (* white space (space) *)
+{	:x	|	x	+	1	}	.	(	1	)	=	2 (* white space (tab) *)
+
 'Collection access and mutation syntax'
 'text'[3].toUppercase = 'X' (* c[k] is syntax for c.at(k) *)
 var x = [1 .. 5]; x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, v) *)
@@ -493,13 +509,17 @@ true ~= false
 false ~= true
 true == true
 false == false
-true & { false } = false
+true & { false } = false (* logical and operator *)
+true.and { false } = false (* logical and procedure *)
 false & { 'false &'.postLine; false } = false
 true | { 'true |'.postLine; true } = true
-false | { true } = true
+false | { true } = true (* logical or operator *)
+false.or { true } = true (* logical or procedure *)
 true.printString = 'true'
-true && true = true
-false || true = true
+{ true & false }.ifError { :err | true } (* & applies the rhs, which must be a procedure *)
+true && true = true (* && applies value to the rhs *)
+{ false | false }.ifError { :err | true } (* | applies the rhs, which must be a procedure *)
+false || true = true (* || applies value to the rhs *)
 [true.json, false.json] = ['true', 'false']
 ['true', 'false'].collect(parseJson:/1) = [true, false]
 true.ifTrue { true }
@@ -624,6 +644,7 @@ var a = [5, 4, 3, 2, 1]; a.findIndex { :each | each % 3 = 0 } = 3
 [1 .. 9].shuffled ~= [1 .. 9]
 [1 .. 9].shuffled ~= [1 .. 9]
 [1 .. 9].shuffled.sorted = [1 .. 9]
+[].shuffled = []
 13.fibonacciArray = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 3.replicate('3') = ['3', '3', '3']
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity:/1) = 4
@@ -665,7 +686,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [].species.new(3) = [nil, nil, nil]
 [1 .. 9].last(5) = [5 .. 9]
 { [1 .. 3].last(5) }.ifError { :err | true }
-[1 .. 9].any(3) = [1 .. 3]
+[1 .. 9].anyOne = 1 (* any element, chooses first *)
+[1 .. 9].any(3) = [1 .. 3] (* any three elements, chooses first *)
 [1 .. 9].take(11) = [1 .. 9]
 [1, 2]. take(5).size = 2
 { [1, 2].take(-1) }.ifError { :err | true }
@@ -798,6 +820,7 @@ var c = [2, 3, 3, 4, 4, 4].Bag; c.copy = c (* copy *)
 var c = Bag(); c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
 [2, 3, 3, 4, 4, 4].Bag.Set.size = 3
 [2, 3, 3, 4, 4, 4].Bag.Set.occurrencesOf(3) = 1
+var s = Bag(); 250.timesRepeat { s.add([1 .. 4].shuffled.asString) }; s.Set.size = 24
 
 'Collections-Unordered/Dictionary'
 var d = Dictionary(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2
@@ -899,7 +922,8 @@ Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 1.to(9).step = 1
 (1, 3 .. 9) = Interval(1, 9, 2)
 (9, 7 .. 1) = Interval(9, 1, -2)
-(3 .. 7).anyOne = 3
+(3 .. 7).anyOne = 3 (* any element, chooses first *)
+(3 .. 7).any(3) = [3 .. 5] (* any three elements, chooses first *)
 (1 .. 9).max = 9
 (1 .. 0).size = 2
 1.upTo(0).size = 0

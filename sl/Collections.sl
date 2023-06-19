@@ -83,8 +83,8 @@
 
 	find { :self :aProcedure |
 		<primitive:
-		var item = _self.find(function(element) { return _aProcedure(element); });
-		return (item === undefined) ? null : item;
+			var item = _self.find(function(element) { return _aProcedure(element); });
+			return (item === undefined) ? null : item;
 		>
 	}
 
@@ -905,7 +905,7 @@
 
 	= { :self :anObject |
 		(self == anObject) | {
-			(self.typeOf == anObject.typeOf) & {
+			(self.typeOf = anObject.typeOf) & {
 				self.hasEqualElements(anObject)
 			}
 		}
@@ -1067,7 +1067,7 @@
 	}
 
 	fisherYatesShuffle { :self |
-		(self.size .. 2).do { :item |
+		self.size.downTo(2).do { :item |
 			self.swapWith(item, randomInteger(1, item))
 		};
 		self
@@ -1366,7 +1366,7 @@
 
 	withCollect { :self :aCollection :aProcedure:/2 |
 		(isSequenceable(aCollection) & {
-			self.size == aCollection.size
+			self.size = aCollection.size
 		}).if {
 			1.toAsCollect(self.size, self.species) { :index |
 				aProcedure(self[index], aCollection[index])
@@ -1779,6 +1779,18 @@ Bag : [Object, Collection] { | contents |
 		self.contents.includesKey(anObject)
 	}
 
+	max { :self |
+		self.contents.keys.injectInto(self.contents.keys.anyOne) { :max :each |
+			max.max(each)
+		}
+	}
+
+	min { :self |
+		self.contents.keys.injectInto(self.contents.keys.anyOne) { :min :each |
+			min.min(each)
+		}
+	}
+
 	occurrencesOf { :self :anObject |
 		self.contents.atIfAbsent(anObject) {
 			0
@@ -1841,6 +1853,10 @@ Bag : [Object, Collection] { | contents |
 
 	species { :self |
 		Bag:/0
+	}
+
+	valuesAndCounts { :self |
+		self.contents
 	}
 
 }
@@ -2430,7 +2446,11 @@ StringDictionary : [Object, Collection, Dictionary] {
 	}
 
 	atPut { :self :aString :anObject |
-		<primitive: if(typeof _aString === 'string') { return _self[_aString] = _anObject;}>
+		<primitive:
+			if(typeof _aString === 'string') {
+				return _self[_aString] = _anObject;
+			}
+		>
 		('StringDictionary>>atPut key not a string: ' ++ aString.typeOf).error
 	}
 
