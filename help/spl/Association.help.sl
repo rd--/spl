@@ -1,10 +1,10 @@
 # Association -- associate with
 
-- Association(key, value)
+- _Association(key, value)_
 
 An _Association_ connects a _key_ with a _value_.
 
-Instances are ordinarily entries in a _Dictionary_.
+Instances are ordinarily entries in a _Dictionary_ type, i.e. _Map_ or _Record_.
 
 Equality considers both _key_ & _value_.
 

@@ -1,9 +1,9 @@
-# Record -- dictionary
+# Record -- collection type
 
 - _Record(anAssociationArray)_
 - _Record(aMap)_
 
-A type of _Dictionary_ where all the keys are strings.
+_Record_ is a _Dictionary_ type where all the keys are strings.
 
 	['x' -> 3.141, 'y' -> 23].Record.json = '{"x":3.141,"y":23}'
 	['x' -> 3.141, 'y' -> 23].Record = (x: 3.141, y: 23).Record

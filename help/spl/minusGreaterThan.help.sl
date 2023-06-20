@@ -10,4 +10,3 @@ Where supported this operator is displayed as a rightwards arrow, →.
 * * *
 
 Unicode: U+2190 → Rightwards Arrow
-
