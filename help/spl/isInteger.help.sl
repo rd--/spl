@@ -1,11 +1,11 @@
 # isInteger -- predicate
 
-- _isInteger(aNumber)_
+- _isInteger(anObject)_
 
-Answers true if a number is an integer, else false.
+Answers true if the receiver is a number and is an integer, else false.
 
-```
-23.isInteger = true
-3.141.isInteger = false
-inf.isInteger = false
-```
+	23.isInteger = true
+	3.141.isInteger = false
+	2:3.isInteger = false
+	'23'.isInteger = false
+	inf.isInteger = false

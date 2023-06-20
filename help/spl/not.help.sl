@@ -2,10 +2,8 @@
 
 - _not(aBoolean)_: true if argument is false, else false
 
-```
-true.not = false
-false.not = true
-```
+	true.not = false
+	false.not = true
 
 Where supported _not_ is displayed as ¬.
 

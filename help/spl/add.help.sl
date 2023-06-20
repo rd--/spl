@@ -4,7 +4,12 @@
 
 Include _newObject_ as one of the receiver's elements.
 Answer _newObject_.
-_ArrayedCollections_ cannot respond to this message.
+
+	| r = Bag(); | r.add('x'); r.add('x'); r.size = 2
+	| r = Dictionary(); | r.add('x' -> 1); r.add('y' -> 2); r.size = 2
+	| r = Set(); | r.add('x'); r.add('x'); r.size = 1
+	| r = []; | r.add('x'); r.add('x'); r.size = 2
+	| r = 'string'; | { r.add('!') }.ifError { :err | true }
 
 * * *
 

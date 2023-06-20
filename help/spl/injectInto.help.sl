@@ -6,9 +6,8 @@ Accumulate a running value associated with evaluating the argument, _aProcedure_
 
 For instance, to sum the numeric elements of a collection:
 
-```
-[1 .. 9].injectInto(0, plus:/2) = 45
-```
+	(1 .. 9).injectInto(0, plus:/2) = 45
+	[1 .. 9].injectInto(0, plus:/2) = 45
 
 * * *
 

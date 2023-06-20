@@ -4,9 +4,7 @@ Since there are no classes, there are no class variables and no class methods.
 
 As in Smalltalk types can define a _species_ method to decide result types.
 
-```
-[].species = Array:/1
-[].species.new(3) = [nil, nil, nil]
-```
+	[].species = Array:/1
+	[].species.new(3) = [nil, nil, nil]
 
 _new(f, n)_ is defined as _f(n)_.

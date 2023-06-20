@@ -4,7 +4,6 @@
 
 Answer true if _aNumber_ is not infinite.
 
-```
-inf.isFinite = false
-pi.isFinite = true
-```
+	pi.isFinite = true
+	inf.isFinite = false
+	{ nil.isFinite }.ifError { :err | true }

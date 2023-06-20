@@ -4,19 +4,21 @@
 
 Answers the type name of _anObject_.
 
-```
-3.141.typeOf = 'SmallFloat'
-23.typeOf.typeOf = 'String'
-typeOf:/1.typeOf = 'Procedure'
-```
+	3.141.typeOf = 'SmallFloat'
+	true.typeOf = 'Boolean'
+	nil.typeOf = 'UndefinedObject'
+	'x'.typeOf = 'String'
+	[].typeOf = 'Array'
+	().typeOf = 'StringDictionary'
+	23.typeOf.typeOf = 'String'
+	typeOf:/1.typeOf = 'Procedure'
 
 The system includes a _typeDictionary_ that maps type names to _Type_ values.
 
-```
-system.typeLookup('String').isType = true
-system.typeLookup('String').methodDictionary.includesKey('includesSubstring:/2') = true
-```
+	system.typeLookup('String').isType = true
+	system.typeLookup('String').methodDictionary.includesKey('includesSubstring:/2') = true
 
 * * *
 
-See also: _species_
+See also: _species_, _Type_
+

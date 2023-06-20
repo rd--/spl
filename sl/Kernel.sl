@@ -2036,6 +2036,12 @@ String : [Object] {
 		<primitive: return _self.substring(_start - 1, _end);>
 	}
 
+	do { :self :aProcedure:/1 |
+		self.size.do { :index |
+			aProcedure(self[index])
+		}
+	}
+
 	endsWith { :self :aString |
 		<primitive: if(typeof _aString == 'string') { return _self.endsWith(_aString); }>
 		'String>>endsWith: non string operand'.error

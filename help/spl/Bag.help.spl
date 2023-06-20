@@ -1,7 +1,9 @@
 # Bag
 
-- add(self, newObject): Include newObject as one of the receiver's elements. Answer newObject.
-
 * * *
 
 See also: _Set_
+
+* * *
+
+- add(self, newObject): Include newObject as one of the receiver's elements. Answer newObject.

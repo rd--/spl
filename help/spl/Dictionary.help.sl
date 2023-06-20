@@ -2,10 +2,8 @@
 
 _Dictionary_ is a trait holding behaviours common to collections of (key, value) associations.
 
-```
-system.traitTypes('Dictionary').includes('Dictionary') = true
-system.traitDictionary['Dictionary'].isTrait = true
-```
+	system.traitTypes('Dictionary').includes('Dictionary') = true
+	system.traitDictionary['Dictionary'].isTrait = true
 
 _Dictionary_ is a type where the keys are compared using the identity (==) operator.
 

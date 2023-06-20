@@ -2,10 +2,8 @@
 
 _Collection_ is a trait holding behaviours common to collections.
 
-```
-system.traitDictionary['Collection'].isTrait = true
-system.traitTypes('Collection').includes('Array') = true
-```
+	system.traitDictionary['Collection'].isTrait = true
+	system.traitTypes('Collection').includes('Array') = true
 
 _size_ and _do_ are the basic methods of a collection.
 

@@ -8,9 +8,7 @@ For sequenceable collections the elements will be used in order, for unordered c
 
 For instance, to sum the numeric elements of a collection:
 
-```
-[1 .. 9].reduce(plus:/2) = 45
-```
+	[1 .. 9].reduce(plus:/2) = 45
 
 * * *
 

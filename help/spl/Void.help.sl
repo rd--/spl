@@ -5,7 +5,5 @@ It identifies the place in the method table where procedures of no arguments are
 
 No argument procedures are notated as methods of _Void_.
 
-```
-system.typeMethods('Void').collect(name:/1).includes('Set') = true
-system.onlyZeroArityMethodList.includes('PriorityQueue') = true
-```
+	system.typeMethods('Void').collect(name:/1).includes('Set') = true
+	system.onlyZeroArityMethodList.includes('PriorityQueue') = true

@@ -3,11 +3,9 @@
 Assign a value to a variable.
 Variables must be declared.
 
-```
-{ | x | x := 3; x * x }.value = 9
-````
+	{ | x | x := 3; x * x }.value = 9
 
-The _:=_ symbol is also part of [Put Syntax] and [Quoted Put Syntax].
+The _:=_ symbol is also part of [AtPut Syntax] and [Quoted AtPut Syntax].
 
 Where supported this operator is displayed as a leftwards arrow, ←.
 

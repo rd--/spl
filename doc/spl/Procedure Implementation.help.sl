@@ -8,10 +8,10 @@ _Spl:_
 
 ```
 { :n |
-	| i j |
-	i := random(0, n);
-	j := random(0, i);
-	[i, j]
+    | i j |
+    i := random(0, n);
+    j := random(0, i);
+    [i, j]
 }
 ```
 
@@ -19,10 +19,10 @@ _Smalltalk:_
 
 ```
 [ :n |
-	| i j |
-	i := 0 random: n.
-	j := 0 random: i.
-	{i. j}
+    | i j |
+    i := 0 random: n.
+    j := 0 random: i.
+    {i. j}
 ]
 ```
 
@@ -30,19 +30,19 @@ _Scheme_:
 
 ```
 (lambda (n)
-	(let ((i nil) (j nil))
-		(set! i (random 0 n))
-		(set! j (random 0 i))
-		(vector i j)))
+    (let ((i nil) (j nil))
+        (set! i (random 0 n))
+        (set! j (random 0 i))
+        (vector i j)))
 ```
 
 _Js_:
 
 ```
 function(n) {
-	var i = nil, j = nil;
-	i = random(0, n);
-	j = random(0, i);
-	return [i, j];
+    var i = nil, j = nil;
+    i = random(0, n);
+    j = random(0, i);
+    return [i, j];
 }
 ```

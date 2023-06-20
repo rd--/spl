@@ -38,9 +38,7 @@ Note that Fraction and Integer represent together the set of Rational numbers:
 - Integer is a subset of rational (those which are whole numbers)
 - Fraction is used for representing the complementary subset of rational (those which are not whole numbers)
 
-```
-2:3 + 2:3 = 4:3
-2:3 + 1:2 = 7:6
-2:3 + 4:3 = 2:1
-2:3.raisedToInteger(5) = 32:243
-```
+	2:3 + 2:3 = 4:3
+	2:3 + 1:2 = 7:6
+	2:3 + 4:3 = 2
+	2:3.raisedToInteger(5) = 32:243

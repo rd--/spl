@@ -7,10 +7,14 @@ If a primitive succeeds it returns from the method, if it fails it continues wit
 Below is the implementation of _at_ from _ArrayedCollection_.
 
 ```
-	at { :self :anInteger |
-		<primitive: if(sl.arrayCheckIndex(_self, _anInteger - 1)) { return _self[_anInteger - 1]; }>
-		error('ArrayedCollection>>at: index not an integer or out of range')
-	}
+at { :self :anInteger |
+    <primitive:
+        if(sl.arrayCheckIndex(_self, _anInteger - 1)) {
+            return _self[_anInteger - 1];
+        }
+    >
+    error('ArrayedCollection>>at: index not an integer or out of range')
+}
 ```
 
 The primitive checks that the index is a valid integer for the collection, and if it is returns the appropriate element.

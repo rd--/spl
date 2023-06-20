@@ -112,9 +112,11 @@ false = false (* constant *)
 1 ~= 2 = true (* inequality predicate (operator) *)
 (1 == 1) = true (* identical *)
 (1 ~~ 2) = true (* not identical *)
+true.and { true } (* logical and *)
+true & { true } (* logical and (operator) *)
 true.and { false } = false (* logical and *)
-true.or { false } = true (* logical or *)
 true & { false } = false (* logical and (operator) *)
+true.or { false } = true (* logical or *)
 true | { false } = true (* logical or (operator) *)
 true.ifTrue { 'T' } = 'T' (* if then, c.f. conditional statements *)
 false.if { 'T' } { 'F' } = 'F' (* if then else (do) *)
@@ -138,8 +140,8 @@ nil.isNil = true (* test if object is nil *)
 false.asBit = 0 (* boolean as bit, false is zero *)
 true.asBit = 1 (* boolean as bit, true is one *)
 true.asInteger > false.asInteger (* boolean as integer, false is zero, true is one *)
-true.printString = 'true'
-false.printString = 'false'
+true.printString = 'true' (* true print string *)
+false.printString = 'false' (* false print string *)
 true.typeOf = 'Boolean'
 false.typeOf = 'Boolean'
 true.isInteger.not
@@ -204,6 +206,9 @@ pi.isNumber (* pi constant *)
 'Hello'.isString (* string constant *)
 [3, 2, 1].isArray (* array constants *)
 ['one', 2, 3.141].isArray (* mixing of types allowed *)
+
+'Dictionary'
+(x: 1, y: 2, z: 3).count(even:/1) = 1 (* count elements that match predicate *)
 
 'Floating point'
 1.0 * 3.0 > 3.0 = false (* integral floating point math *)
@@ -410,7 +415,7 @@ var s = Set(); 81.timesRepeat { s.add(9.randomFloat.rounded) }; s.minMax = [0, 9
 var b = Bag(); 5000.timesRepeat { b.add(5.atRandom) }; b.contents.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
 { [].atRandom }.ifError { :err | true } (* random element of empty collection *)
 [1].atRandom = 1 (* random element of one-element collection *)
-var c = [1 .. 5]; c.includes(c.atRandom) (* random element of collection *)
+var c = [1 .. 5]; c.includes(c.atRandom) (* answer random element from a collection *)
 var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.Set (* random element of collection *)
 
 'Regular Expressions'
@@ -467,7 +472,7 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 'String'
 'quoted string'.isString (* quoted string *)
 'x' ++ 'y' = 'xy' (* catenation *)
-'string'.ascii = [115, 116, 114, 105, 110, 103].ByteArray (* String -> [Int] *)
+'string'.ascii = [115, 116, 114, 105, 110, 103].ByteArray (* String to ByteArray of Ascii encoding *)
 '3.4'.asNumber = 3.4 (* parse float *)
 '3'.asInteger = 3 (* parse integer *)
 'string'.at(4) = 'i' (* one-indexing *)
@@ -490,6 +495,8 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 { 'string'.add('!') }.ifError { :err | 'oh oh...' } = 'oh oh...' (* strings are immutable *)
 'quoted string with \'escaped\' quote characters'.words[4].copyFromTo(2, 8) = 'escaped'
 'øéஃî'.utf8 = [195, 184, 195, 169, 224, 174, 131, 195, 174].ByteArray (* unicode *)
+'string'.allButFirst = 'tring' (* all but first character of a String *)
+'string'.allButFirst(4) = 'ng' (* all but first n characters of a String *)
 
 'Temporaries'
 var x; x = nil (* uninitialised variables are nil *)
@@ -508,6 +515,7 @@ var x = [1 .. 5]; x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, 
 'StringDictionary syntax'
 (x: 1, y: 2) = ['x' -> 1, 'y' -> 2].Dictionary (* (x: 1, ...) is dictionary syntax *)
 () = [].Dictionary (* empty dictionary *)
+(x: 1, y: 2).printString = '(x: 1, y: 2)' (* StringDictionary print string *)
 
 'Setter Syntax'
 var a = 'one' -> 1; a.key := 9; a.key = 9 (* p.x := y is syntax for p.x(y) *)
@@ -528,7 +536,7 @@ false & { 'false &'.postLine; false } = false
 true | { 'true |'.postLine; true } = true
 false | { true } = true (* logical or operator *)
 false.or { true } = true (* logical or procedure *)
-true.printString = 'true'
+true.printString = 'true' (* true print string *)
 { true & false }.ifError { :err | true } (* & applies the rhs, which must be a procedure *)
 true && true = true (* && applies value to the rhs *)
 { false | false }.ifError { :err | true } (* | applies the rhs, which must be a procedure *)
@@ -571,11 +579,11 @@ collect:/2.numArgs = 2 (* method arity *)
 collect:/2.name = 'collect:/2'
 var f = { :x | x * x }; [f(5), f.(5)] = [25, 25]
 var f = { :x | x * x }; var d = (p: f); d::p.value(5) = 25
-{ 0 }.cull(23) = 0
-{ 0 }.cull(23, 3.141) = 0
-{ :x | x }.cull(23) = 23
-{ :x | x }.cull(23, 3.141) = 23
-{ :x :y | x * y }.cull(23, 3.141) = 72.243
+{ 0 }.cull(23) = 0 (* ignore one argument *)
+{ 0 }.cull(23, 3.141) = 0 (* ignore two arguments *)
+{ :x | x }.cull(23) = 23 (* recognise one argument *)
+{ :x | x }.cull(23, 3.141) = 23  (* recognise one argument, ignore one argument *)
+{ :x :y | x * y }.cull(23, 3.141) = 72.243 (* recognise two arguments *)
 var f = { :x | x * x }; f(3) = 9
 { var f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49] }.ifError { :err | true }
 var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
@@ -606,7 +614,7 @@ nil ? 1 = 1
 1 ? 2 = 1
 nil ~? 1 = nil
 1 ~? 2 = 2
-nil.printString = 'nil'
+nil.printString = 'nil' (* nil print string *)
 nil.json = 'null'
 'null'.parseJson = nil
 
@@ -681,10 +689,11 @@ var i = (1 .. 9); var [x, y, z] = i; [z, y, x] = [3 .. 1]
 var [x, y] = { var n = system.randomFloat; [n, n] }.value; x = y
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
-[1, 2, 3].printString = '[1, 2, 3]'
-[1 .. 9].allButFirst = [2 .. 9]
-[1 .. 9].allButFirst(7) = [8, 9]
-{ [].allButFirst }.ifError { :err | true }
+[1 .. 3].printString = '[1, 2, 3]' (* array print string *)
+[1, 2, 3].printString = '[1, 2, 3]' (* array print string *)
+[1 .. 9].allButFirst = [2 .. 9] (* all but first element of Array *)
+[1 .. 9].allButFirst(7) = [8, 9]  (* all but first n elements of Array *)
+{ [].allButFirst }.ifError { :err | true } (* too few elements *)
 [1 .. 9].allButLast = [1 .. 8]
 [1 .. 9].allButLast(7) = [1, 2]
 { [].allButLast }.ifError { :err | true }
@@ -770,16 +779,15 @@ var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
 [1 .. 9].ByteArray.reversed = [9 .. 1].ByteArray
 [1 .. 3].ByteArray.printString = '[1, 2, 3].ByteArray'
 ByteArray(4).hex = '00000000'
-'text'.ascii[1] = 116
+'text'.ascii[1] = 116 (* ByteArray subscript *)
 var b = ByteArray(4); b[1] := 15; b[3] := 240; b.hex = '0f00f000'
 var b = ByteArray(4); b[2] := 15; b[4] := 240; b.hex = '000f00f0'
 [1 .. 4].ByteArray.hex =  '01020304'
-'string'.ascii.hex = '737472696e67'
+'string'.ascii.hex = '737472696e67' (* hexadecimal string of ByteArray *)
+'737472696e67'.parseHexString.ascii = 'string' (* ByteArray of hexadecimal string *)
 var b = ByteArray(4); b.atAllPut(15); b.hex = '0f0f0f0f'
-'string'.ascii.asArray = [115, 116, 114, 105, 110, 103]
+'string'.ascii.asArray = [115, 116, 114, 105, 110, 103] (* Array from ByteArray *)
 '0f00f010'.parseHexString = [15, 0, 240, 16].ByteArray
-'string'.ascii.hex = '737472696e67'
-'737472696e67'.parseHexString.ascii = 'string'
 
 'Collections-Abstract/@Collection'
 [1, 3, 5].select { :x | x > 1 } = [3, 5]
@@ -822,8 +830,9 @@ var a = Float64Array(1); a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
 Bag().isBag = true
 Bag().typeOf = 'Bag'
 var b = Bag(); b.add('x'); b.add('x'); b.size = 2 (* number of objects in bag *)
-var b = Bag(); b.add('x'); b.add('y'); b.add('x'); b.size = 3
-var b = Bag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6
+var b = Bag(); b.add('x'); b.add('y'); b.add('x'); b.size = 3 (* add element to bag *)
+var b = Bag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 (* add all elements of argument to bag *)
+| c= 'xyyzzz', r = Bag(); | r.addAll(c); r.size = 6 (* add all elements of a String to a Bag *)
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.size = 10
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedCounts = [1 -> 2, 2 -> 3, 3 -> 5, 4 -> 7]
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
@@ -843,13 +852,14 @@ var c = Bag(); c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
 var s = Bag(); 250.timesRepeat { s.add([1 .. 4].shuffled.asString) }; s.Set.size = 24
 
 'Collections-Unordered/Dictionary'
-var d = Dictionary(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2
-var d = ['x' -> 1, 'y' -> 2].Dictionary; d.keys = ['x', 'y']
-var d = ['x' -> 1, 'y' -> 2].Dictionary; d.values = [1, 2]
-var d = ['x' -> 1, 'y' -> 2].Dictionary; d.at('x') = 1
-var d = ['x' -> 1, 'y' -> 2].Dictionary; d['x'] = 1
-var d = Dictionary(); d.add('x' -> 1); d.removeKey('x'); d.isEmpty = true
-var d = Dictionary(); d['x'] := 1; d['x'] = 1
+| r = Dictionary(); | r.add('x' -> 1); r.size = 1 (* add Association to Dictionary *)
+var d = Dictionary(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2 (* add two Associations to Dictionary *)
+var d = ['x' -> 1, 'y' -> 2].Dictionary; d.keys = ['x', 'y'] (* answer Array of keys at Dictionary *)
+var d = ['x' -> 1, 'y' -> 2].Dictionary; d.values = [1, 2] (* answer Array of values at Dictionary *)
+var d = ['x' -> 1, 'y' -> 2].Dictionary; d.at('x') = 1 (* answer value at key in Dictionary *)
+var d = ['x' -> 1, 'y' -> 2].Dictionary; d['x'] = 1 (* at (subscript) syntax *)
+var d = Dictionary(); d.add('x' -> 1); d.removeKey('x'); d.isEmpty = true (* remove Association from Dictionary given key *)
+var d = Dictionary(); d['x'] := 1; d['x'] = 1 (* atPut (subscript mutation) syntax *)
 var d = Dictionary(); d[1] := 'x'; d[1] = 'x'
 var d = Dictionary(); d['x'] := 1; d.removeKey('x'); d.isEmpty = true
 ::x := 4; ::x * ::x = 16
@@ -868,7 +878,7 @@ var c = Dictionary(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one
 [1, 3, 5, 3, 1].Set.Array = [1, 3, 5]
 var s = [1, 3, 5, 3, 1].Set; s.remove(3); s.Array = [1, 5]
 [1 .. 9].Set.atRandom.betweenAnd(1, 9) (* inclusive *)
-var s = Set(); s.add(5); s.includes(5) = true
+var s = Set(); s.add(5); s.includes(5) = true (* add element to Set *)
 var s = ['x', 5].Set; var t = s.copy; t.add(5); s = t
 var s = [1 .. 4].Set; s.includes(s.atRandom) = true
 var s = (1 .. 10).Set; var t = s.collect { :each | (each >= 1).if { each } { 'no' } }; s = t
@@ -880,7 +890,9 @@ var s = (1 .. 10).Set; var t = s.copyWithout(3); s.size - 1 = t.size
 var s = (1 .. 10).Set; s.copyWithout(3).includes(3) = false
 var s = (1 .. 10).Set; var t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].Set
 var s = (1 .. 5).Set; var n = 0; s.do { :each | n := n + each }; n = 15
-var s = [].Set; s.addAll([1 .. 100]); s.size = 100
+var s = [].Set; s.addAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 (* add all elements of an Array to a Set *)
+| c = 'xyyzzz', r = Set(); | r.addAll(c); r.size = 3 (* add all elements of a String to a Set *)
+var s = [].Set; s.addAll([1 .. 99]); s.size = 99
 var s = ['x', 5].Set; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
 var s = (1 .. 5).Set; var n = 0; s.do { :each | n := n + each }; n = 15
 var s = (1 .. 9).Set; s.intersection(s) = s
@@ -918,6 +930,7 @@ var i = (1 .. 9); i.last = i[9] (* one-indexed *)
 (1 .. 6).sum = 21
 Interval(-1, 1, 1).asArray = [-1, 0, 1]
 1.to(99).asString = '(1 .. 99)'
+(1 .. 99).asString = '(1 .. 99)'
 to(1, -1).asString = 'Interval(1, -1, -1)'
 1.to(99).sum = 4950
 1.to(99).asArray.sum = 4950
@@ -954,16 +967,21 @@ var s = ''; (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531'
 'Collections-Ordered/Array (OrderedCollection, List)'
 Array(3).size = 3
 Array:/1.ofSize(3) = [nil, nil, nil]
-var l = []; l.addFirst(1); l.addFirst(2); l = [2, 1]
-var l = []; l.addLast(1); l.addLast(2); l = [1, 2]
-var l = []; 5.do { :each | l.add(each) }; l = [1 .. 5]
+var l = []; l.addFirst(1); l.addFirst(2); l = [2, 1] (* add item to start of array *)
+[1].addFirst(2) = 2 (* answer is argument *)
+var l = []; l.addLast(1); l.addLast(2); l = [1, 2] (* add item to end of array *)
+[1].addLast(2) = 2 (* answer is argument *)
+var l = []; 5.do { :each | l.add(each) }; l = [1 .. 5] (* alias for addLast *)
 var l = [1 .. 9]; l.removeFirst = 1 & { l.size = 8 } (* remove first object from array *)
 var l = [1 .. 9]; l.removeLast = 9 & { l.size = 8 } (* remove last object from array *)
-var l = [1]; l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6]
-[1].add(2) = 2 (* answer is argument *)
-[1].addAll([2, 3]) = [2, 3] (* answer is argument *)
-var l = [1, 2, 3]; l.addAllLast(4.to(5)); l = [1 .. 5]
-var l = [4, 5]; l.addAllFirst(1.to(3)); l = [1 .. 5]
+var l = [4, 5]; l.addAllFirst(1.to(3)); l = [1 .. 5] (* add all elements to start of array *)
+[1].addAllFirst([2, 3]) = [2, 3] (* answer is argument *)
+var l = [1, 2, 3]; l.addAllLast(4.to(5)); l = [1 .. 5] (* add all elements to end of array *)
+[1].addAllLast([2, 3]) = [2, 3] (* answer is argument *)
+var l = [1]; l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6] (* alias for addAllLast *)
+var i = (1 .. 9), a = []; a.addAll(i); a.size = 9 (* add elements from Interval to end of Array *)
+var s = 'string', a = []; a.addAll(s); a.size = 6 (* add elements from String to end of Array *)
+var s = 'string', a = []; a.addAll(s.ascii); a.size = 6 (* add elements from ByteArray to end of Array *)
 13.fibonacciSequence = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 var c = [1 .. 5]; [c.removeAt(1), c] = [1, [2, 3, 4, 5]]
 var c = [1 .. 5]; [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
@@ -1015,7 +1033,8 @@ var (x, y) = { var n = system.randomFloat; (x: n, y: n) }.value; x = y
 (x:1, y:2, z:3).sum = 6
 var d = (x: 9); d::x.sqrt = 3
 size (x: 1, y: 2, z: 3) = 3
-var d = (x: 1); d.addAll (y: 2, z: 3); d = (x: 1, y: 2, z: 3)
+var c = (y: 2, z: 3), r = (x: 1); r.addAll(c); r = (x: 1, y: 2, z: 3) (* add all elements of a Dictionary to a Dictionary *)
+var c = (y: 2, z: 3); (x: 1).addAll(c) = c (* answer is argument *)
 (x: 'x', y: '.', z: 'z').associationsSelect { :each | each.key = each.value } = (x: 'x', z: 'z')
 var d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.atDelegateTo(each, 'parent') } = [1, 2, 3]
 var d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.messageSend(each, 'parent', []) } = [1, 2, 3]
@@ -1046,11 +1065,11 @@ RegExp('x.x', 'g').printString.size = 18
 'x'.printString.size = 3
 1.asString = '1'
 'ascii'.ascii = [97, 115, 99, 105, 105].ByteArray
-'€'.utf8 = [226, 130, 172].ByteArray
-[226, 130, 172].ByteArray.utf8 = '€'
-'€'.utf8.utf8 = '€'
+'€'.utf8 = [226, 130, 172].ByteArray (* Utf-8 encoding of String as ByteArray *)
+[226, 130, 172].ByteArray.utf8 = '€' (* String from Utf-8 encoded ByteArray *)
+'€'.utf8.utf8 = '€' (* decode and encode Utf-8 *)
 'ascii'.ascii = 'ascii'.utf8
-'ascii'.ascii.ascii = 'ascii'
+'ascii'.ascii.ascii = 'ascii' (* decode and encode Ascii *)
 { '€'.ascii }.ifError { :err | true }
 'the quick brown fox jumps'.includesSubstring('') = true
 'the quick brown fox jumps'.includesSubstring('fox') = true
@@ -1141,8 +1160,8 @@ Fraction(3, 1) = 3:1
 -3:2.ceiling = -1
 3:2.floor = 1
 -3:2.floor = -2
-353:359.printString = '353:359'
-59:61.printString = '59:61'
+353:359.printString = '353:359' (* Fraction print string *)
+59:61.printString = '59:61' (* Fraction print string *)
 4 / (2:3) = 6
 4 / (-2:3) = -6
 -4 / (-2:3) = 6
@@ -1261,6 +1280,7 @@ epsilon() < (10 ** -15)
 epsilon() > (10 ** -16)
 inf.isFinite = false
 pi.isFinite = true
+{ nil.isFinite }.ifError { :err | true }
 5.closeTo(5) = true
 5.closeTo('5') = false
 5.closeTo(3) = false
@@ -1303,8 +1323,8 @@ var c = (5 - 6.i); (c * 1.i) = c.i
 (6 - 6.i).squared = -72.i
 
 'System/Blob'
-[1 .. 9].ByteArray.Blob.size = 9
-[65 .. 69].ByteArray.Blob.text.then { :answer | (answer = 'ABCDE').postLine }; true
+[1 .. 9].ByteArray.Blob.size = 9 (* Blob size *)
+[65 .. 69].ByteArray.Blob.text.then { :answer | (answer = 'ABCDE').postLine }; true (* Blob text *)
 
 'System/system'
 system.typeOf = 'System'

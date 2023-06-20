@@ -1123,7 +1123,13 @@
 	}
 
 	indexError { :self :index |
-		(self.typeOf ++ '>>at: index not an integer or out of range: ' ++ index).error
+		[
+			self.typeOf, '>>at: index not an integer or out of range.',
+			' index: ', index,
+			' index.typeOf: ', index.typeOf,
+			' index.isInteger: ', index.isInteger,
+			' self.size: ', self.size
+		].join.error
 	}
 
 	indexOf { :self :anElement |
@@ -2300,11 +2306,11 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 	}
 
 	addArrayFirst { :self :anArray |
-		<primitive: return _self.unshift(..._anArray);>
+		<primitive: _self.unshift(..._anArray); return _anArray;>
 	}
 
 	addArrayLast { :self :anArray |
-		<primitive: return _self.push(..._anArray);>
+		<primitive: _self.push(..._anArray); return _anArray;>
 	}
 
 	addFirst { :self :anObject |

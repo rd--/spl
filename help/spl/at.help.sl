@@ -1,6 +1,7 @@
 # at -- accessing
 
-- _at(aCollection, anIndex)_
+- _at(anIndexableCollection, anIndex)_
+- _at(aKeyedCollection, aKey)_
 
 Answer the value of the indexed instance variable of the receiver whose index is the argument _anIndex_.
 
