@@ -416,6 +416,21 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		}
 	}
 
+	clump { :self :groupSize |
+		| answer = [], segment = []; |
+		self.do { :item |
+			segment.add(item);
+			(segment.size >= groupSize).ifTrue {
+				answer.add(segment);
+				segment := []
+			}
+		};
+		(segment.size > 0).ifTrue {
+			answer.add(segment)
+		};
+		answer
+	}
+
 	crossedMultiply { :self :aSequence |
 		self.withCrossedCollect(aSequence, times:/2)
 	}
@@ -547,6 +562,21 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		}
 	}
 
+	mirror { :self |
+		self ++ self.reversed.allButFirst
+	}
+
+	normalize { :self :min :max |
+		| minItem = self.min, maxItem = self.max; |
+		self.collect { :each |
+			(each - minItem) / (maxItem - minItem) * (max - min) + min
+		}
+	}
+
+	normalizeSum { :self |
+		self / self.sum
+	}
+
 	pyramid { :self :patternType |
 		|
 			answer = [],
@@ -563,6 +593,14 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 			}
 		};
 		self.species.newFrom(answer)
+	}
+
+	reshape { :self :shape |
+		| size = shape.product, answer = self.flatten.wrapExtend(size); |
+		shape.allButFirst.reverseDo { :n |
+			answer := answer.clump(n)
+		};
+		answer
 	}
 
 	scramble { :self |
@@ -627,6 +665,14 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.collect { :each |
 			each.aProcedure(aSequence)
 		}
+	}
+
+	wrapExtend { :self :size |
+		| answer = []; |
+		1.upTo(size).do { :index |
+			answer.add(self.atWrap(index))
+		};
+		answer
 	}
 
 	+ { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, plus:/2) }

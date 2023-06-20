@@ -34,3 +34,11 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [1, 3].levenshteinDistance([1, 2, 3]) = 1 (* addition (in interior) *)
 [1, 2, 3].levenshteinDistance([1, 3]) = 1 (* deletion (from interior) *)
 [1, 2, 3].levenshteinDistance([1, 3, 2]) = 2 (* substitutions *)
+[1 .. 4].mirror = [1, 2, 3, 4, 3, 2, 1] (* append reverse of prefix of array *)
+[1 .. 9].normalizeSum.sum = 1 (* self / self.sum *)
+[1 .. 9].normalize(10, 90) = [10, 20 .. 90] (* normalise between minima and maxima *)
+[1 .. 5].wrapExtend(9) = ([1 .. 5] ++ [1 .. 4]) (* extend array cyclically *)
+[1 .. 5].wrapExtend(3) = [1 .. 3] (* truncate is required *)
+[4, 7, 6, 8].reshape([2, 2]) = [[4, 7], [6, 8]] (* reshape array given Apl type shape value *)
+[4, 7, 6, 8].reshape([2, 3]) = [[4, 7, 6], [8, 4, 7]]  (* cycle input as required *)
+
