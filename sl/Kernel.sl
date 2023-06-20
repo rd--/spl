@@ -1397,10 +1397,6 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 		<primitive: return Math.abs(_self)>
 	}
 
-	acos { :self |
-		<primitive: return Math.acos(_self)>
-	}
-
 	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
 		aCollection.collect { :each |
 			aProcedure(each, self)
@@ -1409,6 +1405,18 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 
 	adaptToFractionAndApply { :self :aFraction :aProcedure:/2 |
 		aFraction.asFloat.aProcedure(self)
+	}
+
+	arcCos { :self |
+		<primitive: return Math.acos(_self)>
+	}
+
+	arcSin { :self |
+		<primitive: return Math.asin(_self)>
+	}
+
+	arcTan { :self |
+		<primitive: return Math.atan(_self)>
 	}
 
 	arcTan { :self :anObject |
@@ -1425,14 +1433,6 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 
 	asNumber { :self |
 		self
-	}
-
-	asin { :self |
-		<primitive: return Math.asin(_self)>
-	}
-
-	atan { :self |
-		<primitive: return Math.atan(_self)>
 	}
 
 	atan2 { :self :anObject |

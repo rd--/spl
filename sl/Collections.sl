@@ -251,6 +251,24 @@
 		}
 	}
 
+	arcCos { :self |
+		self.collect { :each |
+			each.arcCos
+		}
+	}
+
+	arcSin { :self |
+		self.collect { :each |
+			each.arcSin
+		}
+	}
+
+	arcTan { :self |
+		self.collect { :each |
+			each.arcTan
+		}
+	}
+
 	anySatisfy { :self :aProcedure:/1 |
 		withReturn {
 			self.do { :each |
@@ -318,6 +336,10 @@
 		}
 	}
 
+	cos { :self |
+		self.collect(cos:/1)
+	}
+
 	count { :self :aProcedure:/1 |
 		| answer = 0; |
 		self.do { :each |
@@ -370,6 +392,23 @@
 		maxElement
 	}
 
+	detectMin { :self :aProcedure:/1 |
+		| minElement minValue |
+		self.do { :each |
+			minValue.isNil.if {
+				minElement := each;
+				minValue := aProcedure(each)
+			} {
+				| nextValue = aProcedure(each); |
+				(nextValue < minValue).ifTrue {
+					minElement := each;
+					minValue := nextValue
+				}
+			}
+		};
+		minElement
+	}
+
 	difference { :self :aCollection |
 		self.reject { :each |
 			aCollection.includes(each)
@@ -378,6 +417,26 @@
 
 	do { :self :aProcedure |
 		<primitive: return _self.forEach(_aProcedure);>
+	}
+
+	doSeparatedBy { :self :elementBlock:/1 :separatorBlock:/0 |
+		| beforeFirst = true; |
+		self.do { :each |
+			beforeFirst.if {
+				beforeFirst := false
+			} {
+				separatorBlock()
+			};
+			elementBlock(each)
+		}
+	}
+
+	doWithout { :self :aBlock:/1 :anItem |
+		self.do { :each |
+			(anItem = each).ifFalse {
+				aBlock(each)
+			}
+		}
 	}
 
 	emptyCheck { :self |
@@ -536,6 +595,10 @@
 		['size']
 	}
 
+	range { :self |
+		self.max - self.min
+	}
+
 	reduce { :self :aProcedure:/2 |
 		| first = true, nextValue = nil; |
 		self.do { :each |
@@ -581,6 +644,21 @@
 		aCollection
 	}
 
+	removeAllFoundIn { :self :aCollection |
+		aCollection.do { :each |
+			self.removeIfAbsent(each) { }
+		};
+		aCollection
+	}
+
+	removeAllSuchThat { :self :aBlock:/1 |
+		self.copy.do { :each |
+			aBlock(each).ifTrue {
+				self.remove(each)
+			}
+		}
+	}
+
 	removeIfAbsent { :self :oldObject :anExceptionBlock |
 		self.subclassResponsibility
 	}
@@ -593,6 +671,26 @@
 			}
 		};
 		answer
+	}
+
+	selectThenCollect { :self :selectBlock:/1 :collectBlock:/1 |
+		self.select(selectBlock:/1).collect(collectBlock:/1)
+	}
+
+	selectThenDo { :self :selectBlock:/1 :doBlock:/1 |
+		self.do { :each |
+			selectBlock(each).ifTrue {
+				doBlock(each)
+			}
+		}
+	}
+
+	sign { :self |
+		self.collect(sign:/1)
+	}
+
+	sin { :self |
+		self.collect(sin:/1)
 	}
 
 	size { :self |
@@ -613,6 +711,16 @@
 
 	take { :self :maxNumberOfElements |
 		self.any(maxNumberOfElements.min(self.size))
+	}
+
+	tan { :self |
+		self.collect(tan:/1)
+	}
+
+	union { :self :aCollection |
+		| answer = self.Set; |
+		answer.addAll(aCollection);
+		answer
 	}
 
 	withoutDuplicates { :self |
@@ -1038,11 +1146,28 @@
 		}
 	}
 
+	doSeparatedBy { :self :elementBlock:/1 :separatorBlock:/0 |
+		1.upTo(self.size).do { :index |
+			(index = 1).ifFalse {
+				separatorBlock()
+			};
+			elementBlock(self[index])
+		}
+	}
+
 	doWhile { :self :activity:/1 :condition:/0 |
 		| nextIndex = 1, endIndex = self.size; |
 		{ condition() & { nextIndex <= endIndex } }.whileTrue {
 			activity(self[nextIndex]);
 			nextIndex := nextIndex + 1
+		}
+	}
+
+	doWithout { :self :aBlock:/1 :anItem |
+		1.upTo(self.size).do { :index |
+			(anItem = self[index]).ifFalse {
+				aBlock(self[index])
+			}
 		}
 	}
 
@@ -1408,6 +1533,16 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 	copy { :self |
 		<primitive: return Array.from(_self);>
+	}
+
+	intersperse { :self :anObject |
+		| answer = []; |
+		self.doSeparatedBy { :each |
+			answer.add(each)
+		} {
+			answer.add(anObject)
+		};
+		answer
 	}
 
 	join { :self |

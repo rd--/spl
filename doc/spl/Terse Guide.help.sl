@@ -67,12 +67,12 @@ pi.veryCloseTo(3.141592653589793) (* pi = 3.141592653589793 *)
 1.exp.veryCloseTo(2.718281828459) (* e = 2.718281828459 *)
 var n = 100.randomFloat; (n >= 0) & { n < 100 } (* random number in (0, self-1) *)
 4 + 5 * 6 = 54 (* operators are evaluated left to right *)
-0.acos = (pi / 2) (* arc cosine *)
-1.acos = 0
--1.acos = pi
-0.asin = 0 (* arc sine *)
-1.asin =(pi / 2)
--1.asin = (pi / 2).negated
+0.arcCos = (pi / 2) (* arc cosine *)
+1.arcCos = 0
+-1.arcCos = pi
+0.arcSin = 0 (* arc sine *)
+1.arcSin =(pi / 2)
+-1.arcSin = (pi / 2).negated
 0.atan2(0) = 0
 0.atan2(1) = 0
 1.atan2(0) = (pi / 2)
@@ -181,6 +181,8 @@ false ~= nil
 [].allSatisfy { :item | false } = true
 [9, 4, 5, 7, 8, 6].occurrencesOf(7) = 1 (* count elements that are equal to object *)
 [1, 2, 3, 4, 5].atRandom <= 5 (* random element of collection *)
+[1 .. 9].range = (9 - 1) (* maxima - minima *)
+[-9, 0, 9].sign = [-1, 0, 1] (* signs of elements *)
 
 'Complex'
 Complex(0, 0).isComplex (* complex numbers *)
@@ -310,7 +312,10 @@ Interval(5, 10, 2).last = 9 (* create interval object with specified increment *
 (1 .. 9).select { :item | item > 7 } = [8, 9] (* return elements that pass test *)
 (1 .. 9).reject { :item | item < 7 } = [7, 8, 9] (* return elements that fail test *)
 (1 .. 9).collect { :item | item + item }.last = 18 (* transform each element *)
-(1 .. 9).detect { :item | item > 3 } = 4 (* find position of first element that passes test *)
+(1 .. 9).detect { :item | item > 3 } = 4 (* detect first element that passes test *)
+(9 .. 1).detect(even:/1) = 8 (* detect first element that passes test *)
+{ (9, 7 .. 1).detect(even:/1) }.ifError { :err | true } (* if no element is detected, raise error *)
+{ [].detect { :item | true } }.ifError { :err | true } (* detect at an empty collection raises an error *)
 (1 .. 9).injectInto(0) { :sum :item | sum + item } = 45(* sum elements *)
 (1 .. 9).asArray = [1 .. 9] (* convert to array *)
 (1 .. 9) = (1 .. 9) (* equality *)
@@ -674,6 +679,8 @@ var a = [5, 4, 3, 2, 1]; a.findIndex { :each | each % 3 = 0 } = 3
 13.fibonacciArray = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 3.replicate('3') = ['3', '3', '3']
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity:/1) = 4
+[(1 .. 3), (1 .. 6), (1 .. 9)].detectMax(size:/1) = (1 .. 9)
+[(1 .. 3), (1 .. 6), (1 .. 9)].detectMin(size:/1) = (1 .. 3)
 [9 .. 1].indexOf(3) = 7
 [9 .. 1].includes(3) = true
 [].includes(3) = false
@@ -731,12 +738,11 @@ var c = []; [1 .. 9].splitByDo([3 .. 5]) { :each | c.add(each) }; c = [[1, 2], [
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f', ''].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f'], []]
 [5, 6, 3, -3, 2, 1, 0, 4].minMax = [-3, 6]
 [2834.83, -293482.28, 99283, 23, 959323].minMax = [-293482.28, 959323]
-['x'].detect { :each | each.isString } = 'x'
-{ ['x'].detect { :each | each.isNumber } }.ifError { :err | true }
-['x'].detectIfFound { :each | each.isString } { :x | 42 } = 42
-['x'].detectIfFound { :each | each.isNumber } { :x | 'x' } = nil
-['x'].detectIfFoundIfNone { :each | each.isNumber } { :x | 'x' } { 'x' } = 'x'
-{ ['x'].detect { :each | each.isNumber } }.ifError { :err | true }
+['x'].detect { :each | each.isString } = 'x' (* detect element in collection *)
+{ ['x'].detect { :each | each.isNumber } }.ifError { :err | true } (* if no element is detected, an error is raised *)
+['x'].detectIfFound { :each | each.isString } { :x | 42 } = 42 (* process detected element before answering *)
+['x'].detectIfFound { :each | each.isNumber } { :x | 'x' } = nil (* if not found answer nil *)
+['x'].detectIfFoundIfNone { :each | each.isNumber } { :x | 'x' } { 'x' } = 'x' (* ifFound and ifNone clauses *)
 ['x'].detectIfNone { :each | each.isString } { 42 } = 'x'
 ['x'].detectIfNone { :each | each.isNumber } { 42 } = 42
 Array(9).atAllPut('x').last = 'x'
@@ -750,6 +756,19 @@ var a = [1, 2, 4]; a.insertAt(3, 3); a = [1 .. 4] (* insert value at index *)
 var a = [1, 2, 4]; a.addAfter(3, 2); a = [1 .. 4] (* insert value after existing value *)
 var a = [1, 2, 4]; a.addBefore(3, 4); a = [1 .. 4] (* insert value before existing value *)
 [2, 7, 5, 0, 1, -2].collect { :index | [5, 6, 8].atWrap(index) } = [6, 5, 6, 8, 5, 5] (* index with wrap-around *)
+[1 .. 9].difference([3 .. 7]) = [1, 2, 8, 9] (* set theoretic difference of two collections *)
+[1 .. 9].difference([]) = [1 .. 9] (* set theoretic difference of two collections *)
+[1 .. 9].difference([1 .. 9]) = [] (* set theoretic difference of two collections *)
+[1, 3 .. 9].intersection([2, 4 .. 8]) = [] (* set theoretic intersection *)
+[1 .. 5].intersection([5 .. 9]) = [5] (* set theoretic intersection *)
+var a = []; [1 .. 3].doSeparatedBy { :each | a.add(each) } { a.add(0) }; a = [1, 0, 2, 0, 3]
+[1, 2, 3].intersperse(0) = [1, 0, 2, 0, 3]
+var a = []; [1 .. 3].doWithout({ :each | a.add(each) }, 2); a = [1, 3]
+[1 .. 9].selectThenCollect(even:/1) { :each | each * 3 } = [6, 12, 18, 24]
+var a = []; [1 .. 9].selectThenDo(even:/1) { :each | a.add(each * 3) }; a = [6, 12, 18, 24]
+[1, 3 .. 9].union([3 .. 7]) = [1, 3, 4, 5, 6, 7, 9].Set (* set theoretic union *)
+var a = [1 .. 9]; a.removeAllSuchThat(even:/1); a = [1, 3 .. 9] (* remove elements selected by predicate *)
+var a = [1 .. 9]; a.removeAllFoundIn([1, 3 .. 9]); a = [2, 4 .. 8] (* remove elements found in a collection *)
 
 'Collections-Unordered/Association'
 ('x' -> 1).typeOf = 'Association'

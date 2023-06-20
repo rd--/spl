@@ -174,7 +174,6 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		)
 	}
 
-	cos { :self | self.collect(cos:/1) }
 	cosh { :self | self.collect(cosh:/1) }
 	cubed { :self | self.collect(cubed:/1) }
 	DbAmp { :self | self.collect(DbAmp:/1) }
@@ -195,11 +194,9 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	rounded { :self | self.collect(rounded:/1) }
-	sin { :self | self.collect(sin:/1) }
 	sinh { :self | self.collect(sinh:/1) }
 	sqrt { :self | self.collect(sqrt:/1) }
 	squared { :self | self.collect(squared:/1) }
-	tan { :self | self.collect(tan:/1) }
 	tanh { :self | self.collect(tanh:/1) }
 	truncated { :self | self.collect(truncated:/1) }
 
