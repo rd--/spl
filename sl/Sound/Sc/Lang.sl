@@ -614,8 +614,10 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	withExtendingCollectOrAdaptTo { :self :anObject :aProcedure:/2 |
-		anObject.isSequenceable.if {
-			withExtendingCollect(self, anObject, aProcedure:/2)
+		(anObject.isCollection & {
+			anObject.isSequenceable
+		}).if {
+			self.withExtendingCollect(anObject, aProcedure:/2)
 		} {
 			anObject.adaptToCollectionAndApply(self, aProcedure:/2)
 		}
