@@ -343,7 +343,7 @@ UgenGraph : [Object] {
 
 }
 
-+StringDictionary {
++Record {
 
 	localControls { :self |
 		<primitive: return sc.localControls(_self);>

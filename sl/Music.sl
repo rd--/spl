@@ -76,7 +76,7 @@ JiTuning : [Object] { | name description pitches limit degree |
 
 }
 
-+StringDictionary {
++Record {
 
 	JiTuning { :self |
 		newJiTuning().initializeFromDictionary(self)

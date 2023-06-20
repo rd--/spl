@@ -13,16 +13,16 @@ system.categorizeDictionary(
 		'Collections-Unordered': [
 			'Association',
 			'Bag',
-			'Dictionary',
 			'Graph',
-			'Set',
-			'StringDictionary'
+			'Map',
+			'Record',
+			'Set'
 		],
 		'Kernel-Logic': [
 			'Boolean'
 		],
 		'Kernel-Objects': [
-			'UndefinedObject',
+			'Nil',
 			'Void'
 		],
 		'Kernel-Behaviour': [

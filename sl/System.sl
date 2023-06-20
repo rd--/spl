@@ -881,7 +881,7 @@ URLSearchParams : [Object] {
 
 }
 
-+[String, StringDictionary] {
++[String, Record] {
 
 	URLSearchParams { :self | <primitive: return new URLSearchParams(_self);> }
 

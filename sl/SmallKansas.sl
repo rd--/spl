@@ -400,7 +400,7 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 		self.createElements;
 		self.setEventHandlers;
 		self.title := subject.title;
-		self.eventListeners := Dictionary();
+		self.eventListeners := Map();
 		self
 	}
 
@@ -1586,7 +1586,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 }
 
-+StringDictionary {
++Record {
 
 	ScalaJiMetaBrowser { :self |
 		ColumnBrowser('Scala Ji Meta Browser', 'text/html', false, false, [1, 4], nil, nil) { :browser :path |
@@ -1926,7 +1926,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 		self.createElements;
 		self.setEventHandlers;
 		self.setEditorText(contents);
-		self.eventListeners := Dictionary();
+		self.eventListeners := Map();
 		self
 	}
 
@@ -2153,7 +2153,7 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 
 }
 
-+StringDictionary {
++Record {
 
 	CrystalLatticeStructure { :self |
 		newCrystalLatticeStructure().initializeSlots(

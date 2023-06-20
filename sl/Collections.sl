@@ -460,7 +460,7 @@
 	}
 
 	groupBy { :self :keyBlock:/1 |
-		| result = Dictionary(); |
+		| result = Map(); |
 		self.do { :each |
 			| key = keyBlock(each); |
 			result.atIfAbsentPut(key, { [] }).add(each)
@@ -1997,7 +1997,7 @@ Bag : [Object, Collection] { | contents |
 +Void {
 
 	Bag {
-		newBag().initializeSlots(Dictionary())
+		newBag().initializeSlots(Map())
 	}
 
 }
@@ -2012,7 +2012,7 @@ Bag : [Object, Collection] { | contents |
 
 }
 
-Dictionary : [Object, Collection, Dictionary] {
+Map : [Object, Collection, Dictionary] {
 
 	add { :self :anAssociation |
 		<primitive:
@@ -2029,7 +2029,7 @@ Dictionary : [Object, Collection, Dictionary] {
 		<primitive: _self.set(_aKey, _aValue);>
 	}
 
-	Dictionary { :self |
+	Map { :self |
 		self
 	}
 
@@ -2043,9 +2043,9 @@ Dictionary : [Object, Collection, Dictionary] {
 
 	json { :self :replacer :space |
 		self.keys.allSatisfy(isString:/1).if {
-			self.StringDictionary.json(replacer, space)
+			self.Record.json(replacer, space)
 		} {
-			'Dictionary>>json: not all keys are strings'.error
+			'Map>>json: not all keys are strings'.error
 		}
 	}
 
@@ -2078,11 +2078,11 @@ Dictionary : [Object, Collection, Dictionary] {
 	}
 
 	species { :self |
-		Dictionary:/0
+		Map:/0
 	}
 
 	storeString { :self |
-		self.associations.storeString ++ '.Dictionary'
+		self.associations.storeString ++ '.Map'
 	}
 
 	values { :self |
@@ -2093,27 +2093,19 @@ Dictionary : [Object, Collection, Dictionary] {
 
 +Array {
 
-	identityDictionaryFromTwoElementArrays { :self |
+	mapFromTwoElementArrays { :self |
 		<primitive: return new Map(_self);>
 	}
 
-	Dictionary { :self |
-		self.collect(Array:/1).identityDictionaryFromTwoElementArrays
-	}
-
-}
-
-+@Object {
-
-	isDictionary { :self |
-		false
+	Map { :self |
+		self.collect(Array:/1).mapFromTwoElementArrays
 	}
 
 }
 
 +Void {
 
-	Dictionary {
+	Map {
 		<primitive: return new Map();>
 	}
 
@@ -2581,7 +2573,7 @@ PriorityQueue : [Object] {
 
 }
 
-StringDictionary : [Object, Collection, Dictionary] {
+Record : [Object, Collection, Dictionary] {
 
 	at { :self :aString |
 		<primitive: return _self[_aString] || null;>
@@ -2593,10 +2585,10 @@ StringDictionary : [Object, Collection, Dictionary] {
 				return _self[_aString] = _anObject;
 			}
 		>
-		('StringDictionary>>atPut key not a string: ' ++ aString.typeOf).error
+		('Record>>atPut key not a string: ' ++ aString.typeOf).error
 	}
 
-	Dictionary { :self |
+	Map { :self |
 		<primitive: return new Map(Object.entries(_self));>
 	}
 
@@ -2644,10 +2636,10 @@ StringDictionary : [Object, Collection, Dictionary] {
 	}
 
 	species { :self |
-		StringDictionary:/0
+		Record:/0
 	}
 
-	StringDictionary { :self |
+	Record { :self |
 		self
 	}
 
@@ -2659,31 +2651,31 @@ StringDictionary : [Object, Collection, Dictionary] {
 
 +Array {
 
-	StringDictionary { :self |
-		self.collect(key:/1).allSatisfy(isString:/1).if {
-			self.collect(Array:/1).stringDictionaryFromTwoElementArrays
-		} {
-			'Array>>StringDictionary: not all keys are strings'.error
-		}
+	recordFromTwoElementArrays { :self |
+		<primitive: return Object.fromEntries(_self);>
 	}
 
-	stringDictionaryFromTwoElementArrays { :self |
-		<primitive: return Object.fromEntries(_self);>
+	Record { :self |
+		self.collect(key:/1).allSatisfy(isString:/1).if {
+			self.collect(Array:/1).recordFromTwoElementArrays
+		} {
+			'Array>>Record: not all keys are strings'.error
+		}
 	}
 
 }
 
-+Dictionary {
++Map {
 
-	StringDictionary { :self |
+	Record { :self |
 		self.keys.allSatisfy(isString:/1).if {
-			self.unsafeStringDictionary
+			self.unsafeRecord
 		} {
-			'Dictionary>>StringDictionary: not all keys are strings'.error
+			'Map>>Record: not all keys are strings'.error
 		}
 	}
 
-	unsafeStringDictionary { :self |
+	unsafeRecord { :self |
 		<primitive: return Object.fromEntries(_self);>
 	}
 
@@ -2691,7 +2683,7 @@ StringDictionary : [Object, Collection, Dictionary] {
 
 +Void {
 
-	StringDictionary {
+	Record {
 		<primitive: return Object.create(null);>
 	}
 

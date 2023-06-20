@@ -488,7 +488,7 @@ DOMPointReadOnly : [Object, DOMPointReadOnly] {
 
 }
 
-+StringDictionary {
++Record {
 
 	DOMPointReadOnly { :self |
 		<primitive: return DOMPointReadOnly.fromPoint(_self);>

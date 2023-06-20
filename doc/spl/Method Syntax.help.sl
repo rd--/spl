@@ -10,11 +10,11 @@ In the program below randomly spaced impulses (_Dust_) are scaled (_Mul_), trigg
 ```
 var lfo = { :freq :lo :hi | LfNoise2(freq).Range(lo, hi) };
 Dust([1, 3])
-    .Mul(1/4)
-    .Decay(lfo(1/3, 1/5, 5/7))
-    .Mul(PinkNoise())
-    .Bpf(lfo(1/3, 700, 2300), lfo(1/3, 1/9, 3))
-    .AllpassN(1/5, 1/5, lfo(1/3, 1/3, 3))
+	.Mul(1/4)
+	.Decay(lfo(1/3, 1/5, 5/7))
+	.Mul(PinkNoise())
+	.Bpf(lfo(1/3, 700, 2300), lfo(1/3, 1/9, 3))
+	.AllpassN(1/5, 1/5, lfo(1/3, 1/3, 3))
 ```
 
 The same program written in applicative form with infix operators:
@@ -22,17 +22,17 @@ The same program written in applicative form with infix operators:
 ```
 var lfo = { :freq :lo :hi | Range(LfNoise2(freq), lo, hi) };
 AllpassN(
-    Bpf(
-        PinkNoise() * Decay(
-            Dust([1, 3]) * 1/4,
-            lfo(1/3, 1/5, 5/7)
-        ),
-        lfo(1/3, 700, 2300),
-        lfo(1/3, 1/9, 3)
-    ),
-    1/5,
-    1/5,
-    lfo(1/3, 1/3, 3)
+	Bpf(
+		PinkNoise() * Decay(
+			Dust([1, 3]) * 1/4,
+			lfo(1/3, 1/5, 5/7)
+		),
+		lfo(1/3, 700, 2300),
+		lfo(1/3, 1/9, 3)
+	),
+	1/5,
+	1/5,
+	lfo(1/3, 1/3, 3)
 )
 ```
 

@@ -6,10 +6,10 @@ Answers the type name of _anObject_.
 
 	3.141.typeOf = 'SmallFloat'
 	true.typeOf = 'Boolean'
-	nil.typeOf = 'UndefinedObject'
+	nil.typeOf = 'Nil'
 	'x'.typeOf = 'String'
 	[].typeOf = 'Array'
-	().typeOf = 'StringDictionary'
+	().typeOf = 'Record'
 	23.typeOf.typeOf = 'String'
 	typeOf:/1.typeOf = 'Procedure'
 

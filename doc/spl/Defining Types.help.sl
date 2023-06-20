@@ -20,9 +20,9 @@ Note also that slot access is mediated by the reader procedures, even for method
 
 ```
 OctPc { | octave pitchClass |
-    asMidi { :self |
-        self.octave + 1 * 12 + self.pitchClass
-    }
+	asMidi { :self |
+		self.octave + 1 * 12 + self.pitchClass
+	}
 }
 ```
 

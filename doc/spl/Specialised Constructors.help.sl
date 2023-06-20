@@ -9,9 +9,9 @@ Implementing the first meaning requires writing an additional method.
 
 ```
 + [Array, Ugen] {
-    Lag { :self |
-        Lag(self, 0.1)
-    }
+	Lag { :self |
+		Lag(self, 0.1)
+	}
 }
 ```
 
@@ -21,9 +21,9 @@ The _Range_ pseudo-Ugen is LinLin with an input range of (-1, 1).
 
 ```
 + [Array, Ugen] {
-    Range { :self :lo :hi |
-        LinLin(self, -1, 1, lo, hi)
-    }
+	Range { :self :lo :hi |
+		LinLin(self, -1, 1, lo, hi)
+	}
 }
 ```
 

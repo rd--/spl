@@ -1,4 +1,4 @@
-+ Dictionary {
++ Record {
 	AllpassC { :d | AllpassC(d::in ? 0.0, d::maxdelaytime ? 0.2, d::delaytime ? 0.2, d::decaytime ? 1.0) }
 	AllpassL { :d | AllpassL(d::in ? 0.0, d::maxdelaytime ? 0.2, d::delaytime ? 0.2, d::decaytime ? 1.0) }
 	AllpassN { :d | AllpassN(d::in ? 0.0, d::maxdelaytime ? 0.2, d::delaytime ? 0.2, d::decaytime ? 1.0) }
@@ -125,7 +125,7 @@
 	XLine { :d | XLine(d::start ? 1.0, d::end ? 2.0, d::dur ? 1.0, d::doneAction ? 0.0) }
 }
 
-+ Dictionary {
++ Record {
 	Env { :d | Env(d::levels, d::times, d::curves, d::releaseNode ? nil, d::loopNode ? nil, d::offset ? 0) }
 	EqPan2 { :d | LinPan2(d::in ? 0.0, d::pos ? 0.0, d::level ? 1.0) }
 	MiBraids { :d | MiBraids(d::pitch ? 60, d::timbre ? 0.5, d::color ? 0.5, d::model ? 0, d::trig ? 0, d::resamp ? 0, d::decim ? 0, d::bits ? 0, d::ws ? 0) }

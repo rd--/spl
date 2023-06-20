@@ -6,7 +6,9 @@ There is a compiler switch to select the behaviour.
 
 In both cases the program:
 
-	| f = { :x | x * x }; | [3, 5, 7].collect(f:/1) = [9, 25, 49]
+```
+| f = { :x | x * x }; | [3, 5, 7].collect(f:/1) = [9, 25, 49]
+```
 
 is correct, the switch allows one to also write:
 

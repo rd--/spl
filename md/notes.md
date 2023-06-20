@@ -69,8 +69,10 @@ Sequenceable:
 
 Unordered:
 
-- IdentitySet - (Set in Js)
-- IdentityDictionary - (Map in Js)
+- Set == IdentitySet (Set in Js)
+- Map == IdentityDictionary - (Map in Js)
+- Record == StringDictionary - (Object in Js)
+- Bag
 
 # Subtleties
 
@@ -145,7 +147,7 @@ _ifError_ is after St.
 # Types
 
 Built-in types are the underlying type.
-Some are renamed (_Set_ ⇒ _IdentitySet_, _Map_ ⇒ _IdentityDictionary_).
+Some are renamed (_Object_ ⇒ _Record_)
 Ordinary types have a _type_ field that names the type.
 Js types will be inferred as _value.constructor.name_.
 

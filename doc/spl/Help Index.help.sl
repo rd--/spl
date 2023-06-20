@@ -34,12 +34,12 @@
 - Object -- value trait
 - Procedure -- behaviour type
 - String -- text
-- StringDictionary -- dictionary type
+- Record -- dictionary type
 - System -- system
 - TimeStamp -- time
 - Trait -- behaviour type
 - Type -- value type
-- UndefinedObject -- nil type
+- Nil -- nil type
 - Void -- uninhabited type
 - add -- adding
 - addAll -- adding

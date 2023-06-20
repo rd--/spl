@@ -10,15 +10,15 @@ The expressions below define these methods.
 
 ```
 + Duration {
-    centiseconds { :self |
-        self.milliseconds / 10
-    }
+	centiseconds { :self |
+		self.milliseconds / 10
+	}
 }
 
 + Number {
-    centiseconds { :self |
-        Duration(self * 10)
-    }
+	centiseconds { :self |
+		Duration(self * 10)
+	}
 }
 ```
 

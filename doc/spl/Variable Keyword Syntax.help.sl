@@ -26,12 +26,12 @@ The [Initialised Temporaries Syntax] can also be quite clear, when offset and in
 
 ```
 |
-    (* 10 voices of a random sine percussion sound *)
-    s = { Resonz(Dust(0.2) * 50, Rand(200, 3200), 0.003) } !+ 10,
-    (* reverb predelay time *)
-    z = DelayC(s, 0.048, 0.048),
-    (* 7 length modulated comb delays in parallel *)
-    y = { CombL(z, 0.1, LfNoise1(Rand(0, 0.1)) * 0.04 + 0.05, 15) } !+ 7;
+	(* 10 voices of a random sine percussion sound *)
+	s = { Resonz(Dust(0.2) * 50, Rand(200, 3200), 0.003) } !+ 10,
+	(* reverb predelay time *)
+	z = DelayC(s, 0.048, 0.048),
+	(* 7 length modulated comb delays in parallel *)
+	y = { CombL(z, 0.1, LfNoise1(Rand(0, 0.1)) * 0.04 + 0.05, 15) } !+ 7;
 |
 (* two parallel chains of 4 allpass delays *)
 4.timesRepeat { y := AllpassC(y, 0.050, [Rand(0, 0.050), Rand(0, 0.050)], 1) };

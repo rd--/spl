@@ -121,9 +121,9 @@ true | { false } = true (* logical or (operator) *)
 true.ifTrue { 'T' } = 'T' (* if then, c.f. conditional statements *)
 false.if { 'T' } { 'F' } = 'F' (* if then else (do) *)
 true.if { 'T' } { 'F' } = 'T' (* if then else (value) *)
-true.not = false (* not *)
-false.not = true (* not *)
-true.not.not = true (* not *)
+true.not = false (* not true is false *)
+false.not = true (* not false is true *)
+true.not.not = true (* not of not is the identity *)
 1.isNumber = true (* test if object is a number *)
 1.isInteger = true (* test if object is an integer *)
 1.respondsTo(sqrt:/1) = true (* test if object responds to message *)
@@ -397,7 +397,7 @@ pi.radiansToDegrees = 180 (* radiansToDegrees *)
 var f = { :x :y | x + y }; { f(true, false) }.ifError { :err | true } (* boolean does not implement + *)
 
 'Nil'
-nil.typeOf = 'UndefinedObject' (* nil *)
+nil.typeOf = 'Nil' (* nil *)
 nil ? 'x' = 'x' (* right hand side if nil *)
 'x' ? 'y' = 'x' (* left hand side unless nil *)
 nil.isNil = true (* is nil *)
@@ -517,10 +517,10 @@ var x; var y = 0, z; [x, y, z] = [nil, 0, nil] (* there can be multiple var sequ
 'text'[3].toUppercase = 'X' (* c[k] is syntax for c.at(k) *)
 var x = [1 .. 5]; x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, v) *)
 
-'StringDictionary syntax'
-(x: 1, y: 2) = ['x' -> 1, 'y' -> 2].Dictionary (* (x: 1, ...) is dictionary syntax *)
-() = [].Dictionary (* empty dictionary *)
-(x: 1, y: 2).printString = '(x: 1, y: 2)' (* StringDictionary print string *)
+'Dictionary (Record) syntax'
+(x: 1, y: 2) = ['x' -> 1, 'y' -> 2].Record (* (x: 1, ...) is dictionary syntax *)
+() = [].Record (* empty dictionary *)
+(x: 1, y: 2).printString = '(x: 1, y: 2)' (* Record print string *)
 
 'Setter Syntax'
 var a = 'one' -> 1; a.key := 9; a.key = 9 (* p.x := y is syntax for p.x(y) *)
@@ -556,7 +556,7 @@ false.ifFalse { true }
 [1, 3, 5].species = Array:/1
 [1, 3, 5].Set.species = Set:/0
 [1, 3, 5].Bag.species = Bag:/0
-(x: 1, y: 3, z: 5).species = StringDictionary:/0
+(x: 1, y: 3, z: 5).species = Record:/0
 'b'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) = 2
 { 'd'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) }.ifError { :err | true }
 3:2.perform('numerator') = 3
@@ -605,10 +605,9 @@ var p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f 
 var p = Promise { :t :f:/1 | f('f') }; p.then { :t | t.postLine }.catch { :f | (f = 'f').postLine }; p.isPromise
 var p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }.finally { 'true'.postLine }; p.isPromise
 
-'Kernel-Objects/UndefinedObject'
-nil.typeOf = 'UndefinedObject'
+'Kernel-Objects/Nil'
+nil.typeOf = 'Nil'
 nil.isNil = true
-nil.isUndefinedObject = true
 nil = nil
 nil == nil
 nil.ifNil { true } = true
@@ -728,7 +727,7 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 5].beginsWith([1 .. 3]) = true
 [1 .. 5].beginsWithAnyOf([[5], [4], [3], [2]])= false
 [1 .. 5].groupBy(even:/1)[true].Array = [2, 4]
-var c = Dictionary(); [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | c.add(q -> p) }; c['elmer'] = 3
+var c = Map(); [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | c.add(q -> p) }; c['elmer'] = 3
 [1 .. 9].indexOfSubCollection([3 .. 5]) = 3
 [1 .. 9].indexOfSubCollectionStartingAt([3 .. 5], 9) = 0
 [1 .. 9].indexOfSubCollectionStartingAt([9], 9) = 9
@@ -870,24 +869,24 @@ var c = Bag(); c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
 [2, 3, 3, 4, 4, 4].Bag.Set.occurrencesOf(3) = 1
 var s = Bag(); 250.timesRepeat { s.add([1 .. 4].shuffled.asString) }; s.Set.size = 24
 
-'Collections-Unordered/Dictionary'
-| r = Dictionary(); | r.add('x' -> 1); r.size = 1 (* add Association to Dictionary *)
-var d = Dictionary(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2 (* add two Associations to Dictionary *)
-var d = ['x' -> 1, 'y' -> 2].Dictionary; d.keys = ['x', 'y'] (* answer Array of keys at Dictionary *)
-var d = ['x' -> 1, 'y' -> 2].Dictionary; d.values = [1, 2] (* answer Array of values at Dictionary *)
-var d = ['x' -> 1, 'y' -> 2].Dictionary; d.at('x') = 1 (* answer value at key in Dictionary *)
-var d = ['x' -> 1, 'y' -> 2].Dictionary; d['x'] = 1 (* at (subscript) syntax *)
-var d = Dictionary(); d.add('x' -> 1); d.removeKey('x'); d.isEmpty = true (* remove Association from Dictionary given key *)
-var d = Dictionary(); d['x'] := 1; d['x'] = 1 (* atPut (subscript mutation) syntax *)
-var d = Dictionary(); d[1] := 'x'; d[1] = 'x'
-var d = Dictionary(); d['x'] := 1; d.removeKey('x'); d.isEmpty = true
+'Collections-Unordered/Map'
+| r = Map(); | r.add('x' -> 1); r.size = 1 (* add Association to Dictionary *)
+var d = Map(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2 (* add two Associations to Dictionary *)
+var d = ['x' -> 1, 'y' -> 2].Map; d.keys = ['x', 'y'] (* answer Array of keys at Dictionary *)
+var d = ['x' -> 1, 'y' -> 2].Map; d.values = [1, 2] (* answer Array of values at Dictionary *)
+var d = ['x' -> 1, 'y' -> 2].Map; d.at('x') = 1 (* answer value at key in Dictionary *)
+var d = ['x' -> 1, 'y' -> 2].Map; d['x'] = 1 (* at (subscript) syntax *)
+var d = Map(); d.add('x' -> 1); d.removeKey('x'); d.isEmpty = true (* remove Association from Dictionary given key *)
+var d = Map(); d['x'] := 1; d['x'] = 1 (* atPut (subscript mutation) syntax *)
+var d = Map(); d[1] := 'x'; d[1] = 'x'
+var d = Map(); d['x'] := 1; d.removeKey('x'); d.isEmpty = true
 ::x := 4; ::x * ::x = 16
 ::a := 'x' -> 1; [::a.key, ::a.value] = ['x', 1]
 var d = (f: { :i | i * i }); d::f.value(9) = 81
-{ Dictionary().removeKey('unknownKey') }.ifError { :err | true }
+{ Map().removeKey('unknownKey') }.ifError { :err | true }
 (x: 1, y: 1).withoutDuplicates = (x: 1)
-var d = Dictionary(); 100.do { :i | d[i] := i; (i > 10).ifTrue { d.removeKey(i - 10) } }; d.size = 10
-var c = Dictionary(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.removeKey(1); c.includesKey(1) = false
+var d = Map(); 100.do { :i | d[i] := i; (i > 10).ifTrue { d.removeKey(i - 10) } }; d.size = 10
+var c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.removeKey(1); c.includesKey(1) = false
 
 'Collections-Unordered/Set'
 [1, 3, 5, 3, 1].Set.isSet = true
@@ -1018,23 +1017,23 @@ var p = PriorityQueue(); p.push('a', 1); p.push('b', 0); p.pop = 'b'
 var p = PriorityQueue(); p.pushAll(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 & { p.pop = 'c' }
 var p = PriorityQueue(); p.peekPriority = nil
 
-'Collections-Unordered/StringDictionary'
-().typeOf = 'StringDictionary'
-().isStringDictionary
-().species = StringDictionary:/0
-StringDictionary().isStringDictionary
-StringDictionary().includesKey('x') = false
+'Collections-Unordered/Record'
+().typeOf = 'Record'
+().isRecord
+().species = Record:/0
+Record().isRecord
+Record().includesKey('x') = false
 (x: 1).includesKey('x') = true
-StringDictionary().at('x') = nil (* lookup for non-existing key answers nil *)
+Record().at('x') = nil (* lookup for non-existing key answers nil *)
 ()['x'] = nil (* lookup for non-existing key answers nil *)
-var d = StringDictionary(); d.atPut('x', 1); d.at('x') = 1
-var d = StringDictionary(); d['x'] := 1; d['x'] = 1
-var d = StringDictionary(); d['x'] := 1; d['y'] := 2; d.size = 2
-var d = StringDictionary(); d::x := 1; d::y := 2; d.size = 2
-['x' -> 1, 'y' -> 2].StringDictionary['y'] = 2
-{ StringDictionary().atPut(1, 1) }.ifError { :err | true }
-(x: 3.141, y: 23).StringDictionary.json = '{"x":3.141,"y":23}'
-'{"x":3.141,"y":23}'.parseJson.Dictionary = (x: 3.141, y: 23)
+var d = Record(); d.atPut('x', 1); d.at('x') = 1
+var d = Record(); d['x'] := 1; d['x'] = 1
+var d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
+var d = Record(); d::x := 1; d::y := 2; d.size = 2
+['x' -> 1, 'y' -> 2].Record['y'] = 2
+{ Record().atPut(1, 1) }.ifError { :err | true }
+(x: 3.141, y: 23).Record.json = '{"x":3.141,"y":23}'
+'{"x":3.141,"y":23}'.parseJson.Map = (x: 3.141, y: 23)
 var d = (x: 1, y: 2), i = 9; d.associationsDo { :each | i := i - each.value } ; i = 6
 var d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
 (x: 23, y: 3.141).isDictionary
@@ -1064,7 +1063,7 @@ var d = (length: { :self | (self::x.squared + self::y.squared).sqrt }); var p = 
 var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7) = 21
 (x: 1) = ('x': 1)
 ('font-size': '11pt', 'font-style': 'italic').keys = ['font-size', 'font-style']
-(x: 1).Dictionary.StringDictionary = (x: 1)
+(x: 1).Map.Record = (x: 1)
 
 'Kernel-Text/RegExp'
 RegExp('ab+c').isRegExp = true
@@ -1379,7 +1378,7 @@ system.allMethods.collect { :each | each.signature }.includes('@Collection>>sum:
 '@Collection'.parseQualifiedTraitName = 'Collection'
 system.methodLookupAtType('collect', 2, 'Array').isMethod = true
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Interval') = true
-system.methodSignatures('add').includes('Dictionary>>add:/2') = true
+system.methodSignatures('add').includes('Map>>add:/2') = true
 system.methodLookupAtSignature('@Collection>>sum:/1').isMethod = true
 system.methodLookupAtType('sum', 1, 'Array').sourceCode = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
 system.methodTypes('last:/1').includes('Interval') = true
@@ -1413,7 +1412,7 @@ system.traitLookup('Collection').name = 'Collection'
 system.traitLookup('Collection').methodDictionary.includesKey('sum:/1') = true
 system.traitLookup('Collection').methodDictionary::sum:/1.isMethod = true
 system.traitTypes('Collection').includes('Array') = true
-system.traitTypes('Dictionary').includes('Dictionary') = true
+system.traitTypes('Dictionary').includes('Map') = true
 system.traitDictionary['Dictionary'].isTrait = true
 
 'System/typeDictionary'
@@ -1425,7 +1424,7 @@ system.typeDictionary::Array.traitNameArray.includes('Collection') = true
 system.typeDictionary::Association.slotNameArray = ['key', 'value']
 system.typeDictionary::Association.methodDictionary.keys.includes('equals:/2')
 system.typeDictionary::Association.methodDictionary.includesKey('key:/1') = true
-system.typeDictionary::UndefinedObject.methodDictionary.includesKey('ifNil:/2') = true
+system.typeDictionary::Nil.methodDictionary.includesKey('ifNil:/2') = true
 system.typeMethods('Association').select { :each | each.name = 'copy' }.size = 1
 system.typeMethods('Association').collect(name:/1).includes('copy') = true
 system.typeLookup('Array').isType = true
@@ -1470,7 +1469,9 @@ var t = system.unixTime; t - 0.seconds = t
 { system.unixTime.postLine }.evaluateEvery(3.seconds).cancel = nil
 
 'Syntax/Trailing Procedures'
-1.to(9).collect{ :x | x * x }.last = 81
+1.to(9).collect { :x | x * x }.last = 81
+(1 .. 9).collect { :x | x * x }.last = 81
+(1 .. 9).collect { :x | x * x }.collect { :x | x * x }.last = 6561
 [1, 3, 5].withCollect([1, 3, 5]) { :p :q | p -> q } = [1 -> 1, 3 -> 3, 5 -> 5]
 [1, 3, 5].reversed.withCollect([1, 3, 5]) { :p :q | p -> q } = [5 -> 1, 3 -> 3, 1 -> 5]
 

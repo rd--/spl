@@ -11,7 +11,6 @@ The keys are type names and the values are _Method_ values.
 
 The method dictionary is reflected in the _system_ value.
 
-	system.methodDictionary.isDictionary = true
-	system.methodDictionary::collect.isDictionary = true
-	system.methodDictionary::collect[2].isDictionary = true
-	system.methodDictionary::collect[2]::Array.isMethod = true
+* * *
+
+See also: _methodDictionary_

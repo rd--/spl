@@ -1,6 +1,10 @@
 # system -- reflection
 
-_system_ is the name of the system dictionary.
+_system_ is the name of the singular instance of the _System_ type.
+
+	system.methodDictionary.keys.includes('sum') = true
+	system.traitDictionary.keys.includes('Collection') = true
+	system.typeDictionary.keys.includes('Array') = true
 
 It holds the Method, Trait and Type dictionaries.
 

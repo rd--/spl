@@ -25,7 +25,7 @@ type ByTypeMethodDictionary = Map<TypeName, Method>;
 type ByArityMethodDictionary = Map<Arity, ByTypeMethodDictionary>;
 type MethodDictionary = Map<MethodName, ByArityMethodDictionary>
 
-function isStringDictionary(anObject: SlObject): boolean {
+function isRecord(anObject: SlObject): boolean {
 	const c = anObject.constructor;
 	return c === undefined || c.name === 'Object';
 }
@@ -33,19 +33,19 @@ function isStringDictionary(anObject: SlObject): boolean {
 function objectType(anObject: SlObject): TypeName {
 	return anObject instanceof Array ? 'Array' :
 		(anObject instanceof Error ? 'Error' :
-		 (anObject instanceof Map ? 'Dictionary' :
+		 (anObject instanceof Map ? 'Map' :
 		  (anObject instanceof Set ? 'Set' :
 		   (anObject instanceof Uint8Array ? 'ByteArray' :
 		    (anObject instanceof Float64Array ? 'Float64Array' :
 		     (anObject instanceof Promise ? 'Promise' :
 		      (anObject instanceof PriorityQueue ? 'PriorityQueue' :
 		       (anObject._type ||
-		        (isStringDictionary(anObject) ? 'StringDictionary' : anObject.constructor.name)))))))));
+		        (isRecord(anObject) ? 'Record' : anObject.constructor.name)))))))));
 }
 
 export function typeOf(anObject: unknown): TypeName {
 	if(anObject === null || anObject === undefined) {
-		return 'UndefinedObject';
+		return 'Nil';
 	} else {
 		switch (typeof anObject) {
 		case 'boolean': return 'Boolean';

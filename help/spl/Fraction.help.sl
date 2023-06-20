@@ -12,6 +12,13 @@ Instance variables are:
 A Fraction is generally created by writing it using the literal syntax _1:3_.
 
 	1:3 = Fraction(1, 3)
+	3:4.asFloat = 0.75
+	7:6 > 1.1 = true
+
+Fractions written using this syntax are _reduced_ by construction.
+
+	2:4 = 1:2
+	2:4 ~= Fraction(2, 4)
 
 Literal fractions are _normalized_ and have the following invariants:
 

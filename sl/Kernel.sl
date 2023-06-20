@@ -2326,7 +2326,7 @@ Transcript : [Object] {
 
 }
 
-UndefinedObject : [Object] {
+Nil : [Object] {
 
 	= { :self :anObject |
 		anObject.isNil

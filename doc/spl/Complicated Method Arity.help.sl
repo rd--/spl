@@ -11,7 +11,9 @@ This compiles away arity dispatch, and ensures arity correctness.
 In this model _:/_ is the syntax for writing the name of a method.
 (In the simple model it is a comment.)
 
-	[9, 16, 25].collect(sqrt:/1) = [3, 4, 5]
+```
+[9, 16, 25].collect(sqrt:/1) = [3, 4, 5]
+```
 
 This rewriting rule can also be applied to local procedure definitions.
 Writing _| f = { :x | x + 1 }; |_ means _| f:/1 = { :x | x + 1 }; |_.
@@ -27,7 +29,9 @@ If efficiency is a concern the higher order case is important to optimise.
 In this model _cull_ can be applied at methods.
 This is not possible in the simple model, since the method procedure is of variable arity.
 
-	sqrt:/1.cull(9, 25) = 3
+```
+sqrt:/1.cull(9, 25) = 3
+```
 
 This model is a more complicated notation, but for a simpler and more uniform semantics.
 
@@ -38,7 +42,9 @@ Libraries written in this form will work when the compiler is in [Simple Method 
 There is a compiler switch to select if local procedures are aliased to the unqualified name.
 If the switch is selected then the program below is allowed, since the system binds _f = f:/1_.
 
-	| f = { :x | x * x }; | [3, 5, 7].collect(f) = [9, 25, 49]
+```
+| f = { :x | x * x }; | [3, 5, 7].collect(f) = [9, 25, 49]
+```
 
 This model has different shadowing behaviour to the simple model.
 If the type _Point_ implements _x_ and _y_ methods, these would be shadowed by _x_ and _y_ temporaries in the simple model.

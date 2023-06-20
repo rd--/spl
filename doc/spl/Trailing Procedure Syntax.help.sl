@@ -12,8 +12,10 @@ This notation is particularly clear for control procedures such as _if_, _while_
 
 The syntax does not preclude further message sends:
 
-	(1 .. 9).collect { :x | x * x }.last = 81
-	(1 .. 9).collect { :x | x * x }.collect { :x | x * x }.last = 6561
+```
+(1 .. 9).collect { :x | x * x }.last = 81
+(1 .. 9).collect { :x | x * x }.collect { :x | x * x }.last = 6561
+```
 
 * * *
 
