@@ -4,7 +4,8 @@ system.categorizeDictionary(
 			'Array',
 			'ArrayBuffer',
 			'ByteArray',
-			'Float64Array'
+			'Float64Array',
+			'SortedArray'
 		],
 		'Collections-Ordered': [
 			'Interval',

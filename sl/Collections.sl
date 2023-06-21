@@ -153,24 +153,32 @@
 		<primitive: return _self.length;>
 	}
 
-	sortInPlaceBy { :self :aProcedure:/2 |
-		<primitive: return _self.sort(function(p, q) { return _aProcedure_2(p, q) ? -1 : 1 });>
+	sortInPlace { :self :aProcedure:/2 |
+		<primitive:
+			return _self.sort(function(p, q) {
+				return _aProcedure_2(p, q) ? -1 : 1
+			});
+		>
 	}
 
 	sortInPlace { :self |
-		self.sortInPlaceBy(lessThanEquals:/2)
+		self.sortInPlace(lessThanEquals:/2)
 	}
 
 	sort { :self :aSortProcedureOrNil |
-		self.sortInPlaceBy(aSortProcedureOrNil ? lessThan:/2)
+		self.sortInPlace(aSortProcedureOrNil ? lessThanEquals:/2)
+	}
+
+	sort { :self |
+		self.sortInPlace
 	}
 
 	sorted { :self :aSortProcedureOrNil |
-		self.copy.sortInPlaceBy(aSortProcedureOrNil ? lessThan:/2)
+		self.copy.sort(aSortProcedureOrNil)
 	}
 
 	sorted { :self |
-		self.copy.sortInPlace
+		self.copy.sort
 	}
 
 	unsafeAt { :self :anInteger |
@@ -701,8 +709,8 @@
 		tally
 	}
 
-	sorted { :self :compare |
-		self.Array.sort(compare)
+	sorted { :self :sortBlock:/2 |
+		self.Array.sortInPlace(sortBlock:/2)
 	}
 
 	sum { :self |
@@ -2588,6 +2596,81 @@ PriorityQueue : [Object] {
 
 	PriorityQueue {
 		<primitive: return new sl.PriorityQueue();>
+	}
+
+}
+
+SortedArray : [Object, Collection] { | contents sortBlock |
+
+	add { :self :item |
+		self.contents.isEmpty.if {
+			self.contents.add(item)
+		} {
+			| nextIndex = self.indexForInserting(item); |
+			self.contents.insertAt(item, nextIndex)
+		}
+	}
+
+	addAll { :self :aCollection |
+		(aCollection.size > (self.contents.size // 3)).if {
+			self.contents.addAll(aCollection);
+			self.contents.sortInPlace(self.sortBlock)
+		} {
+			aCollection.do { :each |
+				self.add(each)
+			}
+		}
+	}
+
+	Array { :self |
+		self.contents.copy
+	}
+
+	do { :self :aBlock:/1 |
+		self.contents.do(aBlock:/1)
+	}
+
+	indexForInserting { :self :newObject |
+		| low = 1, high = self.contents.size, compare:/2 = self.sortBlock, index = nil; |
+		{
+			index := high + low // 2;
+			low <= high
+		}.whileTrue {
+			self.contents[index].compare(newObject).if {
+				low := index + 1
+			} {
+				high := index - 1
+			}
+		};
+		low
+	}
+
+	size { :self |
+		self.contents.size
+	}
+
+	species { :self |
+		SortedArray:/0
+	}
+
+}
+
++ Void {
+
+	SortedArray {
+		newSortedArray().initializeSlots([], lessThanEquals:/2)
+	}
+
+}
+
++ Array {
+
+	SortedArray { :self |
+		newSortedArray().initializeSlots(self.sorted, lessThanEquals:/2)
+	}
+
+	SortedArray { :self :sortBlock:/2 |
+		newSortedArray().initializeSlots(self.sorted(sortBlock:/2), sortBlock:/2)
 	}
 
 }

@@ -18,3 +18,5 @@ Construct a _Map_ from an Array of associations, or from a Record.
 * * *
 
 See also: _Dictionary_, _Record_
+
+Smalltalk: _IdentityDictionary_

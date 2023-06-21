@@ -413,7 +413,7 @@ inf.isNumber (* constant (infinity) *)
 'Random values'
 9.randomInteger.isInteger (* random integers (1 to self) *)
 var s = Set(); 45.timesRepeat { s.add(9.randomInteger) }; s.minMax = [1, 9] (* check distribution *)
-var s = Set(); 81.timesRepeat { s.add(9.randomInteger) }; s.Array.sorted = [1 .. 9] (* check distribution *)
+var s = Set(); 729.timesRepeat { s.add(9.randomInteger) }; s.Array.sorted = [1 .. 9] (* check distribution *)
 9.randomFloat.isNumber (* random floating point number (0 to self) *)
 var s = Set(); 81.timesRepeat { s.add(9.randomFloat.rounded) }; s.minMax = [0, 9] (* check distribution *)
 3.randomInteger(9).isInteger (* random integer in range *)
@@ -439,11 +439,12 @@ var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.Se
 [1, 3, 2] ++ [4, 5] = [1, 3, 2, 4, 5] (* append sequences *)
 [1, 3, 2, 4, 5].reversed = [5, 4, 2, 3, 1] (* reverse sequence *)
 [1, 3, 2, 4, 5].sorted = [1, 2, 3, 4, 5] (* sort using default comparison *)
-[1, 3, 2, 4, 5].sorted { :i :j | i > j }.first = 5 (* sort using provided comparison *)
+[1, 3, 2, 4, 5].sorted { :i :j | i > j } = [5 .. 1] (* sort using provided comparison *)
 [3, 3, 3, 2, 2, 1].sorted.size = 6 (* sort retains duplicates *)
 var c = [3, 2, 1]; c.sortInPlace ; c = [1, 2, 3] (* sort is in place (mutating) *)
 [1 .. 5].isSorted (* is sequence sorted *)
-[1, 5, 3].isSorted.not (* is sequence sorted *)
+[1, 3 .. 11].isSorted (* is sequence sorted *)
+[1, 5, 3, 7, 9].isSorted.not (* is sequence sorted *)
 [1, 3, 5, 7, 9].copyFromTo(3, 5) = [5, 7, 9] (* copy part of collection (one-indexed) *)
 [1, 3, 5, 7, 9].indexOfSubCollection([5, 7, 9]) = 3 (* locate index of subsequence *)
 [1, 3, 5, 7, 9].indexOf(5) = 3 (* index of element (compared using =) *)
@@ -474,6 +475,17 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 [1, [2, [3, [4, [5], 6], 7], 8], 9].flatten = [1 .. 9]
 [1 .. 9].rotateLeft(3) = ([4 .. 9] ++ [1 .. 3]) (* rotate left *)
 [1 .. 9].rotateRight(3) = ([7 .. 9] ++ [1 .. 6]) (* rotate right *)
+
+'SortedArray'
+SortedArray().isSortedArray (* sorted array *)
+SortedArray().species = SortedArray:/0 (* species is sorted array *)
+SortedArray().size = 0 (* query size *)
+var a = SortedArray(); a.add(3); a.add(1); a.add(2); a.contents = [1 .. 3] (* add inserts items into sequence *)
+var a = [3, 1].SortedArray; a.add(2); a.contents = [1 .. 3] (* sorted array from array *)
+var a = [7, 5 .. 1].SortedArray; a.addAll([8, 6 .. 2]); a.contents = [1 .. 8] (* add all elements of collection into sequence *)
+var a = [9 .. 1].SortedArray; a.collect { :x | 9 - x }; a.contents = [1 .. 9] (* collect into ordered collection *)
+var a = [1 .. 9].SortedArray(greaterThan:/2); a.contents = [9 .. 1] (* sorted array with specified sort procedure *)
+var a = [5 .. 9].SortedArray(greaterThan:/2); a.addAll([1 .. 4]); a.contents = [9 .. 1]
 
 'String'
 'quoted string'.isString (* quoted string *)
