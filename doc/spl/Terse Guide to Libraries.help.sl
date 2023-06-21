@@ -41,6 +41,15 @@ var p = Pair('x', 'y'); p[1] := 'z'; p.first = 'z'
 var p = Pair('x', 'y'); p.swapInPlace; p[1] = 'y'
 Pair('x', 'y').swapped = Pair('y', 'x')
 
+'Collections/SortedArray'
+SortedArray().isSortedArray (* sorted array *)
+SortedArray().species = SortedArray:/0 (* species is sorted array *)
+SortedArray().size = 0 (* query size *)
+var a = SortedArray(); a.add(3); a.add(1); a.add(2); a.Array = [1 .. 3] (* add inserts items into sequence *)
+var a = [3, 1].SortedArray; a.add(2); a.Array = [1 .. 3] (* sorted array from array *)
+var a = [7, 5 .. 1].SortedArray; a.addAll([8, 6 .. 2]); a.Array = [1 .. 8] (* add all elements of collection into sequence *)
+var a = [9 .. 1].SortedArray; a.collect { :x | 9 - x }; a.Array = [1 .. 9] (* collect into ordered collection *)
+
 'Collections/Streams/ReadStream'
 var r = [1 .. 5].ReadStream; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil]
 var r = [1 .. 3].ReadStream; [r.next, r.upToEnd] = [1, [2, 3]]
