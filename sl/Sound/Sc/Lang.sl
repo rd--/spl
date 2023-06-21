@@ -228,6 +228,10 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.log10 * 20
 	}
 
+	blend { :self :other :blendFrac |
+		self + (blendFrac * (other - self))
+	}
+
 	coin { :self |
 		system.randomFloat < self
 	}
@@ -413,6 +417,15 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		}
 	}
 
+	blendAt { :self :index |
+		| indexMin = index.roundUpTo(1) - 1; |
+		self.clipAt(indexMin).blend(self.clipAt(indexMin + 1), (index - indexMin).abs)
+	}
+
+	clipAt { :self :index |
+		self[index.clamp(1, self.size)]
+	}
+
 	clump { :self :groupSize |
 		| answer = [], segment = []; |
 		self.do { :item |
@@ -435,6 +448,16 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	degreeToKey { :self :scale :stepsPerOctave |
 		self.collect { :scaleDegree |
 			scaleDegree.degreeToKey(scale, stepsPerOctave)
+		}
+	}
+
+	detectIndex { :self :aBlock:/1 |
+		withReturn {
+			self.size.do { :index |
+				aBlock(self[index]).ifTrue {
+					index.return
+				}
+			}
 		}
 	}
 
@@ -482,7 +505,35 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		count
 	}
 
-	integrate { :self|
+	indexInBetween { :self :aNumber |
+		self.isEmpty.if {
+			nil
+		} {
+			| i = self.indexOfGreaterThan(aNumber); |
+			i.isNil.if {
+				self.size
+			} {
+				(i = 1).if {
+					i
+				} {
+					| a = self[i - 1], b = self[i], div = b - a; |
+					(div = 0).if {
+						i
+					} {
+						((aNumber - a) / div) + i - 1
+					}
+				}
+			}
+		}
+	}
+
+	indexOfGreaterThan { :self :aMagnitude |
+		self.detectIndex { :item |
+			item > aMagnitude
+		}
+	}
+
+	integrate { :self |
 		| answer = [], sum = 0; |
 		self.do { :item |
 			sum := sum + item;
@@ -620,6 +671,19 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		answer
 	}
 
+	similarity { :self :other |
+		self.similarity(other, equals:/2)
+	}
+
+	similarity { :self :other :equalityProcedure:/2 |
+		| maxDistance = self.size.max(other.size); |
+		(maxDistance > 0).if {
+			1 - (self.levenshteinDistance(other, equalityProcedure:/2) / maxDistance)
+		} {
+			1
+		}
+	}
+
 	stutter { :self :repeatCount |
 		self.collect { :each |
 			{ each } ! repeatCount
@@ -728,18 +792,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	geom { :self :start :grow |
-		| accum = start; |
-		1.to(self).collect { :unusedItem |
-			| entry = accum; |
-			accum := grow * accum;
-			entry
-		}
-	}
-
-	series { :self :start :step |
-		1.to(self).collect { :item |
-			(step * (item - 1)) + start
-		}
+		self.geometricSeries(start, grow)
 	}
 
 	SoftClip { :self |

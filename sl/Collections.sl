@@ -1063,7 +1063,11 @@
 	}
 
 	atWrap { :self :index |
-		self.at(index - 1 % self.size + 1)
+		self[index - 1 % self.size + 1]
+	}
+
+	atWrapPut { :self :index :anObject |
+		self[index - 1 % self.size + 1] := anObject
 	}
 
 	atRandom { :self |
@@ -1587,6 +1591,21 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 	Array { :size |
 		<primitive: return Array(_size);>
+	}
+
+	arithmeticSeries { :self :start :step |
+		1.upTo(self).collect { :item |
+			(step * (item - 1)) + start
+		}
+	}
+
+	geometricSeries { :self :start :grow |
+		| accum = start; |
+		1.upTo(self).collect { :unusedItem |
+			| entry = accum; |
+			accum := grow * accum;
+			entry
+		}
 	}
 
 	replicate { :self :anObject |

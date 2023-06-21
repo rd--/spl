@@ -360,6 +360,7 @@ var n = 9; { n < 7 }.whileFalse { n := n - 1 }; n = 6 (* while false loop *)
 2 >= 2 = true
 1 >= 3 = false
 2 = 2 = true (* equal to *)
+[0, 4].collect { :i | [2, 3, 5].at(i.clamp(1, 3)) } = [2, 5] (* clamp index to valid range *)
 4.clamp(0, 10) = 4
 4.clamp(0, 1) = 1
 2.clamp(0, 1) = 1
@@ -755,6 +756,7 @@ var a = [1, 2, 4]; a.insertAt(3, 3); a = [1 .. 4] (* insert value at index *)
 var a = [1, 2, 4]; a.addAfter(3, 2); a = [1 .. 4] (* insert value after existing value *)
 var a = [1, 2, 4]; a.addBefore(3, 4); a = [1 .. 4] (* insert value before existing value *)
 [2, 7, 5, 0, 1, -2].collect { :index | [5, 6, 8].atWrap(index) } = [6, 5, 6, 8, 5, 5] (* index with wrap-around *)
+var a = [1, nil, 3]; a.atWrapPut(5, 2); a = [1, 2, 3]
 [1 .. 9].difference([3 .. 7]) = [1, 2, 8, 9] (* set theoretic difference of two collections *)
 [1 .. 9].difference([]) = [1 .. 9] (* set theoretic difference of two collections *)
 [1 .. 9].difference([1 .. 9]) = [] (* set theoretic difference of two collections *)
@@ -768,6 +770,8 @@ var a = []; [1 .. 9].selectThenDo(even:/1) { :each | a.add(each * 3) }; a = [6, 
 [1, 3 .. 9].union([3 .. 7]) = [1, 3, 4, 5, 6, 7, 9].Set (* set theoretic union *)
 var a = [1 .. 9]; a.removeAllSuchThat(even:/1); a = [1, 3 .. 9] (* remove elements selected by predicate *)
 var a = [1 .. 9]; a.removeAllFoundIn([1, 3 .. 9]); a = [2, 4 .. 8] (* remove elements found in a collection *)
+5.arithmeticSeries(1, 2) = [1, 3 .. 9] (* arithmetic series (size from by) *)
+5.geometricSeries(1, 2) = [1, 2, 4, 8, 16] (* geometric series (size from by) *)
 
 'Collections-Unordered/Association'
 ('x' -> 1).typeOf = 'Association'
@@ -1198,6 +1202,11 @@ Fraction(3, 1) = 3:1
 -6:5.rounded = -1
 3:2.rounded = 2
 -3:2.rounded = -2
+pi.roundUpTo(0.01) = 3.15
+pi.roundUpTo(0.1) = 3.2
+1923.roundUpTo(10) = 1930
+pi.roundUpTo(0.005) = 3.145
+pi.negated.roundUpTo(0.01) = -3.14
 -3:2.numerator.negative
 -3:2.denominator.positive
 4:6.numerator = 2

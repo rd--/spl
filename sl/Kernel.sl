@@ -387,6 +387,10 @@
 		(self / quantum).rounded * quantum
 	}
 
+	roundUpTo { :self :aNumber |
+		(self / aNumber).ceiling * aNumber
+	}
+
 	sign { :self |
 		(self > 0).if {
 			self.unit

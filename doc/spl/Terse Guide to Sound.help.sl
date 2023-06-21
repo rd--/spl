@@ -34,6 +34,9 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [1, 3].levenshteinDistance([1, 2, 3]) = 1 (* addition (in interior) *)
 [1, 2, 3].levenshteinDistance([1, 3]) = 1 (* deletion (from interior) *)
 [1, 2, 3].levenshteinDistance([1, 3, 2]) = 2 (* substitutions *)
+[1 .. 4].similarity([1 .. 4]) = 1 (* similarity based on Levenshtein distance (1 = equal) *)
+[1 .. 4].similarity([5 .. 8]) = 0 (* similarity based on Levenshtein distance (0 = unequal) *)
+[1 .. 4].similarity([1, 3, 2, 4]) = 0.5 (* similarity based on Levenshtein distance *)
 [1 .. 4].mirror = [1, 2, 3, 4, 3, 2, 1] (* append reverse of prefix of array *)
 [1 .. 9].normalizeSum.sum = 1 (* self / self.sum *)
 [1 .. 9].normalize(10, 90) = [10, 20 .. 90] (* normalise between minima and maxima *)
@@ -44,3 +47,12 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 (1 .. 9).clump(3) = [[1 .. 3], [4 .. 6], [7 .. 9]] (* chunks of n places *)
 (1 .. 7).clump(3) = [[1 .. 3], [4 .. 6], [7]] (* chunks of n places, last segment may have less places *)
 'string'.ascii.clump(2).collect { :each | each.ByteArray.ascii } = ['st', 'ri', 'ng']
+(9 .. 1).detectIndex(even:/1) = 2 (* answer index of detected element, else nil *)
+(9 .. 1).detectIndex(isZero:/1).isNil (* answer index of detected element, else nil *)
+5.geom(3, 2) = [3, 6, 12, 24, 48] (* geometric series (size from by) *)
+(1, 3 .. 9).isSeries (* is arithmetic series *)
+(1, 3 .. 9).isSeriesBy(2) (* is arithmetic series by *)
+(1, 3 .. 9).indexOfGreaterThan(6) = 4
+[2, 3, 5, 6].indexInBetween(5.2) = 3.2 (* interpolated index for value (collection must be sorted) *)
+[2, 3, 5, 6].blendAt(3.2) = 5.2 (* interpolated value between indices *)
+[0, 4].collect { :i | [2, 3, 5].clipAt(i) } = [2, 5] (* clamp index to valid range*)
