@@ -2014,11 +2014,7 @@ Bag : [Object, Collection] { | contents |
 	}
 
 	sortedElements { :self |
-		| answer = []; |
-		self.contents.associationsDo { :anAssociation |
-			answer.add(anAssociation)
-		};
-		answer.sortInPlace
+		self.contents.associations.sortInPlace
 	}
 
 	species { :self |
