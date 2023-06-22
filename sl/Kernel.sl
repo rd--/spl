@@ -1985,14 +1985,6 @@ String : [Object] {
 		self.appendString(anObject.asString)
 	}
 
-	++? { :self :anObject |
-		anObject.isNil.if {
-			self
-		} {
-			self ++ anObject
-		}
-	}
-
 	appendString { :self :aString |
 		<primitive: return _self + _aString;>
 	}
@@ -2340,20 +2332,20 @@ Nil : [Object] {
 		anObject.isNil
 	}
 
-	? { :self :anObject |
-		anObject.value
-	}
-
-	~? { :self :anObject |
-		nil
-	}
-
 	ifNil { :self :aProcedure:/0 |
 		aProcedure()
 	}
 
+	ifNil { :self :whenNil:/0 :whenNotNil:/0 |
+		whenNil()
+	}
+
 	ifNotNil { :self :aProcedure:/0 |
 		 nil
+	}
+
+	ifNotNil { :self :whenNotNil:/0 :whenNil:/0 |
+		whenNil()
 	}
 
 	isNil { :self |
@@ -2372,20 +2364,20 @@ Nil : [Object] {
 
 +@Object {
 
-	? { :self :anObject |
+	ifNil { :self :aProcedure:/0 |
 		self
 	}
 
-	~? { :self :anObject |
-		anObject.value
-	}
-
-	ifNil { :self :aProcedure:/0 |
-		nil
+	ifNil { :self :whenNil:/0 :whenNotNil:/0 |
+		whenNotNil()
 	}
 
 	ifNotNil { :self :aProcedure:/0 |
 		aProcedure()
+	}
+
+	ifNotNil { :self :whenNotNil:/0 :whenNil:/0 |
+		whenNotNil()
 	}
 
 	isNil { :self |

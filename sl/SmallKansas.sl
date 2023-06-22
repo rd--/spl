@@ -755,7 +755,7 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 		} {
 			identity:/1
 		},
-		filter = self.filterText.isNil.if {
+		filter = self.filterText.ifNil {
 			{
 				true
 			}
@@ -815,10 +815,10 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 MenuItem : [Object] { | name accessKey onSelect |
 
 	accessKeyDislayText { :self |
-		self.accessKey.notNil.if {
-			' (' ++ self.accessKey ++ ')'
-		} {
+		self.accessKey.ifNil {
 			''
+		} {
+			' (' ++ self.accessKey ++ ')'
 		}
 	}
 
@@ -1076,7 +1076,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 			SmallKansas>>getHelp checks if the HelpSystem is acquired, else it acquires it.
 			Eventually the helpProcedure is run with a valid HelpSystem.
 		*)
-		self.helpSystem.isNil.if {
+		self.helpSystem.ifNil {
 			HelpSystem().then { :helpSystem |
 				self.helpSystem := helpSystem;
 				helpProcedure(self.helpSystem)
@@ -1194,7 +1194,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	initializeMidi { :self :ifPresent:/1 |
-		self.midiAccess.isNil.if {
+		self.midiAccess.ifNil {
 			system.window.navigator.requestMidiAccess.thenElse { :midiAccess |
 				self.midiAccess := midiAccess;
 				ifPresent(midiAccess)

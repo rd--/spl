@@ -27,11 +27,9 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	repeatEvery { :self :aProcedure:/2 :delay |
 		self.schedule(0) { :currentTime |
 			| nextDelay = delay.value; |
-			nextDelay.notNil.if {
+			nextDelay.ifNotNil {
 				aProcedure(currentTime, nextDelay);
 				nextDelay
-			} {
-				nil
 			}
 		}
 	}
@@ -218,6 +216,22 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 }
 
++Nil {
+
+	? { :self :anObject |
+		anObject
+	}
+
+	?? { :self :anObject |
+		anObject.value
+	}
+
+	~? { :self :anObject |
+		nil
+	}
+
+}
+
 +@Number {
 
 	ampComp { :freq :root :exp |
@@ -384,6 +398,18 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 +@Object {
 
+	? { :self :anObject |
+		self
+	}
+
+	?? { :self :anObject |
+		self
+	}
+
+	~? { :self :anObject |
+		anObject.value
+	}
+
 	! { :self :anInteger |
 		self.dup(anInteger)
 	}
@@ -510,7 +536,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 			nil
 		} {
 			| i = self.indexOfGreaterThan(aNumber); |
-			i.isNil.if {
+			i.ifNil {
 				self.size
 			} {
 				(i = 1).if {
@@ -553,7 +579,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 			withReturn {
 				self.doAdjacentPairs { :a :b |
 					| diff = b - a; |
-					step.isNil.if {
+					step.ifNil {
 						step := diff
 					} {
 						(step ~= diff).ifTrue {
@@ -841,6 +867,14 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	+ { :self :aString |
 		self ++ ' ' ++ aString
+	}
+
+	++? { :self :anObject |
+		anObject.ifNil {
+			self
+		} {
+			self ++ anObject.value
+		}
 	}
 
 	+/+ { :self :aString |

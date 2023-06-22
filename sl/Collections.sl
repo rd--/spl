@@ -166,7 +166,7 @@
 	}
 
 	sort { :self :aSortProcedureOrNil |
-		self.sortInPlace(aSortProcedureOrNil ? lessThanEquals:/2)
+		self.sortInPlace(aSortProcedureOrNil.ifNil { lessThanEquals:/2 })
 	}
 
 	sort { :self |
@@ -386,7 +386,7 @@
 	detectMax { :self :aProcedure:/1 |
 		| maxElement maxValue |
 		self.do { :each |
-			maxValue.isNil.if {
+			maxValue.ifNil {
 				maxElement := each;
 				maxValue := aProcedure(each)
 			} {
@@ -403,7 +403,7 @@
 	detectMin { :self :aProcedure:/1 |
 		| minElement minValue |
 		self.do { :each |
-			minValue.isNil.if {
+			minValue.ifNil {
 				minElement := each;
 				minValue := aProcedure(each)
 			} {
@@ -828,10 +828,10 @@
 	atDelegateToIfAbsent { :self :key :delegateKey :aProcedure:/0 |
 		self.atIfAbsent(key) {
 			| parent = self[delegateKey]; |
-			parent.notNil.if {
-				parent.atDelegateToIfAbsent(key, delegateKey, aProcedure:/0)
-			} {
+			parent.ifNil {
 				aProcedure()
+			} {
+				parent.atDelegateToIfAbsent(key, delegateKey, aProcedure:/0)
 			}
 		}
 	}
@@ -843,7 +843,9 @@
 	}
 
 	atIfAbsent { :self :key :aProcedure:/0 |
-		self[key] ? { aProcedure() }
+		self[key].ifNil {
+			aProcedure()
+		}
 	}
 
 	atIfAbsentPut { :self :key :aProcedure:/0 |
@@ -873,10 +875,10 @@
 		} {
 			self.atIfAbsent(key) {
 				| parent = self[delegateKey]; |
-				parent.notNil.if {
-					parent.atPutDelegateToIfAbsent(key, value, delegateKey, aProcedure:/0)
-				} {
+				parent.ifNil {
 					aProcedure()
+				} {
+					parent.atPutDelegateToIfAbsent(key, value, delegateKey, aProcedure:/0)
 				}
 			}
 		}
@@ -1067,6 +1069,14 @@
 			(1 .. size).do { :index |
 				self[index] := anObject
 			}
+		}
+	}
+
+	atIfAbsent { :self :index :aProcedure:/0 |
+		self.isValidIndex(index).if {
+			self[index]
+		} {
+			aProcedure()
 		}
 	}
 
@@ -1847,7 +1857,7 @@ Float64Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 Graph : [Object] { | degree edges vertexLabels edgeLabels |
 
 	labeledVertices { :self |
-		self.vertexLabels.isNil.if {
+		self.vertexLabels.ifNil {
 			self.vertices.collect { :each |
 				each -> ''
 			}

@@ -393,10 +393,6 @@ Vector2 : [Object, Number, Point] { | x y |
 		aProcedure(aPoint, self.Point)
 	}
 
-	Point { :self | (* ? *)
-		Point(self, self)
-	}
-
 	Point { :self :y |
 		Vector2(self, y)
 	}

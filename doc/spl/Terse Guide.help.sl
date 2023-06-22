@@ -155,6 +155,7 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [[1, 2, 3], [4, 5, 6], [7, 8, 9]].concatenation = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 [[1, 2, 3], [4, 5], [6]].concatenation = [1, 2, 3, 4, 5, 6]
 var a = [1, 2, 3]; a[2] = a.at(2)
+[1 .. 5].atIfAbsent(9) { true } (* exception clause if index is invalid *)
 var a = [1, 2, 3]; a.atPut(2, 'two'); a = [1, 'two', 3]
 var a = [1, 2, 3]; a[2] := 'two'; a = [1, 'two', 3]
 var a = [5, 4, 3, 2, 1]; a.detect { :each | each % 2 = 0 } = 4
@@ -655,7 +656,7 @@ Fraction(4, 6) ~= 2:3 (* non-reduced fraction *)
 4:3.gcd(7:5) = 1:15 (* greatest common denominator *)
 4:3.lcm(7:5) = 28 (* least common multiple *)
 4:3.negated = -4:3 (* negation *)
-4:3.negative.not (* is negative? *)
+4:3.negative.not (* is negative predicate *)
 4:3.numerator = 4 (* numerator *)
 2:3.raisedToInteger(5) = 32:243 (* fractions also can be exponentiated *)
 9:5.reciprocal = 5:9 (* reciprocal *)
@@ -973,22 +974,18 @@ var f = { :x :y | x + y }; { f(true, false) }.ifError { :err | true } (* boolean
 
 ## Nil -- kernel type
 ```
-nil.typeOf = 'Nil' (* nil *)
-nil ? 'x' = 'x' (* right hand side if nil *)
-'x' ? 'y' = 'x' (* left hand side unless nil *)
-nil.isNil = true (* is nil *)
-nil.typeOf = 'Nil'
-nil.isNil = true
-nil = nil
-nil == nil
-nil.ifNil { true } = true
-0.ifNil { false } = nil
-ifNil(nil) { true } = true
-ifNil(0) { false } = nil
-nil ? 1 = 1
-1 ? 2 = 1
-nil ~? 1 = nil
-1 ~? 2 = 2
+nil.typeOf = 'Nil' (* type of nil is Nil *)
+nil.isNil = true (* is nil predicate *)
+nil = nil (* nil equality *)
+nil == nil (* nil identity *)
+nil.ifNil { true } = true (* nil conditional *)
+nil.ifNil { true } { false } = true (* nil conditional *)
+nil.ifNotNil { true } = nil (* nil conditional *)
+false.ifNotNil { true } (* nil conditional *)
+0.ifNil { false } = 0 (* nil conditional *)
+0.ifNil { false } { true } (* nil conditional *)
+ifNil(nil) { true } = true (* nil conditional *)
+ifNil(0) { false } = 0 (* nil conditional *)
 nil.printString = 'nil' (* nil print string *)
 nil.json = 'null' (* nil has a Json representation *)
 'null'.parseJson = nil (* nil has a Json representation *)
@@ -1360,7 +1357,7 @@ var a = [5 .. 9].SortedArray(greaterThan:/2); a.addAll([1 .. 4]); a.contents = [
 ## String -- text type
 ```
 'quoted string'.isString (* quoted string *)
-'x' ++ 'y' = 'xy' (* catenation *)
+'x' ++ 'y' = 'xy' (* append (catenation) *)
 'string'.ascii = [115, 116, 114, 105, 110, 103].ByteArray (* String to ByteArray of Ascii encoding *)
 '3.4'.asNumber = 3.4 (* parse float *)
 '3'.asInteger = 3 (* parse integer *)

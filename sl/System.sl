@@ -62,7 +62,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 	require { :self |
 		('LibraryItem>>require' ++ self.name).postLine;
 		Promise { :resolve:/1 :reject:/1 |
-			self.value.notNil.if {
+			self.value.ifNotNil {
 				self.value.resolve
 			} {
 				system.window.localStorage.includesKey(self.key).if {
