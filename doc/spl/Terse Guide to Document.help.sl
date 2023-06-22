@@ -1,4 +1,7 @@
-'System/Window (cli)'
+# Terse Guide to Document
+
+## System -- window (cli)
+```
 system.typeOf = 'System'
 system.window.typeOf = 'Window'
 system.window.navigator.typeOf = 'Navigator'
@@ -11,7 +14,10 @@ system.window.alert('A confirm') (* cli *)
 'Continue'
 system.window.prompt('A prompt ', '23') (* cli *)
 'Continue'
+```
 
+## Window -- document
+```
 system.window.document.body
 var b = system.window.document.body; var e = 'div'.createElement; e.append(['Some text']); b.append([e])
 system.window.getSelectedText
@@ -29,10 +35,18 @@ system.window.getSelectedText
 'statusText'.getElementById.innerText('---')
 'programMenu'.getElementById.options.length
 'programMenu'.getElementById.selectedIndex
+```
 
+## Navigator - midi
+```
 system.window.navigator.requestMidiAccess.thenElse { :midiAccess | workspace::midi := midiAccess } { :message | ('no midi: ' + message).postLine }
 workspace::midi.inputs.do { :each | each.postLine; each.onmidimessage { :event | event.data.postLine } }
 workspace::midi.sysexEnabled
+```
 
+## TextButton
+```
 TextButton('Begin', (id: 'beginButton', title: 'Begin (b)', accesskey: 'b', onclick: 'globalScSynth.boot()'))
 TextButton('?', (id: 'helpButton', title: 'Help (?)', accesskey: '?', onclick: 'sh.loadInstructions()'))
+```
+

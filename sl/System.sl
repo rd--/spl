@@ -7,6 +7,10 @@
 	slice { :self :start :end :contentType | <primitive: return _self.slice(_start, _end, _contentType);> }
 	text { :self | <primitive: return _self.text();> }
 
+	isEmpty { :self |
+		self.size = 0
+	}
+
 }
 
 Blob : [Object, Blob] {

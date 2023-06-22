@@ -1,4 +1,7 @@
-'Collections/Cons'
+# Terse Guide to Libraries
+
+## Cons -- collection type
+```
 Cons(1, nil).length = 1
 Cons(1, nil).isList = true
 Cons(1, 2).isList = false
@@ -9,8 +12,10 @@ Cons([1 .. 9]).length = 9
 [[[[1, 2, 3]]]].Cons.length = 1
 [[[[1, 2, 3]]]].Cons.depth = 4
 [9, 16, 25].Cons.collect(sqrt:/1) = [3, 4, 5].Cons
+```
 
-'Collections/LinkedList'
+## LinkedList -- collection type
+```
 LinkedList().typeOf = 'LinkedList'
 LinkedList().isLinkedList = true
 LinkedList(3).size = 0
@@ -31,8 +36,10 @@ LinkedList((1 .. 9)).collectThenSelect(squared:/1, { :each | each > 36 }).asArra
 LinkedList([1 .. 9]).reversed = [9 .. 1]
 { LinkedList().removeFirst }.ifError { :error | true }
 { LinkedList().removeLast }.ifError { :error | true }
+```
 
-'Collections/Pair'
+## Pair -- collection type
+```
 Pair('x', 'y').typeOf = 'Pair'
 Pair('x', 'y').isPair = true
 Pair('x', 'y').first = 'x'
@@ -40,8 +47,10 @@ Pair('x', 'y')[1] = 'x'
 var p = Pair('x', 'y'); p[1] := 'z'; p.first = 'z'
 var p = Pair('x', 'y'); p.swapInPlace; p[1] = 'y'
 Pair('x', 'y').swapped = Pair('y', 'x')
+```
 
-'Collections/Streams/ReadStream'
+## ReadStream -- collection type
+```
 var r = [1 .. 5].ReadStream; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil]
 var r = [1 .. 3].ReadStream; [r.next, r.upToEnd] = [1, [2, 3]]
 ReadStream().atEnd = true
@@ -51,22 +60,31 @@ var r = (1 .. 5).ReadStream; r.skip(3); r.upToEnd = [4, 5]
 var r = (9 .. 1).ReadStream; r.upTo(0) = [9 .. 1]
 var r = (9 .. 1).ReadStream; [r.upTo(3), r.upToEnd] = [[9 .. 4], [2 .. 1]]
 var r = (9 .. 1).ReadStream; [r.upToPosition(3), r.upToEnd] = [[9 .. 7], [6 .. 1]]
+```
 
-'Collections/Streams/WriteStream'
+## WriteStream -- collection type
+```
 var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.contents = [1]
 var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.nextPutAll([2 .. 8]); w.nextPut(9); w.contents = [1 .. 9]
 var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.nextPutAll((2 .. 8)); w.nextPut(9); w.contents = [1 .. 9]
 var a = Array(0); var w = WriteStream(a); w.nextPut(1); w.contents = [1]
 var w = Utf8WriteStream(); 'bodlɛʁ'.encodeOn(w); w.contents.utf8 = 'bodlɛʁ'
+```
 
-'String/Markdown'
+## String -- markdown
+```
 '# A Heading'.markdownToHtml.lines[1] = '<h1>A Heading</h1>'
+```
 
-'SmallHours'
+## SmallHours
+```
 workspace::smallHours.helpFind('Collection')
+```
 
-'Cli'
+## Cli
+```
 '/home/rohan/sw/spl/doc/spl/Terse Guide.help.sl'.readTextFile.then { :text | text.paragraphs.do { :each | each.lines.postLine } }
 '/home/rohan/sw/spl/doc/spl/Terse Guide.help.sl'.terseGuideSummary
 '/home/rohan/sw/spl/doc/spl/Terse Guide to Graphics.help.sl'.terseGuideSummary
 '/home/rohan/sw/spl/doc/spl/Terse Guide to Sound.help.sl'.terseGuideSummary
+```

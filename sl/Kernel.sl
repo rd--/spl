@@ -2218,13 +2218,17 @@ String : [Object] {
 			('Terse Guide Summary: Areas = ' ++ areas.size.printString).postLine;
 			areas.do { :area |
 				|
-					entries = area.lines.reject(isEmpty:/1),
+					entries = area.lines.reject { :line |
+						line.isEmpty | {
+							line = '```'
+						}
+					},
 					testCount = entries.size - 1,
 					failCount = 0,
 					passCount = 0;
 				|
 				entries[1].postLine;
-				(2 .. testCount + 1).collect { :index |
+				2.upTo(testCount + 1).collect { :index |
 					| test = entries[index], answer = test.evaluate; |
 					answer.if {
 						passCount := passCount + 1

@@ -1,4 +1,4 @@
-# json -- protocol
+# json -- serialisation
 
 String encoding for a small set of types:
 _Nil_, _Boolean_, _SmallFloat_, _String_, _Array_, and _Record_.
