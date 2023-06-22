@@ -1719,6 +1719,14 @@ Association : [Object] { | key value |
 		self.key <= anAssociation.key
 	}
 
+	> { :self :anAssociation |
+		self.key > anAssociation.key
+	}
+
+	>= { :self :anAssociation |
+		self.key >= anAssociation.key
+	}
+
 	Array { :self |
 		[self.key, self.value]
 	}
@@ -2010,7 +2018,7 @@ Bag : [Object, Collection] { | contents |
 		self.contents.associationsDo { :anAssociation |
 			answer.add(anAssociation.value -> anAssociation.key)
 		};
-		answer.sortInPlace
+		answer.sortInPlace(greaterThanEquals:/2)
 	}
 
 	sortedElements { :self |
