@@ -476,6 +476,10 @@
 		result
 	}
 
+	histogramOf { :self |
+		self.histogramOf { :each | each }
+	}
+
 	histogramOf { :self :aBlock:/1 |
 		| answer = Bag(); |
 		self.collectInto(aBlock:/1, answer);

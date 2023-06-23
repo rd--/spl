@@ -323,7 +323,7 @@ var b = Bag(); b.add('x'); b.add('y'); b.add('x'); b.size = 3 (* add element to 
 var b = Bag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 (* add all elements of argument to bag *)
 | c= 'xyyzzz', r = Bag(); | r.addAll(c); r.size = 6 (* add all elements of a String to a Bag *)
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.size = 10
-[2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedCounts = [1 -> 2, 2 -> 3, 3 -> 5, 4 -> 7]
+[2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
 var b = Bag(), o = ['1' -> 10, '2' -> 1, '3' -> 5]; o.collect { :a | b.addWithOccurrences(a.key, a.value) }; b.sortedElements = o
 [1, 2, 3, 1, 2, 1].Bag.sortedCounts = [3 -> 1, 2 -> 2, 1 -> 3]
@@ -527,6 +527,14 @@ Set().Array = []
 [].select { :each | each > 0 } = []
 [1, 2, 2, 3, 3, 3].histogramOf { :each | each }.asArray = [1, 2, 2, 3, 3, 3]
 [1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].asBag
+var c = [1, 2, 3, 1]; c.Bag = c.histogramOf(identity:/1)
+var c = [1, 2, 3, 1]; c.Bag = c.histogramOf { :each | each }
+[1, 2, 3, 1].Bag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.value }
+['x', 'y', 'y', 'z'].Bag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.key }
+(x: 1, y: 2, z: 1).histogramOf { :each | each } = [1, 2, 1].Bag
+(x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].Bag
+(x: 1, y: 2, z: 1).keys.histogramOf { :each | each } = ['x', 'y', 'z'].Bag
+[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].asBag
 ```
 
 ## Complex -- numeric type
