@@ -119,6 +119,8 @@
 	Klank { :input :freqscale :freqoffset :decayscale :specificationsArrayRef | <primitive: return sc.Klank(_input, _freqscale, _freqoffset, _decayscale, _specificationsArrayRef);> }
 	LfClipNoise { :freq | <primitive: return sc.LfClipNoise(_freq);> }
 	LfCub { :freq :iphase | <primitive: return sc.LfCub(_freq, _iphase);> }
+	LfdClipNoise { :freq | <primitive: return sc.LfdClipNoise(_freq);> }
+	LfdNoise0 { :freq | <primitive: return sc.LfdNoise0(_freq);> }
 	LfdNoise1 { :freq | <primitive: return sc.LfdNoise1(_freq);> }
 	LfdNoise3 { :freq | <primitive: return sc.LfdNoise3(_freq);> }
 	LfGauss { :duration :width :iphase :loop :doneAction | <primitive: return sc.LfGauss(_duration, _width, _iphase, _loop, _doneAction);> }
