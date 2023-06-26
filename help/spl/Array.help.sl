@@ -13,7 +13,7 @@ Array implements the _Collection_, _SequencableCollection_ and _ArrayedCollectio
 
 * * *
 
-See also: _ByteArray_, _Float64Array_
+See also: asArray, ByteArray, Float64Array
 
 * * *
 

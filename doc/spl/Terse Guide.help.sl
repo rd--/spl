@@ -128,8 +128,10 @@ var a = [1, 2, 3]; a == a = true (* Array self identity *)
 [1, 2, 3].isArray = true (* Array predicate *)
 [1, 2.3, '4'].atRandom.isArray.not (* Array predicate *)
 4 * [1, 2, 3] = [4, 8, 12] (* scalar Array math *)
-[1, 3, 5, 7].reversed = [7, 5, 3, 1] (* array reverse *)
-var a = [1, 3, 5, 7]; a.reverseInPlace; a = [7, 5, 3, 1]
+[1, 3, 5, 7].reversed = [7, 5, 3, 1] (* reversed answers new array *)
+| a = [1, 3, 5, 7]; | a.reversed ~= a (* reversed answers new array *)
+| a = [1, 3, 5, 7]; | a.reverse = a (* reverse mutates array in place *)
+| a = [1, 3, 5, 7]; | a.reverse; a = [7, 5, 3, 1] (* array reverse (in place) *)
 [1, 2, 3, 5, 7, 9].sum = 27 (* sum of elements *)
 [1, 2, 3].reduce { :a :b | a + b } = 6 (* reduce by plus is sum *)
 [1, 2, 3, 5, 7, 9].reduce(plus:/2) = 27 (* reduce by plus is sum *)
@@ -326,10 +328,12 @@ var b = Bag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 (* add all e
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
 var b = Bag(), o = ['1' -> 10, '2' -> 1, '3' -> 5]; o.collect { :a | b.addWithOccurrences(a.key, a.value) }; b.sortedElements = o
-[1, 2, 3, 1, 2, 1].Bag.sortedCounts = [3 -> 1, 2 -> 2, 1 -> 3]
-[1, 2, 3, 1, 3, 1].Bag.sortedCounts = [3 -> 1, 2 -> 3, 1 -> 2]
-[1, 2, 3, 1, 2, 1].Bag.sortedElements = [1 -> 3, 2 -> 2, 3 -> 1]
-[1, 2, 3, 1, 3, 1].Bag.sortedElements = [1 -> 3, 2 -> 1, 3 -> 2]
+[1, 3, 5, 1, 3, 1].Bag.sorted = [1, 1, 1, 3, 3, 5]
+[1, 3, 5, 1, 5, 1].Bag.sorted = [1, 1, 1, 3, 5, 5]
+[1, 3, 5, 1, 3, 1].Bag.sortedCounts = [3 -> 1, 2 -> 3, 1 -> 5]
+[1, 3, 5, 1, 5, 1].Bag.sortedCounts = [3 -> 1, 2 -> 5, 1 -> 3]
+[1, 3, 5, 1, 3, 1].Bag.sortedElements = [1 -> 3, 3 -> 2, 5 -> 1]
+[1, 3, 5, 1, 5, 1].Bag.sortedElements = [1 -> 3, 3 -> 1, 5 -> 2]
 var c1 = [2, 3, 3, 4, 4, 4].Bag, c2 = c1.copy, s2 = c2.size; c1.removeAll; c1.size = 0 & { c2.size = s2 }
 var c = Bag(), x = 'x'; c.add(x); c.remove(x); c.size = 0
 var c = ['x', 'x'].Bag; c.remove('x'); c.remove('x'); c.size = 0
@@ -631,8 +635,8 @@ Float64Array(8).atPut(1, pi) = pi
 var a = Float64Array(8); a.atPut(1, pi); a.at(1) = pi
 [1 .. 9].Float64Array.isFloat64Array = true
 [1 .. 9].Float64Array.reversed = [9 .. 1].Float64Array
-var a = [1 .. 9].Float64Array; a.reverseInPlace; a = [9 .. 1].Float64Array
-var a = [9 .. 1].Float64Array; a.sortInPlace; a = [1 .. 9].Float64Array
+var a = [1 .. 9].Float64Array; a.reverse; a = [9 .. 1].Float64Array
+var a = [9 .. 1].Float64Array; a.sort; a = [1 .. 9].Float64Array
 { Float64Array(1).atPut(3, 'x') }.ifError { :err | true }
 var a = Float64Array(1); a.unsafeAtPut(1, 'x'); a.at(1).isNaN = true
 var a = Float64Array(1); a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
@@ -1195,11 +1199,14 @@ RegExp('x.x', 'g').printString.size = 18
 ## SequenceableCollection -- collection trait
 ```
 [1, 3, 2] ++ [4, 5] = [1, 3, 2, 4, 5] (* append sequences *)
-[1, 3, 2, 4, 5].reversed = [5, 4, 2, 3, 1] (* reverse sequence *)
-[1, 3, 2, 4, 5].sorted = [1, 2, 3, 4, 5] (* sort using default comparison *)
-[1, 3, 2, 4, 5].sorted { :i :j | i > j } = [5 .. 1] (* sort using provided comparison *)
+[1, 3, 2, 4, 5].reversed = [5, 4, 2, 3, 1] (* reverse sequence (anwer new array) *)
+[1, 3, 2, 4, 5].sorted = [1, 2, 3, 4, 5] (* sort using default comparison (answer new array) *)
+[1, 3, 2, 4, 5].sorted { :i :j | i > j } = [5 .. 1] (* sort using provided comparison (answer new array) *)
 [3, 3, 3, 2, 2, 1].sorted.size = 6 (* sort retains duplicates *)
-var c = [3, 2, 1]; c.sortInPlace ; c = [1, 2, 3] (* sort is in place (mutating) *)
+var c = [3, 2, 1]; c.sort ; c = [1, 2, 3] (* sort is in place (mutating) *)
+| a = [3, 2, 1]; | a.sort = a (* sort is in place (mutating) *)
+| a = [3, 2, 1]; | a.sorted ~= a (* sorted answers a new array *)
+var c = [3, 2, 1], r = c.sorted ; c ~= r (* sorted (answer a new array) *)
 [1 .. 5].isSorted (* is sequence sorted *)
 [1, 3 .. 11].isSorted (* is sequence sorted *)
 [1, 5, 3, 7, 9].isSorted.not (* is sequence sorted *)
@@ -1233,6 +1240,23 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 [1, [2, [3, [4, [5], 6], 7], 8], 9].flatten = [1 .. 9]
 [1 .. 9].rotateLeft(3) = ([4 .. 9] ++ [1 .. 3]) (* rotate left *)
 [1 .. 9].rotateRight(3) = ([7 .. 9] ++ [1 .. 6]) (* rotate right *)
+```
+
+## Sequence arithmetic
+```
+[1, 3 .. 9] + 9 = [10, 12 .. 18] (* sequence + scalar *)
+[1, 3 .. 9] - 9 = [-8, -6 .. 0] (* sequence - scalar *)
+[1, 3 .. 9] * 9 = [9, 27 .. 81] (* sequence * scalar *)
+[2, 4 .. 8] / 2 = [1 .. 4] (* sequence / scalar *)
+9 + [1, 3 .. 9] = [10, 12 .. 18] (* scalar + sequence *)
+9 - [1, 3 .. 9] = [8, 6 .. 0] (* scalar - sequence *)
+9 * [1, 3 .. 9] = [9, 27 .. 81] (* scalar * sequence *)
+72 / [2, 4 .. 8] = [36, 18, 12, 9] (* scalar / sequence *)
+[1, 3 .. 9] + [1 .. 5] = [2, 5, 8, 11, 14] (* sequence + sequence *)
+[1, 3 .. 9] - [1 .. 5] = [0 .. 4] (* sequence + sequence *)
+[1, 3 .. 9] * [1 .. 5] = [1, 6, 15, 28, 45] (* sequence * sequence *)
+[1, 6, 15, 28, 45] / [1 .. 5] = [1, 3 .. 9] (* sequence / sequence *)
+{ [1 .. 5] + [6 .. 9] }.ifError { :err | true } (* sequences must be of equal size *)
 ```
 
 ## Set -- collection type

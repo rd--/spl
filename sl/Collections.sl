@@ -145,7 +145,7 @@
 		tally
 	}
 
-	reverseInPlace { :self |
+	reverse { :self |
 		<primitive: return _self.reverse();>
 	}
 
@@ -153,7 +153,7 @@
 		<primitive: return _self.length;>
 	}
 
-	sortInPlace { :self :aProcedure:/2 |
+	sort { :self :aProcedure:/2 |
 		<primitive:
 			return _self.sort(function(p, q) {
 				return _aProcedure_2(p, q) ? -1 : 1
@@ -161,16 +161,8 @@
 		>
 	}
 
-	sortInPlace { :self |
-		self.sortInPlace(lessThanEquals:/2)
-	}
-
-	sort { :self :aSortProcedureOrNil |
-		self.sortInPlace(aSortProcedureOrNil.ifNil { lessThanEquals:/2 })
-	}
-
 	sort { :self |
-		self.sortInPlace
+		self.sort(lessThanEquals:/2)
 	}
 
 	sorted { :self :aSortProcedureOrNil |
@@ -196,6 +188,50 @@
 }
 
 @Collection {
+
+	+ { :self :arg |
+		arg.adaptToCollectionAndApply(self, plus:/2)
+	}
+
+	- { :self :arg |
+		arg.adaptToCollectionAndApply(self, minus:/2)
+	}
+
+	* { :self :arg |
+		arg.adaptToCollectionAndApply(self, times:/2)
+	}
+
+	/ { :self :arg |
+		arg.adaptToCollectionAndApply(self, dividedBy:/2)
+	}
+
+	< { :self :arg |
+		arg.adaptToCollectionAndApply(self, lessThan:/2)
+	}
+
+	> { :self :arg |
+		arg.adaptToCollectionAndApply(self, greaterThan:/2)
+	}
+
+	** { :self :arg |
+		arg.adaptToCollectionAndApply(self, timesTimes:/2)
+	}
+
+	% { :self :arg |
+		arg.adaptToCollectionAndApply(self, modulo:/2)
+	}
+
+	adaptToCollectionAndApply { :self :rcvr :aProcedure:/2 |
+		(rcvr.isSequenceable & {
+			self.isSequenceable
+		}).if {
+			rcvr.withCollect(self) { :rcvrItem :selfItem |
+				aProcedure(rcvrItem, selfItem)
+			}
+		} {
+			'Only sequenceable collections may be combined arithmetically'.error
+		}
+	}
 
 	addAll { :self :aCollection |
 		aCollection.do { :each |
@@ -288,7 +324,7 @@
 		}
 	}
 
-	asArray { :self |
+	Array { :self |
 		| array = Array(self.size), index = 0; |
 		self.do { :each |
 			array[index := index + 1] := each
@@ -296,12 +332,16 @@
 		array
 	}
 
+	asArray { :self |
+		self.Array
+	}
+
 	asCollection { :self |
 		self
 	}
 
 	asBag { :self |
-		Bag(self)
+		self.Bag
 	}
 
 	associationsDo { :self :aProcedure:/1 |
@@ -713,8 +753,12 @@
 		tally
 	}
 
+	sorted { :self |
+		self.Array.sort
+	}
+
 	sorted { :self :sortBlock:/2 |
-		self.Array.sortInPlace(sortBlock:/2)
+		self.Array.sort(sortBlock:/2)
 	}
 
 	sum { :self |
@@ -2022,11 +2066,11 @@ Bag : [Object, Collection] { | contents |
 		self.contents.associationsDo { :anAssociation |
 			answer.add(anAssociation.value -> anAssociation.key)
 		};
-		answer.sortInPlace(greaterThanEquals:/2)
+		answer.sort(greaterThanEquals:/2)
 	}
 
 	sortedElements { :self |
-		self.contents.associations.sortInPlace
+		self.contents.associations.sort
 	}
 
 	species { :self |
@@ -2632,7 +2676,7 @@ SortedArray : [Object, Collection] { | contents sortBlock |
 	addAll { :self :aCollection |
 		(aCollection.size > (self.contents.size // 3)).if {
 			self.contents.addAll(aCollection);
-			self.contents.sortInPlace(self.sortBlock)
+			self.contents.sort(self.sortBlock)
 		} {
 			aCollection.do { :each |
 				self.add(each)

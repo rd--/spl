@@ -4,7 +4,7 @@ An unordered collection of possibly duplicate elements.
 
 * * *
 
-See also: _Set_
+See also: Set
 
 Smalltalk: _IdentityBag_
 

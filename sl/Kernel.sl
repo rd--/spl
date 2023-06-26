@@ -748,7 +748,9 @@ Complex : [Object] { | real imaginary |
 	}
 
 	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
-		aCollection.collect { :element | aProcedure(element, self) }
+		aCollection.collect { :element |
+			aProcedure(element, self)
+		}
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |

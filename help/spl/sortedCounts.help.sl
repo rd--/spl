@@ -2,11 +2,11 @@
 
 - _sortedCounts(aBag)_
 
-Answer with an array of Association between counts and elements, sorted by decreasing count.
+Answer with an array of Associations between counts and elements, sorted by _decreasing_ count.
 
 	[1, 2, 3, 1, 2, 1].Bag.sortedCounts = [3 -> 1, 2 -> 2, 1 -> 3]
 	[1, 2, 3, 1, 3, 1].Bag.sortedCounts = [3 -> 1, 2 -> 3, 1 -> 2]
 
 * * *
 
-See also: _sortedElements_
+See also: sortedElements
