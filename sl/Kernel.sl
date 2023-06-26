@@ -2207,6 +2207,10 @@ String : [Object] {
 	}
 
 	terseGuideSummary { :self |
+		self.terseGuideSummary (verbose: false)
+	}
+
+	terseGuideSummary { :self :options |
 		self.readTextFile.then { :text |
 			| totalTestCount = 0, totalPassCount = 0, areas = text.paragraphs; |
 			('Terse Guide Summary: Areas = ' ++ areas.size.printString).postLine;
@@ -2223,8 +2227,11 @@ String : [Object] {
 				|
 				entries[1].postLine;
 				2.upTo(testCount + 1).collect { :index |
-					| test = entries[index], answer = test.evaluate; |
-					answer.if {
+					| test = entries[index] ; |
+					options.atIfAbsent('verbose', false).ifTrue {
+						test.postLine
+					};
+					test.evaluate.if {
 						passCount := passCount + 1
 					} {
 						failCount := failCount + 1;

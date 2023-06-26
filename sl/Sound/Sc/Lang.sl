@@ -157,12 +157,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 +@Collection {
 
-	abs { :self | self.collect(abs:/1) }
-	acos { :self | self.collect(acos:/1) }
 	AmpDb { :self | self.collect(AmpDb:/1) }
-	asin { :self | self.collect(asin:/1) }
-	atan { :self | self.collect(atan:/1) }
-	ceiling { :self | self.collect(ceiling:/1) }
 
 	collectTexture { :self :aProcedure:/1 :delay |
 		workspace::clock.collectTexture(
@@ -172,17 +167,9 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		)
 	}
 
-	cosh { :self | self.collect(cosh:/1) }
-	cubed { :self | self.collect(cubed:/1) }
 	DbAmp { :self | self.collect(DbAmp:/1) }
-	exp { :self | self.collect(exp:/1) }
-	floor { :self | self.collect(floor:/1) }
-	fractionPart { :self | self.collect(fractionPart:/1) }
-	log { :self | self.collect(log:/1) }
-	log10 { :self | self.collect(log10:/1) }
-	log2 { :self | self.collect(log2:/1) }
+
 	MidiCps { :self | self.collect(MidiCps:/1) }
-	negated { :self | self.collect(negated:/1) }
 
 	normalize { :self |
 		| min = self.min, max = self.max, mul = 1 / (max - min), add = 0 - (mul * min); |
@@ -190,13 +177,6 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 			each * mul + add
 		}
 	}
-
-	rounded { :self | self.collect(rounded:/1) }
-	sinh { :self | self.collect(sinh:/1) }
-	sqrt { :self | self.collect(sqrt:/1) }
-	squared { :self | self.collect(squared:/1) }
-	tanh { :self | self.collect(tanh:/1) }
-	truncated { :self | self.collect(truncated:/1) }
 
 }
 

@@ -905,6 +905,7 @@ var n = 9; { n < 7 }.whileFalse { n := n - 1 }; n = 6 (* while false loop *)
 (2 ** 54).LargeInteger.squared.printString = '324518553658426726783156020576256'
 '324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
 2971215073.LargeInteger.isPrime = true
+100n.factorial = 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000n
 [-1n, 0n, 1n].collect(sign:/1) = [-1n, 0n, 1n]
 6n / 8n = Fraction(3n, 4n)
 2 / 3n = Fraction(2n, 3n)
@@ -1166,9 +1167,14 @@ var d = (c: 3, parent: (b: 2, parent: (a: 1))); [d:.a, d:.b, d:.c] = [1, 2, 3]
 var d = (x: 1, parent: (y: 2, parent: (z: 3))); d:.z := -3; [d:.x, d:.y, d:.z] = [1, 2, -3]
 var d = (length: { :self | (self::x.squared + self::y.squared).sqrt }); var p = (x: 3.141, y: 23, parent: d); p:.length = 23.213484895637706
 var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7) = 21
-(x: 1) = ('x': 1)
-('font-size': '11pt', 'font-style': 'italic').keys = ['font-size', 'font-style']
-(x: 1).Map.Record = (x: 1)
+(x: 1) = ('x': 1) (* records with quoted keys *)
+('font-size': '11pt', 'font-style': 'italic').keys = ['font-size', 'font-style'] (* records with quoted keys that are not identifiers *)
+(x: 1).Map.Record = (x: 1) (* record to map to record is identity *)
+(x: true)::x = true (* true value answers true *)
+(x: false).includesKey('x') = true (* includesKey at false value answers true *)
+(x: false)::x = false (* at at key with false value answers false *)
+(x: false)::x ~= nil (* at at key with false value does not answer nil *)
+(x: nil)::x = nil (* at at key with nil value answers nil *)
 ```
 
 ## RegExp -- text type
@@ -1257,6 +1263,8 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 [1, 3 .. 9] * [1 .. 5] = [1, 6, 15, 28, 45] (* sequence * sequence *)
 [1, 6, 15, 28, 45] / [1 .. 5] = [1, 3 .. 9] (* sequence / sequence *)
 { [1 .. 5] + [6 .. 9] }.ifError { :err | true } (* sequences must be of equal size *)
+[1 .. 5].squared = [1, 4, 9, 16, 25]
+[1, 4, 9, 16, 25].sqrt = [1 .. 5]
 ```
 
 ## Set -- collection type
