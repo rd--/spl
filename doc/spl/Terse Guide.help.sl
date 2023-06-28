@@ -676,6 +676,8 @@ Fraction(4, 6) ~= 2:3 (* non-reduced fraction *)
 4:3.negative.not (* is negative predicate *)
 4:3.numerator = 4 (* numerator *)
 2:3.raisedToInteger(5) = 32:243 (* fractions also can be exponentiated *)
+2:3 ** 5 = 32:243 (* fractions also can be exponentiated using infix operator *)
+{ 2:3 ** 3:4 }.ifError { :err | true } (* only integer exponents are implemented *)
 9:5.reciprocal = 5:9 (* reciprocal *)
 7:5.squared = 49:25 (* square of *)
 3:2.truncated = 1 (* truncation *)
@@ -775,6 +777,15 @@ Fraction(4, 6).reduced.denominator = 3
 var n = unicodeFractions().associations.collect(value:/1); n = n.sorted
 '4:3'.parseFraction = 4:3
 '4/3'.parseFraction('/') = 4:3
+| x = Fraction(2 ** 55, 2); | x ~= (x - 1) = false (* fractions of large small floats behave strangely *)
+| x = Fraction(2n ** 55n, 2); | x ~= (x - 1) (* fractions of large large integers behave ordinarily *)
+2:3 ~= 3:4 (* unequal fractions *)
+(2:3 == 2:3).not (* non-identical fractions *)
+2:3 ~~ 2:3 (* non-identical fractions *)
+2:3 ~~ 3:4 (* non-identical fractions *)
+355:113.limitDenominator(77) = 223:71
+223:71.limitDenominator(7) = 22:7
+22:7.limitDenominator(5) = 16:5
 ```
 
 ## Integral -- numeric trait
@@ -909,6 +920,7 @@ var n = 9; { n < 7 }.whileFalse { n := n - 1 }; n = 6 (* while false loop *)
 [-1n, 0n, 1n].collect(sign:/1) = [-1n, 0n, 1n]
 6n / 8n = Fraction(3n, 4n)
 2 / 3n = Fraction(2n, 3n)
+| x = (2n ** 54n); | x ~= (x - 1) (* large integers behave ordinarily *)
 ```
 
 ## Magnitude -- numeric trait
@@ -1384,6 +1396,8 @@ pi.isFinite = true
 [561, 2821, 6601, 10585, 15841, 256, 29996224275831].noneSatisfy(isPrime:/1)
 1.00001.reduce = 1 (* round if number is closeTo an integer *)
 1.5.reduce = 1.5 (* identity if number is not closeTo an integer *)
+| x = (2 ** 54); | x ~= (x - 1) = false (* large numbers behave strangely *)
+| x = (2.0 ** 54.0); | x ~= (x - 1.0) = false (* large numbers behave strangely *)
 ```
 
 ## SortedArray -- collection type
@@ -1495,6 +1509,21 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 ' x '.withBlanksTrimmed = 'x'
 ' x '.withoutLeadingBlanks = 'x '
 ' x '.withoutTrailingBlanks = ' x'
+```
+
+## Syntax -- array assignment syntax
+```
+| [x, y, z] = [1, 2, 3]; | [z, y, x] = [3, 2, 1] (* temporaries array initialisation syntax *)
+| [x, y, z] = [1 * 2, 3 * 4, 5 * 6]; | [z, y, x] = [30, 12, 2] (* temporaries array initialisation syntax *)
+var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initialisation syntax *)
+| x y z | [x, y, z] := [1, 2, 3]; [z, y, x] = [3, 2, 1] (* variables array assignment syntax *)
+| x y z | [x, y, z] := [1 * 2, 3 * 4, 5 * 6]; [z, y, x] = [30, 12, 2](* variables array assignment syntax *)
+| x = 1, y = 2; | x := y + 1; y := x * 2; [x, y] = [3, 6] (* in sequential assignment evaluation and assignment are interleaved *)
+| [x, y] = [1, 2]; | [x, y] := [y + 1, x * 2]; [x, y] = [3, 2] (* in array assignment the rhs expression is evaluated before any assignments *)
+| x = 1, y = 2, xTmp = nil; | xTmp := y + 1; y := x * 2; x := xTmp; [x, y] = [3, 2]
+| [x, y, z] = [1, 2, 3]; | [x, y, z] := [x * y + z, x + y * z, x + y + z]; [x, y, z] = [5, 9, 6]
+| x = 1, y = 2, z = 3, x1 = nil, y1 = nil, z1 = nil; | x1 := x * y + z; y1 := x + y * z; z1 := x + y + z; x := x1; y := y1; z := z1; [x, y, z] = [5, 9, 6]
+| x = 1, y = 2, z = 3; | x := x * y + z; y := x + y * z; z := x + y + z; [x, y, z] = [5, 21, 29]
 ```
 
 ## Syntax -- collection access and mutation

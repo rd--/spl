@@ -7,7 +7,7 @@ Fraction provides methods for dealing with fractions like 1/3 as a ratio of two 
 Instance variables are:
 
 - numerator<Integer>: the number appearing before the fraction bar (above)
-- denominator: <Integer> the number appearing after the fraction bar (below)
+- denominator<Integer>: the number appearing after the fraction bar (below)
 
 A Fraction is generally created by writing it using the literal syntax _1:3_.
 
@@ -49,3 +49,9 @@ Note that Fraction and Integer represent together the set of Rational numbers:
 	2:3 + 1:2 = 7:6
 	2:3 + 4:3 = 2
 	2:3.raisedToInteger(5) = 32:243
+
+A Fraction whose elements are of type SmallFloat will have odd behaviour for large components,
+a Fraction whose elements are of type LargeInteger will have behave ordinarily.
+
+	| x = Fraction(2 ** 55, 2); | x ~= (x - 1) = false
+	| x = Fraction(2n ** 55n, 2); | x ~= (x - 1)

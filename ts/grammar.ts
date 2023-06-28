@@ -34,7 +34,9 @@ Sl {
 
 	ExpressionSequence = ListOf<Expression, ";">
 	Expression = Assignment | BinaryExpression | Primary
-	Assignment = identifier ":=" Expression
+	Assignment = ScalarAssignment | ArrayAssignment
+	ScalarAssignment = identifier ":=" Expression
+	ArrayAssignment = "["  NonemptyListOf<identifier, ","> "]" ":=" Expression
 	BinaryExpression = Expression (binaryOperator Primary)+
 
 	Primary

@@ -1004,10 +1004,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		} {
 			aNumber.isFraction.if {
 				|
-				d = self.denominator.gcd(aNumber.denominator),
-				d1 = aNumber.denominator // d,
-				d2 = self.denominator // d,
-				n = (self.numerator * d1) + (aNumber.numerator * d2);
+					d = self.denominator.gcd(aNumber.denominator),
+					d1 = aNumber.denominator // d,
+					d2 = self.denominator // d,
+					n = (self.numerator * d1) + (aNumber.numerator * d2);
 				|
 				d1 := d1 * d2;
 				d2 := n.gcd(d);
@@ -1041,6 +1041,14 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			self * aNumber.reciprocal
 		} {
 			aNumber.adaptToFractionAndApply(self, dividedBy:/2)
+		}
+	}
+
+	** { :self :anInteger |
+		anInteger.isInteger.if {
+			self.raisedToInteger(anInteger)
+		} {
+			'Fraction>>** not an integer'.error
 		}
 	}
 
@@ -1098,6 +1106,76 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	lcm { :self :n |
 		self // self.gcd(n) * n
+	}
+
+	limitDenominatorIter { :self :maxDenominator |
+		(maxDenominator < 1).if {
+			'Fraction>>limitDenominator illegal maxDenominator'.error
+		} {
+			(self.denominator <= maxDenominator).if {
+				self
+			} {
+				|
+					iter = { :p0 :q0 :p1 :q1 :n :d |
+						|
+							a = n // d,
+							q2 = q0 + (a * q1);
+						|
+						(q2 > maxDenominator).if {
+							[p0, q0, p1, q1, n, d]
+						} {
+							iter(p1, q1, p0 + (a * p1), q2, d, n - (a * d))
+						}
+					},
+					[p0, q0, p1, q1, n, d] = iter(0, 1, 1, 0, self.numerator, self.denominator),
+					k = nil, bound1 = nil, bound2 = nil;
+				|
+				k := (maxDenominator - q0) // q1;
+				bound1 := Fraction(p0 + (k * p1), q0 + (k * q1));
+				bound2 := Fraction(p1, q1);
+				((bound2 - self).abs <= (bound1 - self).abs).if {
+					bound2
+				} {
+					bound1
+				}
+			}
+		}
+	}
+
+	limitDenominator { :self :maxDenominator |
+		(maxDenominator < 1).if {
+			'Fraction>>limitDenominator illegal maxDenominator'.error
+		} {
+			(self.denominator <= maxDenominator).if {
+				self
+			} {
+				|
+					p0 = 0, q0 = 1, p1 = 1, q1 = 0,
+					n = self.numerator, d = self.denominator,
+					continue = true,
+					k = nil, bound1 = nil, bound2 = nil;
+				|
+				{ continue }.whileTrue {
+					|
+						a = n // d,
+						q2 = q0 + (a * q1);
+					|
+					(q2 > maxDenominator).if {
+						continue := false
+					} {
+						[p0, q0, p1, q1, n, d] := [p1, q1, p0 + (a * p1), q2, d, n - (a * d)]
+					}
+				};
+				k := (maxDenominator - q0) // q1;
+				bound1 := Fraction(p0 + (k * p1), q0 + (k * q1));
+				bound2 := Fraction(p1, q1);
+				((bound2 - self).abs <= (bound1 - self).abs).if {
+					bound2
+				} {
+					bound1
+				}
+			}
+		}
 	}
 
 	negated { :self |

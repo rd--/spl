@@ -88,8 +88,15 @@ const asJs: any = {
 	TemporariesVarSyntax(_var, tmp, _semicolon) {
 		return `var ${commaList(tmp.asIteration().children)};`;
 	},
-	Assignment(lhs, _colonEquals, rhs) {
+	ScalarAssignment(lhs, _colonEquals, rhs) {
 		return `${lhs.asJs} = ${rhs.asJs}`;
+	},
+	ArrayAssignment(_leftBracket, lhs, _rightBracket, _colonEquals, rhs) {
+		const namesArray = lhs.asIteration().children.map(c => c.sourceString);
+		const rhsFunctionName = gensym();
+		const rhsArrayName = gensym();
+		const slots = namesArray.map((name, index) => `_${name} = _${genName('at', 2)}(${rhsArrayName}, ${index + 1})`).join('; ');
+		return `(function() { var ${rhsArrayName} = ${rhs.asJs}; ${slots}; })()`;
 	},
 	BinaryExpression(lhs, ops, rhs) {
 		let left = lhs.asJs;
