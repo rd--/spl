@@ -1277,6 +1277,19 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 }
 
++SmallFloat {
+
+	asFraction { :self |
+		self.asFraction(100)
+	}
+
+	asFraction { :self :maxDenominator |
+		| k = 10 ** (maxDenominator.log10.ceiling + 1); |
+		Fraction((self * k).rounded, k).reduced.limitDenominator(maxDenominator)
+	}
+
+}
+
 +String {
 
 	parseFraction { :self :separator |

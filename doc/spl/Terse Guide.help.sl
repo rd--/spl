@@ -658,7 +658,7 @@ var a = Float64Array(1); a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
 ```
 Fraction(2, 3).isFraction (* fractional type *)
 2:3 = Fraction(2, 3) (* literal syntax *)
-Fraction(2, 3).reduced = 2:3 (* reduced fraction *)
+Fraction(4, 6).reduced = 2:3 (* reduced fraction *)
 Fraction(4, 6) ~= 2:3 (* non-reduced fraction *)
 2:3 = 4:6 (* literals are reduced by construction *)
 2 / 3:4 = 8:3 (* division *)
@@ -786,6 +786,12 @@ var n = unicodeFractions().associations.collect(value:/1); n = n.sorted
 355:113.limitDenominator(77) = 223:71
 223:71.limitDenominator(7) = 22:7
 22:7.limitDenominator(5) = 16:5
+355:113.limitDenominator(7) = 22:7
+[1:2, 5:10, 10:20, 50:100, 500:1000].collect { :n | n.limitDenominator(5) } = [1:2, 1:2, 1:2, 1:2, 1:2]
+[10, 100].collect { :n | 0.367879.asFraction(n) } = [3:8, 32:87]
+(1 .. 5).collect { :n | pi.asFraction(10 ** n) } = [22:7, 311:99, 2862:911, 9563:3044, 313842:99899]
+pi.asFraction = 311:99 (* with maximumDenominator set to one hundred *)
+(1 / [2, 3, 5, 7, 11, 13, 17]).collect(asFraction:/1) = [1:2, 1:3, 1:5, 1:7, 1:11, 1:13, 1:17]
 ```
 
 ## Integral -- numeric trait
