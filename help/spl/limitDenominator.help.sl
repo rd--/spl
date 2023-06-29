@@ -1,4 +1,4 @@
-# limitDenominator - math
+# limitDenominator -- math
 
 - _limitDenominator(aFraction, anInteger)_
 

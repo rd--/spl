@@ -739,7 +739,7 @@ Fraction(3, 1) = 3:1
 6:5.rounded = 1
 -4:5.rounded = -1
 -6:5.rounded = -1
-3:2.rounded = 2
+3:2.rounded = 2 (* in case of tie, round to upper magnitude *)
 -3:2.rounded = -2
 pi.roundUpTo(0.01) = 3.15
 pi.roundUpTo(0.1) = 3.2
@@ -1000,6 +1000,14 @@ inf.isNumber (* constant positive infinity (is a number) *)
 3.squared = 9 (* x * x *)
 pi.radiansToDegrees = 180 (* radiansToDegrees *)
 { 1 / nil }.ifError { :err | true } (* operand not apatable to number *)
+0.9.rounded = 1
+1.rounded = 1
+1.1.rounded = 1
+-1.9.rounded = -2
+-2.rounded = -2
+-2.1.rounded = -2
+1.5.rounded = 2 (* in case of tie, round to +infinity *)
+-1.5.rounded = -1
 ```
 
 ## Method

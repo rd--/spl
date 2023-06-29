@@ -1,4 +1,4 @@
-# asFraction - math
+# asFraction -- math
 
 - _asFraction(aSmallFloat, anInteger)_
 

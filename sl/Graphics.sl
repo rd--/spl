@@ -168,6 +168,14 @@ Rectangle : [Object] { | origin corner |
 		self.corner
 	}
 
+	ceiling { :self |
+		(self.x.isInteger & { self.y.isInteger }).if {
+			self
+		} {
+			self.x.ceiling @ self.y.ceiling
+		}
+	}
+
 	center { :self |
 		self.topLeft + self.bottomRight / 2
 	}
@@ -187,6 +195,14 @@ Rectangle : [Object] { | origin corner |
 
 	extent { :self |
 		self.corner - self.origin
+	}
+
+	floor { :self |
+		(self.x.isInteger & { self.y.isInteger }).if {
+			self
+		} {
+			self.x.floor @ self.y.floor
+		}
 	}
 
 	height { :self |
@@ -228,6 +244,14 @@ Rectangle : [Object] { | origin corner |
 
 	printString { :self |
 		'Rectangle(' ++ self.origin.printString ++ ', ' ++ self.corner.printString ++ ')'
+	}
+
+	rounded { :self |
+		(self.x.isInteger & { self.y.isInteger }).if {
+			self
+		} {
+			self.x.rounded @ self.y.rounded
+		}
 	}
 
 	scaleBy { :self :scale |
