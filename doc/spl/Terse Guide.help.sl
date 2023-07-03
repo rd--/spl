@@ -539,6 +539,7 @@ var c = [1, 2, 3, 1]; c.Bag = c.histogramOf { :each | each }
 (x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].Bag
 (x: 1, y: 2, z: 1).keys.histogramOf { :each | each } = ['x', 'y', 'z'].Bag
 [1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].asBag
+[].ifEmpty { true } (* evaluate block if collection is empty *)
 ```
 
 ## Complex -- numeric type

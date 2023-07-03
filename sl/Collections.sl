@@ -516,6 +516,12 @@
 		true
 	}
 
+	ifEmpty { :self :aProcedure |
+		self.isEmpty.ifTrue {
+			aProcedure.cull(self)
+		}
+	}
+
 	isEmpty { :self |
 		self.size = 0
 	}
@@ -1738,12 +1744,6 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 			| entry = accum; |
 			accum := grow * accum;
 			entry
-		}
-	}
-
-	replicate { :self :anObject |
-		1.toAsCollect(self, Array:/1) { :unused |
-			anObject
 		}
 	}
 
