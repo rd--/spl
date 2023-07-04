@@ -83,7 +83,7 @@ pi.cos = -1 (* cosine *)
 10.min(20) = 10 (* get minimum of two numbers *)
 pi.veryCloseTo(3.141592653589793) (* pi = 3.141592653589793 *)
 1.exp.veryCloseTo(2.718281828459) (* e = 2.718281828459 *)
-var n = 100.randomFloat; (n >= 0) & { n < 100 } (* random number in (0, self-1) *)
+| n = 100.randomFloat; | (n >= 0) & { n < 100 } (* random number in (0, self-1) *)
 4 + 5 * 6 = 54 (* operators are evaluated left to right *)
 0.arcCos = (pi / 2) (* arc cosine *)
 1.arcCos = 0 (* arc cosine *)
@@ -124,7 +124,7 @@ Array(5) = [nil, nil, nil, nil, nil] (* array slots are initialised to nil *)
 [1, 2, 3, 4, 5, 6] ~= 7 (* Array inequality, differ by type *)
 [1, 2, 3, 4, 5, 6] = 7 = false (* Array inequality *)
 [1, 2, 3] == [1, 2, 3] = false (* Arrays are not identical, even if equal *)
-var a = [1, 2, 3]; a == a = true (* Array self identity *)
+| a = [1, 2, 3]; | a == a = true (* Array self identity *)
 [1, 2, 3].isArray = true (* Array predicate *)
 [1, 2.3, '4'].atRandom.isArray.not (* Array predicate *)
 4 * [1, 2, 3] = [4, 8, 12] (* scalar Array math *)
@@ -156,13 +156,13 @@ var a = [1, 2, 3]; a == a = true (* Array self identity *)
 plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [[1, 2, 3], [4, 5, 6], [7, 8, 9]].concatenation = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 [[1, 2, 3], [4, 5], [6]].concatenation = [1, 2, 3, 4, 5, 6]
-var a = [1, 2, 3]; a[2] = a.at(2)
+| a = [1, 2, 3]; | a[2] = a.at(2)
 [1 .. 5].atIfAbsent(9) { true } (* exception clause if index is invalid *)
-var a = [1, 2, 3]; a.atPut(2, 'two'); a = [1, 'two', 3]
-var a = [1, 2, 3]; a[2] := 'two'; a = [1, 'two', 3]
-var a = [5, 4, 3, 2, 1]; a.detect { :each | each % 2 = 0 } = 4
-var a = [5, 4, 3, 2, 1]; a.find { :each | each % 7 = 0 } = nil
-var a = [5, 4, 3, 2, 1]; a.findIndex { :each | each % 3 = 0 } = 3
+| a = [1, 2, 3]; | a.atPut(2, 'two'); a = [1, 'two', 3]
+| a = [1, 2, 3]; | a[2] := 'two'; a = [1, 'two', 3]
+| a = [5, 4, 3, 2, 1]; | a.detect { :each | each % 2 = 0 } = 4
+| a = [5, 4, 3, 2, 1]; | a.find { :each | each % 7 = 0 } = nil
+| a = [5, 4, 3, 2, 1]; | a.findIndex { :each | each % 3 = 0 } = 3
 [[1, 2, 3, 4], [5, 6, 7, 8]].transpose = [[1, 5], [2, 6], [3, 7], [4, 8]]
 1.toAsCollect(9, Array:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 [1 .. 9].copy == [1 .. 9] = false
@@ -171,7 +171,7 @@ var a = [5, 4, 3, 2, 1]; a.findIndex { :each | each % 3 = 0 } = 3
 [1 .. 9].shuffled.sorted = [1 .. 9]
 [].shuffled = []
 13.fibonacciArray = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
-3.replicate('3') = ['3', '3', '3']
+'3'.replicate(3) = ['3', '3', '3']
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity:/1) = 4
 [(1 .. 3), (1 .. 6), (1 .. 9)].detectMax(size:/1) = (1 .. 9)
 [(1 .. 3), (1 .. 6), (1 .. 9)].detectMin(size:/1) = (1 .. 3)
@@ -182,12 +182,12 @@ var a = [5, 4, 3, 2, 1]; a.findIndex { :each | each % 3 = 0 } = 3
 [5 .. 3].includesAllOf([3 .. 7]) = false
 [].includesAllOf([3 .. 7]) = false
 Array(5).fillFromWith([1 .. 5], negated:/1) = [-1 .. -5]
-var a = Array(5); a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
-var a = Array(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
+| a = Array(5); | a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
+| a = Array(4); | [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
 [1, 2, 3, 4, 3, 2, 1].occurrencesOf(3) = 2
-var a = [1, 2], [x, y] = a; [y, x] = [2, 1]
-var i = (1 .. 9); var [x, y, z] = i; [z, y, x] = [3 .. 1]
-var [x, y] = { var n = system.randomFloat; [n, n] }.value; x = y
+| a = [1, 2], [x, y] = a; | [y, x] = [2, 1]
+| i = (1 .. 9), [x, y, z] = i; | [z, y, x] = [3 .. 1]
+| [x, y] = { | n = system.randomFloat; | [n, n] }.value; | x = y
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
 [1 .. 3].printString = '[1, 2, 3]' (* array print string *)
@@ -198,11 +198,11 @@ var [x, y] = { var n = system.randomFloat; [n, n] }.value; x = y
 [1 .. 9].allButLast = [1 .. 8]
 [1 .. 9].allButLast(7) = [1, 2]
 { [].allButLast }.ifError { :err | true }
-{ var a = Array(1); a.at(3) }.ifError { :err | true } (* out of bound indexing is an error *)
-var a = Array(1); a[1].isNil = true (* array slots are initialised to nil *)
-var a = Array(1); a.unsafeAt(3).isNil = true (* unsafe indexing, out of bounds indexes answer nil *)
-{ var a = Array(1); a.atPut(3, 'x') }.ifError { :err | true } (* out of bound mutation is an error *)
-var a = Array(1); a.unsafeAtPut(3, 'x') = 'x' & { a.size = 3 } (* unsafe mutation, out of bounds indices extend array *)
+{ | a = Array(1); | a.at(3) }.ifError { :err | true } (* out of bound indexing is an error *)
+| a = Array(1); | a[1].isNil = true (* array slots are initialised to nil *)
+| a = Array(1); | a.unsafeAt(3).isNil = true (* unsafe indexing, out of bounds indexes answer nil *)
+{ | a = Array(1); | a.atPut(3, 'x') }.ifError { :err | true } (* out of bound mutation is an error *)
+| a = Array(1); | a.unsafeAtPut(3, 'x') = 'x' & { a.size = 3 } (* unsafe mutation, out of bounds indices extend array *)
 Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(even:/1) = 4
 [nil, true, false, 3.141, 23, 'str'].json = '[null,true,false,3.141,23,"str"]'
@@ -222,11 +222,11 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 5].beginsWith([1 .. 3]) = true
 [1 .. 5].beginsWithAnyOf([[5], [4], [3], [2]])= false
 [1 .. 5].groupBy(even:/1)[true].Array = [2, 4]
-var c = Map(); [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | c.add(q -> p) }; c['elmer'] = 3
+| c = Map(); | [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | c.add(q -> p) }; c['elmer'] = 3
 [1 .. 9].indexOfSubCollection([3 .. 5]) = 3
 [1 .. 9].indexOfSubCollectionStartingAt([3 .. 5], 9) = 0
 [1 .. 9].indexOfSubCollectionStartingAt([9], 9) = 9
-var c = []; [1 .. 9].splitByDo([3 .. 5]) { :each | c.add(each) }; c = [[1, 2], [6, 7, 8, 9]]
+| c = []; | [1 .. 9].splitByDo([3 .. 5]) { :each | c.add(each) }; c = [[1, 2], [6, 7, 8, 9]]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].indicesOfSubCollection(['']) = [3, 5, 7]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f']]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f', ''].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f'], []]
@@ -243,59 +243,59 @@ Array(9).atAllPut('x').last = 'x'
 [1 .. 9].collect { :each | 10 - each } = [9 .. 1]
 [1, 2, 3] ++ [4, 5, 6] = [ 1, 2, 3, 4, 5, 6 ]
 [1 .. 5].reversed = [5 .. 1]
-var c = [1 .. 5]; { c[1.5] }.ifError { :err | true } (* index not an integer *)
-var c = [1 .. 5]; { c['1'] }.ifError { :err | true } (* index not an integer *)
+| c = [1 .. 5]; | { c[1.5] }.ifError { :err | true } (* index not an integer *)
+| c = [1 .. 5]; | { c['1'] }.ifError { :err | true } (* index not an integer *)
 { [1 .. 5].not }.ifError { :err | true } (* cannot be negated *)
-var a = [1, 2, 4]; a.insertAt(3, 3); a = [1 .. 4] (* insert value at index *)
-var a = [1, 2, 4]; a.addAfter(3, 2); a = [1 .. 4] (* insert value after existing value *)
-var a = [1, 2, 4]; a.addBefore(3, 4); a = [1 .. 4] (* insert value before existing value *)
+| a = [1, 2, 4]; | a.insertAt(3, 3); a = [1 .. 4] (* insert value at index *)
+| a = [1, 2, 4]; | a.addAfter(3, 2); a = [1 .. 4] (* insert value after existing value *)
+| a = [1, 2, 4]; | a.addBefore(3, 4); a = [1 .. 4] (* insert value before existing value *)
 [2, 7, 5, 0, 1, -2].collect { :index | [5, 6, 8].atWrap(index) } = [6, 5, 6, 8, 5, 5] (* index with wrap-around *)
-var a = [1, nil, 3]; a.atWrapPut(5, 2); a = [1, 2, 3]
+| a = [1, nil, 3]; | a.atWrapPut(5, 2); a = [1, 2, 3]
 [1 .. 9].difference([3 .. 7]) = [1, 2, 8, 9] (* set theoretic difference of two collections *)
 [1 .. 9].difference([]) = [1 .. 9] (* set theoretic difference of two collections *)
 [1 .. 9].difference([1 .. 9]) = [] (* set theoretic difference of two collections *)
 [1, 3 .. 9].intersection([2, 4 .. 8]) = [] (* set theoretic intersection *)
 [1 .. 5].intersection([5 .. 9]) = [5] (* set theoretic intersection *)
-var a = []; [1 .. 3].doSeparatedBy { :each | a.add(each) } { a.add(0) }; a = [1, 0, 2, 0, 3]
+| a = []; | [1 .. 3].doSeparatedBy { :each | a.add(each) } { a.add(0) }; a = [1, 0, 2, 0, 3]
 [1, 2, 3].intersperse(0) = [1, 0, 2, 0, 3]
-var a = []; [1 .. 3].doWithout({ :each | a.add(each) }, 2); a = [1, 3]
+| a = []; | [1 .. 3].doWithout({ :each | a.add(each) }, 2); a = [1, 3]
 [1 .. 9].selectThenCollect(even:/1) { :each | each * 3 } = [6, 12, 18, 24]
-var a = []; [1 .. 9].selectThenDo(even:/1) { :each | a.add(each * 3) }; a = [6, 12, 18, 24]
+| a = []; | [1 .. 9].selectThenDo(even:/1) { :each | a.add(each * 3) }; a = [6, 12, 18, 24]
 [1, 3 .. 9].union([3 .. 7]) = [1, 3, 4, 5, 6, 7, 9].Set (* set theoretic union *)
-var a = [1 .. 9]; a.removeAllSuchThat(even:/1); a = [1, 3 .. 9] (* remove elements selected by predicate *)
-var a = [1 .. 9]; a.removeAllFoundIn([1, 3 .. 9]); a = [2, 4 .. 8] (* remove elements found in a collection *)
+| a = [1 .. 9]; | a.removeAllSuchThat(even:/1); a = [1, 3 .. 9] (* remove elements selected by predicate *)
+| a = [1 .. 9]; | a.removeAllFoundIn([1, 3 .. 9]); a = [2, 4 .. 8] (* remove elements found in a collection *)
 5.arithmeticSeries(1, 2) = [1, 3 .. 9] (* arithmetic series (size from by) *)
 5.geometricSeries(1, 2) = [1, 2, 4, 8, 16] (* geometric series (size from by) *)
 Array(3).size = 3
 Array:/1.ofSize(3) = [nil, nil, nil]
-var l = []; l.addFirst(1); l.addFirst(2); l = [2, 1] (* add item to start of array *)
+| l = []; | l.addFirst(1); l.addFirst(2); l = [2, 1] (* add item to start of array *)
 [1].addFirst(2) = 2 (* answer is argument *)
-var l = []; l.addLast(1); l.addLast(2); l = [1, 2] (* add item to end of array *)
+| l = []; | l.addLast(1); l.addLast(2); l = [1, 2] (* add item to end of array *)
 [1].addLast(2) = 2 (* answer is argument *)
-var l = []; 5.do { :each | l.add(each) }; l = [1 .. 5] (* alias for addLast *)
-var l = [1 .. 9]; l.removeFirst = 1 & { l.size = 8 } (* remove first object from array *)
-var l = [1 .. 9]; l.removeLast = 9 & { l.size = 8 } (* remove last object from array *)
-var l = [4, 5]; l.addAllFirst(1.to(3)); l = [1 .. 5] (* add all elements to start of array *)
+| l = []; | 5.do { :each | l.add(each) }; l = [1 .. 5] (* alias for addLast *)
+| l = [1 .. 9]; | l.removeFirst = 1 & { l.size = 8 } (* remove first object from array *)
+| l = [1 .. 9]; | l.removeLast = 9 & { l.size = 8 } (* remove last object from array *)
+| l = [4, 5]; | l.addAllFirst(1.to(3)); l = [1 .. 5] (* add all elements to start of array *)
 [1].addAllFirst([2, 3]) = [2, 3] (* answer is argument *)
-var l = [1, 2, 3]; l.addAllLast(4.to(5)); l = [1 .. 5] (* add all elements to end of array *)
+| l = [1, 2, 3]; | l.addAllLast(4.to(5)); l = [1 .. 5] (* add all elements to end of array *)
 [1].addAllLast([2, 3]) = [2, 3] (* answer is argument *)
-var l = [1]; l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6] (* alias for addAllLast *)
-var i = (1 .. 9), a = []; a.addAll(i); a.size = 9 (* add elements from Interval to end of Array *)
-var s = 'string', a = []; a.addAll(s); a.size = 6 (* add elements from String to end of Array *)
-var s = 'string', a = []; a.addAll(s.ascii); a.size = 6 (* add elements from ByteArray to end of Array *)
+| l = [1]; | l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6] (* alias for addAllLast *)
+| i = (1 .. 9), a = []; | a.addAll(i); a.size = 9 (* add elements from Interval to end of Array *)
+| s = 'string', a = []; | a.addAll(s); a.size = 6 (* add elements from String to end of Array *)
+| s = 'string', a = []; | a.addAll(s.ascii); a.size = 6 (* add elements from ByteArray to end of Array *)
 13.fibonacciSequence = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
-var c = [1 .. 5]; [c.removeAt(1), c] = [1, [2, 3, 4, 5]]
-var c = [1 .. 5]; [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
-var c = [1 .. 5]; [c.removeFirst(3), c] = [[1, 2, 3], [4, 5]] (* remove first three objects from array *)
-var c = [1 .. 5]; [c.removeLast(3), c] = [[3, 4, 5], [1, 2]] (* remove last three objects from array *)
-var c = [1 .. 5]; c.removeAll; c = []  (* remove all objects from array *)
-var c = [1 .. 5]; [c.remove(3), c] = [3, [1, 2, 4, 5]] (* remove object from array *)
-var c = [1 .. 5]; c.removeIfAbsent(9) { true } & { c = [1 .. 5] } (* remove object from array, handle absence *)
+| c = [1 .. 5]; | [c.removeAt(1), c] = [1, [2, 3, 4, 5]]
+| c = [1 .. 5]; | [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
+| c = [1 .. 5]; | [c.removeFirst(3), c] = [[1, 2, 3], [4, 5]] (* remove first three objects from array *)
+| c = [1 .. 5]; | [c.removeLast(3), c] = [[3, 4, 5], [1, 2]] (* remove last three objects from array *)
+| c = [1 .. 5]; | c.removeAll; c = []  (* remove all objects from array *)
+| c = [1 .. 5]; | [c.remove(3), c] = [3, [1, 2, 4, 5]] (* remove object from array *)
+| c = [1 .. 5]; | c.removeIfAbsent(9) { true } & { c = [1 .. 5] } (* remove object from array, handle absence *)
 ```
 
 ## Assignment
 ```
-var a = 'a', b = 'b', c = 'c'; a := b := c; [a, b, c] = ['c', 'c', 'c'] (* assignment is right-associative *)
+| a = 'a', b = 'b', c = 'c'; | a := b := c; [a, b, c] = ['c', 'c', 'c'] (* assignment is right-associative *)
 ```
 
 ## Association -- collection type
@@ -303,7 +303,7 @@ var a = 'a', b = 'b', c = 'c'; a := b := c; [a, b, c] = ['c', 'c', 'c'] (* assig
 ('x' -> 1).typeOf = 'Association'
 Association('x', 1) = ('x' -> 1)
 'x'.minusGreaterThan(1) = ('x' -> 1)
-var a = 'x' -> 1; [a.key, a.value] = ['x', 1]
+| a = 'x' -> 1; | [a.key, a.value] = ['x', 1]
 ('x' -> 1).Array = ['x', 1]
 ['x' -> 1, 'y' -> 2].collect(Array:/1) = [['x', 1], ['y', 2]]
 (23 -> 3.141).printString = '23 -> 3.141'
@@ -320,34 +320,34 @@ var a = 'x' -> 1; [a.key, a.value] = ['x', 1]
 ```
 Bag().isBag = true
 Bag().typeOf = 'Bag'
-var b = Bag(); b.add('x'); b.add('x'); b.size = 2 (* number of objects in bag *)
-var b = Bag(); b.add('x'); b.add('y'); b.add('x'); b.size = 3 (* add element to bag *)
-var b = Bag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 (* add all elements of argument to bag *)
+| b = Bag(); | b.add('x'); b.add('x'); b.size = 2 (* number of objects in bag *)
+| b = Bag(); | b.add('x'); b.add('y'); b.add('x'); b.size = 3 (* add element to bag *)
+| b = Bag(); | b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 (* add all elements of argument to bag *)
 | c= 'xyyzzz', r = Bag(); | r.addAll(c); r.size = 6 (* add all elements of a String to a Bag *)
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.size = 10
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
-var b = Bag(), o = ['1' -> 10, '2' -> 1, '3' -> 5]; o.collect { :a | b.addWithOccurrences(a.key, a.value) }; b.sortedElements = o
+| b = Bag(), o = ['1' -> 10, '2' -> 1, '3' -> 5]; | o.collect { :a | b.addWithOccurrences(a.key, a.value) }; b.sortedElements = o
 [1, 3, 5, 1, 3, 1].Bag.sorted = [1, 1, 1, 3, 3, 5]
 [1, 3, 5, 1, 5, 1].Bag.sorted = [1, 1, 1, 3, 5, 5]
 [1, 3, 5, 1, 3, 1].Bag.sortedCounts = [3 -> 1, 2 -> 3, 1 -> 5]
 [1, 3, 5, 1, 5, 1].Bag.sortedCounts = [3 -> 1, 2 -> 5, 1 -> 3]
 [1, 3, 5, 1, 3, 1].Bag.sortedElements = [1 -> 3, 3 -> 2, 5 -> 1]
 [1, 3, 5, 1, 5, 1].Bag.sortedElements = [1 -> 3, 3 -> 1, 5 -> 2]
-var c1 = [2, 3, 3, 4, 4, 4].Bag, c2 = c1.copy, s2 = c2.size; c1.removeAll; c1.size = 0 & { c2.size = s2 }
-var c = Bag(), x = 'x'; c.add(x); c.remove(x); c.size = 0
-var c = ['x', 'x'].Bag; c.remove('x'); c.remove('x'); c.size = 0
-var c = Bag(); { c.remove('x') }.ifError { :err | true }
+| c1 = [2, 3, 3, 4, 4, 4].Bag, c2 = c1.copy, s2 = c2.size; | c1.removeAll; c1.size = 0 & { c2.size = s2 }
+| c = Bag(), x = 'x'; | c.add(x); c.remove(x); c.size = 0
+| c = ['x', 'x'].Bag; | c.remove('x'); c.remove('x'); c.size = 0
+| c = Bag(); | { c.remove('x') }.ifError { :err | true }
 [2, 3, 3, 4, 4, 4].Bag.occurrencesOf(3) = 2
 [2, 3, 3, 4, 4, 4].Bag.occurrencesOf(4) = 3
 [2, 3, 3, 4, 4, 4].Bag.occurrencesOf(5) = 0
 [2, 3, 3, 4, 4, 4].Bag.occurrencesOf(nil) = 0
 [nil].Bag.occurrencesOf(nil) = 1
-var c = [2, 3, 3, 4, 4, 4].Bag; c.copy = c (* copy *)
-var c = Bag(); c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
+| c = [2, 3, 3, 4, 4, 4].Bag; | c.copy = c (* copy *)
+| c = Bag(); | c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
 [2, 3, 3, 4, 4, 4].Bag.Set.size = 3 (* number of unique elements *)
 [2, 3, 3, 4, 4, 4].Bag.Set.occurrencesOf(3) = 1
-var s = Bag(); 250.timesRepeat { s.add([1 .. 4].shuffled.asString) }; s.Set.size = 24
+| s = Bag(); | 250.timesRepeat { s.add([1 .. 4].shuffled.asString) }; s.Set.size = 24
 ```
 
 ## Benchmarks
@@ -478,18 +478,18 @@ ByteArray(0).size = 0
 ByteArray(8).size = 8
 ByteArray(8).at(1) = 0
 ByteArray(8).atPut(1, 179) = 179
-var a = ByteArray(8); a.atPut(1, 179); a.at(1) = 179
+| a = ByteArray(8); | a.atPut(1, 179); a.at(1) = 179
 [1 .. 9].ByteArray.isByteArray = true
 [1 .. 9].ByteArray.reversed = [9 .. 1].ByteArray
 [1 .. 3].ByteArray.printString = '[1, 2, 3].ByteArray'
 ByteArray(4).hex = '00000000'
 'text'.ascii[1] = 116 (* ByteArray subscript *)
-var b = ByteArray(4); b[1] := 15; b[3] := 240; b.hex = '0f00f000'
-var b = ByteArray(4); b[2] := 15; b[4] := 240; b.hex = '000f00f0'
+| b = ByteArray(4); | b[1] := 15; b[3] := 240; b.hex = '0f00f000'
+| b = ByteArray(4); | b[2] := 15; b[4] := 240; b.hex = '000f00f0'
 [1 .. 4].ByteArray.hex =  '01020304'
 'string'.ascii.hex = '737472696e67' (* hexadecimal string of ByteArray *)
 '737472696e67'.parseHexString.ascii = 'string' (* ByteArray of hexadecimal string *)
-var b = ByteArray(4); b.atAllPut(15); b.hex = '0f0f0f0f'
+| b = ByteArray(4); | b.atAllPut(15); b.hex = '0f0f0f0f'
 'string'.ascii.asArray = [115, 116, 114, 105, 110, 103] (* Array from ByteArray *)
 '0f00f010'.parseHexString = [15, 0, 240, 16].ByteArray
 ```
@@ -531,8 +531,8 @@ Set().Array = []
 [].select { :each | each > 0 } = []
 [1, 2, 2, 3, 3, 3].histogramOf { :each | each }.asArray = [1, 2, 2, 3, 3, 3]
 [1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].asBag
-var c = [1, 2, 3, 1]; c.Bag = c.histogramOf(identity:/1)
-var c = [1, 2, 3, 1]; c.Bag = c.histogramOf { :each | each }
+| c = [1, 2, 3, 1]; | c.Bag = c.histogramOf(identity:/1)
+| c = [1, 2, 3, 1]; | c.Bag = c.histogramOf { :each | each }
 [1, 2, 3, 1].Bag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.value }
 ['x', 'y', 'y', 'z'].Bag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.key }
 (x: 1, y: 2, z: 1).histogramOf { :each | each } = [1, 2, 1].Bag
@@ -563,7 +563,7 @@ Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 ((1 + 2.i) + (2 / 3)).closeTo((5 / 3) + 2.i)
 ((2 / 3) + (1 + 2.i)).closeTo((5 / 3) + 2.i)
 (0 + 5.i).arg = (pi / 2)
-var c = (5 - 6.i); (c * 1.i) = c.i
+| c = (5 - 6.i); | (c * 1.i) = c.i
 (2 + 5.i).negated = (-2 - 5.i)
 (2 + 5.i).reciprocal = ((2 / 29) - (5 / 29).i)
 (6 - 6.i).squared = -72.i
@@ -610,7 +610,7 @@ unicodeFractions().associations.isArray = true
 2.weeks - 12.days = 48.hours
 0.25.seconds + 500.milliseconds = 750.milliseconds
 500.milliseconds + 0.25.seconds = 0.75.seconds
-var f = { :t0 | | t1 = 2.randomFloat.seconds; | f.evaluateAfterWith(t1, t1) }; f(2.seconds).cancel = nil
+| f = { :t0 | | t1 = 2.randomFloat.seconds; | f.evaluateAfterWith(t1, t1) }; | f(2.seconds).cancel = nil
 ```
 
 ## Error -- exception type
@@ -633,14 +633,14 @@ Float64Array(0).size = 0
 Float64Array(8).size = 8
 Float64Array(8).at(1) = 0
 Float64Array(8).atPut(1, pi) = pi
-var a = Float64Array(8); a.atPut(1, pi); a.at(1) = pi
+| a = Float64Array(8); | a.atPut(1, pi); a.at(1) = pi
 [1 .. 9].Float64Array.isFloat64Array = true
 [1 .. 9].Float64Array.reversed = [9 .. 1].Float64Array
-var a = [1 .. 9].Float64Array; a.reverse; a = [9 .. 1].Float64Array
-var a = [9 .. 1].Float64Array; a.sort; a = [1 .. 9].Float64Array
+| a = [1 .. 9].Float64Array; | a.reverse; a = [9 .. 1].Float64Array
+| a = [9 .. 1].Float64Array; | a.sort; a = [1 .. 9].Float64Array
 { Float64Array(1).atPut(3, 'x') }.ifError { :err | true }
-var a = Float64Array(1); a.unsafeAtPut(1, 'x'); a.at(1).isNaN = true
-var a = Float64Array(1); a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
+| a = Float64Array(1); | a.unsafeAtPut(1, 'x'); a.at(1).isNaN = true
+| a = Float64Array(1); | a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
 [1 .. 3].Float64Array.printString = '[1, 2, 3].Float64Array'
 ```
 
@@ -775,7 +775,7 @@ Fraction(4, 6).reduced.denominator = 3
 3:2 > 1 = true
 3:4.unicode = '¾'
 2:3.unicode = '⅔'
-var n = unicodeFractions().associations.collect(value:/1); n = n.sorted
+| n = unicodeFractions().associations.collect(value:/1); | n = n.sorted
 '4:3'.parseFraction = 4:3
 '4/3'.parseFraction('/') = 4:3
 | x = Fraction(2 ** 55, 2); | x ~= (x - 1) = false (* fractions of large small floats behave strangely *)
@@ -853,7 +853,7 @@ Interval(-2, 2, 1).collect(even:/1) = [true, false, true, false, true]
 2 * (1 .. 9).collect(squared:/1) = [2, 8, 18, 32, 50,72, 98, 128, 162]
 1.to(9).asArray = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 (1 .. 9).asArray.copyFromTo(3, 7) = [3, 4, 5, 6, 7]
-var i = 1; 1.to(9).do { :each | i := i + each }; i = 46
+| i = 1; | 1.to(9).do { :each | i := i + each }; i = 46
 Interval(-1, 1, 1).storeString = 'Interval(-1, 1, 1)'
 Interval(-1, 1, 1).printString = '(-1 .. 1)'
 Interval(1, 9, 1) = (1 .. 9)
@@ -863,8 +863,8 @@ Interval(1, 10, 3).asArray = [1, 4, 7, 10]
 1.to(6).first = 1
 (1 .. 6).second = 2
 to(1, 6).last = 6
-var i = (1 .. 9); i.first = i[1] (* one-indexed *)
-var i = (1 .. 9); i.last = i[9] (* one-indexed *)
+| i = (1 .. 9); | i.first = i[1] (* one-indexed *)
+| i = (1 .. 9); | i.last = i[9] (* one-indexed *)
 (1 .. 6).sum = 21
 Interval(-1, 1, 1).asArray = [-1, 0, 1]
 1.to(99).asString = '(1 .. 99)'
@@ -883,7 +883,7 @@ to(9, 1) = Interval(9, 1, -1)
 [1 .. 9] = (1 .. 9).asArray
 [9 .. 1] = (9 .. 1).asArray
 [3 - 2 .. 7 + 2] = (3 - 2 .. 7 + 2).asArray
-var l = []; Interval(9, 1, -1).do { :each | l.add(each) }; l = [9 .. 1]
+| l = []; | Interval(9, 1, -1).do { :each | l.add(each) }; l = [9 .. 1]
 collect(1.to(9)) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 1.to(9).collect { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 Interval(1, 6, 2).asArray = [1, 3, 5]
@@ -900,21 +900,21 @@ Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 1.upTo(0).size = 0
 3.upTo(5) = (3 .. 5)
 0.downTo(1).size = 0
-var s = ''; (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531'
+| s = ''; | (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531'
 ```
 
 ## Iteration
 ```
-var n = 0; 4.timesRepeat { n := n + 1 }; n = 4 (* times repeat loop (int) *)
-var n = 0; 4.do { :x | n := n + x }; n = 10 (* times repeat loop (int) *)
-var n = 0; 4.do { :x | n := n + x }; n = 10 (* for loop (int) *)
-var s = ''; 4.do { :x | s := s ++ x }; s = '1234' (* for loop (int) *)
-var s = ''; (1 .. 5).do { :x | s := s ++ x }; s = '12345' (* for loop (interval) *)
-var s = ''; 1.toDo(5) { :x | s := s ++ x }; s = '12345' (* for loop (start & end indices) *)
-var s = ''; (1 .. 3).reverseDo { :x | s := s ++ x }; s = '321' (* for loop (interval, reversed) *)
-var s = ''; [1, 3, 5].do { :x | s := s ++ x }; s = '135' (* for loop (collection) *)
-var n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 (* while true loop *)
-var n = 9; { n < 7 }.whileFalse { n := n - 1 }; n = 6 (* while false loop *)
+| n = 0; | 4.timesRepeat { n := n + 1 }; n = 4 (* times repeat loop (int) *)
+| n = 0; | 4.do { :x | n := n + x }; n = 10 (* times repeat loop (int) *)
+| n = 0; | 4.do { :x | n := n + x }; n = 10 (* for loop (int) *)
+| s = ''; | 4.do { :x | s := s ++ x }; s = '1234' (* for loop (int) *)
+| s = ''; | (1 .. 5).do { :x | s := s ++ x }; s = '12345' (* for loop (interval) *)
+| s = ''; | 1.toDo(5) { :x | s := s ++ x }; s = '12345' (* for loop (start & end indices) *)
+| s = ''; | (1 .. 3).reverseDo { :x | s := s ++ x }; s = '321' (* for loop (interval, reversed) *)
+| s = ''; | [1, 3, 5].do { :x | s := s ++ x }; s = '135' (* for loop (collection) *)
+| n = 9; | { n > 3 }.whileTrue { n := n - 1 }; n = 3 (* while true loop *)
+| n = 9; | { n < 7 }.whileFalse { n := n - 1 }; n = 6 (* while false loop *)
 ```
 
 ## LargeInteger -- numeric type
@@ -1113,6 +1113,7 @@ var f = { }; f == f (* identity *)
 { :x | x }.printString = 'Procedure'
 { }.typeOf = 'Procedure'
 { } . () = nil (* empty procedure evaluates to nil *)
+{ | c a | c := [1]; a := { | a | a := 4; a }.value; { | a | a := 2; c.add(a); { | a | a := 3; c.add(a) }.value }.value; c.add(a); c }.value = [1, 2, 3, 4]
 ```
 
 ## Promise -- kernel type
