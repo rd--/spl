@@ -56,7 +56,7 @@
 			(1 .. size).do { :i |
 				flags[i].ifTrue {
 					| prime = i + 1, k = i + prime; |
-					{ k <= size}.whileTrue {
+					{ k <= size }.whileTrue {
 						flags[k] := false;
 						k := k + prime
 					};
@@ -1377,7 +1377,10 @@ LargeInteger : [Object, Magnitude, Number, Integral] {
 	}
 
 	% { :self :anInteger |
-		<primitive: return ((_self % BigInt(_anInteger)) + BigInt(_anInteger)) % BigInt(_anInteger);>
+		<primitive:
+		var i = BigInt(_anInteger);
+		return ((_self % i) + i) % i;
+		>
 	}
 
 	** { :self :anInteger |
@@ -1441,52 +1444,92 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	< { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return _self < _anObject; }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self < _anObject;
+		}
+		>
 		anObject.adaptToNumberAndApply(self, lessThan:/2)
 	}
 
 	<= { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return _self <= _anObject; }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self <= _anObject;
+		}
+		>
 		anObject.adaptToNumberAndApply(self, lessThanEquals:/2)
 	}
 
 	+ { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return _self + _anObject; }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self + _anObject;
+		}
+		>
 		anObject.adaptToNumberAndApply(self, plus:/2)
 	}
 
 	- { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return _self - _anObject; }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self - _anObject;
+		}
+		>
 		anObject.adaptToNumberAndApply(self, minus:/2)
 	}
 
 	* { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return _self * _anObject; }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self * _anObject;
+		}
+		>
 		anObject.adaptToNumberAndApply(self, times:/2)
 	}
 
 	/ { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return _self / _anObject; }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self / _anObject;
+		}
+		>
 		anObject.adaptToNumberAndApply(self, dividedBy:/2)
 	}
 
 	% { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return ((_self % _anObject) + _anObject) % _anObject; }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return ((_self % _anObject) + _anObject) % _anObject;
+		}
+		>
 		anObject.adaptToNumberAndApply(self, modulo:/2)
 	}
 
 	** { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return Math.pow(_self, _anObject); }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return Math.pow(_self, _anObject);
+		}
+		>
 		anObject.adaptToNumberAndApply(self, timesTimes:/2)
 	}
 
 	<< { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return _self << _anObject; }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self << _anObject;
+		}
+		>
 		anObject.adaptToNumberAndApply(self, lessThanLessThan:/2)
 	}
 
 	>> { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return sl.shiftRight(_self, _anObject); }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return sl.shiftRight(_self, _anObject);
+		}
+		>
 		anObject.adaptToNumberAndApply(self, greaterThanGreaterThan:/2)
 	}
 
@@ -1834,9 +1877,9 @@ Procedure : [Object] {
 
 	apply { :self :anArray |
 		<primitive:
-			if(sl.isArray(_anArray) && (_self.length === _anArray.length)) {
-				return _self(... _anArray);
-			}
+		if(sl.isArray(_anArray) && (_self.length === _anArray.length)) {
+			return _self(... _anArray);
+		}
 		>
 		error('Procedure>>apply: argument is not array or array is not of required size')
 	}
@@ -1886,7 +1929,7 @@ Procedure : [Object] {
 			Js doesn't have a proper numArgs mechanism.
 			In the simple arity model Spl adds hasRestParameters to the arity dispatch method functions, else it is undefined.
 			From within Spl there is no concept of a variadic procedure.
-		*)
+			*)
 		<primitive: return _self.hasRestParameters ? _ifAbsent() : _self.length;>
 	}
 
@@ -1904,15 +1947,15 @@ Procedure : [Object] {
 
 	withReturn { :self |
 		<primitive:
-			try {
-				return _self();
-			} catch (ret) {
-				if(ret instanceof Error) {
-					throw(ret);
-				} {
-					return ret;
-				}
+		try {
+			return _self();
+		} catch (ret) {
+			if(ret instanceof Error) {
+				throw(ret);
+			} {
+				return ret;
 			}
+		}
 		>
 	}
 
@@ -2214,9 +2257,9 @@ String : [Object] {
 
 	markdownToHtml { :self |
 		<primitive:
-			var reader = new commonmark.Parser({smart: true});
-			var writer = new commonmark.HtmlRenderer();
-			return writer.render(reader.parse(_self));
+		var reader = new commonmark.Parser({smart: true});
+		var writer = new commonmark.HtmlRenderer();
+		return writer.render(reader.parse(_self));
 		>
 	}
 
@@ -2278,15 +2321,15 @@ String : [Object] {
 	}
 
 	replace { :self :stringToFind :stringToReplaceWith |
-		 <primitive: return _self.replace(_stringToFind, _stringToReplaceWith);>
+		<primitive: return _self.replace(_stringToFind, _stringToReplaceWith);>
 	}
 
 	replaceAll { :self :stringToFind :stringToReplaceWith |
-		 <primitive: return _self.replaceAll(_stringToFind, _stringToReplaceWith);>
+		<primitive: return _self.replaceAll(_stringToFind, _stringToReplaceWith);>
 	}
 
 	replaceRegExp { :self :regExpToFind :stringToReplaceWith |
-		 <primitive: return _self.replace(_regExpToFind, _stringToReplaceWith);>
+		<primitive: return _self.replace(_regExpToFind, _stringToReplaceWith);>
 	}
 
 	size { :self |
@@ -2294,7 +2337,7 @@ String : [Object] {
 	}
 
 	splitBy { :self :aString |
-		 <primitive: return _self.split(_aString);>
+		<primitive: return _self.split(_aString);>
 	}
 
 	terseGuideSummary { :self |
@@ -2441,7 +2484,7 @@ Nil : [Object] {
 	}
 
 	ifNotNil { :self :aProcedure:/0 |
-		 nil
+		nil
 	}
 
 	ifNotNil { :self :whenNotNil:/0 :whenNil:/0 |

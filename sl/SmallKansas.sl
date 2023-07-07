@@ -726,7 +726,7 @@ Inspector : [Object, View] { | inspectorPane inspectorList |
 				each.listChooserPane.remove
 			}
 		}
-		}
+	}
 
 	outerElement { :self |
 		self.inspectorPane

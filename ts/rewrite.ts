@@ -185,7 +185,8 @@ const asJs: any = {
 		return commaList(arg.children);
 	},
 	ArgumentName(_colon, nm) {
-		return nm.asJs; },
+		return nm.asJs;
+	},
 	Primitive(_beginPrimitive, s, _endPrimitive) {
 		return s.sourceString;
 	},

@@ -929,6 +929,10 @@ Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 6n / 8n = Fraction(3n, 4n)
 2 / 3n = Fraction(2n, 3n)
 | x = (2n ** 54n); | x ~= (x - 1) (* large integers behave ordinarily *)
+5n % 3n = 2n (* modulo *)
+[10n % 5n, -4n % 3n, 4n % -3n, -4n % -3n] = [0n, 2n, -2n, -1n] (* modulo, negative operands *)
+13n % 7n % 4n = 2n (* left assocative *)
+13n + 1n % 7n = 0n (* equal precedence *)
 ```
 
 ## Magnitude -- numeric trait

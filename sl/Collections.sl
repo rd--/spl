@@ -6,9 +6,9 @@
 
 	at { :self :index |
 		<primitive:
-			if(sl.arrayCheckIndex(_self, _index)) {
-				return _self[_index - 1];
-			}
+		if(sl.arrayCheckIndex(_self, _index)) {
+			return _self[_index - 1];
+		}
 		>
 		self.indexError(index)
 	}
@@ -21,31 +21,31 @@
 
 	atIfPresentIfAbsent { :self :index :ifPresent:/1 :ifAbsent:/0 |
 		<primitive:
-			if(sl.arrayCheckIndex(_self, _index)) {
-				return _ifPresent_1(_self[_index - 1]);
-			} {
-				return _ifAbsent_0();
-			}
+		if(sl.arrayCheckIndex(_self, _index)) {
+			return _ifPresent_1(_self[_index - 1]);
+		} {
+			return _ifAbsent_0();
+		}
 		>
 	}
 
 	atPut { :self :index :anObject |
 		<primitive:
-			if(sl.arrayCheckIndex(_self, _index)) {
-				_self[_index - 1] = _anObject;
-				return _anObject;
-			}
+		if(sl.arrayCheckIndex(_self, _index)) {
+			_self[_index - 1] = _anObject;
+			return _anObject;
+		}
 		>
 		self.indexError(index)
 	}
 
 	collect { :self :aProcedure |
 		<primitive:
-			if(_aProcedure instanceof Function) {
-				return _self.map(function(each) {
-					return _aProcedure(each);
-				});
-			}
+		if(_aProcedure instanceof Function) {
+			return _self.map(function(each) {
+				return _aProcedure(each);
+			});
+		}
 		>
 		'@ArrayedCollection>>collect: not a procedure'.error
 	}
@@ -60,17 +60,17 @@
 
 	detectIfFoundIfNone { :self :aProcedure:/1 :whenFound:/1 :whenNone:/0 |
 		<primitive:
-			var item = _self.find(function(element) { return _aProcedure_1(element); });
-			return (item !== undefined) ? _whenFound_1(item) : _whenNone_0();
+		var item = _self.find(function(element) { return _aProcedure_1(element); });
+		return (item !== undefined) ? _whenFound_1(item) : _whenNone_0();
 		>
 	}
 
 	do { :self :aProcedure:/1 |
 		<primitive:
-			_self.forEach(function(item) {
-				return _aProcedure_1(item)
-			});
-			return _self;
+		_self.forEach(function(item) {
+			return _aProcedure_1(item)
+		});
+		return _self;
 		>
 	}
 
@@ -83,15 +83,15 @@
 
 	find { :self :aProcedure |
 		<primitive:
-			var item = _self.find(function(element) { return _aProcedure(element); });
-			return (item === undefined) ? null : item;
+		var item = _self.find(function(element) { return _aProcedure(element); });
+		return (item === undefined) ? null : item;
 		>
 	}
 
 	findIndex { :self :aProcedure |
 		<primitive:
-			var index = _self.findIndex(function(element) { return _aProcedure(element); });
-			return (index === -1) ? null : index + 1;
+		var index = _self.findIndex(function(element) { return _aProcedure(element); });
+		return (index === -1) ? null : index + 1;
 		>
 	}
 
@@ -127,7 +127,7 @@
 
 	isValidIndex { :self :index |
 		<primitive:
-			return Number.isInteger(_index) && 0 < _index && _index <= _self.length;
+		return Number.isInteger(_index) && 0 < _index && _index <= _self.length;
 		>
 	}
 
@@ -155,9 +155,9 @@
 
 	sort { :self :aProcedure:/2 |
 		<primitive:
-			return _self.sort(function(p, q) {
-				return _aProcedure_2(p, q) ? -1 : 1
-			});
+		return _self.sort(function(p, q) {
+			return _aProcedure_2(p, q) ? -1 : 1
+		});
 		>
 	}
 
@@ -1932,11 +1932,11 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 	parseHexString { :self |
 		<primitive:
-			const bytes = new Uint8Array(_self.length / 2);
-			for (let i = 0; i < _self.length; i ++) {
-				bytes[i] = parseInt(_self.substr(i * 2, 2), 16);
-			}
-			return bytes;
+		const bytes = new Uint8Array(_self.length / 2);
+		for (let i = 0; i < _self.length; i ++) {
+			bytes[i] = parseInt(_self.substr(i * 2, 2), 16);
+		}
+		return bytes;
 		>
 	}
 
@@ -1946,10 +1946,10 @@ Float64Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 	atPut { :self :index :aFloat |
 		<primitive:
-			if(sl.arrayCheckIndex(_self, _index) && sl.isSmallFloat(_aFloat)) {
-				_self[_index - 1] = _aFloat;
-				return _aFloat;
-			}
+		if(sl.arrayCheckIndex(_self, _index) && sl.isSmallFloat(_aFloat)) {
+			_self[_index - 1] = _aFloat;
+			return _aFloat;
+		}
 		>
 		self.indexError(index)
 	}
@@ -2172,8 +2172,8 @@ Map : [Object, Collection, Dictionary] {
 
 	add { :self :anAssociation |
 		<primitive:
-			_self.set(_anAssociation.key, _anAssociation.value);
-			return _anAssociation;
+		_self.set(_anAssociation.key, _anAssociation.value);
+		return _anAssociation;
 		>
 	}
 
@@ -2211,21 +2211,21 @@ Map : [Object, Collection, Dictionary] {
 
 	keysAndValuesDo { :self :aProcedure |
 		<primitive:
-			_self.forEach(function(value, key, _) {
-				_aProcedure(key, value);
-			});
-			return null;
+		_self.forEach(function(value, key, _) {
+			_aProcedure(key, value);
+		});
+		return null;
 		>
 	}
 
 	removeKeyIfAbsent { :self :aKey :aProcedure |
 		<primitive:
-			var existed = _self.delete(_aKey);
-			if(existed) {
-				return _aKey;
-			} else {
-				return _aProcedure();
-			}
+		var existed = _self.delete(_aKey);
+		if(existed) {
+			return _aKey;
+		} else {
+			return _aProcedure();
+		}
 		>
 	}
 
@@ -2281,8 +2281,8 @@ Set : [Object, Collection] {
 
 	add { :self :anObject |
 		<primitive:
-			_self.add(_anObject);
-			return _anObject;
+		_self.add(_anObject);
+		return _anObject;
 		>
 	}
 
@@ -2296,10 +2296,10 @@ Set : [Object, Collection] {
 
 	do { :self :aProcedure |
 		<primitive:
-			_self.forEach(function(item) {
-				_aProcedure(item);
-			});
-			return null;
+		_self.forEach(function(item) {
+			_aProcedure(item);
+		});
+		return null;
 		>
 	}
 
@@ -2813,16 +2813,16 @@ Record : [Object, Collection, Dictionary] {
 
 	at { :self :aString |
 		<primitive:
-			var item = _self[_aString];
-			return item == undefined ? null : item;
+		var item = _self[_aString];
+		return item == undefined ? null : item;
 		>
 	}
 
 	atPut { :self :aString :anObject |
 		<primitive:
-			if(typeof _aString === 'string') {
-				return _self[_aString] = _anObject;
-			}
+		if(typeof _aString === 'string') {
+			return _self[_aString] = _anObject;
+		}
 		>
 		('Record>>atPut key not a string: ' ++ aString.typeOf).error
 	}
@@ -2849,10 +2849,10 @@ Record : [Object, Collection, Dictionary] {
 
 	keysAndValuesDo { :self :aProcedure:/2 |
 		<primitive:
-			Object.entries(_self).forEach(function(entry) {
-				_aProcedure_2(entry[0], entry[1]);
-			});
-			return null;
+		Object.entries(_self).forEach(function(entry) {
+			_aProcedure_2(entry[0], entry[1]);
+		});
+		return null;
 		>
 	}
 
