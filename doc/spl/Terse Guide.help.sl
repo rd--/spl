@@ -105,6 +105,7 @@ pi.veryCloseTo(3.141592653589793) (* pi = 3.141592653589793 *)
 -3 / 0 = inf.negated (* negative division by zero is negative infinity *)
 (0 / 0).isNaN (* division of zero by zero is NaN *)
 1.isNaN.not (* one is a number *)
+4 / [0 .. 3] = [inf, 4, 2, 4/3] (* divide by zero is infinity *)
 ```
 
 ## Array -- collection type

@@ -195,6 +195,11 @@
 (add-to-list 'auto-mode-alist '("\\.sl$" . spl-mode))
 (add-to-list 'auto-mode-alist '("\\.help.sl$" . spl-mode))
 
+(defun spl-indent-region ()
+  "Run spl-indent on region."
+  (interactive)
+  (shell-command-on-region (region-beginning) (region-end) "spl-indent" nil t))
+
 (provide 'spl-mode)
 
 ;;; spl.el ends here
