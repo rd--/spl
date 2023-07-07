@@ -1,4 +1,4 @@
-LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLink |
+LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink |
 
 	add { :self :aLinkOrObject |
 		self.addLast(aLinkOrObject)
@@ -73,7 +73,7 @@ LinkedList : [Object, Collection, SequenceableCollection]  { | firstLink lastLin
 	}
 
 	linkAtIfAbsent { :self :index :errorProcedure:/0 |
-		| i  = 0; |
+		| i = 0; |
 		withReturn {
 			self.linksDo { :link | i := i + 1; ifTrue(i = index) { return(link) } };
 			errorProcedure()

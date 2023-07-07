@@ -93,7 +93,7 @@
 
 (defconst spl-font-lock-keywords
   (list
-   `(,(regexp-opt '("|" "var" "primitive:") 'symbols) . font-lock-keyword-face)
+   `(,(regexp-opt '("var" "primitive:") 'symbols) . font-lock-keyword-face)
    `(,(regexp-opt '("false" "inf" "nil" "pi" "e" "epsilon" "true") 'symbols) . font-lock-builtin-face)
    `(,(regexp-opt '("do" "if" "ifEmpty" "ifFalse" "ifNil" "ifNotNil" "ifTrue" "kr" "timesRepeat" "whileFalse" "whileTrue") 'symbols) . font-lock-function-name-face)
    `(,(regexp-opt '("error" "warn") 'symbols) . font-lock-warning-face)
@@ -155,6 +155,8 @@
      (";;" . ?⋯)
      ("alpha" . ?α)
      ("beta" . ?β)
+     ("|(" . ?⸠) ; ⦃
+     (")|" . ?⸡) ; ⦄
      )))
 
 (defun spl-fill-mode-map (map)

@@ -15,7 +15,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	recurseEvery { :self :aProcedure:/2 :anObject :delay |
 		self.scheduleInjecting(0, anObject) { :currentTime :inputValue |
-			| nextDelay = delay.value; |
+			|( nextDelay = delay.value )|
 			(inputValue.notNil & {
 				nextDelay.notNil
 			}).ifTrue {
@@ -26,7 +26,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	repeatEvery { :self :aProcedure:/2 :delay |
 		self.schedule(0) { :currentTime |
-			| nextDelay = delay.value; |
+			|( nextDelay = delay.value )|
 			nextDelay.ifNotNil {
 				aProcedure(currentTime, nextDelay);
 				nextDelay
@@ -35,11 +35,11 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	schedule { :self :deltaTime :aProcedure:/1 |
-		|
+		|(
 			currentTime = system.systemTimeInSeconds,
 			scheduledTime = currentTime + deltaTime,
-			wakeupTime = self.nextEntryTime;
-		|
+			wakeupTime = self.nextEntryTime
+		)|
 		self.priorityQueue.push(aProcedure:/1, scheduledTime);
 		(wakeupTime = nil | {
 			scheduledTime < wakeupTime
@@ -56,7 +56,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	scheduleInjecting { :self :deltaTime :anObject :aProcedure:/2 |
 		self.schedule(deltaTime) { :currentTime |
-			| reply = aProcedure(currentTime, anObject); |
+			|( reply = aProcedure(currentTime, anObject) )|
 			reply.ifNotNil {
 				self.scheduleInjecting(reply[1], reply[2], aProcedure:/2)
 			};
@@ -65,20 +65,20 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	wakeup { :self :scheduledTime |
-		|
+		|(
 			currentTime = system.systemTimeInSeconds,
 			queue = self.priorityQueue,
-			frontOfQueueTime = self.nextEntryTime;
-		|
+			frontOfQueueTime = self.nextEntryTime
+		)|
 		{
 			frontOfQueueTime ~= nil & {
 				frontOfQueueTime <= currentTime
 			}
 		}.whileTrue {
-			|
+			|(
 				activityProcedure:/1 = queue.pop,
-				rescheduleAfter = activityProcedure(scheduledTime);
-			|
+				rescheduleAfter = activityProcedure(scheduledTime)
+			)|
 			rescheduleAfter.ifNotNil {
 				self.priorityQueue.push(activityProcedure:/1, scheduledTime + rescheduleAfter)
 			};
@@ -132,7 +132,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 +Clock {
 
 	collectTexture { :self :aCollection :aProcedure:/1 :delay |
-		| end = aCollection.size; |
+		|( end = aCollection.size )|
 		self.recurseEvery({ :currentTime :index |
 			{
 				aProcedure(aCollection[index])
@@ -172,7 +172,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	MidiCps { :self | self.collect(MidiCps:/1) }
 
 	normalize { :self |
-		| min = self.min, max = self.max, mul = 1 / (max - min), add = 0 - (mul * min); |
+		|( min = self.min, max = self.max, mul = 1 / (max - min), add = 0 - (mul * min) )|
 		self.collect { :each |
 			each * mul + add
 		}
@@ -288,12 +288,12 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		}).if {
 			self
 		} {
-			|
+			|(
 				x = self - lo,
 				range = hi - lo,
 				twiceRange = range + range,
-				c = x - (twiceRange * (x / twiceRange).floor);
-			|
+				c = x - (twiceRange * (x / twiceRange).floor)
+			)|
 			(c >= range).ifTrue {
 				c := twiceRange - c
 			};
@@ -306,10 +306,10 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	LinLin { :self :srclo :srchi :dstlo :dsthi |
-		|
+		|(
 			mul = (dsthi - dstlo) / (srchi - srclo),
-			add = dstlo - (mul * srclo);
-		|
+			add = dstlo - (mul * srclo)
+		)|
 		MulAdd(self, mul, add)
 	}
 
@@ -354,7 +354,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 +@Integral {
 
 	asBinaryDigits { :self :numDigits |
-		| answer = []; |
+		|( answer = [] )|
 		(0 .. numDigits - 1).do { :i |
 			answer.addFirst(self.bitShiftRight(i).bitAnd(1))
 		};
@@ -362,7 +362,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	asDigits { :self :base :numDigits |
-		| answer = [], num = self; |
+		|( answer = [], num = self )|
 		numDigits.timesRepeat {
 			answer.addFirst(num % base);
 			num := num // base
@@ -411,11 +411,11 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 +@SequenceableCollection {
 
 	allTuples { :self |
-		| answerSize = self.collect(size:/1).product; |
+		|( answerSize = self.collect(size:/1).product )|
 		1.to(answerSize).collect { :i |
-			| k = i - 1, nextTuple = self.species.new(self.size); |
+			|( k = i - 1, nextTuple = self.species.new(self.size) )|
 			self.size.toBy(1, -1).collect { :j |
-				| fromSequence = self[j]; |
+				|( fromSequence = self[j] )|
 				nextTuple[j] := fromSequence[k % fromSequence.size + 1];
 				k := k // fromSequence.size
 			};
@@ -424,7 +424,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	blendAt { :self :index |
-		| indexMin = index.roundUpTo(1) - 1; |
+		|( indexMin = index.roundUpTo(1) - 1 )|
 		self.clipAt(indexMin).blend(self.clipAt(indexMin + 1), (index - indexMin).abs)
 	}
 
@@ -433,7 +433,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	clump { :self :groupSize |
-		| answer = [], segment = []; |
+		|( answer = [], segment = [] )|
 		self.do { :item |
 			segment.add(item);
 			(segment.size >= groupSize).ifTrue {
@@ -468,7 +468,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	differentiate { :self |
-		| prev = 0, index = 1, answer = self.species.new(self.size); |
+		|( prev = 0, index = 1, answer = self.species.new(self.size) )|
 		self.do { :item |
 			answer[index] := item - prev;
 			prev := item;
@@ -502,7 +502,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	hammingDistance { :self :other |
-		| size = self.size.min(other.size), count = (self.size - other.size).abs; |
+		|( size = self.size.min(other.size), count = (self.size - other.size).abs )|
 		(1 .. size).do { :index |
 			(self[index] ~= other[index]).ifTrue {
 				count := count + 1
@@ -515,14 +515,14 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.isEmpty.if {
 			nil
 		} {
-			| i = self.indexOfGreaterThan(aNumber); |
+			|( i = self.indexOfGreaterThan(aNumber) )|
 			i.ifNil {
 				self.size
 			} {
 				(i = 1).if {
 					i
 				} {
-					| a = self[i - 1], b = self[i], div = b - a; |
+					|( a = self[i - 1], b = self[i], div = b - a )|
 					(div = 0).if {
 						i
 					} {
@@ -540,7 +540,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	integrate { :self |
-		| answer = [], sum = 0; |
+		|( answer = [], sum = 0 )|
 		self.do { :item |
 			sum := sum + item;
 			answer.add(sum)
@@ -558,7 +558,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		} {
 			withReturn {
 				self.doAdjacentPairs { :a :b |
-					| diff = b - a; |
+					|( diff = b - a )|
 					step.ifNil {
 						step := diff
 					} {
@@ -586,7 +586,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	keepLast { :self :n |
-		| size = self.size; |
+		|( size = self.size )|
 		self.copyFromTo(size - n, size)
 	}
 
@@ -598,12 +598,12 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		(self.isEmpty | { other.isEmpty }).if {
 			self.size
 		} {
-			| matrix = [0 .. other.size]; |
+			|( matrix = [0 .. other.size] )|
 			self.size.do { :xIndex |
-				| corner = xIndex - 1; |
+				|( corner = xIndex - 1 )|
 				matrix[1] := xIndex - 1;
 				other.size.do { :yIndex |
-					| upper = matrix[yIndex + 1]; |
+					|( upper = matrix[yIndex + 1] )|
 					matrix[yIndex + 1] := equalityProcedure(self[xIndex], other[yIndex]).if {
 						corner
 					} {
@@ -621,7 +621,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	normalize { :self :min :max |
-		| minItem = self.min, maxItem = self.max; |
+		|( minItem = self.min, maxItem = self.max )|
 		self.collect { :each |
 			(each - minItem) / (maxItem - minItem) * (max - min) + min
 		}
@@ -632,17 +632,17 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	pyramid { :self :patternType |
-		|
+		|(
 			answer = [],
-			lastIndex = self.size;
-		|
+			lastIndex = self.size
+		)|
 		(patternType = 1).ifTrue {
 			(1 .. lastIndex).do { :index |
 				answer.addAll(self.copyFromTo(1, index))
 			}
 		};
 		(patternType = 6).ifTrue {
-			(0 .. lastIndex - 1).do  { :index |
+			(0 .. lastIndex - 1).do { :index |
 				answer.addAll(self.copyFromTo(lastIndex - index, lastIndex))
 			}
 		};
@@ -650,7 +650,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	reshape { :self :shape |
-		| size = shape.product, answer = self.flatten.wrapExtend(size); |
+		|( size = shape.product, answer = self.flatten.wrapExtend(size) )|
 		shape.allButFirst.reverseDo { :n |
 			answer := answer.clump(n)
 		};
@@ -662,7 +662,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	separate { :self :aProcedure:/2 |
-		| answer = [], segment = []; |
+		|( answer = [], segment = [] )|
 		self.doAdjacentPairs { :a :b |
 			segment.add(a);
 			aProcedure(a, b).ifTrue {
@@ -682,7 +682,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	similarity { :self :other :equalityProcedure:/2 |
-		| maxDistance = self.size.max(other.size); |
+		|( maxDistance = self.size.max(other.size) )|
 		(maxDistance > 0).if {
 			1 - (self.levenshteinDistance(other, equalityProcedure:/2) / maxDistance)
 		} {
@@ -698,10 +698,10 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	withCrossedCollect { :self :aSequence :aProcedure:/2 |
 		(* Apply aProcedure for each of my items with each item of aSequence in turn. *)
-		|
+		|(
 			answer = self.species.new(self.size * aSequence.size),
-			nextIndex = 1;
-		|
+			nextIndex = 1
+		)|
 		self.do { :leftItem |
 			aSequence.do { :rightItem |
 				answer[nextIndex] := aProcedure(leftItem, rightItem);
@@ -712,7 +712,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	withExtendingCollect { :self :aCollection :aProcedure:/2 |
-		| maximumSize = self.size.max(aCollection.size); |
+		|( maximumSize = self.size.max(aCollection.size) )|
 		1.toAsCollect(maximumSize, self.species) { :index |
 			aProcedure(self.atWrap(index), aCollection.atWrap(index))
 		}
@@ -735,7 +735,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	wrapExtend { :self :size |
-		| answer = []; |
+		|( answer = [] )|
 		1.upTo(size).do { :index |
 			answer.add(self.atWrap(index))
 		};
@@ -767,10 +767,10 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	extendToBeOfEqualSize { :self |
-		|
+		|(
 			selfLifted = self.collect(asArray:/1),
-			maximumSize = selfLifted.collect(size:/1).detectMax(identity:/1);
-		|
+			maximumSize = selfLifted.collect(size:/1).detectMax(identity:/1)
+		)|
 		selfLifted.collect { :each |
 			each.extendTo(maximumSize)
 		}
@@ -789,11 +789,11 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 +SmallFloat {
 
 	degreeToKey { :scaleDegree :scale :stepsPerOctave |
-		|
+		|(
 			k = scale.size,
 			d = scaleDegree.rounded,
-			a = (scaleDegree - d) * 10 * (stepsPerOctave / 12);
-		|
+			a = (scaleDegree - d) * 10 * (stepsPerOctave / 12)
+		)|
 		(stepsPerOctave * (d // k)) + scale[d % k + 1] + a
 	}
 
@@ -820,7 +820,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	overlap { :self:/0 :sustainTime :transitionTime :overlap |
-		| period = (sustainTime + (transitionTime * 2)) / overlap; |
+		|( period = (sustainTime + (transitionTime * 2)) / overlap )|
 		workspace::clock.schedule(0) { :currentTime |
 			{
 				self().withOverlapEnvelope(sustainTime, transitionTime)

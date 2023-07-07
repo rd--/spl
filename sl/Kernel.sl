@@ -48,14 +48,14 @@
 		}
 	}
 
-	benchmark  { :self |
-		| size = 8190, count = nil; |
+	benchmark { :self |
+		|( size = 8190, count = nil )|
 		self.timesRepeat {
-			| flags = Array(size).atAllPut(true); |
+			|( flags = Array(size).atAllPut(true) )|
 			count := 0;
 			(1 .. size).do { :i |
 				flags[i].ifTrue {
-					| prime = i + 1, k = i + prime; |
+					|( prime = i + 1, k = i + prime )|
 					{ k <= size}.whileTrue {
 						flags[k] := false;
 						k := k + prime
@@ -90,9 +90,9 @@
 	}
 
 	gcd { :self :anInteger |
-		| a = self.abs, b = anInteger.abs; |
+		|( a = self.abs, b = anInteger.abs )|
 		{ b = 0 }.whileFalse {
-			| r = a % b; |
+			|( r = a % b )|
 			a := b;
 			b := r
 		};
@@ -122,7 +122,7 @@
 			(self = 2).if {
 				true
 			} {
-				| selfSqrt = self.sqrt, i = 2; |
+				|( selfSqrt = self.sqrt, i = 2 )|
 				withReturn {
 					{ i <= selfSqrt }.whileTrue {
 						(self % i = 0).ifTrue {
@@ -137,15 +137,15 @@
 	}
 
 	lcm { :self :anInteger |
-		| a = self, b = anInteger; |
+		|( a = self, b = anInteger )|
 		(a = 0 | {
 			b = 0
 		}).if {
 			0
 		} {
-			| ab = a * b; |
+			|( ab = a * b )|
 			{ b = 0}.whileFalse {
-				| t = b; |
+				|( t = b )|
 				b := a % t;
 				a := t
 			};
@@ -154,7 +154,7 @@
 	}
 
 	nextPrime { :self |
-		| maybePrime = self + 1; |
+		|( maybePrime = self + 1 )|
 		{ maybePrime.isPrime.not }.whileTrue {
 			maybePrime := maybePrime + 1
 		};
@@ -162,10 +162,10 @@
 	}
 
 	nthPrime { :self |
-		| nPrimes = 6542; |
+		|( nPrimes = 6542 )|
 		(self <= nPrimes).if {
 			workspace::primesArray.ifNil {
-				| n = 1; |
+				|( n = 1 )|
 				workspace::primesArray := Array(nPrimes);
 				(1 .. nPrimes).do { :index |
 					n := n.nextPrime;
@@ -179,7 +179,7 @@
 	}
 
 	primesUpTo { :self |
-		| answer = []; |
+		|( answer = [] )|
 		self.primesUpToDo { :n |
 			answer.add(n)
 		};
@@ -187,7 +187,7 @@
 	}
 
 	primesUpToDo { :self :aProcedure:/1 |
-		| n = 2; |
+		|( n = 2 )|
 		{ n <= self }.whileTrue {
 			aProcedure(n);
 			n := n.nextPrime
@@ -199,7 +199,7 @@
 	}
 
 	timesRepeat { :self :aProcedure:/0 |
-		| remaining = self; |
+		|( remaining = self )|
 		{ remaining > 0 }.whileTrue {
 			aProcedure();
 			remaining := remaining - 1
@@ -280,7 +280,7 @@
 		self.quotient(anObject)
 	}
 
-	% { :self :aNumber  |
+	% { :self :aNumber |
 		self - (self // aNumber * aNumber)
 	}
 
@@ -293,7 +293,7 @@
 	}
 
 	ceiling { :self |
-		| truncation = self.truncated; |
+		|( truncation = self.truncated )|
 		(self <= 0).if {
 			truncation
 		} {
@@ -323,7 +323,7 @@
 	}
 
 	floor { :self |
-		| truncation = self.truncated; |
+		|( truncation = self.truncated )|
 		(self >= 0).if {
 			truncation
 		} {
@@ -412,8 +412,8 @@
 	}
 
 	toDo { :self :end :aProcedure:/1 |
-		| index = self; |
-		{ index <= end }.whileTrue  {
+		|( index = self )|
+		{ index <= end }.whileTrue {
 			aProcedure(index);
 			index := index + 1
 		}
@@ -465,7 +465,7 @@
 
 	caseOf { :self :aBlockAssociationCollection |
 		self.caseOfOtherwise(aBlockAssociationCollection) { :case |
-			('Object>>caseOf: case not found, and no otherwise clause: ' ++  case.printString).error
+			('Object>>caseOf: case not found, and no otherwise clause: ' ++ case.printString).error
 		}
 	}
 
@@ -528,7 +528,7 @@
 	}
 
 	printStringConcise { :self :count |
-		| answer = self.printString; |
+		|( answer = self.printString )|
 		(answer.size > count).if {
 			'<' ++ self.typeOf ++ '>'
 		} {
@@ -537,7 +537,7 @@
 	}
 
 	printStringLimitedTo { :self :count |
-		| answer = self.printString; |
+		|( answer = self.printString )|
 		(answer.size > count).if {
 			answer.truncateTo(count - 8) ++ '... &etc'
 		} {
@@ -671,12 +671,12 @@ Complex : [Object] { | real imaginary |
 
 	* { :self :anObject |
 		anObject.isComplex.if {
-			|
+			|(
 				a = self.real,
 				b = self.imaginary,
 				c = anObject.real,
-				d = anObject.imaginary;
-			|
+				d = anObject.imaginary
+			)|
 			Complex((a * c) - (b * d), (a * d) + (b * c))
 		} {
 			anObject.adaptToComplexAndApply(self, times:/2)
@@ -686,12 +686,12 @@ Complex : [Object] { | real imaginary |
 
 	+ { :self :anObject |
 		anObject.isComplex.if {
-			|
+			|(
 				a = self.real,
 				b = self.imaginary,
 				c = anObject.real,
-				d = anObject.imaginary;
-			|
+				d = anObject.imaginary
+			)|
 			Complex(a + c, b + d)
 		} {
 			anObject.adaptToComplexAndApply(self, plus:/2)
@@ -700,12 +700,12 @@ Complex : [Object] { | real imaginary |
 
 	- { :self :anObject |
 		anObject.isComplex.if {
-			|
+			|(
 				a = self.real,
 				b = self.imaginary,
 				c = anObject.real,
-				d = anObject.imaginary;
-			|
+				d = anObject.imaginary
+			)|
 			Complex(a - c, b - d)
 		} {
 			anObject.adaptToComplexAndApply(self, minus:/2)
@@ -714,12 +714,12 @@ Complex : [Object] { | real imaginary |
 
 	/ { :self :anObject |
 		anObject.isComplex.if {
-			|
+			|(
 				a = self.real,
 				b = self.imaginary,
 				c = anObject.real,
-				d = anObject.imaginary;
-			|
+				d = anObject.imaginary
+			)|
 			Complex(
 				((a * c) + (b * d)) / ((c * c) + (d * d)),
 				((b * c) - (a * d)) / ((c * c) + (d * d))
@@ -865,10 +865,10 @@ Complex : [Object] { | real imaginary |
 		}).if {
 			Complex(self.real.sqrt, 0)
 		} {
-			|
+			|(
 				v = (self.abs - self.real / 2).sqrt,
-				u = self.imaginary / 2 / v;
-			|
+				u = self.imaginary / 2 / v
+			)|
 			Compex(u, v)
 		}
 	}
@@ -960,7 +960,7 @@ Error : [Object] {
 	}
 
 	error { :self |
-		| err = Error(self); |
+		|( err = Error(self) )|
 		err.log;
 		err.signal
 	}
@@ -979,10 +979,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	* { :self :aNumber |
 		aNumber.isFraction.if {
-			|
-			d1 = self.numerator.gcd(aNumber.denominator),
-			d2 = self.denominator.gcd(aNumber.numerator);
-			|
+			|(
+				d1 = self.numerator.gcd(aNumber.denominator),
+				d2 = self.denominator.gcd(aNumber.numerator)
+			)|
 			(d2 = self.denominator & {
 				d1 = aNumber.denominator
 			}).if {
@@ -1003,12 +1003,12 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			Fraction(self.numerator + (self.denominator * aNumber), self.denominator)
 		} {
 			aNumber.isFraction.if {
-				|
+				|(
 					d = self.denominator.gcd(aNumber.denominator),
 					d1 = aNumber.denominator // d,
 					d2 = self.denominator // d,
-					n = (self.numerator * d1) + (aNumber.numerator * d2);
-				|
+					n = (self.numerator * d1) + (aNumber.numerator * d2)
+				)|
 				d1 := d1 * d2;
 				d2 := n.gcd(d);
 				n := n // d2;
@@ -1097,7 +1097,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	gcd { :self :aFraction |
-		| d = self.denominator.gcd(aFraction.denominator); |
+		|( d = self.denominator.gcd(aFraction.denominator) )|
 		Fraction(
 			(self.numerator * (aFraction.denominator // d)).gcd(aFraction.numerator * (self.denominator // d)),
 			(self.denominator // d * aFraction.denominator)
@@ -1115,12 +1115,12 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			(self.denominator <= maxDenominator).if {
 				self
 			} {
-				|
+				|(
 					iter = { :p0 :q0 :p1 :q1 :n :d |
-						|
+						|(
 							a = n // d,
-							q2 = q0 + (a * q1);
-						|
+							q2 = q0 + (a * q1)
+						)|
 						(q2 > maxDenominator).if {
 							[p0, q0, p1, q1, n, d]
 						} {
@@ -1128,8 +1128,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 						}
 					},
 					[p0, q0, p1, q1, n, d] = iter(0, 1, 1, 0, self.numerator, self.denominator),
-					k = nil, bound1 = nil, bound2 = nil;
-				|
+					k = nil, bound1 = nil, bound2 = nil
+				)|
 				k := (maxDenominator - q0) // q1;
 				bound1 := Fraction(p0 + (k * p1), q0 + (k * q1));
 				bound2 := Fraction(p1, q1);
@@ -1149,17 +1149,17 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			(self.denominator <= maxDenominator).if {
 				self
 			} {
-				|
+				|(
 					p0 = 0, q0 = 1, p1 = 1, q1 = 0,
 					n = self.numerator, d = self.denominator,
 					continue = true,
-					k = nil, bound1 = nil, bound2 = nil;
-				|
+					k = nil, bound1 = nil, bound2 = nil
+				)|
 				{ continue }.whileTrue {
-					|
+					|(
 						a = n // d,
-						q2 = q0 + (a * q1);
-					|
+						q2 = q0 + (a * q1)
+					)|
 					(q2 > maxDenominator).if {
 						continue := false
 					} {
@@ -1194,11 +1194,11 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		(self.denominator = 0).if {
 			'Fraction>>normalized: zeroDenominatorError'.error
 		} {
-			|
+			|(
 				x = self.numerator * self.denominator.sign,
 				y = self.denominator.abs,
-				d = x.gcd(y);
-			|
+				d = x.gcd(y)
+			)|
 			self.numerator := x // d;
 			self.denominator := y // d;
 			self
@@ -1240,11 +1240,11 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		(self.denominator = 0).if {
 			'Fraction>>reduced: zeroDenominatorError'.error
 		} {
-			|
+			|(
 				x = self.numerator * self.denominator.sign,
 				y = self.denominator.abs,
-				d = x.gcd(y);
-			|
+				d = x.gcd(y)
+			)|
 			self.numerator := x // d;
 			self.denominator := y // d;
 			(self.denominator = 1).if {
@@ -1284,7 +1284,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	asFraction { :self :maxDenominator |
-		| k = 10 ** (maxDenominator.log10.ceiling + 1); |
+		|( k = 10 ** (maxDenominator.log10.ceiling + 1) )|
 		Fraction((self * k).rounded, k).reduced.limitDenominator(maxDenominator)
 	}
 
@@ -1294,7 +1294,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	parseFraction { :self :separator |
 		self.includesSubstring(separator).if {
-			| parts = self.splitBy(separator); |
+			|( parts = self.splitBy(separator) )|
 			(parts.size = 2).if {
 				Fraction(parts[1].parseInteger(10), parts[2].parseInteger(10))
 			} {
@@ -1566,7 +1566,7 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 
 	byteHexString { :self |
 		self.isByte.if {
-			| hexString = self.printString(16); |
+			|( hexString = self.printString(16) )|
 			(self < 16).if {
 				'0' ++ hexString
 			} {
@@ -1588,7 +1588,7 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 					self.abs < epsilon
 				} {
 					(self = aNumber.asFloat) | {
-						| z = self.abs; |
+						|( z = self.abs )|
 						(z < epsilon).if {
 							aNumber.abs < epsilon
 						} {
@@ -1695,7 +1695,7 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	primeFactors { :self |
-		| factors = [], divisor = 2, n = self; |
+		|( factors = [], divisor = 2, n = self )|
 		{ n >= 2 }.whileTrue {
 			(n % divisor = 0).if {
 				factors.add(divisor);
@@ -2084,7 +2084,7 @@ String : [Object] {
 
 	ascii { :self |
 		1.toAsCollect(self.size, ByteArray:/1) { :index |
-			| codePoint = self.charCodeAt(index); |
+			|( codePoint = self.charCodeAt(index) )|
 			(codePoint > 255).ifTrue {
 				'String>>ascii: non-ascii character'.error
 			};
@@ -2154,7 +2154,7 @@ String : [Object] {
 
 	indicesOf { :self :aString |
 		aString.isString.if {
-			| answer = [], index = 1, end = self.size; |
+			|( answer = [], index = 1, end = self.size )|
 			{ index > 0 & { index <= end } }.whileTrue {
 				index := self.findStringStartingAt(aString, index);
 				(index ~= 0).ifTrue {
@@ -2226,7 +2226,7 @@ String : [Object] {
 
 	occurrencesOf { :self :aString |
 		aString.isString.if {
-			| index = 1, end = self.size, tally = 0; |
+			|( index = 1, end = self.size, tally = 0 )|
 			{ index > 0 & { index <= end } }.whileTrue {
 				index := self.findStringStartingAt(aString, index);
 				(index ~= 0).ifTrue {
@@ -2303,10 +2303,10 @@ String : [Object] {
 
 	terseGuideSummary { :self :options |
 		self.readTextFile.then { :text |
-			| totalTestCount = 0, totalPassCount = 0, areas = text.paragraphs; |
+			|( totalTestCount = 0, totalPassCount = 0, areas = text.paragraphs )|
 			('Terse Guide Summary: Areas = ' ++ areas.size.printString).postLine;
 			areas.do { :area |
-				|
+				|(
 					entries = area.lines.reject { :line |
 						line.isEmpty | {
 							line = '```'
@@ -2314,11 +2314,11 @@ String : [Object] {
 					},
 					testCount = entries.size - 1,
 					failCount = 0,
-					passCount = 0;
-				|
+					passCount = 0
+				)|
 				entries[1].postLine;
 				2.upTo(testCount + 1).collect { :index |
-					| test = entries[index] ; |
+					|( test = entries[index] )|
 					options.atIfAbsent('verbose', false).ifTrue {
 						test.postLine
 					};
@@ -2346,11 +2346,11 @@ String : [Object] {
 	}
 
 	toLowercase { :self |
-		  <primitive: return _self.toLowerCase();>
+		<primitive: return _self.toLowerCase();>
 	}
 
 	toUppercase { :self |
-		  <primitive: return _self.toUpperCase();>
+		<primitive: return _self.toUpperCase();>
 	}
 
 	truncateTo { :self :smallSize |

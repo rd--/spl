@@ -48,7 +48,7 @@
 	}
 
 	createElement { :self :tagName :attributeDictionary |
-		| element = self.createElement(tagName); |
+		|( element = self.createElement(tagName) )|
 		element.setAttributes(attributeDictionary);
 		element
 	}
@@ -62,7 +62,7 @@
 	}
 
 	createSvgElement { :self :tagName :attributeDictionary |
-		| element = self.createSvgElement(tagName); |
+		|( element = self.createSvgElement(tagName) )|
 		element.setAttributesNS(nil, attributeDictionary);
 		element
 	}
@@ -245,13 +245,13 @@
 	accessKey { :self :aString | <primitive: return _self.accessKey = _aString;> }
 	blur { :self | <primitive: return _self.blur();> }
 	click { :self | <primitive: return _self.click();> }
-	contentEditable  { :self | <primitive: return _self.contentEditable;> }
-	contentEditable  { :self :aString | <primitive: return _self.contentEditable = _aString;> }
+	contentEditable { :self | <primitive: return _self.contentEditable;> }
+	contentEditable { :self :aString | <primitive: return _self.contentEditable = _aString;> }
 	focus { :self | <primitive: return _self.focus();> }
 	focus { :self :options | <primitive: return _self.focus(options);> }
 	innerText { :self | <primitive: return _self.innerText;> }
 	innerText { :self :aString | <primitive: return _self.innerText = _aString;> }
-	isContentEditable  { :self | <primitive: return _self.isContentEditable;> }
+	isContentEditable { :self | <primitive: return _self.isContentEditable;> }
 	style { :self | <primitive: return _self.style;> }
 	tabIndex { :self | <primitive: return _self.tabIndex;> }
 	tabIndex { :self :anInteger | <primitive: return _self.tabIndex = _anInteger;> }
@@ -709,9 +709,9 @@ HTMLTableElement : [Object, EventTarget, Node, Element, HtmlElement] {
 +@SequenceableCollection {
 
 	asHtmlRow { :self :toString:/1 |
-		| tr = 'tr'.createElement; |
+		|( tr = 'tr'.createElement )|
 		self.do { :cell |
-			| td = 'td'.createElement; |
+			|( td = 'td'.createElement )|
 			td.textContent(cell.toString);
 			tr.appendChild(td)
 		};
@@ -723,7 +723,7 @@ HTMLTableElement : [Object, EventTarget, Node, Element, HtmlElement] {
 	}
 
 	asHtmlTable { :self :toString:/1 |
-		| table = 'table'.createElement; |
+		|( table = 'table'.createElement )|
 		self.do { :row |
 			table.appendChild(
 				row.asHtmlRow(toString:/1)
@@ -768,7 +768,7 @@ HTMLTableSectionElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLTextAreaElement  : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLTextAreaElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	cols { :self | <primitive: return _self.cols;> }
 	cols { :self :anInteger | <primitive: return _self.cols = _anInteger;> }
@@ -871,7 +871,7 @@ Navigator : [Object] {
 		<primitive: return _self.storage;>
 	}
 
-	userAgent  { :self |
+	userAgent { :self |
 		<primitive: return _self.userAgent;>
 	}
 

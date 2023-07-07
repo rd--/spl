@@ -46,7 +46,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 	}
 
 	readLocalStorage { :self |
-		| text = system.window.localStorage[self.key]; |
+		|( text = system.window.localStorage[self.key] )|
 		self.mimeType.caseOfOtherwise([
 			'application/json' -> {
 				self.parser . (text.parseJson)
@@ -157,7 +157,7 @@ Method : [Object] {
 +String {
 
 	parseQualifiedMethodName { :self |
-		| parts = self.splitBy(':/'); |
+		|( parts = self.splitBy(':/') )|
 		(parts.size = 2).if {
 			[parts[1], parts[2].parseInteger(10)]
 		} {
@@ -166,7 +166,7 @@ Method : [Object] {
 	}
 
 	parseMethodSignature { :self |
-		| parts = self.splitBy('>>'); |
+		|( parts = self.splitBy('>>') )|
 		(parts.size = 2).if {
 			parts
 		} {
@@ -203,7 +203,7 @@ System : [Object] {
 	}
 
 	allMethods { :self |
-		| answer = []; |
+		|( answer = [] )|
 		system.addAllTraitMethodsTo(answer);
 		system.addAllTypeMethodsTo(answer);
 		answer
@@ -224,7 +224,7 @@ System : [Object] {
 	}
 
 	categorizeAll { :self :categoryName :entryArray |
-		| simpleCategtory = categoryName.splitBy('-').first; |
+		|( simpleCategtory = categoryName.splitBy('-').first )|
 		self.categoryDictionary.includesKey(simpleCategtory).if {
 			self.categoryDictionary[simpleCategtory].addAll(entryArray)
 		} {
@@ -247,7 +247,7 @@ System : [Object] {
 	}
 
 	categoryOf { :self :aString |
-		| all = self.categoriesOf(aString); |
+		|( all = self.categoriesOf(aString) )|
 		all.size.caseOfOtherwise([
 			0 -> {
 				self.categorize('*Uncategorized*', aString);
@@ -334,10 +334,10 @@ System : [Object] {
 	methodImplementations { :self :methodName |
 		(* Implementations of methodName. *)
 		self.isMethodName(methodName).if {
-			|
+			|(
 				answer = Set(),
-				table = self.methodDictionary[methodName];
-			|
+				table = self.methodDictionary[methodName]
+			)|
 			table.do { :dictionary |
 				dictionary.do { :method |
 					answer.add(method)
@@ -354,7 +354,7 @@ System : [Object] {
 	}
 
 	methodLookupAtSignature { :self :signature |
-		| [qualifiedOriginName, qualifiedMethodName] = signature.parseMethodSignature; |
+		|( [qualifiedOriginName, qualifiedMethodName] = signature.parseMethodSignature )|
 		qualifiedOriginName.isQualifiedTraitName.if {
 			self.traitDictionary[
 				qualifiedOriginName.parseQualifiedTraitName
@@ -376,7 +376,7 @@ System : [Object] {
 
 	methodPrintString { :self :methodName |
 		(* Print string of implementations of methodName. *)
-		| answer = []; |
+		|( answer = [] )|
 		self.methodImplementations(methodName).do { :method |
 			answer.add(
 				[
@@ -399,7 +399,7 @@ System : [Object] {
 	}
 
 	methodSourceCodeSearch { :self :aString |
-		| answer = []; |
+		|( answer = [] )|
 		self.methodDo { :aMethod |
 			aMethod.sourceCode.includesSubstring(aString).ifTrue {
 				answer.add(aMethod)
@@ -530,7 +530,7 @@ System : [Object] {
 	}
 
 	typeMethodSet { :self :typeName |
-		| type = self.typeLookup(typeName), answer = Set(); |
+		|( type = self.typeLookup(typeName), answer = Set() )|
 		type.traitNameArray.do { :traitName |
 			self.traitLookup(traitName).methodDictionary.valuesDo { :method |
 				answer.add(method)
@@ -561,7 +561,7 @@ System : [Object] {
 	}
 
 	uniqueId { :self |
-		| answer = self.nextUniqueId; |
+		|( answer = self.nextUniqueId )|
 		self.nextUniqueId := answer + 1;
 		answer
 	}
@@ -627,7 +627,7 @@ System : [Object] {
 	}
 
 	millisecondsToRun { :self:/0 |
-		| startTime = system.systemTimeInMilliseconds; |
+		|( startTime = system.systemTimeInMilliseconds )|
 		self();
 		system.systemTimeInMilliseconds - startTime
 	}

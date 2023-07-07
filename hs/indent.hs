@@ -52,11 +52,14 @@ inOrOutDent = uncurry (-) . countOpenAndClose
 
 >>> indentLine 1 "f("
 (2, "\tf(")
+
+>>> indentLine 1 ""
+(1, "")
 -}
 indentLine :: Int -> String -> (Int, String)
 indentLine i s =
   let o = i + inOrOutDent s
-  in (o, replicate (i - countLeadingClosing s) '\t' ++ s)
+  in (o, if null s then s else replicate (i - countLeadingClosing s) '\t' ++ s)
 
 {- | Indent sequence of non-indented lines.
 

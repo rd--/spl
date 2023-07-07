@@ -1,11 +1,11 @@
 +Fraction {
 
 	latticeVector { :self :limit |
-		|
+		|(
 			pf1 = self.numerator.primeFactors,
 			pf2 = self.denominator.primeFactors.collect(negated:/1),
-			pf3 = (pf1 ++ pf2).Bag;
-		|
+			pf3 = (pf1 ++ pf2).Bag
+		)|
 		[3, 5, 7, 11, 13].select { :each |
 			each <= limit
 		}.collect { :each |
@@ -58,9 +58,9 @@ JiTuning : [Object] { | name description pitches limit degree |
 	}
 
 	latticeEdges { :self :vertices |
-		| indices = [1 .. self.degree]; |
+		|( indices = [1 .. self.degree] )|
 		[indices, indices].allTuples.select { :each |
-			| [i, j] = each; |
+			|( [i, j] = each )|
 			i < j & {
 				vertices[i].latticeDistance(vertices[j]) = 1
 			}
@@ -68,7 +68,7 @@ JiTuning : [Object] { | name description pitches limit degree |
 	}
 
 	ratios { :self |
-		| i1 = self.pitches[1]; |
+		|( i1 = self.pitches[1] )|
 		self.pitches.collect { :each |
 			Fraction(each, i1).normalized
 		}

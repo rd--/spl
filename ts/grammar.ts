@@ -19,7 +19,7 @@ Sl {
 	ConstantDefinition = unqualifiedIdentifier "=" literal
 	Program = Temporaries? ExpressionSequence
 	Temporaries = TemporariesWithInitializers | TemporariesWithoutInitializers | TemporariesVarSyntax+
-	TemporariesWithInitializers = "|" NonemptyListOf<TemporaryWithInitializer, ","> ";" "|"
+	TemporariesWithInitializers = "|(" NonemptyListOf<TemporaryWithInitializer, ","> ")|"
 	TemporaryWithInitializer =
 		TemporaryWithBlockLiteralInitializer |
 		TemporaryWithExpressionInitializer |
@@ -30,7 +30,7 @@ Sl {
 	TemporaryWithDictionaryInitializer = "("  NonemptyListOf<identifier, ","> ")" "=" Expression
 	TemporaryWithArrayInitializer = "["  NonemptyListOf<identifier, ","> "]" "=" Expression
 	TemporariesWithoutInitializers = "|" identifier+ "|"
-	TemporariesVarSyntax = "var" NonemptyListOf<(TemporaryWithInitializer | identifier), ","> ";"
+	TemporariesVarSyntax = "var" NonemptyListOf<(TemporaryWithInitializer), ","> ";"
 
 	ExpressionSequence = ListOf<Expression, ";">
 	Expression = Assignment | BinaryExpression | Primary
@@ -167,8 +167,9 @@ export function slBlockArity(str: string): number {
 }
 
 /*
-import * as sl from './sl-grammar.js'
-sl.temporariesKeywordNames('var i, j;') //= ['i', 'j']
-sl.temporariesSyntaxNames('| i j |') //= ['i', 'j']
-sl.blockArity('{ arg i, j; i + 1 * j }') === 2
+import * as sl from './grammar.ts'
+sl.slParseToAst('3 + 4')
+sl.slTemporariesKeywordNames('var i = 0, j = 1;') //= ['i', 'j']
+sl.slTemporariesSyntaxNames('| i j |') //= ['i', 'j']
+sl.slBlockArity('{ :i :j | i + 1 * j }') === 2
 */

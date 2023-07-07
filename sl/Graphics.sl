@@ -92,7 +92,7 @@ Colour : [Object] { | red green blue alpha |
 +Array {
 
 	Colour { :self |
-		| [r, g, b, a] = self; |
+		|( [r, g, b, a] = self )|
 		Colour(r, g, b, a)
 	}
 
@@ -102,11 +102,11 @@ Colour : [Object] { | red green blue alpha |
 
 	parseHexColour { :self |
 		(self.size = 7).if {
-			|
+			|(
 				r = self.copyFromTo(2, 3),
 				g = self.copyFromTo(4, 5),
-				b = self.copyFromTo(6, 7);
-			|
+				b = self.copyFromTo(6, 7)
+			)|
 			[r, g, b, 'ff'].collect { :each |
 				each.parseInteger(16) / 255
 			}.Colour
@@ -152,7 +152,7 @@ Rectangle : [Object] { | origin corner |
 	}
 
 	area { :self |
-		| h = self.height, w = self.width; |
+		|( h = self.height, w = self.width )|
 		(h <= 0 | { w <= 0 }).if {
 			0
 		} {
@@ -169,7 +169,7 @@ Rectangle : [Object] { | origin corner |
 	}
 
 	ceiling { :self |
-		(self.x.isInteger & { self.y.isInteger }).if {
+		self.isIntegral.if {
 			self
 		} {
 			self.x.ceiling @ self.y.ceiling
@@ -198,7 +198,7 @@ Rectangle : [Object] { | origin corner |
 	}
 
 	floor { :self |
-		(self.x.isInteger & { self.y.isInteger }).if {
+		self.isIntegral.if {
 			self
 		} {
 			self.x.floor @ self.y.floor
@@ -231,6 +231,12 @@ Rectangle : [Object] { | origin corner |
 		}
 	}
 
+	isIntegral { :self |
+		self.x.isInteger & {
+			self.y.isInteger
+		}
+	}
+
 	left { :self |
 		self.origin.x
 	}
@@ -247,7 +253,7 @@ Rectangle : [Object] { | origin corner |
 	}
 
 	rounded { :self |
-		(self.x.isInteger & { self.y.isInteger }).if {
+		self.isIntegral.if {
 			self
 		} {
 			self.x.rounded @ self.y.rounded
@@ -300,7 +306,7 @@ Rectangle : [Object] { | origin corner |
 +Array {
 
 	computeBoundingBox { :self |
-		| box = Rectangle(self[1], self[1]); |
+		|( box = Rectangle(self[1], self[1]) )|
 		self.do { :aPoint |
 			box.swallow(Rectangle(aPoint, aPoint))
 		};
@@ -469,7 +475,7 @@ Vector3 : [Object] { | x y z |
 		(self.size ~= 3).if {
 			'Array>>Vector3: not 3-element array'.error
 		} {
-			| [x, y, z] = self; |
+			|( [x, y, z] = self )|
 			Vector3(x, y, z)
 		}
 	}
@@ -506,7 +512,7 @@ Vector4 : [Object] { | x y z w |
 		(self.size ~= 4).if {
 			'Array>>Vector4: not 4-element array'.error
 		} {
-			| [x, y, z, w] = self; |
+			|( [x, y, z, w] = self )|
 			Vector4(x, y, z, w)
 		}
 	}
@@ -558,7 +564,7 @@ Matrix22 : [Object] { | a b c d |
 	}
 
 	invert { :self |
-		| m = 1 / self.determinant; |
+		|( m = 1 / self.determinant )|
 		self.initializeSlots(
 			self.d * m, self.b.negated * m,
 			self.c.negated * m, self.a * m
@@ -573,7 +579,7 @@ Matrix22 : [Object] { | a b c d |
 	}
 
 	transpose { :self |
-		| b = self.b, c = self.c; |
+		|( b = self.b, c = self.c )|
 		self.b := c;
 		self.c := b
 	}
@@ -606,7 +612,7 @@ Matrix22 : [Object] { | a b c d |
 		(self.size ~= 4).if {
 			'Array>>Matrix22: not 4-element array'.error
 		} {
-			| [a, b, c, d] = self; |
+			|( [a, b, c, d] = self )|
 			Matrix22(a, b, c, d)
 		}
 	}
@@ -622,7 +628,7 @@ Matrix33 : [Object] { | elements |
 	}
 
 	applyTo { :self :vector |
-		| [a, b, c, d, e, f, g, h, i] = self.elements, [x, y, z] = vector.Array; |
+		|( [a, b, c, d, e, f, g, h, i] = self.elements, [x, y, z] = vector.Array )|
 		Vector3(
 			(a * x) + (b * y) + (c * z),
 			(d * x) + (e * y) + (f * z),
@@ -639,7 +645,7 @@ Matrix33 : [Object] { | elements |
 	}
 
 	determinant { :self |
-		| [a, b, c, d, e, f, g, h, i] = self.elements; |
+		|( [a, b, c, d, e, f, g, h, i] = self.elements )|
 		(a * e * i) + (b * f * g) + (c * d * h) - (c * e * g) - (b * d * i) - (a * f * h)
 	}
 
@@ -648,7 +654,7 @@ Matrix33 : [Object] { | elements |
 	}
 
 	invert { :self |
-		| [a, b, c, d, e, f, g, h, i] = self.elements; |
+		|( [a, b, c, d, e, f, g, h, i] = self.elements )|
 		self.elements := self.determinant * [
 			(e * i) - (f * h), ((b * i) - (c * h)).negated, (b * f) - (c * e),
 			((d * i) - (f * g)).negated, (a * i) - (c * g), ((a * f) - (c * d)).negated,
@@ -738,7 +744,7 @@ Projection3 : [Object] { | alpha beta x y z |
 	}
 
 	procedure { :self |
-		| matrix = self.Matrix33; |
+		|( matrix = self.Matrix33 )|
 		{ :aVector |
 			matrix.applyTo(aVector).xy
 		}

@@ -44,15 +44,15 @@
 AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 
 	createElements { :self |
-		|
+		|(
 			svg = 'svg'.createSvgElement (
 				viewBox: '0 0 200 200',
 				preserveAspectRatio: 'xMidYMid meet'
 			),
 			group = 'g'.createSvgElement (
 				transform: 'translate(100, 100) scale(1, -1)'
-			);
-		|
+			)
+		)|
 		self.clockPane := 'div'.createElement;
 		self.hourHand := 'line'.createSvgElement (
 			x1: '0',
@@ -89,18 +89,18 @@ AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 			self.secondHand
 		]);
 		group.appendChildren([1 .. 12].collect { :each |
-			|
-			theta = each - 3 / 12 * 2 * pi,
-			point = PolarPoint(80, theta),
-			text = 'text'.createSvgElement (
-				x: point.x,
-				y: point.y,
-				'font-size': '11pt',
-				'text-anchor': 'middle',
-				'dominant-baseline': 'middle',
-				transform: 'scale(1, -1)'
-			);
-			|
+			|(
+				theta = each - 3 / 12 * 2 * pi,
+				point = PolarPoint(80, theta),
+				text = 'text'.createSvgElement (
+					x: point.x,
+					y: point.y,
+					'font-size': '11pt',
+					'text-anchor': 'middle',
+					'dominant-baseline': 'middle',
+					transform: 'scale(1, -1)'
+				)
+			)|
 			text.textContent := each.printString;
 			text
 		});
@@ -115,17 +115,17 @@ AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 	}
 
 	moveHourHand { :self :fractionalHour |
-		| theta = fractionalHour - 3 / 12 * 2 * pi; |
+		|( theta = fractionalHour - 3 / 12 * 2 * pi )|
 		self.hourHand.p2 := PolarPoint(55, theta.negated)
 	}
 
 	moveMinuteHand { :self :minute |
-		| theta = minute - 15 / 60 * 2 * pi; |
+		|( theta = minute - 15 / 60 * 2 * pi )|
 		self.minuteHand.p2 := PolarPoint(80, theta.negated)
 	}
 
 	moveSecondHand { :self :minute |
-		| theta = minute - 15 / 60 * 2 * pi; |
+		|( theta = minute - 15 / 60 * 2 * pi )|
 		self.secondHand.p2 := PolarPoint(85, theta.negated)
 	}
 
@@ -134,7 +134,7 @@ AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 	}
 
 	tick { :self |
-		| dateAndTime = system.Date; |
+		|( dateAndTime = system.Date )|
 		self.moveHourHand(dateAndTime.hour + (dateAndTime.minute / 60));
 		self.moveMinuteHand(dateAndTime.minute);
 		self.moveSecondHand(dateAndTime.second)
@@ -212,7 +212,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 		self.browserPane := 'div'.createElement (
 			class: 'browserPane'
 		);
-		self.columnsPane :=  'div'.createElement (
+		self.columnsPane := 'div'.createElement (
 			class: 'columnsPane'
 		);
 		self.previewPane := 'div'.createElement (
@@ -225,7 +225,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 			ListChooser(withFilter & { index = 1 }, nil, listSize)
 		};
 		columnProportions.size.do { :index |
-			| list = self.columnLists[index].listChooserPane; |
+			|( list = self.columnLists[index].listChooserPane )|
 			list.style.setProperties((
 				'flex': columnProportions[index].asString ++ ' 1 16em'
 			))
@@ -248,7 +248,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 		}
 	}
 
-	initialize { :self :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept:/1 :onChange:/2  |
+	initialize { :self :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept:/1 :onChange:/2 |
 		self.title := title;
 		self.numberOfColumns := columnProportions.size;
 		self.createElements(mimeType, withFilter, withStatus, columnProportions, 6);
@@ -276,9 +276,9 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 	}
 
 	columnEdited { :self :index :onChange:/2 |
-		|
-			next = onChange(self, self.pathUpTo(index));
-		|
+		|(
+			next = onChange(self, self.pathUpTo(index))
+		)|
 		(index = self.numberOfColumns).if {
 			next.then { :view |
 				self.textEditor.setEditorText(view.asString)
@@ -297,7 +297,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 	}
 
 	setColumnValue { :self :index :value |
-		| select = self.columnLists[index].select; |
+		|( select = self.columnLists[index].select )|
 		select.select(value);
 		select.dispatchEvent(Event('change'))
 	}
@@ -361,7 +361,7 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 		self.framePane := 'div'.createElement (
 			class: ['framePane', self.subject.typeOf, self.subject.name].unwords
 		);
-		self.titlePane :=  'div'.createElement (
+		self.titlePane := 'div'.createElement (
 			class: 'titlePane'
 		);
 		self.closeButton := 'span'.createElement (
@@ -433,9 +433,9 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 	}
 
 	setEventHandlers { :self |
-		|
+		|(
 			pointerBegin = { :event |
-				| titleRect = event.target.getBoundingClientRect; |
+				|( titleRect = event.target.getBoundingClientRect )|
 				event.stopPropagationAndPreventDefault;
 				self.bringToFront;
 				event.target.setPointerCapture(event.pointerId);
@@ -454,8 +454,8 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 			pointerEnd = { :event |
 				event.target.releasePointerCapture(event.pointerId);
 				self.inMove := false
-			};
-		|
+			}
+		)|
 		self.closeButton.addEventListener('click') { :event |
 			self.close
 		};
@@ -586,7 +586,7 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 
 	parseHelpIndex { :self :aString |
 		aString.lines.select(notEmpty:/1).collect { :each |
-			| [kind, area, name] = each.replace('.help.sl', '').splitRegExp(RegExp('/')); |
+			|( [kind, area, name] = each.replace('.help.sl', '').splitRegExp(RegExp('/')) )|
 			[area, kind, name]
 		}
 	}
@@ -690,13 +690,13 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 Inspector : [Object, View] { | inspectorPane inspectorList |
 
 	addInspector { :self :aValue :index |
-		|
+		|(
 			maxStringSize = 32,
 			maxIndices = 2048,
 			fields = aValue.inspectAsArray(maxIndices),
 			listChooser = ListChooser(false, aValue.printStringConcise(maxStringSize), 6),
-			select = listChooser.select;
-		|
+			select = listChooser.select
+		)|
 		listChooser.setEntries(fields.collect { :each |
 			each.key ++ ': ' ++ each.value.printStringConcise(maxStringSize)
 		});
@@ -749,23 +749,23 @@ Inspector : [Object, View] { | inspectorPane inspectorList |
 ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase |
 
 	applyFilter { :self |
-		|
-		caseRule:/1 = self.ignoreCase.if {
-			asLowercase:/1
-		} {
-			identity:/1
-		},
-		filter = self.filterText.ifNil {
-			{
-				true
+		|(
+			caseRule:/1 = self.ignoreCase.if {
+				asLowercase:/1
+			} {
+				identity:/1
+			},
+			filter = self.filterText.ifNil {
+				{
+					true
+				}
+			} {
+				|( matchString = self.filterText.value.caseRule )|
+				{ :aString |
+					aString.caseRule.includesSubstring(matchString)
+				}
 			}
-		} {
-			| matchString = self.filterText.value.caseRule; |
-			{ :aString |
-				aString.caseRule.includesSubstring(matchString)
-			}
-		};
-		|
+		)|
 		self.select.removeAll;
 		self.select.appendChildren(self.entries.select(filter).collect { :each |
 			TextOption(each)
@@ -779,7 +779,7 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 			class: 'listChooserPane'
 		);
 		titleText.ifNotNil {
-			| title = TextButton(titleText, (class: 'listTitle')); |
+			|( title = TextButton(titleText, (class: 'listTitle')) )|
 			self.listChooserPane.appendChild(title)
 		};
 		withFilter.if {
@@ -880,7 +880,7 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 		self.menuList.removeAllChildren;
 		self.menuList.size := entries.size;
 		entries.collect { :menuItem |
-			|
+			|(
 				listItem = TextOption(menuItem.displayText),
 				pointerBegin = { :event |
 					event.stopPropagationAndPreventDefault;
@@ -890,8 +890,8 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 							self.frame.close
 						}
 					}
-				};
-			|
+				}
+			)|
 			self.menuList.appendChild(listItem);
 			listItem.addEventListener('pointerdown', pointerBegin)
 		}
@@ -910,7 +910,7 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 PngViewer : [Object, View] { | pngPane title pngData pngUrl |
 
 	createElements { :self |
-		| img = 'img'.createElement; |
+		|( img = 'img'.createElement )|
 		self.pngPane := 'div'.createElement (
 			class: 'pngPane'
 		);
@@ -950,10 +950,10 @@ PngViewer : [Object, View] { | pngPane title pngData pngUrl |
 SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	addFrameWithAnimator { :self :subject :event :delay :aProcedure:/0 |
-		|
+		|(
 			timerId = aProcedure:/0.evaluateEveryMilliseconds(delay.asSeconds * 1000),
-			frame = self.addFrame(subject, event);
-		|
+			frame = self.addFrame(subject, event)
+		)|
 		frame.addEventListener('close') { :unusedEvent |
 			timerId.cancel
 		};
@@ -961,7 +961,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	addFrame { :self :subject :event |
-		| frame = Frame(subject); |
+		|( frame = Frame(subject) )|
 		subject.frame := frame;
 		frame.zIndex := self.zIndices.max + 1;
 		event.ifNotNil {
@@ -973,12 +973,12 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	AnalogueClock { :self :event |
-		|
+		|(
 			clock = AnalogueClock(),
 			frame = self.addFrameWithAnimator(clock, event, 1) {
 				clock.tick
-			};
-		|
+			}
+		)|
 		frame
 	}
 
@@ -1009,7 +1009,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	dialog { :self :subject :event |
-		| dialog = 'dialog'.createElement; |
+		|( dialog = 'dialog'.createElement )|
 		dialog.appendChild(subject.outerElement);
 		dialog.style.setProperty('left', event.x.asString ++ 'px', '');
 		dialog.style.setProperty('top', event.y.asString ++ 'px', '');
@@ -1020,15 +1020,15 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	DigitalClock { :self :event |
-		|
+		|(
 			getTime = {
 				system.Date.localeTimeString('en-US')
 			},
 			textEditor = TextEditor('Digital Clock', 'text/plain', getTime()),
 			frame = self.addFrameWithAnimator(textEditor, event, 1) {
 				textEditor.setEditorText(getTime())
-			};
-		|
+			}
+		)|
 		textEditor.editable := false;
 		frame.outerElement.style.setProperties((height: '1em', width: '18em'));
 		frame
@@ -1104,12 +1104,12 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	implementorsOf { :self :subject :event |
-		|
+		|(
 			bracketedSubject = '>>' ++ subject ++ ':/',
 			methodSignatures = system.allMethods.collect(signature:/1).select { :each |
 				each.includesSubstring(bracketedSubject)
-			}.Set.Array.sorted ;
-		|
+			}.Set.Array.sorted
+		)|
 		self.addFrame(MethodSignatureBrowser(methodSignatures, false), event)
 	}
 
@@ -1207,10 +1207,10 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	menu { :self :title :entries :isTransient :event |
-		|
+		|(
 			menu = Menu(title, entries),
-			frame = self.addFrame(menu, event);
-		|
+			frame = self.addFrame(menu, event)
+		)|
 		menu.isTransient := isTransient;
 		frame
 	}
@@ -1225,12 +1225,12 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	MidiMonitorMenu { :self :event |
 		self.initializeMidi { :unusedMidiAcccess |
-			|
+			|(
 				onSelect = { :midiPort :event |
 					self.midiMonitorOn(midiPort, event)
 				},
-				menu = Menu('Midi Monitor Menu', self.midiPortListEntries(onSelect:/2));
-			|
+				menu = Menu('Midi Monitor Menu', self.midiPortListEntries(onSelect:/2))
+			)|
 			menu.isTransient := true;
 			self.addFrameWithAnimator(menu, event, 1) {
 				menu.setEntries(self.midiPortListEntries(onSelect:/2))
@@ -1239,7 +1239,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	midiMonitorOn { :self :midiPort :event |
-		|
+		|(
 			textEditor = TextEditor('Midi Monitor On ' ++ midiPort.name, 'text/plain', ''),
 			messages = [],
 			onMidiMessage = { :midiMessageEvent |
@@ -1248,8 +1248,8 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 					midi.data.asString
 				}.unlines)
 			},
-			frame = self.addFrame(textEditor, event);
-		|
+			frame = self.addFrame(textEditor, event)
+		)|
 		textEditor.editable := false;
 		midiPort.addEventListener('midimessage', onMidiMessage);
 		frame.addEventListener('close') { :unusedEvent |
@@ -1281,7 +1281,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	midiPortListEntries { :self :onSelect:/2|
 		(self.midiAccess.inputs.ports ++ self.midiAccess.outputs.ports).collect { :midiPort |
-			MenuItem(midiPort.type ++ '/' ++ midiPort.name, nil)  { :event |
+			MenuItem(midiPort.type ++ '/' ++ midiPort.name, nil) { :event |
 				onSelect(midiPort, event)
 			}
 		}
@@ -1331,7 +1331,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	ScSynthStatus { :self :event |
-		|
+		|(
 			textEditor = TextEditor('ScSynth Status', 'text/html', '---'),
 			frame = self.addFrameWithAnimator(textEditor, event, 1) {
 				textEditor.setEditorText(
@@ -1341,8 +1341,8 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 						'---'
 					}
 				)
-			};
-		|
+			}
+		)|
 		textEditor.editable := false;
 		frame.outerElement.style.setProperties((height: '14em', width: '18em'));
 		frame
@@ -1365,12 +1365,12 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	TranscriptViewer { :self :event |
-		|
+		|(
 			transcriptViewer = TranscriptViewer(),
 			frame = self.addFrameWithAnimator(transcriptViewer, event, 1) {
 				transcriptViewer.update
-			};
-		|
+			}
+		)|
 		frame
 	}
 
@@ -1387,7 +1387,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	WindowMenu { :self :event |
-		| menu = Menu('Window Menu', self.windowMenuEntries); |
+		|( menu = Menu('Window Menu', self.windowMenuEntries) )|
 		self.addFrameWithAnimator(menu, event, 1) {
 			menu.setEntries(self.windowMenuEntries)
 		}
@@ -1418,7 +1418,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 			},
 			MenuItem('CrystalLatticeStructureOracle', nil) { :event |
 				system.requireLibraryItem('clsLeitner').then { :clsLeitner |
-					| cls = clsLeitner.atRandom, mtx = Projection3().chinese.Matrix33; |
+					|( cls = clsLeitner.atRandom, mtx = Projection3().chinese.Matrix33 )|
 					self.addFrame(SvgViewer(
 						'Cls - ' ++ cls.name,
 						cls.drawing(0.25) { :each |
@@ -1510,7 +1510,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 +JiTuning {
 
 	htmlView { :self |
-		| ratios = self.ratios, div = 'div'.createElement; |
+		|( ratios = self.ratios, div = 'div'.createElement )|
 		div.appendChildren([
 			[
 				[1 .. self.degree],
@@ -1531,11 +1531,11 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	latticeGraph { :self |
-		|
+		|(
 			vertices = self.latticeVertices,
 			edges = self.latticeEdges(vertices),
-			points = vertices.collect(wilsonLatticeCoordinates:/1) * 4;
-		|
+			points = vertices.collect(wilsonLatticeCoordinates:/1) * 4
+		)|
 		Graph(vertices.size, edges, points, nil)
 	}
 
@@ -1544,7 +1544,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 +Graph {
 
 	drawing { :self :scale :derivePoint:/1 |
-		|
+		|(
 			lineWidth = 1,
 			points = self.vertexLabels.collect(derivePoint:/1),
 			bbox = points.computeBoundingBox.scaleBy(scale),
@@ -1558,7 +1558,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				)
 			},
 			lines = self.edges.collect { :each |
-				| [i, j] = each; |
+				|( [i, j] = each )|
 				'line'.createSvgElement (
 					x1: points[i].x,
 					y1: points[i].y,
@@ -1576,8 +1576,8 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 			),
 			group = 'g'.createSvgElement (
 				transform: 'translate(0, ' ++ (bbox.height + (2 * bbox.origin.y)) ++ ') scale(' ++ scale ++ ', -' ++ scale ++ ')'
-			);
-		|
+			)
+		)|
 		group.appendChildren(dots);
 		group.appendChildren(lines);
 		svg.appendChild(group);
@@ -1607,7 +1607,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	ScalaJiTuningBrowser { :self |
-		| degrees = self.collect(degree:/1).Set.Array.sorted.collect(asString:/1); |
+		|( degrees = self.collect(degree:/1).Set.Array.sorted.collect(asString:/1) )|
 		ColumnBrowser('Scala Ji Tuning Browser', 'text/html', false, true, [1, 1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
@@ -1631,7 +1631,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 					}.keys
 				},
 				3 -> {
-					| ji = self[path[3]]; |
+					|( ji = self[path[3]] )|
 					browser.setStatus(ji.description);
 					ji.htmlView.outerHTML
 				}
@@ -1644,7 +1644,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 +Array {
 
 	MethodSignatureBrowser { :self :withFilter |
-		| selectedMethod = nil; |
+		|( selectedMethod = nil )|
 		ColumnBrowser('Method Signature Browser', 'text/plain', withFilter, true, [1], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
@@ -1670,10 +1670,10 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	MethodBrowser {
-		|
+		|(
 			methodNames = system.allMethods.collect(qualifiedName:/1).Set.Array.sorted,
-			selectedMethod = nil;
-		|
+			selectedMethod = nil
+		)|
 		ColumnBrowser('Method Browser', 'text/plain', true, true, [3, 1], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
@@ -1707,12 +1707,12 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	CategoryBrowser {
-		|
+		|(
 			typeNames = system.typeDictionary.keys.sorted,
 			categoryNames = typeNames.collect { :each | system.categoryOf(each) }.Set.Array.sorted,
 			methodSet = nil,
-			selectedMethod = nil;
-		|
+			selectedMethod = nil
+		)|
 		ColumnBrowser('Category Browser', 'text/plain', false, true, [1, 1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
@@ -1746,7 +1746,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	SystemBrowser {
-		| typeNames = system.typeDictionary.keys.sorted, methodSet = nil, selectedMethod = nil; |
+		|( typeNames = system.typeDictionary.keys.sorted, methodSet = nil, selectedMethod = nil )|
 		ColumnBrowser('System Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
@@ -1772,7 +1772,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	TraitBrowser {
-		| traitNames = system.traitDictionary.keys.sorted; |
+		|( traitNames = system.traitDictionary.keys.sorted )|
 		ColumnBrowser('Trait Browser', 'text/plain', false, true, [1, 3], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
@@ -1791,7 +1791,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	TypeBrowser {
-		| typeNames = system.typeDictionary.keys.sorted, selectedMethod = nil; |
+		|( typeNames = system.typeDictionary.keys.sorted, selectedMethod = nil )|
 		ColumnBrowser('Type Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
@@ -1899,7 +1899,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 	}
 
 	currentText { :self |
-		| text = system.window.getSelectedText; |
+		|( text = system.window.getSelectedText )|
 		text.isEmpty.ifTrue {
 			text := self.editorText.textContent
 		};
@@ -1907,7 +1907,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 	}
 
 	currentWord { :self |
-		| text = system.window.getSelectedText; |
+		|( text = system.window.getSelectedText )|
 		text.isEmpty.ifTrue {
 			(* This should get the word at point, but it doesn't! *)
 			nil
@@ -1987,14 +1987,14 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 			self.textEditorMenu(event)
 		};
 		self.editorText.addEventListener('keydown') { :event |
-			|
+			|(
 				bindingsArray = self.keyBindings.collect { :menuItem |
 					menuItem.accessKey -> {
 						event.preventDefault;
 						menuItem.onSelect . (nil)
 					}
-				};
-			|
+				}
+			)|
 			event.ctrlKey.ifTrue {
 				event.key.caseOfOtherwise(
 					bindingsArray,
@@ -2072,13 +2072,13 @@ TranscriptViewer : [Object, View] { | textEditor entryCount |
 +String {
 
 	TextButton { :self :attributeDictionary |
-		| button = 'button'.createElement(attributeDictionary); |
+		|( button = 'button'.createElement(attributeDictionary) )|
 		button.innerText := self;
 		button
 	}
 
 	TextInput { :self :attributeDictionary |
-		| input = 'input'.createElement(attributeDictionary); |
+		|( input = 'input'.createElement(attributeDictionary) )|
 		input.setAttributes((
 			type: 'text',
 			value: self
@@ -2087,7 +2087,7 @@ TranscriptViewer : [Object, View] { | textEditor entryCount |
 	}
 
 	TextListItem { :self |
-		| listItem = 'li'.createElement; |
+		|( listItem = 'li'.createElement )|
 		listItem.textContent := self;
 		listItem
 	}
@@ -2097,7 +2097,7 @@ TranscriptViewer : [Object, View] { | textEditor entryCount |
 	}
 
 	TextOption { :self :value |
-		| option = 'option'.createElement; |
+		|( option = 'option'.createElement )|
 		option.text := self.isEmpty.if {
 			'Unspecified*'
 		} {
@@ -2122,7 +2122,7 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 	}
 
 	summary { :self |
-		|
+		|(
 			container = 'div'.createElement,
 			description = 'p'.createElement,
 			projectionsA = 'p'.createElement,
@@ -2131,8 +2131,8 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 				self.drawing(0.25) { :each |
 					each.projection * 50
 				}
-			};
-		|
+			}
+		)|
 		description.textContent := self.description;
 		projectionsA.appendChildren([
 			scaledDrawing(xy:/1),
@@ -2181,7 +2181,7 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 					self.collect(name:/1)
 				},
 				1 -> {
-					| cls = self.detect { :each | each.name = path[1] }; |
+					|( cls = self.detect { :each | each.name = path[1] } )|
 					cls.summary.outerHTML
 				}
 			])
