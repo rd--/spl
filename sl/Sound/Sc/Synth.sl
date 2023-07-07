@@ -335,7 +335,7 @@ UgenGraph : [Object] {
 	}
 
 	playAt { :self:/0 :systemTimeInSeconds |
-		|( answer = self() )|
+		| answer = self(); |
 		answer.isOutputSignal.ifTrue {
 			answer.playUgenAt(systemTimeInSeconds)
 		}
@@ -382,7 +382,7 @@ UgenGraph : [Object] {
 	}
 
 	EnvBreakPoint { :breakPointArray :curves |
-		|( n = breakPointArray.size )|
+		| n = breakPointArray.size; |
 		Env(
 			Interval(1, n, 2).collect { :index | breakPointArray[index] },
 			Interval(2, n - 1, 2).collect { :index | breakPointArray[index] }.differentiate,

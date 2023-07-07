@@ -18,8 +18,8 @@ Sl {
 	TraitDefinition = "@" identifier "{" (methodName Block)* "}"
 	ConstantDefinition = unqualifiedIdentifier "=" literal
 	Program = Temporaries? ExpressionSequence
-	Temporaries = TemporariesWithInitializers | TemporariesWithoutInitializers | TemporariesVarSyntax+
-	TemporariesWithInitializers = "|(" NonemptyListOf<TemporaryWithInitializer, ","> ")|"
+	Temporaries = TemporariesWithInitializers | TemporariesWithoutInitializers | TemporariesParenSyntax | TemporariesVarSyntax+
+	TemporariesWithInitializers = "|" NonemptyListOf<TemporaryWithInitializer, ","> ";" "|"
 	TemporaryWithInitializer =
 		TemporaryWithBlockLiteralInitializer |
 		TemporaryWithExpressionInitializer |
@@ -30,6 +30,7 @@ Sl {
 	TemporaryWithDictionaryInitializer = "("  NonemptyListOf<identifier, ","> ")" "=" Expression
 	TemporaryWithArrayInitializer = "["  NonemptyListOf<identifier, ","> "]" "=" Expression
 	TemporariesWithoutInitializers = "|" identifier+ "|"
+	TemporariesParenSyntax = "|(" NonemptyListOf<TemporaryWithInitializer, ","> ")|"
 	TemporariesVarSyntax = "var" NonemptyListOf<(TemporaryWithInitializer), ","> ";"
 
 	ExpressionSequence = ListOf<Expression, ";">

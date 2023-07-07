@@ -53,7 +53,7 @@ const asJs: any = {
 	Program(tmp, stm) {
 		return tmp.asJs + stm.asJs;
 	},
-	TemporariesWithInitializers(_verticalBar1, tmp, _verticalBar2) {
+	TemporariesWithInitializers(_verticalBar1, tmp, _semiColon, _verticalBar2) {
 		return `var ${commaList(tmp.asIteration().children)};`;
 	},
 	TemporaryWithBlockLiteralInitializer(nm, _equals, blk) {
@@ -84,6 +84,9 @@ const asJs: any = {
 	},
 	TemporariesWithoutInitializers(_verticalBar1, tmp, _verticalBar2) {
 		return `var ${commaList(tmp.children)};`;
+	},
+	TemporariesParenSyntax(_leftParen, tmp, _rightParen) {
+		return `var ${commaList(tmp.asIteration().children)};`;
 	},
 	TemporariesVarSyntax(_var, tmp, _semicolon) {
 		return `var ${commaList(tmp.asIteration().children)};`;

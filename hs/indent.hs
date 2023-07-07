@@ -3,13 +3,13 @@ import Data.Char {- base -}
 {- | Count opening and closing parentheses, brackets and braces.
 
 >>> countOpenAndClose "("
-(1, 0)
+(1,0)
 
 >>> countOpenAndClose "]"
-(0, 1)
+(0,1)
 
 >>> countOpenAndClose "{}"
-(1, 1)
+(1,1)
 -}
 countOpenAndClose :: String -> (Int, Int)
 countOpenAndClose =
@@ -46,20 +46,23 @@ a negative value indicates a decrease, and zero indicates equal indentation.
 0
 -}
 inOrOutDent :: String -> Int
-inOrOutDent = uncurry (-) . countOpenAndClose
+inOrOutDent = signum . uncurry (-) . countOpenAndClose
+
+leadingClosing :: String -> Int
+leadingClosing = signum . countLeadingClosing
 
 {- | Indent line by indicated amount and return indent for next line and indented line.
 
 >>> indentLine 1 "f("
-(2, "\tf(")
+(2,"\tf(")
 
 >>> indentLine 1 ""
-(1, "")
+(1,"")
 -}
 indentLine :: Int -> String -> (Int, String)
 indentLine i s =
   let o = i + inOrOutDent s
-  in (o, if null s then s else replicate (i - countLeadingClosing s) '\t' ++ s)
+  in (o, if null s then s else replicate (i - leadingClosing s) '\t' ++ s)
 
 {- | Indent sequence of non-indented lines.
 

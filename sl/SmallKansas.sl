@@ -115,17 +115,17 @@ AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 	}
 
 	moveHourHand { :self :fractionalHour |
-		|( theta = fractionalHour - 3 / 12 * 2 * pi )|
+		| theta = fractionalHour - 3 / 12 * 2 * pi; |
 		self.hourHand.p2 := PolarPoint(55, theta.negated)
 	}
 
 	moveMinuteHand { :self :minute |
-		|( theta = minute - 15 / 60 * 2 * pi )|
+		| theta = minute - 15 / 60 * 2 * pi; |
 		self.minuteHand.p2 := PolarPoint(80, theta.negated)
 	}
 
 	moveSecondHand { :self :minute |
-		|( theta = minute - 15 / 60 * 2 * pi )|
+		| theta = minute - 15 / 60 * 2 * pi; |
 		self.secondHand.p2 := PolarPoint(85, theta.negated)
 	}
 
@@ -134,7 +134,7 @@ AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 	}
 
 	tick { :self |
-		|( dateAndTime = system.Date )|
+		| dateAndTime = system.Date; |
 		self.moveHourHand(dateAndTime.hour + (dateAndTime.minute / 60));
 		self.moveMinuteHand(dateAndTime.minute);
 		self.moveSecondHand(dateAndTime.second)
@@ -225,7 +225,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 			ListChooser(withFilter & { index = 1 }, nil, listSize)
 		};
 		columnProportions.size.do { :index |
-			|( list = self.columnLists[index].listChooserPane )|
+			| list = self.columnLists[index].listChooserPane; |
 			list.style.setProperties((
 				'flex': columnProportions[index].asString ++ ' 1 16em'
 			))
@@ -297,7 +297,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 	}
 
 	setColumnValue { :self :index :value |
-		|( select = self.columnLists[index].select )|
+		| select = self.columnLists[index].select; |
 		select.select(value);
 		select.dispatchEvent(Event('change'))
 	}
@@ -435,7 +435,7 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 	setEventHandlers { :self |
 		|(
 			pointerBegin = { :event |
-				|( titleRect = event.target.getBoundingClientRect )|
+				| titleRect = event.target.getBoundingClientRect; |
 				event.stopPropagationAndPreventDefault;
 				self.bringToFront;
 				event.target.setPointerCapture(event.pointerId);
@@ -586,7 +586,7 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 
 	parseHelpIndex { :self :aString |
 		aString.lines.select(notEmpty:/1).collect { :each |
-			|( [kind, area, name] = each.replace('.help.sl', '').splitRegExp(RegExp('/')) )|
+			| [kind, area, name] = each.replace('.help.sl', '').splitRegExp(RegExp('/')); |
 			[area, kind, name]
 		}
 	}
@@ -760,7 +760,7 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 					true
 				}
 			} {
-				|( matchString = self.filterText.value.caseRule )|
+				| matchString = self.filterText.value.caseRule; |
 				{ :aString |
 					aString.caseRule.includesSubstring(matchString)
 				}
@@ -779,7 +779,7 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 			class: 'listChooserPane'
 		);
 		titleText.ifNotNil {
-			|( title = TextButton(titleText, (class: 'listTitle')) )|
+			| title = TextButton(titleText, (class: 'listTitle')); |
 			self.listChooserPane.appendChild(title)
 		};
 		withFilter.if {
@@ -910,7 +910,7 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 PngViewer : [Object, View] { | pngPane title pngData pngUrl |
 
 	createElements { :self |
-		|( img = 'img'.createElement )|
+		| img = 'img'.createElement; |
 		self.pngPane := 'div'.createElement (
 			class: 'pngPane'
 		);
@@ -961,7 +961,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	addFrame { :self :subject :event |
-		|( frame = Frame(subject) )|
+		| frame = Frame(subject); |
 		subject.frame := frame;
 		frame.zIndex := self.zIndices.max + 1;
 		event.ifNotNil {
@@ -1009,7 +1009,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	dialog { :self :subject :event |
-		|( dialog = 'dialog'.createElement )|
+		| dialog = 'dialog'.createElement; |
 		dialog.appendChild(subject.outerElement);
 		dialog.style.setProperty('left', event.x.asString ++ 'px', '');
 		dialog.style.setProperty('top', event.y.asString ++ 'px', '');
@@ -1387,7 +1387,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	WindowMenu { :self :event |
-		|( menu = Menu('Window Menu', self.windowMenuEntries) )|
+		| menu = Menu('Window Menu', self.windowMenuEntries); |
 		self.addFrameWithAnimator(menu, event, 1) {
 			menu.setEntries(self.windowMenuEntries)
 		}
@@ -1418,7 +1418,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 			},
 			MenuItem('CrystalLatticeStructureOracle', nil) { :event |
 				system.requireLibraryItem('clsLeitner').then { :clsLeitner |
-					|( cls = clsLeitner.atRandom, mtx = Projection3().chinese.Matrix33 )|
+					| cls = clsLeitner.atRandom, mtx = Projection3().chinese.Matrix33; |
 					self.addFrame(SvgViewer(
 						'Cls - ' ++ cls.name,
 						cls.drawing(0.25) { :each |
@@ -1510,7 +1510,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 +JiTuning {
 
 	htmlView { :self |
-		|( ratios = self.ratios, div = 'div'.createElement )|
+		| ratios = self.ratios, div = 'div'.createElement; |
 		div.appendChildren([
 			[
 				[1 .. self.degree],
@@ -1558,7 +1558,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				)
 			},
 			lines = self.edges.collect { :each |
-				|( [i, j] = each )|
+				| [i, j] = each; |
 				'line'.createSvgElement (
 					x1: points[i].x,
 					y1: points[i].y,
@@ -1607,7 +1607,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	ScalaJiTuningBrowser { :self |
-		|( degrees = self.collect(degree:/1).Set.Array.sorted.collect(asString:/1) )|
+		| degrees = self.collect(degree:/1).Set.Array.sorted.collect(asString:/1); |
 		ColumnBrowser('Scala Ji Tuning Browser', 'text/html', false, true, [1, 1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
@@ -1631,7 +1631,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 					}.keys
 				},
 				3 -> {
-					|( ji = self[path[3]] )|
+					| ji = self[path[3]]; |
 					browser.setStatus(ji.description);
 					ji.htmlView.outerHTML
 				}
@@ -1644,7 +1644,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 +Array {
 
 	MethodSignatureBrowser { :self :withFilter |
-		|( selectedMethod = nil )|
+		| selectedMethod = nil; |
 		ColumnBrowser('Method Signature Browser', 'text/plain', withFilter, true, [1], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
@@ -1746,7 +1746,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	SystemBrowser {
-		|( typeNames = system.typeDictionary.keys.sorted, methodSet = nil, selectedMethod = nil )|
+		| typeNames = system.typeDictionary.keys.sorted, methodSet = nil, selectedMethod = nil; |
 		ColumnBrowser('System Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
@@ -1772,7 +1772,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	TraitBrowser {
-		|( traitNames = system.traitDictionary.keys.sorted )|
+		| traitNames = system.traitDictionary.keys.sorted; |
 		ColumnBrowser('Trait Browser', 'text/plain', false, true, [1, 3], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
@@ -1791,7 +1791,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	TypeBrowser {
-		|( typeNames = system.typeDictionary.keys.sorted, selectedMethod = nil )|
+		| typeNames = system.typeDictionary.keys.sorted, selectedMethod = nil; |
 		ColumnBrowser('Type Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
@@ -1899,7 +1899,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 	}
 
 	currentText { :self |
-		|( text = system.window.getSelectedText )|
+		| text = system.window.getSelectedText; |
 		text.isEmpty.ifTrue {
 			text := self.editorText.textContent
 		};
@@ -1907,7 +1907,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 	}
 
 	currentWord { :self |
-		|( text = system.window.getSelectedText )|
+		| text = system.window.getSelectedText; |
 		text.isEmpty.ifTrue {
 			(* This should get the word at point, but it doesn't! *)
 			nil
@@ -2072,13 +2072,13 @@ TranscriptViewer : [Object, View] { | textEditor entryCount |
 +String {
 
 	TextButton { :self :attributeDictionary |
-		|( button = 'button'.createElement(attributeDictionary) )|
+		| button = 'button'.createElement(attributeDictionary); |
 		button.innerText := self;
 		button
 	}
 
 	TextInput { :self :attributeDictionary |
-		|( input = 'input'.createElement(attributeDictionary) )|
+		| input = 'input'.createElement(attributeDictionary); |
 		input.setAttributes((
 			type: 'text',
 			value: self
@@ -2087,7 +2087,7 @@ TranscriptViewer : [Object, View] { | textEditor entryCount |
 	}
 
 	TextListItem { :self |
-		|( listItem = 'li'.createElement )|
+		| listItem = 'li'.createElement; |
 		listItem.textContent := self;
 		listItem
 	}
@@ -2097,7 +2097,7 @@ TranscriptViewer : [Object, View] { | textEditor entryCount |
 	}
 
 	TextOption { :self :value |
-		|( option = 'option'.createElement )|
+		| option = 'option'.createElement; |
 		option.text := self.isEmpty.if {
 			'Unspecified*'
 		} {
@@ -2181,7 +2181,7 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 					self.collect(name:/1)
 				},
 				1 -> {
-					|( cls = self.detect { :each | each.name = path[1] } )|
+					| cls = self.detect { :each | each.name = path[1] }; |
 					cls.summary.outerHTML
 				}
 			])

@@ -56,7 +56,9 @@ MIDIAccess : [Object, EventTarget] {
 	outputs { :self | <primitive: return _self.outputs;> } (* Read only *)
 	sysexEnabled { :self | <primitive: return _self.sysexEnabled;> } (* Read only *)
 
-	onstatechange { :self :aProcedure | <primitive: return _self.onstatechange = _aProcedure;> }
+	onstatechange { :self :aProcedure |
+		<primitive: return _self.onstatechange = _aProcedure;>
+	}
 
 	portByName { :self :type :manufacturer :name |
 		self.ports(type).detect { :port |
@@ -82,13 +84,17 @@ MIDIAccess : [Object, EventTarget] {
 
 MIDIConnectionEvent : [Object, Event] {
 
-	port { :self | <primitive: return _self.port;> }
+	port { :self |
+		<primitive: return _self.port;>
+	}
 
 }
 
 MIDIInput : [Object, EventTarget, MidiPort] {
 
-	onmidimessage { :self :aProcedure | <primitive: return _self.onmidimessage = _aProcedure;> }
+	onmidimessage { :self :aProcedure |
+		<primitive: return _self.onmidimessage = _aProcedure;>
+	}
 
 }
 
@@ -98,7 +104,9 @@ MIDIInputMap : [Object, MidiMap] {
 
 MIDIMessageEvent : [Object, Event] {
 
-	data { :self | <primitive: return _self.data;> }
+	data { :self |
+		<primitive: return _self.data;>
+	}
 
 }
 

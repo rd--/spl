@@ -243,12 +243,12 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 +Procedure {
 
 	evaluateAt { :self :time |
-		|( now = system.unixTimeInMilliseconds )|
+		| now = system.unixTimeInMilliseconds; |
 		self.evaluateAfterMilliseconds(time.unixTimeInMilliseconds - now)
 	}
 
 	evaluateAtWith { :self :time :anObject |
-		|( now = system.unixTimeInMilliseconds )|
+		| now = system.unixTimeInMilliseconds; |
 		self.evaluateAfterMillisecondsWith(time.unixTimeInMilliseconds - now, anObject)
 	}
 

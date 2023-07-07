@@ -48,7 +48,7 @@
 	}
 
 	createElement { :self :tagName :attributeDictionary |
-		|( element = self.createElement(tagName) )|
+		| element = self.createElement(tagName); |
 		element.setAttributes(attributeDictionary);
 		element
 	}
@@ -62,7 +62,7 @@
 	}
 
 	createSvgElement { :self :tagName :attributeDictionary |
-		|( element = self.createSvgElement(tagName) )|
+		| element = self.createSvgElement(tagName); |
 		element.setAttributesNS(nil, attributeDictionary);
 		element
 	}
@@ -709,9 +709,9 @@ HTMLTableElement : [Object, EventTarget, Node, Element, HtmlElement] {
 +@SequenceableCollection {
 
 	asHtmlRow { :self :toString:/1 |
-		|( tr = 'tr'.createElement )|
+		| tr = 'tr'.createElement; |
 		self.do { :cell |
-			|( td = 'td'.createElement )|
+			| td = 'td'.createElement; |
 			td.textContent(cell.toString);
 			tr.appendChild(td)
 		};
@@ -723,7 +723,7 @@ HTMLTableElement : [Object, EventTarget, Node, Element, HtmlElement] {
 	}
 
 	asHtmlTable { :self :toString:/1 |
-		|( table = 'table'.createElement )|
+		| table = 'table'.createElement; |
 		self.do { :row |
 			table.appendChild(
 				row.asHtmlRow(toString:/1)
