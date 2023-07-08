@@ -11,4 +11,4 @@ For instance, to sum the numeric elements of a collection:
 
 * * *
 
-See also: _reduce_
+See also: reduce

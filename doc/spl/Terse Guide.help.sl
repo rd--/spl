@@ -158,12 +158,17 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [[1, 2, 3], [4, 5, 6], [7, 8, 9]].concatenation = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 [[1, 2, 3], [4, 5], [6]].concatenation = [1, 2, 3, 4, 5, 6]
 | a = [1, 2, 3]; | a[2] = a.at(2)
+[1 .. 5].atIfPresent(3) { :x | x * x } = 9 (* clause if index is valid *)
+[1 .. 5].atIfPresent(9) { :x | false } = nil (* ifAbsent clause answers nil *)
 [1 .. 5].atIfAbsent(9) { true } (* exception clause if index is invalid *)
+[1 .. 5].atIfPresentIfAbsent(9) { :x | false } { true } (* ifPresent and ifAbsent clauses *)
+[1 .. 5].atIfPresentIfAbsent(3) { :x | x * x } { false } = 9 (* ifPresent and ifAbsent clauses *)
 | a = [1, 2, 3]; | a.atPut(2, 'two'); a = [1, 'two', 3]
 | a = [1, 2, 3]; | a[2] := 'two'; a = [1, 'two', 3]
-| a = [5, 4, 3, 2, 1]; | a.detect { :each | each % 2 = 0 } = 4
-| a = [5, 4, 3, 2, 1]; | a.find { :each | each % 7 = 0 } = nil
-| a = [5, 4, 3, 2, 1]; | a.findIndex { :each | each % 3 = 0 } = 3
+[5, 4, 3, 2, 1].detect { :each | each % 2 = 0 } = 4
+[5, 4, 3, 2, 1].findFirst { :each | each % 7 = 0 } = nil
+[5, 4, 3, 2, 1].findFirst { :each | each * 2 <= 4 } = 2
+[5, 4, 3, 2, 1].findFirstIndex { :each | each % 3 = 0 } = 3
 [[1, 2, 3, 4], [5, 6, 7, 8]].transpose = [[1, 5], [2, 6], [3, 7], [4, 8]]
 1.toAsCollect(9, Array:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 [1 .. 9].copy == [1 .. 9] = false
@@ -493,6 +498,7 @@ ByteArray(4).hex = '00000000'
 | b = ByteArray(4); | b.atAllPut(15); b.hex = '0f0f0f0f'
 'string'.ascii.asArray = [115, 116, 114, 105, 110, 103] (* Array from ByteArray *)
 '0f00f010'.parseHexString = [15, 0, 240, 16].ByteArray
+{ [1, 2, 3].ByteArray.add(4) }.ifError { :err | true } (* ByteArrays are not @OrderedCollections *)
 ```
 
 ## Collection -- collection trait

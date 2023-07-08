@@ -2,7 +2,7 @@
 
 - _collect(aCollection, aProcedure:/1)_
 
-Evaluate _aProcedure_ with each of the receiver's elements as the argument.
+Evaluate _aProcedure_ with each element of the receiver as the argument.
 Collect the resulting values into a collection like the receiver.
 Answer the new collection.
 
@@ -14,4 +14,4 @@ Answer the new collection.
 
 * * *
 
-See also: _select_, _reject_
+See also: select, reject

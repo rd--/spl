@@ -13,12 +13,6 @@
 		self.indexError(index)
 	}
 
-	atIfPresent { :self :index :ifPresent:/1 |
-		self.atIfPresentIfAbsent(index, ifPresent:/1) {
-			nil
-		}
-	}
-
 	atIfPresentIfAbsent { :self :index :ifPresent:/1 :ifAbsent:/0 |
 		<primitive:
 		if(sl.arrayCheckIndex(_self, _index)) {
@@ -60,7 +54,9 @@
 
 	detectIfFoundIfNone { :self :aProcedure:/1 :whenFound:/1 :whenNone:/0 |
 		<primitive:
-		var item = _self.find(function(element) { return _aProcedure_1(element); });
+		var item = _self.find(function(element) {
+			return _aProcedure_1(element);
+		});
 		return (item !== undefined) ? _whenFound_1(item) : _whenNone_0();
 		>
 	}
@@ -81,16 +77,20 @@
 		self
 	}
 
-	find { :self :aProcedure |
+	findFirst { :self :aProcedure:/1 |
 		<primitive:
-		var item = _self.find(function(element) { return _aProcedure(element); });
+		var item = _self.find(function(element) {
+			return _aProcedure_1(element);
+		});
 		return (item === undefined) ? null : item;
 		>
 	}
 
-	findIndex { :self :aProcedure |
+	findFirstIndex { :self :aProcedure |
 		<primitive:
-		var index = _self.findIndex(function(element) { return _aProcedure(element); });
+		var index = _self.findIndex(function(element) {
+			return _aProcedure(element);
+		});
 		return (index === -1) ? null : index + 1;
 		>
 	}
@@ -101,6 +101,13 @@
 			result := aProcedure(result, self[index])
 		};
 		result
+	}
+
+	insertAt { :self :anObject :index |
+		<primitive:
+		_self.splice(_index - 1, 0, _anObject);
+		return _anObject;
+		>
 	}
 
 	isSorted { :self |
@@ -178,11 +185,17 @@
 	}
 
 	unsafeAtPut { :self :anInteger :anObject |
-		<primitive: _self[_anInteger - 1] = _anObject; return _anObject;>
+		<primitive:
+		_self[_anInteger - 1] = _anObject;
+		return _anObject;
+		>
 	}
 
 	unsafeCollect { :self :aProcedure |
-		<primitive: return _self.map(function(each) { return _aProcedure(each); });>
+		<primitive:
+		return _self.map(function(each) {
+			return _aProcedure(each);
+		});>
 	}
 
 }
@@ -1211,6 +1224,14 @@
 		}
 	}
 
+	atIfPresent { :self :index :aProcedure:/1 |
+		self.isValidIndex(index).if {
+			aProcedure(self[index])
+		} {
+			nil
+		}
+	}
+
 	atWrap { :self :index |
 		self[index - 1 % self.size + 1]
 	}
@@ -1668,7 +1689,56 @@
 
 }
 
-Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
+@OrderedCollection {
+
+	add { :self :anObject |
+		self.addLast(anObject)
+	}
+
+	addAfter { :self :newObject :oldObject |
+		| index = self.indexOf(oldObject); |
+		self.insertAt(newObject, index + 1)
+	}
+
+	addBefore { :self :newObject :oldObject |
+		| index = self.indexOf(oldObject); |
+		self.insertAt(newObject, index)
+	}
+
+	addAllFirst { :self :aCollection |
+		self.addArrayFirst(aCollection.Array)
+	}
+
+	addAllLast { :self :aCollection |
+		self.addArrayLast(aCollection.Array)
+	}
+	ofSize { :self :aNumber |
+		(aNumber - self.size).timesRepeat {
+			self.add(nil)
+		};
+		self
+	}
+
+	removeIfAbsent { :self :oldObject :anExceptionBlock:/0 |
+		| index = self.indexOf(oldObject); |
+		(index = 0).if {
+			anExceptionBlock()
+		} {
+			self.removeAt(index)
+		}
+	}
+
+	removeLast { :self |
+		<primitive: return _self.pop();>
+	}
+
+	removeLast { :self :count |
+		<primitive: return _self.splice(_self.length - _count, _count);>
+	}
+
+}
+
+Array : [Object, Collection, SequenceableCollection, ArrayedCollection, OrderedCollection] {
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
 		self.collect { :each |
@@ -1676,12 +1746,37 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 		}
 	}
 
+	addArrayFirst { :self :anArray |
+		<primitive:
+		_self.unshift(..._anArray);
+		return _anArray;
+		>
+	}
+
+	addArrayLast { :self :anArray |
+		<primitive:
+		_self.push(..._anArray);
+		return _anArray;
+		>
+	}
+
+	addFirst { :self :anObject |
+		<primitive: return _self.unshift(_anObject);>
+	}
+
+	addLast { :self :anObject |
+		<primitive: return _self.push(_anObject);>
+	}
+
 	Array { :self |
 		self
 	}
 
 	atAllPut { :self :anObject |
-		<primitive: _self.fill(_anObject); return _self;>
+		<primitive:
+		_self.fill(_anObject);
+		return _self;
+		>
 	}
 
 	copy { :self |
@@ -1716,6 +1811,22 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 	printString { :self |
 		self.printString(printString:/1)
+	}
+
+	removeAll { :self |
+		<primitive: return _self.splice(0);>
+	}
+
+	removeAt { :self :index |
+		<primitive: return _self.splice(_index - 1, 1)[0];>
+	}
+
+	removeFirst { :self |
+		<primitive: return _self.shift();>
+	}
+
+	removeFirst { :self :count |
+		<primitive: return _self.splice(0, _count);>
 	}
 
 	species { :self |
@@ -1889,7 +2000,8 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 	}
 
 	atPut { :self :anInteger :aByte |
-		<primitive: if(Number.isInteger(_anInteger) && sl.isByte(_aByte)) {
+		<primitive:
+		if(Number.isInteger(_anInteger) && sl.isByte(_aByte)) {
 			_self[_anInteger - 1] = _aByte;
 			return _aByte;
 		}>
@@ -2343,11 +2455,17 @@ Set : [Object, Collection] {
 	}
 
 	remove { :self :anObject |
-		<primitive: _self.delete(_anObject); return _anObject;>
+		<primitive:
+		_self.delete(_anObject);
+		return _anObject;
+		>
 	}
 
 	removeAll { :self |
-		<primitive: _self.clear(); return null;>
+		<primitive:
+		_self.clear();
+		return null;
+		>
 	}
 
 	size { :self |
@@ -2584,94 +2702,6 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
 }
 
-(* OrderedCollection *)
-
-+Array {
-
-	add { :self :anObject |
-		self.addLast(anObject)
-	}
-
-	addAfter { :self :newObject :oldObject |
-		| index = self.indexOf(oldObject); |
-		self.insertAt(newObject, index + 1)
-	}
-
-	addBefore { :self :newObject :oldObject |
-		| index = self.indexOf(oldObject); |
-		self.insertAt(newObject, index)
-	}
-
-	addAllFirst { :self :aCollection |
-		self.addArrayFirst(aCollection.Array)
-	}
-
-	addAllLast { :self :aCollection |
-		self.addArrayLast(aCollection.Array)
-	}
-
-	addArrayFirst { :self :anArray |
-		<primitive: _self.unshift(..._anArray); return _anArray;>
-	}
-
-	addArrayLast { :self :anArray |
-		<primitive: _self.push(..._anArray); return _anArray;>
-	}
-
-	addFirst { :self :anObject |
-		<primitive: return _self.unshift(_anObject);>
-	}
-
-	addLast { :self :anObject |
-		<primitive: return _self.push(_anObject);>
-	}
-
-	insertAt { :self :anObject :index |
-		<primitive: _self.splice(_index - 1, 0, _anObject); return _anObject;>
-	}
-
-	ofSize { :self :aNumber |
-		(aNumber - self.size).timesRepeat {
-			self.add(nil)
-		};
-		self
-	}
-
-	removeAll { :self |
-		<primitive: return _self.splice(0);>
-	}
-
-	removeAt { :self :index |
-		<primitive: return _self.splice(_index - 1, 1)[0];>
-	}
-
-	removeFirst { :self |
-		<primitive: return _self.shift();>
-	}
-
-	removeFirst { :self :count |
-		<primitive: return _self.splice(0, _count);>
-	}
-
-	removeIfAbsent { :self :oldObject :anExceptionBlock:/0 |
-		| index = self.indexOf(oldObject); |
-		(index = 0).if {
-			anExceptionBlock()
-		} {
-			self.removeAt(index)
-		}
-	}
-
-	removeLast { :self |
-		<primitive: return _self.pop();>
-	}
-
-	removeLast { :self :count |
-		<primitive: return _self.splice(_self.length - _count, _count);>
-	}
-
-}
-
 +SmallFloat {
 
 	fibonacciSequence { :self |
@@ -2889,7 +2919,14 @@ Record : [Object, Collection, Dictionary] {
 	}
 
 	removeKeyIfAbsent { :self :aKey :aProcedure |
-		<primitive: if(_self.has(_aKey)) { delete _self[_aKey]; return _aKey; } else { return _aProcedure(); }>
+		<primitive:
+		if(_self.has(_aKey)) {
+			delete _self[_aKey];
+			return _aKey;
+		} else {
+			return _aProcedure();
+		}
+		>
 	}
 
 	size { :self |
