@@ -528,6 +528,7 @@ ByteArray(4).hex = '00000000'
 Set().Array = []
 [1 .. 9].includesAnyOf([0, 6]) (*includes any element of a collection *)
 [2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6]
+| a = [1, 2, 3, 4], b = a.copyWith(5); | a ~= b & { b = [1, 2, 3, 4, 5] }
 { [1, 2].take(-1) }.ifError { :err | true }
 [].select { :each | each > 0 } = []
 [1, 2, 2, 3, 3, 3].histogramOf { :each | each }.asArray = [1, 2, 2, 3, 3, 3]
@@ -870,7 +871,7 @@ to(1, 6).last = 6
 Interval(-1, 1, 1).asArray = [-1, 0, 1]
 1.to(99).asString = '(1 .. 99)'
 (1 .. 99).asString = '(1 .. 99)'
-to(1, -1).asString = 'Interval(1, -1, -1)'
+downTo(1, -1).asString = 'Interval(1, -1, -1)'
 1.to(99).sum = 4950
 1.to(99).asArray.sum = 4950
 (1 .. 9).size = 9
@@ -878,7 +879,8 @@ to(1, -1).asString = 'Interval(1, -1, -1)'
 (1 .. 9999).sum = 49995000
 (1 .. 9999).asArray.sum = 49995000
 to(1, 9) = Interval(1, 9, 1)
-to(9, 1) = Interval(9, 1, -1)
+to(9, 1) = Interval(9, 1, 1)
+downTo(9, 1) = Interval(9, 1, -1)
 1.thenTo(3, 9) = Interval(1, 9, 2)
 (1 .. 9) = (1 .. 9)
 [1 .. 9] = (1 .. 9).asArray
@@ -901,6 +903,8 @@ Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 1.upTo(0).size = 0
 3.upTo(5) = (3 .. 5)
 0.downTo(1).size = 0
+5.downTo(3) = (5 .. 3)
+3.upOrDownTo(5) = 5.upOrDownTo(3).reversed
 | s = ''; | (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531'
 ```
 

@@ -23,27 +23,19 @@ To delay evaulation of alternatives each must be written as a no argument proced
 The Spl standard libraries write if conditions as:
 
 ```
-aBoolean.if {
-	whenTrue
-} {
-	whenFalse
-}
+aBoolean.if { whenTrue } { whenFalse }
 ```
 
 where there are two branches or as:
 
 ```
-aBoolean.ifTrue {
-	whenTrue
-}
+aBoolean.ifTrue { whenTrue }
 ```
 
 or
 
 ```
-aBoolean.ifFalse {
-	whenFalse
-}
+aBoolean.ifFalse { whenFalse }
 ```
 
 where there is one.

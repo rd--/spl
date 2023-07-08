@@ -412,7 +412,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	allTuples { :self |
 		| answerSize = self.collect(size:/1).product; |
-		1.to(answerSize).collect { :i |
+		1.upTo(answerSize).collect { :i |
 			| k = i - 1, nextTuple = self.species.new(self.size); |
 			self.size.toBy(1, -1).collect { :j |
 				| fromSequence = self[j]; |
@@ -595,7 +595,9 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	levenshteinDistance { :self :other :equalityProcedure:/2 |
-		(self.isEmpty | { other.isEmpty }).if {
+		(self.isEmpty | {
+			other.isEmpty
+		}).if {
 			self.size
 		} {
 			| matrix = [0 .. other.size]; |

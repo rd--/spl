@@ -328,7 +328,13 @@
 		answer
 	}
 
-	copyWithout{ :self :oldElement |
+	copyWith { :self :newElement |
+		| answer = self.copy; |
+		answer.add(newElement);
+		answer
+	}
+
+	copyWithout { :self :oldElement |
 		self.reject { :each |
 			each = oldElement
 		}
@@ -345,7 +351,9 @@
 	}
 
 	detectIfFound { :self :aProcedure:/1 :foundProcedure:/1 |
-		self.detectIfFoundIfNone(aProcedure:/1, foundProcedure:/1, { nil })
+		self.detectIfFoundIfNone(aProcedure:/1, foundProcedure:/1) {
+			nil
+		}
 	}
 
 	detectIfFoundIfNone { :self :aProcedure:/1 :foundProcedure:/1 :exceptionProcedure:/0 |
@@ -457,7 +465,9 @@
 		| result = Map(); |
 		self.do { :each |
 			| key = keyBlock(each); |
-			result.atIfAbsentPut(key, { [] }).add(each)
+			result.atIfAbsentPut(key) {
+				[]
+			}.add(each)
 		};
 		result
 	}
@@ -2534,7 +2544,7 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
 }
 
-+SmallFloat {
++@Integral {
 
 	downTo { :self :stop |
 		Interval(self, stop, -1)
@@ -2549,11 +2559,23 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 	}
 
 	to { :self :stop |
-		Interval(self, stop, (self <= stop).if { 1 } { -1 })
+		self.upTo(stop)
 	}
 
 	toBy { :self :stop :step |
 		Interval(self, stop, step)
+	}
+
+	upOrDownTo { :self :stop |
+		Interval(
+			self,
+			stop,
+			(self <= stop).if {
+				1
+			} {
+				-1
+			}
+		)
 	}
 
 	upTo { :self :stop |

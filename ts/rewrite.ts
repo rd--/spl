@@ -232,13 +232,13 @@ const asJs: any = {
 		return `[${commaList(array.asIteration().children)}]`;
 	},
 	ArrayRangeSyntax(_leftBracket, start, _dotDot, end, _rightBracket) {
-		return `_${genName('asArray', 1)}(_${genName('to', 2)}(${start.asJs}, ${end.asJs}))`;
+		return `_${genName('asArray', 1)}(_${genName('upOrDownTo', 2)}(${start.asJs}, ${end.asJs}))`;
 	},
 	ArrayRangeThenSyntax(_leftBracket, start, _comma_, then, _dotDot, end, _rightBracket) {
 		return `_${genName('asArray', 1)}(_${genName('thenTo', 3)}(${start.asJs}, ${then.asJs}, ${end.asJs}))`;
 	},
 	IntervalSyntax(_leftParen, start, _dotDot, end, _rightParen) {
-		return `_${genName('to', 2)}(${start.asJs}, ${end.asJs})`;
+		return `_${genName('upOrDownTo', 2)}(${start.asJs}, ${end.asJs})`;
 	},
 	IntervalThenSyntax(_leftParen, start, _comma_, then, _dotDot, end, _rightParen) {
 		return `_${genName('thenTo', 3)}(${start.asJs}, ${then.asJs}, ${end.asJs})`;
