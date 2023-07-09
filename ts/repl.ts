@@ -8,6 +8,11 @@ export async function interact<T>(processLine: (line: string) => T): Promise<voi
 	}
 }
 
-export async function perLine() {
-	await interact((line: string) => console.log(evaluateString(line)));
+export async function perLine(verbose: bool) {
+	await interact(function(line: string) {
+		if(verbose) {
+			console.log(line);
+		}
+		console.log(evaluateString(line));
+	});
 }

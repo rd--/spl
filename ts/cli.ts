@@ -31,6 +31,7 @@ function help(): void {
 	console.log('  sc playFile --dir=loadPath');
 	console.log('  sc udpServer portNumber --dir=loadPath');
 	console.log('    --strict');
+	console.log('    --verbose');
 	console.log(`    SPL_DIR=${getSplDir()}`);
 }
 
@@ -61,7 +62,7 @@ async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 
 async function replPerLine(opt: flags.Args, lib: string[]): Promise<void> {
 	await loadSpl(opt, lib);
-	repl.perLine();
+	repl.perLine(opt.verbose);
 }
 
 async function runFile(fileName: string, opt: flags.Args): Promise<void> {
