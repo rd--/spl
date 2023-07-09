@@ -2227,6 +2227,10 @@ String : [Object] {
 		<primitive: return /^[a-z]+$/.test(_self);>
 	}
 
+	isSequenceable { :self |
+		true
+	}
+
 	isUppercase { :self |
 		<primitive: return /^[A-Z]+$/.test(_self);>
 	}

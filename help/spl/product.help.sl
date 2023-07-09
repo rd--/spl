@@ -1,6 +1,6 @@
 # product -- math operator
 
-- _product(aCollection)_
+- _product(aCollection)_ ≡ _aCollection.reduce(times:/2)_
 
 Answer the product of all the elements in _aCollection_
 
@@ -8,6 +8,6 @@ Where supported this operator is displayed as Π.
 
 * * *
 
-See also: sum
+See also: injectInto, reduce, sum
 
 Unicode: U+03A0 Π Greek capital letter pi

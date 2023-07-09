@@ -7,4 +7,4 @@ For indexable collections, this value is the same as the largest legal index.
 
 * * *
 
-See also: at, atPut, isEmpty
+See also: at, atPut, do, isEmpty

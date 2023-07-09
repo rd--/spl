@@ -331,6 +331,10 @@
 		}
 	}
 
+	average { :self |
+		self.mean
+	}
+
 	collect { :self :aProcedure:/1 |
 		| answer = self.species.new; |
 		self.do { :each |
@@ -2488,12 +2492,6 @@ Set : [Object, Collection] {
 
 	species { :self |
 		Set:/0
-	}
-
-	union { :self :aCollection |
-		| answer = self.copy; |
-		answer.addAll(aCollection);
-		answer
 	}
 
 }

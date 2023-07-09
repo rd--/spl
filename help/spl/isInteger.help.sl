@@ -9,3 +9,7 @@ Answers true if the receiver is a number and is an integer, else false.
 	2:3.isInteger = false
 	'23'.isInteger = false
 	inf.isInteger = false
+
+* * *
+
+See also: isNumber

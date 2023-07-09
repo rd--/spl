@@ -1,8 +1,8 @@
 # reduce -- enumerating
 
-_reduce(aCollection, aProcedure:/2)_
+- _reduce(aCollection, aProcedure:/2)_
 
-Apply the argument, _aProcedure_ cumulatively to the elements of the receiver.
+Apply _aProcedure_ cumulatively to the elements of _aCollection_.
 
 For sequenceable collections the elements will be used in order, for unordered collections the order is unspecified.
 

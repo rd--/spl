@@ -11,4 +11,4 @@ If _aBlock:/1_ returns false for any element return false, otherwise return true
 
 * * *
 
-See also: anySatisfy
+See also: anySatisfy, noneSatisfy

@@ -113,6 +113,10 @@ pi.veryCloseTo(3.141592653589793) (* pi = 3.141592653589793 *)
 [].typeOf = 'Array' (* type of Array *)
 [].species = Array:/1 (* species of Array *)
 [].isArray = true (* the empty Array is an Array *)
+[].isCollection = true (* arrays are collections *)
+[].isIndexable = true (* arrays are indexable *)
+[].isSequenceable = true (* arrays are sequenceable *)
+[].isEmpty = true (* the empty array is empty *)
 Array() = [] (* Void constructor makes the empty Array *)
 Array(0) = [] (* SmallFloat constructor makes an initialised sized Array *)
 Array(3).size = 3 (* new array of indicated size *)
@@ -153,6 +157,9 @@ Array(5) = [nil, nil, nil, nil, nil] (* array slots are initialised to nil *)
 [].anySatisfy(odd:/1) = false
 [0, 2, 4, 6, 8].anySatisfy(odd:/1) = false
 [0, 1].anySatisfy(odd:/1) = true
+[].noneSatisfy(odd:/1) = true
+[1, 3, 5, 7, 9].noneSatisfy(even:/1) = true
+[1, 2, 3, 4, 5].noneSatisfy(odd:/1) = false
 [1, 2, 3] ++ [4, 5, 6] = [1, 2, 3, 4, 5, 6]
 plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [[1, 2, 3], [4, 5, 6], [7, 8, 9]].concatenation = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -225,6 +232,7 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].anyOne = 1 (* any element, chooses first *)
 { [].anyOne }.ifError { :err | true } (* there are not any elements in an empty collection *)
 [1 .. 9].any(3) = [1 .. 3] (* any three elements, chooses first *)
+{ [1 .. 9].any(11) }.ifError { :err | true } (* it is an error if there are not enough elements *)
 [1 .. 9].take(11) = [1 .. 9]
 [1, 2]. take(5).size = 2
 { [1, 2].take(-1) }.ifError { :err | true }
@@ -330,6 +338,9 @@ Association('x', 1) = ('x' -> 1)
 ```
 Bag().isBag = true
 Bag().typeOf = 'Bag'
+Bag().isCollection
+Bag().isIndexable = false
+Bag().isSequenceable = false
 | b = Bag(); | b.add('x'); b.add('x'); b.size = 2 (* number of objects in bag *)
 | b = Bag(); | b.add('x'); b.add('y'); b.add('x'); b.size = 3 (* add element to bag *)
 | b = Bag(); | b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 (* add all elements of argument to bag *)
@@ -483,7 +494,10 @@ false ~= nil
 ```
 ByteArray(0).typeOf = 'ByteArray'
 ByteArray(0).species = ByteArray:/1
+ByteArray(0).isArray = false
 ByteArray(0).isByteArray
+ByteArray(0).isIndexable
+ByteArray(0).isSequenceable
 ByteArray(0).size = 0
 ByteArray(8).size = 8
 ByteArray(8).at(1) = 0
@@ -508,6 +522,7 @@ ByteArray(4).hex = '00000000'
 ## Collection -- collection trait
 ```
 [].isEmpty = true (* is collection empty *)
+[].isCollection = true
 [].size = 0 (* the empty array has no elements *)
 [1, 2, 3] = [1, 2, 3] (* are collections equal *)
 [9, 4, 5, 7, 8, 6].size = 6 (* size of collection *)
@@ -515,6 +530,8 @@ ByteArray(4).hex = '00000000'
 [9, 4, 5, 7, 8, 6].min = 4 (* minimum item in collection *)
 [9, 4, 5, 7, 8, 6].sum = 39 (* sum of collection *)
 [9, 4, 5, 7, 8, 6].mean = 6.5 (* sum of collection divided by size *)
+[1 .. 9].mean = 5 (* sum of collection divided by size *)
+| c = [1 .. 9]; | c.sum / c.size = 5
 [9, 4, 5, 7, 8, 6].product = 60480 (* product of collection *)
 [9, 4, 5, 7, 8, 6].injectInto(0) { :z :e | e + z } = 39 (* sum of collection *)
 [9, 4, 5, 7, 8, 6].injectInto(1) { :z :e | e * z } = 60480 (* product of collection *)
@@ -1317,11 +1334,16 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 
 ## Set -- collection type
 ```
+Set().isSet
+Set().size = 0
+[1, 1, 2, 1, 2, 3].Set.size = 3
 [1, 3, 5, 3, 1].Set.isSet = true
 [1, 3, 5, 3, 1].Set.size = 3
 [1, 3, 5, 3, 1].Set.includes(3) = true
 [1, 3, 5, 3, 1].Set.includes(7) = false
 [1, 3, 5, 3, 1].Set.Array = [1, 3, 5]
+| s = [1 .. 5].Set; | s ~~ s.Set (* A Set formed from a Set is not identical to the initial set *)
+| s = [1 .. 5].Set; | s = s.Set (* A Set formed from a Set is equal to the initial set *)
 var s = [1, 3, 5, 3, 1].Set; s.remove(3); s.Array = [1, 5]
 [1 .. 9].Set.atRandom.betweenAnd(1, 9) (* inclusive *)
 var s = Set(); s.add(5); s.includes(5) = true (* add element to Set *)
@@ -1346,8 +1368,8 @@ var s = (1 .. 9).Set; s.intersection(s) = s
 (1 .. 5).Set.intersection((4 .. 9).Set) = [4, 5].Set
 var s = (1 .. 9).Set; s.remove(5); [s.includes(5), s.includes(9)] = [false, true]
 var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, t.size = n] = [true, true]
-(1 .. 4).Set.union((5 .. 9).Set) = (1 .. 9).Set
-var s = (1 .. 4).Set; var t = (5 .. 9).Set; var u = s.union(t); u.size = (s.size + t.size)
+(1 .. 4).Set.union((5 .. 9)) = (1 .. 9).Set
+| s = (1 .. 4).Set, t = (5 .. 9), u = s.union(t); | u.size = (s.size + t.size) (* union is not mutating *)
 (1 .. 5).Set.ifAbsentAdd(3) = false
 ```
 

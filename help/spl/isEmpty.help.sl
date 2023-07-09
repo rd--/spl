@@ -1,6 +1,6 @@
 # isEmpty -- testing
 
-- isEmpty(aCollection)
+- _isEmpty(aCollection)_
 
 Answers whether the receiver contains any elements.
 
@@ -8,4 +8,4 @@ This is the same as asking if _size(aCollection) > 0_, however _size_ may requir
 
 * * *
 
-See also: size
+See also: notEmpty, size

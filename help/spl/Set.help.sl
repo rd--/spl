@@ -1,6 +1,14 @@
 # Set -- collection type
 
+- _Set()_
+- _Set(aCollection)_
+
 A collection of objects without duplicates.
+The comparison operator is ==, not =, i.e. Set is an identity set, not an equality set.
+
+	Set().isSet
+	Set().size = 0
+	[1, 1, 2, 1, 2, 3].Set.size = 3
 
 * * *
 
