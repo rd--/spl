@@ -20,5 +20,4 @@ The system includes a _typeDictionary_ that maps type names to _Type_ values.
 
 * * *
 
-See also: _species_, _Type_
-
+See also: species, Type

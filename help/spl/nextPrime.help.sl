@@ -8,4 +8,4 @@ Answer the least integer that is greater than _anInteger_ and is prime.
 
 * * *
 
-See also: _isPrime_
+See also: isPrime

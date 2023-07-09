@@ -7,4 +7,4 @@ _Dictionary_ is a trait holding behaviours common to collections of (key, value)
 
 * * *
 
-See also: _Array_, _Association_, _Map_, _Record_
+See also: Association, Map, Record

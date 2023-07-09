@@ -6,5 +6,5 @@ The _Vector3_ type represents an _(x, y, z)_ triple of numbers designating a loc
 
 * * *
 
-See also: _Point_, _Vector2_, _Vector4_
+See also: Point, Vector2, Vector4
 

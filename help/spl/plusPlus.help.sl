@@ -11,6 +11,6 @@ In Smalltalk this is the comma operator.
 
 * * *
 
-See also: _concatenation_
+See also: concatenation
 
 Unicode: U+29FA ⧺ Double plus

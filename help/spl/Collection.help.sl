@@ -7,14 +7,14 @@ _Collection_ is a trait holding behaviours common to collections.
 
 _size_ and _do_ are the basic methods of a collection.
 
-- do(self, aBlock:/1): Evaluate aBlock with each of the receiver's elements as the argument.
-- size(self): Answer how many elements the receiver contains.
+- do(aCollection, aBlock:/1): Evaluate _aBlock_ with each element of _aCollection_ as the argument.
+- size(aCollection): Answer how many elements _aCollection_ contains.
 
 For mutable collections:
 
-- add(self, newObject): Include newObject as one of the receiver's elements. Answer newObject.
-- remove(self, oldObject): Remove oldObject from the receiver's elements. Answer oldObject unless no element is equal to oldObject, in which case, raise an error.
+- add(aCollection, newObject): Include _newObject_ as one of the elements of _aCollection_. Answer _newObject_.
+- remove(aCollection, oldObject): Remove _oldObject_ from _aCollection_. Answer _oldObject_, or raise an error.
 
 * * *
 
-See also: _Dictionary_, _SequenceableCollection_
+See also: Dictionary, do, SequenceableCollection, size

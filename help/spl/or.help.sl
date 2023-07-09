@@ -8,10 +8,10 @@ If _aBoolean_ is true then _aProcedure_ is not evaluated.
 
 Where supported _or_ is displayed as ∨.
 
-Note that _|_ is not displayed as ∨because it is part of the [Procedure Syntax].
+Note that _|_ is not displayed as ∨ because it is part of the [Procedure Syntax].
 
 * * *
 
-See also: _&_
+See also: and or &
 
 Unicode: U+2228 ∨ Logical or

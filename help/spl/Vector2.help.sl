@@ -6,5 +6,5 @@ The _Vector2_ type represents an _(x, y)_ pair of numbers designating a location
 
 * * *
 
-See also: _Point_, _Vector3_, _Vector4_
+See also: Point, Vector3, Vector4
 

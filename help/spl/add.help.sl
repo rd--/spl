@@ -13,4 +13,4 @@ Answer _newObject_.
 
 * * *
 
-See also: _addAll_, _remove_
+See also: addAll, remove

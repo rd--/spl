@@ -10,4 +10,4 @@ Answer the new collection.
 
 * * *
 
-See also: _select_
+See also: collect, detect, select

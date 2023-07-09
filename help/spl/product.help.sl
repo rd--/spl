@@ -1,4 +1,4 @@
-# product - math operator
+# product -- math operator
 
 - _product(aCollection)_
 
@@ -8,6 +8,6 @@ Where supported this operator is displayed as Π.
 
 * * *
 
-See also: _sum_
+See also: sum
 
 Unicode: U+03A0 Π Greek capital letter pi

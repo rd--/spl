@@ -12,6 +12,6 @@ Where supported this operator is displayed as ≡.
 
 * * *
 
-See also: _=_, _~~_
+See also: = or equals, ~~ or notNot
 
 Unicode: U+2261 ≡ Identical To

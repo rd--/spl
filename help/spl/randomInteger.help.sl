@@ -1,8 +1,13 @@
 # randomInteger -- random number generator
 
-- _randomInteger(high)_: generate a random integer between one and high
-- _randomInteger(low, high)_: generate a random integer between low and high
+- _randomInteger(high)_
+
+Generate a random integer between one and high.
+
+- _randomInteger(low, high)_
+
+Generate a random integer between low and high.
 
 * * *
 
-See also: _atRandom_, _randomFloat_
+See also: atRandom, randomFloat

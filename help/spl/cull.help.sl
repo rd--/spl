@@ -15,4 +15,4 @@ _cull_ calls _numArgs_ to ask how many arguments are required, and passes only t
 
 * * *
 
-See also: _numArgs_
+See also: numArgs

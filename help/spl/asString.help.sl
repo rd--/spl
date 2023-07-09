@@ -18,4 +18,4 @@ Answer the _printString_ of the receiver, unless it is a _String_, in which case
 
 * * *
 
-See also: _printString_, _storeString_
+See also: printString, storeString, String

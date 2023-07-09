@@ -12,4 +12,4 @@ For instance, to sum the numeric elements of a collection:
 
 * * *
 
-See also: _injectInto_
+See also: injectInto

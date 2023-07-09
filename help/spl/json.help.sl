@@ -11,4 +11,4 @@ _Nil_, _Boolean_, _SmallFloat_, _String_, _Array_, and _Record_.
 
 * * *
 
-See also: _parseJson_
+See also: parseJson

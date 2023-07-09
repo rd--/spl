@@ -6,6 +6,6 @@ Where supported _false_ is displayed as false.
 
 * * *
 
-See also: _not_, _true_
+See also: not, true
 
 Unicode: U+22A5 ⊥ Up tack

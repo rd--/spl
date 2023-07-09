@@ -13,4 +13,4 @@ The _system_ dictionary holds a _typeDictionary_.
 
 * * *
 
-See also: _Trait_
+See also: Trait

@@ -8,4 +8,4 @@ This is the same as asking if _size(aCollection) > 0_, however _size_ may requir
 
 * * *
 
-See also: _size_
+See also: size

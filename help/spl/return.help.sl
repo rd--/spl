@@ -6,6 +6,6 @@ Where supported this operator is displayed as an upwards arrow, ↑.
 
 * * *
 
-See also: _withReturn_
+See also: withReturn
 
 Unicode: U+2191 ↑ Upwards Arrow

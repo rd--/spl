@@ -15,6 +15,6 @@ Where supported _and_ is displayed as ∧.
 
 * * *
 
-See also: _|_
+See also: |
 
 Unicode: U+2227 ∧ Logical and

@@ -115,6 +115,14 @@
 	}
 
 	isSortedBetweenAnd { :self :startIndex :endIndex |
+		self.isSortedByBetweenAnd(lessThanEquals:/2, startIndex, endIndex)
+	}
+
+	isSortedBy { :self :aProcedure:/2 |
+		self.isSortedByBetweenAnd(aProcedure:/2, 1, self.size)
+	}
+
+	isSortedByBetweenAnd { :self :aProcedure:/2 :startIndex :endIndex |
 		(endIndex < startIndex).if {
 			true
 		} {
@@ -122,7 +130,7 @@
 			withReturn {
 				(startIndex + 1 .. endIndex).do { :index |
 					| element = self[index]; |
-					(previousElement <= element).ifFalse {
+					aProcedure(previousElement, element).ifFalse {
 						false.return
 					};
 					previousElement := element
@@ -160,7 +168,11 @@
 		<primitive: return _self.length;>
 	}
 
-	sort { :self :aProcedure:/2 |
+	sort { :self |
+		self.sortBy(lessThanEquals:/2)
+	}
+
+	sortBy { :self :aProcedure:/2 |
 		<primitive:
 		return _self.sort(function(p, q) {
 			return _aProcedure_2(p, q) ? -1 : 1
@@ -168,12 +180,8 @@
 		>
 	}
 
-	sort { :self |
-		self.sort(lessThanEquals:/2)
-	}
-
-	sorted { :self :aSortProcedureOrNil |
-		self.copy.sort(aSortProcedureOrNil)
+	sorted { :self :aSortProcedure:/2 |
+		self.copy.sortBy(aSortProcedure:/2)
 	}
 
 	sorted { :self |
@@ -486,7 +494,9 @@
 	}
 
 	histogramOf { :self |
-		self.histogramOf { :each | each }
+		self.histogramOf { :each |
+			each
+		}
 	}
 
 	histogramOf { :self :aBlock:/1 |
@@ -497,6 +507,10 @@
 
 	indices { :self |
 		nil
+	}
+
+	includes { :self |
+		self.anySatisfy(equals:/2)
 	}
 
 	includesAnyOf { :self :aCollection |
@@ -725,7 +739,7 @@
 	}
 
 	sorted { :self :sortBlock:/2 |
-		self.Array.sort(sortBlock:/2)
+		self.Array.sortBy(sortBlock:/2)
 	}
 
 	sum { :self |
@@ -2255,7 +2269,7 @@ Bag : [Object, Collection] { | contents |
 		self.contents.associationsDo { :anAssociation |
 			answer.add(anAssociation.value -> anAssociation.key)
 		};
-		answer.sort(greaterThanEquals:/2)
+		answer.sortBy(greaterThanEquals:/2)
 	}
 
 	sortedElements { :self |
@@ -2795,7 +2809,7 @@ SortedArray : [Object, Collection] { | contents sortBlock |
 	addAll { :self :aCollection |
 		(aCollection.size > (self.contents.size // 3)).if {
 			self.contents.addAll(aCollection);
-			self.contents.sort(self.sortBlock)
+			self.contents.sortBy(self.sortBlock)
 		} {
 			aCollection.do { :each |
 				self.add(each)

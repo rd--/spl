@@ -8,4 +8,4 @@ Answer the largest prime number that is a factor of _anInteger_.
 
 * * *
 
-See also: _primeFactors_
+See also: primeFactors

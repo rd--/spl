@@ -9,4 +9,4 @@ Answer the denominator of a _Fraction_ or itself for an _Integral_.
 
 * * *
 
-See also: _denominator_
+See also: denominator, Fraction, isFraction

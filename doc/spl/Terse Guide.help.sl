@@ -166,8 +166,9 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 | a = [1, 2, 3]; | a.atPut(2, 'two'); a = [1, 'two', 3]
 | a = [1, 2, 3]; | a[2] := 'two'; a = [1, 'two', 3]
 [5, 4, 3, 2, 1].detect { :each | each % 2 = 0 } = 4
-[5, 4, 3, 2, 1].findFirst { :each | each % 7 = 0 } = nil
+{ [5, 4, 3, 2, 1].detect { :each | each % 7 = 0 } }.ifError { :err | true }
 [5, 4, 3, 2, 1].findFirst { :each | each * 2 <= 4 } = 2
+[5, 4, 3, 2, 1].findFirst { :each | each % 7 = 0 } = nil
 [5, 4, 3, 2, 1].findFirstIndex { :each | each % 3 = 0 } = 3
 [[1, 2, 3, 4], [5, 6, 7, 8]].transpose = [[1, 5], [2, 6], [3, 7], [4, 8]]
 1.toAsCollect(9, Array:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
@@ -182,8 +183,9 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [(1 .. 3), (1 .. 6), (1 .. 9)].detectMax(size:/1) = (1 .. 9)
 [(1 .. 3), (1 .. 6), (1 .. 9)].detectMin(size:/1) = (1 .. 3)
 [9 .. 1].indexOf(3) = 7
-[9 .. 1].includes(3) = true
-[].includes(3) = false
+[9 .. 1].includes(3) = true (* predicate to decide if a collection includes an element *)
+[9 .. 1].anySatisfy { :each | each = 3 } = true
+[].includes(3) = false (* the empty collection does not include any element *)
 [9 .. 1].includesAllOf([3 .. 7]) = true
 [5 .. 3].includesAllOf([3 .. 7]) = false
 [].includesAllOf([3 .. 7]) = false
@@ -221,13 +223,15 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].last(5) = [5 .. 9]
 { [1 .. 3].last(5) }.ifError { :err | true }
 [1 .. 9].anyOne = 1 (* any element, chooses first *)
+{ [].anyOne }.ifError { :err | true } (* there are not any elements in an empty collection *)
 [1 .. 9].any(3) = [1 .. 3] (* any three elements, chooses first *)
 [1 .. 9].take(11) = [1 .. 9]
 [1, 2]. take(5).size = 2
 { [1, 2].take(-1) }.ifError { :err | true }
 [1 .. 5].beginsWith([1 .. 3]) = true
 [1 .. 5].beginsWithAnyOf([[5], [4], [3], [2]])= false
-[1 .. 5].groupBy(even:/1)[true].Array = [2, 4]
+[1 .. 5].groupBy(even:/1).keys = [false, true] (* answer a Map grouping elements according to a predicate *)
+[1 .. 5].groupBy(even:/1)[true] = [2, 4]
 | c = Map(); | [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | c.add(q -> p) }; c['elmer'] = 3
 [1 .. 9].indexOfSubCollection([3 .. 5]) = 3
 [1 .. 9].indexOfSubCollectionStartingAt([3 .. 5], 9) = 0
@@ -329,7 +333,7 @@ Bag().typeOf = 'Bag'
 | b = Bag(); | b.add('x'); b.add('x'); b.size = 2 (* number of objects in bag *)
 | b = Bag(); | b.add('x'); b.add('y'); b.add('x'); b.size = 3 (* add element to bag *)
 | b = Bag(); | b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 (* add all elements of argument to bag *)
-| c= 'xyyzzz', r = Bag(); | r.addAll(c); r.size = 6 (* add all elements of a String to a Bag *)
+| c = 'xyyzzz', r = Bag(); | r.addAll(c); r.size = 6 (* add all elements of a String to a Bag *)
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.size = 10
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
@@ -1258,6 +1262,7 @@ var c = [3, 2, 1]; c.sort ; c = [1, 2, 3] (* sort is in place (mutating) *)
 var c = [3, 2, 1], r = c.sorted ; c ~= r (* sorted (answer a new array) *)
 [1 .. 5].isSorted (* is sequence sorted *)
 [1, 3 .. 11].isSorted (* is sequence sorted *)
+[11, 9 .. 1].isSortedBy { :i :j | i > j } (* is sequence sorted by predicate *)
 [1, 5, 3, 7, 9].isSorted.not (* is sequence sorted *)
 [1, 3, 5, 7, 9].copyFromTo(3, 5) = [5, 7, 9] (* copy part of collection (one-indexed) *)
 [1, 3, 5, 7, 9].indexOfSubCollection([5, 7, 9]) = 3 (* locate index of subsequence *)

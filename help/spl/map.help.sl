@@ -6,4 +6,4 @@ Map is _collect_ with the arguments reversed.
 
 * * *
 
-See also: _collect_
+See also: collect

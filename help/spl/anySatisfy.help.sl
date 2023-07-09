@@ -2,7 +2,7 @@
 
 - _anySatisfy(aCollection, aBlock:/1)_
 
-Evaluate _aBlock:/1_ with the elements of the receiver.
+Evaluate _aBlock:/1_ with the elements of _aCollection_.
 If _aBlock:/1_ returns true for any element return true, otherwise return false.
 
 	[].anySatisfy(even:/1) = false
@@ -11,4 +11,4 @@ If _aBlock:/1_ returns true for any element return true, otherwise return false.
 
 * * *
 
-See also: _allSatisfy_
+See also: allSatisfy

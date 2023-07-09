@@ -10,4 +10,4 @@ Answer the new collection.
 
 * * *
 
-See also: _reject_
+See also: collect, detect, reject

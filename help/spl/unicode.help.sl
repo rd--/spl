@@ -9,4 +9,4 @@ If _aFraction_ has a unicode code-point answer it.
 
 * * *
 
-See also: _Fraction_
+See also: Fraction

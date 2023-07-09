@@ -5,6 +5,9 @@
 Answers if a value is a fraction.
 Both _Fraction_ and _Intergral_ values answer true.
 
+	2:3.isFraction
+	23.isFraction
+
 * * *
 
-See also: _denominator_, _numerator_
+See also: denominator, Fraction, numerator

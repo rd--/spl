@@ -9,4 +9,4 @@ Answers the array of integers that are divisors of _anInteger_.
 
 * * *
 
-See also: _remainder_
+See also: remainder

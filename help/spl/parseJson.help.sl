@@ -12,4 +12,4 @@ Answer the value represented by the Json encoded _aString_.
 
 * * *
 
-See also: _json_
+See also: json

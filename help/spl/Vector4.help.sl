@@ -6,4 +6,4 @@ The _Vector4_ type represents an _(x, y, z, w)_ quadruple of numbers designating
 
 * * *
 
-See also: _Point_, _Vector2_, _Vector3_
+See also: Point, Vector2, Vector3

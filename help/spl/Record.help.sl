@@ -17,4 +17,4 @@ There is an _unsafeRecord_ form that coerces keys to strings.
 
 * * *
 
-See also: _Dictionary_, _Map_
+See also: Association, Dictionary, Map

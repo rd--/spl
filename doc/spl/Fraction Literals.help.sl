@@ -6,4 +6,4 @@ Fractions may be written as literals using the syntax _numerator:denominator_.
 
 * * *
 
-See also: _Fraction_
+See also: Fraction

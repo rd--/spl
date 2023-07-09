@@ -9,6 +9,6 @@ Where supported _not_ is displayed as ¬.
 
 * * *
 
-See also: _false_, _true_
+See also: false, true
 
 Unicode: U+007E ~ TILDE, U+00AC ¬ Not sign

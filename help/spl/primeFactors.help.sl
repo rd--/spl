@@ -10,4 +10,4 @@ Answer the array of prime integers the product of which is _anInteger_.
 
 * * *
 
-See also: _isPrime_, _product_
+See also: isPrime, product

@@ -11,4 +11,4 @@ _remainder_ answers the remainder from this division.
 
 * * *
 
-See also: _remainder_
+See also: remainder

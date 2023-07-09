@@ -6,4 +6,4 @@ If _aBoolean_ is _false_ answer the result of  _aProcedure()_, else answer _nil_
 
 * * *
 
-See also: _if_, _ifNil_, _ifTrue_
+See also: if, ifEmpty, ifNil, ifNotNil, ifTrue

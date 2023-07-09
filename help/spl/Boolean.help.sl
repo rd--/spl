@@ -12,4 +12,4 @@ The basic logical operations are _not_, _and_ and _or_.
 
 * * *
 
-See also: _true_, _false_, _and_, _or_
+See also: and, false, not, or, true

@@ -12,4 +12,4 @@ Answer a _Number_ with the same sign as the receiver.
 
 * * *
 
-See also: _quotient_
+See also: quotient

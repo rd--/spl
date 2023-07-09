@@ -10,4 +10,4 @@ Equality considers both _key_ & _value_.
 
 * * *
 
-See also: _->_
+See also: minusGreaterThan or ->

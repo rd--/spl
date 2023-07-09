@@ -8,4 +8,4 @@ _Nil_ is the type of the value _nil_.
 
 * * *
 
-See also: _nil_, _Void_
+See also: nil, Void

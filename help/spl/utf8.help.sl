@@ -13,4 +13,4 @@ Answer a _String_ of _ByteArray_ which must be an Utf-8 encoding.
 
 * * *
 
-See also: _ascii_
+See also: ascii

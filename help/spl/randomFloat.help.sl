@@ -6,5 +6,4 @@
 
 * * *
 
-See also: _atRandom_, _randomInteger_, _System_
-
+See also: atRandom, randomInteger, System

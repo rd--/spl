@@ -8,4 +8,4 @@ Ordinarily _self_ and _aProcedure_ are literal no-argument procedures written us
 
 * * *
 
-See also: _if_, _ifFalse_, _ifNil_, _ifTrue_, _whileTrue_
+See also: if, ifEmpty, ifFalse, ifNil, ifNotNil, ifTrue, whileTrue

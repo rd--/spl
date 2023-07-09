@@ -12,4 +12,4 @@ Determine if _anInteger_ is prime.
 
 * * *
 
-See also: _nextPrime_
+See also: nextPrime

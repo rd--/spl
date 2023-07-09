@@ -4,4 +4,4 @@ _nil_ represents a prior value for variables that have not been initialized, or 
 
 * * *
 
-See also: _Nil_, _Void_
+See also: Nil, Void

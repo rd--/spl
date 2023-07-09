@@ -8,6 +8,6 @@ Where supported this operator is displayed as Σ.
 
 * * *
 
-See also: _product_
+See also: product
 
 Unicode: U+03A3 Σ Greek Capital Letter Sigma

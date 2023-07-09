@@ -11,6 +11,6 @@ Where supported this operator is displayed as a leftwards arrow, ←.
 
 * * *
 
-See also: _=_
+See also: = or equals
 
 Unicode: U+2190 ← Leftwards Arrow, U+2254 ≔ Colon Equals

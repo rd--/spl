@@ -10,6 +10,6 @@ Where supported this operator is displayed as ≠.
 
 * * *
 
-See also: _=_, _==_, _~~_
+See also: = or equals, == or equalsEquals, ~~ or notNot
 
 Unicode: U+2260 ≠ Not equal to

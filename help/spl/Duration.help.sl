@@ -12,4 +12,4 @@ Durations are constructed from _Number_ values using the methods _milliseconds_,
 
 * * *
 
-See also: _TimeStamp_
+See also: TimeStamp

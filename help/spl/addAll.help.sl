@@ -2,12 +2,12 @@
 
 - _addAll(aCollection, anotherCollection)_
 
-Include all the elements of _anotherCollection_ as the receiver's elements.
+Include all the elements of _anotherCollection_ into _aCollection_.
 Answer _anotherCollection_.
 
 In general, any object responding to _do_ can be used as the second argument.
 
-	| c= 'xyyzzz', r = Bag(); | r.addAll(c); r.size = 6
+	| c = 'xyyzzz', r = Bag(); | r.addAll(c); r.size = 6
 	| c = 'xyyzzz', r = Set(); | r.addAll(c); r.size = 3
 	| c = (1 .. 9), r = []; | r.addAll(c); r.size = 9
 	| c = 'text', r = []; | r.addAll(c); r.size = 4
@@ -15,4 +15,4 @@ In general, any object responding to _do_ can be used as the second argument.
 
 * * *
 
-See also: _add_, _removeAll_
+See also: add, removeAll

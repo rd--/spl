@@ -1,12 +1,11 @@
 # sort -- sorting
 
-- _sort(anArray, aProcedure:/2)_
-- _sort(anArray)_
+- _sort(aSequence)_ ≡ _sortBy(aSequence, <=)_
 
-Sort _anArray_ in place using the comparator _aProcedure_, or <= is none is provided.
+Sort _aSequence_ in place using the comparator <=.
 
-	| a = [3, 2, 1]; | a.sort = a (* sort is in place (mutating) *)
+	| a = [3, 2, 1]; | a.sort = a & { a = [1, 2, 3] }
 
 * * *
 
-See also: sorted
+See also: sortBy, sorted

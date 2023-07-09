@@ -8,4 +8,4 @@ Large integers have a distinct literal syntax indicated by an _n_ suffix.
 
 * * *
 
-See also: _SmallFloat_
+See also: Integral, SmallFloat

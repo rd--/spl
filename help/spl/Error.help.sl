@@ -2,4 +2,4 @@
 
 * * *
 
-See also: _error_, _signal_, _ifError_
+See also: error, signal, ifError

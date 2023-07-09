@@ -1,10 +1,10 @@
-# Set - collection type
+# Set -- collection type
 
 A collection of objects without duplicates.
 
 * * *
 
-See also: _Bag_
+See also: Bag
 
 Smalltalk: _IdentitySet_
 

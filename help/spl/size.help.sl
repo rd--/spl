@@ -2,8 +2,9 @@
 
 - _size(aCollection)_
 
-Answer the receiver's number of indexed variables. This value is the same as the largest legal index.
+Answer the number of elements in _aCollection_.
+For indexable collections, this value is the same as the largest legal index.
 
 * * *
 
-See also: _at_, _atPut_, _isEmpty_
+See also: at, atPut, isEmpty

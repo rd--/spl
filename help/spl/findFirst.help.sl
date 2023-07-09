@@ -7,4 +7,4 @@ If no such element is found answer nil.
 
 * * *
 
-See also: findFirstIndex, select
+See also: detect, findFirstIndex, select

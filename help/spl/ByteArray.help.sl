@@ -1,4 +1,4 @@
-# ByteArray - collection type
+# ByteArray -- collection type
 
 An Array whose elements are integers between 0 and 255.
 

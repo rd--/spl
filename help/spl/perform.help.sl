@@ -1,4 +1,4 @@
-# perform - reflection
+# perform -- reflection
 
 - _perform(aValue, aString)_
 - _perform(aValue, aString, anArgument)_
@@ -10,4 +10,4 @@ Look up a named method in the method table for the type of the receiver and appl
 
 * * *
 
-See also: _methodLookupAtType_
+See also: methodLookupAtType

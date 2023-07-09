@@ -9,6 +9,6 @@ Where supported this operator is displayed as ≤.
 
 * * *
 
-See also: _<_, _>_, _>=_, _=_
+See also: <, >, >=, =
 
 Unicode: U+2264 ≤ Less-than or equal to

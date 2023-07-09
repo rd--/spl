@@ -6,6 +6,6 @@ Where supported _true_ is displayed as true.
 
 * * *
 
-See also: _false_, _not_
+See also: false, not
 
 Unicode: U+22A4 ⊤ Down tack

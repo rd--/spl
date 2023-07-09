@@ -2,7 +2,7 @@
 
 - _injectInto(aCollection, thisValue, aProcedure:/2)_
 
-Accumulate a running value associated with evaluating the argument, _aProcedure_, with the current value of the argument, _thisValue_, and the receiver as arguments.
+Accumulate a running value associated with evaluating _aProcedure_ with the current value _thisValue_ and the receiver as arguments.
 
 For instance, to sum the numeric elements of a collection:
 

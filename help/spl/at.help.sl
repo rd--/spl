@@ -18,4 +18,4 @@ Answer the value associated with _aKey_ in _aCollection_, else nil.
 
 * * *
 
-See also: _atPut_, _size_, [Put Syntax]
+See also: atPut, size, [Put Syntax]

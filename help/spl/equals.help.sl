@@ -11,4 +11,4 @@ The _=_ symbol is also a part of [Initialised Temporaries Syntax] and [Variable 
 
 * * *
 
-See also: _~=_, _==_
+See also: ~= or notEquals, == or equalsEquals

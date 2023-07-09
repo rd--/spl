@@ -19,4 +19,4 @@ Answer a _String_ that is a description of the receiver.
 
 * * *
 
-See also: _asString_, _storeString_
+See also: asString, storeString

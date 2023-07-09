@@ -22,4 +22,4 @@ The _methodDictionary_ is reflected in the _System_ type.
 
 * * *
 
-See also: _System_, _Trait_, _Type_
+See also: System, Trait, Type

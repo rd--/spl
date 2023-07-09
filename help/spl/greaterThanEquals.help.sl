@@ -9,6 +9,6 @@ Where supported this operator is displayed as ≥.
 
 * * *
 
-See also: _<_, _>_, _<=_, _=_
+See also: lessThan or <, greaterThan or >, lessThanEquals or <=, greaterThanEquals or >=
 
 Unicode: U+2265 ≥ Greater-than or equal to

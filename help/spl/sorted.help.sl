@@ -1,7 +1,7 @@
 # sorted -- sorting
 
-- _sorted(aCollection)_
 - _sorted(aCollection, aProcedure:/2)_
+- _sorted(aCollection)_ ≡ _sorted(aCollection, <=)_
 
 Answer a new Array which contains the same elements as _aCollection_ where the elements are sorted by _aProcedure_.
 
@@ -15,4 +15,4 @@ The unary form of _sorted_ sorts using <=.
 
 * * *
 
-See also: sort
+See also: sort, sortBy

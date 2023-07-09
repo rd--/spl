@@ -1,4 +1,4 @@
-# toDo - intervals
+# toDo -- interval
 
 - _toDo(start, stop, aProcedure:/1)_ ≡ _to(start, stop).do(aProcedure:/1)_
 

@@ -8,4 +8,4 @@ Unlike _SmallFloat>>do_ the procedure does not receive the iteration counter as 
 
 * * *
 
-See also: _do_
+See also: do
