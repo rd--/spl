@@ -360,7 +360,7 @@ Bag().isSequenceable = false
 | b = Bag(); | b.add('x'); b.add('x'); b.size = 2 (* number of objects in bag *)
 | b = Bag(); | b.add('x'); b.add('y'); b.add('x'); b.size = 3 (* add element to bag *)
 | b = Bag(); | b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 (* add all elements of argument to bag *)
-| c = 'xyyzzz', r = Bag(); | r.addAll(c); r.size = 6 (* add all elements of a String to a Bag *)
+| c = 'xyyzzz'.split, r = Bag(); | r.addAll(c); r.size = 6 (* add all elements of a String to a Bag *)
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.size = 10
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
@@ -543,6 +543,10 @@ ByteArray(4).hex = '00000000'
 '𠮷'.Character.codePoint = 134071
 134071.Character.string = '𠮷'
 '䶰䶱䶲䶳䶴䶵'.characterArray.collect(codePoint:/1) = [19888 .. 19893]
+'x'.Character = 120.Character (* characters are comparable *)
+'x'.Character.asInteger = 120
+'x'.Character.printString = 'x'
+'𠮷'.Character ~~ '𠮷'.Character (* Characters are not identical (c.f. Set and Bag) *)
 ```
 
 ## Collection -- collection trait
@@ -1399,7 +1403,7 @@ var s = (1 .. 10).Set; s.copyWithout(3).includes(3) = false
 var s = (1 .. 10).Set; var t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].Set
 var s = (1 .. 5).Set; var n = 0; s.do { :each | n := n + each }; n = 15
 var s = [].Set; s.addAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 (* add all elements of an Array to a Set *)
-| c = 'xyyzzz', r = Set(); | r.addAll(c); r.size = 3 (* add all elements of a String to a Set *)
+| c = 'xyyzzz'.split, r = Set(); | r.addAll(c); r.size = 3 (* add all elements of a String to a Set *)
 var s = [].Set; s.addAll([1 .. 99]); s.size = 99
 var s = ['x', 5].Set; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
 var s = (1 .. 5).Set; var n = 0; s.do { :each | n := n + each }; n = 15
@@ -1516,11 +1520,13 @@ var a = [5 .. 9].SortedArray(greaterThan:/2); a.addAll([1 .. 4]); a.contents = [
 ```
 'quoted string'.isString (* quoted string *)
 'x' ++ 'y' = 'xy' (* append (catenation) *)
+'string'.isAscii = true (* does string contain only ascii characters *)
 'string'.ascii = [115, 116, 114, 105, 110, 103].ByteArray (* String to ByteArray of Ascii encoding *)
+{ 'Mačiūnas'.ascii }.ifError { :err | true } (* non-ascii characters *)
 '3.4'.asNumber = 3.4 (* parse float *)
 '3'.asInteger = 3 (* parse integer *)
-'string'.at(4) = 'i' (* one-indexing *)
-'string'[4] = 'i' (* one-indexing (bracket notation) *)
+'string'.at(4) = 'i'.Character (* one-indexing *)
+'string'[4] = 'i'.Character (* one-indexing (bracket notation) *)
 ''.isEmpty = true (* empty string predicate *)
 'string'.isEmpty = false (* is empty string *)
 'string'.size = 6 (* length *)
@@ -1539,7 +1545,13 @@ var a = [5 .. 9].SortedArray(greaterThan:/2); a.addAll([1 .. 4]); a.contents = [
 'text'.copyFromTo(3 ,3) = 'x' (* substring (single character) *)
 { 'string'.add('!') }.ifError { :err | 'oh oh...' } = 'oh oh...' (* strings are immutable *)
 'quoted string with \'escaped\' quote characters'.words[4].copyFromTo(2, 8) = 'escaped'
+'string'.utf8 = 'string'.ascii (* Utf-8 is a superset of ascii *)
 'øéஃî'.utf8 = [195, 184, 195, 169, 224, 174, 131, 195, 174].ByteArray (* unicode *)
+'Mačiūnas'.utf8 = [77, 97, 196, 141, 105, 197, 171, 110, 97, 115].ByteArray (* Utf-8 encoding *)
+'Mačiūnas'.size = 8
+'Mačiūnas'.utf8.size = 10
+'Mačiūnas'.utf16 = [77, 97, 269, 105, 363, 110, 97, 115] (* Utf-16 encoding *)
+'Mačiūnas'.utf16.size = 8
 'string'.allButFirst = 'tring' (* all but first character of a String *)
 'string'.allButFirst(4) = 'ng' (* all but first n characters of a String *)
 ''.typeOf = 'String' (* type of String *)
@@ -1580,13 +1592,14 @@ var a = [5 .. 9].SortedArray(greaterThan:/2); a.addAll([1 .. 4]); a.contents = [
 `x` = 'x'.parseBacktickQuotedString
 "x" = 'x' (* double quotes *)
 "x" = 'x'.parseDoubleQuotedString
-'string'[3] = 'r' (* string indexing *)
-{ 'string'[3] := 'r' }.ifError { :err | true }
+'string'[3] = 'r'.Character (* string indexing *)
+{ 'string'[3] := nil }.ifError { :err | true } (* strings are immutable *)
 '{"x": 3.141, "y": 23}'.parseJson = (x: 3.141, y: 23)
 { '_'.parseJson }.ifError { :err | true }
 'a text string'.json = '"a text string"'
 '"a text string"'.parseJson = 'a text string'
-'string'.last = 'g'
+'string'.first = 's'.Character
+'string'.last = 'g'.Character
 var x = ['a', 'bc', 'def']; x.unlines.lines = x
 '3 + 4'.evaluate = 7
 'a short string'.replace('short', 'longer') = 'a longer string'
@@ -1604,21 +1617,22 @@ var x = ['a', 'bc', 'def']; x.unlines.lines = x
 'testAt'.endsWith('At') = true
 { 'testAt'.endsWith(nil) }.ifError { :err | true }
 ['a','b','','c'].unlines.paragraphs.collect(lines:/1) = [['a', 'b'], ['c']]
-'string'.at(3) = 'r' (* string indexing *)
-var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
+'string'.at(3) = 'r'.Character (* string indexing *)
+var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripting *)
 ' x '.withBlanksTrimmed = 'x'
 ' x '.withoutLeadingBlanks = 'x '
 ' x '.withoutTrailingBlanks = ' x'
-| a = []; | 'string'.do { :each | a.add(each) }; a.join = 'string'
+| a = []; | 'string'.do { :each | a.add(each) }; a.joinCharacters = 'string'
 '𠮷'.countCharacters = 1
 '𠮷'.countUtf16CodeUnits = 2
 '𠮷'.size = 2
 '𠮷'.isSingleCharacter = true
-'𠮷'.split = ['𠮷']
+'𠮷'.characterArray = ['𠮷'.Character]
 '𠮷'.codePointAt(1) = 134071
 '𠮷'.codePointArray = [134071]
 '𠮷'.isInBasicMultilingualPlane = false
 '𠮷'.isWellFormed = true
+{ '𠮷'.ascii }.ifError { :err | true } (* non-ascii character *)
 ```
 
 ## Syntax -- array assignment syntax
@@ -1638,7 +1652,7 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 
 ## Syntax -- collection access and mutation
 ```
-'text'[3].toUppercase = 'X' (* c[k] is syntax for c.at(k) *)
+'text'[3] = 'x'.Character (* c[k] is syntax for c.at(k) *)
 var x = [1 .. 5]; x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, v) *)
 ```
 

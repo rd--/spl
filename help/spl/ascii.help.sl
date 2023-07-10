@@ -1,4 +1,4 @@
-# ascii -- encoding
+# ascii -- string encoding
 
 - _ascii(aString)_
 
@@ -15,4 +15,4 @@ Answer a _String_ of _ByteArray_ which must be an Ascii encoding.
 
 * * *
 
-See also: utf8
+See also: String, utf8, utf16

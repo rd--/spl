@@ -1823,6 +1823,10 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection, OrderedC
 		self.joinSeparatedBy('')
 	}
 
+	joinCharacters { :self |
+		self.collect(string:/1).joinSeparatedBy('')
+	}
+
 	joinSeparatedBy { :self :aString |
 		<primitive: return _self.join(_aString);>
 	}

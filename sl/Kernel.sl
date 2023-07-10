@@ -685,8 +685,26 @@ Boolean : [Object] {
 
 Character : [Object] { | string |
 
+	= { :self :anObject |
+		anObject.isCharacter & {
+			self.string = anObject.string
+		}
+	}
+
+	asInteger { :self |
+		self.codePoint
+	}
+
 	codePoint { :self |
 		self.string.codePointAt(1)
+	}
+
+	printString { :self |
+		self.string
+	}
+
+	storeString { :self |
+		'Character(' ++ self.string ++ ')'
 	}
 
 }
@@ -707,14 +725,6 @@ Character : [Object] { | string |
 		} {
 			'String>>Character: not character'.error
 		}
-	}
-
-	characterArray { :self |
-		| answer = []; |
-		self.do { :each |
-			answer.add(each.Character)
-		};
-		answer
 	}
 
 }
@@ -2178,12 +2188,11 @@ String : [Object] {
 	}
 
 	ascii { :self |
-		1.toAsCollect(self.size, ByteArray:/1) { :index |
-			| codePoint = self.codePointAt(index); |
-			(codePoint > 255).ifTrue {
-				'String>>ascii: non-ascii character'.error
-			};
-			codePoint
+		| answer = self.utf8; |
+		answer.allSatisfy(isAsciiCodePoint:/1).if {
+			answer
+		} {
+			'String>>ascii: non-ascii character'.error
 		}
 	}
 
@@ -2201,7 +2210,7 @@ String : [Object] {
 
 	at { :self :index |
 		(* Note: index is in Utf-16 code units, not characters *)
-		<primitive: return String.fromCodePoint(_self.codePointAt(_index - 1));>
+		self.codePointAt(index).Character
 	}
 
 	beginsWith { :self :aString |
@@ -2217,20 +2226,28 @@ String : [Object] {
 		<primitive: return _self[0].toUpperCase() + _self.slice(1);>
 	}
 
-	codePointAt { :self :index |
-		<primitive: return _self.codePointAt(_index - 1);>
+	characterArray { :self |
+		| answer = []; |
+		self.do { :each |
+			answer.add(each)
+		};
+		answer
 	}
 
-	copyFromTo { :self :start :end |
-		<primitive: return _self.substring(_start - 1, _end);>
+	codePointAt { :self :index |
+		<primitive: return _self.codePointAt(_index - 1);>
 	}
 
 	codePointArray { :self |
 		| answer = []; |
 		self.do { :each |
-			answer.add(each.codePointAt(1))
+			answer.add(each.codePoint)
 		};
 		answer
+	}
+
+	copyFromTo { :self :start :end |
+		<primitive: return _self.substring(_start - 1, _end);>
 	}
 
 	countCharacters { :self |
@@ -2248,7 +2265,7 @@ String : [Object] {
 	do { :self :aProcedure:/1 |
 		<primitive:
 		for (const each of _self) {
-			_aProcedure_1(each);
+			_aProcedure_1(_Character_1(each));
 		};
 		return _self;
 		>
@@ -2275,6 +2292,10 @@ String : [Object] {
 		<primitive: return _self.indexOf(_aString) + 1;>
 	}
 
+	first { :self |
+		self[1]
+	}
+
 	indices { :self |
 		1.upTo(self.size)
 	}
@@ -2299,6 +2320,10 @@ String : [Object] {
 		<primitive: return _self.includes(_aString);>
 	}
 
+	isAscii { :self |
+		self.utf8.allSatisfy(isAsciiCodePoint:/1)
+	}
+
 	isInBasicMultilingualPlane { :self |
 		self.countUtf16CodeUnits = self.countCharacters
 	}
@@ -2320,8 +2345,10 @@ String : [Object] {
 	}
 
 	isSingleCharacter { :self |
-		self.size <= 2 & {
-			self.countCharacters = 1
+		self.size = 1 | {
+			self.size = 2 & {
+				self.utf16.allSatisfy(isUtf16SurrogateCode:/1)
+			}
 		}
 	}
 
@@ -2441,7 +2468,7 @@ String : [Object] {
 	split { :self |
 		| answer = []; |
 		self.do { :each |
-			answer.add(each)
+			answer.add(each.string)
 		};
 		answer
 	}
@@ -2518,6 +2545,18 @@ String : [Object] {
 		<primitive: return new TextEncoder().encode(_self.normalize('NFC'));>
 	}
 
+	utf16 { :self |
+		| answer = []; |
+		self.countUtf16CodeUnits.do { :index |
+			answer.add(self.utf16CodePointAt(index))
+		};
+		answer
+	}
+
+	utf16CodePointAt { :self :index |
+		<primitive: return _self.charCodeAt(_index - 1);>
+	}
+
 	withBlanksTrimmed { :self |
 		<primitive: return _self.trim();>
 	}
@@ -2550,6 +2589,12 @@ String : [Object] {
 }
 
 +@Integral {
+
+	isAsciiCodePoint { :self |
+		self >= 0 & {
+			self < 128
+		}
+	}
 
 	isUtf16SurrogateCode { :self |
 		(* 0xD800 = 55296, 0xDFFF 573430 *)

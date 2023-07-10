@@ -773,7 +773,7 @@ Trait : [Object] {
 +String {
 
 	isQualifiedTraitName { :self |
-		self[1] = '@'
+		self[1] = '@'.Character
 	}
 
 	parseQualifiedTraitName { :self |
