@@ -162,20 +162,34 @@
 	}
 
 	nthPrime { :self |
-		| nPrimes = 6542; |
-		(self <= nPrimes).if {
-			workspace::primesArray.ifNil {
-				| n = 1; |
-				workspace::primesArray := Array(nPrimes);
-				1.upToDo(nPrimes) { :index |
-					n := n.nextPrime;
-					workspace::primesArray[index] := n
-				}
-			};
-			workspace::primesArray[self]
+		|(
+			primesArray = workspace.atIfAbsentPut('primesArray') {
+				23.primesArray
+			}
+		)|
+		(self > primesArray.size).if {
+			self.primesArrayExtend(primesArray)
 		} {
-			'@Integral>>nthPrime: out of range'.error
+			primesArray[self]
 		}
+	}
+
+	primesArray { :self |
+		| answer = Array(self), n = 1; |
+		1.upToDo(self) { :index |
+			n := n.nextPrime;
+			answer[index] := n
+		};
+		answer
+	}
+
+	primesArrayExtend { :self :anArray |
+		| n = anArray.last; |
+		(self - anArray.size).timesRepeat {
+			n := n.nextPrime;
+			anArray.add(n)
+		};
+		n
 	}
 
 	primesUpTo { :self |
@@ -721,7 +735,11 @@ Character : [Object] { | string |
 
 	Character { :self |
 		self.isSingleCharacter.if {
-			newCharacter().initializeSlots(self)
+			workspace.atIfAbsentPut('characterDictionary') {
+				()
+			}.atIfAbsentPut(self) {
+				newCharacter().initializeSlots(self)
+			}
 		} {
 			'String>>Character: not character'.error
 		}
@@ -2210,7 +2228,12 @@ String : [Object] {
 
 	at { :self :index |
 		(* Note: index is in Utf-16 code units, not characters *)
-		self.codePointAt(index).Character
+		| codePoint = self.codePointAt(index); |
+		codePoint.isUtf16SurrogateCode.if {
+			'String>>at: code point is lone surrogate'.error
+		} {
+			codePoint.Character
+		}
 	}
 
 	beginsWith { :self :aString |
@@ -2347,7 +2370,7 @@ String : [Object] {
 	isSingleCharacter { :self |
 		self.size = 1 | {
 			self.size = 2 & {
-				self.utf16.allSatisfy(isUtf16SurrogateCode:/1)
+				self.codePointAt(2).isUtf16SurrogateCode
 			}
 		}
 	}
@@ -2597,9 +2620,9 @@ String : [Object] {
 	}
 
 	isUtf16SurrogateCode { :self |
-		(* 0xD800 = 55296, 0xDFFF 573430 *)
+		(* 0xD800 = 55296, 0xDfFF = 57343 *)
 		self >= 55296 & {
-			self <= 573430
+			self <= 57343
 		}
 	}
 

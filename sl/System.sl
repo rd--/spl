@@ -1,14 +1,27 @@
 @Blob {
 
-	size { :self | <primitive: return _self.size;> } (* Read only *)
-	type { :self | <primitive: return _self.type;> } (* Read only *)
-
-	arrayBuffer { :self | <primitive: return _self.arrayBuffer();> }
-	slice { :self :start :end :contentType | <primitive: return _self.slice(_start, _end, _contentType);> }
-	text { :self | <primitive: return _self.text();> }
+	arrayBuffer { :self |
+		<primitive: return _self.arrayBuffer();>
+	}
 
 	isEmpty { :self |
 		self.size = 0
+	}
+
+	slice { :self :start :end :contentType |
+		<primitive: return _self.slice(_start, _end, _contentType);>
+	}
+
+	size { :self |
+		<primitive: return _self.size;> (* Read only *)
+	}
+
+	text { :self |
+		<primitive: return _self.text();>
+	}
+
+	type { :self |
+		<primitive: return _self.type;> (* Read only *)
 	}
 
 }
@@ -19,8 +32,13 @@ Blob : [Object, Blob] {
 
 +Array {
 
-	Blob { :self | <primitive: return new Blob(_self);> }
-	Blob { :self :options | <primitive: return new Blob(_self, _options);> }
+	Blob { :self |
+		<primitive: return new Blob(_self);>
+	}
+
+	Blob { :self :options |
+		<primitive: return new Blob(_self, _options);>
+	}
 
 }
 
@@ -34,8 +52,13 @@ Blob : [Object, Blob] {
 
 File : [Object, Blob] {
 
-	lastModified { :self | <primitive: return _self.lastModified;> } (* Read only *)
-	name { :self | <primitive: return _self.name;> } (* Read only *)
+	lastModified { :self |
+		<primitive: return _self.lastModified;> (* Read only *)
+	}
+
+	name { :self |
+		<primitive: return _self.name;> (* Read only *)
+	}
 
 }
 
@@ -835,18 +858,54 @@ Type : [Object] {
 
 URL : [Object] {
 
-	hash { :self | <primitive: return _self.hash;> }
-	host { :self | <primitive: return _self.host;> }
-	hostname { :self | <primitive: return _self.hostname;> }
-	href { :self | <primitive: return _self.href;> }
-	origin { :self | <primitive: return _self.origin;> } (* Read only *)
-	password { :self | <primitive: return _self.password;> }
-	pathname { :self | <primitive: return _self.pathname;> }
-	port { :self | <primitive: return _self.port;> }
-	protocol { :self | <primitive: return _self.protocol;> }
-	search { :self | <primitive: return _self.search;> }
-	searchParams { :self | <primitive: return _self.searchParams;> } (* Read only *)
-	username { :self | <primitive: return _self.username;> }
+	hash { :self |
+		<primitive: return _self.hash;>
+	}
+
+	host { :self |
+		<primitive: return _self.host;>
+	}
+
+	hostname { :self |
+		<primitive: return _self.hostname;>
+	}
+
+	href { :self |
+		<primitive: return _self.href;>
+	}
+
+	origin { :self |
+		<primitive: return _self.origin;> (* Read only *)
+	}
+
+	password { :self |
+		<primitive: return _self.password;>
+	}
+
+	pathname { :self |
+		<primitive: return _self.pathname;>
+	}
+
+	port { :self |
+		<primitive: return _self.port;>
+	}
+
+	protocol { :self |
+		<primitive: return _self.protocol;>
+	}
+
+	search { :self |
+		<primitive: return _self.search;>
+	}
+
+	searchParams { :self |
+		<primitive: return _self.searchParams;>
+	}
+
+	username { :self |
+		<primitive: return _self.username;> (* Read only *)
+	}
+
 
 	Url { :self |
 		self
@@ -856,13 +915,33 @@ URL : [Object] {
 
 +String {
 
-	decodeURI { :self | <primitive: return decodeURI(_self);> }
-	decodeURIComponent { :self | <primitive: return decodeURIComponent(_self);> }
-	encodeURI { :self | <primitive: return encodeURI(_self);> }
-	encodeURIComponent { :self | <primitive: return encodeURIComponent(_self);> }
-	revokeObjectURL { :self | <primitive: return URL.revokeObjectURL(_self);> }
-	URL { :self | <primitive: return new URL(_self);> }
-	URL { :self :base | <primitive: return new URL(_self, _base);> }
+	decodeURI { :self |
+		<primitive: return decodeURI(_self);>
+	}
+
+	decodeURIComponent { :self |
+		<primitive: return decodeURIComponent(_self);>
+	}
+
+	encodeURI { :self |
+		<primitive: return encodeURI(_self);>
+	}
+
+	encodeURIComponent { :self |
+		<primitive: return encodeURIComponent(_self);>
+	}
+
+	revokeObjectURL { :self |
+		<primitive: return URL.revokeObjectURL(_self);>
+	}
+
+	URL { :self |
+		<primitive: return new URL(_self);>
+	}
+
+	URL { :self :base |
+		<primitive: return new URL(_self, _base);>
+	}
 
 	Url { :self |
 		self.URL
@@ -872,58 +951,78 @@ URL : [Object] {
 
 +[File, Blob] {
 
-	createObjectURL { :self | <primitive: return URL.createObjectURL(_self);> }
+	createObjectURL { :self |
+		<primitive: return URL.createObjectURL(_self);>
+	}
 
 }
 
 URLSearchParams : [Object] {
 
-	append { :self :name :value | <primitive: return _self.delete(_name, _value);> }
-	delete { :self :name | <primitive: return _self.delete(_name);> }
-	get { :self :name | <primitive: return _self.get(_name);> }
-	has { :self :name | <primitive: return _self.has(_name);> }
+	append { :self :name :value |
+		<primitive: return _self.delete(_name, _value);>
+	}
+
+	delete { :self :name |
+		<primitive: return _self.delete(_name);>
+	}
+
+	get { :self :name |
+		<primitive: return _self.get(_name);>
+	}
+
+	has { :self :name |
+		<primitive: return _self.has(_name);>
+	}
 
 }
 
 +[String, Record] {
 
-	URLSearchParams { :self | <primitive: return new URLSearchParams(_self);> }
+	URLSearchParams { :self |
+		<primitive: return new URLSearchParams(_self);>
+	}
 
 }
 
 Window : [Object] {
 
-	alert { :self :aString | <primitive: return _self.alert(_aString);> }
-	confirm { :self :aString | <primitive: return _self.confirm(_aString);> }
-	fetch { :self :resource | <primitive: return _self.fetch(_resource);> }
-	fetch { :self :resource :options | <primitive: return _self.fetch(_resource, _options);> }
-	localStorage { :self | <primitive: return _self.localStorage;> }
-	location { :self | <primitive: return _self.location;> }
-	name { :self | <primitive: return _self.name;> }
-	navigator { :self | <primitive: return _self.navigator;> }
-	prompt { :self :message :defaultValue | <primitive: return _self.prompt(_message, _defaultValue);> }
-	sessionStorage { :self | <primitive: return _self.sessionStorage;> }
+	alert { :self :aString |
+		<primitive: return _self.alert(_aString);>
+	}
 
-	fetchBlob { :self :resource :options |
-		self.fetch(resource, options).then { :response |
+	confirm { :self :aString |
+		<primitive: return _self.confirm(_aString);>
+	}
+
+	fetch { :self :resource |
+		<primitive: return _self.fetch(_resource);>
+	}
+
+	fetch { :self :resource :options |
+		<primitive: return _self.fetch(_resource, _options);>
+	}
+
+	fetchBlob { :self :resource :options  |
+		self.fetch(resource, options).then { :response  |
 			response.blob
 		}
 	}
 
-	fetchByteArray { :self :resource :options |
-		self.fetch(resource, options).then { :response |
+	fetchByteArray { :self :resource :options  |
+		self.fetch(resource, options).then { :response  |
 			response.byteArray
 		}
 	}
 
-	fetchJson { :self :resource :options |
-		self.fetch(resource, options).then { :response |
+	fetchJson { :self :resource :options  |
+		self.fetch(resource, options).then { :response  |
 			response.json
 		}
 	}
 
-	fetchMimeType { :self :resource :mimeType :options |
-		self.fetch(resource, options).then { :response |
+	fetchMimeType { :self :resource :mimeType :options  |
+		self.fetch(resource, options).then { :response  |
 			mimeType.caseOfOtherwise([
 				'application/json' -> {
 					response.json
@@ -931,20 +1030,44 @@ Window : [Object] {
 				'text/plain' -> {
 					response.text
 				}
-			]) { :unused |
+			]) { :unused  |
 				('fetchMimeType: unknown mimeType: ' ++ mimeType).error
 			}
 		}
 	}
 
-	fetchString { :self :resource :options |
-		self.fetch(resource, options).then { :response |
+	fetchString { :self :resource :options  |
+		self.fetch(resource, options).then { :response  |
 			response.text
 		}
 	}
 
+	localStorage { :self |
+		<primitive: return _self.localStorage;>
+	}
+
+	location { :self |
+		<primitive: return _self.location;>
+	}
+
+	name { :self |
+		<primitive: return _self.name;>
+	}
+
+	navigator { :self |
+		<primitive: return _self.navigator;>
+	}
+
+	prompt { :self :message :defaultValue |
+		<primitive: return _self.prompt(_message, _defaultValue);>
+	}
+
 	pseudoSlotNameArray { :self |
 		['localStorage', 'location', 'name', 'navigator', 'sessionStorage']
+	}
+
+	sessionStorage { :self |
+		<primitive: return _self.sessionStorage;>
 	}
 
 }

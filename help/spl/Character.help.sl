@@ -10,6 +10,10 @@ The _codePoint_ method retrieves the unicode code point and the _string_ method 
 	'x'.Character.codePoint = 120
 	120.Character.string = 'x'
 
+Characters are cached on construction, and are therefore identical.
+
+	'x'.Character == 120.Character
+
 There is no literal syntax for characters.
 
 * * *

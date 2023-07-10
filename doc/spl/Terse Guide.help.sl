@@ -106,6 +106,10 @@ pi.veryCloseTo(3.141592653589793) (* pi = 3.141592653589793 *)
 (0 / 0).isNaN (* division of zero by zero is NaN *)
 1.isNaN.not (* one is a number *)
 4 / [0 .. 3] = [inf, 4, 2, 4/3] (* divide by zero is infinity *)
+9.primesArray = [2, 3, 5, 7, 11, 13, 17, 19, 23] (* first elements of prime number sequence *)
+5.nthPrime = 11 (* the nth entry in the sequence of prime numbers *)
+23.nthPrime = 83 (* the nth entry in the sequence of prime numbers *)
+3579.nthPrime = 33413 (* the nth entry in the sequence of prime numbers *)
 ```
 
 ## Array -- collection type
@@ -221,7 +225,7 @@ Array(5).fillFromWith([1 .. 5], negated:/1) = [-1 .. -5]
 [1 .. 3].printString = '[1, 2, 3]' (* array print string *)
 [1, 2, 3].printString = '[1, 2, 3]' (* array print string *)
 [1 .. 9].allButFirst = [2 .. 9] (* all but first element of Array *)
-[1 .. 9].allButFirst(7) = [8, 9]  (* all but first n elements of Array *)
+[1 .. 9].allButFirst(7) = [8, 9] (* all but first n elements of Array *)
 { [].allButFirst }.ifError { :err | true } (* too few elements *)
 [1 .. 9].allButLast = [1 .. 8]
 [1 .. 9].allButLast(7) = [1, 2]
@@ -322,7 +326,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 | c = [1 .. 5]; | [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
 | c = [1 .. 5]; | [c.removeFirst(3), c] = [[1, 2, 3], [4, 5]] (* remove first three objects from array *)
 | c = [1 .. 5]; | [c.removeLast(3), c] = [[3, 4, 5], [1, 2]] (* remove last three objects from array *)
-| c = [1 .. 5]; | c.removeAll; c = []  (* remove all objects from array *)
+| c = [1 .. 5]; | c.removeAll; c = [] (* remove all objects from array *)
 | c = [1 .. 5]; | [c.remove(3), c] = [3, [1, 2, 4, 5]] (* remove object from array *)
 | c = [1 .. 5]; | c.removeIfAbsent(9) { true } & { c = [1 .. 5] } (* remove object from array, handle absence *)
 ```
@@ -360,7 +364,8 @@ Bag().isSequenceable = false
 | b = Bag(); | b.add('x'); b.add('x'); b.size = 2 (* number of objects in bag *)
 | b = Bag(); | b.add('x'); b.add('y'); b.add('x'); b.size = 3 (* add element to bag *)
 | b = Bag(); | b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 (* add all elements of argument to bag *)
-| c = 'xyyzzz'.split, r = Bag(); | r.addAll(c); r.size = 6 (* add all elements of a String to a Bag *)
+| c = 'xyyzzz', r = Bag(); | r.addAll(c); r.size = 6 (* add all elements of a String to a Bag *)
+| c = 'xyyzzz'.split, r = Bag(); | r.addAll(c); r.size = 6 (* add all characters of a String to a Bag *)
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.size = 10
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
@@ -526,7 +531,7 @@ ByteArray(4).hex = '00000000'
 'text'.ascii[1] = 116 (* ByteArray subscript *)
 | b = ByteArray(4); | b[1] := 15; b[3] := 240; b.hex = '0f00f000'
 | b = ByteArray(4); | b[2] := 15; b[4] := 240; b.hex = '000f00f0'
-[1 .. 4].ByteArray.hex =  '01020304'
+[1 .. 4].ByteArray.hex = '01020304'
 'string'.ascii.hex = '737472696e67' (* hexadecimal string of ByteArray *)
 '737472696e67'.parseHexString.ascii = 'string' (* ByteArray of hexadecimal string *)
 | b = ByteArray(4); | b.atAllPut(15); b.hex = '0f0f0f0f'
@@ -546,7 +551,8 @@ ByteArray(4).hex = '00000000'
 'x'.Character = 120.Character (* characters are comparable *)
 'x'.Character.asInteger = 120
 'x'.Character.printString = 'x'
-'𠮷'.Character ~~ '𠮷'.Character (* Characters are not identical (c.f. Set and Bag) *)
+'x'.Character == 120.Character (* characters are identical *)
+'𠮷'.Character == '𠮷'.Character (* characters are identical *)
 ```
 
 ## Collection -- collection trait
@@ -667,6 +673,9 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 unicodeFractions().isDictionary = true
 unicodeFractions().associations.isArray = true
 (x: 1, y: 2).select { :each | false } = () (* select nothing *)
+().at('x') = nil
+().atIfAbsentPut('x') { 1 } = 1
+| d = (); | d.atIfAbsentPut('x') { 1 } = 1 & { d::x = 1 }
 ```
 
 ## Duration -- temporal type
@@ -890,7 +899,7 @@ Interval(5, 10, 2).last = 9 (* create interval object with specified increment *
 (1 .. 5).isEmpty.not (* test if empty *)
 (1 .. 5).size = 5 (* number of elements *)
 (1 .. 9).includes(9) (* test if element is in collection, interval is inclusive *)
-(1 .. 9).includes(11).not  (* test if element is in collection *)
+(1 .. 9).includes(11).not (* test if element is in collection *)
 (1 .. 9).select { :item | item > 7 } = [8, 9] (* return elements that pass test *)
 (1 .. 9).reject { :item | item < 7 } = [7, 8, 9] (* return elements that fail test *)
 (1 .. 9).collect { :item | item + item }.last = 18 (* transform each element *)
@@ -1165,7 +1174,7 @@ var f = { :x | x * x }; var d = (p: f); d::p.value(5) = 25
 { 0 }.cull(23) = 0 (* ignore one argument *)
 { 0 }.cull(23, 3.141) = 0 (* ignore two arguments *)
 { :x | x }.cull(23) = 23 (* recognise one argument *)
-{ :x | x }.cull(23, 3.141) = 23  (* recognise one argument, ignore one argument *)
+{ :x | x }.cull(23, 3.141) = 23 (* recognise one argument, ignore one argument *)
 { :x :y | x * y }.cull(23, 3.141) = 72.243 (* recognise two arguments *)
 var f = { :x | x * x }; f(3) = 9
 { var f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49] }.ifError { :err | true }
@@ -1183,9 +1192,9 @@ var x = { }; x.isProcedure (* blocks are objects and may be assigned to a variab
 { :p1 :p2| p1 ++ ' & ' ++ p2 }.value('x', 'y') = 'x & y' (* block with argument passing *)
 { :x | x + 1 }.numArgs = 1 (* the number of arguments can be retrieved *)
 { :x | x := nil }.value(42).isNil (* arguments are mutable *)
-{ } ~=  { } (* inequality *)
+{ } ~= { } (* inequality *)
 ({ } = { }).not (* inequality *)
-{ 1 } ~=  { 1 } (* inequality *)
+{ 1 } ~= { 1 } (* inequality *)
 { 1 } ~= 1 (* inequality *)
 { } ~~ { } (* non-identity *)
 var f = { }; f == f (* identity *)
@@ -1403,7 +1412,8 @@ var s = (1 .. 10).Set; s.copyWithout(3).includes(3) = false
 var s = (1 .. 10).Set; var t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].Set
 var s = (1 .. 5).Set; var n = 0; s.do { :each | n := n + each }; n = 15
 var s = [].Set; s.addAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 (* add all elements of an Array to a Set *)
-| c = 'xyyzzz'.split, r = Set(); | r.addAll(c); r.size = 3 (* add all elements of a String to a Set *)
+| c = 'xyyzzz'.split, r = Set(); | r.addAll(c); r.size = 3 (* add all characters of a String to a Set *)
+| c = 'xyyzzz', r = Set(); | r.addAll(c); r.size = 3 (* add all elements of a String to a Set *)
 var s = [].Set; s.addAll([1 .. 99]); s.size = 99
 var s = ['x', 5].Set; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
 var s = (1 .. 5).Set; var n = 0; s.do { :each | n := n + each }; n = 15
@@ -1631,10 +1641,13 @@ var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripti
 '𠮷'.isSingleCharacter = true
 '𠮷'.characterArray = ['𠮷'.Character]
 '𠮷'.codePointAt(1) = 134071
+'𠮷'.codePointAt(2) = 57271
 '𠮷'.codePointArray = [134071]
 '𠮷'.isInBasicMultilingualPlane = false
 '𠮷'.isWellFormed = true
 { '𠮷'.ascii }.ifError { :err | true } (* non-ascii character *)
+'𠮷'[1] = '𠮷'.Character
+{ '𠮷'[2] }.ifError { :err | true } (* lone surrogate *)
 ```
 
 ## Syntax -- array assignment syntax
