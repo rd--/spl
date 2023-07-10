@@ -1,8 +1,9 @@
 # Array -- collection type
 
+- _Array()_
 - _Array(anInteger)_
 
-Create a new array of _anInteger_ places, each initialised to _nil_.
+Create a new array of zero or _anInteger_ places, each initialised to _nil_.
 
 - _Array(aCollection)_
 
@@ -14,4 +15,4 @@ Array implements the _Collection_, _SequencableCollection_, _ArrayedCollection_ 
 
 * * *
 
-See also: asArray, ByteArray, Float64Array
+See also: asArray, ByteArray, Float64Array, toArray

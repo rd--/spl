@@ -1,4 +1,14 @@
-Date : [Object] {
+Date : [Object, Magnitude] {
+
+	= { :self :anObject |
+		anObject.isDate & {
+			self.unixTimeInMilliseconds = anObject.unixTimeInMilliseconds
+		}
+	}
+
+	< { :self :aDate |
+		self.unixTimeInMilliseconds < aDate.unixTimeInMilliseconds
+	}
 
 	dayOfWeek { :self |
 		<primitive: return _self.getDay() + 1;>
@@ -36,6 +46,10 @@ Date : [Object] {
 		<primitive: return _self.getSeconds();>
 	}
 
+	unixTimeInMilliseconds { :self |
+		<primitive: return _self.getTime();>
+	}
+
 	year { :self |
 		<primitive: return _self.getFullYear();>
 	}
@@ -66,12 +80,16 @@ Date : [Object] {
 
 }
 
-Duration : [Object] { | milliseconds |
+Duration : [Object, Magnitude] { | milliseconds |
 
-	= { :self :aDuration |
-		aDuration.isDuration & {
-			self.milliseconds = aDuration.milliseconds
+	= { :self :anObject |
+		anObject.isDuration & {
+			self.milliseconds = anObject.milliseconds
 		}
+	}
+
+	< { :self :aDuration |
+		self.milliseconds < aDuration.milliseconds
 	}
 
 	+ { :self :aDuration |

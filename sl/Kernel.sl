@@ -53,9 +53,9 @@
 		self.timesRepeat {
 			| flags = Array(size).atAllPut(true); |
 			count := 0;
-			(1 .. size).do { :i |
-				flags[i].ifTrue {
-					| prime = i + 1, k = i + prime; |
+			size.do { :index |
+				flags[index].ifTrue {
+					| prime = index + 1, k = index + prime; |
 					{ k <= size }.whileTrue {
 						flags[k] := false;
 						k := k + prime
@@ -72,7 +72,7 @@
 	}
 
 	divisors { :self |
-		(1 .. self).select { :each |
+		1.upTo(self).select { :each |
 			self.remainder(each) = 0
 		}
 	}
@@ -167,7 +167,7 @@
 			workspace::primesArray.ifNil {
 				| n = 1; |
 				workspace::primesArray := Array(nPrimes);
-				(1 .. nPrimes).do { :index |
+				1.upToDo(nPrimes) { :index |
 					n := n.nextPrime;
 					workspace::primesArray[index] := n
 				}
@@ -209,6 +209,10 @@
 }
 
 @Magnitude {
+
+	< { :self :aMagnitude |
+		self.subclassResponsibility
+	}
 
 	<= { :self :aMagnitude |
 		self < aMagnitude | {
@@ -319,7 +323,15 @@
 	}
 
 	do { :self :aProcedure:/1 |
-		1.toDo(self, aProcedure:/1)
+		1.upToDo(self, aProcedure:/1)
+	}
+
+	downToDo { :self :end :aProcedure:/1 |
+		| index = self; |
+		{ index >= end }.whileTrue {
+			aProcedure(index);
+			index := index - 1
+		}
 	}
 
 	floor { :self |
@@ -412,11 +424,7 @@
 	}
 
 	toDo { :self :end :aProcedure:/1 |
-		| index = self; |
-		{ index <= end }.whileTrue {
-			aProcedure(index);
-			index := index + 1
-		}
+		self.upToDo(end, aProcedure:/1)
 	}
 
 	truncateTo { :self :aNumber |
@@ -429,6 +437,14 @@
 
 	unit { :self |
 		1
+	}
+
+	upToDo { :self :end :aProcedure:/1 |
+		| index = self; |
+		{ index <= end }.whileTrue {
+			aProcedure(index);
+			index := index + 1
+		}
 	}
 
 	zero { :self |
@@ -663,6 +679,42 @@ Boolean : [Object] {
 
 	printString { :self |
 		self.if { 'true' } { 'false' }
+	}
+
+}
+
+Character : [Object] { | string |
+
+	codePoint { :self |
+		self.string.codePointAt(1)
+	}
+
+}
+
++SmallFloat {
+
+	Character { :self |
+		<primitive: return _Character_1(String.fromCodePoint(_self));>
+	}
+
+}
+
++String {
+
+	Character { :self |
+		self.isSingleCharacter.if {
+			newCharacter().initializeSlots(self)
+		} {
+			'String>>Character: not character'.error
+		}
+	}
+
+	characterArray { :self |
+		| answer = []; |
+		self.do { :each |
+			answer.add(each.Character)
+		};
+		answer
 	}
 
 }
@@ -1912,8 +1964,8 @@ Procedure : [Object] {
 		<primitive: return _self.name.split(':')[0];>
 	}
 
-	new { :self:/0 |
-		self()
+	new { :self |
+		self.cull(0)
 	}
 
 	new { :self:/1 :aNumber |
@@ -2127,7 +2179,7 @@ String : [Object] {
 
 	ascii { :self |
 		1.toAsCollect(self.size, ByteArray:/1) { :index |
-			| codePoint = self.charCodeAt(index); |
+			| codePoint = self.codePointAt(index); |
 			(codePoint > 255).ifTrue {
 				'String>>ascii: non-ascii character'.error
 			};
@@ -2148,11 +2200,16 @@ String : [Object] {
 	}
 
 	at { :self :index |
-		<primitive: return _self.at(_index - 1);>
+		(* Note: index is in Utf-16 code units, not characters *)
+		<primitive: return String.fromCodePoint(_self.codePointAt(_index - 1));>
 	}
 
 	beginsWith { :self :aString |
-		<primitive: if(typeof _aString == 'string') { return _self.startsWith(_aString); }>
+		<primitive:
+		if(typeof _aString == 'string') {
+			return _self.startsWith(_aString);
+		}
+		>
 		'String>>beginsWith: non string operand'.error
 	}
 
@@ -2160,22 +2217,49 @@ String : [Object] {
 		<primitive: return _self[0].toUpperCase() + _self.slice(1);>
 	}
 
-	charCodeAt { :self :index |
-		<primitive: return _self.charCodeAt(_index - 1);>
+	codePointAt { :self :index |
+		<primitive: return _self.codePointAt(_index - 1);>
 	}
 
 	copyFromTo { :self :start :end |
 		<primitive: return _self.substring(_start - 1, _end);>
 	}
 
+	codePointArray { :self |
+		| answer = []; |
+		self.do { :each |
+			answer.add(each.codePointAt(1))
+		};
+		answer
+	}
+
+	countCharacters { :self |
+		| answer = 0; |
+		self.do { :each |
+			answer := answer + 1
+		};
+		answer
+	}
+
+	countUtf16CodeUnits { :self |
+		<primitive: return _self.length;>
+	}
+
 	do { :self :aProcedure:/1 |
-		self.size.do { :index |
-			aProcedure(self[index])
-		}
+		<primitive:
+		for (const each of _self) {
+			_aProcedure_1(each);
+		};
+		return _self;
+		>
 	}
 
 	endsWith { :self :aString |
-		<primitive: if(typeof _aString == 'string') { return _self.endsWith(_aString); }>
+		<primitive:
+		if(typeof _aString == 'string') {
+			return _self.endsWith(_aString);
+		}
+		>
 		'String>>endsWith: non string operand'.error
 	}
 
@@ -2192,7 +2276,7 @@ String : [Object] {
 	}
 
 	indices { :self |
-		(1 .. self.size)
+		1.upTo(self.size)
 	}
 
 	indicesOf { :self :aString |
@@ -2215,6 +2299,10 @@ String : [Object] {
 		<primitive: return _self.includes(_aString);>
 	}
 
+	isInBasicMultilingualPlane { :self |
+		self.countUtf16CodeUnits = self.countCharacters
+	}
+
 	isIndexable { :self |
 		true
 	}
@@ -2231,8 +2319,18 @@ String : [Object] {
 		true
 	}
 
+	isSingleCharacter { :self |
+		self.size <= 2 & {
+			self.countCharacters = 1
+		}
+	}
+
 	isUppercase { :self |
 		<primitive: return /^[A-Z]+$/.test(_self);>
+	}
+
+	isWellFormed { :self |
+		<primitive: return _self.isWellFormed();>
 	}
 
 	json { :self |
@@ -2337,7 +2435,15 @@ String : [Object] {
 	}
 
 	size { :self |
-		<primitive: return _self.length;>
+		self.countUtf16CodeUnits
+	}
+
+	split { :self |
+		| answer = []; |
+		self.do { :each |
+			answer.add(each)
+		};
+		answer
 	}
 
 	splitBy { :self :aString |
@@ -2439,6 +2545,17 @@ String : [Object] {
 	postLine { :self |
 		self.printString.postLine;
 		self
+	}
+
+}
+
++@Integral {
+
+	isUtf16SurrogateCode { :self |
+		(* 0xD800 = 55296, 0xDFFF 573430 *)
+		self >= 55296 & {
+			self <= 573430
+		}
 	}
 
 }

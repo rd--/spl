@@ -1,12 +1,12 @@
 # asArray -- converting
 
 - _asArray(aCollection)_
-- _asArray(anObject)_
 
-Answer an Array whose elements are the elements of the receiver.
+Answer an Array whose elements are the elements of _aCollection_.
+If the collection is not an Array collection, answer it directly.
 
-If the argument is not a collection, return a single element array.
+_Rationale:_ Array answers a new array in all cases, asArray is the identity operation for Arrays.
 
 * * *
 
-See also: Array
+See also: Array, toArray

@@ -30,7 +30,7 @@ WriteStream { | collection position writeLimit |
 			self.collection.replaceFromToWithStartingAt(self.position + 1, newEnd, aCollection, 1);
 			self.position := newEnd
 		} {
-			1.toDo(aCollection.size) { :index |
+			1.upToDo(aCollection.size) { :index |
 				self.nextPut(aCollection[index])
 			}
 		};

@@ -112,15 +112,27 @@ pi.veryCloseTo(3.141592653589793) (* pi = 3.141592653589793 *)
 ```
 [].typeOf = 'Array' (* type of Array *)
 [].species = Array:/1 (* species of Array *)
+[].species.new = [] (* new empty array *)
+[].species.new(3) = [nil, nil, nil] (* new array of indicated size *)
+[].species.ofSize(3) = [nil, nil, nil] (* new array of indicated size *)
+[].species.newFrom([1 .. 9].Set) = [1 .. 9] (* new array from collection *)
+[].species.newFrom([].Set) = [] (* new array from empty collection *)
+[].species.newFrom([]) = [] (* new array from empty array *)
 [].isArray = true (* the empty Array is an Array *)
 [].isCollection = true (* arrays are collections *)
 [].isIndexable = true (* arrays are indexable *)
 [].isSequenceable = true (* arrays are sequenceable *)
 [].isEmpty = true (* the empty array is empty *)
+[].copy = [] (* copy empty array *)
 Array() = [] (* Void constructor makes the empty Array *)
 Array(0) = [] (* SmallFloat constructor makes an initialised sized Array *)
 Array(3).size = 3 (* new array of indicated size *)
 Array(5) = [nil, nil, nil, nil, nil] (* array slots are initialised to nil *)
+Array([]) = [] (* Array constructor, empty array *)
+| a = [1 .. 9]; | a.Array ~~ a (* Array makes a copy of an array *)
+| a = [1 .. 9]; | a.asArray == a (* asArray answers the receiver if it is an array *)
+1.toArray = [1].toArray (* enclose a non-collection in an array *)
+| a = [1]; | a.toArray == a (* an array is already an array *)
 [1, 2, 3] = [1, 2, 3] = true (* Array equality *)
 [1, 2, 3] ~= [1, 2, 4] (* Array inequality, differ by value *)
 [1, 2, 3] = [1, 2, 4] = false (* Array inequality *)
@@ -191,6 +203,7 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [(1 .. 3), (1 .. 6), (1 .. 9)].detectMin(size:/1) = (1 .. 3)
 [9 .. 1].indexOf(3) = 7
 [9 .. 1].includes(3) = true (* predicate to decide if a collection includes an element *)
+[1 .. 9].includes(9) (* array includes last element *)
 [9 .. 1].anySatisfy { :each | each = 3 } = true
 [].includes(3) = false (* the empty collection does not include any element *)
 [9 .. 1].includesAllOf([3 .. 7]) = true
@@ -222,11 +235,13 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(even:/1) = 4
 [nil, true, false, 3.141, 23, 'str'].json = '[null,true,false,3.141,23,"str"]'
 '[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str']
-[1, 2, 3].select { :x | x > 1 } = [2, 3]
+[1, 2, 3].select { :x | x > 1 } = [2, 3] (* select items in collection *)
+[1 .. 9].select { :x | true } = [1 .. 9] (* select everything *)
+[1 .. 9].select { :x | false } = [] (* select nothing *)
 [1, 2, 3].reject { :x | x > 1 } = [1]
+[1 .. 9].reject { :x | true } = [] (* reject everything *)
 (1 .. 9).collect{ :x | x * x }.last = 81
 (1 .. 9).collect{ :x | x * x }.collect{ :x | x * x }.last = 6561
-[].species.new(3) = [nil, nil, nil]
 [1 .. 9].last(5) = [5 .. 9]
 { [1 .. 3].last(5) }.ifError { :err | true }
 [1 .. 9].anyOne = 1 (* any element, chooses first *)
@@ -271,6 +286,7 @@ Array(9).atAllPut('x').last = 'x'
 | a = [1, nil, 3]; | a.atWrapPut(5, 2); a = [1, 2, 3]
 [1 .. 9].difference([3 .. 7]) = [1, 2, 8, 9] (* set theoretic difference of two collections *)
 [1 .. 9].difference([]) = [1 .. 9] (* set theoretic difference of two collections *)
+| a = [1 .. 9]; | a.reject { :each | a.includes(each) } = [] (* reject all *)
 [1 .. 9].difference([1 .. 9]) = [] (* set theoretic difference of two collections *)
 [1, 3 .. 9].intersection([2, 4 .. 8]) = [] (* set theoretic intersection *)
 [1 .. 5].intersection([5 .. 9]) = [5] (* set theoretic intersection *)
@@ -329,9 +345,9 @@ Association('x', 1) = ('x' -> 1)
 (1 -> '1').key = (1 -> 'one').key
 (1 -> '1').value ~= (1 -> 'one').value
 (1 -> '1') ~= (1 -> 'one')
-(1 -> 2) = ((1 -> 2).storeString.evaluate)
-(false -> true) = ((false -> true).storeString.evaluate)
-('+' -> 'plus') = (('+' -> 'plus').storeString.evaluate)
+(1 -> 2) = (1 -> 2).storeString.evaluate
+(false -> true) = (false -> true).storeString.evaluate
+('+' -> 'plus') = ('+' -> 'plus').storeString.evaluate
 ```
 
 ## Bag -- collection type
@@ -514,9 +530,19 @@ ByteArray(4).hex = '00000000'
 'string'.ascii.hex = '737472696e67' (* hexadecimal string of ByteArray *)
 '737472696e67'.parseHexString.ascii = 'string' (* ByteArray of hexadecimal string *)
 | b = ByteArray(4); | b.atAllPut(15); b.hex = '0f0f0f0f'
-'string'.ascii.asArray = [115, 116, 114, 105, 110, 103] (* Array from ByteArray *)
+'string'.ascii.Array = [115, 116, 114, 105, 110, 103] (* Array from ByteArray *)
 '0f00f010'.parseHexString = [15, 0, 240, 16].ByteArray
 { [1, 2, 3].ByteArray.add(4) }.ifError { :err | true } (* ByteArrays are not @OrderedCollections *)
+[1 .. 9].ByteArray.select { :each | false } = [].ByteArray (* select nothing *)
+```
+
+## Character -- text type
+```
+'𠮷'.Character.isCharacter
+'𠮷'.Character.string = '𠮷'
+'𠮷'.Character.codePoint = 134071
+134071.Character.string = '𠮷'
+'䶰䶱䶲䶳䶴䶵'.characterArray.collect(codePoint:/1) = [19888 .. 19893]
 ```
 
 ## Collection -- collection trait
@@ -558,7 +584,7 @@ Set().Array = []
 | a = [1, 2, 3, 4], b = a.copyWith(5); | a ~= b & { b = [1, 2, 3, 4, 5] }
 { [1, 2].take(-1) }.ifError { :err | true }
 [].select { :each | each > 0 } = []
-[1, 2, 2, 3, 3, 3].histogramOf { :each | each }.asArray = [1, 2, 2, 3, 3, 3]
+[1, 2, 2, 3, 3, 3].histogramOf { :each | each }.Array = [1, 2, 2, 3, 3, 3]
 [1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].asBag
 | c = [1, 2, 3, 1]; | c.Bag = c.histogramOf(identity:/1)
 | c = [1, 2, 3, 1]; | c.Bag = c.histogramOf { :each | each }
@@ -621,18 +647,29 @@ pi.isNumber (* pi constant *)
 ['one', 2, 3.141].isArray (* mixing of types allowed *)
 ```
 
+## Date
+Date(system).isDate
+Date(0).iso8601 = '1970-01-01T00:00:00.000Z'
+Date('1970-01-01T00:00:00.000Z').unixTimeInMilliseconds = 0
+Date(0) = Date(0) (* dates are comparable *)
+Date(0) ~= Date(system) (* dates are comparable *)
+Date(0) < Date(system) (* dates are magnitudes *)
+Date(system) > Date(0) (* dates are magnitudes *)
+Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
+
 ## Dictionary -- collection trait
 ```
 (x: 1, y: 2, z: 3).count(even:/1) = 1 (* count elements that match predicate *)
 unicodeFractions().isDictionary = true
 unicodeFractions().associations.isArray = true
+(x: 1, y: 2).select { :each | false } = () (* select nothing *)
 ```
 
 ## Duration -- temporal type
 ```
 2.seconds.typeOf = 'Duration'
 5.hours.isDuration = true
-0.25.seconds = 250.milliseconds
+0.25.seconds = 250.milliseconds (* durations are comparable *)
 3.hours.seconds = 10800
 1.5.seconds.milliseconds = 1500
 0.5.seconds + 750.milliseconds = 1.25.seconds
@@ -640,6 +677,8 @@ unicodeFractions().associations.isArray = true
 0.25.seconds + 500.milliseconds = 750.milliseconds
 500.milliseconds + 0.25.seconds = 0.75.seconds
 | f = { :t0 | | t1 = 2.randomFloat.seconds; | f.evaluateAfterWith(t1, t1) }; | f(2.seconds).cancel = nil
+2.minutes < 2.hours (* durations are magnitudes *)
+2.hours > 2.minutes (* durations are magnitudes *)
 ```
 
 ## Error -- exception type
@@ -834,7 +873,7 @@ pi.asFraction = 311:99 (* with maximumDenominator set to one hundred *)
 
 ## Interval -- collection type
 ```
-Interval(0, 12, 3).asArray = [0, 3, 6, 9, 12] (* elements of interval as array *)
+Interval(0, 12, 3).Array = [0, 3, 6, 9, 12] (* elements of interval as array *)
 Interval(0, 12, 3).size = 5 (* number of elements in interval *)
 2.toBy(14, 4).collect { :x | x * x } = [4, 36, 100, 196] (* toBy method at Integer *)
 (2, 6 .. 14).collect { :x | x * x } = [4, 36, 100, 196] (* toBy syntax *)
@@ -856,7 +895,7 @@ Interval(5, 10, 2).last = 9 (* create interval object with specified increment *
 { (9, 7 .. 1).detect(even:/1) }.ifError { :err | true } (* if no element is detected, raise error *)
 { [].detect { :item | true } }.ifError { :err | true } (* detect at an empty collection raises an error *)
 (1 .. 9).injectInto(0) { :sum :item | sum + item } = 45(* sum elements *)
-(1 .. 9).asArray = [1 .. 9] (* convert to array *)
+(1 .. 9).Array = [1 .. 9] (* convert to array *)
 (1 .. 9) = (1 .. 9) (* equality *)
 (1 .. 9) ~= (9 .. 1) (* inequality *)
 (1 .. 9) ~= [1 .. 9] (* intervals are not equal to arrays *)
@@ -864,11 +903,11 @@ Interval(5, 10, 2).last = 9 (* create interval object with specified increment *
 10.toBy(90, 10) = (10, 20 .. 90)
 (0, 1:10 .. 1).size = 11
 (0, 1:10 .. 1).last = 1
-(9 .. 1).asArray = [9 .. 1]
-(5 .. 1).asArray = [5 .. 1]
-(5, 3 .. 1).asArray = [5, 3 .. 1]
-5.downTo(1).asArray = [5, 4, 3, 2, 1]
-5.toBy(1, -2).asArray = [5, 3, 1]
+(9 .. 1).Array = [9 .. 1]
+(5 .. 1).Array = [5 .. 1]
+(5, 3 .. 1).Array = [5, 3 .. 1]
+5.downTo(1).Array = [5, 4, 3, 2, 1]
+5.toBy(1, -2).Array = [5, 3, 1]
 (1.5 .. 4.5).Array = [1.5, 2.5, 3.5, 4.5] (* non-integer start and end *)
 (1 .. 9).min = 1 & { (9 .. 1).min = 1 } (* minima *)
 (1 .. 9).max = 9 & { (9 .. 1).max = 9 } (* maxima *)
@@ -880,14 +919,14 @@ Interval(-2, 2, 1).collect(even:/1) = [true, false, true, false, true]
 (-2 .. 2).collect(odd:/1) = [false, true, false, true, false]
 1 + 1.to(9).collect(squared:/1) = [2, 5, 10, 17, 26,37, 50, 65, 82]
 2 * (1 .. 9).collect(squared:/1) = [2, 8, 18, 32, 50,72, 98, 128, 162]
-1.to(9).asArray = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-(1 .. 9).asArray.copyFromTo(3, 7) = [3, 4, 5, 6, 7]
+1.to(9).Array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+(1 .. 9).Array.copyFromTo(3, 7) = [3, 4, 5, 6, 7]
 | i = 1; | 1.to(9).do { :each | i := i + each }; i = 46
 Interval(-1, 1, 1).storeString = 'Interval(-1, 1, 1)'
 Interval(-1, 1, 1).printString = '(-1 .. 1)'
 Interval(1, 9, 1) = (1 .. 9)
 Interval(1, 10, 3).size = 4
-Interval(1, 10, 3).asArray = [1, 4, 7, 10]
+Interval(1, 10, 3).Array = [1, 4, 7, 10]
 1.to(6).reversed = (6 .. 1)
 1.to(6).first = 1
 (1 .. 6).second = 2
@@ -895,31 +934,31 @@ to(1, 6).last = 6
 | i = (1 .. 9); | i.first = i[1] (* one-indexed *)
 | i = (1 .. 9); | i.last = i[9] (* one-indexed *)
 (1 .. 6).sum = 21
-Interval(-1, 1, 1).asArray = [-1, 0, 1]
+Interval(-1, 1, 1).Array = [-1, 0, 1]
 1.to(99).asString = '(1 .. 99)'
 (1 .. 99).asString = '(1 .. 99)'
 downTo(1, -1).asString = 'Interval(1, -1, -1)'
 1.to(99).sum = 4950
-1.to(99).asArray.sum = 4950
+1.to(99).Array.sum = 4950
 (1 .. 9).size = 9
 (1 .. 9).sum = 45
 (1 .. 9999).sum = 49995000
-(1 .. 9999).asArray.sum = 49995000
+(1 .. 9999).Array.sum = 49995000
 to(1, 9) = Interval(1, 9, 1)
 to(9, 1) = Interval(9, 1, 1)
 downTo(9, 1) = Interval(9, 1, -1)
 1.thenTo(3, 9) = Interval(1, 9, 2)
 (1 .. 9) = (1 .. 9)
-[1 .. 9] = (1 .. 9).asArray
-[9 .. 1] = (9 .. 1).asArray
-[3 - 2 .. 7 + 2] = (3 - 2 .. 7 + 2).asArray
+[1 .. 9] = (1 .. 9).Array (* array interval syntax *)
+[9 .. 1] = (9 .. 1).Array (* array interval syntax *)
+[3 - 2 .. 7 + 2] = (3 - 2 .. 7 + 2).Array (* array interval syntax *)
 | l = []; | Interval(9, 1, -1).do { :each | l.add(each) }; l = [9 .. 1]
 collect(1.to(9)) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 1.to(9).collect { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
-Interval(1, 6, 2).asArray = [1, 3, 5]
+Interval(1, 6, 2).Array = [1, 3, 5]
 Interval(1, 6, 2).last = 5
-(1 .. 9).reversed.asArray = [9, 8, 7, 6, 5, 4, 3, 2, 1]
-Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
+(1 .. 9).reversed.Array = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 1.to(9).step = 1
 (1, 3 .. 9) = Interval(1, 9, 2)
 (9, 7 .. 1) = Interval(9, 1, -2)
@@ -943,6 +982,7 @@ Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 | s = ''; | 4.do { :x | s := s ++ x }; s = '1234' (* for loop (int) *)
 | s = ''; | (1 .. 5).do { :x | s := s ++ x }; s = '12345' (* for loop (interval) *)
 | s = ''; | 1.toDo(5) { :x | s := s ++ x }; s = '12345' (* for loop (start & end indices) *)
+| s = ''; | 1.toDo(0) { :x | 'error'.error }; s = '' (* for loop (end less than start) *)
 | s = ''; | (1 .. 3).reverseDo { :x | s := s ++ x }; s = '321' (* for loop (interval, reversed) *)
 | s = ''; | [1, 3, 5].do { :x | s := s ++ x }; s = '135' (* for loop (collection) *)
 | n = 9; | { n > 3 }.whileTrue { n := n - 1 }; n = 3 (* while true loop *)
@@ -1214,7 +1254,7 @@ var d = (x: 23, y: 3.141); d::x := 42; d = (x: 42, y: 3.141)
 var d = (x: 23, y: 3.141); d.copy ~~ d
 (x:1, y:2) ++ (z:3) = (x:1, y:2, z:3)
 (x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2]
-(x: 1, y: 2).asArray = [1, 2]
+(x: 1, y: 2).Array = [1, 2] (* values as Array *)
 var d = (x:1, y:2, z:3), (x, z) = d; [x, z] = [1, 3]
 var (x, y) = { var n = system.randomFloat; (x: n, y: n) }.value; x = y
 (x:1, y:2, z:3).select(even:/1) = (y: 2)
@@ -1371,6 +1411,7 @@ var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, 
 (1 .. 4).Set.union((5 .. 9)) = (1 .. 9).Set
 | s = (1 .. 4).Set, t = (5 .. 9), u = s.union(t); | u.size = (s.size + t.size) (* union is not mutating *)
 (1 .. 5).Set.ifAbsentAdd(3) = false
+[1 .. 9].Set.select { :each | false } = [].Set (* select nothing *)
 ```
 
 ## SmallFloat -- numeric type
@@ -1419,7 +1460,7 @@ pi.randomFloat.isInteger = false
 ['3.141', '23'].collect(parseJson:/1) = [3.141, 23]
 | r | 5.do { :each | r := each }; r = 5
 | r | 0.do { :each | r := each }; r = nil
-1.toDo(0) { :each | 'toDo'.error }; true
+1.toDo(0) { :each | 'toDo'.error }; true (* end less than start *)
 '3.141'.parseNumber = 3.141
 '23'.parseInteger(10) = 23
 -1.5.ceiling = -1
@@ -1492,6 +1533,7 @@ var a = [5 .. 9].SortedArray(greaterThan:/2); a.addAll([1 .. 4]); a.contents = [
 'string'.splitBy('ing') = ['str', '']
 'string'.splitBy('trin') = ['s', 'g']
 'string'.splitBy('absent') = ['string']
+'string'.splitBy('') = ['s', 't', 'r', 'i', 'n', 'g']
 'a' < 'b' = true (* string comparison *)
 'text'.copyFromTo(2, 3) = 'ex' (* substring, one indexed *)
 'text'.copyFromTo(3 ,3) = 'x' (* substring (single character) *)
@@ -1567,6 +1609,16 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 ' x '.withBlanksTrimmed = 'x'
 ' x '.withoutLeadingBlanks = 'x '
 ' x '.withoutTrailingBlanks = ' x'
+| a = []; | 'string'.do { :each | a.add(each) }; a.join = 'string'
+'𠮷'.countCharacters = 1
+'𠮷'.countUtf16CodeUnits = 2
+'𠮷'.size = 2
+'𠮷'.isSingleCharacter = true
+'𠮷'.split = ['𠮷']
+'𠮷'.codePointAt(1) = 134071
+'𠮷'.codePointArray = [134071]
+'𠮷'.isInBasicMultilingualPlane = false
+'𠮷'.isWellFormed = true
 ```
 
 ## Syntax -- array assignment syntax
