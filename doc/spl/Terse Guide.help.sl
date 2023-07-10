@@ -1540,6 +1540,8 @@ var a = [5 .. 9].SortedArray(greaterThan:/2); a.addAll([1 .. 4]); a.contents = [
 'string'.splitBy('trin') = ['s', 'g']
 'string'.splitBy('absent') = ['string']
 'string'.splitBy('') = ['s', 't', 'r', 'i', 'n', 'g']
+'mississippi'.split.join = 'mississippi' (* join is the inverse of split *)
+'mississippi'.splitBy('i').joinSeparatedBy('i') = 'mississippi' (* joinSeparatedBy is the inverse of splitBy *)
 'a' < 'b' = true (* string comparison *)
 'text'.copyFromTo(2, 3) = 'ex' (* substring, one indexed *)
 'text'.copyFromTo(3 ,3) = 'x' (* substring (single character) *)

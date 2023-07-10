@@ -8,4 +8,5 @@ Join _anArray_ of Strings into a string.
 
 * * *
 
-See also: joinSeparatedBy
+See also: joinSeparatedBy, split
+
