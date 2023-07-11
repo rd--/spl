@@ -17,7 +17,7 @@
 3 = 3 (* equals *)
 3.equals(3) (* equals *)
 2 ~= 3 (* not equals *)
-2.notEquals(3) (* not equals *)
+2.tildeEquals(3) (* not equals *)
 3 == 3 (* identical *)
 3.equalsEquals(3) (* identity *)
 1 + (2 * 3) = 7 (* parentheses group sub-expressions *)
@@ -43,6 +43,10 @@
 4.sqrt = 2 & { 1000000.sqrt = 1000 & { 1.sqrt = 1 } & { 0.sqrt = 0 } }
 2.sqrt = 1.4142135623730951
 2.sqrt.squared.closeTo(2) (* floating point errors *)
+2.sqrt.squared ~ 2 (* almost equal to, or similar to *)
+2.sqrt.squared <~ 2 (* less than or similar to *)
+2.sqrt.squared >~ 2 (* greater than or similar to *)
+2 !~ 3 (* not almost equal to *)
 2.sqrt.squared.veryCloseTo(2) (* floating point errors *)
 5.0 ** 2.0 = 25.0 (* power function *)
 5 ** 2 = 25 (* power function with integer *)
@@ -1041,6 +1045,9 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 2.clamp(0, 1) = 1
 -1.clamp(0, 1) = 0
 -1.clamp(-20, 0) = -1
+1 <=> 3 = -1
+2 <=> 2 = 0
+3 <=> 1 = 1
 ```
 
 ## Map -- collection type

@@ -21,7 +21,7 @@ export const operatorNameTable: Record<string,string> = {
 	'%': 'modulo',
 	'!': 'bang',
 	'\\': 'backslash',
-	'~': 'not',
+	'~': 'tilde',
 	'?': 'query',
 	'^': 'hat',
 	'#': 'hash',

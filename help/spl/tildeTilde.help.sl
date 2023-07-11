@@ -1,7 +1,7 @@
 # ~~ -- identity
 
 - _self ~~ anObject_
-- _notNot(self, anObject)_
+- _tildeTilde(self, anObject)_
 
 Answers _true_ if _self_ is not identical to _anObject_, else _false_.
 
@@ -12,6 +12,6 @@ Where supported this operator is displayed as ≢.
 
 * * *
 
-See also: ~=, =, ==
+See also: ~= or tildeEquals, = or equals, == or equalsEquals
 
 Unicode: U+2262 ≢ Not Identical To

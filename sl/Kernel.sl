@@ -242,6 +242,18 @@
 		aMagnitude <= self
 	}
 
+	<=> { :self :aMagnitude |
+		(self = aMagnitude).if {
+			0
+		} {
+			(self < aMagnitude).if {
+				-1
+			} {
+				1
+			}
+		}
+	}
+
 	betweenAnd { :self :min :max |
 		(min <= self).if {
 			self <= max
@@ -300,6 +312,26 @@
 
 	% { :self :aNumber |
 		self - (self // aNumber * aNumber)
+	}
+
+	~ { :self :aNumber |
+		self.closeTo(aNumber)
+	}
+
+	!~ { :self :aNumber |
+		self.closeTo(aNumber).not
+	}
+
+	<~ { :self :aNumber |
+		(self < aNumber) | {
+			self.closeTo(aNumber)
+		}
+	}
+
+	>~ { :self :aNumber |
+		(self > aNumber) | {
+			self.closeTo(aNumber)
+		}
 	}
 
 	abs { :self |
