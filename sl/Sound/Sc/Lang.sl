@@ -254,12 +254,28 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self / (1 + self.abs)
 	}
 
-	Hypot { :self :aNumber |
-		((self * self) + (aNumber * aNumber)).sqrt
+	expExp { :self :inMin :inMax :outMin :outMax |
+		(self <= inMin).if {
+			outMin
+		} {
+			(self >= inMax).if {
+				outMax
+			} {
+				(outMax / outMin) ** ((self / inMin).log / (inMax / inMin).log) * outMin
+			}
+		}
 	}
 
-	Hypotx { :self :aNumber |
-		self.abs + aNumber.abs - ((2.sqrt - 1) * self.abs.min(aNumber.abs))
+	expLin { :self :inMin :inMax :outMin :outMax |
+		(self <= inMin).if {
+			outMin
+		} {
+			(self >= inMax).if {
+				outMax
+			} {
+				(self / inMin).log / (inMax / inMin).log * (outMax - outMin) + outMin
+			}
+		}
 	}
 
 	expRand { :self :upperBound |
@@ -298,6 +314,60 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 				c := twiceRange - c
 			};
 			c + lo
+		}
+	}
+
+	Hypot { :self :aNumber |
+		((self * self) + (aNumber * aNumber)).sqrt
+	}
+
+	Hypotx { :self :aNumber |
+		self.abs + aNumber.abs - ((2.sqrt - 1) * self.abs.min(aNumber.abs))
+	}
+
+	linCurve { :self :inMin :inMax :outMin :outMax :curve |
+		(self <= inMin).if {
+			outMin
+		} {
+			(self >= inMax).if {
+				outMax
+			} {
+				(curve.abs < 0.001).if {
+					(self - inMin) / (inMax - inMin) * (outMax - outMin) + outMin
+				} {
+					|(
+						grow = curve.exp,
+						a = outMax - outMin / (1.0 - grow),
+						b = outMin + a,
+						scaled = (self - inMin) / (inMax - inMin)
+					)|
+					b - (a * (grow ** scaled))
+				}
+			}
+		}
+	}
+
+	linExp { :self :inMin :inMax :outMin :outMax |
+		(self <= inMin).if {
+			outMin
+		} {
+			(self >= inMax).if {
+				outMax
+			} {
+				(outMax / outMin) ** ((self - inMin) / (inMax - inMin)) * outMin
+			}
+		}
+	}
+
+	linLin { :self :inMin :inMax :outMin :outMax |
+		(self <= inMin).if {
+			outMin
+		} {
+			(self >= inMax).if {
+				outMax
+			} {
+				(self - inMin) / (inMax - inMin) * (outMax - outMin) + outMin
+			}
 		}
 	}
 

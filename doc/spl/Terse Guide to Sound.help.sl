@@ -56,3 +56,8 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [2, 3, 5, 6].indexInBetween(5.2) = 3.2 (* interpolated index for value (collection must be sorted) *)
 [2, 3, 5, 6].blendAt(3.2) = 5.2 (* interpolated value between indices *)
 [0, 4].collect { :i | [2, 3, 5].clipAt(i) } = [2, 5] (* clamp index to valid range*)
+(0 .. 10).collect { :n | n.linLin(0, 10, -4.3, 100).rounded } = [-4, 6, 17, 27, 37, 48, 58, 69, 79, 90, 100]
+(0 .. 10).collect { :n | n.linExp(0, 10, 4.3, 100).rounded } = [4, 6, 8, 11, 15, 21, 28, 39, 53, 73, 100]
+(1 .. 10).collect { :n | n.expLin(0.1, 10, -4.3, 100).rounded } = [48, 64, 73, 79, 84, 88, 92, 95, 98, 100]
+(1 .. 10).collect { :n | n.expExp(0.1, 10, 4.3, 100).rounded } = [21, 33, 44, 53, 62, 71, 78, 86, 93, 100]
+(0 .. 10).collect { :n | n.linCurve(0, 10, -4.3, 100, -3).rounded } = [-4, 24, 45, 61, 72, 81, 87, 92, 96, 98, 100]
