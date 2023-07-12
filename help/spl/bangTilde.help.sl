@@ -1,8 +1,8 @@
 # !~ -- comparing
 
-- _aMagnitude !~ anotherMagnitude_
+- _p !~ q_ --> p.closeTo(q).not --> ≉
 
-Answer true is _aMagnitude_ is similar to _anotherMagnitude_, else false.
+Answer true if _p_ is not almost equal to (or not similar to) _q_, else false.
 
 _Rationale_:
 Writing ~ to indicate _similar to_ is a standard mathematical notation.

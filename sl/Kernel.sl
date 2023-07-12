@@ -77,6 +77,18 @@
 		}
 	}
 
+	doubleFactorial { :self |
+		self.negative.if {
+			'Integral>>doubleFactorial: not valid for negative integers'.error
+		} {
+			(self <= 3).if {
+				self.max(1)
+			} {
+				self * (self - 2).doubleFactorial
+			}
+		}
+	}
+
 	factorial { :self |
 		(self = 0).if {
 			1
@@ -724,7 +736,11 @@ Boolean : [Object] {
 	}
 
 	printString { :self |
-		self.if { 'true' } { 'false' }
+		self.if {
+			'true'
+		} {
+			'false'
+		}
 	}
 
 }
@@ -1875,7 +1891,16 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	printString { :self :radix |
-		<primitive: return _self.toString(_radix);>
+		<primitive:
+		if(Number.isFinite(_self)) {
+			return _self.toString(_radix);
+		}
+		>
+		self.positive.if {
+			'inf'
+		} {
+			'(0 - inf)'
+		}
 	}
 
 	raisedToInteger { :self :anInteger |
@@ -1907,7 +1932,11 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	remainder { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return _self % _anObject; }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self % _anObject;
+		}
+		>
 		error('Number>>remainder')
 	}
 

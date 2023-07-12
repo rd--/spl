@@ -14,4 +14,5 @@ Answer the new collection.
 
 * * *
 
-See also: select, reject
+See also: select, reject, withCollect, withIndexCollect
+

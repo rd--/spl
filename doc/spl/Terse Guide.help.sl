@@ -62,7 +62,20 @@
 12345.truncateTo(600) = 12000 (* truncate to integer *)
 3.99.floor = 3 (* round down *)
 3.99.ceiling = 4 (* round up *)
-5.factorial = 120 (* factorial *)
+5.factorial = 120 (* factorial of SmallFloat *)
+9.factorial = 362880
+9.factorial = (1 .. 9).product
+18.factorial = 6402373705728000
+12.factorial.log2.floor = 28
+18.factorial.log2.floor = 52
+20.factorial.log2.floor = 61
+9.doubleFactorial = 945
+[12, 18, 20].collect { :n | n.doubleFactorial } = [46080, 185794560, 3715891200]
+[12, 18, 20].collect { :n | n.doubleFactorial.log2.floor } = [15, 27, 31]
+(0, 2 .. 14).collect(doubleFactorial:/1) = [1, 2, 8, 48, 384, 3840, 46080, 645120]
+14.doubleFactorial = (2, 4 .. 14).product
+(1, 3 .. 13).collect(doubleFactorial:/1) = [1, 3, 15, 105, 945, 10395, 135135]
+13.doubleFactorial = (1, 3 .. 13).product
 28.gcd(12) = 4 (* greatest common denominator *)
 28.lcm(12) = 84 (* least common multiple *)
 1.exp.log = 1 (* natural logarithm *)
@@ -114,6 +127,10 @@ pi.veryCloseTo(3.141592653589793) (* pi = 3.141592653589793 *)
 5.nthPrime = 11 (* the nth entry in the sequence of prime numbers *)
 23.nthPrime = 83 (* the nth entry in the sequence of prime numbers *)
 3579.nthPrime = 33413 (* the nth entry in the sequence of prime numbers *)
+inf.sign = 1
+inf.positive = true
+(0 - inf).sign = -1
+(0 - inf).negative = true
 ```
 
 ## Array -- collection type
@@ -680,6 +697,13 @@ unicodeFractions().associations.isArray = true
 ().at('x') = nil
 ().atIfAbsentPut('x') { 1 } = 1
 | d = (); | d.atIfAbsentPut('x') { 1 } = 1 & { d::x = 1 }
+(x: 1, y: 2).includes(2) (* includes, testing for equality *)
+(x: 1, y: [2, 3]).includes([2, 3])
+(x: 1, y: 2).includesIdentity(2) (* includes, testing for identity not equality *)
+(x: 1, y: [2, 3]).includesIdentity([2, 3]) = false
+(x: 1, y: 2).includesAssociation('y' -> 2) (* includes association, testing for equality *)
+(x: 1, y: [2, 3]).includesAssociation('y' -> [2, 3])
+(x: 1, y: 2).includesAssociation('x' -> 2) = false
 ```
 
 ## Duration -- temporal type
@@ -989,6 +1013,11 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 5.downTo(3) = (5 .. 3)
 3.upOrDownTo(5) = 5.upOrDownTo(3).reversed
 | s = ''; | (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531'
+(1 .. 9) + 3 = (4 .. 12) (* plus with a number answers an Interval *)
+(1 .. 9) - 2 = (-1 .. 7) (* minus with a number answers an Interval *)
+3 + (1 .. 9) = [4 .. 12]
+(1 .. 5) + (1, 3 .. 9) = [2, 5 .. 14]
+(1 .. 5) - (9, 7 .. 1) = [-8, -5 .. 4]
 ```
 
 ## Iteration
@@ -1012,7 +1041,9 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 (2 ** 54).LargeInteger.squared.printString = '324518553658426726783156020576256'
 '324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
 2971215073.LargeInteger.isPrime = true
-100n.factorial = 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000n
+23n.factorial = 25852016738884976640000n (* factorial of LargeInteger *)
+100n.factorial = 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000n (* factorial of LargeInteger *)
+170n.factorial = 7257415615307998967396728211129263114716991681296451376543577798900561843401706157852350749242617459511490991237838520776666022565442753025328900773207510902400430280058295603966612599658257104398558294257568966313439612262571094946806711205568880457193340212661452800000000000000000000000000000000000000000n (* factorial of LargeInteger *)
 [-1n, 0n, 1n].collect(sign:/1) = [-1n, 0n, 1n]
 6n / 8n = Fraction(3n, 4n)
 2 / 3n = Fraction(2n, 3n)
@@ -1236,7 +1267,7 @@ inf.isNumber (* constant (infinity) *)
 var s = Set(); 45.timesRepeat { s.add(9.randomInteger) }; s.minMax = [1, 9] (* check distribution *)
 var s = Set(); 729.timesRepeat { s.add(9.randomInteger) }; s.Array.sorted = [1 .. 9] (* check distribution *)
 9.randomFloat.isNumber (* random floating point number (0 to self) *)
-var s = Set(); 81.timesRepeat { s.add(9.randomFloat.rounded) }; s.minMax = [0, 9] (* check distribution *)
+var s = Set(); 729.timesRepeat { s.add(9.randomFloat.rounded) }; s.minMax = [0, 9] (* check distribution *)
 3.randomInteger(9).isInteger (* random integer in range *)
 3.randomFloat(9).isNumber (* random float in range *)
 var b = Bag(); 5000.timesRepeat { b.add(5.atRandom) }; b.contents.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
@@ -1272,7 +1303,7 @@ var d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
 var d = (x: 23, y: 3.141); d::x = 23
 var d = (x: 23, y: 3.141); d::x := 42; d = (x: 42, y: 3.141)
 var d = (x: 23, y: 3.141); d.copy ~~ d
-(x:1, y:2) ++ (z:3) = (x:1, y:2, z:3)
+(x:1, y:2) ++ (z:3) = (x:1, y:2, z:3) (* white space after colon is optional *)
 (x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2]
 (x: 1, y: 2).Array = [1, 2] (* values as Array *)
 var d = (x:1, y:2, z:3), (x, z) = d; [x, z] = [1, 3]
@@ -1299,6 +1330,10 @@ var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7
 (x: false)::x = false (* at at key with false value answers false *)
 (x: false)::x ~= nil (* at at key with false value does not answer nil *)
 (x: nil)::x = nil (* at at key with nil value answers nil *)
+(x: 1, y: 2) = (x: 1, y: 2) (* Record equality *)
+(x: 1, y: 2) ~= (x: 2, y: 1) (* Record in-equality *)
+| r = (x: 1, y: 2); | r == r (* Record identity *)
+(x: 1, y: 2) ~~ (x: 1, y: 2) (* Record non-identity *)
 ```
 
 ## RegExp -- text type
@@ -1371,6 +1406,10 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 [1, [2, [3, [4, [5], 6], 7], 8], 9].flatten = [1 .. 9]
 [1 .. 9].rotateLeft(3) = ([4 .. 9] ++ [1 .. 3]) (* rotate left *)
 [1 .. 9].rotateRight(3) = ([7 .. 9] ++ [1 .. 6]) (* rotate right *)
+| d = []; | (3 .. 1).withDo((1 .. 3)) { :p :q | d.add(p -> q) } ; d = [3 -> 1, 2 -> 2, 1 -> 3]
+| d = []; | (3 .. 1).withIndexDo { :each :index | d.add(each -> index) } ; d = [3 -> 1, 2 -> 2, 1 -> 3]
+(9 .. 1).withCollect((1 .. 9)) { :p :q | p * 2 + q } = [19 .. 11]
+(9 .. 1).withIndexCollect { :each :index | each * 2 + index } = [19 .. 11]
 ```
 
 ## Sequence arithmetic
@@ -1500,8 +1539,12 @@ pi.randomFloat.isInteger = false
 60.divisors = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60]
 1729.divisors = [1, 7, 13, 19, 91, 133, 247, 1729]
 e() = 1.exp
+e = e() (* e is a constant, like pi *)
 epsilon() < (10 ** -15)
 epsilon() > (10 ** -16)
+1 - epsilon() ~= 1 (* epsilon() is the difference between 1.0 and previous representable value *)
+epsilon ~= epsilon() (* epsilon is a constant, like pi & e *)
+(1 - epsilon).veryCloseTo(1)
 inf.isFinite = false
 pi.isFinite = true
 { nil.isFinite }.ifError { :err | true }
@@ -1518,6 +1561,9 @@ pi.isFinite = true
 1.5.reduce = 1.5 (* identity if number is not closeTo an integer *)
 | x = (2 ** 54); | x ~= (x - 1) = false (* large numbers behave strangely *)
 | x = (2.0 ** 54.0); | x ~= (x - 1.0) = false (* large numbers behave strangely *)
+[-1, 0, 1].collect(asString:/1) = ['-1', '0', '1']
+inf.asString = 'inf' (* inf prints as inf *)
+(0 - inf).asString = '(0 - inf)'
 ```
 
 ## SortedArray -- collection type
@@ -1559,6 +1605,7 @@ var a = [5 .. 9].SortedArray(greaterThan:/2); a.addAll([1 .. 4]); a.contents = [
 'string'.splitBy('') = ['s', 't', 'r', 'i', 'n', 'g']
 'mississippi'.split.join = 'mississippi' (* join is the inverse of split *)
 'mississippi'.splitBy('i').joinSeparatedBy('i') = 'mississippi' (* joinSeparatedBy is the inverse of splitBy *)
+'/usr/local/bin'.splitBy('/') = ['', 'usr', 'local', 'bin']
 'a' < 'b' = true (* string comparison *)
 'text'.copyFromTo(2, 3) = 'ex' (* substring, one indexed *)
 'text'.copyFromTo(3 ,3) = 'x' (* substring (single character) *)
@@ -1634,7 +1681,9 @@ var x = ['a', 'bc', 'def']; x.unlines.lines = x
 { 'testAt'.beginsWith(nil) }.ifError { :err | true }
 'testAt'.endsWith('test') = false
 'testAt'.endsWith('At') = true
+'testAt'.endsWith('at') = false (* case sensitive *)
 { 'testAt'.endsWith(nil) }.ifError { :err | true }
+'sndfile.wav'.endsWith('.wav') = true
 ['a','b','','c'].unlines.paragraphs.collect(lines:/1) = [['a', 'b'], ['c']]
 'string'.at(3) = 'r'.Character (* string indexing *)
 var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripting *)
@@ -1672,6 +1721,20 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 | x = 1, y = 2, z = 3; | x := x * y + z; y := x + y * z; z := x + y + z; [x, y, z] = [5, 21, 29]
 ```
 
+## Syntax -- array and interval syntax
+```
+[1 .. 3] = [1, 2, 3]
+[3 .. 1] = [3, 2, 1]
+[1, 3 .. 9] = [1, 3, 5, 7, 9]
+[9, 7 .. 1] = [9, 7, 5, 3, 1]
+[1 .. 1] = [1]
+(1 .. 3) = Interval(1, 3, 1)
+(3 .. 1) = Interval(3, 1, -1)
+(1, 3 .. 9) = Interval(1, 9, 2)
+(9, 7 .. 1) = Interval(9, 1, -2)
+(1 .. 1) = Interval(1, 1, 1)
+```
+
 ## Syntax -- collection access and mutation
 ```
 'text'[3] = 'x'.Character (* c[k] is syntax for c.at(k) *)
@@ -1680,14 +1743,16 @@ var x = [1 .. 5]; x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, 
 
 ## Syntax -- dictionary literals
 ```
+().isRecord (* () is the empty dictionary *)
+() = [].Record (* the empty dictionary *)
 (x: 1, y: 2) = ['x' -> 1, 'y' -> 2].Record (* (x: 1, ...) is dictionary syntax *)
-() = [].Record (* empty dictionary *)
 (x: 1, y: 2).printString = '(x: 1, y: 2)' (* Record print string *)
 ```
 
 ## Syntax -- temporaries
 ```
-| x | x = nil (* | x | decalares the temporary x *)
+| x | x = nil (* temporary syntax *)
+| x = 1; | x = 1 (* temporary with initialiser syntax *)
 var x = 1, y = 2; [x, y] = [1, 2] (* var x, y; == | x y | *)
 var x = 1; var y = 2, z = 3; [x, y, z] = [1, 2, 3] (* there can be multiple var sequences *)
 ```

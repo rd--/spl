@@ -513,8 +513,10 @@
 		nil
 	}
 
-	includes { :self |
-		self.anySatisfy(equals:/2)
+	includes { :self :anObject |
+		self.anySatisfy { :each |
+			each = anObject
+		}
 	}
 
 	includesAnyOf { :self :aCollection |
@@ -569,6 +571,12 @@
 
 	isIndexable { :self |
 		false
+	}
+
+	isOfSameSizeCheck { :self :otherCollection |
+		(otherCollection.size = self.size).ifFalse {
+			'Collection>>isOfSameSizeCheck'.error
+		}
 	}
 
 	isSequenceable { :self |
@@ -960,7 +968,6 @@
 		aCollection
 	}
 
-
 	Array { :self |
 		| answer = Array(self.size), index = 1; |
 		self.valuesDo { :each |
@@ -968,6 +975,14 @@
 			index := index + 1
 		};
 		answer
+	}
+
+	associationAtIfAbsent { :self :key :aBlock:/0 |
+		self.atIfPresentIfAbsent(key) { :value |
+			key -> value
+		} {
+			aBlock()
+		}
 	}
 
 	associations { :self |
@@ -1081,6 +1096,25 @@
 			aCollection.do { :element |
 				self.add(aProcedure(element))
 			}
+		}
+	}
+
+	includesAssociation { :self :anAssociation |
+		self.atIfPresentIfAbsent(anAssociation.key) { :value |
+			anAssociation.value = value
+		} {
+			false
+		}
+	}
+
+	includesIdentity { :self :anObject |
+		withReturn {
+			self.do { :each |
+				(anObject == each).ifTrue {
+					true.return
+				}
+			};
+			false
 		}
 	}
 
@@ -1699,6 +1733,13 @@
 		}
 	}
 
+	withDo { :self :otherCollection :twoArgBlock:/2 |
+		self.isOfSameSizeCheck(otherCollection);
+		1.upToDo(self.size) { :index |
+			twoArgBlock(self[index], otherCollection[index])
+		}
+	}
+
 	withIndexCollect { :self :elementAndIndexProcedure:/2 |
 		| answer = self.species.ofSize(self.size); |
 		1.upToDo(self.size) { :index |
@@ -1708,7 +1749,7 @@
 	}
 
 	withIndexDo { :self :elementAndIndexProcedure:/2 |
-		1.upToDo(self. size) { :index |
+		1.upToDo(self.size) { :index |
 			elementAndIndexProcedure(self[index], index)
 		}
 	}
@@ -2554,6 +2595,22 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 					self.step = anInterval.step
 				}
 			}
+		}
+	}
+
+	+ { :self :arg |
+		arg.isSmallFloat.if {
+			Interval(self.start + arg, self.stop + arg, self.step)
+		} {
+			arg.adaptToCollectionAndApply(self, plus:/2)
+		}
+	}
+
+	- { :self :arg |
+		arg.isSmallFloat.if {
+			Interval(self.start - arg, self.stop - arg, self.step)
+		} {
+			arg.adaptToCollectionAndApply(self, minus:/2)
 		}
 	}
 

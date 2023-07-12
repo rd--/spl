@@ -1,8 +1,8 @@
 # <~ -- comparing
 
-- _aMagnitude <~ anotherMagnitude_
+- p <~ q --> p < q | { p.closeTo(q) } --> ⪅
 
-Answer true is _aMagnitude_ is less than or similar to _anotherMagnitude_, else false.
+Answer true if _p_ is less than or similar to _q_, else false.
 
 * * *
 

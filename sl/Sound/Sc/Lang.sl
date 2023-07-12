@@ -242,6 +242,27 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self * self * self
 	}
 
+	curveLin { :self :inMin :inMax :outMin :outMax :curve |
+		(self <= inMin).if {
+			outMin
+		} {
+			(self >= inMax).if {
+				outMax
+			} {
+				(curve.abs < 0.001).if {
+					(self - inMin) / (inMax - inMin) * (outMax - outMin) + outMin
+				} {
+					|(
+						grow = curve.exp,
+						a = inMax - inMin / (1.0 - grow),
+						b = inMin + a
+					)|
+					((b - self) / a).log * (outMax - outMin) / curve + outMin
+				}
+			}
+		}
+	}
+
 	DbAmp { :self |
 		10 ** (self * 0.05)
 	}
