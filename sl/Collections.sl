@@ -66,8 +66,8 @@
 		_self.forEach(function(item) {
 			return _aProcedure_1(item)
 		});
-		return _self;
 		>
+		self
 	}
 
 	fillFromWith { :self :aCollection :aProcedure:/1 |
@@ -444,6 +444,7 @@
 
 	do { :self :aProcedure |
 		<primitive: return _self.forEach(_aProcedure);>
+		self
 	}
 
 	doSeparatedBy { :self :elementBlock:/1 :separatorBlock:/0 |
@@ -977,6 +978,12 @@
 		answer
 	}
 
+	associationAt { :self :key |
+		self.associationAtIfAbsent(key) {
+			'Dictionary>>associationAt: no such key'.error
+		}
+	}
+
 	associationAtIfAbsent { :self :key :aBlock:/0 |
 		self.atIfPresentIfAbsent(key) { :value |
 			key -> value
@@ -1083,6 +1090,22 @@
 		answer
 	}
 
+	declareFrom { :self :key :aDictionary |
+		self.includesKey(key).if {
+			nil
+		} {
+			aDictionary.includesKey(key).if {
+				| association = aDictionary.associationAt(key); |
+				self.add(association);
+				aDictionary.removeKey(key);
+				association
+			} {
+				self.add(key -> nil);
+				nil
+			}
+		}
+	}
+
 	do { :self :aProcedure |
 		self.valuesDo(aProcedure)
 	}
@@ -1176,13 +1199,19 @@
 	}
 
 	removeKey { :self :key |
-		removeKeyIfAbsent(self, key) {
-			error('Dictionary:removeKey')
+		self.removeKeyIfAbsent(key) {
+			error('Dictionary>>removeKey')
 		}
 	}
 
 	removeIfAbsent { :self :oldObject :anExceptionBlock |
 		self.shouldNotImplement
+	}
+
+	replace { :self :aBlock:/1 |
+		self.keys.do { :key |
+			self[key] := aBlock(self[key])
+		}
 	}
 
 	select { :self :aProcedure:/1 |
@@ -1377,7 +1406,8 @@
 	do { :self :aProcedure:/1 |
 		1.upToDo(self.size) { :index |
 			aProcedure(self[index])
-		}
+		};
+		self
 	}
 
 	doSeparatedBy { :self :elementBlock:/1 :separatorBlock:/0 |
@@ -2253,7 +2283,8 @@ Bag : [Object, Collection] { | contents |
 			assoc.value.timesRepeat {
 				aProcedure(assoc.key)
 			}
-		}
+		};
+		self
 	}
 
 	includes { :self :anObject |
@@ -2487,8 +2518,8 @@ Set : [Object, Collection] {
 		_self.forEach(function(item) {
 			_aProcedure(item);
 		});
-		return null;
 		>
+		self
 	}
 
 	ifAbsentAdd { :self :anObject |
@@ -2657,7 +2688,8 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 				aProcedure(nextValue);
 				nextValue := nextValue + self.step
 			}
-		}
+		};
+		self
 	}
 
 	first { :self |
@@ -2883,8 +2915,13 @@ SortedArray : [Object, Collection] { | contents sortBlock |
 		self.contents.copy
 	}
 
+	at { :self :index |
+		self.contents[index]
+	}
+
 	do { :self :aBlock:/1 |
-		self.contents.do(aBlock:/1)
+		self.contents.do(aBlock:/1);
+		self
 	}
 
 	indexForInserting { :self :newObject |
@@ -2907,6 +2944,10 @@ SortedArray : [Object, Collection] { | contents sortBlock |
 		low
 	}
 
+	median { :self |
+		self[self.size + 1 // 2]
+	}
+
 	size { :self |
 		self.contents.size
 	}
@@ -2917,7 +2958,7 @@ SortedArray : [Object, Collection] { | contents sortBlock |
 
 }
 
-+ Void {
++Void {
 
 	SortedArray {
 		newSortedArray().initializeSlots([], lessThanEquals:/2)
@@ -2925,7 +2966,7 @@ SortedArray : [Object, Collection] { | contents sortBlock |
 
 }
 
-+ Array {
++Array {
 
 	SortedArray { :self |
 		newSortedArray().initializeSlots(self.sorted, lessThanEquals:/2)
@@ -2933,6 +2974,21 @@ SortedArray : [Object, Collection] { | contents sortBlock |
 
 	SortedArray { :self :sortBlock:/2 |
 		newSortedArray().initializeSlots(self.sorted(sortBlock:/2), sortBlock:/2)
+	}
+
+}
+
++@Collection {
+
+	SortedArray { :self |
+		self.SortedArray(lessThanEquals:/2)
+	}
+
+	SortedArray { :self :aSortBlock:/2 |
+		| answer = SortedArray(); |
+		answer.sortBlock := aSortBlock:/2;
+		answer.addAll(self);
+		answer
 	}
 
 }
@@ -2996,7 +3052,7 @@ Record : [Object, Collection, Dictionary] {
 
 	removeKeyIfAbsent { :self :aKey :aProcedure |
 		<primitive:
-		if(_self.has(_aKey)) {
+		if(Object.hasOwn(_self, _aKey)) {
 			delete _self[_aKey];
 			return _aKey;
 		} else {

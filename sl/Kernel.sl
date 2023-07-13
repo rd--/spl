@@ -32,12 +32,66 @@
 		self >> anObject
 	}
 
+	highBitOfByte { :self |
+		[
+			0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,
+			6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+			7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+			7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+			8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+			8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+			8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+			8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8
+		].at(self + 1)
+	}
+
+	highBitOfPositiveReceiver { :self |
+		| shifted = self, bitNo = 0; |
+		{ shifted < 65536 }.whileFalse {
+			shifted := shifted.bitShiftRight(16);
+			bitNo := bitNo + 16
+		};
+		(shifted < 256).ifFalse {
+			shifted := shifted.bitShiftRight(8);
+			bitNo := bitNo + 8
+		};
+		bitNo + shifted.highBitOfByte
+	}
+
 }
 
 @Integral {
 
 	adaptToFractionAndApply { :self :aFraction :aProcedure:/2 |
 		aFraction.aProcedure(Fraction(self, 1))
+	}
+
+	asLargerPowerOfTwo { :self |
+		self.isPowerOfTwo.if {
+			self
+		} {
+			self.positive.if {
+				1.bitShiftLeft(self.highBitOfPositiveReceiver)
+			} {
+				'Integral>>asLargerPowerOfTwo: non-positive'.error
+			}
+		}
+	}
+
+	asPowerOfTwo { :self |
+		self.asSmallerPowerOfTwo
+	}
+
+	asSmallerPowerOfTwo { :self |
+		self.isPowerOfTwo.if {
+			self
+		} {
+			self.positive.if {
+				1.bitShiftLeft(self.highBitOfPositiveReceiver - 1)
+			} {
+				'Integral>>asSmallerPowerOfTwo: non-positive'.error
+			}
+		}
 	}
 
 	benchFib { :self |
@@ -125,6 +179,12 @@
 
 	isInteger { :self |
 		self.subclassResponsibility
+	}
+
+	isPowerOfTwo { :self |
+		(self ~= 0) & {
+			self.bitAnd(self - 1) = 0
+		}
 	}
 
 	isPrime { :self |
@@ -381,7 +441,8 @@
 	}
 
 	do { :self :aProcedure:/1 |
-		1.upToDo(self, aProcedure:/1)
+		1.upToDo(self, aProcedure:/1);
+		self
 	}
 
 	downToDo { :self :end :aProcedure:/1 |
@@ -550,7 +611,7 @@
 					assoc.value.value.return
 				}
 			};
-			self.otherwise
+			otherwise:/1.cull(self)
 		}
 	}
 
@@ -1466,7 +1527,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 }
 
-LargeInteger : [Object, Magnitude, Number, Integral] {
+LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 
 	== { :self :anInteger |
 		<primitive: return _self === _anInteger;>
@@ -1517,6 +1578,17 @@ LargeInteger : [Object, Magnitude, Number, Integral] {
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
 		aProcedure(aNumber.LargeInteger, self)
+	}
+
+	bitAnd { :self :anObject |
+		<primitive:
+		if(sl.isLargeInteger(_anObject)) {
+			return _self & _anObject;
+		} else if(sl.isLargeInteger(_anObject)) {
+			return _self & BigInt(_anObject);
+		}
+		>
+		'LargeInteger>>bitAnd: operand not a LargeInteger or SmallFloat'.error
 	}
 
 	isInteger { :self |
@@ -1713,7 +1785,11 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	bitAnd { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return _self & _anObject; }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self & _anObject;
+		}
+		>
 		anObject.adaptToNumberAndApply(self, bitAnd:/2)
 	}
 
@@ -1722,7 +1798,11 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	bitOr { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return _self | _anObject; }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self | _anObject;
+		}
+		>
 		anObject.adaptToNumberAndApply(self, bitOr:/2)
 	}
 
@@ -1731,7 +1811,11 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	bitXor { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return _self ^ _anObject; }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self ^ _anObject;
+		}
+		>
 		anObject.adaptToNumberAndApply(self, bitXor:/2)
 	}
 
@@ -2130,6 +2214,14 @@ Procedure : [Object] {
 
 	whileTrue { :self :aProcedure |
 		<primitive: while(_self()) { _aProcedure(); }; return null;>
+	}
+
+}
+
++SmallFloat {
+
+	LargeInteger { :self |
+		<primitive: return BigInt(_self);>
 	}
 
 }

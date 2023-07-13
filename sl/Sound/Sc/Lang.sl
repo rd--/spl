@@ -346,6 +346,14 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.abs + aNumber.abs - ((2.sqrt - 1) * self.abs.min(aNumber.abs))
 	}
 
+	isNegative { :self |
+		self.negative
+	}
+
+	isPositive { :self |
+		self.positive
+	}
+
 	linCurve { :self :inMin :inMax :outMin :outMax :curve |
 		(self <= inMin).if {
 			outMin
@@ -412,16 +420,28 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		2.0 ** (self * (1 / 12))
 	}
 
-	OctCps { :self |
-		440 * (2 ** (self - 4.75))
-	}
-
 	MulAdd { :self :mul :add |
 		self * mul + add
 	}
 
 	Neg { :self |
 		0 - self
+	}
+
+	nextPowerOfTwo { :self |
+		self.nextPowerOf(2)
+	}
+
+	nextPowerOf { :self :base |
+		base ** (self.log / base.log).ceiling
+	}
+
+	OctCps { :self |
+		440 * (2 ** (self - 4.75))
+	}
+
+	previousPowerOf { :self :base |
+		base ** ((self.log / base.log).ceiling - 1)
 	}
 
 	RatioCents { :self |
@@ -909,6 +929,12 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	<> { :self:/1 :aProcedure:/1 |
 		{ :x |
 			self(aProcedure(x))
+		}
+	}
+
+	block { :self:/1 |
+		withReturn {
+			self(return:/1)
 		}
 	}
 

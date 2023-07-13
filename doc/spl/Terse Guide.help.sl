@@ -131,6 +131,15 @@ inf.sign = 1
 inf.positive = true
 (0 - inf).sign = -1
 (0 - inf).negative = true
+8.isPowerOfTwo (* is the receiver a power of two *)
+(1 .. 999).select(isPowerOfTwo:/1) = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+(2 ** 31).isPowerOfTwo = true (* this is only reliable for numbers that can be represented in 32-bits *)
+(2 ** 31 - 1).isPowerOfTwo = false
+127.asLargerPowerOfTwo = 128 (* next power of two that is not less than the receiver *)
+[1, 2, 4, 8, 16, 32, 64, 128, 256].collect { :each | (each + 1).asLargerPowerOfTwo } = [2, 4, 8, 16, 32, 64, 128, 256, 512]
+129.asSmallerPowerOfTwo = 128 (* next power of two that is not greater than the receiver *)
+[2, 4, 8, 16, 32, 64, 128, 256, 512].collect { :each | (each - 1).asSmallerPowerOfTwo } = [1, 2, 4, 8, 16, 32, 64, 128, 256]
+300.asPowerOfTwo = 256 (* next smaller power of two *)
 ```
 
 ## Array -- collection type
@@ -433,8 +442,8 @@ Bag().isSequenceable = false
 2.bitOr(3) = 3 (* or bits *)
 2.bitXor(3) = 1 (* xor bits *)
 3.bitNot = -4 (* invert bits *)
-2.bitShiftLeft(3) = 16 (* left shift *)
-16.bitShiftRight(3) = 2 (* right shift *)
+2.bitShiftLeft(3) = 16 (* left shift (higher) *)
+16.bitShiftRight(3) = 2 (* right shift (lower) *)
 (1 .. 4).select { :bit | 6.bitTest(bit) } = [2, 3] (* bit at position (0|1) [!Squeak] *)
 2 << 3 = 16 (* left shift operator *)
 16 >> 3 = 2 (* right shift operator *)
@@ -704,6 +713,13 @@ unicodeFractions().associations.isArray = true
 (x: 1, y: 2).includesAssociation('y' -> 2) (* includes association, testing for equality *)
 (x: 1, y: [2, 3]).includesAssociation('y' -> [2, 3])
 (x: 1, y: 2).includesAssociation('x' -> 2) = false
+| d = (x: 1, y: 2); | d.addAll(y: 3, z: 4); d = (x: 1, y: 3, z: 4) (* addAll replaces existing entries *)
+| p = (x: 1), q = (y: 2); | p.declareFrom('y', q); [p, q] = [(x: 1, y: 2), ()]
+| p = (x: 1), q = (x: 2); | p.declareFrom('x', q); [p, q] = [(x: 1), (x: 2)]
+| p = (), q = (x: 1); | p.declareFrom('x', q); [p, q] = [(x: 1), ()]
+| p = (), q = (x: 1); | p.declareFrom('y', q); [p, q] = [(y: nil), (x: 1)]
+(x: 1, y: 2, z: 3).collect(squared:/1) = (x: 1, y: 4, z: 9)
+| d = (x: 1, y: 2, z: 3); | d.replace(squared:/1); d = (x: 1, y: 4, z: 9) (* replace value at each key *)
 ```
 
 ## Duration -- temporal type
@@ -1033,6 +1049,7 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 | s = ''; | [1, 3, 5].do { :x | s := s ++ x }; s = '135' (* for loop (collection) *)
 | n = 9; | { n > 3 }.whileTrue { n := n - 1 }; n = 3 (* while true loop *)
 | n = 9; | { n < 7 }.whileFalse { n := n - 1 }; n = 6 (* while false loop *)
+10.do { :index | nil } = 10 (* do answers the receiver *)
 ```
 
 ## LargeInteger -- numeric type
@@ -1052,6 +1069,7 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 [10n % 5n, -4n % 3n, 4n % -3n, -4n % -3n] = [0n, 2n, -2n, -1n] (* modulo, negative operands *)
 13n % 7n % 4n = 2n (* left assocative *)
 13n + 1n % 7n = 0n (* equal precedence *)
+(2n ** 170 - 1).isPowerOfTwo = false (* LargeInteger power of two test *)
 ```
 
 ## Magnitude -- numeric trait
@@ -1100,6 +1118,7 @@ var d = (f: { :i | i * i }); d::f.value(9) = 81
 (x: 1, y: 1).withoutDuplicates = (x: 1)
 var d = Map(); 100.do { :i | d[i] := i; (i > 10).ifTrue { d.removeKey(i - 10) } }; d.size = 10
 var c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.removeKey(1); c.includesKey(1) = false
+(x: 1, y: 2).Map.includesKey('x') (* Record to Map, map includes key predicate *)
 ```
 
 ## Math
@@ -1172,6 +1191,10 @@ nil.json = 'null' (* nil has a Json representation *)
 (x: 1, y: 3, z: 5).species = Record:/0
 'b'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) = 2
 { 'd'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) }.ifError { :err | true }
+'b'.caseOfOtherwise(['a' -> 1, 'b' -> 2, 'c' -> 3]) { :notFound | false } = 2
+'d'.caseOfOtherwise(['a' -> 1, 'b' -> 2, 'c' -> 3]) { :notFound | notFound = 'd' }
+| z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 }, { 'c' } -> { 3 + 3 } ]; | 'b'.caseOf(z) = 4
+{ | z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 } ]; | 'c'.caseOf(z) }.ifError { :err | true }
 3:2.perform('numerator') = 3
 (3 -> 2).perform('key') = 3
 3.perform('plus', 4) = 7
@@ -1241,6 +1264,8 @@ var f = { }; f == f (* identity *)
 { }.typeOf = 'Procedure'
 { } . () = nil (* empty procedure evaluates to nil *)
 { | c a | c := [1]; a := { | a | a := 4; a }.value; { | a | a := 2; c.add(a); { | a | a := 3; c.add(a) }.value }.value; c.add(a); c }.value = [1, 2, 3, 4]
+10.do { :index | nil } = 10
+withReturn { 10.do { :index | (index = 5).ifTrue { 5.return } } } = 5 (* non-local return *)
 ```
 
 ## Promise -- kernel type
@@ -1283,8 +1308,8 @@ var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.Se
 ().isRecord
 ().species = Record:/0
 Record().isRecord
-Record().includesKey('x') = false
-(x: 1).includesKey('x') = true
+Record().includesKey('x') = false (* includes key predicate *)
+(w: 0, x: 1).includesKey('x') = true
 Record().at('x') = nil (* lookup for non-existing key answers nil *)
 ()['x'] = nil (* lookup for non-existing key answers nil *)
 var d = Record(); d.atPut('x', 1); d.at('x') = 1
@@ -1571,12 +1596,14 @@ inf.asString = 'inf' (* inf prints as inf *)
 SortedArray().isSortedArray (* sorted array *)
 SortedArray().species = SortedArray:/0 (* species is sorted array *)
 SortedArray().size = 0 (* query size *)
-var a = SortedArray(); a.add(3); a.add(1); a.add(2); a.contents = [1 .. 3] (* add inserts items into sequence *)
-var a = [3, 1].SortedArray; a.add(2); a.contents = [1 .. 3] (* sorted array from array *)
-var a = [7, 5 .. 1].SortedArray; a.addAll([8, 6 .. 2]); a.contents = [1 .. 8] (* add all elements of collection into sequence *)
-var a = [9 .. 1].SortedArray; a.collect { :x | 9 - x }; a.contents = [1 .. 9] (* collect into ordered collection *)
-var a = [1 .. 9].SortedArray(greaterThan:/2); a.contents = [9 .. 1] (* sorted array with specified sort procedure *)
-var a = [5 .. 9].SortedArray(greaterThan:/2); a.addAll([1 .. 4]); a.contents = [9 .. 1]
+| a = SortedArray(); | a.add(3); a.add(1); a.add(2); a.contents = [1 .. 3] (* add inserts items into sequence *)
+| a = [3, 1].SortedArray; | a.add(2); a.contents = [1 .. 3] (* sorted array from array *)
+| a = [7, 5 .. 1].SortedArray; | a.addAll([8, 6 .. 2]); a.contents = [1 .. 8] (* add all elements of collection into sequence *)
+| a = [9 .. 1].SortedArray; | a.collect { :x | 9 - x }; a.contents = [1 .. 9] (* collect into ordered collection *)
+| a = [1 .. 9].SortedArray(greaterThan:/2); | a.contents = [9 .. 1] (* sorted array with specified sort procedure *)
+| a = [5 .. 9].SortedArray(greaterThan:/2); | a.addAll([1 .. 4]); a.contents = [9 .. 1]
+(1 .. 10).SortedArray.median = 5
+| a = SortedArray(); | a.add('truite'); a.add('porcinet'); a.add('carpe'); a.median = 'porcinet'
 ```
 
 ## String -- text type
