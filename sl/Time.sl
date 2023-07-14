@@ -42,6 +42,10 @@ Date : [Object, Magnitude] {
 		<primitive: return _self.getMonth() + 1;>
 	}
 
+	offsetSeconds { :self |
+		<primitive: return Math.round(_self.getTimezoneOffset() * 60);>
+	}
+
 	second { :self |
 		<primitive: return _self.getSeconds();>
 	}
@@ -88,16 +92,16 @@ Duration : [Object, Magnitude] { | milliseconds |
 		}
 	}
 
-	< { :self :aDuration |
-		self.milliseconds < aDuration.milliseconds
+	< { :self :other |
+		self.milliseconds < other.asDuration.milliseconds
 	}
 
-	+ { :self :aDuration |
-		(self.milliseconds + aDuration.Duration.milliseconds).milliseconds
+	+ { :self :other |
+		(self.milliseconds + other.asDuration.milliseconds).milliseconds
 	}
 
-	- { :self :aDuration |
-		(self.milliseconds - aDuration.Duration.milliseconds).milliseconds
+	- { :self :other |
+		(self.milliseconds - other.asDuration.milliseconds).milliseconds
 	}
 
 	asDuration { :self |
@@ -134,10 +138,6 @@ Duration : [Object, Magnitude] { | milliseconds |
 
 	weeks { :self |
 		self.days / 7
-	}
-
-	Duration { :self |
-		self
 	}
 
 }
@@ -194,6 +194,29 @@ Duration : [Object, Magnitude] { | milliseconds |
 
 }
 
++String {
+
+	parseIso8601DurationAsArray { :self |
+		<primitive:
+		const regex = /P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?$/;
+		const [unused, years, months, weeks, days, hours, minutes, seconds] = _self.match(regex);
+		return [years, months, weeks, days, hours, minutes, seconds].map(function(x) {
+			return x ? Number(x) : 0;
+		});
+		>
+	}
+
+	Duration { :self |
+		| [years, months, weeks, days, hours, minutes, seconds] = self.parseIso8601DurationAsArray; |
+		(years + months > 0).if {
+			'String>>Duration: includes non-zero year or month fields'.error
+		} {
+			weeks.weeks + days.days + hours.hours + minutes.minutes + seconds.seconds
+		}
+	}
+
+}
+
 TimeStamp : [Object] { | unixTimeInMilliseconds |
 
 	= { :self :aTimeStamp |
@@ -220,8 +243,12 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 		self
 	}
 
+	Date { :self |
+		self.unixTimeInMilliseconds.Date
+	}
+
 	iso8601 { :self |
-		self.unixTimeInMilliseconds.Date.iso8601
+		self.Date.iso8601
 	}
 
 	printString { :self |
@@ -229,10 +256,7 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 	}
 
 	roundTo { :self :aDuration |
-		self.unixTimeInMilliseconds := self.unixTimeInMilliseconds.roundTo(aDuration.milliseconds)
-	}
-
-	TimeStamp { :self |
+		self.unixTimeInMilliseconds := self.unixTimeInMilliseconds.roundTo(aDuration.milliseconds);
 		self
 	}
 

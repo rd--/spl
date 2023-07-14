@@ -13,6 +13,7 @@
 9 // 3 = 3 (* integer division *)
 9.dividedByDividedBy(3) = 3 (* division *)
 1 + 2 * 3 = 9 (* evaluation always left to right, operators equal precedence *)
+3 * 2 + 1 = 7 (* evaluation always left to right, operators equal precedence *)
 1 + 2 * 3 = ((1 + 2) * 3) (* equals predicate is also left to right *)
 3 = 3 (* equals *)
 3.equals(3) (* equals *)
@@ -687,15 +688,19 @@ pi.isNumber (* pi constant *)
 ['one', 2, 3.141].isArray (* mixing of types allowed *)
 ```
 
-## Date
-Date(system).isDate
-Date(0).iso8601 = '1970-01-01T00:00:00.000Z'
-Date('1970-01-01T00:00:00.000Z').unixTimeInMilliseconds = 0
+## Date -- temporal type
+```
+Date(system).isDate (* get current date and time *)
+Date(0).iso8601 = '1970-01-01T00:00:00.000Z' (* translate Date to ISO-8601 string *)
+Date('1970-01-01T00:00:00.000Z').unixTimeInMilliseconds = 0 (* parse ISO-8601 string & convert to unix time *)
+| d = Date(0); | [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] (* month and day are one-indexed *)
+| d = Date(0); | [d.hour + (d.offsetSeconds / 60 / 60), d.minute, d.second] = [0, 0, 0] (* hour is in local time *)
 Date(0) = Date(0) (* dates are comparable *)
 Date(0) ~= Date(system) (* dates are comparable *)
 Date(0) < Date(system) (* dates are magnitudes *)
 Date(system) > Date(0) (* dates are magnitudes *)
 Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
+```
 
 ## Dictionary -- collection trait
 ```
@@ -724,18 +729,27 @@ unicodeFractions().associations.isArray = true
 
 ## Duration -- temporal type
 ```
-2.seconds.typeOf = 'Duration'
-5.hours.isDuration = true
-0.25.seconds = 250.milliseconds (* durations are comparable *)
-3.hours.seconds = 10800
-1.5.seconds.milliseconds = 1500
-0.5.seconds + 750.milliseconds = 1.25.seconds
-2.weeks - 12.days = 48.hours
+2.seconds.typeOf = 'Duration' (* make duration from number of seconds *)
+5.hours.isDuration = true (* make duration from number of hours *)
+0.25.seconds = 250.milliseconds (* make duration from number of milliseconds, durations are comparable *)
+3.hours.seconds = 10800 (* convert duration to seconds *)
+1.5.seconds.milliseconds = 1500 (* convert duration to milliseconds *)
+0.5.seconds + 750.milliseconds = 1.25.seconds (* addition of durations *)
+2.weeks - 12.days = 48.hours (* subtraction of durations *)
 0.25.seconds + 500.milliseconds = 750.milliseconds
 500.milliseconds + 0.25.seconds = 0.75.seconds
 | f = { :t0 | | t1 = 2.randomFloat.seconds; | f.evaluateAfterWith(t1, t1) }; | f(2.seconds).cancel = nil
 2.minutes < 2.hours (* durations are magnitudes *)
 2.hours > 2.minutes (* durations are magnitudes *)
+60.seconds.milliseconds = 60000 (* convert duration to milliseconds *)
+60.seconds.seconds = 60 (* convert duration to seconds *)
+60.seconds.minutes = 1 (* convert duration to minutes *)
+3.days.hours = 72 (* convert duration to hours *)
+3.weeks.days = 21 (* convert duration to days *)
+'P1W1DT1H1M1S'.Duration.seconds = 694861 (* parse ISO-8601 duration string *)
+'P2DT2H2M2S'.Duration.seconds = 180122 (* parse ISO-8601 duration string *)
+'P3DT4H'.Duration = (3.days + 4.hours)
+(2.days + 2.hours + 2.minutes + 2.seconds).seconds = ((2 * 24 * 60 * 60) + (2 * 60 * 60) + (2 * 60) + 2)
 ```
 
 ## Error -- exception type
@@ -1814,11 +1828,12 @@ var a = 'one' -> 1; a.key := 9; a.key = 9 (* p.x := y is syntax for p.x(y) *)
 
 ## TimeStamp -- temporal type
 ```
-1676784053576.TimeStamp.printString = 'TimeStamp(1676784053576)'
-1676784053576.TimeStamp.iso8601 = '2023-02-19T05:20:53.576Z'
-system.unixTime.isTimeStamp = true
+1676784053576.TimeStamp.printString = 'TimeStamp(1676784053576)' (* make TimeStamp from Number of milliseconds since unix epoch *)
+1676784053576.TimeStamp.iso8601 = '2023-02-19T05:20:53.576Z' (* convert TimeStamp to ISO-8601 string *)
+system.unixTime.isTimeStamp = true (* get current time at system *)
 system.unixTime.iso8601.size = 24
-var t = system.unixTime; t - 0.seconds = t
+1676784053576.TimeStamp.roundTo(24.hours).iso8601 = '2023-02-19T00:00:00.000Z' (* round to duration *)
+| t = system.unixTime; | t - 0.seconds = t (* offset TimeStamp by Duration *)
 { system.unixTime.postLine }.evaluateAfter(0.5.seconds).cancel = nil
 { system.unixTime.postLine }.evaluateAt(system.unixTime + 0.5.seconds).cancel = nil
 { system.unixTime.postLine }.evaluateEvery(3.seconds).cancel = nil

@@ -1,4 +1,4 @@
-# SmallFloat -- number type
+# SmallFloat -- numeric type
 
 Type representing floating-point numbers like 23 or 3.141.
 
@@ -7,4 +7,4 @@ Type representing floating-point numbers like 23 or 3.141.
 
 * * *
 
-See also: Integral, LargeInteger
+See also: Fraction, Integral, LargeInteger
