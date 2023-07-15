@@ -625,6 +625,33 @@ System : [Object] {
 
 +Procedure {
 
+	benchForMilliseconds { :self:/0 :interval |
+		|(
+			t0 = system.systemTimeInMilliseconds,
+			t1 = nil,
+			t2 = t0 + interval,
+			count = 1
+		)|
+		self();
+		{
+			t1 := system.systemTimeInMilliseconds;
+			t1 < t2
+		}.whileTrue {
+			self();
+			count := count + 1
+		};
+		[count, t1 - t0]
+	}
+
+
+	benchFor { :self :aDuration |
+		| [count, elapsedTime] = self.benchForMilliseconds(aDuration.milliseconds); |
+		[
+			(count / (elapsedTime / 1000)).roundTo(0.001), ' per second; ',
+			((elapsedTime / 1000) / count).roundTo(0.001), ' per count'
+		].join
+	}
+
 	evaluateAfterMilliseconds { :self:/0 :delayInMilliseconds |
 		<primitive:
 		if(!sl.isSmallFloat(_delayInMilliseconds)) {

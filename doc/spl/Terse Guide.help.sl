@@ -1202,8 +1202,12 @@ nil.json = 'null' (* nil has a Json representation *)
 ```
 123456789.asStringWithCommas = '123,456,789'
 123456.789.asStringWithCommas = '123,456.789'
+13579.asStringWithCommas = '13,579'
+159.asStringWithCommas = '159'
 -9876543210.asStringWithCommas = '-9,876,543,210'
 -987654.321.asStringWithCommas = '-987,654.321'
+-97.531.asStringWithCommas = '-97.531'
+-951.asStringWithCommas = '-951'
 ```
 
 ## Object -- kernel trait
@@ -1909,6 +1913,8 @@ system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum',
 ```
 system.systemTimeInMilliseconds > 0 = true
 system.unixTimeInMilliseconds > 1671935015392 = true
+| t = { 23.benchFib }.millisecondsToRun; | t > 1 & { t < 1000 }
+| [c, t] = { 23.benchFib }.benchForMilliseconds(100); | c >= 1 & { t >= 100 }
 ```
 
 ## System -- traitDictionary
