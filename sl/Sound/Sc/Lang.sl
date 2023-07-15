@@ -517,6 +517,22 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.replicateApplying(anInteger, value:/1)
 	}
 
+	instill { :self :index :item :default |
+		(index = 1).if {
+			item
+		} {
+			self.toArray.instill(index, item, default)
+		}
+	}
+
+	obtain { :self :index :default |
+		(index = 1).if {
+			self
+		} {
+			default
+		}
+	}
+
 }
 
 +@SequenceableCollection {
@@ -650,6 +666,15 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		}
 	}
 
+	instill { :self :index :item :default |
+		| answer = self.copy; |
+		(index - self.size).timesRepeat {
+			answer.add(default)
+		};
+		answer[index] := item;
+		answer
+	}
+
 	integrate { :self |
 		| answer = [], sum = 0; |
 		self.do { :item |
@@ -742,6 +767,14 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	normalizeSum { :self |
 		self / self.sum
+	}
+
+	obtain { :self :index :default |
+		(index > self.size).if {
+			default
+		} {
+			self[index]
+		}
 	}
 
 	pyramid { :self :patternType |

@@ -289,7 +289,8 @@
 		{ remaining > 0 }.whileTrue {
 			aProcedure();
 			remaining := remaining - 1
-		}
+		};
+		self
 	}
 
 }

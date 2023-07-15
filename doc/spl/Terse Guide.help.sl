@@ -1053,6 +1053,7 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 ## Iteration
 ```
 | n = 0; | 4.timesRepeat { n := n + 1 }; n = 4 (* times repeat loop (int) *)
+| n = 0; | -4.timesRepeat { n := nil }; n = 0 (* times repeat loop (zero or negative values are allowed) *)
 | n = 0; | 4.do { :x | n := n + x }; n = 10 (* times repeat loop (int) *)
 | n = 0; | 4.do { :x | n := n + x }; n = 10 (* for loop (int) *)
 | s = ''; | 4.do { :x | s := s ++ x }; s = '1234' (* for loop (int) *)
@@ -1063,6 +1064,7 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 | s = ''; | [1, 3, 5].do { :x | s := s ++ x }; s = '135' (* for loop (collection) *)
 | n = 9; | { n > 3 }.whileTrue { n := n - 1 }; n = 3 (* while true loop *)
 | n = 9; | { n < 7 }.whileFalse { n := n - 1 }; n = 6 (* while false loop *)
+10.timesRepeat { nil } = 10 (* timesRepeat answers the receiver) *)
 10.do { :index | nil } = 10 (* do answers the receiver *)
 ```
 

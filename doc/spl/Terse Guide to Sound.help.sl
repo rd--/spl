@@ -65,3 +65,12 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 { :break:/1 | 10.do { :index | (index = 5).ifTrue { 5.break } } }.block = 5 (* non-local return *)
 [1, 2, 4, 8, 16, 32, 64, 128, 256].collect { :each | (each + 1).nextPowerOfTwo } = [2, 4, 8, 16, 32, 64, 128, 256, 512]
 [4, 8, 16, 32, 64, 128, 256, 512].collect { :each | (each - 1).previousPowerOf(2) } = [2, 4, 8, 16, 32, 64, 128, 256]
+[10, 20, 30].obtain(3, nil) = 30 (* like at but return default value for out of range index *)
+[10, 20].obtain(3, 30) = 30
+7.obtain(2, 1) = 1 (* obtain is defined at Object *)
+7.obtain(1, nil) = 7
+[10, 20, 30, 40].instill(3, -30, nil) = [10, 20, -30, 40] (* like atPut but extends array if required *)
+[10, 20].instill(3, -30, nil) = [10, 20, -30]
+[10].instill(3, -30, 20) = [10, 20, -30]
+10.instill(3, -30, 20) = [ 10, 20, -30 ] (* instill is defined at Object *)
+10.instill(1, -10, nil) = -10
