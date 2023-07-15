@@ -1198,6 +1198,14 @@ nil.json = 'null' (* nil has a Json representation *)
 'null'.parseJson = nil (* nil has a Json representation *)
 ```
 
+## Number - numeric trait
+```
+123456789.asStringWithCommas = '123,456,789'
+123456.789.asStringWithCommas = '123,456.789'
+-9876543210.asStringWithCommas = '-9,876,543,210'
+-987654.321.asStringWithCommas = '-987,654.321'
+```
+
 ## Object -- kernel trait
 ```
 [1, 3, 5].typeOf = 'Array' (* name of type of object *)

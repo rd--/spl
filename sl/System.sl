@@ -443,6 +443,12 @@ System : [Object] {
 		}.keys
 	}
 
+	millisecondsToRun { :self :aProcedure:/0 |
+		| beginTime = self.systemTimeInMilliseconds; |
+		aProcedure();
+		self.systemTimeInMilliseconds - beginTime
+	}
+
 	multipleArityMethodList { :self |
 		self.methodDictionary.keys.select { :methodName |
 			self.methodArities(methodName).size > 1
