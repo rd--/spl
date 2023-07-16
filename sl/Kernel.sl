@@ -1,27 +1,27 @@
 @Binary {
 
 	<< { :self :anObject |
-		self.subclassResponsibility
+		self.subclassResponsibility('Binary>><<')
 	}
 
 	>> { :self :anObject |
-		self.subclassResponsibility
+		self.subclassResponsibility('Binary>>>>')
 	}
 
 	bitAnd { :self :anObject |
-		self.subclassResponsibility
+		self.subclassResponsibility('Binary>>bitAnd')
 	}
 
 	bitNot { :self |
-		self.subclassResponsibility
+		self.subclassResponsibility('Binary>>bitNot')
 	}
 
 	bitOr { :self :anObject |
-		self.subclassResponsibility
+		self.subclassResponsibility('Binary>>bitOr')
 	}
 
 	bitXor { :self :anObject |
-		self.subclassResponsibility
+		self.subclassResponsibility('Binary>>bitXor')
 	}
 
 	bitShiftLeft { :self :anObject |
@@ -178,7 +178,7 @@
 	}
 
 	isInteger { :self |
-		self.subclassResponsibility
+		self.subclassResponsibility('Integral>>isInteger')
 	}
 
 	isPowerOfTwo { :self |
@@ -330,7 +330,7 @@
 @Magnitude {
 
 	< { :self :aMagnitude |
-		self.subclassResponsibility
+		self.subclassResponsibility('Magnitude>><')
 	}
 
 	<= { :self :aMagnitude |
@@ -637,7 +637,7 @@
 
 	caseOf { :self :aBlockAssociationCollection |
 		self.caseOfOtherwise(aBlockAssociationCollection) { :case |
-			('Object>>caseOf: case not found, and no otherwise clause: ' ++ case.printString).error
+			('Object>>caseOf: case not found: ' ++ case).error
 		}
 	}
 
@@ -742,7 +742,7 @@
 	}
 
 	storeString { :self |
-		self.typeOf
+		'<' ++ self.typeOf ++ '>'
 	}
 
 	then { :self :aProcedure:/1 |
@@ -864,7 +864,7 @@ Character : [Object] { | string |
 	}
 
 	printString { :self |
-		self.string
+		'$' ++ self.string
 	}
 
 	storeString { :self |
@@ -1064,15 +1064,15 @@ Complex : [Object] { | real imaginary |
 
 	printString { :self |
 		(self.imaginary < 0).if {
-			self.real.printString ++ ' - ' ++ self.imaginary.abs.printString ++ '.i'
+			[self.real, ' - ', self.imaginary.abs, '.i'].join
 		} {
-			self.real.printString ++ ' + ' ++ self.imaginary.printString ++ '.i'
+			[self.real, ' + ', self.imaginary, '.i'].join
 		}
 	}
 
 	reciprocal { :self |
 		(self = 0).if {
-			'ZeroDivide'.error
+			'Complex>>reciprocal: zero divide'.error
 		} {
 			1 / self
 		}
@@ -1120,7 +1120,13 @@ Complex : [Object] { | real imaginary |
 	}
 
 	storeString { :self |
-		['Complex(', self.real.storeString, ', ', self.imaginary.storeString, ')'].join
+		[
+			'Complex(',
+			self.real.storeString,
+			', ',
+			self.imaginary.storeString,
+			')'
+		].join
 	}
 }
 
@@ -1176,12 +1182,12 @@ Error : [Object] {
 
 +@Object {
 
-	shouldNotImplement { :self |
-		(self.typeOf ++ '>>shouldNotImplement: ' ++ self).error
+	shouldNotImplement { :self :signature |
+		(signature ++ ': shouldNotImplement: <' ++ self.typeOf ++ '> ' ++ self).error
 	}
 
-	subclassResponsibility { :self |
-		(self.typeOf ++ '>>subclassResponsibility: ' ++ self).error
+	subclassResponsibility { :self :signature |
+		(signature ++ ': subclassResponsibility: <' ++ self.typeOf ++ '> ' ++ self).error
 	}
 
 }
@@ -1438,6 +1444,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
+	printString { :self |
+		[self.numerator, ':', self.denominator].join
+	}
+
 	raisedToInteger { :self :anInteger |
 		(anInteger = 0).if {
 			1
@@ -1485,7 +1495,13 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	storeString { :self |
-		self.numerator.printString ++ ':' ++ self.denominator.printString
+		[
+			'Fraction(',
+			self.numerator.storeString,
+			', ',
+			self.denominator.storeString,
+			')'
+		].join
 	}
 
 	truncated { :self |
@@ -2014,10 +2030,6 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 		self.primeFactors.max
 	}
 
-	printString { :self |
-		self.printString(10)
-	}
-
 	printString { :self :radix |
 		<primitive:
 		if(Number.isFinite(_self)) {
@@ -2089,7 +2101,7 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	storeString { :self |
-		self.printString
+		self.printString(10)
 	}
 
 	tan { :self |
@@ -2334,12 +2346,12 @@ RegExp : [Object] {
 		<primitive: return _self.flags;>
 	}
 
-	printString { :self |
-		<primitive: return `RegExp('${_self.source}', '${_self.flags}')`;>
-	}
-
 	source { :self |
 		<primitive: return _self.source;>
+	}
+
+	storeString { :self |
+		<primitive: return `RegExp('${_self.source}', '${_self.flags}')`;>
 	}
 
 	stringLiteral { :self |
@@ -2712,7 +2724,7 @@ String : [Object] {
 	terseGuideSummary { :self :options |
 		self.readTextFile.then { :text |
 			| totalTestCount = 0, totalPassCount = 0, areas = text.paragraphs; |
-			('Terse Guide Summary: Areas = ' ++ areas.size.printString).postLine;
+			('Terse Guide Summary: Areas = ' ++ areas.size).postLine;
 			areas.do { :area |
 				|(
 					entries = area.lines.reject { :line |
@@ -2741,15 +2753,15 @@ String : [Object] {
 				totalPassCount := totalPassCount + passCount;
 				[
 					'	=> ',
-					passCount.printString, ' / ', testCount.printString,
+					passCount, ' / ', testCount,
 					(failCount > 0).if {
-						' (' ++ failCount.printString ++ ' Failures)'
+						' (' ++ failCount ++ ' Failures)'
 					} {
 						''
 					}
 				].join.postLine
 			};
-			('Total => ' ++ totalPassCount.printString ++ ' / ' ++ totalTestCount.printString).postLine
+			('Total => ' ++ totalPassCount ++ ' / ' ++ totalTestCount).postLine
 		}
 	}
 

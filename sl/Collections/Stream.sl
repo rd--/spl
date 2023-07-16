@@ -130,11 +130,11 @@
 	}
 
 	atEnd { :self |
-		'Stream>>atEnd: type responsibility'.error
+		self.subclassResponsibility('Stream>>atEnd')
 	}
 
 	contents { :self |
-		'Stream>>contents: type responsibility'.error
+		self.subclassResponsibility('Stream>>contents')
 	}
 
 	do { :self :aBlock:/1 |
@@ -154,7 +154,7 @@
 	}
 
 	next { :self |
-		'Stream>>next: type responsibility'.error
+		self.subclassResponsibility('Stream>>next')
 	}
 
 	nextInto { :self :aCollection |
@@ -175,7 +175,7 @@
 	}
 
 	nextPut { :self :anObject |
-		'Stream>>nextPut: type responsibility'.error
+		self.subclassResponsibility('Stream>>nextPut')
 	}
 
 	nextPutAll { :self :aCollection |

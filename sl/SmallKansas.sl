@@ -32,7 +32,7 @@
 	}
 
 	outerElement { :self |
-		self.subclassResponsibility
+		self.subclassResponsibility('View>>outerElement')
 	}
 
 	title { :self |

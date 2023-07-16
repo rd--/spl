@@ -714,7 +714,7 @@
 	}
 
 	removeIfAbsent { :self :oldObject :anExceptionBlock |
-		self.subclassResponsibility
+		self.subclassResponsibility('Collection>>removeIfAbsent')
 	}
 
 	select { :self :aProcedure:/1 |
@@ -1201,7 +1201,7 @@
 	}
 
 	removeIfAbsent { :self :oldObject :anExceptionBlock |
-		self.shouldNotImplement
+		self.shouldNotImplement('Dictionary>>removeIfAbsent')
 	}
 
 	replace { :self :aBlock:/1 |
@@ -2065,11 +2065,17 @@ Association : [Object] { | key value |
 	}
 
 	printString { :self |
-		self.key.printString ++ ' -> ' ++ self.value.printString
+		[self.key, ' -> ', self.value].join
 	}
 
 	storeString { :self |
-		'Association(' ++ self.key.storeString ++ ', ' ++ self.value.storeString ++ ')'
+		[
+			'Association(',
+			self.key.storeString,
+			', ',
+			self.value.storeString,
+			')'
+		].join
 	}
 
 }
@@ -2757,7 +2763,15 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 	}
 
 	storeString { :self |
-		'Interval(' ++ self.start ++ ', ' ++ self.stop ++ ', ' ++ self.step ++ ')'
+		[
+			'Interval(',
+			self.start,
+			', ',
+			self.stop,
+			', ',
+			self.step,
+			')'
+		].join
 	}
 
 	sum { :self |

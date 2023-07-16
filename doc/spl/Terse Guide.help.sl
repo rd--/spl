@@ -587,8 +587,8 @@ ByteArray(4).hex = '00000000'
 '䶰䶱䶲䶳䶴䶵'.characterArray.collect(codePoint:/1) = [19888 .. 19893]
 'x'.Character = 120.Character (* characters are comparable *)
 'x'.Character.asInteger = 120
-'x'.Character.printString = 'x'
-'x'.Character.storeString = "Character(120)"
+'x'.Character.printString = '$x'
+'x'.Character.storeString = 'Character(120)'
 'x'.Character == 120.Character (* characters are identical *)
 '𠮷'.Character == '𠮷'.Character (* characters are identical *)
 ```
@@ -732,6 +732,7 @@ unicodeFractions().associations.isArray = true
 | p = (), q = (x: 1); | p.declareFrom('y', q); [p, q] = [(y: nil), (x: 1)]
 (x: 1, y: 2, z: 3).collect(squared:/1) = (x: 1, y: 4, z: 9)
 | d = (x: 1, y: 2, z: 3); | d.replace(squared:/1); d = (x: 1, y: 4, z: 9) (* replace value at each key *)
+{ (x: 1).remove }.ifError { :err | true } (* should not implement, see removeKey *)
 ```
 
 ## Duration -- temporal type
@@ -870,7 +871,7 @@ Fraction(3, 1) = 3:1
 3:2.floor = 1
 -3:2.floor = -2
 353:359.printString = '353:359' (* Fraction print string *)
-59:61.storeString = '59:61' (* Fraction store string *)
+59:61.storeString = 'Fraction(59, 61)' (* Fraction store string *)
 4 / (2:3) = 6
 4 / (-2:3) = -6
 -4 / (-2:3) = 6
@@ -1256,6 +1257,7 @@ var p = PriorityQueue(); p.peekPriority = nil
 ## Procedure -- behaviour type
 ```
 { }.typeOf = 'Procedure'
+typeOf:/1.typeOf = 'Procedure'
 var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5
 var i = 1; { i < 5 }.whileTrue { i := i + 1 }; i = 5
 var i = 1; 1.toDo(3) { :each | i := i + each.squared } ; i = 15
@@ -1280,7 +1282,6 @@ var f = { :x | x * x }; f(3) = 9
 { var f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49] }.ifError { :err | true }
 var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
 { :x | x * x }.map([3, 5, 7]) = [9, 25, 49] (* map is flipped collect *)
-typeOf:/1.typeOf = 'Procedure'
 { :x :y | x * y + y }.apply([3.141, 23]) = 95.243
 { { :x | x }.apply(0) }.ifError { :err | true }
 { { :x | x }.apply([]) }.ifError { :err | true }
@@ -1298,8 +1299,8 @@ var x = { }; x.isProcedure (* blocks are objects and may be assigned to a variab
 { 1 } ~= 1 (* inequality *)
 { } ~~ { } (* non-identity *)
 var f = { }; f == f (* identity *)
-{ }.printString = 'Procedure'
-{ :x | x }.printString = 'Procedure'
+{ }.printString = '<Procedure>'
+{ :x | x }.printString = '<Procedure>'
 { }.typeOf = 'Procedure'
 { } . () = nil (* empty procedure evaluates to nil *)
 { | c a | c := [1]; a := { | a | a := 4; a }.value; { | a | a := 2; c.add(a); { | a | a := 3; c.add(a) }.value }.value; c.add(a); c }.value = [1, 2, 3, 4]
@@ -1676,6 +1677,7 @@ SortedArray().size = 0 (* query size *)
 ```
 'quoted string'.isString (* quoted string *)
 'x' ++ 'y' = 'xy' (* append (catenation) *)
+'x' ++ 1 = 'x1' (* append, right hand side need not be a string *)
 'string'.isAscii = true (* does string contain only ascii characters *)
 'string'.ascii = [115, 116, 114, 105, 110, 103].ByteArray (* String to ByteArray of Ascii encoding *)
 { 'Mačiūnas'.ascii }.ifError { :err | true } (* non-ascii characters *)
@@ -1687,6 +1689,7 @@ SortedArray().size = 0 (* query size *)
 'string'.isEmpty = false (* is empty string *)
 'string'.size = 6 (* length *)
 ['m', 'ss', 'ss', 'pp', ''].join = 'msssspp' (* join *)
+['x', 1, 'y', 2, 'z', 3].join = 'x1y2z3' (* items need not be strings *)
 [].join = '' (* join of empty sequence is the empty string *)
 ['m', 'ss', 'ss', 'pp', ''].joinSeparatedBy('i') = 'mississippi' (* join using string *)
 'mississippi'.splitBy('i') = ['m', 'ss', 'ss', 'pp', ''] (* split at string *)

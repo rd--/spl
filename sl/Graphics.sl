@@ -249,7 +249,13 @@ Rectangle : [Object] { | origin corner |
 	}
 
 	storeString { :self |
-		'Rectangle(' ++ self.origin.storeString ++ ', ' ++ self.corner.storeString ++ ')'
+		[
+			'Rectangle(',
+			self.origin.storeString,
+			', ',
+			self.corner.storeString,
+			')'
+		].join
 	}
 
 	rounded { :self |
@@ -390,7 +396,7 @@ Vector2 : [Object, Number, Point] { | x y |
 	}
 
 	printString { :self |
-		self.x.printString ++ '@' ++ self.y.printString
+		[self.x, '@', self.y].join
 	}
 
 	Point { :self |
@@ -403,7 +409,13 @@ Vector2 : [Object, Number, Point] { | x y |
 	}
 
 	storeString { :self |
-		'Point(' ++ self.x.storeString ++ ', ' ++ self.y.storeString ++ ')'
+		[
+			'Point(',
+			self.x.storeString,
+			', ',
+			self.y.storeString,
+			')'
+		].join
 	}
 
 	t { :self |
