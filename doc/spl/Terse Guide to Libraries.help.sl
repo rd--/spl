@@ -49,28 +49,6 @@ var p = Pair('x', 'y'); p.swapInPlace; p[1] = 'y'
 Pair('x', 'y').swapped = Pair('y', 'x')
 ```
 
-## ReadStream -- collection type
-```
-var r = [1 .. 5].ReadStream; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil]
-var r = [1 .. 3].ReadStream; [r.next, r.upToEnd] = [1, [2, 3]]
-ReadStream().atEnd = true
-var r = (1 .. 5).ReadStream; r.size = 5
-var r = (1 .. 5).ReadStream; [r.peek, r.next] = [1, 1]
-var r = (1 .. 5).ReadStream; r.skip(3); r.upToEnd = [4, 5]
-var r = (9 .. 1).ReadStream; r.upTo(0) = [9 .. 1]
-var r = (9 .. 1).ReadStream; [r.upTo(3), r.upToEnd] = [[9 .. 4], [2 .. 1]]
-var r = (9 .. 1).ReadStream; [r.upToPosition(3), r.upToEnd] = [[9 .. 7], [6 .. 1]]
-```
-
-## WriteStream -- collection type
-```
-var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.contents = [1]
-var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.nextPutAll([2 .. 8]); w.nextPut(9); w.contents = [1 .. 9]
-var a = Array(9); var w = WriteStream(a); w.nextPut(1); w.nextPutAll((2 .. 8)); w.nextPut(9); w.contents = [1 .. 9]
-var a = Array(0); var w = WriteStream(a); w.nextPut(1); w.contents = [1]
-var w = Utf8WriteStream(); 'bodlɛʁ'.encodeOn(w); w.contents.utf8 = 'bodlɛʁ'
-```
-
 ## String -- markdown
 ```
 '# A Heading'.markdownToHtml.lines[1] = '<h1>A Heading</h1>'

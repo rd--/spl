@@ -254,7 +254,9 @@ Array(5).fillFromWith([1 .. 5], negated:/1) = [-1 .. -5]
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
 [1 .. 3].printString = '[1, 2, 3]' (* array print string *)
-[1, 2, 3].printString = '[1, 2, 3]' (* array print string *)
+[1 .. 3].storeString = '[1, 2, 3]' (* array store string *)
+[-1, 2.0, 3.141].printString = '[-1, 2, 3.141]' (* array print string *)
+[-1, 2.0, 3.141].storeString = '[-1, 2, 3.141]' (* array store string *)
 [1 .. 9].allButFirst = [2 .. 9] (* all but first element of Array *)
 [1 .. 9].allButFirst(7) = [8, 9] (* all but first n elements of Array *)
 { [].allButFirst }.ifError { :err | true } (* too few elements *)
@@ -503,7 +505,9 @@ false.asBit = 0 (* boolean as bit, false is zero *)
 true.asBit = 1 (* boolean as bit, true is one *)
 true.asInteger > false.asInteger (* boolean as integer, false is zero, true is one *)
 true.printString = 'true' (* true print string *)
+true.storeString = 'true' (* true store string *)
 false.printString = 'false' (* false print string *)
+false.storeString = 'false' (* false store string *)
 true.typeOf = 'Boolean' (* type of true is Boolean *)
 false.typeOf = 'Boolean' (* type of false is Boolean *)
 true.isInteger.not (* true is not an integer *)
@@ -515,7 +519,6 @@ false & { 'false &'.postLine; false } = false
 true | { 'true |'.postLine; true } = true
 false | { true } = true (* logical or operator *)
 false.or { true } = true (* logical or procedure *)
-true.printString = 'true' (* true print string *)
 { true & false }.ifError { :err | true } (* & applies the rhs, which must be a procedure *)
 true && true = true (* && applies value to the rhs *)
 { false | false }.ifError { :err | true } (* | applies the rhs, which must be a procedure *)
@@ -544,20 +547,23 @@ false ~= nil
 
 ## ByteArray -- collection type
 ```
-ByteArray(0).typeOf = 'ByteArray'
-ByteArray(0).species = ByteArray:/1
-ByteArray(0).isArray = false
-ByteArray(0).isByteArray
-ByteArray(0).isIndexable
-ByteArray(0).isSequenceable
-ByteArray(0).size = 0
+ByteArray(0).typeOf = 'ByteArray' (* byte array type name *)
+ByteArray(0).species = ByteArray:/1 (* byte array species *)
+ByteArray(0).isArray = false (* byte arrays are arrays *)
+ByteArray(0).isByteArray (* byte array predicate *)
+ByteArray(0).isIndexable (* byte arrays are indexable *)
+ByteArray(0).isSequenceable (* byte arrays are sequenceable *)
+ByteArray(0).size = 0 (* size of byte array (number of elements) *)
 ByteArray(8).size = 8
-ByteArray(8).at(1) = 0
-ByteArray(8).atPut(1, 179) = 179
+ByteArray(8).at(1) = 0 (* lookup element at index *)
+ByteArray(8).atPut(1, 179) = 179 (* set element at index *)
 | a = ByteArray(8); | a.atPut(1, 179); a.at(1) = 179
-[1 .. 9].ByteArray.isByteArray = true
+[1 .. 9].ByteArray.isByteArray = true (* array of numbers in 0-255 to byte array *)
+{ [-1].ByteArray }.ifError { :err | true } (* out of range element error *)
+{ ['1'].ByteArray }.ifError { :err | true } (* not a number element error *)
 [1 .. 9].ByteArray.reversed = [9 .. 1].ByteArray
 [1 .. 3].ByteArray.printString = '[1, 2, 3].ByteArray'
+[1 .. 3].ByteArray.storeString = '[1, 2, 3].ByteArray'
 ByteArray(4).hex = '00000000'
 'text'.ascii[1] = 116 (* ByteArray subscript *)
 | b = ByteArray(4); | b[1] := 15; b[3] := 240; b.hex = '0f00f000'
@@ -582,6 +588,7 @@ ByteArray(4).hex = '00000000'
 'x'.Character = 120.Character (* characters are comparable *)
 'x'.Character.asInteger = 120
 'x'.Character.printString = 'x'
+'x'.Character.storeString = "Character(120)"
 'x'.Character == 120.Character (* characters are identical *)
 '𠮷'.Character == '𠮷'.Character (* characters are identical *)
 ```
@@ -781,6 +788,7 @@ Float64Array(8).atPut(1, pi) = pi
 | a = Float64Array(1); | a.unsafeAtPut(1, 'x'); a.at(1).isNaN = true
 | a = Float64Array(1); | a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
 [1 .. 3].Float64Array.printString = '[1, 2, 3].Float64Array'
+[1 .. 3].Float64Array.storeString = '[1, 2, 3].Float64Array'
 ```
 
 ## Floating point
@@ -862,7 +870,7 @@ Fraction(3, 1) = 3:1
 3:2.floor = 1
 -3:2.floor = -2
 353:359.printString = '353:359' (* Fraction print string *)
-59:61.printString = '59:61' (* Fraction print string *)
+59:61.storeString = '59:61' (* Fraction store string *)
 4 / (2:3) = 6
 4 / (-2:3) = -6
 -4 / (-2:3) = 6
@@ -938,6 +946,7 @@ pi.asFraction = 311:99 (* with maximumDenominator set to one hundred *)
 ```
 1.isInteger = true (* integer predicate *)
 123.printString = '123' (* integer print string *)
+123.storeString = '123' (* integer store string *)
 -987654321.printString = '-987654321' (* negative integer print string *)
 4 / 2 = 2 (* integer division with integer result *)
 ```
@@ -991,10 +1000,10 @@ Interval(-2, 2, 1).collect(even:/1) = [true, false, true, false, true]
 1 + 1.to(9).collect(squared:/1) = [2, 5, 10, 17, 26,37, 50, 65, 82]
 2 * (1 .. 9).collect(squared:/1) = [2, 8, 18, 32, 50,72, 98, 128, 162]
 1.to(9).Array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-(1 .. 9).Array.copyFromTo(3, 7) = [3, 4, 5, 6, 7]
+(1 .. 9).copyFromTo(3, 7) = [3, 4, 5, 6, 7] (* copy from start to end indices, inclusive *)
 | i = 1; | 1.to(9).do { :each | i := i + each }; i = 46
-Interval(-1, 1, 1).storeString = 'Interval(-1, 1, 1)'
 Interval(-1, 1, 1).printString = '(-1 .. 1)'
+Interval(-1, 1, 1).storeString = 'Interval(-1, 1, 1)'
 Interval(1, 9, 1) = (1 .. 9)
 Interval(1, 10, 3).size = 4
 Interval(1, 10, 3).Array = [1, 4, 7, 10]
@@ -1072,6 +1081,7 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 ```
 23n.typeOf = 'LargeInteger'
 (2 ** 54).LargeInteger.squared.printString = '324518553658426726783156020576256'
+(2 ** 37).LargeInteger.squared.storeString = '18889465931478580854784n'
 '324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
 2971215073.LargeInteger.isPrime = true
 23n.factorial = 25852016738884976640000n (* factorial of LargeInteger *)
@@ -1194,6 +1204,7 @@ false.ifNotNil { true } (* nil conditional *)
 ifNil(nil) { true } = true (* nil conditional *)
 ifNil(0) { false } = 0 (* nil conditional *)
 nil.printString = 'nil' (* nil print string *)
+nil.storeString = 'nil' (* nil store string *)
 nil.json = 'null' (* nil has a Json representation *)
 'null'.parseJson = nil (* nil has a Json representation *)
 ```
@@ -1317,7 +1328,7 @@ inf.isNumber (* constant (infinity) *)
 ## Random values
 ```
 9.randomInteger.isInteger (* random integers (1 to self) *)
-var s = Set(); 45.timesRepeat { s.add(9.randomInteger) }; s.minMax = [1, 9] (* check distribution *)
+var s = Set(); 729.timesRepeat { s.add(9.randomInteger) }; s.minMax = [1, 9] (* check distribution *)
 var s = Set(); 729.timesRepeat { s.add(9.randomInteger) }; s.Array.sorted = [1 .. 9] (* check distribution *)
 9.randomFloat.isNumber (* random floating point number (0 to self) *)
 var s = Set(); 729.timesRepeat { s.add(9.randomFloat.rounded) }; s.minMax = [0, 9] (* check distribution *)
@@ -1328,6 +1339,31 @@ var b = Bag(); 5000.timesRepeat { b.add(5.atRandom) }; b.contents.values.allSati
 [1].atRandom = 1 (* random element of one-element collection *)
 var c = [1 .. 5]; c.includes(c.atRandom) (* answer random element from a collection *)
 var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.Set (* random element of collection *)
+```
+
+## ReadStream -- collection type
+```
+ReadStream().typeOf = 'ReadStream' (* type of read stream *)
+ReadStream().isReadStream (* read stream predicate *)
+ReadStream().atEnd = true (* read stream at end predicate *)
+(1 .. 5).ReadStream.size = 5 (* read stream from interval, read stream size *)
+(1 .. 5).ReadStream.upTo(3) = [1, 2] (* read up to, but not including, an element *)
+(1 .. 5).ReadStream.upTo(9) = [1 .. 5] (* read up to end if element is not located *)
+(1 .. 5).ReadStream.contents = [1 .. 5] (* contents of finite stream *)
+| r = (1 .. 5).ReadStream; | r.upToEnd; r.contents = [1 .. 5] (* contents of consumed stream *)
+| r = [1 .. 5].ReadStream; | [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil]
+| r = [1 .. 3].ReadStream; | [r.next, r.upToEnd] = [1, [2, 3]]
+| r = (1 .. 5).ReadStream; | [r.peek, r.next] = [1, 1]
+| r = (1 .. 5).ReadStream; | [r.peekFor(1), r.next] = [true, 2]
+| r = (1 .. 5).ReadStream; | r.upTo(3) = [1, 2] & { r.next = 4} (* matching element is consumed *)
+| r = (1 .. 5).ReadStream; | r.skip(3); r.upToEnd = [4, 5]
+| r = (9 .. 1).ReadStream; | [r.upTo(3), r.upToEnd] = [[9 .. 4], [2 .. 1]]
+| r = (9 .. 1).ReadStream; | [r.upToPosition(3), r.upToEnd] = [[9 .. 7], [6 .. 1]]
+| r = '.....ascii'.ascii.ReadStream, a = ByteArray(5); | r.skip(5); r.nextInto(a); a.ascii = 'ascii'
+(1 .. 9).ReadStream.nextSatisfy { :each | each >= 5 } = 5
+(1 .. 9).ReadStream.take(23) = [1 .. 9]
+(1 .. 9).ReadStream.nextMatchFor(1)
+(1 .. 9).ReadStream.nextMatchAll([1, 2, 3])
 ```
 
 ## Record -- collection type
@@ -1429,7 +1465,7 @@ var c = [3, 2, 1], r = c.sorted ; c ~= r (* sorted (answer a new array) *)
 [1, 3 .. 11].isSorted (* is sequence sorted *)
 [11, 9 .. 1].isSortedBy { :i :j | i > j } (* is sequence sorted by predicate *)
 [1, 5, 3, 7, 9].isSorted.not (* is sequence sorted *)
-[1, 3, 5, 7, 9].copyFromTo(3, 5) = [5, 7, 9] (* copy part of collection (one-indexed) *)
+[1, 3, 5, 7, 9].copyFromTo(3, 5) = [5, 7, 9] (* copy part of collection, one-indexed, inclusive *)
 [1, 3, 5, 7, 9].indexOfSubCollection([5, 7, 9]) = 3 (* locate index of subsequence *)
 [1, 3, 5, 7, 9].indexOf(5) = 3 (* index of element (compared using =) *)
 [1, 3, 5, 7, 9].first = 1 (* first element of *)
@@ -1617,6 +1653,8 @@ pi.isFinite = true
 [-1, 0, 1].collect(asString:/1) = ['-1', '0', '1']
 inf.asString = 'inf' (* inf prints as inf *)
 (0 - inf).asString = '(0 - inf)'
+pi.printString = '3.141592653589793'
+pi.storeString = '3.141592653589793'
 ```
 
 ## SortedArray -- collection type
@@ -1662,8 +1700,8 @@ SortedArray().size = 0 (* query size *)
 'mississippi'.splitBy('i').joinSeparatedBy('i') = 'mississippi' (* joinSeparatedBy is the inverse of splitBy *)
 '/usr/local/bin'.splitBy('/') = ['', 'usr', 'local', 'bin']
 'a' < 'b' = true (* string comparison *)
-'text'.copyFromTo(2, 3) = 'ex' (* substring, one indexed *)
-'text'.copyFromTo(3 ,3) = 'x' (* substring (single character) *)
+'text'.copyFromTo(2, 3) = 'ex' (* substring, one indexed, inclusive *)
+'text'.copyFromTo(3, 3) = 'x' (* substring (single character) *)
 { 'string'.add('!') }.ifError { :err | 'oh oh...' } = 'oh oh...' (* strings are immutable *)
 'quoted string with \'escaped\' quote characters'.words[4].copyFromTo(2, 8) = 'escaped'
 'string'.utf8 = 'string'.ascii (* Utf-8 is a superset of ascii *)
@@ -1802,6 +1840,7 @@ var x = [1 .. 5]; x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, 
 () = [].Record (* the empty dictionary *)
 (x: 1, y: 2) = ['x' -> 1, 'y' -> 2].Record (* (x: 1, ...) is dictionary syntax *)
 (x: 1, y: 2).printString = '(x: 1, y: 2)' (* Record print string *)
+(x: 1, y: 2).storeString = '(x: 1, y: 2)' (* Record print string *)
 ```
 
 ## Syntax -- temporaries
@@ -1971,4 +2010,16 @@ system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 ```
 'x=3.141&y=23'.URLSearchParams.has('x') = true
 'x=3.141&y=23'.URLSearchParams.get('y') = '23'
+```
+
+## WriteStream -- collection type
+```
+| w = WriteStream(); | w.nextPut(1); w.contents = [1]
+| w = WriteStream(); | w.nextPut(1); w.nextPutAll([2 .. 8]); w.nextPut(9); w.contents = [1 .. 9]
+| w = WriteStream(); | 1.putOn(w); w.contents = [1]
+| w = WriteStream(); | 1.putOn(w); [2 .. 8].putOn(w); 9.putOn(w); w.contents = [1 .. 9]
+| w = [].ByteArray.WriteStream; | w.nextPutAll([1 .. 9]); w.contents = [1 .. 9].ByteArray
+| w = Utf8WriteStream(); | 'bodlɛʁ'.encodeOn(w); w.contents.utf8 = 'bodlɛʁ'
+| w = Utf8WriteStream(); | 'bodlɛʁ'.encodeOn(w); w.utf8Contents = 'bodlɛʁ'
+| w = Utf8WriteStream(); | [3.141, nil].do { :each | each.printOn(w) }; w.utf8Contents = '3.141nil'
 ```

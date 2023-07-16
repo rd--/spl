@@ -146,10 +146,6 @@
 		>
 	}
 
-	printString { :self |
-		self.Array.printString ++ '.' ++ self.Type.name
-	}
-
 	occurrencesOf { :self :anObject |
 		| tally = 0; |
 		1.upToDo(self.size) { :index |
@@ -186,6 +182,10 @@
 
 	sorted { :self |
 		self.copy.sort
+	}
+
+	storeString { :self |
+		self.Array.storeString ++ '.' ++ self.Type.name
 	}
 
 	unsafeAt { :self :anInteger |
@@ -1189,10 +1189,6 @@
 		}
 	}
 
-	printString { :self |
-		self.storeString
-	}
-
 	removeAll { :self |
 		<primitive: _self.clear();>
 		self
@@ -1225,7 +1221,7 @@
 	}
 
 	storeString { :self |
-		self.associations.printString ++ '.' ++ self.typeOf
+		self.associations.storeString ++ '.' ++ self.typeOf
 	}
 
 	valuesDo { :self :aProcedure:/1 |
@@ -2073,7 +2069,7 @@ Association : [Object] { | key value |
 	}
 
 	storeString { :self |
-		'Association(' ++ self.key.printString ++ ', ' ++ self.value.printString ++ ')'
+		'Association(' ++ self.key.storeString ++ ', ' ++ self.value.storeString ++ ')'
 	}
 
 }
@@ -2309,10 +2305,6 @@ Bag : [Object, Collection] { | contents |
 		}
 	}
 
-	printString { :self |
-		'Bag(' ++ self.contents.printString ++ ')'
-	}
-
 	removeIfAbsent { :self :oldObject :whenAbsent:/0 |
 		self.includes(oldObject).if {
 			| count = self.contents[oldObject]; |
@@ -2357,6 +2349,10 @@ Bag : [Object, Collection] { | contents |
 
 	sortedElements { :self |
 		self.contents.associations.sort
+	}
+
+	storeString { :self |
+		self.contents.storeString ++ '.Bag'
 	}
 
 	species { :self |
@@ -3040,16 +3036,6 @@ Record : [Object, Collection, Dictionary] {
 		>
 	}
 
-	printString { :self |
-		[
-			'(',
-			self.associations.collect { :each |
-				each.key ++ ': ' ++ each.value.printString
-			}.joinSeparatedBy(', '),
-			')'
-		].join
-	}
-
 	removeKeyIfAbsent { :self :aKey :aProcedure |
 		<primitive:
 		if(Object.hasOwn(_self, _aKey)) {
@@ -3071,6 +3057,16 @@ Record : [Object, Collection, Dictionary] {
 
 	Record { :self |
 		self
+	}
+
+	storeString { :self |
+		[
+			'(',
+			self.associations.collect { :each |
+				each.key ++ ': ' ++ each.value.storeString
+			}.joinSeparatedBy(', '),
+			')'
+		].join
 	}
 
 	values { :self |

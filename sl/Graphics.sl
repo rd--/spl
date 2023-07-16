@@ -62,7 +62,7 @@ Colour : [Object] { | red green blue alpha |
 		}.join
 	}
 
-	printString { :self |
+	storeString { :self |
 		[
 			'Colour(',
 			[
@@ -70,7 +70,7 @@ Colour : [Object] { | red green blue alpha |
 				self.green,
 				self.blue,
 				self.alpha
-			].collect(printString:/1).joinSeparatedBy(','),
+			].collect(storeString:/1).joinSeparatedBy(','),
 			')'
 		].join
 	}
@@ -248,8 +248,8 @@ Rectangle : [Object] { | origin corner |
 		)
 	}
 
-	printString { :self |
-		'Rectangle(' ++ self.origin.printString ++ ', ' ++ self.corner.printString ++ ')'
+	storeString { :self |
+		'Rectangle(' ++ self.origin.storeString ++ ', ' ++ self.corner.storeString ++ ')'
 	}
 
 	rounded { :self |
@@ -403,7 +403,7 @@ Vector2 : [Object, Number, Point] { | x y |
 	}
 
 	storeString { :self |
-		'Point(' ++ self.x.printString ++ ', ' ++ self.y.printString ++ ')'
+		'Point(' ++ self.x.storeString ++ ', ' ++ self.y.storeString ++ ')'
 	}
 
 	t { :self |

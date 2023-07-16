@@ -696,7 +696,7 @@
 	}
 
 	printString { :self |
-		self.typeOf
+		self.storeString
 	}
 
 	printStringConcise { :self :count |
@@ -739,6 +739,10 @@
 
 	slotNameArray { :self |
 		self.Type.slotNameArray
+	}
+
+	storeString { :self |
+		self.typeOf
 	}
 
 	then { :self :aProcedure:/1 |
@@ -833,7 +837,7 @@ Boolean : [Object] {
 		<primitive: return _self ? false : true;>
 	}
 
-	printString { :self |
+	storeString { :self |
 		self.if {
 			'true'
 		} {
@@ -864,7 +868,7 @@ Character : [Object] { | string |
 	}
 
 	storeString { :self |
-		'Character(' ++ self.string ++ ')'
+		'Character(' ++ self.codePoint ++ ')'
 	}
 
 }
@@ -1115,6 +1119,9 @@ Complex : [Object] { | real imaginary |
 		self.i.tan.i.negated
 	}
 
+	storeString { :self |
+		['Complex(', self.real.storeString, ', ', self.imaginary.storeString, ')'].join
+	}
 }
 
 +SmallFloat {
@@ -1431,10 +1438,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
-	printString { :self |
-		self.numerator.printString ++ ':' ++ self.denominator.printString
-	}
-
 	raisedToInteger { :self :anInteger |
 		(anInteger = 0).if {
 			1
@@ -1479,6 +1482,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 				self
 			}
 		}
+	}
+
+	storeString { :self |
+		self.numerator.printString ++ ':' ++ self.denominator.printString
 	}
 
 	truncated { :self |
@@ -2081,6 +2088,10 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 		<primitive: return Math.sqrt(_self)>
 	}
 
+	storeString { :self |
+		self.printString
+	}
+
 	tan { :self |
 		<primitive: return Math.tan(_self)>
 	}
@@ -2658,10 +2669,6 @@ String : [Object] {
 		system.transcript.log(self)
 	}
 
-	printString { :self |
-		<primitive: return `'${_self}'`;>
-	}
-
 	pseudoSlotNameArray { :self |
 		['size']
 	}
@@ -2692,6 +2699,10 @@ String : [Object] {
 
 	splitBy { :self :aString |
 		<primitive: return _self.split(_aString);>
+	}
+
+	storeString { :self |
+		<primitive: return `'${_self}'`;>
 	}
 
 	terseGuideSummary { :self |
@@ -2882,7 +2893,7 @@ Nil : [Object] {
 		<primitive: return JSON.stringify(_self);>
 	}
 
-	printString { :self |
+	storeString { :self |
 		'nil'
 	}
 

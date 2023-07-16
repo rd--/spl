@@ -11,6 +11,10 @@ system.categorizeDictionary(
 			'Interval',
 			'PriorityQueue'
 		],
+		'Collections-Streams': [
+			'ReadStream',
+			'WriteStream'
+		],
 		'Collections-Unordered': [
 			'Association',
 			'Bag',
@@ -45,6 +49,7 @@ system.categorizeDictionary(
 			'SmallFloat'
 		],
 		'Kernel-Text': [
+			'Character',
 			'RegExp',
 			'String',
 			'Transcript'

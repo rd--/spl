@@ -128,12 +128,12 @@ Duration : [Object, Magnitude] { | milliseconds |
 		self.seconds / 60
 	}
 
-	printString { :self |
-		self.milliseconds.printString ++ '.milliseconds'
-	}
-
 	seconds { :self |
 		self.milliseconds / 1000
+	}
+
+	storeString { :self |
+		self.milliseconds.storeString ++ '.milliseconds'
 	}
 
 	weeks { :self |
@@ -251,13 +251,13 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 		self.Date.iso8601
 	}
 
-	printString { :self |
-		'TimeStamp(' ++ self.unixTimeInMilliseconds.printString ++ ')'
-	}
-
 	roundTo { :self :aDuration |
 		self.unixTimeInMilliseconds := self.unixTimeInMilliseconds.roundTo(aDuration.milliseconds);
 		self
+	}
+
+	storeString { :self |
+		'TimeStamp(' ++ self.unixTimeInMilliseconds.storeString ++ ')'
 	}
 
 }

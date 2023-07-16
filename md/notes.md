@@ -100,7 +100,7 @@ The standard library cannot assume:
 
 Co-routines cannot be implemented where control operators are implemented as higher-order procedures.
 (Js has co-routines using _function*_ and _yield_ syntaxes.
-Spl could implement a syntax _{! ... }_ to indicate a routine, however _yield_ cannot be called indirectly.
+Spl could implement a syntax, say _{! ... }_, to indicate a routine, however _yield_ cannot be called indirectly.
 Idiomatic Spl requires yielding from within control structures, i.e. _{! 9.timesRepeat { 3.random.yield } }.fork_, which is not allowed.)
 
 All Io is asynchronous, hence Promises.
