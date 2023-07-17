@@ -1729,7 +1729,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				},
 				2 -> {
 					browser.setStatus(system.typeTraits(path[2]).joinSeparatedBy(', '));
-					methodSet := system.typeMethods(path[2]).select { :each |
+					methodSet := system.typeMethodDictionary(path[2]).values.select { :each |
 						each.origin.name ~= 'Object'
 					};
 					methodSet.collect(qualifiedName:/1).Array.sorted
@@ -1761,7 +1761,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				},
 				1 -> {
 					browser.setStatus(system.typeTraits(path[1]).joinSeparatedBy(', '));
-					methodSet := system.typeMethods(path[1]).select { :each |
+					methodSet := system.typeMethodDictionary(path[1]).values.select { :each |
 						each.origin.name ~= 'Object'
 					};
 					methodSet.collect(qualifiedName:/1).Array.sorted

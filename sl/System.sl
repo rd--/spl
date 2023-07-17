@@ -541,6 +541,26 @@ System : [Object] {
 		<primitive: return _self.transcript;>
 	}
 
+	typeDictionary { :self |
+		<primitive: return _self.typeDictionary;>
+	}
+
+	typeDirectMethodDictionary { :self :typeName |
+		(* Methods implemented directly at typeName. *)
+		self.typeLookup(typeName).methodDictionary
+	}
+
+	typeInheritedMethodDictionary { :self :typeName |
+		(* Methods inherited from Traits at typeName (most specific only). *)
+		| answer = (); |
+		self.typeLookup(typeName).traitNameArray.do { :traitName |
+			self.traitLookup(traitName).methodDictionary.valuesDo { :method |
+				answer[method.qualifiedName] := method
+			}
+		};
+		answer
+	}
+
 	typeLookup { :self :typeName |
 		self.isTypeName(typeName).if {
 			self.typeDictionary[typeName]
@@ -549,28 +569,8 @@ System : [Object] {
 		}
 	}
 
-	typeDictionary { :self |
-		<primitive: return _self.typeDictionary;>
-	}
-
-	typeDirectMethods { :self :typeName |
-		(* Methods implemented directly at typeName. *)
-		self.typeLookup(typeName).methodDictionary.values
-	}
-
-	typeInheritedMethods { :self :typeName |
-		(* Methods inherited from Traits at typeName (most specific only). *)
-		| answer = (); |
-		self.typeLookup(typeName).traitNameArray.do { :traitName |
-			self.traitLookup(traitName).methodDictionary.valuesDo { :method |
-				answer[method.name] := method
-			}
-		};
-		answer.values
-	}
-
-	typeMethods { :self :typeName |
-		self.typeDirectMethods(typeName) ++ self.typeInheritedMethods(typeName)
+	typeMethodDictionary { :self :typeName |
+		self.typeInheritedMethodDictionary(typeName) ++ self.typeDirectMethodDictionary(typeName)
 	}
 
 	typeTraits { :self :typeName |
@@ -618,7 +618,7 @@ System : [Object] {
 +@Object {
 
 	respondsTo { :self :aProcedure |
-		system.typeMethods(self.typeOf).anySatisfy { :each |
+		system.typeMethodDictionary(self.typeOf).anySatisfy { :each |
 			each.qualifiedName = aProcedure.name
 		}
 	}

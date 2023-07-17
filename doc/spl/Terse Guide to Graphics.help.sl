@@ -51,3 +51,8 @@ Matrix33(1, 1, 1, 1, 0, 0, 0, 1, 0).inverse = Matrix33(0, 1, 0, 0, 0, 1, 1, -1, 
 
 'Graphics/Vector3'
 [1, 2, 3].Vector3 = Vector3(1, 2, 3)
+Vector3(0, 0, 0).isZero (* are x, y and z all zero *)
+
+'Point'
+0.asPoint.isPoint (* number to point, point predicate *)
+Point(0, 0).isZero (* are x and y both zero *)

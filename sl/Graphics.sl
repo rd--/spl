@@ -36,6 +36,12 @@
 		true
 	}
 
+	isZero { :self |
+		self.x.isZero & {
+			self.y.isZero
+		}
+	}
+
 	max { :self :aPoint |
 		self.x.max(aPoint.x) @ self.y.max(aPoint.y)
 	}
@@ -383,6 +389,10 @@ Vector2 : [Object, Number, Point] { | x y |
 		aProcedure(aNumber @ aNumber, self)
 	}
 
+	asPoint { :self |
+		self
+	}
+
 	Array { :self |
 		[self.x, self.y]
 	}
@@ -400,7 +410,7 @@ Vector2 : [Object, Number, Point] { | x y |
 	}
 
 	Point { :self |
-		self
+		self.copy
 	}
 
 	r { :self |
@@ -432,7 +442,11 @@ Vector2 : [Object, Number, Point] { | x y |
 	}
 
 	adaptToPointAndApply { :self :aPoint :aProcedure:/2 |
-		aProcedure(aPoint, self.Point)
+		aProcedure(aPoint, self.asPoint)
+	}
+
+	asPoint { :self |
+		Point(self, self)
 	}
 
 	Point { :self :y |
@@ -449,7 +463,11 @@ Vector3 : [Object] { | x y z |
 
 	= { :self :anObject |
 		anObject.isVector3.if {
-			(self.x = anObject.x) & { self.y = anObject.y } & { self.z = anObject.z }
+			(self.x = anObject.x) & {
+				self.y = anObject.y
+			} & {
+				self.z = anObject.z
+			}
 		} {
 			false
 		}
@@ -457,6 +475,15 @@ Vector3 : [Object] { | x y z |
 
 	Array { :self |
 		[self.x, self.y, self.z]
+	}
+
+
+	isZero { :self |
+		self.x.isZero & {
+			self.y.isZero
+		} & {
+			self.z.isZero
+		}
 	}
 
 	xy { :self |

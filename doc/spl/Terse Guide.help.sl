@@ -733,6 +733,8 @@ unicodeFractions().associations.isArray = true
 (x: 1, y: 2, z: 3).collect(squared:/1) = (x: 1, y: 4, z: 9)
 | d = (x: 1, y: 2, z: 3); | d.replace(squared:/1); d = (x: 1, y: 4, z: 9) (* replace value at each key *)
 { (x: 1).remove }.ifError { :err | true } (* should not implement, see removeKey *)
+(x: 1, y: 2) ++ (x: 2, y: 1) = (x: 2, y: 1) (* appending two dictionaries is right-biased *)
+(x: 1, y: 2).anySatisfy(even:/1) (* collection predicates at dictionary consider values not associations *)
 ```
 
 ## Duration -- temporal type
@@ -1146,6 +1148,9 @@ var d = (f: { :i | i * i }); d::f.value(9) = 81
 var d = Map(); 100.do { :i | d[i] := i; (i > 10).ifTrue { d.removeKey(i - 10) } }; d.size = 10
 var c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.removeKey(1); c.includesKey(1) = false
 (x: 1, y: 2).Map.includesKey('x') (* Record to Map, map includes key predicate *)
+(x: 1, y: 2).Map ++ (x: 2, y: 1) = (x: 2, y: 1).Map (* appending a record to a Map answers a Map, biases right *)
+(x: 1, y: 2, z: 3).Map ++ (x: 2, y: 1) = (x: 2, y: 1, z: 3).Map (* append record to Map *)
+(x: 1, y: 2).Map ++ (x: 2, y: 1, z: 3) = (x: 2, y: 1, z: 3).Map (* append record to Map *)
 ```
 
 ## Math
