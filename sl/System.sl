@@ -269,6 +269,10 @@ System : [Object] {
 		}
 	}
 
+	categoryDictionary { :self |
+		<primitive: return _self.categoryDictionary;>
+	}
+
 	categoryOf { :self :aString |
 		| all = self.categoriesOf(aString); |
 		all.size.caseOfOtherwise([
@@ -284,16 +288,12 @@ System : [Object] {
 		}
 	}
 
-	categoryDictionary { :self |
-		<primitive: return _self.categoryDictionary;>
-	}
-
 	doesTraitImplementMethod { :self :traitName :methodName |
 		self.traitMethods(traitName).collect(name:/1).includes(methodName)
 	}
 
 	doesTypeImplementMethod { :self :typeName :methodName |
-		self.typeMethods(typeName).collect(name:/1).includes(methodName)
+		self.typeDirectMethods(typeName).collect(name:/1).includes(methodName)
 	}
 
 	isCategorized { :self :aString |
@@ -553,22 +553,24 @@ System : [Object] {
 		<primitive: return _self.typeDictionary;>
 	}
 
-	typeMethods { :self :typeName |
-		(* Methods implemented directly at typeName, i.e. non-Trait methods. *)
+	typeDirectMethods { :self :typeName |
+		(* Methods implemented directly at typeName. *)
 		self.typeLookup(typeName).methodDictionary.values
 	}
 
-	typeMethodSet { :self :typeName |
-		| type = self.typeLookup(typeName), answer = Set(); |
-		type.traitNameArray.do { :traitName |
+	typeInheritedMethods { :self :typeName |
+		(* Methods inherited from Traits at typeName (most specific only). *)
+		| answer = (); |
+		self.typeLookup(typeName).traitNameArray.do { :traitName |
 			self.traitLookup(traitName).methodDictionary.valuesDo { :method |
-				answer.add(method)
+				answer[method.name] := method
 			}
 		};
-		type.methodDictionary.valuesDo { :method |
-			answer.add(method)
-		};
-		answer
+		answer.values
+	}
+
+	typeMethods { :self :typeName |
+		self.typeDirectMethods(typeName) ++ self.typeInheritedMethods(typeName)
 	}
 
 	typeTraits { :self :typeName |
@@ -616,7 +618,7 @@ System : [Object] {
 +@Object {
 
 	respondsTo { :self :aProcedure |
-		system.typeMethodSet(self.typeOf).anySatisfy { :each |
+		system.typeMethods(self.typeOf).anySatisfy { :each |
 			each.qualifiedName = aProcedure.name
 		}
 	}

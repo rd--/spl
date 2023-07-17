@@ -1709,7 +1709,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	CategoryBrowser {
 		|(
 			typeNames = system.typeDictionary.keys.sorted,
-			categoryNames = typeNames.collect { :each | system.categoryOf(each) }.Set.Array.sorted,
+			categoryNames = system.categoryDictionary.keys.sorted,
 			methodSet = nil,
 			selectedMethod = nil
 		)|
@@ -1725,11 +1725,11 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 					browser.setStatus('');
 					system.categoryDictionary[path[1]].select { :each |
 						system.isTypeName(each)
-					}.Array.sorted
+					}.sorted
 				},
 				2 -> {
 					browser.setStatus(system.typeTraits(path[2]).joinSeparatedBy(', '));
-					methodSet := system.typeMethodSet(path[2]).select { :each |
+					methodSet := system.typeMethods(path[2]).select { :each |
 						each.origin.name ~= 'Object'
 					};
 					methodSet.collect(qualifiedName:/1).Array.sorted
@@ -1746,7 +1746,11 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	SystemBrowser {
-		| typeNames = system.typeDictionary.keys.sorted, methodSet = nil, selectedMethod = nil; |
+		|(
+			typeNames = system.typeDictionary.keys.sorted,
+			methodSet = nil,
+			selectedMethod = nil
+		)|
 		ColumnBrowser('System Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
@@ -1757,7 +1761,9 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				},
 				1 -> {
 					browser.setStatus(system.typeTraits(path[1]).joinSeparatedBy(', '));
-					methodSet := system.typeMethodSet(path[1]).select { :each | each.origin.name ~= 'Object' };
+					methodSet := system.typeMethods(path[1]).select { :each |
+						each.origin.name ~= 'Object'
+					};
 					methodSet.collect(qualifiedName:/1).Array.sorted
 				},
 				2 -> {
@@ -1791,7 +1797,10 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	TypeBrowser {
-		| typeNames = system.typeDictionary.keys.sorted, selectedMethod = nil; |
+		|(
+			typeNames = system.typeDictionary.keys.sorted,
+			selectedMethod = nil
+		)|
 		ColumnBrowser('Type Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
@@ -1806,6 +1815,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				},
 				2 -> {
 					selectedMethod := system.typeDictionary[path[1]].methodDictionary[path[2]];
+					browser.setStatus(selectedMethod.origin.name);
 					selectedMethod.definition
 				}
 			])

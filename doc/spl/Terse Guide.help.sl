@@ -1354,10 +1354,12 @@ ReadStream().atEnd = true (* read stream at end predicate *)
 | r = (1 .. 5).ReadStream; | r.upToEnd; r.contents = [1 .. 5] (* contents of consumed stream *)
 | r = [1 .. 5].ReadStream; | [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil]
 | r = [1 .. 3].ReadStream; | [r.next, r.upToEnd] = [1, [2, 3]]
-| r = (1 .. 5).ReadStream; | [r.peek, r.next] = [1, 1]
-| r = (1 .. 5).ReadStream; | [r.peekFor(1), r.next] = [true, 2]
+| r = (1 .. 5).ReadStream; | [r.peek, r.next] = [1, 1] (* peek at the next item *)
+| r = (1 .. 5).ReadStream; | [r.peekFor(1), r.next] = [true, 2] (* peek or read next item *)
+| r = (1 .. 5).ReadStream; | [r.peekFor(), r.next] = [false, 1] (* peek or read next item *)
 | r = (1 .. 5).ReadStream; | r.upTo(3) = [1, 2] & { r.next = 4} (* matching element is consumed *)
-| r = (1 .. 5).ReadStream; | r.skip(3); r.upToEnd = [4, 5]
+| r = (1 .. 5).ReadStream; | r.skip(3); r.upToEnd = [4, 5] (* skip to a position *)
+| r = (1 .. 9).ReadStream; | r.skipTo(7); r.upToEnd = [8, 9] (* skip to an object *)
 | r = (9 .. 1).ReadStream; | [r.upTo(3), r.upToEnd] = [[9 .. 4], [2 .. 1]]
 | r = (9 .. 1).ReadStream; | [r.upToPosition(3), r.upToEnd] = [[9 .. 7], [6 .. 1]]
 | r = '.....ascii'.ascii.ReadStream, a = ByteArray(5); | r.skip(5); r.nextInto(a); a.ascii = 'ascii'
@@ -1365,6 +1367,7 @@ ReadStream().atEnd = true (* read stream at end predicate *)
 (1 .. 9).ReadStream.take(23) = [1 .. 9]
 (1 .. 9).ReadStream.nextMatchFor(1)
 (1 .. 9).ReadStream.nextMatchAll([1, 2, 3])
+(1 .. 9).ReadStream.collection
 ```
 
 ## Record -- collection type
@@ -1523,16 +1526,18 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 
 ## Set -- collection type
 ```
-Set().isSet
-Set().size = 0
-[1, 1, 2, 1, 2, 3].Set.size = 3
+Set().isSet (* set type predicate *)
+Set().size = 0 (* count items in set *)
+Set().isEmpty (* is set empty? *)
+[1, 1, 2, 1, 2, 3].Set.size = 3 (* array to set *)
 [1, 3, 5, 3, 1].Set.isSet = true
 [1, 3, 5, 3, 1].Set.size = 3
-[1, 3, 5, 3, 1].Set.includes(3) = true
+[1, 3, 5, 3, 1].Set.includes(3) = true (* does set include item *)
 [1, 3, 5, 3, 1].Set.includes(7) = false
-[1, 3, 5, 3, 1].Set.Array = [1, 3, 5]
-| s = [1 .. 5].Set; | s ~~ s.Set (* A Set formed from a Set is not identical to the initial set *)
-| s = [1 .. 5].Set; | s = s.Set (* A Set formed from a Set is equal to the initial set *)
+[1, 5, 3, 5, 1].Set.Array = [1, 5, 3] (* set from array to array *)
+[1, 5, 3, 5, 1].Set.sorted = [1, 3, 5] (* a sorted set is an array *)
+| s = [1 .. 5].Set; | s ~~ s.Set (* a Set formed from a Set is not identical to the initial set *)
+| s = [1 .. 5].Set; | s = s.Set (* a Set formed from a Set is equal to the initial set *)
 var s = [1, 3, 5, 3, 1].Set; s.remove(3); s.Array = [1, 5]
 [1 .. 9].Set.atRandom.betweenAnd(1, 9) (* inclusive *)
 var s = Set(); s.add(5); s.includes(5) = true (* add element to Set *)

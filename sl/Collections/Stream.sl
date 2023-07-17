@@ -2,7 +2,7 @@
 
 	back { :self |
 		(self.position = 0).ifTrue {
-			'CantGoBack'.error
+			'PositionableStream>>back: cannot go back'.error
 		};
 		self.skip(-1);
 		self.peek
@@ -56,7 +56,7 @@
 			(self.next = anObject).ifTrue {
 				true.return
 			};
-			position := position - 1;
+			self.position := self.position - 1;
 			false
 		}
 	}
@@ -226,7 +226,7 @@
 		| answer = []; |
 		{
 			self.atEnd
-		}.whileFalse { 
+		}.whileFalse {
 			elements.addLast(self.next)
 		};
 		answer
