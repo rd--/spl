@@ -1435,6 +1435,60 @@
 		(self.typeOf ++ '>>errorSubscriptBounds: ' ++ index).error
 	}
 
+	findBinary { :self :aBlock:/1 |
+		self.findBinaryDoIfNone(aBlock:/1) { :found |
+			found
+		} {
+			'SequenceableCollection>>findBinary: not found'.error
+		}
+	}
+
+	findBinaryDoIfNone { :self :aBlock:/1 :actionBlock:/1 :exceptionBlock |
+		self.findBinaryIndexDoIfNone(aBlock:/1) { :foundIndex |
+			actionBlock(self[foundIndex])
+		} { :previousIndex :nextIndex |
+			exceptionBlock.cull(
+				(previousIndex > 0).ifTrue { self[previousIndex] },
+				(nextIndex <= self.size).ifTrue { self[nextIndex] }
+			)
+		}
+	}
+
+	findBinaryIfNone { :self :aBlock:/1 :exceptionBlock |
+		self.findBinaryDoIfNone(aBlock:/1, { :found | found }, exceptionBlock)
+	}
+
+	findBinaryIndex { :self :aBlock:/1 |
+		self.findBinaryIndexDoIfNone(aBlock:/1) { :found |
+			found
+		} {
+			'SequenceableCollection>>findBinaryIndex: not found'.error
+		}
+	}
+
+	findBinaryIndexDoIfNone { :self :aBlock:/1 :actionBlock:/1 :exceptionBlock |
+		| low = 1, high = self.size; |
+		withReturn {
+			{ high < low }.whileFalse {
+				| index = high + low // 2, test = aBlock(self[index]); |
+				(test < 0).if {
+					high := index - 1
+				} {
+					(0 < test).if {
+						low := index + 1
+					} {
+						actionBlock(index).return
+					}
+				}
+			};
+			exceptionBlock.cull(high, low)
+		}
+	}
+
+	findBinaryIndexIfNone { :self :aBlock:/1 :exceptionBlock |
+		self.findBinaryIndexDoIfNone(aBlock:/1, { :found | found }, exceptionBlock)
+	}
+
 	first { :self |
 		self[1]
 	}

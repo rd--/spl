@@ -1,11 +1,11 @@
 @Binary {
 
 	<< { :self :anObject |
-		self.subclassResponsibility('Binary>><<')
+		self.subclassResponsibility('Binary>>shiftLeft')
 	}
 
 	>> { :self :anObject |
-		self.subclassResponsibility('Binary>>>>')
+		self.subclassResponsibility('Binary>>shiftRight')
 	}
 
 	bitAnd { :self :anObject |
@@ -330,7 +330,7 @@
 @Magnitude {
 
 	< { :self :aMagnitude |
-		self.subclassResponsibility('Magnitude>><')
+		self.subclassResponsibility('Magnitude>>lessThan')
 	}
 
 	<= { :self :aMagnitude |
@@ -1636,6 +1636,28 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 		<primitive: return _self ** BigInt(_anInteger);>
 	}
 
+	<< { :self :anObject |
+		<primitive:
+		if(sl.isLargeInteger(_anObject)) {
+			return _self << _anObject;
+		} else if(sl.isSmallFloat(_anObject)) {
+			return _self << BigInt(_anObject);
+		}
+		>
+		'LargeInteger>>shiftLeft: operand not a LargeInteger or SmallFloat'.error
+	}
+
+	>> { :self :anObject |
+		<primitive:
+		if(sl.isLargeInteger(_anObject)) {
+			return sl.shiftRight(_self, _anObject);
+		} else if(sl.isSmallFloat(_anObject)) {
+			return sl.shiftRight(_self, BigInt(_anObject));
+		}
+		>
+		'LargeInteger>>shiftRight: operand not a LargeInteger or SmallFloat'.error
+	}
+
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
 		aProcedure(aNumber.LargeInteger, self)
 	}
@@ -1644,7 +1666,7 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 		<primitive:
 		if(sl.isLargeInteger(_anObject)) {
 			return _self & _anObject;
-		} else if(sl.isLargeInteger(_anObject)) {
+		} else if(sl.isSmallFloat(_anObject)) {
 			return _self & BigInt(_anObject);
 		}
 		>

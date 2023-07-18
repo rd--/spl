@@ -433,10 +433,13 @@ Bag().isSequenceable = false
 
 ## Binary -- numeric trait
 ```
-16 << 3 = 128 (* left shift *)
-23 << 7 = 2944 (* left shift *)
-7 << 23 = 58720256 (* left shift *)
-16 >> 3 = 2 (* right shift *)
+16 << 3 = 128 (* left shift small float *)
+23 << 7 = 2944 (* left shift small float *)
+7 << 23 = 58720256 (* left shift small float *)
+16 >> 3 = 2 (* right shift small float *)
+7n << 23 = 58720256n (* left shift large integer *)
+7n << 71 = 16528282690043758247936n (* left shift large integer *)
+16n >> 3 = 2n (* right shift large integer *)
 ```
 
 ## Bitwise Manipulation
@@ -718,7 +721,7 @@ unicodeFractions().associations.isArray = true
 ().at('x') = nil
 ().atIfAbsentPut('x') { 1 } = 1
 | d = (); | d.atIfAbsentPut('x') { 1 } = 1 & { d::x = 1 }
-(x: 1, y: 2).includes(2) (* includes, testing for equality *)
+(x: 1, y: 2).includes(2) (* includes, testing values for equality *)
 (x: 1, y: [2, 3]).includes([2, 3])
 (x: 1, y: 2).includesIdentity(2) (* includes, testing for identity not equality *)
 (x: 1, y: [2, 3]).includesIdentity([2, 3]) = false
@@ -735,6 +738,7 @@ unicodeFractions().associations.isArray = true
 { (x: 1).remove }.ifError { :err | true } (* should not implement, see removeKey *)
 (x: 1, y: 2) ++ (x: 2, y: 1) = (x: 2, y: 1) (* appending two dictionaries is right-biased *)
 (x: 1, y: 2).anySatisfy(even:/1) (* collection predicates at dictionary consider values not associations *)
+(x: 1, y: 2, z: 3).detect(even:/1) = 2 (* detect value *)
 ```
 
 ## Duration -- temporal type
@@ -1361,7 +1365,7 @@ ReadStream().atEnd = true (* read stream at end predicate *)
 | r = [1 .. 3].ReadStream; | [r.next, r.upToEnd] = [1, [2, 3]]
 | r = (1 .. 5).ReadStream; | [r.peek, r.next] = [1, 1] (* peek at the next item *)
 | r = (1 .. 5).ReadStream; | [r.peekFor(1), r.next] = [true, 2] (* peek or read next item *)
-| r = (1 .. 5).ReadStream; | [r.peekFor(), r.next] = [false, 1] (* peek or read next item *)
+| r = (1 .. 5).ReadStream; | [r.peekFor(nil), r.next] = [false, 1] (* peek or read next item *)
 | r = (1 .. 5).ReadStream; | r.upTo(3) = [1, 2] & { r.next = 4} (* matching element is consumed *)
 | r = (1 .. 5).ReadStream; | r.skip(3); r.upToEnd = [4, 5] (* skip to a position *)
 | r = (1 .. 9).ReadStream; | r.skipTo(7); r.upToEnd = [8, 9] (* skip to an object *)
@@ -1370,9 +1374,9 @@ ReadStream().atEnd = true (* read stream at end predicate *)
 | r = '.....ascii'.ascii.ReadStream, a = ByteArray(5); | r.skip(5); r.nextInto(a); a.ascii = 'ascii'
 (1 .. 9).ReadStream.nextSatisfy { :each | each >= 5 } = 5
 (1 .. 9).ReadStream.take(23) = [1 .. 9]
-(1 .. 9).ReadStream.nextMatchFor(1)
-(1 .. 9).ReadStream.nextMatchAll([1, 2, 3])
-(1 .. 9).ReadStream.collection
+(1 .. 9).ReadStream.nextMatchFor(1) = true
+(1 .. 9).ReadStream.nextMatchAll([1, 2, 3]) = true
+(1 .. 9).ReadStream.collection = Interval(1, 9, 1) (* read stream over interval collection *)
 ```
 
 ## Record -- collection type
@@ -1508,6 +1512,16 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | d = []; | (3 .. 1).withIndexDo { :each :index | d.add(each -> index) } ; d = [3 -> 1, 2 -> 2, 1 -> 3]
 (9 .. 1).withCollect((1 .. 9)) { :p :q | p * 2 + q } = [19 .. 11]
 (9 .. 1).withIndexCollect { :each :index | each * 2 + index } = [19 .. 11]
+[1, 3, 5, 7, 11, 15, 23].findBinary { :arg | 11 - arg } = 11
+[1, 3, 5, 7, 11, 15, 23].findBinaryIndex { :arg | 11 - arg } = 5
+{ [1, 3, 5, 7, 11, 15, 23].findBinaryIndex { :arg | 12 - arg } }.ifError { :err | true }
+[1, 3, 5, 7, 11, 15, 23].findBinaryIndexIfNone { :arg | 12 - arg } { :a :b | [a, b] } = [5, 6]
+[1, 3, 5, 7, 11, 15, 23].findBinaryIndexIfNone { :arg | 0.5 - arg } { :a :b | [a, b] } = [0, 1] (* note 0 is not a valid index *)
+[1, 3, 5, 7, 11, 15, 23].findBinaryIndexIfNone { :arg | 25 - arg } { :a :b | [a, b] } = [7, 8] (* note 8 is not a valid index *)
+[1, 3, 5, 7, 11, 15, 23].findBinaryIfNone { :arg | 11 - arg } { :a :b | [a, b] } = 11
+[1, 3, 5, 7, 11, 15, 23].findBinaryIfNone { :arg | 12 - arg } { :a :b | [a, b] } = [11, 15]
+[1, 3, 5, 7, 11, 15, 23].findBinaryIfNone { :arg | 0.5 - arg } { :a :b | [a, b] } = [nil, 1]
+[1, 3, 5, 7, 11, 15, 23].findBinaryIfNone { :arg | 25 - arg } { :a :b | [a, b] } = [23, nil]
 ```
 
 ## Sequence arithmetic
@@ -1952,7 +1966,7 @@ system.multipleArityMethodList.includes('randomFloat') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
 system.doesTraitImplementMethod('Collection', 'select') = true
 system.doesTypeImplementMethod('Array', 'adaptToNumberAndApply') = true
-[1, 2, 3].respondsTo(select:/2) = true
+[1, 2, 3].respondsTo(select:/2) = true (* does a value (courtesy the type) implement a method *)
 system.methodPrintString('add').size >= 3
 system.methodLookupAtType('collect', 2, 'Array').isMethod = true
 system.methodLookupAtType('collect', 2, 'Array').origin.name = 'ArrayedCollection'
@@ -1999,19 +2013,19 @@ system.typeDictionary::Association.slotNameArray = ['key', 'value']
 system.typeDictionary::Association.methodDictionary.keys.includes('equals:/2')
 system.typeDictionary::Association.methodDictionary.includesKey('key:/1') = true
 system.typeDictionary::Nil.methodDictionary.includesKey('ifNil:/2') = true
-system.typeMethods('Association').select { :each | each.name = 'copy' }.size = 1
-system.typeMethods('Association').collect(name:/1).includes('copy') = true
+system.typeLookup('Association').methodDictionary.select { :each | each.name = 'copy' }.size = 1
+system.typeLookup('Association').methodDictionary.anySatisfy { :each | each.name = 'copy' } = true
 system.typeLookup('Array').isType = true
 system.typeLookup('Array').name = 'Array'
 system.typeLookup('Array').methodDictionary.includesKey('copy:/1') = true
 system.typeLookup('Array').methodDictionary::copy:/1.isMethod = true
-system.typeMethodSet('Array').collect(name:/1).includes('select') = true
+system.typeMethodDictionary('Array').anySatisfy { :each | each.name ='select' } = true
 system.typeLookup('String').isType = true
 system.typeLookup('String').methodDictionary.includesKey('includesSubstring:/2') = true
 system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 ```
 
-## System -- URL
+## System -- Uniform Resource Locator (URL)
 ```
 'http://cern.ch/'.URL.isURL = true
 'http://cern.ch/'.URL.hostname = 'cern.ch'

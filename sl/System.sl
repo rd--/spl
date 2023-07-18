@@ -289,11 +289,15 @@ System : [Object] {
 	}
 
 	doesTraitImplementMethod { :self :traitName :methodName |
-		self.traitMethods(traitName).collect(name:/1).includes(methodName)
+		self.traitLookup(traitName).methodDictionary.anySatisfy { :each |
+			each.name = methodName
+		}
 	}
 
 	doesTypeImplementMethod { :self :typeName :methodName |
-		self.typeDirectMethods(typeName).collect(name:/1).includes(methodName)
+		self.typeLookup(typeName).methodDictionary.anySatisfy { :each |
+			each.name = methodName
+		}
 	}
 
 	isCategorized { :self :aString |
