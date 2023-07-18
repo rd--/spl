@@ -269,6 +269,9 @@ const asJs: any = {
 	largeIntegerLiteral(s,i,_n) {
 		return `${s.sourceString}${i.sourceString}n`;
 	},
+	radixIntegerLiteral(s,b,_r,i) {
+		return `parseInt(${s.sourceString}${i.sourceString}, ${b.sourceString})`;
+	},
 	integerLiteral(s,i) {
 		return `${s.sourceString}${i.sourceString}`;
 	},
