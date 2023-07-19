@@ -27,6 +27,7 @@
 5 // 3 = 1 (* integer divide *)
 5 % 3 = 2 (* modulo *)
 5.modulo(3) = 2 (* modulo *)
+(0 .. 9).collect { :i | i % 5 } = [0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
 [10 % 5, -4 % 3, 4 % -3, -4 % -3] = [0, 2, -2, -1] (* modulo, negative operands *)
 13 % 7 % 4 = 2 (* left assocative *)
 13 + 1 % 7 = 0 (* equal precedence *)
@@ -65,18 +66,18 @@
 3.99.ceiling = 4 (* round up *)
 5.factorial = 120 (* factorial of SmallFloat *)
 9.factorial = 362880
-9.factorial = (1 .. 9).product
+9.factorial = (1 .. 9).product (* factorial is product of interval *)
 18.factorial = 6402373705728000
 12.factorial.log2.floor = 28
 18.factorial.log2.floor = 52
 20.factorial.log2.floor = 61
-9.doubleFactorial = 945
+9.doubleFactorial = 945 (* double factorial *)
 [12, 18, 20].collect { :n | n.doubleFactorial } = [46080, 185794560, 3715891200]
 [12, 18, 20].collect { :n | n.doubleFactorial.log2.floor } = [15, 27, 31]
 (0, 2 .. 14).collect(doubleFactorial:/1) = [1, 2, 8, 48, 384, 3840, 46080, 645120]
-14.doubleFactorial = (2, 4 .. 14).product
 (1, 3 .. 13).collect(doubleFactorial:/1) = [1, 3, 15, 105, 945, 10395, 135135]
-13.doubleFactorial = (1, 3 .. 13).product
+14.doubleFactorial = (2, 4 .. 14).product (* double factorial is product of equal parity interval *)
+13.doubleFactorial = (1, 3 .. 13).product (* double factorial is product of equal parity interval *)
 28.gcd(12) = 4 (* greatest common denominator *)
 28.lcm(12) = 84 (* least common multiple *)
 1.exp.log = 1 (* natural logarithm *)
@@ -958,6 +959,16 @@ pi.asFraction = 311:99 (* with maximumDenominator set to one hundred *)
 4 / 2 = 2 (* integer division with integer result *)
 ```
 
+## Integral -- roman numerals
+```
+(1 .. 10).collect(printStringRoman:/1) = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
+(11 .. 20).collect(printStringRoman:/1) = ['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX']
+(50, 61 .. 160).collect(printStringRoman:/1) = ['L', 'LXI', 'LXXII', 'LXXXIII', 'XCIV', 'CV', 'CXVI', 'CXXVII', 'CXXXVIII', 'CXLIX', 'CLX']
+['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'].collect(romanNumber:/1) = [1 .. 10]
+['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'].collect(romanNumber:/1) = [11 .. 20]
+['L', 'LXI', 'LXXII', 'LXXXIII', 'XCIV', 'CV', 'CXVI', 'CXXVII', 'CXXXVIII', 'CXLIX', 'CLX'].collect(romanNumber:/1) = [50, 61 .. 160]
+```
+
 ## Interval -- collection type
 ```
 Interval(0, 12, 3).Array = [0, 3, 6, 9, 12] (* elements of interval as array *)
@@ -1492,7 +1503,10 @@ var a = (1 .. 9); a.last = a[9] (* one-indexed *)
 [1, 3, 5, 7, 9].middle = 5 (* middle element of *)
 [1 .. 4].beginsWith([1, 2]) = true (* is prefix of *)
 [1 .. 4].beginsWith([]) = true (* empty prefix *)
-var n = 0; [1 .. 4].permutationsDo { :each | n := n + 1}; n = 24 (* permutations *)
+| n = 0, a = [1 .. 4]; | a.permutationsDo { :each | n := n + 1 }; n = 24 & { a = [1 .. 4] } (* permutations do *)
+| a = [1 .. 3].permutations; | a = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]] (* permutations *)
+| i = (4, 7 .. 13), p = i.permutations; | p.size = i.size.factorial & { p.Set.size = p.size }
+| i = (4, 7 .. 13); | i.permutations.allSatisfy { :e | e.sorted.hasEqualElements(i) }
 [1, 9, 2, 8, 3, 7, 4, 6].pairsCollect { :i :j | i + j } = [10, 10, 10, 10]
 var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printString }; s = '10101010'
 var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291'
@@ -1522,6 +1536,7 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 [1, 3, 5, 7, 11, 15, 23].findBinaryIfNone { :arg | 12 - arg } { :a :b | [a, b] } = [11, 15]
 [1, 3, 5, 7, 11, 15, 23].findBinaryIfNone { :arg | 0.5 - arg } { :a :b | [a, b] } = [nil, 1]
 [1, 3, 5, 7, 11, 15, 23].findBinaryIfNone { :arg | 25 - arg } { :a :b | [a, b] } = [23, nil]
+| a = []; | (0 .. 1).asDigitsToPowerDo(2) { :each | a.add(each.copy) }; a = [[0, 0], [0, 1], [1, 0], [1, 1]]
 ```
 
 ## Sequence arithmetic
@@ -1824,6 +1839,10 @@ var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripti
 { '𠮷'.ascii }.ifError { :err | true } (* non-ascii character *)
 '𠮷'[1] = '𠮷'.Character
 { '𠮷'[2] }.ifError { :err | true } (* lone surrogate *)
+'0123456789'.isAllDigits
+'1'.isAllDigits
+''.isAllDigits = true (* the empty string answers true *)
+'01234 56789'.isAllDigits = false (* spaces answer false *)
 ```
 
 ## Syntax -- array assignment syntax

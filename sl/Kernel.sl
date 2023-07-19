@@ -284,6 +284,47 @@
 		self
 	}
 
+	printStringRoman { :self |
+		| stream = Utf8WriteStream(); |
+		romanDigitsOn(self, stream);
+		stream.contents.ascii
+	}
+
+	romanDigitsForOn { :self :digits :base :aStream |
+		| n = self % (base * 10) // base; |
+		(n = 9).if {
+			aStream.nextPutAll([digits.last, digits.first])
+		} {
+			(n = 4).if {
+				aStream.nextPutAll([digits.last, digits.second])
+			} {
+				(n > 4).ifTrue {
+					aStream.nextPut(digits.second)
+				};
+				(n % 5).timesRepeat {
+					aStream.nextPut(digits.last)
+				}
+			}
+		}
+	}
+
+	romanDigitsOn { :self :aStream |
+		|(
+			integer = self.negative.if {
+				aStream.nextPut('-'.asciiValue);
+				self.negated
+			} {
+				self
+			}
+		)|
+		(integer // 1000).timesRepeat {
+			aStream.nextPut('M'.asciiValue)
+		};
+		integer.romanDigitsForOn('MDC'.ascii, 100, aStream);
+		integer.romanDigitsForOn('CLX'.ascii, 10, aStream);
+		integer.romanDigitsForOn('XVI'.ascii, 1, aStream)
+	}
+
 	timesRepeat { :self :aProcedure:/0 |
 		| remaining = self; |
 		{ remaining > 0 }.whileTrue {
@@ -852,6 +893,15 @@ Character : [Object] { | string |
 	= { :self :anObject |
 		anObject.isCharacter & {
 			self.string = anObject.string
+		}
+	}
+
+	asciiValue { :self |
+		| codePoint = self.codePoint; |
+		(codePoint > 127).if {
+			'Character>>asciiValue: not ascii'.error
+		} {
+			codePoint
 		}
 	}
 
@@ -2240,7 +2290,7 @@ Procedure : [Object] {
 			Js doesn't have a proper numArgs mechanism.
 			In the simple arity model Spl adds hasRestParameters to the arity dispatch method functions, else it is undefined.
 			From within Spl there is no concept of a variadic procedure.
-			*)
+		*)
 		<primitive: return _self.hasRestParameters ? _ifAbsent() : _self.length;>
 	}
 
@@ -2453,6 +2503,14 @@ String : [Object] {
 		}
 	}
 
+	asciiValue { :self |
+		(self.size = 1).if {
+			self.ascii.first
+		} {
+			'String>>asciiValue: not single character'.error
+		}
+	}
+
 	asLowercase { :self |
 		<primitive: return _self.toLowerCase(); >
 	}
@@ -2586,6 +2644,12 @@ String : [Object] {
 		self.utf8.allSatisfy(isAsciiCodePoint:/1)
 	}
 
+	isAllDigits { :self |
+		self.isEmpty | {
+			self.matchesRegExp('^[0-9]+$')
+		}
+	}
+
 	isInBasicMultilingualPlane { :self |
 		self.countUtf16CodeUnits = self.countCharacters
 	}
@@ -2717,6 +2781,20 @@ String : [Object] {
 
 	replaceRegExp { :self :regExpToFind :stringToReplaceWith |
 		<primitive: return _self.replace(_regExpToFind, _stringToReplaceWith);>
+	}
+
+	romanNumber { :self |
+		| value = 0, v1 = 0, v2 = 0, letters = 'IVXLCDM'.ascii; |
+		self.ascii.reverseDo { :each |
+			v1 := [1, 5, 10, 50, 100, 500, 1000].at(letters.indexOf(each));
+			(v1 >= v2).if {
+				value := value + v1
+			} {
+				value := value - v1
+			};
+			v2 := v1
+		};
+		value
 	}
 
 	size { :self |

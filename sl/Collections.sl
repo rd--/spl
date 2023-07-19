@@ -1677,6 +1677,14 @@
 		}
 	}
 
+	permutations { :self |
+		| answer = []; |
+		self.permutationsDo { :each |
+			answer.add(each.copy)
+		};
+		answer
+	}
+
 	permutationsDo { :self :aBlock:/1 |
 		self.copy.permutationsStartingAtDo(1, aBlock:/1)
 	}
