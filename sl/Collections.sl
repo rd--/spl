@@ -375,6 +375,12 @@
 		answer
 	}
 
+	detect { :self :aProcedure:/1 |
+		self.detectIfNone(aProcedure:/1) {
+			error('@Collection>>detect: not found')
+		}
+	}
+
 	detectIfFound { :self :aProcedure:/1 :foundProcedure:/1 |
 		self.detectIfFoundIfNone(aProcedure:/1, foundProcedure:/1) {
 			nil
@@ -396,10 +402,12 @@
 		self.detectIfFoundIfNone(aProcedure:/1, identity:/1, whenAbsent:/0)
 	}
 
-	detect { :self :aProcedure:/1 |
-		self.detectIfNone(aProcedure:/1) {
-			error('@Collection>>detect: not found')
-		}
+	detectSum { :self :aBlock:/1 |
+		| sum = 0; |
+		self.do { :each |
+			sum := aBlock(each) + sum
+		};
+		sum
 	}
 
 	detectMax { :self :aProcedure:/1 |

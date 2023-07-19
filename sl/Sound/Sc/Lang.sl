@@ -590,7 +590,8 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 				aBlock(self[index]).ifTrue {
 					index.return
 				}
-			}
+			};
+			nil
 		}
 	}
 

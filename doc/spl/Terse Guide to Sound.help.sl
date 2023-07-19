@@ -6,7 +6,7 @@
 (1 .. 9).keep(3) = [1 .. 3]
 (1 .. 9).keepLast(3) = [6 .. 9]
 [3, 5, 4].normalize = [0, 1, 1/2]
-({ :x | x * 2 } <> { :x | x + 3 }).value(4) = 14 (* function composition *)
+({ :x | x * 2 } <> { :x | x + 3 }).value(4) = 14 (* function composition, right to left *)
 'x' + 'y' = 'x y' (* catenation with space *)
 '/usr' +/+ 'local' = '/usr/local' (* file path catenation *)
 var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
@@ -66,15 +66,23 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 (1 .. 10).collect { :n | n.expExp(0.1, 10, 4.3, 100).rounded } = [21, 33, 44, 53, 62, 71, 78, 86, 93, 100]
 (0 .. 10).collect { :n | n.linCurve(0, 10, -4.3, 100, -3).rounded } = [-4, 24, 45, 61, 72, 81, 87, 92, 96, 98, 100]
 (1 .. 10).collect { :n | n.curveLin(0, 10, -4.3, 100, -3).rounded } = [-1, 3, 7, 12, 18, 25, 34, 45, 63, 100]
+5.linLin(0, 10, -4.3, 100).rounded = 48 (* linear to linear mapping *)
+5.linExp(0, 10, 4.3, 100).rounded = 21 (* linear to exponential mapping *)
+5.expLin(0.1, 10, -4.3, 100).rounded = 84 (* exponential to linear mapping *)
+5.expExp(0.1, 10, 4.3, 100).rounded = 62 (* exponential to exponential mapping *)
+5.linCurve(0, 10, -4.3, 100, -3).rounded = 81 (* linear to parametric curve mapping *)
+5.curveLin(0, 10, -4.3, 100, -3).rounded = 18 (* parametric curve to liner mapping *)
 { :break:/1 | 10.do { :index | (index = 5).ifTrue { 5.break } } }.block = 5 (* non-local return *)
 [1, 2, 4, 8, 16, 32, 64, 128, 256].collect { :each | (each + 1).nextPowerOfTwo } = [2, 4, 8, 16, 32, 64, 128, 256, 512]
 [4, 8, 16, 32, 64, 128, 256, 512].collect { :each | (each - 1).previousPowerOf(2) } = [2, 4, 8, 16, 32, 64, 128, 256]
-[10, 20, 30].obtain(3, nil) = 30 (* like at but return default value for out of range index *)
+[10, 20, 30].obtain(3, nil) = 30 (* at or default value for out of range index *)
 [10, 20].obtain(3, 30) = 30
 7.obtain(2, 1) = 1 (* obtain is defined at Object *)
 7.obtain(1, nil) = 7
-[10, 20, 30, 40].instill(3, -30, nil) = [10, 20, -30, 40] (* like atPut but extends array if required *)
+[10, 20, 30, 40].instill(3, -30, nil) = [10, 20, -30, 40] (* atPut or extends array if required *)
 [10, 20].instill(3, -30, nil) = [10, 20, -30]
 [10].instill(3, -30, 20) = [10, 20, -30]
 10.instill(3, -30, 20) = [ 10, 20, -30 ] (* instill is defined at Object *)
 10.instill(1, -10, nil) = -10
+nil ? 'x' = 'x' (* right hand side if nil *)
+'x' ? 'y' = 'x' (* left hand side unless nil *)

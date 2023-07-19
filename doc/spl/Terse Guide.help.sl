@@ -647,6 +647,8 @@ Set().Array = []
 (x: 1, y: 2, z: 1).keys.histogramOf { :each | each } = ['x', 'y', 'z'].Bag
 [1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].asBag
 [].ifEmpty { true } (* evaluate block if collection is empty *)
+(1 .. 9).detectSum(squared:/1) = 285 (* apply procedure to each element and sum *)
+(1 .. 9).collect(squared:/1).sum = 285
 ```
 
 ## Complex -- numeric type
