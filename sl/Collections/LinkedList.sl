@@ -1,3 +1,19 @@
+@Link {
+
+	asLink { :self |
+		self
+	}
+
+}
+
++@Object {
+
+	asLink { :self |
+		ValueLink(self)
+	}
+
+}
+
 LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink |
 
 	add { :self :aLinkOrObject |
@@ -6,7 +22,9 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 
 	addFirst { :self :aLinkOrObject |
 		| aLink = aLinkOrObject.asLink; |
-		self.isEmpty.ifTrue { self.lastLink := aLink };
+		self.isEmpty.ifTrue {
+			self.lastLink := aLink
+		};
 		aLink.nextLink := self.firstLink;
 		self.firstLink := aLink;
 		aLink
@@ -36,12 +54,53 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 		self.linkAt(index).value
 	}
 
+	atPut { :self :index :anObject |
+		self.atPutLink(index, self.linkOfIfAbsent(anObject) {
+			anObject.asLink
+		})
+	}
+
+	atPutLink { :self :index :aLink |
+		(* Putting a link which is already in the list will create an infinite loop *)
+		self.validIndex(index).ifFalse {
+			'LinkedList>>atPutLink: errorOutOfBounds'.error
+		};
+		(index = 1).if {
+			aLink.nextLink(self.firstLink.nextLink);
+			self.firstLink := aLink;
+			aLink.nextLink.ifNil {
+				self.lastLink := aLink
+			}
+		} {
+			|(
+				previousLink = self.linkAt(index - 1),
+				nextLink = previousLink.nextLink.nextLink
+			)|
+			nextLink.ifNil {
+				aLink.nextLink(self.lastLink)
+			} {
+				aLink.nextLink(nextLink)
+			};
+			previousLink.nextLink(aLink);
+			nextLink.ifNil {
+				self.lastLink := aLink;
+				aLink.nextLink(nil)
+			}
+		};
+		aLink
+	}
+
 	collect { :self :aProcedure:/1 |
-		| aLink = self.firstLink, answer = LinkedList(); |
-		 { aLink == nil }.whileFalse {
-			 answer.add(aProcedure(aLink.value));
-			 aLink := aLink.nextLink
-		 };
+		|(
+			aLink = self.firstLink,
+			answer = LinkedList()
+		)|
+		{
+			aLink == nil
+		}.whileFalse {
+			answer.add(aProcedure(aLink.value));
+			aLink := aLink.nextLink
+		};
 		answer
 	}
 
@@ -58,7 +117,9 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 
 	do { :self :aProcedure:/1 |
 		| aLink = self.firstLink; |
-		{ aLink == nil }.whileFalse {
+		{
+			aLink == nil
+		}.whileFalse {
 			aProcedure(aLink.value);
 			aLink := aLink.nextLink
 		}
@@ -69,14 +130,27 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 	}
 
 	linkAt { :self :index |
-		self.linkAtIfAbsent(index) { self.errorSubscriptBounds(index) }
+		self.linkAtIfAbsent(index) {
+			self.errorSubscriptBounds(index)
+		}
 	}
 
 	linkAtIfAbsent { :self :index :errorProcedure:/0 |
 		| i = 0; |
 		withReturn {
-			self.linksDo { :link | i := i + 1; ifTrue(i = index) { return(link) } };
+			self.linksDo { :link |
+				i := i + 1;
+				(i = index).ifTrue {
+					link.return
+				}
+			};
 			errorProcedure()
+		}
+	}
+
+	linkOf { :self :anObject |
+		self.linkOfIfAbsent(anObject) {
+			'LinkedList>>linkOf: no such element'.error
 		}
 	}
 
@@ -93,7 +167,9 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 
 	linksDo { :self :aProcedure:/1 |
 		| aLink = self.firstLink; |
-		{ aLink == nil }.whileFalse {
+		{
+			aLink == nil
+		}.whileFalse {
 			aProcedure(aLink);
 			aLink := aLink.nextLink
 		}
@@ -146,7 +222,9 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 			self.removeAll
 		} {
 			aLink := self.firstLink;
-			{ aLink.nextLink == oldLink }.whileFalse {
+			{
+				aLink.nextLink == oldLink
+			}.whileFalse {
 				aLink := aLink.nextLink
 			};
 			aLink.nextLink := nil;
@@ -160,7 +238,9 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 		withReturn {
 			(aLink == self.firstLink).if {
 				self.firstLink := aLink.nextLink;
-				(aLink == self.lastLink).ifTrue { self.lastLink := nil }
+				(aLink == self.lastLink).ifTrue {
+					self.lastLink := nil
+				}
 			} {
 				| tempLink = self.firstLink; |
 				{
@@ -172,7 +252,9 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 					tempLink := tempLink.nextLink
 				};
 				tempLink.nextLink := aLink.nextLink;
-				(aLink == self.lastLink).ifTrue { self.lastLink := tempLink }
+				(aLink == self.lastLink).ifTrue {
+					self.lastLink := tempLink
+				}
 			};
 			aLink
 		}
@@ -202,6 +284,12 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 		Array:/1
 	}
 
+	validIndex { :self :index |
+		(index > 0) & {
+			index <= self.size
+		}
+	}
+
 }
 
 +@Collection {
@@ -216,18 +304,30 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 
 }
 
-+SmallFloat {
-
-	LinkedList { :self |
-		LinkedList()
-	}
-
-}
-
 +Void {
 
 	LinkedList {
 		newLinkedList()
+	}
+
+}
+
+ValueLink : [Object, Link] { | nextLink value |
+
+	= { :self :anObject |
+		anotherObject.isValueLink & {
+			self.value = anotherObject.value & {
+				self.nextLink == anotherObject.nextLink
+			}
+		}
+	}
+
+}
+
++@Object {
+
+	ValueLink { :self |
+		newValueLink().initializeSlots(nil, self)
 	}
 
 }

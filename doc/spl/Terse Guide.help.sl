@@ -372,11 +372,12 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 
 ## Association -- collection type
 ```
-('x' -> 1).typeOf = 'Association'
+('x' -> 1).typeOf = 'Association' (* arrow (->) constructor *)
+('x' -> 1).isAssociation (* type predicate *)
 Association('x', 1) = ('x' -> 1)
-'x'.minusGreaterThan(1) = ('x' -> 1)
-| a = 'x' -> 1; | [a.key, a.value] = ['x', 1]
-('x' -> 1).Array = ['x', 1]
+'x'.minusGreaterThan(1) = ('x' -> 1) (* spelled out arrow method *)
+| a = 'x' -> 1; | [a.key, a.value] = ['x', 1] (* key and value accessors *)
+('x' -> 1).Array = ['x', 1] (* two element [key, value] array *)
 ['x' -> 1, 'y' -> 2].collect(Array:/1) = [['x', 1], ['y', 2]]
 (23 -> 3.141).printString = '23 -> 3.141'
 (23 -> 3.141).storeString = 'Association(23, 3.141)'
@@ -386,6 +387,7 @@ Association('x', 1) = ('x' -> 1)
 (1 -> 2) = (1 -> 2).storeString.evaluate
 (false -> true) = (false -> true).storeString.evaluate
 ('+' -> 'plus') = ('+' -> 'plus').storeString.evaluate
+(0 -> 1) ~= (0 -> 2) (* equality considers both key and value, unlike in Smalltalk-80 *)
 ```
 
 ## Bag -- collection type
@@ -973,6 +975,8 @@ pi.asFraction = 311:99 (* with maximumDenominator set to one hundred *)
 ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'].collect(romanNumber:/1) = [1 .. 10]
 ['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'].collect(romanNumber:/1) = [11 .. 20]
 ['L', 'LXI', 'LXXII', 'LXXXIII', 'XCIV', 'CV', 'CXVI', 'CXXVII', 'CXXXVIII', 'CXLIX', 'CLX'].collect(romanNumber:/1) = [50, 61 .. 160]
+2023.printStringRoman = 'MMXXIII'
+'MMXXIII'.romanNumber = 2023
 ```
 
 ## Interval -- collection type
@@ -1081,6 +1085,12 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 3 + (1 .. 9) = [4 .. 12]
 (1 .. 5) + (1, 3 .. 9) = [2, 5 .. 14]
 (1 .. 5) - (9, 7 .. 1) = [-8, -5 .. 4]
+(0.5, 1 .. 4.5) = Interval(0.5, 4.5, 0.5) (* non-integer (fractional) step *)
+(0.5, 1 .. 4.5).size = 9 (* fractional step size *)
+(1, 1 + 1:3 .. 3).size = 7 (* fractional step size *)
+(1:3 .. 7:3).size = 3 (* fractional start and end, integral step size *)
+(1:3, 2:3 .. 3).size = 9 (* fractional step size *)
+1:3.thenTo(2:3, 3).middle = 5:3
 ```
 
 ## Iteration
@@ -1120,6 +1130,39 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 13n % 7n % 4n = 2n (* left assocative *)
 13n + 1n % 7n = 0n (* equal precedence *)
 (2n ** 170 - 1).isPowerOfTwo = false (* LargeInteger power of two test *)
+```
+
+## LinkedList -- collection type
+```
+LinkedList().typeOf = 'LinkedList' (* type of linked list *)
+LinkedList().isLinkedList = true (* type predicate for linked list *)
+LinkedList().size = 0 (* empty linked list *)
+LinkedList().isEmpty (* empty linked list *)
+LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
+[1, 2, 3].LinkedList.size = 3 (* linked list from array *)
+| l = LinkedList(); | l.addFirst(1); l.addFirst(2); l.asArray = [2, 1] (* add to start *)
+| l = LinkedList(); | l.addLast(1); l.addLast(2); l.asArray = [1, 2] (* add to end *)
+| l = LinkedList(); | 5.do { :each | l.add(each) }; l.asArray = [1 .. 5] (* add to end *)
+[1 .. 9].LinkedList.collect { :each | 10 - each } = [9 .. 1].LinkedList (* collect *)
+| l = [1 .. 9].LinkedList; | l.removeFirst; l.first = 2 (* remove first *)
+| l = [1 .. 9].LinkedList; | l.removeLast; l.last = 8 (* remove last *)
+| l = [1].LinkedList; | l.removeFirst = 1 & { l.isEmpty } (* remove first *)
+| l = [1].LinkedList; | l.removeLast = 1 & { l.isEmpty } (* remove last *)
+| l = [1 .. 5].LinkedList; | l.removeAllSuchThat(odd:/1); l.asArray = [2, 4] (* in place reject *)
+| l = (1 .. 99).LinkedList; | l.removeAll; l.isEmpty (* remove all *)
+(1 .. 99).LinkedList.select(even:/1).asArray = [2, 4 .. 98] (* select *)
+(1 .. 9).LinkedList.selectThenCollect(even:/1, squared:/1).asArray = [4, 16, 36, 64]
+(1 .. 9).LinkedList.collectThenSelect(squared:/1) { :each | each > 36 }.asArray = [49, 64, 81]
+[1 .. 9].LinkedList.reversed = [9 .. 1] (* reversed, species is Array *)
+{ LinkedList().removeFirst }.ifError { :error | true } (* remove first, error if empty *)
+{ LinkedList().removeLast }.ifError { :error | true } (* remove last, error if empty *)
+| l = (1 .. 5).LinkedList; | l[3] = 3 (* index into *)
+| l = (1 .. 5).LinkedList; | l[1] := -1; l.Array = [-1, 2, 3, 4, 5] (* mutate at index *)
+| l = (1 .. 5).LinkedList; | l[3] := -3; l.Array = [1, 2, -3, 4, 5] (* mutate at index *)
+(1 .. 9).LinkedList.firstLink.value = 1 (* first link *)
+(1 .. 9).LinkedList.firstLink.nextLink.value = 2 (* second link *)
+(1 .. 9).LinkedList.lastLink.value = 9 (* last link *)
+| l = (1 .. 3).LinkedList; | l.firstLink.value := -1; l.asArray = [-1, 2, 3] (* mutate link value *)
 ```
 
 ## Magnitude -- numeric trait

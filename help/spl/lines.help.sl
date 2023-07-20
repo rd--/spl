@@ -2,7 +2,7 @@
 
 - _lines(aString)_
 
-Answer an array of strings, one for each line of the initial string.
+Answer an array of strings, one for each line of _aString_, without the line ending delimiters.
 
 * * *
 

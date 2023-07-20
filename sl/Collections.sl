@@ -941,8 +941,8 @@
 		aCollection.collect(self)
 	}
 
-	ofSize { :self:/1 :aNumber |
-		self(aNumber).ofSize(aNumber)
+	ofSize { :self :aNumber |
+		self.cull(aNumber).ofSize(aNumber)
 	}
 
 }
@@ -1562,7 +1562,8 @@
 	}
 
 	grownBy { :self :length |
-		self.species.ofSize(self.size + length).replaceFromToWithStartingAt(1, self.size, self, 1)
+		| answer = self.species.ofSize(self.size + length); |
+		answer.replaceFromToWithStartingAt(1, self.size, self, 1)
 	}
 
 	includes { :self :anObject |
@@ -2850,7 +2851,7 @@ Interval : [Object, Collection, SequenceableCollection] { | start stop step |
 
 }
 
-+@Integral {
++@Number {
 
 	downTo { :self :stop |
 		Interval(self, stop, -1)

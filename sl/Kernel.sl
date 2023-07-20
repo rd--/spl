@@ -2985,7 +2985,7 @@ Nil : [Object] {
 		aProcedure()
 	}
 
-	ifNil { :self :whenNil:/0 :whenNotNil:/0 |
+	ifNil { :self :whenNil:/0 :whenNotNil |
 		whenNil()
 	}
 
@@ -3017,8 +3017,8 @@ Nil : [Object] {
 		self
 	}
 
-	ifNil { :self :whenNil:/0 :whenNotNil:/0 |
-		whenNotNil()
+	ifNil { :self :whenNil:/0 :whenNotNil |
+		whenNotNil.cull(self)
 	}
 
 	ifNotNil { :self :aProcedure:/0 |
