@@ -354,7 +354,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 | l = [1]; | l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6] (* alias for addAllLast *)
 | i = (1 .. 9), a = []; | a.addAll(i); a.size = 9 (* add elements from Interval to end of Array *)
 | s = 'string', a = []; | a.addAll(s); a.size = 6 (* add elements from String to end of Array *)
-| s = 'string', a = []; | a.addAll(s.ascii); a.size = 6 (* add elements from ByteArray to end of Array *)
+| s = 'string', a = []; | a.addAll(s.asciiByteArray); a.size = 6 (* add elements from ByteArray to end of Array *)
 13.fibonacciSequence = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 | c = [1 .. 5]; | [c.removeAt(1), c] = [1, [2, 3, 4, 5]]
 | c = [1 .. 5]; | [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
@@ -569,17 +569,19 @@ ByteArray(8).atPut(1, 179) = 179 (* set element at index *)
 [1 .. 3].ByteArray.printString = '[1, 2, 3].ByteArray'
 [1 .. 3].ByteArray.storeString = '[1, 2, 3].ByteArray'
 ByteArray(4).hex = '00000000'
-'text'.ascii[1] = 116 (* ByteArray subscript *)
+'text'.asciiByteArray[1] = 116 (* ByteArray subscript *)
 | b = ByteArray(4); | b[1] := 15; b[3] := 240; b.hex = '0f00f000'
 | b = ByteArray(4); | b[2] := 15; b[4] := 240; b.hex = '000f00f0'
 [1 .. 4].ByteArray.hex = '01020304'
-'string'.ascii.hex = '737472696e67' (* hexadecimal string of ByteArray *)
-'737472696e67'.parseHexString.ascii = 'string' (* ByteArray of hexadecimal string *)
+'string'.asciiByteArray.hex = '737472696e67' (* hexadecimal string of ByteArray *)
+'737472696e67'.parseHexString.asciiString = 'string' (* ByteArray of hexadecimal string *)
 | b = ByteArray(4); | b.atAllPut(15); b.hex = '0f0f0f0f'
-'string'.ascii.Array = [115, 116, 114, 105, 110, 103] (* Array from ByteArray *)
+'string'.asciiByteArray.Array = [115, 116, 114, 105, 110, 103] (* Array from ByteArray *)
 '0f00f010'.parseHexString = [15, 0, 240, 16].ByteArray
 { [1, 2, 3].ByteArray.add(4) }.ifError { :err | true } (* ByteArrays are not @OrderedCollections *)
 [1 .. 9].ByteArray.select { :each | false } = [].ByteArray (* select nothing *)
+[1 .. 9].ByteArray ~= [1 .. 9] (* ByteArray and Array of equal elements are not equal *)
+[1 .. 9].ByteArray.hasEqualElements([1 .. 9]) (* ByteArray and Array of equal elements *)
 ```
 
 ## Character -- text type
@@ -595,6 +597,8 @@ ByteArray(4).hex = '00000000'
 'x'.Character.storeString = 'Character(120)'
 'x'.Character == 120.Character (* characters are identical *)
 '𠮷'.Character == '𠮷'.Character (* characters are identical *)
+'x'.Character.asciiValue = 120 (* ascii code point of character *)
+{ '𠮷'.Character.asciiValue }.ifError { :err | true } (* it is an error is the character is not ascii *)
 ```
 
 ## Collection -- collection trait
@@ -1384,7 +1388,7 @@ ReadStream().atEnd = true (* read stream at end predicate *)
 | r = (1 .. 9).ReadStream; | r.skipTo(7); r.upToEnd = [8, 9] (* skip to an object *)
 | r = (9 .. 1).ReadStream; | [r.upTo(3), r.upToEnd] = [[9 .. 4], [2 .. 1]]
 | r = (9 .. 1).ReadStream; | [r.upToPosition(3), r.upToEnd] = [[9 .. 7], [6 .. 1]]
-| r = '.....ascii'.ascii.ReadStream, a = ByteArray(5); | r.skip(5); r.nextInto(a); a.ascii = 'ascii'
+| r = '.....ascii'.asciiByteArray.ReadStream, a = ByteArray(5); | r.skip(5); r.nextInto(a); a.asciiString = 'ascii'
 (1 .. 9).ReadStream.nextSatisfy { :each | each >= 5 } = 5
 (1 .. 9).ReadStream.take(23) = [1 .. 9]
 (1 .. 9).ReadStream.nextMatchFor(1) = true
@@ -1717,11 +1721,11 @@ SortedArray().size = 0 (* query size *)
 ## String -- text type
 ```
 'quoted string'.isString (* quoted string *)
+'string'.isAsciiString = true (* does string contain only ascii characters *)
 'x' ++ 'y' = 'xy' (* append (catenation) *)
 'x' ++ 1 = 'x1' (* append, right hand side need not be a string *)
-'string'.isAscii = true (* does string contain only ascii characters *)
-'string'.ascii = [115, 116, 114, 105, 110, 103].ByteArray (* String to ByteArray of Ascii encoding *)
-{ 'Mačiūnas'.ascii }.ifError { :err | true } (* non-ascii characters *)
+'string'.asciiByteArray = [115, 116, 114, 105, 110, 103].ByteArray (* String to ByteArray of Ascii encoding *)
+{ 'Mačiūnas'.asciiByteArray }.ifError { :err | true } (* non-ascii characters *)
 '3.4'.asNumber = 3.4 (* parse float *)
 '3'.asInteger = 3 (* parse integer *)
 'string'.at(4) = 'i'.Character (* one-indexing *)
@@ -1748,13 +1752,13 @@ SortedArray().size = 0 (* query size *)
 'text'.copyFromTo(3, 3) = 'x' (* substring (single character) *)
 { 'string'.add('!') }.ifError { :err | 'oh oh...' } = 'oh oh...' (* strings are immutable *)
 'quoted string with \'escaped\' quote characters'.words[4].copyFromTo(2, 8) = 'escaped'
-'string'.utf8 = 'string'.ascii (* Utf-8 is a superset of ascii *)
-'øéஃî'.utf8 = [195, 184, 195, 169, 224, 174, 131, 195, 174].ByteArray (* unicode *)
-'Mačiūnas'.utf8 = [77, 97, 196, 141, 105, 197, 171, 110, 97, 115].ByteArray (* Utf-8 encoding *)
+'string'.utf8ByteArray = 'string'.asciiByteArray (* Utf-8 is a superset of ascii *)
+'øéஃî'.utf8ByteArray = [195, 184, 195, 169, 224, 174, 131, 195, 174].ByteArray (* unicode *)
+'Mačiūnas'.utf8ByteArray = [77, 97, 196, 141, 105, 197, 171, 110, 97, 115].ByteArray (* Utf-8 encoding *)
 'Mačiūnas'.size = 8
-'Mačiūnas'.utf8.size = 10
-'Mačiūnas'.utf16 = [77, 97, 269, 105, 363, 110, 97, 115] (* Utf-16 encoding *)
-'Mačiūnas'.utf16.size = 8
+'Mačiūnas'.utf8ByteArray.size = 10
+'Mačiūnas'.utf16Array = [77, 97, 269, 105, 363, 110, 97, 115] (* Utf-16 encoding *)
+'Mačiūnas'.utf16Array.size = 8
 'string'.allButFirst = 'tring' (* all but first character of a String *)
 'string'.allButFirst(4) = 'ng' (* all but first n characters of a String *)
 ''.typeOf = 'String' (* type of String *)
@@ -1763,12 +1767,12 @@ SortedArray().size = 0 (* query size *)
 'x'.asString.size = 1
 'x'.printString.size = 3
 1.asString = '1'
-'ascii'.ascii = [97, 115, 99, 105, 105].ByteArray
-'€'.utf8 = [226, 130, 172].ByteArray (* Utf-8 encoding of String as ByteArray *)
-[226, 130, 172].ByteArray.utf8 = '€' (* String from Utf-8 encoded ByteArray *)
-'€'.utf8.utf8 = '€' (* decode and encode Utf-8 *)
-'ascii'.ascii = 'ascii'.utf8
-'ascii'.ascii.ascii = 'ascii' (* decode and encode Ascii *)
+'ascii'.asciiByteArray = [97, 115, 99, 105, 105].ByteArray
+'€'.utf8ByteArray = [226, 130, 172].ByteArray (* Utf-8 encoding of String as ByteArray *)
+[226, 130, 172].ByteArray.utf8String = '€' (* String from Utf-8 encoded ByteArray *)
+'€'.utf8ByteArray.utf8String = '€' (* decode and encode Utf-8 *)
+'ascii'.asciiByteArray = 'ascii'.utf8ByteArray
+'ascii'.asciiByteArray.asciiString = 'ascii' (* decode and encode Ascii *)
 { '€'.ascii }.ifError { :err | true }
 'the quick brown fox jumps'.includesSubstring('') = true
 'the quick brown fox jumps'.includesSubstring('fox') = true
@@ -1838,13 +1842,16 @@ var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripti
 '𠮷'.codePointArray = [134071]
 '𠮷'.isInBasicMultilingualPlane = false
 '𠮷'.isWellFormed = true
-{ '𠮷'.ascii }.ifError { :err | true } (* non-ascii character *)
+{ '𠮷'.asciiByteArray }.ifError { :err | true } (* non-ascii character *)
 '𠮷'[1] = '𠮷'.Character
 { '𠮷'[2] }.ifError { :err | true } (* lone surrogate *)
 '0123456789'.isAllDigits
 '1'.isAllDigits
 ''.isAllDigits = true (* the empty string answers true *)
 '01234 56789'.isAllDigits = false (* spaces answer false *)
+'x'.asciiValue = 120 (* ascii code point of string *)
+{ 'xy'.asciiValue }.ifError { :err | true } (* it is an error is the string is not a single character *)
+{ '𠮷'.asciiValue }.ifError { :err | true } (* it is an error is the character is not ascii *)
 ```
 
 ## Syntax -- array assignment syntax
@@ -2055,6 +2062,7 @@ system.typeLookup('Array').methodDictionary::copy:/1.isMethod = true
 system.typeMethodDictionary('Array').anySatisfy { :each | each.name ='select' } = true
 system.typeLookup('String').isType = true
 system.typeLookup('String').methodDictionary.includesKey('includesSubstring:/2') = true
+system.typeLookup('Void').methodDictionary.includesKey('Set:/0') = true
 system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 ```
 
@@ -2079,7 +2087,7 @@ system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 | w = WriteStream(); | 1.putOn(w); w.contents = [1]
 | w = WriteStream(); | 1.putOn(w); [2 .. 8].putOn(w); 9.putOn(w); w.contents = [1 .. 9]
 | w = [].ByteArray.WriteStream; | w.nextPutAll([1 .. 9]); w.contents = [1 .. 9].ByteArray
-| w = Utf8WriteStream(); | 'bodlɛʁ'.encodeOn(w); w.contents.utf8 = 'bodlɛʁ'
+| w = Utf8WriteStream(); | 'bodlɛʁ'.encodeOn(w); w.contents.utf8String = 'bodlɛʁ'
 | w = Utf8WriteStream(); | 'bodlɛʁ'.encodeOn(w); w.utf8Contents = 'bodlɛʁ'
 | w = Utf8WriteStream(); | [3.141, nil].do { :each | each.printOn(w) }; w.utf8Contents = '3.141nil'
 ```

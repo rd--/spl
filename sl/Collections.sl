@@ -2164,7 +2164,7 @@ Association : [Object] { | key value |
 
 ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
-	ascii { :self |
+	asciiString { :self |
 		<primitive: return new TextDecoder('ascii').decode(_self);>
 	}
 
@@ -2179,7 +2179,7 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 	hex { :self |
 		|(
-			map = '0123456789abcdef'.ascii,
+			map = '0123456789abcdef'.asciiByteArray,
 			array = ByteArray(self.size * 2),
 			index = 1
 		)|
@@ -2188,14 +2188,14 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 			array[index + 1] := map[each.bitAnd(15) + 1];
 			index := index + 2
 		};
-		array.ascii
+		array.asciiString
 	}
 
 	species { :self |
 		ByteArray:/1
 	}
 
-	utf8 { :self |
+	utf8String { :self |
 		<primitive: return new TextDecoder('utf8').decode(_self).normalize('NFC');>
 	}
 

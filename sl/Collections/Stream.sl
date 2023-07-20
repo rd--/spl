@@ -38,6 +38,10 @@
 		self.reset
 	}
 
+	originalContents { :self |
+		self.collection
+	}
+
 	peek { :self |
 		self.atEnd.if {
 			nil
@@ -392,7 +396,7 @@ WriteStream : [Object, Stream, PositionableStream] { | collection position write
 	}
 
 	utf8Contents { :self |
-		self.contents.utf8
+		self.contents.utf8String
 	}
 
 }
@@ -417,6 +421,22 @@ WriteStream : [Object, Stream, PositionableStream] { | collection position write
 
 }
 
++Procedure {
+
+	asciiStringStreamContents { :self:/1 |
+		| stream = AsciiWriteStream(); |
+		self(stream);
+		stream.contents.asciiString
+	}
+
+	utf8StringStreamContents { :self:/1 |
+		| stream = Utf8WriteStream(); |
+		self(stream);
+		stream.contents.utf8String
+	}
+
+}
+
 +SmallFloat {
 
 	WriteStream { :self |
@@ -433,7 +453,7 @@ WriteStream : [Object, Stream, PositionableStream] { | collection position write
 
 	encodeOn { :self :aStream |
 		aStream.isBinary.if {
-			aStream.nextPutAll(self.utf8)
+			aStream.nextPutAll(self.utf8ByteArray)
 		} {
 			'String>>encodeOn: not binary stream'.error
 		}
@@ -442,6 +462,10 @@ WriteStream : [Object, Stream, PositionableStream] { | collection position write
 }
 
 +Void {
+
+	AsciiWriteStream {
+		WriteStream(ByteArray(100))
+	}
 
 	WriteStream {
 		WriteStream(Array(100))

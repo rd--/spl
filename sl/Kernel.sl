@@ -285,9 +285,9 @@
 	}
 
 	printStringRoman { :self |
-		| stream = Utf8WriteStream(); |
-		romanDigitsOn(self, stream);
-		stream.contents.ascii
+		{ :stream |
+			romanDigitsOn(self, stream)
+		}.asciiStringStreamContents
 	}
 
 	romanDigitsForOn { :self :digits :base :aStream |
@@ -320,9 +320,9 @@
 		(integer // 1000).timesRepeat {
 			aStream.nextPut('M'.asciiValue)
 		};
-		integer.romanDigitsForOn('MDC'.ascii, 100, aStream);
-		integer.romanDigitsForOn('CLX'.ascii, 10, aStream);
-		integer.romanDigitsForOn('XVI'.ascii, 1, aStream)
+		integer.romanDigitsForOn('MDC'.asciiByteArray, 100, aStream);
+		integer.romanDigitsForOn('CLX'.asciiByteArray, 10, aStream);
+		integer.romanDigitsForOn('XVI'.asciiByteArray, 1, aStream)
 	}
 
 	timesRepeat { :self :aProcedure:/0 |
@@ -2494,18 +2494,18 @@ String : [Object] {
 		<primitive: return _self + _aString;>
 	}
 
-	ascii { :self |
-		| answer = self.utf8; |
+	asciiByteArray { :self |
+		| answer = self.utf8ByteArray; |
 		answer.allSatisfy(isAsciiCodePoint:/1).if {
 			answer
 		} {
-			'String>>ascii: non-ascii character'.error
+			'String>>asciiByteArray: non-ascii character'.error
 		}
 	}
 
 	asciiValue { :self |
 		(self.size = 1).if {
-			self.ascii.first
+			self.asciiByteArray.first
 		} {
 			'String>>asciiValue: not single character'.error
 		}
@@ -2640,8 +2640,8 @@ String : [Object] {
 		<primitive: return _self.includes(_aString);>
 	}
 
-	isAscii { :self |
-		self.utf8.allSatisfy(isAsciiCodePoint:/1)
+	isAsciiString { :self |
+		self.utf8ByteArray.allSatisfy(isAsciiCodePoint:/1)
 	}
 
 	isAllDigits { :self |
@@ -2784,8 +2784,8 @@ String : [Object] {
 	}
 
 	romanNumber { :self |
-		| value = 0, v1 = 0, v2 = 0, letters = 'IVXLCDM'.ascii; |
-		self.ascii.reverseDo { :each |
+		| value = 0, v1 = 0, v2 = 0, letters = 'IVXLCDM'.asciiByteArray; |
+		self.asciiByteArray.reverseDo { :each |
 			v1 := [1, 5, 10, 50, 100, 500, 1000].at(letters.indexOf(each));
 			(v1 >= v2).if {
 				value := value + v1
@@ -2881,11 +2881,11 @@ String : [Object] {
 		}
 	}
 
-	utf8 { :self |
+	utf8ByteArray { :self |
 		<primitive: return new TextEncoder().encode(_self.normalize('NFC'));>
 	}
 
-	utf16 { :self |
+	utf16Array { :self |
 		| answer = []; |
 		self.countUtf16CodeUnits.do { :index |
 			answer.add(self.utf16CodePointAt(index))
