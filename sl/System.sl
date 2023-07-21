@@ -933,6 +933,14 @@ URL : [Object] {
 		<primitive: return _self.protocol;>
 	}
 
+	readTextFile { :self |
+		<primitive:
+		return fetch(_self).then(function(response) {
+			return response.text()
+		});
+		>
+	}
+
 	search { :self |
 		<primitive: return _self.search;>
 	}
@@ -941,13 +949,19 @@ URL : [Object] {
 		<primitive: return _self.searchParams;>
 	}
 
-	username { :self |
-		<primitive: return _self.username;> (* Read only *)
+	terseGuideSummary { :self |
+		self.readTextFile.then { :text |
+			text.terseGuideSummary
+		}
 	}
-
 
 	Url { :self |
 		self
+	}
+
+
+	username { :self |
+		<primitive: return _self.username;> (* Read only *)
 	}
 
 }

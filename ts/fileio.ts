@@ -10,8 +10,7 @@ export async function readTextFile(fileName: string): Promise<string> {
 	if(fileName && existsSync(fileName)) {
 		return await Deno.readTextFile(fileName);
 	} else {
-		console.error(`readFile: unknown file: ${fileName}`);
-		return '';
+		return Promise.reject(new Error(`readTextFile: unknown file: ${fileName}`));
 	}
 }
 
@@ -43,10 +42,13 @@ export async function loadFileArrayInSequence(loadPath: string, fileNameArray: s
 }
 
 export function addLoadFileMethods(): void {
+	addMethod('Array', 'loadUrlSequence', 1, loadFileSequence, '<primitive>');
+}
+
+/*
 	addMethod('String', 'loadPath', 1, setLoadPath, '<primitive>');
 	addMethod('String', 'loadFile', 1, loadFile, '<primitive>');
 	addMethod('String', 'load', 1, loadFile, '<primitive>');
 	addMethod('Array', 'loadFileSequence', 1, loadFileSequence, '<primitive>');
-	addMethod('Array', 'loadSequence', 1, loadFileSequence, '<primitive>');
 	addMethod('String', 'readTextFile', 1, readTextFile, '<primitive>');
-}
+*/

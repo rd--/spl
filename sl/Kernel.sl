@@ -1228,6 +1228,10 @@ Error : [Object] {
 		<primitive: throw(_self);>
 	}
 
+	storeString { :self |
+		'Error(\'' ++ self.message ++ '\')'
+	}
+
 }
 
 +@Object {
@@ -2262,7 +2266,13 @@ Procedure : [Object] {
 	}
 
 	ifError { :self :errorHandler |
-		<primitive: try { return _self(); } catch (exc) { return _errorHandler(exc) }>
+		<primitive:
+		try {
+			return _self();
+		} catch (exc) {
+			return _errorHandler(exc)
+		}
+		>
 	}
 
 	methodName { :self |
@@ -2392,7 +2402,9 @@ Promise : [Object] {
 
 +Void {
 
-	Promise { 'Promise()'.error }
+	Promise {
+		'Promise()'.error
+	}
 
 }
 
@@ -2822,47 +2834,45 @@ String : [Object] {
 	}
 
 	terseGuideSummary { :self :options |
-		self.readTextFile.then { :text |
-			| totalTestCount = 0, totalPassCount = 0, areas = text.paragraphs; |
-			('Terse Guide Summary: Areas = ' ++ areas.size).postLine;
-			areas.do { :area |
-				|(
-					entries = area.lines.reject { :line |
-						line.isEmpty | {
-							line = '```'
-						}
-					},
-					testCount = entries.size - 1,
-					failCount = 0,
-					passCount = 0
-				)|
-				entries[1].postLine;
-				2.upTo(testCount + 1).collect { :index |
-					| test = entries[index]; |
-					options.atIfAbsent('verbose', false).ifTrue {
-						test.postLine
-					};
-					test.evaluate.if {
-						passCount := passCount + 1
-					} {
-						failCount := failCount + 1;
-						('	Error: ' ++ test).postLine
+		| totalTestCount = 0, totalPassCount = 0, areas = self.paragraphs; |
+		('Terse Guide Summary: Areas = ' ++ areas.size).postLine;
+		areas.do { :area |
+			|(
+				entries = area.lines.reject { :line |
+					line.isEmpty | {
+						line = '```'
 					}
+				},
+				testCount = entries.size - 1,
+				failCount = 0,
+				passCount = 0
+			)|
+			entries[1].postLine;
+			2.upTo(testCount + 1).collect { :index |
+				| test = entries[index]; |
+				options.atIfAbsent('verbose', false).ifTrue {
+					test.postLine
 				};
-				totalTestCount := totalTestCount + testCount;
-				totalPassCount := totalPassCount + passCount;
-				[
-					'	=> ',
-					passCount, ' / ', testCount,
-					(failCount > 0).if {
-						' (' ++ failCount ++ ' Failures)'
-					} {
-						''
-					}
-				].join.postLine
+				test.evaluate.if {
+					passCount := passCount + 1
+				} {
+					failCount := failCount + 1;
+					('	Error: ' ++ test).postLine
+				}
 			};
-			('Total => ' ++ totalPassCount ++ ' / ' ++ totalTestCount).postLine
-		}
+			totalTestCount := totalTestCount + testCount;
+			totalPassCount := totalPassCount + passCount;
+			[
+				'	=> ',
+				passCount, ' / ', testCount,
+				(failCount > 0).if {
+					' (' ++ failCount ++ ' Failures)'
+				} {
+					''
+				}
+			].join.postLine
+		};
+		('Total => ' ++ totalPassCount ++ ' / ' ++ totalTestCount).postLine
 	}
 
 	toLowercase { :self |

@@ -2117,6 +2117,14 @@ system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 'http://cern.ch/'.URL.protocol = 'http:'
 ```
 
+## System -- fetch
+```
+'file:/home/rohan/sw/spl/README.md'.Url.readTextFile.then { :text | (text.size > 0).postLine }; true
+'file:/home/rohan/sw/spl/README'.Url.readTextFile.catch { :err | err.postLine }; true
+'file:///home/rohan/sw/spl/README.md'.Url.readTextFile.then { :text | (text.size > 0).postLine }; true
+'https://rohandrape.net/sw/spl/README.md'.Url.readTextFile.then { :text | (text.size > 0).postLine }; true
+```
+
 ## System -- URLSearchParams
 ```
 'x=3.141&y=23'.URLSearchParams.has('x') = true

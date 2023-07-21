@@ -17,10 +17,6 @@ export function resolveFileName(fileName: string): string {
 	return resolvedName;
 }
 
-export async function loadUrl(fileName: string): Promise<void> {
-	await evaluateUrl(resolveFileName(fileName));
-}
-
 // Fetch files asynchronously, then evaluate in sequence.
 export async function loadUrlSequence(fileNameArray: string[]): Promise<void> {
 	const resolvedFileNameArray = fileNameArray.map(resolveFileName);
@@ -28,17 +24,26 @@ export async function loadUrlSequence(fileNameArray: string[]): Promise<void> {
 	fetchedTextArray.forEach(evaluateString);
 }
 
-export async function loadUrlArrayInSequence(loadPath: string, urlArray: string[]): Promise<void> {
-	setLoadPath(loadPath);
+export function addLoadUrlMethods(): void {
+	addMethod('Array', 'loadUrlSequence', 1, loadUrlSequence, '<primitive: loader>');
+}
+
+export async function loadUrl(fileName: string): Promise<void> {
+	await evaluateUrl(resolveFileName(fileName));
+}
+
+export async function loadUrlArrayInSequence(urlArray: string[]): Promise<void> {
 	for(let url of urlArray) {
 		await loadUrl(url);
 	}
 }
 
-export function addLoadUrlMethods(): void {
+/*
+
+
 	addMethod('String', 'loadPath', 1, setLoadPath, '<primitive: loader>');
 	addMethod('String', 'loadUrl', 1, loadUrl, '<primitive: loader>');
 	addMethod('String', 'load', 1, loadUrl, '<primitive: loader>');
-	addMethod('Array', 'loadUrlSequence', 1, loadUrlSequence, '<primitive: loader>');
 	addMethod('Array', 'loadSequence', 1, loadUrlSequence, '<primitive: loader>');
-}
+
+*/

@@ -50,7 +50,7 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [4, 7, 6, 8].reshape([2, 3]) = [[4, 7, 6], [8, 4, 7]]  (* cycle input as required *)
 (1 .. 9).clump(3) = [[1 .. 3], [4 .. 6], [7 .. 9]] (* chunks of n places *)
 (1 .. 7).clump(3) = [[1 .. 3], [4 .. 6], [7]] (* chunks of n places, last segment may have less places *)
-'string'.ascii.clump(2).collect { :each | each.ByteArray.ascii } = ['st', 'ri', 'ng']
+'string'.asciiByteArray.clump(2).collect { :each | each.ByteArray.asciiString } = ['st', 'ri', 'ng']
 (9 .. 1).detectIndex(even:/1) = 2 (* answer index of detected element, else nil *)
 (9 .. 1).detectIndex(isZero:/1).isNil (* answer index of detected element, else nil *)
 5.geom(3, 2) = [3, 6, 12, 24, 48] (* geometric series (size from by) *)

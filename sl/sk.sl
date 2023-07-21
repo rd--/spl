@@ -1,8 +1,8 @@
-loadSequence([
+[
 	'Graphics.sl',
 	'Navigator/Dom.sl',
 	'Navigator/Midi.sl',
 	'SmallKansas.sl'
-]).then { :unusedValue |
+].loadUrlSequence.then { :unusedValue |
 	workspace::smallKansas := SmallKansas()
 }

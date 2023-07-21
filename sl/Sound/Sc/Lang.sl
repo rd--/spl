@@ -1014,5 +1014,9 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self ++ '/' ++ aString
 	}
 
+	ascii { :self |
+		self.asciiByteArray
+	}
+
 }
 
