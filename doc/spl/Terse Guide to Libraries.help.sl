@@ -37,8 +37,7 @@ workspace::smallHours.helpFind('Collection')
 
 ## Cli
 ```
-'file:/home/rohan/sw/spl/doc/spl/Terse Guide.help.sl'.Url.readTextFile.then { :text | text.paragraphs.do { :each | each.lines.postLine } }
-'file:/home/rohan/sw/spl/doc/spl/Terse Guide.help.sl'.Url.terseGuideSummary
-'file:/home/rohan/sw/spl/doc/spl/Terse Guide to Graphics.help.sl'.Url.terseGuideSummary
-'file:/home/rohan/sw/spl/doc/spl/Terse Guide to Sound.help.sl'.Url.terseGuideSummary
+'/home/rohan/sw/spl/doc/spl/Terse Guide.help.sl'.fileUrl.terseGuideSummary
+'/home/rohan/sw/spl/doc/spl/Terse Guide to Graphics.help.sl'.fileUrl.terseGuideSummary
+'/home/rohan/sw/spl/doc/spl/Terse Guide to Sound.help.sl'.fileUrl.terseGuideSummary
 ```

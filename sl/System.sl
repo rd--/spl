@@ -897,6 +897,10 @@ Type : [Object] {
 
 URL : [Object] {
 
+	asUrl { :self |
+		self
+	}
+
 	hash { :self |
 		<primitive: return _self.hash;>
 	}
@@ -955,11 +959,6 @@ URL : [Object] {
 		}
 	}
 
-	Url { :self |
-		self
-	}
-
-
 	username { :self |
 		<primitive: return _self.username;> (* Read only *)
 	}
@@ -982,6 +981,10 @@ URL : [Object] {
 
 	encodeURIComponent { :self |
 		<primitive: return encodeURIComponent(_self);>
+	}
+
+	fileUrl { :self |
+		('file://' ++ self).Url
 	}
 
 	revokeObjectURL { :self |

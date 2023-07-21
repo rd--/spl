@@ -1,4 +1,4 @@
-# Duration -- time
+# Duration -- temporal type
 
 A type to represent an interval of time.
 
