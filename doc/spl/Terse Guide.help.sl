@@ -1928,6 +1928,11 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 (1, 3 .. 9) = Interval(1, 9, 2)
 (9, 7 .. 1) = Interval(9, 1, -2)
 (1 .. 1) = Interval(1, 1, 1)
+[1 .. 3] = (1 .. 3).Array
+[3 .. 1] = (3 .. 1).Array
+[1, 3 .. 9] = (1, 3 .. 9).Array
+[9, 7 .. 1] = (9, 7 .. 1).Array
+[1 .. 1] = (1 .. 1).Array
 ```
 
 ## Syntax -- collection access and mutation
@@ -1936,11 +1941,19 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 | x = [1 .. 5]; | x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, v) *)
 ```
 
+## Syntax -- dictionary assignment syntax
+```
+| (x, y) = (x: 1, y: 2); | x = 1 & { y = 2 }
+| (x, y, z) = (x: 1 * 2, y: 3 * 4, z: 5 * 6); | [z, y, x] = [30, 12, 2]
+| x y | (x, y) := (x: 1, y: 2); x = 1 & { y = 2 }
+| x y z | (x, y, z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [30, 12, 2]
+```
+
 ## Syntax -- dictionary literals
 ```
 ().isRecord (* () is the empty dictionary *)
-() = [].Record (* the empty dictionary *)
-(x: 1, y: 2) = ['x' -> 1, 'y' -> 2].Record (* (x: 1, ...) is dictionary syntax *)
+() = [].Record (* () the empty dictionary *)
+(x: 1, y: 2) = ['x' -> 1, 'y' -> 2].Record (* dictionary literal syntax *)
 (x: 1, y: 2).printString = '(x: 1, y: 2)' (* Record print string *)
 (x: 1, y: 2).storeString = '(x: 1, y: 2)' (* Record print string *)
 ```
@@ -1963,9 +1976,10 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 | x = 1; | x = 1 (* temporary syntax (with initialiser) *)
 | x y | x = nil & { y = nil } (* temporary syntax (no initializers) *)
 | x = 1, y = 1; | x = 1 & { y = 1 } (* temporary syntax (with initialisers) *)
-|( x = 1, y = 1 )| x = 1 & { y = 1 } (* parenthesised temporary syntax (with initialisers) *)
-var x = 1, y = 2; [x, y] = [1, 2] (* var x, y; == | x y | *)
-var x = 1; var y = 2, z = 3; [x, y, z] = [1, 2, 3] (* there can be multiple var sequences *)
+|( x = 1, y = 1 )| x = 1 & { y = 1 } (* |( x = i, y = j )| => | x = i, y = j; | *)
+var x, y; x = nil & { y = nil } (* var x, y; => | x y | *)
+var x = 1, y = 2; [x, y] = [1, 2] (* var x = i, y = i; => | x = i, y = j; | *)
+var x = 1; var y = 2, z = 3; [x, y, z] = [1, 2, 3] (* there can be multiple var (with initializer) sequences *)
 ```
 
 ## Syntax -- trailing procedures

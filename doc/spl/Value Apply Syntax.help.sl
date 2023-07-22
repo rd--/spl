@@ -1,4 +1,4 @@
-# Value Apply Syntax
+# Value Apply Syntax -- syntax
 
 - _f . ()_
 - _f . (x, ...)_

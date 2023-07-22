@@ -1,4 +1,4 @@
-# Temporary Procedure Syntax
+# Temporary Procedure Syntax -- syntax
 
 In the case where a temporary variable is initialised to a literal procedure, the system may bind both the arity strict and arity generic names.
 

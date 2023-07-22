@@ -1,4 +1,4 @@
-# Method Syntax
+# Method Syntax -- syntax
 
 Rewrite rules:
 

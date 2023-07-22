@@ -1,4 +1,4 @@
-# Array Assignment Syntax
+# Array Assignment Syntax -- syntax
 
 There is array assignment syntax for both temporary variable initialisers:
 
@@ -24,3 +24,9 @@ and the equivalent interleaved case:
 
 	| x = 1, y = 2, z = 3; | x := x * y + z; y := x + y * z; z := x + y + z; [x, y, z] = [5, 21, 29]
 	| x = 1, y = 2, z = 3, x1 = nil, y1 = nil, z1 = nil; | x1 := x * y + z; y1 := x + y * z; z1 := x + y + z; x := x1; y := y1; z := z1; [x, y, z] = [5, 9, 6]
+
+* * *
+
+See also: [Dictionary Assignment Syntax]
+
+

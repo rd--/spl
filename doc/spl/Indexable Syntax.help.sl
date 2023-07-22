@@ -1,4 +1,4 @@
-# Indexable Syntax
+# Indexable Syntax -- syntax
 
 Rewrite rules:
 
@@ -7,10 +7,10 @@ Rewrite rules:
 
 Collection types implement the _at_ and _atPut_ protocols.
 
-The first rule provides the usual array notation for reading from a collection.
+The first rule, [At Syntax], provides the usual array notation for reading from a collection.
 
-The second rule provides the usual array notation for writing to a collection.
+The second rule, [AtPut Syntax], provides the usual array notation for writing to a collection.
 
 * * *
 
-See also [Quoted Indexable Syntax].
+See also: [At Syntax], [AtPut Syntax], [Quoted Indexable Syntax].

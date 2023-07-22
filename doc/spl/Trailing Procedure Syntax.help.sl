@@ -1,4 +1,4 @@
-# Trailing Procedure Syntax
+# Trailing Procedure Syntax -- syntax
 
 Rewrite rules:
 

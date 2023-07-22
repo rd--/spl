@@ -1,4 +1,4 @@
-# Trailing Dictionary Syntax
+# Trailing Dictionary Syntax -- syntax
 
 Rewrite rules:
 

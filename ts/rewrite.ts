@@ -88,7 +88,10 @@ const asJs: any = {
 	TemporariesParenSyntax(_leftParen, tmp, _rightParen) {
 		return `var ${commaList(tmp.asIteration().children)};`;
 	},
-	TemporariesVarSyntax(_var, tmp, _semicolon) {
+	TemporariesVarWithoutInitializersSyntax(_var, tmp, _semicolon) {
+		return `var ${commaList(tmp.asIteration().children)};`;
+	},
+	TemporariesVarWithInitializersSyntax(_var, tmp, _semicolon) {
 		return `var ${commaList(tmp.asIteration().children)};`;
 	},
 	ScalarAssignment(lhs, _colonEquals, rhs) {
@@ -96,10 +99,15 @@ const asJs: any = {
 	},
 	ArrayAssignment(_leftBracket, lhs, _rightBracket, _colonEquals, rhs) {
 		const namesArray = lhs.asIteration().children.map(c => c.sourceString);
-		const rhsFunctionName = gensym();
 		const rhsArrayName = gensym();
 		const slots = namesArray.map((name, index) => `_${name} = _${genName('at', 2)}(${rhsArrayName}, ${index + 1})`).join('; ');
 		return `(function() { var ${rhsArrayName} = ${rhs.asJs}; ${slots}; })()`;
+	},
+	DictionaryAssignment(_leftParen, lhs, _rightParen, _colonEquals, rhs) {
+		const namesArray = lhs.asIteration().children.map(c => c.sourceString);
+		const rhsDictionaryName = gensym();
+		const slots = namesArray.map((name, index) => `_${name} = _${genName('at', 2)}(${rhsDictionaryName}, '${name}')`).join('; ');
+		return `(function() { var ${rhsDictionaryName} = ${rhs.asJs}; ${slots}; })()`;
 	},
 	BinaryExpression(lhs, ops, rhs) {
 		let left = lhs.asJs;

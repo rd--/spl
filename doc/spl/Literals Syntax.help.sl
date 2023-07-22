@@ -1,4 +1,4 @@
-# Literals Syntax
+# Literals Syntax -- syntax
 
 The four primitive types are _Nil, _Boolean_, _Number_ and _String_.
 
@@ -18,3 +18,7 @@ The _Procedure_ syntax is as in Smalltalk, with braces replacing brackets.
 There is no literal _Array_ syntax (as in Smalltalk) however there is an array expression syntax.
 
 - _[p, q, r]_ ⇒ _Array_
+
+There is also a _Dictionary_ expression syntax.
+
+- _(x: p, y: q, z: r) ⇒ Record

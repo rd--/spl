@@ -1,4 +1,4 @@
-# AtPut Syntax
+# AtPut Syntax -- syntax
 
 Rewrite rule:
 

@@ -1,4 +1,4 @@
-# Quoted Indexable Syntax
+# Quoted Indexable Syntax -- syntax
 
 Rewrite rules:
 

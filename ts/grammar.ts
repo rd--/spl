@@ -18,7 +18,7 @@ Sl {
 	TraitDefinition = "@" identifier "{" (methodName Block)* "}"
 	ConstantDefinition = unqualifiedIdentifier "=" literal
 	Program = Temporaries? ExpressionSequence
-	Temporaries = TemporariesWithInitializers | TemporariesWithoutInitializers | TemporariesParenSyntax | TemporariesVarSyntax+
+	Temporaries = TemporariesWithInitializers | TemporariesWithoutInitializers | TemporariesParenSyntax | TemporariesVarWithoutInitializersSyntax | TemporariesVarWithInitializersSyntax+
 	TemporariesWithInitializers = "|" NonemptyListOf<TemporaryWithInitializer, ","> ";" "|"
 	TemporaryWithInitializer =
 		TemporaryWithBlockLiteralInitializer |
@@ -31,13 +31,15 @@ Sl {
 	TemporaryWithArrayInitializer = "["  NonemptyListOf<identifier, ","> "]" "=" Expression
 	TemporariesWithoutInitializers = "|" identifier+ "|"
 	TemporariesParenSyntax = "|(" NonemptyListOf<TemporaryWithInitializer, ","> ")|"
-	TemporariesVarSyntax = "var" NonemptyListOf<(TemporaryWithInitializer | identifier), ","> ";"
+	TemporariesVarWithoutInitializersSyntax = "var" NonemptyListOf<identifier, ","> ";"
+	TemporariesVarWithInitializersSyntax = "var" NonemptyListOf<TemporaryWithInitializer, ","> ";"
 
 	ExpressionSequence = ListOf<Expression, ";">
 	Expression = Assignment | BinaryExpression | Primary
-	Assignment = ScalarAssignment | ArrayAssignment
+	Assignment = ScalarAssignment | ArrayAssignment | DictionaryAssignment
 	ScalarAssignment = identifier ":=" Expression
-	ArrayAssignment = "["  NonemptyListOf<identifier, ","> "]" ":=" Expression
+	ArrayAssignment = "[" NonemptyListOf<identifier, ","> "]" ":=" Expression
+	DictionaryAssignment = "(" NonemptyListOf<identifier, ","> ")" ":=" Expression
 	BinaryExpression = Expression (binaryOperator Primary)+
 
 	Primary

@@ -1,4 +1,4 @@
-# Apply Syntax
+# Apply Syntax -- syntax
 
 Rewrite rule:
 

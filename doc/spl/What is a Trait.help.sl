@@ -5,7 +5,7 @@ In Smalltalk _Collection_, _SequenceableCollection_ and _ArrayedCollection_ are 
 
 Types are said to implement a trait.
 _Array_ implements all three of the above traits.
-_Dictionary_ implements _Collection_.
+_Set_ implements _Collection_.
 
 This means that _Array_ receives copies of the methods defined in each of the traits it implements.
 The traits are applied in the sequence they are listed in the type definition.

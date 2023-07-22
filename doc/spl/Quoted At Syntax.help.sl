@@ -1,4 +1,4 @@
-# Quoted At Syntax
+# Quoted At Syntax -- syntax
 
 Rewrite rule:
 
@@ -6,7 +6,6 @@ Rewrite rule:
 
 Syntax for the _at_ protocol.
 _c::k_ reads the values at the key _'k'_ from the collection _c_.
-
 
 * * *
 

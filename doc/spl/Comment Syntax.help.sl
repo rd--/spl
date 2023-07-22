@@ -1,4 +1,4 @@
-# Comment Syntax
+# Comment Syntax -- syntax
 
 There are two comment forms.
 
