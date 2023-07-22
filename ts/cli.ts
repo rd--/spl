@@ -9,6 +9,7 @@ import * as sc from '../lib/jssc3/ts/sc3.ts'
 
 import * as ev from './eval.ts'
 import * as io from './fileio.ts'
+import * as ld from './load.ts'
 import * as sl from './sl.ts'
 import { slOptions } from './options.ts'
 import * as rw from './rewrite.ts'
@@ -51,7 +52,8 @@ async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	console.log(`loadSpl: opt.dir=${opt.dir}, getSplDir=${getSplDir()}, loadPath=${loadPath}`);
 	io.addLoadFileMethods();
 	sl.assignGlobals();
-	await io.loadFileArrayInSequence(loadPath, ['std.sl'].concat(lib)); // ['cat.sl']
+	ld.setLoadPath(loadPath);
+	await io.loadFileArrayInSequence(['std.sl'].concat(lib)); // ['cat.sl']
 	if(lib.includes('sc.sl')) {
 		globalThis.sc = sc;
 		globalThis.globalScSynth = cliScSynth;
@@ -74,7 +76,7 @@ function scEvalText(splText: string): void {
 }
 
 async function scEvalFile(fileName: string): Promise<void> {
-	const splText = await io.readTextFile(fileName);
+	const splText = await Deno.readTextFile(fileName);
 	scEvalText(splText);
 }
 

@@ -1,4 +1,4 @@
-import { load_utf8 } from '../lib/jssc3/ts/kernel/io.ts'
+import { fetch_utf8 } from '../lib/jssc3/ts/kernel/io.ts'
 
 import { rewriteString } from './rewrite.ts'
 
@@ -25,5 +25,5 @@ export function evaluateString(slStr: string) {
 
 export async function evaluateUrl(urlString: string) {
 	// console.debug(`evaluateUrl: ${urlString}`);
-	await load_utf8(urlString).then(evaluateString);
+	await fetch_utf8(urlString).then(evaluateString);
 }

@@ -901,6 +901,16 @@ URL : [Object] {
 		self
 	}
 
+	fetch { :self |
+		<primitive: return fetch(_self);>
+	}
+
+	fetchText { :self |
+		self.fetch.then { :response |
+			response.text
+		}
+	}
+
 	hash { :self |
 		<primitive: return _self.hash;>
 	}
@@ -937,14 +947,6 @@ URL : [Object] {
 		<primitive: return _self.protocol;>
 	}
 
-	readTextFile { :self |
-		<primitive:
-		return fetch(_self).then(function(response) {
-			return response.text()
-		});
-		>
-	}
-
 	search { :self |
 		<primitive: return _self.search;>
 	}
@@ -954,7 +956,7 @@ URL : [Object] {
 	}
 
 	terseGuideSummary { :self |
-		self.readTextFile.then { :text |
+		self.fetchText.then { :text |
 			text.terseGuideSummary
 		}
 	}

@@ -5,23 +5,28 @@ import { addMethod } from './kernel.ts'
 import { resolveFileName, setLoadPath } from './load.ts'
 import { rewriteString } from './rewrite.ts'
 
-export async function readTextFile(fileName: string): Promise<string> {
-	// console.debug(`readFile: ${fileName}`);
-	if(fileName && existsSync(fileName)) {
+/*
+export async function readLocalTextFile(fileName: string): Promise<string> {
+	// console.debug(`readLocalTextFile: ${fileName}`);
+	if(fileName && existsSync(fileName, {
+		isReadable: true,
+		isFile: true
+	})) {
 		return await Deno.readTextFile(fileName);
 	} else {
-		return Promise.reject(new Error(`readTextFile: unknown file: ${fileName}`));
+		return Promise.reject(new Error(`readLocalTextFile: unknown file: ${fileName}`));
 	}
 }
+*/
 
 export async function evaluateFile(fileName: string) {
 	// console.debug(`evaluateFile: ${fileName}`);
-	return await readTextFile(fileName).then(evaluateString);
+	return await Deno.readTextFile(fileName).then(evaluateString);
 }
 
 export async function rewriteFile(fileName: string) {
 	// console.debug(`rewriteFile: ${fileName}`);
-	return await readTextFile(fileName).then(rewriteString);
+	return await Deno.readTextFile(fileName).then(rewriteString);
 }
 
 export async function loadFile(fileName: string) {
@@ -34,8 +39,7 @@ export async function loadFileSequence(fileNameArray: string[]): Promise<void> {
 	}
 }
 
-export async function loadFileArrayInSequence(loadPath: string, fileNameArray: string[]): Promise<void> {
-	setLoadPath(loadPath);
+export async function loadFileArrayInSequence(fileNameArray: string[]): Promise<void> {
 	for(let fileName of fileNameArray) {
 		await loadFile(fileName);
 	}

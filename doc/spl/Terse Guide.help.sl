@@ -1354,7 +1354,7 @@ var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
 { :x :y | x * y + y }.apply([3.141, 23]) = 95.243
 { { :x | x }.apply(0) }.ifError { :err | true }
 { { :x | x }.apply([]) }.ifError { :err | true }
-var x = { }; x.isProcedure (* blocks are objects and may be assigned to a variable *)
+| x = { }; | x.isProcedure (* blocks are objects and may be assigned to a variable *)
 { nil; 1 }.value = 1 (* value is last expression evaluated *)
 { { 1 }.value }.value = 1 (* blocks may be nested *)
 { :x | var y = x; y }.value(1) = 1 (* specification { arguments localvars expressions } *)
@@ -1854,7 +1854,7 @@ SortedArray().size = 0 (* query size *)
 '"a text string"'.parseJson = 'a text string'
 'string'.first = 's'.Character
 'string'.last = 'g'.Character
-var x = ['a', 'bc', 'def']; x.unlines.lines = x
+| x = ['a', 'bc', 'def']; | x.unlines.lines = x
 '3 + 4'.evaluate = 7
 'a short string'.replace('short', 'longer') = 'a longer string'
 'x x x'.replace('x', 'y') = 'y x x'
@@ -1933,7 +1933,7 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 ## Syntax -- collection access and mutation
 ```
 'text'[3] = 'x'.Character (* c[k] is syntax for c.at(k) *)
-var x = [1 .. 5]; x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, v) *)
+| x = [1 .. 5]; | x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, v) *)
 ```
 
 ## Syntax -- dictionary literals
@@ -1959,8 +1959,11 @@ var x = [1 .. 5]; x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, 
 
 ## Syntax -- temporaries
 ```
-| x | x = nil (* temporary syntax *)
-| x = 1; | x = 1 (* temporary with initialiser syntax *)
+| x | x = nil (* temporary syntax (no initializer) *)
+| x = 1; | x = 1 (* temporary syntax (with initialiser) *)
+| x y | x = nil & { y = nil } (* temporary syntax (no initializers) *)
+| x = 1, y = 1; | x = 1 & { y = 1 } (* temporary syntax (with initialisers) *)
+|( x = 1, y = 1 )| x = 1 & { y = 1 } (* parenthesised temporary syntax (with initialisers) *)
 var x = 1, y = 2; [x, y] = [1, 2] (* var x, y; == | x y | *)
 var x = 1; var y = 2, z = 3; [x, y, z] = [1, 2, 3] (* there can be multiple var sequences *)
 ```
@@ -2123,10 +2126,10 @@ system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 
 ## System -- fetch
 ```
-'file:/home/rohan/sw/spl/README.md'.Url.readTextFile.then { :text | (text.size > 0).postLine }; true
-'file:/home/rohan/sw/spl/README'.Url.readTextFile.catch { :err | err.postLine }; true
-'file:///home/rohan/sw/spl/README.md'.Url.readTextFile.then { :text | (text.size > 0).postLine }; true
-'https://rohandrape.net/sw/spl/README.md'.Url.readTextFile.then { :text | (text.size > 0).postLine }; true
+'/home/rohan/sw/spl/README.md'.fileUrl.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from file *)
+'/home/rohan/sw/spl/README'.fileUrl.fetchText.catch { :err | err.postLine }; true (* file does not exist *)
+'file://localhost/home/rohan/sw/spl/README.md'.Url.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from url (local) *)
+'https://rohandrape.net/sw/spl/README.md'.Url.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from url (remote) *)
 ```
 
 ## System -- URLSearchParams

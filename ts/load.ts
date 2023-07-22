@@ -1,4 +1,4 @@
-import { load_utf8 } from '../lib/jssc3/ts/kernel/io.ts'
+import { fetch_utf8 } from '../lib/jssc3/ts/kernel/io.ts'
 
 import { addMethod } from './kernel.ts'
 import { evaluateString, evaluateUrl } from './eval.ts'
@@ -20,7 +20,7 @@ export function resolveFileName(fileName: string): string {
 // Fetch files asynchronously, then evaluate in sequence.
 export async function loadUrlSequence(fileNameArray: string[]): Promise<void> {
 	const resolvedFileNameArray = fileNameArray.map(resolveFileName);
-	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(load_utf8));
+	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(fetch_utf8));
 	fetchedTextArray.forEach(evaluateString);
 }
 

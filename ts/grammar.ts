@@ -31,7 +31,7 @@ Sl {
 	TemporaryWithArrayInitializer = "["  NonemptyListOf<identifier, ","> "]" "=" Expression
 	TemporariesWithoutInitializers = "|" identifier+ "|"
 	TemporariesParenSyntax = "|(" NonemptyListOf<TemporaryWithInitializer, ","> ")|"
-	TemporariesVarSyntax = "var" NonemptyListOf<(TemporaryWithInitializer), ","> ";"
+	TemporariesVarSyntax = "var" NonemptyListOf<(TemporaryWithInitializer | identifier), ","> ";"
 
 	ExpressionSequence = ListOf<Expression, ";">
 	Expression = Assignment | BinaryExpression | Primary
