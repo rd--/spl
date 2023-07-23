@@ -7,12 +7,11 @@ import * as scUdp from '../lib/jssc3/ts/sc3/scsynth-udp.ts'
 
 import * as sc from '../lib/jssc3/ts/sc3.ts'
 
-import * as ev from './eval.ts'
-import * as io from './fileio.ts'
-import * as ld from './load.ts'
+import * as evaluate from './evaluate.ts'
+import * as fileio from './fileio.ts'
+import * as load from './load.ts'
 import * as sl from './sl.ts'
 import { slOptions } from './options.ts'
-import * as rw from './rewrite.ts'
 import * as repl from './repl.ts'
 
 function getSplDir(): string {
@@ -36,7 +35,7 @@ function help(): void {
 }
 
 async function rewriteFile(fileName: string): Promise<void> {
-	console.log(await io.rewriteFile(fileName));
+	console.log(await fileio.rewriteFile(fileName));
 }
 
 declare global {
@@ -50,10 +49,10 @@ const cliScSynth = scUdp.scSynthUdp(scUdp.defaultScSynthUdp);
 async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	const loadPath = opt.dir || getSplDir() || './';
 	console.log(`loadSpl: opt.dir=${opt.dir}, getSplDir=${getSplDir()}, loadPath=${loadPath}`);
-	io.addLoadFileMethods();
+	fileio.addLoadFileMethods();
 	sl.assignGlobals();
-	ld.setLoadPath(loadPath);
-	await io.loadFileArrayInSequence(['std.sl'].concat(lib)); // ['cat.sl']
+	load.setLoadPath(loadPath);
+	await fileio.loadFileSequence(['std.sl'].concat(lib)); // ['cat.sl']
 	if(lib.includes('sc.sl')) {
 		globalThis.sc = sc;
 		globalThis.globalScSynth = cliScSynth;
@@ -68,11 +67,11 @@ async function replPerLine(opt: flags.Args, lib: string[]): Promise<void> {
 
 async function runFile(fileName: string, opt: flags.Args): Promise<void> {
 	await loadSpl(opt, []);
-	console.log(await io.evaluateFile(fileName))
+	console.log(await fileio.evaluateFile(fileName))
 }
 
 function scEvalText(splText: string): void {
-	ev.evaluateString(splText);
+	evaluate.evaluateString(splText);
 }
 
 async function scEvalFile(fileName: string): Promise<void> {
@@ -81,12 +80,12 @@ async function scEvalFile(fileName: string): Promise<void> {
 }
 
 function scPlayText(splText: string): void {
-	const ugenGraph = ev.evaluateString(splText);
+	const ugenGraph = evaluate.evaluateString(splText);
 	sc.playUgenAt(cliScSynth, ugenGraph, 1, null);
 }
 
 async function scPlayFile(fileName: string): Promise<void> {
-	const splText = await io.readTextFile(fileName);
+	const splText = await Deno.readTextFile(fileName);
 	scPlayText(splText);
 }
 

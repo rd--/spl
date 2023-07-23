@@ -1,4 +1,4 @@
-export * from './eval.ts'
+export * from './evaluate.ts'
 export * from './kernel.ts'
 export * from './load.ts'
 export * from './operator.ts'

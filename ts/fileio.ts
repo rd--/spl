@@ -1,58 +1,25 @@
-import { existsSync } from "https://deno.land/std/fs/mod.ts"
-
-import { evaluateString } from './eval.ts'
-import { addMethod } from './kernel.ts'
-import { resolveFileName, setLoadPath } from './load.ts'
-import { rewriteString } from './rewrite.ts'
-
-/*
-export async function readLocalTextFile(fileName: string): Promise<string> {
-	// console.debug(`readLocalTextFile: ${fileName}`);
-	if(fileName && existsSync(fileName, {
-		isReadable: true,
-		isFile: true
-	})) {
-		return await Deno.readTextFile(fileName);
-	} else {
-		return Promise.reject(new Error(`readLocalTextFile: unknown file: ${fileName}`));
-	}
-}
-*/
+import * as evaluate from './evaluate.ts'
+import * as kernel from './kernel.ts'
+import * as load from './load.ts'
+import * as rewrite from './rewrite.ts'
 
 export async function evaluateFile(fileName: string) {
 	// console.debug(`evaluateFile: ${fileName}`);
-	return await Deno.readTextFile(fileName).then(evaluateString);
+	return await Deno.readTextFile(fileName).then(evaluate.evaluateString);
 }
 
 export async function rewriteFile(fileName: string) {
 	// console.debug(`rewriteFile: ${fileName}`);
-	return await Deno.readTextFile(fileName).then(rewriteString);
+	return await Deno.readTextFile(fileName).then(rewrite.rewriteString);
 }
 
-export async function loadFile(fileName: string) {
-	await evaluateFile(resolveFileName(fileName))
-}
-
+// Fetch files asynchronously, then evaluate in sequence.
 export async function loadFileSequence(fileNameArray: string[]): Promise<void> {
-	for(let fileName of fileNameArray) {
-		await loadFile(fileName);
-	}
-}
-
-export async function loadFileArrayInSequence(fileNameArray: string[]): Promise<void> {
-	for(let fileName of fileNameArray) {
-		await loadFile(fileName);
-	}
+	const resolvedFileNameArray = fileNameArray.map(load.resolveFileName);
+	const fileTextArray = await Promise.all(resolvedFileNameArray.map(fileName => Deno.readTextFile(fileName)));
+	await evaluate.evaluateStringArrayInSequence(fileTextArray);
 }
 
 export function addLoadFileMethods(): void {
-	addMethod('Array', 'loadUrlSequence', 1, loadFileSequence, '<primitive>');
+	kernel.addMethod('Array', 'loadUrlSequence', 1, loadFileSequence, '<primitive>');
 }
-
-/*
-	addMethod('String', 'loadPath', 1, setLoadPath, '<primitive>');
-	addMethod('String', 'loadFile', 1, loadFile, '<primitive>');
-	addMethod('String', 'load', 1, loadFile, '<primitive>');
-	addMethod('Array', 'loadFileSequence', 1, loadFileSequence, '<primitive>');
-	addMethod('String', 'readTextFile', 1, readTextFile, '<primitive>');
-*/

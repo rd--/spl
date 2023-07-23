@@ -1,7 +1,5 @@
-import { fetch_utf8 } from '../lib/jssc3/ts/kernel/io.ts'
-
 import { addMethod } from './kernel.ts'
-import { evaluateString, evaluateUrl } from './eval.ts'
+import * as evaluate from './evaluate.ts'
 
 export const loader: { loadPath: string } = {
 	loadPath: ''
@@ -18,10 +16,12 @@ export function resolveFileName(fileName: string): string {
 }
 
 // Fetch files asynchronously, then evaluate in sequence.
-export async function loadUrlSequence(fileNameArray: string[]): Promise<void> {
-	const resolvedFileNameArray = fileNameArray.map(resolveFileName);
-	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(fetch_utf8));
-	fetchedTextArray.forEach(evaluateString);
+export async function loadUrlSequence(urlArray: string[]): Promise<void> {
+	const resolvedUrlArray = urlArray.map(resolveFileName);
+	const fetchedTextArray = await Promise.all(resolvedUrlArray.map(function (url) {
+		return fetch(url, { cache: 'no-cache' }).then(response => response.text())
+	}));
+	await evaluate.evaluateStringArrayInSequence(fetchedTextArray);
 }
 
 export function addLoadUrlMethods(): void {
@@ -29,21 +29,5 @@ export function addLoadUrlMethods(): void {
 }
 
 export async function loadUrl(fileName: string): Promise<void> {
-	await evaluateUrl(resolveFileName(fileName));
+	await evaluate.evaluateUrl(resolveFileName(fileName));
 }
-
-export async function loadUrlArrayInSequence(urlArray: string[]): Promise<void> {
-	for(let url of urlArray) {
-		await loadUrl(url);
-	}
-}
-
-/*
-
-
-	addMethod('String', 'loadPath', 1, setLoadPath, '<primitive: loader>');
-	addMethod('String', 'loadUrl', 1, loadUrl, '<primitive: loader>');
-	addMethod('String', 'load', 1, loadUrl, '<primitive: loader>');
-	addMethod('Array', 'loadSequence', 1, loadUrlSequence, '<primitive: loader>');
-
-*/

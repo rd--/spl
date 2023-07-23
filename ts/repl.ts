@@ -1,6 +1,6 @@
 import { readLines } from "https://deno.land/std/io/buffer.ts";
 
-import { evaluateString } from './eval.ts'
+import { evaluateString } from './evaluate.ts'
 
 export async function interact<T>(processLine: (line: string) => T): Promise<void> {
 	for await (const line of readLines(Deno.stdin)) {
@@ -8,7 +8,7 @@ export async function interact<T>(processLine: (line: string) => T): Promise<voi
 	}
 }
 
-export async function perLine(verbose: bool) {
+export async function perLine(verbose: boolean) {
 	await interact(function(line: string) {
 		if(verbose) {
 			console.log(line);
