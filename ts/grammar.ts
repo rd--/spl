@@ -126,7 +126,7 @@ Sl {
 	floatLiteral = "-"? digit+ "." digit+
 	fractionLiteral = "-"? digit+ ":" digit+
 	largeIntegerLiteral = "-"? digit+ "n"
-	radixIntegerLiteral = "-"? digit+ "r" digit+
+	radixIntegerLiteral = "-"? digit+ "r" letterOrDigit+
 	integerLiteral = "-"? digit+
 	singleQuotedStringLiteral = "\'" (~"\'" ("\\\'" | sourceCharacter))* "\'"
 	doubleQuotedStringLiteral = "\"" (~"\"" ("\\\"" | sourceCharacter))* "\""

@@ -2178,6 +2178,15 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 		error('ByteArray>>atPut: index not an integer or value not a byte')
 	}
 
+	base64Encoded { :self |
+		<primitive:
+		const binString = Array.from(_self, function(x) {
+			return String.fromCodePoint(x)
+		}).join('');
+		return btoa(binString);
+		>
+	}
+
 	hex { :self |
 		|(
 			map = '0123456789abcdef'.asciiByteArray,
@@ -2220,6 +2229,15 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 }
 
 +String {
+
+	base64Decoded { :self |
+		<primitive:
+		const binString = atob(_self);
+		return Uint8Array.from(binString, function(m) {
+			return m.codePointAt(0)
+		});
+		>
+	}
 
 	parseHexString { :self |
 		<primitive:

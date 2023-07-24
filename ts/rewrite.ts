@@ -278,7 +278,7 @@ const asJs: any = {
 		return `${s.sourceString}${i.sourceString}n`;
 	},
 	radixIntegerLiteral(s,b,_r,i) {
-		return `parseInt(${s.sourceString}${i.sourceString}, ${b.sourceString})`;
+		return `_assertIsSmallInteger_1(parseInt('${s.sourceString}${i.sourceString}', ${b.sourceString}))`;
 	},
 	integerLiteral(s,i) {
 		return `${s.sourceString}${i.sourceString}`;

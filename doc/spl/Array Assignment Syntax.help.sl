@@ -28,5 +28,3 @@ and the equivalent interleaved case:
 * * *
 
 See also: [Dictionary Assignment Syntax]
-
-

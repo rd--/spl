@@ -1727,12 +1727,20 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 		'LargeInteger>>bitAnd: operand not a LargeInteger or SmallFloat'.error
 	}
 
+	even { :self |
+		(self % 2) = 0
+	}
+
 	isInteger { :self |
 		true
 	}
 
 	LargeInteger { :self |
 		self
+	}
+
+	odd { :self |
+		(self % 2) = 1
 	}
 
 	printString { :self |
@@ -1897,6 +1905,10 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 
 	arcTan { :self :anObject |
 		self.atan2(anObject)
+	}
+
+	assertIsSmallInteger { :self |
+		self.assert { self.isSmallInteger }
 	}
 
 	asFloat { :self |
@@ -2245,6 +2257,11 @@ Procedure : [Object] {
 		error('Procedure>>apply: argument is not array or array is not of required size')
 	}
 
+	assert { :self |
+		self.assert(self);
+		nil
+	}
+
 	cull { :self :firstArg |
 		(self.numArgs >= 1).if {
 			self.value(firstArg)
@@ -2360,6 +2377,18 @@ Procedure : [Object] {
 
 	whileTrue { :self :aProcedure |
 		<primitive: while(_self()) { _aProcedure(); }; return null;>
+	}
+
+}
+
++@Object {
+
+	assert { :self :aBlock:/0 |
+		aBlock().if {
+			self
+		} {
+			(self.printString ++ ': Assertion failed').error
+		}
 	}
 
 }

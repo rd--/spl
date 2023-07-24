@@ -21,4 +21,8 @@ There is no literal _Array_ syntax (as in Smalltalk) however there is an array e
 
 There is also a _Dictionary_ expression syntax.
 
-- _(x: p, y: q, z: r) ⇒ Record
+- _(x: p, y: q, z: r) ⇒ _Record_
+
+* * *
+
+See also: [Dictionary Syntax], [Integer Literals], [Interval Syntax]

@@ -503,6 +503,8 @@ nil.isNil = true (* test if object is nil *)
 -1.negative = true (* test if number is negative *)
 2.even = true (* test if number is even *)
 1.even = false (* one is not even *)
+1073741825.even = false (* a large odd number is not even *)
+1073741824.even = true (* a large even number is even *)
 1.odd = true (* test if number is odd *)
 2.odd = false (* two is not odd *)
 'A'.isUppercase = true (* test if upper case character *)
@@ -584,6 +586,8 @@ ByteArray(4).hex = '00000000'
 [1 .. 9].ByteArray.select { :each | false } = [].ByteArray (* select nothing *)
 [1 .. 9].ByteArray ~= [1 .. 9] (* ByteArray and Array of equal elements are not equal *)
 [1 .. 9].ByteArray.hasEqualElements([1 .. 9]) (* ByteArray and Array of equal elements *)
+[1, 13 .. 253].ByteArray.base64Encoded = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' (* base 64 encoding *)
+'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q=='.base64Decoded = [1, 13 .. 253].ByteArray (* base 64 decoding *)
 ```
 
 ## Character -- text type
@@ -1130,6 +1134,8 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 13n % 7n % 4n = 2n (* left assocative *)
 13n + 1n % 7n = 0n (* equal precedence *)
 (2n ** 170 - 1).isPowerOfTwo = false (* LargeInteger power of two test *)
+324518553658426726783156020576256n.even = true (* is large integer even *)
+324518553658426726783156020576257n.odd = true (* is large integer odd *)
 ```
 
 ## LinkedList -- collection type
@@ -1375,6 +1381,8 @@ var f = { }; f == f (* identity *)
 { | c a | c := [1]; a := { | a | a := 4; a }.value; { | a | a := 2; c.add(a); { | a | a := 3; c.add(a) }.value }.value; c.add(a); c }.value = [1, 2, 3, 4]
 10.do { :index | nil } = 10
 withReturn { 10.do { :index | (index = 5).ifTrue { 5.return } } } = 5 (* non-local return *)
+{ true }.assert = nil (* assert that block evaluates to true, answers nil *)
+{ { false }.assert }.ifError { :err | true } (* raise an error if block does not evaluate to true *)
 ```
 
 ## Promise -- kernel type
@@ -1748,6 +1756,15 @@ inf.asString = 'inf' (* inf prints as inf *)
 (0 - inf).asString = '(0 - inf)'
 pi.printString = '3.141592653589793'
 pi.storeString = '3.141592653589793'
+23.isInteger (* is a small float an integer *)
+23.isSmallInteger (* is a small float a small integer *)
+23.assertIsSmallInteger = 23 (* require that a number be a small integer *)
+(2 ** 53) = 9007199254740992 (* a small float that is an integer that is beyond the range of small integers *)
+(2 ** 53).isInteger (* is a small float an integer *)
+(2 ** 53).isSmallInteger = false (* is a small float a small integer *)
+23.assertIsSmallInteger = 23 (* require that a number be a small integer *)
+{ 3.141.assertIsSmallInteger }.ifError { :err | true } (* raise an error if value is not a small integer *)
+{ (2 ** 53).assertIsSmallInteger }.ifError { :err | true }
 ```
 
 ## SortedArray -- collection type
@@ -1958,7 +1975,8 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 (x: 1, y: 2).storeString = '(x: 1, y: 2)' (* Record print string *)
 ```
 
-## Syntax -- integer literals
+## Syntax -- integer literals syntax
+```
 23.isInteger (* decimal integer literal *)
 2r10111 = 23 (* binary (base 2) integer literal *)
 8r27 = 23 (* octal (base 8) integer literal *)
@@ -1969,6 +1987,27 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 -8r27 = -23 (* negative octal (base 8) integer literal *)
 -10r23 = -23 (* negative decimal (base 10) integer literal *)
 -16r17 = -23 (* negative hexadecimal (base 16) integer literal *)
+[2r10111, 8r27, 10r23, 16r17] = [23, 23, 23, 23] (* twenty three *)
+[-2r10111, -8r27, -10r23, -16r17] = [-23, -23, -23, -23] (* negative twenty three *)
+9r55 = 50 (* radices other than 2, 8 10 and 16 may raise errors *)
+[2r11111111, 8r377, 10r255, 16rff] = [255, 255, 255, 255] (* letters may be lower case *)
+16rABCDEF = 10r11259375 (* letters may be uppercase *)
+36rZZ = 1295 (* the maximum radix is 36, since each places is either a digit (10) or a letter (26) *)
+[2r101011001, 8r531, 10r345, 16r159] = [345, 345, 345, 345]
+{ 2r2 }.ifError { :err | true } (* it is an error if the post-radix text includes out of range characters *)
+```
+
+## Syntax -- interval & array syntax
+```
+(1 .. 9) = Interval(1, 9, 1) (* 1 to 9 by 1 *)
+(9 .. 1) = Interval(9, 1, -1) (* 9 to 1 by -1 *)
+(1, 3 .. 9) = Interval(1, 9, 2) (* 1 to 9 by 2 *)
+(9, 7 .. 1) = Interval(9, 1, -2) (* 9 to 1 by -2 *)
+[1 .. 9] = (1 .. 9).Array (* 1 to 9 by 1 *)
+[9 .. 1] = (9 .. 1).Array (* 9 to 1 by -1 *)
+[1, 3 .. 9] = (1, 3 .. 9).Array (* 1 to 9 by 1 *)
+[9, 7 .. 1] = (9, 7 .. 1).Array (* 9 to 1 by -2 *)
+```
 
 ## Syntax -- temporaries
 ```
