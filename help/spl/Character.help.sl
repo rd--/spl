@@ -16,6 +16,10 @@ Characters are cached on construction, and are therefore identical.
 
 There is no literal syntax for characters.
 
+_Note:_
+Strings in Spl are not Arrays of Characters.
+Except where necessary Characters and Character arrays are not recommended.
+
 * * *
 
 See also: String

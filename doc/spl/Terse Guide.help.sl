@@ -605,6 +605,8 @@ ByteArray(4).hex = '00000000'
 '𠮷'.Character == '𠮷'.Character (* characters are identical *)
 'x'.Character.asciiValue = 120 (* ascii code point of character *)
 { '𠮷'.Character.asciiValue }.ifError { :err | true } (* it is an error is the character is not ascii *)
+'xyz'.Array = ['x'.Character, 'y'.Character, 'z'.Character]
+'xyz'.Array.collect(codePoint:/1) = [120, 121, 122]
 ```
 
 ## Collection -- collection trait
@@ -1445,6 +1447,7 @@ var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.Se
 ReadStream().typeOf = 'ReadStream' (* type of read stream *)
 ReadStream().isReadStream (* read stream predicate *)
 ReadStream().atEnd = true (* read stream at end predicate *)
+ReadStream().position = 0 (* initially the position is zero *)
 (1 .. 5).ReadStream.size = 5 (* read stream from interval, read stream size *)
 (1 .. 5).ReadStream.upTo(3) = [1, 2] (* read up to, but not including, an element *)
 (1 .. 5).ReadStream.upTo(9) = [1 .. 5] (* read up to end if element is not located *)
@@ -1458,14 +1461,18 @@ ReadStream().atEnd = true (* read stream at end predicate *)
 | r = (1 .. 5).ReadStream; | r.upTo(3) = [1, 2] & { r.next = 4} (* matching element is consumed *)
 | r = (1 .. 5).ReadStream; | r.skip(3); r.upToEnd = [4, 5] (* skip to a position *)
 | r = (1 .. 9).ReadStream; | r.skipTo(7); r.upToEnd = [8, 9] (* skip to an object *)
+| r = (1 .. 5).ReadStream; | r.position(3); r.skip(-1); r.next = 3 (* move to indicated position, which is the index before the next element *)
+{ ReadStream().position := -1 }.ifError { :err | true } (* it is an error to move the position out of bounds *)
+{ ReadStream().position := 1 }.ifError { :err | true } (* it is an error to move the position out of bounds *)
 | r = (9 .. 1).ReadStream; | [r.upTo(3), r.upToEnd] = [[9 .. 4], [2 .. 1]]
-| r = (9 .. 1).ReadStream; | [r.upToPosition(3), r.upToEnd] = [[9 .. 7], [6 .. 1]]
+| r = (9 .. 1).ReadStream; | [r.upToPosition(3), r.upToEnd] = [[9 .. 7], [6 .. 1]] (* read from current position up to indicated position *)
 | r = '.....ascii'.asciiByteArray.ReadStream, a = ByteArray(5); | r.skip(5); r.nextInto(a); a.asciiString = 'ascii'
 (1 .. 9).ReadStream.nextSatisfy { :each | each >= 5 } = 5
 (1 .. 9).ReadStream.take(23) = [1 .. 9]
 (1 .. 9).ReadStream.nextMatchFor(1) = true
 (1 .. 9).ReadStream.nextMatchAll([1, 2, 3]) = true
 (1 .. 9).ReadStream.collection = Interval(1, 9, 1) (* read stream over interval collection *)
+| r = (1 .. 9).ReadStream; | [r.next, r.back, r.next] = [1, 1, 1] (* go back one element and return it (by peeking) *)
 ```
 
 ## Record -- collection type
@@ -2084,6 +2091,15 @@ system.unixTime.iso8601.size = 24
 { system.unixTime.postLine }.evaluateAfter(0.5.seconds).cancel = nil
 { system.unixTime.postLine }.evaluateAt(system.unixTime + 0.5.seconds).cancel = nil
 { system.unixTime.postLine }.evaluateEvery(3.seconds).cancel = nil
+```
+
+## Type -- slot access
+```
+('x' -> 1).slotNameArray = ['key', 'value'] (* slot names *)
+('x' -> 1):@key = 'x' (* read slot *)
+| a = ('x' -> 1); | a:@key = 'y'; a = ('y' -> 1) (* write slot *)
+| a = 'x' -> 1; | a:@key = 'x' & { a:@value = 1 } (* read slots *)
+| a = 'x' -> 1; | a:@key := 'y'; a:@value := 2; a = ('y' -> 2) (* write slots *)
 ```
 
 ## System -- system type

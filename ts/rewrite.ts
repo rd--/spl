@@ -124,10 +124,10 @@ const asJs: any = {
 	AtPutSyntax(c, _leftBracket, k, _rightBracket, _equals, v) {
 		return `_${genName('atPut', 3)}(${c.asJs}, ${k.asJs}, ${v.asJs})`;
 	},
-	AtPutQuotedSyntax(c, _colonColon, k, _equals, v) {
+	AtPutQuotedSyntax(c, _colonColon, k, _colonEquals, v) {
 		return `_${genName('atPut', 3)}(${c.asJs}, '${k.sourceString}', ${v.asJs})`;
 	},
-	AtPutDelegateSyntax(c, _colonDot, k, _equals, v) {
+	AtPutDelegateSyntax(c, _colonDot, k, _colonEquals, v) {
 		return `_${genName('atPutDelegateTo', 4)}(${c.asJs}, '${k.sourceString}', ${v.asJs}, 'parent')`;
 	},
 	AtSyntax(c, _leftBracket, k, _rightBracket) {
@@ -135,6 +135,12 @@ const asJs: any = {
 	},
 	AtQuotedSyntax(c, _colonColon, k) {
 		return `_${genName('at', 2)}(${c.asJs}, '${k.sourceString}')`;
+	},
+	ReadSlotSyntax(c, _colonArrow, k) {
+		return `${c.asJs}['${k.sourceString}']`;
+	},
+	WriteSlotSyntax(c, _colonArrow, k, _colonEquals, v) {
+		return `${c.asJs}['${k.sourceString}'] = ${v.asJs}`;
 	},
 	MessageSendSyntax(d, _colonDot, k, a) {
 		return `_${genName('messageSend', 4)}(${d.asJs}, '${k.sourceString}', 'parent', [${a.children.map(c => c.asJs)}])`;

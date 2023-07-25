@@ -8,3 +8,7 @@ A Stream represents the ability to maintain a position reference into a collecti
 > intermingling these operations. By creating several Streams over the
 > same collection, it is possible to maintain multiple position
 > references into the same collection. (Blue Book, p. 195)
+
+* * *
+
+See also: PositionableStream, ReadStream, WriteStream

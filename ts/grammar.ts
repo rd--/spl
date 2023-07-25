@@ -46,8 +46,10 @@ Sl {
 		= AtPutSyntax
 		| AtPutQuotedSyntax
 		| AtPutDelegateSyntax
+		| WriteSlotSyntax
 		| AtSyntax
 		| AtQuotedSyntax
+		| ReadSlotSyntax
 		| ValueApply
 		| DotExpressionWithTrailingClosuresSyntax
 		| DotExpressionWithTrailingDictionariesSyntax
@@ -77,6 +79,8 @@ Sl {
 	AtQuotedSyntax = Primary "::" identifier
 	AtPutDelegateSyntax = Primary ":." identifier ":=" Expression
 	MessageSendSyntax = Primary ":." identifier NonEmptyParameterList?
+	ReadSlotSyntax = Primary ":@" identifier
+	WriteSlotSyntax = Primary ":@" identifier ":=" Expression
 	ValueApply = Primary "." ParameterList
 	ParameterList =  "(" ListOf<Expression, ","> ")"
 	NonEmptyParameterList =  "(" NonemptyListOf<Expression, ","> ")"

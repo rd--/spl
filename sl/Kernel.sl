@@ -1014,6 +1014,10 @@ Character : [Object] { | string |
 		}
 	}
 
+	Array { :self |
+		self.characterArray
+	}
+
 }
 
 Complex : [Object] { | real imaginary |

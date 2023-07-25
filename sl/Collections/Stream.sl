@@ -1,4 +1,8 @@
-@PositionableStream {
+@PositionableStream { (* collection positionIndex readLimit *)
+
+	atEnd { :self |
+		self.position >= self.readLimit
+	}
 
 	back { :self |
 		(self.position = 0).ifTrue {
@@ -65,6 +69,18 @@
 		}
 	}
 
+	position { :self |
+		self.positionIndex
+	}
+
+	position { :self :anInteger |
+		self.validPosition(anInteger).if {
+			self.positionIndex := anInteger
+		} {
+			'PositionableStream>>position: position out of bounds'.error
+		}
+	}
+
 	reset { :self |
 		self.position := 0
 	}
@@ -119,6 +135,12 @@
 		self.next(anInteger - self.position)
 	}
 
+	validPosition { :self :anInteger |
+		(anInteger >= 0) & {
+			anInteger <= self.readLimit
+		}
+	}
+
 	withWriteStream { :self :aProcedure:/1 |
 		| aStream = WriteStream(self.collection.species.new(100)); |
 		aProcedure(aStream);
@@ -127,7 +149,7 @@
 
 }
 
-@Stream {
+@Stream { (* atEnd collection next nextPut *)
 
 	any { :self :numberOfElements |
 		self.next(numberOfElements)
@@ -258,11 +280,7 @@
 
 }
 
-ReadStream : [Object, Stream, PositionableStream] { | collection position readLimit |
-
-	atEnd { :self |
-		self.position >= self.readLimit
-	}
+ReadStream : [Object, Stream, PositionableStream] { | collection positionIndex readLimit |
 
 	contents { :self |
 		self.collection.copyFromTo(1, self.readLimit)
@@ -338,7 +356,7 @@ ReadStream : [Object, Stream, PositionableStream] { | collection position readLi
 
 }
 
-WriteStream : [Object, Stream, PositionableStream] { | collection position writeLimit |
+WriteStream : [Object, Stream, PositionableStream] { | collection positionIndex readLimit writeLimit |
 
 	contents { :self |
 		self.collection.copyFromTo(1, self.position)
@@ -387,6 +405,15 @@ WriteStream : [Object, Stream, PositionableStream] { | collection position write
 		anObject
 	}
 
+	position { :self :anInteger |
+		self.readLimit := self.readLimit.max(anInteger);
+		self.validPosition(anInteger).if {
+			self.positionIndex := anInteger
+		} {
+			'WriteStream>>position: position out of bounds'.error
+		}
+	}
+
 	reset { :self |
 		self.position := 0
 	}
@@ -404,7 +431,7 @@ WriteStream : [Object, Stream, PositionableStream] { | collection position write
 +@ArrayedCollection {
 
 	WriteStream { :self |
-		newWriteStream().initializeSlots(self, 0, self.size)
+		newWriteStream().initializeSlots(self, 0, self.size, self.size)
 	}
 
 }
