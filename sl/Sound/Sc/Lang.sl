@@ -157,7 +157,9 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 +@Collection {
 
-	AmpDb { :self | self.collect(AmpDb:/1) }
+	AmpDb { :self |
+		self.collect(AmpDb:/1)
+	}
 
 	collectTexture { :self :aProcedure:/1 :delay |
 		workspace::clock.collectTexture(
@@ -167,12 +169,21 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		)
 	}
 
-	DbAmp { :self | self.collect(DbAmp:/1) }
+	DbAmp { :self |
+		self.collect(DbAmp:/1)
+	}
 
-	MidiCps { :self | self.collect(MidiCps:/1) }
+	MidiCps { :self |
+		self.collect(MidiCps:/1)
+	}
 
 	normalize { :self |
-		| min = self.min, max = self.max, mul = 1 / (max - min), add = 0 - (mul * min); |
+		|(
+			min = self.min,
+			max = self.max,
+			mul = 1 / (max - min),
+			add = 0 - (mul * min)
+		)|
 		self.collect { :each |
 			each * mul + add
 		}
@@ -623,6 +634,10 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		1.toAsCollect(size, self.species) { :index |
 			self.atWrap(index)
 		}
+	}
+
+	fill { :self :aBlock:/1 |
+		self.fillFromWith((1 .. self.size), aBlock:/1)
 	}
 
 	flop { :self |

@@ -94,6 +94,39 @@
 		}
 	}
 
+	asWords { :self |
+		|(
+			mils = [
+				'', ' thousand',
+				' million', ' billion', ' trillion', ' quadrillion', ' quintillion',
+				' sextillion', ' septillion', ' octillion', ' nonillion', ' decillion',
+				' undecillion', ' duodecillion', ' tredecillion', ' quattuordecillion', ' quindecillion',
+				' sexdecillion', ' septendecillion', ' octodecillion', ' novemdecillion', ' vigintillion'
+			]
+		)|
+		(self = 0).if {
+			'zero'
+		} {
+			| minus = '', three = nil, num = self, answer = '', milCount = 1; |
+			(self < 0).ifTrue {
+				minus := 'negative ';
+				num := self.negated
+			};
+			{ num > 0 }.whileTrue {
+				three := (num % 1000).threeDigitName;
+				num := num // 1000;
+				three.isEmpty.ifFalse {
+					answer.isEmpty.ifFalse {
+						answer := ', ' ++ answer
+					};
+					answer := three ++ mils[milCount] ++ answer
+				};
+				milCount := milCount + 1
+			};
+			minus ++ answer
+		}
+	}
+
 	benchFib { :self |
 		(self < 2).if {
 			1
@@ -323,6 +356,42 @@
 		integer.romanDigitsForOn('MDC'.asciiByteArray, 100, aStream);
 		integer.romanDigitsForOn('CLX'.asciiByteArray, 10, aStream);
 		integer.romanDigitsForOn('XVI'.asciiByteArray, 1, aStream)
+	}
+
+	threeDigitName { :self |
+		|(
+			units = [
+				'one', 'two', 'three', 'four', 'five',
+				'six', 'seven', 'eight', 'nine', 'ten',
+				'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
+				'sixteen', 'seventeen', 'eighteen', 'nineteen'
+			],
+			decades = [
+				'twenty', 'thirty', 'forty', 'fifty',
+				'sixty', 'seventy', 'eighty', 'ninety'
+			]
+		)|
+		withReturn {
+			| answer |
+			(self = 0).ifTrue {
+				''.return
+			};
+			(self > 99).ifTrue {
+				answer := (units[self // 100]) ++' hundred';
+				((self % 100) = 0).ifFalse {
+					answer := answer ++ ' ' ++ (self % 100).threeDigitName
+				};
+				answer.return
+			};
+			(self < 20).ifTrue {
+				units[self].return
+			};
+			answer := decades[self // 10 - 1];
+			((self % 10) = 0).ifFalse {
+				answer := answer ++ '-' ++ (units[self % 10])
+			};
+			answer.return
+		}
 	}
 
 	timesRepeat { :self :aProcedure:/0 |

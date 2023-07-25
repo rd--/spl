@@ -659,6 +659,11 @@ Set().Array = []
 [].ifEmpty { true } (* evaluate block if collection is empty *)
 (1 .. 9).detectSum(squared:/1) = 285 (* apply procedure to each element and sum *)
 (1 .. 9).collect(squared:/1).sum = 285
+| a = [1 .. 9]; | a.removeAll([3 .. 7]); a = [1, 2, 8, 9] (* remove all indicated elements *)
+| a = [1, 2, 3, 2, 1]; | [a.removeAll([1, 2, 3]), a] = [[1, 2, 3], [2, 1]] (* answer items to remove, only remove first instance *)
+| b = [1, 2, 3, 2, 1].Bag; | b.removeAll([1, 2, 3]); b = [2, 1].Bag (* only remove first instance *)
+{ [1 .. 3].removeAll([7 .. 9]) }.ifError { :err | true } (* it is an error if an element to be removed is not located *)
+| a = [1 .. 3]; | a.removeAllFoundIn([7 .. 9]); a = [1 .. 3] (* unlike removeAll it is not an error if items are not found *)
 ```
 
 ## Complex -- numeric type
@@ -969,6 +974,18 @@ pi.asFraction = 311:99 (* with maximumDenominator set to one hundred *)
 123.storeString = '123' (* integer store string *)
 -987654321.printString = '-987654321' (* negative integer print string *)
 4 / 2 = 2 (* integer division with integer result *)
+```
+
+## Integral -- integer names
+```
+[1 .. 10].collect(threeDigitName:/1) = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
+[11 .. 20].collect(threeDigitName:/1) = ['eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty']
+[21, 25, 29].collect(threeDigitName:/1) = ['twenty-one', 'twenty-five', 'twenty-nine']
+[111, 333, 999].collect(threeDigitName:/1) = ['one hundred eleven', 'three hundred thirty-three', 'nine hundred ninety-nine']
+(921 * (10 ** 12)).asWords = 'nine hundred twenty-one trillion'
+504606846975.asWords = 'five hundred four billion, six hundred six million, eight hundred forty-six thousand, nine hundred seventy-five'
+123456789.asWords = 'one hundred twenty-three million, four hundred fifty-six thousand, seven hundred eighty-nine'
+13579.asWords = 'thirteen thousand, five hundred seventy-nine'
 ```
 
 ## Integral -- roman numerals
@@ -1598,6 +1615,13 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 [1, 3, 5, 7, 11, 15, 23].findBinaryIfNone { :arg | 0.5 - arg } { :a :b | [a, b] } = [nil, 1]
 [1, 3, 5, 7, 11, 15, 23].findBinaryIfNone { :arg | 25 - arg } { :a :b | [a, b] } = [23, nil]
 | a = []; | (0 .. 1).asDigitsToPowerDo(2) { :each | a.add(each.copy) }; a = [[0, 0], [0, 1], [1, 0], [1, 1]]
+['one', 'two', 'three', 'four'].atAll([3, 2, 4]) = ['three', 'two', 'four'] (* at each index *)
+(1 .. 9).atAll((3 .. 5)) = [3 .. 5] (* at each index *)
+| a = Array(9); | a.atAllPut(0); a = [0, 0, 0, 0, 0, 0, 0, 0, 0] (* set all elements to a single value *)
+| a = [1 .. 9]; | a.atAllPut([3 .. 7], 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] (* set all selected indices to a value *)
+| a = [1 .. 9]; | a.atAllPut((3 .. 7), 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] (* set all selected indices to a value *)
+| a = [1 .. 9]; | a.atAllPutAll([3 .. 7], [7 .. 3]); a = [1, 2, 7, 6, 5, 4, 3, 8, 9] (* set all selected indices to corresponding values *)
+| a = [1 .. 9]; | a.atAllPutAll((3 .. 7), (7 .. 3)); a = [1, 2, 7, 6, 5, 4, 3, 8, 9] (* set all selected indices to corresponding values *)
 ```
 
 ## Sequence arithmetic
@@ -1615,8 +1639,8 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 [1, 3 .. 9] * [1 .. 5] = [1, 6, 15, 28, 45] (* sequence * sequence *)
 [1, 6, 15, 28, 45] / [1 .. 5] = [1, 3 .. 9] (* sequence / sequence *)
 { [1 .. 5] + [6 .. 9] }.ifError { :err | true } (* sequences must be of equal size *)
-[1 .. 5].squared = [1, 4, 9, 16, 25]
-[1, 4, 9, 16, 25].sqrt = [1 .. 5]
+[1 .. 5].squared = [1, 4, 9, 16, 25] (* unary math lifted to collection *)
+[1, 4, 9, 16, 25].sqrt = [1 .. 5] (* unary math lifted to collection *)
 ```
 
 ## Set -- collection type

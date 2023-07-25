@@ -86,3 +86,4 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 10.instill(1, -10, nil) = -10
 nil ? 'x' = 'x' (* right hand side if nil *)
 'x' ? 'y' = 'x' (* left hand side unless nil *)
+Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicies *)

@@ -1298,6 +1298,14 @@
 		self.asDigitsAtInDo(1, aCollection, aBlock:/1)
 	}
 
+	atAll { :self :indexArray |
+		| answer = self.species.ofSize(indexArray.size); |
+		1.upTo(indexArray.size).do { :index |
+			answer[index] := self[indexArray[index]]
+		};
+		answer
+	}
+
 	atAllPut { :self :anObject |
 		| size = self.size; |
 		(size > 50).if {
@@ -1307,6 +1315,20 @@
 				self[index] := anObject
 			}
 		}
+	}
+
+	atAllPut { :self :aCollection :anObject |
+		aCollection.do { :index |
+			self[index] := anObject
+		};
+		anObject
+	}
+
+	atAllPutAll { :self :indexArray :valueArray |
+		indexArray.withDo(valueArray) { :index :value |
+			self[index] := value
+		};
+		valueArray
 	}
 
 	atIfAbsent { :self :index :aProcedure:/0 |
