@@ -5,21 +5,25 @@ _String_ is the type of text literals and constants.
 	'string'.typeOf = 'String'
 	'string'.size = 6
 
-Strings are immutable, i.e. there is no _atPut_ implementation.
+Strings do not implement the Collection trait, however they are Iterable.
 
-
-There is a Character type, and fetching an indexed location in a string answers such a Character.
+There is a Character type.
+Iterating over a string supplies each succesive Character of the String,
+and fetching an indexed location in a string answers a Character.
 
 	'string'[1] = 's'.Character
 
-However Strings are not arrays of Characters, and working with individual characters is unusual.
+Strings are not arrays of Characters.
 
-Implementation Note: Javascript has a curious implementation of Unicode.
+Strings are immutable, i.e. there is no _atPut_ implementation.
+
+_Implementation Note_:
+Javascript has a curious implementation of Unicode.
 String indexing only makes sense for strings that are in the _Basic Multilingual Plane_.
 
 * * *
 
-See also: ascii, Character, utf8, utf16
+See also: ascii, characterArray, Character, utf8, utf16
 
 * * *
 

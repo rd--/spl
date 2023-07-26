@@ -812,7 +812,7 @@
 	printStringConcise { :self :count |
 		| answer = self.printString; |
 		(answer.size > count).if {
-			'<' ++ self.typeOf ++ '>'
+			'a ' ++ self.typeOf
 		} {
 			answer
 		}
@@ -852,7 +852,7 @@
 	}
 
 	storeString { :self |
-		'<' ++ self.typeOf ++ '>'
+		'a ' ++ self.typeOf
 	}
 
 	then { :self :aProcedure:/1 |
@@ -976,6 +976,10 @@ Character : [Object] { | string |
 
 	asInteger { :self |
 		self.codePoint
+	}
+
+	asString { :self |
+		self.string
 	}
 
 	codePoint { :self |
@@ -1745,7 +1749,7 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 	}
 
 	/ { :self :anInteger |
-		Fraction(self, anInteger.LargeInteger).normalized
+		Fraction(self, anInteger.LargeInteger).reduced
 	}
 
 	// { :self :anInteger |
@@ -2377,8 +2381,8 @@ Procedure : [Object] {
 		self.cull(0)
 	}
 
-	new { :self:/1 :aNumber |
-		self(aNumber)
+	new { :self :aNumber |
+		self.cull(aNumber)
 	}
 
 	newFrom { :self:/1 :anObject |
@@ -2606,7 +2610,15 @@ RegExp : [Object] {
 
 }
 
-String : [Object] {
+@Iterable {
+
+	do { :self :aBlock:/1 |
+		self.subclassResponsibility('Iterable>>do')
+	}
+
+}
+
+String : [Object, Iterable] {
 
 	= { :self :anObject |
 		self == anObject
@@ -2689,7 +2701,7 @@ String : [Object] {
 	}
 
 	characterArray { :self |
-		self.collect(Character:/1)
+		self.collectInto(identity:/1, [])
 	}
 
 	codePointAt { :self :index |
@@ -2697,21 +2709,42 @@ String : [Object] {
 	}
 
 	codePointArray { :self |
-		self.collect { :each |
-			each.codePointAt(1)
-		}
+		self.collectInto(codePoint:/1, [])
 	}
 
-	collect { :self :aBlock:/1 |
-		| answer = []; |
-		self.do { :each |
-			answer.add(aBlock(each))
-		};
-		answer
+	collectInto { :self :aBlock:/1 :aCollection |
+		self.primitiveCollectInto({ :each |
+			aBlock(each.Character)
+		}, [])
+	}
+
+	contractTo { :self :smallSize |
+		(self.size <= smallSize).if {
+			self
+		} {
+			(smallSize < 5).if {
+				self.copyFromTo(1, smallSize)
+			} {
+				| leftSize = smallSize - 2 // 2; |
+				self.copyReplaceFromToWith(
+					leftSize + 1,
+					self.size - (smallSize - leftSize - 3),
+					'...'
+				)
+			}
+		}
 	}
 
 	copyFromTo { :self :start :end |
 		<primitive: return _self.substring(_start - 1, _end);>
+	}
+
+	copyReplaceFromToWith { :self :start :stop :replacement |
+		[
+			self.copyFromTo(1, start - 1),
+			replacement,
+			self.copyFromTo(stop + 1, self.size)
+		].join
 	}
 
 	countCharacters { :self |
@@ -2727,16 +2760,7 @@ String : [Object] {
 	}
 
 	do { :self :aProcedure:/1 |
-		<primitive:
-		for (const each of _self) {
-			_aProcedure_1(each);
-		};
-		return _self;
-		>
-	}
-
-	doCharacters { :self :aProcedure:/1 |
-		self.do { :each |
+		self.primitiveDo { :each |
 			aProcedure(each.Character)
 		}
 	}
@@ -2917,6 +2941,22 @@ String : [Object] {
 		system.transcript.log(self)
 	}
 
+	primitiveCollectInto { :self :aBlock:/1 :aCollection |
+		self.primitiveDo { :each |
+			aCollection.add(aBlock(each))
+		};
+		aCollection
+	}
+
+	primitiveDo { :self :aProcedure:/1 |
+		<primitive:
+		for (const each of _self) {
+			_aProcedure_1(each);
+		};
+		return _self;
+		>
+	}
+
 	pseudoSlotNameArray { :self |
 		['size']
 	}
@@ -2964,7 +3004,7 @@ String : [Object] {
 	}
 
 	stringArray { :self |
-		self.collect(identity:/1)
+		self.primitiveCollectInto(identity:/1, [])
 	}
 
 	terseGuideSummary { :self |

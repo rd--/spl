@@ -335,6 +335,10 @@
 		self.mean
 	}
 
+	capacity { :self |
+		self.size
+	}
+
 	collect { :self :aProcedure:/1 |
 		| answer = self.species.new; |
 		self.do { :each |
@@ -345,6 +349,10 @@
 
 	collectInto { :self :aProcedure :aCollection |
 		aCollection.fillFromWith(self, aProcedure)
+	}
+
+	contains { :self :aBlock:/1 |
+		self.anySatisfy(aBlock:/1)
 	}
 
 	copy { :self |
@@ -451,8 +459,7 @@
 	}
 
 	do { :self :aProcedure |
-		<primitive: return _self.forEach(_aProcedure);>
-		self
+		self.subclassResponsibility('Collection>>do')
 	}
 
 	doSeparatedBy { :self :elementBlock:/1 :separatorBlock:/0 |
@@ -493,6 +500,10 @@
 		aCollection.do { :each |
 			self.add(aProcedure(each))
 		}
+	}
+
+	fold { :self :aBlock:/2 |
+		self.reduce(aBlock:/2)
 	}
 
 	groupBy { :self :keyBlock:/1 |
@@ -644,7 +655,7 @@
 
 	ofSize { :self :aNumber |
 		(self.size = aNumber).ifFalse {
-			'ofSize'.error
+			'Collection>>ofSize'.error
 		};
 		self
 	}
@@ -937,8 +948,8 @@
 
 +Procedure {
 
-	map { :self :aCollection |
-		aCollection.collect(self)
+	map { :self:/1 :aCollection |
+		aCollection.collect(self:/1)
 	}
 
 	ofSize { :self :aNumber |
@@ -1114,8 +1125,8 @@
 		}
 	}
 
-	do { :self :aProcedure |
-		self.valuesDo(aProcedure)
+	do { :self :aProcedure:/1 |
+		self.valuesDo(aProcedure:/1)
 	}
 
 	fillFromWith { :self :aCollection :aProcedure:/1 |
@@ -1898,6 +1909,7 @@
 	addAllLast { :self :aCollection |
 		self.addArrayLast(aCollection.Array)
 	}
+
 	ofSize { :self :aNumber |
 		(aNumber - self.size).timesRepeat {
 			self.add(nil)

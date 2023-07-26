@@ -484,10 +484,13 @@ false == false (* false is identical to false *)
 (1 ~~ 2) = true (* not identical *)
 true.and { true } (* logical and *)
 true & { true } (* logical and (operator) *)
+false & { '&'.error } = false (* & is equal to and and is not strict (unlike in Smalltalk) *)
 true.and { false } = false (* logical and *)
 true & { false } = false (* logical and (operator) *)
 true.or { false } = true (* logical or *)
 true | { false } = true (* logical or (operator) *)
+false | { true } = true (* logical or (operator) *)
+true | { '|'.error } = true (* | is equal to or and is not strict (unlike in Smalltalk) *)
 true.ifTrue { 'T' } = 'T' (* if then, c.f. conditional statements *)
 false.if { 'T' } { 'F' } = 'F' (* if then else (do) *)
 true.if { 'T' } { 'F' } = 'T' (* if then else (value) *)
@@ -535,6 +538,7 @@ false || true = true (* || applies value to the rhs *)
 ['true', 'false'].collect(parseJson:/1) = [true, false]
 true.ifTrue { true }
 false.ifFalse { true }
+(4.factorial > 20).if { 'bigger' } { 'smaller' } = 'bigger'
 ```
 
 ## Boolean -- equality
@@ -607,6 +611,11 @@ ByteArray(4).hex = '00000000'
 { '𠮷'.Character.asciiValue }.ifError { :err | true } (* it is an error is the character is not ascii *)
 'xyz'.Array = ['x'.Character, 'y'.Character, 'z'.Character]
 'xyz'.Array.collect(codePoint:/1) = [120, 121, 122]
+32.Character.string = ' ' (* 32 is space *)
+' '.Character.codePoint = 32 (* space is 32 *)
+97.Character.string = 'a' (* 92 is a *)
+'a'.Character.printString = '$a' (* print using smalltalk notation, despite not being a literal *)
+'a'.Character.asString = 'a' (* single element string of Character *)
 ```
 
 ## Collection -- collection trait
@@ -629,6 +638,7 @@ ByteArray(4).hex = '00000000'
 [9, 4, 5, 7, 8, 6].includes(3) = false (* is element in collection *)
 [9, 4, 5, 7, 8, 6].count { :item | item.even } = 3 (* count elements that satisfy predicate *)
 [9, 4, 5, 7, 8, 6].anySatisfy { :item | item.even } = true (* do any elements satisfy predicate *)
+[9, 4, 5, 7, 8, 6].contains { :item | item.even } = true (* another name for anySatisfy *)
 [].anySatisfy { :item | true } = false
 [9, 4, 5, 7, 8, 6].allSatisfy { :item | item.even } = false (* do all elements satisfy predicate *)
 [].allSatisfy { :item | false } = true
@@ -666,6 +676,15 @@ Set().Array = []
 | b = [1, 2, 3, 2, 1].Bag; | b.removeAll([1, 2, 3]); b = [2, 1].Bag (* only remove first instance *)
 { [1 .. 3].removeAll([7 .. 9]) }.ifError { :err | true } (* it is an error if an element to be removed is not located *)
 | a = [1 .. 3]; | a.removeAllFoundIn([7 .. 9]); a = [1 .. 3] (* unlike removeAll it is not an error if items are not found *)
+[1 .. 6].collect { :each | each * 2 } = [2, 4 .. 12]
+(1 .. 6).collect { :each | each * 2 } = [2, 4 .. 12] (* interval species is array *)
+[2, -3, 4, -35, 4, -11].collect { :each | each.abs } = [2, 3, 4, 35, 4, 11]
+[2, -3, 4, -35, 4, -11].collect(abs:/1) = [2, 3, 4, 35, 4, 11]
+(2 .. 20).select { :each | each.isPrime } = [2, 3, 5, 7, 11, 13, 17, 19]
+(2 .. 20).reject { :each | each.isPrime } = [4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20]
+(1 .. 100).injectInto(0) { :sum :each | sum + each } = 5050
+[1 .. 4].fold { :sum :each | sum + each } = 10 (* fold is another name for reduce *)
+{ [].fold { :sum :each | sum + each } }.ifError { :err | true } (* error if the collection is empty *)
 ```
 
 ## Complex -- numeric type
@@ -693,6 +712,9 @@ Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 (2 + 5.i).negated = (-2 - 5.i)
 (2 + 5.i).reciprocal = ((2 / 29) - (5 / 29).i)
 (6 - 6.i).squared = -72.i
+(1 + 2.i) = (1 + 2.i) = true (* equality = same value *)
+(1 + 2.i) == (1 + 2.i) = false (* identity = different objects *)
+(1 + 2.i) ~= (1 + 4.i) = true (* inequality *)
 ```
 
 ## Conditional Statements
@@ -967,6 +989,7 @@ Fraction(4, 6).reduced.denominator = 3
 (1 .. 5).collect { :n | pi.asFraction(10 ** n) } = [22:7, 311:99, 2862:911, 9563:3044, 313842:99899]
 pi.asFraction = 311:99 (* with maximumDenominator set to one hundred *)
 (1 / [2, 3, 5, 7, 11, 13, 17]).collect(asFraction:/1) = [1:2, 1:3, 1:5, 1:7, 1:11, 1:13, 1:17]
+6:8 * 4 = 3 (* answer integer *)
 ```
 
 ## Integral -- numeric trait
@@ -976,6 +999,7 @@ pi.asFraction = 311:99 (* with maximumDenominator set to one hundred *)
 123.storeString = '123' (* integer store string *)
 -987654321.printString = '-987654321' (* negative integer print string *)
 4 / 2 = 2 (* integer division with integer result *)
+| n = 2; | 3.timesRepeat { n := n * n }; n = 256 (* iteration *)
 ```
 
 ## Integral -- integer names
@@ -1114,6 +1138,12 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 (1:3 .. 7:3).size = 3 (* fractional start and end, integral step size *)
 (1:3, 2:3 .. 3).size = 9 (* fractional step size *)
 1:3.thenTo(2:3, 3).middle = 5:3
+Interval(1, 100, 1) = 1.to(100)
+Interval(1, 100, 0.5).size = 199
+(1, 1.5 .. 100).at(198) = 99.5
+(1 / 2).toBy(54 / 7, 1 / 3).last = (15 / 2)
+1:2.toBy(54:7, 1:3).last = 15:2
+(1 .. 3) ++ ['4', '5'] = [1, 2, 3, '4', '5']
 ```
 
 ## Iteration
@@ -1147,6 +1177,7 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 [-1n, 0n, 1n].collect(sign:/1) = [-1n, 0n, 1n]
 6n / 8n = Fraction(3n, 4n)
 2 / 3n = Fraction(2n, 3n)
+4n / 2n = 2n (* reduced *)
 | x = (2n ** 54n); | x ~= (x - 1) (* large integers behave ordinarily *)
 5n % 3n = 2n (* modulo *)
 [10n % 5n, -4n % 3n, 4n % -3n, -4n % -3n] = [0n, 2n, -2n, -1n] (* modulo, negative operands *)
@@ -1155,6 +1186,7 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 (2n ** 170 - 1).isPowerOfTwo = false (* LargeInteger power of two test *)
 324518553658426726783156020576256n.even = true (* is large integer even *)
 324518553658426726783156020576257n.odd = true (* is large integer odd *)
+100n.factorial / 99n.factorial = 100n
 ```
 
 ## LinkedList -- collection type
@@ -1306,6 +1338,19 @@ nil.json = 'null' (* nil has a Json representation *)
 
 ## Number -- numeric trait
 ```
+1 + 2.5 = 3.5 (* Addition of two numbers *)
+10 - 8.5 = 1.5 (* Subtraction of two numbers *)
+3.4 * 5 = 17 (* Multiplication of two numbers *)
+8 / 2 = 4 (* Division of two numbers *)
+2 ** 3 = 8 (* Exponentiation of a number *)
+12 = 11 = false (* Equality between two numbers *)
+12 ~= 11 = true (* Test if two numbers are different *)
+12 > 9 = true (* Greater than *)
+12 >= 10 = true (* Greater or equal than *)
+12 < 10 = false (* Smaller than *)
+2.718.truncated = 2 (* Truncate to integer *)
+2.718.rounded = 3 (* Round to integer *)
+2.718.roundTo(0.01) = 2.72 (* Round to a given precision *)
 123456789.asStringWithCommas = '123,456,789'
 123456.789.asStringWithCommas = '123,456.789'
 13579.asStringWithCommas = '13,579'
@@ -1393,8 +1438,8 @@ var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
 { 1 } ~= 1 (* inequality *)
 { } ~~ { } (* non-identity *)
 var f = { }; f == f (* identity *)
-{ }.printString = '<Procedure>'
-{ :x | x }.printString = '<Procedure>'
+{ }.printString = 'a Procedure'
+{ :x | x }.printString = 'a Procedure'
 { }.typeOf = 'Procedure'
 { } . () = nil (* empty procedure evaluates to nil *)
 { | c a | c := [1]; a := { | a | a := 4; a }.value; { | a | a := 2; c.add(a); { | a | a := 3; c.add(a) }.value }.value; c.add(a); c }.value = [1, 2, 3, 4]
@@ -1694,6 +1739,11 @@ var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, 
 | s = (1 .. 4).Set, t = (5 .. 9), u = s.union(t); | u.size = (s.size + t.size) (* union is not mutating *)
 (1 .. 5).Set.ifAbsentAdd(3) = false
 [1 .. 9].Set.select { :each | false } = [].Set (* select nothing *)
+| s = Set(); | s.addAll([4 / 2, 4, 2]); s.size = 2
+[1, 2, 3, 1, 4].Set = [1, 2, 3, 4, 3, 2, 1].Set = true
+(1 .. 6).union((4 .. 10)) = (1 .. 10).Set
+'hello'.split.intersection('there'.split) = 'he'.split
+'Smalltalk'.split.includes('k') = true
 ```
 
 ## SmallFloat -- numeric type
@@ -1812,6 +1862,8 @@ SortedArray().size = 0 (* query size *)
 | a = [5 .. 9].SortedArray(greaterThan:/2); | a.addAll([1 .. 4]); a.contents = [9 .. 1]
 (1 .. 10).SortedArray.median = 5
 | a = SortedArray(); | a.add('truite'); a.add('porcinet'); a.add('carpe'); a.median = 'porcinet'
+[5, 2, 50, -10].SortedArray.Array = [-10, 2, 5, 50]
+'hello'.split.SortedArray.Array = 'ehllo'.split
 ```
 
 ## String -- text type
@@ -1927,7 +1979,7 @@ var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripti
 ' x '.withBlanksTrimmed = 'x'
 ' x '.withoutLeadingBlanks = 'x '
 ' x '.withoutTrailingBlanks = ' x'
-| a = []; | 'string'.do { :each | a.add(each) }; a.join = 'string'
+| a = []; | 'string'.do { :each | a.add(each) }; a.joinCharacters = 'string'
 'string'.stringArray.join = 'string'
 'string'.characterArray.joinCharacters = 'string'
 '𠮷'.countCharacters = 1
@@ -1952,6 +2004,14 @@ var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripti
 { '𠮷'.asciiValue }.ifError { :err | true } (* it is an error is the character is not ascii *)
 'string'.stringArray = ['s', 't', 'r', 'i', 'n', 'g']
 'string'.characterArray = [115, 116, 114, 105, 110, 103].collect(Character:/1)
+'Gnu/Linux'.findString('Linux') = 5
+'Gnu/Linux'.findStringStartingAt('Linux', 1) = 5
+'Hello'.isEmpty = false
+'XYZ'.asLowercase = 'xyz'
+'xyz'.asUppercase = 'XYZ'
+'hilaire'.capitalized = 'Hilaire'
+'1.54'.asNumber = 1.54
+'A clear but rather long-winded summary'.contractTo(19) = 'A clear ... summary'
 ```
 
 ## Syntax -- array assignment syntax
