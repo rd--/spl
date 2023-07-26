@@ -16,7 +16,7 @@ Small Kansas - 2023-03-10 ; References To It
 
 <iframe src="https://player.vimeo.com/video/806504803" frameborder="0" allowfullscreen="true" width="640" height="360" ></iframe>
 
-Small Kansas - 2023-03-10 ; Vector Graphics, Acccept It
+Small Kansas - 2023-03-10 ; Vector Graphics, Accept It
 
 <iframe src="https://player.vimeo.com/video/806504624" frameborder="0" allowfullscreen="true" width="640" height="360" ></iframe>
 

@@ -955,7 +955,7 @@ Fraction(4, 6).reduced.denominator = 3
 | x = Fraction(2 ** 55, 2); | x ~= (x - 1) = false (* fractions of large small floats behave strangely *)
 | x = Fraction(2n ** 55n, 2); | x ~= (x - 1) (* fractions of large large integers behave ordinarily *)
 2:3 ~= 3:4 (* unequal fractions *)
-(2:3 == 2:3).not (* non-identical fractions *)
+(2:3 == 2:3).not (* non-identical fractions (equal fractions need not be the same object) *)
 2:3 ~~ 2:3 (* non-identical fractions *)
 2:3 ~~ 3:4 (* non-identical fractions *)
 355:113.limitDenominator(77) = 223:71
@@ -1462,6 +1462,7 @@ ReadStream().position = 0 (* initially the position is zero *)
 | r = (1 .. 5).ReadStream; | r.skip(3); r.upToEnd = [4, 5] (* skip to a position *)
 | r = (1 .. 9).ReadStream; | r.skipTo(7); r.upToEnd = [8, 9] (* skip to an object *)
 | r = (1 .. 5).ReadStream; | r.position(3); r.skip(-1); r.next = 3 (* move to indicated position, which is the index before the next element *)
+ReadStream().next = nil (* next at an empty read stream answers nil *)
 { ReadStream().position := -1 }.ifError { :err | true } (* it is an error to move the position out of bounds *)
 { ReadStream().position := 1 }.ifError { :err | true } (* it is an error to move the position out of bounds *)
 | r = (9 .. 1).ReadStream; | [r.upTo(3), r.upToEnd] = [[9 .. 4], [2 .. 1]]
@@ -1926,7 +1927,9 @@ var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripti
 ' x '.withBlanksTrimmed = 'x'
 ' x '.withoutLeadingBlanks = 'x '
 ' x '.withoutTrailingBlanks = ' x'
-| a = []; | 'string'.do { :each | a.add(each) }; a.joinCharacters = 'string'
+| a = []; | 'string'.do { :each | a.add(each) }; a.join = 'string'
+'string'.stringArray.join = 'string'
+'string'.characterArray.joinCharacters = 'string'
 '𠮷'.countCharacters = 1
 '𠮷'.countUtf16CodeUnits = 2
 '𠮷'.size = 2
@@ -1947,6 +1950,8 @@ var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripti
 'x'.asciiValue = 120 (* ascii code point of string *)
 { 'xy'.asciiValue }.ifError { :err | true } (* it is an error is the string is not a single character *)
 { '𠮷'.asciiValue }.ifError { :err | true } (* it is an error is the character is not ascii *)
+'string'.stringArray = ['s', 't', 'r', 'i', 'n', 'g']
+'string'.characterArray = [115, 116, 114, 105, 110, 103].collect(Character:/1)
 ```
 
 ## Syntax -- array assignment syntax
@@ -2071,35 +2076,6 @@ var a = 'one' -> 1; a.key := 9; a.key = 9 (* p.x := y is syntax for p.x(y) *)
 {:x|x+1}.(1)=2 (* no white space *)
 { :x | x + 1 } . ( 1 ) = 2 (* white space (space) *)
 {	:x	|	x	+	1	}	.	(	1	)	=	2 (* white space (tab) *)
-```
-
-## Temporaries
-```
-| x | x = nil (* uninitialised variables are nil *)
-| x y | x = y (* uninitialised variables are nil *)
-| x = 1, y = 2; | x < y (* initialisers are written as name = value *)
-```
-
-## TimeStamp -- temporal type
-```
-1676784053576.TimeStamp.printString = 'TimeStamp(1676784053576)' (* make TimeStamp from Number of milliseconds since unix epoch *)
-1676784053576.TimeStamp.iso8601 = '2023-02-19T05:20:53.576Z' (* convert TimeStamp to ISO-8601 string *)
-system.unixTime.isTimeStamp = true (* get current time at system *)
-system.unixTime.iso8601.size = 24
-1676784053576.TimeStamp.roundTo(24.hours).iso8601 = '2023-02-19T00:00:00.000Z' (* round to duration *)
-| t = system.unixTime; | t - 0.seconds = t (* offset TimeStamp by Duration *)
-{ system.unixTime.postLine }.evaluateAfter(0.5.seconds).cancel = nil
-{ system.unixTime.postLine }.evaluateAt(system.unixTime + 0.5.seconds).cancel = nil
-{ system.unixTime.postLine }.evaluateEvery(3.seconds).cancel = nil
-```
-
-## Type -- slot access
-```
-('x' -> 1).slotNameArray = ['key', 'value'] (* slot names *)
-('x' -> 1):@key = 'x' (* read slot *)
-| a = ('x' -> 1); | a:@key = 'y'; a = ('y' -> 1) (* write slot *)
-| a = 'x' -> 1; | a:@key = 'x' & { a:@value = 1 } (* read slots *)
-| a = 'x' -> 1; | a:@key := 'y'; a:@value := 2; a = ('y' -> 2) (* write slots *)
 ```
 
 ## System -- system type
@@ -2229,6 +2205,71 @@ system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 ```
 'x=3.141&y=23'.URLSearchParams.has('x') = true
 'x=3.141&y=23'.URLSearchParams.get('y') = '23'
+```
+
+## Temporaries
+```
+| x | x = nil (* uninitialised variables are nil *)
+| x y | x = y (* uninitialised variables are nil *)
+| x = 1, y = 2; | x < y (* initialisers are written as name = value *)
+```
+
+## TimeStamp -- temporal type
+```
+1676784053576.TimeStamp.printString = 'TimeStamp(1676784053576)' (* make TimeStamp from Number of milliseconds since unix epoch *)
+1676784053576.TimeStamp.iso8601 = '2023-02-19T05:20:53.576Z' (* convert TimeStamp to ISO-8601 string *)
+system.unixTime.isTimeStamp = true (* get current time at system *)
+system.unixTime.iso8601.size = 24
+1676784053576.TimeStamp.roundTo(24.hours).iso8601 = '2023-02-19T00:00:00.000Z' (* round to duration *)
+| t = system.unixTime; | t - 0.seconds = t (* offset TimeStamp by Duration *)
+{ system.unixTime.postLine }.evaluateAfter(0.5.seconds).cancel = nil
+{ system.unixTime.postLine }.evaluateAt(system.unixTime + 0.5.seconds).cancel = nil
+{ system.unixTime.postLine }.evaluateEvery(3.seconds).cancel = nil
+```
+
+## Type -- slot access
+```
+('x' -> 1).slotNameArray = ['key', 'value'] (* slot names *)
+('x' -> 1):@key = 'x' (* read slot *)
+| a = ('x' -> 1); | a:@key = 'y'; a = ('y' -> 1) (* write slot *)
+| a = 'x' -> 1; | a:@key = 'x' & { a:@value = 1 } (* read slots *)
+| a = 'x' -> 1; | a:@key := 'y'; a:@value := 2; a = ('y' -> 2) (* write slots *)
+```
+
+## Syntax -- unary messages
+```
+89.sin = 0.8600694058124533
+3.sqrt = 1.7320508075688772
+pi.printString = '3.141592653589793'
+'blop'.size = 4
+true.not = false
+```
+
+## Syntax -- binary messages
+```
+'100' -> 100 = Association('100', 100) (* creates an association *)
+3 + 4 = 7
+10 - 1 = 9
+4 <= 3 = false
+4:3 * 3 = 4 = true (* equality is a binary message; fractions are exact *)
+3:4 == 3:4 = false (* two equal Fractions are not the same object *)
+```
+
+## Syntax -- precedence
+```
+100.factorial / 99.factorial = 100 (* (unary) methods bind more closely than operators *)
+2 ** (1 + 3.factorial) = 128
+2.raisedToInteger(1 + 3.factorial) = 128
+1 + 2 * 3 = 9
+1 + (2 * 3) = 7
+3 + 4.factorial = 27 (* not 5040 *)
+(3 + 4).factorial = 5040
+3 + 4 * 5 = 35 (* (not 23) binary messages sent from left to right *)
+3 + (4 * 5) = 23
+1 + 1 / 3 = (2 / 3) (* not 4/3 *)
+1 + (1 / 3) = (4 / 3)
+1 / 3 + 2 / 3 = (7 / 9) (* not 1 *)
+(1 / 3) + (2 / 3) = 1
 ```
 
 ## WriteStream -- collection type

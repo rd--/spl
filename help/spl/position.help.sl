@@ -8,7 +8,9 @@ The index corresponding to the beginning of the stream is 0.
 
 - _position(aStream, anInteger)_
 
-Set the position of the stream directly.
+Set the current position for accessing the objects in _aStream_ to be _anInteger_,
+as long as _anInteger_ is within the bounds of _aStream_.
+If it is not, create an error notification.
 
 * * *
 

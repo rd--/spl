@@ -2689,11 +2689,7 @@ String : [Object] {
 	}
 
 	characterArray { :self |
-		| answer = []; |
-		self.do { :each |
-			answer.add(each)
-		};
-		answer
+		self.collect(Character:/1)
 	}
 
 	codePointAt { :self :index |
@@ -2701,9 +2697,15 @@ String : [Object] {
 	}
 
 	codePointArray { :self |
+		self.collect { :each |
+			each.codePointAt(1)
+		}
+	}
+
+	collect { :self :aBlock:/1 |
 		| answer = []; |
 		self.do { :each |
-			answer.add(each.codePoint)
+			answer.add(aBlock(each))
 		};
 		answer
 	}
@@ -2727,10 +2729,16 @@ String : [Object] {
 	do { :self :aProcedure:/1 |
 		<primitive:
 		for (const each of _self) {
-			_aProcedure_1(_Character_1(each));
+			_aProcedure_1(each);
 		};
 		return _self;
 		>
+	}
+
+	doCharacters { :self :aProcedure:/1 |
+		self.do { :each |
+			aProcedure(each.Character)
+		}
 	}
 
 	endsWith { :self :aString |
@@ -2944,11 +2952,7 @@ String : [Object] {
 	}
 
 	split { :self |
-		| answer = []; |
-		self.do { :each |
-			answer.add(each.string)
-		};
-		answer
+		self.stringArray
 	}
 
 	splitBy { :self :aString |
@@ -2957,6 +2961,10 @@ String : [Object] {
 
 	storeString { :self |
 		<primitive: return `'${_self}'`;>
+	}
+
+	stringArray { :self |
+		self.collect(identity:/1)
 	}
 
 	terseGuideSummary { :self |

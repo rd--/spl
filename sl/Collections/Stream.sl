@@ -1,155 +1,4 @@
-@PositionableStream { (* collection positionIndex readLimit *)
-
-	atEnd { :self |
-		self.position >= self.readLimit
-	}
-
-	back { :self |
-		(self.position = 0).ifTrue {
-			'PositionableStream>>back: cannot go back'.error
-		};
-		self.skip(-1);
-		self.peek
-	}
-
-	isEmpty { :self |
-		self.atEnd & {
-			self.position = 0
-		}
-	}
-
-	last { :self |
-		self.collection.at(self.position)
-	}
-
-	nextMatchAll { :self :aCollection |
-		withReturn {
-			| savedPosition = self.position; |
-			aCollection.do { :each |
-				(self.next = each).ifFalse {
-					self.position := savedPosition;
-					false.return
-				}
-			};
-			true
-		}
-	}
-
-	on { :self :aCollection |
-		self.collection := aCollection;
-		self.position := 0;
-		self.readLimit := aCollection.size;
-		self.reset
-	}
-
-	originalContents { :self |
-		self.collection
-	}
-
-	peek { :self |
-		self.atEnd.if {
-			nil
-		} {
-			| nextObject = self.next; |
-			self.position := self.position - 1;
-			nextObject
-		}
-	}
-
-	peekFor { :self :anObject |
-		withReturn {
-			self.atEnd.ifTrue {
-				false.return
-			};
-			(self.next = anObject).ifTrue {
-				true.return
-			};
-			self.position := self.position - 1;
-			false
-		}
-	}
-
-	position { :self |
-		self.positionIndex
-	}
-
-	position { :self :anInteger |
-		self.validPosition(anInteger).if {
-			self.positionIndex := anInteger
-		} {
-			'PositionableStream>>position: position out of bounds'.error
-		}
-	}
-
-	reset { :self |
-		self.position := 0
-	}
-
-	resetContents { :self |
-		self.position := 0;
-		self.readLimit := 0
-	}
-
-	skip { :self :anInteger |
-		self.position := self.position + anInteger
-	}
-
-	skipTo { :self :anObject |
-		withReturn {
-			{
-				self.atEnd
-			}.whileFalse {
-				(self.next = anObject).ifTrue {
-					true.return
-				}
-			};
-			false
-		}
-	}
-
-	upTo { :self :anObject |
-		self.withWriteStream { :aStream |
-			| element |
-			{
-				self.atEnd | {
-					element := self.next;
-					element = anObject
-				}
-			}.whileFalse {
-				aStream.nextPut(element)
-			}
-		}
-	}
-
-	upToEnd { :self |
-		self.withWriteStream { :aStream |
-			{
-				self.atEnd
-			}.whileFalse {
-				aStream.nextPut(self.next)
-			}
-		}
-	}
-
-	upToPosition { :self :anInteger |
-		self.next(anInteger - self.position)
-	}
-
-	validPosition { :self :anInteger |
-		(anInteger >= 0) & {
-			anInteger <= self.readLimit
-		}
-	}
-
-	withWriteStream { :self :aProcedure:/1 |
-		| aStream = WriteStream(self.collection.species.new(100)); |
-		aProcedure(aStream);
-		aStream.contents
-	}
-
-}
-
-@Stream { (* atEnd collection next nextPut *)
+@Stream { (* collection, atEnd contents next nextPut *)
 
 	any { :self :numberOfElements |
 		self.next(numberOfElements)
@@ -280,7 +129,153 @@
 
 }
 
+@PositionableStream {
+
+	back { :self |
+		(self.position = 0).ifTrue {
+			'PositionableStream>>back: cannot go back'.error
+		};
+		self.skip(-1);
+		self.peek
+	}
+
+	isEmpty { :self |
+		self.atEnd & {
+			self.position = 0
+		}
+	}
+
+	last { :self |
+		self.collection.at(self.position)
+	}
+
+	nextMatchAll { :self :aCollection |
+		withReturn {
+			| savedPosition = self.position; |
+			aCollection.do { :each |
+				(self.next = each).ifFalse {
+					self.position := savedPosition;
+					false.return
+				}
+			};
+			true
+		}
+	}
+
+	on { :self :aCollection |
+		self.collection := aCollection;
+		self.position := 0;
+		self.isReadStream.if {
+			self.readLimit := aCollection.size
+		};
+		self.reset
+	}
+
+	originalContents { :self |
+		self.collection
+	}
+
+	peek { :self |
+		self.atEnd.if {
+			nil
+		} {
+			| nextObject = self.next; |
+			self.position := self.position - 1;
+			nextObject
+		}
+	}
+
+	peekFor { :self :anObject |
+		withReturn {
+			self.atEnd.ifTrue {
+				false.return
+			};
+			(self.next = anObject).ifTrue {
+				true.return
+			};
+			self.position := self.position - 1;
+			false
+		}
+	}
+
+	position { :self |
+		self.positionIndex
+	}
+
+	position { :self :anInteger |
+		anInteger.negative.if {
+			self.positionError
+		} {
+			self.positionIndex := anInteger
+		}
+	}
+
+	positionError { :self |
+		'PositionableStream>>positionError: position out of bounds'.error
+	}
+
+	reset { :self |
+		self.position := 0
+	}
+
+	skip { :self :anInteger |
+		self.position := self.position + anInteger
+	}
+
+	skipTo { :self :anObject |
+		withReturn {
+			{
+				self.atEnd
+			}.whileFalse {
+				(self.next = anObject).ifTrue {
+					true.return
+				}
+			};
+			false
+		}
+	}
+
+	upTo { :self :anObject |
+		self.withWriteStream { :aStream |
+			| element |
+			{
+				self.atEnd | {
+					element := self.next;
+					element = anObject
+				}
+			}.whileFalse {
+				aStream.nextPut(element)
+			}
+		}
+	}
+
+	upToEnd { :self |
+		self.withWriteStream { :aStream |
+			{
+				self.atEnd
+			}.whileFalse {
+				aStream.nextPut(self.next)
+			}
+		}
+	}
+
+	upToPosition { :self :anInteger |
+		self.next(anInteger - self.position)
+	}
+
+	withWriteStream { :self :aProcedure:/1 |
+		| aStream = WriteStream(self.collection.species.new(100)); |
+		aProcedure(aStream);
+		aStream.contents
+	}
+
+}
+
 ReadStream : [Object, Stream, PositionableStream] { | collection positionIndex readLimit |
+
+	atEnd { :self |
+		self.position >= self.readLimit
+	}
 
 	contents { :self |
 		self.collection.copyFromTo(1, self.readLimit)
@@ -303,6 +298,14 @@ ReadStream : [Object, Stream, PositionableStream] { | collection positionIndex r
 		self.position := endPosition;
 		answer
 	}
+
+        position { :self :anInteger |
+		self.validReadPosition(anInteger).if {
+			self.positionIndex := anInteger
+		} {
+			self.positionError
+                }
+        }
 
 	setFromTo { :self :newStart :newStop |
 		self.position := newStart - 1;
@@ -338,6 +341,12 @@ ReadStream : [Object, Stream, PositionableStream] { | collection positionIndex r
 		self.collection.copyFromTo(start, self.position)
 	}
 
+	validReadPosition { :self :anInteger |
+		(anInteger >= 0) & {
+			anInteger <= self.readLimit
+		}
+	}
+
 }
 
 +@SequenceableCollection {
@@ -356,7 +365,7 @@ ReadStream : [Object, Stream, PositionableStream] { | collection positionIndex r
 
 }
 
-WriteStream : [Object, Stream, PositionableStream] { | collection positionIndex readLimit writeLimit |
+WriteStream : [Object, Stream, PositionableStream] { | collection positionIndex writeLimit |
 
 	contents { :self |
 		self.collection.copyFromTo(1, self.position)
@@ -406,11 +415,10 @@ WriteStream : [Object, Stream, PositionableStream] { | collection positionIndex 
 	}
 
 	position { :self :anInteger |
-		self.readLimit := self.readLimit.max(anInteger);
-		self.validPosition(anInteger).if {
-			self.positionIndex := anInteger
+		anInteger.negative.if {
+			self.positionError
 		} {
-			'WriteStream>>position: position out of bounds'.error
+			self.positionIndex := anInteger
 		}
 	}
 
@@ -431,7 +439,7 @@ WriteStream : [Object, Stream, PositionableStream] { | collection positionIndex 
 +@ArrayedCollection {
 
 	WriteStream { :self |
-		newWriteStream().initializeSlots(self, 0, self.size, self.size)
+		newWriteStream().initializeSlots(self, 0, self.size)
 	}
 
 }
