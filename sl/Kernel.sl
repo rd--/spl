@@ -957,11 +957,17 @@ Boolean : [Object] {
 
 }
 
-Character : [Object] { | string |
+Character : [Object, Magnitude] { | string |
 
 	= { :self :anObject |
 		anObject.isCharacter & {
 			self.string = anObject.string
+		}
+	}
+
+	< { :self :anObject |
+		anObject.isCharacter & {
+			self.codePoint < anObject.codePoint
 		}
 	}
 

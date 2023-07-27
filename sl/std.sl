@@ -1,6 +1,7 @@
 [
 	'Kernel.sl',
 	'Collections.sl',
+	'Collections/Heap.sl',
 	'Collections/LinkedList.sl',
 	'Collections/Stream.sl',
 	'System.sl',

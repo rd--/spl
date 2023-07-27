@@ -355,6 +355,10 @@
 		self.anySatisfy(aBlock:/1)
 	}
 
+	contents { :self |
+		self
+	}
+
 	copy { :self |
 		| answer = self.species.new; |
 		answer.addAll(self);
@@ -1744,6 +1748,12 @@
 					self.swapWith(anInteger, index)
 				}
 			}
+		}
+	}
+
+	replace { :self :aBlock:/1 |
+		1.upTo(self.size).do { :index |
+			self[index] := aBlock(self[index])
 		}
 	}
 

@@ -356,7 +356,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 | s = 'string', a = []; | a.addAll(s); a.size = 6 (* add elements from String to end of Array *)
 | s = 'string', a = []; | a.addAll(s.asciiByteArray); a.size = 6 (* add elements from ByteArray to end of Array *)
 13.fibonacciSequence = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
-| c = [1 .. 5]; | [c.removeAt(1), c] = [1, [2, 3, 4, 5]]
+| c = [1 .. 5]; | [c.removeAt(1), c] = [1, [2, 3, 4, 5]] (* removeAt answers the removed element *)
 | c = [1 .. 5]; | [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
 | c = [1 .. 5]; | [c.removeFirst(3), c] = [[1, 2, 3], [4, 5]] (* remove first three objects from array *)
 | c = [1 .. 5]; | [c.removeLast(3), c] = [[3, 4, 5], [1, 2]] (* remove last three objects from array *)
@@ -685,6 +685,7 @@ Set().Array = []
 (1 .. 100).injectInto(0) { :sum :each | sum + each } = 5050
 [1 .. 4].fold { :sum :each | sum + each } = 10 (* fold is another name for reduce *)
 { [].fold { :sum :each | sum + each } }.ifError { :err | true } (* error if the collection is empty *)
+| a = [1 .. 5]; | a.contents = a (* an array is it's contents *)
 ```
 
 ## Complex -- numeric type
@@ -990,6 +991,29 @@ Fraction(4, 6).reduced.denominator = 3
 pi.asFraction = 311:99 (* with maximumDenominator set to one hundred *)
 (1 / [2, 3, 5, 7, 11, 13, 17]).collect(asFraction:/1) = [1:2, 1:3, 1:5, 1:7, 1:11, 1:13, 1:17]
 6:8 * 4 = 3 (* answer integer *)
+```
+
+## Heap -- collection type
+```
+Heap().isHeap (* an empty heap is a heap *)
+Heap().size = 0 (* an empty heap has size 0 *)
+Heap().isEmpty (* an empty heap is empty *)
+| h = Heap(); | h.add(3); h.size = 1 (* add element to heap, size is one *)
+| h = Heap(); | h.add(3); h.first = 3 (* add element to heap, it is the first element *)
+| h = Heap(); | h.add(3); h[1] = 3 (* add element to heap, it is the first element *)
+| h = Heap(); | h.add(3); h.add(2); [h.size, h.first, h[2]] = [2, 2, 3] (* add elements to heap *)
+| h = Heap(); | { h[1] }.ifError { :err | true } (* out of bounds *)
+| h = Heap(); | h.add(3); { h[2] }.ifError { :err | true } (* out of bounds *)
+| h = Heap(); | h.add(5); h.add(12); h.add(1); h.first = 1 (* add out of order *)
+| h = Heap(); | h.addAll([5, 12, 1]); h.first = 1 (* add all out of order *)
+| h = Heap(); | h.add(5); h.removeFirst; h.isEmpty (* add & remove *)
+| h = Heap(); | h.addAll([5, 12, 1]); [h.removeFirst, h.first] = [1, 5] (* remove first *)
+| h = Heap(); | h.addAll([5, 12, 1]); [h.removeFirst, h.removeFirst, h.first] = [1, 5, 12] (* remove first *)
+| h = Heap(); | { h.removeFirst }.ifError { :err | true } (* remove an element that does not exist *)
+| h = Heap(); | h.add(5); [h.removeFirst, h.size] = [5, 0] (* add & remove *)
+| h = Heap(); | h.addAll([1 .. 9].shuffled); h.first = 1 (* add shuffled, first is always 1 *)
+| h = Heap(); | h.addAll([1 .. 9].shuffled); 8.timesRepeat { h.removeFirst }; h.first = 9
+| h = Heap(); | h.addAll([1 .. 9].shuffled); 8.timesRepeat { h.removeAt(2) }; h.first = 1
 ```
 
 ## Integral -- numeric trait
@@ -1496,7 +1520,8 @@ ReadStream().position = 0 (* initially the position is zero *)
 (1 .. 5).ReadStream.size = 5 (* read stream from interval, read stream size *)
 (1 .. 5).ReadStream.upTo(3) = [1, 2] (* read up to, but not including, an element *)
 (1 .. 5).ReadStream.upTo(9) = [1 .. 5] (* read up to end if element is not located *)
-(1 .. 5).ReadStream.contents = [1 .. 5] (* contents of finite stream *)
+(1 .. 5).ReadStream.contents = [1 .. 5] (* contents of finite stream (a copy of the collection)  *)
+(1 .. 5).ReadStream.originalContents = (1 .. 5) (* original contents of stream (the actual collection *)
 | r = (1 .. 5).ReadStream; | r.upToEnd; r.contents = [1 .. 5] (* contents of consumed stream *)
 | r = [1 .. 5].ReadStream; | [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil]
 | r = [1 .. 3].ReadStream; | [r.next, r.upToEnd] = [1, [2, 3]]
@@ -1519,6 +1544,7 @@ ReadStream().next = nil (* next at an empty read stream answers nil *)
 (1 .. 9).ReadStream.nextMatchAll([1, 2, 3]) = true
 (1 .. 9).ReadStream.collection = Interval(1, 9, 1) (* read stream over interval collection *)
 | r = (1 .. 9).ReadStream; | [r.next, r.back, r.next] = [1, 1, 1] (* go back one element and return it (by peeking) *)
+| r = (1 .. 1000).ReadStream; | [r.next, r.next, r.atEnd] = [1, 2, false]
 ```
 
 ## Record -- collection type
@@ -1675,6 +1701,11 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | a = [1 .. 9]; | a.atAllPut((3 .. 7), 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] (* set all selected indices to a value *)
 | a = [1 .. 9]; | a.atAllPutAll([3 .. 7], [7 .. 3]); a = [1, 2, 7, 6, 5, 4, 3, 8, 9] (* set all selected indices to corresponding values *)
 | a = [1 .. 9]; | a.atAllPutAll((3 .. 7), (7 .. 3)); a = [1, 2, 7, 6, 5, 4, 3, 8, 9] (* set all selected indices to corresponding values *)
+| a = [1 .. 9]; | a.replace { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81]
+| c = [7, 2, 6, 1]; | c.sorted = [1, 2, 6, 7] & { c.sorted ~= c } (* sorted copy *)
+| c = [7, 2, 6, 1]; | c.sort = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } (* sort in place *)
+[7, 2, 6, 1].SortedArray.contents = [1, 2, 6, 7]
+[7, 2, 6, 1].sorted(greaterThan:/2) = [7, 6, 2, 1]
 ```
 
 ## Sequence arithmetic
@@ -2012,6 +2043,7 @@ var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripti
 'hilaire'.capitalized = 'Hilaire'
 '1.54'.asNumber = 1.54
 'A clear but rather long-winded summary'.contractTo(19) = 'A clear ... summary'
+'string'.Array.sort.joinCharacters = 'ginrst'
 ```
 
 ## Syntax -- array assignment syntax
@@ -2342,4 +2374,5 @@ true.not = false
 | w = Utf8WriteStream(); | 'bodlɛʁ'.encodeOn(w); w.contents.utf8String = 'bodlɛʁ'
 | w = Utf8WriteStream(); | 'bodlɛʁ'.encodeOn(w); w.utf8Contents = 'bodlɛʁ'
 | w = Utf8WriteStream(); | [3.141, nil].do { :each | each.printOn(w) }; w.utf8Contents = '3.141nil'
+| w = [nil, nil].WriteStream; | w.nextPut('a'); w.nextPut('b'); w.contents.join = 'ab'
 ```
