@@ -49,7 +49,7 @@ Heap : [Object, Collection] { | array sortBlock indexUpdateBlock |
 	}
 
 	do { :self :aBlock:/1 |
-		self.array.do(aaBlock:/1)
+		self.array.do(aBlock:/1)
 	}
 
 	downHeap { :self :anIndex |
@@ -190,6 +190,14 @@ Heap : [Object, Collection] { | array sortBlock indexUpdateBlock |
 
 	Heap {
 		newHeap().initializeSlots([], nil, nil)
+	}
+
+}
+
++Procedure {
+
+	Heap { :self:/2 |
+		newHeap().initializeSlots([], self:/2, nil)
 	}
 
 }

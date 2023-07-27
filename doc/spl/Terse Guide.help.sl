@@ -1014,6 +1014,9 @@ Heap().isEmpty (* an empty heap is empty *)
 | h = Heap(); | h.addAll([1 .. 9].shuffled); h.first = 1 (* add shuffled, first is always 1 *)
 | h = Heap(); | h.addAll([1 .. 9].shuffled); 8.timesRepeat { h.removeFirst }; h.first = 9
 | h = Heap(); | h.addAll([1 .. 9].shuffled); 8.timesRepeat { h.removeAt(2) }; h.first = 1
+| h = [1, 3, 5].Heap, a = []; | h.do { :each | a.add(each) }; a = [1, 3, 5]
+| h = Heap(greaterThan:/2); | h.addAll([1, 3, 5]); h.first = 5
+| h = Heap { :p :q | p > q }; | h.addAll([1, 3, 5]); [h.removeFirst, h.first] = [5, 3]
 ```
 
 ## Integral -- numeric trait
