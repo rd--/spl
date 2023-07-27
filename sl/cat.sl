@@ -54,8 +54,7 @@ system.categorizeDictionary(
 			'String',
 			'Transcript'
 		],
-		'Kernel-Graphics': [
-			'Colour',
+		'Kernel-Geometry': [
 			'Matrix22',
 			'Matrix33',
 			'PolarPoint',
@@ -64,6 +63,9 @@ system.categorizeDictionary(
 			'Vector2',
 			'Vector3',
 			'Vector4'
+		],
+		'Kernel-Graphics': [
+			'Colour'
 		],
 		'Data-Chemistry': [
 			'CrystalLatticeStructure'

@@ -1289,6 +1289,12 @@
 		self.copyFromTo(n + 1, self.size)
 	}
 
+	allButFirstDo { :self :aBlock:/1 |
+		2.upTo(self.size).do { :index |
+			aBlock(self[index])
+		}
+	}
+
 	allButLast { :self |
 		self.allButLast(1)
 	}

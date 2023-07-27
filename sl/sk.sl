@@ -1,5 +1,4 @@
 [
-	'Graphics.sl',
 	'Navigator/Dom.sl',
 	'Navigator/Midi.sl',
 	'SmallKansas.sl'

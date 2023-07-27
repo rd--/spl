@@ -688,6 +688,13 @@ Set().Array = []
 | a = [1 .. 5]; | a.contents = a (* an array is it's contents *)
 ```
 
+## Colour -- graphics type
+```
+Colour(1, 0, 0, 0.5).over(Colour(0, 1, 0, 0.5)) = Colour(1 / 3, 2 / 3, 0, 3 / 4)
+0.5.srgbFromLinear = 0.7353569830524495 (* transfer function from (linear) rgb to srgb *)
+0.7353569830524495.srgbToLinear = 0.5 (* transfer function from srgb to (linear) rgb *)
+```
+
 ## Complex -- numeric type
 ```
 Complex(0, 0).isComplex (* complex numbers *)
@@ -1337,6 +1344,18 @@ pi.radiansToDegrees = 180 (* radiansToDegrees *)
 -1.5.rounded = -1
 ```
 
+## Matrix22 -- geometry type
+```
+Matrix22(1, 4, -1, 9).determinant = 13
+Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2)
+Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1)).closeTo(1@0)
+```
+
+## Matrix33 -- geometry type
+```
+Matrix33(1, 1, 1, 1, 0, 0, 0, 1, 0).inverse = Matrix33(0, 1, 0, 0, 0, 1, 1, -1, -1)
+```
+
 ## Method
 ```
 { true + false }.ifError { :err | true } (* boolean does not implement + *)
@@ -1408,6 +1427,12 @@ nil.json = 'null' (* nil has a Json representation *)
 4:3.slotArray = ['numerator' -> 4, 'denominator' -> 3]
 4:3.numerator = 4:3['numerator']
 4:3.denominator = 4:3::denominator
+```
+
+## Point -- geometry trait
+```
+0.asPoint.isPoint (* number to point, point predicate *)
+0.asPoint.isZero (* are x and y both zero *)
 ```
 
 ## PriorityQueue -- collection type
@@ -1607,6 +1632,37 @@ var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7
 (x: 1, y: 2) ~= (x: 2, y: 1) (* Record in-equality *)
 | r = (x: 1, y: 2); | r == r (* Record identity *)
 (x: 1, y: 2) ~~ (x: 1, y: 2) (* Record non-identity *)
+```
+
+## Rectangle -- geometry type
+```
+Rectangle(0@0, 1@1).printString = 'Rectangle(0@0, 1@1)'
+Rectangle(0@0, 2@2).intersect(Rectangle(1@1, 4@4)) = Rectangle(1@1, 2@2)
+Rectangle(1@1, 3@3).area = 4
+Rectangle(1@1, 3@3).center = Vector2(2, 2)
+Rectangle(1@1, 3@3).containsPoint(2@2) = true
+| o = 0@0, p = 10@10, q = 0 - p; | [Rectangle(q, o), Rectangle(o, p)].rectangleMerging = Rectangle(q, p)
+| r = (0@0).extent(10@20); | r.area = (10 * 20) (* area is width by height *)
+| r = (0@0).extent(10@20); | r.translateBy(-20@10).area = (10 * 20) (* translation preserves area *)
+| r = (10@20).corner(0@0); | r.area = 0 (* the area of an empty rectangle is zero *)
+| r = (10@20).corner(0@20); | r.area = 0 (* the area of an empty rectangle is zero *)
+| r = (0@20).corner(10@0); | r.area = 0 (* the area of an empty rectangle is zero *)
+| r = (0@0).extent(10@20), c = r.center; | r.containsPoint(c) (* the center is inside the rectangle *)
+| r = (0@0).extent(10@20), c = r.center; | r.topLeft.distance(c) = r.bottomRight.distance(c)
+| r = (0@0).extent(10@20), c = r.center; | r.bottomLeft.distance(c) = r.topRight.distance(c)
+| r = (0@0).extent(10@20), c = r.center; | r.topLeft.distance(c) = r.bottomLeft.distance(c)
+| r = (0@0).extent(10@20), c = r.center; | r.translateBy(-20@10).center = c.translateBy(-20@10) (* the center is translated with the rectangle *)
+| r = (30@10).corner(10@20), c = r.center; | r.containsPoint(c).not  (* an empty rectangle does not contain any point *)
+| r = (0@0).extent(50@50); | [r.center, 1.5@1.5, r.topLeft, r.topRight, r.bottomLeft, r.bottomRight].collect { :each | r.containsPoint(each) } = [true, true, true, false, false, false]
+| r = (10@10).extent(20@30); | r.containsPoint(r.origin) (* a rectangle does contain its origin *)
+| r = (10@10).extent(20@30); | r.containsPoint(r.corner).not (* a rectangle does not contain its corner *)
+| r = (0@0).extent(50@50), pt = r.randomPoint; | r.containsPoint(pt) (* a rectangle contains any random point in it *)
+| r = (0@0).extent(50@50); | r.pointAtFraction(0.5@0.5) = r.center (* pointAtFraction can find the center *)
+| r = (10@20).corner(30@50); | (10@20).corner(30@35) = r.topHalf & { (10@20).corner(30@27.5) = r.topHalf.topHalf }
+| r = (10@20).corner(30@50); | (10@20).corner(20@35) = r.topLeftQuadrant
+| r = (10@20).corner(30@50); | (10@20).corner(15@27.5) = r.topLeftQuadrant.topLeftQuadrant
+| r = (10@20).corner(30@50); | (20@20).corner(30@35) = r.topRightQuadrant
+| r = (10@20).corner(30@50); | (25@20).corner(30@27.5) = r.topRightQuadrant.topRightQuadrant
 ```
 
 ## RegExp -- text type
@@ -2365,6 +2421,53 @@ true.not = false
 1 + (1 / 3) = (4 / 3)
 1 / 3 + 2 / 3 = (7 / 9) (* not 1 *)
 (1 / 3) + (2 / 3) = 1
+```
+
+## Vector2 -- geometry type
+```
+Vector2(0, 0).typeOf = 'Vector2'
+Vector2(-1, 1).isVector2 = true
+Vector2(3, 4).isVector2 & { true } = true
+[0, 0].Vector2 = (0@0)
+(-1@1).isVector2.not = false
+-1@1 = Vector2(-1, 1)
+(-1@1).x = -1
+(-1@1).y = 1
+(-1@1).x(-3) = -3
+(-1@1).y(3) = 3
+-1@1 * 9 = (-9@9)
+-1@1 + 2 = (1@3)
+2 * (-1@1) * 2 = (-4@4)
+(-1@1).asString = '-1@1'
+(1 @ 1).negated = (-1 @ -1) (* negation *)
+0 - (1 @ 1) = (-1 @ -1) (* negation as subtraction from zero *)
+| p = -1@1; | p.x := -3; p.y := 3; p = (-3@3) = true
+| p = -1@3, a = [p]; | a.first.x := -3; p = (-3@3) = true
+| x = 3.141, y = 23, p = x@y; | p.x = x & { p.y = y }
+[1@0, 1@1, 0@1, -1@1, -1@0, 0 @ -1].collect(t:/1) = (pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2])
+0@0 = Point(0,0)
+200 @ 100 = Point(200, 100) (* obtain a new point *)
+(200 @ 100).x = 200 (* x coordinate *)
+(200 @ 100).y = 100 (* y coordinate *)
+0 - (200 @ 100) = (-200 @ -100) (* negates x and y (note @- is an binary selector) *)
+(0 - (200 @ 100)).abs = (200 @ 100) (* absolute value of x and y *)
+200 @ 100 + 1 = (201 @ 101) (* add scale to both x and y *)
+200 @ 100 - 1 = (199 @ 99) (* subtract scale from both x and y *)
+200 @ 100 * 2 = (400 @ 200) (* multiply x and y by scale *)
+200 @ 100 / 2 = (100 @ 50) (* divide x and y by scale *)
+(200 @ 100) // 2 = (100 @ 50) (* divide x and y by scale *)
+200 @ 100 % 3 = (2 @ 1) (* modulo of x and y by scale *)
+200 @ 100 + (50 @ 25) = (250 @ 125) (* add points *)
+200 @ 100 - (50 @ 25) = (150 @ 75) (* subtract points *)
+200 @ 100 * (3 @ 4) = (600 @ 400) (* multiply points *)
+1800 @ 100 / (3 @ 4) = (600 @ 25) (* divide points *)
+(200 @ 100).Array = [200, 100] (* array of x and y *)
+```
+
+## Vector3 -- geometry type
+```
+[1, 2, 3].Vector3 = Vector3(1, 2, 3) (* three vector from array *)
+Vector3(0, 0, 0).isZero (* are x, y and z all zero *)
 ```
 
 ## WriteStream -- collection type

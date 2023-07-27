@@ -4,6 +4,8 @@
 	'Collections/Heap.sl',
 	'Collections/LinkedList.sl',
 	'Collections/Stream.sl',
+	'Geometry.sl',
+	'Graphics.sl',
 	'System.sl',
 	'Time.sl'
 ].loadUrlSequence

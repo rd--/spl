@@ -38,6 +38,5 @@ workspace::smallHours.helpFind('Collection')
 ## Cli
 ```
 '/home/rohan/sw/spl/doc/spl/Terse Guide.help.sl'.fileUrl.terseGuideSummary
-'/home/rohan/sw/spl/doc/spl/Terse Guide to Graphics.help.sl'.fileUrl.terseGuideSummary
 '/home/rohan/sw/spl/doc/spl/Terse Guide to Sound.help.sl'.fileUrl.terseGuideSummary
 ```
