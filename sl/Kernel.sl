@@ -279,6 +279,42 @@
 		}
 	}
 
+	primeFactors { :self |
+		(self <= 1).if {
+			[].return
+		} {
+			withReturn {
+				| index = 1, prime = 2, k = self, answer = []; |
+				{
+					prime := index.nthPrime;
+					{
+						k % prime = 0
+					}.whileTrue {
+						answer.add(prime);
+						k := k // prime;
+						(k = 1).ifTrue {
+							answer.return
+						}
+					};
+					(prime.squared > k).ifTrue {
+						answer.add(k);
+						answer.return
+					};
+					index := index + 1
+				}.repeat;
+				answer
+			}
+		}
+	}
+
+	primeFactorization { :self |
+		self.primeFactors.Bag
+	}
+
+	primeLimit { :self |
+		self.primeFactors.max
+	}
+
 	primesArray { :self |
 		| answer = Array(self), n = 1; |
 		1.upToDo(self) { :index |
@@ -2178,7 +2214,11 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	max { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return Math.max(_self, _anObject); }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return Math.max(_self, _anObject);
+		}
+		>
 		anObject.adaptToNumberAndApply(self, max:/2)
 	}
 
@@ -2188,27 +2228,6 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 
 	odd { :self |
 		<primitive: return Math.abs(_self % 2) === 1;>
-	}
-
-	primeFactors { :self |
-		| factors = [], divisor = 2, n = self; |
-		{ n >= 2 }.whileTrue {
-			(n % divisor = 0).if {
-				factors.add(divisor);
-				n := n / divisor
-			} {
-				divisor := divisor + 1
-			}
-		};
-		factors
-	}
-
-	primeFactorization { :self |
-		self.primeFactors.Bag
-	}
-
-	primeLimit { :self |
-		self.primeFactors.max
 	}
 
 	printString { :self :radix |
@@ -2426,6 +2445,13 @@ Procedure : [Object] {
 		<primitive: return _self.name;>
 	}
 
+	repeat { :self:/0 |
+		{
+			self();
+			true
+		}.whileTrue
+	}
+
 	withReturn { :self |
 		<primitive:
 		try {
@@ -2464,12 +2490,26 @@ Procedure : [Object] {
 		self(p1, p2, p3, p4, p5)
 	}
 
-	whileFalse { :self :aProcedure |
-		<primitive: while(!_self()) { _aProcedure(); }; return null;>
+	whileFalse { :self:/0 :aProcedure:/0 |
+		<primitive:
+		while(!_self_0()) {
+			_aProcedure_0();
+		};
+		return null;
+		>
 	}
 
-	whileTrue { :self :aProcedure |
-		<primitive: while(_self()) { _aProcedure(); }; return null;>
+	whileTrue { :self:/0 |
+		{ self() }.whileTrue { }
+	}
+
+	whileTrue { :self:/0 :aProcedure:/0 |
+		<primitive:
+		while(_self_0()) {
+			_aProcedure_0();
+		};
+		return null;
+		>
 	}
 
 }

@@ -1222,6 +1222,7 @@ Interval(1, 100, 0.5).size = 199
 324518553658426726783156020576256n.even = true (* is large integer even *)
 324518553658426726783156020576257n.odd = true (* is large integer odd *)
 100n.factorial / 99n.factorial = 100n
+8589298611n.primeFactors.last = 2863099537n
 ```
 
 ## LinkedList -- collection type
@@ -1500,6 +1501,7 @@ var f = { }; f == f (* identity *)
 withReturn { 10.do { :index | (index = 5).ifTrue { 5.return } } } = 5 (* non-local return *)
 { true }.assert = nil (* assert that block evaluates to true, answers nil *)
 { { false }.assert }.ifError { :err | true } (* raise an error if block does not evaluate to true *)
+withReturn { { (9.atRandom > 7).ifTrue { true.return } }.repeat } (* repeat a block until it "returns" *)
 ```
 
 ## Promise -- kernel type
@@ -1897,6 +1899,9 @@ pi.randomFloat.isInteger = false
 (1 .. 9999).select(isPrime:/1).size = 1229
 315.primeFactors = [3, 3, 5, 7]
 2588.primeFactors = [2, 2, 647]
+6606028800.primeFactors.Bag.sortedCounts = [22 -> 2, 2 -> 5, 2 -> 3, 1 -> 7]
+10071203840.primeFactors.Bag.sortedElements = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1]
+8589298611.primeFactors = [3, 2863099537]
 (2 .. 30).select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30]
 (2 .. 15).select { :each | each.primeLimit <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
 60.divisors = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60]
@@ -1931,7 +1936,6 @@ pi.printString = '3.141592653589793'
 pi.storeString = '3.141592653589793'
 23.isInteger (* is a small float an integer *)
 23.isSmallInteger (* is a small float a small integer *)
-23.assertIsSmallInteger = 23 (* require that a number be a small integer *)
 (2 ** 53) = 9007199254740992 (* a small float that is an integer that is beyond the range of small integers *)
 (2 ** 53).isInteger (* is a small float an integer *)
 (2 ** 53).isSmallInteger = false (* is a small float a small integer *)
