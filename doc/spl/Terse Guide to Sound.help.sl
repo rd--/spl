@@ -1,3 +1,13 @@
+'Music'
+| t = [63, 72, 84, 98, 112].JiTuning; | [t.limit, t.degree] = [7, 5]
+| t = [63, 72, 84, 98, 112].JiTuning; | t.ratios = [1, 8:7, 4:3, 14:9, 16:9]
+| t = [63, 72, 84, 98, 112].JiTuning; | t.cents.rounded = [0, 231, 498, 765, 996]
+| r = [1, 8:7, 4:3, 14:9, 16:9]; | [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1:63, 112]
+[1, 8:7, 4:3, 14:9, 16:9] / 1:63 = [63, 72, 84, 98, 112]
+[1, 8:7, 4:3, 14:9, 16:9].JiTuning.integerPitches = [63, 72, 84, 98, 112]
+[63, 72, 84, 98, 112].JiTuning.ratios = [1, 8:7, 4:3, 14:9, 16:9]
+[1, 3].JiTuning
+
 'Sound/Sc/Lang'
 [1, 2, 3, 4, 5].keep(3) = [1, 2, 3] (* keep first n items, alias for first: *)
 [1, 2, 3, 4, 5].drop(2) = [3, 4, 5] (* discard first n items *)
@@ -87,3 +97,6 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 nil ? 'x' = 'x' (* right hand side if nil *)
 'x' ? 'y' = 'x' (* left hand side unless nil *)
 Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicies *)
+3:2.RatioCents.rounded = 702
+3:2.RatioCents ~ 702
+3:2.RatioMidi ~ 7.02

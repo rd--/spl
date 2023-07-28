@@ -621,6 +621,10 @@
 		true
 	}
 
+	log2 { :self |
+		self.asFloat.log2
+	}
+
 	negated { :self |
 		0 - self
 	}
@@ -1449,6 +1453,12 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			(self.numerator * aNumber.denominator) <= (aNumber.numerator * self.denominator)
 		} {
 			aNumber.adaptToFractionAndApply(self, lessThanEquals:/2)
+		}
+	}
+
+	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
+		aCollection.collect { :each |
+			aProcedure(each, self)
 		}
 	}
 

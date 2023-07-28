@@ -686,6 +686,7 @@ Set().Array = []
 [1 .. 4].fold { :sum :each | sum + each } = 10 (* fold is another name for reduce *)
 { [].fold { :sum :each | sum + each } }.ifError { :err | true } (* error if the collection is empty *)
 | a = [1 .. 5]; | a.contents = a (* an array is it's contents *)
+((1 .. 9) / 3).rounded = [0, 1, 1, 1, 2, 2, 2, 3, 3] (* unary math operator at collection *)
 ```
 
 ## Colour -- graphics type
@@ -1372,7 +1373,7 @@ nil.ifNil { true } = true (* nil conditional *)
 nil.ifNil { true } { false } = true (* nil conditional *)
 nil.ifNotNil { true } = nil (* nil conditional *)
 false.ifNotNil { true } (* nil conditional *)
-0.ifNil { false } = 0 (* nil conditional *)
+0.ifNil { false } = 0 (* nil conditional, answer receiver if not nil *)
 0.ifNil { false } { true } (* nil conditional *)
 ifNil(nil) { true } = true (* nil conditional *)
 ifNil(0) { false } = 0 (* nil conditional *)

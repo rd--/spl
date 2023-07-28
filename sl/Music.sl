@@ -21,24 +21,49 @@
 
 }
 
-JiTuning : [Object] { | name description pitches limit degree |
+JiTuning : [Object] { | name description integerPitches limit degree |
 
 	cents { :self |
 		self.ratios.collect { :each |
-			(each.asFloat.RatioMidi * 100).rounded
+			each.asFloat.log2 * 1200
 		}
 	}
 
-	initialize { :self :name :description :pitches |
+	calculateDegree { :self |
+		self.integerPitches.size
+	}
+
+	calculateLimit { :self |
+		self.integerPitches.collect { :each |
+			(each = 1).if {
+				each
+			} {
+				each.primeFactors.max
+			}
+		}.max
+	}
+
+	degreeError { :self |
+		'JiTuning>>degreeError'.error
+	}
+
+	initialize { :self :name :description :tuning |
+		|(
+			integerPitches = tuning.allSatisfy(isInteger:/1).if {
+				tuning
+			} {
+				tuning / tuning.reduce(gcd:/2)
+			}
+		)|
 		self.initializeSlots(
 			name,
 			description,
-			pitches,
-			self.pitches.collect { :each |
-				each.primeFactors.max
-			}.max,
-			pitches.size
-		)
+			integerPitches,
+			nil,
+			integerPitches.size
+		);
+		self.limit := self.calculateLimit;
+		self
 	}
 
 	initializeFromDictionary { :self :aDictionary |
@@ -49,6 +74,12 @@ JiTuning : [Object] { | name description pitches limit degree |
 			aDictionary::limit,
 			aDictionary::degree
 		)
+	}
+
+	isValid { :self |
+		self.degree = self.calculateDegree & {
+			self.limit = self.calculateLimit
+		}
 	}
 
 	latticeVertices { :self |
@@ -67,9 +98,13 @@ JiTuning : [Object] { | name description pitches limit degree |
 		}
 	}
 
+	limitError { :self |
+		'JiTuning>>limitError'.error
+	}
+
 	ratios { :self |
-		| i1 = self.pitches[1]; |
-		self.pitches.collect { :each |
+		| i1 = self.integerPitches.first; |
+		self.integerPitches.collect { :each |
 			Fraction(each, i1).normalized
 		}
 	}
@@ -87,7 +122,11 @@ JiTuning : [Object] { | name description pitches limit degree |
 +Array {
 
 	JiTuning { :self |
-		newJiTuning().initialize('', '', self)
+		newJiTuning().initialize(
+			'',
+			'',
+			self
+		)
 	}
 
 	latticeCoordinates { :self :unitVector |
@@ -101,7 +140,7 @@ JiTuning : [Object] { | name description pitches limit degree |
 	}
 
 	wilsonLatticeCoordinates { :self |
-		self.latticeCoordinates([Point(20, 0), Point(0, 20), Point(4, 3), Point(-3, 4), Point(-1,2)])
+		self.latticeCoordinates([20@0, 0@20, 4@3, -3@4, -1@2])
 	}
 
 }

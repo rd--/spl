@@ -1518,8 +1518,8 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				ratios.collect { :each |
 					each.latticeVectorString(self.limit)
 				},
-				self.cents,
-				self.pitches
+				self.cents.rounded,
+				self.integerPitches
 			].transpose.asHtmlTable,
 			self.latticeDrawing
 		]);

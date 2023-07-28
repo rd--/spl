@@ -8,7 +8,7 @@ spl-repl:
 	rlwrap --always-readline deno run --allow-read --allow-env --allow-net cli.ts --dir=../sl replPerLine --strict
 
 spl-repl-sc:
-	rlwrap --always-readline deno run --allow-read --allow-env cli.ts --dir=../sl replPerLine sc.sl Graphics.sl --strict
+	rlwrap --always-readline deno run --allow-read --allow-env cli.ts --dir=../sl replPerLine sc.sl --strict
 
 spl-repl-ui:
 	rlwrap --always-readline deno run --allow-read --allow-env cli.ts --dir=../sl replPerLine sc.sl sk.sl --strict
