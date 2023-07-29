@@ -125,10 +125,6 @@ pi.veryCloseTo(3.141592653589793) (* pi = 3.141592653589793 *)
 (0 / 0).isNaN (* division of zero by zero is NaN *)
 1.isNaN.not (* one is a number *)
 4 / [0 .. 3] = [inf, 4, 2, 4/3] (* divide by zero is infinity *)
-9.primesArray = [2, 3, 5, 7, 11, 13, 17, 19, 23] (* first elements of prime number sequence *)
-5.nthPrime = 11 (* the nth entry in the sequence of prime numbers *)
-23.nthPrime = 83 (* the nth entry in the sequence of prime numbers *)
-3579.nthPrime = 33413 (* the nth entry in the sequence of prime numbers *)
 inf.sign = 1
 inf.positive = true
 (0 - inf).sign = -1
@@ -680,8 +676,6 @@ Set().Array = []
 (1 .. 6).collect { :each | each * 2 } = [2, 4 .. 12] (* interval species is array *)
 [2, -3, 4, -35, 4, -11].collect { :each | each.abs } = [2, 3, 4, 35, 4, 11]
 [2, -3, 4, -35, 4, -11].collect(abs:/1) = [2, 3, 4, 35, 4, 11]
-(2 .. 20).select { :each | each.isPrime } = [2, 3, 5, 7, 11, 13, 17, 19]
-(2 .. 20).reject { :each | each.isPrime } = [4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20]
 (1 .. 100).injectInto(0) { :sum :each | sum + each } = 5050
 [1 .. 4].fold { :sum :each | sum + each } = 10 (* fold is another name for reduce *)
 { [].fold { :sum :each | sum + each } }.ifError { :err | true } (* error if the collection is empty *)
@@ -1035,6 +1029,37 @@ Heap().isEmpty (* an empty heap is empty *)
 -987654321.printString = '-987654321' (* negative integer print string *)
 4 / 2 = 2 (* integer division with integer result *)
 | n = 2; | 3.timesRepeat { n := n * n }; n = 256 (* iteration *)
+```
+
+## Integral -- prime numbers
+```
+9.primesArray = [2, 3, 5, 7, 11, 13, 17, 19, 23] (* first elements of prime number sequence *)
+9.nthPrime = 23 (* lookup prime by index in sequence *)
+system.cache::primesArray[9] = 23 (* the primes array is cached (memoized) by the system *)
+5.nthPrime = 11 (* the nth entry in the sequence of prime numbers *)
+23.nthPrime = 83 (* the nth entry in the sequence of prime numbers *)
+3579.nthPrime = 33413 (* the nth entry in the sequence of prime numbers *)
+system.cache::primesArray[3579] = 33413 (* nthPrime extends the primesArray cache as required *)
+(2 .. 20).select { :each | each.isPrime } = [2, 3, 5, 7, 11, 13, 17, 19]
+(2 .. 20).reject { :each | each.isPrime } = [4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20]
+60.primeFactors = [2, 2, 3, 5] (* prime factors *)
+[2, 2, 3, 5].product = 60 (* product is the inverse of primeFactors *)
+60.primeFactors.product = 60
+315.primeFactors = [3, 3, 5, 7] (* prime factors *)
+2588.primeFactors = [2, 2, 647] (* prime factors *)
+(2 .. 15).select { :each | each.primeFactors.max <= 5 } = [2,  3,  4,  5,  6,  8,  9, 10, 12, 15]
+(2 .. 999).allSatisfy { :each | each = each.primeFactors.product } = true (* equality with product of factors *)
+10071203840.primeFactors.Bag.sortedElements = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1] (* prime factor histogram *)
+6606028800.primeFactors.Bag.sortedCounts = [22 -> 2, 2 -> 5, 2 -> 3, 1 -> 7]
+8589298611.primeFactors = [3, 2863099537] (* large prime factors *)
+(2 .. 30).select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30]
+(2 .. 15).select { :each | each.primeLimit <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
+23.isPrime = true (* prime number predicate *)
+2971215073.isPrime = true (* prime number predicate *)
+2971215073.nextPrime = 2971215083 & { 2971215083.isPrime } (* find next prime *)
+100.primesUpTo = [2, 3, 5, 7,11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+35.isCoprime(64)
+1173.isCoprime(1547).not
 ```
 
 ## Integral -- integer names
@@ -1870,12 +1895,6 @@ var total = 0; 9.timesRepeat { total := total + system.randomFloat }; total < 7
 7.min(3) = 3
 3.min(7) = 7.min(3)
 12345.truncateTo(600) = 12000
-23.isPrime = true
-2971215073.isPrime = true
-2971215073.nextPrime = 2971215083 & { 2971215083.isPrime }
-100.primesUpTo = [2, 3, 5, 7,11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
-35.isCoprime(64)
-1173.isCoprime(1547).not
 13.betweenAnd(11, 14) = true
 9.atRandom.isInteger = true
 9.randomInteger.isInteger = true
@@ -1897,13 +1916,6 @@ pi.randomFloat.isInteger = false
 (1 .. 99).select(isPrime:/1) = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97]
 (1 .. 999).select(isPrime:/1).size = 168
 (1 .. 9999).select(isPrime:/1).size = 1229
-315.primeFactors = [3, 3, 5, 7]
-2588.primeFactors = [2, 2, 647]
-6606028800.primeFactors.Bag.sortedCounts = [22 -> 2, 2 -> 5, 2 -> 3, 1 -> 7]
-10071203840.primeFactors.Bag.sortedElements = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1]
-8589298611.primeFactors = [3, 2863099537]
-(2 .. 30).select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30]
-(2 .. 15).select { :each | each.primeLimit <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
 60.divisors = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60]
 1729.divisors = [1, 7, 13, 19, 91, 133, 247, 1729]
 e() = 1.exp

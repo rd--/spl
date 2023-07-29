@@ -232,6 +232,10 @@ System : [Object] {
 		answer
 	}
 
+	cache { :self |
+		<primitive: return _self.cache;>
+	}
+
 	categoriesOf { :self :entry |
 		self.categoryDictionary.keys.select { :each |
 			self.categoryDictionary[each].includes(entry)

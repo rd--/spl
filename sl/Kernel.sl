@@ -268,7 +268,7 @@
 
 	nthPrime { :self |
 		|(
-			primesArray = workspace.atIfAbsentPut('primesArray') {
+			primesArray = system.cache.atIfAbsentPut('primesArray') {
 				23.primesArray
 			}
 		)|
@@ -997,7 +997,7 @@ Boolean : [Object] {
 
 }
 
-Character : [Object, Magnitude] { | string |
+Character : [Object, Magnitude] { | string codePoint |
 
 	= { :self :anObject |
 		anObject.isCharacter & {
@@ -1012,11 +1012,10 @@ Character : [Object, Magnitude] { | string |
 	}
 
 	asciiValue { :self |
-		| codePoint = self.codePoint; |
-		(codePoint > 127).if {
+		(self.codePoint > 127).if {
 			'Character>>asciiValue: not ascii'.error
 		} {
-			codePoint
+			self.codePoint
 		}
 	}
 
@@ -1026,10 +1025,6 @@ Character : [Object, Magnitude] { | string |
 
 	asString { :self |
 		self.string
-	}
-
-	codePoint { :self |
-		self.string.codePointAt(1)
 	}
 
 	printString { :self |
@@ -1045,7 +1040,7 @@ Character : [Object, Magnitude] { | string |
 +SmallFloat {
 
 	Character { :self |
-		<primitive: return _Character_1(String.fromCodePoint(_self));>
+		<primitive: return _Character_2(String.fromCodePoint(_self), _self);>
 	}
 
 }
@@ -1053,11 +1048,16 @@ Character : [Object, Magnitude] { | string |
 +String {
 
 	Character { :self |
+		self.Character(self.codePoint)
+	}
+
+
+	Character { :self :codePoint |
 		self.isSingleCharacter.if {
-			workspace.atIfAbsentPut('characterDictionary') {
+			system.cache.atIfAbsentPut('characterDictionary') {
 				()
 			}.atIfAbsentPut(self) {
-				newCharacter().initializeSlots(self)
+				newCharacter().initializeSlots(self, codePoint)
 			}
 		} {
 			'String>>Character: not character'.error
@@ -2758,6 +2758,14 @@ String : [Object, Iterable] {
 
 	characterArray { :self |
 		self.collectInto(identity:/1, [])
+	}
+
+	codePoint { :self |
+		self.isSingleCharacter.if {
+			self.codePointAt(1)
+		} {
+			'String>>codePoint: not single character string'.error
+		}
 	}
 
 	codePointAt { :self :index |

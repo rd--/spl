@@ -147,6 +147,7 @@ export class System {
 	window: Window;
 	library: Map<string, LibraryItem>;
 	transcript: Transcript;
+	cache: Map<string, unknown>;
 	constructor() {
 		this.methodDictionary = new Map();
 		this.traitDictionary = new Map();
@@ -157,6 +158,7 @@ export class System {
 		this.window = window;
 		this.library = new Map();
 		this.transcript = new Transcript();
+		this.cache = new Map();
 	}
 }
 
