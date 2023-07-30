@@ -442,6 +442,21 @@ Bag().isSequenceable = false
 16n >> 3 = 2n (* right shift large integer *)
 ```
 
+## Bitset -- collection type
+```
+Bitset(64).isBitset (* a bitset is a bitset *)
+Bitset(64).size = 0 (* a new bitset is empty *)
+Bitset(64).capacity = 64 (* the capacity of a bitset is set when initialized *)
+Bitset(64).isEmpty (* a new bitset is empty *)
+Bitset(64).bytes.allSatisfy  { :each | each = 0 } (* all bytes at the empty bitset are zero *)
+| b = Bitset(64); | b.add(1); b.add(3); b.add(9); b.size = 3 (* add three integers to bitset *)
+| b = Bitset(64); | b.add(5); b.add(5); b.add(5); b.size = 1 (* adding the same integer over again *)
+| b = Bitset(64); | b.addAll([1, 3, 9]); b.includes(3) (* does bitset include element *)
+| b = Bitset(64); | b.addAll([1, 3, 9]); [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
+| b = Bitset(64); | b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 (* a three element bitset *)
+| b = Bitset(64); | b[1] := 1; b[3] := 1; b[9] := 1; [1, 3 .. 9].collect { :each | b[each] } = [1, 1, 0, 0, 1]
+```
+
 ## Bitwise Manipulation
 ```
 2.bitAnd(3) = 2 (* and bits *)
@@ -450,6 +465,8 @@ Bag().isSequenceable = false
 3.bitNot = -4 (* invert bits *)
 2.bitShiftLeft(3) = 16 (* left shift (higher) *)
 16.bitShiftRight(3) = 2 (* right shift (lower) *)
+2.bitShift(3) = 16 (* left shift (higher) *)
+16.bitShift(-3) = 2 (* right shift (lower) *)
 (1 .. 4).select { :bit | 6.bitTest(bit) } = [2, 3] (* bit at position (0|1) [!Squeak] *)
 2 << 3 = 16 (* left shift operator *)
 16 >> 3 = 2 (* right shift operator *)

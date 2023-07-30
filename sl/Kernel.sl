@@ -1,14 +1,14 @@
 @Binary {
 
-	<< { :self :anObject |
+	<< { :self :anInteger |
 		self.subclassResponsibility('Binary>>shiftLeft')
 	}
 
-	>> { :self :anObject |
+	>> { :self :anInteger |
 		self.subclassResponsibility('Binary>>shiftRight')
 	}
 
-	bitAnd { :self :anObject |
+	bitAnd { :self :anInteger |
 		self.subclassResponsibility('Binary>>bitAnd')
 	}
 
@@ -16,20 +16,28 @@
 		self.subclassResponsibility('Binary>>bitNot')
 	}
 
-	bitOr { :self :anObject |
+	bitOr { :self :anInteger |
 		self.subclassResponsibility('Binary>>bitOr')
 	}
 
-	bitXor { :self :anObject |
+	bitXor { :self :anInteger |
 		self.subclassResponsibility('Binary>>bitXor')
 	}
 
-	bitShiftLeft { :self :anObject |
-		self << anObject
+	bitShift { :self :anInteger |
+		anInteger.negative.if {
+			self >> anInteger.negated
+		} {
+			self << anInteger
+		}
 	}
 
-	bitShiftRight { :self :anObject |
-		self >> anObject
+	bitShiftLeft { :self :anInteger |
+		self << anInteger
+	}
+
+	bitShiftRight { :self :anInteger |
+		self >> anInteger
 	}
 
 	highBitOfByte { :self |
