@@ -356,6 +356,16 @@ System : [Object] {
 		<primitive: return _self.library;>
 	}
 
+	lowBitPerByteTable { :self |
+		self.cache.atIfAbsentPut('lowBitPerByteTable') {
+			(1 .. 8).injectInto([1]) { :lowBits :unusedRank |
+				| prefix = lowBits.copy; |
+				prefix[1] := lowBits[1] + 1;
+				prefix ++ lowBits
+			}.allButFirst.ByteArray
+		}
+	}
+
 	methodArities { :self :methodName |
 		(* Arities methodName is implemented for. *)
 		self.methodDictionary[methodName].keys

@@ -65,12 +65,15 @@
 3.99.floor = 3 (* round down *)
 3.99.ceiling = 4 (* round up *)
 5.factorial = 120 (* factorial of SmallFloat *)
-9.factorial = 362880
+18.factorial = 6402373705728000 (* large small integer factorial *)
+20.factorial = 2432902008176640000 (* large small float factorial *)
+20.factorial.isSmallInteger = false (* 20! is not a small integer *)
+20n.factorial = 2432902008176640000n (* large integer factorial *)
+(0 .. 9).collect(factorial:/1) = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
+{ -1.factorial }.ifError { :err | true } (* factorial is not defined for negative integers *)
 9.factorial = (1 .. 9).product (* factorial is product of interval *)
-18.factorial = 6402373705728000
-12.factorial.log2.floor = 28
-18.factorial.log2.floor = 52
-20.factorial.log2.floor = 61
+12.factorial.log2.floor = 28 (* bit-depth of factorial *)
+[12, 18, 20, 100, 170].collect { :each | each.factorial.log2.floor } = [28, 52, 61, 524, 1019]
 9.doubleFactorial = 945 (* double factorial *)
 [12, 18, 20].collect { :n | n.doubleFactorial } = [46080, 185794560, 3715891200]
 [12, 18, 20].collect { :n | n.doubleFactorial.log2.floor } = [15, 27, 31]
@@ -455,6 +458,7 @@ Bitset(64).bytes.allSatisfy  { :each | each = 0 } (* all bytes at the empty bits
 | b = Bitset(64); | b.addAll([1, 3, 9]); [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
 | b = Bitset(64); | b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 (* a three element bitset *)
 | b = Bitset(64); | b[1] := 1; b[3] := 1; b[9] := 1; [1, 3 .. 9].collect { :each | b[each] } = [1, 1, 0, 0, 1]
+| a = [], b = Bitset(64), c = [1, 3, 9, 27]; | b.addAll(c); b.do { :each | a.add(each) }; a = c
 ```
 
 ## Bitwise Manipulation
@@ -1264,7 +1268,8 @@ Interval(1, 100, 0.5).size = 199
 (2n ** 170 - 1).isPowerOfTwo = false (* LargeInteger power of two test *)
 324518553658426726783156020576256n.even = true (* is large integer even *)
 324518553658426726783156020576257n.odd = true (* is large integer odd *)
-100n.factorial / 99n.factorial = 100n
+100n.factorial / 99n.factorial = 100n (* large integer factorial, c.f. small float *)
+1000n.factorial / 999n.factorial = 1000n (* large integer factorial *)
 8589298611n.primeFactors.last = 2863099537n
 ```
 
@@ -1972,6 +1977,7 @@ pi.storeString = '3.141592653589793'
 23.assertIsSmallInteger = 23 (* require that a number be a small integer *)
 { 3.141.assertIsSmallInteger }.ifError { :err | true } (* raise an error if value is not a small integer *)
 { (2 ** 53).assertIsSmallInteger }.ifError { :err | true }
+100.factorial / 99.factorial ~ 100 (* small float factorial *)
 ```
 
 ## SortedArray -- collection type
@@ -2271,6 +2277,8 @@ system.isSystem (* system predicate *)
 system.typeDictionary.keys.includes('System') = true
 system.randomFloat < 1 (* system random number generator *)
 system.uniqueId ~= system.uniqueId (* system unique identifier generator *)
+system.lowBitPerByteTable.size = 255 (* low bits per byte table *)
+system.lowBitPerByteTable.Bag.sortedCounts = [128 -> 1, 64 -> 2, 32 -> 3, 16 -> 4, 8 -> 5, 4 -> 6, 2 -> 7, 1 -> 8]
 ```
 
 ## System -- system names
@@ -2454,7 +2462,7 @@ true.not = false
 
 ## Syntax -- precedence
 ```
-100.factorial / 99.factorial = 100 (* (unary) methods bind more closely than operators *)
+100.factorial / 99.factorial ~ 100 (* (unary) methods bind more closely than operators *)
 2 ** (1 + 3.factorial) = 128
 2.raisedToInteger(1 + 3.factorial) = 128
 1 + 2 * 3 = 9

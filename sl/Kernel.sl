@@ -185,14 +185,18 @@
 	}
 
 	factorial { :self |
-		(self = 0).if {
+		self.negative.ifTrue {
+			'Integral>>factorial: not valid for negative integers'.error
+		};
+		(self <= 1).if {
 			1
 		} {
-			(self > 0).if {
-				self * (self - 1).factorial
-			} {
-				'Integral>>factorial: not valid for negative integers'.error
-			}
+			| next = self, answer = self; |
+			{ next > 1 }.whileTrue {
+				next := next - 1;
+				answer := answer * next
+			};
+			answer
 		}
 	}
 
@@ -2496,6 +2500,10 @@ Procedure : [Object] {
 
 	value { :self:/5 :p1 :p2 :p3 :p4 :p5 |
 		self(p1, p2, p3, p4, p5)
+	}
+
+	whileFalse { :self:/0 |
+		{ self() }.whileFalse { }
 	}
 
 	whileFalse { :self:/0 :aProcedure:/0 |

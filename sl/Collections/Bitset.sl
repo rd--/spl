@@ -54,6 +54,29 @@ Bitset : [Object, Collection] { | bytes tally |
 		}
 	}
 
+	do { :self :aBlock:/1 |
+		|(
+			remainingBits = self.tally,
+			lowBits = system.lowBitPerByteTable
+		)|
+		1.upTo(self.bytes.size).do { :index |
+			(1 <= remainingBits).if {
+				| byte = self.bytes[index]; |
+				(byte = 0).ifFalse {
+					| byteOffset = index.bitShift(3) - 9; |
+					{
+						aBlock(lowBits[byte] + byteOffset);
+						remainingBits := remainingBits - 1;
+						byte := byte.bitAnd(byte - 1);
+						byte = 0
+					}.whileFalse
+				}
+			} {
+				self
+			}
+		}
+	}
+
 	includes { :self :anInteger |
 		anInteger.isInteger & {
 			-1 < anInteger
@@ -123,4 +146,3 @@ Bitset : [Object, Collection] { | bytes tally |
 	}
 
 }
-
