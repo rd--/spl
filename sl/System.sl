@@ -201,6 +201,10 @@ Method : [Object] {
 
 System : [Object] {
 
+	= { :self :anObject |
+		self == anObject
+	}
+
 	addAllTraitMethodsTo { :self :aCollection |
 		system.traitDictionary.values.do { :trait |
 			trait.methodDictionary.values.do { :method |
@@ -290,6 +294,22 @@ System : [Object] {
 		]) {
 			('System>>categoryOf: multiple categories: ' ++ aString).error
 		}
+	}
+
+	consoleClear { :self |
+		<primitive: console.clear;>
+	}
+
+	consoleError { :self :message |
+		<primitive: console.error(_message);>
+	}
+
+	consoleLog { :self :message |
+		<primitive: console.log(_message);>
+	}
+
+	consoleWarn { :self :message |
+		<primitive: console.warn(_message);>
 	}
 
 	doesTraitImplementMethod { :self :traitName :methodName |
@@ -546,7 +566,13 @@ System : [Object] {
 	}
 
 	transcript { :self |
-		<primitive: return _self.transcript;>
+		(* lazy initialiser, should probably initialise on system start *)
+		<primitive:
+		if(_self.transcript == null) {
+			_self.transcript = _Transcript_0();
+		}
+		return _self.transcript;
+		>
 	}
 
 	typeDictionary { :self |
@@ -848,6 +874,76 @@ Trait : [Object] {
 		} {
 			self
 		}
+	}
+
+}
+
+TranscriptEntry : [Object] { | category message time |
+
+}
+
++String {
+
+	TranscriptEntry { :self :message |
+		newTranscriptEntry().initializeSlots(self, message, system.unixTimeInMilliseconds)
+	}
+
+}
+
+Transcript : [Object] { | entries |
+
+	clear { :self |
+		system.consoleClear;
+		self.entries.removeAll
+	}
+
+	error { :self :message |
+		self.entries.add(TranscriptEntry('error', message));
+		system.consoleError(message)
+	}
+
+	errorMessages { :self |
+		self.messages('error')
+	}
+
+	log { :self :message |
+		self.entries.add(TranscriptEntry('log', message));
+		system.consoleLog(message)
+	}
+
+	logMessages { :self |
+		self.messages('log')
+	}
+
+	messages { :self :category |
+		self.entries.selectThenCollect { :each |
+			each.category = category
+		} { :each |
+			each.message
+		}
+	}
+
+	String { :self |
+		self.entries.collect { :each |
+			each.category ++ ': ' ++ each.message
+		}.unlines
+	}
+
+	warn { :self :message |
+		self.entries.add(TranscriptEntry('warn', message));
+		system.consoleWarn(message)
+	}
+
+	warningMessages { :self |
+		self.messages('warn')
+	}
+
+}
+
++Void {
+
+	Transcript {
+		newTranscript().initializeSlots([])
 	}
 
 }

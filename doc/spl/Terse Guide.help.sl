@@ -327,8 +327,9 @@ Array(9).atAllPut('x').last = 'x'
 | a = []; | [1 .. 3].doSeparatedBy { :each | a.add(each) } { a.add(0) }; a = [1, 0, 2, 0, 3]
 [1, 2, 3].intersperse(0) = [1, 0, 2, 0, 3]
 | a = []; | [1 .. 3].doWithout({ :each | a.add(each) }, 2); a = [1, 3]
-[1 .. 9].selectThenCollect(even:/1) { :each | each * 3 } = [6, 12, 18, 24]
-| a = []; | [1 .. 9].selectThenDo(even:/1) { :each | a.add(each * 3) }; a = [6, 12, 18, 24]
+[1 .. 9].selectThenCollect(even:/1) { :each | each * 3 } = [6, 12, 18, 24] (* avoid intermediate collection *)
+[1 .. 9].collectThenSelect(squared:/1) { :each | each > 36 } = [49, 64, 81] (* avoid intermediate collection *)
+| a = []; | [1 .. 9].selectThenDo(even:/1) { :each | a.add(each * 3) }; a = [6, 12, 18, 24] (* avoid intermediate collection *)
 [1, 3 .. 9].union([3 .. 7]) = [1, 3, 4, 5, 6, 7, 9].Set (* set theoretic union *)
 | a = [1 .. 9]; | a.removeAllSuchThat(even:/1); a = [1, 3 .. 9] (* remove elements selected by predicate *)
 | a = [1 .. 9]; | a.removeAllFoundIn([1, 3 .. 9]); a = [2, 4 .. 8] (* remove elements found in a collection *)
@@ -813,12 +814,12 @@ unicodeFractions().associations.isArray = true
 
 ## Error -- exception type
 ```
-Error().isError = true
-Error('Error message').isError = true
-Error('Error message').name = 'Error'
-Error('Error message').message = 'Error message'
-Error('Error message').log = nil
-{ Error('Error message').signal }.ifError { :err | true } (* signal an error *)
+Error().isError = true (* an error with no message is an error *)
+Error('Error message').isError = true (* error with message is an error *)
+Error('Error message').name = 'Error' (* an error has a name *)
+Error('Error message').message = 'Error message' (* an error has a message *)
+Error('Error message').log = nil (* log error to transcript/console *)
+{ Error('Error message').signal }.ifError { :err | true } (* signal error *)
 { 'Error message'.error }.ifError { :err | true } (* generate and signal an error *)
 ```
 
@@ -1269,8 +1270,8 @@ LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
 | l = [1 .. 5].LinkedList; | l.removeAllSuchThat(odd:/1); l.asArray = [2, 4] (* in place reject *)
 | l = (1 .. 99).LinkedList; | l.removeAll; l.isEmpty (* remove all *)
 (1 .. 99).LinkedList.select(even:/1).asArray = [2, 4 .. 98] (* select *)
-(1 .. 9).LinkedList.selectThenCollect(even:/1, squared:/1).asArray = [4, 16, 36, 64]
-(1 .. 9).LinkedList.collectThenSelect(squared:/1) { :each | each > 36 }.asArray = [49, 64, 81]
+(1 .. 9).LinkedList.selectThenCollect(even:/1, squared:/1).asArray = [4, 16, 36, 64] (* avoid intermediate collection *)
+(1 .. 9).LinkedList.collectThenSelect(squared:/1) { :each | each > 36 }.asArray = [49, 64, 81] (* avoid intermediate collection *)
 [1 .. 9].LinkedList.reversed = [9 .. 1] (* reversed, species is Array *)
 { LinkedList().removeFirst }.ifError { :error | true } (* remove first, error if empty *)
 { LinkedList().removeLast }.ifError { :error | true } (* remove last, error if empty *)
@@ -1809,7 +1810,7 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 [1, 3 .. 9] - [1 .. 5] = [0 .. 4] (* sequence + sequence *)
 [1, 3 .. 9] * [1 .. 5] = [1, 6, 15, 28, 45] (* sequence * sequence *)
 [1, 6, 15, 28, 45] / [1 .. 5] = [1, 3 .. 9] (* sequence / sequence *)
-{ [1 .. 5] + [6 .. 9] }.ifError { :err | true } (* sequences must be of equal size *)
+{ [1 .. 5] + [6 .. 9] = [7, 9, 11, 13, 11] }.ifError { :err | true } (* sequences must be of equal size, Sc/Lang extends this behaviour *)
 [1 .. 5].squared = [1, 4, 9, 16, 25] (* unary math lifted to collection *)
 [1, 4, 9, 16, 25].sqrt = [1 .. 5] (* unary math lifted to collection *)
 ```
@@ -2248,13 +2249,22 @@ var a = 'one' -> 1; a.key := 9; a.key = 9 (* p.x := y is syntax for p.x(y) *)
 
 ## System -- system type
 ```
-system.typeOf = 'System'
+system.typeOf = 'System' (* system type *)
+system.isSystem (* system predicate *)
 system.typeDictionary.keys.includes('System') = true
-system.randomFloat < 1
-system.uniqueId ~= system.uniqueId
-'!'.isOperatorName = true
-'*'.operatorMethodName = 'times'
-'!^'.operatorMethodName = 'bangHat'
+system.randomFloat < 1 (* system random number generator *)
+system.uniqueId ~= system.uniqueId (* system unique identifier generator *)
+```
+
+## System -- system names
+```
+'!'.isOperatorName = true (* operator name predicate *)
+'*'.operatorMethodName = 'times' (* operator name *)
+['~', '!', '@', '#', '$','%'].collect(operatorMethodName:/1) = ['tilde', 'bang', 'commercialAt', 'hash', 'dollar', 'modulo']
+['^', '&', '*', '-', '+', '='].collect(operatorMethodName:/1) = ['hat', 'and', 'times', 'minus', 'plus', 'equals']
+['?', '<', '>'].collect(operatorMethodName:/1) = ['query', 'lessThan', 'greaterThan']
+'!^'.operatorMethodName = 'bangHat' (* composite operator names capitalize non-initial names *)
+'~='.operatorMethodName = 'tildeEquals'
 ```
 
 ## System -- categoryDictionary
@@ -2306,8 +2316,10 @@ system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum',
 ```
 system.systemTimeInMilliseconds > 0 = true
 system.unixTimeInMilliseconds > 1671935015392 = true
+| t1 = system.unixTimeInMilliseconds, t2 = system.unixTimeInMilliseconds; | t2 - t1 = 0
 | t = { 23.benchFib }.millisecondsToRun; | t > 1 & { t < 1000 }
 | [c, t] = { 23.benchFib }.benchForMilliseconds(100); | c >= 1 & { t >= 100 }
+| [c, t] = { system.unixTimeInMilliseconds }.benchForMilliseconds(10); | c > 1000 & { t >= 10 }
 ```
 
 ## System -- traitDictionary

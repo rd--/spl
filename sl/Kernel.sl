@@ -3197,36 +3197,6 @@ String : [Object, Iterable] {
 
 }
 
-Transcript : [Object] {
-
-	clear { :self |
-		<primitive: return _self.clear();>
-	}
-
-	entries { :self |
-		<primitive: return _self.entries;>
-	}
-
-	error { :self :message |
-		<primitive: return _self.error(_message);>
-	}
-
-	log { :self :message |
-		<primitive: return _self.log(_message);>
-	}
-
-	pseudoSlotNameArray { :self |
-		['entries']
-	}
-
-	String { :self |
-		self.entries.collect { :each |
-			each.first ++ ': ' ++ each.second
-		}.unlines
-	}
-
-}
-
 Nil : [Object] {
 
 	= { :self :anObject |

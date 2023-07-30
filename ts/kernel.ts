@@ -113,29 +113,7 @@ export class Type {
 
 const preinstalledTypes = ['Array', 'SmallFloat', 'String', 'Void']; // required if methods are added before type definition
 
-export class Transcript {
-	entries: [string, string][];
-	constructor() {
-		this.entries = [];
-	}
-	error(text: string): void {
-		this.entries.push(['error', text]);
-		console.error(text);
-	}
-	clear(): void {
-		this.entries = [];
-		console.clear();
-	}
-	log(text: string): void {
-		this.entries.push(['log', text]);
-		console.log(text);
-	}
-	warn(text: string): void {
-		this.entries.push(['warn', text]);
-		console.warn(text);
-	}
-}
-
+type Transript = unknown;
 type LibraryItem = unknown;
 
 export class System {
@@ -157,7 +135,7 @@ export class System {
 		this.nextUniqueId = 1;
 		this.window = window;
 		this.library = new Map();
-		this.transcript = new Transcript();
+		this.transcript = null;
 		this.cache = new Map();
 	}
 }

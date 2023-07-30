@@ -351,6 +351,18 @@
 		aCollection.fillFromWith(self, aProcedure)
 	}
 
+	collectThenSelect { :self :collectBlock:/1 :selectBlock:/1 |
+		(* self.collect(collectBlock:/1).select(selectBlock:/1) *)
+		| answer = self.species.new; |
+		self.do { :each |
+			| item = collectBlock(each); |
+			selectBlock(item).ifTrue {
+				answer.add(item)
+			}
+		};
+		answer
+	}
+
 	contains { :self :aBlock:/1 |
 		self.anySatisfy(aBlock:/1)
 	}
@@ -751,7 +763,12 @@
 	}
 
 	selectThenCollect { :self :selectBlock:/1 :collectBlock:/1 |
-		self.select(selectBlock:/1).collect(collectBlock:/1)
+		(* self.select(selectBlock:/1).collect(collectBlock:/1) *)
+		| answer = self.species.new; |
+		self.selectThenDo(selectBlock:/1) { :each |
+			answer.add(collectBlock(each))
+		};
+		answer
 	}
 
 	selectThenDo { :self :selectBlock:/1 :doBlock:/1 |

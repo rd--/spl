@@ -104,17 +104,6 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 		answer
 	}
 
-	collectThenSelect { :self :collectProcedure:/1 :selectProcedure:/1 |
-		| answer = LinkedList(); |
-		self.do { :each |
-			| next = collectProcedure(each); |
-			selectProcedure(next).ifTrue {
-				answer.add(next)
-			}
-		};
-		answer
-	}
-
 	do { :self :aProcedure:/1 |
 		| aLink = self.firstLink; |
 		{
@@ -265,16 +254,6 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 		self.do { :each |
 			each.aProcedure.ifTrue {
 				answer.add(each)
-			}
-		};
-		answer
-	}
-
-	selectThenCollect { :self :selectProcedure:/1 :collectProcedure:/1 |
-		| answer = LinkedList(); |
-		self.do { :each |
-			each.selectProcedure.ifTrue {
-				answer.add(collectProcedure(each))
 			}
 		};
 		answer
