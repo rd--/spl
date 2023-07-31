@@ -12,6 +12,29 @@
 		self.subclassResponsibility('Binary>>bitAnd')
 	}
 
+	bitAt { :self :anInteger |
+		self.bitShift(1 - anInteger).bitAnd(1)
+	}
+
+	bitCount { :self |
+		(self < 0).if {
+			'Binary>>bitCount: cannot count bits of negative integers'.error
+		} {
+			| n = self, bitCount = 0; |
+			{ n = 0 }.whileFalse {
+				bitCount := bitCount + system.bitCountPerByteTable[n.bitAnd(16rFF) + 1];
+				n := n.bitShift(-8);
+				['bitCount', bitCount, n].postLine;
+				(n < 0).ifTrue { '?'.error }
+			};
+			bitCount
+		}
+	}
+
+	bitCountOfByte { :self |
+		system.bitCountPerByteTable[self + 1]
+	}
+
 	bitNot { :self |
 		self.subclassResponsibility('Binary>>bitNot')
 	}
@@ -40,17 +63,24 @@
 		self >> anInteger
 	}
 
+	highBit { :self |
+		(self < 0).if {
+			'Binary>>highBit is not defined for negative integers'.error
+		} {
+			self.highBitOfPositiveReceiver
+		}
+	}
+
 	highBitOfByte { :self |
-		[
-			0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,
-			6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
-			7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
-			7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
-			8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
-			8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
-			8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
-			8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8
-		].at(self + 1)
+		system.highBitPerByteTable[self + 1]
+	}
+
+	highBitOfMagnitude { :self |
+		(self < 0).if {
+			self.negated.highBit
+		} {
+			self.highBitOfPositiveReceiver
+		}
 	}
 
 	highBitOfPositiveReceiver { :self |
@@ -64,6 +94,26 @@
 			bitNo := bitNo + 8
 		};
 		bitNo + shifted.highBitOfByte
+	}
+
+	isBinary { :self |
+		true
+	}
+
+	lowBit { :self |
+		(self = 0).if {
+			0
+		} {
+			| n = self, result = 0,	lastByte = nil; |
+			{
+				lastByte := n.bitAnd(16rFF);
+				n = 0
+			}.whileTrue {
+				result := result + 8;
+				n := n.bitShift(-8)
+			};
+			result + system.lowBitPerByteTable[lastByte]
+		}
 	}
 
 }
@@ -707,6 +757,10 @@
 
 	remainder { :self :aNumber |
 		self - (self.quotient(aNumber) * aNumber)
+	}
+
+	roundDownTo { :self :aNumber |
+		(self / aNumber).floor * aNumber
 	}
 
 	rounded { :self |
@@ -2002,7 +2056,7 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 
 	<< { :self :anObject |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
+		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
 			return _self << _anObject;
 		}
 		>
@@ -2011,7 +2065,7 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 
 	>> { :self :anObject |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
+		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
 			return sl.shiftRight(_self, _anObject);
 		}
 		>
@@ -2075,7 +2129,7 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 
 	bitAnd { :self :anObject |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
+		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
 			return _self & _anObject;
 		}
 		>
@@ -2083,12 +2137,17 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 	}
 
 	bitNot { :self |
-		<primitive: return ~_self;>
+		<primitive:
+		if(sl.isBitwise(_self)) {
+			return ~_self;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, bitNot:/1)
 	}
 
 	bitOr { :self :anObject |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
+		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
 			return _self | _anObject;
 		}
 		>
@@ -2101,7 +2160,7 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 
 	bitXor { :self :anObject |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
+		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
 			return _self ^ _anObject;
 		}
 		>
@@ -2174,6 +2233,10 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 
 	fractionPart { :self |
 		<primitive: return _self % 1;>
+	}
+
+	isBinary { :self |
+		<primitive: return sl.isBitwise(_self);>
 	}
 
 	isFinite { :self |

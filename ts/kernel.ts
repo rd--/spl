@@ -71,6 +71,10 @@ export function isByte(anObject: unknown): boolean {
 	return isSmallFloat(anObject) && Number.isInteger(anObject) && anObject >= 0 && anObject < 256;
 }
 
+export function isBitwise(anObject: unknown): boolean {
+	return isSmallFloat(anObject) && Number.isInteger(anObject) && (anObject >= -2147483648) && (anObject <= 2147483647);
+}
+
 export class Method {
 	name: MethodName;
 	procedure:  Function;

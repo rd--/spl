@@ -236,6 +236,19 @@ System : [Object] {
 		answer
 	}
 
+	bitCountPerByteTable { :self |
+		self.cache.atIfAbsentPut('bitCountPerByteTable') {
+			(0 .. 255).collect { :i |
+				| bitCount = 0, n = i; |
+				{ n = 0 }.whileFalse {
+					bitCount := bitCount + 1;
+					n := n.bitAnd(n - 1)
+				};
+				bitCount
+			}.ByteArray
+		}
+	}
+
 	cache { :self |
 		<primitive: return _self.cache;>
 	}
@@ -321,6 +334,14 @@ System : [Object] {
 	doesTypeImplementMethod { :self :typeName :methodName |
 		self.typeLookup(typeName).methodDictionary.anySatisfy { :each |
 			each.name = methodName
+		}
+	}
+
+	highBitPerByteTable { :self |
+		self.cache.atIfAbsentPut('highBitPerByteTable') {
+			(1 .. 8).injectInto([0]) { :highBits :rank |
+				highBits ++ highBits.collect { :each | rank }
+			}.ByteArray
 		}
 	}
 

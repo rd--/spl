@@ -62,6 +62,12 @@
 3.99.roundTo(1) = 4.0 (* round to specified decimal places ; c.f. roundTo: *)
 3.99.truncateTo(1) = 3.0 (* truncate to specified decimal places *)
 12345.truncateTo(600) = 12000 (* truncate to integer *)
+3.1479.roundDownTo(0.01) = 3.14 (* round down to *)
+3.1479.roundDownTo(0.1) = 3.1
+1923.roundDownTo(10) = 1920
+3.1479.roundDownTo(0.005) = 3.145
+-3.1479.roundDownTo(0.01) = -3.15
+[-4, -3, -2.9, -2, -1, -0.9, 0, 0.9, 1, 2, 2.9, 3, 4].collect { :each | each.roundDownTo(2) } = [-4, -4, -4, -2, -2, -2, 0, 0, 0, 2, 2, 2, 4]
 3.99.floor = 3 (* round down *)
 3.99.ceiling = 4 (* round up *)
 5.factorial = 120 (* factorial of SmallFloat *)
@@ -134,8 +140,8 @@ inf.positive = true
 (0 - inf).negative = true
 8.isPowerOfTwo (* is the receiver a power of two *)
 (1 .. 999).select(isPowerOfTwo:/1) = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
-(2 ** 31).isPowerOfTwo = true (* this is only reliable for numbers that can be represented in 32-bits *)
-(2 ** 31 - 1).isPowerOfTwo = false
+(2 ** 30).isPowerOfTwo = true (* this is only reliable for numbers that can be represented in 32-bits *)
+(2 ** 30 - 1).isPowerOfTwo = false
 127.asLargerPowerOfTwo = 128 (* next power of two that is not less than the receiver *)
 [1, 2, 4, 8, 16, 32, 64, 128, 256].collect { :each | (each + 1).asLargerPowerOfTwo } = [2, 4, 8, 16, 32, 64, 128, 256, 512]
 129.asSmallerPowerOfTwo = 128 (* next power of two that is not greater than the receiver *)
@@ -443,6 +449,23 @@ Bag().isSequenceable = false
 7n << 23 = 58720256n (* left shift large integer *)
 7n << 71 = 16528282690043758247936n (* left shift large integer *)
 16n >> 3 = 2n (* right shift large integer *)
+2r0.bitCount = 0 (* count number of bits set *)
+2r1.bitCount = 1
+2r101.bitCount = 2
+2r101001000100101.bitCount = 6
+{ -2.bitCount }.ifError { :err | true } (* negative integers have an infinite number of leading ones *)
+2r1111.bitAnd(2r1001) = 2r1001 (* bitwise and *)
+(2 ** 30).bitAnd(2 ** 30 - 1) = 0 (* bitwise and of a power of two and one less is zero *)
+2r1111.bitOr(2r1001) = 2r1111 (* bitwise or *)
+2r1111.bitXor(2r1001) = 2r0110 (* bitwise exclusive or *)
+(1 .. 8).collect { :each | 2r10010110.bitAt(each) } = [0, 1, 1, 0, 1, 0, 0, 1] (* bit at index *)
+32.highBit = 6 (* high bit, the number of bits required to represent an integer *)
+32 = 2r00100000 & { 2r00100000.highBit = 6 } (* high bit *)
+2r00101000.highBit = 6 (* high bit *)
+{ 2r00101000.negated.highBit }.ifError { :err | true } (* high bit is not defined for negative integers *)
+2r00101000.lowBit = 4 (* low bit *)
+2r00101000.negated.lowBit = 4 (* low bit *)
+0.lowBit = 0 & { 0.highBit = 0 } (* the low and high bits of zero are zero *)
 ```
 
 ## Bitset -- collection type
@@ -2223,6 +2246,9 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 36rZZ = 1295 (* the maximum radix is 36, since each places is either a digit (10) or a letter (26) *)
 [2r101011001, 8r531, 10r345, 16r159] = [345, 345, 345, 345]
 { 2r2 }.ifError { :err | true } (* it is an error if the post-radix text includes out of range characters *)
+2r1111111111111111 = (2 ** 16 - 1) (* 16 bits *)
+2r111111111111111111111111 = (2 ** 24 - 1) (* 24 bits *)
+2r11111111111111111111111111111111 = (2 ** 32 - 1) (* 32 bits *)
 ```
 
 ## Syntax -- interval & array syntax
@@ -2277,6 +2303,8 @@ system.isSystem (* system predicate *)
 system.typeDictionary.keys.includes('System') = true
 system.randomFloat < 1 (* system random number generator *)
 system.uniqueId ~= system.uniqueId (* system unique identifier generator *)
+system.highBitPerByteTable.size = 256 (* high bits per byte table *)
+system.highBitPerByteTable.Bag.sortedCounts = [128 -> 8, 64 -> 7, 32 -> 6, 16 -> 5, 8 -> 4, 4 -> 3, 2 -> 2, 1 -> 1, 1 -> 0]
 system.lowBitPerByteTable.size = 255 (* low bits per byte table *)
 system.lowBitPerByteTable.Bag.sortedCounts = [128 -> 1, 64 -> 2, 32 -> 3, 16 -> 4, 8 -> 5, 4 -> 6, 2 -> 7, 1 -> 8]
 ```
