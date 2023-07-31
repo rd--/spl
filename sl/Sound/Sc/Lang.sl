@@ -100,11 +100,11 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 +SmallFloat {
 
 	schedule { :self :aProcedure:/2 |
-		workspace::clock.schedule(self, aProcedure:/2)
+		system::clock.schedule(self, aProcedure:/2)
 	}
 
 	scheduleInjecting { :self :anObject :aProcedure:/2 |
-		workspace::clock.scheduleInjecting(self, anObject, aProcedure:/2)
+		system::clock.scheduleInjecting(self, anObject, aProcedure:/2)
 	}
 
 }
@@ -112,11 +112,11 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 +Procedure {
 
 	schedule { :self:/1 |
-		workspace::clock.schedule(0, self:/1)
+		system::clock.schedule(0, self:/1)
 	}
 
 	scheduleInjecting { :self:/2 :anObject |
-		workspace::clock.scheduleInjecting(0, anObject, self:/2)
+		system::clock.scheduleInjecting(0, anObject, self:/2)
 	}
 
 }
@@ -162,7 +162,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	collectTexture { :self :aProcedure:/1 :delay |
-		workspace::clock.collectTexture(
+		system::clock.collectTexture(
 			self,
 			aProcedure:/1,
 			delay
@@ -989,7 +989,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	overlap { :self:/0 :sustainTime :transitionTime :overlap |
 		| period = (sustainTime + (transitionTime * 2)) / overlap; |
-		workspace::clock.schedule(0) { :currentTime |
+		system::clock.schedule(0) { :currentTime |
 			{
 				self().withOverlapEnvelope(sustainTime, transitionTime)
 			}.playAt(currentTime + 0.5); (* fixed delay... *)
@@ -998,11 +998,11 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	playEvery { :self:/1 :delay |
-		workspace::clock.playEvery(self:/1, delay)
+		system::clock.playEvery(self:/1, delay)
 	}
 
 	recurseEvery { :self:/2 :anObject :delay |
-		workspace::clock.recurseEvery(self:/2, anObject, delay)
+		system::clock.recurseEvery(self:/2, anObject, delay)
 	}
 
 	xfade { :self :sustainTime :transitionTime |

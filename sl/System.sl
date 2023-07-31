@@ -236,6 +236,30 @@ System : [Object] {
 		answer
 	}
 
+	at { :self :key |
+		self.globalDictionary.at(key)
+	}
+
+	atIfAbsent { :self :key :aBlock:/0 |
+		self.globalDictionary.atIfAbsent(key, aBlock:/0)
+	}
+
+	atIfAbsentPut { :self :key :aBlock:/0 |
+		self.globalDictionary.atIfAbsentPut(key, aBlock:/0)
+	}
+
+	atIfPresent { :self :key :aBlock:/1 |
+		self.globalDictionary.atIfPresent(key, aBlock:/1)
+	}
+
+	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
+		self.globalDictionary.atIfPresentIfAbsent(key, ifPresent:/1, ifAbsent:/0)
+	}
+
+	atPut { :self :key :anObject |
+		self.globalDictionary.atPut(key, anObject)
+	}
+
 	bitCountPerByteTable { :self |
 		self.cache.atIfAbsentPut('bitCountPerByteTable') {
 			(0 .. 255).collect { :i |
@@ -335,6 +359,10 @@ System : [Object] {
 		self.typeLookup(typeName).methodDictionary.anySatisfy { :each |
 			each.name = methodName
 		}
+	}
+
+	globalDictionary { :self |
+		<primitive: return _self.globalDictionary;>
 	}
 
 	highBitPerByteTable { :self |
@@ -531,6 +559,8 @@ System : [Object] {
 
 	pseudoSlotNameArray { :self |
 		[
+			'cache',
+			'globalDictionary',
 			'methodDictionary',
 			'traitDictionary',
 			'typeDictionary',

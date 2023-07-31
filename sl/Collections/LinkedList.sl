@@ -1,4 +1,4 @@
-@Link {
+@Link { (* nextLink *)
 
 	asLink { :self |
 		self
@@ -307,6 +307,63 @@ ValueLink : [Object, Link] { | nextLink value |
 
 	ValueLink { :self |
 		newValueLink().initializeSlots(nil, self)
+	}
+
+}
+
+Stack : [Object] { | linkedList |
+
+	errorEmptyStack { :self |
+		'Stack: this stack is empty'.error
+	}
+
+	isEmpty { :self |
+		self.linkedList.isEmpty
+	}
+
+	notEmptyCheck { :self |
+		self.isEmpty.ifTrue {
+			self.errorEmptyStack
+		}
+	}
+
+	pop { :self |
+		self.notEmptyCheck;
+		self.linkedList.removeFirst.element
+	}
+
+	push { :self :anObject |
+		self.linkedList.addFirst(StackLink(anObject));
+		anObject
+	}
+
+	size { :self |
+		self.linkedList.size
+	}
+
+	top { :self |
+		self.notEmptyCheck;
+		self.linkedList.first.element
+	}
+
+}
+
++Void {
+
+	Stack {
+		newStack().initializeSlots(LinkedList())
+	}
+
+}
+
+StackLink : [Object, Link] { | nextLink element |
+
+}
+
++@Object {
+
+	StackLink { :self |
+		newStackLink().initializeSlots(nil, self)
 	}
 
 }

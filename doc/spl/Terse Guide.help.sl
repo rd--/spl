@@ -2020,6 +2020,17 @@ SortedArray().size = 0 (* query size *)
 'hello'.split.SortedArray.Array = 'ehllo'.split
 ```
 
+## Stack - collection type
+```
+Stack().isStack (* empty stack, stack predicate *)
+Stack().isEmpty (* empty stack, empty predicate *)
+Stack().size = 0 (* empty stack, size *)
+| s = Stack(); | s.push(pi); [s.size, s.top, s.size] = [1, pi, 1] (* push element onto stack, inspect top of stack *)
+| s = Stack(); | s.push(pi); [s.size, s.pop, s.size] = [1, pi, 0] (* push element onto stack, inspect top of stack *)
+| s = Stack(); | s.push('x'); s.push('y'); [s.size, s.pop, s.size, s.pop, s.size] = [2, 'y', 1, 'x', 0] (* push two elements, pop two elements *)
+{ | s = Stack(); | s.pop }.ifError { :err | true } (* cannot pop from empty stack *)
+```
+
 ## String -- text type
 ```
 'quoted string'.isString (* quoted string *)
@@ -2334,6 +2345,14 @@ system.categorizeAll('Collections/Abstract', ['ArrayedCollection', 'Collection',
 'Collections/Abstract'.categoryNameParts = ['Collections', 'Abstract']
 system.categoryOf('at') = 'accessing'
 system.categoryOf('notInCategorySystem') = '*Uncategorized*'
+```
+
+## System -- globalDictionary
+```
+system.globalDictionary.isDictionary (* the system global dicitionary is a dictionary *)
+system.globalDictionary.isRecord (* specifically, it is a record *)
+system::undefined = nil (* system implements the indexable trait *)
+system::TwoPi := 2 * pi; system::TwoPi / 2 = pi (* declare and then access a global variable *)
 ```
 
 ## System -- methodDictionary

@@ -345,12 +345,12 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton titleText inMove x y x0 y0 subject eventListeners |
 
 	bringToFront { :self |
-		self.zIndex := workspace::smallKansas.zIndices.max + 1
+		self.zIndex := system::smallKansas.zIndices.max + 1
 	}
 
 	close { :self |
 		self.dispatchEvent(Event('close'));
-		workspace::smallKansas.removeFrame(self)
+		system::smallKansas.removeFrame(self)
 	}
 
 	colour { :self :aColour |
@@ -411,16 +411,16 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 	menuItems { :self |
 		[
 			MenuItem('Help', nil) { :event |
-				workspace::smallKansas.helpFor(self.subject.name, event)
+				system::smallKansas.helpFor(self.subject.name, event)
 			},
 			MenuItem('Colour Chooser', nil) { :event |
-				workspace::smallKansas.ColourChooser(self, event)
+				system::smallKansas.ColourChooser(self, event)
 			},
 			MenuItem('Font Menu', nil) { :event |
-				workspace::smallKansas.fontMenuOn(self, true, event)
+				system::smallKansas.fontMenuOn(self, true, event)
 			},
 			MenuItem('Font Size Menu', nil) { :event |
-				workspace::smallKansas.fontSizeMenuOn(self, true, event)
+				system::smallKansas.fontSizeMenuOn(self, true, event)
 			}
 		]
 	}
@@ -460,7 +460,7 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 			self.close
 		};
 		self.menuButton.addEventListener('click') { :event |
-			workspace::smallKansas.menu('Frame Menu', self.subject.frameMenuItems ++ self.menuItems, true, event)
+			system::smallKansas.menu('Frame Menu', self.subject.frameMenuItems ++ self.menuItems, true, event)
 		};
 		self.titlePane.addEventListener('contextmenu') { :event |
 			(* ... *)
@@ -741,7 +741,7 @@ Inspector : [Object, View] { | inspectorPane inspectorList |
 	}
 
 	inspect { :self |
-		workspace::smallKansas.inspectorOn(self, nil)
+		system::smallKansas.inspectorOn(self, nil)
 	}
 
 }
@@ -1461,7 +1461,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				self.ProgramOracle(event)
 			},
 			MenuItem('ScSynth Reset', nil) { :event |
-				workspace::clock.clear;
+				system::clock.clear;
 				system.defaultScSynth.reset
 			},
 			MenuItem('ScSynth Status', nil) { :event |
@@ -1957,19 +1957,19 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 				)
 			},
 			MenuItem('Browse It', 'b') { :event |
-				workspace::smallKansas.browserOn([self.currentWord], event)
+				system::smallKansas.browserOn([self.currentWord], event)
 			},
 			MenuItem('Do It', 'd') { :event |
 				self.currentText.evaluate
 			},
 			MenuItem('Help For It', 'h') { :event |
-				workspace::smallKansas.helpFor(self.currentWord.asMethodName, event)
+				system::smallKansas.helpFor(self.currentWord.asMethodName, event)
 			},
 			MenuItem('Implementors Of It', 'm') { :event |
-				workspace::smallKansas.implementorsOf(self.currentWord.asMethodName, event)
+				system::smallKansas.implementorsOf(self.currentWord.asMethodName, event)
 			},
 			MenuItem('Inspect It', 'i') { :event |
-				workspace::smallKansas.inspectorOn(self.currentWord.evaluate, event)
+				system::smallKansas.inspectorOn(self.currentWord.evaluate, event)
 			},
 			MenuItem('Play It', 'Enter') { :event |
 				('{ ' ++ self.currentText ++ ' }.play').evaluate
@@ -1978,10 +1978,10 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 				self.insertText(' ' ++ self.currentText.evaluate.asString)
 			},
 			MenuItem('References To It', nil) { :event |
-				workspace::smallKansas.referencesTo(self.currentWord.asMethodName, event)
+				system::smallKansas.referencesTo(self.currentWord.asMethodName, event)
 			},
 			MenuItem('Reset Synthesiser', '.') { :event |
-				workspace::clock.clear;
+				system::clock.clear;
 				system.defaultScSynth.reset
 			}
 		] ++ self.clientKeyBindings.Array
@@ -2031,7 +2031,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 	}
 
 	textEditorMenu { :self :event |
-		workspace::smallKansas.menu(
+		system::smallKansas.menu(
 			'Text Editor Menu',
 			self.keyBindings,
 			true,

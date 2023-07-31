@@ -117,8 +117,8 @@ export class Type {
 
 const preinstalledTypes = ['Array', 'SmallFloat', 'String', 'Void']; // required if methods are added before type definition
 
-type Transript = unknown;
 type LibraryItem = unknown;
+type Transcript = unknown;
 
 export class System {
 	methodDictionary: MethodDictionary;
@@ -127,9 +127,10 @@ export class System {
 	categoryDictionary: Map<CategoryName, Set<string>>
 	nextUniqueId: number;
 	window: Window;
-	library: Map<string, LibraryItem>;
+	library: Record<string, LibraryItem>;
 	transcript: Transcript;
-	cache: Map<string, unknown>;
+	cache: Record<string, unknown>;
+	globalDictionary: Record<string, unknown>;
 	constructor() {
 		this.methodDictionary = new Map();
 		this.traitDictionary = new Map();
@@ -138,9 +139,10 @@ export class System {
 		this.categoryDictionary = new Map();
 		this.nextUniqueId = 1;
 		this.window = window;
-		this.library = new Map();
+		this.library = Object.create(null);
 		this.transcript = null;
-		this.cache = new Map();
+		this.cache = Object.create(null);
+		this.globalDictionary = Object.create(null);
 	}
 }
 
