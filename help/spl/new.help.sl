@@ -4,3 +4,7 @@
 
 	[].species = Array:/1
 	[].species.new(3) = [nil, nil, nil]
+
+* * *
+
+See also: ofSize, species

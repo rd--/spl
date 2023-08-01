@@ -1,6 +1,9 @@
 import { PriorityQueue } from '../lib/flatqueue/PriorityQueue.js'
 export { PriorityQueue } from '../lib/flatqueue/PriorityQueue.js'
 
+import { MersenneTwister } from '../lib/mersenne-twister/src/index.ts'
+export { MersenneTwister } from '../lib/mersenne-twister/src/index.ts'
+
 import { throwError } from '../lib/jssc3/ts/kernel/error.ts'
 
 import { isOperatorName, operatorMethodName } from './operator.ts'
@@ -39,8 +42,9 @@ function objectType(anObject: SlObject): TypeName {
 		    (anObject instanceof Float64Array ? 'Float64Array' :
 		     (anObject instanceof Promise ? 'Promise' :
 		      (anObject instanceof PriorityQueue ? 'PriorityQueue' :
-		       (anObject._type ||
-		        (isRecord(anObject) ? 'Record' : anObject.constructor.name)))))))));
+		       (anObject instanceof MersenneTwister ? 'MersenneTwister' :
+		        (anObject._type ||
+		         (isRecord(anObject) ? 'Record' : anObject.constructor.name))))))))));
 }
 
 export function typeOf(anObject: unknown): TypeName {

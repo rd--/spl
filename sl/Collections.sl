@@ -1969,7 +1969,7 @@
 
 }
 
-Array : [Object, Collection, SequenceableCollection, ArrayedCollection, OrderedCollection] {
+Array : [Object, Json, Collection, SequenceableCollection, ArrayedCollection, OrderedCollection] {
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
 		self.collect { :each |
@@ -2034,10 +2034,6 @@ Array : [Object, Collection, SequenceableCollection, ArrayedCollection, OrderedC
 
 	joinSeparatedBy { :self :aString |
 		<primitive: return _self.join(_aString);>
-	}
-
-	json { :self |
-		<primitive: return JSON.stringify(_self);>
 	}
 
 	printString { :self :toString:/1 |
@@ -3159,7 +3155,7 @@ SortedArray : [Object, Collection] { | contents sortBlock |
 
 }
 
-Record : [Object, Collection, Dictionary] {
+Record : [Object, Json, Collection, Dictionary] {
 
 	at { :self :aString |
 		<primitive:
@@ -3183,14 +3179,6 @@ Record : [Object, Collection, Dictionary] {
 
 	includesKey { :self :aKey |
 		<primitive: return Object.hasOwn(_self, _aKey);>
-	}
-
-	json { :self |
-		<primitive: return JSON.stringify(_self);>
-	}
-
-	json { :self :replacer :space |
-		<primitive: return JSON.stringify(_self, _replacer, _space);>
 	}
 
 	keys { :self |

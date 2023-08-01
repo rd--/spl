@@ -23,9 +23,7 @@
 			| n = self, bitCount = 0; |
 			{ n = 0 }.whileFalse {
 				bitCount := bitCount + system.bitCountPerByteTable[n.bitAnd(16rFF) + 1];
-				n := n.bitShift(-8);
-				['bitCount', bitCount, n].postLine;
-				(n < 0).ifTrue { '?'.error }
+				n := n.bitShift(-8)
 			};
 			bitCount
 		}
@@ -535,6 +533,18 @@
 
 }
 
+@Json {
+
+	json { :self |
+		<primitive: return JSON.stringify(_self);>
+	}
+
+	json { :self :replacer :space |
+		<primitive: return JSON.stringify(_self, _replacer, _space);>
+	}
+
+}
+
 @Magnitude {
 
 	< { :self :aMagnitude |
@@ -847,6 +857,7 @@
 		(*
 			This may be faster than the provided accessor functions, if they are not inlined.
 			This should not be used in the ordinary case.
+			See also [Slot Access Syntax]
 		*)
 		<primitive: return _self[_index];>
 	}
@@ -987,18 +998,18 @@
 
 }
 
-Boolean : [Object] {
+Boolean : [Object, Json] {
 
 	= { :self :anObject |
 		<primitive: return _self === _anObject;>
 	}
 
-	& { :self :aProcedure |
-		<primitive: return _self && _aProcedure();>
+	& { :self :aProcedure:/0 |
+		<primitive: return _self && _aProcedure_0();>
 	}
 
-	| { :self :aProcedure |
-		<primitive: return _self || _aProcedure();>
+	| { :self :aProcedure:/0 |
+		<primitive: return _self || _aProcedure_0();>
 	}
 
 	&& { :self :anObject |
@@ -1029,8 +1040,8 @@ Boolean : [Object] {
 		self.asInteger
 	}
 
-	if { :self :whenTrue :whenFalse |
-		<primitive: return _self ? _whenTrue() : _whenFalse();>
+	if { :self :whenTrue:/0 :whenFalse:/0 |
+		<primitive: return _self ? _whenTrue_0() : _whenFalse_0();>
 	}
 
 	ifFalse { :self :whenFalse:/0 |
@@ -1043,10 +1054,6 @@ Boolean : [Object] {
 		) {
 			nil
 		}
-	}
-
-	json { :self |
-		<primitive: return JSON.stringify(_self);>
 	}
 
 	not { :self |
@@ -1976,7 +1983,7 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 
 }
 
-SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
+SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 
 	= { :self :aNumber |
 		<primitive: return _self === _aNumber;>
@@ -2263,10 +2270,6 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 		self = 0
 	}
 
-	json { :self |
-		<primitive: return JSON.stringify(_self);>
-	}
-
 	LargeInteger { :self |
 		<primitive: return BigInt(_self);>
 	}
@@ -2425,6 +2428,46 @@ SmallFloat : [Object, Magnitude, Number, Integral, Binary] {
 
 	epsilon {
 		<primitive: return Number.EPSILON;>
+	}
+
+}
+
+MersenneTwister : [Object] {
+
+	randomFloat { :self |
+		<primitive: return _self.genrand_res53();>
+	}
+
+	randomFloat { :self :aNumber |
+		self.randomFloat * aNumber
+	}
+
+	randomFloat { :self :lower :upper |
+		lower + self.randomFloat(upper - lower)
+	}
+
+	randomInteger { :self :anInteger |
+		self.randomFloat(1, anInteger + 1).floor
+	}
+
+	randomInteger { :self :lower :upper |
+		self.randomFloat(lower, upper + 1).floor
+	}
+
+}
+
++SmallFloat {
+
+	MersenneTwister { :self |
+		<primitive: return new sl.MersenneTwister(_self);>
+	}
+
+}
+
++Void {
+
+	MersenneTwister {
+		MersenneTwister(system.unixTimeInMilliseconds)
 	}
 
 }
@@ -2753,7 +2796,7 @@ RegExp : [Object] {
 
 }
 
-String : [Object, Iterable] {
+String : [Object, Json, Iterable] {
 
 	= { :self :anObject |
 		self == anObject
@@ -3001,10 +3044,6 @@ String : [Object, Iterable] {
 
 	isWellFormed { :self |
 		<primitive: return _self.isWellFormed();>
-	}
-
-	json { :self |
-		<primitive: return JSON.stringify(_self);>
 	}
 
 	last { :self |
@@ -3276,7 +3315,7 @@ String : [Object, Iterable] {
 
 }
 
-Nil : [Object] {
+Nil : [Object, Json] { (* UndefinedObject *)
 
 	= { :self :anObject |
 		anObject.isNil
@@ -3300,10 +3339,6 @@ Nil : [Object] {
 
 	isNil { :self |
 		true
-	}
-
-	json { :self |
-		<primitive: return JSON.stringify(_self);>
 	}
 
 	storeString { :self |

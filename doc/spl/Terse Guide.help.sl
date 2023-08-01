@@ -276,8 +276,8 @@ Array(5).fillFromWith([1 .. 5], negated:/1) = [-1 .. -5]
 | a = Array(1); | a.unsafeAtPut(3, 'x') = 'x' & { a.size = 3 } (* unsafe mutation, out of bounds indices extend array *)
 Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(even:/1) = 4
-[nil, true, false, 3.141, 23, 'str'].json = '[null,true,false,3.141,23,"str"]'
-'[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str']
+[nil, true, false, 3.141, 23, 'str'].json = '[null,true,false,3.141,23,"str"]' (* json encodings *)
+'[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str'] (* json parsing *)
 [1, 2, 3].select { :x | x > 1 } = [2, 3] (* select items in collection *)
 [1 .. 9].select { :x | true } = [1 .. 9] (* select everything *)
 [1 .. 9].select { :x | false } = [] (* select nothing *)
@@ -306,9 +306,9 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].indicesOfSubCollection(['']) = [3, 5, 7]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f']]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f', ''].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f'], []]
-[5, 6, 3, -3, 2, 1, 0, 4].minMax = [-3, 6]
-[2834.83, -293482.28, 99283, 23, 959323].minMax = [-293482.28, 959323]
-['x'].detect { :each | each.isString } = 'x' (* detect element in collection *)
+[5, 6, 3, -3, 2, 1, 0, 4].minMax = [-3, 6] (* integer minMax *)
+[2834.83, -293482.28, 99283, 23, 959323].minMax = [-293482.28, 959323] (* float minMax *)
+'fgaguzst'.characterArray.minMax = ['a'.Character, 'z'.Character] (* character minMax *)
 { ['x'].detect { :each | each.isNumber } }.ifError { :err | true } (* if no element is detected, an error is raised *)
 ['x'].detectIfFound { :each | each.isString } { :x | 42 } = 42 (* process detected element before answering *)
 ['x'].detectIfFound { :each | each.isNumber } { :x | 'x' } = nil (* if not found answer nil *)
@@ -369,6 +369,9 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 | c = [1 .. 5]; | c.removeAll; c = [] (* remove all objects from array *)
 | c = [1 .. 5]; | [c.remove(3), c] = [3, [1, 2, 4, 5]] (* remove object from array *)
 | c = [1 .. 5]; | c.removeIfAbsent(9) { true } & { c = [1 .. 5] } (* remove object from array, handle absence *)
+[1, 2, 3].ofSize(4) = [1, 2, 3, nil] (* extend to be of size, new slots are nil *)
+| a = [1, 2, 3]; | a.ofSize(2) = a (* if requested size is smaller, do nothing *)
+| a = [1, 2, 3]; | a.ofSize(2) == a (* if requested size is smaller, answer the array itself *)
 ```
 
 ## Assignment
@@ -575,8 +578,8 @@ false.or { true } = true (* logical or procedure *)
 true && true = true (* && applies value to the rhs *)
 { false | false }.ifError { :err | true } (* | applies the rhs, which must be a procedure *)
 false || true = true (* || applies value to the rhs *)
-[true.json, false.json] = ['true', 'false']
-['true', 'false'].collect(parseJson:/1) = [true, false]
+[true.json, false.json] = ['true', 'false'] (* booleans have json encodings *)
+['true', 'false'].collect(parseJson:/1) = [true, false] (* parse json booleans *)
 true.ifTrue { true }
 false.ifFalse { true }
 (4.factorial > 20).if { 'bigger' } { 'smaller' } = 'bigger'
@@ -1354,6 +1357,7 @@ LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
 1 <=> 3 = -1
 2 <=> 2 = 0
 3 <=> 1 = 1
+3.minMax(1, 5) = 3.min(1).max(5)
 ```
 
 ## Map -- collection type
@@ -1379,6 +1383,7 @@ var c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.re
 (x: 1, y: 2).Map ++ (x: 2, y: 1) = (x: 2, y: 1).Map (* appending a record to a Map answers a Map, biases right *)
 (x: 1, y: 2, z: 3).Map ++ (x: 2, y: 1) = (x: 2, y: 1, z: 3).Map (* append record to Map *)
 (x: 1, y: 2).Map ++ (x: 2, y: 1, z: 3) = (x: 2, y: 1, z: 3).Map (* append record to Map *)
+(x: 1, y: 2).Map.json = '{"x":1,"y":2}' (* maps with string keys are encoded as records *)
 ```
 
 ## Math
@@ -1427,6 +1432,21 @@ Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1)).closeTo(1@0)
 ## Matrix33 -- geometry type
 ```
 Matrix33(1, 1, 1, 1, 0, 0, 0, 1, 0).inverse = Matrix33(0, 1, 0, 0, 0, 1, 1, -1, -1)
+```
+
+## MersenneTwister -- random number generator type
+```
+| m = MersenneTwister(98765); | m.typeOf = 'MersenneTwister'
+| m = MersenneTwister(98765); | m.isMersenneTwister (* mersenne predicate *)
+| m = MersenneTwister(98765); | m.randomFloat = 0.088898599949636 (* random number in [0, 1) *)
+| m = MersenneTwister(98765); | m.randomFloat(10) = 0.88898599949636 (* random number in [0, 10) *)
+| m = MersenneTwister(98765); | m.randomFloat(0, 100) = 8.8898599949636 (* random number in [0, 100) *)
+| m = MersenneTwister(98765); | m.randomInteger(1000) = 89 (* random integer in [1, 1000] *)
+| m = MersenneTwister(98765); | m.randomInteger(1, 10000) = 889 (* random integer in [1, 10000] *)
+| m = MersenneTwister(), r = m.randomFloat; | r >= 0 & { r < 1 } (* seed from system clock *)
+MersenneTwister(123456).randomFloat = 0.12696983303810094 (* test from standard tests *)
+| m = MersenneTwister(), s = Set(); | 729.timesRepeat { s.add(m.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
+| m = MersenneTwister(), s = Set(); | 729.timesRepeat { s.add(m.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
 ```
 
 ## Method
@@ -1665,8 +1685,8 @@ var d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
 var d = Record(); d::x := 1; d::y := 2; d.size = 2
 ['x' -> 1, 'y' -> 2].Record['y'] = 2
 { Record().atPut(1, 1) }.ifError { :err | true }
-(x: 3.141, y: 23).Record.json = '{"x":3.141,"y":23}'
-'{"x":3.141,"y":23}'.parseJson.Map = (x: 3.141, y: 23)
+(x: 3.141, y: 23).json = '{"x":3.141,"y":23}' (* records have a json encoding where values do *)
+'{"x":3.141,"y":23}'.parseJson = (x: 3.141, y: 23) (* parse json record *)
 var d = (x: 1, y: 2), i = 9; d.associationsDo { :each | i := i - each.value } ; i = 6
 var d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
 (x: 23, y: 3.141).isDictionary
@@ -1946,8 +1966,8 @@ var total = 0; 9.timesRepeat { total := total + system.randomFloat }; total < 7
 9.randomInteger.isInteger = true
 9.randomFloat.isInteger = false
 pi.randomFloat.isInteger = false
-[3.141.json, 23.json] = ['3.141', '23']
-['3.141', '23'].collect(parseJson:/1) = [3.141, 23]
+[3.141.json, 23.json] = ['3.141', '23'] (* numbers have json encodings *)
+['3.141', '23'].collect(parseJson:/1) = [3.141, 23] (* parse json numbers *)
 | r | 5.do { :each | r := each }; r = 5
 | r | 0.do { :each | r := each }; r = nil
 1.toDo(0) { :each | 'toDo'.error }; true (* end less than start *)
@@ -2116,8 +2136,8 @@ Stack().size = 0 (* empty stack, size *)
 { 'string'[3] := nil }.ifError { :err | true } (* strings are immutable *)
 '{"x": 3.141, "y": 23}'.parseJson = (x: 3.141, y: 23)
 { '_'.parseJson }.ifError { :err | true }
-'a text string'.json = '"a text string"'
-'"a text string"'.parseJson = 'a text string'
+'a text string'.json = '"a text string"' (* json encoding of string *)
+'"a text string"'.parseJson = 'a text string' (* parse json string *)
 'string'.first = 's'.Character
 'string'.last = 'g'.Character
 | x = ['a', 'bc', 'def']; | x.unlines.lines = x

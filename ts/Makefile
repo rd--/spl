@@ -7,6 +7,9 @@ check-ts:
 spl-repl:
 	rlwrap --always-readline deno run --allow-read --allow-env --allow-net cli.ts --dir=../sl replPerLine --strict
 
+spl-repl-verbose:
+	rlwrap --always-readline deno run --allow-read --allow-env --allow-net cli.ts --dir=../sl replPerLine --strict --verbose
+
 spl-repl-sc:
 	rlwrap --always-readline deno run --allow-read --allow-env cli.ts --dir=../sl replPerLine sc.sl --strict
 
