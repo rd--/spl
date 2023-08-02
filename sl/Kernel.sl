@@ -954,12 +954,6 @@
 		[]
 	}
 
-(*
-	return { :self |
-		<primitive: throw _self;>
-	}
-*)
-
 	slotArray { :self |
 		self.Type.slotNameArray.collect { :each |
 			each -> self.perform(each)
@@ -977,12 +971,6 @@
 	then { :self :aProcedure:/1 |
 		self.aProcedure
 	}
-
-(*
-	throw { :self |
-		<primitive: throw _self;>
-	}
-*)
 
 	Type { :self |
 		system.typeLookup(self.typeOf)
@@ -2520,8 +2508,12 @@ Procedure : [Object] {
 		<primitive:
 		try {
 			return _self();
-		} catch (exc) {
-			return _cull_2(_errorHandler, exc)
+		} catch (caughtValue) {
+			if(caughtValue instanceof Error) {
+				return _cull_2(_errorHandler, caughtValue)
+			} {
+				throw caughtValue;
+			}
 		}
 		>
 	}

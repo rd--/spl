@@ -191,7 +191,7 @@ const asJs: any = {
 	BlockBody(arg, tmp, prm, stm) {
 		let arityCheck = '';
 		if(slOptions.insertArityCheck) {
-			arityCheck = `if(arguments.length !== ${arg.arityOf}) { var err = 'Arity: expected ${arg.arityOf}, ${arg.asJs}'; console.error(err); throw err; }`;
+			arityCheck = `if(arguments.length !== ${arg.arityOf}) { var errorMessage = 'Arity: expected ${arg.arityOf}, ${arg.asJs}'; console.error(errorMessage); throw Error(errorMessage); }`;
 		}
 		return `(function(${arg.asJs}) { ${arityCheck} ${tmp.asJs} ${prm.asJs} ${stm.asJs} })`;
 	},
