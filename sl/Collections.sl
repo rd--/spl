@@ -127,7 +127,7 @@
 			true
 		} {
 			| previousElement = self[startIndex]; |
-			withReturn {
+			valueWithReturn { :return:/1 |
 				(startIndex + 1 .. endIndex).do { :index |
 					| element = self[index]; |
 					aProcedure(previousElement, element).ifFalse {
@@ -243,7 +243,7 @@
 	}
 
 	allSatisfy { :self :aProcedure:/1 |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			self.do { :each |
 				each.aProcedure.ifFalse {
 					false.return
@@ -259,7 +259,7 @@
 
 	anyAs { :self :numberOfElements :aProcedure:/1 |
 		| index = 0, result = numberOfElements.aProcedure; |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			result.fillFromWith(self) { :each |
 				index := index + 1;
 				(index > numberOfElements).if {
@@ -276,7 +276,7 @@
 	}
 
 	anyOne { :self |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			self.do { :each |
 				each.return
 			};
@@ -285,7 +285,7 @@
 	}
 
 	anySatisfy { :self :aProcedure:/1 |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			self.do { :each |
 				each.aProcedure.ifTrue {
 					true.return
@@ -321,7 +321,7 @@
 
 	atRandom { :self |
 		| randomIndex = self.size.atRandom, index = 1; |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			self.do { :each |
 				(index = randomIndex).ifTrue {
 					each.return
@@ -412,7 +412,7 @@
 	}
 
 	detectIfFoundIfNone { :self :aProcedure:/1 :foundProcedure:/1 :exceptionProcedure:/0 |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			self.do { :each |
 				aProcedure(each).ifTrue {
 					foundProcedure(each).return
@@ -556,7 +556,7 @@
 	}
 
 	includesAnyOf { :self :aCollection |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			aCollection.do { :elem |
 				self.includes(elem).ifTrue {
 					true.return
@@ -567,7 +567,7 @@
 	}
 
 	includesAllOf { :self :aCollection |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			aCollection.do { :elem |
 				self.includes(elem).ifFalse {
 					false.return
@@ -645,7 +645,7 @@
 	}
 
 	noneSatisfy { :self :aProcedure:/1 |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			self.do { :each |
 				each.aProcedure.ifTrue {
 					false.return
@@ -1171,7 +1171,7 @@
 	}
 
 	includesIdentity { :self :anObject |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			self.do { :each |
 				(anObject == each).ifTrue {
 					true.return
@@ -1204,7 +1204,7 @@
 	}
 
 	keyAtValueIfAbsent { :self :value :exceptionProcedure:/0 |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			self.associationsDo { :association |
 				(value = association.value).ifTrue {
 					association.key.return
@@ -1399,7 +1399,7 @@
 
 	beginsWith { :self :sequence |
 		| sequenceSize = sequence.size; |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			(self.size < sequenceSize).ifTrue {
 				false.return
 			};
@@ -1536,7 +1536,7 @@
 
 	findBinaryIndexDoIfNone { :self :aBlock:/1 :actionBlock:/1 :exceptionBlock |
 		| low = 1, high = self.size; |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			{ high < low }.whileFalse {
 				| index = high + low // 2, test = aBlock(self[index]); |
 				(test < 0).if {
@@ -1608,7 +1608,7 @@
 		(otherCollection.isSequenceable & {
 			self.size = otherCollection.size
 		}).if {
-			withReturn {
+			valueWithReturn { :return:/1 |
 				self.size.do { :index |
 					(self[index] = otherCollection[index]).ifFalse {
 						false.return
@@ -1645,7 +1645,7 @@
 	}
 
 	indexOfStartingAt { :self :anElement :start |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			start.upToDo(self.size) { :index |
 				(self[index] = anElement).ifTrue {
 					index.return
@@ -1680,7 +1680,7 @@
 			0
 		} {
 			| first = subCollection[1]; |
-			withReturn {
+			valueWithReturn { :return:/1 |
 				start.max(1).upTo(self.size - subCollectionSize + 1).do { :startIndex |
 					(self[startIndex] = first).ifTrue {
 						| index = 2; |
@@ -2387,7 +2387,7 @@ Bag : [Object, Collection] { | contents |
 	= { :self :aBag |
 		aBag.isBag & {
 			self.size = aBag.size & {
-				withReturn {
+				valueWithReturn { :return:/1 |
 					self.contents.associationsDo { :assoc |
 						(aBag.occurrencesOf(assoc.key) = assoc.value).ifFalse {
 							false.return

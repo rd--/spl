@@ -17,7 +17,7 @@ The function _spl-prettier_ can be used to show Ascii procedure and operator nam
 Some of the notations are:
 
 - :=  as ← and :: as ·
-- return as ↑ and withReturn as ↓
+- return as ↑ and valueWithReturn as ↓
 - -> as →
 - ~= as ≠ and == as ≡
 - <= ≤ and >= ≥

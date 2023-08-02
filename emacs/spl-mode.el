@@ -79,6 +79,10 @@
   (spl-clear-clock)
   (spl-reset-scsynth))
 
+(defun spl-insert-non-local-return ()
+  (interactive)
+  (insert "valueWithReturn { :return:/1 |"))
+
 (defvar spl-mode-hook
   nil
   "Hook to run on entering spl-mode.")
@@ -121,8 +125,9 @@
   "Unicode symbols"
   (setq
    prettify-symbols-alist
-   '(("return" . ?↑)
-     ("withReturn" . ?↓)
+   '(("return:/1" . ?↑)
+     ("return" . ?↑)
+     ("valueWithReturn" . ?↓)
      ("->" . ?→)
      (":=" . ?←)
      (":/" . ?⧸)
@@ -172,6 +177,7 @@
   (define-key map (kbd "C-c C-e") 'spl-eval-region)
   (define-key map (kbd "C-c C-k") 'spl-reset-scsynth)
   (define-key map (kbd "C-c C-s") 'spl-stop)
+  (define-key map (kbd "C-c C-r") 'spl-insert-non-local-return)
   map)
 
 (defvar spl-mode-map

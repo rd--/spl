@@ -596,7 +596,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	detectIndex { :self :aBlock:/1 |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			self.size.do { :index |
 				aBlock(self[index]).ifTrue {
 					index.return
@@ -708,7 +708,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		(self.size <= 1).if {
 			true
 		} {
-			withReturn {
+			valueWithReturn { :return:/1 |
 				self.doAdjacentPairs { :a :b |
 					| diff = b - a; |
 					step.ifNil {
@@ -982,7 +982,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	block { :self:/1 |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			self(return:/1)
 		}
 	}

@@ -186,7 +186,7 @@ Rectangle : [Object] { | origin corner |
 	}
 
 	intersectsAny { :self :rectangleList |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			rectangleList.do { :r |
 				self.intersects(r).ifTrue {
 					true.return

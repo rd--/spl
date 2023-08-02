@@ -662,7 +662,7 @@ HTMLSelectElement : [Object, EventTarget, Node, Element, HtmlElement] {
 		aString.isEmpty.if {
 			-1
 		} {
-			withReturn {
+			valueWithReturn { :return:/1 |
 				(0 .. self.length - 1).do { :index |
 					(self.options.item(index).value = aString).ifTrue {
 						index.return

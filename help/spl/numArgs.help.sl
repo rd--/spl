@@ -12,4 +12,4 @@ _numArgs_ is used to implement _cull_.
 
 * * *
 
-See also: cull
+See also: cull, value

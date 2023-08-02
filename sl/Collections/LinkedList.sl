@@ -96,7 +96,7 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 			answer = LinkedList()
 		)|
 		{
-			aLink == nil
+			aLink = nil
 		}.whileFalse {
 			answer.add(aProcedure(aLink.value));
 			aLink := aLink.nextLink
@@ -107,7 +107,7 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 	do { :self :aProcedure:/1 |
 		| aLink = self.firstLink; |
 		{
-			aLink == nil
+			aLink = nil
 		}.whileFalse {
 			aProcedure(aLink.value);
 			aLink := aLink.nextLink
@@ -126,7 +126,7 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 
 	linkAtIfAbsent { :self :index :errorProcedure:/0 |
 		| i = 0; |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			self.linksDo { :link |
 				i := i + 1;
 				(i = index).ifTrue {
@@ -144,7 +144,7 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 	}
 
 	linkOfIfAbsent { :self :anObject :errorProcedure:/0 |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			self.linksDo { :link |
 				(link.value = anObject.value).ifTrue {
 					link.return
@@ -157,7 +157,7 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 	linksDo { :self :aProcedure:/1 |
 		| aLink = self.firstLink; |
 		{
-			aLink == nil
+			aLink = nil
 		}.whileFalse {
 			aProcedure(aLink);
 			aLink := aLink.nextLink
@@ -224,7 +224,7 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 	}
 
 	removeLinkIfAbsent { :self :aLink :aProcedure:/0 |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			(aLink == self.firstLink).if {
 				self.firstLink := aLink.nextLink;
 				(aLink == self.lastLink).ifTrue {
@@ -294,9 +294,9 @@ LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink
 ValueLink : [Object, Link] { | nextLink value |
 
 	= { :self :anObject |
-		anotherObject.isValueLink & {
-			self.value = anotherObject.value & {
-				self.nextLink == anotherObject.nextLink
+		anObject.isValueLink & {
+			self.value = anObject.value & {
+				self.nextLink == anObject.nextLink
 			}
 		}
 	}
@@ -317,23 +317,26 @@ Stack : [Object] { | linkedList |
 		'Stack: this stack is empty'.error
 	}
 
+	ifNotEmpty { :self :aBlock:/0 |
+		self.isEmpty.if {
+			self.errorEmptyStack
+		} {
+			aBlock()
+		}
+	}
+
 	isEmpty { :self |
 		self.linkedList.isEmpty
 	}
 
-	notEmptyCheck { :self |
-		self.isEmpty.ifTrue {
-			self.errorEmptyStack
+	pop { :self |
+		self.ifNotEmpty {
+			self.linkedList.removeFirst.value
 		}
 	}
 
-	pop { :self |
-		self.notEmptyCheck;
-		self.linkedList.removeFirst.element
-	}
-
 	push { :self :anObject |
-		self.linkedList.addFirst(StackLink(anObject));
+		self.linkedList.addFirst(anObject);
 		anObject
 	}
 
@@ -342,8 +345,9 @@ Stack : [Object] { | linkedList |
 	}
 
 	top { :self |
-		self.notEmptyCheck;
-		self.linkedList.first.element
+		self.ifNotEmpty {
+			self.linkedList.first.value
+		}
 	}
 
 }
@@ -352,18 +356,6 @@ Stack : [Object] { | linkedList |
 
 	Stack {
 		newStack().initializeSlots(LinkedList())
-	}
-
-}
-
-StackLink : [Object, Link] { | nextLink element |
-
-}
-
-+@Object {
-
-	StackLink { :self |
-		newStackLink().initializeSlots(nil, self)
 	}
 
 }

@@ -120,7 +120,7 @@ Heap : [Object, Collection] { | array sortBlock indexUpdateBlock |
 	}
 
 	removeIfAbsent { :self :oldObject :aBlock:/0 |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			1.upTo(self.size).do { :i |
 				(self.array[i] = oldObject).ifTrue {
 					self.privateRemoveAt(i).return

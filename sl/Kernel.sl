@@ -288,7 +288,7 @@
 				true
 			} {
 				| selfSqrt = self.sqrt, i = 2; |
-				withReturn {
+				valueWithReturn { :return:/1 |
 					{ i <= selfSqrt }.whileTrue {
 						(self % i = 0).ifTrue {
 							false.return
@@ -343,7 +343,7 @@
 		(self <= 1).if {
 			[].return
 		} {
-			withReturn {
+			valueWithReturn { :return:/1 |
 				| index = 1, prime = 2, k = self, answer = []; |
 				{
 					prime := index.nthPrime;
@@ -467,7 +467,7 @@
 				'sixty', 'seventy', 'eighty', 'ninety'
 			]
 		)|
-		withReturn {
+		valueWithReturn { :return:/1 |
 			| answer |
 			(self = 0).ifTrue {
 				''.return
@@ -869,7 +869,7 @@
 	}
 
 	caseOfOtherwise { :self :aBlockAssociationCollection :otherwise:/1 |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			aBlockAssociationCollection.associationsDo { :assoc |
 				(assoc.key.value = self).ifTrue {
 					assoc.value.value.return
@@ -954,9 +954,11 @@
 		[]
 	}
 
+(*
 	return { :self |
 		<primitive: throw _self;>
 	}
+*)
 
 	slotArray { :self |
 		self.Type.slotNameArray.collect { :each |
@@ -976,9 +978,11 @@
 		self.aProcedure
 	}
 
+(*
 	throw { :self |
 		<primitive: throw _self;>
 	}
+*)
 
 	Type { :self |
 		system.typeLookup(self.typeOf)
@@ -2517,7 +2521,7 @@ Procedure : [Object] {
 		try {
 			return _self();
 		} catch (exc) {
-			return _errorHandler(exc)
+			return _cull_2(_errorHandler, exc)
 		}
 		>
 	}
@@ -2570,20 +2574,6 @@ Procedure : [Object] {
 		}.whileTrue
 	}
 
-	withReturn { :self |
-		<primitive:
-		try {
-			return _self();
-		} catch (ret) {
-			if(ret instanceof Error) {
-				throw(ret);
-			} {
-				return ret;
-			}
-		}
-		>
-	}
-
 	value { :self:/0 |
 		self()
 	}
@@ -2606,6 +2596,23 @@ Procedure : [Object] {
 
 	value { :self:/5 :p1 :p2 :p3 :p4 :p5 |
 		self(p1, p2, p3, p4, p5)
+	}
+
+	valueWithReturn { :self:/1 |
+		<primitive:
+		const returnBlock = function(returnValue) {
+			throw returnValue;
+		};
+		try {
+			return _self_1(returnBlock);
+		} catch (returnedValue) {
+			if(returnedValue instanceof Error) {
+				throw returnedValue;
+			} {
+				return returnedValue;
+			}
+		}
+		>
 	}
 
 	whileFalse { :self:/0 |

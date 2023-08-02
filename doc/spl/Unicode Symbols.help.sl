@@ -3,11 +3,11 @@
 If unicode symbol replacement is enabled, the expression typed as:
 
 ```
-withReturn { pi.return } == pi
+valueWithReturn { :return:/1 | pi.return } == pi
 ```
 
 will display as:
 
 ```
-↓ { π.↑ } ≡ π
+↓ { :↑ | π.↑ } ≡ π
 ```

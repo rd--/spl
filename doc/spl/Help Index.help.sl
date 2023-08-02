@@ -110,6 +110,6 @@
 - unlines - accessing
 - utf8 -- encoding
 - value -- evaluation
+- valueWithReturn -- non-local control flow
 - whileFalse -- conditional evaluation
 - whileTrue -- conditional evaluation
-- withReturn -- non-local control flow

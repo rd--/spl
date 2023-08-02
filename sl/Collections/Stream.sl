@@ -61,7 +61,7 @@
 	}
 
 	nextSatisfy { :self :aBlock:/1 |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			self.do { :each |
 				aBlock(each).ifTrue {
 					each.return
@@ -72,7 +72,7 @@
 	}
 
 	readIntoStartingAtCount { :self :aCollection :startIndex :n |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			0.upTo(n - 1).do { :i |
 				| obj |
 				obj := self.next.ifNil {
@@ -86,7 +86,7 @@
 
 	take { :self :maxNumberOfElements |
 		| answer = []; |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			maxNumberOfElements.timesRepeat {
 				self.atEnd.ifTrue {
 					answer.return
@@ -150,7 +150,7 @@
 	}
 
 	nextMatchAll { :self :aCollection |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			| savedPosition = self.position; |
 			aCollection.do { :each |
 				(self.next = each).ifFalse {
@@ -186,7 +186,7 @@
 	}
 
 	peekFor { :self :anObject |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			self.atEnd.ifTrue {
 				false.return
 			};
@@ -223,7 +223,7 @@
 	}
 
 	skipTo { :self :anObject |
-		withReturn {
+		valueWithReturn { :return:/1 |
 			{
 				self.atEnd
 			}.whileFalse {
