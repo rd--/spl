@@ -1,4 +1,4 @@
-Heap : [Object, Collection] { | array sortBlock indexUpdateBlock |
+Heap : [Object, Iterable, Collection] { | array sortBlock indexUpdateBlock |
 
 	= { :self :anObject |
 		(self == anObject) | {

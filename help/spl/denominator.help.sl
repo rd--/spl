@@ -10,4 +10,4 @@ Answer the denominator of a _Fraction_ or 1 for an _Integral_.
 
 * * *
 
-See also: numerator
+See also: Fraction, numerator

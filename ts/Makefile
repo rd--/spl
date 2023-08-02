@@ -4,20 +4,26 @@ dist:
 check-ts:
 	deno check --config deno.json *.ts
 
+deno=rlwrap --always-readline deno
+cli=$(deno) run --allow-read --allow-env --allow-net --unstable cli.ts --dir=../sl
+
 spl-repl:
-	rlwrap --always-readline deno run --allow-read --allow-env --allow-net cli.ts --dir=../sl replPerLine --strict
+	$(cli) replPerLine --strict
+
+spl-repl-non-strict:
+	$(cli) replPerLine
 
 spl-repl-verbose:
-	rlwrap --always-readline deno run --allow-read --allow-env --allow-net cli.ts --dir=../sl replPerLine --strict --verbose
+	$(cli) replPerLine --strict --verbose
 
 spl-repl-sc:
-	rlwrap --always-readline deno run --allow-read --allow-env cli.ts --dir=../sl replPerLine sc.sl --strict
+	$(cli) replPerLine sc.sl --strict
 
 spl-repl-ui:
-	rlwrap --always-readline deno run --allow-read --allow-env cli.ts --dir=../sl replPerLine sc.sl sk.sl --strict
+	$(cli) replPerLine sc.sl sk.sl --strict
 
 spl-server:
-	deno run --allow-read --allow-env --allow-net --unstable cli.ts --dir=../sl sc udpServer 3010
+	$(cli) sc udpServer 3010
 
 ln-stc:
 	ln -s ~/sw/stsc3 lib/

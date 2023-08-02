@@ -440,7 +440,7 @@ Bag().isSequenceable = false
 ## Benchmarks
 ```
 | r t | t := { r := 26.benchFib }.millisecondsToRun; r = 392835 & { t < 500 }
-| r t | t := { r := 10.benchmark }.millisecondsToRun; r = 1028 & { t < 500 }
+| r t | t := { r := 10.benchmark }.millisecondsToRun; r = 1028 & { t < 500 } (* c.f tinyBenchmarks *)
 ```
 
 ## Binary -- numeric trait
@@ -558,7 +558,8 @@ nil.isNil = true (* test if object is nil *)
 'a'.isLowercase = true (* test if lower case character *)
 false.asBit = 0 (* boolean as bit, false is zero *)
 true.asBit = 1 (* boolean as bit, true is one *)
-true.asInteger > false.asInteger (* boolean as integer, false is zero, true is one *)
+true.asInteger > false.asInteger (* boolean as integer, c.f. asBit *)
+true.asNumber > false.asNumber (* boolean as number, c.f. asBit *)
 true.printString = 'true' (* true print string *)
 true.storeString = 'true' (* true store string *)
 false.printString = 'false' (* false print string *)
@@ -792,6 +793,44 @@ pi.isNumber (* pi constant *)
 ['one', 2, 3.141].isArray (* mixing of types allowed *)
 ```
 
+## Converting -- type conversion
+```
+[true, false].collect(asBit:/1) = [1, 0] (* boolean to bit (integer) *)
+pi.asFloat = pi (* identity *)
+3:4.asFloat = 0.75 (* fraction to small float *)
+23.asFloat = 23.0 (* integral to small float *)
+true.asInteger = 1 (* asBit *)
+'~'.Character.asInteger = 126 (* codePoint *)
+23.asInteger = 23 (* identity *)
+pi.asInteger = 3 (* truncated *)
+'23'.asInteger = 23 (* parseInteger *)
+{ '3.141'.asInteger = 3 }.ifError { true } (* parseInteger, truncated or error *)
+true.asNumber = 1 (* asBit *)
+pi.asNumber = pi (* identity *)
+23.asNumber = 23 (* identity *)
+'3.141'.asNumber = 3.141 (* parseNumber *)
+'23'.asNumber = 23 (* parseNumber *)
+'22:7'.asNumber = 22:7
+pi.asFraction = 311:99 (* asFraction(100) *)
+pi.asFraction(10) = 22:7 (* with maximum denominator *)
+22:7.asFraction = 22:7 (* identity *)
+23.asFraction = 23 (* identity *)
+0.asPoint = (0@0) (* number to point *)
+(0@0).asPoint = (0@0) (* identity *)
+1.asComplex = Complex(1, 0) (* number to complex *)
+1.i = Complex(0, 1) (* number to complex *)
+(2 + 3.i).asComplex = Complex(2, 3) (* identity *)
+126.asCharacter = '~'.Character (* integer to character *)
+'~'.asCharacter = '~'.Character (* integer to character *)
+'~'.Character.asCharacter = '~'.Character (* identity *)
+```
+
+## Converting -- unit conversion
+```
+180.degreesToRadians = pi (* convert degrees to radians *)
+pi.radiansToDegrees = 180 (* convert radians to degrees *)
+```
+
 ## Date -- temporal type
 ```
 Date(system).isDate (* get current date and time *)
@@ -961,7 +1000,7 @@ Fraction(6, -4).reduced = Fraction(-3, 2)
 2 * 1:2 = 1
 23.isFraction = true
 23.numerator = 23
-23.denominator = 1
+23.denominator = 1 (* denominator of integer is one *)
 1:3 + 1:7 = 10:21
 Fraction(3, 1) = 3:1
 -3:2.negated = 3:2
@@ -995,13 +1034,13 @@ pi.roundUpTo(0.1) = 3.2
 1923.roundUpTo(10) = 1930
 pi.roundUpTo(0.005) = 3.145
 pi.negated.roundUpTo(0.01) = -3.14
--3:2.numerator.negative
--3:2.denominator.positive
-4:6.numerator = 2
-4:6.denominator = 3
+-3:2.numerator.negative (* numerator of negative fraction is negative *)
+-3:2.denominator.positive (* denominator of negative fraction is positive *)
+4:6.numerator = 2 (* literal fractions are reduced *)
+4:6.denominator = 3 (* literal fractions are reduced *)
 4:2 = 2
-Fraction(4, 6).numerator = 4
-Fraction(4, 6).denominator = 6
+Fraction(4, 6).numerator = 4 (* Fraction is not initially reduced *)
+Fraction(4, 6).denominator = 6 (* Fraction is not initially reduced *)
 Fraction(4, 6).reduced.numerator = 2
 Fraction(4, 6).reduced.denominator = 3
 3:2.truncated = 1
@@ -1016,7 +1055,7 @@ Fraction(4, 6).reduced.denominator = 3
 -3:2 * -4:3 = 2
 -3:2 * 4:3 = -2
 5:3 + 1:3 = 2
-3:2.asFloat = 1.5
+3:2.asFloat = 1.5 (* fraction as float *)
 0.5 < 2:3 = true
 2:3 > 0.5 = true
 1 < 3:2 = true
@@ -1024,8 +1063,8 @@ Fraction(4, 6).reduced.denominator = 3
 3:4.unicode = '¾'
 2:3.unicode = '⅔'
 | n = unicodeFractions().associations.collect(value:/1); | n = n.sorted
-'4:3'.parseFraction = 4:3
-'4/3'.parseFraction('/') = 4:3
+'4:3'.parseFraction = 4:3 (* parse fraction *)
+'4/3'.parseFraction('/') = 4:3  (* parse fraction given delimiter *)
 | x = Fraction(2 ** 55, 2); | x ~= (x - 1) = false (* fractions of large small floats behave strangely *)
 | x = Fraction(2n ** 55n, 2); | x ~= (x - 1) (* fractions of large large integers behave ordinarily *)
 2:3 ~= 3:4 (* unequal fractions *)
@@ -1553,8 +1592,8 @@ var i = 1; 3.do { :each | i := i + each.squared } ; i = 15
 { :i :j :k | i }.numArgs = 3
 { :i :j :k :l | i }.numArgs = 4
 collect:/2.numArgs = 2 (* method arity *)
-{ { :i | i = nil }.value }.ifError { true } (* too few arguments *)
-{ { :x | 0 - x }.value(3, 4) = -3 }.ifError { true } (* too many arguments *)
+{ { :i | i = nil }.value }.ifError { true } (* too few arguments, c.f. non-strict *)
+{ { :x | 0 - x }.value(3, 4) = -3 }.ifError { true } (* too many arguments, c.f. non-strict *)
 collect:/2.name = 'collect:/2'
 var f = { :x | x * x }; [f(5), f.(5)] = [25, 25]
 var f = { :x | x * x }; var d = (p: f); d::p.value(5) = 25
@@ -1936,6 +1975,7 @@ var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, 
 ## SmallFloat -- numeric type
 ```
 3.141.typeOf = 'SmallFloat'
+3.141.asFloat = 3.141 (* asFloat is identity, c.f. Fraction>>asFloat *)
 0 = -0 = true
 1 = 1 = true
 1 >= 1 = true
@@ -2060,6 +2100,7 @@ Stack().size = 0 (* empty stack, size *)
 ```
 'quoted string'.isString (* quoted string *)
 'string'.isAsciiString = true (* does string contain only ascii characters *)
+'Mačiūnas'.isAsciiString = false (* does string contain only ascii characters *)
 'x' ++ 'y' = 'xy' (* append (catenation) *)
 'x' ++ 1 = 'x1' (* append, right hand side need not be a string *)
 'string'.asciiByteArray = [115, 116, 114, 105, 110, 103].ByteArray (* String to ByteArray of Ascii encoding *)
@@ -2103,8 +2144,9 @@ Stack().size = 0 (* empty stack, size *)
 ''.size = 0 (* the empty String has size zero *)
 'x'.asString = 'x' (* asString at String is identity *)
 'x'.asString.size = 1
-'x'.printString.size = 3
-1.asString = '1'
+'x'.printString.size = 3 (* printString is a quoted string *)
+1.asString = '1' (* integer as string *)
+pi.asString = '3.141592653589793' (* float as string *)
 'ascii'.asciiByteArray = [97, 115, 99, 105, 105].ByteArray
 '€'.utf8ByteArray = [226, 130, 172].ByteArray (* Utf-8 encoding of String as ByteArray *)
 [226, 130, 172].ByteArray.utf8String = '€' (* String from Utf-8 encoded ByteArray *)
@@ -2200,10 +2242,12 @@ var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripti
 'XYZ'.asLowercase = 'xyz'
 'xyz'.asUppercase = 'XYZ'
 'hilaire'.capitalized = 'Hilaire'
-'1.54'.asNumber = 1.54
+'1.54'.asNumber = 1.54 (* parse floating point number *)
+'154'.asNumber = 154 (* parse integral number *)
 'A clear but rather long-winded summary'.contractTo(19) = 'A clear ... summary'
 'string'.Array.sort.joinCharacters = 'ginrst'
 'x' ~= 'x'.Character (* a single element string is not equal to a character *)
+'Mačiūnas'.asAscii = 'Mainas' (* transform to ascii by deleting non-ascii characters *)
 ```
 
 ## Syntax -- array assignment syntax
@@ -2388,13 +2432,13 @@ system.methodDictionary::collect.isDictionary = true
 system.methodDictionary::collect[2].isDictionary = true
 system.methodDictionary::collect[2]::Array.isMethod = true
 system.methodDictionary.includesKey('collect') = true
-system.allMethods.collect { :each | each.signature }.includes('@Collection>>sum:/1') = true
-'@Collection>>sum:/1'.parseMethodSignature = ['@Collection', 'sum:/1']
+system.allMethods.collect { :each | each.signature }.includes('@Iterable>>do:/2') = true
+'@Iterable>>do:/2'.parseMethodSignature = ['@Iterable', 'do:/2']
 '@Collection'.parseQualifiedTraitName = 'Collection'
 system.methodLookupAtType('collect', 2, 'Array').isMethod = true
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Interval') = true
 system.methodSignatures('add').includes('Map>>add:/2') = true
-system.methodLookupAtSignature('@Collection>>sum:/1').isMethod = true
+system.methodLookupAtSignature('@Iterable>>sum:/1').isMethod = true
 system.methodLookupAtType('sum', 1, 'Array').sourceCode = '{ :self |\n\t\tself.reduce(plus:/2)\n\t}'
 system.methodTypes('last:/1').includes('Interval') = true
 system.multipleArityMethodList.includes('randomFloat') = true
@@ -2427,13 +2471,13 @@ system.traitDictionary.includesKey('Collection') = true
 system.traitTypes('Collection').includes('Array') = true
 system.typeTraits('Array').includes('ArrayedCollection') = true
 system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'SequenceableCollection']) = true
-system.methodTraits('sum:/1') = ['Collection']
+system.methodTraits('sum:/1') = ['Iterable']
 system.traitTypes('Object').includes('SmallFloat') = true
 system.traitLookup('Object').methodDictionary.includesKey('respondsTo:/2') = true
 system.traitLookup('Collection').isTrait = true
 system.traitLookup('Collection').name = 'Collection'
-system.traitLookup('Collection').methodDictionary.includesKey('sum:/1') = true
-system.traitLookup('Collection').methodDictionary::sum:/1.isMethod = true
+system.traitLookup('Iterable').methodDictionary.includesKey('do:/2') = true
+system.traitLookup('Iterable').methodDictionary::do:/2.isMethod = true
 system.traitTypes('Collection').includes('Array') = true
 system.traitTypes('Dictionary').includes('Map') = true
 system.traitDictionary['Dictionary'].isTrait = true

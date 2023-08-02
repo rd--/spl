@@ -14,7 +14,7 @@
 
 }
 
-LinkedList : [Object, Collection, SequenceableCollection] { | firstLink lastLink |
+LinkedList : [Object, Iterable, Collection, SequenceableCollection] { | firstLink lastLink |
 
 	add { :self :aLinkOrObject |
 		self.addLast(aLinkOrObject)

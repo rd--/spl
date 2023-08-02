@@ -665,6 +665,10 @@
 		}
 	}
 
+	asNumber { :self |
+		self
+	}
+
 	asStringWithCommas { :self |
 		<primitive: return _self.toLocaleString('en-US');>
 	}
@@ -1020,16 +1024,12 @@ Boolean : [Object, Json] {
 		self.if { 1 } { 0 }
 	}
 
-	asFloat { :self |
-		self.if { 1 } { 0 }
-	}
-
 	asInteger { :self |
-		self.if { 1 } { 0 }
+		self.asBit
 	}
 
 	asNumber { :self |
-		self.asInteger
+		self.asBit
 	}
 
 	if { :self :whenTrue:/0 :whenFalse:/0 |
@@ -1084,12 +1084,20 @@ Character : [Object, Magnitude] { | string codePoint |
 		}
 	}
 
+	asCharacter { :self |
+		self
+	}
+
 	asInteger { :self |
 		self.codePoint
 	}
 
 	asString { :self |
 		self.string
+	}
+
+	isAscii { :self |
+		self.codePoint < 128
 	}
 
 	printString { :self |
@@ -1104,6 +1112,10 @@ Character : [Object, Magnitude] { | string codePoint |
 
 +SmallFloat {
 
+	asCharacter { :self |
+		self.Character
+	}
+
 	Character { :self |
 		<primitive: return _Character_2(String.fromCodePoint(_self), _self);>
 	}
@@ -1111,6 +1123,10 @@ Character : [Object, Magnitude] { | string codePoint |
 }
 
 +String {
+
+	asCharacter { :self |
+		self.Character
+	}
 
 	Character { :self |
 		self.Character(self.codePoint)
@@ -1579,6 +1595,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.numerator / self.denominator
 	}
 
+	asFraction { :self |
+		self
+	}
+
 	copy { :self |
 		Fraction(self.numerator, self.denominator)
 	}
@@ -1593,40 +1613,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	lcm { :self :n |
 		self // self.gcd(n) * n
-	}
-
-	limitDenominatorIter { :self :maxDenominator |
-		(maxDenominator < 1).if {
-			'Fraction>>limitDenominator illegal maxDenominator'.error
-		} {
-			(self.denominator <= maxDenominator).if {
-				self
-			} {
-				|(
-					iter = { :p0 :q0 :p1 :q1 :n :d |
-						|(
-							a = n // d,
-							q2 = q0 + (a * q1)
-						)|
-						(q2 > maxDenominator).if {
-							[p0, q0, p1, q1, n, d]
-						} {
-							iter(p1, q1, p0 + (a * p1), q2, d, n - (a * d))
-						}
-					},
-					[p0, q0, p1, q1, n, d] = iter(0, 1, 1, 0, self.numerator, self.denominator),
-					k = nil, bound1 = nil, bound2 = nil
-				)|
-				k := (maxDenominator - q0) // q1;
-				bound1 := Fraction(p0 + (k * p1), q0 + (k * q1));
-				bound2 := Fraction(p1, q1);
-				((bound2 - self).abs <= (bound1 - self).abs).if {
-					bound2
-				} {
-					bound1
-				}
-			}
-		}
 	}
 
 	limitDenominator { :self :maxDenominator |
@@ -1781,8 +1767,12 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	asFraction { :self :maxDenominator |
-		| k = 10 ** (maxDenominator.log10.ceiling + 1); |
-		Fraction((self * k).rounded, k).reduced.limitDenominator(maxDenominator)
+		self.isInteger.if {
+			self
+		} {
+			| k = 10 ** (maxDenominator.log10.ceiling + 1); |
+			Fraction((self * k).rounded, k).reduced.limitDenominator(maxDenominator)
+		}
 	}
 
 }
@@ -2113,10 +2103,6 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 		self.truncated
 	}
 
-	asNumber { :self |
-		self
-	}
-
 	atan2 { :self :anObject |
 		<primitive: if(sl.isSmallFloat(_anObject)) { return Math.atan2(_self, _anObject); }>
 		anObject.adaptToNumberAndApply(self, atan2:/2)
@@ -2399,7 +2385,11 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 	}
 
 	asNumber { :self |
-		self.parseNumber
+		self.includes(':'.Character).if {
+			self.parseFraction
+		} {
+			self.parseNumber
+		}
 	}
 
 	parseInteger { :self :radix |
@@ -2789,8 +2779,268 @@ RegExp : [Object] {
 
 @Iterable {
 
+	allSatisfy { :self :aProcedure:/1 |
+		valueWithReturn { :return:/1 |
+			self.do { :each |
+				each.aProcedure.ifFalse {
+					false.return
+				}
+			};
+			true
+		}
+	}
+
+	anyOne { :self |
+		valueWithReturn { :return:/1 |
+			self.do { :each |
+				each.return
+			};
+			'Iterable>>anyOne: empty iterable'.error
+		}
+	}
+
+	anySatisfy { :self :aProcedure:/1 |
+		valueWithReturn { :return:/1 |
+			self.do { :each |
+				each.aProcedure.ifTrue {
+					true.return
+				}
+			};
+			false
+		}
+	}
+
+	contains { :self :aBlock:/1 |
+		self.anySatisfy(aBlock:/1)
+	}
+
+	count { :self :aProcedure:/1 |
+		| answer = 0; |
+		self.do { :each |
+			aProcedure(each).ifTrue {
+				answer := answer + 1
+			}
+		};
+		answer
+	}
+
+	detect { :self :aProcedure:/1 |
+		self.detectIfNone(aProcedure:/1) {
+			error('@Collection>>detect: not found')
+		}
+	}
+
+	detectIfFound { :self :aProcedure:/1 :foundProcedure:/1 |
+		self.detectIfFoundIfNone(aProcedure:/1, foundProcedure:/1) {
+			nil
+		}
+	}
+
+	detectIfFoundIfNone { :self :aProcedure:/1 :foundProcedure:/1 :exceptionProcedure:/0 |
+		valueWithReturn { :return:/1 |
+			self.do { :each |
+				aProcedure(each).ifTrue {
+					foundProcedure(each).return
+				}
+			};
+			exceptionProcedure()
+		}
+	}
+
+	detectIfNone { :self :aProcedure:/1 :whenAbsent:/0 |
+		self.detectIfFoundIfNone(aProcedure:/1, identity:/1, whenAbsent:/0)
+	}
+
+	detectSum { :self :aBlock:/1 |
+		| sum = 0; |
+		self.do { :each |
+			sum := aBlock(each) + sum
+		};
+		sum
+	}
+
+	detectMax { :self :aProcedure:/1 |
+		| maxElement maxValue |
+		self.do { :each |
+			maxValue.ifNil {
+				maxElement := each;
+				maxValue := aProcedure(each)
+			} {
+				| nextValue = aProcedure(each); |
+				(nextValue > maxValue).ifTrue {
+					maxElement := each;
+					maxValue := nextValue
+				}
+			}
+		};
+		maxElement
+	}
+
+	detectMin { :self :aProcedure:/1 |
+		| minElement minValue |
+		self.do { :each |
+			minValue.ifNil {
+				minElement := each;
+				minValue := aProcedure(each)
+			} {
+				| nextValue = aProcedure(each); |
+				(nextValue < minValue).ifTrue {
+					minElement := each;
+					minValue := nextValue
+				}
+			}
+		};
+		minElement
+	}
+
 	do { :self :aBlock:/1 |
 		self.subclassResponsibility('Iterable>>do')
+	}
+
+	doSeparatedBy { :self :elementBlock:/1 :separatorBlock:/0 |
+		| beforeFirst = true; |
+		self.do { :each |
+			beforeFirst.if {
+				beforeFirst := false
+			} {
+				separatorBlock()
+			};
+			elementBlock(each)
+		}
+	}
+
+	doWithout { :self :aBlock:/1 :anItem |
+		self.do { :each |
+			(anItem = each).ifFalse {
+				aBlock(each)
+			}
+		}
+	}
+
+	fold { :self :aBlock:/2 |
+		self.reduce(aBlock:/2)
+	}
+
+	includes { :self :anObject |
+		self.anySatisfy { :each |
+			each = anObject
+		}
+	}
+
+	includesAnyOf { :self :aCollection |
+		valueWithReturn { :return:/1 |
+			aCollection.do { :elem |
+				self.includes(elem).ifTrue {
+					true.return
+				}
+			};
+			false
+		}
+	}
+
+	includesAllOf { :self :aCollection |
+		valueWithReturn { :return:/1 |
+			aCollection.do { :elem |
+				self.includes(elem).ifFalse {
+					false.return
+				}
+			};
+			true
+		}
+	}
+
+	injectInto { :self :initialValue :aProcedure:/2 |
+		| nextValue = initialValue; |
+		self.do { :each |
+			nextValue := aProcedure(nextValue, each)
+		};
+		nextValue
+	}
+
+	max { :self |
+		self.injectInto(self.anyOne) { :answer :each |
+			answer.max(each)
+		}
+	}
+
+	min { :self |
+		self.injectInto(self.anyOne) { :answer :each |
+			answer.min(each)
+		}
+	}
+
+	minMax { :self |
+		| min = self.anyOne, max = min; |
+		self.do { :each |
+			min := min.min(each);
+			max := max.max(each)
+		};
+		[min, max]
+	}
+
+	noneSatisfy { :self :aProcedure:/1 |
+		valueWithReturn { :return:/1 |
+			self.do { :each |
+				each.aProcedure.ifTrue {
+					false.return
+				}
+			};
+			true
+		}
+	}
+
+	occurrencesOf { :self :anObject |
+		| tally = 0; |
+		self.do { :each |
+			(anObject = each).ifTrue {
+				tally := tally + 1
+			}
+		};
+		tally
+	}
+
+	product { :self |
+		self.reduce(times:/2)
+	}
+
+	range { :self |
+		self.max - self.min
+	}
+
+	reduce { :self :aProcedure:/2 |
+		| first = true, nextValue = nil; |
+		self.do { :each |
+			first.if {
+				nextValue := each;
+				first := false
+			} {
+				nextValue := aProcedure(nextValue, each)
+			}
+		};
+		first.ifTrue {
+			error('Collection>>reduce: empty collection')
+		};
+		nextValue
+	}
+
+	selectThenDo { :self :selectBlock:/1 :doBlock:/1 |
+		self.do { :each |
+			selectBlock(each).ifTrue {
+				doBlock(each)
+			}
+		}
+	}
+
+	size { :self |
+		| tally = 0; |
+		self.do { :each |
+			tally := tally + 1
+		};
+		tally
+	}
+
+	sum { :self |
+		self.reduce(plus:/2)
 	}
 
 }
@@ -2840,6 +3090,10 @@ String : [Object, Json, Iterable] {
 		} {
 			'String>>asciiValue: not single character'.error
 		}
+	}
+
+	asAscii { :self |
+		self.characterArray.select(isAscii:/1).joinCharacters
 	}
 
 	asLowercase { :self |
@@ -2973,6 +3227,10 @@ String : [Object, Json, Iterable] {
 
 	first { :self |
 		self[1]
+	}
+
+	includes { :self :aCharacter |
+		self.characterArray.includes(aCharacter)
 	}
 
 	indices { :self |

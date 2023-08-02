@@ -1,4 +1,4 @@
-Bitset : [Object, Collection] { | bytes tally |
+Bitset : [Object, Iterable, Collection] { | bytes tally |
 
 	= { :self :anObject |
 		anObject.isBitset & {

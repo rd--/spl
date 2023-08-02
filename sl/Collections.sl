@@ -242,17 +242,6 @@
 		newObject
 	}
 
-	allSatisfy { :self :aProcedure:/1 |
-		valueWithReturn { :return:/1 |
-			self.do { :each |
-				each.aProcedure.ifFalse {
-					false.return
-				}
-			};
-			true
-		}
-	}
-
 	any { :self :numberOfElements |
 		self.anyAs(numberOfElements, self.species)
 	}
@@ -272,26 +261,6 @@
 				'@Collection>>any: Not enough elements in this collection'.error
 			};
 			result
-		}
-	}
-
-	anyOne { :self |
-		valueWithReturn { :return:/1 |
-			self.do { :each |
-				each.return
-			};
-			self.errorEmptyCollection
-		}
-	}
-
-	anySatisfy { :self :aProcedure:/1 |
-		valueWithReturn { :return:/1 |
-			self.do { :each |
-				each.aProcedure.ifTrue {
-					true.return
-				}
-			};
-			false
 		}
 	}
 
@@ -363,10 +332,6 @@
 		answer
 	}
 
-	contains { :self :aBlock:/1 |
-		self.anySatisfy(aBlock:/1)
-	}
-
 	contents { :self |
 		self
 	}
@@ -389,112 +354,9 @@
 		}
 	}
 
-	count { :self :aProcedure:/1 |
-		| answer = 0; |
-		self.do { :each |
-			aProcedure(each).ifTrue {
-				answer := answer + 1
-			}
-		};
-		answer
-	}
-
-	detect { :self :aProcedure:/1 |
-		self.detectIfNone(aProcedure:/1) {
-			error('@Collection>>detect: not found')
-		}
-	}
-
-	detectIfFound { :self :aProcedure:/1 :foundProcedure:/1 |
-		self.detectIfFoundIfNone(aProcedure:/1, foundProcedure:/1) {
-			nil
-		}
-	}
-
-	detectIfFoundIfNone { :self :aProcedure:/1 :foundProcedure:/1 :exceptionProcedure:/0 |
-		valueWithReturn { :return:/1 |
-			self.do { :each |
-				aProcedure(each).ifTrue {
-					foundProcedure(each).return
-				}
-			};
-			exceptionProcedure()
-		}
-	}
-
-	detectIfNone { :self :aProcedure:/1 :whenAbsent:/0 |
-		self.detectIfFoundIfNone(aProcedure:/1, identity:/1, whenAbsent:/0)
-	}
-
-	detectSum { :self :aBlock:/1 |
-		| sum = 0; |
-		self.do { :each |
-			sum := aBlock(each) + sum
-		};
-		sum
-	}
-
-	detectMax { :self :aProcedure:/1 |
-		| maxElement maxValue |
-		self.do { :each |
-			maxValue.ifNil {
-				maxElement := each;
-				maxValue := aProcedure(each)
-			} {
-				| nextValue = aProcedure(each); |
-				(nextValue > maxValue).ifTrue {
-					maxElement := each;
-					maxValue := nextValue
-				}
-			}
-		};
-		maxElement
-	}
-
-	detectMin { :self :aProcedure:/1 |
-		| minElement minValue |
-		self.do { :each |
-			minValue.ifNil {
-				minElement := each;
-				minValue := aProcedure(each)
-			} {
-				| nextValue = aProcedure(each); |
-				(nextValue < minValue).ifTrue {
-					minElement := each;
-					minValue := nextValue
-				}
-			}
-		};
-		minElement
-	}
-
 	difference { :self :aCollection |
 		self.reject { :each |
 			aCollection.includes(each)
-		}
-	}
-
-	do { :self :aProcedure |
-		self.subclassResponsibility('Collection>>do')
-	}
-
-	doSeparatedBy { :self :elementBlock:/1 :separatorBlock:/0 |
-		| beforeFirst = true; |
-		self.do { :each |
-			beforeFirst.if {
-				beforeFirst := false
-			} {
-				separatorBlock()
-			};
-			elementBlock(each)
-		}
-	}
-
-	doWithout { :self :aBlock:/1 :anItem |
-		self.do { :each |
-			(anItem = each).ifFalse {
-				aBlock(each)
-			}
 		}
 	}
 
@@ -516,10 +378,6 @@
 		aCollection.do { :each |
 			self.add(aProcedure(each))
 		}
-	}
-
-	fold { :self :aBlock:/2 |
-		self.reduce(aBlock:/2)
 	}
 
 	groupBy { :self :keyBlock:/1 |
@@ -547,42 +405,6 @@
 
 	indices { :self |
 		nil
-	}
-
-	includes { :self :anObject |
-		self.anySatisfy { :each |
-			each = anObject
-		}
-	}
-
-	includesAnyOf { :self :aCollection |
-		valueWithReturn { :return:/1 |
-			aCollection.do { :elem |
-				self.includes(elem).ifTrue {
-					true.return
-				}
-			};
-			false
-		}
-	}
-
-	includesAllOf { :self :aCollection |
-		valueWithReturn { :return:/1 |
-			aCollection.do { :elem |
-				self.includes(elem).ifFalse {
-					false.return
-				}
-			};
-			true
-		}
-	}
-
-	injectInto { :self :initialValue :aProcedure:/2 |
-		| nextValue = initialValue; |
-		self.do { :each |
-			nextValue := aProcedure(nextValue, each)
-		};
-		nextValue
 	}
 
 	intersection { :self :aCollection |
@@ -619,54 +441,12 @@
 		false
 	}
 
-	max { :self |
-		self.injectInto(self.anyOne) { :answer :each |
-			answer.max(each)
-		}
-	}
-
 	mean { :self |
 		self.sum / self.size
 	}
 
-	min { :self |
-		self.injectInto(self.anyOne) { :answer :each |
-			answer.min(each)
-		}
-	}
-
-	minMax { :self |
-		| min = self.anyOne, max = min; |
-		self.do { :each |
-			min := min.min(each);
-			max := max.max(each)
-		};
-		[min, max]
-	}
-
-	noneSatisfy { :self :aProcedure:/1 |
-		valueWithReturn { :return:/1 |
-			self.do { :each |
-				each.aProcedure.ifTrue {
-					false.return
-				}
-			};
-			true
-		}
-	}
-
 	notEmpty { :self |
 		self.isEmpty.not
-	}
-
-	occurrencesOf { :self :anObject |
-		| tally = 0; |
-		self.do { :each |
-			(anObject = each).ifTrue {
-				tally := tally + 1
-			}
-		};
-		tally
 	}
 
 	ofSize { :self :aNumber |
@@ -676,32 +456,8 @@
 		self
 	}
 
-	product { :self |
-		self.reduce(times:/2)
-	}
-
 	pseudoSlotNameArray { :self |
 		['size']
-	}
-
-	range { :self |
-		self.max - self.min
-	}
-
-	reduce { :self :aProcedure:/2 |
-		| first = true, nextValue = nil; |
-		self.do { :each |
-			first.if {
-				nextValue := each;
-				first := false
-			} {
-				nextValue := aProcedure(nextValue, each)
-			}
-		};
-		first.ifTrue {
-			error('Collection>>reduce: empty collection')
-		};
-		nextValue
 	}
 
 	reject { :self :aProcedure:/1 |
@@ -771,32 +527,12 @@
 		answer
 	}
 
-	selectThenDo { :self :selectBlock:/1 :doBlock:/1 |
-		self.do { :each |
-			selectBlock(each).ifTrue {
-				doBlock(each)
-			}
-		}
-	}
-
-	size { :self |
-		| tally = 0; |
-		self.do { :each |
-			tally := tally + 1
-		};
-		tally
-	}
-
 	sorted { :self |
 		self.Array.sort
 	}
 
 	sorted { :self :sortBlock:/2 |
 		self.Array.sortBy(sortBlock:/2)
-	}
-
-	sum { :self |
-		self.reduce(plus:/2)
 	}
 
 	take { :self :maxNumberOfElements |
@@ -1969,7 +1705,7 @@
 
 }
 
-Array : [Object, Json, Collection, SequenceableCollection, ArrayedCollection, OrderedCollection] {
+Array : [Object, Json, Iterable, Collection, SequenceableCollection, ArrayedCollection, OrderedCollection] {
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
 		self.collect { :each |
@@ -2226,7 +1962,7 @@ Association : [Object] { | key value |
 
 }
 
-ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
+ByteArray : [Object, Iterable, Collection, SequenceableCollection, ArrayedCollection] {
 
 	asciiString { :self |
 		<primitive: return new TextDecoder('ascii').decode(_self);>
@@ -2314,7 +2050,7 @@ ByteArray : [Object, Collection, SequenceableCollection, ArrayedCollection] {
 
 }
 
-Float64Array : [Object, Collection, SequenceableCollection, ArrayedCollection] {
+Float64Array : [Object, Iterable, Collection, SequenceableCollection, ArrayedCollection] {
 
 	atPut { :self :index :aFloat |
 		<primitive:
@@ -2382,7 +2118,7 @@ Graph : [Object] { | degree edges vertexLabels edgeLabels |
 
 }
 
-Bag : [Object, Collection] { | contents |
+Bag : [Object, Iterable, Collection] { | contents |
 
 	= { :self :aBag |
 		aBag.isBag & {
@@ -2541,7 +2277,7 @@ Bag : [Object, Collection] { | contents |
 
 }
 
-Map : [Object, Collection, Dictionary] {
+Map : [Object, Iterable, Collection, Dictionary] {
 
 	add { :self :anAssociation |
 		<primitive:
@@ -2640,7 +2376,7 @@ Map : [Object, Collection, Dictionary] {
 
 }
 
-Set : [Object, Collection] {
+Set : [Object, Iterable, Collection] {
 
 	= { :self :anObject |
 		anObject.isSet & {
@@ -2771,7 +2507,7 @@ Set : [Object, Collection] {
 
 }
 
-Interval : [Object, Collection, SequenceableCollection] { | start stop step |
+Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop step |
 
 	= { :self :anInterval |
 		anInterval.isInterval & {
@@ -3051,7 +2787,7 @@ PriorityQueue : [Object] {
 
 }
 
-SortedArray : [Object, Collection] { | contents sortBlock |
+SortedArray : [Object, Iterable, Collection] { | contents sortBlock |
 
 	add { :self :item |
 		self.contents.isEmpty.if {
@@ -3155,7 +2891,7 @@ SortedArray : [Object, Collection] { | contents sortBlock |
 
 }
 
-Record : [Object, Json, Collection, Dictionary] {
+Record : [Object, Json, Iterable, Collection, Dictionary] {
 
 	at { :self :aString |
 		<primitive:
