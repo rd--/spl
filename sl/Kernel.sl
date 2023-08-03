@@ -122,6 +122,10 @@
 		aFraction.aProcedure(Fraction(self, 1))
 	}
 
+	asHexDigit { :self |
+		'0123456789ABCDEF'[self + 1]
+	}
+
 	asLargerPowerOfTwo { :self |
 		self.isPowerOfTwo.if {
 			self

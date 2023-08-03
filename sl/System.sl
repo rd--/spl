@@ -122,7 +122,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 +String {
 
 	LibraryItem { :name :url :mimeType :parser |
-		newLibraryItem().initializeSlots(name, url.Url, mimeType, parser, true, nil)
+		newLibraryItem().initializeSlots(name, url.asUrl, mimeType, parser, true, nil)
 	}
 
 }
@@ -1130,6 +1130,14 @@ URL : [Object] {
 
 +String {
 
+	asFileUrl { :self |
+		('file://' ++ self).asUrl
+	}
+
+	asUrl { :self |
+		self.URL
+	}
+
 	decodeURI { :self |
 		<primitive: return decodeURI(_self);>
 	}
@@ -1146,10 +1154,6 @@ URL : [Object] {
 		<primitive: return encodeURIComponent(_self);>
 	}
 
-	fileUrl { :self |
-		('file://' ++ self).Url
-	}
-
 	revokeObjectURL { :self |
 		<primitive: return URL.revokeObjectURL(_self);>
 	}
@@ -1160,10 +1164,6 @@ URL : [Object] {
 
 	URL { :self :base |
 		<primitive: return new URL(_self, _base);>
-	}
-
-	Url { :self |
-		self.URL
 	}
 
 }

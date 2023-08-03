@@ -823,6 +823,10 @@ pi.asFraction(10) = 22:7 (* with maximum denominator *)
 126.asCharacter = '~'.Character (* integer to character *)
 '~'.asCharacter = '~'.Character (* integer to character *)
 '~'.Character.asCharacter = '~'.Character (* identity *)
+| c = 126.asCharacter; | c.asString = '~' & { c.printString = '$~' } (* character to string *)
+'~'.asString = '~' (* identity *)
+23.asString = '23' (* Object>>printString (integral to string) *)
+15.asHexDigit = 'F'.asCharacter (* integral to hex character *)
 ```
 
 ## Converting -- unit conversion
@@ -1117,6 +1121,7 @@ Heap().isEmpty (* an empty heap is empty *)
 -987654321.printString = '-987654321' (* negative integer print string *)
 4 / 2 = 2 (* integer division with integer result *)
 | n = 2; | 3.timesRepeat { n := n * n }; n = 256 (* iteration *)
+(0 .. 15).collect(asHexDigit:/1).joinCharacters = '0123456789ABCDEF' (* integer to hex character *)
 ```
 
 ## Integral -- prime numbers
@@ -2517,10 +2522,10 @@ system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 
 ## System -- fetch
 ```
-'/home/rohan/sw/spl/README.md'.fileUrl.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from file *)
-'/home/rohan/sw/spl/README'.fileUrl.fetchText.catch { :err | err.postLine }; true (* file does not exist *)
-'file://localhost/home/rohan/sw/spl/README.md'.Url.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from url (local) *)
-'https://rohandrape.net/sw/spl/README.md'.Url.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from url (remote) *)
+'/home/rohan/sw/spl/README.md'.asFileUrl.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from file *)
+'/home/rohan/sw/spl/README'.asFileUrl.fetchText.catch { :err | err.postLine }; true (* file does not exist *)
+'file://localhost/home/rohan/sw/spl/README.md'.asUrl.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from url (local) *)
+'https://rohandrape.net/sw/spl/README.md'.asUrl.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from url (remote) *)
 ```
 
 ## System -- URLSearchParams
