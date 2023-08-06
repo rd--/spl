@@ -704,7 +704,7 @@
 	}
 
 	do { :self :aProcedure:/1 |
-		1.upToDo(self, aProcedure:/1);
+		1.toDo(self, aProcedure:/1);
 		self
 	}
 
@@ -813,8 +813,28 @@
 		self > 0
 	}
 
+	toByDo { :self :stop :step :aBlock:/1 |
+		(step = 0).if {
+			'Number>>toByDo: step must be non-zero'.error
+		} {
+			| nextValue = self; |
+			(step < 0).if{
+				{ stop <= nextValue }.whileTrue {
+					aBlock(nextValue);
+					nextValue := nextValue + step
+				}
+			} {
+				{ stop >= nextValue }.whileTrue {
+					aBlock(nextValue);
+					nextValue := nextValue + step
+				}
+			}
+		};
+		self
+	}
+
 	toDo { :self :end :aProcedure:/1 |
-		self.upToDo(end, aProcedure:/1)
+		self.toByDo(end, 1, aProcedure:/1)
 	}
 
 	truncateTo { :self :aNumber |
@@ -2584,6 +2604,10 @@ Procedure : [Object] {
 		self(p1, p2, p3, p4, p5)
 	}
 
+	valueWithArguments { :self :argumentsArray |
+		<primitive: _self.apply(null, _argumentsArray)>
+	}
+
 	valueWithReturn { :self:/1 |
 		<primitive:
 		const returnBlock = function(returnValue) {
@@ -2781,7 +2805,7 @@ RegExp : [Object] {
 
 }
 
-@Iterable {
+@Iterable { (* do *)
 
 	allSatisfy { :self :aProcedure:/1 |
 		valueWithReturn { :return:/1 |
@@ -3025,6 +3049,14 @@ RegExp : [Object] {
 			error('Collection>>reduce: empty collection')
 		};
 		nextValue
+	}
+
+	rejectThenDo { :self :rejectBlock:/1 :doBlock:/1 |
+		self.do { :each |
+			rejectBlock(each).ifFalse {
+				doBlock(each)
+			}
+		}
 	}
 
 	selectThenDo { :self :selectBlock:/1 :doBlock:/1 |

@@ -298,7 +298,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 5].beginsWithAnyOf([[5], [4], [3], [2]])= false
 [1 .. 5].groupBy(even:/1).keys = [false, true] (* answer a Map grouping elements according to a predicate *)
 [1 .. 5].groupBy(even:/1)[true] = [2, 4]
-| c = Map(); | [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | c.add(q -> p) }; c['elmer'] = 3
+| a = []; | [1, 'x', 2, 'y', 3, 'x'].pairsDo { :p :q | a.add(q -> p) }; a = ['x' -> 1, 'y' -> 2, 'x' -> 3] (* iterate adjacent pairs *)
+| r = (); | [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | r.add(q -> p) }; r::elmer = 3 (* iterate adjacent pairs *)
 [1 .. 9].indexOfSubCollection([3 .. 5]) = 3
 [1 .. 9].indexOfSubCollectionStartingAt([3 .. 5], 9) = 0
 [1 .. 9].indexOfSubCollectionStartingAt([9], 9) = 9
@@ -338,7 +339,6 @@ Array(9).atAllPut('x').last = 'x'
 | a = []; | [1 .. 3].doWithout({ :each | a.add(each) }, 2); a = [1, 3]
 [1 .. 9].selectThenCollect(even:/1) { :each | each * 3 } = [6, 12, 18, 24] (* avoid intermediate collection *)
 [1 .. 9].collectThenSelect(squared:/1) { :each | each > 36 } = [49, 64, 81] (* avoid intermediate collection *)
-| a = []; | [1 .. 9].selectThenDo(even:/1) { :each | a.add(each * 3) }; a = [6, 12, 18, 24] (* avoid intermediate collection *)
 [1, 3 .. 9].union([3 .. 7]) = [1, 3, 4, 5, 6, 7, 9].Set (* set theoretic union *)
 | a = [1 .. 9]; | a.removeAllSuchThat(even:/1); a = [1, 3 .. 9] (* remove elements selected by predicate *)
 | a = [1 .. 9]; | a.removeAllFoundIn([1, 3 .. 9]); a = [2, 4 .. 8] (* remove elements found in a collection *)
@@ -731,6 +731,11 @@ Set().Array = []
 { [].fold { :sum :each | sum + each } }.ifError { true } (* error if the collection is empty *)
 | a = [1 .. 5]; | a.contents = a (* an array is it's contents *)
 ((1 .. 9) / 3).rounded = [0, 1, 1, 1, 2, 2, 2, 3, 3] (* unary math operator at collection *)
+[].collectThenDo { :each | 'error'.error } { :each | 'error'.error }.isEmpty (* neither block is run for empty collections *)
+| n = 0; | [3 .. 7].collectThenDo(squared:/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } (* collect then do *)
+[].ifEmptyIfNotEmptyDo { true } { :aCollection | false } = true (* branch on isEmpty *)
+[1 .. 9].ifEmptyIfNotEmptyDo { false } { :aCollection | aCollection.size = 9 } = true (* branch on isEmpty *)
+[1 .. 9].ifNotEmptyDo { :aCollection | aCollection.size = 9 } = true (* branch on isEmpty *)
 ```
 
 ## Colour -- graphics type
@@ -876,6 +881,12 @@ unicodeFractions().associations.isArray = true
 (x: 1, y: 2) ++ (x: 2, y: 1) = (x: 2, y: 1) (* appending two dictionaries is right-biased *)
 (x: 1, y: 2).anySatisfy(even:/1) (* collection predicates at dictionary consider values not associations *)
 (x: 1, y: 2, z: 3).detect(even:/1) = 2 (* detect value *)
+| n = 0; | (x: 1, y: 2, z: 3).do { :each | n := n + each }; n = 6 (* do iterates over values, not associations *)
+| n = 0; | (x: 1, y: 2, z: 3).valuesDo { :each | n := n + each }; n = 6 (* iterate over values *)
+| a = []; | (x: 1, y: 2, z: 3).keysDo { :each | a.add(each) }; a = ['x', 'y', 'z'] (* iterate over keys *)
+| n = 0; | (x: 1, y: 2, z: 3).associationsDo { :each | n := n + each.value }; n = 6 (* iterate over associations *)
+| n = 0; | (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value | n := n + value }; n = 6 (* iterate over keys and values *)
+(x: 'x', y: '.', z: 'z').associationsSelect { :each | each.key = each.value } = (x: 'x', z: 'z') (* select querying associations *)
 ```
 
 ## Duration -- temporal type
@@ -1279,7 +1290,7 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 0.downTo(1).size = 0
 5.downTo(3) = (5 .. 3)
 3.upOrDownTo(5) = 5.upOrDownTo(3).reversed
-| s = ''; | (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531'
+| s = ''; | (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531' (* do from end *)
 (1 .. 9) + 3 = (4 .. 12) (* plus with a number answers an Interval *)
 (1 .. 9) - 2 = (-1 .. 7) (* minus with a number answers an Interval *)
 3 + (1 .. 9) = [4 .. 12]
@@ -1315,6 +1326,8 @@ Interval(1, 100, 0.5).size = 199
 | n = 9; | { n < 7 }.whileFalse { n := n - 1 }; n = 6 (* while false loop *)
 10.timesRepeat { nil } = 10 (* timesRepeat answers the receiver) *)
 10.do { :index | nil } = 10 (* do answers the receiver *)
+| a = []; | [1 .. 9].rejectThenDo(even:/1) { :each | a.add(each * 3) }; a = [3, 9, 15, 21, 27] (* avoid intermediate collection *)
+| a = []; | [1 .. 9].selectThenDo(even:/1) { :each | a.add(each * 3) }; a = [6, 12, 18, 24] (* avoid intermediate collection *)
 ```
 
 ## LargeInteger -- numeric type
@@ -1543,6 +1556,9 @@ nil.json = 'null' (* nil has a Json representation *)
 -987654.321.asStringWithCommas = '-987,654.321'
 -97.531.asStringWithCommas = '-97.531'
 -951.asStringWithCommas = '-951'
+| i = 1; | 1.toDo(5) { :each | i := i + each.squared } ; i = 56 (* iterate over numbers from start to end *)
+| i = 1; | 1.toByDo(5, 2) { :each | i := i + each.squared } ; i = 36 (* iterate over numbers from start to end by step *)
+| i = 1; | 3.do { :each | i := i + each.squared } ; i = 15 (* iterate over numbers from one to end *)
 ```
 
 ## Object -- kernel trait
@@ -1589,8 +1605,6 @@ var p = PriorityQueue(); p.peekPriority = nil
 typeOf:/1.typeOf = 'Procedure'
 var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5
 var i = 1; { i < 5 }.whileTrue { i := i + 1 }; i = 5
-var i = 1; 1.toDo(3) { :each | i := i + each.squared } ; i = 15
-var i = 1; 3.do { :each | i := i + each.squared } ; i = 15
 { }.numArgs = 0 (* procedure arity *)
 { :x | x }.numArgs = 1
 { :i :j | i }.numArgs = 2
@@ -1734,7 +1748,7 @@ var d = Record(); d::x := 1; d::y := 2; d.size = 2
 { Record().atPut(1, 1) }.ifError { true }
 (x: 3.141, y: 23).json = '{"x":3.141,"y":23}' (* records have a json encoding where values do *)
 '{"x":3.141,"y":23}'.parseJson = (x: 3.141, y: 23) (* parse json record *)
-var d = (x: 1, y: 2), i = 9; d.associationsDo { :each | i := i - each.value } ; i = 6
+var d = (x: 1, y: 2), i = 9; d.associationsDo { :each | i := i - each.value } ; i = 6 (* iterate over associations *)
 var d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
 (x: 23, y: 3.141).isDictionary
 (x: pi)::x = pi
@@ -1753,7 +1767,6 @@ var d = (x: 9); d::x.sqrt = 3
 size (x: 1, y: 2, z: 3) = 3
 var c = (y: 2, z: 3), r = (x: 1); r.addAll(c); r = (x: 1, y: 2, z: 3) (* add all elements of a Dictionary to a Dictionary *)
 var c = (y: 2, z: 3); (x: 1).addAll(c) = c (* answer is argument *)
-(x: 'x', y: '.', z: 'z').associationsSelect { :each | each.key = each.value } = (x: 'x', z: 'z')
 var d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.atDelegateTo(each, 'parent') } = [1, 2, 3]
 var d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.messageSend(each, 'parent', []) } = [1, 2, 3]
 var d = (x: 1, parent: (y: 2, parent: (z: 3))); d.atPutDelegateTo('z', -3, 'parent'); d.atDelegateTo('z', 'parent') = -3
@@ -1860,13 +1873,14 @@ var a = (1 .. 9); a.last = a[9] (* one-indexed *)
 [1, 3, 5, 7, 9].middle = 5 (* middle element of *)
 [1 .. 4].beginsWith([1, 2]) = true (* is prefix of *)
 [1 .. 4].beginsWith([]) = true (* empty prefix *)
-| n = 0, a = [1 .. 4]; | a.permutationsDo { :each | n := n + 1 }; n = 24 & { a = [1 .. 4] } (* permutations do *)
+| n = 0, i = (1 .. 4); | i.permutationsDo { :each | n := n + 1 }; n = 24 (* interval permutations do *)
+| n = 0, a = [1 .. 4]; | a.permutationsDo { :each | n := n + 1 }; n = 24 & { a = [1 .. 4] } (* array permutations do *)
 | a = [1 .. 3].permutations; | a = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]] (* permutations *)
 | i = (4, 7 .. 13), p = i.permutations; | p.size = i.size.factorial & { p.Set.size = p.size }
 | i = (4, 7 .. 13); | i.permutations.allSatisfy { :e | e.sorted.hasEqualElements(i) }
 [1, 9, 2, 8, 3, 7, 4, 6].pairsCollect { :i :j | i + j } = [10, 10, 10, 10]
 var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printString }; s = '10101010'
-var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291'
+var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291' (* do from end *)
 [1, 2, 2, 3, 3, 3, 4, 4, 4, 4].withoutDuplicates = [1, 2, 3, 4] (* copy without duplicates, retain order *)
 ([1, 3 .. 9] ++ [1, 3 .. 9] ++ [2, 4 .. 10] ++ [2, 4 .. 10]).withoutDuplicates = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
 [1 .. 9].hasEqualElements((1 .. 9))
@@ -1880,6 +1894,7 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 [1 .. 9].rotateLeft(3) = ([4 .. 9] ++ [1 .. 3]) (* rotate left *)
 [1 .. 9].rotateRight(3) = ([7 .. 9] ++ [1 .. 6]) (* rotate right *)
 | d = []; | (3 .. 1).withDo((1 .. 3)) { :p :q | d.add(p -> q) } ; d = [3 -> 1, 2 -> 2, 1 -> 3]
+| d = []; | (3 .. 1).reverseWithDo((1 .. 3)) { :p :q | d.add(p -> q) } ; d = [1 -> 3, 2 -> 2, 3 -> 1]
 | d = []; | (3 .. 1).withIndexDo { :each :index | d.add(each -> index) } ; d = [3 -> 1, 2 -> 2, 1 -> 3]
 (9 .. 1).withCollect((1 .. 9)) { :p :q | p * 2 + q } = [19 .. 11]
 (9 .. 1).withIndexCollect { :each :index | each * 2 + index } = [19 .. 11]
@@ -1906,6 +1921,14 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | c = [7, 2, 6, 1]; | c.sort = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } (* sort in place *)
 [7, 2, 6, 1].SortedArray.contents = [1, 2, 6, 7]
 [7, 2, 6, 1].sorted(greaterThan:/2) = [7, 6, 2, 1]
+| n = 0; | [3 .. 7].allButFirstDo { :each | n := n + each }; n = [4 .. 7].sum (* iterate skipping first element *)
+| n = 0; | [3 .. 7].allButLastDo { :each | n := n + each }; n = [3 .. 6].sum (* iterate skipping last element *)
+| a = []; | (1 .. 4).combinationsAtATimeDo(3) { :each | a.add(each.copy) }; a = [[1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]
+| a = []; | (1 .. 5).combinationsAtATimeDo(3) { :each | a.add(each.sum) }; a = [6, 7, 8, 8, 9, 10, 9, 10, 11, 12]
+| a = []; | (1 .. 9).fromToDo(3, 7) { :each | a.add(each) }; a = [3 .. 7]
+| a = []; | [1 / 3, 1 / 4, 1 / 4, 0.9, 1 / 3, 1].groupsDo { :p :q :r | a.add(p.roundTo(q) = r) }; a = [true, true]
+| a = []; | (9 .. 1).keysDo { :index | a.add(index * 2) }; a = [2, 4 .. 19] (* keys are indices *)
+| a = []; | (9 .. 1).keysAndValuesDo { :index :value | a.add(index * 2 + value) }; a = [11 .. 19] (* keys are indices *)
 ```
 
 ## Sequence arithmetic

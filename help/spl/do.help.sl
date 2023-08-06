@@ -10,4 +10,4 @@ Evaluate _aProcedure_ with the integers from one up to _anInteger_.
 
 * * *
 
-See also: collect, timesRepeat
+See also: associationsDo, collect, keysAndValuesDo, keysDo, timesRepeat, valuesDo

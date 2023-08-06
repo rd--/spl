@@ -320,6 +320,10 @@
 		aCollection.fillFromWith(self, aProcedure)
 	}
 
+	collectThenDo { :self :collectBlock:/1 :doBlock:/1 |
+		self.collect(collectBlock:/1).do(doBlock:/1)
+	}
+
 	collectThenSelect { :self :collectBlock:/1 :selectBlock:/1 |
 		(* self.collect(collectBlock:/1).select(selectBlock:/1) *)
 		| answer = self.species.new; |
@@ -420,6 +424,20 @@
 	ifEmpty { :self :aProcedure |
 		self.isEmpty.ifTrue {
 			aProcedure.cull(self)
+		}
+	}
+
+	ifEmptyIfNotEmptyDo { :self :emptyBlock:/0 :notEmptyBlock:/1 |
+		self.isEmpty.if {
+			emptyBlock()
+		} {
+			notEmptyBlock(self)
+		}
+	}
+
+	ifNotEmptyDo { :self :aBlock:/1 |
+		self.isEmpty.ifFalse {
+			aBlock(self)
 		}
 	}
 
@@ -950,6 +968,12 @@
 		}
 	}
 
+	keysDo { :self :aBlock:/1 |
+		self.associationsDo { :association |
+			aBlock(association.key)
+		}
+	}
+
 	keysAndValuesDo { :self :aProcedure:/2 |
 		self.associationsDo { :association |
 			aProcedure(association.key, association.value)
@@ -1056,6 +1080,12 @@
 		self.copyFromTo(1, self.size - n)
 	}
 
+	allButLastDo { :self :aBlock:/1 |
+		1.upTo(self.size - 1).do { :index |
+			aBlock(self[index])
+		}
+	}
+
 	asDigitsAtInDo { :self :anInteger :aCollection :aBlock:/1 |
 		self.do { :each |
 			aCollection[anInteger] := each;
@@ -1160,6 +1190,22 @@
 			answer[index] := aProcedure(self[index])
 		};
 		answer
+	}
+
+	combinationsAtATimeDo { :self :kk :aBlock:/1 |
+		| aCollection = Array(kk); |
+		self.combinationsAtInAfterDo(1, aCollection, 0, aBlock:/1)
+	}
+
+	combinationsAtInAfterDo { :self :j :aCollection :n :aBlock:/1 |
+		(n + 1).upTo(self.size).do { :index |
+			aCollection[j] := self[index];
+			(j = aCollection.size).if {
+				aBlock(aCollection)
+			} {
+				self.combinationsAtInAfterDo(j + 1, aCollection, index, aBlock:/1)
+			}
+		}
 	}
 
 	concatenation { :self |
@@ -1320,6 +1366,12 @@
 		answer
 	}
 
+	fromToDo { :self :start :stop :aBlock:/1 |
+		start.upTo(stop).do { :index |
+			aBlock(self[index])
+		}
+	}
+
 	fromToPut { :self :startIndex :endIndex :anObject |
 		(startIndex > endIndex).if {
 			self
@@ -1340,6 +1392,31 @@
 		anObject
 	}
 
+	groupsDo { :self :aBlock |
+		|numArgs = aBlock.numArgs; |
+		numArgs.caseOfOtherwise([
+			{ 0 } -> { 'SequenceableCollection>>groupsDo: At least one block argument expected'.error },
+			{ 1 } -> { self.do(aBlock) },
+			{ 2 } -> { self.pairsDo(aBlock) }
+		]) {
+			|(
+				argumentArray = Array(numArgs),
+				index = 1,
+				endIndex = self.size - numArgs + 1
+			)|
+			{ index <= endIndex }.whileTrue {
+				argumentArray.replaceFromToWithStartingAt(1, numArgs, self, index);
+				aBlock.valueWithArguments(argumentArray);
+				index := index + numArgs
+			}
+		}
+	}
+
+	grownBy { :self :length |
+		| answer = self.species.ofSize(self.size + length); |
+		answer.replaceFromToWithStartingAt(1, self.size, self, 1)
+	}
+
 	hasEqualElements { :self :otherCollection |
 		(otherCollection.isSequenceable & {
 			self.size = otherCollection.size
@@ -1355,11 +1432,6 @@
 		} {
 			false
 		}
-	}
-
-	grownBy { :self :length |
-		| answer = self.species.ofSize(self.size + length); |
-		answer.replaceFromToWithStartingAt(1, self.size, self, 1)
 	}
 
 	includes { :self :anObject |
@@ -1457,6 +1529,16 @@
 		}
 	}
 
+	keysDo { :self :aBlock:/1 |
+		1.upTo(self.size).do(aBlock:/1)
+	}
+
+	keysAndValuesDo { :self :aBlock:/2 |
+		1.upTo(self.size).do { :index |
+			aBlock(index, self[index])
+		}
+	}
+
 	last { :self |
 		self[self.size]
 	}
@@ -1537,6 +1619,16 @@
 	reverseDo { :self :aProcedure:/1 |
 		self.size.downToDo(1) { :index |
 			aProcedure(self[index])
+		}
+	}
+
+	reverseWithDo { :self :aSequenceableCollection :aBlock:/2 |
+		(self.size ~= aSequenceableCollection.size).if {
+			'reverseWithDo: unequal size'.error
+		} {
+			self.size.downTo(1).do { :index |
+				aBlock(self[index], aSequenceableCollection[index])
+			}
 		}
 	}
 
