@@ -1,8 +1,8 @@
 # includes -- testing
 
-- _includes(aCollection, anObject)_
+- _includes(anIterable, anObject)_
 
-Answer whether anObject is an element of _aCollection_.
+Answer whether _anObject_ is an element of _anIterable_.
 
 * * *
 

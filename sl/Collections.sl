@@ -46,7 +46,7 @@
 
 	copy { :self |
 		| answer = self.species.new; |
-		self.size.do { :index |
+		1.upToDo(self.size) { :index |
 			answer[index] := self[index]
 		};
 		answer
@@ -1040,7 +1040,7 @@
 	}
 
 	allButFirstDo { :self :aBlock:/1 |
-		2.upTo(self.size).do { :index |
+		2.upToDo(self.size) { :index |
 			aBlock(self[index])
 		}
 	}
@@ -1054,7 +1054,7 @@
 	}
 
 	allButLastDo { :self :aBlock:/1 |
-		1.upTo(self.size - 1).do { :index |
+		1.upToDo(self.size - 1) { :index |
 			aBlock(self[index])
 		}
 	}
@@ -1077,7 +1077,7 @@
 
 	atAll { :self :indexArray |
 		| answer = self.species.ofSize(indexArray.size); |
-		1.upTo(indexArray.size).do { :index |
+		1.upToDo(indexArray.size) { :index |
 			answer[index] := self[indexArray[index]]
 		};
 		answer
@@ -1088,7 +1088,7 @@
 		(size > 50).if {
 			self.fromToPut(1, size, anObject)
 		} {
-			size.do { :index |
+			1.upToDo(size) { :index |
 				self[index] := anObject
 			}
 		}
@@ -1142,7 +1142,7 @@
 			(self.size < sequenceSize).ifTrue {
 				false.return
 			};
-			sequenceSize.do { :index |
+			1.upToDo(sequenceSize) { :index |
 				(sequence[index] = self[index]).ifFalse {
 					false.return
 				}
@@ -1171,7 +1171,7 @@
 	}
 
 	combinationsAtInAfterDo { :self :j :aCollection :n :aBlock:/1 |
-		(n + 1).upTo(self.size).do { :index |
+		(n + 1).upToDo(self.size) { :index |
 			aCollection[j] := self[index];
 			(j = aCollection.size).if {
 				aBlock(aCollection)
@@ -1230,7 +1230,7 @@
 	}
 
 	doSeparatedBy { :self :elementBlock:/1 :separatorBlock:/0 |
-		self.size.do { :index |
+		1.upToDo(self.size) { :index |
 			(index = 1).ifFalse {
 				separatorBlock()
 			};
@@ -1247,7 +1247,7 @@
 	}
 
 	doWithout { :self :aBlock:/1 :anItem |
-		self.size.do { :index |
+		1.upToDo(self.size) { :index |
 			(anItem = self[index]).ifFalse {
 				aBlock(self[index])
 			}
@@ -1321,7 +1321,7 @@
 	}
 
 	fisherYatesShuffle { :self |
-		self.size.downTo(2).do { :item |
+		self.size.downToDo(2) { :item |
 			self.swapWith(item, randomInteger(1, item))
 		};
 		self
@@ -1340,7 +1340,7 @@
 	}
 
 	fromToDo { :self :start :stop :aBlock:/1 |
-		start.upTo(stop).do { :index |
+		start.upToDo(stop) { :index |
 			aBlock(self[index])
 		}
 	}
@@ -1395,7 +1395,7 @@
 			self.size = otherCollection.size
 		}).if {
 			valueWithReturn { :return:/1 |
-				self.size.do { :index |
+				1.upToDo(self.size) { :index |
 					(self[index] = otherCollection[index]).ifFalse {
 						false.return
 					}
@@ -1447,7 +1447,7 @@
 		} {
 			| first = subCollection[1]; |
 			valueWithReturn { :return:/1 |
-				start.max(1).upTo(self.size - subCollectionSize + 1).do { :startIndex |
+				start.max(1).upToDo(self.size - subCollectionSize + 1) { :startIndex |
 					(self[startIndex] = first).ifTrue {
 						| index = 2; |
 						{
@@ -1512,7 +1512,7 @@
 		} {
 			| previousElement = self[startIndex]; |
 			valueWithReturn { :return:/1 |
-				(startIndex + 1).upTo(endIndex).do { :index |
+				(startIndex + 1).upToDo(endIndex) { :index |
 					| element = self[index]; |
 					aProcedure(previousElement, element).ifFalse {
 						false.return
@@ -1533,11 +1533,11 @@
 	}
 
 	keysDo { :self :aBlock:/1 |
-		1.upTo(self.size).do(aBlock:/1)
+		1.upToDo(self.size, aBlock:/1)
 	}
 
 	keysAndValuesDo { :self :aBlock:/2 |
-		1.upTo(self.size).do { :index |
+		1.upToDo(self.size) { :index |
 			aBlock(index, self[index])
 		}
 	}
@@ -1562,7 +1562,7 @@
 	}
 
 	pairsDo { :self :aProcedure:/2 |
-		(self.size // 2).do { :index |
+		1.upToDo(self.size // 2) { :index |
 			aProcedure(self[2 * index - 1], self[2 * index])
 		}
 	}
@@ -1596,7 +1596,7 @@
 	}
 
 	replace { :self :aBlock:/1 |
-		1.upTo(self.size).do { :index |
+		1.upToDo(self.size) { :index |
 			self[index] := aBlock(self[index])
 		}
 	}
@@ -1629,7 +1629,7 @@
 		(self.size ~= aSequenceableCollection.size).if {
 			'reverseWithDo: unequal size'.error
 		} {
-			self.size.downTo(1).do { :index |
+			self.size.downToDo(1) { :index |
 				aBlock(self[index], aSequenceableCollection[index])
 			}
 		}
@@ -1935,7 +1935,7 @@ Array : [Object, Json, Iterable, Collection, SequenceableCollection, ArrayedColl
 			answerSize = stop - self + 1,
 			answer = species.ofSize(answerSize)
 		)|
-		answerSize.do { :index |
+		1.upToDo(answerSize) { :index |
 			answer[index] := aProcedure(index + self - 1)
 		};
 		answer
@@ -1955,7 +1955,7 @@ Array : [Object, Json, Iterable, Collection, SequenceableCollection, ArrayedColl
 
 	replicateApplying { :self :anInteger :aProcedure:/1 |
 		| answer = Array(anInteger); |
-		anInteger.do { :index |
+		1.upToDo(anInteger) { :index |
 			answer[index] := aProcedure(self)
 		};
 		answer

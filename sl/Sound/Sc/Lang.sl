@@ -496,6 +496,12 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.asDigits(base, (self.log / base.log + 0.0000000001).asInteger + 1)
 	}
 
+	do { :self :aProcedure:/1 |
+		(* Spl is one-indexed *)
+		1.upToDo(self, aProcedure:/1);
+		self
+	}
+
 }
 
 +@Object {
@@ -898,7 +904,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	wrapExtend { :self :size |
 		| answer = []; |
-		1.upTo(size).do { :index |
+		1.upToDo(size) { :index |
 			answer.add(self.atWrap(index))
 		};
 		answer

@@ -1,8 +1,8 @@
 # injectInto -- enumerating
 
-- _injectInto(aCollection, thisValue, aProcedure:/2)_
+- _injectInto(anIterable, thisValue, aProcedure:/2)_
 
-Accumulate a running value associated with evaluating _aProcedure_ with the current value _thisValue_ and the receiver as arguments.
+Accumulate a running value associated with evaluating _aProcedure_ with the current value _thisValue_ and the sucessive elements of _anIterable_ as arguments.
 
 For instance, to sum the numeric elements of a collection:
 

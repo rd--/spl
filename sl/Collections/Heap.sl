@@ -121,7 +121,7 @@ Heap : [Object, Iterable, Collection] { | array sortBlock indexUpdateBlock |
 
 	removeIfAbsent { :self :oldObject :aBlock:/0 |
 		valueWithReturn { :return:/1 |
-			1.upTo(self.size).do { :i |
+			1.upToDo(self.size) { :i |
 				(self.array[i] = oldObject).ifTrue {
 					self.privateRemoveAt(i).return
 				}
@@ -148,7 +148,7 @@ Heap : [Object, Iterable, Collection] { | array sortBlock indexUpdateBlock |
 
 	select { :self :aBlock:/1 |
 		| newCollection = Heap(); |
-		1.upTo(self.size).do { :index |
+		1.upToDo(self.size) { :index |
 			| element = self.array[index]; |
 			aBlock(element).ifTrue {
 				newCollection.add(element)

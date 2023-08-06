@@ -311,7 +311,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 	}
 
 	setPath { :self :path |
-		1.upTo(path.size).do { :index |
+		1.upToDo(path.size) { :index |
 			self.setColumnValue(index, path[index])
 		};
 		self

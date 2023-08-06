@@ -1,10 +1,10 @@
 # reduce -- enumerating
 
-- _reduce(aCollection, aProcedure:/2)_
+- _reduce(anIterable, aProcedure:/2)_
 
-Apply _aProcedure_ cumulatively to the elements of _aCollection_.
+Apply _aProcedure_ cumulatively to the elements of _anIterable_.
 
-Initially evaluates the block with the first two elements of the receiver,
+Initially evaluates the block with the first two elements of the collecton,
 then with the result of the first evaluation and the next element,
 and so on.
 Answers the result of the final evaluation.

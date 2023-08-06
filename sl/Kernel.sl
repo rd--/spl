@@ -242,7 +242,7 @@
 		self.timesRepeat {
 			| flags = Array(size).atAllPut(true); |
 			count := 0;
-			size.do { :index |
+			1.upToDo(size) { :index |
 				flags[index].ifTrue {
 					| prime = index + 1, k = index + prime; |
 					{ k <= size }.whileTrue {
@@ -745,11 +745,6 @@
 		self * 0.01745329251994329547 (* pi / 180 *)
 	}
 
-	do { :self :aProcedure:/1 |
-		1.upToDo(self, aProcedure:/1);
-		self
-	}
-
 	downToDo { :self :end :aProcedure:/1 |
 		| index = self; |
 		{ index >= end }.whileTrue {
@@ -896,7 +891,8 @@
 		{ index <= end }.whileTrue {
 			aProcedure(index);
 			index := index + 1
-		}
+		};
+		self
 	}
 
 	zero { :self |
@@ -2880,10 +2876,6 @@ RegExp : [Object] {
 		}
 	}
 
-	contains { :self :aBlock:/1 |
-		self.anySatisfy(aBlock:/1)
-	}
-
 	count { :self :aProcedure:/1 |
 		| answer = 0; |
 		self.do { :each |
@@ -2985,10 +2977,6 @@ RegExp : [Object] {
 				aBlock(each)
 			}
 		}
-	}
-
-	fold { :self :aBlock:/2 |
-		self.reduce(aBlock:/2)
 	}
 
 	includes { :self :anObject |
@@ -3588,7 +3576,7 @@ String : [Object, Json, Iterable] {
 
 	utf16Array { :self |
 		| answer = []; |
-		self.countUtf16CodeUnits.do { :index |
+		1.upToDo(self.countUtf16CodeUnits) { :index |
 			answer.add(self.utf16CodePointAt(index))
 		};
 		answer

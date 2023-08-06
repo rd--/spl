@@ -191,11 +191,13 @@ Array([]) = [] (* Array constructor, empty array *)
 | a = [1, 3, 5, 7]; | a.reverse = a (* reverse mutates array in place *)
 | a = [1, 3, 5, 7]; | a.reverse; a = [7, 5, 3, 1] (* array reverse (in place) *)
 [1, 2, 3, 5, 7, 9].sum = 27 (* sum of elements *)
-[1, 2, 3].reduce { :a :b | a + b } = 6 (* reduce by plus is sum *)
+[1, 2, 3, 5, 7, 9].reduce { :a :b | a + b } = 27 (* reduce by plus is sum *)
+[1 .. 4].reduce { :sum :each | sum + each } = 10 (* sum is first argument, element is second *)
 [1, 2, 3, 5, 7, 9].reduce(plus:/2) = 27 (* reduce by plus is sum *)
 [1, 4, 2, 3, 5].reduce(min:/2) = 1 (* reduce by min is min *)
 [1, 4, 2, 3, 5].reduce(max:/2) = 5 (* reduce my max is max *)
 { [].reduce { :a :b | a + b } }.ifError { true } (* cannot reduce empty collection *)
+{ [].reduce { :sum :each | sum + each } }.ifError { true } (* error if the collection is empty *)
 [1].reduce { :a :b | nil } = 1 (* reduce one-element collection *)
 [1, 2, 3, 5, 7, 9].injectInto(0, plus:/2) = 27
 [1, 2, 3, 5, 7, 9].product = 1890
@@ -350,7 +352,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 [1].addFirst(2) = 2 (* answer is argument *)
 | l = []; | l.addLast(1); l.addLast(2); l = [1, 2] (* add item to end of array *)
 [1].addLast(2) = 2 (* answer is argument *)
-| l = []; | 5.do { :each | l.add(each) }; l = [1 .. 5] (* alias for addLast *)
+| l = []; | (1 .. 5).do { :each | l.add(each) }; l = [1 .. 5] (* alias for addLast *)
 | l = [1 .. 9]; | l.removeFirst = 1 & { l.size = 8 } (* remove first object from array *)
 | l = [1 .. 9]; | l.removeLast = 9 & { l.size = 8 } (* remove last object from array *)
 | l = [4, 5]; | l.addAllFirst(1.to(3)); l = [1 .. 5] (* add all elements to start of array *)
@@ -688,10 +690,9 @@ ByteArray(4).hex = '00000000'
 [9, 4, 5, 7, 8, 6].includes(3) = false (* is element in collection *)
 [9, 4, 5, 7, 8, 6].count { :item | item.even } = 3 (* count elements that satisfy predicate *)
 [9, 4, 5, 7, 8, 6].anySatisfy { :item | item.even } = true (* do any elements satisfy predicate *)
-[9, 4, 5, 7, 8, 6].contains { :item | item.even } = true (* another name for anySatisfy *)
-[].anySatisfy { :item | true } = false
+[].anySatisfy { :item | true } = false (* anySatisfy is false for empty collections *)
 [9, 4, 5, 7, 8, 6].allSatisfy { :item | item.even } = false (* do all elements satisfy predicate *)
-[].allSatisfy { :item | false } = true
+[].allSatisfy { :item | false } = true (* allSatisfy is true for empty collections *)
 [9, 4, 5, 7, 8, 6].occurrencesOf(7) = 1 (* count elements that are equal to object *)
 [1, 2, 3, 4, 5].atRandom <= 5 (* random element of collection *)
 [1 .. 9].range = (9 - 1) (* maxima - minima *)
@@ -731,8 +732,6 @@ Set().Array = []
 [2, -3, 4, -35, 4, -11].collect { :each | each.abs } = [2, 3, 4, 35, 4, 11]
 [2, -3, 4, -35, 4, -11].collect(abs:/1) = [2, 3, 4, 35, 4, 11]
 (1 .. 100).injectInto(0) { :sum :each | sum + each } = 5050
-[1 .. 4].fold { :sum :each | sum + each } = 10 (* fold is another name for reduce *)
-{ [].fold { :sum :each | sum + each } }.ifError { true } (* error if the collection is empty *)
 | a = [1 .. 5]; | a.contents = a (* an array is it's contents *)
 ((1 .. 9) / 3).rounded = [0, 1, 1, 1, 2, 2, 2, 3, 3] (* unary math operator at collection *)
 [].collectThenDo { :each | 'error'.error } { :each | 'error'.error }.isEmpty (* neither block is run for empty collections *)
@@ -874,6 +873,8 @@ unicodeFractions().associations.isArray = true
 (x: 1, y: 2).includesAssociation('y' -> 2) (* includes association, testing for equality *)
 (x: 1, y: [2, 3]).includesAssociation('y' -> [2, 3])
 (x: 1, y: 2).includesAssociation('x' -> 2) = false
+| d = (x: 1), a = 'y' -> 2; | d.add(a) = a & { d = (x: 1, y: 2) } (* add association *)
+{ (x: 1).add('y') }.ifError { true } (* only associations may be added *)
 | d = (x: 1, y: 2); | d.addAll(y: 3, z: 4); d = (x: 1, y: 3, z: 4) (* addAll replaces existing entries *)
 | p = (x: 1), q = (y: 2); | p.declareFrom('y', q); [p, q] = [(x: 1, y: 2), ()]
 | p = (x: 1), q = (x: 2); | p.declareFrom('x', q); [p, q] = [(x: 1), (x: 2)]
@@ -1324,9 +1325,9 @@ Interval(1, 100, 0.5).size = 199
 ```
 | n = 0; | 4.timesRepeat { n := n + 1 }; n = 4 (* times repeat loop (int) *)
 | n = 0; | -4.timesRepeat { n := nil }; n = 0 (* times repeat loop (zero or negative values are allowed) *)
-| n = 0; | 4.do { :x | n := n + x }; n = 10 (* times repeat loop (int) *)
-| n = 0; | 4.do { :x | n := n + x }; n = 10 (* for loop (int) *)
-| s = ''; | 4.do { :x | s := s ++ x }; s = '1234' (* for loop (int) *)
+| n = 0; | 1.toDo(4) { :x | n := n + x }; n = 10 (* for loop (int) *)
+| n = 0; | 1.toDo(4) { :x | n := n + x }; n = 10 (* for loop (int) *)
+| s = ''; | 1.toDo(4) { :x | s := s ++ x }; s = '1234' (* for loop (int) *)
 | s = ''; | (1 .. 5).do { :x | s := s ++ x }; s = '12345' (* for loop (interval) *)
 | s = ''; | 1.toDo(5) { :x | s := s ++ x }; s = '12345' (* for loop (start & end indices) *)
 | s = ''; | 1.toDo(0) { :x | 'error'.error }; s = '' (* for loop (end less than start) *)
@@ -1335,7 +1336,7 @@ Interval(1, 100, 0.5).size = 199
 | n = 9; | { n > 3 }.whileTrue { n := n - 1 }; n = 3 (* while true loop *)
 | n = 9; | { n < 7 }.whileFalse { n := n - 1 }; n = 6 (* while false loop *)
 10.timesRepeat { nil } = 10 (* timesRepeat answers the receiver) *)
-10.do { :index | nil } = 10 (* do answers the receiver *)
+1.toDo(10) { :index | nil } = 1 (* do answers the receiver *)
 | a = []; | [1 .. 9].rejectThenDo(even:/1) { :each | a.add(each * 3) }; a = [3, 9, 15, 21, 27] (* avoid intermediate collection *)
 | a = []; | [1 .. 9].selectThenDo(even:/1) { :each | a.add(each * 3) }; a = [6, 12, 18, 24] (* avoid intermediate collection *)
 ```
@@ -1377,7 +1378,7 @@ LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
 [1, 2, 3].LinkedList.size = 3 (* linked list from array *)
 | l = LinkedList(); | l.addFirst(1); l.addFirst(2); l.asArray = [2, 1] (* add to start *)
 | l = LinkedList(); | l.addLast(1); l.addLast(2); l.asArray = [1, 2] (* add to end *)
-| l = LinkedList(); | 5.do { :each | l.add(each) }; l.asArray = [1 .. 5] (* add to end *)
+| l = LinkedList(); | 1.toDo(5) { :each | l.add(each) }; l.asArray = [1 .. 5] (* add to end *)
 [1 .. 9].LinkedList.collect { :each | 10 - each } = [9 .. 1].LinkedList (* collect *)
 | l = [1 .. 9].LinkedList; | l.removeFirst; l.first = 2 (* remove first *)
 | l = [1 .. 9].LinkedList; | l.removeLast; l.last = 8 (* remove last *)
@@ -1448,7 +1449,7 @@ var d = Map(); d['x'] := 1; d.removeKey('x'); d.isEmpty = true
 var d = (f: { :i | i * i }); d::f.value(9) = 81
 { Map().removeKey('unknownKey') }.ifError { true }
 (x: 1, y: 1).withoutDuplicates = (x: 1)
-var d = Map(); 100.do { :i | d[i] := i; (i > 10).ifTrue { d.removeKey(i - 10) } }; d.size = 10
+var d = Map(); 1.toDo(100) { :i | d[i] := i; (i > 10).ifTrue { d.removeKey(i - 10) } }; d.size = 10
 var c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.removeKey(1); c.includesKey(1) = false
 (x: 1, y: 2).Map.includesKey('x') (* Record to Map, map includes key predicate *)
 (x: 1, y: 2).Map ++ (x: 2, y: 1) = (x: 2, y: 1).Map (* appending a record to a Map answers a Map, biases right *)
@@ -1572,7 +1573,7 @@ nil.json = 'null' (* nil has a Json representation *)
 -951.asStringWithCommas = '-951'
 | i = 1; | 1.toDo(5) { :each | i := i + each.squared } ; i = 56 (* iterate over numbers from start to end *)
 | i = 1; | 1.toByDo(5, 2) { :each | i := i + each.squared } ; i = 36 (* iterate over numbers from start to end by step *)
-| i = 1; | 3.do { :each | i := i + each.squared } ; i = 15 (* iterate over numbers from one to end *)
+| i = 1; | (1 .. 3).do { :each | i := i + each.squared } ; i = 15 (* iterate over numbers from one to end *)
 ```
 
 ## Object -- kernel trait
@@ -1661,8 +1662,8 @@ var f = { }; f == f (* identity *)
 { }.typeOf = 'Procedure'
 { } . () = nil (* empty procedure evaluates to nil *)
 { | c a | c := [1]; a := { | a | a := 4; a }.value; { | a | a := 2; c.add(a); { | a | a := 3; c.add(a) }.value }.value; c.add(a); c }.value = [1, 2, 3, 4]
-10.do { :index | nil } = 10
-valueWithReturn { :return:/1 | 10.do { :index | (index = 5).ifTrue { 5.return } } } = 5 (* non-local return *)
+1.toDo(10) { :index | nil } = 1 (* answers start index *)
+valueWithReturn { :return:/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 (* non-local return *)
 { true }.assert = nil (* assert that block evaluates to true, answers nil *)
 { { false }.assert }.ifError { true } (* raise an error if block does not evaluate to true *)
 valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeat } (* repeat a block until it "returns" *)
@@ -2058,8 +2059,8 @@ var total = 0; 9.timesRepeat { total := total + system.randomFloat }; total < 7
 pi.randomFloat.isInteger = false
 [3.141.json, 23.json] = ['3.141', '23'] (* numbers have json encodings *)
 ['3.141', '23'].collect(parseJson:/1) = [3.141, 23] (* parse json numbers *)
-| r | 5.do { :each | r := each }; r = 5
-| r | 0.do { :each | r := each }; r = nil
+| r | 1.toDo(5) { :each | r := each }; r = 5
+| r | 1.upTo(0).do { :each | r := each }; r = nil
 1.toDo(0) { :each | 'toDo'.error }; true (* end less than start *)
 '3.141'.parseNumber = 3.141
 '23'.parseInteger(10) = 23

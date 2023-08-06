@@ -59,7 +59,7 @@ Bitset : [Object, Iterable, Collection] { | bytes tally |
 			remainingBits = self.tally,
 			lowBits = system.lowBitPerByteTable
 		)|
-		1.upTo(self.bytes.size).do { :index |
+		1.upToDo(self.bytes.size) { :index |
 			(1 <= remainingBits).if {
 				| byte = self.bytes[index]; |
 				(byte = 0).ifFalse {

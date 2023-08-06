@@ -1,13 +1,13 @@
 # do -- enumerating
 
-- _do(aCollection, aProcedure:/1)_
+- _do(anIterable, aProcedure:/1)_
 
-Evaluate _aProcedure_ with each of the receivers elements as the argument.
+Evaluate _aProcedure_ with each element of _anIterable_ as the argument.
 
-- _do(anInteger, aProcedure:/1)_ ≡ _1.upTo(anInteger).do_
-
-Evaluate _aProcedure_ with the integers from one up to _anInteger_.
+_Rationale:_
+_do_ is the only required method of the _Iterable_ trait.
+All collection types are iterable.
 
 * * *
 
-See also: associationsDo, collect, keysAndValuesDo, keysDo, timesRepeat, valuesDo
+See also: associationsDo, collect, Iterable, keysAndValuesDo, keysDo, timesRepeat, valuesDo
