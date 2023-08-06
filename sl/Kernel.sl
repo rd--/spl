@@ -116,6 +116,30 @@
 
 }
 
+@Indexable {
+
+	at { :self :key |
+		self.atIfPresent(key) { :value |
+			value
+		}
+	}
+
+	atIfAbsent { :self :key :aBlock:/0 |
+		self.atIfPresentIfAbsent(key, { :value | value }, aBlock:/0)
+	}
+
+	atIfPresent { :self :key :aBlock:/1 |
+		self.atIfPresentIfAbsent(key, aBlock:/1) {
+			'At>>atIfPresent: no such key/index'.error
+		}
+	}
+
+	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
+		'At>>atIfPresentIfAbsent: type responsibility'.error
+	}
+
+}
+
 @Integral {
 
 	adaptToFractionAndApply { :self :aFraction :aProcedure:/2 |
@@ -704,7 +728,7 @@
 	}
 
 	do { :self :aProcedure:/1 |
-		1.toDo(self, aProcedure:/1);
+		1.upToDo(self, aProcedure:/1);
 		self
 	}
 
@@ -834,7 +858,7 @@
 	}
 
 	toDo { :self :end :aProcedure:/1 |
-		self.toByDo(end, 1, aProcedure:/1)
+		self.upToDo(end, aProcedure:/1)
 	}
 
 	truncateTo { :self :aNumber |

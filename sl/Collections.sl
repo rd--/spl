@@ -110,36 +110,6 @@
 		>
 	}
 
-	isSorted { :self |
-		self.isSortedBetweenAnd(1, self.size)
-	}
-
-	isSortedBetweenAnd { :self :startIndex :endIndex |
-		self.isSortedByBetweenAnd(lessThanEquals:/2, startIndex, endIndex)
-	}
-
-	isSortedBy { :self :aProcedure:/2 |
-		self.isSortedByBetweenAnd(aProcedure:/2, 1, self.size)
-	}
-
-	isSortedByBetweenAnd { :self :aProcedure:/2 :startIndex :endIndex |
-		(endIndex < startIndex).if {
-			true
-		} {
-			| previousElement = self[startIndex]; |
-			valueWithReturn { :return:/1 |
-				(startIndex + 1 .. endIndex).do { :index |
-					| element = self[index]; |
-					aProcedure(previousElement, element).ifFalse {
-						false.return
-					};
-					previousElement := element
-				};
-				true
-			}
-		}
-	}
-
 	isValidIndex { :self :index |
 		<primitive:
 		return Number.isInteger(_index) && 0 < _index && _index <= _self.length;
@@ -1519,6 +1489,36 @@
 
 	isSequenceable { :self |
 		true
+	}
+
+	isSorted { :self |
+		self.isSortedBetweenAnd(1, self.size)
+	}
+
+	isSortedBetweenAnd { :self :startIndex :endIndex |
+		self.isSortedByBetweenAnd(lessThanEquals:/2, startIndex, endIndex)
+	}
+
+	isSortedBy { :self :aProcedure:/2 |
+		self.isSortedByBetweenAnd(aProcedure:/2, 1, self.size)
+	}
+
+	isSortedByBetweenAnd { :self :aProcedure:/2 :startIndex :endIndex |
+		(endIndex < startIndex).if {
+			true
+		} {
+			| previousElement = self[startIndex]; |
+			valueWithReturn { :return:/1 |
+				(startIndex + 1 .. endIndex).do { :index |
+					| element = self[index]; |
+					aProcedure(previousElement, element).ifFalse {
+						false.return
+					};
+					previousElement := element
+				};
+				true
+			}
+		}
 	}
 
 	isValidIndex { :self :index |

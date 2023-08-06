@@ -199,7 +199,7 @@ Method : [Object] {
 
 }
 
-System : [Object] {
+System : [Object, Indexable] {
 
 	= { :self :anObject |
 		self == anObject
@@ -236,20 +236,10 @@ System : [Object] {
 		answer
 	}
 
-	at { :self :key |
-		self.globalDictionary.at(key)
-	}
-
-	atIfAbsent { :self :key :aBlock:/0 |
-		self.globalDictionary.atIfAbsent(key, aBlock:/0)
-	}
-
-	atIfAbsentPut { :self :key :aBlock:/0 |
-		self.globalDictionary.atIfAbsentPut(key, aBlock:/0)
-	}
-
-	atIfPresent { :self :key :aBlock:/1 |
-		self.globalDictionary.atIfPresent(key, aBlock:/1)
+	atIfPresent { :self :key :ifPresent:/1 |
+		self.atIfPresentIfAbsent(key, ifPresent:/1) {
+			nil
+		}
 	}
 
 	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |

@@ -1388,6 +1388,8 @@ LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
 (1 .. 9).LinkedList.firstLink.nextLink.value = 2 (* second link *)
 (1 .. 9).LinkedList.lastLink.value = 9 (* last link *)
 | l = (1 .. 3).LinkedList; | l.firstLink.value := -1; l.asArray = [-1, 2, 3] (* mutate link value *)
+(1 .. 9).LinkedList.isSorted = true (* are elements in sequence *)
+(9 .. 1).LinkedList.isSortedBy(greaterThan:/2) = true (* are elements in sequence by predicate *)
 ```
 
 ## Magnitude -- numeric trait
@@ -2449,7 +2451,7 @@ system.categoryOf('notInCategorySystem') = '*Uncategorized*'
 ```
 system.globalDictionary.isDictionary (* the system global dicitionary is a dictionary *)
 system.globalDictionary.isRecord (* specifically, it is a record *)
-system::undefined = nil (* system implements the indexable trait *)
+system::undefined = nil (* system implements the indexable trait, unknown keys return nil *)
 system::TwoPi := 2 * pi; system::TwoPi / 2 = pi (* declare and then access a global variable *)
 ```
 
