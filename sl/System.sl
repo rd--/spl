@@ -236,14 +236,8 @@ System : [Object, Indexable] {
 		answer
 	}
 
-	atIfPresent { :self :key :ifPresent:/1 |
-		self.atIfPresentIfAbsent(key, ifPresent:/1) {
-			nil
-		}
-	}
-
-	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
-		self.globalDictionary.atIfPresentIfAbsent(key, ifPresent:/1, ifAbsent:/0)
+	at { :self :index |
+		self.globalDictionary.at(index)
 	}
 
 	atPut { :self :key :anObject |
@@ -361,6 +355,10 @@ System : [Object, Indexable] {
 				highBits ++ highBits.collect { :each | rank }
 			}.ByteArray
 		}
+	}
+
+	indices { :self |
+		self.globalDictionary.keys
 	}
 
 	isCategorized { :self :aString |

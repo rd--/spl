@@ -118,24 +118,42 @@
 
 @Indexable {
 
-	at { :self :key |
-		self.atIfPresent(key) { :value |
-			value
+	at { :self :index |
+		'Indexable>>at: type responsibility'.error
+	}
+
+	atIfAbsent { :self :index :aBlock:/0 |
+		self.includesIndex(index).if {
+			self[index]
+		} {
+			aBlock()
 		}
 	}
 
-	atIfAbsent { :self :key :aBlock:/0 |
-		self.atIfPresentIfAbsent(key, { :value | value }, aBlock:/0)
-	}
-
-	atIfPresent { :self :key :aBlock:/1 |
-		self.atIfPresentIfAbsent(key, aBlock:/1) {
-			'At>>atIfPresent: no such key/index'.error
+	atIfPresent { :self :index :aBlock:/1 |
+		self.includesIndex(index).ifTrue {
+			aBlock(self[index])
 		}
 	}
 
-	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
-		'At>>atIfPresentIfAbsent: type responsibility'.error
+	atIfPresentIfAbsent { :self :index :ifPresent:/1 :ifAbsent:/0 |
+		self.includesIndex(index).if {
+			ifPresent(self[index])
+		} {
+			ifAbsent()
+		}
+	}
+
+	includesIndex { :self :anObject |
+		self.indices.includes(anObject)
+	}
+
+	indices { :self |
+		'Indexable>>indices: type responsibility'.error
+	}
+
+	isIndexable { :self |
+		true
 	}
 
 }
@@ -3329,10 +3347,6 @@ String : [Object, Json, Iterable] {
 
 	isInBasicMultilingualPlane { :self |
 		self.countUtf16CodeUnits = self.countCharacters
-	}
-
-	isIndexable { :self |
-		true
 	}
 
 	isEmpty { :self |

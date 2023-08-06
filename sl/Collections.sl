@@ -807,8 +807,7 @@
 	atIfAbsentPut { :self :key :aProcedure:/0 |
 		self.atIfAbsent(key) {
 			self[key] := aProcedure()
-		};
-		self[key]
+		}
 	}
 
 	atIfPresent { :self :key :ifPresent:/1 |
@@ -903,6 +902,10 @@
 			};
 			false
 		}
+	}
+
+	includesIndex { :self :index |
+		self.includesKey(index)
 	}
 
 	includesKey { :self :key |
@@ -1433,21 +1436,6 @@
 		}
 	}
 
-	indicesOfSubCollection { :self :subCollection |
-		self.indicesOfSubCollectionStartingAt(subCollection, 1)
-	}
-
-	indicesOfSubCollectionStartingAt { :self :subCollection :initialIndex |
-		| answer = [], index = initialIndex - 1; |
-		{
-			index := self.indexOfSubCollectionStartingAt(subCollection, index + 1);
-			index = 0
-		}.whileFalse {
-			answer.add(index)
-		};
-		answer
-	}
-
 	indexOfSubCollection { :self :aSubCollection |
 		self.indexOfSubCollectionStartingAt(aSubCollection, 1)
 	}
@@ -1483,6 +1471,21 @@
 		(1 .. self.size)
 	}
 
+	indicesOfSubCollection { :self :subCollection |
+		self.indicesOfSubCollectionStartingAt(subCollection, 1)
+	}
+
+	indicesOfSubCollectionStartingAt { :self :subCollection :initialIndex |
+		| answer = [], index = initialIndex - 1; |
+		{
+			index := self.indexOfSubCollectionStartingAt(subCollection, index + 1);
+			index = 0
+		}.whileFalse {
+			answer.add(index)
+		};
+		answer
+	}
+
 	isIndexable { :self |
 		true
 	}
@@ -1504,12 +1507,12 @@
 	}
 
 	isSortedByBetweenAnd { :self :aProcedure:/2 :startIndex :endIndex |
-		(endIndex < startIndex).if {
+		(endIndex <= startIndex).if {
 			true
 		} {
 			| previousElement = self[startIndex]; |
 			valueWithReturn { :return:/1 |
-				(startIndex + 1 .. endIndex).do { :index |
+				(startIndex + 1).upTo(endIndex).do { :index |
 					| element = self[index]; |
 					aProcedure(previousElement, element).ifFalse {
 						false.return
@@ -2383,7 +2386,10 @@ Map : [Object, Iterable, Collection, Dictionary] {
 	}
 
 	atPut { :self :aKey :aValue |
-		<primitive: _self.set(_aKey, _aValue);>
+		<primitive:
+		_self.set(_aKey, _aValue);
+		return _aValue;
+		>
 	}
 
 	Map { :self |
@@ -2694,6 +2700,26 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 		}
 	}
 
+	removeFirst { :self |
+		self.isEmpty.if {
+			'Interval>>removeFirst: empty interval'.error
+		} {
+			| removed = self.start; |
+			self.start := self.start + self.step;
+			removed
+		}
+	}
+
+	removeLast { :self |
+		self.isEmpty.if {
+			'Interval>>removeLast: empty interval'.error
+		} {
+			| removed = self.stop; |
+			self.stop := self.stop - self.step;
+			removed
+		}
+	}
+
 	reversed { :self |
 		self.isEmpty.if {
 			Interval(self.stop, self.start, self.step.negated)
@@ -2995,7 +3021,8 @@ Record : [Object, Json, Iterable, Collection, Dictionary] {
 	atPut { :self :aString :anObject |
 		<primitive:
 		if(typeof _aString === 'string') {
-			return _self[_aString] = _anObject;
+			_self[_aString] = _anObject;
+			return _anObject;
 		}
 		>
 		('Record>>atPut key not a string: ' ++ aString.typeOf).error

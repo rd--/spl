@@ -223,8 +223,8 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [1 .. 5].atIfAbsent(9) { true } (* exception clause if index is invalid *)
 [1 .. 5].atIfPresentIfAbsent(9) { :x | false } { true } (* ifPresent and ifAbsent clauses *)
 [1 .. 5].atIfPresentIfAbsent(3) { :x | x * x } { false } = 9 (* ifPresent and ifAbsent clauses *)
-| a = [1, 2, 3]; | a.atPut(2, 'two'); a = [1, 'two', 3]
-| a = [1, 2, 3]; | a[2] := 'two'; a = [1, 'two', 3]
+| a = [1, 2, 3]; | a.atPut(2, 'two') = 'two' & { a = [1, 'two', 3] } (* atPut answers value put *)
+| a = [1, 2, 3]; | (a[2] := 'two') = 'two' & { a = [1, 'two', 3] }
 [5, 4, 3, 2, 1].detect { :each | each % 2 = 0 } = 4
 { [5, 4, 3, 2, 1].detect { :each | each % 7 = 0 } }.ifError { true }
 [5, 4, 3, 2, 1].findFirst { :each | each * 2 <= 4 } = 2
@@ -372,6 +372,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 [1, 2, 3].ofSize(4) = [1, 2, 3, nil] (* extend to be of size, new slots are nil *)
 | a = [1, 2, 3]; | a.ofSize(2) = a (* if requested size is smaller, do nothing *)
 | a = [1, 2, 3]; | a.ofSize(2) == a (* if requested size is smaller, answer the array itself *)
+[1, 3 .. 9].indices = (1 .. 5) (* indices of array (an interval) *)
 ```
 
 ## Assignment
@@ -435,6 +436,8 @@ Bag().isSequenceable = false
 [2, 3, 3, 4, 4, 4].Bag.Set.size = 3 (* number of unique elements *)
 [2, 3, 3, 4, 4, 4].Bag.Set.occurrencesOf(3) = 1
 | s = Bag(); | 250.timesRepeat { s.add([1 .. 4].shuffled.asString) }; s.Set.size = 24
+[1, 2, 3, 1, 4].Bag.isIndexable = false (* bags are not indexable *)
+[1, 2, 3, 1, 4].Bag.indices = nil (* sets are not indexable *)
 ```
 
 ## Benchmarks
@@ -613,8 +616,8 @@ ByteArray(0).isSequenceable (* byte arrays are sequenceable *)
 ByteArray(0).size = 0 (* size of byte array (number of elements) *)
 ByteArray(8).size = 8
 ByteArray(8).at(1) = 0 (* lookup element at index *)
-ByteArray(8).atPut(1, 179) = 179 (* set element at index *)
-| a = ByteArray(8); | a.atPut(1, 179); a.at(1) = 179
+ByteArray(8).atPut(1, 179) = 179 (* set element at index, answer element *)
+| a = ByteArray(8); | a.atPut(1, 179) = 179 & { a.at(1) = 179 }
 [1 .. 9].ByteArray.isByteArray = true (* array of numbers in 0-255 to byte array *)
 { [-1].ByteArray }.ifError { true } (* out of range element error *)
 { ['1'].ByteArray }.ifError { true } (* not a number element error *)
@@ -637,6 +640,7 @@ ByteArray(4).hex = '00000000'
 [1 .. 9].ByteArray.hasEqualElements([1 .. 9]) (* ByteArray and Array of equal elements *)
 [1, 13 .. 253].ByteArray.base64Encoded = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' (* base 64 encoding *)
 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q=='.base64Decoded = [1, 13 .. 253].ByteArray (* base 64 decoding *)
+[1, 3 .. 9].ByteArray.indices = (1 .. 5) (* indices of byte array (an interval) *)
 ```
 
 ## Character -- text type
@@ -887,6 +891,7 @@ unicodeFractions().associations.isArray = true
 | n = 0; | (x: 1, y: 2, z: 3).associationsDo { :each | n := n + each.value }; n = 6 (* iterate over associations *)
 | n = 0; | (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value | n := n + value }; n = 6 (* iterate over keys and values *)
 (x: 'x', y: '.', z: 'z').associationsSelect { :each | each.key = each.value } = (x: 'x', z: 'z') (* select querying associations *)
+(x: 1, y: 2, z: 3).indices = ['x', 'y', 'z'] (* indices of dictionary (an array) *)
 ```
 
 ## Duration -- temporal type
@@ -933,8 +938,9 @@ Float64Array(0).isFloat64Array
 Float64Array(0).size = 0
 Float64Array(8).size = 8
 Float64Array(8).at(1) = 0
-Float64Array(8).atPut(1, pi) = pi
-| a = Float64Array(8); | a.atPut(1, pi); a.at(1) = pi
+Float64Array(8).atPut(1, pi) = pi (* answer value put *)
+| a = Float64Array(8); | a.atPut(1, pi) = pi & { a.at(1) = pi }
+| a = Float64Array(8); | (a[1] := pi) = pi & { a[1] = pi }
 [1 .. 9].Float64Array.isFloat64Array = true
 [1 .. 9].Float64Array.reversed = [9 .. 1].Float64Array
 | a = [1 .. 9].Float64Array; | a.reverse; a = [9 .. 1].Float64Array
@@ -1308,6 +1314,10 @@ Interval(1, 100, 0.5).size = 199
 (1 / 2).toBy(54 / 7, 1 / 3).last = (15 / 2)
 1:2.toBy(54:7, 1:3).last = 15:2
 (1 .. 3) ++ ['4', '5'] = [1, 2, 3, '4', '5']
+| i = (1, 3 .. 9); | i.removeFirst = 1 & { i = (3, 5 .. 9) } (* remove first element *)
+| i = (9, 7 .. 1); | i.removeFirst = 9 & { i = (7, 5 .. 1) } (* remove first element *)
+| i = (1, 3 .. 9); | i.removeLast = 9 & { i = (1, 3 .. 7) } (* remove first element *)
+| i = (9, 7 .. 1); | i.removeLast = 1 & { i = (9, 7 .. 3) } (* remove first element *)
 ```
 
 ## Iteration
@@ -1390,6 +1400,7 @@ LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
 | l = (1 .. 3).LinkedList; | l.firstLink.value := -1; l.asArray = [-1, 2, 3] (* mutate link value *)
 (1 .. 9).LinkedList.isSorted = true (* are elements in sequence *)
 (9 .. 1).LinkedList.isSortedBy(greaterThan:/2) = true (* are elements in sequence by predicate *)
+[1, 3 .. 9].LinkedList.indices = (1 .. 5) (* indices of linked list (an interval) *)
 ```
 
 ## Magnitude -- numeric trait
@@ -1429,7 +1440,7 @@ var d = ['x' -> 1, 'y' -> 2].Map; d.values = [1, 2] (* answer Array of values at
 var d = ['x' -> 1, 'y' -> 2].Map; d.at('x') = 1 (* answer value at key in Dictionary *)
 var d = ['x' -> 1, 'y' -> 2].Map; d['x'] = 1 (* at (subscript) syntax *)
 var d = Map(); d.add('x' -> 1); d.removeKey('x'); d.isEmpty = true (* remove Association from Dictionary given key *)
-var d = Map(); d['x'] := 1; d['x'] = 1 (* atPut (subscript mutation) syntax *)
+var d = Map(); (d['x'] := 1) = 1 & { d['x'] = 1 } (* atPut (subscript mutation) syntax *)
 var d = Map(); d[1] := 'x'; d[1] = 'x'
 var d = Map(); d['x'] := 1; d.removeKey('x'); d.isEmpty = true
 ::x := 4; ::x * ::x = 16
@@ -1444,6 +1455,7 @@ var c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.re
 (x: 1, y: 2, z: 3).Map ++ (x: 2, y: 1) = (x: 2, y: 1, z: 3).Map (* append record to Map *)
 (x: 1, y: 2).Map ++ (x: 2, y: 1, z: 3) = (x: 2, y: 1, z: 3).Map (* append record to Map *)
 (x: 1, y: 2).Map.json = '{"x":1,"y":2}' (* maps with string keys are encoded as records *)
+(x: 1, y: 2, z: 3).Map.indices = ['x', 'y', 'z'] (* indices of map (an array) *)
 ```
 
 ## Math
@@ -1742,8 +1754,8 @@ Record().includesKey('x') = false (* includes key predicate *)
 (w: 0, x: 1).includesKey('x') = true
 Record().at('x') = nil (* lookup for non-existing key answers nil *)
 ()['x'] = nil (* lookup for non-existing key answers nil *)
-var d = Record(); d.atPut('x', 1); d.at('x') = 1
-var d = Record(); d['x'] := 1; d['x'] = 1
+var d = Record(); d.atPut('x', 1) = 1 & { d.at('x') = 1 }
+var d = Record(); (d['x'] := 1) = 1 & { d['x'] = 1 }
 var d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
 var d = Record(); d::x := 1; d::y := 2; d.size = 2
 ['x' -> 1, 'y' -> 2].Record['y'] = 2
@@ -1788,6 +1800,7 @@ var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7
 (x: 1, y: 2) ~= (x: 2, y: 1) (* Record in-equality *)
 | r = (x: 1, y: 2); | r == r (* Record identity *)
 (x: 1, y: 2) ~~ (x: 1, y: 2) (* Record non-identity *)
+(x: 1, y: 2, z: 3).indices = ['x', 'y', 'z'] (* indices of record (an array) *)
 ```
 
 ## Rectangle -- geometry type
@@ -1859,6 +1872,8 @@ var c = [3, 2, 1]; c.sort ; c = [1, 2, 3] (* sort is in place (mutating) *)
 var c = [3, 2, 1], r = c.sorted ; c ~= r (* sorted (answer a new array) *)
 [1 .. 5].isSorted (* is sequence sorted *)
 [1, 3 .. 11].isSorted (* is sequence sorted *)
+[].isSorted (* an empty sequence is sorted *)
+[1].isSorted (* a one element sequence is sorted *)
 [11, 9 .. 1].isSortedBy { :i :j | i > j } (* is sequence sorted by predicate *)
 [1, 5, 3, 7, 9].isSorted.not (* is sequence sorted *)
 [1, 3, 5, 7, 9].copyFromTo(3, 5) = [5, 7, 9] (* copy part of collection, one-indexed, inclusive *)
@@ -2000,6 +2015,8 @@ var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, 
 (1 .. 6).union((4 .. 10)) = (1 .. 10).Set
 'hello'.split.intersection('there'.split) = 'he'.split
 'Smalltalk'.split.includes('k') = true
+[1, 2, 3, 1, 4].Set.isIndexable = false (* sets are not indexable *)
+[1, 2, 3, 1, 4].Set.indices = nil (* sets are not indexable *)
 ```
 
 ## SmallFloat -- numeric type
@@ -2434,14 +2451,14 @@ system.lowBitPerByteTable.Bag.sortedCounts = [128 -> 1, 64 -> 2, 32 -> 3, 16 -> 
 ## System -- categoryDictionary
 ```
 system.categoryDictionary.isDictionary = true
-system.categorizeAll('accessing', ['at', 'atPut', 'first', 'key', 'last', 'value']) = nil
+system.categorizeAll('accessing', ['at', 'atPut', 'first', 'key', 'last', 'value']); true
 system.isCategoryName('accessing') = true
 system.category('accessing').isSet = true
 system.categoriesOf('at').includes('accessing') = true
 system.categoriesOf('notInCategorySystem') = []
 system.isCategorized('at') = true
 system.isCategorized('notInCategorySystem') = false
-system.categorizeAll('Collections/Abstract', ['ArrayedCollection', 'Collection', 'SequenceableCollection']) = nil
+system.categorizeAll('Collections/Abstract', ['ArrayedCollection', 'Collection', 'SequenceableCollection']); true
 'Collections/Abstract'.categoryNameParts = ['Collections', 'Abstract']
 system.categoryOf('at') = 'accessing'
 system.categoryOf('notInCategorySystem') = '*Uncategorized*'
@@ -2449,6 +2466,7 @@ system.categoryOf('notInCategorySystem') = '*Uncategorized*'
 
 ## System -- globalDictionary
 ```
+system.isIndexable
 system.globalDictionary.isDictionary (* the system global dicitionary is a dictionary *)
 system.globalDictionary.isRecord (* specifically, it is a record *)
 system::undefined = nil (* system implements the indexable trait, unknown keys return nil *)
