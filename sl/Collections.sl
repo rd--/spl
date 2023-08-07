@@ -949,15 +949,27 @@
 		}
 	}
 
-	keysDo { :self :aBlock:/1 |
-		self.associationsDo { :association |
-			aBlock(association.key)
-		}
-	}
-
 	keysAndValuesDo { :self :aProcedure:/2 |
 		self.associationsDo { :association |
 			aProcedure(association.key, association.value)
+		}
+	}
+
+	keysAndValuesRemove { :self :keyValueBlock:/2 |
+		| removals = []; |
+		self.associationsDo { :each |
+			keyValueBlock(each.key, each.value).ifTrue {
+				removals.add(each.key)
+			}
+		};
+		removals.do { :key |
+			self.removeKey(key)
+		}
+	}
+
+	keysDo { :self :aBlock:/1 |
+		self.associationsDo { :association |
+			aBlock(association.key)
 		}
 	}
 
@@ -973,6 +985,16 @@
 	removeAll { :self |
 		<primitive: _self.clear();>
 		self
+	}
+
+	removeAt { :self :key |
+		self.includesKey(key).if {
+			| removed = self[key]; |
+			self.removeKey(key);
+			removed
+		} {
+			error('Dictionary>>removeAt')
+		}
 	}
 
 	removeKey { :self :key |

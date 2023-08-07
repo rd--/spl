@@ -902,6 +902,11 @@ unicodeFractions().associations.isArray = true
 | d = (a: 1, b: 2, c: 1); | d.keyAtValue(2) = 'b' (* lookup key given value *)
 | d = (a: 1, b: 2, c: 1), k = d.keyAtValue(1); | k = 'a' | { k = 'c' } (* many keys with value *)
 { (a: 1, b: 2, c: 1).keyAtValue(3) }.ifError { true } (* error if no such value *)
+| d = (x: 1, y: 2, z: 3); | d.keysAndValuesRemove { :key :value | key = 'y' | { value = 3 } }; d = (x: 1)
+| d = (x: 1, y: 2, z: 3); | d.removeKey('y') = 'y' & { d = (x: 1, z: 3) }
+{ (x: 1, y: 2, z: 3).removeKey('?') }.ifError { true }
+| d = (x: 1, y: 2, z: 3); | d.removeAt('y') = 2 & { d = (x: 1, z: 3) }
+{ (x: 1, y: 2, z: 3).removeAt('?') }.ifError { true }
 ```
 
 ## Duration -- temporal type
