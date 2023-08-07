@@ -244,7 +244,13 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity:/1) = 4
 [(1 .. 3), (1 .. 6), (1 .. 9)].detectMax(size:/1) = (1 .. 9)
 [(1 .. 3), (1 .. 6), (1 .. 9)].detectMin(size:/1) = (1 .. 3)
-[9 .. 1].indexOf(3) = 7
+[9 .. 1].indexOf(3) = 7 (* index of first occurence of element in sequence *)
+[1, 2, 3, 2, 3].indexOf(3) = 3
+[1, 2, 3, 2, 3].indexOf(4) = 0 (* or zero *)
+[1, 2, 3, 2, 3].indexOfIfAbsent(4) { true }
+[1, 2, 3, 2, 3].lastIndexOf(3) = 5 (* index of last occurence of element in sequence *)
+[1, 2, 3, 2, 3].lastIndexOf(4) = 0 (* or zero *)
+[1, 2, 3, 2, 3].lastIndexOfIfAbsent(4) { true }
 [9 .. 1].includes(3) = true (* predicate to decide if a collection includes an element *)
 [1 .. 9].includes(9) (* array includes last element *)
 [9 .. 1].anySatisfy { :each | each = 3 } = true
@@ -893,6 +899,9 @@ unicodeFractions().associations.isArray = true
 | n = 0; | (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value | n := n + value }; n = 6 (* iterate over keys and values *)
 (x: 'x', y: '.', z: 'z').associationsSelect { :each | each.key = each.value } = (x: 'x', z: 'z') (* select querying associations *)
 (x: 1, y: 2, z: 3).indices = ['x', 'y', 'z'] (* indices of dictionary (an array) *)
+| d = (a: 1, b: 2, c: 1); | d.keyAtValue(2) = 'b' (* lookup key given value *)
+| d = (a: 1, b: 2, c: 1), k = d.keyAtValue(1); | k = 'a' | { k = 'c' } (* many keys with value *)
+{ (a: 1, b: 2, c: 1).keyAtValue(3) }.ifError { true } (* error if no such value *)
 ```
 
 ## Duration -- temporal type
@@ -1140,6 +1149,12 @@ Heap().isEmpty (* an empty heap is empty *)
 4 / 2 = 2 (* integer division with integer result *)
 | n = 2; | 3.timesRepeat { n := n * n }; n = 256 (* iteration *)
 (0 .. 15).collect(asHexDigit:/1).joinCharacters = '0123456789ABCDEF' (* integer to hex character *)
+| a = []; | 1.upToDo(5) { :each | a.add(each) }; a = [1 .. 5] (* iterate over integer sequence *)
+| a = []; | 5.upToDo(1) { :each | a.add(each) }; a = [] (* non-ascending sequences are empty *)
+| a = []; | 5.downToDo(1) { :each | a.add(each) }; a = [5 .. 1] (* iterate over integer sequence *)
+| a = []; | 1.downToDo(5) { :each | a.add(each) }; a = [] (* non-descending sequences are empty *)
+| a = []; | 1.toDo(5) { :each | a.add(each) }; a = [1 .. 5] (* toDo is upToDo *)
+| a = []; | 5.toDo(1) { :each | a.add(each) }; a = [] (* toDo is upToDo *)
 ```
 
 ## Integral -- prime numbers
@@ -1947,6 +1962,8 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | a = []; | [1 / 3, 1 / 4, 1 / 4, 0.9, 1 / 3, 1].groupsDo { :p :q :r | a.add(p.roundTo(q) = r) }; a = [true, true]
 | a = []; | (9 .. 1).keysDo { :index | a.add(index * 2) }; a = [2, 4 .. 19] (* keys are indices *)
 | a = []; | (9 .. 1).keysAndValuesDo { :index :value | a.add(index * 2 + value) }; a = [11 .. 19] (* keys are indices *)
+| a = [1 .. 5]; | a.atIncrementBy(3, 6); a = [1, 2, 9, 4, 5] (* increment value at index by *)
+| a = [1 .. 9]; | a.atLastPut(3, -7); a = [1, 2, 3, 4, 5, 6, -7, 8, 9] (* set at index from end *)
 ```
 
 ## Sequence arithmetic
@@ -2472,6 +2489,8 @@ system.globalDictionary.isDictionary (* the system global dicitionary is a dicti
 system.globalDictionary.isRecord (* specifically, it is a record *)
 system::undefined = nil (* system implements the indexable trait, unknown keys return nil *)
 system::TwoPi := 2 * pi; system::TwoPi / 2 = pi (* declare and then access a global variable *)
+system.indices.includes('TwoPi') (* system is iterable *)
+system.indexOf(2 * pi) = 'TwoPi' (* system is iterable *)
 ```
 
 ## System -- methodDictionary

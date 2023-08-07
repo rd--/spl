@@ -912,6 +912,14 @@
 		self.keys.includes(key)
 	}
 
+	indexOf { :self :value |
+		self.keyAtValue(value)
+	}
+
+	indexOfIfAbsent { :self :value :aBlock:/0 |
+		self.keyAtValueIfAbsent(value, aBlock:/0)
+	}
+
 	indices { :self |
 		self.keys
 	}
@@ -1122,6 +1130,14 @@
 		} {
 			nil
 		}
+	}
+
+	atIncrementBy { :self :index :value |
+		self[index] := self[index] + value
+	}
+
+	atLastPut { :self :indexFromEnd :anObject |
+		self[self.size + 1 - indexFromEnd] := anObject
 	}
 
 	atWrap { :self :index |
@@ -1425,6 +1441,15 @@
 		self.indexOfStartingAt(anElement, 1)
 	}
 
+	indexOfIfAbsent { :self :anElement :exceptionBlock:/0 |
+		| index = self.indexOfStartingAt(anElement, 1); |
+		(index = 0).if {
+			exceptionBlock()
+		} {
+			index
+		}
+	}
+
 	indexOfStartingAt { :self :anElement :start |
 		valueWithReturn { :return:/1 |
 			start.upToDo(self.size) { :index |
@@ -1549,6 +1574,39 @@
 	last { :self :n |
 		| size = self.size; |
 		self.copyFromTo(size - n + 1, size)
+	}
+
+	lastIndexOf { :self :anElement |
+		self.lastIndexOfStartingAt(anElement, self.size)
+	}
+
+	lastIndexOfIfAbsent { :self :anElement :exceptionBlock:/0 |
+		| index = self.lastIndexOfStartingAt(anElement, self.size); |
+		(index = 0).if {
+			exceptionBlock()
+		} {
+			index
+		}
+	}
+
+	lastIndexOfStartingAt { :self :anElement :lastIndex |
+		valueWithReturn { :return:/1 |
+			lastIndex.downToDo(1) { :index |
+				(self[index] = anElement).ifTrue {
+					index.return
+				}
+			};
+			0
+		}
+	}
+
+	lastIndexOfStartingAtIfAbsent { :self :anElement :lastIndex :exceptionBlock:/0 |
+		| index = self.lastIndexOfStartingAt(anElement, lastIndex); |
+		(index = 0).if {
+			exceptionBlock()
+		} {
+			index
+		}
 	}
 
 	middle { :self |
@@ -2682,6 +2740,10 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 
 	first { :self |
 		self.start
+	}
+
+	increment { :self |
+		self.step
 	}
 
 	isEmpty { :self |

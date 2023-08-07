@@ -148,6 +148,23 @@
 		self.indices.includes(anObject)
 	}
 
+	indexOf { :self :anObject |
+		self.indexOfIfAbsent(anObject) {
+			'Indexable>>indexOf: no such element'.error
+		}
+	}
+
+	indexOfIfAbsent { :self :anObject :aBlock:/0 |
+		valueWithReturn { :return:/1 |
+			self.indices.do { :index |
+				(self[index] = anObject).ifTrue {
+					index.return
+				}
+			};
+			aBlock()
+		}
+	}
+
 	indices { :self |
 		'Indexable>>indices: type responsibility'.error
 	}
