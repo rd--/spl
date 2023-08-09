@@ -1,5 +1,4 @@
 +SmallFloat {
-
 	mt53RandomNumberGenerator { :self |
 		<primitive: return sl.mersenneTwister53Generator(_self);>
 	}
@@ -91,6 +90,25 @@ Random : [Object] { | randomNumberGenerator |
 
 	Random {
 		system.unixTimeInMilliseconds.Random
+	}
+
+}
+
++LargeInteger {
+
+	fnv1aHash { :self |
+		|(
+			fnvPrime = 16777619,
+			hash = self.negative.if {
+				3490449840
+			} {
+				2166136261
+			}
+		)|
+		1.upTo(self.digitLength).do { :index |
+			hash := 16rFFFFFFFF.bitAnd(hash.bitXor(self.digitAt(index)) * fnvPrime)
+		};
+		hash
 	}
 
 }

@@ -1160,6 +1160,14 @@ Heap().isEmpty (* an empty heap is empty *)
 | a = []; | 1.downToDo(5) { :each | a.add(each) }; a = [] (* non-descending sequences are empty *)
 | a = []; | 1.toDo(5) { :each | a.add(each) }; a = [1 .. 5] (* toDo is upToDo *)
 | a = []; | 5.toDo(1) { :each | a.add(each) }; a = [] (* toDo is upToDo *)
+(0 .. 255).collect { :each | each.digitAt(1) } = [0 .. 255]
+(0 .. 255).collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 0 }
+(256 .. 511).collect { :each | each.digitAt(1) } = [0 .. 255]
+(256 .. 511).collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 1 }
+(512 .. 1023).collect { :each | each.digitAt(2) }.Bag.sortedElements = [2 -> 256, 3 -> 256]
+[1, 8, 16, 24, 32n, 40n, 48n, 56n, 64n].collect { :each | (2 ** each).digitLength } = [1 .. 9]
+(2 ** 128n - 1).digitLength = 16
+123456n.fnv1aHash = 2230130162n
 ```
 
 ## Integral -- prime numbers

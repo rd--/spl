@@ -277,6 +277,35 @@
 		1
 	}
 
+	digitAt { :self :n |
+		(n = 1).if {
+			(self < 0).if {
+				-256 - self.bitAnd(255)
+			} {
+				self.bitAnd(255)
+			}
+		} {
+			(self < 0).if {
+				(-256 - self.bitShift(-8) + 1).digitAt(n - 1)
+			} {
+				self.bitShift(8 - n.bitShift(3)).bitAnd(255)
+			}
+		}
+	}
+
+	digitLength { :self |
+		| value = self, length = 1; |
+		(value < -255).ifTrue {
+			length := 2;
+			value := (-256 - self.bitShift(-8)) + 1
+		};
+		{ value > 255 }.whileTrue {
+			value := value.bitShift(-8);
+			length := length + 1
+		};
+		length
+	}
+
 	divisors { :self |
 		1.upTo(self).select { :each |
 			self.remainder(each) = 0
@@ -1988,6 +2017,28 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 		}
 		>
 		'LargeInteger>>bitAnd: operand not a LargeInteger or SmallFloat'.error
+	}
+
+	bitOr { :self :anObject |
+		<primitive:
+		if(sl.isLargeInteger(_anObject)) {
+			return _self | _anObject;
+		} else if(sl.isSmallFloat(_anObject)) {
+			return _self | BigInt(_anObject);
+		}
+		>
+		'LargeInteger>>bitOr: operand not a LargeInteger or SmallFloat'.error
+	}
+
+	bitXor { :self :anObject |
+		<primitive:
+		if(sl.isLargeInteger(_anObject)) {
+			return _self ^ _anObject;
+		} else if(sl.isSmallFloat(_anObject)) {
+			return _self ^ BigInt(_anObject);
+		}
+		>
+		'LargeInteger>>bitXor: operand not a LargeInteger or SmallFloat'.error
 	}
 
 	even { :self |
