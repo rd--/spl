@@ -2,7 +2,6 @@ import { PriorityQueue } from '../lib/flatqueue/PriorityQueue.js'
 export { PriorityQueue } from '../lib/flatqueue/PriorityQueue.js'
 
 import { MersenneTwister } from '../lib/mersenne-twister/src/index.ts'
-export { MersenneTwister } from '../lib/mersenne-twister/src/index.ts'
 
 import { throwError } from '../lib/jssc3/ts/kernel/error.ts'
 
@@ -42,9 +41,8 @@ function objectType(anObject: SlObject): TypeName {
 		    (anObject instanceof Float64Array ? 'Float64Array' :
 		     (anObject instanceof Promise ? 'Promise' :
 		      (anObject instanceof PriorityQueue ? 'PriorityQueue' :
-		       (anObject instanceof MersenneTwister ? 'MersenneTwister' :
-		        (anObject._type ||
-		         (isRecord(anObject) ? 'Record' : anObject.constructor.name))))))))));
+		       (anObject._type ||
+		        (isRecord(anObject) ? 'Record' : anObject.constructor.name)))))))));
 }
 
 export function typeOf(anObject: unknown): TypeName {
@@ -410,4 +408,49 @@ export function assignGlobals() {
 	globalThis._implicitDictionary = new Map();
 	globalThis._system = system;
 	globalThis._workspace = new Map();
+}
+
+/* https://github.com/bryc/code/blob/master/jshash/PRNGs.md */
+export function sfc32Generator(a: number, b: number, c: number, d: number) {
+	return function() {
+		a |= 0; b |= 0; c |= 0; d |= 0;
+		var t = (a + b | 0) + d | 0;
+		d = d + 1 | 0;
+		a = b ^ b >>> 9;
+		b = c + (c << 3) | 0;
+		c = c << 21 | c >>> 11;
+		c = c + t | 0;
+		return (t >>> 0) / 4294967296;
+    }
+}
+
+export function splitMix32Generator(a: number) {
+	return function() {
+		a |= 0; a = a + 0x9e3779b9 | 0;
+		var t = a ^ a >>> 15; t = Math.imul(t, 0x85ebca6b);
+        t = t ^ t >>> 13; t = Math.imul(t, 0xc2b2ae35);
+		return ((t = t ^ t >>> 16) >>> 0) / 4294967296;
+    }
+}
+
+export function mersenneTwister53Generator(seed: number) {
+	var mt = new MersenneTwister(seed);
+	return function () {
+		return mt.genrand_res53();
+	}
+}
+
+export function murmurHash3Generator(str: string) {
+	for(var k, i = 0, h = 2166136261 >>> 0; i < str.length; i++) {
+		k = Math.imul(str.charCodeAt(i), 3432918353); k = k << 15 | k >>> 17;
+		h ^= Math.imul(k, 461845907); h = h << 13 | h >>> 19;
+		h = Math.imul(h, 5) + 3864292196 | 0;
+	}
+	h ^= str.length;
+	return function() {
+		h ^= h >>> 16; h = Math.imul(h, 2246822507);
+		h ^= h >>> 13; h = Math.imul(h, 3266489909);
+		h ^= h >>> 16;
+		return h >>> 0;
+	}
 }

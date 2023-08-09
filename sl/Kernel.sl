@@ -2493,46 +2493,6 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 
 }
 
-MersenneTwister : [Object] {
-
-	randomFloat { :self |
-		<primitive: return _self.genrand_res53();>
-	}
-
-	randomFloat { :self :aNumber |
-		self.randomFloat * aNumber
-	}
-
-	randomFloat { :self :lower :upper |
-		lower + self.randomFloat(upper - lower)
-	}
-
-	randomInteger { :self :anInteger |
-		self.randomFloat(1, anInteger + 1).floor
-	}
-
-	randomInteger { :self :lower :upper |
-		self.randomFloat(lower, upper + 1).floor
-	}
-
-}
-
-+SmallFloat {
-
-	MersenneTwister { :self |
-		<primitive: return new sl.MersenneTwister(_self);>
-	}
-
-}
-
-+Void {
-
-	MersenneTwister {
-		MersenneTwister(system.unixTimeInMilliseconds)
-	}
-
-}
-
 Procedure : [Object] {
 
 	= { :self :anObject |

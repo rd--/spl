@@ -1,5 +1,6 @@
 [
 	'Kernel.sl',
+	'Kernel/Random.sl',
 	'Collections.sl',
 	'Collections/Bitset.sl',
 	'Collections/Heap.sl',

@@ -1527,21 +1527,6 @@ Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1)).closeTo(1@0)
 Matrix33(1, 1, 1, 1, 0, 0, 0, 1, 0).inverse = Matrix33(0, 1, 0, 0, 0, 1, 1, -1, -1)
 ```
 
-## MersenneTwister -- random number generator type
-```
-| m = MersenneTwister(98765); | m.typeOf = 'MersenneTwister'
-| m = MersenneTwister(98765); | m.isMersenneTwister (* mersenne predicate *)
-| m = MersenneTwister(98765); | m.randomFloat = 0.088898599949636 (* random number in [0, 1) *)
-| m = MersenneTwister(98765); | m.randomFloat(10) = 0.88898599949636 (* random number in [0, 10) *)
-| m = MersenneTwister(98765); | m.randomFloat(0, 100) = 8.8898599949636 (* random number in [0, 100) *)
-| m = MersenneTwister(98765); | m.randomInteger(1000) = 89 (* random integer in [1, 1000] *)
-| m = MersenneTwister(98765); | m.randomInteger(1, 10000) = 889 (* random integer in [1, 10000] *)
-| m = MersenneTwister(), r = m.randomFloat; | r >= 0 & { r < 1 } (* seed from system clock *)
-MersenneTwister(123456).randomFloat = 0.12696983303810094 (* test from standard tests *)
-| m = MersenneTwister(), s = Set(); | 729.timesRepeat { s.add(m.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
-| m = MersenneTwister(), s = Set(); | 729.timesRepeat { s.add(m.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
-```
-
 ## Method
 ```
 { true + false }.ifError { true } (* boolean does not implement + *)
@@ -1713,7 +1698,7 @@ pi.isNumber (* constant *)
 inf.isNumber (* constant (infinity) *)
 ```
 
-## Random values
+## Random -- system random number generator
 ```
 9.randomInteger.isInteger (* random integers (1 to self) *)
 var s = Set(); 729.timesRepeat { s.add(9.randomInteger) }; s.minMax = [1, 9] (* check distribution *)
@@ -1727,6 +1712,35 @@ var b = Bag(); 5000.timesRepeat { b.add(5.atRandom) }; b.contents.values.allSati
 [1].atRandom = 1 (* random element of one-element collection *)
 var c = [1 .. 5]; c.includes(c.atRandom) (* answer random element from a collection *)
 var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.Set (* random element of collection *)
+```
+
+## Random -- sfc
+```
+| r = Random(98765); | r.typeOf = 'Random' (* type *)
+| r = Random(98765); | r.isRandom (* predicate *)
+| r = Random(98765); | r.randomFloat = 0.49556130869314075 (* random number in [0, 1) *)
+| r = Random(98765); | r.randomFloat(10) = 4.9556130869314075 (* random number in [0, 10) *)
+| r = Random(98765); | r.randomFloat(0, 100) = 49.556130869314075 (* random number in [0, 100) *)
+| r = Random(98765); | r.randomInteger(1000) = 496 (* random integer in [1, 1000] *)
+| r = Random(98765); | r.randomInteger(1, 10000) = 4956 (* random integer in [1, 10000] *)
+| r = Random(), n = r.randomFloat; | n >= 0 & { n < 1 } (* seed from system clock *)
+| r = Random(), s = Set(); | 729.timesRepeat { s.add(r.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
+| r = Random(), s = Set(); | 729.timesRepeat { s.add(r.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
+```
+
+## Random - mersenne twister
+```
+| m = MersenneTwister(98765); | m.typeOf = 'Random' (* type of *)
+| m = MersenneTwister(98765); | m.isRandom (* predicate *)
+| m = MersenneTwister(98765); | m.randomFloat = 0.088898599949636 (* random number in [0, 1) *)
+| m = MersenneTwister(98765); | m.randomFloat(10) = 0.88898599949636 (* random number in [0, 10) *)
+| m = MersenneTwister(98765); | m.randomFloat(0, 100) = 8.8898599949636 (* random number in [0, 100) *)
+| m = MersenneTwister(98765); | m.randomInteger(1000) = 89 (* random integer in [1, 1000] *)
+| m = MersenneTwister(98765); | m.randomInteger(1, 10000) = 889 (* random integer in [1, 10000] *)
+| m = MersenneTwister(), r = m.randomFloat; | r >= 0 & { r < 1 } (* seed from system clock *)
+MersenneTwister(123456).randomFloat = 0.12696983303810094 (* test from standard tests *)
+| m = MersenneTwister(), s = Set(); | 729.timesRepeat { s.add(m.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
+| m = MersenneTwister(), s = Set(); | 729.timesRepeat { s.add(m.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
 ```
 
 ## ReadStream -- collection type
