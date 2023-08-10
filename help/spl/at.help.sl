@@ -11,10 +11,10 @@ If the receiver does not have indexed variables, or if the argument is less than
 
 - _at(aKeyedCollection, aKey)_
 
-Answer the value associated with _aKey_ in _aCollection_, else nil.
+Answer the value associated with _aKey_ in _aCollection_, else report an error.
 
 	(x: 1, y: 2).at('x') = 1
-	(x: 1, y: 2).at('z') = nil
+	{ (x: 1, y: 2).at('z') }.ifError { true }
 
 * * *
 
