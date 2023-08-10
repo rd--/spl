@@ -12,4 +12,4 @@ Multiples of items in _aCollection_ will not necessarily be removed.
 
 * * *
 
-See also: removeAllFoundIn
+See also: remove, removeAllFoundIn

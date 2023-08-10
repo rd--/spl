@@ -352,7 +352,9 @@ System : [Object, Indexable] {
 	highBitPerByteTable { :self |
 		self.cache.atIfAbsentPut('highBitPerByteTable') {
 			(1 .. 8).injectInto([0]) { :highBits :rank |
-				highBits ++ highBits.collect { :each | rank }
+				highBits ++ highBits.collect { :each |
+					rank
+				}
 			}.ByteArray
 		}
 	}

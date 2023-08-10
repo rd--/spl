@@ -1,6 +1,5 @@
 [
 	'Kernel.sl',
-	'Kernel/Random.sl',
 	'Collections.sl',
 	'Collections/Bitset.sl',
 	'Collections/Heap.sl',
@@ -8,6 +7,7 @@
 	'Collections/Stream.sl',
 	'Geometry.sl',
 	'Graphics.sl',
+	'Random.sl',
 	'System.sl',
 	'Time.sl'
 ].loadUrlSequence

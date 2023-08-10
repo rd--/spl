@@ -3,20 +3,38 @@
 		<primitive: return sl.mersenneTwister53Generator(_self);>
 	}
 
-	sfc32RandomNumberGenerator { :self :b :c :d |
-		<primitive: return sl.sfc32Generator(_self, _b, _c, _d);>
-	}
-
 	splitMix32RandomNumberGenerator { :self |
 		<primitive: return sl.splitMix32Generator(_self);>
 	}
 
 }
 
++Array {
+
+	sfc32RandomNumberGenerator { :self |
+		<primitive: return sl.sfc32Generator(_self[0], _self[1], _self[2], _self[3]);>
+	}
+
+}
+
 +String {
 
-	murmurHash3Generator { :self |
-		<primitive: return sl.murmurHash3Generator(_self);>
+	murmur3Generator { :self :seed |
+		<primitive: return sl.murmur3Generator(_self, _seed);>
+	}
+
+	murmur3 { :self |
+		self.murmur3(2166136261)
+	}
+
+	murmur3 { :self :seed |
+		| generator = self.murmur3Generator(seed); |
+		[
+			generator.value,
+			generator.value,
+			generator.value,
+			generator.value
+		]
 	}
 
 }
@@ -53,13 +71,8 @@ Random : [Object] { | randomNumberGenerator |
 
 	Sfc { :self |
 		|(
-			seedGenerator = self.murmurHash3Generator,
-			randomNumberGenerator = sfc32RandomNumberGenerator(
-				seedGenerator.value,
-				seedGenerator.value,
-				seedGenerator.value,
-				seedGenerator.value
-			)
+			seed = self.murmur3(2166136261),
+			randomNumberGenerator = sfc32RandomNumberGenerator(seed)
 		)|
 		newRandom().initializeSlots(randomNumberGenerator)
 	}

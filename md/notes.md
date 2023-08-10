@@ -63,8 +63,8 @@ Replace definitions at multiple types (i.e. SinOsc at Array & Number & Ugen) wit
 
 Sequenceable:
 
-- Array - fixed size, one-indexed (Array in St)
-- List - variable sized, one-indexed (OrderedCollection in St, Array in Js)
+- ByteArray, Float64Array - fixed size, one-indexed (Array in St)
+- Array - variable sized, one-indexed (OrderedCollection in St, Array in Js)
 - LinkedList - variable sized, one-indexed
 
 Unordered:

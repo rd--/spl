@@ -230,7 +230,7 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [5, 4, 3, 2, 1].detect { :each | each % 2 = 0 } = 4
 { [5, 4, 3, 2, 1].detect { :each | each % 7 = 0 } }.ifError { true }
 [5, 4, 3, 2, 1].findFirst { :each | each * 2 <= 4 } = 2
-[5, 4, 3, 2, 1].findFirst { :each | each % 7 = 0 } = nil
+[5, 4, 3, 2, 1].findFirst { :each | each % 7 = 0 } = nil (* nil if no element is found *)
 [5, 4, 3, 2, 1].findFirstIndex { :each | each % 3 = 0 } = 3
 [[1, 2, 3, 4], [5, 6, 7, 8]].transpose = [[1, 5], [2, 6], [3, 7], [4, 8]]
 1.toAsCollect(9, Array:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
@@ -278,9 +278,11 @@ Array(5).fillFromWith([1 .. 5], negated:/1) = [-1 .. -5]
 [1 .. 9].allButLast(7) = [1, 2]
 { [].allButLast }.ifError { true }
 { | a = Array(1); | a.at(3) }.ifError { true } (* out of bound indexing is an error *)
+{ | a = [1]; | a[3] }.ifError { true } (* out of bound indexing is an error *)
 | a = Array(1); | a[1].isNil = true (* array slots are initialised to nil *)
 | a = Array(1); | a.unsafeAt(3).isNil = true (* unsafe indexing, out of bounds indexes answer nil *)
 { | a = Array(1); | a.atPut(3, 'x') }.ifError { true } (* out of bound mutation is an error *)
+{ | a = [1]; | a[3] := 'x' }.ifError { true } (* out of bound mutation is an error *)
 | a = Array(1); | a.unsafeAtPut(3, 'x') = 'x' & { a.size = 3 } (* unsafe mutation, out of bounds indices extend array *)
 Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(even:/1) = 4
@@ -642,7 +644,7 @@ ByteArray(4).hex = '00000000'
 | b = ByteArray(4); | b.atAllPut(15); b.hex = '0f0f0f0f'
 'string'.asciiByteArray.Array = [115, 116, 114, 105, 110, 103] (* Array from ByteArray *)
 '0f00f010'.parseHexString = [15, 0, 240, 16].ByteArray
-{ [1, 2, 3].ByteArray.add(4) }.ifError { true } (* ByteArrays are not @OrderedCollections *)
+{ [1, 2, 3].ByteArray.add(4) }.ifError { true } (* ByteArrays are not Extensible *)
 [1 .. 9].ByteArray.select { :each | false } = [].ByteArray (* select nothing *)
 [1 .. 9].ByteArray ~= [1 .. 9] (* ByteArray and Array of equal elements are not equal *)
 [1 .. 9].ByteArray.hasEqualElements([1 .. 9]) (* ByteArray and Array of equal elements *)
@@ -869,8 +871,11 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 unicodeFractions().isDictionary = true
 unicodeFractions().associations.isArray = true
 (x: 1, y: 2).select { :each | false } = () (* select nothing *)
-().at('x') = nil
-().atIfAbsentPut('x') { 1 } = 1
+{ ().at('x') }.ifError { true } (* indexing with an unknown key is an error *)
+(x: nil).at('x') = nil (* as does indexing a field that is set to nil *)
+(x: nil).size = 1 (* nil fields exist *)
+(x: nil).keys = ['x'] (* nil fields exist *)
+().atIfAbsentPut('x') { 1 } = 1 (* at or atPut followed by at *)
 | d = (); | d.atIfAbsentPut('x') { 1 } = 1 & { d::x = 1 }
 (x: 1, y: 2).includes(2) (* includes, testing values for equality *)
 (x: 1, y: [2, 3]).includes([2, 3])
@@ -1117,6 +1122,11 @@ Fraction(4, 6).reduced.denominator = 3
 pi.asFraction = 311:99 (* with maximumDenominator set to one hundred *)
 (1 / [2, 3, 5, 7, 11, 13, 17]).collect(asFraction:/1) = [1:2, 1:3, 1:5, 1:7, 1:11, 1:13, 1:17]
 6:8 * 4 = 3 (* answer integer *)
+```
+
+## Hash -- murmur hash
+```
+'String Input'.murmur3(2166136261) = [2006581733, 2651545595, 2673830536, 2103835251]
 ```
 
 ## Heap -- collection type
@@ -1795,8 +1805,8 @@ ReadStream().next = nil (* next at an empty read stream answers nil *)
 Record().isRecord
 Record().includesKey('x') = false (* includes key predicate *)
 (w: 0, x: 1).includesKey('x') = true
-Record().at('x') = nil (* lookup for non-existing key answers nil *)
-()['x'] = nil (* lookup for non-existing key answers nil *)
+{ Record().at('x') }.ifError { true } (* lookup for non-existing key raises an error *)
+{ ()['x'] }.ifError { true } (* lookup for non-existing key is an error *)
 var d = Record(); d.atPut('x', 1) = 1 & { d.at('x') = 1 }
 var d = Record(); (d['x'] := 1) = 1 & { d['x'] = 1 }
 var d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
@@ -1827,8 +1837,10 @@ var c = (y: 2, z: 3); (x: 1).addAll(c) = c (* answer is argument *)
 var d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.atDelegateTo(each, 'parent') } = [1, 2, 3]
 var d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.messageSend(each, 'parent', []) } = [1, 2, 3]
 var d = (x: 1, parent: (y: 2, parent: (z: 3))); d.atPutDelegateTo('z', -3, 'parent'); d.atDelegateTo('z', 'parent') = -3
-var d = (c: 3, parent: (b: 2, parent: (a: 1))); [d:.a, d:.b, d:.c] = [1, 2, 3]
-var d = (x: 1, parent: (y: 2, parent: (z: 3))); d:.z := -3; [d:.x, d:.y, d:.z] = [1, 2, -3]
+var d = (c: 3, parent: (b: 2, parent: (a: 1))); [d:.a, d:.b, d:.c] = [1, 2, 3] (* :. is atDelegateTo 'parent' *)
+| d = (x: 1, parent: (y: 2, parent: (z: 3))); | d:.x := -1; [d:.x, d:.y, d:.z] = [-1, 2, 3] (* :. & := is atPutDelegateTo 'parent' *)
+| d = (x: 1, parent: (y: 2, parent: (z: 3))); | d:.y := -2; [d:.x, d:.y, d:.z] = [1, -2, 3]
+| d = (x: 1, parent: (y: 2, parent: (z: 3))); | d:.z := -3; [d:.x, d:.y, d:.z] = [1, 2, -3]
 var d = (length: { :self | (self::x.squared + self::y.squared).sqrt }); var p = (x: 3.141, y: 23, parent: d); p:.length = 23.213484895637706
 var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7) = 21
 (x: 1) = ('x': 1) (* records with quoted keys *)
@@ -2193,6 +2205,8 @@ Stack().size = 0 (* empty stack, size *)
 'quoted string'.isString (* quoted string *)
 'string'.isAsciiString = true (* does string contain only ascii characters *)
 'Mačiūnas'.isAsciiString = false (* does string contain only ascii characters *)
+''.isAsciiString = true (* the empty string is an ascii string *)
+128.Character.string.isAsciiString = false (* not all byte arrays are ascii *)
 'x' ++ 'y' = 'xy' (* append (catenation) *)
 'x' ++ 1 = 'x1' (* append, right hand side need not be a string *)
 'string'.asciiByteArray = [115, 116, 114, 105, 110, 103].ByteArray (* String to ByteArray of Ascii encoding *)
@@ -2514,7 +2528,7 @@ system.categoryOf('notInCategorySystem') = '*Uncategorized*'
 system.isIndexable
 system.globalDictionary.isDictionary (* the system global dicitionary is a dictionary *)
 system.globalDictionary.isRecord (* specifically, it is a record *)
-system::undefined = nil (* system implements the indexable trait, unknown keys return nil *)
+{ system::undefined }.ifError { true } (* system implements the indexable trait, unknown keys raise errors *)
 system::TwoPi := 2 * pi; system::TwoPi / 2 = pi (* declare and then access a global variable *)
 system.indices.includes('TwoPi') (* system is iterable *)
 system.indexOf(2 * pi) = 'TwoPi' (* system is iterable *)
@@ -2728,12 +2742,31 @@ Vector2(3, 4).isVector2 & { true } = true
 200 @ 100 * (3 @ 4) = (600 @ 400) (* multiply points *)
 1800 @ 100 / (3 @ 4) = (600 @ 25) (* divide points *)
 (200 @ 100).Array = [200, 100] (* array of x and y *)
+| v = Vector2(3, 4); | v.first = 3 & { v.second = 4 } (* implements first and second *)
+| v = Vector2(3, 4); | v[1] = 3 & { v[2] = 4 } (* implements at *)
+| v = Vector2(3, 4); | v[1] := 7; v.first = 7 (* implements atPut *)
+Vector2(3, 4).size = 2 (* implements size *)
+| v = Vector2(3, 4); | v.swapInPlace; v[1] = 4 (* swap fields in place *)
+Vector2(3, 4).swapped = Vector2(4, 3) (* answer swapped vector *)
 ```
 
 ## Vector3 -- geometry type
 ```
 [1, 2, 3].Vector3 = Vector3(1, 2, 3) (* three vector from array *)
+| a = [1, 2, 3], v = a.Vector3; | v.Array = [1, 2, 3] (* three vector to array *)
 Vector3(0, 0, 0).isZero (* are x, y and z all zero *)
+| v = Vector3(1, 2, 3); | [v.x, v.y, v.z] = [1, 2, 3] (* fields are x, y, z *)
+| v = Vector3(3, 4, 5); | v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } (* implements at *)
+| v = Vector3(3, 4, 5); | v[1] := 5; v[3] := 3; v.Array = [5, 4, 3] (* implements atPut *)
+| v = Vector3(3, 4, 5); | [v.first, v.second, v.third] = [3, 4, 5] (* implements first &etc. *)
+```
+
+## Vector4 -- geometry type
+```
+[1, 2, 3, 4].Vector4 = Vector4(1, 2, 3, 4) (* four vector from array *)
+| a = [1, 2, 3, 4], v = a.Vector4; | v.Array = [1, 2, 3, 4] (* four vector to array *)
+Vector4(0, 0, 0, 0).isZero (* are w, x, y and z all zero *)
+| v = Vector4(1, 2, 3, 4); | [v.w, v.x, v.y, v.z] = [1, 2, 3, 4] (* fields are w, x, y, z *)
 ```
 
 ## WriteStream -- collection type

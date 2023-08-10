@@ -1,3 +1,4 @@
+(* Unused: see Vector2 *)
 Pair : [Object] { | first second |
 
 	= { :self :anObject |

@@ -192,26 +192,6 @@
 		}
 	}
 
-	addAll { :self :aCollection |
-		aCollection.do { :each |
-			self.add(each)
-		}
-	}
-
-	addIfNotPresent { :self :anObject |
-		self.includes(anObject).ifFalse {
-			self.add(anObject)
-		};
-		anObject
-	}
-
-	addWithOccurrences { :self :newObject :anInteger |
-		anInteger.timesRepeat {
-			self.add(newObject)
-		};
-		newObject
-	}
-
 	any { :self :numberOfElements |
 		self.anyAs(numberOfElements, self.species)
 	}
@@ -348,12 +328,6 @@
 		(self.typeOf ++ '>>errorNotFound: ' ++ self).error
 	}
 
-	fillFromWith { :self :aCollection :aProcedure:/1 |
-		aCollection.do { :each |
-			self.add(aProcedure(each))
-		}
-	}
-
 	groupBy { :self :keyBlock:/1 |
 		| result = Map(); |
 		self.do { :each |
@@ -454,47 +428,6 @@
 		}
 	}
 
-	remove { :self :oldObject |
-		self.removeIfAbsent(oldObject) {
-			self.errorNotFound(oldObject)
-		}
-	}
-
-	removeAll { :self |
-		self.do { :each |
-			self.remove(each)
-		}
-	}
-
-	removeAll { :self :aCollection |
-		(aCollection == self).if {
-			self.removeAll
-		} {
-			aCollection.do { :each |
-				self.remove(each)
-			}
-		};
-		aCollection
-	}
-
-	removeAllFoundIn { :self :aCollection |
-		aCollection.do { :each |
-			self.removeIfAbsent(each) { }
-		};
-		aCollection
-	}
-
-	removeAllSuchThat { :self :aBlock:/1 |
-		self.copy.do { :each |
-			aBlock(each).ifTrue {
-				self.remove(each)
-			}
-		}
-	}
-
-	removeIfAbsent { :self :oldObject :anExceptionBlock |
-		self.subclassResponsibility('Collection>>removeIfAbsent')
-	}
 
 	select { :self :aProcedure:/1 |
 		| answer = self.species.new; |
@@ -542,6 +475,82 @@
 		self.select { :each |
 			seen.ifAbsentAdd(each)
 		}
+	}
+
+}
+
++@Collection { (* ExtensibleCollection ; add *)
+
+	addAll { :self :aCollection |
+		aCollection.do { :each |
+			self.add(each)
+		}
+	}
+
+	addIfNotPresent { :self :anObject |
+		self.includes(anObject).ifFalse {
+			self.add(anObject)
+		};
+		anObject
+	}
+
+	addWithOccurrences { :self :newObject :anInteger |
+		anInteger.timesRepeat {
+			self.add(newObject)
+		};
+		newObject
+	}
+
+	fillFromWith { :self :aCollection :aProcedure:/1 |
+		aCollection.do { :each |
+			self.add(aProcedure(each))
+		}
+	}
+
+}
+
++@Collection { (* RemoveableCollection *)
+
+	remove { :self :oldObject |
+		self.removeIfAbsent(oldObject) {
+			self.errorNotFound(oldObject)
+		}
+	}
+
+	removeAll { :self |
+		self.do { :each |
+			self.remove(each)
+		}
+	}
+
+	removeAll { :self :aCollection |
+		(aCollection == self).if {
+			self.removeAll
+		} {
+			aCollection.do { :each |
+				self.remove(each)
+			}
+		};
+		aCollection
+	}
+
+	removeAllFoundIn { :self :aCollection |
+		aCollection.do { :each |
+			self.removeIfAbsent(each) { }
+		};
+		aCollection
+	}
+
+	removeAllSuchThat { :self :aBlock:/1 |
+		self.copy.do { :each |
+			aBlock(each).ifTrue {
+				self.remove(each)
+			}
+		}
+	}
+
+	removeIfAbsent { :self :oldObject :anExceptionBlock |
+		self.subclassResponsibility('Collection>>removeIfAbsent')
 	}
 
 }
@@ -783,11 +792,14 @@
 
 	atDelegateToIfAbsent { :self :key :delegateKey :aProcedure:/0 |
 		self.atIfAbsent(key) {
-			| parent = self[delegateKey]; |
-			parent.ifNil {
-				aProcedure()
+			self.includesKey(delegateKey).if {
+				self[delegateKey].atDelegateToIfAbsent(
+					key,
+					delegateKey,
+					aProcedure:/0
+				)
 			} {
-				parent.atDelegateToIfAbsent(key, delegateKey, aProcedure:/0)
+				aProcedure()
 			}
 		}
 	}
@@ -799,7 +811,9 @@
 	}
 
 	atIfAbsent { :self :key :aProcedure:/0 |
-		self[key].ifNil {
+		self.includesKey(key).if {
+			self[key]
+		} {
 			aProcedure()
 		}
 	}
@@ -829,11 +843,15 @@
 			self.atPut(key, value)
 		} {
 			self.atIfAbsent(key) {
-				| parent = self[delegateKey]; |
-				parent.ifNil {
-					aProcedure()
+				self.includesKey(delegateKey).if {
+					self[delegateKey].atPutDelegateToIfAbsent(
+						key,
+						value,
+						delegateKey,
+						aProcedure:/0
+					)
 				} {
-					parent.atPutDelegateToIfAbsent(key, value, delegateKey, aProcedure:/0)
+					aProcedure()
 				}
 			}
 		}
@@ -2461,13 +2479,18 @@ Map : [Object, Iterable, Collection, Dictionary] {
 		>
 	}
 
-	at { :self :aKey |
-		<primitive: return _self.get(_aKey) || null;>
+	at { :self :key |
+		<primitive:
+		if(_self.has(_key)) {
+			return _self.get(_key);
+		}
+		>
+		('Map>>at: unknown key: ' ++ key).error
 	}
 
-	atPut { :self :aKey :aValue |
+	atPut { :self :key :aValue |
 		<primitive:
-		_self.set(_aKey, _aValue);
+		_self.set(_key, _aValue);
 		return _aValue;
 		>
 	}
@@ -2476,8 +2499,8 @@ Map : [Object, Iterable, Collection, Dictionary] {
 		self
 	}
 
-	includesKey { :self :aKey |
-		<primitive: return _self.has(_aKey);>
+	includesKey { :self :key |
+		<primitive: return _self.has(_key);>
 	}
 
 	json { :self |
@@ -2505,11 +2528,11 @@ Map : [Object, Iterable, Collection, Dictionary] {
 		>
 	}
 
-	removeKeyIfAbsent { :self :aKey :aProcedure |
+	removeKeyIfAbsent { :self :key :aProcedure |
 		<primitive:
-		var existed = _self.delete(_aKey);
+		var existed = _self.delete(_key);
 		if(existed) {
-			return _aKey;
+			return _key;
 		} else {
 			return _aProcedure();
 		}
@@ -3097,9 +3120,11 @@ Record : [Object, Json, Iterable, Collection, Dictionary] {
 
 	at { :self :aString |
 		<primitive:
-		var item = _self[_aString];
-		return item == undefined ? null : item;
+		if(Object.hasOwn(_self, _aString)) {
+			return _self[_aString];
+		}
 		>
+		('Record>>at: unknown key: ' ++ aString).error
 	}
 
 	atPut { :self :aString :anObject |
@@ -3116,8 +3141,8 @@ Record : [Object, Json, Iterable, Collection, Dictionary] {
 		<primitive: return new Map(Object.entries(_self));>
 	}
 
-	includesKey { :self :aKey |
-		<primitive: return Object.hasOwn(_self, _aKey);>
+	includesKey { :self :key |
+		<primitive: return Object.hasOwn(_self, _key);>
 	}
 
 	keys { :self |
@@ -3133,11 +3158,11 @@ Record : [Object, Json, Iterable, Collection, Dictionary] {
 		>
 	}
 
-	removeKeyIfAbsent { :self :aKey :aProcedure |
+	removeKeyIfAbsent { :self :key :aProcedure |
 		<primitive:
-		if(Object.hasOwn(_self, _aKey)) {
-			delete _self[_aKey];
-			return _aKey;
+		if(Object.hasOwn(_self, _key)) {
+			delete _self[_key];
+			return _key;
 		} else {
 			return _aProcedure();
 		}

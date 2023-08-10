@@ -1,4 +1,4 @@
-@Point {
+@Point { (* x y *)
 
 	= { :self :aPoint |
 		self.x = aPoint.x & {
@@ -20,6 +20,24 @@
 
 	abs { :self |
 		self.x.abs @ self.y.abs
+	}
+
+	at { :self :index |
+		index.caseOfOtherwise([
+			1 -> { self.x },
+			2 -> { self.y }
+		]) {
+			'Point>>at: index out of range'.error
+		}
+	}
+
+	atPut { :self :index :value |
+		index.caseOfOtherwise([
+			1 -> { self.x := value },
+			2 -> { self.y := value }
+		]) {
+			'Point>>atPut: index out of range'.error
+		}
 	}
 
 	closeTo { :self :aPoint |
@@ -56,6 +74,10 @@
 
 	min { :self :aPoint |
 		self.x.min(aPoint.x) @ self.y.min(aPoint.y)
+	}
+
+	size { :self |
+		2
 	}
 
 	translateBy { :self :delta |
@@ -368,7 +390,9 @@ Vector2 : [Object, Number, Point] { | x y |
 
 	= { :self :anObject |
 		anObject.isPoint.if {
-			(self.x = anObject.x) & { self.y = anObject.y }
+			(self.x = anObject.x) & {
+				self.y = anObject.y
+			}
 		} {
 			false
 		}
@@ -426,16 +450,20 @@ Vector2 : [Object, Number, Point] { | x y |
 		aProcedure(aNumber @ aNumber, self)
 	}
 
-	asPoint { :self |
-		self
-	}
-
 	Array { :self |
 		[self.x, self.y]
 	}
 
+	asPoint { :self |
+		self
+	}
+
 	collect { :self :aProcedure:/1 |
 		Point(self.x.aProcedure, self.y.aProcedure)
+	}
+
+	first { :self |
+		self.x
 	}
 
 	negate { :self |
@@ -455,6 +483,10 @@ Vector2 : [Object, Number, Point] { | x y |
 		(self.x.squared + self.y.squared).sqrt
 	}
 
+	second { :self |
+		self.y
+	}
+
 	storeString { :self |
 		[
 			'Point(',
@@ -463,6 +495,16 @@ Vector2 : [Object, Number, Point] { | x y |
 			self.y.storeString,
 			')'
 		].join
+	}
+
+	swapInPlace { :self |
+		| x = self.x, y = self.y; |
+		self.x := y;
+		self.y := x
+	}
+
+	swapped { :self |
+		Vector2(self.y, self.x)
 	}
 
 	t { :self |
@@ -527,6 +569,29 @@ Vector3 : [Object] { | x y z |
 		[self.x, self.y, self.z]
 	}
 
+	at { :self :index |
+		index.caseOfOtherwise([
+			1 -> { self.x },
+			2 -> { self.y },
+			3 -> { self.z }
+		]) {
+			'Vector3>>at: index out of range'.error
+		}
+	}
+
+	atPut { :self :index :value |
+		index.caseOfOtherwise([
+			1 -> { self.x := value },
+			2 -> { self.y := value },
+			3 -> { self.z := value }
+		]) {
+			'Vector3>>atPut: index out of range'.error
+		}
+	}
+
+	first { :self |
+		self.x
+	}
 
 	isZero { :self |
 		self.x.isZero & {
@@ -534,6 +599,18 @@ Vector3 : [Object] { | x y z |
 		} & {
 			self.z.isZero
 		}
+	}
+
+	second { :self |
+		self.y
+	}
+
+	size { :self |
+		3
+	}
+
+	third { :self |
+		self.z
 	}
 
 	xy { :self |
@@ -571,10 +648,26 @@ Vector3 : [Object] { | x y z |
 
 }
 
-Vector4 : [Object] { | x y z w |
+Vector4 : [Object] { | w x y z |
+
+	= { :self :anObject |
+		anObject.isVector4.if {
+			self.Array = anObject.Array
+		} {
+			false
+		}
+	}
 
 	Array { :self |
-		[self.x, self.y, self.z, self.w]
+		[self.w, self.x, self.y, self.z]
+	}
+
+	isZero { :self |
+		self.w = 0 & { self.x = 0 & { self.y = 0 & { self.z = 0 } } }
+	}
+
+	size { :self |
+		4
 	}
 
 	xy { :self |
@@ -589,8 +682,8 @@ Vector4 : [Object] { | x y z w |
 
 +@Number {
 
-	Vector4 { :self :y :z :w |
-		newVector4().initializeSlots(self, y, z, w)
+	Vector4 { :self :x :y :z |
+		newVector4().initializeSlots(self, x, y, z)
 	}
 
 }
@@ -601,8 +694,8 @@ Vector4 : [Object] { | x y z w |
 		(self.size ~= 4).if {
 			'Array>>Vector4: not 4-element array'.error
 		} {
-			| [x, y, z, w] = self; |
-			Vector4(x, y, z, w)
+			| [w, x, y, z] = self; |
+			Vector4(w, x, y, z)
 		}
 	}
 

@@ -116,7 +116,7 @@
 
 }
 
-@Indexable {
+@Indexable { (* IndexedCollection at *)
 
 	at { :self :index |
 		'Indexable>>at: type responsibility'.error
@@ -2628,11 +2628,15 @@ Procedure : [Object] {
 	}
 
 	numArgsOrNil { :self |
-		self.numArgsIfAbsent { nil }
+		self.numArgsIfAbsent {
+			nil
+		}
 	}
 
 	numArgs { :self |
-		self.numArgsIfAbsent { 'numArgs: applied to arity-dispatch procedure'.error }
+		self.numArgsIfAbsent {
+			'numArgs: applied to arity-dispatch procedure'.error
+		}
 	}
 
 	name { :self |
@@ -3352,7 +3356,7 @@ String : [Object, Json, Iterable] {
 	}
 
 	isAsciiString { :self |
-		self.utf8ByteArray.allSatisfy(isAsciiCodePoint:/1)
+		self.allSatisfy(isAscii:/1)
 	}
 
 	isAllDigits { :self |
