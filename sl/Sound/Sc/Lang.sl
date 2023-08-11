@@ -799,6 +799,10 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		}
 	}
 
+	order { :self |
+		self.sortedWithIndices.collect(value:/1)
+	}
+
 	pyramid { :self :patternType |
 		|(
 			answer = [],
@@ -815,14 +819,6 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 			}
 		};
 		self.species.newFrom(answer)
-	}
-
-	reshape { :self :shape |
-		| size = shape.product, answer = self.flatten.wrapExtend(size); |
-		shape.allButFirst.reverseDo { :n |
-			answer := answer.clump(n)
-		};
-		answer
 	}
 
 	scramble { :self |

@@ -56,8 +56,6 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [1 .. 9].normalize(10, 90) = [10, 20 .. 90] (* normalise between minima and maxima *)
 [1 .. 5].wrapExtend(9) = ([1 .. 5] ++ [1 .. 4]) (* extend array cyclically *)
 [1 .. 5].wrapExtend(3) = [1 .. 3] (* truncate is required *)
-[4, 7, 6, 8].reshape([2, 2]) = [[4, 7], [6, 8]] (* reshape array given Apl type shape value *)
-[4, 7, 6, 8].reshape([2, 3]) = [[4, 7, 6], [8, 4, 7]]  (* cycle input as required *)
 (1 .. 9).clump(3) = [[1 .. 3], [4 .. 6], [7 .. 9]] (* chunks of n places *)
 (1 .. 7).clump(3) = [[1 .. 3], [4 .. 6], [7]] (* chunks of n places, last segment may have less places *)
 'string'.asciiByteArray.clump(2).collect { :each | each.ByteArray.asciiString } = ['st', 'ri', 'ng']
@@ -100,3 +98,16 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 3:2.RatioCents.rounded = 702
 3:2.RatioCents ~ 702
 3:2.RatioMidi ~ 7.02
+[1, 3, 2, 5, 4].order = [0, 2, 1, 4, 3] (* indices that would sort reciever *)
+'string'.split.order = [6, 4, 5, 3, 1, 2] (* indices that would sort reciever *)
+
+'Sound/Sc/Lang/J'
+[[], [1], [[2]], [[[3]]]].collect(rank:/1) = [1, 1, 2, 3] (* rank *)
+[[1, 2, 3], [4, 5, 6]].shape = [2, 3] (* size of shape is rank *)
+[[1, 2], [3, 4], [5, 6]].shape = [3, 2] (* size of each element is size at depth *)
+[[[1], [2]], [[3], [4]], [[5], [6]]].shape = [3, 2, 1] (* rank and shape both assume regularity *)
+[4].iota = [1, 2, 3, 4] (* array with counter *)
+[3, 2].iota = [[1, 2], [3, 4], [5, 6]] (* matrix (two-dimensional array) with counter *)
+[3, 2, 1].iota = [[[1], [2]], [[3], [4]], [[5], [6]]] (* three-dimensional array with counter *)
+[4, 7, 6, 8].reshape([2, 2]) = [[4, 7], [6, 8]] (* reshape array given Apl type shape value *)
+[4, 7, 6, 8].reshape([2, 3]) = [[4, 7, 6], [8, 4, 7]]  (* cycle input as required *)

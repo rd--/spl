@@ -728,6 +728,9 @@ Set().Array = []
 (x: 1, y: 2, z: 1).keys.histogramOf { :each | each } = ['x', 'y', 'z'].Bag
 [1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].asBag
 [].ifEmpty { true } (* evaluate block if collection is empty *)
+[].ifEmpty { true } { false } (* evaluate emptyBlock if collection is empty *)
+[1].ifEmpty { false } { true } (* evaluate notEmptyBlock if collection is not empty *)
+[1].ifEmpty { false } { :c | c = [1] } (* evaluate notEmptyBlock with collection if not empty *)
 (1 .. 9).detectSum(squared:/1) = 285 (* apply procedure to each element and sum *)
 (1 .. 9).collect(squared:/1).sum = 285
 | a = [1 .. 9]; | a.removeAll([3 .. 7]); a = [1, 2, 8, 9] (* remove all indicated elements *)
@@ -1284,7 +1287,7 @@ Interval(-2, 2, 1).collect(even:/1) = [true, false, true, false, true]
 1 + 1.to(9).collect(squared:/1) = [2, 5, 10, 17, 26,37, 50, 65, 82]
 2 * (1 .. 9).collect(squared:/1) = [2, 8, 18, 32, 50,72, 98, 128, 162]
 1.to(9).Array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-(1 .. 9).copyFromTo(3, 7) = [3, 4, 5, 6, 7] (* copy from start to end indices, inclusive *)
+(1 .. 9).copyFromTo(3, 7) = (3 .. 7) (* copy from start to end indices, inclusive *)
 | i = 1; | 1.to(9).do { :each | i := i + each }; i = 46
 Interval(-1, 1, 1).printString = '(-1 .. 1)'
 Interval(-1, 1, 1).storeString = 'Interval(-1, 1, 1)'
@@ -1292,9 +1295,10 @@ Interval(1, 9, 1) = (1 .. 9)
 Interval(1, 10, 3).size = 4
 Interval(1, 10, 3).Array = [1, 4, 7, 10]
 1.to(6).reversed = (6 .. 1)
-1.to(6).first = 1
-(1 .. 6).second = 2
-to(1, 6).last = 6
+1.to(6).first = 1 (* first element of interval *)
+{ 1.upTo(0).first }.ifError { true } (* first element of empty interval *)
+(1 .. 6).second = 2 (* second element of interval *)
+to(1, 6).last = 6 (* last element of interval *)
 | i = (1 .. 9); | i.first = i[1] (* one-indexed *)
 | i = (1 .. 9); | i.last = i[9] (* one-indexed *)
 (1 .. 6).sum = 21
@@ -1357,6 +1361,12 @@ Interval(1, 100, 0.5).size = 199
 | i = (9, 7 .. 1); | i.removeFirst = 9 & { i = (7, 5 .. 1) } (* remove first element *)
 | i = (1, 3 .. 9); | i.removeLast = 9 & { i = (1, 3 .. 7) } (* remove first element *)
 | i = (9, 7 .. 1); | i.removeLast = 1 & { i = (9, 7 .. 3) } (* remove first element *)
+(1 .. 9).sorted = (1 .. 9) (* ascending intervals are sorted *)
+(9 .. 1).sorted = (1 .. 9) (* reverse interval if descending *)
+| n = 0; | (1 .. 5).permutationsDo { :each | n := n + 1 }; n = 120 (* interval permutations *)
+(1, 3 .. 17).copyFromTo(3, 6) = (5, 7 .. 11) (* copy from start index to end index *)
+(17, 15 .. 1).copyFromTo(3, 6) = (13, 11 .. 7) (* copy from start index to end index *)
+(1, 3 .. 17).copyFromTo(6, 3).isEmpty (* if indices are out of order the interval is empty *)
 ```
 
 ## Iteration
@@ -1768,25 +1778,25 @@ ReadStream().isReadStream (* read stream predicate *)
 ReadStream().atEnd = true (* read stream at end predicate *)
 ReadStream().position = 0 (* initially the position is zero *)
 (1 .. 5).ReadStream.size = 5 (* read stream from interval, read stream size *)
-(1 .. 5).ReadStream.upTo(3) = [1, 2] (* read up to, but not including, an element *)
-(1 .. 5).ReadStream.upTo(9) = [1 .. 5] (* read up to end if element is not located *)
-(1 .. 5).ReadStream.contents = [1 .. 5] (* contents of finite stream (a copy of the collection)  *)
+(1 .. 5).ReadStream.upTo(3) = (1 .. 2) (* read up to, but not including, an element *)
+(1 .. 5).ReadStream.upTo(9) = (1 .. 5) (* read up to end if element is not located *)
+(1 .. 5).ReadStream.contents = (1 .. 5) (* contents of finite stream (a copy of the collection)  *)
 (1 .. 5).ReadStream.originalContents = (1 .. 5) (* original contents of stream (the actual collection *)
-| r = (1 .. 5).ReadStream; | r.upToEnd; r.contents = [1 .. 5] (* contents of consumed stream *)
+| r = (1 .. 5).ReadStream; | r.upToEnd; r.contents = (1 .. 5) (* contents of consumed stream *)
 | r = [1 .. 5].ReadStream; | [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil]
 | r = [1 .. 3].ReadStream; | [r.next, r.upToEnd] = [1, [2, 3]]
 | r = (1 .. 5).ReadStream; | [r.peek, r.next] = [1, 1] (* peek at the next item *)
 | r = (1 .. 5).ReadStream; | [r.peekFor(1), r.next] = [true, 2] (* peek or read next item *)
 | r = (1 .. 5).ReadStream; | [r.peekFor(nil), r.next] = [false, 1] (* peek or read next item *)
-| r = (1 .. 5).ReadStream; | r.upTo(3) = [1, 2] & { r.next = 4} (* matching element is consumed *)
-| r = (1 .. 5).ReadStream; | r.skip(3); r.upToEnd = [4, 5] (* skip to a position *)
-| r = (1 .. 9).ReadStream; | r.skipTo(7); r.upToEnd = [8, 9] (* skip to an object *)
+| r = (1 .. 5).ReadStream; | r.upTo(3) = (1 .. 2) & { r.next = 4} (* matching element is consumed *)
+| r = (1 .. 5).ReadStream; | r.skip(3); r.upToEnd = (4 .. 5) (* skip to a position *)
+| r = (1 .. 9).ReadStream; | r.skipTo(7); r.upToEnd = (8 .. 9) (* skip to an object *)
 | r = (1 .. 5).ReadStream; | r.position(3); r.skip(-1); r.next = 3 (* move to indicated position, which is the index before the next element *)
 ReadStream().next = nil (* next at an empty read stream answers nil *)
 { ReadStream().position := -1 }.ifError { true } (* it is an error to move the position out of bounds *)
 { ReadStream().position := 1 }.ifError { true } (* it is an error to move the position out of bounds *)
-| r = (9 .. 1).ReadStream; | [r.upTo(3), r.upToEnd] = [[9 .. 4], [2 .. 1]]
-| r = (9 .. 1).ReadStream; | [r.upToPosition(3), r.upToEnd] = [[9 .. 7], [6 .. 1]] (* read from current position up to indicated position *)
+| r = (9 .. 1).ReadStream; | [r.upTo(3), r.upToEnd] = [(9 .. 4), (2 .. 1)]
+| r = (9 .. 1).ReadStream; | [r.upToPosition(3), r.upToEnd] = [(9 .. 7), (6 .. 1)] (* read from current position up to indicated position *)
 | r = '.....ascii'.asciiByteArray.ReadStream, a = ByteArray(5); | r.skip(5); r.nextInto(a); a.asciiString = 'ascii'
 (1 .. 9).ReadStream.nextSatisfy { :each | each >= 5 } = 5
 (1 .. 9).ReadStream.take(23) = [1 .. 9]
@@ -1955,14 +1965,16 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printSt
 var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291' (* do from end *)
 [1, 2, 2, 3, 3, 3, 4, 4, 4, 4].withoutDuplicates = [1, 2, 3, 4] (* copy without duplicates, retain order *)
 ([1, 3 .. 9] ++ [1, 3 .. 9] ++ [2, 4 .. 10] ++ [2, 4 .. 10]).withoutDuplicates = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
-[1 .. 9].hasEqualElements((1 .. 9))
-(1 .. 9).hasEqualElements([1 .. 9])
-[1 .. 9] ~= (1 .. 9)
-(1 .. 9) ~= [1 .. 9]
+[1 .. 9].hasEqualElements((1 .. 9)) (* an array is not equal to an interval, but can have equal elements *)
+(1 .. 9).hasEqualElements([1 .. 9]) (* an interval is not equal to an array, but can have equal elements *)
+[1 .. 9] ~= (1 .. 9) (* an array is not equal to an interval *)
+(1 .. 9) ~= [1 .. 9] (* an interval is not equal to an array *)
 [1.5 .. 9.5].middle = 5.5 (* range start need not be an integer *)
 var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 { [1 .. 5].swapWith(1, 9) }.ifError { true }
-[1, [2, [3, [4, [5], 6], 7], 8], 9].flatten = [1 .. 9]
+[1, [2, [3, [4, [5], 6], 7], 8], 9].flattened = [1 .. 9] (* concatenation removing all nesting *)
+[1, [2, [3, ['45', 6], '78']], 9].flattened = [1, 2, 3, '45', 6, '78', 9] (* strings are not flattened to sequences of characters *)
+[3, 4, [2, 4, ['xy'], 'wz']].flattened = [3, 4, 2, 4, 'xy', 'wz']
 [1 .. 9].rotateLeft(3) = ([4 .. 9] ++ [1 .. 3]) (* rotate left *)
 [1 .. 9].rotateRight(3) = ([7 .. 9] ++ [1 .. 6]) (* rotate right *)
 | d = []; | (3 .. 1).withDo((1 .. 3)) { :p :q | d.add(p -> q) } ; d = [3 -> 1, 2 -> 2, 1 -> 3]
@@ -2003,6 +2015,11 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | a = []; | (9 .. 1).keysAndValuesDo { :index :value | a.add(index * 2 + value) }; a = [11 .. 19] (* keys are indices *)
 | a = [1 .. 5]; | a.atIncrementBy(3, 6); a = [1, 2, 9, 4, 5] (* increment value at index by *)
 | a = [1 .. 9]; | a.atLastPut(3, -7); a = [1, 2, 3, 4, 5, 6, -7, 8, 9] (* set at index from end *)
+'string'.split.sorted = ['g', 'i', 'n', 'r', 's', 't']
+'string'.split.sortedWithIndices = ['g' -> 6, 'i' -> 4, 'n' -> 5, 'r' -> 3, 's' -> 1, 't' -> 2]
+| a = 'string'.split; | a.atAll([6, 4, 5, 3, 1, 2]) = a.sorted
+[1, 3, 2, 5, 4].sortedWithIndices = [1 -> 1, 2 -> 3, 3 -> 2, 4 -> 5, 5 -> 4]
+[1, 3, 2, 5, 4].atAll([1, 3, 2, 5, 4]) = [1 .. 5]
 ```
 
 ## Sequence arithmetic

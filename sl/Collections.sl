@@ -365,9 +365,19 @@
 		true
 	}
 
-	ifEmpty { :self :aProcedure |
-		self.isEmpty.ifTrue {
-			aProcedure.cull(self)
+	ifEmpty { :self :aProcedure:/0 |
+		self.isEmpty.if {
+			aProcedure()
+		} {
+			self
+		}
+	}
+
+	ifEmpty { :self :emptyBlock:/0 :notEmptyBlock |
+		self.isEmpty.if {
+			emptyBlock()
+		} {
+			notEmptyBlock.cull(self)
 		}
 	}
 
@@ -1383,11 +1393,11 @@
 		self
 	}
 
-	flatten { :self |
+	flattened { :self |
 		| answer = []; |
 		self.do { :item |
 			item.isCollection.if {
-				answer.addAll(item.flatten)
+				answer.addAll(item.flattened)
 			} {
 				answer.add(item)
 			}
@@ -1769,6 +1779,22 @@
 
 	shuffled { :self |
 		self.copy.fisherYatesShuffle
+	}
+
+	sortedWithIndices { :self |
+		self.sortedWithIndices(lessThanEquals:/2)
+	}
+
+	sortedWithIndices { :self :sortBlock:/2 |
+		self.ifEmpty {
+			[]
+		} {
+			self.withIndexCollect { :each :index |
+				each -> index
+			}.sorted { :p :q |
+				sortBlock(p.key, q.key)
+			}
+		}
 	}
 
 	splitBy { :self :aCollection |
@@ -2767,6 +2793,14 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 		result
 	}
 
+	copyFromTo { :self :startIndex :stopIndex |
+		(startIndex = 1 & { stopIndex = self.size }).if {
+			self
+		} {
+			self[startIndex].toBy(self[stopIndex], self.step)
+		}
+	}
+
 	do { :self :aProcedure:/1 |
 		| nextValue = self.start, endValue = self.stop; |
 		(self.step > 0).if {
@@ -2783,10 +2817,6 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 		self
 	}
 
-	first { :self |
-		self.start
-	}
-
 	increment { :self |
 		self.step
 	}
@@ -2796,7 +2826,11 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 	}
 
 	last { :self |
-		self.stop - (self.stop - self.start % self.step)
+		self.ifEmpty {
+			'Interval>>last: empty interval'
+		} {
+			self.stop - (self.stop - self.start % self.step)
+		}
 	}
 
 	printString { :self |
@@ -2850,24 +2884,28 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 		}
 	}
 
-	second { :self |
-		self.start + self.step
-	}
-
 	size { :self |
-		| derive = (self.stop - self.start).quotient(self.step) + 1; |
+		| derived = (self.stop - self.start).quotient(self.step) + 1; |
 		(self.step < 0).if {
 			(self.start < self.stop).if {
 				0
 			} {
-				derive
+				derived
 			}
 		} {
 			(self.stop < self.start).if {
 				0
 			} {
-				derive
+				derived
 			}
+		}
+	}
+
+	sorted { :self |
+		(self.step < 0).if {
+			self.reversed
+		} {
+			self
 		}
 	}
 
