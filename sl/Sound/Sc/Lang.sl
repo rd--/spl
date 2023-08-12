@@ -555,15 +555,26 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 +@SequenceableCollection {
 
 	allTuples { :self |
-		| answerSize = self.collect(size:/1).product; |
-		1.upTo(answerSize).collect { :i |
-			| k = i - 1, nextTuple = self.species.new(self.size); |
-			self.size.toBy(1, -1).collect { :j |
+		| answer = []; |
+		self.allTuplesDo { :each |
+			answer.add(each.copy)
+		};
+		answer
+	}
+
+	allTuplesDo { :self :aBlock:/1 |
+		|(
+			answerSize = self.collect(size:/1).product,
+			tuple = self.species.new(self.size)
+		)|
+		1.upToDo(answerSize) { :i |
+			| k = i - 1; |
+			self.size.toByDo(1, -1) { :j |
 				| fromSequence = self[j]; |
-				nextTuple[j] := fromSequence[k % fromSequence.size + 1];
+				tuple[j] := fromSequence[k % fromSequence.size + 1];
 				k := k // fromSequence.size
 			};
-			nextTuple
+			aBlock(tuple)
 		}
 	}
 

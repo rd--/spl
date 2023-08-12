@@ -109,5 +109,14 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 [4].iota = [1, 2, 3, 4] (* array with counter *)
 [3, 2].iota = [[1, 2], [3, 4], [5, 6]] (* matrix (two-dimensional array) with counter *)
 [3, 2, 1].iota = [[[1], [2]], [[3], [4]], [[5], [6]]] (* three-dimensional array with counter *)
+[3, 2, 1].iota.rank = 3 (* iota rank is size of input *)
+[3, 2, 1].iota.shape = [3, 2, 1] (* iota shape is input array *)
+[3, 2, 1].iota.reshape([2, 3, 1]).shape = [2, 3, 1] (* shape after reshape is requested shape *)
 [4, 7, 6, 8].reshape([2, 2]) = [[4, 7], [6, 8]] (* reshape array given Apl type shape value *)
 [4, 7, 6, 8].reshape([2, 3]) = [[4, 7, 6], [8, 4, 7]]  (* cycle input as required *)
+[[1, 2, 3], [4, 5], [6]].allTuples = [[1, 4, 6], [1, 5, 6], [2, 4, 6], [2, 5, 6], [3, 4, 6], [3, 5, 6]]
+[5, 5].shapeIndices = [[1 .. 5], [1 .. 5]].allTuples (* all indices to array of given shape *)
+| n = 0; | [5, 5].shapeIndicesDo { :each | n := n + 1 }; n = 25  (* all indices to array of given shape *)
+| r = Random(98765); | { r.randomInteger(9) }.dupShape([3, 5]) = [[5, 4, 2, 7, 1], [5, 2, 5, 5, 9], [6, 2, 4, 1, 5]]
+| r = Random(98765); | { r.randomInteger(9) }.dupShape([2, 2, 3]) = [[[5, 4, 2], [7, 1, 5]], [[2, 5, 5], [9, 6, 2]]]
+| s = [2, 3], a = s.iota; | s.shapeIndicesDo { :each | a.atPathPut(each, each.join.asInteger) }; a = [[11, 12, 13], [21, 22, 23]]
