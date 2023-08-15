@@ -113,10 +113,43 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 [3, 2, 1].iota.shape = [3, 2, 1] (* iota shape is input array *)
 [3, 2, 1].iota.reshape([2, 3, 1]).shape = [2, 3, 1] (* shape after reshape is requested shape *)
 [4, 7, 6, 8].reshape([2, 2]) = [[4, 7], [6, 8]] (* reshape array given Apl type shape value *)
-[4, 7, 6, 8].reshape([2, 3]) = [[4, 7, 6], [8, 4, 7]]  (* cycle input as required *)
+[4, 7, 6, 8].reshape([2, 3]) = [[4, 7, 6], [8, 4, 7]] (* cycle input as required *)
 [[1, 2, 3], [4, 5], [6]].allTuples = [[1, 4, 6], [1, 5, 6], [2, 4, 6], [2, 5, 6], [3, 4, 6], [3, 5, 6]]
 [5, 5].shapeIndices = [[1 .. 5], [1 .. 5]].allTuples (* all indices to array of given shape *)
-| n = 0; | [5, 5].shapeIndicesDo { :each | n := n + 1 }; n = 25  (* all indices to array of given shape *)
+| n = 0; | [5, 5].shapeIndicesDo { :each | n := n + 1 }; n = 25 (* all indices to array of given shape *)
 | r = Random(98765); | { r.randomInteger(9) }.dupShape([3, 5]) = [[5, 4, 2, 7, 1], [5, 2, 5, 5, 9], [6, 2, 4, 1, 5]]
 | r = Random(98765); | { r.randomInteger(9) }.dupShape([2, 2, 3]) = [[[5, 4, 2], [7, 1, 5]], [[2, 5, 5], [9, 6, 2]]]
 | s = [2, 3], a = s.iota; | s.shapeIndicesDo { :each | a.atPathPut(each, each.join.asInteger) }; a = [[11, 12, 13], [21, 22, 23]]
+[3, 2].iota = [[1, 2], [3, 4], [5, 6]]
+[3, 2].iota.bubble(0, 1) = [[[1, 2], [3, 4], [5, 6]]]
+[3, 2].iota.bubble(1, 1) = [[[1, 2]], [[3, 4]], [[5, 6]]]
+[3, 2].iota.bubble(2, 1) = [[[1], [2]], [[3], [4]], [[5], [6]]]
+| z = [3, 2].iota; | z.bubble(0, 0) = z.bubble(0, 1)
+| z = [3, 2].iota; | z.bubble(0, 1) = [z]
+| z = [3, 2].iota; | z.bubble(0, 1).unbubble(0, 1) = z
+| z = [3, 2].iota; | z.bubble(1, 1).unbubble(1, 1) = z
+| z = [3, 2].iota; | z.bubble(2, 1).unbubble(2, 1) = z
+| z = [3, 2].iota; | z.bubble(0, 2) = [[z]]
+| z = [3, 2].iota; | z.bubble(0, 2).unbubble(0, 2) = z
+[[1, 2, 3], [[41, 52], 5, 6], 1, 2, 3].maxDepth = 3
+(0 .. 3).collect { :k | [[1, 2, 3], [[41, 52], 5, 6], 1, 2, 3].maxSizeAtDepth(k) } = [5, 3, 2, 1]
+[4, 5].iota.slice([nil, (1 .. 3)]) = [[1, 2, 3], [6, 7, 8], [11, 12, 13], [16, 17, 18]]
+[4, 5].iota.slice([[3], (1 .. 3)]) = [11, 12, 13]
+[4, 5].iota.slice([3, (1 .. 3)]) = [11, 12, 13]
+[4, 5].iota.slice([(3 .. 4), (1 .. 3)]) = [[11, 12, 13], [16, 17, 18]]
+[4, 5].iota.slice([(2 .. 4), [4]]) = [9, 14, 19]
+[4, 5].iota.slice([(2 .. 4), 4]) = [9, 14, 19]
+[4, 5].iota.slice([[3], [4]]) = 14
+[4, 5].iota.slice([3, 4]) = 14
+[3, 3, 3].iota.slice([[1, 2], [2, 3], [1, 3]]) = [[[4, 6], [7, 9]], [[13, 15], [16, 18]]]
+[3, 3, 3].iota.slice([nil, nil, [1, 3]]) = [[[1, 3], [4, 6], [7, 9]], [[10, 12], [13, 15], [16, 18]], [[19, 21], [22, 24], [25, 27]]]
+[3, 3, 3].iota.slice([[2]]) = [[10, 11, 12], [13, 14, 15], [16, 17, 18]]
+[3, 3, 3].iota.slice([2]) = [[10, 11, 12], [13, 14, 15], [16, 17, 18]]
+[3, 3, 3].iota.slice([nil, [2]]) = [[4, 5, 6], [13, 14, 15], [22, 23, 24]]
+[3, 3, 3].iota.slice([nil, nil, 2]) = [[2, 5, 8], [11, 14, 17], [20, 23, 26]]
+[3, 3, 3].iota.slice([nil, [3], [2]]) = [8, 17, 26]
+[3, 3, 3].iota.slice([nil, 3, 2]) = [8, 17, 26]
+[3, 3, 3].iota.slice([nil, [2], (2 .. 3)]) = [[5, 6], [14, 15], [23, 24]]
+[3, 3, 3].iota.slice([nil, 2, (2 .. 3)]) = [[5, 6], [14, 15], [23, 24]]
+[3, 3, 3].iota.slice([[2], [1, 2]]) = [[10, 11, 12], [13, 14, 15]]
+[3, 3, 3].iota.slice([2, [1, 2]]) = [[10, 11, 12], [13, 14, 15]]

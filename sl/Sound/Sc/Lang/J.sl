@@ -1,3 +1,58 @@
++@Object {
+
+	bubble { :self :depth :levels |
+		(levels <= 1).if {
+			[self]
+		} {
+			[self.bubble(depth, levels - 1)]
+		}
+	}
+
+	unbubble { :self :depth :levels |
+		self
+	}
+
+}
+
++@Collection {
+
+	maxDepth { :self |
+		self.maxDepth(1)
+	}
+
+	maxDepth { :self :max |
+		| answer = max; |
+		self.do { :each |
+			each.isCollection.ifTrue {
+				answer := answer.max(each.maxDepth(max + 1))
+			}
+		};
+		answer
+	}
+
+	maxSizeAtDepth { :self :rank |
+		| maxSize = 0; |
+		(rank = 0).if {
+			self.size
+		} {
+			self.do { :each |
+				|(
+					size = (each.isCollection).if {
+						each.maxSizeAtDepth(rank - 1)
+					} {
+						1
+					}
+				)|
+				(size > maxSize).ifTrue {
+					maxSize := size
+				}
+			};
+			maxSize
+		}
+	}
+
+}
+
 +@SequenceableCollection {
 
 	atPath { :self :path |
@@ -22,6 +77,20 @@
 				self[path.first] := anObject
 			} {
 				inner.atPathPut(path.allButFirst, anObject)
+			}
+		}
+	}
+
+	bubble { :self :depth :levels |
+		(depth <= 0).if {
+			(levels <= 1).if {
+				[self]
+			} {
+				[self.bubble(depth, levels - 1)]
+			}
+		} {
+			self.collect { :item |
+				item.bubble(depth - 1, levels)
 			}
 		}
 	}
@@ -73,6 +142,51 @@
 		self.collect { :each |
 			1.upTo(each)
 		}.allTuples
+	}
+
+	slice { :self :cuts |
+		(cuts.size = 0).if {
+			self.copy
+		} {
+			|(
+				firstCut = cuts.first,
+				answer = firstCut.ifNil {
+					self.copy
+				} {
+					self.atAll(firstCut.toArray)
+				}
+			)|
+			(cuts.size = 1).if {
+				answer.unbubble(0, 1)
+			} {
+				cuts := cuts.allButFirst;
+				answer.collect { :item |
+					item.isCollection.if {
+						item.slice(cuts)
+					} {
+						item
+					}
+				}.unbubble(0, 1)
+			}
+		}
+	}
+
+	unbubble { :self :depth :levels |
+		(depth <= 0).if {
+			(self.size > 1).if {
+				self
+			} {
+				(levels <= 1).if {
+					self.first
+				} {
+					self.first.unbubble(depth, levels - 1)
+				}
+			}
+		} {
+			self.collect { :item |
+				item.unbubble(depth - 1, 1)
+			}
+		}
 	}
 
 }
