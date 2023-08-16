@@ -16,6 +16,38 @@
 
 +@Collection {
 
+	deepCollect { :self :depth :aBlock |
+		aBlock.numArgs.caseOfOtherwise([
+			{ 1 } -> { self.deepCollect(depth, { :each :index :rank | aBlock . (each) }, 1, 0) },
+			{ 3 } -> { self.deepCollect(depth, aBlock, 1, 0) }
+		]) {
+			'Collection>>deepCollect: block must have one or three arguments'.error
+		}
+	}
+
+	deepCollect { :self :depth :aBlock:/3 :index :rank |
+		(depth.isNil).if {
+			rank := rank + 1;
+			self.withIndexCollect { :item :itemIndex |
+				item.deepCollect(depth, aBlock, itemIndex, rank)
+			}
+		} {
+			(depth <= 0).if {
+				aBlock(self, index, rank)
+			} {
+				depth := depth - 1;
+				rank := rank + 1;
+				self.collect { :item |
+					item.isCollection.if {
+						item.deepCollect(depth, aBlock:/3, index, rank)
+					} {
+						aBlock(item, index, rank)
+					}
+				}
+			}
+		}
+	}
+
 	maxDepth { :self |
 		self.maxDepth(1)
 	}
@@ -121,6 +153,15 @@
 			answer := answer.clump(n)
 		};
 		answer
+	}
+
+	reshapeLike { :self :another |
+		| index = 1, flat = self.flattened; |
+		another.deepCollect(16r7FFFFFFF) { :each |
+			| item = flat.atWrap(index); |
+			index := index + 1;
+			item
+		}
 	}
 
 	shape { :self |
