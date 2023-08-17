@@ -8,4 +8,5 @@ and continuing until the element at _stopIndex_.
 
 * * *
 
-See also: copy
+See also: copy, copyWith, copyWithout
+

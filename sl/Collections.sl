@@ -1016,6 +1016,13 @@
 		'Indexable>>at: type responsibility'.error
 	}
 
+	atAllPut { :self :anObject |
+		self.indices.do { :index |
+			self[index] := anObject
+		};
+		anObject
+	}
+
 	atAllPut { :self :indices :anObject |
 		indices.do { :index |
 			self[index] := anObject
@@ -1286,6 +1293,12 @@
 		(end < newSize).ifTrue {
 			answer.replaceFromToWithStartingAt(end + 1, newSize, self, stop + 1)
 		};
+		answer
+	}
+
+	copyWithFirst { :self :newElement |
+		| answer = self.copy; |
+		answer.addFirst(newElement);
 		answer
 	}
 
@@ -1706,6 +1719,14 @@
 		}
 	}
 
+	replaceFromToWith { :self :start :stop :replacement |
+		(replacement.size = (stop - start + 1)).if {
+			self.replaceFromToWithStartingAt(start, stop, replacement, 1)
+		} {
+			'Sequenceable>>replaceFromToWith: size of replacement doesnt match'.error
+		}
+	}
+
 	replaceFromToWithStartingAt { :self :start :stop :replacement :replacementStart |
 		| replacementOffset = replacementStart - start, index = start; |
 		{ index <= stop }.whileTrue {
@@ -1944,7 +1965,10 @@ Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, 
 	}
 
 	addFirst { :self :anObject |
-		<primitive: return _self.unshift(_anObject);>
+		<primitive:
+		_self.unshift(_anObject);
+		return _anObject;
+		>
 	}
 
 	addLast { :self :anObject |

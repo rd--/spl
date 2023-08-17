@@ -236,7 +236,7 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [5, 4, 3, 2, 1].findFirstIndex { :each | each % 3 = 0 } = 3
 [[1, 2, 3, 4], [5, 6, 7, 8]].transpose = [[1, 5], [2, 6], [3, 7], [4, 8]]
 1.toAsCollect(9, Array:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
-[1 .. 9].copy == [1 .. 9] = false
+[1 .. 9].copy == [1 .. 9] = false (* copy does not answer argument *)
 [1 .. 9].shuffled ~= [1 .. 9]
 [1 .. 9].shuffled ~= [1 .. 9]
 [1 .. 9].shuffled.sorted = [1 .. 9]
@@ -246,8 +246,9 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity:/1) = 4
 [(1 .. 3), (1 .. 6), (1 .. 9)].detectMax(size:/1) = (1 .. 9)
 [(1 .. 3), (1 .. 6), (1 .. 9)].detectMin(size:/1) = (1 .. 3)
+['1', '2', '3', '4', '5'].indexOf('3') = 3 (* index of first occurence of element in sequence *)
 [9 .. 1].indexOf(3) = 7 (* index of first occurence of element in sequence *)
-[1, 2, 3, 2, 3].indexOf(3) = 3
+[1, 2, 3, 2, 3].indexOf(3) = 3 (* first of multiple occurences *)
 [1, 2, 3, 2, 3].indexOf(4) = 0 (* or zero *)
 [1, 2, 3, 2, 3].indexOfIfAbsent(4) { true }
 [1, 2, 3, 2, 3].lastIndexOf(3) = 5 (* index of last occurence of element in sequence *)
@@ -293,8 +294,11 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1, 2, 3].select { :x | x > 1 } = [2, 3] (* select items in collection *)
 [1 .. 9].select { :x | true } = [1 .. 9] (* select everything *)
 [1 .. 9].select { :x | false } = [] (* select nothing *)
+[].select { :x | true } = [] & { [].select { :x | false } = [] } (* select from empty collection *)
 [1, 2, 3].reject { :x | x > 1 } = [1]
 [1 .. 9].reject { :x | true } = [] (* reject everything *)
+[1 .. 9].reject { :x | false } = [1 .. 9] (* reject nothing *)
+[].reject { :x | true } = [] & { [].reject { :x | false } = [] } (* reject from empty collection *)
 (1 .. 9).collect{ :x | x * x }.last = 81
 (1 .. 9).collect{ :x | x * x }.collect{ :x | x * x }.last = 6561
 [1 .. 9].last(5) = [5 .. 9]
@@ -328,7 +332,7 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 ['x'].detectIfFoundIfNone { :each | each.isNumber } { :x | 'x' } { 'x' } = 'x' (* ifFound and ifNone clauses *)
 ['x'].detectIfNone { :each | each.isString } { 42 } = 'x'
 ['x'].detectIfNone { :each | each.isNumber } { 42 } = 42
-Array(9).atAllPut('x').last = 'x'
+Array(9).atAllPut('x').allSatisfy { :each | each = 'x' } (* set all entries to the same value *)
 [1 .. 9].collect { :each | 10 - each } = [9 .. 1]
 [1, 2, 3] ++ [4, 5, 6] = [ 1, 2, 3, 4, 5, 6 ]
 [1 .. 5].reversed = [5 .. 1]
@@ -358,10 +362,10 @@ Array(9).atAllPut('x').last = 'x'
 5.geometricSeries(1, 2) = [1, 2, 4, 8, 16] (* geometric series (size from by) *)
 Array(3).size = 3
 Array:/1.ofSize(3) = [nil, nil, nil]
-| l = []; | l.addFirst(1); l.addFirst(2); l = [2, 1] (* add item to start of array *)
-[1].addFirst(2) = 2 (* answer is argument *)
+| l = []; | l.addFirst(2); l.addFirst(1); l = [1, 2] (* add item to start of array *)
+| l = [2]; | l.addFirst(1) = 1 & { l = [1, 2] } (* answer is argument *)
 | l = []; | l.addLast(1); l.addLast(2); l = [1, 2] (* add item to end of array *)
-[1].addLast(2) = 2 (* answer is argument *)
+| l = [1]; | l.addLast(2) = 2 & { l = [1, 2] } (* answer is argument *)
 | l = []; | (1 .. 5).do { :each | l.add(each) }; l = [1 .. 5] (* alias for addLast *)
 | l = [1 .. 9]; | l.removeFirst = 1 & { l.size = 8 } (* remove first object from array *)
 | l = [1 .. 9]; | l.removeLast = 9 & { l.size = 8 } (* remove last object from array *)
@@ -444,7 +448,8 @@ Bag().isSequenceable = false
 [2, 3, 3, 4, 4, 4].Bag.occurrencesOf(5) = 0
 [2, 3, 3, 4, 4, 4].Bag.occurrencesOf(nil) = 0
 [nil].Bag.occurrencesOf(nil) = 1
-| c = [2, 3, 3, 4, 4, 4].Bag; | c.copy = c (* copy *)
+| c = [2, 3, 3, 4, 4, 4].Bag; | c.copy = c (* copy answers new equal Bag *)
+| c = [2, 3, 3, 4, 4, 4].Bag; | c.copy ~~ c (* copy does not answers argument *)
 | c = Bag(); | c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
 [2, 3, 3, 4, 4, 4].Bag.Set.size = 3 (* number of unique elements *)
 [2, 3, 3, 4, 4, 4].Bag.Set.occurrencesOf(3) = 1
@@ -555,6 +560,7 @@ true | { false } = true (* logical or (operator) *)
 false | { true } = true (* logical or (operator) *)
 true | { '|'.error } = true (* | is equal to or and is not strict (unlike in Smalltalk) *)
 true.ifTrue { 'T' } = 'T' (* if then, c.f. conditional statements *)
+true.ifTrue { 1.toDo(2) { :unused | nil } } = 1 (* conditional iteration *)
 false.if { 'T' } { 'F' } = 'F' (* if then else (do) *)
 true.if { 'T' } { 'F' } = 'T' (* if then else (value) *)
 true.not = false (* not true is false *)
@@ -696,7 +702,7 @@ ByteArray(4).hex = '00000000'
 [9, 4, 5, 7, 8, 6].sum = 39 (* sum of collection *)
 [9, 4, 5, 7, 8, 6].mean = 6.5 (* sum of collection divided by size *)
 [1 .. 9].mean = 5 (* sum of collection divided by size *)
-| c = [1 .. 9]; | c.sum / c.size = 5
+| c = [1 .. 9]; | c.sum / c.size = 5 (* sum of collection divided by size *)
 [9, 4, 5, 7, 8, 6].product = 60480 (* product of collection *)
 [9, 4, 5, 7, 8, 6].injectInto(0) { :z :e | e + z } = 39 (* sum of collection *)
 [9, 4, 5, 7, 8, 6].injectInto(1) { :z :e | e * z } = 60480 (* product of collection *)
@@ -719,8 +725,10 @@ ByteArray(4).hex = '00000000'
 [].species.newFrom(Set()) = []
 Set().Array = []
 [1 .. 9].includesAnyOf([0, 6]) (*includes any element of a collection *)
-[2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6]
-| a = [1, 2, 3, 4], b = a.copyWith(5); | a ~= b & { b = [1, 2, 3, 4, 5] }
+[2 .. 6].copyWithout(5) = [2, 3, 4, 6] (* copy without element *)
+[2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6] (* copy without element, removes multiples *)
+| a = [1 .. 4], c = a.copyWith(5); | a ~= c & { c = [1 .. 5] } (* copy with new (last) element *)
+| s = [1 .. 4].Set, c = s.copyWith(5); | s ~= c & { c = [1 .. 5].Set } (* copy with new element *)
 { [1, 2].take(-1) }.ifError { true }
 [].select { :each | each > 0 } = []
 [1, 2, 2, 3, 3, 3].histogramOf { :each | each }.Array = [1, 2, 2, 3, 3, 3]
@@ -756,6 +764,8 @@ Set().Array = []
 [].ifEmptyIfNotEmptyDo { true } { :aCollection | false } = true (* branch on isEmpty *)
 [1 .. 9].ifEmptyIfNotEmptyDo { false } { :aCollection | aCollection.size = 9 } = true (* branch on isEmpty *)
 [1 .. 9].ifNotEmptyDo { :aCollection | aCollection.size = 9 } = true (* branch on isEmpty *)
+[1 .. 9].average = 5 (* mean, sum divided by size *)
+[1 .. 9].average = (45 / 9) (* mean, sum divided by size *)
 ```
 
 ## Colour -- graphics type
@@ -800,6 +810,10 @@ Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 true.ifTrue { 'T' } = 'T' (* if true then *)
 true.ifFalse { 'F' } = nil (* if false then *)
 true.if { 'T' } { 'F' } = 'T' (* if true then else if false then *)
+| x | true & { x := 1 }; x = 1 (* side effect on conditional and *)
+| x | false & { x := 1 }; x = nil (* no side effect on conditional and *)
+| x | true | { x := 1 }; x = nil (* no side effect on conditional or *)
+| x | false | { x := 1 }; x = 1 (* side effect on conditional or *)
 ```
 
 ## Constants
@@ -921,6 +935,7 @@ unicodeFractions().associations.isArray = true
 { (x: 1, y: 2, z: 3).removeKey('?') }.ifError { true }
 | d = (x: 1, y: 2, z: 3); | d.removeAt('y') = 2 & { d = (x: 1, z: 3) }
 { (x: 1, y: 2, z: 3).removeAt('?') }.ifError { true }
+| d = (x: 1, y: 2); | d.atAllPut(3) = 3 & { d = (x: 3, y: 3) } (* set all values to indicated object *)
 ```
 
 ## Duration -- temporal type
@@ -1391,7 +1406,7 @@ Interval(1, 100, 0.5).size = 199
 | n = 9; | { n > 3 }.whileTrue { n := n - 1 }; n = 3 (* while true loop *)
 | n = 9; | { n < 7 }.whileFalse { n := n - 1 }; n = 6 (* while false loop *)
 10.timesRepeat { nil } = 10 (* timesRepeat answers the receiver) *)
-1.toDo(10) { :index | nil } = 1 (* do answers the receiver *)
+1.toDo(10) { :unused | nil } = 1 (* toDo answers the receiver *)
 | a = []; | [1 .. 9].rejectThenDo(even:/1) { :each | a.add(each * 3) }; a = [3, 9, 15, 21, 27] (* avoid intermediate collection *)
 | a = []; | [1 .. 9].selectThenDo(even:/1) { :each | a.add(each * 3) }; a = [6, 12, 18, 24] (* avoid intermediate collection *)
 ```
@@ -1658,8 +1673,8 @@ var p = PriorityQueue(); p.peekPriority = nil
 ```
 { }.typeOf = 'Procedure'
 typeOf:/1.typeOf = 'Procedure'
-var i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5
-var i = 1; { i < 5 }.whileTrue { i := i + 1 }; i = 5
+| i = 1; | { i < 5 }.whileTrue { i := i + 1 }; i = 5 (* mutate outer temporary *)
+| i = 1; | whileTrue { i < 5 } { i := i + 1 }; i = 5 (* trailing closure syntax *)
 { }.numArgs = 0 (* procedure arity *)
 { :x | x }.numArgs = 1
 { :i :j | i }.numArgs = 2
@@ -1700,7 +1715,9 @@ var f = { }; f == f (* identity *)
 { }.printString = 'a Procedure'
 { :x | x }.printString = 'a Procedure'
 { }.typeOf = 'Procedure'
-{ } . () = nil (* empty procedure evaluates to nil *)
+{ }.value = nil (* empty procedure evaluates to nil *)
+{ | x | }.value = nil (* empty procedure with unused temporary evaluates to nil *)
+{ | x = 1; | }.value = nil (* empty procedure with unused initialised temporary evaluates to nil *)
 { | c a | c := [1]; a := { | a | a := 4; a }.value; { | a | a := 2; c.add(a); { | a | a := 3; c.add(a) }.value }.value; c.add(a); c }.value = [1, 2, 3, 4]
 1.toDo(10) { :index | nil } = 1 (* answers start index *)
 valueWithReturn { :return:/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 (* non-local return *)
@@ -1709,6 +1726,8 @@ valueWithReturn { :return:/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.retu
 valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeat } (* repeat a block until it "returns" *)
 { 1.anUnknownMessage }.ifError { :err | err }.isError = true (* evaluate error block on error *)
 { 1.anUnknownMessage }.ifError { true } = true (* error block is culled (i.e. may elide error argument) *)
+| f = { | x = 0; | { x := x + 1; x } }, g = f.value; | [g.value, g.value] = [1, 2] (* closure *)
+| f = { | x = 0; | { x := x + 1; x } }; | [f.value.value, f.value.value] = [1, 1] (* closures *)
 ```
 
 ## Promise -- kernel type
@@ -1951,14 +1970,14 @@ var c = [3, 2, 1], r = c.sorted ; c ~= r (* sorted (answer a new array) *)
 [1, 3, 5, 7, 9].copyFromTo(3, 5) = [5, 7, 9] (* copy part of collection, one-indexed, inclusive *)
 [1, 3, 5, 7, 9].indexOfSubCollection([5, 7, 9]) = 3 (* locate index of subsequence *)
 [1, 3, 5, 7, 9].indexOf(5) = 3 (* index of element (compared using =) *)
-[1, 3, 5, 7, 9].first = 1 (* first element of *)
-[1 .. 9].first(5) = [1 .. 5] (* first n elements of *)
-{ [1 .. 9].first(11) }.ifError { true } (* too few elements *)
-var a = (1 .. 9); a.first = a[1] (* one-indexed *)
+[1, 3, 5, 7, 9].first = 1 (* first element of sequence *)
+[1 .. 9].first(5) = [1 .. 5] (* first n elements of sequence *)
+{ [1 .. 9].first(11) }.ifError { true } (* error if too few elements *)
+| a = (1 .. 9); | a.first = a[1] (* one-indexed *)
 [1, 3, 5, 7, 9].last = 9 (* last element of *)
 [1 .. 9].last(5) = [5 .. 9] (* last n elements of *)
 { [1 .. 9].last(11) }.ifError { true } (* too few elements *)
-var a = (1 .. 9); a.last = a[9] (* one-indexed *)
+| i = (1 .. 9); | i.last = i[9] (* intervals are one-indexed sequences *)
 [1, 3, 5, 7, 9].middle = 5 (* middle element of *)
 [1 .. 4].beginsWith([1, 2]) = true (* is prefix of *)
 [1 .. 4].beginsWith([]) = true (* empty prefix *)
@@ -2016,7 +2035,7 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | n = 0; | [3 .. 7].allButLastDo { :each | n := n + each }; n = [3 .. 6].sum (* iterate skipping last element *)
 | a = []; | (1 .. 4).combinationsAtATimeDo(3) { :each | a.add(each.copy) }; a = [[1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]
 | a = []; | (1 .. 5).combinationsAtATimeDo(3) { :each | a.add(each.sum) }; a = [6, 7, 8, 8, 9, 10, 9, 10, 11, 12]
-| a = []; | (1 .. 9).fromToDo(3, 7) { :each | a.add(each) }; a = [3 .. 7]
+| a = []; | (1 .. 9).fromToDo(3, 7) { :each | a.add(each) }; a = [3 .. 7] (* partial iterator *)
 | a = []; | [1 / 3, 1 / 4, 1 / 4, 0.9, 1 / 3, 1].groupsDo { :p :q :r | a.add(p.roundTo(q) = r) }; a = [true, true]
 | a = []; | (9 .. 1).keysDo { :index | a.add(index * 2) }; a = [2, 4 .. 19] (* keys are indices *)
 | a = []; | (9 .. 1).keysAndValuesDo { :index :value | a.add(index * 2 + value) }; a = [11 .. 19] (* keys are indices *)
@@ -2027,6 +2046,10 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | a = 'string'.split; | a.atAll([6, 4, 5, 3, 1, 2]) = a.sorted
 [1, 3, 2, 5, 4].sortedWithIndices = [1 -> 1, 2 -> 3, 3 -> 2, 4 -> 5, 5 -> 4]
 [1, 3, 2, 5, 4].atAll([1, 3, 2, 5, 4]) = [1 .. 5]
+| a = [2 .. 5], b = a.copyWithFirst(1); | a ~= b & { b = [1 .. 5] } (* copy with new first element *)
+| a = [1 .. 7]; | a.replaceFromToWith(3, 5, [-3, -4, -5]); a = [1, 2, -3, -4, -5, 6, 7]
+{ [1 .. 7].replaceFromToWith(3, 5, [-3, -4]) }.ifError { true } (* replacement must be of equal size *)
+| a = [1 .. 7]; | a.replaceFromToWithStartingAt(3, 5, [-3, -4, -5], 1); a = [1, 2, -3, -4, -5, 6, 7]
 ```
 
 ## Sequence arithmetic
@@ -2246,7 +2269,7 @@ Stack().size = 0 (* empty stack, size *)
 ['x', 1, 'y', 2, 'z', 3].join = 'x1y2z3' (* all items need not be strings *)
 [1, 2, 3].join = '123' (* no items need be strings *)
 [].join = '' (* join of empty sequence is the empty string *)
-['m', 'ss', 'ss', 'pp', ''].joinSeparatedBy('i') = 'mississippi' (* join using string *)
+['m', 'ss', 'ss', 'pp', ''].joinSeparatedBy('i') = 'mississippi' (* join with separator *)
 'mississippi'.splitBy('i') = ['m', 'ss', 'ss', 'pp', ''] (* split at string *)
 'str ing'.splitBy(' ') = ['str', 'ing'] (* split at char *)
 'a b=2'.splitBy(' ').collect { :e | e.splitBy('=') }[2][2] = '2' (* split as parser *)
@@ -2316,8 +2339,8 @@ pi.asString = '3.141592653589793' (* float as string *)
 { '_'.parseJson }.ifError { true }
 'a text string'.json = '"a text string"' (* json encoding of string *)
 '"a text string"'.parseJson = 'a text string' (* parse json string *)
-'string'.first = 's'.Character
-'string'.last = 'g'.Character
+'string'.first = 's'.Character (* first character *)
+'string'.last = 'g'.Character (* last character *)
 | x = ['a', 'bc', 'def']; | x.unlines.lines = x
 '3 + 4'.evaluate = 7
 'a short string'.replace('short', 'longer') = 'a longer string'
@@ -2475,6 +2498,13 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 [9, 7 .. 1] = (9, 7 .. 1).Array (* 9 to 1 by -2 *)
 ```
 
+## Syntax -- procedure application
+```
+{ } . () = nil (* apply no argument procedure *)
+{ :n | n * n } . (23) = 529 (* apply one argument procedure *)
+{ :p :q | p ++ q } . ('x', 'y') = 'xy' (* apply one argument procedure *)
+```
+
 ## Syntax -- temporaries
 ```
 | x | x = nil (* temporary syntax (no initializer) *)
@@ -2503,9 +2533,9 @@ var a = 'one' -> 1; a.key := 9; a.key = 9 (* p.x := y is syntax for p.x(y) *)
 
 ## Syntax -- whitespace
 ```
-{:x|x+1}.(1)=2 (* no white space *)
-{ :x | x + 1 } . ( 1 ) = 2 (* white space (space) *)
-{	:x	|	x	+	1	}	.	(	1	)	=	2 (* white space (tab) *)
+{:x|x+1}.value(1)=2 (* no white space *)
+{ :x | x + 1 } . value ( 1 ) = 2 (* white space (space) *)
+{	:x	|	x	+	1	}	.	value	(	1	)	=	2 (* white space (tab) *)
 ```
 
 ## System -- system type
@@ -2583,7 +2613,7 @@ system.doesTypeImplementMethod('Array', 'adaptToNumberAndApply') = true
 system.methodPrintString('add').size >= 3
 system.methodLookupAtType('collect', 2, 'Array').isMethod = true
 system.methodLookupAtType('collect', 2, 'Array').origin.name = 'ArrayedCollection'
-system.methodLookupAtType('collect', 2, 'Array').procedure . ([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
+system.methodLookupAtType('collect', 2, 'Array').procedure.value([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum', 1, 'Set')
 'sum:/1'.parseQualifiedMethodName = ['sum', 1]
 ```

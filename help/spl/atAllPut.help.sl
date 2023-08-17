@@ -1,6 +1,9 @@
 # atAllPut -- accessing
 
-- _atAllPut(aSequence, anObject)_
+- _atAllPut(aCollection, anObject)_
+
+Put _anObject_ at every entry of _aCollection_.
+
 - _atAllPut(aSequence, indices, anObject)_
 
 Put _anObject_ at every index specified by the elements of _indices_ in _aSequence_.
