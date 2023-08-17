@@ -1,4 +1,7 @@
-'Music'
+# Terse Guide to Sound
+
+## Music
+```
 | t = [63, 72, 84, 98, 112].JiTuning; | [t.limit, t.degree] = [7, 5]
 | t = [63, 72, 84, 98, 112].JiTuning; | t.ratios = [1, 8:7, 4:3, 14:9, 16:9]
 | t = [63, 72, 84, 98, 112].JiTuning; | t.cents.rounded = [0, 231, 498, 765, 996]
@@ -6,15 +9,17 @@
 [1, 8:7, 4:3, 14:9, 16:9] / 1:63 = [63, 72, 84, 98, 112]
 [1, 8:7, 4:3, 14:9, 16:9].JiTuning.integerPitches = [63, 72, 84, 98, 112]
 [63, 72, 84, 98, 112].JiTuning.ratios = [1, 8:7, 4:3, 14:9, 16:9]
-[1, 3].JiTuning
+[1, 3].JiTuning.ratios = [1, 3]
+```
 
-'Sound/Sc/Lang'
-[1, 2, 3, 4, 5].keep(3) = [1, 2, 3] (* keep first n items, alias for first: *)
-[1, 2, 3, 4, 5].drop(2) = [3, 4, 5] (* discard first n items *)
-(1 .. 9).drop(3) = [4 .. 9]
-(1 .. 9).dropLast(3) = [1 .. 6]
-(1 .. 9).keep(3) = [1 .. 3]
-(1 .. 9).keepLast(3) = [6 .. 9]
+## Sound/Sc/Lang
+```
+(1 .. 5).keep(3) = (1 .. 3) (* keep first n items, alias for first: *)
+(1 .. 5).drop(2) = (3 .. 5) (* discard first n items *)
+(1 .. 9).drop(3) = (4 .. 9)
+(1 .. 9).dropLast(3) = (1 .. 6)
+(1 .. 9).keep(3) = (1 .. 3)
+(1 .. 9).keepLast(3) = (6 .. 9)
 [3, 5, 4].normalize = [0, 1, 1/2]
 ({ :x | x * 2 } <> { :x | x + 3 }).value(4) = 14 (* function composition, right to left *)
 'x' + 'y' = 'x y' (* catenation with space *)
@@ -98,10 +103,12 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 3:2.RatioCents.rounded = 702
 3:2.RatioCents ~ 702
 3:2.RatioMidi ~ 7.02
-[1, 3, 2, 5, 4].order = [0, 2, 1, 4, 3] (* indices that would sort reciever *)
+[1, 3, 2, 5, 4].order = [1, 3, 2, 5, 4] (* indices that would sort reciever *)
 'string'.split.order = [6, 4, 5, 3, 1, 2] (* indices that would sort reciever *)
+```
 
-'Sound/Sc/Lang/J'
+## Sound/Sc/Lang/J
+```
 [[], [1], [[2]], [[[3]]]].collect(rank:/1) = [1, 1, 2, 3] (* rank *)
 [[1, 2, 3], [4, 5, 6]].shape = [2, 3] (* size of shape is rank *)
 [[1, 2], [3, 4], [5, 6]].shape = [3, 2] (* size of each element is size at depth *)
@@ -156,4 +163,7 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 [2, 3, 2].iota.collect(reverse:/1) = [[[5, 6], [3, 4], [1, 2]], [[11, 12], [9, 10], [7, 8]]]
 [2, 3, 2].iota.deepCollect(0, reverse:/1) = [[[7, 8], [9, 10], [11, 12]], [[1, 2], [3, 4], [5, 6]]]
 [2, 3, 2].iota.deepCollect(2, reverse:/1) = [[[2, 1], [4, 3], [6, 5]], [[8, 7], [10, 9], [12, 11]]]
+(6 .. 1).reshapeLike([1, [2, 3], [4, 5, 6]]) = [6, [5, 4], [3, 2, 1]]
+[[6, 5, 4], [3, 2], 1].reshapeLike([1, [2, 3], [4, 5, 6]]) = [6, [5, 4], [3, 2, 1]]
 | a = [[10, 20],[30, 40, 50], 60, 70, [80, 90]], b = [[1, 2, [3, 4], [[5], 6], 7], 8, [[9]]]; | a.reshapeLike(b) = [[10, 20, [30, 40], [[50], 60], 70], 80, [[90]]] & { b.reshapeLike(a) = [[1, 2], [3, 4, 5], 6, 7, [8, 9]] }
+```
