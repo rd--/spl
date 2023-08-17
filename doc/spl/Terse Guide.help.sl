@@ -221,6 +221,7 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [[1, 2, 3], [4, 5, 6], [7, 8, 9]].concatenation = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 [[1, 2, 3], [4, 5], [6]].concatenation = [1, 2, 3, 4, 5, 6]
 | a = [1, 2, 3]; | a[2] = a.at(2)
+[1 .. 5].includesIndex(3) (* is valid index *)
 [1 .. 5].atIfPresent(3) { :x | x * x } = 9 (* clause if index is valid *)
 [1 .. 5].atIfPresent(9) { :x | false } = nil (* ifAbsent clause answers nil *)
 [1 .. 5].atIfAbsent(9) { true } (* exception clause if index is invalid *)
@@ -908,9 +909,9 @@ unicodeFractions().associations.isArray = true
 | n = 0; | (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value | n := n + value }; n = 6 (* iterate over keys and values *)
 (x: 'x', y: '.', z: 'z').associationsSelect { :each | each.key = each.value } = (x: 'x', z: 'z') (* select querying associations *)
 (x: 1, y: 2, z: 3).indices = ['x', 'y', 'z'] (* indices of dictionary (an array) *)
-| d = (a: 1, b: 2, c: 1); | d.keyAtValue(2) = 'b' (* lookup key given value *)
-| d = (a: 1, b: 2, c: 1), k = d.keyAtValue(1); | k = 'a' | { k = 'c' } (* many keys with value *)
-{ (a: 1, b: 2, c: 1).keyAtValue(3) }.ifError { true } (* error if no such value *)
+| d = (a: 1, b: 2, c: 1); | d.indexOf(2) = 'b' (* lookup key (index) given value *)
+| d = (a: 1, b: 2, c: 1), k = d.indexOf(1); | k = 'a' | { k = 'c' } (* many keys with value *)
+{ (a: 1, b: 2, c: 1).indexOf(3) }.ifError { true } (* error if no such value *)
 | d = (x: 1, y: 2, z: 3); | d.keysAndValuesRemove { :key :value | key = 'y' | { value = 3 } }; d = (x: 1)
 | d = (x: 1, y: 2, z: 3); | d.removeKey('y') = 'y' & { d = (x: 1, z: 3) }
 { (x: 1, y: 2, z: 3).removeKey('?') }.ifError { true }
@@ -1255,6 +1256,7 @@ Interval(5, 10, 2).last = 9 (* create interval object with specified increment *
 (1 .. 5).size = 5 (* number of elements *)
 (1 .. 9).includes(9) (* test if element is in collection, interval is inclusive *)
 (1 .. 9).includes(11).not (* test if element is in collection *)
+(1 .. 9).includesIndex(3) (* does interval include index *)
 (1 .. 9).select { :item | item > 7 } = [8, 9] (* return elements that pass test *)
 (1 .. 9).reject { :item | item < 7 } = [7, 8, 9] (* return elements that fail test *)
 (1 .. 9).collect { :item | item + item }.last = 18 (* transform each element *)
@@ -1262,7 +1264,7 @@ Interval(5, 10, 2).last = 9 (* create interval object with specified increment *
 (9 .. 1).detect(even:/1) = 8 (* detect first element that passes test *)
 { (9, 7 .. 1).detect(even:/1) }.ifError { true } (* if no element is detected, raise error *)
 { [].detect { :item | true } }.ifError { true } (* detect at an empty collection raises an error *)
-(1 .. 9).injectInto(0) { :sum :item | sum + item } = 45(* sum elements *)
+(1 .. 9).injectInto(0) { :sum :item | sum + item } = 45 (* sum elements *)
 (1 .. 9).Array = [1 .. 9] (* convert to array *)
 (1 .. 9) = (1 .. 9) (* equality *)
 (1 .. 9) ~= (9 .. 1) (* inequality *)
@@ -2544,13 +2546,13 @@ system.categoryOf('notInCategorySystem') = '*Uncategorized*'
 
 ## System -- globalDictionary
 ```
-system.isIndexable
+system.isIndexable (* system is indexable *)
 system.globalDictionary.isDictionary (* the system global dicitionary is a dictionary *)
 system.globalDictionary.isRecord (* specifically, it is a record *)
 { system::undefined }.ifError { true } (* system implements the indexable trait, unknown keys raise errors *)
 system::TwoPi := 2 * pi; system::TwoPi / 2 = pi (* declare and then access a global variable *)
-system.indices.includes('TwoPi') (* system is iterable *)
-system.indexOf(2 * pi) = 'TwoPi' (* system is iterable *)
+system.indices.includes('TwoPi') (* system is indexable *)
+system.indexOf(2 * pi) = 'TwoPi' (* system is indexable *)
 ```
 
 ## System -- methodDictionary

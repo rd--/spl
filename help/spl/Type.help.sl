@@ -1,6 +1,6 @@
 # Type -- value type
 
-A _Type_ is describes a kind of value.
+A _Type_ describes a kind of value.
 
 The _system_ dictionary holds a _typeDictionary_.
 

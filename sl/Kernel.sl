@@ -116,65 +116,6 @@
 
 }
 
-@Indexable { (* IndexedCollection at *)
-
-	at { :self :index |
-		'Indexable>>at: type responsibility'.error
-	}
-
-	atIfAbsent { :self :index :aBlock:/0 |
-		self.includesIndex(index).if {
-			self[index]
-		} {
-			aBlock()
-		}
-	}
-
-	atIfPresent { :self :index :aBlock:/1 |
-		self.includesIndex(index).ifTrue {
-			aBlock(self[index])
-		}
-	}
-
-	atIfPresentIfAbsent { :self :index :ifPresent:/1 :ifAbsent:/0 |
-		self.includesIndex(index).if {
-			ifPresent(self[index])
-		} {
-			ifAbsent()
-		}
-	}
-
-	includesIndex { :self :anObject |
-		self.indices.includes(anObject)
-	}
-
-	indexOf { :self :anObject |
-		self.indexOfIfAbsent(anObject) {
-			'Indexable>>indexOf: no such element'.error
-		}
-	}
-
-	indexOfIfAbsent { :self :anObject :aBlock:/0 |
-		valueWithReturn { :return:/1 |
-			self.indices.do { :index |
-				(self[index] = anObject).ifTrue {
-					index.return
-				}
-			};
-			aBlock()
-		}
-	}
-
-	indices { :self |
-		'Indexable>>indices: type responsibility'.error
-	}
-
-	isIndexable { :self |
-		true
-	}
-
-}
-
 @Integral {
 
 	adaptToFractionAndApply { :self :aFraction :aProcedure:/2 |
@@ -1014,10 +955,6 @@
 		false
 	}
 
-	isIndexable { :self |
-		false
-	}
-
 	isInteger { :self |
 		false
 	}
@@ -1851,7 +1788,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	unicode { :self |
-		unicodeFractions().keyAtValue(self)
+		unicodeFractions().indexOf(self)
 	}
 
 }

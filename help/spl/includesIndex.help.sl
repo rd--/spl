@@ -1,9 +1,9 @@
 # includesIndex -- testing
 
-- _includesIndex(indexableObject, index)_
+- _includesIndex(aCollection, index)_
 
-Answer whether _indexableObject_ has an index equal to _index_.
+Answer whether _aCollection_ has an index equal to _index_.
 
 * * *
 
-See also: indices
+See also: Indexable, indices

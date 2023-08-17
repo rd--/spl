@@ -1,4 +1,4 @@
-# new -- smalltalk
+# new -- instance creation
 
 - _new(f, n)_ == _f(n)_
 

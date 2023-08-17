@@ -8,4 +8,8 @@
 		self.reduce(aBlock:/2)
 	}
 
+	keyAtValue { :self :value |
+		self.indexOf(value)
+	}
+
 }

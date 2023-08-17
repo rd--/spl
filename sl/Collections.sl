@@ -110,7 +110,7 @@
 		>
 	}
 
-	isValidIndex { :self :index |
+	includesIndex { :self :index |
 		<primitive:
 		return Number.isInteger(_index) && 0 < _index && _index <= _self.length;
 		>
@@ -275,7 +275,6 @@
 	}
 
 	collectThenSelect { :self :collectBlock:/1 :selectBlock:/1 |
-		(* self.collect(collectBlock:/1).select(selectBlock:/1) *)
 		| answer = self.species.new; |
 		self.do { :each |
 			| item = collectBlock(each); |
@@ -399,10 +398,6 @@
 		self.size = 0
 	}
 
-	isIndexable { :self |
-		false
-	}
-
 	isOfSameSizeCheck { :self :otherCollection |
 		(otherCollection.size = self.size).ifFalse {
 			'Collection>>isOfSameSizeCheck'.error
@@ -450,7 +445,6 @@
 	}
 
 	selectThenCollect { :self :selectBlock:/1 :collectBlock:/1 |
-		(* self.select(selectBlock:/1).collect(collectBlock:/1) *)
 		| answer = self.species.new; |
 		self.selectThenDo(selectBlock:/1) { :each |
 			answer.add(collectBlock(each))
@@ -489,7 +483,8 @@
 
 }
 
-+@Collection { (* ExtensibleCollection ; add *)
+(* Extensible *)
++@Collection {
 
 	addAll { :self :aCollection |
 		aCollection.do { :each |
@@ -519,7 +514,8 @@
 
 }
 
-+@Collection { (* RemoveableCollection *)
+(* Removeable *)
++@Collection {
 
 	remove { :self :oldObject |
 		self.removeIfAbsent(oldObject) {
@@ -726,8 +722,7 @@
 
 	= { :self :aDictionary |
 		| keyArray = self.keys; |
-		(keyArray = aDictionary.keys) &
-		{
+		(keyArray = aDictionary.keys) & {
 			keyArray.allSatisfy { :key |
 				self[key] = aDictionary[key]
 			}
@@ -820,33 +815,6 @@
 		}
 	}
 
-	atIfAbsent { :self :key :aProcedure:/0 |
-		self.includesKey(key).if {
-			self[key]
-		} {
-			aProcedure()
-		}
-	}
-
-	atIfAbsentPut { :self :key :aProcedure:/0 |
-		self.atIfAbsent(key) {
-			self[key] := aProcedure()
-		}
-	}
-
-	atIfPresent { :self :key :ifPresent:/1 |
-		self.includesKey(key).ifTrue {
-			ifPresent(self[key])
-		}
-	}
-
-	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
-		self.includesKey(key).if {
-			ifPresent(self[key])
-		} {
-			ifAbsent()
-		}
-	}
 
 	atPutDelegateToIfAbsent { :self :key :value :delegateKey :aProcedure:/0 |
 		self.includesKey(key).if {
@@ -940,41 +908,12 @@
 		self.keys.includes(key)
 	}
 
-	indexOf { :self :value |
-		self.keyAtValue(value)
-	}
-
-	indexOfIfAbsent { :self :value :aBlock:/0 |
-		self.keyAtValueIfAbsent(value, aBlock:/0)
-	}
-
 	indices { :self |
 		self.keys
 	}
 
 	isDictionary { :self |
 		true
-	}
-
-	isIndexable { :self |
-		true
-	}
-
-	keyAtValue { :self :value |
-		self.keyAtValueIfAbsent(value) {
-			'Dictionary>>keyAtValue: errorValueNotFound'.error
-		}
-	}
-
-	keyAtValueIfAbsent { :self :value :exceptionProcedure:/0 |
-		valueWithReturn { :return:/1 |
-			self.associationsDo { :association |
-				(value = association.value).ifTrue {
-					association.key.return
-				}
-			};
-			exceptionProcedure()
-		}
 	}
 
 	keysAndValuesDo { :self :aProcedure:/2 |
@@ -1071,6 +1010,101 @@
 
 }
 
+@Indexable {
+
+	at { :self :index |
+		'Indexable>>at: type responsibility'.error
+	}
+
+	atAllPut { :self :indices :anObject |
+		indices.do { :index |
+			self[index] := anObject
+		};
+		anObject
+	}
+
+	atAllPutAll { :self :indices :values |
+		indices.withDo(values) { :index :value |
+			self[index] := value
+		};
+		values
+	}
+
+	atIfAbsent { :self :index :aBlock:/0 |
+		self.includesIndex(index).if {
+			self[index]
+		} {
+			aBlock()
+		}
+	}
+
+	atIfAbsentPut { :self :index :aProcedure:/0 |
+		self.atIfAbsent(index) {
+			self[index] := aProcedure()
+		}
+	}
+
+	atIfPresent { :self :index :aBlock:/1 |
+		self.includesIndex(index).ifTrue {
+			aBlock(self[index])
+		}
+	}
+
+	atIfPresentIfAbsent { :self :index :ifPresent:/1 :ifAbsent:/0 |
+		self.includesIndex(index).if {
+			ifPresent(self[index])
+		} {
+			ifAbsent()
+		}
+	}
+
+	atIncrementBy { :self :index :value |
+		self[index] := self[index] + value
+	}
+
+	atPut { :self :index :anObject |
+		'Indexable>>atPut: type responsibility'.error
+	}
+
+	includesIndex { :self :anObject |
+		self.indices.includes(anObject)
+	}
+
+	indexOf { :self :anObject |
+		self.indexOfIfAbsent(anObject) {
+			'Indexable>>indexOf: no such element'.error
+		}
+	}
+
+	indexOfIfAbsent { :self :anObject :aBlock:/0 |
+		valueWithReturn { :return:/1 |
+			self.indices.do { :index |
+				(self[index] = anObject).ifTrue {
+					index.return
+				}
+			};
+			aBlock()
+		}
+	}
+
+	indices { :self |
+		'Indexable>>indices: type responsibility'.error
+	}
+
+	isIndexable { :self |
+		true
+	}
+
+}
+
++@Object {
+
+	isIndexable { :self |
+		false
+	}
+
+}
+
 @SequenceableCollection {
 
 	= { :self :anObject |
@@ -1152,39 +1186,6 @@
 		}
 	}
 
-	atAllPut { :self :aCollection :anObject |
-		aCollection.do { :index |
-			self[index] := anObject
-		};
-		anObject
-	}
-
-	atAllPutAll { :self :indexArray :valueArray |
-		indexArray.withDo(valueArray) { :index :value |
-			self[index] := value
-		};
-		valueArray
-	}
-
-	atIfAbsent { :self :index :aProcedure:/0 |
-		self.isValidIndex(index).if {
-			self[index]
-		} {
-			aProcedure()
-		}
-	}
-
-	atIfPresent { :self :index :aProcedure:/1 |
-		self.isValidIndex(index).if {
-			aProcedure(self[index])
-		} {
-			nil
-		}
-	}
-
-	atIncrementBy { :self :index :value |
-		self[index] := self[index] + value
-	}
 
 	atLastPut { :self :indexFromEnd :anObject |
 		self[self.size + 1 - indexFromEnd] := anObject
@@ -1477,6 +1478,14 @@
 		self.indexOf(anObject) ~= 0
 	}
 
+	includesIndex { :self :index |
+		index.isInteger & {
+			index > 0 & {
+				index <= self.size
+			}
+		}
+	}
+
 	indexError { :self :index |
 		[
 			self.typeOf, '>>at: index not an integer or out of range.',
@@ -1561,10 +1570,6 @@
 		answer
 	}
 
-	isIndexable { :self |
-		true
-	}
-
 	isSequenceable { :self |
 		true
 	}
@@ -1595,14 +1600,6 @@
 					previousElement := element
 				};
 				true
-			}
-		}
-	}
-
-	isValidIndex { :self :index |
-		index.isInteger & {
-			index > 0 & {
-				index <= self.size
 			}
 		}
 	}
@@ -1924,7 +1921,7 @@
 
 }
 
-Array : [Object, Json, Iterable, Collection, SequenceableCollection, ArrayedCollection, OrderedCollection] {
+Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, ArrayedCollection, OrderedCollection] {
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
 		self.collect { :each |
@@ -2181,7 +2178,7 @@ Association : [Object] { | key value |
 
 }
 
-ByteArray : [Object, Iterable, Collection, SequenceableCollection, ArrayedCollection] {
+ByteArray : [Object, Iterable, Indexable, Collection, SequenceableCollection, ArrayedCollection] {
 
 	asciiString { :self |
 		<primitive: return new TextDecoder('ascii').decode(_self);>
@@ -2269,7 +2266,7 @@ ByteArray : [Object, Iterable, Collection, SequenceableCollection, ArrayedCollec
 
 }
 
-Float64Array : [Object, Iterable, Collection, SequenceableCollection, ArrayedCollection] {
+Float64Array : [Object, Iterable, Indexable, Collection, SequenceableCollection, ArrayedCollection] {
 
 	atPut { :self :index :aFloat |
 		<primitive:
@@ -2496,7 +2493,7 @@ Bag : [Object, Iterable, Collection] { | contents |
 
 }
 
-Map : [Object, Iterable, Collection, Dictionary] {
+Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 
 	add { :self :anAssociation |
 		<primitive:
@@ -2777,7 +2774,7 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 	}
 
 	at { :self :index |
-		self.isValidIndex(index).if {
+		self.includesIndex(index).if {
 			self.step * (index - 1) + self.start
 		} {
 			self.indexError(index)
@@ -3050,7 +3047,7 @@ PriorityQueue : [Object] {
 
 }
 
-SortedArray : [Object, Iterable, Collection] { | contents sortBlock |
+SortedArray : [Object, Iterable, Indexable, Collection] { | contents sortBlock |
 
 	add { :self :item |
 		self.contents.isEmpty.if {
@@ -3154,7 +3151,7 @@ SortedArray : [Object, Iterable, Collection] { | contents sortBlock |
 
 }
 
-Record : [Object, Json, Iterable, Collection, Dictionary] {
+Record : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 
 	at { :self :aString |
 		<primitive:

@@ -1,5 +1,9 @@
-# sign -- math operator
+# sign -- mathematical functions
 
 - _sign(aNumber)_
 
-Sign function, -1 when aNumber < 0, +1 when aNumber > 0, 0 when aNumber is 0.
+Sign function, -1 when _aNumber < 0_, +1 when _aNumber > 0_, 0 when _aNumber = 0_.
+
+* * *
+
+See also: abs, negated

@@ -1,8 +1,8 @@
-# Association -- associate with
+# Association -- collection type
 
 - _Association(key, value)_
 
-An _Association_ connects a _key_ with a _value_.
+An _Association_ is a type that connects a _key_ with a _value_.
 
 Instances are ordinarily entries in a _Dictionary_ type, i.e. _Map_ or _Record_.
 

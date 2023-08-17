@@ -4,15 +4,12 @@
 
 Answers whether _aCollection_ contains any elements.
 
-This is the same as asking if _size(aCollection) > 0_, however _size_ may require traversing the entire collection, while _isEmpty_ need only examine if there is a first element.
+For a finite collection this may be the same as asking if the _size_ is not zero,
+however _size_ may require traversing the entire collection,
+where _isEmpty_ may only need to examine if there is an initial element.
 
-- _isEmpty(aStream)_
-
-Answer whether the _aStream_ has no elements.
-
-Answers true if both the set of past and future sequence values are empty.
-Otherwise returns false.
+For streams, answers true if both the set of past and future sequence values are empty.
 
 * * *
 
-See also: notEmpty, size
+See also: ifEmpty, notEmpty, size
