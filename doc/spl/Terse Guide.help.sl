@@ -410,6 +410,7 @@ Association('x', 1) = ('x' -> 1)
 (false -> true) = (false -> true).storeString.evaluate
 ('+' -> 'plus') = ('+' -> 'plus').storeString.evaluate
 (0 -> 1) ~= (0 -> 2) (* equality considers both key and value, unlike in Smalltalk-80 *)
+| a = 'x' -> 1; | a.keyValue('y', 2); a = ('y' -> 2) (* set key and value *)
 ```
 
 ## Bag -- collection type
@@ -450,6 +451,9 @@ Bag().isSequenceable = false
 | s = Bag(); | 250.timesRepeat { s.add([1 .. 4].shuffled.asString) }; s.Set.size = 24
 [1, 2, 3, 1, 4].Bag.isIndexable = false (* bags are not indexable *)
 [1, 2, 3, 1, 4].Bag.indices = nil (* sets are not indexable *)
+| a = [1, 1, 2, 1, 2, 3, 1, 1, 2, 3, 4]; | a.sum = a.Bag.sum (* sum may be optimised *)
+[1, 2, 3, 1, 3, 4].Bag.valuesAndCounts = [1 -> 2, 2 -> 1, 3 -> 2, 4 -> 1].Map (* contents *)
+[1, 1, 1, 1, 1, 2, 2, 2, 2, 3].Bag.cumulativeCounts = [50 -> 1, 90 -> 2, 100 -> 3]
 ```
 
 ## Benchmarks

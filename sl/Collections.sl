@@ -2150,6 +2150,12 @@ Association : [Object] { | key value |
 		Association(self.key, self.value)
 	}
 
+	keyValue { :self :key :value |
+		self.key := key;
+		self.value := value;
+		self
+	}
+
 	printString { :self |
 		[self.key, ' -> ', self.value].join
 	}
@@ -2467,6 +2473,18 @@ Bag : [Object, Iterable, Collection] { | contents |
 
 	species { :self |
 		Bag:/0
+	}
+
+	sum { :self |
+		self.ifEmpty {
+			'Bag>>sum: empty'.error
+		} {
+			| sum = 0; |
+			self.contents.keysAndValuesDo { :value :count |
+				sum := sum + (value * count)
+			};
+			sum
+		}
 	}
 
 	valuesAndCounts { :self |
