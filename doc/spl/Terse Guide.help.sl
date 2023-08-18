@@ -582,6 +582,7 @@ true.not.not = true (* not of not is the identity *)
 1.isNumber = true (* test if object is a number *)
 1.isInteger = true (* test if object is an integer *)
 1.respondsTo(sqrt:/1) = true (* test if object responds to message *)
+23.respondsTo(plus:/2) (* test if object responds to message *)
 nil.isNil = true (* test if object is nil *)
 0.positive = (0 >= 0) (* test if number is non-negative *)
 0.strictlyPositive = (0 > 0) (* test if number is greater than zero *)
@@ -1671,9 +1672,9 @@ nil.json = 'null' (* nil has a Json representation *)
 'd'.caseOfOtherwise(['a' -> 1, 'b' -> 2, 'c' -> 3]) { :notFound | notFound = 'd' }
 | z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 }, { 'c' } -> { 3 + 3 } ]; | 'b'.caseOf(z) = 4
 { | z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 } ]; | 'c'.caseOf(z) }.ifError { true }
-3:2.perform('numerator') = 3
+3:2.perform('numerator') = 3 (* perform named unary method, name is not qualified *)
 (3 -> 2).perform('key') = 3
-3.perform('plus', 4) = 7
+3.perform('plus', 4) = 7 (* perform named binary method, name is not qualified *)
 4:3.slotNameArray = ['numerator', 'denominator']
 4:3.slotArray = ['numerator' -> 4, 'denominator' -> 3]
 4:3.numerator = 4:3['numerator']
@@ -2189,7 +2190,8 @@ var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, 
 7.min(3) = 3
 3.min(7) = 7.min(3)
 12345.truncateTo(600) = 12000
-13.betweenAnd(11, 14) = true
+13.betweenAnd(11, 14) = true (* is number between two numbers, inclusive *)
+[1 .. 5].collect { :each | each.betweenAnd(2, 4) } = [false, true, true, true, false]
 9.atRandom.isInteger = true
 9.randomInteger.isInteger = true
 9.randomFloat.isInteger = false
