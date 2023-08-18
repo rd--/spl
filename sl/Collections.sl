@@ -1968,10 +1968,6 @@ Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, 
 		>
 	}
 
-	copy { :self |
-		<primitive: return Array.from(_self);>
-	}
-
 	intersperse { :self :anObject |
 		| answer = []; |
 		self.doSeparatedBy { :each |
@@ -2016,6 +2012,10 @@ Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, 
 
 	removeFirst { :self :count |
 		<primitive: return _self.splice(0, _count);>
+	}
+
+	shallowCopy { :self |
+		<primitive: return Array.from(_self);>
 	}
 
 	species { :self |
@@ -2210,10 +2210,6 @@ ByteArray : [Object, Iterable, Indexable, Collection, SequenceableCollection, Ar
 		>
 	}
 
-	copy { :self |
-		<primitive: return new Uint8Array(_self);>
-	}
-
 	hex { :self |
 		|(
 			map = '0123456789abcdef'.asciiByteArray,
@@ -2226,6 +2222,10 @@ ByteArray : [Object, Iterable, Indexable, Collection, SequenceableCollection, Ar
 			index := index + 2
 		};
 		array.asciiString
+	}
+
+	shallowCopy { :self |
+		<primitive: return new Uint8Array(_self);>
 	}
 
 	species { :self |
@@ -2550,10 +2550,6 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 		>
 	}
 
-	copy { :self |
-		<primitive: return new Map(_self);>
-	}
-
 	includesKey { :self :key |
 		<primitive: return _self.has(_key);>
 	}
@@ -2596,6 +2592,10 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 			return _aProcedure();
 		}
 		>
+	}
+
+	shallowCopy { :self |
+		<primitive: return new Map(_self);>
 	}
 
 	size { :self |
@@ -2659,10 +2659,6 @@ Set : [Object, Iterable, Collection] {
 		<primitive: return Array.from(_self);>
 	}
 
-	copy { :self |
-		<primitive: return new Set(_self);>
-	}
-
 	do { :self :aProcedure |
 		<primitive:
 		_self.forEach(function(item) {
@@ -2713,6 +2709,10 @@ Set : [Object, Iterable, Collection] {
 		_self.clear();
 		return null;
 		>
+	}
+
+	shallowCopy { :self |
+		<primitive: return new Set(_self);>
 	}
 
 	size { :self |

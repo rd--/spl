@@ -402,6 +402,8 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 | a = [1, 2, 3]; | a.ofSize(2) = a (* if requested size is smaller, do nothing *)
 | a = [1, 2, 3]; | a.ofSize(2) == a (* if requested size is smaller, answer the array itself *)
 [1, 3 .. 9].indices = (1 .. 5) (* indices of array (an interval) *)
+| a = [1, [2, 3]], c = a.copy; | c[2][1] := -2; c = a & { a = [1, [-2, 3]] } (* copy is a shallow copy *)
+| a = [1, [2, 3]], c = a.deepCopy; | c[2][1] := -2; c ~= a & { a = [1, [2, 3]] } (* deepCopy is a deep copy *)
 ```
 
 ## Assignment
@@ -623,6 +625,7 @@ false || true = true (* || applies value to the rhs *)
 true.ifTrue { true }
 false.ifFalse { true }
 (4.factorial > 20).if { 'bigger' } { 'smaller' } = 'bigger'
+true.copy == true (* copy is identity *)
 ```
 
 ## Boolean -- equality
@@ -704,6 +707,7 @@ ByteArray(4).hex = '00000000'
 'a'.Character.printString = '$a' (* print using smalltalk notation, despite not being a literal *)
 'a'.Character.asString = 'a' (* single element string of Character *)
 { 'xy'.Character }.ifError { true } (* it is an error is the string is not a single Character *)
+| c = '𠮷'.Character; | c = c.copy & { c ~~ c.copy } (* copy is equal but not identical *)
 ```
 
 ## Collection -- collection trait
@@ -790,6 +794,7 @@ Set().Array = []
 Colour(1, 0, 0, 0.5).over(Colour(0, 1, 0, 0.5)) = Colour(1 / 3, 2 / 3, 0, 3 / 4)
 0.5.srgbFromLinear = 0.7353569830524495 (* transfer function from (linear) rgb to srgb *)
 0.7353569830524495.srgbToLinear = 0.5 (* transfer function from srgb to (linear) rgb *)
+| c = Colour(1, 0, 0, 0.5), z = c.copy; | z.green := 1; c ~= z & { z = Colour(1, 1, 0, 0.5) } (* copy colour *)
 ```
 
 ## Complex -- numeric type
@@ -820,6 +825,7 @@ Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 (1 + 2.i) = (1 + 2.i) = true (* equality = same value *)
 (1 + 2.i) == (1 + 2.i) = false (* identity = different objects *)
 (1 + 2.i) ~= (1 + 4.i) = true (* inequality *)
+| c = 2.i, z = c.copy; | z.real := 3; z ~= c & { z = (3 + 2.i) } (* copy complex *)
 ```
 
 ## Conditional Statements
@@ -891,6 +897,21 @@ pi.asFraction(10) = 22:7 (* with maximum denominator *)
 ```
 180.degreesToRadians = pi (* convert degrees to radians *)
 pi.radiansToDegrees = 180 (* convert radians to degrees *)
+```
+
+## Copying
+```
+| b = true; | b.copy == b (* copy boolean, identity *)
+| n = 3.141; | n.copy == n (* copy small float, identity *)
+| n = 23n; | n.copy == n (* copy large integer, identity *)
+| s = 'string'; | s.copy == s (* copy string, identity *)
+| a = ('x' -> 1), c = a.copy; | c.value := 2; c ~= a & { c = ('x' -> 2) } (* copy association *)
+| p = (0 @ 0), c = p.copy; | c.x := 1; c ~= p & { c = (1 @ 0) } (* copy point *)
+| f = 3:4, c = f.copy; | c.numerator := 1; c ~= f & { c = 1:4 } (* copy fraction *)
+| c = 2.i, z = c.copy; | z.real := 3; z ~= c & { z = (3 + 2.i) } (* copy complex *)
+| a = [1, [2]], c = a.shallowCopy; | c[2][1] := -2; c = a & { a = [1, [-2]] } (* shallowCopy array *)
+| a = [1, [2]], c = a.deepCopy; | c[2][1] := -2; c ~= a & { a = [1, [2]] } (* deepCopy array *)
+| a = [1, [2]], c = a.copy; | c[2][1] := -2; c = a & { a = [1, [-2]] } (* copy is shallowCopy and postCopy *)
 ```
 
 ## Date -- temporal type
@@ -1295,7 +1316,7 @@ Interval(5, 10, 2).last = 9 (* create interval object with specified increment *
 5.toBy(10, 2).last = 9 (* interval from 5 to 10 by 2 *)
 (1 .. 5).isEmpty.not (* test if empty *)
 (1 .. 5).size = 5 (* number of elements *)
-| i = (1 .. 9); | i.copy ~~ i & { i.copy = i }
+| i = (1 .. 9); | i.copy ~~ i & { i.copy = i } (* copy is equal not identical *)
 (1 .. 9).includes(9) (* test if element is in collection, interval is inclusive *)
 (1 .. 9).includes(11).not (* test if element is in collection *)
 (1 .. 9).includesIndex(3) (* does interval include index *)
@@ -1462,6 +1483,7 @@ Interval(1, 100, 0.5).size = 199
 (1n << 100n) == 1267650600228229401496703205376n (* equal large integers are identical *)
 92233720368n * 100000000n + 54775807n = 9223372036854775807n (* reader for large integer literals *)
 2n ** 100n = 1267650600228229401496703205376n (* raised to *)
+| n = 2n; | n.copy == n (* copy is identity *)
 ```
 
 ## LinkedList -- collection type
@@ -2271,6 +2293,7 @@ pi.sin.abs < 0.00000000001 (* sin of pi is close to zero *)
 (pi / 2).sin > 0.9999999999 (* sin of two pi is close to one *)
 0 = -0 (* zero is equal to negative zero *)
 92233720368 * 100000000 + 54775807 = 9223372036854775807 (* reader for large small float integer literals *)
+| n = 3.141; | n.copy == n (* copy is identity *)
 ```
 
 ## SmallFloat -- modulo
@@ -2471,6 +2494,7 @@ var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripti
 'string'.Array.sort.joinCharacters = 'ginrst'
 'x' ~= 'x'.Character (* a single element string is not equal to a character *)
 'Mačiūnas'.asAscii = 'Mainas' (* transform to ascii by deleting non-ascii characters *)
+'string'.copy == 'string' (* copy is identity *)
 ```
 
 ## Syntax -- array assignment syntax
@@ -2731,8 +2755,8 @@ system.typeLookup('Association').methodDictionary.select { :each | each.name = '
 system.typeLookup('Association').methodDictionary.anySatisfy { :each | each.name = 'copy' } = false
 system.typeLookup('Array').isType = true
 system.typeLookup('Array').name = 'Array'
-system.typeLookup('Array').methodDictionary.includesKey('copy:/1') = true
-system.typeLookup('Array').methodDictionary::copy:/1.isMethod = true
+system.typeLookup('Array').methodDictionary.includesKey('shallowCopy:/1') = true
+system.typeLookup('Array').methodDictionary::shallowCopy:/1.isMethod = true
 system.typeMethodDictionary('Array').anySatisfy { :each | each.name ='select' } = true
 system.typeLookup('String').isType = true
 system.typeLookup('String').methodDictionary.includesKey('includesSubstring:/2') = true
@@ -2753,7 +2777,7 @@ system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 '/home/rohan/sw/spl/README.md'.asFileUrl.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from file *)
 '/home/rohan/sw/spl/README'.asFileUrl.fetchText.catch { :err | err.postLine }; true (* file does not exist *)
 'file://localhost/home/rohan/sw/spl/README.md'.asUrl.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from url (local) *)
-'https://rohandrape.net/sw/spl/README.md'.asUrl.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from url (remote) *)
+'https://rohandrape.net/sw/spl/README.md'.asUrl.fetchText.thenElse { :text | (text.size > 0).postLine } { true }; true (* fetch text from url (remote) *)
 ```
 
 ## System -- URLSearchParams

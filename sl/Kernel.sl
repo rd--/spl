@@ -1115,6 +1115,10 @@ Boolean : [Object, Json] {
 		<primitive: return _self ? false : true;>
 	}
 
+	shallowCopy { :self |
+		self
+	}
+
 	storeString { :self |
 		self.if {
 			'true'
@@ -2020,6 +2024,10 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 		<primitive: return _self % BigInt(_anInteger);>
 	}
 
+	shallowCopy { :self |
+		self
+	}
+
 	sqrt { :self |
 		<primitive: return sl.bigIntSqrt(_self);>
 	}
@@ -2419,6 +2427,10 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 
 	rounded { :self |
 		<primitive: return Math.round(_self)>
+	}
+
+	shallowCopy { :self |
+		self
 	}
 
 	sign { :self |
@@ -3469,6 +3481,10 @@ String : [Object, Json, Iterable] {
 			v2 := v1
 		};
 		value
+	}
+
+	shallowCopy { :self |
+		self
 	}
 
 	size { :self |
