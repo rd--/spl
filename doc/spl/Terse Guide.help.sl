@@ -4,14 +4,19 @@
 ```
 6 + 3 = 9 (* addition *)
 6.plus(3) = 9 (* addition *)
+[0 + 0, 1 + 0, 0 + 1, 1 + 1, -1 + 1, -1 + 2] = [0, 1, 1, 2, 0, 1] (* addition *)
 6 - 3 = 3 (* subtraction *)
 6.minus(3) = 3 (* subtraction *)
+[1 - 0, 0 - 1, 2 - 1] = [1, -1, 1] (* subtraction *)
 6 * 3 = 18 (* multiplication *)
 6.times(3) = 18 (* multiplication *)
+[1 * 0, -1 * 1, 5 * -5, -3 * -4] = [0, -1, -25, 12] (* multiplication *)
 9 / 3 = 3 (* division *)
 9.dividedBy(3) = 3 (* division *)
+[36 / 6, -10 / 2, 20 / -5, -5 / -5] = [6, -5, -4, 1] (* division *)
 9 // 3 = 3 (* integer division *)
-9.dividedByDividedBy(3) = 3 (* division *)
+9.dividedByDividedBy(3) = 3 (* integer division *)
+[1 // 1, 3 // 2, 4 // -2, -6 // 3, -12 // -4] = [1, 1, -2, -2, 3] (* integer division *)
 1 + 2 * 3 = 9 (* evaluation always left to right, operators equal precedence *)
 3 * 2 + 1 = 7 (* evaluation always left to right, operators equal precedence *)
 1 + 2 * 3 = ((1 + 2) * 3) (* equals predicate is also left to right *)
@@ -27,6 +32,7 @@
 5 // 3 = 1 (* integer divide *)
 5 % 3 = 2 (* modulo *)
 5.modulo(3) = 2 (* modulo *)
+[10 % 3, 10 % -3, -10 % 3, -10 % -3, 10 % 5] = [1, -2, 2, -1, 0] (* modulo *)
 (0 .. 9).collect { :i | i % 5 } = [0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
 [10 % 5, -4 % 3, 4 % -3, -4 % -3] = [0, 2, -2, -1] (* modulo, negative operands *)
 13 % 7 % 4 = 2 (* left assocative *)
@@ -147,6 +153,9 @@ inf.positive = true
 129.asSmallerPowerOfTwo = 128 (* next power of two that is not greater than the receiver *)
 [2, 4, 8, 16, 32, 64, 128, 256, 512].collect { :each | (each - 1).asSmallerPowerOfTwo } = [1, 2, 4, 8, 16, 32, 64, 128, 256]
 300.asPowerOfTwo = 256 (* next smaller power of two *)
+25.sqrt = 5 (* integer sqrt *)
+(2 / 4) * 2 = 1 (* integer division *)
+2 * (2 / 4) = 1 (* integer division *)
 ```
 
 ## Array -- collection type
@@ -384,6 +393,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 | c = [1 .. 5]; | [c.removeLast(3), c] = [[3, 4, 5], [1, 2]] (* remove last three objects from array *)
 | c = [1 .. 5]; | c.removeAll; c = [] (* remove all objects from array *)
 | c = [1 .. 5]; | [c.remove(3), c] = [3, [1, 2, 4, 5]] (* remove object from array *)
+| c = [1, 2, 3, 2, 1]; | [c.remove(2), c] = [2, [1, 3, 2, 1]] (* remove only one matching element *)
 | c = [1 .. 5]; | c.removeIfAbsent(9) { true } & { c = [1 .. 5] } (* remove object from array, handle absence *)
 [1, 2, 3].ofSize(4) = [1, 2, 3, nil] (* extend to be of size, new slots are nil *)
 | a = [1, 2, 3]; | a.ofSize(2) = a (* if requested size is smaller, do nothing *)
@@ -752,7 +762,8 @@ Set().Array = []
 | b = [1, 2, 3, 2, 1].Bag; | b.removeAll([1, 2, 3]); b = [2, 1].Bag (* only remove first instance *)
 { [1 .. 3].removeAll([7 .. 9]) }.ifError { true } (* it is an error if an element to be removed is not located *)
 | a = [1 .. 3]; | a.removeAllFoundIn([7 .. 9]); a = [1 .. 3] (* unlike removeAll it is not an error if items are not found *)
-[1 .. 6].collect { :each | each * 2 } = [2, 4 .. 12]
+| a = [1, 2, 3, 2, 1]; | a.removeAllFoundIn([2, 3]); a = [1, 2, 1] (* removes only first matching element *)
+[1 .. 6].collect { :each | each * 2 } = [2, 4 .. 12] (* apply block at each element and answer like collection *)
 (1 .. 6).collect { :each | each * 2 } = [2, 4 .. 12] (* interval species is array *)
 [2, -3, 4, -35, 4, -11].collect { :each | each.abs } = [2, 3, 4, 35, 4, 11]
 [2, -3, 4, -35, 4, -11].collect(abs:/1) = [2, 3, 4, 35, 4, 11]
@@ -847,9 +858,10 @@ pi.asInteger = 3 (* truncated *)
 true.asNumber = 1 (* asBit *)
 pi.asNumber = pi (* identity *)
 23.asNumber = 23 (* identity *)
-'3.141'.asNumber = 3.141 (* parseNumber *)
-'23'.asNumber = 23 (* parseNumber *)
-'22:7'.asNumber = 22:7
+'3.141'.asNumber = 3.141 (* parse number, floating point *)
+'-672.433244'.asNumber = -672.433244 (* parse number, negative floating point *)
+'23'.asNumber = 23 (* parse number, integral *)
+'22:7'.asNumber = 22:7 (* parse number, fraction *)
 pi.asFraction = 311:99 (* asFraction(100) *)
 pi.asFraction(10) = 22:7 (* with maximum denominator *)
 22:7.asFraction = 22:7 (* identity *)
@@ -1202,6 +1214,7 @@ Heap().isEmpty (* an empty heap is empty *)
 [1, 8, 16, 24, 32n, 40n, 48n, 56n, 64n].collect { :each | (2 ** each).digitLength } = [1 .. 9]
 (2 ** 128n - 1).digitLength = 16
 123456n.fnv1aHash = 2230130162n
+(1 << 30) == 1073741824 (* equal integers are identical *)
 ```
 
 ## Integral -- prime numbers
@@ -1413,7 +1426,7 @@ Interval(1, 100, 0.5).size = 199
 
 ## LargeInteger -- numeric type
 ```
-23n.typeOf = 'LargeInteger'
+23n.typeOf = 'LargeInteger' (* syntax for large integer literals *)
 (2 ** 54).LargeInteger.squared.printString = '324518553658426726783156020576256'
 (2 ** 37).LargeInteger.squared.storeString = '18889465931478580854784n'
 '324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
@@ -1436,6 +1449,9 @@ Interval(1, 100, 0.5).size = 199
 100n.factorial / 99n.factorial = 100n (* large integer factorial, c.f. small float *)
 1000n.factorial / 999n.factorial = 1000n (* large integer factorial *)
 8589298611n.primeFactors.last = 2863099537n
+(1n << 100n) == 1267650600228229401496703205376n (* equal large integers are identical *)
+92233720368n * 100000000n + 54775807n = 9223372036854775807n (* reader for large integer literals *)
+2n ** 100n = 1267650600228229401496703205376n (* raised to *)
 ```
 
 ## LinkedList -- collection type
@@ -1728,6 +1744,7 @@ valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repea
 { 1.anUnknownMessage }.ifError { true } = true (* error block is culled (i.e. may elide error argument) *)
 | f = { | x = 0; | { x := x + 1; x } }, g = f.value; | [g.value, g.value] = [1, 2] (* closure *)
 | f = { | x = 0; | { x := x + 1; x } }; | [f.value.value, f.value.value] = [1, 1] (* closures *)
+| f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; | (7 .. 9).collect(f) = [5040, 40320, 362880]
 ```
 
 ## Promise -- kernel type
@@ -2149,7 +2166,11 @@ var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, 
 3 * 4 = 12
 3 * 4 + 9 = 21
 7.quotient(2) = 3
-var total = 0; 9.timesRepeat { total := total + system.randomFloat }; total < 7
+9.remainder(4) = 1
+-9.remainder(4) = -1
+0.9.remainder(0.5) = 0.4
+0.9.remainder(0.4) ~ 0.1 (* approximately equal to *)
+| total = 0; | 9.timesRepeat { total := total + system.randomFloat }; total < 7
 3.max(7) = 7
 3.max(7) = 7.max(3)
 7.min(3) = 3
@@ -2215,6 +2236,38 @@ pi.storeString = '3.141592653589793'
 { 3.141.assertIsSmallInteger }.ifError { true } (* raise an error if value is not a small integer *)
 { (2 ** 53).assertIsSmallInteger }.ifError { true }
 100.factorial / 99.factorial ~ 100 (* small float factorial *)
+| n = 9007199254740992; | n + 0.1 = n (* ieee floating point *)
+9007199254740990.0 + 10.1 = 9007199254741000.1 (* ieee floating point *)
+(4 // 3) + (4 // 5) = 1 (* integer division *)
+(4 / 3) + (4 / 5) = (32 / 15) (* floating point division *)
+| n = 23453456; | (n * n).sqrt = n (* floating point square and square root *)
+2 ** [0, 1, 3, 8] = [1, 2, 8, 256] (* number raised to array *)
+-2 ** [8, 7] = [256, -128] (* negative number raised to array *)
+0 ** [5, 0] = [0, 1] (* zero raised to array *)
+[2.5, 1.5] ** [2, 4] = [6.25, 5.0625] (* array raised to array *)
+10 ** [-1, -2] = [0.1, 0.01] (* raised to negative numbers *)
+2 ** [1.5, 2.4, 2.9, -2.2] = [2.82842712474619, 5.278031643091577, 7.464263932294459, 0.217637640824031] (* non integer exponents *)
+2 ** 100 = 1267650600228229401496703205376 (* ieee precision *)
+(1 / 2).asString = '0.5' (* division prints as floating point *)
+1.0 = 1 (* there is no distinct integer type *)
+[1, 1.4, 1.49999, 1.5, 1.50000001].rounded = [1, 1, 1, 2, 2] (* rounding *)
+[14 / 10, 44534 / 100].rounded = [1, 445] (* rounding *)
+pi.sin.abs < 0.00000000001 (* sin of pi is close to zero *)
+(pi / 2).sin > 0.9999999999 (* sin of two pi is close to one *)
+0 = -0 (* zero is equal to negative zero *)
+92233720368 * 100000000 + 54775807 = 9223372036854775807 (* reader for large small float integer literals *)
+```
+
+## SmallFloat -- modulo
+```
+3 % 2 = 1
+3 % 3 = 0
+-3 % 2 ~= -1 (* ? *)
+-3 % -2 = -1
+3 % -2 ~= 1 (* ? *)
+3 % 3 = 0
+-3 % -3 = 0
+3 % -3 = 0
 ```
 
 ## SortedArray -- collection type
