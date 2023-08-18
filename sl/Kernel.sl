@@ -932,6 +932,16 @@
 		}
 	}
 
+	copy { :self |
+		| answer = self.shallowCopy; |
+		answer.postCopy;
+		answer
+	}
+
+	deepCopy { :self |
+		<primitive: return structuredClone(_self);>
+	}
+
 	identity { :self |
 		self
 	}
@@ -971,6 +981,10 @@
 		system.methodLookupAtType(aString, 2, self.typeOf).procedure . (self, aValue)
 	}
 
+	postCopy { :self |
+		self
+	}
+
 	printString { :self |
 		self.storeString
 	}
@@ -1001,6 +1015,10 @@
 
 	pseudoSlotNameArray { :self |
 		[]
+	}
+
+	shallowCopy { :self |
+		<primitive: return Object.assign({}, _self);>
 	}
 
 	slotArray { :self |
@@ -1642,10 +1660,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	asFraction { :self |
 		self
-	}
-
-	copy { :self |
-		Fraction(self.numerator, self.denominator)
 	}
 
 	gcd { :self :aFraction |
@@ -2812,7 +2826,7 @@ RegExp : [Object] {
 
 }
 
-@Iterable { (* do *)
+@Iterable {
 
 	allSatisfy { :self :aProcedure:/1 |
 		valueWithReturn { :return:/1 |
@@ -2857,7 +2871,7 @@ RegExp : [Object] {
 
 	detect { :self :aProcedure:/1 |
 		self.detectIfNone(aProcedure:/1) {
-			error('@Collection>>detect: not found')
+			error('@Iterable>>detect: not found')
 		}
 	}
 
@@ -3603,7 +3617,7 @@ String : [Object, Json, Iterable] {
 
 }
 
-Nil : [Object, Json] { (* UndefinedObject *)
+Nil : [Object, Json] {
 
 	= { :self :anObject |
 		anObject.isNil

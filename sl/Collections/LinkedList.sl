@@ -171,6 +171,16 @@ LinkedList : [Object, Iterable, Collection, SequenceableCollection] { | firstLin
 		self
 	}
 
+	postCopy { :self |
+		self.firstLink.ifNotNil {
+			| aLink = self.firstLink := self.firstLink.copy; |
+			{ aLink.nextLink.isNil }.whileFalse {
+				aLink.nextLink(aLink := aLink.nextLink.copy)
+			};
+			self.lastLink := aLink
+		}
+	}
+
 	removeAll { :self |
 		self.firstLink := nil;
 		self.lastLink := nil
@@ -313,6 +323,12 @@ ValueLink : [Object, Link] { | nextLink value |
 
 Stack : [Object] { | linkedList |
 
+	= { :self :aStack |
+		aStack.isStack & {
+			self.linkedList = aStack.linkedList
+		}
+	}
+
 	errorEmptyStack { :self |
 		'Stack: this stack is empty'.error
 	}
@@ -333,6 +349,10 @@ Stack : [Object] { | linkedList |
 		self.ifNotEmpty {
 			self.linkedList.removeFirst.value
 		}
+	}
+
+	postCopy { :self |
+		self.linkedList := self.linkedList.copy
 	}
 
 	push { :self :anObject |

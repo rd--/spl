@@ -179,6 +179,7 @@ Array(0) = [] (* SmallFloat constructor makes an initialised sized Array *)
 Array(3).size = 3 (* new array of indicated size *)
 Array(5) = [nil, nil, nil, nil, nil] (* array slots are initialised to nil *)
 Array([]) = [] (* Array constructor, empty array *)
+| a = [1 .. 9]; | a.copy ~~ a (* copy does not answer argument *)
 | a = [1 .. 9]; | a.Array ~~ a (* Array makes a copy of an array *)
 | a = [1 .. 9]; | a.asArray == a (* asArray answers the receiver if it is an array *)
 1.toArray = [1].toArray (* enclose a non-collection in an array *)
@@ -248,7 +249,6 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [5, 4, 3, 2, 1].findFirstIndex { :each | each % 3 = 0 } = 3
 [[1, 2, 3, 4], [5, 6, 7, 8]].transpose = [[1, 5], [2, 6], [3, 7], [4, 8]]
 1.toAsCollect(9, Array:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
-[1 .. 9].copy == [1 .. 9] = false (* copy does not answer argument *)
 [1 .. 9].shuffled ~= [1 .. 9]
 [1 .. 9].shuffled ~= [1 .. 9]
 [1 .. 9].shuffled.sorted = [1 .. 9]
@@ -462,7 +462,7 @@ Bag().isSequenceable = false
 [2, 3, 3, 4, 4, 4].Bag.occurrencesOf(nil) = 0
 [nil].Bag.occurrencesOf(nil) = 1
 | c = [2, 3, 3, 4, 4, 4].Bag; | c.copy = c (* copy answers new equal Bag *)
-| c = [2, 3, 3, 4, 4, 4].Bag; | c.copy ~~ c (* copy does not answers argument *)
+| c = [2, 3, 3, 4, 4, 4].Bag; | c.copy ~~ c (* copy does not answer argument *)
 | c = Bag(); | c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
 [2, 3, 3, 4, 4, 4].Bag.Set.size = 3 (* number of unique elements *)
 [2, 3, 3, 4, 4, 4].Bag.Set.occurrencesOf(3) = 1
@@ -676,6 +676,8 @@ ByteArray(4).hex = '00000000'
 [1, 13 .. 253].ByteArray.base64Encoded = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' (* base 64 encoding *)
 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q=='.base64Decoded = [1, 13 .. 253].ByteArray (* base 64 decoding *)
 [1, 3 .. 9].ByteArray.indices = (1 .. 5) (* indices of byte array (an interval) *)
+| b = [1, 3 .. 9].ByteArray; | b.copy = b & { b.copy ~~ b } (* copies are equal & not identical *)
+| b = [1 .. 9].ByteArray, c = b.copy; | c[1] := 9; c[1] = 9 & { b[1] = 1 } (* copies are distinct *)
 ```
 
 ## Character -- text type
@@ -738,7 +740,7 @@ ByteArray(4).hex = '00000000'
 [].species.newFrom(Set()) = []
 Set().Array = []
 [1 .. 9].includesAnyOf([0, 6]) (*includes any element of a collection *)
-[2 .. 6].copyWithout(5) = [2, 3, 4, 6] (* copy without element *)
+[4 .. 6].copyWithout(5) = [4, 6] (* copy without element *)
 [2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6] (* copy without element, removes multiples *)
 | a = [1 .. 4], c = a.copyWith(5); | a ~= c & { c = [1 .. 5] } (* copy with new (last) element *)
 | s = [1 .. 4].Set, c = s.copyWith(5); | s ~= c & { c = [1 .. 5].Set } (* copy with new element *)
@@ -1292,6 +1294,7 @@ Interval(5, 10, 2).last = 9 (* create interval object with specified increment *
 5.toBy(10, 2).last = 9 (* interval from 5 to 10 by 2 *)
 (1 .. 5).isEmpty.not (* test if empty *)
 (1 .. 5).size = 5 (* number of elements *)
+| i = (1 .. 9); | i.copy ~~ i & { i.copy = i }
 (1 .. 9).includes(9) (* test if element is in collection, interval is inclusive *)
 (1 .. 9).includes(11).not (* test if element is in collection *)
 (1 .. 9).includesIndex(3) (* does interval include index *)
@@ -1494,6 +1497,8 @@ LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
 (1 .. 9).LinkedList.isSorted = true (* are elements in sequence *)
 (9 .. 1).LinkedList.isSortedBy(greaterThan:/2) = true (* are elements in sequence by predicate *)
 [1, 3 .. 9].LinkedList.indices = (1 .. 5) (* indices of linked list (an interval) *)
+| l = (1 .. 9).LinkedList; | l.copy = l & { l.copy ~~ l } (* copy is equal but not identical *)
+| l = (1 .. 9).LinkedList, c = l.copy; | c[1] := 9; c[1] = 9 & { l[1] = 1 } (* copies are distinct *)
 ```
 
 ## Magnitude -- numeric trait
@@ -1883,6 +1888,7 @@ var d = (x: 23, y: 3.141); d::x = 23
 var d = (x: 23, y: 3.141); d::x := 42; d = (x: 42, y: 3.141)
 (x: 1).copy = (x: 1) (* a copy of record is a record *)
 | d = (x: 23, y: 3.141), c = d.copy; | d ~~ c & { d = c } (* copy is equal to but not identical to *)
+| d = (x: 1, y: 2), c = d.copy; | c::x := 3; c::x = 3 & { d::x = 1 } (* copies are distinct *)
 (x:1, y:2) ++ (z:3) = (x:1, y:2, z:3) (* white space after colon is optional *)
 (x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2]
 (x: 1, y: 2).Array = [1, 2] (* values as Array *)
@@ -2305,6 +2311,7 @@ Stack().size = 0 (* empty stack, size *)
 | s = Stack(); | s.push('x'); s.push('y'); [s.size, s.pop, s.size, s.pop, s.size] = [2, 'y', 1, 'x', 0] (* push two elements, pop two elements *)
 { | s = Stack(); | s.pop }.ifError { true } (* cannot pop from empty stack *)
 | s = Stack(); | s.push('x') = 'x' (* push answers object pushed *)
+| s = Stack(); | s.push('x'); s.copy = s & { s.copy ~~ s } (* copy is equal but not identical *)
 ```
 
 ## String -- text type
@@ -2718,8 +2725,8 @@ system.typeDictionary::Association.slotNameArray = ['key', 'value']
 system.typeDictionary::Association.methodDictionary.keys.includes('equals:/2')
 system.typeDictionary::Association.methodDictionary.includesKey('key:/1') = true
 system.typeDictionary::Nil.methodDictionary.includesKey('ifNil:/2') = true
-system.typeLookup('Association').methodDictionary.select { :each | each.name = 'copy' }.size = 1
-system.typeLookup('Association').methodDictionary.anySatisfy { :each | each.name = 'copy' } = true
+system.typeLookup('Association').methodDictionary.select { :each | each.name = 'key' }.size = 2
+system.typeLookup('Association').methodDictionary.anySatisfy { :each | each.name = 'copy' } = false
 system.typeLookup('Array').isType = true
 system.typeLookup('Array').name = 'Array'
 system.typeLookup('Array').methodDictionary.includesKey('copy:/1') = true

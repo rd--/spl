@@ -103,6 +103,10 @@ Heap : [Object, Iterable, Collection] { | array sortBlock indexUpdateBlock |
 		self.size = 0
 	}
 
+	postCopy { :self |
+		self.array := self.array.copy
+	}
+
 	privateRemoveAt { :self :index |
 		| removed = self.array.at(index); |
 		(index = self.array.size).if {

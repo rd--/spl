@@ -44,14 +44,6 @@
 		'@ArrayedCollection>>collect: not a procedure'.error
 	}
 
-	copy { :self |
-		| answer = self.species.new; |
-		1.upToDo(self.size) { :index |
-			answer[index] := self[index]
-		};
-		answer
-	}
-
 	detectIfFoundIfNone { :self :aProcedure:/1 :whenFound:/1 :whenNone:/0 |
 		<primitive:
 		var item = _self.find(function(element) {
@@ -283,12 +275,6 @@
 
 	contents { :self |
 		self
-	}
-
-	copy { :self |
-		| answer = self.species.new; |
-		answer.addAll(self);
-		answer
 	}
 
 	copyWith { :self :newElement |
@@ -2166,10 +2152,6 @@ Association : [Object] { | key value |
 		[self.key, self.value]
 	}
 
-	copy { :self |
-		Association(self.key, self.value)
-	}
-
 	keyValue { :self :key :value |
 		self.key := key;
 		self.value := value;
@@ -2226,6 +2208,10 @@ ByteArray : [Object, Iterable, Indexable, Collection, SequenceableCollection, Ar
 		}).join('');
 		return btoa(binString);
 		>
+	}
+
+	copy { :self |
+		<primitive: return new Uint8Array(_self);>
 	}
 
 	hex { :self |
@@ -2441,6 +2427,10 @@ Bag : [Object, Iterable, Collection] { | contents |
 		}
 	}
 
+	postCopy { :self |
+		self.contents := self.contents.copy
+	}
+
 	removeIfAbsent { :self :oldObject :whenAbsent:/0 |
 		self.includes(oldObject).if {
 			| count = self.contents[oldObject]; |
@@ -2540,6 +2530,10 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 		>
 	}
 
+	asMap { :self |
+		self
+	}
+
 	at { :self :key |
 		<primitive:
 		if(_self.has(_key)) {
@@ -2556,8 +2550,8 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 		>
 	}
 
-	Map { :self |
-		self
+	copy { :self |
+		<primitive: return new Map(_self);>
 	}
 
 	includesKey { :self :key |
@@ -2587,6 +2581,10 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 		});
 		return null;
 		>
+	}
+
+	Map { :self |
+		self.copy
 	}
 
 	removeKeyIfAbsent { :self :key :aProcedure |
@@ -2866,6 +2864,10 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 		} {
 			self.stop - (self.stop - self.start % self.step)
 		}
+	}
+
+	permutationsDo { :self :aBlock:/1 |
+		self.Array.permutationsDo(aBlock:/1)
 	}
 
 	printString { :self |
