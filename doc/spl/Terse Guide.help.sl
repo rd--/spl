@@ -225,9 +225,12 @@ Array([]) = [] (* Array constructor, empty array *)
 [].noneSatisfy(odd:/1) = true
 [1, 3, 5, 7, 9].noneSatisfy(even:/1) = true
 [1, 2, 3, 4, 5].noneSatisfy(odd:/1) = false
-[1, 2, 3] ++ [4, 5, 6] = [1, 2, 3, 4, 5, 6]
+[1, 2, 3] ++ [4, 5, 6] = [1 .. 6] (* addAllLast, answering new like collection *)
+| a = [1, 2, 3]; | a.addAllLast([4, 5, 6]); a = [1 .. 6]
+| a = [1, 2, 3], b = a ++ [4, 5, 6]; | a ~~ b & { a = [1 .. 3] } & { b = [1 .. 6] }
+{ [1, 2, 3] ++ 4 }.ifError { true } (* right hand side must be a collection *)
 plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
-[[1, 2, 3], [4, 5, 6], [7, 8, 9]].concatenation = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+[[1, 2, 3], [4, 5, 6], [7, 8, 9]].concatenation = [1 .. 9]
 [[1, 2, 3], [4, 5], [6]].concatenation = [1, 2, 3, 4, 5, 6]
 | a = [1, 2, 3]; | a[2] = a.at(2)
 [1 .. 5].includesIndex(3) (* is valid index *)
@@ -343,7 +346,7 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 ['x'].detectIfNone { :each | each.isNumber } { 42 } = 42
 Array(9).atAllPut('x').allSatisfy { :each | each = 'x' } (* set all entries to the same value *)
 [1 .. 9].collect { :each | 10 - each } = [9 .. 1]
-[1, 2, 3] ++ [4, 5, 6] = [ 1, 2, 3, 4, 5, 6 ]
+[1, 2, 3] ++ [4, 5, 6] = [1, 2, 3, 4, 5, 6]
 [1 .. 5].reversed = [5 .. 1]
 | c = [1 .. 5]; | { c[1.5] }.ifError { true } (* index not an integer *)
 | c = [1 .. 5]; | { c['1'] }.ifError { true } (* index not an integer *)
@@ -875,7 +878,8 @@ pi.asFraction(10) = 22:7 (* with maximum denominator *)
 '~'.asCharacter = '~'.Character (* integer to character *)
 '~'.Character.asCharacter = '~'.Character (* identity *)
 | c = 126.asCharacter; | c.asString = '~' & { c.printString = '$~' } (* character to string *)
-'~'.asString = '~' (* identity *)
+'~'.asString = '~' (* identity operation *)
+'~'.asString == '~' (* identity operation *)
 23.asString = '23' (* Object>>printString (integral to string) *)
 15.asHexDigit = 'F'.asCharacter (* integral to hex character *)
 ```
@@ -930,6 +934,8 @@ unicodeFractions().associations.isArray = true
 | d = (x: 1, y: 2, z: 3); | d.replace(squared:/1); d = (x: 1, y: 4, z: 9) (* replace value at each key *)
 { (x: 1).remove }.ifError { true } (* should not implement, see removeKey *)
 (x: 1, y: 2) ++ (x: 2, y: 1) = (x: 2, y: 1) (* appending two dictionaries is right-biased *)
+(x: 1, y: 2) ++ ['z' -> 3] = (x: 1, y: 2, z: 3) (* append an array of associations to a dictionary *)
+{ (x: 1, y: 2) ++ [3] }.ifError { true } (* right hand side must be associations *)
 (x: 1, y: 2).anySatisfy(even:/1) (* collection predicates at dictionary consider values not associations *)
 (x: 1, y: 2, z: 3).detect(even:/1) = 2 (* detect value *)
 | n = 0; | (x: 1, y: 2, z: 3).do { :each | n := n + each }; n = 6 (* do iterates over values, not associations *)
@@ -1391,7 +1397,7 @@ Interval(1, 100, 0.5).size = 199
 (1, 1.5 .. 100).at(198) = 99.5
 (1 / 2).toBy(54 / 7, 1 / 3).last = (15 / 2)
 1:2.toBy(54:7, 1:3).last = 15:2
-(1 .. 3) ++ ['4', '5'] = [1, 2, 3, '4', '5']
+(1 .. 3) ++ ['4', '5'] = [1, 2, 3, '4', '5'] (* append array to interval *)
 | i = (1, 3 .. 9); | i.removeFirst = 1 & { i = (3, 5 .. 9) } (* remove first element *)
 | i = (9, 7 .. 1); | i.removeFirst = 9 & { i = (7, 5 .. 1) } (* remove first element *)
 | i = (1, 3 .. 9); | i.removeLast = 9 & { i = (1, 3 .. 7) } (* remove first element *)
@@ -1875,7 +1881,8 @@ var d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
 (x : pi) :: x = pi
 var d = (x: 23, y: 3.141); d::x = 23
 var d = (x: 23, y: 3.141); d::x := 42; d = (x: 42, y: 3.141)
-var d = (x: 23, y: 3.141); d.copy ~~ d
+(x: 1).copy = (x: 1) (* a copy of record is a record *)
+| d = (x: 23, y: 3.141), c = d.copy; | d ~~ c & { d = c } (* copy is equal to but not identical to *)
 (x:1, y:2) ++ (z:3) = (x:1, y:2, z:3) (* white space after colon is optional *)
 (x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2]
 (x: 1, y: 2).Array = [1, 2] (* values as Array *)

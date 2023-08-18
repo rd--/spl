@@ -226,10 +226,6 @@
 		self.Array
 	}
 
-	asCollection { :self |
-		self
-	}
-
 	asBag { :self |
 		self.Bag
 	}
@@ -729,9 +725,9 @@
 		}
 	}
 
-	++ { :self :aCollection |
+	++ { :self :aDictionary |
 		| answer = self.copy; |
-		answer.addAll(aCollection);
+		answer.addAll(aDictionary);
 		answer
 	}
 
@@ -741,8 +737,8 @@
 	}
 
 	addAll { :self :aCollection |
-		aCollection.associationsDo { :asAssociation |
-			self.add(asAssociation)
+		aCollection.associationsDo { :anAssociation |
+			self.add(anAssociation)
 		};
 		aCollection
 	}
@@ -1122,11 +1118,11 @@
 		}
 	}
 
-	++ { :self :otherCollection |
+	++ { :self :aSequence |
 		self.copyReplaceFromToWith(
 			self.size + 1,
 			self.size,
-			otherCollection.asCollection
+			aSequence
 		)
 	}
 
