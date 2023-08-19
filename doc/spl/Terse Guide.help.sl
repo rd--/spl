@@ -517,13 +517,15 @@ Bitset(64).size = 0 (* a new bitset is empty *)
 Bitset(64).capacity = 64 (* the capacity of a bitset is set when initialized *)
 Bitset(64).isEmpty (* a new bitset is empty *)
 Bitset(64).bytes.allSatisfy  { :each | each = 0 } (* all bytes at the empty bitset are zero *)
+[1, 3, 9].Bitset.capacity = 16 (* bitset from array, capacity is rounded up to nearest byte *)
 | b = Bitset(64); | b.add(1); b.add(3); b.add(9); b.size = 3 (* add three integers to bitset *)
 | b = Bitset(64); | b.add(5); b.add(5); b.add(5); b.size = 1 (* adding the same integer over again *)
-| b = Bitset(64); | b.addAll([1, 3, 9]); b.includes(3) (* does bitset include element *)
-| b = Bitset(64); | b.addAll([1, 3, 9]); [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
+| b = [1, 3, 9].Bitset; | b.includes(3) (* does bitset include element *)
+| b = [1, 3, 9].Bitset; | [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
 | b = Bitset(64); | b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 (* a three element bitset *)
 | b = Bitset(64); | b[1] := 1; b[3] := 1; b[9] := 1; [1, 3 .. 9].collect { :each | b[each] } = [1, 1, 0, 0, 1]
 | a = [], b = Bitset(64), c = [1, 3, 9, 27]; | b.addAll(c); b.do { :each | a.add(each) }; a = c
+| b = [1, 3].Bitset, c = b.copy; | c.add(7); b ~= c & { c = [1, 3, 7].Bitset } (* copy bitset *)
 ```
 
 ## Bitwise Manipulation
@@ -911,7 +913,10 @@ pi.radiansToDegrees = 180 (* convert radians to degrees *)
 | c = 2.i, z = c.copy; | z.real := 3; z ~= c & { z = (3 + 2.i) } (* copy complex *)
 | a = [1, [2]], c = a.shallowCopy; | c[2][1] := -2; c = a & { a = [1, [-2]] } (* shallowCopy array *)
 | a = [1, [2]], c = a.deepCopy; | c[2][1] := -2; c ~= a & { a = [1, [2]] } (* deepCopy array *)
-| a = [1, [2]], c = a.copy; | c[2][1] := -2; c = a & { a = [1, [-2]] } (* copy is shallowCopy and postCopy *)
+| a = [1, [2]], c = a.copy; | c[2][1] := -2; c = a (* copy of array is shallowCopy and postCopy *)
+| b = [1, 2, 2].Bag, c = b.copy; | c.add(3); c ~= b & { c = [1, 2, 2, 3].Bag } (* copy bag *)
+| b = [1, 2].Bitset, c = b.copy; | c.add(3); c ~= b & { c = [1, 2, 3].Bitset } (* copy bitset *)
+| b = [1, 2].ByteArray, c = b.copy; | c[1] := 3; c[1] = 3 & { b[1] = 1 } (* copy byte array *)
 ```
 
 ## Date -- temporal type
@@ -1003,6 +1008,7 @@ unicodeFractions().associations.isArray = true
 'P2DT2H2M2S'.Duration.seconds = 180122 (* parse ISO-8601 duration string *)
 'P3DT4H'.Duration = (3.days + 4.hours)
 (2.days + 2.hours + 2.minutes + 2.seconds).seconds = ((2 * 24 * 60 * 60) + (2 * 60 * 60) + (2 * 60) + 2)
+| d = 2.seconds, c = d.copy; | d ~~ c & { d = c } (* copy duration *)
 ```
 
 ## Error -- exception type
@@ -1014,6 +1020,7 @@ Error('Error message').message = 'Error message' (* an error has a message *)
 Error('Error message').log = nil (* log error to transcript/console *)
 { Error('Error message').signal }.ifError { true } (* signal error *)
 { 'Error message'.error }.ifError { true } (* generate and signal an error *)
+{ Error('message').copy }.ifError { true } (* cannot copy errors *)
 ```
 
 ## Float64Array -- collection type
@@ -1036,6 +1043,7 @@ Float64Array(8).atPut(1, pi) = pi (* answer value put *)
 | a = Float64Array(1); | a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
 [1 .. 3].Float64Array.printString = '[1, 2, 3].Float64Array'
 [1 .. 3].Float64Array.storeString = '[1, 2, 3].Float64Array'
+| a = [1 .. 3].Float64Array, c = a.copy; | c[1] := 3; c ~= a & { c.Array = [3, 2, 3] } (* copy *)
 ```
 
 ## Floating point
@@ -1219,6 +1227,7 @@ Heap().isEmpty (* an empty heap is empty *)
 | h = [1, 3, 5].Heap, a = []; | h.do { :each | a.add(each) }; a = [1, 3, 5]
 | h = Heap(greaterThan:/2); | h.addAll([1, 3, 5]); h.first = 5
 | h = Heap { :p :q | p > q }; | h.addAll([1, 3, 5]); [h.removeFirst, h.first] = [5, 3]
+| h = [1 .. 4].Heap, c = h.copy; | c.add(5); h ~= c & { c = [1 .. 5].Heap }
 ```
 
 ## Integral -- numeric trait
@@ -2777,7 +2786,7 @@ system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 '/home/rohan/sw/spl/README.md'.asFileUrl.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from file *)
 '/home/rohan/sw/spl/README'.asFileUrl.fetchText.catch { :err | err.postLine }; true (* file does not exist *)
 'file://localhost/home/rohan/sw/spl/README.md'.asUrl.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from url (local) *)
-'https://rohandrape.net/sw/spl/README.md'.asUrl.fetchText.thenElse { :text | (text.size > 0).postLine } { true }; true (* fetch text from url (remote) *)
+'https://rohandrape.net/sw/spl/README.md'.asUrl.fetchText.thenElse { :text | (text.size > 0).postLine } { :err | true }; true (* fetch text from url (remote, allow for no network connection) *)
 ```
 
 ## System -- URLSearchParams
@@ -2804,6 +2813,7 @@ system.unixTime.iso8601.size = 24
 { system.unixTime.postLine }.evaluateAfter(0.5.seconds).cancel = nil
 { system.unixTime.postLine }.evaluateAt(system.unixTime + 0.5.seconds).cancel = nil
 { system.unixTime.postLine }.evaluateEvery(3.seconds).cancel = nil
+| t = 1676784053576.TimeStamp, c = t.copy; | c ~~ t & { c = t }
 ```
 
 ## Type -- slot access
@@ -2896,6 +2906,7 @@ Vector2(3, 4).isVector2 & { true } = true
 Vector2(3, 4).size = 2 (* implements size *)
 | v = Vector2(3, 4); | v.swapInPlace; v[1] = 4 (* swap fields in place *)
 Vector2(3, 4).swapped = Vector2(4, 3) (* answer swapped vector *)
+| v = (0 @ 0), c = v.copy; | c.x := 1; c ~= v & { c = (1 @ 0) } (* copy two vector *)
 ```
 
 ## Vector3 -- geometry type

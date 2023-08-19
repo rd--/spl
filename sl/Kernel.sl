@@ -1495,6 +1495,10 @@ Error : [Object] {
 		<primitive: return _self.name;>
 	}
 
+	shallowCopy { :self |
+		'Error>>copy: cannot copy'.error
+	}
+
 	signal { :self |
 		<primitive: throw(_self);>
 	}

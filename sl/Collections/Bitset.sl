@@ -99,6 +99,10 @@ Bitset : [Object, Iterable, Collection] { | bytes tally |
 		}
 	}
 
+	postCopy { :self |
+		self.bytes := self.bytes.copy
+	}
+
 	removeIfAbsent { :self :anInteger :absentBlock:/0 |
 		self.clearBitAt(anInteger).if {
 			anInteger
@@ -143,6 +147,16 @@ Bitset : [Object, Iterable, Collection] { | bytes tally |
 			ByteArray(capacity // 8),
 			0
 		)
+	}
+
+}
+
++@Collection {
+
+	Bitset { :self |
+		| answer = Bitset(self.max.roundUpTo(8)); |
+		answer.addAll(self);
+		answer
 	}
 
 }

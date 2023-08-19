@@ -7,7 +7,7 @@ Heap : [Object, Iterable, Collection] { | array sortBlock indexUpdateBlock |
 			} & {
 				anObject.sortBlock = self.sortBlock
 			} & {
-				self.array.sort(self.sortBlock) = anObject.array.sort(self.sortBlock) 
+				self.array.sort(self.sortBlock) = anObject.array.sort(self.sortBlock)
 			}
 		}
 	}

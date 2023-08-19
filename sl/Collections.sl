@@ -130,6 +130,14 @@
 		self.sortBy(lessThanEquals:/2)
 	}
 
+	sort { :self :aBlock:/2 |
+		aBlock:/2.ifNil {
+			self.sort
+		} {
+			self.sortBy(aBlock:/2)
+		}
+	}
+
 	sortBy { :self :aProcedure:/2 |
 		<primitive:
 		return _self.sort(function(p, q) {
@@ -2288,6 +2296,10 @@ Float64Array : [Object, Iterable, Indexable, Collection, SequenceableCollection,
 		}
 		>
 		self.indexError(index)
+	}
+
+	shallowCopy { :self |
+		<primitive: return new Float64Array(_self);>
 	}
 
 	species { :self |
