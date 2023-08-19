@@ -251,7 +251,7 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 1.toAsCollect(9, Array:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 [1 .. 9].shuffled ~= [1 .. 9]
 [1 .. 9].shuffled ~= [1 .. 9]
-[1 .. 9].shuffled.sorted = [1 .. 9]
+[1 .. 9].shuffled.sorted = [1 .. 9] (* resort after shuffle *)
 [].shuffled = []
 13.fibonacciArray = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 '3'.replicate(3) = ['3', '3', '3']
@@ -404,6 +404,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 [1, 3 .. 9].indices = (1 .. 5) (* indices of array (an interval) *)
 | a = [1, [2, 3]], c = a.copy; | c[2][1] := -2; c = a & { a = [1, [-2, 3]] } (* copy is a shallow copy *)
 | a = [1, [2, 3]], c = a.deepCopy; | c[2][1] := -2; c ~= a & { a = [1, [2, 3]] } (* deepCopy is a deep copy *)
+| a = [nil, true, false, 3.141, 23, 'str']; | a.deepCopy = a (* deepCopy of shallow array *)
 ```
 
 ## Assignment
@@ -448,8 +449,8 @@ Bag().isSequenceable = false
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
 | b = Bag(), o = ['1' -> 10, '2' -> 1, '3' -> 5]; | o.collect { :a | b.addWithOccurrences(a.key, a.value) }; b.sortedElements = o
-[1, 3, 5, 1, 3, 1].Bag.sorted = [1, 1, 1, 3, 3, 5]
-[1, 3, 5, 1, 5, 1].Bag.sorted = [1, 1, 1, 3, 5, 5]
+[1, 3, 5, 1, 3, 1].Bag.sorted = [1, 1, 1, 3, 3, 5] (* array of elements, sorted *)
+[1, 3, 5, 1, 5, 1].Bag.sorted = [1, 1, 1, 3, 5, 5] (* array of elements, sorted *)
 [1, 3, 5, 1, 3, 1].Bag.sortedCounts = [3 -> 1, 2 -> 3, 1 -> 5]
 [1, 3, 5, 1, 5, 1].Bag.sortedCounts = [3 -> 1, 2 -> 5, 1 -> 3]
 [1, 3, 5, 1, 3, 1].Bag.sortedElements = [1 -> 3, 3 -> 2, 5 -> 1]
@@ -936,8 +937,6 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 ## Dictionary -- collection trait
 ```
 (x: 1, y: 2, z: 3).count(even:/1) = 1 (* count elements that match predicate *)
-unicodeFractions().isDictionary = true
-unicodeFractions().associations.isArray = true
 (x: 1, y: 2).select { :each | false } = () (* select nothing *)
 { ().at('x') }.ifError { true } (* indexing with an unknown key is an error *)
 (x: nil).at('x') = nil (* as does indexing a field that is set to nil *)
@@ -1037,7 +1036,7 @@ Float64Array(8).atPut(1, pi) = pi (* answer value put *)
 [1 .. 9].Float64Array.isFloat64Array = true
 [1 .. 9].Float64Array.reversed = [9 .. 1].Float64Array
 | a = [1 .. 9].Float64Array; | a.reverse; a = [9 .. 1].Float64Array
-| a = [9 .. 1].Float64Array; | a.sort; a = [1 .. 9].Float64Array
+| a = [9 .. 1].Float64Array; | a.sort; a = [1 .. 9].Float64Array (* sort array in place *)
 { Float64Array(1).atPut(3, 'x') }.ifError { true }
 | a = Float64Array(1); | a.unsafeAtPut(1, 'x'); a.at(1).isNaN = true
 | a = Float64Array(1); | a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
@@ -1175,9 +1174,12 @@ Fraction(4, 6).reduced.denominator = 3
 2:3 > 0.5 = true
 1 < 3:2 = true
 3:2 > 1 = true
-3:4.unicode = '¾'
-2:3.unicode = '⅔'
-| n = unicodeFractions().associations.collect(value:/1); | n = n.sorted
+3:4.unicode = '¾' (* unicode character for fraction, else error *)
+2:3.unicode = '⅔' (* unicode character for fraction, else error *)
+{ 9:11.unicode }.ifError { true } (* unicode character for fraction, else error *)
+system.unicodeFractionsTable.isDictionary = true
+system.unicodeFractionsTable.associations.isArray = true
+| n = system.unicodeFractionsTable.associations.collect(value:/1); | n = n.sorted
 '4:3'.parseFraction = 4:3 (* parse fraction *)
 '4/3'.parseFraction('/') = 4:3  (* parse fraction given delimiter *)
 | x = Fraction(2 ** 55, 2); | x ~= (x - 1) = false (* fractions of large small floats behave strangely *)
@@ -1228,6 +1230,16 @@ Heap().isEmpty (* an empty heap is empty *)
 | h = Heap(greaterThan:/2); | h.addAll([1, 3, 5]); h.first = 5
 | h = Heap { :p :q | p > q }; | h.addAll([1, 3, 5]); [h.removeFirst, h.first] = [5, 3]
 | h = [1 .. 4].Heap, c = h.copy; | c.add(5); h ~= c & { c = [1 .. 5].Heap }
+```
+
+## Identity -- literals
+```
+nil == nil (* nil identity *)
+true == true & { false == false } (* boolean identity *)
+3.141 == 3.141 & { 23 == 23 } & { 5n == 5n } (* number identity *)
+'str' == 'str' (* string identity *)
+(x: 1) ~~ (x: 1) (* record non-identity *)
+[1] ~~ [1] (* array non-identity *)
 ```
 
 ## Integral -- numeric trait
