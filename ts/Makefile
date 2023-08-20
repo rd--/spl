@@ -16,6 +16,9 @@ spl-repl-non-strict:
 spl-repl-verbose:
 	$(cli) replPerLine --strict --verbose
 
+spl-repl-bm:
+	$(cli) replPerLine bm.sl --strict
+
 spl-repl-sc:
 	$(cli) replPerLine sc.sl --strict
 

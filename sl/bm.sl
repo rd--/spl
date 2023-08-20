@@ -1,0 +1,3 @@
+[
+	'Benchmarks/Mandelbrot.sl'
+].loadUrlSequence
