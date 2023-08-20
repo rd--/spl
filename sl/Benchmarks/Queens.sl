@@ -58,9 +58,3 @@ Queens : [Object] { | freeMaxs freeRows freeMins queenRows |
 	}
 
 }
-
-(*
-
-{ Queens() }.millisecondsToRun
-
-*)

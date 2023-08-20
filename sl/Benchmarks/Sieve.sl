@@ -17,11 +17,3 @@
 	}
 
 }
-
-(*
-
-{ 5000.sieveBenchmark = 669 }.millisecondsToRun
-
-*)
-
-

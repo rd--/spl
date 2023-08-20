@@ -1,0 +1,8 @@
+{ listBenchmark().length = 10 }.millisecondsToRun (* 22 *)
+{ 1.mandelbrotBenchmark = 128 }.millisecondsToRun (* 0 *)
+{ 500.mandelbrotBenchmark = 191 }.millisecondsToRun (* 6106 *)
+{ 750.mandelbrotBenchmark = 50 }.millisecondsToRun (* 13606 *)
+{ Permute() = 8660 }.millisecondsToRun (* 14 *)
+{ Queens() }.millisecondsToRun (* 10 *)
+{ 5000.sieveBenchmark = 669 }.millisecondsToRun (* 4 *)
+{ Towers() = 8191 }.millisecondsToRun (* 20 *)

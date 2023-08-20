@@ -48,11 +48,3 @@
 	}
 
 }
-
-(*
-
-{ 1.mandelbrotBenchmark = 128 }.millisecondsToRun
-{ 500.mandelbrotBenchmark = 191 }.millisecondsToRun
-{ 750.mandelbrotBenchmark = 50 }.millisecondsToRun
-
-*)

@@ -38,9 +38,3 @@ Permute : [Object] { | count v |
 	}
 
 }
-
-(*
-
-{ Permute() = 8660 }.millisecondsToRun
-
-*)

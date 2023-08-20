@@ -76,9 +76,3 @@ Towers : [Object] { | piles movesdone |
 	}
 
 }
-
-(*
-
-{ Towers() = 8191 }.millisecondsToRun
-
-*)
