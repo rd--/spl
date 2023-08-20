@@ -1151,16 +1151,16 @@ Character : [Object, Magnitude] { | string codePoint |
 		}
 	}
 
-	asCharacter { :self |
-		self
-	}
-
 	asInteger { :self |
 		self.codePoint
 	}
 
 	asString { :self |
 		self.string
+	}
+
+	Character { :self |
+		self
 	}
 
 	isAscii { :self |
@@ -1179,10 +1179,6 @@ Character : [Object, Magnitude] { | string codePoint |
 
 +SmallFloat {
 
-	asCharacter { :self |
-		self.Character
-	}
-
 	Character { :self |
 		<primitive: return _Character_2(String.fromCodePoint(_self), _self);>
 	}
@@ -1190,10 +1186,6 @@ Character : [Object, Magnitude] { | string codePoint |
 }
 
 +String {
-
-	asCharacter { :self |
-		self.Character
-	}
 
 	Character { :self |
 		self.Character(self.codePoint)
@@ -3113,6 +3105,10 @@ String : [Object, Json, Iterable] {
 		<primitive: return _self + _aString;>
 	}
 
+	asAscii { :self |
+		self.characterArray.select(isAscii:/1).joinCharacters
+	}
+
 	asciiByteArray { :self |
 		| answer = self.utf8ByteArray; |
 		answer.allSatisfy(isAsciiCodePoint:/1).if {
@@ -3130,8 +3126,8 @@ String : [Object, Json, Iterable] {
 		}
 	}
 
-	asAscii { :self |
-		self.characterArray.select(isAscii:/1).joinCharacters
+	asHex { :self |
+		self.asciiByteArray.hex
 	}
 
 	asLowercase { :self |
