@@ -1,6 +1,6 @@
 # toArray -- converting
 
-- _toArray(aCollection)_ ≡ _asArray(aCollection)
+- _toArray(aCollection)_ ≡ _Array(aCollection)
 - _toArray(anObject)_ ≡ _[anObject]_
 
 If the argument is not a collection answer a single element array,
@@ -11,4 +11,4 @@ else answer the collection as an array.
 
 * * *
 
-See also: Array asArray
+See also: Array, asArray

@@ -222,14 +222,6 @@
 		array
 	}
 
-	asArray { :self |
-		self.Array
-	}
-
-	asBag { :self |
-		self.Bag
-	}
-
 	associationsDo { :self :aProcedure:/1 |
 		self.do(aProcedure:/1)
 	}
@@ -455,7 +447,7 @@
 	}
 
 	toArray { :self |
-		self.asArray
+		self.Array
 	}
 
 	union { :self :aCollection |
@@ -551,6 +543,7 @@
 
 }
 
+(* Numerical *)
 +@Collection {
 
 
@@ -1965,7 +1958,7 @@ Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, 
 		<primitive: return _self.push(_anObject);>
 	}
 
-	asArray { :self |
+	Array { :self |
 		self
 	}
 
@@ -2388,14 +2381,6 @@ Bag : [Object, Iterable, Collection] { | contents |
 		anObject
 	}
 
-	asBag { :self |
-		self
-	}
-
-	asSet { :self |
-		self.contents.keys.asSet
-	}
-
 	Bag { :self |
 		self
 	}
@@ -2542,10 +2527,6 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 		>
 	}
 
-	asMap { :self |
-		self
-	}
-
 	at { :self :key |
 		<primitive:
 		if(_self.has(_key)) {
@@ -2592,7 +2573,7 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 	}
 
 	Map { :self |
-		self.copy
+		self
 	}
 
 	removeKeyIfAbsent { :self :key :aProcedure |

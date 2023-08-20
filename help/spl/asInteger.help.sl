@@ -1,6 +1,6 @@
 # asInteger -- converting
 
-- _asNumber(aBoolean | aCharacter | anInteger | aNumber | aString)_
+- _asInteger(aBoolean | aCharacter | anInteger | aNumber | aString)_
 
 In the Boolean case, answer _asBit_.
 In the Character case, answer _codePoint_.

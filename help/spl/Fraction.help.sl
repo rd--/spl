@@ -12,7 +12,7 @@ Instance variables are:
 A Fraction is generally created by writing it using the literal syntax _1:3_.
 
 	1:3 = Fraction(1, 3)
-	3:4.asFloat = 0.75
+	3:4.SmallFloat = 0.75
 	7:6 > 1.1 = true
 
 Fractions written using this syntax are _reduced_ by construction.

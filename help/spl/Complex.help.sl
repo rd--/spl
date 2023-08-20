@@ -1,10 +1,10 @@
-# asComplex -- converting
+# Complex -- numeric type
 
-- _asComplex(aComplex | aNumber)_
+- _Complex(aComplex | aNumber)_
 
 In the Complex case answer _identity_.
 In the Number case answer a Complex number with a real part of _aNumber_ and an imaginary part of zero.
 
 * * *
 
-See also: asFloat, asInteger, asNumber, i
+See also: asInteger, asNumber, i, SmallFloat

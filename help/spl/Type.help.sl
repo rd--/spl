@@ -8,8 +8,8 @@ The _system_ dictionary holds a _typeDictionary_.
 	system.typeDictionary.includesKey('Array') = true
 	system.typeLookup('Array').isType = true
 	system.typeLookup('Array').name = 'Array'
-	system.typeLookup('Array').methodDictionary.includesKey('copy:/1') = true
-	system.typeLookup('Array').methodDictionary::copy:/1.isMethod = true
+	system.typeLookup('Array').methodDictionary.includesKey('shallowCopy:/1') = true
+	system.typeLookup('Array').methodDictionary::shallowCopy:/1.isMethod = true
 
 * * *
 

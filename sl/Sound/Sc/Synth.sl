@@ -70,11 +70,11 @@ Env : [Object] {
 	}
 
 	asEnvGen { :self :gate |
-		EnvGen(gate, 1, 0, 1, 0, self.asArray)
+		EnvGen(gate, 1, 0, 1, 0, self.coordinateArrayForEnvGen)
 	}
 
 	asEnvGenWithDoneAction { :self :gate :doneAction |
-		EnvGen(gate, 1, 0, 1, doneAction, self.asArray)
+		EnvGen(gate, 1, 0, 1, doneAction, self.coordinateArrayForEnvGen)
 	}
 
 	coordinateArrayForEnvGen { :self |
@@ -434,13 +434,17 @@ UgenGraph : [Object] {
 	}
 
 	Silent { :numChannels |
-		if (numChannels == 1) { Dc(0) } { Dc(0) ! numChannels }
+		(numChannels == 1).if {
+			Dc(0)
+		} {
+			Dc(0) ! numChannels
+		}
 	}
 
 	withOverlapEnvelope { :aUgen :sustainTime :transitionTime |
 		|(
 			env = Env([0,1,1,0], [transitionTime,sustainTime,transitionTime], 'sin', nil, nil, 0),
-			amp = EnvGen(1, 1, 0, 1, 2, env.asArray)
+			amp = EnvGen(1, 1, 0, 1, 2, env.Array)
 		)|
 		Out(0, aUgen * amp)
 	}

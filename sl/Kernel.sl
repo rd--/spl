@@ -762,7 +762,7 @@
 	}
 
 	log2 { :self |
-		self.asFloat.log2
+		self.SmallFloat.log2
 	}
 
 	negated { :self |
@@ -1658,12 +1658,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		aNumber.isInteger.if {
 			Fraction(aNumber, 1).aProcedure(self)
 		} {
-			aNumber.aProcedure(self.asFloat)
+			aNumber.aProcedure(self.SmallFloat)
 		}
-	}
-
-	asFloat { :self |
-		self.numerator / self.denominator
 	}
 
 	asFraction { :self |
@@ -1793,6 +1789,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 				self
 			}
 		}
+	}
+
+	SmallFloat { :self |
+		self.numerator / self.denominator
 	}
 
 	storeString { :self |
@@ -2138,7 +2138,7 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 	}
 
 	adaptToFractionAndApply { :self :aFraction :aProcedure:/2 |
-		aFraction.asFloat.aProcedure(self)
+		aFraction.SmallFloat.aProcedure(self)
 	}
 
 	arcCos { :self |
@@ -2159,10 +2159,6 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 
 	assertIsSmallInteger { :self |
 		self.assert { self.isSmallInteger }
-	}
-
-	asFloat { :self |
-		self
 	}
 
 	asInteger { :self |
@@ -2241,7 +2237,7 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 				(aNumber = 0).if {
 					self.abs < epsilon
 				} {
-					(self = aNumber.asFloat) | {
+					(self = aNumber.SmallFloat) | {
 						| z = self.abs; |
 						(z < epsilon).if {
 							aNumber.abs < epsilon
@@ -2420,6 +2416,10 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 
 	sinh { :self |
 		<primitive: return Math.sinh(_self)>
+	}
+
+	SmallFloat { :self |
+		self
 	}
 
 	sqrt { :self |
@@ -3149,10 +3149,14 @@ String : [Object, Json, Iterable] {
 	at { :self :index |
 		(* Note: index is in Utf-16 code units, not characters *)
 		| codePoint = self.codePointAt(index); |
-		codePoint.isUtf16SurrogateCode.if {
-			'String>>at: code point is lone surrogate'.error
+		codePoint.ifNil {
+			'String>>at: invalid index'.error
 		} {
-			codePoint.Character
+			codePoint.isUtf16SurrogateCode.if {
+				'String>>at: code point is lone surrogate'.error
+			} {
+				codePoint.Character
+			}
 		}
 	}
 

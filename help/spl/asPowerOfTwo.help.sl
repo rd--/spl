@@ -8,4 +8,4 @@ Answers the next power of two less than _anInteger_.
 
 * * *
 
-See also: isPowerOfTwo
+See also: asLargerPowerOfTwo, isPowerOfTwo

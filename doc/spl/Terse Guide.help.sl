@@ -180,10 +180,9 @@ Array(3).size = 3 (* new array of indicated size *)
 Array(5) = [nil, nil, nil, nil, nil] (* array slots are initialised to nil *)
 Array([]) = [] (* Array constructor, empty array *)
 | a = [1 .. 9]; | a.copy ~~ a (* copy does not answer argument *)
-| a = [1 .. 9]; | a.Array ~~ a (* Array makes a copy of an array *)
-| a = [1 .. 9]; | a.asArray == a (* asArray answers the receiver if it is an array *)
+| a = [1 .. 9]; | a.Array == a (* Array answers the receiver if it is an array *)
 1.toArray = [1].toArray (* enclose a non-collection in an array *)
-(1 .. 3).toArray = [1 .. 3] (* at collections behaves as asArray *)
+(1 .. 3).toArray = [1 .. 3] (* at collections behaves as Array *)
 | a = [1 .. 3]; | a.toArray == a (* an array is already an array *)
 [1, 2, 3] = [1, 2, 3] = true (* Array equality *)
 [1, 2, 3] ~= [1, 2, 4] (* Array inequality, differ by value *)
@@ -410,6 +409,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 ## Assignment
 ```
 | a = 'a', b = 'b', c = 'c'; | a := b := c; [a, b, c] = ['c', 'c', 'c'] (* assignment is right-associative *)
+| a = nil; | (a := 1) = 1 (* assignment answers assigned value *)
 ```
 
 ## Association -- collection type
@@ -755,7 +755,7 @@ Set().Array = []
 { [1, 2].take(-1) }.ifError { true }
 [].select { :each | each > 0 } = []
 [1, 2, 2, 3, 3, 3].histogramOf { :each | each }.Array = [1, 2, 2, 3, 3, 3]
-[1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].asBag
+[1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].Bag
 | c = [1, 2, 3, 1]; | c.Bag = c.histogramOf(identity:/1)
 | c = [1, 2, 3, 1]; | c.Bag = c.histogramOf { :each | each }
 [1, 2, 3, 1].Bag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.value }
@@ -763,7 +763,7 @@ Set().Array = []
 (x: 1, y: 2, z: 1).histogramOf { :each | each } = [1, 2, 1].Bag
 (x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].Bag
 (x: 1, y: 2, z: 1).keys.histogramOf { :each | each } = ['x', 'y', 'z'].Bag
-[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].asBag
+[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].Bag
 [].ifEmpty { true } (* evaluate block if collection is empty *)
 [].ifEmpty { true } { false } (* evaluate emptyBlock if collection is empty *)
 [1].ifEmpty { false } { true } (* evaluate notEmptyBlock if collection is not empty *)
@@ -861,9 +861,9 @@ pi.isNumber (* pi constant *)
 ## Converting -- type conversion
 ```
 [true, false].collect(asBit:/1) = [1, 0] (* boolean to bit (integer) *)
-pi.asFloat = pi (* identity *)
-3:4.asFloat = 0.75 (* fraction to small float *)
-23.asFloat = 23.0 (* integral to small float *)
+pi.SmallFloat = pi (* identity *)
+3:4.SmallFloat = 0.75 (* fraction to small float *)
+23.SmallFloat = 23.0 (* integral to small float *)
 true.asInteger = 1 (* asBit *)
 '~'.Character.asInteger = 126 (* codePoint *)
 23.asInteger = 23 (* identity *)
@@ -893,7 +893,8 @@ pi.asFraction(10) = 22:7 (* with maximum denominator *)
 '~'.asString = '~' (* identity operation *)
 '~'.asString == '~' (* identity operation *)
 23.asString = '23' (* Object>>printString (integral to string) *)
-15.asHexDigit = 'F'.asCharacter (* integral to hex character *)
+15.asHexDigit = 'F'.Character (* integral to hex character *)
+{ 16.asHexDigit }.ifError { true } (* error if out of range *)
 ```
 
 ## Converting -- unit conversion
@@ -1169,7 +1170,7 @@ Fraction(4, 6).reduced.denominator = 3
 -3:2 * -4:3 = 2
 -3:2 * 4:3 = -2
 5:3 + 1:3 = 2
-3:2.asFloat = 1.5 (* fraction as float *)
+3:2.SmallFloat = 1.5 (* fraction as float *)
 0.5 < 2:3 = true
 2:3 > 0.5 = true
 1 < 3:2 = true
@@ -1515,19 +1516,19 @@ LinkedList().size = 0 (* empty linked list *)
 LinkedList().isEmpty (* empty linked list *)
 LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
 [1, 2, 3].LinkedList.size = 3 (* linked list from array *)
-| l = LinkedList(); | l.addFirst(1); l.addFirst(2); l.asArray = [2, 1] (* add to start *)
-| l = LinkedList(); | l.addLast(1); l.addLast(2); l.asArray = [1, 2] (* add to end *)
-| l = LinkedList(); | 1.toDo(5) { :each | l.add(each) }; l.asArray = [1 .. 5] (* add to end *)
+| l = LinkedList(); | l.addFirst(1); l.addFirst(2); l.Array = [2, 1] (* add to start *)
+| l = LinkedList(); | l.addLast(1); l.addLast(2); l.Array = [1, 2] (* add to end *)
+| l = LinkedList(); | 1.toDo(5) { :each | l.add(each) }; l.Array = [1 .. 5] (* add to end *)
 [1 .. 9].LinkedList.collect { :each | 10 - each } = [9 .. 1].LinkedList (* collect *)
 | l = [1 .. 9].LinkedList; | l.removeFirst; l.first = 2 (* remove first *)
 | l = [1 .. 9].LinkedList; | l.removeLast; l.last = 8 (* remove last *)
 | l = [1].LinkedList; | l.removeFirst = 1 & { l.isEmpty } (* remove first *)
 | l = [1].LinkedList; | l.removeLast = 1 & { l.isEmpty } (* remove last *)
-| l = [1 .. 5].LinkedList; | l.removeAllSuchThat(odd:/1); l.asArray = [2, 4] (* in place reject *)
+| l = [1 .. 5].LinkedList; | l.removeAllSuchThat(odd:/1); l.Array = [2, 4] (* in place reject *)
 | l = (1 .. 99).LinkedList; | l.removeAll; l.isEmpty (* remove all *)
-(1 .. 99).LinkedList.select(even:/1).asArray = [2, 4 .. 98] (* select *)
-(1 .. 9).LinkedList.selectThenCollect(even:/1, squared:/1).asArray = [4, 16, 36, 64] (* avoid intermediate collection *)
-(1 .. 9).LinkedList.collectThenSelect(squared:/1) { :each | each > 36 }.asArray = [49, 64, 81] (* avoid intermediate collection *)
+(1 .. 99).LinkedList.select(even:/1).Array = [2, 4 .. 98] (* select *)
+(1 .. 9).LinkedList.selectThenCollect(even:/1, squared:/1).Array = [4, 16, 36, 64] (* avoid intermediate collection *)
+(1 .. 9).LinkedList.collectThenSelect(squared:/1) { :each | each > 36 }.Array = [49, 64, 81] (* avoid intermediate collection *)
 [1 .. 9].LinkedList.reversed = [9 .. 1] (* reversed, species is Array *)
 { LinkedList().removeFirst }.ifError { :error | true } (* remove first, error if empty *)
 { LinkedList().removeLast }.ifError { :error | true } (* remove last, error if empty *)
@@ -1537,7 +1538,7 @@ LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
 (1 .. 9).LinkedList.firstLink.value = 1 (* first link *)
 (1 .. 9).LinkedList.firstLink.nextLink.value = 2 (* second link *)
 (1 .. 9).LinkedList.lastLink.value = 9 (* last link *)
-| l = (1 .. 3).LinkedList; | l.firstLink.value := -1; l.asArray = [-1, 2, 3] (* mutate link value *)
+| l = (1 .. 3).LinkedList; | l.firstLink.value := -1; l.Array = [-1, 2, 3] (* mutate link value *)
 (1 .. 9).LinkedList.isSorted = true (* are elements in sequence *)
 (9 .. 1).LinkedList.isSortedBy(greaterThan:/2) = true (* are elements in sequence by predicate *)
 [1, 3 .. 9].LinkedList.indices = (1 .. 5) (* indices of linked list (an interval) *)
@@ -2200,7 +2201,7 @@ var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, 
 ## SmallFloat -- numeric type
 ```
 3.141.typeOf = 'SmallFloat'
-3.141.asFloat = 3.141 (* asFloat is identity, c.f. Fraction>>asFloat *)
+3.141.SmallFloat = 3.141 (* SmallFloat is identity, c.f. Fraction>>SmallFloat *)
 0 = -0 = true
 1 = 1 = true
 1 >= 1 = true
@@ -2375,6 +2376,7 @@ Stack().size = 0 (* empty stack, size *)
 '3'.asInteger = 3 (* parse integer *)
 'string'.at(4) = 'i'.Character (* one-indexing *)
 'string'[4] = 'i'.Character (* one-indexing (bracket notation) *)
+{ 'string'[7] }.ifError { true } (* error on out of range index *)
 ''.isEmpty = true (* empty string predicate *)
 'string'.isEmpty = false (* is empty string *)
 'string'.size = 6 (* length *)
@@ -2486,8 +2488,9 @@ var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripti
 '𠮷'.size = 2
 '𠮷'.isSingleCharacter = true
 '𠮷'.characterArray = ['𠮷'.Character]
-'𠮷'.codePointAt(1) = 134071
+'𠮷'.codePointAt(1) = 134071 (* code point at index *)
 '𠮷'.codePointAt(2) = 57271
+'𠮷'.codePointAt(3) = nil (* nil for out of range indices *)
 '𠮷'.codePointArray = [134071]
 '𠮷'.isInBasicMultilingualPlane = false
 '𠮷'.isWellFormed = true
