@@ -1173,7 +1173,8 @@
 			1.upToDo(size) { :index |
 				self[index] := anObject
 			}
-		}
+		};
+		anObject
 	}
 
 
@@ -1965,7 +1966,7 @@ Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, 
 	atAllPut { :self :anObject |
 		<primitive:
 		_self.fill(_anObject);
-		return _self;
+		return _anObject;
 		>
 	}
 
@@ -2041,6 +2042,12 @@ Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, 
 
 	Array { :size |
 		<primitive: return Array(_size);>
+	}
+
+	Array { :size :anObject |
+		| answer = Array(size); |
+		answer.atAllPut(anObject);
+		answer
 	}
 
 	arithmeticSeries { :self :start :step |

@@ -3,6 +3,7 @@
 - _atAllPut(aCollection, anObject)_
 
 Put _anObject_ at every entry of _aCollection_.
+Answer _anObject_.
 
 - _atAllPut(aSequence, indices, anObject)_
 

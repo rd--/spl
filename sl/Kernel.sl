@@ -198,7 +198,8 @@
 	benchmark { :self |
 		| size = 8190, count = nil; |
 		self.timesRepeat {
-			| flags = Array(size).atAllPut(true); |
+			| flags = Array(size); |
+			flags.atAllPut(true);
 			count := 0;
 			1.upToDo(size) { :index |
 				flags[index].ifTrue {

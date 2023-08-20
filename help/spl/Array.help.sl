@@ -1,8 +1,11 @@
 # Array -- collection type
 
-- _Array(anInteger | aCollection)_
+- _Array(anInteger)_
+- _Array(anInteger, anObject)_
 
-Create a new array of _anInteger_ places, each initialised to _nil_.
+Create a new array of _anInteger_ places, each initialised to _nil_, or to _anObject_.
+
+- _Array(aCollection)_
 
 Create a new array having as elements the elements of _aCollection_.
 If the collection is an Array, answer it directly.

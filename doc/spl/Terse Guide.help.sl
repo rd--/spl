@@ -178,6 +178,7 @@ Array() = [] (* Void constructor makes the empty Array *)
 Array(0) = [] (* SmallFloat constructor makes an initialised sized Array *)
 Array(3).size = 3 (* new array of indicated size *)
 Array(5) = [nil, nil, nil, nil, nil] (* array slots are initialised to nil *)
+Array(5, 0) = [0, 0, 0, 0, 0] (* array can have slots initialised to a value *)
 Array([]) = [] (* Array constructor, empty array *)
 | a = [1 .. 9]; | a.copy ~~ a (* copy does not answer argument *)
 | a = [1 .. 9]; | a.Array == a (* Array answers the receiver if it is an array *)
@@ -343,7 +344,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 ['x'].detectIfFoundIfNone { :each | each.isNumber } { :x | 'x' } { 'x' } = 'x' (* ifFound and ifNone clauses *)
 ['x'].detectIfNone { :each | each.isString } { 42 } = 'x'
 ['x'].detectIfNone { :each | each.isNumber } { 42 } = 42
-Array(9).atAllPut('x').allSatisfy { :each | each = 'x' } (* set all entries to the same value *)
+| a = Array(9); | a.atAllPut('x'); a.allSatisfy { :each | each = 'x' } (* set all entries to the same value *)
+| a = Array(9); | a.atAllPut('x') = 'x' & { a.atRandom = 'x' } (* answers object put *)
 [1 .. 9].collect { :each | 10 - each } = [9 .. 1]
 [1, 2, 3] ++ [4, 5, 6] = [1, 2, 3, 4, 5, 6]
 [1 .. 5].reversed = [5 .. 1]

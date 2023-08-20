@@ -1,6 +1,6 @@
 +SmallFloat {
 
-	mandelbrot { :size |
+	mandelbrotBenchmark { :size |
 		| sum = 0, byteAcc = 0, bitNum = 0, y = 0; |
 		{ y < size }.whileTrue {
 			| ci = (2 * y / size) - 1, x = 0; |
@@ -51,8 +51,8 @@
 
 (*
 
-{ 1.mandelbrot = 128 }.millisecondsToRun
-{ 500.mandelbrot = 191 }.millisecondsToRun
-{ 750.mandelbrot = 50 }.millisecondsToRun
+{ 1.mandelbrotBenchmark = 128 }.millisecondsToRun
+{ 500.mandelbrotBenchmark = 191 }.millisecondsToRun
+{ 750.mandelbrotBenchmark = 50 }.millisecondsToRun
 
 *)
