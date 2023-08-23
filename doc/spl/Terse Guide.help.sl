@@ -358,6 +358,7 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 | a = [1, 2, 4]; | a.insertAt(3, 3); a = [1 .. 4] (* insert value at index *)
 | a = [1, 2, 4]; | a.addAfter(3, 2); a = [1 .. 4] (* insert value after existing value *)
 | a = [1, 2, 4]; | a.addBefore(3, 4); a = [1 .. 4] (* insert value before existing value *)
+[-1 .. 5].collect { :index | [1 .. 3].atPin(index) } = [1, 1, 1, 2, 3, 3, 3] (* index answering bound if out of bounds *)
 [2, 7, 5, 0, 1, -2].collect { :index | [5, 6, 8].atWrap(index) } = [6, 5, 6, 8, 5, 5] (* index with wrap-around *)
 | a = [1, nil, 3]; | a.atWrapPut(5, 2); a = [1, 2, 3]
 [1 .. 9].difference([3 .. 7]) = [1, 2, 8, 9] (* set theoretic difference of two collections *)

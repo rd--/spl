@@ -1182,6 +1182,19 @@
 		self[self.size + 1 - indexFromEnd] := anObject
 	}
 
+	atPin { :self :index |
+		(index < 1).if {
+			self.first
+		} {
+			(index > self.size).if {
+				self.last
+			} {
+				self[index]
+			}
+		}
+	}
+
+
 	atWrap { :self :index |
 		self[index - 1 % self.size + 1]
 	}
