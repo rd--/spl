@@ -1,8 +1,11 @@
 [
+	'Benchmarks/SomRandom.sl',
+	'Benchmarks/Bounce.sl',
 	'Benchmarks/List.sl',
 	'Benchmarks/Mandelbrot.sl',
 	'Benchmarks/Permute.sl',
 	'Benchmarks/Queens.sl',
 	'Benchmarks/Sieve.sl',
+	'Benchmarks/Storage.sl',
 	'Benchmarks/Towers.sl'
 ].loadUrlSequence

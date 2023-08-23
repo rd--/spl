@@ -273,6 +273,9 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [9 .. 1].includesAllOf([3 .. 7]) = true
 [5 .. 3].includesAllOf([3 .. 7]) = false
 [].includesAllOf([3 .. 7]) = false
+Array(5).fillWith(negated:/1) = [-1 .. -5] (* fill array with answers of a block applied to each index *)
+| r = Random(12345); | Array(5).fillWith { r.randomInteger(9) } = [8, 5, 9, 9, 4] (* block is applied using cull *)
+| r = Random(12345), f = { r.randomInteger(9) }; | Array(5).fillWith(f:/0) = [8, 5, 9, 9, 4] (* block is applied using cull *)
 Array(5).fillFromWith([1 .. 5], negated:/1) = [-1 .. -5]
 | a = Array(5); | a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
 | a = Array(4); | [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]

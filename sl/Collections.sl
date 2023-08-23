@@ -1322,6 +1322,13 @@
 		(self.typeOf ++ '>>errorSubscriptBounds: ' ++ index).error
 	}
 
+	fillWith { :self :aBlock |
+		1.toDo(self.size) { :index |
+			self[index] := aBlock.cull(index)
+		};
+		self
+	}
+
 	findBinary { :self :aBlock:/1 |
 		self.findBinaryDoIfNone(aBlock:/1) { :found |
 			found
