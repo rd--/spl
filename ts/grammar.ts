@@ -132,8 +132,8 @@ Sl {
 	largeIntegerLiteral = "-"? digit+ "n"
 	radixIntegerLiteral = "-"? digit+ "r" letterOrDigit+
 	integerLiteral = "-"? digit+
-	singleQuotedStringLiteral = "\'" (~"\'" ("\\\'" | sourceCharacter))* "\'"
-	doubleQuotedStringLiteral = "\"" (~"\"" ("\\\"" | sourceCharacter))* "\""
+	singleQuotedStringLiteral = "\'" (~"\'" ("\\\'" | "\\\\" | sourceCharacter))* "\'"
+	doubleQuotedStringLiteral = "\"" (~"\"" ("\\\"" | "\\\\" | sourceCharacter))* "\""
 	backtickQuotedStringLiteral = backtickCharacter (~backtickCharacter sourceCharacter)* backtickCharacter
 	backtickCharacter = "${String.fromCodePoint(96)}"
 	sourceCharacter = any

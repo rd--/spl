@@ -719,6 +719,7 @@ ByteArray(4).hex = '00000000'
 'a'.Character.asString = 'a' (* single element string of Character *)
 { 'xy'.Character }.ifError { true } (* it is an error is the string is not a single Character *)
 | c = '𠮷'.Character; | c = c.copy & { c ~~ c.copy } (* copy is equal but not identical *)
+92.Character.string = '\\' (* escaped character *)
 ```
 
 ## Collection -- collection trait
@@ -2528,8 +2529,18 @@ var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripti
 'Mačiūnas'.asAscii = 'Mainas' (* transform to ascii by deleting non-ascii characters *)
 'string'.copy == 'string' (* copy is identity *)
 'string'.asHex = '737472696e67' (* hex string of ascii codes of string *)
-| s = 'string'; | (s.size * 2) = s.asHex.size (* hex string is twice as long *)
-{ 'Mačiūnas'.asHex }.ifError { true } (* non-ascii strings raise an error *)
+| s = 'string'; | (s.size * 2) = s.asHex.size (* asHex, hex string is twice as long *)
+{ 'Mačiūnas'.asHex }.ifError { true } (* asHex, non-ascii strings raise an error *)
+'"'.Character.codePoint = 34 (* double quote *)
+'\''.Character.codePoint = 39 (* single quote *)
+'\\'.Character.codePoint = 92 (* backslash (escape) *)
+'`'.Character.codePoint = 96 (* backtick *)
+'\b'.Character.codePoint = 8 (* backspace *)
+'\t'.Character.codePoint = 9 (* horizontal tab *)
+'\n'.Character.codePoint = 10 (* line feed, new line *)
+'\v'.Character.codePoint = 11 (* vertical tab *)
+'\f'.Character.codePoint = 12 (* form feed, new page *)
+'\r'.Character.codePoint = 13 (* carriage return *)
 ```
 
 ## Syntax -- array assignment syntax

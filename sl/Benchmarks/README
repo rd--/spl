@@ -6,6 +6,7 @@
 { StorageBenchark() = 5461 }.millisecondsToRun (* 10 *)
 { Towers() = 8191 }.millisecondsToRun (* 20 *)
 
+{ | o = JsonBenchmark(); | o.isObject & { o::head.isObject & { o::operations.isArray & { o::operations.size = 156 } } } }.millisecondsToRun (* 266 *)
 { 1.mandelbrotBenchmark = 128 }.millisecondsToRun (* 0 *)
 { 500.mandelbrotBenchmark = 191 }.millisecondsToRun (* 6106 *)
 { 750.mandelbrotBenchmark = 50 }.millisecondsToRun (* 13606 *)
