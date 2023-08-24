@@ -9,3 +9,5 @@
 { 1.mandelbrotBenchmark = 128 }.millisecondsToRun (* 0 *)
 { 500.mandelbrotBenchmark = 191 }.millisecondsToRun (* 6106 *)
 { 750.mandelbrotBenchmark = 50 }.millisecondsToRun (* 13606 *)
+{ 1.NBody = -0.16907495402506745 }.millisecondsToRun (* 0 *)
+{ 250000.NBody = -0.1690859889909308 }.millisecondsToRun (* 5422 *)

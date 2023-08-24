@@ -436,6 +436,8 @@ Association('x', 1) = ('x' -> 1)
 (false -> true) = (false -> true).storeString.evaluate
 ('+' -> 'plus') = ('+' -> 'plus').storeString.evaluate
 (0 -> 1) ~= (0 -> 2) (* equality considers both key and value, unlike in Smalltalk-80 *)
+('x' -> 1) ~= ('y' -> 1) (* equality considers both key and value, unlike in Smalltalk-80 *)
+('x' -> 1) ~= (x: 1) (* an association is not equal to a record *)
 | a = 'x' -> 1; | a.keyValue('y', 2); a = ('y' -> 2) (* set key and value *)
 ```
 
@@ -2844,7 +2846,7 @@ system.unixTime.iso8601.size = 24
 ```
 ('x' -> 1).slotNameArray = ['key', 'value'] (* slot names *)
 ('x' -> 1):@key = 'x' (* read slot *)
-| a = ('x' -> 1); | a:@key = 'y'; a = ('y' -> 1) (* write slot *)
+| a = ('x' -> 1); | a:@key := 'y'; a = ('y' -> 1) (* write slot *)
 | a = 'x' -> 1; | a:@key = 'x' & { a:@value = 1 } (* read slots *)
 | a = 'x' -> 1; | a:@key := 'y'; a:@value := 2; a = ('y' -> 2) (* write slots *)
 ```

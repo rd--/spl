@@ -2157,7 +2157,11 @@ ArrayBuffer : [Object] {
 Association : [Object] { | key value |
 
 	= { :self :anAssociation |
-		self.value = anAssociation.value
+		anAssociation.isAssociation & {
+			self.key = anAssociation.key & {
+				self.value = anAssociation.value
+			}
+		}
 	}
 
 	< { :self :anAssociation |

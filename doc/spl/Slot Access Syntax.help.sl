@@ -7,7 +7,7 @@ The _:@_ syntax directly reads the value of a slot at a type.
 
 There is a mutation form of this syntax that allows writing a value into the slot.
 
-	| a = ('x' -> 1); | a:@key = 'y'; a = ('y' -> 1)
+	| a = ('x' -> 1); | a:@key := 'y'; a = ('y' -> 1)
 
 Where supported the syntax :@ is written ⋄.
 
