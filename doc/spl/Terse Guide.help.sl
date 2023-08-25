@@ -643,6 +643,14 @@ true.ifTrue { true }
 false.ifFalse { true }
 (4.factorial > 20).if { 'bigger' } { 'smaller' } = 'bigger'
 true.copy == true (* copy is identity *)
+false.xor(true) = true (* exclusive or *)
+true.xor(false) = true (* exclusive or *)
+false.xor(false) = false
+true.xor(true) = false
+false.xor { true } = true
+false.xor { false } = false
+{ false.xor(1) }.ifError { true }
+{ false.xor { 1 } }.ifError { true }
 ```
 
 ## Boolean -- equality
@@ -726,6 +734,7 @@ ByteArray(4).hex = '00000000'
 { 'xy'.Character }.ifError { true } (* it is an error is the string is not a single Character *)
 | c = '𠮷'.Character; | c = c.copy & { c ~~ c.copy } (* copy is equal but not identical *)
 92.Character.string = '\\' (* escaped character *)
+'0123456789abcdef'.characterArray.collect(digitValue:/1) = [0 .. 15] (* digit value of character *)
 ```
 
 ## Collection -- collection trait
@@ -2263,7 +2272,9 @@ var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, 
 3 * 4 = 12
 3 * 4 + 9 = 21
 7.quotient(2) = 3
-9.remainder(4) = 1
+-9.quotient(4) = -2 (* quotient, quo: in St *)
+-0.9.quotient(0.4) = -2 (* quotient, quo: in St *)
+9.remainder(4) = 1 (* remainder, rem: in St *)
 -9.remainder(4) = -1
 0.9.remainder(0.5) = 0.4
 0.9.remainder(0.4) ~ 0.1 (* approximately equal to *)

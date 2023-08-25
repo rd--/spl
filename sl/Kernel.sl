@@ -1163,6 +1163,10 @@ Boolean : [Object, Json] {
 		}
 	}
 
+	xor { :self :aBoolean |
+		aBoolean.value.if { self = false } { self = true }
+	}
+
 }
 
 Character : [Object, Magnitude] { | string codePoint |
@@ -1197,6 +1201,24 @@ Character : [Object, Magnitude] { | string codePoint |
 
 	Character { :self |
 		self
+	}
+
+	digitValue { :self |
+		|(
+			integerValue = self.asInteger,
+			digitValues = system.cache.atIfAbsentPut('digitValues') {
+				| answer = Array(256, -1); |
+				0.toDo(9) { :i |
+					answer[48 + i + 1] := i
+				};
+				10.toDo(35) { :i |
+					answer[55 + i + 1] := i;
+					answer[87 + i + 1] := i
+				};
+				answer
+			}
+		)|
+		digitValues[integerValue + 1]
 	}
 
 	isAscii { :self |

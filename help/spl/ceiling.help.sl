@@ -1,4 +1,4 @@
-# ceiling -- math
+# ceiling -- truncating and rounding
 
 - _ceiling(aNumber)_
 

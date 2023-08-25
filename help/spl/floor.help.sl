@@ -1,4 +1,4 @@
-# floor -- math
+# floor -- truncating and rounding
 
 - _floor(aNumber)_
 

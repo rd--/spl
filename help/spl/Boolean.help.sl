@@ -10,6 +10,8 @@ The basic logical operations are _not_, _and_ and _or_.
 	true.not & { nil } = false
 	true | { nil } = true
 
+Methods are: &, and, |, or, not, xor
+
 * * *
 
 See also: and, false, not, or, true

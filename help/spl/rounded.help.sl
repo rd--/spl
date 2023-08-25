@@ -1,6 +1,8 @@
-# rounded -- math
+# rounded -- truncating and rounding
 
 - _rounded(aNumber)_
+
+Answer the integer nearest _aNumber_.
 
 	0.9.rounded = 1
 	1.rounded = 1
