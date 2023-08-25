@@ -122,7 +122,7 @@ Colour : [Object] { | red green blue alpha |
 				each.parseInteger(16) / 255
 			}.Colour
 		} {
-			('String>>parseHexColour: ' ++ self).error
+			self.error('parseHexColour')
 		}
 	}
 

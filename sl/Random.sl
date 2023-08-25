@@ -39,14 +39,14 @@
 
 }
 
-Random : [Object] { | randomNumberGenerator |
+@Random {
 
 	next { :self |
 		self.randomFloat
 	}
 
 	randomFloat { :self |
-		self.randomNumberGenerator.value
+		self.error('@Random>>randomFloat: type responsibility')
 	}
 
 	randomFloat { :self :aNumber |
@@ -63,6 +63,14 @@ Random : [Object] { | randomNumberGenerator |
 
 	randomInteger { :self :min :max |
 		self.randomFloat(min, max + 1).floor
+	}
+
+}
+
+Random : [Object, Random] { | randomNumberGenerator |
+
+	randomFloat { :self |
+		self.randomNumberGenerator.value
 	}
 
 }

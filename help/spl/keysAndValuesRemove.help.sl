@@ -10,4 +10,4 @@ This method takes care of tallying the removals in a first pass, and then perfor
 
 * * *
 
-See also: Dictionary, removeKey
+See also: Dictionary, removeAllSuchThat, removeKey

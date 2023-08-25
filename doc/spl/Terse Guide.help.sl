@@ -244,13 +244,15 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 | a = [1, 2, 3]; | (a[2] := 'two') = 'two' & { a = [1, 'two', 3] }
 [5, 4, 3, 2, 1].detect { :each | each % 2 = 0 } = 4
 { [5, 4, 3, 2, 1].detect { :each | each % 7 = 0 } }.ifError { true }
-[5, 4, 3, 2, 1].findFirst { :each | each * 2 <= 4 } = 2
-[5, 4, 3, 2, 1].findFirst { :each | each % 7 = 0 } = nil (* nil if no element is found *)
-[5, 4, 3, 2, 1].findFirstIndex { :each | each % 3 = 0 } = 3
+[5, 4, 3, 2, 1].detect { :each | each * 2 <= 4 } = 2 (* find first element matching predicate *)
+[5, 4, 3, 2, 1].detectIfNone { :each | each % 7 = 0 } { nil } = nil (* nil if no element is found *)
+[5, 4, 3, 2, 1].findFirst { :each | each % 3 = 0 } = 3 (* answer index of first element matching predicate *)
+[5, 4, 3, 2, 1].findFirst { :each | each % 7 = 0 } = 0 (* zero if no element is found *)
 [[1, 2, 3, 4], [5, 6, 7, 8]].transpose = [[1, 5], [2, 6], [3, 7], [4, 8]]
 1.toAsCollect(9, Array:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
-[1 .. 9].shuffled ~= [1 .. 9]
-[1 .. 9].shuffled ~= [1 .. 9]
+| a = [1 .. 9]; | a.shuffle; a ~= [1 .. 9] (* shuffle in place, using system Random *)
+| a = [1 .. 9], r = Random(13579); | a.shuffleBy(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] (* shuffle in place, using given Random *)
+| a = [1 .. 9]; | a.shuffled ~= a & { a = [1 .. 9] } (* answer shuffled copy *)
 [1 .. 9].shuffled.sorted = [1 .. 9] (* resort after shuffle *)
 [].shuffled = []
 13.fibonacciArray = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
@@ -258,12 +260,12 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity:/1) = 4
 [(1 .. 3), (1 .. 6), (1 .. 9)].detectMax(size:/1) = (1 .. 9)
 [(1 .. 3), (1 .. 6), (1 .. 9)].detectMin(size:/1) = (1 .. 3)
-['1', '2', '3', '4', '5'].indexOf('3') = 3 (* index of first occurence of element in sequence *)
-[9 .. 1].indexOf(3) = 7 (* index of first occurence of element in sequence *)
-[1, 2, 3, 2, 3].indexOf(3) = 3 (* first of multiple occurences *)
+['1', '2', '3', '4', '5'].indexOf('3') = 3 (* index of first occurrence of element in sequence *)
+[9 .. 1].indexOf(3) = 7 (* index of first occurrence of element in sequence *)
+[1, 2, 3, 2, 3].indexOf(3) = 3 (* first of multiple occurrences *)
 [1, 2, 3, 2, 3].indexOf(4) = 0 (* or zero *)
 [1, 2, 3, 2, 3].indexOfIfAbsent(4) { true }
-[1, 2, 3, 2, 3].lastIndexOf(3) = 5 (* index of last occurence of element in sequence *)
+[1, 2, 3, 2, 3].lastIndexOf(3) = 5 (* index of last occurrence of element in sequence *)
 [1, 2, 3, 2, 3].lastIndexOf(4) = 0 (* or zero *)
 [1, 2, 3, 2, 3].lastIndexOfIfAbsent(4) { true }
 [9 .. 1].includes(3) = true (* predicate to decide if a collection includes an element *)
@@ -279,7 +281,7 @@ Array(5).fillWith(negated:/1) = [-1 .. -5] (* fill array with answers of a block
 Array(5).fillFromWith([1 .. 5], negated:/1) = [-1 .. -5]
 | a = Array(5); | a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
 | a = Array(4); | [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
-[1, 2, 3, 4, 3, 2, 1].occurrencesOf(3) = 2
+[1, 2, 3, 4, 3, 2, 1].occurrencesOf(3) = 2 (* number of occurrences of element in collection *)
 | a = [1, 2], [x, y] = a; | [y, x] = [2, 1]
 | i = (1 .. 9), [x, y, z] = i; | [z, y, x] = [3 .. 1]
 | [x, y] = { | n = system.randomFloat; | [n, n] }.value; | x = y
@@ -467,11 +469,11 @@ Bag().isSequenceable = false
 | c = Bag(), x = 'x'; | c.add(x); c.remove(x); c.size = 0
 | c = ['x', 'x'].Bag; | c.remove('x'); c.remove('x'); c.size = 0
 | c = Bag(); | { c.remove('x') }.ifError { true }
-[2, 3, 3, 4, 4, 4].Bag.occurrencesOf(3) = 2
+[2, 3, 3, 4, 4, 4].Bag.occurrencesOf(3) = 2 (* number of occurrences of element in collection *)
 [2, 3, 3, 4, 4, 4].Bag.occurrencesOf(4) = 3
 [2, 3, 3, 4, 4, 4].Bag.occurrencesOf(5) = 0
 [2, 3, 3, 4, 4, 4].Bag.occurrencesOf(nil) = 0
-[nil].Bag.occurrencesOf(nil) = 1
+[nil].Bag.occurrencesOf(nil) = 1 (* count occurrences of nil *)
 | c = [2, 3, 3, 4, 4, 4].Bag; | c.copy = c (* copy answers new equal Bag *)
 | c = [2, 3, 3, 4, 4, 4].Bag; | c.copy ~~ c (* copy does not answer argument *)
 | c = Bag(); | c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
@@ -759,6 +761,7 @@ Set().Array = []
 [1 .. 9].includesAnyOf([0, 6]) (*includes any element of a collection *)
 [4 .. 6].copyWithout(5) = [4, 6] (* copy without element *)
 [2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6] (* copy without element, removes multiples *)
+[2, 3, 4, 5, 5, 6].copyWithoutAll([3, 5]) = [2, 4, 6] (* copy without element, removes multiples *)
 | a = [1 .. 4], c = a.copyWith(5); | a ~= c & { c = [1 .. 5] } (* copy with new (last) element *)
 | s = [1 .. 4].Set, c = s.copyWith(5); | s ~= c & { c = [1 .. 5].Set } (* copy with new element *)
 { [1, 2].take(-1) }.ifError { true }
@@ -986,6 +989,8 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 | d = (a: 1, b: 2, c: 1); | d.indexOf(2) = 'b' (* lookup key (index) given value *)
 | d = (a: 1, b: 2, c: 1), k = d.indexOf(1); | k = 'a' | { k = 'c' } (* many keys with value *)
 { (a: 1, b: 2, c: 1).indexOf(3) }.ifError { true } (* error if no such value *)
+| d = (x: 1, y: 2, z: 3); | d.removeAllSuchThat { :each | each.key = 'y' | { each.value = 3 } }; d = (x: 1)
+| d = (x: 1, y: 2, z: 3); | d.associationsRemove { :each | each.key = 'y' | { each.value = 3 } }; d = (x: 1)
 | d = (x: 1, y: 2, z: 3); | d.keysAndValuesRemove { :key :value | key = 'y' | { value = 3 } }; d = (x: 1)
 | d = (x: 1, y: 2, z: 3); | d.removeKey('y') = 'y' & { d = (x: 1, z: 3) }
 { (x: 1, y: 2, z: 3).removeKey('?') }.ifError { true }
@@ -1734,6 +1739,20 @@ nil.json = 'null' (* nil has a Json representation *)
 4:3.denominator = 4:3::denominator
 ```
 
+## OrderedCollection -- collection trait
+```
+| a = [1, 2, 4]; | a.addBefore(3, 4); a = [1 .. 4] (* insert value before existing value *)
+| a = [1, 2, 4]; | a.addAfter(3, 2); a = [1 .. 4] (* insert value after existing value *)
+| a = ['w', 'x', 'z']; | a.addAfterIndex('y', 2); a = ['w', 'x', 'y', 'z'] (* insert value after index *)
+| a = [2, 3]; | a.addFirst(1) = 1 & { a = [1, 2, 3] } (* insert value at start *)
+| a = [4, 5]; | a.addAllFirst([1 .. 3]); a = [1 .. 5] (* add sequence at start *)
+| a = [1, 2]; | a.addLast(3) = 3 & { a = [1, 2, 3] } (* insert value at end *)
+| a = [1, 2]; | a.addAllLast([3 .. 5]); a = [1 .. 5] (* add sequence at end *)
+| a = [1 .. 5]; | a.removeAt(3); a = [1, 2, 4, 5] (* remove element at index *)
+| a = [1 .. 5]; | a.removeFirst; a = [2 .. 5] (* remove first element *)
+| a = [1 .. 5]; | a.removeLast; a = [1 .. 4] (* remove last element *)
+```
+
 ## Point -- geometry trait
 ```
 0.asPoint.isPoint (* number to point, point predicate *)
@@ -2134,6 +2153,8 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | a = [1 .. 7]; | a.replaceFromToWith(3, 5, [-3, -4, -5]); a = [1, 2, -3, -4, -5, 6, 7]
 { [1 .. 7].replaceFromToWith(3, 5, [-3, -4]) }.ifError { true } (* replacement must be of equal size *)
 | a = [1 .. 7]; | a.replaceFromToWithStartingAt(3, 5, [-3, -4, -5], 1); a = [1, 2, -3, -4, -5, 6, 7]
+[1 .. 7].forceToPaddingWith(9, 0) = [1, 2, 3, 4, 5, 6, 7, 0, 0] (* copy of sequence with required length and initializer *)
+[1 .. 7].forceToPaddingWith(5, 0) = [1 .. 5] (* partial copy *)
 ```
 
 ## Sequence arithmetic
@@ -2205,6 +2226,8 @@ var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, 
 'Smalltalk'.split.includes('k') = true
 [1, 2, 3, 1, 4].Set.isIndexable = false (* sets are not indexable *)
 [1, 2, 3, 1, 4].Set.indices = nil (* sets are not indexable *)
+[1, 2, 2, 3, 3, 3].Set.occurrencesOf(3) = 1 (* number of occurrences of element in set (zero or one) *)
+[1, 3, 3, 3].Set.occurrencesOf(2) = 0 (* number of occurrences of element in set (zero or one) *)
 ```
 
 ## SmallFloat -- numeric type

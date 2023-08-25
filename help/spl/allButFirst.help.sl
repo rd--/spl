@@ -1,10 +1,10 @@
 # allButFirst -- accessing
 
-- _allButFirst(aSequencableCollection)
-- _allButFirst(aSequencableCollection, anInteger)
+- _allButFirst(aSequence)
+- _allButFirst(aSequence, anInteger)
 
-Answer a copy of the receiver containing all but the first _anInteger_elements.
-Raise an error if there are not enough elements.
+Answer a copy of _aSequence_ containing all but the first _anInteger_ elements.
+Signal an error if there are not enough elements.
 
 	[1 .. 9].allButFirst(7) = [8, 9]
 	'text'.allButFirst(3) = 't'

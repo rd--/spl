@@ -2,9 +2,12 @@
 
 - _removeAllSuchThat(aCollection, aBlock:/1)
 
-Evaluate _aBlock_ for each element of _aCollection) and remove all elements that evaluate to true.
+Evaluate _aBlock_ for each element of _aCollection_ and remove all elements that evaluate to true.
 Use a copy to enumerate collections whose order changes when an element is removed (i.e. Sets).
+
+_Note:_
+This is defined at _Dictionary_, where the argument to _aBlock_ will be an _Association_.
 
 * * *
 
-See also: remove
+See also: reject, remove, keysAndValuesRemove

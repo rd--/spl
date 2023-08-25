@@ -1,10 +1,10 @@
 # addAfter -- adding
 
-- _addAfter(aCollection, oldObject, newObject)_
+- _addAfter(aSequence, newObject, oldObject)_
 
-Add the argument, newObject, as an element of the receiver.
-Put it in the sequence just succeeding oldObject.
-Answer newObject.
+Add _newObject_ as an element of _aSequence_.
+Put it in the sequence just succeeding _oldObject_.
+Answer _newObject_.
 
 * * *
 

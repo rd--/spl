@@ -1,9 +1,10 @@
-# ++ -- concatenation
+# ++ -- copying
 
-- _self ++ aCollection_
-- _plusPlus(self, aCollection)_
+- _aCollection ++ anotherCollection_
+- _plusPlus(aCollection, anotherCollection)_
 
-Concatenate the argument to the receiver.
+Answer a new collection comprising _aCollection_ concatenated with the _anotherCollection_.
+If the collections are sequences, the answer is a sequence.
 
 Where supported this operator is displayed as ⧺.
 

@@ -78,7 +78,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 				self.parser . (text)
 			}
 		]) {
-			'LibraryItem>>readLocalStorage: unsupported mimeType'.error
+			self.error('readLocalStorage: unsupported mimeType')
 		}
 	}
 
@@ -113,7 +113,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 				system.window.localStorage[self.key] := anObject.asString
 			}
 		]) {
-			'LibraryItem>>writeLocalStorage: unsupported mimeType'.error
+			self.error('writeLocalStorage: unsupported mimeType')
 		}
 	}
 
@@ -184,7 +184,7 @@ Method : [Object] {
 		(parts.size = 2).if {
 			[parts[1], parts[2].parseInteger(10)]
 		} {
-			('String>>parseQualifiedMethodName: ' ++ self).error
+			self.error('parseQualifiedMethodName')
 		}
 	}
 
@@ -193,13 +193,13 @@ Method : [Object] {
 		(parts.size = 2).if {
 			parts
 		} {
-			('String>>parseMethodSignature: ' ++ self).error
+			self.error('parseMethodSignature')
 		}
 	}
 
 }
 
-System : [Object, Indexable] {
+System : [Object, Indexable, Random] {
 
 	= { :self :anObject |
 		self == anObject
@@ -294,7 +294,7 @@ System : [Object, Indexable] {
 		self.isCategoryName(categoryName).if {
 			self.categoryDictionary[categoryName]
 		} {
-			('System>>category: not a category: ' ++ categoryName).error
+			self.error('category: not a category: ' ++ categoryName)
 		}
 	}
 
@@ -588,7 +588,7 @@ System : [Object, Indexable] {
 		self.isTraitName(traitName).if {
 			self.traitDictionary[traitName]
 		} {
-			('System>>trait: not a trait: ' ++ traitName).error
+			self.error('trait: not a trait: ' ++ traitName)
 		}
 	}
 
@@ -603,7 +603,7 @@ System : [Object, Indexable] {
 			self.isTraitName(traitOrTypeName).if {
 				self.traitDictionary[traitOrTypeName]
 			} {
-				('System>>traitOrType: not a trait or type: ' ++ traitOrTypeName).error
+				self.error('traitOrType: not a trait or type: ' ++ traitOrTypeName)
 			}
 		}
 	}
@@ -612,7 +612,7 @@ System : [Object, Indexable] {
 		self.isTraitName(traitName).if {
 			self.typesImplementingTrait(traitName)
 		} {
-			('traitTypes: not a trait: ' ++ traitName).error
+			self.error('traitTypes: not a trait: ' ++ traitName)
 		}
 	}
 
@@ -650,7 +650,7 @@ System : [Object, Indexable] {
 		self.isTypeName(typeName).if {
 			self.typeDictionary[typeName]
 		} {
-			('type: not a type: ' ++ typeName).error
+			self.error('typeLookup: not a type: ' ++ typeName)
 		}
 	}
 
@@ -856,7 +856,7 @@ Response : [Object] {
 				self.text
 			}
 		]) { :unused |
-			('Response>>mimeType: unknown mimeType: ' ++ mimeType).error
+			self.error('mimeType: unknown mimeType: ' ++ mimeType)
 		}
 	}
 
@@ -1265,7 +1265,7 @@ Window : [Object] {
 					response.text
 				}
 			]) { :unused  |
-				('fetchMimeType: unknown mimeType: ' ++ mimeType).error
+				self.error('fetchMimeType: unknown mimeType: ' ++ mimeType)
 			}
 		}
 	}

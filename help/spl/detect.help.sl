@@ -8,4 +8,4 @@ If there is no such element, raise an error.
 
 * * *
 
-See also: findFirst, reject, select
+See also: detectIfNone, findFirst, reject, select

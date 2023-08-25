@@ -13,6 +13,11 @@ Where supported _and_ is displayed as ∧.
 	true & { false } = false
 	true.and { false } = false
 
+_Note:_
+In Smalltalk _&_ and _and_ have different behaviour,
+the former is _evaluating_ and the latter not.
+If _&_ were named _ampersand_ this behaviour could be adopted.
+
 * * *
 
 See also: |

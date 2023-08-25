@@ -44,7 +44,7 @@ JiTuning : [Object] { | name description integerPitches limit degree |
 	}
 
 	degreeError { :self |
-		'JiTuning>>degreeError'.error
+		self.error('degreeError')
 	}
 
 	initialize { :self :name :description :tuning |
@@ -99,7 +99,7 @@ JiTuning : [Object] { | name description integerPitches limit degree |
 	}
 
 	limitError { :self |
-		'JiTuning>>limitError'.error
+		self.error('limitError')
 	}
 
 	ratios { :self |

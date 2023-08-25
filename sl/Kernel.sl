@@ -1,15 +1,15 @@
 @Binary {
 
 	<< { :self :anInteger |
-		self.subclassResponsibility('Binary>>shiftLeft')
+		self.subclassResponsibility('@Binary>>shiftLeft')
 	}
 
 	>> { :self :anInteger |
-		self.subclassResponsibility('Binary>>shiftRight')
+		self.subclassResponsibility('@Binary>>shiftRight')
 	}
 
 	bitAnd { :self :anInteger |
-		self.subclassResponsibility('Binary>>bitAnd')
+		self.subclassResponsibility('@Binary>>bitAnd')
 	}
 
 	bitAt { :self :anInteger |
@@ -18,7 +18,7 @@
 
 	bitCount { :self |
 		(self < 0).if {
-			'Binary>>bitCount: cannot count bits of negative integers'.error
+			self.error('@Binary>>bitCount: cannot count bits of negative integers')
 		} {
 			| n = self, bitCount = 0; |
 			{ n = 0 }.whileFalse {
@@ -34,15 +34,15 @@
 	}
 
 	bitNot { :self |
-		self.subclassResponsibility('Binary>>bitNot')
+		self.subclassResponsibility('@Binary>>bitNot')
 	}
 
 	bitOr { :self :anInteger |
-		self.subclassResponsibility('Binary>>bitOr')
+		self.subclassResponsibility('@Binary>>bitOr')
 	}
 
 	bitXor { :self :anInteger |
-		self.subclassResponsibility('Binary>>bitXor')
+		self.subclassResponsibility('@Binary>>bitXor')
 	}
 
 	bitShift { :self :anInteger |
@@ -63,7 +63,7 @@
 
 	highBit { :self |
 		(self < 0).if {
-			'Binary>>highBit is not defined for negative integers'.error
+			self.error('@Binary>>highBit is not defined for negative integers')
 		} {
 			self.highBitOfPositiveReceiver
 		}
@@ -133,7 +133,7 @@
 			self.positive.if {
 				1.bitShiftLeft(self.highBitOfPositiveReceiver)
 			} {
-				'Integral>>asLargerPowerOfTwo: non-positive'.error
+				self.error('@Integral>>asLargerPowerOfTwo: non-positive')
 			}
 		}
 	}
@@ -149,7 +149,7 @@
 			self.positive.if {
 				1.bitShiftLeft(self.highBitOfPositiveReceiver - 1)
 			} {
-				'Integral>>asSmallerPowerOfTwo: non-positive'.error
+				self.error('@Integral>>asSmallerPowerOfTwo: non-positive')
 			}
 		}
 	}
@@ -185,6 +185,14 @@
 			};
 			minus ++ answer
 		}
+	}
+
+	atRandomBy { :self :random |
+		random.randomInteger(self)
+	}
+
+	atRandom { :self |
+		system.randomInteger(self)
 	}
 
 	benchFib { :self |
@@ -256,7 +264,7 @@
 
 	doubleFactorial { :self |
 		self.negative.if {
-			'Integral>>doubleFactorial: not valid for negative integers'.error
+			self.error('@Integral>>doubleFactorial: not valid for negative integers')
 		} {
 			(self <= 3).if {
 				self.max(1)
@@ -268,7 +276,7 @@
 
 	factorial { :self |
 		self.negative.ifTrue {
-			'Integral>>factorial: not valid for negative integers'.error
+			'@Integral>>factorial: not valid for negative integers'.error
 		};
 		(self <= 1).if {
 			1
@@ -305,7 +313,7 @@
 	}
 
 	isInteger { :self |
-		self.subclassResponsibility('Integral>>isInteger')
+		self.subclassResponsibility('@Integral>>isInteger')
 	}
 
 	isPowerOfTwo { :self |
@@ -582,7 +590,7 @@
 @Magnitude {
 
 	< { :self :aMagnitude |
-		self.subclassResponsibility('Magnitude>>lessThan')
+		self.subclassResponsibility('@Magnitude>>lessThan')
 	}
 
 	<= { :self :aMagnitude |
@@ -784,7 +792,7 @@
 
 	quotient { :self :aNumber |
 		(aNumber = 0).if {
-			'Number>>quotient: divideByZero'.error
+			'@Number>>quotient: divideByZero'.error
 		} {
 			(self / aNumber).truncated
 		}
@@ -840,7 +848,7 @@
 
 	toByDo { :self :stop :step :aBlock:/1 |
 		(step = 0).if {
-			'Number>>toByDo: step must be non-zero'.error
+			'@Number>>toByDo: step must be non-zero'.error
 		} {
 			| nextValue = self; |
 			(step < 0).if{
@@ -918,7 +926,7 @@
 
 	caseOf { :self :aBlockAssociationCollection |
 		self.caseOfOtherwise(aBlockAssociationCollection) { :case |
-			('Object>>caseOf: case not found: ' ++ case).error
+			('@Object>>caseOf: case not found: ' ++ case).error
 		}
 	}
 
@@ -941,6 +949,10 @@
 
 	deepCopy { :self |
 		<primitive: return structuredClone(_self);>
+	}
+
+	error { :self :message |
+		(self.typeOf ++ ': ' ++ message ++ ': (' ++ self.printStringLimitedTo(16) ++ ')').error
 	}
 
 	identity { :self |
@@ -1146,7 +1158,7 @@ Character : [Object, Magnitude] { | string codePoint |
 
 	asciiValue { :self |
 		(self.codePoint > 127).if {
-			'Character>>asciiValue: not ascii'.error
+			self.error('asciiValue: not ascii')
 		} {
 			self.codePoint
 		}
@@ -1201,7 +1213,7 @@ Character : [Object, Magnitude] { | string codePoint |
 				newCharacter().initializeSlots(self, codePoint)
 			}
 		} {
-			'String>>Character: not character'.error
+			self.error('Character: not character')
 		}
 	}
 
@@ -1303,7 +1315,7 @@ Complex : [Object] { | real imaginary |
 
 	arg { :self |
 		self.isZero.if {
-			'Zero has no argument'.error
+			self.error('Zero has no argument')
 		} {
 			self.imaginary.arcTan(self.real)
 		}
@@ -1386,7 +1398,7 @@ Complex : [Object] { | real imaginary |
 
 	reciprocal { :self |
 		(self = 0).if {
-			'Complex>>reciprocal: zero divide'.error
+			self.error('reciprocal: zero divide')
 		} {
 			1 / self
 		}
@@ -1489,7 +1501,7 @@ Error : [Object] {
 	}
 
 	shallowCopy { :self |
-		'Error>>copy: cannot copy'.error
+		self.error('copy: cannot copy')
 	}
 
 	signal { :self |
@@ -1505,11 +1517,11 @@ Error : [Object] {
 +@Object {
 
 	shouldNotImplement { :self :signature |
-		(signature ++ ': shouldNotImplement: <' ++ self.typeOf ++ '> ' ++ self).error
+		self.error(signature ++ ': shouldNotImplement')
 	}
 
 	subclassResponsibility { :self :signature |
-		(signature ++ ': subclassResponsibility: <' ++ self.typeOf ++ '> ' ++ self).error
+		self.error(signature ++ ': subclassResponsibility')
 	}
 
 }
@@ -1609,7 +1621,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		anInteger.isInteger.if {
 			self.raisedToInteger(anInteger)
 		} {
-			'Fraction>>** not an integer'.error
+			self.error('** not an integer')
 		}
 	}
 
@@ -1673,7 +1685,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	limitDenominator { :self :maxDenominator |
 		(maxDenominator < 1).if {
-			'Fraction>>limitDenominator illegal maxDenominator'.error
+			self.error('limitDenominator: illegal maxDenominator')
 		} {
 			(self.denominator <= maxDenominator).if {
 				self
@@ -1721,7 +1733,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	normalized { :self |
 		(self.denominator = 0).if {
-			'Fraction>>normalized: zeroDenominatorError'.error
+			self.error('normalized: zeroDenominatorError')
 		} {
 			|(
 				x = self.numerator * self.denominator.sign,
@@ -1767,7 +1779,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	reduced { :self |
 		(self.denominator = 0).if {
-			'Fraction>>reduced: zeroDenominatorError'.error
+			self.error('reduced: zeroDenominatorError')
 		} {
 			|(
 				x = self.numerator * self.denominator.sign,
@@ -1812,7 +1824,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	Fraction { :self :denominator |
 		(denominator = 0).if {
-			'Integral>>Fraction: zeroDenominatorError'.error
+			self.error('@Integral>>Fraction: zeroDenominatorError')
 		} {
 			newFraction().initializeSlots(self, denominator)
 		}
@@ -1845,7 +1857,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			(parts.size = 2).if {
 				Fraction(parts[1].parseInteger(10), parts[2].parseInteger(10))
 			} {
-				'String>>parseFraction: parse failed'.error
+				self.error('parseFraction: parse failed')
 			}
 		} {
 			Fraction(self.parseInteger(10), 1)
@@ -1915,7 +1927,7 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 			return _self << BigInt(_anObject);
 		}
 		>
-		'LargeInteger>>shiftLeft: operand not a LargeInteger or SmallFloat'.error
+		self.error('shiftLeft: operand not a LargeInteger or SmallFloat')
 	}
 
 	>> { :self :anObject |
@@ -1926,7 +1938,7 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 			return sl.shiftRight(_self, BigInt(_anObject));
 		}
 		>
-		'LargeInteger>>shiftRight: operand not a LargeInteger or SmallFloat'.error
+		self.error('shiftRight: operand not a LargeInteger or SmallFloat')
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
@@ -1941,7 +1953,7 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 			return _self & BigInt(_anObject);
 		}
 		>
-		'LargeInteger>>bitAnd: operand not a LargeInteger or SmallFloat'.error
+		self.error('bitAnd: operand not a LargeInteger or SmallFloat')
 	}
 
 	bitOr { :self :anObject |
@@ -1952,7 +1964,7 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 			return _self | BigInt(_anObject);
 		}
 		>
-		'LargeInteger>>bitOr: operand not a LargeInteger or SmallFloat'.error
+		self.error('bitOr: operand not a LargeInteger or SmallFloat')
 	}
 
 	bitXor { :self :anObject |
@@ -1963,7 +1975,7 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 			return _self ^ BigInt(_anObject);
 		}
 		>
-		'LargeInteger>>bitXor: operand not a LargeInteger or SmallFloat'.error
+		self.error('bitXor: operand not a LargeInteger or SmallFloat')
 	}
 
 	even { :self |
@@ -2163,10 +2175,6 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 		anObject.adaptToNumberAndApply(self, atan2:/2)
 	}
 
-	atRandom { :self |
-		self.randomInteger
-	}
-
 	bitAnd { :self :anObject |
 		<primitive:
 		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
@@ -2216,7 +2224,7 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 				hexString
 			}
 		} {
-			'Number>>byteHexString: not a byte'.error
+			self.error('byteHexString: not a byte')
 		}
 	}
 
@@ -2388,7 +2396,7 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 			return _self % _anObject;
 		}
 		>
-		error('Number>>remainder')
+		self.error('remainder')
 	}
 
 	rounded { :self |
@@ -2489,7 +2497,7 @@ Procedure : [Object] {
 			return _self(... _anArray);
 		}
 		>
-		error('Procedure>>apply: argument is not array or array is not of required size')
+		self.error('apply: argument is not array or not of required size')
 	}
 
 	assert { :self |
@@ -2568,7 +2576,7 @@ Procedure : [Object] {
 
 	numArgs { :self |
 		self.numArgsIfAbsent {
-			'numArgs: applied to arity-dispatch procedure'.error
+			self.error('numArgs: applied to arity-dispatch procedure')
 		}
 	}
 
@@ -2662,7 +2670,7 @@ Procedure : [Object] {
 		aBlock().if {
 			self
 		} {
-			(self.printString ++ ': Assertion failed').error
+			self.error('Assertion failed')
 		}
 	}
 
@@ -2826,7 +2834,7 @@ RegExp : [Object] {
 			self.do { :each |
 				each.return
 			};
-			'Iterable>>anyOne: empty iterable'.error
+			self.error('@Iterable>>anyOne: empty iterable')
 		}
 	}
 
@@ -2853,7 +2861,7 @@ RegExp : [Object] {
 
 	detect { :self :aProcedure:/1 |
 		self.detectIfNone(aProcedure:/1) {
-			error('@Iterable>>detect: not found')
+			self.error('@Iterable>>detect: not found')
 		}
 	}
 
@@ -2921,7 +2929,7 @@ RegExp : [Object] {
 	}
 
 	do { :self :aBlock:/1 |
-		self.subclassResponsibility('Iterable>>do')
+		self.subclassResponsibility('@Iterable>>do')
 	}
 
 	doSeparatedBy { :self :elementBlock:/1 :separatorBlock:/0 |
@@ -3041,7 +3049,7 @@ RegExp : [Object] {
 			}
 		};
 		first.ifTrue {
-			error('Collection>>reduce: empty collection')
+			self.error('@Iterable>>reduce: empty collection')
 		};
 		nextValue
 	}
@@ -3115,7 +3123,7 @@ String : [Object, Json, Iterable] {
 		answer.allSatisfy(isAsciiCodePoint:/1).if {
 			answer
 		} {
-			'String>>asciiByteArray: non-ascii character'.error
+			self.error('asciiByteArray: non-ascii character')
 		}
 	}
 
@@ -3123,7 +3131,7 @@ String : [Object, Json, Iterable] {
 		(self.size = 1).if {
 			self.asciiByteArray.first
 		} {
-			'String>>asciiValue: not single character'.error
+			self.error('asciiValue: not single character')
 		}
 	}
 
@@ -3147,10 +3155,10 @@ String : [Object, Json, Iterable] {
 		(* Note: index is in Utf-16 code units, not characters *)
 		| codePoint = self.codePointAt(index); |
 		codePoint.ifNil {
-			'String>>at: invalid index'.error
+			self.error('at: invalid index')
 		} {
 			codePoint.isUtf16SurrogateCode.if {
-				'String>>at: code point is lone surrogate'.error
+				self.error('at: code point is lone surrogate')
 			} {
 				codePoint.Character
 			}
@@ -3163,7 +3171,7 @@ String : [Object, Json, Iterable] {
 			return _self.startsWith(_aString);
 		}
 		>
-		'String>>beginsWith: non string operand'.error
+		self.error('beginsWith: non string operand')
 	}
 
 	capitalized { :self |
@@ -3178,7 +3186,7 @@ String : [Object, Json, Iterable] {
 		self.isSingleCharacter.if {
 			self.codePointAt(1)
 		} {
-			'String>>codePoint: not single character string'.error
+			self.error('codePoint: not single character string')
 		}
 	}
 
@@ -3249,7 +3257,7 @@ String : [Object, Json, Iterable] {
 			return _self.endsWith(_aString);
 		}
 		>
-		'String>>endsWith: non string operand'.error
+		self.error('endsWith: non string operand')
 	}
 
 	evaluate { :self |
@@ -3288,7 +3296,7 @@ String : [Object, Json, Iterable] {
 			};
 			answer
 		} {
-			('String>>indicesOf: not a string: ' ++ aString).error
+			self.error('indicesOf: not a string: ' ++ aString)
 		}
 	}
 
@@ -3382,7 +3390,7 @@ String : [Object, Json, Iterable] {
 			};
 			tally
 		} {
-			('String>>occurrencesOf: not a string: ' ++ aString).error
+			self.error('occurrencesOf: not a string: ' ++ aString)
 		}
 	}
 

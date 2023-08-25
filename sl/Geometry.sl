@@ -27,7 +27,7 @@
 			1 -> { self.x },
 			2 -> { self.y }
 		]) {
-			'Point>>at: index out of range'.error
+			self.error('@Point>>at: index out of range')
 		}
 	}
 
@@ -36,7 +36,7 @@
 			1 -> { self.x := value },
 			2 -> { self.y := value }
 		]) {
-			'Point>>atPut: index out of range'.error
+			self.error('@Point>>atPut: index out of range')
 		}
 	}
 
@@ -518,7 +518,7 @@ Vector2 : [Object, Number, Point] { | x y |
 
 	Vector2 { :self |
 		(self.size ~= 2).if {
-			'Array>>Vector2: not 2-element array'.error
+			self.error('Vector2: not 2-element array')
 		} {
 			| [x, y] = self; |
 			Vector2(x, y)
@@ -575,7 +575,7 @@ Vector3 : [Object] { | x y z |
 			2 -> { self.y },
 			3 -> { self.z }
 		]) {
-			'Vector3>>at: index out of range'.error
+			self.error('at: index out of range')
 		}
 	}
 
@@ -585,7 +585,7 @@ Vector3 : [Object] { | x y z |
 			2 -> { self.y := value },
 			3 -> { self.z := value }
 		]) {
-			'Vector3>>atPut: index out of range'.error
+			self.error('atPut: index out of range')
 		}
 	}
 
@@ -639,7 +639,7 @@ Vector3 : [Object] { | x y z |
 
 	Vector3 { :self |
 		(self.size ~= 3).if {
-			'Array>>Vector3: not 3-element array'.error
+			self.error('Vector3: not 3-element array')
 		} {
 			| [x, y, z] = self; |
 			Vector3(x, y, z)
@@ -692,7 +692,7 @@ Vector4 : [Object] { | w x y z |
 
 	Vector4 { :self |
 		(self.size ~= 4).if {
-			'Array>>Vector4: not 4-element array'.error
+			self.error('Vector4: not 4-element array')
 		} {
 			| [w, x, y, z] = self; |
 			Vector4(w, x, y, z)
@@ -792,7 +792,7 @@ Matrix22 : [Object] { | a b c d |
 
 	Matrix22 { :self |
 		(self.size ~= 4).if {
-			'Array>>Matrix22: not 4-element array'.error
+			self.error('Matrix22: not 4-element array')
 		} {
 			| [a, b, c, d] = self; |
 			Matrix22(a, b, c, d)
@@ -891,7 +891,7 @@ Matrix33 : [Object] { | elements |
 
 	Matrix33 { :self |
 		(self.size ~= 9).if {
-			'Array>>Matrix33: not 9-element array'.error
+			self.error('Matrix33: not 9-element array')
 		} {
 			newMatrix33().initializeSlots(self)
 		}

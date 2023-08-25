@@ -1,5 +1,14 @@
-# SequenceableCollection
+# SequenceableCollection -- collection trait
 
-- allButFirst(self): Answer a copy of the receiver containing all but the first element. Raise an error if there are not enough elements.
-- allButLast(self): Answer a copy of the receiver containing all but the last element. Raise an error if there are not enough elements.
-- withoutDuplicates(self): Answer a copy of the receiver that preserves order but eliminates any duplicates.
+Collections that have a well-defined order associated with their elements.
+Thus each element is externally-named by integers referred to as indices.
+
+Methods for accessing: atAll, atAllPut, first, second, middle, last, allButFirst, allButLast, indexOf,indexOfIfAbsent, indexOfSubCollectionStartingAt, indexOfSubCollectionStartingAtIfAbsent, replaceFromToWith, replaceFromToWithStartingAt
+
+Methods for copying: ++, copyFromTo, copyReplaceAllWith, copyReplaceFromToWith, copyWith, copyWithout, copyWithoutAll, forceToPaddingWith, reversed, shuffled, sortBy
+
+Methods for enumerating: findFirst, findLast, keysAndValuesDo, reverseDo, withDo, reverseWithDo
+
+* * *
+
+See also: Collection, OrderedCollection

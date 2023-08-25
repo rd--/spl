@@ -1,9 +1,9 @@
 # removeFirst -- removing
 
-- _removeFirst(aCollection)_
+- _removeFirst(aSequence)_
 
-Remove the first element of _aCollection_ and answer it.
-If the collection is empty, create an error notification.
+Remove the first element of _aSequence_ and answer it.
+If the sequence is empty it is an error.
 
 * * *
 

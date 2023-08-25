@@ -145,7 +145,7 @@ Duration : [Object, Magnitude] { | milliseconds |
 +SmallFloat {
 
 	asDuration { :self |
-		'SmallFloat>>asDuration: no units specified'.error
+		self.error('asDuration: no units specified')
 	}
 
 	asSeconds { :self |
@@ -209,7 +209,7 @@ Duration : [Object, Magnitude] { | milliseconds |
 	Duration { :self |
 		| [years, months, weeks, days, hours, minutes, seconds] = self.parseIso8601DurationAsArray; |
 		(years + months > 0).if {
-			'String>>Duration: includes non-zero year or month fields'.error
+			self.error('Duration: includes non-zero year or month fields')
 		} {
 			weeks.weeks + days.days + hours.hours + minutes.minutes + seconds.seconds
 		}

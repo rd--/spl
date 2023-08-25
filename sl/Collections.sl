@@ -41,7 +41,7 @@
 			});
 		}
 		>
-		'@ArrayedCollection>>collect: not a procedure'.error
+		self.error('@ArrayedCollection>>collect: not a procedure')
 	}
 
 	detectIfFoundIfNone { :self :aProcedure:/1 :whenFound:/1 :whenNone:/0 |
@@ -69,7 +69,7 @@
 		self
 	}
 
-	findFirst { :self :aProcedure:/1 |
+	findFirstElement { :self :aProcedure:/1 |
 		<primitive:
 		var item = _self.find(function(element) {
 			return _aProcedure_1(element);
@@ -78,13 +78,25 @@
 		>
 	}
 
-	findFirstIndex { :self :aProcedure |
+	findFirst { :self :aProcedure:/1 |
 		<primitive:
 		var index = _self.findIndex(function(element) {
-			return _aProcedure(element);
+			return _aProcedure_1(element);
 		});
-		return (index === -1) ? null : index + 1;
+		return index + 1;
 		>
+	}
+
+	findLast { :self :aBlock:/1 |
+		| index = self.size + 1; |
+		valueWithReturn { :return:/1 |
+			{ (index := index - 1) >= 1 }.whileTrue {
+				aBlock(self[index]).ifTrue {
+					index.return
+				}
+			};
+			0
+		}
 	}
 
 	injectInto { :self :anObject :aProcedure:/2 |
@@ -188,7 +200,7 @@
 				aProcedure(rcvrItem, selfItem)
 			}
 		} {
-			'Only sequenceable collections may be combined arithmetically'.error
+			self.error('Only sequenceable collections may be combined arithmetically')
 		}
 	}
 
@@ -208,7 +220,7 @@
 				}
 			};
 			(index = numberOfElements).ifFalse {
-				'@Collection>>any: Not enough elements in this collection'.error
+				self.error('@Collection>>any: Not enough elements in collection')
 			};
 			result
 		}
@@ -289,6 +301,12 @@
 		}
 	}
 
+	copyWithoutAll { :self :aCollection |
+		self.reject { :each |
+			aCollection.includes(each)
+		}
+	}
+
 	difference { :self :aCollection |
 		self.reject { :each |
 			aCollection.includes(each)
@@ -302,11 +320,11 @@
 	}
 
 	errorEmptyCollection { :self |
-		(self.typeOf ++ '>>errorEmptyCollection: ' ++ self).error
+		self.error('errorEmptyCollection')
 	}
 
 	errorNotFound { :self :anObject |
-		(self.typeOf ++ '>>errorNotFound: ' ++ self).error
+		self.error('errorNotFound: ' ++ anObject)
 	}
 
 	groupBy { :self :keyBlock:/1 |
@@ -382,7 +400,7 @@
 
 	isOfSameSizeCheck { :self :otherCollection |
 		(otherCollection.size = self.size).ifFalse {
-			'Collection>>isOfSameSizeCheck'.error
+			self.error('@Collection>>isOfSameSizeCheck')
 		}
 	}
 
@@ -400,7 +418,7 @@
 
 	ofSize { :self :aNumber |
 		(self.size = aNumber).ifFalse {
-			'Collection>>ofSize'.error
+			self.error('@Collection>>ofSize')
 		};
 		self
 	}
@@ -538,7 +556,7 @@
 	}
 
 	removeIfAbsent { :self :oldObject :anExceptionBlock |
-		self.subclassResponsibility('Collection>>removeIfAbsent')
+		self.subclassResponsibility('@Collection>>removeIfAbsent')
 	}
 
 }
@@ -741,7 +759,7 @@
 
 	associationAt { :self :key |
 		self.associationAtIfAbsent(key) {
-			'Dictionary>>associationAt: no such key'.error
+			self.error('@Dictionary>>associationAt: no such key')
 		}
 	}
 
@@ -766,6 +784,10 @@
 		self.keysAndValuesDo { :key :value |
 			aProcedure(key -> value)
 		}
+	}
+
+	associationsRemove { :self :aBlock:/1 |
+		self.removeAllSuchThat(aBlock:/1)
 	}
 
 	associationsSelect { :self :aProcedure:/1 |
@@ -794,7 +816,7 @@
 
 	atDelegateTo { :self :key :delegateKey |
 		self.atDelegateToIfAbsent(key, delegateKey) {
-			('@Dictionary>>atDelegate: unknown key: ' ++ key).error
+			self.error('@Dictionary>>atDelegate: unknown key: ' ++ key)
 		}
 	}
 
@@ -906,14 +928,8 @@
 	}
 
 	keysAndValuesRemove { :self :keyValueBlock:/2 |
-		| removals = []; |
-		self.associationsDo { :each |
-			keyValueBlock(each.key, each.value).ifTrue {
-				removals.add(each.key)
-			}
-		};
-		removals.do { :key |
-			self.removeKey(key)
+		self.associationsRemove { :each |
+			keyValueBlock(each.key, each.value)
 		}
 	}
 
@@ -937,24 +953,36 @@
 		self
 	}
 
+	removeAllSuchThat { :self :aBlock:/1 |
+		| removals = []; |
+		self.associationsDo { :each |
+			aBlock(each).ifTrue {
+				removals.add(each.key)
+			}
+		};
+		removals.do { :key |
+			self.removeKey(key)
+		}
+	}
+
 	removeAt { :self :key |
 		self.includesKey(key).if {
 			| removed = self[key]; |
 			self.removeKey(key);
 			removed
 		} {
-			error('Dictionary>>removeAt')
+			self.error('@Dictionary>>removeAt')
 		}
 	}
 
 	removeKey { :self :key |
 		self.removeKeyIfAbsent(key) {
-			error('Dictionary>>removeKey')
+			self.error('@Dictionary>>removeKey')
 		}
 	}
 
 	removeIfAbsent { :self :oldObject :anExceptionBlock |
-		self.shouldNotImplement('Dictionary>>removeIfAbsent')
+		self.shouldNotImplement('@Dictionary>>removeIfAbsent')
 	}
 
 	replace { :self :aBlock:/1 |
@@ -996,7 +1024,7 @@
 @Indexable {
 
 	at { :self :index |
-		'Indexable>>at: type responsibility'.error
+		self.error('@Indexable>>at: type responsibility')
 	}
 
 	atAllPut { :self :anObject |
@@ -1053,7 +1081,7 @@
 	}
 
 	atPut { :self :index :anObject |
-		'Indexable>>atPut: type responsibility'.error
+		self.error('@Indexable>>atPut: type responsibility')
 	}
 
 	includesIndex { :self :anObject |
@@ -1062,7 +1090,7 @@
 
 	indexOf { :self :anObject |
 		self.indexOfIfAbsent(anObject) {
-			'Indexable>>indexOf: no such element'.error
+			self.error('@Indexable>>indexOf: no such element')
 		}
 	}
 
@@ -1078,7 +1106,7 @@
 	}
 
 	indices { :self |
-		'Indexable>>indices: type responsibility'.error
+		self.error('@Indexable>>indices: type responsibility')
 	}
 
 	isIndexable { :self |
@@ -1203,8 +1231,12 @@
 		self[index - 1 % self.size + 1] := anObject
 	}
 
+	atRandomBy { :self :random |
+		self[random.randomInteger(1, self.size)]
+	}
+
 	atRandom { :self |
-		self[randomInteger(1, self.size)]
+		self.atRandomBy(system)
 	}
 
 	beginsWith { :self :sequence |
@@ -1332,7 +1364,7 @@
 	}
 
 	errorSubscriptBounds { :self :index |
-		(self.typeOf ++ '>>errorSubscriptBounds: ' ++ index).error
+		self.error('@SequenceableCollection>>errorSubscriptBounds: ' ++ index)
 	}
 
 	fillWith { :self :aBlock |
@@ -1346,7 +1378,7 @@
 		self.findBinaryDoIfNone(aBlock:/1) { :found |
 			found
 		} {
-			'SequenceableCollection>>findBinary: not found'.error
+			self.error('@SequenceableCollection>>findBinary: not found')
 		}
 	}
 
@@ -1369,7 +1401,7 @@
 		self.findBinaryIndexDoIfNone(aBlock:/1) { :found |
 			found
 		} {
-			'SequenceableCollection>>findBinaryIndex: not found'.error
+			self.error('@SequenceableCollection>>findBinaryIndex: not found')
 		}
 	}
 
@@ -1404,11 +1436,15 @@
 		self.copyFromTo(1, n)
 	}
 
-	fisherYatesShuffle { :self |
+	fisherYatesShuffleBy { :self :random |
 		self.size.downToDo(2) { :item |
-			self.swapWith(item, randomInteger(1, item))
+			self.swapWith(item, random.randomInteger(1, item))
 		};
 		self
+	}
+
+	fisherYatesShuffle { :self |
+		self.fisherYatesShuffleBy(system)
 	}
 
 	flattened { :self |
@@ -1420,6 +1456,13 @@
 				answer.add(item)
 			}
 		};
+		answer
+	}
+
+	forceToPaddingWith { :self :length :anObject |
+		| answer = self.species.new(length); |
+		answer.atAllPut(anObject);
+		answer.replaceFromToWithStartingAt(1, self.size.min(length), self, 1);
 		answer
 	}
 
@@ -1452,7 +1495,7 @@
 	groupsDo { :self :aBlock |
 		|numArgs = aBlock.numArgs; |
 		numArgs.caseOfOtherwise([
-			{ 0 } -> { 'SequenceableCollection>>groupsDo: At least one block argument expected'.error },
+			{ 0 } -> { self.error('groupsDo: At least one block argument expected') },
 			{ 1 } -> { self.do(aBlock) },
 			{ 2 } -> { self.pairsDo(aBlock) }
 		]) {
@@ -1504,13 +1547,13 @@
 	}
 
 	indexError { :self :index |
-		[
-			self.typeOf, '>>at: index not an integer or out of range.',
+		self.error([
+			'indexError: index not an integer or out of range.',
 			' index: ', index,
 			' index.typeOf: ', index.typeOf,
 			' index.isInteger: ', index.isInteger,
 			' self.size: ', self.size
-		].join.error
+		].join)
 	}
 
 	indexOf { :self :anElement |
@@ -1727,7 +1770,7 @@
 		(replacement.size = (stop - start + 1)).if {
 			self.replaceFromToWithStartingAt(start, stop, replacement, 1)
 		} {
-			'Sequenceable>>replaceFromToWith: size of replacement doesnt match'.error
+			self.error('replaceFromToWith: size of replacement doesnt match')
 		}
 	}
 
@@ -1757,7 +1800,7 @@
 
 	reverseWithDo { :self :aSequenceableCollection :aBlock:/2 |
 		(self.size ~= aSequenceableCollection.size).if {
-			'reverseWithDo: unequal size'.error
+			self.error('reverseWithDo: unequal size')
 		} {
 			self.size.downToDo(1) { :index |
 				aBlock(self[index], aSequenceableCollection[index])
@@ -1797,6 +1840,18 @@
 			}
 		};
 		self.species.newFrom(answer)
+	}
+
+	shuffleBy { :self :random |
+		self.fisherYatesShuffleBy(random)
+	}
+
+	shuffle { :self |
+		self.fisherYatesShuffle
+	}
+
+	shuffledBy { :self :random |
+		self.copy.fisherYatesShuffleBy(random)
 	}
 
 	shuffled { :self |
@@ -1869,7 +1924,7 @@
 				aProcedure(self[index], aCollection[index])
 			}
 		} {
-			error('SequenceableCollection>>withCollect: operand not-sequenceable or of unequal size')
+			self.error('withCollect: operand not-sequenceable or of unequal size')
 		}
 	}
 
@@ -1905,6 +1960,15 @@
 	addAfter { :self :newObject :oldObject |
 		| index = self.indexOf(oldObject); |
 		self.insertAt(newObject, index + 1)
+	}
+
+	addAfterIndex { :self :newObject :index |
+		index.betweenAnd(0, self.size).if {
+			self.insertAt(newObject, index + 1);
+			newObject
+		} {
+			self.errorSubscriptBounds(index)
+		}
 	}
 
 	addBefore { :self :newObject :oldObject |
@@ -2230,7 +2294,7 @@ ByteArray : [Object, Iterable, Indexable, Collection, SequenceableCollection, Ar
 			_self[_anInteger - 1] = _aByte;
 			return _aByte;
 		}>
-		error('ByteArray>>atPut: index not an integer or value not a byte')
+		self.error('atPut: index not an integer or value not a byte')
 	}
 
 	base64Encoded { :self |
@@ -2515,7 +2579,7 @@ Bag : [Object, Iterable, Collection] { | contents |
 
 	sum { :self |
 		self.ifEmpty {
-			'Bag>>sum: empty'.error
+			self.error('sum: empty')
 		} {
 			| sum = 0; |
 			self.contents.keysAndValuesDo { :value :count |
@@ -2564,7 +2628,7 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 			return _self.get(_key);
 		}
 		>
-		('Map>>at: unknown key: ' ++ key).error
+		self.error('at: unknown key: ' ++ key)
 	}
 
 	atPut { :self :key :aValue |
@@ -2586,7 +2650,7 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 		self.keys.allSatisfy(isString:/1).if {
 			self.Record.json(replacer, space)
 		} {
-			'Map>>json: not all keys are strings'.error
+			self.error('json: not all keys are strings')
 		}
 	}
 
@@ -2884,7 +2948,7 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 
 	last { :self |
 		self.ifEmpty {
-			'Interval>>last: empty interval'
+			'last: empty interval'
 		} {
 			self.stop - (self.stop - self.start % self.step)
 		}
@@ -2904,7 +2968,7 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 
 	removeFirst { :self |
 		self.isEmpty.if {
-			'Interval>>removeFirst: empty interval'.error
+			self.error('removeFirst: empty interval')
 		} {
 			| removed = self.start; |
 			self.start := self.start + self.step;
@@ -2914,7 +2978,7 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 
 	removeLast { :self |
 		self.isEmpty.if {
-			'Interval>>removeLast: empty interval'.error
+			self.error('removeLast: empty interval')
 		} {
 			| removed = self.stop; |
 			self.stop := self.stop - self.step;
@@ -3223,7 +3287,7 @@ Record : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 			return _self[_aString];
 		}
 		>
-		('Record>>at: unknown key: ' ++ aString).error
+		self.error('at: unknown key: ' ++ aString)
 	}
 
 	atPut { :self :aString :anObject |
@@ -3233,7 +3297,7 @@ Record : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 			return _anObject;
 		}
 		>
-		('Record>>atPut key not a string: ' ++ aString.typeOf).error
+		self.error('atPut key not a string: ' ++ aString.typeOf)
 	}
 
 	Map { :self |
@@ -3306,7 +3370,7 @@ Record : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 		self.collect(key:/1).allSatisfy(isString:/1).if {
 			self.collect(Array:/1).recordFromTwoElementArrays
 		} {
-			'Array>>Record: not all keys are strings'.error
+			self.error('Record: not all keys are strings')
 		}
 	}
 
@@ -3318,7 +3382,7 @@ Record : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 		self.keys.allSatisfy(isString:/1).if {
 			self.unsafeRecord
 		} {
-			'Map>>Record: not all keys are strings'.error
+			self.error('Record: not all keys are strings')
 		}
 	}
 

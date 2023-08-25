@@ -1,9 +1,9 @@
 # removeLast -- removing
 
-- _removeLast(aCollection)_
+- _removeLast(aSequence)_
 
-Remove the last element of _aCollection_ and answer it.
-If the collection is empty, create an error notification.
+Remove the last element of _aSequence_ and answer it.
+If the collection is empty it is an error.
 
 * * *
 

@@ -1,8 +1,8 @@
-# reversed -- converting
+# reversed -- copying
 
 - _reversed(aSequence)_
 
-Answer _aSequence_ in the reverse order.
+Answer a copy of _aSequence_ in the reverse order.
 The answer is a new value of the same _species_ as _aSequence_.
 
 	[1, 3, 5, 7].reversed = [7, 5, 3, 1]
