@@ -752,6 +752,14 @@
 		self * self * self
 	}
 
+	degreeCos { :self |
+		(90 - (180 + self % 360 - 180).abs).degreesToRadians.sin
+	}
+
+	degreeSin { :self |
+		(90 - self).degreeCos
+	}
+
 	degreesToRadians { :self |
 		self * 0.01745329251994329547 (* pi / 180 *)
 	}
