@@ -1,4 +1,4 @@
-# anySatisfy -- predicate
+# anySatisfy -- testing
 
 - _anySatisfy(aCollection, aBlock:/1)_
 

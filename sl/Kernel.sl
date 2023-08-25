@@ -496,6 +496,21 @@
 		integer.romanDigitsForOn('XVI'.asciiByteArray, 1, aStream)
 	}
 
+	take { :self :k |
+		(k < 0 | { k > self }).if {
+			0
+		} {
+			| numerator = 1, denominator = 1; |
+			self.toByDo(k.max(self - k) + 1, -1) { :factor |
+				numerator := numerator * factor
+			};
+			1.toDo(k.min(self - k)) { :factor |
+				denominator := denominator * factor
+			};
+			numerator // denominator
+		}
+	}
+
 	threeDigitName { :self |
 		|(
 			units = [

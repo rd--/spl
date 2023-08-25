@@ -1,4 +1,4 @@
-# difference -- enumerating
+# difference -- set logic
 
 - _difference(aCollection, anotherCollection)_
 

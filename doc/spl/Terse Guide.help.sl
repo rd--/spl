@@ -1281,6 +1281,9 @@ true == true & { false == false } (* boolean identity *)
 (2 ** 128n - 1).digitLength = 16
 123456n.fnv1aHash = 2230130162n
 (1 << 30) == 1073741824 (* equal integers are identical *)
+6.take(3) = 20 (* n choose k *)
+6.take(3) = ((6 * 5 * 4) / (1 * 2 * 3))
+3.take(6) = 0 (* if k is greater than n answer is zero *)
 ```
 
 ## Integral -- prime numbers
