@@ -2073,6 +2073,10 @@ Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, 
 	}
 
 	joinSeparatedBy { :self :aString |
+		self.collect(asString:/1).joinStringsSeparatedBy(aString)
+	}
+
+	joinStringsSeparatedBy { :self :aString |
 		<primitive: return _self.join(_aString);>
 	}
 

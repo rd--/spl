@@ -735,6 +735,8 @@ ByteArray(4).hex = '00000000'
 | c = '𠮷'.Character; | c = c.copy & { c ~~ c.copy } (* copy is equal but not identical *)
 92.Character.string = '\\' (* escaped character *)
 '0123456789abcdef'.characterArray.collect(digitValue:/1) = [0 .. 15] (* digit value of character *)
+[0 .. 15].collect(digitValue:/1).join = '0123456789ABCDEF' (* character of given digit value *)
+{ 36.digitValue }.ifError { true } (* error if integer is out of range *)
 ```
 
 ## Collection -- collection trait
@@ -1278,7 +1280,7 @@ true == true & { false == false } (* boolean identity *)
 -987654321.printString = '-987654321' (* negative integer print string *)
 4 / 2 = 2 (* integer division with integer result *)
 | n = 2; | 3.timesRepeat { n := n * n }; n = 256 (* iteration *)
-(0 .. 15).collect(asHexDigit:/1).joinCharacters = '0123456789ABCDEF' (* integer to hex character *)
+(0 .. 15).collect(asHexDigit:/1).join = '0123456789ABCDEF' (* integer to hex character *)
 | a = []; | 1.upToDo(5) { :each | a.add(each) }; a = [1 .. 5] (* iterate over integer sequence *)
 | a = []; | 5.upToDo(1) { :each | a.add(each) }; a = [] (* non-ascending sequences are empty *)
 | a = []; | 5.downToDo(1) { :each | a.add(each) }; a = [5 .. 1] (* iterate over integer sequence *)
@@ -2526,13 +2528,13 @@ pi.asString = '3.141592653589793' (* float as string *)
 'sndfile.wav'.endsWith('.wav') = true
 ['a','b','','c'].unlines.paragraphs.collect(lines:/1) = [['a', 'b'], ['c']]
 'string'.at(3) = 'r'.Character (* string indexing *)
-var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripting *)
+var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 ' x '.withBlanksTrimmed = 'x'
 ' x '.withoutLeadingBlanks = 'x '
 ' x '.withoutTrailingBlanks = ' x'
-| a = []; | 'string'.do { :each | a.add(each) }; a.joinCharacters = 'string'
+| a = []; | 'string'.do { :each | a.add(each) }; a.join = 'string'
 'string'.stringArray.join = 'string'
-'string'.characterArray.joinCharacters = 'string'
+| a = 'string'.characterArray; | a.joinCharacters = 'string' & { a.join = 'string' }
 '𠮷'.countCharacters = 1
 '𠮷'.countUtf16CodeUnits = 2
 '𠮷'.size = 2
@@ -2565,7 +2567,7 @@ var s = 'string'; [s[2], s[4], s[5]].joinCharacters = 'tin' (* string subscripti
 '1.54'.asNumber = 1.54 (* parse floating point number *)
 '154'.asNumber = 154 (* parse integral number *)
 'A clear but rather long-winded summary'.contractTo(19) = 'A clear ... summary'
-'string'.Array.sort.joinCharacters = 'ginrst'
+'string'.Array.sort.join = 'ginrst'
 'x' ~= 'x'.Character (* a single element string is not equal to a character *)
 'Mačiūnas'.asAscii = 'Mainas' (* transform to ascii by deleting non-ascii characters *)
 'string'.copy == 'string' (* copy is identity *)

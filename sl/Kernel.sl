@@ -1241,6 +1241,14 @@ Character : [Object, Magnitude] { | string codePoint |
 		<primitive: return _Character_2(String.fromCodePoint(_self), _self);>
 	}
 
+	digitValue { :self |
+		self.betweenAnd(0, 35).if {
+			Character(self + (self < 10).if { 48 } { 55 })
+		} {
+			self.error('digitValue')
+		}
+	}
+
 }
 
 +String {
