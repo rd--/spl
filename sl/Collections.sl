@@ -1080,6 +1080,10 @@
 		self[index] := self[index] + value
 	}
 
+	atModify { :self :index :aBlock:/1 |
+		self[index] := aBlock(self[index])
+	}
+
 	atPut { :self :index :anObject |
 		self.error('@Indexable>>atPut: type responsibility')
 	}

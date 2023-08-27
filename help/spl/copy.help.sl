@@ -2,7 +2,7 @@
 
 - _copy(anObject)_
 
-Answer another object just like the receiver.
+Answer another object just like _anObject_.
 
 	[1 .. 5].copy = [1 .. 5]
 	| a = [1 .. 5]; | a ~~ a.copy
@@ -13,4 +13,3 @@ Copy is defined in terms of _shallowCopy_ and _postCopy_.
 * * *
 
 See also: copyFromTo, copyWith, copyWithout, deepCopy, postCopy, shallowCopy
-

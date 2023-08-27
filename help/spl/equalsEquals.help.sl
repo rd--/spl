@@ -1,4 +1,4 @@
-# == -- identity operator
+# == -- comparing
 
 - _self == anObject_
 - _equalsEquals(self, anObject)_
@@ -12,6 +12,6 @@ Where supported this operator is displayed as ≡.
 
 * * *
 
-See also: = or equals, ~~ or notNot
+See also: = or equals, ~~ or tildeTilde
 
 Unicode: U+2261 ≡ Identical To

@@ -1,4 +1,4 @@
-# = -- equality operator
+# = -- comparing
 
 - _self = anObject_
 - _equals(self, anObject)_

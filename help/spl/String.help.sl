@@ -17,6 +17,8 @@ Strings are not arrays of Characters.
 
 Strings are immutable, i.e. there is no _atPut_ implementation.
 
+Methods for converting: asLowercase, asUppercase, capitalized, asInteger, asNumber
+
 _Implementation Note_:
 Javascript has a curious implementation of Unicode.
 String indexing only makes sense for strings that are in the _Basic Multilingual Plane_.

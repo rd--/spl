@@ -1,4 +1,4 @@
-# ~~ -- identity
+# ~~ -- comparing
 
 - _self ~~ anObject_
 - _tildeTilde(self, anObject)_

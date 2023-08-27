@@ -1,4 +1,4 @@
-# ~= -- inequality operator
+# ~= -- comparing
 
 - _self ~= anObject_
 - _tildeEquals(self, anObject)_

@@ -246,6 +246,7 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [1 .. 5].atIfPresentIfAbsent(3) { :x | x * x } { false } = 9 (* ifPresent and ifAbsent clauses *)
 | a = [1, 2, 3]; | a.atPut(2, 'two') = 'two' & { a = [1, 'two', 3] } (* atPut answers value put *)
 | a = [1, 2, 3]; | (a[2] := 'two') = 'two' & { a = [1, 'two', 3] }
+| a = [1, 2, 3]; | a.atModify(2, squared:/1) = 4 & { a = [1, 4, 3] } (* modify value at index *)
 [5, 4, 3, 2, 1].detect { :each | each % 2 = 0 } = 4
 { [5, 4, 3, 2, 1].detect { :each | each % 7 = 0 } }.ifError { true }
 [5, 4, 3, 2, 1].detect { :each | each * 2 <= 4 } = 2 (* find first element matching predicate *)
@@ -737,6 +738,8 @@ ByteArray(4).hex = '00000000'
 '0123456789abcdef'.characterArray.collect(digitValue:/1) = [0 .. 15] (* digit value of character *)
 [0 .. 15].collect(digitValue:/1).join = '0123456789ABCDEF' (* character of given digit value *)
 { 36.digitValue }.ifError { true } (* error if integer is out of range *)
+'x'.Character.asUppercase = 'X'.Character (* to upper case *)
+'X'.Character.asLowercase = 'x'.Character (* to lower case *)
 ```
 
 ## Collection -- collection trait
@@ -1050,6 +1053,8 @@ Error('Error message').log = nil (* log error to transcript/console *)
 { Error('Error message').signal }.ifError { true } (* signal error *)
 { 'Error message'.error }.ifError { true } (* generate and signal an error *)
 { Error('message').copy }.ifError { true } (* cannot copy errors *)
+| x | { x := false }.ensure { x := true }; x (* ensure termination block is evaluated *)
+| x | { { ''.error }.ensure { x := true } }.ifError { }; x (* ensure termination block is evaluated *)
 ```
 
 ## Float64Array -- collection type
@@ -2516,8 +2521,12 @@ pi.asString = '3.141592653589793' (* float as string *)
 'A Bc Def'.replaceAll(' ', '') = 'ABcDef'
 'x y z'.replaceRegExp(RegExp('x|z', 'g'), '-') = '- y -'
 'Word'.asLowercase = 'word'
+'12345'.asLowercase = '12345' (* only if letters *)
 'Word'.asUppercase = 'WORD'
-'word'.capitalized = 'Word'
+'12345'.asUppercase = '12345' (* only if letters *)
+'x' ~= 'X' & { 'x'.sameAs('X') & { 'x'.sameAs('x') } } (* considered without case *)
+'word'.capitalized = 'Word'  (* uppercase first letter only *)
+'12345'.capitalized = '12345' (* only if a letter *)
 'testAt'.beginsWith('test') = true
 'testAt'.beginsWith('At') = false
 { 'testAt'.beginsWith(nil) }.ifError { true }

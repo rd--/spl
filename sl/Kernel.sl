@@ -1195,6 +1195,14 @@ Character : [Object, Magnitude] { | string codePoint |
 		self.codePoint
 	}
 
+	asLowercase { :self |
+		self.string.asLowercase.Character
+	}
+
+	asUppercase { :self |
+		self.string.asUppercase.Character
+	}
+
 	asString { :self |
 		self.string
 	}
@@ -1227,6 +1235,14 @@ Character : [Object, Magnitude] { | string codePoint |
 
 	printString { :self |
 		'$' ++ self.string
+	}
+
+	sameAs { :self :aCharacter |
+		(self == aCharacter).if {
+			true
+		} {
+			self.asLowercase == aCharacter.asLowercase
+		}
 	}
 
 	storeString { :self |
@@ -1541,11 +1557,15 @@ Complex : [Object] { | real imaginary |
 
 Error : [Object] {
 
-	log { :self |
-		system.transcript.error(self.message)
+	description { :self |
+		self.name ++ ': ' ++ self.messageText
 	}
 
-	message { :self |
+	log { :self |
+		system.transcript.error(self.messageText)
+	}
+
+	messageText { :self |
 		<primitive: return _self.message;>
 	}
 
@@ -1562,7 +1582,7 @@ Error : [Object] {
 	}
 
 	storeString { :self |
-		'Error(\'' ++ self.message ++ '\')'
+		'Error(\'' ++ self.messageText ++ '\')'
 	}
 
 }
@@ -2578,13 +2598,25 @@ Procedure : [Object] {
 		}
 	}
 
-	ifError { :self :errorHandler |
+	ensure { :self :aBlock:/0 |
+		<primitive:
+		var returnValue;
+		try {
+			returnValue = _self();
+		} finally {
+			_aBlock_0();
+		};
+		return returnValue;
+		>
+	}
+
+	ifError { :self :errorHandlerBlock |
 		<primitive:
 		try {
 			return _self();
 		} catch (caughtValue) {
 			if(caughtValue instanceof Error) {
-				return _cull_2(_errorHandler, caughtValue)
+				return _cull_2(_errorHandlerBlock, caughtValue)
 			} {
 				throw caughtValue;
 			}
@@ -3520,6 +3552,14 @@ String : [Object, Json, Iterable] {
 			v2 := v1
 		};
 		value
+	}
+
+	sameAs { :self :aString |
+		(self = aString).if {
+			true
+		} {
+			self.asLowercase = aString.asLowercase
+		}
 	}
 
 	shallowCopy { :self |
