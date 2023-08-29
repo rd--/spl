@@ -2352,8 +2352,12 @@ ByteArray : [Object, Iterable, Indexable, Collection, SequenceableCollection, Ar
 			],
 			crc = 0
 		)|
-		1.toDo(self.size) { :i |
-			crc := crc.bitShift(-8).bitXor(table[crc.bitXor(self[i]).bitAnd(16rFF) + 1])
+		1.toDo(self.size) { :index |
+			|(
+				octet = self[index],
+				tableIndex = crc.bitXor(octet).bitAnd(16rFF) + 1
+			)|
+			crc := crc.bitShiftRight(8).bitXor(table[tableIndex])
 		};
 		crc
 	}

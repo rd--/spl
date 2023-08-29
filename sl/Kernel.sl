@@ -451,6 +451,10 @@
 		}
 	}
 
+	printStringHex { :self |
+		<primitive: return _self.toString(16).toUpperCase();>
+	}
+
 	numerator { :self |
 		self
 	}
@@ -2083,6 +2087,10 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 		self
 	}
 
+	SmallFloat { :self |
+		<primitive: return Number(_self);>
+	}
+
 	sqrt { :self |
 		<primitive: return sl.bigIntSqrt(_self);>
 	}
@@ -2204,6 +2212,7 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 		>
 		anObject.adaptToNumberAndApply(self, greaterThanGreaterThan:/2)
 	}
+
 
 	abs { :self |
 		<primitive: return Math.abs(_self)>

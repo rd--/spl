@@ -69,12 +69,17 @@ export function isLargeInteger(anObject: unknown): anObject is bigint { return t
 export function isSet<T>(anObject: unknown): anObject is Set<T> { return anObject instanceof Set; }
 export function isString(anObject: unknown): anObject is string { return typeof anObject === 'string'; }
 
-export function isByte(anObject: unknown): boolean {
-	return isSmallFloat(anObject) && Number.isInteger(anObject) && anObject >= 0 && anObject < 256;
+export function isSmallFloatInteger(anObject: unknown): boolean {
+	return isSmallFloat(anObject) && Number.isInteger(anObject)
 }
 
+export function isByte(anObject: unknown): boolean {
+	return isSmallFloatInteger(anObject) && anObject >= 0 && anObject < 256;
+}
+
+// Unsigned 32-bit? 2^31=2147483648 2^32=4294967296
 export function isBitwise(anObject: unknown): boolean {
-	return isSmallFloat(anObject) && Number.isInteger(anObject) && (anObject >= -2147483648) && (anObject <= 2147483647);
+	return isSmallFloatInteger(anObject) && (anObject >= -2147483648) && (anObject <= 2147483647);
 }
 
 export class Method {
@@ -364,8 +369,8 @@ export function methodName(name: string): MethodName {
 }
 
 /* spl = one-indexed.  The index is not decremented because in Js '1' - 1 is 0 &etc. */
-export function arrayCheckIndex(anArray: unknown[], anInteger: number): boolean {
-	return Number.isInteger(anInteger) && (anInteger >= 1) && (anInteger <= anArray.length);
+export function arrayCheckIndex(anArray: unknown[], anInteger: number | bigint): boolean {
+	return isSmallFloatInteger(anInteger) && (anInteger >= 1) && (anInteger <= anArray.length);
 }
 
 /* https://github.com/Aisse-258/bigint-isqrt */

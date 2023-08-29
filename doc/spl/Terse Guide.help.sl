@@ -708,7 +708,7 @@ ByteArray(4).hex = '00000000'
 [1, 3 .. 9].ByteArray.indices = (1 .. 5) (* indices of byte array (an interval) *)
 | b = [1, 3 .. 9].ByteArray; | b.copy = b & { b.copy ~~ b } (* copies are equal & not identical *)
 | b = [1 .. 9].ByteArray, c = b.copy; | c[1] := 9; c[1] = 9 & { b[1] = 1 } (* copies are distinct *)
-[115, 116, 114, 105, 110, 103].ByteArray.crc16 = 58909 (* 16 bit cyclic redundancy check *)
+[115, 116, 114, 105, 110, 103].ByteArray.crc16 = 58909 (* 16 bit cyclic redundancy check, crc-16/arc *)
 ```
 
 ## Character -- text type
@@ -1049,7 +1049,7 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 Error().isError = true (* an error with no message is an error *)
 Error('Error message').isError = true (* error with message is an error *)
 Error('Error message').name = 'Error' (* an error has a name *)
-Error('Error message').message = 'Error message' (* an error has a message *)
+Error('Error message').messageText = 'Error message' (* an error has a message *)
 Error('Error message').log = nil (* log error to transcript/console *)
 { Error('Error message').signal }.ifError { true } (* signal error *)
 { 'Error message'.error }.ifError { true } (* generate and signal an error *)
@@ -1305,6 +1305,7 @@ true == true & { false == false } (* boolean identity *)
 6.take(3) = 20 (* n choose k *)
 6.take(3) = ((6 * 5 * 4) / (1 * 2 * 3))
 3.take(6) = 0 (* if k is greater than n answer is zero *)
+58909.printStringHex = 'E61D' (* hexadecimal representation *)
 ```
 
 ## Integral -- prime numbers
@@ -1544,6 +1545,9 @@ Interval(1, 100, 0.5).size = 199
 92233720368n * 100000000n + 54775807n = 9223372036854775807n (* reader for large integer literals *)
 2n ** 100n = 1267650600228229401496703205376n (* raised to *)
 | n = 2n; | n.copy == n (* copy is identity *)
+23n.SmallFloat = 23 (* large integer to small float *)
+| a = [9 .. 1]; | { a[5n] }.ifError { true } (* large integers are not valid indices *)
+58909n.printStringHex = 'E61D' (* hexadecimal representation *)
 ```
 
 ## LinkedList -- collection type
@@ -2594,7 +2598,7 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 '\v'.Character.codePoint = 11 (* vertical tab *)
 '\f'.Character.codePoint = 12 (* form feed, new page *)
 '\r'.Character.codePoint = 13 (* carriage return *)
-'string'.crc16 = 58909 (* 16 bit cyclic redundancy check *)
+'The quick brown fox jumps over the lazy dog'.crc16 = 16rFCDF (* 16 bit cyclic redundancy check, crc-16/arc *)
 ```
 
 ## Syntax -- array assignment syntax
