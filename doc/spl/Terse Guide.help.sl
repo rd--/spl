@@ -708,6 +708,7 @@ ByteArray(4).hex = '00000000'
 [1, 3 .. 9].ByteArray.indices = (1 .. 5) (* indices of byte array (an interval) *)
 | b = [1, 3 .. 9].ByteArray; | b.copy = b & { b.copy ~~ b } (* copies are equal & not identical *)
 | b = [1 .. 9].ByteArray, c = b.copy; | c[1] := 9; c[1] = 9 & { b[1] = 1 } (* copies are distinct *)
+[115, 116, 114, 105, 110, 103].ByteArray.crc16 = 58909 (* 16 bit cyclic redundancy check *)
 ```
 
 ## Character -- text type
@@ -2593,6 +2594,7 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 '\v'.Character.codePoint = 11 (* vertical tab *)
 '\f'.Character.codePoint = 12 (* form feed, new page *)
 '\r'.Character.codePoint = 13 (* carriage return *)
+'string'.crc16 = 58909 (* 16 bit cyclic redundancy check *)
 ```
 
 ## Syntax -- array assignment syntax
