@@ -991,7 +991,7 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 | p = (), q = (x: 1); | p.declareFrom('x', q); [p, q] = [(x: 1), ()]
 | p = (), q = (x: 1); | p.declareFrom('y', q); [p, q] = [(y: nil), (x: 1)]
 (x: 1, y: 2, z: 3).collect(squared:/1) = (x: 1, y: 4, z: 9)
-| d = (x: 1, y: 2, z: 3); | d.replace(squared:/1); d = (x: 1, y: 4, z: 9) (* replace value at each key *)
+| d = (x: 1, y: 2, z: 3); | d.replace(squared:/1); d = (x: 1, y: 4, z: 9) (* replace value at each key, in place collect *)
 { (x: 1).remove }.ifError { true } (* should not implement, see removeKey *)
 (x: 1, y: 2) ++ (x: 2, y: 1) = (x: 2, y: 1) (* appending two dictionaries is right-biased *)
 (x: 1, y: 2) ++ ['z' -> 3] = (x: 1, y: 2, z: 3) (* append an array of associations to a dictionary *)
@@ -2157,7 +2157,7 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | a = [1 .. 9]; | a.atAllPut((3 .. 7), 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] (* set all selected indices to a value *)
 | a = [1 .. 9]; | a.atAllPutAll([3 .. 7], [7 .. 3]); a = [1, 2, 7, 6, 5, 4, 3, 8, 9] (* set all selected indices to corresponding values *)
 | a = [1 .. 9]; | a.atAllPutAll((3 .. 7), (7 .. 3)); a = [1, 2, 7, 6, 5, 4, 3, 8, 9] (* set all selected indices to corresponding values *)
-| a = [1 .. 9]; | a.replace { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81]
+| a = [1 .. 9]; | a.replace { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81] (* in place collect *)
 | c = [7, 2, 6, 1]; | c.sorted = [1, 2, 6, 7] & { c.sorted ~= c } (* sorted copy *)
 | c = [7, 2, 6, 1]; | c.sort = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } (* sort in place *)
 [7, 2, 6, 1].SortedArray.contents = [1, 2, 6, 7]
@@ -2183,6 +2183,15 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | a = [1 .. 7]; | a.replaceFromToWithStartingAt(3, 5, [-3, -4, -5], 1); a = [1, 2, -3, -4, -5, 6, 7]
 [1 .. 7].forceToPaddingWith(9, 0) = [1, 2, 3, 4, 5, 6, 7, 0, 0] (* copy of sequence with required length and initializer *)
 [1 .. 7].forceToPaddingWith(5, 0) = [1 .. 5] (* partial copy *)
+| a = [1 .. 4]; | a += 8; a = [9 .. 12] (* in place array/scalar addition *)
+| a = [1 .. 4]; | a += [4 .. 1]; a = [5, 5, 5, 5] (* in place array/array addition *)
+| a = [5 .. 8]; | a -= 4; a = [1 .. 4] (* in place array/scalar subtraction *)
+| a = [5 .. 8]; | a -= [4 .. 1]; a = [1, 3 .. 7] (* in place array/array subtraction *)
+| a = [1 .. 4]; | a *= 2; a = [2, 4 .. 8] (* in place array/scalar multiplication *)
+| a = [1 .. 4]; | a *= [4 .. 1]; a = [4, 6, 6, 4] (* in place array/array multiplication *)
+| a = [2, 4 .. 8]; | a /= 2; a = [1, 2 .. 4] (* in place array/scalar division *)
+| a = [2, 4 .. 8]; | a /= [1 .. 4]; a = [2, 2, 2, 2] (* in place array/array division *)
+| a = [9 .. 1]; | a.withReplace((1 .. 9)) { :p :q | p * 2 + q }; a = [19 .. 11] (* in place withCollect *)
 ```
 
 ## Sequence arithmetic
@@ -2520,10 +2529,10 @@ pi.asString = '3.141592653589793' (* float as string *)
 'string'.last = 'g'.Character (* last character *)
 | x = ['a', 'bc', 'def']; | x.unlines.lines = x
 '3 + 4'.evaluate = 7
-'a short string'.replace('short', 'longer') = 'a longer string'
-'x x x'.replace('x', 'y') = 'y x x'
-'x x x'.replaceAll('x', 'y') = 'y y y'
-'A Bc Def'.replaceAll(' ', '') = 'ABcDef'
+'a short string'.replaceString('short', 'longer') = 'a longer string' (* replace substring *)
+'x x x'.replaceString('x', 'y') = 'y x x'
+'x x x'.replaceStringAll('x', 'y') = 'y y y'
+'A Bc Def'.replaceStringAll(' ', '') = 'ABcDef'
 'x y z'.replaceRegExp(RegExp('x|z', 'g'), '-') = '- y -'
 'Word'.asLowercase = 'word'
 '12345'.asLowercase = '12345' (* only if letters *)

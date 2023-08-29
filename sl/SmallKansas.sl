@@ -28,7 +28,7 @@
 	}
 
 	name { :self |
-		self.title.replaceAll(' ', '')
+		self.title.replaceStringAll(' ', '')
 	}
 
 	outerElement { :self |
@@ -586,14 +586,14 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 
 	parseHelpIndex { :self :aString |
 		aString.lines.select(notEmpty:/1).collect { :each |
-			| [kind, area, name] = each.replace('.help.sl', '').splitRegExp(RegExp('/')); |
+			| [kind, area, name] = each.replaceString('.help.sl', '').splitRegExp(RegExp('/')); |
 			[area, kind, name]
 		}
 	}
 
 	parseProgramIndex { :self :aString |
 		aString.lines.select(notEmpty:/1).collect { :each |
-			each.replace('.sl', '').splitRegExp(RegExp(' - |/'))
+			each.replaceString('.sl', '').splitRegExp(RegExp(' - |/'))
 		}
 	}
 

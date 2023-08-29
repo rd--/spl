@@ -1117,6 +1117,12 @@
 		true
 	}
 
+	withIndexDo { :self :elementAndIndexProcedure:/2 |
+		self.indices.do { :index |
+			elementAndIndexProcedure(self[index], index)
+		}
+	}
+
 }
 
 +@Object {
@@ -1920,15 +1926,10 @@
 		}
 	}
 
-	withCollect { :self :aCollection :aProcedure:/2 |
-		(isSequenceable(aCollection) & {
-			self.size = aCollection.size
-		}).if {
-			1.toAsCollect(self.size, self.species) { :index |
-				aProcedure(self[index], aCollection[index])
-			}
-		} {
-			self.error('withCollect: operand not-sequenceable or of unequal size')
+	withCollect { :self :otherCollection :aProcedure:/2 |
+		self.isOfSameSizeCheck(otherCollection);
+		1.toAsCollect(self.size, self.species) { :index |
+			aProcedure(self[index], otherCollection[index])
 		}
 	}
 
@@ -1936,6 +1937,13 @@
 		self.isOfSameSizeCheck(otherCollection);
 		1.upToDo(self.size) { :index |
 			twoArgBlock(self[index], otherCollection[index])
+		}
+	}
+
+	withReplace { :self :otherCollection :aProcedure:/2 |
+		self.isOfSameSizeCheck(otherCollection);
+		1.toDo(self.size) { :index |
+			self[index] := aProcedure(self[index], otherCollection[index])
 		}
 	}
 
@@ -1951,6 +1959,36 @@
 		1.upToDo(self.size) { :index |
 			elementAndIndexProcedure(self[index], index)
 		}
+	}
+
+}
+
++@SequenceableCollection {
+
+	applyBinaryMathOperatorInPlace { :self :anObject :aBlock:/2 |
+		anObject.isNumber.if {
+			self.replace { :each |
+				aBlock(each, anObject)
+			}
+		} {
+			self.withReplace(anObject, aBlock:/2)
+		}
+	}
+
+	+= { :self :anObject |
+		applyBinaryMathOperatorInPlace(self, anObject, plus:/2)
+	}
+
+	-= { :self :anObject |
+		applyBinaryMathOperatorInPlace(self, anObject, minus:/2)
+	}
+
+	*= { :self :anObject |
+		applyBinaryMathOperatorInPlace(self, anObject, times:/2)
+	}
+
+	/= { :self :anObject |
+		applyBinaryMathOperatorInPlace(self, anObject, dividedBy:/2)
 	}
 
 }
