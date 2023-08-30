@@ -154,12 +154,12 @@
      ("not" . ?¬) ; U+00AC ¬ Not sign
      ("and" . ?∧) ; U+2227 ∧ Logical and
      ("or" . ?∨) ; ∨ U+2228 Logical Or
-     ("sum" . ?Σ) ; U+03A3 Σ Greek Capital Letter Sigma
+     ("sum" . ?Σ) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation
      ("product" . ?Π) ; U+03A0 Π Greek capital letter pi
      ("crossedMultiply" . ?⊗)
      ("Sqrt" . ?√)
      ("sqrt" . ?√) ; “√” U+221A Square Root
-     (";;" . ?⋯)
+     ;(";;" . ?⋯)
      ("alpha" . ?α)
      ("beta" . ?β)
      ("|(" . ?⦇) ; ⦃ ⸠ ⦇
@@ -197,8 +197,8 @@
   (set (make-local-variable 'tab-width) spl-indent-level)
   (set (make-local-variable 'sclang-indent-level) spl-indent-level)
   (set (make-local-variable 'indent-line-function) 'sclang-indent-line)
-  (set (make-local-variable 'comment-start) ";; ")
-  (set (make-local-variable 'comment-end) "")
+  (set (make-local-variable 'comment-start) "(* ")
+  (set (make-local-variable 'comment-end) " *)")
   (set (make-local-variable 'font-lock-defaults) '(spl-font-lock-keywords))
   (setq-local imenu-sort-function 'imenu--sort-by-name)
   (setq-local imenu-generic-expression spl-imenu-generic-expression))

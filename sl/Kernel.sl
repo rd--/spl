@@ -752,6 +752,14 @@
 		low.max(self.min(high))
 	}
 
+	copySignTo { :self :aNumber |
+		(self.signBit = 0).if {
+			aNumber.abs
+		} {
+			aNumber.abs.negated
+		}
+	}
+
 	cubed { :self |
 		self * self * self
 	}
@@ -862,6 +870,18 @@
 			} {
 				self.zero
 			}
+		}
+	}
+
+	sign { :self :aNumber |
+		aNumber.copySignTo(self)
+	}
+
+	signBit { :self |
+		self.negative.if {
+			1
+		} {
+			0
 		}
 	}
 
