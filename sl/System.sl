@@ -244,19 +244,6 @@ System : [Object, Indexable, Random] {
 		self.globalDictionary.atPut(key, anObject)
 	}
 
-	bitCountPerByteTable { :self |
-		self.cache.atIfAbsentPut('bitCountPerByteTable') {
-			(0 .. 255).collect { :i |
-				| bitCount = 0, n = i; |
-				{ n = 0 }.whileFalse {
-					bitCount := bitCount + 1;
-					n := n.bitAnd(n - 1)
-				};
-				bitCount
-			}.ByteArray
-		}
-	}
-
 	cache { :self |
 		<primitive: return _self.cache;>
 	}
@@ -349,16 +336,6 @@ System : [Object, Indexable, Random] {
 		<primitive: return _self.globalDictionary;>
 	}
 
-	highBitPerByteTable { :self |
-		self.cache.atIfAbsentPut('highBitPerByteTable') {
-			(1 .. 8).injectInto([0]) { :highBits :rank |
-				highBits ++ highBits.collect { :each |
-					rank
-				}
-			}.ByteArray
-		}
-	}
-
 	indices { :self |
 		self.globalDictionary.keys
 	}
@@ -393,16 +370,6 @@ System : [Object, Indexable, Random] {
 
 	library { :self |
 		<primitive: return _self.library;>
-	}
-
-	lowBitPerByteTable { :self |
-		self.cache.atIfAbsentPut('lowBitPerByteTable') {
-			(1 .. 8).injectInto([1]) { :lowBits :unusedRank |
-				| prefix = lowBits.copy; |
-				prefix[1] := lowBits[1] + 1;
-				prefix ++ lowBits
-			}.allButFirst.ByteArray
-		}
 	}
 
 	methodArities { :self :methodName |
@@ -674,31 +641,6 @@ System : [Object, Indexable, Random] {
 
 	systemTimeInSeconds { :self |
 		<primitive: return performance.now() * 0.001;>
-	}
-
-	unicodeFractionsTable { :self |
-		self.cache.atIfAbsentPut('unicodeFractionsTable') {
-			(
-				'⅒': 1:10, (* 0.1 *)
-				'⅑': 1:9, (* 1.111 *)
-				'⅛': 1:8, (* 0.125 *)
-				'⅐': 1:7, (* 0.142 *)
-				'⅙': 1:6, (* 0.166 *)
-				'⅕': 1:5, (* 0.2 *)
-				'¼': 1:4, (* 0.25 *)
-				'⅓': 1:3, (* 0.333 *)
-				'⅜': 3:8, (* 0.375 *)
-				'⅖': 2:5, (* 0.4 *)
-				'½': 1:2, (* 0.5 *)
-				'⅗': 3:5, (* 0.6 *)
-				'⅝': 5:8, (* 0.625 *)
-				'⅔': 2:3, (* 0.666*)
-				'¾': 3:4, (* 0.75 *)
-				'⅘': 4:5, (* 0.8 *)
-				'⅚': 5:6, (* 0.833 *)
-				'⅞': 7:8 (* 0.875 *)
-			)
-		}
 	}
 
 	uniqueId { :self |
@@ -1302,6 +1244,120 @@ Window : [Object] {
 
 	sessionStorage { :self |
 		<primitive: return _self.sessionStorage;>
+	}
+
+}
+
++System {
+
+	bitCountPerByteTable { :self |
+		self.cache.atIfAbsentPut('bitCountPerByteTable') {
+			(0 .. 255).collect { :i |
+				| bitCount = 0, n = i; |
+				{ n = 0 }.whileFalse {
+					bitCount := bitCount + 1;
+					n := n.bitAnd(n - 1)
+				};
+				bitCount
+			}.ByteArray
+		}
+	}
+
+	highBitPerByteTable { :self |
+		self.cache.atIfAbsentPut('highBitPerByteTable') {
+			(1 .. 8).injectInto([0]) { :highBits :rank |
+				highBits ++ highBits.collect { :each |
+					rank
+				}
+			}.ByteArray
+		}
+	}
+
+	lowBitPerByteTable { :self |
+		self.cache.atIfAbsentPut('lowBitPerByteTable') {
+			(1 .. 8).injectInto([1]) { :lowBits :unusedRank |
+				| prefix = lowBits.copy; |
+				prefix[1] := lowBits[1] + 1;
+				prefix ++ lowBits
+			}.allButFirst.ByteArray
+		}
+	}
+
+}
+
++System {
+
+	unicodeFractionsTable { :self |
+		self.cache.atIfAbsentPut('unicodeFractionsTable') {
+			(
+				'⅒': 1:10, (* 0.1 *)
+				'⅑': 1:9, (* 1.111 *)
+				'⅛': 1:8, (* 0.125 *)
+				'⅐': 1:7, (* 0.142 *)
+				'⅙': 1:6, (* 0.166 *)
+				'⅕': 1:5, (* 0.2 *)
+				'¼': 1:4, (* 0.25 *)
+				'⅓': 1:3, (* 0.333 *)
+				'⅜': 3:8, (* 0.375 *)
+				'⅖': 2:5, (* 0.4 *)
+				'½': 1:2, (* 0.5 *)
+				'⅗': 3:5, (* 0.6 *)
+				'⅝': 5:8, (* 0.625 *)
+				'⅔': 2:3, (* 0.666*)
+				'¾': 3:4, (* 0.75 *)
+				'⅘': 4:5, (* 0.8 *)
+				'⅚': 5:6, (* 0.833 *)
+				'⅞': 7:8 (* 0.875 *)
+			)
+		}
+	}
+
+}
+
++System {
+
+	colourNameTable { :self |
+		self.cache.atIfAbsentPut('colourNameTable') {
+			(
+				black: Colour(0, 0, 0),
+				veryVeryDarkGray: Colour(0.125, 0.125, 0.125),
+				veryDarkGray: Colour(0.25, 0.25, 0.25),
+				darkGray: Colour(0.375, 0.375, 0.375),
+				gray: Colour(0.5, 0.5, 0.5),
+				lightGray: Colour(0.625, 0.625, 0.625),
+				veryLightGray: Colour(0.75, 0.75, 0.75),
+				veryVeryLightGray: Colour(0.875, 0.875, 0.875),
+				white: Colour(1, 1, 1.0),
+				red: Colour(1, 0, 0),
+				yellow: Colour(1, 1, 0),
+				green: Colour(0, 1, 0),
+				cyan: Colour(0, 1, 1.0),
+				blue: Colour(0, 0, 1.0),
+				magenta: Colour(1, 0, 1.0),
+				brown: Colour(0.6, 0.2, 0),
+				orange: Colour(1, 0.6, 0),
+				lightRed: Colour(1, 0.8, 0.8),
+				lightYellow: Colour(1, 1, 0.8),
+				lightGreen: Colour(0.8, 1, 0.6),
+				lightCyan: Colour(0.4, 1, 1.0),
+				lightBlue: Colour(0.8, 1, 1.0),
+				lightMagenta: Colour(1, 0.8, 1.0),
+				lightBrown: Colour(1, 0.6, 0.2),
+				lightOrange: Colour(1, 0.8, 0.4),
+				transparent: Colour(0, 0, 0, 0),
+				paleBuff: Colour(254 / 255, 250 / 255, 235 / 255),
+				paleBlue: Colour(222 / 255, 249 / 255, 254 / 255),
+				paleYellow: Colour(255 / 255, 255 / 255, 217 / 255),
+				paleGreen: Colour(223 / 255, 255 / 255, 213 / 255),
+				paleRed: Colour(255 / 255, 230 / 255, 230 / 255),
+				veryPaleRed: Colour(255 / 255, 242 / 255, 242 / 255),
+				paleTan: Colour(235 / 255, 224 / 255, 199 / 255),
+				paleMagenta: Colour(255 / 255, 230 / 255, 255 / 255),
+				paleOrange: Colour(253 / 255, 237 / 255, 215 / 255),
+				palePeach: Colour(255 / 255, 237 / 255, 213 / 255),
+				pantonePurple: Colour(193 / 255, 81 / 255, 184 / 255)
+			)
+		}
 	}
 
 }

@@ -4,4 +4,6 @@ The ratio of a circle's circumference to its diameter, approximately equal to _3
 
 * * *
 
+See also: e
+
 Unicode: U+03C0 π Greek Small Letter Pi

@@ -16,7 +16,7 @@ Sl {
 	TraitExpression = TraitExtension | TraitDefinition
 	TraitExtension = "+" "@" identifier "{" (methodName Block)* "}"
 	TraitDefinition = "@" identifier "{" (methodName Block)* "}"
-	ConstantDefinition = unqualifiedIdentifier "=" literal
+	ConstantDefinition = "Constant" "." unqualifiedIdentifier "=" literal
 	Program = Temporaries? ExpressionSequence
 	Temporaries = TemporariesWithInitializers | TemporariesWithoutInitializers | TemporariesParenSyntax | TemporariesVarWithoutInitializersSyntax | TemporariesVarWithInitializersSyntax+
 	TemporariesWithInitializers = "|" NonemptyListOf<TemporaryWithInitializer, ","> ";" "|"

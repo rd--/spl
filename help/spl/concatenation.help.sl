@@ -11,4 +11,4 @@ Flattens the collection by one level into an Array.
 
 See also: ++ or plusPlus
 
-Unicode: ⧻ U+29FB Triple Plus
+Unicode: U+29FB ⧻ Triple Plus

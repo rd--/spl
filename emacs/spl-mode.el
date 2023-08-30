@@ -125,49 +125,52 @@
   "Unicode symbols"
   (setq
    prettify-symbols-alist
-   '(("return:/1" . ?↑)
-     ("return" . ?↑)
-     ("valueWithReturn" . ?↓)
-     ("->" . ?→)
-     (":=" . ?←)
-     (":/" . ?⧸)
-     ("::" . ?·)
+   '(("return:/1" . ?↑) ; U+2191 ↑ Upwards Arrow
+     ("return" . ?↑) ; U+2191 ↑ Upwards Arrow
+     ("valueWithReturn" . ?↓) ; U+2193 ↓ Downwards Arrow
+     ("->" . ?→) ; U+2190 → Rightwards Arrow
+     (":=" . ?←) ; U+2190 ← Leftwards Arrow (U+2254 ≔ Colon Equals)
+     (":/" . ?⧸) ; U+00B0 ⧸ Big Solidus
+     ("::" . ?·) ; U+00B7 · Middle Dot
      (":." . ?‣)
-     (":@" . ?⋄)
-     ("~=" . ?≠)
-     ("==" . ?≡)
-     ("~~" . ?≢)
-     ("<=" . ?≤)
-     (">=" . ?≥)
-     ("++" . ?⧺)
-     ("concatenation" .?⧻)
-     ("transpose" .?ᵀ)
-     ("reversed" .?ᴙ)
-     ("pi" . ?π)
+     (":@" . ?⋄) ; U+22C4 ⋄ Diamond Operator
+     ("~=" . ?≠) ; U+2260 ≠ Not equal to
+     ("==" . ?≡) ; U+2261 ≡ Identical To
+     ("~~" . ?≢) ; U+2262 ≢ Not Identical To
+     ("<=" . ?≤) ; U+2264 ≤ Less-than or equal to
+     (">=" . ?≥) ; U+2265 ≥ Greater-than or equal to
+     ("++" . ?⧺) ; U+29FA ⧺ Double plus
+     ("concatenation" .?⧻) ; U+29FB ⧻ Triple Plus
+     ("transpose" .?ᵀ) ; U+1D40 ᵀ Modifier Letter Capital T
+     ("reversed" .?ᴙ) ; U+1D19 ᴙ Latin Letter Small Capital Reversed R
+     ("pi" . ?π) ; U+03C0 π Greek Small Letter Pi
      ("epsilon" . ?ε)
      ;; ("e" . ?𝑒)
-     ("*" . ?×)
+     ("*" . ?×) ; U+00D7 × Multiplication Sign
      ("**" . ?⇈)
-     ("/" . ?÷)
-     ("true" . ?⊤)
-     ("false" . ?⊥)
-     ("not" . ?¬)
-     ("and" . ?∧)
-     ("or" . ?∨)
-     ("sum" . ?Σ)
-     ("product" . ?Π)
+     ("/" . ?÷) ; U+00F7 ÷ Division Sign
+     ("true" . ?⊤) ; U+22A4 ⊤ Down Tack
+     ("false" . ?⊥) ; U+22A5 ⊥ Up tack
+     ("not" . ?¬) ; U+00AC ¬ Not sign
+     ("and" . ?∧) ; U+2227 ∧ Logical and
+     ("or" . ?∨) ; ∨ U+2228 Logical Or
+     ("sum" . ?Σ) ; U+03A3 Σ Greek Capital Letter Sigma
+     ("product" . ?Π) ; U+03A0 Π Greek capital letter pi
      ("crossedMultiply" . ?⊗)
      ("Sqrt" . ?√)
-     ("sqrt" . ?√)
+     ("sqrt" . ?√) ; “√” U+221A Square Root
      (";;" . ?⋯)
      ("alpha" . ?α)
      ("beta" . ?β)
      ("|(" . ?⦇) ; ⦃ ⸠ ⦇
      (")|" . ?⦈) ; ⦄ ⸡ ⦈
-     ("~" . ?≈)
+     ("~" . ?≈) ; U+2248 ≈ Almost Equal To
      ("!~" . ?≉) ; ≁
      ("<~" . ?⪅) ; ⪝
      (">~" . ?⪆) ; ⪞
+     ("union" . ?∪) ; “∪” U+222A Union
+     ("intersection" . ?∩) ; ∩ U+2229 Intersection
+     ("includes" . ?∋) ; “∋” U+220B Contains as Member
      )))
 
 (defun spl-fill-mode-map (map)

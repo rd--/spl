@@ -8,10 +8,10 @@
 6 - 3 = 3 (* subtraction *)
 6.minus(3) = 3 (* subtraction *)
 [1 - 0, 0 - 1, 2 - 1] = [1, -1, 1] (* subtraction *)
-6 * 3 = 18 (* multiplication *)
+6 * 3 = 18 (* multiplication, unicode = × *)
 6.times(3) = 18 (* multiplication *)
 [1 * 0, -1 * 1, 5 * -5, -3 * -4] = [0, -1, -25, 12] (* multiplication *)
-9 / 3 = 3 (* division *)
+9 / 3 = 3 (* division, unicode = ÷ *)
 9.dividedBy(3) = 3 (* division *)
 [36 / 6, -10 / 2, 20 / -5, -5 / -5] = [6, -5, -4, 1] (* division *)
 9 // 3 = 3 (* integer division *)
@@ -51,7 +51,7 @@
 4.sqrt = 2 & { 1000000.sqrt = 1000 & { 1.sqrt = 1 } & { 0.sqrt = 0 } }
 2.sqrt = 1.4142135623730951
 2.sqrt.squared.closeTo(2) (* floating point errors *)
-2.sqrt.squared ~ 2 (* almost equal to, or similar to *)
+2.sqrt.squared ~ 2 (* almost equal to, or similar to, unicode = ≈ *)
 2.sqrt.squared <~ 2 (* less than or similar to *)
 2.sqrt.squared >~ 2 (* greater than or similar to *)
 2 !~ 3 (* not almost equal to *)
@@ -205,7 +205,7 @@ Array([]) = [] (* Array constructor, empty array *)
 | a = [1, 3, 5, 7]; | a.reversed ~= a (* reversed answers new array *)
 | a = [1, 3, 5, 7]; | a.reverse = a (* reverse mutates array in place *)
 | a = [1, 3, 5, 7]; | a.reverse; a = [7, 5, 3, 1] (* array reverse (in place) *)
-[1, 2, 3, 5, 7, 9].sum = 27 (* sum of elements *)
+[1, 2, 3, 5, 7, 9].sum = 27 (* sum of elements, unicode = Σ *)
 [1, 2, 3, 5, 7, 9].reduce { :a :b | a + b } = 27 (* reduce by plus is sum *)
 [1 .. 4].reduce { :sum :each | sum + each } = 10 (* sum is first argument, element is second *)
 [1, 2, 3, 5, 7, 9].reduce(plus:/2) = 27 (* reduce by plus is sum *)
@@ -215,7 +215,7 @@ Array([]) = [] (* Array constructor, empty array *)
 { [].reduce { :sum :each | sum + each } }.ifError { true } (* error if the collection is empty *)
 [1].reduce { :a :b | nil } = 1 (* reduce one-element collection *)
 [1, 2, 3, 5, 7, 9].injectInto(0, plus:/2) = 27
-[1, 2, 3, 5, 7, 9].product = 1890
+[1, 2, 3, 5, 7, 9].product = 1890 (* product, unicode = Π *)
 [1, 2, 3, 5, 7, 9].reduce(times:/2) = 1890
 [1, 2, 3, 5, 7, 9].injectInto(1, times:/2) = 1890
 [1, 2, 3, 5, 7, 9].collect(sqrt:/1).sum.rounded = 12
@@ -230,12 +230,12 @@ Array([]) = [] (* Array constructor, empty array *)
 [].noneSatisfy(odd:/1) = true
 [1, 3, 5, 7, 9].noneSatisfy(even:/1) = true
 [1, 2, 3, 4, 5].noneSatisfy(odd:/1) = false
-[1, 2, 3] ++ [4, 5, 6] = [1 .. 6] (* addAllLast, answering new like collection *)
+[1, 2, 3] ++ [4, 5, 6] = [1 .. 6] (* addAllLast, answering new like collection, unicode = ⧺ *)
 | a = [1, 2, 3]; | a.addAllLast([4, 5, 6]); a = [1 .. 6]
 | a = [1, 2, 3], b = a ++ [4, 5, 6]; | a ~~ b & { a = [1 .. 3] } & { b = [1 .. 6] }
 { [1, 2, 3] ++ 4 }.ifError { true } (* right hand side must be a collection *)
-plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
-[[1, 2, 3], [4, 5, 6], [7, 8, 9]].concatenation = [1 .. 9]
+plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6] (* ++ equals plusPlus *)
+[[1, 2, 3], [4, 5, 6], [7, 8, 9]].concatenation = [1 .. 9] (* concatenation, unicode = ⧻ *)
 [[1, 2, 3], [4, 5], [6]].concatenation = [1, 2, 3, 4, 5, 6]
 | a = [1, 2, 3]; | a[2] = a.at(2)
 [1 .. 5].includesIndex(3) (* is valid index *)
@@ -273,8 +273,8 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6]
 [1, 2, 3, 2, 3].lastIndexOf(3) = 5 (* index of last occurrence of element in sequence *)
 [1, 2, 3, 2, 3].lastIndexOf(4) = 0 (* or zero *)
 [1, 2, 3, 2, 3].lastIndexOfIfAbsent(4) { true }
-[9 .. 1].includes(3) = true (* predicate to decide if a collection includes an element *)
-[1 .. 9].includes(9) (* array includes last element *)
+[9 .. 1].includes(3) = true (* predicate to decide if a collection includes an element, unicode = ∋ *)
+[1 .. 9].includes(9) (* an array includes its last element *)
 [9 .. 1].anySatisfy { :each | each = 3 } = true
 [].includes(3) = false (* the empty collection does not include any element *)
 [9 .. 1].includesAllOf([3 .. 7]) = true
@@ -372,14 +372,14 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].difference([]) = [1 .. 9] (* set theoretic difference of two collections *)
 | a = [1 .. 9]; | a.reject { :each | a.includes(each) } = [] (* reject all *)
 [1 .. 9].difference([1 .. 9]) = [] (* set theoretic difference of two collections *)
-[1, 3 .. 9].intersection([2, 4 .. 8]) = [] (* set theoretic intersection *)
+[1, 3 .. 9].intersection([2, 4 .. 8]) = [] (* set theoretic intersection, unicode = ∩ *)
 [1 .. 5].intersection([5 .. 9]) = [5] (* set theoretic intersection *)
 | a = []; | [1 .. 3].doSeparatedBy { :each | a.add(each) } { a.add(0) }; a = [1, 0, 2, 0, 3]
 [1, 2, 3].intersperse(0) = [1, 0, 2, 0, 3]
 | a = []; | [1 .. 3].doWithout({ :each | a.add(each) }, 2); a = [1, 3]
 [1 .. 9].selectThenCollect(even:/1) { :each | each * 3 } = [6, 12, 18, 24] (* avoid intermediate collection *)
 [1 .. 9].collectThenSelect(squared:/1) { :each | each > 36 } = [49, 64, 81] (* avoid intermediate collection *)
-[1, 3 .. 9].union([3 .. 7]) = [1, 3, 4, 5, 6, 7, 9].Set (* set theoretic union *)
+[1, 3 .. 9].union([3 .. 7]) = [1, 3, 4, 5, 6, 7, 9].Set (* set theoretic union, unicode = ∪ *)
 | a = [1 .. 9]; | a.removeAllSuchThat(even:/1); a = [1, 3 .. 9] (* remove elements selected by predicate *)
 | a = [1 .. 9]; | a.removeAllFoundIn([1, 3 .. 9]); a = [2, 4 .. 8] (* remove elements found in a collection *)
 5.arithmeticSeries(1, 2) = [1, 3 .. 9] (* arithmetic series (size from by) *)
@@ -427,7 +427,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 
 ## Association -- collection type
 ```
-('x' -> 1).typeOf = 'Association' (* arrow (->) constructor *)
+('x' -> 1).typeOf = 'Association' (* arrow (->) constructor, unicode = → *)
 ('x' -> 1).isAssociation (* type predicate *)
 Association('x', 1) = ('x' -> 1)
 'x'.minusGreaterThan(1) = ('x' -> 1) (* spelled out arrow method *)
@@ -573,22 +573,22 @@ Bitset(64).bytes.allSatisfy  { :each | each = 0 } (* all bytes at the empty bits
 
 ## Boolean -- logic type
 ```
-true = true (* true constant *)
-false = false (* false constant *)
-true ~= false (* true is not false *)
+true = true (* true constant, unicode = ⊤ *)
+false = false (* false constant, unicode = ⊥ *)
+true ~= false (* true is not false, unicode = ≠ *)
 false ~= true (* false is not true *)
-true == true (* true is identical to true *)
+true == true (* true is identical to true, unicode = ≡ *)
 false == false (* false is identical to false *)
 1 = 1 = true (* equality predicate (operator) *)
 1 ~= 2 = true (* inequality predicate (operator) *)
 (1 == 1) = true (* identical *)
-(1 ~~ 2) = true (* not identical *)
+(1 ~~ 2) = true (* not identical, unicode = ≢ *)
 true.and { true } (* logical and *)
 true & { true } (* logical and (operator) *)
 false & { '&'.error } = false (* & is equal to and and is not strict (unlike in Smalltalk) *)
-true.and { false } = false (* logical and *)
+true.and { false } = false (* logical and, unicode = ∧ *)
 true & { false } = false (* logical and (operator) *)
-true.or { false } = true (* logical or *)
+true.or { false } = true (* logical or, unicode = ∨ *)
 true | { false } = true (* logical or (operator) *)
 false | { true } = true (* logical or (operator) *)
 true | { '|'.error } = true (* | is equal to or and is not strict (unlike in Smalltalk) *)
@@ -596,7 +596,7 @@ true.ifTrue { 'T' } = 'T' (* if then, c.f. conditional statements *)
 true.ifTrue { 1.toDo(2) { :unused | nil } } = 1 (* conditional iteration *)
 false.if { 'T' } { 'F' } = 'F' (* if then else (do) *)
 true.if { 'T' } { 'F' } = 'T' (* if then else (value) *)
-true.not = false (* not true is false *)
+true.not = false (* not true is false, unicode = ¬ *)
 false.not = true (* not false is true *)
 true.not.not = true (* not of not is the identity *)
 1.isNumber = true (* test if object is a number *)
@@ -756,7 +756,7 @@ ByteArray(4).hex = '00000000'
 [9, 4, 5, 7, 8, 6].mean = 6.5 (* sum of collection divided by size *)
 [1 .. 9].mean = 5 (* sum of collection divided by size *)
 | c = [1 .. 9]; | c.sum / c.size = 5 (* sum of collection divided by size *)
-[9, 4, 5, 7, 8, 6].product = 60480 (* product of collection *)
+[9, 4, 5, 7, 8, 6].product = 60480 (* product of collection, unicode = Π *)
 [9, 4, 5, 7, 8, 6].injectInto(0) { :z :e | e + z } = 39 (* sum of collection *)
 [9, 4, 5, 7, 8, 6].injectInto(1) { :z :e | e * z } = 60480 (* product of collection *)
 [9, 4, 5, 7, 8, 6].includes(7) = true (* is element in collection, i.e. contains *)
@@ -826,9 +826,27 @@ Set().Array = []
 ## Colour -- graphics type
 ```
 Colour(1, 0, 0, 0.5).over(Colour(0, 1, 0, 0.5)) = Colour(1 / 3, 2 / 3, 0, 3 / 4)
+Colour(0, 0, 0).isBlack (* is colour black *)
+Colour(1, 1, 1).isWhite (* is colour white *)
+Colour(0.5, 0.5, 0.5).isGreyOf(0.5) (* is colour grey with particular value *)
+Colour(0.5, 0.5, 0.5).isGrey (* is colour grey *)
+Colour(1, 0.2, 0.2).isRed (* is colour "red" *)
+Colour(0.2, 1, 0.2).isGreen (* is colour "green" *)
+Colour(0.2, 0.2, 1).isBlue (* is colour "blue" *)
+Colour(0.9, 0.75, 0).isYellow (* is colour "yellow" *)
+Colour(0, 0.75, 0.9).isCyan (* is colour "cyan" *)
+Colour(0.9, 0, 0.75).isMagenta (* is colour "magenta" *)
+Hsv(0, 0, 0).isBlack & { Hsv(0, 0, 1).isWhite } (* hue (in degrees) & saturation & value (in 0-1) *)
+Hsv(0, 1, 1).isRed & { Hsv(120, 1, 1).isGreen } & { Hsv(240, 1, 1).isBlue }
+Hsv(60, 1, 1).isYellow & { Hsv(180, 1, 1).isCyan } & { Hsv(300, 1, 1).isMagenta }
+Hsv(0, 0, 0.5).isGreyOf(0.5) & { Hsv(0, 0, 0.75).isGreyOf(0.75) }
+Hsv(0, 1, 0.75).isRed & { Hsv(120, 1, 0.5).isGreen } & { Hsv(240, 1, 0.5).isBlue }
 0.5.srgbFromLinear = 0.7353569830524495 (* transfer function from (linear) rgb to srgb *)
 0.7353569830524495.srgbToLinear = 0.5 (* transfer function from srgb to (linear) rgb *)
 | c = Colour(1, 0, 0, 0.5), z = c.copy; | z.green := 1; c ~= z & { z = Colour(1, 1, 0, 0.5) } (* copy colour *)
+'#f97306'.parseHexColour = Colour(16rf9 / 255, 16r73 / 255, 16r06 / 255) (* parse hex colour, here orange *)
+system.colourNameTable::orange = Colour(1, 0.6, 0) (* colour name table *)
+system.colourNameTable::veryLightGray.isGrey (* colour name table *)
 ```
 
 ## Complex -- numeric type
@@ -993,7 +1011,7 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 (x: 1, y: 2, z: 3).collect(squared:/1) = (x: 1, y: 4, z: 9)
 | d = (x: 1, y: 2, z: 3); | d.replace(squared:/1); d = (x: 1, y: 4, z: 9) (* replace value at each key, in place collect *)
 { (x: 1).remove }.ifError { true } (* should not implement, see removeKey *)
-(x: 1, y: 2) ++ (x: 2, y: 1) = (x: 2, y: 1) (* appending two dictionaries is right-biased *)
+(x: 1, y: 2) ++ (x: 2, y: 1) = (x: 2, y: 1) (* appending two dictionaries is right-biased, unicode = ⧺ *)
 (x: 1, y: 2) ++ ['z' -> 3] = (x: 1, y: 2, z: 3) (* append an array of associations to a dictionary *)
 { (x: 1, y: 2) ++ [3] }.ifError { true } (* right hand side must be associations *)
 (x: 1, y: 2).anySatisfy(even:/1) (* collection predicates at dictionary consider values not associations *)
@@ -1126,7 +1144,7 @@ Fraction(4, 6) ~= 2:3 (* non-reduced fraction *)
 0.5 < 1:4 = false
 0.5 < 1:2 = false
 0.5 < 3:4
-0.5 <= 1:4 = false
+0.5 <= 1:4 = false (* less than or equal to, unicode = ≤ *)
 0.5 <= 1:2
 0.5 <= 3:4
 0.5 > 1:4
@@ -1594,7 +1612,7 @@ LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
 1.lessThan(3) = true
 2 < 2 = false
 3 < 1 = false
-1 <= 3 = true (* less than or equal to *)
+1 <= 3 = true (* less than or equal to, unicode = ≤ *)
 2 <= 2 = true
 3 <= 1 = false
 3 > 1 = true (* greater than *)
@@ -1862,7 +1880,7 @@ valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repea
 ## Promise -- kernel type
 ```
 { Promise() }.ifError { true } (* there is no void contructor *)
-Error('f').Promise.catch { :err | (err.message = 'f').postLine }; true (* construct a rejected promise *)
+Error('f').Promise.catch { :err | (err.messageText = 'f').postLine }; true (* construct a rejected promise *)
 1.resolvedPromise.then { :n | (n = 1).postLine }; true (* construct a resolved promise *)
 var p = Promise { :t:/1 :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isPromise
 var p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
@@ -2247,19 +2265,19 @@ var s = [].Set; s.addAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 (* add all 
 var s = [].Set; s.addAll([1 .. 99]); s.size = 99
 var s = ['x', 5].Set; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
 var s = (1 .. 5).Set; var n = 0; s.do { :each | n := n + each }; n = 15
-var s = (1 .. 9).Set; s.intersection(s) = s
-(1 .. 4).Set.intersection((5 .. 9).Set) = [].Set
-(1 .. 5).Set.intersection((4 .. 9).Set) = [4, 5].Set
+var s = (1 .. 9).Set; s.intersection(s) = s (* set intersection, self intersection is identity *)
+(1 .. 4).Set.intersection((5 .. 9).Set) = [].Set (* set intersection, empty intersection *)
+(1 .. 5).Set.intersection((4 .. 9).Set) = [4, 5].Set (* set intersection *)
 var s = (1 .. 9).Set; s.remove(5); [s.includes(5), s.includes(9)] = [false, true]
 var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, t.size = n] = [true, true]
-(1 .. 4).Set.union((5 .. 9)) = (1 .. 9).Set
-| s = (1 .. 4).Set, t = (5 .. 9), u = s.union(t); | u.size = (s.size + t.size) (* union is not mutating *)
+(1 .. 4).Set.union((5 .. 9)) = (1 .. 9).Set (* set union *)
+| s = (1 .. 4).Set, t = (5 .. 9), u = s.union(t); | u.size = (s.size + t.size) (* set union is not mutating *)
 (1 .. 5).Set.ifAbsentAdd(3) = false
 [1 .. 9].Set.select { :each | false } = [].Set (* select nothing *)
 | s = Set(); | s.addAll([4 / 2, 4, 2]); s.size = 2
 [1, 2, 3, 1, 4].Set = [1, 2, 3, 4, 3, 2, 1].Set = true
-(1 .. 6).union((4 .. 10)) = (1 .. 10).Set
-'hello'.split.intersection('there'.split) = 'he'.split
+(1 .. 6).union((4 .. 10)) = (1 .. 10).Set (* set union *)
+'hello'.split.intersection('there'.split) = 'he'.split (* set intersection *)
 'Smalltalk'.split.includes('k') = true
 [1, 2, 3, 1, 4].Set.isIndexable = false (* sets are not indexable *)
 [1, 2, 3, 1, 4].Set.indices = nil (* sets are not indexable *)
@@ -2335,6 +2353,9 @@ epsilon() < (10 ** -15)
 epsilon() > (10 ** -16)
 1 - epsilon() ~= 1 (* epsilon() is the difference between 1.0 and previous representable value *)
 epsilon ~= epsilon() (* epsilon is a constant, like pi & e *)
+pi = 3.141592653589793 (* pi is a number *)
+epsilon = 0.000000000000001 (* epsilon is a number *)
+e = 2.718281828459045 (* e is a number *)
 (1 - epsilon).veryCloseTo(1)
 inf.isFinite = false
 pi.isFinite = true

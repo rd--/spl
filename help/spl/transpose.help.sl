@@ -6,4 +6,4 @@
 
 * * *
 
-Unicode: ᵀ U+1D40 Modifier Letter Capital T
+Unicode: U+1D40 ᵀ Modifier Letter Capital T

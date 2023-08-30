@@ -47,7 +47,7 @@ const asJs: any = {
 		const mth = makeMethodList('addTraitMethod', [trtNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
 		return `${trt}${mth}`;
 	},
-	ConstantDefinition(name, _equals, value) {
+	ConstantDefinition(_constant, _dot_, name, _equals, value) {
 		return `globalThis._${name.sourceString} = ${value.asJs};`
 	},
 	Program(tmp, stm) {

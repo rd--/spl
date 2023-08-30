@@ -12,11 +12,8 @@ Colour : [Object] { | red green blue alpha |
 		}
 	}
 
-
-	hexString { :self |
-		'#' ++ [self.red, self.green, self.blue].collect { :each |
-			(each * 255).rounded.byteHexString
-		}.join
+	asNontranslucentColor { :self |
+		self.alpha := 1
 	}
 
 	fromSrgb { :self |
@@ -26,6 +23,93 @@ Colour : [Object] { | red green blue alpha |
 			self.blue.srgbToLinear,
 			self.alpha
 		)
+	}
+
+	hexString { :self |
+		'#' ++ [self.red, self.green, self.blue].collect { :each |
+			(each * 255).rounded.byteHexString
+		}.join
+	}
+
+	isBlack { :self |
+		self.isGreyOf(0)
+	}
+
+	isBlue { :self |
+		self.blue > (self.green + 0.3) & {
+			self.blue > (self.red + 0.3)
+		} & {
+			(self.green - self.red).abs < 0.4
+		}
+	}
+
+	isCyan { :self |
+		self.red < 0.05 & {
+			self.green.min(self.blue) > 0.5
+		} & {
+			(self.green - self.blue).abs < 0.2
+		}
+	}
+
+	isGreen { :self |
+		self.green > (self.blue + 0.3) & {
+			self.green > (self.red + 0.3)
+		}
+	}
+
+	isGrey { :self |
+		| value = self.red; |
+		self.green = value & {
+			self.blue = value
+		} & {
+			value ~= 1
+		} & {
+			value ~= 0
+		}
+	}
+
+	isGreyOf { :self :value |
+		self.red = value & {
+			self.green = value
+		} & {
+			self.blue = value
+		}
+	}
+
+	isMagenta { :self |
+		self.green < 0.05 & {
+			self.red.min(self.blue) > 0.4
+		} & {
+			(self.red - self.blue).abs < 0.3
+		}
+	}
+
+	isOpaque { :self |
+		self.alpha = 1
+	}
+
+	isRed { :self |
+		self.red > (self.green + 0.4) & {
+			self.red > (self.blue + 0.6)
+		} & {
+			(self.green - self.blue).abs < 0.4
+		}
+	}
+
+	isTransparent { :self |
+		self.alpha = 0
+	}
+
+	isWhite { :self |
+		self.isGreyOf(1)
+	}
+
+	isYellow { :self |
+		self.blue < 0.1 & {
+			self.red.min(self.green) > 0.5
+		} & {
+			(self.red - self.green).abs < 0.2
+		}
 	}
 
 	over { :self :aColour |
@@ -70,6 +154,30 @@ Colour : [Object] { | red green blue alpha |
 
 	Colour { :self :g :b :a |
 		newColour().initializeSlots(self, g, b, a)
+	}
+
+	Hsv { :self :saturation :brightness |
+		|(
+			s = saturation.min(1).max(0),
+			v = brightness.min(1).max(0),
+			hf = self % 360,
+			i = hf // 60,
+			f = (hf % 60) / 60,
+			p = (1 - s) * v,
+			q = (1 - (s * f)) * v,
+			t = (1 - (s * (1 - f))) * v
+		)|
+		[s, v, hf, i, f, p, q, t].postLine;
+		i.caseOfOtherwise([
+			{ 0 } ->  { Colour(v, t, p) },
+			{ 1 } ->  { Colour(q, v, p) },
+			{ 2 } ->  { Colour(p, v, t) },
+			{ 3 } ->  { Colour(p, q, v) },
+			{ 4 } ->  { Colour(t, p, v) },
+			{ 5 } ->  { Colour(v, p, q) }
+		]) {
+			self.error('Hsv: implementation error')
+		}
 	}
 
 	srgbFromLinear { :self |

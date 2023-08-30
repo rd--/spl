@@ -12,4 +12,4 @@ The answer is a new value of the same _species_ as _aSequence_.
 
 See also: reverse
 
-Unicode: ᴙ U+1D19 Latin Letter Small Capital Reversed R
+Unicode: U+1D19 ᴙ Latin Letter Small Capital Reversed R

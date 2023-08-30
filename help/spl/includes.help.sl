@@ -1,9 +1,11 @@
 # includes -- testing
 
-- _includes(anIterable, anObject)_
+- _includes(aCollection, anObject)_
 
-Answer whether _anObject_ is an element of _anIterable_.
+Answer whether _aCollection_ contains as a member _anObject_.
 
 * * *
 
 See also: anySatisfy
+
+Unicode: ∋ U+220B Contains as Member

@@ -25,4 +25,4 @@ this syntax would allow compilation to a slot index.
 
 * * *
 
-Unicode: ⋄ U+22C4 Diamond Operator
+Unicode: U+22C4 ⋄ Diamond Operator

@@ -7,3 +7,5 @@ Answer the set theoretic union of two collections.
 * * *
 
 See also: difference, intersection
+
+Unicode: ∪ U+222A Union
