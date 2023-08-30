@@ -1621,6 +1621,14 @@
 		}
 	}
 
+	indexValueAssociations { :self |
+		| answer = Array(self.size); |
+		self.withIndexDo { :each :index |
+			answer[index] := (index -> each)
+		};
+		answer
+	}
+
 	indices { :self |
 		(1 .. self.size)
 	}

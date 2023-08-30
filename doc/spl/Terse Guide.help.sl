@@ -426,6 +426,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 ```
 | a = 'a', b = 'b', c = 'c'; | a := b := c; [a, b, c] = ['c', 'c', 'c'] (* assignment is right-associative *)
 | a = nil; | (a := 1) = 1 (* assignment answers assigned value *)
+| a = 1, b = 2, c = 3; | [a, b, c] := [b, c, a]; [a, b, c] = [2, 3, 1] (* permutation using array assignment syntax *)
 ```
 
 ## Association -- collection type
@@ -1037,6 +1038,7 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 | d = (x: 1, y: 2, z: 3); | d.removeAt('y') = 2 & { d = (x: 1, z: 3) }
 { (x: 1, y: 2, z: 3).removeAt('?') }.ifError { true }
 | d = (x: 1, y: 2); | d.atAllPut(3) = 3 & { d = (x: 3, y: 3) } (* set all values to indicated object *)
+(x: 1, y: 2, z: 3).associations = ['x' -> 1, 'y' -> 2, 'z' -> 3] (* array of associations *)
 ```
 
 ## Duration -- temporal type
@@ -2012,7 +2014,7 @@ var d = (x: 23, y: 3.141); d::x := 42; d = (x: 42, y: 3.141)
 | d = (x: 23, y: 3.141), c = d.copy; | d ~~ c & { d = c } (* copy is equal to but not identical to *)
 | d = (x: 1, y: 2), c = d.copy; | c::x := 3; c::x = 3 & { d::x = 1 } (* copies are distinct *)
 (x:1, y:2) ++ (z:3) = (x:1, y:2, z:3) (* white space after colon is optional *)
-(x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2]
+(x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2] (* array of associations at record *)
 (x: 1, y: 2).Array = [1, 2] (* values as Array *)
 var d = (x:1, y:2, z:3), (x, z) = d; [x, z] = [1, 3]
 var (x, y) = { var n = system.randomFloat; (x: n, y: n) }.value; x = y
@@ -2190,7 +2192,9 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | a = []; | (1 .. 9).fromToDo(3, 7) { :each | a.add(each) }; a = [3 .. 7] (* partial iterator *)
 | a = []; | [1 / 3, 1 / 4, 1 / 4, 0.9, 1 / 3, 1].groupsDo { :p :q :r | a.add(p.roundTo(q) = r) }; a = [true, true]
 | a = []; | (9 .. 1).keysDo { :index | a.add(index * 2) }; a = [2, 4 .. 19] (* keys are indices *)
-| a = []; | (9 .. 1).keysAndValuesDo { :index :value | a.add(index * 2 + value) }; a = [11 .. 19] (* keys are indices *)
+| a = []; | (9 .. 1).keysAndValuesDo { :key :value | a.add(key * 2 + value) }; a = [11 .. 19] (* keys are indices *)
+| a = []; | (9 .. 7).keysAndValuesDo { :key :value | a.add(key -> value) }; a = [1 -> 9, 2 -> 8, 3 -> 7](* keys are indices *)
+| a = []; | (9 .. 7).withIndexDo { :each :index | a.add(index -> each) }; a = [1 -> 9, 2 -> 8, 3 -> 7](* index is second argument *)
 | a = [1 .. 5]; | a.atIncrementBy(3, 6); a = [1, 2, 9, 4, 5] (* increment value at index by *)
 | a = [1 .. 9]; | a.atLastPut(3, -7); a = [1, 2, 3, 4, 5, 6, -7, 8, 9] (* set at index from end *)
 'string'.split.sorted = ['g', 'i', 'n', 'r', 's', 't']
@@ -2213,6 +2217,7 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | a = [2, 4 .. 8]; | a /= 2; a = [1, 2 .. 4] (* in place array/scalar division *)
 | a = [2, 4 .. 8]; | a /= [1 .. 4]; a = [2, 2, 2, 2] (* in place array/array division *)
 | a = [9 .. 1]; | a.withReplace((1 .. 9)) { :p :q | p * 2 + q }; a = [19 .. 11] (* in place withCollect *)
+[7 .. 4].indexValueAssociations = [1 -> 7, 2 -> 6, 3 -> 5, 4 -> 4] (* the (index -> value) associations of a sequence *)
 ```
 
 ## Sequence arithmetic
