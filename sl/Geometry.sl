@@ -1,4 +1,4 @@
-@Point { (* x y *)
+@Point {
 
 	= { :self :aPoint |
 		self.x = aPoint.x & {

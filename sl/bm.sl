@@ -7,6 +7,7 @@
 	'Benchmarks/Sieve.sl',
 	'Benchmarks/Storage.sl',
 	'Benchmarks/Towers.sl',
+	'Benchmarks/Havlak.sl',
 	'Benchmarks/Json.sl',
 	'Benchmarks/Mandelbrot.sl',
 	'Benchmarks/NBody.sl'

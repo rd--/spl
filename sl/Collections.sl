@@ -10,7 +10,7 @@
 			return _self[_index - 1];
 		}
 		>
-		self.indexError(index)
+		self.indexError('at', index)
 	}
 
 	atIfPresentIfAbsent { :self :index :ifPresent:/1 :ifAbsent:/0 |
@@ -30,7 +30,7 @@
 			return _anObject;
 		}
 		>
-		self.indexError(index)
+		self.indexError('atPut', index)
 	}
 
 	collect { :self :aProcedure |
@@ -1556,10 +1556,11 @@
 		}
 	}
 
-	indexError { :self :index |
+	indexError { :self :for :index |
 		self.error([
 			'indexError: index not an integer or out of range.',
 			' index: ', index,
+			' for: ', for,
 			' index.typeOf: ', index.typeOf,
 			' index.isInteger: ', index.isInteger,
 			' self.size: ', self.size
@@ -2489,7 +2490,7 @@ Float64Array : [Object, Iterable, Indexable, Collection, SequenceableCollection,
 			return _aFloat;
 		}
 		>
-		self.indexError(index)
+		self.indexError('atPut', index)
 	}
 
 	shallowCopy { :self |
@@ -3007,7 +3008,7 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 		self.includesIndex(index).if {
 			self.step * (index - 1) + self.start
 		} {
-			self.indexError(index)
+			self.indexError('at', index)
 		}
 	}
 

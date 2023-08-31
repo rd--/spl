@@ -1,7 +1,6 @@
-# == -- comparing
+# equalsEquals -- comparing
 
-- _self == anObject_
-- _equalsEquals(self, anObject)_
+- _equalsEquals(self, anObject)_ ≡ _self == anObject_
 
 Answers _true_ if _self_ is identical to _anObject_, else _false_.
 

@@ -7,6 +7,11 @@
 { Towers() = 8191 }.millisecondsToRun (* 20 *)
 
 { | o = JsonBenchmark(); | o.isObject & { o::head.isObject & { o::operations.isArray & { o::operations.size = 156 } } } }.millisecondsToRun (* 266 *)
+{ HavlakBenchmark(1) = [1605, 5213] }.millisecondsToRun (* 5552 *)
+{ HavlakBenchmark(15) = [1647, 5213] }.millisecondsToRun (* 5430 *)
+{ HavlakBenchmark(150) = [2052, 5213] }.millisecondsToRun (* 5520 *)
+{ HavlakBenchmark(1500) = [6102, 5213] }.millisecondsToRun (* 6280 *)
+{ HavlakBenchmark(15000) = [46602, 5213] }.millisecondsToRun (* 7858 *)
 { 1.mandelbrotBenchmark = 128 }.millisecondsToRun (* 0 *)
 { 500.mandelbrotBenchmark = 191 }.millisecondsToRun (* 6106 *)
 { 750.mandelbrotBenchmark = 50 }.millisecondsToRun (* 13606 *)

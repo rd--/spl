@@ -998,6 +998,12 @@
 		<primitive: return structuredClone(_self);>
 	}
 
+	equalSlots { :self :anObject |
+		self.typeOf = anObject.typeOf & {
+			self.slotArray = anObject.slotArray
+		}
+	}
+
 	error { :self :message |
 		(self.typeOf ++ ': ' ++ message ++ ': (' ++ self.printStringLimitedTo(16) ++ ')').error
 	}
