@@ -44,11 +44,11 @@
 		>
 	}
 
-	collect { :self :aProcedure |
+	collect { :self :aProcedure:/1 |
 		<primitive:
-		if(_aProcedure instanceof Function) {
+		if(_aProcedure_1 instanceof Function) {
 			return _self.map(function(each) {
-				return _aProcedure(each);
+				return _aProcedure_1(each);
 			});
 		}
 		>
@@ -179,24 +179,6 @@
 
 	storeString { :self |
 		self.Array.storeString ++ '.' ++ self.Type.name
-	}
-
-	unsafeAt { :self :anInteger |
-		<primitive: return _self[_anInteger - 1];>
-	}
-
-	unsafeAtPut { :self :anInteger :anObject |
-		<primitive:
-		_self[_anInteger - 1] = _anObject;
-		return _anObject;
-		>
-	}
-
-	unsafeCollect { :self :aProcedure |
-		<primitive:
-		return _self.map(function(each) {
-			return _aProcedure(each);
-		});>
 	}
 
 }
@@ -1050,7 +1032,7 @@
 @Indexable {
 
 	at { :self :index |
-		self.error('@Indexable>>at: type responsibility')
+		self.basicAt(index)
 	}
 
 	atAllPut { :self :anObject |
@@ -1111,7 +1093,15 @@
 	}
 
 	atPut { :self :index :anObject |
-		self.error('@Indexable>>atPut: type responsibility')
+		self.basicAtPut(index, anObject)
+	}
+
+	basicAt { :self :index |
+		self.error('@Indexable>>basicAt: type responsibility')
+	}
+
+	basicAtPut { :self :index :anObject |
+		self.error('@Indexable>>basicAtPut: type responsibility')
 	}
 
 	includesIndex { :self :anObject |
@@ -3048,6 +3038,10 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 		} {
 			self.indexError('at', index)
 		}
+	}
+
+	basicAt { :self :index |
+		self.step * (index - 1) + self.start
 	}
 
 	collect { :self :aProcedure:/1 |

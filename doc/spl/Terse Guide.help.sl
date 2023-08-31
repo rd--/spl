@@ -308,10 +308,10 @@ Array(5).fillFromWith([1 .. 5], negated:/1) = [-1 .. -5]
 { | a = Array(1); | a.at(3) }.ifError { true } (* out of bound indexing is an error *)
 { | a = [1]; | a[3] }.ifError { true } (* out of bound indexing is an error *)
 | a = Array(1); | a[1].isNil = true (* array slots are initialised to nil *)
-| a = Array(1); | a.unsafeAt(3).isNil = true (* unsafe indexing, out of bounds indexes answer nil *)
+| a = Array(1); | a.basicAt(3).isNil = true (* basic (unsafe) indexing, out of bounds indexes answer nil *)
 { | a = Array(1); | a.atPut(3, 'x') }.ifError { true } (* out of bound mutation is an error *)
 { | a = [1]; | a[3] := 'x' }.ifError { true } (* out of bound mutation is an error *)
-| a = Array(1); | a.unsafeAtPut(3, 'x') = 'x' & { a.size = 3 } (* unsafe mutation, out of bounds indices extend array *)
+| a = Array(1); | a.basicAtPut(3, 'x') = 'x' & { a.size = 3 } (* basic (unsafe) mutation, out of bounds indices extend array *)
 Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(even:/1) = 4
 [nil, true, false, 3.141, 23, 'str'].json = '[null,true,false,3.141,23,"str"]' (* json encodings *)
@@ -332,8 +332,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 { [].anyOne }.ifError { true } (* there are not any elements in an empty collection *)
 [1 .. 9].any(3) = [1 .. 3] (* any three elements, chooses first *)
 { [1 .. 9].any(11) }.ifError { true } (* it is an error if there are not enough elements *)
-[1 .. 9].take(11) = [1 .. 9]
-[1, 2]. take(5).size = 2
+[1 .. 9].take(11) = [1 .. 9] (* taking more elements than there are answers a copy *)
+[1, 2].take(5).size = 2 (* taking more elements than there are answers a copy *)
 { [1, 2].take(-1) }.ifError { true }
 [1 .. 5].beginsWith([1 .. 3]) = true
 [1 .. 5].beginsWithAnyOf([[5], [4], [3], [2]])= false
@@ -1105,8 +1105,8 @@ Float64Array(8).atPut(1, pi) = pi (* answer value put *)
 | a = [1 .. 9].Float64Array; | a.reverse; a = [9 .. 1].Float64Array
 | a = [9 .. 1].Float64Array; | a.sort; a = [1 .. 9].Float64Array (* sort array in place *)
 { Float64Array(1).atPut(3, 'x') }.ifError { true }
-| a = Float64Array(1); | a.unsafeAtPut(1, 'x'); a.at(1).isNaN = true
-| a = Float64Array(1); | a.unsafeAtPut(3, 'x'); a.unsafeAt(3) = nil
+| a = Float64Array(1); | a.basicAtPut(1, 'x'); a.at(1).isNaN = true (* unsafe mutation inserts NaN *)
+| a = Float64Array(1); | a.basicAtPut(3, 'x'); a.basicAt(3) = nil (* unsafe mutation does not extend array *)
 [1 .. 3].Float64Array.printString = '[1, 2, 3].Float64Array'
 [1 .. 3].Float64Array.storeString = '[1, 2, 3].Float64Array'
 | a = [1 .. 3].Float64Array, c = a.copy; | c[1] := 3; c ~= a & { c.Array = [3, 2, 3] } (* copy *)
@@ -1923,7 +1923,7 @@ var s = Set(); 729.timesRepeat { s.add(9.randomFloat.rounded) }; s.minMax = [0, 
 3.randomInteger(9).isInteger (* random integer in range *)
 3.randomFloat(9).isNumber (* random float in range *)
 var b = Bag(); 5000.timesRepeat { b.add(5.atRandom) }; b.contents.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
-{ [].atRandom }.ifError { true } (* random element of empty collection *)
+{ [].atRandom = nil }.ifError { true } (* random element of empty collection (nil if unsafe indexing is allowed) *)
 [1].atRandom = 1 (* random element of one-element collection *)
 var c = [1 .. 5]; c.includes(c.atRandom) (* answer random element from a collection *)
 var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.Set (* random element of collection *)

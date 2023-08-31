@@ -9,6 +9,14 @@ function genName(name, arity) {
 	return slOptions.simpleArityModel ? name : `${name}_${arity}`;
 }
 
+function atMethod() {
+	return slOptions.uncheckedIndexing ? 'basicAt' : 'at';
+}
+
+function atPutMethod() {
+	return slOptions.uncheckedIndexing ? 'basicAtPut' : 'atPut';
+}
+
 function quoteNewLines(input: string): string {
 	return input.replaceAll('\n', '\\n');
 }
@@ -122,19 +130,19 @@ const asJs: any = {
 	},
 
 	AtPutSyntax(c, _leftBracket, k, _rightBracket, _equals, v) {
-		return `_${genName('atPut', 3)}(${c.asJs}, ${k.asJs}, ${v.asJs})`;
+		return `_${genName(atPutMethod(), 3)}(${c.asJs}, ${k.asJs}, ${v.asJs})`;
 	},
 	AtPutQuotedSyntax(c, _colonColon, k, _colonEquals, v) {
-		return `_${genName('atPut', 3)}(${c.asJs}, '${k.sourceString}', ${v.asJs})`;
+		return `_${genName(atPutMethod(), 3)}(${c.asJs}, '${k.sourceString}', ${v.asJs})`;
 	},
 	AtPutDelegateSyntax(c, _colonDot, k, _colonEquals, v) {
 		return `_${genName('atPutDelegateTo', 4)}(${c.asJs}, '${k.sourceString}', ${v.asJs}, 'parent')`;
 	},
 	AtSyntax(c, _leftBracket, k, _rightBracket) {
-		return `_${genName('at', 2)}(${c.asJs}, ${k.asJs})`;
+		return `_${genName(atMethod(), 2)}(${c.asJs}, ${k.asJs})`;
 	},
 	AtQuotedSyntax(c, _colonColon, k) {
-		return `_${genName('at', 2)}(${c.asJs}, '${k.sourceString}')`;
+		return `_${genName(atMethod(), 2)}(${c.asJs}, '${k.sourceString}')`;
 	},
 	ReadSlotSyntax(c, _colonArrow, k) {
 		return `${c.asJs}['${k.sourceString}']`;

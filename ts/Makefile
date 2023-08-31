@@ -13,6 +13,9 @@ spl-repl:
 spl-repl-non-strict:
 	$(cli) replPerLine
 
+spl-repl-unsafe:
+	$(cli) replPerLine --unsafe
+
 spl-repl-verbose:
 	$(cli) replPerLine --strict --verbose
 

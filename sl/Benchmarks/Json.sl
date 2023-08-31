@@ -1,17 +1,17 @@
-HashIndexTable : [Object] { | hashTable |
+HashIndexTable : [Object, Indexable] { | hashTable |
 
-	atPut { :self :name :index |
+	basicAt { :self :name |
+		| slot = self.hashSlotFor(name); |
+		self.hashTable[slot].bitAnd(255) - 1
+	}
+
+	basicAtPut { :self :name :index |
 		| slot = self.hashSlotFor(name); |
 		(index < 255).if {
 			self.hashTable[slot] := index + 1
 		} {
 			self.hashTable[slot] := 0
 		}
-	}
-
-	at { :self :name |
-		| slot = self.hashSlotFor(name); |
-		self.hashTable[slot].bitAnd(255) - 1
 	}
 
 	stringHash { :self :s |
@@ -47,7 +47,7 @@ HashIndexTable : [Object] { | hashTable |
 
 }
 
-JsonArray : [Object, JsonValue] { | values |
+JsonArray : [Object, Indexable, JsonValue] { | values |
 
 	append { :self :value |
 		value.ifNil {
@@ -56,11 +56,11 @@ JsonArray : [Object, JsonValue] { | values |
 		self.values.add(value)
 	}
 
-	size { :self |
-		self.values.size
+	asArray { :self |
+		self
 	}
 
-	at { :self :index |
+	basicAt { :self :index |
 		self.values[index]
 	}
 
@@ -68,8 +68,8 @@ JsonArray : [Object, JsonValue] { | values |
 		true
 	}
 
-	asArray { :self |
-		self
+	size { :self |
+		self.values.size
 	}
 
 }
@@ -115,7 +115,7 @@ JsonNumber : [Object, JsonValue] { | string |
 
 }
 
-JsonObject : [Object, JsonValue] { | names values table |
+JsonObject : [Object, Indexable, JsonValue] { | names values table |
 
 	addWith { :self :name :aJsonValue |
 		name.ifNil {
@@ -127,6 +127,10 @@ JsonObject : [Object, JsonValue] { | names values table |
 		self.table[name] := self.names.size + 1;
 		self.names.add(name);
 		self.values.add(aJsonValue)
+	}
+
+	basicAt { :self :name |
+		self.values[self.indexOf(name)]
 	}
 
 	at { :self :name |

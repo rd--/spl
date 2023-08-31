@@ -30,6 +30,7 @@ function help(): void {
 	console.log('  sc playFile --dir=loadPath');
 	console.log('  sc udpServer portNumber --dir=loadPath');
 	console.log('    --strict');
+	console.log('    --unsafe');
 	console.log('    --verbose');
 	console.log(`    SPL_DIR=${getSplDir()}`);
 }
@@ -141,6 +142,11 @@ function cli():void {
 	} else {
 		if(args.strict) {
 			slOptions.insertArityCheck = true;
+			slOptions.uncheckedIndexing = false;
+		}
+		if(args.unsafe) {
+			slOptions.insertArityCheck = false;
+			slOptions.uncheckedIndexing = true;
 		}
 		// console.log('slOptions: ', slOptions);
 		switch(args._[0]) {

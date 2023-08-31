@@ -3280,6 +3280,10 @@ String : [Object, Json, Iterable] {
 		}
 	}
 
+	basicAt { :self :index |
+		self.codePointAt(index).Character
+	}
+
 	beginsWith { :self :aString |
 		<primitive:
 		if(typeof _aString == 'string') {
@@ -3640,7 +3644,7 @@ String : [Object, Json, Iterable] {
 				options.atIfAbsent('verbose', false).ifTrue {
 					test.postLine
 				};
-				test.evaluate.if {
+				(test.evaluate = true).if {
 					passCount := passCount + 1
 				} {
 					failCount := failCount + 1;

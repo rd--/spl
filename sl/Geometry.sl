@@ -22,7 +22,7 @@
 		self.x.abs @ self.y.abs
 	}
 
-	at { :self :index |
+	basicAt { :self :index |
 		index.caseOfOtherwise([
 			1 -> { self.x },
 			2 -> { self.y }
@@ -31,7 +31,7 @@
 		}
 	}
 
-	atPut { :self :index :value |
+	basicAtPut { :self :index :value |
 		index.caseOfOtherwise([
 			1 -> { self.x := value },
 			2 -> { self.y := value }
@@ -386,7 +386,7 @@ Rectangle : [Object] { | origin corner |
 
 }
 
-Vector2 : [Object, Number, Point] { | x y |
+Vector2 : [Object, Indexable, Number, Point] { | x y |
 
 	= { :self :anObject |
 		anObject.isPoint.if {
@@ -551,7 +551,7 @@ Vector2 : [Object, Number, Point] { | x y |
 
 }
 
-Vector3 : [Object] { | x y z |
+Vector3 : [Object, Indexable] { | x y z |
 
 	= { :self :anObject |
 		anObject.isVector3.if {
@@ -569,7 +569,7 @@ Vector3 : [Object] { | x y z |
 		[self.x, self.y, self.z]
 	}
 
-	at { :self :index |
+	basicAt { :self :index |
 		index.caseOfOtherwise([
 			1 -> { self.x },
 			2 -> { self.y },
@@ -579,7 +579,7 @@ Vector3 : [Object] { | x y z |
 		}
 	}
 
-	atPut { :self :index :value |
+	basicAtPut { :self :index :value |
 		index.caseOfOtherwise([
 			1 -> { self.x := value },
 			2 -> { self.y := value },
@@ -648,7 +648,7 @@ Vector3 : [Object] { | x y z |
 
 }
 
-Vector4 : [Object] { | w x y z |
+Vector4 : [Object, Indexable] { | w x y z |
 
 	= { :self :anObject |
 		anObject.isVector4.if {
