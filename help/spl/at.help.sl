@@ -8,15 +8,20 @@ If the collection does not support indexing,
 or if the index is not valid,
 report an _error_.
 
-Arrays are indexable:
+Arrays (and all sequenceable collections) are indexable:
 
 	['x', 'y'].at(1) = 'x'
 	{ ['x', 'y'].at(3) }.ifError { :err | true }
 
-Records are indexable:
+Records (and all dictionaries) are indexable:
 
 	(x: 1, y: 2).at('x') = 1
 	{ (x: 1, y: 2).at('z') }.ifError { true }
+
+Sets and Bags are not indexable:
+
+	{ [1, 2, 3].Set.at(1) }.ifError { true }
+	{ [1, 2, 3].Bag.at(1) }.ifError { true }
 
 There is [At Sytax] for accessing indexed values:
 

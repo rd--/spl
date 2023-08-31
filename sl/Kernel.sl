@@ -962,15 +962,6 @@
 		self.printString
 	}
 
-	at { :self :index |
-		(*
-			This may be faster than the provided accessor functions, if they are not inlined.
-			This should not be used in the ordinary case.
-			See also [Slot Access Syntax]
-		*)
-		<primitive: return _self[_index];>
-	}
-
 	caseOf { :self :aBlockAssociationCollection |
 		self.caseOfOtherwise(aBlockAssociationCollection) { :case |
 			('@Object>>caseOf: case not found: ' ++ case).error
@@ -1010,6 +1001,10 @@
 
 	identity { :self |
 		self
+	}
+
+	in { :self :aBlock:/1 |
+		aBlock(self)
 	}
 
 	inspectAsArray { :self :maxIndices |

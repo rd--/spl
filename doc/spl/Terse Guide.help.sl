@@ -422,6 +422,12 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 | a = [nil, true, false, 3.141, 23, 'str']; | a.deepCopy = a (* deepCopy of shallow array *)
 ```
 
+## ArrayedCollection -- collection trait
+```
+[3, 5, 7].basicAt(1) = 3 (* unchecked lookup *)
+[3, 5, 7].basicAt(7) = nil (* unchecked lookup, nil on invalid index *)
+```
+
 ## Assignment
 ```
 | a = 'a', b = 'b', c = 'c'; | a := b := c; [a, b, c] = ['c', 'c', 'c'] (* assignment is right-associative *)
@@ -1039,6 +1045,8 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 { (x: 1, y: 2, z: 3).removeAt('?') }.ifError { true }
 | d = (x: 1, y: 2); | d.atAllPut(3) = 3 & { d = (x: 3, y: 3) } (* set all values to indicated object *)
 (x: 1, y: 2, z: 3).associations = ['x' -> 1, 'y' -> 2, 'z' -> 3] (* array of associations *)
+(x: 1, y: 2, z: 3).basicAt('x') = 1 (* unchecked lookup *)
+(x: 1, y: 2, z: 3).basicAt('u') = nil (* unchecked lookup, nil on absent key *)
 ```
 
 ## Duration -- temporal type
@@ -1786,8 +1794,9 @@ nil.json = 'null' (* nil has a Json representation *)
 3.perform('plus', 4) = 7 (* perform named binary method, name is not qualified *)
 4:3.slotNameArray = ['numerator', 'denominator']
 4:3.slotArray = ['numerator' -> 4, 'denominator' -> 3]
-4:3.numerator = 4:3['numerator']
-4:3.denominator = 4:3::denominator
+4:3.numerator = 4:3:@numerator (* slot access syntax *)
+| n = 4:3; | n:@denominator := 5; n = 4:5 (* slot access syntax *)
+pi.in { :x | x.rounded + 20 } = 23 (* evaluate procedure with object *)
 ```
 
 ## OrderedCollection -- collection trait
@@ -2416,6 +2425,8 @@ pi.sin.abs < 0.00000000001 (* sin of pi is close to zero *)
 0 = -0 (* zero is equal to negative zero *)
 92233720368 * 100000000 + 54775807 = 9223372036854775807 (* reader for large small float integer literals *)
 | n = 3.141; | n.copy == n (* copy is identity *)
+pi.in { :pi | pi } = pi (* pi is a constant, it can be shadowed *)
+| pi = 23; | pi = 23 (* pi is a constant, it can be shadowed *)
 ```
 
 ## SmallFloat -- modulo
@@ -2953,7 +2964,9 @@ system.unixTime.iso8601.size = 24
 ```
 ('x' -> 1).slotNameArray = ['key', 'value'] (* slot names *)
 ('x' -> 1):@key = 'x' (* read slot *)
+('x' -> 1):@answer = nil (* unknown slot names answer nil *)
 | a = ('x' -> 1); | a:@key := 'y'; a = ('y' -> 1) (* write slot *)
+| a = ('x' -> 1); | a:@hidden := pi; a = ('x' -> 1) & { a:@hidden = pi } (* writes to unknown slot add a slot *)
 | a = 'x' -> 1; | a:@key = 'x' & { a:@value = 1 } (* read slots *)
 | a = 'x' -> 1; | a:@key := 'y'; a:@value := 2; a = ('y' -> 2) (* write slots *)
 ```
@@ -2992,6 +3005,12 @@ true.not = false
 1 + (1 / 3) = (4 / 3)
 1 / 3 + 2 / 3 = (7 / 9) (* not 1 *)
 (1 / 3) + (2 / 3) = 1
+```
+
+## UnorderedCollection -- collection trait
+```
+{ [1, 2, 3].Set.at(1) }.ifError { true } (* unordered collections do not implement at *)
+{ [1, 2, 3].Bag.at(1) }.ifError { true }
 ```
 
 ## Vector2 -- geometry type

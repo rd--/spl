@@ -33,6 +33,17 @@
 		self.indexError('atPut', index)
 	}
 
+	basicAt { :self :index |
+		<primitive: return _self[_index - 1];>
+	}
+
+	basicAtPut { :self :index :value |
+		<primitive:
+		_self[_index - 1] = _value;
+		return _value;
+		>
+	}
+
 	collect { :self :aProcedure |
 		<primitive:
 		if(_aProcedure instanceof Function) {
@@ -325,6 +336,10 @@
 
 	errorNotFound { :self :anObject |
 		self.error('errorNotFound: ' ++ anObject)
+	}
+
+	errorNotKeyed { :self |
+		self.error('is not indexed/keyed')
 	}
 
 	groupBy { :self :keyBlock:/1 |
@@ -844,6 +859,17 @@
 		self.atPutDelegateToIfAbsent(key, value, delegateKey) {
 			self.atPut(key, value)
 		}
+	}
+
+	basicAt { :self :key |
+		<primitive: return _self[_key];>
+	}
+
+	basicAtPut { :self :key :value |
+		<primitive:
+		_self[_key] = _value;
+		return _value;
+		>
 	}
 
 	collect { :self :aProcedure:/1 |
@@ -2061,6 +2087,18 @@
 
 }
 
+@UnorderedCollection {
+
+	at { :self :index |
+		self.errorNotKeyed
+	}
+
+	atPut { :self :index :value |
+		self.errorNotKeyed
+	}
+
+}
+
 Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, ArrayedCollection, OrderedCollection] {
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
@@ -2553,7 +2591,7 @@ Graph : [Object] { | degree edges vertexLabels edgeLabels |
 
 }
 
-Bag : [Object, Iterable, Collection] { | contents |
+Bag : [Object, Iterable, Collection, UnorderedCollection] { | contents |
 
 	= { :self :aBag |
 		aBag.isBag & {
@@ -2831,7 +2869,7 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 
 }
 
-Set : [Object, Iterable, Collection] {
+Set : [Object, Iterable, Collection, UnorderedCollection] {
 
 	= { :self :anObject |
 		anObject.isSet & {
