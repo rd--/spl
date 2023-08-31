@@ -535,10 +535,18 @@ UnionFindNode : [Object] { | parent bb dfsNumber loop |
 
 }
 
-+SmallFloat {
++Void {
 
-	HavlakBenchmark { :self |
-		LoopTesterApp().mainLoopPPP(self, 50, 10, 10, 5)
+	HavlakBenchmark {
+		Benchmark('Havlak', [
+			1 -> [1605, 5213],
+			15 -> [1647, 5213],
+			150 -> [2052, 5213],
+			1500 -> [6102, 5213],
+			15000 -> [46602, 5213]
+		].Map) { :iterations |
+			LoopTesterApp().mainLoopPPP(iterations, 50, 10, 10, 5)
+		}
 	}
 
 }

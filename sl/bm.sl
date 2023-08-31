@@ -1,4 +1,5 @@
 [
+	'Benchmarks/Benchmark.sl',
 	'Benchmarks/SomRandom.sl',
 	'Benchmarks/Bounce.sl',
 	'Benchmarks/List.sl',

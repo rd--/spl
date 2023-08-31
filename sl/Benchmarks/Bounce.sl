@@ -44,23 +44,24 @@ Ball : [Object] { | x y xVel yVel |
 
 +Void {
 
-	bounceBenchmark {
-		|(
-			random = SomRandom(),
-			ballCount = 100,
-			bounces = 0,
-			balls = Array(ballCount).fillWith { :unusedIndex |
-				Ball(random)
-			}
-		)|
-		1.toDo(50) { :i |
-			balls.do { :ball |
-				ball.bounce.ifTrue {
-					bounces := bounces + 1
+	BounceBenchmark {
+		Benchmark('Bounce', [100 -> 1331].Map) { :ballCount |
+			|(
+				random = SomRandom(),
+				bounces = 0,
+				balls = Array(ballCount).fillWith { :unusedIndex |
+					Ball(random)
 				}
+			)|
+			1.toDo(50) { :i |
+				balls.do { :ball |
+					ball.bounce.ifTrue {
+						bounces := bounces + 1
+					}
 			}
-		};
-		bounces
+			};
+			bounces
+		}
 	}
 
 }

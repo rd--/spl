@@ -1,6 +1,4 @@
-Where multiple times are given they are for unsafe and strict interpreter options.
-
-{ bounceBenchmark() = 1331 }.millisecondsToRun (* 12 *)
+| b = BounceBenchmark(); | b.run(100) (* 12 *)
 { listBenchmark().length = 10 }.millisecondsToRun (* 12 *)
 { Permute() = 8660 }.millisecondsToRun (* 14 *)
 { Queens() }.millisecondsToRun (* 10 *)
@@ -9,13 +7,6 @@ Where multiple times are given they are for unsafe and strict interpreter option
 { Towers() = 8191 }.millisecondsToRun (* 20 *)
 
 { | o = JsonBenchmark(); | o.isObject & { o::head.isObject & { o::operations.isArray & { o::operations.size = 156 } } } }.millisecondsToRun (* 266 *)
-{ HavlakBenchmark(1) = [1605, 5213] }.millisecondsToRun (* 870, 5552 *)
-{ HavlakBenchmark(15) = [1647, 5213] }.millisecondsToRun (* 898, 5430 *)
-{ HavlakBenchmark(150) = [2052, 5213] }.millisecondsToRun (* 832, 5520 *)
-{ HavlakBenchmark(1500) = [6102, 5213] }.millisecondsToRun (* 990, 6280 *)
-{ HavlakBenchmark(15000) = [46602, 5213] }.millisecondsToRun (* 1608, 7858 *)
-{ 1.mandelbrotBenchmark = 128 }.millisecondsToRun (* 0 *)
-{ 500.mandelbrotBenchmark = 191 }.millisecondsToRun (* 6106 *)
-{ 750.mandelbrotBenchmark = 50 }.millisecondsToRun (* 13606 *)
-{ 1.NBody = -0.16907495402506745 }.millisecondsToRun (* 0 *)
-{ 250000.NBody = -0.1690859889909308 }.millisecondsToRun (* 5422 *)
+| h = HavlakBenchmark(); | [1, 15, 150, 1500, 15000].do { :each | h.run(each); } (* 4920 4800 5084 5336 7858 *)
+| m = MandelbrotBenchmark(); | [1, 500, 750].do { :each | m.run(each) } (* 0 5990 13606 *)
+| n = NBodyBenchmark(); | [1, 250000].do { :each | n.run(each) } (* 0 5422 *)

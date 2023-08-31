@@ -139,7 +139,6 @@ NBodySystem : [Object] { | bodies |
 
 +Void {
 
-
 	NBodySystem {
 		|(
 			px = 0, py = 0, pz = 0,
@@ -154,16 +153,17 @@ NBodySystem : [Object] { | bodies |
 		newNBodySystem().initializeSlots(bodies)
 	}
 
-}
-
-+SmallFloat {
-
-	NBody { :self |
-		| system = NBodySystem(); |
-		self.timesRepeat {
-			system.advance(0.01)
-		};
-		system.energy
+	NBodyBenchmark {
+		Benchmark('NBody', [
+			1 -> -0.16907495402506745,
+			250000 -> -0.1690859889909308
+		].Map) { :iterations |
+			| system = NBodySystem(); |
+			iterations.timesRepeat {
+				system.advance(0.01)
+			};
+			system.energy
+		}
 	}
 
 }

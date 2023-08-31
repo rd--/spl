@@ -22,6 +22,9 @@ spl-repl-verbose:
 spl-repl-bm:
 	$(cli) replPerLine bm.sl --strict
 
+spl-repl-bm-unsafe:
+	$(cli) replPerLine bm.sl --unsafe
+
 spl-repl-sc:
 	$(cli) replPerLine sc.sl --strict
 
