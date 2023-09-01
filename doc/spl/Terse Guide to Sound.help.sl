@@ -1,6 +1,6 @@
 # Terse Guide to Sound
 
-## Music
+## Music/JiTuning
 ```
 | t = [63, 72, 84, 98, 112].JiTuning; | [t.limit, t.degree] = [7, 5]
 | t = [63, 72, 84, 98, 112].JiTuning; | t.ratios = [1, 8:7, 4:3, 14:9, 16:9]
@@ -10,6 +10,30 @@
 [1, 8:7, 4:3, 14:9, 16:9].JiTuning.integerPitches = [63, 72, 84, 98, 112]
 [63, 72, 84, 98, 112].JiTuning.ratios = [1, 8:7, 4:3, 14:9, 16:9]
 [1, 3].JiTuning.ratios = [1, 3]
+```
+
+## Music/Frequency
+```
+440.cyclesPerSecondToLinearOctave = 4.75 (* cycles per second (hertz) to linear octave *)
+4.75.linearOctaveToCyclesPerSecond = 440 (* linear octave to cycles per second (hertz) *)
+440.cyclesPerSecondToMidiNoteNumber = 69 (* cycles per second (hertz) to midi note number *)
+69.midiNoteNumberToCyclesPerSecond = 440 (* midi note number to cycles per second (hertz) *)
+0.midiNoteNumberToCyclesPerSecond ~ 8.175
+69.midiNoteNumberToOctavePitchClass = 4.09 (* midi note number to octave pitch class *)
+440.cyclesPerSecondToOctavePitchClass = 4.09 (* cycles per second (hertz) to octave pitch class *)
+4.09.octavePitchClassToCyclesPerSecond ~ 440 (* octave pitch class to cycles per second *)
+4.09.octavePitchClassToMidiNoteNumber ~ 69 (* octave pitch class to midi note number *)
+0.00.octavePitchClassToCyclesPerSecond ~ 16.35
+440.cyclesPerSecond.typeOf = 'Frequency' (* frequency from hertz (cyles per second) *)
+440.cyclesPerSecond.isFrequency (* frequency predicate *)
+440.cyclesPerSecond.linearOctave = 4.75 (* frequency as linear octave *)
+440.cyclesPerSecond.midiNoteNumber = 69 (* frequency as midi note number *)
+440.cyclesPerSecond.octavePitchClass = 4.09 (* octave pitch class number *)
+69.midiNoteNumber = 440.cyclesPerSecond (* frequency from midi note number *)
+4.75.linearOctave = 440.cyclesPerSecond (* frequency from linear octave *)
+4.09.octavePitchClass ~ 440.cyclesPerSecond (* frequency from octave pitch class *)
+10.cyclesPerSecond.Duration = (1 / 10).seconds (* duration is the reciprocal of frequency *)
+(1 / 10).seconds.Frequency = 10.cyclesPerSecond (* frequency is the reciprocal of duration *)
 ```
 
 ## Sound/Sc/Lang
@@ -100,11 +124,19 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 nil ? 'x' = 'x' (* right hand side if nil *)
 'x' ? 'y' = 'x' (* left hand side unless nil *)
 Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicies *)
-3:2.RatioCents.rounded = 702
-3:2.RatioCents ~ 702
-3:2.RatioMidi ~ 7.02
+3:2.RatioCents.rounded = 702 (* ratio (interval) to cents *)
+3:2.RatioCents ~ 702 (* ratio (interval) to cents *)
+702.CentsRatio ~ 1.5 (* cents (interval) to ratio *)
+3:2.RatioMidi ~ 7.02 (* ratio (interval) to midi *)
+7.02.MidiRatio ~ 1.5 (* midi (interval) to ratio *)
 [1, 3, 2, 5, 4].order = [1, 3, 2, 5, 4] (* indices that would sort reciever *)
 'string'.split.order = [6, 4, 5, 3, 1, 2] (* indices that would sort reciever *)
+4.75.OctCps = 440 (* linear octave to hertz *)
+440.CpsOct = 4.75 (* hertz to linear octave *)
+440.CpsMidi = 69 (* hertz to midi note number *)
+69.MidiCps = 440 (* midi note number to hertz *)
+0.MidiCps.rounded = 8 (* midi note zero *)
+1.CpsMidi.rounded = -36 (* one hertz *)
 ```
 
 ## Sound/Sc/Lang/J

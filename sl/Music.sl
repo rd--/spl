@@ -1,3 +1,104 @@
+Frequency : [Object] { | cyclesPerSecond |
+
+	= { :self :other |
+		other.isFrequency & {
+			self.cyclesPerSecond = other.cyclesPerSecond
+		}
+	}
+
+	~ { :self :other |
+		other.isFrequency & {
+			self.cyclesPerSecond ~ other.cyclesPerSecond
+		}
+	}
+
+	Duration { :self |
+		self.cyclesPerSecond.reciprocal.seconds
+	}
+
+	linearOctave { :self |
+		self.cyclesPerSecond.cyclesPerSecondToLinearOctave
+	}
+
+	midiNoteNumber { :self |
+		self.cyclesPerSecond.cyclesPerSecondToMidiNoteNumber
+	}
+
+	octavePitchClass { :self |
+		self.midiNoteNumber.midiNoteNumberToOctavePitchClass
+	}
+
+}
+
++@Number {
+
+	cyclesPerSecond { :self |
+		newFrequency().initializeSlots(self)
+	}
+
+	cyclesPerSecondToLinearOctave { :self |
+		(self * (1 / 440)).log2 + 4.75
+	}
+
+	cyclesPerSecondToMidiNoteNumber { :self |
+		(self * (1 / 440)).log2 * 12 + 69
+	}
+
+	cyclesPerSecondToOctavePitchClass { :self |
+		self.cyclesPerSecondToMidiNoteNumber.midiNoteNumberToOctavePitchClass
+	}
+
+	linearOctave { :self |
+		self.linearOctaveToCyclesPerSecond.cyclesPerSecond
+	}
+
+	linearOctaveToCyclesPerSecond { :self |
+		440 * (2 ** (self - 4.75))
+	}
+
+	midiNoteNumber { :self |
+		self.midiNoteNumberToCyclesPerSecond.cyclesPerSecond
+	}
+
+	midiNoteNumberToCyclesPerSecond { :self |
+		440 * (2 ** ((self - 69) * (1 / 12)))
+	}
+
+	midiNoteNumberToOctavePitchClass { :self |
+		|(
+			octave = (self / 12).floor - 1,
+			zero = (octave + 1) * 12,
+			pitchClass = (self - zero) / 100
+		)|
+		octave + pitchClass
+	}
+
+	octavePitchClass { :self |
+		self.octavePitchClassToCyclesPerSecond.cyclesPerSecond
+	}
+
+	octavePitchClassToCyclesPerSecond { :self |
+		self.octavePitchClassToMidiNoteNumber.midiNoteNumberToCyclesPerSecond
+	}
+
+	octavePitchClassToMidiNoteNumber { :self |
+		|(
+			octave = self.floor,
+			pitchClass = (self - octave) * 100
+		)|
+		(octave + 1) * 12 + pitchClass
+	}
+
+}
+
++Duration {
+
+	Frequency { :self |
+		self.seconds.reciprocal.cyclesPerSecond
+	}
+
+}
+
 +Fraction {
 
 	latticeVector { :self :limit |
@@ -25,7 +126,7 @@ JiTuning : [Object] { | name description integerPitches limit degree |
 
 	cents { :self |
 		self.ratios.collect { :each |
-			each.asFloat.log2 * 1200
+			each.SmallFloat.log2 * 1200
 		}
 	}
 

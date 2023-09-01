@@ -1774,6 +1774,9 @@ nil.json = 'null' (* nil has a Json representation *)
 | i = 1; | 1.toDo(5) { :each | i := i + each.squared } ; i = 56 (* iterate over numbers from start to end *)
 | i = 1; | 1.toByDo(5, 2) { :each | i := i + each.squared } ; i = 36 (* iterate over numbers from start to end by step *)
 | i = 1; | (1 .. 3).do { :each | i := i + each.squared } ; i = 15 (* iterate over numbers from one to end *)
+{ 23.size }.ifError { true } (* numbers do not have a size *)
+{ 23.at(1) }.ifError { true } (* numbers are not indexable *)
+{ 23.do { :each | nil } }.ifError { true } (* numbers are not iterable *)
 ```
 
 ## Object -- kernel trait

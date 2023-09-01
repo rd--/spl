@@ -241,12 +241,16 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		system.randomFloat < self
 	}
 
+	CentsRatio { :self |
+		(self / 100).MidiRatio
+	}
+
 	CpsMidi { :self |
 		(self * (1 / 440)).log2 * 12 + 69
 	}
 
 	CpsOct { :self |
-		log2(self * (1 / 440)) + 4.75
+		(self * (1 / 440)).log2 + 4.75
 	}
 
 	Cubed { :self |

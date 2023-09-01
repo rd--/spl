@@ -252,7 +252,7 @@ export function dispatchByType(name: string, arity: number, typeTable: ByTypeMet
 			// console.debug(`dispatchByType: name=${name}, arity=${arity}, type=${receiverType}`);
 			return typeMethod.procedure.apply(null, parameterArray)
 		} else {
-			return throwError(`dispatchByType: no method for type: ${receiverType}; arity=${arity} name=${name}`);
+			return throwError(`dispatchByType: no method ${name}:/${arity} for ${receiverType}`);
 		}
 	}
 }
