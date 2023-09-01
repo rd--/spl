@@ -161,10 +161,17 @@ The <primitive> notation could include a language field, so that Js and Scheme i
 
 # Trailing Array Syntax
 
-_List[1, 2, 3]_ could mean _List([1, 2, 3])_.
-In the general case this would be a _trailing array_ syntax, so _f(p) [q..] [r..]_ would mean _f(p, [q..], [r..])_.
-Note however that the single element array form _c[i]_ is the _collection at_ syntax.
-A generalised _at_ syntax would allow _c[i, j]_ to mean _[c[i], c[j]]_.
+A _trailing array_ syntax would be like trailing closure syntax.
+_f(p) [q..] [r..]_ would mean _f(p, [q..], [r..])_.
+However this conflicts with [At Syntax], where _c[i]_ means _c.at(i)_.
+
+# Array Syntax
+
+_[1, 2, 3; 4, 5, 6]_ could mean _[[1, 2, 3], [4, 5, 6]]_.
+_[1, 2; 3, 4;; 5, 6; 7, 8] could mean [[[1, 2], [3, 4]], [[5, 6], [7, 8]]].
+And so on.
+c[1; 2] could mean c[1][2]
+c[1, 2; 3, 4] could mean c[1, 2][3, 4] meaning [c[1][3, 4], c[2][3, 4]]
 
 # String Traits
 

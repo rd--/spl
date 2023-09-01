@@ -141,6 +141,9 @@ const asJs: any = {
 	AtSyntax(c, _leftBracket, k, _rightBracket) {
 		return `_${genName(atMethod(), 2)}(${c.asJs}, ${k.asJs})`;
 	},
+	AtAllSyntax(c, _leftBracket, k, _rightBracket) {
+		return `_${genName('atAll', 2)}(${c.asJs}, [${commaList(k.asIteration().children)}])`;
+	},
 	AtQuotedSyntax(c, _colonColon, k) {
 		return `_${genName(atMethod(), 2)}(${c.asJs}, '${k.sourceString}')`;
 	},

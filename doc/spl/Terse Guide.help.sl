@@ -2187,6 +2187,7 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | a = []; | (0 .. 1).asDigitsToPowerDo(2) { :each | a.add(each.copy) }; a = [[0, 0], [0, 1], [1, 0], [1, 1]]
 ['one', 'two', 'three', 'four'].atAll([3, 2, 4]) = ['three', 'two', 'four'] (* at each index *)
 (1 .. 9).atAll((3 .. 5)) = [3 .. 5] (* at each index *)
+| a = ['1', '2', '3', '4']; | a[3, 2, 4] = ['3', '2', '4'] (* at each index syntax *)
 | a = Array(9); | a.atAllPut(0); a = [0, 0, 0, 0, 0, 0, 0, 0, 0] (* set all elements to a single value *)
 | a = [1 .. 9]; | a.atAllPut([3 .. 7], 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] (* set all selected indices to a value *)
 | a = [1 .. 9]; | a.atAllPut((3 .. 7), 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] (* set all selected indices to a value *)
@@ -2691,6 +2692,7 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 ```
 'text'[3] = 'x'.Character (* c[k] is syntax for c.at(k) *)
 | x = [1 .. 5]; | x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, v) *)
+| i = (9 .. 1); | i[5, 3, 7] = [5, 7, 3] (* c[k1, k2...] is syntax for c.atAll([k1, k2...]) *)
 ```
 
 ## Syntax -- dictionary assignment syntax

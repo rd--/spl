@@ -28,6 +28,10 @@ Frequency : [Object] { | cyclesPerSecond |
 		self.midiNoteNumber.midiNoteNumberToOctavePitchClass
 	}
 
+	printString { :self |
+		'Frequency(' ++ self.cyclesPerSecond ++ ')'
+	}
+
 }
 
 +@Number {
@@ -48,12 +52,24 @@ Frequency : [Object] { | cyclesPerSecond |
 		self.cyclesPerSecondToMidiNoteNumber.midiNoteNumberToOctavePitchClass
 	}
 
+	Frequency { :self |
+		newFrequency().initializeSlots(self)
+	}
+
 	linearOctave { :self |
 		self.linearOctaveToCyclesPerSecond.cyclesPerSecond
 	}
 
+	linearOctaveToMidiNoteNumber { :self |
+		self.linearOctaveToCyclesPerSecond.cyclesPerSecondToMidiNoteNumber
+	}
+
 	linearOctaveToCyclesPerSecond { :self |
 		440 * (2 ** (self - 4.75))
+	}
+
+	linearOctaveToOctavePitchClass { :self |
+		self.linearOctaveToCyclesPerSecond.cyclesPerSecondToOctavePitchClass
 	}
 
 	midiNoteNumber { :self |
@@ -62,6 +78,10 @@ Frequency : [Object] { | cyclesPerSecond |
 
 	midiNoteNumberToCyclesPerSecond { :self |
 		440 * (2 ** ((self - 69) * (1 / 12)))
+	}
+
+	midiNoteNumberToLinearOctave { :self |
+		self.midiNoteNumberToCyclesPerSecond.cyclesPerSecondToLinearOctave
 	}
 
 	midiNoteNumberToOctavePitchClass { :self |
@@ -81,12 +101,86 @@ Frequency : [Object] { | cyclesPerSecond |
 		self.octavePitchClassToMidiNoteNumber.midiNoteNumberToCyclesPerSecond
 	}
 
+	octavePitchClassToLinearOctave { :self |
+		self.octavePitchClassToMidiNoteNumber.midiNoteNumberToLinearOctave
+	}
+
 	octavePitchClassToMidiNoteNumber { :self |
 		|(
 			octave = self.floor,
 			pitchClass = (self - octave) * 100
 		)|
 		(octave + 1) * 12 + pitchClass
+	}
+
+}
+
+(* csound naming *)
++Frequency {
+
+	cps { :self |
+		self.cyclesPerSecond
+	}
+
+	pch { :self |
+		self.octavePitchClass
+	}
+
+	oct { :self |
+		self.linearOctave
+	}
+
+}
+
+
++@Number {
+
+	cps { :self |
+		self.cyclesPerSecond
+	}
+
+	cpsMidi { :self |
+		self.cyclesPerSecondToMidiNoteNumber
+	}
+
+	cpsOct { :self |
+		self.cyclesPerSecondToLinearOctave
+	}
+
+	cpsPch { :self |
+		self.cyclesPerSecondToOctavePitchClass
+	}
+
+	oct { :self |
+		self.linearOctave
+	}
+
+	octCps { :self |
+		self.linearOctaveToCyclesPerSecond
+	}
+
+	octMidi { :self |
+		self.linearOctaveToMidiNoteNumber
+	}
+
+	octPch { :self |
+		self.linearOctaveToOctavePitchClass
+	}
+
+	pch { :self |
+		self.octavePitchClass
+	}
+
+	pchCps { :self |
+		self.octavePitchClassToCyclesPerSecond
+	}
+
+	pchMidi { :self |
+		self.octavePitchClassToMidiNoteNumber
+	}
+
+	pchOct { :self |
+		self.octavePitchClassToLinearOctave
 	}
 
 }

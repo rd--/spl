@@ -26,6 +26,7 @@
 0.00.octavePitchClassToCyclesPerSecond ~ 16.35
 440.cyclesPerSecond.typeOf = 'Frequency' (* frequency from hertz (cyles per second) *)
 440.cyclesPerSecond.isFrequency (* frequency predicate *)
+440.cyclesPerSecond = Frequency(440) (* plain constructor requires cycles per second *)
 440.cyclesPerSecond.linearOctave = 4.75 (* frequency as linear octave *)
 440.cyclesPerSecond.midiNoteNumber = 69 (* frequency as midi note number *)
 440.cyclesPerSecond.octavePitchClass = 4.09 (* octave pitch class number *)
@@ -34,6 +35,21 @@
 4.09.octavePitchClass ~ 440.cyclesPerSecond (* frequency from octave pitch class *)
 10.cyclesPerSecond.Duration = (1 / 10).seconds (* duration is the reciprocal of frequency *)
 (1 / 10).seconds.Frequency = 10.cyclesPerSecond (* frequency is the reciprocal of duration *)
+440.cps = Frequency(440) (* csound naming cps = CyclesPerSecond *)
+4.75.oct = Frequency(440) (* csound naming oct = LinearOctave *)
+4.09.pch ~ Frequency(440) (* csound naming pch = OctavePitchClass *)
+440.cps.oct = 4.75 (* csound constructor (cps) and accessor (oct) names *)
+4.75.oct.pch = 4.09 (* csound constructor (pch) and accessor (cps) names *)
+4.09.pch.cps ~ 440 (* csound constructor (cps) and accessor (oct) names *)
+440.cpsMidi = 69 (* csound naming cps = CyclesPerSecond to midi = MidiNoteNumber *)
+440.cpsOct = 4.75 (* csound naming cps = CyclesPerSecond to oct = LinearOctave *)
+440.cpsPch = 4.09 (* csound naming cps = CyclesPerSecond to pch = OctavePitchClass *)
+4.75.octCps = 440 (* csound naming oct = LinearOctave to cps = CyclesPerSecond *)
+4.75.octMidi = 69 (* csound naming oct = LinearOctave to midi = MidiNoteNumber *)
+4.75.octPch = 4.09 (* csound naming oct = LinearOctave to pch = OctavePitchClass *)
+4.09.pchCps ~ 440 (* csound naming pch = OctavePitchClass to cps = CyclesPerSecond *)
+4.09.pchMidi ~ 69 (* csound naming pch = OctavePitchClass to midi = MidiNoteNumber *)
+4.09.pchOct ~ 4.75 (* csound naming pch = OctavePitchClass to oct = LinearOctave *)
 ```
 
 ## Sound/Sc/Lang
