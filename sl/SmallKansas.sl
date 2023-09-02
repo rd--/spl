@@ -32,7 +32,7 @@
 	}
 
 	outerElement { :self |
-		self.subclassResponsibility('View>>outerElement')
+		self.typeResponsibility('@View>>outerElement')
 	}
 
 	title { :self |
@@ -542,8 +542,9 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 
 	helpFetch { :self :path |
 		path.ifNotNil {
+			| url = self.helpUrl(path[1], path[2], path[3]); |
 			('HelpSystem>>helpFetch: ' ++ path.joinSeparatedBy('/')).postLine;
-			system.window.fetchString(self.helpUrl(path[1], path[2], path[3]), (cache: 'no-cache'))
+			system.window.fetchString(url, (cache: 'no-cache'))
 		}
 	}
 
@@ -555,7 +556,7 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 		self.helpIndex.detectIfNone { :each |
 			each[3] = name
 		} {
-			('HelpSystem>>helpFind: no help for: ' ++ name).postLine;
+			self.warning('helpFind: no help for: ' ++ name);
 			nil
 		}
 	}
@@ -989,7 +990,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 			system.isTraitName(path[1]).if {
 				self.addFrame(TraitBrowser().setPath(path), event)
 			} {
-				('SmallKansas>>browserOn: not type or trait: ' ++ path[1]).postLine
+				self.warning('browserOn: not type or trait: ' ++ path[1])
 			}
 		}
 	}
@@ -1199,7 +1200,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				self.midiAccess := midiAccess;
 				ifPresent(midiAccess)
 			} { :message |
-				('SmallKansas>>initializeMidi: no midiAccess: ' + message).postLine
+				self.warning('initializeMidi: no midiAccess: ' + message)
 			}
 		} {
 			ifPresent(self.midiAccess)
@@ -2026,7 +2027,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 				self.editorText.textContent := aString
 			}
 		]) {
-			('TextEditor>>setEditorText: unkown mimeType: ' ++ self.mimeType).postLine
+			self.warning('setEditorText: unkown mimeType: ' ++ self.mimeType)
 		}
 	}
 

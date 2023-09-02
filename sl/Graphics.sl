@@ -167,7 +167,6 @@ Colour : [Object] { | red green blue alpha |
 			q = (1 - (s * f)) * v,
 			t = (1 - (s * (1 - f))) * v
 		)|
-		[s, v, hf, i, f, p, q, t].postLine;
 		i.caseOfOtherwise([
 			{ 0 } ->  { Colour(v, t, p) },
 			{ 1 } ->  { Colour(q, v, p) },

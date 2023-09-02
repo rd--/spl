@@ -1,6 +1,7 @@
 # Duration -- temporal type
 
 A type to represent an interval of time.
+The base unit of time in the International System of Units (SI) is the second.
 
 - _Duration(aString)_
 
@@ -10,11 +11,15 @@ Parse an ISO-8601 duration string.
 
 Durations are constructed from _Number_ values using the methods _milliseconds_, _seconds_, _minutes_, _hours_, _days_, _weeks_:
 
+	3.centiseconds = 30.milliseconds
 	3.seconds = 3000.milliseconds
 	3.minutes = 180.seconds
 	3.hours = 180.minutes
 	3.days = 72.hours
 	3.weeks = 21.days
+	1.siderealMonths.days.rounded = 27
+	1.synodicMonths.days.rounded = 30
+	1.julianYears = 365.25.days
 
 Durations are queried using the same methods:
 
@@ -25,4 +30,4 @@ Durations are queried using the same methods:
 
 * * *
 
-See also: Date, TimeStamp
+See also: Date, Frequency, TimeStamp

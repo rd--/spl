@@ -1,15 +1,15 @@
 @Binary {
 
 	<< { :self :anInteger |
-		self.subclassResponsibility('@Binary>>shiftLeft')
+		self.typeResponsibility('@Binary>>shiftLeft')
 	}
 
 	>> { :self :anInteger |
-		self.subclassResponsibility('@Binary>>shiftRight')
+		self.typeResponsibility('@Binary>>shiftRight')
 	}
 
 	bitAnd { :self :anInteger |
-		self.subclassResponsibility('@Binary>>bitAnd')
+		self.typeResponsibility('@Binary>>bitAnd')
 	}
 
 	bitAt { :self :anInteger |
@@ -34,15 +34,15 @@
 	}
 
 	bitNot { :self |
-		self.subclassResponsibility('@Binary>>bitNot')
+		self.typeResponsibility('@Binary>>bitNot')
 	}
 
 	bitOr { :self :anInteger |
-		self.subclassResponsibility('@Binary>>bitOr')
+		self.typeResponsibility('@Binary>>bitOr')
 	}
 
 	bitXor { :self :anInteger |
-		self.subclassResponsibility('@Binary>>bitXor')
+		self.typeResponsibility('@Binary>>bitXor')
 	}
 
 	bitShift { :self :anInteger |
@@ -313,7 +313,7 @@
 	}
 
 	isInteger { :self |
-		self.subclassResponsibility('@Integral>>isInteger')
+		self.typeResponsibility('@Integral>>isInteger')
 	}
 
 	isPowerOfTwo { :self |
@@ -609,7 +609,7 @@
 @Magnitude {
 
 	< { :self :aMagnitude |
-		self.subclassResponsibility('@Magnitude>>lessThan')
+		self.typeResponsibility('@Magnitude>>lessThan')
 	}
 
 	<= { :self :aMagnitude |
@@ -946,6 +946,10 @@
 
 @Object {
 
+	= { :self :anObject |
+		self.typeResponsibility('@Object>>=')
+	}
+
 	~= { :self :anObject |
 		not(self = anObject)
 	}
@@ -1110,6 +1114,18 @@
 
 	value { :self |
 		self
+	}
+
+	warning { :self :message |
+		|(
+			messageText = [
+				'Warning: ',
+				self.typeOf, ': ',
+				message,
+				': (' ++ self.printStringLimitedTo(16) ++ ')'
+			].join
+		)|
+		system.transcript.warn(messageText)
 	}
 
 	yourself { :self |
@@ -1615,11 +1631,11 @@ Error : [Object] {
 +@Object {
 
 	shouldNotImplement { :self :signature |
-		self.error(signature ++ ': shouldNotImplement')
+		self.error(signature ++ ': should not implement')
 	}
 
-	subclassResponsibility { :self :signature |
-		self.error(signature ++ ': subclassResponsibility')
+	typeResponsibility { :self :signature |
+		self.error(signature ++ ': type responsibility')
 	}
 
 }
@@ -1708,10 +1724,14 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	/ { :self :aNumber |
-		aNumber.isFraction.if {
-			self * aNumber.reciprocal
+		aNumber.isInteger.if {
+			self * Fraction(1, aNumber)
 		} {
-			aNumber.adaptToFractionAndApply(self, dividedBy:/2)
+			aNumber.isFraction.if {
+				self * aNumber.reciprocal
+			} {
+				aNumber.adaptToFractionAndApply(self, dividedBy:/2)
+			}
 		}
 	}
 
@@ -3044,7 +3064,7 @@ RegExp : [Object] {
 	}
 
 	do { :self :aBlock:/1 |
-		self.subclassResponsibility('@Iterable>>do')
+		self.typeResponsibility('@Iterable>>do')
 	}
 
 	doSeparatedBy { :self :elementBlock:/1 :separatorBlock:/0 |

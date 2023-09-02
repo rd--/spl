@@ -9,5 +9,10 @@
 	'Graphics.sl',
 	'Random.sl',
 	'System.sl',
-	'Time.sl'
+	'Time.sl',
+	'Unit/Angle.sl',
+	'Unit/Frequency.sl',
+	'Unit/Length.sl',
+	'Unit/Mass.sl',
+	'Unit/SiUnit.sl'
 ].loadUrlSequence

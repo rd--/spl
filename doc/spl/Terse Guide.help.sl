@@ -1073,6 +1073,17 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 'P3DT4H'.Duration = (3.days + 4.hours)
 (2.days + 2.hours + 2.minutes + 2.seconds).seconds = ((2 * 24 * 60 * 60) + (2 * 60 * 60) + (2 * 60) + 2)
 | d = 2.seconds, c = d.copy; | d ~~ c & { d = c } (* copy duration *)
+1.siderealMonths = 27.321661.days (* as defined with respect to the celestial sphere *)
+1.synodicMonths = 29.53059.days (* as define with respect to the line joining the sun and earth *)
+(29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).abs = 76.milliseconds
+27.days + 7.hours + 43.minutes + 11.6.seconds - 1.siderealMonths < 1.seconds
+1.julianYears = 365.25.days
+3.minutes * 3 = 9.minutes (* multiply duration by number *)
+9.minutes / 3 = 3.minutes (* divide duration by number *)
+-3.seconds.abs = 3.seconds (* absolute value *)
+(3.minutes - 2.hours).abs = (1.hours + 57.minutes) (* absolute value *)
+7:8.milliseconds.seconds = 7:8000 (* fraction as duration *)
+2.minutes.asSeconds = 120.asSeconds (* seconds of duration, or identity of number *)
 ```
 
 ## Error -- exception type
@@ -1265,6 +1276,7 @@ system.unicodeFractionsTable.associations.isArray = true
 pi.asFraction = 311:99 (* with maximumDenominator set to one hundred *)
 (1 / [2, 3, 5, 7, 11, 13, 17]).collect(asFraction:/1) = [1:2, 1:3, 1:5, 1:7, 1:11, 1:13, 1:17]
 6:8 * 4 = 3 (* answer integer *)
+7:8 / 3 = 7:24 (* division by integer is fraction *)
 ```
 
 ## Hash -- murmur hash
@@ -3010,6 +3022,74 @@ true.not = false
 1 + (1 / 3) = (4 / 3)
 1 / 3 + 2 / 3 = (7 / 9) (* not 1 *)
 (1 / 3) + (2 / 3) = 1
+```
+
+## Unit/Angle -- geometry unit type
+```
+pi.radians.typeOf = 'Angle' (* type of angle *)
+pi.radians.isAngle (* angle predicate *)
+1.radians.degrees ~ 57.296 (* radians to degrees *)
+pi.radians.degrees = 180 (* pi radians is 180 degrees *)
+180.degrees.radians = pi (* 180 degrees is pi radians *)
+pi.radians < 360.degrees (* angles are magnitudes *)
+pi.radians.asRadians = pi.asRadians (* radians of angle, or identity of number *)
+```
+
+## Unit/Frequency -- temporal unit type
+```
+1.hertz.typeOf = 'Frequency' (* frequency from hertz (cyles per second) *)
+1.hertz.isFrequency (* frequency predicate *)
+1.hertz.printString = '1.hertz' (* frequency print string *)
+10.hertz.Duration = (1 / 10).seconds (* duration is the reciprocal of frequency *)
+(1 / 10).seconds.Frequency = 10.hertz (* frequency is the reciprocal of duration *)
+44.1.kilohertz = 44100.hertz (* frequencies are eq, kilohertz (thousands of cycles per second) *)
+1.kilohertz.Duration = 1.milliseconds (* the period of 1kHz is 1ms *)
+44.1.hertz < 44.1.kilohertz (* frequencies are magnitudes *)
+1.kilohertz.asHertz = 1000.asHertz (* hertz of frequency, or identity of number *)
+```
+
+## Unit/Length -- geometry unit type
+```
+1.metres.typeOf = 'Length' (* metre constructor, type of *)
+1.metres.isLength (* length predicate *)
+10.centimetres.printString = '0.1.metres'
+12.inches ~ 1.feet (* there are approximately twelve inches in a foot *)
+1.yards.feet = 3 (* there are three feet in a yard *)
+1.miles = 5280.feet (* lengths can be tested for equality *)
+1.nauticalMiles = 1852.metres (* a nautical mile is defined in terms of metres *)
+1.astronomicalUnits.kilometres.rounded = 149597871 (* 149,597,871 *)
+1.astronomicalUnits.miles.rounded = 92955807 (* 92,955,807 *)
+1.lightYears.kilometres.rounded = 9460700000000 (* 9,460,700,000,000 *)
+1.lightYears.astronomicalUnits.rounded = 63241 (* 63,241 *)
+1.parsecs.lightYears ~ 3.2615
+1.parsecs.astronomicalUnits.rounded = 206266
+1.picometres.picometres = 1
+12.point = 4.2336.millimetres (* a point is approximately four millimetres *)
+12.point.inches ~ (12 / 72) (* a point is approximately 1/72 of an inch *)
+12.point ~ 1.picas (* twelve point is approximately a pica *)
+10.centimetres.asMetres = 0.1.asMetres (* metres of length, or identity of number *)
+```
+
+## Unit/Mass -- physics unit type
+```
+23.grams.typeOf = 'Mass' (* gram constructor, type of *)
+23.grams.isMass (* mass predicate *)
+23.grams.printString = '23.grams'
+23.kilograms = 23000.grams (* a kilogram is a thousand grams *)
+2.2.pounds ~ 997.9.grams (* two and on fifth pounds is approximately a kilogram *)
+36.ounces ~ 1020.58.grams (* thirty-six ounces are approximately a kilogram *)
+(1 / 16).pounds = 1.ounces (* an ounce is 1/16 of a pound *)
+1.kilograms.asGrams = 1000.asGrams (* grams of mass, or identity of number *)
+```
+
+## Unit/SiUnit -- units type
+```
+'kg'.siUnit.typeOf = 'SiUnit' (* type of SiUnit *)
+'m'.siUnit.isSiUnit (* lookup unit by symbol *)
+'meter'.siUnit.isSiUnit (* lookup unit by name *)
+'m'.siUnit == 'meter'.siUnit (* units are cached (identical) *)
+'Hz'.siUnit.name = 'hertz' (* Hz is the symbol of the unit hertz *)
+'s'.siUnit.isBaseUnit & { 'Pa'.siUnit.isDerivedUnit } (* there are seven base units and twenty two named derived units *)
 ```
 
 ## UnorderedCollection -- collection trait

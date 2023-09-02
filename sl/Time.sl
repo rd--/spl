@@ -92,24 +92,40 @@ Duration : [Object, Magnitude] { | milliseconds |
 		}
 	}
 
-	< { :self :other |
-		self.milliseconds < other.asDuration.milliseconds
+	< { :self :aDuration |
+		self.milliseconds < aDuration.Duration.milliseconds
 	}
 
-	+ { :self :other |
-		(self.milliseconds + other.asDuration.milliseconds).milliseconds
+	* { :self :aNumber |
+		(self.milliseconds * aNumber).milliseconds
 	}
 
-	- { :self :other |
-		(self.milliseconds - other.asDuration.milliseconds).milliseconds
+	/ { :self :aNumber |
+		(self.milliseconds / aNumber).milliseconds
 	}
 
-	asDuration { :self |
+	+ { :self :aDuration |
+		(self.milliseconds + aDuration.Duration.milliseconds).milliseconds
+	}
+
+	- { :self :aDuration |
+		(self.milliseconds - aDuration.Duration.milliseconds).milliseconds
+	}
+
+	abs { :self |
+		self.milliseconds.abs.milliseconds
+	}
+
+	Duration { :self |
 		self
 	}
 
 	asSeconds { :self |
 		self.seconds
+	}
+
+	centiseconds { :self |
+		self.milliseconds / 10
 	}
 
 	days { :self |
@@ -142,22 +158,38 @@ Duration : [Object, Magnitude] { | milliseconds |
 
 }
 
-+SmallFloat {
++@Number {
 
-	asDuration { :self |
-		self.error('asDuration: no units specified')
+	anomalisticMonths { :self |
+		(self * 27.554551).days
+	}
+
+	anomalisticYears { :self |
+		(self * 365.259636).days
+	}
+
+	Duration { :self |
+		self.error('Duration: no units specified')
 	}
 
 	asSeconds { :self |
 		self
 	}
 
+	centiseconds { :self |
+		(self * 10).milliseconds
+	}
+
 	days { :self |
-		(self * 24 * 60 * 60 * 1000).milliseconds
+		(self * 24).hours
 	}
 
 	hours { :self |
-		(self * 60 * 60 * 1000).milliseconds
+		(self * 60).minutes
+	}
+
+	julianYears { :self |
+		(self * 365.25).days
 	}
 
 	milliseconds { :self |
@@ -165,15 +197,35 @@ Duration : [Object, Magnitude] { | milliseconds |
 	}
 
 	minutes { :self |
-		(self * 60 * 1000).milliseconds
+		(self * 60).seconds
 	}
 
 	seconds { :self |
 		(self * 1000).milliseconds
 	}
 
+	siderealMonths { :self |
+		(self * 27.321661).days
+	}
+
+	siderealYears { :self |
+		(self * 365.256363004).days
+	}
+
+	solarMonths { :self |
+		(self * 27.321582).days
+	}
+
+	solarYears { :self |
+		(self * 365.24219).days
+	}
+
+	synodicMonths { :self |
+		(self * 29.53059).days
+	}
+
 	weeks { :self |
-		(self * 7 * 24 * 60 * 60 * 1000).milliseconds
+		(self * 7).days
 	}
 
 }
@@ -207,7 +259,12 @@ Duration : [Object, Magnitude] { | milliseconds |
 	}
 
 	Duration { :self |
-		| [years, months, weeks, days, hours, minutes, seconds] = self.parseIso8601DurationAsArray; |
+		|(
+			[
+				years, months, weeks, days,
+				hours, minutes, seconds
+			] = self.parseIso8601DurationAsArray
+		)|
 		(years + months > 0).if {
 			self.error('Duration: includes non-zero year or month fields')
 		} {

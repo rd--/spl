@@ -553,7 +553,7 @@
 	}
 
 	removeIfAbsent { :self :oldObject :anExceptionBlock |
-		self.subclassResponsibility('@Collection>>removeIfAbsent')
+		self.typeResponsibility('@Collection>>removeIfAbsent')
 	}
 
 }

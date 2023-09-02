@@ -5,11 +5,11 @@
 	}
 
 	atEnd { :self |
-		self.subclassResponsibility('Stream>>atEnd')
+		self.typeResponsibility('Stream>>atEnd')
 	}
 
 	contents { :self |
-		self.subclassResponsibility('Stream>>contents')
+		self.typeResponsibility('Stream>>contents')
 	}
 
 	do { :self :aBlock:/1 |
@@ -29,7 +29,7 @@
 	}
 
 	next { :self |
-		self.subclassResponsibility('Stream>>next')
+		self.typeResponsibility('Stream>>next')
 	}
 
 	nextInto { :self :aCollection |
@@ -50,7 +50,7 @@
 	}
 
 	nextPut { :self :anObject |
-		self.subclassResponsibility('Stream>>nextPut')
+		self.typeResponsibility('Stream>>nextPut')
 	}
 
 	nextPutAll { :self :aCollection |
