@@ -89,7 +89,7 @@
 
 (defvar spl-imenu-generic-expression
   (list
-   (list nil "^\\(;; .*\\)$" 1)
+   (list nil "^\\((\\* .*\\*)\\)$" 1)
    (list nil "^\\(#+ .*\\)$" 1)
    (list nil "^\\(\+?@?\[?[A-Z][, A-Za-z0-9]+[A-Za-z0-9]\]?\\).* {\\( |\\|$\\)" 1)
    (list nil "^\\(\t[*&|~+/%><=?!^a-zA-Z0-9-]+\\) {" 1))
@@ -113,7 +113,7 @@
   (modify-syntax-entry ?\) ")(4" st)
   (modify-syntax-entry ?' "\"" st)
   (modify-syntax-entry ?\" "\"" st)
-  (modify-syntax-entry ?\; ". 12b" st)
+  ;(modify-syntax-entry ?\; ". 12b" st)
   (modify-syntax-entry ?\n "> b" st)
   st)
 

@@ -2698,6 +2698,13 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 [1, 3 .. 9] = (1, 3 .. 9).Array
 [9, 7 .. 1] = (9, 7 .. 1).Array
 [1 .. 1] = (1 .. 1).Array
+[1 3 5 2 4] = [1, 3, 5, 2, 4] (* vector syntax, literal items *)
+| a = 1, b = 3, c = 5; | [a b c b a] = [1, 3, 5, 3, 1] (* vector syntax, identifier items *)
+[1 [1 3 [1 3 5] 5] 5] = [1, [1, 3, [1, 3, 5], 5], 5] (* vector syntax, vector items *)
+[1 3; 5 7] = [[1, 3], [5, 7]] (* matrix syntax, literal items *)
+| a = 1, b = 3, c = 5; | [a b c; c b a] = [[1, 3, 5], [5, 3, 1]] (* matrix syntax, identifier items *)
+[1 2; 3 4;; 5 6; 7 8] = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]  (* volume syntax, literal items *)
+| a = 1, b = 3; | [a b; b a;; b a; a b] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] (* volume syntax, identifier items *)
 ```
 
 ## Syntax -- collection access and mutation

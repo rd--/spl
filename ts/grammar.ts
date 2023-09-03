@@ -73,6 +73,9 @@ Sl {
 		| ArrayRangeThenSyntax
 		| IntervalSyntax
 		| IntervalThenSyntax
+		| VectorSyntax
+		| MatrixSyntax
+		| VolumeSyntax
 
 	AtPutSyntax = Primary "[" Expression "]" ":=" Expression
 	AtPutQuotedSyntax = Primary "::" identifier ":=" Expression
@@ -118,6 +121,12 @@ Sl {
 	ArrayRangeThenSyntax = "[" Expression "," Expression ".." Expression "]"
 	IntervalSyntax = "(" Expression ".." Expression ")"
 	IntervalThenSyntax = "(" Expression "," Expression ".." Expression ")"
+	VectorSyntax = "[" VectorSyntaxItem+ "]"
+	VectorSyntaxItem = literal | identifier | VectorSyntax
+	MatrixSyntax = "[" ListOf<MatrixSyntaxItems, ";"> "]"
+	MatrixSyntaxItems = VectorSyntaxItem+
+	VolumeSyntax = "[" ListOf<VolumeSyntaxItems, ";;"> "]"
+	VolumeSyntaxItems = ListOf<MatrixSyntaxItems, ";">
 
 	methodName = identifier | binaryOperator
 	unqualifiedIdentifier = letter letterOrDigit*
@@ -142,8 +151,9 @@ Sl {
 
 	primitiveCharacter = ~">" sourceCharacter
 
-	comment = multiLineMlComment | singleLineLispComment
+	comment = multiLineMlComment | singleLineMlComment
 	multiLineMlComment = "(*" (~"*)" sourceCharacter)* "*)"
+	singleLineMlComment = "(*)" (~lineTerminator sourceCharacter)*
 	singleLineLispComment = ";;" (~lineTerminator sourceCharacter)*
 	lineTerminator = "\n" | "\r"
 	space += comment

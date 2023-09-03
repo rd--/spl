@@ -268,6 +268,21 @@ const asJs: any = {
 	IntervalThenSyntax(_leftParen, start, _comma_, then, _dotDot, end, _rightParen) {
 		return `_${genName('thenTo', 3)}(${start.asJs}, ${then.asJs}, ${end.asJs})`;
 	},
+	VectorSyntax(_leftBracket, items, _rightBracket) {
+		return `[${commaList(items.children)}]`;
+	},
+	MatrixSyntax(_leftBracket, items, _rightBracket) {
+		return `[${commaList(items.asIteration().children)}]`;
+	},
+	MatrixSyntaxItems(items) {
+		return `[${commaList(items.children)}]`;
+	},
+	VolumeSyntax(_leftBracket, items, _rightBracket) {
+		return `[${commaList(items.asIteration().children)}]`;
+	},
+	VolumeSyntaxItems(items) {
+		return `[${commaList(items.asIteration().children)}]`;
+	},
 
 	identifier(c1, cN, _colonDividedBy, a) {
 		const arityPart =
