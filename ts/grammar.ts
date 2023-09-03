@@ -122,7 +122,8 @@ Sl {
 	IntervalSyntax = "(" Expression ".." Expression ")"
 	IntervalThenSyntax = "(" Expression "," Expression ".." Expression ")"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
-	VectorSyntaxItem = literal | identifier | VectorSyntax
+	VectorSyntaxItem = VectorSyntaxUnarySend | literal | identifier | VectorSyntax
+	VectorSyntaxUnarySend = (literal | identifier) "." identifier
 	MatrixSyntax = "[" ListOf<MatrixSyntaxItems, ";"> "]"
 	MatrixSyntaxItems = VectorSyntaxItem+
 	VolumeSyntax = "[" ListOf<VolumeSyntaxItems, ";;"> "]"
@@ -154,7 +155,6 @@ Sl {
 	comment = multiLineMlComment | singleLineMlComment
 	multiLineMlComment = "(*" (~"*)" sourceCharacter)* "*)"
 	singleLineMlComment = "(*)" (~lineTerminator sourceCharacter)*
-	singleLineLispComment = ";;" (~lineTerminator sourceCharacter)*
 	lineTerminator = "\n" | "\r"
 	space += comment
 

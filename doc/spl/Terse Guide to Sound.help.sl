@@ -54,6 +54,14 @@
 69.midi.pch = 4.09 (* midi to pch *)
 ```
 
+## Music -- pitch
+```
+7.flat = 6.9 & { 7.flat.flat ~ 6.8 } (* alterations to a degree are written as fractional difference *)
+7.sharp = 7.1 & { 7.sharp.sharp ~ 7.2 }
+7.quarterToneFlat = 6.95
+7.quarterToneSharp = 7.05
+```
+
 ## Sound/Sc/Lang
 ```
 (1 .. 5).keep(3) = (1 .. 3) (* keep first n items, alias for first: *)

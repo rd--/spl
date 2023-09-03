@@ -271,6 +271,9 @@ const asJs: any = {
 	VectorSyntax(_leftBracket, items, _rightBracket) {
 		return `[${commaList(items.children)}]`;
 	},
+	VectorSyntaxUnarySend(lhs, _dot_, rhs) {
+		return `${genName(rhs.asJs, 1)}(${lhs.asJs})`;
+	},
 	MatrixSyntax(_leftBracket, items, _rightBracket) {
 		return `[${commaList(items.asIteration().children)}]`;
 	},

@@ -2128,6 +2128,15 @@ RegExp('x.x', 'g').printString.size = 18
 'aabbcc'.matchesRegExp('a+b+c+')
 ```
 
+## RunArray -- collection type
+```
+| a = RunArray([1, 3, 5], ['a', 'b', 'c']); | a.isRunArray & { a.size = 9 }
+| a = RunArray([1, 3, 5], ['a', 'b', 'c']); | a.isRunArray & { a.size = 9 }
+| a = RunArray([1, 3, 5], ['a', 'b', 'c']); | a.size = 9 & { a.Array.join = 'abbbccccc' }
+| a = RunArray([1 -> 'a', 3 -> 'b', 5 -> 'c']); | a.size = 9 & { a.Array.join = 'abbbccccc' }
+| a = RunArray([1, 4, 2, 1], 'abca'.split); | a.size = 8 & { a.Array.join = 'abbbbcca' }
+```
+
 ## SequenceableCollection -- collection trait
 ```
 [1, 3, 2] ++ [4, 5] = [1, 3, 2, 4, 5] (* append sequences *)
@@ -2699,6 +2708,7 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 [9, 7 .. 1] = (9, 7 .. 1).Array
 [1 .. 1] = (1 .. 1).Array
 [1 3 5 2 4] = [1, 3, 5, 2, 4] (* vector syntax, literal items *)
+[9.sqrt 16.sqrt 25.sqrt] = [3, 4, 5] (* vector syntax, simple unary sends *)
 | a = 1, b = 3, c = 5; | [a b c b a] = [1, 3, 5, 3, 1] (* vector syntax, identifier items *)
 [1 [1 3 [1 3 5] 5] 5] = [1, [1, 3, [1, 3, 5], 5], 5] (* vector syntax, vector items *)
 [1 3; 5 7] = [[1, 3], [5, 7]] (* matrix syntax, literal items *)

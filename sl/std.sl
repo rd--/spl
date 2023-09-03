@@ -4,6 +4,7 @@
 	'Collections/Bitset.sl',
 	'Collections/Heap.sl',
 	'Collections/LinkedList.sl',
+	'Collections/RunArray.sl',
 	'Collections/Stream.sl',
 	'Geometry.sl',
 	'Graphics.sl',

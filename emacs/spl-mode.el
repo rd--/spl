@@ -168,9 +168,13 @@
      ("!~" . ?≉) ; ≁
      ("<~" . ?⪅) ; ⪝
      (">~" . ?⪆) ; ⪞
-     ("union" . ?∪) ; “∪” U+222A Union
-     ("intersection" . ?∩) ; ∩ U+2229 Intersection
-     ("includes" . ?∋) ; “∋” U+220B Contains as Member
+     ("union" . ?∪) ; U+222A ∪ Union
+     ("intersection" . ?∩) ; U+2229 ∩ Intersection
+     ("includes" . ?∋) ; U+220B ∋ Contains as Member
+     ("flat" . ?♭) ; U+266D ♭ Music Flat Sign
+     ("sharp" . ?♯) ; U+266F ♯ Music Sharp Sign
+     ("quarterToneFlat" .?𝄳) ; U+1D133 𝄳 Musical Symbol Quarter Tone Flat
+     ("quarterToneSharp" .?𝄲) ; U+1D132 𝄲 Musical Symbol Quarter Tone Sharp
      )))
 
 (defun spl-fill-mode-map (map)
