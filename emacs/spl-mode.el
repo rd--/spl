@@ -144,7 +144,7 @@
      ("transpose" .?ᵀ) ; U+1D40 ᵀ Modifier Letter Capital T
      ("reversed" .?ᴙ) ; U+1D19 ᴙ Latin Letter Small Capital Reversed R
      ("pi" . ?π) ; U+03C0 π Greek Small Letter Pi
-     ("epsilon" . ?ε)
+     ("epsilon" . ?ε) ; U+03B5 ε Greek Small Letter Epsilon
      ;; ("e" . ?𝑒)
      ("*" . ?×) ; U+00D7 × Multiplication Sign
      ("**" . ?⇈) ; U+21C8 ⇈ Upwards Paired Arrows

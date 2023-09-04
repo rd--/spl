@@ -163,6 +163,13 @@ inf.positive = true
 25.sqrt = 5 (* integer sqrt *)
 (2 / 4) * 2 = 1 (* integer division *)
 2 * (2 / 4) = 1 (* integer division *)
+| x = 10 ** -7, nearest = 10 ** -8, furthest = 0; | (x - nearest).abs < (x - furthest).abs & { (x ~ furthest) ==> { (x ~ nearest) } }
+-1 !~ 1 (* negative one is not close to one *)
+1 !~ inf (* one is not close to inifinity *)
+inf ~ inf (* being equal, infinty is also close to itself *)
+1:3 ~ (1 / 3) (* a fraction is close to it's floating point representation *)
+0 ~ epsilon & { epsilon ~ 0 } & { 1 + epsilon ~ 1 } (* ε is ≈ zero ∧ ≈ is a symmetric operator ∧ one plus ε is ≈ one *)
+| n = 10 ** -9; | 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
 ```
 
 ## Array -- collection type
@@ -665,6 +672,10 @@ false.xor { true } = true
 false.xor { false } = false
 { false.xor(1) }.ifError { true }
 { false.xor { 1 } }.ifError { true }
+true ==> { true } = true (* material implication *)
+true ==> { false } = false (* material implication *)
+false ==> { true } = true (* material implication *)
+false ==> { false } = true (* material implication *)
 ```
 
 ## Boolean -- equality
@@ -937,9 +948,9 @@ Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 
 ## Conditional Statements
 ```
-true.ifTrue { 'T' } = 'T' (* if true then *)
-true.ifFalse { 'F' } = nil (* if false then *)
-true.if { 'T' } { 'F' } = 'T' (* if true then else if false then *)
+true.ifTrue { 'T' } = 'T' (* if true then, answers answer of branch block or nil *)
+true.ifFalse { 'F' } = nil (* if false then, answers answer of branch block or nil *)
+true.if { 'T' } { 'F' } = 'T' (* if true then else if false then, answers answer of chose block *)
 | x | true & { x := 1 }; x = 1 (* side effect on conditional and *)
 | x | false & { x := 1 }; x = nil (* no side effect on conditional and *)
 | x | true | { x := 1 }; x = nil (* no side effect on conditional or *)
@@ -1348,7 +1359,7 @@ SmallFloat(1:2) = (1 / 2)
 0.5 ~ 1:2
 0.3333 ~ 1:3
 0.33 < (1:3)
-1:3 - 0.33 = 0.0033333333333332993
+1:3 - 0.33 ~ 0.003333
 ```
 
 ## Hash -- murmur hash
@@ -1792,6 +1803,7 @@ pi.radiansToDegrees = 180 (* radiansToDegrees *)
 -2.1.rounded = -2
 1.5.rounded = 2 (* in case of tie, round to +infinity *)
 -1.5.rounded = -1
+| n = 10 ** 6; | n ~ (n + 1) & { 1 !~ 2 } (* a million is close to a million and one, but one is not close to two *)
 ```
 
 ## Matrix22 -- geometry type
@@ -2811,9 +2823,11 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 
 ## Syntax -- dictionary assignment syntax
 ```
-| (x, y) = (x: 1, y: 2); | x = 1 & { y = 2 }
+| (x, y) = (x: 1, y: 2); | x = 1 & { y = 2 } (* variable declaration, retrieve named fields from the dictionary *)
+| (y, x) = (x: 1, y: 2); | y = 2 & { x = 1 } (* selection is by name, not position *)
 | (x, y, z) = (x: 1 * 2, y: 3 * 4, z: 5 * 6); | [z, y, x] = [30, 12, 2]
-| x y | (x, y) := (x: 1, y: 2); x = 1 & { y = 2 }
+| x y | (x, y) := (x: 1, y: 2); x = 1 & { y = 2 } (* variable assignment, retrieve named fields from the dictionary *)
+| y x | (y, x) := (x: 1, y: 2); y = 2 & { x = 1 } (* selection is by name, not position *)
 | x y z | (x, y, z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [30, 12, 2]
 ```
 
@@ -2894,6 +2908,14 @@ var x = 1; var y = 2, z = 3; [x, y, z] = [1, 2, 3] (* there can be multiple var 
 ## Syntax -- type field mutation
 ```
 var a = 'one' -> 1; a.key := 9; a.key = 9 (* p.x := y is syntax for p.x(y) *)
+```
+
+## Syntax -- unused variable name syntax
+```
+(1 .. 3).collect { :_ | 0 } = [0, 0, 0] (* underscore can be used to indicate an unused variable *)
+| [x, _, z] = [1, 2, 3]; | [x, z] = [1, 3]
+(1 .. 3).withIndexCollect { :_ :_ | 0 } = [0, 0, 0] (* multiple unused variable can be declared *)
+| [x, _, _, z] = [1, 2, 3, 4]; | [x, z] = [1, 4] (* multiple unused variable can be declared *)
 ```
 
 ## Syntax -- whitespace

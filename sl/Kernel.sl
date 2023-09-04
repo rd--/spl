@@ -1156,6 +1156,14 @@ Boolean : [Object, Json] {
 		self | { anObject.if { true } { false } }
 	}
 
+	==> { :self :aBlock:/0 |
+		self.if {
+			aBlock()
+		} {
+			true
+		}
+	}
+
 	always { :self :aProcedure:/0 |
 		aProcedure()
 	}

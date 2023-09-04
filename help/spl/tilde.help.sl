@@ -1,6 +1,6 @@
 # ~ -- comparing
 
-- _p ~ q_ ⟹ p.closeTo(q)
+- _p ~ q_ ⟹ _closeTo(p, q)_
 
 Answer true if _p_ is almost equal to (or similar to) _q_, else false.
 

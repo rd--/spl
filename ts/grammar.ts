@@ -28,7 +28,7 @@ Sl {
 	TemporaryWithBlockLiteralInitializer = identifier "=" Block ~("." | binaryOperator)
 	TemporaryWithExpressionInitializer = identifier "=" Expression
 	TemporaryWithDictionaryInitializer = "("  NonemptyListOf<identifier, ","> ")" "=" Expression
-	TemporaryWithArrayInitializer = "["  NonemptyListOf<identifier, ","> "]" "=" Expression
+	TemporaryWithArrayInitializer = "["  NonemptyListOf<identifierOrUnused, ","> "]" "=" Expression
 	TemporariesWithoutInitializers = "|" identifier+ "|"
 	TemporariesParenSyntax = "|(" NonemptyListOf<TemporaryWithInitializer, ","> ")|"
 	TemporariesVarWithoutInitializersSyntax = "var" NonemptyListOf<identifier, ","> ";"
@@ -107,7 +107,7 @@ Sl {
 	Block = "{" BlockBody "}"
 	BlockBody = Arguments? Temporaries? Primitive? Statements?
 	Arguments = ArgumentName+ "|"
-	ArgumentName = ":" identifier
+	ArgumentName = ":" identifierOrUnused
 	Primitive = "<primitive:" primitiveCharacter* ">"
 	Statements = NonFinalExpression | FinalExpression
 	NonFinalExpression = Expression ";" Statements
@@ -137,7 +137,10 @@ Sl {
 
 	methodName = identifier | binaryOperator
 	unqualifiedIdentifier = letter letterOrDigit*
-	identifier = letter letterOrDigit* (":/" digit+)?
+	qualifiedIdentifier = letter letterOrDigit* (":/" digit+)
+	identifier = qualifiedIdentifier | unqualifiedIdentifier
+	unusedVariableIdentifier = "_"
+	identifierOrUnused = (identifier | unusedVariableIdentifier)
 	letterOrDigit = letter | digit
 	reservedIdentifier = "nil" | "true" | "false"
 	binaryOperator = binaryChar+

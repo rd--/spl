@@ -153,7 +153,6 @@ const asJs: any = {
 		return `${at}(${at}(${at}(${c.asJs}, ${i.asJs}), ${j.asJs}), ${k.asJs})`;
 	},
 	AtPathSyntax(c, _leftBracket, k, _rightBracket) {
-		console.log('AtPathSyntax!');
 		return `_${genName('atPath', 2)}(${c.asJs}, [${commaList(k.asIteration().children)}])`;
 	},
 	AtQuotedSyntax(c, _colonColon, k) {
@@ -299,13 +298,18 @@ const asJs: any = {
 		return `[${commaList(items.asIteration().children)}]`;
 	},
 
-	identifier(c1, cN, _colonDividedBy, a) {
+	unusedVariableIdentifier(_underscore) {
+		return gensym();
+	},
+	unqualifiedIdentifier(c1, cN) {
+		return `_${c1.sourceString}${cN.sourceString}`;
+	},
+	qualifiedIdentifier(c1, cN, _colonDividedBy, a) {
 		const arityPart =
 			slOptions.simpleArityModel ?
 			'' :
-			`${a.children.length === 0 ? '' : ('_' + a.sourceString.slice(2))}`;
-		const name = `_${c1.sourceString}${cN.sourceString}${arityPart}`;
-		return name;
+			`_${a.sourceString}`;
+		return `_${c1.sourceString}${cN.sourceString}${arityPart}`;
 	},
 	reservedIdentifier(id) {
 		switch(id.sourceString) {

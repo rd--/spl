@@ -1,9 +1,12 @@
 # closeTo -- comparing
 
 - _closeTo(aNumber, anotherNumber)_
-- _aNumber ~ anotherNumber_
+- _p ~ q_ ⟹ _closeTo(p, q)_
 
 Answer true is _aNumber_ is close to _anotherNumber_, else false.
+This takes magnitude into account, so that a million is close to a million and one, but one is not close to two.
+
+	1000000 ~ 1000001 & { 1 !~ 2 }
 
 _Rationale_:
 The use of ~ as the operator to indicate _similar to_ is a standard mathematical notation.
