@@ -831,6 +831,16 @@ Set().Array = []
 [1 .. 9].ifNotEmptyDo { :aCollection | aCollection.size = 9 } = true (* branch on isEmpty *)
 [1 .. 9].average = 5 (* mean, sum divided by size *)
 [1 .. 9].average = (45 / 9) (* mean, sum divided by size *)
+(x: (y: 1)).atPath(['x', 'y']) = 1 (* atPath of dictionaries, depth = 2 *)
+(x: (y: (z: 1))).atPath(['x', 'y', 'z']) = 1 (* atPath of dictionaries, depth = 3 *)
+(w: (x: (y: (z: 1)))).atPath(['w', 'x', 'y', 'z']) = 1  (* atPath of dictionaries, depth = 4 *)
+(x: (y: 1))::x::y = 1 (* index sequence *)
+(x: (y: 1))['x'; 'y'] = 1 (* atPath (matrix) syntax of dictionaries *)
+(x: (y: (z: 1)))['x'; 'y'; 'z'] = 1 (* atPath (volume) syntax of dictionaries *)
+(w: (x: (y: (z: 1))))['w'; 'x'; 'y'; 'z'] = 1 (* atPath syntax of dictionaries *)
+[['w', 'x'], ['y', 'z']].atPath([1, 2]) = 'x' (* atPath of arrays *)
+[['w', 'x'], ['y', 'z']][1][2] = 'x' (* index sequence *)
+[['w', 'x'], ['y', 'z']][1; 2] = 'x' (* atPath syntax of arrays *)
 ```
 
 ## Colour -- graphics type
@@ -2715,6 +2725,13 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 | a = 1, b = 3, c = 5; | [a b c; c b a] = [[1, 3, 5], [5, 3, 1]] (* matrix syntax, identifier items *)
 [1 2; 3 4;; 5 6; 7 8] = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]  (* volume syntax, literal items *)
 | a = 1, b = 3; | [a b; b a;; b a; a b] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] (* volume syntax, identifier items *)
+[1 0 0; 0 1 0; 0 0 1;; 0 1 0; 1 0 1; 0 1 0;; 1 0 1; 0 1 0; 1 0 1].collect(sum:/1) = [1 1 1; 1 2 1; 2 1 2] (* volume to matrix *)
+[1 0 0; 0 1 0; 0 0 1;; 0 1 0; 1 0 1; 0 1 0].transpose = [1 0 0; 0 1 0;; 0 1 0; 1 0 1;; 0 0 1; 0 1 0] (* transposed *)
+[1 2 3; 4 5 6][2][3] = 6 (* matrix indexing *)
+[1 2 3; 4 5 6].atPath([2]) = [4 5 6] (* matrix indexing; atPath, single index *)
+[1 2 3; 4 5 6].atPath([2, 3]) = 6 (* matrix indexing; atPath, two indices *)
+{ [1 2 3; 4 5 6].atPath([]) }.ifError { true } (* matrix indexing; atPath, empty indices is an error *)
+[1 2 3; 4 5 6][2; 3] = 6 (* matrix indexing; atPath syntax *)
 ```
 
 ## Syntax -- collection access and mutation

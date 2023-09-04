@@ -61,7 +61,7 @@ const asJs: any = {
 	Program(tmp, stm) {
 		return tmp.asJs + stm.asJs;
 	},
-	TemporariesWithInitializers(_verticalBar1, tmp, _semiColon, _verticalBar2) {
+	TemporariesWithInitializers(_leftVerticalBar, tmp, _semiColon, _rightVerticalBar) {
 		return `var ${commaList(tmp.asIteration().children)};`;
 	},
 	TemporaryWithBlockLiteralInitializer(nm, _equals, blk) {
@@ -143,6 +143,18 @@ const asJs: any = {
 	},
 	AtAllSyntax(c, _leftBracket, k, _rightBracket) {
 		return `_${genName('atAll', 2)}(${c.asJs}, [${commaList(k.asIteration().children)}])`;
+	},
+	AtMatrixSyntax(c, _leftBracket, i, _semicolon, j, _rightBracket) {
+		var at = `_${genName(atMethod(), 2)}`;
+		return `${at}(${at}(${c.asJs}, ${i.asJs}), ${j.asJs})`;
+	},
+	AtVolumeSyntax(c, _leftBracket, i, _semicolonOne, j, _semicolonTwo, k, _rightBracket) {
+		var at = `_${genName(atMethod(), 2)}`;
+		return `${at}(${at}(${at}(${c.asJs}, ${i.asJs}), ${j.asJs}), ${k.asJs})`;
+	},
+	AtPathSyntax(c, _leftBracket, k, _rightBracket) {
+		console.log('AtPathSyntax!');
+		return `_${genName('atPath', 2)}(${c.asJs}, [${commaList(k.asIteration().children)}])`;
 	},
 	AtQuotedSyntax(c, _colonColon, k) {
 		return `_${genName(atMethod(), 2)}(${c.asJs}, '${k.sourceString}')`;

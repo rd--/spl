@@ -49,6 +49,9 @@ Sl {
 		| WriteSlotSyntax
 		| AtSyntax
 		| AtAllSyntax
+		| AtMatrixSyntax
+		| AtVolumeSyntax
+		| AtPathSyntax
 		| AtQuotedSyntax
 		| ReadSlotSyntax
 		| ValueApply
@@ -81,6 +84,9 @@ Sl {
 	AtPutQuotedSyntax = Primary "::" identifier ":=" Expression
 	AtSyntax = Primary "[" Expression "]"
 	AtAllSyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
+	AtMatrixSyntax = Primary "[" Expression ";" Expression "]"
+	AtVolumeSyntax = Primary "[" Expression ";" Expression ";" Expression "]"
+	AtPathSyntax = Primary "[" NonemptyListOf<Expression, ";"> "]"
 	AtQuotedSyntax = Primary "::" identifier
 	AtPutDelegateSyntax = Primary ":." identifier ":=" Expression
 	MessageSendSyntax = Primary ":." identifier NonEmptyParameterList?

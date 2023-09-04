@@ -1092,6 +1092,18 @@
 		self[index] := aBlock(self[index])
 	}
 
+	atPath { :self :indices |
+		| item = self; |
+		indices.ifEmpty {
+			self.error('atPath: empty indices')
+		} {
+			indices.do { :index |
+				item := item[index]
+			};
+			item
+		}
+	}
+
 	atPut { :self :index :anObject |
 		self.basicAtPut(index, anObject)
 	}
@@ -1231,7 +1243,6 @@
 		anObject
 	}
 
-
 	atLastPut { :self :indexFromEnd :anObject |
 		self[self.size + 1 - indexFromEnd] := anObject
 	}
@@ -1247,7 +1258,6 @@
 			}
 		}
 	}
-
 
 	atWrap { :self :index |
 		self[index - 1 % self.size + 1]
