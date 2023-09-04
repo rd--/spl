@@ -257,7 +257,7 @@
 	}
 
 	divisors { :self |
-		1.upTo(self).select { :each |
+		1.to(self).select { :each |
 			self.remainder(each) = 0
 		}
 	}
@@ -419,7 +419,7 @@
 
 	primesArray { :self |
 		| answer = Array(self), n = 1; |
-		1.upToDo(self) { :index |
+		answer.indicesDo { :index |
 			n := n.nextPrime;
 			answer[index] := n
 		};
@@ -914,7 +914,12 @@
 	}
 
 	toDo { :self :end :aProcedure:/1 |
-		self.upToDo(end, aProcedure:/1)
+		| index = self; |
+		{ index <= end }.whileTrue {
+			aProcedure(index);
+			index := index + 1
+		};
+		self
 	}
 
 	truncateTo { :self :aNumber |
@@ -930,12 +935,10 @@
 	}
 
 	upToDo { :self :end :aProcedure:/1 |
-		| index = self; |
-		{ index <= end }.whileTrue {
-			aProcedure(index);
-			index := index + 1
+		(end < self).ifTrue {
+			self.error('upToDo: not ascending')
 		};
-		self
+		self.toDo(end, aProcedure:/1)
 	}
 
 	zero { :self |
@@ -1265,10 +1268,10 @@ Character : [Object, Magnitude] { | string codePoint |
 			integerValue = self.asInteger,
 			digitValues = system.cache.atIfAbsentPut('digitValues') {
 				| answer = Array(256, -1); |
-				0.toDo(9) { :i |
+				0.upToDo(9) { :i |
 					answer[48 + i + 1] := i
 				};
-				10.toDo(35) { :i |
+				10.upToDo(35) { :i |
 					answer[55 + i + 1] := i;
 					answer[87 + i + 1] := i
 				};
@@ -1548,6 +1551,10 @@ Complex : [Object] { | real imaginary |
 		Complex(self.real.negated, self.imaginary.negated)
 	}
 
+	one { :self |
+		Complex(1, 0)
+	}
+
 	printString { :self |
 		(self.imaginary < 0).if {
 			[self.real, ' - ', self.imaginary.abs, '.i'].join
@@ -1614,6 +1621,11 @@ Complex : [Object] { | real imaginary |
 			')'
 		].join
 	}
+
+	zero { :self |
+		Complex(0, 0)
+	}
+
 }
 
 +@Number {
@@ -1918,6 +1930,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
+	one { :self |
+		Fraction(1, 1)
+	}
+
 	printString { :self |
 		[self.numerator, ':', self.denominator].join
 	}
@@ -1988,6 +2004,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	unicode { :self |
 		system.unicodeFractionsTable.indexOf(self)
+	}
+
+	zero { :self |
+		Fraction(0, 1)
 	}
 
 }
@@ -2526,6 +2546,10 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 		<primitive: return Math.abs(_self % 2) === 1;>
 	}
 
+	one { :self |
+		1
+	}
+
 	printString { :self :radix |
 		<primitive:
 		if(Number.isFinite(_self)) {
@@ -2622,6 +2646,10 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 
 	veryCloseTo { :self :aNumber |
 		self.closeToBy(aNumber, 0.000000000001)
+	}
+
+	zero { :self |
+		0
 	}
 
 }
@@ -3474,7 +3502,7 @@ String : [Object, Json, Iterable] {
 	}
 
 	indices { :self |
-		1.upTo(self.size)
+		1.to(self.size)
 	}
 
 	indicesOf { :self :aString |
@@ -3713,7 +3741,7 @@ String : [Object, Json, Iterable] {
 				passCount = 0
 			)|
 			entries[1].postLine;
-			2.upTo(testCount + 1).collect { :index |
+			2.to(testCount + 1).collect { :index |
 				| test = entries[index]; |
 				options.atIfAbsent('verbose', false).ifTrue {
 					test.postLine
@@ -3762,7 +3790,7 @@ String : [Object, Json, Iterable] {
 
 	utf16Array { :self |
 		| answer = []; |
-		1.upToDo(self.countUtf16CodeUnits) { :index |
+		1.toDo(self.countUtf16CodeUnits) { :index |
 			answer.add(self.utf16CodePointAt(index))
 		};
 		answer

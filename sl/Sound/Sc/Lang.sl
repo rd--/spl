@@ -502,7 +502,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	do { :self :aProcedure:/1 |
 		(* Spl is one-indexed *)
-		1.upToDo(self, aProcedure:/1);
+		1.toDo(self, aProcedure:/1);
 		self
 	}
 
@@ -571,7 +571,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 			answerSize = self.collect(size:/1).product,
 			tuple = self.species.new(self.size)
 		)|
-		1.upToDo(answerSize) { :i |
+		answer.indicesDo { :i |
 			| k = i - 1; |
 			self.size.toByDo(1, -1) { :j |
 				| fromSequence = self[j]; |
@@ -915,7 +915,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	wrapExtend { :self :size |
 		| answer = []; |
-		1.upToDo(size) { :index |
+		1.toDo(size) { :index |
 			answer.add(self.atWrap(index))
 		};
 		answer

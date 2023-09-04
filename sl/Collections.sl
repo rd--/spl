@@ -112,7 +112,7 @@
 
 	injectInto { :self :anObject :aProcedure:/2 |
 		| result = anObject; |
-		1.upToDo(self.size) { :index |
+		self.indicesDo { :index |
 			result := aProcedure(result, self[index])
 		};
 		result
@@ -133,7 +133,7 @@
 
 	occurrencesOf { :self :anObject |
 		| tally = 0; |
-		1.upToDo(self.size) { :index |
+		self.indicesDo { :index |
 			(self[index] = anObject).ifTrue {
 				tally := tally + 1
 			}
@@ -304,6 +304,10 @@
 		self.reject { :each |
 			aCollection.includes(each)
 		}
+	}
+
+	doesNotInclude { :self :anObject |
+		self.includes(anObject).not
 	}
 
 	emptyCheck { :self |
@@ -1151,6 +1155,10 @@
 		self.error('@Indexable>>indices: type responsibility')
 	}
 
+	indicesDo { :self :aBlock:/1 |
+		self.indices.do(aBlock:/1)
+	}
+
 	isIndexable { :self |
 		true
 	}
@@ -1198,7 +1206,7 @@
 	}
 
 	allButFirstDo { :self :aBlock:/1 |
-		2.upToDo(self.size) { :index |
+		2.toDo(self.size) { :index |
 			aBlock(self[index])
 		}
 	}
@@ -1212,7 +1220,7 @@
 	}
 
 	allButLastDo { :self :aBlock:/1 |
-		1.upToDo(self.size - 1) { :index |
+		1.toDo(self.size - 1) { :index |
 			aBlock(self[index])
 		}
 	}
@@ -1235,7 +1243,7 @@
 
 	atAll { :self :indexArray |
 		| answer = self.species.ofSize(indexArray.size); |
-		1.upToDo(indexArray.size) { :index |
+		indexArray.indicesDo { :index |
 			answer[index] := self[indexArray[index]]
 		};
 		answer
@@ -1246,7 +1254,7 @@
 		(size > 50).if {
 			self.fromToPut(1, size, anObject)
 		} {
-			1.upToDo(size) { :index |
+			self.indicesDo { :index |
 				self[index] := anObject
 			}
 		};
@@ -1291,7 +1299,7 @@
 			(self.size < sequenceSize).ifTrue {
 				false.return
 			};
-			1.upToDo(sequenceSize) { :index |
+			1.toDo(sequenceSize) { :index |
 				(sequence[index] = self[index]).ifFalse {
 					false.return
 				}
@@ -1308,7 +1316,7 @@
 
 	collect { :self :aProcedure:/1 |
 		| answer = self.species.ofSize(self.size); |
-		1.upToDo(self.size) { :index |
+		self.indicesDo { :index |
 			answer[index] := aProcedure(self[index])
 		};
 		answer
@@ -1320,7 +1328,7 @@
 	}
 
 	combinationsAtInAfterDo { :self :j :aCollection :n :aBlock:/1 |
-		(n + 1).upToDo(self.size) { :index |
+		(n + 1).toDo(self.size) { :index |
 			aCollection[j] := self[index];
 			(j = aCollection.size).if {
 				aBlock(aCollection)
@@ -1378,14 +1386,14 @@
 	}
 
 	do { :self :aProcedure:/1 |
-		1.upToDo(self.size) { :index |
+		self.indicesDo { :index |
 			aProcedure(self[index])
 		};
 		self
 	}
 
 	doSeparatedBy { :self :elementBlock:/1 :separatorBlock:/0 |
-		1.upToDo(self.size) { :index |
+		self.indicesDo { :index |
 			(index = 1).ifFalse {
 				separatorBlock()
 			};
@@ -1402,7 +1410,7 @@
 	}
 
 	doWithout { :self :aBlock:/1 :anItem |
-		1.upToDo(self.size) { :index |
+		self.indicesDo { :index |
 			(anItem = self[index]).ifFalse {
 				aBlock(self[index])
 			}
@@ -1410,7 +1418,7 @@
 	}
 
 	fillWith { :self :aBlock |
-		1.toDo(self.size) { :index |
+		self.indicesDo { :index |
 			self[index] := aBlock.cull(index)
 		};
 		self
@@ -1478,6 +1486,10 @@
 		self.copyFromTo(1, n)
 	}
 
+	firstIndex { :self |
+		1
+	}
+
 	fisherYatesShuffleBy { :self :random |
 		self.size.downToDo(2) { :item |
 			self.swapWith(item, random.randomInteger(1, item))
@@ -1509,7 +1521,7 @@
 	}
 
 	fromToDo { :self :start :stop :aBlock:/1 |
-		start.upToDo(stop) { :index |
+		start.toDo(stop) { :index |
 			aBlock(self[index])
 		}
 	}
@@ -1564,7 +1576,7 @@
 			self.size = otherCollection.size
 		}).if {
 			valueWithReturn { :return:/1 |
-				1.upToDo(self.size) { :index |
+				self.indicesDo { :index |
 					(self[index] = otherCollection[index]).ifFalse {
 						false.return
 					}
@@ -1603,7 +1615,7 @@
 
 	indexOfStartingAt { :self :anElement :start |
 		valueWithReturn { :return:/1 |
-			start.upToDo(self.size) { :index |
+			start.toDo(self.size) { :index |
 				(self[index] = anElement).ifTrue {
 					index.return
 				}
@@ -1623,7 +1635,7 @@
 		} {
 			| first = subCollection[1]; |
 			valueWithReturn { :return:/1 |
-				start.max(1).upToDo(self.size - subCollectionSize + 1) { :startIndex |
+				start.max(1).toDo(self.size - subCollectionSize + 1) { :startIndex |
 					(self[startIndex] = first).ifTrue {
 						| index = 2; |
 						{
@@ -1653,6 +1665,10 @@
 
 	indices { :self |
 		(1 .. self.size)
+	}
+
+	indicesDo { :self :aBlock:/1 |
+		1.toDo(self.size, aBlock:/1)
 	}
 
 	indicesOfSubCollection { :self :subCollection |
@@ -1692,7 +1708,7 @@
 		} {
 			| previousElement = self[startIndex]; |
 			valueWithReturn { :return:/1 |
-				(startIndex + 1).upToDo(endIndex) { :index |
+				(startIndex + 1).toDo(endIndex) { :index |
 					| element = self[index]; |
 					aProcedure(previousElement, element).ifFalse {
 						false.return
@@ -1705,11 +1721,11 @@
 	}
 
 	keysDo { :self :aBlock:/1 |
-		1.upToDo(self.size, aBlock:/1)
+		self.indicesDo(aBlock:/1)
 	}
 
 	keysAndValuesDo { :self :aBlock:/2 |
-		1.upToDo(self.size) { :index |
+		self.indicesDo { :index |
 			aBlock(index, self[index])
 		}
 	}
@@ -1721,6 +1737,10 @@
 	last { :self :n |
 		| size = self.size; |
 		self.copyFromTo(size - n + 1, size)
+	}
+
+	lastIndex { :self |
+		self.size
 	}
 
 	lastIndexOf { :self :anElement |
@@ -1767,7 +1787,7 @@
 	}
 
 	pairsDo { :self :aProcedure:/2 |
-		1.upToDo(self.size // 2) { :index |
+		1.toDo(self.size // 2) { :index |
 			aProcedure(self[2 * index - 1], self[2 * index])
 		}
 	}
@@ -1801,7 +1821,7 @@
 	}
 
 	replace { :self :aBlock:/1 |
-		1.upToDo(self.size) { :index |
+		self.indicesDo { :index |
 			self[index] := aBlock(self[index])
 		}
 	}
@@ -1825,7 +1845,7 @@
 
 	reversed { :self |
 		| answer = self.species.ofSize(self.size), fromIndex = self.size + 1; |
-		1.upToDo(self.size) { :toIndex |
+		self.indicesDo { :toIndex |
 			answer[toIndex] := self[fromIndex - 1];
 			fromIndex := fromIndex - 1
 		};
@@ -1874,7 +1894,7 @@
 
 	select { :self :aProcedure:/1 |
 		| answer = []; |
-		1.upToDo(self.size) { :index |
+		self.indicesDo { :index |
 			aProcedure(self[index]).ifTrue {
 				answer.add(self[index])
 			}
@@ -1965,28 +1985,28 @@
 
 	withDo { :self :otherCollection :twoArgBlock:/2 |
 		self.isOfSameSizeCheck(otherCollection);
-		1.upToDo(self.size) { :index |
+		self.indicesDo { :index |
 			twoArgBlock(self[index], otherCollection[index])
 		}
 	}
 
 	withReplace { :self :otherCollection :aProcedure:/2 |
 		self.isOfSameSizeCheck(otherCollection);
-		1.toDo(self.size) { :index |
+		self.indicesDo { :index |
 			self[index] := aProcedure(self[index], otherCollection[index])
 		}
 	}
 
 	withIndexCollect { :self :elementAndIndexProcedure:/2 |
 		| answer = self.species.ofSize(self.size); |
-		1.upToDo(self.size) { :index |
+		self.indicesDo { :index |
 			answer[index] := elementAndIndexProcedure(self[index], index)
 		};
 		answer
 	}
 
 	withIndexDo { :self :elementAndIndexProcedure:/2 |
-		1.upToDo(self.size) { :index |
+		self.indicesDo { :index |
 			elementAndIndexProcedure(self[index], index)
 		}
 	}
@@ -2242,7 +2262,7 @@ Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, 
 			answerSize = stop - self + 1,
 			answer = species.ofSize(answerSize)
 		)|
-		1.upToDo(answerSize) { :index |
+		1.toDo(answerSize) { :index |
 			answer[index] := aProcedure(index + self - 1)
 		};
 		answer
@@ -2262,7 +2282,7 @@ Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, 
 
 	replicateApplying { :self :anInteger :aProcedure:/1 |
 		| answer = Array(anInteger); |
-		1.upToDo(anInteger) { :index |
+		answer.indicesDo { :index |
 			answer[index] := aProcedure(self)
 		};
 		answer
@@ -2278,7 +2298,7 @@ Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, 
 
 	Array { :self |
 		| answer = Array(self.size); |
-		1.upToDo(self.size) { :index |
+		self.indicesDo { :index |
 			answer[index] := self[index]
 		};
 		answer
@@ -2432,7 +2452,7 @@ ByteArray : [Object, Iterable, Indexable, Collection, SequenceableCollection, Ar
 			],
 			crc = 0
 		)|
-		1.toDo(self.size) { :index |
+		self.indicesDo { :index |
 			|(
 				octet = self[index],
 				tableIndex = crc.bitXor(octet).bitAnd(16rFF) + 1
@@ -3203,6 +3223,9 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 +@Number {
 
 	downTo { :self :stop |
+		(stop > self).ifTrue {
+			self.error('downTo: non descending')
+		};
 		Interval(self, stop, -1)
 	}
 
@@ -3215,7 +3238,7 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 	}
 
 	to { :self :stop |
-		self.upTo(stop)
+		Interval(self, stop, 1)
 	}
 
 	toBy { :self :stop :step |
@@ -3235,6 +3258,9 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 	}
 
 	upTo { :self :stop |
+		(stop < self).ifTrue {
+			self.error('upTo: non ascending')
+		};
 		Interval(self, stop, 1)
 	}
 

@@ -237,9 +237,9 @@ Array([]) = [] (* Array constructor, empty array *)
 [].anySatisfy(odd:/1) = false
 [0, 2, 4, 6, 8].anySatisfy(odd:/1) = false
 [0, 1].anySatisfy(odd:/1) = true
-[].noneSatisfy(odd:/1) = true
-[1, 3, 5, 7, 9].noneSatisfy(even:/1) = true
-[1, 2, 3, 4, 5].noneSatisfy(odd:/1) = false
+[].noneSatisfy(odd:/1) = true (* empty collection answers true *)
+[1, 3, 5, 7, 9].noneSatisfy(even:/1) = true (* no odd number is even *)
+[1, 2, 3, 4, 5].noneSatisfy(odd:/1) = false (* one is odd *)
 [1, 2, 3] ++ [4, 5, 6] = [1 .. 6] (* addAllLast, answering new like collection, unicode = ⧺ *)
 | a = [1, 2, 3]; | a.addAllLast([4, 5, 6]); a = [1 .. 6]
 | a = [1, 2, 3], b = a ++ [4, 5, 6]; | a ~~ b & { a = [1 .. 3] } & { b = [1 .. 6] }
@@ -283,8 +283,9 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6] (* ++ equals plusPlus *)
 [1, 2, 3, 2, 3].lastIndexOf(3) = 5 (* index of last occurrence of element in sequence *)
 [1, 2, 3, 2, 3].lastIndexOf(4) = 0 (* or zero *)
 [1, 2, 3, 2, 3].lastIndexOfIfAbsent(4) { true }
-[9 .. 1].includes(3) = true (* predicate to decide if a collection includes an element, unicode = ∋ *)
+[9 .. 1].includes(3) = true (* decide if a collection includes an element, unicode = ∋ *)
 [1 .. 9].includes(9) (* an array includes its last element *)
+[1 .. 7].doesNotInclude(9) (* decide if a collection does not include an element, unicode = ∌ *)
 [9 .. 1].anySatisfy { :each | each = 3 } = true
 [].includes(3) = false (* the empty collection does not include any element *)
 [9 .. 1].includesAllOf([3 .. 7]) = true
@@ -944,6 +945,8 @@ Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 (1 + 2.i).exp ~ (-1.1312 + 2.4717.i)
 (1 + 2.i).sinh ~ (-0.4891 + 1.4031.i)
 (-1 + 0.i).sqrt = (0 + 1.i) (* the square root of negative one is i *)
+(2 + 3.i).zero = (0 + 0.i) (* zero of same type, i.e. complex *)
+(2 + 3.i).one = (1 + 0.i) (* one of same type, i.e. complex *)
 ```
 
 ## Conditional Statements
@@ -1103,6 +1106,7 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 (x: 1, y: 2, z: 3).associations = ['x' -> 1, 'y' -> 2, 'z' -> 3] (* array of associations *)
 (x: 1, y: 2, z: 3).basicAt('x') = 1 (* unchecked lookup *)
 (x: 1, y: 2, z: 3).basicAt('u') = nil (* unchecked lookup, nil on absent key *)
+| a = Array(9); | a.indicesDo { :each | a[each] := 10 - each }; a = [9 .. 1] (* iterate indices *)
 ```
 
 ## Duration -- temporal type
@@ -1360,6 +1364,8 @@ SmallFloat(1:2) = (1 / 2)
 0.3333 ~ 1:3
 0.33 < (1:3)
 1:3 - 0.33 ~ 0.003333
+1:3.zero = Fraction(0, 1) (* zero of same type, i.e. fraction *)
+1:3.one = Fraction(1, 1) (* one of same type, i.e. fraction *)
 ```
 
 ## Hash -- murmur hash
@@ -1414,11 +1420,12 @@ true == true & { false == false } (* boolean identity *)
 | n = 2; | 3.timesRepeat { n := n * n }; n = 256 (* iteration *)
 (0 .. 15).collect(asHexDigit:/1).join = '0123456789ABCDEF' (* integer to hex character *)
 | a = []; | 1.upToDo(5) { :each | a.add(each) }; a = [1 .. 5] (* iterate over integer sequence *)
-| a = []; | 5.upToDo(1) { :each | a.add(each) }; a = [] (* non-ascending sequences are empty *)
+{ 5.upToDo(1) { :each | nil } }.ifError { true } (* non-ascending sequences are an error *)
 | a = []; | 5.downToDo(1) { :each | a.add(each) }; a = [5 .. 1] (* iterate over integer sequence *)
-| a = []; | 1.downToDo(5) { :each | a.add(each) }; a = [] (* non-descending sequences are empty *)
-| a = []; | 1.toDo(5) { :each | a.add(each) }; a = [1 .. 5] (* toDo is upToDo *)
-| a = []; | 5.toDo(1) { :each | a.add(each) }; a = [] (* toDo is upToDo *)
+{ 1.downToDo(5) }.ifError { true } (* non-descending sequences are an error *)
+| a = []; | 1.toByDo(5, 1) { :each | a.add(each) }; a = [1 .. 5] (* with step *)
+| a = []; | 1.toDo(5) { :each | a.add(each) }; a = [1 .. 5] (* toDo is upToDo if ascending *)
+| a = []; | 5.toDo(1) { :each | a.add(each) }; a = [] (* non-ascending sequences are empty *)
 (0 .. 255).collect { :each | each.digitAt(1) } = [0 .. 255]
 (0 .. 255).collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 0 }
 (256 .. 511).collect { :each | each.digitAt(1) } = [0 .. 255]
@@ -1526,7 +1533,7 @@ Interval(5, 10, 2).last = 9 (* create interval object with specified increment *
 (9 .. 1).Array = [9 .. 1]
 (5 .. 1).Array = [5 .. 1]
 (5, 3 .. 1).Array = [5, 3 .. 1]
-5.downTo(1).Array = [5, 4, 3, 2, 1]
+5.toBy(1, -1).Array = [5, 4, 3, 2, 1]
 5.toBy(1, -2).Array = [5, 3, 1]
 (1.5 .. 4.5).Array = [1.5, 2.5, 3.5, 4.5] (* non-integer start and end *)
 (1 .. 9).min = 1 & { (9 .. 1).min = 1 } (* minima *)
@@ -1587,9 +1594,12 @@ Interval(1, 6, 2).reversed.Array = [5, 3, 1]
 (3 .. 7).any(3) = [3 .. 5] (* any three elements, chooses first *)
 (1 .. 9).max = 9
 (1 .. 0).size = 2
-1.upTo(0).size = 0
+3.to(5) = (3 .. 5)
+1.to(0).size = 0
 3.upTo(5) = (3 .. 5)
-0.downTo(1).size = 0
+{ 1.upTo(0) }.ifError { true } (* upTo must be ascending *)
+{ 0.downTo(1) }.ifError { true } (* downTo must be descending *)
+0.toBy(1, -1).size = 0 (* toBy is the correct way to write a downTo that may be empty *)
 5.downTo(3) = (5 .. 3)
 3.upOrDownTo(5) = 5.upOrDownTo(3).reversed
 | s = ''; | (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531' (* do from end *)
@@ -2340,6 +2350,7 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | a = [2, 4 .. 8]; | a /= [1 .. 4]; a = [2, 2, 2, 2] (* in place array/array division *)
 | a = [9 .. 1]; | a.withReplace((1 .. 9)) { :p :q | p * 2 + q }; a = [19 .. 11] (* in place withCollect *)
 [7 .. 4].indexValueAssociations = [1 -> 7, 2 -> 6, 3 -> 5, 4 -> 4] (* the (index -> value) associations of a sequence *)
+| a = []; | (x: 1, y: 2, z: 3).indicesDo { :each | a.add(each) }; a = ['x', 'y', 'z'] (* iterate indices *)
 ```
 
 ## Sequence arithmetic
@@ -2462,7 +2473,7 @@ pi.randomFloat.isInteger = false
 [3.141.json, 23.json] = ['3.141', '23'] (* numbers have json encodings *)
 ['3.141', '23'].collect(parseJson:/1) = [3.141, 23] (* parse json numbers *)
 | r | 1.toDo(5) { :each | r := each }; r = 5
-| r | 1.upTo(0).do { :each | r := each }; r = nil
+| r | 1.to(0).do { :each | r := each }; r = nil
 1.toDo(0) { :each | 'toDo'.error }; true (* end less than start *)
 '3.141'.parseNumber = 3.141
 '23'.parseInteger(10) = 23
@@ -2498,7 +2509,7 @@ pi.isFinite = true
 (1/3).closeTo(0.333) = false
 [-1000000000000000, -100, -5, -3, -2, -1, 0, 1].select(isPrime:/1).isEmpty
 [17, 78901, 104729, 15485863, 2038074743].allSatisfy(isPrime:/1)
-[561, 2821, 6601, 10585, 15841, 256, 29996224275831].noneSatisfy(isPrime:/1)
+[561, 2821, 6601, 10585, 15841, 256, 29996224275831].noneSatisfy(isPrime:/1) (* no primes here *)
 1.00001.reduce = 1 (* round if number is closeTo an integer *)
 1.5.reduce = 1.5 (* identity if number is not closeTo an integer *)
 | x = (2 ** 54); | x ~= (x - 1) = false (* large numbers behave strangely *)
@@ -2540,6 +2551,8 @@ pi.sin.abs < 0.00000000001 (* sin of pi is close to zero *)
 | n = 3.141; | n.copy == n (* copy is identity *)
 pi.in { :pi | pi } = pi (* pi is a constant, it can be shadowed *)
 | pi = 23; | pi = 23 (* pi is a constant, it can be shadowed *)
+pi.zero = 0 (* zero of same type, i.e. small float *)
+pi.one = 1 (* one of same type, i.e. small float *)
 ```
 
 ## SmallFloat -- modulo

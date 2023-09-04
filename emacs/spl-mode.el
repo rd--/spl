@@ -171,8 +171,10 @@
      ("union" . ?∪) ; U+222A ∪ Union
      ("intersection" . ?∩) ; U+2229 ∩ Intersection
      ("includes" . ?∋) ; U+220B ∋ Contains as Member
+     ("doesNotInclude" . ?∌) ; Unicode: U+220C ∌ Does not contain as member
      ("flat" . ?♭) ; U+266D ♭ Music Flat Sign
      ("sharp" . ?♯) ; U+266F ♯ Music Sharp Sign
+     ("natural" . ?♮) ; U+266E ♮ Music Natural Sign
      ("quarterToneFlat" .?𝄳) ; U+1D133 𝄳 Musical Symbol Quarter Tone Flat
      ("quarterToneSharp" .?𝄲) ; U+1D132 𝄲 Musical Symbol Quarter Tone Sharp
      )))

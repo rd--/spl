@@ -3,9 +3,10 @@
 - _downTo(start, stop)_
 
 Construct an Interval by counting down from _start_ to _stop_ by one.
+Unlike to it is an error is stop is greater than start.
 
 	  5.downTo(1).Array = [5, 4, 3, 2, 1]
-	  1.downTo(5).Array = []
+	  { 1.downTo(5) }.ifError { true }
 
 * * *
 

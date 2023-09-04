@@ -294,3 +294,5 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+2A7D ⩽ LESS-THAN OR SLANTED EQUAL TO
 - U+2A7E ⩾ GREATER-THAN OR SLANTED EQUAL TO
 - U+22EF ⋯ MIDLINE HORIZONTAL ELLIPSIS
+- U+2209 ∉ Not An Element Of
+- U+220C ∌ DOES NOT CONTAIN AS MEMBER

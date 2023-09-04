@@ -181,13 +181,13 @@
 
 	shapeIndicesDo { :self :aBlock:/1 |
 		self.collect { :each |
-			1.upTo(each)
+			1.to(each)
 		}.allTuplesDo(aBlock:/1)
 	}
 
 	shapeIndices { :self |
 		self.collect { :each |
-			1.upTo(each)
+			1.to(each)
 		}.allTuples
 	}
 
