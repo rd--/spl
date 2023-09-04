@@ -1,9 +1,9 @@
 # < -- comparison operator
 
-- _self < aMagnitude_
-- _lessThan(self, aMagnitude)_
+- _aMagnitude < anotherMagnitude_
+- _p < q_ ⟹ _lessThan(p, q)_
 
-Answers _true_ is _self_ is less than _aMagnitude_
+Answers _true_ if _aMagnitude_ is less than _anotherMagnitude_
 
 * * *
 

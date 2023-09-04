@@ -432,6 +432,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 ```
 | a = 'a', b = 'b', c = 'c'; | a := b := c; [a, b, c] = ['c', 'c', 'c'] (* assignment is right-associative *)
 | a = nil; | (a := 1) = 1 (* assignment answers assigned value *)
+| a b | a := (b := 2 + 2) + 3 = 7 & { b = 4 } (* assignment answers assigned value *)
 | a = 1, b = 2, c = 3; | [a, b, c] := [b, c, a]; [a, b, c] = [2, 3, 1] (* permutation using array assignment syntax *)
 ```
 
@@ -645,9 +646,11 @@ true | { 'true |'.postLine; true } = true
 false | { true } = true (* logical or operator *)
 false.or { true } = true (* logical or procedure *)
 { true & false }.ifError { true } (* & applies the rhs, which must be a procedure *)
-true && true = true (* && applies value to the rhs *)
+true && true = true (* non-evaluating form of & (requires boolean operand) *)
+{ true && 'true' }.ifError { true } (* it is an error if operand is not a boolean *)
 { false | false }.ifError { true } (* | applies the rhs, which must be a procedure *)
-false || true = true (* || applies value to the rhs *)
+false || true = true (* non-evaluating form of | (requires boolean operand) *)
+{ false || 'true' }.ifError { true } (* it is an error if operand is not a boolean *)
 [true.json, false.json] = ['true', 'false'] (* booleans have json encodings *)
 ['true', 'false'].collect(parseJson:/1) = [true, false] (* parse json booleans *)
 true.ifTrue { true }
@@ -898,6 +901,38 @@ Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 (1 + 2.i) == (1 + 2.i) = false (* identity = different objects *)
 (1 + 2.i) ~= (1 + 4.i) = true (* inequality *)
 | c = 2.i, z = c.copy; | z.real := 3; z ~= c & { z = (3 + 2.i) } (* copy complex *)
+(0.5 * (2 + 0.i).log).exp = (0.5 * 2.log).exp (* natural logarithm *)
+(3 + 5.i) ** 0 = (1 + 0.i) (* exponent of zero answers one *)
+(3 + 5.i) ** 1 = (3 + 5.i) (* exponent of one is identity *)
+(3 + 5.i) ** 2 ~ (-16 + 30.i)
+(1 + 2.i) * (2 - 3.i) = (8 + 1.i) (* complex number with complex exponent *)
+(1 + 2.i) / (1 - 2.i) = (-0.6 + 0.8.i)
+(1 + 2.i) + (1 - 2.i) = (2 + 0.i)
+(-3 + 2.i) - (5 - 1.i) = (-8 + 3.i)
+(-1 + 2.i) ** 2 ~ (-3 - 4.i)
+(-1 + 2.i) ** 2.5 ~ (2.7296 - 6.9606.i)
+(-1 + 2.i) ** (1 + 1.i) = (-0.27910381075826657 + 0.08708053414102428.i)
+3 * (2 - 5.i) = (6 - 15.i)
+3 * ((2 - 5.i) ** 2) ~ (-63 - 60.i)
+3 * ((2 - 5.i) ** -1) ~ (0.2069 + 0.5172.i)
+2 * (1 - 1.i) = (2 - 2.i)
+(2 + 3.i) - 1 = (1 + 3.i)
+(1 + 2.i) + 0.5 = (1.5 + 2.i)
+(2 + 3.i) - 0.5.i = (2 + 2.5.i)
+0.75 * (1 + 2.i) = (0.75 + 1.5.i)
+(2 + 3.i) / 2 = (1 + 1.5.i)
+(1 - 3.i) / (2 + 2.i) = (-0.5 - 1.i)
+2 * (1.i ** 2) ~ (-2 + 0.i)
+1 + (3 / 4.i) = (1 - 0.75.i)
+| z = 1 + 2.i; | z.real = 1 & { z.imaginary = 2 }
+| z = 1 + 2.i; | z.conjugated = (1 - 2.i) & { z.absSquared = 5 }
+| z = 1 + 2.i; | z.abs ~ 2.2361 & { z.arg ~ 1.1071 } (* absolute value (modulus, magnitude) and argument (phase) *)
+1.i.sqrt ~ (0.7071 + 0.7071.i)
+(1 + 2.i).sqrt ~ (1.2720 + 0.7861.i)
+(1 + 2.i).cos ~ (2.0327 - 3.0519.i)
+(1 + 2.i).exp ~ (-1.1312 + 2.4717.i)
+(1 + 2.i).sinh ~ (-0.4891 + 1.4031.i)
+(-1 + 0.i).sqrt = (0 + 1.i) (* the square root of negative one is i *)
 ```
 
 ## Conditional Statements
@@ -1287,6 +1322,33 @@ pi.asFraction = 311:99 (* with maximumDenominator set to one hundred *)
 (1 / [2, 3, 5, 7, 11, 13, 17]).collect(asFraction:/1) = [1:2, 1:3, 1:5, 1:7, 1:11, 1:13, 1:17]
 6:8 * 4 = 3 (* answer integer *)
 7:8 / 3 = 7:24 (* division by integer is fraction *)
+6:9 = 2:3
+-4:8 = -1:2
+Fraction(5, -15).normalized = -1:3
+Fraction(-4, -12).normalized = 1:3
+2:3.numerator = 2
+2:3.denominator = 3
+2:3 = 6:9
+2:3 ~= 9:27
+3:7 < 1:2
+3:4 > 2:3
+2:4 + 1:6 = 2:3
+5:12 - 1:4 = 1:6
+5:8 * 3:12 = 5:32
+6:5 / 10:7 = 21:25
+SmallFloat(3:4) = 0.75
+SmallFloat(1:2) = (1 / 2)
+-1:3.typeOf = 'Fraction'
+3:5 + 1 = 8:5
+3:5 - 0.5 ~ 0.1
+2:7 * (1 + 2.i) = (2:7 + 4:7.i)
+2:7 * (1.5 + 2.i) ~ (0.4286 + 0.5714.i)
+3:2 / (1 + 2.i) ~ (3:10 - 3:5.i)
+1:2 + 2.i ~ (1:2 + 2:1.i)
+0.5 ~ 1:2
+0.3333 ~ 1:3
+0.33 < (1:3)
+1:3 - 0.33 = 0.0033333333333332993
 ```
 
 ## Hash -- murmur hash

@@ -147,7 +147,7 @@
      ("epsilon" . ?ε)
      ;; ("e" . ?𝑒)
      ("*" . ?×) ; U+00D7 × Multiplication Sign
-     ("**" . ?⇈)
+     ("**" . ?⇈) ; U+21C8 ⇈ Upwards Paired Arrows
      ("/" . ?÷) ; U+00F7 ÷ Division Sign
      ("true" . ?⊤) ; U+22A4 ⊤ Down Tack
      ("false" . ?⊥) ; U+22A5 ⊥ Up tack

@@ -1,9 +1,9 @@
-# >= -- comparison operator
+# > -- comparison operator
 
-- _aMagnitude >= anotherMagnitude_
-- _p >= q_ ⟹ _greaterThanEquals(p, q)_
+- _aMagnitude > anotherMagnitude_
+- _p > q_ ⟹ _greaterThan(p, q)_
 
-Answers _true_ if _aMagnitude_ is greater than or equal to _anotherMagnitude_
+Answers _true_ if _aMagnitude_ is greater than _anotherMagnitude_
 
 Where supported this operator is displayed as ≥.
 

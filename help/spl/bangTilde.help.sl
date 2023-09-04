@@ -1,6 +1,6 @@
 # !~ -- comparing
 
-- _p !~ q_ --> p.closeTo(q).not --> ≉
+- _p !~ q_ ⟹ p.closeTo(q).not
 
 Answer true if _p_ is not almost equal to (or not similar to) _q_, else false.
 

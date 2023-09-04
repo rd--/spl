@@ -1,7 +1,7 @@
 # / -- mathematical operator
 
 - _self / aNumber_
-- dividedBy(_self, aNumber)_
+- _p / q_ ⟹ _dividedBy(p, q)_
 
 Answer _self_ divivded by _aNumber_.
 

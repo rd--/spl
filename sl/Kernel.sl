@@ -1149,11 +1149,11 @@ Boolean : [Object, Json] {
 	}
 
 	&& { :self :anObject |
-		self & { anObject.value }
+		self & { anObject.if { true } { false } }
 	}
 
 	|| { :self :anObject |
-		self | { anObject.value }
+		self | { anObject.if { true } { false } }
 	}
 
 	always { :self :aProcedure:/0 |
@@ -1335,6 +1335,34 @@ Character : [Object, Magnitude] { | string codePoint |
 
 Complex : [Object] { | real imaginary |
 
+	= { :self :anObject |
+		anObject.isNumber.if {
+			anObject.isComplex.if {
+				(self.real = anObject.real) & {
+					self.imaginary = anObject.imaginary
+				}
+			} {
+				anObject.adaptToComplexAndApply(self, equals:/2)
+			}
+		} {
+			false
+		}
+	}
+
+	~ { :self :anObject |
+		anObject.isNumber.if {
+			anObject.isComplex.if {
+				(self.real ~ anObject.real) & {
+					self.imaginary ~ anObject.imaginary
+				}
+			} {
+				anObject.adaptToComplexAndApply(self, tilde:/2)
+			}
+		} {
+			false
+		}
+	}
+
 	* { :self :anObject |
 		anObject.isComplex.if {
 			|(
@@ -1391,32 +1419,46 @@ Complex : [Object] { | real imaginary |
 				((b * c) - (a * d)) / ((c * c) + (d * d))
 			)
 		} {
-			anObject.adaptToComplexAndApply(self, diviedBy:/2)
+			anObject.adaptToComplexAndApply(self, dividedBy:/2)
 		}
 	}
 
-	= { :self :anObject |
-		anObject.isNumber.if {
-			anObject.isComplex.if {
-				(self.real = anObject.real) & {
-					self.imaginary = anObject.imaginary
-				}
-			} {
-				anObject.adaptToComplexAndApply(self, equals:/2)
-			}
+	** { :self :aNumber |
+		(aNumber = 0).if {
+			Complex(1, 0)
 		} {
-			false
+			(aNumber = 1).if {
+				self
+			} {
+				(self = 0).if {
+					(aNumber < 0).if {
+						self.error('**: zero divide')
+					} {
+						self
+					}
+				} {
+					(aNumber * self.log).exp
+				}
+			}
 		}
 	}
 
 	abs { :self |
-		((self.real * self.real) + (self.imaginary * self.imaginary)).sqrt
+		self.absSquared.sqrt
+	}
+
+	absSquared { :self |
+		(self.real * self.real) + (self.imaginary * self.imaginary)
 	}
 
 	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
 		aCollection.collect { :element |
 			aProcedure(element, self)
 		}
+	}
+
+	adaptToFractionAndApply { :self :aFraction :aProcedure:/2 |
+		aProcedure(aFraction.asComplex, self)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
@@ -1486,12 +1528,12 @@ Complex : [Object] { | real imaginary |
 		}
 	}
 
-	ln { :self |
-		self.abs.ln + self.arg.i
+	log { :self |
+		self.abs.log + self.arg.i
 	}
 
 	log { :self :aNumber |
-		self.ln / aNumber.ln
+		self.log / aNumber.log
 	}
 
 	negated { :self |
@@ -1526,8 +1568,8 @@ Complex : [Object] { | real imaginary |
 	}
 
 	sqrt { :self |
-		(imaginary = 0 & {
-			real >= 0
+		(self.imaginary = 0 & {
+			self.real >= 0
 		}).if {
 			Complex(self.real.sqrt, 0)
 		} {
@@ -1535,7 +1577,7 @@ Complex : [Object] { | real imaginary |
 				v = (self.abs - self.real / 2).sqrt,
 				u = self.imaginary / 2 / v
 			)|
-			Compex(u, v)
+			Complex(u, v)
 		}
 	}
 
@@ -1566,7 +1608,7 @@ Complex : [Object] { | real imaginary |
 	}
 }
 
-+SmallFloat {
++@Number {
 
 	adaptToComplexAndApply { :self :aComplexNumber :aProcedure:/2 |
 		aProcedure(aComplexNumber, self.asComplex)
@@ -1787,6 +1829,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	asFraction { :self |
 		self
+	}
+
+	closeTo { :self :aNumber |
+		self.SmallFloat.closeToBy(aNumber.SmallFloat, 0.0001)
 	}
 
 	gcd { :self :aFraction |

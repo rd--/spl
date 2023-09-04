@@ -1,7 +1,7 @@
 # + -- mathematical operator
 
 - _self + aNumber_
-- plus(_self, aNumber)_
+- _p + q_ ⟹ _plus(p, q)_
 
 Answer sum of _self_ and _aNumber_.
 

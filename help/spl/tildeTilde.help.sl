@@ -1,9 +1,9 @@
 # ~~ -- comparing
 
-- _self ~~ anObject_
-- _tildeTilde(self, anObject)_
+- _anObject ~~ anotherObject_
+- _p ~~ q_ ⟹ _tildeTilde(p, q)_
 
-Answers _true_ if _self_ is not identical to _anObject_, else _false_.
+Answers _true_ if _anObject_ is not identical to _anotherObject_, else _false_.
 
 This is the non-identity operator.
 It decides if two values are not the same.

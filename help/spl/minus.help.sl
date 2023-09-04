@@ -1,7 +1,7 @@
 # - -- mathematical operator
 
 - _aNumber - anotherNumber_
-- minus(_aNumber, anotherNumber)_
+- _p - q_ ⟹ _minus(p, q)_
 
 Answer _anotherNumber_ subtracted from _aNumber_.
 

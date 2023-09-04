@@ -1,9 +1,11 @@
 # * -- mathematical operator
 
 - _aNumber * anotherNumber_
-- times(_aNumber, anotherNumber)_
+- _p * q_ ⟹ _times(p, q)_
 
 Answer _aNumber_ multiplied by _anotherNumber_.
+
+Where supported * is displayed as ×.
 
 * * *
 

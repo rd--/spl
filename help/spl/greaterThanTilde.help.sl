@@ -1,6 +1,6 @@
 # >~ -- comparing
 
-- p >~ q --> p > q | { p.closeTo(q) } --> ⪆
+- p >~ q ⟹ p > q | { p.closeTo(q) }
 
 Answer true if _p_ is greater than or similar to _q_, else false.
 

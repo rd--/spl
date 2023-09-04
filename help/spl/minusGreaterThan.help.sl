@@ -1,7 +1,7 @@
 # -> -- associate with
 
 - _key -> value_
-- _minusGreaterThan(key, value)_
+- _p -> q_ ⟹ _minusGreaterThan(p, q)_
 
 The _->_ operator creates as Association object associating _key_ with _value_.
 

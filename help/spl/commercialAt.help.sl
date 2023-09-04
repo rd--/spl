@@ -1,6 +1,7 @@
 # commercialAt -- graphics
 
-- _commercialAt(x, y)_ == _x@y_
+- _aNumber @ anotherNumber_
+- _p @ q_ ⟹ _commercialAt(p, q)_
 
 This operator is the point constructor in Smalltalk.
 

@@ -1,7 +1,7 @@
 # % -- mathematical operator
 
 - _self % aNumber_
-- _modulo(self, aNumber)_
+- _p % q_ ⟹ _modulo(p, q)_
 
 Answer the floating-point remainder of dividing _self_ by _aNumber_.
 
