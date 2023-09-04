@@ -10,7 +10,7 @@
 			return _self[_index - 1];
 		}
 		>
-		self.indexError('at', index)
+		self.errorInvalidIndex('at', index)
 	}
 
 	atIfPresentIfAbsent { :self :index :ifPresent:/1 :ifAbsent:/0 |
@@ -30,7 +30,7 @@
 			return _anObject;
 		}
 		>
-		self.indexError('atPut', index)
+		self.errorInvalidIndex('atPut', index)
 	}
 
 	basicAt { :self :index |
@@ -193,7 +193,7 @@
 				aProcedure(rcvrItem, selfItem)
 			}
 		} {
-			self.error('Only sequenceable collections may be combined arithmetically')
+			self.error('@Collection: only sequenceable collections may be combined arithmetically')
 		}
 	}
 
@@ -1116,6 +1116,16 @@
 		self.error('@Indexable>>basicAtPut: type responsibility')
 	}
 
+	errorInvalidIndex { :self :for :index |
+		self.error([
+			'errorInvalidIndex: index not correct type or out of range.',
+			' index: ', index,
+			' for: ', for,
+			' index.typeOf: ', index.typeOf,
+			' self.size: ', self.size
+		].join)
+	}
+
 	includesIndex { :self :anObject |
 		self.indices.includes(anObject)
 	}
@@ -1399,10 +1409,6 @@
 		}
 	}
 
-	errorSubscriptBounds { :self :index |
-		self.error('@SequenceableCollection>>errorSubscriptBounds: ' ++ index)
-	}
-
 	fillWith { :self :aBlock |
 		1.toDo(self.size) { :index |
 			self[index] := aBlock.cull(index)
@@ -1580,17 +1586,6 @@
 				index <= self.size
 			}
 		}
-	}
-
-	indexError { :self :for :index |
-		self.error([
-			'indexError: index not an integer or out of range.',
-			' index: ', index,
-			' for: ', for,
-			' index.typeOf: ', index.typeOf,
-			' index.isInteger: ', index.isInteger,
-			' self.size: ', self.size
-		].join)
 	}
 
 	indexOf { :self :anElement |
@@ -2044,7 +2039,7 @@
 			self.insertAt(newObject, index + 1);
 			newObject
 		} {
-			self.errorSubscriptBounds(index)
+			self.errorInvalidIndex('addAfterIndex', index)
 		}
 	}
 
@@ -2528,7 +2523,7 @@ Float64Array : [Object, Iterable, Indexable, Collection, SequenceableCollection,
 			return _aFloat;
 		}
 		>
-		self.indexError('atPut', index)
+		self.errorInvalidIndex('atPut', index)
 	}
 
 	shallowCopy { :self |
@@ -3046,7 +3041,7 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 		self.includesIndex(index).if {
 			self.step * (index - 1) + self.start
 		} {
-			self.indexError('at', index)
+			self.errorInvalidIndex('at', index)
 		}
 	}
 

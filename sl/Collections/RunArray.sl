@@ -1,7 +1,7 @@
-RunArray : [Object] { | runs values lastIndex lastRun lastOffset |
+RunArray : [Object, Indexable] { | runs values lastIndex lastRun lastOffset |
 
 	= { :self :anObject |
-		self == anObject.if {
+		(self == anObject).if {
 			true
 		} {
 			anObject.isRunArray & {
@@ -20,13 +20,17 @@ RunArray : [Object] { | runs values lastIndex lastRun lastOffset |
 		answer
 	}
 
+	allocatedSize { :self |
+		self.runs.size * 2 + 3
+	}
+
 	at { :self :index |
 		self.atSetRunOffsetAndValue(index) { :run :offset :value |
 			(offset < 0).ifTrue {
-				self.errorSubscriptBounds(index)
+				self.errorInvalidIndex('at', index)
 			};
 			(offset >= self.runs[run]).ifTrue{
-				self.errorSubscriptBounds(index)
+				self.indexError(index)
 			};
 			value
 		}
@@ -125,11 +129,7 @@ RunArray : [Object] { | runs values lastIndex lastRun lastOffset |
 	}
 
 	size { :self |
-		| size = 0; |
-		1.toDo(self.runs.size) { :index |
-			size := size + self.runs[index]
-		};
-		size
+		self.runs.sum
 	}
 
 	withIndexDo { :self :aBlock:/2 |

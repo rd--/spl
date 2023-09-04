@@ -120,7 +120,7 @@ LinkedList : [Object, Iterable, Collection, SequenceableCollection] { | firstLin
 
 	linkAt { :self :index |
 		self.linkAtIfAbsent(index) {
-			self.errorSubscriptBounds(index)
+			self.errorInvalidIndex('linkAt', index)
 		}
 	}
 

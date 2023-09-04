@@ -21,7 +21,7 @@ Heap : [Object, Iterable, Collection] { | array sortBlock indexUpdateBlock |
 
 	at { :self :index |
 		(index > self.size).if {
-			self.errorSubscriptBounds(index)
+			self.errorInvalidIndex('at', index)
 		} {
 			self.array[index]
 		}
@@ -85,10 +85,6 @@ Heap : [Object, Iterable, Collection] { | array sortBlock indexUpdateBlock |
 		self.downHeap(anIndex)
 	}
 
-	errorSubscriptBounds { :self :index |
-		('Heap>>errorSubscriptBounds: ' ++ index).error
-	}
-
 	first { :self |
 		self.array[1]
 	}
@@ -140,7 +136,7 @@ Heap : [Object, Iterable, Collection] { | array sortBlock indexUpdateBlock |
 
 	removeAt { :self :index |
 		(index > self.size).if {
-			self.errorSubscriptBounds(index)
+			self.errorInvalidIndex('removeAt', index)
 		} {
 			self.privateRemoveAt(index)
 		}
