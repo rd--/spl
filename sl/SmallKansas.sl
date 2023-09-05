@@ -1462,7 +1462,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				self.ProgramOracle(event)
 			},
 			MenuItem('ScSynth Reset', nil) { :event |
-				system::clock.clear;
+				system::clock.removeAll;
 				system.defaultScSynth.reset
 			},
 			MenuItem('ScSynth Status', nil) { :event |
@@ -1710,34 +1710,46 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	CategoryBrowser {
 		|(
 			typeNames = system.typeDictionary.indicesSorted,
-			categoryNames = system.categoryDictionary.indicesSorted,
+			typeCategoryDictionary = system.categoryDictionary('type'),
+			typeCategoryNames = typeCategoryDictionary.indicesSorted,
+			methodCategoryDictionary = system.categoryDictionary('method'),
+			completeMethodSet = nil,
 			methodSet = nil,
 			selectedMethod = nil
 		)|
-		ColumnBrowser('Category Browser', 'text/plain', false, true, [1, 1, 3], nil) { :accepted |
+		ColumnBrowser('Category Browser', 'text/plain', false, true, [1, 1, 1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
-					categoryNames
+					typeCategoryNames
 				},
 				1 -> {
 					browser.setStatus('');
-					system.categoryDictionary[path[1]].select { :each |
+					typeCategoryDictionary[path[1]].select { :each |
 						system.isTypeName(each)
 					}.sorted
 				},
 				2 -> {
 					browser.setStatus(system.typeTraits(path[2]).joinSeparatedBy(', '));
-					methodSet := system.typeMethodDictionary(path[2]).values.select { :each |
-						each.origin.name ~= 'Object'
+					completeMethodSet := system.typeMethodDictionary(path[2]).values.select { :each |
+							each.origin.name ~= 'Object'
+					};
+					completeMethodSet.collect { :each |
+						system.categoryOf('method', each.name)
+					}.Set.Array.sorted
+				},
+				3 -> {
+					browser.setStatus('');
+					methodSet := completeMethodSet.select { :each |
+						system.categoryOf('method', each.name) = path[3]
 					};
 					methodSet.collect(qualifiedName:/1).Array.sorted
 				},
-				3 -> {
+				4 -> {
 					selectedMethod := methodSet.detect { :each |
-						each.qualifiedName = path[3]
+						each.qualifiedName = path[4]
 					};
 					browser.setStatus(selectedMethod.origin.name);
 					selectedMethod.definition
@@ -1982,7 +1994,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 				system::smallKansas.referencesTo(self.currentWord.asMethodName, event)
 			},
 			MenuItem('Reset Synthesiser', '.') { :event |
-				system::clock.clear;
+				system::clock.removeAll;
 				system.defaultScSynth.reset
 			}
 		] ++ self.clientKeyBindings.Array

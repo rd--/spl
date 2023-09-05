@@ -3354,15 +3354,6 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 
 PriorityQueue : [Object] {
 
-	clear { :self |
-		<primitive: return _self.clear();>
-	}
-
-	clearAndShrink { :self |
-		self.clear;
-		self.shrink
-	}
-
 	isEmpty { :self |
 		self.size = 0
 	}
@@ -3391,6 +3382,15 @@ PriorityQueue : [Object] {
 		associationsArray.do { :each |
 			self.push(each.key, each.value)
 		}
+	}
+
+	removeAll { :self |
+		<primitive: return _self.clear();>
+	}
+
+	removeAllAndShrink { :self |
+		self.removeAll;
+		self.shrink
 	}
 
 	shrink { :self |

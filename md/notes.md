@@ -1,3 +1,10 @@
+# Categories
+
+```
+loadUrlSequence(['cat.sl'])
+system.uncategorisedMethods
+```
+
 # Thoughts
 
 - ProgramCollectionBrowser

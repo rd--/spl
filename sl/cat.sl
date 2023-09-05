@@ -1,5 +1,4 @@
-system.categorizeDictionary(
-	(
+system.categorizeDictionary('type') (
 		'Collections-Arrayed': [
 			'Array',
 			'ArrayBuffer',
@@ -226,12 +225,10 @@ system.categorizeDictionary(
 		'Navigator-Xml': [
 			'XMLDocument'
 		]
-	)
 );
 
 (* method categories *)
-system.categorizeDictionary(
-	(
+system.categorizeDictionary('method') (
 		'accessing': [
 			'allButFirst'
 			'allButLast'
@@ -282,7 +279,16 @@ system.categorizeDictionary(
 			'sortedCounts'
 			'sortedElements'
 			'take'
+			'top'
 			'unlines'
+		],
+		'adding': [
+			'add'
+			'addFirst'
+			'addLast'
+			'ifAbsentAdd'
+			'push'
+			'pushAll'
 		],
 		'arithmetic': [
 			'%'
@@ -424,11 +430,13 @@ system.categorizeDictionary(
 			'permutations'
 			'reduce'
 			'reject'
+			'rejectThenDo'
 			'replace'
 			'reverseDo'
 			'reverseWithDo'
 			'select'
 			'selectThenCollect'
+			'selectThenDo'
 			'timesRepeat'
 			'union'
 			'valuesDo'
@@ -452,6 +460,7 @@ system.categorizeDictionary(
 			'valueWithReturn'
 		],
 		'instance creation': [
+			'species'
 			'new'
 			'ofSize'
 		],
@@ -535,11 +544,21 @@ system.categorizeDictionary(
 			'storeString'
 		],
 		'private': [
+			'pseudoSlotNameArray'
 			'reduced'
 		],
 		'random': [
 			'randomFloat'
 			'randomInteger'
+		],
+		'removing': [
+			'pop'
+			'remove'
+			'removeAt'
+			'removeAll'
+			'removeAllFoundIn'
+			'removeAllSuchThat'
+			'removeIfAbsent'
 		],
 		'sorting': [
 			'isSortedBy'
@@ -549,6 +568,7 @@ system.categorizeDictionary(
 			'sort'
 		],
 		'testing': [
+			'allEqual'
 			'allSatisfy'
 			'anySatisfy'
 			'atEnd'
@@ -578,12 +598,14 @@ system.categorizeDictionary(
 			'isNaN'
 			'isNil'
 			'isPowerOfTwo'
+			'isPriorityQueue'
 			'isPrime'
 			'isProcedure'
 			'isPromise'
 			'isRecord'
 			'isRegExp'
 			'isSequenceable'
+			'isSet'
 			'isSmallInteger'
 			'isWeakMap'
 			'isZero'
@@ -591,6 +613,7 @@ system.categorizeDictionary(
 			'min'
 			'minMax'
 			'negative'
+			'noneSatisfy'
 			'notEmpty'
 			'occurrencesOf'
 			'odd'
@@ -612,5 +635,5 @@ system.categorizeDictionary(
 			'truncated'
 			'truncateTo'
 		]
-	)
 )
+

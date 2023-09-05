@@ -248,50 +248,59 @@ System : [Object, Indexable, Random] {
 		<primitive: return _self.cache;>
 	}
 
-	categoriesOf { :self :entry |
-		self.categoryDictionary.indices.select { :each |
-			self.categoryDictionary[each].includes(entry)
+	categoriesOf { :self :domain :entry |
+		| dictionary = self.categoryDictionary(domain); |
+		dictionary.indices.select { :each |
+			dictionary[each].includes(entry)
 		}
 	}
 
-	categorize { :self :categoryName :entry |
-		self.categoryDictionary.includesIndex(categoryName).ifFalse {
-			self.categoryDictionary[categoryName] := Set()
+	categorize { :self :domain :categoryName :entry |
+		| dictionary = self.categoryDictionary(domain); |
+		dictionary.includesIndex(categoryName).ifFalse {
+			dictionary[categoryName] := Set()
 		};
-		self.categoryDictionary[categoryName].add(entry.asMethodName)
+		dictionary[categoryName].add(entry.asMethodName)
 	}
 
-	categorizeAll { :self :categoryName :entryArray |
-		| simpleCategtory = categoryName.splitBy('-').first; |
-		self.categoryDictionary.includesIndex(simpleCategtory).ifFalse {
-			self.categoryDictionary[simpleCategtory] := Set()
+	categorizeAll { :self :domain :categoryName :entryArray |
+		|(
+			dictionary = self.categoryDictionary(domain),
+			simpleCategtory = categoryName.splitBy('-').first
+		)|
+		dictionary.includesIndex(simpleCategtory).ifFalse {
+			dictionary[simpleCategtory] := Set()
 		};
-		self.categoryDictionary[simpleCategtory].addAll(entryArray.collect(asMethodName:/1))
+		dictionary[simpleCategtory].addAll(entryArray.collect(asMethodName:/1))
 	}
 
-	categorizeDictionary { :self :aDictionary |
+	categorizeDictionary { :self :domain :aDictionary |
 		aDictionary.withIndexDo { :value :key |
-			self.categorizeAll(key, value)
+			self.categorizeAll(domain, key, value)
 		}
 	}
 
-	category { :self :categoryName |
-		self.isCategoryName(categoryName).if {
-			self.categoryDictionary[categoryName]
+	category { :self :domain :categoryName |
+		self.isCategoryName(domain, categoryName).if {
+			self.categoryDictionary(domain)[categoryName]
 		} {
 			self.error('category: not a category: ' ++ categoryName)
 		}
 	}
 
-	categoryDictionary { :self |
-		<primitive: return _self.categoryDictionary;>
+	categoryDictionary { :self :domain |
+		system.cache.atIfAbsentPut('categoryDictionary') {
+			()
+		}.atIfAbsentPut(domain) {
+			()
+		}
 	}
 
-	categoryOf { :self :aString |
-		| all = self.categoriesOf(aString); |
+	categoryOf { :self :domain :aString |
+		| all = self.categoriesOf(domain, aString); |
 		all.size.caseOfOtherwise([
 			0 -> {
-				self.categorize('*Uncategorized*', aString);
+				self.categorize(domain, '*Uncategorized*', aString);
 				'*Uncategorized*'
 			},
 			1 -> {
@@ -338,14 +347,14 @@ System : [Object, Indexable, Random] {
 		self.globalDictionary.indices
 	}
 
-	isCategorized { :self :aString |
-		self.categoryDictionary.anySatisfy { :each |
+	isCategorized { :self :domain :aString |
+		self.categoryDictionary(domain).anySatisfy { :each |
 			each.includes(aString)
 		}
 	}
 
-	isCategoryName { :self :aString |
-		self.categoryDictionary.includesIndex(aString)
+	isCategoryName { :self :domain :aString |
+		self.categoryDictionary(domain).includesIndex(aString)
 	}
 
 	isMethodName { :self :aString |
@@ -519,7 +528,6 @@ System : [Object, Indexable, Random] {
 			'methodDictionary',
 			'traitDictionary',
 			'typeDictionary',
-			'categoryDictionary',
 			'nextUniqueId',
 			'window',
 			'library',
@@ -639,6 +647,14 @@ System : [Object, Indexable, Random] {
 
 	systemTimeInSeconds { :self |
 		<primitive: return performance.now() * 0.001;>
+	}
+
+	uncategorisedMethods { :self |
+		system.methodDictionary.indices.collect { :each |
+			each -> system.categoryOf('method', each)
+		}.select { :each |
+			each.value = '*Uncategorized*'
+		}.collect(key:/1)
 	}
 
 	uniqueId { :self |
@@ -832,8 +848,8 @@ Storage : [Object, Collection, Dictionary] {
 	key { :self :index | <primitive: return _self.key(_index);> }
 	getItem { :self :key | <primitive: return _self.getItem(_key);> }
 	setItem { :self :key :value | <primitive: return _self.setItem(_key, _value);> }
+	removeAll { :self | <primitive: return _self.clear();> }
 	removeItem { :self :key | <primitive: return _self.removeItem(_key);> }
-	clear { :self | <primitive: return _self.clear();> }
 
 	at { :self :key |
 		self.getItem(key)
@@ -982,7 +998,7 @@ Transcript : [Object] { | entries |
 Type : [Object] {
 
 	category { :self |
-		system.categoryOf(self.name)
+		system.categoryOf('type', self.name)
 	}
 
 	methodArray { :self |

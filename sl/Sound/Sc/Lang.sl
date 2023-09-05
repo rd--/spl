@@ -1,14 +1,5 @@
 Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
-	clear { :self |
-		self.priorityQueue.clearAndShrink;
-		self.existingDelay.ifNotNil {
-			self.existingDelay.cancel
-		};
-		self.nextEntryTime := nil;
-		self.existingDelay := nil
-	}
-
 	initialize { :self |
 		self.initializeSlots(PriorityQueue(), nil, nil)
 	}
@@ -22,6 +13,15 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 				[nextDelay, aProcedure(currentTime, inputValue)]
 			}
 		}
+	}
+
+	removeAll { :self |
+		self.priorityQueue.removeAllAndShrink;
+		self.existingDelay.ifNotNil {
+			self.existingDelay.cancel
+		};
+		self.nextEntryTime := nil;
+		self.existingDelay := nil
 	}
 
 	repeatEvery { :self :aProcedure:/2 :delay |

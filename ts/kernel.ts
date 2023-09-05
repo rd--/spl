@@ -12,7 +12,6 @@ type Arity = number;
 type TypeName = string;
 type TraitName = string;
 type MethodName = string;
-type CategoryName = string;
 type QualifiedMethodName = string; // i.e. MethodName:/Arity
 type MethodSourceCode = string;
 type MethodOrigin = Trait | Type;
@@ -132,7 +131,6 @@ export class System {
 	methodDictionary: MethodDictionary;
 	traitDictionary: Map<TraitName, Trait>;
 	typeDictionary: Map<TypeName, Type>;
-	categoryDictionary: Map<CategoryName, Set<string>>
 	nextUniqueId: number;
 	window: Window;
 	library: Record<string, LibraryItem>;
@@ -144,7 +142,6 @@ export class System {
 		this.traitDictionary = new Map();
 		// Void is not an ordinary type, it names the place in the method table for no-argument procedures.
 		this.typeDictionary = new Map(preinstalledTypes.map(function(each) { return [each, new Type(each, [], [], new Map())]; }));
-		this.categoryDictionary = new Map();
 		this.nextUniqueId = 1;
 		this.window = window;
 		this.library = Object.create(null);
