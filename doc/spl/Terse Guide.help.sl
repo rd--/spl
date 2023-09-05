@@ -856,6 +856,14 @@ Set().Array = []
 [['w', 'x'], ['y', 'z']].atPath([1, 2]) = 'x' (* atPath of arrays *)
 [['w', 'x'], ['y', 'z']][1][2] = 'x' (* index sequence *)
 [['w', 'x'], ['y', 'z']][1; 2] = 'x' (* atPath syntax of arrays *)
+(1, 3 .. 21).includes(9) (* does interval include value *)
+(1, 3 .. 21).doesNotInclude(6) (* does interval include value *)
+(x: 1, y: 1, z: 1).allEqualBy { :p :q | p.value = q.value } (* are all items equal by comparator *)
+(x: 1, y: 2, z: 3).allEqualBy { :p :q | p.value = q.value }.not (* are all items equal by comparator *)
+[1, 1, 1].allEqual (* are all items equal *)
+[1, 2, 3].allEqual.not (* are all items equal *)
+(1 .. 4).reduce(Association:/2) = (((1 -> 2) -> 3) -> 4) (* reduce, happens to be left associative *)
+(1 .. 4).reduce(minus:/2) = (((1 - 2) - 3) - 4) (* reduce, happens to be left associative *)
 ```
 
 ## Colour -- graphics type
@@ -1107,6 +1115,8 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 (x: 1, y: 2, z: 3).basicAt('x') = 1 (* unchecked lookup *)
 (x: 1, y: 2, z: 3).basicAt('u') = nil (* unchecked lookup, nil on absent key *)
 | a = Array(9); | a.indicesDo { :each | a[each] := 10 - each }; a = [9 .. 1] (* iterate indices *)
+| d = (x: 1, y: 2); | d.removeAssociation('x' -> 1); d = (y: 2)  (* remove association *)
+| d = (x: 1, y: 2); | d.removeAll; d.isEmpty (* remove all entries *)
 ```
 
 ## Duration -- temporal type
@@ -1500,6 +1510,7 @@ system.cache::primesArray[3579] = 33413 (* nthPrime extends the primesArray cach
 ```
 Interval(0, 12, 3).Array = [0, 3, 6, 9, 12] (* elements of interval as array *)
 Interval(0, 12, 3).size = 5 (* number of elements in interval *)
+Interval(0, 9, -1).isEmpty (* intervals may be empty *)
 2.toBy(14, 4).collect { :x | x * x } = [4, 36, 100, 196] (* toBy method at Integer *)
 (2, 6 .. 14).collect { :x | x * x } = [4, 36, 100, 196] (* toBy syntax *)
 Interval(-1, 1, 0.000001).size = 2000001 (* 2000001 places between -1 and 1 *)
@@ -1777,6 +1788,8 @@ var c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.re
 (x: 1, y: 2).Map ++ (x: 2, y: 1, z: 3) = (x: 2, y: 1, z: 3).Map (* append record to Map *)
 (x: 1, y: 2).Map.json = '{"x":1,"y":2}' (* maps with string keys are encoded as records *)
 (x: 1, y: 2, z: 3).Map.indices = ['x', 'y', 'z'] (* indices of map (an array) *)
+| m = (x: 1, y: 2).Map; | m.removeAssociation('x' -> 1); m = (y: 2).Map  (* remove association *)
+| m = (x: 1, y: 2).Map; | m.removeAll; m.isEmpty (* remove all entries *)
 ```
 
 ## Math
@@ -2351,6 +2364,10 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | a = [9 .. 1]; | a.withReplace((1 .. 9)) { :p :q | p * 2 + q }; a = [19 .. 11] (* in place withCollect *)
 [7 .. 4].indexValueAssociations = [1 -> 7, 2 -> 6, 3 -> 5, 4 -> 4] (* the (index -> value) associations of a sequence *)
 | a = []; | (x: 1, y: 2, z: 3).indicesDo { :each | a.add(each) }; a = ['x', 'y', 'z'] (* iterate indices *)
+(1 .. 4).foldLeft(Association:/2) = (((1 -> 2) -> 3) -> 4) (* fold, left associative *)
+(1 .. 4).foldRight(Association:/2) = (1 -> (2 -> (3 -> 4))) (* fold, right associative *)
+(1 .. 4).foldLeft(minus:/2) = (((1 - 2) - 3) - 4) (* fold, left associative *)
+(1 .. 4).foldRight(minus:/2) = (1 - (2 - (3 - 4))) (* fold, right associative *)
 ```
 
 ## Sequence arithmetic

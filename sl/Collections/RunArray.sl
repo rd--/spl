@@ -1,4 +1,4 @@
-RunArray : [Object, Indexable] { | runs values lastIndex lastRun lastOffset |
+RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffset |
 
 	= { :self :anObject |
 		(self == anObject).if {
@@ -39,22 +39,22 @@ RunArray : [Object, Indexable] { | runs values lastIndex lastRun lastOffset |
 	atSetRunOffsetAndValue { :self :index :aBlock:/3 |
 		| run limit offset |
 		limit := self.runs.size;
-		(self.lastIndex == nil | {
-			index < self.lastIndex
+		(self.cachedIndex == nil | {
+			index < self.cachedIndex
 		}).if {
 			run := 1;
 			offset := index - 1
 		} {
-			run := self.lastRun;
-			offset := self.lastOffset + (index - self.lastIndex)
+			run := self.cachedRun;
+			offset := self.cachedOffset + (index - self.cachedIndex)
 		};
 		{ run <= limit & { offset >= self.runs[run] } }.whileTrue {
 			offset := offset - self.runs[run];
 			run := run + 1
 		};
-		self.lastIndex := index;
-		self.lastRun := run;
-		self.lastOffset := offset;
+		self.cachedIndex := index;
+		self.cachedRun := run;
+		self.cachedOffset := offset;
 		(run > limit).ifTrue {
 			run := run - 1;
 			offset := offset + self.runs[run]

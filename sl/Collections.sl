@@ -197,6 +197,21 @@
 		}
 	}
 
+	allEqualBy { :self :aBlock:/2 |
+		self.isEmpty.if {
+			true
+		} {
+			| item = self.anyOne; |
+			self.allSatisfy { :each |
+				aBlock(each, item)
+			}
+		}
+	}
+
+	allEqual { :self |
+		self.allEqualBy(equals:/2)
+	}
+
 	any { :self :numberOfElements |
 		self.anyAs(numberOfElements, self.species)
 	}
@@ -961,8 +976,9 @@
 	}
 
 	removeAll { :self |
-		<primitive: _self.clear();>
-		self
+		self.removeAllSuchThat { :unusedItem |
+			true
+		}
 	}
 
 	removeAllSuchThat { :self :aBlock:/1 |
@@ -974,6 +990,14 @@
 		};
 		removals.do { :key |
 			self.removeKey(key)
+		}
+	}
+
+	removeAssociation { :self :oldObject |
+		self.includesAssociation(oldObject).if {
+			self.removeKey(oldObject.key)
+		} {
+			anExceptionBlock()
 		}
 	}
 
@@ -993,7 +1017,7 @@
 		}
 	}
 
-	removeIfAbsent { :self :oldObject :anExceptionBlock |
+	removeIfAbsent { :self :oldObject :anExceptionBlock:/0 |
 		self.shouldNotImplement('@Dictionary>>removeIfAbsent')
 	}
 
@@ -1518,6 +1542,22 @@
 		answer.atAllPut(anObject);
 		answer.replaceFromToWithStartingAt(1, self.size.min(length), self, 1);
 		answer
+	}
+
+	foldLeft { :self :aProcedure:/2 |
+		self.reduce(aProcedure:/2)
+	}
+
+	foldRight { :self :aProcedure:/2 |
+		self.ifEmpty {
+			self.errorEmptyCollection
+		} {
+			| answer = self.last; |
+			(self.size - 1).toByDo(1, -1) { :index |
+				answer := aProcedure(self[index], answer)
+			};
+			answer
+		}
 	}
 
 	fromToDo { :self :start :stop :aBlock:/1 |
@@ -2828,6 +2868,11 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 	}
 
 	Map { :self |
+		self
+	}
+
+	removeAll { :self |
+		<primitive: _self.clear();>
 		self
 	}
 
