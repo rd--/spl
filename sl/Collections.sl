@@ -1205,12 +1205,20 @@
 
 @SequenceableCollection {
 
-	= { :self :anObject |
+	equalsBy { :self :anObject :aBlock:/2 |
 		(self == anObject) | {
 			(self.typeOf = anObject.typeOf) & {
-				self.hasEqualElements(anObject)
+				self.hasEqualElementsBy(anObject, aBlock:/2)
 			}
 		}
+	}
+
+	= { :self :anObject |
+		self.equalsBy(anObject, equals:/2)
+	}
+
+	~ { :self :anObject |
+		self.equalsBy(anObject, tilde:/2)
 	}
 
 	++ { :self :aSequence |
@@ -1611,13 +1619,13 @@
 		answer.replaceFromToWithStartingAt(1, self.size, self, 1)
 	}
 
-	hasEqualElements { :self :otherCollection |
+	hasEqualElementsBy { :self :otherCollection :aBlock:/2 |
 		(otherCollection.isSequenceable & {
 			self.size = otherCollection.size
 		}).if {
 			valueWithReturn { :return:/1 |
 				self.indicesDo { :index |
-					(self[index] = otherCollection[index]).ifFalse {
+					aBlock(self[index], otherCollection[index]).ifFalse {
 						false.return
 					}
 				};
@@ -1626,6 +1634,10 @@
 		} {
 			false
 		}
+	}
+
+	hasEqualElements { :self :otherCollection |
+		self.hasEqualElementsBy(otherCollection, equals:/2)
 	}
 
 	includes { :self :anObject |

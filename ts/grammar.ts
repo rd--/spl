@@ -17,7 +17,7 @@ Sl {
 	TraitExtension = "+" "@" identifier "{" (methodName Block)* "}"
 	TraitDefinition = "@" identifier "{" (methodName Block)* "}"
 	ConstantDefinition = "Constant" "." unqualifiedIdentifier "=" literal
-	Program = Temporaries? ExpressionSequence
+	Program = Temporaries? ListOf<Expression, ";">
 	Temporaries = TemporariesWithInitializers | TemporariesWithoutInitializers | TemporariesParenSyntax | TemporariesVarWithoutInitializersSyntax | TemporariesVarWithInitializersSyntax+
 	TemporariesWithInitializers = "|" NonemptyListOf<TemporaryWithInitializer, ","> ";" "|"
 	TemporaryWithInitializer =
@@ -34,7 +34,6 @@ Sl {
 	TemporariesVarWithoutInitializersSyntax = "var" NonemptyListOf<identifier, ","> ";"
 	TemporariesVarWithInitializersSyntax = "var" NonemptyListOf<TemporaryWithInitializer, ","> ";"
 
-	ExpressionSequence = ListOf<Expression, ";">
 	Expression = Assignment | BinaryExpression | Primary
 	Assignment = ScalarAssignment | ArrayAssignment | DictionaryAssignment
 	ScalarAssignment = identifier ":=" Expression
@@ -48,7 +47,8 @@ Sl {
 		| AtPutDelegateSyntax
 		| WriteSlotSyntax
 		| AtSyntax
-		| AtAllSyntax
+		| AtAllVectorSyntax
+		| AtAllArraySyntax
 		| AtMatrixSyntax
 		| AtVolumeSyntax
 		| AtPathSyntax
@@ -83,7 +83,8 @@ Sl {
 	AtPutSyntax = Primary "[" Expression "]" ":=" Expression
 	AtPutQuotedSyntax = Primary "::" identifier ":=" Expression
 	AtSyntax = Primary "[" Expression "]"
-	AtAllSyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
+	AtAllArraySyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
+	AtAllVectorSyntax = Primary "[" VectorSyntaxItem+ "]"
 	AtMatrixSyntax = Primary "[" Expression ";" Expression "]"
 	AtVolumeSyntax = Primary "[" Expression ";" Expression ";" Expression "]"
 	AtPathSyntax = Primary "[" NonemptyListOf<Expression, ";"> "]"
@@ -144,7 +145,7 @@ Sl {
 	letterOrDigit = letter | digit
 	reservedIdentifier = "nil" | "true" | "false"
 	binaryOperator = binaryChar+
-	binaryChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$"
+	binaryChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 
 	literal = numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
 	numberLiteral = floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral

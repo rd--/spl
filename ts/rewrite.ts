@@ -141,8 +141,11 @@ const asJs: any = {
 	AtSyntax(c, _leftBracket, k, _rightBracket) {
 		return `_${genName(atMethod(), 2)}(${c.asJs}, ${k.asJs})`;
 	},
-	AtAllSyntax(c, _leftBracket, k, _rightBracket) {
+	AtAllArraySyntax(c, _leftBracket, k, _rightBracket) {
 		return `_${genName('atAll', 2)}(${c.asJs}, [${commaList(k.asIteration().children)}])`;
+	},
+	AtAllVectorSyntax(c, _leftBracket, k, _rightBracket) {
+		return `_${genName('atAll', 2)}(${c.asJs}, [${commaList(k.children)}])`;
 	},
 	AtMatrixSyntax(c, _leftBracket, i, _semicolon, j, _rightBracket) {
 		var at = `_${genName(atMethod(), 2)}`;

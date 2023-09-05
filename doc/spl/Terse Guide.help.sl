@@ -16,6 +16,8 @@
 [36 / 6, -10 / 2, 20 / -5, -5 / -5] = [6, -5, -4, 1] (* division *)
 9 // 3 = 3 (* integer division *)
 9.dividedByDividedBy(3) = 3 (* integer division *)
+[9 // 4, -5 // 3, 5 // 2] = [2, -1, 2] (* the quotient from euclidean (integer) division *)
+(-5 .. 5).collect { :n | n // 3 } = [-1, -1, -1, -0, -0, 0, 0, 0, 1, 1, 1] (* integer division *)
 [1 // 1, 3 // 2, 4 // -2, -6 // 3, -12 // -4] = [1, 1, -2, -2, 3] (* integer division *)
 1 + 2 * 3 = 9 (* evaluation always left to right, operators equal precedence *)
 3 * 2 + 1 = 7 (* evaluation always left to right, operators equal precedence *)
@@ -170,6 +172,12 @@ inf ~ inf (* being equal, infinty is also close to itself *)
 1:3 ~ (1 / 3) (* a fraction is close to it's floating point representation *)
 0 ~ epsilon & { epsilon ~ 0 } & { 1 + epsilon ~ 1 } (* ε is ≈ zero ∧ ≈ is a symmetric operator ∧ one plus ε is ≈ one *)
 | n = 10 ** -9; | 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
+[8 % 3, 9 % 3, 8.9 % 3, epsilon % 3, epsilon.negated % 3] ~ [2, 0, 2.9, 0, 3] (* modulo *)
+(-5 .. 5).collect { :each | each % 3 } = [1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2] (* modulo *)
+15 % 4 = 3 (* modulo *)
+(15 // 4) * 4 + 15.remainder(4) = 15 (* remainder *)
+| x = 15, y = 4; | (x // y) * y + x.remainder(y) = x  (* quotient by denominator + remainder = numerator *)
+(-5 .. 5).collect { :each | each.remainder(3) } = [-2 -1 -0 -2 -1 0 1 2 0 1 2]
 ```
 
 ## Array -- collection type
@@ -307,12 +315,12 @@ Array(5).fillFromWith([1 .. 5], negated:/1) = [-1 .. -5]
 [1 .. 3].storeString = '[1, 2, 3]' (* array store string *)
 [-1, 2.0, 3.141].printString = '[-1, 2, 3.141]' (* array print string *)
 [-1, 2.0, 3.141].storeString = '[-1, 2, 3.141]' (* array store string *)
-[1 .. 9].allButFirst = [2 .. 9] (* all but first element of Array *)
-[1 .. 9].allButFirst(7) = [8, 9] (* all but first n elements of Array *)
-{ [].allButFirst }.ifError { true } (* too few elements *)
-[1 .. 9].allButLast = [1 .. 8]
-[1 .. 9].allButLast(7) = [1, 2]
-{ [].allButLast }.ifError { true }
+[1 .. 9].allButFirst = [2 .. 9] (* all but first element *)
+[1 .. 9].allButFirst(7) = [8, 9] (* all but first k elements *)
+{ [].allButFirst }.ifError { true } (* error if too few elements *)
+[1 .. 9].allButLast = [1 .. 8] (* all but last element *)
+[1 .. 9].allButLast(7) = [1, 2]  (* all but last k elements *)
+{ [].allButLast }.ifError { true }  (* error if too few elements *)
 { | a = Array(1); | a.at(3) }.ifError { true } (* out of bound indexing is an error *)
 { | a = [1]; | a[3] }.ifError { true } (* out of bound indexing is an error *)
 | a = Array(1); | a[1].isNil = true (* array slots are initialised to nil *)
@@ -955,6 +963,8 @@ Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 (-1 + 0.i).sqrt = (0 + 1.i) (* the square root of negative one is i *)
 (2 + 3.i).zero = (0 + 0.i) (* zero of same type, i.e. complex *)
 (2 + 3.i).one = (1 + 0.i) (* one of same type, i.e. complex *)
+1 / (1 + 2.i) = (0.2 - 0.4.i) (* reciprocal, multiplicative inverse *)
+| n = (1 + 2.i); | n.reciprocal * n = 1 (* multiplicative inverse *)
 ```
 
 ## Conditional Statements
@@ -1065,6 +1075,8 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 ```
 (x: 1, y: 2, z: 3).count(even:/1) = 1 (* count elements that match predicate *)
 (x: 1, y: 2).select { :each | false } = () (* select nothing *)
+(x: 1, y: 2, z: 3).select(odd:/1) = (x: 1, z: 3) (* select odd values *)
+(x: 1, y: 2, z: 3).select(even:/1) = (y: 2) (* select even values *)
 { ().at('x') }.ifError { true } (* indexing with an unknown key is an error *)
 (x: nil).at('x') = nil (* as does indexing a field that is set to nil *)
 (x: nil).size = 1 (* nil fields exist *)
@@ -1228,7 +1240,8 @@ Fraction(4, 6) ~= 2:3 (* non-reduced fraction *)
 2:3.raisedToInteger(5) = 32:243 (* fractions also can be exponentiated *)
 2:3 ** 5 = 32:243 (* fractions also can be exponentiated using infix operator *)
 { 2:3 ** 3:4 }.ifError { true } (* only integer exponents are implemented *)
-9:5.reciprocal = 5:9 (* reciprocal *)
+9:5.reciprocal = 5:9 (* reciprocal, mutiplicative inverse *)
+| n = 9:5; | n.reciprocal * n = 1 (* mutiplicative inverse *)
 7:5.squared = 49:25 (* square of *)
 3:2.truncated = 1 (* truncation *)
 1:2 < 0.5 = false
@@ -1598,7 +1611,7 @@ Interval(1, 6, 2).Array = [1, 3, 5]
 Interval(1, 6, 2).last = 5
 (1 .. 9).reversed.Array = [9, 8, 7, 6, 5, 4, 3, 2, 1]
 Interval(1, 6, 2).reversed.Array = [5, 3, 1]
-1.to(9).step = 1
+1.to(9).step = 1 (* get step size of interval *)
 (1, 3 .. 9) = Interval(1, 9, 2)
 (9, 7 .. 1) = Interval(9, 1, -2)
 (3 .. 7).anyOne = 3 (* any element, chooses first *)
@@ -1641,6 +1654,13 @@ Interval(1, 100, 0.5).size = 199
 (1, 3 .. 17).copyFromTo(3, 6) = (5, 7 .. 11) (* copy from start index to end index *)
 (17, 15 .. 1).copyFromTo(3, 6) = (13, 11 .. 7) (* copy from start index to end index *)
 (1, 3 .. 17).copyFromTo(6, 3).isEmpty (* if indices are out of order the interval is empty *)
+```
+
+## Iterable -- collection trait
+```
+(1 .. 9).count(odd:/1) = 5
+(1 .. 9).count(even:/1) = 4
+(1 .. 9).countAll = 9
 ```
 
 ## Iteration
@@ -1896,6 +1916,7 @@ nil.json = 'null' (* nil has a Json representation *)
 { 23.size }.ifError { true } (* numbers do not have a size *)
 { 23.at(1) }.ifError { true } (* numbers are not indexable *)
 { 23.do { :each | nil } }.ifError { true } (* numbers are not iterable *)
+-23.absSquared = 23.absSquared (* see Complex *)
 ```
 
 ## Object -- kernel trait
@@ -2284,6 +2305,8 @@ var c = [3, 2, 1], r = c.sorted ; c ~= r (* sorted (answer a new array) *)
 | a = [1 .. 3].permutations; | a = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]] (* permutations *)
 | i = (4, 7 .. 13), p = i.permutations; | p.size = i.size.factorial & { p.Set.size = p.size }
 | i = (4, 7 .. 13); | i.permutations.allSatisfy { :e | e.sorted.hasEqualElements(i) }
+| x = [1, 1, 3, 4]; | x[2, 4, 3, 1] = [1, 4, 3, 1] (* permute using atAll (array) indexing *)
+| x = [1 1 3 4]; | x[2 4 3 1] = [1 4 3 1] (* permute using atAll (vector) indexing *)
 [1, 9, 2, 8, 3, 7, 4, 6].pairsCollect { :i :j | i + j } = [10, 10, 10, 10]
 var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printString }; s = '10101010'
 var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291' (* do from end *)
@@ -2468,13 +2491,15 @@ var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, 
 3 + 4 = 7
 3 * 4 = 12
 3 * 4 + 9 = 21
-7.quotient(2) = 3
--9.quotient(4) = -2 (* quotient, quo: in St *)
--0.9.quotient(0.4) = -2 (* quotient, quo: in St *)
-9.remainder(4) = 1 (* remainder, rem: in St *)
+7.quotient(2) = 3 (* quotient, quo: & // in St *)
+-9.quotient(4) = -2 (* quotient *)
+-0.9.quotient(0.4) = -2 (* quotient *)
+[7 // 2, -9 // 4, -0.9 // 0.4] = [3, -2, -2] (* quotient, operator *)
+9.remainder(4) = 1 (* remainder, rem: & \\ in St *)
 -9.remainder(4) = -1
 0.9.remainder(0.5) = 0.4
 0.9.remainder(0.4) ~ 0.1 (* approximately equal to *)
+[9 \\ 4, -9 \\ 4, 0.9 \\ 0.5, 0.9 \\ 0.4] ~ [1, -1, 0.4, 0.1] (* remainder, operator *)
 | total = 0; | 9.timesRepeat { total := total + system.randomFloat }; total < 7
 3.max(7) = 7
 3.max(7) = 7.max(3)
@@ -2640,6 +2665,7 @@ Stack().size = 0 (* empty stack, size *)
 [].join = '' (* join of empty sequence is the empty string *)
 ['m', 'ss', 'ss', 'pp', ''].joinSeparatedBy('i') = 'mississippi' (* join with separator *)
 'mississippi'.splitBy('i') = ['m', 'ss', 'ss', 'pp', ''] (* split at string *)
+'Ma.rch'.splitBy('.') = ['Ma', 'rch'] (* split by dot *)
 'str ing'.splitBy(' ') = ['str', 'ing'] (* split at char *)
 'a b=2'.splitBy(' ').collect { :e | e.splitBy('=') }[2][2] = '2' (* split as parser *)
 'string'.splitBy('ing') = ['str', '']

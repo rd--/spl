@@ -258,7 +258,7 @@
 
 	divisors { :self |
 		1.to(self).select { :each |
-			self.remainder(each) = 0
+			self \\ each = 0
 		}
 	}
 
@@ -694,6 +694,10 @@
 		self.quotient(anObject)
 	}
 
+	\\ { :self :anObject |
+		self.remainder(anObject)
+	}
+
 	% { :self :aNumber |
 		self - (self // aNumber * aNumber)
 	}
@@ -724,6 +728,11 @@
 		} {
 			self
 		}
+	}
+
+	absSquared { :self |
+		| abs = self.abs; |
+		abs * abs
 	}
 
 	asNumber { :self |
@@ -3074,6 +3083,12 @@ RegExp : [Object] {
 			}
 		};
 		answer
+	}
+
+	countAll { :self |
+		self.count { :unusedItem |
+			true
+		}
 	}
 
 	detect { :self :aProcedure:/1 |
