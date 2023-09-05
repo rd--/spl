@@ -158,6 +158,9 @@ const asJs: any = {
 	AtPathSyntax(c, _leftBracket, k, _rightBracket) {
 		return `_${genName('atPath', 2)}(${c.asJs}, [${commaList(k.asIteration().children)}])`;
 	},
+	AtPathPutSyntax(collection, _leftBracket, keys, _rightBracket, _colonEquals, value) {
+		return `_${genName('atPathPut', 3)}(${collection.asJs}, [${commaList(keys.asIteration().children)}], ${value.asJs})`;
+	},
 	AtQuotedSyntax(c, _colonColon, k) {
 		return `_${genName(atMethod(), 2)}(${c.asJs}, '${k.sourceString}')`;
 	},

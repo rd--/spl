@@ -1,5 +1,10 @@
 # Terse Guide to Libraries
 
+## Compatibility
+```
+| n = 0; | (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value | n := n + value }; n = 6 (* iterate over keys and values *)
+```
+
 ## Cons -- collection type
 ```
 Cons(1, nil).length = 1

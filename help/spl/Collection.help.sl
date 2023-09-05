@@ -11,7 +11,7 @@ Methods for accessing: anyOne
 
 Methods for adding and removing: add, addAll, remove removeIfAbsent, removeAll, removeAllFoundIn, removeAllSuchThat
 
-Methods for enumerating: do, doSeparatedBy, select, reject, collect, detect detectIfNone, injectInto, collectThenSelect, selectThenCollect, count
+Methods for enumerating: do, doSeparatedBy, select, reject, collect, detect, detectIfNone, injectInto, collectThenSelect, selectThenCollect, count
 
 Methods for set logic: difference
 

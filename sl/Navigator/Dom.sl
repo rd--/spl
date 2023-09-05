@@ -30,7 +30,7 @@
 	}
 
 	setProperties { :self :aDictionary |
-		aDictionary.keysAndValuesDo { :key :value |
+		aDictionary.withIndexDo { :value :key |
 			self.setProperty(key, value, '')
 		}
 	}
@@ -176,13 +176,13 @@
 	}
 
 	setAttributes { :self :aDictionary |
-		aDictionary.keysAndValuesDo { :key :value |
+		aDictionary.withIndexDo { :value :key |
 			self.setAttribute(key, value)
 		}
 	}
 
 	setAttributesNS { :self :namespace :aDictionary |
-		aDictionary.keysAndValuesDo { :key :value |
+		aDictionary.withIndexDo { :value :key |
 			self.setAttributeNS(namespace, key, value)
 		}
 	}

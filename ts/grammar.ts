@@ -49,6 +49,7 @@ Sl {
 		| AtSyntax
 		| AtAllVectorSyntax
 		| AtAllArraySyntax
+		| AtPathPutSyntax
 		| AtMatrixSyntax
 		| AtVolumeSyntax
 		| AtPathSyntax
@@ -87,6 +88,7 @@ Sl {
 	AtAllVectorSyntax = Primary "[" VectorSyntaxItem+ "]"
 	AtMatrixSyntax = Primary "[" Expression ";" Expression "]"
 	AtVolumeSyntax = Primary "[" Expression ";" Expression ";" Expression "]"
+	AtPathPutSyntax = Primary "[" NonemptyListOf<Expression, ";"> "]" ":=" Expression
 	AtPathSyntax = Primary "[" NonemptyListOf<Expression, ";"> "]"
 	AtQuotedSyntax = Primary "::" identifier
 	AtPutDelegateSyntax = Primary ":." identifier ":=" Expression

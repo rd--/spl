@@ -95,12 +95,6 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 		self.values.isSortedBy(aBlock:/2)
 	}
 
-	keysAndValuesDo { :self :aBlock:/2 |
-		self.withIndexDo { :value :index |
-			aBlock(index, value)
-		}
-	}
-
 	last { :self |
 		self.values[self.values.size]
 	}

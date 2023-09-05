@@ -41,8 +41,9 @@ function objectType(anObject: SlObject): TypeName {
 		    (anObject instanceof Float64Array ? 'Float64Array' :
 		     (anObject instanceof Promise ? 'Promise' :
 		      (anObject instanceof PriorityQueue ? 'PriorityQueue' :
-		       (anObject._type ||
-		        (isRecord(anObject) ? 'Record' : anObject.constructor.name)))))))));
+		       (anObject instanceof WeakMap ? 'WeakMap' :
+		        (anObject._type ||
+		         (isRecord(anObject) ? 'Record' : anObject.constructor.name))))))))));
 }
 
 export function typeOf(anObject: unknown): TypeName {

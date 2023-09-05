@@ -88,7 +88,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 			self.value.ifNotNil {
 				self.value.resolve
 			} {
-				system.window.localStorage.includesKey(self.key).if {
+				system.window.localStorage.includesIndex(self.key).if {
 					self.value := self.readLocalStorage;
 					self.value.resolve
 				} {
@@ -222,7 +222,7 @@ System : [Object, Indexable, Random] {
 	}
 
 	addLibraryItem { :self :libraryItem |
-		self.library.includesKey(libraryItem.name).if {
+		self.library.includesIndex(libraryItem.name).if {
 			('System>>addLibraryItem: item exists: ' ++ libraryItem.name).postLine
 		} {
 			self.library[libraryItem.name] := libraryItem
@@ -249,30 +249,28 @@ System : [Object, Indexable, Random] {
 	}
 
 	categoriesOf { :self :entry |
-		self.categoryDictionary.keys.select { :each |
+		self.categoryDictionary.indices.select { :each |
 			self.categoryDictionary[each].includes(entry)
 		}
 	}
 
 	categorize { :self :categoryName :entry |
-		self.categoryDictionary.includesKey(categoryName).if {
-			self.categoryDictionary[categoryName].add(entry)
-		} {
-			self.categoryDictionary[categoryName] := [entry].Set
-		}
+		self.categoryDictionary.includesIndex(categoryName).ifFalse {
+			self.categoryDictionary[categoryName] := Set()
+		};
+		self.categoryDictionary[categoryName].add(entry.asMethodName)
 	}
 
 	categorizeAll { :self :categoryName :entryArray |
 		| simpleCategtory = categoryName.splitBy('-').first; |
-		self.categoryDictionary.includesKey(simpleCategtory).if {
-			self.categoryDictionary[simpleCategtory].addAll(entryArray)
-		} {
-			self.categoryDictionary[simpleCategtory] := entryArray.Set
-		}
+		self.categoryDictionary.includesIndex(simpleCategtory).ifFalse {
+			self.categoryDictionary[simpleCategtory] := Set()
+		};
+		self.categoryDictionary[simpleCategtory].addAll(entryArray.collect(asMethodName:/1))
 	}
 
 	categorizeDictionary { :self :aDictionary |
-		aDictionary.keysAndValuesDo { :key :value |
+		aDictionary.withIndexDo { :value :key |
 			self.categorizeAll(key, value)
 		}
 	}
@@ -337,7 +335,7 @@ System : [Object, Indexable, Random] {
 	}
 
 	indices { :self |
-		self.globalDictionary.keys
+		self.globalDictionary.indices
 	}
 
 	isCategorized { :self :aString |
@@ -347,15 +345,15 @@ System : [Object, Indexable, Random] {
 	}
 
 	isCategoryName { :self :aString |
-		self.categoryDictionary.includesKey(aString)
+		self.categoryDictionary.includesIndex(aString)
 	}
 
 	isMethodName { :self :aString |
-		self.methodDictionary.keys.includes(aString)
+		self.methodDictionary.indices.includes(aString)
 	}
 
 	isTraitName { :self :aString |
-		self.traitDictionary.includesKey(aString)
+		self.traitDictionary.includesIndex(aString)
 	}
 
 	isTraitOrTypeName { :self :aString |
@@ -365,7 +363,7 @@ System : [Object, Indexable, Random] {
 	}
 
 	isTypeName { :self :aString |
-		self.typeDictionary.includesKey(aString)
+		self.typeDictionary.includesIndex(aString)
 	}
 
 	library { :self |
@@ -374,7 +372,7 @@ System : [Object, Indexable, Random] {
 
 	methodArities { :self :methodName |
 		(* Arities methodName is implemented for. *)
-		self.methodDictionary[methodName].keys
+		self.methodDictionary[methodName].indices
 	}
 
 	methodArray { :self |
@@ -477,14 +475,14 @@ System : [Object, Indexable, Random] {
 
 	methodTraits { :self :qualifiedMethodName |
 		self.traitDictionary.select { :each |
-			each.methodDictionary.keys.includes(qualifiedMethodName)
-		}.keys
+			each.methodDictionary.indices.includes(qualifiedMethodName)
+		}.indices
 	}
 
 	methodTypes { :self :qualifiedMethodName |
 		self.typeDictionary.select { :each |
-			each.methodDictionary.keys.includes(qualifiedMethodName)
-		}.keys
+			each.methodDictionary.indices.includes(qualifiedMethodName)
+		}.indices
 	}
 
 	millisecondsToRun { :self :aProcedure:/0 |
@@ -494,7 +492,7 @@ System : [Object, Indexable, Random] {
 	}
 
 	multipleArityMethodList { :self |
-		self.methodDictionary.keys.select { :methodName |
+		self.methodDictionary.indices.select { :methodName |
 			self.methodArities(methodName).size > 1
 		}
 	}
@@ -509,7 +507,7 @@ System : [Object, Indexable, Random] {
 
 	onlyZeroArityMethodList { :self |
 		(* Methods implemented by typeName. *)
-		self.methodDictionary.keys.select { :methodName |
+		self.methodDictionary.indices.select { :methodName |
 			self.methodArities(methodName) = [0]
 		}
 	}
@@ -534,7 +532,7 @@ System : [Object, Indexable, Random] {
 	}
 
 	requireLibraryItem { :self :name |
-		system.library.includesKey(name).if {
+		system.library.includesIndex(name).if {
 			system.library[name].require
 		} {
 			('System>>requireLibraryItem: does not exist: ' ++ name).postLine
@@ -632,7 +630,7 @@ System : [Object, Indexable, Random] {
 	typesImplementingTrait { :self :traitName |
 		system.typeDictionary.select { :each |
 			each.traitNameArray.includes(traitName)
-		}.keys
+		}.indices
 	}
 
 	systemTimeInMilliseconds { :self |
@@ -663,6 +661,21 @@ System : [Object, Indexable, Random] {
 
 	cancel { :self |
 		<primitive: clearTimeout(_self); return null;>
+	}
+
+}
+
++Procedure {
+
+	once { :self |
+		|(
+			cache = system.cache.atIfAbsentPut('onceCache') {
+				WeakMap()
+			}
+		)|
+		cache.atIfAbsentPut(self) {
+			self.value
+		}
 	}
 
 }
@@ -830,11 +843,11 @@ Storage : [Object, Collection, Dictionary] {
 		self.setItem(key, value)
 	}
 
-	includesKey { :self :key |
+	includesIndex { :self :key |
 		self[key].notNil
 	}
 
-	keys { :self |
+	indices { :self |
 		(0 .. self.length - 1).collect { :index |
 			self.key(index)
 		}

@@ -353,7 +353,7 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 { [1, 2].take(-1) }.ifError { true }
 [1 .. 5].beginsWith([1 .. 3]) = true
 [1 .. 5].beginsWithAnyOf([[5], [4], [3], [2]])= false
-[1 .. 5].groupBy(even:/1).keys = [false, true] (* answer a Map grouping elements according to a predicate *)
+[1 .. 5].groupBy(even:/1).indices = [false, true] (* answer a Map grouping elements according to a predicate *)
 [1 .. 5].groupBy(even:/1)[true] = [2, 4]
 | a = []; | [1, 'x', 2, 'y', 3, 'x'].pairsDo { :p :q | a.add(q -> p) }; a = ['x' -> 1, 'y' -> 2, 'x' -> 3] (* iterate adjacent pairs *)
 | r = (); | [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | r.add(q -> p) }; r::elmer = 3 (* iterate adjacent pairs *)
@@ -826,7 +826,7 @@ Set().Array = []
 ['x', 'y', 'y', 'z'].Bag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.key }
 (x: 1, y: 2, z: 1).histogramOf { :each | each } = [1, 2, 1].Bag
 (x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].Bag
-(x: 1, y: 2, z: 1).keys.histogramOf { :each | each } = ['x', 'y', 'z'].Bag
+(x: 1, y: 2, z: 1).indices.histogramOf { :each | each } = ['x', 'y', 'z'].Bag
 [1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].Bag
 [].ifEmpty { true } (* evaluate block if collection is empty *)
 [].ifEmpty { true } { false } (* evaluate emptyBlock if collection is empty *)
@@ -854,9 +854,10 @@ Set().Array = []
 [1 .. 9].ifNotEmptyDo { :aCollection | aCollection.size = 9 } = true (* branch on isEmpty *)
 [1 .. 9].average = 5 (* mean, sum divided by size *)
 [1 .. 9].average = (45 / 9) (* mean, sum divided by size *)
-(x: (y: 1)).atPath(['x', 'y']) = 1 (* atPath of dictionaries, depth = 2 *)
-(x: (y: (z: 1))).atPath(['x', 'y', 'z']) = 1 (* atPath of dictionaries, depth = 3 *)
-(w: (x: (y: (z: 1)))).atPath(['w', 'x', 'y', 'z']) = 1  (* atPath of dictionaries, depth = 4 *)
+(x: (y: 1)).atPath(['x', 'y']) = 1 (* atPath of dictionary, depth = 2 *)
+(x: (y: (z: 1))).atPath(['x', 'y', 'z']) = 1 (* atPath of dictionary, depth = 3 *)
+(w: (x: (y: (z: 1)))).atPath(['w', 'x', 'y', 'z']) = 1  (* atPath of dictionary, depth = 4 *)
+| d = (w: (x: (y: (z: 1)))); | d.atPathPut(['w', 'x', 'y', 'z'], -1); d::w::x::y::z = -1  (* atPathPut of dictionary, depth = 4 *)
 (x: (y: 1))::x::y = 1 (* index sequence *)
 (x: (y: 1))['x'; 'y'] = 1 (* atPath (matrix) syntax of dictionaries *)
 (x: (y: (z: 1)))['x'; 'y'; 'z'] = 1 (* atPath (volume) syntax of dictionaries *)
@@ -1080,7 +1081,7 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 { ().at('x') }.ifError { true } (* indexing with an unknown key is an error *)
 (x: nil).at('x') = nil (* as does indexing a field that is set to nil *)
 (x: nil).size = 1 (* nil fields exist *)
-(x: nil).keys = ['x'] (* nil fields exist *)
+(x: nil).indices = ['x'] (* nil fields exist *)
 ().atIfAbsentPut('x') { 1 } = 1 (* at or atPut followed by at *)
 | d = (); | d.atIfAbsentPut('x') { 1 } = 1 & { d::x = 1 }
 (x: 1, y: 2).includes(2) (* includes, testing values for equality *)
@@ -1107,9 +1108,9 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 (x: 1, y: 2, z: 3).detect(even:/1) = 2 (* detect value *)
 | n = 0; | (x: 1, y: 2, z: 3).do { :each | n := n + each }; n = 6 (* do iterates over values, not associations *)
 | n = 0; | (x: 1, y: 2, z: 3).valuesDo { :each | n := n + each }; n = 6 (* iterate over values *)
-| a = []; | (x: 1, y: 2, z: 3).keysDo { :each | a.add(each) }; a = ['x', 'y', 'z'] (* iterate over keys *)
+| a = []; | (x: 1, y: 2, z: 3).indicesDo { :each | a.add(each) }; a = ['x', 'y', 'z'] (* iterate over indices (keys) *)
 | n = 0; | (x: 1, y: 2, z: 3).associationsDo { :each | n := n + each.value }; n = 6 (* iterate over associations *)
-| n = 0; | (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value | n := n + value }; n = 6 (* iterate over keys and values *)
+| n = 0; | (x: 1, y: 2, z: 3).withIndexDo { :value :key | n := n + value }; n = 6 (* iterate over keys and values *)
 (x: 'x', y: '.', z: 'z').associationsSelect { :each | each.key = each.value } = (x: 'x', z: 'z') (* select querying associations *)
 (x: 1, y: 2, z: 3).indices = ['x', 'y', 'z'] (* indices of dictionary (an array) *)
 | d = (a: 1, b: 2, c: 1); | d.indexOf(2) = 'b' (* lookup key (index) given value *)
@@ -1787,7 +1788,7 @@ LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
 ```
 | r = Map(); | r.add('x' -> 1); r.size = 1 (* add Association to Dictionary *)
 var d = Map(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2 (* add two Associations to Dictionary *)
-var d = ['x' -> 1, 'y' -> 2].Map; d.keys = ['x', 'y'] (* answer Array of keys at Dictionary *)
+var d = ['x' -> 1, 'y' -> 2].Map; d.indices = ['x', 'y'] (* answer Array of indices (keys) at Dictionary *)
 var d = ['x' -> 1, 'y' -> 2].Map; d.values = [1, 2] (* answer Array of values at Dictionary *)
 var d = ['x' -> 1, 'y' -> 2].Map; d.at('x') = 1 (* answer value at key in Dictionary *)
 var d = ['x' -> 1, 'y' -> 2].Map; d['x'] = 1 (* at (subscript) syntax *)
@@ -1801,8 +1802,8 @@ var d = (f: { :i | i * i }); d::f.value(9) = 81
 { Map().removeKey('unknownKey') }.ifError { true }
 (x: 1, y: 1).withoutDuplicates = (x: 1)
 var d = Map(); 1.toDo(100) { :i | d[i] := i; (i > 10).ifTrue { d.removeKey(i - 10) } }; d.size = 10
-var c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.removeKey(1); c.includesKey(1) = false
-(x: 1, y: 2).Map.includesKey('x') (* Record to Map, map includes key predicate *)
+var c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.removeKey(1); c.includesIndex(1) = false
+(x: 1, y: 2).Map.includesIndex('x') (* Record to Map, map includes key predicate *)
 (x: 1, y: 2).Map ++ (x: 2, y: 1) = (x: 2, y: 1).Map (* appending a record to a Map answers a Map, biases right *)
 (x: 1, y: 2, z: 3).Map ++ (x: 2, y: 1) = (x: 2, y: 1, z: 3).Map (* append record to Map *)
 (x: 1, y: 2).Map ++ (x: 2, y: 1, z: 3) = (x: 2, y: 1, z: 3).Map (* append record to Map *)
@@ -2032,6 +2033,8 @@ valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repea
 | f = { | x = 0; | { x := x + 1; x } }, g = f.value; | [g.value, g.value] = [1, 2] (* closure *)
 | f = { | x = 0; | { x := x + 1; x } }; | [f.value.value, f.value.value] = [1, 1] (* closures *)
 | f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; | (7 .. 9).collect(f) = [5040, 40320, 362880]
+| f = { system.randomFloat }; | f.once = f.once (* evaluate block once and cache result *)
+| f = { (1 .. 9).atRandom }; | f.once = f.once & { f.once = f.once } (* the cache is kept in a weak map *)
 ```
 
 ## Promise -- kernel type
@@ -2143,8 +2146,8 @@ ReadStream().next = nil (* next at an empty read stream answers nil *)
 ().isRecord
 ().species = Record:/0
 Record().isRecord
-Record().includesKey('x') = false (* includes key predicate *)
-(w: 0, x: 1).includesKey('x') = true
+Record().includesIndex('x') = false (* includes key predicate *)
+(w: 0, x: 1).includesIndex('x') = true
 { Record().at('x') }.ifError { true } (* lookup for non-existing key raises an error *)
 { ()['x'] }.ifError { true } (* lookup for non-existing key is an error *)
 var d = Record(); d.atPut('x', 1) = 1 & { d.at('x') = 1 }
@@ -2186,10 +2189,10 @@ var d = (c: 3, parent: (b: 2, parent: (a: 1))); [d:.a, d:.b, d:.c] = [1, 2, 3] (
 var d = (length: { :self | (self::x.squared + self::y.squared).sqrt }); var p = (x: 3.141, y: 23, parent: d); p:.length = 23.213484895637706
 var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7) = 21
 (x: 1) = ('x': 1) (* records with quoted keys *)
-('font-size': '11pt', 'font-style': 'italic').keys = ['font-size', 'font-style'] (* records with quoted keys that are not identifiers *)
+('font-size': '11pt', 'font-style': 'italic').indices = ['font-size', 'font-style'] (* records with quoted keys that are not identifiers *)
 (x: 1).Map.Record = (x: 1) (* record to map to record is identity *)
 (x: true)::x = true (* true value answers true *)
-(x: false).includesKey('x') = true (* includesKey at false value answers true *)
+(x: false).includesIndex('x') = true (* includes index at false value answers true *)
 (x: false)::x = false (* at at key with false value answers false *)
 (x: false)::x ~= nil (* at at key with false value does not answer nil *)
 (x: nil)::x = nil (* at at key with nil value answers nil *)
@@ -2359,9 +2362,9 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 | a = []; | (1 .. 5).combinationsAtATimeDo(3) { :each | a.add(each.sum) }; a = [6, 7, 8, 8, 9, 10, 9, 10, 11, 12]
 | a = []; | (1 .. 9).fromToDo(3, 7) { :each | a.add(each) }; a = [3 .. 7] (* partial iterator *)
 | a = []; | [1 / 3, 1 / 4, 1 / 4, 0.9, 1 / 3, 1].groupsDo { :p :q :r | a.add(p.roundTo(q) = r) }; a = [true, true]
-| a = []; | (9 .. 1).keysDo { :index | a.add(index * 2) }; a = [2, 4 .. 19] (* keys are indices *)
-| a = []; | (9 .. 1).keysAndValuesDo { :key :value | a.add(key * 2 + value) }; a = [11 .. 19] (* keys are indices *)
-| a = []; | (9 .. 7).keysAndValuesDo { :key :value | a.add(key -> value) }; a = [1 -> 9, 2 -> 8, 3 -> 7](* keys are indices *)
+| a = []; | (9 .. 1).indicesDo { :index | a.add(index * 2) }; a = [2, 4 .. 19] (* indexed *)
+| a = []; | (9 .. 1).withIndexDo { :value :index | a.add(index * 2 + value) }; a = [11 .. 19] (* keys are indices *)
+| a = []; | (9 .. 7).withIndexDo { :value :index | a.add(index -> value) }; a = [1 -> 9, 2 -> 8, 3 -> 7] (* keys are indices *)
 | a = []; | (9 .. 7).withIndexDo { :each :index | a.add(index -> each) }; a = [1 -> 9, 2 -> 8, 3 -> 7](* index is second argument *)
 | a = [1 .. 5]; | a.atIncrementBy(3, 6); a = [1, 2, 9, 4, 5] (* increment value at index by *)
 | a = [1 .. 9]; | a.atLastPut(3, -7); a = [1, 2, 3, 4, 5, 6, -7, 8, 9] (* set at index from end *)
@@ -2871,10 +2874,15 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 
 ## Syntax -- collection access and mutation
 ```
-'text'[3] = 'x'.Character (* c[k] is syntax for c.at(k) *)
-| x = [1 .. 5]; | x[3] := '3'; x[3] = '3' (* c[k] := v is syntax for c.atPut(k, v) *)
-| i = (9 .. 1); | i[5, 3, 7] = [5, 7, 3] (* c[k1, k2...] is syntax for c.atAll([k1, k2...]) *)
-| m = [1 2 3; 4 5 6; 7 8 9]; | m[2; 3] = 6 & { m[3; 2] = 8 } (* c[i; j...] is syntax for c.atPath([i, j...]) *)
+'text'[3] = 'x'.Character (* [At Syntax] *)
+| x = [1 .. 5]; | x[3] := '3'; x[3] = '3' (* [AtPut Syntax] *)
+| i = (9 .. 1); | i[5, 3, 7] = [5, 7, 3] (* [AtAll Syntax] *)
+| m = [1 2 3; 4 5 6; 7 8 9]; | m[2; 3] = 6 & { m[3; 2] = 8 } (* [AtPath Syntax] *)
+| d = (w: (x: (y: (z: 1)))); | d['w'; 'x'; 'y'; 'z'] = 1 (* [AtPath Syntax] *)
+| m = [1 2 3; 4 5 6]; | m[1; 2] := -2; m[2; 3] := -6; m = [1 -2 3; 4 5 -6] (* [AtPathPut Syntax] *)
+| d = (w: (x: (y: (z: 1)))); | d['w'; 'x'; 'y'; 'z'] := -1; d = (w: (x: (y: (z: -1)))) (* [AtPathPut Syntax] *)
+| d = (w: (x: (y: (z: 1)))); | d::w::x::y::z = 1 (* [Quoted At Syntax] *)
+| d = (w: (x: (y: (z: 1)))); | d::w::x::y::z := -1; d = (w: (x: (y: (z: -1))))(* [Quoted AtPut Syntax] *)
 ```
 
 ## Syntax -- dictionary assignment syntax
@@ -2985,7 +2993,7 @@ var a = 'one' -> 1; a.key := 9; a.key = 9 (* p.x := y is syntax for p.x(y) *)
 ```
 system.typeOf = 'System' (* system type *)
 system.isSystem (* system predicate *)
-system.typeDictionary.keys.includes('System') = true
+system.typeDictionary.indices.includes('System') = true
 system.randomFloat < 1 (* system random number generator *)
 system.uniqueId ~= system.uniqueId (* system unique identifier generator *)
 system.highBitPerByteTable.size = 256 (* high bits per byte table *)
@@ -3026,7 +3034,7 @@ system.categoryOf('notInCategorySystem') = '*Uncategorized*'
 system.isIndexable (* system is indexable *)
 system.globalDictionary.isDictionary (* the system global dicitionary is a dictionary *)
 system.globalDictionary.isRecord (* specifically, it is a record *)
-{ system::undefined }.ifError { true } (* system implements the indexable trait, unknown keys raise errors *)
+{ system::undefined }.ifError { true } (* system implements the indexable trait, unknown indices (keys) raise errors *)
 system::TwoPi := 2 * pi; system::TwoPi / 2 = pi (* declare and then access a global variable *)
 system.indices.includes('TwoPi') (* system is indexable *)
 system.indexOf(2 * pi) = 'TwoPi' (* system is indexable *)
@@ -3038,7 +3046,7 @@ system.methodDictionary.isDictionary = true
 system.methodDictionary::collect.isDictionary = true
 system.methodDictionary::collect[2].isDictionary = true
 system.methodDictionary::collect[2]::Array.isMethod = true
-system.methodDictionary.includesKey('collect') = true
+system.methodDictionary.includesIndex('collect') = true
 system.allMethods.collect { :each | each.signature }.includes('@Iterable>>do:/2') = true
 '@Iterable>>do:/2'.parseMethodSignature = ['@Iterable', 'do:/2']
 '@Collection'.parseQualifiedTraitName = 'Collection'
@@ -3074,16 +3082,16 @@ system.unixTimeInMilliseconds > 1671935015392 = true
 ## System -- traitDictionary
 ```
 system.traitDictionary.isDictionary = true
-system.traitDictionary.includesKey('Collection') = true
+system.traitDictionary.includesIndex('Collection') = true
 system.traitTypes('Collection').includes('Array') = true
 system.typeTraits('Array').includes('ArrayedCollection') = true
 system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'SequenceableCollection']) = true
 system.methodTraits('sum:/1') = ['Iterable']
 system.traitTypes('Object').includes('SmallFloat') = true
-system.traitLookup('Object').methodDictionary.includesKey('respondsTo:/2') = true
+system.traitLookup('Object').methodDictionary.includesIndex('respondsTo:/2') = true
 system.traitLookup('Collection').isTrait = true
 system.traitLookup('Collection').name = 'Collection'
-system.traitLookup('Iterable').methodDictionary.includesKey('do:/2') = true
+system.traitLookup('Iterable').methodDictionary.includesIndex('do:/2') = true
 system.traitLookup('Iterable').methodDictionary::do:/2.isMethod = true
 system.traitTypes('Collection').includes('Array') = true
 system.traitTypes('Dictionary').includes('Map') = true
@@ -3093,24 +3101,24 @@ system.traitDictionary['Dictionary'].isTrait = true
 ## System -- typeDictionary
 ```
 system.typeDictionary.isDictionary = true
-system.typeDictionary.keys.includes('Array') = true
-system.typeDictionary.includesKey('Array') = true
+system.typeDictionary.indices.includes('Array') = true
+system.typeDictionary.includesIndex('Array') = true
 system.typeDictionary::Array.isType = true
 system.typeDictionary::Array.traitNameArray.includes('Collection') = true
 system.typeDictionary::Association.slotNameArray = ['key', 'value']
-system.typeDictionary::Association.methodDictionary.keys.includes('equals:/2')
-system.typeDictionary::Association.methodDictionary.includesKey('key:/1') = true
-system.typeDictionary::Nil.methodDictionary.includesKey('ifNil:/2') = true
+system.typeDictionary::Association.methodDictionary.indices.includes('equals:/2')
+system.typeDictionary::Association.methodDictionary.includesIndex('key:/1') = true
+system.typeDictionary::Nil.methodDictionary.includesIndex('ifNil:/2') = true
 system.typeLookup('Association').methodDictionary.select { :each | each.name = 'key' }.size = 2
 system.typeLookup('Association').methodDictionary.anySatisfy { :each | each.name = 'copy' } = false
 system.typeLookup('Array').isType = true
 system.typeLookup('Array').name = 'Array'
-system.typeLookup('Array').methodDictionary.includesKey('shallowCopy:/1') = true
+system.typeLookup('Array').methodDictionary.includesIndex('shallowCopy:/1') = true
 system.typeLookup('Array').methodDictionary::shallowCopy:/1.isMethod = true
 system.typeMethodDictionary('Array').anySatisfy { :each | each.name ='select' } = true
 system.typeLookup('String').isType = true
-system.typeLookup('String').methodDictionary.includesKey('includesSubstring:/2') = true
-system.typeLookup('Void').methodDictionary.includesKey('Set:/0') = true
+system.typeLookup('String').methodDictionary.includesIndex('includesSubstring:/2') = true
+system.typeLookup('Void').methodDictionary.includesIndex('Set:/0') = true
 system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 ```
 
@@ -3343,6 +3351,16 @@ Vector3(0, 0, 0).isZero (* are x, y and z all zero *)
 | a = [1, 2, 3, 4], v = a.Vector4; | v.Array = [1, 2, 3, 4] (* four vector to array *)
 Vector4(0, 0, 0, 0).isZero (* are w, x, y and z all zero *)
 | v = Vector4(1, 2, 3, 4); | [v.w, v.x, v.y, v.z] = [1, 2, 3, 4] (* fields are w, x, y, z *)
+```
+
+## WeakMap -- collection type
+```
+WeakMap().typeOf = 'WeakMap' (* type of weak map *)
+WeakMap().isWeakMap (* weak map predicate *)
+WeakMap().printString = 'a WeakMap' (* weak map print string *)
+{ WeakMap().size }.ifError { true } (* the size of a weak map cannot be observed *)
+| f = { system.randomFloat }; | f.once = f.once (* Procedure>>once caches output using a weak map *)
+system.cache::onceCache.isWeakMap
 ```
 
 ## WriteStream -- collection type

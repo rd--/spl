@@ -1,4 +1,4 @@
-# not -- logical negation
+# not -- logic operator
 
 - _not(aBoolean)_: true if argument is false, else false
 

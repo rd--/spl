@@ -1593,7 +1593,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 		ColumnBrowser('Scala Ji Meta Browser', 'text/html', false, false, [1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
-					self.keys
+					self.indices
 				},
 				1 -> {
 					self[path[1]].collect(description:/1)
@@ -1629,7 +1629,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 						each.degree = path[1].parseInteger(10) & {
 							each.limit = path[2].parseInteger(10)
 						}
-					}.keys
+					}.indices
 				},
 				3 -> {
 					| ji = self[path[3]]; |
@@ -1709,8 +1709,8 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	CategoryBrowser {
 		|(
-			typeNames = system.typeDictionary.keys.sorted,
-			categoryNames = system.categoryDictionary.keys.sorted,
+			typeNames = system.typeDictionary.indicesSorted,
+			categoryNames = system.categoryDictionary.indicesSorted,
 			methodSet = nil,
 			selectedMethod = nil
 		)|
@@ -1748,7 +1748,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	SystemBrowser {
 		|(
-			typeNames = system.typeDictionary.keys.sorted,
+			typeNames = system.typeDictionary.indicesSorted,
 			methodSet = nil,
 			selectedMethod = nil
 		)|
@@ -1779,7 +1779,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	TraitBrowser {
-		| traitNames = system.traitDictionary.keys.sorted; |
+		| traitNames = system.traitDictionary.indicesSorted; |
 		ColumnBrowser('Trait Browser', 'text/plain', false, true, [1, 3], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
@@ -1788,7 +1788,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				},
 				1 -> {
 					browser.setStatus(system.traitTypes(path[1]).joinSeparatedBy(', '));
-					system.traitDictionary[path[1]].methodDictionary.keys.sorted
+					system.traitDictionary[path[1]].methodDictionary.indicesSorted
 				},
 				2 -> {
 					system.traitDictionary[path[1]].methodDictionary[path[2]].definition
@@ -1799,7 +1799,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	TypeBrowser {
 		|(
-			typeNames = system.typeDictionary.keys.sorted,
+			typeNames = system.typeDictionary.indicesSorted,
 			selectedMethod = nil
 		)|
 		ColumnBrowser('Type Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
@@ -1812,7 +1812,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				},
 				1 -> {
 					browser.setStatus(system.typeTraits(path[1]).joinSeparatedBy(', '));
-					system.typeDictionary[path[1]].methodDictionary.keys.sorted
+					system.typeDictionary[path[1]].methodDictionary.indicesSorted
 				},
 				2 -> {
 					selectedMethod := system.typeDictionary[path[1]].methodDictionary[path[2]];

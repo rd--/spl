@@ -738,8 +738,8 @@
 @Dictionary {
 
 	= { :self :aDictionary |
-		| keyArray = self.keys; |
-		(keyArray = aDictionary.keys) & {
+		| keyArray = self.indices; |
+		(keyArray = aDictionary.indices) & {
 			keyArray.allSatisfy { :key |
 				self[key] = aDictionary[key]
 			}
@@ -797,7 +797,7 @@
 	}
 
 	associationsDo { :self :aProcedure:/1 |
-		self.keysAndValuesDo { :key :value |
+		self.withIndexDo { :value :key |
 			aProcedure(key -> value)
 		}
 	}
@@ -818,7 +818,7 @@
 
 	atDelegateToIfAbsent { :self :key :delegateKey :aProcedure:/0 |
 		self.atIfAbsent(key) {
-			self.includesKey(delegateKey).if {
+			self.includesIndex(delegateKey).if {
 				self[delegateKey].atDelegateToIfAbsent(
 					key,
 					delegateKey,
@@ -838,11 +838,11 @@
 
 
 	atPutDelegateToIfAbsent { :self :key :value :delegateKey :aProcedure:/0 |
-		self.includesKey(key).if {
+		self.includesIndex(key).if {
 			self.atPut(key, value)
 		} {
 			self.atIfAbsent(key) {
-				self.includesKey(delegateKey).if {
+				self.includesIndex(delegateKey).if {
 					self[delegateKey].atPutDelegateToIfAbsent(
 						key,
 						value,
@@ -875,17 +875,17 @@
 
 	collect { :self :aProcedure:/1 |
 		| answer = self.species.new; |
-		self.keysAndValuesDo { :key :value |
+		self.withIndexDo { :value :key |
 			answer.add(key -> aProcedure(value))
 		};
 		answer
 	}
 
 	declareFrom { :self :key :aDictionary |
-		self.includesKey(key).if {
+		self.includesIndex(key).if {
 			nil
 		} {
-			aDictionary.includesKey(key).if {
+			aDictionary.includesIndex(key).if {
 				| association = aDictionary.associationAt(key); |
 				self.add(association);
 				aDictionary.removeKey(key);
@@ -932,37 +932,23 @@
 		}
 	}
 
-	includesIndex { :self :index |
-		self.includesKey(index)
+	includesIndex { :self :key |
+		self.indices.includes(key)
 	}
 
-	includesKey { :self :key |
-		self.keys.includes(key)
-	}
-
-	indices { :self |
-		self.keys
+	indicesDo { :self :aBlock:/1 |
+		self.associationsDo { :association |
+			aBlock(association.key)
+		}
 	}
 
 	isDictionary { :self |
 		true
 	}
 
-	keysAndValuesDo { :self :aProcedure:/2 |
-		self.associationsDo { :association |
-			aProcedure(association.key, association.value)
-		}
-	}
-
 	keysAndValuesRemove { :self :keyValueBlock:/2 |
 		self.associationsRemove { :each |
 			keyValueBlock(each.key, each.value)
-		}
-	}
-
-	keysDo { :self :aBlock:/1 |
-		self.associationsDo { :association |
-			aBlock(association.key)
 		}
 	}
 
@@ -1002,7 +988,7 @@
 	}
 
 	removeAt { :self :key |
-		self.includesKey(key).if {
+		self.includesIndex(key).if {
 			| removed = self[key]; |
 			self.removeKey(key);
 			removed
@@ -1022,7 +1008,7 @@
 	}
 
 	replace { :self :aBlock:/1 |
-		self.keys.do { :key |
+		self.indices.do { :key |
 			self[key] := aBlock(self[key])
 		}
 	}
@@ -1044,6 +1030,12 @@
 	valuesDo { :self :aProcedure:/1 |
 		self.associationsDo { :association |
 			aProcedure(association.value)
+		}
+	}
+
+	withIndexDo { :self :aProcedure:/2 |
+		self.associationsDo { :association |
+			aProcedure(association.value, association.key)
 		}
 	}
 
@@ -1132,6 +1124,19 @@
 		}
 	}
 
+	atPathPut { :self :indices :value |
+		| item = self; |
+		indices.ifEmpty {
+			self.error('atPath: empty indices')
+		} {
+			1.toDo(indices.size - 1) { :indicesIndex |
+				| index = indices[indicesIndex]; |
+				item := item[index]
+			};
+			item[indices.last] := value
+		}
+	}
+
 	atPut { :self :index :anObject |
 		self.basicAtPut(index, anObject)
 	}
@@ -1177,6 +1182,12 @@
 
 	indices { :self |
 		self.error('@Indexable>>indices: type responsibility')
+	}
+
+	indicesSorted { :self |
+		| answer = self.indices; |
+		answer.sort;
+		answer
 	}
 
 	indicesDo { :self :aBlock:/1 |
@@ -1719,6 +1730,10 @@
 		(1 .. self.size)
 	}
 
+	indicesSorted { :self |
+		(1 .. self.size)
+	}
+
 	indicesDo { :self :aBlock:/1 |
 		1.toDo(self.size, aBlock:/1)
 	}
@@ -1769,16 +1784,6 @@
 				};
 				true
 			}
-		}
-	}
-
-	keysDo { :self :aBlock:/1 |
-		self.indicesDo(aBlock:/1)
-	}
-
-	keysAndValuesDo { :self :aBlock:/2 |
-		self.indicesDo { :index |
-			aBlock(index, self[index])
 		}
 	}
 
@@ -2710,17 +2715,17 @@ Bag : [Object, Iterable, Collection, UnorderedCollection] { | contents |
 	}
 
 	includes { :self :anObject |
-		self.contents.includesKey(anObject)
+		self.contents.includesIndex(anObject)
 	}
 
 	max { :self |
-		self.contents.keys.injectInto(self.contents.keys.anyOne) { :max :each |
+		self.contents.indices.injectInto(self.contents.indices.anyOne) { :max :each |
 			max.max(each)
 		}
 	}
 
 	min { :self |
-		self.contents.keys.injectInto(self.contents.keys.anyOne) { :min :each |
+		self.contents.indices.injectInto(self.contents.indices.anyOne) { :min :each |
 			min.min(each)
 		}
 	}
@@ -2754,7 +2759,7 @@ Bag : [Object, Iterable, Collection, UnorderedCollection] { | contents |
 	}
 
 	Set { :self |
-		self.contents.keys.Set
+		self.contents.indices.Set
 	}
 
 	setContents { :self :aDictionary |
@@ -2794,7 +2799,7 @@ Bag : [Object, Iterable, Collection, UnorderedCollection] { | contents |
 			self.error('sum: empty')
 		} {
 			| sum = 0; |
-			self.contents.keysAndValuesDo { :value :count |
+			self.contents.withIndexDo { :count :value |
 				sum := sum + (value * count)
 			};
 			sum
@@ -2825,14 +2830,7 @@ Bag : [Object, Iterable, Collection, UnorderedCollection] { | contents |
 
 }
 
-Map : [Object, Iterable, Collection, Indexable, Dictionary] {
-
-	add { :self :anAssociation |
-		<primitive:
-		_self.set(_anAssociation.key, _anAssociation.value);
-		return _anAssociation;
-		>
-	}
+@PrimitiveMap {
 
 	at { :self :key |
 		<primitive:
@@ -2843,49 +2841,15 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 		self.error('at: unknown key: ' ++ key)
 	}
 
-	atPut { :self :key :aValue |
+	atPut { :self :key :value |
 		<primitive:
-		_self.set(_key, _aValue);
-		return _aValue;
+		_self.set(_key, _value);
+		return _value;
 		>
 	}
 
-	includesKey { :self :key |
+	includesIndex { :self :key |
 		<primitive: return _self.has(_key);>
-	}
-
-	json { :self |
-		self.json(nil, '')
-	}
-
-	json { :self :replacer :space |
-		self.keys.allSatisfy(isString:/1).if {
-			self.Record.json(replacer, space)
-		} {
-			self.error('json: not all keys are strings')
-		}
-	}
-
-	keys { :self |
-		<primitive: return Array.from(_self.keys());>
-	}
-
-	keysAndValuesDo { :self :aProcedure |
-		<primitive:
-		_self.forEach(function(value, key, _) {
-			_aProcedure(key, value);
-		});
-		return null;
-		>
-	}
-
-	Map { :self |
-		self
-	}
-
-	removeAll { :self |
-		<primitive: _self.clear();>
-		self
 	}
 
 	removeKeyIfAbsent { :self :key :aProcedure |
@@ -2897,6 +2861,42 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 			return _aProcedure();
 		}
 		>
+	}
+
+}
+
+Map : [Object, Iterable, Collection, Indexable, Dictionary, PrimitiveMap] {
+
+	add { :self :anAssociation |
+		<primitive:
+		_self.set(_anAssociation.key, _anAssociation.value);
+		return _anAssociation;
+		>
+	}
+
+	json { :self |
+		self.json(nil, '')
+	}
+
+	json { :self :replacer :space |
+		self.indices.allSatisfy(isString:/1).if {
+			self.Record.json(replacer, space)
+		} {
+			self.error('json: not all keys are strings')
+		}
+	}
+
+	indices { :self |
+		<primitive: return Array.from(_self.keys());>
+	}
+
+	Map { :self |
+		self
+	}
+
+	removeAll { :self |
+		<primitive: _self.clear();>
+		self
 	}
 
 	shallowCopy { :self |
@@ -2917,6 +2917,15 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary] {
 
 	values { :self |
 		<primitive: return Array.from(_self.values());>
+	}
+
+	withIndexDo { :self :aProcedure |
+		<primitive:
+		_self.forEach(function(value, key, _) {
+			_aProcedure(value, key);
+		});
+		return null;
+		>
 	}
 
 }
@@ -3531,21 +3540,12 @@ Record : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 		<primitive: return new Map(Object.entries(_self));>
 	}
 
-	includesKey { :self :key |
+	includesIndex { :self :key |
 		<primitive: return Object.hasOwn(_self, _key);>
 	}
 
-	keys { :self |
+	indices { :self |
 		<primitive: return Object.keys(_self);>
-	}
-
-	keysAndValuesDo { :self :aProcedure:/2 |
-		<primitive:
-		Object.entries(_self).forEach(function(entry) {
-			_aProcedure_2(entry[0], entry[1]);
-		});
-		return null;
-		>
 	}
 
 	removeKeyIfAbsent { :self :key :aProcedure |
@@ -3585,6 +3585,15 @@ Record : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 		<primitive: return Object.values(_self);>
 	}
 
+	withIndexDo { :self :aProcedure:/2 |
+		<primitive:
+		Object.entries(_self).forEach(function(entry) {
+			_aProcedure_2(entry[1], entry[0]);
+		});
+		return null;
+		>
+	}
+
 }
 
 +Array {
@@ -3606,7 +3615,7 @@ Record : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 +Map {
 
 	Record { :self |
-		self.keys.allSatisfy(isString:/1).if {
+		self.indices.allSatisfy(isString:/1).if {
 			self.unsafeRecord
 		} {
 			self.error('Record: not all keys are strings')
@@ -3623,6 +3632,22 @@ Record : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 
 	Record {
 		<primitive: return Object.create(null);>
+	}
+
+}
+
+WeakMap : [Object, Indexable, PrimitiveMap] {
+
+	size { :self |
+		self.error('size: cannot be observed')
+	}
+
+}
+
++Void {
+
+	WeakMap {
+		<primitive: return new WeakMap();>
 	}
 
 }

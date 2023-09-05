@@ -1,6 +1,6 @@
 # equals -- comparing
 
-- _equals(self, anObject)_ ≡ _self = anObject_
+- _equals(self, anObject)_ ⟹ _self = anObject_
 
 This is the _structural equality_ operator, it answers _true_ if _self_ is equal to _anObject_, else _false_.
 The meaning of _equals_ is determined by the _typeOf(self)_.
