@@ -8,3 +8,5 @@ Answer sum of _self_ and _aNumber_.
 * * *
 
 See also: minus, times
+
+Unicode: U+002B + PLUS SIGN

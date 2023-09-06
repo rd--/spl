@@ -373,7 +373,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'arithmetic operators': [
 			'%'
 			'*'
-			'**'
+			'^'
 			'+'
 			'-'
 			'/'

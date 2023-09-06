@@ -385,7 +385,7 @@
 	> { :self :anObject | <primitive: return sc.Gt(_self, _anObject);> }
 	<= { :self :anObject | <primitive: return sc.Le(_self, _anObject);> }
 	>= { :self :anObject | <primitive: return sc.Ge(_self, _anObject);> }
-	** { :self :anObject | <primitive: return sc.Pow(_self, _anObject);> }
+	^ { :self :anObject | <primitive: return sc.Pow(_self, _anObject);> }
 	<< { :self :anObject | <primitive: return sc.ShiftLeft(_self, _anObject);> }
 	>> { :self :anObject | <primitive: return sc.ShiftRight(_self, _anObject);> }
 

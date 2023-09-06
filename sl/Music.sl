@@ -17,11 +17,11 @@
 +@Number {
 
 	linearOctave { :self |
-		(440 * (2 ** (self - 4.75))).hertz
+		(440 * (2 ^ (self - 4.75))).hertz
 	}
 
 	midiNoteNumber { :self |
-		(440 * (2 ** ((self - 69) * (1 / 12)))).hertz
+		(440 * (2 ^ ((self - 69) * (1 / 12)))).hertz
 	}
 
 	midiNoteNumberToOctavePitchClass { :self |

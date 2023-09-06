@@ -871,10 +871,6 @@
 		self >= 0
 	}
 
-	pow { :self :anObject |
-		self ** anObject
-	}
-
 	quotient { :self :aNumber |
 		(aNumber = 0).if {
 			'@Number>>quotient: divideByZero'.error
@@ -1484,7 +1480,7 @@ Complex : [Object] { | real imaginary |
 		}
 	}
 
-	** { :self :aNumber |
+	^ { :self :aNumber |
 		(aNumber = 0).if {
 			Complex(1, 0)
 		} {
@@ -1493,7 +1489,7 @@ Complex : [Object] { | real imaginary |
 			} {
 				(self = 0).if {
 					(aNumber < 0).if {
-						self.error('**: zero divide')
+						self.error('^: zero divide')
 					} {
 						self
 					}
@@ -1847,11 +1843,11 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
-	** { :self :anInteger |
+	^ { :self :anInteger |
 		anInteger.isInteger.if {
 			self.raisedToInteger(anInteger)
 		} {
-			self.error('** not an integer')
+			self.error('^ not an integer')
 		}
 	}
 
@@ -2113,7 +2109,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.isInteger.if {
 			self
 		} {
-			| k = 10 ** (maxDenominator.log10.ceiling + 1); |
+			| k = 10 ^ (maxDenominator.log10.ceiling + 1); |
 			Fraction((self * k).rounded, k).reduced.limitDenominator(maxDenominator)
 		}
 	}
@@ -2186,7 +2182,7 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 		>
 	}
 
-	** { :self :anInteger |
+	^ { :self :anInteger |
 		<primitive: return _self ** BigInt(_anInteger);>
 	}
 
@@ -2380,13 +2376,13 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 		anObject.adaptToNumberAndApply(self, modulo:/2)
 	}
 
-	** { :self :anObject |
+	^ { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
 			return Math.pow(_self, _anObject);
 		}
 		>
-		anObject.adaptToNumberAndApply(self, timesTimes:/2)
+		anObject.adaptToNumberAndApply(self, raisedTo:/2)
 	}
 
 	<< { :self :anObject |
@@ -2643,7 +2639,7 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 	}
 
 	raisedToInteger { :self :anInteger |
-		self ** anInteger
+		self ^ anInteger
 	}
 
 	randomFloat { :self |

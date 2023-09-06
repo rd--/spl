@@ -303,3 +303,7 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+22EF ⋯ MIDLINE HORIZONTAL ELLIPSIS
 - U+2209 ∉ Not An Element Of
 - U+220C ∌ DOES NOT CONTAIN AS MEMBER
+- U+00B1 ± PLUS-MINUS SIGN
+- U+2213 ∓ MINUS-OR-PLUS SIGN
+- U+002B + PLUS SIGN
+- U+2212 − MINUS SIGN

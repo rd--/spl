@@ -61,9 +61,9 @@
 2.sqrt.squared >~ 2 (* greater than or similar to *)
 2 !~ 3 (* not almost equal to *)
 2.sqrt.squared.veryCloseTo(2) (* floating point errors *)
-5.0 ** 2.0 = 25.0 (* power function *)
-5 ** 2 = 25 (* power function with integer *)
-5.timesTimes(2) = 25 (* power function with integer *)
+5.0 ^ 2.0 = 25.0 (* raisedTo (power) function *)
+5 ^ 2 = 25 (* raisedTo integer *)
+5.raisedTo(2) = 25 (* raisedTo integer *)
 1.exp.veryCloseTo(2.718281828459) (* exponential *)
 -5.abs = 5 (* absolute value *)
 0.abs = 0 & { 5.abs = 5 } (* absolute value of zero and positive numbers *)
@@ -155,8 +155,8 @@ inf.positive = true
 (0 - inf).negative = true
 8.isPowerOfTwo (* is the receiver a power of two *)
 (1 .. 999).select(isPowerOfTwo:/1) = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
-(2 ** 30).isPowerOfTwo = true (* this is only reliable for numbers that can be represented in 32-bits *)
-(2 ** 30 - 1).isPowerOfTwo = false
+(2 ^ 30).isPowerOfTwo = true (* this is only reliable for numbers that can be represented in 32-bits *)
+(2 ^ 30 - 1).isPowerOfTwo = false
 127.asLargerPowerOfTwo = 128 (* next power of two that is not less than the receiver *)
 [1, 2, 4, 8, 16, 32, 64, 128, 256].collect { :each | (each + 1).asLargerPowerOfTwo } = [2, 4, 8, 16, 32, 64, 128, 256, 512]
 129.asSmallerPowerOfTwo = 128 (* next power of two that is not greater than the receiver *)
@@ -165,13 +165,13 @@ inf.positive = true
 25.sqrt = 5 (* integer sqrt *)
 (2 / 4) * 2 = 1 (* integer division *)
 2 * (2 / 4) = 1 (* integer division *)
-| x = 10 ** -7, nearest = 10 ** -8, furthest = 0; | (x - nearest).abs < (x - furthest).abs & { (x ~ furthest) ==> { (x ~ nearest) } }
+| x = 10 ^ -7, nearest = 10 ^ -8, furthest = 0; | (x - nearest).abs < (x - furthest).abs & { (x ~ furthest) ==> { (x ~ nearest) } }
 -1 !~ 1 (* negative one is not close to one *)
 1 !~ inf (* one is not close to inifinity *)
 inf ~ inf (* being equal, infinty is also close to itself *)
 1:3 ~ (1 / 3) (* a fraction is close to it's floating point representation *)
 0 ~ epsilon & { epsilon ~ 0 } & { 1 + epsilon ~ 1 } (* ε is ≈ zero ∧ ≈ is a symmetric operator ∧ one plus ε is ≈ one *)
-| n = 10 ** -9; | 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
+| n = 10 ^ -9; | 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
 [8 % 3, 9 % 3, 8.9 % 3, epsilon % 3, epsilon.negated % 3] ~ [2, 0, 2.9, 0, 3] (* modulo *)
 (-5 .. 5).collect { :each | each % 3 } = [1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2] (* modulo *)
 15 % 4 = 3 (* modulo *)
@@ -272,6 +272,7 @@ plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6] (* ++ equals plusPlus *)
 [5, 4, 3, 2, 1].findFirst { :each | each % 3 = 0 } = 3 (* answer index of first element matching predicate *)
 [5, 4, 3, 2, 1].findFirst { :each | each % 7 = 0 } = 0 (* zero if no element is found *)
 [[1, 2, 3, 4], [5, 6, 7, 8]].transpose = [[1, 5], [2, 6], [3, 7], [4, 8]]
+[1 2 3; 4 5 6].transpose = [1 4; 2 5; 3 6] (* transpose, matrix syntax *)
 1.toAsCollect(9, Array:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 | a = [1 .. 9]; | a.shuffle; a ~= [1 .. 9] (* shuffle in place, using system Random *)
 | a = [1 .. 9], r = Random(13579); | a.shuffleBy(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] (* shuffle in place, using given Random *)
@@ -540,7 +541,7 @@ Bag().isSequenceable = false
 2r101001000100101.bitCount = 6
 { -2.bitCount }.ifError { true } (* negative integers have an infinite number of leading ones *)
 2r1111.bitAnd(2r1001) = 2r1001 (* bitwise and *)
-(2 ** 30).bitAnd(2 ** 30 - 1) = 0 (* bitwise and of a power of two and one less is zero *)
+(2 ^ 30).bitAnd(2 ^ 30 - 1) = 0 (* bitwise and of a power of two and one less is zero *)
 2r1111.bitOr(2r1001) = 2r1111 (* bitwise or *)
 2r1111.bitXor(2r1001) = 2r0110 (* bitwise exclusive or *)
 (1 .. 8).collect { :each | 2r10010110.bitAt(each) } = [0, 1, 1, 0, 1, 0, 0, 1] (* bit at index *)
@@ -931,19 +932,19 @@ Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 (1 + 2.i) ~= (1 + 4.i) = true (* inequality *)
 | c = 2.i, z = c.copy; | z.real := 3; z ~= c & { z = (3 + 2.i) } (* copy complex *)
 (0.5 * (2 + 0.i).log).exp = (0.5 * 2.log).exp (* natural logarithm *)
-(3 + 5.i) ** 0 = (1 + 0.i) (* exponent of zero answers one *)
-(3 + 5.i) ** 1 = (3 + 5.i) (* exponent of one is identity *)
-(3 + 5.i) ** 2 ~ (-16 + 30.i)
+(3 + 5.i) ^ 0 = (1 + 0.i) (* exponent of zero answers one *)
+(3 + 5.i) ^ 1 = (3 + 5.i) (* exponent of one is identity *)
+(3 + 5.i) ^ 2 ~ (-16 + 30.i)
 (1 + 2.i) * (2 - 3.i) = (8 + 1.i) (* complex number with complex exponent *)
 (1 + 2.i) / (1 - 2.i) = (-0.6 + 0.8.i)
 (1 + 2.i) + (1 - 2.i) = (2 + 0.i)
 (-3 + 2.i) - (5 - 1.i) = (-8 + 3.i)
-(-1 + 2.i) ** 2 ~ (-3 - 4.i)
-(-1 + 2.i) ** 2.5 ~ (2.7296 - 6.9606.i)
-(-1 + 2.i) ** (1 + 1.i) = (-0.27910381075826657 + 0.08708053414102428.i)
+(-1 + 2.i) ^ 2 ~ (-3 - 4.i)
+(-1 + 2.i) ^ 2.5 ~ (2.7296 - 6.9606.i)
+(-1 + 2.i) ^ (1 + 1.i) = (-0.27910381075826657 + 0.08708053414102428.i)
 3 * (2 - 5.i) = (6 - 15.i)
-3 * ((2 - 5.i) ** 2) ~ (-63 - 60.i)
-3 * ((2 - 5.i) ** -1) ~ (0.2069 + 0.5172.i)
+3 * ((2 - 5.i) ^ 2) ~ (-63 - 60.i)
+3 * ((2 - 5.i) ^ -1) ~ (0.2069 + 0.5172.i)
 2 * (1 - 1.i) = (2 - 2.i)
 (2 + 3.i) - 1 = (1 + 3.i)
 (1 + 2.i) + 0.5 = (1.5 + 2.i)
@@ -951,7 +952,7 @@ Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 0.75 * (1 + 2.i) = (0.75 + 1.5.i)
 (2 + 3.i) / 2 = (1 + 1.5.i)
 (1 - 3.i) / (2 + 2.i) = (-0.5 - 1.i)
-2 * (1.i ** 2) ~ (-2 + 0.i)
+2 * (1.i ^ 2) ~ (-2 + 0.i)
 1 + (3 / 4.i) = (1 - 0.75.i)
 | z = 1 + 2.i; | z.real = 1 & { z.imaginary = 2 }
 | z = 1 + 2.i; | z.conjugated = (1 - 2.i) & { z.absSquared = 5 }
@@ -1239,8 +1240,8 @@ Fraction(4, 6) ~= 2:3 (* non-reduced fraction *)
 4:3.negative.not (* is negative predicate *)
 4:3.numerator = 4 (* numerator *)
 2:3.raisedToInteger(5) = 32:243 (* fractions also can be exponentiated *)
-2:3 ** 5 = 32:243 (* fractions also can be exponentiated using infix operator *)
-{ 2:3 ** 3:4 }.ifError { true } (* only integer exponents are implemented *)
+2:3 ^ 5 = 32:243 (* fractions also can be exponentiated using infix operator *)
+{ 2:3 ^ 3:4 }.ifError { true } (* only integer exponents are implemented *)
 9:5.reciprocal = 5:9 (* reciprocal, mutiplicative inverse *)
 | n = 9:5; | n.reciprocal * n = 1 (* mutiplicative inverse *)
 7:5.squared = 49:25 (* square of *)
@@ -1344,8 +1345,8 @@ system.unicodeFractionsTable.associations.isArray = true
 | n = system.unicodeFractionsTable.associations.collect(value:/1); | n = n.sorted
 '4:3'.parseFraction = 4:3 (* parse fraction *)
 '4/3'.parseFraction('/') = 4:3  (* parse fraction given delimiter *)
-| x = Fraction(2 ** 55, 2); | x ~= (x - 1) = false (* fractions of large small floats behave strangely *)
-| x = Fraction(2n ** 55n, 2); | x ~= (x - 1) (* fractions of large large integers behave ordinarily *)
+| x = Fraction(2 ^ 55, 2); | x ~= (x - 1) = false (* fractions of large small floats behave strangely *)
+| x = Fraction(2n ^ 55n, 2); | x ~= (x - 1) (* fractions of large large integers behave ordinarily *)
 2:3 ~= 3:4 (* unequal fractions *)
 (2:3 == 2:3).not (* non-identical fractions (equal fractions need not be the same object) *)
 2:3 ~~ 2:3 (* non-identical fractions *)
@@ -1356,7 +1357,7 @@ system.unicodeFractionsTable.associations.isArray = true
 355:113.limitDenominator(7) = 22:7
 [1:2, 5:10, 10:20, 50:100, 500:1000].collect { :n | n.limitDenominator(5) } = [1:2, 1:2, 1:2, 1:2, 1:2]
 [10, 100].collect { :n | 0.367879.asFraction(n) } = [3:8, 32:87]
-(1 .. 5).collect { :n | pi.asFraction(10 ** n) } = [22:7, 311:99, 2862:911, 9563:3044, 313842:99899]
+(1 .. 5).collect { :n | pi.asFraction(10 ^ n) } = [22:7, 311:99, 2862:911, 9563:3044, 313842:99899]
 pi.asFraction = 311:99 (* with maximumDenominator set to one hundred *)
 (1 / [2, 3, 5, 7, 11, 13, 17]).collect(asFraction:/1) = [1:2, 1:3, 1:5, 1:7, 1:11, 1:13, 1:17]
 6:8 * 4 = 3 (* answer integer *)
@@ -1455,8 +1456,8 @@ true == true & { false == false } (* boolean identity *)
 (256 .. 511).collect { :each | each.digitAt(1) } = [0 .. 255]
 (256 .. 511).collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 1 }
 (512 .. 1023).collect { :each | each.digitAt(2) }.Bag.sortedElements = [2 -> 256, 3 -> 256]
-[1, 8, 16, 24, 32n, 40n, 48n, 56n, 64n].collect { :each | (2 ** each).digitLength } = [1 .. 9]
-(2 ** 128n - 1).digitLength = 16
+[1, 8, 16, 24, 32n, 40n, 48n, 56n, 64n].collect { :each | (2 ^ each).digitLength } = [1 .. 9]
+(2 ^ 128n - 1).digitLength = 16
 123456n.fnv1aHash = 2230130162n
 (1 << 30) == 1073741824 (* equal integers are identical *)
 6.take(3) = 20 (* n choose k *)
@@ -1502,7 +1503,7 @@ system.cache::primesArray[3579] = 33413 (* nthPrime extends the primesArray cach
 [11 .. 20].collect(threeDigitName:/1) = ['eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty']
 [21, 25, 29].collect(threeDigitName:/1) = ['twenty-one', 'twenty-five', 'twenty-nine']
 [111, 333, 999].collect(threeDigitName:/1) = ['one hundred eleven', 'three hundred thirty-three', 'nine hundred ninety-nine']
-(921 * (10 ** 12)).asWords = 'nine hundred twenty-one trillion'
+(921 * (10 ^ 12)).asWords = 'nine hundred twenty-one trillion'
 504606846975.asWords = 'five hundred four billion, six hundred six million, eight hundred forty-six thousand, nine hundred seventy-five'
 123456789.asWords = 'one hundred twenty-three million, four hundred fifty-six thousand, seven hundred eighty-nine'
 13579.asWords = 'thirteen thousand, five hundred seventy-nine'
@@ -1687,8 +1688,8 @@ Interval(1, 100, 0.5).size = 199
 ## LargeInteger -- numeric type
 ```
 23n.typeOf = 'LargeInteger' (* syntax for large integer literals *)
-(2 ** 54).LargeInteger.squared.printString = '324518553658426726783156020576256'
-(2 ** 37).LargeInteger.squared.storeString = '18889465931478580854784n'
+(2 ^ 54).LargeInteger.squared.printString = '324518553658426726783156020576256'
+(2 ^ 37).LargeInteger.squared.storeString = '18889465931478580854784n'
 '324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
 2971215073.LargeInteger.isPrime = true
 23n.factorial = 25852016738884976640000n (* factorial of LargeInteger *)
@@ -1698,12 +1699,12 @@ Interval(1, 100, 0.5).size = 199
 6n / 8n = Fraction(3n, 4n)
 2 / 3n = Fraction(2n, 3n)
 4n / 2n = 2n (* reduced *)
-| x = (2n ** 54n); | x ~= (x - 1) (* large integers behave ordinarily *)
+| x = (2n ^ 54n); | x ~= (x - 1) (* large integers behave ordinarily *)
 5n % 3n = 2n (* modulo *)
 [10n % 5n, -4n % 3n, 4n % -3n, -4n % -3n] = [0n, 2n, -2n, -1n] (* modulo, negative operands *)
 13n % 7n % 4n = 2n (* left assocative *)
 13n + 1n % 7n = 0n (* equal precedence *)
-(2n ** 170 - 1).isPowerOfTwo = false (* LargeInteger power of two test *)
+(2n ^ 170 - 1).isPowerOfTwo = false (* LargeInteger power of two test *)
 324518553658426726783156020576256n.even = true (* is large integer even *)
 324518553658426726783156020576257n.odd = true (* is large integer odd *)
 100n.factorial / 99n.factorial = 100n (* large integer factorial, c.f. small float *)
@@ -1711,7 +1712,7 @@ Interval(1, 100, 0.5).size = 199
 8589298611n.primeFactors.last = 2863099537n
 (1n << 100n) == 1267650600228229401496703205376n (* equal large integers are identical *)
 92233720368n * 100000000n + 54775807n = 9223372036854775807n (* reader for large integer literals *)
-2n ** 100n = 1267650600228229401496703205376n (* raised to *)
+2n ^ 100n = 1267650600228229401496703205376n (* raised to *)
 | n = 2n; | n.copy == n (* copy is identity *)
 23n.SmallFloat = 23 (* large integer to small float *)
 | a = [9 .. 1]; | { a[5n] }.ifError { true } (* large integers are not valid indices *)
@@ -1832,7 +1833,7 @@ var c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.re
 3.odd = true (* oddness predicate *)
 pi.veryCloseTo(3.1415926535898) (* constant pi (Float pi) *)
 inf.isNumber (* constant positive infinity (is a number) *)
-2 ** 3 = 8 (* i to the power of j *)
+2 ^ 3 = 8 (* i to the power of j *)
 5.reciprocal = 0.2 (* 1 / x *)
 (pi / 2).sin = 1 (* sine *)
 9.sqrt = 3 (* square root *)
@@ -1847,7 +1848,7 @@ pi.radiansToDegrees = 180 (* radiansToDegrees *)
 -2.1.rounded = -2
 1.5.rounded = 2 (* in case of tie, round to +infinity *)
 -1.5.rounded = -1
-| n = 10 ** 6; | n ~ (n + 1) & { 1 !~ 2 } (* a million is close to a million and one, but one is not close to two *)
+| n = 10 ^ 6; | n ~ (n + 1) & { 1 !~ 2 } (* a million is close to a million and one, but one is not close to two *)
 ```
 
 ## Matrix22 -- geometry type
@@ -1894,7 +1895,7 @@ nil.json = 'null' (* nil has a Json representation *)
 10 - 8.5 = 1.5 (* Subtraction of two numbers *)
 3.4 * 5 = 17 (* Multiplication of two numbers *)
 8 / 2 = 4 (* Division of two numbers *)
-2 ** 3 = 8 (* Exponentiation of a number *)
+2 ^ 3 = 8 (* Exponentiation of a number *)
 12 = 11 = false (* Equality between two numbers *)
 12 ~= 11 = true (* Test if two numbers are different *)
 12 > 9 = true (* Greater than *)
@@ -2535,8 +2536,8 @@ pi.randomFloat.isInteger = false
 1729.divisors = [1, 7, 13, 19, 91, 133, 247, 1729]
 e() = 1.exp
 e = e() (* e is a constant, like pi *)
-epsilon() < (10 ** -15)
-epsilon() > (10 ** -16)
+epsilon() < (10 ^ -15)
+epsilon() > (10 ^ -16)
 1 - epsilon() ~= 1 (* epsilon() is the difference between 1.0 and previous representable value *)
 epsilon ~= epsilon() (* epsilon is a constant, like pi & e *)
 pi = 3.141592653589793 (* pi is a number *)
@@ -2557,8 +2558,8 @@ pi.isFinite = true
 [561, 2821, 6601, 10585, 15841, 256, 29996224275831].noneSatisfy(isPrime:/1) (* no primes here *)
 1.00001.reduce = 1 (* round if number is closeTo an integer *)
 1.5.reduce = 1.5 (* identity if number is not closeTo an integer *)
-| x = (2 ** 54); | x ~= (x - 1) = false (* large numbers behave strangely *)
-| x = (2.0 ** 54.0); | x ~= (x - 1.0) = false (* large numbers behave strangely *)
+| x = (2 ^ 54); | x ~= (x - 1) = false (* large numbers behave strangely *)
+| x = (2.0 ^ 54.0); | x ~= (x - 1.0) = false (* large numbers behave strangely *)
 [-1, 0, 1].collect(asString:/1) = ['-1', '0', '1']
 inf.asString = 'inf' (* inf prints as inf *)
 (0 - inf).asString = '(0 - inf)'
@@ -2566,25 +2567,25 @@ pi.printString = '3.141592653589793'
 pi.storeString = '3.141592653589793'
 23.isInteger (* is a small float an integer *)
 23.isSmallInteger (* is a small float a small integer *)
-(2 ** 53) = 9007199254740992 (* a small float that is an integer that is beyond the range of small integers *)
-(2 ** 53).isInteger (* is a small float an integer *)
-(2 ** 53).isSmallInteger = false (* is a small float a small integer *)
+(2 ^ 53) = 9007199254740992 (* a small float that is an integer that is beyond the range of small integers *)
+(2 ^ 53).isInteger (* is a small float an integer *)
+(2 ^ 53).isSmallInteger = false (* is a small float a small integer *)
 23.assertIsSmallInteger = 23 (* require that a number be a small integer *)
 { 3.141.assertIsSmallInteger }.ifError { true } (* raise an error if value is not a small integer *)
-{ (2 ** 53).assertIsSmallInteger }.ifError { true }
+{ (2 ^ 53).assertIsSmallInteger }.ifError { true }
 100.factorial / 99.factorial ~ 100 (* small float factorial *)
 | n = 9007199254740992; | n + 0.1 = n (* ieee floating point *)
 9007199254740990.0 + 10.1 = 9007199254741000.1 (* ieee floating point *)
 (4 // 3) + (4 // 5) = 1 (* integer division *)
 (4 / 3) + (4 / 5) = (32 / 15) (* floating point division *)
 | n = 23453456; | (n * n).sqrt = n (* floating point square and square root *)
-2 ** [0, 1, 3, 8] = [1, 2, 8, 256] (* number raised to array *)
--2 ** [8, 7] = [256, -128] (* negative number raised to array *)
-0 ** [5, 0] = [0, 1] (* zero raised to array *)
-[2.5, 1.5] ** [2, 4] = [6.25, 5.0625] (* array raised to array *)
-10 ** [-1, -2] = [0.1, 0.01] (* raised to negative numbers *)
-2 ** [1.5, 2.4, 2.9, -2.2] = [2.82842712474619, 5.278031643091577, 7.464263932294459, 0.217637640824031] (* non integer exponents *)
-2 ** 100 = 1267650600228229401496703205376 (* ieee precision *)
+2 ^ [0, 1, 3, 8] = [1, 2, 8, 256] (* number raised to array *)
+-2 ^ [8, 7] = [256, -128] (* negative number raised to array *)
+0 ^ [5, 0] = [0, 1] (* zero raised to array *)
+[2.5, 1.5] ^ [2, 4] = [6.25, 5.0625] (* array raised to array *)
+10 ^ [-1, -2] = [0.1, 0.01] (* raised to negative numbers *)
+2 ^ [1.5, 2.4, 2.9, -2.2] = [2.82842712474619, 5.278031643091577, 7.464263932294459, 0.217637640824031] (* non integer exponents *)
+2 ^ 100 = 1267650600228229401496703205376 (* ieee precision *)
 (1 / 2).asString = '0.5' (* division prints as floating point *)
 1.0 = 1 (* there is no distinct integer type *)
 [1, 1.4, 1.49999, 1.5, 1.50000001].rounded = [1, 1, 1, 2, 2] (* rounding *)
@@ -2924,9 +2925,9 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 36rZZ = 1295 (* the maximum radix is 36, since each places is either a digit (10) or a letter (26) *)
 [2r101011001, 8r531, 10r345, 16r159] = [345, 345, 345, 345]
 { 2r2 }.ifError { true } (* it is an error if the post-radix text includes out of range characters *)
-2r1111111111111111 = (2 ** 16 - 1) (* 16 bits *)
-2r111111111111111111111111 = (2 ** 24 - 1) (* 24 bits *)
-2r11111111111111111111111111111111 = (2 ** 32 - 1) (* 32 bits *)
+2r1111111111111111 = (2 ^ 16 - 1) (* 16 bits *)
+2r111111111111111111111111 = (2 ^ 24 - 1) (* 24 bits *)
+2r11111111111111111111111111111111 = (2 ^ 32 - 1) (* 32 bits *)
 ```
 
 ## Syntax -- interval & array syntax
@@ -3007,10 +3008,11 @@ system.lowBitPerByteTable.Bag.sortedCounts = [128 -> 1, 64 -> 2, 32 -> 3, 16 -> 
 '!'.isOperatorName = true (* operator name predicate *)
 '*'.operatorMethodName = 'times' (* operator name *)
 ['~', '!', '@', '#', '$','%'].collect(operatorMethodName:/1) = ['tilde', 'bang', 'commercialAt', 'hash', 'dollar', 'modulo']
-['^', '&', '*', '-', '+', '='].collect(operatorMethodName:/1) = ['hat', 'and', 'times', 'minus', 'plus', 'equals']
+['^', '&', '*', '-', '+', '='].collect(operatorMethodName:/1) = ['raisedTo', 'and', 'times', 'minus', 'plus', 'equals']
 ['?', '<', '>'].collect(operatorMethodName:/1) = ['query', 'lessThan', 'greaterThan']
-'!^'.operatorMethodName = 'bangHat' (* composite operator names capitalize non-initial names *)
+'!^'.operatorMethodName = 'bangRaisedTo' (* composite operator names capitalize non-initial names *)
 '~='.operatorMethodName = 'tildeEquals'
+system.operatorNameTable['^'] = 'raisedTo' (* table of operator names *)
 ```
 
 ## System -- categoryDictionary
@@ -3058,6 +3060,7 @@ system.methodLookupAtType('sum', 1, 'Array').sourceCode = '{ :self |\n\t\tself.r
 system.methodTypes('last:/1').includes('Interval') = true
 system.multipleArityMethodList.includes('randomFloat') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
+system.operatorNameTable['^'] = 'raisedTo' = true
 system.doesTraitImplementMethod('Collection', 'select') = true
 system.doesTypeImplementMethod('Array', 'adaptToNumberAndApply') = true
 [1, 2, 3].respondsTo(select:/2) = true (* does a value (courtesy the type) implement a method *)
@@ -3198,7 +3201,7 @@ true.not = false
 ## Syntax -- precedence
 ```
 100.factorial / 99.factorial ~ 100 (* (unary) methods bind more closely than operators *)
-2 ** (1 + 3.factorial) = 128
+2 ^ (1 + 3.factorial) = 128
 2.raisedToInteger(1 + 3.factorial) = 128
 1 + 2 * 3 = 9
 1 + (2 * 3) = 7

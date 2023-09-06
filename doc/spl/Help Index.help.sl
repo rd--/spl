@@ -16,7 +16,7 @@
 - | -- logic operator
 - % -- mathematical operator
 - \* -- mathematical operator
-- ** -- mathematical operator
+- ^ -- mathematical operator
 - \+ -- mathematical operator
 - \- -- mathematical operator
 - / -- mathematical operator

@@ -605,8 +605,8 @@
 		arg.adaptToCollectionAndApply(self, greaterThan:/2)
 	}
 
-	** { :self :arg |
-		arg.adaptToCollectionAndApply(self, timesTimes:/2)
+	^ { :self :arg |
+		arg.adaptToCollectionAndApply(self, raisedTo:/2)
 	}
 
 	% { :self :arg |

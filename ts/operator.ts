@@ -9,26 +9,26 @@ export function isOperatorName(name: string): boolean {
 
 export const operatorNameTable: Record<string,string> = {
 	'+': 'plus',
-	'*': 'times',
+	'*': 'times', // asterisk
 	'-': 'minus',
-	'/': 'dividedBy',
-	'&': 'and',
-	'|': 'or',
-	'@': 'commercialAt', // p[q] == at(p,q)
+	'/': 'dividedBy', // slash
+	'&': 'and', // ampersand
+	'|': 'or', // verticalBar
+	'@': 'commercialAt', // atSign p[q] == at(p,q)
 	'<': 'lessThan',
 	'>': 'greaterThan',
 	'=': 'equals',
-	'%': 'modulo',
-	'!': 'bang',
+	'%': 'modulo', // percent
+	'!': 'bang', // exclamationMark exclamationPoint
 	'\\': 'backslash',
 	'~': 'tilde',
-	'?': 'query',
-	'^': 'hat',
-	'#': 'hash',
-	'$': 'dollar',
+	'?': 'query', // questionMark
+	'^': 'raisedTo', // caret circumflex hat
+	'#': 'hash', // numberSign
+	'$': 'dollar', // dollarSign
 	':': 'colon',
 	';': 'semicolon',
-	'.': 'dot'
+	'.': 'dot' // period fullStop
 };
 
 export function operatorMethodName(operator: string): string {

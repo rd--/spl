@@ -568,10 +568,10 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	allTuplesDo { :self :aBlock:/1 |
 		|(
-			answerSize = self.collect(size:/1).product,
+			tupleCount = self.collect(size:/1).product,
 			tuple = self.species.new(self.size)
 		)|
-		answer.indicesDo { :i |
+		1.toDo(tupleCount) { :i |
 			| k = i - 1; |
 			self.size.toByDo(1, -1) { :j |
 				| fromSequence = self[j]; |
@@ -927,7 +927,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	/ { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, dividedBy:/2) }
 	< { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, lessThan:/2) }
 	> { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, greaterThan:/2) }
-	** { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, timesTimes:/2) }
+	^ { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, raisedTo:/2) }
 	% { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, modulo:/2) }
 
 	bitAnd { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, bitAnd:/2) }

@@ -187,7 +187,7 @@ Colour : [Object] { | red green blue alpha |
 				12.92 * self
 			} {
 				| a = 0.055; |
-				(1 + a) * (self ** (1 / 2.4)) - a
+				(1 + a) * (self ^ (1 / 2.4)) - a
 			}
 		}
 	}
@@ -200,7 +200,7 @@ Colour : [Object] { | red green blue alpha |
 				self / 12.92
 			} {
 				| a = 0.055; |
-				((self + a) / (1 + a)) ** 2.4
+				((self + a) / (1 + a)) ^ 2.4
 			}
 		}
 	}

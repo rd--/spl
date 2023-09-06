@@ -53,8 +53,8 @@ Note that Fraction and Integer represent together the set of Rational numbers:
 A Fraction whose elements are of type SmallFloat will have odd behaviour for large components,
 a Fraction whose elements are of type LargeInteger will have behave ordinarily.
 
-	| x = Fraction(2 ** 55, 2); | x ~= (x - 1) = false
-	| x = Fraction(2n ** 55n, 2); | x ~= (x - 1)
+	| x = Fraction(2 ^ 55, 2); | x ~= (x - 1) = false
+	| x = Fraction(2n ^ 55n, 2); | x ~= (x - 1)
 
 * * *
 

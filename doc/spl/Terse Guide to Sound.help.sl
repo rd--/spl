@@ -84,7 +84,7 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 127.asDigits(10, 3) = [1, 2, 7]
 127.asDigits(10) = [1, 2, 7]
 127.asDigits(2, 7) = [1, 1, 1, 1, 1, 1, 1]
-(1 .. 5000).select { :n | n = n.asDigits(10).collect { :x | x ** x }.sum } = [1, 3435]
+(1 .. 5000).select { :n | n = n.asDigits(10).collect { :x | x ^ x }.sum } = [1, 3435]
 (1 .. 9).atRandom.inclusivelyBetween(1, 9)
 (1 .. 9).atRandom.exclusivelyBetween(0, 10)
 [3, 4, 1, 1].integrate = [3, 7, 8, 9]
@@ -163,6 +163,8 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 69.MidiCps = 440 (* midi note number to hertz *)
 0.MidiCps.rounded = 8 (* midi note zero *)
 1.CpsMidi.rounded = -36 (* one hertz *)
+[10, 20, 30, 40, 50].crossedMultiply([1, 2, 3]) = [10, 20, 30, 20, 40, 60, 30, 60, 90, 40, 80, 120, 50, 100, 150]
+[10, 20, 30, 40, 50].crossedMultiply([1, 2, 3]) = [10, 20, 30, 40, 50].withCrossedCollect([1, 2, 3], times:/2)
 ```
 
 ## Sound/Sc/Lang/J

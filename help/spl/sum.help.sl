@@ -4,6 +4,8 @@
 
 Answer the sum of all the elements in _aCollection_
 
+	[1 2 3 5 7 9].sum = 27
+
 Where supported this operator is displayed as Σ.
 
 * * *

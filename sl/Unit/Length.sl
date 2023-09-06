@@ -21,7 +21,7 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	astronomicalUnits { :self |
-		self.metres / (1.495978707 * (10 ** 11))
+		self.metres / (1.495978707 * (10 ^ 11))
 	}
 
 	millimetres { :self |
@@ -45,7 +45,7 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	lightYears { :self |
-		self.metres / (9.4607 * (10 ** 15))
+		self.metres / (9.4607 * (10 ^ 15))
 	}
 
 	miles { :self |
@@ -57,7 +57,7 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	parsecs { :self |
-		self.metres / (3.0857 * (10 ** 16))
+		self.metres / (3.0857 * (10 ^ 16))
 	}
 
 	picas { :self |
@@ -89,7 +89,7 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	astronomicalUnits { :self |
-		(self * (1.495978707 * (10 ** 11))).metres
+		(self * (1.495978707 * (10 ^ 11))).metres
 	}
 
 	millimetres { :self |
@@ -113,7 +113,7 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	lightYears { :self |
-		(self * (9.4607 * (10 ** 15))).metres
+		(self * (9.4607 * (10 ^ 15))).metres
 	}
 
 	metres { :self |
@@ -129,7 +129,7 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	parsecs { :self |
-		(self * (3.0857 * (10 ** 16))).metres
+		(self * (3.0857 * (10 ^ 16))).metres
 	}
 
 	picometres { :self |

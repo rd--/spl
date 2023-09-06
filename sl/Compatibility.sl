@@ -62,6 +62,14 @@
 
 }
 
++@Number {
+
+	pow { :self :aNumber |
+		self ^ aNumber
+	}
+
+}
+
 +Array {
 
 	asArray { :self |

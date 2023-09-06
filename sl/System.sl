@@ -448,6 +448,10 @@ System : [Object, Indexable, Random, SystemCache] {
 		}
 	}
 
+	operatorNameTable { :self |
+		<primitive: return sl.operatorNameTable;>
+	}
+
 	pseudoSlotNameArray { :self |
 		[
 			'cache',
