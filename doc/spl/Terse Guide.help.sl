@@ -86,7 +86,6 @@
 18.factorial = 6402373705728000 (* large small integer factorial *)
 20.factorial = 2432902008176640000 (* large small float factorial *)
 20.factorial.isSmallInteger = false (* 20! is not a small integer *)
-20n.factorial = 2432902008176640000n (* large integer factorial *)
 (0 .. 9).collect(factorial:/1) = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
 { -1.factorial }.ifError { true } (* factorial is not defined for negative integers *)
 9.factorial = (1 .. 9).product (* factorial is product of interval *)
@@ -154,6 +153,25 @@ inf.sign = 1
 inf.positive = true
 (0 - inf).sign = -1
 (0 - inf).negative = true
+25.sqrt = 5 (* integer sqrt *)
+(2 / 4) * 2 = 1 (* integer division *)
+2 * (2 / 4) = 1 (* integer division *)
+| x = 10 ^ -7, nearest = 10 ^ -8, furthest = 0; | (x - nearest).abs < (x - furthest).abs & { (x ~ furthest) ==> { (x ~ nearest) } }
+-1 !~ 1 (* negative one is not close to one *)
+1 !~ inf (* one is not close to inifinity *)
+inf ~ inf (* being equal, infinty is also close to itself *)
+0 ~ epsilon & { epsilon ~ 0 } & { 1 + epsilon ~ 1 } (* ε is ≈ zero ∧ ≈ is a symmetric operator ∧ one plus ε is ≈ one *)
+| n = 10 ^ -9; | 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
+[8 % 3, 9 % 3, 8.9 % 3, epsilon % 3, epsilon.negated % 3] ~ [2, 0, 2.9, 0, 3] (* modulo *)
+(-5 .. 5).collect { :each | each % 3 } = [1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2] (* modulo *)
+15 % 4 = 3 (* modulo *)
+(15 // 4) * 4 + 15.remainder(4) = 15 (* remainder *)
+| x = 15, y = 4; | (x // y) * y + x.remainder(y) = x  (* quotient by denominator + remainder = numerator *)
+(-5 .. 5).collect { :each | each.remainder(3) } = [-2 -1 -0 -2 -1 0 1 2 0 1 2]
+```
+
+## Math -- power of two
+```
 8.isPowerOfTwo (* is the receiver a power of two *)
 (1 .. 999).select(isPowerOfTwo:/1) = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
 (2 ^ 30).isPowerOfTwo = true (* this is only reliable for numbers that can be represented in 32-bits *)
@@ -163,22 +181,6 @@ inf.positive = true
 129.asSmallerPowerOfTwo = 128 (* next power of two that is not greater than the receiver *)
 [2, 4, 8, 16, 32, 64, 128, 256, 512].collect { :each | (each - 1).asSmallerPowerOfTwo } = [1, 2, 4, 8, 16, 32, 64, 128, 256]
 300.asPowerOfTwo = 256 (* next smaller power of two *)
-25.sqrt = 5 (* integer sqrt *)
-(2 / 4) * 2 = 1 (* integer division *)
-2 * (2 / 4) = 1 (* integer division *)
-| x = 10 ^ -7, nearest = 10 ^ -8, furthest = 0; | (x - nearest).abs < (x - furthest).abs & { (x ~ furthest) ==> { (x ~ nearest) } }
--1 !~ 1 (* negative one is not close to one *)
-1 !~ inf (* one is not close to inifinity *)
-inf ~ inf (* being equal, infinty is also close to itself *)
-1:3 ~ (1 / 3) (* a fraction is close to it's floating point representation *)
-0 ~ epsilon & { epsilon ~ 0 } & { 1 + epsilon ~ 1 } (* ε is ≈ zero ∧ ≈ is a symmetric operator ∧ one plus ε is ≈ one *)
-| n = 10 ^ -9; | 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
-[8 % 3, 9 % 3, 8.9 % 3, epsilon % 3, epsilon.negated % 3] ~ [2, 0, 2.9, 0, 3] (* modulo *)
-(-5 .. 5).collect { :each | each % 3 } = [1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2] (* modulo *)
-15 % 4 = 3 (* modulo *)
-(15 // 4) * 4 + 15.remainder(4) = 15 (* remainder *)
-| x = 15, y = 4; | (x // y) * y + x.remainder(y) = x  (* quotient by denominator + remainder = numerator *)
-(-5 .. 5).collect { :each | each.remainder(3) } = [-2 -1 -0 -2 -1 0 1 2 0 1 2]
 ```
 
 ## Array -- collection type
@@ -368,7 +370,6 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f', ''].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f'], []]
 [5, 6, 3, -3, 2, 1, 0, 4].minMax = [-3, 6] (* integer minMax *)
 [2834.83, -293482.28, 99283, 23, 959323].minMax = [-293482.28, 959323] (* float minMax *)
-'fgaguzst'.characterArray.minMax = ['a'.Character, 'z'.Character] (* character minMax *)
 { ['x'].detect { :each | each.isNumber } }.ifError { true } (* if no element is detected, an error is raised *)
 ['x'].detectIfFound { :each | each.isString } { :x | 42 } = 42 (* process detected element before answering *)
 ['x'].detectIfFound { :each | each.isNumber } { :x | 'x' } = nil (* if not found answer nil *)
@@ -420,8 +421,6 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 [1].addAllLast([2, 3]) = [2, 3] (* answer is argument *)
 | l = [1]; | l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6] (* alias for addAllLast *)
 | i = (1 .. 9), a = []; | a.addAll(i); a.size = 9 (* add elements from Interval to end of Array *)
-| s = 'string', a = []; | a.addAll(s); a.size = 6 (* add elements from String to end of Array *)
-| s = 'string', a = []; | a.addAll(s.asciiByteArray); a.size = 6 (* add elements from ByteArray to end of Array *)
 13.fibonacciSequence = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 | c = [1 .. 5]; | [c.removeAt(1), c] = [1, [2, 3, 4, 5]] (* removeAt answers the removed element *)
 | c = [1 .. 5]; | [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
@@ -519,6 +518,18 @@ Bag().isSequenceable = false
 | a = [1, 1, 2, 1, 2, 3, 1, 1, 2, 3, 4]; | a.sum = a.Bag.sum (* sum may be optimised *)
 [1, 2, 3, 1, 3, 4].Bag.valuesAndCounts = [1 -> 2, 2 -> 1, 3 -> 2, 4 -> 1].Map (* contents *)
 [1, 1, 1, 1, 1, 2, 2, 2, 2, 3].Bag.cumulativeCounts = [50 -> 1, 90 -> 2, 100 -> 3]
+[1, 2, 2, 3, 3, 3].histogramOf { :each | each }.Array = [1, 2, 2, 3, 3, 3]
+[1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].Bag
+| c = [1, 2, 3, 1]; | c.Bag = c.histogramOf(identity:/1)
+| c = [1, 2, 3, 1]; | c.Bag = c.histogramOf { :each | each }
+[1, 2, 3, 1].Bag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.value }
+['x', 'y', 'y', 'z'].Bag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.key }
+(x: 1, y: 2, z: 1).histogramOf { :each | each } = [1, 2, 1].Bag
+(x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].Bag
+(x: 1, y: 2, z: 1).indices.histogramOf { :each | each } = ['x', 'y', 'z'].Bag
+[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].Bag
+[1, 3, 5].Bag.select { :x | x > 1 } = [3, 5].Bag
+| b = [1, 2, 3, 2, 1].Bag; | b.removeAll([1, 2, 3]); b = [2, 1].Bag (* only remove first instance *)
 ```
 
 ## Benchmarks
@@ -533,19 +544,20 @@ Bag().isSequenceable = false
 23 << 7 = 2944 (* left shift small float *)
 7 << 23 = 58720256 (* left shift small float *)
 16 >> 3 = 2 (* right shift small float *)
-7n << 23 = 58720256n (* left shift large integer *)
-7n << 71 = 16528282690043758247936n (* left shift large integer *)
-16n >> 3 = 2n (* right shift large integer *)
-2r0.bitCount = 0 (* count number of bits set *)
-2r1.bitCount = 1
-2r101.bitCount = 2
-2r101001000100101.bitCount = 6
-{ -2.bitCount }.ifError { true } (* negative integers have an infinite number of leading ones *)
 2r1111.bitAnd(2r1001) = 2r1001 (* bitwise and *)
 (2 ^ 30).bitAnd(2 ^ 30 - 1) = 0 (* bitwise and of a power of two and one less is zero *)
 2r1111.bitOr(2r1001) = 2r1111 (* bitwise or *)
 2r1111.bitXor(2r1001) = 2r0110 (* bitwise exclusive or *)
 (1 .. 8).collect { :each | 2r10010110.bitAt(each) } = [0, 1, 1, 0, 1, 0, 0, 1] (* bit at index *)
+```
+
+## Binary -- counting & testing
+```
+2r0.bitCount = 0 (* count number of bits set *)
+2r1.bitCount = 1
+2r101.bitCount = 2
+2r101001000100101.bitCount = 6
+{ -2.bitCount }.ifError { true } (* negative integers have an infinite number of leading ones *)
 32.highBit = 6 (* high bit, the number of bits required to represent an integer *)
 32 = 2r00100000 & { 2r00100000.highBit = 6 } (* high bit *)
 2r00101000.highBit = 6 (* high bit *)
@@ -744,6 +756,7 @@ ByteArray(4).hex = '00000000'
 | b = [1, 3 .. 9].ByteArray; | b.copy = b & { b.copy ~~ b } (* copies are equal & not identical *)
 | b = [1 .. 9].ByteArray, c = b.copy; | c[1] := 9; c[1] = 9 & { b[1] = 1 } (* copies are distinct *)
 [115, 116, 114, 105, 110, 103].ByteArray.crc16 = 58909 (* 16 bit cyclic redundancy check, crc-16/arc *)
+| s = 'string', a = []; | a.addAll(s.asciiByteArray); a.size = 6 (* add elements from ByteArray to end of Array *)
 ```
 
 ## Character -- text type
@@ -776,6 +789,8 @@ ByteArray(4).hex = '00000000'
 { 36.digitValue }.ifError { true } (* error if integer is out of range *)
 'x'.Character.asUppercase = 'X'.Character (* to upper case *)
 'X'.Character.asLowercase = 'x'.Character (* to lower case *)
+| s = 'string', a = []; | a.addAll(s); a.size = 6 (* add elements from String to end of Array *)
+'fgaguzst'.characterArray.minMax = ['a'.Character, 'z'.Character] (* character minMax *)
 ```
 
 ## Collection -- collection trait
@@ -807,7 +822,6 @@ ByteArray(4).hex = '00000000'
 [-9, 0, 9].sign = [-1, 0, 1] (* signs of elements *)
 [1, 3, 5].select { :x | x > 1 } = [3, 5]
 [1, 3, 5].Set.select { :x | x > 1 } = [3, 5].Set
-[1, 3, 5].Bag.select { :x | x > 1 } = [3, 5].Bag
 (x: 1, y: 3, z: 5).select { :x | x > 1 } = (y: 3, z: 5)
 [].select { :each | 'select'.error } = []
 [].species.newFrom(Set()) = []
@@ -820,16 +834,6 @@ Set().Array = []
 | s = [1 .. 4].Set, c = s.copyWith(5); | s ~= c & { c = [1 .. 5].Set } (* copy with new element *)
 { [1, 2].take(-1) }.ifError { true }
 [].select { :each | each > 0 } = []
-[1, 2, 2, 3, 3, 3].histogramOf { :each | each }.Array = [1, 2, 2, 3, 3, 3]
-[1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].Bag
-| c = [1, 2, 3, 1]; | c.Bag = c.histogramOf(identity:/1)
-| c = [1, 2, 3, 1]; | c.Bag = c.histogramOf { :each | each }
-[1, 2, 3, 1].Bag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.value }
-['x', 'y', 'y', 'z'].Bag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.key }
-(x: 1, y: 2, z: 1).histogramOf { :each | each } = [1, 2, 1].Bag
-(x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].Bag
-(x: 1, y: 2, z: 1).indices.histogramOf { :each | each } = ['x', 'y', 'z'].Bag
-[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].Bag
 [].ifEmpty { true } (* evaluate block if collection is empty *)
 [].ifEmpty { true } { false } (* evaluate emptyBlock if collection is empty *)
 [1].ifEmpty { false } { true } (* evaluate notEmptyBlock if collection is not empty *)
@@ -838,7 +842,6 @@ Set().Array = []
 (1 .. 9).collect(squared:/1).sum = 285
 | a = [1 .. 9]; | a.removeAll([3 .. 7]); a = [1, 2, 8, 9] (* remove all indicated elements *)
 | a = [1, 2, 3, 2, 1]; | [a.removeAll([1, 2, 3]), a] = [[1, 2, 3], [2, 1]] (* answer items to remove, only remove first instance *)
-| b = [1, 2, 3, 2, 1].Bag; | b.removeAll([1, 2, 3]); b = [2, 1].Bag (* only remove first instance *)
 { [1 .. 3].removeAll([7 .. 9]) }.ifError { true } (* it is an error if an element to be removed is not located *)
 | a = [1 .. 3]; | a.removeAllFoundIn([7 .. 9]); a = [1 .. 3] (* unlike removeAll it is not an error if items are not found *)
 | a = [1, 2, 3, 2, 1]; | a.removeAllFoundIn([2, 3]); a = [1, 2, 1] (* removes only first matching element *)
@@ -1392,6 +1395,7 @@ SmallFloat(1:2) = (1 / 2)
 1:3 - 0.33 ~ 0.003333
 1:3.zero = Fraction(0, 1) (* zero of same type, i.e. fraction *)
 1:3.one = Fraction(1, 1) (* one of same type, i.e. fraction *)
+1:3 ~ (1 / 3) (* a fraction is close to it's floating point representation *)
 ```
 
 ## Hash -- murmur hash
@@ -1711,6 +1715,7 @@ Interval(1, 100, 0.5).size = 199
 100n.factorial / 99n.factorial = 100n (* large integer factorial, c.f. small float *)
 1000n.factorial / 999n.factorial = 1000n (* large integer factorial *)
 8589298611n.primeFactors.last = 2863099537n
+5n == 5n (* large integer identity *)
 (1n << 100n) == 1267650600228229401496703205376n (* equal large integers are identical *)
 92233720368n * 100000000n + 54775807n = 9223372036854775807n (* reader for large integer literals *)
 2n ^ 100n = 1267650600228229401496703205376n (* raised to *)
@@ -1718,6 +1723,10 @@ Interval(1, 100, 0.5).size = 199
 23n.SmallFloat = 23 (* large integer to small float *)
 | a = [9 .. 1]; | { a[5n] }.ifError { true } (* large integers are not valid indices *)
 58909n.printStringHex = 'E61D' (* hexadecimal representation *)
+20n.factorial = 2432902008176640000n (* large integer factorial *)
+7n << 23 = 58720256n (* left shift large integer *)
+7n << 71 = 16528282690043758247936n (* left shift large integer *)
+16n >> 3 = 2n (* right shift large integer *)
 ```
 
 ## LinkedList -- collection type

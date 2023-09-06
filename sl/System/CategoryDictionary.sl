@@ -86,3 +86,11 @@ CategoryDictionary : [Object] { | domainDictionary |
 	}
 
 }
+
++String {
+
+	categoryNameParts { :self |
+		self.splitBy('/')
+	}
+
+}

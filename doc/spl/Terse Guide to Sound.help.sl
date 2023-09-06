@@ -85,8 +85,8 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 127.asDigits(10) = [1, 2, 7]
 127.asDigits(2, 7) = [1, 1, 1, 1, 1, 1, 1]
 (1 .. 5000).select { :n | n = n.asDigits(10).collect { :x | x ^ x }.sum } = [1, 3435]
-(1 .. 9).atRandom.inclusivelyBetween(1, 9)
-(1 .. 9).atRandom.exclusivelyBetween(0, 10)
+(1 .. 9).atRandom.inclusivelyBetweenAnd(1, 9)
+(1 .. 9).atRandom.exclusivelyBetweenAnd(0, 10)
 [3, 4, 1, 1].integrate = [3, 7, 8, 9]
 [3, 4, 1, 1].differentiate = [3, 1, -3, 0]
 [0, 3, 1].differentiate = [0, 3, -2]

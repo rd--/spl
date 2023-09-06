@@ -50,6 +50,22 @@ Method : [Object] {
 
 +String {
 
+	asMethodName { :self |
+		self.isOperatorName.if {
+			self.operatorMethodName
+		} {
+			self
+		}
+	}
+
+	isOperatorName { :self |
+		<primitive: return sl.isOperatorName(_self);>
+	}
+
+	operatorMethodName { :self |
+		<primitive: return sl.operatorMethodName(_self);>
+	}
+
 	parseQualifiedMethodName { :self |
 		| parts = self.splitBy(':/'); |
 		(parts.size = 2).if {
