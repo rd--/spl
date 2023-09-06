@@ -1,3 +1,44 @@
+@SystemCache {
+
+}
+
++@SystemCache {
+
+	bitCountPerByteTable { :self |
+		{
+			(0 .. 255).collect { :i |
+				| bitCount = 0, n = i; |
+				{ n = 0 }.whileFalse {
+					bitCount := bitCount + 1;
+					n := n.bitAnd(n - 1)
+				};
+				bitCount
+			}.ByteArray
+		}.once(self, 'bitCountPerByteTable')
+	}
+
+	highBitPerByteTable { :self |
+		{
+			(1 .. 8).injectInto([0]) { :highBits :rank |
+				highBits ++ highBits.collect { :each |
+					rank
+				}
+			}.ByteArray
+		}.once(self, 'highBitPerByteTable')
+	}
+
+	lowBitPerByteTable { :self |
+		{
+			(1 .. 8).injectInto([1]) { :lowBits :unusedRank |
+				| prefix = lowBits.copy; |
+				prefix[1] := lowBits[1] + 1;
+				prefix ++ lowBits
+			}.allButFirst.ByteArray
+		}.once(self, 'lowBitPerByteTable')
+	}
+
+}
+
 @Binary {
 
 	<< { :self :anInteger |
@@ -1137,7 +1178,7 @@
 				': (' ++ self.printStringLimitedTo(16) ++ ')'
 			].join
 		)|
-		system.transcript.warn(messageText)
+		system.transcript.addWarning(messageText)
 	}
 
 	yourself { :self |
@@ -1674,7 +1715,7 @@ Error : [Object] {
 	}
 
 	log { :self |
-		system.transcript.error(self.messageText)
+		system.transcript.addError(self.messageText)
 	}
 
 	messageText { :self |
@@ -2017,6 +2058,35 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	zero { :self |
 		Fraction(0, 1)
+	}
+
+}
+
++@SystemCache {
+
+	unicodeFractionsTable { :self |
+		{
+			(
+				'⅒': 1:10, (* 0.1 *)
+				'⅑': 1:9, (* 1.111 *)
+				'⅛': 1:8, (* 0.125 *)
+				'⅐': 1:7, (* 0.142 *)
+				'⅙': 1:6, (* 0.166 *)
+				'⅕': 1:5, (* 0.2 *)
+				'¼': 1:4, (* 0.25 *)
+				'⅓': 1:3, (* 0.333 *)
+				'⅜': 3:8, (* 0.375 *)
+				'⅖': 2:5, (* 0.4 *)
+				'½': 1:2, (* 0.5 *)
+				'⅗': 3:5, (* 0.6 *)
+				'⅝': 5:8, (* 0.625 *)
+				'⅔': 2:3, (* 0.666*)
+				'¾': 3:4, (* 0.75 *)
+				'⅘': 4:5, (* 0.8 *)
+				'⅚': 5:6, (* 0.833 *)
+				'⅞': 7:8 (* 0.875 *)
+			)
+		}.once(self, 'unicodeFractionsTable')
 	}
 
 }
@@ -3656,7 +3726,7 @@ String : [Object, Json, Iterable] {
 	}
 
 	postLine { :self |
-		system.transcript.log(self)
+		system.transcript.addNotification(self)
 	}
 
 	primitiveCollectInto { :self :aBlock:/1 :aCollection |

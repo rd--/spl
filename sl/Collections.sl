@@ -339,7 +339,7 @@
 		self.error('errorNotFound: ' ++ anObject)
 	}
 
-	errorNotKeyed { :self |
+	errorNotIndexed { :self |
 		self.error('is not indexed/keyed')
 	}
 
@@ -835,7 +835,6 @@
 			self.error('@Dictionary>>atDelegate: unknown key: ' ++ key)
 		}
 	}
-
 
 	atPutDelegateToIfAbsent { :self :key :value :delegateKey :aProcedure:/0 |
 		self.includesIndex(key).if {
@@ -1753,6 +1752,16 @@
 		answer
 	}
 
+	isOctetSequence { :self |
+		self.allSatisfy { :each |
+			each.isInteger & {
+				each >= 0
+			} & {
+				each < 256
+			}
+		}
+	}
+
 	isSequenceable { :self |
 		true
 	}
@@ -2162,11 +2171,11 @@
 @UnorderedCollection {
 
 	at { :self :index |
-		self.errorNotKeyed
+		self.errorNotIndexed
 	}
 
 	atPut { :self :index :value |
-		self.errorNotKeyed
+		self.errorNotIndexed
 	}
 
 }

@@ -9,6 +9,7 @@
 	'Geometry.sl',
 	'Graphics.sl',
 	'Random.sl',
+	'System/CategoryDictionary.sl',
 	'System.sl',
 	'Time.sl',
 	'Unit/Angle.sl',

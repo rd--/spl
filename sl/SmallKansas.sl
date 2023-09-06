@@ -1710,9 +1710,9 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	CategoryBrowser {
 		|(
 			typeNames = system.typeDictionary.indicesSorted,
-			typeCategoryDictionary = system.categoryDictionary('type'),
+			typeCategoryDictionary = system.categoryDictionary.domain('type'),
 			typeCategoryNames = typeCategoryDictionary.indicesSorted,
-			methodCategoryDictionary = system.categoryDictionary('method'),
+			methodCategoryDictionary = system.categoryDictionary.domain('method'),
 			completeMethodSet = nil,
 			methodSet = nil,
 			selectedMethod = nil
@@ -1737,13 +1737,13 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 							each.origin.name ~= 'Object'
 					};
 					completeMethodSet.collect { :each |
-						system.categoryOf('method', each.name)
+						system.categoryDictionary.categoryOf('method', each.name)
 					}.Set.Array.sorted
 				},
 				3 -> {
 					browser.setStatus('');
 					methodSet := completeMethodSet.select { :each |
-						system.categoryOf('method', each.name) = path[3]
+						system.categoryDictionary.categoryOf('method', each.name) = path[3]
 					};
 					methodSet.collect(qualifiedName:/1).Array.sorted
 				},

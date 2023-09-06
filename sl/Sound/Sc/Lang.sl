@@ -193,13 +193,13 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 +@Magnitude {
 
-	exclusivelyBetween { :self :lo :hi |
+	exclusivelyBetweenAnd { :self :lo :hi |
 		(lo < self) & {
 			self < hi
 		}
 	}
 
-	inclusivelyBetween { :self :lo :hi |
+	inclusivelyBetweenAnd { :self :lo :hi |
 		(lo <= self) & {
 			self <= hi
 		}
