@@ -328,6 +328,9 @@ const asJs: any = {
 	floatLiteral(s,i,_,f) {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
 	},
+	scientificLiteral(base, _e , exponent) {
+		return `${base.sourceString}e${exponent.sourceString}`;
+	},
 	fractionLiteral(s,n,_colon,d) {
 		return `_normalized_1(_Fraction_2(${s.sourceString}${n.sourceString}, ${d.sourceString}))`;
 	},

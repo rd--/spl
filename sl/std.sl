@@ -19,6 +19,7 @@
 	'Collections/WeakMap.sl'
 	'Geometry.sl'
 	'Graphics/Colour.sl'
+	'Random.sl'
 	'System/Blob.sl'
 	'System/CategoryDictionary.sl'
 	'System/File.sl'

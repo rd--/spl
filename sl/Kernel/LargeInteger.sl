@@ -160,6 +160,14 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 
 }
 
++SmallFloat {
+
+	LargeInteger { :self |
+		<primitive: return BigInt(_self);>
+	}
+
+}
+
 +String {
 
 	parseLargeInteger { :self |
@@ -167,7 +175,6 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 	}
 
 }
-
 
 +LargeInteger {
 

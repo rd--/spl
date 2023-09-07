@@ -127,7 +127,7 @@ declare global {
 
 async function scCmd(cmd: string, opt: flags.Args): Promise<void> {
 	globalThis.osc = osc;
-	await loadSpl(opt, ['sc.sl']);
+	await loadSpl(opt, ['std.sl', 'sc.sl']);
 	switch(cmd) {
 	case 'playFile': scPlayFile(<string>opt._[2]); break;
 	case 'udpServer': scUdpServer(Number(opt._[2])); break;

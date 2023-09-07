@@ -1,6 +1,10 @@
 # pi -- mathematical constant
 
-The ratio of a circle's circumference to its diameter, approximately equal to _3.14159_.
+The ratio of a circles circumference to its diameter, approximately equal to _3.14159_.
+
+- _pi(aNumber)_
+
+Answer _aNumber_ times pi.
 
 * * *
 

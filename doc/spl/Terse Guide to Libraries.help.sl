@@ -1,5 +1,13 @@
 # Terse Guide to Libraries
 
+## Benchmarks
+```
+| r t | t := { r := 26.benchFib }.millisecondsToRun; r = 392835 & { t < 500 }
+| r t | t := { r := 10.benchmark }.millisecondsToRun; r = 1028 & { t < 500 } (* c.f tinyBenchmarks *)
+| t = { 23.benchFib }.millisecondsToRun; | t > 1 & { t < 1000 }
+| [c, t] = { 23.benchFib }.benchForMilliseconds(100); | c >= 1 & { t >= 100 }
+```
+
 ## Compatibility
 ```
 | n = 0; | (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value | n := n + value }; n = 6 (* iterate over keys and values *)

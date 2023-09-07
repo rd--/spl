@@ -9,3 +9,5 @@ The provided methods are:
 - _randomFloat(aRandom, lowerBound, upperBound)_
 - _randomInteger(aRandom, upperBound)_
 - _randomInteger(aRandom, lowerBound, upperBound)_
+
+The implicit lower bounds are zero for floating point and one for integer.

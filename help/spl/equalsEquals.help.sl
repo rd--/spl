@@ -1,9 +1,9 @@
 # == -- comparing
 
-- _self == anObject_
-- _p == q_ ≡ _p.equalsEquals(q)_
+- _anObject == anotherObject_
+- _p == q_ ⟹ _p.equalsEquals(q)_
 
-Answers _true_ if _self_ is identical to _anObject_, else _false_.
+Answers _true_ if _anObject_ is identical to _anotherObject_, else _false_.
 
 This is the identity operator.
 It decides if two values are the same.

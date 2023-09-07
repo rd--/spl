@@ -257,6 +257,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'atPin'
 			'atPut'
 			'atRandom'
+			'atRandomBy'
 			'atWrap'
 			'atWrapPut'
 			'basicAt'
@@ -274,6 +275,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'in'
 			'indexOf'
 			'indexOfIfAbsent'
+			'indexOfStartingAt'
+			'indexOfSubCollection'
 			'indexOfSubCollectionStartingAt'
 			'indexOfSubCollectionStartingAtIfAbsent'
 			'indexValueAssociations'
@@ -291,7 +294,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'lastIndexOfIfAbsent'
 			'lastIndexOfStartingAt'
 			'lastIndexOfStartingAtIfAbsent'
-			'lines'
 			'middle'
 			'name'
 			'next'
@@ -315,6 +317,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'sortBlock'
 			'sortedCounts'
 			'sortedElements'
+			'string'
 			'swapWith'
 			'take'
 			'third'
@@ -332,11 +335,9 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'y'
 			'z'
 		],
-		'accessing-colour': [
-			'alpha'
-			'blue'
-			'green'
-			'red'
+		'accessing-string': [
+			'codePointAt'
+			'findString'
 		],
 		'accessing-time': [
 			'centiseconds'
@@ -382,12 +383,12 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'pushAll'
 		],
 		'arithmetic operators': [
-			'%'
-			'*'
-			'^'
-			'+'
-			'-'
-			'/'
+			'%' (* modulo *)
+			'*' (* times *)
+			'^' (* raisedTo *)
+			'+' (* plus *)
+			'-' (* minus *)
+			'/' (* dividedBy *)
 			'//'
 			'\\\\'
 			'*='
@@ -417,16 +418,16 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		],
 		'comparing': [
 			'!~'
-			'<'
+			'<' (* lessThan *)
 			'<='
 			'<=>'
 			'<~'
-			'='
+			'=' (* equals *)
 			'=='
-			'>'
+			'>' (* greaterThan *)
 			'>='
 			'>~'
-			'~'
+			'~' (* tilde *)
 			'~='
 			'~~'
 			'betweenAnd'
@@ -443,6 +444,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'veryCloseTo'
 		],
 		'controlling': [
+			'caseOf'
+			'caseOfOtherwise'
 			'if'
 			'ifEmpty'
 			'ifEmptyIfNotEmptyDo'
@@ -451,6 +454,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'ifNotNil'
 			'ifNotEmptyDo'
 			'ifTrue'
+			'repeat'
 			'whileTrue'
 			'whileFalse'
 			'doWhile'
@@ -493,7 +497,25 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'degreesToRadians'
 			'reverse'
 			'romanNumber'
+			'threeDigitName'
 			'toArray'
+		],
+		'converting-string': [
+			'asciiByteArray'
+			'characterArray'
+			'codePointArray'
+			'lines'
+			'paragraphs'
+			'stringArray'
+			'toLowercase'
+			'toUppercase'
+			'utf8ByteArray'
+			'utf16Array'
+			'utf16CodePointAt'
+			'withBlanksTrimmed'
+			'withoutLeadingBlanks'
+			'withoutTrailingBlanks'
+			'words'
 		],
 		'copying': [
 			'++'
@@ -512,6 +534,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'copyWithoutAll'
 			'deepCopy'
 			'forceToPaddingWith'
+			'grownBy'
 			'postCopy'
 			'reversed'
 			'reversed'
@@ -580,6 +603,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'select'
 			'selectThenCollect'
 			'selectThenDo'
+			'splitBy'
 			'timesRepeat'
 			'valuesDo'
 			'withCollect'
@@ -629,6 +653,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'Frequency'
 			'Heap'
 			'Interval'
+			'LargeInteger'
 			'LinkedList'
 			'Map'
 			'PriorityQueue'
@@ -712,9 +737,11 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'pow'
 			'product'
 			'quotient'
+			'raisedToInteger'
 			'range'
 			'reciprocal'
 			'remainder'
+			'signBit'
 			'sin'
 			'sinh'
 			'sqrt'
@@ -725,9 +752,16 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'tanh'
 			'twice'
 		],
+		'message handling': [
+			'perform'
+		],
 		'parsing': [
 			'parseFraction'
+			'parseHexString'
+			'parseInteger'
+			'parseJson'
 			'parseLargeInteger'
+			'parseNumber'
 		],
 		'positioning': [
 			'backUpTo'
@@ -757,6 +791,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'description'
 			'hex'
 			'messageText'
+			'postLine'
 			'printString'
 			'printStringConcise'
 			'printStringHex'
@@ -826,21 +861,25 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'withKeysSorted'
 		],
 		'testing': [
+			'isBinary'
+			'isCollection'
+			'isError'
+			'isIndexable'
+			'isLiteral'
+			'isNil'
+			'isNumber'
+			'isStream'
+		],
+		'testing-stream': [
+			'atEnd'
+		],
+		'testing-collection': [
 			'allEqual'
 			'allEqualBy'
 			'allSatisfy'
 			'anySatisfy'
-			'atEnd'
-			'beginsWith'
-			'beginsWithAnyOf'
-			'clamp'
-			'clampHigh'
-			'clampLow'
 			'contains'
 			'doesNotInclude'
-			'endsWith'
-			'endsWithAnyOf'
-			'even'
 			'includes'
 			'includesAllOf'
 			'includesAnyOf'
@@ -848,46 +887,59 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'includesIdentity'
 			'includesIndex'
 			'includesKey'
-			'isAscii'
-			'isAsciiCodePoint'
-			'isAsciiString'
-			'isBinary'
-			'isByte'
-			'isCollection'
 			'isDictionary'
 			'isEmpty'
 			'isEmptyOrNil'
-			'isError'
-			'isFinite'
-			'isIndexable'
-			'isInteger'
-			'isLiteral'
-			'isNaN'
-			'isNegative'
-			'isNil'
-			'isNumber'
-			'isOctetSequence'
-			'isPositive'
-			'isPowerOfTwo'
-			'isPrime'
 			'isSequenceable'
+			'noneSatisfy'
+			'notEmpty'
+		],
+		'testing-sequenceable': [
+			'beginsWith'
+			'beginsWithAnyOf'
+			'endsWith'
+			'endsWithAnyOf'
+			'isOctetSequence'
 			'isSeries'
 			'isSeriesBy'
-			'isSmallInteger'
 			'isSorted'
 			'isSortedBetweenAnd'
 			'isSortedBy'
 			'isSortedByBetweenAnd'
-			'isStream'
+		],
+		'testing-number': [
+			'clamp'
+			'clampHigh'
+			'clampLow'
+			'even'
+			'isByte'
+			'isFinite'
+			'isInteger'
+			'isNaN'
+			'isNegative'
+			'isPositive'
+			'isPowerOfTwo'
+			'isPrime'
+			'isSmallInteger'
 			'isStrictlyPositive'
-			'isUtf16SurrogateCode'
 			'isZero'
-			'noneSatisfy'
-			'notEmpty'
 			'odd'
 			'positive'
 			'sign'
 			'strictlyPositive'
+		],
+		'testing-string': [
+			'includesSubstring'
+			'isUtf16SurrogateCode'
+			'isAscii'
+			'isAsciiCodePoint'
+			'isAsciiString'
+			'isAllDigits'
+			'isInBasicMultilingualPlane'
+			'isLowercase'
+			'isSingleCharacter'
+			'isUppercase'
+			'isWellFormed'
 		],
 		'testing-colour': [
 			'isBlack'
@@ -902,6 +954,9 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'isYellow'
 			'isGrey'
 			'isGreyOf'
+		],
+		'timing': [
+			'millisecondsToRun'
 		],
 		'truncating and rounding': [
 			'asLargerPowerOfTwo'
@@ -955,6 +1010,21 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'isTranscript'
 			'isWeakMap'
 			'isWriteStream'
+		],
+		'accessing-colour': [
+			'alpha'
+			'blue'
+			'green'
+			'red'
+		],
+		'converting-colour': [
+			'asNontranslucentColor'
+			'fromSrgb'
+			'hexString'
+			'toSrgb'
+		],
+		'mathematical functions-colour': [
+			'over'
 		]
 ))
 

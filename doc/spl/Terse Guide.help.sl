@@ -116,6 +116,7 @@ pi.radiansToDegrees = 180 (* convert radians to degrees *)
 0.cos = 1 (* cosine *)
 pi.cos = -1 (* cosine *)
 (2 * pi).cos = 1 (* cosine *)
+2.pi.cos = 1 (* pi as unary operator *)
 (pi / 2).cos.veryCloseTo(0) (* cosine *)
 0.0.tan = 0.0 (* tangent *)
 [0, 45, 90, 180].collect(degreeSin:/1) = [0, 0.7071067811865475, 1, 0] (* sine given angle in degree *)
@@ -168,6 +169,11 @@ inf ~ inf (* being equal, infinty is also close to itself *)
 (15 // 4) * 4 + 15.remainder(4) = 15 (* remainder *)
 | x = 15, y = 4; | (x // y) * y + x.remainder(y) = x  (* quotient by denominator + remainder = numerator *)
 (-5 .. 5).collect { :each | each.remainder(3) } = [-2 -1 -0 -2 -1 0 1 2 0 1 2]
+1e6 = 1000000 (* scientific notation, unit base, positive exponent *)
+3e9 = (3 * (10 ^ 9)) (* scientific notation, integer base *)
+23e-1 = 2.3 (* scientific notation, negative exponent *)
+3.141e-1 = 0.3141 (* scientific notation, float base, negative exponent *)
+0.1e-6 = 1e-7 (* scientific notation, equivalence *)
 ```
 
 ## Math -- power of two
@@ -530,12 +536,6 @@ Bag().isSequenceable = false
 [1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].Bag
 [1, 3, 5].Bag.select { :x | x > 1 } = [3, 5].Bag
 | b = [1, 2, 3, 2, 1].Bag; | b.removeAll([1, 2, 3]); b = [2, 1].Bag (* only remove first instance *)
-```
-
-## Benchmarks
-```
-| r t | t := { r := 26.benchFib }.millisecondsToRun; r = 392835 & { t < 500 }
-| r t | t := { r := 10.benchmark }.millisecondsToRun; r = 1028 & { t < 500 } (* c.f tinyBenchmarks *)
 ```
 
 ## Binary -- numeric trait
@@ -1478,8 +1478,7 @@ true == true & { false == false } (* boolean identity *)
 system.cache::primesArray[9] = 23 (* the primes array is cached (memoized) by the system *)
 5.nthPrime = 11 (* the nth entry in the sequence of prime numbers *)
 23.nthPrime = 83 (* the nth entry in the sequence of prime numbers *)
-3579.nthPrime = 33413 (* the nth entry in the sequence of prime numbers *)
-system.cache::primesArray[3579] = 33413 (* nthPrime extends the primesArray cache as required *)
+system.cache::primesArray[23] = 83 (* nthPrime extends the primesArray cache as required *)
 (2 .. 20).select { :each | each.isPrime } = [2, 3, 5, 7, 11, 13, 17, 19]
 (2 .. 20).reject { :each | each.isPrime } = [4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20]
 60.primeFactors = [2, 2, 3, 5] (* prime factors *)
@@ -3087,8 +3086,7 @@ system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum',
 system.systemTimeInMilliseconds > 0 = true
 system.unixTimeInMilliseconds > 1671935015392 = true
 | t1 = system.unixTimeInMilliseconds, t2 = system.unixTimeInMilliseconds; | t2 - t1 = 0
-| t = { 23.benchFib }.millisecondsToRun; | t > 1 & { t < 1000 }
-| [c, t] = { 23.benchFib }.benchForMilliseconds(100); | c >= 1 & { t >= 100 }
+| t = { 3579.nthPrime }.millisecondsToRun; | t >= 0 & { t < 1000 }
 | [c, t] = { system.unixTimeInMilliseconds }.benchForMilliseconds(10); | c > 1000 & { t >= 10 }
 ```
 

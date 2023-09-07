@@ -1,5 +1,13 @@
 [
 	'Kernel.sl'
+	'Kernel/Integral.sl' (* < Binary *)
+	'Kernel/Binary.sl'
+	'Kernel/Iterable.sl' (* collection? *)
+	'Kernel/Magnitude.sl'
+	'Kernel/Json.sl'
+	'Kernel/Number.sl'
+	'Kernel/Object.sl'
+	'Kernel/Random.sl'
 	'Kernel/Boolean.sl'
 	'Kernel/Error.sl'
 	'Kernel/Nil.sl'
@@ -14,7 +22,6 @@
 	'Collections/PriorityQueue.sl'
 	'Collections/Record.sl'
 	'Collections/Set.sl'
-	'Random.sl'
 	'System.sl'
 	'System/Method.sl'
 	'System/Trait.sl'

@@ -150,8 +150,9 @@ Sl {
 	binaryChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 
 	literal = numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
-	numberLiteral = floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral
+	numberLiteral = scientificLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral
 	floatLiteral = "-"? digit+ "." digit+
+	scientificLiteral = (floatLiteral | integerLiteral) "e" integerLiteral
 	fractionLiteral = "-"? digit+ ":" digit+
 	largeIntegerLiteral = "-"? digit+ "n"
 	radixIntegerLiteral = "-"? digit+ "r" letterOrDigit+
