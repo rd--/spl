@@ -264,11 +264,14 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'basicAtPut'
 			'basicNext'
 			'binary'
+			'byteSize'
 			'capacity'
 			'codePoint'
 			'contents'
 			'cumulativeCounts'
+			'degrees'
 			'digitValue'
+			'entries'
 			'first'
 			'fromToPut'
 			'imaginary'
@@ -281,6 +284,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'indexOfSubCollectionStartingAtIfAbsent'
 			'indexValueAssociations'
 			'indices'
+			'indicesOfSubCollection'
 			'indicesSorted'
 			'key'
 			'keyAtValue'
@@ -294,6 +298,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'lastIndexOfIfAbsent'
 			'lastIndexOfStartingAt'
 			'lastIndexOfStartingAtIfAbsent'
+			'messages'
 			'middle'
 			'name'
 			'next'
@@ -305,6 +310,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'numArgs'
 			'peek'
 			'peekPriority'
+			'radians'
 			'real'
 			'replaceFromToWith'
 			'replaceFromToWithStartingAt'
@@ -335,32 +341,52 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'y'
 			'z'
 		],
+		'accessing-graph': [
+			'degree'
+			'edgeLabels'
+			'edges'
+			'labeledVertices'
+			'vertexLabels'
+			'vertices'
+		],
+		'accessing-transcript': [
+			'errorMessages'
+			'notificationMessages'
+			'warningMessages'
+		],
 		'accessing-string': [
 			'codePointAt'
 			'findString'
+			'findStringStartingAt'
+		],
+		'accessing-date': [
+			'dayOfMonth'
+			'dayOfWeek'
+			'julianYears'
+			'hour'
+			'month'
+			'week'
+			'year'
 		],
 		'accessing-time': [
 			'centiseconds'
 			'days'
-			'dayOfMonth'
-			'dayOfWeek'
-			'hour'
+			'hertz'
 			'hours'
-			'julianYears'
+			'kilohertz'
+			'lightYears'
 			'milliseconds'
 			'minutes'
-			'month'
 			'offsetSeconds'
 			'seconds'
 			'siderealMonths'
 			'siderealYears'
 			'solarMonths'
 			'solarYears'
+			'synodicMonths'
 			'unixTime'
 			'unixTimeInMilliseconds'
-			'week'
 			'weeks'
-			'year'
 		],
 		'adding': [
 			'add'
@@ -381,6 +407,11 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'ifAbsentAdd'
 			'push'
 			'pushAll'
+		],
+		'adding-transcript': [
+			'addError'
+			'addNotification'
+			'addWarning'
 		],
 		'arithmetic operators': [
 			'%' (* modulo *)
@@ -444,6 +475,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'veryCloseTo'
 		],
 		'controlling': [
+			'always'
 			'caseOf'
 			'caseOfOtherwise'
 			'if'
@@ -500,10 +532,16 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'threeDigitName'
 			'toArray'
 		],
+		'converting-system': [
+			'asMethodName'
+			'categoryNameParts'
+		],
 		'converting-string': [
+			'ascii'
 			'asciiByteArray'
 			'characterArray'
 			'codePointArray'
+			'contractTo'
 			'lines'
 			'paragraphs'
 			'stringArray'
@@ -535,6 +573,9 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'deepCopy'
 			'forceToPaddingWith'
 			'grownBy'
+			'paddedToWith'
+			'padLeft'
+			'padRight'
 			'postCopy'
 			'reversed'
 			'reversed'
@@ -603,6 +644,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'select'
 			'selectThenCollect'
 			'selectThenDo'
+			'split'
 			'splitBy'
 			'timesRepeat'
 			'valuesDo'
@@ -611,6 +653,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'withIndexCollect'
 			'withIndexDo'
 			'withReplace'
+		],
+		'enumerating-string': [
+			'countCharacters'
+			'countUtf16CodeUnits'
 		],
 		'error handling': [
 			'assert'
@@ -675,6 +721,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'ofSize'
 			'species'
 		],
+		'instance creation-number': [
+			'one'
+			'zero'
+		],
 		'intervals': [
 			'downToDo'
 			'thenTo'
@@ -686,6 +736,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'downTo'
 			'upOrDownTo'
 			'upToDo'
+		],
+		'loading': [
+			'loadFile'
+			'loadUrl'
 		],
 		'logic operator': [
 			'&&'
@@ -756,11 +810,17 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'perform'
 		],
 		'parsing': [
+			'parseBacktickQuotedString'
+			'parseDoubleQuotedString'
 			'parseFraction'
+			'parseHexColour'
 			'parseHexString'
 			'parseInteger'
 			'parseJson'
 			'parseLargeInteger'
+			'parseMethodSignature'
+			'parseQualifiedMethodName'
+			'parseQualifiedTraitName'
 			'parseNumber'
 		],
 		'positioning': [
@@ -805,6 +865,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'initializeSlots'
 			'pseudoSlotNameArray'
 			'reduced'
+			'unsafeRecord'
 		],
 		'random': [
 			'randomFloat'
@@ -832,6 +893,14 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'anyResolved'
 			'anySettled'
 			'cancel'
+			'evaluateAfter'
+			'evaluateAfterMilliseconds'
+			'evaluateAfterMillisecondsWith'
+			'evaluateAfterWith'
+			'evaluateAt'
+			'evaluateAtWith'
+			'evaluateEvery'
+			'evaluateEveryMilliseconds'
 			'schedule'
 			'scheduleInjecting'
 			'then'
@@ -869,6 +938,11 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'isNil'
 			'isNumber'
 			'isStream'
+		],
+		'testing-system': [
+			'isOperatorName'
+			'isQualifiedTraitName'
+			'operatorMethodName'
 		],
 		'testing-stream': [
 			'atEnd'
@@ -958,6 +1032,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'timing': [
 			'millisecondsToRun'
 		],
+		'timing-benchmark': [
+			'benchFor'
+			'benchForMilliseconds'
+		],
 		'truncating and rounding': [
 			'asLargerPowerOfTwo'
 			'asPowerOfTwo'
@@ -988,6 +1066,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'isFloat64Array'
 			'isFraction'
 			'isFrequency'
+			'isGraph'
 			'isHeap'
 			'isInterval'
 			'isLargeInteger'
