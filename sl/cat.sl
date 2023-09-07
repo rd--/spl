@@ -341,6 +341,14 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'y'
 			'z'
 		],
+		'accessing-system': [
+			'allMethods'
+			'cache'
+			'categoryDictionary'
+			'library'
+			'methodDictionary'
+			'traitDictionary'
+		],
 		'accessing-graph': [
 			'degree'
 			'edgeLabels'
@@ -384,6 +392,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'solarMonths'
 			'solarYears'
 			'synodicMonths'
+			'systemTimeInMilliseconds'
+			'systemTimeInSeconds'
 			'unixTime'
 			'unixTimeInMilliseconds'
 			'weeks'
@@ -940,8 +950,12 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'isStream'
 		],
 		'testing-system': [
+			'isMethodName'
 			'isOperatorName'
 			'isQualifiedTraitName'
+			'isTraitName'
+			'isTraitOrTypeName'
+			'isTypeName'
 			'operatorMethodName'
 		],
 		'testing-stream': [
@@ -1063,6 +1077,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'isComplex'
 			'isDate'
 			'isDuration'
+			'isFile'
 			'isFloat64Array'
 			'isFraction'
 			'isFrequency'
@@ -1070,8 +1085,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'isHeap'
 			'isInterval'
 			'isLargeInteger'
+			'isLibraryItem'
 			'isLinkedList'
 			'isMap'
+			'isMethod'
 			'isPriorityQueue'
 			'isProcedure'
 			'isPromise'
@@ -1079,14 +1096,17 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 			'isReadStream'
 			'isRecord'
 			'isRegExp'
+			'isResponse'
 			'isRunArray'
 			'isSet'
 			'isSmallFloat'
 			'isSortedArray'
 			'isStack'
 			'isString'
+			'isSystem'
 			'isTimeStamp'
 			'isTranscript'
+			'isTrait'
 			'isWeakMap'
 			'isWriteStream'
 		],

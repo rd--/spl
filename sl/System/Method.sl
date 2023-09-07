@@ -26,12 +26,20 @@ Method : [Object] {
 		<primitive: return _self.origin;>
 	}
 
+	packageName { :self |
+		<primitive: return _self.packageName;>
+	}
+
 	procedure { :self |
 		<primitive: return _self.procedure;>
 	}
 
+	provenance { :self |
+		[self.packageName, '-', self.origin.name].join
+	}
+
 	pseudoSlotNameArray { :self |
-		['name', 'procedure', 'arity', 'sourceCode', 'origin']
+		['name', 'packageName', 'procedure', 'arity', 'sourceCode', 'origin']
 	}
 
 	qualifiedName { :self |

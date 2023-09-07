@@ -182,9 +182,21 @@
 		}
 	}
 
-	min { :self |
+	maxBy { :self :aBlock:/1 |
 		self.injectInto(self.anyOne) { :answer :each |
-			answer.min(each)
+			answer.maxBy(each, aBlock:/1)
+		}
+	}
+
+	min { :self |
+		self.injectInto(self.anyOne.aBlock) { :answer :each |
+			answer.min(each.aBlock)
+		}
+	}
+
+	minBy { :self :aBlock:/1 |
+		self.injectInto(self.anyOne) { :answer :each |
+			answer.minBy(each, aBlock:/1)
 		}
 	}
 
@@ -216,6 +228,10 @@
 			}
 		};
 		tally
+	}
+
+	oneSatisfies { :self :aBlock:/1 |
+		self.count(aBlock:/1) = 1
 	}
 
 	product { :self |

@@ -9,6 +9,7 @@ import { isOperatorName, operatorMethodName } from './operator.ts'
 import { slOptions } from './options.ts'
 
 type Arity = number;
+type PackageName = string;
 type TypeName = string;
 type TraitName = string;
 type MethodName = string;
@@ -84,12 +85,14 @@ export function isBitwise(anObject: unknown): boolean {
 
 export class Method {
 	name: MethodName;
-	procedure:  Function;
+	packageName: PackageName;
+	procedure: Function;
 	arity: Arity;
 	sourceCode: MethodSourceCode;
 	origin: MethodOrigin;
-	constructor(name: MethodName, procedure: Function, arity: Arity, sourceCode: MethodSourceCode, origin: MethodOrigin) {
+	constructor(name: MethodName, packageName: PackageName, procedure: Function, arity: Arity, sourceCode: MethodSourceCode, origin: MethodOrigin) {
 		this.name = name;
+		this.packageName = packageName;
 		this.procedure = procedure;
 		this.arity = arity;
 		this.sourceCode = sourceCode;
@@ -102,20 +105,24 @@ export class Method {
 
 export class Trait {
 	name: TraitName;
+	packageName: PackageName;
 	methodDictionary: QualifiedMethodDictionary;
-	constructor(name: TraitName) {
+	constructor(name: TraitName, packageName: PackageName) {
 		this.name = name;
+		this.packageName = packageName;
 		this.methodDictionary = new Map();
 	}
 }
 
 export class Type {
 	name: TypeName;
+	packageName: PackageName;
 	traitNameArray: TraitName[];
 	slotNameArray: string[];
 	methodDictionary: QualifiedMethodDictionary;
-	constructor(name: TypeName, traitNameArray: TraitName[], slotNameArray: string[], methodDictionary: QualifiedMethodDictionary) {
+	constructor(name: TypeName, packageName: PackageName, traitNameArray: TraitName[], slotNameArray: string[], methodDictionary: QualifiedMethodDictionary) {
 		this.name = name;
+		this.packageName = packageName;
 		this.traitNameArray = traitNameArray;
 		this.slotNameArray = slotNameArray;
 		this.methodDictionary = methodDictionary;
@@ -141,7 +148,7 @@ export class System {
 		this.methodDictionary = new Map();
 		this.traitDictionary = new Map();
 		// Void is not an ordinary type, it names the place in the method table for no-argument procedures.
-		this.typeDictionary = new Map(preinstalledTypes.map(function(each) { return [each, new Type(each, [], [], new Map())]; }));
+		this.typeDictionary = new Map(preinstalledTypes.map(function(each) { return [each, new Type(each, 'Kernel', [], [], new Map())]; }));
 		this.nextUniqueId = 1;
 		this.window = window;
 		this.library = Object.create(null);
@@ -165,19 +172,19 @@ function methodExists(methodName: MethodName): boolean {
 	return system.methodDictionary.has(methodName);
 }
 
-export function addTrait(traitName: TraitName): void {
+export function addTrait(traitName: TraitName, packageName: PackageName): void {
 	if(traitExists(traitName)) {
 		throw(`addTrait: trait exists: ${traitName}`);
 	} else {
-		system.traitDictionary.set(traitName, new Trait(traitName));
+		system.traitDictionary.set(traitName, new Trait(traitName, packageName));
 	}
 }
 
 // c.f. rewrite/makeMethodList
-export function addTraitMethod(traitName: TraitName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
+export function addTraitMethod(traitName: TraitName, packageName: PackageName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
 	if(traitExists(traitName)) {
 		const trait = system.traitDictionary.get(traitName)!;
-		const method = new Method(methodName, procedure, arity, sourceCode, trait);
+		const method = new Method(methodName, packageName, procedure, arity, sourceCode, trait);
 		trait.methodDictionary.set(method.qualifiedName(), method);
 		return method;
 	} else {
@@ -208,9 +215,9 @@ export function traitTypeArray(traitName: TraitName): TypeName[] {
 }
 
 // c.f. rewrite/makeMethodList
-export function extendTraitWithMethod(traitName: TraitName, name: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
+export function extendTraitWithMethod(traitName: TraitName, packageName: PackageName, name: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
 	if(traitExists(traitName)) {
-		const method = addTraitMethod(traitName, name, arity, procedure, sourceCode);
+		const method = addTraitMethod(traitName, packageName, name, arity, procedure, sourceCode);
 		traitTypeArray(traitName).forEach(function(typeName) {
 			addMethodFor(typeName, method);
 		});
@@ -320,10 +327,10 @@ export function addMethodFor(typeName: TypeName, method: Method): Method {
 }
 
 // c.f. rewrite/makeMethodList
-export function addMethod(typeName: TypeName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
+export function addMethod(typeName: TypeName, packageName: PackageName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
 	if(typeExists(typeName)) {
 		const typeValue = system.typeDictionary.get(typeName)!;
-		const method = new Method(methodName, procedure, arity, sourceCode, typeValue);
+		const method = new Method(methodName, packageName, procedure, arity, sourceCode, typeValue);
 		return addMethodFor(typeName, method);
 	} else {
 		throw(`addMethod: ${typeName}, ${methodName}, ${arity}`);
@@ -333,19 +340,19 @@ export function addMethod(typeName: TypeName, methodName: MethodName, arity: Ari
 // Allows methods to be added to 'pre-installed' types before the type is added, c.f. load &etc. (& parseInteger ...).
 // It'd be possible to only allow this for the 'pre-installed' methods, which might be saner.
 // Run for built-in types, which may have traits.  Assumes non-kernel types have at least one slot.
-export function addType(typeName: TypeName, traitList: TraitName[], slotNames: string[]): void {
+export function addType(typeName: TypeName, packageName: PackageName, traitList: TraitName[], slotNames: string[]): void {
 	if(!typeExists(typeName) || preinstalledTypes.includes(typeName)) {
 		const initializeSlots = slotNames.map(each => `anInstance.${each} = ${each}`).join('; ');
 		const nilSlots = slotNames.map(each => `${each}: null`).join(', ');
-		const defNilType = slotNames.length === 0 ? '' : `addMethod('Void', 'new${typeName}', 0, function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
-		const defInitializeSlots = slotNames.length === 0 ? '' : `addMethod('${typeName}', 'initializeSlots', ${slotNames.length + 1}, function(anInstance, ${slotNames.join(', ')}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
-		const defPredicateFalse = `extendTraitWithMethod('Object', 'is${typeName}', 1, function(anObject) { return false; }, '<primitive: predicate>')`;
-		const defPredicateTrue = `addMethod('${typeName}', 'is${typeName}', 1, function(anInstance) { return true; }, '<primitive: predicate>')`;
-		const defSlotAccess = slotNames.map(each => `addMethod('${typeName}', '${each}', 1, function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`).join('; ');
-		const defSlotMutate = slotNames.map(each => `addMethod('${typeName}', '${each}', 2, function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`).join('; ');
-		// console.debug(`addType: ${typeName}, ${slotNames}`);
+		const defNilType = slotNames.length === 0 ? '' : `addMethod('Void', '${packageName}', 'new${typeName}', 0, function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
+		const defInitializeSlots = slotNames.length === 0 ? '' : `addMethod('${typeName}', '${packageName}', 'initializeSlots', ${slotNames.length + 1}, function(anInstance, ${slotNames.join(', ')}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
+		const defPredicateFalse = `extendTraitWithMethod('Object', '${packageName}', 'is${typeName}', 1, function(anObject) { return false; }, '<primitive: predicate>')`;
+		const defPredicateTrue = `addMethod('${typeName}', '${packageName}', 'is${typeName}', 1, function(anInstance) { return true; }, '<primitive: predicate>')`;
+		const defSlotAccess = slotNames.map(each => `addMethod('${typeName}', '${packageName}', '${each}', 1, function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`).join('; ');
+		const defSlotMutate = slotNames.map(each => `addMethod('${typeName}', '${packageName}', '${each}', 2, function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`).join('; ');
+		// console.debug(`addType: ${typeName}, ${packageName}, ${slotNames}`);
 		const methodDictionary = typeExists(typeName) ? system.typeDictionary.get(typeName)!.methodDictionary : new Map();
-		system.typeDictionary.set(typeName, new Type(typeName, traitList, slotNames, methodDictionary));
+		system.typeDictionary.set(typeName, new Type(typeName, packageName, traitList, slotNames, methodDictionary));
 		eval(defNilType);
 		eval(defInitializeSlots);
 		eval(defPredicateFalse);

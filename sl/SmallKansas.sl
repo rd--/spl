@@ -1751,7 +1751,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 					selectedMethod := methodSet.detect { :each |
 						each.qualifiedName = path[4]
 					};
-					browser.setStatus(selectedMethod.origin.name);
+					browser.setStatus(selectedMethod.provenance);
 					selectedMethod.definition
 				}
 			])
@@ -1783,7 +1783,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 					selectedMethod := methodSet.detect { :each |
 						each.qualifiedName = path[2]
 					};
-					browser.setStatus(selectedMethod.origin.name);
+					browser.setStatus(selectedMethod.provenance);
 					selectedMethod.definition
 				}
 			])
@@ -1828,7 +1828,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				},
 				2 -> {
 					selectedMethod := system.typeDictionary[path[1]].methodDictionary[path[2]];
-					browser.setStatus(selectedMethod.origin.name);
+					browser.setStatus(selectedMethod.provenance);
 					selectedMethod.definition
 				}
 			])

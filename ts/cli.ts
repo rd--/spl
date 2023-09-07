@@ -71,8 +71,12 @@ async function runFile(fileName: string, opt: flags.Args): Promise<void> {
 	console.log(await fileio.evaluateFile(fileName))
 }
 
+function evalInteractive(text: string) {
+	evaluate.evaluateSourceText({packageName: 'Interactive', text: text});
+}
+
 function scEvalText(splText: string): void {
-	evaluate.evaluateString(splText);
+	evalInteractive(splText);
 }
 
 async function scEvalFile(fileName: string): Promise<void> {
@@ -81,7 +85,7 @@ async function scEvalFile(fileName: string): Promise<void> {
 }
 
 function scPlayText(splText: string): void {
-	const ugenGraph = evaluate.evaluateString(splText);
+	const ugenGraph = evalInteractive(splText);
 	sc.playUgenAt(cliScSynth, ugenGraph, 1, null);
 }
 

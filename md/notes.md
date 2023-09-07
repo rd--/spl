@@ -1,3 +1,10 @@
+# Packages
+
+There is initial support for a "package" field at Type, Trait and Method.
+The "package" field indicates the entity that "defines" the Type or Trait or Method.
+(C.f. the "origin" field at Method, which indicates which Type or Trait the method is defined at.)
+The idea is to have a _very_ simple notion of a _Package_.
+
 # Categories
 
 ```

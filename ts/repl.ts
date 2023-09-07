@@ -1,6 +1,6 @@
 import { readLines } from "https://deno.land/std/io/buffer.ts";
 
-import { evaluateString } from './evaluate.ts'
+import { evaluateSourceText } from './evaluate.ts'
 
 export async function interact<T>(processLine: (line: string) => T): Promise<void> {
 	for await (const line of readLines(Deno.stdin)) {
@@ -13,6 +13,6 @@ export async function perLine(verbose: boolean) {
 		if(verbose) {
 			console.log(line);
 		}
-		console.log(evaluateString(line));
+		console.log(evaluateSourceText({origin: 'Interactive', text: line}));
 	});
 }

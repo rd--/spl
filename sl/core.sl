@@ -15,6 +15,7 @@
 	'Kernel/SmallFloat.sl'
 	'Kernel/String.sl'
 	'Collections.sl'
+	'Collections/Collection.sl'
 	'Collections/Array.sl'
 	'Collections/Association.sl'
 	'Collections/Interval.sl'

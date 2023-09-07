@@ -124,7 +124,9 @@ pi.cos = -1 (* cosine *)
 2.sqrt / 2 = 0.7071067811865476
 2.sqrt / 2 = 0.5.sqrt
 10.max(20) = 20 (* get maximum of two numbers *)
+10.maxBy(20, negated:/1) = 10 (* comparison of translated values *)
 10.min(20) = 10 (* get minimum of two numbers *)
+10.minBy(20, negated:/1) = 20 (* comparison of translated values *)
 pi.veryCloseTo(3.141592653589793) (* pi = 3.141592653589793 *)
 1.exp.veryCloseTo(2.718281828459) (* e = 2.718281828459 *)
 | n = 100.randomFloat; | (n >= 0) & { n < 100 } (* random number in (0, self-1) *)
@@ -256,15 +258,19 @@ Array([]) = [] (* Array constructor, empty array *)
 [0, 1].anySatisfy(odd:/1) = true
 [].noneSatisfy(odd:/1) = true (* empty collection answers true *)
 [1, 3, 5, 7, 9].noneSatisfy(even:/1) = true (* no odd number is even *)
-[1, 2, 3, 4, 5].noneSatisfy(odd:/1) = false (* one is odd *)
-[1, 2, 3] ++ [4, 5, 6] = [1 .. 6] (* addAllLast, answering new like collection, unicode = ⧺ *)
-| a = [1, 2, 3]; | a.addAllLast([4, 5, 6]); a = [1 .. 6]
-| a = [1, 2, 3], b = a ++ [4, 5, 6]; | a ~~ b & { a = [1 .. 3] } & { b = [1 .. 6] }
-{ [1, 2, 3] ++ 4 }.ifError { true } (* right hand side must be a collection *)
-plusPlus([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6] (* ++ equals plusPlus *)
-[[1, 2, 3], [4, 5, 6], [7, 8, 9]].concatenation = [1 .. 9] (* concatenation, unicode = ⧻ *)
-[[1, 2, 3], [4, 5], [6]].concatenation = [1, 2, 3, 4, 5, 6]
-| a = [1, 2, 3]; | a[2] = a.at(2)
+[1 .. 5].noneSatisfy(odd:/1) = false (* one is odd *)
+[1 .. 5].oneSatisfies { :each | each.even & { each > 2 } } (* exactly one element matches *)
+[1 .. 5].count { :each | each.even & { each > 2 } } = 1 (* exactly one element matches *)
+[1 .. 3] ++ [4 .. 6] = [1 .. 6] (* addAllLast, answering new like collection, unicode = ⧺ *)
+| a = [1 .. 3]; | a.addAllLast([4 .. 6]); a = [1 .. 6]
+| a = [1 .. 3], b = a ++ [4 .. 6]; | a ~~ b & { a = [1 .. 3] } & { b = [1 .. 6] }
+{ [1 .. 3] ++ 4 }.ifError { true } (* right hand side must be a collection *)
+plusPlus([1 .. 3], [4 .. 6]) = [1 .. 6] (* ++ equals plusPlus *)
+[[1 .. 3], [4 .. 6], [7 .. 9]].concatenation = [1 .. 9] (* concatenation, unicode = ⧻ *)
+[1 2 3; 4 5 6; 7 8 9].concatenation = [1 .. 9] (* concatenation, [Matrix Syntax] *)
+[[1, 2, 3], [4, 5], [6]].concatenation = [1 .. 6]
+[1 2 3; 4 5; 6].concatenation = [1 .. 6] (* non-square [Matrix Syntax] *)
+| a = [1 .. 3]; | a[2] = a.at(2) (* [At Syntax] *)
 [1 .. 5].includesIndex(3) (* is valid index *)
 [1 .. 5].atIfPresent(3) { :x | x * x } = 9 (* clause if index is valid *)
 [1 .. 5].atIfPresent(9) { :x | false } = nil (* ifAbsent clause answers nil *)
@@ -802,6 +808,8 @@ ByteArray(4).hex = '00000000'
 [9, 4, 5, 7, 8, 6].size = 6 (* size of collection *)
 [9, 4, 5, 7, 8, 6].max = 9 (* maximum item in collection *)
 [9, 4, 5, 7, 8, 6].min = 4 (* minimum item in collection *)
+[9, 4, 5, 7, 8, 6].maxBy(negated:/1) = 4 (* comparison of translated values *)
+[9, 4, 5, 7, 8, 6].minBy(negated:/1) = 9 (* comparison of translated values *)
 [9, 4, 5, 7, 8, 6].sum = 39 (* sum of collection *)
 [9, 4, 5, 7, 8, 6].mean = 6.5 (* sum of collection divided by size *)
 [1 .. 9].mean = 5 (* sum of collection divided by size *)

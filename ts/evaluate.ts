@@ -1,33 +1,42 @@
-import { rewriteString } from './rewrite.ts'
+import { packageName, rewriteString } from './rewrite.ts'
 
-export function evaluateString(slString: string) {
+export type SourceText = {
+  origin: string;
+  text: string;
+};
+
+export function evaluateSourceText(src: SourceText) {
+	var slString = src.text;
 	if(slString.trim().length > 0) {
-		// console.debug(`evaluateString: sl: ${slString}`);
+		// console.debug(`evaluateSourceText: sl: ${slString}`);
 		try {
+			packageName = src.origin;
 			const jsString = rewriteString(slString);
-			// console.debug(`evaluateString: js: ${jsString}`);
+			packageName = 'UnknownPackage';
 			if(jsString.trim().length > 0) {
 				try {
 					return eval(jsString);
 				} catch(err) {
-					return console.error(`evaluateString: eval: ${err}: ${slString}: ${jsString}`);
+					return console.error(`evaluateSourceText: eval: ${err}: ${slString}: ${jsString}`);
 				}
 			}
 		} catch (err) {
-			return console.error(`evaluateString: rewrite: ${err}: ${slString}`);
+			return console.error(`evaluateSourceText: rewrite: ${err}: ${slString}`);
 		}
 	}
-	// console.debug('evaluateString: empty?');
+	// console.debug('evaluateSourceText: empty?');
 	return null;
 }
 
-export async function evaluateStringArrayInSequence(slStringArray: string[]) {
-	for(let slString of slStringArray) {
-		await evaluateString(slString);
+export async function evaluateSourceTextArrayInSequence(srcArray: SourceText[]) {
+	for(let src of srcArray) {
+		await evaluateSourceText(src);
 	}
 }
 
+/*
 export async function evaluateUrl(url: string) {
 	// console.debug(`evaluateUrl: ${url}`);
-	await fetch(url, { cache: 'no-cache' }).then(response => response.text()).then(evaluateString);
+	await fetch(url, { cache: 'no-cache' }).then(response => response.text()).then(evaluateSourceText);
 }
+*/

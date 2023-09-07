@@ -19,13 +19,16 @@ export function resolveFileName(fileName: string): string {
 export async function loadUrlSequence(urlArray: string[]): Promise<void> {
 	const resolvedUrlArray = urlArray.map(resolveFileName);
 	const fetchedTextArray = await Promise.all(resolvedUrlArray.map(function (url) {
-		return fetch(url, { cache: 'no-cache' }).then(response => response.text())
+		return fetch(url, { cache: 'no-cache' }).then(response => response.text());
 	}));
-	await evaluate.evaluateStringArrayInSequence(fetchedTextArray);
+	const sourceTextArray = resolvedUrlArray.map(function(each, index) {
+		return {origin: each, text: fetchedTextArray[index]};
+	});
+	await evaluate.evaluateSourceTextArrayInSequence(sourceTextArray);
 }
 
 export function addLoadUrlMethods(): void {
-	addMethod('Array', 'loadUrlSequence', 1, loadUrlSequence, '<primitive: loader>');
+	addMethod('Array', 'Kernel', 'loadUrlSequence', 1, loadUrlSequence, '<primitive: loader>');
 }
 
 export async function loadUrl(fileName: string): Promise<void> {

@@ -5,6 +5,8 @@ import { arraySum } from '../lib/jssc3/ts/kernel/array.ts'
 import { slSemantics, slParse, slTemporariesSyntaxNames } from './grammar.ts'
 import { slOptions } from './options.ts'
 
+export var packageName: string = 'UnknownPackage';
+
 function genName(name, arity) {
 	return slOptions.simpleArityModel ? name : `${name}_${arity}`;
 }
@@ -36,7 +38,7 @@ const asJs: any = {
 			const tmpSrc = tmp.sourceString;
 			const tmpNm = tmpSrc === '' ? [] : slTemporariesSyntaxNames(tmpSrc).map(nm => `'${nm}'`);
 			const traitList = trt.split(', ').filter(each => each.length > 0);
-			const addType = `sl.addType('${typNm}', [${trt}], [${tmpNm}]);`;
+			const addType = `sl.addType('${typNm}', '${packageName}', [${trt}], [${tmpNm}]);`;
 			const copyTraits = traitList.map(trtNm => `sl.copyTraitToType(${trtNm}, '${typNm}');`).join(' ');
 			const addMethods = makeMethodList('addMethod', [typNm], mthNms, mthBlks);
 			return `${addType}${copyTraits}${addMethods}`;
@@ -51,7 +53,7 @@ const asJs: any = {
 		return makeMethodList('extendTraitWithMethod', [trtNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
 	TraitDefinition(_at, trtNm, _leftBrace, mthNm, mthBlk, _rightBrace) {
-		const trt = `sl.addTrait('${trtNm.sourceString}');`;
+		const trt = `sl.addTrait('${trtNm.sourceString}', '${packageName}');`;
 		const mth = makeMethodList('addTraitMethod', [trtNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
 		return `${trt}${mth}`;
 	},
@@ -410,8 +412,8 @@ function makeMethod(slProc: string, clsNmArray: string[], mthNm: string, mthBlk)
 	const blkSrc = JSON.stringify(blkSource);
 	const slName = sl.methodName(mthNm);
 	return clsNmArray.map(function(clsNm) {
-		// console.debug(`makeMethod: '${slProc}', '${clsNm}', '${mthNm}'('${slName}'), ${blkArity}`);
-		return ` sl.${slProc}('${clsNm}', '${slName}', ${blkArity}, ${blkJs}, ${blkSrc});`
+		// console.debug(`makeMethod: '${slProc}', '${clsNm}', '${packageName}', '${mthNm}'('${slName}'), ${blkArity}`);
+		return ` sl.${slProc}('${clsNm}', '${packageName}', '${slName}', ${blkArity}, ${blkJs}, ${blkSrc});`
 	}).join(' ');
 }
 

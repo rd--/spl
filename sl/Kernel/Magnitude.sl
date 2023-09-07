@@ -58,8 +58,24 @@
 		}
 	}
 
+	maxBy { :self :aMagnitude :aBlock:/1 |
+		(self.aBlock > aMagnitude.aBlock).if {
+			self
+		} {
+			aMagnitude
+		}
+	}
+
 	max { :self :aMagnitude |
 		(self > aMagnitude).if {
+			self
+		} {
+			aMagnitude
+		}
+	}
+
+	minBy { :self :aMagnitude :aBlock:/1 |
+		(self.aBlock < aMagnitude.aBlock).if {
 			self
 		} {
 			aMagnitude
