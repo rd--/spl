@@ -346,6 +346,14 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 +String {
 
+	asNumber { :self |
+		self.includes(':'.Character).if {
+			self.parseFraction
+		} {
+			self.parseNumber
+		}
+	}
+
 	parseFraction { :self :separator |
 		self.includesSubstring(separator).if {
 			| parts = self.splitBy(separator); |

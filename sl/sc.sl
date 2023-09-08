@@ -6,6 +6,6 @@
 	'Sound/Sc/Synth.sl',
 	'Sound/Sc/Synth/bindings.sl',
 	'Sound/Sc/Synth/pseudo.sl'
-].loadUrlSequence.then { :unusedValue |
+].loadUrlSequence('sc').then { :unusedValue |
 	system::clock := Clock()
 }

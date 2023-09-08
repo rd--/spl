@@ -1,31 +1,42 @@
-import { packageName, rewriteString } from './rewrite.ts'
+import * as rewrite from './rewrite.ts'
 
-export type SourceText = {
-  origin: string;
-  text: string;
-};
-
-export function evaluateSourceText(src: SourceText) {
-	var slString = src.text;
-	if(slString.trim().length > 0) {
-		// console.debug(`evaluateSourceText: sl: ${slString}`);
+export function evaluateFor(packageName: string, fileName: string, text: string) {
+	var errText = function(err, toEval) {
+		return `evaluateFor: eval: ${err}: ${packageName}: ${fileName}: ${text}: ${toEval}`;
+	};
+	if(text.trim().length > 0) {
 		try {
-			packageName = src.origin;
-			const jsString = rewriteString(slString);
-			packageName = 'UnknownPackage';
-			if(jsString.trim().length > 0) {
+			rewrite.context.packageName = packageName;
+			const toEval = rewrite.rewriteString(text);
+			rewrite.context.packageName = 'UnknownPackage';
+			if(toEval.trim().length > 0) {
 				try {
-					return eval(jsString);
+					return eval(toEval);
 				} catch(err) {
-					return console.error(`evaluateSourceText: eval: ${err}: ${slString}: ${jsString}`);
+					return console.error(errText(err, toEval));
 				}
 			}
 		} catch (err) {
-			return console.error(`evaluateSourceText: rewrite: ${err}: ${slString}`);
+			return console.error(errText(err, 'rewrite failed'));
 		}
 	}
 	// console.debug('evaluateSourceText: empty?');
 	return null;
+}
+
+export class SourceText {
+	packageName: string;
+	fileName: string;
+	text: string;
+	constructor(packageName: string, fileName: string, text: string) {
+		this.packageName = packageName;
+		this.fileName = fileName;
+		this.text = text;
+	}
+}
+
+export function evaluateSourceText(src: SourceText) {
+	return evaluateFor(src.packageName, src.fileName, src.text);
 }
 
 export async function evaluateSourceTextArrayInSequence(srcArray: SourceText[]) {

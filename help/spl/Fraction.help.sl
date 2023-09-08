@@ -56,6 +56,9 @@ a Fraction whose elements are of type LargeInteger will have behave ordinarily.
 	| x = Fraction(2 ^ 55, 2); | x ~= (x - 1) = false
 	| x = Fraction(2n ^ 55n, 2); | x ~= (x - 1)
 
+_Note:_
+The _Fraction_ package re-defines _asNumber_ to call either _parseFraction_ or _parseNumber_ as appropriate.
+
 * * *
 
 See also: denominator, [Fraction Literals], numerator, reduced

@@ -252,6 +252,11 @@
 		1
 	}
 
+	upOrDownToDo { :self :end :aProcedure:/1 |
+		| step = (end < self).if { -1 } { 1 }; |
+		self.toByDo(end, step, aProcedure:/1)
+	}
+
 	upToDo { :self :end :aProcedure:/1 |
 		(end < self).ifTrue {
 			self.error('upToDo: not ascending')

@@ -16,19 +16,19 @@ export function resolveFileName(fileName: string): string {
 }
 
 // Fetch files asynchronously, then evaluate in sequence.
-export async function loadUrlSequence(urlArray: string[]): Promise<void> {
+export async function loadUrlSequence(urlArray: string[], packageName: string): Promise<void> {
 	const resolvedUrlArray = urlArray.map(resolveFileName);
 	const fetchedTextArray = await Promise.all(resolvedUrlArray.map(function (url) {
 		return fetch(url, { cache: 'no-cache' }).then(response => response.text());
 	}));
-	const sourceTextArray = resolvedUrlArray.map(function(each, index) {
-		return {origin: each, text: fetchedTextArray[index]};
+	const sourceTextArray = resolvedUrlArray.map(function(fileName, index) {
+		return new evaluate.SourceText(packageName, fileName, fetchedTextArray[index]);
 	});
 	await evaluate.evaluateSourceTextArrayInSequence(sourceTextArray);
 }
 
 export function addLoadUrlMethods(): void {
-	addMethod('Array', 'Kernel', 'loadUrlSequence', 1, loadUrlSequence, '<primitive: loader>');
+	addMethod('Array', 'Kernel', 'loadUrlSequence', 2, loadUrlSequence, '<primitive: loader>');
 }
 
 export async function loadUrl(fileName: string): Promise<void> {

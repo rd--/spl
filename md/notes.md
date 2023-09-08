@@ -4,6 +4,10 @@ There is initial support for a "package" field at Type, Trait and Method.
 The "package" field indicates the entity that "defines" the Type or Trait or Method.
 (C.f. the "origin" field at Method, which indicates which Type or Trait the method is defined at.)
 The idea is to have a _very_ simple notion of a _Package_.
+A package is a named sequence of one or more .sl files.
+For network loading it's important to be able to send requests for all required files immediately.
+The primitive at present is _loadUrlSequence_.
+This needs to be ammended to _loadPackageSequence_, which is essentially _loadNamedUrlSequenceSequence_.
 
 # Categories
 
@@ -314,3 +318,13 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+2213 ∓ MINUS-OR-PLUS SIGN
 - U+002B + PLUS SIGN
 - U+2212 − MINUS SIGN
+- U+207A ⁺ Superscript Plus Sign
+- U+208A ₊ Subscript Plus Sign
+- U+207B ⁻ Superscript Minus
+- U+208B ₋ Subscript Minus
+- U+207C ⁼ Superscript Equals Sign
+- U+208C ₌ Subscript Equals Sign
+- U+207D ⁽ Superscript Left Parenthesis
+- U+208D ₍ Subscript Left Parenthesis
+- U+207E ⁾ Superscript Right Parenthesis
+- U+208E ₎ Subscript Right Parenthesis

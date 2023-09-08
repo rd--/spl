@@ -68,11 +68,11 @@ async function replPerLine(opt: flags.Args, lib: string[]): Promise<void> {
 
 async function runFile(fileName: string, opt: flags.Args): Promise<void> {
 	await loadSpl(opt, []);
-	console.log(await fileio.evaluateFile(fileName))
+	console.log(await fileio.evaluateFile(fileName, 'RunFile'))
 }
 
 function evalInteractive(text: string) {
-	evaluate.evaluateSourceText({packageName: 'Interactive', text: text});
+	evaluate.evaluateFor('Repl', 'Interactive', text);
 }
 
 function scEvalText(splText: string): void {

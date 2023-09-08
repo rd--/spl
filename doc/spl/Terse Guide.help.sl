@@ -17,11 +17,12 @@
 9 // 3 = 3 (* integer division *)
 9.dividedByDividedBy(3) = 3 (* integer division *)
 [9 // 4, -5 // 3, 5 // 2] = [2, -1, 2] (* the quotient from euclidean (integer) division *)
-(-5 .. 5).collect { :n | n // 3 } = [-1, -1, -1, -0, -0, 0, 0, 0, 1, 1, 1] (* integer division *)
+[-5 .. 5].collect { :n | n // 3 } = [-1, -1, -1, -0, -0, 0, 0, 0, 1, 1, 1] (* integer division *)
 [1 // 1, 3 // 2, 4 // -2, -6 // 3, -12 // -4] = [1, 1, -2, -2, 3] (* integer division *)
 1 + 2 * 3 = 9 (* evaluation always left to right, operators equal precedence *)
 3 * 2 + 1 = 7 (* evaluation always left to right, operators equal precedence *)
 1 + 2 * 3 = ((1 + 2) * 3) (* equals predicate is also left to right *)
+3 + 4 * 5 - 6 / 7 ~ 4.1428 (* precedence, longer sequence, not ~22.1428 *)
 3 = 3 (* equals *)
 3.equals(3) (* equals *)
 2 ~= 3 (* not equals *)
@@ -35,7 +36,7 @@
 5 % 3 = 2 (* modulo *)
 5.modulo(3) = 2 (* modulo *)
 [10 % 3, 10 % -3, -10 % 3, -10 % -3, 10 % 5] = [1, -2, 2, -1, 0] (* modulo *)
-(0 .. 9).collect { :i | i % 5 } = [0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
+[0 .. 9].collect { :i | i % 5 } = [0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
 [10 % 5, -4 % 3, 4 % -3, -4 % -3] = [0, 2, -2, -1] (* modulo, negative operands *)
 13 % 7 % 4 = 2 (* left assocative *)
 13 + 1 % 7 = 0 (* equal precedence *)
@@ -47,7 +48,11 @@
 -1.copySignTo(5) = -5 (* answer argument with sign of number *)
 5.negated = -5 (* negate receiver, unary minus *)
 1.25.truncated = 1 (* integer part of number *)
+-1.25.truncated = -1 (* integer part of number *)
 1.25.fractionPart = 0.25 (* fractional part *)
+-1.25.fractionPart = -0.25 (* fractional part *)
+pi.fractionPart + pi.truncated = pi (* fractional part and truncated part sum to identity *)
+| x = pi.negated; | x.fractionPart + x.truncated = x (* fractional part and truncated part sum to identity *)
 5.reciprocal = (1/5) (* reciprocal function *)
 6 * 3.1 = 18.6 (* auto convert to float *)
 5.squared = 25 (* square function *)
@@ -67,6 +72,7 @@
 3 ^ 4 = 81 (* 3 * 3 * 3 * 3 = 81 *)
 1.exp.veryCloseTo(2.718281828459) (* exponential *)
 -5.abs = 5 (* absolute value *)
+(0 - pi).abs = pi (* absolute value of floating point numbers *)
 0.abs = 0 & { 5.abs = 5 } (* absolute value of zero and positive numbers *)
 -0 = 0 (* negative zero is equal to zero *)
 3.99.rounded = 4 (* round ; c.f. rounded *)
@@ -86,18 +92,18 @@
 18.factorial = 6402373705728000 (* large small integer factorial *)
 20.factorial = 2432902008176640000 (* large small float factorial *)
 20.factorial.isSmallInteger = false (* 20! is not a small integer *)
-(0 .. 9).collect(factorial:/1) = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
+[0 .. 9].collect(factorial:/1) = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
 { -1.factorial }.ifError { true } (* factorial is not defined for negative integers *)
-9.factorial = (1 .. 9).product (* factorial is product of interval *)
+9.factorial = [1 .. 9].product (* factorial is product of interval *)
 12.factorial.log2.floor = 28 (* bit-depth of factorial *)
 [12, 18, 20, 100, 170].collect { :each | each.factorial.log2.floor } = [28, 52, 61, 524, 1019]
 9.doubleFactorial = 945 (* double factorial *)
 [12, 18, 20].collect { :n | n.doubleFactorial } = [46080, 185794560, 3715891200]
 [12, 18, 20].collect { :n | n.doubleFactorial.log2.floor } = [15, 27, 31]
-(0, 2 .. 14).collect(doubleFactorial:/1) = [1, 2, 8, 48, 384, 3840, 46080, 645120]
-(1, 3 .. 13).collect(doubleFactorial:/1) = [1, 3, 15, 105, 945, 10395, 135135]
-14.doubleFactorial = (2, 4 .. 14).product (* double factorial is product of equal parity interval *)
-13.doubleFactorial = (1, 3 .. 13).product (* double factorial is product of equal parity interval *)
+[0, 2 .. 14].collect(doubleFactorial:/1) = [1, 2, 8, 48, 384, 3840, 46080, 645120]
+[1, 3 .. 13].collect(doubleFactorial:/1) = [1, 3, 15, 105, 945, 10395, 135135]
+14.doubleFactorial = [2, 4 .. 14].product (* double factorial is product of equal parity interval *)
+13.doubleFactorial = [1, 3 .. 13].product (* double factorial is product of equal parity interval *)
 28.gcd(12) = 4 (* greatest common denominator *)
 28.lcm(12) = 84 (* least common multiple *)
 1.exp.log = 1 (* natural logarithm *)
@@ -166,11 +172,11 @@ inf ~ inf (* being equal, infinty is also close to itself *)
 0 ~ epsilon & { epsilon ~ 0 } & { 1 + epsilon ~ 1 } (* ε is ≈ zero ∧ ≈ is a symmetric operator ∧ one plus ε is ≈ one *)
 | n = 10 ^ -9; | 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
 [8 % 3, 9 % 3, 8.9 % 3, epsilon % 3, epsilon.negated % 3] ~ [2, 0, 2.9, 0, 3] (* modulo *)
-(-5 .. 5).collect { :each | each % 3 } = [1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2] (* modulo *)
+[-5 .. 5].collect { :each | each % 3 } = [1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2] (* modulo *)
 15 % 4 = 3 (* modulo *)
 (15 // 4) * 4 + 15.remainder(4) = 15 (* remainder *)
 | x = 15, y = 4; | (x // y) * y + x.remainder(y) = x  (* quotient by denominator + remainder = numerator *)
-(-5 .. 5).collect { :each | each.remainder(3) } = [-2 -1 -0 -2 -1 0 1 2 0 1 2]
+[-5 .. 5].collect { :each | each.remainder(3) } = [-2 -1 -0 -2 -1 0 1 2 0 1 2]
 1e6 = 1000000 (* scientific notation, unit base, positive exponent *)
 3e9 = (3 * (10 ^ 9)) (* scientific notation, integer base *)
 23e-1 = 2.3 (* scientific notation, negative exponent *)
@@ -1026,7 +1032,6 @@ pi.asNumber = pi (* identity *)
 '3.141'.asNumber = 3.141 (* parse number, floating point *)
 '-672.433244'.asNumber = -672.433244 (* parse number, negative floating point *)
 '23'.asNumber = 23 (* parse number, integral *)
-'22:7'.asNumber = 22:7 (* parse number, fraction *)
 pi.asFraction = 311:99 (* asFraction(100) *)
 pi.asFraction(10) = 22:7 (* with maximum denominator *)
 22:7.asFraction = 22:7 (* identity *)
@@ -1357,6 +1362,7 @@ system.unicodeFractionsTable.associations.isArray = true
 | n = system.unicodeFractionsTable.associations.collect(value:/1); | n = n.sorted
 '4:3'.parseFraction = 4:3 (* parse fraction *)
 '4/3'.parseFraction('/') = 4:3  (* parse fraction given delimiter *)
+'4:3'.asNumber = 4:3 (* the fraction module modifies asNumber to parse fractions *)
 | x = Fraction(2 ^ 55, 2); | x ~= (x - 1) = false (* fractions of large small floats behave strangely *)
 | x = Fraction(2n ^ 55n, 2); | x ~= (x - 1) (* fractions of large large integers behave ordinarily *)
 2:3 ~= 3:4 (* unequal fractions *)
@@ -1462,6 +1468,7 @@ true == true & { false == false } (* boolean identity *)
 | a = []; | 5.downToDo(1) { :each | a.add(each) }; a = [5 .. 1] (* iterate over integer sequence *)
 { 1.downToDo(5) }.ifError { true } (* non-descending sequences are an error *)
 | a = []; | 1.toByDo(5, 1) { :each | a.add(each) }; a = [1 .. 5] (* with step *)
+| a = []; | 5.upOrDownToDo(1) { :each | a.add(each) }; a = [5 .. 1] (* iterate over integer sequence *)
 | a = []; | 1.toDo(5) { :each | a.add(each) }; a = [1 .. 5] (* toDo is upToDo if ascending *)
 | a = []; | 5.toDo(1) { :each | a.add(each) }; a = [] (* non-ascending sequences are empty *)
 (0 .. 255).collect { :each | each.digitAt(1) } = [0 .. 255]
@@ -2551,8 +2558,8 @@ pi.randomFloat.isInteger = false
 (1 .. 9999).select(isPrime:/1).size = 1229
 60.divisors = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60]
 1729.divisors = [1, 7, 13, 19, 91, 133, 247, 1729]
-e() = 1.exp
-e = e() (* e is a constant, like pi *)
+eulersNumber() = 1.exp (* euler's number *)
+e = eulersNumber() (* e is a constant, like pi *)
 epsilon() < (10 ^ -15)
 epsilon() > (10 ^ -16)
 1 - epsilon() ~= 1 (* epsilon() is the difference between 1.0 and previous representable value *)

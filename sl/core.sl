@@ -17,14 +17,8 @@
 	'Collections.sl'
 	'Collections/Collection.sl'
 	'Collections/Array.sl'
-	'Collections/Association.sl'
-	'Collections/Interval.sl'
 	'Collections/Map.sl'
-	'Collections/PriorityQueue.sl'
 	'Collections/Record.sl'
 	'Collections/Set.sl'
 	'System.sl'
-	'System/Method.sl'
-	'System/Trait.sl'
-	'System/Type.sl'
-].loadUrlSequence
+].loadUrlSequence('Kernel')

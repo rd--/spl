@@ -189,8 +189,8 @@
 	}
 
 	min { :self |
-		self.injectInto(self.anyOne.aBlock) { :answer :each |
-			answer.min(each.aBlock)
+		self.injectInto(self.anyOne) { :answer :each |
+			answer.min(each)
 		}
 	}
 

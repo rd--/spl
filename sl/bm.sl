@@ -12,4 +12,4 @@
 	'Benchmarks/Json.sl',
 	'Benchmarks/Mandelbrot.sl',
 	'Benchmarks/NBody.sl'
-].loadUrlSequence
+].loadUrlSequence('bm')
