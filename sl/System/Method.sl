@@ -35,7 +35,7 @@ Method : [Object] {
 	}
 
 	provenance { :self |
-		[self.packageName, '-', self.origin.name].join
+		[self.packageName, '/', self.origin.name].join
 	}
 
 	pseudoSlotNameArray { :self |

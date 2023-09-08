@@ -6,8 +6,9 @@ The "package" field indicates the entity that "defines" the Type or Trait or Met
 The idea is to have a _very_ simple notion of a _Package_.
 A package is a named sequence of one or more .sl files.
 For network loading it's important to be able to send requests for all required files immediately.
-The primitive at present is _loadUrlSequence_.
-This needs to be ammended to _loadPackageSequence_, which is essentially _loadNamedUrlSequenceSequence_.
+The primitive is _loadPackagesSequence_.
+After the core is loaded there is a language level Package type.
+In the simplest case of a package consisting of a single file it can be written Package(fileName).
 
 # Categories
 

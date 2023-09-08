@@ -439,7 +439,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 [1].addAllLast([2, 3]) = [2, 3] (* answer is argument *)
 | l = [1]; | l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6] (* alias for addAllLast *)
 | i = (1 .. 9), a = []; | a.addAll(i); a.size = 9 (* add elements from Interval to end of Array *)
-13.fibonacciSequence = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
+13.fibonacciSequenceInto([]) = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 | c = [1 .. 5]; | [c.removeAt(1), c] = [1, [2, 3, 4, 5]] (* removeAt answers the removed element *)
 | c = [1 .. 5]; | [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
 | c = [1 .. 5]; | [c.removeFirst(3), c] = [[1, 2, 3], [4, 5]] (* remove first three objects from array *)
@@ -2102,7 +2102,8 @@ var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.Se
 
 ## Random -- sfc
 ```
-| r = Random(98765); | r.typeOf = 'Random' (* type *)
+| r = Random(98765); | r.typeOf = 'RandomNumberGenerator' (* type *)
+| r = Random(98765); | r.isRandomNumberGenerator (* predicate *)
 | r = Random(98765); | r.isRandom (* predicate *)
 | r = Random(98765); | r.randomFloat = 0.49556130869314075 (* random number in [0, 1) *)
 | r = Random(98765); | r.randomFloat(10) = 4.9556130869314075 (* random number in [0, 10) *)
@@ -2116,7 +2117,8 @@ var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.Se
 
 ## Random - mersenne twister
 ```
-| m = MersenneTwister(98765); | m.typeOf = 'Random' (* type of *)
+| m = MersenneTwister(98765); | m.typeOf = 'RandomNumberGenerator' (* type of *)
+| m = MersenneTwister(98765); | m.isRandomNumberGenerator (* predicate *)
 | m = MersenneTwister(98765); | m.isRandom (* predicate *)
 | m = MersenneTwister(98765); | m.randomFloat = 0.088898599949636 (* random number in [0, 1) *)
 | m = MersenneTwister(98765); | m.randomFloat(10) = 0.88898599949636 (* random number in [0, 10) *)
@@ -2703,6 +2705,7 @@ Stack().size = 0 (* empty stack, size *)
 'mississippi'.split.join = 'mississippi' (* join is the inverse of split *)
 'mississippi'.splitBy('i').joinSeparatedBy('i') = 'mississippi' (* joinSeparatedBy is the inverse of splitBy *)
 '/usr/local/bin'.splitBy('/') = ['', 'usr', 'local', 'bin']
+'Terse Guide.help.sl'.splitBy('.') = ['Terse Guide', 'help', 'sl']
 'a' < 'b' = true (* string comparison *)
 'text'.copyFromTo(2, 3) = 'ex' (* substring, one indexed, inclusive *)
 'text'.copyFromTo(3, 3) = 'x' (* substring (single character) *)
@@ -3094,6 +3097,12 @@ system.methodLookupAtType('collect', 2, 'Array').origin.name = 'ArrayedCollectio
 system.methodLookupAtType('collect', 2, 'Array').procedure.value([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum', 1, 'Set')
 'sum:/1'.parseQualifiedMethodName = ['sum', 1]
+```
+
+## System -- methodDictionary
+```
+system.packageDictionary.isDictionary = true
+system.packageDictionary.isEmpty = false
 ```
 
 ## System -- time

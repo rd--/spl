@@ -1,4 +1,5 @@
 +SmallFloat {
+
 	mt53RandomNumberGenerator { :self |
 		<primitive: return sl.mersenneTwister53Generator(_self);>
 	}
@@ -39,7 +40,7 @@
 
 }
 
-Random : [Object, Random] { | randomNumberGenerator |
+RandomNumberGenerator : [Object, Random] { | name seed randomNumberGenerator |
 
 	randomFloat { :self |
 		self.randomNumberGenerator.value
@@ -50,11 +51,8 @@ Random : [Object, Random] { | randomNumberGenerator |
 +String {
 
 	Sfc { :self |
-		|(
-			seed = self.murmur3(2166136261),
-			randomNumberGenerator = sfc32RandomNumberGenerator(seed)
-		)|
-		newRandom().initializeSlots(randomNumberGenerator)
+		| seed = self.murmur3(2166136261); |
+		newRandomNumberGenerator().initializeSlots('Sfc', seed, seed.sfc32RandomNumberGenerator)
 	}
 
 }
@@ -62,7 +60,7 @@ Random : [Object, Random] { | randomNumberGenerator |
 +SmallFloat {
 
 	MersenneTwister { :self |
-		newRandom().initializeSlots(self.mt53RandomNumberGenerator)
+		newRandomNumberGenerator().initializeSlots('MersenneTwister', self, self.mt53RandomNumberGenerator)
 	}
 
 	Random { :self |
@@ -70,7 +68,7 @@ Random : [Object, Random] { | randomNumberGenerator |
 	}
 
 	SplitMix { :self |
-		newRandom().initializeSlots(self.splitMix32RandomNumberGenerator)
+		newRandomNumberGenerator().initializeSlots('SplitMix', self, self.splitMix32RandomNumberGenerator)
 	}
 
 }

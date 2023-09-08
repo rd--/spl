@@ -1,5 +1,9 @@
 @Random {
 
+	isRandom { :self |
+		true
+	}
+
 	next { :self |
 		self.randomFloat
 	}
@@ -25,3 +29,12 @@
 	}
 
 }
+
++@Object {
+
+	isRandom { :self |
+		false
+	}
+
+}
+

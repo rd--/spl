@@ -15,16 +15,28 @@ export async function rewriteFile(fileName: string) {
 	return await Deno.readTextFile(fileName).then(rewrite.rewriteString);
 }
 
+// "package" is a reserved word, c.f. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar
+type Package = [string, string[]];
+
 // Fetch files asynchronously, then evaluate in sequence.
-export async function loadFileSequence(fileNameArray: string[], packageName: string): Promise<void> {
-	const resolvedFileNameArray = fileNameArray.map(load.resolveFileName);
-	const fileTextArray = await Promise.all(resolvedFileNameArray.map(fileName => Deno.readTextFile(fileName)));
-	const sourceTextArray = resolvedFileNameArray.map(function(fileName, index) {
-		return new evaluate.SourceText(packageName, fileName, fileTextArray[index]);
+export async function loadPackageSequence(packageArray: Package[]): Promise<void> {
+	const sourceTextArray = [];
+	const resolvedFileNameArray = [];
+	packageArray.forEach(aPackage => {
+		const packageName = aPackage[0];
+		aPackage[1].forEach(fileName => {
+			const resolvedFileName = load.resolveFileName(fileName);
+			resolvedFileNameArray.push(resolvedFileName);
+			sourceTextArray.push(new evaluate.SourceText(packageName, fileName, null));
+		});
+	});
+	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(fileName => Deno.readTextFile(fileName)));
+	fetchedTextArray.map(function(text, index) {
+		sourceTextArray[index].text = text;
 	});
 	await evaluate.evaluateSourceTextArrayInSequence(sourceTextArray);
 }
 
 export function addLoadFileMethods(): void {
-	kernel.addMethod('Array', 'Kernel', 'loadUrlSequence', 2, loadFileSequence, '<primitive>');
+	kernel.addMethod('Array', 'Kernel', 'loadPackageSequence', 1, loadPackageSequence, '<primitive>');
 }

@@ -15,20 +15,32 @@ export function resolveFileName(fileName: string): string {
 	return resolvedName;
 }
 
+// "package" is a reserved word, c.f. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar
+type Package = [string, string[]];
+
 // Fetch files asynchronously, then evaluate in sequence.
-export async function loadUrlSequence(urlArray: string[], packageName: string): Promise<void> {
-	const resolvedUrlArray = urlArray.map(resolveFileName);
-	const fetchedTextArray = await Promise.all(resolvedUrlArray.map(function (url) {
-		return fetch(url, { cache: 'no-cache' }).then(response => response.text());
+export async function loadPackageSequence(packageArray: Package[]): Promise<void> {
+	const sourceTextArray = [];
+	const resolvedFileNameArray = [];
+	packageArray.forEach(function(aPackage: Package) {
+		const packageName = aPackage[0];
+		aPackage[1].forEach(function(fileName: string) {
+			const resolvedFileName = resolveFileName(fileName);
+			resolvedFileNameArray.push(resolvedFileName);
+			sourceTextArray.push(new evaluate.SourceText(packageName, fileName, null));
+		});
+	});
+	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(function (resolvedFileName) {
+		return fetch(resolvedFileName, { cache: 'no-cache' }).then(response => response.text());
 	}));
-	const sourceTextArray = resolvedUrlArray.map(function(fileName, index) {
-		return new evaluate.SourceText(packageName, fileName, fetchedTextArray[index]);
+	fetchedTextArray.map(function(text, index) {
+		sourceTextArray[index].text = text;
 	});
 	await evaluate.evaluateSourceTextArrayInSequence(sourceTextArray);
 }
 
 export function addLoadUrlMethods(): void {
-	addMethod('Array', 'Kernel', 'loadUrlSequence', 2, loadUrlSequence, '<primitive: loader>');
+	addMethod('Array', 'Kernel', 'loadPackageSequence', 1, loadPackageSequence, '<primitive: loader>');
 }
 
 export async function loadUrl(fileName: string): Promise<void> {
