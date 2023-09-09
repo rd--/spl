@@ -1,0 +1,97 @@
+Matrix33 : [Object] { | elements |
+
+	= { :self :aMatrix |
+		aMatrix.isMatrix33 & {
+			self.elements = aMatrix.elements
+		}
+	}
+
+	applyTo { :self :vector |
+		| [a, b, c, d, e, f, g, h, i] = self.elements, [x, y, z] = vector.Array; |
+		Vector3(
+			(a * x) + (b * y) + (c * z),
+			(d * x) + (e * y) + (f * z),
+			(g * x) + (h * y) + (i * z)
+		)
+	}
+
+	Array { :self |
+		self.elements.copy
+	}
+
+	copy { :self |
+		self.elements.copy.Matrix33
+	}
+
+	determinant { :self |
+		| [a, b, c, d, e, f, g, h, i] = self.elements; |
+		(a * e * i) + (b * f * g) + (c * d * h) - (c * e * g) - (b * d * i) - (a * f * h)
+	}
+
+	inverse { :self |
+		self.copy.invert
+	}
+
+	invert { :self |
+		| [a, b, c, d, e, f, g, h, i] = self.elements; |
+		self.elements := self.determinant * [
+			(e * i) - (f * h), ((b * i) - (c * h)).negated, (b * f) - (c * e),
+			((d * i) - (f * g)).negated, (a * i) - (c * g), ((a * f) - (c * d)).negated,
+			(d * h) - (e * g), ((a * h).negated - (b * g)), (a * e) - (b * d)
+		];
+		self
+	}
+
+	identity { :self |
+		self.elements := [
+			1, 0, 0,
+			0, 1, 0,
+			0, 0, 1
+		]
+	}
+
+	xy { :self |
+		self.elements := [
+			1, 0, 0,
+			0, 1, 0,
+			0, 0, 0
+		]
+	}
+
+	xz { :self |
+		self.elements := [
+			1, 0, 0,
+			0, 0, 1,
+			0, 0, 0
+		]
+	}
+
+	yz { :self |
+		self.elements := [
+			0, 1, 0,
+			0, 0, 1,
+			0, 0, 0
+		]
+	}
+
+}
+
++@Number {
+
+	Matrix33 { :self :b :c :d :e :f :g :h :i |
+		[self, b, c, d, e, f, g, h, i].Matrix33
+	}
+
+}
+
++Array {
+
+	Matrix33 { :self |
+		(self.size ~= 9).if {
+			self.error('Matrix33: not 9-element array')
+		} {
+			newMatrix33().initializeSlots(self)
+		}
+	}
+
+}

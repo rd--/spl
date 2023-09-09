@@ -349,6 +349,77 @@
 
 }
 
++@Integral {
+
+	asLargerPowerOfTwo { :self |
+		self.isPowerOfTwo.if {
+			self
+		} {
+			self.positive.if {
+				1.bitShiftLeft(self.highBitOfPositiveReceiver)
+			} {
+				self.error('@Integral>>asLargerPowerOfTwo: non-positive')
+			}
+		}
+	}
+
+	asPowerOfTwo { :self |
+		self.asSmallerPowerOfTwo
+	}
+
+	asSmallerPowerOfTwo { :self |
+		self.isPowerOfTwo.if {
+			self
+		} {
+			self.positive.if {
+				1.bitShiftLeft(self.highBitOfPositiveReceiver - 1)
+			} {
+				self.error('@Integral>>asSmallerPowerOfTwo: non-positive')
+			}
+		}
+	}
+
+	isPowerOfTwo { :self |
+		(self ~= 0) & {
+			self.bitAnd(self - 1) = 0
+		}
+	}
+
+}
+
++@Integral {
+
+	digitAt { :self :n |
+		(n = 1).if {
+			(self < 0).if {
+				-256 - self.bitAnd(255)
+			} {
+				self.bitAnd(255)
+			}
+		} {
+			(self < 0).if {
+				(-256 - self.bitShift(-8) + 1).digitAt(n - 1)
+			} {
+				self.bitShift(8 - n.bitShift(3)).bitAnd(255)
+			}
+		}
+	}
+
+	digitLength { :self |
+		| value = self, length = 1; |
+		(value < -255).ifTrue {
+			length := 2;
+			value := (-256 - self.bitShift(-8)) + 1
+		};
+		{ value > 255 }.whileTrue {
+			value := value.bitShift(-8);
+			length := length + 1
+		};
+		length
+	}
+
+}
+
 +@SystemCache {
 
 	primesArray { :self |

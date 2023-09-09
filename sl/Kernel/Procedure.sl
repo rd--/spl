@@ -64,6 +64,10 @@ Procedure : [Object] {
 		>
 	}
 
+	map { :self:/1 :aCollection |
+		aCollection.collect(self:/1)
+	}
+
 	methodName { :self |
 		<primitive: return _self.name.split(':')[0];>
 	}
@@ -107,6 +111,10 @@ Procedure : [Object] {
 
 	name { :self |
 		<primitive: return _self.name;>
+	}
+
+	ofSize { :self :aNumber |
+		self.cull(aNumber).ofSize(aNumber)
 	}
 
 	repeat { :self:/0 |

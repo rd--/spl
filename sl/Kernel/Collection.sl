@@ -535,15 +535,3 @@
 	}
 
 }
-
-+Procedure {
-
-	map { :self:/1 :aCollection |
-		aCollection.collect(self:/1)
-	}
-
-	ofSize { :self :aNumber |
-		self.cull(aNumber).ofSize(aNumber)
-	}
-
-}

@@ -135,9 +135,9 @@ AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 
 	tick { :self |
 		| dateAndTime = system.Date; |
-		self.moveHourHand(dateAndTime.hour + (dateAndTime.minute / 60));
-		self.moveMinuteHand(dateAndTime.minute);
-		self.moveSecondHand(dateAndTime.second)
+		self.moveHourHand(dateAndTime.hours + (dateAndTime.minutes / 60));
+		self.moveMinuteHand(dateAndTime.minutes);
+		self.moveSecondHand(dateAndTime.seconds)
 	}
 
 	title { :self |

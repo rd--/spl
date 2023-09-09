@@ -95,22 +95,6 @@ Record : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 
 }
 
-+Map {
-
-	Record { :self |
-		self.indices.allSatisfy(isString:/1).if {
-			self.unsafeRecord
-		} {
-			self.error('Record: not all keys are strings')
-		}
-	}
-
-	unsafeRecord { :self |
-		<primitive: return Object.fromEntries(_self);>
-	}
-
-}
-
 +Void {
 
 	Record {

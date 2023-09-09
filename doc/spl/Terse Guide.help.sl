@@ -764,6 +764,7 @@ ByteArray(4).hex = '00000000'
 [1 .. 9].ByteArray.hasEqualElements([1 .. 9]) (* ByteArray and Array of equal elements *)
 [1, 13 .. 253].ByteArray.base64Encoded = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' (* base 64 encoding *)
 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q=='.base64Decoded = [1, 13 .. 253].ByteArray (* base 64 decoding *)
+'SGVsbG8gV29ybGQ='.base64Decoded.asciiString = 'Hello World' (* answer is a ByteArray *)
 [1, 3 .. 9].ByteArray.indices = (1 .. 5) (* indices of byte array (an interval) *)
 | b = [1, 3 .. 9].ByteArray; | b.copy = b & { b.copy ~~ b } (* copies are equal & not identical *)
 | b = [1 .. 9].ByteArray, c = b.copy; | c[1] := 9; c[1] = 9 & { b[1] = 1 } (* copies are distinct *)

@@ -174,6 +174,22 @@ Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, 
 
 }
 
++@Object {
+
+	replicateApplying { :self :anInteger :aProcedure:/1 |
+		| answer = Array(anInteger); |
+		answer.indicesDo { :index |
+			answer[index] := aProcedure(self)
+		};
+		answer
+	}
+
+	replicate { :self :anInteger |
+		self.replicateApplying(anInteger, identity:/1)
+	}
+
+}
+
 +SmallFloat {
 
 	fibonacciArray { :self |

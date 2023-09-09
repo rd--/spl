@@ -1,0 +1,99 @@
+Matrix22 : [Object] { | a b c d |
+
+	= { :self :aMatrix |
+		aMatrix.isMatrix22 & {
+			self.a = aMatrix.a & {
+				self.b = aMatrix.b & {
+					self.c = aMatrix.c & {
+						self.d = aMatrix.d
+					}
+				}
+			}
+		}
+	}
+
+	applyTo { :self :vector |
+		Vector2(
+			(self.a * vector.x) + (self.b * vector.y),
+			(self.c * vector.x) + (self.d * vector.y)
+		)
+	}
+
+	Array { :self |
+		[self.a, self.b, self.c, self.d]
+	}
+
+	copy { :self |
+		Matrix22(self.a, self.b, self.c, self.d)
+	}
+
+	determinant { :self |
+		(self.a * self.d) - (self.b * self.c)
+	}
+
+	identity { :self |
+		self.initializeSlots(
+			1, 0,
+			0, 1
+		)
+	}
+
+	inverse { :self |
+		self.copy.invert
+	}
+
+	invert { :self |
+		| m = 1 / self.determinant; |
+		self.initializeSlots(
+			self.d * m, self.b.negated * m,
+			self.c.negated * m, self.a * m
+		)
+	}
+
+	rotation { :self :n |
+		self.initializeSlots(
+			n.cos, n.sin,
+			n.sin.negated, n.cos
+		)
+	}
+
+	transpose { :self |
+		| b = self.b, c = self.c; |
+		self.b := c;
+		self.c := b
+	}
+
+	transposed { :self |
+		Matrix22(self.a, self.c, self.b, self.d)
+	}
+
+}
+
++Void {
+
+	Matrix22 {
+		newMatrix22()
+	}
+
+}
+
++@Number {
+
+	Matrix22 { :self :b :c :d |
+		newMatrix22().initializeSlots(self, b, c, d)
+	}
+
+}
+
++Array {
+
+	Matrix22 { :self |
+		(self.size ~= 4).if {
+			self.error('Matrix22: not 4-element array')
+		} {
+			| [a, b, c, d] = self; |
+			Matrix22(a, b, c, d)
+		}
+	}
+
+}

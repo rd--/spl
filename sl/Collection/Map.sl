@@ -62,6 +62,14 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary, PrimitiveMap] {
 		self
 	}
 
+	Record { :self |
+		self.indices.allSatisfy(isString:/1).if {
+			self.unsafeRecord
+		} {
+			self.error('Record: not all keys are strings')
+		}
+	}
+
 	removeAll { :self |
 		<primitive: _self.clear();>
 		self
@@ -81,6 +89,10 @@ Map : [Object, Iterable, Collection, Indexable, Dictionary, PrimitiveMap] {
 
 	storeString { :self |
 		self.associations.storeString ++ '.Map'
+	}
+
+	unsafeRecord { :self |
+		<primitive: return Object.fromEntries(_self);>
 	}
 
 	values { :self |

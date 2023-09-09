@@ -8,4 +8,4 @@ Make an Array having _anInteger_ copies of _anObject_.
 
 * * *
 
-See also: !, dup
+See also: !, dup, replicateApplying
