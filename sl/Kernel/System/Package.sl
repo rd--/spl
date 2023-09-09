@@ -5,11 +5,10 @@ Package : [Object] { | packageName fileNames |
 +String {
 
 	Package { :self |
-		|(
-			path = self.splitBy('/'),
-			packageName = path.last.splitBy('.').first
-		)|
-		Package(packageName, [self])
+		Package(
+			self,
+			['Package/' ++ self.replaceStringAll('-', '/') ++ '.sl']
+		)
 	}
 
 	Package { :self :fileNames |

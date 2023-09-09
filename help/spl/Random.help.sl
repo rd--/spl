@@ -1,4 +1,4 @@
-# Random -- random number generator trait and type
+# Random -- random number generator trait
 
 The required method is _randomFloat(aRandom)_, which must provide the next random number in the half-open range zero to one.
 

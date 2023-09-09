@@ -79,6 +79,10 @@ System : [Object, Indexable, Random, SystemCache] {
 		<primitive: return _self.globalDictionary;>
 	}
 
+	includesPackage { :self :packageName |
+		self.packageDictionary.includesIndex(packageName)
+	}
+
 	indices { :self |
 		self.globalDictionary.indices
 	}

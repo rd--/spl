@@ -1,5 +1,17 @@
 # Terse Guide
 
+## Angle -- geometry type
+```
+system.includesPackage('Geometry-Angle')
+pi.radians.typeOf = 'Angle' (* type of angle *)
+pi.radians.isAngle (* angle predicate *)
+1.radians.degrees ~ 57.296 (* radians to degrees *)
+pi.radians.degrees = 180 (* pi radians is 180 degrees *)
+180.degrees.radians = pi (* 180 degrees is pi radians *)
+pi.radians < 360.degrees (* angles are magnitudes *)
+pi.radians.asRadians = pi.asRadians (* radians of angle, or identity of number *)
+```
+
 ## Arithmetic expressions
 ```
 6 + 3 = 9 (* addition *)
@@ -473,6 +485,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 
 ## Association -- collection type
 ```
+system.includesPackage('Collection-Association')
 ('x' -> 1).typeOf = 'Association' (* arrow (->) constructor, unicode = → *)
 ('x' -> 1).isAssociation (* type predicate *)
 Association('x', 1) = ('x' -> 1)
@@ -496,6 +509,7 @@ Association('x', 1) = ('x' -> 1)
 
 ## Bag -- collection type
 ```
+system.includesPackage('Collection-Bag')
 Bag().isBag = true
 Bag().typeOf = 'Bag'
 Bag().isCollection
@@ -581,6 +595,7 @@ Bag().isSequenceable = false
 
 ## Bitset -- collection type
 ```
+system.includesPackage('Collection-Bitset')
 Bitset(64).isBitset (* a bitset is a bitset *)
 Bitset(64).size = 0 (* a new bitset is empty *)
 Bitset(64).capacity = 64 (* the capacity of a bitset is set when initialized *)
@@ -731,6 +746,7 @@ false ~= nil
 
 ## ByteArray -- collection type
 ```
+system.includesPackage('Collection-ByteArray')
 ByteArray(0).typeOf = 'ByteArray' (* byte array type name *)
 ByteArray(0).species = ByteArray:/1 (* byte array species *)
 ByteArray(0).isArray = false (* byte arrays are arrays *)
@@ -774,6 +790,7 @@ ByteArray(4).hex = '00000000'
 
 ## Character -- text type
 ```
+system.includesPackage('Text-Character')
 '𠮷'.Character.isCharacter
 '𠮷'.Character.string = '𠮷'
 '𠮷'.Character.codePoint = 134071
@@ -897,6 +914,7 @@ Set().Array = []
 
 ## Colour -- graphics type
 ```
+system.includesPackage('Graphics-Colour')
 Colour(1, 0, 0, 0.5).over(Colour(0, 1, 0, 0.5)) = Colour(1 / 3, 2 / 3, 0, 3 / 4)
 Colour(0, 0, 0).isBlack (* is colour black *)
 Colour(1, 1, 1).isWhite (* is colour white *)
@@ -923,6 +941,7 @@ system.colourNameTable::veryLightGray.isGrey (* colour name table *)
 
 ## Complex -- numeric type
 ```
+system.includesPackage('Number-Complex')
 Complex(0, 0).isComplex (* complex numbers *)
 Complex(-1, 0).real = -1 (* real part of complex number *)
 Complex(-1, 0).imaginary = 0 (* imaginary part of complex number *)
@@ -1079,6 +1098,7 @@ pi.radiansToDegrees = 180 (* convert radians to degrees *)
 
 ## Date -- temporal type
 ```
+system.includesPackage('Time-Date')
 Date(system).isDate (* get current date and time *)
 Date(0).iso8601 = '1970-01-01T00:00:00.000Z' (* translate Date to ISO-8601 string *)
 Date('1970-01-01T00:00:00.000Z').unixTimeInMilliseconds = 0 (* parse ISO-8601 string & convert to unix time *)
@@ -1153,6 +1173,7 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 
 ## Duration -- temporal type
 ```
+system.includesPackage('Time-Duration')
 2.seconds.typeOf = 'Duration' (* make duration from number of seconds *)
 5.hours.isDuration = true (* make duration from number of hours *)
 0.25.seconds = 250.milliseconds (* make duration from number of milliseconds, durations are comparable *)
@@ -1411,6 +1432,19 @@ SmallFloat(1:2) = (1 / 2)
 1:3.zero = Fraction(0, 1) (* zero of same type, i.e. fraction *)
 1:3.one = Fraction(1, 1) (* one of same type, i.e. fraction *)
 1:3 ~ (1 / 3) (* a fraction is close to it's floating point representation *)
+```
+
+## Frequency -- temporal type
+```
+1.hertz.typeOf = 'Frequency' (* frequency from hertz (cyles per second) *)
+1.hertz.isFrequency (* frequency predicate *)
+1.hertz.printString = '1.hertz' (* frequency print string *)
+10.hertz.Duration = (1 / 10).seconds (* duration is the reciprocal of frequency *)
+(1 / 10).seconds.Frequency = 10.hertz (* frequency is the reciprocal of duration *)
+44.1.kilohertz = 44100.hertz (* frequencies are eq, kilohertz (thousands of cycles per second) *)
+1.kilohertz.Duration = 1.milliseconds (* the period of 1kHz is 1ms *)
+44.1.hertz < 44.1.kilohertz (* frequencies are magnitudes *)
+1.kilohertz.asHertz = 1000.asHertz (* hertz of frequency, or identity of number *)
 ```
 
 ## Hash -- murmur hash
@@ -1707,6 +1741,7 @@ Interval(1, 100, 0.5).size = 199
 
 ## LargeInteger -- numeric type
 ```
+system.includesPackage('Number-LargeInteger')
 23n.typeOf = 'LargeInteger' (* syntax for large integer literals *)
 (2 ^ 54).LargeInteger.squared.printString = '324518553658426726783156020576256'
 (2 ^ 37).LargeInteger.squared.storeString = '18889465931478580854784n'
@@ -1744,8 +1779,32 @@ Interval(1, 100, 0.5).size = 199
 16n >> 3 = 2n (* right shift large integer *)
 ```
 
+## Length -- geometry type
+```
+system.includesPackage('Geometry-Length')
+1.metres.typeOf = 'Length' (* metre constructor, type of *)
+1.metres.isLength (* length predicate *)
+10.centimetres.printString = '0.1.metres'
+12.inches ~ 1.feet (* there are approximately twelve inches in a foot *)
+1.yards.feet = 3 (* there are three feet in a yard *)
+1.miles = 5280.feet (* lengths can be tested for equality *)
+1.nauticalMiles = 1852.metres (* a nautical mile is defined in terms of metres *)
+1.astronomicalUnits.kilometres.rounded = 149597871 (* 149,597,871 *)
+1.astronomicalUnits.miles.rounded = 92955807 (* 92,955,807 *)
+1.lightYears.kilometres.rounded = 9460700000000 (* 9,460,700,000,000 *)
+1.lightYears.astronomicalUnits.rounded = 63241 (* 63,241 *)
+1.parsecs.lightYears ~ 3.2615
+1.parsecs.astronomicalUnits.rounded = 206266
+1.picometres.picometres = 1
+12.point = 4.2336.millimetres (* a point is approximately four millimetres *)
+12.point.inches ~ (12 / 72) (* a point is approximately 1/72 of an inch *)
+12.point ~ 1.picas (* twelve point is approximately a pica *)
+10.centimetres.asMetres = 0.1.asMetres (* metres of length, or identity of number *)
+```
+
 ## LinkedList -- collection type
 ```
+system.includesPackage('Collection-LinkedList')
 LinkedList().typeOf = 'LinkedList' (* type of linked list *)
 LinkedList().isLinkedList = true (* type predicate for linked list *)
 LinkedList().size = 0 (* empty linked list *)
@@ -1812,6 +1871,7 @@ LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
 
 ## Map -- collection type
 ```
+system.includesPackage('Collection-Map')
 | r = Map(); | r.add('x' -> 1); r.size = 1 (* add Association to Dictionary *)
 var d = Map(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2 (* add two Associations to Dictionary *)
 var d = ['x' -> 1, 'y' -> 2].Map; d.indices = ['x', 'y'] (* answer Array of indices (keys) at Dictionary *)
@@ -1878,6 +1938,7 @@ pi.radiansToDegrees = 180 (* radiansToDegrees *)
 
 ## Matrix22 -- geometry type
 ```
+system.includesPackage('Geometry-Matrix22')
 Matrix22(1, 4, -1, 9).determinant = 13
 Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2)
 Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1)).closeTo(1@0)
@@ -1885,11 +1946,13 @@ Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1)).closeTo(1@0)
 
 ## Matrix33 -- geometry type
 ```
+system.includesPackage('Geometry-Matrix33')
 Matrix33(1, 1, 1, 1, 0, 0, 0, 1, 0).inverse = Matrix33(0, 1, 0, 0, 0, 1, 1, -1, -1)
 ```
 
 ## Method
 ```
+system.includesPackage('System-Method')
 { true + false }.ifError { true } (* boolean does not implement + *)
 var f = { :x :y | x + y }; { f(true, false) }.ifError { true } (* boolean does not implement + *)
 ```
@@ -1985,12 +2048,14 @@ pi.in { :x | x.rounded + 20 } = 23 (* evaluate procedure with object *)
 
 ## Point -- geometry trait
 ```
+system.includesPackage('Geometry-Point')
 0.asPoint.isPoint (* number to point, point predicate *)
 0.asPoint.isZero (* are x and y both zero *)
 ```
 
 ## PriorityQueue -- collection type
 ```
+system.includesPackage('Collection-PriorityQueue')
 PriorityQueue().isPriorityQueue = true
 PriorityQueue().isEmpty = true
 var p = PriorityQueue(); p.push('a', 1); p.pop = 'a'
@@ -2065,6 +2130,7 @@ valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repea
 
 ## Promise -- kernel type
 ```
+system.includesPackage('Scheduling-Promise')
 { Promise() }.ifError { true } (* there is no void contructor *)
 Error('f').Promise.catch { :err | (err.messageText = 'f').postLine }; true (* construct a rejected promise *)
 1.resolvedPromise.then { :n | (n = 1).postLine }; true (* construct a resolved promise *)
@@ -2101,39 +2167,55 @@ var c = [1 .. 5]; c.includes(c.atRandom) (* answer random element from a collect
 var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.Set (* random element of collection *)
 ```
 
-## Random -- sfc
+## Random -- Sfc32
 ```
-| r = Random(98765); | r.typeOf = 'RandomNumberGenerator' (* type *)
-| r = Random(98765); | r.isRandomNumberGenerator (* predicate *)
-| r = Random(98765); | r.isRandom (* predicate *)
-| r = Random(98765); | r.randomFloat = 0.49556130869314075 (* random number in [0, 1) *)
-| r = Random(98765); | r.randomFloat(10) = 4.9556130869314075 (* random number in [0, 10) *)
-| r = Random(98765); | r.randomFloat(0, 100) = 49.556130869314075 (* random number in [0, 100) *)
-| r = Random(98765); | r.randomInteger(1000) = 496 (* random integer in [1, 1000] *)
-| r = Random(98765); | r.randomInteger(1, 10000) = 4956 (* random integer in [1, 10000] *)
-| r = Random(), n = r.randomFloat; | n >= 0 & { n < 1 } (* seed from system clock *)
-| r = Random(), s = Set(); | 729.timesRepeat { s.add(r.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
-| r = Random(), s = Set(); | 729.timesRepeat { s.add(r.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
+system.includesPackage('Random-Sfc32')
+| r = Sfc32(98765); | r.typeOf = 'Sfc32' (* type *)
+| r = Sfc32(98765); | r.isSfc32 (* predicate *)
+| r = Sfc32(98765); | r.isRandom (* predicate *)
+| r = Sfc32(98765); | r.randomFloat = 0.49556130869314075 (* random number in [0, 1) *)
+| r = Sfc32(98765); | r.randomFloat(10) = 4.9556130869314075 (* random number in [0, 10) *)
+| r = Sfc32(98765); | r.randomFloat(0, 100) = 49.556130869314075 (* random number in [0, 100) *)
+| r = Sfc32(98765); | r.randomInteger(1000) = 496 (* random integer in [1, 1000] *)
+| r = Sfc32(98765); | r.randomInteger(1, 10000) = 4956 (* random integer in [1, 10000] *)
+| r = Sfc32(), n = r.randomFloat; | n >= 0 & { n < 1 } (* seed from system clock *)
+| r = Sfc32(), s = Set(); | 729.timesRepeat { s.add(r.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
+| r = Sfc32(), s = Set(); | 729.timesRepeat { s.add(r.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
 ```
 
-## Random - mersenne twister
+## Random - Mersenne
 ```
-| m = MersenneTwister(98765); | m.typeOf = 'RandomNumberGenerator' (* type of *)
-| m = MersenneTwister(98765); | m.isRandomNumberGenerator (* predicate *)
-| m = MersenneTwister(98765); | m.isRandom (* predicate *)
-| m = MersenneTwister(98765); | m.randomFloat = 0.088898599949636 (* random number in [0, 1) *)
-| m = MersenneTwister(98765); | m.randomFloat(10) = 0.88898599949636 (* random number in [0, 10) *)
-| m = MersenneTwister(98765); | m.randomFloat(0, 100) = 8.8898599949636 (* random number in [0, 100) *)
-| m = MersenneTwister(98765); | m.randomInteger(1000) = 89 (* random integer in [1, 1000] *)
-| m = MersenneTwister(98765); | m.randomInteger(1, 10000) = 889 (* random integer in [1, 10000] *)
-| m = MersenneTwister(), r = m.randomFloat; | r >= 0 & { r < 1 } (* seed from system clock *)
-MersenneTwister(123456).randomFloat = 0.12696983303810094 (* test from standard tests *)
-| m = MersenneTwister(), s = Set(); | 729.timesRepeat { s.add(m.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
-| m = MersenneTwister(), s = Set(); | 729.timesRepeat { s.add(m.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
+system.includesPackage('Random-Mersenne')
+| m = Mersenne(98765); | m.typeOf = 'Mersenne' (* type of *)
+| m = Mersenne(98765); | m.isMersenne (* predicate *)
+| m = Mersenne(98765); | m.isRandom (* predicate *)
+| m = Mersenne(98765); | m.randomFloat = 0.088898599949636 (* random number in [0, 1) *)
+| m = Mersenne(98765); | m.randomFloat(10) = 0.88898599949636 (* random number in [0, 10) *)
+| m = Mersenne(98765); | m.randomFloat(0, 100) = 8.8898599949636 (* random number in [0, 100) *)
+| m = Mersenne(98765); | m.randomInteger(1000) = 89 (* random integer in [1, 1000] *)
+| m = Mersenne(98765); | m.randomInteger(1, 10000) = 889 (* random integer in [1, 10000] *)
+| m = Mersenne(), r = m.randomFloat; | r >= 0 & { r < 1 } (* seed from system clock *)
+Mersenne(123456).randomFloat = 0.12696983303810094 (* test from standard tests *)
+| m = Mersenne(), s = Set(); | 729.timesRepeat { s.add(m.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
+| m = Mersenne(), s = Set(); | 729.timesRepeat { s.add(m.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
+```
+
+## Random - SplitMix
+```
+system.includesPackage('Random-SplitMix')
+| r = SplitMix(98765); | r.typeOf = 'SplitMix' (* type of *)
+| r = SplitMix(98765); | r.isSplitMix (* predicate *)
+| r = SplitMix(98765); | r.isRandom (* predicate *)
+| r = SplitMix(98765); | r.randomFloat = 0.08824091404676437 (* random number in [0, 1) *)
+| r = SplitMix(98765); | r.randomFloat(10) = 0.8824091404676437 (* random number in [0, 10) *)
+| r = SplitMix(98765); | r.randomFloat(0, 100) = 8.824091404676437 (* random number in [0, 100) *)
+| r = SplitMix(98765); | r.randomInteger(1000) = 89 (* random integer in [1, 1000] *)
+| r = SplitMix(98765); | r.randomInteger(1, 10000) = 883 (* random integer in [1, 10000] *)
 ```
 
 ## ReadStream -- collection type
 ```
+system.includesPackage('Stream-ReadStream')
 ReadStream().typeOf = 'ReadStream' (* type of read stream *)
 ReadStream().isReadStream (* read stream predicate *)
 ReadStream().atEnd = true (* read stream at end predicate *)
@@ -2233,6 +2315,7 @@ var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7
 
 ## Rectangle -- geometry type
 ```
+system.includesPackage('Geometry-Rectangle')
 Rectangle(0@0, 1@1).printString = 'Rectangle(0@0, 1@1)'
 Rectangle(0@0, 2@2).intersect(Rectangle(1@1, 4@4)) = Rectangle(1@1, 2@2)
 Rectangle(1@1, 3@3).area = 4
@@ -2264,6 +2347,7 @@ Rectangle(1@1, 3@3).containsPoint(2@2) = true
 
 ## RegExp -- text type
 ```
+system.includesPackage('Text-RegExp')
 RegExp('ab+c').isRegExp = true
 var r = RegExp('ab*c'); [r.test('ac'), r.test('abc')] = [true, true]
 var r = RegExp('ab*c', 'g'); 'ab abc ac'.allRegExpMatches(r) = ['abc', 'ac']
@@ -2289,6 +2373,7 @@ RegExp('x.x', 'g').printString.size = 18
 
 ## RunArray -- collection type
 ```
+system.includesPackage('Collection-RunArray')
 | a = RunArray([1, 3, 5], ['a', 'b', 'c']); | a.isRunArray & { a.size = 9 } (* from runs and values, size is sum of runs *)
 | a = RunArray([1, 3, 5], ['a', 'b', 'c']); | a.size = 9 & { a.Array.join = 'abbbccccc' } (* as array *)
 | a = RunArray([1 -> 'a', 3 -> 'b', 5 -> 'c']); | a.size = 9 & { a.Array.join = 'abbbccccc' } (* from associations *)
@@ -2445,6 +2530,7 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 
 ## Set -- collection type
 ```
+system.includesPackage('Collection-Set')
 Set().isSet (* set type predicate *)
 Set().size = 0 (* count items in set *)
 Set().isEmpty (* is set empty? *)
@@ -2642,6 +2728,7 @@ pi.one = 1 (* one of same type, i.e. small float *)
 
 ## SortedArray -- collection type
 ```
+system.includesPackage('Collection-SortedArray')
 SortedArray().isSortedArray (* sorted array *)
 SortedArray().species = SortedArray:/0 (* species is sorted array *)
 SortedArray().size = 0 (* query size *)
@@ -2659,6 +2746,7 @@ SortedArray().size = 0 (* query size *)
 
 ## Stack - collection type
 ```
+system.includesPackage('Collection-Stack')
 Stack().typeOf = 'Stack' (* Stack is a type *)
 Stack().isStack (* empty stack, stack predicate *)
 Stack().isEmpty (* empty stack, empty predicate *)
@@ -2774,6 +2862,7 @@ pi.asString = '3.141592653589793' (* float as string *)
 'x x x'.replaceString('x', 'y') = 'y x x'
 'x x x'.replaceStringAll('x', 'y') = 'y y y'
 'A Bc Def'.replaceStringAll(' ', '') = 'ABcDef'
+'A-B-C'.replaceStringAll('-', '/') = 'A/B/C'
 'x y z'.replaceRegExp(RegExp('x|z', 'g'), '-') = '- y -'
 'Word'.asLowercase = 'word'
 '12345'.asLowercase = '12345' (* only if letters *)
@@ -3189,6 +3278,7 @@ system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 
 ## TimeStamp -- temporal type
 ```
+system.includesPackage('Time-TimeStamp')
 1676784053576.TimeStamp.printString = 'TimeStamp(1676784053576)' (* make TimeStamp from Number of milliseconds since unix epoch *)
 1676784053576.TimeStamp.iso8601 = '2023-02-19T05:20:53.576Z' (* convert TimeStamp to ISO-8601 string *)
 system.unixTime.isTimeStamp = true (* get current time at system *)
@@ -3248,52 +3338,6 @@ true.not = false
 (1 / 3) + (2 / 3) = 1
 ```
 
-## Unit/Angle -- geometry unit type
-```
-pi.radians.typeOf = 'Angle' (* type of angle *)
-pi.radians.isAngle (* angle predicate *)
-1.radians.degrees ~ 57.296 (* radians to degrees *)
-pi.radians.degrees = 180 (* pi radians is 180 degrees *)
-180.degrees.radians = pi (* 180 degrees is pi radians *)
-pi.radians < 360.degrees (* angles are magnitudes *)
-pi.radians.asRadians = pi.asRadians (* radians of angle, or identity of number *)
-```
-
-## Unit/Frequency -- temporal unit type
-```
-1.hertz.typeOf = 'Frequency' (* frequency from hertz (cyles per second) *)
-1.hertz.isFrequency (* frequency predicate *)
-1.hertz.printString = '1.hertz' (* frequency print string *)
-10.hertz.Duration = (1 / 10).seconds (* duration is the reciprocal of frequency *)
-(1 / 10).seconds.Frequency = 10.hertz (* frequency is the reciprocal of duration *)
-44.1.kilohertz = 44100.hertz (* frequencies are eq, kilohertz (thousands of cycles per second) *)
-1.kilohertz.Duration = 1.milliseconds (* the period of 1kHz is 1ms *)
-44.1.hertz < 44.1.kilohertz (* frequencies are magnitudes *)
-1.kilohertz.asHertz = 1000.asHertz (* hertz of frequency, or identity of number *)
-```
-
-## Unit/Length -- geometry unit type
-```
-1.metres.typeOf = 'Length' (* metre constructor, type of *)
-1.metres.isLength (* length predicate *)
-10.centimetres.printString = '0.1.metres'
-12.inches ~ 1.feet (* there are approximately twelve inches in a foot *)
-1.yards.feet = 3 (* there are three feet in a yard *)
-1.miles = 5280.feet (* lengths can be tested for equality *)
-1.nauticalMiles = 1852.metres (* a nautical mile is defined in terms of metres *)
-1.astronomicalUnits.kilometres.rounded = 149597871 (* 149,597,871 *)
-1.astronomicalUnits.miles.rounded = 92955807 (* 92,955,807 *)
-1.lightYears.kilometres.rounded = 9460700000000 (* 9,460,700,000,000 *)
-1.lightYears.astronomicalUnits.rounded = 63241 (* 63,241 *)
-1.parsecs.lightYears ~ 3.2615
-1.parsecs.astronomicalUnits.rounded = 206266
-1.picometres.picometres = 1
-12.point = 4.2336.millimetres (* a point is approximately four millimetres *)
-12.point.inches ~ (12 / 72) (* a point is approximately 1/72 of an inch *)
-12.point ~ 1.picas (* twelve point is approximately a pica *)
-10.centimetres.asMetres = 0.1.asMetres (* metres of length, or identity of number *)
-```
-
 ## Unit/Mass -- physics unit type
 ```
 23.grams.typeOf = 'Mass' (* gram constructor, type of *)
@@ -3324,6 +3368,7 @@ pi.radians.asRadians = pi.asRadians (* radians of angle, or identity of number *
 
 ## Vector2 -- geometry type
 ```
+system.includesPackage('Geometry-Vector2')
 Vector2(0, 0).typeOf = 'Vector2'
 Vector2(-1, 1).isVector2 = true
 Vector2(3, 4).isVector2 & { true } = true
@@ -3372,6 +3417,7 @@ Vector2(3, 4).swapped = Vector2(4, 3) (* answer swapped vector *)
 
 ## Vector3 -- geometry type
 ```
+system.includesPackage('Geometry-Vector3')
 [1, 2, 3].Vector3 = Vector3(1, 2, 3) (* three vector from array *)
 | a = [1, 2, 3], v = a.Vector3; | v.Array = [1, 2, 3] (* three vector to array *)
 Vector3(0, 0, 0).isZero (* are x, y and z all zero *)
@@ -3383,6 +3429,7 @@ Vector3(0, 0, 0).isZero (* are x, y and z all zero *)
 
 ## Vector4 -- geometry type
 ```
+system.includesPackage('Geometry-Vector4')
 [1, 2, 3, 4].Vector4 = Vector4(1, 2, 3, 4) (* four vector from array *)
 | a = [1, 2, 3, 4], v = a.Vector4; | v.Array = [1, 2, 3, 4] (* four vector to array *)
 Vector4(0, 0, 0, 0).isZero (* are w, x, y and z all zero *)
@@ -3391,6 +3438,7 @@ Vector4(0, 0, 0, 0).isZero (* are w, x, y and z all zero *)
 
 ## WeakMap -- collection type
 ```
+system.includesPackage('Collection-WeakMap')
 WeakMap().typeOf = 'WeakMap' (* type of weak map *)
 WeakMap().isWeakMap (* weak map predicate *)
 WeakMap().printString = 'a WeakMap' (* weak map print string *)
@@ -3401,6 +3449,7 @@ system.cache::onceCache.isWeakMap
 
 ## WriteStream -- collection type
 ```
+system.includesPackage('Stream-WriteStream')
 | w = WriteStream(); | w.nextPut(1); w.contents = [1]
 | w = WriteStream(); | w.nextPut(1); w.nextPutAll([2 .. 8]); w.nextPut(9); w.contents = [1 .. 9]
 | w = WriteStream(); | 1.putOn(w); w.contents = [1]

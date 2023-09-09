@@ -190,7 +190,7 @@ Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, 
 
 }
 
-+SmallFloat {
++@Integral {
 
 	fibonacciArray { :self |
 		self.fibonacciSequenceInto([])
