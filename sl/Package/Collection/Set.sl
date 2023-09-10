@@ -22,6 +22,13 @@ Set : [Object, Iterable, Collection, UnorderedCollection] {
 		<primitive: return Array.from(_self);>
 	}
 
+	basicRemove { :self :anObject |
+		<primitive:
+		_self.delete(_anObject);
+		return _anObject;
+		>
+	}
+
 	collect { :self :aBlock:/1 |
 		| answer = Set(); |
 		self.do { :each |
@@ -77,9 +84,12 @@ Set : [Object, Iterable, Collection, UnorderedCollection] {
 
 	remove { :self :anObject |
 		<primitive:
-		_self.delete(_anObject);
-		return _anObject;
+		if(_self.has(_anObject)) {
+			_self.delete(_anObject);
+			return _anObject;
+		}
 		>
+		self.error('remove: item does not exist')
 	}
 
 	removeAll { :self |

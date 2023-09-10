@@ -16,7 +16,7 @@ Vector3 : [Object, Indexable] { | x y z |
 		[self.x, self.y, self.z]
 	}
 
-	basicAt { :self :index |
+	at { :self :index |
 		index.caseOfOtherwise([
 			1 -> { self.x },
 			2 -> { self.y },
@@ -26,7 +26,7 @@ Vector3 : [Object, Indexable] { | x y z |
 		}
 	}
 
-	basicAtPut { :self :index :value |
+	atPut { :self :index :value |
 		index.caseOfOtherwise([
 			1 -> { self.x := value },
 			2 -> { self.y := value },

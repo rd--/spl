@@ -210,8 +210,16 @@ Colour : [Object] { | red green blue alpha |
 +Array {
 
 	Colour { :self |
-		| [r, g, b, a] = self; |
-		Colour(r, g, b, a)
+		self.size.caseOf([
+			{ 3 } -> {
+				| [r, g, b] = self; |
+				Colour(r, g, b, 1)
+			},
+			{ 4 } -> {
+				| [r, g, b, a] = self; |
+				Colour(r, g, b, a)
+			}
+		])
 	}
 
 }

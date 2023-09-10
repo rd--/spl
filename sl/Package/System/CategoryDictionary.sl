@@ -13,7 +13,7 @@ CategoryDictionary : [Object] { | domainDictionary |
 
 	categorizeAll { :self :domain :category :entries |
 		| simpleCategory = category.splitBy('-').first; |
-		self.category(domain, simpleCategory).addAll(entries)
+		self.category(domain, simpleCategory).includeAll(entries)
 	}
 
 	categorizeDictionary { :self :domain :aBlock:/1 :aDictionary |

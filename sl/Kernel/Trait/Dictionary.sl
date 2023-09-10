@@ -239,6 +239,10 @@
 		}
 	}
 
+	remove { :self :anAssociation |
+		self.removeAssociation(anAssociation)
+	}
+
 	removeAll { :self |
 		self.removeAllSuchThat { :unusedItem |
 			true

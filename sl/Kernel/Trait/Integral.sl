@@ -170,7 +170,7 @@
 
 	primeFactors { :self |
 		(self <= 1).if {
-			[].return
+			[]
 		} {
 			valueWithReturn { :return:/1 |
 				| index = 1, prime = 2, k = self, answer = []; |

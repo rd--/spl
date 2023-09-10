@@ -1,5 +1,7 @@
 [
-	Package('Music'),
+	Package('Music-Frequency'),
+	Package('Music-JiTuning'),
+	Package('Music-Pitch'),
 	Package('Sound-Osc'),
 	Package('Sound-Sc-Lang'),
 	Package('Sound-Sc-Lang-J'),

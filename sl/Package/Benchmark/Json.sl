@@ -1,11 +1,11 @@
 HashIndexTable : [Object, Indexable] { | hashTable |
 
-	basicAt { :self :name |
+	at { :self :name |
 		| slot = self.hashSlotFor(name); |
 		self.hashTable[slot].bitAnd(255) - 1
 	}
 
-	basicAtPut { :self :name :index |
+	atPut { :self :name :index |
 		| slot = self.hashSlotFor(name); |
 		(index < 255).if {
 			self.hashTable[slot] := index + 1
@@ -60,7 +60,7 @@ JsonArray : [Object, Indexable, JsonValue] { | values |
 		self
 	}
 
-	basicAt { :self :index |
+	at { :self :index |
 		self.values[index]
 	}
 

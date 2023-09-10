@@ -1,7 +1,7 @@
 @Indexable {
 
 	at { :self :index |
-		self.basicAt(index)
+		self.error('@Indexable>>at: type responsibility')
 	}
 
 	atAllPut { :self :anObject |
@@ -87,7 +87,7 @@
 	}
 
 	atPut { :self :index :anObject |
-		self.basicAtPut(index, anObject)
+		self.error('@Indexable>>atPut: type responsibility')
 	}
 
 	basicAt { :self :index |

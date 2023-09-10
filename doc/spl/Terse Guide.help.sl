@@ -912,12 +912,38 @@ Set().Array = []
 (1 .. 4).reduce(minus:/2) = (((1 - 2) - 3) - 4) (* reduce, happens to be left associative *)
 ```
 
+## Collection -- adding
+```
+| r = Array(); | r.add('x'); r.add('x'); r.size = 2
+| r = Bag(); | r.add('x'); r.add('x'); r.size = 2
+| r = Map(); | r.add('x' -> 1); r.add('y' -> 2); r.size = 2
+| r = Record(); | r.add('x' -> 1); r.add('y' -> 2); r.size = 2
+| r = Set(); | r.add('x'); r.add('y'); r.size = 2
+| r = ''; | { r.add('x') }.ifError { :err | true }
+```
+
+## Collection -- removing
+```
+| r = Array(); | r.add('x'); r.remove('x'); r.size = 0
+| r = Bag(); | r.add('x'); r.remove('x'); r.size = 0
+| r = Map(); | r.add('x' -> 1); r.remove('x' -> 1); r.size = 0
+| r = Record(); | r.add('x' -> 1); r.remove('x' -> 1); r.size = 0
+| r = Set(); | r.add('x'); r.remove('x'); r.size = 0
+{ Array().remove('x') }.ifError { true }
+{ Bag().remove('x') }.ifError { true }
+{ Map().remove('x' -> 1) }.ifError { true }
+{ Record().remove('x' -> 1) }.ifError { true }
+{ Set().remove('x') }.ifError { true }
+```
+
 ## Colour -- graphics type
 ```
 system.includesPackage('Graphics-Colour')
 Colour(1, 0, 0, 0.5).over(Colour(0, 1, 0, 0.5)) = Colour(1 / 3, 2 / 3, 0, 3 / 4)
 Colour(0, 0, 0).isBlack (* is colour black *)
 Colour(1, 1, 1).isWhite (* is colour white *)
+[0.1, 0.2, 0.3].Colour = Colour(0.1, 0.2, 0.3) (* three element array constructor *)
+[0.1, 0.2, 0.3, 0.4].Colour = Colour(0.1, 0.2, 0.3, 0.4) (* four element array constructor *)
 Colour(0.5, 0.5, 0.5).isGreyOf(0.5) (* is colour grey with particular value *)
 Colour(0.5, 0.5, 0.5).isGrey (* is colour grey *)
 Colour(1, 0.2, 0.2).isRed (* is colour "red" *)
@@ -2560,7 +2586,7 @@ var s = (1 .. 10).Set; s.copyWithout(3).includes(3) = false
 var s = (1 .. 10).Set; var t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].Set
 var s = (1 .. 5).Set; var n = 0; s.do { :each | n := n + each }; n = 15
 var s = [].Set; s.addAll(['x', 'y', 'z']); s.size = 3 (* add all elements of an Array to a Set *)
-var s = [].Set; s.includesAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 (* include all elements of an Array to a Set *)
+var s = [].Set; s.includeAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 (* include all elements of an Array to a Set *)
 | c = 'xyyzzz'.split, r = Set(); | r.includeAll(c); r.size = 3 (* include all characters of a String to a Set *)
 | c = 'xyyzzz', r = Set(); | r.includeAll(c); r.size = 3 (* include all elements of a String to a Set *)
 var s = [].Set; s.addAll([1 .. 99]); s.size = 99 (* add all from array *)
