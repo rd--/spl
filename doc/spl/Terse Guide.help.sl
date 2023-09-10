@@ -1132,7 +1132,8 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
 (x: 1, y: 2).includesAssociation('x' -> 2) = false
 | d = (x: 1), a = 'y' -> 2; | d.add(a) = a & { d = (x: 1, y: 2) } (* add association *)
 { (x: 1).add('y') }.ifError { true } (* only associations may be added *)
-| d = (x: 1, y: 2); | d.addAll(y: 3, z: 4); d = (x: 1, y: 3, z: 4) (* addAll replaces existing entries *)
+{ (x: 1).add('x' -> 2) }.ifError { true } (* add can only add associations for keys that are not already included *)
+| d = (x: 1, y: 2); | d.includeAll(y: 3, z: 4); d = (x: 1, y: 3, z: 4) (* includeAll replaces existing entries *)
 | p = (x: 1), q = (y: 2); | p.declareFrom('y', q); [p, q] = [(x: 1, y: 2), ()]
 | p = (x: 1), q = (x: 2); | p.declareFrom('x', q); [p, q] = [(x: 1), (x: 2)]
 | p = (), q = (x: 1); | p.declareFrom('x', q); [p, q] = [(x: 1), ()]
@@ -2154,10 +2155,10 @@ inf.isNumber (* constant (infinity) *)
 ## Random -- system random number generator
 ```
 9.randomInteger.isInteger (* random integers (1 to self) *)
-var s = Set(); 729.timesRepeat { s.add(9.randomInteger) }; s.minMax = [1, 9] (* check distribution *)
-var s = Set(); 729.timesRepeat { s.add(9.randomInteger) }; s.Array.sorted = [1 .. 9] (* check distribution *)
+var s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s.minMax = [1, 9] (* check distribution *)
+var s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s.Array.sorted = [1 .. 9] (* check distribution *)
 9.randomFloat.isNumber (* random floating point number (0 to self) *)
-var s = Set(); 729.timesRepeat { s.add(9.randomFloat.rounded) }; s.minMax = [0, 9] (* check distribution *)
+var s = Set(); 729.timesRepeat { s.include(9.randomFloat.rounded) }; s.minMax = [0, 9] (* check distribution *)
 3.randomInteger(9).isInteger (* random integer in range *)
 3.randomFloat(9).isNumber (* random float in range *)
 var b = Bag(); 5000.timesRepeat { b.add(5.atRandom) }; b.contents.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
@@ -2179,8 +2180,8 @@ system.includesPackage('Random-Sfc32')
 | r = Sfc32(98765); | r.randomInteger(1000) = 496 (* random integer in [1, 1000] *)
 | r = Sfc32(98765); | r.randomInteger(1, 10000) = 4956 (* random integer in [1, 10000] *)
 | r = Sfc32(), n = r.randomFloat; | n >= 0 & { n < 1 } (* seed from system clock *)
-| r = Sfc32(), s = Set(); | 729.timesRepeat { s.add(r.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
-| r = Sfc32(), s = Set(); | 729.timesRepeat { s.add(r.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
+| r = Sfc32(), s = Set(); | 729.timesRepeat { s.include(r.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
+| r = Sfc32(), s = Set(); | 729.timesRepeat { s.include(r.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
 ```
 
 ## Random - Mersenne
@@ -2196,8 +2197,8 @@ system.includesPackage('Random-Mersenne')
 | m = Mersenne(98765); | m.randomInteger(1, 10000) = 889 (* random integer in [1, 10000] *)
 | m = Mersenne(), r = m.randomFloat; | r >= 0 & { r < 1 } (* seed from system clock *)
 Mersenne(123456).randomFloat = 0.12696983303810094 (* test from standard tests *)
-| m = Mersenne(), s = Set(); | 729.timesRepeat { s.add(m.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
-| m = Mersenne(), s = Set(); | 729.timesRepeat { s.add(m.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
+| m = Mersenne(), s = Set(); | 729.timesRepeat { s.include(m.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
+| m = Mersenne(), s = Set(); | 729.timesRepeat { s.include(m.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
 ```
 
 ## Random - SplitMix
@@ -2546,7 +2547,8 @@ Set().isEmpty (* is set empty? *)
 var s = [1, 3, 5, 3, 1].Set; s.remove(3); s.Array = [1, 5]
 [1 .. 9].Set.atRandom.betweenAnd(1, 9) (* inclusive *)
 var s = Set(); s.add(5); s.includes(5) = true (* add element to Set *)
-var s = ['x', 5].Set; var t = s.copy; t.add(5); s = t
+{ [5].Set.add(5) }.ifError { true } (* add can only include elements if they do not already exist *)
+var s = ['x', 5].Set; var t = s.copy; t.include(5); s = t
 var s = [1 .. 4].Set; s.includes(s.atRandom) = true
 var s = (1 .. 10).Set; var t = s.collect { :each | (each >= 1).if { each } { 'no' } }; s = t
 var s = (1 .. 10).Set.collect { :each | (each >= 5).if { each } { 'no' } }; s = [5, 6, 7, 8, 9, 10, 'no'].Set
@@ -2557,10 +2559,11 @@ var s = (1 .. 10).Set; var t = s.copyWithout(3); s.size - 1 = t.size
 var s = (1 .. 10).Set; s.copyWithout(3).includes(3) = false
 var s = (1 .. 10).Set; var t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].Set
 var s = (1 .. 5).Set; var n = 0; s.do { :each | n := n + each }; n = 15
-var s = [].Set; s.addAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 (* add all elements of an Array to a Set *)
-| c = 'xyyzzz'.split, r = Set(); | r.addAll(c); r.size = 3 (* add all characters of a String to a Set *)
-| c = 'xyyzzz', r = Set(); | r.addAll(c); r.size = 3 (* add all elements of a String to a Set *)
-var s = [].Set; s.addAll([1 .. 99]); s.size = 99
+var s = [].Set; s.addAll(['x', 'y', 'z']); s.size = 3 (* add all elements of an Array to a Set *)
+var s = [].Set; s.includesAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 (* include all elements of an Array to a Set *)
+| c = 'xyyzzz'.split, r = Set(); | r.includeAll(c); r.size = 3 (* include all characters of a String to a Set *)
+| c = 'xyyzzz', r = Set(); | r.includeAll(c); r.size = 3 (* include all elements of a String to a Set *)
+var s = [].Set; s.addAll([1 .. 99]); s.size = 99 (* add all from array *)
 var s = ['x', 5].Set; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
 var s = (1 .. 5).Set; var n = 0; s.do { :each | n := n + each }; n = 15
 var s = (1 .. 9).Set; s.intersection(s) = s (* set intersection, self intersection is identity *)
@@ -2572,7 +2575,7 @@ var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, 
 | s = (1 .. 4).Set, t = (5 .. 9), u = s.union(t); | u.size = (s.size + t.size) (* set union is not mutating *)
 (1 .. 5).Set.ifAbsentAdd(3) = false
 [1 .. 9].Set.select { :each | false } = [].Set (* select nothing *)
-| s = Set(); | s.addAll([4 / 2, 4, 2]); s.size = 2
+| s = Set(); | s.includeAll([4 / 2, 4, 2]); s.size = 2 (* 4 / 2 = 2 *)
 [1, 2, 3, 1, 4].Set = [1, 2, 3, 4, 3, 2, 1].Set = true
 (1 .. 6).union((4 .. 10)) = (1 .. 10).Set (* set union *)
 'hello'.split.intersection('there'.split) = 'he'.split (* set intersection *)

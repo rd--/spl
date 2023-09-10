@@ -301,7 +301,7 @@
 
 	union { :self :aCollection |
 		| answer = self.Set; |
-		answer.addAll(aCollection);
+		answer.includeAll(aCollection);
 		answer
 	}
 
@@ -340,6 +340,12 @@
 	fillFromWith { :self :aCollection :aProcedure:/1 |
 		aCollection.do { :each |
 			self.add(aProcedure(each))
+		}
+	}
+
+	includeAll { :self :aCollection |
+		aCollection.do { :each |
+			self.include(each)
 		}
 	}
 

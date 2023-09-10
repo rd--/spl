@@ -144,7 +144,7 @@ System : [Object, Indexable, Random, SystemCache] {
 			)|
 			table.do { :dictionary |
 				dictionary.do { :method |
-					answer.add(method)
+					answer.include(method)
 				}
 			};
 			answer.Array

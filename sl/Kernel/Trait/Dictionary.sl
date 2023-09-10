@@ -11,13 +11,17 @@
 
 	++ { :self :aDictionary |
 		| answer = self.copy; |
-		answer.addAll(aDictionary);
+		answer.includeAll(aDictionary);
 		answer
 	}
 
 	add { :self :anAssociation |
-		self[anAssociation.key] := anAssociation.value;
-		anAssociation
+		self.includesIndex(anAssociation.key).if {
+			self.error('@Dictionary>>add: index exists: ' ++ anAssociation.key)
+		} {
+			self[anAssociation.key] := anAssociation.value;
+			anAssociation
+		}
 	}
 
 	addAll { :self :aCollection |
@@ -173,6 +177,18 @@
 				self.add(aProcedure(element))
 			}
 		}
+	}
+
+	include { :self :anAssociation |
+		self[anAssociation.key] := anAssociation.value;
+		anAssociation
+	}
+
+	includeAll { :self :aCollection |
+		aCollection.associationsDo { :anAssociation |
+			self.include(anAssociation)
+		};
+		aCollection
 	}
 
 	includesAssociation { :self :anAssociation |

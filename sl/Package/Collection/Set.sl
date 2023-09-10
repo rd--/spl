@@ -11,14 +11,23 @@ Set : [Object, Iterable, Collection, UnorderedCollection] {
 	}
 
 	add { :self :anObject |
-		<primitive:
-		_self.add(_anObject);
-		return _anObject;
-		>
+		self.includes(anObject).if {
+			self.error('set includes item')
+		} {
+			self.include(anObject)
+		}
 	}
 
 	Array { :self |
 		<primitive: return Array.from(_self);>
+	}
+
+	collect { :self :aBlock:/1 |
+		| answer = Set(); |
+		self.do { :each |
+			answer.include(aBlock(each))
+		};
+		answer
 	}
 
 	do { :self :aProcedure |
@@ -37,6 +46,13 @@ Set : [Object, Iterable, Collection, UnorderedCollection] {
 			self.add(anObject);
 			true
 		}
+	}
+
+	include { :self :anObject |
+		<primitive:
+		_self.add(_anObject);
+		return _anObject;
+		>
 	}
 
 	includes { :self :anObject |
