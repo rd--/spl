@@ -16,12 +16,16 @@ Type : [Object] {
 		<primitive: return _self.name;>
 	}
 
+	packageName { :self |
+		<primitive: return _self.packageName;>
+	}
+
 	printString { :self |
 		self.qualifiedName
 	}
 
 	pseudoSlotNameArray { :self |
-		['name', 'traitNameArray', 'slotNameArray', 'methodDictionary']
+		['name', 'packageName', 'traitNameArray', 'slotNameArray', 'methodDictionary']
 	}
 
 	qualifiedName { :self |

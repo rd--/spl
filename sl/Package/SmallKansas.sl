@@ -1288,6 +1288,10 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 		}
 	}
 
+	PackageBrowser { :self :event |
+		self.addFrame(PackageBrowser(), event)
+	}
+
 	PngViewer { :self :title :png |
 		self.addFrame(PngViewer(title, png), nil)
 	}
@@ -1454,6 +1458,9 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				self.initializeMidi { :unusedMidiAccess |
 					self.addFrame(self.MidiPortBrowser, event)
 				}
+			},
+			MenuItem('Package Browser', nil) { :event |
+				self.PackageBrowser(event)
 			},
 			MenuItem('Program Browser', nil) { :event |
 				self.ProgramBrowser(event)
@@ -1830,6 +1837,45 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 					selectedMethod := system.typeDictionary[path[1]].methodDictionary[path[2]];
 					browser.setStatus(selectedMethod.provenance);
 					selectedMethod.definition
+				}
+			])
+		}
+	}
+
+	PackageBrowser {
+		| packageNames = system.packageDictionary.indicesSorted, methods = nil; |
+		ColumnBrowser('Package Browser', 'text/plain', false, true, [1, 1, 3], nil, nil) { :browser :path |
+			path.size.caseOf([
+				0 -> {
+					browser.setStatus('');
+					packageNames
+				},
+				1 -> {
+					| traits = system.packageTraits(path[1]), types = system.packageTypes(path[1]); |
+					browser.setStatus((traits ++ types).collect(qualifiedName:/1).joinSeparatedBy(', '));
+					methods := system.packageMethods(path[1]);
+					methods.collect { :each | each.origin.qualifiedName }.withoutDuplicates
+
+				},
+				2 -> {
+					system.isTypeName(path[2]).if {
+						browser.setStatus(system.typeTraits(path[2]).joinSeparatedBy(', '))
+					} {
+						browser.setStatus('')
+					};
+					methods.selectThenCollect { :each |
+						each.origin.qualifiedName = path[2]
+					} { :each |
+						each.qualifiedName
+					}
+				},
+				3 -> {
+					browser.setStatus('');
+					methods.detect { :each |
+						each.origin.qualifiedName = path[2] & {
+							each.qualifiedName = path[3]
+						}
+					}.definition
 				}
 			])
 		}

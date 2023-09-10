@@ -18,8 +18,12 @@ Trait : [Object] {
 		<primitive: return _self.name;>
 	}
 
+	packageName { :self |
+		<primitive: return _self.packageName;>
+	}
+
 	pseudoSlotNameArray { :self |
-		['name', 'methodDictionary']
+		['methodDictionary', 'name', 'packageName']
 	}
 
 	printString { :self |

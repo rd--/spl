@@ -255,6 +255,34 @@ System : [Object, Indexable, Random, SystemCache] {
 		<primitive: return sl.operatorNameTable;>
 	}
 
+	packageMethods { :self :packageName |
+		| answer = []; |
+		self.methodDo { :each |
+			(each.packageName = packageName).ifTrue {
+				answer.add(each)
+			}
+		};
+		answer
+	}
+
+	packageTypes { :self :packageName |
+		self.typeDictionary.select { :each |
+			each.packageName = packageName
+		}
+	}
+
+	packageTraits { :self :packageName |
+		self.traitDictionary.select { :each |
+			each.packageName = packageName
+		}.values
+	}
+
+	packageTypes { :self :packageName |
+		self.typeDictionary.select { :each |
+			each.packageName = packageName
+		}.values
+	}
+
 	pseudoSlotNameArray { :self |
 		[
 			'cache',

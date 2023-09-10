@@ -3202,10 +3202,13 @@ system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum',
 'sum:/1'.parseQualifiedMethodName = ['sum', 1]
 ```
 
-## System -- methodDictionary
+## System -- packageDictionary
 ```
 system.packageDictionary.isDictionary = true
 system.packageDictionary.isEmpty = false
+| t = system.packageTypes('Number-Complex'); | t.size = 1 & { t[1].name = 'Complex' }
+| t = system.packageTraits('Geometry-Point'); | t.size = 1 & { t[1].name = 'Point' }
+system.packageMethods('Time-Frequency').detect { :each | each.name = 'asHertz' }.arity = 1
 ```
 
 ## System -- time

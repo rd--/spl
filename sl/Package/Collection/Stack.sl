@@ -7,25 +7,22 @@ Stack : [Object] { | linkedList |
 	}
 
 	errorEmptyStack { :self |
-		'Stack: this stack is empty'.error
-	}
-
-	ifNotEmpty { :self :aBlock:/0 |
-		self.isEmpty.if {
-			self.errorEmptyStack
-		} {
-			aBlock()
-		}
+		self.error('this stack is empty')
 	}
 
 	isEmpty { :self |
 		self.linkedList.isEmpty
 	}
 
-	pop { :self |
-		self.ifNotEmpty {
-			self.linkedList.removeFirst.value
+	notEmptyCheck { :self |
+		self.isEmpty.ifTrue {
+			self.errorEmptyStack
 		}
+	}
+
+	pop { :self |
+		self.notEmptyCheck;
+		self.linkedList.removeFirst.value
 	}
 
 	postCopy { :self |
@@ -42,9 +39,8 @@ Stack : [Object] { | linkedList |
 	}
 
 	top { :self |
-		self.ifNotEmpty {
-			self.linkedList.first.value
-		}
+		self.notEmptyCheck;
+		self.linkedList.first.value
 	}
 
 }
