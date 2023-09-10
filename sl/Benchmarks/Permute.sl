@@ -12,7 +12,7 @@ Permute : [Object] { | count v |
 	}
 
 	permute { :self :n |
-		self.count := self.count + 1;
+		self.count +:= 1;
 		(n ~= 0).ifTrue {
 			self.permute(n - 1);
 			n.downToDo(1) { :i |

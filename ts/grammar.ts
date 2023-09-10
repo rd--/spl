@@ -35,10 +35,11 @@ Sl {
 	TemporariesVarWithInitializersSyntax = "var" NonemptyListOf<TemporaryWithInitializer, ","> ";"
 
 	Expression = Assignment | BinaryExpression | Primary
-	Assignment = ScalarAssignment | ArrayAssignment | DictionaryAssignment
+	Assignment = ScalarAssignment | ArrayAssignment | DictionaryAssignment | AssignmentOperatorSyntax
 	ScalarAssignment = identifier ":=" Expression
 	ArrayAssignment = "[" NonemptyListOf<identifier, ","> "]" ":=" Expression
 	DictionaryAssignment = "(" NonemptyListOf<identifier, ","> ")" ":=" Expression
+	AssignmentOperatorSyntax = Primary operatorAssignment Expression
 	BinaryExpression = Expression (binaryOperator Primary)+
 
 	Primary
@@ -148,6 +149,7 @@ Sl {
 	reservedIdentifier = "nil" | "true" | "false"
 	binaryOperator = binaryChar+
 	binaryChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
+	operatorAssignment = binaryChar ":" "="
 
 	literal = numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
 	numberLiteral = scientificLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral

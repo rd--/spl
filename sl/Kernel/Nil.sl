@@ -1,5 +1,17 @@
 Nil : [Object, Json] {
 
+	? { :self :aBlock:/0 |
+		aBlock()
+	}
+
+	?? { :self :anObject |
+		anObject.value
+	}
+
+	~? { :self :aBlock:/0 |
+		nil
+	}
+
 	= { :self :anObject |
 		anObject.isNil
 	}

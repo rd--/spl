@@ -2955,6 +2955,19 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 | x = 1, y = 2, z = 3; | x := x * y + z; y := x + y * z; z := x + y + z; [x, y, z] = [5, 21, 29]
 ```
 
+## Syntax -- assignment operator syntax
+```
+| x = 3; | x +:= 4; x = 7 (* plus equals assignment *)
+| x = 3; | x -:= 4; x = -1 (* minus equals assignment *)
+| x = 3; | x *:= 4; x = 12 (* times equals assignment *)
+| x = 3; | x /:= 4; x = 0.75 (* dividedBy equals assignment *)
+| x = 3; | x ^:= 4; x = 81 (* raisedTo equals assignment *)
+| x | x ?:= { 4 }; x = 4 (* query equals assignment *)
+| x = [3]; | x[1] +:= 4; x[1] = 7 (* at syntax assignment *)
+| x = (y: 3); | x::y +:= 4; x::y = 7 (* quoted at syntax assignment *)
+| p = 3@3; | p.x +:= 4; p.x = 7 (* dot expression syntax assignment *)
+```
+
 ## Syntax -- array and interval syntax
 ```
 [1 .. 3] = [1, 2, 3]

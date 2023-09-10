@@ -35,7 +35,7 @@ Towers : [Object] { | piles movesdone |
 
 	moveTopDiskFromTo { :self :fromPile :toPile |
 		self.pushDiskOnPile((self.popDiskFrom(fromPile)), toPile);
-		self.movesdone := self.movesdone + 1
+		self.movesdone +:= 1
 	}
 
 	buildTowerAtDisks { :self :pile :disks |

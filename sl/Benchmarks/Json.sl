@@ -438,11 +438,11 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 
 	read { :self |
 		(self.current = '\n').ifTrue {
-			self.line := self.line + 1;
+			self.line +:= 1;
 			self.column := 0
 		};
-		self.index := self.index + 1;
-		self.column := self.column + 1;
+		self.index +:= 1;
+		self.column +:= 1;
 		self.input.ifNil {
 			self.error('input nil')
 		};

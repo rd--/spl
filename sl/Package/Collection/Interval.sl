@@ -56,7 +56,7 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 		| result = Array(self.size), index = 1; |
 		self.do { :nextValue |
 			result[index] := aProcedure(nextValue);
-			index := index + 1
+			index +:= 1
 		};
 		result
 	}
@@ -74,12 +74,12 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 		(self.step > 0).if {
 			{ nextValue <= endValue }.whileTrue {
 				aProcedure(nextValue);
-				nextValue := nextValue + self.step
+				nextValue +:= self.step
 			}
 		} {
 			{ nextValue >= endValue }.whileTrue {
 				aProcedure(nextValue);
-				nextValue := nextValue + self.step
+				nextValue +:= self.step
 			}
 		};
 		self
@@ -118,7 +118,7 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 			self.error('removeFirst: empty interval')
 		} {
 			| removed = self.start; |
-			self.start := self.start + self.step;
+			self.start +:= self.step;
 			removed
 		}
 	}
@@ -128,7 +128,7 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 			self.error('removeLast: empty interval')
 		} {
 			| removed = self.stop; |
-			self.stop := self.stop - self.step;
+			self.stop -:= self.step;
 			removed
 		}
 	}
@@ -152,7 +152,7 @@ Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop
 		)|
 		predicate.whileTrue {
 			aProcedure(each);
-			each := each - self.step
+			each -:= self.step
 		}
 	}
 

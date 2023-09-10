@@ -29,10 +29,10 @@
 							notDone := false;
 							escape := 1
 						};
-						z := z + 1
+						z +:= 1
 					};
 					byteAcc := (byteAcc << 1) + escape;
-					bitNum := bitNum + 1;
+					bitNum +:= 1;
 					(bitNum = 8).if {
 						sum := sum.bitXor(byteAcc);
 						byteAcc := 0;
@@ -45,9 +45,9 @@
 							bitNum := 0
 						}
 					};
-					x := x + 1
+					x +:= 1
 				};
-				y := y + 1
+				y +:= 1
 			};
 			sum
 		}

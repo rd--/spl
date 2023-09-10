@@ -49,7 +49,7 @@
 			nil
 		} {
 			| nextObject = self.next; |
-			self.position := self.position - 1;
+			self.position -:= 1;
 			nextObject
 		}
 	}
@@ -62,7 +62,7 @@
 			(self.next = anObject).ifTrue {
 				true.return
 			};
-			self.position := self.position - 1;
+			self.position -:= 1;
 			false
 		}
 	}
@@ -88,7 +88,7 @@
 	}
 
 	skip { :self :anInteger |
-		self.position := self.position + anInteger
+		self.position +:= anInteger
 	}
 
 	skipTo { :self :anObject |

@@ -49,7 +49,7 @@ Bitset : [Object, Iterable, Collection] { | bytes tally |
 			false
 		} {
 			self.bytes[index] := newValue;
-			self.tally := self.tally - 1;
+			self.tally -:= 1;
 			true
 		}
 	}
@@ -66,7 +66,7 @@ Bitset : [Object, Iterable, Collection] { | bytes tally |
 					| byteOffset = index.bitShift(3) - 9; |
 					{
 						aBlock(lowBits[byte] + byteOffset);
-						remainingBits := remainingBits - 1;
+						remainingBits -:= 1;
 						byte := byte.bitAnd(byte - 1);
 						byte = 0
 					}.whileFalse
@@ -129,7 +129,7 @@ Bitset : [Object, Iterable, Collection] { | bytes tally |
 			false
 		} {
 			self.bytes[index] := newValue;
-			self.tally := self.tally + 1;
+			self.tally +:= 1;
 			true
 		}
 	}

@@ -35,7 +35,7 @@
 		| index = 0, result = numberOfElements.aProcedure; |
 		valueWithReturn { :return:/1 |
 			result.fillFromWith(self) { :each |
-				index := index + 1;
+				index +:= 1;
 				(index > numberOfElements).if {
 					result.return
 				} {
@@ -52,7 +52,8 @@
 	Array { :self |
 		| array = Array(self.size), index = 0; |
 		self.do { :each |
-			array[index := index + 1] := each
+			index +:= 1;
+			array[index] := each
 		};
 		array
 	}
@@ -68,7 +69,7 @@
 				(index = randomIndex).ifTrue {
 					each.return
 				};
-				index := index + 1
+				index +:= 1
 			}
 		}
 	}

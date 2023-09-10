@@ -119,6 +119,10 @@ const asJs: any = {
 		const slots = namesArray.map((name, index) => `_${name} = _${genName('at', 2)}(${rhsDictionaryName}, '${name}')`).join('; ');
 		return `(function() { var ${rhsDictionaryName} = ${rhs.asJs}; ${slots}; })()`;
 	},
+	AssignmentOperatorSyntax(lhs, op, rhs) {
+		const text = `${lhs.sourceString} := ${lhs.sourceString} ${op.asJs} (${rhs.sourceString})`;
+		return rewriteString(text);
+	},
 	BinaryExpression(lhs, ops, rhs) {
 		let left = lhs.asJs;
 		const opsArray = ops.children.map(c => c.asJs);
@@ -327,6 +331,9 @@ const asJs: any = {
 		}
 	},
 
+	operatorAssignment(op, _colon, _equals) {
+		return op.sourceString
+	},
 	floatLiteral(s,i,_,f) {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
 	},

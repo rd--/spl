@@ -19,9 +19,9 @@
 					| prime = index + 1, k = index + prime; |
 					{ k <= size }.whileTrue {
 						flags[k] := false;
-						k := k + prime
+						k +:= prime
 					};
-					count := count + 1
+					count +:= 1
 				}
 			}
 		};

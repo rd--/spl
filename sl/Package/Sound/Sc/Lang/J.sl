@@ -33,7 +33,7 @@
 
 	deepCollect { :self :depth :aBlock:/3 :index :rank |
 		(depth.isNil).if {
-			rank := rank + 1;
+			rank +:= 1;
 			self.withIndexCollect { :item :itemIndex |
 				item.deepCollect(depth, aBlock, itemIndex, rank)
 			}
@@ -41,8 +41,8 @@
 			(depth <= 0).if {
 				aBlock(self, index, rank)
 			} {
-				depth := depth - 1;
-				rank := rank + 1;
+				depth -:= 1;
+				rank +:= 1;
 				self.collect { :item |
 					item.isCollection.if {
 						item.deepCollect(depth, aBlock:/3, index, rank)
@@ -162,10 +162,10 @@
 	}
 
 	reshapeLike { :self :another |
-		| index = 1, flat = self.flattened; |
+		| index = 1, items = self.flattened; |
 		another.deepCollect(16r7FFFFFFF) { :unusedItem |
-			| item = flat.atWrap(index); |
-			index := index + 1;
+			| item = items.atWrap(index); |
+			index +:= 1;
 			item
 		}
 	}

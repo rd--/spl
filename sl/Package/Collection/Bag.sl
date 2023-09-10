@@ -21,7 +21,7 @@ Bag : [Object, Iterable, Collection, UnorderedCollection] { | contents |
 
 	addWithOccurrences { :self :anObject :anInteger |
 		self.includes(anObject).if {
-			self.contents[anObject] := anInteger + self.contents[anObject]
+			self.contents[anObject] +:= anInteger
 		} {
 			self.contents[anObject] := anInteger
 		};
@@ -35,7 +35,7 @@ Bag : [Object, Iterable, Collection, UnorderedCollection] { | contents |
 	cumulativeCounts { :self |
 		| s = self.size / 100.0, n = 0; |
 		self.sortedCounts.collect { :a |
-			n := n + a.key;
+			n +:= a.key;
 			(n / s.roundTo(0.1)) -> a.value
 		}
 	}
@@ -104,7 +104,7 @@ Bag : [Object, Iterable, Collection, UnorderedCollection] { | contents |
 	size { :self |
 		| tally = 0; |
 		self.contents.do { :each |
-			tally := tally + each
+			tally +:= each
 		};
 		tally
 	}
@@ -135,7 +135,7 @@ Bag : [Object, Iterable, Collection, UnorderedCollection] { | contents |
 		} {
 			| sum = 0; |
 			self.contents.withIndexDo { :count :value |
-				sum := sum + (value * count)
+				sum +:= value * count
 			};
 			sum
 		}

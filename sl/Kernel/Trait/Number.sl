@@ -98,7 +98,7 @@
 		| index = self; |
 		{ index >= end }.whileTrue {
 			aProcedure(index);
-			index := index - 1
+			index -:= 1
 		}
 	}
 
@@ -219,12 +219,12 @@
 			(step < 0).if{
 				{ stop <= nextValue }.whileTrue {
 					aBlock(nextValue);
-					nextValue := nextValue + step
+					nextValue +:= step
 				}
 			} {
 				{ stop >= nextValue }.whileTrue {
 					aBlock(nextValue);
-					nextValue := nextValue + step
+					nextValue +:= step
 				}
 			}
 		};
@@ -235,7 +235,7 @@
 		| index = self; |
 		{ index <= end }.whileTrue {
 			aProcedure(index);
-			index := index + 1
+			index +:= 1
 		};
 		self
 	}

@@ -154,7 +154,7 @@ String : [Object, Json, Iterable] {
 	countCharacters { :self |
 		| answer = 0; |
 		self.do { :each |
-			answer := answer + 1
+			answer +:= 1
 		};
 		answer
 	}
@@ -209,7 +209,7 @@ String : [Object, Json, Iterable] {
 				index := self.findStringStartingAt(aString, index);
 				(index ~= 0).ifTrue {
 					answer.add(index);
-					index := index + 1
+					index +:= 1
 				}
 			};
 			answer
@@ -302,8 +302,8 @@ String : [Object, Json, Iterable] {
 			{ index > 0 & { index <= end } }.whileTrue {
 				index := self.findStringStartingAt(aString, index);
 				(index ~= 0).ifTrue {
-					tally := tally + 1;
-					index := index + 1
+					tally +:= 1;
+					index +:= 1
 				}
 			};
 			tally
@@ -378,9 +378,9 @@ String : [Object, Json, Iterable] {
 		self.asciiByteArray.reverseDo { :each |
 			v1 := [1, 5, 10, 50, 100, 500, 1000].at(letters.indexOf(each));
 			(v1 >= v2).if {
-				value := value + v1
+				value +:= v1
 			} {
-				value := value - v1
+				value -:= v1
 			};
 			v2 := v1
 		};
@@ -444,14 +444,14 @@ String : [Object, Json, Iterable] {
 					test.postLine
 				};
 				(test.evaluate = true).if {
-					passCount := passCount + 1
+					passCount +:= 1
 				} {
-					failCount := failCount + 1;
+					failCount +:= 1;
 					('	Error: ' ++ test).postLine
 				}
 			};
-			totalTestCount := totalTestCount + testCount;
-			totalPassCount := totalPassCount + passCount;
+			totalTestCount +:= testCount;
+			totalPassCount +:= passCount;
 			[
 				'	=> ',
 				passCount, ' / ', testCount,

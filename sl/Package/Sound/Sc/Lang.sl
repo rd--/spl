@@ -207,22 +207,6 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 }
 
-+Nil {
-
-	? { :self :anObject |
-		anObject
-	}
-
-	?? { :self :anObject |
-		anObject.value
-	}
-
-	~? { :self :anObject |
-		nil
-	}
-
-}
-
 +@Number {
 
 	ampComp { :freq :root :exp |
@@ -510,18 +494,6 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 +@Object {
 
-	? { :self :anObject |
-		self
-	}
-
-	?? { :self :anObject |
-		self
-	}
-
-	~? { :self :anObject |
-		anObject.value
-	}
-
 	! { :self :anInteger |
 		self.dup(anInteger)
 	}
@@ -632,7 +604,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.do { :item |
 			answer[index] := item - prev;
 			prev := item;
-			index := index + 1
+			index +:= 1
 		};
 		answer
 	}
@@ -669,7 +641,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		| size = self.size.min(other.size), count = (self.size - other.size).abs; |
 		(1 .. size).do { :index |
 			(self[index] ~= other[index]).ifTrue {
-				count := count + 1
+				count +:= 1
 			}
 		};
 		count
@@ -715,7 +687,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	integrate { :self |
 		| answer = [], sum = 0; |
 		self.do { :item |
-			sum := sum + item;
+			sum +:= item;
 			answer.add(sum)
 		};
 		answer
@@ -884,7 +856,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.do { :leftItem |
 			aSequence.do { :rightItem |
 				answer[nextIndex] := aProcedure(leftItem, rightItem);
-				nextIndex := nextIndex + 1
+				nextIndex +:= 1
 			}
 		};
 		answer

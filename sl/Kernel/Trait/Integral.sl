@@ -35,7 +35,7 @@
 					};
 					answer := three ++ mils[milCount] ++ answer
 				};
-				milCount := milCount + 1
+				milCount +:= 1
 			};
 			minus ++ answer
 		}
@@ -80,8 +80,8 @@
 		} {
 			| next = self, answer = self; |
 			{ next > 1 }.whileTrue {
-				next := next - 1;
-				answer := answer * next
+				next -:= 1;
+				answer *:= next
 			};
 			answer
 		}
@@ -126,7 +126,7 @@
 						(self % i = 0).ifTrue {
 							false.return
 						};
-						i := i + 1
+						i +:= 1
 					};
 					true.return
 				}
@@ -154,7 +154,7 @@
 	nextPrime { :self |
 		| maybePrime = self + 1; |
 		{ maybePrime.isPrime.not }.whileTrue {
-			maybePrime := maybePrime + 1
+			maybePrime +:= 1
 		};
 		maybePrime
 	}
@@ -189,7 +189,7 @@
 						answer.add(k);
 						answer.return
 					};
-					index := index + 1
+					index +:= 1
 				}.repeat;
 				answer
 			}
@@ -293,10 +293,10 @@
 		} {
 			| numerator = 1, denominator = 1; |
 			self.toByDo(k.max(self - k) + 1, -1) { :factor |
-				numerator := numerator * factor
+				numerator *:= factor
 			};
 			1.toDo(k.min(self - k)) { :factor |
-				denominator := denominator * factor
+				denominator *:= factor
 			};
 			numerator // denominator
 		}
@@ -342,7 +342,7 @@
 		| remaining = self; |
 		{ remaining > 0 }.whileTrue {
 			aProcedure();
-			remaining := remaining - 1
+			remaining -:= 1
 		};
 		self
 	}
@@ -413,7 +413,7 @@
 		};
 		{ value > 255 }.whileTrue {
 			value := value.bitShift(-8);
-			length := length + 1
+			length +:= 1
 		};
 		length
 	}

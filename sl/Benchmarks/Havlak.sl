@@ -296,7 +296,7 @@ LoopStructureGraph : [Object] { | root loops loopCounter |
 		self.loopCounter := 0;
 		self.root.setNestingLevel(0);
 		self.root.counter(self.loopCounter);
-		self.loopCounter := self.loopCounter + 1;
+		self.loopCounter +:= 1;
 		self.loops.addLast(self.root);
 		self
 	}
@@ -304,7 +304,7 @@ LoopStructureGraph : [Object] { | root loops loopCounter |
 	createNewLoopReducible { :self :bb :isReducible |
 		| loop = SimpleLoop(bb, isReducible); |
 		loop.counter(self.loopCounter);
-		self.loopCounter := self.loopCounter + 1;
+		self.loopCounter +:= 1;
 		self.loops.addLast(loop);
 		loop
 	}
@@ -403,7 +403,7 @@ LoopTesterApp : [Object] { | cfg lsg |
 		parLoops.timesRepeat {
 			self.cfg.createNode(n + 1);
 			self.buildConnectEnd(2, n + 1);
-			n := n + 1;
+			n +:= 1;
 			pparLoops.timesRepeat {
 				| top bottom |
 				top := n;

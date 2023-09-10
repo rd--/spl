@@ -135,7 +135,7 @@
 		| tally = 0; |
 		self.indicesDo { :index |
 			(self[index] = anObject).ifTrue {
-				tally := tally + 1
+				tally +:= 1
 			}
 		};
 		tally

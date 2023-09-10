@@ -6,10 +6,10 @@
 		2.toDo(size) { :i |
 			flags[i - 1].ifTrue{
 				| k = i + i; |
-				primeCount := primeCount + 1;
+				primeCount +:= 1;
 				{ k <= size }.whileTrue {
 					flags[k - 1] := false;
-					k := k + i
+					k +:= i
 				}
 			}
 		};

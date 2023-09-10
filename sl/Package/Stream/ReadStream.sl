@@ -12,7 +12,7 @@ ReadStream : [Object, Stream, PositionableStream] { | collection positionIndex r
 		(self.position >= self.readLimit).if {
 			nil
 		} {
-			self.position := self.position + 1;
+			self.position +:= 1;
 			self.collection[self.position]
 		}
 	}

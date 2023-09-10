@@ -60,7 +60,8 @@ Heap : [Object, Iterable, Collection] { | array sortBlock indexUpdateBlock |
 			(childIndex := 2 * index) >= self.size | {
 				childValue := self.array[childIndex];
 				self.compare(self.array[childIndex + 1], childValue).ifTrue {
-					childValue := self.array[childIndex := childIndex + 1]
+					childIndex +:= 1;
+					childValue := self.array[childIndex]
 				};
 				self.compare(value, childValue)
 			}

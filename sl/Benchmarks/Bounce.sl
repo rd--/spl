@@ -2,8 +2,8 @@ Ball : [Object] { | x y xVel yVel |
 
 	bounce { :self |
 		| xLimit = 500, yLimit = 500, bounced = false; |
-		self.x := self.x + self.xVel;
-		self.y := self.y + self.yVel;
+		self.x +:= self.xVel;
+		self.y +:= self.yVel;
 		(self.x > xLimit).ifTrue {
 			self.x := xLimit;
 			self.xVel := 0 - self.xVel.abs;
@@ -56,7 +56,7 @@ Ball : [Object] { | x y xVel yVel |
 			1.toDo(50) { :i |
 				balls.do { :ball |
 					ball.bounce.ifTrue {
-						bounces := bounces + 1
+						bounces +:= 1
 					}
 			}
 			};

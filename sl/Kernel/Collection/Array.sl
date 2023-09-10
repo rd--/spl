@@ -136,7 +136,7 @@ Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, 
 		| accum = start; |
 		1.upTo(self).collect { :unusedItem |
 			| entry = accum; |
-			accum := grow * accum;
+			accum *:= grow;
 			entry
 		}
 	}

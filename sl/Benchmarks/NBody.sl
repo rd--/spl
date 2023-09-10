@@ -93,18 +93,18 @@ NBodySystem : [Object] { | bodies |
 					distance = dSquared.sqrt,
 					mag = dt / (dSquared * distance)
 				)|
-				iBody:@vx := iBody:@vx - (dx * jBody:@mass * mag);
-				iBody:@vy := iBody:@vy - (dy * jBody:@mass * mag);
-				iBody:@vz := iBody:@vz - (dz * jBody:@mass * mag);
-				jBody:@vx := jBody:@vx + (dx * iBody:@mass * mag);
-				jBody:@vy := jBody:@vy + (dy * iBody:@mass * mag);
-				jBody:@vz := jBody:@vz + (dz * iBody:@mass * mag)
+				iBody:@vx -:= dx * jBody:@mass * mag;
+				iBody:@vy -:= dy * jBody:@mass * mag;
+				iBody:@vz -:= dz * jBody:@mass * mag;
+				jBody:@vx +:= dx * iBody:@mass * mag;
+				jBody:@vy +:= dy * iBody:@mass * mag;
+				jBody:@vz +:= dz * iBody:@mass * mag
 			}
 		};
 		self.bodies.do { :body |
-			body:@x := body:@x + (dt * body:@vx);
-			body:@y := body:@y + (dt * body:@vy);
-			body:@z := body:@z + (dt * body:@vz)
+			body:@x +:= dt * body:@vx;
+			body:@y +:= dt * body:@vy;
+			body:@z +:= dt * body:@vz
 		}
 	}
 
@@ -112,8 +112,7 @@ NBodySystem : [Object] { | bodies |
 		| e = 0.0; |
 		1.toDo(self.bodies.size) { :i |
 			| iBody = self.bodies[i]; |
-			e := e + (
-				0.5 *
+			e +:= (0.5 *
 				iBody.mass *
 				(
 					(iBody.vx * iBody.vx) +
@@ -129,7 +128,7 @@ NBodySystem : [Object] { | bodies |
 					dz = iBody.z - jBody.z,
 					distance = ((dx * dx) + (dy * dy) + (dz * dz)).sqrt
 				)|
-				e := e - ((iBody.mass * jBody.mass) / distance)
+				e -:= (iBody.mass * jBody.mass) / distance
 			}
 		};
 		e
@@ -145,9 +144,9 @@ NBodySystem : [Object] { | bodies |
 			bodies = [Sun(), Jupiter(), Saturn(), Uranus(), Neptune()]
 		)|
 		bodies.do { :b |
-			px := px + (b.vx * b.mass);
-			py := py + (b.vy * b.mass);
-			pz := pz + (b.vz * b.mass)
+			px +:= b.vx * b.mass;
+			py +:= b.vy * b.mass;
+			pz +:= b.vz * b.mass
 		};
 		bodies[1].offsetMomentumXYZ(px, py, pz);
 		newNBodySystem().initializeSlots(bodies)

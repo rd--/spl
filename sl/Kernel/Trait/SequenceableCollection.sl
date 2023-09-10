@@ -176,7 +176,7 @@
 		self.do { :each |
 			each.do { :item |
 				answer[index] := item;
-				index := index + 1
+				index +:= 1
 			}
 		};
 		answer
@@ -232,7 +232,7 @@
 		| nextIndex = 1, endIndex = self.size; |
 		{ condition() & { nextIndex <= endIndex } }.whileTrue {
 			activity(self[nextIndex]);
-			nextIndex := nextIndex + 1
+			nextIndex +:= 1
 		}
 	}
 
@@ -384,7 +384,7 @@
 					startIndex
 				)
 			};
-			written := written + thisWrite
+			written +:= thisWrite
 		};
 		anObject
 	}
@@ -404,7 +404,7 @@
 			{ index <= endIndex }.whileTrue {
 				argumentArray.replaceFromToWithStartingAt(1, numArgs, self, index);
 				aBlock.valueWithArguments(argumentArray);
-				index := index + numArgs
+				index +:= numArgs
 			}
 		}
 	}
@@ -490,7 +490,7 @@
 								self[startIndex + index - 1] = subCollection[index]
 							}
 						}.whileTrue {
-							index := index + 1
+							index +:= 1
 						};
 						(index <= subCollectionSize).ifFalse {
 							startIndex.return
@@ -689,7 +689,7 @@
 		| replacementOffset = replacementStart - start, index = start; |
 		{ index <= stop }.whileTrue {
 			self[index] := replacement[replacementOffset + index];
-			index := index + 1
+			index +:= 1
 		};
 		self
 	}
@@ -698,7 +698,7 @@
 		| answer = self.species.ofSize(self.size), fromIndex = self.size + 1; |
 		self.indicesDo { :toIndex |
 			answer[toIndex] := self[fromIndex - 1];
-			fromIndex := fromIndex - 1
+			fromIndex -:= 1
 		};
 		answer
 	}
@@ -901,9 +901,9 @@
 		{ i < self }.whileTrue {
 			answer.add(b);
 			temp := b;
-			b := a + b;
+			b +:= a;
 			a := temp;
-			i := i + 1
+			i +:= 1
 		};
 		answer
 	}

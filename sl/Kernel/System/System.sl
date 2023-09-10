@@ -461,7 +461,7 @@ System : [Object, Indexable, Random, SystemCache] {
 			t1 < t2
 		}.whileTrue {
 			self();
-			count := count + 1
+			count +:= 1
 		};
 		[count, t1 - t0]
 	}

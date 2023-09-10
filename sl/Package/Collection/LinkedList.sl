@@ -45,7 +45,7 @@ LinkedList : [Object, Iterable, Collection, SequenceableCollection] { | firstLin
 		| answer = Array(self.size), index = 1; |
 		self.do { :each |
 			answer[index] := each;
-			index := index + 1
+			index +:= 1
 		};
 		answer
 	}
@@ -125,11 +125,11 @@ LinkedList : [Object, Iterable, Collection, SequenceableCollection] { | firstLin
 	}
 
 	linkAtIfAbsent { :self :index :errorProcedure:/0 |
-		| i = 0; |
+		| counter = 0; |
 		valueWithReturn { :return:/1 |
 			self.linksDo { :link |
-				i := i + 1;
-				(i = index).ifTrue {
+				counter +:= 1;
+				(counter = index).ifTrue {
 					link.return
 				}
 			};

@@ -35,7 +35,7 @@
 		| answer = 0; |
 		self.do { :each |
 			aProcedure(each).ifTrue {
-				answer := answer + 1
+				answer +:= 1
 			}
 		};
 		answer
@@ -77,7 +77,7 @@
 	detectSum { :self :aBlock:/1 |
 		| sum = 0; |
 		self.do { :each |
-			sum := aBlock(each) + sum
+			sum +:= aBlock(each)
 		};
 		sum
 	}
@@ -224,7 +224,7 @@
 		| tally = 0; |
 		self.do { :each |
 			(anObject = each).ifTrue {
-				tally := tally + 1
+				tally +:= 1
 			}
 		};
 		tally
@@ -277,7 +277,7 @@
 	size { :self |
 		| tally = 0; |
 		self.do { :each |
-			tally := tally + 1
+			tally +:= 1
 		};
 		tally
 	}

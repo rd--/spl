@@ -22,7 +22,7 @@
 		} {
 			| n = self, bitCount = 0; |
 			{ n = 0 }.whileFalse {
-				bitCount := bitCount + system.bitCountPerByteTable[n.bitAnd(16rFF) + 1];
+				bitCount +:= system.bitCountPerByteTable[n.bitAnd(16rFF) + 1];
 				n := n.bitShift(-8)
 			};
 			bitCount
@@ -85,11 +85,11 @@
 		| shifted = self, bitNo = 0; |
 		{ shifted < 65536 }.whileFalse {
 			shifted := shifted.bitShiftRight(16);
-			bitNo := bitNo + 16
+			bitNo +:= 16
 		};
 		(shifted < 256).ifFalse {
 			shifted := shifted.bitShiftRight(8);
-			bitNo := bitNo + 8
+			bitNo +:= 8
 		};
 		bitNo + shifted.highBitOfByte
 	}
@@ -107,7 +107,7 @@
 				lastByte := n.bitAnd(16rFF);
 				n = 0
 			}.whileTrue {
-				result := result + 8;
+				result +:= 8;
 				n := n.bitShift(-8)
 			};
 			result + system.lowBitPerByteTable[lastByte]
@@ -123,7 +123,7 @@
 			(0 .. 255).collect { :i |
 				| bitCount = 0, n = i; |
 				{ n = 0 }.whileFalse {
-					bitCount := bitCount + 1;
+					bitCount +:= 1;
 					n := n.bitAnd(n - 1)
 				};
 				bitCount
