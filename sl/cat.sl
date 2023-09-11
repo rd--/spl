@@ -277,6 +277,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'basicNext'
 		'binary'
 		'byteSize'
+		'cached'
 		'capacity'
 		'codePoint'
 		'contents'

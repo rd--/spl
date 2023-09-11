@@ -243,10 +243,10 @@ Colour : [Object] { | red green blue alpha |
 
 }
 
-+@SystemCache {
++@Cache {
 
 	colourNameTable { :self |
-		{
+		self.cached('colourNameTable') {
 			(
 				black: Colour(0, 0, 0),
 				veryVeryDarkGray: Colour(0.125, 0.125, 0.125),
@@ -286,7 +286,7 @@ Colour : [Object] { | red green blue alpha |
 				palePeach: Colour(255 / 255, 237 / 255, 213 / 255),
 				pantonePurple: Colour(193 / 255, 81 / 255, 184 / 255)
 			)
-		}.once(self, 'colourNameTable')
+		}
 
 	}
 

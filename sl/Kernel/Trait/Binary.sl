@@ -116,10 +116,10 @@
 
 }
 
-+@SystemCache {
++@Cache {
 
 	bitCountPerByteTable { :self |
-		{
+		self.cached('bitCountPerByteTable') {
 			(0 .. 255).collect { :i |
 				| bitCount = 0, n = i; |
 				{ n = 0 }.whileFalse {
@@ -128,27 +128,27 @@
 				};
 				bitCount
 			}.ByteArray
-		}.once(self, 'bitCountPerByteTable')
+		}
 	}
 
 	highBitPerByteTable { :self |
-		{
+		self.cached('highBitPerByteTable') {
 			(1 .. 8).injectInto([0]) { :highBits :rank |
 				highBits ++ highBits.collect { :each |
 					rank
 				}
 			}.ByteArray
-		}.once(self, 'highBitPerByteTable')
+		}
 	}
 
 	lowBitPerByteTable { :self |
-		{
+		self.cached('lowBitPerByteTable') {
 			(1 .. 8).injectInto([1]) { :lowBits :unusedRank |
 				| prefix = lowBits.copy; |
 				prefix[1] := lowBits[1] + 1;
 				prefix ++ lowBits
 			}.allButFirst.ByteArray
-		}.once(self, 'lowBitPerByteTable')
+		}
 	}
 
 }

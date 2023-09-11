@@ -1,8 +1,8 @@
 [
 	['Kernel-Trait', [
-		'Kernel/Trait/SystemCache.sl'
-		'Kernel/Trait/Binary.sl' (* > SystemCache *)
-		'Kernel/Trait/Integral.sl' (* > SystemCache *)
+		'Kernel/Trait/Cache.sl'
+		'Kernel/Trait/Binary.sl' (* > Cache *)
+		'Kernel/Trait/Integral.sl' (* > Cache *)
 		'Kernel/Trait/Json.sl'
 		'Kernel/Trait/Magnitude.sl'
 		'Kernel/Trait/Number.sl'

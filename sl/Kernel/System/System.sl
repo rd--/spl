@@ -1,4 +1,4 @@
-System : [Object, Indexable, Random, SystemCache] {
+System : [Object, Cache, Indexable, Random] {
 
 	= { :self :anObject |
 		self == anObject
@@ -447,7 +447,7 @@ System : [Object, Indexable, Random, SystemCache] {
 
 	once { :self |
 		|(
-			cache = system.cache.atIfAbsentPut('onceCache') {
+			cache = system.cached('onceCache') {
 				WeakMap()
 			}
 		)|
@@ -457,7 +457,7 @@ System : [Object, Indexable, Random, SystemCache] {
 	}
 
 	once { :self :where :key |
-		where.cache.atIfAbsentPut(key) {
+		where.cached(key) {
 			self.value
 		}
 	}

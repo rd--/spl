@@ -31,10 +31,12 @@ Package : [Object] { | packageName fileNames |
 
 }
 
-+@SystemCache {
++@Cache {
 
 	packageDictionary { :self |
-		{ () }.once(self, 'packageDictionary')
+		self.cached('packageDictionary') {
+			()
+		}
 	}
 
 }

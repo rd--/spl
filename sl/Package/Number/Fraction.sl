@@ -286,10 +286,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 }
 
-+@SystemCache {
++@Cache {
 
 	unicodeFractionsTable { :self |
-		{
+		self.cached('unicodeFractionsTable') {
 			(
 				'⅒': 1:10, (* 0.1 *)
 				'⅑': 1:9, (* 1.111 *)
@@ -310,7 +310,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 				'⅚': 5:6, (* 0.833 *)
 				'⅞': 7:8 (* 0.875 *)
 			)
-		}.once(self, 'unicodeFractionsTable')
+		}
 	}
 
 }

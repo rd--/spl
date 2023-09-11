@@ -77,10 +77,10 @@ CategoryDictionary : [Object] { | domainDictionary |
 
 }
 
-+@SystemCache {
++@Cache {
 
 	categoryDictionary { :self |
-		self.cache.atIfAbsentPut('categoryDictionary') {
+		self.cached('categoryDictionary') {
 			CategoryDictionary()
 		}
 	}

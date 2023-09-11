@@ -420,12 +420,12 @@
 
 }
 
-+@SystemCache {
++@Cache {
 
 	primesArray { :self |
-		{
+		self.cached('primesArray') {
 			23.primesArray
-		}.once(self, 'primesArray')
+		}
 	}
 
 }

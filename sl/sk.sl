@@ -1,7 +1,34 @@
 [
 	Package('Navigator-Dom'),
 	Package('Navigator-Midi'),
-	Package('SmallKansas')
+	Package('SmallKansas-SmallKansas'),
+	Package('SmallKansas-AnalogueClock'),
+	Package('SmallKansas-CategoryBrowser'),
+	Package('SmallKansas-ColourChooser'),
+	Package('SmallKansas-ColumnBrowser'),
+	Package('SmallKansas-CrystalLatticeStructureBrowser'),
+	Package('SmallKansas-DigitalClock'),
+	Package('SmallKansas-Frame'),
+	Package('SmallKansas-HelpSystem'),
+	Package('SmallKansas-Inspector'),
+	Package('SmallKansas-ListChooser'),
+	Package('SmallKansas-Menu'),
+	Package('SmallKansas-MethodBrowser'),
+	Package('SmallKansas-MethodSignatureBrowser'),
+	Package('SmallKansas-MidiPortBrowser'),
+	Package('SmallKansas-PackageBrowser'),
+	Package('SmallKansas-PngViewer'),
+	Package('SmallKansas-ScalaJiMetaBrowser'),
+	Package('SmallKansas-ScalaJiTuningBrowser'),
+	Package('SmallKansas-ScSynthStatus'),
+	Package('SmallKansas-SvgViewer'),
+	Package('SmallKansas-SystemBrowser'),
+	Package('SmallKansas-TableViewer'),
+	Package('SmallKansas-TextEditor'),
+	Package('SmallKansas-TraitBrowser'),
+	Package('SmallKansas-TranscriptViewer'),
+	Package('SmallKansas-TypeBrowser'),
+	Package('SmallKansas-WindowMenu')
 ].loadPackages.then { :unusedValue |
 	system::smallKansas := SmallKansas()
 }

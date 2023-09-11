@@ -1556,6 +1556,7 @@ system.cache::primesArray[9] = 23 (* the primes array is cached (memoized) by th
 5.nthPrime = 11 (* the nth entry in the sequence of prime numbers *)
 23.nthPrime = 83 (* the nth entry in the sequence of prime numbers *)
 system.cache::primesArray[23] = 83 (* nthPrime extends the primesArray cache as required *)
+23.primesArray = system.primesArray.first(23) (* the k primesArray is the first k elements of the cached array *)
 (2 .. 20).select { :each | each.isPrime } = [2, 3, 5, 7, 11, 13, 17, 19]
 (2 .. 20).reject { :each | each.isPrime } = [4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20]
 60.primeFactors = [2, 2, 3, 5] (* prime factors *)
