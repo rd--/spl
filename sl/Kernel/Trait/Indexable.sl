@@ -112,6 +112,14 @@
 		self.indices.includes(anObject)
 	}
 
+	indexCheck { :self :index |
+		self.includesIndex(index).if {
+			index
+		} {
+			self.error('@Indexable>>indexCheck: no such index: ' ++ index)
+		}
+	}
+
 	indexOf { :self :anObject |
 		self.indexOfIfAbsent(anObject) {
 			self.error('@Indexable>>indexOf: no such element')

@@ -1,6 +1,8 @@
 [
 	Package('Navigator-Dom'),
 	Package('Navigator-Midi'),
+	Package('SmallKansas-UserEventTarget'),
+	Package('SmallKansas-View'),
 	Package('SmallKansas-SmallKansas'),
 	Package('SmallKansas-AnalogueClock'),
 	Package('SmallKansas-CategoryBrowser'),
@@ -24,6 +26,7 @@
 	Package('SmallKansas-SvgViewer'),
 	Package('SmallKansas-SystemBrowser'),
 	Package('SmallKansas-TableViewer'),
+	Package('SmallKansas-Text'),
 	Package('SmallKansas-TextEditor'),
 	Package('SmallKansas-TraitBrowser'),
 	Package('SmallKansas-TranscriptViewer'),

@@ -5,13 +5,13 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 	}
 
 	readLocalStorage { :self |
-		| text = system.window.localStorage[self.key]; |
+		| text = system.localStorage[self.key]; |
 		self.mimeType.caseOfOtherwise([
 			'application/json' -> {
-				self.parser . (text.parseJson)
+				self.parser.value(text.parseJson)
 			},
 			'text/plain' -> {
-				self.parser . (text)
+				self.parser.value(text)
 			}
 		]) {
 			self.error('readLocalStorage: unsupported mimeType')
@@ -24,7 +24,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 			self.value.ifNotNil {
 				self.value.resolve
 			} {
-				system.window.localStorage.includesIndex(self.key).if {
+				system.localStorage.includesIndex(self.key).if {
 					self.value := self.readLocalStorage;
 					self.value.resolve
 				} {
@@ -32,7 +32,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 						self.useLocalStorage.ifTrue {
 							self.writeLocalStorage(answer)
 						};
-						self.value := self.parser . (answer);
+						self.value := self.parser.value(answer);
 						self.value.resolve
 					}
 				}
@@ -43,10 +43,10 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 	writeLocalStorage { :self :anObject |
 		self.mimeType.caseOfOtherwise([
 			'application/json' -> {
-				system.window.localStorage[self.key] := anObject.json
+				system.localStorage[self.key] := anObject.json
 			},
 			'text/plain' -> {
-				system.window.localStorage[self.key] := anObject.asString
+				system.localStorage[self.key] := anObject.asString
 			}
 		]) {
 			self.error('writeLocalStorage: unsupported mimeType')

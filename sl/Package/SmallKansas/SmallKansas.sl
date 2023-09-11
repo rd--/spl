@@ -1,46 +1,3 @@
-@UserEventTarget {
-
-	addEventListener { :self :aString :aProcedure:/1 |
-		self.eventListeners.atIfPresentIfAbsent(aString) { :aSet |
-			aSet.add(aProcedure:/1)
-		} {
-			self.eventListeners[aString] := Set([aProcedure:/1])
-		}
-	}
-
-	dispatchEvent { :self :event |
-		self.eventListeners.atIfPresent(event.type) { :aSet |
-			aSet.do { :each |
-				each.value(event)
-			}
-		}
-	}
-
-}
-
-@View {
-
-	frame { :self :aFrame |
-	}
-
-	frameMenuItems { :self |
-		[]
-	}
-
-	name { :self |
-		self.title.replaceStringAll(' ', '')
-	}
-
-	outerElement { :self |
-		self.typeResponsibility('@View>>outerElement')
-	}
-
-	title { :self |
-		self.typeOf
-	}
-
-}
-
 SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	addFrameWithAnimator { :self :subject :event :delay :aProcedure:/0 |
@@ -407,46 +364,6 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	SmallKansas {
 		newSmallKansas().initialize
-	}
-
-}
-
-+String {
-
-	TextButton { :self :attributeDictionary |
-		| button = 'button'.createElement(attributeDictionary); |
-		button.innerText := self;
-		button
-	}
-
-	TextInput { :self :attributeDictionary |
-		| input = 'input'.createElement(attributeDictionary); |
-		input.setAttributes((
-			type: 'text',
-			value: self
-		));
-		input
-	}
-
-	TextListItem { :self |
-		| listItem = 'li'.createElement; |
-		listItem.textContent := self;
-		listItem
-	}
-
-	TextOption { :self |
-		TextOption(self, self)
-	}
-
-	TextOption { :self :value |
-		| option = 'option'.createElement; |
-		option.text := self.isEmpty.if {
-			'Unspecified*'
-		} {
-			self
-		};
-		option.value := value;
-		option
 	}
 
 }

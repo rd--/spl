@@ -109,6 +109,10 @@ System : [Object, Cache, Indexable, Random] {
 		<primitive: return _self.library;>
 	}
 
+	localStorage { :self |
+		self.window.localStorage
+	}
+
 	methodArities { :self :methodName |
 		(* Arities methodName is implemented for. *)
 		self.methodDictionary[methodName].indices
@@ -313,6 +317,10 @@ System : [Object, Cache, Indexable, Random] {
 		name.collect { :each |
 			system.requireLibraryItem(each)
 		}.Promise
+	}
+
+	sessionStorage { :self |
+		self.window.sessionStorage
 	}
 
 	traitDictionary { :self |

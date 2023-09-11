@@ -1,32 +1,84 @@
 Storage : [Object, Collection, Dictionary] {
 
-	length { :self | <primitive: return _self.length;> }
-	key { :self :index | <primitive: return _self.key(_index);> }
-	getItem { :self :key | <primitive: return _self.getItem(_key);> }
-	setItem { :self :key :value | <primitive: return _self.setItem(_key, _value);> }
-	removeAll { :self | <primitive: return _self.clear();> }
-	removeItem { :self :key | <primitive: return _self.removeItem(_key);> }
-
 	at { :self :key |
-		self.getItem(key)
+		self.indexCheck(key);
+		self.basicAt(key)
 	}
 
 	atPut { :self :key :value |
-		self.setItem(key, value)
+		self.stringCheck(key);
+		self.stringCheck(value);
+		self.basicAtPut(key, value)
+	}
+
+	basicAt { :self :key |
+		<primitive: return _self.getItem(_key);>
+	}
+
+	basicAtPut { :self :key :value |
+		<primitive:
+		_self.setItem(_key, _value);
+		return _value;
+		>
+	}
+
+	basicRemoveAt { :self :key |
+		<primitive:
+		const answer = _self.getItem(_key);
+		_self.removeItem(_key);
+		return answer;
+		>
 	}
 
 	includesIndex { :self :key |
-		self[key].notNil
+		self.indices.includes(key)
 	}
 
-	indices { :self |
-		(0 .. self.length - 1).collect { :index |
-			self.key(index)
+	indexCheck { :self :index |
+		self.stringCheck(index);
+		self.includesIndex(index).if {
+			index
+		} {
+			self.error('indexCheck: no such index: ' ++ index)
 		}
 	}
 
+	indices { :self |
+		<primitive:
+		const answer = [];
+		for(let index = 0; index < _self.length; index++) {
+			answer.push(_self.key(index));
+		};
+		return answer;
+		>
+	}
+
+	removeAt { :self :key |
+		self.indexCheck(key);
+		self.basicRemoveAt(key)
+	}
+
+	removeAll { :self |
+		<primitive:
+		_self.clear();
+		return _self;
+		>
+	}
+
 	size { :self |
-		self.length
+		<primitive: return _self.length;>
+	}
+
+	storeString { :self |
+		'<a Storage>'
+	}
+
+	stringCheck { :self :anObject |
+		anObject.isString.if {
+			anObject
+		} {
+			self.error('stringCheck: not a string: ' ++ anObject.typeOf)
+		}
 	}
 
 }

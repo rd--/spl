@@ -3293,6 +3293,19 @@ system.typeLookup('Void').methodDictionary.includesIndex('Set:/0') = true
 system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
 ```
 
+## System -- localStorage
+```
+system.localStorage.typeOf = 'Storage' (* system local storage, persistent key-value store *)
+system.localStorage.isStorage = true (* storage predicate *)
+system.localStorage.size >= 0 (* number of elements in local storage *)
+system.localStorage.indices.allSatisfy(isString:/1) (* keys and values must each be strings *)
+(system.localStorage::pi := pi.asString) = pi.asString (* store pi as string at index 'pi', answer item stored *)
+system.localStorage::pi = pi.asString (* read pi *)
+system.localStorage.indices.includes('pi') = true (* pi is an index *)
+system.localStorage.removeAt('pi') = pi.asString (* remove entry, answer removed item *)
+system.localStorage.removeAll = system.localStorage (* remove all entries, answer self *)
+```
+
 ## System -- Uniform Resource Locator (URL)
 ```
 'http://cern.ch/'.URL.isURL = true
