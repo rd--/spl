@@ -94,7 +94,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 				system::smallKansas.referencesTo(self.currentWord.asMethodName, event)
 			},
 			MenuItem('Reset Synthesiser', '.') { :event |
-				system::clock.removeAll;
+				system.clock.removeAll;
 				system.defaultScSynth.reset
 			}
 		] ++ self.clientKeyBindings.Array

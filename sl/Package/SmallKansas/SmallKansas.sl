@@ -314,7 +314,7 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				self.ProgramOracle(event)
 			},
 			MenuItem('ScSynth Reset', nil) { :event |
-				system::clock.removeAll;
+				system.clock.removeAll;
 				system.defaultScSynth.reset
 			},
 			MenuItem('ScSynth Status', nil) { :event |

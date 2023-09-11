@@ -2,18 +2,11 @@ system.categoryDictionary.categorizeDictionary('type', (
 	'Kernel-Behaviour': [
 		'Procedure'
 	],
-	'Kernel-Collection': [
-		'Array'
-		'Record'
-	],
 	'Kernel-Exception': [
 		'Error'
 	],
 	'Kernel-Logic': [
 		'Boolean'
-	],
-	'Kernel-Number': [
-		'SmallFloat'
 	],
 	'Kernel-Object': [
 		'Nil'
@@ -22,8 +15,9 @@ system.categoryDictionary.categorizeDictionary('type', (
 	'Kernel-System': [
 		'System'
 	],
-	'Kernel-Text': [
-		'String'
+	'Collection-Kernel': [
+		'Array'
+		'Record'
 	],
 	'Collection-Arrayed': [
 		'ArrayBuffer'
@@ -47,6 +41,9 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'Set'
 		'WeakMap'
 	],
+	'Number-Kernel': [
+		'SmallFloat'
+	],
 	'Number': [
 		'Complex'
 		'Fraction'
@@ -69,6 +66,9 @@ system.categoryDictionary.categorizeDictionary('type', (
 	],
 	'System-Scheduling': [
 		'Promise'
+	],
+	'Text-Kernel': [
+		'String'
 	],
 	'Text': [
 		'Character'

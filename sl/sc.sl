@@ -2,12 +2,12 @@
 	Package('Music-Frequency'),
 	Package('Music-JiTuning'),
 	Package('Music-Pitch'),
-	Package('Sound-Osc'),
-	Package('Sound-Sc-Lang'),
-	Package('Sound-Sc-Lang-J'),
-	Package('Sound-Sc-Synth'),
-	Package('Sound-Sc-Synth-bindings'),
-	Package('Sound-Sc-Synth-pseudo')
-].loadPackages.then { :unusedValue |
-	system::clock := Clock()
-}
+	Package('Sound-OpenSoundControl'),
+	Package('Sound-SuperCollider-Lang'),
+	Package('Sound-SuperCollider-Lang-Clock'),
+	Package('Sound-SuperCollider-Lang-J'),
+	Package('Sound-SuperCollider-Lang-Texture'),
+	Package('Sound-SuperCollider-Synth'),
+	Package('Sound-SuperCollider-Synth-Bindings'),
+	Package('Sound-SuperCollider-Synth-Pseudo')
+].loadPackages

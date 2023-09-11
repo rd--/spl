@@ -147,8 +147,8 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [10].instill(3, -30, 20) = [10, 20, -30]
 10.instill(3, -30, 20) = [ 10, 20, -30 ] (* instill is defined at Object *)
 10.instill(1, -10, nil) = -10
-nil ? 'x' = 'x' (* right hand side if nil *)
-'x' ? 'y' = 'x' (* left hand side unless nil *)
+nil ? { 'x' } = 'x' (* right hand side if nil *)
+'x' ? { 'y' } = 'x' (* left hand side unless nil *)
 Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicies *)
 3:2.RatioCents.rounded = 702 (* ratio (interval) to cents *)
 3:2.RatioCents ~ 702 (* ratio (interval) to cents *)
