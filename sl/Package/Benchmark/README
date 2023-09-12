@@ -9,4 +9,4 @@
 { | o = JsonBenchmark(); | o.isObject & { o::head.isObject & { o::operations.isArray & { o::operations.size = 156 } } } }.millisecondsToRun (* 250-300 *)
 | h = HavlakBenchmark(); | [1, 15, 150, 1500, 15000].do { :each | h.run(each); } (* 4920 4800 5084 5336 7858 *)
 | m = MandelbrotBenchmark(); | [1, 500, 750].do { :each | m.run(each) } (* 0 5990 13606 *)
-| n = NBodyBenchmark(); | [1, 250000].do { :each | n.run(each) } (* 0 5422 *)
+| n = NBodyBenchmark(); | [1, 250000].do { :each | n.run(each) } (* 0 5386 *)

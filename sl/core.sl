@@ -25,6 +25,7 @@
 		'Kernel/Logic/Boolean.sl'
 		'Kernel/Nil.sl'
 		'Kernel/Number/SmallFloat.sl'
+		'Kernel/System/Meta.sl'
 		'Kernel/System/Package.sl'
 		'Kernel/System/System.sl'
 		'Kernel/Text/String.sl'

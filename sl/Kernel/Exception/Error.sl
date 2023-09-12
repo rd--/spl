@@ -1,12 +1,36 @@
-Error : [Object] {
+@Exception {
 
 	description { :self |
 		self.name ++ ': ' ++ self.messageText
 	}
 
+	isError { :self |
+		true
+	}
+
+	isException { :self |
+		true
+	}
+
 	log { :self |
 		system.transcript.addError(self.messageText)
 	}
+
+	shallowCopy { :self |
+		self.error('copy: cannot copy')
+	}
+
+}
+
++@Object {
+
+	isException { :self |
+		false
+	}
+
+}
+
+@PrimitiveError {
 
 	messageText { :self |
 		<primitive: return _self.message;>
@@ -16,17 +40,25 @@ Error : [Object] {
 		<primitive: return _self.name;>
 	}
 
-	shallowCopy { :self |
-		self.error('copy: cannot copy')
-	}
-
 	signal { :self |
 		<primitive: throw(_self);>
 	}
 
+}
+
+Error : [Object, Exception, PrimitiveError] {
+
 	storeString { :self |
 		'Error(\'' ++ self.messageText ++ '\')'
 	}
+
+}
+
+ReferenceError : [Object, Exception, PrimitiveError] {
+
+}
+
+TypeError : [Object, Exception, PrimitiveError] {
 
 }
 

@@ -8,8 +8,9 @@ Sl {
 
 	TopLevel = LibraryExpression+ | Program
 	LibraryExpression = TypeExpression | TraitExpression | ConstantDefinition
-	TypeExpression = TypeExtension | TypeListExtension | TypeDefinition
+	TypeExpression = TypeExtension | TypeTypeExtension | TypeListExtension | TypeDefinition
 	TypeExtension = "+" identifier "{" (methodName Block)* "}"
+	TypeTypeExtension = "+" "^" identifier "{" (methodName Block)* "}"
 	TypeListExtension = "+" "[" NonemptyListOf<identifier, ","> "]" "{" (methodName Block)* "}"
 	TypeDefinition = identifier TraitList? "{" Temporaries? (methodName Block)* "}"
 	TraitList = ":" "[" NonemptyListOf<identifier, ","> "]"
@@ -141,8 +142,8 @@ Sl {
 
 	methodName = identifier | binaryOperator
 	unqualifiedIdentifier = letter letterOrDigit*
-	qualifiedIdentifier = letter letterOrDigit* (":/" digit+)
-	identifier = qualifiedIdentifier | unqualifiedIdentifier
+	arityQualifiedIdentifier = letter letterOrDigit* (":/" digit+)
+	identifier = arityQualifiedIdentifier | unqualifiedIdentifier
 	unusedVariableIdentifier = "_"
 	identifierOrUnused = (identifier | unusedVariableIdentifier)
 	letterOrDigit = letter | digit

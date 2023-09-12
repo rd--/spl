@@ -52,6 +52,10 @@ const asJs: any = {
 		// console.debug(`TraitExtension: ${trtNm.sourceString}`);
 		return makeMethodList('extendTraitWithMethod', [trtNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
+	TypeTypeExtension(_plus, _caret, typNm, _leftBrace, mthNm, mthBlk, _rightBrace) {
+		// console.debug(`TypeTypeExtension: ${trtNm.sourceString}`);
+		return makeMethodList('addMethod', [typNm.sourceString + '_Type'], mthNm.children.map(c => c.sourceString), mthBlk.children);
+	},
 	TraitDefinition(_at, trtNm, _leftBrace, mthNm, mthBlk, _rightBrace) {
 		const trt = `sl.addTrait('${trtNm.sourceString}', '${context.packageName}');`;
 		const mth = makeMethodList('addTraitMethod', [trtNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
@@ -311,17 +315,23 @@ const asJs: any = {
 	},
 
 	unusedVariableIdentifier(_underscore) {
+		const idenfitifer = gensym();
+		//console.log('unusedVariableIdentifier', identifier);
 		return gensym();
 	},
 	unqualifiedIdentifier(c1, cN) {
-		return `_${c1.sourceString}${cN.sourceString}`;
+		const identifier = `_${c1.sourceString}${cN.sourceString}`;
+		//console.log('unqualifiedIdentifier', identifier);
+		return identifier;
 	},
-	qualifiedIdentifier(c1, cN, _colonDividedBy, a) {
+	arityQualifiedIdentifier(c1, cN, _aritySeparator, a) {
 		const arityPart =
 			slOptions.simpleArityModel ?
 			'' :
 			`_${a.sourceString}`;
-		return `_${c1.sourceString}${cN.sourceString}${arityPart}`;
+		const identifier = `_${c1.sourceString}${cN.sourceString}${arityPart}`;
+		//console.log('arityQualifiedIdentifier', identifier);
+		return identifier;
 	},
 	reservedIdentifier(id) {
 		switch(id.sourceString) {

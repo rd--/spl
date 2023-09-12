@@ -34,17 +34,25 @@ function isRecord(anObject: SlObject): boolean {
 
 function objectType(anObject: SlObject): TypeName {
 	return anObject instanceof Array ? 'Array' :
-		(anObject instanceof Error ? 'Error' :
-		 (anObject instanceof Map ? 'Map' :
-		  (anObject instanceof Set ? 'Set' :
-		   (anObject instanceof Uint8Array ? 'ByteArray' :
-		    (anObject instanceof Float64Array ? 'Float64Array' :
-		     (anObject instanceof Promise ? 'Promise' :
-		      (anObject instanceof PriorityQueue ? 'PriorityQueue' :
+		(anObject instanceof Map ? 'Map' :
+		 (anObject instanceof Set ? 'Set' :
+		  (anObject instanceof Promise ? 'Promise' :
+		   (anObject instanceof PriorityQueue ? 'PriorityQueue' :
+		    (anObject instanceof Uint8Array ? 'ByteArray' :
+		     (anObject instanceof Float64Array ? 'Float64Array' :
+		      (anObject instanceof Error ? 'Error' :
 		       (anObject instanceof WeakMap ? 'WeakMap' :
 		        (anObject._type ||
 		         (isRecord(anObject) ? 'Record' : anObject.constructor.name))))))))));
 }
+
+/* This runs slower than the form above, is .constructor.name slow?
+function objectType(anObject: SlObject): TypeName {
+	return anObject instanceof Uint8Array ? 'ByteArray' :
+		(anObject._type ||
+			(isRecord(anObject) ? 'Record' : anObject.constructor.name));
+}
+*/
 
 export function typeOf(anObject: unknown): TypeName {
 	if(anObject === null || anObject === undefined) {
@@ -129,7 +137,8 @@ export class Type {
 	}
 }
 
-const preinstalledTypes = ['Array', 'SmallFloat', 'String', 'Void']; // required if methods are added before type definition
+// required if methods are added before type definition, this should be cleared up
+const preinstalledTypes = ['Array', 'SmallFloat', 'String', 'Void'];
 
 type LibraryItem = unknown;
 type Transcript = unknown;
@@ -197,7 +206,7 @@ export function copyTraitToType(traitName: TraitName, typeName: TypeName): void 
 		const methodDictionary = system.traitDictionary.get(traitName)!.methodDictionary;
 		for (const [name, method] of methodDictionary) {
 			// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${method.arity}`);
-			addMethodFor(typeName, method);
+			addMethodFor(typeName, method, true);
 		}
 	} else {
 		throw(`copyTraitToType: trait or type does not exist: ${traitName}, ${typeName}`);
@@ -219,7 +228,7 @@ export function extendTraitWithMethod(traitName: TraitName, packageName: Package
 	if(traitExists(traitName)) {
 		const method = addTraitMethod(traitName, packageName, name, arity, procedure, sourceCode);
 		traitTypeArray(traitName).forEach(function(typeName) {
-			addMethodFor(typeName, method);
+			addMethodFor(typeName, method, true);
 		});
 		return method;
 	} else {
@@ -273,8 +282,8 @@ export function dispatchByArity(name: string, arity: number, arityTable: ByArity
 
 declare var globalThis: { [key: string]: unknown };
 
-export function addMethodFor(typeName: TypeName, method: Method): Method {
-	if(slOptions.requireTypeExists && !typeExists(typeName)) {
+export function addMethodFor(typeName: TypeName, method: Method, requireTypeExists: boolean): Method {
+	if(requireTypeExists && !typeExists(typeName)) {
 		throw(`addMethodFor: type does not exist: ${typeName} (${method})`);
 	}
 	// console.debug(`addMethodFor: ${typeName}, ${method.name}, ${method.arity}`);
@@ -326,14 +335,24 @@ export function addMethodFor(typeName: TypeName, method: Method): Method {
 	return method;
 }
 
+// Is type of type (i.e. meta-type)
+function isTypeType(typeName: TypeName):boolean {
+	return typeName.endsWith('_Type')
+}
+
 // c.f. rewrite/makeMethodList
 export function addMethod(typeName: TypeName, packageName: PackageName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
+	const isMeta = isTypeType(typeName);
+	if(isMeta && !typeExists(typeName)) {
+		// Lazily add meta-type entries as required
+		system.typeDictionary.set(typeName, new Type(typeName, 'Kernel-System-Meta', ['Object'], [], new Map()));
+	}
 	if(typeExists(typeName)) {
 		const typeValue = system.typeDictionary.get(typeName)!;
 		const method = new Method(methodName, packageName, procedure, arity, sourceCode, typeValue);
-		return addMethodFor(typeName, method);
+		return addMethodFor(typeName, method, slOptions.requireTypeExists);
 	} else {
-		throw(`addMethod: ${typeName}, ${methodName}, ${arity}`);
+		throw(`addMethod: type does not exist: ${typeName}, ${methodName}, ${arity}`);
 	}
 }
 

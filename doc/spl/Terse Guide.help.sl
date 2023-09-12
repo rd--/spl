@@ -1239,6 +1239,7 @@ system.includesPackage('Time-Duration')
 ## Error -- exception type
 ```
 Error().isError = true (* an error with no message is an error *)
+Error().isException = true (* an error is an exception *)
 Error('Error message').isError = true (* error with message is an error *)
 Error('Error message').name = 'Error' (* an error has a name *)
 Error('Error message').messageText = 'Error message' (* an error has a message *)
@@ -3274,7 +3275,8 @@ system.traitDictionary['Dictionary'].isTrait = true
 system.typeDictionary.isDictionary = true
 system.typeDictionary.indices.includes('Array') = true
 system.typeDictionary.includesIndex('Array') = true
-system.typeDictionary::Array.isType = true
+system.typeDictionary::Array.typeOf = 'Type' (* type of type is Type *)
+system.typeDictionary::Array.isType = true (* Type type predicate *)
 system.typeDictionary::Array.traitNameArray.includes('Collection') = true
 system.typeDictionary::Association.slotNameArray = ['key', 'value']
 system.typeDictionary::Association.methodDictionary.indices.includes('equals:/2')
