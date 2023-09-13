@@ -180,62 +180,6 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 		)
 	}
 
-	initializeMidi { :self :ifPresent:/1 |
-		self.midiAccess.ifNil {
-			system.window.navigator.requestMidiAccess.thenElse { :midiAccess |
-				self.midiAccess := midiAccess;
-				ifPresent(midiAccess)
-			} { :message |
-				self.warning('initializeMidi: no midiAccess: ' + message)
-			}
-		} {
-			ifPresent(self.midiAccess)
-		}
-	}
-
-	MidiMonitorMenu { :self :event |
-		self.initializeMidi { :unusedMidiAcccess |
-			|(
-				onSelect = { :midiPort :event |
-					self.midiMonitorOn(midiPort, event)
-				},
-				menu = Menu('Midi Monitor Menu', self.midiPortListEntries(onSelect:/2))
-			)|
-			menu.isTransient := true;
-			self.addFrameWithAnimator(menu, event, 1) {
-				menu.setEntries(self.midiPortListEntries(onSelect:/2))
-			}
-		}
-	}
-
-	midiMonitorOn { :self :midiPort :event |
-		|(
-			textEditor = TextEditor('Midi Monitor On ' ++ midiPort.name, 'text/plain', ''),
-			messages = [],
-			onMidiMessage = { :midiMessageEvent |
-				messages.add(midiMessageEvent);
-				textEditor.setEditorText(messages.last(25.min(messages.size)).collect { :midi |
-					midi.data.asString
-				}.unlines)
-			},
-			frame = self.addFrame(textEditor, event)
-		)|
-		textEditor.editable := false;
-		midiPort.addEventListener('midimessage', onMidiMessage);
-		frame.addEventListener('close') { :unusedEvent |
-			midiPort.removeEventListener('midimessage', onMidiMessage)
-		};
-		frame
-	}
-
-	midiPortListEntries { :self :onSelect:/2|
-		(self.midiAccess.inputs.ports ++ self.midiAccess.outputs.ports).collect { :midiPort |
-			MenuItem(midiPort.type ++ '/' ++ midiPort.name, nil) { :event |
-				onSelect(midiPort, event)
-			}
-		}
-	}
-
 	referencesTo { :self :subject :event |
 		self.addFrame(
 			MethodSignatureBrowser(
@@ -249,6 +193,19 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	removeFrame { :self :frame |
 		frame.outerElement.remove;
 		self.frameSet.remove(frame)
+	}
+
+	withMidiAccess { :self :aBlock:/1 |
+		self.midiAccess.ifNil {
+			system.window.navigator.requestMidiAccess.thenElse { :midiAccess |
+				self.midiAccess := midiAccess;
+				aBlock(midiAccess)
+			} { :message |
+				system.warning('withMidiAccess: no midiAccess: ' + message)
+			}
+		} {
+			aBlock(self.midiAccess)
+		}
 	}
 
 	WorldMenu { :self :isTransient :event |
@@ -269,14 +226,6 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 				},
 				MenuItem('Font Size Menu', nil) { :event |
 					self.fontSizeMenuOn(self, false, event)
-				},
-				MenuItem('Midi Monitor Menu', nil) { :event |
-					self.MidiMonitorMenu(event)
-				},
-				MenuItem('Midi Port Browser', nil) { :event |
-					self.initializeMidi { :unusedMidiAccess |
-						self.addFrame(self.MidiPortBrowser, event)
-					}
 				},
 				MenuItem('ScSynth Reset', nil) { :event |
 					system.clock.removeAll;

@@ -11,7 +11,7 @@ system.window.fetchString(
 	'https://rohandrape.net/sw/stsc3/lib/svg/smalltalk-balloon.svg',
 	 ()
  ).then { :answer |
-	workspace::smallKansas.SvgViewer(
+	system.smallKansas.SvgViewer(
 		'Smalltalk Balloon',
 		answer.parseSvg
 	)
@@ -62,5 +62,5 @@ group.appendChildren([
 	line
 ]);
 svg.appendChild(group);
-workspace::smallKansas.SvgViewer('Circle and Line', svg)
+system.smallKansas.SvgViewer('Circle and Line', svg)
 ```

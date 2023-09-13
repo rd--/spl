@@ -5,7 +5,7 @@
 Add a window displaying a table.
 
 ```
-workspace::smallKansas.TableViewer(
+system.smallKansas.TableViewer(
 	'Luoshu',
 	[
 		[4, 9, 2],

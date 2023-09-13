@@ -11,7 +11,7 @@ system.window.fetchBlob(
 	'https://rohandrape.net/sw/stsc3/lib/png/smalltalk-balloon.png',
 	 ()
  ).then { :answer |
-	workspace::smallKansas.PngViewer(
+	system.smallKansas.PngViewer(
 		'Smalltalk Balloon',
 		answer
 	)
