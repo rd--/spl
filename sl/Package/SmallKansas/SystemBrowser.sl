@@ -1,8 +1,8 @@
-+Void {
++System {
 
-	SystemBrowser {
+	SystemBrowser { :self |
 		|(
-			typeNames = system.typeDictionary.indicesSorted,
+			typeNames = self.typeDictionary.indicesSorted,
 			methodSet = nil,
 			selectedMethod = nil
 		)|
@@ -15,8 +15,8 @@
 					typeNames
 				},
 				1 -> {
-					browser.setStatus(system.typeTraits(path[1]).joinSeparatedBy(', '));
-					methodSet := system.typeMethodDictionary(path[1]).values.select { :each |
+					browser.setStatus(self.typeTraits(path[1]).joinSeparatedBy(', '));
+					methodSet := self.typeMethodDictionary(path[1]).values.select { :each |
 						each.origin.name ~= 'Object'
 					};
 					methodSet.collect(qualifiedName:/1).Array.sorted
@@ -34,10 +34,10 @@
 
 }
 
-+SmallKansas {
+SystemBrowser : [Object, SmallKansan] {
 
-	SystemBrowser { :self :event |
-		self.addFrame(SystemBrowser(), event)
+	openIn { :self :smallKansas :event |
+		smallKansas.addFrame(system.SystemBrowser, event)
 	}
 
 }

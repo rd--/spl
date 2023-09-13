@@ -1,15 +1,15 @@
 [
-	Package('Benchmark-Benchmark'),
-	Package('Benchmark-SomRandom'),
-	Package('Benchmark-Bounce'),
-	Package('Benchmark-List'),
-	Package('Benchmark-Permute'),
-	Package('Benchmark-Queens'),
-	Package('Benchmark-Sieve'),
-	Package('Benchmark-Storage'),
-	Package('Benchmark-Towers'),
-	Package('Benchmark-Havlak'),
-	Package('Benchmark-Json'),
-	Package('Benchmark-Mandelbrot'),
-	Package('Benchmark-NBody')
-].loadPackages
+	'Benchmark-Benchmark'
+	'Benchmark-SomRandom'
+	'Benchmark-Bounce'
+	'Benchmark-List'
+	'Benchmark-Permute'
+	'Benchmark-Queens'
+	'Benchmark-Sieve'
+	'Benchmark-Storage'
+	'Benchmark-Towers'
+	'Benchmark-Havlak'
+	'Benchmark-Json'
+	'Benchmark-Mandelbrot'
+	'Benchmark-NBody')
+].collect(Package:/1).loadPackages

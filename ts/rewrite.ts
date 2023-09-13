@@ -57,9 +57,9 @@ const asJs: any = {
 		// console.debug(`TraitExtension: ${trtNm.sourceString}`);
 		return makeMethodList('extendTraitWithMethod', [trtNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
-	TypeTypeExtension(_plus, _caret, typNm, _leftBrace, mthNm, mthBlk, _rightBrace) {
+	TypeTypeExtension(_plus, typNm, _caret, _leftBrace, mthNm, mthBlk, _rightBrace) {
 		// console.debug(`TypeTypeExtension: ${trtNm.sourceString}`);
-		return makeMethodList('addMethod', [typNm.sourceString + '_Type'], mthNm.children.map(c => c.sourceString), mthBlk.children);
+		return makeMethodList('addMethod', [typNm.sourceString + '^'], mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
 	TraitDefinition(_at, trtNm, _leftBrace, mthNm, mthBlk, _rightBrace) {
 		const trt = `sl.addTrait('${trtNm.sourceString}', '${context.packageName}');`;

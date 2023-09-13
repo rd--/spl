@@ -46,10 +46,10 @@
 
 }
 
-+SmallKansas {
+PackageBrowser : [Object, SmallKansan] {
 
-	PackageBrowser { :self :event |
-		self.addFrame(system.PackageBrowser, event)
+	openIn { :self :smallKansas :event |
+		smallKansas.addFrame(system.PackageBrowser, event)
 	}
 
 }

@@ -1,5 +1,9 @@
 MenuItem : [Object] { | name accessKey onSelect |
 
+	<= { :self :aMenuItem |
+		self.name <= aMenuItem.name
+	}
+
 	accessKeyDislayText { :self |
 		self.accessKey.ifNil {
 			''

@@ -1,3 +1,11 @@
+TypeBrowser : [Object, SmallKansan] {
+
+	openIn { :self :smallKansas :event |
+		smallKansas.addFrame(system.TypeBrowser, event)
+	}
+
+}
+
 +System {
 
 	TypeBrowser { :self |
@@ -24,14 +32,6 @@
 				}
 			])
 		}
-	}
-
-}
-
-+SmallKansas {
-
-	TypeBrowser { :self :event |
-		self.addFrame(system.TypeBrowser, event)
 	}
 
 }

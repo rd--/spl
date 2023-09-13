@@ -78,3 +78,13 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 	}
 
 }
+
+CrystalLatticeStructureBrowser : [Object, SmallKansan] {
+
+	openIn { :self :smallKansas :event |
+		system.requireLibraryItem('clsLeitner').then { :clsLeitner |
+			smallKansas.addFrame(CrystalLatticeStructureBrowser(clsLeitner), event)
+		}
+	}
+
+}

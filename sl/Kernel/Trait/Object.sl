@@ -89,6 +89,10 @@
 		aBlock(self)
 	}
 
+	initialize { :self |
+		self
+	}
+
 	inspectAsArray { :self :maxIndices |
 		[
 			['Type' -> self.Type],

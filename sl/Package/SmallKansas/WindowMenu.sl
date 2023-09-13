@@ -1,18 +1,23 @@
-+SmallKansas {
+WindowMenu : [Object, SmallKansan] {
 
-	windowMenuEntries { :self |
-		self.frameSet.Array.collect { :frame |
-			MenuItem(frame.title, nil) { :unusedEvent |
-				frame.bringToFront
-			}
+	openIn { :self :smallKansas :event |
+		|(
+			currentWindowTitles = {
+				smallKansas.frameSet.Array.collect { :frame |
+					MenuItem(frame.title, nil) { :unusedEvent |
+						frame.bringToFront
+					}
+				}.sort
+			},
+			menu = Menu(self.title, currentWindowTitles())
+		)|
+		smallKansas.addFrameWithAnimator(menu, event, 1) {
+			menu.setEntries(currentWindowTitles())
 		}
 	}
 
-	WindowMenu { :self :event |
-		| menu = Menu('Window Menu', self.windowMenuEntries); |
-		self.addFrameWithAnimator(menu, event, 1) {
-			menu.setEntries(self.windowMenuEntries)
-		}
+	title { :self |
+		'Window Menu'
 	}
 
 }

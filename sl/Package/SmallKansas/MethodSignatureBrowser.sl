@@ -31,10 +31,10 @@
 
 }
 
-+SmallKansas {
+MethodSignatureBrowser : [Object, SmallKansan] {
 
-	MethodSignatureBrowser { :self :event |
-		self.addFrame(system.MethodSignatureBrowser, event)
+	openIn { :self :smallKansas :event |
+		smallKansas.addFrame(system.MethodSignatureBrowser, event)
 	}
 
 }

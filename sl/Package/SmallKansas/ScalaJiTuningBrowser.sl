@@ -114,11 +114,11 @@
 
 }
 
-+SmallKansas {
+ScalaJiTuningBrowser : [Object, SmallKansan] {
 
-	ScalaJiTuningBrowser { :self :event |
+	openIn { :self :smallKansas :event |
 		system.requireLibraryItem('jiScala').then { :jiTuning |
-			self.addFrame(jiTuning.ScalaJiTuningBrowser, event)
+			smallKansas.addFrame(jiTuning.ScalaJiTuningBrowser, event)
 		}
 	}
 

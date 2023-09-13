@@ -337,7 +337,7 @@ export function addMethodFor(typeName: TypeName, method: Method, requireTypeExis
 
 // Is type of type (i.e. meta-type)
 function isTypeType(typeName: TypeName):boolean {
-	return typeName.endsWith('_Type')
+	return typeName.endsWith('^')
 }
 
 // c.f. rewrite/makeMethodList

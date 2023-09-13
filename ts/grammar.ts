@@ -10,7 +10,7 @@ Sl {
 	LibraryExpression = TypeExpression | TraitExpression | ConstantDefinition
 	TypeExpression = TypeExtension | TypeTypeExtension | TypeListExtension | HostTypeDefinition | TypeDefinition
 	TypeExtension = "+" identifier "{" (methodName Block)* "}"
-	TypeTypeExtension = "+" "^" identifier "{" (methodName Block)* "}"
+	TypeTypeExtension = "+" identifier "^" "{" (methodName Block)* "}"
 	TypeListExtension = "+" "[" NonemptyListOf<identifier, ","> "]" "{" (methodName Block)* "}"
 	HostTypeDefinition = identifier "!" TraitList? "{" Temporaries? (methodName Block)* "}"
 	TypeDefinition = identifier TraitList? "{" Temporaries? (methodName Block)* "}"

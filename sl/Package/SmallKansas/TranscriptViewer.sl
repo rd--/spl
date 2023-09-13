@@ -1,9 +1,15 @@
-TranscriptViewer : [Object, View] { | textEditor entryCount |
+TranscriptViewer : [Object, View, SmallKansan] { | textEditor entryCount |
 
 	initialize { :self |
 		self.textEditor := TextEditor('', 'text/plain', '');
 		self.entryCount := 0;
 		self
+	}
+
+	openIn { :self :smallKansas :event |
+		smallKansas.addFrameWithAnimator(self, event, 1) {
+			self.update
+		}
 	}
 
 	outerElement { :self |
@@ -15,28 +21,6 @@ TranscriptViewer : [Object, View] { | textEditor entryCount |
 			self.entryCount := system.transcript.entries.size;
 			self.textEditor.setEditorText(system.transcript.String)
 		}
-	}
-
-}
-
-+Void {
-
-	TranscriptViewer {
-		newTranscriptViewer().initialize
-	}
-
-}
-
-+SmallKansas {
-
-	TranscriptViewer { :self :event |
-		|(
-			transcriptViewer = TranscriptViewer(),
-			frame = self.addFrameWithAnimator(transcriptViewer, event, 1) {
-				transcriptViewer.update
-			}
-		)|
-		frame
 	}
 
 }

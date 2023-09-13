@@ -52,7 +52,7 @@ Inspector : [Object, View] { | inspectorPane inspectorList |
 	}
 
 	inspect { :self |
-		system::smallKansas.inspectorOn(self, nil)
+		system.smallKansas.inspectorOn(self, nil)
 	}
 
 }

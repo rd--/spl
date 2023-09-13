@@ -21,11 +21,10 @@
 
 }
 
-+SmallKansas {
+TraitBrowser : [Object, SmallKansan] {
 
-	TraitBrowser { :self :event |
-		self.addFrame(system.TraitBrowser, event)
+	openIn { :self :smallKansas :event |
+		smallKansas.addFrame(system.TraitBrowser, event)
 	}
 
 }
-

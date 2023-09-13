@@ -467,12 +467,20 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 | a = [1, [2, 3]], c = a.copy; | c[2][1] := -2; c = a & { a = [1, [-2, 3]] } (* copy is a shallow copy *)
 | a = [1, [2, 3]], c = a.deepCopy; | c[2][1] := -2; c ~= a & { a = [1, [2, 3]] } (* deepCopy is a deep copy *)
 | a = [nil, true, false, 3.141, 23, 'str']; | a.deepCopy = a (* deepCopy of shallow array *)
+[1, 3 .. 9].copyUpTo(7) = [1, 3, 5] (* copy up to but not including element *)
+[1, 3 .. 9].copyUpTo(-1) = [1, 3 .. 9] (* copy up to end if no such element *)
+[1, 2, 3, 4, 2, 3, 4, 3, 4, 4].copyUpToLast(3) = [1, 2, 3, 4, 2, 3, 4] (* copy up to last instance of element *)
+[1, 3 .. 9].copyUpToLast(-1) = [1, 3 .. 9] (* copy up to end if no such element *)
 ```
 
 ## ArrayedCollection -- collection trait
 ```
 [3, 5, 7].basicAt(1) = 3 (* unchecked lookup *)
 [3, 5, 7].basicAt(7) = nil (* unchecked lookup, nil on invalid index *)
+| a = [1, 7, 3, 9, 5]; | a.sortBy { :p :q | p >= q }; a = [9, 7 .. 1] (* sort using provided comparison, in place *)
+[1, 7, 3, 9, 5].sortBy { :p :q | p >= q } = [9, 7 .. 1] (* sort using provided comparison, in place answering array *)
+[1, 7, 3, 9, 5].sort = [1, 3 .. 9] (* sort using default comparison of <= *)
+[(x: 1, y: 9), (x: 9, y: 1)].sortOn { :each | each::y } = [(x: 9, y: 1), (x: 1, y: 9)] (* sort using provided key block *)
 ```
 
 ## Assignment

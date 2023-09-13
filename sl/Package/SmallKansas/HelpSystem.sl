@@ -209,23 +209,34 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 		}
 	}
 
-	HelpBrowser { :self :event |
-		self.getHelp { :help |
-			self.addFrame(help.HelpBrowser, event)
-		}
-	}
+}
 
-	ProgramBrowser { :self :event |
-		self.getHelp { :help |
-			self.addFrame(help.ProgramBrowser, event)
-		}
-	}
+HelpBrowser : [Object, SmallKansan] {
 
-	ProgramOracle { :self :event |
-		self.getHelp { :help |
-			self.addFrame(help.ProgramOracle, event)
+	openIn { :self :smallKansas :event |
+		smallKansas.getHelp { :help |
+			smallKansas.addFrame(help.HelpBrowser, event)
 		}
 	}
 
 }
 
+ProgramBrowser : [Object, SmallKansan] {
+
+	openIn { :self :smallKansas :event |
+		smallKansas.getHelp { :help |
+			smallKansas.addFrame(help.ProgramBrowser, event)
+		}
+	}
+
+}
+
+ProgramOracle : [Object, SmallKansan] {
+
+	openIn { :self :smallKansas :event |
+		smallKansas.getHelp { :help |
+			smallKansas.addFrame(help.ProgramOracle, event)
+		}
+	}
+
+}

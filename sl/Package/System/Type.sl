@@ -4,6 +4,20 @@ Type! : [Object] {
 		system.categoryOf('type', self.name)
 	}
 
+	constructorName { :self |
+		'new' ++ self.name ++ ':/0'
+	}
+
+	instanceOf { :self |
+		| instance = system.typeLookup('Void').methodDictionary[self.constructorName].procedure.value; |
+		instance.initialize;
+		instance
+	}
+
+	isMeta { :self |
+		self.name.endsWith('^')
+	}
+
 	methodArray { :self |
 		self.methodDictionary.values
 	}

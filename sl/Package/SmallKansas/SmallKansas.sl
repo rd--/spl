@@ -1,3 +1,11 @@
+@SmallKansan {
+
+	openIn { :self :smallKansas :event |
+		self.typeResponsibility('SmallKansan>>openIn')
+	}
+
+}
+
 SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 
 	addFrameWithAnimator { :self :subject :event :delay :aProcedure:/0 |
@@ -248,106 +256,46 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 	worldMenuEntries { :self |
-		[
-			MenuItem('About Small Kansas', nil) { :event |
-				self.helpFor('Small Kansas', event)
-			},
-			MenuItem('Analogue Clock', nil) { :event |
-				self.AnalogueClock(event)
-			},
-			MenuItem('Category Browser', nil) { :event |
-				self.CategoryBrowser(event)
-			},
-			MenuItem('ColourChooser', nil) { :event |
-				self.ColourChooser(self, event)
-			},
-			MenuItem('CrystalLatticeStructureBrowser', nil) { :event |
-				system.requireLibraryItem('clsLeitner').then { :clsLeitner |
-					self.addFrame(CrystalLatticeStructureBrowser(clsLeitner), event)
-				}
-			},
-			MenuItem('CrystalLatticeStructureOracle', nil) { :event |
-				system.requireLibraryItem('clsLeitner').then { :clsLeitner |
-					| cls = clsLeitner.atRandom, mtx = Projection3().chinese.Matrix33; |
-					self.addFrame(SvgViewer(
-						'Cls - ' ++ cls.name,
-						cls.drawing(0.25) { :each |
-							mtx.applyTo(each).xy * 50
-						}),
+		|(
+			static = [
+				MenuItem('About Small Kansas', nil) { :event |
+					self.helpFor('Small Kansas', event)
+				},
+				MenuItem('Colour Chooser', nil) { :event |
+					self.colourChooserOn(self, event)
+				},
+				MenuItem('Font Menu', nil) { :event |
+					self.fontMenuOn(self, false, event)
+				},
+				MenuItem('Font Size Menu', nil) { :event |
+					self.fontSizeMenuOn(self, false, event)
+				},
+				MenuItem('Midi Monitor Menu', nil) { :event |
+					self.MidiMonitorMenu(event)
+				},
+				MenuItem('Midi Port Browser', nil) { :event |
+					self.initializeMidi { :unusedMidiAccess |
+						self.addFrame(self.MidiPortBrowser, event)
+					}
+				},
+				MenuItem('ScSynth Reset', nil) { :event |
+					system.clock.removeAll;
+					system.defaultScSynth.reset
+				},
+				MenuItem('Workspace', nil) { :event |
+					self.addFrame(
+						TextEditor('Workspace', 'text/plain', ''),
 						event
 					)
 				}
-			},
-			MenuItem('Digital Clock', nil) { :event |
-				self.DigitalClock(event)
-			},
-			MenuItem('Font Menu', nil) { :event |
-				self.fontMenuOn(self, false, event)
-			},
-			MenuItem('Font Size Menu', nil) { :event |
-				self.fontSizeMenuOn(self, false, event)
-			},
-			MenuItem('Help Browser', nil) { :event |
-				self.HelpBrowser(event)
-			},
-			MenuItem('Method Browser', nil) { :event |
-				self.MethodBrowser(event)
-			},
-			MenuItem('Method Signature Browser', nil) { :event |
-				self.MethodSignatureBrowser(event)
-			},
-			MenuItem('Midi Monitor Menu', nil) { :event |
-				self.MidiMonitorMenu(event)
-			},
-			MenuItem('Midi Port Browser', nil) { :event |
-				self.initializeMidi { :unusedMidiAccess |
-					self.addFrame(self.MidiPortBrowser, event)
+			],
+			dynamic = system.smallKansans.collect { :each |
+				MenuItem(each.name, nil) { :event |
+					each.instanceOf.openIn(self, event)
 				}
-			},
-			MenuItem('Package Browser', nil) { :event |
-				self.PackageBrowser(event)
-			},
-			MenuItem('Program Browser', nil) { :event |
-				self.ProgramBrowser(event)
-			},
-			MenuItem('Program Oracle', nil) { :event |
-				self.ProgramOracle(event)
-			},
-			MenuItem('ScSynth Reset', nil) { :event |
-				system.clock.removeAll;
-				system.defaultScSynth.reset
-			},
-			MenuItem('ScSynth Status', nil) { :event |
-				self.ScSynthStatus(event)
-			},
-			MenuItem('Scala Ji Meta Browser', nil) { :event |
-				self.ScalaJiMetaBrowser(event)
-			},
-			MenuItem('Scala Ji Tuning Browser', nil) { :event |
-				self.ScalaJiTuningBrowser(event)
-			},
-			MenuItem('System Browser', nil) { :event |
-				self.SystemBrowser(event)
-			},
-			MenuItem('Trait Browser', nil) { :event |
-				self.TraitBrowser(event)
-			},
-			MenuItem('Transcript Viewer', nil) { :event |
-				self.TranscriptViewer(event)
-			},
-			MenuItem('Type Browser', nil) { :event |
-				self.TypeBrowser(event)
-			},
-			MenuItem('Window Menu', nil) { :event |
-				self.WindowMenu(event)
-			},
-			MenuItem('Workspace', nil) { :event |
-				self.addFrame(
-					TextEditor('Workspace', 'text/plain', ''),
-					event
-				)
 			}
-		]
+		)|
+		(static ++ dynamic).sort
 	}
 
 	zIndices { :self |
@@ -367,3 +315,20 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	}
 
 }
+
++@Cache {
+
+	smallKansas { :self |
+		self.cached('smallKansas') {
+			SmallKansas()
+		}
+	}
+
+	smallKansans { :self |
+		self.traitTypes('SmallKansan').collect { :each |
+			system.typeLookup(each)
+		}
+	}
+
+}
+

@@ -1,12 +1,12 @@
-+SmallKansas {
+DigitalClock : [Object, SmallKansan] {
 
-	DigitalClock { :self :event |
+	openIn { :self :smallKansas :event |
 		|(
 			getTime = {
 				system.Date.localeTimeString('en-US')
 			},
 			textEditor = TextEditor('Digital Clock', 'text/plain', getTime()),
-			frame = self.addFrameWithAnimator(textEditor, event, 1) {
+			frame = smallKansas.addFrameWithAnimator(textEditor, event, 1) {
 				textEditor.setEditorText(getTime())
 			}
 		)|

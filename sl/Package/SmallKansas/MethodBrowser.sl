@@ -32,10 +32,10 @@
 
 }
 
-+SmallKansas {
+MethodBrowser : [Object, SmallKansan] {
 
-	MethodBrowser { :self :event |
-		self.addFrame(system.MethodBrowser, event)
+	openIn { :self :smallKansas :event |
+		smallKansas.addFrame(system.MethodBrowser, event)
 	}
 
 }

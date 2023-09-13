@@ -70,19 +70,19 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 				)
 			},
 			MenuItem('Browse It', 'b') { :event |
-				system::smallKansas.browserOn([self.currentWord], event)
+				system.smallKansas.browserOn([self.currentWord], event)
 			},
 			MenuItem('Do It', 'd') { :event |
 				self.currentText.evaluate
 			},
 			MenuItem('Help For It', 'h') { :event |
-				system::smallKansas.helpFor(self.currentWord.asMethodName, event)
+				system.smallKansas.helpFor(self.currentWord.asMethodName, event)
 			},
 			MenuItem('Implementors Of It', 'm') { :event |
-				system::smallKansas.implementorsOf(self.currentWord.asMethodName, event)
+				system.smallKansas.implementorsOf(self.currentWord.asMethodName, event)
 			},
 			MenuItem('Inspect It', 'i') { :event |
-				system::smallKansas.inspectorOn(self.currentWord.evaluate, event)
+				system.smallKansas.inspectorOn(self.currentWord.evaluate, event)
 			},
 			MenuItem('Play It', 'Enter') { :event |
 				('{ ' ++ self.currentText ++ ' }.play').evaluate
@@ -91,7 +91,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 				self.insertText(' ' ++ self.currentText.evaluate.asString)
 			},
 			MenuItem('References To It', nil) { :event |
-				system::smallKansas.referencesTo(self.currentWord.asMethodName, event)
+				system.smallKansas.referencesTo(self.currentWord.asMethodName, event)
 			},
 			MenuItem('Reset Synthesiser', '.') { :event |
 				system.clock.removeAll;
@@ -144,7 +144,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 	}
 
 	textEditorMenu { :self :event |
-		system::smallKansas.menu(
+		system.smallKansas.menu(
 			'Text Editor Menu',
 			self.keyBindings,
 			true,

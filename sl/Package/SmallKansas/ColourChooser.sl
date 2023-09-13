@@ -48,7 +48,7 @@ ColourChooser : [Object, View] { | colourChooserPane colourInput |
 
 +SmallKansas {
 
-	ColourChooser { :self :subject :event |
+	colourChooserOn { :self :subject :event |
 		self.addFrame(ColourChooser({ :aColour |
 			subject.colour(aColour)
 		}), event)

@@ -1,4 +1,4 @@
-AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
+AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand secondHand |
 
 	createElements { :self |
 		|(
@@ -86,6 +86,12 @@ AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 		self.secondHand.p2 := PolarPoint(85, theta.negated)
 	}
 
+	openIn { :self :smallKansas :event |
+		smallKansas.addFrameWithAnimator(self, event, 1) {
+			self.tick
+		}
+	}
+
 	outerElement { :self |
 		self.clockPane
 	}
@@ -99,28 +105,6 @@ AnalogueClock : [Object, View] { | clockPane hourHand minuteHand secondHand |
 
 	title { :self |
 		'Analogue Clock'
-	}
-
-}
-
-+Void {
-
-	AnalogueClock {
-		newAnalogueClock().initialize
-	}
-
-}
-
-+SmallKansas {
-
-	AnalogueClock { :self :event |
-		|(
-			clock = AnalogueClock(),
-			frame = self.addFrameWithAnimator(clock, event, 1) {
-				clock.tick
-			}
-		)|
-		frame
 	}
 
 }

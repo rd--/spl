@@ -20,11 +20,11 @@
 
 }
 
-+SmallKansas {
+ScalaJiMetaBrowser : [Object, SmallKansan] {
 
-	ScalaJiMetaBrowser { :self :event |
+	openIn { :self :smallKansas :event |
 		system.requireLibraryItem('jiMeta').then { :jiMeta |
-			self.addFrame(jiMeta.ScalaJiMetaBrowser, event)
+			smallKansas.addFrame(jiMeta.ScalaJiMetaBrowser, event)
 		}
 	}
 

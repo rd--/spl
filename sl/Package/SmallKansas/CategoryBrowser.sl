@@ -1,3 +1,11 @@
+CategoryBrowser : [Object, SmallKansan] {
+
+	openIn { :self :smallKansas :event |
+		smallKansas.addFrame(system.CategoryBrowser, event)
+	}
+
+}
+
 +System {
 
 	CategoryBrowser { :self |
@@ -27,7 +35,7 @@
 				2 -> {
 					browser.setStatus(self.typeTraits(path[2]).joinSeparatedBy(', '));
 					completeMethodSet := self.typeMethodDictionary(path[2]).values.select { :each |
-							each.origin.name ~= 'Object'
+						each.origin.name ~= 'Object'
 					};
 					completeMethodSet.collect { :each |
 						self.categoryDictionary.categoryOf('method', each.name)
@@ -49,14 +57,6 @@
 				}
 			])
 		}
-	}
-
-}
-
-+SmallKansas {
-
-	CategoryBrowser { :self :event |
-		self.addFrame(system.CategoryBrowser, event)
 	}
 
 }

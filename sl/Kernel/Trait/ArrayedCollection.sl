@@ -169,6 +169,18 @@
 		>
 	}
 
+	sortOn { :self :keyBlock:/1 |
+		self.sortOnBy(keyBlock:/1, lessThanEquals:/2)
+	}
+
+	sortOnBy { :self :keyBlock:/1 :compareBlock:/2 |
+		<primitive:
+		return _self.sort(function(p, q) {
+			return _compareBlock_2(_keyBlock_1(p), _keyBlock_1(q)) ? -1 : 1
+		});
+		>
+	}
+
 	sorted { :self :aSortProcedure:/2 |
 		self.copy.sortBy(aSortProcedure:/2)
 	}

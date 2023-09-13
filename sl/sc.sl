@@ -1,13 +1,13 @@
 [
-	Package('Music-Frequency'),
-	Package('Music-JiTuning'),
-	Package('Music-Pitch'),
-	Package('Sound-OpenSoundControl'),
-	Package('Sound-SuperCollider-Lang'),
-	Package('Sound-SuperCollider-Lang-Clock'),
-	Package('Sound-SuperCollider-Lang-J'),
-	Package('Sound-SuperCollider-Lang-Texture'),
-	Package('Sound-SuperCollider-Synth'),
-	Package('Sound-SuperCollider-Synth-Bindings'),
-	Package('Sound-SuperCollider-Synth-Pseudo')
-].loadPackages
+	'Music-Frequency'
+	'Music-JiTuning'
+	'Music-Pitch'
+	'Sound-OpenSoundControl'
+	'Sound-SuperCollider-Lang'
+	'Sound-SuperCollider-Lang-Clock'
+	'Sound-SuperCollider-Lang-J'
+	'Sound-SuperCollider-Lang-Texture'
+	'Sound-SuperCollider-Synth'
+	'Sound-SuperCollider-Synth-Bindings'
+	'Sound-SuperCollider-Synth-Pseudo'
+].collect(Package:/1).loadPackages

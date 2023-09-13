@@ -1,26 +1,23 @@
-Package : [Object] { | packageName fileNames |
+Package : [Object] { | name implementationFileNames |
 
 	load { :self |
-		[
-			[self.packageName, self.fileNames]
-		].loadPackageSequence;
-		system.packageDictionary[self.packageName] := self
+		system.loadPackage(self)
 	}
 
 }
 
 +String {
 
-	packageImplementationFile { :self |
+	derivePackageImplementationFile { :self |
 		'Package/' ++ self.replaceStringAll('-', '/') ++ '.sl'
 	}
 
 	Package { :self |
-		Package(self, [self.packageImplementationFile])
+		Package(self, [self.derivePackageImplementationFile])
 	}
 
-	Package { :self :fileNames |
-		newPackage().initializeSlots(self, fileNames)
+	Package { :self :implementationFileNames |
+		newPackage().initializeSlots(self, implementationFileNames)
 	}
 
 }
@@ -29,11 +26,11 @@ Package : [Object] { | packageName fileNames |
 
 	loadPackages { :self |
 		self.collect { :each |
-			system.packageDictionary.includesIndex(each.packageName).ifTrue {
-				self.error('loadPackages: package exists: ' ++ each.packageName)
+			system.packageDictionary.includesIndex(each.name).ifTrue {
+				self.error('loadPackages: package exists: ' ++ each.name)
 			};
-			system.packageDictionary[each.packageName] := each;
-			[each.packageName, each.fileNames]
+			system.packageDictionary[each.name] := each;
+			[each.name, each.implementationFileNames]
 		}.loadPackageSequence
 	}
 
@@ -41,8 +38,16 @@ Package : [Object] { | packageName fileNames |
 
 +@Cache {
 
-	includesPackage { :self :packageName |
-		self.packageDictionary.includesIndex(packageName)
+	includesPackage { :self :name |
+		self.packageDictionary.includesIndex(name)
+	}
+
+	loadPackage { :self :package |
+		[
+			[package.name, package.implementationFileNames]
+		].loadPackageSequence.then {
+			self.packageDictionary[package.name] := package
+		}
 	}
 
 	packageDictionary { :self |
@@ -54,6 +59,14 @@ Package : [Object] { | packageName fileNames |
 	packageIndex { :self |
 		self.cached('packageIndex') {
 			()
+		}
+	}
+
+	registerPackage { :self :package |
+		self.packageIndex.includesIndex(package.name).if {
+			self.error('registerPackage: package exists: ' ++ package.name)
+		} {
+			self.packageIndex[package.name] := package
 		}
 	}
 

@@ -206,6 +206,24 @@
 		answer
 	}
 
+	copyUpTo { :self :anElement |
+		| index = self.indexOf(anElement); |
+		(index = 0).if {
+			self.copy
+		} {
+			self.first(index - 1)
+		}
+	}
+
+	copyUpToLast { :self :anElement |
+		| index = self.lastIndexOf(anElement); |
+		(index = 0).if {
+			self.copy
+		} {
+			self.first(index - 1)
+		}
+	}
+
 	copyWithFirst { :self :newElement |
 		| answer = self.copy; |
 		answer.addFirst(newElement);
