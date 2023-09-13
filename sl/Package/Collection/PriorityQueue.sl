@@ -1,4 +1,4 @@
-PriorityQueue : [Object] {
+PriorityQueue! : [Object] {
 
 	isEmpty { :self |
 		self.size = 0

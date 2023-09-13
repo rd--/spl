@@ -18,7 +18,7 @@ Graph : [Object] { | degree edges vertexLabels edgeLabels |
 
 }
 
-+@Integral {
++@Integer {
 
 	Graph { :self :edges :vertexLabels :edgeLabels |
 		newGraph().initializeSlots(

@@ -1,4 +1,4 @@
-ArrayBuffer : [Object] {
+ArrayBuffer! : [Object] {
 
 	byteSize { :self |
 		<primitive: return _self.byteLength;>

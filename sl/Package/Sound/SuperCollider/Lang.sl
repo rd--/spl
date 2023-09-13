@@ -296,7 +296,7 @@
 
 }
 
-+@Integral {
++@Integer {
 
 	asBinaryDigits { :self :numDigits |
 		| answer = []; |

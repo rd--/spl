@@ -346,7 +346,7 @@
 
 }
 
-Attr : [Object, Node] {
+Attr! : [Object, Node] {
 
 	name { :self | <primitive: return _self.name;> }
 	ownerElement { :self | <primitive: return _self.ownerElement;> }
@@ -354,15 +354,15 @@ Attr : [Object, Node] {
 
 }
 
-CanvasGradient : [Object] {
+CanvasGradient! : [Object] {
 
 }
 
-CanvasPattern : [Object] {
+CanvasPattern! : [Object] {
 
 }
 
-CanvasRenderingContext2D : [Object] {
+CanvasRenderingContext2D! : [Object] {
 
 	arcTo { :self :x1 :y1 :x2 :y2 :radius |
 		<primitive: return _self.arcTo(_x1, _y1, _x2, _y2, _radius);>
@@ -402,15 +402,15 @@ CanvasRenderingContext2D : [Object] {
 
 }
 
-CSSStyleDeclaration : [Object, CssProperties] {
+CSSStyleDeclaration! : [Object, CssProperties] {
 	(* Chromium... *)
 }
 
-CSS2Properties : [Object, CssProperties] {
+CSS2Properties! : [Object, CssProperties] {
 	(* Firefox... *)
 }
 
-CustomEvent : [Object, Event] {
+CustomEvent! : [Object, Event] {
 
 	detail { :self | <primitive: return _self.detail;> } (* Read only *)
 
@@ -424,7 +424,7 @@ CustomEvent : [Object, Event] {
 
 }
 
-DOMParser : [Object] {
+DOMParser! : [Object] {
 
 	parseFromString { :self :aString :mimeType |
 		<primitive: return _self.parseFromString(_aString, _mimeType);>
@@ -440,7 +440,7 @@ DOMParser : [Object] {
 
 }
 
-+ String {
++String {
 
 	parseSvg { :self |
 		DOMParser().parseFromString(self, 'image/svg+xml').documentElement
@@ -448,11 +448,11 @@ DOMParser : [Object] {
 
 }
 
-DOMMatrix : [Object, DOMMatrixReadOnly] {
+DOMMatrix! : [Object, DOMMatrixReadOnly] {
 
 }
 
-DOMMatrixReadOnly : [Object, DOMMatrixReadOnly] {
+DOMMatrixReadOnly! : [Object, DOMMatrixReadOnly] {
 
 }
 
@@ -468,11 +468,11 @@ DOMMatrixReadOnly : [Object, DOMMatrixReadOnly] {
 
 }
 
-DOMPoint : [Object, DOMPointReadOnly] {
+DOMPoint! : [Object, DOMPointReadOnly] {
 
 }
 
-DOMPointReadOnly : [Object, DOMPointReadOnly] {
+DOMPointReadOnly! : [Object, DOMPointReadOnly] {
 
 }
 
@@ -496,7 +496,7 @@ DOMPointReadOnly : [Object, DOMPointReadOnly] {
 
 }
 
-DOMRect : [Object] {
+DOMRect! : [Object] {
 
 	height { :self | <primitive: return _self.height;> }
 	width { :self | <primitive: return _self.width;> }
@@ -505,7 +505,7 @@ DOMRect : [Object] {
 
 }
 
-DOMTokenList : [Object] {
+DOMTokenList! : [Object] {
 
 	add { :self :aString | <primitive: return _self.add(_aString);> }
 	contains { :self :aString | <primitive: return _self.contains(_aString);> }
@@ -513,7 +513,7 @@ DOMTokenList : [Object] {
 
 }
 
-Event : [Object, UiEvent, Event] {
+Event! : [Object, UiEvent, Event] {
 
 }
 
@@ -525,15 +525,15 @@ Event : [Object, UiEvent, Event] {
 
 }
 
-HTMLBodyElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLBodyElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLButtonElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLButtonElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLCanvasElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLCanvasElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	getContext { :self :contextType :contextAttributes |
 		<primitive: return _self.getContext(_contextType, _contextAttributes);>
@@ -549,11 +549,11 @@ HTMLCanvasElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLCollection : [Object, HtmlCollection] {
+HTMLCollection! : [Object, HtmlCollection] {
 
 }
 
-HTMLDialogElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLDialogElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	close { :self | <primitive: return _self.close();> }
 	show { :self | <primitive: return _self.show();> }
@@ -561,23 +561,23 @@ HTMLDialogElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLDivElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLDivElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLDocument : [Object, EventTarget, Node, Element, HtmlElement, Document] {
+HTMLDocument! : [Object, EventTarget, Node, Element, HtmlElement, Document] {
 
 }
 
-HTMLElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLHeadingElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLHeadingElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLImageElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLImageElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	alt { :self | <primitive: return _self.value;> }
 	complete { :self | <primitive: return _self.complete;> } (* Read only *)
@@ -599,7 +599,7 @@ HTMLImageElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLInputElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLInputElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	value { :self |
 		<primitive: return _self.value;>
@@ -611,15 +611,15 @@ HTMLInputElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLLIElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLLIElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLOptionsCollection : [Object, HtmlCollection] {
+HTMLOptionsCollection! : [Object, HtmlCollection] {
 
 }
 
-HTMLOptionElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLOptionElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	index { :self | <primitive: return _self.index;> }
 	label { :self | <primitive: return _self.label;> }
@@ -631,15 +631,15 @@ HTMLOptionElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLParagraphElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLParagraphElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLPreElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLPreElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLSelectElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLSelectElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	add { :self :item :before | <primitive: return _self.add(_item, _before);> }
 	item { :self :anInteger | <primitive: return _self.item(_anInteger);> }
@@ -691,11 +691,11 @@ HTMLSelectElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLSpanElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLSpanElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLTableElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	caption { :self | <primitive: return _self.caption;> }
 	rows { :self | <primitive: return _self.rows;> } (* Read only *)
@@ -750,25 +750,25 @@ HTMLTableElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLTableCellElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLTableCellElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	cellIndex { :self | <primitive: return _self.cellIndex;> } (* Read only *)
 
 }
 
-HTMLTableColElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLTableColElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLTableRowElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLTableRowElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLTableSectionElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLTableSectionElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLTextAreaElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLTextAreaElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	cols { :self | <primitive: return _self.cols;> }
 	cols { :self :anInteger | <primitive: return _self.cols = _anInteger;> }
@@ -777,11 +777,11 @@ HTMLTextAreaElement : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-HTMLUListElement : [Object, EventTarget, Node, Element, HtmlElement] {
+HTMLUListElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-ImageBitmap : [Object] {
+ImageBitmap! : [Object] {
 
 	close { :self | <primitive: return _self.close();> }
 	height { :self | <primitive: return _self.height;> } (* Read only *)
@@ -795,7 +795,7 @@ ImageBitmap : [Object] {
 
 }
 
-ImageData : [Object] {
+ImageData! : [Object] {
 
 	data { :self | <primitive: return _self.data;> } (* Read only *)
 	colorSpace { :self | <primitive: return _self.colorSpace;> } (* Read only *)
@@ -804,7 +804,7 @@ ImageData : [Object] {
 
 }
 
-KeyboardEvent : [Object, UiEvent, Event] {
+KeyboardEvent! : [Object, UiEvent, Event] {
 
 	ctrlKey { :self | <primitive: return _self.ctrlKey;> }
 	key { :self | <primitive: return _self.key;> }
@@ -812,7 +812,7 @@ KeyboardEvent : [Object, UiEvent, Event] {
 
 }
 
-Location : [Object] {
+Location! : [Object] {
 
 	hash { :self | <primitive: return _self.hash;> }
 	host { :self | <primitive: return _self.host;> }
@@ -833,15 +833,15 @@ Location : [Object] {
 
 }
 
-MediaSource : [Object, EventTarget] {
+MediaSource! : [Object, EventTarget] {
 
 }
 
-MouseEvent : [Object, UiEvent, Event, MouseEvent] {
+MouseEvent! : [Object, UiEvent, Event, MouseEvent] {
 
 }
 
-NamedNodeMap : [Object] {
+NamedNodeMap! : [Object] {
 
 	getNamedItem { :self :aString | <primitive: return _self.getNamedItem(aString);> }
 	item { :self :anInteger | <primitive: return _self.item(_anInteger);> }
@@ -849,7 +849,7 @@ NamedNodeMap : [Object] {
 
 }
 
-Navigator : [Object] {
+Navigator! : [Object] {
 
 	maxTouchPoints { :self |
 		<primitive: return _self.maxTouchPoints;>
@@ -877,14 +877,14 @@ Navigator : [Object] {
 
 }
 
-NodeList : [Object] {
+NodeList! : [Object] {
 
 	item { :self :anInteger | <primitive: return _self.item(_anInteger);> }
 	length { :self | <primitive: return _self.length;> }
 
 }
 
-OffscreenCanvas : [Object, EventTarget] {
+OffscreenCanvas! : [Object, EventTarget] {
 
 	getContext { :self :contextType :contextAttributes |
 		<primitive: return _self.getContext(_contextType, _contextAttributes);>
@@ -892,7 +892,7 @@ OffscreenCanvas : [Object, EventTarget] {
 
 }
 
-OffscreenCanvasRenderingContext2D : [Object] {
+OffscreenCanvasRenderingContext2D! : [Object] {
 
 }
 
@@ -904,11 +904,11 @@ OffscreenCanvasRenderingContext2D : [Object] {
 
 }
 
-Path2D : [Object] {
+Path2D! : [Object] {
 
 }
 
-PointerEvent : [Object, UiEvent, Event, MouseEvent] {
+PointerEvent! : [Object, UiEvent, Event, MouseEvent] {
 
 	isPrimary { :self | <primitive: return _self.isPrimary;> }
 	pointerId { :self | <primitive: return _self.pointerId;> }
@@ -917,14 +917,14 @@ PointerEvent : [Object, UiEvent, Event, MouseEvent] {
 
 }
 
-Range : [Object, AbstractRange] {
+Range! : [Object, AbstractRange] {
 
 	deleteContents { :self | <primitive: return _self.deleteContents();> }
 	insertNode { :self :aNode | <primitive: return _self.insertNode(_aNode);> }
 
 }
 
-Selection : [Object] {
+Selection! : [Object] {
 
 	getRangeAt { :self :anInteger |
 		<primitive: return _self.getRangeAt(_anInteger);>
@@ -936,15 +936,15 @@ Selection : [Object] {
 
 }
 
-SVGCircleElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+SVGCircleElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
 
 }
 
-SVGGElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement] {
+SVGGElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement] {
 
 }
 
-SVGLineElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+SVGLineElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
 
 	p2 { :self :aPoint |
 		self.setAttribute('x2', aPoint.x);
@@ -953,11 +953,11 @@ SVGLineElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsEle
 
 }
 
-SVGPathElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+SVGPathElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
 
 }
 
-SVGPointList : [Object] {
+SVGPointList! : [Object] {
 
 	clear { :self | <primitive: return _self.clear();> }
 	getItem { :self :index | <primitive: return _self.getItem(_index);> }
@@ -966,21 +966,21 @@ SVGPointList : [Object] {
 
 }
 
-SVGPolygonElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+SVGPolygonElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
 
 	points { :self | <primitive: return _self.points;> }
 
 }
 
-SVGPolylineElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+SVGPolylineElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
 
 }
 
-SVGRectElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
+SVGRectElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
 
 }
 
-SVGSVGElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement] {
+SVGSVGElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement] {
 
 	createSVGMatrix { :self | <primitive: return _self.createSVGMatrix();> }
 	createSVGRect { :self | <primitive: return _self.createSVGRect();> }
@@ -989,19 +989,19 @@ SVGSVGElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElem
 
 }
 
-SVGTextElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGTextContentElement, SVGTextPositioningElement] {
+SVGTextElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGTextContentElement, SVGTextPositioningElement] {
 
 }
 
-SVGTextPathElement : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGTextContentElement] {
+SVGTextPathElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGTextContentElement] {
 
 }
 
-SVGTitleElement : [Object, EventTarget, Node, Element, SVGElement] {
+SVGTitleElement! : [Object, EventTarget, Node, Element, SVGElement] {
 
 }
 
-SVGTransform : [Object] {
+SVGTransform! : [Object] {
 
 	setMatrix { :self :aMatric |
 		<primitive: _self.setMatrix(_aMatrix);>
@@ -1021,14 +1021,14 @@ SVGTransform : [Object] {
 
 }
 
-SVGTransformList : [Object] {
+SVGTransformList! : [Object] {
 
 	appendItem { :self :aTransform | <primitive: return _self.appendItem(_aTransform);> }
 	getItem { :self :index | <primitive: return _self.getItem(_index);> }
 
 }
 
-Text : [Object, EventTarget, Node, CharacterData] {
+Text! : [Object, EventTarget, Node, CharacterData] {
 
 	wholeText { :self | <primitive: return _self.wholeText;> }
 
@@ -1059,10 +1059,10 @@ Text : [Object, EventTarget, Node, CharacterData] {
 
 }
 
-WebGLRenderingContext : [Object] {
+WebGLRenderingContext! : [Object] {
 
 }
 
-XMLDocument : [Object, EventTarget, Node, Document] {
+XMLDocument! : [Object, EventTarget, Node, Document] {
 
 }

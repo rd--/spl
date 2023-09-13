@@ -1,4 +1,4 @@
-Record : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
+Record! : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 
 	at { :self :aString |
 		<primitive:

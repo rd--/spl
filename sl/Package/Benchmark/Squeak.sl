@@ -1,4 +1,4 @@
-+@Integral {
++@Integer {
 
 	benchFib { :self |
 		(self < 2).if {

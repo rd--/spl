@@ -1,14 +1,22 @@
 Package : [Object] { | packageName fileNames |
 
+	load { :self |
+		[
+			[self.packageName, self.fileNames]
+		].loadPackageSequence;
+		system.packageDictionary[self.packageName] := self
+	}
+
 }
 
 +String {
 
+	packageImplementationFile { :self |
+		'Package/' ++ self.replaceStringAll('-', '/') ++ '.sl'
+	}
+
 	Package { :self |
-		Package(
-			self,
-			['Package/' ++ self.replaceStringAll('-', '/') ++ '.sl']
-		)
+		Package(self, [self.packageImplementationFile])
 	}
 
 	Package { :self :fileNames |
@@ -33,8 +41,18 @@ Package : [Object] { | packageName fileNames |
 
 +@Cache {
 
+	includesPackage { :self :packageName |
+		self.packageDictionary.includesIndex(packageName)
+	}
+
 	packageDictionary { :self |
 		self.cached('packageDictionary') {
+			()
+		}
+	}
+
+	packageIndex { :self |
+		self.cached('packageIndex') {
 			()
 		}
 	}

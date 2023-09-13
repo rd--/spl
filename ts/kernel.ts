@@ -359,12 +359,12 @@ export function addMethod(typeName: TypeName, packageName: PackageName, methodNa
 // Allows methods to be added to 'pre-installed' types before the type is added, c.f. load &etc. (& parseInteger ...).
 // It'd be possible to only allow this for the 'pre-installed' methods, which might be saner.
 // Run for built-in types, which may have traits.  Assumes non-kernel types have at least one slot.
-export function addType(typeName: TypeName, packageName: PackageName, traitList: TraitName[], slotNames: string[]): void {
+export function addType(isHostType: boolean, typeName: TypeName, packageName: PackageName, traitList: TraitName[], slotNames: string[]): void {
 	if(!typeExists(typeName) || preinstalledTypes.includes(typeName)) {
 		const initializeSlots = slotNames.map(each => `anInstance.${each} = ${each}`).join('; ');
 		const nilSlots = slotNames.map(each => `${each}: null`).join(', ');
-		const defNilType = slotNames.length === 0 ? '' : `addMethod('Void', '${packageName}', 'new${typeName}', 0, function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
-		const defInitializeSlots = slotNames.length === 0 ? '' : `addMethod('${typeName}', '${packageName}', 'initializeSlots', ${slotNames.length + 1}, function(anInstance, ${slotNames.join(', ')}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
+		const defNilType = isHostType ? '' : `addMethod('Void', '${packageName}', 'new${typeName}', 0, function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
+		const defInitializeSlots = isHostType ? '' : `addMethod('${typeName}', '${packageName}', 'initializeSlots', ${slotNames.length + 1}, function(anInstance, ${slotNames.join(', ')}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
 		const defPredicateFalse = `extendTraitWithMethod('Object', '${packageName}', 'is${typeName}', 1, function(anObject) { return false; }, '<primitive: predicate>')`;
 		const defPredicateTrue = `addMethod('${typeName}', '${packageName}', 'is${typeName}', 1, function(anInstance) { return true; }, '<primitive: predicate>')`;
 		const defSlotAccess = slotNames.map(each => `addMethod('${typeName}', '${packageName}', '${each}', 1, function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`).join('; ');

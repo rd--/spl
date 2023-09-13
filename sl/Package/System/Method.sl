@@ -1,4 +1,4 @@
-Method : [Object] {
+Method! : [Object] {
 
 	arity { :self |
 		<primitive: return _self.arity;>

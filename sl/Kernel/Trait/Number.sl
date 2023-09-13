@@ -45,6 +45,10 @@
 		abs * abs
 	}
 
+	asInteger { :self |
+		self.truncated
+	}
+
 	asNumber { :self |
 		self
 	}

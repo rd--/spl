@@ -23,6 +23,17 @@ function quoteNewLines(input: string): string {
 	return input.replaceAll('\n', '\\n');
 }
 
+function makeTypeDefinition(isHostType: boolean, typNm: string, trt: string[], tmp, mthNms, mthBlks) {
+	// console.debug(`makeTypeDefinition: ${isHostType} ${typNm}`);
+	const tmpSrc = tmp.sourceString;
+	const tmpNm = tmpSrc === '' ? [] : slTemporariesSyntaxNames(tmpSrc).map(nm => `'${nm}'`);
+	const traitList = trt.split(', ').filter(each => each.length > 0);
+	const addType = `sl.addType(${isHostType}, '${typNm}', '${context.packageName}', [${trt}], [${tmpNm}]);`;
+	const copyTraits = traitList.map(trtNm => `sl.copyTraitToType(${trtNm}, '${typNm}');`).join(' ');
+	const addMethods = makeMethodList('addMethod', [typNm], mthNms, mthBlks);
+	return `${addType}${copyTraits}${addMethods}`;
+}
+
 const asJs: any = {
 
 	TypeExtension(_plus, typNm, _leftBrace, mthNm, mthBlk, _rightBrace) {
@@ -34,16 +45,10 @@ const asJs: any = {
 		return makeMethodList('addMethod', typNmArray, mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
 	TypeDefinition(typNm, trt, _leftBrace, tmp, mthNm, mthBlk, _rightBrace) {
-		function makeTypeDefinition(typNm: string, trt: string[], tmp, mthNms, mthBlks) {
-			const tmpSrc = tmp.sourceString;
-			const tmpNm = tmpSrc === '' ? [] : slTemporariesSyntaxNames(tmpSrc).map(nm => `'${nm}'`);
-			const traitList = trt.split(', ').filter(each => each.length > 0);
-			const addType = `sl.addType('${typNm}', '${context.packageName}', [${trt}], [${tmpNm}]);`;
-			const copyTraits = traitList.map(trtNm => `sl.copyTraitToType(${trtNm}, '${typNm}');`).join(' ');
-			const addMethods = makeMethodList('addMethod', [typNm], mthNms, mthBlks);
-			return `${addType}${copyTraits}${addMethods}`;
-		}
-		return makeTypeDefinition(typNm.sourceString, trt.asJs, tmp, mthNm.children.map(c => c.sourceString), mthBlk.children);
+		return makeTypeDefinition(false, typNm.sourceString, trt.asJs, tmp, mthNm.children.map(c => c.sourceString), mthBlk.children);
+	},
+	HostTypeDefinition(typNm, _isHostType, trt, _leftBrace, tmp, mthNm, mthBlk, _rightBrace) {
+		return makeTypeDefinition(true, typNm.sourceString, trt.asJs, tmp, mthNm.children.map(c => c.sourceString), mthBlk.children);
 	},
 	TraitList(_colon, _leftBracket, nm, _rightBracket) {
 		return nm.asIteration().children.map(c => `'${c.sourceString}'`).join(', ');

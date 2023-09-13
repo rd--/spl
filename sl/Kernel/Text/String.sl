@@ -1,4 +1,4 @@
-String : [Object, Json, Iterable] {
+String! : [Object, Json, Iterable] {
 
 	= { :self :anObject |
 		self == anObject
@@ -528,7 +528,7 @@ String : [Object, Json, Iterable] {
 
 }
 
-+@Integral {
++@Integer {
 
 	isAsciiCodePoint { :self |
 		self >= 0 & {

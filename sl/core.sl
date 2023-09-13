@@ -2,7 +2,7 @@
 	['Kernel-Trait', [
 		'Kernel/Trait/Cache.sl'
 		'Kernel/Trait/Binary.sl' (* > Cache *)
-		'Kernel/Trait/Integral.sl' (* > Cache *)
+		'Kernel/Trait/Integer.sl' (* > Cache *)
 		'Kernel/Trait/Json.sl'
 		'Kernel/Trait/Magnitude.sl'
 		'Kernel/Trait/Number.sl'

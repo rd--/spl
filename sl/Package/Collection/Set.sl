@@ -1,4 +1,4 @@
-Set : [Object, Iterable, Collection, UnorderedCollection] {
+Set! : [Object, Iterable, Collection, UnorderedCollection] {
 
 	= { :self :anObject |
 		anObject.isSet & {

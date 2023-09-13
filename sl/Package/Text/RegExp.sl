@@ -1,4 +1,4 @@
-RegExp : [Object] {
+RegExp! : [Object] {
 
 	asRegExp { :self |
 		self

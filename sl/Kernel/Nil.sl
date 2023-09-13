@@ -1,4 +1,4 @@
-Nil : [Object, Json] {
+Nil! : [Object, Json] {
 
 	? { :self :aBlock:/0 |
 		aBlock()

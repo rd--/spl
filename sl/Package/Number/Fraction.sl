@@ -4,15 +4,17 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		aNumber.isFraction.if {
 			|(
 				d1 = self.numerator.gcd(aNumber.denominator),
-				d2 = self.denominator.gcd(aNumber.numerator)
+				d2 = self.denominator.gcd(aNumber.numerator),
+				numerator = (self.numerator // d1) * (aNumber.numerator // d2)
 			)|
 			(d2 = self.denominator & {
 				d1 = aNumber.denominator
 			}).if {
-				(self.numerator // d1) * (aNumber.numerator // d2)
+				(* preference: answer proper integer *)
+				Fraction(numerator, numerator.one)
 			} {
 				Fraction(
-					(self.numerator // d1) * (aNumber.numerator // d2),
+					numerator,
 					(self.denominator // d2) * (aNumber.denominator // d1)
 				).normalized
 			}
@@ -22,7 +24,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	+ { :self :aNumber |
-		aNumber.isInteger.if {
+		aNumber.isSmallInteger.if {
 			Fraction(self.numerator + (self.denominator * aNumber), self.denominator)
 		} {
 			aNumber.isFraction.if {
@@ -37,7 +39,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 				n := n // d2;
 				d := d1 * (d // d2);
 				(d = 1).if {
-					n
+					(* preference: answer proper integer *)
+					Fraction(n, n.one)
 				} {
 					Fraction(n, d)
 				}
@@ -48,7 +51,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	- { :self :aNumber |
-		aNumber.isInteger.if {
+		aNumber.isSmallInteger.if {
 			Fraction(self.numerator - (self.denominator * aNumber), self.denominator)
 		} {
 			aNumber.isFraction.if {
@@ -60,7 +63,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	/ { :self :aNumber |
-		aNumber.isInteger.if {
+		aNumber.isSmallInteger.if {
 			self * Fraction(1, aNumber)
 		} {
 			aNumber.isFraction.if {
@@ -72,7 +75,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	^ { :self :anInteger |
-		anInteger.isInteger.if {
+		anInteger.isSmallInteger.if {
 			self.raisedToInteger(anInteger)
 		} {
 			self.error('^ not an integer')
@@ -114,8 +117,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
-		aNumber.isInteger.if {
-			Fraction(aNumber, 1).aProcedure(self)
+		aNumber.isSmallInteger.if {
+			aNumber.asFraction.aProcedure(self)
 		} {
 			aNumber.aProcedure(self.SmallFloat)
 		}
@@ -135,6 +138,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			(self.numerator * (aFraction.denominator // d)).gcd(aFraction.numerator * (self.denominator // d)),
 			(self.denominator // d * aFraction.denominator)
 		)
+	}
+
+	isInteger { :self |
+		self.denominator = 1
 	}
 
 	lcm { :self :n |
@@ -229,7 +236,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	reciprocal { :self |
 		(self.numerator.abs = 1).if {
-			self.denominator * self.numerator
+			(* preference: answer proper integer *)
+			Fraction(self.denominator * self.numerator, self.denominator.one)
 		} {
 			Fraction(self.denominator, self.numerator).normalized
 		}
@@ -251,7 +259,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			self.numerator := x // d;
 			self.denominator := y // d;
 			(self.denominator = 1).if {
-				self.numerator
+				(* preference: answer proper integer *)
+				self
 			} {
 				self
 			}
@@ -315,11 +324,11 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 }
 
-+@Integral {
++@Integer {
 
 	Fraction { :self :denominator |
 		(denominator = 0).if {
-			self.error('@Integral>>Fraction: zeroDenominatorError')
+			self.error('@Integer>>Fraction: zeroDenominatorError')
 		} {
 			newFraction().initializeSlots(self, denominator)
 		}
@@ -334,8 +343,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	asFraction { :self :maxDenominator |
-		self.isInteger.if {
-			self
+		self.isSmallInteger.if {
+			Fraction(self, 1)
 		} {
 			| k = 10 ^ (maxDenominator.log10.ceiling + 1); |
 			Fraction((self * k).rounded, k).reduced.limitDenominator(maxDenominator)

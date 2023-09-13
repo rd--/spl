@@ -1,4 +1,4 @@
-Type : [Object] {
+Type! : [Object] {
 
 	category { :self |
 		system.categoryOf('type', self.name)

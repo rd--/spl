@@ -26,7 +26,7 @@
 
 }
 
-Blob : [Object, Blob] {
+Blob! : [Object, Blob] {
 
 }
 

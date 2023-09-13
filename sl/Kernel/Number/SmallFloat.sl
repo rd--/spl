@@ -1,4 +1,4 @@
-SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
+SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	= { :self :aNumber |
 		<primitive: return _self === _aNumber;>
@@ -416,6 +416,14 @@ SmallFloat : [Object, Json, Magnitude, Number, Integral, Binary] {
 
 	zero { :self |
 		0
+	}
+
+}
+
++@Object {
+
+	isSmallInteger { :self |
+		false
 	}
 
 }

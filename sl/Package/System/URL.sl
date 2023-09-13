@@ -1,4 +1,4 @@
-URL : [Object] {
+URL! : [Object] {
 
 	asUrl { :self |
 		self

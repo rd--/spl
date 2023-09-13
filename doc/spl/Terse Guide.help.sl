@@ -980,8 +980,8 @@ Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 (5 = 5.i) = false
 1 ~= 1.i
 (6 - 6.i).abs = 72.sqrt
-((1 + 2.i) + 1) = (2 + 2.i)
-(1 + (1 + 2.i)) = (2 + 2.i)
+(1 + 2.i) + 1 = (2 + 2.i)
+1 + (1 + 2.i) = (2 + 2.i)
 ((1 + 2.i) + 1) = (2 + 2.i)
 (1 + (1 + 2.i)) = (2 + 2.i)
 ((1 + 2.i) + (2 / 3)).closeTo((5 / 3) + 2.i)
@@ -1031,6 +1031,12 @@ Complex(-1, 0) + 1 = Complex(0, 0) (* complex addition with scalar *)
 (2 + 3.i).one = (1 + 0.i) (* one of same type, i.e. complex *)
 1 / (1 + 2.i) = (0.2 - 0.4.i) (* reciprocal, multiplicative inverse *)
 | n = (1 + 2.i); | n.reciprocal * n = 1 (* multiplicative inverse *)
+(1 + 0.i).isInteger = false (* a complex number is not an integer *)
+(1 + 0.i).isFraction = false (* a complex number is not a fraction *)
+3:2.asComplex = Complex(3:2, 0) (* fraction as complex *)
+0:1.i = Complex(0, 0:1) (* complex with integral real part and fractional imaginary part *)
+3:2 + 0:1.i = 3:2.asComplex
+3:2.asComplex + 0:1.i = 3:2.asComplex (* add 0i to a complex number is identity *)
 ```
 
 ## Conditional Statements
@@ -1069,9 +1075,10 @@ pi.SmallFloat = pi (* identity *)
 true.asInteger = 1 (* asBit *)
 '~'.Character.asInteger = 126 (* codePoint *)
 23.asInteger = 23 (* identity *)
-pi.asInteger = 3 (* truncated *)
-'23'.asInteger = 23 (* parseInteger *)
+pi.asInteger = 3 (* floating point is truncated *)
+'23'.asInteger = 23 (* string is parsed, see parseInteger *)
 { '3.141'.asInteger = 3 }.ifError { true } (* parseInteger, truncated or error *)
+7:8.asInteger = 0 (* fraction is truncated *)
 true.asNumber = 1 (* asBit *)
 pi.asNumber = pi (* identity *)
 23.asNumber = 23 (* identity *)
@@ -1124,17 +1131,18 @@ pi.radiansToDegrees = 180 (* convert radians to degrees *)
 
 ## Date -- temporal type
 ```
-system.includesPackage('Time-Date')
-Date(system).isDate (* get current date and time *)
-Date(0).iso8601 = '1970-01-01T00:00:00.000Z' (* translate Date to ISO-8601 string *)
-Date('1970-01-01T00:00:00.000Z').unixTimeInMilliseconds = 0 (* parse ISO-8601 string & convert to unix time *)
+system.includesPackage('Time-Date') (* Date is implemented in the Time-Date package *)
+system.Date.typeOf = 'Date' (* type of Date, system constructor gets current date and time *)
+0.Date.isDate (* Date type predicate, number constructor accepts time from epoch in seconds *)
+Date(60 * 60 * 12).iso8601 = '1970-01-01T12:00:00.000Z' (* translate Date to ISO-8601 string *)
+Date('1970-01-01T00:00:01.000Z').unixTimeInMilliseconds = 1000 (* parse ISO-8601 string & convert to unix time *)
 | d = Date(0); | [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] (* month and day are one-indexed *)
 | d = Date(0); | [d.hours + (d.offsetSeconds / 60 / 60), d.minutes, d.seconds] = [0, 0, 0] (* hour is in local time *)
 Date(0) = Date(0) (* dates are comparable *)
 Date(0) ~= Date(system) (* dates are comparable *)
 Date(0) < Date(system) (* dates are magnitudes *)
 Date(system) > Date(0) (* dates are magnitudes *)
-Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z'
+Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z' (* read date from partial ISO-8601 string *)
 ```
 
 ## Dictionary -- collection trait
@@ -1287,6 +1295,8 @@ Float64Array(8).atPut(1, pi) = pi (* answer value put *)
 
 ## Fraction -- numeric type
 ```
+system.includesPackage('Number-Fraction') (* Fraction is implemented in the Package Number-Fraction *)
+2:3.isFraction (* literal syntax for fractions is numerator:denominator *)
 Fraction(2, 3).isFraction (* fractional type *)
 2:3 = Fraction(2, 3) (* literal syntax *)
 Fraction(4, 6).reduced = 2:3 (* reduced fraction *)
@@ -1449,10 +1459,6 @@ SmallFloat(1:2) = (1 / 2)
 -1:3.typeOf = 'Fraction'
 3:5 + 1 = 8:5
 3:5 - 0.5 ~ 0.1
-2:7 * (1 + 2.i) = (2:7 + 4:7.i)
-2:7 * (1.5 + 2.i) ~ (0.4286 + 0.5714.i)
-3:2 / (1 + 2.i) ~ (3:10 - 3:5.i)
-1:2 + 2.i ~ (1:2 + 2:1.i)
 0.5 ~ 1:2
 0.3333 ~ 1:3
 0.33 < (1:3)
@@ -1460,6 +1466,15 @@ SmallFloat(1:2) = (1 / 2)
 1:3.zero = Fraction(0, 1) (* zero of same type, i.e. fraction *)
 1:3.one = Fraction(1, 1) (* one of same type, i.e. fraction *)
 1:3 ~ (1 / 3) (* a fraction is close to it's floating point representation *)
+1:2 * 2 = 1 (* multiply to integer *)
+4:2 / 2 = 1 (* divide to integer *)
+1:2 + 1:2 = 1 (* sum to integer *)
+3:2 - 1:2 = 1 (* subtract to integer *)
+2:7 * (1 + 2.i) = (2:7 + 4:7.i)
+2:7 * (1.5 + 2.i) ~ (0.4286 + 0.5714.i)
+3:2 / (1 + 2.i) ~ (3:10 - 3:5.i)
+1:2 + 2.i ~ (1:2 + 2:1.i)
+(1:2 + 1:2).isInteger (* fractions with unit denominators are integers *)
 ```
 
 ## Frequency -- temporal type
@@ -1517,7 +1532,7 @@ true == true & { false == false } (* boolean identity *)
 [1] ~~ [1] (* array non-identity *)
 ```
 
-## Integral -- numeric trait
+## Integer -- numeric trait
 ```
 1.isInteger = true (* integer predicate *)
 123.printString = '123' (* integer print string *)
@@ -1549,7 +1564,7 @@ true == true & { false == false } (* boolean identity *)
 58909.printStringHex = 'E61D' (* hexadecimal representation *)
 ```
 
-## Integral -- prime numbers
+## Integer -- prime numbers
 ```
 9.primesArray = [2, 3, 5, 7, 11, 13, 17, 19, 23] (* first elements of prime number sequence *)
 9.nthPrime = 23 (* lookup prime by index in sequence *)
@@ -1580,7 +1595,7 @@ system.cache::primesArray[23] = 83 (* nthPrime extends the primesArray cache as 
 1173.isCoprime(1547).not
 ```
 
-## Integral -- integer names
+## Integer -- integer names
 ```
 [1 .. 10].collect(threeDigitName:/1) = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
 [11 .. 20].collect(threeDigitName:/1) = ['eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty']
@@ -1592,7 +1607,7 @@ system.cache::primesArray[23] = 83 (* nthPrime extends the primesArray cache as 
 13579.asWords = 'thirteen thousand, five hundred seventy-nine'
 ```
 
-## Integral -- roman numerals
+## Integer -- roman numerals
 ```
 (1 .. 10).collect(printStringRoman:/1) = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
 (11 .. 20).collect(printStringRoman:/1) = ['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX']
@@ -1806,6 +1821,8 @@ system.includesPackage('Number-LargeInteger')
 7n << 23 = 58720256n (* left shift large integer *)
 7n << 71 = 16528282690043758247936n (* left shift large integer *)
 16n >> 3 = 2n (* right shift large integer *)
+4n // 2n = 2n (* quotient *)
+4n.quotient(2n) = 2n (* quotient *)
 ```
 
 ## Length -- geometry type
@@ -2073,6 +2090,14 @@ pi.in { :x | x.rounded + 20 } = 23 (* evaluate procedure with object *)
 | a = [1 .. 5]; | a.removeAt(3); a = [1, 2, 4, 5] (* remove element at index *)
 | a = [1 .. 5]; | a.removeFirst; a = [2 .. 5] (* remove first element *)
 | a = [1 .. 5]; | a.removeLast; a = [1 .. 4] (* remove last element *)
+```
+
+## Package
+```
+Package('Time-Date').typeOf = 'Package' (* type of Package *)
+Package('Time-Date').isPackage (* package type predicate *)
+Package('Time-Date').packageName = 'Time-Date' (* name of package *)
+system.includesPackage('Time-Date')
 ```
 
 ## Point -- geometry trait
@@ -2633,9 +2658,9 @@ var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, 
 5.isByte = true
 -1.isByte = false
 'x'.isByte = false
-3.isInteger
--1.isInteger = true
-'x'.isInteger = false
+3.isInteger (* three is an integer *)
+-1.isInteger = true (* negative integers are integers *)
+'x'.isInteger = false (* a string is not an integer *)
 3 + 4 = 7
 3 * 4 = 12
 3 * 4 + 9 = 21
@@ -2656,7 +2681,7 @@ var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, 
 12345.truncateTo(600) = 12000
 13.betweenAnd(11, 14) = true (* is number between two numbers, inclusive *)
 [1 .. 5].collect { :each | each.betweenAnd(2, 4) } = [false, true, true, true, false]
-9.atRandom.isInteger = true
+9.atRandom.isInteger = true (* random number between 1 and 9 *)
 9.randomInteger.isInteger = true
 9.randomFloat.isInteger = false
 pi.randomFloat.isInteger = false

@@ -1,4 +1,4 @@
-Trait : [Object] {
+Trait! : [Object] {
 
 	addMethodsTo { :self :aCollection |
 		trait.methodDictionary.values.do { :method |

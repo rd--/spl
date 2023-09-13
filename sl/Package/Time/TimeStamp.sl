@@ -25,7 +25,7 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 	}
 
 	Date { :self |
-		self.unixTimeInMilliseconds.Date
+		self.unixTimeInSeconds.Date
 	}
 
 	iso8601 { :self |
@@ -39,6 +39,10 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 
 	storeString { :self |
 		'TimeStamp(' ++ self.unixTimeInMilliseconds.storeString ++ ')'
+	}
+
+	unixTimeInSeconds { :self |
+		self.unixTimeInMilliseconds / 1000
 	}
 
 }

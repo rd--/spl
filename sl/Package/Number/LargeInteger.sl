@@ -1,4 +1,4 @@
-LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
+LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 	== { :self :anInteger |
 		<primitive: return _self === _anInteger;>
@@ -29,7 +29,12 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 	}
 
 	/ { :self :anInteger |
-		Fraction(self, anInteger.LargeInteger).reduced
+		| fraction = Fraction(self, anInteger.LargeInteger).reduced; |
+		fraction.isInteger.if {
+			fraction.numerator
+		} {
+			fraction
+		}
 	}
 
 	// { :self :anInteger |
@@ -128,6 +133,10 @@ LargeInteger : [Object, Binary, Magnitude, Number, Integral] {
 
 	storeString { :self |
 		self.printString ++ 'n'
+	}
+
+	quotient { :self :anInteger |
+		self // anInteger
 	}
 
 	remainder { :self :anInteger |

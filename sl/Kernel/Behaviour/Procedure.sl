@@ -1,4 +1,4 @@
-Procedure : [Object] {
+Procedure! : [Object] {
 
 	= { :self :anObject |
 		self == anObject

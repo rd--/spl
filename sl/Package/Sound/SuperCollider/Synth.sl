@@ -1,4 +1,4 @@
-CcEvent : [Object] {
+CcEvent! : [Object] {
 
 	v { :self |
 		<primitive: return _self.v;>
@@ -63,7 +63,7 @@ CcEvent : [Object] {
 
 }
 
-Env : [Object] {
+Env! : [Object] {
 
 	asArray { :self |
 		self.coordinateArrayForEnvGen
@@ -83,7 +83,7 @@ Env : [Object] {
 
 }
 
-LocalControl : [Object] {
+LocalControl! : [Object] {
 
 	name { :self | <primitive: return _self.name> }
 	index { :self | <primitive: return _self.index> }
@@ -97,7 +97,7 @@ LocalControl : [Object] {
 
 }
 
-ScSynthOptions : [Object] {
+ScSynthOptions! : [Object] {
 
 	blockSize { :self |
 		<primitive: return _self.blockSize;>
@@ -121,7 +121,7 @@ ScSynthOptions : [Object] {
 
 }
 
-ScSynth : [Object] {
+ScSynth! : [Object] {
 
 	addOscListener { :self :address :onMessage |
 		<primitive: sc.scSynthAddOscListener(_self, _address, _onMessage);>
@@ -191,7 +191,7 @@ ScSynth : [Object] {
 
 }
 
-ScUgen : [Object] {
+ScUgen! : [Object] {
 
 	id { :self | <primitive: return _self.id> }
 	inputArray { :self | <primitive: return _self.inputArray> }
@@ -217,7 +217,7 @@ ScUgen : [Object] {
 
 }
 
-Ugen : [Object, Number] {
+Ugen! : [Object, Number] {
 
 	scUgen { :self | <primitive: return _self.scUgen> }
 	port { :self | <primitive: return _self.port> }
@@ -252,7 +252,7 @@ Ugen : [Object, Number] {
 
 }
 
-UgenGraph : [Object] {
+UgenGraph! : [Object] {
 
 	controlArray { :self |
 		<primitive: return _self.controlArray>

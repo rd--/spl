@@ -7,4 +7,4 @@ or raise an error if out of bounds.
 
 * * *
 
-See also: Integral
+See also: Integer

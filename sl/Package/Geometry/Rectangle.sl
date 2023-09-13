@@ -36,7 +36,7 @@ Rectangle : [Object] { | origin corner |
 	}
 
 	ceiling { :self |
-		self.isIntegral.if {
+		self.isInteger.if {
 			self
 		} {
 			self.x.ceiling @ self.y.ceiling
@@ -65,7 +65,7 @@ Rectangle : [Object] { | origin corner |
 	}
 
 	floor { :self |
-		self.isIntegral.if {
+		self.isInteger.if {
 			self
 		} {
 			self.x.floor @ self.y.floor
@@ -98,7 +98,7 @@ Rectangle : [Object] { | origin corner |
 		}
 	}
 
-	isIntegral { :self |
+	isInteger { :self |
 		self.x.isInteger & {
 			self.y.isInteger
 		}
@@ -140,7 +140,7 @@ Rectangle : [Object] { | origin corner |
 	}
 
 	rounded { :self |
-		self.isIntegral.if {
+		self.isInteger.if {
 			self
 		} {
 			self.x.rounded @ self.y.rounded

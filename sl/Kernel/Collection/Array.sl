@@ -1,4 +1,4 @@
-Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, ArrayedCollection, OrderedCollection] {
+Array! : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, ArrayedCollection, OrderedCollection] {
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
 		self.collect { :each |
@@ -190,7 +190,7 @@ Array : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, 
 
 }
 
-+@Integral {
++@Integer {
 
 	fibonacciArray { :self |
 		self.fibonacciSequenceInto([])

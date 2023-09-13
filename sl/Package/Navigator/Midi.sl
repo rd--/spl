@@ -50,7 +50,7 @@
 
 }
 
-MIDIAccess : [Object, EventTarget] {
+MIDIAccess! : [Object, EventTarget] {
 
 	inputs { :self | <primitive: return _self.inputs;> } (* Read only *)
 	outputs { :self | <primitive: return _self.outputs;> } (* Read only *)
@@ -82,7 +82,7 @@ MIDIAccess : [Object, EventTarget] {
 
 }
 
-MIDIConnectionEvent : [Object, Event] {
+MIDIConnectionEvent! : [Object, Event] {
 
 	port { :self |
 		<primitive: return _self.port;>
@@ -90,7 +90,7 @@ MIDIConnectionEvent : [Object, Event] {
 
 }
 
-MIDIInput : [Object, EventTarget, MidiPort] {
+MIDIInput! : [Object, EventTarget, MidiPort] {
 
 	onmidimessage { :self :aProcedure |
 		<primitive: return _self.onmidimessage = _aProcedure;>
@@ -98,11 +98,11 @@ MIDIInput : [Object, EventTarget, MidiPort] {
 
 }
 
-MIDIInputMap : [Object, MidiMap] {
+MIDIInputMap! : [Object, MidiMap] {
 
 }
 
-MIDIMessageEvent : [Object, Event] {
+MIDIMessageEvent! : [Object, Event] {
 
 	data { :self |
 		<primitive: return _self.data;>
@@ -110,10 +110,10 @@ MIDIMessageEvent : [Object, Event] {
 
 }
 
-MIDIOutputMap : [Object, MidiMap] {
+MIDIOutputMap! : [Object, MidiMap] {
 
 }
 
-MIDIOutput : [Object, EventTarget, MidiPort] {
+MIDIOutput! : [Object, EventTarget, MidiPort] {
 
 }

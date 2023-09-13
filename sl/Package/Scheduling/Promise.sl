@@ -1,4 +1,4 @@
-Promise : [Object] {
+Promise! : [Object] {
 
 	catch { :self :aProcedure |
 		<primitive: return _self.catch(_aProcedure);>

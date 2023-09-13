@@ -1,4 +1,4 @@
-Storage : [Object, Collection, Dictionary] {
+Storage! : [Object, Collection, Dictionary] {
 
 	at { :self :key |
 		self.indexCheck(key);

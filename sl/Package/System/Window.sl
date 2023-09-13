@@ -1,4 +1,4 @@
-Window : [Object] {
+Window! : [Object] {
 
 	alert { :self :aString |
 		<primitive: return _self.alert(_aString);>

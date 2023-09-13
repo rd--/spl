@@ -1,7 +1,7 @@
-@Integral {
+@Integer {
 
 	adaptToFractionAndApply { :self :aFraction :aProcedure:/2 |
-		aFraction.aProcedure(Fraction(self, 1))
+		aFraction.aProcedure(Fraction(self, self.one))
 	}
 
 	asHexDigit { :self |
@@ -61,7 +61,7 @@
 
 	doubleFactorial { :self |
 		self.negative.if {
-			self.error('@Integral>>doubleFactorial: not valid for negative integers')
+			self.error('@Integer>>doubleFactorial: not valid for negative integers')
 		} {
 			(self <= 3).if {
 				self.max(1)
@@ -73,7 +73,7 @@
 
 	factorial { :self |
 		self.negative.ifTrue {
-			'@Integral>>factorial: not valid for negative integers'.error
+			'@Integer>>factorial: not valid for negative integers'.error
 		};
 		(self <= 1).if {
 			1
@@ -110,7 +110,7 @@
 	}
 
 	isInteger { :self |
-		self.typeResponsibility('@Integral>>isInteger')
+		self.typeResponsibility('@Integer>>isInteger')
 	}
 
 	isPrime { :self |
@@ -349,7 +349,7 @@
 
 }
 
-+@Integral {
++@Integer {
 
 	asLargerPowerOfTwo { :self |
 		self.isPowerOfTwo.if {
@@ -358,7 +358,7 @@
 			self.positive.if {
 				1.bitShiftLeft(self.highBitOfPositiveReceiver)
 			} {
-				self.error('@Integral>>asLargerPowerOfTwo: non-positive')
+				self.error('@Integer>>asLargerPowerOfTwo: non-positive')
 			}
 		}
 	}
@@ -374,7 +374,7 @@
 			self.positive.if {
 				1.bitShiftLeft(self.highBitOfPositiveReceiver - 1)
 			} {
-				self.error('@Integral>>asSmallerPowerOfTwo: non-positive')
+				self.error('@Integer>>asSmallerPowerOfTwo: non-positive')
 			}
 		}
 	}
@@ -387,7 +387,7 @@
 
 }
 
-+@Integral {
++@Integer {
 
 	digitAt { :self :n |
 		(n = 1).if {

@@ -90,7 +90,7 @@ Complex : [Object] { | real imaginary |
 
 	^ { :self :aNumber |
 		(aNumber = 0).if {
-			Complex(1, 0)
+			1.asComplex
 		} {
 			(aNumber = 1).if {
 				self
@@ -183,6 +183,12 @@ Complex : [Object] { | real imaginary |
 		true
 	}
 
+	isGaussianInteger { :self |
+		self.real.isInteger & {
+			self.imaginary.isInteger
+		}
+	}
+
 	isNumber { :self |
 		true
 	}
@@ -206,7 +212,7 @@ Complex : [Object] { | real imaginary |
 	}
 
 	one { :self |
-		Complex(1, 0)
+		1.asComplex
 	}
 
 	printString { :self |
@@ -240,7 +246,7 @@ Complex : [Object] { | real imaginary |
 		(self.imaginary = 0 & {
 			self.real >= 0
 		}).if {
-			Complex(self.real.sqrt, 0)
+			self.real.sqrt.asComplex
 		} {
 			|(
 				v = (self.abs - self.real / 2).sqrt,
@@ -277,7 +283,7 @@ Complex : [Object] { | real imaginary |
 	}
 
 	zero { :self |
-		Complex(0, 0)
+		0.asComplex
 	}
 
 }
@@ -289,7 +295,7 @@ Complex : [Object] { | real imaginary |
 	}
 
 	asComplex { :self |
-		Complex(self, 0)
+		Complex(self, self.zero)
 	}
 
 	Complex { :self :imaginary |
@@ -297,7 +303,7 @@ Complex : [Object] { | real imaginary |
 	}
 
 	i { :self |
-		Complex(0, self)
+		Complex(self.zero, self)
 	}
 
 }

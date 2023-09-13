@@ -1,4 +1,4 @@
-System : [Object, Cache, Indexable, Random] {
+System! : [Object, Cache, Indexable, Random] {
 
 	= { :self :anObject |
 		self == anObject
@@ -77,10 +77,6 @@ System : [Object, Cache, Indexable, Random] {
 
 	globalDictionary { :self |
 		<primitive: return _self.globalDictionary;>
-	}
-
-	includesPackage { :self :packageName |
-		self.packageDictionary.includesIndex(packageName)
 	}
 
 	indices { :self |

@@ -1,4 +1,4 @@
-Boolean : [Object, Json] {
+Boolean! : [Object, Json] {
 
 	= { :self :anObject |
 		<primitive: return _self === _anObject;>

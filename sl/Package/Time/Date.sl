@@ -1,4 +1,4 @@
-Date : [Object, Magnitude] {
+Date! : [Object, Magnitude] {
 
 	= { :self :anObject |
 		anObject.isDate & {
@@ -54,6 +54,10 @@ Date : [Object, Magnitude] {
 		<primitive: return _self.getTime();>
 	}
 
+	unixTimeInSeconds { :self |
+		self.unixTimeInMilliseconds / 1000
+	}
+
 	year { :self |
 		<primitive: return _self.getFullYear();>
 	}
@@ -63,7 +67,7 @@ Date : [Object, Magnitude] {
 +SmallFloat {
 
 	Date { :self |
-		<primitive: return new Date(_self);>
+		<primitive: return new Date(_self * 1000);>
 	}
 
 }

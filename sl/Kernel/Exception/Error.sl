@@ -46,7 +46,7 @@
 
 }
 
-Error : [Object, Exception, PrimitiveError] {
+Error! : [Object, Exception, PrimitiveError] {
 
 	storeString { :self |
 		'Error(\'' ++ self.messageText ++ '\')'
@@ -54,11 +54,11 @@ Error : [Object, Exception, PrimitiveError] {
 
 }
 
-ReferenceError : [Object, Exception, PrimitiveError] {
+ReferenceError! : [Object, Exception, PrimitiveError] {
 
 }
 
-TypeError : [Object, Exception, PrimitiveError] {
+TypeError! : [Object, Exception, PrimitiveError] {
 
 }
 

@@ -1,4 +1,4 @@
-WeakMap : [Object, Indexable, PrimitiveMap] {
+WeakMap! : [Object, Indexable, PrimitiveMap] {
 
 	size { :self |
 		self.error('size: cannot be observed')
