@@ -540,3 +540,15 @@ String! : [Object, Json, Iterable] {
 	}
 
 }
+
++@SequenceableCollection {
+
+	camelCase { :self |
+		[self.first] ++ self.allButFirst.collect(capitalized:/1)
+	}
+
+	pascalCase { :self |
+		self.collect(capitalized:/1)
+	}
+
+}

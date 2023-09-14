@@ -2980,12 +2980,15 @@ pi.asString = '3.141592653589793' (* float as string *)
 'x y z'.replaceRegExp(RegExp('x|z', 'g'), { :match :offset :string | match.toUppercase }) = 'X y Z'
 'anAnalogueClock'.camelCaseToWords = 'an Analogue Clock'
 'AnalogueClock'.pascalCaseToWords = 'Analogue Clock'
+'an analogue Clock'.words.pascalCase.join = 'AnAnalogueClock'
+'analogue Clock'.words.camelCase.join = 'analogueClock'
 'Word'.asLowercase = 'word'
 '12345'.asLowercase = '12345' (* only if letters *)
 'Word'.asUppercase = 'WORD'
 '12345'.asUppercase = '12345' (* only if letters *)
 'x' ~= 'X' & { 'x'.sameAs('X') & { 'x'.sameAs('x') } } (* considered without case *)
 'word'.capitalized = 'Word'  (* uppercase first letter only *)
+'anotherWord'.capitalized = 'AnotherWord'  (* uppercase first letter only, do not lower case interior letters *)
 '12345'.capitalized = '12345' (* only if a letter *)
 'testAt'.beginsWith('test') = true
 'testAt'.beginsWith('At') = false
@@ -3054,6 +3057,7 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 '\f'.Character.codePoint = 12 (* form feed, new page *)
 '\r'.Character.codePoint = 13 (* carriage return *)
 'The quick brown fox jumps over the lazy dog'.crc16 = 16rFCDF (* 16 bit cyclic redundancy check, crc-16/arc *)
+'* + - / ^ ? ~ = < >'.words.allSatisfy(isOperatorName:/1)
 ```
 
 ## Syntax -- array assignment syntax
@@ -3260,7 +3264,8 @@ system.lowBitPerByteTable.Bag.sortedCounts = [128 -> 1, 64 -> 2, 32 -> 3, 16 -> 
 ['?', '<', '>'].collect(operatorMethodName:/1) = ['query', 'lessThan', 'greaterThan']
 '!^'.operatorMethodName = 'bangRaisedTo' (* composite operator names capitalize non-initial names *)
 '~='.operatorMethodName = 'tildeEquals'
-system.operatorNameTable['^'] = 'raisedTo' (* table of operator names *)
+system.operatorCharacterNameTable['^'] = 'raisedTo' (* table of operator names *)
+'+ ++ * / - %'.words.collect { :each | system.operatorNameTable[each] } = 'plus plusPlus times dividedBy minus modulo'.words
 ```
 
 ## System -- categoryDictionary
@@ -3301,6 +3306,7 @@ system.allMethods.collect { :each | each.signature }.includes('@Iterable>>do:/2'
 '@Iterable>>do:/2'.parseMethodSignature = ['@Iterable', 'do:/2']
 '@Collection'.parseQualifiedTraitName = 'Collection'
 system.methodLookupAtType('collect', 2, 'Array').isMethod = true
+| m = system.methodLookupAtType('plus', 2, 'SmallFloat'); | m.operatorNameOrQualifiedName = '+'
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Interval') = true
 system.methodSignatures('add').includes('Map>>add:/2') = true
 system.methodLookupAtSignature('@Iterable>>sum:/1').isMethod = true

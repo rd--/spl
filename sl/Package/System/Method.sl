@@ -22,6 +22,22 @@ Method! : [Object] {
 		<primitive: return _self.name;>
 	}
 
+	operatorNameOrQualifiedName { :self |
+		(self.arity = 2).if {
+			| name = self.name; |
+			valueWithReturn { :return:/1 |
+				system.operatorNameTable.associationsDo { :each |
+					(each.value = name).ifTrue {
+						each.key.return
+					}
+				};
+				self.qualifiedName
+			}
+		} {
+			self.qualifiedName
+		}
+	}
+
 	origin { :self |
 		<primitive: return _self.origin;>
 	}

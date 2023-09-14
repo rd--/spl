@@ -255,8 +255,19 @@ System! : [Object, Cache, Indexable, Random] {
 		}
 	}
 
+	operatorCharacterNameTable { :self |
+		<primitive: return sl.operatorCharacterNameTable;>
+	}
+
 	operatorNameTable { :self |
-		<primitive: return sl.operatorNameTable;>
+		| table = self.operatorCharacterNameTable; |
+		self.cached('operatorNameTable') {
+			'+ ++ * - -> / // & && | || < << <= <~ <=> > >> >= >~ = == ==> % ! !~ \\ \\\\ ~ ~~ ~= ? ?? ^'.words.collect { :each |
+				each -> each.stringArray.collect { :letter |
+					table[letter]
+				}.camelCase.join
+			}.Record
+		}
 	}
 
 	packageMethods { :self :packageName |

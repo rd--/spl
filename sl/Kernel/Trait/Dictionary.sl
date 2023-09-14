@@ -167,6 +167,10 @@
 		self.valuesDo(aProcedure:/1)
 	}
 
+	errorValueNotFound { :self |
+		self.error('Value not found')
+	}
+
 	fillFromWith { :self :aCollection :aProcedure:/1 |
 		aCollection.isDictionary.if {
 			aCollection.associationsDo { :association |
@@ -212,6 +216,23 @@
 
 	includesIndex { :self :key |
 		self.indices.includes(key)
+	}
+
+	indexAtValueIfAbsent { :self :value :exceptionBlock:/1 |
+		valueWithReturn { :return:/1 |
+			self.associationsDo { :association |
+				(value = association.value).ifTrue {
+					association.key.return
+				}
+			};
+			exceptionBlock(value)
+		}
+	}
+
+	indexAtValue { :self :value |
+		self.indexAtValueIfAbsent(value) {
+			self.errorValueNotFound
+		}
 	}
 
 	indicesDo { :self :aBlock:/1 |

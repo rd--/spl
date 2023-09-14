@@ -221,7 +221,7 @@ export function extendTraitWithMethod(traitName: TraitName, packageName: Package
 		});
 		return method;
 	} else {
-		throw(`extendTraitWithMethod: ${traitName}, ${name}`);
+		throw(`extendTraitWithMethod: trait does not exist: ${traitName}, ${name}`);
 	}
 }
 
