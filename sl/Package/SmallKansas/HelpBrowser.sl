@@ -62,7 +62,7 @@ HelpIndex : [Object] { | contents |
 			each.first = area & {
 				each.second = kind
 			}
-		}.collect(third:/1).Set.Array.sort
+		}.collect(third:/1).withoutDuplicates.sort
 	}
 
 	project { :self :area |

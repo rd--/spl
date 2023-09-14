@@ -24,7 +24,7 @@
 
 	MethodSignatureBrowser { :self |
 		MethodSignatureBrowser(
-			self.allMethods.collect(signature:/1).Set.Array.sorted,
+			self.allMethods.collect(signature:/1).withoutDuplicates.sort,
 			true
 		)
 	}

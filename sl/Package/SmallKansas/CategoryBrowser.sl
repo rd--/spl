@@ -39,7 +39,7 @@ CategoryBrowser : [Object, SmallKansan] {
 					};
 					completeMethodSet.collect { :each |
 						self.categoryDictionary.categoryOf('method', each.name)
-					}.Set.Array.sorted
+					}.withoutDuplicates.sort
 				},
 				3 -> {
 					browser.setStatus('');

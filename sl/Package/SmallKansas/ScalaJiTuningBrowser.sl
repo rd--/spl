@@ -80,7 +80,7 @@
 +Record {
 
 	ScalaJiTuningBrowser { :self |
-		| degrees = self.collect(degree:/1).Set.Array.sorted.collect(asString:/1); |
+		| degrees = self.collect(degree:/1).withoutDuplicates.sort.collect(asString:/1); |
 		ColumnBrowser('Scala Ji Tuning Browser', 'text/html', false, true, [1, 1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
@@ -93,7 +93,7 @@
 						each.degree = path[1].parseInteger(10)
 					}.collect { :each |
 						each.limit
-					}.Set.Array.sorted.collect(asString:/1)
+					}.withoutDuplicates.sort.collect(asString:/1)
 				},
 				2 -> {
 					browser.setStatus(['Degree = ', path[1], ', Limit = ', path[2]].join);

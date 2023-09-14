@@ -99,7 +99,7 @@ SmallKansas : [Object, Cache] { | container frameSet midiAccess helpIndex cache 
 			bracketedSubject = '>>' ++ subject ++ ':/',
 			methodSignatures = system.allMethods.collect(signature:/1).select { :each |
 				each.includesSubstring(bracketedSubject)
-			}.Set.Array.sorted
+			}.withoutDuplicates.sort
 		)|
 		self.addFrame(MethodSignatureBrowser(methodSignatures, false), event)
 	}
@@ -164,7 +164,7 @@ SmallKansas : [Object, Cache] { | container frameSet midiAccess helpIndex cache 
 				MenuItem('Font Size Menu', nil) { :event |
 					self.fontSizeMenuOn(self, false, event)
 				},
-				MenuItem('ScSynth Reset', nil) { :event |
+				MenuItem('Sc Synth Reset', nil) { :event |
 					system.clock.removeAll;
 					system.defaultScSynth.reset
 				},
@@ -176,7 +176,7 @@ SmallKansas : [Object, Cache] { | container frameSet midiAccess helpIndex cache 
 				}
 			],
 			dynamic = system.smallKansans.collect { :each |
-				MenuItem(each.name, nil) { :event |
+				MenuItem(each.name.pascalCaseToWords, nil) { :event |
 					each.instanceOf.openIn(self, event)
 				}
 			}

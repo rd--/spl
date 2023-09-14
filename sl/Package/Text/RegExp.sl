@@ -40,8 +40,20 @@ RegExp! : [Object] {
 		RegExp(self)
 	}
 
+	camelCaseToWords { :self |
+		self.replaceRegExp(RegExp('([A-Z])', 'g'), ' $1')
+	}
+
 	matchesRegExp { :self :aRegExp |
 		aRegExp.asRegExp.test(self)
+	}
+
+	pascalCaseToWords { :self |
+		self.camelCaseToWords.allButFirst
+	}
+
+	replaceRegExp { :self :regExpToFind :stringToReplaceWith |
+		<primitive: return _self.replace(_regExpToFind, _stringToReplaceWith);>
 	}
 
 	splitRegExp { :self :aRegExp |

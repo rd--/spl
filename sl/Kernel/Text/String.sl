@@ -361,10 +361,6 @@ String! : [Object, Json, Iterable] {
 		['size']
 	}
 
-	replaceRegExp { :self :regExpToFind :stringToReplaceWith |
-		<primitive: return _self.replace(_regExpToFind, _stringToReplaceWith);>
-	}
-
 	replaceString { :self :stringToFind :stringToReplaceWith |
 		<primitive: return _self.replace(_stringToFind, _stringToReplaceWith);>
 	}

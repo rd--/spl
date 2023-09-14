@@ -2,7 +2,7 @@
 
 	MethodBrowser { :self |
 		|(
-			methodNames = self.allMethods.collect(qualifiedName:/1).Set.Array.sorted,
+			methodNames = self.allMethods.collect(qualifiedName:/1).withoutDuplicates.sort,
 			selectedMethod = nil
 		)|
 		ColumnBrowser('Method Browser', 'text/plain', true, true, [3, 1], nil) { :accepted |

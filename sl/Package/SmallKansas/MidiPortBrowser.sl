@@ -7,7 +7,7 @@
 					['input', 'output']
 				},
 				1 -> {
-					midiAccess.ports(path[1]).collect(manufacturer:/1).Set.Array
+					midiAccess.ports(path[1]).collect(manufacturer:/1).withoutDuplicates
 				},
 				2 -> {
 					midiAccess.ports(path[1]).select { :port |

@@ -7,11 +7,11 @@ ProgramIndex : [Object] { | contents |
 	authors { :self :category |
 		self.contents.select { :each |
 			each[1] = category
-		}.collect(second:/1).Set.Array.sort
+		}.collect(second:/1).withoutDuplicates.sort
 	}
 
 	categories { :self |
-		self.contents.collect(first:/1).Set.Array.sort.reject { :each |
+		self.contents.collect(first:/1).withoutDuplicates.sort.reject { :each |
 			each = 'collect'
 		}
 	}
