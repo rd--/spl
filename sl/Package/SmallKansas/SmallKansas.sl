@@ -211,6 +211,10 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 		}
 	}
 
+}
+
++System {
+
 	smallKansans { :self |
 		self.traitTypes('SmallKansan').collect { :each |
 			system.typeLookup(each)

@@ -1,8 +1,14 @@
 +System  {
 
 	PackageBrowser { :self |
-		| packageNames = self.packageDictionary.indicesSorted, methods = nil; |
-		ColumnBrowser('Package Browser', 'text/plain', false, true, [1, 1, 3], nil, nil) { :browser :path |
+		|(
+			packageNames = self.packageDictionary.indicesSorted,
+			methods = nil,
+			selectedMethod = nil
+		)|
+		ColumnBrowser('Package Browser', 'text/plain', false, true, [1, 1, 3], nil) { :accepted |
+			selectedMethod.definition := accepted
+		} { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -33,12 +39,13 @@
 					}.sort
 				},
 				3 -> {
-					browser.setStatus('');
-					methods.detect { :each |
+					selectedMethod := methods.detect { :each |
 						each.origin.qualifiedName = path[2] & {
 							each.qualifiedName = path[3]
 						}
-					}.definition
+					};
+					browser.setStatus(selectedMethod.provenance);
+					selectedMethod.definition
 				}
 			])
 		}

@@ -1,8 +1,13 @@
 +System {
 
 	TraitBrowser { :self |
-		| traitNames = self.traitDictionary.indicesSorted; |
-		ColumnBrowser('Trait Browser', 'text/plain', false, true, [1, 3], nil, nil) { :browser :path |
+		|(
+			traitNames = self.traitDictionary.indicesSorted,
+			selectedMethod = nil
+		)|
+		ColumnBrowser('Trait Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
+			selectedMethod.definition := accepted
+		} { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('');
@@ -13,7 +18,9 @@
 					self.traitDictionary[path[1]].methodDictionary.indicesSorted
 				},
 				2 -> {
-					self.traitDictionary[path[1]].methodDictionary[path[2]].definition
+					selectedMethod := self.traitDictionary[path[1]].methodDictionary[path[2]];
+					browser.setStatus(selectedMethod.provenance);
+					selectedMethod.definition
 				}
 			])
 		}
