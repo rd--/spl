@@ -1294,7 +1294,6 @@ Error().isException = true (* an error is an exception *)
 Error('Error message').isError = true (* error with message is an error *)
 Error('Error message').name = 'Error' (* an error has a name *)
 Error('Error message').messageText = 'Error message' (* an error has a message *)
-Error('Error message').log = nil (* log error to transcript/console *)
 { Error('Error message').signal }.ifError { true } (* signal error *)
 { 'Error message'.error }.ifError { true } (* generate and signal an error *)
 { Error('message').copy }.ifError { true } (* cannot copy errors *)
@@ -2124,6 +2123,9 @@ nil.json = 'null' (* nil has a Json representation *)
 4:3.numerator = 4:3:@numerator (* slot access syntax *)
 | n = 4:3; | n:@denominator := 5; n = 4:5 (* slot access syntax *)
 pi.in { :x | x.rounded + 20 } = 23 (* evaluate procedure with object *)
+pi.notify('pi') = pi (* user notification *)
+pi.warning('pi') = pi (* user warning *)
+{ pi.error('pi') }.ifError { true } (* user error *)
 ```
 
 ## OrderedCollection -- collection trait
@@ -3240,7 +3242,9 @@ system.typeOf = 'System' (* system type *)
 system.isSystem (* system predicate *)
 system.typeDictionary.indices.includes('System') = true
 system.randomFloat < 1 (* system random number generator *)
+system.uniqueId.isInteger (* system unique identifier generator, answers are integers *)
 system.uniqueId ~= system.uniqueId (* system unique identifier generator *)
+| p = system.uniqueId, q = system.uniqueId; | p + 1 = q (* the generator is a simple counter *)
 system.highBitPerByteTable.size = 256 (* high bits per byte table *)
 system.highBitPerByteTable.Bag.sortedCounts = [128 -> 8, 64 -> 7, 32 -> 6, 16 -> 5, 8 -> 4, 4 -> 3, 2 -> 2, 1 -> 1, 1 -> 0]
 system.lowBitPerByteTable.size = 255 (* low bits per byte table *)

@@ -28,11 +28,11 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	at { :self :index |
-		self.globalDictionary.at(index)
+		self.globalDictionary[index]
 	}
 
 	atPut { :self :key :anObject |
-		self.globalDictionary.atPut(key, anObject)
+		self.globalDictionary[key] := anObject
 	}
 
 	cache { :self |
@@ -40,19 +40,31 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	consoleClear { :self |
-		<primitive: console.clear;>
+		<primitive:
+		console.clear;
+		return null;
+		>
 	}
 
 	consoleError { :self :message |
-		<primitive: console.error(_message);>
+		<primitive:
+		console.error(_message);
+		return null;
+		>
 	}
 
-	consoleLog { :self :message |
-		<primitive: console.log(_message);>
+	consoleNotification { :self :message |
+		<primitive:
+		console.log(_message);
+		return null;
+		>
 	}
 
-	consoleWarn { :self :message |
-		<primitive: console.warn(_message);>
+	consoleWarning { :self :message |
+		<primitive:
+		console.warn(_message);
+		return null;
+		>
 	}
 
 	doesTraitImplementMethod { :self :traitName :methodName |
@@ -68,7 +80,9 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	globalDictionary { :self |
-		<primitive: return _self.globalDictionary;>
+		self.cached('globalDictionary') {
+			()
+		}
 	}
 
 	indices { :self |
@@ -225,11 +239,13 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	nextUniqueId { :self |
-		<primitive: return _self.nextUniqueId;>
+		self.cached('nextUniqueId') {
+			1
+		}
 	}
 
 	nextUniqueId { :self :aNumber |
-		<primitive: return _self.nextUniqueId = _aNumber;>
+		self.cached::nextUniqueId := aNumber
 	}
 
 	onlyZeroArityMethodList { :self |
@@ -278,10 +294,9 @@ System! : [Object, Cache, Indexable, Random] {
 			'methodDictionary',
 			'traitDictionary',
 			'typeDictionary',
-			'nextUniqueId',
 			'window',
 			'library', (* Package *)
-			'transcript'
+			'transcript' (* Package *)
 		]
 	}
 
@@ -327,16 +342,6 @@ System! : [Object, Cache, Indexable, Random] {
 		} {
 			self.error('traitTypes: not a trait: ' ++ traitName)
 		}
-	}
-
-	transcript { :self |
-		(* lazy initialiser, should probably initialise on system start *)
-		<primitive:
-		if(_self.transcript == null) {
-			_self.transcript = _Transcript_0();
-		}
-		return _self.transcript;
-		>
 	}
 
 	typeDictionary { :self |
@@ -398,8 +403,8 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	uniqueId { :self |
-		| answer = self.nextUniqueId; |
-		self.nextUniqueId := answer + 1;
+		| answer = self.cached('uniqueId') { 1 }; |
+		self.cache::uniqueId := answer + 1;
 		answer
 	}
 

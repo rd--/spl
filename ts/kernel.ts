@@ -140,27 +140,19 @@ export class Type {
 // required if methods are added before type definition, this should be cleared up
 const preinstalledTypes = ['Array', 'SmallFloat', 'String', 'Void'];
 
-type Transcript = unknown;
-
 export class System {
 	methodDictionary: MethodDictionary;
 	traitDictionary: Map<TraitName, Trait>;
 	typeDictionary: Map<TypeName, Type>;
-	nextUniqueId: number;
 	window: Window;
-	transcript: Transcript;
 	cache: Record<string, unknown>;
-	globalDictionary: Record<string, unknown>;
 	constructor() {
 		this.methodDictionary = new Map();
 		this.traitDictionary = new Map();
 		// Void is not an ordinary type, it names the place in the method table for no-argument procedures.
 		this.typeDictionary = new Map(preinstalledTypes.map(function(each) { return [each, new Type(each, 'Kernel', [], [], new Map())]; }));
-		this.nextUniqueId = 1;
 		this.window = window;
-		this.transcript = null;
 		this.cache = Object.create(null);
-		this.globalDictionary = Object.create(null);
 	}
 }
 

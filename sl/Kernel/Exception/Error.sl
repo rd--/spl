@@ -12,10 +12,6 @@
 		true
 	}
 
-	log { :self |
-		system.transcript.addError(self.messageText)
-	}
-
 	shallowCopy { :self |
 		self.error('copy: cannot copy')
 	}
@@ -78,12 +74,6 @@ TypeError! : [Object, Exception, PrimitiveError] {
 
 	Error { :self |
 		<primitive: return Error(_self);>
-	}
-
-	error { :self |
-		| err = Error(self); |
-		err.log;
-		err.signal
 	}
 
 }

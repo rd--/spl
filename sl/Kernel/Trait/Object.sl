@@ -86,7 +86,9 @@
 	}
 
 	error { :self :message |
-		self.errorMessage(message).error
+		| description = self.errorMessage(message); |
+		system.transcript.addError(description);
+		Error(description).signal
 	}
 
 	identity { :self |
@@ -137,7 +139,8 @@
 	}
 
 	notify { :self :message |
-		system.transcript.addNotification(self.notificationMessage(message))
+		system.transcript.addNotification(self.notificationMessage(message));
+		self
 	}
 
 	perform { :self :aString |
@@ -228,7 +231,8 @@
 	}
 
 	warning { :self :message |
-		system.transcript.addWarning(self.warningMessage(message))
+		system.transcript.addWarning(self.warningMessage(message));
+		self
 	}
 
 	yourself { :self |

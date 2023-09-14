@@ -19,12 +19,12 @@ Transcript : [Object] { | entries |
 
 	addNotification { :self :message |
 		self.entries.add(TranscriptEntry('notification', message));
-		system.consoleLog(message)
+		system.consoleNotification(message)
 	}
 
 	addWarning { :self :message |
 		self.entries.add(TranscriptEntry('warning', message));
-		system.consoleWarn(message)
+		system.consoleWarning(message)
 	}
 
 	removeAll { :self |
@@ -64,6 +64,16 @@ Transcript : [Object] { | entries |
 
 	Transcript {
 		newTranscript().initializeSlots([])
+	}
+
+}
+
++@Cache {
+
+	transcript { :self |
+		self.cached('transcript') {
+			Transcript()
+		}
 	}
 
 }
