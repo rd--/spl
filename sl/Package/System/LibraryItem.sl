@@ -21,19 +21,21 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 	require { :self |
 		('LibraryItem>>require' ++ self.name).postLine;
 		Promise { :resolve:/1 :reject:/1 |
-			self.value.ifNotNil {
-				self.value.resolve
+			self.value.ifNotNil { :answer |
+				answer.resolve
 			} {
 				system.localStorage.includesIndex(self.key).if {
 					self.value := self.readLocalStorage;
 					self.value.resolve
 				} {
-					system.window.fetchMimeType(self.url, self.mimeType, ()).then { :answer |
+					system.window.fetchMimeType(self.url, self.mimeType, ()).thenElse { :answer |
 						self.useLocalStorage.ifTrue {
 							self.writeLocalStorage(answer)
 						};
 						self.value := self.parser.value(answer);
 						self.value.resolve
+					} { :message |
+						message.reject
 					}
 				}
 			}

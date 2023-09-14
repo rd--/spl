@@ -3,7 +3,7 @@
 	programAuthors { :self :category |
 		self.programIndex.select { :each |
 			each[1] = category
-		}.collect(second:/1).Set.Array.sorted
+		}.collect(second:/1).Set.Array.sort
 	}
 
 	ProgramBrowser { :self :path |
@@ -39,7 +39,7 @@
 	}
 
 	programCategories { :self |
-		self.programIndex.collect(first:/1).Set.Array.sorted.reject { :each |
+		self.programIndex.collect(first:/1).Set.Array.sort.reject { :each |
 			each = 'collect'
 		}
 	}
@@ -54,7 +54,7 @@
 			each[1] = category & {
 				each[2] = author
 			}
-		}.collect(third:/1).sorted
+		}.collect(third:/1).sort
 	}
 
 }

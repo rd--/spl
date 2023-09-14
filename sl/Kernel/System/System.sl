@@ -22,7 +22,7 @@ System! : [Object, Cache, Indexable, Random] {
 
 	addLibraryItem { :self :libraryItem |
 		self.library.includesIndex(libraryItem.name).if {
-			('System>>addLibraryItem: item exists: ' ++ libraryItem.name).postLine
+			self.warning('addLibraryItem: item exists: ' ++ libraryItem.name)
 		} {
 			self.library[libraryItem.name] := libraryItem
 		}
@@ -305,7 +305,7 @@ System! : [Object, Cache, Indexable, Random] {
 		system.library.includesIndex(name).if {
 			system.library[name].require
 		} {
-			('System>>requireLibraryItem: does not exist: ' ++ name).postLine
+			self.error('requireLibraryItem: does not exist: ' ++ name)
 		}
 	}
 

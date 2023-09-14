@@ -32,6 +32,7 @@
 	'Number-Fraction'
 	'Number-LargeInteger'
 	'Random-Mersenne'
+	'Random-LinearCongruential'
 	'Random-Sfc32'
 	'Random-SplitMix'
 	'Scheduling-Promise'

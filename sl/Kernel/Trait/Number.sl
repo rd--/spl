@@ -147,12 +147,16 @@
 		self >= 0
 	}
 
-	quotient { :self :aNumber |
+	quotientBy { :self :aNumber :aBlock:/1 |
 		(aNumber = 0).if {
 			'@Number>>quotient: divideByZero'.error
 		} {
-			(self / aNumber).truncated
+			aBlock(self / aNumber)
 		}
+	}
+
+	quotient { :self :aNumber |
+		self.quotientBy(aNumber, truncated:/1)
 	}
 
 	radiansToDegrees { :self |
@@ -163,8 +167,16 @@
 		1 / self
 	}
 
+	remainderBy { :self :aNumber :aBlock:/1 |
+		self - (self.quotientBy(aNumber, aBlock:/1) * aNumber)
+	}
+
 	remainder { :self :aNumber |
-		self - (self.quotient(aNumber) * aNumber)
+		self.remainderBy(aNumber, truncated:/1)
+	}
+
+	roundDown { :self |
+		self.roundDownTo(1)
 	}
 
 	roundDownTo { :self :aNumber |
@@ -175,8 +187,24 @@
 		(self + (self.sign / 2)).truncated
 	}
 
+	roundToTowardsZero { :self :aNumber |
+		(self < 0).if {
+			self.roundUpTo(aNumber)
+		} {
+			self.roundDownTo(aNumber)
+		}
+	}
+
 	roundTo { :self :quantum |
 		(self / quantum).rounded * quantum
+	}
+
+	roundTowardsZero { :self |
+		self.roundToTowardsZero(1)
+	}
+
+	roundUp { :self |
+		self.roundUpTo(1)
 	}
 
 	roundUpTo { :self :aNumber |

@@ -92,11 +92,16 @@ pi.fractionPart + pi.truncated = pi (* fractional part and truncated part sum to
 3.99.roundTo(1) = 4.0 (* round to specified decimal places ; c.f. roundTo: *)
 3.99.truncateTo(1) = 3.0 (* truncate to specified decimal places *)
 12345.truncateTo(600) = 12000 (* truncate to integer *)
-3.1479.roundDownTo(0.01) = 3.14 (* round down to *)
-3.1479.roundDownTo(0.1) = 3.1
-1923.roundDownTo(10) = 1920
-3.1479.roundDownTo(0.005) = 3.145
--3.1479.roundDownTo(0.01) = -3.15
+pi.roundDownTo(0.01) = 3.14 (* round down to nearest 1/100th *)
+pi.roundDownTo(0.1) = 3.1 (* round down to nearest 1/10th *)
+1923.roundDownTo(10) = 1920 (* round down to nearest multiple of 10 *)
+pi.roundDownTo(0.005) = 3.140 (* round down to nearest 5/1000th *)
+pi.negated.roundDownTo(0.01) = -3.15 (* rounding down a negative number rounds away from zero *)
+(3 - epsilon).roundDown = 2 (* round down to nearest integer *)
+0.9.roundToTowardsZero(1) = 0 (* round towards zero, i.e. down for positive numbers *)
+-0.9.roundToTowardsZero(1) = 0  (* round towards zero, i.e. up for negative numbers *)
+0.9.roundTowardsZero = 0 (* round to nearest integer towards zero *)
+-0.9.roundTowardsZero = 0  (* round to nearest integer towards zero, upwards for negative numbers *)
 [-4, -3, -2.9, -2, -1, -0.9, 0, 0.9, 1, 2, 2.9, 3, 4].collect { :each | each.roundDownTo(2) } = [-4, -4, -4, -2, -2, -2, 0, 0, 0, 2, 2, 2, 4]
 3.99.floor = 3 (* round down *)
 3.99.ceiling = 4 (* round up *)
@@ -194,6 +199,17 @@ inf ~ inf (* being equal, infinty is also close to itself *)
 23e-1 = 2.3 (* scientific notation, negative exponent *)
 3.141e-1 = 0.3141 (* scientific notation, float base, negative exponent *)
 0.1e-6 = 1e-7 (* scientific notation, equivalence *)
+8.625 / 0.75 = 11.5 (* a number divided by a number less than zero *)
+| x = 8.625, y = 0.75, q = x.quotient(y), r = x.remainder(y); | [q, r, x = (y * q + r)] = [11, 0.375, true]
+| x = 8.625, y = 0.75, q = x.quotientBy(y, rounded:/1), r = x.remainderBy(y, rounded:/1); | [q, r, x = (y * q + r)] = [12, -0.375, true]
+0.5.rounded = 1 (* round to neareset or upwards (not to nearest or even *)
+-0.5.rounded = -0 (* round upwards to negative zero *)
+1.5.rounded = 2 (* round to neareset or upwards (not to nearest or even *)
+1 + 2 = 3 (* addition *)
+5 - 3 = 2 (* subtraction *)
+2 * 3 = 6 (* multiplication *)
+10 / 2.5 = 4 (* division *)
+9 % 4 = 1 & { 9 = (4 * 2 + 1) } (* modulo *)
 ```
 
 ## Math -- power of two
@@ -973,6 +989,25 @@ system.colourNameTable::orange = Colour(1, 0.6, 0) (* colour name table *)
 system.colourNameTable::veryLightGray.isGrey (* colour name table *)
 ```
 
+## Comparing
+```
+1 = 1 (* 1 is equal to 1 *)
+2 ~= 1 (* 2 isn't equal to 1 *)
+2 > 1 (* 2 is greater than 1 *)
+1 < 2 (* 1 is less than 2 *)
+1 >= 1 (* 1 is greater than or equal to 1 *)
+2 <= 1 = false (* 2 isn't less than or equal to 1 *)
+'x' < 'y' (* 'x' is less than 'y' *)
+{ false < true }.ifError { true } (* booleans are not magnitudes *)
+```
+
+## Comparing -- arrays
+```
+[1, 'zebra'] < [2, 'apple'] = [true, false ] (* pointwise? - 1 is less than 2 and 'zebra' is grater than 'apple' *)
+[3, 'apple'] < [3, 'bird'] = [false, true] (* pointwise? - 3 is equal to 3 and 'apple' is less than 'bird' *)
+[4, 'dog'] = [4, 'dog'] (* 4 is equal to 4 and 'dog' is equal to 'dog' *)
+```
+
 ## Complex -- numeric type
 ```
 system.includesPackage('Number-Complex')
@@ -1391,11 +1426,12 @@ Fraction(3, 1) = 3:1
 -6:5.rounded = -1
 3:2.rounded = 2 (* in case of tie, round to upper magnitude *)
 -3:2.rounded = -2
-pi.roundUpTo(0.01) = 3.15
-pi.roundUpTo(0.1) = 3.2
-1923.roundUpTo(10) = 1930
-pi.roundUpTo(0.005) = 3.145
-pi.negated.roundUpTo(0.01) = -3.14
+pi.roundUpTo(0.01) = 3.15 (* round up to nearest 1/100th *)
+pi.roundUpTo(0.1) = 3.2 (* round up to nearest 1/10th *)
+1923.roundUpTo(10) = 1930 (* round up to nearest multiple of 10 *)
+pi.roundUpTo(0.005) = 3.145 (* round up to nearest 5/1000th *)
+pi.negated.roundUpTo(0.01) = -3.14 (* rounding up a negative number rounds towards zero *)
+pi.roundUp = 4 (* round up to nearest integer *)
 -3:2.numerator.negative (* numerator of negative fraction is negative *)
 -3:2.denominator.positive (* denominator of negative fraction is positive *)
 4:6.numerator = 2 (* literal fractions are reduced *)
@@ -2029,6 +2065,10 @@ nil.printString = 'nil' (* nil print string *)
 nil.storeString = 'nil' (* nil store string *)
 nil.json = 'null' (* nil has a Json representation *)
 'null'.parseJson = nil (* nil has a Json representation *)
+| c | c ? { 'red' } = 'red' (* nil-coalescing operator, if lhs is nil evaluate rhs *)
+| c = 'blue'; | c ? { 'red' } = 'blue' (* nil-coalescing operator *)
+| c | c ?? 'red' = 'red' (* evaluating nil-coalescing operator, if lhs is nil answer rhs *)
+| c = 'blue'; | c ?? 'red' = 'blue' (* nil-coalescing operator *)
 ```
 
 ## Number -- numeric trait
@@ -2104,7 +2144,7 @@ pi.in { :x | x.rounded + 20 } = 23 (* evaluate procedure with object *)
 ```
 Package('Time-Date').typeOf = 'Package' (* type of Package *)
 Package('Time-Date').isPackage (* package type predicate *)
-Package('Time-Date').packageName = 'Time-Date' (* name of package *)
+Package('Time-Date').name = 'Time-Date' (* name of package *)
 system.includesPackage('Time-Date')
 ```
 
@@ -2245,7 +2285,7 @@ system.includesPackage('Random-Sfc32')
 | r = Sfc32(), s = Set(); | 729.timesRepeat { s.include(r.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
 ```
 
-## Random - Mersenne
+## Random -- Mersenne
 ```
 system.includesPackage('Random-Mersenne')
 | m = Mersenne(98765); | m.typeOf = 'Mersenne' (* type of *)
@@ -2262,7 +2302,7 @@ Mersenne(123456).randomFloat = 0.12696983303810094 (* test from standard tests *
 | m = Mersenne(), s = Set(); | 729.timesRepeat { s.include(m.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
 ```
 
-## Random - SplitMix
+## Random -- SplitMix
 ```
 system.includesPackage('Random-SplitMix')
 | r = SplitMix(98765); | r.typeOf = 'SplitMix' (* type of *)
@@ -2273,6 +2313,13 @@ system.includesPackage('Random-SplitMix')
 | r = SplitMix(98765); | r.randomFloat(0, 100) = 8.824091404676437 (* random number in [0, 100) *)
 | r = SplitMix(98765); | r.randomInteger(1000) = 89 (* random integer in [1, 1000] *)
 | r = SplitMix(98765); | r.randomInteger(1, 10000) = 883 (* random integer in [1, 10000] *)
+```
+
+## Random -- LinearCongruential
+```
+system.includesPackage('Random-LinearCongruential')
+| r = LinearCongruential(); | r.typeOf = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandom }
+| r = LinearCongruential(); | [r.randomFloat, r.randomFloat] = [0.3746499199817101, 0.729023776863283]
 ```
 
 ## ReadStream -- collection type
@@ -2808,7 +2855,7 @@ SortedArray().size = 0 (* query size *)
 'hello'.split.SortedArray.Array = 'ehllo'.split
 ```
 
-## Stack - collection type
+## Stack -- collection type
 ```
 system.includesPackage('Collection-Stack')
 Stack().typeOf = 'Stack' (* Stack is a type *)

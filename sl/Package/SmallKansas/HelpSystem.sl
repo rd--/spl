@@ -46,7 +46,7 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 
 	helpFind { :self :name |
 		self.helpIndex.detectIfNone { :each |
-			each[3] = name
+			each.third = name
 		} {
 			self.warning('helpFind: no help for: ' ++ name);
 			nil
@@ -59,10 +59,10 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 
 	helpNames { :self :area :kind |
 		self.helpIndex.select { :each |
-			each[1] = area & {
-				each[2] = kind
+			each.first = area & {
+				each.second = kind
 			}
-		}.collect(third:/1).Set.Array.sorted
+		}.collect(third:/1).Set.Array.sort
 	}
 
 	helpProject { :self :area |
@@ -78,28 +78,15 @@ HelpSystem : [Object] { | helpIndex programIndex programOracle |
 	}
 
 	requireLibraries { :self |
-		|(
-			parseHelpIndex = { :aString |
-				aString.lines.select(notEmpty:/1).collect { :each |
-					| [kind, area, name] = each.replaceString('.help.sl', '').splitRegExp(RegExp('/')); |
-					[area, kind, name]
-				}
-			},
-			parseProgramIndex = { :aString |
-				aString.lines.select(notEmpty:/1).collect { :each |
-					each.replaceString('.sl', '').splitRegExp(RegExp(' - |/'))
-				}
-			}
-		)|
 		[
-			system.requireLibraryItem('helpIndex').then { :aString |
-				self.helpIndex := parseHelpIndex(aString)
+			system.requireLibraryItem('helpIndex').then { :answer |
+				self.helpIndex := answer
 			},
-			system.requireLibraryItem('programIndex').then { :aString |
-				self.programIndex := parseProgramIndex(aString)
+			system.requireLibraryItem('programIndex').then { :answer |
+				self.programIndex := answer
 			},
-			system.requireLibraryItem('programOracle').then { :aString |
-				self.programOracle := parseProgramIndex(aString)
+			system.requireLibraryItem('programOracle').then { :answer |
+				self.programOracle := answer
 			}
 		].Promise.then { :unused |
 			self
