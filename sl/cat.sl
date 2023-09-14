@@ -498,6 +498,9 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'veryCloseTo'
 	],
 	'controlling': [
+		'?'
+		'??'
+		'~?'
 		'always'
 		'caseOf'
 		'caseOfOtherwise'

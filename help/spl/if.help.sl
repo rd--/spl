@@ -1,6 +1,6 @@
 # if -- conditional evaluation
 
-- _if(aBoolean, whenTrue, whenFalse)_
+- _if(aBoolean, whenTrue:/0, whenFalse:/0)_
 
 If _aBoolean_ is _true_ answer the result of  _whenTrue()_, else answer _whenFalse()_.
 
@@ -16,7 +16,7 @@ Spl follows Smalltalk in having no special purpose conditional evaluation mechan
 
 Conditionals expressions are implemented as ordinary procedures.
 
-To delay evaulation of alternatives each must be written as a no argument procedure.
+To delay evaluation of alternatives each must be written as a no argument procedure.
 
 [Trailing Procedure Syntax] provides an idiomatic notation for writing conditionals.
 

@@ -262,7 +262,7 @@ System! : [Object, Cache, Indexable, Random] {
 	operatorNameTable { :self |
 		| table = self.operatorCharacterNameTable; |
 		self.cached('operatorNameTable') {
-			'+ ++ * - -> / // & && | || < << <= <~ <=> > >> >= >~ = == ==> % ! !~ \\ \\\\ ~ ~~ ~= ? ?? ^'.words.collect { :each |
+			'+ ++ * - -> / // & && | || < << <= <~ <=> > >> >= >~ = == ==> % ! !~ \\ \\\\ ~ ~~ ~= ~? ? ?? ^'.words.collect { :each |
 				each -> each.stringArray.collect { :letter |
 					table[letter]
 				}.camelCase.join
