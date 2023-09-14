@@ -105,6 +105,10 @@ HelpIndex : [Object] { | contents |
 		}
 	}
 
+}
+
++@Cache {
+
 	helpIndex { :self |
 		self.useLibraryItem(
 			LibraryItem(

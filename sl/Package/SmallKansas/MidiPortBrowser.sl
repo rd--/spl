@@ -26,7 +26,7 @@
 MidiPortBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.withMidiAccess { :midiAccess |
+		smallKansas.midiAccess.then { :midiAccess |
 			smallKansas.addFrame(midiAccess.MidiPortBrowser, event)
 		}
 	}

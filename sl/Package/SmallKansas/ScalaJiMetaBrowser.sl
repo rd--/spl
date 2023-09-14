@@ -20,25 +20,25 @@
 
 }
 
-+SmallKansas {
++@Cache {
 
 	jiMeta { :self |
-		self.useLibraryItem(
-			LibraryItem(
-				'jiMeta',
-				'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
-				'application/json',
-				{ :item |
-					system.requireLibraryItem('jiScala').then { :jiScala |
+		self.jiScala.then { :jiScala |
+			self.useLibraryItem(
+				LibraryItem(
+					'jiMeta',
+					'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
+					'application/json',
+					{ :item |
 						item.collect { :anArray |
 							anArray.collect { :aName |
 								jiScala[aName]
 							}.select(notNil:/1)
 						}
 					}
-				}
+				)
 			)
-		)
+		}
 	}
 
 }

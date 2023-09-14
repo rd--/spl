@@ -1,4 +1,4 @@
-+SmallKansas {
++@Cache {
 
 	programOracle { :self |
 		self.useLibraryItem(

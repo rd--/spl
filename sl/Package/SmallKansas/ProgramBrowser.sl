@@ -74,7 +74,7 @@ ProgramIndex : [Object] { | contents |
 
 }
 
-+SmallKansas {
++@Cache {
 
 	programIndex { :self |
 		self.useLibraryItem(

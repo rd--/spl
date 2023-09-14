@@ -37,7 +37,7 @@
 MidiMonitorMenu : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.withMidiAccess { :midiAccess |
+		smallKansas.midiAccess.then { :midiAccess |
 			|(
 				onSelect = { :midiPort :event |
 					smallKansas.midiMonitorOn(midiPort, event)

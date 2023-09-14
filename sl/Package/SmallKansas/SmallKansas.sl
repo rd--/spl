@@ -6,7 +6,7 @@
 
 }
 
-SmallKansas : [Object, Cache] { | container frameSet midiAccess helpIndex cache |
+SmallKansas : [Object, Cache] { | container frameSet cache |
 
 	addFrameWithAnimator { :self :subject :event :delay :aProcedure:/0 |
 		|(
@@ -132,16 +132,17 @@ SmallKansas : [Object, Cache] { | container frameSet midiAccess helpIndex cache 
 		self.frameSet.remove(frame)
 	}
 
+	midiAccess { :self |
+		self.whenCached('midiAccess') {
+			system.window.navigator.requestMidiAccess
+		}
+	}
+
 	withMidiAccess { :self :aBlock:/1 |
-		self.midiAccess.ifNil {
-			system.window.navigator.requestMidiAccess.thenElse { :midiAccess |
-				self.midiAccess := midiAccess;
-				aBlock(midiAccess)
-			} { :message |
-				system.warning('withMidiAccess: no midiAccess: ' + message)
-			}
-		} {
-			aBlock(self.midiAccess)
+		self.midiAccess.thenElse { :midiAccess |
+			aBlock(midiAccess)
+		} { :message |
+			self.warning('withMidiAccess: no midiAccess: ' + message)
 		}
 	}
 

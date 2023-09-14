@@ -61,7 +61,7 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 
 }
 
-+SmallKansas {
++@Cache {
 
 	clsLeitner { :self |
 		self.useLibraryItem(

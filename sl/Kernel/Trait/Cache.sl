@@ -8,14 +8,14 @@
 		self.cache.atIfAbsentPut(key, constructor:/0)
 	}
 
-	withCached { :self :key :asyncConstructor:/0 :aBlock:/1 |
-		self.cache[key].ifNil {
+	whenCached { :self :key :asyncConstructor:/0 |
+		self.cache.includesIndex(key).if {
+			self.cache[key]
+		} {
 			asyncConstructor().then { :answer |
 				self.cache[key] := answer;
-				aBlock(answer)
+				answer
 			}
-		} { :answer |
-			aBlock(answer)
 		}
 	}
 
