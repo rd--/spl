@@ -61,6 +61,23 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 
 }
 
++SmallKansas {
+
+	clsLeitner { :self |
+		self.useLibraryItem(
+			LibraryItem(
+				'clsLeitner',
+				'https://rohandrape.net/sw/hsc3-data/data/chemistry/json/cls.json',
+				'application/json',
+				{ :item |
+					item.collect(CrystalLatticeStructure:/1)
+				}
+			)
+		)
+	}
+
+}
+
 +Array {
 
 	CrystalLatticeStructureBrowser { :self |
@@ -82,7 +99,7 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 CrystalLatticeStructureBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		system.requireLibraryItem('clsLeitner').then { :clsLeitner |
+		smallKansas.clsLeitner.then { :clsLeitner |
 			smallKansas.addFrame(CrystalLatticeStructureBrowser(clsLeitner), event)
 		}
 	}

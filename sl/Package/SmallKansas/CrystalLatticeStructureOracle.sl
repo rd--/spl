@@ -1,7 +1,7 @@
 CrystalLatticeStructureOracle : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		system.requireLibraryItem('clsLeitner').then { :clsLeitner |
+		smallKansas.clsLeitner.then { :clsLeitner |
 			| cls = clsLeitner.atRandom, mtx = Projection3().chinese.Matrix33; |
 			smallKansas.addFrame(SvgViewer(
 				'Cls - ' ++ cls.name,

@@ -12,7 +12,7 @@
 	'SmallKansas-CrystalLatticeStructureOracle'
 	'SmallKansas-DigitalClock'
 	'SmallKansas-Frame'
-	'SmallKansas-HelpSystem'
+	'SmallKansas-HelpBrowser'
 	'SmallKansas-Inspector'
 	'SmallKansas-ListChooser'
 	'SmallKansas-Menu'

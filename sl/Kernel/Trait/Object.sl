@@ -77,8 +77,16 @@
 		}
 	}
 
+	errorMessage { :self :message |
+		[
+			self.typeOf, ': ',
+			message,
+			': (', self.printStringLimitedTo(16), ')'
+		].join
+	}
+
 	error { :self :message |
-		(self.typeOf ++ ': ' ++ message ++ ': (' ++ self.printStringLimitedTo(16) ++ ')').error
+		self.errorMessage(message).error
 	}
 
 	identity { :self |
@@ -118,6 +126,18 @@
 
 	isNumber { :self |
 		false
+	}
+
+	notificationMessage { :self :message |
+		[
+			self.typeOf, ': ',
+			message,
+			': (' ++ self.printStringLimitedTo(16) ++ ')'
+		].join
+	}
+
+	notify { :self :message |
+		system.transcript.addNotification(self.notificationMessage(message))
 	}
 
 	perform { :self :aString |
@@ -198,16 +218,17 @@
 		self
 	}
 
+	warningMessage { :self :message |
+		[
+			'Warning: ',
+			self.typeOf, ': ',
+			message,
+			': (' ++ self.printStringLimitedTo(16) ++ ')'
+		].join
+	}
+
 	warning { :self :message |
-		|(
-			messageText = [
-				'Warning: ',
-				self.typeOf, ': ',
-				message,
-				': (' ++ self.printStringLimitedTo(16) ++ ')'
-			].join
-		)|
-		system.transcript.addWarning(messageText)
+		system.transcript.addWarning(self.warningMessage(message))
 	}
 
 	yourself { :self |

@@ -20,10 +20,33 @@
 
 }
 
++SmallKansas {
+
+	jiMeta { :self |
+		self.useLibraryItem(
+			LibraryItem(
+				'jiMeta',
+				'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
+				'application/json',
+				{ :item |
+					system.requireLibraryItem('jiScala').then { :jiScala |
+						item.collect { :anArray |
+							anArray.collect { :aName |
+								jiScala[aName]
+							}.select(notNil:/1)
+						}
+					}
+				}
+			)
+		)
+	}
+
+}
+
 ScalaJiMetaBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		system.requireLibraryItem('jiMeta').then { :jiMeta |
+		smallKansas.jiMeta.then { :jiMeta |
 			smallKansas.addFrame(jiMeta.ScalaJiMetaBrowser, event)
 		}
 	}

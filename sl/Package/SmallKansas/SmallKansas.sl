@@ -6,7 +6,7 @@
 
 }
 
-SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
+SmallKansas : [Object, Cache] { | container frameSet midiAccess helpIndex cache |
 
 	addFrameWithAnimator { :self :subject :event :delay :aProcedure:/0 |
 		|(
@@ -107,89 +107,14 @@ SmallKansas : [Object] { | container frameSet midiAccess helpSystem |
 	initialize { :self |
 		self.container := 'smallKansas'.getElementById;
 		self.frameSet := Set();
+		self.cache := Record();
 		self.container.addEventListener('contextmenu') { :event |
 			(event.target == self.container).ifTrue {
 				event.preventDefault;
 				self.WorldMenu(true, event)
 			}
 		};
-		self.initializeLibraryItems;
 		self
-	}
-
-	initializeLibraryItems { :self |
-		|(
-			parseProgramIndex = { :aString |
-				aString.lines.select(notEmpty:/1).collect { :each |
-					each.replaceString('.sl', '').splitRegExp(RegExp(' - |/'))
-				}
-			}
-		)|
-		system.addLibraryItem(
-			LibraryItem(
-				'helpIndex',
-				'https://rohandrape.net/sw/jssc3/text/smallhours-help.text',
-				'text/plain',
-				{ :aString |
-					aString.lines.select(notEmpty:/1).collect { :each |
-						| [kind, area, name] = each.replaceString('.help.sl', '').splitRegExp(RegExp('/')); |
-						[area, kind, name]
-					}
-				}
-			)
-		);
-		system.addLibraryItem(
-			LibraryItem(
-				'jiMeta',
-				'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
-				'application/json',
-				{ :item |
-					system.requireLibraryItem('jiScala').then { :jiScala |
-						item.collect { :anArray |
-							anArray.collect { :aName |
-								jiScala[aName]
-							}.select(notNil:/1)
-						}
-					}
-				}
-			)
-		);
-		system.addLibraryItem(
-			LibraryItem(
-				'jiScala',
-				'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
-				'application/json',
-				{ :item |
-					item.collect(JiTuning:/1)
-				}
-			)
-		);
-		system.addLibraryItem(
-			LibraryItem(
-				'programIndex',
-				'https://rohandrape.net/sw/jssc3/text/smallhours-programs.text',
-				'text/plain',
-				parseProgramIndex:/1
-			)
-		);
-		system.addLibraryItem(
-			LibraryItem(
-				'programOracle',
-				'https://rohandrape.net/sw/jssc3/text/smallhours-oracle.text',
-				'text/plain',
-				parseProgramIndex:/1
-			)
-		);
-		system.addLibraryItem(
-			LibraryItem(
-				'clsLeitner',
-				'https://rohandrape.net/sw/hsc3-data/data/chemistry/json/cls.json',
-				'application/json',
-				{ :item |
-					item.collect(CrystalLatticeStructure:/1)
-				}
-			)
-		)
 	}
 
 	referencesTo { :self :subject :event |

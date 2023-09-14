@@ -1,7 +1,14 @@
-+HelpSystem {
++SmallKansas {
 
-	ProgramOracle { :self |
-		self.ProgramBrowser(self.programOracle.atRandom)
+	programOracle { :self |
+		self.useLibraryItem(
+			LibraryItem(
+				'programOracle',
+				'https://rohandrape.net/sw/jssc3/text/smallhours-oracle.text',
+				'text/plain',
+				ProgramIndex:/1
+			)
+		)
 	}
 
 }
@@ -9,8 +16,10 @@
 ProgramOracle : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.getHelp { :help |
-			smallKansas.addFrame(help.ProgramOracle, event)
+		smallKansas.programIndex.then { :programIndex |
+			smallKansas.programOracle.then { :programOracle |
+				smallKansas.addFrame(programIndex.ProgramBrowser(programOracle.atRandom), event)
+			}
 		}
 	}
 

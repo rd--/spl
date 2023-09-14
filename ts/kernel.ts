@@ -140,7 +140,6 @@ export class Type {
 // required if methods are added before type definition, this should be cleared up
 const preinstalledTypes = ['Array', 'SmallFloat', 'String', 'Void'];
 
-type LibraryItem = unknown;
 type Transcript = unknown;
 
 export class System {
@@ -149,7 +148,6 @@ export class System {
 	typeDictionary: Map<TypeName, Type>;
 	nextUniqueId: number;
 	window: Window;
-	library: Record<string, LibraryItem>;
 	transcript: Transcript;
 	cache: Record<string, unknown>;
 	globalDictionary: Record<string, unknown>;
@@ -160,7 +158,6 @@ export class System {
 		this.typeDictionary = new Map(preinstalledTypes.map(function(each) { return [each, new Type(each, 'Kernel', [], [], new Map())]; }));
 		this.nextUniqueId = 1;
 		this.window = window;
-		this.library = Object.create(null);
 		this.transcript = null;
 		this.cache = Object.create(null);
 		this.globalDictionary = Object.create(null);

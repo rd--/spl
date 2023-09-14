@@ -20,14 +20,6 @@ System! : [Object, Cache, Indexable, Random] {
 		}
 	}
 
-	addLibraryItem { :self :libraryItem |
-		self.library.includesIndex(libraryItem.name).if {
-			self.warning('addLibraryItem: item exists: ' ++ libraryItem.name)
-		} {
-			self.library[libraryItem.name] := libraryItem
-		}
-	}
-
 	allMethods { :self |
 		| answer = []; |
 		system.addAllTraitMethodsTo(answer);
@@ -99,10 +91,6 @@ System! : [Object, Cache, Indexable, Random] {
 
 	isTypeName { :self :aString |
 		self.typeDictionary.includesIndex(aString)
-	}
-
-	library { :self |
-		<primitive: return _self.library;>
 	}
 
 	localStorage { :self |
@@ -292,27 +280,13 @@ System! : [Object, Cache, Indexable, Random] {
 			'typeDictionary',
 			'nextUniqueId',
 			'window',
-			'library',
+			'library', (* Package *)
 			'transcript'
 		]
 	}
 
 	randomFloat { :self |
 		<primitive: return Math.random();>
-	}
-
-	requireLibraryItem { :self :name |
-		system.library.includesIndex(name).if {
-			system.library[name].require
-		} {
-			self.error('requireLibraryItem: does not exist: ' ++ name)
-		}
-	}
-
-	requireLibraryItems { :self :names |
-		name.collect { :each |
-			system.requireLibraryItem(each)
-		}.Promise
 	}
 
 	sessionStorage { :self |

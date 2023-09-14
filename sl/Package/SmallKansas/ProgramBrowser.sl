@@ -1,9 +1,27 @@
-+HelpSystem {
+ProgramIndex : [Object] { | contents |
 
-	programAuthors { :self :category |
-		self.programIndex.select { :each |
+	atRandom { :self |
+		self.contents.atRandom
+	}
+
+	authors { :self :category |
+		self.contents.select { :each |
 			each[1] = category
 		}.collect(second:/1).Set.Array.sort
+	}
+
+	categories { :self |
+		self.contents.collect(first:/1).Set.Array.sort.reject { :each |
+			each = 'collect'
+		}
+	}
+
+	names { :self :category :author |
+		self.contents.select { :each |
+			each[1] = category & {
+				each[2] = author
+			}
+		}.collect(third:/1).sort
 	}
 
 	ProgramBrowser { :self :path |
@@ -18,16 +36,20 @@
 			{ :browser :path |
 				path.size.caseOf([
 					0 -> {
-						self.programCategories
+						self.categories
 					},
 					1 -> {
-						self.programAuthors(path[1])
+						self.authors(path[1])
 					},
 					2 -> {
-						self.programNames(path[1], path[2])
+						self.names(path[1], path[2])
 					},
 					3 -> {
-						self.programFetch(path[1], path[2], path[3])
+						|(
+							[category, author, name] = path[1, 2, 3],
+							url = ['./lib/stsc3/help/', category, '/', author, ' - ', name, '.sl'].join
+						)|
+						system.window.fetchString(url, (cache: 'no-cache'))
 					}
 				])
 			}
@@ -38,23 +60,31 @@
 		self.ProgramBrowser([])
 	}
 
-	programCategories { :self |
-		self.programIndex.collect(first:/1).Set.Array.sort.reject { :each |
-			each = 'collect'
-		}
-	}
+}
 
-	programFetch { :self :category :author :name |
-		| url = ['./lib/stsc3/help/', category, '/', author, ' - ', name, '.sl'].join; |
-		system.window.fetchString(url, (cache: 'no-cache'))
-	}
++String {
 
-	programNames { :self :category :author |
-		self.programIndex.select { :each |
-			each[1] = category & {
-				each[2] = author
+	ProgramIndex { :self |
+		newProgramIndex().initializeSlots(
+			self.lines.select(notEmpty:/1).collect { :each |
+				each.replaceString('.sl', '').splitRegExp(RegExp(' - |/'))
 			}
-		}.collect(third:/1).sort
+		)
+	}
+
+}
+
++SmallKansas {
+
+	programIndex { :self |
+		self.useLibraryItem(
+			LibraryItem(
+				'programIndex',
+				'https://rohandrape.net/sw/jssc3/text/smallhours-programs.text',
+				'text/plain',
+				ProgramIndex:/1
+			)
+		)
 	}
 
 }
@@ -62,8 +92,8 @@
 ProgramBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.getHelp { :help |
-			smallKansas.addFrame(help.ProgramBrowser, event)
+		smallKansas.programIndex.then { :programIndex |
+			smallKansas.addFrame(programIndex.ProgramBrowser, event)
 		}
 	}
 

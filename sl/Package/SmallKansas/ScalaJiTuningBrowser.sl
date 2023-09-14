@@ -114,10 +114,27 @@
 
 }
 
++SmallKansas {
+
+	jiScala { :self |
+		self.useLibraryItem(
+			LibraryItem(
+				'jiScala',
+				'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
+				'application/json',
+				{ :item |
+					item.collect(JiTuning:/1)
+				}
+			)
+		)
+	}
+
+}
+
 ScalaJiTuningBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		system.requireLibraryItem('jiScala').then { :jiTuning |
+		smallKansas.jiScala.then { :jiTuning |
 			smallKansas.addFrame(jiTuning.ScalaJiTuningBrowser, event)
 		}
 	}
