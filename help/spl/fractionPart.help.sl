@@ -14,4 +14,4 @@ so that _x.truncated + x.fractionPart = x_.
 
 * * *
 
-See also: truncated
+See also: integerPart, truncated

@@ -19,13 +19,13 @@ type MethodOrigin = Trait | Type;
 
 type SlObject = object & {_type: TypeName};
 
-type QualifiedMethodDictionary = Map<QualifiedMethodName, Method>
-type TraitDictionary = Map<TraitName, Trait>;
-type TypeDictionary = Map<TypeName, Type>;
+type QualifiedMethodDictionary = Record<QualifiedMethodName, Method>
+type TraitDictionary = Record<TraitName, Trait>;
+type TypeDictionary = Record<TypeName, Type>;
 
-type ByTypeMethodDictionary = Map<TypeName, Method>;
-type ByArityMethodDictionary = Map<Arity, ByTypeMethodDictionary>;
-type MethodDictionary = Map<MethodName, ByArityMethodDictionary>
+type ByTypeMethodDictionary = Record<TypeName, Method>;
+type ByArityMethodDictionary = Record<Arity, ByTypeMethodDictionary>;
+type MethodDictionary = Record<MethodName, ByArityMethodDictionary>
 
 function isRecord(anObject: SlObject): boolean {
 	const c = anObject.constructor;
@@ -118,7 +118,7 @@ export class Trait {
 	constructor(name: TraitName, packageName: PackageName) {
 		this.name = name;
 		this.packageName = packageName;
-		this.methodDictionary = new Map();
+		this.methodDictionary = newRecord();
 	}
 }
 
@@ -140,17 +140,22 @@ export class Type {
 // required if methods are added before type definition, this should be cleared up
 const preinstalledTypes = ['Array', 'SmallFloat', 'String', 'Void'];
 
+function newRecord() {
+	return Object.create(null);
+}
+
 export class System {
 	methodDictionary: MethodDictionary;
-	traitDictionary: Map<TraitName, Trait>;
-	typeDictionary: Map<TypeName, Type>;
+	traitDictionary: Record<TraitName, Trait>;
+	typeDictionary: Record<TypeName, Type>;
 	window: Window;
 	cache: Record<string, unknown>;
 	constructor() {
-		this.methodDictionary = new Map();
-		this.traitDictionary = new Map();
+		this.methodDictionary = newRecord();
+		this.traitDictionary = newRecord();
 		// Void is not an ordinary type, it names the place in the method table for no-argument procedures.
-		this.typeDictionary = new Map(preinstalledTypes.map(function(each) { return [each, new Type(each, 'Kernel', [], [], new Map())]; }));
+		this.typeDictionary = Object.fromEntries(preinstalledTypes.map(function(each) { return [each, new Type(each, 'Kernel', [], [], newRecord())]; }));
+		console.log('typeDictionary', this.typeDictionary);
 		this.window = window;
 		this.cache = Object.create(null);
 	}
@@ -158,32 +163,36 @@ export class System {
 
 export const system: System = new System();
 
+function recordHas(record, key) {
+	return Object.hasOwn(record, key);
+}
+
 function traitExists(traitName: TraitName): boolean {
-	return system.traitDictionary.has(traitName);
+	return recordHas(system.traitDictionary, traitName);
 }
 
 function typeExists(typeName: TypeName): boolean {
-	return system.typeDictionary.has(typeName);
+	return recordHas(system.typeDictionary, typeName);
 }
 
 function methodExists(methodName: MethodName): boolean {
-	return system.methodDictionary.has(methodName);
+	return recordHas(system.methodDictionary, methodName);
 }
 
 export function addTrait(traitName: TraitName, packageName: PackageName): void {
 	if(traitExists(traitName)) {
 		throw(`addTrait: trait exists: ${traitName}`);
 	} else {
-		system.traitDictionary.set(traitName, new Trait(traitName, packageName));
+		system.traitDictionary[traitName] = new Trait(traitName, packageName);
 	}
 }
 
 // c.f. rewrite/makeMethodList
 export function addTraitMethod(traitName: TraitName, packageName: PackageName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
 	if(traitExists(traitName)) {
-		const trait = system.traitDictionary.get(traitName)!;
+		const trait = system.traitDictionary[traitName];
 		const method = new Method(methodName, packageName, procedure, arity, sourceCode, trait);
-		trait.methodDictionary.set(method.qualifiedName(), method);
+		trait.methodDictionary[method.qualifiedName()] = method;
 		return method;
 	} else {
 		throw(`addTraitMethod: trait does not exist: ${traitName}, ${methodName}, ${arity}`);
@@ -192,8 +201,10 @@ export function addTraitMethod(traitName: TraitName, packageName: PackageName, m
 
 export function copyTraitToType(traitName: TraitName, typeName: TypeName): void {
 	if(traitExists(traitName) && typeExists(typeName)) {
-		const methodDictionary = system.traitDictionary.get(traitName)!.methodDictionary;
-		for (const [name, method] of methodDictionary) {
+		const methodDictionary = system.traitDictionary[traitName].methodDictionary;
+		//for(const [name, method] of methodDictionary) {
+		for(const name of Object.keys(methodDictionary)) {
+			const method = methodDictionary[name];
 			// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${method.arity}`);
 			addMethodFor(typeName, method, true);
 		}
@@ -204,7 +215,9 @@ export function copyTraitToType(traitName: TraitName, typeName: TypeName): void 
 
 export function traitTypeArray(traitName: TraitName): TypeName[] {
 	const answer = [];
-	for (const [typeName, typeValue] of system.typeDictionary) {
+	//for(const [typeName, typeValue] of system.typeDictionary) {
+	for(const typeName of Object.keys(system.typeDictionary)) {
+		const typeValue = system.typeDictionary[typeName];
 		if(typeValue.traitNameArray.includes(traitName)) {
 			answer.push(typeName);
 		}
@@ -226,7 +239,7 @@ export function extendTraitWithMethod(traitName: TraitName, packageName: Package
 }
 
 export function lookupGeneric(methodName: MethodName, methodArity: Arity, receiverType: TypeName): Method {
-	return system.methodDictionary.get(methodName)!.get(methodArity)!.get(receiverType)!;
+	return system.methodDictionary[methodName][methodArity][receiverType];
 }
 
 export function nameWithoutArity(methodName: MethodName) {
@@ -241,7 +254,7 @@ export function applyGenericAt(methodName: MethodName, parameterArray: unknown[]
 
 export function dispatchByType(name: string, arity: number, typeTable: ByTypeMethodDictionary, parameterArray: unknown[]) {
 	if(arity === 0) {
-		const method = typeTable.get('Void');
+		const method = typeTable['Void'];
 		if(method) {
 			return method.procedure.apply(null, [])
 		} else {
@@ -250,7 +263,7 @@ export function dispatchByType(name: string, arity: number, typeTable: ByTypeMet
 	} else {
 		const receiver = parameterArray[0];
 		const receiverType = typeOf(receiver);
-		const typeMethod = typeTable.get(receiverType);
+		const typeMethod = typeTable[receiverType];
 		if(typeMethod) {
 			// console.debug(`dispatchByType: name=${name}, arity=${arity}, type=${receiverType}`);
 			return typeMethod.procedure.apply(null, parameterArray)
@@ -261,7 +274,7 @@ export function dispatchByType(name: string, arity: number, typeTable: ByTypeMet
 }
 
 export function dispatchByArity(name: string, arity: number, arityTable: ByArityMethodDictionary, parameterArray: unknown[]) {
-	const typeTable = arityTable.get(arity);
+	const typeTable = arityTable[arity];
 	if(typeTable) {
 		return dispatchByType(name, arity, typeTable, parameterArray);
 	} else {
@@ -278,7 +291,7 @@ export function addMethodFor(typeName: TypeName, method: Method, requireTypeExis
 	// console.debug(`addMethodFor: ${typeName}, ${method.name}, ${method.arity}`);
 	if(!methodExists(method.name)) {
 		// console.debug(`addMethodFor: new method name`);
-		system.methodDictionary.set(method.name, new Map());
+		system.methodDictionary[method.name] = newRecord();
 		if(slOptions.simpleArityModel) {
 			const prefixedName = '_' + method.name;
 			let globalFunction = globalThis[prefixedName];
@@ -292,16 +305,16 @@ export function addMethodFor(typeName: TypeName, method: Method, requireTypeExis
 			}
 		}
 	}
-	let arityTable = system.methodDictionary.get(method.name)!;
-	if(!arityTable.has(method.arity)) {
+	let arityTable = system.methodDictionary[method.name];
+	if(!recordHas(arityTable, method.arity)) {
 		// console.debug(`addMethodFor: new method arity`);
-		arityTable.set(method.arity, new Map());
+		arityTable[method.arity] = newRecord();
 		if(!slOptions.simpleArityModel) {
 			const prefixedNameWithArity = `_${method.name}_${method.arity}`;
 			// console.debug(`addMethodFor: generate global: ${prefixedNameWithArity}`);
 			let globalFunctionWithArity = globalThis[prefixedNameWithArity];
 			if(globalFunctionWithArity === undefined) {
-				const typeTable = arityTable.get(method.arity)!;
+				const typeTable = arityTable[method.arity];
 				globalFunctionWithArity = globalThis[prefixedNameWithArity] = function(...argumentsArray: unknown[]) {
 					// console.debug(`dispatchByType: ${method.name}, ${JSON.stringify(argumentsArray)}`);
 					return dispatchByType(method.name, method.arity, typeTable, argumentsArray);
@@ -311,15 +324,15 @@ export function addMethodFor(typeName: TypeName, method: Method, requireTypeExis
 			}
 		}
 	}
-	const existingEntry = arityTable.get(method.arity)!.get(typeName);
+	const existingEntry = arityTable[method.arity][typeName];
 	// Todo: this is not a correct test, it needs to not over-write less specific traits as well... it works for stdlib...
 	if(existingEntry && existingEntry.origin.name === typeName && method.origin.name !== typeName) {
 		// console.debug('addMethodFor: existing more specific entry');
 	} else {
-		arityTable.get(method.arity)!.set(typeName, method);
+		arityTable[method.arity][typeName] = method;
 	}
 	if(typeName === method.origin.name) {
-		system.typeDictionary.get(typeName)!.methodDictionary.set(method.qualifiedName(), method);
+		system.typeDictionary[typeName].methodDictionary[method.qualifiedName()] = method;
 	}
 	return method;
 }
@@ -334,10 +347,10 @@ export function addMethod(typeName: TypeName, packageName: PackageName, methodNa
 	const isMeta = isTypeType(typeName);
 	if(isMeta && !typeExists(typeName)) {
 		// Lazily add meta-type entries as required
-		system.typeDictionary.set(typeName, new Type(typeName, 'Kernel-System-Meta', ['Object'], [], new Map()));
+		system.typeDictionary[typeName] = new Type(typeName, 'Kernel-System-Meta', ['Object'], [], newRecord());
 	}
 	if(typeExists(typeName)) {
-		const typeValue = system.typeDictionary.get(typeName)!;
+		const typeValue = system.typeDictionary[typeName];
 		const method = new Method(methodName, packageName, procedure, arity, sourceCode, typeValue);
 		return addMethodFor(typeName, method, slOptions.requireTypeExists);
 	} else {
@@ -359,8 +372,8 @@ export function addType(isHostType: boolean, typeName: TypeName, packageName: Pa
 		const defSlotAccess = slotNames.map(each => `addMethod('${typeName}', '${packageName}', '${each}', 1, function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`).join('; ');
 		const defSlotMutate = slotNames.map(each => `addMethod('${typeName}', '${packageName}', '${each}', 2, function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`).join('; ');
 		// console.debug(`addType: ${typeName}, ${packageName}, ${slotNames}`);
-		const methodDictionary = typeExists(typeName) ? system.typeDictionary.get(typeName)!.methodDictionary : new Map();
-		system.typeDictionary.set(typeName, new Type(typeName, packageName, traitList, slotNames, methodDictionary));
+		const methodDictionary = typeExists(typeName) ? system.typeDictionary[typeName].methodDictionary : newRecord();
+		system.typeDictionary[typeName] = new Type(typeName, packageName, traitList, slotNames, methodDictionary);
 		eval(defNilType);
 		eval(defInitializeSlots);
 		eval(defPredicateFalse);
@@ -414,18 +427,18 @@ export function bigIntSqrt(anInteger: bigint): bigint {
 
 declare global {
 	var _inf: number;
-	var _constant: Map<string,unknown>;
-	var _implicitDictionary: Map<string,unknown>;
+	var _constant: Record<string,unknown>;
+	var _implicitDictionary: Record<string,unknown>;
 	var _system: System;
-	var _workspace: Map<string,unknown>;
+	var _workspace: Record<string,unknown>;
 }
 
 export function assignGlobals() {
 	globalThis._inf = Infinity;
-	globalThis._constant = new Map();
-	globalThis._implicitDictionary = new Map();
+	globalThis._constant = newRecord();
+	globalThis._implicitDictionary = newRecord();
 	globalThis._system = system;
-	globalThis._workspace = new Map();
+	globalThis._workspace = newRecord();
 }
 
 /* https://github.com/bryc/code/blob/master/jshash/PRNGs.md */

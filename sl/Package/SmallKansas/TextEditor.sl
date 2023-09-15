@@ -49,7 +49,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 		self.createElements;
 		self.setEventHandlers;
 		self.setEditorText(contents);
-		self.eventListeners := Map();
+		self.eventListeners := Record();
 		self
 	}
 

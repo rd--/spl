@@ -42,6 +42,8 @@ Blob! : [Object, Blob] {
 
 }
 
+(* Requires: 'Collection-ByteArray', 'Collection-Float64Array' *)
+(*
 +[ByteArray, Float64Array] {
 
 	Blob { :self |
@@ -49,3 +51,4 @@ Blob! : [Object, Blob] {
 	}
 
 }
+*)

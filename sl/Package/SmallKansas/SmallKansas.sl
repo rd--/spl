@@ -153,12 +153,6 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 	worldMenuEntries { :self |
 		|(
 			static = [
-				MenuItem('About Small Kansas', nil) { :event |
-					self.helpFor('Small Kansas', event)
-				},
-				MenuItem('Colour Chooser', nil) { :event |
-					self.colourChooserOn(self, event)
-				},
 				MenuItem('Font Menu', nil) { :event |
 					self.fontMenuOn(self, false, event)
 				},
@@ -168,12 +162,6 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 				MenuItem('Sc Synth Reset', nil) { :event |
 					system.clock.removeAll;
 					system.defaultScSynth.reset
-				},
-				MenuItem('Workspace', nil) { :event |
-					self.addFrame(
-						TextEditor('Workspace', 'text/plain', ''),
-						event
-					)
 				}
 			],
 			dynamic = system.smallKansans.collect { :each |

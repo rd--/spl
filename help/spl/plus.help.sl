@@ -1,9 +1,9 @@
 # + -- mathematical operator
 
-- _self + aNumber_
+- _aNumber + anotherNumber_
 - _p + q_ ⟹ _plus(p, q)_
 
-Answer sum of _self_ and _aNumber_.
+Answer sum of _aNumber_ and _anotherNumber_.
 
 * * *
 

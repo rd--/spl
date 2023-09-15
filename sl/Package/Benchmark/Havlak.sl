@@ -173,7 +173,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 					self.isAncestorV(w, v).if {
 						self.backPreds[w].addLast(v)
 					} {
-						self.nonBackPreds[w].add(v)
+						self.nonBackPreds[w].include(v)
 					}
 				}
 			}
@@ -241,7 +241,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 			| y = self.nodes[iter], ydash = y.findSet; |
 			self.isAncestorV(w, ydash. dfsNumber).not.if {
 				self.type[w] := 'BBIrreducible';
-				self.nonBackPreds[w].add(ydash.dfsNumber)
+				self.nonBackPreds[w].include(ydash.dfsNumber)
 			} {
 				(ydash.dfsNumber ~= w).ifTrue {
 					nodePool.anySatisfy { :each |
@@ -459,17 +459,17 @@ SimpleLoop : [Object] { | counter depthLevel parent isRoot nestingLevel header i
 		self.basicBlocks := Set();
 		self.children := Set();
 		aBB.ifNotNil {
-			self.basicBlocks.add(aBB)
+			self.basicBlocks.include(aBB)
 		};
 		self
 	}
 
 	addNode { :self :bb |
-		self.basicBlocks.add(bb)
+		self.basicBlocks.include(bb)
 	}
 
 	addChildLoop { :self :loop |
-		self.children.add(loop)
+		self.children.include(loop)
 	}
 
 	setParent { :self :value |

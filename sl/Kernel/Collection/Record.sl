@@ -19,10 +19,6 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 		self.error('atPut key not a string: ' ++ aString.typeOf)
 	}
 
-	Map { :self |
-		<primitive: return new Map(Object.entries(_self));>
-	}
-
 	includesIndex { :self :key |
 		<primitive: return Object.hasOwn(_self, _key);>
 	}

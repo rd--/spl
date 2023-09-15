@@ -35,7 +35,6 @@
 	'Random-LinearCongruential'
 	'Random-Sfc32'
 	'Random-SplitMix'
-	'Scheduling-Promise'
 	'Stream-Stream'
 	'Stream-PositionableStream'
 	'Stream-ReadStream'

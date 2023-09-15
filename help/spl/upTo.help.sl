@@ -1,4 +1,4 @@
-# upTo -- interval constructor
+# upTo -- intervals
 
 - _upTo(start, stop)_
 

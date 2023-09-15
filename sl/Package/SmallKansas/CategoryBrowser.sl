@@ -46,11 +46,11 @@ CategoryBrowser : [Object, SmallKansan] {
 					methodSet := completeMethodSet.select { :each |
 						self.categoryDictionary.categoryOf('method', each.name) = path[3]
 					};
-					methodSet.collect(operatorNameOrQualifiedName:/1).Array.sorted
+					methodSet.collect(qualifiedName:/1).Array.sorted
 				},
 				4 -> {
 					selectedMethod := methodSet.detect { :each |
-						each.operatorNameOrQualifiedName = path[4]
+						each.qualifiedName = path[4]
 					};
 					browser.setStatus(selectedMethod.provenance);
 					selectedMethod.definition

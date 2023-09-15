@@ -129,3 +129,11 @@ Map! : [Object, Iterable, Collection, Indexable, Dictionary, PrimitiveMap] {
 	}
 
 }
+
++Record {
+
+	Map { :self |
+		<primitive: return new Map(Object.entries(_self));>
+	}
+
+}

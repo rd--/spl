@@ -1,9 +1,25 @@
 [
+	'Collection-Association'
+	'Collection-Set'
+	'Geometry-Point'
+	'Geometry-Rectangle'
+	'System-Blob'
+	'System-Method'
+	'System-Type'
+	'System-Window'
 	'Navigator-Dom'
 	'Navigator-Midi'
 	'SmallKansas-UserEventTarget'
 	'SmallKansas-View'
 	'SmallKansas-SmallKansas'
+	'SmallKansas-Frame'
+	'SmallKansas-Menu'
+	'SmallKansas-Text'
+(*
+	'Collection-Map'
+	'System-CategoryDictionary'
+*)
+(*
 	'SmallKansas-AnalogueClock'
 	'SmallKansas-CategoryBrowser'
 	'SmallKansas-ColourChooser'
@@ -11,11 +27,9 @@
 	'SmallKansas-CrystalLatticeStructureBrowser'
 	'SmallKansas-CrystalLatticeStructureOracle'
 	'SmallKansas-DigitalClock'
-	'SmallKansas-Frame'
 	'SmallKansas-HelpBrowser'
 	'SmallKansas-Inspector'
 	'SmallKansas-ListChooser'
-	'SmallKansas-Menu'
 	'SmallKansas-MethodBrowser'
 	'SmallKansas-MethodSignatureBrowser'
 	'SmallKansas-MidiMonitorMenu'
@@ -30,12 +44,13 @@
 	'SmallKansas-SvgViewer'
 	'SmallKansas-SystemBrowser'
 	'SmallKansas-TableViewer'
-	'SmallKansas-Text'
 	'SmallKansas-TextEditor'
 	'SmallKansas-TraitBrowser'
 	'SmallKansas-TranscriptViewer'
 	'SmallKansas-TypeBrowser'
 	'SmallKansas-WindowMenu'
+	'SmallKansas-Workspace'
+*)
 ].collect(Package:/1).loadPackages.then {
 	system.smallKansas
 }

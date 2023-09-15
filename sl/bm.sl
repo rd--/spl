@@ -11,5 +11,5 @@
 	'Benchmark-Havlak'
 	'Benchmark-Json'
 	'Benchmark-Mandelbrot'
-	'Benchmark-NBody')
+	'Benchmark-NBody'
 ].collect(Package:/1).loadPackages

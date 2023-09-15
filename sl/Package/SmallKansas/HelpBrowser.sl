@@ -131,3 +131,11 @@ HelpBrowser : [Object, SmallKansan] {
 	}
 
 }
+
+AboutSmallKansas : [Object, SmallKansan] {
+
+	openIn { :self :smallKansas :event |
+		smallKansas.helpFor('Small Kansas', event)
+	}
+
+}

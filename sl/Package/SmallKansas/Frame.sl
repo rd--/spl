@@ -56,7 +56,7 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 		self.createElements;
 		self.setEventHandlers;
 		self.title := subject.title;
-		self.eventListeners := Map();
+		self.eventListeners := Record();
 		self
 	}
 

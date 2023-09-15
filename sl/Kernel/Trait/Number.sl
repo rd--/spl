@@ -1,11 +1,11 @@
 @Number {
 
-	// { :self :anObject |
-		self.quotient(anObject)
+	// { :self :aNumber |
+		self.quotient(aNumber)
 	}
 
-	\\ { :self :anObject |
-		self.remainder(anObject)
+	\\ { :self :aNumber |
+		self.remainder(aNumber)
 	}
 
 	% { :self :aNumber |
@@ -119,8 +119,16 @@
 		}
 	}
 
+	fractionPart { :self |
+		self - self.integerPart
+	}
+
 	halved { :self |
 		self / 2
+	}
+
+	integerPart { :self |
+		self.truncated
 	}
 
 	isNumber { :self |

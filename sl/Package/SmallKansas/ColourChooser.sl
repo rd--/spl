@@ -55,3 +55,11 @@ ColourChooser : [Object, View] { | colourChooserPane colourInput |
 	}
 
 }
+
+BackgroundColourChooser : [Object, SmallKansan] {
+
+	openIn { :self :smallKansas :event |
+		smallKansas.colourChooserOn(smallKansas, event)
+	}
+
+}
