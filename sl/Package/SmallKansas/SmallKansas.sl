@@ -1,4 +1,4 @@
-(* Requires: 'Collection-Set', 'Text-RegExp' *)
+(* Requires: 'Collection-Set', 'Text-RegExp', 'Time-Duration' *)
 
 @SmallKansan {
 

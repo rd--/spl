@@ -1,3 +1,5 @@
+(* Requires: 'Geometry-PolarPoint' 'Time-Date' *)
+
 AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand secondHand |
 
 	createElements { :self |
