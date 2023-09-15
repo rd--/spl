@@ -2,7 +2,7 @@ ScSynthStatus : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		|(
-			textEditor = TextEditor(self.title, 'text/html', '---'),
+			textEditor = smallKansas.TextEditor(self.title, 'text/html', '---'),
 			frame = smallKansas.addFrameWithAnimator(textEditor, event, 1) {
 				textEditor.setEditorText(
 					system.defaultScSynth.isAlive.if {

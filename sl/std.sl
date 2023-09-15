@@ -52,6 +52,7 @@
 	'System-Window'
 	'Text-Character'
 	'Text-RegExp'
+	'Time-Clock'
 	'Time-Date'
 	'Time-Duration'
 	'Time-Frequency'

@@ -42,7 +42,7 @@ Blob! : [Object, Blob] {
 
 }
 
-(* Requires: 'Collection-ByteArray', 'Collection-Float64Array' *)
+(* Requires: 'Collection-ByteArray' 'Collection-Float64Array' *)
 (*
 +[ByteArray, Float64Array] {
 

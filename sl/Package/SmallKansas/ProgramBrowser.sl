@@ -1,3 +1,5 @@
+(* Require: 'System-Window' *)
+
 ProgramIndex : [Object] { | contents |
 
 	atRandom { :self |
@@ -22,42 +24,6 @@ ProgramIndex : [Object] { | contents |
 				each[2] = author
 			}
 		}.collect(third:/1).sort
-	}
-
-	ProgramBrowser { :self :path |
-		ColumnBrowser(
-			'Program Browser',
-			'text/plain',
-			false,
-			false,
-			[1, 1, 3],
-			nil,
-			nil,
-			{ :browser :path |
-				path.size.caseOf([
-					0 -> {
-						self.categories
-					},
-					1 -> {
-						self.authors(path[1])
-					},
-					2 -> {
-						self.names(path[1], path[2])
-					},
-					3 -> {
-						|(
-							[category, author, name] = path[1, 2, 3],
-							url = ['./lib/stsc3/help/', category, '/', author, ' - ', name, '.sl'].join
-						)|
-						system.window.fetchString(url, (cache: 'no-cache'))
-					}
-				])
-			}
-		).setPath(path)
-	}
-
-	ProgramBrowser { :self |
-		self.ProgramBrowser([])
 	}
 
 }
@@ -89,11 +55,51 @@ ProgramIndex : [Object] { | contents |
 
 }
 
++SmallKansas {
+
+	ProgramBrowser { :self :index :path |
+		self.ColumnBrowser(
+			'Program Browser',
+			'text/plain',
+			false,
+			false,
+			[1, 1, 3],
+			nil,
+			nil,
+			{ :browser :path |
+				path.size.caseOf([
+					0 -> {
+						index.categories
+					},
+					1 -> {
+						index.authors(path[1])
+					},
+					2 -> {
+						index.names(path[1], path[2])
+					},
+					3 -> {
+						|(
+							[category, author, name] = path[1, 2, 3],
+							url = ['./lib/stsc3/help/', category, '/', author, ' - ', name, '.sl'].join
+						)|
+						system.window.fetchString(url, (cache: 'no-cache'))
+					}
+				])
+			}
+		).setPath(path)
+	}
+
+	ProgramBrowser { :self :index |
+		self.ProgramBrowser(index, [])
+	}
+
+}
+
 ProgramBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		smallKansas.programIndex.then { :programIndex |
-			smallKansas.addFrame(programIndex.ProgramBrowser, event)
+			smallKansas.addFrame(smallKansas.ProgramBrowser(programIndex), event)
 		}
 	}
 

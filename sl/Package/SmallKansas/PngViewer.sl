@@ -1,3 +1,5 @@
+(* Requires: 'SmallKansas-SmallKansas' *)
+
 PngViewer : [Object, View] { | pngPane title pngData pngUrl |
 
 	createElements { :self |

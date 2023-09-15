@@ -1,3 +1,5 @@
+(* Requires: System-Blob System-File *)
+
 URL! : [Object] {
 
 	asUrl { :self |

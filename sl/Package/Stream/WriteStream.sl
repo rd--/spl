@@ -1,3 +1,5 @@
+(* Requires: Stream-PositionableStream Stream-Stream *)
+
 WriteStream : [Object, Stream, PositionableStream] { | collection positionIndex writeLimit |
 
 	contents { :self |

@@ -76,6 +76,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'Transcript'
 	],
 	'Time': [
+		'Clock'
 		'Date'
 		'Duration'
 		'TimeStamp'
@@ -106,7 +107,6 @@ system.categoryDictionary.categorizeDictionary('type', (
 	],
 	'Sound-SuperCollider': [
 		'CcEvent'
-		'Clock'
 		'Env'
 		'LocalControl'
 		'ScSynth'

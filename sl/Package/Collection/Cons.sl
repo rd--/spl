@@ -68,7 +68,7 @@ Cons : [Object, Collection] { | car cdr |
 
 }
 
-+ @SequenceableCollection {
++@SequenceableCollection {
 
 	Cons { :self |
 		| answer = nil; |
@@ -83,7 +83,7 @@ Cons : [Object, Collection] { | car cdr |
 
 }
 
-+ @Object {
++@Object {
 
 	Cons { :car :cdr |
 		newCons().initializeSlots(car, cdr)

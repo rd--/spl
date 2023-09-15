@@ -1,3 +1,5 @@
+(* Requires: Time-Clock *)
+
 +Procedure {
 
 	overlap { :self:/0 :sustainTime :transitionTime :overlap |

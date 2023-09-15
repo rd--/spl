@@ -1,3 +1,5 @@
+(* Requires: Collection-Interval *)
+
 Graph : [Object] { | degree edges vertexLabels edgeLabels |
 
 	labeledVertices { :self |

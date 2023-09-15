@@ -1,3 +1,4 @@
+(* Requires: Collection-PriorityQueue *)
 Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	initialize { :self |

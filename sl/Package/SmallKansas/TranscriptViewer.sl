@@ -1,12 +1,13 @@
 TranscriptViewer : [Object, View, SmallKansan] { | textEditor entryCount |
 
 	initialize { :self |
-		self.textEditor := TextEditor('', 'text/plain', '');
+		self.textEditor = nil;
 		self.entryCount := 0;
 		self
 	}
 
 	openIn { :self :smallKansas :event |
+		self.textEditor := smallKansas.TextEditor('', 'text/plain', '');
 		smallKansas.addFrameWithAnimator(self, event, 1) {
 			self.update
 		}

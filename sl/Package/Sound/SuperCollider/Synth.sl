@@ -371,7 +371,7 @@ UgenGraph! : [Object] {
 
 }
 
-+ [Array, SmallFloat, Ugen] {
++[Array, SmallFloat, Ugen] {
 
 	AudioIn { :channelNumber |
 		In(1, NumOutputBuses() + channelNumber - 1)

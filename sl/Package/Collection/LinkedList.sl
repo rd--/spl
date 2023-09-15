@@ -1,8 +1,13 @@
-@Link { (* nextLink *)
+@Link {
 
 	asLink { :self |
 		self
 	}
+
+	nextLink { :self |
+		self.typeResponsibility('nextLink')
+	}
+
 
 }
 

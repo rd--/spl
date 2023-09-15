@@ -1,3 +1,5 @@
+(* Requires: 'System-Window' *)
+
 LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 
 	key { :self |

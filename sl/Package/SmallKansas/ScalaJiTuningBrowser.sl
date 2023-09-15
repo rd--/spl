@@ -77,11 +77,11 @@
 
 }
 
-+Record {
++SmallKansas {
 
-	ScalaJiTuningBrowser { :self |
-		| degrees = self.collect(degree:/1).values.withoutDuplicates.sort.collect(asString:/1); |
-		ColumnBrowser('Scala Ji Tuning Browser', 'text/html', false, true, [1, 1, 4], nil, nil) { :browser :path |
+	ScalaJiTuningBrowser { :self :jiTuning |
+		| degrees = jiTuning.collect(degree:/1).values.withoutDuplicates.sort.collect(asString:/1); |
+		self.ColumnBrowser('Scala Ji Tuning Browser', 'text/html', false, true, [1, 1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					browser.setStatus('Degree/Limit/Name');
@@ -89,7 +89,7 @@
 				},
 				1 -> {
 					browser.setStatus('Degree = ' ++ path[1]);
-					self.select { :each |
+					jiTuning.select { :each |
 						each.degree = path[1].parseInteger(10)
 					}.collect { :each |
 						each.limit
@@ -97,14 +97,14 @@
 				},
 				2 -> {
 					browser.setStatus(['Degree = ', path[1], ', Limit = ', path[2]].join);
-					self.select { :each |
+					jiTuning.select { :each |
 						each.degree = path[1].parseInteger(10) & {
 							each.limit = path[2].parseInteger(10)
 						}
 					}.indices
 				},
 				3 -> {
-					| ji = self[path[3]]; |
+					| ji = jiTuning[path[3]]; |
 					browser.setStatus(ji.description);
 					ji.htmlView.outerHTML
 				}
@@ -135,7 +135,7 @@ ScalaJiTuningBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		smallKansas.jiScala.then { :jiTuning |
-			smallKansas.addFrame(jiTuning.ScalaJiTuningBrowser, event)
+			smallKansas.addFrame(smallKansas.ScalaJiTuningBrowser(jiTuning), event)
 		}
 	}
 

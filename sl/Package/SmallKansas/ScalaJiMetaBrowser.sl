@@ -1,16 +1,18 @@
-+Record {
+(* Requires: 'SmallKansas-SmallKansas' *)
 
-	ScalaJiMetaBrowser { :self |
-		ColumnBrowser('Scala Ji Meta Browser', 'text/html', false, false, [1, 4], nil, nil) { :browser :path |
++SmallKansas {
+
+	ScalaJiMetaBrowser { :self :jiMeta |
+		self.ColumnBrowser('Scala Ji Meta Browser', 'text/html', false, false, [1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
-					self.indices
+					jiMeta.indices
 				},
 				1 -> {
-					self[path[1]].collect(description:/1)
+					jiMeta[path[1]].collect(description:/1)
 				},
 				2 -> {
-					self[path[1]].detect { :each |
+					jiMeta[path[1]].detect { :each |
 						each.description = path[2]
 					}.htmlView.outerHTML
 				}
@@ -47,7 +49,7 @@ ScalaJiMetaBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		smallKansas.jiMeta.then { :jiMeta |
-			smallKansas.addFrame(jiMeta.ScalaJiMetaBrowser, event)
+			smallKansas.addFrame(smallKansas.ScalaJiMetaBrowser(jiMeta), event)
 		}
 	}
 

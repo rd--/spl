@@ -1,11 +1,13 @@
-+System {
+(* Requires: SmallKansas-SmallKansas *)
+
++SmallKansas {
 
 	TraitBrowser { :self |
 		|(
-			traitNames = self.traitDictionary.indicesSorted,
+			traitNames = system.traitDictionary.indicesSorted,
 			selectedMethod = nil
 		)|
-		ColumnBrowser('Trait Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
+		self.ColumnBrowser('Trait Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
 			path.size.caseOf([
@@ -14,11 +16,11 @@
 					traitNames
 				},
 				1 -> {
-					browser.setStatus(self.traitTypes(path[1]).joinSeparatedBy(', '));
-					self.traitDictionary[path[1]].methodDictionary.indicesSorted
+					browser.setStatus(system.traitTypes(path[1]).joinSeparatedBy(', '));
+					system.traitDictionary[path[1]].methodDictionary.indicesSorted
 				},
 				2 -> {
-					selectedMethod := self.traitDictionary[path[1]].methodDictionary[path[2]];
+					selectedMethod := system.traitDictionary[path[1]].methodDictionary[path[2]];
 					browser.setStatus(selectedMethod.provenance);
 					selectedMethod.definition
 				}
@@ -31,7 +33,7 @@
 TraitBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.addFrame(system.TraitBrowser, event)
+		smallKansas.addFrame(smallKansas.TraitBrowser, event)
 	}
 
 }

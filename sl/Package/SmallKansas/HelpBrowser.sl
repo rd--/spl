@@ -25,34 +25,6 @@ HelpIndex : [Object] { | contents |
 		}
 	}
 
-	HelpBrowser { :self |
-		ColumnBrowser(
-			'Help Browser',
-			'text/markdown',
-			false,
-			false,
-			[1, 1, 3],
-			nil,
-			nil,
-			{ :browser :path |
-				path.size.caseOf([
-					0 -> {
-						self.areas
-					},
-					1 -> {
-						self.kind(path[1])
-					},
-					2 -> {
-						self.names(path[1], path[2])
-					},
-					3 -> {
-						self.fetch(path)
-					}
-				])
-			}
-		)
-	}
-
 	kind { :self :area |
 		['doc', 'help']
 	}
@@ -94,11 +66,39 @@ HelpIndex : [Object] { | contents |
 
 +SmallKansas {
 
+	HelpBrowser { :self :helpIndex |
+		self.ColumnBrowser(
+			'Help Browser',
+			'text/markdown',
+			false,
+			false,
+			[1, 1, 3],
+			nil,
+			nil,
+			{ :browser :path |
+				path.size.caseOf([
+					0 -> {
+						helpIndex.areas
+					},
+					1 -> {
+						helpIndex.kind(path[1])
+					},
+					2 -> {
+						helpIndex.names(path[1], path[2])
+					},
+					3 -> {
+						helpIndex.fetch(path)
+					}
+				])
+			}
+		)
+	}
+
 	helpFor { :self :subject :event |
 		self.helpIndex.then { :helpIndex |
 			helpIndex.fetchFor(subject).then { :aString |
 				self.addFrame(
-					TextEditor('HelpViewer', 'text/markdown', aString),
+					self.TextEditor('HelpViewer', 'text/markdown', aString),
 					event
 				)
 			}
@@ -126,7 +126,7 @@ HelpBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		smallKansas.helpIndex.then { :helpIndex |
-			smallKansas.addFrame(helpIndex.HelpBrowser, event)
+			smallKansas.addFrame(smallKansas.HelpBrowser(helpIndex), event)
 		}
 	}
 

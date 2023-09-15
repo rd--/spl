@@ -1,3 +1,5 @@
+(* Requires: Time-Frequency *)
+
 +Frequency {
 
 	linearOctave { :self |

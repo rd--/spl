@@ -1,3 +1,5 @@
+(* Requires: System-Blob *)
+
 File! : [Object, Blob] {
 
 	lastModified { :self |

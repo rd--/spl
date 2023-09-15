@@ -18,7 +18,13 @@ ProgramOracle : [Object, SmallKansan] {
 	openIn { :self :smallKansas :event |
 		smallKansas.programIndex.then { :programIndex |
 			smallKansas.programOracle.then { :programOracle |
-				smallKansas.addFrame(programIndex.ProgramBrowser(programOracle.atRandom), event)
+				smallKansas.addFrame(
+					smallKansas.ProgramBrowser(
+						programIndex,
+						programOracle.atRandom
+					),
+					event
+				)
 			}
 		}
 	}

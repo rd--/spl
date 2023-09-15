@@ -1,4 +1,6 @@
-TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType title clientKeyBindings eventListeners |
+(* Requires: 'SmallKansas-SmallKansas' 'System-Window' *)
+
+TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorText mimeType title clientKeyBindings eventListeners |
 
 	addKeyBindings { :self :aCollection |
 		self.clientKeyBindings.addAll(aCollection)
@@ -42,7 +44,8 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 		self.editorText.setAttribute('contentEditable', aBoolean.printString)
 	}
 
-	initialize { :self :title :mimeType :contents |
+	initialize { :self :smallKansas :title :mimeType :contents |
+		self.smallKansas := smallKansas;
 		self.title := title;
 		self.mimeType := mimeType;
 		self.clientKeyBindings := [];
@@ -70,19 +73,19 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 				)
 			},
 			MenuItem('Browse It', 'b') { :event |
-				system.smallKansas.browserOn([self.currentWord], event)
+				self.smallKansas.browserOn([self.currentWord], event)
 			},
 			MenuItem('Do It', 'd') { :event |
 				self.currentText.evaluate
 			},
 			MenuItem('Help For It', 'h') { :event |
-				system.smallKansas.helpFor(self.currentWord.asMethodName, event)
+				self.smallKansas.helpFor(self.currentWord.asMethodName, event)
 			},
 			MenuItem('Implementors Of It', 'm') { :event |
-				system.smallKansas.implementorsOf(self.currentWord.asMethodName, event)
+				self.smallKansas.implementorsOf(self.currentWord.asMethodName, event)
 			},
 			MenuItem('Inspect It', 'i') { :event |
-				system.smallKansas.inspectorOn(self.currentWord.evaluate, event)
+				self.smallKansas.inspectorOn(self.currentWord.evaluate, event)
 			},
 			MenuItem('Play It', 'Enter') { :event |
 				('{ ' ++ self.currentText ++ ' }.play').evaluate
@@ -91,7 +94,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 				self.insertText(' ' ++ self.currentText.evaluate.asString)
 			},
 			MenuItem('References To It', nil) { :event |
-				system.smallKansas.referencesTo(self.currentWord.asMethodName, event)
+				self.smallKansas.referencesTo(self.currentWord.asMethodName, event)
 			},
 			MenuItem('Reset Synthesiser', '.') { :event |
 				system.clock.removeAll;
@@ -144,7 +147,7 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 	}
 
 	textEditorMenu { :self :event |
-		system.smallKansas.menu(
+		self.smallKansas.menu(
 			'Text Editor Menu',
 			self.keyBindings,
 			true,
@@ -154,10 +157,10 @@ TextEditor : [Object, UserEventTarget, View] { | editorPane editorText mimeType 
 
 }
 
-+String {
++SmallKansas {
 
-	TextEditor { :self :mimeType :contents |
-		newTextEditor().initialize(self, mimeType, contents)
+	TextEditor { :self :title :mimeType :contents |
+		newTextEditor().initialize(self, title, mimeType, contents)
 	}
 
 }

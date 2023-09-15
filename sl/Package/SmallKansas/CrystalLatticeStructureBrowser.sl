@@ -78,16 +78,16 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 
 }
 
-+Array {
++SmallKansas {
 
-	CrystalLatticeStructureBrowser { :self |
-		ColumnBrowser('Crystal Lattice Structure Browser', 'text/html', false, false, [1], nil, nil) { :browser :path |
+	CrystalLatticeStructureBrowser { :self :structures |
+		self.ColumnBrowser('Crystal Lattice Structure Browser', 'text/html', false, false, [1], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
-					self.collect(name:/1)
+					structures.collect(name:/1)
 				},
 				1 -> {
-					| cls = self.detect { :each | each.name = path[1] }; |
+					| cls = structures.detect { :each | each.name = path[1] }; |
 					cls.summary.outerHTML
 				}
 			])
@@ -100,7 +100,10 @@ CrystalLatticeStructureBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		smallKansas.clsLeitner.then { :clsLeitner |
-			smallKansas.addFrame(CrystalLatticeStructureBrowser(clsLeitner), event)
+			smallKansas.addFrame(
+				smallKansas.CrystalLatticeStructureBrowser(clsLeitner),
+				event
+			)
 		}
 	}
 

@@ -1,7 +1,9 @@
-+MIDIAccess {
+(* Requires: MIDIAccess SmallKansas-ColumnBrowser SmallKansas-SmallKansas *)
 
-	MidiPortBrowser { :midiAccess |
-		ColumnBrowser('Midi Port Browser', 'text/plain', false, false, [1, 1, 3], nil, nil) { :browser :path |
++SmallKansas {
+
+	MidiPortBrowser { :self :midiAccess |
+		self.ColumnBrowser('Midi Port Browser', 'text/plain', false, false, [1, 1, 3], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					['input', 'output']
@@ -27,7 +29,7 @@ MidiPortBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		smallKansas.midiAccess.then { :midiAccess |
-			smallKansas.addFrame(midiAccess.MidiPortBrowser, event)
+			smallKansas.addFrame(smallKansas.MidiPortBrowser(midiAccess), event)
 		}
 	}
 

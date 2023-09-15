@@ -1,13 +1,13 @@
-+Array {
++SmallKansas {
 
-	MethodSignatureBrowser { :self :withFilter |
+	MethodSignatureBrowser { :self :methods :withFilter |
 		| selectedMethod = nil; |
-		ColumnBrowser('Method Signature Browser', 'text/plain', withFilter, true, [1], nil) { :accepted |
+		self.ColumnBrowser('Method Signature Browser', 'text/plain', withFilter, true, [1], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
 			path.size.caseOf([
 				0 -> {
-					self
+					methods
 				},
 				1 -> {
 					selectedMethod := system.methodLookupAtSignature(path[1]);
@@ -18,13 +18,9 @@
 		}
 	}
 
-}
-
-+System {
-
 	MethodSignatureBrowser { :self |
-		MethodSignatureBrowser(
-			self.allMethods.collect(signature:/1).withoutDuplicates.sort,
+		self.MethodSignatureBrowser(
+			system.allMethods.collect(signature:/1).withoutDuplicates.sort,
 			true
 		)
 	}
@@ -34,7 +30,7 @@
 MethodSignatureBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.addFrame(system.MethodSignatureBrowser, event)
+		smallKansas.addFrame(smallKansas.MethodSignatureBrowser, event)
 	}
 
 }

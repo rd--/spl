@@ -1,3 +1,5 @@
+(* Requires: Collection-Map *)
+
 WeakMap! : [Object, Indexable, PrimitiveMap] {
 
 	size { :self |

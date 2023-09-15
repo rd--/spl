@@ -46,7 +46,7 @@ SiUnit : [Object] { | symbol name dimension quantity |
 
 }
 
-+System {
++@Cache {
 
 	siBaseUnitArray { :self |
 		self.cache.atIfAbsentPut('siBaseUnitArray') {

@@ -1,19 +1,21 @@
+(* Requires: SmallKansas-ColumnBrowser SmallKansas-SmallKansas *)
+
 TypeBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.addFrame(system.TypeBrowser, event)
+		smallKansas.addFrame(smallKansas.TypeBrowser, event)
 	}
 
 }
 
-+System {
++SmallKansas {
 
 	TypeBrowser { :self |
 		|(
-			typeNames = self.typeDictionary.indicesSorted,
+			typeNames = system.typeDictionary.indicesSorted,
 			selectedMethod = nil
 		)|
-		ColumnBrowser('Type Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
+		self.ColumnBrowser('Type Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
 			path.size.caseOf([
@@ -22,11 +24,11 @@ TypeBrowser : [Object, SmallKansan] {
 					typeNames
 				},
 				1 -> {
-					browser.setStatus(self.typeTraits(path[1]).joinSeparatedBy(', '));
-					self.typeDictionary[path[1]].methodDictionary.indicesSorted
+					browser.setStatus(system.typeTraits(path[1]).joinSeparatedBy(', '));
+					system.typeDictionary[path[1]].methodDictionary.indicesSorted
 				},
 				2 -> {
-					selectedMethod := self.typeDictionary[path[1]].methodDictionary[path[2]];
+					selectedMethod := system.typeDictionary[path[1]].methodDictionary[path[2]];
 					browser.setStatus(selectedMethod.provenance);
 					selectedMethod.definition
 				}

@@ -1,6 +1,6 @@
-(* Requires: 'Collection-Interval' 'SmallKansas-ListChooser' 'SmallKansas-TextEditor' *)
+(* Requires: 'Collection-Interval' 'SmallKansas-ListChooser' 'SmallKansas-SmallKansas' 'SmallKansas-TextEditor' *)
 
-ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEditor numberOfColumns columnLists statusPane statusText title |
+ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPane textEditor numberOfColumns columnLists statusPane statusText title |
 
 	addKeyBindings { :self :aProcedure:/1 |
 		self.textEditor.addKeyBindings(self.textEditor.aProcedure)
@@ -16,7 +16,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 		self.previewPane := 'div'.createElement (
 			class: 'previewPane'
 		);
-		self.textEditor := TextEditor(
+		self.textEditor := self.smallKansas.TextEditor(
 			'ColumnBrowserTextEditor', mimeType, ''
 		);
 		self.columnLists := (1 .. self.numberOfColumns).collect { :index |
@@ -46,7 +46,8 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 		}
 	}
 
-	initialize { :self :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept:/1 :onChange:/2 |
+	initialize { :self :smallKansas :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept:/1 :onChange:/2 |
+		self.smallKansas := smallKansas;
 		self.title := title;
 		self.numberOfColumns := columnProportions.size;
 		self.createElements(mimeType, withFilter, withStatus, columnProportions, 6);
@@ -123,11 +124,12 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 
 }
 
-+String {
++SmallKansas {
 
-	ColumnBrowser { :self :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept:/1 :onChange:/2 |
+	ColumnBrowser { :self :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept:/1 :onChange:/2 |
 		newColumnBrowser().initialize(
 			self,
+			title,
 			mimeType,
 			withFilter,
 			withStatus,

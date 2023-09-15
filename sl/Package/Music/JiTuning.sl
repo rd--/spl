@@ -1,3 +1,5 @@
+(* Requires: Number-Fraction *)
+
 +Fraction {
 
 	latticeVector { :self :limit |

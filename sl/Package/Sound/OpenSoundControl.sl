@@ -1,3 +1,5 @@
+(* Requires: Collection-ByteArray *)
+
 OscParameter : [Object] { | typeTag value |
 
 	dictionary { :self |

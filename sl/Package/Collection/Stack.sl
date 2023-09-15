@@ -1,3 +1,5 @@
+(* Requires: Collection-LinkedList *)
+
 Stack : [Object] { | linkedList |
 
 	= { :self :aStack |

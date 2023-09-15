@@ -1,4 +1,6 @@
 [
+
+(*
 	'Collection-Map'
 	'Collection-Set'
 	'Geometry-Point'
@@ -7,18 +9,18 @@
 	'System-Method'
 	'System-Type'
 	'System-Window'
+*)
+
 	'Navigator-Dom'
 	'Navigator-Midi'
+
 	'SmallKansas-UserEventTarget'
 	'SmallKansas-View'
 	'SmallKansas-SmallKansas'
 	'SmallKansas-Frame'
 	'SmallKansas-Menu'
 	'SmallKansas-Text'
-(*
-	'System-CategoryDictionary'
-*)
-(*
+
 	'SmallKansas-AnalogueClock'
 	'SmallKansas-CategoryBrowser'
 	'SmallKansas-ColourChooser'
@@ -49,7 +51,7 @@
 	'SmallKansas-TypeBrowser'
 	'SmallKansas-WindowMenu'
 	'SmallKansas-Workspace'
-*)
+
 ].collect(Package:/1).loadPackages.then {
 	system.smallKansas
 }

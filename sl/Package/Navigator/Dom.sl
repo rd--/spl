@@ -1,3 +1,5 @@
+(* Requires: System-Blob *)
+
 @AbstractRange {
 
 }
@@ -663,7 +665,7 @@ HTMLSelectElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 			-1
 		} {
 			valueWithReturn { :return:/1 |
-				(0 .. self.length - 1).do { :index |
+				0.toDo(self.length - 1) { :index |
 					(self.options.item(index).value = aString).ifTrue {
 						index.return
 					}

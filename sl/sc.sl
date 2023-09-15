@@ -4,7 +4,6 @@
 	'Music-Pitch'
 	'Sound-OpenSoundControl'
 	'Sound-SuperCollider-Lang'
-	'Sound-SuperCollider-Lang-Clock'
 	'Sound-SuperCollider-Lang-J'
 	'Sound-SuperCollider-Lang-Texture'
 	'Sound-SuperCollider-Synth'

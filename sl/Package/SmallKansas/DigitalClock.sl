@@ -5,7 +5,11 @@ DigitalClock : [Object, SmallKansan] {
 			getTime = {
 				system.Date.localeTimeString('en-US')
 			},
-			textEditor = TextEditor('Digital Clock', 'text/plain', getTime()),
+			textEditor = smallKansas.TextEditor(
+				'Digital Clock',
+				'text/plain',
+				getTime()
+			),
 			frame = smallKansas.addFrameWithAnimator(textEditor, event, 1) {
 				textEditor.setEditorText(getTime())
 			}

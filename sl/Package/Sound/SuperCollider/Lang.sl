@@ -1,3 +1,5 @@
+(* Requires: Collection-Interval *)
+
 +@Collection {
 
 	AmpDb { :self |
@@ -300,7 +302,7 @@
 
 	asBinaryDigits { :self :numDigits |
 		| answer = []; |
-		(0 .. numDigits - 1).do { :i |
+		0.toDo(numDigits - 1) { :i |
 			answer.addFirst(self.bitShiftRight(i).bitAnd(1))
 		};
 		answer
@@ -425,7 +427,7 @@
 
 	detectIndex { :self :aBlock:/1 |
 		valueWithReturn { :return:/1 |
-			self.size.do { :index |
+			1.toDo(self.size) { :index |
 				aBlock(self[index]).ifTrue {
 					index.return
 				}
@@ -445,7 +447,7 @@
 	}
 
 	doAdjacentPairs { :self :aProcedure:/2 |
-		(2 .. self.size).do { :i |
+		2.toDo(self.size) { :i |
 			aProcedure(self[i - 1], self[i])
 		}
 	}
@@ -473,8 +475,11 @@
 	}
 
 	hammingDistance { :self :other |
-		| size = self.size.min(other.size), count = (self.size - other.size).abs; |
-		(1 .. size).do { :index |
+		|(
+			size = self.size.min(other.size),
+			count = (self.size - other.size).abs
+		)|
+		1.toDo(size) { :index |
 			(self[index] ~= other[index]).ifTrue {
 				count +:= 1
 			}
@@ -581,10 +586,10 @@
 			self.size
 		} {
 			| matrix = [0 .. other.size]; |
-			self.size.do { :xIndex |
+			1.toDo(self.size) { :xIndex |
 				| corner = xIndex - 1; |
 				matrix[1] := xIndex - 1;
-				other.size.do { :yIndex |
+				1.toDo(other.size) { :yIndex |
 					| upper = matrix[yIndex + 1]; |
 					matrix[yIndex + 1] := equalityProcedure(self[xIndex], other[yIndex]).if {
 						corner
@@ -631,12 +636,12 @@
 			lastIndex = self.size
 		)|
 		(patternType = 1).ifTrue {
-			(1 .. lastIndex).do { :index |
+			1.toDo(lastIndex) { :index |
 				answer.addAll(self.copyFromTo(1, index))
 			}
 		};
 		(patternType = 6).ifTrue {
-			(0 .. lastIndex - 1).do { :index |
+			0.toDo(lastIndex - 1) { :index |
 				answer.addAll(self.copyFromTo(lastIndex - index, lastIndex))
 			}
 		};

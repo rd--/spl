@@ -1,3 +1,5 @@
+(* Requires: Stream-PositionableStream Stream-Stream *)
+
 ReadStream : [Object, Stream, PositionableStream] { | collection positionIndex readLimit |
 
 	atEnd { :self |

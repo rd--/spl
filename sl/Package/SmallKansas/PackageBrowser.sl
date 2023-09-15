@@ -1,14 +1,14 @@
-(* Requires: 'System-Trait' *)
+(* Requires: 'SmallKansas-SmallKansas' 'System-Trait' *)
 
-+System  {
++SmallKansas  {
 
 	PackageBrowser { :self |
 		|(
-			packageNames = self.packageDictionary.indicesSorted,
+			packageNames = system.packageDictionary.indicesSorted,
 			methods = nil,
 			selectedMethod = nil
 		)|
-		ColumnBrowser('Package Browser', 'text/plain', false, true, [1, 1, 3], nil) { :accepted |
+		self.ColumnBrowser('Package Browser', 'text/plain', false, true, [1, 1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
 			path.size.caseOf([
@@ -18,19 +18,19 @@
 				},
 				1 -> {
 					|(
-						traits = self.packageTraits(path[1]),
-						types = self.packageTypes(path[1]),
+						traits = system.packageTraits(path[1]),
+						types = system.packageTypes(path[1]),
 						implements = (traits ++ types).collect(qualifiedName:/1)
 					)|
 					browser.setStatus(implements.joinSeparatedBy(', '));
-					methods := self.packageMethods(path[1]);
+					methods := system.packageMethods(path[1]);
 					methods.collect { :each |
 						each.origin.qualifiedName
 					}.withoutDuplicates.sort
 				},
 				2 -> {
-					self.isTypeName(path[2]).if {
-						browser.setStatus(self.typeTraits(path[2]).joinSeparatedBy(', '))
+					system.isTypeName(path[2]).if {
+						browser.setStatus(system.typeTraits(path[2]).joinSeparatedBy(', '))
 					} {
 						browser.setStatus('')
 					};
@@ -58,7 +58,7 @@
 PackageBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.addFrame(system.PackageBrowser, event)
+		smallKansas.addFrame(smallKansas.PackageBrowser, event)
 	}
 
 }

@@ -14,7 +14,10 @@
 
 	midiMonitorOn { :self :midiPort :event |
 		|(
-			textEditor = TextEditor('Midi Monitor On ' ++ midiPort.name, 'text/plain', ''),
+			textEditor = self.TextEditor(
+				'Midi Monitor On ' ++ midiPort.name,
+				'text/plain',
+				''),
 			messages = [],
 			onMidiMessage = { :midiMessageEvent |
 				messages.add(midiMessageEvent);
