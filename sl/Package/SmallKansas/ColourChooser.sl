@@ -1,3 +1,5 @@
+(* Requires: 'Graphics-Colour' *)
+
 ColourChooser : [Object, View] { | colourChooserPane colourInput |
 
 	hexString { :self |

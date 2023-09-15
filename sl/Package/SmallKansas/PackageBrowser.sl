@@ -1,3 +1,5 @@
+(* Requires: 'System-Trait' *)
+
 +System  {
 
 	PackageBrowser { :self |

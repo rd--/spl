@@ -63,16 +63,14 @@ Sl {
 		| DotExpressionWithTrailingDictionariesSyntax
 		| DotExpressionWithAssignmentSyntax
 		| DotExpression
-		| ImplicitDictionaryAtPutSyntax
-		| ImplicitDictionaryAtSyntax
 		| Block
 		| ApplyWithTrailingDictionariesSyntax
 		| ApplyWithTrailingClosuresSyntax
 		| ApplySyntax
 		| MessageSendSyntax
 		| reservedIdentifier
-		| identifier
 		| literal
+		| identifier
 		| ParenthesisedExpression
 		| DictionaryExpression
 		| ArrayExpression
@@ -106,9 +104,6 @@ Sl {
 	DotExpressionWithTrailingDictionariesSyntax = Primary "." identifier NonEmptyParameterList? NonEmptyDictionaryExpression+
 	DotExpressionWithAssignmentSyntax = Primary "." identifier ":=" Expression
 	DotExpression = Primary ("." identifier ~("{" | ":=") NonEmptyParameterList?~("{"))+
-
-	ImplicitDictionaryAtPutSyntax = "::" identifier ":=" Expression
-	ImplicitDictionaryAtSyntax = "::" identifier
 
 	Block = "{" BlockBody "}"
 	BlockBody = Arguments? Temporaries? Primitive? Statements?
@@ -154,12 +149,13 @@ Sl {
 	operatorAssignment = binaryChar ":" "="
 
 	literal = numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
-	numberLiteral = scientificLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral
+	numberLiteral = scientificLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
 	floatLiteral = "-"? digit+ "." digit+
 	scientificLiteral = (floatLiteral | integerLiteral) "e" integerLiteral
 	fractionLiteral = "-"? digit+ ":" digit+
 	largeIntegerLiteral = "-"? digit+ "n"
 	radixIntegerLiteral = "-"? digit+ "r" letterOrDigit+
+	constantNumberLiteral = "Infinity" | "NaN"
 	integerLiteral = "-"? digit+
 	singleQuotedStringLiteral = "\'" (~"\'" ("\\\'" | "\\\\" | sourceCharacter))* "\'"
 	doubleQuotedStringLiteral = "\"" (~"\"" ("\\\"" | "\\\\" | sourceCharacter))* "\""

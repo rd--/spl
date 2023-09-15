@@ -224,11 +224,6 @@ const asJs: any = {
 		return rcv;
 	},
 
-	ImplicitDictionaryAtPutSyntax(_colonColon, k, _colonEquals, e) {
-		return `_${genName('atPut', 3)}(_implicitDictionary, '${k.sourceString}', ${e.asJs})`; },
-	ImplicitDictionaryAtSyntax(_colonColon, k) {
-		return `_${genName('at', 2)}(_implicitDictionary, '${k.sourceString}')`; },
-
 	Block(_leftBrace, blk, _rightBrace) {
 		return blk.asJs; },
 	BlockBody(arg, tmp, prm, stm) {
@@ -366,6 +361,10 @@ const asJs: any = {
 	},
 	integerLiteral(s,i) {
 		return `${s.sourceString}${i.sourceString}`;
+	},
+	constantNumberLiteral(k) {
+		// console.debug('constantNumberLiteral: ', k.sourceString);
+		return k.sourceString;
 	},
 	singleQuotedStringLiteral(_l, s, _r) {
 		return `'${quoteNewLines(s.sourceString)}'`;

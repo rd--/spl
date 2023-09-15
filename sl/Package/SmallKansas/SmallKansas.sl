@@ -1,3 +1,5 @@
+(* Requires: 'Collection-Set', 'Text-RegExp' *)
+
 @SmallKansan {
 
 	openIn { :self :smallKansas :event |
@@ -158,11 +160,13 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 				},
 				MenuItem('Font Size Menu', nil) { :event |
 					self.fontSizeMenuOn(self, false, event)
-				},
+				}
+(*
 				MenuItem('Sc Synth Reset', nil) { :event |
 					system.clock.removeAll;
 					system.defaultScSynth.reset
 				}
+*)
 			],
 			dynamic = system.smallKansans.collect { :each |
 				MenuItem(each.name.pascalCaseToWords, nil) { :event |

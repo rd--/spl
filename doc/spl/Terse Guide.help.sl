@@ -77,6 +77,7 @@ pi.fractionPart + pi.truncated = pi (* fractional part and truncated part sum to
 5.squared = 25 (* square function *)
 25.sqrt = 5 (* square root *)
 -1.sqrt.isNaN (* square root of a negative number is not a number *)
+NaN.isNaN (* literal for NaN *)
 4.sqrt = 2 & { 1000000.sqrt = 1000 & { 1.sqrt = 1 } & { 0.sqrt = 0 } }
 2.sqrt = 1.4142135623730951
 2.sqrt.squared.closeTo(2) (* floating point errors *)
@@ -177,6 +178,7 @@ pi.veryCloseTo(3.141592653589793) (* pi = 3.141592653589793 *)
 -0.cubeRoot = -0 (* cube root *)
 0.cubeRoot = 0 (* cube root *)
 -2.cubeRoot = -1.2599210498948732 (* cube root *)
+inf = Infinity (* Infinity is the literal for IEEE infinity, inf is a constant, like pi *)
 3 / 0 = inf (* division by zero is infinity *)
 -3 / 0 = inf.negated (* negative division by zero is negative infinity *)
 (0 / 0).isNaN (* division of zero by zero is NaN *)
@@ -518,7 +520,6 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 
 ## Association -- collection type
 ```
-system.includesPackage('Collection-Association')
 ('x' -> 1).typeOf = 'Association' (* arrow (->) constructor, unicode = → *)
 ('x' -> 1).isAssociation (* type predicate *)
 Association('x', 1) = ('x' -> 1)
@@ -668,8 +669,6 @@ Bitset(64).bytes.allSatisfy  { :each | each = 0 } (* all bytes at the empty bits
 [].Blob.typeOf = 'Blob' (* type of Blob *)
 [].Blob.size = 0 (* empty Blob has size zero *)
 [].Blob.isEmpty (* empty Blob is empty *)
-[1 .. 9].ByteArray.Blob.size = 9 (* size of Blob *)
-[65 .. 69].ByteArray.Blob.text.then { :answer | (answer = 'ABCDE').postLine }; true (* Blob text *)
 ```
 
 ## Boolean -- logic type
@@ -1982,8 +1981,6 @@ var d = Map(); d.add('x' -> 1); d.removeKey('x'); d.isEmpty = true (* remove Ass
 var d = Map(); (d['x'] := 1) = 1 & { d['x'] = 1 } (* atPut (subscript mutation) syntax *)
 var d = Map(); d[1] := 'x'; d[1] = 'x'
 var d = Map(); d['x'] := 1; d.removeKey('x'); d.isEmpty = true
-::x := 4; ::x * ::x = 16
-::a := 'x' -> 1; [::a.key, ::a.value] = ['x', 1]
 var d = (f: { :i | i * i }); d::f.value(9) = 81
 { Map().removeKey('unknownKey') }.ifError { true }
 (x: 1, y: 1).withoutDuplicates = (x: 1)
@@ -2243,9 +2240,8 @@ valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repea
 | f = { (1 .. 9).atRandom }; | f.once = f.once & { f.once = f.once } (* the cache is kept in a weak map *)
 ```
 
-## Promise -- kernel type
+## Promise -- scheduling type
 ```
-system.includesPackage('Scheduling-Promise')
 { Promise() }.ifError { true } (* there is no void contructor *)
 Error('f').Promise.catch { :err | (err.messageText = 'f').postLine }; true (* construct a rejected promise *)
 1.resolvedPromise.then { :n | (n = 1).postLine }; true (* construct a resolved promise *)
@@ -2781,9 +2777,11 @@ pi = 3.141592653589793 (* pi is a number *)
 epsilon = 0.000000000000001 (* epsilon is a number *)
 e = 2.718281828459045 (* e is a number *)
 (1 - epsilon).veryCloseTo(1)
-inf.isFinite = false
-pi.isFinite = true
-{ nil.isFinite }.ifError { true }
+Infinity.isFinite = false (* Infinity is not finite *)
+NaN.isFinite = false (* NaN is not finite *)
+inf.isFinite = false (* Infinity is not finite *)
+pi.isFinite = true (* pi is finite *)
+{ nil.isFinite }.ifError { true } (* nil is not a number, so we cannot ask if it is finite *)
 5.closeTo(5) = true
 5.closeTo('5') = false
 5.closeTo(3) = false

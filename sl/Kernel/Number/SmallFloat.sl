@@ -460,6 +460,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 }
 
+Constant.inf = Infinity
 Constant.pi = 3.1415926535897932384626433
 Constant.e = 2.71828182845904523536028747135266249775724709369995
 Constant.epsilon = 0.000000000000001

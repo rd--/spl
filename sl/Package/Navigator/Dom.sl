@@ -1,5 +1,3 @@
-(* Requires: 'Collection-Assocation' *)
-
 @AbstractRange {
 
 }

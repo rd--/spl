@@ -1,5 +1,5 @@
 [
-	'Collection-Association'
+	'Collection-Map'
 	'Collection-Set'
 	'Geometry-Point'
 	'Geometry-Rectangle'
@@ -16,7 +16,6 @@
 	'SmallKansas-Menu'
 	'SmallKansas-Text'
 (*
-	'Collection-Map'
 	'System-CategoryDictionary'
 *)
 (*

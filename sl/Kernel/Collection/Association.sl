@@ -28,6 +28,10 @@ Association : [Object] { | key value |
 		[self.key, self.value]
 	}
 
+	first { :self |
+		self.key
+	}
+
 	keyValue { :self :key :value |
 		self.key := key;
 		self.value := value;
@@ -36,6 +40,10 @@ Association : [Object] { | key value |
 
 	printString { :self |
 		[self.key, ' -> ', self.value].join
+	}
+
+	second { :self |
+		self.value
 	}
 
 	storeString { :self |

@@ -32,6 +32,7 @@
 		'Kernel/Text/String.sl'
 	]],
 	['Kernel-Collection-Type', [
+		'Kernel/Collection/Association.sl'
 		'Kernel/Collection/Array.sl'
 		'Kernel/Collection/Record.sl'
 	]]

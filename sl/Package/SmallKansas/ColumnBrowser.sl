@@ -1,3 +1,5 @@
+(* Requires: 'Collection-Interval' 'SmallKansas-ListChooser' 'SmallKansas-TextEditor' *)
+
 ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEditor numberOfColumns columnLists statusPane statusText title |
 
 	addKeyBindings { :self :aProcedure:/1 |
@@ -20,7 +22,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 		self.columnLists := (1 .. self.numberOfColumns).collect { :index |
 			ListChooser(withFilter & { index = 1 }, nil, listSize)
 		};
-		columnProportions.size.do { :index |
+		1.toDo(columnProportions.size) { :index |
 			| list = self.columnLists[index].listChooserPane; |
 			list.style.setProperties((
 				'flex': columnProportions[index].asString ++ ' 1 16em'
@@ -81,7 +83,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 			}
 		} {
 			self.textEditor.setEditorText('');
-			(self.numberOfColumns - index - 1).do { :each |
+			1.toDo(self.numberOfColumns - index - 1) { :each |
 				self.columnLists[index + each + 1].select.removeAll
 			};
 			self.setColumnEntries(index + 1, next)
@@ -99,7 +101,7 @@ ColumnBrowser : [Object, View] { | browserPane columnsPane previewPane textEdito
 	}
 
 	setEventHandlers { :self :onChange:/2 |
-		self.numberOfColumns.do { :index |
+		1.toDo(self.numberOfColumns) { :index |
 			self.columnLists[index].select.addEventListener('change') { :event |
 				self.columnEdited(index, onChange:/2)
 			}
