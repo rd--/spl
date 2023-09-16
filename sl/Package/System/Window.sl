@@ -8,53 +8,6 @@ Window! : [Object] {
 		<primitive: return _self.confirm(_aString);>
 	}
 
-	fetch { :self :resource |
-		<primitive: return _self.fetch(_resource);>
-	}
-
-	fetch { :self :resource :options |
-		<primitive: return _self.fetch(_resource, _options);>
-	}
-
-	fetchBlob { :self :resource :options  |
-		self.fetch(resource, options).then { :response  |
-			response.blob
-		}
-	}
-
-	fetchByteArray { :self :resource :options  |
-		self.fetch(resource, options).then { :response  |
-			response.byteArray
-		}
-	}
-
-	fetchJson { :self :resource :options  |
-		self.fetch(resource, options).then { :response  |
-			response.json
-		}
-	}
-
-	fetchMimeType { :self :resource :mimeType :options  |
-		self.fetch(resource, options).then { :response  |
-			mimeType.caseOfOtherwise([
-				'application/json' -> {
-					response.json
-				},
-				'text/plain' -> {
-					response.text
-				}
-			]) { :unused  |
-				self.error('fetchMimeType: unknown mimeType: ' ++ mimeType)
-			}
-		}
-	}
-
-	fetchString { :self :resource :options  |
-		self.fetch(resource, options).then { :response  |
-			response.text
-		}
-	}
-
 	localStorage { :self |
 		<primitive: return _self.localStorage;>
 	}

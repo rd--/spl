@@ -141,3 +141,13 @@ ByteArray! : [Object, Iterable, Indexable, Collection, SequenceableCollection, A
 	}
 
 }
+
++System {
+
+	fetchByteArray { :self :resource :options  |
+		self.fetch(resource, options).then { :response  |
+			response.byteArray
+		}
+	}
+
+}

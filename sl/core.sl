@@ -28,12 +28,14 @@
 		'Kernel/Scheduling/Promise.sl'
 		'Kernel/System/Meta.sl'
 		'Kernel/System/Package.sl'
+		'Kernel/System/Response.sl'
 		'Kernel/System/System.sl'
 		'Kernel/Text/String.sl'
 	]],
 	['Kernel-Collection-Type', [
 		'Kernel/Collection/Association.sl'
 		'Kernel/Collection/Array.sl'
+		'Kernel/Collection/Interval.sl'
 		'Kernel/Collection/Record.sl'
 	]]
 ].loadPackageSequence

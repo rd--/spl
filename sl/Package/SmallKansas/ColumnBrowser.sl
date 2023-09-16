@@ -1,4 +1,4 @@
-(* Requires: 'Collection-Interval' 'SmallKansas-ListChooser' 'SmallKansas-SmallKansas' 'SmallKansas-TextEditor' *)
+(* Requires: 'SmallKansas-ListChooser' 'SmallKansas-SmallKansas' 'SmallKansas-TextEditor' *)
 
 ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPane textEditor numberOfColumns columnLists statusPane statusText title |
 

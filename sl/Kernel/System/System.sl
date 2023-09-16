@@ -79,6 +79,41 @@ System! : [Object, Cache, Indexable, Random] {
 		}
 	}
 
+	fetch { :self :resource |
+		<primitive: return fetch(_resource);>
+	}
+
+	fetch { :self :resource :options |
+		<primitive: return fetch(_resource, _options);>
+	}
+
+	fetchJson { :self :resource :options  |
+		self.fetch(resource, options).then { :response  |
+			response.json
+		}
+	}
+
+	fetchMimeType { :self :resource :mimeType :options  |
+		self.fetch(resource, options).then { :response  |
+			mimeType.caseOfOtherwise([
+				'application/json' -> {
+					response.json
+				},
+				'text/plain' -> {
+					response.text
+				}
+			]) { :unused  |
+				self.error('fetchMimeType: unknown mimeType: ' ++ mimeType)
+			}
+		}
+	}
+
+	fetchString { :self :resource :options  |
+		self.fetch(resource, options).then { :response  |
+			response.text
+		}
+	}
+
 	globalDictionary { :self |
 		self.cached('globalDictionary') {
 			()

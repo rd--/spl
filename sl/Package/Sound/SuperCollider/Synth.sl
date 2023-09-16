@@ -384,8 +384,8 @@ UgenGraph! : [Object] {
 	EnvBreakPoint { :breakPointArray :curves |
 		| n = breakPointArray.size; |
 		Env(
-			Interval(1, n, 2).collect { :index | breakPointArray[index] },
-			Interval(2, n - 1, 2).collect { :index | breakPointArray[index] }.differentiate,
+			(1, 3 .. n).collect { :index | breakPointArray[index] },
+			(2, 4 .. n - 1).collect { :index | breakPointArray[index] }.differentiate,
 			curves,
 			nil,
 			nil,

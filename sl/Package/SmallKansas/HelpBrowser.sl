@@ -1,3 +1,5 @@
+(* Requires: ColumnBrowser LibraryItem SmallKansas TextEditor *)
+
 HelpIndex : [Object] { | contents |
 
 	areas { :self |
@@ -8,7 +10,7 @@ HelpIndex : [Object] { | contents |
 		path.ifNotNil {
 			| url = self.url(path[1], path[2], path[3]); |
 			self.notify('fetch: ' ++ path.joinSeparatedBy('/'));
-			system.window.fetchString(url, (cache: 'no-cache'))
+			system.fetchString(url, (cache: 'no-cache'))
 		}
 	}
 

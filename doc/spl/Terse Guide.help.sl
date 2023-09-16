@@ -3279,18 +3279,26 @@ system.operatorCharacterNameTable['^'] = 'raisedTo' (* table of operator names *
 
 ## System -- categoryDictionary
 ```
+system.categoryDictionary.typeOf = 'CategoryDictionary'
 system.categoryDictionary.isCategoryDictionary = true
 system.categoryDictionary.categorizeAll('method', 'accessing', ['at', 'atPut', 'first', 'key', 'last', 'value']); true
 system.categoryDictionary.isCategoryName('method', 'accessing') = true
+system.categoryDictionary.isCategoryName('accessing') = true
 system.categoryDictionary.category('method', 'accessing').isSet = true
 system.categoryDictionary.categoriesOf('method', 'at').includes('accessing') = true
+system.categoryDictionary.categoriesOf('at').includes('accessing') = true
 system.categoryDictionary.categoriesOf('method', 'notInCategorySystem') = []
+system.categoryDictionary.categoriesOf('notInCategorySystem') = []
 system.categoryDictionary.isCategorized('method', 'at') = true
+system.categoryDictionary.isCategorized('at') = true
 system.categoryDictionary.isCategorized('method', 'notInCategorySystem') = false
-system.categoryDictionary.categorizeAll('type', 'Collections/Abstract', ['ArrayedCollection', 'Collection', 'SequenceableCollection']); true
-'Collections/Abstract'.categoryNameParts = ['Collections', 'Abstract']
+system.categoryDictionary.isCategorized('notInCategorySystem') = false
+system.categoryDictionary.categorizeAll('type', 'Collection-Unordered', ['Bag', 'Map', 'Set']); true
+'Collection-Unordered'.categoryNameParts = ['Collection', 'Unordered']
 system.categoryDictionary.categoryOf('method', 'at') = 'accessing'
+system.categoryDictionary.categoryOf('at') = 'accessing'
 system.categoryDictionary.categoryOf('method', 'notInCategorySystem') = '*Uncategorized*'
+system.categoryDictionary.categoryOf('notInCategorySystem') = '*Uncategorized*'
 ```
 
 ## System -- globalDictionary

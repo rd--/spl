@@ -9,6 +9,9 @@ For network loading it's important to be able to send requests for all required 
 The primitive is _loadPackagesSequence_.
 After the core is loaded there is a language level Package type.
 In the simplest case of a package consisting of a single file it can be written Package(fileName).
+Package names should be simple, ie. Set not Collection-Set.
+Packages should be categorized, ie. the category of Set is Collection.
+Packages named for types are already categorized under 'type'.
 
 # Categories
 

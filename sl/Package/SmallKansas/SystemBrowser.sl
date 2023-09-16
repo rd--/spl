@@ -1,4 +1,4 @@
-(* Requires: 'SmallKansas-SmallKansas' *)
+(* Requires: SmallKansas *)
 
 +SmallKansas {
 

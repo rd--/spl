@@ -1,4 +1,4 @@
-(* Requires: 'System-Window' *)
+(* Requires: System-Window' *)
 
 LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 
@@ -30,7 +30,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 					self.value := self.readLocalStorage;
 					self.value.resolve
 				} {
-					system.window.fetchMimeType(self.url, self.mimeType, ()).thenElse { :answer |
+					system.fetchMimeType(self.url, self.mimeType, ()).thenElse { :answer |
 						self.useLocalStorage.ifTrue {
 							self.writeLocalStorage(answer)
 						};

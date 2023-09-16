@@ -1,4 +1,4 @@
-(* Requires: Collection-Interval *)
+(* Requires: Association Interval *)
 
 Graph : [Object] { | degree edges vertexLabels edgeLabels |
 

@@ -36,6 +36,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 	'Collection-Unordered': [
 		'Association'
 		'Bag'
+		'CategoryDictionary'
 		'Graph'
 		'Map'
 		'Set'
@@ -284,6 +285,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'cumulativeCounts'
 		'degrees'
 		'digitValue'
+		'domain'
 		'entries'
 		'first'
 		'fromToPut'
@@ -469,6 +471,15 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'highBitOfMagnitude'
 		'highBitOfPositiveReceiver'
 		'lowBit'
+	],
+	'classifying': [
+		'categoriesOf'
+		'categorize'
+		'categorizeAll'
+		'categorizeDictionary'
+		'category'
+		'categoryOf'
+		'domain'
 	],
 	'comparing': [
 		'!~'
@@ -962,7 +973,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'withKeysSorted'
 	],
 	'testing': [
+		'hasDomain'
 		'isBinary'
+		'isCategorized'
+		'isCategoryName'
 		'isCollection'
 		'isError'
 		'isIndexable'

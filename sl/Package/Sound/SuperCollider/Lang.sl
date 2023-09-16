@@ -1,4 +1,4 @@
-(* Requires: Collection-Interval *)
+(* Requires: Interval *)
 
 +@Collection {
 

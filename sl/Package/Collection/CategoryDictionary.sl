@@ -7,6 +7,12 @@ CategoryDictionary : [Object] { | domainDictionary |
 		}
 	}
 
+	categoriesOf { :self :entry |
+		self.domains.collect { :each |
+				self.categoriesOf(each, entry)
+		}.concatenation
+	}
+
 	categorize { :self :domain :category :entry |
 		self.category(domain, category).add(entry)
 	}
@@ -43,6 +49,16 @@ CategoryDictionary : [Object] { | domainDictionary |
 				all[1]
 			}
 		]) {
+			self.error('categoryOf: multiple categories: ' ++ [domain, entry])
+		}
+	}
+
+	categoryOf { :self :entry |
+		| answer = self.categoriesOf(entry); |
+		answer.size.caseOfOtherwise([
+			{ 0 } -> { '*Uncategorized*' },
+			{ 1 } -> { answer.first }
+		]) {
 			self.error('categoryOf: multiple categories: ' ++ entry)
 		}
 	}
@@ -51,6 +67,10 @@ CategoryDictionary : [Object] { | domainDictionary |
 		self.domainDictionary.atIfAbsentPut(domain) {
 			Record()
 		}
+	}
+
+	domains { :self |
+		self.domainDictionary.indices
 	}
 
 	hasDomain { :self :domain |
@@ -63,8 +83,20 @@ CategoryDictionary : [Object] { | domainDictionary |
 		}
 	}
 
-	isCategoryName { :self :domain :entry |
-		self.domain(domain).includesIndex(entry)
+	isCategorized { :self :entry |
+		self.domains.anySatisfy { :each |
+			self.isCategorized(each, entry)
+		}
+	}
+
+	isCategoryName { :self :domain :category |
+		self.domain(domain).includesIndex(category)
+	}
+
+	isCategoryName { :self :category |
+		self.domains.anySatisfy { :each |
+			self.isCategoryName(each, category)
+		}
 	}
 
 }
@@ -90,7 +122,7 @@ CategoryDictionary : [Object] { | domainDictionary |
 +String {
 
 	categoryNameParts { :self |
-		self.splitBy('/')
+		self.splitBy('-')
 	}
 
 }

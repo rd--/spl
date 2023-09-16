@@ -42,6 +42,16 @@ Blob! : [Object, Blob] {
 
 }
 
++System {
+
+	fetchBlob { :self :resource :options  |
+		self.fetch(resource, options).then { :response  |
+			response.blob
+		}
+	}
+
+}
+
 (* Requires: 'Collection-ByteArray' 'Collection-Float64Array' *)
 (*
 +[ByteArray, Float64Array] {
