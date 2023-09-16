@@ -1,4 +1,5 @@
-(* Requires: Collection-PriorityQueue *)
+(* {"requires": ["PriorityQueue"]} *)
+
 Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 	initialize { :self |

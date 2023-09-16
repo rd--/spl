@@ -1,4 +1,5 @@
-(* Requires: 'Time-Duration' *)
+(* {"requires": ["Duration"]} *)
+
 Frequency : [Object, Magnitude] { | hertz |
 
 	= { :self :anObject |

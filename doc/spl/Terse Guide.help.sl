@@ -2969,11 +2969,12 @@ pi.asString = '3.141592653589793' (* float as string *)
 'sum:/1'.splitBy(':/') = ['sum', '1']
 'ascii'.toUppercase = 'ASCII'
 'ASCII'.toLowercase = 'ascii'
-`x` = 'x' (* backtick quotes *)
-`"x"` = '"x"'
-`x` = 'x'.parseBacktickQuotedString
-"x" = 'x' (* double quotes *)
-"x" = 'x'.parseDoubleQuotedString
+`'x'` = '\'x\'' (* backtick quotes quoting single quote *)
+`"x"` = '"x"' (* backtick quotes quoting double quote *)
+`x'""'y` = 'x\'""\'y'.parseBacktickQuotedString
+"'x'" = '\'x\'' (* double quotes quoting single quote *)
+"`x`" = '`x`' (* double quotes quoting backtick quote *)
+"'x'" = '\'x\''.parseDoubleQuotedString
 'string'[3] = 'r'.Character (* string indexing *)
 { 'string'[3] := nil }.ifError { true } (* strings are immutable *)
 '{"x": 3.141, "y": 23}'.parseJson = (x: 3.141, y: 23)
@@ -3071,6 +3072,12 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 '\r'.Character.codePoint = 13 (* carriage return *)
 'The quick brown fox jumps over the lazy dog'.crc16 = 16rFCDF (* 16 bit cyclic redundancy check, crc-16/arc *)
 '* + - / ^ ? ~ = < >'.words.allSatisfy(isOperatorName:/1)
+'a comment'.asBracketedComment('/*', '*/') = '/* a comment */' (* add C comment brackets *)
+'a comment'.asMlComment = '(* a comment *)' (* add Ml comment brackets *)
+{ '(* a comment *)'.asMlComment }.ifError { true } (* it is an error if there are existing brackets *)
+'before and (* a comment *) then after'.firstBracketedComment('(*', '*)') = ' a comment '
+'before and (* a comment *) then after'.firstMlComment = ' a comment '
+'no comment'.firstMlCommentIfAbsent { true }
 ```
 
 ## Syntax -- array assignment syntax

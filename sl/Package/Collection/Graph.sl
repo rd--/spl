@@ -1,5 +1,3 @@
-(* Requires: Association Interval *)
-
 Graph : [Object] { | degree edges vertexLabels edgeLabels |
 
 	labeledVertices { :self |

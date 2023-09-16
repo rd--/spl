@@ -1,4 +1,4 @@
-(* Requires: SmallKansas-ColumnBrowser SmallKansas-SmallKansas System-Method *)
+(* {"requires": ["ColumnBrowser", "Method", "SmallKansas"]} *)
 
 CategoryBrowser : [Object, SmallKansan] {
 

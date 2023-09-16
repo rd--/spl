@@ -1,4 +1,4 @@
-(* Requires: 'SmallKansas-ListChooser' 'SmallKansas-SmallKansas' 'SmallKansas-TextEditor' *)
+(* {"requires": ["ListChooser", "SmallKansas", "TextEditor"]} *)
 
 ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPane textEditor numberOfColumns columnLists statusPane statusText title |
 

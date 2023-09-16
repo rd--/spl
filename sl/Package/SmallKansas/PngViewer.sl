@@ -1,4 +1,4 @@
-(* Requires: 'SmallKansas-SmallKansas' *)
+(* {"requires": ["SmallKansas"]} *)
 
 PngViewer : [Object, View] { | pngPane title pngData pngUrl |
 

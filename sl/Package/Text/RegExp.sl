@@ -44,6 +44,12 @@ RegExp! : [Object] {
 		self.replaceRegExp(RegExp('([A-Z])', 'g'), ' $1')
 	}
 
+	isAllDigits { :self |
+		self.isEmpty | {
+			self.matchesRegExp('^[0-9]+$')
+		}
+	}
+
 	matchesRegExp { :self :aRegExp |
 		aRegExp.asRegExp.test(self)
 	}

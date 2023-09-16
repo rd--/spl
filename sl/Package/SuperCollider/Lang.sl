@@ -1,5 +1,3 @@
-(* Requires: Interval *)
-
 +@Collection {
 
 	AmpDb { :self |

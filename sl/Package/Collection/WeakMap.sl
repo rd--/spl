@@ -1,4 +1,4 @@
-(* Requires: Collection-Map *)
+(* {"requires": ["Map"]} *)
 
 WeakMap! : [Object, Indexable, PrimitiveMap] {
 

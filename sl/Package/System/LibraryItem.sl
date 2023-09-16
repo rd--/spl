@@ -1,4 +1,4 @@
-(* Requires: System-Window' *)
+(* {"requires": ["Url"]} *)
 
 LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 

@@ -1,4 +1,4 @@
-(* Requires: Stream-PositionableStream Stream-Stream *)
+(* {"requires": ["PositionableStream", "Stream"]} *)
 
 WriteStream : [Object, Stream, PositionableStream] { | collection positionIndex writeLimit |
 

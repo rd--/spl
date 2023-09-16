@@ -1,4 +1,4 @@
-(* Requires: System-Blob System-File *)
+(* {"requires": ["Blob", "File"]} *)
 
 URL! : [Object] {
 

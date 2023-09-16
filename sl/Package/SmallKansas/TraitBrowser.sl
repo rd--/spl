@@ -1,4 +1,4 @@
-(* Requires: SmallKansas-SmallKansas *)
+(* {"requires": ["ColumnBrowser", "SmallKansas"]} *)
 
 +SmallKansas {
 

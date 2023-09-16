@@ -1,4 +1,4 @@
-(* Requires: 'SmallKansas-SmallKansas' 'System-Trait' *)
+(* {"requires": ["ColumnBrowser", "SmallKansas", "Trait"]} *)
 
 +SmallKansas  {
 
@@ -6,7 +6,6 @@
 		|(
 			packages = system.packageDictionary.values,
 			packageCategories = packages.collect(category:/1).withoutDuplicates.sort,
-			packageNames = system.packageDictionary.indicesSorted,
 			methods = nil,
 			selectedMethod = nil
 		)|

@@ -32,6 +32,16 @@ String! : [Object, Json, Iterable] {
 		self.characterArray.select(isAscii:/1).joinCharacters
 	}
 
+	asBracketedComment { :self :open :close |
+		(self.includesSubstring(open) | {
+			self.includesSubstring(close)
+		}).if {
+			self.error('asBracketedComment: includes comment brackets')
+		} {
+			[open, ' ', self, ' ', close].join
+		}
+	}
+
 	asciiByteArray { :self |
 		| answer = self.utf8ByteArray; |
 		answer.allSatisfy(isAsciiCodePoint:/1).if {
@@ -55,6 +65,10 @@ String! : [Object, Json, Iterable] {
 
 	asLowercase { :self |
 		<primitive: return _self.toLowerCase(); >
+	}
+
+	asMlComment { :self |
+		self.asBracketedComment('(*', '*)')
 	}
 
 	asString { :self |
@@ -194,6 +208,36 @@ String! : [Object, Json, Iterable] {
 		self[1]
 	}
 
+	firstBracketedCommentIfAbsent { :self :open :close :aBlock:/0 |
+		|(
+			start = self.findString(open),
+			end = self.findString(close)
+		)|
+		(start = 0 | {
+			end = 0
+		}).if {
+			aBlock()
+		} {
+			self.copyFromTo(start + open.size, end - 1)
+		}
+	}
+
+	firstBracketedComment { :self :open :close |
+		self.firstBracketedCommentIfAbsent(open, close) {
+			self.error('firstBracketedComment: no comment found')
+		}
+	}
+
+	firstMlCommentIfAbsent { :self :aBlock:/0 |
+		self.firstBracketedCommentIfAbsent('(*', '*)', aBlock:/0)
+	}
+
+	firstMlComment { :self |
+		self.firstMlCommentIfAbsent {
+			self.error('firstMlComment: no comment found')
+		}
+	}
+
 	includes { :self :aCharacter |
 		self.characterArray.includes(aCharacter)
 	}
@@ -224,12 +268,6 @@ String! : [Object, Json, Iterable] {
 
 	isAsciiString { :self |
 		self.allSatisfy(isAscii:/1)
-	}
-
-	isAllDigits { :self |
-		self.isEmpty | {
-			self.matchesRegExp('^[0-9]+$')
-		}
 	}
 
 	isInBasicMultilingualPlane { :self |

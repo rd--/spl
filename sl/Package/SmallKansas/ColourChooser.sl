@@ -1,4 +1,4 @@
-(* Requires: 'Graphics-Colour' *)
+(* {"requires": ["Colour", "SmallKansas"]} *)
 
 ColourChooser : [Object, View] { | colourChooserPane colourInput |
 

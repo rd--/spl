@@ -1,4 +1,4 @@
-(* Requires: Collection-LinkedList *)
+(* {"requires": ["LinkedList"]} *)
 
 Stack : [Object] { | linkedList |
 

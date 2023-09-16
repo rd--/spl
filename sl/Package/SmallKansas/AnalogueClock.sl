@@ -1,4 +1,4 @@
-(* Requires: 'Geometry-PolarPoint' 'Time-Date' *)
+(* {"requires": ["Date", "PolarPoint", "SmallKansas"]} *)
 
 AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand secondHand |
 

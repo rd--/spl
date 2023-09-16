@@ -1,4 +1,4 @@
-(* Requires: System-Blob *)
+(* {"requires": ["Blob"]} *)
 
 @AbstractRange {
 

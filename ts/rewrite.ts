@@ -382,10 +382,10 @@ const asJs: any = {
 		return `'${quoteNewLines(s.sourceString)}'`;
 	},
 	doubleQuotedStringLiteral(_l, s, _r) {
-		return `_${genName('parseDoubleQuotedString', 1)}('${s.sourceString}')`;
+		return `_${genName('parseDoubleQuotedString', 1)}("${s.sourceString}")`;
 	},
 	backtickQuotedStringLiteral(_l, s, _r) {
-		return `_${genName('parseBacktickQuotedString', 1)}('${s.sourceString}')`;
+		return `_${genName('parseBacktickQuotedString', 1)}(\`${s.sourceString}\`)`;
 	},
 
 	NonemptyListOf(first, _sep, rest) {

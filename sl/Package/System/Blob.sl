@@ -52,7 +52,7 @@ Blob! : [Object, Blob] {
 
 }
 
-(* Requires: 'Collection-ByteArray' 'Collection-Float64Array' *)
+(* {"requires": ["ByteArray", "Float64Array"]} *)
 (*
 +[ByteArray, Float64Array] {
 

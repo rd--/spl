@@ -1,4 +1,4 @@
-(* Requires: Time-Frequency *)
+(* {"requires": ["Frequency"]} *)
 
 +Frequency {
 

@@ -1,4 +1,4 @@
-(* Requires: 'Collection-Set', 'Text-RegExp', 'Time-Duration' *)
+(* {"requires": ["Dom", "Duration", "RegExp", "Set"]} *)
 
 @SmallKansan {
 

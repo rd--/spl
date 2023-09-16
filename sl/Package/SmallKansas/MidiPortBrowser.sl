@@ -1,4 +1,4 @@
-(* Requires: MIDIAccess SmallKansas-ColumnBrowser SmallKansas-SmallKansas *)
+(* {"requires": ["ColumnBrowser", "Midi", "SmallKansas"]} *)
 
 +SmallKansas {
 

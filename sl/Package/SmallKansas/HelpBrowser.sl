@@ -1,4 +1,4 @@
-(* Requires: ColumnBrowser LibraryItem SmallKansas TextEditor *)
+(* {"requires": ["ColumnBrowser", "LibraryItem", "SmallKansas", "TextEditor"]} *)
 
 HelpIndex : [Object] { | contents |
 
