@@ -147,7 +147,7 @@ const asJs: any = {
 	AtPutSyntax(c, _leftBracket, k, _rightBracket, _equals, v) {
 		return `_${genName(atPutMethod(), 3)}(${c.asJs}, ${k.asJs}, ${v.asJs})`;
 	},
-	AtPutQuotedSyntax(c, _colonColon, k, _colonEquals, v) {
+	QuotedAtPutSyntax(c, _colonColon, k, _colonEquals, v) {
 		return `_${genName(atPutMethod(), 3)}(${c.asJs}, '${k.sourceString}', ${v.asJs})`;
 	},
 	AtPutDelegateSyntax(c, _colonDot, k, _colonEquals, v) {
@@ -155,6 +155,12 @@ const asJs: any = {
 	},
 	AtSyntax(c, _leftBracket, k, _rightBracket) {
 		return `_${genName(atMethod(), 2)}(${c.asJs}, ${k.asJs})`;
+	},
+	AtIfAbsentSyntax(c, _leftBracket, k, _rightBracket, _colonQuery, a) {
+		return `_${genName('atIfAbsent', 3)}(${c.asJs}, ${k.asJs}, ${a.asJs})`;
+	},
+	AtIfAbsentPutSyntax(c, _leftBracket, k, _rightBracket, _colonQueryEquals, a) {
+		return `_${genName('atIfAbsentPut', 3)}(${c.asJs}, ${k.asJs}, ${a.asJs})`;
 	},
 	AtAllArraySyntax(c, _leftBracket, k, _rightBracket) {
 		return `_${genName('atAll', 2)}(${c.asJs}, [${commaList(k.asIteration().children)}])`;
@@ -176,8 +182,14 @@ const asJs: any = {
 	AtPathPutSyntax(collection, _leftBracket, keys, _rightBracket, _colonEquals, value) {
 		return `_${genName('atPathPut', 3)}(${collection.asJs}, [${commaList(keys.asIteration().children)}], ${value.asJs})`;
 	},
-	AtQuotedSyntax(c, _colonColon, k) {
+	QuotedAtSyntax(c, _colonColon, k) {
 		return `_${genName(atMethod(), 2)}(${c.asJs}, '${k.sourceString}')`;
+	},
+	QuotedAtIfAbsentSyntax(c, _colonColon, k, _colonQuery, a) {
+		return `_${genName('atIfAbsent', 3)}(${c.asJs}, '${k.sourceString}', ${a.asJs})`;
+	},
+	QuotedAtIfAbsentPutSyntax(c, _colonColon, k, _colonQueryEquals, a) {
+		return `_${genName('atIfAbsentPut', 3)}(${c.asJs}, '${k.sourceString}', ${a.asJs})`;
 	},
 	ReadSlotSyntax(c, _colonArrow, k) {
 		return `${c.asJs}['${k.sourceString}']`;

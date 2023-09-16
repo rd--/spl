@@ -1,4 +1,4 @@
-Package : [Object] { | name implementationFileNames |
+Package : [Object] { | category name requires implementation |
 
 	load { :self |
 		system.loadPackage(self)
@@ -6,18 +6,29 @@ Package : [Object] { | name implementationFileNames |
 
 }
 
-+String {
++@Dictionary {
 
-	derivePackageImplementationFile { :self |
-		'Package/' ++ self.replaceStringAll('-', '/') ++ '.sl'
+	derivePackageImplementation { :self |
+		[['Package/', self::category, '/', self::name, '.sl'].join]
 	}
+
 
 	Package { :self |
-		Package(self, [self.derivePackageImplementationFile])
+		newPackage().initializeSlots(
+			self::category :?= { system.categoryDictionary.categoryOf(self::name) },
+			self::name,
+			self::requires :? { [] },
+			self::implementation :? { self.derivePackageImplementation }
+		)
 	}
 
-	Package { :self :implementationFileNames |
-		newPackage().initializeSlots(self, implementationFileNames)
+}
+
++String {
+
+	Package { :self |
+		| [category, name] = self.splitBy('-'); |
+		(category: category, name: name).Package
 	}
 
 }
@@ -30,7 +41,7 @@ Package : [Object] { | name implementationFileNames |
 				self.error('loadPackages: package exists: ' ++ each.name)
 			};
 			system.packageDictionary[each.name] := each;
-			[each.name, each.implementationFileNames]
+			[each.name, each.implementation]
 		}.loadPackageSequence
 	}
 
@@ -44,7 +55,7 @@ Package : [Object] { | name implementationFileNames |
 
 	loadPackage { :self :package |
 		[
-			[package.name, package.implementationFileNames]
+			[package.name, package.implementation]
 		].loadPackageSequence.then {
 			self.packageDictionary[package.name] := package
 		}
@@ -71,4 +82,3 @@ Package : [Object] { | name implementationFileNames |
 	}
 
 }
-

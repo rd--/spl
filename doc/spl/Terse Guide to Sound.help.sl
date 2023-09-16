@@ -145,7 +145,7 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [10, 20, 30, 40].instill(3, -30, nil) = [10, 20, -30, 40] (* atPut or extends array if required *)
 [10, 20].instill(3, -30, nil) = [10, 20, -30]
 [10].instill(3, -30, 20) = [10, 20, -30]
-10.instill(3, -30, 20) = [ 10, 20, -30 ] (* instill is defined at Object *)
+10.instill(3, -30, 20) = [10, 20, -30] (* instill is defined at Object *)
 10.instill(1, -10, nil) = -10
 nil ? { 'x' } = 'x' (* right hand side if nil *)
 'x' ? { 'y' } = 'x' (* left hand side unless nil *)

@@ -51,10 +51,14 @@ JiTuning : [Object] { | name description integerPitches limit degree |
 
 	initialize { :self :name :description :tuning |
 		|(
-			integerPitches = tuning.allSatisfy(isInteger:/1).if {
+			integerPitches = tuning.allSatisfy(isSmallInteger:/1).if {
 				tuning
 			} {
-				tuning / tuning.reduce(gcd:/2)
+				tuning.allSatisfy(isFraction:/1).if {
+					(tuning / tuning.reduce(gcd:/2)).collect(asInteger:/1)
+				} {
+					self.error('initialize: unknown tuning')
+				}
 			}
 		)|
 		self.initializeSlots(

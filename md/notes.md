@@ -332,3 +332,11 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+208D ₍ Subscript Left Parenthesis
 - U+207E ⁾ Superscript Right Parenthesis
 - U+208E ₎ Subscript Right Parenthesis
+- U+229C ⊜ Circled Equals
+- U+22A1 ⊡ Squared Dot Operator
+- U+22EE ⋮ Vertical Ellipsis
+- U+22BA ⊺ Intercalate
+- U+21E0 ⇠ Leftwards Dashed Arrow
+- U+2919 ⤙ Leftwards Arrow-Tail
+- U+291B ⤛ Leftwards Double Arrow-Tail
+- U+291D ⤝ Leftwards arrow to black diamond

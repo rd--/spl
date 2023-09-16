@@ -2,7 +2,7 @@
 
 ## Angle -- geometry type
 ```
-system.includesPackage('Geometry-Angle')
+system.includesPackage('Angle') (* angle package *)
 pi.radians.typeOf = 'Angle' (* type of angle *)
 pi.radians.isAngle (* angle predicate *)
 1.radians.degrees ~ 57.296 (* radians to degrees *)
@@ -320,6 +320,7 @@ plusPlus([1 .. 3], [4 .. 6]) = [1 .. 6] (* ++ equals plusPlus *)
 [1 .. 5].atIfPresent(3) { :x | x * x } = 9 (* clause if index is valid *)
 [1 .. 5].atIfPresent(9) { :x | false } = nil (* ifAbsent clause answers nil *)
 [1 .. 5].atIfAbsent(9) { true } (* exception clause if index is invalid *)
+| a = [1 .. 5]; | a[9] :? { true } (* [AtIfAbsent Syntax] *)
 [1 .. 5].atIfPresentIfAbsent(9) { :x | false } { true } (* ifPresent and ifAbsent clauses *)
 [1 .. 5].atIfPresentIfAbsent(3) { :x | x * x } { false } = 9 (* ifPresent and ifAbsent clauses *)
 | a = [1, 2, 3]; | a.atPut(2, 'two') = 'two' & { a = [1, 'two', 3] } (* atPut answers value put *)
@@ -543,7 +544,7 @@ Association('x', 1) = ('x' -> 1)
 
 ## Bag -- collection type
 ```
-system.includesPackage('Collection-Bag')
+system.includesPackage('Bag') (* bag package *)
 Bag().isBag = true
 Bag().typeOf = 'Bag'
 Bag().isCollection
@@ -629,7 +630,7 @@ Bag().isSequenceable = false
 
 ## Bitset -- collection type
 ```
-system.includesPackage('Collection-Bitset')
+system.includesPackage('Bitset') (* bitset package *)
 Bitset(64).isBitset (* a bitset is a bitset *)
 Bitset(64).size = 0 (* a new bitset is empty *)
 Bitset(64).capacity = 64 (* the capacity of a bitset is set when initialized *)
@@ -778,7 +779,7 @@ false ~= nil
 
 ## ByteArray -- collection type
 ```
-system.includesPackage('Collection-ByteArray')
+system.includesPackage('ByteArray') (* byte array package *)
 ByteArray(0).typeOf = 'ByteArray' (* byte array type name *)
 ByteArray(0).species = ByteArray:/1 (* byte array species *)
 ByteArray(0).isArray = false (* byte arrays are arrays *)
@@ -822,7 +823,7 @@ ByteArray(4).hex = '00000000'
 
 ## Character -- text type
 ```
-system.includesPackage('Text-Character')
+system.includesPackage('Character') (* character package *)
 '𠮷'.Character.isCharacter
 '𠮷'.Character.string = '𠮷'
 '𠮷'.Character.codePoint = 134071
@@ -970,7 +971,7 @@ Set().Array = []
 
 ## Colour -- graphics type
 ```
-system.includesPackage('Graphics-Colour')
+system.includesPackage('Colour') (* colour package *)
 Colour(1, 0, 0, 0.5).over(Colour(0, 1, 0, 0.5)) = Colour(1 / 3, 2 / 3, 0, 3 / 4)
 Colour(0, 0, 0).isBlack (* is colour black *)
 Colour(1, 1, 1).isWhite (* is colour white *)
@@ -1018,7 +1019,7 @@ system.colourNameTable::veryLightGray.isGrey (* colour name table *)
 
 ## Complex -- numeric type
 ```
-system.includesPackage('Number-Complex')
+system.includesPackage('Complex') (* complex package *)
 Complex(0, 0).isComplex (* complex numbers *)
 Complex(-1, 0).real = -1 (* real part of complex number *)
 Complex(-1, 0).imaginary = 0 (* imaginary part of complex number *)
@@ -1182,7 +1183,7 @@ pi.radiansToDegrees = 180 (* convert radians to degrees *)
 
 ## Date -- temporal type
 ```
-system.includesPackage('Time-Date') (* Date is implemented in the Time-Date package *)
+system.includesPackage('Date') (* date package *)
 system.Date.typeOf = 'Date' (* type of Date, system constructor gets current date and time *)
 0.Date.isDate (* Date type predicate, number constructor accepts time from epoch in seconds *)
 Date(60 * 60 * 12).iso8601 = '1970-01-01T12:00:00.000Z' (* translate Date to ISO-8601 string *)
@@ -1208,6 +1209,7 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z' (* read date from partia
 (x: nil).indices = ['x'] (* nil fields exist *)
 ().atIfAbsentPut('x') { 1 } = 1 (* at or atPut followed by at *)
 | d = (); | d.atIfAbsentPut('x') { 1 } = 1 & { d::x = 1 }
+| d = (); | d::x :?= { 1 } = 1 & { d::x = 1 } (* [Quoted AtIfAbsentPut Syntax] *)
 (x: 1, y: 2).includes(2) (* includes, testing values for equality *)
 (x: 1, y: [2, 3]).includes([2, 3])
 (x: 1, y: 2).includesIdentity(2) (* includes, testing for identity not equality *)
@@ -1259,7 +1261,7 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z' (* read date from partia
 
 ## Duration -- temporal type
 ```
-system.includesPackage('Time-Duration')
+system.includesPackage('Duration') (* duration package *)
 2.seconds.typeOf = 'Duration' (* make duration from number of seconds *)
 5.hours.isDuration = true (* make duration from number of hours *)
 0.25.seconds = 250.milliseconds (* make duration from number of milliseconds, durations are comparable *)
@@ -1345,7 +1347,7 @@ Float64Array(8).atPut(1, pi) = pi (* answer value put *)
 
 ## Fraction -- numeric type
 ```
-system.includesPackage('Number-Fraction') (* Fraction is implemented in the Package Number-Fraction *)
+system.includesPackage('Fraction') (* fraction package *)
 2:3.isFraction (* literal syntax for fractions is numerator:denominator *)
 Fraction(2, 3).isFraction (* fractional type *)
 2:3 = Fraction(2, 3) (* literal syntax *)
@@ -1838,7 +1840,7 @@ Interval(1, 100, 0.5).size = 199
 
 ## LargeInteger -- numeric type
 ```
-system.includesPackage('Number-LargeInteger')
+system.includesPackage('LargeInteger') (* LargeInteger package *)
 23n.typeOf = 'LargeInteger' (* syntax for large integer literals *)
 (2 ^ 54).LargeInteger.squared.printString = '324518553658426726783156020576256'
 (2 ^ 37).LargeInteger.squared.storeString = '18889465931478580854784n'
@@ -1880,7 +1882,7 @@ system.includesPackage('Number-LargeInteger')
 
 ## Length -- geometry type
 ```
-system.includesPackage('Geometry-Length')
+system.includesPackage('Length') (* Length package *)
 1.metres.typeOf = 'Length' (* metre constructor, type of *)
 1.metres.isLength (* length predicate *)
 10.centimetres.printString = '0.1.metres'
@@ -1903,7 +1905,7 @@ system.includesPackage('Geometry-Length')
 
 ## LinkedList -- collection type
 ```
-system.includesPackage('Collection-LinkedList')
+system.includesPackage('LinkedList') (* LinkedList package *)
 LinkedList().typeOf = 'LinkedList' (* type of linked list *)
 LinkedList().isLinkedList = true (* type predicate for linked list *)
 LinkedList().size = 0 (* empty linked list *)
@@ -1970,7 +1972,7 @@ LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
 
 ## Map -- collection type
 ```
-system.includesPackage('Collection-Map')
+system.includesPackage('Map') (* Map package *)
 | r = Map(); | r.add('x' -> 1); r.size = 1 (* add Association to Dictionary *)
 var d = Map(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2 (* add two Associations to Dictionary *)
 var d = ['x' -> 1, 'y' -> 2].Map; d.indices = ['x', 'y'] (* answer Array of indices (keys) at Dictionary *)
@@ -2035,7 +2037,7 @@ pi.radiansToDegrees = 180 (* radiansToDegrees *)
 
 ## Matrix22 -- geometry type
 ```
-system.includesPackage('Geometry-Matrix22')
+system.includesPackage('Matrix22')
 Matrix22(1, 4, -1, 9).determinant = 13
 Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2)
 Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1)).closeTo(1@0)
@@ -2043,13 +2045,13 @@ Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1)).closeTo(1@0)
 
 ## Matrix33 -- geometry type
 ```
-system.includesPackage('Geometry-Matrix33')
+system.includesPackage('Matrix33')
 Matrix33(1, 1, 1, 1, 0, 0, 0, 1, 0).inverse = Matrix33(0, 1, 0, 0, 0, 1, 1, -1, -1)
 ```
 
 ## Method
 ```
-system.includesPackage('System-Method')
+system.includesPackage('Method') (* method package *)
 { true + false }.ifError { true } (* boolean does not implement + *)
 var f = { :x :y | x + y }; { f(true, false) }.ifError { true } (* boolean does not implement + *)
 ```
@@ -2152,22 +2154,24 @@ pi.warning('pi') = pi (* user warning *)
 
 ## Package
 ```
-Package('Time-Date').typeOf = 'Package' (* type of Package *)
+Package('Time-Date').typeOf = 'Package' (* type of package *)
+(name: 'Set').Package.isPackage (* package from dictionary, name is the only required field, package predicate *)
+(category: 'Time', name: 'Date').Package.implementation = ['Package/Time/Date.sl'] (* derive implementation *)
 Package('Time-Date').isPackage (* package type predicate *)
-Package('Time-Date').name = 'Time-Date' (* name of package *)
-system.includesPackage('Time-Date')
+Package('Time-Date').name = 'Date' (* name of package *)
+system.includesPackage('Date')
 ```
 
 ## Point -- geometry trait
 ```
-system.includesPackage('Geometry-Point')
+system.includesPackage('Point') (* point package *)
 0.asPoint.isPoint (* number to point, point predicate *)
 0.asPoint.isZero (* are x and y both zero *)
 ```
 
 ## PriorityQueue -- collection type
 ```
-system.includesPackage('Collection-PriorityQueue')
+system.includesPackage('PriorityQueue') (* PriorityQueue package *)
 PriorityQueue().isPriorityQueue = true
 PriorityQueue().isEmpty = true
 var p = PriorityQueue(); p.push('a', 1); p.pop = 'a'
@@ -2280,7 +2284,7 @@ var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.Se
 
 ## Random -- Sfc32
 ```
-system.includesPackage('Random-Sfc32')
+system.includesPackage('Sfc32') (* Sfc32 package *)
 | r = Sfc32(98765); | r.typeOf = 'Sfc32' (* type *)
 | r = Sfc32(98765); | r.isSfc32 (* predicate *)
 | r = Sfc32(98765); | r.isRandom (* predicate *)
@@ -2296,7 +2300,7 @@ system.includesPackage('Random-Sfc32')
 
 ## Random -- Mersenne
 ```
-system.includesPackage('Random-Mersenne')
+system.includesPackage('Mersenne') (* Mersenne package *)
 | m = Mersenne(98765); | m.typeOf = 'Mersenne' (* type of *)
 | m = Mersenne(98765); | m.isMersenne (* predicate *)
 | m = Mersenne(98765); | m.isRandom (* predicate *)
@@ -2313,7 +2317,7 @@ Mersenne(123456).randomFloat = 0.12696983303810094 (* test from standard tests *
 
 ## Random -- SplitMix
 ```
-system.includesPackage('Random-SplitMix')
+system.includesPackage('SplitMix') (* SplitMix package *)
 | r = SplitMix(98765); | r.typeOf = 'SplitMix' (* type of *)
 | r = SplitMix(98765); | r.isSplitMix (* predicate *)
 | r = SplitMix(98765); | r.isRandom (* predicate *)
@@ -2326,14 +2330,14 @@ system.includesPackage('Random-SplitMix')
 
 ## Random -- LinearCongruential
 ```
-system.includesPackage('Random-LinearCongruential')
+system.includesPackage('LinearCongruential') (* LinearCongruential package *)
 | r = LinearCongruential(); | r.typeOf = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandom }
 | r = LinearCongruential(); | [r.randomFloat, r.randomFloat] = [0.3746499199817101, 0.729023776863283]
 ```
 
 ## ReadStream -- collection type
 ```
-system.includesPackage('Stream-ReadStream')
+system.includesPackage('ReadStream') (* ReadStream package *)
 ReadStream().typeOf = 'ReadStream' (* type of read stream *)
 ReadStream().isReadStream (* read stream predicate *)
 ReadStream().atEnd = true (* read stream at end predicate *)
@@ -2433,7 +2437,7 @@ var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7
 
 ## Rectangle -- geometry type
 ```
-system.includesPackage('Geometry-Rectangle')
+system.includesPackage('Rectangle') (* Rectangle package *)
 Rectangle(0@0, 1@1).printString = 'Rectangle(0@0, 1@1)'
 Rectangle(0@0, 2@2).intersect(Rectangle(1@1, 4@4)) = Rectangle(1@1, 2@2)
 Rectangle(1@1, 3@3).area = 4
@@ -2465,7 +2469,7 @@ Rectangle(1@1, 3@3).containsPoint(2@2) = true
 
 ## RegExp -- text type
 ```
-system.includesPackage('Text-RegExp')
+system.includesPackage('RegExp') (* RegExp package *)
 RegExp('ab+c').isRegExp = true
 var r = RegExp('ab*c'); [r.test('ac'), r.test('abc')] = [true, true]
 var r = RegExp('ab*c', 'g'); 'ab abc ac'.allRegExpMatches(r) = ['abc', 'ac']
@@ -2491,7 +2495,7 @@ RegExp('x.x', 'g').printString.size = 18
 
 ## RunArray -- collection type
 ```
-system.includesPackage('Collection-RunArray')
+system.includesPackage('RunArray') (* RunArray package *)
 | a = RunArray([1, 3, 5], ['a', 'b', 'c']); | a.isRunArray & { a.size = 9 } (* from runs and values, size is sum of runs *)
 | a = RunArray([1, 3, 5], ['a', 'b', 'c']); | a.size = 9 & { a.Array.join = 'abbbccccc' } (* as array *)
 | a = RunArray([1 -> 'a', 3 -> 'b', 5 -> 'c']); | a.size = 9 & { a.Array.join = 'abbbccccc' } (* from associations *)
@@ -2648,7 +2652,7 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 
 ## Set -- collection type
 ```
-system.includesPackage('Collection-Set')
+system.includesPackage('Set') (* set package *)
 Set().isSet (* set type predicate *)
 Set().size = 0 (* count items in set *)
 Set().isEmpty (* is set empty? *)
@@ -2850,7 +2854,7 @@ pi.one = 1 (* one of same type, i.e. small float *)
 
 ## SortedArray -- collection type
 ```
-system.includesPackage('Collection-SortedArray')
+system.includesPackage('SortedArray') (* sorted array package *)
 SortedArray().isSortedArray (* sorted array *)
 SortedArray().species = SortedArray:/0 (* species is sorted array *)
 SortedArray().size = 0 (* query size *)
@@ -2868,7 +2872,7 @@ SortedArray().size = 0 (* query size *)
 
 ## Stack -- collection type
 ```
-system.includesPackage('Collection-Stack')
+system.includesPackage('Stack') (* stack package *)
 Stack().typeOf = 'Stack' (* Stack is a type *)
 Stack().isStack (* empty stack, stack predicate *)
 Stack().isEmpty (* empty stack, empty predicate *)
@@ -3141,6 +3145,8 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 | d = (w: (x: (y: (z: 1)))); | d['w'; 'x'; 'y'; 'z'] = 1 (* [AtPath Syntax] *)
 | m = [1 2 3; 4 5 6]; | m[1; 2] := -2; m[2; 3] := -6; m = [1 -2 3; 4 5 -6] (* [AtPathPut Syntax] *)
 | d = (w: (x: (y: (z: 1)))); | d['w'; 'x'; 'y'; 'z'] := -1; d = (w: (x: (y: (z: -1)))) (* [AtPathPut Syntax] *)
+| d = (x: 1); | d::x = 1 (* [Quoted At Syntax] *)
+| d = (); | d::x :? { 1 } = 1 (* [Quoted AtIfAbsent Syntax] *)
 | d = (w: (x: (y: (z: 1)))); | d::w::x::y::z = 1 (* [Quoted At Syntax] *)
 | d = (w: (x: (y: (z: 1)))); | d::w::x::y::z := -1; d = (w: (x: (y: (z: -1))))(* [Quoted AtPut Syntax] *)
 ```
@@ -3279,6 +3285,7 @@ system.operatorCharacterNameTable['^'] = 'raisedTo' (* table of operator names *
 
 ## System -- categoryDictionary
 ```
+system.includesPackage('CategoryDictionary') (* CategoryDictionary package *)
 system.categoryDictionary.typeOf = 'CategoryDictionary'
 system.categoryDictionary.isCategoryDictionary = true
 system.categoryDictionary.categorizeAll('method', 'accessing', ['at', 'atPut', 'first', 'key', 'last', 'value']); true
@@ -3347,9 +3354,9 @@ system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum',
 ```
 system.packageDictionary.isDictionary = true
 system.packageDictionary.isEmpty = false
-| t = system.packageTypes('Number-Complex'); | t.size = 1 & { t[1].name = 'Complex' }
-| t = system.packageTraits('Geometry-Point'); | t.size = 1 & { t[1].name = 'Point' }
-system.packageMethods('Time-Frequency').detect { :each | each.name = 'asHertz' }.arity = 1
+| t = system.packageTypes('Complex'); | t.size = 1 & { t[1].name = 'Complex' }
+| t = system.packageTraits('Point'); | t.size = 1 & { t[1].name = 'Point' }
+system.packageMethods('Frequency').detect { :each | each.name = 'asHertz' }.arity = 1
 ```
 
 ## System -- time
@@ -3449,7 +3456,7 @@ system.localStorage.removeAll = system.localStorage (* remove all entries, answe
 
 ## TimeStamp -- temporal type
 ```
-system.includesPackage('Time-TimeStamp')
+system.includesPackage('TimeStamp') (* timestamp package *)
 1676784053576.TimeStamp.printString = 'TimeStamp(1676784053576)' (* make TimeStamp from Number of milliseconds since unix epoch *)
 1676784053576.TimeStamp.iso8601 = '2023-02-19T05:20:53.576Z' (* convert TimeStamp to ISO-8601 string *)
 system.unixTime.isTimeStamp = true (* get current time at system *)
@@ -3539,7 +3546,7 @@ true.not = false
 
 ## Vector2 -- geometry type
 ```
-system.includesPackage('Geometry-Vector2')
+system.includesPackage('Vector2')
 Vector2(0, 0).typeOf = 'Vector2'
 Vector2(-1, 1).isVector2 = true
 Vector2(3, 4).isVector2 & { true } = true
@@ -3588,7 +3595,7 @@ Vector2(3, 4).swapped = Vector2(4, 3) (* answer swapped vector *)
 
 ## Vector3 -- geometry type
 ```
-system.includesPackage('Geometry-Vector3')
+system.includesPackage('Vector3')
 [1, 2, 3].Vector3 = Vector3(1, 2, 3) (* three vector from array *)
 | a = [1, 2, 3], v = a.Vector3; | v.Array = [1, 2, 3] (* three vector to array *)
 Vector3(0, 0, 0).isZero (* are x, y and z all zero *)
@@ -3600,7 +3607,7 @@ Vector3(0, 0, 0).isZero (* are x, y and z all zero *)
 
 ## Vector4 -- geometry type
 ```
-system.includesPackage('Geometry-Vector4')
+system.includesPackage('Vector4')
 [1, 2, 3, 4].Vector4 = Vector4(1, 2, 3, 4) (* four vector from array *)
 | a = [1, 2, 3, 4], v = a.Vector4; | v.Array = [1, 2, 3, 4] (* four vector to array *)
 Vector4(0, 0, 0, 0).isZero (* are w, x, y and z all zero *)
@@ -3609,7 +3616,7 @@ Vector4(0, 0, 0, 0).isZero (* are w, x, y and z all zero *)
 
 ## WeakMap -- collection type
 ```
-system.includesPackage('Collection-WeakMap')
+system.includesPackage('WeakMap') (* weak map package *)
 WeakMap().typeOf = 'WeakMap' (* type of weak map *)
 WeakMap().isWeakMap (* weak map predicate *)
 WeakMap().printString = 'a WeakMap' (* weak map print string *)
@@ -3620,7 +3627,7 @@ system.cache::onceCache.isWeakMap
 
 ## WriteStream -- collection type
 ```
-system.includesPackage('Stream-WriteStream')
+system.includesPackage('WriteStream') (* WriteStream package *)
 | w = WriteStream(); | w.nextPut(1); w.contents = [1]
 | w = WriteStream(); | w.nextPut(1); w.nextPutAll([2 .. 8]); w.nextPut(9); w.contents = [1 .. 9]
 | w = WriteStream(); | 1.putOn(w); w.contents = [1]

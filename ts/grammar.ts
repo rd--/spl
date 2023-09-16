@@ -46,9 +46,11 @@ Sl {
 
 	Primary
 		= AtPutSyntax
-		| AtPutQuotedSyntax
+		| QuotedAtPutSyntax
 		| AtPutDelegateSyntax
 		| WriteSlotSyntax
+		| AtIfAbsentSyntax
+		| AtIfAbsentPutSyntax
 		| AtSyntax
 		| AtAllVectorSyntax
 		| AtAllArraySyntax
@@ -56,7 +58,9 @@ Sl {
 		| AtMatrixSyntax
 		| AtVolumeSyntax
 		| AtPathSyntax
-		| AtQuotedSyntax
+		| QuotedAtIfAbsentSyntax
+		| QuotedAtIfAbsentPutSyntax
+		| QuotedAtSyntax
 		| ReadSlotSyntax
 		| ValueApply
 		| DotExpressionWithTrailingClosuresSyntax
@@ -83,15 +87,19 @@ Sl {
 		| VolumeSyntax
 
 	AtPutSyntax = Primary "[" Expression "]" ":=" Expression
-	AtPutQuotedSyntax = Primary "::" identifier ":=" Expression
+	QuotedAtPutSyntax = Primary "::" identifier ":=" Expression
 	AtSyntax = Primary "[" Expression "]"
+	AtIfAbsentSyntax = Primary "[" Expression "]" ":?" Block
+	AtIfAbsentPutSyntax = Primary "[" Expression "]" ":?=" Block
 	AtAllArraySyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
 	AtAllVectorSyntax = Primary "[" VectorSyntaxItem+ "]"
 	AtMatrixSyntax = Primary "[" Expression ";" Expression "]"
 	AtVolumeSyntax = Primary "[" Expression ";" Expression ";" Expression "]"
 	AtPathPutSyntax = Primary "[" NonemptyListOf<Expression, ";"> "]" ":=" Expression
 	AtPathSyntax = Primary "[" NonemptyListOf<Expression, ";"> "]"
-	AtQuotedSyntax = Primary "::" identifier
+	QuotedAtSyntax = Primary "::" identifier
+	QuotedAtIfAbsentSyntax = Primary "::" identifier ":?" Block
+	QuotedAtIfAbsentPutSyntax = Primary "::" identifier ":?=" Block
 	AtPutDelegateSyntax = Primary ":." identifier ":=" Expression
 	MessageSendSyntax = Primary ":." identifier NonEmptyParameterList?
 	ReadSlotSyntax = Primary ":@" identifier
