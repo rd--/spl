@@ -9,16 +9,16 @@ Package : [Object] { | category name requires implementation |
 +@Dictionary {
 
 	derivePackageImplementation { :self |
-		[['Package/', self::category, '/', self::name, '.sl'].join]
+		[['Package/', self::Category, '/', self::Name, '.sl'].join]
 	}
 
 
 	Package { :self |
 		newPackage().initializeSlots(
-			self::category :?= { system.categoryDictionary.categoryOf(self::name) },
-			self::name,
-			self::requires :? { [] },
-			self::implementation :? { self.derivePackageImplementation }
+			self::Category :?= { system.categoryDictionary.categoryOf(self::Name) },
+			self::Name,
+			self::Requires :? { [] },
+			self::Implementation :? { self.derivePackageImplementation }
 		)
 	}
 
@@ -26,9 +26,27 @@ Package : [Object] { | category name requires implementation |
 
 +String {
 
+	parsePackageHeader { :self |
+		| fields = self.firstMlComment.splitBy(','); |
+		fields.collect { :each |
+			| [key, value] = each.withBlanksTrimmed.splitBy(': '); |
+			key.caseOfOtherwise([
+				'Package' -> {
+					| [category, name] = value.withBlanksTrimmed.splitBy('-'); |
+					['Category' -> category, 'Name' -> name]
+				},
+				'Requires' -> {
+					[key -> value.withBlanksTrimmed.words]
+				}
+			]) {
+				self.error('parsePackageHeader: unknown field: ' ++ key)
+			}
+		}.concatenation.Record
+	}
+
 	Package { :self |
 		| [category, name] = self.splitBy('-'); |
-		(category: category, name: name).Package
+		(Category: category, Name: name).Package
 	}
 
 }

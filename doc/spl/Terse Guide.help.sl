@@ -2155,11 +2155,13 @@ pi.warning('pi') = pi (* user warning *)
 ## Package
 ```
 Package('Time-Date').typeOf = 'Package' (* type of package *)
-(name: 'Set').Package.isPackage (* package from dictionary, name is the only required field, package predicate *)
-(category: 'Time', name: 'Date').Package.implementation = ['Package/Time/Date.sl'] (* derive implementation *)
+(Name: 'Set').Package.isPackage (* package from dictionary, name is the only required field, package predicate *)
+(Category: 'Time', Name: 'Date').Package.implementation = ['Package/Time/Date.sl'] (* derive implementation *)
 Package('Time-Date').isPackage (* package type predicate *)
 Package('Time-Date').name = 'Date' (* name of package *)
 system.includesPackage('Date')
+'(* Package: Collection-ByteArray *)'.parsePackageHeader = (Category: 'Collection', Name: 'ByteArray')
+'(* Requires: ColumnBrowser SmallKansas *)'.parsePackageHeader = (Requires: ['ColumnBrowser', 'SmallKansas'])
 ```
 
 ## Point -- geometry trait
@@ -3446,6 +3448,7 @@ system.localStorage.removeAll = system.localStorage (* remove all entries, answe
 '/home/rohan/sw/spl/README'.asFileUrl.fetchText.catch { :err | err.postLine }; true (* file does not exist *)
 'file://localhost/home/rohan/sw/spl/README.md'.asUrl.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from url (local) *)
 'https://rohandrape.net/sw/spl/README.md'.asUrl.fetchText.thenElse { :text | (text.size > 0).postLine } { :err | true }; true (* fetch text from url (remote, allow for no network connection) *)
+'file://localhost/home/rohan/sw/spl/sl/Package/SmallKansas/PackageBrowser.sl'.asUrl.fetchText.then { :text | text.firstMlComment.parseJson.includesIndex('requires').postLine }; true
 ```
 
 ## System -- URLSearchParams

@@ -12,9 +12,10 @@ In the simplest case of a package consisting of a single file it can be written 
 Package names should be simple, ie. Set not Collection-Set.
 Packages should be categorized, ie. the category of Set is Collection.
 Packages named for types are already categorized under 'type'.
-Local packages are given by 'Category' and 'Name'.
-The implementation file is derived as 'Package/Category/Name.sl'.
-Remove packages are given by 'Url'.
+Local packages are given by 'Category' and 'Name' and the implementation file is derived as 'Package/Category/Name.sl'.
+Remove packages are given by 'Url', the first comment provides 'Name' and 'Category'.
+In both cases dependencies are given by 'Requires' in first comment.
+In a package index, remote packages are named by Url, local packages by a 'Package' (Category-Name) string.
 
 # Categories
 

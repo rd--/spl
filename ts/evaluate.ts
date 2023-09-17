@@ -8,7 +8,7 @@ export function evaluateFor(packageName: string, fileName: string, text: string)
 		try {
 			rewrite.context.packageName = packageName;
 			const toEval = rewrite.rewriteString(text);
-			rewrite.context.packageName = 'UnknownPackage';
+			rewrite.context.packageName = '*UnknownPackage*';
 			if(toEval.trim().length > 0) {
 				try {
 					return eval(toEval);

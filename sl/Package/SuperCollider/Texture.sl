@@ -1,4 +1,4 @@
-(* {"requires": ["Clock"]} *)
+(* Requires: Clock *)
 
 +Procedure {
 
