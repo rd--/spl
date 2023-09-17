@@ -6,7 +6,7 @@ import * as rewrite from './rewrite.ts'
 export async function evaluateFile(fileName: string, packageName: string) {
 	// console.debug(`evaluateFile: ${fileName} ${packageName}`);
 	return await Deno.readTextFile(fileName).then(function(text) {
-		return evaluate.evaluateFor(packageName, fileName, text);
+		return evaluate.evaluateFor(packageName, text);
 	});
 }
 
@@ -15,28 +15,27 @@ export async function rewriteFile(fileName: string) {
 	return await Deno.readTextFile(fileName).then(rewrite.rewriteString);
 }
 
-// "package" is a reserved word, c.f. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar
-type Package = [string, string[]];
-
 // Fetch files asynchronously, then evaluate in sequence.
-export async function loadPackageSequence(packageArray: Package[]): Promise<void> {
-	const sourceTextArray = [];
+export async function loadLocalPackageSequence(localPackageArray: string[]): Promise<void> {
+	const packageArray = [];
 	const resolvedFileNameArray = [];
-	packageArray.forEach(aPackage => {
-		const packageName = aPackage[0];
-		aPackage[1].forEach(fileName => {
-			const resolvedFileName = load.resolveFileName(fileName);
-			resolvedFileNameArray.push(resolvedFileName);
-			sourceTextArray.push(new evaluate.SourceText(packageName, fileName, null));
-		});
+	localPackageArray.forEach(aPackageName => {
+		const parts = aPackageName.split('-');
+		const category = parts[0];
+		const name = parts[1];
+		const resolvedFileName = load.resolveFileName('Package/' + category + '/' + name + '.sl');
+		const pkg = new evaluate.Package(category, name, [], null, null);
+		kernel.system.packageDictionary.set(name, pkg);
+		resolvedFileNameArray.push(resolvedFileName);
+		packageArray.push(pkg);
 	});
 	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(fileName => Deno.readTextFile(fileName)));
 	fetchedTextArray.map(function(text, index) {
-		sourceTextArray[index].text = text;
+		packageArray[index].text = text;
 	});
-	await evaluate.evaluateSourceTextArrayInSequence(sourceTextArray);
+	await evaluate.evaluatePackageArrayInSequence(packageArray);
 }
 
 export function addLoadFileMethods(): void {
-	kernel.addMethod('Array', 'Kernel', 'loadPackageSequence', 1, loadPackageSequence, '<primitive>');
+	kernel.addMethod('Array', 'Kernel', 'loadLocalPackageSequence', 1, loadLocalPackageSequence, '<primitive>');
 }

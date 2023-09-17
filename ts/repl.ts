@@ -13,6 +13,6 @@ export async function perLine(verbose: boolean) {
 		if(verbose) {
 			console.log(line);
 		}
-		console.log(evaluate.evaluateFor('Repl', 'Interactive', line));
+		console.log(evaluate.evaluateFor('Repl', line));
 	});
 }

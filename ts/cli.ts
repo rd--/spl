@@ -53,7 +53,7 @@ async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	fileio.addLoadFileMethods();
 	sl.assignGlobals();
 	load.setLoadPath(loadPath);
-	await fileio.loadPackageSequence([['Meta', ['core.sl'].concat(lib)]]); // ['cat.sl']
+	await fileio.loadLocalPackageSequence(['Meta-Kernel'].concat(lib)); // ['cat.sl']
 	if(lib.includes('sc.sl')) {
 		globalThis.sc = sc;
 		globalThis.globalScSynth = cliScSynth;
@@ -72,7 +72,7 @@ async function runFile(fileName: string, opt: flags.Args): Promise<void> {
 }
 
 function evalInteractive(text: string) {
-	evaluate.evaluateFor('Repl', 'Interactive', text);
+	evaluate.evaluateFor('Repl', text);
 }
 
 function scEvalText(splText: string): void {

@@ -1,4 +1,4 @@
-import { addMethod } from './kernel.ts'
+import * as kernel from './kernel.ts'
 import * as evaluate from './evaluate.ts'
 
 export const loader: { loadPath: string } = {
@@ -15,32 +15,31 @@ export function resolveFileName(fileName: string): string {
 	return resolvedName;
 }
 
-// "package" is a reserved word, c.f. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar
-type Package = [string, string[]];
-
 // Fetch files asynchronously, then evaluate in sequence.
-export async function loadPackageSequence(packageArray: Package[]): Promise<void> {
-	const sourceTextArray = [];
+export async function loadLocalPackageSequence(localPackageArray: string[]): Promise<void> {
+	const packageArray = [];
 	const resolvedFileNameArray = [];
-	packageArray.forEach(function(aPackage: Package) {
-		const packageName = aPackage[0];
-		aPackage[1].forEach(function(fileName: string) {
-			const resolvedFileName = resolveFileName(fileName);
-			resolvedFileNameArray.push(resolvedFileName);
-			sourceTextArray.push(new evaluate.SourceText(packageName, fileName, null));
-		});
+	localPackageArray.forEach(aPackageName => {
+		const parts = aPackageName.split('-');
+		const category = parts[0];
+		const name = parts[1];
+		const resolvedFileName = resolveFileName('Package/' + category + '/' + name + '.sl');
+		const pkg = new evaluate.Package(category, name, [], null, null);
+		kernel.system.packageDictionary.set(name, pkg);
+		resolvedFileNameArray.push(resolvedFileName);
+		packageArray.push(pkg);
 	});
 	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(function (resolvedFileName) {
 		return fetch(resolvedFileName, { cache: 'no-cache' }).then(response => response.text());
 	}));
 	fetchedTextArray.map(function(text, index) {
-		sourceTextArray[index].text = text;
+		packageArray[index].text = text;
 	});
-	await evaluate.evaluateSourceTextArrayInSequence(sourceTextArray);
+	await evaluate.evaluatePackageArrayInSequence(packageArray);
 }
 
 export function addLoadUrlMethods(): void {
-	addMethod('Array', 'Kernel', 'loadPackageSequence', 1, loadPackageSequence, '<primitive: loader>');
+	kernel.addMethod('Array', 'Kernel', 'loadLocalPackageSequence', 1, loadLocalPackageSequence, '<primitive: loader>');
 }
 
 export async function loadUrl(fileName: string): Promise<void> {

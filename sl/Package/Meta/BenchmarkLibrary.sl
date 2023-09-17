@@ -6,10 +6,10 @@
 	'Benchmark-Permute'
 	'Benchmark-Queens'
 	'Benchmark-Sieve'
-	'Benchmark-Storage'
+	'Benchmark-StorageBenchmark'
 	'Benchmark-Towers'
 	'Benchmark-Havlak'
-	'Benchmark-Json'
+	'Benchmark-JsonBenchmark'
 	'Benchmark-Mandelbrot'
 	'Benchmark-NBody'
 ].collect(Package:/1).loadPackages

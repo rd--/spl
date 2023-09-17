@@ -238,6 +238,7 @@ inf ~ inf (* being equal, infinty is also close to itself *)
 
 ## Array -- collection type
 ```
+system.includesPackage('Array') (* array package *)
 [].typeOf = 'Array' (* type of Array *)
 [].species = Array:/1 (* species of Array *)
 [].species.new = [] (* new empty array *)
@@ -503,6 +504,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 
 ## ArrayedCollection -- collection trait
 ```
+system.includesPackage('ArrayedCollection') (* array collection package *)
 [3, 5, 7].basicAt(1) = 3 (* unchecked lookup *)
 [3, 5, 7].basicAt(7) = nil (* unchecked lookup, nil on invalid index *)
 | a = [1, 7, 3, 9, 5]; | a.sortBy { :p :q | p >= q }; a = [9, 7 .. 1] (* sort using provided comparison, in place *)
@@ -521,6 +523,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 
 ## Association -- collection type
 ```
+system.includesPackage('Association') (* association package *)
 ('x' -> 1).typeOf = 'Association' (* arrow (->) constructor, unicode = → *)
 ('x' -> 1).isAssociation (* type predicate *)
 Association('x', 1) = ('x' -> 1)
@@ -601,6 +604,7 @@ Bag().isSequenceable = false
 
 ## Binary -- numeric trait
 ```
+system.includesPackage('Binary') (* binary package *)
 16 << 3 = 128 (* left shift small float *)
 23 << 7 = 2944 (* left shift small float *)
 7 << 23 = 58720256 (* left shift small float *)
@@ -667,6 +671,7 @@ Bitset(64).bytes.allSatisfy  { :each | each = 0 } (* all bytes at the empty bits
 
 ## Blob -- system type
 ```
+system.includesPackage('Blob') (* blob package *)
 [].Blob.typeOf = 'Blob' (* type of Blob *)
 [].Blob.size = 0 (* empty Blob has size zero *)
 [].Blob.isEmpty (* empty Blob is empty *)
@@ -674,6 +679,7 @@ Bitset(64).bytes.allSatisfy  { :each | each = 0 } (* all bytes at the empty bits
 
 ## Boolean -- logic type
 ```
+system.includesPackage('Boolean') (* boolean package *)
 true = true (* true constant, unicode = ⊤ *)
 false = false (* false constant, unicode = ⊥ *)
 true ~= false (* true is not false, unicode = ≠ *)
@@ -858,6 +864,7 @@ system.includesPackage('Character') (* character package *)
 
 ## Collection -- collection trait
 ```
+system.includesPackage('Collection') (* collection package *)
 [].isEmpty = true (* is collection empty *)
 [].isCollection = true (* collection predicate *)
 [].size = 0 (* the empty array has no elements *)
@@ -1199,6 +1206,7 @@ Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z' (* read date from partia
 
 ## Dictionary -- collection trait
 ```
+system.includesPackage('Dictionary') (* package *)
 (x: 1, y: 2, z: 3).count(even:/1) = 1 (* count elements that match predicate *)
 (x: 1, y: 2).select { :each | false } = () (* select nothing *)
 (x: 1, y: 2, z: 3).select(odd:/1) = (x: 1, z: 3) (* select odd values *)
@@ -1299,6 +1307,7 @@ system.includesPackage('Duration') (* duration package *)
 
 ## Error -- exception type
 ```
+system.includesPackage('Error') (* package *)
 Error().isError = true (* an error with no message is an error *)
 Error().isException = true (* an error is an exception *)
 Error('Error message').isError = true (* error with message is an error *)
@@ -1313,9 +1322,10 @@ Error('Error message').messageText = 'Error message' (* an error has a message *
 
 ## Float64Array -- collection type
 ```
-Float64Array(0).typeOf = 'Float64Array'
-Float64Array(0).species = Float64Array:/1
-Float64Array(0).isFloat64Array
+system.includesPackage('Float64Array') (* package *)
+Float64Array(0).typeOf = 'Float64Array' (* type of *)
+Float64Array(0).species = Float64Array:/1 (* species *)
+Float64Array(0).isFloat64Array (* predicate *)
 Float64Array(0).size = 0
 Float64Array(8).size = 8
 Float64Array(8).at(1) = 0
@@ -1534,6 +1544,7 @@ SmallFloat(1:2) = (1 / 2)
 
 ## Frequency -- temporal type
 ```
+system.includesPackage('Frequency') (* frequency package *)
 1.hertz.typeOf = 'Frequency' (* frequency from hertz (cyles per second) *)
 1.hertz.isFrequency (* frequency predicate *)
 1.hertz.printString = '1.hertz' (* frequency print string *)
@@ -1589,6 +1600,7 @@ true == true & { false == false } (* boolean identity *)
 
 ## Integer -- numeric trait
 ```
+system.includesPackage('Integer') (* integer package *)
 1.isInteger = true (* integer predicate *)
 123.printString = '123' (* integer print string *)
 123.storeString = '123' (* integer store string *)
@@ -1813,6 +1825,7 @@ Interval(1, 100, 0.5).size = 199
 
 ## Iterable -- collection trait
 ```
+system.includesPackage('Iterable') (* Iterable package *)
 (1 .. 9).count(odd:/1) = 5
 (1 .. 9).count(even:/1) = 4
 (1 .. 9).countAll = 9
@@ -1944,6 +1957,7 @@ LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
 
 ## Magnitude -- numeric trait
 ```
+system.includesPackage('Magnitude') (* magnitude package *)
 1 < 3 = true (* less than *)
 1.lessThan(3) = true
 2 < 2 = false
@@ -2058,6 +2072,7 @@ var f = { :x :y | x + y }; { f(true, false) }.ifError { true } (* boolean does n
 
 ## Nil -- kernel type
 ```
+system.includesPackage('Nil') (* package *)
 nil.typeOf = 'Nil' (* type of nil is Nil *)
 nil.isNil = true (* is nil predicate *)
 nil = nil (* nil equality *)
@@ -2082,6 +2097,7 @@ nil.json = 'null' (* nil has a Json representation *)
 
 ## Number -- numeric trait
 ```
+system.includesPackage('Number') (* package *)
 1 + 2.5 = 3.5 (* Addition of two numbers *)
 10 - 8.5 = 1.5 (* Subtraction of two numbers *)
 3.4 * 5 = 17 (* Multiplication of two numbers *)
@@ -2114,6 +2130,7 @@ nil.json = 'null' (* nil has a Json representation *)
 
 ## Object -- kernel trait
 ```
+system.includesPackage('Object') (* package *)
 [1, 3, 5].typeOf = 'Array' (* name of type of object *)
 [1, 3, 5].species = Array:/1
 [1, 3, 5].Set.species = Set:/0
@@ -2140,6 +2157,7 @@ pi.warning('pi') = pi (* user warning *)
 
 ## OrderedCollection -- collection trait
 ```
+system.includesPackage('OrderedCollection') (* package *)
 | a = [1, 2, 4]; | a.addBefore(3, 4); a = [1 .. 4] (* insert value before existing value *)
 | a = [1, 2, 4]; | a.addAfter(3, 2); a = [1 .. 4] (* insert value after existing value *)
 | a = ['w', 'x', 'z']; | a.addAfterIndex('y', 2); a = ['w', 'x', 'y', 'z'] (* insert value after index *)
@@ -2154,10 +2172,11 @@ pi.warning('pi') = pi (* user warning *)
 
 ## Package
 ```
+system.includesPackage('Package') (* package *)
 Package('Time-Date').typeOf = 'Package' (* type of package *)
-(Name: 'Set').Package.isPackage (* package from dictionary, name is the only required field, package predicate *)
-(Category: 'Time', Name: 'Date').Package.implementation = ['Package/Time/Date.sl'] (* derive implementation *)
 Package('Time-Date').isPackage (* package type predicate *)
+(Name: 'Set').Package.isPackage (* package from dictionary, name is the only required field, package predicate *)
+(Category: 'Time', Name: 'Date').Package.url = 'Package/Time/Date.sl' (* derive url *)
 Package('Time-Date').name = 'Date' (* name of package *)
 system.includesPackage('Date')
 '(* Package: Collection-ByteArray *)'.parsePackageHeader = (Category: 'Collection', Name: 'ByteArray')
@@ -2184,6 +2203,7 @@ var p = PriorityQueue(); p.peekPriority = nil
 
 ## Procedure -- behaviour type
 ```
+system.includesPackage('Procedure') (* package *)
 { }.typeOf = 'Procedure'
 typeOf:/1.typeOf = 'Procedure'
 | i = 1; | { i < 5 }.whileTrue { i := i + 1 }; i = 5 (* mutate outer temporary *)
@@ -2248,6 +2268,7 @@ valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repea
 
 ## Promise -- scheduling type
 ```
+system.includesPackage('Promise') (* package *)
 { Promise() }.ifError { true } (* there is no void contructor *)
 Error('f').Promise.catch { :err | (err.messageText = 'f').postLine }; true (* construct a rejected promise *)
 1.resolvedPromise.then { :n | (n = 1).postLine }; true (* construct a resolved promise *)
@@ -2268,8 +2289,9 @@ pi.isNumber (* constant *)
 inf.isNumber (* constant (infinity) *)
 ```
 
-## Random -- system random number generator
+## Random -- trait and system random number generator
 ```
+system.includesPackage('Random') (* package *)
 9.randomInteger.isInteger (* random integers (1 to self) *)
 var s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s.minMax = [1, 9] (* check distribution *)
 var s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s.Array.sorted = [1 .. 9] (* check distribution *)
@@ -2376,6 +2398,7 @@ ReadStream().next = nil (* next at an empty read stream answers nil *)
 
 ## Record -- collection type
 ```
+system.includesPackage('Record') (* package *)
 ().typeOf = 'Record'
 ().isRecord
 ().species = Record:/0
@@ -2511,6 +2534,7 @@ RunArray([1, 4, 2], ['a', 'b', 'c']).reversed = [2 -> 'c', 4 -> 'b', 1 -> 'a'].R
 
 ## SequenceableCollection -- collection trait
 ```
+system.includesPackage('SequenceableCollection') (* package *)
 [1, 3, 2] ++ [4, 5] = [1, 3, 2, 4, 5] (* append sequences *)
 [1, 3, 2, 4, 5].reversed = [5, 4, 2, 3, 1] (* reverse sequence (anwer new array) *)
 [1, 3, 2, 4, 5].sorted = [1, 2, 3, 4, 5] (* sort using default comparison (answer new array) *)
@@ -2711,6 +2735,7 @@ var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, 
 
 ## SmallFloat -- numeric type
 ```
+system.includesPackage('SmallFloat') (* package *)
 3.141.typeOf = 'SmallFloat'
 3.141.SmallFloat = 3.141 (* SmallFloat is identity, c.f. Fraction>>SmallFloat *)
 0 = -0 = true
@@ -2889,6 +2914,7 @@ Stack().size = 0 (* empty stack, size *)
 
 ## String -- text type
 ```
+system.includesPackage('String') (* package *)
 'quoted string'.isString (* quoted string *)
 'string'.isAsciiString = true (* does string contain only ascii characters *)
 'Mačiūnas'.isAsciiString = false (* ascii does not include diacritics *)
@@ -3266,6 +3292,7 @@ var a = 'one' -> 1; a.key := 9; a.key = 9 (* p.x := y is syntax for p.x(y) *)
 
 ## System -- system type
 ```
+system.includesPackage('System') (* package *)
 system.typeOf = 'System' (* system type *)
 system.isSystem (* system predicate *)
 system.typeDictionary.indices.includes('System') = true
@@ -3436,6 +3463,7 @@ system.localStorage.removeAll = system.localStorage (* remove all entries, answe
 
 ## System -- Uniform Resource Locator (URL)
 ```
+system.includesPackage('Url') (* package *)
 'http://cern.ch/'.URL.isURL = true
 'http://cern.ch/'.URL.hostname = 'cern.ch'
 'http://cern.ch/'.URL.port = ''
@@ -3550,14 +3578,15 @@ true.not = false
 
 ## UnorderedCollection -- collection trait
 ```
+system.includesPackage('UnorderedCollection') (* package *)
 { [1, 2, 3].Set.at(1) }.ifError { true } (* unordered collections do not implement at *)
 { [1, 2, 3].Bag.at(1) }.ifError { true }
 ```
 
 ## Vector2 -- geometry type
 ```
-system.includesPackage('Vector2')
-Vector2(0, 0).typeOf = 'Vector2'
+system.includesPackage('Vector2') (* package *)
+Vector2(0, 0).typeOf = 'Vector2' (* type of *)
 Vector2(-1, 1).isVector2 = true
 Vector2(3, 4).isVector2 & { true } = true
 [0, 0].Vector2 = (0@0)
@@ -3605,7 +3634,7 @@ Vector2(3, 4).swapped = Vector2(4, 3) (* answer swapped vector *)
 
 ## Vector3 -- geometry type
 ```
-system.includesPackage('Vector3')
+system.includesPackage('Vector3') (* package *)
 [1, 2, 3].Vector3 = Vector3(1, 2, 3) (* three vector from array *)
 | a = [1, 2, 3], v = a.Vector3; | v.Array = [1, 2, 3] (* three vector to array *)
 Vector3(0, 0, 0).isZero (* are x, y and z all zero *)
@@ -3617,7 +3646,7 @@ Vector3(0, 0, 0).isZero (* are x, y and z all zero *)
 
 ## Vector4 -- geometry type
 ```
-system.includesPackage('Vector4')
+system.includesPackage('Vector4') (* package *)
 [1, 2, 3, 4].Vector4 = Vector4(1, 2, 3, 4) (* four vector from array *)
 | a = [1, 2, 3, 4], v = a.Vector4; | v.Array = [1, 2, 3, 4] (* four vector to array *)
 Vector4(0, 0, 0, 0).isZero (* are w, x, y and z all zero *)

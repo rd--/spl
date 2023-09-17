@@ -1,6 +1,6 @@
 # Terse Guide to Sound
 
-## Music/JiTuning
+## Music-JiTuning
 ```
 | t = [63, 72, 84, 98, 112].JiTuning; | [t.limit, t.degree] = [7, 5]
 | t = [63, 72, 84, 98, 112].JiTuning; | t.ratios = [1, 8:7, 4:3, 14:9, 16:9]
@@ -12,7 +12,7 @@
 [1, 3].JiTuning.ratios = [1, 3]
 ```
 
-## Music/Frequency
+## Music-Pitch
 ```
 69.midiNoteNumber = 440.hertz (* frequency from midi note number *)
 4.75.linearOctave = 440.hertz (* frequency from linear octave *)
@@ -32,7 +32,7 @@
 440.hertz.octavePitchClass = 4.09 (* octave pitch class number *)
 ```
 
-## Music/Frequency -- csound
+## Music-Pitch -- csound
 ```
 440.cps = 440.hertz (* cps = cycles per second *)
 4.75.oct = 440.hertz (* oct = linear octave *)
@@ -62,7 +62,7 @@
 7.quarterToneSharp = 7.05
 ```
 
-## Sound/Sc/Lang
+## SuperCollider-Lang
 ```
 (1 .. 5).keep(3) = (1 .. 3) (* keep first n items, alias for first: *)
 (1 .. 5).drop(2) = (3 .. 5) (* discard first n items *)
@@ -167,7 +167,7 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 [10, 20, 30, 40, 50].crossedMultiply([1, 2, 3]) = [10, 20, 30, 40, 50].withCrossedCollect([1, 2, 3], times:/2)
 ```
 
-## Sound/Sc/Lang/J
+## SuperCollider-J
 ```
 [[], [1], [[2]], [[[3]]]].collect(rank:/1) = [1, 1, 2, 3] (* rank *)
 [[1, 2, 3], [4, 5, 6]].shape = [2, 3] (* size of shape is rank *)

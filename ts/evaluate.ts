@@ -1,8 +1,8 @@
 import * as rewrite from './rewrite.ts'
 
-export function evaluateFor(packageName: string, fileName: string, text: string) {
+export function evaluateFor(packageName: string, text: string) {
 	var errText = function(err, toEval) {
-		return `evaluateFor: eval: ${err}: ${packageName}: ${fileName}: ${text}: ${toEval}`;
+		return `evaluateFor: eval: ${err}: ${packageName}: ${text}: ${toEval}`;
 	};
 	if(text.trim().length > 0) {
 		try {
@@ -20,28 +20,33 @@ export function evaluateFor(packageName: string, fileName: string, text: string)
 			return console.error(errText(err, 'rewrite failed'));
 		}
 	}
-	// console.debug('evaluateSourceText: empty?');
+	// console.debug('evaluateFor: empty?');
 	return null;
 }
 
-export class SourceText {
-	packageName: string;
-	fileName: string;
+// Note: "package" is a reserved word, c.f. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar
+export class Package {
+	category: string;
+	name: string;
+	requires: string[];
+	url: string;
 	text: string;
-	constructor(packageName: string, fileName: string, text: string) {
-		this.packageName = packageName;
-		this.fileName = fileName;
+	constructor(category: string, name: string, requires: string[], url: string, text: string) {
+		this.category = category;
+		this.name = name;
+		this.requires = requires;
+		this.url = url;
 		this.text = text;
 	}
 }
 
-export function evaluateSourceText(src: SourceText) {
-	return evaluateFor(src.packageName, src.fileName, src.text);
+export function evaluatePackage(pkg: Package) {
+	return evaluateFor(pkg.name, pkg.text);
 }
 
-export async function evaluateSourceTextArrayInSequence(srcArray: SourceText[]) {
-	for(let src of srcArray) {
-		await evaluateSourceText(src);
+export async function evaluatePackageArrayInSequence(pkgArray: Package[]) {
+	for(let pkg of pkgArray) {
+		await evaluatePackage(pkg);
 	}
 }
 

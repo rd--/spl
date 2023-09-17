@@ -5,6 +5,7 @@ import { MersenneTwister } from '../lib/mersenne-twister/src/index.ts'
 
 import { throwError } from '../lib/jssc3/ts/kernel/error.ts'
 
+import * as evaluate from './evaluate.ts'
 import { isOperatorName, operatorMethodName } from './operator.ts'
 import { slOptions } from './options.ts'
 
@@ -144,6 +145,7 @@ export class System {
 	methodDictionary: MethodDictionary;
 	traitDictionary: Map<TraitName, Trait>;
 	typeDictionary: Map<TypeName, Type>;
+	packageDictionary: Map<PackageName, evaluate.Package>;
 	window: Window;
 	cache: Record<string, unknown>;
 	constructor() {
@@ -151,6 +153,7 @@ export class System {
 		this.traitDictionary = new Map();
 		// Void is not an ordinary type, it names the place in the method table for no-argument procedures.
 		this.typeDictionary = new Map(preinstalledTypes.map(function(each) { return [each, new Type(each, 'Kernel', [], [], new Map())]; }));
+		this.packageDictionary = new Map();
 		this.window = window;
 		this.cache = Object.create(null);
 	}

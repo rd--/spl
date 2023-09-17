@@ -193,7 +193,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	evaluate { :self |
-		<primitive: return sl.evaluateSourceText({origin: 'Interactive', text: _self});>
+		<primitive: return sl.evaluateFor('Interactive', _self);>
 	}
 
 	findStringStartingAt { :self :aString :aNumber |

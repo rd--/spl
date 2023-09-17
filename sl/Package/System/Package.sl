@@ -1,24 +1,49 @@
-Package : [Object] { | category name requires implementation |
+Package! : [Object] {
+
+	category { :self |
+		<primitive: return _self.category;>
+	}
 
 	load { :self |
 		system.loadPackage(self)
+	}
+
+	name { :self |
+		<primitive: return _self.name;>
+	}
+
+	qualifiedName { :self |
+		self.category ++ '-' ++ self.name
+	}
+
+	requires { :self |
+		<primitive: return _self.requires;>
+	}
+
+	text { :self |
+		<primitive: return _self.text;>
+	}
+
+	url { :self |
+		<primitive: return _self.url;>
 	}
 
 }
 
 +@Dictionary {
 
-	derivePackageImplementation { :self |
-		[['Package/', self::Category, '/', self::Name, '.sl'].join]
+	derivePackageUrl { :self |
+		['Package/', self::Category, '/', self::Name, '.sl'].join
 	}
 
 
 	Package { :self |
-		newPackage().initializeSlots(
+		Package(
 			self::Category :?= { system.categoryDictionary.categoryOf(self::Name) },
 			self::Name,
 			self::Requires :? { [] },
-			self::Implementation :? { self.derivePackageImplementation }
+			self::Url :? { self.derivePackageUrl },
+			''
 		)
 	}
 
@@ -44,6 +69,10 @@ Package : [Object] { | category name requires implementation |
 		}.concatenation.Record
 	}
 
+	Package { :self :name :requires :url :text |
+		<primitive: return new Package(_self, _name, _requires, _url, _text);>
+	}
+
 	Package { :self |
 		| [category, name] = self.splitBy('-'); |
 		(Category: category, Name: name).Package
@@ -59,8 +88,8 @@ Package : [Object] { | category name requires implementation |
 				self.error('loadPackages: package exists: ' ++ each.name)
 			};
 			system.packageDictionary[each.name] := each;
-			[each.name, each.implementation]
-		}.loadPackageSequence
+			each.qualifiedName
+		}.loadLocalPackageSequence
 	}
 
 }
@@ -73,16 +102,14 @@ Package : [Object] { | category name requires implementation |
 
 	loadPackage { :self :package |
 		[
-			[package.name, package.implementation]
-		].loadPackageSequence.then {
+			package.category ++ '-' ++ package.name
+		].loadLocalPackageSequence.then {
 			self.packageDictionary[package.name] := package
 		}
 	}
 
 	packageDictionary { :self |
-		self.cached('packageDictionary') {
-			()
-		}
+		<primitive: return _self.packageDictionary;>
 	}
 
 	packageIndex { :self |
