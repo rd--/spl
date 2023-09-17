@@ -1,11 +1,16 @@
 [
-	'Music-JiTuning'
-	'Music-Pitch'
-	'Protocol-OpenSoundControl'
-	'SuperCollider-Lang'
-	'SuperCollider-J'
-	'SuperCollider-Texture'
-	'SuperCollider-Synth'
-	'SuperCollider-Bindings'
-	'SuperCollider-Pseudo'
-].collect(Package:/1).loadPackages
+	(* Music *)
+	'JiTuning'
+	'Pitch'
+
+	(* Protocol *)
+	'OpenSoundControl'
+
+	(* SuperCollider *)
+	'Lang'
+	'J'
+	'Texture'
+	'Synth'
+	'Bindings'
+	'Pseudo'
+].loadPackageSequence

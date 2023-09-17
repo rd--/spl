@@ -24,35 +24,7 @@ export function evaluateFor(packageName: string, text: string) {
 	return null;
 }
 
-// Note: "package" is a reserved word, c.f. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar
-export class Package {
-	category: string;
-	name: string;
-	requires: string[];
-	url: string;
-	text: string;
-	constructor(category: string, name: string, requires: string[], url: string, text: string) {
-		this.category = category;
-		this.name = name;
-		this.requires = requires;
-		this.url = url;
-		this.text = text;
-	}
+export async function evaluateUrlFor(packageName: string, url: string) {
+	// console.debug(`evaluateUrlFor: ${packageName} ${url}`);
+	await fetch(url, { cache: 'no-cache' }).then(response => response.text()).then(text => evaluateFor(packageName, text));
 }
-
-export function evaluatePackage(pkg: Package) {
-	return evaluateFor(pkg.name, pkg.text);
-}
-
-export async function evaluatePackageArrayInSequence(pkgArray: Package[]) {
-	for(let pkg of pkgArray) {
-		await evaluatePackage(pkg);
-	}
-}
-
-/*
-export async function evaluateUrl(url: string) {
-	// console.debug(`evaluateUrl: ${url}`);
-	await fetch(url, { cache: 'no-cache' }).then(response => response.text()).then(evaluateSourceText);
-}
-*/

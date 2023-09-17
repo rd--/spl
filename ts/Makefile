@@ -11,10 +11,10 @@ spl-repl-core:
 	$(cli) replPerLine --strict
 
 spl-repl:
-	$(cli) replPerLine Meta-StandardLibrary --strict
+	$(cli) replPerLine StandardLibrary --strict
 
 spl-repl-non-strict:
-	$(cli) replPerLine Meta-StandardLibrary
+	$(cli) replPerLine StandardLibrary
 
 spl-repl-unsafe:
 	$(cli) replPerLine --unsafe
@@ -23,16 +23,16 @@ spl-repl-verbose:
 	$(cli) replPerLine --strict --verbose
 
 spl-repl-bm:
-	$(cli) replPerLine Meta-StandardLibrary Meta-BenchmarkLibrary --strict
+	$(cli) replPerLine StandardLibrary BenchmarkLibrary --strict
 
 spl-repl-bm-unsafe:
-	$(cli) replPerLine Meta-StandardLibrary Meta-BenchmarkLibrary --unsafe
+	$(cli) replPerLine StandardLibrary BenchmarkLibrary --unsafe
 
 spl-repl-sc:
-	$(cli) replPerLine Meta-StandardLibrary Meta-SuperColliderLibrary --strict
+	$(cli) replPerLine StandardLibrary SuperColliderLibrary --strict
 
 spl-repl-ui:
-	$(cli) replPerLine Meta-StandardLibrary Meta-SuperColliderLibrary Meta-SmallKansasLibrary --strict
+	$(cli) replPerLine StandardLibrary SuperColliderLibrary SmallKansasLibrary --strict
 
 spl-server:
 	$(cli) sc udpServer 3010

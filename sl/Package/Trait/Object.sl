@@ -87,7 +87,7 @@
 
 	error { :self :message |
 		| description = self.errorMessage(message); |
-		system.transcript.addError(description);
+		(* system.transcript.addError(description); *)
 		Error(description).signal
 	}
 
@@ -153,6 +153,10 @@
 
 	postCopy { :self |
 		self
+	}
+
+	primitiveEquals { :self :anObject |
+		<primitive: return _self == _anObject;>
 	}
 
 	printString { :self |

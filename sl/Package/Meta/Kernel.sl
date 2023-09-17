@@ -1,38 +1,41 @@
 [
+	(* Kernel Traits *)
+	'Cache'
+	'Binary' (* > Cache *)
+	'Integer' (* > Cache *)
+	'Json'
+	'Magnitude'
+	'Number'
+	'Object'
+	'Random' (* > Object *)
 
-	'Trait-Cache'
-	'Trait-Binary' (* > Cache *)
-	'Trait-Integer' (* > Cache *)
-	'Trait-Json'
-	'Trait-Magnitude'
-	'Trait-Number'
-	'Trait-Object'
-	'Trait-Random' (* > Object *)
+	(* Collection Traits *)
+	'ArrayedCollection'
+	'Collection'
+	'Dictionary'
+	'Indexable'
+	'Iterable'
+	'OrderedCollection'
+	'SequenceableCollection'
+	'UnorderedCollection'
 
-	'Trait-ArrayedCollection'
-	'Trait-Collection'
-	'Trait-Dictionary'
-	'Trait-Indexable'
-	'Trait-Iterable'
-	'Trait-OrderedCollection'
-	'Trait-SequenceableCollection'
-	'Trait-UnorderedCollection'
+	(* Kernel Types *)
+	'Boolean'
+	'Error'
+	'Meta'
+	'Nil'
+	'Package'
+	'Procedure'
+	'Promise'
+	'Response'
+	'SmallFloat'
+	'String'
+	'System'
 
-	'Behaviour-Procedure'
-	'Exception-Error'
-	'Logic-Boolean'
-	'Number-SmallFloat'
-	'Scheduling-Promise'
-	'System-Meta'
-	'System-Nil'
-	'System-Package'
-	'System-Response'
-	'System-System'
-	'Text-String'
-
-	'Collection-Association'
-	'Collection-Array'
-	'Collection-Interval'
-	'Collection-Record'
-	'Collection-Map' (* > Record *)
-].loadLocalPackageSequence
+	(* Collection Types *)
+	'Association'
+	'Array'
+	'Interval'
+	'Record'
+	'Map' (* > Record *)
+].loadPackageSequence

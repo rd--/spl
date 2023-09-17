@@ -15,27 +15,21 @@ export async function rewriteFile(fileName: string) {
 	return await Deno.readTextFile(fileName).then(rewrite.rewriteString);
 }
 
-// Fetch files asynchronously, then evaluate in sequence.
-export async function loadLocalPackageSequence(localPackageArray: string[]): Promise<void> {
-	const packageArray = [];
+// Fetch files asynchronously, store at packageIndex
+export async function readLocalPackages(qualifiedPackageNames: string[]): Promise<void> {
+	const packageArray = await kernel.initializeLocalPackages(qualifiedPackageNames);
 	const resolvedFileNameArray = [];
-	localPackageArray.forEach(aPackageName => {
-		const parts = aPackageName.split('-');
-		const category = parts[0];
-		const name = parts[1];
-		const resolvedFileName = load.resolveFileName('Package/' + category + '/' + name + '.sl');
-		const pkg = new evaluate.Package(category, name, [], null, null);
-		kernel.system.packageDictionary.set(name, pkg);
+	packageArray.forEach(pkg => {
+		const resolvedFileName = load.resolveFileName(pkg.url);
 		resolvedFileNameArray.push(resolvedFileName);
-		packageArray.push(pkg);
 	});
 	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(fileName => Deno.readTextFile(fileName)));
 	fetchedTextArray.map(function(text, index) {
 		packageArray[index].text = text;
 	});
-	await evaluate.evaluatePackageArrayInSequence(packageArray);
 }
 
 export function addLoadFileMethods(): void {
-	kernel.addMethod('Array', 'Kernel', 'loadLocalPackageSequence', 1, loadLocalPackageSequence, '<primitive>');
+	kernel.addMethod('Array', 'Kernel', 'readLocalPackages', 1, readLocalPackages, '<primitive: reader>');
+	kernel.addMethod('Array', 'Kernel', 'loadPackageSequence', 1, kernel.loadPackageSequence, '<primitive: loader>');
 }

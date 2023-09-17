@@ -2173,11 +2173,13 @@ system.includesPackage('OrderedCollection') (* package *)
 ## Package
 ```
 system.includesPackage('Package') (* package *)
-Package('Time-Date').typeOf = 'Package' (* type of package *)
-Package('Time-Date').isPackage (* package type predicate *)
+system.packageIndex::Date.typeOf = 'Package' (* type of package *)
+system.packageIndex::Date.isPackage (* package type predicate *)
+Package('Category', 'Name', ['Requires'], 'Category/Name.sl', 'Code').isPackage
 (Name: 'Set').Package.isPackage (* package from dictionary, name is the only required field, package predicate *)
 (Category: 'Time', Name: 'Date').Package.url = 'Package/Time/Date.sl' (* derive url *)
-Package('Time-Date').name = 'Date' (* name of package *)
+system.packageIndex::Date.name = 'Date' (* name of package *)
+system.packageIndex::Date.category = 'Time' (* category of package *)
 system.includesPackage('Date')
 '(* Package: Collection-ByteArray *)'.parsePackageHeader = (Category: 'Collection', Name: 'ByteArray')
 '(* Requires: ColumnBrowser SmallKansas *)'.parsePackageHeader = (Requires: ['ColumnBrowser', 'SmallKansas'])
@@ -3317,6 +3319,13 @@ system.lowBitPerByteTable.Bag.sortedCounts = [128 -> 1, 64 -> 2, 32 -> 3, 16 -> 
 '~='.operatorMethodName = 'tildeEquals'
 system.operatorCharacterNameTable['^'] = 'raisedTo' (* table of operator names *)
 '+ ++ * / - %'.words.collect { :each | system.operatorNameTable[each] } = 'plus plusPlus times dividedBy minus modulo'.words
+```
+
+## System -- cache
+```
+system.cache.isMap (* cache is a map from string keys to cached values *)
+system.cache::packageIndex.size > 100
+system.cache::packageDictionary.size > 50
 ```
 
 ## System -- categoryDictionary

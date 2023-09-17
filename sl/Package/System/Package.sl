@@ -1,5 +1,21 @@
 Package! : [Object] {
 
+	= { :self :anObject |
+		self.primtiveEquals(anObject)
+	}
+
+	< { :self :aPackage |
+		aPackage.requires.includes(self.name) | {
+			self.name < aPackage.name
+		}
+	}
+
+	<= { :self :aPackage |
+		self = aPackage | {
+			self < aPackage
+		}
+	}
+
 	category { :self |
 		<primitive: return _self.category;>
 	}
@@ -70,12 +86,7 @@ Package! : [Object] {
 	}
 
 	Package { :self :name :requires :url :text |
-		<primitive: return new Package(_self, _name, _requires, _url, _text);>
-	}
-
-	Package { :self |
-		| [category, name] = self.splitBy('-'); |
-		(Category: category, Name: name).Package
+		<primitive: return new sl.Package(_self, _name, _requires, _url, _text);>
 	}
 
 }
@@ -83,13 +94,13 @@ Package! : [Object] {
 +Array {
 
 	loadPackages { :self |
-		self.collect { :each |
+		self.do { :each |
 			system.packageDictionary.includesIndex(each.name).ifTrue {
 				self.error('loadPackages: package exists: ' ++ each.name)
 			};
-			system.packageDictionary[each.name] := each;
-			each.qualifiedName
-		}.loadLocalPackageSequence
+			system.packageDictionary[each.name] := each
+		};
+		self.collect(name:/1).loadPackageSequence
 	}
 
 }
@@ -108,8 +119,14 @@ Package! : [Object] {
 		}
 	}
 
+	package { :self :name |
+		self.packageIndex[name]
+	}
+
 	packageDictionary { :self |
-		<primitive: return _self.packageDictionary;>
+		self.cached('packageIndex') {
+			()
+		}
 	}
 
 	packageIndex { :self |

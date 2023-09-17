@@ -1,3 +1,5 @@
+(* Require: Cache *)
+
 @Binary {
 
 	<< { :self :anInteger |

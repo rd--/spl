@@ -1,3 +1,5 @@
+(* Require: Cache *)
+
 @Integer {
 
 	adaptToFractionAndApply { :self :aFraction :aProcedure:/2 |

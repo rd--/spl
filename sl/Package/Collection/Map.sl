@@ -1,3 +1,5 @@
+(* Require: Record *)
+
 @PrimitiveMap {
 
 	at { :self :key |

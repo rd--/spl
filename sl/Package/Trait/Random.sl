@@ -1,3 +1,5 @@
+(* Require: Object *)
+
 @Random {
 
 	isRandom { :self |

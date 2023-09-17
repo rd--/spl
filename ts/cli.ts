@@ -9,6 +9,7 @@ import * as sc from '../lib/jssc3/ts/sc3.ts'
 
 import * as evaluate from './evaluate.ts'
 import * as fileio from './fileio.ts'
+import * as kernel from './kernel.ts'
 import * as load from './load.ts'
 import * as sl from './sl.ts'
 import { slOptions } from './options.ts'
@@ -53,7 +54,8 @@ async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	fileio.addLoadFileMethods();
 	sl.assignGlobals();
 	load.setLoadPath(loadPath);
-	await fileio.loadLocalPackageSequence(['Meta-Kernel'].concat(lib)); // ['cat.sl']
+	await fileio.evaluateFile(loadPath + '/Package/Meta/PackageIndex.sl', 'LoadSpl');
+	await kernel.loadPackageSequence(['Kernel'].concat(lib)); // ['cat.sl']
 	if(lib.includes('sc.sl')) {
 		globalThis.sc = sc;
 		globalThis.globalScSynth = cliScSynth;

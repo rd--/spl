@@ -138,6 +138,33 @@ export class Type {
 	}
 }
 
+/* Note: "package" is a reserved word
+c.f. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar */
+export class Package {
+	category: string;
+	name: string;
+	requires: string[];
+	url: string;
+	text: string;
+	constructor(category: string, name: string, requires: string[], url: string, text: string) {
+		this.category = category;
+		this.name = name;
+		this.requires = requires;
+		this.url = url;
+		this.text = text;
+	}
+}
+
+export function evaluatePackage(pkg: Package) {
+	return evaluate.evaluateFor(pkg.name, pkg.text);
+}
+
+export async function evaluatePackageArrayInSequence(pkgArray: Package[]) {
+	for(let pkg of pkgArray) {
+		await evaluatePackage(pkg);
+	}
+}
+
 // required if methods are added before type definition, this should be cleared up
 const preinstalledTypes = ['Array', 'SmallFloat', 'String', 'Void'];
 
@@ -145,17 +172,17 @@ export class System {
 	methodDictionary: MethodDictionary;
 	traitDictionary: Map<TraitName, Trait>;
 	typeDictionary: Map<TypeName, Type>;
-	packageDictionary: Map<PackageName, evaluate.Package>;
 	window: Window;
-	cache: Record<string, unknown>;
+	cache: Map<string, unknown>;
 	constructor() {
 		this.methodDictionary = new Map();
 		this.traitDictionary = new Map();
 		// Void is not an ordinary type, it names the place in the method table for no-argument procedures.
 		this.typeDictionary = new Map(preinstalledTypes.map(function(each) { return [each, new Type(each, 'Kernel', [], [], new Map())]; }));
-		this.packageDictionary = new Map();
 		this.window = window;
-		this.cache = Object.create(null);
+		this.cache = new Map();
+		this.cache.set('packageDictionary', new Map());
+		this.cache.set('packageIndex', new Map());
 	}
 }
 
@@ -387,6 +414,37 @@ export function methodName(name: string): MethodName {
 /* spl = one-indexed.  The index is not decremented because in Js '1' - 1 is 0 &etc. */
 export function arrayCheckIndex(anArray: unknown[], anInteger: number | bigint): boolean {
 	return isSmallFloatInteger(anInteger) && (anInteger >= 1) && (anInteger <= anArray.length);
+}
+
+export async function initializeLocalPackages(qualifiedPackageNames: string[]): Promise<Package[]> {
+	const packageArray = [];
+	qualifiedPackageNames.forEach(qualifiedName => {
+		const parts = qualifiedName.split('-');
+		const category = parts[0];
+		const name = parts[1];
+		const url = 'Package/' + category + '/' + name + '.sl';
+		const pkg = new Package(category, name, [], url, null);
+		/* add to index (initialized & fetched, not loaded) */
+		system.cache.get('packageIndex').set(name, pkg);
+		packageArray.push(pkg);
+	});
+	return packageArray;
+}
+
+/* Evaluate already fetched packages in sequence. */
+export async function loadPackageSequence(packageNames: string[]): Promise<void> {
+	const packageArray = [];
+	packageNames.forEach(name => {
+		const pkg = system.cache.get('packageIndex').get(name);
+		if(!pkg) {
+			console.error(`loadPackageSequence: ${name}, ${pkg}`);
+		} {
+			/* add to dictionary (loaded) */
+			system.cache.get('packageDictionary').set(name, pkg);
+			packageArray.push(pkg);
+		}
+	});
+	await evaluatePackageArrayInSequence(packageArray);
 }
 
 /* https://github.com/Aisse-258/bigint-isqrt */
