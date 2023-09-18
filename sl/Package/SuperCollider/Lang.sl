@@ -450,12 +450,16 @@
 		}
 	}
 
-	drop { :self :n |
-		self.copyFromTo(n + 1, self.size)
+	drop { :self :count |
+		(count < 0).if {
+			self.dropLast(count.negated)
+		} {
+			self.copyFromTo(count + 1, self.size)
+		}
 	}
 
-	dropLast { :self :n |
-		self.copyFromTo(1, self.size - n)
+	dropLast { :self :count |
+		self.copyFromTo(1, self.size - count)
 	}
 
 	extendTo { :self :size |
@@ -666,6 +670,15 @@
 		answer
 	}
 
+	shift { :self :count :item |
+		| fill = Array(count.abs, item), remain = self.drop(count.negated); |
+		(count < 0).if {
+			remain ++ fill
+		} {
+			fill ++ remain
+		}
+	}
+
 	similarity { :self :other |
 		self.similarity(other, equals:/2)
 	}
@@ -680,10 +693,10 @@
 	}
 
 	slide { :self :windowLength :stepSize |
-		self.steppedWindows(windowLength, stepSize).concatenation
+		self.slidingWindows(windowLength, stepSize).concatenation
 	}
 
-	steppedWindows { :self :windowLength :stepSize |
+	slidingWindows { :self :windowLength :stepSize |
 		(1, 1 + stepSize .. self.size - windowLength + 1).collect { :index |
 			self.copyFromTo(index, index + windowLength - 1)
 		}

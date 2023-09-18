@@ -64,10 +64,11 @@
 
 ## SuperCollider-Lang
 ```
-(1 .. 5).keep(3) = (1 .. 3) (* keep first n items, alias for first: *)
-(1 .. 5).drop(2) = (3 .. 5) (* discard first n items *)
+(1 .. 5).keep(3) = (1 .. 3) (* keep first count items, alias for first: *)
+(1 .. 5).drop(2) = (3 .. 5) (* discard first count items *)
 (1 .. 9).drop(3) = (4 .. 9)
 (1 .. 9).dropLast(3) = (1 .. 6)
+(1 .. 9).drop(-3) = (1 .. 6) (* negative count drops from end *)
 (1 .. 9).keep(3) = (1 .. 3)
 (1 .. 9).keepLast(3) = (6 .. 9)
 [3, 5, 4].normalize = [0, 1, 1/2]
@@ -168,9 +169,11 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 (1 .. 5).slide(3, 1) = [1 2 3 2 3 4 3 4 5] (* adjacent elements given windowLength and stepSize *)
 (1 .. 7).slide(3, 2) = [1 2 3 3 4 5 5 6 7] (* 1-3, 3-5, 5-7 *)
 (1 .. 6).slide(4, 1) = [1 2 3 4 2 3 4 5 3 4 5 6] (* 1-4, 2-5, 3-6 *)
-(1 .. 5).steppedWindows(3, 1) = [(1 .. 3), (2 .. 4), (3 .. 5)] (* adjacent elements given windowLength and stepSize *)
-(1 .. 7).steppedWindows(3, 2) = [(1 .. 3), (3 .. 5), (5 .. 7)] (* 1-3, 3-5, 5-7 *)
-(1 .. 6).steppedWindows(4, 1) = [(1 .. 4), (2 .. 5), (3 .. 6)] (* 1-4, 2-5, 3-6 *)
+(1 .. 5).slidingWindows(3, 1) = [(1 .. 3), (2 .. 4), (3 .. 5)] (* 1-3, 2-4, 3-5 *)
+(1 .. 7).slidingWindows(3, 2) = [(1 .. 3), (3 .. 5), (5 .. 7)] (* 1-3, 3-5, 5-7 *)
+(1 .. 6).slidingWindows(4, 1) = [(1 .. 4), (2 .. 5), (3 .. 6)] (* 1-4, 2-5, 3-6 *)
+(1 .. 6).shift(3, 0) = [0 0 0 1 2 3] (* shift right with fill value *)
+(1 .. 6).shift(-3, 0) = [4 5 6 0 0 0] (* shift left with fill value *)
 ```
 
 ## SuperCollider-J

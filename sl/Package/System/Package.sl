@@ -1,3 +1,5 @@
+(* Requires: Array String *)
+
 Package! : [Object] {
 
 	= { :self :anObject |

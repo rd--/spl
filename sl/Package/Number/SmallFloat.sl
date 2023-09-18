@@ -1,4 +1,4 @@
-(* Requires: Object String Void *)
+(* Requires: String *)
 
 SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
