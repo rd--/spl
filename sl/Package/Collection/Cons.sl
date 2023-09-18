@@ -68,7 +68,7 @@ Cons : [Object, Collection] { | car cdr |
 
 }
 
-+@SequenceableCollection {
++@Sequenceable {
 
 	Cons { :self |
 		| answer = nil; |

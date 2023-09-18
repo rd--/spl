@@ -10,14 +10,16 @@
 	'Random' (* > Object *)
 
 	(* Collection Traits *)
-	'ArrayedCollection'
-	'Collection'
+	'Arrayed'
+	'Collection' (* > Object *)
+	'Extensible'
 	'Dictionary'
 	'Indexable'
 	'Iterable'
-	'OrderedCollection'
-	'SequenceableCollection'
-	'UnorderedCollection'
+	'Ordered'
+	'Removable'
+	'Sequenceable'
+	'Unordered'
 
 	(* Kernel Types *)
 	'Boolean'

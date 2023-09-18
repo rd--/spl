@@ -122,7 +122,7 @@
 
 }
 
-+@SequenceableCollection {
++@Sequenceable {
 
 	putOn { :self :aStream |
 		aStream.nextPutAll(self)

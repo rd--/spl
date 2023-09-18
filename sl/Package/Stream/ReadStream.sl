@@ -78,7 +78,7 @@ ReadStream : [Object, Stream, PositionableStream] { | collection positionIndex r
 
 }
 
-+@SequenceableCollection {
++@Sequenceable {
 
 	ReadStream { :self |
 		newReadStream().initializeSlots(self, 0, self.size)

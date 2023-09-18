@@ -1,3 +1,5 @@
+(* Requires: Cache Integer Magnitude Number Object SmallFloat String *)
+
 Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	* { :self :aNumber |

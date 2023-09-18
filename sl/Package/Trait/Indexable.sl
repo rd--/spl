@@ -1,3 +1,5 @@
+(* Require: Object *)
+
 @Indexable {
 
 	at { :self :index |

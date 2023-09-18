@@ -171,4 +171,5 @@ declare global {
 }
 
 globalThis.sl = sl;
+globalThis.sc = sc;
 cli();

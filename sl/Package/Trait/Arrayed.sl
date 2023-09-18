@@ -1,4 +1,4 @@
-@ArrayedCollection {
+@Arrayed {
 
 	Array { :self |
 		Array(self.size).fillFromWith(self, identity:/1)
@@ -52,7 +52,7 @@
 			});
 		}
 		>
-		self.error('@ArrayedCollection>>collect: not a procedure')
+		self.error('@Arrayed>>collect: not a procedure')
 	}
 
 	detectIfFoundIfNone { :self :aProcedure:/1 :whenFound:/1 :whenNone:/0 |

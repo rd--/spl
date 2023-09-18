@@ -91,11 +91,11 @@
 
 }
 
-+@SequenceableCollection {
++@Sequenceable {
 
 	atPath { :self :path |
 		path.ifEmpty {
-			'SequenceableCollection>>atPath: empty path'.error
+			'Sequenceable>>atPath: empty path'.error
 		} {
 			| inner = self[path.first]; |
 			(path.size = 1).if {
@@ -108,7 +108,7 @@
 
 	atPathPut { :self :path :anObject |
 		path.ifEmpty {
-			'SequenceableCollection>>atPathPut: empty path'.error
+			'Sequenceable>>atPathPut: empty path'.error
 		} {
 			| inner = self.at(path.first); |
 			(path.size = 1).if {

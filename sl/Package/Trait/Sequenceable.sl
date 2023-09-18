@@ -1,4 +1,6 @@
-@SequenceableCollection {
+(* Require: SmallFloat *)
+
+@Sequenceable {
 
 	equalsBy { :self :anObject :aBlock:/2 |
 		(self == anObject) | {
@@ -273,7 +275,7 @@
 		self.findBinaryDoIfNone(aBlock:/1) { :found |
 			found
 		} {
-			self.error('@SequenceableCollection>>findBinary: not found')
+			self.error('@Sequenceable>>findBinary: not found')
 		}
 	}
 
@@ -296,7 +298,7 @@
 		self.findBinaryIndexDoIfNone(aBlock:/1) { :found |
 			found
 		} {
-			self.error('@SequenceableCollection>>findBinaryIndex: not found')
+			self.error('@Sequenceable>>findBinaryIndex: not found')
 		}
 	}
 
@@ -727,12 +729,12 @@
 		}
 	}
 
-	reverseWithDo { :self :aSequenceableCollection :aBlock:/2 |
-		(self.size ~= aSequenceableCollection.size).if {
+	reverseWithDo { :self :aSequence :aBlock:/2 |
+		(self.size ~= aSequence.size).if {
 			self.error('reverseWithDo: unequal size')
 		} {
 			self.size.downToDo(1) { :index |
-				aBlock(self[index], aSequenceableCollection[index])
+				aBlock(self[index], aSequence[index])
 			}
 		}
 	}
@@ -882,7 +884,7 @@
 
 }
 
-+@SequenceableCollection {
++@Sequenceable {
 
 	applyBinaryMathOperatorInPlace { :self :anObject :aBlock:/2 |
 		anObject.isNumber.if {

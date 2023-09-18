@@ -1,3 +1,5 @@
+(* Require: Object *)
+
 @Dictionary {
 
 	= { :self :aDictionary |

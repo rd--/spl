@@ -363,7 +363,7 @@
 
 }
 
-+@SequenceableCollection {
++@Sequenceable {
 
 	allTuples { :self |
 		| answer = []; |
@@ -676,6 +676,16 @@
 			1 - (self.levenshteinDistance(other, equalityProcedure:/2) / maxDistance)
 		} {
 			1
+		}
+	}
+
+	slide { :self :windowLength :stepSize |
+		self.steppedWindows(windowLength, stepSize).concatenation
+	}
+
+	steppedWindows { :self :windowLength :stepSize |
+		(1, 1 + stepSize .. self.size - windowLength + 1).collect { :index |
+			self.copyFromTo(index, index + windowLength - 1)
 		}
 	}
 

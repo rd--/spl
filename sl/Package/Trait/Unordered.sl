@@ -1,4 +1,4 @@
-@UnorderedCollection {
+@Unordered {
 
 	at { :self :index |
 		self.errorNotIndexed

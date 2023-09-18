@@ -1,4 +1,4 @@
-SortedArray : [Object, Iterable, Indexable, Collection] { | contents sortBlock |
+SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable] { | contents sortBlock |
 
 	add { :self :item |
 		self.contents.isEmpty.if {

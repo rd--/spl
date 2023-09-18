@@ -151,7 +151,7 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 
 }
 
-+@SequenceableCollection {
++@Sequenceable {
 
 	RunArray { :self |
 		RunArray(self.collect(key:/1), self.collect(value:/1))

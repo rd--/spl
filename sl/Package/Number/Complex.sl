@@ -1,3 +1,5 @@
+(* Requires: Array Number Object *)
+
 Complex : [Object] { | real imaginary |
 
 	= { :self :anObject |

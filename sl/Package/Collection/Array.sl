@@ -1,4 +1,4 @@
-Array! : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection, ArrayedCollection, OrderedCollection] {
+Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable, Arrayed, Ordered] {
 
 	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
 		self.collect { :each |
@@ -162,7 +162,7 @@ Array! : [Object, Json, Iterable, Indexable, Collection, SequenceableCollection,
 
 }
 
-+@SequenceableCollection {
++@Sequenceable {
 
 	Array { :self |
 		| answer = Array(self.size); |

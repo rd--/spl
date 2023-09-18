@@ -1,3 +1,5 @@
+(* Requires: Object *)
+
 Procedure! : [Object] {
 
 	= { :self :anObject |

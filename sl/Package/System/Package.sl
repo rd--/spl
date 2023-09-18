@@ -1,7 +1,7 @@
 Package! : [Object] {
 
 	= { :self :anObject |
-		self.primtiveEquals(anObject)
+		self.primitiveEquals(anObject)
 	}
 
 	< { :self :aPackage |
@@ -107,8 +107,20 @@ Package! : [Object] {
 
 +@Cache {
 
+	availablePackages { :self |
+		self.indexedPackages.difference(self.loadedPackages)
+	}
+
+	indexedPackages { :self |
+		self.packageIndex.values
+	}
+
 	includesPackage { :self :name |
 		self.packageDictionary.includesIndex(name)
+	}
+
+	loadedPackages { :self |
+		self.packageDictionary.values
 	}
 
 	loadPackage { :self :package |
@@ -124,7 +136,7 @@ Package! : [Object] {
 	}
 
 	packageDictionary { :self |
-		self.cached('packageIndex') {
+		self.cached('packageDictionary') {
 			()
 		}
 	}

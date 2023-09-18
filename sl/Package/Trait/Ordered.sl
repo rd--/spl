@@ -1,4 +1,4 @@
-@OrderedCollection {
+@Ordered {
 
 	add { :self :anObject |
 		self.addLast(anObject)

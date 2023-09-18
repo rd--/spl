@@ -1,4 +1,4 @@
-Bitset : [Object, Iterable, Collection] { | bytes tally |
+Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 
 	= { :self :anObject |
 		anObject.isBitset & {

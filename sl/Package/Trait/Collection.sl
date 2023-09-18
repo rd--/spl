@@ -1,3 +1,5 @@
+(* Require: Object *)
+
 @Collection {
 
 	adaptToCollectionAndApply { :self :rcvr :aProcedure:/2 |
@@ -310,90 +312,6 @@
 		self.select { :each |
 			seen.ifAbsentAdd(each)
 		}
-	}
-
-}
-
-(* Extensible *)
-+@Collection {
-
-	addAll { :self :aCollection |
-		aCollection.do { :each |
-			self.add(each)
-		}
-	}
-
-	addIfNotPresent { :self :anObject |
-		self.includes(anObject).ifFalse {
-			self.add(anObject)
-		};
-		anObject
-	}
-
-	addWithOccurrences { :self :newObject :anInteger |
-		anInteger.timesRepeat {
-			self.add(newObject)
-		};
-		newObject
-	}
-
-	fillFromWith { :self :aCollection :aProcedure:/1 |
-		aCollection.do { :each |
-			self.add(aProcedure(each))
-		}
-	}
-
-	includeAll { :self :aCollection |
-		aCollection.do { :each |
-			self.include(each)
-		}
-	}
-
-}
-
-(* Removeable *)
-+@Collection {
-
-	remove { :self :oldObject |
-		self.removeIfAbsent(oldObject) {
-			self.errorNotFound(oldObject)
-		}
-	}
-
-	removeAll { :self |
-		self.do { :each |
-			self.remove(each)
-		}
-	}
-
-	removeAll { :self :aCollection |
-		(aCollection == self).if {
-			self.removeAll
-		} {
-			aCollection.do { :each |
-				self.remove(each)
-			}
-		};
-		aCollection
-	}
-
-	removeAllFoundIn { :self :aCollection |
-		aCollection.do { :each |
-			self.removeIfAbsent(each) { }
-		};
-		aCollection
-	}
-
-	removeAllSuchThat { :self :aBlock:/1 |
-		self.copy.do { :each |
-			aBlock(each).ifTrue {
-				self.remove(each)
-			}
-		}
-	}
-
-	removeIfAbsent { :self :oldObject :anExceptionBlock |
-		self.typeResponsibility('@Collection>>removeIfAbsent')
 	}
 
 }

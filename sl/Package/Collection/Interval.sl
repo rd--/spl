@@ -1,4 +1,4 @@
-Interval : [Object, Iterable, Collection, SequenceableCollection] { | start stop step |
+Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start stop step |
 
 	= { :self :anInterval |
 		anInterval.isInterval & {

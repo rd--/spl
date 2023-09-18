@@ -708,7 +708,7 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-+@SequenceableCollection {
++@Sequenceable {
 
 	asHtmlRow { :self :toString:/1 |
 		| tr = 'tr'.createElement; |

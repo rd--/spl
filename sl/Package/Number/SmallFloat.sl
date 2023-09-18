@@ -1,3 +1,5 @@
+(* Requires: Object String Void *)
+
 SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	= { :self :aNumber |

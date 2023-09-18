@@ -1,4 +1,4 @@
-Bag : [Object, Iterable, Collection, UnorderedCollection] { | contents |
+Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | contents |
 
 	= { :self :aBag |
 		aBag.isBag & {

@@ -547,7 +547,7 @@ String! : [Object, Json, Iterable] {
 		self.splitBy(' ')
 	}
 
-	(* ImmutableSequenceableCollection *)
+	(* ImmutableSequenceable *)
 	allButFirst { :self | self.allButFirst(1) }
 	allButFirst { :self :n | self.copyFromTo(n + 1, self.size) }
 
@@ -579,7 +579,7 @@ String! : [Object, Json, Iterable] {
 
 }
 
-+@SequenceableCollection {
++@Sequenceable {
 
 	camelCase { :self |
 		[self.first] ++ self.allButFirst.collect(capitalized:/1)

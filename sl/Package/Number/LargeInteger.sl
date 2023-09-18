@@ -1,3 +1,5 @@
+(* Requires: SmallFloat String *)
+
 LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 	== { :self :anInteger |

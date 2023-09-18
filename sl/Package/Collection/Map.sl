@@ -35,7 +35,7 @@
 
 }
 
-Map! : [Object, Iterable, Collection, Indexable, Dictionary, PrimitiveMap] {
+Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictionary, PrimitiveMap] {
 
 	add { :self :anAssociation |
 		<primitive:

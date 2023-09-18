@@ -502,9 +502,9 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 [1, 3 .. 9].copyUpToLast(-1) = [1, 3 .. 9] (* copy up to end if no such element *)
 ```
 
-## ArrayedCollection -- collection trait
+## Arrayed -- collection trait
 ```
-system.includesPackage('ArrayedCollection') (* array collection package *)
+system.includesPackage('Arrayed') (* arrayed package *)
 [3, 5, 7].basicAt(1) = 3 (* unchecked lookup *)
 [3, 5, 7].basicAt(7) = nil (* unchecked lookup, nil on invalid index *)
 | a = [1, 7, 3, 9, 5]; | a.sortBy { :p :q | p >= q }; a = [9, 7 .. 1] (* sort using provided comparison, in place *)
@@ -952,8 +952,9 @@ Set().Array = []
 (1 .. 4).reduce(minus:/2) = (((1 - 2) - 3) - 4) (* reduce, happens to be left associative *)
 ```
 
-## Collection -- adding
+## Extensible -- collection trait
 ```
+system.includesPackage('Extensible') (* package *)
 | r = Array(); | r.add('x'); r.add('x'); r.size = 2
 | r = Bag(); | r.add('x'); r.add('x'); r.size = 2
 | r = Map(); | r.add('x' -> 1); r.add('y' -> 2); r.size = 2
@@ -962,8 +963,9 @@ Set().Array = []
 | r = ''; | { r.add('x') }.ifError { :err | true }
 ```
 
-## Collection -- removing
+## Removable -- collection trait
 ```
+system.includesPackage('Removable') (* package *)
 | r = Array(); | r.add('x'); r.remove('x'); r.size = 0
 | r = Bag(); | r.add('x'); r.remove('x'); r.size = 0
 | r = Map(); | r.add('x' -> 1); r.remove('x' -> 1); r.size = 0
@@ -2155,9 +2157,9 @@ pi.warning('pi') = pi (* user warning *)
 { pi.error('pi') }.ifError { true } (* user error *)
 ```
 
-## OrderedCollection -- collection trait
+## Ordered -- collection trait
 ```
-system.includesPackage('OrderedCollection') (* package *)
+system.includesPackage('Ordered') (* package *)
 | a = [1, 2, 4]; | a.addBefore(3, 4); a = [1 .. 4] (* insert value before existing value *)
 | a = [1, 2, 4]; | a.addAfter(3, 2); a = [1 .. 4] (* insert value after existing value *)
 | a = ['w', 'x', 'z']; | a.addAfterIndex('y', 2); a = ['w', 'x', 'y', 'z'] (* insert value after index *)
@@ -2183,6 +2185,7 @@ system.packageIndex::Date.category = 'Time' (* category of package *)
 system.includesPackage('Date')
 '(* Package: Collection-ByteArray *)'.parsePackageHeader = (Category: 'Collection', Name: 'ByteArray')
 '(* Requires: ColumnBrowser SmallKansas *)'.parsePackageHeader = (Requires: ['ColumnBrowser', 'SmallKansas'])
+system.indexedPackages.size - system.loadedPackages.size = system.availablePackages.size
 ```
 
 ## Point -- geometry trait
@@ -2534,9 +2537,9 @@ RunArray([1, 4, 2], ['a', 'b', 'c']).reversed = [2 -> 'c', 4 -> 'b', 1 -> 'a'].R
 | a = [23 -> 'a', 34 -> 'b', 45 -> 'a'].RunArray; | (a.allocatedSize / a.size * 100).rounded = 9 (* space saving, in % *)
 ```
 
-## SequenceableCollection -- collection trait
+## Sequenceable -- collection trait
 ```
-system.includesPackage('SequenceableCollection') (* package *)
+system.includesPackage('Sequenceable') (* package *)
 [1, 3, 2] ++ [4, 5] = [1, 3, 2, 4, 5] (* append sequences *)
 [1, 3, 2, 4, 5].reversed = [5, 4, 2, 3, 1] (* reverse sequence (anwer new array) *)
 [1, 3, 2, 4, 5].sorted = [1, 2, 3, 4, 5] (* sort using default comparison (answer new array) *)
@@ -3389,7 +3392,7 @@ system.doesTypeImplementMethod('Array', 'adaptToNumberAndApply') = true
 [1, 2, 3].respondsTo(select:/2) = true (* does a value (courtesy the type) implement a method *)
 system.methodPrintString('add').size >= 3
 system.methodLookupAtType('collect', 2, 'Array').isMethod = true
-system.methodLookupAtType('collect', 2, 'Array').origin.name = 'ArrayedCollection'
+system.methodLookupAtType('collect', 2, 'Array').origin.name = 'Arrayed'
 system.methodLookupAtType('collect', 2, 'Array').procedure.value([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum', 1, 'Set')
 'sum:/1'.parseQualifiedMethodName = ['sum', 1]
@@ -3418,8 +3421,8 @@ system.unixTimeInMilliseconds > 1671935015392 = true
 system.traitDictionary.isDictionary = true
 system.traitDictionary.includesIndex('Collection') = true
 system.traitTypes('Collection').includes('Array') = true
-system.typeTraits('Array').includes('ArrayedCollection') = true
-system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'SequenceableCollection']) = true
+system.typeTraits('Array').includes('Arrayed') = true
+system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'Sequenceable']) = true
 system.methodTraits('sum:/1') = ['Iterable']
 system.traitTypes('Object').includes('SmallFloat') = true
 system.traitLookup('Object').methodDictionary.includesIndex('respondsTo:/2') = true
@@ -3585,9 +3588,9 @@ true.not = false
 's'.siUnit.isBaseUnit & { 'Pa'.siUnit.isDerivedUnit } (* there are seven base units and twenty two named derived units *)
 ```
 
-## UnorderedCollection -- collection trait
+## Unordered -- collection trait
 ```
-system.includesPackage('UnorderedCollection') (* package *)
+system.includesPackage('Unordered') (* package *)
 { [1, 2, 3].Set.at(1) }.ifError { true } (* unordered collections do not implement at *)
 { [1, 2, 3].Bag.at(1) }.ifError { true }
 ```

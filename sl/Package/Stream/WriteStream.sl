@@ -71,7 +71,7 @@ WriteStream : [Object, Stream, PositionableStream] { | collection positionIndex 
 
 }
 
-+@ArrayedCollection {
++@Arrayed {
 
 	WriteStream { :self |
 		newWriteStream().initializeSlots(self, 0, self.size)

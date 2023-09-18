@@ -165,6 +165,12 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 1.CpsMidi.rounded = -36 (* one hertz *)
 [10, 20, 30, 40, 50].crossedMultiply([1, 2, 3]) = [10, 20, 30, 20, 40, 60, 30, 60, 90, 40, 80, 120, 50, 100, 150]
 [10, 20, 30, 40, 50].crossedMultiply([1, 2, 3]) = [10, 20, 30, 40, 50].withCrossedCollect([1, 2, 3], times:/2)
+(1 .. 5).slide(3, 1) = [1 2 3 2 3 4 3 4 5] (* adjacent elements given windowLength and stepSize *)
+(1 .. 7).slide(3, 2) = [1 2 3 3 4 5 5 6 7] (* 1-3, 3-5, 5-7 *)
+(1 .. 6).slide(4, 1) = [1 2 3 4 2 3 4 5 3 4 5 6] (* 1-4, 2-5, 3-6 *)
+(1 .. 5).steppedWindows(3, 1) = [(1 .. 3), (2 .. 4), (3 .. 5)] (* adjacent elements given windowLength and stepSize *)
+(1 .. 7).steppedWindows(3, 2) = [(1 .. 3), (3 .. 5), (5 .. 7)] (* 1-3, 3-5, 5-7 *)
+(1 .. 6).steppedWindows(4, 1) = [(1 .. 4), (2 .. 5), (3 .. 6)] (* 1-4, 2-5, 3-6 *)
 ```
 
 ## SuperCollider-J

@@ -250,7 +250,7 @@ Rectangle : [Object] { | origin corner |
 
 }
 
-+@SequenceableCollection {
++@Sequenceable {
 
 	rectangleMerging { :self |
 		|(

@@ -52,7 +52,7 @@
 
 }
 
-+@SequenceableCollection {
++@Sequenceable {
 
 	keysAndValuesDo { :self :aBlock:/2 |
 		self.indicesDo { :index |
