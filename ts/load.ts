@@ -28,6 +28,7 @@ export async function readLocalPackages(qualifiedPackageNames: string[]): Promis
 	}));
 	fetchedTextArray.map(function(text, index) {
 		packageArray[index].text = text;
+		packageArray[index].requires = kernel.parsePackageRequires(text);
 	});
 }
 

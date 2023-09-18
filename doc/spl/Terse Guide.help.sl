@@ -2186,6 +2186,8 @@ system.includesPackage('Date')
 '(* Package: Collection-ByteArray *)'.parsePackageHeader = (Category: 'Collection', Name: 'ByteArray')
 '(* Requires: ColumnBrowser SmallKansas *)'.parsePackageHeader = (Requires: ['ColumnBrowser', 'SmallKansas'])
 system.indexedPackages.size - system.loadedPackages.size = system.availablePackages.size
+system.packageDictionary.select { :each | each.requires.notEmpty }.size > 10
+system.packageIndex::PackageBrowser.dependencies = ['Blob' 'Dom' 'Duration' 'RegExp' 'Set' 'SmallKansas' 'Window' 'ListChooser' 'TextEditor' 'ColumnBrowser' 'Trait']
 ```
 
 ## Point -- geometry trait
@@ -2951,6 +2953,7 @@ system.includesPackage('String') (* package *)
 'string'.splitBy('trin') = ['s', 'g']
 'string'.splitBy('absent') = ['string']
 'string'.splitBy('') = ['s', 't', 'r', 'i', 'n', 'g']
+'Set-Of-Three-Words'.splitByLimitedTo('-', 3) = ['Set', 'Of', 'Three'] (* limited to count number of elements *)
 'mississippi'.split.join = 'mississippi' (* join is the inverse of split *)
 'mississippi'.splitBy('i').joinSeparatedBy('i') = 'mississippi' (* joinSeparatedBy is the inverse of splitBy *)
 '/usr/local/bin'.splitBy('/') = ['', 'usr', 'local', 'bin']

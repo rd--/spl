@@ -1,4 +1,4 @@
-(* {"requires": ["ColumnBrowser", "SmallKansas"]} *)
+(* Requires: ColumnBrowser SmallKansas *)
 
 ProgramIndex : [Object] { | contents |
 

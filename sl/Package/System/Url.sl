@@ -1,4 +1,4 @@
-(* {"requires": ["Blob", "File"]} *)
+(* Requires: Blob File *)
 
 URL! : [Object] {
 

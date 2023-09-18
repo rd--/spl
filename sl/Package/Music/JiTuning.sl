@@ -1,4 +1,4 @@
-(* {"requires": ["Fraction"]} *)
+(* Requires: Fraction *)
 
 +Fraction {
 

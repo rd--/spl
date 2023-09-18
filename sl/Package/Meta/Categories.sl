@@ -521,6 +521,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'ifFalse'
 		'ifNil'
 		'ifNotNil'
+		'ifNotEmpty'
 		'ifNotEmptyDo'
 		'ifTrue'
 		'repeat'

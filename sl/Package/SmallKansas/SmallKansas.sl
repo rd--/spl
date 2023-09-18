@@ -1,4 +1,4 @@
-(* {"requires": ["Dom", "Duration", "RegExp", "Set"]} *)
+(* Requires: Dom Duration RegExp Set *)
 
 @SmallKansan {
 

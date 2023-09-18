@@ -1,4 +1,4 @@
-(* {"requires": ["ByteArray"]} *)
+(* Requires: ByteArray *)
 
 OscParameter : [Object] { | typeTag value |
 

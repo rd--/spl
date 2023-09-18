@@ -1,4 +1,4 @@
-(* {"requires": ["SmallKansas", "Window"]} *)
+(* Requires: SmallKansas Window *)
 
 TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorText mimeType title clientKeyBindings eventListeners |
 

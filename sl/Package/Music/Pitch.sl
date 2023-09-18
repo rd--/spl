@@ -1,4 +1,4 @@
-(* {"requires": ["Frequency"]} *)
+(* Requires: Frequency *)
 
 +Frequency {
 

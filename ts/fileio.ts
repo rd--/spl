@@ -26,6 +26,7 @@ export async function readLocalPackages(qualifiedPackageNames: string[]): Promis
 	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(fileName => Deno.readTextFile(fileName)));
 	fetchedTextArray.map(function(text, index) {
 		packageArray[index].text = text;
+		packageArray[index].requires = kernel.parsePackageRequires(text);
 	});
 }
 

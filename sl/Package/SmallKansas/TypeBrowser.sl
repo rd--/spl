@@ -1,4 +1,4 @@
-(* {"requires": ["ColumnBrowser", "SmallKansas"]} *)
+(* Requires: ColumnBrowser SmallKansas *)
 
 TypeBrowser : [Object, SmallKansan] {
 

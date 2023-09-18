@@ -232,6 +232,12 @@
 		}
 	}
 
+	ifNotEmpty { :self :aBlock |
+		self.isEmpty.ifFalse {
+			aBlock.cull(self)
+		}
+	}
+
 	ifNotEmptyDo { :self :aBlock:/1 |
 		self.isEmpty.ifFalse {
 			aBlock(self)

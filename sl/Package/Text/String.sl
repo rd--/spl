@@ -445,6 +445,10 @@ String! : [Object, Json, Iterable] {
 		<primitive: return _self.split(_aString);>
 	}
 
+	splitByLimitedTo { :self :aString :count |
+		<primitive: return _self.split(_aString, _count);>
+	}
+
 	storeString { :self |
 		<primitive: return `'${_self}'`;>
 	}

@@ -18,8 +18,23 @@ Package! : [Object] {
 		}
 	}
 
+	addDependenciesTo { :self :aSequence |
+		self.requires.ifNotEmpty { :items |
+			aSequence.addAllFirst(items);
+			items.do { :each |
+				system.packageIndex[each].addDependenciesTo(aSequence)
+			}
+		}
+	}
+
 	category { :self |
 		<primitive: return _self.category;>
+	}
+
+	dependencies { :self |
+		| answer = []; |
+		self.addDependenciesTo(answer);
+		answer.withoutDuplicates
 	}
 
 	load { :self |
@@ -53,7 +68,6 @@ Package! : [Object] {
 	derivePackageUrl { :self |
 		['Package/', self::Category, '/', self::Name, '.sl'].join
 	}
-
 
 	Package { :self |
 		Package(

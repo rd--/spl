@@ -1,4 +1,4 @@
-(* {"requires": ["Blob"]} *)
+(* Requires: Blob *)
 
 File! : [Object, Blob] {
 

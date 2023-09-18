@@ -155,6 +155,16 @@ export class Package {
 	}
 }
 
+export function parsePackageRequires(text: string): string {
+	var firstLine = text.split('\n', 1)[0];
+	var packageNames = firstLine.match(/Requires: (.*)\*\)/);
+	if(packageNames) {
+		return packageNames[1].trim().split(' ');
+	} {
+		return [];
+	}
+}
+
 export function evaluatePackage(pkg: Package) {
 	return evaluate.evaluateFor(pkg.name, pkg.text);
 }

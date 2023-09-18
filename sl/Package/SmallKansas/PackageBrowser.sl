@@ -1,4 +1,4 @@
-(* {"requires": ["ColumnBrowser", "SmallKansas", "Trait"]} *)
+(* Requires: ColumnBrowser SmallKansas Trait *)
 
 +SmallKansas  {
 

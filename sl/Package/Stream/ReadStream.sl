@@ -1,4 +1,4 @@
-(* {"requires": ["PositionableStream", "Stream"]} *)
+(* Requires: PositionableStream Stream *)
 
 ReadStream : [Object, Stream, PositionableStream] { | collection positionIndex readLimit |
 
