@@ -473,7 +473,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 | l = [1]; | l.addLast(2) = 2 & { l = [1, 2] } (* answer is argument *)
 | l = []; | (1 .. 5).do { :each | l.add(each) }; l = [1 .. 5] (* alias for addLast *)
 | l = [1 .. 9]; | l.removeFirst = 1 & { l.size = 8 } (* remove first object from array *)
-| l = [1 .. 9]; | l.removeLast = 9 & { l.size = 8 } (* remove last object from array *)
+| l = [1 .. 9]; | l.removeLast = 9 & { l.size = 8 } (* remove last object from array, answers removed element *)
 | l = [4, 5]; | l.addAllFirst(1.to(3)); l = [1 .. 5] (* add all elements to start of array *)
 [1].addAllFirst([2, 3]) = [2, 3] (* answer is argument *)
 | l = [1, 2, 3]; | l.addAllLast(4.to(5)); l = [1 .. 5] (* add all elements to end of array *)
@@ -2679,6 +2679,7 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 { [1 .. 5] + [6 .. 9] = [7, 9, 11, 13, 11] }.ifError { true } (* sequences must be of equal size, Sc/Lang extends this behaviour *)
 [1 .. 5].squared = [1, 4, 9, 16, 25] (* unary math lifted to collection *)
 [1, 4, 9, 16, 25].sqrt = [1 .. 5] (* unary math lifted to collection *)
+(1 .. 3).Set ++ (4 .. 7).Set = (1 .. 7).Set (* append *)
 ```
 
 ## Set -- collection type
@@ -2696,7 +2697,7 @@ Set().isEmpty (* is set empty? *)
 [1, 5, 3, 5, 1].Set.sorted = [1, 3, 5] (* a sorted set is an array *)
 | s = [1 .. 5].Set; | s ~~ s.Set (* a Set formed from a Set is not identical to the initial set *)
 | s = [1 .. 5].Set; | s = s.Set (* a Set formed from a Set is equal to the initial set *)
-var s = [1, 3, 5, 3, 1].Set; s.remove(3); s.Array = [1, 5]
+var s = [1, 3, 5, 3, 1].Set; s.remove(3) = 3; s.Array = [1, 5] (* remove answers removed element *)
 [1 .. 9].Set.atRandom.betweenAnd(1, 9) (* inclusive *)
 var s = Set(); s.add(5); s.includes(5) = true (* add element to Set *)
 { [5].Set.add(5) }.ifError { true } (* add can only include elements if they do not already exist *)
@@ -3164,6 +3165,7 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 [1 [1 3 [1 3 5] 5] 5] = [1, [1, 3, [1, 3, 5], 5], 5] (* vector syntax, vector items *)
 [1 3; 5 7] = [[1, 3], [5, 7]] (* matrix syntax, literal items *)
 | a = 1, b = 3, c = 5; | [a b c; c b a] = [[1, 3, 5], [5, 3, 1]] (* matrix syntax, identifier items *)
+[; 1; 2 3; 4 5 6] = [[], [1], [2, 3], [4, 5, 6]] (* non-square matrix, empty vector field *)
 [1 2; 3 4;; 5 6; 7 8] = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]  (* volume syntax, literal items *)
 | a = 1, b = 3; | [a b; b a;; b a; a b] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] (* volume syntax, identifier items *)
 [1 0 0; 0 1 0; 0 0 1;; 0 1 0; 1 0 1; 0 1 0;; 1 0 1; 0 1 0; 1 0 1].collect(sum:/1) = [1 1 1; 1 2 1; 2 1 2] (* volume to matrix *)

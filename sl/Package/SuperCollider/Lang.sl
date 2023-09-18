@@ -24,6 +24,16 @@
 		}
 	}
 
+	powersetBitwise { :self |
+		(0 .. 1.bitShift(self.size) - 1).collect { :each |
+			| i = 0; |
+			self.select { :elem |
+				i +:= 1;
+				each.bitAt(i) = 1
+			}
+		}
+	}
+
 }
 
 +@Magnitude {
@@ -632,6 +642,17 @@
 		self.sortedWithIndices.collect(value:/1)
 	}
 
+	powerset { :self |
+		self.ifEmpty {
+			[self]
+		} {
+			| a = self.removeFirst, s = self.powerset; |
+			s ++ s.collect { :each |
+				[a] ++ each
+			}
+		}
+	}
+
 	pyramid { :self :patternType |
 		|(
 			answer = [],
@@ -862,4 +883,3 @@
 	}
 
 }
-

@@ -2,6 +2,12 @@
 
 @Collection {
 
+	++ { :self :aCollection |
+		| answer = self.copy; |
+		answer.addAll(aCollection.asCollection);
+		answer
+	}
+
 	adaptToCollectionAndApply { :self :rcvr :aProcedure:/2 |
 		(rcvr.isSequenceable & {
 			self.isSequenceable
@@ -58,6 +64,10 @@
 			array[index] := each
 		};
 		array
+	}
+
+	asCollection { :self |
+		self
 	}
 
 	associationsDo { :self :aProcedure:/1 |

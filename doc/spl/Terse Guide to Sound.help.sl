@@ -174,6 +174,9 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 (1 .. 6).slidingWindows(4, 1) = [(1 .. 4), (2 .. 5), (3 .. 6)] (* 1-4, 2-5, 3-6 *)
 (1 .. 6).shift(3, 0) = [0 0 0 1 2 3] (* shift right with fill value *)
 (1 .. 6).shift(-3, 0) = [4 5 6 0 0 0] (* shift left with fill value *)
+[1 2 3].powerset = [; 3; 2; 2 3; 1; 1 3; 1 2; 1 2 3] (* powerset *)
+[1 .. 4].powerset.size = (2 ^ 4) (* powerset size *)
+[1 .. 5].powerset.size = (2 ^ 5) (* powerset size *)
 ```
 
 ## SuperCollider-J
