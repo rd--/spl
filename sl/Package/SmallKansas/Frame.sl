@@ -1,12 +1,12 @@
-Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton titleText inMove x y x0 y0 subject eventListeners |
+Frame : [Object, UserEventTarget] { | smallKansas framePane titlePane closeButton menuButton titleText inMove x y x0 y0 subject eventListeners |
 
 	bringToFront { :self |
-		self.zIndex := system.smallKansas.zIndices.max + 1
+		self.zIndex := self.smallKansas.zIndices.max + 1
 	}
 
 	close { :self |
 		self.dispatchEvent(Event('close'));
-		system.smallKansas.removeFrame(self)
+		self.smallKansas.removeFrame(self)
 	}
 
 	colour { :self :aColour |
@@ -51,7 +51,8 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 		self.framePane.style.setProperty('--font-size', fontSize, '')
 	}
 
-	initialize { :self :subject |
+	initialize { :self :smallKansas :subject |
+		self.smallKansas := smallKansas;
 		self.subject := subject;
 		self.createElements;
 		self.setEventHandlers;
@@ -67,16 +68,16 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 	menuItems { :self |
 		[
 			MenuItem('Help', nil) { :event |
-				system.smallKansas.helpFor(self.subject.name, event)
+				self.smallKansas.helpFor(self.subject.name, event)
 			},
 			MenuItem('Colour Chooser', nil) { :event |
-				system.smallKansas.ColourChooser(self, event)
+				self.smallKansas.colourChooserOn(self, event)
 			},
 			MenuItem('Font Menu', nil) { :event |
-				system.smallKansas.fontMenuOn(self, true, event)
+				self.smallKansas.fontMenuOn(self, true, event)
 			},
 			MenuItem('Font Size Menu', nil) { :event |
-				system.smallKansas.fontSizeMenuOn(self, true, event)
+				self.smallKansas.fontSizeMenuOn(self, true, event)
 			}
 		]
 	}
@@ -116,7 +117,7 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 			self.close
 		};
 		self.menuButton.addEventListener('click') { :event |
-			system.smallKansas.menu('Frame Menu', self.subject.frameMenuItems ++ self.menuItems, true, event)
+			self.smallKansas.menu('Frame Menu', self.subject.frameMenuItems ++ self.menuItems, true, event)
 		};
 		self.titlePane.addEventListener('contextmenu') { :event |
 			(* ... *)
@@ -154,10 +155,10 @@ Frame : [Object, UserEventTarget] { | framePane titlePane closeButton menuButton
 
 }
 
-+@View {
++SmallKansas {
 
-	Frame { :self |
-		newFrame().initialize(self)
+	Frame { :self :subject |
+		newFrame().initialize(self, subject)
 	}
 
 }

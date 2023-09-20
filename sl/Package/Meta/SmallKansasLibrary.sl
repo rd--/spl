@@ -28,6 +28,7 @@
 	'MidiMonitorMenu'
 	'MidiPortBrowser'
 	'PackageBrowser'
+	'PackageIndexBrowser'
 	'PngViewer'
 	'ProgramBrowser'
 	'ProgramOracle'

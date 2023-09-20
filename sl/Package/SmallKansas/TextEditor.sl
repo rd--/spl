@@ -100,7 +100,7 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 				system.clock.removeAll;
 				system.defaultScSynth.reset
 			}
-		] ++ self.clientKeyBindings.Array
+		] ++ self.clientKeyBindings
 	}
 
 	outerElement { :self |

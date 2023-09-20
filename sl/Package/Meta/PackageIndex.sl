@@ -88,6 +88,7 @@
 	'SmallKansas-MidiMonitorMenu'
 	'SmallKansas-MidiPortBrowser'
 	'SmallKansas-PackageBrowser'
+	'SmallKansas-PackageIndexBrowser'
 	'SmallKansas-PngViewer'
 	'SmallKansas-ProgramBrowser'
 	'SmallKansas-ProgramOracle'

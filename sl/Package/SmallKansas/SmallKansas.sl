@@ -22,7 +22,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 	}
 
 	addFrame { :self :subject :event |
-		| frame = Frame(subject); |
+		| frame = Frame(self, subject); |
 		subject.frame := frame;
 		frame.zIndex := self.zIndices.max + 1;
 		event.ifNotNil {
@@ -69,7 +69,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 	}
 
 	fontMenuEntriesOn { :self :subject |
-		['APL333', 'Los Altos', 'Monaco', 'Parc Place'].collect { :fontName |
+		['APL333', 'Los Altos', 'Monaco', 'Neo Euler', 'Parc Place'].collect { :fontName |
 			MenuItem(fontName, nil) { :unusedEvent |
 				subject.font := fontName
 			}
