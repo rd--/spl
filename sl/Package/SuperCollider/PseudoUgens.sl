@@ -1,3 +1,80 @@
+(* Requires: Ugen *)
+
++[Array, SmallFloat, Ugen] {
+
+(*
+	AudioIn { :channelNumber |
+		In(1, NumOutputBuses() + channelNumber - 1)
+	}
+*)
+
+	AudioOut { :channelsArray |
+		Out(0, channelsArray)
+	}
+
+	EnvBreakPoint { :breakPointArray :curves |
+		| n = breakPointArray.size; |
+		Env(
+			(1, 3 .. n).collect { :index | breakPointArray[index] },
+			(2, 4 .. n - 1).collect { :index | breakPointArray[index] }.differentiate,
+			curves,
+			nil,
+			nil,
+			0
+		)
+	}
+
+	EqPan2 { :self :pos |
+		Pan2(self, pos, 1)
+	}
+
+	ExpRange { :self :lo :hi |
+		LinExp(self, -1, 1, lo, hi)
+	}
+
+	ImpulseSequencer { :self :trig |
+		Sequencer(self, trig) * Trig(trig, SampleDur())
+	}
+
+	IRand { :self |
+		IRand(0, self)
+	}
+
+	LinLin { :self :srclo :srchi :dstlo :dsthi |
+		|(
+			mul = (dsthi - dstlo) / (srchi - srclo),
+			add = dstlo - (mul * srclo)
+		)|
+		MulAdd(self, mul, add)
+	}
+
+	Rand { :self |
+		Rand(0, self)
+	}
+
+	Rand2 { :self |
+		Rand(0 - self, self)
+	}
+
+	Range { :self :lo :hi |
+		LinLin(self, -1, 1, lo, hi)
+	}
+
+	Sequencer { :self :trig |
+		Demand(trig, 0, Dseq(inf, self))
+	}
+
+	Silent { :numChannels |
+		(numChannels == 1).if {
+			Dc(0)
+		} {
+			Dc(0) ! numChannels
+		}
+	}
+
+}
+
+
 + [Array, SmallFloat, Ugen] {
 
 	** { :self :aNumber | self ^ aNumber }

@@ -7,10 +7,16 @@
 	'OpenSoundControl'
 
 	(* SuperCollider *)
+	'Ugen'
+	'CcEvent'
+	'Env'
 	'J'
-	'PseudoUgens'
+	'LocalControl'
+	'PseudoUgens' (* < Ugen *)
 	'ScLang'
-	'ScSynth'
-	'Texture'
-	'UgenBindings'
+	'ScSynth' (* < Ugen *)
+	'ScUgen'
+	'Texture' (* < Ugen *)
+	'UgenBindings' (* < Ugen *)
+	'UgenGraph'
 ].loadPackageSequence

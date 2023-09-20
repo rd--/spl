@@ -1,3 +1,5 @@
+(* Requires: Ugen *)
+
 (* Auto-generated *)
 +Void {
 	BlockSize { <primitive: return sc.BlockSize();> }

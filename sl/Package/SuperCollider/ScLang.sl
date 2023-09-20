@@ -472,6 +472,21 @@
 		self.copyFromTo(1, self.size - count)
 	}
 
+	dupEach { :self :anInteger |
+		|(
+			answerSize = self.size * anInteger,
+			answer = Array(answerSize),
+			answerIndex = 1
+		)|
+		(1 .. self.size).do { :selfIndex |
+			(1 .. anInteger).do { :unusedCounter |
+				answer[answerIndex] := self[selfIndex];
+				answerIndex +:= 1
+			}
+		};
+		answer
+	}
+
 	extendTo { :self :size |
 		1.toAsCollect(size, self.species) { :index |
 			self.atWrap(index)
