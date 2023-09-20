@@ -34,6 +34,14 @@
 		self.copyFromTo(n + 1, self.size)
 	}
 
+	allButFirstAndLast { :self |
+		self.allButFirstAndLast(1)
+	}
+
+	allButFirstAndLast { :self :n |
+		self.copyFromTo(n + 1, self.size - n)
+	}
+
 	allButFirstDo { :self :aBlock:/1 |
 		2.toDo(self.size) { :index |
 			aBlock(self[index])
@@ -695,6 +703,17 @@
 		self.indicesDo { :index |
 			self[index] := aBlock(self[index])
 		}
+	}
+
+	replaceAllWith { :self :oldObject :newObject |
+		| index = 0; |
+		{
+			index := self.indexOfStartingAt(oldObject, index + 1);
+			index = 0
+		}.whileFalse {
+			self[index] := newObject
+		};
+		self
 	}
 
 	replaceFromToWith { :self :start :stop :replacement |

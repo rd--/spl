@@ -103,7 +103,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 				each.includesSubstring(bracketedSubject)
 			}.withoutDuplicates.sort
 		)|
-		self.addFrame(MethodSignatureBrowser(methodSignatures, false), event)
+		self.addFrame(self.MethodSignatureBrowser(methodSignatures, false), event)
 	}
 
 	initialize { :self |

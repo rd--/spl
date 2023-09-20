@@ -383,6 +383,8 @@ Array(5).fillFromWith([1 .. 5], negated:/1) = [-1 .. -5]
 { [].allButFirst }.ifError { true } (* error if too few elements *)
 [1 .. 9].allButLast = [1 .. 8] (* all but last element *)
 [1 .. 9].allButLast(7) = [1, 2]  (* all but last k elements *)
+(1 .. 9).allButFirstAndLast = (2 .. 8) (* all but first and last element *)
+(1 .. 9).allButFirstAndLast(3) = (4 .. 6) (* all but first and last element *)
 { [].allButLast }.ifError { true }  (* error if too few elements *)
 { | a = Array(1); | a.at(3) }.ifError { true } (* out of bound indexing is an error *)
 { | a = [1]; | a[3] }.ifError { true } (* out of bound indexing is an error *)
@@ -2664,6 +2666,7 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 (1 .. 4).foldRight(Association:/2) = (1 -> (2 -> (3 -> 4))) (* fold, right associative *)
 (1 .. 4).foldLeft(minus:/2) = (((1 - 2) - 3) - 4) (* fold, left associative *)
 (1 .. 4).foldRight(minus:/2) = (1 - (2 - (3 - 4))) (* fold, right associative *)
+| a = [1 3 5 3 5 7]; | a.replaceAllWith(3, -3); a = [1 -3 5 -3 5 7] (* replace each occurence of an item with another *)
 ```
 
 ## Sequence arithmetic

@@ -94,6 +94,7 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [1, 2, 4].separate { :a :b | (b - a) > 1 } = [[1, 2], [4]] (* separate using predicate block *)
 [1, 2, 4, 5, 7, 8].separate { :a :b | (b - a) > 1 } = [[1, 2], [4, 5], [7, 8]]
 [1, 3, 5].stutter(3) = [1, 1, 1, 3, 3, 3, 5, 5, 5]
+(1 .. 5).dupEach(2) = [1 1 2 2 3 3 4 4 5 5]
 [0, 0, 0, 1, 1, 1].hammingDistance([0, 0, 1, 1, 0, 0]) = 3 (* number places at which element differs *)
 [0, 0, 0, 1, 1, 1].hammingDistance([0, 0, 1, 1, 0]) = 3 (* rhs has fewer elements, includes difference *)
 [0, 0, 0, 1, 1].hammingDistance([0, 0, 1, 1, 0, 0]) = 3 (* lhs has fewer elements, includes difference *)
@@ -108,6 +109,8 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [1 .. 4].similarity([5 .. 8]) = 0 (* similarity based on Levenshtein distance (0 = unequal) *)
 [1 .. 4].similarity([1, 3, 2, 4]) = 0.5 (* similarity based on Levenshtein distance *)
 [1 .. 4].mirror = [1, 2, 3, 4, 3, 2, 1] (* append reverse of prefix of array *)
+(1 .. 4).mirror1 = [1, 2, 3, 4, 3, 2] (* mirror without last element *)
+(1 .. 4).mirror2 = [1, 2, 3, 4, 4, 3, 2, 1] (* append reverse of array *)
 [1 .. 9].normalizeSum.sum = 1 (* self / self.sum *)
 [1 .. 9].normalize(10, 90) = [10, 20 .. 90] (* normalise between minima and maxima *)
 [1 .. 5].wrapExtend(9) = ([1 .. 5] ++ [1 .. 4]) (* extend array cyclically *)
@@ -239,5 +242,4 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 (6 .. 1).reshapeLike([1, [2, 3], [4, 5, 6]]) = [6, [5, 4], [3, 2, 1]]
 [[6, 5, 4], [3, 2], 1].reshapeLike([1, [2, 3], [4, 5, 6]]) = [6, [5, 4], [3, 2, 1]]
 | a = [[10, 20],[30, 40, 50], 60, 70, [80, 90]], b = [[1, 2, [3, 4], [[5], 6], 7], 8, [[9]]]; | a.reshapeLike(b) = [[10, 20, [30, 40], [[50], 60], 70], 80, [[90]]] & { b.reshapeLike(a) = [[1, 2], [3, 4, 5], 6, 7, [8, 9]] }
-(1 .. 5).dupEach(2) = [1 1 2 2 3 3 4 4 5 5]
 ```

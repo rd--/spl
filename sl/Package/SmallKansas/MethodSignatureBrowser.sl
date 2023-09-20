@@ -11,7 +11,7 @@
 				},
 				1 -> {
 					selectedMethod := system.methodLookupAtSignature(path[1]);
-					browser.setStatus(selectedMethod.origin.typeOf);
+					browser.setStatus(selectedMethod.provenance);
 					selectedMethod.definition
 				}
 			])

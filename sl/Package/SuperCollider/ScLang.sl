@@ -634,6 +634,14 @@
 		self ++ self.reversed.allButFirst
 	}
 
+	mirror1 { :self |
+		self ++ self.reversed.allButFirstAndLast
+	}
+
+	mirror2 { :self |
+		self ++ self.reversed
+	}
+
 	normalize { :self :min :max |
 		| minItem = self.min, maxItem = self.max; |
 		self.collect { :each |
@@ -739,9 +747,7 @@
 	}
 
 	stutter { :self :repeatCount |
-		self.collect { :each |
-			{ each } ! repeatCount
-		}.concatenation
+		self.dupEach(repeatCount)
 	}
 
 	withCrossedCollect { :self :aSequence :aProcedure:/2 |

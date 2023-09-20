@@ -113,7 +113,6 @@
 	'Stream-WriteStream'
 	'SuperCollider-CcEvent'
 	'SuperCollider-Env'
-	'SuperCollider-Env'
 	'SuperCollider-J'
 	'SuperCollider-LocalControl'
 	'SuperCollider-PseudoUgens'
