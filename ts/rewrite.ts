@@ -99,7 +99,7 @@ const asJs: any = {
 		const namesArray = lhs.asIteration().children.map(c => c.sourceString);
 		const rhsName = gensym();
 		const slots = namesArray.map((name, index) => `_${name} = _${genName('at', 2)}(${rhsName}, ${index + 1})`).join(', ');
-		return `${rhsName} = ${rhs.asJs}, ${slots}`;
+		return `${rhsName} = _assertSizeOf_2(${rhs.asJs}, ${namesArray.length}), ${slots}`;
 	},
 	TemporariesWithoutInitializers(_verticalBar1, tmp, _verticalBar2) {
 		return `var ${commaList(tmp.children)};`;

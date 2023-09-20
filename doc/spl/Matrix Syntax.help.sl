@@ -6,4 +6,6 @@ Rewrite rule:
 
 Allows writing matrices (two dimensional arrays) as [Vector Syntax] rows separated by semicolons.
 
-This is particularly useful as a part of [Volume Syntax]
+This is particularly useful as a part of [Volume Syntax].
+
+There is no syntax for writing an empty field.

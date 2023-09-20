@@ -7,10 +7,10 @@
 	'OpenSoundControl'
 
 	(* SuperCollider *)
-	'Lang'
 	'J'
+	'PseudoUgens'
+	'ScLang'
+	'ScSynth'
 	'Texture'
-	'Synth'
-	'Bindings'
-	'Pseudo'
+	'UgenBindings'
 ].loadPackageSequence

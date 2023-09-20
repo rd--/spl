@@ -95,9 +95,9 @@ NaN.isNaN (* literal for NaN *)
 (0 - pi).abs = pi (* absolute value of floating point numbers *)
 0.abs = 0 & { 5.abs = 5 } (* absolute value of zero and positive numbers *)
 -0 = 0 (* negative zero is equal to zero *)
-3.99.rounded = 4 (* round ; c.f. rounded *)
+3.99.rounded = 4 (* round, c.f. rounded *)
 3.99.truncated = 3 (* truncate *)
-3.99.roundTo(1) = 4.0 (* round to specified decimal places ; c.f. roundTo: *)
+3.99.roundTo(1) = 4.0 (* round to specified decimal places, c.f. roundTo: *)
 3.99.truncateTo(1) = 3.0 (* truncate to specified decimal places *)
 12345.truncateTo(600) = 12000 (* truncate to integer *)
 pi.roundDownTo(0.01) = 3.14 (* round down to nearest 1/100th *)
@@ -370,7 +370,7 @@ Array(5).fillFromWith([1 .. 5], negated:/1) = [-1 .. -5]
 | a = Array(4); | [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
 [1, 2, 3, 4, 3, 2, 1].occurrencesOf(3) = 2 (* number of occurrences of element in collection *)
 | a = [1, 2], [x, y] = a; | [y, x] = [2, 1]
-| i = (1 .. 9), [x, y, z] = i; | [z, y, x] = [3 .. 1]
+| i = (1 .. 3), [x, y, z] = i; | [z, y, x] = [3 .. 1]
 | [x, y] = { | n = system.randomFloat; | [n, n] }.value; | x = y
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
@@ -2121,9 +2121,9 @@ system.includesPackage('Number') (* package *)
 -987654.321.asStringWithCommas = '-987,654.321'
 -97.531.asStringWithCommas = '-97.531'
 -951.asStringWithCommas = '-951'
-| i = 1; | 1.toDo(5) { :each | i := i + each.squared } ; i = 56 (* iterate over numbers from start to end *)
-| i = 1; | 1.toByDo(5, 2) { :each | i := i + each.squared } ; i = 36 (* iterate over numbers from start to end by step *)
-| i = 1; | (1 .. 3).do { :each | i := i + each.squared } ; i = 15 (* iterate over numbers from one to end *)
+| i = 1; | 1.toDo(5) { :each | i := i + each.squared }; i = 56 (* iterate over numbers from start to end *)
+| i = 1; | 1.toByDo(5, 2) { :each | i := i + each.squared }; i = 36 (* iterate over numbers from start to end by step *)
+| i = 1; | (1 .. 3).do { :each | i := i + each.squared }; i = 15 (* iterate over numbers from one to end *)
 { 23.size }.ifError { true } (* numbers do not have a size *)
 { 23.at(1) }.ifError { true } (* numbers are not indexable *)
 { 23.do { :each | nil } }.ifError { true } (* numbers are not iterable *)
@@ -2188,6 +2188,8 @@ system.includesPackage('Date')
 system.indexedPackages.size - system.loadedPackages.size = system.availablePackages.size
 system.packageDictionary.select { :each | each.requires.notEmpty }.size > 10
 system.packageIndex::PackageBrowser.dependencies = ['Blob' 'Dom' 'Duration' 'RegExp' 'Set' 'SmallKansas' 'Window' 'ListChooser' 'TextEditor' 'ColumnBrowser' 'Trait']
+'Time-Date'.isQualifiedPackageName
+'Time-Date'.parseQualifiedPackageName = ['Time', 'Date']
 ```
 
 ## Point -- geometry trait
@@ -2422,7 +2424,7 @@ var d = Record(); d::x := 1; d::y := 2; d.size = 2
 { Record().atPut(1, 1) }.ifError { true }
 (x: 3.141, y: 23).json = '{"x":3.141,"y":23}' (* records have a json encoding where values do *)
 '{"x":3.141,"y":23}'.parseJson = (x: 3.141, y: 23) (* parse json record *)
-var d = (x: 1, y: 2), i = 9; d.associationsDo { :each | i := i - each.value } ; i = 6 (* iterate over associations *)
+var d = (x: 1, y: 2), i = 9; d.associationsDo { :each | i := i - each.value }; i = 6 (* iterate over associations *)
 var d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
 (x: 23, y: 3.141).isDictionary
 (x: pi)::x = pi
@@ -2547,10 +2549,10 @@ system.includesPackage('Sequenceable') (* package *)
 [1, 3, 2, 4, 5].sorted = [1, 2, 3, 4, 5] (* sort using default comparison (answer new array) *)
 [1, 3, 2, 4, 5].sorted { :i :j | i > j } = [5 .. 1] (* sort using provided comparison (answer new array) *)
 [3, 3, 3, 2, 2, 1].sorted.size = 6 (* sort retains duplicates *)
-var c = [3, 2, 1]; c.sort ; c = [1, 2, 3] (* sort is in place (mutating) *)
+var c = [3, 2, 1]; c.sort; c = [1, 2, 3] (* sort is in place (mutating) *)
 | a = [3, 2, 1]; | a.sort = a (* sort is in place (mutating) *)
 | a = [3, 2, 1]; | a.sorted ~= a (* sorted answers a new array *)
-var c = [3, 2, 1], r = c.sorted ; c ~= r (* sorted (answer a new array) *)
+var c = [3, 2, 1], r = c.sorted; c ~= r (* sorted (answer a new array) *)
 [1 .. 5].isSorted (* is sequence sorted *)
 [1, 3 .. 11].isSorted (* is sequence sorted *)
 [].isSorted (* an empty sequence is sorted *)
@@ -2595,9 +2597,9 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 [3, 4, [2, 4, ['xy'], 'wz']].flattened = [3, 4, 2, 4, 'xy', 'wz']
 [1 .. 9].rotateLeft(3) = ([4 .. 9] ++ [1 .. 3]) (* rotate left *)
 [1 .. 9].rotateRight(3) = ([7 .. 9] ++ [1 .. 6]) (* rotate right *)
-| d = []; | (3 .. 1).withDo((1 .. 3)) { :p :q | d.add(p -> q) } ; d = [3 -> 1, 2 -> 2, 1 -> 3]
-| d = []; | (3 .. 1).reverseWithDo((1 .. 3)) { :p :q | d.add(p -> q) } ; d = [1 -> 3, 2 -> 2, 3 -> 1]
-| d = []; | (3 .. 1).withIndexDo { :each :index | d.add(each -> index) } ; d = [3 -> 1, 2 -> 2, 1 -> 3]
+| d = []; | (3 .. 1).withDo((1 .. 3)) { :p :q | d.add(p -> q) }; d = [3 -> 1, 2 -> 2, 1 -> 3]
+| d = []; | (3 .. 1).reverseWithDo((1 .. 3)) { :p :q | d.add(p -> q) }; d = [1 -> 3, 2 -> 2, 3 -> 1]
+| d = []; | (3 .. 1).withIndexDo { :each :index | d.add(each -> index) }; d = [3 -> 1, 2 -> 2, 1 -> 3]
 (9 .. 1).withCollect((1 .. 9)) { :p :q | p * 2 + q } = [19 .. 11]
 (9 .. 1).withIndexCollect { :each :index | each * 2 + index } = [19 .. 11]
 [1, 3, 5, 7, 11, 15, 23].findBinary { :arg | 11 - arg } = 11
@@ -3122,8 +3124,9 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 | [x, y, z] = [1, 2, 3]; | [z, y, x] = [3, 2, 1] (* temporaries array initialisation syntax *)
 | [x, y, z] = [1 * 2, 3 * 4, 5 * 6]; | [z, y, x] = [30, 12, 2] (* temporaries array initialisation syntax *)
 var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initialisation syntax *)
+{ | [x, y] = [1, 2, 3]; | false }.ifError { true } (* it is an error if the array is of the incorrect size *)
 | x y z | [x, y, z] := [1, 2, 3]; [z, y, x] = [3, 2, 1] (* variables array assignment syntax *)
-| x y z | [x, y, z] := [1 * 2, 3 * 4, 5 * 6]; [z, y, x] = [30, 12, 2](* variables array assignment syntax *)
+| x y z | [x, y, z] := [1 * 2, 3 * 4, 5 * 6]; [z, y, x] = [30, 12, 2] (* variables array assignment syntax *)
 | x = 1, y = 2; | x := y + 1; y := x * 2; [x, y] = [3, 6] (* in sequential assignment evaluation and assignment are interleaved *)
 | [x, y] = [1, 2]; | [x, y] := [y + 1, x * 2]; [x, y] = [3, 2] (* in array assignment the rhs expression is evaluated before any assignments *)
 | x = 1, y = 2, xTmp = nil; | xTmp := y + 1; y := x * 2; x := xTmp; [x, y] = [3, 2]
@@ -3168,7 +3171,7 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 [1 [1 3 [1 3 5] 5] 5] = [1, [1, 3, [1, 3, 5], 5], 5] (* vector syntax, vector items *)
 [1 3; 5 7] = [[1, 3], [5, 7]] (* matrix syntax, literal items *)
 | a = 1, b = 3, c = 5; | [a b c; c b a] = [[1, 3, 5], [5, 3, 1]] (* matrix syntax, identifier items *)
-[; 1; 2 3; 4 5 6] = [[], [1], [2, 3], [4, 5, 6]] (* non-square matrix, empty vector field *)
+[[], [1], [2 3], [4 5 6]] = [[], [1], [2, 3], [4, 5, 6]] (* non-square matrix, there is no syntax for an empty vector field *)
 [1 2; 3 4;; 5 6; 7 8] = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]  (* volume syntax, literal items *)
 | a = 1, b = 3; | [a b; b a;; b a; a b] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] (* volume syntax, identifier items *)
 [1 0 0; 0 1 0; 0 0 1;; 0 1 0; 1 0 1; 0 1 0;; 1 0 1; 0 1 0; 1 0 1].collect(sum:/1) = [1 1 1; 1 2 1; 2 1 2] (* volume to matrix *)

@@ -83,6 +83,14 @@ Package! : [Object] {
 
 +String {
 
+	isQualifiedPackageName { :self |
+		self.includesSubstring('-')
+	}
+
+	Package { :self :name :requires :url :text |
+		<primitive: return new sl.Package(_self, _name, _requires, _url, _text);>
+	}
+
 	parsePackageHeader { :self |
 		| fields = self.firstMlComment.splitBy(','); |
 		fields.collect { :each |
@@ -101,8 +109,9 @@ Package! : [Object] {
 		}.concatenation.Record
 	}
 
-	Package { :self :name :requires :url :text |
-		<primitive: return new sl.Package(_self, _name, _requires, _url, _text);>
+	parseQualifiedPackageName { :self |
+		| [category, name] = self.splitBy('-'); |
+		[category, name]
 	}
 
 }

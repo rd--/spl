@@ -70,6 +70,14 @@
 		self
 	}
 
+	assertSizeOf { :self :anInteger |
+		(self.size = anInteger).if {
+			self
+		} {
+			self.error('assertSizeOf: incorrect size: ' ++ [self.size, anInteger])
+		}
+	}
+
 	associationsDo { :self :aProcedure:/1 |
 		self.do(aProcedure:/1)
 	}

@@ -140,7 +140,7 @@ Sl {
 	VectorSyntaxItem = VectorSyntaxUnarySend | literal | identifier | VectorSyntax
 	VectorSyntaxUnarySend = (literal | identifier) "." identifier
 	MatrixSyntax = "[" ListOf<MatrixSyntaxItems, ";"> "]"
-	MatrixSyntaxItems = VectorSyntaxItem*
+	MatrixSyntaxItems = VectorSyntaxItem+
 	VolumeSyntax = "[" ListOf<VolumeSyntaxItems, ";;"> "]"
 	VolumeSyntaxItems = ListOf<MatrixSyntaxItems, ";">
 
