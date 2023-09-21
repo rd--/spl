@@ -1,3 +1,5 @@
+(* Requires: TextElement *)
+
 ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase |
 
 	applyFilter { :self |
@@ -31,11 +33,11 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 			class: 'listChooserPane'
 		);
 		titleText.ifNotNil {
-			| title = TextButton(titleText, (class: 'listTitle')); |
+			| title = TextButton(titleText) (class: 'listTitle'); |
 			self.listChooserPane.appendChild(title)
 		};
 		withFilter.if {
-			self.filterText := TextInput('', (class: 'filterText'));
+			self.filterText := TextInput('') (class: 'filterText');
 			self.filterText.addEventListener('change') { :event |
 				self.applyFilter
 			};

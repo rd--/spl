@@ -45,6 +45,10 @@ Package! : [Object] {
 		<primitive: return _self.name;>
 	}
 
+	pseudoSlotNameArray { :self |
+		['category', 'name', 'requires', 'url', 'text']
+	}
+
 	qualifiedName { :self |
 		self.category ++ '-' ++ self.name
 	}
@@ -97,7 +101,7 @@ Package! : [Object] {
 			| [key, value] = each.withBlanksTrimmed.splitBy(': '); |
 			key.caseOfOtherwise([
 				'Package' -> {
-					| [category, name] = value.withBlanksTrimmed.splitBy('-'); |
+					| [category, name] = value.withBlanksTrimmed.parseQualifiedPackageName; |
 					['Category' -> category, 'Name' -> name]
 				},
 				'Requires' -> {
@@ -150,7 +154,7 @@ Package! : [Object] {
 
 	loadPackage { :self :package |
 		[
-			package.category ++ '-' ++ package.name
+			package.qualifiedName
 		].loadLocalPackageSequence.then {
 			self.packageDictionary[package.name] := package
 		}

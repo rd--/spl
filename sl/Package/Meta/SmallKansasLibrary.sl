@@ -10,7 +10,7 @@
 	'SmallKansas'
 	'Frame'
 	'Menu'
-	'Text'
+	'TextElement'
 
 	(* SmallKansans *)
 	'AnalogueClock'

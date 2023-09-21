@@ -28,7 +28,7 @@
 	TextOption { :self :value |
 		| option = 'option'.createElement; |
 		option.text := self.isEmpty.if {
-			'Unspecified*'
+			'*Unspecified*'
 		} {
 			self
 		};

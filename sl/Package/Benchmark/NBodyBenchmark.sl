@@ -1,3 +1,5 @@
+(* Requires: Benchmark *)
+
 Body : [Object] { | x y z vx vy vz mass |
 
 	offsetMomentumXYZ { :self :px :py :pz |

@@ -10,7 +10,7 @@ TowersDisk : [Object] { | size next |
 
 }
 
-Towers : [Object] { | piles movesdone |
+TowersBenchmark : [Object] { | piles movesdone |
 
 	pushDiskOnPile { :self :disk :pile |
 		| top = self.piles[pile]; |
@@ -71,8 +71,8 @@ Towers : [Object] { | piles movesdone |
 
 +Void {
 
-	Towers {
-		newTowers().benchmark
+	TowersBenchmark {
+		newTowersBenchmark().benchmark
 	}
 
 }

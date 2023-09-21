@@ -1,3 +1,5 @@
+(* Requires: Benchmark SomRandom *)
+
 Ball : [Object] { | x y xVel yVel |
 
 	bounce { :self |

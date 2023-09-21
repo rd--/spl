@@ -1,3 +1,5 @@
+(* Requires: Benchmark *)
+
 BasicBlockEdge : [Object] { | from to |
 
 	initialize { :self :cfg :fromName :toName |

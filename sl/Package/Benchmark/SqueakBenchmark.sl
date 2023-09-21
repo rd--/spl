@@ -1,14 +1,14 @@
 +@Integer {
 
-	benchFib { :self |
+	squeakBenchFib { :self |
 		(self < 2).if {
 			1
 		} {
-			(self - 1).benchFib + (self - 2).benchFib + 1
+			(self - 1).squeakBenchFib + (self - 2).squeakBenchFib + 1
 		}
 	}
 
-	benchmark { :self |
+	squeakTinyBenchmarks { :self |
 		| size = 8190, count = nil; |
 		self.timesRepeat {
 			| flags = Array(size); |
