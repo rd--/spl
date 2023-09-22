@@ -11,5 +11,3 @@ _a_ must be a literal block.
 * * *
 
 See also: [At Syntax], [AtIfAbsent Syntax], [Put Syntax], [Quoted At Syntax]
-
-Unicode: U+291D ⤝ Leftwards arrow to black diamond

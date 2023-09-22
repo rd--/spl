@@ -1227,7 +1227,7 @@ system.includesPackage('Dictionary') (* package *)
 (x: nil).indices = ['x'] (* nil fields exist *)
 ().atIfAbsentPut('x') { 1 } = 1 (* at or atPut followed by at *)
 | d = (); | d.atIfAbsentPut('x') { 1 } = 1 & { d::x = 1 }
-| d = (); | d::x :?= { 1 } = 1 & { d::x = 1 } (* [Quoted AtIfAbsentPut Syntax] *)
+| d = (); | d::x :=? { 1 } = 1 & { d::x = 1 } (* [Quoted AtIfAbsentPut Syntax] *)
 (x: 1, y: 2).includes(2) (* includes, testing values for equality *)
 (x: 1, y: [2, 3]).includes([2, 3])
 (x: 1, y: 2).includesIdentity(2) (* includes, testing for identity not equality *)

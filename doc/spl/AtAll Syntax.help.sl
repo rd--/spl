@@ -2,7 +2,7 @@
 
 Rewrite rule:
 
-- _c[k1, k2...]_ ≡ _atAll(c, [k1, k2...])_
+- _c[k1, k2...]_ ⟹ _atAll(c, [k1, k2...])_
 
 Syntax for the _atAll_ protocol.
 

@@ -2,10 +2,12 @@
 
 Rewrite rules:
 
-- _c::k_ ≡ _at(c, 'k')_
-- _c::k := v_ ≡ _atPut(c, 'k', v)_
+- _c::k_ ⟹ _at(c, 'k')_
+- _c::k := v_ ⟹ _atPut(c, 'k', v)_
+- _c::k :? a_ ⟹ _atIfAbsent(c, 'k', a)_
+- _c::k :=? a_ ⟹ _atIfAbsentPut(c, 'k', a)_
 
-Collection types implement the _at_ and _atPut_ protocols.
+Collection types implement the _at_, _atPut_, _atIfAbsent_ and _atIfAbsentPut_ protocols.
 
 Dictionaries with string keys can be used to implement simple anonymous and extensible record types.
 

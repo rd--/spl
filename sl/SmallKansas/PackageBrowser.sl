@@ -4,7 +4,7 @@
 
 	PackageBrowser { :self |
 		|(
-			packages = system.packageDictionary.values,
+			packages = system.packageDictionary.values.select(isLoaded:/1),
 			packageCategories = packages.collect(category:/1).withoutDuplicates.sort,
 			methods = nil,
 			selectedMethod = nil

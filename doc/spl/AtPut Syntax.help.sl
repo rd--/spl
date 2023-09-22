@@ -2,7 +2,7 @@
 
 Rewrite rule:
 
-- _c[k] := v_ ≡ _atPut(c, k, v)_
+- _c[k] := v_ ⟹ _atPut(c, k, v)_
 
 Syntax for the _atPut_ protocol.
 

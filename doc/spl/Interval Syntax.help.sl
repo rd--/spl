@@ -12,10 +12,15 @@ and _Array_ values:
 
 The rewrite rules are:
 
-- _(p .. q)_ ≡ _upOrDownTo(p, q)_
-- _(p, q .. r)_ ≡ _thenTo(p, q, r)_
-- _[p .. q]_ ≡ _(p .. q).Array_
-- _[p, q .. r]_ ≡ _(p, q .. r).Array_
+- _(p .. q)_ ⟹ _upOrDownTo(p, q)_
+- _(p, q .. r)_ ⟹ _thenTo(p, q, r)_
+- _[p .. q]_ ⟹ _(p .. q).Array_
+- _[p, q .. r]_ ⟹ _(p, q .. r).Array_
+
+_Note_:
+In Smalltalk _p to: q_ is an empty interval if _p <= q_.
+The re-write rule here calls _upOrDownTo_ which allows descending intervals to be specified.
+Care must be taken not to use _(p .. q)_ where _p.to(q)_ is required.
 
 * * *
 
