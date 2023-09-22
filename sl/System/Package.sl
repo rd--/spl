@@ -1,4 +1,4 @@
-(* Requires: Array String *)
+(* Requires: Array String System *)
 
 Package! : [Object] {
 
@@ -22,7 +22,7 @@ Package! : [Object] {
 		self.requires.ifNotEmpty { :items |
 			aSequence.addAllFirst(items);
 			items.do { :each |
-				system.packageIndex[each].addDependenciesTo(aSequence)
+				system.packageDictionary[each].addDependenciesTo(aSequence)
 			}
 		}
 	}
@@ -37,6 +37,10 @@ Package! : [Object] {
 		answer.withoutDuplicates
 	}
 
+	isLoaded { :self |
+		<primitive: return _self.isLoaded;>
+	}
+
 	load { :self |
 		system.loadPackage(self)
 	}
@@ -46,7 +50,7 @@ Package! : [Object] {
 	}
 
 	pseudoSlotNameArray { :self |
-		['category', 'name', 'requires', 'url', 'text']
+		['category', 'name', 'requires', 'url', 'text', 'isLoaded']
 	}
 
 	qualifiedName { :self |
@@ -124,24 +128,23 @@ Package! : [Object] {
 
 	loadPackages { :self |
 		self.do { :each |
-			system.packageDictionary.includesIndex(each.name).ifTrue {
-				self.error('loadPackages: package exists: ' ++ each.name)
-			};
-			system.packageDictionary[each.name] := each
+			each.isLoaded.ifTrue {
+				self.error('loadPackages: package loaded: ' ++ each.name)
+			}
 		};
 		self.collect(name:/1).loadPackageSequence
 	}
 
 }
 
-+@Cache {
++System {
 
 	availablePackages { :self |
 		self.indexedPackages.difference(self.loadedPackages)
 	}
 
 	indexedPackages { :self |
-		self.packageIndex.values
+		self.packageDictionary.values
 	}
 
 	includesPackage { :self :name |
@@ -149,38 +152,24 @@ Package! : [Object] {
 	}
 
 	loadedPackages { :self |
-		self.packageDictionary.values
+		self.packageDictionary.values.select(isLoaded:/1)
 	}
 
 	loadPackage { :self :package |
 		[
 			package.qualifiedName
-		].loadLocalPackageSequence.then {
-			self.packageDictionary[package.name] := package
-		}
+		].loadLocalPackageSequence
 	}
 
 	package { :self :name |
-		self.packageIndex[name]
-	}
-
-	packageDictionary { :self |
-		self.cached('packageDictionary') {
-			()
-		}
-	}
-
-	packageIndex { :self |
-		self.cached('packageIndex') {
-			()
-		}
+		self.packageDictionary[name]
 	}
 
 	registerPackage { :self :package |
-		self.packageIndex.includesIndex(package.name).if {
+		self.packageDictionary.includesIndex(package.name).if {
 			self.error('registerPackage: package exists: ' ++ package.name)
 		} {
-			self.packageIndex[package.name] := package
+			self.packageDictionary[package.name] := package
 		}
 	}
 

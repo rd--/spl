@@ -305,6 +305,10 @@ System! : [Object, Cache, Indexable, Random] {
 		}
 	}
 
+	packageDictionary { :self |
+		<primitive: return _self.packageDictionary;>
+	}
+
 	packageMethods { :self :packageName |
 		| answer = []; |
 		self.methodDo { :each |
@@ -336,10 +340,10 @@ System! : [Object, Cache, Indexable, Random] {
 	pseudoSlotNameArray { :self |
 		[
 			'cache',
-			'globalDictionary',
 			'methodDictionary',
 			'traitDictionary',
 			'typeDictionary',
+			'packageDictionary',
 			'window',
 			'library', (* Package *)
 			'transcript' (* Package *)

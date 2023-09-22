@@ -2183,21 +2183,22 @@ system.includesPackage('Ordered') (* package *)
 ## Package
 ```
 system.includesPackage('Package') (* package *)
-system.packageIndex::Date.typeOf = 'Package' (* type of package *)
-system.packageIndex::Date.isPackage (* package type predicate *)
+system.packageDictionary::Date.typeOf = 'Package' (* type of package *)
+system.packageDictionary::Date.isPackage (* package type predicate *)
 Package('Category', 'Name', ['Requires'], 'Category/Name.sl', 'Code').isPackage
 (Name: 'Set').Package.isPackage (* package from dictionary, name is the only required field, package predicate *)
 (Category: 'Time', Name: 'Date').Package.url = 'Time/Date.sl' (* derive url *)
-system.packageIndex::Date.name = 'Date' (* name of package *)
-system.packageIndex::Date.category = 'Time' (* category of package *)
+system.packageDictionary::Date.name = 'Date' (* name of package *)
+system.packageDictionary::Date.category = 'Time' (* category of package *)
 system.includesPackage('Date')
 '(* Package: Collection-ByteArray *)'.parsePackageHeader = (Category: 'Collection', Name: 'ByteArray')
 '(* Requires: ColumnBrowser SmallKansas *)'.parsePackageHeader = (Requires: ['ColumnBrowser', 'SmallKansas'])
 system.indexedPackages.size - system.loadedPackages.size = system.availablePackages.size
 system.packageDictionary.select { :each | each.requires.notEmpty }.size > 10
-system.packageIndex::PackageBrowser.dependencies = ['Blob' 'Dom' 'Duration' 'RegExp' 'Set' 'SmallKansas' 'Window' 'TextElement' 'ListChooser' 'TextEditor' 'ColumnBrowser' 'Trait']
+system.packageDictionary::PackageBrowser.dependencies = ['Blob' 'Dom' 'Duration' 'RegExp' 'Set' 'SmallKansas' 'Window' 'TextElement' 'ListChooser' 'TextEditor' 'ColumnBrowser' 'Trait']
 'Time-Date'.isQualifiedPackageName
 'Time-Date'.parseQualifiedPackageName = ['Time', 'Date']
+system.packageDictionary.size > 100 (* number of packages *)
 ```
 
 ## Point -- geometry trait
@@ -3344,8 +3345,6 @@ system.operatorCharacterNameTable['^'] = 'raisedTo' (* table of operator names *
 ## System -- cache
 ```
 system.cache.isMap (* cache is a map from string keys to cached values *)
-system.cache::packageIndex.size > 100
-system.cache::packageDictionary.size > 50
 ```
 
 ## System -- categoryDictionary
@@ -3390,6 +3389,7 @@ system.methodDictionary.isDictionary = true
 system.methodDictionary::collect.isDictionary = true
 system.methodDictionary::collect[2].isDictionary = true
 system.methodDictionary::collect[2]::Array.isMethod = true
+system.methodDictionary::collect[2]::Array.information.isMethodInformation = true
 system.methodDictionary.includesIndex('collect') = true
 system.allMethods.collect { :each | each.signature }.includes('@Iterable>>do:/2') = true
 '@Iterable>>do:/2'.parseMethodSignature = ['@Iterable', 'do:/2']

@@ -62,6 +62,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 	],
 	'System-Reflection': [
 		'Method'
+		'MethodInformation'
 		'Trait'
 		'Type'
 	],

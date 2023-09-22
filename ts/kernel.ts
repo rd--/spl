@@ -29,6 +29,7 @@ type ByArityMethodDictionary = Map<Arity, ByTypeMethodDictionary>;
 type MethodDictionary = Map<MethodName, ByArityMethodDictionary>
 
 function isRecord(anObject: SlObject): boolean {
+	// console.debug(`isRecord: ${anObject}`);
 	const c = anObject.constructor;
 	return c === undefined || c.name === 'Object';
 }
@@ -79,7 +80,7 @@ export function isLargeInteger(anObject: unknown): anObject is bigint { return t
 export function isSet<T>(anObject: unknown): anObject is Set<T> { return anObject instanceof Set; }
 export function isString(anObject: unknown): anObject is string { return typeof anObject === 'string'; }
 
-export function isSmallFloatInteger(anObject: unknown): boolean {
+export function isSmallFloatInteger(anObject: unknown): anObject is number {
 	return isSmallFloat(anObject) && Number.isInteger(anObject)
 }
 
@@ -92,23 +93,34 @@ export function isBitwise(anObject: unknown): boolean {
 	return isSmallFloatInteger(anObject) && (anObject >= -2147483648) && (anObject <= 2147483647);
 }
 
-export class Method {
+export class MethodInformation {
 	name: MethodName;
 	packageName: PackageName;
-	procedure: Function;
 	arity: Arity;
 	sourceCode: MethodSourceCode;
 	origin: MethodOrigin;
-	constructor(name: MethodName, packageName: PackageName, procedure: Function, arity: Arity, sourceCode: MethodSourceCode, origin: MethodOrigin) {
+	constructor(name: MethodName, packageName: PackageName, arity: Arity, sourceCode: MethodSourceCode, origin: MethodOrigin) {
 		this.name = name;
 		this.packageName = packageName;
-		this.procedure = procedure;
 		this.arity = arity;
 		this.sourceCode = sourceCode;
 		this.origin = origin;
 	}
 	qualifiedName() {
+		// console.debug(`MethodInformation>>qualifiedName: ${this.name}, ${this.arity}`);
 		return `${this.name}:/${this.arity}`;
+	}
+}
+
+export class Method {
+	procedure: Function;
+	information: MethodInformation;
+	constructor(procedure: Function, information: MethodInformation) {
+		this.procedure = procedure;
+		this.information = information;
+	}
+	qualifiedName() {
+		return this.information.qualifiedName();
 	}
 }
 
@@ -146,16 +158,18 @@ export class Package {
 	requires: string[];
 	url: string;
 	text: string;
-	constructor(category: string, name: string, requires: string[], url: string, text: string) {
+	isLoaded: boolean;
+	constructor(category: string, name: string, requires: string[], url: string, text: string, isLoaded: boolean) {
 		this.category = category;
 		this.name = name;
 		this.requires = requires;
 		this.url = url;
 		this.text = text;
+		this.isLoaded = isLoaded;
 	}
 }
 
-export function parsePackageRequires(text: string): string {
+export function parsePackageRequires(text: string): string[] {
 	var firstLine = text.split('\n', 1)[0];
 	var packageNames = firstLine.match(/Requires: (.*)\*\)/);
 	if(packageNames) {
@@ -166,10 +180,12 @@ export function parsePackageRequires(text: string): string {
 }
 
 export function evaluatePackage(pkg: Package) {
+	// console.debug(`evaluatePackage: ${pkg.name}, ${pkg.text}`);
 	return evaluate.evaluateFor(pkg.name, pkg.text);
 }
 
 export async function evaluatePackageArrayInSequence(pkgArray: Package[]) {
+	// console.debug(`evaluatePackageArrayInSequence: '${pkgArray}'`);
 	for(let pkg of pkgArray) {
 		await evaluatePackage(pkg);
 	}
@@ -182,6 +198,7 @@ export class System {
 	methodDictionary: MethodDictionary;
 	traitDictionary: Map<TraitName, Trait>;
 	typeDictionary: Map<TypeName, Type>;
+	packageDictionary: Map<PackageName, Package>;
 	window: Window;
 	cache: Map<string, unknown>;
 	constructor() {
@@ -190,9 +207,8 @@ export class System {
 		// Void is not an ordinary type, it names the place in the method table for no-argument procedures.
 		this.typeDictionary = new Map(preinstalledTypes.map(function(each) { return [each, new Type(each, 'Kernel', [], [], new Map())]; }));
 		this.window = window;
+		this.packageDictionary = new Map();
 		this.cache = new Map();
-		this.cache.set('packageDictionary', new Map());
-		this.cache.set('packageIndex', new Map());
 	}
 }
 
@@ -220,9 +236,10 @@ export function addTrait(traitName: TraitName, packageName: PackageName): void {
 
 // c.f. rewrite/makeMethodList
 export function addTraitMethod(traitName: TraitName, packageName: PackageName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
+	// console.debug(`addTraitMethod: ${traitName}, ${packageName}, ${methodName}, ${arity}`);
 	if(traitExists(traitName)) {
 		const trait = system.traitDictionary.get(traitName)!;
-		const method = new Method(methodName, packageName, procedure, arity, sourceCode, trait);
+		const method = new Method(procedure, new MethodInformation(methodName, packageName, arity, sourceCode, trait));
 		trait.methodDictionary.set(method.qualifiedName(), method);
 		return method;
 	} else {
@@ -234,7 +251,7 @@ export function copyTraitToType(traitName: TraitName, typeName: TypeName): void 
 	if(traitExists(traitName) && typeExists(typeName)) {
 		const methodDictionary = system.traitDictionary.get(traitName)!.methodDictionary;
 		for (const [name, method] of methodDictionary) {
-			// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${method.arity}`);
+			// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${method.information.arity}`);
 			addMethodFor(typeName, method, true);
 		}
 	} else {
@@ -315,50 +332,50 @@ export function addMethodFor(typeName: TypeName, method: Method, requireTypeExis
 	if(requireTypeExists && !typeExists(typeName)) {
 		throw(`addMethodFor: type does not exist: ${typeName} (${method})`);
 	}
-	// console.debug(`addMethodFor: ${typeName}, ${method.name}, ${method.arity}`);
-	if(!methodExists(method.name)) {
+	// console.debug(`addMethodFor: ${typeName}, ${method.qualifiedName()}`);
+	if(!methodExists(method.information.name)) {
 		// console.debug(`addMethodFor: new method name`);
-		system.methodDictionary.set(method.name, new Map());
+		system.methodDictionary.set(method.information.name, new Map());
 		if(slOptions.simpleArityModel) {
-			const prefixedName = '_' + method.name;
+			const prefixedName = '_' + method.information.name;
 			let globalFunction = globalThis[prefixedName];
 			if(globalFunction === undefined) {
 				globalFunction = globalThis[prefixedName] = function(...argumentsArray: unknown[]) {
-					// console.debug(`dispatchByArity: ${method.name}, ${JSON.stringify(argumentsArray)}`);
-					return dispatchByArity(method.name, argumentsArray.length, arityTable, argumentsArray);
+					// console.debug(`dispatchByArity: ${method.qualifiedName()}, ${JSON.stringify(argumentsArray)}`);
+					return dispatchByArity(method.information.name, argumentsArray.length, arityTable, argumentsArray);
 				};
-				Object.defineProperty(globalFunction, "name", { value: method.name });
+				Object.defineProperty(globalFunction, "name", { value: method.information.name });
 				Object.defineProperty(globalFunction, "hasRestParameters", { value: true });
 			}
 		}
 	}
-	let arityTable = system.methodDictionary.get(method.name)!;
-	if(!arityTable.has(method.arity)) {
+	let arityTable = system.methodDictionary.get(method.information.name)!;
+	if(!arityTable.has(method.information.arity)) {
 		// console.debug(`addMethodFor: new method arity`);
-		arityTable.set(method.arity, new Map());
+		arityTable.set(method.information.arity, new Map());
 		if(!slOptions.simpleArityModel) {
-			const prefixedNameWithArity = `_${method.name}_${method.arity}`;
+			const prefixedNameWithArity = `_${method.information.name}_${method.information.arity}`;
 			// console.debug(`addMethodFor: generate global: ${prefixedNameWithArity}`);
 			let globalFunctionWithArity = globalThis[prefixedNameWithArity];
 			if(globalFunctionWithArity === undefined) {
-				const typeTable = arityTable.get(method.arity)!;
+				const typeTable = arityTable.get(method.information.arity)!;
 				globalFunctionWithArity = globalThis[prefixedNameWithArity] = function(...argumentsArray: unknown[]) {
-					// console.debug(`dispatchByType: ${method.name}, ${JSON.stringify(argumentsArray)}`);
-					return dispatchByType(method.name, method.arity, typeTable, argumentsArray);
+					// console.debug(`dispatchByType: ${method.qualifiedName()}, ${JSON.stringify(argumentsArray)}`);
+					return dispatchByType(method.information.name, method.information.arity, typeTable, argumentsArray);
 				};
 				Object.defineProperty(globalFunctionWithArity, "name", { value: method.qualifiedName() });
-				Object.defineProperty(globalFunctionWithArity, "length", { value: method.arity }); // c.f. makeCheckedAritySpecificFunction
+				Object.defineProperty(globalFunctionWithArity, "length", { value: method.information.arity }); // c.f. makeCheckedAritySpecificFunction
 			}
 		}
 	}
-	const existingEntry = arityTable.get(method.arity)!.get(typeName);
+	const existingEntry = arityTable.get(method.information.arity)!.get(typeName);
 	// Todo: this is not a correct test, it needs to not over-write less specific traits as well... it works for stdlib...
-	if(existingEntry && existingEntry.origin.name === typeName && method.origin.name !== typeName) {
+	if(existingEntry && existingEntry.information.origin.name === typeName && method.information.origin.name !== typeName) {
 		// console.debug('addMethodFor: existing more specific entry');
 	} else {
-		arityTable.get(method.arity)!.set(typeName, method);
+		arityTable.get(method.information.arity)!.set(typeName, method);
 	}
-	if(typeName === method.origin.name) {
+	if(typeName === method.information.origin.name) {
 		system.typeDictionary.get(typeName)!.methodDictionary.set(method.qualifiedName(), method);
 	}
 	return method;
@@ -371,6 +388,7 @@ function isTypeType(typeName: TypeName):boolean {
 
 // c.f. rewrite/makeMethodList
 export function addMethod(typeName: TypeName, packageName: PackageName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
+	// console.debug(`addMethod: ${typeName}, ${packageName}, ${methodName}, ${arity}`);
 	const isMeta = isTypeType(typeName);
 	if(isMeta && !typeExists(typeName)) {
 		// Lazily add meta-type entries as required
@@ -378,7 +396,7 @@ export function addMethod(typeName: TypeName, packageName: PackageName, methodNa
 	}
 	if(typeExists(typeName)) {
 		const typeValue = system.typeDictionary.get(typeName)!;
-		const method = new Method(methodName, packageName, procedure, arity, sourceCode, typeValue);
+		const method = new Method(procedure, new MethodInformation(methodName, packageName, arity, sourceCode, typeValue));
 		return addMethodFor(typeName, method, slOptions.requireTypeExists);
 	} else {
 		throw(`addMethod: type does not exist: ${typeName}, ${methodName}, ${arity}`);
@@ -433,9 +451,9 @@ export async function initializeLocalPackages(qualifiedPackageNames: string[]): 
 		const category = parts[0];
 		const name = parts[1];
 		const url = category + '/' + name + '.sl';
-		const pkg = new Package(category, name, null, url, null); /* note: requires and text are set after fetch */
-		/* add to index (initialized & fetched, not loaded) */
-		system.cache.get('packageIndex').set(name, pkg);
+		const pkg = new Package(category, name, null, url, null, false); /* note: requires and text are set after fetch */
+		/* add to dictionary (initialized & fetched, not loaded) */
+		system.packageDictionary.set(name, pkg);
 		packageArray.push(pkg);
 	});
 	return packageArray;
@@ -443,14 +461,14 @@ export async function initializeLocalPackages(qualifiedPackageNames: string[]): 
 
 /* Evaluate already fetched packages in sequence. */
 export async function loadPackageSequence(packageNames: string[]): Promise<void> {
+	// console.debug(`loadPackageSequence: '${packageNames}'`);
 	const packageArray = [];
 	packageNames.forEach(name => {
-		const pkg = system.cache.get('packageIndex').get(name);
+		const pkg = system.packageDictionary.get(name);
 		if(!pkg) {
-			console.error(`loadPackageSequence: ${name}, ${pkg}`);
+			console.error(`loadPackageSequence: no such package: ${name}, ${pkg}`);
 		} {
-			/* add to dictionary (loaded) */
-			system.cache.get('packageDictionary').set(name, pkg);
+			pkg.isLoaded = true;
 			packageArray.push(pkg);
 		}
 	});

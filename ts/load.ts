@@ -23,7 +23,7 @@ export async function readLocalPackages(qualifiedPackageNames: string[]): Promis
 		const resolvedFileName = resolveFileName(pkg.url);
 		resolvedFileNameArray.push(resolvedFileName);
 	});
-	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(function(fileName) {
+	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(function(fileName: string):Promise<string> {
 		return fetch(fileName, { cache: 'no-cache' }).then(response => response.text());
 	}));
 	fetchedTextArray.map(function(text, index) {

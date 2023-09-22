@@ -1,7 +1,35 @@
-Method! : [Object] {
+MethodInformation! : [Object] {
 
 	arity { :self |
 		<primitive: return _self.arity;>
+	}
+
+	name { :self |
+		<primitive: return _self.name;>
+	}
+
+	origin { :self |
+		<primitive: return _self.origin;>
+	}
+
+	packageName { :self |
+		<primitive: return _self.packageName;>
+	}
+
+	pseudoSlotNameArray { :self |
+		['name', 'packageName', 'arity', 'sourceCode', 'origin']
+	}
+
+	sourceCode { :self |
+		<primitive: return _self.sourceCode;>
+	}
+
+}
+
+Method! : [Object] {
+
+	arity { :self |
+		self.information.arity
 	}
 
 	definition { :self |
@@ -18,8 +46,12 @@ Method! : [Object] {
 		].join.evaluate
 	}
 
+	information { :self |
+		<primitive: return _self.information;>
+	}
+
 	name { :self |
-		<primitive: return _self.name;>
+		self.information.name
 	}
 
 	operatorNameOrQualifiedName { :self |
@@ -39,11 +71,11 @@ Method! : [Object] {
 	}
 
 	origin { :self |
-		<primitive: return _self.origin;>
+		self.information.origin
 	}
 
 	packageName { :self |
-		<primitive: return _self.packageName;>
+		self.information.packageName
 	}
 
 	procedure { :self |
@@ -55,7 +87,7 @@ Method! : [Object] {
 	}
 
 	pseudoSlotNameArray { :self |
-		['name', 'packageName', 'procedure', 'arity', 'sourceCode', 'origin']
+		['procedure', 'information']
 	}
 
 	qualifiedName { :self |
@@ -67,7 +99,7 @@ Method! : [Object] {
 	}
 
 	sourceCode { :self |
-		<primitive: return _self.sourceCode;>
+		self.information.sourceCode
 	}
 
 }

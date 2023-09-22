@@ -43,7 +43,7 @@ async function rewriteFile(fileName: string): Promise<void> {
 declare global {
 	var sc: Record<string, unknown>;
 	var globalScSynth: sc.ScSynth;
-	var playUgenAt: (aUgen: sc.Signal) => void;
+	var playUgenAt: (scSynth: sc.ScSynth, ugenGraph: sc.Signal, groupId: number, systemTimeInSeconds: number | null) => void;
 }
 
 const cliScSynth = scUdp.scSynthUdp(scUdp.defaultScSynthUdp);

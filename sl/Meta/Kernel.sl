@@ -26,13 +26,13 @@
 	'Error'
 	'Meta'
 	'Nil'
-	'Package'
 	'Procedure'
 	'Promise'
 	'Response'
 	'SmallFloat'
 	'String'
 	'System'
+	'Package' (* Requires: System *)
 
 	(* Collection Types *)
 	'Association'
