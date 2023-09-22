@@ -54,7 +54,7 @@ async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	fileio.addLoadFileMethods();
 	sl.assignGlobals();
 	load.setLoadPath(loadPath);
-	await fileio.evaluateFile(loadPath + '/Package/Meta/PackageIndex.sl', 'LoadSpl');
+	await fileio.evaluateFile(loadPath + '/Meta/PackageIndex.sl', 'LoadSpl');
 	await kernel.loadPackageSequence(['Kernel'].concat(lib)); // ['cat.sl']
 	if(lib.includes('sc.sl')) {
 		globalThis.sc = sc;

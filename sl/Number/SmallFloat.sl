@@ -128,7 +128,9 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	assertIsSmallInteger { :self |
-		self.assert { self.isSmallInteger }
+		self.assert {
+			self.isSmallInteger
+		}
 	}
 
 	asInteger { :self |

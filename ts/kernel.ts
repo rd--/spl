@@ -432,7 +432,7 @@ export async function initializeLocalPackages(qualifiedPackageNames: string[]): 
 		const parts = qualifiedName.split('-');
 		const category = parts[0];
 		const name = parts[1];
-		const url = 'Package/' + category + '/' + name + '.sl';
+		const url = category + '/' + name + '.sl';
 		const pkg = new Package(category, name, null, url, null); /* note: requires and text are set after fetch */
 		/* add to index (initialized & fetched, not loaded) */
 		system.cache.get('packageIndex').set(name, pkg);

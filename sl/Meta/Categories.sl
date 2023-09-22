@@ -539,6 +539,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'adaptToPointAndApply'
 		'asAscii'
 		'asBit'
+		'asCollection'
 		'asComplex'
 		'asFraction'
 		'asHex'
@@ -568,7 +569,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'reverse'
 		'romanNumber'
 		'threeDigitName'
-		'toArray'
 	],
 	'converting-system': [
 		'asMethodName'
@@ -699,6 +699,9 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'error handling': [
 		'assert'
+		'assertIsCollection'
+		'assertIsSmallInteger'
+		'assertIsOfSize'
 		'caseError'
 		'emptyCheck'
 		'error'

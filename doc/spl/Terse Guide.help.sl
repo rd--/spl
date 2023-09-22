@@ -260,21 +260,23 @@ Array(5) = [nil, nil, nil, nil, nil] (* array slots are initialised to nil *)
 Array(5, 0) = [0, 0, 0, 0, 0] (* array can have slots initialised to a value *)
 Array([]) = [] (* Array constructor, empty array *)
 | a = [1 .. 9]; | a.copy ~~ a (* copy does not answer argument *)
-| a = [1 .. 9]; | a.Array == a (* Array answers the receiver if it is an array *)
-1.toArray = [1].toArray (* enclose a non-collection in an array *)
-(1 .. 3).toArray = [1 .. 3] (* at collections behaves as Array *)
-| a = [1 .. 3]; | a.toArray == a (* an array is already an array *)
-[1, 2, 3] = [1, 2, 3] = true (* Array equality *)
-[1, 2, 3] ~= [1, 2, 4] (* Array inequality, differ by value *)
-[1, 2, 3] = [1, 2, 4] = false (* Array inequality *)
-[1, 2] ~= [1, 2, 3, 4] (* Array inequality, differ by size *)
-[1, 2] = [1, 2, 3, 4] = false (* Array inequality *)
-[1, 2, 3, 4, 5, 6] ~= 7 (* Array inequality, differ by type *)
-[1, 2, 3, 4, 5, 6] = 7 = false (* Array inequality *)
-[1, 2, 3] == [1, 2, 3] = false (* Arrays are not identical, even if equal *)
-| a = [1, 2, 3]; | a == a = true (* Array self identity *)
-[1, 2, 3].isArray = true (* Array predicate *)
-[1, 2.3, '4'].atRandom.isArray.not (* Array predicate *)
+| a = [1 .. 9]; | a.asArray == a (* asArray answers the receiver if it is an array *)
+| a = [1 .. 9]; | a.Array ~~ a (* Array constructor copies any collection, sequenceable or otherwise *)
+1.asCollection = [1] (* enclose a non-collection in an array *)
+[1 .. 3].asCollection = [1 .. 3] (* an array is a collection *)
+(1 .. 3).asCollection = (1 .. 3) (* an interval is a collection *)
+| x = [1 .. 3]; | x.asCollection == x (* in the case of a collection, it is not copied *)
+[1, 2, 3] = [1, 2, 3] = true (* array equality *)
+[1, 2, 3] ~= [1, 2, 4] (* array inequality, differ by value *)
+[1, 2, 3] = [1, 2, 4] = false (* array inequality *)
+[1, 2] ~= [1, 2, 3, 4] (* array inequality, differ by size *)
+[1, 2] = [1, 2, 3, 4] = false (* array inequality *)
+[1, 2, 3, 4, 5, 6] ~= 7 (* array inequality, differ by type *)
+[1, 2, 3, 4, 5, 6] = 7 = false (* array inequality *)
+[1, 2, 3] == [1, 2, 3] = false (* arrays are not identical, even if equal *)
+| a = [1, 2, 3]; | a == a = true (* array self identity *)
+[1, 2, 3].isArray = true (* array predicate *)
+[1, 2.3, '4'].atRandom.isArray.not (* array predicate *)
 4 * [1, 2, 3] = [4, 8, 12] (* scalar Array math *)
 [1, 3, 5, 7].reversed = [7, 5, 3, 1] (* reversed answers new array *)
 | a = [1, 3, 5, 7]; | a.reversed ~= a (* reversed answers new array *)
@@ -813,7 +815,7 @@ ByteArray(4).hex = '00000000'
 'string'.asciiByteArray.hex = '737472696e67' (* hexadecimal string of ByteArray *)
 '737472696e67'.parseHexString.asciiString = 'string' (* ByteArray of hexadecimal string *)
 | b = ByteArray(4); | b.atAllPut(15); b.hex = '0f0f0f0f'
-'string'.asciiByteArray.Array = [115, 116, 114, 105, 110, 103] (* Array from ByteArray *)
+'string'.asciiByteArray.Array = [115, 116, 114, 105, 110, 103] (* array from ByteArray *)
 '0f00f010'.parseHexString = [15, 0, 240, 16].ByteArray
 { [1, 2, 3].ByteArray.add(4) }.ifError { true } (* ByteArrays are not Extensible *)
 [1 .. 9].ByteArray.select { :each | false } = [].ByteArray (* select nothing *)
@@ -952,6 +954,10 @@ Set().Array = []
 [1, 2, 3].allEqual.not (* are all items equal *)
 (1 .. 4).reduce(Association:/2) = (((1 -> 2) -> 3) -> 4) (* reduce, happens to be left associative *)
 (1 .. 4).reduce(minus:/2) = (((1 - 2) - 3) - 4) (* reduce, happens to be left associative *)
+(1 .. 4).assertIsOfSize(4) = (1 .. 4) (* assert collection is of indicated size *)
+{ (1 .. 4).assertIsOfSize(3) }.ifError { true } (* assert collection is of indicated size *)
+(1 .. 4).assertIsCollection = (1 .. 4) (* require that an object is a collection *)
+{ '1 to 4'.assertIsCollection }.ifError { true } (* a string is not a collection, hence error *)
 ```
 
 ## Extensible -- collection trait
@@ -2102,19 +2108,19 @@ nil.json = 'null' (* nil has a Json representation *)
 ## Number -- numeric trait
 ```
 system.includesPackage('Number') (* package *)
-1 + 2.5 = 3.5 (* Addition of two numbers *)
-10 - 8.5 = 1.5 (* Subtraction of two numbers *)
-3.4 * 5 = 17 (* Multiplication of two numbers *)
-8 / 2 = 4 (* Division of two numbers *)
-2 ^ 3 = 8 (* Exponentiation of a number *)
-12 = 11 = false (* Equality between two numbers *)
-12 ~= 11 = true (* Test if two numbers are different *)
-12 > 9 = true (* Greater than *)
-12 >= 10 = true (* Greater or equal than *)
-12 < 10 = false (* Smaller than *)
-2.718.truncated = 2 (* Truncate to integer *)
-2.718.rounded = 3 (* Round to integer *)
-2.718.roundTo(0.01) = 2.72 (* Round to a given precision *)
+1 + 2.5 = 3.5 (* addition of two numbers *)
+10 - 8.5 = 1.5 (* subtraction of two numbers *)
+3.4 * 5 = 17 (* multiplication of two numbers *)
+8 / 2 = 4 (* division of two numbers *)
+2 ^ 3 = 8 (* exponentiation of a number *)
+12 = 11 = false (* equality between two numbers *)
+12 ~= 11 = true (* test if two numbers are different *)
+12 > 9 = true (* greater than *)
+12 >= 10 = true (* greater or equal than *)
+12 < 10 = false (* smaller than *)
+2.718.truncated = 2 (* truncate to integer *)
+2.718.rounded = 3 (* round to integer *)
+2.718.roundTo(0.01) = 2.72 (* round to a given precision *)
 123456789.asStringWithCommas = '123,456,789'
 123456.789.asStringWithCommas = '123,456.789'
 13579.asStringWithCommas = '13,579'
@@ -2181,7 +2187,7 @@ system.packageIndex::Date.typeOf = 'Package' (* type of package *)
 system.packageIndex::Date.isPackage (* package type predicate *)
 Package('Category', 'Name', ['Requires'], 'Category/Name.sl', 'Code').isPackage
 (Name: 'Set').Package.isPackage (* package from dictionary, name is the only required field, package predicate *)
-(Category: 'Time', Name: 'Date').Package.url = 'Package/Time/Date.sl' (* derive url *)
+(Category: 'Time', Name: 'Date').Package.url = 'Time/Date.sl' (* derive url *)
 system.packageIndex::Date.name = 'Date' (* name of package *)
 system.packageIndex::Date.category = 'Time' (* category of package *)
 system.includesPackage('Date')
@@ -2189,7 +2195,7 @@ system.includesPackage('Date')
 '(* Requires: ColumnBrowser SmallKansas *)'.parsePackageHeader = (Requires: ['ColumnBrowser', 'SmallKansas'])
 system.indexedPackages.size - system.loadedPackages.size = system.availablePackages.size
 system.packageDictionary.select { :each | each.requires.notEmpty }.size > 10
-system.packageIndex::PackageBrowser.dependencies = ['Blob' 'Dom' 'Duration' 'RegExp' 'Set' 'SmallKansas' 'Window' 'ListChooser' 'TextEditor' 'ColumnBrowser' 'Trait']
+system.packageIndex::PackageBrowser.dependencies = ['Blob' 'Dom' 'Duration' 'RegExp' 'Set' 'SmallKansas' 'Window' 'TextElement' 'ListChooser' 'TextEditor' 'ColumnBrowser' 'Trait']
 'Time-Date'.isQualifiedPackageName
 'Time-Date'.parseQualifiedPackageName = ['Time', 'Date']
 ```
@@ -3499,7 +3505,7 @@ system.includesPackage('Url') (* package *)
 '/home/rohan/sw/spl/README'.asFileUrl.fetchText.catch { :err | err.postLine }; true (* file does not exist *)
 'file://localhost/home/rohan/sw/spl/README.md'.asUrl.fetchText.then { :text | (text.size > 0).postLine }; true (* fetch text from url (local) *)
 'https://rohandrape.net/sw/spl/README.md'.asUrl.fetchText.thenElse { :text | (text.size > 0).postLine } { :err | true }; true (* fetch text from url (remote, allow for no network connection) *)
-'file://localhost/home/rohan/sw/spl/sl/Package/SmallKansas/PackageBrowser.sl'.asUrl.fetchText.then { :text | text.firstMlComment.parseJson.includesIndex('requires').postLine }; true
+'file://localhost/home/rohan/sw/spl/sl/SmallKansas/PackageBrowser.sl'.asUrl.fetchText.then { :text | text.parsePackageHeader.includesIndex('Requires').postLine }; true
 ```
 
 ## System -- URLSearchParams

@@ -70,7 +70,7 @@ Package! : [Object] {
 +@Dictionary {
 
 	derivePackageUrl { :self |
-		['Package/', self::Category, '/', self::Name, '.sl'].join
+		[self::Category, '/', self::Name, '.sl'].join
 	}
 
 	Package { :self |

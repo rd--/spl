@@ -16,4 +16,4 @@ Array implements the _Iterable_, _Indexable_, _Collection_, _SequencableCollecti
 
 * * *
 
-See also: asArray, ByteArray, Float64Array, toArray
+See also: asArray, asCollection, ByteArray, Float64Array

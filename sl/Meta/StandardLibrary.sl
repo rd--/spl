@@ -5,6 +5,7 @@
 	'Bitset'
 	'ByteArray'
 	'CategoryDictionary'
+	'Converting' (* < Requires: Bag *)
 	'Float64Array'
 	'Graph'
 	'Heap'
@@ -12,7 +13,7 @@
 	'PriorityQueue'
 	'RunArray'
 	'Set'
-	'Stack' (* > LinkedList *)
+	'Stack' (* Requires: LinkedList *)
 	'SortedArray'
 	'WeakMap'
 

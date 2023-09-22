@@ -4,7 +4,7 @@
 
 	++ { :self :aCollection |
 		| answer = self.copy; |
-		answer.addAll(aCollection.asCollection);
+		answer.addAll(aCollection.assertIsCollection);
 		answer
 	}
 
@@ -70,11 +70,13 @@
 		self
 	}
 
-	assertSizeOf { :self :anInteger |
-		(self.size = anInteger).if {
-			self
-		} {
-			self.error('assertSizeOf: incorrect size: ' ++ [self.size, anInteger])
+	assertIsCollection { :self |
+		self
+	}
+
+	assertIsOfSize { :self :anInteger |
+		self.assert {
+			self.size = anInteger
 		}
 	}
 
@@ -321,10 +323,6 @@
 		self.any(maxNumberOfElements.min(self.size))
 	}
 
-	toArray { :self |
-		self.Array
-	}
-
 	union { :self :aCollection |
 		| answer = self.Set; |
 		answer.includeAll(aCollection);
@@ -475,12 +473,12 @@
 
 +@Object {
 
-	isCollection { :self |
-		false
+	asCollection { :self |
+		[self]
 	}
 
-	toArray { :self |
-		[self]
+	isCollection { :self |
+		false
 	}
 
 }

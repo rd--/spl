@@ -1,15 +1,3 @@
-+@Collection {
-
-	asArray { :self |
-		self.Array
-	}
-
-	asBag { :self |
-		self.Bag
-	}
-
-}
-
 +@Dictionary {
 
 	keys { :self |
@@ -40,60 +28,12 @@
 
 }
 
-+@Iterable {
-
-	contains { :self :aBlock:/1 |
-		self.anySatisfy(aBlock:/1)
-	}
-
-	fold { :self :aBlock:/2 |
-		self.reduce(aBlock:/2)
-	}
-
-}
-
 +@Sequenceable {
 
 	keysAndValuesDo { :self :aBlock:/2 |
 		self.indicesDo { :index |
 			aBlock(index, self[index])
 		}
-	}
-
-}
-
-+@Number {
-
-	pow { :self :aNumber |
-		self ^ aNumber
-	}
-
-}
-
-+Array {
-
-	asArray { :self |
-		self
-	}
-
-}
-
-+Bag {
-
-	asBag { :self |
-		self
-	}
-
-	asSet { :self |
-		self.contents.keys.asSet
-	}
-
-}
-
-+Map {
-
-	asMap { :self |
-		self
 	}
 
 }

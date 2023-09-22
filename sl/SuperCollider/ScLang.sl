@@ -359,7 +359,7 @@
 		(index = 1).if {
 			item
 		} {
-			self.toArray.instill(index, item, default)
+			self.asCollection.instill(index, item, default)
 		}
 	}
 

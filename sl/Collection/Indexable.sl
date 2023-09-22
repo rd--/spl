@@ -172,3 +172,12 @@
 	}
 
 }
+
+(* Key *)
++@Indexable {
+
+	keyAtValue { :self :value |
+		self.indexOf(value)
+	}
+
+}

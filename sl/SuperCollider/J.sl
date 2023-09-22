@@ -200,7 +200,7 @@
 				answer = firstCut.ifNil {
 					self.copy
 				} {
-					self.atAll(firstCut.toArray)
+					self.atAll(firstCut.asCollection)
 				}
 			)|
 			(cuts.size = 1).if {

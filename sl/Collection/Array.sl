@@ -31,10 +31,6 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 		<primitive: return _self.push(_anObject);>
 	}
 
-	Array { :self |
-		self
-	}
-
 	atAllPut { :self :anObject |
 		<primitive:
 		_self.fill(_anObject);
@@ -158,6 +154,19 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 	Array {
 		<primitive: return [];>
+	}
+
+}
+
++@Collection {
+
+	Array { :self |
+		| answer = Array(self.size), index = 0; |
+		self.do { :each |
+			index +:= 1;
+			answer[index] := each
+		};
+		answer
 	}
 
 }
