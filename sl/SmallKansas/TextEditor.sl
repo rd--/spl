@@ -98,7 +98,7 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 			},
 			MenuItem('Require It', nil) { :event |
 				system.package(self.currentWord).require.then {
-					self.insertText('Package loaded: ' ++ self.currentWord)
+					self.insertText('*Package loaded*')
 				}
 			},
 			MenuItem('Reset Synthesiser', '.') { :event |

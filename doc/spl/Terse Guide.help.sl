@@ -1833,7 +1833,7 @@ Interval(1, 100, 0.5).size = 199
 (1, 3 .. 17).copyFromTo(3, 6) = (5, 7 .. 11) (* copy from start index to end index *)
 (17, 15 .. 1).copyFromTo(3, 6) = (13, 11 .. 7) (* copy from start index to end index *)
 (1, 3 .. 17).copyFromTo(6, 3).isEmpty (* if indices are out of order the interval is empty *)
-(1 .. 99).printStringConcise
+(1 .. 99).printStringConcise(8) = 'an Interval' (* consise printer *)
 ```
 
 ## Iterable -- collection trait
@@ -2205,7 +2205,7 @@ system.packageDictionary.size > 100 (* number of packages *)
 system.package('Array').isPackage (* lookup package by unqualified name *)
 system.package('Collection-Array') == system.package('Array') (* lookup package by qualified name *)
 { system.package('Kernel-Array') }.ifError { true } (* for qualified names the system checks the category *)
-system.package('BounceBenchmark').dependencies.collect(name:/1)
+system.package('BounceBenchmark').dependencies.collect(name:/1) = ['Benchmark', 'SomRandom']
 ```
 
 ## Point -- geometry trait
