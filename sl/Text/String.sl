@@ -193,7 +193,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	evaluate { :self |
-		<primitive: return sl.evaluateFor('Interactive', _self);>
+		<primitive: return sl.evaluateFor('*Interactive*', _self);>
 	}
 
 	findStringStartingAt { :self :aString :aNumber |
@@ -240,6 +240,14 @@ String! : [Object, Json, Iterable] {
 
 	includes { :self :aCharacter |
 		self.characterArray.includes(aCharacter)
+	}
+
+	indefiniteArticle { :self |
+		self.first.isVowel.if {
+			'an '
+		} {
+			'a '
+		}
 	}
 
 	indices { :self |
@@ -537,6 +545,10 @@ String! : [Object, Json, Iterable] {
 
 	withBlanksTrimmed { :self |
 		<primitive: return _self.trim();>
+	}
+
+	withIndefiniteArticle { :self |
+		self.indefiniteArticle ++ self
 	}
 
 	withoutLeadingBlanks { :self |

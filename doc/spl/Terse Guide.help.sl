@@ -418,8 +418,9 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].take(11) = [1 .. 9] (* taking more elements than there are answers a copy *)
 [1, 2].take(5).size = 2 (* taking more elements than there are answers a copy *)
 { [1, 2].take(-1) }.ifError { true }
-[1 .. 5].beginsWith([1 .. 3]) = true
-[1 .. 5].beginsWithAnyOf([[5], [4], [3], [2]])= false
+[1 .. 5].beginsWith([1 .. 3]) = true (* does sequence begin with subsequence *)
+{ [1 .. 5].beginsWith(1) = false }.ifError { true } (* prefix must be a sequence *)
+[1 .. 5].beginsWithAnyOf([[4, 5], [3, 4], [2, 3]]) = false (* does sequence begin with any of a set of subsequences *)
 [1 .. 5].groupBy(even:/1).indices = [false, true] (* answer a Map grouping elements according to a predicate *)
 [1 .. 5].groupBy(even:/1)[true] = [2, 4]
 | a = []; | [1, 'x', 2, 'y', 3, 'x'].pairsDo { :p :q | a.add(q -> p) }; a = ['x' -> 1, 'y' -> 2, 'x' -> 3] (* iterate adjacent pairs *)
@@ -864,6 +865,7 @@ system.includesPackage('Character') (* character package *)
 'X'.Character.asLowercase = 'x'.Character (* to lower case *)
 | s = 'string', a = []; | a.addAll(s); a.size = 6 (* add elements from String to end of Array *)
 'fgaguzst'.characterArray.minMax = ['a'.Character, 'z'.Character] (* character minMax *)
+'alphabet'.characterArray.collect(isVowel:/1) = [true, false, false, false, true, false, true, false] (* is character a vowel *)
 ```
 
 ## Collection -- collection trait
@@ -1831,6 +1833,7 @@ Interval(1, 100, 0.5).size = 199
 (1, 3 .. 17).copyFromTo(3, 6) = (5, 7 .. 11) (* copy from start index to end index *)
 (17, 15 .. 1).copyFromTo(3, 6) = (13, 11 .. 7) (* copy from start index to end index *)
 (1, 3 .. 17).copyFromTo(6, 3).isEmpty (* if indices are out of order the interval is empty *)
+(1 .. 99).printStringConcise
 ```
 
 ## Iterable -- collection trait
@@ -2195,10 +2198,14 @@ system.includesPackage('Date')
 '(* Requires: ColumnBrowser SmallKansas *)'.parsePackageHeader = (Requires: ['ColumnBrowser', 'SmallKansas'])
 system.indexedPackages.size - system.loadedPackages.size = system.availablePackages.size
 system.packageDictionary.select { :each | each.requires.notEmpty }.size > 10
-system.packageDictionary::PackageBrowser.dependencies = ['Blob' 'Dom' 'Duration' 'RegExp' 'Set' 'SmallKansas' 'Window' 'TextElement' 'ListChooser' 'TextEditor' 'ColumnBrowser' 'Trait']
+system.packageDictionary::PackageBrowser.dependencies.collect(name:/1) = ['Blob' 'Dom' 'Duration' 'RegExp' 'Set' 'SmallKansas' 'Window' 'TextElement' 'ListChooser' 'TextEditor' 'ColumnBrowser' 'Trait']
 'Time-Date'.isQualifiedPackageName
 'Time-Date'.parseQualifiedPackageName = ['Time', 'Date']
 system.packageDictionary.size > 100 (* number of packages *)
+system.package('Array').isPackage (* lookup package by unqualified name *)
+system.package('Collection-Array') == system.package('Array') (* lookup package by qualified name *)
+{ system.package('Kernel-Array') }.ifError { true } (* for qualified names the system checks the category *)
+system.package('BounceBenchmark').dependencies.collect(name:/1)
 ```
 
 ## Point -- geometry trait
@@ -2581,7 +2588,7 @@ var c = [3, 2, 1], r = c.sorted; c ~= r (* sorted (answer a new array) *)
 | i = (1 .. 9); | i.last = i[9] (* intervals are one-indexed sequences *)
 [1, 3, 5, 7, 9].middle = 5 (* middle element of *)
 [1 .. 4].beginsWith([1, 2]) = true (* is prefix of *)
-[1 .. 4].beginsWith([]) = true (* empty prefix *)
+[1 .. 4].beginsWith([]) = true (* empty prefix answers true *)
 | n = 0, i = (1 .. 4); | i.permutationsDo { :each | n := n + 1 }; n = 24 (* interval permutations do *)
 | n = 0, a = [1 .. 4]; | a.permutationsDo { :each | n := n + 1 }; n = 24 & { a = [1 .. 4] } (* array permutations do *)
 | a = [1 .. 3].permutations; | a = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]] (* permutations *)
@@ -3031,6 +3038,7 @@ pi.asString = '3.141592653589793' (* float as string *)
 'a text string'.json = '"a text string"' (* json encoding of string *)
 '"a text string"'.parseJson = 'a text string' (* parse json string *)
 'string'.first = 's'.Character (* first character *)
+'element'.first.isVowel = true (* is first letter a vowel? *)
 'string'.last = 'g'.Character (* last character *)
 | x = ['a', 'bc', 'def']; | x.unlines.lines = x
 '3 + 4'.evaluate = 7
@@ -3053,10 +3061,10 @@ pi.asString = '3.141592653589793' (* float as string *)
 'word'.capitalized = 'Word'  (* uppercase first letter only *)
 'anotherWord'.capitalized = 'AnotherWord'  (* uppercase first letter only, do not lower case interior letters *)
 '12345'.capitalized = '12345' (* only if a letter *)
-'testAt'.beginsWith('test') = true
-'testAt'.beginsWith('At') = false
+'testAt'.beginsWith('test') = true (* does string begin with substring *)
+'testAt'.beginsWith('At') = false (* does string begin with substring *)
 { 'testAt'.beginsWith(nil) }.ifError { true }
-'testAt'.endsWith('test') = false
+'testAt'.endsWith('test') = false  (* does string end with substring *)
 'testAt'.endsWith('At') = true
 'testAt'.endsWith('at') = false (* case sensitive *)
 { 'testAt'.endsWith(nil) }.ifError { true }
@@ -3127,6 +3135,8 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 'before and (* a comment *) then after'.firstBracketedComment('(*', '*)') = ' a comment '
 'before and (* a comment *) then after'.firstMlComment = ' a comment '
 'no comment'.firstMlCommentIfAbsent { true }
+'Array'.withIndefiniteArticle = 'an Array' (* prepend indefinite article to, presumably, a noun phrase *)
+'Map'.withIndefiniteArticle = 'a Map'
 ```
 
 ## Syntax -- array assignment syntax

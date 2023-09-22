@@ -16,7 +16,7 @@ export async function rewriteFile(fileName: string) {
 }
 
 // Fetch files asynchronously, store at packageIndex
-export async function readLocalPackages(qualifiedPackageNames: string[]): Promise<void> {
+export async function primitiveReadLocalPackages(qualifiedPackageNames: string[]): Promise<void> {
 	const packageArray = await kernel.initializeLocalPackages(qualifiedPackageNames);
 	const resolvedFileNameArray = [];
 	packageArray.forEach(pkg => {
@@ -31,6 +31,6 @@ export async function readLocalPackages(qualifiedPackageNames: string[]): Promis
 }
 
 export function addLoadFileMethods(): void {
-	kernel.addMethod('Array', 'Kernel', 'readLocalPackages', 1, readLocalPackages, '<primitive: reader>');
-	kernel.addMethod('Array', 'Kernel', 'loadPackageSequence', 1, kernel.loadPackageSequence, '<primitive: loader>');
+	kernel.addMethod('Array', 'Kernel', 'primitiveReadLocalPackages', 1, primitiveReadLocalPackages, '<primitive: package reader>');
+	kernel.addMethod('Array', 'Kernel', 'primitiveLoadPackageSequence', 1, kernel.primitiveLoadPackageSequence, '<primitive: package loader>');
 }

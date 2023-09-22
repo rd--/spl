@@ -40,4 +40,4 @@
 	'Interval'
 	'Record'
 	'Map' (* > Record *)
-].loadPackageSequence
+].primitiveLoadPackageSequence

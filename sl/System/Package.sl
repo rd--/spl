@@ -19,10 +19,15 @@ Package! : [Object] {
 	}
 
 	addDependenciesTo { :self :aSequence |
-		self.requires.ifNotEmpty { :items |
-			aSequence.addAllFirst(items);
-			items.do { :each |
-				system.packageDictionary[each].addDependenciesTo(aSequence)
+		self.requires.ifNotEmpty { :packageNames |
+			|(
+				packages = packageNames.collect { :each |
+					system.package(each)
+				}
+			)|
+			aSequence.addAllFirst(packages);
+			packages.do { :each |
+				each.addDependenciesTo(aSequence)
 			}
 		}
 	}
@@ -35,6 +40,13 @@ Package! : [Object] {
 		| answer = []; |
 		self.addDependenciesTo(answer);
 		answer.withoutDuplicates
+	}
+
+	require { :self |
+		self.isLoaded.ifFalse {
+			| requirements = self.dependencies.reject(isLoaded:/1).collect(name:/1); |
+			(requirements ++ [self.name]).primitiveLoadPackageSequence
+		}
 	}
 
 	isLoaded { :self |
@@ -132,7 +144,7 @@ Package! : [Object] {
 				self.error('loadPackages: package loaded: ' ++ each.name)
 			}
 		};
-		self.collect(name:/1).loadPackageSequence
+		self.collect(name:/1).primitiveLoadPackageSequence
 	}
 
 }
@@ -162,7 +174,25 @@ Package! : [Object] {
 	}
 
 	package { :self :name |
-		self.packageDictionary[name]
+		name.isQualifiedPackageName.if {
+			|(
+				[categoryName, packageName] = name.parseQualifiedPackageName,
+				package = self.packageDictionary[packageName]
+			)|
+			(categoryName = package.category & {
+				self.includesPackage(packageName)
+			}).if {
+				package
+			} {
+				self.error('package: category name mismatch or package not registered')
+			}
+		} {
+			self.includesPackage(name).if {
+				self.packageDictionary[name]
+			} {
+				self.error('package: package not registered')
+			}
+		}
 	}
 
 	registerPackage { :self :package |

@@ -26,6 +26,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'SortedArray'
 	],
 	'Collection-Ordered': [
+		'Heap'
 		'Interval'
 		'PriorityQueue'
 	],
@@ -431,6 +432,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'addFirst'
 		'addLast'
 		'ifAbsentAdd'
+		'include'
+		'includeAll'
 		'push'
 		'pushAll'
 	],
@@ -538,7 +541,9 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'adaptToFractionAndApply'
 		'adaptToNumberAndApply'
 		'adaptToPointAndApply'
+		'asArray'
 		'asAscii'
+		'asBag'
 		'asBit'
 		'asCollection'
 		'asComplex'
@@ -551,6 +556,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'asPoint'
 		'asRegExp'
 		'asSeconds'
+		'asSet'
 		'asTimeStamp'
 		'asUppercase'
 		'asUrl'
@@ -989,6 +995,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isNil'
 		'isNumber'
 		'isStream'
+		'isVowel'
 	],
 	'testing-system': [
 		'isMethodName'
@@ -1022,6 +1029,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isSequenceable'
 		'noneSatisfy'
 		'notEmpty'
+		'oneSatisfies'
 	],
 	'testing-sequenceable': [
 		'beginsWith'

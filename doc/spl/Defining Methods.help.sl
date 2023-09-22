@@ -2,25 +2,29 @@
 
 Methods can be appended to an existing type.
 
-The _stdlib_ type _Duration_ represents an interval of time.
+The _Standard Library_ type _Duration_ represents an interval of time.
 
 It has methods to construct and interpret Durations as seconds, but not as centiseconds.
 
 The expressions below define these methods.
 
 ```
-+ Duration {
++Duration {
 	centiseconds { :self |
 		self.milliseconds / 10
 	}
 }
 
-+ Number {
++@Number {
 	centiseconds { :self |
-		Duration(self * 10)
+		(self * 10).milliseconds
 	}
 }
 ```
 
 When these expressions are evaluated the new methods are added to the system.
 If methods with these names already exist they are replaced by the new definitions.
+
+```
+100.centiseconds = 1000.milliseconds
+```

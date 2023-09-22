@@ -55,7 +55,7 @@ async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	sl.assignGlobals();
 	load.setLoadPath(loadPath);
 	await fileio.evaluateFile(loadPath + '/Meta/PackageIndex.sl', 'LoadSpl');
-	await kernel.loadPackageSequence(['Kernel'].concat(lib)); // ['cat.sl']
+	await kernel.primitiveLoadPackageSequence(['Kernel'].concat(lib)); // ['cat.sl']
 	if(lib.includes('sc.sl')) {
 		globalThis.sc = sc;
 		globalThis.globalScSynth = cliScSynth;
@@ -73,12 +73,12 @@ async function runFile(fileName: string, opt: flags.Args): Promise<void> {
 	console.log(await fileio.evaluateFile(fileName, 'RunFile'))
 }
 
-function evalInteractive(text: string) {
-	evaluate.evaluateFor('Repl', text);
+function evaluateInteractive(text: string) {
+	evaluate.evaluateFor('*Interactive*', text);
 }
 
 function scEvalText(splText: string): void {
-	evalInteractive(splText);
+	evaluateInteractive(splText);
 }
 
 async function scEvalFile(fileName: string): Promise<void> {
@@ -87,7 +87,7 @@ async function scEvalFile(fileName: string): Promise<void> {
 }
 
 function scPlayText(splText: string): void {
-	const ugenGraph = evalInteractive(splText);
+	const ugenGraph = evaluateInteractive(splText);
 	sc.playUgenAt(cliScSynth, ugenGraph, 1, null);
 }
 

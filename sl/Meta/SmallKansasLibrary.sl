@@ -45,6 +45,6 @@
 	'WindowMenu'
 	'Workspace'
 
-].loadPackageSequence.then {
+].primitiveLoadPackageSequence.then {
 	system.smallKansas
 }

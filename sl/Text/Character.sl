@@ -62,6 +62,10 @@ Character : [Object, Magnitude] { | string codePoint |
 		self.codePoint < 128
 	}
 
+	isVowel { :self |
+		'AEIOU'.includesSubstring(self.asUppercase.string)
+	}
+
 	printString { :self |
 		'$' ++ self.string
 	}

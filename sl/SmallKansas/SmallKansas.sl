@@ -35,10 +35,10 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 
 	browserOn { :self :path :event |
 		system.isTypeName(path[1]).if {
-			self.addFrame(TypeBrowser().setPath(path), event)
+			self.addFrame(self.TypeBrowser.setPath(path), event)
 		} {
 			system.isTraitName(path[1]).if {
-				self.addFrame(TraitBrowser().setPath(path), event)
+				self.addFrame(self.TraitBrowser.setPath(path), event)
 			} {
 				self.warning('browserOn: not type or trait: ' ++ path[1])
 			}
@@ -121,7 +121,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 
 	referencesTo { :self :subject :event |
 		self.addFrame(
-			MethodSignatureBrowser(
+			self.MethodSignatureBrowser(
 				system.methodSourceCodeSearch(subject).collect(signature:/1),
 				false
 			),

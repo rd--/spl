@@ -166,7 +166,7 @@
 	printStringConcise { :self :count |
 		| answer = self.printString; |
 		(answer.size > count).if {
-			'a ' ++ self.typeOf
+			self.typeOf.withIndefiniteArticle
 		} {
 			answer
 		}
@@ -206,7 +206,7 @@
 	}
 
 	storeString { :self |
-		'a ' ++ self.typeOf
+		self.typeOf.withIndefiniteArticle
 	}
 
 	then { :self :aProcedure:/1 |

@@ -22,8 +22,9 @@
 					}.sort
 				},
 				2 -> {
-					browser.setStatus('Loaded: ' ++ system.packageDictionary.includesIndex(path[2]).asString);
-					system.packageDictionary[path[2]].text
+					| package = system.packageDictionary[path[2]]; |
+					browser.setStatus('Loaded: ' ++ package.isLoaded.asString);
+					package.text
 				}
 			])
 		}

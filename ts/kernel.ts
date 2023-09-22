@@ -460,13 +460,13 @@ export async function initializeLocalPackages(qualifiedPackageNames: string[]): 
 }
 
 /* Evaluate already fetched packages in sequence. */
-export async function loadPackageSequence(packageNames: string[]): Promise<void> {
-	// console.debug(`loadPackageSequence: '${packageNames}'`);
+export async function primitiveLoadPackageSequence(packageNames: string[]): Promise<void> {
+	// console.debug(`primitiveLoadPackageSequence: '${packageNames}'`);
 	const packageArray = [];
 	packageNames.forEach(name => {
 		const pkg = system.packageDictionary.get(name);
 		if(!pkg) {
-			console.error(`loadPackageSequence: no such package: ${name}, ${pkg}`);
+			console.error(`primitiveLoadPackageSequence: no such package: ${name}, ${pkg}`);
 		} {
 			pkg.isLoaded = true;
 			packageArray.push(pkg);

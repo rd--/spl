@@ -96,6 +96,11 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 			MenuItem('References To It', nil) { :event |
 				self.smallKansas.referencesTo(self.currentWord.asMethodName, event)
 			},
+			MenuItem('Require It', nil) { :event |
+				system.package(self.currentWord).require.then {
+					self.insertText('Package loaded: ' ++ self.currentWord)
+				}
+			},
 			MenuItem('Reset Synthesiser', '.') { :event |
 				system.clock.removeAll;
 				system.defaultScSynth.reset

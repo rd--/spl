@@ -19,4 +19,4 @@
 	'Texture' (* < Ugen *)
 	'UgenBindings' (* < Ugen *)
 	'UgenGraph'
-].loadPackageSequence
+].primitiveLoadPackageSequence

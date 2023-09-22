@@ -13,4 +13,4 @@
 	'SqueakBenchmark'
 	'StorageBenchmark'
 	'TowersBenchmark'
-].loadPackageSequence
+].primitiveLoadPackageSequence

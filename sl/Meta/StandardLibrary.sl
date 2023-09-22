@@ -76,4 +76,4 @@
 	(* Unit *)
 	'Mass'
 	'SiUnit'
-].loadPackageSequence
+].primitiveLoadPackageSequence
