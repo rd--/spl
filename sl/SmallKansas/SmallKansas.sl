@@ -71,7 +71,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 		self.container.style.getPropertyValue('--font-family')
 	}
 
-	font { :self :fontName|
+	font { :self :fontName |
 		self.container.style.setProperty('--font-family', fontName, '')
 	}
 

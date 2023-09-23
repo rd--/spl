@@ -43,7 +43,7 @@ Frame : [Object, UserEventTarget] { | smallKansas framePane titlePane closeButto
 		self.inMove := false
 	}
 
-	font { :self :fontName|
+	font { :self :fontName |
 		self.framePane.style.setProperty('--font-family', fontName, '')
 	}
 

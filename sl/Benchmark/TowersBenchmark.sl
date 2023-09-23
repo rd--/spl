@@ -24,7 +24,7 @@ TowersBenchmark : [Object] { | piles movesdone |
 	}
 
 	popDiskFrom { :self :pile |
-		| top = self.piles[pile] ; |
+		| top = self.piles[pile]; |
 		top.isNil.ifTrue {
 			'Attempting to remove a disk from an empty pile'.error
 		};

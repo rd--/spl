@@ -1,6 +1,6 @@
 +MIDIAccess {
 
-	midiPortListEntries { :self :onSelect:/2|
+	midiPortListEntries { :self :onSelect:/2 |
 		(self.inputs.ports ++ self.outputs.ports).collect { :each |
 			MenuItem(each.type ++ '/' ++ each.name, nil) { :event |
 				onSelect(each, event)
