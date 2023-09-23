@@ -44,9 +44,19 @@ Blob! : [Object, Blob] {
 
 +System {
 
-	fetchBlob { :self :resource :options  |
-		self.fetch(resource, options).then { :response  |
-			response.blob
+	fetchBlob { :self :resource :options |
+		self.fetchBlob(resource, options) { :errorCode |
+			self.error('fetchBlob: ' ++ errorCode)
+		}
+	}
+
+	fetchBlob { :self :resource :options :onError |
+		self.fetch(resource, options).then { :response |
+			response.ok.if {
+				response.blob
+			} {
+				onError.cull(response.ok)
+			}
 		}
 	}
 

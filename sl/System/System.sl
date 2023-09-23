@@ -103,30 +103,60 @@ System! : [Object, Cache, Indexable, Random] {
 		<primitive: return fetch(_resource, _options);>
 	}
 
-	fetchJson { :self :resource :options  |
-		self.fetch(resource, options).then { :response  |
-			response.json
+	fetchJson { :self :resource :options |
+		self.fetchJson(resource, options) { :errorCode |
+			self.error('fetchJson: ' ++ errorCode)
 		}
 	}
 
-	fetchMimeType { :self :resource :mimeType :options  |
-		self.fetch(resource, options).then { :response  |
-			mimeType.caseOfOtherwise([
-				'application/json' -> {
-					response.json
-				},
-				'text/plain' -> {
-					response.text
-				}
-			]) { :unused  |
-				self.error('fetchMimeType: unknown mimeType: ' ++ mimeType)
+	fetchJson { :self :resource :options :onError |
+		self.fetch(resource, options).then { :response |
+			response.ok.if {
+				response.json
+			} {
+				onError.cull(reponse.ok)
 			}
 		}
 	}
 
-	fetchString { :self :resource :options  |
-		self.fetch(resource, options).then { :response  |
-			response.text
+	fetchMimeType { :self :resource :mimeType :options |
+		self.fetchMimeType(resource, mimeType, options) { :errorCode |
+			self.error('fetchMimeType: ' ++ errorCode)
+		}
+	}
+
+	fetchMimeType { :self :resource :mimeType :options :onError |
+		self.fetch(resource, options).then { :response |
+			response.ok.if {
+				mimeType.caseOfOtherwise([
+					'application/json' -> {
+						response.json
+					},
+					'text/plain' -> {
+						response.text
+					}
+				]) { :unused |
+					onError.cull('unknown mime type')
+				}
+			} {
+				onError.cull(reponse.ok)
+			}
+		}
+	}
+
+	fetchString { :self :resource :options |
+		self.fetchString(resource, options) { :errorCode |
+			self.error('fetchString: ' ++ errorCode)
+		}
+	}
+
+	fetchString { :self :resource :options :onError |
+		self.fetch(resource, options).then { :response |
+			response.ok.if {
+				response.text
+			} {
+				onError.cull(response.ok)
+			}
 		}
 	}
 

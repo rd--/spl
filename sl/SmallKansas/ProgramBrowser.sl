@@ -82,7 +82,7 @@ ProgramIndex : [Object] { | contents |
 							[category, author, name] = path[1, 2, 3],
 							url = ['./lib/stsc3/help/', category, '/', author, ' - ', name, '.sl'].join
 						)|
-						system.fetchString(url, (cache: 'no-cache'))
+						system.fetchString(url, (cache: 'no-cache'), { '*Fetch failed*' })
 					}
 				])
 			}

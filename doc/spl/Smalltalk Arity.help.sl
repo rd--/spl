@@ -5,7 +5,7 @@ Operators are always binary and are written infix, i.e. _3 + 4_.
 Unary messages are written postfix, i.e. _9 sqrt_.
 N-ary messages are written using keywords, i.e. _aCollection at: aKey put: aValue_.
 
-The arity of a method is two if it is an operator, or else it is one more that the number of colons in the name.
+The arity of a method is two if it is an operator, or else it is one more than the number of colons in the name.
 The arity of _sqrt_ is one, the arity of _at:_ is two, the arity of _at:put:_ is three.
 Since all messages in Smalltalk have a receiver, the number of colons indicates the number of arguments in the message.
 

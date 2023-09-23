@@ -36,6 +36,14 @@ Response! : [Object] {
 		<primitive: return _self.json();>
 	}
 
+	ok { :self |
+		<primitive: return _self.ok;>
+	}
+
+	pseudoSlotNameArray { :self |
+		['ok']
+	}
+
 	text { :self |
 		<primitive: return _self.text();>
 	}

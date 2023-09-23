@@ -68,7 +68,7 @@
 
 (defun spl-clear-clock ()
   (interactive)
-  (spl-netcat-cmd 'evalText 'text "workspace::clock.clear"))
+  (spl-netcat-cmd 'evalText 'text "system.clock.clear"))
 
 (defun spl-reset-scsynth ()
   (interactive)

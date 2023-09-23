@@ -11,7 +11,7 @@ Collection types implement the _at_, _atPut_, _atIfAbsent_ and _atIfAbsentPut_ p
 
 Dictionaries with string keys can be used to implement simple anonymous and extensible record types.
 
-The [Dictionary Syntax] makes constucting such records concise.
+The [Dictionary Syntax] makes constructing such records concise.
 
 These rules provide an equally concise syntax for reading and writing the fields of such records.
 

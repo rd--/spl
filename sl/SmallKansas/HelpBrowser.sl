@@ -10,7 +10,7 @@ HelpIndex : [Object] { | contents |
 		path.ifNotNil {
 			| url = self.url(path[1], path[2], path[3]); |
 			self.notify('fetch: ' ++ path.joinSeparatedBy('/'));
-			system.fetchString(url, (cache: 'no-cache'))
+			system.fetchString(url, (cache: 'no-cache'), { '*Fetch Failed*' })
 		}
 	}
 
@@ -94,17 +94,6 @@ HelpIndex : [Object] { | contents |
 				])
 			}
 		)
-	}
-
-	helpFor { :self :subject :event |
-		self.helpIndex.then { :helpIndex |
-			helpIndex.fetchFor(subject).then { :aString |
-				self.addFrame(
-					self.TextEditor('HelpViewer', 'text/markdown', aString),
-					event
-				)
-			}
-		}
 	}
 
 }

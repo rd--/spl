@@ -1,4 +1,4 @@
-# Colour -- colour
+# Colour -- colour type
 
 - _Colour(red, green, blue, alpha)_
 

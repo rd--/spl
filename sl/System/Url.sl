@@ -11,8 +11,18 @@ URL! : [Object] {
 	}
 
 	fetchText { :self |
+		self.fetchText { :errorCode |
+			self.error('fetchText: ' ++ errorCode)
+		}
+	}
+
+	fetchText { :self :onError |
 		self.fetch.then { :response |
-			response.text
+			response.ok.if {
+				response.text
+			} {
+				onError.cull(response.ok)
+			}
 		}
 	}
 
@@ -61,7 +71,9 @@ URL! : [Object] {
 	}
 
 	terseGuideSummary { :self |
-		self.fetchText.then { :text |
+		self.fetchText {
+			self.error('terseGuideSummary: fetch failed')
+		}.then { :text |
 			text.terseGuideSummary
 		}
 	}

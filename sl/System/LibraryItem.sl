@@ -30,7 +30,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 					self.value := self.readLocalStorage;
 					self.value.resolve
 				} {
-					system.fetchMimeType(self.url, self.mimeType, ()).thenElse { :answer |
+					system.fetchMimeType(self.url, self.mimeType, (), { self.error('Fetch failed: ' ++ self.url) }).thenElse { :answer |
 						self.useLocalStorage.ifTrue {
 							self.writeLocalStorage(answer)
 						};

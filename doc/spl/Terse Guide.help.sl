@@ -3213,6 +3213,7 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 | m = [1 2 3; 4 5 6]; | m[1; 2] := -2; m[2; 3] := -6; m = [1 -2 3; 4 5 -6] (* [AtPathPut Syntax] *)
 | d = (w: (x: (y: (z: 1)))); | d['w'; 'x'; 'y'; 'z'] := -1; d = (w: (x: (y: (z: -1)))) (* [AtPathPut Syntax] *)
 | d = (x: 1); | d::x = 1 (* [Quoted At Syntax] *)
+| d = (x: 1, y: 2); | d::x < d::y  (* [Quoted At Syntax] *)
 | d = (); | d::x :? { 1 } = 1 (* [Quoted AtIfAbsent Syntax] *)
 | d = (w: (x: (y: (z: 1)))); | d::w::x::y::z = 1 (* [Quoted At Syntax] *)
 | d = (w: (x: (y: (z: 1)))); | d::w::x::y::z := -1; d = (w: (x: (y: (z: -1))))(* [Quoted AtPut Syntax] *)

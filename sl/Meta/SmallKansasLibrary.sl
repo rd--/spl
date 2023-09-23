@@ -21,6 +21,7 @@
 	'CrystalLatticeStructureOracle'
 	'DigitalClock'
 	'HelpBrowser'
+	'HelpViewer'
 	'Inspector'
 	'ListChooser'
 	'MethodBrowser'

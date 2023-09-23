@@ -101,6 +101,7 @@
 	'SmallKansas-DigitalClock'
 	'SmallKansas-Frame'
 	'SmallKansas-HelpBrowser'
+	'SmallKansas-HelpViewer'
 	'SmallKansas-Inspector'
 	'SmallKansas-ListChooser'
 	'SmallKansas-Menu'

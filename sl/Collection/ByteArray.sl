@@ -144,9 +144,13 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed] {
 
 +System {
 
-	fetchByteArray { :self :resource :options  |
-		self.fetch(resource, options).then { :response  |
-			response.byteArray
+	fetchByteArray { :self :resource :options :onErrorBlock |
+		self.fetch(resource, options).then { :response |
+			response.ok.if {
+				response.byteArray
+			} {
+				onErrorBlock.cull(response.ok)
+			}
 		}
 	}
 
