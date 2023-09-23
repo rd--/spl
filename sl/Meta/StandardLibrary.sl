@@ -53,6 +53,7 @@
 	(* System *)
 	'Blob'
 	'File'
+	'HelpIndex'
 	'LibraryItem'
 	'Method'
 	'Storage'

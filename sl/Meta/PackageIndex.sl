@@ -148,6 +148,7 @@
 	'SuperCollider-UgenGraph'
 	'System-Blob'
 	'System-File'
+	'System-HelpIndex'
 	'System-LibraryItem'
 	'System-Meta'
 	'System-Method'

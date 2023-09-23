@@ -1,71 +1,5 @@
 (* Requires: ColumnBrowser LibraryItem SmallKansas TextEditor *)
 
-HelpIndex : [Object] { | contents |
-
-	areas { :self |
-		['spl', 'sc', 'sk']
-	}
-
-	fetch { :self :path |
-		path.ifNotNil {
-			| url = self.url(path[1], path[2], path[3]); |
-			self.notify('fetch: ' ++ path.joinSeparatedBy('/'));
-			system.fetchString(url, (cache: 'no-cache'), { '*Fetch Failed*' })
-		}
-	}
-
-	fetchFor { :self :subject |
-		self.fetch(self.find(subject))
-	}
-
-	find { :self :name |
-		self.contents.detectIfNone { :each |
-			each.third = name
-		} {
-			self.warning('find: no help for: ' ++ name);
-			nil
-		}
-	}
-
-	kind { :self :area |
-		['doc', 'help']
-	}
-
-	names { :self :area :kind |
-		self.contents.select { :each |
-			each.first = area & {
-				each.second = kind
-			}
-		}.collect(third:/1).withoutDuplicates.sort
-	}
-
-	project { :self :area |
-		area.caseOf([
-			'sc' -> { 'stsc3' },
-			'sk' -> { 'spl' },
-			'spl' -> { 'spl' }
-		])
-	}
-
-	url { :self :area :kind :name |
-		['./lib/', self.project(area), '/', kind, '/', area, '/', name, '.help.sl'].join
-	}
-
-}
-
-+String {
-
-	HelpIndex { :self |
-		newHelpIndex().initializeSlots(
-			self.lines.select(notEmpty:/1).collect { :each |
-				| [kind, area, name] = each.replaceString('.help.sl', '').splitRegExp(RegExp('/')); |
-				[area, kind, name]
-			}
-		)
-	}
-
-}
-
 +SmallKansas {
 
 	HelpBrowser { :self :helpIndex |
@@ -93,21 +27,6 @@ HelpIndex : [Object] { | contents |
 					}
 				])
 			}
-		)
-	}
-
-}
-
-+@Cache {
-
-	helpIndex { :self |
-		self.useLibraryItem(
-			LibraryItem(
-				'helpIndex',
-				'https://rohandrape.net/sw/jssc3/text/smallhours-help.text',
-				'text/plain',
-				HelpIndex:/1
-			)
 		)
 	}
 
