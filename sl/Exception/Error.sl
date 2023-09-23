@@ -1,7 +1,11 @@
 @Exception {
 
 	description { :self |
-		self.name ++ ': ' ++ self.messageText
+		self.cause.ifNil {
+			self.name ++ ': ' ++ self.messageText
+		} {
+			self.name ++ ': ' ++ self.messageText ++ ': ' ++ self.causeText
+		}
 	}
 
 	isError { :self |
@@ -28,8 +32,24 @@
 
 @PrimitiveError {
 
+	cause { :self |
+		<primitive: return _self.cause;>
+	}
+
+	causeText { :self |
+		self.cause.isError.if {
+			self.cause.description
+		} {
+			self.asString
+		}
+	}
+
 	messageText { :self |
 		<primitive: return _self.message;>
+	}
+
+	pseudoSlotNameArray { :self |
+		['cause', 'messageText', 'name']
 	}
 
 	name { :self |

@@ -541,9 +541,9 @@ Association('x', 1) = ('x' -> 1)
 (1 -> '1').key = (1 -> 'one').key
 (1 -> '1').value ~= (1 -> 'one').value
 (1 -> '1') ~= (1 -> 'one')
-(1 -> 2) = (1 -> 2).storeString.evaluate
-(false -> true) = (false -> true).storeString.evaluate
-('+' -> 'plus') = ('+' -> 'plus').storeString.evaluate
+(1 -> 2) = system.evaluate((1 -> 2).storeString) (* store string can be evaluated to answer value *)
+(false -> true) = system.evaluate((false -> true).storeString)
+('+' -> 'plus') = system.evaluate(('+' -> 'plus').storeString)
 (0 -> 1) ~= (0 -> 2) (* equality considers both key and value, unlike in Smalltalk-80 *)
 ('x' -> 1) ~= ('y' -> 1) (* equality considers both key and value, unlike in Smalltalk-80 *)
 ('x' -> 1) ~= (x: 1) (* an association is not equal to a record *)
@@ -1291,7 +1291,7 @@ system.includesPackage('Duration') (* duration package *)
 2.weeks - 12.days = 48.hours (* subtraction of durations *)
 0.25.seconds + 500.milliseconds = 750.milliseconds
 500.milliseconds + 0.25.seconds = 0.75.seconds
-| f = { :t0 | | t1 = 2.randomFloat.seconds; | f.evaluateAfterWith(t1, t1) }; | f(2.seconds).cancel = nil
+| f = { :t0 | | t1 = 2.randomFloat.seconds; | f.valueAfterWith(t1, t1) }; | f(2.seconds).cancel = nil
 2.minutes < 2.hours (* durations are magnitudes *)
 2.hours > 2.minutes (* durations are magnitudes *)
 60.seconds.milliseconds = 60000 (* convert duration to milliseconds *)
@@ -2301,8 +2301,8 @@ var p = Promise { :t:/1 :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isP
 var p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
 var p = Promise { :t :f:/1 | f('f') }; p.then { :t | t.postLine }.catch { :f | (f = 'f').postLine }; p.isPromise
 var p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }.finally { 'true'.postLine }; p.isPromise
-| f = { :c | Promise { :t:/1 :f | { t(c) }.evaluateAfter(0.15.randomFloat) } }; | [1.f, 2.f, 3.f].anyResolved.then { :t | [1, 2, 3].includes(t).postLine }; true
-| f = { :c | Promise { :t:/1 :f | { t(c) }.evaluateAfter(0.05.randomFloat) } }; | ['x'.f, 'y'.f, 'z'.f].allResolved.then { :t | (t = ['x', 'y', 'z']).postLine }; true
+| f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter(0.15.randomFloat) } }; | [1.f, 2.f, 3.f].anyResolved.then { :t | [1, 2, 3].includes(t).postLine }; true
+| f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter(0.05.randomFloat) } }; | ['x'.f, 'y'.f, 'z'.f].allResolved.then { :t | (t = ['x', 'y', 'z']).postLine }; true
 ```
 
 ## Pseudo variables
@@ -3041,7 +3041,6 @@ pi.asString = '3.141592653589793' (* float as string *)
 'element'.first.isVowel = true (* is first letter a vowel? *)
 'string'.last = 'g'.Character (* last character *)
 | x = ['a', 'bc', 'def']; | x.unlines.lines = x
-'3 + 4'.evaluate = 7
 'a short string'.replaceString('short', 'longer') = 'a longer string' (* replace substring *)
 'x x x'.replaceString('x', 'y') = 'y x x'
 'x x x'.replaceStringAll('x', 'y') = 'y y y'
@@ -3049,10 +3048,10 @@ pi.asString = '3.141592653589793' (* float as string *)
 'A-B-C'.replaceStringAll('-', '/') = 'A/B/C'
 'x y z'.replaceRegExp(RegExp('x|z', 'g'), '-') = '- y -'
 'x y z'.replaceRegExp(RegExp('x|z', 'g'), { :match :offset :string | match.toUppercase }) = 'X y Z'
-'anAnalogueClock'.camelCaseToWords = 'an Analogue Clock'
-'AnalogueClock'.pascalCaseToWords = 'Analogue Clock'
+'anAnalogueClock'.camelCaseToWords = 'an Analogue Clock' (* camel case begins with a lower case letter *)
+'AnalogueClock'.pascalCaseToWords = 'Analogue Clock' (* pascal case begins with an upper case letter *)
 'an analogue Clock'.words.pascalCase.join = 'AnAnalogueClock'
-'analogue Clock'.words.camelCase.join = 'analogueClock'
+'analogue clock'.words.camelCase.join = 'analogueClock'
 'Word'.asLowercase = 'word'
 '12345'.asLowercase = '12345' (* only if letters *)
 'Word'.asUppercase = 'WORD'
@@ -3382,6 +3381,14 @@ system.categoryDictionary.categoryOf('method', 'notInCategorySystem') = '*Uncate
 system.categoryDictionary.categoryOf('notInCategorySystem') = '*Uncategorized*'
 ```
 
+## System -- evaluate
+```
+system.evaluate('3 + 4') = 7 (* evaluate a string *)
+system.evaluateNotifying('7.notAMethod') { :err | err.postLine; true } (* provide a block to receiver error notifications *)
+system.evaluateNotifying('a syntax error') { :err | err.postLine; true } (* syntax errors likewise *)
+system.evaluateNotifying('') { :err | err.postLine; true } (* empty input likewise *)
+```
+
 ## System -- globalDictionary
 ```
 system.isIndexable (* system is indexable *)
@@ -3540,9 +3547,9 @@ system.unixTime.isTimeStamp = true (* get current time at system *)
 system.unixTime.iso8601.size = 24
 1676784053576.TimeStamp.roundTo(24.hours).iso8601 = '2023-02-19T00:00:00.000Z' (* round to duration *)
 | t = system.unixTime; | t - 0.seconds = t (* offset TimeStamp by Duration *)
-{ system.unixTime.postLine }.evaluateAfter(0.5.seconds).cancel = nil
-{ system.unixTime.postLine }.evaluateAt(system.unixTime + 0.5.seconds).cancel = nil
-{ system.unixTime.postLine }.evaluateEvery(3.seconds).cancel = nil
+{ system.unixTime.postLine }.valueAfter(0.5.seconds).cancel = nil
+{ system.unixTime.postLine }.valueAt(system.unixTime + 0.5.seconds).cancel = nil
+{ system.unixTime.postLine }.valueEvery(3.seconds).cancel = nil
 | t = 1676784053576.TimeStamp, c = t.copy; | c ~~ t & { c = t }
 ```
 

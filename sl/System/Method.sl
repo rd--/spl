@@ -37,13 +37,13 @@ Method! : [Object] {
 	}
 
 	definition { :self :aString |
-		[
+		system.evaluate([
 			'+',
 			self.origin.qualifiedName,
 			'{ ',
 			aString,
 			' }'
-		].join.evaluate
+		].join)
 	}
 
 	information { :self |

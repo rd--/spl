@@ -76,7 +76,7 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 				self.smallKansas.browserOn([self.currentWord], event)
 			},
 			MenuItem('Do It', 'd') { :event |
-				self.currentText.evaluate
+				self.smallKansas.evaluate(self.currentText, event)
 			},
 			MenuItem('Help For It', 'h') { :event |
 				self.smallKansas.helpFor(self.currentWord.asMethodName, event)
@@ -85,13 +85,13 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 				self.smallKansas.implementorsOf(self.currentWord.asMethodName, event)
 			},
 			MenuItem('Inspect It', 'i') { :event |
-				self.smallKansas.inspectorOn(self.currentWord.evaluate, event)
+				self.smallKansas.inspectorOn(self.smallKansas.evaluate(self.currentWord, event), event)
 			},
 			MenuItem('Play It', 'Enter') { :event |
-				('{ ' ++ self.currentText ++ ' }.play').evaluate
+				self.smallKansas.evaluate('{ ' ++ self.currentText ++ ' }.play', event)
 			},
 			MenuItem('Print It', 'p') { :event |
-				self.insertText(' ' ++ self.currentText.evaluate.asString)
+				self.insertText(' ' ++ self.smallKansas.evaluate(self.currentText, event).asString)
 			},
 			MenuItem('References To It', nil) { :event |
 				self.smallKansas.referencesTo(self.currentWord.asMethodName, event)

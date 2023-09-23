@@ -12,7 +12,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 
 	addFrameWithAnimator { :self :subject :event :delay :aProcedure:/0 |
 		|(
-			timerId = aProcedure:/0.evaluateEveryMilliseconds(delay.asSeconds * 1000),
+			timerId = aProcedure:/0.valueEveryMilliseconds(delay.asSeconds * 1000),
 			frame = self.addFrame(subject, event)
 		)|
 		frame.addEventListener('close') { :unusedEvent |
@@ -58,6 +58,13 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 		subject.dialog(dialog);
 		dialog.showModal;
 		dialog
+	}
+
+	evaluate { :self :aString :event |
+		system.evaluateNotifying(aString) { :err |
+			self.inspectorOn(err, event);
+			err
+		}
 	}
 
 	font { :self |

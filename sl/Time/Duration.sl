@@ -146,16 +146,16 @@ Duration : [Object, Magnitude] { | milliseconds |
 
 +Procedure {
 
-	evaluateAfter { :self:/0 :delay |
-		self:/0.evaluateAfterMilliseconds(delay.asSeconds * 1000)
+	valueAfter { :self:/0 :delay |
+		self:/0.valueAfterMilliseconds(delay.asSeconds * 1000)
 	}
 
-	evaluateAfterWith { :self:/1 :delay :anObject |
-		self:/1.evaluateAfterMillisecondsWith(delay.asSeconds * 1000, anObject)
+	valueAfterWith { :self:/1 :delay :anObject |
+		self:/1.valueAfterMillisecondsWith(delay.asSeconds * 1000, anObject)
 	}
 
-	evaluateEvery { :self:/0 :delay |
-		self:/0.evaluateEveryMilliseconds(delay.asSeconds * 1000)
+	valueEvery { :self:/0 :delay |
+		self:/0.valueEveryMilliseconds(delay.asSeconds * 1000)
 	}
 
 }

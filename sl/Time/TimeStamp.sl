@@ -69,14 +69,14 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 
 +Procedure {
 
-	evaluateAt { :self :time |
+	valueAt { :self :time |
 		| now = system.unixTimeInMilliseconds; |
-		self.evaluateAfterMilliseconds(time.unixTimeInMilliseconds - now)
+		self.valueAfterMilliseconds(time.unixTimeInMilliseconds - now)
 	}
 
-	evaluateAtWith { :self :time :anObject |
+	valueAtWith { :self :time :anObject |
 		| now = system.unixTimeInMilliseconds; |
-		self.evaluateAfterMillisecondsWith(time.unixTimeInMilliseconds - now, anObject)
+		self.valueAfterMillisecondsWith(time.unixTimeInMilliseconds - now, anObject)
 	}
 
 }

@@ -52,7 +52,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 			};
 			self.existingDelay := {
 				self.wakeup(scheduledTime)
-			}.evaluateAfterMilliseconds(deltaTime * 1000)
+			}.valueAfterMilliseconds(deltaTime * 1000)
 		}
 	}
 
@@ -93,7 +93,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 			};
 			self.existingDelay := {
 				self.wakeup(frontOfQueueTime)
-			}.evaluateAfterMilliseconds(frontOfQueueTime - currentTime * 1000)
+			}.valueAfterMilliseconds(frontOfQueueTime - currentTime * 1000)
 		}
 	}
 

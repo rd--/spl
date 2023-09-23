@@ -8,11 +8,16 @@ export async function interact<T>(processLine: (line: string) => T): Promise<voi
 	}
 }
 
-export async function perLine(verbose: boolean) {
+// Read and evaluate input per line.  Empty lines are not evaluated.
+export async function perLine(verbose: boolean): Promise<void> {
 	await interact(function(line: string) {
-		if(verbose) {
-			console.log(line);
+		const withoutBlanks = line.trim();
+		if(withoutBlanks.length > 0) {
+			if(verbose) {
+				console.log(withoutBlanks);
+			}
+			const answer = evaluate.evaluateFor('Repl', withoutBlanks);
+			console.log(answer);
 		}
-		console.log(evaluate.evaluateFor('Repl', line));
 	});
 }

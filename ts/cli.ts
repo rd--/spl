@@ -74,7 +74,7 @@ async function runFile(fileName: string, opt: flags.Args): Promise<void> {
 }
 
 function evaluateInteractive(text: string) {
-	evaluate.evaluateFor('*Interactive*', text);
+	evaluate.evaluateForSignalling('*Interactive*', text);
 }
 
 function scEvalText(splText: string): void {

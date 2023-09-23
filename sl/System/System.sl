@@ -79,6 +79,22 @@ System! : [Object, Cache, Indexable, Random] {
 		}
 	}
 
+	evaluateOrSignalError { :self :aString |
+		<primitive: return sl.evaluateForSignalling('*Interactive*', _aString);>
+	}
+
+	evaluateNotifying { :self :aString :aBlock:/1 |
+		{ self.evaluateOrSignalError(aString) }.ifError { :err |
+			aBlock(err)
+		}
+	}
+
+	evaluate { :self :aString |
+		self.evaluateNotifying(aString) { :err |
+			system.consoleError(err)
+		}
+	}
+
 	fetch { :self :resource |
 		<primitive: return fetch(_resource);>
 	}
@@ -140,6 +156,14 @@ System! : [Object, Cache, Indexable, Random] {
 
 	isTypeName { :self :aString |
 		self.typeDictionary.includesIndex(aString)
+	}
+
+	loadFile { :self :fileName |
+		<primitive: evaluateFile(_fileName);>
+	}
+
+	loadUrl { :self :url |
+		<primitive: evaluateUrl(_url);>
 	}
 
 	localStorage { :self |
@@ -536,30 +560,30 @@ System! : [Object, Cache, Indexable, Random] {
 		].join
 	}
 
-	evaluateAfterMilliseconds { :self:/0 :delayInMilliseconds |
+	valueAfterMilliseconds { :self:/0 :delayInMilliseconds |
 		<primitive:
 		if(!sl.isSmallFloat(_delayInMilliseconds)) {
-			return Error('evaluateAfterMilliseconds: not a number');
+			return Error('valueAfterMilliseconds: not a number');
 		} else {
 			return setTimeout(_self_0, _delayInMilliseconds);
 		}
 		>
 	}
 
-	evaluateAfterMillisecondsWith { :self:/1 :delayInMilliseconds :anObject |
+	valueAfterMillisecondsWith { :self:/1 :delayInMilliseconds :anObject |
 		<primitive:
 		if(!sl.isSmallFloat(_delayInMilliseconds)) {
-			return Error('evaluateAfterMillisecondsWith: not a number');
+			return Error('valueAfterMillisecondsWith: not a number');
 		} else {
 			return setTimeout(_self_1, _delayInMilliseconds, _anObject);
 		}
 		>
 	}
 
-	evaluateEveryMilliseconds { :self:/0 :delayInMilliseconds |
+	valueEveryMilliseconds { :self:/0 :delayInMilliseconds |
 		<primitive:
 		if(!sl.isSmallFloat(_delayInMilliseconds)) {
-			return Error('evaluateEveryMilliseconds: not a number');
+			return Error('valueEveryMilliseconds: not a number');
 		} else {
 			return setInterval(_self_0, _delayInMilliseconds);
 		}

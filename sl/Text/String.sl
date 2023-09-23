@@ -192,10 +192,6 @@ String! : [Object, Json, Iterable] {
 		self.error('endsWith: non string operand')
 	}
 
-	evaluate { :self |
-		<primitive: return sl.evaluateFor('*Interactive*', _self);>
-	}
-
 	findStringStartingAt { :self :aString :aNumber |
 		<primitive: return _self.indexOf(_aString, _aNumber - 1) + 1;>
 	}
@@ -320,14 +316,6 @@ String! : [Object, Json, Iterable] {
 
 	lines { :self |
 		<primitive: return _self.split(/\r?\n/);>
-	}
-
-	loadFile { :self |
-		<primitive: evaluateFile(_self);>
-	}
-
-	loadUrl { :self |
-		<primitive: evaluateUrl(_self);>
 	}
 
 	markdownToHtml { :self |
@@ -489,7 +477,7 @@ String! : [Object, Json, Iterable] {
 				options.atIfAbsent('verbose', false).ifTrue {
 					test.postLine
 				};
-				(test.evaluate = true).if {
+				(system.evaluate(test) = true).if {
 					passCount +:= 1
 				} {
 					failCount +:= 1;
