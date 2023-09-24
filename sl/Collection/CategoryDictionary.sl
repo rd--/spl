@@ -73,6 +73,16 @@ CategoryDictionary : [Object] { | domainDictionary |
 		self.domainDictionary.indices
 	}
 
+	entries { :self |
+		| answer = Set(); |
+		self.domainDictionary.do { :each |
+			each.valuesDo { :item |
+				answer.includeAll(item)
+			}
+		};
+		answer
+	}
+
 	hasDomain { :self :domain |
 		self.domainDictionary.includes(domain)
 	}
