@@ -91,7 +91,7 @@ Package! : [Object] {
 
 	Package { :self |
 		Package(
-			self::Category :=? { system.categoryDictionary.categoryOf(self::Name) },
+			self::Category :=? { system.categoryDictionary.categoryOf('type', self::Name) },
 			self::Name,
 			self::Requires :? { [] },
 			self::Url :? { self.derivePackageUrl },

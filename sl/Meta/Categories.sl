@@ -734,6 +734,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'valueWithReturn'
 	],
 	'instance creation': [
+		'instanceOf'
 		'Array'
 		'ArrayBuffer'
 		'Association'

@@ -1,7 +1,7 @@
 Type! : [Object] {
 
 	category { :self |
-		system.categoryOf('type', self.name)
+		system.categoryDictionary.categoryOf('type', self.name)
 	}
 
 	constructorName { :self |

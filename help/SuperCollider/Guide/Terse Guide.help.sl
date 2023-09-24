@@ -1,25 +1,7 @@
 # Terse Guide to SuperCollider
 
-## Clock -- temporal type
-```
-Clock().isClock
-Clock().priorityQueue.isEmpty
-var c = Clock(); c.schedule(3, { :t | [t, 3].postLine; nil }); c.schedule(2, { :t | [t, 2].postLine; c.clear; nil }); c.schedule(1, { :t | [t, 1].postLine; nil })
-var c = Clock(); var k = 1; c.schedule(0, { :t | [t, k].postLine; k := k + 1; 1 }); c.schedule(9, { :t | c.clear; nil })
-workspace::clock.clear
-workspace::clock.schedule(0) { :t | var x = 1.randomFloat; [t, x].postLine; if(x > 0.1) { x } { 'end'.postLine; nil } }
-workspace::clock.scheduleInjecting(0, 1) { :t :i | var x = 1.randomFloat; [t, i, x].postLine; if(x > 0.1) { [x, i + 1] } { nil } }
-var f = { var x = 1.randomFloat; x.postLine; if(x > 0.1) { x } { nil } }; workspace::clock.repeatEvery({ :t :d | [t, d].postLine }, f)
-var f = { var x = 1.randomFloat; if(x > 0.1) { x } { nil } }; workspace::clock.repeatEvery({ :t :d | [t, d].postLine }, f)
-var f = { var x = 1.randomFloat; if(x > 0.1) { x } { 't'.postLine; nil } }; { :t :x | [t, x].postLine; if(x < 7) { x + 1 } { 'r'.postLine; nil } }.recurseEvery(1, f)
-```
-
 ## Nil -- extensions
 ```
-nil ? 'x' = 'x' (* operand if receiver is nil *)
-nil ? 1 = 1 (* operand if receiver is nil *)
-'x' ? 'y' = 'x' (* receiver unless nil *)
-1 ? 2 = 1 (* receiver unless nil *)
 nil ~? 1 = nil (* receiver if nil, else operand *)
 1 ~? 2 = 2 (* receiver if nil, else operand *)
 ```

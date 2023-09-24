@@ -77,4 +77,7 @@
 	(* Unit *)
 	'Mass'
 	'SiUnit'
+
+	(* Meta *)
+	'Categories'
 ].primitiveLoadPackageSequence

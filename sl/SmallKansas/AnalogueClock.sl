@@ -110,3 +110,11 @@ AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand se
 	}
 
 }
+
++Void {
+
+	AnalogueClock {
+		newAnalogueClock().initialize
+	}
+
+}

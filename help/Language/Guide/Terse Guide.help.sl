@@ -832,6 +832,14 @@ ByteArray(4).hex = '00000000'
 | s = 'string', a = []; | a.addAll(s.asciiByteArray); a.size = 6 (* add elements from ByteArray to end of Array *)
 ```
 
+## CategoryDictionary -- categorization type
+```
+system.categoryDictionary.typeOf = 'CategoryDictionary'
+system.categoryDictionary.isCategoryDictionary
+system.categoryDictionary.categoryOf('Colour') = 'Graphics' (* category of at any domain *)
+system.categoryDictionary.categoryOf('type', 'Set') = 'Collection' (* category of in given domain *)
+```
+
 ## Character -- text type
 ```
 system.includesPackage('Character') (* character package *)
@@ -866,6 +874,16 @@ system.includesPackage('Character') (* character package *)
 | s = 'string', a = []; | a.addAll(s); a.size = 6 (* add elements from String to end of Array *)
 'fgaguzst'.characterArray.minMax = ['a'.Character, 'z'.Character] (* character minMax *)
 'alphabet'.characterArray.collect(isVowel:/1) = [true, false, false, false, true, false, true, false] (* is character a vowel *)
+```
+
+## Clock -- temporal type
+```
+Clock().typeOf = 'Clock' (* type of clock *)
+Clock().isClock (* clock predicate *)
+Clock().priorityQueue.isPriorityQueue (* priority queue of clock *)
+Clock().priorityQueue.isEmpty (* priority queue is initially empty *)
+| c = Clock(), i = 3; | c.schedule(i) { :t | t.postLine; nil }; c.nextEntryTime <= (system.systemTimeInSeconds + i)
+| c = Clock(), i = 3; | c.schedule(i) { :t | t.postLine }; c.removeAll; c.nextEntryTime = nil
 ```
 
 ## Collection -- collection trait
@@ -2106,6 +2124,8 @@ nil.json = 'null' (* nil has a Json representation *)
 | c = 'blue'; | c ? { 'red' } = 'blue' (* nil-coalescing operator *)
 | c | c ?? 'red' = 'red' (* evaluating nil-coalescing operator, if lhs is nil answer rhs *)
 | c = 'blue'; | c ?? 'red' = 'blue' (* nil-coalescing operator *)
+nil ? { 'notNil' } = 'notNil' (* right hand side if left hand side is nil *)
+'notNil' ? { nil } = 'notNil' (* left hand side unless nil *)
 ```
 
 ## Number -- numeric trait
@@ -3359,10 +3379,9 @@ system.cache.isMap (* cache is a map from string keys to cached values *)
 
 ## System -- categoryDictionary
 ```
-system.includesPackage('CategoryDictionary') (* CategoryDictionary package *)
-system.categoryDictionary.typeOf = 'CategoryDictionary'
-system.categoryDictionary.isCategoryDictionary = true
-system.categoryDictionary.categorizeAll('method', 'accessing', ['at', 'atPut', 'first', 'key', 'last', 'value']); true
+system.includesPackage('CategoryDictionary') (* category dictionary package *)
+system.categoryDictionary.typeOf = 'CategoryDictionary' (* type of category dictionary *)
+system.categoryDictionary.isCategoryDictionary = true (* category dictionary predicate *)
 system.categoryDictionary.isCategoryName('method', 'accessing') = true
 system.categoryDictionary.isCategoryName('accessing') = true
 system.categoryDictionary.category('method', 'accessing').isSet = true
@@ -3374,12 +3393,13 @@ system.categoryDictionary.isCategorized('method', 'at') = true
 system.categoryDictionary.isCategorized('at') = true
 system.categoryDictionary.isCategorized('method', 'notInCategorySystem') = false
 system.categoryDictionary.isCategorized('notInCategorySystem') = false
-system.categoryDictionary.categorizeAll('type', 'Collection-Unordered', ['Bag', 'Map', 'Set']); true
 'Collection-Unordered'.categoryNameParts = ['Collection', 'Unordered']
 system.categoryDictionary.categoryOf('method', 'at') = 'accessing'
 system.categoryDictionary.categoryOf('at') = 'accessing'
 system.categoryDictionary.categoryOf('method', 'notInCategorySystem') = '*Uncategorized*'
 system.categoryDictionary.categoryOf('notInCategorySystem') = '*Uncategorized*'
+system.categoryDictionary.categorizeAll('type', 'NameOfMajorCategory-NameOfMinorCategory', ['NameOfType']); true
+system.categoryDictionary.categorizeAll('method', 'name of category', ['nameOfMethod']); true
 ```
 
 ## System -- evaluate
@@ -3552,6 +3572,18 @@ system.unixTime.iso8601.size = 24
 { system.unixTime.postLine }.valueAt(system.unixTime + 0.5.seconds).cancel = nil
 { system.unixTime.postLine }.valueEvery(3.seconds).cancel = nil
 | t = 1676784053576.TimeStamp, c = t.copy; | c ~~ t & { c = t }
+```
+
+## Type -- reflection type
+```
+system.typeLookup('Colour').typeOf = 'Type' (* type of type *)
+system.typeLookup('Colour').isType (* is type predicate *)
+system.typeLookup('Colour').category = 'Graphics' (* category of type *)
+system.typeLookup('Colour').constructorName = 'newColour:/0' (* constructor name for type *)
+system.typeLookup('Colour').instanceOf.isColour (* initialized instance of type *)
+system.typeLookup('Colour').name = 'Colour' (* name of type *)
+system.typeLookup('Colour').packageName = 'Colour' (* package name of type *)
+system.typeLookup('Colour').traitNameArray = ['Object'] (* traits (named) implemented by type *)
 ```
 
 ## Type -- slot access
