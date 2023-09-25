@@ -1,6 +1,12 @@
-# asFloat -- compatibility
+# asFloat -- converting
 
-- _asFloat_ ≡ _SmallFloat_
+- _asFloat(aNumber)_
+
+Answer a SmallFloat that closely approximates the value of _aNumber_.
+
+	pi.asFloat = pi
+	3:4.asFloat = 0.75
+	23.asFloat = 23.0
 
 * * *
 

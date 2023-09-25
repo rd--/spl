@@ -1,6 +1,6 @@
 # product -- math operator
 
-- _product(aCollection)_ ≡ _aCollection.reduce(times:/2)_
+- _product(aCollection)_ ⟹ _reduce(aCollection, times:/2)_
 
 Answer the product of all the elements in _aCollection_
 

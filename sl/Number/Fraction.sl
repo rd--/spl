@@ -120,8 +120,12 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		aNumber.isSmallInteger.if {
 			aNumber.asFraction.aProcedure(self)
 		} {
-			aNumber.aProcedure(self.SmallFloat)
+			aNumber.aProcedure(self.asFloat)
 		}
+	}
+
+	asFloat { :self |
+		self.numerator / self.denominator
 	}
 
 	asFraction { :self |
@@ -129,7 +133,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	closeTo { :self :aNumber |
-		self.SmallFloat.closeToBy(aNumber.SmallFloat, 0.0001)
+		self.asFloat.closeToBy(aNumber.asFloat, 0.0001)
 	}
 
 	gcd { :self :aFraction |
@@ -268,7 +272,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	SmallFloat { :self |
-		self.numerator / self.denominator
+		self.asFloat
 	}
 
 	storeString { :self |

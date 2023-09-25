@@ -127,6 +127,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		self.atan2(anObject)
 	}
 
+	asFloat { :self |
+		self
+	}
+
 	assertIsSmallInteger { :self |
 		self.assert {
 			self.isSmallInteger
@@ -442,12 +446,31 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		self.parseNumber
 	}
 
-	parseInteger { :self :radix |
+	basicParseInteger { :self :radix |
 		<primitive: return Number.parseInt(_self, _radix);>
 	}
 
-	parseNumber { :self |
+	basicParseNumber { :self |
 		<primitive: return Number.parseFloat(_self);>
+	}
+
+	parseInteger { :self :radix |
+		radix.assertIsSmallInteger;
+		self.assert {
+			radix > 1 & {
+				radix < 36
+			} & {
+				self.matchesRegExp('^[0-9a-zA-Z-]+$')
+			}
+		};
+		self.basicParseInteger(radix)
+	}
+
+	parseNumber { :self |
+		self.assert {
+			self.matchesRegExp('^[0-9e.+-]+$')
+		};
+		self.basicParseNumber
 	}
 
 }
