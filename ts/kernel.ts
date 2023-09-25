@@ -410,7 +410,7 @@ export function addType(isHostType: boolean, typeName: TypeName, packageName: Pa
 	if(!typeExists(typeName) || preinstalledTypes.includes(typeName)) {
 		const initializeSlots = slotNames.map(each => `anInstance.${each} = ${each}`).join('; ');
 		const nilSlots = slotNames.map(each => `${each}: null`).join(', ');
-		const defNilType = isHostType ? '' : `addMethod('Void', '${packageName}', 'new${typeName}', 0, function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
+		const defNewType = isHostType ? '' : `addMethod('Void', '${packageName}', 'new${typeName}', 0, function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
 		const defInitializeSlots = isHostType ? '' : `addMethod('${typeName}', '${packageName}', 'initializeSlots', ${slotNames.length + 1}, function(anInstance, ${slotNames.join(', ')}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
 		const defPredicateFalse = `extendTraitWithMethod('Object', '${packageName}', 'is${typeName}', 1, function(anObject) { return false; }, '<primitive: predicate>')`;
 		const defPredicateTrue = `addMethod('${typeName}', '${packageName}', 'is${typeName}', 1, function(anInstance) { return true; }, '<primitive: predicate>')`;
@@ -419,7 +419,7 @@ export function addType(isHostType: boolean, typeName: TypeName, packageName: Pa
 		// console.debug(`addType: ${typeName}, ${packageName}, ${slotNames}`);
 		const methodDictionary = typeExists(typeName) ? system.typeDictionary.get(typeName)!.methodDictionary : new Map();
 		system.typeDictionary.set(typeName, new Type(typeName, packageName, traitList, slotNames, methodDictionary));
-		eval(defNilType);
+		eval(defNewType);
 		eval(defInitializeSlots);
 		eval(defPredicateFalse);
 		eval(defPredicateTrue);

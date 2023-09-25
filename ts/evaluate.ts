@@ -24,6 +24,7 @@ export function evaluateForSignalling(packageName: string, text: string): unknow
 			throw new Error('Empty string after rewrite');
 		} {
 			try {
+				// console.debug(`eval: ${toEval}`);
 				return eval(toEval);
 			} catch(err) {
 				throw new Error('Evaluation failed', { cause: err });

@@ -74,6 +74,8 @@
 	'Meta-SuperColliderLibrary'
 	'Music-JiTuning'
 	'Music-Pitch'
+	'Music-Tuning'
+	'Music-TuningLattice'
 	'Navigator-Dom'
 	'Navigator-Midi'
 	'Number-Binary'

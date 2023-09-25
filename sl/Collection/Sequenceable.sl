@@ -866,6 +866,20 @@
 		}
 	}
 
+	tuplesDo { :self :n :aBlock:/1 |
+		self.size.tuplesIndicesDo(n) { :each |
+			aBlock(self.atAll(each))
+		}
+	}
+
+	tuples { :self :n |
+		| answer = []; |
+		self.tuplesDo(n) { :each |
+			answer.add(each)
+		};
+		answer
+	}
+
 	withCollect { :self :otherCollection :aProcedure:/2 |
 		self.isOfSameSizeCheck(otherCollection);
 		1.toAsCollect(self.size, self.species) { :index |

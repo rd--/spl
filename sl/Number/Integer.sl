@@ -349,6 +349,16 @@
 		self
 	}
 
+	tuplesIndicesDo { :self :n :aBlock:/1 |
+		| indices = Array(n); |
+		0.toDo(self ^ n - 1) { :counter |
+			0.toDo(n - 1) { :places |
+				indices[n - places] := counter.bitShiftRight(places).bitAnd(1) + 1
+			};
+			aBlock(indices)
+		}
+	}
+
 }
 
 +@Integer {

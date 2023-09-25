@@ -104,6 +104,22 @@
 		self.size
 	}
 
+	cartesianProductDo { :self :aCollection :aBlock:/2 |
+		self.do { :x |
+			aCollection.do { :y |
+				aBlock(x, y)
+			}
+		}
+	}
+
+	cartesianProduct { :self :aCollection |
+		| answer = []; |
+		self.cartesianProductDo(aCollection) { :x :y |
+			answer.add([x, y])
+		};
+		answer
+	}
+
 	collect { :self :aProcedure:/1 |
 		| answer = self.species.new; |
 		self.do { :each |

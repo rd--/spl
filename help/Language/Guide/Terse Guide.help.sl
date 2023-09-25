@@ -978,6 +978,9 @@ Set().Array = []
 { (1 .. 4).assertIsOfSize(3) }.ifError { true } (* assert collection is of indicated size *)
 (1 .. 4).assertIsCollection = (1 .. 4) (* require that an object is a collection *)
 { '1 to 4'.assertIsCollection }.ifError { true } (* a string is not a collection, hence error *)
+| a = []; | [1, 2].cartesianProductDo([3, 4]) { :x :y | a.add(x -> y) }; a = [1 -> 3, 1 -> 4, 2 -> 3, 2 -> 4]
+[1 2].cartesianProduct([3 4]) = [1 3; 1 4; 2 3; 2 4]
+[1 2].cartesianProduct([3 4 5]) = [1 3; 1 4; 1 5; 2 3; 2 4; 2 5]
 ```
 
 ## Extensible -- collection trait
@@ -1663,6 +1666,8 @@ system.includesPackage('Integer') (* integer package *)
 6.take(3) = ((6 * 5 * 4) / (1 * 2 * 3))
 3.take(6) = 0 (* if k is greater than n answer is zero *)
 58909.printStringHex = 'E61D' (* hexadecimal representation *)
+| c = 0, k = 3, n = 4; | k.tuplesIndicesDo(n) { :each | c +:= 1 }; c = (k ^ n)
+| c = 0; | 4.tuplesIndicesDo(7) { :each | c +:= 1 }; c = 16384
 ```
 
 ## Integer -- prime numbers
@@ -2705,6 +2710,9 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 (1 .. 4).foldLeft(minus:/2) = (((1 - 2) - 3) - 4) (* fold, left associative *)
 (1 .. 4).foldRight(minus:/2) = (1 - (2 - (3 - 4))) (* fold, right associative *)
 | a = [1 3 5 3 5 7]; | a.replaceAllWith(3, -3); a = [1 -3 5 -3 5 7] (* replace each occurence of an item with another *)
+[0, 1].tuples(2) = [[0, 0], [0, 1], [1, 0], [1, 1]]
+| x = [0, 1]; | x.tuples(2) = x.cartesianProduct(x) (* two-tuples are the self cartesian product *)
+[0 1].tuples(3) = [0 0 0; 0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1] (* all n-tuples *)
 ```
 
 ## Sequence arithmetic

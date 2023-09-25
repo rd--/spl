@@ -198,6 +198,9 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 [4, 7, 6, 8].reshape([2, 2]) = [[4, 7], [6, 8]] (* reshape array given Apl type shape value *)
 [4, 7, 6, 8].reshape([2, 3]) = [[4, 7, 6], [8, 4, 7]] (* cycle input as required *)
 [[1, 2, 3], [4, 5], [6]].allTuples = [[1, 4, 6], [1, 5, 6], [2, 4, 6], [2, 5, 6], [3, 4, 6], [3, 5, 6]]
+| a = 1, b = 2, x = [a b]; | [x x].allTuples = [a a; a b; b a; b b]
+| k = 5, x = (1 .. k); | [x, x].allTuples.size = (k ^ 2)
+['a' 'b'; 1 2 3 4; 'x'].allTuples = ['a' 1 'x'; 'a' 2 'x'; 'a' 3 'x'; 'a' 4 'x'; 'b' 1 'x'; 'b' 2 'x'; 'b' 3 'x'; 'b' 4 'x']
 [5, 5].shapeIndices = [[1 .. 5], [1 .. 5]].allTuples (* all indices to array of given shape *)
 | n = 0; | [5, 5].shapeIndicesDo { :each | n := n + 1 }; n = 25 (* all indices to array of given shape *)
 | r = Random(98765); | { r.randomInteger(9) }.dupShape([3, 5]) = [[5, 4, 2, 7, 1], [5, 2, 5, 5, 9], [6, 2, 4, 1, 5]]

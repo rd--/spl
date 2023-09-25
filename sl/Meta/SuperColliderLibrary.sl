@@ -1,5 +1,7 @@
 [
 	(* Music *)
+	'Tuning'
+	'TuningLattice'
 	'JiTuning'
 	'Pitch'
 
