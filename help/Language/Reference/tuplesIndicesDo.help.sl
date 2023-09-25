@@ -1,4 +1,4 @@
-# tuplesIndicesDo - enumerating
+# tuplesIndicesDo -- enumerating
 
 
 - _tuplesIndicesDo(size, n, aBlock:/1)

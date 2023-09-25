@@ -1,4 +1,4 @@
-# tuples - enumerating
+# tuples -- enumerating
 
 - _tuples(aSequence, n)
 
