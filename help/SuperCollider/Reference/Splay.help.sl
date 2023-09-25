@@ -18,3 +18,7 @@ Splay(
 	true
 )
 ```
+
+* * *
+
+See also: Pan2, Splay2
