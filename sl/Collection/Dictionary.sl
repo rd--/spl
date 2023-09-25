@@ -42,6 +42,14 @@
 		answer
 	}
 
+	assertIsValidKey { :self :key |
+		self.includesIndex(key).if {
+			key
+		} {
+			self.error('@Dictionary>>assertIsValidKey: no such key: ' ++ key)
+		}
+	}
+
 	associationAt { :self :key |
 		self.associationAtIfAbsent(key) {
 			self.error('@Dictionary>>associationAt: no such key')
@@ -220,19 +228,19 @@
 		self.indices.includes(key)
 	}
 
-	indexAtValueIfAbsent { :self :value :exceptionBlock:/1 |
+	indexOfIfAbsent { :self :value :exceptionBlock:/0 |
 		valueWithReturn { :return:/1 |
 			self.associationsDo { :association |
 				(value = association.value).ifTrue {
 					association.key.return
 				}
 			};
-			exceptionBlock(value)
+			exceptionBlock()
 		}
 	}
 
-	indexAtValue { :self :value |
-		self.indexAtValueIfAbsent(value) {
+	indexOf { :self :value |
+		self.indexOfIfAbsent(value) {
 			self.errorValueNotFound
 		}
 	}
@@ -251,6 +259,14 @@
 		self.associationsRemove { :each |
 			keyValueBlock(each.key, each.value)
 		}
+	}
+
+	keyAtValue { :self :value |
+		self.indexOf(value)
+	}
+
+	keyAtValueIfAbsent { :self :value :exceptionBlock:/0 |
+		self.indexOfIfAbsent(value, exceptionBlock:/0)
 	}
 
 	messageSend { :self :selector :delegateKey :argumentsArray |
@@ -284,11 +300,17 @@
 		}
 	}
 
-	removeAssociation { :self :oldObject |
+	removeAssociationIfAbsent { :self :oldObject :anExceptionBlock:/0 |
 		self.includesAssociation(oldObject).if {
 			self.removeKey(oldObject.key)
 		} {
 			anExceptionBlock()
+		}
+	}
+
+	removeAssociation { :self :oldObject |
+		self.removeAssociationIfAbsent(oldObject) {
+			self.error('removeAssociation: not present')
 		}
 	}
 

@@ -12,6 +12,10 @@ RegExp! : [Object] {
 		<primitive: return _self.flags;>
 	}
 
+	pseudoSlotNameArray { :self |
+		['flags', 'source']
+	}
+
 	source { :self |
 		<primitive: return _self.source;>
 	}

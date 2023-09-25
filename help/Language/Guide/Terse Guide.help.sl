@@ -1294,7 +1294,11 @@ system.includesPackage('Dictionary') (* package *)
 (x: 1, y: 2, z: 3).basicAt('u') = nil (* unchecked lookup, nil on absent key *)
 | a = Array(9); | a.indicesDo { :each | a[each] := 10 - each }; a = [9 .. 1] (* iterate indices *)
 | d = (x: 1, y: 2); | d.removeAssociation('x' -> 1); d = (y: 2)  (* remove association *)
+| d = (x: 1, y: 2); | d.removeAssociationIfAbsent('z' -> 3) { }; d = (x: 1, y: 2)  (* remove association, if absent clause *)
+{ (x: 1, y: 2).removeAssociation('z' -> 3) }.ifError { true }  (* remove association, error if absent *)
 | d = (x: 1, y: 2); | d.removeAll; d.isEmpty (* remove all entries *)
+(x: 1, y: 2).keyAtValue(2) = 'y' (* dictionary name for indexOf *)
+| d = (x: 1, y: 2); | d.keyAtValue(2) = d.indexOf(2) (* dictionary name for indexOf *)
 ```
 
 ## Duration -- temporal type
@@ -3154,8 +3158,8 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 'before and (* a comment *) then after'.firstBracketedComment('(*', '*)') = ' a comment '
 'before and (* a comment *) then after'.firstMlComment = ' a comment '
 'no comment'.firstMlCommentIfAbsent { true }
-'Array'.withIndefiniteArticle = 'an Array' (* prepend indefinite article to, presumably, a noun phrase *)
-'Map'.withIndefiniteArticle = 'a Map'
+'Array'.withIndefiniteArticle = 'an Array' (* prepend indefinite article to, presumably, a noun or noun phrase *)
+'Map'.withIndefiniteArticle = 'a Map' (* the article depends on the first letter of the noun *)
 ```
 
 ## Syntax -- array assignment syntax
@@ -3375,6 +3379,8 @@ system.operatorCharacterNameTable['^'] = 'raisedTo' (* table of operator names *
 ## System -- cache
 ```
 system.cache.isMap (* cache is a map from string keys to cached values *)
+| f = { system.cached('aUniqueKey') { 1.randomFloat } }; | f() = f() & { f() = system.cache::aUniqueKey }
+| f = { { 1.randomFloat }.once(system, 'anotherUniqueKey') }; | f() = f() & { f() = system.cache::anotherUniqueKey }
 ```
 
 ## System -- categoryDictionary
@@ -3400,6 +3406,7 @@ system.categoryDictionary.categoryOf('method', 'notInCategorySystem') = '*Uncate
 system.categoryDictionary.categoryOf('notInCategorySystem') = '*Uncategorized*'
 system.categoryDictionary.categorizeAll('type', 'NameOfMajorCategory-NameOfMinorCategory', ['NameOfType']); true
 system.categoryDictionary.categorizeAll('method', 'name of category', ['nameOfMethod']); true
+system.categoryDictionary.multiplyCategorized('method').isEmpty (* the set of topics with multiple categories in a domain *)
 ```
 
 ## System -- evaluate

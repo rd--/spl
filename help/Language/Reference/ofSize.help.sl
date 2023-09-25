@@ -4,7 +4,7 @@
 
 Ensure _aCollection_ has _anInteger_ places.
 Any newly created places have nil as the element.
-If the collection has more places than requested, it is answered unchanged.
+If the collection has as many or more places than requested, it is answered unchanged.
 
 - _ofSize(aProcedure, anInteger)_
 
@@ -14,5 +14,4 @@ This method exists because for some collection types the species procedure may c
 
 * * *
 
-See also: new, species
-
+See also: new, newFrom, species

@@ -544,9 +544,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	once { :self :where :key |
-		where.cached(key) {
-			self.value
-		}
+		where.cached(key, self)
 	}
 
 }

@@ -71,7 +71,7 @@
 - isPrime -- arithmetic
 - iso8601 -- time
 - json -- protocol
-- lines - accessing
+- lines -- accessing
 - map -- enumerating
 - max -- testing
 - nextPrime -- arithmetic
@@ -84,7 +84,7 @@
 - pi -- mathematical constant
 - primeFactors -- arithmetic
 - primeLimit -- arithmetic
-- product - math operator
+- product -- math operator
 - quotient -- arithmetic
 - randomFloat -- random number generator
 - randomInteger -- random number generator
@@ -107,7 +107,7 @@
 - typeOf -- reflection
 - unicode -- printing
 - unixTimeInMilliseconds -- time
-- unlines - accessing
+- unlines -- accessing
 - utf8 -- encoding
 - value -- evaluation
 - valueWithReturn -- non-local control flow

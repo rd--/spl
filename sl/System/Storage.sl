@@ -1,13 +1,14 @@
 Storage! : [Object, Collection, Dictionary] {
 
 	at { :self :key |
-		self.indexCheck(key);
+		key.assertIsString;
+		self.assertIsValidKey(key);
 		self.basicAt(key)
 	}
 
 	atPut { :self :key :value |
-		self.stringCheck(key);
-		self.stringCheck(value);
+		key.assertIsString;
+		value.assertIsString;
 		self.basicAtPut(key, value)
 	}
 
@@ -34,15 +35,6 @@ Storage! : [Object, Collection, Dictionary] {
 		self.indices.includes(key)
 	}
 
-	indexCheck { :self :index |
-		self.stringCheck(index);
-		self.includesIndex(index).if {
-			index
-		} {
-			self.error('indexCheck: no such index: ' ++ index)
-		}
-	}
-
 	indices { :self |
 		<primitive:
 		const answer = [];
@@ -54,7 +46,8 @@ Storage! : [Object, Collection, Dictionary] {
 	}
 
 	removeAt { :self :key |
-		self.indexCheck(key);
+		key.assertIsString;
+		self.assertIsValidKey(key);
 		self.basicRemoveAt(key)
 	}
 
@@ -71,14 +64,6 @@ Storage! : [Object, Collection, Dictionary] {
 
 	storeString { :self |
 		'<a Storage>'
-	}
-
-	stringCheck { :self :anObject |
-		anObject.isString.if {
-			anObject
-		} {
-			self.error('stringCheck: not a string: ' ++ anObject.typeOf)
-		}
 	}
 
 }

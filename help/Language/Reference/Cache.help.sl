@@ -1,6 +1,8 @@
 # Cache -- trait
 
-Cache is used to implement initialise on demand global variables.
+Cache is used to implement initialise-on-demand global variables.
+
+The requried method is _cache_, which should answer a _Dictionary_.
 
 Implements the methods _cached_, for where the initializer is synchronous, and _whenCached_ for where is is not.
 

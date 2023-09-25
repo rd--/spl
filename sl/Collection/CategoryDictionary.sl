@@ -109,6 +109,14 @@ CategoryDictionary : [Object] { | domainDictionary |
 		}
 	}
 
+	multiplyCategorized { :self :domain |
+		self.entries.collect { :each |
+			each -> self.categoriesOf(domain, each)
+		}.select { :each |
+			each.value.size > 1
+		}
+	}
+
 }
 
 +Void {

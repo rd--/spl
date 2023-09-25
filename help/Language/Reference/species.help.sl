@@ -18,4 +18,4 @@ This is the mechanism by which trait methods can generate new values of the type
 
 * * *
 
-See also: new, ofSize, typeOf
+See also: new, newFrom, ofSize, typeOf

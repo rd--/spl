@@ -1,10 +1,12 @@
 # new -- instance creation
 
-- _new(f, n)_ == _f(n)_
+- _new(aBlock, anObject)_ ⟹= _aBlock(anObject)_
+
+Implements the Smalltalk idiom _aCollection.species.new(aSize)_.
 
 	[].species = Array:/1
 	[].species.new(3) = [nil, nil, nil]
 
 * * *
 
-See also: ofSize, species
+See also: ofSize, newFrom, species

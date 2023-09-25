@@ -251,11 +251,12 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'any'
 		'anyAs'
 		'anyOne'
+		'arity'
+		'arrayBuffer'
 		'asciiValue'
 		'associationAt'
 		'associationAtIfAbsent'
 		'associations'
-		'associationsRemove'
 		'associationsSelect'
 		'at'
 		'atAll'
@@ -281,12 +282,16 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'basicAtPut'
 		'basicNext'
 		'binary'
+		'blob'
+		'byteArray'
 		'byteSize'
 		'cached'
 		'capacity'
+		'cause'
 		'codePoint'
 		'contents'
 		'cumulativeCounts'
+		'definition'
 		'degrees'
 		'digitValue'
 		'domain'
@@ -307,6 +312,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'indices'
 		'indicesOfSubCollection'
 		'indicesSorted'
+		'information'
 		'key'
 		'keyAtValue'
 		'keyAtValueIfAbsent'
@@ -319,8 +325,11 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'lastIndexOfIfAbsent'
 		'lastIndexOfStartingAt'
 		'lastIndexOfStartingAtIfAbsent'
+		'lastModified'
 		'messages'
+		'methodName'
 		'middle'
+		'mimeType'
 		'name'
 		'next'
 		'nextInto'
@@ -329,8 +338,12 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'nextPutAll'
 		'nextSatisfy'
 		'numArgs'
+		'ok'
+		'packageName'
 		'peek'
 		'peekPriority'
+		'provenance'
+		'qualifiedName'
 		'radians'
 		'real'
 		'replaceFromToWith'
@@ -339,17 +352,21 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'second'
 		'secondLast'
 		'setContents'
+		'signature'
 		'size'
 		'slotNameArray'
 		'sortBlock'
 		'sortedCounts'
 		'sortedElements'
+		'sourceCode'
 		'string'
 		'swapWith'
 		'take'
+		'text'
 		'third'
 		'thirdLast'
 		'top'
+		'type'
 		'upToEnd'
 		'upToPosition'
 		'unlines'
@@ -358,8 +375,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'w'
 		'x'
 		'xy'
+		'xz'
 		'xyz'
 		'y'
+		'yz'
 		'z'
 	],
 	'accessing-system': [
@@ -369,6 +388,26 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'library'
 		'methodDictionary'
 		'traitDictionary'
+	],
+	'accessing-geometry': [
+		'area'
+		'bottomLeft'
+		'bottomRight'
+		'center'
+		'corner'
+		'extent'
+		'height'
+		'origin'
+		'bottomCenter'
+		'leftCenter'
+		'pointAtFraction'
+		'rightCenter'
+		'topCenter'
+		'topLeft'
+		'topLeftQuadrant'
+		'topRight'
+		'topRightQuadrant'
+		'width'
 	],
 	'accessing-graph': [
 		'degree'
@@ -400,13 +439,16 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	'accessing-time': [
 		'centiseconds'
 		'days'
+		'existingDelay'
 		'hertz'
 		'hours'
 		'kilohertz'
 		'lightYears'
 		'milliseconds'
 		'minutes'
+		'nextEntryTime'
 		'offsetSeconds'
+		'priorityQueue'
 		'seconds'
 		'siderealMonths'
 		'siderealYears'
@@ -417,7 +459,12 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'systemTimeInSeconds'
 		'unixTime'
 		'unixTimeInMilliseconds'
+		'unixTimeInSeconds'
 		'weeks'
+	],
+	'accessing-regexp': [
+		'flags'
+		'source'
 	],
 	'adding': [
 		'add'
@@ -435,6 +482,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'addWithOccurrences'
 		'addFirst'
 		'addLast'
+		'declareFrom'
 		'ifAbsentAdd'
 		'include'
 		'includeAll'
@@ -578,6 +626,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'degreesToRadians'
 		'reverse'
 		'romanNumber'
+		'stringLiteral'
 		'threeDigitName'
 	],
 	'converting-system': [
@@ -709,10 +758,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'countUtf16CodeUnits'
 	],
 	'error handling': [
-		'assert'
-		'assertIsCollection'
-		'assertIsSmallInteger'
-		'assertIsOfSize'
 		'caseError'
 		'emptyCheck'
 		'error'
@@ -720,6 +765,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'errorInvalidIndex'
 		'errorNotFound'
 		'errorNotIndexed'
+		'errorValueNotFound'
 		'isOfSameSizeCheck'
 		'shouldBeImplemented'
 		'shouldNotImplement'
@@ -727,18 +773,31 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'typeResponsibility'
 		'warning'
 	],
+	'error handling-asserting':[
+		'assert'
+		'assertIsCollection'
+		'assertIsOfSize'
+		'assertIsSmallInteger'
+		'assertIsString'
+		'assertIsValidIndex'
+	],
 	'evaluating': [
+		'apply'
 		'cull'
+		'ensure'
 		'evaluateOrSignalError'
 		'evaluateNotifying'
 		'evaluate'
 		'ifError'
+		'once'
 		'value'
 		'valueWithArguments'
 		'valueWithReturn'
 	],
+	'initialization': [
+		'initialize'
+	],
 	'instance creation': [
-		'instanceOf'
 		'Array'
 		'ArrayBuffer'
 		'Association'
@@ -758,6 +817,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'LargeInteger'
 		'LinkedList'
 		'Map'
+		'Package'
 		'PriorityQueue'
 		'Promise'
 		'Random'
@@ -773,13 +833,45 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'Transcript'
 		'WeakMap'
 		'WriteStream'
+		'instanceOf'
 		'new'
+		'newFrom'
 		'ofSize'
 		'species'
 	],
 	'instance creation-number': [
 		'one'
 		'zero'
+	],
+	'instance creation-small kansas': [
+		'ColourChooser'
+		'ColumnBrowser'
+		'AnalogueClock'
+		'Frame'
+		'HelpSystem'
+		'Inspector'
+		'ListChooser'
+		'Menu'
+		'MenuItem'
+		'PngViewer'
+		'SmallKansas'
+		'SvgViewer'
+		'TableViewer'
+		'TextEditor'
+		'TranscriptViewer'
+	],
+	'instance creation-geometry': [
+		'Matrix22'
+		'Matrix33'
+		'Point'
+		'PolarPoint'
+		'Rectangle'
+		'Vector2'
+		'Vector3'
+		'Vector4'
+	],
+	'instance creation-navigator': [
+		'ImageBitmap'
 	],
 	'intervals': [
 		'downToDo'
@@ -909,6 +1001,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'asString'
 		'asStringWithCommas'
 		'asWords'
+		'causeText'
 		'description'
 		'hex'
 		'messageText'
@@ -919,6 +1012,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'printStringLimitedTo'
 		'printStringRoman'
 		'storeString'
+		'withIndefiniteArticle'
 	],
 	'private': [
 		'fillFromWith'
@@ -933,6 +1027,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'randomInteger'
 	],
 	'removing': [
+		'associationsRemove'
+		'basicRemoveAt'
 		'keysAndValuesRemove'
 		'pop'
 		'remove'
@@ -954,6 +1050,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'anyResolved'
 		'anySettled'
 		'cancel'
+		'catch'
+		'finally'
+		'recurseEvery'
+		'repeatEvery'
 		'schedule'
 		'scheduleInjecting'
 		'valueAfter'
@@ -964,6 +1064,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'valueAtWith'
 		'valueEvery'
 		'valueEveryMilliseconds'
+		'wakeup'
 		'schedule'
 		'scheduleInjecting'
 		'then'
@@ -998,6 +1099,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isCategorized'
 		'isCategoryName'
 		'isCollection'
+		'isException'
 		'isError'
 		'isIndexable'
 		'isLiteral'
@@ -1005,6 +1107,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isNumber'
 		'isStream'
 		'isVowel'
+		'test'
 	],
 	'testing-system': [
 		'isMethodName'
@@ -1102,6 +1205,9 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isGrey'
 		'isGreyOf'
 	],
+	'testing-geometry': [
+		'containsPoint'
+	],
 	'timing': [
 		'millisecondsToRun'
 	],
@@ -1136,10 +1242,12 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isAssociation'
 		'isBag'
 		'isBitset'
+		'isBlob'
 		'isBoolean'
 		'isByteArray'
 		'isCategoryDictionary'
 		'isCharacter'
+		'isClock'
 		'isColour'
 		'isComplex'
 		'isDate'
@@ -1169,6 +1277,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isSmallFloat'
 		'isSortedArray'
 		'isStack'
+		'isStorage'
 		'isString'
 		'isSystem'
 		'isTimeStamp'
@@ -1177,7 +1286,15 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isWeakMap'
 		'isWriteStream'
 	],
-	'type predicate-super collider': [
+	'type predicate-geometry': [
+		'isMatrix22'
+		'isMatrix33'
+		'isRectangle'
+		'isVector2'
+		'isVector3'
+		'isVector4'
+	],
+	'type predicate-supercollider': [
 		'isCcEvent'
 		'isEnv'
 		'isLocalControl'
@@ -1206,7 +1323,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	'mathematical functions-colour': [
 		'over'
 	],
-	'super collider': [
+	'supercollider': [
 		'allTuples'
 		'allTuplesDo'
 		'asLocalBuf'
@@ -1224,7 +1341,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'play'
 		'playEvery'
 		'pyramid'
-		'repeatEvery'
 		'series'
 		'withCrossedCollect'
 		'withTableCollect'

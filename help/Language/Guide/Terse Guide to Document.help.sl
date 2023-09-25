@@ -37,7 +37,7 @@ system.window.getSelectedText
 'programMenu'.getElementById.selectedIndex
 ```
 
-## Navigator - midi
+## Navigator -- midi
 ```
 system.window.navigator.requestMidiAccess.thenElse { :midiAccess | workspace::midi := midiAccess } { :message | ('no midi: ' + message).postLine }
 workspace::midi.inputs.do { :each | each.postLine; each.onmidimessage { :event | event.data.postLine } }

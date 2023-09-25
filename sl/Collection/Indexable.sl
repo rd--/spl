@@ -2,6 +2,14 @@
 
 @Indexable {
 
+	assertIsValidIndex { :self :index |
+		self.includesIndex(index).if {
+			index
+		} {
+			self.error('@Indexable>>assertIsValidIndex: no such index: ' ++ index)
+		}
+	}
+
 	at { :self :index |
 		self.error('@Indexable>>at: type responsibility')
 	}
@@ -114,14 +122,6 @@
 		self.indices.includes(anObject)
 	}
 
-	indexCheck { :self :index |
-		self.includesIndex(index).if {
-			index
-		} {
-			self.error('@Indexable>>indexCheck: no such index: ' ++ index)
-		}
-	}
-
 	indexOf { :self :anObject |
 		self.indexOfIfAbsent(anObject) {
 			self.error('@Indexable>>indexOf: no such element')
@@ -169,15 +169,6 @@
 
 	isIndexable { :self |
 		false
-	}
-
-}
-
-(* Key *)
-+@Indexable {
-
-	keyAtValue { :self :value |
-		self.indexOf(value)
 	}
 
 }

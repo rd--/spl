@@ -71,6 +71,10 @@ String! : [Object, Json, Iterable] {
 		self.asBracketedComment('(*', '*)')
 	}
 
+	assertIsString { :self |
+		self
+	}
+
 	asString { :self |
 		self
 	}
