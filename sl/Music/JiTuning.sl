@@ -1,79 +1,59 @@
-(* Requires: Fraction Tuning TuningLattice *)
+(* Requires: Fraction RatioTuning Tuning TuningLattice *)
 
-JiTuning : [Object, Tuning] { | name description integerPitches limit degree |
+JiTuning : [Object, Tuning] { | tuning limit degree |
 
 	cents { :self |
-		self.ratios.collect { :each |
-			each.SmallFloat.log2 * 1200
-		}
+		self.tuning.cents
 	}
 
-	calculateDegree { :self |
-		self.integerPitches.size
+	description { :self |
+		self.tuning.description
 	}
 
-	calculateLimit { :self |
-		self.integerPitches.collect { :each |
-			(each = 1).if {
-				each
-			} {
-				each.primeFactors.max
-			}
-		}.max
+	integers { :self |
+		self.tuning.integers
 	}
 
-	degreeError { :self |
-		self.error('degreeError')
-	}
-
-	initialize { :self :name :description :tuning |
-		|(
-			integerPitches = tuning.allSatisfy(isSmallInteger:/1).if {
-				tuning
-			} {
-				tuning.allSatisfy(isFraction:/1).if {
-					(tuning / tuning.reduce(gcd:/2)).collect(asInteger:/1)
-				} {
-					self.error('initialize: unknown tuning')
-				}
-			}
-		)|
-		self.initializeSlots(
-			name,
-			description,
-			integerPitches,
-			nil,
-			integerPitches.size
-		);
-		self.limit := self.calculateLimit;
-		self
-	}
-
-	initializeFromDictionary { :self :aDictionary |
-		self.initializeSlots(
-			aDictionary::name,
-			aDictionary::description,
-			aDictionary::tuning,
-			aDictionary::limit,
-			aDictionary::degree
-		)
-	}
-
-	isValid { :self |
-		self.degree = self.calculateDegree & {
-			self.limit = self.calculateLimit
-		}
-	}
-
-	limitError { :self |
-		self.error('limitError')
+	name { :self |
+		self.tuning.name
 	}
 
 	ratios { :self |
-		| i1 = self.integerPitches.first; |
-		self.integerPitches.collect { :each |
-			Fraction(each, i1).normalized
-		}
+		self.tuning.ratios
+	}
+
+}
+
++RatioTuning {
+
+	JiTuning { :self |
+		JiTuning(self, self.limit, self.degree)
+	}
+
+	JiTuning { :self :limit :degree |
+		newJiTuning().initializeSlots(self, limit, degree)
+	}
+
+}
+
++String {
+
+	JiTuning { :self :description :ratiosOrIntegers :limit :degree |
+		|(
+			tuning = ratiosOrIntegers.allSatisfy(isSmallInteger:/1).if {
+				IntegerTuning(self, description, ratiosOrIntegers)
+			} {
+				ratiosOrIntegers.allSatisfy(isFraction:/1).if {
+					RatioTuning(self, description, ratiosOrIntegers)
+				} {
+					self.error('not ratios or integers')
+				}
+			}
+		)|
+		JiTuning(tuning,
+			limit,
+			degree
+		)
 	}
 
 }
@@ -81,7 +61,13 @@ JiTuning : [Object, Tuning] { | name description integerPitches limit degree |
 +Record {
 
 	JiTuning { :self |
-		newJiTuning().initializeFromDictionary(self)
+		JiTuning(
+			self::name,
+			self::description,
+			self::tuning,
+			self::limit,
+			self::degree
+		)
 	}
 
 }
@@ -89,7 +75,7 @@ JiTuning : [Object, Tuning] { | name description integerPitches limit degree |
 +Array {
 
 	JiTuning { :self |
-		newJiTuning().initialize(
+		JiTuning(
 			'',
 			'',
 			self

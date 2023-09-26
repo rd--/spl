@@ -50,7 +50,11 @@ Transcript : [Object] { | entries |
 
 	String { :self |
 		self.entries.collect { :each |
-			each.category ++ ': ' ++ each.message
+			(each.category = 'notification').if {
+				each.message
+			} {
+				each.category ++ ': ' ++ each.message
+			}
 		}.unlines
 	}
 
@@ -68,7 +72,11 @@ Transcript : [Object] { | entries |
 
 }
 
-+@Cache {
++System {
+
+	postLine { :self :aString |
+		self.transcript.addNotification(aString)
+	}
 
 	transcript { :self |
 		self.cached('transcript') {

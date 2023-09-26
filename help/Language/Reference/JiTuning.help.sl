@@ -16,3 +16,7 @@ in which case they are understood to be integer pitches.
 
 _Rationale:_
 The degree and limit are cached since this type is used to construct a large dictionary of tunings.
+
+* * *
+
+See also: IntegerTuning, RatioTuning, Tuning

@@ -376,7 +376,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	postLine { :self |
-		system.transcript.addNotification(self)
+		system.postLine(self)
 	}
 
 	primitiveCollectInto { :self :aBlock:/1 :aCollection |

@@ -391,6 +391,10 @@ System! : [Object, Cache, Indexable, Random] {
 		}.values
 	}
 
+	postLine { :self :aString |
+		system.consoleNotification(aString)
+	}
+
 	pseudoSlotNameArray { :self |
 		[
 			'cache',

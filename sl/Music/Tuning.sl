@@ -4,6 +4,10 @@
 		self.typeResponsibility('cents')
 	}
 
+	degree { :self |
+		self.typeResponsibility('degree')
+	}
+
 	integers { :self |
 		self.typeResponsibility('integers')
 	}
@@ -23,6 +27,16 @@
 		self.ratios.collect { :each |
 			each.latticeVector(self.limit)
 		}
+	}
+
+	limit { :self |
+		self.integers.collect { :each |
+			(each = 1).if {
+				each
+			} {
+				each.primeFactors.max
+			}
+		}.max
 	}
 
 	ratios { :self |

@@ -2,6 +2,8 @@
 	(* Music *)
 	'Tuning'
 	'TuningLattice'
+	'CentsTuning'
+	'RatioTuning'
 	'JiTuning'
 	'Pitch'
 

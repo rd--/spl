@@ -1588,6 +1588,11 @@ SmallFloat(1:2) = (1 / 2)
 (1:2 + 1:2).isInteger (* fractions with unit denominators are integers *)
 1:2.fractionPart = 1:2 (* the fractional part of a number between zero and one is identity *)
 4:3.fractionPart = 1:3 (* fraction math is exact *)
+64:33.primeLimit = 11 (* the prime limit of a fraction is maximum of the limit of each part *)
+1:1.primeLimit = 0 (* by convention the prime limit of one is zero *)
+64:33.primeFactors = [2, 2, 2, 2, 2, 2, 1:3, 1:11] (* the factors of the denominator are fractions *)
+64:33.primeFactors.product = 64:33 (* the product of the factors is the fraction *)
+3:8.primeFactorization = [2 -> -3, 3 -> 1] (* factors of fraction *)
 ```
 
 ## Frequency -- temporal type
@@ -1694,6 +1699,7 @@ system.cache::primesArray[23] = 83 (* nthPrime extends the primesArray cache as 
 (2 .. 20).reject { :each | each.isPrime } = [4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20]
 60.primeFactors = [2, 2, 3, 5] (* prime factors *)
 [2, 2, 3, 5].product = 60 (* product is the inverse of primeFactors *)
+1.primeFactors = [] (* the prime factors of one is empty *)
 60.primeFactors.product = 60
 315.primeFactors = [3, 3, 5, 7] (* prime factors *)
 2588.primeFactors = [2, 2, 647] (* prime factors *)
@@ -1702,8 +1708,24 @@ system.cache::primesArray[23] = 83 (* nthPrime extends the primesArray cache as 
 10071203840.primeFactors.Bag.sortedElements = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1] (* prime factor histogram *)
 6606028800.primeFactors.Bag.sortedCounts = [22 -> 2, 2 -> 5, 2 -> 3, 1 -> 7]
 8589298611.primeFactors = [3, 2863099537] (* large prime factors *)
+120.primeFactorization = [2 -> 3, 3 -> 1, 5 -> 1]
+60.primeFactorization = [2 -> 2, 3 -> 1, 5 -> 1]
+36.primeFactorization = [2 -> 2, 3 -> 2]
+20.factorial.primeFactorization = [2 -> 18, 3 -> 8, 5 -> 4, 7 -> 2, 11 -> 1, 13 -> 1, 17 -> 1, 19 -> 1]
+2401.primeFactorization = [7 -> 4]
+2401.isPrimePower (* the factorization has one place and the base is a prime number *)
+(2 .. 49).select(isPrimePower:/1) = [2 3 4 5 7 8 9 11 13 16 17 19 23 25 27 29 31 32 37 41 43 47 49] (* A246655 in the OEIS *)
+1.isPrimePower = false (* one is not a prime power *)
+[7, 9, 64].allSatisfy(isPrimePower:/1)
+[6, 12, 36].noneSatisfy(isPrimePower:/1)
+(1 .. 19).select { :each | each.isAlmostPrime(1) } = [2, 3, 5, 7, 11, 13, 17, 19] (* A000040 *)
+(1 .. 22).select { :each | each.isAlmostPrime(2) } = [4, 6, 9, 10, 14, 15, 21, 22] (* A001358 *)
+(1 .. 449).select { :each | each.isAlmostPrime(7) } = [128, 192, 288, 320, 432, 448] (* A046308 *)
+(1 .. 5121).select { :each | each.isAlmostPrime(11) } = [2048, 3072, 4608, 5120] (* A069272 *)
+(10 ^ 12 + 3).primeFactorization = [61 -> 1, 14221 -> 1, 1152763 -> 1] (* moderately large number *)
 (2 .. 30).select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30]
 (2 .. 15).select { :each | each.primeLimit <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
+1.primeLimit = 0(* by convention the prime limit of one is zero *)
 23.isPrime = true (* prime number predicate *)
 2971215073.isPrime = true (* prime number predicate *)
 2971215073.nextPrime = 2971215083 & { 2971215083.isPrime } (* find next prime *)

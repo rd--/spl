@@ -55,7 +55,7 @@
 					each.latticeVectorString(self.limit)
 				},
 				self.cents.rounded,
-				self.integerPitches
+				self.integers
 			].transpose.asHtmlTable,
 			self.latticeDrawing
 		]);

@@ -219,6 +219,26 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		Fraction(1, 1)
 	}
 
+	primeFactors { :self |
+		self.numerator.primeFactors ++ self.denominator.primeFactors.collect { :each |
+			Fraction(1, each)
+		}
+	}
+
+	primeFactorization { :self |
+		|(
+			n = self.numerator.primeFactors.Bag.sortedElements,
+			d = self.denominator.primeFactors.Bag.sortedElements.collect { :each |
+				each.key -> each.value.negated
+			}
+		)|
+		(n ++ d).sorted
+	}
+
+	primeLimit { :self |
+		self.numerator.primeLimit.max(self.denominator.primeLimit)
+	}
+
 	printString { :self |
 		[self.numerator, ':', self.denominator].join
 	}

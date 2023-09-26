@@ -284,6 +284,22 @@
 		false
 	}
 
+	maxIfEmpty { :self :aBlock:/0 |
+		self.ifEmpty {
+			aBlock()
+		} {
+			self.max
+		}
+	}
+
+	minIfEmpty { :self :aBlock:/0 |
+		self.ifEmpty {
+			aBlock()
+		} {
+			self.min
+		}
+	}
+
 	mean { :self |
 		self.sum / self.size
 	}

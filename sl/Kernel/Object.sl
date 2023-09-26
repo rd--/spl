@@ -87,7 +87,6 @@
 
 	error { :self :message |
 		| description = self.errorMessage(message); |
-		(* system.transcript.addError(description); *)
 		Error(description).signal
 	}
 
@@ -139,7 +138,7 @@
 	}
 
 	notify { :self :message |
-		system.transcript.addNotification(self.notificationMessage(message));
+		system.postLine(self.notificationMessage(message));
 		self
 	}
 
@@ -235,7 +234,7 @@
 	}
 
 	warning { :self :message |
-		system.transcript.addWarning(self.warningMessage(message));
+		system.postLine(self.warningMessage(message));
 		self
 	}
 

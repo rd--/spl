@@ -115,6 +115,10 @@
 		self.typeResponsibility('@Integer>>isInteger')
 	}
 
+	isAlmostPrime { :self :k |
+		self.primeFactors.size = k
+	}
+
 	isPrime { :self |
 		(self <= 1).if {
 			false
@@ -133,6 +137,13 @@
 					true.return
 				}
 			}
+		}
+	}
+
+	isPrimePower { :self |
+		| primeFactors = self.primeFactorization; |
+		primeFactors.size = 1 & {
+			primeFactors.first.key.isPrime
 		}
 	}
 
@@ -199,11 +210,13 @@
 	}
 
 	primeFactorization { :self |
-		self.primeFactors.Bag
+		self.primeFactors.Bag.sortedElements
 	}
 
 	primeLimit { :self |
-		self.primeFactors.max
+		self.primeFactors.maxIfEmpty {
+			0
+		}
 	}
 
 	primesArray { :self |
