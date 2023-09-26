@@ -14,4 +14,4 @@ It holds the Method, Trait and Type dictionaries.
 
 * * *
 
-See also: System, workspace
+See also: System

@@ -582,7 +582,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'repeat'
 		'whileTrue'
 		'whileFalse'
-		'doWhile'
 		'doWhileTrue'
 		'doWhileFalse'
 	],

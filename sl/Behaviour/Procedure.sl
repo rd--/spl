@@ -40,6 +40,24 @@ Procedure! : [Object] {
 		}
 	}
 
+	doWhileFalse { :self:/0 :conditionBlock:/0 |
+		| answer |
+		{
+			answer := self();
+			conditionBlock()
+		}.whileFalse;
+		answer
+	}
+
+	doWhileTrue { :self:/0 :conditionBlock:/0 |
+		| answer |
+		{
+			answer := self();
+			conditionBlock()
+		}.whileTrue;
+		answer
+	}
+
 	ensure { :self :aBlock:/0 |
 		<primitive:
 		var returnValue;
@@ -172,7 +190,10 @@ Procedure! : [Object] {
 	}
 
 	whileFalse { :self:/0 |
-		{ self() }.whileFalse { }
+		{
+			self()
+		}.whileFalse {
+		}
 	}
 
 	whileFalse { :self:/0 :aProcedure:/0 |
@@ -185,7 +206,10 @@ Procedure! : [Object] {
 	}
 
 	whileTrue { :self:/0 |
-		{ self() }.whileTrue { }
+		{
+			self()
+		}.whileTrue {
+		}
 	}
 
 	whileTrue { :self:/0 :aProcedure:/0 |

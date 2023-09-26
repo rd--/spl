@@ -1682,6 +1682,10 @@ system.includesPackage('Integer') (* integer package *)
 6.take(3) = ((6 * 5 * 4) / (1 * 2 * 3))
 3.take(6) = 0 (* if k is greater than n answer is zero *)
 58909.printStringHex = 'E61D' (* hexadecimal representation *)
+| a = []; | 3.tuplesIndicesDo(2) { :each | a.add(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
+| a = []; | 3.tuplesIndicesDo(2) { :each | a.add(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
+| a = []; | 2.tuplesIndicesDo(3) { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5 6]
+| a = []; | 2.tuplesIndicesDo(4) { :each | a.add(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
 | c = 0, k = 3, n = 4; | k.tuplesIndicesDo(n) { :each | c +:= 1 }; c = (k ^ n)
 | c = 0; | 4.tuplesIndicesDo(7) { :each | c +:= 1 }; c = 16384
 ```
@@ -1713,6 +1717,10 @@ system.cache::primesArray[23] = 83 (* nthPrime extends the primesArray cache as 
 36.primeFactorization = [2 -> 2, 3 -> 2]
 20.factorial.primeFactorization = [2 -> 18, 3 -> 8, 5 -> 4, 7 -> 2, 11 -> 1, 13 -> 1, 17 -> 1, 19 -> 1]
 2401.primeFactorization = [7 -> 4]
+2434500.primeFactorization.collect(key:/1) = [2, 3, 5, 541] (* prime divisors *)
+2434500.primeDivisors = [2, 3, 5, 541] (* prime divisors *)
+6.factorial.primeFactorization = [2 -> 4, 3 -> 2, 5 -> 1]
+324.primeFactorization = [2 -> 2, 3 -> 4] (* powerful numbers are numbers whose prime factors are all repeated *)
 2401.isPrimePower (* the factorization has one place and the base is a prime number *)
 (2 .. 49).select(isPrimePower:/1) = [2 3 4 5 7 8 9 11 13 16 17 19 23 25 27 29 31 32 37 41 43 47 49] (* A246655 in the OEIS *)
 1.isPrimePower = false (* one is not a prime power *)
@@ -2745,9 +2753,13 @@ var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
 (1 .. 4).foldLeft(minus:/2) = (((1 - 2) - 3) - 4) (* fold, left associative *)
 (1 .. 4).foldRight(minus:/2) = (1 - (2 - (3 - 4))) (* fold, right associative *)
 | a = [1 3 5 3 5 7]; | a.replaceAllWith(3, -3); a = [1 -3 5 -3 5 7] (* replace each occurence of an item with another *)
-[0, 1].tuples(2) = [[0, 0], [0, 1], [1, 0], [1, 1]]
-| x = [0, 1]; | x.tuples(2) = x.cartesianProduct(x) (* two-tuples are the self cartesian product *)
+[0, 1].tuples(2) = [[0, 0], [0, 1], [1, 0], [1, 1]] (* all n-tuples, of two elements is binary counting *)
 [0 1].tuples(3) = [0 0 0; 0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1] (* all n-tuples *)
+[0 1 2].tuples(2) = [0 0; 0 1; 0 2; 1 0; 1 1; 1 2; 2 0; 2 1; 2 2] (* of three elements is ternary counting *)
+[0 1 2].tuples(3).first(6) = [0 0 0; 0 0 1; 0 0 2; 0 1 0; 0 1 1; 0 1 2]
+[3 5].tuples(3) = [3 3 3; 3 3 5; 3 5 3; 3 5 5; 5 3 3; 5 3 5; 5 5 3; 5 5 5]
+[3 5 7].tuples(3).first(9) = [3 3 3; 3 3 5; 3 3 7; 3 5 3; 3 5 5; 3 5 7; 3 7 3; 3 7 5; 3 7 7]
+| x = [0, 1]; | x.tuples(2) = x.cartesianProduct(x) (* two-tuples are the self cartesian product *)
 ```
 
 ## Sequence arithmetic

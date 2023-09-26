@@ -10,3 +10,7 @@ Type, trait and method dictionaries, timers, random number and unique identifier
 	system.typeDictionary.keys.includes('System') = true
 	system.randomFloat < 1
 	system.uniqueId ~= system.uniqueId
+
+* * *
+
+See also: Cache

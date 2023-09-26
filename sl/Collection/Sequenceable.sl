@@ -256,9 +256,9 @@
 		}
 	}
 
-	doWhile { :self :activity:/1 :condition:/0 |
+	doWhileTrue { :self :activity:/1 :conditionBlock:/0 |
 		| nextIndex = 1, endIndex = self.size; |
-		{ condition() & { nextIndex <= endIndex } }.whileTrue {
+		{ conditionBlock() & { nextIndex <= endIndex } }.whileTrue {
 			activity(self[nextIndex]);
 			nextIndex +:= 1
 		}

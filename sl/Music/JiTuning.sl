@@ -38,6 +38,10 @@ JiTuning : [Object, Tuning] { | tuning limit degree |
 
 +String {
 
+	JiTuning { :self :description :ratiosOrIntegers |
+		JiTuning(self, description, ratiosOrIntegers, nil, nil)
+	}
+
 	JiTuning { :self :description :ratiosOrIntegers :limit :degree |
 		|(
 			tuning = ratiosOrIntegers.allSatisfy(isSmallInteger:/1).if {
@@ -51,8 +55,8 @@ JiTuning : [Object, Tuning] { | tuning limit degree |
 			}
 		)|
 		JiTuning(tuning,
-			limit,
-			degree
+			limit ? { tuning.limit },
+			degree ? { tuning.degree }
 		)
 	}
 

@@ -1,0 +1,9 @@
+# doWhileFalse -- conditional evaluation
+
+- _doWhileFalse(aBlock:/0, conditionBlock:/0)_
+
+Evaluate _aBlock_ once, then again as long the value of _conditionBlock_ is false.
+
+* * *
+
+See also: doWhileTrue, if, ifFalse, ifNil, ifTrue, whileFalse, whileTrue

@@ -181,6 +181,10 @@
 		}
 	}
 
+	primeDivisors { :self |
+		self.primeFactorization.collect(key:/1)
+	}
+
 	primeFactors { :self |
 		(self <= 1).if {
 			[]
@@ -363,12 +367,19 @@
 	}
 
 	tuplesIndicesDo { :self :n :aBlock:/1 |
-		| indices = Array(n); |
-		0.toDo(self ^ n - 1) { :counter |
-			0.toDo(n - 1) { :places |
-				indices[n - places] := counter.bitShiftRight(places).bitAnd(1) + 1
-			};
-			aBlock(indices)
+		| indices = Array(n, 1); |
+		(self ^ n).timesRepeat {
+			| k = n; |
+			aBlock(indices);
+			{
+				k >= 1 & {
+					indices[k] +:= 1;
+					indices[k] > self
+				}
+			}.whileTrue {
+				indices[k] := 1;
+				k -:= 1
+			}
 		}
 	}
 
