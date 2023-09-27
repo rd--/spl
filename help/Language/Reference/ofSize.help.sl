@@ -6,11 +6,11 @@ Ensure _aCollection_ has _anInteger_ places.
 Any newly created places have nil as the element.
 If the collection has as many or more places than requested, it is answered unchanged.
 
-- _ofSize(aProcedure, anInteger)_
+- _ofSize(aBlock, anInteger)_
 
-Evaluate _aProcedure_ to create a new collection of size _anInteger_, with nil as every element.
+Evaluate _aBlock_ to create a new collection of size _anInteger_, with nil as every element.
 
-This method exists because for some collection types the species procedure may create an empty collection.
+This method exists because for some collection types the species block may create an empty collection.
 
 * * *
 

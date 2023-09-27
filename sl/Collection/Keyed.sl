@@ -4,9 +4,9 @@
 		self.indices
 	}
 
-	keysAndValuesDo { :self :aProcedure:/2 |
+	keysAndValuesDo { :self :aBlock:/2 |
 		self.withIndexDo { :value :key |
-			aProcedure(key, value)
+			aBlock(key, value)
 		}
 	}
 

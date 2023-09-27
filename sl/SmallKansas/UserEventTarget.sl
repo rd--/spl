@@ -1,10 +1,10 @@
 @UserEventTarget {
 
-	addEventListener { :self :aString :aProcedure:/1 |
+	addEventListener { :self :aString :aBlock:/1 |
 		self.eventListeners.atIfPresentIfAbsent(aString) { :aSet |
-			aSet.add(aProcedure:/1)
+			aSet.add(aBlock:/1)
 		} {
-			self.eventListeners[aString] := Set([aProcedure:/1])
+			self.eventListeners[aString] := Set([aBlock:/1])
 		}
 	}
 

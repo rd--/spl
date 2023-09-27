@@ -32,7 +32,7 @@
 - Method -- behaviour type
 - Number -- number type
 - Object -- value trait
-- Procedure -- behaviour type
+- Block -- behaviour type
 - String -- text
 - Record -- dictionary type
 - System -- system

@@ -1,10 +1,10 @@
-# playEvery -- schedule sound generating procedure at intervals
+# playEvery -- schedule sound generating block at intervals
 
-- _playEvery(aClock, aProcedure, interval)_
-- _playEvery(aProcedure, interval)_
+- _playEvery(aClock, aBlock, interval)_
+- _playEvery(aBlock, interval)_
 
-Evaluate _aProcedure.play_ now, and re-schedule recursively after _interval.value_ seconds.
-_aProcedure_ may accept either zero or one argument,
+Evaluate _aBlock.play_ now, and re-schedule recursively after _interval.value_ seconds.
+_aBlock_ may accept either zero or one argument,
 in the latter case the argument will be the delay time until it will next be invoked.
 
 In the two-argument form scheduling is on _workspace::clock_.

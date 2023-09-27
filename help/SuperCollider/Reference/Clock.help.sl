@@ -3,7 +3,7 @@
 - _Clock()_
 
 A type to organise scheduling.
-A priority queue maintains a list of scheduled procedures.
+A priority queue maintains a list of scheduled blocks.
 When new elements are added to the schedule, the wakeup time of the clock is adjusted as required.
 
 There is a _clock_ method at _Cache_.

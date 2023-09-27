@@ -24,7 +24,7 @@ Projection3 : [Object] { | alpha beta x y z |
 		)
 	}
 
-	procedure { :self |
+	block { :self |
 		| matrix = self.Matrix33; |
 		{ :aVector |
 			matrix.applyTo(aVector).xy

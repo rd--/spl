@@ -76,8 +76,8 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		self.error('shiftRight: operand not a LargeInteger or SmallFloat')
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
-		aProcedure(aNumber.LargeInteger, self)
+	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
+		aBlock(aNumber.LargeInteger, self)
 	}
 
 	bitAnd { :self :anObject |

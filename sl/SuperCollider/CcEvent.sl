@@ -61,8 +61,8 @@ CcEvent! : [Object] {
 
 +SmallFloat {
 
-	Voicer { :self :voiceProcedure |
-		<primitive: return sc.Voicer(_self, _voiceProcedure);>
+	Voicer { :self :voiceBlock |
+		<primitive: return sc.Voicer(_self, _voiceBlock);>
 	}
 
 }

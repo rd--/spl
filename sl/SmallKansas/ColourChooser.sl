@@ -40,7 +40,7 @@ ColourChooser : [Object, View] { | colourChooserPane colourInput |
 
 }
 
-+Procedure {
++Block {
 
 	ColourChooser { :self |
 		Colour(0.5, 0.5, 0.5, 0.5).ColourChooser(self)

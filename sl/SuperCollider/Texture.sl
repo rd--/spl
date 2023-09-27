@@ -12,7 +12,7 @@
 
 }
 
-+Procedure {
++Block {
 
 	overlap { :self:/0 :sustainTime :transitionTime :overlap |
 		| period = (sustainTime + (transitionTime * 2)) / overlap; |
@@ -40,11 +40,11 @@
 
 +Clock {
 
-	collectTexture { :self :aCollection :aProcedure:/1 :delay |
+	collectTexture { :self :aCollection :aBlock:/1 :delay |
 		| end = aCollection.size; |
 		self.recurseEvery({ :currentTime :index |
 			{
-				aProcedure(aCollection[index])
+				aBlock(aCollection[index])
 			}.playAt(currentTime + 0.5); (* fixed delay... *)
 			(index = end).if {
 				nil
@@ -54,10 +54,10 @@
 		}, 1, delay.value)
 	}
 
-	playEvery { :self :aProcedure:/1 :delay |
+	playEvery { :self :aBlock:/1 :delay |
 		self.repeatEvery({ :currentTime :nextDelay |
 			{
-				aProcedure(nextDelay)
+				aBlock(nextDelay)
 			}.playAt(currentTime + 0.5) (* fixed delay... *)
 		}, delay)
 	}
@@ -66,10 +66,10 @@
 
 +@Collection {
 
-	collectTexture { :self :aProcedure:/1 :delay |
+	collectTexture { :self :aBlock:/1 :delay |
 		system.clock.collectTexture(
 			self,
-			aProcedure:/1,
+			aBlock:/1,
 			delay
 		)
 	}

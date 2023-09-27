@@ -1,9 +1,9 @@
 # repeatEvery -- scheduling
 
-- _repeatEvery(aClock, aProcedure, aDelay)_
+- _repeatEvery(aClock, aBlock, aDelay)_
 
-Schedule _aProcedure_ at intervals given by _aDelay_ on _aClock_.
-If _aProcedure_ accepts an argument it will be the delay interval before the procedure will execute next.
+Schedule _aBlock_ at intervals given by _aDelay_ on _aClock_.
+If _aBlock_ accepts an argument it will be the delay interval before the block will execute next.
 
 Print a message every few seconds indefinitely:
 

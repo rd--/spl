@@ -26,7 +26,7 @@
 	'Error'
 	'Meta'
 	'Nil'
-	'Procedure'
+	'Block'
 	'Promise'
 	'Response'
 	'SmallFloat'

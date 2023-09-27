@@ -195,7 +195,7 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 
 }
 
-+Procedure {
++Block {
 
 	Heap { :self:/2 |
 		newHeap().initializeSlots([], self:/2, nil)

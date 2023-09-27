@@ -1,6 +1,6 @@
 system.categoryDictionary.categorizeDictionary('type', (
 	'Kernel-Behaviour': [
-		'Procedure'
+		'Block'
 	],
 	'Kernel-Exception': [
 		'Error'
@@ -1261,7 +1261,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isMap'
 		'isMethod'
 		'isPriorityQueue'
-		'isProcedure'
+		'isBlock'
 		'isPromise'
 		'isRandom'
 		'isReadStream'

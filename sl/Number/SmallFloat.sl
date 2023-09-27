@@ -101,14 +101,14 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.abs(_self)>
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
+	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
 		aCollection.collect { :each |
-			aProcedure(each, self)
+			aBlock(each, self)
 		}
 	}
 
-	adaptToFractionAndApply { :self :aFraction :aProcedure:/2 |
-		aFraction.SmallFloat.aProcedure(self)
+	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
+		aFraction.SmallFloat.aBlock(self)
 	}
 
 	arcCos { :self |

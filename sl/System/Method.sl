@@ -78,8 +78,8 @@ Method! : [Object] {
 		self.information.packageName
 	}
 
-	procedure { :self |
-		<primitive: return _self.procedure;>
+	block { :self |
+		<primitive: return _self.block;>
 	}
 
 	provenance { :self |
@@ -87,7 +87,7 @@ Method! : [Object] {
 	}
 
 	pseudoSlotNameArray { :self |
-		['procedure', 'information']
+		['block', 'information']
 	}
 
 	qualifiedName { :self |

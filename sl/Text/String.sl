@@ -189,9 +189,9 @@ String! : [Object, Json, Iterable] {
 		<primitive: return _self.length;>
 	}
 
-	do { :self :aProcedure:/1 |
+	do { :self :aBlock:/1 |
 		self.primitiveDo { :each |
-			aProcedure(each.Character)
+			aBlock(each.Character)
 		}
 	}
 
@@ -412,10 +412,10 @@ String! : [Object, Json, Iterable] {
 		aCollection
 	}
 
-	primitiveDo { :self :aProcedure:/1 |
+	primitiveDo { :self :aBlock:/1 |
 		<primitive:
 		for (const each of _self) {
-			_aProcedure_1(each);
+			_aBlock_1(each);
 		};
 		return _self;
 		>

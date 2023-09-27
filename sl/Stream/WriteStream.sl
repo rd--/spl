@@ -91,7 +91,7 @@ WriteStream : [Object, Stream, PositionableStream] { | collection positionIndex 
 
 }
 
-+Procedure {
++Block {
 
 	asciiStringStreamContents { :self:/1 |
 		| stream = AsciiWriteStream(); |

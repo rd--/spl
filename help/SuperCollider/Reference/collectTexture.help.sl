@@ -1,9 +1,9 @@
 # collectTexture -- scheduling
 
-- _collectTexture(aClock, aCollection, aProcedure:/1, aDelay)_
-- _collectTexture(aCollection, aProcedure:/1, aDelay)_ ⇒ _aClock = workspace::clock_
+- _collectTexture(aClock, aCollection, aBlock:/1, aDelay)_
+- _collectTexture(aCollection, aBlock:/1, aDelay)_ ⇒ _aClock = workspace::clock_
 
-Evaluate _aProcedure_ at each element of _aCollection_ with _aDelay.value_ seconds between each occurence, and _play_ each answer.
+Evaluate _aBlock_ at each element of _aCollection_ with _aDelay.value_ seconds between each occurence, and _play_ each answer.
 
 Play ascending diatonic scale:
 

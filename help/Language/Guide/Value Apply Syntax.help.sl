@@ -3,8 +3,8 @@
 - _f . ()_
 - _f . (x, ...)_
 
-This is the primitive _Procedure_ application syntax.
-_f_ must be a _Procedure_ value,
+This is the primitive _Block_ application syntax.
+_f_ must be a _Block_ value,
 it is applied to the arguments given within the parentheses.
 
 * * *

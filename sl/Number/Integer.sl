@@ -2,8 +2,8 @@
 
 @Integer {
 
-	adaptToFractionAndApply { :self :aFraction :aProcedure:/2 |
-		aFraction.aProcedure(Fraction(self, self.one))
+	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
+		aFraction.aBlock(Fraction(self, self.one))
 	}
 
 	asHexDigit { :self |
@@ -249,10 +249,10 @@
 		answer
 	}
 
-	primesUpToDo { :self :aProcedure:/1 |
+	primesUpToDo { :self :aBlock:/1 |
 		| n = 2; |
 		{ n <= self }.whileTrue {
-			aProcedure(n);
+			aBlock(n);
 			n := n.nextPrime
 		}
 	}
@@ -357,10 +357,10 @@
 		}
 	}
 
-	timesRepeat { :self :aProcedure:/0 |
+	timesRepeat { :self :aBlock:/0 |
 		| remaining = self; |
 		{ remaining > 0 }.whileTrue {
-			aProcedure();
+			aBlock();
 			remaining -:= 1
 		};
 		self

@@ -29,8 +29,8 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 			scaledDrawing(xz:/1)
 		]);
 		projectionsB.appendChildren([
-			scaledDrawing(Projection3().chinese.procedure),
-			scaledDrawing(Projection3().isometric.procedure)
+			scaledDrawing(Projection3().chinese.block),
+			scaledDrawing(Projection3().isometric.block)
 		]);
 		container.appendChildren([
 			description,

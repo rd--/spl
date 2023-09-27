@@ -95,7 +95,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 		aLink
 	}
 
-	collect { :self :aProcedure:/1 |
+	collect { :self :aBlock:/1 |
 		|(
 			aLink = self.firstLink,
 			answer = LinkedList()
@@ -103,18 +103,18 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 		{
 			aLink = nil
 		}.whileFalse {
-			answer.add(aProcedure(aLink.value));
+			answer.add(aBlock(aLink.value));
 			aLink := aLink.nextLink
 		};
 		answer
 	}
 
-	do { :self :aProcedure:/1 |
+	do { :self :aBlock:/1 |
 		| aLink = self.firstLink; |
 		{
 			aLink = nil
 		}.whileFalse {
-			aProcedure(aLink.value);
+			aBlock(aLink.value);
 			aLink := aLink.nextLink
 		}
 	}
@@ -129,7 +129,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 		}
 	}
 
-	linkAtIfAbsent { :self :index :errorProcedure:/0 |
+	linkAtIfAbsent { :self :index :errorBlock:/0 |
 		| counter = 0; |
 		valueWithReturn { :return:/1 |
 			self.linksDo { :link |
@@ -138,7 +138,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 					link.return
 				}
 			};
-			errorProcedure()
+			errorBlock()
 		}
 	}
 
@@ -148,23 +148,23 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 		}
 	}
 
-	linkOfIfAbsent { :self :anObject :errorProcedure:/0 |
+	linkOfIfAbsent { :self :anObject :errorBlock:/0 |
 		valueWithReturn { :return:/1 |
 			self.linksDo { :link |
 				(link.value = anObject.value).ifTrue {
 					link.return
 				}
 			};
-			errorProcedure()
+			errorBlock()
 		}
 	}
 
-	linksDo { :self :aProcedure:/1 |
+	linksDo { :self :aBlock:/1 |
 		| aLink = self.firstLink; |
 		{
 			aLink = nil
 		}.whileFalse {
-			aProcedure(aLink);
+			aBlock(aLink);
 			aLink := aLink.nextLink
 		}
 	}
@@ -191,9 +191,9 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 		self.lastLink := nil
 	}
 
-	removeAllSuchThat { :self :aProcedure:/1 |
+	removeAllSuchThat { :self :aBlock:/1 |
 		self.do { :each |
-			aProcedure(each).ifTrue {
+			aBlock(each).ifTrue {
 				self.remove(each)
 			}
 		}
@@ -211,10 +211,10 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 		oldLink.value
 	}
 
-	removeIfAbsent { :self :aLinkOrObject :aProcedure:/0 |
-		| link = self.linkOfIfAbsent(aLinkOrObject, aProcedure:/0); |
+	removeIfAbsent { :self :aLinkOrObject :aBlock:/0 |
+		| link = self.linkOfIfAbsent(aLinkOrObject, aBlock:/0); |
 		self.removeLinkIfAbsent(link) {
-			aProcedure()
+			aBlock()
 		};
 		aLinkOrObject
 	}
@@ -238,7 +238,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 		oldLink.value
 	}
 
-	removeLinkIfAbsent { :self :aLink :aProcedure:/0 |
+	removeLinkIfAbsent { :self :aLink :aBlock:/0 |
 		valueWithReturn { :return:/1 |
 			(aLink == self.firstLink).if {
 				self.firstLink := aLink.nextLink;
@@ -249,7 +249,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 				| tempLink = self.firstLink; |
 				{
 					tempLink.ifNil {
-						aProcedure().return
+						aBlock().return
 					};
 					tempLink.nextLink == aLink
 				}.whileFalse {
@@ -264,10 +264,10 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 		}
 	}
 
-	select { :self :aProcedure:/1 |
+	select { :self :aBlock:/1 |
 		| answer = LinkedList(); |
 		self.do { :each |
-			each.aProcedure.ifTrue {
+			each.aBlock.ifTrue {
 				answer.add(each)
 			}
 		};

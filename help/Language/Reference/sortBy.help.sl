@@ -1,8 +1,8 @@
 # sortBy -- sorting
 
-- _sortBy(aSequence, aProcedure:/2)_
+- _sortBy(aSequence, aBlock:/2)_
 
-Sort _aSequence_ in place using the comparator _aProcedure_.
+Sort _aSequence_ in place using the comparator _aBlock_.
 Unlike _sort_, the comparison block must be valid, not nil.
 
 * * *

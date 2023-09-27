@@ -1,6 +1,6 @@
 # withIndexCollect -- enumerating
 
-- _withIndexCollect(aSequence, aProcedure:/2)_
+- _withIndexCollect(aSequence, aBlock:/2)_
 
 Like _withCollect_ except that the iteration index supplies the second argument to the block.
 

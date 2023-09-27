@@ -43,9 +43,9 @@
 		}
 	}
 
-	atIfAbsentPut { :self :index :aProcedure:/0 |
+	atIfAbsentPut { :self :index :aBlock:/0 |
 		self.atIfAbsent(index) {
-			self[index] := aProcedure()
+			self[index] := aBlock()
 		}
 	}
 
@@ -157,9 +157,9 @@
 		true
 	}
 
-	withIndexDo { :self :elementAndIndexProcedure:/2 |
+	withIndexDo { :self :elementAndIndexBlock:/2 |
 		self.indices.do { :index |
-			elementAndIndexProcedure(self[index], index)
+			elementAndIndexBlock(self[index], index)
 		}
 	}
 

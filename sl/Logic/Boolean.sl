@@ -4,12 +4,12 @@ Boolean! : [Object, Json] {
 		<primitive: return _self === _anObject;>
 	}
 
-	& { :self :aProcedure:/0 |
-		<primitive: return _self && _aProcedure_0();>
+	& { :self :aBlock:/0 |
+		<primitive: return _self && _aBlock_0();>
 	}
 
-	| { :self :aProcedure:/0 |
-		<primitive: return _self || _aProcedure_0();>
+	| { :self :aBlock:/0 |
+		<primitive: return _self || _aBlock_0();>
 	}
 
 	&& { :self :anObject |
@@ -28,8 +28,8 @@ Boolean! : [Object, Json] {
 		}
 	}
 
-	always { :self :aProcedure:/0 |
-		aProcedure()
+	always { :self :aBlock:/0 |
+		aBlock()
 	}
 
 	asBit { :self |

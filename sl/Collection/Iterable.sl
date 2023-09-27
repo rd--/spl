@@ -1,9 +1,9 @@
 @Iterable {
 
-	allSatisfy { :self :aProcedure:/1 |
+	allSatisfy { :self :aBlock:/1 |
 		valueWithReturn { :return:/1 |
 			self.do { :each |
-				each.aProcedure.ifFalse {
+				each.aBlock.ifFalse {
 					false.return
 				}
 			};
@@ -20,10 +20,10 @@
 		}
 	}
 
-	anySatisfy { :self :aProcedure:/1 |
+	anySatisfy { :self :aBlock:/1 |
 		valueWithReturn { :return:/1 |
 			self.do { :each |
-				each.aProcedure.ifTrue {
+				each.aBlock.ifTrue {
 					true.return
 				}
 			};
@@ -31,10 +31,10 @@
 		}
 	}
 
-	count { :self :aProcedure:/1 |
+	count { :self :aBlock:/1 |
 		| answer = 0; |
 		self.do { :each |
-			aProcedure(each).ifTrue {
+			aBlock(each).ifTrue {
 				answer +:= 1
 			}
 		};
@@ -47,31 +47,31 @@
 		}
 	}
 
-	detect { :self :aProcedure:/1 |
-		self.detectIfNone(aProcedure:/1) {
+	detect { :self :aBlock:/1 |
+		self.detectIfNone(aBlock:/1) {
 			self.error('@Iterable>>detect: not found')
 		}
 	}
 
-	detectIfFound { :self :aProcedure:/1 :foundProcedure:/1 |
-		self.detectIfFoundIfNone(aProcedure:/1, foundProcedure:/1) {
+	detectIfFound { :self :aBlock:/1 :foundBlock:/1 |
+		self.detectIfFoundIfNone(aBlock:/1, foundBlock:/1) {
 			nil
 		}
 	}
 
-	detectIfFoundIfNone { :self :aProcedure:/1 :foundProcedure:/1 :exceptionProcedure:/0 |
+	detectIfFoundIfNone { :self :aBlock:/1 :foundBlock:/1 :exceptionBlock:/0 |
 		valueWithReturn { :return:/1 |
 			self.do { :each |
-				aProcedure(each).ifTrue {
-					foundProcedure(each).return
+				aBlock(each).ifTrue {
+					foundBlock(each).return
 				}
 			};
-			exceptionProcedure()
+			exceptionBlock()
 		}
 	}
 
-	detectIfNone { :self :aProcedure:/1 :whenAbsent:/0 |
-		self.detectIfFoundIfNone(aProcedure:/1, identity:/1, whenAbsent:/0)
+	detectIfNone { :self :aBlock:/1 :whenAbsent:/0 |
+		self.detectIfFoundIfNone(aBlock:/1, identity:/1, whenAbsent:/0)
 	}
 
 	detectSum { :self :aBlock:/1 |
@@ -82,14 +82,14 @@
 		sum
 	}
 
-	detectMax { :self :aProcedure:/1 |
+	detectMax { :self :aBlock:/1 |
 		| maxElement maxValue |
 		self.do { :each |
 			maxValue.ifNil {
 				maxElement := each;
-				maxValue := aProcedure(each)
+				maxValue := aBlock(each)
 			} {
-				| nextValue = aProcedure(each); |
+				| nextValue = aBlock(each); |
 				(nextValue > maxValue).ifTrue {
 					maxElement := each;
 					maxValue := nextValue
@@ -99,14 +99,14 @@
 		maxElement
 	}
 
-	detectMin { :self :aProcedure:/1 |
+	detectMin { :self :aBlock:/1 |
 		| minElement minValue |
 		self.do { :each |
 			minValue.ifNil {
 				minElement := each;
-				minValue := aProcedure(each)
+				minValue := aBlock(each)
 			} {
-				| nextValue = aProcedure(each); |
+				| nextValue = aBlock(each); |
 				(nextValue < minValue).ifTrue {
 					minElement := each;
 					minValue := nextValue
@@ -168,10 +168,10 @@
 		}
 	}
 
-	injectInto { :self :initialValue :aProcedure:/2 |
+	injectInto { :self :initialValue :aBlock:/2 |
 		| nextValue = initialValue; |
 		self.do { :each |
-			nextValue := aProcedure(nextValue, each)
+			nextValue := aBlock(nextValue, each)
 		};
 		nextValue
 	}
@@ -209,10 +209,10 @@
 		[min, max]
 	}
 
-	noneSatisfy { :self :aProcedure:/1 |
+	noneSatisfy { :self :aBlock:/1 |
 		valueWithReturn { :return:/1 |
 			self.do { :each |
-				each.aProcedure.ifTrue {
+				each.aBlock.ifTrue {
 					false.return
 				}
 			};
@@ -242,14 +242,14 @@
 		self.max - self.min
 	}
 
-	reduce { :self :aProcedure:/2 |
+	reduce { :self :aBlock:/2 |
 		| first = true, nextValue = nil; |
 		self.do { :each |
 			first.if {
 				nextValue := each;
 				first := false
 			} {
-				nextValue := aProcedure(nextValue, each)
+				nextValue := aBlock(nextValue, each)
 			}
 		};
 		first.ifTrue {

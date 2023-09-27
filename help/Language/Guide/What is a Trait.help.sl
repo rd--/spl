@@ -1,13 +1,16 @@
 # What is a Trait?
 
 A _Trait_ is a collection of behaviours, in much the same way that _abstract classes_ are in Smalltalk.
-In Smalltalk _Collection_, _SequenceableCollection_ and _ArrayedCollection_ are abstract classes, here they are Traits.
+
+In Smalltalk _Collection_ is an abstract class, here it is a Trait.
 
 Types are said to implement a trait.
-_Array_ implements all three of the above traits.
-_Set_ implements _Collection_.
 
-This means that _Array_ receives copies of the methods defined in each of the traits it implements.
+We can ask the system which traits a given type implements:
+
+	system.typeTraits('Array').includes('Sequenceable')
+
+A type receives copies of the methods defined in each of the traits it implements.
 The traits are applied in the sequence they are listed in the type definition.
 Methods defined by traits applied later in the sequence can override methods defined by traits that are applied earlier.
 

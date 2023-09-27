@@ -1,10 +1,10 @@
 # scheduleInjecting -- scheduling
 
-- _scheduleInjecting(aClock, deltaTime, aValue, aProcedure)_
-- _scheduleInjecting(deltaTime, aValue, aProcedure)_ ⇒ aClock = workspace::clock
-- _scheduleInjecting(aProcedure, aValue)_ ⇒ deltaTime = 0
+- _scheduleInjecting(aClock, deltaTime, aValue, aBlock)_
+- _scheduleInjecting(deltaTime, aValue, aBlock)_ ⇒ aClock = workspace::clock
+- _scheduleInjecting(aBlock, aValue)_ ⇒ deltaTime = 0
 
-Schedule applying _aProcedure_ to _aValue_ for _deltaTime_.
+Schedule applying _aBlock_ to _aValue_ for _deltaTime_.
 When evaluated the answer is a _[delay, nextValue]_ pair to continue, or _nil_ to halt.
 
 Play ascending chromatic scale from C2 to C5, with random inter-offset delays and random durations:

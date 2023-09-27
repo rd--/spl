@@ -1,9 +1,9 @@
 # detectMax -- enumerating
 
-- _detectMax(aCollection, aProcedure)_
+- _detectMax(aCollection, aBlock)_
 
-Evaluate _aProcedure_ with each of the elements of _aCollection_ as the argument.
-Answer the element for which _aProcedure_ evaluates to the highest magnitude.
+Evaluate _aBlock_ with each of the elements of _aCollection_ as the argument.
+Answer the element for which _aBlock_ evaluates to the highest magnitude.
 If _aCollection_ is empty, return nil.
 
 * * *

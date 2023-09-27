@@ -1,8 +1,8 @@
-# Procedure Implementation
+# Block Implementation
 
 The Smalltalk _BlockClosure_ semantics can be implemented in Scheme (using _lambda_, _let_ and _set!_) and in Javascript (using _function_, _var_ and _=_).
 
-The table below shows equivalent notations for a simple one argument procedure.
+The table below shows equivalent notations for a simple one argument block.
 
 _Spl:_
 

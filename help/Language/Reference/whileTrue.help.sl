@@ -5,7 +5,7 @@
 
 Evaluate _aBlock()_ as long as the value of _condition()_ is _true_.
 
-Ordinarily _condition_ and _aBlock_ are literal no-argument procedures written using [Trailing Procedure Syntax].
+Ordinarily _condition_ and _aBlock_ are literal no-argument blocks written using [Trailing Block Syntax].
 
 In the second case, simply evaluate _condition_ repeatedly as long as it answers true.
 

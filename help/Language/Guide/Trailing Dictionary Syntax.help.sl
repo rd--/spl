@@ -8,8 +8,8 @@ Rewrite rules:
 - _x.f(y, ...) { p }..._ ⟹ _f(x, y, ..., (k: v, ...), ...)_
 
 Trailing dictionary syntax allows any number of concluding _literal dictionary_ arguments to be written outside the parameter list.
-This notation is particularly clear for procedures that accept an _options_ dictionary.
+This notation is particularly clear for methods that accept an _options_ dictionary.
 
 * * *
 
-See also: [Trailing Procedure Syntax]
+See also: [Trailing Block Syntax]

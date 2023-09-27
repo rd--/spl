@@ -151,10 +151,10 @@
 		}
 	}
 
-	collect { :self :aProcedure:/1 |
+	collect { :self :aBlock:/1 |
 		| answer = self.species.ofSize(self.size); |
 		self.indicesDo { :index |
-			answer[index] := aProcedure(self[index])
+			answer[index] := aBlock(self[index])
 		};
 		answer
 	}
@@ -240,9 +240,9 @@
 		answer
 	}
 
-	do { :self :aProcedure:/1 |
+	do { :self :aBlock:/1 |
 		self.indicesDo { :index |
-			aProcedure(self[index])
+			aBlock(self[index])
 		};
 		self
 	}
@@ -375,17 +375,17 @@
 		answer
 	}
 
-	foldLeft { :self :aProcedure:/2 |
-		self.reduce(aProcedure:/2)
+	foldLeft { :self :aBlock:/2 |
+		self.reduce(aBlock:/2)
 	}
 
-	foldRight { :self :aProcedure:/2 |
+	foldRight { :self :aBlock:/2 |
 		self.ifEmpty {
 			self.errorEmptyCollection
 		} {
 			| answer = self.last; |
 			(self.size - 1).toByDo(1, -1) { :index |
-				answer := aProcedure(self[index], answer)
+				answer := aBlock(self[index], answer)
 			};
 			answer
 		}
@@ -587,11 +587,11 @@
 		self.isSortedByBetweenAnd(lessThanEquals:/2, startIndex, endIndex)
 	}
 
-	isSortedBy { :self :aProcedure:/2 |
-		self.isSortedByBetweenAnd(aProcedure:/2, 1, self.size)
+	isSortedBy { :self :aBlock:/2 |
+		self.isSortedByBetweenAnd(aBlock:/2, 1, self.size)
 	}
 
-	isSortedByBetweenAnd { :self :aProcedure:/2 :startIndex :endIndex |
+	isSortedByBetweenAnd { :self :aBlock:/2 :startIndex :endIndex |
 		(endIndex <= startIndex).if {
 			true
 		} {
@@ -599,7 +599,7 @@
 			valueWithReturn { :return:/1 |
 				(startIndex + 1).toDo(endIndex) { :index |
 					| element = self[index]; |
-					aProcedure(previousElement, element).ifFalse {
+					aBlock(previousElement, element).ifFalse {
 						false.return
 					};
 					previousElement := element
@@ -665,9 +665,9 @@
 		}
 	}
 
-	pairsDo { :self :aProcedure:/2 |
+	pairsDo { :self :aBlock:/2 |
 		1.toDo(self.size // 2) { :index |
-			aProcedure(self[2 * index - 1], self[2 * index])
+			aBlock(self[2 * index - 1], self[2 * index])
 		}
 	}
 
@@ -742,9 +742,9 @@
 		answer
 	}
 
-	reverseDo { :self :aProcedure:/1 |
+	reverseDo { :self :aBlock:/1 |
 		self.size.downToDo(1) { :index |
-			aProcedure(self[index])
+			aBlock(self[index])
 		}
 	}
 
@@ -782,10 +782,10 @@
 		self[self.size - 1]
 	}
 
-	select { :self :aProcedure:/1 |
+	select { :self :aBlock:/1 |
 		| answer = []; |
 		self.indicesDo { :index |
-			aProcedure(self[index]).ifTrue {
+			aBlock(self[index]).ifTrue {
 				answer.add(self[index])
 			}
 		};
@@ -832,16 +832,16 @@
 		answer
 	}
 
-	splitByDo { :self :aCollection :aProcedure:/1 |
+	splitByDo { :self :aCollection :aBlock:/1 |
 		| lastIndex = 1, nextIndex = nil; |
 		{
 			nextIndex := self.indexOfSubCollectionStartingAt(aCollection, lastIndex);
 			nextIndex = 0
 		}.whileFalse {
-			aProcedure(self.copyFromTo(lastIndex, nextIndex - 1));
+			aBlock(self.copyFromTo(lastIndex, nextIndex - 1));
 			lastIndex := nextIndex + aCollection.size
 		};
-		aProcedure(self.copyFromTo(lastIndex, self.size))
+		aBlock(self.copyFromTo(lastIndex, self.size))
 	}
 
 	swapWith { :self :oneIndex :anotherIndex |
@@ -880,10 +880,10 @@
 		answer
 	}
 
-	withCollect { :self :otherCollection :aProcedure:/2 |
+	withCollect { :self :otherCollection :aBlock:/2 |
 		self.isOfSameSizeCheck(otherCollection);
 		1.toAsCollect(self.size, self.species) { :index |
-			aProcedure(self[index], otherCollection[index])
+			aBlock(self[index], otherCollection[index])
 		}
 	}
 
@@ -894,24 +894,24 @@
 		}
 	}
 
-	withReplace { :self :otherCollection :aProcedure:/2 |
+	withReplace { :self :otherCollection :aBlock:/2 |
 		self.isOfSameSizeCheck(otherCollection);
 		self.indicesDo { :index |
-			self[index] := aProcedure(self[index], otherCollection[index])
+			self[index] := aBlock(self[index], otherCollection[index])
 		}
 	}
 
-	withIndexCollect { :self :elementAndIndexProcedure:/2 |
+	withIndexCollect { :self :elementAndIndexBlock:/2 |
 		| answer = self.species.ofSize(self.size); |
 		self.indicesDo { :index |
-			answer[index] := elementAndIndexProcedure(self[index], index)
+			answer[index] := elementAndIndexBlock(self[index], index)
 		};
 		answer
 	}
 
-	withIndexDo { :self :elementAndIndexProcedure:/2 |
+	withIndexDo { :self :elementAndIndexBlock:/2 |
 		self.indicesDo { :index |
-			elementAndIndexProcedure(self[index], index)
+			elementAndIndexBlock(self[index], index)
 		}
 	}
 

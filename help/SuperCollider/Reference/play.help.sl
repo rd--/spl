@@ -1,5 +1,5 @@
 # play -- synthesiser control
 
-- _play(aProcedure)_
+- _play(aBlock)_
 
-Evaluate _aProcedure()_ and if the answer is a synthesiser value send it to the synthesiser to be played.
+Evaluate _aBlock()_ and if the answer is a synthesiser value send it to the synthesiser to be played.

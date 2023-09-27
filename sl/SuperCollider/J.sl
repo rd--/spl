@@ -238,7 +238,7 @@
 
 }
 
-+Procedure {
++Block {
 
 	dupShape { :self:/0 :shape |
 		| answer = shape.iota; |

@@ -44,55 +44,55 @@
 		>
 	}
 
-	collect { :self :aProcedure:/1 |
+	collect { :self :aBlock:/1 |
 		<primitive:
-		if(_aProcedure_1 instanceof Function) {
+		if(_aBlock_1 instanceof Function) {
 			return _self.map(function(each) {
-				return _aProcedure_1(each);
+				return _aBlock_1(each);
 			});
 		}
 		>
-		self.error('@Arrayed>>collect: not a procedure')
+		self.error('@Arrayed>>collect: not a block')
 	}
 
-	detectIfFoundIfNone { :self :aProcedure:/1 :whenFound:/1 :whenNone:/0 |
+	detectIfFoundIfNone { :self :aBlock:/1 :whenFound:/1 :whenNone:/0 |
 		<primitive:
 		var item = _self.find(function(element) {
-			return _aProcedure_1(element);
+			return _aBlock_1(element);
 		});
 		return (item !== undefined) ? _whenFound_1(item) : _whenNone_0();
 		>
 	}
 
-	do { :self :aProcedure:/1 |
+	do { :self :aBlock:/1 |
 		<primitive:
 		_self.forEach(function(item) {
-			return _aProcedure_1(item)
+			return _aBlock_1(item)
 		});
 		>
 		self
 	}
 
-	fillFromWith { :self :aCollection :aProcedure:/1 |
+	fillFromWith { :self :aCollection :aBlock:/1 |
 		aCollection.withIndexDo { :each :index |
-			self[index] := aProcedure(each)
+			self[index] := aBlock(each)
 		};
 		self
 	}
 
-	findFirstElement { :self :aProcedure:/1 |
+	findFirstElement { :self :aBlock:/1 |
 		<primitive:
 		var item = _self.find(function(element) {
-			return _aProcedure_1(element);
+			return _aBlock_1(element);
 		});
 		return (item === undefined) ? null : item;
 		>
 	}
 
-	findFirst { :self :aProcedure:/1 |
+	findFirst { :self :aBlock:/1 |
 		<primitive:
 		var index = _self.findIndex(function(element) {
-			return _aProcedure_1(element);
+			return _aBlock_1(element);
 		});
 		return index + 1;
 		>
@@ -110,10 +110,10 @@
 		}
 	}
 
-	injectInto { :self :anObject :aProcedure:/2 |
+	injectInto { :self :anObject :aBlock:/2 |
 		| result = anObject; |
 		self.indicesDo { :index |
-			result := aProcedure(result, self[index])
+			result := aBlock(result, self[index])
 		};
 		result
 	}
@@ -161,10 +161,10 @@
 		}
 	}
 
-	sortBy { :self :aProcedure:/2 |
+	sortBy { :self :aBlock:/2 |
 		<primitive:
 		return _self.sort(function(p, q) {
-			return _aProcedure_2(p, q) ? -1 : 1
+			return _aBlock_2(p, q) ? -1 : 1
 		});
 		>
 	}
@@ -181,8 +181,8 @@
 		>
 	}
 
-	sorted { :self :aSortProcedure:/2 |
-		self.copy.sortBy(aSortProcedure:/2)
+	sorted { :self :aSortBlock:/2 |
+		self.copy.sortBy(aSortBlock:/2)
 	}
 
 	sorted { :self |

@@ -67,7 +67,7 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 
 }
 
-+Procedure {
++Block {
 
 	valueAt { :self :time |
 		| now = system.unixTimeInMilliseconds; |

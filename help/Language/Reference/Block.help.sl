@@ -1,6 +1,7 @@
-# Procedure -- behaviour type
+# Block -- behaviour type
 
-The behaviour type, procedures have fixed arity and myst be applied to the correct number of arguments.
+The behaviour type.
+Blocks have fixed arity and must be applied to the correct number of arguments.
 
 	{ true } . () = true
 	{ { true } . (true) }.ifError { :err | true }
@@ -9,6 +10,6 @@ The behaviour type, procedures have fixed arity and myst be applied to the corre
 
 * * *
 
-See also: [Procedure Syntax], [Procedure Semantics]
+See also: [Block Syntax], [Block Semantics]
 
 Unicode: U+03BB λ Greek Small Letter Lamda

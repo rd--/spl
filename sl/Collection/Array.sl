@@ -1,8 +1,8 @@
 Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable, Arrayed, Ordered] {
 
-	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
+	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
 		self.collect { :each |
-			aProcedure(aNumber, each)
+			aBlock(aNumber, each)
 		}
 	}
 
@@ -137,13 +137,13 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 		}
 	}
 
-	toAsCollect { :self :stop :species :aProcedure:/1 |
+	toAsCollect { :self :stop :species :aBlock:/1 |
 		|(
 			answerSize = stop - self + 1,
 			answer = species.ofSize(answerSize)
 		)|
 		1.toDo(answerSize) { :index |
-			answer[index] := aProcedure(index + self - 1)
+			answer[index] := aBlock(index + self - 1)
 		};
 		answer
 	}
@@ -185,10 +185,10 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 +@Object {
 
-	replicateApplying { :self :anInteger :aProcedure:/1 |
+	replicateApplying { :self :anInteger :aBlock:/1 |
 		| answer = Array(anInteger); |
 		answer.indicesDo { :index |
-			answer[index] := aProcedure(self)
+			answer[index] := aBlock(self)
 		};
 		answer
 	}

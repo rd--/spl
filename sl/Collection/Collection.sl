@@ -8,12 +8,12 @@
 		answer
 	}
 
-	adaptToCollectionAndApply { :self :rcvr :aProcedure:/2 |
+	adaptToCollectionAndApply { :self :rcvr :aBlock:/2 |
 		(rcvr.isSequenceable & {
 			self.isSequenceable
 		}).if {
 			rcvr.withCollect(self) { :rcvrItem :selfItem |
-				aProcedure(rcvrItem, selfItem)
+				aBlock(rcvrItem, selfItem)
 			}
 		} {
 			self.error('@Collection: only sequenceable collections may be combined arithmetically')
@@ -39,8 +39,8 @@
 		self.anyAs(numberOfElements, self.species)
 	}
 
-	anyAs { :self :numberOfElements :aProcedure:/1 |
-		| index = 0, result = numberOfElements.aProcedure; |
+	anyAs { :self :numberOfElements :aBlock:/1 |
+		| index = 0, result = numberOfElements.aBlock; |
 		valueWithReturn { :return:/1 |
 			result.fillFromWith(self) { :each |
 				index +:= 1;
@@ -80,8 +80,8 @@
 		}
 	}
 
-	associationsDo { :self :aProcedure:/1 |
-		self.do(aProcedure:/1)
+	associationsDo { :self :aBlock:/1 |
+		self.do(aBlock:/1)
 	}
 
 	atRandom { :self |
@@ -120,16 +120,16 @@
 		answer
 	}
 
-	collect { :self :aProcedure:/1 |
+	collect { :self :aBlock:/1 |
 		| answer = self.species.new; |
 		self.do { :each |
-			answer.add(aProcedure(each))
+			answer.add(aBlock(each))
 		};
 		answer
 	}
 
-	collectInto { :self :aProcedure :aCollection |
-		aCollection.fillFromWith(self, aProcedure)
+	collectInto { :self :aBlock :aCollection |
+		aCollection.fillFromWith(self, aBlock)
 	}
 
 	collectThenDo { :self :collectBlock:/1 :doBlock:/1 |
@@ -234,9 +234,9 @@
 		true
 	}
 
-	ifEmpty { :self :aProcedure:/0 |
+	ifEmpty { :self :aBlock:/0 |
 		self.isEmpty.if {
-			aProcedure()
+			aBlock()
 		} {
 			self
 		}
@@ -319,16 +319,16 @@
 		['size']
 	}
 
-	reject { :self :aProcedure:/1 |
+	reject { :self :aBlock:/1 |
 		self.select { :element |
-			aProcedure(element).not
+			aBlock(element).not
 		}
 	}
 
-	select { :self :aProcedure:/1 |
+	select { :self :aBlock:/1 |
 		| answer = self.species.new; |
 		self.do { :each |
-			aProcedure(each).ifTrue {
+			aBlock(each).ifTrue {
 				answer.add(each)
 			}
 		};

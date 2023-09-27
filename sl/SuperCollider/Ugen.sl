@@ -3,19 +3,19 @@ Ugen! : [Object, Number] {
 	scUgen { :self | <primitive: return _self.scUgen> }
 	port { :self | <primitive: return _self.port> }
 
-	adaptToNumberAndApply { :self :aNumber :aProcedure |
+	adaptToNumberAndApply { :self :aNumber :aBlock |
 		<primitive:
 		return sl.applyGenericAt(
-			sl.nameWithoutArity(_aProcedure.name),
+			sl.nameWithoutArity(_aBlock.name),
 			[_aNumber, _self],
 			'Ugen'
 		);
 		>
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
+	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
 		aCollection.collect { :each |
-			aProcedure(each, self)
+			aBlock(each, self)
 		}
 	}
 

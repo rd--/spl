@@ -22,13 +22,13 @@
 		<primitive: return _self.has(_key);>
 	}
 
-	removeKeyIfAbsent { :self :key :aProcedure |
+	removeKeyIfAbsent { :self :key :aBlock |
 		<primitive:
 		var existed = _self.delete(_key);
 		if(existed) {
 			return _key;
 		} else {
-			return _aProcedure();
+			return _aBlock();
 		}
 		>
 	}
@@ -101,10 +101,10 @@ Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictiona
 		<primitive: return Array.from(_self.values());>
 	}
 
-	withIndexDo { :self :aProcedure |
+	withIndexDo { :self :aBlock |
 		<primitive:
 		_self.forEach(function(value, key, _) {
-			_aProcedure(value, key);
+			_aBlock(value, key);
 		});
 		return null;
 		>

@@ -1,5 +1,5 @@
 [
-	'Behaviour-Procedure'
+	'Behaviour-Block'
 	'Benchmark-Benchmark'
 	'Benchmark-BounceBenchmark'
 	'Benchmark-HavlakBenchmark'

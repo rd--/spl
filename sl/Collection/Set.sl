@@ -37,10 +37,10 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		answer
 	}
 
-	do { :self :aProcedure |
+	do { :self :aBlock |
 		<primitive:
 		_self.forEach(function(item) {
-			_aProcedure(item);
+			_aBlock(item);
 		});
 		>
 		self

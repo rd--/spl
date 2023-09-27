@@ -62,7 +62,7 @@ export function typeOf(anObject: unknown): TypeName {
 	} else {
 		switch (typeof anObject) {
 		case 'boolean': return 'Boolean';
-		case 'function': return 'Procedure';
+		case 'function': return 'Block';
 		case 'number': return 'SmallFloat';
 		case 'bigint': return 'LargeInteger';
 		case 'string': return 'String';
@@ -113,10 +113,10 @@ export class MethodInformation {
 }
 
 export class Method {
-	procedure: Function;
+	block: Function;
 	information: MethodInformation;
-	constructor(procedure: Function, information: MethodInformation) {
-		this.procedure = procedure;
+	constructor(block: Function, information: MethodInformation) {
+		this.block = block;
 		this.information = information;
 	}
 	qualifiedName() {
@@ -204,7 +204,7 @@ export class System {
 	constructor() {
 		this.methodDictionary = new Map();
 		this.traitDictionary = new Map();
-		// Void is not an ordinary type, it names the place in the method table for no-argument procedures.
+		// Void is not an ordinary type, it names the place in the method table for no-argument blocks.
 		this.typeDictionary = new Map(preinstalledTypes.map(function(each) { return [each, new Type(each, 'Kernel', [], [], new Map())]; }));
 		this.window = window;
 		this.packageDictionary = new Map();
@@ -235,11 +235,11 @@ export function addTrait(traitName: TraitName, packageName: PackageName): void {
 }
 
 // c.f. rewrite/makeMethodList
-export function addTraitMethod(traitName: TraitName, packageName: PackageName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
+export function addTraitMethod(traitName: TraitName, packageName: PackageName, methodName: MethodName, arity: Arity, block: Function, sourceCode: MethodSourceCode): Method {
 	// console.debug(`addTraitMethod: ${traitName}, ${packageName}, ${methodName}, ${arity}`);
 	if(traitExists(traitName)) {
 		const trait = system.traitDictionary.get(traitName)!;
-		const method = new Method(procedure, new MethodInformation(methodName, packageName, arity, sourceCode, trait));
+		const method = new Method(block, new MethodInformation(methodName, packageName, arity, sourceCode, trait));
 		trait.methodDictionary.set(method.qualifiedName(), method);
 		return method;
 	} else {
@@ -270,9 +270,9 @@ export function traitTypeArray(traitName: TraitName): TypeName[] {
 }
 
 // c.f. rewrite/makeMethodList
-export function extendTraitWithMethod(traitName: TraitName, packageName: PackageName, name: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
+export function extendTraitWithMethod(traitName: TraitName, packageName: PackageName, name: MethodName, arity: Arity, block: Function, sourceCode: MethodSourceCode): Method {
 	if(traitExists(traitName)) {
-		const method = addTraitMethod(traitName, packageName, name, arity, procedure, sourceCode);
+		const method = addTraitMethod(traitName, packageName, name, arity, block, sourceCode);
 		traitTypeArray(traitName).forEach(function(typeName) {
 			addMethodFor(typeName, method, true);
 		});
@@ -293,14 +293,14 @@ export function nameWithoutArity(methodName: MethodName) {
 export function applyGenericAt(methodName: MethodName, parameterArray: unknown[], receiverType: TypeName) {
 	// console.log(`applyGenericAt: ${methodName}, ${parameterArray.length}, ${receiverType}`);
 	const method = lookupGeneric(methodName, parameterArray.length, receiverType);
-	return method.procedure.apply(null, parameterArray)
+	return method.block.apply(null, parameterArray)
 }
 
 export function dispatchByType(name: string, arity: number, typeTable: ByTypeMethodDictionary, parameterArray: unknown[]) {
 	if(arity === 0) {
 		const method = typeTable.get('Void');
 		if(method) {
-			return method.procedure.apply(null, [])
+			return method.block.apply(null, [])
 		} else {
 			return throwError(`dispatchByType: no zero arity method: ${name}`);
 		}
@@ -310,7 +310,7 @@ export function dispatchByType(name: string, arity: number, typeTable: ByTypeMet
 		const typeMethod = typeTable.get(receiverType);
 		if(typeMethod) {
 			// console.debug(`dispatchByType: name=${name}, arity=${arity}, type=${receiverType}`);
-			return typeMethod.procedure.apply(null, parameterArray)
+			return typeMethod.block.apply(null, parameterArray)
 		} else {
 			return throwError(`dispatchByType: no method ${name}:/${arity} for ${receiverType}`);
 		}
@@ -387,7 +387,7 @@ function isTypeType(typeName: TypeName):boolean {
 }
 
 // c.f. rewrite/makeMethodList
-export function addMethod(typeName: TypeName, packageName: PackageName, methodName: MethodName, arity: Arity, procedure: Function, sourceCode: MethodSourceCode): Method {
+export function addMethod(typeName: TypeName, packageName: PackageName, methodName: MethodName, arity: Arity, block: Function, sourceCode: MethodSourceCode): Method {
 	// console.debug(`addMethod: ${typeName}, ${packageName}, ${methodName}, ${arity}`);
 	const isMeta = isTypeType(typeName);
 	if(isMeta && !typeExists(typeName)) {
@@ -396,7 +396,7 @@ export function addMethod(typeName: TypeName, packageName: PackageName, methodNa
 	}
 	if(typeExists(typeName)) {
 		const typeValue = system.typeDictionary.get(typeName)!;
-		const method = new Method(procedure, new MethodInformation(methodName, packageName, arity, sourceCode, typeValue));
+		const method = new Method(block, new MethodInformation(methodName, packageName, arity, sourceCode, typeValue));
 		return addMethodFor(typeName, method, slOptions.requireTypeExists);
 	} else {
 		throw(`addMethod: type does not exist: ${typeName}, ${methodName}, ${arity}`);

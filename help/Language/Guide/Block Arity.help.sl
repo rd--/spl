@@ -1,6 +1,6 @@
-# Procedure Arity
+# Block Arity
 
-Procedures have a fixed arity, as in Smalltalk.
+Blocks have a fixed arity, as in Smalltalk.
 There are no optional parameters or _rest_ arguments.
 
 * * *

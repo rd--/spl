@@ -9,7 +9,7 @@ Answer an _Array_ constructed by applying _value_ to _aValue_ _anInteger_ times
 	{ SinOsc(IRand(48, 72).MidiCps, 0) * Rand(0.05, 0.1) } ! 2
 
 
-Ordinarily _aValue_ is a no-argument _Procedure_ and each element of the answer is a result of evaluating the procedure.
+Ordinarily _aValue_ is a no-argument _Block_ and each element of the answer is a result of evaluating the block.
 
 
 	{

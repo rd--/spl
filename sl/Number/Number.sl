@@ -98,10 +98,10 @@
 		self * 0.01745329251994329547 (* pi / 180 *)
 	}
 
-	downToDo { :self :end :aProcedure:/1 |
+	downToDo { :self :end :aBlock:/1 |
 		| index = self; |
 		{ index >= end }.whileTrue {
-			aProcedure(index);
+			aBlock(index);
 			index -:= 1
 		}
 	}
@@ -271,10 +271,10 @@
 		self
 	}
 
-	toDo { :self :end :aProcedure:/1 |
+	toDo { :self :end :aBlock:/1 |
 		| index = self; |
 		{ index <= end }.whileTrue {
-			aProcedure(index);
+			aBlock(index);
 			index +:= 1
 		};
 		self
@@ -292,16 +292,16 @@
 		1
 	}
 
-	upOrDownToDo { :self :end :aProcedure:/1 |
+	upOrDownToDo { :self :end :aBlock:/1 |
 		| step = (end < self).if { -1 } { 1 }; |
-		self.toByDo(end, step, aProcedure:/1)
+		self.toByDo(end, step, aBlock:/1)
 	}
 
-	upToDo { :self :end :aProcedure:/1 |
+	upToDo { :self :end :aBlock:/1 |
 		(end < self).ifTrue {
 			self.error('upToDo: not ascending')
 		};
-		self.toDo(end, aProcedure:/1)
+		self.toDo(end, aBlock:/1)
 	}
 
 	zero { :self |

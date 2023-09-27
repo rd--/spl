@@ -106,21 +106,21 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
+	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
 		aCollection.collect { :each |
-			aProcedure(each, self)
+			aBlock(each, self)
 		}
 	}
 
-	adaptToIntegerAndApply { :self :anInteger :aProcedure:/2 |
-		Fraction(anInteger, 1).aProcedure(self)
+	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
+		Fraction(anInteger, 1).aBlock(self)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
+	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
 		aNumber.isSmallInteger.if {
-			aNumber.asFraction.aProcedure(self)
+			aNumber.asFraction.aBlock(self)
 		} {
-			aNumber.aProcedure(self.asFloat)
+			aNumber.aBlock(self.asFloat)
 		}
 	}
 

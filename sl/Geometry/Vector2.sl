@@ -58,8 +58,8 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 		}
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
-		aProcedure(aNumber @ aNumber, self)
+	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
+		aBlock(aNumber @ aNumber, self)
 	}
 
 	Array { :self |
@@ -70,8 +70,8 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 		self
 	}
 
-	collect { :self :aProcedure:/1 |
-		Point(self.x.aProcedure, self.y.aProcedure)
+	collect { :self :aBlock:/1 |
+		Point(self.x.aBlock, self.y.aBlock)
 	}
 
 	first { :self |
@@ -145,8 +145,8 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 		Vector2(self, y)
 	}
 
-	adaptToPointAndApply { :self :aPoint :aProcedure:/2 |
-		aProcedure(aPoint, self.asPoint)
+	adaptToPointAndApply { :self :aPoint :aBlock:/2 |
+		aBlock(aPoint, self.asPoint)
 	}
 
 	asPoint { :self |

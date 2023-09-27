@@ -7,7 +7,8 @@ Variables must be declared.
 
 The _:=_ symbol is also part of [AtPut Syntax] and [Quoted AtPut Syntax].
 
-Where supported this operator is displayed as a leftwards arrow, ←.
+Where supported this operator is displayed either as a leftwards arrow, ←,
+or as a colon equals glyph, ≔.
 
 * * *
 

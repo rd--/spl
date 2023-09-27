@@ -20,9 +20,9 @@
 		newObject
 	}
 
-	fillFromWith { :self :aCollection :aProcedure:/1 |
+	fillFromWith { :self :aCollection :aBlock:/1 |
 		aCollection.do { :each |
-			self.add(aProcedure(each))
+			self.add(aBlock(each))
 		}
 	}
 

@@ -19,7 +19,7 @@ The ⇱ button requests full screen mode.
 
 There are two distinct _evaluation_ commands.
 _Ctrl-Enter_ or Ctrl-Comma wraps the selected text in _{ ... }.play_ before evaluation.
-The _play_ method inspects the answer of evaluating the procedure, and if it is an _output signal_ sends it to the synthesiser.
+The _play_ method inspects the answer of evaluating the block, and if it is an _output signal_ sends it to the synthesiser.
 This makes it possible to _play_ expressions that are not synthesiser programs, for instance [Texture Programs].
 
 - Ctrl-FullStop (.) ⇒ Clear schedule and reset synthesiser

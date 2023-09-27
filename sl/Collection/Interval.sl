@@ -26,13 +26,13 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 		}
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
-		aProcedure(aCollection, self.Array)
+	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
+		aBlock(aCollection, self.Array)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
+	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
 		self.collect { :each |
-			aProcedure(aNumber, each)
+			aBlock(aNumber, each)
 		}
 	}
 
@@ -52,10 +52,10 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 		self.step * (index - 1) + self.start
 	}
 
-	collect { :self :aProcedure:/1 |
+	collect { :self :aBlock:/1 |
 		| result = Array(self.size), index = 1; |
 		self.do { :nextValue |
-			result[index] := aProcedure(nextValue);
+			result[index] := aBlock(nextValue);
 			index +:= 1
 		};
 		result
@@ -69,16 +69,16 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 		}
 	}
 
-	do { :self :aProcedure:/1 |
+	do { :self :aBlock:/1 |
 		| nextValue = self.start, endValue = self.stop; |
 		(self.step > 0).if {
 			{ nextValue <= endValue }.whileTrue {
-				aProcedure(nextValue);
+				aBlock(nextValue);
 				nextValue +:= self.step
 			}
 		} {
 			{ nextValue >= endValue }.whileTrue {
-				aProcedure(nextValue);
+				aBlock(nextValue);
 				nextValue +:= self.step
 			}
 		};
@@ -141,7 +141,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 		}
 	}
 
-	reverseDo { :self :aProcedure:/1 |
+	reverseDo { :self :aBlock:/1 |
 		|(
 			each = self.last,
 			predicate = (self.step < 0).if {
@@ -151,7 +151,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 			}
 		)|
 		predicate.whileTrue {
-			aProcedure(each);
+			aBlock(each);
 			each -:= self.step
 		}
 	}

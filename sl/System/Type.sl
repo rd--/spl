@@ -9,7 +9,7 @@ Type! : [Object] {
 	}
 
 	instanceOf { :self |
-		| instance = system.typeLookup('Void').methodDictionary[self.constructorName].procedure.value; |
+		| instance = system.typeLookup('Void').methodDictionary[self.constructorName].block.value; |
 		instance.initialize;
 		instance
 	}

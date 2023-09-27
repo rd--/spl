@@ -1,8 +1,8 @@
 # ifFalse -- conditional evaluation
 
-- _ifFalse(aBoolean, aProcedure:/0)_
+- _ifFalse(aBoolean, aBlock:/0)_
 
-If _aBoolean_ is _false_ answer the result of  _aProcedure()_, else answer _nil_
+If _aBoolean_ is _false_ answer the result of  _aBlock()_, else answer _nil_
 
 * * *
 

@@ -247,100 +247,111 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 
 # Unicode
 
-- U+0021 ! EXCLAMATION MARK
-- U+0024 $ DOLLAR SIGN
-- U+0025 % PERCENT SIGN
-- U+0026 & AMPERSAND
-- U+002A * ASTERISK
-- U+002B + PLUS SIGN
-- U+002D - HYPHEN-MINUS
-- U+002F / SOLIDUS
-- U+003C < LESS-THAN SIGN
-- U+003D = EQUALS SIGN
-- U+003E > GREATER-THAN SIGN
-- U+003F ? QUESTION MARK
-- U+0040 @ COMMERCIAL AT
-- U+005C \ REVERSE SOLIDUS
-- U+005E ^ CIRCUMFLEX ACCENT
-- U+007C | VERTICAL LINE
-- U+007E ~ TILDE
-- U+00AC ¬ NOT SIGN
-- U+00B0 ° DEGREE SIGN
-- U+00B1 ± PLUS-MINUS SIGN
-- U+00B7 · MIDDLE DOT
-- U+00D7 × MULTIPLICATION SIGN
-- U+00F7 ÷ DIVISION SIGN
-- U+02D9 ˙ DOT ABOVE
-- U+03A0 Π GREEK CAPITAL LETTER PI
-- U+03A3 Σ GREEK CAPITAL LETTER SIGMA
-- U+03BB λ GREEK SMALL LETTER LAMDA
-- U+03C0 π GREEK SMALL LETTER PI
-- U+2022 • BULLET
-- U+2026 … HORIZONTAL ELLIPSIS
-- U+2043 ⁃ HYPHEN BULLET
-- U+2044 ⁄ FRACTION SLASH
-- U+2052 ⁒ COMMERCIAL MINUS SIGN
-- U+2190 ← LEFTWARDS ARROW
-- U+2191 ↑ UPWARDS ARROW
-- U+2192 → RIGHTWARDS ARROW
-- U+2193 ↓ DOWNWARDS ARROW
-- U+21D2 ⇒ RIGHTWARDS DOUBLE ARROW
-- U+2212 − MINUS SIGN
-- U+2213 ∓ MINUS-OR-PLUS SIGN
-- U+2215 ∕ DIVISION SLASH
-- U+2219 ∙ BULLET OPERATOR
-- U+2227 ∧ LOGICAL AND
-- U+2228 ∨ LOGICAL AND
-- U+2248 ≈ ALMOST EQUAL TO
-- U+2254 ≔ COLON EQUALS
-- U+2260 ≠ NOT EQUAL TO
-- U+2261 ≡ IDENTICAL TO
-- U+2262 ≢ NOT IDENTICAL TO
-- U+2264 ≤ LESS-THAN OR EQUAL TO
-- U+2265 ≥ GREATER-THAN OR EQUAL TO
-- U+226A ≪ MUCH LESS-THAN
-- U+226B ≫ MUCH GREATER-THAN
-- U+226E ≮ NOT LESS-THAN
-- U+226F ≯ NOT GREATER-THAN
-- U+22A4 ⊤ DOWN TACK
-- U+22C5 ⋅ DOT OPERATOR
-- U+22EE ⋮ VERTICAL ELLIPSIS
-- U+25CB ○ WHITE CIRCLE
-- U+25CF ● BLACK CIRCLE
-- U+261B ☛ BLACK RIGHT POINTING INDEX
-- U+261E ☞ WHITE RIGHT POINTING INDEX
-- U+27F5 ⟵ LONG LEFTWARDS ARROW
-- U+27F6 ⟶ LONG RIGHTWARDS ARROW
-- U+27F9 ⟹ LONG RIGHTWARDS DOUBLE ARROW
-- U+29BF ⦿ CIRCLED BULLET
-- U+29FA ⧺ DOUBLE PLUS
-- U+2A74 ⩴ DOUBLE COLON EQUAL
-- U+2A75 ⩵ TWO CONSECUTIVE EQUALS SIGNS
-- U+2A76 ⩶ THREE CONSECUTIVE EQUALS SIGNS
-- U+2A7D ⩽ LESS-THAN OR SLANTED EQUAL TO
-- U+2A7E ⩾ GREATER-THAN OR SLANTED EQUAL TO
-- U+22EF ⋯ MIDLINE HORIZONTAL ELLIPSIS
+- U+0021 ! Exclamation Mark
+- U+0024 $ Dollar Sign
+- U+0025 % Percent Sign
+- U+0026 & Ampersand
+- U+002a * Asterisk
+- U+002b + Plus Sign
+- U+002d - Hyphen-Minus
+- U+002f / Solidus
+- U+003c < Less-Than Sign
+- U+003d = Equals Sign
+- U+003e > Greater-Than Sign
+- U+003f ? Question Mark
+- U+0040 @ Commercial At
+- U+005c \ Reverse Solidus
+- U+005e ^ Circumflex Accent
+- U+007c | Vertical Line
+- U+007c | Vertical Line
+- U+007e ~ Tilde
+- U+00a6 ¦ Broken Bar
+- U+00a7 § Section Sign
+- U+00ac ¬ Not Sign
+- U+00b0 ° Degree Sign
+- U+00b1 ± Plus-Minus Sign
+- U+00b6 ¶ Pilcrow Sign
+- U+00b7 · Middle Dot
+- U+00d7 × Multiplication Sign
+- U+00f7 ÷ Division Sign
+- U+02d9 ˙ Dot Above
+- U+03a0 Π Greek Capital Letter Pi
+- U+03a3 Σ Greek Capital Letter Sigma
+- U+03bb Λ Greek Small Letter Lamda
+- U+03c0 Π Greek Small Letter Pi
+- U+2016 ‖ Double Vertical Line
+- U+2020 † Dagger
+- U+2021 ‡ Double Dagger
+- U+2022 • Bullet
+- U+2026 … Horizontal Ellipsis
+- U+2043 ⁃ Hyphen Bullet
+- U+2044 ⁄ Fraction Slash
+- U+204b ⁋ Reversed Pilcrow Sign
+- U+2052 ⁒ Commercial Minus Sign
+- U+207a ⁺ Superscript Plus Sign
+- U+207b ⁻ Superscript Minus
+- U+207c ⁼ Superscript Equals Sign
+- U+207d ⁽ Superscript Left Parenthesis
+- U+207e ⁾ Superscript Right Parenthesis
+- U+208a ₊ Subscript Plus Sign
+- U+208b ₋ Subscript Minus
+- U+208c ₌ Subscript Equals Sign
+- U+208d ₍ Subscript Left Parenthesis
+- U+208e ₎ Subscript Right Parenthesis
+- U+2190 ← Leftwards Arrow
+- U+2191 ↑ Upwards Arrow
+- U+2192 → Rightwards Arrow
+- U+2193 ↓ Downwards Arrow
+- U+21d2 ⇒ Rightwards Double Arrow
+- U+21e0 ⇠ Leftwards Dashed Arrow
 - U+2209 ∉ Not An Element Of
-- U+220C ∌ DOES NOT CONTAIN AS MEMBER
-- U+00B1 ± PLUS-MINUS SIGN
-- U+2213 ∓ MINUS-OR-PLUS SIGN
-- U+002B + PLUS SIGN
-- U+2212 − MINUS SIGN
-- U+207A ⁺ Superscript Plus Sign
-- U+208A ₊ Subscript Plus Sign
-- U+207B ⁻ Superscript Minus
-- U+208B ₋ Subscript Minus
-- U+207C ⁼ Superscript Equals Sign
-- U+208C ₌ Subscript Equals Sign
-- U+207D ⁽ Superscript Left Parenthesis
-- U+208D ₍ Subscript Left Parenthesis
-- U+207E ⁾ Superscript Right Parenthesis
-- U+208E ₎ Subscript Right Parenthesis
-- U+229C ⊜ Circled Equals
-- U+22A1 ⊡ Squared Dot Operator
-- U+22EE ⋮ Vertical Ellipsis
-- U+22BA ⊺ Intercalate
-- U+21E0 ⇠ Leftwards Dashed Arrow
+- U+220c ∌ Does Not Contain As Member
+- U+2212 − Minus Sign
+- U+2213 ∓ Minus-Or-Plus Sign
+- U+2215 ∕ Division Slash
+- U+2219 ∙ Bullet Operator
+- U+2223 ∣ Divides
+- U+2227 ∧ Logical And
+- U+2228 ∨ Logical And
+- U+2248 ≈ Almost Equal To
+- U+2254 ≔ Colon Equals
+- U+2260 ≠ Not Equal To
+- U+2261 ≡ Identical To
+- U+2262 ≢ Not Identical To
+- U+2264 ≤ Less-Than Or Equal To
+- U+2265 ≥ Greater-Than Or Equal To
+- U+226a ≪ Much Less-Than
+- U+226b ≫ Much Greater-Than
+- U+226e ≮ Not Less-Than
+- U+226f ≯ Not Greater-Than
+- U+229c ⊜ Circled Equals
+- U+22a1 ⊡ Squared Dot Operator
+- U+22a4 ⊤ Down Tack
+- U+22ba ⊺ Intercalate
+- U+22c5 ⋅ Dot Operator
+- U+22ee ⋮ Vertical Ellipsis
+- U+22ef ⋯ Midline Horizontal Ellipsis
+- U+25cb ○ White Circle
+- U+25cf ● Black Circle
+- U+261b ☛ Black Right Pointing Index
+- U+261e ☞ White Right Pointing Index
+- U+2628 ☨ Cross Of Lorraine
+- U+271d ✝ Latin Cross
+- U+2761 ❡ Curved Stem Paragraph Sign Ornament
+- U+27f5 ⟵ Long Leftwards Arrow
+- U+27f6 ⟶ Long Rightwards Arrow
+- U+27f9 ⟹ Long Rightwards Double Arrow
 - U+2919 ⤙ Leftwards Arrow-Tail
-- U+291B ⤛ Leftwards Double Arrow-Tail
-- U+291D ⤝ Leftwards arrow to black diamond
+- U+291b ⤛ Leftwards Double Arrow-Tail
+- U+291d ⤝ Leftwards Arrow To Black Diamond
+- U+29bf ⦿ Circled Bullet
+- U+29fa ⧺ Double Plus
+- U+2e3f ⸿ Capitulum
+- U+2e4d ⹍ Paragraphus Mark
+- U+2a74 ⩴ Double Colon Equal
+- U+2a75 ⩵ Two Consecutive Equals Signs
+- U+2a76 ⩶ Three Consecutive Equals Signs
+- U+2a7d ⩽ Less-Than Or Slanted Equal To
+- U+2a7e ⩾ Greater-Than Or Slanted Equal To
+- U+2e38 ⸸ Turned Dagger
+- U+2e4b ⹋ Triple Dagger

@@ -1,6 +1,7 @@
-# Temporary Procedure Syntax -- syntax
+# Temporary Block Syntax -- syntax
 
-In the case where a temporary variable is initialised to a literal procedure, the system may bind both the arity strict and arity generic names.
+In the case where a temporary variable is initialised to a literal block,
+the system may bind both the arity strict and arity generic names.
 
 There is a compiler switch to select the behaviour.
 

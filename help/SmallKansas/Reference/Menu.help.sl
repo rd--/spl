@@ -1,6 +1,6 @@
 # Menu
 
-A menu is a list of buttons that invoke procedures.
+A menu is a list of buttons that invoke blocks.
 
 A menu is either transient or not transient.
 

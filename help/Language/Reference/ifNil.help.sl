@@ -1,8 +1,8 @@
 # ifNil -- conditional evaluation
 
-- _ifNil(aValue, aProcedure:/0)_
+- _ifNil(aValue, aBlock:/0)_
 
-If _aValue_ is _nil_ answer the result of  _aProcedure_, else answer _nil_.
+If _aValue_ is _nil_ answer the result of  _aBlock_, else answer _nil_.
 
 * * *
 

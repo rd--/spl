@@ -1,6 +1,6 @@
 # SuperCollider Perspective
 
-Procedure arguments are written `:` prefixed immediately following the opening brace and are terminated by `|`.
+Block arguments are written `:` prefixed immediately following the opening brace and are terminated by `|`.
 Temporary variables are written between `|` markers.
 
 The assignment operator is `:=` not `=`.

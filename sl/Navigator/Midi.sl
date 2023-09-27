@@ -1,7 +1,7 @@
 @MidiMap {
 
-	do { :self :aProcedure |
-		<primitive: return _self.forEach(_aProcedure);>
+	do { :self :aBlock |
+		<primitive: return _self.forEach(_aBlock);>
 	}
 
 	ports { :self |
@@ -56,8 +56,8 @@ MIDIAccess! : [Object, EventTarget] {
 	outputs { :self | <primitive: return _self.outputs;> } (* Read only *)
 	sysexEnabled { :self | <primitive: return _self.sysexEnabled;> } (* Read only *)
 
-	onstatechange { :self :aProcedure |
-		<primitive: return _self.onstatechange = _aProcedure;>
+	onstatechange { :self :aBlock |
+		<primitive: return _self.onstatechange = _aBlock;>
 	}
 
 	portByName { :self :type :manufacturer :name |
@@ -92,8 +92,8 @@ MIDIConnectionEvent! : [Object, Event] {
 
 MIDIInput! : [Object, EventTarget, MidiPort] {
 
-	onmidimessage { :self :aProcedure |
-		<primitive: return _self.onmidimessage = _aProcedure;>
+	onmidimessage { :self :aBlock |
+		<primitive: return _self.onmidimessage = _aBlock;>
 	}
 
 }

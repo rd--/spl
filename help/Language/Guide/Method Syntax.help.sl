@@ -5,7 +5,7 @@ Rewrite rules:
 - _x.f_ ⟹ _f(x)_
 - _x.f(y, ...)_ ⟹ _f(x, y, ...)_
 
-In the program below randomly spaced impulses (_Dust_) are scaled (_Mul_), trigger an envelope (_Decay_), which shapes a noise generator (_PinkNoise_) which is then filtered (_Bpf_) and echoed (_AllpassN_).  The _lfo_ procedure generates quadratic noise (_LfNoise2_) which in then scaled (_Range_) .
+In the program below randomly spaced impulses (_Dust_) are scaled (_Mul_), trigger an envelope (_Decay_), which shapes a noise generator (_PinkNoise_) which is then filtered (_Bpf_) and echoed (_AllpassN_).  The _lfo_ block generates quadratic noise (_LfNoise2_) which in then scaled (_Range_) .
 
 ```
 var lfo = { :freq :lo :hi | LfNoise2(freq).Range(lo, hi) };

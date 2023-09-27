@@ -1,8 +1,8 @@
 # reduce -- enumerating
 
-- _reduce(anIterable, aProcedure:/2)_
+- _reduce(anIterable, aBlock:/2)_
 
-Apply _aProcedure_ cumulatively to the elements of _anIterable_.
+Apply _aBlock_ cumulatively to the elements of _anIterable_.
 
 Initially evaluates the block with the first two elements of the collecton,
 then with the result of the first evaluation and the next element,

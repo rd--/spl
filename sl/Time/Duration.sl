@@ -144,7 +144,7 @@ Duration : [Object, Magnitude] { | milliseconds |
 
 }
 
-+Procedure {
++Block {
 
 	valueAfter { :self:/0 :delay |
 		self:/0.valueAfterMilliseconds(delay.asSeconds * 1000)

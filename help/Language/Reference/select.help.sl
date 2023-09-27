@@ -1,10 +1,10 @@
 # select -- enumerating
 
-- _select(aCollection, aProcedure:/1)_
+- _select(aCollection, aBlock:/1)_
 
-Evaluate _aProcedure_ with each of the elements of _aCollection_ as the argument.
+Evaluate _aBlock_ with each of the elements of _aCollection_ as the argument.
 
-Collect into a new collection like the receiver, only those elements for which _aProcedure_ evaluates to _true_.
+Collect into a new collection like the receiver, only those elements for which _aBlock_ evaluates to _true_.
 
 Answer the new collection.
 

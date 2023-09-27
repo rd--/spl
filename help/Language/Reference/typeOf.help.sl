@@ -11,7 +11,7 @@ Answers the type name of _anObject_.
 	[].typeOf = 'Array'
 	().typeOf = 'Record'
 	23.typeOf.typeOf = 'String'
-	typeOf:/1.typeOf = 'Procedure'
+	typeOf:/1.typeOf = 'Block'
 
 The system includes a _typeDictionary_ that maps type names to _Type_ values.
 

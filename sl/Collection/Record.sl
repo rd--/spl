@@ -27,13 +27,13 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 		<primitive: return Object.keys(_self);>
 	}
 
-	removeKeyIfAbsent { :self :key :aProcedure |
+	removeKeyIfAbsent { :self :key :aBlock |
 		<primitive:
 		if(Object.hasOwn(_self, _key)) {
 			delete _self[_key];
 			return _key;
 		} else {
-			return _aProcedure();
+			return _aBlock();
 		}
 		>
 	}
@@ -64,10 +64,10 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 		<primitive: return Object.values(_self);>
 	}
 
-	withIndexDo { :self :aProcedure:/2 |
+	withIndexDo { :self :aBlock:/2 |
 		<primitive:
 		Object.entries(_self).forEach(function(entry) {
-			_aProcedure_2(entry[1], entry[0]);
+			_aBlock_2(entry[1], entry[0]);
 		});
 		return null;
 		>

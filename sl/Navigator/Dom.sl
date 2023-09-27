@@ -213,20 +213,20 @@
 
 @EventTarget {
 
-	addEventListener { :self :aString :aProcedure |
-		<primitive: return _self.addEventListener(_aString, _aProcedure);>
+	addEventListener { :self :aString :aBlock |
+		<primitive: return _self.addEventListener(_aString, _aBlock);>
 	}
 
-	addEventListener { :self :aString :aProcedure :options |
-		<primitive: return _self.addEventListener(_aString, _aProcedure, _options);>
+	addEventListener { :self :aString :aBlock :options |
+		<primitive: return _self.addEventListener(_aString, _aBlock, _options);>
 	}
 
 	dispatchEvent { :self :event |
 		<primitive: return _self.dispatchEvent(_event);>
 	}
 
-	removeEventListener { :self :aString :aProcedure |
-		<primitive: return _self.removeEventListener(_aString, _aProcedure);>
+	removeEventListener { :self :aString :aBlock |
+		<primitive: return _self.removeEventListener(_aString, _aBlock);>
 	}
 
 }

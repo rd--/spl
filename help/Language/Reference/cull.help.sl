@@ -1,7 +1,7 @@
 # cull -- evaluating
 
-- _cull(aProcedure, firstArg)_
-- _cull(aProcedure, firstArg, secondArg)_
+- _cull(aBlock, firstArg)_
+- _cull(aBlock, firstArg, secondArg)_
 
 Activate the receiver, with two or one or zero arguments.
 

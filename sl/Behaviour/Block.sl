@@ -1,6 +1,6 @@
 (* Requires: Object *)
 
-Procedure! : [Object] {
+Block! : [Object] {
 
 	= { :self :anObject |
 		self == anObject
@@ -112,7 +112,7 @@ Procedure! : [Object] {
 		(*
 			Js doesn't have a proper numArgs mechanism.
 			In the simple arity model Spl adds hasRestParameters to the arity dispatch method functions, else it is undefined.
-			From within Spl there is no concept of a variadic procedure.
+			From within Spl there is no concept of a variadic block.
 		*)
 		<primitive: return _self.hasRestParameters ? _ifAbsent() : _self.length;>
 	}
@@ -125,7 +125,7 @@ Procedure! : [Object] {
 
 	numArgs { :self |
 		self.numArgsIfAbsent {
-			self.error('numArgs: applied to arity-dispatch procedure')
+			self.error('numArgs: applied to arity-dispatch block')
 		}
 	}
 
@@ -196,10 +196,10 @@ Procedure! : [Object] {
 		}
 	}
 
-	whileFalse { :self:/0 :aProcedure:/0 |
+	whileFalse { :self:/0 :aBlock:/0 |
 		<primitive:
 		while(!_self_0()) {
-			_aProcedure_0();
+			_aBlock_0();
 		};
 		return null;
 		>
@@ -212,10 +212,10 @@ Procedure! : [Object] {
 		}
 	}
 
-	whileTrue { :self:/0 :aProcedure:/0 |
+	whileTrue { :self:/0 :aBlock:/0 |
 		<primitive:
 		while(_self_0()) {
-			_aProcedure_0();
+			_aBlock_0();
 		};
 		return null;
 		>

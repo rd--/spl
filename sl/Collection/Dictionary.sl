@@ -73,9 +73,9 @@
 		answer
 	}
 
-	associationsDo { :self :aProcedure:/1 |
+	associationsDo { :self :aBlock:/1 |
 		self.withIndexDo { :value :key |
-			aProcedure(key -> value)
+			aBlock(key -> value)
 		}
 	}
 
@@ -83,26 +83,26 @@
 		self.removeAllSuchThat(aBlock:/1)
 	}
 
-	associationsSelect { :self :aProcedure:/1 |
+	associationsSelect { :self :aBlock:/1 |
 		| answer = self.species.new; |
 		self.associationsDo { :each |
-			each.aProcedure.ifTrue {
+			each.aBlock.ifTrue {
 				answer.add(each)
 			}
 		};
 		answer
 	}
 
-	atDelegateToIfAbsent { :self :key :delegateKey :aProcedure:/0 |
+	atDelegateToIfAbsent { :self :key :delegateKey :aBlock:/0 |
 		self.atIfAbsent(key) {
 			self.includesIndex(delegateKey).if {
 				self[delegateKey].atDelegateToIfAbsent(
 					key,
 					delegateKey,
-					aProcedure:/0
+					aBlock:/0
 				)
 			} {
-				aProcedure()
+				aBlock()
 			}
 		}
 	}
@@ -113,7 +113,7 @@
 		}
 	}
 
-	atPutDelegateToIfAbsent { :self :key :value :delegateKey :aProcedure:/0 |
+	atPutDelegateToIfAbsent { :self :key :value :delegateKey :aBlock:/0 |
 		self.includesIndex(key).if {
 			self.atPut(key, value)
 		} {
@@ -123,10 +123,10 @@
 						key,
 						value,
 						delegateKey,
-						aProcedure:/0
+						aBlock:/0
 					)
 				} {
-					aProcedure()
+					aBlock()
 				}
 			}
 		}
@@ -149,10 +149,10 @@
 		>
 	}
 
-	collect { :self :aProcedure:/1 |
+	collect { :self :aBlock:/1 |
 		| answer = self.species.new; |
 		self.withIndexDo { :value :key |
-			answer.add(key -> aProcedure(value))
+			answer.add(key -> aBlock(value))
 		};
 		answer
 	}
@@ -173,22 +173,22 @@
 		}
 	}
 
-	do { :self :aProcedure:/1 |
-		self.valuesDo(aProcedure:/1)
+	do { :self :aBlock:/1 |
+		self.valuesDo(aBlock:/1)
 	}
 
 	errorValueNotFound { :self |
 		self.error('Value not found')
 	}
 
-	fillFromWith { :self :aCollection :aProcedure:/1 |
+	fillFromWith { :self :aCollection :aBlock:/1 |
 		aCollection.isDictionary.if {
 			aCollection.associationsDo { :association |
-				self[association.key] := aProcedure(association.value)
+				self[association.key] := aBlock(association.value)
 			}
 		} {
 			aCollection.do { :element |
-				self.add(aProcedure(element))
+				self.add(aBlock(element))
 			}
 		}
 	}
@@ -271,7 +271,7 @@
 
 	messageSend { :self :selector :delegateKey :argumentsArray |
 		| answer = self.atDelegateTo(selector, delegateKey); |
-		answer.isProcedure.if {
+		answer.isBlock.if {
 			answer.apply([self] ++ argumentsArray)
 		} {
 			answer
@@ -340,10 +340,10 @@
 		}
 	}
 
-	select { :self :aProcedure:/1 |
+	select { :self :aBlock:/1 |
 		| answer = self.species.new; |
 		self.associationsDo { :each |
-			each.value.aProcedure.ifTrue {
+			each.value.aBlock.ifTrue {
 				answer.add(each.copy)
 			}
 		};
@@ -354,15 +354,15 @@
 		self.associations.storeString ++ '.' ++ self.typeOf
 	}
 
-	valuesDo { :self :aProcedure:/1 |
+	valuesDo { :self :aBlock:/1 |
 		self.associationsDo { :association |
-			aProcedure(association.value)
+			aBlock(association.value)
 		}
 	}
 
-	withIndexDo { :self :aProcedure:/2 |
+	withIndexDo { :self :aBlock:/2 |
 		self.associationsDo { :association |
-			aProcedure(association.value, association.key)
+			aBlock(association.value, association.key)
 		}
 	}
 
@@ -383,9 +383,9 @@
 		self.indices
 	}
 
-	keysAndValuesDo { :self :aProcedure:/2 |
+	keysAndValuesDo { :self :aBlock:/2 |
 		self.withIndexDo { :value :key |
-			aProcedure(key, value)
+			aBlock(key, value)
 		}
 	}
 

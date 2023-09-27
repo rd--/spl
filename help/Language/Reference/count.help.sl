@@ -1,8 +1,8 @@
 # count -- enumerating
 
-- _count(aCollection, aProcedure:/1)_
+- _count(aCollection, aBlock:/1)_
 
-Evaluate _aProcedure_ with each of the receivers elements as the argument.
+Evaluate _aBlock_ with each of the receivers elements as the argument.
 
 Answer the number of elements that answered true.
 

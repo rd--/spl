@@ -6,7 +6,7 @@ Apply _aBlock_, using _cull_, to each index of _aSequence_, writing the answer i
 Answer _aSequence_.
 
 _Rationale:_
-This is ordinarily used to initialize a sequence using a procedure, hence answering the sequence.
+This is ordinarily used to initialize a sequence using a block, hence answering the sequence.
 
 * * *
 

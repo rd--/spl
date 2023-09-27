@@ -1,10 +1,10 @@
 # & -- logic operator
 
-- _aBoolean & aProcedure:/0_
+- _aBoolean & aBlock:/0_
 - _p & q_ ⟹ _and(p, q)_
 
-true if _aBoolean_ is true and _aProcedure_ evaluates to true, else false.
-If _aBoolean_ is false then _aProcedure_ is not evaluated.
+true if _aBoolean_ is true and _aBlock_ evaluates to true, else false.
+If _aBoolean_ is false then _aBlock_ is not evaluated.
 
 Where supported _and_ is displayed as ∧.
 

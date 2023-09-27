@@ -118,18 +118,18 @@ Complex : [Object] { | real imaginary |
 		(self.real * self.real) + (self.imaginary * self.imaginary)
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aProcedure:/2 |
+	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
 		aCollection.collect { :element |
-			aProcedure(element, self)
+			aBlock(element, self)
 		}
 	}
 
-	adaptToFractionAndApply { :self :aFraction :aProcedure:/2 |
-		aProcedure(aFraction.asComplex, self)
+	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
+		aBlock(aFraction.asComplex, self)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aProcedure:/2 |
-		aProcedure(aNumber.asComplex, self)
+	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
+		aBlock(aNumber.asComplex, self)
 	}
 
 	arg { :self |
@@ -292,8 +292,8 @@ Complex : [Object] { | real imaginary |
 
 +@Number {
 
-	adaptToComplexAndApply { :self :aComplexNumber :aProcedure:/2 |
-		aProcedure(aComplexNumber, self.asComplex)
+	adaptToComplexAndApply { :self :aComplexNumber :aBlock:/2 |
+		aBlock(aComplexNumber, self.asComplex)
 	}
 
 	asComplex { :self |
@@ -312,9 +312,9 @@ Complex : [Object] { | real imaginary |
 
 +Array {
 
-	adaptToComplexAndApply { :self :aComplexNumber :aProcedure:/2 |
+	adaptToComplexAndApply { :self :aComplexNumber :aBlock:/2 |
 		self.collect { :each |
-			aProcedure(aComplexNumber, each)
+			aBlock(aComplexNumber, each)
 		}
 	}
 

@@ -1,6 +1,6 @@
 # Defining Types
 
-_Types_ in _Spl_ are _records_ having a sequence of named _fields_ (also called _slots_).
+_Types_ in _Spl_ are _records_ having a sequence of named _slots_ (also called _fields_).
 
 Defining a type defines a number of associated methods.
 
@@ -18,8 +18,8 @@ These methods have the same names as the fields.
 Reader methods have one argument, writer methods have two arguments.
 
 The expression below adds a type for representing pitch as an _(octave, pitchClass)_ tuple, with a single method _asMidi_.
-Note that methods are ordinary procedures and must declare their arguments.
-Note also that slot access is mediated by the reader procedures, even for methods associated with the type.
+Note that methods are ordinary blocks and must declare their arguments.
+Note also that slot access is mediated by the reader blocks, even for methods associated with the type.
 
 ```
 OctPc : [Object] { | octave pitchClass |
@@ -44,5 +44,5 @@ SinOsc(OctPc(4, 9).asMidi.MidiCps, 0) * 0.1
 ```
 
 _Rationale:_
-The _constructor_ and _initializer_ are distinct because there is no rule for deciding what type or trait a combined procedure should be instantiated at.
+The _constructor_ and _initializer_ are distinct because there is no rule for deciding what type or trait a combined block should be instantiated at.
 In the model provided the _constructor_ is defined at _Void_ and the _initializer_ is defined at the new type.

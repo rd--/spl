@@ -40,10 +40,10 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 		}
 	}
 
-	do { :self :aProcedure:/1 |
+	do { :self :aBlock:/1 |
 		self.contents.associationsDo { :assoc |
 			assoc.value.timesRepeat {
-				aProcedure(assoc.key)
+				aBlock(assoc.key)
 			}
 		};
 		self

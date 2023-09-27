@@ -1,16 +1,16 @@
 # value -- evaluating
 
-- _value(aProcedure:/0)_
+- _value(aBlock:/0)_
 
-Answer the result of _aProcedure()_.
+Answer the result of _aBlock()_.
 
-- _value(aProcedure:/1, anObject)_
+- _value(aBlock:/1, anObject)_
 
-Answer the result of _aProcedure(anObject)_.
+Answer the result of _aBlock(anObject)_.
 
-- _value(aProcedure:/n, anObject, ...)_
+- _value(aBlock:/n, anObject, ...)_
 
-Answer the result of _aProcedure(anObject, ...)_.
+Answer the result of _aBlock(anObject, ...)_.
 
 - _value(anObject)_
 

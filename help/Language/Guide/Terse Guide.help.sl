@@ -741,15 +741,15 @@ true.isInteger.not (* true is not an integer *)
 true.isBoolean (* true is a Boolean *)
 false.isBoolean (* false is a Boolean *)
 true & { false } = false (* logical and operator *)
-true.and { false } = false (* logical and procedure *)
+true.and { false } = false (* logical and block *)
 false & { 'false &'.postLine; false } = false
 true | { 'true |'.postLine; true } = true
 false | { true } = true (* logical or operator *)
-false.or { true } = true (* logical or procedure *)
-{ true & false }.ifError { true } (* & applies the rhs, which must be a procedure *)
+false.or { true } = true (* logical or block *)
+{ true & false }.ifError { true } (* & applies the rhs, which must be a block *)
 true && true = true (* non-evaluating form of & (requires boolean operand) *)
 { true && 'true' }.ifError { true } (* it is an error if operand is not a boolean *)
-{ false | false }.ifError { true } (* | applies the rhs, which must be a procedure *)
+{ false | false }.ifError { true } (* | applies the rhs, which must be a block *)
 false || true = true (* non-evaluating form of | (requires boolean operand) *)
 { false || 'true' }.ifError { true } (* it is an error if operand is not a boolean *)
 [true.json, false.json] = ['true', 'false'] (* booleans have json encodings *)
@@ -934,7 +934,7 @@ Set().Array = []
 [].ifEmpty { true } { false } (* evaluate emptyBlock if collection is empty *)
 [1].ifEmpty { false } { true } (* evaluate notEmptyBlock if collection is not empty *)
 [1].ifEmpty { false } { :c | c = [1] } (* evaluate notEmptyBlock with collection if not empty *)
-(1 .. 9).detectSum(squared:/1) = 285 (* apply procedure to each element and sum *)
+(1 .. 9).detectSum(squared:/1) = 285 (* apply block to each element and sum *)
 (1 .. 9).collect(squared:/1).sum = 285
 | a = [1 .. 9]; | a.removeAll([3 .. 7]); a = [1, 2, 8, 9] (* remove all indicated elements *)
 | a = [1, 2, 3, 2, 1]; | [a.removeAll([1, 2, 3]), a] = [[1, 2, 3], [2, 1]] (* answer items to remove, only remove first instance *)
@@ -2234,7 +2234,7 @@ system.includesPackage('Object') (* package *)
 4:3.slotArray = ['numerator' -> 4, 'denominator' -> 3]
 4:3.numerator = 4:3:@numerator (* slot access syntax *)
 | n = 4:3; | n:@denominator := 5; n = 4:5 (* slot access syntax *)
-pi.in { :x | x.rounded + 20 } = 23 (* evaluate procedure with object *)
+pi.in { :x | x.rounded + 20 } = 23 (* evaluate block with object *)
 pi.notify('pi') = pi (* user notification *)
 pi.warning('pi') = pi (* user warning *)
 { pi.error('pi') }.ifError { true } (* user error *)
@@ -2298,14 +2298,14 @@ var p = PriorityQueue(); p.pushAll(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 &
 var p = PriorityQueue(); p.peekPriority = nil
 ```
 
-## Procedure -- behaviour type
+## Block -- behaviour type
 ```
-system.includesPackage('Procedure') (* package *)
-{ }.typeOf = 'Procedure'
-typeOf:/1.typeOf = 'Procedure'
+system.includesPackage('Block') (* package *)
+{ }.typeOf = 'Block'
+typeOf:/1.typeOf = 'Block'
 | i = 1; | { i < 5 }.whileTrue { i := i + 1 }; i = 5 (* mutate outer temporary *)
 | i = 1; | whileTrue { i < 5 } { i := i + 1 }; i = 5 (* trailing closure syntax *)
-{ }.numArgs = 0 (* procedure arity *)
+{ }.numArgs = 0 (* block arity *)
 { :x | x }.numArgs = 1
 { :i :j | i }.numArgs = 2
 { :i :j :k | i }.numArgs = 3
@@ -2328,7 +2328,7 @@ var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
 { :x :y | x * y + y }.apply([3.141, 23]) = 95.243
 { { :x | x }.apply(0) }.ifError { true }
 { { :x | x }.apply([]) }.ifError { true }
-| x = { }; | x.isProcedure (* blocks are objects and may be assigned to a variable *)
+| x = { }; | x.isBlock (* blocks are objects and may be assigned to a variable *)
 { nil; 1 }.value = 1 (* value is last expression evaluated *)
 { { 1 }.value }.value = 1 (* blocks may be nested *)
 { :x | var y = x; y }.value(1) = 1 (* specification { arguments localvars expressions } *)
@@ -2342,12 +2342,12 @@ var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
 { 1 } ~= 1 (* inequality *)
 { } ~~ { } (* non-identity *)
 var f = { }; f == f (* identity *)
-{ }.printString = 'a Procedure'
-{ :x | x }.printString = 'a Procedure'
-{ }.typeOf = 'Procedure'
-{ }.value = nil (* empty procedure evaluates to nil *)
-{ | x | }.value = nil (* empty procedure with unused temporary evaluates to nil *)
-{ | x = 1; | }.value = nil (* empty procedure with unused initialised temporary evaluates to nil *)
+{ }.printString = 'a Block'
+{ :x | x }.printString = 'a Block'
+{ }.typeOf = 'Block'
+{ }.value = nil (* empty block evaluates to nil *)
+{ | x | }.value = nil (* empty block with unused temporary evaluates to nil *)
+{ | x = 1; | }.value = nil (* empty block with unused initialised temporary evaluates to nil *)
 { | c a | c := [1]; a := { | a | a := 4; a }.value; { | a | a := 2; c.add(a); { | a | a := 3; c.add(a) }.value }.value; c.add(a); c }.value = [1, 2, 3, 4]
 1.toDo(10) { :index | nil } = 1 (* answers start index *)
 valueWithReturn { :return:/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 (* non-local return *)
@@ -3042,7 +3042,7 @@ SortedArray().size = 0 (* query size *)
 | a = [3, 1].SortedArray; | a.add(2); a.contents = [1 .. 3] (* sorted array from array *)
 | a = [7, 5 .. 1].SortedArray; | a.addAll([8, 6 .. 2]); a.contents = [1 .. 8] (* add all elements of collection into sequence *)
 | a = [9 .. 1].SortedArray; | a.collect { :x | 9 - x }; a.contents = [1 .. 9] (* collect into ordered collection *)
-| a = [1 .. 9].SortedArray(greaterThan:/2); | a.contents = [9 .. 1] (* sorted array with specified sort procedure *)
+| a = [1 .. 9].SortedArray(greaterThan:/2); | a.contents = [9 .. 1] (* sorted array with specified sort block *)
 | a = [5 .. 9].SortedArray(greaterThan:/2); | a.addAll([1 .. 4]); a.contents = [9 .. 1]
 (1 .. 10).SortedArray.median = 5
 | a = SortedArray(); | a.add('truite'); a.add('porcinet'); a.add('carpe'); a.median = 'porcinet'
@@ -3407,11 +3407,11 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 [9, 7 .. 1] = (9, 7 .. 1).Array (* 9 to 1 by -2 *)
 ```
 
-## Syntax -- procedure application
+## Syntax -- block application
 ```
-{ } . () = nil (* apply no argument procedure *)
-{ :n | n * n } . (23) = 529 (* apply one argument procedure *)
-{ :p :q | p ++ q } . ('x', 'y') = 'xy' (* apply one argument procedure *)
+{ } . () = nil (* apply no argument block *)
+{ :n | n * n } . (23) = 529 (* apply one argument block *)
+{ :p :q | p ++ q } . ('x', 'y') = 'xy' (* apply one argument block *)
 ```
 
 ## Syntax -- temporaries
@@ -3426,7 +3426,7 @@ var x = 1, y = 2; [x, y] = [1, 2] (* var x = i, y = i; => | x = i, y = j; | *)
 var x = 1; var y = 2, z = 3; [x, y, z] = [1, 2, 3] (* there can be multiple var (with initializer) sequences *)
 ```
 
-## Syntax -- trailing procedures
+## Syntax -- trailing blocks
 ```
 1.to(9).collect { :x | x * x }.last = 81
 (1 .. 9).collect { :x | x * x }.last = 81
@@ -3563,7 +3563,7 @@ system.doesTypeImplementMethod('Array', 'adaptToNumberAndApply') = true
 system.methodPrintString('add').size >= 3
 system.methodLookupAtType('collect', 2, 'Array').isMethod = true
 system.methodLookupAtType('collect', 2, 'Array').origin.name = 'Arrayed'
-system.methodLookupAtType('collect', 2, 'Array').procedure.value([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
+system.methodLookupAtType('collect', 2, 'Array').block.value([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum', 1, 'Set')
 'sum:/1'.parseQualifiedMethodName = ['sum', 1]
 ```
@@ -3854,7 +3854,7 @@ WeakMap().typeOf = 'WeakMap' (* type of weak map *)
 WeakMap().isWeakMap (* weak map predicate *)
 WeakMap().printString = 'a WeakMap' (* weak map print string *)
 { WeakMap().size }.ifError { true } (* the size of a weak map cannot be observed *)
-| f = { system.randomFloat }; | f.once = f.once (* Procedure>>once caches output using a weak map *)
+| f = { system.randomFloat }; | f.once = f.once (* Block>>once caches output using a weak map *)
 system.cache::onceCache.isWeakMap
 ```
 

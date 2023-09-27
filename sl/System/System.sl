@@ -213,15 +213,15 @@ System! : [Object, Cache, Indexable, Random] {
 		<primitive: return _self.methodDictionary;>
 	}
 
-	methodDo { :self :aProcedure:/1 |
+	methodDo { :self :aBlock:/1 |
 		self.traitDictionary.do { :aTrait |
 			aTrait.methodDictionary.do { :aMethod |
-				aMethod.aProcedure
+				aMethod.aBlock
 			}
 		};
 		self.typeDictionary.do { :aType |
 			aType.methodDictionary.do { :aMethod |
-				aMethod.aProcedure
+				aMethod.aBlock
 			}
 		}
 	}
@@ -315,9 +315,9 @@ System! : [Object, Cache, Indexable, Random] {
 		}.indices
 	}
 
-	millisecondsToRun { :self :aProcedure:/0 |
+	millisecondsToRun { :self :aBlock:/0 |
 		| beginTime = self.systemTimeInMilliseconds; |
-		aProcedure();
+		aBlock();
 		self.systemTimeInMilliseconds - beginTime
 	}
 
@@ -534,7 +534,7 @@ System! : [Object, Cache, Indexable, Random] {
 
 }
 
-+Procedure {
++Block {
 
 	once { :self |
 		|(
@@ -555,15 +555,15 @@ System! : [Object, Cache, Indexable, Random] {
 
 +@Object {
 
-	respondsTo { :self :aProcedure |
+	respondsTo { :self :aBlock |
 		system.typeMethodDictionary(self.typeOf).anySatisfy { :each |
-			each.qualifiedName = aProcedure.name
+			each.qualifiedName = aBlock.name
 		}
 	}
 
 }
 
-+Procedure {
++Block {
 
 	benchForMilliseconds { :self:/0 :interval |
 		|(

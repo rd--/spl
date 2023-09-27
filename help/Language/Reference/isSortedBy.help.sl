@@ -1,8 +1,8 @@
 # isSortedBy -- sorting
 
-- _isSorted(aSequence, aProcedure:/2)_
+- _isSorted(aSequence, aBlock:/2)_
 
-Return true if _aSequence_ is sorted by _aProcedure_.
+Return true if _aSequence_ is sorted by _aBlock_.
 
 	[11, 9 .. 1].isSortedBy { :i :j | i > j }
 

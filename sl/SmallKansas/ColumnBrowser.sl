@@ -2,8 +2,8 @@
 
 ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPane textEditor numberOfColumns columnLists statusPane statusText title |
 
-	addKeyBindings { :self :aProcedure:/1 |
-		self.textEditor.addKeyBindings(self.textEditor.aProcedure)
+	addKeyBindings { :self :aBlock:/1 |
+		self.textEditor.addKeyBindings(self.textEditor.aBlock)
 	}
 
 	createElements { :self :mimeType :withFilter :withStatus :columnProportions :listSize |
@@ -53,10 +53,10 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 		self.createElements(mimeType, withFilter, withStatus, columnProportions, 6);
 		self.setColumnEntries(1, onChange(self, []));
 		self.setEventHandlers(onChange:/2);
-		clientKeyBindings.isProcedure.ifTrue {
+		clientKeyBindings.isBlock.ifTrue {
 			self.addKeyBindings(clientKeyBindings)
 		};
-		onAccept:/1.isProcedure.ifTrue {
+		onAccept:/1.isBlock.ifTrue {
 			self.textEditor.addEventListener('accept') { :event |
 				event.detail.onAccept
 			}

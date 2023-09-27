@@ -10,9 +10,9 @@
 
 SmallKansas : [Object, Cache] { | container frameSet cache |
 
-	addFrameWithAnimator { :self :subject :event :delay :aProcedure:/0 |
+	addFrameWithAnimator { :self :subject :event :delay :aBlock:/0 |
 		|(
-			timerId = aProcedure:/0.valueEveryMilliseconds(delay.asSeconds * 1000),
+			timerId = aBlock:/0.valueEveryMilliseconds(delay.asSeconds * 1000),
 			frame = self.addFrame(subject, event)
 		)|
 		frame.addEventListener('close') { :unusedEvent |

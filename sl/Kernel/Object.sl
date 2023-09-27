@@ -143,11 +143,11 @@
 	}
 
 	perform { :self :aString |
-		system.methodLookupAtType(aString, 1, self.typeOf).procedure . (self)
+		system.methodLookupAtType(aString, 1, self.typeOf).block . (self)
 	}
 
 	perform { :self :aString :aValue |
-		system.methodLookupAtType(aString, 2, self.typeOf).procedure . (self, aValue)
+		system.methodLookupAtType(aString, 2, self.typeOf).block . (self, aValue)
 	}
 
 	postCopy { :self |
@@ -208,8 +208,8 @@
 		self.typeOf.withIndefiniteArticle
 	}
 
-	then { :self :aProcedure:/1 |
-		self.aProcedure
+	then { :self :aBlock:/1 |
+		self.aBlock
 	}
 
 	Type { :self |

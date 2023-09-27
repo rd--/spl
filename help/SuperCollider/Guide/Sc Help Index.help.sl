@@ -211,7 +211,7 @@
 - isStrictlyPositive -- math operator
 - overlap -- texture generator
 - play -- synthesiser control
-- playEvery -- schedule sound generating procedure at intervals
+- playEvery -- schedule sound generating block at intervals
 - pyramid -- counting
 - schedule -- process
 - xfade -- texture generator

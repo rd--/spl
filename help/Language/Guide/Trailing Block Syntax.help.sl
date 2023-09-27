@@ -1,4 +1,4 @@
-# Trailing Procedure Syntax -- syntax
+# Trailing Block Syntax -- syntax
 
 Rewrite rules:
 
@@ -7,8 +7,8 @@ Rewrite rules:
 - _x.f { p } ..._ ⟹ _f(x, { p }, ...)_
 - _x.f(y, ...) { p } ..._ ⟹ _f(x, y, ..., { p }, ...)_
 
-Trailing procedure syntax allows any number of concluding _literal procedure_ arguments to be written outside the parameter list.
-This notation is particularly clear for control procedures such as _if_, _while_, _timesRepeat_ &etc.
+Trailing block syntax allows any number of concluding _literal block_ arguments to be written outside the parameter list.
+This notation is particularly clear for control blocks such as _if_, _while_, _timesRepeat_ &etc.
 
 The syntax does not preclude further message sends:
 

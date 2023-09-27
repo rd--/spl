@@ -130,7 +130,7 @@ ScSynth! : [Object] {
 
 }
 
-+Procedure {
++Block {
 
 	play { :self:/0 |
 		self:/0.playAt(nil)
@@ -153,7 +153,7 @@ ScSynth! : [Object] {
 
 }
 
-+Procedure {
++Block {
 
 	OverlapTexture { :self :sustainTime :transitionTime :overlap |
 		<primitive: return sc.OverlapTexture(_self, _sustainTime, _transitionTime, _overlap);>
@@ -189,7 +189,7 @@ ScSynth! : [Object] {
 
 }
 
-+Procedure {
++Block {
 
 	!^ { :self :anInteger |
 		Splay2(self ! anInteger)

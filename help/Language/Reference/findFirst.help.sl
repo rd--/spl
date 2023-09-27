@@ -1,8 +1,8 @@
 # findFirst -- accessing
 
-- _findFirst(aSequence, aProcedure:/1)_
+- _findFirst(aSequence, aBlock:/1)_
 
-Answer the index of the first element in _aSequence_ that answers true to the predicate _aProcedure_.
+Answer the index of the first element in _aSequence_ that answers true to the predicate _aBlock_.
 If no such element is found answer zero.
 
 * * *

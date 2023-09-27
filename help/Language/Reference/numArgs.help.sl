@@ -1,8 +1,8 @@
 # numArgs -- accessing
 
-- _numArgs(aProcedure)_
+- _numArgs(aBlock)_
 
-Answer the number of arguments that must be used to evaluate this procedure.
+Answer the number of arguments that must be used to evaluate this block.
 
 	{ }.numArgs = 0
 	{ :x | x }.numArgs = 1

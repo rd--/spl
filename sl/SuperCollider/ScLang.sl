@@ -329,9 +329,9 @@
 		self.asDigits(base, (self.log / base.log + 0.0000000001).asInteger + 1)
 	}
 
-	do { :self :aProcedure:/1 |
+	do { :self :aBlock:/1 |
 		(* Spl is one-indexed *)
-		1.toDo(self, aProcedure:/1);
+		1.toDo(self, aBlock:/1);
 		self
 	}
 
@@ -454,9 +454,9 @@
 		answer
 	}
 
-	doAdjacentPairs { :self :aProcedure:/2 |
+	doAdjacentPairs { :self :aBlock:/2 |
 		2.toDo(self.size) { :i |
-			aProcedure(self[i - 1], self[i])
+			aBlock(self[i - 1], self[i])
 		}
 	}
 
@@ -606,7 +606,7 @@
 		self.levenshteinDistance(other, equals:/2)
 	}
 
-	levenshteinDistance { :self :other :equalityProcedure:/2 |
+	levenshteinDistance { :self :other :equalityBlock:/2 |
 		(self.isEmpty | {
 			other.isEmpty
 		}).if {
@@ -618,7 +618,7 @@
 				matrix[1] := xIndex - 1;
 				1.toDo(other.size) { :yIndex |
 					| upper = matrix[yIndex + 1]; |
-					matrix[yIndex + 1] := equalityProcedure(self[xIndex], other[yIndex]).if {
+					matrix[yIndex + 1] := equalityBlock(self[xIndex], other[yIndex]).if {
 						corner
 					} {
 						[upper, corner, matrix[yIndex]].min + 1
@@ -698,11 +698,11 @@
 		self.shuffled
 	}
 
-	separate { :self :aProcedure:/2 |
+	separate { :self :aBlock:/2 |
 		| answer = [], segment = []; |
 		self.doAdjacentPairs { :a :b |
 			segment.add(a);
-			aProcedure(a, b).ifTrue {
+			aBlock(a, b).ifTrue {
 				answer.add(segment);
 				segment := []
 			}
@@ -727,10 +727,10 @@
 		self.similarity(other, equals:/2)
 	}
 
-	similarity { :self :other :equalityProcedure:/2 |
+	similarity { :self :other :equalityBlock:/2 |
 		| maxDistance = self.size.max(other.size); |
 		(maxDistance > 0).if {
-			1 - (self.levenshteinDistance(other, equalityProcedure:/2) / maxDistance)
+			1 - (self.levenshteinDistance(other, equalityBlock:/2) / maxDistance)
 		} {
 			1
 		}
@@ -750,41 +750,41 @@
 		self.dupEach(repeatCount)
 	}
 
-	withCrossedCollect { :self :aSequence :aProcedure:/2 |
-		(* Apply aProcedure for each of my items with each item of aSequence in turn. *)
+	withCrossedCollect { :self :aSequence :aBlock:/2 |
+		(* Apply aBlock for each of my items with each item of aSequence in turn. *)
 		|(
 			answer = self.species.new(self.size * aSequence.size),
 			nextIndex = 1
 		)|
 		self.do { :leftItem |
 			aSequence.do { :rightItem |
-				answer[nextIndex] := aProcedure(leftItem, rightItem);
+				answer[nextIndex] := aBlock(leftItem, rightItem);
 				nextIndex +:= 1
 			}
 		};
 		answer
 	}
 
-	withExtendingCollect { :self :aCollection :aProcedure:/2 |
+	withExtendingCollect { :self :aCollection :aBlock:/2 |
 		| maximumSize = self.size.max(aCollection.size); |
 		1.toAsCollect(maximumSize, self.species) { :index |
-			aProcedure(self.atWrap(index), aCollection.atWrap(index))
+			aBlock(self.atWrap(index), aCollection.atWrap(index))
 		}
 	}
 
-	withExtendingCollectOrAdaptTo { :self :anObject :aProcedure:/2 |
+	withExtendingCollectOrAdaptTo { :self :anObject :aBlock:/2 |
 		(anObject.isCollection & {
 			anObject.isSequenceable
 		}).if {
-			self.withExtendingCollect(anObject, aProcedure:/2)
+			self.withExtendingCollect(anObject, aBlock:/2)
 		} {
-			anObject.adaptToCollectionAndApply(self, aProcedure:/2)
+			anObject.adaptToCollectionAndApply(self, aBlock:/2)
 		}
 	}
 
-	withTableCollect { :self :aSequence :aProcedure:/2 |
+	withTableCollect { :self :aSequence :aBlock:/2 |
 		self.collect { :each |
-			each.aProcedure(aSequence)
+			each.aBlock(aSequence)
 		}
 	}
 
@@ -865,11 +865,11 @@
 
 }
 
-+Procedure {
++Block {
 
-	<> { :self:/1 :aProcedure:/1 |
+	<> { :self:/1 :aBlock:/1 |
 		{ :x |
-			self(aProcedure(x))
+			self(aBlock(x))
 		}
 	}
 

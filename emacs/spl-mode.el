@@ -178,6 +178,7 @@
      ("quarterToneFlat" .?𝄳) ; U+1D133 𝄳 Musical Symbol Quarter Tone Flat
      ("quarterToneSharp" .?𝄲) ; U+1D132 𝄲 Musical Symbol Quarter Tone Sharp
      (":?" .?⤝) ; U+291D ⤝ Leftwards arrow to black diamond
+     ("||" .?‖) ; U+2016 ‖ Double Vertical Line
      )))
 
 (defun spl-fill-mode-map (map)

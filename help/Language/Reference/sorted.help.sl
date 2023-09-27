@@ -1,11 +1,11 @@
 # sorted -- sorting
 
-- _sorted(aCollection, aProcedure:/2)_
+- _sorted(aCollection, aBlock:/2)_
 - _sorted(aCollection)_ ≡ _sorted(aCollection, <=)_
 
-Answer a new Array which contains the same elements as _aCollection_ where the elements are sorted by _aProcedure_.
+Answer a new Array which contains the same elements as _aCollection_ where the elements are sorted by _aBlock_.
 
-The procedure should take two arguments and answer true if the first element should preceed the second one.
+The block should take two arguments and answer true if the first element should preceed the second one.
 
 The unary form of _sorted_ sorts using <=.
 
