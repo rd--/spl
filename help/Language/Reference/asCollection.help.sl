@@ -1,7 +1,7 @@
 # asCollection -- converting
 
-- _asCollection(aCollection)_ ≡ _aCollection_
-- _asCollection(anObject)_ ≡ _[anObject]_
+- _asCollection(aCollection)_ ⟹ _aCollection_
+- _asCollection(anObject)_ ⟹ _[anObject]_
 
 If the argument is not a collection answer a single element array,
 else answer the collection.

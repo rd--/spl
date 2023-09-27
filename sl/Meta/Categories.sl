@@ -1775,6 +1775,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	'testing-regexp': [
 		'matches'
 		'search'
+	],
+	'ordering-sequence': [
+		'rotated'
+		'rotatedLeft'
+		'rotatedRight'
 	]
-
 ))

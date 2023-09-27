@@ -1,5 +1,11 @@
 # CrystalLatticeStructureBrowser
 
+The _CrystalLatticeStructureBrowser_ is a one column _ColumnBrowser_.
+
+The single column shows the names of the crytsal lattice structures from the Leitner collection.
+
+When selected, the text view shows the description of the lattice and a number of perspective drawings.
+
 ```
 system.smallKansas.clsLeitner.then { :clsLeitner |
 	system.smallKansas.SvgViewer(

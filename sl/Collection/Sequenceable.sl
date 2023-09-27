@@ -758,17 +758,17 @@
 		}
 	}
 
-	rotate { :self :anInteger |
-		self.rotateRight(anInteger)
+	rotated { :self :anInteger |
+		self.rotatedRight(anInteger)
 	}
 
-	rotateLeft { :self :anInteger |
+	rotatedLeft { :self :anInteger |
 		(1 + anInteger).toAsCollect(self.size + anInteger, self.species) { :index |
 			self.atWrap(index)
 		}
 	}
 
-	rotateRight { :self :anInteger |
+	rotatedRight { :self :anInteger |
 		(1 - anInteger).toAsCollect(self.size - anInteger, self.species) { :index |
 			self.atWrap(index)
 		}

@@ -7,3 +7,7 @@ A _ColumnBrowser_ where:
 - the third column indicates the names of available help entries
 
 When selected, the help text is shown in the text editor pane.
+
+* * *
+
+See also: HelpViewer, WorldMenu

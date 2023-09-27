@@ -2,7 +2,7 @@
 
 A _ColumnBrowser_ where:
 
--  column one lists the _categories_ the system knows of
+- column one lists the _categories_ the system knows of
 - column two shows the _types_ beloning to the selected category
 - column three shows the _qualified method names_ for the selected type
 
@@ -17,4 +17,4 @@ and the _origin_ of the selected method.
 
 * * *
 
-See also: MethodBrowser, MethodSignatureBrowser, TraitBrowser, TypeBrowser, SystemBrowser
+See also: MethodBrowser, MethodSignatureBrowser, TraitBrowser, TypeBrowser, SystemBrowser, WorldMenu

@@ -6,4 +6,4 @@ Identity if _aCollection_ is, in fact, a collection, else signal an error.
 
 * * *
 
-See also: assert
+See also: assert, assertIsString

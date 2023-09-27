@@ -2351,6 +2351,8 @@ var f = { }; f == f (* identity *)
 { | c a | c := [1]; a := { | a | a := 4; a }.value; { | a | a := 2; c.add(a); { | a | a := 3; c.add(a) }.value }.value; c.add(a); c }.value = [1, 2, 3, 4]
 1.toDo(10) { :index | nil } = 1 (* answers start index *)
 valueWithReturn { :return:/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 (* non-local return *)
+pi.assert { true } = pi (* assert that block evaluates to true, answers self *)
+{ pi.assert { false } }.ifError { true } (* raise an error if block does not evaluate to true *)
 { true }.assert = nil (* assert that block evaluates to true, answers nil *)
 { { false }.assert }.ifError { true } (* raise an error if block does not evaluate to true *)
 valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeat } (* repeat a block until it "returns" *)
@@ -2716,13 +2718,14 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString };
 [1 .. 9] ~= (1 .. 9) (* an array is not equal to an interval *)
 (1 .. 9) ~= [1 .. 9] (* an interval is not equal to an array *)
 [1.5 .. 9.5].middle = 5.5 (* range start need not be an integer *)
-var c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5]
-{ [1 .. 5].swapWith(1, 9) }.ifError { true }
+| c = [1 .. 5]; | c.swapWith(1, 4); c = [4, 2, 3, 1, 5] (* swap elements at indices in place *)
+{ [1 .. 5].swapWith(1, 9) }.ifError { true } (* it is an error if an index is invalid *)
 [1, [2, [3, [4, [5], 6], 7], 8], 9].flattened = [1 .. 9] (* concatenation removing all nesting *)
 [1, [2, [3, ['45', 6], '78']], 9].flattened = [1, 2, 3, '45', 6, '78', 9] (* strings are not flattened to sequences of characters *)
 [3, 4, [2, 4, ['xy'], 'wz']].flattened = [3, 4, 2, 4, 'xy', 'wz']
-[1 .. 9].rotateLeft(3) = ([4 .. 9] ++ [1 .. 3]) (* rotate left *)
-[1 .. 9].rotateRight(3) = ([7 .. 9] ++ [1 .. 6]) (* rotate right *)
+[1 .. 9].rotatedLeft(3) = ([4 .. 9] ++ [1 .. 3]) (* rotate left *)
+| a = [1 .. 9]; | a.rotatedLeft(3) ~~ a (* rotation is not in place *)
+[1 .. 9].rotatedRight(3) = ([7 .. 9] ++ [1 .. 6]) (* rotate right *)
 | d = []; | (3 .. 1).withDo((1 .. 3)) { :p :q | d.add(p -> q) }; d = [3 -> 1, 2 -> 2, 1 -> 3]
 | d = []; | (3 .. 1).reverseWithDo((1 .. 3)) { :p :q | d.add(p -> q) }; d = [1 -> 3, 2 -> 2, 3 -> 1]
 | d = []; | (3 .. 1).withIndexDo { :each :index | d.add(each -> index) }; d = [3 -> 1, 2 -> 2, 1 -> 3]

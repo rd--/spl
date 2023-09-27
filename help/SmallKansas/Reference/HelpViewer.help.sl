@@ -2,4 +2,8 @@
 
 A _TextEditor_ opened on a help file.
 
-At present each help request opens in a new viewer, however a viewer that can be open on multiple help files would be helpful.
+If no viewer is open a help request opens a new viewer, else the requested help is displayed in the existing viewer.
+
+* * *
+
+See also: HelpBrowser, WorldMenu

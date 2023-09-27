@@ -45,7 +45,7 @@
 	'TypeBrowser'
 	'WindowMenu'
 	'Workspace'
-
+	'WorldMenu'
 ].primitiveLoadPackageSequence.then {
 	system.smallKansas
 }

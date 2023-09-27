@@ -134,6 +134,7 @@
 	'SmallKansas-View'
 	'SmallKansas-WindowMenu'
 	'SmallKansas-Workspace'
+	'SmallKansas-WorldMenu'
 	'Stream-PositionableStream'
 	'Stream-ReadStream'
 	'Stream-Stream'
