@@ -30,11 +30,11 @@ RegExp! : [Object] {
 		});>
 	}
 
-	basicReplace { :self :aString :replacementString |
+	basicReplaceWith { :self :aString :replacementString |
 		<primitive: return _aString.replace(_self, _replacementString);>
 	}
 
-	basicReplaceAll { :self :aString :replacementString |
+	basicReplaceAllWith { :self :aString :replacementString |
 		<primitive: return _aString.replaceAll(_self, _replacementString);>
 	}
 
@@ -85,28 +85,28 @@ RegExp! : [Object] {
 		['flags', 'isGlobal', 'hasIndices', 'source']
 	}
 
-	replace { :self :aString :replacementString |
+	replaceWith { :self :aString :replacementString |
 		aString.assertIsString;
 		replacementString.assertIsString;
-		self.basicReplace(aString, replacementString)
+		self.basicReplaceWith(aString, replacementString)
 	}
 
-	replaceWithModifier { :self :aString :aBlock:/1 |
+	replaceModifying { :self :aString :aBlock:/1 |
 		aString.assertIsString;
-		self.basicReplace(aString) { :match :offset :string |
+		self.basicReplaceWith(aString) { :match :offset :string |
 			aBlock(match)
 		}
 	}
 
-	replaceAll { :self :aString :replacementString |
+	replaceAllWith { :self :aString :replacementString |
 		aString.assertIsString;
 		replacementString.assertIsString;
-		self.basicReplaceAll(aString, replacementString)
+		self.basicReplaceAllWith(aString, replacementString)
 	}
 
-	replaceAllWithModifier { :self :aString :aBlock:/1 |
+	replaceAllModifying { :self :aString :aBlock:/1 |
 		aString.assertIsString;
-		self.basicReplaceAll(aString) { :match :offset :string |
+		self.basicReplaceAllWith(aString) { :match :offset :string |
 			aBlock(match)
 		}
 	}
@@ -168,11 +168,11 @@ RegExp! : [Object] {
 	}
 
 	replaceRegExp { :self :regExpToFind :stringToReplaceWith |
-		regExpToFind.asRegExp.replace(self, stringToReplaceWith)
+		regExpToFind.asRegExp.replaceWith(self, stringToReplaceWith)
 	}
 
 	replaceAllRegExp { :self :regExpToFind :stringToReplaceWith |
-		regExpToFind.asRegExp.replaceAll(self, stringToReplaceWith)
+		regExpToFind.asRegExp.replaceAllWith(self, stringToReplaceWith)
 	}
 
 	searchRegExp { :self :aRegExp |
@@ -189,6 +189,14 @@ RegExp! : [Object] {
 
 	RegExp { :self |
 		<primitive: return new RegExp(_self, 'd');>
+	}
+
+	wordAtIndex { :self :index |
+		|(
+			before = self.copyFromTo(1, index - 1).matchRegExp('[a-zA-Z0-9-_]+$') ? { '' },
+			after = self.copyFromTo(index, self.size).matchRegExp('^[a-zA-Z0-9-_]+') ? { '' }
+		)|
+		before ++ after
 	}
 
 }

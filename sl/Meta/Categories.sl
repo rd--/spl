@@ -462,10 +462,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'unixTimeInSeconds'
 		'weeks'
 	],
-	'accessing-regexp': [
-		'flags'
-		'source'
-	],
 	'adding': [
 		'add'
 		'addAfter'
@@ -842,6 +838,12 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'one'
 		'zero'
 	],
+	'instance creation-music': [
+		'JiTuning'
+		'RatioTuning'
+		'IntegerTuning'
+		'CentsTuning'
+	],
 	'instance creation-small kansas': [
 		'ColourChooser'
 		'ColumnBrowser'
@@ -896,11 +898,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'||'
 		'==>'
 		'xor'
-	],
-	'matching': [
-		'allRegExpMatches'
-		'matchesRegExp'
-		'splitRegExp'
 	],
 	'mathematical functions': [
 		'abs'
@@ -1745,5 +1742,39 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'XLine'
 		'XLn'
 		'ZeroCrossing'
+	],
+	'accessing-regexp': [
+		'flags'
+		'hasIndices'
+		'isGlobal'
+		'source'
+	],
+	'matching-regexp': [
+		'allRegExpMatches'
+		'match'
+		'matchAll'
+		'matchesRegExp'
+		'replaceAllModifying'
+		'replaceAllWith'
+		'replaceModifying'
+		'replaceWith'
+		'splitRegExp'
+	],
+	'private-regexp': [
+		'basicExec'
+		'basicExecIndices'
+		'basicMatch'
+		'basicMatchAll'
+		'basicReplaceWith'
+		'basicReplaceAllWith'
+		'basicSearch'
+		'basicSplit'
+		'exec'
+		'execIndices'
+	],
+	'testing-regexp': [
+		'matches'
+		'search'
 	]
+
 ))

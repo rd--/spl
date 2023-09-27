@@ -204,6 +204,24 @@ String! : [Object, Json, Iterable] {
 		self.error('endsWith: non string operand')
 	}
 
+	findLastOccurrenceOfStringStartingAt { :self :subString :start |
+		| last = self.findStringStartingAt(subString, start); |
+		(last = 0).if {
+			0
+		} {
+			| answer |
+			{ last > 0 }.whileTrue {
+				answer := last;
+				last := self.findStringStartingAt(subString, last + 1)
+			};
+			answer
+		}
+	}
+
+	findPreviousOccurrenceOfStringStartingAt { :self :subString :start |
+		<primitive: return _self.lastIndexOf(_subString, _start - 1) + 1;>
+	}
+
 	findStringStartingAt { :self :aString :aNumber |
 		<primitive: return _self.indexOf(_aString, _aNumber - 1) + 1;>
 	}
@@ -545,6 +563,16 @@ String! : [Object, Json, Iterable] {
 
 	utf16CodePointAt { :self :index |
 		<primitive: return _self.charCodeAt(_index - 1);>
+	}
+
+	whiteSpaceDelimitedWordAtIndex { :self :index |
+		|(
+			previousSpaceIndex = self.findPreviousOccurrenceOfStringStartingAt(' ', index - 1),
+			nextSpaceIndex = self.findStringStartingAt(' ', index),
+			begin = (previousSpaceIndex < 1).if { 1 } { previousSpaceIndex + 1 },
+			end = (nextSpaceIndex < 1).if { self.length } { nextSpaceIndex }
+		)|
+		self.copyFromTo(begin, end - 1)
 	}
 
 	withBlanksTrimmed { :self |

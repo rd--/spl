@@ -20,13 +20,13 @@ To delay evaluation of alternatives each must be written as a no argument proced
 
 [Trailing Procedure Syntax] provides an idiomatic notation for writing conditionals.
 
-The Spl standard libraries write if conditions as:
+The standard libraries write if conditions as:
 
 ```
 aBoolean.if { whenTrue } { whenFalse }
 ```
 
-where there are two branches or as:
+where there are two branches and as either:
 
 ```
 aBoolean.ifTrue { whenTrue }

@@ -2620,15 +2620,16 @@ RegExp('c(a|d)+r', 'g').matchAll('car cdr cadr') = ['car', 'cdr', 'cadr']
 RegExp('c(a|d)+r', 'g').matchAll('does not') = []
 RegExp('ab*c', 'g').matchAll('ab abc ac') = ['abc', 'ac']
 RegExp('-|:').split('a-b:c') = ['a', 'b', 'c'] (* split string at matching tokens *)
-RegExp('x|z').replace('x y z', '-') = '- y z'
-RegExp('x|z', 'g').replaceAll('x y z', '-') = '- y -'
-{ RegExp('x|z').replaceAll('x y z', '-') }.ifError { true } (* requires 'g' flag *)
+RegExp('x|z').replaceWith('x y z', '-') = '- y z'
+RegExp('x|z', 'g').replaceAllWith('x y z', '-') = '- y -'
+{ RegExp('x|z').replaceAllWith('x y z', '-') }.ifError { true } (* requires 'g' flag *)
 'ab abc ac'.allRegExpMatches(RegExp('ab*c', 'g')) = ['abc', 'ac']
 'a-b:c'.splitRegExp('-|:') = ['a', 'b', 'c'] (* split string at matching tokens *)
 'x y z'.replaceRegExp('x|z', '-') = '- y z'
 'x y z'.replaceRegExp(RegExp('x|z', 'g'), '-') = '- y -'
-RegExp('x|z').replaceWithModifier('x y z', toUppercase:/1) = 'X y z' (* instead of a replacement string, allows for a block to process the match *)
-RegExp('x|z', 'g').replaceAllWithModifier('x y z', toUppercase:/1) = 'X y Z'
+RegExp('x|z').replaceModifying('x y z', toUppercase:/1) = 'X y z' (* instead of a replacement string, allows for a block to process the match *)
+RegExp('x|z', 'g').replaceAllModifying('x y z', toUppercase:/1) = 'X y Z'
+'A short sentence of six words'.wordAtIndex(23) = 'six' (* get word looking backwards and forwards from index for non-word characters *)
 ```
 
 ## Regular Expressions -- matches
@@ -3133,6 +3134,11 @@ pi.asString = '3.141592653589793' (* float as string *)
 'the quick brown fox jumps'.findString('fox') = 17 (* index of sub-string *)
 'the quick brown fox jumps'.findString('rat') = 0 (* index of sub-string, zero indicates absence *)
 'the quick brown fox jumps'.findStringStartingAt('fox', 1) = 17
+'Smalltalk'.findLastOccurrenceOfStringStartingAt('al', 1) = 7
+'Smalltalk'.findLastOccurrenceOfStringStartingAt('al', 9) = 0
+'aaa'.findLastOccurrenceOfStringStartingAt('aa', 1) = 2
+'Smalltalk'.findPreviousOccurrenceOfStringStartingAt('al', 9) = 7
+'Smalltalk'.findPreviousOccurrenceOfStringStartingAt('al', 7 - 1) = 3
 'the quick brown fox jumps'.copyFromTo(17, 19) = 'fox'
 ['the', 'quick', 'brown', 'fox'].joinSeparatedBy(' ') = 'the quick brown fox'
 ['the', 'quick', 'brown', 'fox'].join = 'thequickbrownfox'
@@ -3258,6 +3264,7 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 'no comment'.firstMlCommentIfAbsent { true }
 'Array'.withIndefiniteArticle = 'an Array' (* prepend indefinite article to, presumably, a noun or noun phrase *)
 'Map'.withIndefiniteArticle = 'a Map' (* the article depends on the first letter of the noun *)
+'A short sentence of six words'.whiteSpaceDelimitedWordAtIndex(23) = 'six' (* get word looking backwards and forwards from index for a space character *)
 ```
 
 ## Syntax -- array assignment syntax

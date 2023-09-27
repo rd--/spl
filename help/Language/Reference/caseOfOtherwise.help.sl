@@ -1,10 +1,10 @@
 # caseOfOtherwise -- casing
 
-- _caseOf(anObject, aBlockAssociationCollection, aBlock:/1)_
+- _caseOfOtherwise(anObject, aCollection, otherwiseBlock:/1)_
 
-The elements of _aBlockAssociationCollection_ are associations between blocks.
+The elements of _aCollection_ are associations between blocks.
 Answer the evaluated value of the first association whose evaluated key equals _anObject_.
-If no match is found, answer the result of evaluating _aBlock(anObject)_.
+If no match is found, answer the result of evaluating _otherwiseBlock(anObject)_.
 
 * * *
 

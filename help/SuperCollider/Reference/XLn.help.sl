@@ -12,6 +12,8 @@ Control frequency of sine oscillator:
 
 	SinOsc(XLn(200, 17000, 10), 0) * 0.1
 
+_Note_: This is the Sc _XLine_ Ugen without the _doneAction_ input.
+
 * * *
 
-Note: This is the Sc _XLine_ Ugen without the _doneAction_ input.
+See also: Ln

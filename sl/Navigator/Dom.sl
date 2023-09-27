@@ -921,6 +921,8 @@ PointerEvent! : [Object, UiEvent, Event, MouseEvent] {
 
 Range! : [Object, AbstractRange] {
 
+	endOffset { :self | <primitive: return _self.endOffset;> }
+	startOffset { :self | <primitive: return _self.startOffset;> }
 	deleteContents { :self | <primitive: return _self.deleteContents();> }
 	insertNode { :self :aNode | <primitive: return _self.insertNode(_aNode);> }
 
@@ -928,8 +930,16 @@ Range! : [Object, AbstractRange] {
 
 Selection! : [Object] {
 
+	focusNode { :self |
+		<primitive: return _self.focusNode;>
+	}
+
+	focusOffset { :self |
+		<primitive: return _self.focusOffset;>
+	}
+
 	getRangeAt { :self :anInteger |
-		<primitive: return _self.getRangeAt(_anInteger);>
+		<primitive: return _self.getRangeAt(_anInteger - 1);>
 	}
 
 	toString { :self |
@@ -1045,13 +1055,23 @@ Text! : [Object, EventTarget, Node, CharacterData] {
 	innerHeight { :self | <primitive: return _self.innerHeight;> }
 	innerWidth { :self | <primitive: return _self.innerWidth;> }
 
+
+	wordAtCaret { :self |
+		|(
+			selection = self.getSelection,
+			text = selection.focusNode.textContent,
+			index = selection.focusOffset
+		)|
+		text.wordAtIndex(index)
+	}
+
 }
 
 +String {
 
 	insertAtCursor { :self |
 		system.window.getSelection.getRangeAt(
-			0
+			1
 		).insertNode(
 			system.window.document.createTextNode(
 				self
