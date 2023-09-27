@@ -2270,7 +2270,7 @@ system.includesPackage('Date')
 '(* Requires: ColumnBrowser SmallKansas *)'.parsePackageHeader = (Requires: ['ColumnBrowser', 'SmallKansas'])
 system.indexedPackages.size - system.loadedPackages.size = system.availablePackages.size
 system.packageDictionary.select { :each | each.requires.notEmpty }.size > 10
-system.packageDictionary::PackageBrowser.dependencies.collect(name:/1) = ['Blob' 'Dom' 'Duration' 'RegExp' 'Set' 'SmallKansas' 'Window' 'TextElement' 'ListChooser' 'TextEditor' 'ColumnBrowser' 'Trait']
+system.packageDictionary::PackageBrowser.dependencies.collect(name:/1) = ['Blob' 'Dom' 'Duration' 'Set' 'SmallKansas' 'Window' 'TextElement' 'ListChooser' 'TextEditor' 'ColumnBrowser' 'Trait']
 'Time-Date'.isQualifiedPackageName
 'Time-Date'.parseQualifiedPackageName = ['Time', 'Date']
 system.packageDictionary.size > 100 (* number of packages *)
@@ -2591,28 +2591,65 @@ Rectangle(1@1, 3@3).containsPoint(2@2) = true
 
 ## RegExp -- text type
 ```
-system.includesPackage('RegExp') (* RegExp package *)
-RegExp('ab+c').isRegExp = true
-var r = RegExp('ab*c'); [r.test('ac'), r.test('abc')] = [true, true]
-var r = RegExp('ab*c', 'g'); 'ab abc ac'.allRegExpMatches(r) = ['abc', 'ac']
-RegExp('x.x', 'g').stringLiteral = '/x.x/g'
-RegExp('x.x', 'g').source = 'x.x'
-RegExp('x.x', 'g').flags = 'g'
-RegExp('x.x', 'g').printString.size = 18
-'a-b:c'.splitRegExp(RegExp('-|:')) = ['a', 'b', 'c']
+system.includesPackage('RegExp') (* regular expression package *)
+RegExp('ab+c').typeOf = 'RegExp' (* type of, single argument constructor *)
+RegExp('ab+c').isRegExp = true (* type predicate *)
+RegExp('x.x').source = 'x.x' (* retrieve source *)
+RegExp('x.x', 'g').flags = 'g' (* retreive flags *)
+RegExp('x.x', 'g').isGlobal = true (* is global flag set *)
+RegExp('x.x', 'g').printString = "RegExp('x.x', 'g')" (* print string is contructor *)
+RegExp('x.x', 'g').stringLiteral = '/x.x/g' (* a string indicating both source and flags *)
+RegExp('ab*c').search('abc') = true (* predicate to determine if a string contains a match for a regular expression *)
+RegExp('ab*c').search('-abc-') = true (* the entire string is not required to match *)
+RegExp('ab*c').matches('abc') = true (* predicate to determine if a string exactly matches a regular expression *)
+RegExp('ab*c').matches('-abc-') = false (* predicate to determine if a string exactly matches a regular expression *)
+RegExp('^ab*c$').search('abc') = true (* ^ matches the start of the string and $ the end *)
+RegExp('^ab*c$').search('-abc-') = false (* searching for a regular expression with ^ and $ requires an exact match *)
+RegExp('c(a|d)+r').matches('caddar') = true (* test if a string exactly matches a regular expression *)
+RegExp('c(a|d)+r').matches('-caddar-') = false (* test if a string exactly matches a regular expression *)
+RegExp('c(a|d)+r').search('caddar') = true (* test if a string contains a match for a regular expression *)
+RegExp('c(a|d)+r').search('-caddar-') = true (* test if a string constains a match for a regular expression *)
+RegExp('c(a|d)+r').match('car') = 'car' (* get match for regular expression *)
+RegExp('c(a|d)+r').match('cdr') = 'cdr' (* get match for regular expression *)
+RegExp('c(a|d)+r').match('-car-') = 'car' (* get match for regular expression *)
+RegExp('c(a|d)+r').match('-cdr-') = 'cdr' (* get match for regular expression *)
+RegExp('c(a|d)+r').match('xyz') = nil (* if there is no match answer nil *)
+var r = RegExp('ab*c'); ['ac', 'abc', 'abbc'].collect { :each | r.matches(each) } = [true, true, true] (* test input string against regexp *)
+{ RegExp('ab*c').matches(pi) }.ifError { true } (* test parameter must be a string *)
+RegExp('c(a|d)+r', 'g').matchAll('car cdr cadr') = ['car', 'cdr', 'cadr']
+RegExp('c(a|d)+r', 'g').matchAll('does not') = []
+RegExp('ab*c', 'g').matchAll('ab abc ac') = ['abc', 'ac']
+RegExp('-|:').split('a-b:c') = ['a', 'b', 'c'] (* split string at matching tokens *)
+RegExp('x|z').replace('x y z', '-') = '- y z'
+RegExp('x|z', 'g').replaceAll('x y z', '-') = '- y -'
+{ RegExp('x|z').replaceAll('x y z', '-') }.ifError { true } (* requires 'g' flag *)
+'ab abc ac'.allRegExpMatches(RegExp('ab*c', 'g')) = ['abc', 'ac']
+'a-b:c'.splitRegExp('-|:') = ['a', 'b', 'c'] (* split string at matching tokens *)
+'x y z'.replaceRegExp('x|z', '-') = '- y z'
+'x y z'.replaceRegExp(RegExp('x|z', 'g'), '-') = '- y -'
+RegExp('x|z').replaceWithModifier('x y z', toUppercase:/1) = 'X y z' (* instead of a replacement string, allows for a block to process the match *)
+RegExp('x|z', 'g').replaceAllWithModifier('x y z', toUppercase:/1) = 'X y Z'
 ```
 
-## Regular Expressions
+## Regular Expressions -- matches
 ```
-'car'.matchesRegExp('c(a|d)+r')
-'cdr'.matchesRegExp('c(a|d)+r')
-'caar'.matchesRegExp('c(a|d)+r')
+'car'.matchesRegExp('c(a|d)+r'.RegExp) (* test if a string matches a regular expression *)
+'cdr'.matchesRegExp('c(a|d)+r'.asRegExp) (* asRegExp compiles a string *)
+'caar'.matchesRegExp('c(a|d)+r') (* a string parameter is compiled using asRegExp *)
 'cadr'.matchesRegExp('c(a|d)+r')
 'caddar'.matchesRegExp('c(a|d)+r')
+'-car-'.matchesRegExp('c(a|d)+r') = false (* incomplete match for regular expression *)
+'-cdr-'.matchesRegExp('c(a|d)+r') = false (* incomplete match for regular expression *)
+'-car-'.searchRegExp('c(a|d)+r') (* search for incomplete match regular expression *)
+'-cdr-'.searchRegExp('c(a|d)+r') (* search for incomplete match for regular expression *)
 'aabbcc'.matchesRegExp('a+b+c+')
 'aabbcc'.matchesRegExp('a+$').not
 'aabbcc'.matchesRegExp('^b+c+').not
 'aabbcc'.matchesRegExp('a+b+c+')
+'car'.matchRegExp('c(a|d)+r') = 'car' (* retrieve match for regular expression *)
+'cdr'.matchRegExp('c(a|d)+r') = 'cdr' (* retrieve match for regular expression *)
+'-car-'.matchRegExp('c(a|d)+r') = 'car' (* retrieve match for regular expression *)
+'-cdr-'.matchRegExp('c(a|d)+r') = 'cdr' (* retrieve match for regular expression *)
 ```
 
 ## RunArray -- collection type
@@ -3127,12 +3164,12 @@ pi.asString = '3.141592653589793' (* float as string *)
 'string'.last = 'g'.Character (* last character *)
 | x = ['a', 'bc', 'def']; | x.unlines.lines = x
 'a short string'.replaceString('short', 'longer') = 'a longer string' (* replace substring *)
-'x x x'.replaceString('x', 'y') = 'y x x'
-'x x x'.replaceStringAll('x', 'y') = 'y y y'
-'A Bc Def'.replaceStringAll(' ', '') = 'ABcDef'
-'A-B-C'.replaceStringAll('-', '/') = 'A/B/C'
-'x y z'.replaceRegExp(RegExp('x|z', 'g'), '-') = '- y -'
-'x y z'.replaceRegExp(RegExp('x|z', 'g'), { :match :offset :string | match.toUppercase }) = 'X y Z'
+'x x x'.replaceString('x', 'y') = 'y x x' (* replace first occurence of one string with another *)
+{ 'x x x'.replaceString('x', 1) }.ifError { true } (* replacement must be a string *)
+'x x x'.replaceStringAll('x', 'y') = 'y y y' (* replace all occurences of one string with another *)
+{ 'x x x'.replaceStringAll('x', 1) }.ifError { true } (* replacement must be a string *)
+'A Bc Def'.replaceStringAll(' ', '') = 'ABcDef' (* replacement string may be empty *)
+'A-B-C'.replaceStringAll('-', '/') = 'A/B/C' (* replace hypens with forward slashes *)
 'anAnalogueClock'.camelCaseToWords = 'an Analogue Clock' (* camel case begins with a lower case letter *)
 'AnalogueClock'.pascalCaseToWords = 'Analogue Clock' (* pascal case begins with an upper case letter *)
 'an analogue Clock'.words.pascalCase.join = 'AnAnalogueClock'

@@ -4,16 +4,121 @@ RegExp! : [Object] {
 		self
 	}
 
+	basicExec { :self :aString |
+		<primitive:
+		const result = _self.exec(_aString);
+		return {
+			match: result ? result[0] : null
+		};
+		>
+	}
+
+	basicExecIndices { :self :aString |
+		<primitive:
+		const result = _self.exec(_aString);
+		return {
+			match: result ? result[0] : null,
+			indices: result ? [result.indices[0][0] + 1, result.indices[0][1]] : null
+		};
+		>
+	}
+
+	basicMatchAll { :self :aString |
+		<primitive:
+		return [..._aString.matchAll(_self)].map(function(each) {
+			return each[0]
+		});>
+	}
+
+	basicReplace { :self :aString :replacementString |
+		<primitive: return _aString.replace(_self, _replacementString);>
+	}
+
+	basicReplaceAll { :self :aString :replacementString |
+		<primitive: return _aString.replaceAll(_self, _replacementString);>
+	}
+
+	basicSearch { :self :aString |
+		<primitive: return _self.test(_aString);>
+	}
+
+	basicSplit { :self :aString |
+		<primitive: return _aString.split(_self);>
+	}
+
 	exec { :self :aString |
-		<primitive: return _self.exec(_aString);>
+		aString.assertIsString;
+		self.basicExec(aString)
+	}
+
+	execIndices { :self :aString |
+		aString.assertIsString;
+		self.basicExecIndices(aString)
 	}
 
 	flags { :self |
 		<primitive: return _self.flags;>
 	}
 
+	hasIndices { :self |
+		<primitive: return _self.hasIndices;>
+	}
+
+	isGlobal { :self |
+		<primitive: return _self.global;>
+	}
+
+	match { :self :aString |
+		self.exec(aString)::match
+	}
+
+	matchAll { :self :aString |
+		aString.assertIsString;
+		self.basicMatchAll(aString)
+	}
+
+	matches { :self :aString |
+		self.match(aString) = aString
+	}
+
 	pseudoSlotNameArray { :self |
-		['flags', 'source']
+		['flags', 'isGlobal', 'hasIndices', 'source']
+	}
+
+	replace { :self :aString :replacementString |
+		aString.assertIsString;
+		replacementString.assertIsString;
+		self.basicReplace(aString, replacementString)
+	}
+
+	replaceWithModifier { :self :aString :aBlock:/1 |
+		aString.assertIsString;
+		self.basicReplace(aString) { :match :offset :string |
+			aBlock(match)
+		}
+	}
+
+	replaceAll { :self :aString :replacementString |
+		aString.assertIsString;
+		replacementString.assertIsString;
+		self.basicReplaceAll(aString, replacementString)
+	}
+
+	replaceAllWithModifier { :self :aString :aBlock:/1 |
+		aString.assertIsString;
+		self.basicReplaceAll(aString) { :match :offset :string |
+			aBlock(match)
+		}
+	}
+
+	search { :self :aString |
+		aString.assertIsString;
+		self.basicSearch(aString)
+	}
+
+	split { :self :aString |
+		aString.assertIsString;
+		self.basicSplit(aString)
 	}
 
 	source { :self |
@@ -28,16 +133,12 @@ RegExp! : [Object] {
 		<primitive: return _self.toString();>
 	}
 
-	test { :self :aString |
-		<primitive: return _self.test(_aString);>
-	}
-
 }
 
 +String {
 
 	allRegExpMatches { :self :aRegExp |
-		<primitive: return _self.match(_aRegExp);>
+		aRegExp.asRegExp.matchAll(self)
 	}
 
 	asRegExp { :self |
@@ -54,8 +155,12 @@ RegExp! : [Object] {
 		}
 	}
 
+	matchRegExp { :self :aRegExp |
+		aRegExp.asRegExp.match(self)
+	}
+
 	matchesRegExp { :self :aRegExp |
-		aRegExp.asRegExp.test(self)
+		aRegExp.asRegExp.matches(self)
 	}
 
 	pascalCaseToWords { :self |
@@ -63,11 +168,19 @@ RegExp! : [Object] {
 	}
 
 	replaceRegExp { :self :regExpToFind :stringToReplaceWith |
-		<primitive: return _self.replace(_regExpToFind, _stringToReplaceWith);>
+		regExpToFind.asRegExp.replace(self, stringToReplaceWith)
+	}
+
+	replaceAllRegExp { :self :regExpToFind :stringToReplaceWith |
+		regExpToFind.asRegExp.replaceAll(self, stringToReplaceWith)
+	}
+
+	searchRegExp { :self :aRegExp |
+		aRegExp.asRegExp.search(self)
 	}
 
 	splitRegExp { :self :aRegExp |
-		<primitive: return _self.split(_aRegExp);>
+		aRegExp.asRegExp.split(self)
 	}
 
 	RegExp { :self :flags |
@@ -75,7 +188,7 @@ RegExp! : [Object] {
 	}
 
 	RegExp { :self |
-		<primitive: return new RegExp(_self);>
+		<primitive: return new RegExp(_self, 'd');>
 	}
 
 }

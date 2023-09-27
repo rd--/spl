@@ -101,6 +101,14 @@ String! : [Object, Json, Iterable] {
 		self.codePointAt(index).Character
 	}
 
+	basicReplaceString { :self :stringToFind :stringToReplaceWith |
+		<primitive: return _self.replace(_stringToFind, _stringToReplaceWith);>
+	}
+
+	basicReplaceStringAll { :self :stringToFind :stringToReplaceWith |
+		<primitive: return _self.replaceAll(_stringToFind, _stringToReplaceWith);>
+	}
+
 	beginsWith { :self :aString |
 		<primitive:
 		if(typeof _aString == 'string') {
@@ -400,11 +408,15 @@ String! : [Object, Json, Iterable] {
 	}
 
 	replaceString { :self :stringToFind :stringToReplaceWith |
-		<primitive: return _self.replace(_stringToFind, _stringToReplaceWith);>
+		stringToFind.assertIsString;
+		stringToReplaceWith.assertIsString;
+		self.basicReplaceString(stringToFind, stringToReplaceWith)
 	}
 
 	replaceStringAll { :self :stringToFind :stringToReplaceWith |
-		<primitive: return _self.replaceAll(_stringToFind, _stringToReplaceWith);>
+		stringToFind.assertIsString;
+		stringToReplaceWith.assertIsString;
+		self.basicReplaceStringAll(stringToFind, stringToReplaceWith)
 	}
 
 	romanNumber { :self |

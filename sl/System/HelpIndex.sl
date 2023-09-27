@@ -48,7 +48,7 @@ HelpIndex : [Object] { | contents |
 	HelpIndex { :self |
 		newHelpIndex().initializeSlots(
 			self.lines.select(notEmpty:/1).collect { :each |
-				| [spl, help, area, kind, name] = each.replaceString('.help.sl', '').splitRegExp(RegExp('/')); |
+				| [spl, help, area, kind, name] = each.replaceString('.help.sl', '').splitBy('/'); |
 				[area, kind, name]
 			}
 		)

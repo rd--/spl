@@ -1,4 +1,4 @@
-(* Requires: Dom Duration RegExp Set *)
+(* Requires: Dom Duration Set *)
 
 @SmallKansan {
 

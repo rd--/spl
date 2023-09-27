@@ -1,4 +1,4 @@
-(* Requires: String *)
+(* Requires: RegExp String *)
 
 SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
