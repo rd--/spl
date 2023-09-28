@@ -18,10 +18,10 @@ export function resolveFileName(fileName: string): string {
 // Fetch files asynchronously, store at packageIndex
 export async function primitiveReadLocalPackages(qualifiedPackageNames: string[]): Promise<void> {
 	const packageArray = await kernel.initializeLocalPackages(qualifiedPackageNames);
-	const resolvedFileNameArray = [];
-	packageArray.forEach(pkg => {
+	const resolvedFileNameArray: string[] = [];
+	packageArray.forEach(function(pkg: kernel.Package) {
 		const resolvedFileName = resolveFileName(pkg.url);
-		resolvedFileNameArray.push(resolvedFileName);
+		return resolvedFileNameArray.push(resolvedFileName);
 	});
 	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(function(fileName: string):Promise<string> {
 		return fetch(fileName, { cache: 'no-cache' }).then(response => response.text());

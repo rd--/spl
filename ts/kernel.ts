@@ -9,6 +9,8 @@ import * as evaluate from './evaluate.ts'
 import { isOperatorName, operatorMethodName } from './operator.ts'
 import { slOptions } from './options.ts'
 
+export { slGrammar, slSemantics, slParse } from './grammar.ts'
+
 type Arity = number;
 type PackageName = string;
 type TypeName = string;
@@ -179,7 +181,7 @@ export function parsePackageRequires(text: string): string[] {
 	}
 }
 
-export function evaluatePackage(pkg: Package) {
+export function evaluatePackage(pkg: Package): unknown {
 	// console.debug(`evaluatePackage: ${pkg.name}, ${pkg.text}`);
 	return evaluate.evaluateFor(pkg.name, pkg.text);
 }
@@ -435,23 +437,19 @@ export function shiftRight(lhs: number, rhs: number): number {
 	return lhs >> rhs;
 }
 
-export function methodName(name: string): MethodName {
-	return isOperatorName(name) ? operatorMethodName(name) : name;
-}
-
 /* spl = one-indexed.  The index is not decremented because in Js '1' - 1 is 0 &etc. */
 export function arrayCheckIndex(anArray: unknown[], anInteger: number | bigint): boolean {
 	return isSmallFloatInteger(anInteger) && (anInteger >= 1) && (anInteger <= anArray.length);
 }
 
 export async function initializeLocalPackages(qualifiedPackageNames: string[]): Promise<Package[]> {
-	const packageArray = [];
+	const packageArray: Package[] = [];
 	qualifiedPackageNames.forEach(qualifiedName => {
 		const parts = qualifiedName.split('-');
 		const category = parts[0];
 		const name = parts[1];
 		const url = category + '/' + name + '.sl';
-		const pkg = new Package(category, name, null, url, null, false); /* note: requires and text are set after fetch */
+		const pkg = new Package(category, name, [], url, '', false); /* note: requires and text are set after fetch */
 		/* add to dictionary (initialized & fetched, not loaded) */
 		system.packageDictionary.set(name, pkg);
 		packageArray.push(pkg);
@@ -462,12 +460,12 @@ export async function initializeLocalPackages(qualifiedPackageNames: string[]): 
 /* Evaluate already fetched packages in sequence. */
 export async function primitiveLoadPackageSequence(packageNames: string[]): Promise<void> {
 	// console.debug(`primitiveLoadPackageSequence: '${packageNames}'`);
-	const packageArray = [];
+	const packageArray: Package[] = [];
 	packageNames.forEach(name => {
 		const pkg = system.packageDictionary.get(name);
-		if(!pkg) {
+		if(pkg == undefined) {
 			console.error(`primitiveLoadPackageSequence: no such package: ${name}, ${pkg}`);
-		} {
+		} else {
 			pkg.isLoaded = true;
 			packageArray.push(pkg);
 		}

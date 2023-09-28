@@ -1,9 +1,7 @@
-// @ts-nocheck
+import ohm from 'https://unpkg.com/ohm-js@17/dist/ohm.esm.js';
+import { extras } from 'https://unpkg.com/ohm-js@17/dist/ohm.esm.js';
 
-import ohm from 'https://unpkg.com/ohm-js@16/dist/ohm.esm.js';
-import { extras } from 'https://unpkg.com/ohm-js@16/dist/ohm.esm.js';
-
-export const slGrammarDefinition = String.raw`
+export const slGrammarDefinition: string = String.raw`
 Sl {
 
 	TopLevel = LibraryExpression+ | Program
@@ -182,15 +180,15 @@ Sl {
 }
 `;
 
-export const slGrammar = ohm.grammar(slGrammarDefinition);
+export const slGrammar: ohm.Grammar = ohm.grammar(slGrammarDefinition);
 
-export const slSemantics = slGrammar.createSemantics();
+export const slSemantics: ohm.Semantics = slGrammar.createSemantics();
 
-export function slParse(str) {
+export function slParse(str: string): ohm.Dict {
 	return slSemantics(slGrammar.match(str));
 }
 
-export function slParseToAst(str) {
+export function slParseToAst(str: string) {
 	return extras.toAST(slGrammar.match(str));
 }
 

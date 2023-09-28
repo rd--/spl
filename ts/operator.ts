@@ -35,3 +35,7 @@ export function operatorMethodName(operator: string): string {
 	const words = [...operator].map((letter) => operatorCharacterNameTable[letter]);
 	return words.slice(0, 1).concat(words.slice(1).map(stringCapitalizeFirstLetter)).join('');
 }
+
+export function methodName(name: string): string {
+	return isOperatorName(name) ? operatorMethodName(name) : name;
+}

@@ -18,12 +18,14 @@ export async function rewriteFile(fileName: string) {
 // Fetch files asynchronously, store at packageIndex
 export async function primitiveReadLocalPackages(qualifiedPackageNames: string[]): Promise<void> {
 	const packageArray = await kernel.initializeLocalPackages(qualifiedPackageNames);
-	const resolvedFileNameArray = [];
+	const resolvedFileNameArray: string[] = [];
 	packageArray.forEach(pkg => {
 		const resolvedFileName = load.resolveFileName(pkg.url);
 		resolvedFileNameArray.push(resolvedFileName);
 	});
-	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(fileName => Deno.readTextFile(fileName)));
+	const fetchedTextArray = await Promise.all(resolvedFileNameArray.map(function(fileName: string) {
+		return Deno.readTextFile(fileName);
+	}));
 	fetchedTextArray.map(function(text, index) {
 		packageArray[index].text = text;
 		packageArray[index].requires = kernel.parsePackageRequires(text);

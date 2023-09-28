@@ -1,21 +1,22 @@
-// @ts-nocheck
+import ohm from 'https://unpkg.com/ohm-js@17/dist/ohm.esm.js';
 
 import { arraySum } from '../lib/jssc3/ts/kernel/array.ts'
 
 import { slSemantics, slParse, slTemporariesSyntaxNames } from './grammar.ts'
+import { methodName, operatorMethodName } from './operator.ts'
 import { slOptions } from './options.ts'
 
 export const context = { packageName: 'UnknownPackage' };
 
-function genName(name, arity) {
+function genName(name: string, arity: number): string {
 	return slOptions.simpleArityModel ? name : `${name}_${arity}`;
 }
 
-function atMethod() {
+function atMethod(): string {
 	return slOptions.uncheckedIndexing ? 'basicAt' : 'at';
 }
 
-function atPutMethod() {
+function atPutMethod(): string {
 	return slOptions.uncheckedIndexing ? 'basicAtPut' : 'atPut';
 }
 
@@ -23,7 +24,7 @@ function quoteNewLines(input: string): string {
 	return input.replaceAll('\n', '\\n');
 }
 
-function makeTypeDefinition(isHostType: boolean, typNm: string, trt: string[], tmp, mthNms, mthBlks) {
+function makeTypeDefinition(isHostType: boolean, typNm: string, trt: string, tmp: ohm.Node, mthNms: string[], mthBlks: ohm.Node[]):string {
 	// console.debug(`makeTypeDefinition: ${isHostType} ${typNm}`);
 	const tmpSrc = tmp.sourceString;
 	const tmpNm = tmpSrc === '' ? [] : slTemporariesSyntaxNames(tmpSrc).map(nm => `'${nm}'`);
@@ -34,7 +35,7 @@ function makeTypeDefinition(isHostType: boolean, typNm: string, trt: string[], t
 	return `${addType}${copyTraits}${addMethods}`;
 }
 
-const asJs: any = {
+const asJs: ohm.ActionDict<string> = {
 
 	TypeExtension(_plus, typNm, _leftBrace, mthNm, mthBlk, _rightBrace) {
 		return makeMethodList('addMethod', [typNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
@@ -139,7 +140,7 @@ const asJs: any = {
 		while (opsArray.length > 0) {
 			const op = opsArray.shift();
 			const right = rhsArray.shift();
-			left = `_${genName(sl.operatorMethodName(op), 2)}(${left}, ${right})`;
+			left = `_${genName(operatorMethodName(op), 2)}(${left}, ${right})`;
 		}
 		return left;
 	},
@@ -350,6 +351,7 @@ const asJs: any = {
 			case 'nil': return 'null';
 			case 'true': return 'true';
 			case 'false': return 'false';
+			default: throw Error('rewrite: reservedIdentifier?');
 		}
 	},
 
@@ -404,7 +406,7 @@ const asJs: any = {
 
 slSemantics.addAttribute('asJs', asJs);
 
-const arityOf: any = {
+const arityOf: ohm.ActionDict<number> = {
 	NonEmptyParameterList(_l, sq, _r) {
 		return sq.asIteration().children.length
 	},
@@ -427,7 +429,7 @@ const arityOf: any = {
 
 slSemantics.addAttribute('arityOf', arityOf);
 
-function commaList(nodeArray): string {
+function commaList(nodeArray: ohm.Node[]): string {
 	return nodeArray.map(e => e.asJs).join(', ');
 }
 
@@ -438,23 +440,23 @@ function gensym() {
 	return `__gensym${rewriteGensymCounter}`;
 }
 
-function makeMethod(slProc: string, clsNmArray: string[], mthNm: string, mthBlk): string {
+function makeMethod(slProc: string, clsNmArray: string[], mthNm: string, mthBlk: ohm.Node): string {
 	const blkSource = mthBlk.sourceString;
 	const blkArity = mthBlk.arityOf;
 	const blkJs = mthBlk.asJs;
 	const blkSrc = JSON.stringify(blkSource);
-	const slName = sl.methodName(mthNm);
+	const slName = methodName(mthNm);
 	return clsNmArray.map(function(clsNm) {
 		// console.debug(`makeMethod: '${slProc}', '${clsNm}', '${context.packageName}', '${mthNm}'('${slName}'), ${blkArity}`);
 		return ` sl.${slProc}('${clsNm}', '${context.packageName}', '${slName}', ${blkArity}, ${blkJs}, ${blkSrc});`
 	}).join(' ');
 }
 
-function makeMethodList(slProc: string, clsNmArray: string[], mthNms: string[], mthBlks): string {
+function makeMethodList(slProc: string, clsNmArray: string[], mthNms: string[], mthBlks: ohm.Node[]): string {
 	let mthList = '';
 	while (mthNms.length > 0) {
-		const mthNm = mthNms.shift();
-		const mthBlk = mthBlks.shift();
+		const mthNm = mthNms.shift()!;
+		const mthBlk = mthBlks.shift()!;
 		const mthSrc = makeMethod(slProc, clsNmArray, mthNm, mthBlk);
 		// console.debug(`makeMethodList: ${mthSrc}`);
 		mthList += mthSrc;
