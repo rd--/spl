@@ -6,5 +6,4 @@ Evaluate _aBlock_ with corresponding elements from _aSequence_ and _anotherSeque
 
 * * *
 
-See also: do, withCollect
-
+See also: do, reverseWithDo, withCollect, withIndexDo

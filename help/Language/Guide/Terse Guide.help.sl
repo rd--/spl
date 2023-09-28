@@ -2736,7 +2736,7 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString };
 [1 .. 9].rotatedLeft(3) = ([4 .. 9] ++ [1 .. 3]) (* rotate left *)
 | a = [1 .. 9]; | a.rotatedLeft(3) ~~ a (* rotation is not in place *)
 [1 .. 9].rotatedRight(3) = ([7 .. 9] ++ [1 .. 6]) (* rotate right *)
-| d = []; | (3 .. 1).withDo((1 .. 3)) { :p :q | d.add(p -> q) }; d = [3 -> 1, 2 -> 2, 1 -> 3]
+| d = []; | (3 .. 1).withDo((1 .. 3)) { :p :q | d.add(p -> q) }; d = [3 -> 1, 2 -> 2, 1 -> 3] (* do with elements from a second sequence of equal size *)
 | d = []; | (3 .. 1).reverseWithDo((1 .. 3)) { :p :q | d.add(p -> q) }; d = [1 -> 3, 2 -> 2, 3 -> 1]
 | d = []; | (3 .. 1).withIndexDo { :each :index | d.add(each -> index) }; d = [3 -> 1, 2 -> 2, 1 -> 3]
 (9 .. 1).withCollect((1 .. 9)) { :p :q | p * 2 + q } = [19 .. 11]
@@ -2810,7 +2810,10 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString };
 [0 1 2].tuples(3).first(6) = [0 0 0; 0 0 1; 0 0 2; 0 1 0; 0 1 1; 0 1 2]
 [3 5].tuples(3) = [3 3 3; 3 3 5; 3 5 3; 3 5 5; 5 3 3; 5 3 5; 5 5 3; 5 5 5]
 [3 5 7].tuples(3).first(9) = [3 3 3; 3 3 5; 3 3 7; 3 5 3; 3 5 5; 3 5 7; 3 7 3; 3 7 5; 3 7 7]
-| x = [0, 1]; | x.tuples(2) = x.cartesianProduct(x) (* two-tuples are the self cartesian product *)
+| x = [0 1 2]; | x.tuples(2) = x.cartesianProduct(x) (* two-tuples are the self cartesian product *)
+| x = [0 1]; | x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] (* self cartesian product *)
+[0 1].cartesianProduct([2 3]) = [0 2; 0 3; 1 2; 1 3] (* cartesian product of collections of equal size *)
+[0 1].cartesianProduct([2 3 4]) = [0 2; 0 3; 0 4; 1 2; 1 3; 1 4] (* cartesian product of collections of unequal size *)
 ```
 
 ## Sequence arithmetic

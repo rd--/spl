@@ -304,7 +304,9 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+2193 ↓ Downwards Arrow
 - U+21d2 ⇒ Rightwards Double Arrow
 - U+21e0 ⇠ Leftwards Dashed Arrow
+- U+2208 ∈ Element Of
 - U+2209 ∉ Not An Element Of
+- U+220b ∋ Contains as Member
 - U+220c ∌ Does Not Contain As Member
 - U+2212 − Minus Sign
 - U+2213 ∓ Minus-Or-Plus Sign
@@ -346,12 +348,12 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+291d ⤝ Leftwards Arrow To Black Diamond
 - U+29bf ⦿ Circled Bullet
 - U+29fa ⧺ Double Plus
-- U+2e3f ⸿ Capitulum
-- U+2e4d ⹍ Paragraphus Mark
 - U+2a74 ⩴ Double Colon Equal
 - U+2a75 ⩵ Two Consecutive Equals Signs
 - U+2a76 ⩶ Three Consecutive Equals Signs
 - U+2a7d ⩽ Less-Than Or Slanted Equal To
 - U+2a7e ⩾ Greater-Than Or Slanted Equal To
 - U+2e38 ⸸ Turned Dagger
+- U+2e3f ⸿ Capitulum
 - U+2e4b ⹋ Triple Dagger
+- U+2e4d ⹍ Paragraphus Mark
