@@ -498,7 +498,7 @@
 	}
 
 	flop { :self |
-		self.extendToBeOfEqualSize.transpose
+		self.extendToBeOfEqualSize.transposed
 	}
 
 	hammingDistance { :self :other |

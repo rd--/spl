@@ -591,6 +591,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'asAscii'
 		'asBag'
 		'asBit'
+		'asCharacter'
 		'asCollection'
 		'asComplex'
 		'asFraction'
@@ -870,6 +871,19 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'Vector2'
 		'Vector3'
 		'Vector4'
+	],
+	'instance creation-graphics': [
+		'Colour'
+	],
+	'instance creation-system': [
+		'Blob'
+		'File'
+		'LibraryItem'
+		'Response'
+		'Storage'
+		'URL'
+		'URLSearchParams'
+		'Window'
 	],
 	'instance creation-navigator': [
 		'ImageBitmap'

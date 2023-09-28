@@ -858,7 +858,7 @@
 		self[self.size - 2]
 	}
 
-	transpose { :self |
+	transposed { :self |
 		1.toAsCollect(self.first.size, self.first.species) { :index |
 			self.collect { :row |
 				row[index]

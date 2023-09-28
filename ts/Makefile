@@ -20,7 +20,7 @@ spl-repl-unsafe:
 	$(cli) replPerLine --unsafe
 
 spl-repl-verbose:
-	$(cli) replPerLine --strict --verbose
+	$(cli) replPerLine StandardLibrary --strict --verbose
 
 spl-repl-bm:
 	$(cli) replPerLine StandardLibrary BenchmarkLibrary --strict

@@ -26,6 +26,10 @@
 		}
 	}
 
+	include { :self :anObject |
+		self.add(anObject)
+	}
+
 	includeAll { :self :aCollection |
 		aCollection.do { :each |
 			self.include(each)

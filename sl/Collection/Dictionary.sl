@@ -394,7 +394,7 @@
 	}
 
 	includesKey { :self :key |
-		self.includesIndex(index)
+		self.includesIndex(key)
 	}
 
 }

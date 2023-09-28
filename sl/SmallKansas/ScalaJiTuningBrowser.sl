@@ -56,7 +56,7 @@
 				},
 				self.cents.rounded,
 				self.integers
-			].transpose.asHtmlTable,
+			].transposed.asHtmlTable,
 			self.latticeDrawing
 		]);
 		div

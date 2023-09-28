@@ -20,6 +20,10 @@ Character : [Object, Magnitude] { | string codePoint |
 		}
 	}
 
+	asCharacter { :self |
+		self
+	}
+
 	asInteger { :self |
 		self.codePoint
 	}
@@ -86,6 +90,10 @@ Character : [Object, Magnitude] { | string codePoint |
 
 +SmallFloat {
 
+	asCharacter { :self |
+		self.Character
+	}
+
 	Character { :self |
 		<primitive: return _Character_2(String.fromCodePoint(_self), _self);>
 	}
@@ -102,10 +110,13 @@ Character : [Object, Magnitude] { | string codePoint |
 
 +String {
 
+	asCharacter { :self |
+		self.Character
+	}
+
 	Character { :self |
 		self.Character(self.codePoint)
 	}
-
 
 	Character { :self :codePoint |
 		self.isSingleCharacter.if {

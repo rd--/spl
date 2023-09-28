@@ -335,8 +335,8 @@ plusPlus([1 .. 3], [4 .. 6]) = [1 .. 6] (* ++ equals plusPlus *)
 [5, 4, 3, 2, 1].detectIfNone { :each | each % 7 = 0 } { nil } = nil (* nil if no element is found *)
 [5, 4, 3, 2, 1].findFirst { :each | each % 3 = 0 } = 3 (* answer index of first element matching predicate *)
 [5, 4, 3, 2, 1].findFirst { :each | each % 7 = 0 } = 0 (* zero if no element is found *)
-[[1, 2, 3, 4], [5, 6, 7, 8]].transpose = [[1, 5], [2, 6], [3, 7], [4, 8]]
-[1 2 3; 4 5 6].transpose = [1 4; 2 5; 3 6] (* transpose, matrix syntax *)
+[[1, 2, 3, 4], [5, 6, 7, 8]].transposed = [[1, 5], [2, 6], [3, 7], [4, 8]]
+[1 2 3; 4 5 6].transposed = [1 4; 2 5; 3 6] (* transposed, matrix syntax *)
 1.toAsCollect(9, Array:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 | a = [1 .. 9]; | a.shuffle; a ~= [1 .. 9] (* shuffle in place, using system Random *)
 | a = [1 .. 9], r = Random(13579); | a.shuffleBy(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] (* shuffle in place, using given Random *)
@@ -451,6 +451,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 | a = [1, 2, 4]; | a.insertAt(3, 3); a = [1 .. 4] (* insert value at index *)
 | a = [1, 2, 4]; | a.addAfter(3, 2); a = [1 .. 4] (* insert value after existing value *)
 | a = [1, 2, 4]; | a.addBefore(3, 4); a = [1 .. 4] (* insert value before existing value *)
+[2 .. 8].atPin(1) = 2 (* pin left *)
+[2 .. 8].atPin(9) = 8 (* pin right *)
 [-1 .. 5].collect { :index | [1 .. 3].atPin(index) } = [1, 1, 1, 2, 3, 3, 3] (* index answering bound if out of bounds *)
 [2, 7, 5, 0, 1, -2].collect { :index | [5, 6, 8].atWrap(index) } = [6, 5, 6, 8, 5, 5] (* index with wrap-around *)
 | a = [1, nil, 3]; | a.atWrapPut(5, 2); a = [1, 2, 3]
@@ -1206,6 +1208,9 @@ pi.asFraction(10) = 22:7 (* with maximum denominator *)
 23.asString = '23' (* Object>>printString (integral to string) *)
 15.asHexDigit = 'F'.Character (* integral to hex character *)
 { 16.asHexDigit }.ifError { true } (* error if out of range *)
+'x'.asCharacter = 120.Character (* string to character *)
+120.asCharacter = 'x'.Character (* small integer to character *)
+| c = 'x'.Character; | c.asCharacter == c (* character to character *)
 ```
 
 ## Converting -- unit conversion
@@ -2132,10 +2137,15 @@ pi.radiansToDegrees = 180 (* radiansToDegrees *)
 
 ## Matrix22 -- geometry type
 ```
-system.includesPackage('Matrix22')
-Matrix22(1, 4, -1, 9).determinant = 13
-Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2)
+system.includesPackage('Matrix22') (* two by two matrix package *)
+Matrix22(1, 0, 0, 1).typeOf 'Matrix22' (* two square matrix type *)
+Matrix22(1, 0, 0, 1).isMatrix22 (* matrix predicate *)
+Matrix22(1, 4, -1, 9).determinant = 13 (* determinant *)
+Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2) (* inverse, answers new matrix *)
+| m = Matrix22(-1, 3/2, 1,-1); | m.invert; m = Matrix22(2, 3, 2, 2) (* inverse, in place *)
 Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1)).closeTo(1@0)
+Matrix22(1, 2, 3, 4).transposed = Matrix22(1, 3, 2, 4) (* transpose, answers new matrix *)
+| m = Matrix22(1, 2, 3, 4); | m.transpose; m = Matrix22(1, 3, 2, 4) (* transpose, in place *)
 ```
 
 ## Matrix33 -- geometry type
@@ -3326,7 +3336,7 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 [1 2; 3 4;; 5 6; 7 8] = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]] (* volume syntax, literal items *)
 | a = 1, b = 3; | [a b; b a;; b a; a b] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] (* volume syntax, identifier items *)
 [1 0 0; 0 1 0; 0 0 1;; 0 1 0; 1 0 1; 0 1 0;; 1 0 1; 0 1 0; 1 0 1].collect(sum:/1) = [1 1 1; 1 2 1; 2 1 2] (* volume to matrix *)
-[1 0 0; 0 1 0; 0 0 1;; 0 1 0; 1 0 1; 0 1 0].transpose = [1 0 0; 0 1 0;; 0 1 0; 1 0 1;; 0 0 1; 0 1 0] (* transposed *)
+[1 0 0; 0 1 0; 0 0 1;; 0 1 0; 1 0 1; 0 1 0].transposed = [1 0 0; 0 1 0;; 0 1 0; 1 0 1;; 0 0 1; 0 1 0] (* transposedd *)
 [1 2 3; 4 5 6][2][3] = 6 (* matrix indexing *)
 [1 2 3; 4 5 6].atPath([2]) = [4 5 6] (* matrix indexing; atPath, single index *)
 [1 2 3; 4 5 6].atPath([2, 3]) = 6 (* matrix indexing; atPath, two indices *)
