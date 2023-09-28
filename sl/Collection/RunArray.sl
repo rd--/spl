@@ -12,6 +12,10 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 		}
 	}
 
+	asArray { :self |
+		self.Array
+	}
+
 	Array { :self |
 		| answer = Array(self.size); |
 		self.withIndexDo { :each :index |

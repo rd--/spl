@@ -439,11 +439,15 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 +String {
 
 	asInteger { :self |
-		self.parseInteger(10)
+		self.parseDecimalInteger
 	}
 
 	asNumber { :self |
 		self.parseNumber
+	}
+
+	basicParseDecimalInteger { :self |
+		<primitive: return Number(_self);>
 	}
 
 	basicParseInteger { :self :radix |
@@ -452,6 +456,19 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	basicParseNumber { :self |
 		<primitive: return Number.parseFloat(_self);>
+	}
+
+	parseDecimalInteger { :self |
+		| answer = self.basicParseDecimalInteger; |
+		answer.isNaN.if {
+			self.error('parseDecimalInteger: not a number')
+		} {
+			answer.isSmallInteger.if {
+				answer
+			} {
+				self.error('parseDecimalInteger: not an integer')
+			}
+		}
 	}
 
 	parseInteger { :self :radix |
@@ -463,7 +480,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 				self.matchesRegExp('^[0-9a-zA-Z-]+$')
 			}
 		};
-		self.basicParseInteger(radix)
+		self.basicParseInteger(radix).assertIsSmallInteger
 	}
 
 	parseNumber { :self |

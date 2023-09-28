@@ -4,8 +4,16 @@
 		self.collect(AmpDb:/1)
 	}
 
+	atExtending { :self :index |
+		self.error('atExtending: not a sequence')
+	}
+
 	DbAmp { :self |
 		self.collect(DbAmp:/1)
+	}
+
+	extendTo { :self :size |
+		self.error('extendTo: not a sequence')
 	}
 
 	MidiCps { :self |
@@ -32,6 +40,10 @@
 				each.bitAt(i) = 1
 			}
 		}
+	}
+
+	sizeForExtending { :self |
+		self.error('sizeForExtending: not a sequence')
 	}
 
 }
@@ -351,8 +363,16 @@
 		(self ! anInteger).product
 	}
 
+	atExtending { :self :index |
+		self
+	}
+
 	dup { :self :anInteger |
 		self.replicateApplying(anInteger, value:/1)
+	}
+
+	extendTo { :self :size |
+		Array(size, self)
 	}
 
 	instill { :self :index :item :default |
@@ -369,6 +389,10 @@
 		} {
 			default
 		}
+	}
+
+	sizeForExtending { :self |
+		1
 	}
 
 }
@@ -397,6 +421,10 @@
 			};
 			aBlock(tuple)
 		}
+	}
+
+	atExtending { :self :index |
+		self.atWrap(index)
 	}
 
 	blendAt { :self :index |
@@ -493,12 +521,19 @@
 		}
 	}
 
+	extendToBeOfEqualSize { :self |
+		| size = self.collect(sizeForExtending:/1).max; |
+		self.collect { :each |
+			each.extendTo(size)
+		}
+	}
+
 	fill { :self :aBlock:/1 |
 		self.fillFromWith((1 .. self.size), aBlock:/1)
 	}
 
 	flop { :self |
-		self.extendToBeOfEqualSize.transposed
+		self.multiChannelExpand
 	}
 
 	hammingDistance { :self :other |
@@ -642,6 +677,15 @@
 		self ++ self.reversed
 	}
 
+	multiChannelExpand { :self |
+		| size = self.collect(sizeForExtending:/1).max; |
+		(1 .. size).collect { :index |
+			self.collect { :each |
+				each.atExtending(index)
+			}
+		}
+	}
+
 	normalize { :self :min :max |
 		| minItem = self.min, maxItem = self.max; |
 		self.collect { :each |
@@ -736,6 +780,10 @@
 		}
 	}
 
+	sizeForExtending { :self |
+		self.size
+	}
+
 	slide { :self :windowLength :stepSize |
 		self.slidingWindows(windowLength, stepSize).concatenation
 	}
@@ -814,20 +862,28 @@
 
 }
 
++@Dictionary {
+
+	multiChannelExpand { :self |
+		|(
+			keys = self.keys,
+			values = self.values,
+			size = values.collect(sizeForExtending:/1).max,
+			places = values.multiChannelExpand.collect { :each |
+				each.withIndexCollect { :item :index |
+					keys[index] -> item
+				}
+			}
+		)|
+		places.collect(Record:/1)
+	}
+
+}
+
 +Array {
 
 	clump { :self :groupSize |
 		<primitive: return sc.clump(_self, _groupSize);>
-	}
-
-	extendToBeOfEqualSize { :self |
-		|(
-			selfLifted = self.collect(asArray:/1),
-			maximumSize = selfLifted.collect(size:/1).detectMax(identity:/1)
-		)|
-		selfLifted.collect { :each |
-			each.extendTo(maximumSize)
-		}
 	}
 
 }

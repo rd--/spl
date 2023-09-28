@@ -103,15 +103,11 @@
 	}
 
 	atPin { :self :index |
-		(index < 1).if {
-			self.first
-		} {
-			(index > self.size).if {
-				self.last
-			} {
-				self[index]
-			}
-		}
+		self[self.pinnedIndex(index)]
+	}
+
+	atPinPut { :self :index :value |
+		self.atPut(self.pinnedIndex(index), value)
 	}
 
 	atWrap { :self :index |
@@ -695,6 +691,18 @@
 					self.permutationsStartingAtDo(anInteger + 1, aBlock:/1);
 					self.swapWith(anInteger, index)
 				}
+			}
+		}
+	}
+
+	pinnedIndex { :self :index |
+		(index < 1).if {
+			1
+		} {
+			(index > self.size).if {
+				self.size
+			} {
+				index
 			}
 		}
 	}

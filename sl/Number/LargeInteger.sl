@@ -80,6 +80,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		aBlock(aNumber.LargeInteger, self)
 	}
 
+	asFloat { :self |
+		self.SmallFloat
+	}
+
 	bitAnd { :self :anObject |
 		<primitive:
 		if(sl.isLargeInteger(_anObject)) {
