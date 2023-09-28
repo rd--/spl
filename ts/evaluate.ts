@@ -10,7 +10,7 @@ export function evaluateForSignalling(packageName: string, text: string): unknow
 	// console.debug(`evaluateForSignalling: ${packageName}, ${text}`);
 	if(onlyBlanks(text)) {
 		throw new Error('Empty string');
-	} {
+	} else {
 		let toEval: string;
 		rewrite.context.packageName = packageName;
 		try {
@@ -22,7 +22,7 @@ export function evaluateForSignalling(packageName: string, text: string): unknow
 		rewrite.context.packageName = '*UnknownPackage*';
 		if(onlyBlanks(toEval)) {
 			throw new Error('Empty string after rewrite');
-		} {
+		} else {
 			try {
 				// console.debug(`eval: ${toEval}`);
 				return eval(toEval);

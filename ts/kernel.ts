@@ -176,7 +176,7 @@ export function parsePackageRequires(text: string): string[] {
 	var packageNames = firstLine.match(/Requires: (.*)\*\)/);
 	if(packageNames) {
 		return packageNames[1].trim().split(' ');
-	} {
+	} else {
 		return [];
 	}
 }
