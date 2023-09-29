@@ -155,6 +155,14 @@ RegExp! : [Object] {
 		}
 	}
 
+	isDecimalIntegerString { :self |
+		self.matchesRegExp('^[0-9]+$')
+	}
+
+	isFloatString { :self |
+		self.matchesRegExp('^[-]?[0-9]+([.][0-9]+)?([eE][+-]?[0-9]+)?$')
+	}
+
 	matchRegExp { :self :aRegExp |
 		aRegExp.asRegExp.match(self)
 	}

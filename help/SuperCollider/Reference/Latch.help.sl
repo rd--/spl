@@ -19,3 +19,6 @@ The above are just meant as examples. _LfNoise0_ is a faster way to generate ran
 
 	Blip(LfNoise0(9) * 400 + 500, 4) * 0.1
 
+* * *
+
+See also: Gate

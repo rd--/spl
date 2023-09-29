@@ -10,3 +10,7 @@ Increasing density triggers frequency switcher:
 
 	var ff = ToggleFf(Dust(XLn(1, 1000, 60)));
 	SinOsc(ff * 400 + 800, 0) * 0.1
+
+* * *
+
+See also: SetResetFf

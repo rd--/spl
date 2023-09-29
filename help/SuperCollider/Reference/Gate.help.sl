@@ -5,7 +5,7 @@ _Gate(in, gate)_
 Allows input signal value to pass when gate is positive, otherwise holds last value.
 
 - in: input signal
-- gate: trigger, occurs when the signal changes from non-positive to positive
+- gate: can be any signal, the output is held fixed when this is non-positive
 
 Frequency is a random curve for 1/4 of a cycle and a held tone for 3/4 of a cycle:
 
@@ -16,3 +16,7 @@ var gatedNoise = Gate(
 );
 SinOsc(gatedNoise * 100 + 200, 0) * 0.1
 ```
+
+* * *
+
+See also: Latch

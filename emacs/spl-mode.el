@@ -68,7 +68,7 @@
 
 (defun spl-clear-clock ()
   (interactive)
-  (spl-netcat-cmd 'evalText 'text "system.clock.clear"))
+  (spl-netcat-cmd 'evalText 'text "system.clock.removeAll"))
 
 (defun spl-reset-scsynth ()
   (interactive)
@@ -141,7 +141,7 @@
      (">=" . ?≥) ; U+2265 ≥ Greater-than or equal to
      ("++" . ?⧺) ; U+29FA ⧺ Double plus
      ("concatenation" .?⧻) ; U+29FB ⧻ Triple Plus
-     ("transpose" .?ᵀ) ; U+1D40 ᵀ Modifier Letter Capital T
+     ("transposed" .?ᵀ) ; U+1D40 ᵀ Modifier Letter Capital T
      ("reversed" .?ᴙ) ; U+1D19 ᴙ Latin Letter Small Capital Reversed R
      ("pi" . ?π) ; U+03C0 π Greek Small Letter Pi
      ("epsilon" . ?ε) ; U+03B5 ε Greek Small Letter Epsilon

@@ -2674,6 +2674,35 @@ RegExp('x|z', 'g').replaceAllModifying('x y z', toUppercase:/1) = 'X y Z'
 '-cdr-'.matchRegExp('c(a|d)+r') = 'cdr' (* retrieve match for regular expression *)
 ```
 
+## RegExp -- testing
+```
+'23'.isDecimalIntegerString
+'23.0'.isDecimalIntegerString.not
+'23x'.isDecimalIntegerString.not
+''.isDecimalIntegerString.not
+'x'.isDecimalIntegerString.not
+'3.141'.isFloatString
+'-3.141'.isFloatString
+'23'.isFloatString
+'-23'.isFloatString
+'.23'.isFloatString.not
+'23.'.isFloatString.not
+'0.00012'.isFloatString
+'0E-10'.isFloatString
+'1.2e3'.isFloatString
+'1.2E3'.isFloatString
+'-1.2e3'.isFloatString
+'1.2e-3'.isFloatString
+'-1.2e-3'.isFloatString
+'3.141x'.isFloatString.not
+'-3.141x'.isFloatString.not
+'23x'.isFloatString.not
+'-23x'.isFloatString.not
+'1.2e-4x'.isFloatString.not
+''.isFloatString.not
+'x'.isFloatString.not
+```
+
 ## RunArray -- collection type
 ```
 system.includesPackage('RunArray') (* RunArray package *)

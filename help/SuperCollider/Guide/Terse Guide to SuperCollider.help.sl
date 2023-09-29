@@ -88,3 +88,9 @@ SinOsc(440, 0).isUgen = true
 ```
 SfAcquire('piano-c5', 2, [1, 2]) = -1
 ```
+
+## System -- extensions
+```
+system.defaultScSynth.typeOf = 'ScSynth'
+system.defaultScSynth.isScSynth
+```

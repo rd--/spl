@@ -54,8 +54,8 @@ async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	sl.assignGlobals();
 	load.setLoadPath(loadPath);
 	await fileio.evaluateFile(loadPath + '/Meta/PackageIndex.sl', 'LoadSpl');
-	await kernel.primitiveLoadPackageSequence(['Kernel'].concat(lib)); // ['cat.sl']
-	if(lib.includes('sc.sl')) {
+	await kernel.primitiveLoadPackageSequence(['Kernel'].concat(lib));
+	if(lib.includes('SuperColliderLibrary')) {
 		globalThis.sc = sc;
 		globalThis.globalScSynth = cliScSynth;
 	}
@@ -131,7 +131,7 @@ declare global {
 
 async function scCmd(cmd: string, opt: flags.Args): Promise<void> {
 	globalThis.osc = osc;
-	await loadSpl(opt, ['std.sl', 'sc.sl']);
+	await loadSpl(opt, ['StandardLibrary', 'SuperColliderLibrary']);
 	switch(cmd) {
 	case 'playFile': scPlayFile(<string>opt._[2]); break;
 	case 'udpServer': scUdpServer(Number(opt._[2])); break;
