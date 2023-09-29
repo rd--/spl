@@ -864,6 +864,10 @@
 
 +@Dictionary {
 
+	kr { :self |
+		self.collect(kr:/1)
+	}
+
 	multiChannelExpand { :self |
 		|(
 			keys = self.keys,
@@ -876,6 +880,12 @@
 			}
 		)|
 		places.collect(Record:/1)
+	}
+
+	Voicer { :self :aBlock:/1 |
+		self.multiChannelExpand.collect { :each |
+			aBlock(each.kr)
+		}
 	}
 
 }
