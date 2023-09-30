@@ -1,4 +1,4 @@
-# ControlIn - read bus
+# ControlIn -- read bus
 
 Control signals may be written to buses by Ugens, or they may be set by the client and expected to hold steady.
 Therefore _ControlIn_ does not distinguish between new and old data.

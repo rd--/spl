@@ -1,8 +1,8 @@
-# Trig1 - timed trigger
+# Trig1 -- timed trigger
 
 _Trig1(in=0, dur=0.1)_
 
-When a nonpositive to positive transition occurs at the input,
+When a non-positive to positive transition occurs at the input,
 _Trig_ outputs one for the specified duration,
 otherwise it outputs zero.
 Any trigger received while the output is non-zero is ignored.

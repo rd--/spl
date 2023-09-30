@@ -1,4 +1,4 @@
-# allTuples - combinatorics
+# allTuples -- combinatorics
 
 - _allTuples(aSequence)_
 

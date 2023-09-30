@@ -6,7 +6,9 @@ _CuspL(freq, a, b, xi)_
 - a, b: equation variables
 - xi: initial value of x
 
-A linear-interpolating sound generator based on the difference equation: _x(n + 1) = a - b * sqrt(|x(n)|)_
+A linear-interpolating sound generator based on the difference equation:
+
+> _x(n + 1) = a - b * sqrt(|x(n)|)_
 
 Vary frequency:
 

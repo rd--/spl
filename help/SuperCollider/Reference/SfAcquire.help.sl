@@ -1,4 +1,4 @@
-# SfAcquire - sound files
+# SfAcquire -- sound files
 
 _SfAcquire(soundFileUrl, numberOfChannels, channelSelector)_
 

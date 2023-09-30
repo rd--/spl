@@ -271,6 +271,7 @@
 	SvfLp { :in :freq :q | <primitive: return sc.SvfLp(_in, _freq, _q);> }
 	TLinRand { :lo :hi :minmax :trigger | <primitive: return sc.TLinRand(_lo, _hi, _minmax, _trigger);> }
 	TScramble { :trigger :inputs | <primitive: return sc.TScramble(_trigger, _inputs);> }
+	TrigAllocator { :numChannels :algorithm :in :dur | <primitive: return sc.TrigAllocator(_numChannels, _algorithm, _in, _dur);> }
 	VbJonVerb { :in :decay :damping :inputbw :erfl :tail | <primitive: return sc.VbJonVerb(_in, _decay, _damping, _inputbw, _erfl, _tail);> }
 	Vosim { :trig :freq :nCycles :decay | <primitive: return sc.Vosim(_trig, _freq, _nCycles, _decay);> }
 	WaveLoss { :in :drop :outof :mode | <primitive: return sc.WaveLoss(_in, _drop, _outof, _mode);> }
