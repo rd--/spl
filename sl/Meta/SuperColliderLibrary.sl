@@ -12,7 +12,7 @@
 
 	(* SuperCollider *)
 	'Ugen'
-	'CcEvent'
+	'ContinuousEvent'
 	'Env'
 	'J'
 	'LocalControl'

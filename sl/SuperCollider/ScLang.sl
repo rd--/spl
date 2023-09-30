@@ -882,12 +882,6 @@
 		places.collect(Record:/1)
 	}
 
-	Voicer { :self :aBlock:/1 |
-		self.multiChannelExpand.collect { :each |
-			aBlock(each.kr)
-		}
-	}
-
 }
 
 +Array {

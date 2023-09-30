@@ -139,7 +139,7 @@
 	'Stream-ReadStream'
 	'Stream-Stream'
 	'Stream-WriteStream'
-	'SuperCollider-CcEvent'
+	'SuperCollider-ContinuousEvent'
 	'SuperCollider-Env'
 	'SuperCollider-J'
 	'SuperCollider-LocalControl'

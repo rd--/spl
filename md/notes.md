@@ -279,6 +279,7 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+03a3 Σ Greek Capital Letter Sigma
 - U+03bb Λ Greek Small Letter Lamda
 - U+03c0 Π Greek Small Letter Pi
+- U+1019a 𐆚 Roman As Sign
 - U+2016 ‖ Double Vertical Line
 - U+2020 † Dagger
 - U+2021 ‡ Double Dagger
@@ -306,7 +307,7 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+21e0 ⇠ Leftwards Dashed Arrow
 - U+2208 ∈ Element Of
 - U+2209 ∉ Not An Element Of
-- U+220b ∋ Contains as Member
+- U+220b ∋ Contains As Member
 - U+220c ∌ Does Not Contain As Member
 - U+2212 − Minus Sign
 - U+2213 ∓ Minus-Or-Plus Sign
@@ -326,18 +327,97 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+226b ≫ Much Greater-Than
 - U+226e ≮ Not Less-Than
 - U+226f ≯ Not Greater-Than
+- U+229a ⊚ Circled Ring Operator
+- U+229b ⊛ Circled Asterisk Operator
 - U+229c ⊜ Circled Equals
 - U+22a1 ⊡ Squared Dot Operator
 - U+22a4 ⊤ Down Tack
+- U+22a4 ⊤ Down Tack
+- U+22a4 ⊤ Down Tack
+- U+22a4 ⊤ Down Tack
+- U+22a5 ⊥ Up Tack
+- U+22a5 ⊥ Up Tack
 - U+22ba ⊺ Intercalate
 - U+22c5 ⋅ Dot Operator
 - U+22ee ⋮ Vertical Ellipsis
 - U+22ef ⋯ Midline Horizontal Ellipsis
+- U+2336 ⌶ Apl Functional Symbol I-Beam
+- U+2337 ⌷ Apl Functional Symbol Squish Quad
+- U+2338 ⌸ Apl Functional Symbol Quad Equal
+- U+2339 ⌹ Apl Functional Symbol Quad Divide
+- U+233a ⌺ Apl Functional Symbol Quad Diamond
+- U+233b ⌻ Apl Functional Symbol Quad Jot
+- U+233c ⌼ Apl Functional Symbol Quad Circle
+- U+233d ⌽ Apl Functional Symbol Circle Stile
+- U+233e ⌾ Apl Functional Symbol Circle Jot
+- U+233f ⌿ Apl Functional Symbol Slash Bar
+- U+2340 ⍀ Apl Functional Symbol Backslash Bar
+- U+2341 ⍁ Apl Functional Symbol Quad Slash
+- U+2342 ⍂ Apl Functional Symbol Quad Backslash
+- U+2343 ⍃ Apl Functional Symbol Quad Less-Than
+- U+2344 ⍄ Apl Functional Symbol Quad Greaterthan
+- U+2345 ⍅ Apl Functional Symbol Leftwards Vane
+- U+2346 ⍆ Apl Functional Symbol Rightwards Vane
+- U+2347 ⍇ Apl Functional Symbol Quad Leftwards Arrow
+- U+2348 ⍈ Apl Functional Symbol Quad Rightwards Arrow
+- U+2349 ⍉ Apl Functional Symbol Circle Backslash
+- U+234a ⍊ Apl Functional Symbol Down Tack Underbar
+- U+234b ⍋ Apl Functional Symbol Delta Stile
+- U+234c ⍌ Apl Functional Symbol Quad Down Caret
+- U+234d ⍍ Apl Functional Symbol Quad Delta
+- U+234e ⍎ Apl Functional Symbol Down Tack Jot
+- U+234f ⍏ Apl Functional Symbol Upwards Vane
+- U+2350 ⍐ Apl Functional Symbol Quad Upwards Arrow
+- U+2351 ⍑ Apl Functional Symbol Up Tack Overbar
+- U+2352 ⍒ Apl Functional Symbol Del Stile
+- U+2353 ⍓ Apl Functional Symbol Quad Up Caret
+- U+2354 ⍔ Apl Functional Symbol Quad Del
+- U+2355 ⍕ Apl Functional Symbol Up Tack Jot
+- U+2356 ⍖ Apl Functional Symbol Downwards Vane
+- U+2357 ⍗ Apl Functional Symbol Quad Downwards Arrow
+- U+2358 ⍘ Apl Functional Symbol Quote Underbar
+- U+2359 ⍙ Apl Functional Symbol Delta Underbar
+- U+235a ⍚ Apl Functional Symbol Diamond Underbar
+- U+235b ⍛ Apl Functional Symbol Jot Underbar
+- U+235c ⍜ Apl Functional Symbol Circle Underbar
+- U+235d ⍝ Apl Functional Symbol Up Shoe Jot
+- U+235e ⍞ Apl Functional Symbol Quote Quad
+- U+235f ⍟ Apl Functional Symbol Circle Star
+- U+2360 ⍠ Apl Functional Symbol Quad Colon
+- U+2361 ⍡ Apl Functional Symbol Up Tack Diaeresis
+- U+2362 ⍢ Apl Functional Symbol Del Diaeresis
+- U+2363 ⍣ Apl Functional Symbol Star Diaeresis
+- U+2364 ⍤ Apl Functional Symbol Jot Diaeresis
+- U+2365 ⍥ Apl Functional Symbol Circle Diaeresis
+- U+2366 ⍦ Apl Functional Symbol Down Shoe Stile
+- U+2367 ⍧ Apl Functional Symbol Left Shoe Stile
+- U+2368 ⍨ Apl Functional Symbol Tilde Diaeresis
+- U+2369 ⍩ Apl Functional Symbol Greater-Than Diaeresis
+- U+236a ⍪ Apl Functional Symbol Comma Bar
+- U+236b ⍫ Apl Functional Symbol Del Tilde
+- U+236c ⍬ Apl Functional Symbol Zilde
+- U+236d ⍭ Apl Functional Symbol Stile Tilde
+- U+236e ⍮ Apl Functional Symbol Semicolon Underbar
+- U+236f ⍯ Apl Functional Symbol Quad Not Equal
+- U+2370 ⍰ Apl Functional Symbol Quad Question
+- U+2371 ⍱ Apl Functional Symbol Down Caret Tilde
+- U+2372 ⍲ Apl Functional Symbol Up Caret Tilde
+- U+2373 ⍳ Apl Functional Symbol Iota
+- U+2374 ⍴ Apl Functional Symbol Rho
+- U+2375 ⍵ Apl Functional Symbol Omega
+- U+2376 ⍶ Apl Functional Symbol Alpha Underbar
+- U+2377 ⍷ Apl Functional Symbol Epsilon Underbar
+- U+2378 ⍸ Apl Functional Symbol Iota Underbar
+- U+2379 ⍹ Apl Functional Symbol Omega Underbar
+- U+237a ⍺ Apl Functional Symbol Alpha
+- U+2395 ⎕ Apl Functional Symbol Quad
+- U+25af ▯ White Vertical Rectangle
 - U+25cb ○ White Circle
 - U+25cf ● Black Circle
 - U+261b ☛ Black Right Pointing Index
 - U+261e ☞ White Right Pointing Index
 - U+2628 ☨ Cross Of Lorraine
+- U+26cb ⛋ White Diamond In Square
 - U+271d ✝ Latin Cross
 - U+2761 ❡ Curved Stem Paragraph Sign Ornament
 - U+27f5 ⟵ Long Leftwards Arrow
@@ -346,14 +426,29 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+2919 ⤙ Leftwards Arrow-Tail
 - U+291b ⤛ Leftwards Double Arrow-Tail
 - U+291d ⤝ Leftwards Arrow To Black Diamond
+- U+29b0 ⦰ Reversed Empty Set
+- U+29be ⦾ Circled White Bullet
 - U+29bf ⦿ Circled Bullet
+- U+29c4 ⧄ Squared Rising Diagonal Slash
+- U+29c5 ⧅ Squared Falling Diagonal Slash
+- U+29c7 ⧇ Squared Small Circle
+- U+29f7 ⧷ Reverse Solidus With Horizontal Stroke
 - U+29fa ⧺ Double Plus
+- U+2a40 ⩀ Intersection With Dot
 - U+2a74 ⩴ Double Colon Equal
 - U+2a75 ⩵ Two Consecutive Equals Signs
 - U+2a76 ⩶ Three Consecutive Equals Signs
 - U+2a7d ⩽ Less-Than Or Slanted Equal To
 - U+2a7e ⩾ Greater-Than Or Slanted Equal To
+- U+2aff ⫿ N-Ary White Vertical Bar
+- U+2bb9 ⮹ Up Arrowhead In A Rectangle Box
+- U+2bd1 ⯑ Uncertainty Sign
 - U+2e38 ⸸ Turned Dagger
 - U+2e3f ⸿ Capitulum
 - U+2e4b ⹋ Triple Dagger
 - U+2e4d ⹍ Paragraphus Mark
+- U+3012 〒 Postal Mark
+
+# Unicode
+
+- <https://www.unicode.org/charts/PDF/U2300.pdf>
