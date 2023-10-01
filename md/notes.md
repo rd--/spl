@@ -1,3 +1,8 @@
+# Help
+
+Help provides category names, after final '-- ' on initial line.
+HelpIndex 
+
 # Packages
 
 There is initial support for a "package" field at Type, Trait and Method.

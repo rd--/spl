@@ -26,6 +26,10 @@ RatioTuning : [Object, Tuning] { | name description ratios |
 		(self.ratios / self.ratios.reduce(gcd:/2)).collect(asInteger:/1)
 	}
 
+	isRational { :self |
+		true
+	}
+
 	limit { :self |
 		self.ratios.collect(primeLimit:/1).max
 	}

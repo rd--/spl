@@ -1,9 +1,13 @@
-(* Requires: Fraction Tuning *)
+(* Requires: Tuning *)
 
 CentsTuning : [Object, Tuning] { | name description cents |
 
 	degree { :self |
 		self.cents.size
+	}
+
+	isRational { :self |
+		false
 	}
 
 }

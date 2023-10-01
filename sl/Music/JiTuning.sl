@@ -14,6 +14,10 @@ JiTuning : [Object, Tuning] { | tuning limit degree |
 		self.tuning.integers
 	}
 
+	isRational { :self |
+		true
+	}
+
 	name { :self |
 		self.tuning.name
 	}

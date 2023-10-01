@@ -33,6 +33,9 @@
 	(* Graphics *)
 	'Colour'
 
+	(* Help *)
+	'HelpIndex'
+
 	(* Number *)
 	'Complex'
 	'Fraction'
@@ -53,7 +56,6 @@
 	(* System *)
 	'Blob'
 	'File'
-	'HelpIndex'
 	'LibraryItem'
 	'Method'
 	'Storage'
@@ -61,6 +63,7 @@
 	'Transcript'
 	'Type'
 	'Url'
+	'UrlSearchParams'
 	'Window'
 
 	(* Text *)
@@ -80,4 +83,8 @@
 
 	(* Meta *)
 	'Categories'
+
+	(* Help *)
+	'TerseGuide' (* > Url *)
+
 ].primitiveLoadPackageSequence

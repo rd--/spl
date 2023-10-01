@@ -1,6 +1,14 @@
 (* Requires: Blob File *)
 
-URL! : [Object] {
+@Url {
+
+	asUrl { :self |
+		self.typeReponsibility('asUrl')
+	}
+
+}
+
+URL! : [Object, Url] {
 
 	asUrl { :self |
 		self
@@ -42,6 +50,10 @@ URL! : [Object] {
 		<primitive: return _self.href;>
 	}
 
+	isUrl { :self |
+		true
+	}
+
 	origin { :self |
 		<primitive: return _self.origin;> (* Read only *)
 	}
@@ -70,16 +82,16 @@ URL! : [Object] {
 		<primitive: return _self.searchParams;>
 	}
 
-	terseGuideSummary { :self |
-		self.fetchText {
-			self.error('terseGuideSummary: fetch failed')
-		}.then { :text |
-			text.terseGuideSummary
-		}
-	}
-
 	username { :self |
 		<primitive: return _self.username;> (* Read only *)
+	}
+
+}
+
++@Object {
+
+	isUrl { :self |
+		false
 	}
 
 }
@@ -91,34 +103,34 @@ URL! : [Object] {
 	}
 
 	asUrl { :self |
-		self.URL
+		Url(self)
 	}
 
-	decodeURI { :self |
+	decodeUri { :self |
 		<primitive: return decodeURI(_self);>
 	}
 
-	decodeURIComponent { :self |
+	decodeUriComponent { :self |
 		<primitive: return decodeURIComponent(_self);>
 	}
 
-	encodeURI { :self |
+	encodeUri { :self |
 		<primitive: return encodeURI(_self);>
 	}
 
-	encodeURIComponent { :self |
+	encodeUriComponent { :self |
 		<primitive: return encodeURIComponent(_self);>
 	}
 
-	revokeObjectURL { :self |
+	revokeObjectUrl { :self |
 		<primitive: return URL.revokeObjectURL(_self);>
 	}
 
-	URL { :self |
+	Url { :self |
 		<primitive: return new URL(_self);>
 	}
 
-	URL { :self :base |
+	Url { :self :base |
 		<primitive: return new URL(_self, _base);>
 	}
 
@@ -126,36 +138,8 @@ URL! : [Object] {
 
 +[File, Blob] {
 
-	createObjectURL { :self |
+	createObjectUrl { :self |
 		<primitive: return URL.createObjectURL(_self);>
-	}
-
-}
-
-URLSearchParams : [Object] {
-
-	append { :self :name :value |
-		<primitive: return _self.delete(_name, _value);>
-	}
-
-	delete { :self :name |
-		<primitive: return _self.delete(_name);>
-	}
-
-	get { :self :name |
-		<primitive: return _self.get(_name);>
-	}
-
-	has { :self :name |
-		<primitive: return _self.has(_name);>
-	}
-
-}
-
-+[String, Record] {
-
-	URLSearchParams { :self |
-		<primitive: return new URLSearchParams(_self);>
 	}
 
 }

@@ -3700,13 +3700,16 @@ system.localStorage.removeAt('pi') = pi.asString (* remove entry, answer removed
 system.localStorage.removeAll = system.localStorage (* remove all entries, answer self *)
 ```
 
-## System -- Uniform Resource Locator (URL)
+## System -- Uniform Resource Locator (Url)
 ```
 system.includesPackage('Url') (* package *)
-'http://cern.ch/'.URL.isURL = true
-'http://cern.ch/'.URL.hostname = 'cern.ch'
-'http://cern.ch/'.URL.port = ''
-'http://cern.ch/'.URL.protocol = 'http:'
+'http://cern.ch/'.Url.typeOf = 'URL' (* the system type is all upper case *)
+'http://cern.ch/'.Url.isUrl = true (* type predicate *)
+'http://cern.ch/'.Url.href = 'http://cern.ch/' (* url href *)
+'http://cern.ch/'.Url.hostname = 'cern.ch' (* url host name *)
+'http://cern.ch/'.Url.port = '' (* url port *)
+'http://cern.ch/'.Url.protocol = 'http:' (* url protocol *)
+Url('browser', 'https://worldwideweb.cern.ch/').href = 'https://worldwideweb.cern.ch/browser' (* relative url *)
 ```
 
 ## System -- fetch
@@ -3718,10 +3721,26 @@ system.includesPackage('Url') (* package *)
 'file://localhost/home/rohan/sw/spl/sl/SmallKansas/PackageBrowser.sl'.asUrl.fetchText.then { :text | text.parsePackageHeader.includesIndex('Requires').postLine }; true
 ```
 
-## System -- URLSearchParams
+## System -- UrlSearchParams
 ```
-'x=3.141&y=23'.URLSearchParams.has('x') = true
-'x=3.141&y=23'.URLSearchParams.get('y') = '23'
+system.includesPackage('UrlSearchParams') (* timestamp package *)
+'x=1'.UrlSearchParams.typeOf = 'URLSearchParams' (* string constructor, type name (note case) *)
+'x=1'.UrlSearchParams.isUrlSearchParams (* type predicate *)
+'x=3.141&y=23'.UrlSearchParams.includes('x') = true
+'x=3.141&y=23'.UrlSearchParams::y = '23'
+'x=3.141&y=23&z=pi'.UrlSearchParams.keys = ['x' 'y' 'z'] (* keys *)
+'x=3.141&y=23&z=pi'.UrlSearchParams.values = ['3.141' '23' 'pi'] (* values *)
+'x=a&x=b&x=c'.UrlSearchParams.keys = ['x' 'x' 'x'] (* keys, allows duplicates *)
+'x=a&x=b&x=c'.UrlSearchParams.values = ['a' 'b' 'c'] (* values *)
+| p = 'x=3.141&y=23&z=pi'; | p.UrlSearchParams.asString = p (* as search string *)
+'z=a&y=b&x=c'.UrlSearchParams.associations = ['z' -> 'a', 'y' -> 'b', 'x' -> 'c']
+| p = 'z=a&y=b&x=c'.UrlSearchParams; | p.sort = p & { p.associations = ['x' -> 'c', 'y' -> 'b', 'z' -> 'a'] }
+| p = 'x=a&y=b'.UrlSearchParams; | p.add('z' -> 'c'); p.associations = ['x' -> 'a', 'y' -> 'b', 'z' -> 'c']
+| p = 'x=a&y=b'.UrlSearchParams; | p::x := 'c'; p.associations = ['x' -> 'c', 'y' -> 'b']
+'x=a&y=b&x=c'.UrlSearchParams.atAllEntries('x') = ['a' 'c']
+| p = 'x=a&y=b&x=c'.UrlSearchParams; | p.removeKey('x'); p.asString = 'y=b'
+'x=a&x=b&x=c'.UrlSearchParams.size = 3 (* size *)
+(x: 1, y: 2, z: 3).UrlSearchParams.asString = 'x=1&y=2&z=3' (* record constructor *)
 ```
 
 ## Temporaries

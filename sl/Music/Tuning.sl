@@ -12,6 +12,10 @@
 		self.typeResponsibility('integers')
 	}
 
+	isRational { :self |
+		self.typeResponsibility('isRational')
+	}
+
 	latticeEdges { :self :vertices |
 		| indices = [1 .. self.degree], answer = []; |
 		indices.combinationsAtATimeDo(2) { :each |
