@@ -24,8 +24,12 @@
 		)
 	}
 
-	EqPan2 { :self :pos |
-		Pan2(self, pos, 1)
+	EqBalance2 { :left :right :pos |
+		Balance2(left, right, pos, 1)
+	}
+
+	EqPan2 { :in :pos |
+		Pan2(in, pos, 1)
 	}
 
 	ExpRange { :self :lo :hi |
