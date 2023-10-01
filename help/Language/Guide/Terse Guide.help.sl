@@ -2529,7 +2529,8 @@ var d = Record(); d.atPut('x', 1) = 1 & { d.at('x') = 1 }
 var d = Record(); (d['x'] := 1) = 1 & { d['x'] = 1 }
 var d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
 var d = Record(); d::x := 1; d::y := 2; d.size = 2
-['x' -> 1, 'y' -> 2].Record['y'] = 2
+['x' -> 1, 'y' -> 2].Record = (x: 1, y: 2) (* association array to record *)
+['x' -> 1, 'y' -> 2].Record['y'] = 2 (* association array to record *)
 { Record().atPut(1, 1) }.ifError { true }
 (x: 3.141, y: 23).json = '{"x":3.141,"y":23}' (* records have a json encoding where values do *)
 '{"x":3.141,"y":23}'.parseJson = (x: 3.141, y: 23) (* parse json record *)

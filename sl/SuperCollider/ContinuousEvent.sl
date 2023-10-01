@@ -1,5 +1,9 @@
 ContinuousEvent : [Object] { | contents |
 
+	asArray { :self |
+		self.contents
+	}
+
 	i { :self |
 		self.contents[5]
 	}
@@ -38,7 +42,7 @@ ContinuousEvent : [Object] { | contents |
 
 	ContinuousEvent { :self |
 		self.assertIsOfSize(8);
-		newContinuousEvent().initializeSlots(self)
+		newContinuousEvent().initializeSlots(self.kr) (* control rate? *)
 	}
 
 }
@@ -68,7 +72,7 @@ ContinuousEvent : [Object] { | contents |
 
 	Voicer { :self :aBlock:/1 |
 		self.multiChannelExpand.collect { :each |
-			aBlock(each.kr.ContinuousEvent)
+			aBlock(each.ContinuousEvent)
 		}
 	}
 
@@ -76,12 +80,36 @@ ContinuousEvent : [Object] { | contents |
 
 +@Integer {
 
-	Voicer { :self :voiceBlock |
-		<primitive: return sc.Voicer(_self, _voiceBlock);>
+	voicerVoiceAddress { :self |
+		| eventAddr = 13000, eventIncr = 10, eventZero = 0; |
+		eventAddr + ((self - 1 + eventZero) * eventIncr)
+	}
+
+	Voicer { :self :voiceBlock:/1 |
+		| voiceOffset = 0; |
+		(1 .. self).collect { :each |
+			['Voicer', each, voiceOffset, (each + voiceOffset).voicerVoiceAddress].postLine;
+			ControlIn(8, (each + voiceOffset).voicerVoiceAddress).ContinuousEvent.voiceBlock
+		}
 	}
 
 }
 
++@Integer {
+
+	VoiceWriter { :self :voiceBlock:/0 |
+		(1 .. self).collect { :voiceNumber |
+			['VoiceWriter', voiceNumber, voiceNumber.voicerVoiceAddress].postLine;
+			ControlOut(
+				voiceNumber.voicerVoiceAddress,
+				voiceBlock().ContinuousEvent.asArray
+			)
+		}
+	}
+
+}
+
+(*
 +@Integer {
 
 	KeyDown { :self | <primitive: return sc.KeyDown(_self);> }
@@ -98,3 +126,5 @@ ContinuousEvent : [Object] { | contents |
 	PenRadius { :self | <primitive: return sc.PenRadius(_self);> }
 
 }
+*)
+
