@@ -1,8 +1,5 @@
 Ugen! : [Object, Number] {
 
-	scUgen { :self | <primitive: return _self.scUgen> }
-	port { :self | <primitive: return _self.port> }
-
 	adaptToNumberAndApply { :self :aNumber :aBlock |
 		<primitive:
 		return sl.applyGenericAt(
@@ -19,6 +16,10 @@ Ugen! : [Object, Number] {
 		}
 	}
 
+	port { :self |
+		<primitive: return _self.port>
+	}
+
 	printString { :self |
 		[
 			self.scUgen.printString,
@@ -29,6 +30,10 @@ Ugen! : [Object, Number] {
 
 	pseudoSlotNameArray { :self |
 		['scUgen', 'port']
+	}
+
+	scUgen { :self |
+		<primitive: return _self.scUgen>
 	}
 
 }

@@ -98,11 +98,10 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed] {
 
 }
 
-+Array {
++[Array, Interval] {
 
 	ByteArray { :self |
-		| answer = ByteArray(self.size); |
-		answer.fillFromWith(self, identity:/1)
+		ByteArray(self.size).fillFromWith(self, identity:/1)
 	}
 
 }

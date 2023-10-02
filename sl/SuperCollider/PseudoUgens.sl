@@ -24,6 +24,10 @@
 		)
 	}
 
+	EnvLinen { :attackTime :sustainTime :releaseTime :level :curve |
+		<primitive: return sc.EnvLinen(_attackTime, _sustainTime, _releaseTime, _level, _curve);>
+	}
+
 	EqBalance2 { :left :right :pos |
 		Balance2(left, right, pos, 1)
 	}
@@ -95,7 +99,7 @@
 	BufRec { :bufnum :reset :inputArray | <primitive: return sc.BufRec(_bufnum, _reset, _inputArray);> }
 	BufWrite { :bufnum :phase :loop :inputArray | <primitive: return sc.BufWrite(_bufnum, _phase, _loop, _inputArray);> }
 	Changed { :input :threshold | <primitive: return sc.Changed(_input, _threshold);> }
-	ControlIn { :numChan :bus | <primitive: return sc.ControlIn(_numChan, _bus);> }
+	ControlIn { :numChannels :bus | <primitive: return sc.ControlIn(_numChannels, _bus);> }
 	ControlOut { :bus :channelsArray | <primitive: return sc.ControlOut(_bus, _channelsArray);> }
 	DelayTap { :bufnum :delayTime | <primitive: return sc.DelayTap(_bufnum, _delayTime);> }
 	DelayWrite { :bufnum :input | <primitive: return sc.DelayWrite(_bufnum, _input);> }

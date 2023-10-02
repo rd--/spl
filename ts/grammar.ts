@@ -76,8 +76,8 @@ Sl {
 		| ParenthesisedExpression
 		| DictionaryExpression
 		| ArrayExpression
-		| ArrayRangeSyntax
-		| ArrayRangeThenSyntax
+		| ArrayIntervalSyntax
+		| ArrayIntervalThenSyntax
 		| IntervalSyntax
 		| IntervalThenSyntax
 		| VectorSyntax
@@ -130,8 +130,8 @@ Sl {
 	IdentifierAssociation = identifier ":" Expression
 	StringAssociation = singleQuotedStringLiteral ":" Expression
 	ArrayExpression = "[" ListOf<Expression, ","> "]"
-	ArrayRangeSyntax = "[" Expression ".." Expression "]"
-	ArrayRangeThenSyntax = "[" Expression "," Expression ".." Expression "]"
+	ArrayIntervalSyntax = "[" Expression ".." Expression "]"
+	ArrayIntervalThenSyntax = "[" Expression "," Expression ".." Expression "]"
 	IntervalSyntax = "(" Expression ".." Expression ")"
 	IntervalThenSyntax = "(" Expression "," Expression ".." Expression ")"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
@@ -154,8 +154,9 @@ Sl {
 	binaryChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 	operatorAssignment = binaryChar ":" "="
 
-	literal = numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
+	literal = integerIntervalLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
 	numberLiteral = scientificLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
+	integerIntervalLiteral = (integerLiteral | identifier) ".." (integerLiteral | identifier)
 	floatLiteral = "-"? digit+ "." digit+
 	scientificLiteral = (floatLiteral | integerLiteral) "e" integerLiteral
 	fractionLiteral = "-"? digit+ ":" digit+

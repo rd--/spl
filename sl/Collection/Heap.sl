@@ -210,3 +210,11 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 	}
 
 }
+
++Interval {
+
+	Heap { :self |
+		self.asArray.Heap
+	}
+
+}

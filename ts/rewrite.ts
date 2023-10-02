@@ -296,10 +296,10 @@ const asJs: ohm.ActionDict<string> = {
 	ArrayExpression(_leftBracket, array, _rightBracket) {
 		return `[${commaList(array.asIteration().children)}]`;
 	},
-	ArrayRangeSyntax(_leftBracket, start, _dotDot, end, _rightBracket) {
+	ArrayIntervalSyntax(_leftBracket, start, _dotDot, end, _rightBracket) {
 		return `_${genName('Array', 1)}(_${genName('upOrDownTo', 2)}(${start.asJs}, ${end.asJs}))`;
 	},
-	ArrayRangeThenSyntax(_leftBracket, start, _comma_, then, _dotDot, end, _rightBracket) {
+	ArrayIntervalThenSyntax(_leftBracket, start, _comma_, then, _dotDot, end, _rightBracket) {
 		return `_${genName('Array', 1)}(_${genName('thenTo', 3)}(${start.asJs}, ${then.asJs}, ${end.asJs}))`;
 	},
 	IntervalSyntax(_leftParen, start, _dotDot, end, _rightParen) {
@@ -357,6 +357,10 @@ const asJs: ohm.ActionDict<string> = {
 
 	operatorAssignment(op, _colon, _equals) {
 		return op.sourceString
+	},
+	integerIntervalLiteral(start, _dots, end) {
+		// console.log('integerIntervalLiteral', start.sourceString, end.sourceString);
+		return `_${genName('upOrDownTo', 2)}(${start.asJs}, ${end.asJs})`;
 	},
 	floatLiteral(s,i,_,f) {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;

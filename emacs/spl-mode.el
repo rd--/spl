@@ -147,6 +147,8 @@
      ("epsilon" . ?ε) ; U+03B5 ε Greek Small Letter Epsilon
      ;; ("e" . ?𝑒)
      ("*" . ?×) ; U+00D7 × Multiplication Sign
+     ("-" . ?−) ; U+2212 − Minus Sign
+     ("^" . ?ˆ) ; U+2191 ↑ Upwards Arrow ; U+02C6 ˆ Modifier Letter Circumflex Accent
      ("**" . ?⇈) ; U+21C8 ⇈ Upwards Paired Arrows
      ("/" . ?÷) ; U+00F7 ÷ Division Sign
      ("true" . ?⊤) ; U+22A4 ⊤ Down Tack
@@ -179,7 +181,7 @@
      ("quarterToneSharp" .?𝄲) ; U+1D132 𝄲 Musical Symbol Quarter Tone Sharp
      (":?" .?⍰) ; U+2370 ⍰ Apl Functional Symbol Quad Question ; U+291D ⤝ Leftwards arrow to black diamond
      ("||" .?‖) ; U+2016 ‖ Double Vertical Line
-     (".." .?—) ; U+2014 — Em Dash
+     (".." .?‥) ; U+2025 ‥ Two Dot Leader; U+2014 — Em Dash; U+2E3A ⸺ Two-Em Dash
      ("duplicate" .?!)
      )))
 

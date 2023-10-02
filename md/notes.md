@@ -279,17 +279,23 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+00b7 · Middle Dot
 - U+00d7 × Multiplication Sign
 - U+00f7 ÷ Division Sign
+- U+028C ʌ Latin Small Letter Turned V
+- U+02C6 ˆ Modifier Letter Circumflex Accent
 - U+02d9 ˙ Dot Above
+- U+039B Λ Greek Capital Letter Lamda
 - U+03a0 Π Greek Capital Letter Pi
 - U+03a3 Σ Greek Capital Letter Sigma
-- U+03bb Λ Greek Small Letter Lamda
-- U+03c0 Π Greek Small Letter Pi
+- U+03bb λ Greek Small Letter Lamda
+- U+03c0 π Greek Small Letter Pi
 - U+1019a 𐆚 Roman As Sign
+- U+2014 — Em Dash
 - U+2016 ‖ Double Vertical Line
 - U+2020 † Dagger
 - U+2021 ‡ Double Dagger
 - U+2022 • Bullet
+- U+2025 ‥ Two Dot Leader
 - U+2026 … Horizontal Ellipsis
+- U+2038 ‸ Caret
 - U+2043 ⁃ Hyphen Bullet
 - U+2044 ⁄ Fraction Slash
 - U+204b ⁋ Reversed Pilcrow Sign
@@ -319,6 +325,7 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+2215 ∕ Division Slash
 - U+2219 ∙ Bullet Operator
 - U+2223 ∣ Divides
+- U+2227 ∧ Logical And
 - U+2227 ∧ Logical And
 - U+2228 ∨ Logical And
 - U+2248 ≈ Almost Equal To
@@ -453,7 +460,8 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+2e4b ⹋ Triple Dagger
 - U+2e4d ⹍ Paragraphus Mark
 - U+3012 〒 Postal Mark
-- U+2014 — Em Dash
+- U+2E3A ⸺ Two-Em Dash
+- U+2E3B ⸻ Three-Em Dash
 
 # Unicode
 

@@ -97,7 +97,7 @@ ScSynth! : [Object] {
 +[Array, SmallFloat, Ugen] {
 
 	<! { :self :aUgen |
-		self.mrg(aUgen)
+		self.multipleRootGraph(aUgen)
 	}
 
 	isOutputSignal { :self |
@@ -108,8 +108,8 @@ ScSynth! : [Object] {
 		<primitive: return sc.kr(_aUgen);>
 	}
 
-	mrg { :self :aUgen |
-		<primitive: return sc.mrg(_self, _aUgen);>
+	multipleRootGraph { :self :aUgen |
+		<primitive: return sc.multipleRootGraph(_self, _aUgen);>
 	}
 
 	playUgenAt { :self :systemTimeInSeconds |

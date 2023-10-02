@@ -20,11 +20,10 @@ Float64Array! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed]
 
 }
 
-+Array {
++[Array, Interval] {
 
 	Float64Array { :self |
-		| answer = Float64Array(self.size); |
-		answer.fillFromWith(self, identity:/1)
+		Float64Array(self.size).fillFromWith(self, identity:/1)
 	}
 
 }
