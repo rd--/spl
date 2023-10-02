@@ -89,6 +89,17 @@
 		}
 	}
 
+	foldBetweenAnd { :self :low :high |
+		|(
+			b = high - low,
+			c = (self - low) % (b * 2)
+		)|
+		(c > b).ifTrue {
+			c := (b * b) - c
+		};
+		c + low
+	}
+
 	gcd { :self :anInteger |
 		| a = self.abs, b = anInteger.abs; |
 		{ b = 0 }.whileFalse {

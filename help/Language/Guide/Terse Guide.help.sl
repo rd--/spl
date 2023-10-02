@@ -460,6 +460,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [2, 7, 5, 0, 1, -2].collect { :index | [5, 6, 8].atWrap(index) } = [6, 5, 6, 8, 5, 5] (* at with index wrap-around *)
 (-1 .. 5).collect { :index | (1 .. 3).atWrap(index) } = [2 3 1 2 3 1 2] (* index wrapping if out of bounds *)
 | a = [1, nil, 3]; | a.atWrapPut(5, 2); a = [1, 2, 3] (* atPut with index wrap around *)
+(1 .. 3).atFold(4) = 2 (* at with index fold-around *)
+(-1 .. 5).collect { :index | (1 .. 3).atFold(index) } = [3 2 1 2 3 2 1] (* at with index fold-around *)
 [1 .. 9].difference([3 .. 7]) = [1, 2, 8, 9] (* set theoretic difference of two collections *)
 [1 .. 9].difference([]) = [1 .. 9] (* set theoretic difference of two collections *)
 | a = [1 .. 9]; | a.reject { :each | a.includes(each) } = [] (* reject all *)
@@ -2262,6 +2264,24 @@ pi.warning('pi') = pi (* user warning *)
 { pi.error('pi') }.ifError { true } (* user error *)
 ```
 
+## Operator -- adverbs
+```
+[1 2 3] +.e [4 5 6] = [5 7 9] (* e = equal, operands must be of equal size *)
+[1 2 3] +.s [4 5 6 7] = [5 7 9] (* s = small, right operand is truncated *)
+[1 2 3] *.s [4 5 6 7] = [4 10 18] (* s = small *)
+[1 2 3] +.w [4 5 6 7] = [5 7 9 8] (* w = wrap, left operand indexed using atWrap *)
+[1 2 3] +.f [4 5 6 7] = [5 7 9 9] (* f = fold, left operand indexed using atFold *)
+[1 2 3 4] +.s [5 6 7] = [6 8 10] (* s = small, left operand is truncated *)
+[1 2 3 4] +.w [5 6 7] = [6 8 10 9] (* w = wrap, right operand indexed using atWrap *)
+[1 2 3 4] +.f [5 6 7] = [6 8 10 10] (* f = fold, right operands indexed using atFold *)
+[1 2 3] +.t [4 5 6] = [5 6 7; 6 7 8; 7 8 9] (* t = table *)
+[1 2 3] +.x [4 5 6] = [5 6 7 6 7 8 7 8 9] (* x = cross *)
+[1 .. 5] +.s [6 .. 9] = [7 9 11 13] (* s = small *)
+[1 .. 5] +.f [6 .. 8] = [7 9 11 11 11] (* f = fold *)
+[1 2 3 4] *.x [5 6 7] = [5 6 7 10 12 14 15 18 21 20 24 28] (* x = cross *)
+{ [1 2 3] +.e [4 5] }.ifError { true } (* e = equal, error if non-equal operand sizes *)
+```
+
 ## Ordered -- collection trait
 ```
 system.includesPackage('Ordered') (* package *)
@@ -2866,6 +2886,10 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString };
 | x = [0 1]; | x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] (* self cartesian product *)
 [0 1].cartesianProduct([2 3]) = [0 2; 0 3; 1 2; 1 3] (* cartesian product of collections of equal size *)
 [0 1].cartesianProduct([2 3 4]) = [0 2; 0 3; 0 4; 1 2; 1 3; 1 4] (* cartesian product of collections of unequal size *)
+[1 2 3].withCrossedCollect([4 5 6], times:/2) = [4 5 6 8 10 12 12 15 18]
+[1 2 3].crossedMultiply([4 5 6]) = [4 5 6 8 10 12 12 15 18]
+[1 2 3].withTruncatingCollect([4 5 6 7], times:/2) = [4 10 18]
+[1 2 3 4].withWrappingCollect([5 6 7 8 9], times:/2) = [5 12 21 32 9]
 ```
 
 ## Sequence arithmetic

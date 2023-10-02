@@ -133,6 +133,13 @@ const asJs: ohm.ActionDict<string> = {
 		const text = `${lhs.sourceString} := ${lhs.sourceString} ${op.asJs} (${rhs.sourceString})`;
 		return rewriteString(text);
 	},
+	binaryOperator(op) {
+		return `_${genName(operatorMethodName(op.sourceString), 2)}`;
+	},
+	binaryOperatorWithAdverb(op, _dot, adverb) {
+		// console.log(`binaryOperatorWithAdverb: ${op.sourceString} ${adverb.sourceString}`);
+		return `_${genName(adverb.sourceString, 1)}(_${genName(operatorMethodName(op.sourceString), 2)})`;
+	},
 	BinaryExpression(lhs, ops, rhs) {
 		let left = lhs.asJs;
 		const opsArray = ops.children.map(c => c.asJs);
@@ -140,7 +147,7 @@ const asJs: ohm.ActionDict<string> = {
 		while (opsArray.length > 0) {
 			const op = opsArray.shift();
 			const right = rhsArray.shift();
-			left = `_${genName(operatorMethodName(op), 2)}(${left}, ${right})`;
+			left = `${op}(${left}, ${right})`;
 		}
 		return left;
 	},

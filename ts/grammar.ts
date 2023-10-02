@@ -40,7 +40,7 @@ Sl {
 	ArrayAssignment = "[" NonemptyListOf<identifier, ","> "]" ":=" Expression
 	DictionaryAssignment = "(" NonemptyListOf<identifier, ","> ")" ":=" Expression
 	AssignmentOperatorSyntax = Primary operatorAssignment Expression
-	BinaryExpression = Expression (binaryOperator Primary)+
+	BinaryExpression = Expression ((binaryOperatorWithAdverb | binaryOperator) Primary)+
 
 	Primary
 		= AtPutSyntax
@@ -151,6 +151,7 @@ Sl {
 	letterOrDigit = letter | digit
 	reservedIdentifier = "nil" | "true" | "false"
 	binaryOperator = binaryChar+
+	binaryOperatorWithAdverb = binaryOperator "." identifier
 	binaryChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 	operatorAssignment = binaryChar ":" "="
 

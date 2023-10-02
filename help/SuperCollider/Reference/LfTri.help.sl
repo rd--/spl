@@ -9,7 +9,7 @@ A non-band-limited triangle wave oscillator. Output ranges from -1 to +1.
 
 Constant frequency:
 
-	LfTri(500, 0) * 0.1
+	LfTri([440, 800], 0) * 0.1
 
 Used as both Oscillator and Lfo:
 

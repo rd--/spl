@@ -27,12 +27,13 @@
 	'Meta'
 	'Nil'
 	'Block'
+	'Adverb' (* > Block *)
 	'Promise'
 	'Response'
 	'SmallFloat'
 	'String'
 	'System'
-	'Package' (* Requires: System *)
+	'Package' (* > System *)
 
 	(* Collection Types *)
 	'Association'

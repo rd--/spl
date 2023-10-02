@@ -451,10 +451,6 @@
 		answer
 	}
 
-	crossedMultiply { :self :aSequence |
-		self.withCrossedCollect(aSequence, times:/2)
-	}
-
 	degreeToKey { :self :scale :stepsPerOctave |
 		self.collect { :scaleDegree |
 			scaleDegree.degreeToKey(scale, stepsPerOctave)
@@ -798,41 +794,13 @@
 		self.duplicateEach(repeatCount)
 	}
 
-	withCrossedCollect { :self :aSequence :aBlock:/2 |
-		(* Apply aBlock for each of my items with each item of aSequence in turn. *)
-		|(
-			answer = self.species.new(self.size * aSequence.size),
-			nextIndex = 1
-		)|
-		self.do { :leftItem |
-			aSequence.do { :rightItem |
-				answer[nextIndex] := aBlock(leftItem, rightItem);
-				nextIndex +:= 1
-			}
-		};
-		answer
-	}
-
-	withExtendingCollect { :self :aCollection :aBlock:/2 |
-		| maximumSize = self.size.max(aCollection.size); |
-		1.toAsCollect(maximumSize, self.species) { :index |
-			aBlock(self.atWrap(index), aCollection.atWrap(index))
-		}
-	}
-
-	withExtendingCollectOrAdaptTo { :self :anObject :aBlock:/2 |
+	withWrappingCollectOrAdaptTo { :self :anObject :aBlock:/2 |
 		(anObject.isCollection & {
 			anObject.isSequenceable
 		}).if {
-			self.withExtendingCollect(anObject, aBlock:/2)
+			self.withWrappingCollect(anObject, aBlock:/2)
 		} {
 			anObject.adaptToCollectionAndApply(self, aBlock:/2)
-		}
-	}
-
-	withTableCollect { :self :aSequence :aBlock:/2 |
-		self.collect { :each |
-			each.aBlock(aSequence)
 		}
 	}
 
@@ -844,21 +812,21 @@
 		answer
 	}
 
-	+ { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, plus:/2) }
-	- { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, minus:/2) }
-	* { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, times:/2) }
-	/ { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, dividedBy:/2) }
-	< { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, lessThan:/2) }
-	> { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, greaterThan:/2) }
-	^ { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, raisedTo:/2) }
-	% { :self :aNumber | withExtendingCollectOrAdaptTo(self, aNumber, modulo:/2) }
+	+ { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, plus:/2) }
+	- { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, minus:/2) }
+	* { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, times:/2) }
+	/ { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, dividedBy:/2) }
+	< { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, lessThan:/2) }
+	> { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, greaterThan:/2) }
+	^ { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, raisedTo:/2) }
+	% { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, modulo:/2) }
 
-	bitAnd { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, bitAnd:/2) }
-	bitOr { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, bitOr:/2) }
-	min { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, min:/2) }
-	max { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, max:/2) }
-	roundTo { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, roundTo:/2) }
-	truncateTo { :self :anObject | self.withExtendingCollectOrAdaptTo(anObject, truncateTo:/2) }
+	bitAnd { :self :anObject | self.withWrappingCollectOrAdaptTo(anObject, bitAnd:/2) }
+	bitOr { :self :anObject | self.withWrappingCollectOrAdaptTo(anObject, bitOr:/2) }
+	min { :self :anObject | self.withWrappingCollectOrAdaptTo(anObject, min:/2) }
+	max { :self :anObject | self.withWrappingCollectOrAdaptTo(anObject, max:/2) }
+	roundTo { :self :anObject | self.withWrappingCollectOrAdaptTo(anObject, roundTo:/2) }
+	truncateTo { :self :anObject | self.withWrappingCollectOrAdaptTo(anObject, truncateTo:/2) }
 
 }
 

@@ -98,6 +98,10 @@
 		anObject
 	}
 
+	atFold { :self :index |
+		self[index.foldBetweenAnd(1, self.size)]
+	}
+
 	atLastPut { :self :indexFromEnd :anObject |
 		self[self.size + 1 - indexFromEnd] := anObject
 	}
