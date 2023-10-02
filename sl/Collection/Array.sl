@@ -183,6 +183,18 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 }
 
++Block {
+
+	duplicate { :self |
+		self.duplicate(2)
+	}
+
+	duplicate { :self :anInteger |
+		self.replicateApplying(anInteger, value:/1)
+	}
+
+}
+
 +@Object {
 
 	replicateApplying { :self :anInteger :aBlock:/1 |

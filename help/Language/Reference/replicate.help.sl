@@ -1,4 +1,4 @@
-# replicate -- array constructor
+# replicate -- copying
 
 - _replicate(anObject, anInteger)_
 
@@ -8,4 +8,4 @@ Make an Array having _anInteger_ copies of _anObject_.
 
 * * *
 
-See also: !, dup, replicateApplying
+See also: duplicate, replicateApplying

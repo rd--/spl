@@ -179,6 +179,8 @@
      ("quarterToneSharp" .?𝄲) ; U+1D132 𝄲 Musical Symbol Quarter Tone Sharp
      (":?" .?⍰) ; U+2370 ⍰ Apl Functional Symbol Quad Question ; U+291D ⤝ Leftwards arrow to black diamond
      ("||" .?‖) ; U+2016 ‖ Double Vertical Line
+     (".." .?—) ; U+2014 — Em Dash
+     ("duplicate" .?!)
      )))
 
 (defun spl-fill-mode-map (map)

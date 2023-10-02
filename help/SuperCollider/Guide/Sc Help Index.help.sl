@@ -205,7 +205,7 @@
 - XLn -- exponential line generator
 - ZeroCrossing -- zero crossing frequency follower
 - coin -- random boolean generator
-- dup -- duplicate
+- duplicate -- copying
 - isNegative -- math operator
 - isPositive -- math operator
 - isStrictlyPositive -- math operator

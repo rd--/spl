@@ -349,10 +349,10 @@
 
 }
 
-+@Object {
++Block {
 
 	! { :self :anInteger |
-		self.dup(anInteger)
+		self.duplicate(anInteger)
 	}
 
 	!+ { :self :anInteger |
@@ -363,12 +363,12 @@
 		(self ! anInteger).product
 	}
 
+}
+
++@Object {
+
 	atExtending { :self :index |
 		self
-	}
-
-	dup { :self :anInteger |
-		self.replicateApplying(anInteger, value:/1)
 	}
 
 	extendTo { :self :size |
@@ -500,7 +500,7 @@
 		self.copyFromTo(1, self.size - count)
 	}
 
-	dupEach { :self :anInteger |
+	duplicateEach { :self :anInteger |
 		|(
 			answerSize = self.size * anInteger,
 			answer = Array(answerSize),
@@ -795,7 +795,7 @@
 	}
 
 	stutter { :self :repeatCount |
-		self.dupEach(repeatCount)
+		self.duplicateEach(repeatCount)
 	}
 
 	withCrossedCollect { :self :aSequence :aBlock:/2 |

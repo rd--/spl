@@ -2382,6 +2382,12 @@ valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repea
 | f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; | (7 .. 9).collect(f) = [5040, 40320, 362880]
 | f = { system.randomFloat }; | f.once = f.once (* evaluate block once and cache result *)
 | f = { (1 .. 9).atRandom }; | f.once = f.once & { f.once = f.once } (* the cache is kept in a weak map *)
+'3'.replicate(3) = ['3', '3', '3'] (* answer an array of n places each having the same value *)
+'3'.replicate(3) = Array(3, '3')
+| m = { system.randomFloat }.duplicate(9).mean; | m > 0 & { m < 1 }
+{ 1 }.duplicate = [1, 1] (* evaluate a block twice and collect the answers in an array *)
+{ '3' }.duplicate(3) = ['3', '3', '3'] (* evaluate block indicated number of times and collect answers in an array *)
+{ 9.atRandom }.duplicate(9).allSatisfy(isInteger:/1) (* evaluate a block n times and collect answers in an array *)
 ```
 
 ## Promise -- scheduling type

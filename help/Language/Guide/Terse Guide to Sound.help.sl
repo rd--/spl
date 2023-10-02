@@ -102,7 +102,7 @@ var l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [1, 2, 4].separate { :a :b | (b - a) > 1 } = [[1, 2], [4]] (* separate using predicate block *)
 [1, 2, 4, 5, 7, 8].separate { :a :b | (b - a) > 1 } = [[1, 2], [4, 5], [7, 8]]
 [1, 3, 5].stutter(3) = [1, 1, 1, 3, 3, 3, 5, 5, 5]
-(1 .. 5).dupEach(2) = [1 1 2 2 3 3 4 4 5 5]
+(1 .. 5).duplicateEach(2) = [1 1 2 2 3 3 4 4 5 5]
 [0, 0, 0, 1, 1, 1].hammingDistance([0, 0, 1, 1, 0, 0]) = 3 (* number places at which element differs *)
 [0, 0, 0, 1, 1, 1].hammingDistance([0, 0, 1, 1, 0]) = 3 (* rhs has fewer elements, includes difference *)
 [0, 0, 0, 1, 1].hammingDistance([0, 0, 1, 1, 0, 0]) = 3 (* lhs has fewer elements, includes difference *)
@@ -211,8 +211,8 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 ['a' 'b'; 1 2 3 4; 'x'].allTuples = ['a' 1 'x'; 'a' 2 'x'; 'a' 3 'x'; 'a' 4 'x'; 'b' 1 'x'; 'b' 2 'x'; 'b' 3 'x'; 'b' 4 'x']
 [5, 5].shapeIndices = [[1 .. 5], [1 .. 5]].allTuples (* all indices to array of given shape *)
 | n = 0; | [5, 5].shapeIndicesDo { :each | n := n + 1 }; n = 25 (* all indices to array of given shape *)
-| r = Random(98765); | { r.randomInteger(9) }.dupShape([3, 5]) = [[5, 4, 2, 7, 1], [5, 2, 5, 5, 9], [6, 2, 4, 1, 5]]
-| r = Random(98765); | { r.randomInteger(9) }.dupShape([2, 2, 3]) = [[[5, 4, 2], [7, 1, 5]], [[2, 5, 5], [9, 6, 2]]]
+| r = Random(98765); | { r.randomInteger(9) }.duplicateShape([3, 5]) = [[5, 4, 2, 7, 1], [5, 2, 5, 5, 9], [6, 2, 4, 1, 5]]
+| r = Random(98765); | { r.randomInteger(9) }.duplicateShape([2, 2, 3]) = [[[5, 4, 2], [7, 1, 5]], [[2, 5, 5], [9, 6, 2]]]
 | s = [2, 3], a = s.iota; | s.shapeIndicesDo { :each | a.atPathPut(each, each.join.asInteger) }; a = [[11, 12, 13], [21, 22, 23]]
 [3, 2].iota = [[1, 2], [3, 4], [5, 6]]
 [3, 2].iota.bubble(0, 1) = [[[1, 2], [3, 4], [5, 6]]]

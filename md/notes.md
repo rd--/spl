@@ -453,6 +453,7 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+2e4b ⹋ Triple Dagger
 - U+2e4d ⹍ Paragraphus Mark
 - U+3012 〒 Postal Mark
+- U+2014 — Em Dash
 
 # Unicode
 

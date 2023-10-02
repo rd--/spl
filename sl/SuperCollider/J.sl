@@ -240,7 +240,7 @@
 
 +Block {
 
-	dupShape { :self:/0 :shape |
+	duplicateShape { :self:/0 :shape |
 		| answer = shape.iota; |
 		shape.shapeIndicesDo { :index |
 			answer.atPathPut(index, self())

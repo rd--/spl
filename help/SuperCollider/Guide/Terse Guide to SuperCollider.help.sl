@@ -12,7 +12,6 @@
 
 ## Number -- extensions
 ```
-{ 0.5.coin }.dup(9).allSatisfy(isBoolean:/1) (* answers a boolean with given bias *)
 1:3.coin.isBoolean (* probability may be a fraction *)
 | c = 0.5.coin.if { 't' } { 'f' }; | c = 't' | { c = 'f' }
 (0 .. 14).collect { :each | each.degreeToKey([0, 2, 4, 5, 7, 9, 11], 12) } = [0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24]
@@ -24,10 +23,7 @@
 
 ## Object -- extensions
 ```
-{ '3' }.dup(3) = ['3', '3', '3'] (* evaluate block indicated number of times *)
-'3'.dup(3) = ['3', '3', '3'] (* duplicate item that is not a block *)
-'3' ! 3 = ['3', '3', '3'] (* operator form of dup *)
-| m = { system.randomFloat }.dup(9).mean; | m > 0 & { m < 1 }
+{ '3' } ! 3 = ['3', '3', '3'] (* operator form of duplicate *)
 ({ system.randomFloat } ! 9).size = 9 (* the size of the answer is as requested *)
 ({ system.randomFloat } ! 3).allSatisfy(isNumber:/1) = true
 ```
