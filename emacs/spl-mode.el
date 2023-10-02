@@ -51,6 +51,11 @@
   (interactive)
   (spl-netcat-cmd 'evalText 'text (spl-get-selection)))
 
+(defun spl-print-ugen-graph-of-region ()
+  "Evaluate .printUgenGraph of region at Spl server."
+  (interactive)
+  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.printUgenGraph" (spl-get-selection))))
+
 (defun spl-eval-current-file ()
   "Load current file at Spl server."
   (interactive)

@@ -124,7 +124,7 @@ ScSynth! : [Object] {
 		self.playUgenAt(nil)
 	}
 
-	printUgen { :aUgen |
+	printUgenGraph { :aUgen |
 		<primitive: return sc.prettyPrintSyndefOf(_aUgen);>
 	}
 

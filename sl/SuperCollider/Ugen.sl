@@ -44,4 +44,12 @@ Ugen! : [Object, Number] {
 		<primitive: return sc.encodeUgen(_self, sc.wrapOut(0, _aUgen));>
 	}
 
+	kr { :self :defaultValue |
+		self.NamedControl(defaultValue)
+	}
+
+	NamedControl { :self :defaultValue |
+		<primitive: return sc.localControlInput(_self, -1, _defaultValue);>
+	}
+
 }
