@@ -119,7 +119,7 @@ function scUdpServer(portNumber: number): void {
 				default: console.warn(`scUdpServer: unknown command: ${message.command}`); break;
 				}
 			} catch (err) {
-				console.error(`scUdpServer: message: '${datagramText}', err: ${err}`);
+				console.error(`scUdpServer: message: '${datagramText}', err: ${err} -> ${err.cause}`);
 			}
 		}
 	});
