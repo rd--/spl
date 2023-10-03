@@ -59,7 +59,12 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'Storage'
 		'URL'
 		'URLSearchParams'
+		'WebSocket'
 		'Window'
+	],
+	'System-Event': [
+		'Event'
+		'MessageEvent'
 	],
 	'System-Reflection': [
 		'Method'
@@ -109,7 +114,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'OscParameter'
 	],
 	'Sound-SuperCollider': [
-		'CcEvent'
+		'ContinuousEvent'
 		'Env'
 		'LocalControl'
 		'ScSynth'
@@ -170,7 +175,6 @@ system.categoryDictionary.categorizeDictionary('type', (
 	],
 	'Navigator-Event': [
 		'CustomEvent'
-		'Event'
 		'KeyboardEvent'
 		'MouseEvent'
 		'PointerEvent'

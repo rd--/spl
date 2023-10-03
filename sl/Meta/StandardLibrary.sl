@@ -55,15 +55,19 @@
 
 	(* System *)
 	'Blob'
+	'Event'
+	'EventTarget'
 	'File'
 	'LibraryItem'
 	'Method'
+	'MessageEvent'
 	'Storage'
 	'Trait'
 	'Transcript'
 	'Type'
 	'Url'
 	'UrlSearchParams'
+	'WebSocket' (* > EventTarget Url *)
 	'Window'
 
 	(* Text *)

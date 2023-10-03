@@ -19,6 +19,8 @@
 	'PseudoUgens' (* < Ugen *)
 	'ScLang'
 	'ScSynth' (* < Ugen *)
+	'ScSynthOptions'
+	'ScSynthStatus'
 	'ScUgen'
 	'Texture' (* < Ugen *)
 	'UgenBindings' (* < Ugen *)

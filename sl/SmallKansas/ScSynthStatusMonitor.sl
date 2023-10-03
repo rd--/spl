@@ -1,4 +1,4 @@
-ScSynthStatus : [Object, SmallKansan] {
+ScSynthStatusMonitor : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		|(
@@ -19,7 +19,7 @@ ScSynthStatus : [Object, SmallKansan] {
 	}
 
 	title { :self |
-		'ScSynth Status'
+		'ScSynth Status Monitor'
 	}
 
 }

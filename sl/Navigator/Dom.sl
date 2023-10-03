@@ -1,4 +1,4 @@
-(* Requires: Blob *)
+(* Requires: Blob Event EventTarget *)
 
 @AbstractRange {
 
@@ -187,46 +187,6 @@
 		aDictionary.withIndexDo { :value :key |
 			self.setAttributeNS(namespace, key, value)
 		}
-	}
-
-}
-
-@Event {
-
-	cancelable { :self | <primitive: return _self.cancelable;> }
-	preventDefault { :self | <primitive: return _self.preventDefault();> }
-	stopPropagation { :self | <primitive: return _self.stopPropagation();> }
-	stopImmediatePropagation { :self | <primitive: return _self.stopImmediatePropagation();> }
-	target { :self | <primitive: return _self.target;> }
-	timeStamp { :self | <primitive: return _self.timeStamp;> }
-	type { :self | <primitive: return _self.type;> }
-
-	stopPropagationAndPreventDefault { :self |
-		self.stopPropagation;
-		self.cancelable.ifTrue {
-			self.preventDefault
-		}
-	}
-
-
-}
-
-@EventTarget {
-
-	addEventListener { :self :aString :aBlock |
-		<primitive: return _self.addEventListener(_aString, _aBlock);>
-	}
-
-	addEventListener { :self :aString :aBlock :options |
-		<primitive: return _self.addEventListener(_aString, _aBlock, _options);>
-	}
-
-	dispatchEvent { :self :event |
-		<primitive: return _self.dispatchEvent(_event);>
-	}
-
-	removeEventListener { :self :aString :aBlock |
-		<primitive: return _self.removeEventListener(_aString, _aBlock);>
 	}
 
 }
@@ -512,18 +472,6 @@ DOMTokenList! : [Object] {
 	add { :self :aString | <primitive: return _self.add(_aString);> }
 	contains { :self :aString | <primitive: return _self.contains(_aString);> }
 	remove { :self :aString | <primitive: return _self.remove(_aString);> }
-
-}
-
-Event! : [Object, UiEvent, Event] {
-
-}
-
-+String {
-
-	Event { :self |
-		<primitive: return new Event(_self);>
-	}
 
 }
 

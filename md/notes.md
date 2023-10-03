@@ -1,7 +1,11 @@
 # Help
 
 Help provides category names, after final '-- ' on initial line.
-HelpIndex 
+HelpIndex as Spl package.
+
+# Constructor
+
+Allow _type_ declarations at slots, and if one is provided for the first slot make constructor.
 
 # Packages
 
