@@ -115,7 +115,7 @@ ScSynth! : [Object] {
 	playUgenAt { :self :systemTimeInSeconds |
 		<primitive:
 		sc.scSynthEnsure(globalScSynth, function() {
-			sc.playUgenAt(globalScSynth, _self, 1, _systemTimeInSeconds)
+			sc.playUgenAt(globalScSynth, _self, -1, 1, [], _systemTimeInSeconds)
 		});
 		>
 	}
