@@ -86,7 +86,7 @@ async function scEvalFile(fileName: string): Promise<unknown> {
 
 function scPlayText(splText: string): void {
 	const ugenGraph: sc.Signal = <sc.Signal>evaluateInteractive(splText);
-	sc.playUgenAt(cliScSynth, ugenGraph, 1, null);
+	sc.playUgenAt(cliScSynth, ugenGraph, -1, 1, [], null);
 }
 
 async function scPlayFile(fileName: string): Promise<void> {
