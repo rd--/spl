@@ -88,7 +88,6 @@ ContinuousEvent : [Object] { | contents |
 	Voicer { :self :voiceBlock:/1 |
 		| voiceOffset = 0; |
 		(1 .. self).collect { :each |
-			['Voicer', each, voiceOffset, (each + voiceOffset).voicerVoiceAddress].postLine;
 			ControlIn(8, (each + voiceOffset).voicerVoiceAddress).ContinuousEvent.voiceBlock
 		}
 	}
@@ -99,7 +98,6 @@ ContinuousEvent : [Object] { | contents |
 
 	VoiceWriter { :self :voiceBlock:/0 |
 		(1 .. self).collect { :voiceNumber |
-			['VoiceWriter', voiceNumber, voiceNumber.voicerVoiceAddress].postLine;
 			ControlOut(
 				voiceNumber.voicerVoiceAddress,
 				voiceBlock().ContinuousEvent.asArray
