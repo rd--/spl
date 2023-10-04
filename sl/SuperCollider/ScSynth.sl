@@ -3,7 +3,7 @@
 ScSynth! : [Object] {
 
 	addOscListener { :self :address :onMessage |
-		<primitive: sc.scSynthAddOscListener(_self, _address, _onMessage);>
+		<primitive: _self.addOscListener(_address, _onMessage);>
 		onMessage
 	}
 
@@ -36,12 +36,12 @@ ScSynth! : [Object] {
 	}
 
 	removeOscListener { :self :address :onMessage |
-		<primitive: sc.scSynthRemoveOscListener(_self, _address, _onMessage);>
+		<primitive: _self.removeOscListener(_address, _onMessage);>
 		onMessage
 	}
 
 	reset { :self |
-		<primitive: return sc.resetScSynth(_self);>
+		<primitive: return _self.reset();>
 	}
 
 	sendOsc { :self :oscPacket |
@@ -85,11 +85,7 @@ ScSynth! : [Object] {
 	}
 
 	playUgenAt { :self :systemTimeInSeconds |
-		<primitive:
-		sc.scSynthEnsure(globalScSynth, function() {
-			sc.playUgenAt(globalScSynth, _self, -1, 1, [], _systemTimeInSeconds)
-		});
-		>
+		<primitive: globalScSynth.playUgenAt(_self, -1, 1, [], _systemTimeInSeconds);>
 	}
 
 	playUgen { :self |

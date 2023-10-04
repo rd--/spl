@@ -45,7 +45,7 @@ declare global {
 	var globalScSynth: sc.ScSynth;
 }
 
-const cliScSynth = scUdp.scSynthUdp(scUdp.defaultScSynthUdp);
+const cliScSynth = scUdp.sc3_udp_init(scUdp.defaultScSynthAddress);
 
 async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	const loadPath = opt.dir || getSplDir() || './';
