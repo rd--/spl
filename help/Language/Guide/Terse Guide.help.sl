@@ -3333,7 +3333,8 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 'hilaire'.capitalized = 'Hilaire'
 '1.54'.asNumber = 1.54 (* parse floating point number *)
 '154'.asNumber = 154 (* parse integral number *)
-'A clear but rather long-winded summary'.contractTo(19) = 'A clear ... summary'
+'A clear but rather long-winded summary'.contractTo(19) = 'A clear ... summary' (* contract string to be of size *)
+'antidisestablishmentarianism'.contractTo(10) = 'anti...ism' (* contract string to be of size *)
 'string'.Array.sort.join = 'ginrst'
 'x' ~= 'x'.Character (* a single element string is not equal to a character *)
 'Mačiūnas'.asAscii = 'Mainas' (* transform to ascii by deleting non-ascii characters *)
