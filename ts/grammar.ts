@@ -157,7 +157,7 @@ Sl {
 
 	literal = integerIntervalLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
 	numberLiteral = scientificLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
-	integerIntervalLiteral = (integerLiteral | identifier) ".." (integerLiteral | identifier)
+	integerIntervalLiteral = (integerLiteral | identifier) "..." (integerLiteral | identifier)
 	floatLiteral = "-"? digit+ "." digit+
 	scientificLiteral = (floatLiteral | integerLiteral) "e" integerLiteral
 	fractionLiteral = "-"? digit+ ":" digit+

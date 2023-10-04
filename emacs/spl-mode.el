@@ -187,7 +187,8 @@
      ("quarterToneSharp" .?𝄲) ; U+1D132 𝄲 Musical Symbol Quarter Tone Sharp
      (":?" .?⍰) ; U+2370 ⍰ Apl Functional Symbol Quad Question ; U+291D ⤝ Leftwards arrow to black diamond
      ("||" .?‖) ; U+2016 ‖ Double Vertical Line
-     (".." .?‥) ; U+2025 ‥ Two Dot Leader; U+2014 — Em Dash; U+2E3A ⸺ Two-Em Dash
+     (".." .?‥) ; U+2025 ‥ Two Dot Leader
+     ("..." .?‥) ; U+2026 … Horizontal Ellipsis; U+22ef ⋯ Midline Horizontal Ellipsis
      ("duplicate" .?!)
      )))
 

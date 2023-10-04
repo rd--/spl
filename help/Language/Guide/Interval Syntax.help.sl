@@ -17,16 +17,18 @@ The rewrite rules are:
 - _[p .. q]_ ⟹ _(p .. q).Array_
 - _[p, q .. r]_ ⟹ _(p, q .. r).Array_
 
-In the case where both _p_ and _q_ are either integer literals or identifiers, the interval can be written _p..q_.
-In the literal form, as with literal Fractions, white space is significant, and _p .. q_ is not allowed.
+In the case where both _p_ and _q_ are either integer literals or identifiers, the interval can be written _p...q_.
+In the literal form, as with literal Fractions, white space is significant, and _p ... q_ is not allowed.
 
-Where supported the notation _.._ is displayed as _‥_.
+Where supported the notations _.._ and _..._ are displayed as _‥_.
 
 _Note_:
 In Smalltalk _p to: q_ is an empty interval if _p <= q_.
 The re-write rule here calls _upOrDownTo_ which allows descending intervals to be specified.
 Care must be taken not to use _(p .. q)_ where _p.to(q)_ is required.
 In Fortress intervals are written _p:q_, however here that notation indicates a Fraction.
+The literal case is not written _p..q_ since it would make white space significant in the array case,
+i.e. _[p..q]_ would be an array of one interval, and not equal to _[p .. q]_.
 
 * * *
 

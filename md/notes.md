@@ -297,6 +297,7 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+2020 † Dagger
 - U+2021 ‡ Double Dagger
 - U+2022 • Bullet
+- U+2024 ․ One Dot Leader
 - U+2025 ‥ Two Dot Leader
 - U+2026 … Horizontal Ellipsis
 - U+2038 ‸ Caret
@@ -320,6 +321,7 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+2193 ↓ Downwards Arrow
 - U+21d2 ⇒ Rightwards Double Arrow
 - U+21e0 ⇠ Leftwards Dashed Arrow
+- U+21e2 ⇢ Rightwards Dashed Arrow
 - U+2208 ∈ Element Of
 - U+2209 ∉ Not An Element Of
 - U+220b ∋ Contains As Member
