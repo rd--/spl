@@ -11,14 +11,6 @@ ScSynth! : [Object] {
 		<primitive: return _self.boot();>
 	}
 
-	isAlive { :self |
-		<primitive: return _self.isAlive;>
-	}
-
-	isStarting { :self |
-		<primitive: return _self.isStarting;>
-	}
-
 	hasIoUgens { :self |
 		<primitive: return _self.hasIoUgens;>
 	}
@@ -36,7 +28,11 @@ ScSynth! : [Object] {
 	}
 
 	pseudoSlotNameArray { :self |
-		['options', 'oscListeners', 'isAlive', 'isStarting', 'hasIoUgens', 'synthPort', 'langPort', 'status']
+		['options', 'oscListeners', 'hasIoUgens', 'readyState', 'synthPort', 'langPort', 'status']
+	}
+
+	readyState { :self |
+		<primitive: return _self.readyState;>
 	}
 
 	removeOscListener { :self :address :onMessage |
