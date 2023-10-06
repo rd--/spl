@@ -216,6 +216,15 @@
 		answer
 	}
 
+	copyUpThrough { :self :anElement |
+		| index = self.indexOf(anElement); |
+		(index = 0).if {
+			self.copy
+		} {
+			self.first(index)
+		}
+	}
+
 	copyUpTo { :self :anElement |
 		| index = self.indexOf(anElement); |
 		(index = 0).if {
@@ -711,6 +720,14 @@
 		}
 	}
 
+	prefixProduct { :self |
+		self.scan(times:/2)
+	}
+
+	prefixSum { :self |
+		self.scan(plus:/2)
+	}
+
 	replace { :self :aBlock:/1 |
 		self.indicesDo { :index |
 			self[index] := aBlock(self[index])
@@ -752,6 +769,20 @@
 			fromIndex -:= 1
 		};
 		answer
+	}
+
+	scan { :self :aBlock:/2 |
+		self.ifEmpty {
+			self.copy
+		} {
+			| answer = self.species.new(self.size), sum = self[1]; |
+			answer[1] := sum;
+			2.toDo(self.size) { :index |
+				sum := aBlock(sum, self[index]);
+				answer[index] := sum
+			};
+			answer
+		}
 	}
 
 	reverseDo { :self :aBlock:/1 |

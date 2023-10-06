@@ -1,6 +1,6 @@
-(* Requires: Fraction Tuning TuningLattice *)
+(* Requires: Fraction Tuning *)
 
-RatioTuning : [Object, Tuning] { | name description ratios |
+RatioTuning : [Object, Tuning] { | name description ratios octave |
 
 	= { :self :anObject |
 		anObject.isRatioTuning & {
@@ -38,17 +38,17 @@ RatioTuning : [Object, Tuning] { | name description ratios |
 
 +String {
 
-	IntegerTuning { :self :description :integers |
+	IntegerTuning { :self :description :integers :octave |
 		|(
 			ratios = integers.collect { :each |
 				Fraction(each, integers.first).normalized
 			}
 		)|
-		RatioTuning(self, description, ratios)
+		RatioTuning(self, description, ratios, octave)
 	}
 
-	RatioTuning { :self :description :ratios |
-		newRatioTuning().initializeSlots(self, description, ratios)
+	RatioTuning { :self :description :ratios :octave |
+		newRatioTuning().initializeSlots(self, description, ratios, octave)
 	}
 
 }

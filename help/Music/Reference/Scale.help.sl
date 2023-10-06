@@ -1,10 +1,10 @@
 # Scale -- music type
 
-- _Scale(startDegree, intervals, description)_
+- _Scale(startIndex, intervals, description)_
 
 A _Scale_ is a sub-set of the indices of a _Tuning_.
 
-The _startDegree_ is the index at the Tuning of the first note of the scale, and is usually one.
+The _startIndex_ is the index at the Tuning of the first note of the scale, and is usually one.
 
 The _intervals_ are a sequence of integers giving the distance of each index from the last.
 

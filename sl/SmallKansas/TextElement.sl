@@ -36,4 +36,16 @@
 		option
 	}
 
+	TextParagraph { :self |
+		| p = 'p'.createElement; |
+		p.textContent := self;
+		p
+	}
+
+	TextSpan { :self |
+		| span = 'span'.createElement; |
+		span.textContent := self;
+		span
+	}
+
 }

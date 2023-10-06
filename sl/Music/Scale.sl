@@ -1,15 +1,15 @@
-Scale : [Object] { | startDegree intervals description |
+Scale : [Object] { | startIndex intervals description |
 
 	size { :self |
 		self.intervals.size
 	}
 
 	storeString { :self |
-		['Scale(', self.startDegree, ', ', self.intervals, ', "', self.description, '")'].join
+		['Scale(', self.startIndex, ', ', self.intervals, ', "', self.description, '")'].join
 	}
 
 	tuningIndices { :self |
-		| sum = self.startDegree, answer = [sum], tuningSize = self.tuningSize; |
+		| sum = self.startIndex, answer = [sum], tuningSize = self.tuningSize; |
 		self.intervals.allButLastDo { :item |
 			sum := ((sum - 1 + item) % tuningSize) + 1; (* one-indexed modulo *)
 			answer.add(sum)
@@ -25,8 +25,8 @@ Scale : [Object] { | startDegree intervals description |
 
 +@Integer {
 
-	Scale { :startDegree :intervals :description |
-		newScale().initializeSlots(startDegree, intervals, description)
+	Scale { :startIndex :intervals :description |
+		newScale().initializeSlots(startIndex, intervals, description)
 	}
 
 }
@@ -34,8 +34,8 @@ Scale : [Object] { | startDegree intervals description |
 +Array {
 
 	Scale { :self |
-		| [startDegree, intervals, description] = self; |
-		Scale(startDegree, intervals, description)
+		| [startIndex, intervals, description] = self; |
+		Scale(startIndex, intervals, description)
 	}
 
 }

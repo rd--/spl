@@ -1,4 +1,4 @@
-(* Requires: Fraction RatioTuning Tuning TuningLattice *)
+(* Requires: Fraction RatioTuning Tuning *)
 
 JiTuning : [Object, Tuning] { | tuning limit degree |
 
@@ -22,6 +22,10 @@ JiTuning : [Object, Tuning] { | tuning limit degree |
 		self.tuning.name
 	}
 
+	octave { :self |
+		self.tuning.octave
+	}
+
 	ratios { :self |
 		self.tuning.ratios
 	}
@@ -42,17 +46,17 @@ JiTuning : [Object, Tuning] { | tuning limit degree |
 
 +String {
 
-	JiTuning { :self :description :ratiosOrIntegers |
-		JiTuning(self, description, ratiosOrIntegers, nil, nil)
+	JiTuning { :self :description :ratiosOrIntegers :octave |
+		JiTuning(self, description, ratiosOrIntegers, octave, nil, nil)
 	}
 
-	JiTuning { :self :description :ratiosOrIntegers :limit :degree |
+	JiTuning { :self :description :ratiosOrIntegers :octave :limit :degree |
 		|(
 			tuning = ratiosOrIntegers.allSatisfy(isSmallInteger:/1).if {
-				IntegerTuning(self, description, ratiosOrIntegers)
+				IntegerTuning(self, description, ratiosOrIntegers, octave)
 			} {
 				ratiosOrIntegers.allSatisfy(isFraction:/1).if {
-					RatioTuning(self, description, ratiosOrIntegers)
+					RatioTuning(self, description, ratiosOrIntegers, octave)
 				} {
 					self.error('not ratios or integers')
 				}
@@ -73,6 +77,7 @@ JiTuning : [Object, Tuning] { | tuning limit degree |
 			self::name,
 			self::description,
 			self::tuning,
+			self::octave :? { 2:1 },
 			self::limit,
 			self::degree
 		)
@@ -86,7 +91,8 @@ JiTuning : [Object, Tuning] { | tuning limit degree |
 		JiTuning(
 			'',
 			'',
-			self
+			self,
+			2:1
 		)
 	}
 

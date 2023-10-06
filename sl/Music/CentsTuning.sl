@@ -1,6 +1,6 @@
 (* Requires: Tuning *)
 
-CentsTuning : [Object, Tuning] { | name description cents |
+CentsTuning : [Object, Tuning] { | name description cents octave |
 
 	degree { :self |
 		self.cents.size
@@ -14,8 +14,8 @@ CentsTuning : [Object, Tuning] { | name description cents |
 
 +String {
 
-	CentsTuning { :self :description :cents |
-		newRatioTuning().initializeSlots(self, description, cents)
+	CentsTuning { :self :description :cents :octave |
+		newRatioTuning().initializeSlots(self, description, cents, octave)
 	}
 
 }

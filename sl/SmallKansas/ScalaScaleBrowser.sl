@@ -54,8 +54,8 @@
 				'application/json',
 				{ :item |
 					item.collect { :each |
-						| [zeroIndexedStartDegree, intervals, description] = each; |
-						Scale(zeroIndexedStartDegree + 1, intervals, description)
+						| [zeroIndexedStartIndex, intervals, description] = each; |
+						Scale(zeroIndexedStartIndex + 1, intervals, description)
 					}
 				}
 			)

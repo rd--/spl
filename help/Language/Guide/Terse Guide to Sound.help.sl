@@ -2,7 +2,7 @@
 
 ## Music-JiTuning
 ```
-| t = [63, 72, 84, 98, 112].JiTuning; | [t.limit, t.degree] = [7, 5]
+| t = [63, 72, 84, 98, 112].JiTuning; | [t.limit, t.degree, t.octave] = [7, 5, 2]
 | t = [63, 72, 84, 98, 112].JiTuning; | t.ratios = [1, 8:7, 4:3, 14:9, 16:9]
 | t = [63, 72, 84, 98, 112].JiTuning; | t.cents.rounded = [0, 231, 498, 765, 996]
 | r = [1, 8:7, 4:3, 14:9, 16:9]; | [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1:63, 112]
@@ -14,10 +14,10 @@
 
 ## Music-RatioTuning
 ```
-| r = RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9]); | [r.degree, r.limit, r.cents.rounded] = [5 7 [0 231 498 765 996]]
-RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9]).integers =  [63 72 84 98 112]
-IntegerTuning('', '', [63 72 84 98 112]).ratios = [1:1 8:7 4:3 14:9 16:9]
-RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9]) = IntegerTuning('', '', [63 72 84 98 112])
+| r = RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2); | [r.degree, r.limit, r.cents.rounded] = [5 7 [0 231 498 765 996]]
+RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2).integers =  [63 72 84 98 112]
+IntegerTuning('', '', [63 72 84 98 112], 2).ratios = [1:1 8:7 4:3 14:9 16:9]
+RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2) = IntegerTuning('', '', [63 72 84 98 112], 2)
 ```
 
 ## Music-Pitch

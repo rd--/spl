@@ -512,6 +512,7 @@ Array:/1.ofSize(3) = [nil, nil, nil]
 | a = [1, [2, 3]], c = a.deepCopy; | c[2][1] := -2; c ~= a & { a = [1, [2, 3]] } (* deepCopy is a deep copy *)
 | a = [nil, true, false, 3.141, 23, 'str']; | a.deepCopy = a (* deepCopy of shallow array *)
 [1, 3 .. 9].copyUpTo(7) = [1, 3, 5] (* copy up to but not including element *)
+[1, 3 .. 9].copyUpThrough(7) = [1, 3, 5, 7] (* copy up to but and including element *)
 [1, 3 .. 9].copyUpTo(-1) = [1, 3 .. 9] (* copy up to end if no such element *)
 [1, 2, 3, 4, 2, 3, 4, 3, 4, 4].copyUpToLast(3) = [1, 2, 3, 4, 2, 3, 4] (* copy up to last instance of element *)
 [1, 3 .. 9].copyUpToLast(-1) = [1, 3 .. 9] (* copy up to end if no such element *)
@@ -1758,9 +1759,16 @@ system.cache::primesArray[23] = 83 (* nthPrime extends the primesArray cache as 
 23.isPrime = true (* prime number predicate *)
 2971215073.isPrime = true (* prime number predicate *)
 2971215073.nextPrime = 2971215083 & { 2971215083.isPrime } (* find next prime *)
-100.primesUpTo = [2, 3, 5, 7,11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+13.primesUpTo = [2, 3, 5, 7, 11, 13] (* primes up to limit, if limit is prime it is the last element *)
+42.primesUpTo = [2, 3, 5, 7,11, 13, 17, 19, 23, 29, 31, 37, 41] (* if limit is not prime, the last element is the previous prime *)
 35.isCoprime(64)
 1173.isCoprime(1547).not
+17.isPrime = true (* is number prime *)
+17.indexOfPrime = 7 & { 18.indexOfPrime = 0 } (* index of prime number in prime number sequence, or zero if not prime *)
+1.nthPrime = 2 & { 7.nthPrime = 17 } (* index into the prime number sequence *)
+18.nextPrime = 19 & { 19.nextPrime = 23 } (* next integer that is greater than self and is prime number *)
+19.leastPrimeGreaterThanOrEqualTo = 19 (* next prime or self if prime *)
+1000.previousPrime = 997 & { 997.previousPrime = 991 } (* previous prime *)
 ```
 
 ## Integer -- integer names
@@ -2892,6 +2900,10 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString };
 [1 2 3].crossedMultiply([4 5 6]) = [4 5 6 8 10 12 12 15 18]
 [1 2 3].withTruncatingCollect([4 5 6 7], times:/2) = [4 10 18]
 [1 2 3 4].withWrappingCollect([5 6 7 8 9], times:/2) = [5 12 21 32 9]
+(1 .. 9).prefixSum = [1 3 6 10 15 21 28 36 45] (* prefix sum *)
+(1 .. 9).prefixProduct = [1 2 6 24 120 720 5040 40320 362880] (* prefix product *)
+(1 .. 9).scan(plus:/2) = (1 .. 9).prefixSum (* scan, generalized prefix sum *)
+(1 .. 9).scan(times:/2) = (1 .. 9).prefixProduct
 ```
 
 ## Sequence arithmetic

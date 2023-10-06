@@ -110,6 +110,16 @@
 		a
 	}
 
+	indexOfPrime { :self |
+		| primesArray = system.primesArray; |
+		(self <= primesArray.last).if {
+			primesArray.indexOf(self)
+		} {
+			(primesArray.size + 8).primesArrayExtend(primesArray);
+			self.indexOfPrime
+		}
+	}
+
 	isByte { :self |
 		self.isInteger & {
 			self >= 0 & {
@@ -175,12 +185,16 @@
 		}
 	}
 
-	nextPrime { :self |
-		| maybePrime = self + 1; |
+	leastPrimeGreaterThanOrEqualTo { :self |
+		| maybePrime = self; |
 		{ maybePrime.isPrime.not }.whileTrue {
 			maybePrime +:= 1
 		};
 		maybePrime
+	}
+
+	nextPrime { :self |
+		(self + 1).leastPrimeGreaterThanOrEqualTo
 	}
 
 	nthPrime { :self |
@@ -190,6 +204,11 @@
 		} {
 			primesArray[self]
 		}
+	}
+
+	previousPrime { :self |
+		| index = self.leastPrimeGreaterThanOrEqualTo.indexOfPrime - 1; |
+		system.primesArray[index]
 	}
 
 	primeDivisors { :self |
@@ -253,18 +272,13 @@
 	}
 
 	primesUpTo { :self |
-		| answer = []; |
-		self.primesUpToDo { :n |
-			answer.add(n)
-		};
-		answer
+		system.primesArray.copyFromTo(1, self.nextPrime.indexOfPrime - 1)
 	}
 
 	primesUpToDo { :self :aBlock:/1 |
-		| n = 2; |
-		{ n <= self }.whileTrue {
-			aBlock(n);
-			n := n.nextPrime
+		| primesArray = system.primesArray; |
+		1.toDo(self.leastPrimeGreaterThanOrEqualTo.indexOfPrime) { :index |
+			aBlock(primesArray[index])
 		}
 	}
 

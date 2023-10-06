@@ -8,17 +8,19 @@
 			pf2 = self.denominator.primeFactors.collect(negated:/1),
 			pf3 = (pf1 ++ pf2).Bag
 		)|
-		[3, 5, 7, 11, 13].select { :each |
-			each <= limit
-		}.collect { :each |
+		limit.primesUpTo.allButFirst.collect { :each |
 			pf3.occurrencesOf(each) - pf3.occurrencesOf(each.negated)
 		}
 	}
 
 	latticeVectorString { :self :limit |
-		self.latticeVector(limit).collect { :each |
-			each.asString.padLeft(2, ' ')
-		}.joinSeparatedBy(' ')
+		(self.primeLimit > limit).if {
+			'*'
+		} {
+			self.latticeVector(limit).collect { :each |
+				each.asString.padLeft(2, ' ')
+			}.joinSeparatedBy(' ')
+		}
 	}
 
 }
@@ -37,6 +39,27 @@
 
 	wilsonLatticeCoordinates { :self |
 		self.latticeCoordinates([20@0, 0@20, 4@3, -3@4, -1@2])
+	}
+
+}
+
++@Tuning {
+
+	latticeEdges { :self :vertices |
+		| indices = [1 .. self.degree], answer = []; |
+		indices.combinationsAtATimeDo(2) { :each |
+			| [i, j] = each; |
+			(vertices[i].latticeDistance(vertices[j]) = 1).ifTrue {
+				answer.add(each.copy)
+			}
+		};
+		answer
+	}
+
+	latticeVertices { :self |
+		self.ratios.collect { :each |
+			each.latticeVector(self.limit)
+		}
 	}
 
 }

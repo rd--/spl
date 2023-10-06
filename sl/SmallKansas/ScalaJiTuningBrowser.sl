@@ -46,18 +46,32 @@
 +JiTuning {
 
 	htmlView { :self |
-		| ratios = self.ratios, div = 'div'.createElement; |
+		|(
+			ratios = self.ratios,
+			vectorLimit = self.limit.min(13),
+			div = 'div'.createElement
+		)|
 		div.appendChildren([
+			[
+				['Degree', self.degree.asString],
+				['Limit', self.limit.asString],
+				['Description', self.description],
+				['Octave', self.octave.asString]
+			].asHtmlTable,
 			[
 				[1 .. self.degree],
 				ratios,
 				ratios.collect { :each |
-					each.latticeVectorString(self.limit)
+					each.latticeVectorString(vectorLimit)
 				},
 				self.cents.rounded,
 				self.integers
 			].transposed.asHtmlTable,
-			self.latticeDrawing
+			(self.limit > 13).if {
+				'No drawing'.TextParagraph
+			} {
+				self.latticeDrawing
+			}
 		]);
 		div
 	}
@@ -129,7 +143,15 @@
 				'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
 				'application/json',
 				{ :item |
-					item.collect(JiTuning:/1)
+					item.collect { :each |
+						each.includesKey('octave').if {
+							| [numerator, denominator] = each::octave; |
+							each::octave := Fraction(numerator, denominator)
+						} {
+							each::octave := 2:1
+						};
+						each.JiTuning
+					}
 				}
 			)
 		)
