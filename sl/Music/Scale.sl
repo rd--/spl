@@ -1,6 +1,6 @@
 Scale : [Object] { | startDegree intervals description |
 
-	degree { :self |
+	size { :self |
 		self.intervals.size
 	}
 
@@ -8,7 +8,16 @@ Scale : [Object] { | startDegree intervals description |
 		['Scale(', self.startDegree, ', ', self.intervals, ', "', self.description, '")'].join
 	}
 
-	tuningDegree { :self |
+	tuningIndices { :self |
+		| sum = self.startDegree, answer = [sum], tuningSize = self.tuningSize; |
+		self.intervals.allButLastDo { :item |
+			sum := ((sum - 1 + item) % tuningSize) + 1; (* one-indexed modulo *)
+			answer.add(sum)
+		};
+		answer
+	}
+
+	tuningSize { :self |
 		self.intervals.sum
 	}
 

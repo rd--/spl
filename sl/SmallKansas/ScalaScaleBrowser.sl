@@ -2,39 +2,41 @@
 
 	ScalaScaleBrowser { :self :scalaModenam |
 		|(
-			degrees = scalaModenam.collect(degree:/1).withoutDuplicates.sort.collect(asString:/1),
-			selectedDegree = nil,
-			selectedTuningDegree = nil
+			sizes = scalaModenam.collect(size:/1).withoutDuplicates.sort.collect(asString:/1),
+			selectedSize = nil,
+			selectedTuningSize = nil
 		)|
 		self.ColumnBrowser('Scala Scale Browser', 'text/plain', false, true, [1, 1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
-					browser.setStatus('Degree/TuningDegree/Name');
-					degrees
+					browser.setStatus('Size/TuningSize/Name');
+					sizes
 				},
 				1 -> {
-					browser.setStatus('Degree = ' ++ path[1]);
-					selectedDegree := path[1].parseInteger(10);
+					browser.setStatus('Size = ' ++ path[1]);
+					selectedSize := path[1].parseInteger(10);
 					scalaModenam.select { :each |
-						each.degree = selectedDegree
+						each.size = selectedSize
 					}.collect { :each |
-						each.tuningDegree
+						each.tuningSize
 					}.withoutDuplicates.sort.collect(asString:/1)
 				},
 				2 -> {
-					browser.setStatus(['Degree = ', path[1], ', TuningDegree = ', path[2]].join);
-					selectedTuningDegree := path[2].parseInteger(10);
+					browser.setStatus(['Size = ', path[1], ', TuningSize = ', path[2]].join);
+					selectedTuningSize := path[2].parseInteger(10);
 					scalaModenam.select { :each |
-						each.degree = selectedDegree & {
-							each.tuningDegree = selectedTuningDegree
+						each.size = selectedSize & {
+							each.tuningSize = selectedTuningSize
 						}
 					}.collect(description:/1)
 				},
 				3 -> {
+					| modenam |
 					browser.setStatus(path[3]);
-					scalaModenam.detect { :each |
+					modenam := scalaModenam.detect { :each |
 						each.description = path[3]
-					}.printString
+					};
+					[modenam.printString, modenam.tuningIndices.printString].unlines
 				}
 			])
 		}
@@ -51,7 +53,10 @@
 				'https://rohandrape.net/sw/hmt/data/json/scala-modenam.json',
 				'application/json',
 				{ :item |
-					item.collect(Scale:/1)
+					item.collect { :each |
+						| [zeroIndexedStartDegree, intervals, description] = each; |
+						Scale(zeroIndexedStartDegree + 1, intervals, description)
+					}
 				}
 			)
 		)
