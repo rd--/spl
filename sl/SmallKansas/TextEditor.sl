@@ -167,7 +167,7 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 			},
 			MenuItem('Reset Synthesiser', '.') { :event |
 				system.clock.removeAll;
-				system.defaultScSynth.reset
+				system.scSynth.reset
 			}
 		]
 	}

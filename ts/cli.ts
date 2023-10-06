@@ -45,7 +45,7 @@ declare global {
 	var globalScSynth: sc.ScSynth;
 }
 
-const cliScSynth = scUdp.sc3_udp_init(scUdp.defaultScSynthAddress);
+const cliScSynth = scUdp.ScSynthUdp(scUdp.defaultScSynthAddress);
 
 async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	const loadPath = opt.dir || getSplDir() || './';
@@ -86,7 +86,7 @@ async function scEvalFile(fileName: string): Promise<unknown> {
 
 function scPlayText(splText: string): void {
 	const ugenGraph: sc.Signal = <sc.Signal>evaluateInteractive(splText);
-	sc.playUgenAt(cliScSynth, ugenGraph, -1, 1, [], null);
+	cliScSynth.playUgenAt(ugenGraph, -1, 1, [], null);
 }
 
 async function scPlayFile(fileName: string): Promise<void> {

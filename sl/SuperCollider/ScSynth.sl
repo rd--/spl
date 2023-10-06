@@ -7,16 +7,12 @@ ScSynth! : [Object] {
 		onMessage
 	}
 
-	boot { :self |
-		<primitive: return _self.boot();>
+	connect { :self |
+		<primitive: return _self.connect();>
 	}
 
-	hasIoUgens { :self |
-		<primitive: return _self.hasIoUgens;>
-	}
-
-	langPort { :self |
-		<primitive: return _self.langPort;>
+	isConnected { :self |
+		<primitive: return _self.isConnected();>
 	}
 
 	options { :self |
@@ -28,7 +24,7 @@ ScSynth! : [Object] {
 	}
 
 	pseudoSlotNameArray { :self |
-		['options', 'oscListeners', 'hasIoUgens', 'readyState', 'synthPort', 'langPort', 'status']
+		['options', 'oscListeners', 'readyState', 'status', 'useIoUgens']
 	}
 
 	readyState { :self |
@@ -52,15 +48,19 @@ ScSynth! : [Object] {
 		<primitive: return _self.status;>
 	}
 
-	synthPort { :self |
-		<primitive: return _self.synthPort;>
+	useIoUgens { :self |
+		<primitive: return _self.useIoUgens;>
+	}
+
+	useWebSocket { :self :address |
+		<primitive: return sc.scSynthUseWebSocket(_self, _address);>
 	}
 
 }
 
 +System {
 
-	defaultScSynth { :self |
+	scSynth { :self |
 		<primitive: return globalScSynth;>
 	}
 

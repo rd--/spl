@@ -86,6 +86,6 @@ SfAcquire('piano-c5', 2, [1, 2]) = -1
 
 ## System -- extensions
 ```
-system.defaultScSynth.typeOf = 'ScSynth'
-system.defaultScSynth.isScSynth
+system.scSynth.typeOf = 'ScSynth'
+system.scSynth.isScSynth
 ```

@@ -5,8 +5,8 @@ ScSynthStatusMonitor : [Object, SmallKansan] {
 			textEditor = smallKansas.TextEditor(self.title, 'text/html', '---'),
 			frame = smallKansas.addFrameWithAnimator(textEditor, event, 1) {
 				textEditor.setEditorText(
-					(system.defaultScSynth.readyState = 'connected').if {
-						system.defaultScSynth.status.asHtmlTable(asString:/1).outerHTML
+					system.scSynth.isConnected.if {
+						system.scSynth.status.asHtmlTable(asString:/1).outerHTML
 					} {
 						'---'
 					}

@@ -77,7 +77,7 @@
 
 (defun spl-reset-scsynth ()
   (interactive)
-  (spl-netcat-cmd 'evalText 'text "system.defaultScSynth.reset"))
+  (spl-netcat-cmd 'evalText 'text "system.scSynth.reset"))
 
 (defun spl-stop ()
   (interactive)
