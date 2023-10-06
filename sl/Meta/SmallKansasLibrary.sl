@@ -36,6 +36,7 @@
 	'ProgramOracle'
 	'ScalaJiMetaBrowser'
 	'ScalaJiTuningBrowser'
+	'ScalaScaleBrowser'
 	'ScSynthStatusMonitor'
 	'SvgViewer'
 	'SystemBrowser'

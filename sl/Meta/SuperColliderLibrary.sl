@@ -6,6 +6,7 @@
 	'RatioTuning'
 	'JiTuning'
 	'Pitch'
+	'Scale'
 
 	(* Protocol *)
 	'OpenSoundControl'

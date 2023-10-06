@@ -79,8 +79,12 @@
 
 +SmallKansas {
 
-	ScalaJiTuningBrowser { :self :jiTuning |
-		| degrees = jiTuning.collect(degree:/1).values.withoutDuplicates.sort.collect(asString:/1); |
+	ScalaJiTuningBrowser { :self :jiTunings |
+		|(
+			degrees = jiTunings.collect(degree:/1).values.withoutDuplicates.sort.collect(asString:/1),
+			selectedDegree = nil,
+			selectedLimit = nil
+		)|
 		self.ColumnBrowser('Scala Ji Tuning Browser', 'text/html', false, true, [1, 1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
@@ -89,24 +93,26 @@
 				},
 				1 -> {
 					browser.setStatus('Degree = ' ++ path[1]);
-					jiTuning.select { :each |
-						each.degree = path[1].parseInteger(10)
+					selectedDegree := path[1].parseInteger(10);
+					jiTunings.select { :each |
+						each.degree = selectedDegree
 					}.collect { :each |
 						each.limit
 					}.values.withoutDuplicates.sort.collect(asString:/1)
 				},
 				2 -> {
 					browser.setStatus(['Degree = ', path[1], ', Limit = ', path[2]].join);
-					jiTuning.select { :each |
-						each.degree = path[1].parseInteger(10) & {
-							each.limit = path[2].parseInteger(10)
+					selectedLimit := path[2].parseInteger(10);
+					jiTunings.select { :each |
+						each.degree = selectedDegree & {
+							each.limit = selectedLimit
 						}
 					}.indices
 				},
 				3 -> {
-					| ji = jiTuning[path[3]]; |
-					browser.setStatus(ji.description);
-					ji.htmlView.outerHTML
+					| jiTuning = jiTunings[path[3]]; |
+					browser.setStatus(jiTuning.description);
+					jiTuning.htmlView.outerHTML
 				}
 			])
 		}

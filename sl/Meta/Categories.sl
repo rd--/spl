@@ -107,6 +107,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 	],
 	'Music-Tuning': [
 		'JiTuning'
+		'Scale'
 	],
 	'Sound-OpenSoundControl': [
 		'OscBundle'
@@ -139,6 +140,11 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'TableViewer'
 		'TextEditor'
 		'TranscriptViewer'
+	],
+	'SmallKansas-Music': [
+		'ScalaJiMetaBrowser'
+		'ScalaJiTuningBrowser'
+		'ScalaScaleBrowser'
 	],
 	'Navigator': [
 		'Location'
@@ -849,6 +855,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'RatioTuning'
 		'IntegerTuning'
 		'CentsTuning'
+		'Scale'
 	],
 	'instance creation-small kansas': [
 		'ColourChooser'
