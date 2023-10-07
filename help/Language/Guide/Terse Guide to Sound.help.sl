@@ -20,6 +20,14 @@ IntegerTuning('', '', [63 72 84 98 112], 2).ratios = [1:1 8:7 4:3 14:9 16:9]
 RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2) = IntegerTuning('', '', [63 72 84 98 112], 2)
 ```
 
+## Music-Scale
+```
+| s = Scale(1, [2 2 1 2 2 2 1], 'Major'); | (1 .. 7).collect { :degree | s.integerDegreeToKey(degree, 0) } = [1 3 5 6 8 10 12]
+| s = Scale(1, [2 2 1 2 2 2 1], 'Major'); | [1 1.sharp 2 2.sharp 3 4 4.sharp 5 5.sharp 6 6.sharp 7].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
+| s = Scale(1, [2 2 1 2 2 2 1], 'Major'); | [1 2.flat 2 3.flat 3 4 5.flat 5 6.flat 6 7.flat 7].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
+| s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); | [1 2.flat 2 3 3.sharp 4 5.flat 5 6 6.sharp 7 7.sharp].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
+```
+
 ## Music-Pitch
 ```
 69.midiNoteNumber = 440.hertz (* frequency from midi note number *)
