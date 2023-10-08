@@ -1,8 +1,25 @@
 # Terse Guide to Sound
 
+## Music-Tuning
+```
+[1 9:8 5:4 4:3 3:2 2].collect(ratioToCents:/1).rounded = [0 204 386 498 702 1200]
+[0 203.9 386.3 498 701.9 1200].collect(centsToRatio:/1) ~ [1 9:8 5:4 4:3 3:2 2]
+12.equalTemperamentTuning.name = 'ET-12'
+12.equalTemperamentTuning.description = 'Twelve tone equal-temperament'
+12.equalTemperamentTuning.cents = [0 100 200 300 400 500 600 700 800 900 1000 1100]
+12.equalTemperamentTuning.octave = 2
+12.equalTemperamentTuning.ratios.collect(asFraction:/1) = [1 18:17 46:41 107:90 63:50 4:3 140:99 3:2 73:46 37:22 139:78 185:98]
+7.equalTemperamentTuning.cents.rounded = [0 171 343 514 686 857 1029]
+7.equalTemperamentTuning.ratios.collect(asFraction:/1) = [1 85:77 89:73 35:26 107:72 64:39 163:90]
+[1 6:5 4:3 3:2 8:5].RatioTuning.ratios = [1 6:5 4:3 3:2 8:5]
+[1 6:5 4:3 3:2 8:5].RatioTuning.cents.rounded = [0 316 498 702 814]
+[1 6:5 4:3 3:2 8:5].RatioTuning.integers = [30 36 40 45 48]
+[1 6:5 4:3 3:2 8:5].RatioTuning.octave = 2
+```
+
 ## Music-JiTuning
 ```
-| t = [63, 72, 84, 98, 112].JiTuning; | [t.limit, t.degree, t.octave] = [7, 5, 2]
+| t = [63, 72, 84, 98, 112].JiTuning; | [t.limit, t.size, t.octave] = [7, 5, 2]
 | t = [63, 72, 84, 98, 112].JiTuning; | t.ratios = [1, 8:7, 4:3, 14:9, 16:9]
 | t = [63, 72, 84, 98, 112].JiTuning; | t.cents.rounded = [0, 231, 498, 765, 996]
 | r = [1, 8:7, 4:3, 14:9, 16:9]; | [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1:63, 112]
@@ -14,7 +31,7 @@
 
 ## Music-RatioTuning
 ```
-| r = RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2); | [r.degree, r.limit, r.cents.rounded] = [5 7 [0 231 498 765 996]]
+| r = RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2); | [r.size, r.limit, r.cents.rounded] = [5 7 [0 231 498 765 996]]
 RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2).integers =  [63 72 84 98 112]
 IntegerTuning('', '', [63 72 84 98 112], 2).ratios = [1:1 8:7 4:3 14:9 16:9]
 RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2) = IntegerTuning('', '', [63 72 84 98 112], 2)

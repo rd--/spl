@@ -1,6 +1,6 @@
 (* Requires: Fraction RatioTuning Tuning *)
 
-JiTuning : [Object, Tuning] { | tuning limit degree |
+JiTuning : [Object, Tuning] { | tuning limit |
 
 	cents { :self |
 		self.tuning.cents
@@ -30,16 +30,20 @@ JiTuning : [Object, Tuning] { | tuning limit degree |
 		self.tuning.ratios
 	}
 
+	size { :self |
+		self.tuning.size
+	}
+
 }
 
 +RatioTuning {
 
 	JiTuning { :self |
-		JiTuning(self, self.limit, self.degree)
+		JiTuning(self, self.limit)
 	}
 
-	JiTuning { :self :limit :degree |
-		newJiTuning().initializeSlots(self, limit, degree)
+	JiTuning { :self :limit |
+		newJiTuning().initializeSlots(self, limit)
 	}
 
 }
@@ -47,10 +51,10 @@ JiTuning : [Object, Tuning] { | tuning limit degree |
 +String {
 
 	JiTuning { :self :description :ratiosOrIntegers :octave |
-		JiTuning(self, description, ratiosOrIntegers, octave, nil, nil)
+		JiTuning(self, description, ratiosOrIntegers, octave, nil)
 	}
 
-	JiTuning { :self :description :ratiosOrIntegers :octave :limit :degree |
+	JiTuning { :self :description :ratiosOrIntegers :octave :limit |
 		|(
 			tuning = ratiosOrIntegers.allSatisfy(isSmallInteger:/1).if {
 				IntegerTuning(self, description, ratiosOrIntegers, octave)
@@ -62,9 +66,9 @@ JiTuning : [Object, Tuning] { | tuning limit degree |
 				}
 			}
 		)|
-		JiTuning(tuning,
-			limit ? { tuning.limit },
-			degree ? { tuning.degree }
+		JiTuning(
+			tuning,
+			limit ? { tuning.limit }
 		)
 	}
 
@@ -78,8 +82,7 @@ JiTuning : [Object, Tuning] { | tuning limit degree |
 			self::description,
 			self::tuning,
 			self::octave :? { 2:1 },
-			self::limit,
-			self::degree
+			self::limit
 		)
 	}
 

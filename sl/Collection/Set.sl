@@ -83,19 +83,26 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 	}
 
 	remove { :self :anObject |
-		<primitive:
-		if(_self.has(_anObject)) {
-			_self.delete(_anObject);
-			return _anObject;
+		self.removeIfAbsent(anObject) {
+			self.error('remove: item does not exist')
 		}
-		>
-		self.error('remove: item does not exist')
 	}
 
 	removeAll { :self |
 		<primitive:
 		_self.clear();
 		return null;
+		>
+	}
+
+	removeIfAbsent { :self :anObject :aBlock:/0 |
+		<primitive:
+		if(_self.has(_anObject)) {
+			_self.delete(_anObject);
+			return _anObject;
+		} else {
+			return _aBlock_0();
+		}
 		>
 	}
 

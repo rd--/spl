@@ -1726,8 +1726,8 @@ system.cache::primesArray[23] = 83 (* nthPrime extends the primesArray cache as 
 60.primeFactors = [2, 2, 3, 5] (* prime factors *)
 [2, 2, 3, 5].product = 60 (* product is the inverse of primeFactors *)
 1.primeFactors = [] (* the prime factors of one is empty *)
-60.primeFactors.product = 60
-315.primeFactors = [3, 3, 5, 7] (* prime factors *)
+60.primeFactors.product = 60 (* product of prime factors is identity *)
+315.primeFactors.Set = [3, 5, 7].Set (* prime factors, set *)
 2588.primeFactors = [2, 2, 647] (* prime factors *)
 2...15.select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
 2...999.allSatisfy { :each | each = each.primeFactors.product } = true (* equality with product of factors *)

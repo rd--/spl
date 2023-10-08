@@ -2,24 +2,33 @@
 
 +Fraction {
 
-	latticeVector { :self :limit |
+	latticePrimes { :self |
+		| answer = Set(); |
+		answer.includeAll(self.numerator.primeFactors);
+		answer.includeAll(self.denominator.primeFactors);
+		answer.removeIfAbsent(2) {
+		};
+		answer
+	}
+
+	latticeVector { :self :primes |
 		|(
 			pf1 = self.numerator.primeFactors,
 			pf2 = self.denominator.primeFactors.collect(negated:/1),
 			pf3 = (pf1 ++ pf2).Bag
 		)|
-		limit.primesUpTo.allButFirst.collect { :each |
+		primes.collect { :each |
 			pf3.occurrencesOf(each) - pf3.occurrencesOf(each.negated)
 		}
 	}
 
-	latticeVectorString { :self :limit |
-		(self.primeLimit > limit).if {
-			'*'
-		} {
-			self.latticeVector(limit).collect { :each |
+	latticeVectorString { :self :primes |
+		primes.includesAllOf(self.latticePrimes).if {
+			self.latticeVector(primes).collect { :each |
 				each.asString.padLeft(2, ' ')
 			}.joinSeparatedBy(' ')
+		} {
+			'*'
 		}
 	}
 
@@ -46,7 +55,7 @@
 +@Tuning {
 
 	latticeEdges { :self :vertices |
-		| indices = [1 .. self.degree], answer = []; |
+		| indices = [1 .. self.size], answer = []; |
 		indices.combinationsAtATimeDo(2) { :each |
 			| [i, j] = each; |
 			(vertices[i].latticeDistance(vertices[j]) = 1).ifTrue {
@@ -56,9 +65,17 @@
 		answer
 	}
 
-	latticeVertices { :self |
+	latticePrimes { :self |
+		| answer = Set(); |
+		self.ratios.do { :each |
+			answer.includeAll(each.latticePrimes)
+		};
+		answer
+	}
+
+	latticeVertices { :self :primes |
 		self.ratios.collect { :each |
-			each.latticeVector(self.limit)
+			each.latticeVector(primes)
 		}
 	}
 

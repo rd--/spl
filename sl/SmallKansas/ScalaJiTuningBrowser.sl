@@ -49,40 +49,56 @@
 		|(
 			ratios = self.ratios,
 			vectorLimit = self.limit.min(13),
+			limitPrimes = vectorLimit.primesUpTo.allButFirst,
+			tuningPrimes = self.latticePrimes.Array.sorted,
+			primesVector = (self.limit <= 13).if {
+				limitPrimes
+			} {
+				(tuningPrimes.size <= 5).if {
+					tuningPrimes
+				} {
+					nil
+				}
+			},
 			div = 'div'.createElement
 		)|
 		div.appendChildren([
 			[
-				['Degree', self.degree.asString],
+				['Size', self.size.asString],
 				['Limit', self.limit.asString],
 				['Description', self.description],
-				['Octave', self.octave.asString]
+				['Octave', self.octave.asString],
+				['Primes', tuningPrimes.asString]
 			].asHtmlTable,
 			[
-				[1 .. self.degree],
+				[1 .. self.size],
 				ratios,
 				ratios.collect { :each |
-					each.latticeVectorString(vectorLimit)
+					primesVector.ifNil {
+						'*'
+					} {
+						each.latticeVectorString(primesVector)
+					}
 				},
 				self.cents.rounded,
 				self.integers
 			].transposed.asHtmlTable,
-			(self.limit > 13).if {
+			primesVector.ifNil {
 				'No drawing'.TextParagraph
 			} {
-				self.latticeDrawing
+				self.latticeDrawing(limitPrimes)
 			}
 		]);
 		div
 	}
 
-	latticeDrawing { :self |
-		self.latticeGraph.drawing(1, identity:/1)
+	latticeDrawing { :self :primes |
+		self.latticeGraph(primes).drawing(1, identity:/1)
 	}
 
-	latticeGraph { :self |
+	latticeGraph { :self :primes |
 		|(
-			vertices = self.latticeVertices,
+			vertices = self.latticeVertices(primes),
 			edges = self.latticeEdges(vertices),
 			points = vertices.collect(wilsonLatticeCoordinates:/1) * 4
 		)|
@@ -95,30 +111,30 @@
 
 	ScalaJiTuningBrowser { :self :jiTunings |
 		|(
-			degrees = jiTunings.collect(degree:/1).values.withoutDuplicates.sort.collect(asString:/1),
-			selectedDegree = nil,
+			sizes = jiTunings.collect(size:/1).values.withoutDuplicates.sort.collect(asString:/1),
+			selectedSize = nil,
 			selectedLimit = nil
 		)|
 		self.ColumnBrowser('Scala Ji Tuning Browser', 'text/html', false, true, [1, 1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
-					browser.setStatus('Degree/Limit/Name');
-					degrees
+					browser.setStatus('Size/Limit/Name');
+					sizes
 				},
 				1 -> {
-					browser.setStatus('Degree = ' ++ path[1]);
-					selectedDegree := path[1].parseInteger(10);
+					browser.setStatus('Size = ' ++ path[1]);
+					selectedSize := path[1].parseInteger(10);
 					jiTunings.select { :each |
-						each.degree = selectedDegree
+						each.size = selectedSize
 					}.collect { :each |
 						each.limit
 					}.values.withoutDuplicates.sort.collect(asString:/1)
 				},
 				2 -> {
-					browser.setStatus(['Degree = ', path[1], ', Limit = ', path[2]].join);
+					browser.setStatus(['Size = ', path[1], ', Limit = ', path[2]].join);
 					selectedLimit := path[2].parseInteger(10);
 					jiTunings.select { :each |
-						each.degree = selectedDegree & {
+						each.size = selectedSize & {
 							each.limit = selectedLimit
 						}
 					}.indices

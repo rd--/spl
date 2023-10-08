@@ -25,7 +25,8 @@
 
 	removeAllFoundIn { :self :aCollection |
 		aCollection.do { :each |
-			self.removeIfAbsent(each) { }
+			self.removeIfAbsent(each) {
+			}
 		};
 		aCollection
 	}

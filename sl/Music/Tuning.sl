@@ -4,10 +4,6 @@
 		self.typeResponsibility('cents')
 	}
 
-	degree { :self |
-		self.typeResponsibility('degree')
-	}
-
 	integers { :self |
 		self.typeResponsibility('integers')
 	}
@@ -32,6 +28,22 @@
 
 	ratios { :self |
 		self.typeResponsibility('ratios')
+	}
+
+	size { :self |
+		self.typeResponsibility('size')
+	}
+
+}
+
++@Number {
+
+	centsToRatio { :self |
+		2 ^ ((self / 100) * (1 / 12))
+	}
+
+	ratioToCents { :self |
+		(12 * self.log2) * 100
 	}
 
 }

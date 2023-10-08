@@ -18,20 +18,20 @@ RatioTuning : [Object, Tuning] { | name description ratios octave |
 		}
 	}
 
-	degree { :self |
-		self.ratios.size
-	}
-
 	integers { :self |
 		(self.ratios / self.ratios.reduce(gcd:/2)).collect(asInteger:/1)
 	}
 
 	isRational { :self |
-		true
+		self.ratios.allSatisfy(isFraction:/1)
 	}
 
 	limit { :self |
 		self.ratios.collect(primeLimit:/1).max
+	}
+
+	size { :self |
+		self.ratios.size
 	}
 
 }
@@ -49,6 +49,14 @@ RatioTuning : [Object, Tuning] { | name description ratios octave |
 
 	RatioTuning { :self :description :ratios :octave |
 		newRatioTuning().initializeSlots(self, description, ratios, octave)
+	}
+
+}
+
++@Sequenceable {
+
+	RatioTuning { :self |
+		RatioTuning('Unnamed tuning', 'Undescribed tuning', self, 2)
 	}
 
 }
