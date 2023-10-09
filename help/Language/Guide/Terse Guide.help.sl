@@ -477,7 +477,12 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].collectThenSelect(squared:/1) { :each | each > 36 } = [49, 64, 81] (* avoid intermediate collection *)
 [1, 3 .. 9].union([3 .. 7]) = [1, 3, 4, 5, 6, 7, 9].Set (* set theoretic union, unicode = ∪ *)
 | a = [1 .. 9]; | a.removeAllSuchThat(even:/1); a = [1, 3 .. 9] (* remove elements selected by predicate *)
-| a = [1 .. 9]; | a.removeAllFoundIn([1, 3 .. 9]); a = [2, 4 .. 8] (* remove elements found in a collection *)
+| a = [1 2 2]; | a.removeAllSuchThat { :each | each = 2 }; a = [1] (* remove elements selected by predicate, answers copy of self *)
+| a = [1 2 2]; | a.removeAllSuchThat { :each | each = 3 }; a = [1 2 2] (* it is not an error if no elements match *)
+| a = [1 2 2 3 3 3]; | a.removeAllEqualTo(3); a = [1 2 2] (* remove all elements equal to argument *)
+| a = [1 .. 9], b = [1, 3 .. 9], c = [2, 4 .. 8]; | a.removeAllFoundIn(b) == b & { a = c } (* remove elements found in a collection *)
+| a = [1 2 2 3 3 3]; | a.without(3) = [1 2 2] (* remove all elements equal to argument and answer self *)
+| a = [1 2 2 3 3 3]; | a.withoutAll([1, 3]) = [2 2] (* remove all elements equal to argument and answer self *)
 5.arithmeticSeries(1, 2) = [1, 3 .. 9] (* arithmetic series (size from by) *)
 5.geometricSeries(1, 2) = [1, 2, 4, 8, 16] (* geometric series (size from by) *)
 Array(3).size = 3
@@ -2109,7 +2114,7 @@ var d = Map(); d[1] := 'x'; d[1] = 'x'
 var d = Map(); d['x'] := 1; d.removeKey('x'); d.isEmpty = true
 var d = (f: { :i | i * i }); d::f.value(9) = 81
 { Map().removeKey('unknownKey') }.ifError { true }
-(x: 1, y: 1).withoutDuplicates = (x: 1)
+(x: 1, y: 1).copyWithoutDuplicates = (x: 1)
 var d = Map(); 1.toDo(100) { :i | d[i] := i; (i > 10).ifTrue { d.removeKey(i - 10) } }; d.size = 10
 var c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.removeKey(1); c.includesIndex(1) = false
 (x: 1, y: 2).Map.includesIndex('x') (* Record to Map, map includes key predicate *)
@@ -2801,8 +2806,8 @@ var c = [3, 2, 1], r = c.sorted; c ~= r (* sorted (answer a new array) *)
 [1, 9, 2, 8, 3, 7, 4, 6].pairsCollect { :i :j | i + j } = [10, 10, 10, 10]
 var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printString }; s = '10101010'
 var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291' (* do from end *)
-[1, 2, 2, 3, 3, 3, 4, 4, 4, 4].withoutDuplicates = [1, 2, 3, 4] (* copy without duplicates, retain order *)
-([1, 3 .. 9] ++ [1, 3 .. 9] ++ [2, 4 .. 10] ++ [2, 4 .. 10]).withoutDuplicates = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
+[1, 2, 2, 3, 3, 3, 4, 4, 4, 4].copyWithoutDuplicates = [1, 2, 3, 4] (* copy without duplicates, retain order *)
+([1, 3 .. 9] ++ [1, 3 .. 9] ++ [2, 4 .. 10] ++ [2, 4 .. 10]).copyWithoutDuplicates = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
 1...9.hasEqualElements((1 .. 9)) (* an array is not equal to an interval, but can have equal elements *)
 (1 .. 9).hasEqualElements(1...9) (* an interval is not equal to an array, but can have equal elements *)
 [1 .. 9] ~= 1...9 (* an array is not equal to an interval *)
@@ -3266,6 +3271,12 @@ pi.asString = '3.141592653589793' (* float as string *)
 `"x"` = '"x"' (* backtick quotes quoting double quote *)
 `x'""'y` = 'x\'""\'y'.parseBacktickQuotedString
 "'x'" = '\'x\'' (* double quotes quoting single quote *)
+'"'.first.codePoint = 34 (* double quote code point *)
+"'".first.codePoint = 39 (* single quote code point *)
+'`'.first.codePoint = 96 (* back tick quote code point *)
+'"quoted"'.withoutQuoting = 'quoted' (* remove double quotes *)
+"'quoted'".withoutQuoting = 'quoted' (* remove single quotes *)
+'`quoted`'.withoutQuoting = 'quoted' (* remove backtick quotes *)
 "`x`" = '`x`' (* double quotes quoting backtick quote *)
 "'x'" = '\'x\''.parseDoubleQuotedString
 'string'[3] = 'r'.Character (* string indexing *)

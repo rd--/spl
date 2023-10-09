@@ -43,14 +43,14 @@
 
 }
 
-+JiTuning {
++RatioTuning {
 
 	htmlView { :self |
 		|(
 			ratios = self.ratios,
 			vectorLimit = self.limit.min(13),
 			limitPrimes = vectorLimit.primesUpTo.allButFirst,
-			tuningPrimes = self.latticePrimes.Array.sorted,
+			tuningPrimes = self.latticePrimes,
 			primesVector = (self.limit <= 13).if {
 				limitPrimes
 			} {
@@ -86,7 +86,7 @@
 			primesVector.ifNil {
 				'No drawing'.TextParagraph
 			} {
-				self.latticeDrawing(limitPrimes)
+				self.latticeDrawing(primesVector)
 			}
 		]);
 		div
@@ -111,7 +111,7 @@
 
 	ScalaJiTuningBrowser { :self :jiTunings |
 		|(
-			sizes = jiTunings.collect(size:/1).values.withoutDuplicates.sort.collect(asString:/1),
+			sizes = jiTunings.collect(size:/1).values.copyWithoutDuplicates.sort.collect(asString:/1),
 			selectedSize = nil,
 			selectedLimit = nil
 		)|
@@ -128,7 +128,7 @@
 						each.size = selectedSize
 					}.collect { :each |
 						each.limit
-					}.values.withoutDuplicates.sort.collect(asString:/1)
+					}.values.copyWithoutDuplicates.sort.collect(asString:/1)
 				},
 				2 -> {
 					browser.setStatus(['Size = ', path[1], ', Limit = ', path[2]].join);

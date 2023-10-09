@@ -169,6 +169,13 @@
 		}
 	}
 
+	copyWithoutDuplicates { :self |
+		| seen = Set(); |
+		self.select { :each |
+			seen.ifAbsentAdd(each)
+		}
+	}
+
 	difference { :self :aCollection |
 		self.reject { :each |
 			aCollection.includes(each)
@@ -359,13 +366,6 @@
 		| answer = self.Set; |
 		answer.includeAll(aCollection);
 		answer
-	}
-
-	withoutDuplicates { :self |
-		| seen = Set(); |
-		self.select { :each |
-			seen.ifAbsentAdd(each)
-		}
 	}
 
 }

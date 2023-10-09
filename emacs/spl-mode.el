@@ -183,6 +183,8 @@
      ("flat" . ?♭) ; U+266D ♭ Music Flat Sign
      ("sharp" . ?♯) ; U+266F ♯ Music Sharp Sign
      ("natural" . ?♮) ; U+266E ♮ Music Natural Sign
+     ("cancelFlat" . ?♮) ; U+266E ♮ Music Natural Sign
+     ("cancelSharp" . ?♮) ; U+266E ♮ Music Natural Sign
      ("quarterToneFlat" .?𝄳) ; U+1D133 𝄳 Musical Symbol Quarter Tone Flat
      ("quarterToneSharp" .?𝄲) ; U+1D132 𝄲 Musical Symbol Quarter Tone Sharp
      (":?" .?⍰) ; U+2370 ⍰ Apl Functional Symbol Quad Question ; U+291D ⤝ Leftwards arrow to black diamond

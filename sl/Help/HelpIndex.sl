@@ -34,7 +34,7 @@ HelpIndex : [Object] { | contents |
 			each.first = area & {
 				each.second = kind
 			}
-		}.collect(third:/1).withoutDuplicates.sort
+		}.collect(third:/1).copyWithoutDuplicates.sort
 	}
 
 	url { :self :area :kind :name |

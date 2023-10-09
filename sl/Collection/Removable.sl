@@ -23,6 +23,12 @@
 		aCollection
 	}
 
+	removeAllEqualTo { :self :oldObject |
+		self.removeAllSuchThat { :each |
+			each = oldObject
+		}
+	}
+
 	removeAllFoundIn { :self :aCollection |
 		aCollection.do { :each |
 			self.removeIfAbsent(each) {
@@ -41,6 +47,20 @@
 
 	removeIfAbsent { :self :oldObject :anExceptionBlock |
 		self.typeResponsibility('@Collection>>removeIfAbsent')
+	}
+
+	without { :self :oldObject |
+		self.removeAllSuchThat { :each |
+			each = oldObject
+		};
+		self
+	}
+
+	withoutAll { :self :aCollection |
+		self.removeAllSuchThat { :each |
+			aCollection.includes(each)
+		};
+		self
 	}
 
 }

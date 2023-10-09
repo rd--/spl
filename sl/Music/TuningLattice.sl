@@ -6,9 +6,7 @@
 		| answer = Set(); |
 		answer.includeAll(self.numerator.primeFactors);
 		answer.includeAll(self.denominator.primeFactors);
-		answer.removeIfAbsent(2) {
-		};
-		answer
+		answer.without(2).Array.sort
 	}
 
 	latticeVector { :self :primes |
@@ -70,7 +68,7 @@
 		self.ratios.do { :each |
 			answer.includeAll(each.latticePrimes)
 		};
-		answer
+		answer.Array.sort
 	}
 
 	latticeVertices { :self :primes |

@@ -541,6 +541,21 @@ String! : [Object, Json, Iterable] {
 		<primitive: return _self.trimStart();>
 	}
 
+	withoutQuoting { :self |
+		(self.size < 2).if {
+			self
+		} {
+			| quote = self.first; |
+			(quote = self.last).and {
+				[34, 39, 96].includes(quote.codePoint)
+			}.if {
+				self.copyFromTo(2, self.size - 1)
+			} {
+				self
+			}
+		}
+	}
+
 	withoutTrailingBlanks { :self |
 		<primitive: return _self.trimEnd();>
 	}

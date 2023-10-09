@@ -93,6 +93,14 @@
 
 +@Number {
 
+	cancelFlat { :self |
+		self + 0.1
+	}
+
+	cancelSharp { :self |
+		self - 0.1
+	}
+
 	flat { :self |
 		self - 0.1
 	}

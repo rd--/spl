@@ -1,7 +1,12 @@
+# Keyed
+
+Keyed as Trait, implemented by Map and Record.
+
 # Help
 
 Help provides category names, after final '-- ' on initial line.
 HelpIndex as Spl package.
+Document adverbs.
 
 # Constructor
 

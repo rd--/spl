@@ -15,6 +15,12 @@
 [1 6:5 4:3 3:2 8:5].RatioTuning.cents.rounded = [0 316 498 702 814]
 [1 6:5 4:3 3:2 8:5].RatioTuning.integers = [30 36 40 45 48]
 [1 6:5 4:3 3:2 8:5].RatioTuning.octave = 2
+30:17.latticePrimes = [3 5 17]
+30:17.latticeVector([3 5 17]) = [1 1 -1]
+30:17.latticeVectorString([3 5 17]) = ' 1  1 -1'
+[1:1 10:9 20:17 4:3 3:2 5:3 30:17].RatioTuning.latticePrimes = [3 5 17] (* Average Bac System *)
+[1:1 10:9 20:17 4:3 3:2 5:3 30:17].RatioTuning.latticeVertices([3 5 17]) = [0 0 0; -2 1 0; 0 1 -1; -1 0 0; 1 0 0; -1 1 0; 1 1 -1]
+| r = [1:1 10:9 20:17 4:3 3:2 5:3 30:17], t = r.RatioTuning, p = t.latticePrimes, v = t.latticeVertices(p); | t.latticeEdges(v) = [1 4; 1 5; 2 6; 3 7; 4 6]
 ```
 
 ## Music-JiTuning
@@ -43,6 +49,7 @@ RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2) = IntegerTuning('', '', [63 72 8
 | s = Scale(1, [2 2 1 2 2 2 1], 'Major'); | [1 1.sharp 2 2.sharp 3 4 4.sharp 5 5.sharp 6 6.sharp 7].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
 | s = Scale(1, [2 2 1 2 2 2 1], 'Major'); | [1 2.flat 2 3.flat 3 4 5.flat 5 6.flat 6 7.flat 7].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
 | s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); | [1 2.flat 2 3 3.sharp 4 5.flat 5 6 6.sharp 7 7.sharp].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
+| s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); | [1 2.flat 2 3 3.cancelFlat 4 5.flat 5 6 6.cancelFlat 7 7.cancelFlat].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
 ```
 
 ## Music-Pitch

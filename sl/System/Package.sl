@@ -39,7 +39,7 @@ Package! : [Object] {
 	dependencies { :self |
 		| answer = []; |
 		self.addDependenciesTo(answer);
-		answer.withoutDuplicates
+		answer.copyWithoutDuplicates
 	}
 
 	require { :self |

@@ -685,7 +685,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'reversed'
 		'shallowCopy'
 		'veryDeepCopy'
-		'withoutDuplicates'
+		'copyWithoutDuplicates'
 	],
 	'delegating': [
 		'atDelegateTo'

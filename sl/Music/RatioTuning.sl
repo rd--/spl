@@ -1,6 +1,6 @@
 (* Requires: Fraction Tuning *)
 
-RatioTuning : [Object, Tuning] { | name description ratios octave |
+RatioTuning : [Object, Tuning] { | name description ratios octave cachedLimit |
 
 	= { :self :anObject |
 		anObject.isRatioTuning & {
@@ -27,7 +27,16 @@ RatioTuning : [Object, Tuning] { | name description ratios octave |
 	}
 
 	limit { :self |
-		self.ratios.collect(primeLimit:/1).max
+		self.cachedLimit.ifNil {
+			self.cachedLimit := self.ratios.collect(primeLimit:/1).max
+		} {
+			self.cachedLimit
+		}
+	}
+
+	limit { :self :anInteger |
+		self.cachedLimit := anInteger;
+		self
 	}
 
 	size { :self |
@@ -48,7 +57,7 @@ RatioTuning : [Object, Tuning] { | name description ratios octave |
 	}
 
 	RatioTuning { :self :description :ratios :octave |
-		newRatioTuning().initializeSlots(self, description, ratios, octave)
+		newRatioTuning().initializeSlots(self, description, ratios, octave, nil)
 	}
 
 }

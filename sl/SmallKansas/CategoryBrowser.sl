@@ -41,7 +41,7 @@ CategoryBrowser : [Object, SmallKansan] {
 					};
 					completeMethodSet.collect { :each |
 						system.categoryDictionary.categoryOf('method', each.name)
-					}.withoutDuplicates.sort
+					}.copyWithoutDuplicates.sort
 				},
 				3 -> {
 					browser.setStatus('');

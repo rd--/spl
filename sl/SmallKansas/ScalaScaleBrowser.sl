@@ -2,7 +2,7 @@
 
 	ScalaScaleBrowser { :self :scalaModenam |
 		|(
-			sizes = scalaModenam.collect(size:/1).withoutDuplicates.sort.collect(asString:/1),
+			sizes = scalaModenam.collect(size:/1).copyWithoutDuplicates.sort.collect(asString:/1),
 			selectedSize = nil,
 			selectedTuningSize = nil
 		)|
@@ -19,7 +19,7 @@
 						each.size = selectedSize
 					}.collect { :each |
 						each.tuningSize
-					}.withoutDuplicates.sort.collect(asString:/1)
+					}.copyWithoutDuplicates.sort.collect(asString:/1)
 				},
 				2 -> {
 					browser.setStatus(['Size = ', path[1], ', TuningSize = ', path[2]].join);

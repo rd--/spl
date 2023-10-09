@@ -5,7 +5,7 @@
 	PackageBrowser { :self |
 		|(
 			packages = system.packageDictionary.values.select(isLoaded:/1),
-			packageCategories = packages.collect(category:/1).withoutDuplicates.sort,
+			packageCategories = packages.collect(category:/1).copyWithoutDuplicates.sort,
 			methods = nil,
 			selectedMethod = nil
 		)|
@@ -35,7 +35,7 @@
 					methods := system.packageMethods(path[2]);
 					methods.collect { :each |
 						each.origin.qualifiedName
-					}.withoutDuplicates.sort
+					}.copyWithoutDuplicates.sort
 				},
 				3 -> {
 					system.isTypeName(path[3]).if {

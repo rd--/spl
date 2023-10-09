@@ -4,7 +4,7 @@
 
 	MethodBrowser { :self |
 		|(
-			methodNames = system.allMethods.collect(qualifiedName:/1).withoutDuplicates.sort,
+			methodNames = system.allMethods.collect(qualifiedName:/1).copyWithoutDuplicates.sort,
 			selectedMethod = nil
 		)|
 		self.ColumnBrowser('Method Browser', 'text/plain', true, true, [3, 1], nil) { :accepted |
