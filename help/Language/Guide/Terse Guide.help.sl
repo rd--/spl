@@ -1636,6 +1636,14 @@ system.includesPackage('Frequency') (* frequency package *)
 1.kilohertz.asHertz = 1000.asHertz (* hertz of frequency, or identity of number *)
 ```
 
+## Graph -- collection type
+```
+Graph(0, []).typeOf = 'Graph' (* graph type *)
+Graph(0, []).isGraph (* graph predicate *)
+| g = Graph(3, [1 2; 2 3; 3 1]); | g.size = 3 & { g.edges.size = 3 }
+Graph(3, [1 2; 2 3; 3 1], ['x' 'y' 'z'], ['i', 'j', 'k']).isValid (* query coherence *)
+```
+
 ## Hash -- murmur hash
 ```
 'String Input'.murmur3(2166136261) = [2006581733, 2651545595, 2673830536, 2103835251]

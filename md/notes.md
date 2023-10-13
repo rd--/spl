@@ -11,6 +11,8 @@ Document adverbs.
 # Constructor
 
 Allow _type_ declarations at slots, and if one is provided for the first slot make constructor.
+Type declarations could be written _| size<@Integer> |_, or | size:@Integer |
+See Graph for an instance where the constructor would be elided in this case.
 
 # Packages
 
