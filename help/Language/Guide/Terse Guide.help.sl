@@ -183,7 +183,7 @@ inf = Infinity (* Infinity is the literal for IEEE infinity, inf is a constant, 
 -3 / 0 = inf.negated (* negative division by zero is negative infinity *)
 (0 / 0).isNaN (* division of zero by zero is NaN *)
 1.isNaN.not (* one is a number *)
-4 / 0...3 = [inf, 4, 2, 4/3] (* divide by zero is infinity *)
+4 / 0...3 = [inf, 4, 2, 4 / 3] (* divide by zero is infinity *)
 inf.sign = 1
 inf.positive = true
 (0 - inf).sign = -1
@@ -1441,6 +1441,7 @@ Fraction(4, 6) ~= 2:3 (* non-reduced fraction *)
 2:3 = 4:6 (* literals are reduced by construction *)
 2 / 3:4 = 8:3 (* division *)
 2:3 + 2:3 = 4:3 (* addition *)
+2/3 + 2/3 = (8/9) (* (2 / 3 + 2) / 3 *)
 2:3 + 1:2 = 7:6 (* reduction to common denominator *)
 2:3 + 4:3 = 2 (* addition to integer *)
 1:2 - 1:2 = 0 (* subtraction *)

@@ -205,6 +205,10 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 
 +@Number {
 
+	-- { :self :stop |
+		self.upTo(stop)
+	}
+
 	downTo { :self :stop |
 		(stop > self).ifTrue {
 			self.error('downTo: non descending')

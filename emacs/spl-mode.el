@@ -191,6 +191,7 @@
      ("||" .?‖) ; U+2016 ‖ Double Vertical Line
      (".." .?‥) ; U+2025 ‥ Two Dot Leader
      ("..." .?‥) ; U+2026 … Horizontal Ellipsis; U+22ef ⋯ Midline Horizontal Ellipsis
+     ("--" .?—) ; U+2014 — Em Dash
      ("duplicate" .?!)
      )))
 
