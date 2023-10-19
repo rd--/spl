@@ -1,0 +1,3 @@
+# spl/dist
+
+The build process at spl/ts/Makefile writes spl/dist/sl.js
