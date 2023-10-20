@@ -1,7 +1,7 @@
-import { PriorityQueue } from '../lib/flatqueue/PriorityQueue.js'
-export { PriorityQueue } from '../lib/flatqueue/PriorityQueue.js'
+import { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js'
+export { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js'
 
-import { MersenneTwister } from '../lib/mersenne-twister/src/index.ts'
+import { MersenneTwister } from '../lib/scsynth-wasm-builds/lib/ext/mersenne-twister.ts'
 
 import { throwError } from '../lib/jssc3/ts/kernel/error.ts'
 

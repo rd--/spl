@@ -1,6 +1,6 @@
 import * as flags from 'https://deno.land/std/flags/mod.ts'
 
-import { osc } from '../lib/osc.js/src/osc.js'
+import { osc } from '../lib/scsynth-wasm-builds/lib/ext/osc.js'
 
 import * as udp from '../lib/jssc3/ts/kernel/udp.ts'
 import * as scUdp from '../lib/jssc3/ts/sc3/scsynth-udp.ts'
