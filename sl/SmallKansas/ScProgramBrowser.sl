@@ -1,6 +1,6 @@
 (* Requires: ColumnBrowser SmallKansas *)
 
-ProgramIndex : [Object] { | contents |
+ScProgramIndex : [Object] { | contents |
 
 	atRandom { :self |
 		self.contents.atRandom
@@ -30,8 +30,8 @@ ProgramIndex : [Object] { | contents |
 
 +String {
 
-	ProgramIndex { :self |
-		newProgramIndex().initializeSlots(
+	ScProgramIndex { :self |
+		newScProgramIndex().initializeSlots(
 			self.lines.select(notEmpty:/1).collect { :each |
 				each.replaceString('.sl', '').splitRegExp(RegExp(' - |/'))
 			}
@@ -42,13 +42,13 @@ ProgramIndex : [Object] { | contents |
 
 +@Cache {
 
-	programIndex { :self |
+	scProgramIndex { :self |
 		self.useLibraryItem(
 			LibraryItem(
-				'programIndex',
+				'scProgramIndex',
 				'https://rohandrape.net/sw/jssc3/text/smallhours-programs.text',
 				'text/plain',
-				ProgramIndex:/1
+				ScProgramIndex:/1
 			)
 		)
 	}
@@ -57,9 +57,9 @@ ProgramIndex : [Object] { | contents |
 
 +SmallKansas {
 
-	ProgramBrowser { :self :index :path |
+	ScProgramBrowser { :self :index :path |
 		self.ColumnBrowser(
-			'Program Browser',
+			'Sc Program Browser',
 			'text/plain',
 			false,
 			false,
@@ -89,17 +89,17 @@ ProgramIndex : [Object] { | contents |
 		).setPath(path)
 	}
 
-	ProgramBrowser { :self :index |
-		self.ProgramBrowser(index, [])
+	ScProgramBrowser { :self :index |
+		self.ScProgramBrowser(index, [])
 	}
 
 }
 
-ProgramBrowser : [Object, SmallKansan] {
+ScProgramBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.programIndex.then { :programIndex |
-			smallKansas.addFrame(smallKansas.ProgramBrowser(programIndex), event)
+		smallKansas.scProgramIndex.then { :scProgramIndex |
+			smallKansas.addFrame(smallKansas.ScProgramBrowser(scProgramIndex), event)
 		}
 	}
 
