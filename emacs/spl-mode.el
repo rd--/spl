@@ -34,7 +34,7 @@
   "Send command CMD with the parameter KEY = VALUE to the Spl server."
   (shell-command
    (format
-    "echo '%s' | netcat -C -q 0 -u 127.0.0.1 3010"
+    "echo '%s' | netcat -C -q 0 127.0.0.1 3010"
     (json-encode `((command . ,cmd) (,key . ,value))))))
 
 (defun spl-delete-markdown-code-fences (s)

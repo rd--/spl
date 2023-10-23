@@ -2,8 +2,10 @@ import * as flags from 'https://deno.land/std/flags/mod.ts'
 
 import { osc } from '../lib/scsynth-wasm-builds/lib/ext/osc.js'
 
-import * as udp from '../lib/jssc3/ts/kernel/udp.ts'
+import * as tcp from '../lib/jssc3/ts/kernel/tcp.ts'
+import * as scTcp from '../lib/jssc3/ts/sc3/scsynth-tcp.ts'
 import * as scUdp from '../lib/jssc3/ts/sc3/scsynth-udp.ts'
+import * as scWs from '../lib/jssc3/ts/sc3/scsynth-websocket.ts'
 
 import * as sc from '../lib/jssc3/ts/sc3.ts'
 
@@ -29,7 +31,7 @@ function help(): void {
 	console.log('  rewriteFile fileName');
 	console.log('  runFile fileName --dir=loadPath [lib]');
 	console.log('  sc playFile --dir=loadPath');
-	console.log('  sc udpServer portNumber --dir=loadPath');
+	console.log('  sc tcpServer portNumber --dir=loadPath');
 	console.log('    --strict');
 	console.log('    --unsafe');
 	console.log('    --verbose');
@@ -45,7 +47,24 @@ declare global {
 	var globalScSynth: sc.ScSynth;
 }
 
-const cliScSynth = scUdp.ScSynthUdp(scUdp.defaultScSynthAddress);
+const scTransport: string = Deno.env.get('ScTransport') || 'tcp';
+const scHost: string = Deno.env.get('ScHost') || '127.0.0.1';
+const scPort: number = Number(Deno.env.get('ScPort') || '57110');
+
+const scSynthAddress: Deno.NetAddr = {
+	transport: scTransport,
+	hostname: scHost,
+	port: scPort
+};
+
+/*
+const scSynthAddress = scUdp.defaultScSynthAddress;
+const cliScSynth = scUdp.ScSynthUdp(scSynthAddress);
+*/
+
+const cliScSynth = await scTcp.ScSynthTcp(scSynthAddress);
+
+console.debug('scSynthAddress', scSynthAddress);
 
 async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	const loadPath = opt.dir || getSplDir() || './';
@@ -100,26 +119,26 @@ echo '{"command": "playText", "text": "SinOsc(440, 0) * 0.1"}' | netcat -C -q 1 
 echo '{"command": "playFile", "fileName": "/home/rohan/sw/jssc3/help/graph/jmcc-analog-bubbles.stc"}' | netcat -C -q 1 -u 127.0.0.1 3010
 */
 
-function scUdpServer(portNumber: number): void {
-	// console.debug(`scUdpServer: ${portNumber}`);
-	const hostname = '127.0.0.1';
-	udp.udpServer(hostname, portNumber, function(connection, address, datagram) {
-		// console.debug(`scUdpServer: ${datagram}`);
+function scTcpServer(portNumber: number): void {
+	// console.debug(`scTcpServer: ${portNumber}`);
+	const hostname = '0.0.0.0'; /* 127.0.0.1 */
+	tcp.tcpServer(hostname, portNumber, function(unusedConnection, unusedAddress, datagram) {
+		console.debug(`scTcpServer: ${datagram}`);
 		const datagramText = new TextDecoder().decode(datagram);
 		if(datagramText.trim().length > 0) {
-			// console.debug(`scUdpServer: datagramText: '${datagramText}`);
+			console.debug(`scTcpServer: datagramText: '${datagramText}`);
 			try {
 				const message = JSON.parse(datagramText);
-				// console.debug(`scUdpServer: recv: ${datagram}: ${message}`);
+				// console.debug(`scTcpServer: recv: ${datagram}: ${message}`);
 				switch(message.command) {
 				case 'evalText': scEvalText(message.text); break;
 				case 'evalFile': scEvalFile(message.fileName); break;
 				case 'playText': scPlayText(message.text); break;
 				case 'playFile': scPlayFile(message.fileName); break;
-				default: console.warn(`scUdpServer: unknown command: ${message.command}`); break;
+				default: console.warn(`scTcpServer: unknown command: ${message.command}`); break;
 				}
 			} catch (err) {
-				console.error(`scUdpServer: message: '${datagramText}', err: ${err} -> ${err.cause}`);
+				console.error(`scTcpServer: message: '${datagramText}', err: ${err} -> ${err.cause}`);
 			}
 		}
 	});
@@ -134,7 +153,7 @@ async function scCmd(cmd: string, opt: flags.Args): Promise<void> {
 	await loadSpl(opt, ['StandardLibrary', 'SuperColliderLibrary']);
 	switch(cmd) {
 	case 'playFile': scPlayFile(<string>opt._[2]); break;
-	case 'udpServer': scUdpServer(Number(opt._[2])); break;
+	case 'tcpServer': scTcpServer(Number(opt._[2])); break;
 	default: help(); break;
 	}
 }
