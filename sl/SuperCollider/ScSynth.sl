@@ -44,6 +44,18 @@ ScSynth! : [Object] {
 		<primitive: return _self.sendOsc(_oscPacket);>
 	}
 
+	setControl { :self :index :value |
+		self.sendOsc(
+			(
+				address: '/c_set',
+				args: [
+					(type: 'i', value: index),
+					(type: 'f', value: value)
+				]
+			)
+		)
+	}
+
 	status { :self |
 		<primitive: return _self.status;>
 	}

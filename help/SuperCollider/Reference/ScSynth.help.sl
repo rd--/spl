@@ -9,7 +9,7 @@ This instance can be started using _connect_, which the ordinary _play_ methods 
 
 However the system can also connect to an existing external instance of the synthesiser by calling the _useWebSocket_ method.
 
-	system.scSynth.useWebSocket('ws://localhost:57110')
+	system.scSynth.useWebSocket('ws://localhost:58110')
 
 This method must be called before a connection is established using _connect_.
 

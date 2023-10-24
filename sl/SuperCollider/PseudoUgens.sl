@@ -12,6 +12,10 @@
 		Out(0, channelsArray)
 	}
 
+	Cc { :index |
+		ControlIn(1, 11000 + index - 1)
+	}
+
 	EnvBreakPoint { :breakPointArray :curves |
 		| n = breakPointArray.size; |
 		Env(
