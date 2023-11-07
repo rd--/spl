@@ -3,9 +3,9 @@ import * as flags from 'https://deno.land/std/flags/mod.ts'
 import { osc } from '../lib/scsynth-wasm-builds/lib/ext/osc.js'
 
 import * as tcp from '../lib/jssc3/ts/kernel/tcp.ts'
-import * as scTcp from '../lib/jssc3/ts/sc3/scsynth-tcp.ts'
-import * as scUdp from '../lib/jssc3/ts/sc3/scsynth-udp.ts'
-import * as scWs from '../lib/jssc3/ts/sc3/scsynth-websocket.ts'
+import * as scTcp from '../lib/jssc3/ts/sc3/scSynthTcp.ts'
+import * as scUdp from '../lib/jssc3/ts/sc3/scSynthUdp.ts'
+import * as scWs from '../lib/jssc3/ts/sc3/scSynthWebSocket.ts'
 
 import * as sc from '../lib/jssc3/ts/sc3.ts'
 
@@ -17,8 +17,8 @@ import * as sl from './sl.ts'
 import { slOptions } from './options.ts'
 import * as repl from './repl.ts'
 
-function getSplDir(): string {
-	return Deno.env.get('SPL_DIR') || '?';
+function getSplDirectory(): string {
+	return Deno.env.get('SplDirectory') || '?';
 }
 
 BigInt.prototype.toJSON = function () {
@@ -35,7 +35,10 @@ function help(): void {
 	console.log('    --strict');
 	console.log('    --unsafe');
 	console.log('    --verbose');
-	console.log(`    SPL_DIR=${getSplDir()}`);
+	console.log(`    SplDirectory=${getSplDirectory()}`);
+	console.log(`    ScTransport=${scTransport}`);
+	console.log(`    ScHostname=${scHostname}`);
+	console.log(`    ScPort=${scPort}`);
 }
 
 async function rewriteFile(fileName: string): Promise<void> {
@@ -48,12 +51,12 @@ declare global {
 }
 
 const scTransport: string = Deno.env.get('ScTransport') || 'tcp';
-const scHost: string = Deno.env.get('ScHost') || '127.0.0.1';
+const scHostname: string = Deno.env.get('ScHostname') || '127.0.0.1';
 const scPort: number = Number(Deno.env.get('ScPort') || '57110');
 
 const scSynthAddress: Deno.NetAddr = {
 	transport: scTransport,
-	hostname: scHost,
+	hostname: scHostname,
 	port: scPort
 };
 
@@ -62,13 +65,17 @@ const scSynthAddress = scUdp.defaultScSynthAddress;
 const cliScSynth = scUdp.ScSynthUdp(scSynthAddress);
 */
 
+console.debug('cli: scSynthAddress (await)', scSynthAddress);
 const cliScSynth = await scTcp.ScSynthTcp(scSynthAddress);
-
-console.debug('scSynthAddress', scSynthAddress);
+//const cliScSynth = scWs.ScSynthWebSocket('ws://localhost:58110');
 
 async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
-	const loadPath = opt.dir || getSplDir() || './';
-	console.log(`loadSpl: opt.dir=${opt.dir}, getSplDir=${getSplDir()}, loadPath=${loadPath}`);
+	const loadPath = opt.dir || getSplDirectory() || './';
+	console.log(
+		`loadSpl: opt.dir=${opt.dir}`,
+		`getSplDirectory=${getSplDirectory()}`,
+		`loadPath=${loadPath}`
+	);
 	fileio.addLoadFileMethods();
 	sl.assignGlobals();
 	load.setLoadPath(loadPath);
@@ -123,10 +130,10 @@ function scTcpServer(portNumber: number): void {
 	// console.debug(`scTcpServer: ${portNumber}`);
 	const hostname = '0.0.0.0'; /* 127.0.0.1 */
 	tcp.tcpServer(hostname, portNumber, function(unusedConnection, unusedAddress, datagram) {
-		console.debug(`scTcpServer: ${datagram}`);
+		// console.debug(`scTcpServer: ${datagram}`);
 		const datagramText = new TextDecoder().decode(datagram);
 		if(datagramText.trim().length > 0) {
-			console.debug(`scTcpServer: datagramText: '${datagramText}`);
+			// console.debug(`scTcpServer: datagramText: '${datagramText}`);
 			try {
 				const message = JSON.parse(datagramText);
 				// console.debug(`scTcpServer: recv: ${datagram}: ${message}`);
@@ -158,7 +165,7 @@ async function scCmd(cmd: string, opt: flags.Args): Promise<void> {
 	}
 }
 
-function cli():void {
+function cli(): void {
 	const args = flags.parse(Deno.args, { boolean: true });
 	if(args._.length < 1) {
 		help();
@@ -171,7 +178,7 @@ function cli():void {
 			slOptions.insertArityCheck = false;
 			slOptions.uncheckedIndexing = true;
 		}
-		// console.log('slOptions: ', slOptions);
+		// console.debug('slOptions: ', slOptions);
 		switch(args._[0]) {
 		case 'replPerLine': replPerLine(args, args._.slice(1)); break;
 		case 'rewriteFile': rewriteFile(<string>args._[1]); break;
@@ -189,4 +196,5 @@ declare global {
 
 globalThis.sl = sl;
 globalThis.sc = sc;
+
 cli();

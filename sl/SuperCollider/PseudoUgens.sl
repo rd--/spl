@@ -1,5 +1,25 @@
 (* Requires: Ugen *)
 
++Array {
+
+	mixIntoBy { :self :outputs :indexPairs |
+		indexPairs.do { :each |
+			outputs[each.second] +:= self[each.first]
+		}
+	}
+
+	mixBy { :self :indexPairs |
+		|(
+			maxOutputIndex = indexPairs.collect(second:/1).max,
+			outputs = { Dc(0) } ! maxOutputIndex
+		)|
+		mixIntoBy(self, outputs, indexPairs);
+		outputs
+	}
+
+}
+
+
 +[Array, SmallFloat, Ugen] {
 
 (*

@@ -147,8 +147,12 @@ ScSynth! : [Object] {
 
 +String {
 
-	SfAcquire { :self :numberOfChannels :channelSelector |
-		<primitive: return sc.SfAcquire(_self, _numberOfChannels, _channelSelector);>
+	SfAcquire { :self :numberOfChannels :channelIndices |
+		<primitive: return sc.SfAcquire(_self, _numberOfChannels, _channelIndices);>
+	}
+
+	SfAcquire1 { :self :numberOfChannels :channelIndex |
+		<primitive: return sc.SfAcquire1(_self, _numberOfChannels, _channelIndices);>
 	}
 
 }

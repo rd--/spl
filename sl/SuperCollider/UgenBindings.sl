@@ -27,7 +27,7 @@
 	BBandStop { :in :freq :bw | <primitive: return sc.BBandStop(_in, _freq, _bw);> }
 	BHiPass { :in :freq :rq | <primitive: return sc.BHiPass(_in, _freq, _rq);> }
 	BLowPass { :in :freq :rq | <primitive: return sc.BLowPass(_in, _freq, _rq);> }
-	Bpf { :in :freq :rq | <primitive: return sc.Bpf(_in, _freq, _rq);> }
+	BMoog { :in :freq :q :mode :saturation | <primitive: return sc.BMoog(_in, _freq, _q, _mode, _saturation);> }	Bpf { :in :freq :rq | <primitive: return sc.Bpf(_in, _freq, _rq);> }
 	Bpz2 { :in | <primitive: return sc.Bpz2(_in);> }
 	BPeakEq { :in :freq :rq :db | <primitive: return sc.BPeakEq(_in, _freq, _rq, _db);> }
 	Brf { :in :freq :rq | <primitive: return sc.Brf(_in, _freq, _rq);> }
@@ -265,6 +265,7 @@
 	Rcd { :clock :rotate :reset :div :spread :auto :len :down :gates | <primitive: return sc.Rcd(_clock, _rotate, _reset, _div, _spread, _auto, _len, _down, _gates);> }
 	RandN { :numChan :lo :hi | <primitive: return sc.RandN(_numChan, _lo, _hi);> }
 	Scm { :clock :bpm :rotate :slip :shuffle :skip :pw | <primitive: return sc.Scm(_clock, _bpm, _rotate, _slip, _shuffle, _skip, _pw);> }
+	ShufflerB { :bufnum :readLocationMinima :readLocationMaxima :readIncrementMinima :readIncrementMaxima :durationMinima :durationMaxima :envelopeAmplitudeMinima :envelopeAmplitudeMaxima :envelopeShapeMinima :envelopeShapeMaxima :envelopeSkewMinima :envelopeSkewMaxima :stereoLocationMinima :stereoLocationMaxima :interOffsetTimeMinima :interOffsetTimeMaxima :ftableReadLocationIncrement :readIncrementQuanta :interOffsetTimeQuanta | <primitive: return sc.ShufflerB(_bufnum, _readLocationMinima, _readLocationMaxima, _readIncrementMinima, _readIncrementMaxima, _durationMinima, _durationMaxima, _envelopeAmplitudeMinima, _envelopeAmplitudeMaxima, _envelopeShapeMinima, _envelopeShapeMaxima, _envelopeSkewMinima, _envelopeSkewMaxima, _stereoLocationMinima, _stereoLocationMaxima, _interOffsetTimeMinima, _interOffsetTimeMaxima, _ftableReadLocationIncrement, _readIncrementQuanta, _interOffsetTimeQuanta);> }
 	SinGrain { :trigger :dur :freq | <primitive: return sc.SinGrain(_trigger, _dur, _freq);> }
 	SvfBp { :in :freq :q | <primitive: return sc.SvfBp(_in, _freq, _q);> }
 	SvfHp { :in :freq :q | <primitive: return sc.SvfHp(_in, _freq, _q);> }

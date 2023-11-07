@@ -30,16 +30,20 @@
     (spl-find-files (concat spl-directory "help/") rgx)
     (spl-find-files (concat stsc3-directory "help/") rgx)))
 
+(defun spl-write-text-file (filename text)
+  "Write TEXT to FILENAME"
+  (write-region text nil filename))
+
 (defun spl-netcat-cmd (cmd key value)
   "Send command CMD with the parameter KEY = VALUE to the Spl server."
-  (shell-command
-   (format
-    "echo '%s' | netcat -C -q 0 127.0.0.1 3010"
-    (json-encode `((command . ,cmd) (,key . ,value))))))
+  (let ((filename "/tmp/spl-netcat.json")
+	(text (json-encode `((command . ,cmd) (,key . ,value)))))
+    (spl-write-text-file filename text)
+    (shell-command (format "netcat -C -q 0 127.0.0.1 3010 < %s" filename))))
 
-(defun spl-delete-markdown-code-fences (s)
-  "Remove Mardown code fences from the string S if present."
-   (replace-regexp-in-string "^```" "" s))
+(defun spl-delete-markdown-code-fences (str)
+  "Remove Mardown code fences from the string STR if present."
+   (replace-regexp-in-string "^```" "" str))
 
 (defun spl-get-selection ()
   "Get the currently selected text as a string, with code fences deleted."
@@ -193,6 +197,10 @@
      ("..." .?‥) ; U+2026 … Horizontal Ellipsis; U+22ef ⋯ Midline Horizontal Ellipsis
      ("--" .?—) ; U+2014 — Em Dash
      ("duplicate" .?!)
+     ("first" .?₁) ; U+2081 ₁ Subscript One
+     ("second" .?₂) ; U+2082 ₂ Subscript Two
+     ("third" .?₃) ; U+2083 ₃ Subscript Three
+     ("fourth" .?₄) ; U+2084 ₄ Subscript Four
      )))
 
 (defun spl-fill-mode-map (map)

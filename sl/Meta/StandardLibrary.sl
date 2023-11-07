@@ -6,6 +6,7 @@
 	'ByteArray'
 	'CategoryDictionary'
 	'Converting' (* < Requires: Bag *)
+	'Float32Array'
 	'Float64Array'
 	'Graph'
 	'Heap'
@@ -90,5 +91,8 @@
 
 	(* Help *)
 	'TerseGuide' (* > Url *)
+
+	(* Sound *)
+	'SoundFile' (* > Url *)
 
 ].primitiveLoadPackageSequence

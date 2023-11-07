@@ -564,6 +564,8 @@ Association('x', 1) = ('x' -> 1)
 ('x' -> 1) ~= ('y' -> 1) (* equality considers both key and value, unlike in Smalltalk-80 *)
 ('x' -> 1) ~= (x: 1) (* an association is not equal to a record *)
 | a = 'x' -> 1; | a.keyValue('y', 2); a = ('y' -> 2) (* set key and value *)
+('x' -> 1).first = 'x' (* implements first *)
+('x' -> 1).second = 1 (* implements second *)
 ```
 
 ## Bag -- collection type
