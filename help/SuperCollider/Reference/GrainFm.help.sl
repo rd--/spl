@@ -28,3 +28,7 @@ GrainFm(
 	512
 ) * 0.1
 ```
+
+* * *
+
+See also: GrainBuf, GrainIn, GrainSin, TGrains, Warp1

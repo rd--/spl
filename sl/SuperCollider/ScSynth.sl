@@ -152,7 +152,15 @@ ScSynth! : [Object] {
 	}
 
 	SfAcquire1 { :self :numberOfChannels :channelIndex |
-		<primitive: return sc.SfAcquire1(_self, _numberOfChannels, _channelIndices);>
+		SfAcquire(self, numberOfChannels, [channelIndex]).first
+	}
+
+	SfAcquireMono { :self |
+		SfAcquire(self, 1, [1]).first
+	}
+
+	SfAcquireStereo { :self |
+		SfAcquire(self, 2, [1, 2])
 	}
 
 }

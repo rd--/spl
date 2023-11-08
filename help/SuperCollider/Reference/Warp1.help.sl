@@ -17,16 +17,16 @@ _Warp1(numChannels, bufnum, pointer, freqScale, windowSize, envbufnum, overlaps,
 Here the pointer moves from the beginning to the end of the soundfile over fifteen seconds, control pitch with _MouseX_:
 
 ```
-var sf = SfAcquire('floating_1', 1, [1]);
+var sf = SfAcquire1('floating_1', 1, 1);
 var pointer = LfSaw(1 / 15, 0).Range(0, 1);
 var pitch = MouseX(0.5, 2, 0, 0.2);
 Warp1(1, sf, pointer, pitch, 0.1, -1, 8, 0.1, 2) * 0.25
 ```
 
 Pointer is _Phasor_, playback slows from unit to a quarter over twenty seconds:
-​
+
 ```
-var sf = SfAcquire('floating_1', 1, [1]);
+var sf = SfAcquire1('floating_1', 1, 1);
 var pointer = Phasor(
 	0,
 	SampleDur() / SfDur(sf) * XLn(1, 0.25, 20),
@@ -47,3 +47,7 @@ var sound = Warp1(
 );
 Pan2(sound, pointer * 2 - 1, 0.25).sum
 ```
+
+* * *
+
+See also: TGrains
