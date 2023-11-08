@@ -50,4 +50,4 @@ Pan2(sound, pointer * 2 - 1, 0.25).sum
 
 * * *
 
-See also: TGrains
+See also: GrainFm, TGrains
