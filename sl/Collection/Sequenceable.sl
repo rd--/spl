@@ -377,13 +377,6 @@
 		answer
 	}
 
-	forceToPaddingWith { :self :length :anObject |
-		| answer = self.species.new(length); |
-		answer.atAllPut(anObject);
-		answer.replaceFromToWithStartingAt(1, self.size.min(length), self, 1);
-		answer
-	}
-
 	foldLeft { :self :aBlock:/2 |
 		self.reduce(aBlock:/2)
 	}
@@ -398,6 +391,21 @@
 			};
 			answer
 		}
+	}
+
+	forceToPaddingWith { :self :length :anObject |
+		| answer = self.species.new(length); |
+		answer.atAllPut(anObject);
+		answer.replaceFromToWithStartingAt(1, self.size.min(length), self, 1);
+		answer
+	}
+
+	fourth { :self |
+		self[4]
+	}
+
+	fourth { :self :n |
+		self.copyFromTo(n * 3 + 1, n * 4)
 	}
 
 	fromToDo { :self :start :stop :aBlock:/1 |
@@ -821,6 +829,10 @@
 		self[2]
 	}
 
+	second { :self :n |
+		self.copyFromTo(n + 1, n * 2)
+	}
+
 	secondLast { :self |
 		self[self.size - 1]
 	}
@@ -895,6 +907,10 @@
 
 	third { :self |
 		self[3]
+	}
+
+	third { :self :n |
+		self.copyFromTo(n * 2 + 1, n * 3)
 	}
 
 	thirdLast { :self |

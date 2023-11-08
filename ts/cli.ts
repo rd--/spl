@@ -50,24 +50,16 @@ declare global {
 	var globalScSynth: sc.ScSynth;
 }
 
-const scTransport: string = Deno.env.get('ScTransport') || 'tcp';
-const scHostname: string = Deno.env.get('ScHostname') || '127.0.0.1';
-const scPort: number = Number(Deno.env.get('ScPort') || '57110');
-
-const scSynthAddress: Deno.NetAddr = {
-	transport: scTransport,
-	hostname: scHostname,
-	port: scPort
-};
-
-/*
-const scSynthAddress = scUdp.defaultScSynthAddress;
-const cliScSynth = scUdp.ScSynthUdp(scSynthAddress);
-*/
-
-console.debug('cli: scSynthAddress (await)', scSynthAddress);
-const cliScSynth = await scTcp.ScSynthTcp(scSynthAddress);
-//const cliScSynth = scWs.ScSynthWebSocket('ws://localhost:58110');
+function scSynthAddressFromEnv(): Deno.NetAddr {
+	const scTransport: string = Deno.env.get('ScTransport') || 'tcp';
+	const scHostname: string = Deno.env.get('ScHostname') || '127.0.0.1';
+	const scPort: number = Number(Deno.env.get('ScPort') || '57110');
+	return {
+		transport: scTransport,
+		hostname: scHostname,
+		port: scPort
+	};
+}
 
 async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	const loadPath = opt.dir || getSplDirectory() || './';
@@ -83,6 +75,9 @@ async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	await kernel.primitiveLoadPackageSequence(['Kernel'].concat(lib));
 	if(lib.includes('SuperColliderLibrary')) {
 		globalThis.sc = sc;
+		const scSynthAddress = scSynthAddressFromEnv();
+		console.debug('cli: scSynthAddress (await)', scSynthAddress);
+		const cliScSynth = await scTcp.ScSynthTcp(scSynthAddress);
 		globalThis.globalScSynth = cliScSynth;
 	}
 }
@@ -112,7 +107,7 @@ async function scEvalFile(fileName: string): Promise<unknown> {
 
 function scPlayText(splText: string): void {
 	const ugenGraph: sc.Signal = <sc.Signal>evaluateInteractive(splText);
-	cliScSynth.playUgenAt(ugenGraph, -1, 1, [], null);
+	globalThis.globalScSynth.playUgenAt(ugenGraph, -1, 1, [], null);
 }
 
 async function scPlayFile(fileName: string): Promise<void> {

@@ -1864,6 +1864,7 @@ Interval(-2, 2, 1).collect(even:/1) = [true, false, true, false, true]
 2 * (1 .. 9).collect(squared:/1) = [2, 8, 18, 32, 50,72, 98, 128, 162]
 1.to(9).Array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 (1 .. 9).copyFromTo(3, 7) = (3 .. 7) (* copy from start to end indices, inclusive *)
+(1 .. 16).copyFromTo(1, 8) = (1 .. 8) (* copy from start to end indices, inclusive *)
 | i = 1; | 1.to(9).do { :each | i := i + each }; i = 46
 Interval(-1, 1, 1).printString = '(-1 .. 1)'
 Interval(-1, 1, 1).storeString = 'Interval(-1, 1, 1)'
@@ -2920,6 +2921,11 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString };
 (1 .. 9).prefixProduct = [1 2 6 24 120 720 5040 40320 362880] (* prefix product *)
 (1 .. 9).scan(plus:/2) = (1 .. 9).prefixSum (* scan, generalized prefix sum *)
 (1 .. 9).scan(times:/2) = (1 .. 9).prefixProduct
+(1 .. 16).first(4) = (1 .. 4) (* first group of n elements of sequence *)
+(1 .. 16).second(4) = (5 .. 8) (* second group of n elements of sequence *)
+(1 .. 16).third(4) = (9 .. 12) (* third group of n elements of sequence *)
+(1 .. 16).fourth(4) = (13 .. 16) (* fourth group of n elements of sequence *)
+(1 .. 16).last(4) = (13 .. 16)  (* last group of n elements of sequence *)
 ```
 
 ## Sequence arithmetic

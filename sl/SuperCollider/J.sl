@@ -93,6 +93,12 @@
 
 +@Sequenceable {
 
+	assertShape { :self :shape |
+		self.assert {
+			self.shape = shape
+		}
+	}
+
 	atPath { :self :path |
 		path.ifEmpty {
 			'Sequenceable>>atPath: empty path'.error

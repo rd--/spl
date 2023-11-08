@@ -2,18 +2,95 @@
 
 +Array {
 
-	mixIntoBy { :self :outputs :indexPairs |
+	mixByNamedRule { :self :name |
+		(
+			'2×2→1×4': {
+				self.concatenation
+			},
+			'2×2→1×4𝕫': {
+				[1 2 4 3].collect { :each |
+					self[each]
+				}
+			},
+			'4×2→1×4': {
+				self.concatenation.mixByIndexPairs(
+					[
+						[1 2 3 4 5 6 7 8],
+						[1 2 2 3 3 4 4 1]
+					].transposed
+				)
+			},
+			'4×2→1×4𝕫': {
+				self.concatenation.mixByIndexPairs(
+					[
+						[1 2 3 4 5 6 7 8],
+						[1 2 2 4 4 3 3 1]
+					].transposed
+				)
+			},
+			'8×2→1×8': {
+				self.concatenation.mixByIndexPairs(
+					[
+						(1 .. 16),
+						[1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 1]
+					].transposed
+				)
+			},
+			'8×2→2×4': {
+				[
+					self.first(4).mixByNamedRule('4×2→1×4'),
+					self.last(4).mixByNamedRule('4×2→1×4')
+				]
+			},
+			'8×2→2×4𝕫': {
+				[
+					self.first(4).mixByNamedRule('4×2→1×4𝕫'),
+					self.last(4).mixByNamedRule('4×2→1×4𝕫')
+				]
+			},
+			'16×2→1×2': {
+				self.sum
+			},
+			'16×2→2×8': {
+				[
+					self.first(8).mixByNamedRule('8×2→1×8'),
+					self.last(8).mixByNamedRule('8×2→1×8')
+				]
+			},
+			'16×2→4×4': {
+				self.clump(4).collect { :each |
+					each.mixByNamedRule('4×2→1×4')
+				}
+			},
+			'16×2→4×4𝕫': {
+				self.clump(4).collect { :each |
+					each.mixByNamedRule('4×2→1×4𝕫')
+				}
+			},
+			'16×2→UoS': {
+				[
+					Silent(2),
+					(self * 2).mixByNamedRule('16×2→4×4𝕫').sum,
+					Silent(2),
+					self.first(8).mixByNamedRule('8×2→1×8'),
+					self.last(8).mixByNamedRule('8×2→2×4𝕫').concatenation
+				].concatenation
+			}
+		).at(name).value
+	}
+
+	mixIntoByIndexPairs { :self :outputs :indexPairs |
 		indexPairs.do { :each |
 			outputs[each.second] +:= self[each.first]
 		}
 	}
 
-	mixBy { :self :indexPairs |
+	mixByIndexPairs { :self :indexPairs |
 		|(
 			maxOutputIndex = indexPairs.collect(second:/1).max,
 			outputs = { Dc(0) } ! maxOutputIndex
 		)|
-		mixIntoBy(self, outputs, indexPairs);
+		mixIntoByIndexPairs(self, outputs, indexPairs);
 		outputs
 	}
 
