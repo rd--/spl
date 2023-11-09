@@ -99,6 +99,13 @@
 
 +[Array, SmallFloat, Ugen] {
 
+	TRand { :lo :hi :tr | TrRand(tr, lo, hi) }
+	TiRand { :lo :hi :tr | TrIRand(tr, lo, hi) }
+	TExpRand { :lo :hi :tr | TrExpRand(tr, lo, hi) }
+	TLinRand { :lo :hi :minmax :tr | TrLinRand(tr, lo, hi, minmax) }
+	TChoose { :tr :inArray | TrChoose(tr, inArray) }
+	TScramble { :tr :inArray | TrScramble(tr, inArray) }
+
 (*
 	AudioIn { :channelNumber |
 		In(1, NumOutputBuses() + channelNumber - 1)
@@ -198,6 +205,10 @@
 			level := level * n.reciprocal.sqrt
 		};
 		PanAz(numChannels, inArray, pos, level, width, orientation).flop.collect(sum:/1)
+	}
+
+	Tr { :self |
+		Trig(self, SampleDur())
 	}
 
 }
