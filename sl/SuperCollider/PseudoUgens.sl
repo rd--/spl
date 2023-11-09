@@ -99,14 +99,16 @@
 
 +[Array, SmallFloat, Ugen] {
 
-	TRand { :lo :hi :tr | TrRand(tr, lo, hi) }
-	TiRand { :lo :hi :tr | TrIRand(tr, lo, hi) }
+(*
+	TChoose { :tr :inArray | TrChoose(tr, inArray) }
 	TExpRand { :lo :hi :tr | TrExpRand(tr, lo, hi) }
 	TLinRand { :lo :hi :minmax :tr | TrLinRand(tr, lo, hi, minmax) }
-	TChoose { :tr :inArray | TrChoose(tr, inArray) }
-	TScramble { :tr :inArray | TrScramble(tr, inArray) }
 	TLine { :trig :start :end :dur | TrLine(start, end, dur, trig) }
+	TRand { :lo :hi :tr | TrRand(tr, lo, hi) }
+	TScramble { :tr :inArray | TrScramble(tr, inArray) }
+	TiRand { :lo :hi :tr | TrIRand(tr, lo, hi) }
 	TxLine { :trig :start :end :dur | TrXLine(start, end, dur, trig) }
+*)
 
 (*
 	AudioIn { :channelNumber |
