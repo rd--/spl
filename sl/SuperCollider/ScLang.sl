@@ -429,11 +429,26 @@
 
 	blendAt { :self :index |
 		| indexMin = index.roundUpTo(1) - 1; |
-		self.clipAt(indexMin).blend(self.clipAt(indexMin + 1), (index - indexMin).abs)
+		self.clipAt(indexMin).blend(
+			self.clipAt(indexMin + 1),
+			(index - indexMin).abs
+		)
+	}
+
+	blendAtAll { :self :indices |
+		indices.collect { :each |
+			self.blendAt(each)
+		}
 	}
 
 	clipAt { :self :index |
 		self[index.clamp(1, self.size)]
+	}
+
+	clipAtAll { :self :indices |
+		indices.collect { :each |
+			self.clipAt(each)
+		}
 	}
 
 	clump { :self :groupSize |
@@ -732,6 +747,13 @@
 			}
 		};
 		self.species.newFrom(answer)
+	}
+
+	resamp1 { :self :newSize |
+		| factor = (self.size - 1) / (newSize - 1).max(1); |
+		(0 .. newSize - 1).collect { :each |
+			self.blendAt(1 + (each * factor))
+		}
 	}
 
 	scramble { :self |

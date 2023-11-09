@@ -141,6 +141,10 @@
 		LinExp(self, -1, 1, lo, hi)
 	}
 
+	Fm7Matrix { :ctlMatrix :modMatrix |
+		Fm7(ctlMatrix.concatenation, modMatrix.concatenation)
+	}
+
 	ImpulseSequencer { :self :trig |
 		Sequencer(self, trig) * Trig(trig, SampleDur())
 	}
@@ -179,6 +183,21 @@
 		} {
 			Dc(0).replicate(numChannels)
 		}
+	}
+
+	SplayAz { :numChannels :inArray :spread :level :width :center :orientation :levelComp |
+		|(
+			n = 1.max(inArray.size),
+			pos = (n = 1).if {
+				center
+			} {
+				[center - spread, center + spread].resamp1(n)
+			}
+		)|
+		levelComp.ifTrue {
+			level := level * n.reciprocal.sqrt
+		};
+		PanAz(numChannels, inArray, pos, level, width, orientation).flop.collect(sum:/1)
 	}
 
 }

@@ -63,6 +63,10 @@ var x = [4, 4.5], y = [2, 3, 5, 6]; [x * [x, y], y * [x, y]] = [[[16, 18], [9, 1
 [1].atExtending(-1) = 1 (* atWrap but answering self for scalar values *)
 1.sizeForExtending = 1 (* size but answering one for scalar values *)
 [1].sizeForExtending = 1 (* size but answering one for scalar values *)
+[1 .. 9].blendAt(4.5) = 4.5 (* linear interpolating indexing *)
+[1 .. 9].blendAtAll([3, 4.5, 5]) = [3, 4.5, 5] (* linear interpolating indexing *)
+[1, 3 .. 9].resamp1(9) = [1 .. 9] (* linear interpolating resampler *)
+[1 .. 4].resamp1(12).roundTo(0.01) = [1 1.27 1.55 1.82 2.09 2.36 2.64 2.91 3.18 3.45 3.73 4]
 ```
 
 ## String -- extensions
