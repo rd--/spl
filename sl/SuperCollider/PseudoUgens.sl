@@ -105,6 +105,8 @@
 	TLinRand { :lo :hi :minmax :tr | TrLinRand(tr, lo, hi, minmax) }
 	TChoose { :tr :inArray | TrChoose(tr, inArray) }
 	TScramble { :tr :inArray | TrScramble(tr, inArray) }
+	TLine { :trig :start :end :dur | TrLine(start, end, dur, trig) }
+	TxLine { :trig :start :end :dur | TrXLine(start, end, dur, trig) }
 
 (*
 	AudioIn { :channelNumber |
