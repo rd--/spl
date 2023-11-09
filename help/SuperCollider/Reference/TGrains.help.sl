@@ -31,7 +31,7 @@ Uniform unary rate, perturb _pos_ at clock rate
 	var clk = Impulse(trate, 0);
 	var sf = SfAcquire1('floating_1', 1, 1);
 	var pos0 = MouseX(0, SfDur(sf), 0, 0.2);
-	var pos = pos0 + TRand(0, 0.01, clk);
+	var pos = pos0 + TrRand(clk, 0, 0.01);
 	var dur = 12 / trate;
 	var pan = WhiteNoise() * 0.6;
 	TGrains(2, clk, sf, 1, pos, dur, pan, 0.2, 4)
@@ -42,7 +42,7 @@ Stochastic clock (_Dust_):
 	var clk = Dust(trate);
 	var sf = SfAcquire1('floating_1', 1, 1);
 	var pos0 = MouseX(0, SfDur(sf), 0, 0.2);
-	var pos = pos0 + TRand(0, 0.01, clk);
+	var pos = pos0 + TrRand(clk, 0, 0.01);
 	var dur = 4 / trate;
 	var pan = WhiteNoise() * 0.6;
 	TGrains(2, clk, sf, 1, pos, dur, pan, 0.1, 4)
@@ -53,7 +53,7 @@ Mouse control of _pos_ and _dur_:
 	var clk = Impulse(trate, 0);
 	var sf = SfAcquire1('floating_1', 1, 1);
 	var pos0 = MouseX(0, SfDur(sf), 0, 0.2);
-	var pos = pos0 + TRand(0, 0.01, clk);
+	var pos = pos0 + TrRand(clk, 0, 0.01);
 	var dur = MouseY(0.2, 24, 1, 0.2) / trate;
 	var pan = WhiteNoise() * 0.6;
 	TGrains(2, clk, sf, 1, pos, dur, pan, 0.1, 4)

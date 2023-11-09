@@ -29,10 +29,10 @@ frequency (_f_) and envelope (_e_).
 
 ```
 var t = Impulse(4, 0);
-var d = TRand(0.2, 2, t);
+var d = TrRand(t, 0.2, 2);
 var w = TrigAllocator(5, 1, t, d);
-var f = TiRand(48, 72, w).MidiCps + TRand(-9, 9, w);
-var e = Asr(w, 0.01, d / 2, -4) * TRand(0.1, 0.2, w);
+var f = TrIRand(w, 48, 72).MidiCps + TrRand(w, -9, 9);
+var e = Asr(w, 0.01, d / 2, -4) * TrRand(w, 0.1, 0.2);
 var o = SinOsc(f, 0) * e;
 o.Splay2
 ```
@@ -46,7 +46,7 @@ however it cycles, allowing the decay envelope to sound.
 var t = Impulse(4, 0).kr;
 var w = TrigAllocator(16, 0, t, 0.001);
 var e = Decay2(w, 0.01, 4);
-var f = TiRand(84, 96, w).MidiCps + TRand(-9, 9, w);
+var f = TrIRand(w, 84, 96).MidiCps + TrRand(w, -9, 9);
 var o = SinOsc(f, 0) * e * 0.1;
 o.Splay2
 ```

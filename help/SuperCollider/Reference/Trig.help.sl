@@ -18,8 +18,8 @@ A Dust signal occasionally triggers a gate be held open for one fifth of a secon
 The trigger signal also selects a random duration and frequency:
 
 	var t = Dust(2);
-	var d = TRand(0.2, 0.5, t);
-	var f = TExpRand(220, 880, t);
+	var d = TrRand(t, 0.2, 0.5);
+	var f = TrExpRand(t, 220, 880);
 	Trig(t, d) * SinOsc(f, 0) * 0.5
 
 An Impulse triggers more frequently than the duration resets:

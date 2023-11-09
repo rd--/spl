@@ -215,10 +215,10 @@
 	SyncSaw { :syncFreq :sawFreq | <primitive: return sc.SyncSaw(_syncFreq, _sawFreq);> }
 	TDelay { :in :dur | <primitive: return sc.TDelay(_in, _dur);> }
 	TDuty { :dur :reset :doneAction :level :gapFirst | <primitive: return sc.TDuty(_dur, _reset, _doneAction, _level, _gapFirst);> }
-	TExpRand { :lo :hi :trig | <primitive: return sc.TExpRand(_lo, _hi, _trig);> }
+	TrExpRand { :trig :lo :hi | <primitive: return sc.TExpRand(_lo, _hi, _trig);> }
 	TGrains { :numChan :trigger :bufnum :rate :centerPos :dur :pan :amp :interp | <primitive: return sc.TGrains(_numChan, _trigger, _bufnum, _rate, _centerPos, _dur, _pan, _amp, _interp);> }
-	TiRand { :lo :hi :trig | <primitive: return sc.TiRand(_lo, _hi, _trig);> }
-	TRand { :lo :hi :trig | <primitive: return sc.TRand(_lo, _hi, _trig);> }
+	TrIRand { :trig :lo :hi | <primitive: return sc.TiRand(_lo, _hi, _trig);> }
+	TrRand { :trig :lo :hi | <primitive: return sc.TRand(_lo, _hi, _trig);> }
 	Timer { :trig | <primitive: return sc.Timer(_trig);> }
 	ToggleFf { :trig | <primitive: return sc.ToggleFf(_trig);> }
 	Trig { :in :dur | <primitive: return sc.Trig(_in, _dur);> }
@@ -270,8 +270,8 @@
 	SvfBp { :in :freq :q | <primitive: return sc.SvfBp(_in, _freq, _q);> }
 	SvfHp { :in :freq :q | <primitive: return sc.SvfHp(_in, _freq, _q);> }
 	SvfLp { :in :freq :q | <primitive: return sc.SvfLp(_in, _freq, _q);> }
-	TLinRand { :lo :hi :minmax :trigger | <primitive: return sc.TLinRand(_lo, _hi, _minmax, _trigger);> }
-	TScramble { :trigger :inputs | <primitive: return sc.TScramble(_trigger, _inputs);> }
+	TrLinRand { :trigger :lo :hi :minmax | <primitive: return sc.TLinRand(_lo, _hi, _minmax, _trigger);> }
+	TrScramble { :trigger :inputs | <primitive: return sc.TScramble(_trigger, _inputs);> }
 	TrigAllocator { :numChannels :algorithm :in :dur | <primitive: return sc.TrigAllocator(_numChannels, _algorithm, _in, _dur);> }
 	VbJonVerb { :in :decay :damping :inputbw :erfl :tail | <primitive: return sc.VbJonVerb(_in, _decay, _damping, _inputbw, _erfl, _tail);> }
 	Vosim { :trig :freq :nCycles :decay | <primitive: return sc.Vosim(_trig, _freq, _nCycles, _decay);> }

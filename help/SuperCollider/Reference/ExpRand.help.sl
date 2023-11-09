@@ -14,4 +14,4 @@ Splay2(o)
 
 * * *
 
-See also: _TExpRand_, _Rand_
+See also: _TrExpRand_, _Rand_

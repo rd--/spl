@@ -32,7 +32,7 @@ GrainFm(
 	tr,
 	0.1,
 	WhiteNoise() * MouseY(0, 400, 0, 0.2) + 440,
-	TRand(20, 200, tr),
+	TrRand(tr, 20, 200),
 	LfNoise1(500).Range(1, 10),
 	MouseX(-1, 1, 0, 0.2),
 	-1,

@@ -26,12 +26,12 @@ Texture:
 	{ :tr |
 		LinPan2(
 			PmOsc(
-				TRand(20, 2000, tr),
-				TRand(0, 800, tr),
-				TLine(0, TRand(0, 12, tr), 9, tr),
+				TrRand(tr, 20, 2000),
+				TrRand(tr, 0, 800),
+				TrLine(tr, 0, TrRand(tr, 0, 12), 9),
 				0
 			),
-			TRand(-1, 1, tr),
+			TrRand(tr, -1, 1),
 			0.1
 		)
 	}.OverlapTexture(2, 5, 4)

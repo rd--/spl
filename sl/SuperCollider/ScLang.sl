@@ -367,6 +367,10 @@
 
 +@Object {
 
+	!! { :self :anInteger |
+		self.replicate(anInteger)
+	}
+
 	atExtending { :self :index |
 		self
 	}

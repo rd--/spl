@@ -183,14 +183,14 @@
 - Stepper -- pulse counter
 - Sweep -- triggered linear ramp
 - SyncSaw -- hard sync sawtooth wave
-- TChoose -- randomly select one of several inputs
+- TrChoose -- randomly select one of several inputs
 - TDelay -- trigger delay
-- TExpRand -- triggered exponential random number generator
+- TrExpRand -- triggered exponential random number generator
 - TGrains -- buffer granulator
-- TRand -- triggered random number generator
+- TrRand -- triggered random number generator
 - Tan -- tangent
 - Tanh -- hyperbolic tangent
-- TiRand -- triggered integer random number generator
+- TrIRand -- triggered integer random number generator
 - Timer -- returns time since last triggered
 - ToggleFf -- toggle flip flop
 - TwoPole -- two pole filter

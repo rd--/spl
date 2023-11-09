@@ -1,6 +1,6 @@
 # PulseCount -- pulse counter
 
-_PulseCount(trig, reset)_
+_PulseCount(trig=0, reset=0)_
 
 Each trigger increments a counter which is output as a signal.
 
