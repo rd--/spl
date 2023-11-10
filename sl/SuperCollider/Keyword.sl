@@ -62,7 +62,6 @@
 	LinPan2 { :d | LinPan2(d::in ? 0.0, d::pos ? 0.0, d::level ? 1.0) }
 	LinRand { :d | LinRand(d::lo ? 0.0, d::hi ? 1.0, d::minmax ? 0.0) }
 	LinXFade2 { :d | LinXFade2(d::inA ? 0.0, d::inB ? 0.0, d::pan ? 0.0) }
-	Line { :d | Line(d::start ? 0.0, d::end ? 1.0, d::dur ? 1.0, d::doneAction ? 0.0) }
 	Linen { :d | Linen(d::gate ? 1.0, d::attackTime ? 0.01, d::susLevel ? 1.0, d::releaseTime ? 1.0, d::doneAction ? 0.0) }
 	LocalBuf { :d | LocalBuf(d::numChannels ? 1.0, d::numFrames ? 1.0) }
 	LocalIn { :d | LocalIn(d::numChan ? 1.0, d::default ? 0.0) }
@@ -122,7 +121,6 @@
 	Warp1 { :d | Warp1(d::numChan ? 1.0, d::bufnum ? 0.0, d::pointer ? 0.0, d::freqScale ? 1.0, d::windowSize ? 0.2, d::envbufnum ? -1.0, d::overlaps ? 8.0, d::windowRandRatio ? 0.0, d::interp ? 1.0) }
 	Wrap { :d | Wrap(d::in ? 0.0, d::lo ? 0.0, d::hi ? 1.0) }
 	XFade2 { :d | XFade2(d::inA ? 0.0, d::inB ? 0.0, d::pan ? 0.0, d::level ? 1.0) }
-	XLine { :d | XLine(d::start ? 1.0, d::end ? 2.0, d::dur ? 1.0, d::doneAction ? 0.0) }
 }
 
 + Record {

@@ -16,7 +16,7 @@ frequency (_f_) and envelope (_e_).
 ```
 var t = Impulse(1, 0);
 var w = TrigRoundRobin(4, t);
-var f = TrIRand(w, 48, 72).MidiCps;
+var f = IRand(w, 48, 72).MidiCps;
 var e = Decay2(w, 0.05, 2);
 var o = SinOsc(f, 0) * e;
 o.Splay2

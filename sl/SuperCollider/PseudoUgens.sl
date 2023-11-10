@@ -99,16 +99,14 @@
 
 +[Array, SmallFloat, Ugen] {
 
-(*
-	TChoose { :tr :inArray | TrChoose(tr, inArray) }
-	TExpRand { :lo :hi :tr | TrExpRand(tr, lo, hi) }
-	TLinRand { :lo :hi :minmax :tr | TrLinRand(tr, lo, hi, minmax) }
-	TLine { :trig :start :end :dur | TrLine(start, end, dur, trig) }
-	TRand { :lo :hi :tr | TrRand(tr, lo, hi) }
-	TScramble { :tr :inArray | TrScramble(tr, inArray) }
-	TiRand { :lo :hi :tr | TrIRand(tr, lo, hi) }
-	TxLine { :trig :start :end :dur | TrXLine(start, end, dur, trig) }
-*)
+	Choose { :tr :inArray | TChoose(tr, inArray) }
+	ExpRand { :tr :lo :hi | TExpRand(lo, hi, tr) }
+	LinRand { :tr :lo :hi :minmax | TLinRand(lo, hi, minmax, tr) }
+	Line { :tr :start :end :dur | TLine(start, end, dur, tr) }
+	Rand { :tr :lo :hi | TRand(lo, hi, tr) }
+	Scramble { :tr :inArray | TScramble(tr, inArray) }
+	IRand { :tr :lo :hi | TIRand(lo, hi, tr) }
+	XLine { :tr :start :end :dur | TxLine(start, end, dur, tr) }
 
 (*
 	AudioIn { :channelNumber |
@@ -261,11 +259,11 @@
 	Sine { :trig :dur | <primitive: return sc.Sine(_trig, _dur);> }
 	Splay { :inArray :spread :level :center :levelComp | <primitive: return sc.Splay(_inArray, _spread, _level, _center, _levelComp);> }
 	Splay2 { :inArray | <primitive: return sc.Splay2(_inArray);> }
-	TrChoose { :trig :array | <primitive: return sc.TChoose(_trig, _array);> }
+	TChoose { :trig :array | <primitive: return sc.TChoose(_trig, _array);> }
 	TDmdFor { :dur :reset :level | <primitive: return sc.TDmdFor(_dur, _reset, _level);> }
 	TDmdFor { :dur :reset :level | <primitive: return sc.TDmdFor(_dur, _reset, _level);> }
-	TrLine { :trig :start :end :dur | <primitive: return sc.TLine(_start, _end, _dur, _trig);> }
-	TrXLine { :trig :start :end :dur | <primitive: return sc.TxLine(_start, _end, _dur, _trig);> }
+	TLine { :start :end :dur :trig | <primitive: return sc.TLine(_start, _end, _dur, _trig);> }
+	TxLine { :start :end :dur :trig | <primitive: return sc.TxLine(_start, _end, _dur, _trig);> }
 	VarLag { :input :time :curve | <primitive: return sc.VarLag(_input, _time, _curve);> }
 	XChoose { :repeats :list | <primitive: return sc.XChoose(_repeats, _list);> }
 	XLn { :start :end :dur | <primitive: return sc.XLn(_start, _end, _dur);> }

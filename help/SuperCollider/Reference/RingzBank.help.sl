@@ -59,14 +59,14 @@ Texture of variation of above:
 	{ :tr |
 		var z = Decay(
 			Impulse(4, 0),
-			TrRand(tr, 0.03, 0.09)
+			Rand(tr, 0.03, 0.09)
 		) * ClipNoise() * 0.0025;
 		var r = RingzBank(
 			z,
-			{ TrRand(tr, 800, 4000) } ! 12,
+			{ Rand(tr, 800, 4000) } ! 12,
 			nil,
-			{ TrRand(tr, 0.1, 2) } ! 12
+			{ Rand(tr, 0.1, 2) } ! 12
 		);
-		EqPan2(r, TrRand(tr, -1, 1))
+		EqPan2(r, Rand(tr, -1, 1))
 	}.OverlapTexture(8, 3, 4)
 

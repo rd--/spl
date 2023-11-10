@@ -14,7 +14,7 @@ Texture of overlapping sine tones:
 ```
 { :tr |
 	{
-		SinOsc(TrRand(tr, 220, 990), 0)
+		SinOsc(Rand(tr, 220, 990), 0)
 	} ! 2 * 0.1
 }.OverlapTexture(3, 3, 3)
 ```
@@ -25,7 +25,7 @@ There are many examples of OverlapTexture in the examples files.
 	var lfo = LfNoise0(lfoFreq) * 1000 + 1200;
 	var left = Rlpf(
 		{ :tr |
-			var f = TrChoose(
+			var f = Choose(
 				tr,
 				[
 					25, 30, 34, 37, 41, 42, 46,
@@ -34,7 +34,7 @@ There are many examples of OverlapTexture in the examples files.
 			).MidiCps;
 			[
 				LfPulse(f, 0, 0.2),
-				LfPulse(2 * f + TrRand(tr, -0.5, 0.5), 0, 0.2)
+				LfPulse(2 * f + Rand(tr, -0.5, 0.5), 0, 0.2)
 			].sum
 		}.OverlapTexture(4, 2, 4) * 0.02,
 		lfo,

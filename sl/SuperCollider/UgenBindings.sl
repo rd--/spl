@@ -150,7 +150,7 @@
 	LinPan2 { :in :pos :level | <primitive: return sc.LinPan2(_in, _pos, _level);> }
 	LinRand { :lo :hi :minmax | <primitive: return sc.LinRand(_lo, _hi, _minmax);> }
 	LinXFade2 { :inA :inB :pan | <primitive: return sc.LinXFade2(_inA, _inB, _pan);> }
-	Line { :start :end :dur :doneAction | <primitive: return sc.Line(_start, _end, _dur, _doneAction);> }
+	PrimitiveLine { :start :end :dur :doneAction | <primitive: return sc.Line(_start, _end, _dur, _doneAction);> }
 	Linen { :gate :attackTime :susLevel :releaseTime :doneAction | <primitive: return sc.Linen(_gate, _attackTime, _susLevel, _releaseTime, _doneAction);> }
 	LocalBuf { :numChannels :numFrames | <primitive: return sc.LocalBuf(_numChannels, _numFrames);> }
 	LocalIn { :numChan :default | <primitive: return sc.LocalIn(_numChan, _default);> }
@@ -215,10 +215,10 @@
 	SyncSaw { :syncFreq :sawFreq | <primitive: return sc.SyncSaw(_syncFreq, _sawFreq);> }
 	TDelay { :in :dur | <primitive: return sc.TDelay(_in, _dur);> }
 	TDuty { :dur :reset :doneAction :level :gapFirst | <primitive: return sc.TDuty(_dur, _reset, _doneAction, _level, _gapFirst);> }
-	TrExpRand { :trig :lo :hi | <primitive: return sc.TExpRand(_lo, _hi, _trig);> }
+	TExpRand { :lo :hi :trig | <primitive: return sc.TExpRand(_lo, _hi, _trig);> }
 	TGrains { :numChan :trigger :bufnum :rate :centerPos :dur :pan :amp :interp | <primitive: return sc.TGrains(_numChan, _trigger, _bufnum, _rate, _centerPos, _dur, _pan, _amp, _interp);> }
-	TrIRand { :trig :lo :hi | <primitive: return sc.TiRand(_lo, _hi, _trig);> }
-	TrRand { :trig :lo :hi | <primitive: return sc.TRand(_lo, _hi, _trig);> }
+	TIRand { :lo :hi :trig | <primitive: return sc.TiRand(_lo, _hi, _trig);> }
+	TRand { :lo :hi :trig | <primitive: return sc.TRand(_lo, _hi, _trig);> }
 	Timer { :trig | <primitive: return sc.Timer(_trig);> }
 	ToggleFf { :trig | <primitive: return sc.ToggleFf(_trig);> }
 	Trig { :in :dur | <primitive: return sc.Trig(_in, _dur);> }
@@ -231,7 +231,7 @@
 	Wrap { :in :lo :hi | <primitive: return sc.Wrap(_in, _lo, _hi);> }
 	WrapIndex { :bufnum :in | <primitive: return sc.WrapIndex(_bufnum, _in);> }
 	XFade2 { :inA :inB :pan :level | <primitive: return sc.XFade2(_inA, _inB, _pan, _level);> }
-	XLine { :start :end :dur :doneAction | <primitive: return sc.XLine(_start, _end, _dur, _doneAction);> }
+	PrimitiveXLine { :start :end :dur :doneAction | <primitive: return sc.XLine(_start, _end, _dur, _doneAction);> }
 	ZeroCrossing { :in | <primitive: return sc.ZeroCrossing(_in);> }
 	MaxLocalBufs { :count | <primitive: return sc.MaxLocalBufs(_count);> }
 	MulAdd { :in :mul :add | <primitive: return sc.MulAdd(_in, _mul, _add);> }
@@ -270,8 +270,8 @@
 	SvfBp { :in :freq :q | <primitive: return sc.SvfBp(_in, _freq, _q);> }
 	SvfHp { :in :freq :q | <primitive: return sc.SvfHp(_in, _freq, _q);> }
 	SvfLp { :in :freq :q | <primitive: return sc.SvfLp(_in, _freq, _q);> }
-	TrLinRand { :trigger :lo :hi :minmax | <primitive: return sc.TLinRand(_lo, _hi, _minmax, _trigger);> }
-	TrScramble { :trigger :inputs | <primitive: return sc.TScramble(_trigger, _inputs);> }
+	TLinRand { :lo :hi :minmax :trigger | <primitive: return sc.TLinRand(_lo, _hi, _minmax, _trigger);> }
+	TScramble { :trigger :inputs | <primitive: return sc.TScramble(_trigger, _inputs);> }
 	TrigAllocator { :numChannels :algorithm :in :dur | <primitive: return sc.TrigAllocator(_numChannels, _algorithm, _in, _dur);> }
 	TrigRoundRobin { :numChannels :in | <primitive: return sc.TrigRoundRobin(_numChannels, _in);> }
 	VbJonVerb { :in :decay :damping :inputbw :erfl :tail | <primitive: return sc.VbJonVerb(_in, _decay, _damping, _inputbw, _erfl, _tail);> }

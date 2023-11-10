@@ -18,9 +18,9 @@ A Dust signal occasionally triggers a gate be held open for one fifth of a secon
 The Dust signal also selects a random duration, frequency and amplitude:
 
 	var i = Dust([2, 3]);
-	var tr = Trig1(i, TrRand(i, [0.1, 0.01], 0.35));
-	var f = TrExpRand(tr, [220, 550], 880);
-	var a = TrExpRand(tr, [0.1, 0.01], 0.25);
+	var tr = Trig1(i, Rand(i, [0.1, 0.01], 0.35));
+	var f = ExpRand(tr, [220, 550], 880);
+	var a = ExpRand(tr, [0.1, 0.01], 0.25);
 	tr * SinOsc(f, 0) * a
 
 * * *
