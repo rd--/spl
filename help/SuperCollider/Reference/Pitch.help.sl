@@ -14,7 +14,7 @@ Track sine oscillator:
 	var f = Pitch(z, 440, 60, 4000, 100, 16, 7, 0.02, 0.5, 1, 0);
 	[z, SinOsc(f.first / 2, 0) * 0.1]
 
-Track audio input, **use headphones**:
+Track audio input, __use headphones__:
 
 	var z = AudioIn([1, 2]).sum;
 	var f = Pitch(z, 440, 60, 4000, 100, 16, 7, 0.02, 0.5, 1, 0);

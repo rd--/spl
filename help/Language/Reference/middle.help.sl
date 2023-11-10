@@ -7,4 +7,4 @@ Signal an error if the sequence is empty.
 
 * * *
 
-See also: first, last
+See also: first, second, third, last
