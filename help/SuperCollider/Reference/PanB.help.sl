@@ -7,11 +7,13 @@ PanB(in, azimuth, elevation, level)
 - elevation: in radians, -0.5pi to +0.5pi
 - level: a control rate level input.
 
-Output channels are in order W,X,Y,Z. You will only hear the first two channels on a stereo setup.
+Output channels are in order _w, x, y, z_.
+You will only hear the first two channels on a stereo setup.
 
-	PanB(
-		WhiteNoise(),
-		LfSaw(0.5, 0) * pi,
-		FSinOsc(0.31, 0) * 0.5 * pi,
-		0.1
-	)
+	var [w, x, y, z] = PanB(
+		PinkNoise() * 0.1,
+		LfSaw(0.5, pi),
+		0,
+		0.3
+	);
+	Silent(8) ++ DecodeB2(8, w, x, y, 0)

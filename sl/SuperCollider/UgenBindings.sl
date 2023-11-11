@@ -25,6 +25,8 @@
 	Amplitude { :in :attackTime :releaseTime | <primitive: return sc.Amplitude(_in, _attackTime, _releaseTime);> }
 	BBandPass { :in :freq :bw | <primitive: return sc.BBandPass(_in, _freq, _bw);> }
 	BBandStop { :in :freq :bw | <primitive: return sc.BBandStop(_in, _freq, _bw);> }
+	BfDecode1 { :w :x :y :z :azimuth :elevation :wComp | <primitive: return sc.BfDecode1(_w, _x, _y, _z, _azimuth, _elevation, _wComp);> }
+	BfEncode1 { :input :azimuth :elevation :rho :gain :wComp | <primitive: return sc.BfEncode1(_input, _azimuth, _elevation, _rho, _gain, _wComp);> }
 	BHiPass { :in :freq :rq | <primitive: return sc.BHiPass(_in, _freq, _rq);> }
 	BLowPass { :in :freq :rq | <primitive: return sc.BLowPass(_in, _freq, _rq);> }
 	BMoog { :in :freq :q :mode :saturation | <primitive: return sc.BMoog(_in, _freq, _q, _mode, _saturation);> }	Bpf { :in :freq :rq | <primitive: return sc.Bpf(_in, _freq, _rq);> }
@@ -57,6 +59,7 @@
 	Dbufwr { :bufnum :phase :input :loop | <primitive: return sc.Dbufwr(_bufnum, _phase, _input, _loop);> }
 	Decay { :in :decayTime | <primitive: return sc.Decay(_in, _decayTime);> }
 	Decay2 { :in :attackTime :decayTime | <primitive: return sc.Decay2(_in, _attackTime, _decayTime);> }
+	DecodeB2 { :numChan :w :x :y :orientation | <primitive: return sc.DecodeB2(_numChan, _w, _x, _y, _orientation);> }
 	DegreeToKey { :bufnum :in :octave | <primitive: return sc.DegreeToKey(_bufnum, _in, _octave);> }
 	Delay1 { :in | <primitive: return sc.Delay1(_in);> }
 	Delay2 { :in | <primitive: return sc.Delay2(_in);> }
@@ -176,6 +179,7 @@
 	Pan2 { :in :pos :level | <primitive: return sc.Pan2(_in, _pos, _level);> }
 	PanAz { :numChan :in :pos :level :width :orientation | <primitive: return sc.PanAz(_numChan, _in, _pos, _level, _width, _orientation);> }
 	PanB { :in :azimuth :elevation :gain | <primitive: return sc.PanB(_in, _azimuth, _elevation, _gain);> }
+	PanB2 { :input :azimuth :gain | <primitive: return sc.PanB2(_input, _azimuth, _gain);> }
 	PeakFollower { :in :decay | <primitive: return sc.PeakFollower(_in, _decay);> }
 	Phasor { :trig :rate :start :end :resetPos | <primitive: return sc.Phasor(_trig, _rate, _start, _end, _resetPos);> }
 	Pitch { :in :initFreq :minFreq :maxFreq :execFreq :maxBinsPerOctave :median :ampThreshold :peakThreshold :downSample :clar | <primitive: return sc.Pitch(_in, _initFreq, _minFreq, _maxFreq, _execFreq, _maxBinsPerOctave, _median, _ampThreshold, _peakThreshold, _downSample, _clar);> }

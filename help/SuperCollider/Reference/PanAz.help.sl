@@ -1,6 +1,6 @@
 # PanAz -- azimuth panner
 
-_PanAz(numChans, in, pos, level, width, orientation)_
+_PanAz(numChans, in, pos=0, level=1, width=2, orientation=0.5)_
 
 Two channel equal power panner.
 
@@ -11,13 +11,17 @@ modulate the pos.
 - level: a control rate level input.
 - width: The width of the panning envelope. Nominally this is 2.0 which pans between pairs of adjacent speakers. Width values greater than two will spread the pan over greater numbers of speakers. Width values less than one will leave silent gaps between speakers.
 
-Five channel circular panning:
+Eight channel circular panning (with offset):
 
-	PanAz(
-		numChans: 5,
-		in: ClipNoise(),
-		pos: LfSaw(MouseX(0.2, 8, 1, 0.2), 0),
-		level: 0.1,
-		width: 3,
-		orientation: 0.5
+	Silent(8) ++ PanAz(
+		8,
+		PinkNoise(),
+		LfSaw(MouseX(1 / 5, 5, 1, 0.2), 0),
+		0.1,
+		2,
+		0
 	)
+
+* * *
+
+See also: PanB2
