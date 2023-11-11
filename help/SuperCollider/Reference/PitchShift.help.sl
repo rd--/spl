@@ -13,9 +13,9 @@ A time domain granular pitch shifter. Grains have a triangular amplitude envelop
 Modulate pitch ratio:
 
 	var z = Blip(800, 6) * 0.1;
-	PitchShift(z, 0.02, Ln(0.1, 4, 20), 0, 0.0001)
+	PitchShift(z, 0.02, Line(0.1, 4, 20), 0, 0.0001)
 
-Pitch shift input. **Use headphones** to prevent feedback:
+Pitch shift input. __Use headphones__ to prevent feedback:
 
 	PitchShift(
 		in: AudioIn([1, 2]),

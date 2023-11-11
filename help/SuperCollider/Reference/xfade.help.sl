@@ -6,4 +6,4 @@ _overlap_ with two cross fading sounds.
 
 * * *
 
-See also: _overlap_
+See also: overlap

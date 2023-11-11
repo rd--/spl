@@ -12,5 +12,5 @@ Fixed frequency:
 
 Modulate frequency:
 
-	LfNoise2(XLn(1000, 10000, 10)) * 0.05
+	LfNoise2(XLine(1000, 10000, 10)) * 0.05
 

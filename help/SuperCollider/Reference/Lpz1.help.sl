@@ -14,4 +14,4 @@ and:
 
 * * *
 
-See also: _Hpz1_, _Hpz2_, _Lpz2_
+See also: Hpz1, Hpz2, Lpz2

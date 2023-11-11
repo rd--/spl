@@ -8,9 +8,9 @@ Band limited sawtooth wave generator.
 
 Modulating the frequency:
 
-	Saw(XLn(40, 4000, 6)) * 0.1
+	Saw(XLine(40, 4000, 6)) * 0.1
 
 Two band limited sawtooth waves through a resonant low pass filter:
 
-	Rlpf(Saw([100, 250]) * 0.1, XLn(8000, 400, 5), 0.05)
+	Rlpf(Saw([100, 250]) * 0.1, XLine(8000, 400, 5), 0.05)
 

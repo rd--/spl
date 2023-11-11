@@ -16,4 +16,4 @@ var x = [4, 4.5], y = [2, 3, 5, 6]; [x * [x, y], y * [x, y]] = [[[16, 18], [9, 1
 
 * * *
 
-See also: _withCrossedCollect_
+See also: withCrossedCollect

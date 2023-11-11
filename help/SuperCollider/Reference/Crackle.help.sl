@@ -12,5 +12,5 @@ Fixed param:
 
 Modulate param:
 
-	Crackle(Ln(1, 2, 10)) * 0.1
+	Crackle(Line(1, 2, 10)) * 0.1
 

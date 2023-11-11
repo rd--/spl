@@ -1,8 +1,9 @@
 # TiRand -- triggered integer random number generator
 
-_Rand(trig, lo, hi)_ == _TiRand(lo, hi, trig)_
+_TiRand(lo, hi, tr)_
 
-Generates a random integer value in uniform distribution from lo to hi each time the trig signal changes from nonpositive to positive values
+Generates a random integer value in uniform distribution from lo to hi each time the trig signal changes from nonpositive to positive values.
+Usually written as _IRand(tr,lo,hi)_.
 
 	var tr = Dust(10);
 	SinOsc(IRand(tr, 4, 12) * 100, 0) * 0.1
@@ -28,4 +29,4 @@ Random degree, octave and number of harmonics:
 
 * * *
 
-See also: IRand, TRand
+See also: IRand, Rand, TRand

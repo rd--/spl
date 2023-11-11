@@ -1,6 +1,6 @@
 # Dbrown -- noise generator.
 
-- _Dbrown(length, lo, hi, step)_
+_Dbrown(length, lo, hi, step)_
 
 - length: number of values to create
 - lo: minimum value
@@ -20,4 +20,4 @@ SinOsc(freq, 0) * 0.1
 
 * * *
 
-See also: _Demand_
+See also: Demand

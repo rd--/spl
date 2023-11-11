@@ -2,7 +2,7 @@
 
 Read audio input from analogue-to-digital converter.
 
-- _AudioIn(channelArray)_
+_AudioIn(channelArray)_
 
 Reads audio from the sound input hardware.
 
@@ -14,4 +14,4 @@ Stereo through patching from input to output with one second delay:
 
 * * *
 
-See also: _ControlIn_, _In_
+See also: ControlIn, In

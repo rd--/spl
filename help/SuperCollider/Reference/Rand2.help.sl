@@ -4,4 +4,4 @@ _Rand2(aNumber)_ ≡ _Rand(aNumber.Neg, aNumber)_
 
 * * *
 
-See also: _Rand_
+See also: Rand

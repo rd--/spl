@@ -1,6 +1,6 @@
 # Splay -- stereo panner
 
-- _Splay(inArray, spread, level, center, levelComp)_
+_Splay(inArray, spread, level, center, levelComp)_
 
 Splay spreads an array of channels across the stereo field.
 

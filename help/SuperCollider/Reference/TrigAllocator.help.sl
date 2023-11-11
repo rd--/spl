@@ -1,6 +1,6 @@
 # TrigAllocator -- timed trigger allocator
 
-- _TrigAllocator(numChannels=8, algorithm=1, in=0, dur=0.1)_
+_TrigAllocator(numChannels=8, algorithm=1, in=0, dur=0.1)_
 
 Allocate a gate array defined by trigger and duration signals.
 Voices are allocated when a non-positive to positive transition occurs at _in_,

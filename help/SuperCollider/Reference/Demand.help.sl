@@ -11,11 +11,15 @@ When there is a trigger at the reset input, the demand rate Ugens in the list ar
 - reset: resets the list of Ugens when triggered
 - demandUgens: list of demand-rate Ugens to get values from. When the shortest stream ends, this Ugen will set the 'done' flag.
 
-By design, a reset trigger only resets the demand ugens; it does not reset the value at Demand's output.
-Demand continues to hold its value until the next value is demanded, at which point its output value will be the first expected item in the list.
-To jump to the start value upon receipt of a reset trigger, one can add (+) the two triggers together:
+By design, a reset trigger only resets the demand ugens;
+it does not reset the value at the output of Demand.
+Demand continues to hold its value until the next value is demanded,
+at which point its output value will be the first expected item in the list.
+To jump to the start value upon receipt of a reset trigger,
+one can add (+) the two triggers together:
 
-One demand Ugen represents a single stream of values, so that embedding the same Ugen twice calls this stream twice.
+One demand Ugen represents a single stream of values,
+so that embedding the same Ugen twice calls this stream twice.
 
 Mouse control of tone:
 
@@ -33,4 +37,4 @@ o.Cubed.Cubed.ScaleNeg(x) * 0.1
 
 * * *
 
-See also: _DmdFor_, _Demand_, _Duty_
+See also: DmdFor, Demand, Duty

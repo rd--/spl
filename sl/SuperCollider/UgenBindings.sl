@@ -298,7 +298,7 @@
 (* Auto-generated *)
 +[Array, SmallFloat, Ugen] {
 	Abs { :self | <primitive: return sc.Abs(_self);> }
-	Ceil { :self | <primitive: return sc.Ceil(_self);> }
+	Ceiling { :self | <primitive: return sc.Ceil(_self);> }
 	Floor { :self | <primitive: return sc.Floor(_self);> }
 	Frac { :self | <primitive: return sc.Frac(_self);> }
 	Sign { :self | <primitive: return sc.Sign(_self);> }

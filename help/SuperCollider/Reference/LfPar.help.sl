@@ -4,7 +4,7 @@ A sine-like shape made of two parabolas and the integral of a triangular wave.
 It has audible odd harmonics and is non-band-limited.
 Output ranges from -1 to +1.
 
-- _LfPar(freq, iphase)_
+_LfPar(freq, iphase)_
 
 - freq: frequency in Hertz.
 - iphase: initial phase offset. For efficiency reasons this is a value ranging from 0 to 4.
@@ -15,11 +15,11 @@ Fixed frequency oscillator:
 
 Modulating frequency:
 
-	LfPar(XLn(100, 2000, 10), 0) * 0.1
+	LfPar(XLine(100, 2000, 10), 0) * 0.1
 
 Amplitude modulation:
 
-	LfPar(XLn(1, 200, 10), 0) * SinOsc(440, 0) * 0.1
+	LfPar(XLine(1, 200, 10), 0) * SinOsc(440, 0) * 0.1
 
 Used as both oscillator and lfo:
 

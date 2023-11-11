@@ -46,5 +46,5 @@ There are many examples of OverlapTexture in the examples files.
 
 * * *
 
-See also: _overlap_, _xfade_
+See also: overlap, xfade
 

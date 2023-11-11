@@ -14,4 +14,4 @@ and:
 
 * * *
 
-See also: _Lpz1_
+See also: Lpz1

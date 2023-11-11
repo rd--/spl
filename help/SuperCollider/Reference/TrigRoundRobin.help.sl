@@ -1,6 +1,6 @@
 # TrigRoundRobin -- trigger round robin allocator
 
-- _TrigRoundRobin(numChannels=8, in=0)_
+_TrigRoundRobin(numChannels=8, in=0)_
 
 Triggers are allocated to output channels from left to right.
 

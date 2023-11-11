@@ -13,4 +13,4 @@ The method dictionary is reflected in the _system_ value.
 
 * * *
 
-See also: _methodDictionary_
+See also: methodDictionary

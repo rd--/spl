@@ -12,5 +12,8 @@ Fixed density:
 
 Modulate density:
 
-	Dust(XLn(20000, 2, 10)) * 0.1
+	Dust(XLine(20000, 2, 10)) * 0.1
 
+* * *
+
+See also: Impulse

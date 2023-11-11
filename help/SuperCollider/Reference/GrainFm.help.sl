@@ -16,10 +16,10 @@ Linear envelopes modulating controls:
 
 ```
 var d = 15;
-var tr = Impulse(Ln(7.5, 15, d), 0);
-var pan = Ln(-0.5, 0.5, d);
-var carFreq = Ln(200, 800, d);
-var index = Ln(-1, 1, d);
+var tr = Impulse(Line(7.5, 15, d), 0);
+var pan = Line(-0.5, 0.5, d);
+var carFreq = Line(200, 800, d);
+var index = Line(-1, 1, d);
 GrainFm(2, tr, 0.1, carFreq, 200, index, pan, -1, 512) * 0.1
 ```
 

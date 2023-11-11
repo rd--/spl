@@ -9,4 +9,4 @@ When _aBlock_ is evaluated, with the current logical time as parameter, the answ
 
 * * *
 
-See also: _repeatEvery_, _scheduleInjecting_, _Clock_
+See also: repeatEvery, scheduleInjecting, Clock

@@ -1415,7 +1415,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'BufSampleRate'
 		'BufWr'
 		'BufWrite'
-		'Ceil'
+		'Ceiling'
 		'Changed'
 		'ClearBuf'
 		'Clip'
@@ -1585,7 +1585,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'LinRandN'
 		'LinSeg'
 		'LinXFade2'
-		'Ln'
 		'LocalBuf'
 		'LocalIn'
 		'LocalOut'
@@ -1765,7 +1764,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'XFade2'
 		'XFadeTexture'
 		'XLine'
-		'XLn'
 		'ZeroCrossing'
 	],
 	'accessing-regexp': [

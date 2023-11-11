@@ -6,4 +6,4 @@ Fixed amplitude:
 
 Modulate amplitude:
 
-	FSinOsc(800, 0) * Ln(-12, -40, 10).DbAmp
+	FSinOsc(800, 0) * Line(-12, -40, 10).DbAmp

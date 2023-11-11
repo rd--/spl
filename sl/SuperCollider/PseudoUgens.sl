@@ -240,7 +240,7 @@
 	DynRingzBank { :input :freq :amp :time | <primitive: return sc.DynRingzBank(_input, _freq, _amp, _time);> }
 	InFb { :numChannels :bus | <primitive: return sc.InFb(_numChannels, _bus);> }
 	LinSeg { :gate :coordArray | <primitive: return sc.LinSeg(_gate, _coordArray);> }
-	Ln { :start :end :dur | <primitive: return sc.Ln(_start, _end, _dur);> }
+	Line { :start :end :dur | <primitive: return sc.Line(_start, _end, _dur, 0);> }
 	Perc { :trig :attackTime :releaseTime :curve | <primitive: return sc.Perc(_trig, _attackTime, _releaseTime, _curve);> }
 	PingPongDelay { :left :right :maxDelayTime :delayTime :feedback | <primitive: return sc.PingPongDelay(_left, _right, _maxDelayTime, _delayTime, _feedback);> }
 	PmOsc { :carfreq :modfreq :pmindex :modphase | <primitive: return sc.PmOsc(_carfreq, _modfreq, _pmindex, _modphase);> }
@@ -266,6 +266,6 @@
 	TxLine { :start :end :dur :trig | <primitive: return sc.TxLine(_start, _end, _dur, _trig);> }
 	VarLag { :input :time :curve | <primitive: return sc.VarLag(_input, _time, _curve);> }
 	XChoose { :repeats :list | <primitive: return sc.XChoose(_repeats, _list);> }
-	XLn { :start :end :dur | <primitive: return sc.XLn(_start, _end, _dur);> }
+	XLine { :start :end :dur | <primitive: return sc.XLine(_start, _end, _dur, 0);> }
 
 }

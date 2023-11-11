@@ -2,7 +2,7 @@
 
 Read a signal from a bus.
 
-- _In(numChannels, bus)_
+_In(numChannels, bus)_
 
 - bus: the index of the bus to read in from
 - numChannels: the number of adjacent buses to read
@@ -43,4 +43,4 @@ DelayN(In(1, NumOutputBuses() + [0, 1]), 1, 1)
 
 * * *
 
-See also: _AudioIn_, _ControlIn_, _InFeedback_, _Out_
+See also: AudioIn, ControlIn, InFeedback, Out

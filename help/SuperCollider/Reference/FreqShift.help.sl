@@ -10,13 +10,13 @@ FreqShift implements single sideband amplitude modulation, also known as frequen
 
 Shifting a 100Hz tone by 1 Hz rising to 500Hz:
 
-	FreqShift(SinOsc(100, 0),XLn(1, 500, 5), 0) * 0.1
+	FreqShift(SinOsc(100, 0),XLine(1, 500, 5), 0) * 0.1
 
 Shifting a complex tone by 1 Hz rising to 500Hz:
 
 	FreqShift(
 		SinOscBank([101, 303, 606, 808], 0.1, 0),
-		XLn(1, 500, 10),
+		XLine(1, 500, 10),
 		0
 	) * 0.1
 
@@ -65,8 +65,8 @@ Shift pulse wave in opposite directions:
 		var freq = (octave * 12 + note).MidiCps;
 		var width = SinOsc(2.3, 0).LinLin(-1, 1, 0.2, 0.8);
 		var osc = Pulse(freq, width) * 0.1;
-		var left = FreqShift(osc, XLn(-0.1, -200, 3), 0);
-		var right = FreqShift(osc, XLn(0.1, 200, 3), 0);
+		var left = FreqShift(osc, XLine(-0.1, -200, 3), 0);
+		var right = FreqShift(osc, XLine(0.1, 200, 3), 0);
 		[left, right] / 3
 	}.overlap(3, 3, 3)
 
@@ -79,7 +79,7 @@ FreqShift, feedback, FreqShift:
 		var freq = (octave * 12 + note).MidiCps;
 		var in = FreqShift(
 			InFb(1, 0) * 3.2,
-			XLn(0.01, freq * 1.5, 1),
+			XLine(0.01, freq * 1.5, 1),
 			0
 		);
 		var osc = SinOsc(freq, 0) * Sine(1, 9) * 0.1;

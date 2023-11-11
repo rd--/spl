@@ -39,5 +39,5 @@ Equivalent to:
 
 * * *
 
-See also: _RingzBank_
+See also: RingzBank
 

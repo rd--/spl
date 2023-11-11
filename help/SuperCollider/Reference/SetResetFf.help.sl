@@ -1,6 +1,6 @@
 # SetResetFF - set-reset flip flop
 
-- _SetResetFf(trig=0, reset=0)_
+_SetResetFf(trig=0, reset=0)_
 
 Output is set to one upon receiving a trigger in the trig input, and to zero upon receiving a trigger in the reset input.
 Once the flip flop is set to zero or one further triggers in the same input have no effect.

@@ -1,7 +1,8 @@
 # IRand -- random number generator
 
-- _IRand(lo, hi)_
-- _IRand(hi)_ ≡ _IRand(0, hi)_
+- _IRand(tr=0, lo=0, hi=1)_ ≡ _TiRand(lo, hi, tr)_
+- _IRand(lo, hi)_ ≡ _IRand(1, lo, hi)_
+- _IRand(hi)_ ≡ _IRand(1, 0, hi)_
 
 Generates a single random integer value in uniform distribution from lo to hi
 
@@ -17,4 +18,4 @@ Generates a single random integer value in uniform distribution from lo to hi
 
 * * *
 
-See also: _Rand_
+See also: Rand, TiRand

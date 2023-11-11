@@ -1,6 +1,6 @@
 # Dwhite -- noise generator
 
-- _Dwhite(length, lo, hi)_
+_Dwhite(length, lo, hi)_
 
 Demand rate white noise random generator.
 Dwhite returns numbers in the continuous range between lo and hi.

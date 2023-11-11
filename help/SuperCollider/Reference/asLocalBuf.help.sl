@@ -6,4 +6,4 @@ Make a local buffer from an array of numbers.
 
 * * *
 
-See also: _LocalBuf_
+See also: LocalBuf

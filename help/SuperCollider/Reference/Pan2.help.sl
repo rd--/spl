@@ -14,4 +14,4 @@ Pan noise:
 
 * * *
 
-See also: _EqPan2_, _LinPan2_
+See also: EqPan2, LinPan2

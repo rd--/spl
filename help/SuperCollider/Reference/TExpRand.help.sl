@@ -1,4 +1,4 @@
-# TrExpRand -- triggered exponential random number generator
+# TExpRand -- triggered exponential random number generator
 
 _TExpRand(lo, hi, tr)_ == _ExpRand(tr, lo, hi)_
 
@@ -14,4 +14,4 @@ Mouse controls density:
 
 * * *
 
-See also: _ExpRand_
+See also: ExpRand

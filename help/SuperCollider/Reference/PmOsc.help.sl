@@ -11,15 +11,15 @@ Phase modulation sine oscillator pair.
 
 Modulate carfreq:
 
-	PmOsc(Ln(600, 900, 5), 600, 3, 0) * 0.1
+	PmOsc(Line(600, 900, 5), 600, 3, 0) * 0.1
 
 Modulate modfreq:
 
-	PmOsc(300, Ln(600, 900, 5), 3, 0) * 0.1
+	PmOsc(300, Line(600, 900, 5), 3, 0) * 0.1
 
 Modulate index:
 
-	PmOsc(300, 550, Ln(0, 20, 8), 0) * 0.1
+	PmOsc(300, 550, Line(0, 20, 8), 0) * 0.1
 
 Texture:
 

@@ -4,4 +4,4 @@ The system dictionary is of type _System_ and is stored in the global variable _
 
 * * *
 
-See also: _system_, _System_
+See also: system, System

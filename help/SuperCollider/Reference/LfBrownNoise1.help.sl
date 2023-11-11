@@ -10,15 +10,15 @@ _LfBrownNoise1(freq, dev, dist)_
 
 As audio signal:
 
-```
-LfBrownNoise1(1000, 1, MouseX(0, 5, 0, 0.2)) * 0.1
-```
+	LfBrownNoise1(1000, 1, MouseX(0, 5, 0, 0.2)) * 0.1
 
 As frequency control:
 
-```
-SinOsc(
-	LfBrownNoise1([8, 11], 0.2, 2) * 400 + 450,
-	0
-) * 0.1
-```
+	SinOsc(
+		LfBrownNoise1([8, 11], 0.2, 2) * 400 + 450,
+		0
+	) * 0.1
+
+* * *
+
+See also: BrownNoise

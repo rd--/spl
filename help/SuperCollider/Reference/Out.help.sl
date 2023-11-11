@@ -1,6 +1,6 @@
 # Out -- summing output
 
-- _Out(bus, channelsArray)_
+_Out(bus, channelsArray)_
 
 Sum a sequence of signals to a bus.
 
@@ -9,7 +9,7 @@ Sum a sequence of signals to a bus.
 
 One _Out_ summing one _SinOsc_ to two buses:
 
-	Out(0, SinOsc(440, 0) * 0.1 ! 2)
+	Out(0, SinOsc(440, 0) * 0.1 !! 2)
 
 Two _Out_ summing distinct frequencies to one bus each:
 
@@ -21,4 +21,4 @@ One _Out_ summing to two buses:
 
 * * *
 
-See also: _In_, _AudioIn_, _NumOutputBuses_
+See also: In, AudioIn, NumOutputBuses

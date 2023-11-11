@@ -20,7 +20,7 @@ Used as an envelope:
 
 ```
 Decay2(
-	Impulse(XLn(1, 50, 20), 0) * 0.25,
+	Impulse(XLine(1, 50, 20), 0) * 0.25,
 	0.01,
 	0.2
 ) * FSinOsc(600, 0)
@@ -30,7 +30,7 @@ Compare the above with Decay used as the envelope:
 
 ```
 Decay(
-	Impulse(XLn(1, 50, 20), 0) * 0.25,
+	Impulse(XLine(1, 50, 20), 0) * 0.25,
 	0.2
 ) * FSinOsc(600, 0)
 ```

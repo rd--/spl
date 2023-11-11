@@ -9,5 +9,5 @@ Inverse of _RatioMidi_.
 
 * * *
 
-See also: _MidiCps_
+See also: MidiCps
 

@@ -21,12 +21,12 @@ Fixed parameters:
 
 Fixed parameters, modulate frequency of input signal:
 
-	Formlet(Blip(XLn(10, 400, 8), 1000) * 0.1, 1000, 0.01, 0.1)
+	Formlet(Blip(XLine(10, 400, 8), 1000) * 0.1, 1000, 0.01, 0.1)
 
 Modulating formant frequency:
 
 	var input = Blip(SinOsc(5, 0) * 20 + 300, 1000) * 0.1;
-	Formlet(input, XLn(1500, 700, 8), 0.005, 0.04)
+	Formlet(input, XLine(1500, 700, 8), 0.005, 0.04)
 
 Mouse control of frequency and decay time:
 

@@ -17,5 +17,5 @@ High pass:
 
 Modulate coeficient:
 
-	OneZero(WhiteNoise() * 0.2, Ln(-0.5, 0.5, 10))
+	OneZero(WhiteNoise() * 0.2, Line(-0.5, 0.5, 10))
 

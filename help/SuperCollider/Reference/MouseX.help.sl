@@ -26,4 +26,4 @@ Two oscillators:
 
 * * *
 
-See also: _MouseY_, _MouseButton_
+See also: MouseY, MouseButton

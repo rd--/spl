@@ -29,7 +29,7 @@ Pointer is _Phasor_, playback slows from unit to a quarter over twenty seconds:
 var sf = SfAcquire1('floating_1', 1, 1);
 var pointer = Phasor(
 	0,
-	SampleDur() / SfDur(sf) * XLn(1, 0.25, 20),
+	SampleDur() / SfDur(sf) * XLine(1, 0.25, 20),
 	0,
 	1,
 	0
@@ -42,7 +42,7 @@ var sound = Warp1(
 	0.3,
 	-1,
 	16,
-	Ln(0, 1, 40),
+	Line(0, 1, 40),
 	4
 );
 Pan2(sound, pointer * 2 - 1, 0.25).sum

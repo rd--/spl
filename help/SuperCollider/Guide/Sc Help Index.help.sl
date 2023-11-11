@@ -22,7 +22,7 @@
 - BrownNoise -- noise generator
 - Brz2 -- two zero fixed midcut
 - BufRd -- Buffer reading oscillator
-- Ceil -- next higher integer
+- Ceiling -- next higher integer
 - Choose -- demand rate random sequence generator
 - ClipNoise -- noise generator
 - CoinGate -- statistical gate
@@ -103,7 +103,7 @@
 - LinPan2 -- two channel linear pan
 - LinRand -- random number generator
 - LinXFade2 -- two channel linear crossfade
-- Ln -- line generator
+- Line -- line generator
 - LocalIn -- define and read from an audio bus local to the enclosing synth
 - LocalOut -- define and write to an audio bus local to the enclosing synth
 - Log -- natural logarithm
@@ -202,7 +202,7 @@
 - Wrap2 -- bilateral wrapping
 - WrapIndex -- index into a table with a signal
 - XFade2 -- equal power two channel cross fade
-- XLn -- exponential line generator
+- XLine -- exponential line generator
 - ZeroCrossing -- zero crossing frequency follower
 - coin -- random boolean generator
 - duplicate -- copying

@@ -17,7 +17,7 @@ Used to lag pitch:
 	SinOsc( (* sine wave *)
 		Lag( (* lag the modulator *)
 			LfPulse(4, 0, 0.5) * 50 + 400, (* frequency modulator *)
-			Ln(0, 1, 15) (* modulate lag time *)
+			Line(0, 1, 15) (* modulate lag time *)
 		),
 	0) (* phase *)
 	* 0.3 (* sine amplitude *)

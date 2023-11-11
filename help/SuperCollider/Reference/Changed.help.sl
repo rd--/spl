@@ -1,6 +1,6 @@
 # Changed -- triggers when a value changes
 
-- _Changed(input, threshold=0)_
+_Changed(input, threshold=0)_
 
 A special case fixed filter.
 

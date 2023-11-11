@@ -13,7 +13,7 @@ Constant frequency:
 
 Modulate frequency:
 
-	Impulse(XLn(800, 100, 5), 0) * 0.2
+	Impulse(XLine(800, 100, 5), 0) * 0.2
 
 Modulate phase:
 

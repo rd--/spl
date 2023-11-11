@@ -6,4 +6,4 @@ Generates noise whose spectrum falls off in power by 6 dB per octave.
 
 * * *
 
-See also: _PinkNoise_, _WhiteNoise_
+See also: PinkNoise, WhiteNoise

@@ -17,4 +17,4 @@ As nested frequency modulator:
 
 Frequency sweep:
 
-	LfCub(XLn(100, 8000, 30), 0) * 0.1
+	LfCub(XLine(100, 8000, 30), 0) * 0.1

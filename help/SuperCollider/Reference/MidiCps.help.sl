@@ -4,7 +4,7 @@ Convert midi note to cycles per second.
 
 Inverse of _CpsMidi_.
 
-	Saw(Ln(24, 108, 10).MidiCps) * 0.1
+	Saw(Line(24, 108, 10).MidiCps) * 0.1
 
 A4 = 440hz:
 
@@ -12,4 +12,4 @@ A4 = 440hz:
 
 * * *
 
-See also: _MidiRatio_
+See also: MidiRatio
