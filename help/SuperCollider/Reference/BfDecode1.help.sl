@@ -22,6 +22,7 @@ If you want to zero one out, use Dc(0).
 B-format decode to cube _lfh, rfh, rrh, lrh, lfl, rfl, rrl, lrl_,
 where lfl = left front high, lfl = left front low &etc.
 
+```
 var p = PinkNoise();
 var [w, x, y, z] = BfEncode1(
 	p,
@@ -37,3 +38,4 @@ Silent(8 + 8) ++ BfDecode1(
         [0.25, 0.25, 0.25, 0.25, -0.25, -0.25, -0.25, -0.25] * pi,
 	0
 )
+```
