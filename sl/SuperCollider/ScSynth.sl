@@ -135,8 +135,12 @@ ScSynth! : [Object] {
 
 +Block {
 
+	OverlapTextureArray { :self :sustainTime :transitionTime :overlap |
+		<primitive: return sc.OverlapTextureArray(_self, _sustainTime, _transitionTime, _overlap);>
+	}
+
 	OverlapTexture { :self :sustainTime :transitionTime :overlap |
-		<primitive: return sc.OverlapTexture(_self, _sustainTime, _transitionTime, _overlap);>
+		self.OverlapTextureArray(sustainTime, transitionTime, overlap)
 	}
 
 	XFadeTexture { :self :sustainTime :transitionTime |
@@ -175,9 +179,11 @@ ScSynth! : [Object] {
 		<primitive: return sc.asLocalBuf(_self);>
 	}
 
+(*
 	Mix { :self |
 		self.sum
 	}
+*)
 
 }
 
@@ -185,6 +191,10 @@ ScSynth! : [Object] {
 
 	!^ { :self :anInteger |
 		Splay2(self ! anInteger)
+	}
+
+	!> { :self :anInteger |
+		Mix(self ! anInteger)
 	}
 
 }

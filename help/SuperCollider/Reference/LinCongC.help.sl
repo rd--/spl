@@ -23,4 +23,4 @@ Texture:
 		var a = IRand(tr, 1, 2000);
 		var c = IRand(tr, 1, 30000);
 		LinCongC(freq, a, c, m, { IRand(tr, 0, m) } ! 2) * 0.05
-	}.OverlapTexture(1, 2, 4)
+	}.OverlapTexture(1, 2, 4).Mix

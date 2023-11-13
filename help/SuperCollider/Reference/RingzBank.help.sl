@@ -68,5 +68,5 @@ Texture of variation of above:
 			{ Rand(tr, 0.1, 2) } ! 12
 		);
 		EqPan2(r, Rand(tr, -1, 1))
-	}.OverlapTexture(8, 3, 4)
+	}.OverlapTexture(8, 3, 4).Mix
 

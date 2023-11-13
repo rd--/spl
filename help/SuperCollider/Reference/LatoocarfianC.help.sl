@@ -22,6 +22,6 @@ According to Pickover, parameters a and b should be in the range from -3 to +3, 
 		var d = Rand(tr, 0.5, 1.5);
 		var l = LatoocarfianC(freq, a, b, c, d, 0.5, 0.5);
 		SinOsc(freq, 0) * 0.05 + Pan2(l, Rand(tr, -1, 1), 0.05)
-	}.OverlapTexture(1, 4, 8)
+	}.OverlapTexture(1, 4, 8).Mix
 
 This UGen is experimental and not optimized currently, so is rather hoggish of Cpu.

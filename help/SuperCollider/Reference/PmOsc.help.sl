@@ -34,4 +34,4 @@ Texture:
 			Rand(tr, -1, 1),
 			0.1
 		)
-	}.OverlapTexture(2, 5, 4)
+	}.OverlapTexture(2, 5, 4).Mix

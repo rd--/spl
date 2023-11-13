@@ -16,8 +16,8 @@ var n = 24;
 { :tr |
 	{
 		SinOsc(Rand(tr, 220, 990), 0)
-	} ! n * 0.1
-}.OverlapTexture(3, 3, 3)
+	} ! n / n / 3
+}.OverlapTexture(3, 3, 3).Mix
 ```
 
 ```
@@ -25,7 +25,7 @@ var n = 24;
 	{
 		SinOsc(Rand(tr, 220, 990), 0)
 	} ! 2 * 0.1
-}.OverlapTexture(3, 3, 3)
+}.OverlapTexture(3, 3, 3).Mix
 ```
 
 There are many examples of OverlapTexture in the examples files.
@@ -45,7 +45,7 @@ There are many examples of OverlapTexture in the examples files.
 				LfPulse(f, 0, 0.2),
 				LfPulse(2 * f + Rand(tr, -0.5, 0.5), 0, 0.2)
 			].sum
-		}.OverlapTexture(4, 2, 4) * 0.02,
+		}.OverlapTexture(4, 2, 4).sum * 0.02,
 		lfo,
 		MouseX(0.2, 0.02, 1, 0.2)
 	);
@@ -56,4 +56,3 @@ There are many examples of OverlapTexture in the examples files.
 * * *
 
 See also: overlap, xfade
-

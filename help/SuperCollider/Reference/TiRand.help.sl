@@ -25,7 +25,7 @@ Random degree, octave and number of harmonics:
 			var numHarm = IRand(tr, 1, 4);
 			Blip(mnn.MidiCps, numHarm) * 0.05
 		} !^ 7
-	}.OverlapTexture(4, 0.05, 2)
+	}.OverlapTexture(4, 0.05, 2).Mix
 
 * * *
 

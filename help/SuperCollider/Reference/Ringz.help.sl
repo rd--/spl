@@ -63,5 +63,4 @@ Texture of above:
 				0.5
 			)
 		} !^ 10
-	}.OverlapTexture(5, 10, 3)
-
+	}.OverlapTexture(5, 10, 9).Mix
