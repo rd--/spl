@@ -362,6 +362,12 @@
 		self.Array.sortBy(sortBlock:/2)
 	}
 
+	symmetricDifference { :self :aCollection |
+		self.difference(aCollection).union(
+			aCollection.difference(self)
+		)
+	}
+
 	take { :self :maxNumberOfElements |
 		self.any(maxNumberOfElements.min(self.size))
 	}

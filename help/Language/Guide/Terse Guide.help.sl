@@ -466,6 +466,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 (-1 .. 5).collect { :index | (1 .. 3).atFold(index) } = [3 2 1 2 3 2 1] (* at with index fold-around *)
 [1 .. 9].difference([3 .. 7]) = [1, 2, 8, 9] (* set theoretic difference of two collections *)
 [1 .. 9].difference([]) = [1 .. 9] (* set theoretic difference of two collections *)
+[1, 2, 3].symmetricDifference([3, 4]) = [1, 2, 4].Set (* elements which are in either set but not their intersection *)
+['A', 'B', 'D', 'E'].symmetricDifference(['B', 'E', 'F']) = ['A', 'D', 'F'].Set
 | a = [1 .. 9]; | a.reject { :each | a.includes(each) } = [] (* reject all *)
 [1 .. 9].difference([1 .. 9]) = [] (* set theoretic difference of two collections *)
 [1, 3 .. 9].intersection([2, 4 .. 8]) = [] (* set theoretic intersection, unicode = ∩ *)
