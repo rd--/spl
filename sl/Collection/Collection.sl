@@ -96,6 +96,10 @@
 		}
 	}
 
+	atRandom { :self :size |
+		{ self.atRandom } ! size
+	}
+
 	average { :self |
 		self.mean
 	}

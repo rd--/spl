@@ -9,7 +9,16 @@ Creates a series of overlapped sounds from a user function. The user function sh
 - transitionTime: the transition time (in beats) of the envelope. The envelope transition is a welch envelope segment giving it a -3dB midpoint.
 - overlap: number of overlapping events.
 
-Texture of overlapping sine tones:
+Texture of overlapping _n_-channel sine tones:
+
+```
+var n = 24;
+{ :tr |
+	{
+		SinOsc(Rand(tr, 220, 990), 0)
+	} ! n * 0.1
+}.OverlapTexture(3, 3, 3)
+```
 
 ```
 { :tr |

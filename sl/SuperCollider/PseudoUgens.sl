@@ -13,23 +13,31 @@
 				}
 			},
 			'4×2→1×4': {
-				self.concatenation.mixByIndexPairs(
+				SparseMatrixMixer(
+					4,
+					self.concatenation,
 					[
 						[1 2 3 4 5 6 7 8],
-						[1 2 2 3 3 4 4 1]
+						[1 2 2 3 3 4 4 1],
+						1 !! 8
 					].transposed
 				)
 			},
 			'4×2→1×4𝕫': {
-				self.concatenation.mixByIndexPairs(
+				SparseMatrixMixer(
+					4,
+					self.concatenation,
 					[
 						[1 2 3 4 5 6 7 8],
-						[1 2 2 4 4 3 3 1]
+						[1 2 2 4 4 3 3 1],
+						1 !! 8
 					].transposed
 				)
 			},
 			'8×2→1×8': {
-				self.concatenation.mixByIndexPairs(
+				SparseMatrixMixer(
+					8,
+					self.concatenation,
 					[
 						(1 .. 16),
 						[1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 1]
@@ -79,19 +87,17 @@
 		).at(name).value
 	}
 
-	mixIntoByIndexPairs { :self :outputs :indexPairs |
-		indexPairs.do { :each |
-			outputs[each.second] +:= self[each.first]
-		}
-	}
+}
 
-	mixByIndexPairs { :self :indexPairs |
-		|(
-			maxOutputIndex = indexPairs.collect(second:/1).max,
-			outputs = { Dc(0) } ! maxOutputIndex
-		)|
-		mixIntoByIndexPairs(self, outputs, indexPairs);
-		outputs
++@Integer {
+
+	SparseMatrixMixer { :numOutputs :inputArray :sparseMatrix |
+		| answer = Dc(0) !! numOutputs; |
+		sparseMatrix.do { :each |
+			| [inputIndex, outputIndex, gain] = each; |
+			answer[outputIndex] +:= inputArray[inputIndex] * gain
+		};
+		answer
 	}
 
 }
