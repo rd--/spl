@@ -9,5 +9,5 @@ The input signal value is truncated to an integer value and used as an index int
 
 Indexing into a table:
 
-	var buf = [200, 300, 400, 500, 600, 800].asLocalBuf;
+	var buf = [200 300 400 500 600 800].asLocalBuf;
 	SinOsc(WrapIndex(buf, MouseX(0, 6 * 3, 0, 0.1)), 0) * 0.1

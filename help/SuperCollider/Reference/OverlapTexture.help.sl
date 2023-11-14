@@ -37,8 +37,8 @@ There are many examples of OverlapTexture in the examples files.
 			var f = Choose(
 				tr,
 				[
-					25, 30, 34, 37, 41, 42, 46,
-					49, 53, 54, 58, 61, 63, 66
+					25 30 34 37 41 42 46
+					49 53 54 58 61 63 66
 				]
 			).MidiCps;
 			[

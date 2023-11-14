@@ -175,6 +175,14 @@ ScSynth! : [Object] {
 		<primitive: return sc.asLocalBuf(_self);>
 	}
 
+	asLocalBufferArray { :self |
+		(self.rank ~= 2).if {
+			'asLocalBufferArray: not a matrix'.error
+		} {
+			self.collect(asLocalBuf:/1)
+		}
+	}
+
 	LocalBuf { :self |
 		<primitive: return sc.asLocalBuf(_self);>
 	}

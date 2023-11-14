@@ -48,6 +48,14 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 		answer
 	}
 
+	isSmallFloatArray { :self |
+		self.allSatisfy(isSmallFloat:/1)
+	}
+
+	isSmallFloatMatrix { :self |
+		self.allSatisfy(isSmallFloatArray:/1)
+	}
+
 	join { :self |
 		self.joinSeparatedBy('')
 	}

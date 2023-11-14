@@ -227,7 +227,28 @@
 
 +[Array, SmallFloat, Ugen] {
 
-	Choose { :tr :inArray | TChoose(tr, inArray) }
+	TBufChoose { :tr :buf |
+		BufRd(
+			1,
+			buf,
+			TIRand(0, BufFrames(buf), tr),
+			0,
+			1
+		)
+	}
+
+	Choose { :tr :inArray |
+		inArray.isSmallFloatArray.if {
+			TBufChoose(tr, inArray.asLocalBuf)
+		} {
+			inArray.isSmallFloatMatrix.if {
+				TBufChoose(tr, inArray.asLocalBufferArray)
+			} {
+				TChoose(tr, inArray)
+			}
+		}
+	}
+
 	ExpRand { :tr :lo :hi | TExpRand(lo, hi, tr) }
 	LinRand { :tr :lo :hi :minmax | TLinRand(lo, hi, minmax, tr) }
 	Line { :tr :start :end :dur | TLine(start, end, dur, tr) }

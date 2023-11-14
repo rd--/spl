@@ -6,7 +6,7 @@
 
 Generates a single random integer value in uniform distribution from lo to hi
 
-	var scale = [0, 2, 4, 5, 7, 9, 10, 12].asLocalBuf;
+	var scale = [0 2 4 5 7 9 10 12].asLocalBuf;
 	{
 		var degree = IRand(0, 7);
 		var octave = IRand(4, 7);

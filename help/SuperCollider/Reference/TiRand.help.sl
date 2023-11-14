@@ -15,7 +15,7 @@ Mouse controls density:
 
 Random degree, octave and number of harmonics:
 
-	var scale = [0, 2, 4, 5, 7, 9, 10, 12].asLocalBuf;
+	var scale = [0 2 4 5 7 9 10 12].asLocalBuf;
 	{ :tr |
 		{
 			var degree = IRand(tr, 0, 7);
