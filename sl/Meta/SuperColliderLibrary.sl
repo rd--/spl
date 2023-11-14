@@ -17,6 +17,7 @@
 	'Env'
 	'J'
 	'LocalControl'
+	'Mix' (* < Ugen *)
 	'PseudoUgens' (* < Ugen *)
 	'ScLang'
 	'ScSynth' (* < Ugen *)

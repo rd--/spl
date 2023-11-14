@@ -150,6 +150,7 @@
 	'SuperCollider-Env'
 	'SuperCollider-J'
 	'SuperCollider-LocalControl'
+	'SuperCollider-Mix'
 	'SuperCollider-PseudoUgens'
 	'SuperCollider-ScLang'
 	'SuperCollider-ScSynth'
