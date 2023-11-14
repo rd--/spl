@@ -18,7 +18,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		}
 	}
 
-	Array { :self |
+	asArray { :self |
 		<primitive: return Array.from(_self);>
 	}
 
@@ -79,7 +79,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 	}
 
 	pseudoSlotNameArray { :self |
-		['size', 'Array']
+		['size']
 	}
 
 	remove { :self :anObject |
@@ -126,11 +126,15 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		<primitive: return new Set(_self);>
 	}
 
+	asSet { :self |
+		self.Set
+	}
+
 }
 
 +@Collection {
 
-	Set { :self |
+	asSet { :self |
 		| answer = Set(); |
 		answer.addAll(self);
 		answer
@@ -140,7 +144,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 
 +@Dictionary {
 
-	Set { :self |
+	asSet { :self |
 		self.values.Set
 	}
 

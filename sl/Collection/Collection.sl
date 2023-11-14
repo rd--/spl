@@ -190,6 +190,22 @@
 		self.includes(anObject).not
 	}
 
+	elementType { :self |
+		self.isEmpty.if {
+			'Any'
+		} {
+			valueWithReturn { :return:/1 |
+				| answer = self.anyOne.typeOf; |
+				self.do { :each |
+					(answer = each.typeOf).ifFalse {
+						'Any'.return
+					}
+				};
+				answer
+			}
+		}
+	}
+
 	emptyCheck { :self |
 		self.isEmpty.ifTrue {
 			self.errorEmptyCollection
@@ -373,7 +389,7 @@
 	}
 
 	union { :self :aCollection |
-		| answer = self.Set; |
+		| answer = self.asSet; |
 		answer.includeAll(aCollection);
 		answer
 	}

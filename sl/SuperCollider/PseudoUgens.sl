@@ -238,10 +238,10 @@
 	}
 
 	Choose { :tr :inArray |
-		inArray.isSmallFloatArray.if {
+		(inArray.elementType = 'SmallFloat').if {
 			TBufChoose(tr, inArray.asLocalBuf)
 		} {
-			inArray.isSmallFloatMatrix.if {
+			inArray.isMatrixOf('SmallFloat').if {
 				TBufChoose(tr, inArray.asLocalBufferArray)
 			} {
 				TChoose(tr, inArray)

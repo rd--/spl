@@ -29,7 +29,7 @@ As a sequencer:
 ```
 {
 	{
-		var a = { Rand(30,80) } ! 32;
+		var a = { Rand(30, 80) } ! 32;
 		var cycle = a.size * 0.5;
 		Saw(
 			Select(
@@ -41,3 +41,8 @@ As a sequencer:
 }.xfade(3, 4)
 ```
 
+For selecting from an array consider also _BufRd_.
+
+* * *
+
+See also: BufRd

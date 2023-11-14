@@ -48,14 +48,6 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 		answer
 	}
 
-	isSmallFloatArray { :self |
-		self.allSatisfy(isSmallFloat:/1)
-	}
-
-	isSmallFloatMatrix { :self |
-		self.allSatisfy(isSmallFloatArray:/1)
-	}
-
 	join { :self |
 		self.joinSeparatedBy('')
 	}
@@ -223,6 +215,18 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 	fibonacciArray { :self |
 		self.fibonacciSequenceInto([])
+	}
+
+}
+
++Array {
+
+	isMatrixOf { :self :elementType |
+		self.elementType = 'Array' & {
+			self.allSatisfy { :each |
+				each.elementType = elementType
+			}
+		}
 	}
 
 }

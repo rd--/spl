@@ -244,7 +244,7 @@ system.includesPackage('Array') (* array package *)
 [].species.new = [] (* new empty array *)
 [].species.new(3) = [nil, nil, nil] (* new array of indicated size *)
 [].species.ofSize(3) = [nil, nil, nil] (* new array of indicated size *)
-[].species.newFrom((1 .. 9).Set) = [1 .. 9] (* new array from collection *)
+[].species.newFrom((1 .. 9).asSet) = [1 .. 9] (* new array from collection *)
 [].species.newFrom([].Set) = [] (* new array from empty collection *)
 [].species.newFrom([]) = [] (* new array from empty array *)
 [].isArray = true (* the empty Array is an Array *)
@@ -605,9 +605,9 @@ Bag().isSequenceable = false
 | c = [2, 3, 3, 4, 4, 4].Bag; | c.copy = c (* copy answers new equal Bag *)
 | c = [2, 3, 3, 4, 4, 4].Bag; | c.copy ~~ c (* copy does not answer argument *)
 | c = Bag(); | c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
-[2, 3, 3, 4, 4, 4].Bag.Set.size = 3 (* number of unique elements *)
-[2, 3, 3, 4, 4, 4].Bag.Set.occurrencesOf(3) = 1
-| s = Bag(); | 250.timesRepeat { s.add([1 .. 4].shuffled.asString) }; s.Set.size = 24
+[2, 3, 3, 4, 4, 4].Bag.asSet.size = 3 (* number of unique elements *)
+[2, 3, 3, 4, 4, 4].Bag.asSet.occurrencesOf(3) = 1
+| s = Bag(); | 250.timesRepeat { s.add([1 .. 4].shuffled.asString) }; s.asSet.size = 24
 [1, 2, 3, 1, 4].Bag.isIndexable = false (* bags are not indexable *)
 [1, 2, 3, 1, 4].Bag.indices = nil (* sets are not indexable *)
 | a = [1, 1, 2, 1, 2, 3, 1, 1, 2, 3, 4]; | a.sum = a.Bag.sum (* sum may be optimised *)
@@ -949,7 +949,7 @@ Set().Array = []
 [2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6] (* copy without element, removes multiples *)
 [2, 3, 4, 5, 5, 6].copyWithoutAll([3, 5]) = [2, 4, 6] (* copy without element, removes multiples *)
 | a = [1 .. 4], c = a.copyWith(5); | a ~= c & { c = [1 .. 5] } (* copy with new (last) element *)
-| s = 1...4.Set, c = s.copyWith(5); | s ~= c & { c = 1...5.Set } (* copy with new element *)
+| s = [1 .. 4].Set, c = s.copyWith(5); | s ~= c & { c = [1 .. 5].Set } (* copy with new element *)
 { [1, 2].take(-1) }.ifError { true }
 [].select { :each | each > 0 } = []
 [].ifEmpty { true } (* evaluate block if collection is empty *)
@@ -1004,6 +1004,8 @@ Set().Array = []
 | a = []; | [1, 2].cartesianProductDo([3, 4]) { :x :y | a.add(x -> y) }; a = [1 -> 3, 1 -> 4, 2 -> 3, 2 -> 4]
 [1 2].cartesianProduct([3 4]) = [1 3; 1 4; 2 3; 2 4]
 [1 2].cartesianProduct([3 4 5]) = [1 3; 1 4; 1 5; 2 3; 2 4; 2 5]
+[1 2].elementType = 'SmallFloat'
+[1 2; 3 4; 5 6].elementType = 'Array'
 ```
 
 ## Extensible -- collection trait
@@ -2479,7 +2481,7 @@ var b = Bag(); 5000.timesRepeat { b.add(5.atRandom) }; b.contents.values.allSati
 { [].atRandom = nil }.ifError { true } (* random element of empty collection (nil if unsafe indexing is allowed) *)
 [1].atRandom = 1 (* random element of one-element collection *)
 var c = [1 .. 5]; c.includes(c.atRandom) (* answer random element from a collection *)
-var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.Set (* random element of collection *)
+var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.asSet (* random element of collection *)
 ```
 
 ## Random -- Sfc32
@@ -2947,7 +2949,7 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString };
 { [1 .. 5] + [6 .. 9] = [7, 9, 11, 13, 11] }.ifError { true } (* sequences must be of equal size, Sc/Lang extends this behaviour *)
 [1 .. 5].squared = [1, 4, 9, 16, 25] (* unary math lifted to collection *)
 [1, 4, 9, 16, 25].sqrt = [1 .. 5] (* unary math lifted to collection *)
-(1 .. 3).Set ++ (4 .. 7).Set = (1 .. 7).Set (* append *)
+(1 .. 3).asSet ++ (4 .. 7).asSet = (1 .. 7).asSet (* append *)
 ```
 
 ## Set -- collection type
@@ -2963,42 +2965,42 @@ Set().isEmpty (* is set empty? *)
 [1, 3, 5, 3, 1].Set.includes(7) = false
 [1, 5, 3, 5, 1].Set.Array = [1, 5, 3] (* set from array to array *)
 [1, 5, 3, 5, 1].Set.sorted = [1, 3, 5] (* a sorted set is an array *)
-| s = [1 .. 5].Set; | s ~~ s.Set (* a Set formed from a Set is not identical to the initial set *)
-| s = [1 .. 5].Set; | s = s.Set (* a Set formed from a Set is equal to the initial set *)
+| s = [1 .. 5].Set; | s ~~ s.asSet (* a Set formed from a Set is not identical to the initial set *)
+| s = [1 .. 5].Set; | s = s.asSet (* a Set formed from a Set is equal to the initial set *)
 var s = [1, 3, 5, 3, 1].Set; s.remove(3) = 3; s.Array = [1, 5] (* remove answers removed element *)
-1...9.Set.atRandom.betweenAnd(1, 9) (* inclusive *)
+[1 .. 9].Set.atRandom.betweenAnd(1, 9) (* inclusive *)
 var s = Set(); s.add(5); s.includes(5) = true (* add element to Set *)
 { [5].Set.add(5) }.ifError { true } (* add can only include elements if they do not already exist *)
 var s = ['x', 5].Set; var t = s.copy; t.include(5); s = t
 var s = [1 .. 4].Set; s.includes(s.atRandom) = true
-var s = (1 .. 10).Set; var t = s.collect { :each | (each >= 1).if { each } { 'no' } }; s = t
-var s = (1 .. 10).Set.collect { :each | (each >= 5).if { each } { 'no' } }; s = [5, 6, 7, 8, 9, 10, 'no'].Set
-var s = (1 .. 10).Set; s.size = s.copy.size
-var s = (1 .. 10).Set; var t = s.copy; s.select { :each | t.includes(each).not }.isEmpty
-var s = (1 .. 10).Set; var t = s.copy; t.select { :each | s.includes(each).not }.isEmpty
-var s = (1 .. 10).Set; var t = s.copyWithout(3); s.size - 1 = t.size
-var s = (1 .. 10).Set; s.copyWithout(3).includes(3) = false
-var s = (1 .. 10).Set; var t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].Set
-var s = (1 .. 5).Set; var n = 0; s.do { :each | n := n + each }; n = 15
+var s = (1 .. 10).asSet; var t = s.collect { :each | (each >= 1).if { each } { 'no' } }; s = t
+var s = (1 .. 10).asSet.collect { :each | (each >= 5).if { each } { 'no' } }; s = [5, 6, 7, 8, 9, 10, 'no'].Set
+var s = (1 .. 10).asSet; s.size = s.copy.size
+var s = (1 .. 10).asSet; var t = s.copy; s.select { :each | t.includes(each).not }.isEmpty
+var s = (1 .. 10).asSet; var t = s.copy; t.select { :each | s.includes(each).not }.isEmpty
+var s = (1 .. 10).asSet; var t = s.copyWithout(3); s.size - 1 = t.size
+var s = (1 .. 10).asSet; s.copyWithout(3).includes(3) = false
+var s = (1 .. 10).asSet; var t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].Set
+var s = (1 .. 5).asSet; var n = 0; s.do { :each | n := n + each }; n = 15
 var s = [].Set; s.addAll(['x', 'y', 'z']); s.size = 3 (* add all elements of an Array to a Set *)
 var s = [].Set; s.includeAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 (* include all elements of an Array to a Set *)
 | c = 'xyyzzz'.split, r = Set(); | r.includeAll(c); r.size = 3 (* include all characters of a String to a Set *)
 | c = 'xyyzzz', r = Set(); | r.includeAll(c); r.size = 3 (* include all elements of a String to a Set *)
 var s = [].Set; s.addAll([1 .. 99]); s.size = 99 (* add all from array *)
 var s = ['x', 5].Set; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
-var s = (1 .. 5).Set; var n = 0; s.do { :each | n := n + each }; n = 15
-var s = (1 .. 9).Set; s.intersection(s) = s (* set intersection, self intersection is identity *)
-(1 .. 4).Set.intersection((5 .. 9).Set) = [].Set (* set intersection, empty intersection *)
-(1 .. 5).Set.intersection((4 .. 9).Set) = [4, 5].Set (* set intersection *)
-var s = (1 .. 9).Set; s.remove(5); [s.includes(5), s.includes(9)] = [false, true]
-var s = (1 .. 9).Set; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, t.size = n] = [true, true]
-(1 .. 4).Set.union((5 .. 9)) = (1 .. 9).Set (* set union *)
-| s = (1 .. 4).Set, t = (5 .. 9), u = s.union(t); | u.size = (s.size + t.size) (* set union is not mutating *)
-(1 .. 5).Set.ifAbsentAdd(3) = false
-1...9.Set.select { :each | false } = [].Set (* select nothing *)
+var s = (1 .. 5).asSet; var n = 0; s.do { :each | n := n + each }; n = 15
+var s = (1 .. 9).asSet; s.intersection(s) = s (* set intersection, self intersection is identity *)
+(1 .. 4).asSet.intersection((5 .. 9).asSet) = [].Set (* set intersection, empty intersection *)
+(1 .. 5).asSet.intersection((4 .. 9).asSet) = [4, 5].Set (* set intersection *)
+var s = (1 .. 9).asSet; s.remove(5); [s.includes(5), s.includes(9)] = [false, true]
+var s = (1 .. 9).asSet; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, t.size = n] = [true, true]
+(1 .. 4).asSet.union((5 .. 9)) = (1 .. 9).asSet (* set union, right hand side not a set *)
+| s = (1 .. 4).asSet, t = (5 .. 9), u = s.union(t); | u.size = (s.size + t.size) (* set union is not mutating *)
+(1 .. 5).asSet.ifAbsentAdd(3) = false
+(1 .. 9).asSet.select { :each | false } = [].Set (* select nothing *)
 | s = Set(); | s.includeAll([4 / 2, 4, 2]); s.size = 2 (* 4 / 2 = 2 *)
 [1, 2, 3, 1, 4].Set = [1, 2, 3, 4, 3, 2, 1].Set = true
-(1 .. 6).union((4 .. 10)) = (1 .. 10).Set (* set union *)
+(1 .. 6).union((4 .. 10)) = (1 .. 10).asSet (* set union *)
 'hello'.split.intersection('there'.split) = 'he'.split (* set intersection *)
 'Smalltalk'.split.includes('k') = true
 [1, 2, 3, 1, 4].Set.isIndexable = false (* sets are not indexable *)
