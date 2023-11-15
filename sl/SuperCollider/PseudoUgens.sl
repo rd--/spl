@@ -186,6 +186,7 @@
 	SinOscBank { :freq :amp :phase | <primitive: return sc.SinOscBank(_freq, _amp, _phase);> }
 	Sine { :trig :dur | <primitive: return sc.Sine(_trig, _dur);> }
 	Splay { :inArray :spread :level :center :levelComp | <primitive: return sc.Splay(_inArray, _spread, _level, _center, _levelComp);> }
+	Splay { :inArray | Silent(8) ++ SplayAz(8, inArray, 1, 1, 2, 0, 0, true) }
 	Splay2 { :inArray | <primitive: return sc.Splay2(_inArray);> }
 	TChoose { :trig :array | <primitive: return sc.TChoose(_trig, _array);> }
 	TDmdFor { :dur :reset :level | <primitive: return sc.TDmdFor(_dur, _reset, _level);> }

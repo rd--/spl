@@ -198,7 +198,7 @@ ScSynth! : [Object] {
 +Block {
 
 	!^ { :self :anInteger |
-		Splay2(self ! anInteger)
+		Splay(self ! anInteger)
 	}
 
 	!> { :self :anInteger |

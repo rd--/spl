@@ -368,7 +368,7 @@ const asJs: ohm.ActionDict<string> = {
 	operatorAssignment(op, _colon, _equals) {
 		return op.sourceString
 	},
-	integerIntervalLiteral(start, _dots, end) {
+	integerIntervalLiteral(start, _dotDot, end) {
 		// console.log('integerIntervalLiteral', start.sourceString, end.sourceString);
 		return `_${genName('upTo', 2)}(${start.asJs}, ${end.asJs})`;
 	},
