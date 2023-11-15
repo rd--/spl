@@ -2442,6 +2442,9 @@ valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repea
 { 1 }.duplicate = [1, 1] (* evaluate a block twice and collect the answers in an array *)
 { '3' }.duplicate(3) = ['3', '3', '3'] (* evaluate block indicated number of times and collect answers in an array *)
 { 9.atRandom }.duplicate(9).allSatisfy(isInteger:/1) (* evaluate a block n times and collect answers in an array *)
+{ '3' } ! 3 = ['3', '3', '3'] (* operator form of duplicate *)
+({ system.randomFloat } ! 9).size = 9 (* the size of the answer is as requested *)
+({ system.randomFloat } ! 3).allSatisfy(isNumber:/1) = true
 ```
 
 ## Promise -- scheduling type
@@ -2930,6 +2933,9 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString };
 (1 .. 16).third(4) = (9 .. 12) (* third group of n elements of sequence *)
 (1 .. 16).fourth(4) = (13 .. 16) (* fourth group of n elements of sequence *)
 (1 .. 16).last(4) = (13 .. 16)  (* last group of n elements of sequence *)
+(1 .. 4).replicateEach(2) = [1 1 2 2 3 3 4 4]  (* replicate each element n times *)
+(1 .. 4).replicateEachApplying(2, squared:/1) = [1 1 4 4 9 9 16 16] (* replicate each element *)
+[{ 1 }, { 2 }].duplicateEach(2) = [1 1 2 2] (* duplicate each element n times *)
 ```
 
 ## Sequence arithmetic

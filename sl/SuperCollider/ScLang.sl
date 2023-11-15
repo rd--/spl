@@ -351,10 +351,6 @@
 
 +Block {
 
-	! { :self :anInteger |
-		self.duplicate(anInteger)
-	}
-
 	!+ { :self :anInteger |
 		(self ! anInteger).sum
 	}
@@ -366,10 +362,6 @@
 }
 
 +@Object {
-
-	!! { :self :anInteger |
-		self.replicate(anInteger)
-	}
 
 	atExtending { :self :index |
 		self
@@ -513,21 +505,6 @@
 
 	dropLast { :self :count |
 		self.copyFromTo(1, self.size - count)
-	}
-
-	duplicateEach { :self :anInteger |
-		|(
-			answerSize = self.size * anInteger,
-			answer = Array(answerSize),
-			answerIndex = 1
-		)|
-		(1 .. self.size).do { :selfIndex |
-			(1 .. anInteger).do { :unusedCounter |
-				answer[answerIndex] := self[selfIndex];
-				answerIndex +:= 1
-			}
-		};
-		answer
 	}
 
 	extendTo { :self :size |

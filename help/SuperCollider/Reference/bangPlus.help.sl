@@ -20,3 +20,7 @@ This operator does not need to construct the intermediate array structure to cal
 	} !+ 10
 }.overlap(2, 3, 4)
 ```
+
+* * *
+
+See also: duplicate, sum

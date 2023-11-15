@@ -135,8 +135,9 @@ Sl {
 	IntervalSyntax = "(" Expression ".." Expression ")"
 	IntervalThenSyntax = "(" Expression "," Expression ".." Expression ")"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
-	VectorSyntaxItem = VectorSyntaxUnarySend | literal | identifier | VectorSyntax
+	VectorSyntaxItem = VectorSyntaxUnarySend | VectorSyntaxRange | literal | identifier | VectorSyntax
 	VectorSyntaxUnarySend = (literal | identifier) "." identifier
+	VectorSyntaxRange = integerLiteral ".." integerLiteral
 	MatrixSyntax = "[" ListOf<MatrixSyntaxItems, ";"> "]"
 	MatrixSyntaxItems = VectorSyntaxItem+
 	VolumeSyntax = "[" ListOf<VolumeSyntaxItems, ";;"> "]"

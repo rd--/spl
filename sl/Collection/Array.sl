@@ -185,12 +185,24 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 +Block {
 
+	! { :self :anInteger |
+		self.duplicate(anInteger)
+	}
+
 	duplicate { :self |
 		self.duplicate(2)
 	}
 
 	duplicate { :self :anInteger |
 		self.replicateApplying(anInteger, value:/1)
+	}
+
+}
+
++Array {
+
+	!++ { :self :anInteger |
+		(self ! anInteger).concatenation
 	}
 
 }
@@ -207,6 +219,10 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 	replicate { :self :anInteger |
 		self.replicateApplying(anInteger, identity:/1)
+	}
+
+	! { :self :anInteger |
+		self.replicate(anInteger)
 	}
 
 }

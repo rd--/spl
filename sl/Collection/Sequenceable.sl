@@ -281,6 +281,10 @@
 		}
 	}
 
+	duplicateEach { :self :anInteger |
+		self.replicateEachApplying(anInteger, value:/1)
+	}
+
 	fillWith { :self :aBlock |
 		self.indicesDo { :index |
 			self[index] := aBlock.cull(index)
@@ -768,6 +772,26 @@
 			index +:= 1
 		};
 		self
+	}
+
+	replicateEachApplying { :self :anInteger :aBlock:/1 |
+		|(
+			answerSize = self.size * anInteger,
+			answer = self.species.ofSize(answerSize),
+			answerIndex = 1
+		)|
+		(1 .. self.size).do { :selfIndex |
+			| entry = aBlock(self[selfIndex]); |
+			(1 .. anInteger).do { :unusedCounter |
+				answer[answerIndex] := entry;
+				answerIndex +:= 1
+			}
+		};
+		answer
+	}
+
+	replicateEach { :self :anInteger |
+		self.replicateEachApplying(anInteger, identity:/1)
 	}
 
 	reversed { :self |

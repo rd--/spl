@@ -321,6 +321,9 @@ const asJs: ohm.ActionDict<string> = {
 	VectorSyntaxUnarySend(lhs, _dot_, rhs) {
 		return `${genName(rhs.asJs, 1)}(${lhs.asJs})`;
 	},
+	VectorSyntaxRange(start, _dotDot_, end) {
+		return `_${genName('Array', 1)}(_${genName('upTo', 2)}(${start.asJs}, ${end.asJs}))`;
+	},
 	MatrixSyntax(_leftBracket, items, _rightBracket) {
 		return `[${commaList(items.asIteration().children)}]`;
 	},
