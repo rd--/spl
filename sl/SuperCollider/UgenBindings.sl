@@ -84,6 +84,7 @@
 	Dwrand { :repeats :weights :list | <primitive: return sc.Dwrand(_repeats, _weights, _list);> }
 	Dxrand { :repeats :list | <primitive: return sc.Dxrand(_repeats, _list);> }
 	EnvGen { :gate :levelScale :levelBias :timeScale :doneAction :envelope | <primitive: return sc.EnvGen(_gate, _levelScale, _levelBias, _timeScale, _doneAction, _envelope);> }
+	EnvTrapezoid { :trig :dur :shape :skew | <primitive: return sc.EnvTrapezoid(_trig, _dur, _shape, _skew);> }
 	ExpRand { :lo :hi | <primitive: return sc.ExpRand(_lo, _hi);> }
 	FbSineC { :freq :im :fb :a :c :xi :yi | <primitive: return sc.FbSineC(_freq, _im, _fb, _a, _c, _xi, _yi);> }
 	FbSineL { :freq :im :fb :a :c :xi :yi | <primitive: return sc.FbSineL(_freq, _im, _fb, _a, _c, _xi, _yi);> }
