@@ -15,12 +15,12 @@ Generate Pythagorean scale:
 ```
 var genScale = { :ratio |
 	(0 .. 11).collect { :each |
-		(ratio ** each).RatioMidi % 12
+		(ratio ^ each).RatioMidi % 12
 	}
 };
-var notes = 48 + genScale(3/2);
+var notes = 48 + genScale(3 / 2);
 var amps = { 0.1.Rand } ! 12;
-Splay2(
+Splay(
 	SinOsc(notes.MidiCps, 0) * amps
 )
 ```

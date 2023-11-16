@@ -13,6 +13,7 @@ import * as evaluate from './evaluate.ts'
 import * as fileio from './fileio.ts'
 import * as kernel from './kernel.ts'
 import * as load from './load.ts'
+import { Preferences, preferencesRead } from './preferences.ts'
 import * as sl from './sl.ts'
 import { slOptions } from './options.ts'
 import * as repl from './repl.ts'
@@ -20,6 +21,35 @@ import * as repl from './repl.ts'
 function getSplDirectory(): string {
 	return Deno.env.get('SplDirectory') || '?';
 }
+
+function getHomeDirectory(): string {
+	return Deno.env.get('HOME') || '?';
+}
+
+function getSplConfigurationDirectory(): string {
+	return [getHomeDirectory(), '.config/spl'].join('/');
+}
+
+function getSplPreferencesFilename(): string {
+	return [getSplConfigurationDirectory(), 'preferences.json'].join('/');
+}
+
+async function readSplPreferencesFile(): Promise<string> {
+	const fileName = getSplPreferencesFilename();
+	return await Deno.readTextFile(fileName).catch(function(err) {
+		console.error('readSplPreferencesFile', err);
+		return '{}';
+	});
+}
+
+async function readSplPreferences(): Promise<Preferences> {
+	const preferencesText = await readSplPreferencesFile();
+	return JSON.parse(preferencesText);
+}
+
+const cliPreferences = await readSplPreferences();
+console.log('cliPreferences', getSplPreferencesFilename(), cliPreferences);
+sl.system.cache.set('preferences', cliPreferences);
 
 BigInt.prototype.toJSON = function () {
 	return this.toString();
@@ -36,9 +66,9 @@ function help(): void {
 	console.log('    --unsafe');
 	console.log('    --verbose');
 	console.log(`    SplDirectory=${getSplDirectory()}`);
-	console.log(`    ScTransport=${scTransport}`);
-	console.log(`    ScHostname=${scHostname}`);
-	console.log(`    ScPort=${scPort}`);
+	console.log(`    ScProtocol=Tcp`);
+	console.log(`    ScHostname=127.0.0.1`);
+	console.log(`    ScPort=57110`);
 }
 
 async function rewriteFile(fileName: string): Promise<void> {
@@ -50,15 +80,28 @@ declare global {
 	var globalScSynth: sc.ScSynth;
 }
 
-function scSynthAddressFromEnv(): Deno.NetAddr {
-	const scTransport: string = Deno.env.get('ScTransport') || 'tcp';
-	const scHostname: string = Deno.env.get('ScHostname') || '127.0.0.1';
-	const scPort: number = Number(Deno.env.get('ScPort') || '57110');
-	return {
-		transport: scTransport,
-		hostname: scHostname,
-		port: scPort
-	};
+async function scSynthFromEnv(): Promise<sc.ScSynth> {
+	const protocol: string = Deno.env.get('ScProtocol') || 'Tcp';
+	const hostname: string = Deno.env.get('ScHostname') || '127.0.0.1';
+	const port: number = Number(Deno.env.get('ScPort') || '57110');
+	console.debug('cli: scSynthFromEnv (await)', protocol, hostname, port);
+	if(protocol == 'Tcp') {
+		return await scTcp.ScSynthTcp(hostname, port);
+	} else {
+		return Promise.resolve(scUdp.ScSynthUdp(hostname, port));
+	}
+}
+
+async function scSynthFromPreferences(preferences: Preferences): Promise<sc.ScSynth> {
+	const protocol: string = preferencesRead(preferences, 'ScSynth.Protocol', 'Tcp');
+	const hostname: string = preferencesRead(preferences, 'ScSynth.Hostname', '127.0.0.1');
+	const port: number = preferencesRead(preferences, 'ScSynth.Port', 57110);
+	console.debug('cli: scSynthFromPreferences (await)', protocol, hostname, port);
+	if(protocol == 'Tcp') {
+		return await scTcp.ScSynthTcp(hostname, port);
+	} else {
+		return Promise.resolve(scUdp.ScSynthUdp(hostname, port));
+	}
 }
 
 async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
@@ -75,9 +118,7 @@ async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	await kernel.primitiveLoadPackageSequence(['Kernel'].concat(lib));
 	if(lib.includes('SuperColliderLibrary')) {
 		globalThis.sc = sc;
-		const scSynthAddress = scSynthAddressFromEnv();
-		console.debug('cli: scSynthAddress (await)', scSynthAddress);
-		const cliScSynth = await scTcp.ScSynthTcp(scSynthAddress);
+		const cliScSynth = await scSynthFromPreferences(cliPreferences);
 		globalThis.globalScSynth = cliScSynth;
 	}
 }

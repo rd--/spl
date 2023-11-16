@@ -21,7 +21,7 @@ var o3 = SinOscFb(
 	0.1 - b,
 	1
 ).Min(0);
-Splay2(o1 + (o2 * o3)) / 2
+(o1 + (o2 * o3)).Splay / 2
 ```
 
 To reset the synthesiser type _Ctrl-FullStop_.

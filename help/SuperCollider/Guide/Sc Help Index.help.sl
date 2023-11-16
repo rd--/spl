@@ -175,8 +175,9 @@
 - Slope -- slope of signal
 - SoftClip -- nonlinear distortion
 - Sos -- second order filter section (biquad)
-- Splay -- stereo panner
+- Splay -- panner
 - Splay2 -- stereo panner
+- SplayAz -- panner
 - Spring -- physical model of resonating spring
 - Sqrt -- square root
 - Squared -- squared value

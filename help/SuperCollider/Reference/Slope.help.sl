@@ -17,6 +17,6 @@ Noise and derivatives control frequency of sine oscillator:
  	(* needed to scale back to +/- 1.0 *)
 	var scale = 0.2;
 	var freq = [a, b * scale, c * scale.squared] * 100 + 200;
-	Splay2(SinOsc(freq, 0)) * 0.1
+	SinOsc(freq, 0).Splay * 0.1
 
 For another example of Slope see [hypot].

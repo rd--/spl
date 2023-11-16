@@ -2,7 +2,7 @@
 
 _AmpComp(freq, root, exp)_
 
-Implements the (optimized) formula: _compensationFactor = (root / freq) ** exp_.
+Implements the (optimized) formula: _compensationFactor = (root / freq) ^ exp_.
 
 Higher frequencies are normally perceived as louder, which AmpComp compensates.
 

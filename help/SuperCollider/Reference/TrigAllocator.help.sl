@@ -34,7 +34,7 @@ var w = TrigAllocator(5, 1, t, d);
 var f = IRand(w, 48, 72).MidiCps + Rand(w, -9, 9);
 var e = Asr(w, 0.01, d / 2, -4) * Rand(w, 0.1, 0.2);
 var o = SinOsc(f, 0) * e;
-o.Splay2
+o.Splay
 ```
 
 The allocator cycles indexes when not stealing.
@@ -48,7 +48,7 @@ var w = TrigAllocator(16, 0, t, 0.001);
 var e = Decay2(w, 0.01, 4);
 var f = IRand(w, 84, 96).MidiCps + Rand(w, -9, 9);
 var o = SinOsc(f, 0) * e * 0.1;
-o.Splay2
+o.Splay
 ```
 
 * * *

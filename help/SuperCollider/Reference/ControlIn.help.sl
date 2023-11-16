@@ -14,13 +14,13 @@ _ControlIn_ always reads the current value on the bus, whether it was:
 Write signals to control buses:
 
 ```
-ControlOut(0, SinOsc([3, 5, 7, 9] / 11, 0).Range(0, 1).kr)
+ControlOut(0, SinOsc([3 5 7 9] / 11, 0).Range(0, 1).kr)
 ```
 
 Read signals from control buses:
 
 ```
-SinOsc(ControlIn(4, 0) * 110 + 55, 0).Splay2 * 0.1
+SinOsc(ControlIn(4, 0) * 333 + 55, 0).Splay * 0.1
 ```
 
 * * *

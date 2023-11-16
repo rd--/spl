@@ -395,6 +395,16 @@ System! : [Object, Cache, Indexable, Random] {
 		system.consoleNotification(aString)
 	}
 
+	preference { :self :key :defaultValue |
+		<primitive: return sl.preferencesRead(_preferences_1(_self), _key, _defaultValue);>
+	}
+
+	preferences { :self |
+		self.cached('preferences') {
+			()
+		}
+	}
+
 	pseudoSlotNameArray { :self |
 		[
 			'cache',

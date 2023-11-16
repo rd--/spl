@@ -16,7 +16,7 @@ Ordinarily _aValue_ is a no-argument _Block_ and each element of the answer is a
 
 ```
 {
-	SinOsc({ IRand(48, 72).MidiCps } ! 7, 0).Splay2 * 0.1
+	SinOsc({ IRand(48, 72).MidiCps } ! 7, 0).Splay * 0.1
 }.overlap(4, 4, 2)
 ```
 

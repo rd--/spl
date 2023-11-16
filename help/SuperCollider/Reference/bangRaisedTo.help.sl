@@ -3,8 +3,8 @@
 - _anObject !^ anInteger_
 - _p !^ q_ ⟹ bangRaisedTo(p, q)_
 
-Names the idiom of generating an array and distributing it across the stereo spectrum.
-_p !^ q_ is equivalent to _(p ! q).Splay2_.
+Names the idiom of generating an array and distributing it across the main ouput channels.
+_p !^ q_ is equivalent to _(p ! q).Splay_.
 
 ```
 {

@@ -1,24 +1,10 @@
-# Splay -- stereo panner
+# Splay -- panner
 
-_Splay(inArray, spread, level, center, levelComp)_
+Pan an array of signals at equally spaced locations across the main output channels,
+as configured in Preferences.
 
-Splay spreads an array of channels across the stereo field.
-
-Mouse control:
-
-```
-var freq = (0 .. 9).collect { :i |
-	LfNoise2(Rand(10, 20)) * 200 + (i + 3 * 100)
-};
-Splay(
-	SinOsc(freq, 0),
-	MouseY(1, 0, 0, 0.2),
-	0.5,
-	MouseX(-1, 1, 0, 0.2),
-	true
-)
-```
+	{ SinOsc(Rand(111, 333), 0) * Rand(0.01, 0.1) } !^ 8
 
 * * *
 
-See also: Pan2, Splay2
+See also: EqPan, Mix, Pan2, Splay2, SplayAz

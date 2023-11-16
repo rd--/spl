@@ -1716,6 +1716,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'Sos'
 		'Splay'
 		'Splay2'
+		'SplayAz'
 		'Spring'
 		'Sqrt'
 		'Squared'

@@ -10,7 +10,7 @@ export async function evaluateFile(fileName: string, packageName: string) {
 	});
 }
 
-export async function rewriteFile(fileName: string) {
+export async function rewriteFile(fileName: string): Promise<string> {
 	// console.debug(`rewriteFile: ${fileName}`);
 	return await Deno.readTextFile(fileName).then(rewrite.rewriteString);
 }

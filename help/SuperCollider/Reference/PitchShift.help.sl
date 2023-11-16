@@ -25,7 +25,10 @@ Pitch shift input. __Use headphones__ to prevent feedback:
 		timeDispersion: 0.004
 	)
 
-Use PitchShift to granulate input. **Use headphones** to prevent feedback. Upper left corner is normal playback. x = pitch dispersion, y = time dispersion.
+Use PitchShift to granulate input.
+__Use headphones__ to prevent feedback.
+Upper left corner is normal playback.
+x = pitch dispersion, y = time dispersion.
 
 	var grainSize = 0.5;
 	PitchShift(

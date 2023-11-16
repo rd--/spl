@@ -28,4 +28,4 @@ Four divisions:
 		SinOsc(800, 0) * Decay2(p2, 0.005, 0.5),
 		SinOsc(600, 0) * Decay2(p4, 0.005, 0.5),
 		SinOsc(200, 0) * Decay2(p16, 0.005, 1.0)
-	].Splay2 * 0.3
+	].Splay * 0.3
