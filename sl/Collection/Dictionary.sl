@@ -379,6 +379,10 @@
 (* Keys *)
 +@Dictionary {
 
+	includesKey { :self :key |
+		self.includesIndex(key)
+	}
+
 	keys { :self |
 		self.indices
 	}
@@ -391,10 +395,6 @@
 
 	keysDo { :self :aBlock:/1 |
 		self.indicesDo(aBlock:/1)
-	}
-
-	includesKey { :self :key |
-		self.includesIndex(key)
 	}
 
 }
