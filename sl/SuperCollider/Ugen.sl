@@ -40,8 +40,15 @@ Ugen! : [Object, Number] {
 
 +String {
 
-	encodeUgen { :self :aUgen |
-		<primitive: return sc.encodeUgen(_self, sc.wrapOut(0, _aUgen));>
+	encodeUgenAt { :self :bus :ugen |
+		<primitive: return sc.encodeUgen(_self, sc.wrapOut(bus, _aUgen));>
+	}
+
+	encodeUgen { :self :ugen |
+		self.encodeUgenAt(
+			ugen.busOffset,
+			ugen
+		)
 	}
 
 	kr { :self :defaultValue |
@@ -50,6 +57,32 @@ Ugen! : [Object, Number] {
 
 	NamedControl { :self :defaultValue |
 		<primitive: return sc.localControlInput(_self, -1, _defaultValue);>
+	}
+
+}
+
++Array {
+
+	busOffset { :self |
+		['busOffset', self.size].postLine;
+		self.size.caseOfOtherwise([
+			{ 2 } -> {
+				system.preference('ScSynth.Outputs.Stereo.BusOffset', 0)
+			},
+			{ system.preference('ScSynth.Outputs.Main.NumberOfChannels', 2) } -> {
+				system.preference('ScSynth.Outputs.Main.BusOffset', 0)
+			}
+		]) {
+			0
+		}
+	}
+
+}
+
++Ugen {
+
+	busOffset { :self |
+		system.preference('ScSynth.Outputs.Mono.BusOffset', 0)
 	}
 
 }

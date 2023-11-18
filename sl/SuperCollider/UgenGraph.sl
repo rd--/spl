@@ -28,8 +28,15 @@ UgenGraph! : [Object] {
 
 +String {
 
-	ugenGraph { :self :aUgen |
-		<primitive: return sc.makeUgenGraph(_self, sc.wrapOut(0, _aUgen));>
+	ugenGraphAt { :self :bus :ugen |
+		<primitive: return sc.makeUgenGraph(_self, sc.wrapOut(_bus, _ugen));>
+	}
+
+	ugenGraph { :self :ugen |
+		self.ugenGraphAt(
+			ugen.busOffset,
+			ugen
+		)
 	}
 
 }

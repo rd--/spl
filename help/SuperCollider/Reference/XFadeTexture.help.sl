@@ -14,7 +14,7 @@ A pair of sine oscillators crossfading between randomly shifting pitches and ste
 
 ```
 XFadeTexture({ :tr |
-	EqPan2(
+	EqPan(
 		SinOsc(IRand(tr, 48, 72).MidiCps, 0),
 		Rand(tr, -1, 1)
 	) * 0.1

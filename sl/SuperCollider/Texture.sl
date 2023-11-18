@@ -57,7 +57,7 @@
 	playEvery { :self :aBlock:/1 :delay |
 		self.repeatEvery({ :currentTime :nextDelay |
 			{
-				aBlock(nextDelay)
+				aBlock:/1.cull(nextDelay)
 			}.playAt(currentTime + 0.5) (* fixed delay... *)
 		}, delay)
 	}

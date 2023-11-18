@@ -1,19 +1,21 @@
 # scheduleInjecting -- scheduling
 
-- _scheduleInjecting(aClock, deltaTime, aValue, aBlock)_
-- _scheduleInjecting(deltaTime, aValue, aBlock)_ ⇒ aClock = workspace::clock
-- _scheduleInjecting(aBlock, aValue)_ ⇒ deltaTime = 0
+- _scheduleInjecting(aClock, deltaTime, aValue, aBlock:/2)_
+- _scheduleInjecting(deltaTime, aValue, aBlock:/2)_ ⇒ aClock = system.clock
+- _scheduleInjecting(aBlock:/2, aValue)_ ⇒ deltaTime = 0
 
 Schedule applying _aBlock_ to _aValue_ for _deltaTime_.
 When evaluated the answer is a _[delay, nextValue]_ pair to continue, or _nil_ to halt.
 
-Play ascending chromatic scale from C2 to C5, with random inter-offset delays and random durations:
+Play ascending chromatic scale from C2 to C5,
+with random inter-offset delays, durations and pan locations:
 
 ```
-{ :midiNoteNumber |
+{ :currentTime :midiNoteNumber |
+	['Midi', midiNoteNumber].postLine;
 	{
 		Release(
-			EqPan2(
+			EqPan(
 				SinOsc(midiNoteNumber.MidiCps, 0) * 0.1,
 				Rand(-1, 1)
 			),
@@ -22,7 +24,7 @@ Play ascending chromatic scale from C2 to C5, with random inter-offset delays an
 	}.play;
 	(midiNoteNumber <= 72).ifTrue {
 		[
-			[1/3, 1/2, 1, 3/2, 5].atRandom,
+			[1 / 3, 1 / 2, 1, 3 / 2, 5].atRandom,
 			midiNoteNumber + 1
 		]
 	}

@@ -45,7 +45,7 @@ var sound = Warp1(
 	Line(0, 1, 40),
 	4
 );
-Pan2(sound, pointer * 2 - 1, 0.25).sum
+EqPan(sound, pointer * 2 - 1) / 4
 ```
 
 * * *

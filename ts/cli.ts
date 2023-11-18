@@ -134,7 +134,11 @@ async function runFile(fileName: string, opt: flags.Args): Promise<void> {
 }
 
 function evaluateInteractive(text: string): unknown {
-	return evaluate.evaluateForSignalling('*Interactive*', text);
+	try {
+		return evaluate.evaluateForSignalling('*Interactive*', text);
+	} catch(err) {
+		console.error('Spl.Cli: error', err)
+	}
 }
 
 function scEvalText(splText: string): unknown {
@@ -147,8 +151,7 @@ async function scEvalFile(fileName: string): Promise<unknown> {
 }
 
 function scPlayText(splText: string): void {
-	const ugenGraph: sc.Signal = <sc.Signal>evaluateInteractive(splText);
-	globalThis.globalScSynth.playUgenAt(ugenGraph, -1, 1, [], null);
+	evaluateInteractive(`{ ${splText} }.play`);
 }
 
 async function scPlayFile(fileName: string): Promise<void> {

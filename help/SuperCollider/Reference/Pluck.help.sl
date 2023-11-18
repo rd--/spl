@@ -28,23 +28,22 @@ Pluck(
 Randomised duplicates:
 
 ```
-var k = 50;
+var k = 12;
 var freq = SinOsc(
-	{ Rand(0.05, 0.2) } ! k,
+	{ Rand(0.01, 0.15) } ! k,
 	{ Rand(0, 1) } ! k
-).Range(1000, 3000);
-LeakDc(
-	EqPan2(
+).Range(777, 3333);
+Splay(
+	LeakDc(
 		Pluck(
-			WhiteNoise() * 0.1 ! k,
-			Impulse({ Rand(10, 12) } ! k, 0),
+			WhiteNoise() / 4 ! k,
+			Impulse({ Rand(3, 11) } ! k, 0),
 			1 / 100,
 			1 / freq,
 			2,
 			Rand(0.01, 0.2)
 		),
-		{ 1.Rand2 } ! k
-	).sum,
-	0.995
+		0.995
+	)
 )
 ```

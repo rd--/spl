@@ -97,7 +97,7 @@ ScSynth! : [Object] {
 	}
 
 	playUgenAt { :self :systemTimeInSeconds |
-		<primitive: globalScSynth.playUgenAt(_self, -1, 1, [], _systemTimeInSeconds);>
+		<primitive: globalScSynth.playUgenAt(_self, _busOffset_1(_self), -1, 1, [], _systemTimeInSeconds);>
 	}
 
 	playUgen { :self |
@@ -118,8 +118,10 @@ ScSynth! : [Object] {
 
 	playAt { :self:/0 :systemTimeInSeconds |
 		| answer = self(); |
-		answer.isOutputSignal.ifTrue {
+		answer.isOutputSignal.if {
 			answer.playUgenAt(systemTimeInSeconds)
+		} {
+			'Block>>playAt: answer not ouput signal?'.error
 		}
 	}
 
