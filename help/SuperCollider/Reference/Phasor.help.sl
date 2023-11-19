@@ -1,8 +1,11 @@
 # Phasor -- a resettable linear ramp between two levels
 
-_Phasor(trig, rate, start, end, resetPos)_
+_Phasor(trig, rate=1, start=0, end=1, resetPos=0)_
 
-Phasor is a linear ramp between start and end values. When it's trigger input crosses from non-positive to positive, Phasor's output will jump to its reset position. Upon reaching the end of its ramp Phasor will wrap back to its start. N.B. Since end is defined as the wrap point, its value is never actually output.
+Phasor is a linear ramp between start and end values.
+When _trig_ crosses from non-positive to positive, the Phasor will jump to its reset position.
+Upon reaching the end of its ramp Phasor will wrap back to its start.
+Note: Since end is defined as the wrap point, its value is never actually output.
 
 Phasor is commonly used as an index control with [BufRd] and [BufWr].
 
@@ -20,13 +23,14 @@ Phasor controls sine frequency, end frequency matches a second sine wave:
 	var x = Phasor(trig, rate / sr, 0, 1, 0);
 	SinOsc(
 		[
-			LinLin(x, 0, 1, 600, 1000), (* convert range *)
+			x.LinLin(0, 1, 600, 1000), (* convert range *)
 			1000 (* constant second frequency *)
 		],
 		0
 	) * 0.1
 
-Two phasors control two sine frequencies. _MouseX_ controls trigger frequency and _MouseY_ controls resetPos of the second:
+Two phasors control two sine frequencies.
+_MouseX_ controls trigger frequency and _MouseY_ controls resetPos of the second:
 
 	var rate = MouseX(1, 200, 1, 0.2);
 	var trig = Impulse(rate, 0);
@@ -34,12 +38,17 @@ Two phasors control two sine frequencies. _MouseX_ controls trigger frequency an
 	var x = Phasor(trig, rate / sr, 0, 1, [0, MouseY(0, 1, 0, 0.2)]);
 	SinOsc(x * 500 + 500, 0) * 0.2
 
-Use phasor to index into a sound file. Start and end here are defined as 0 and the number of frames in the buffer. This means that the Phasor will output values from 0 to numFrames - 1 before looping, which is perfect for driving BufRd. (See note above)
+Use phasor to index into a sound file.
+Start and end here are defined as 0 and the number of frames in the buffer.
+This means that the Phasor will output values from 0 to numFrames - 1 before looping,
+which is perfect for driving BufRd.
+(See note above)
 
 	var b = SfAcquire('crotale-d6', 1, [1]);
 	SfRead(b, Phasor(1, SfRateScale(b), 0, SfFrames(b), 0), 1, 2)
 
-Two phasors control two sound file positions. _MouseX_ controls trigger frequency and _MouseY_ controls resetPos of the second:
+Two phasors control two sound file positions.
+_MouseX_ controls trigger frequency and _MouseY_ controls resetPos of the second:
 
 	var b = SfAcquire('crotale-d6', 1, [1]);
 	var rate = MouseX(0.1, 100, 1, 0.2);
@@ -48,4 +57,3 @@ Two phasors control two sound file positions. _MouseX_ controls trigger frequenc
 	var resetPos = [0, MouseY(0, bFrames, 0, 0.2)];
 	var x = Phasor(trig, SfRateScale(b), 0, bFrames, resetPos);
 	SfRead(b, x, 1, 2)
-

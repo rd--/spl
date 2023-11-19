@@ -55,6 +55,6 @@ var osc = Blip(
 		1,
 		SinOsc(1 / 23, pi).LinLin(-1, 1, 1, 4)
 	)
-) * env * 0.25;
+) * env / 2;
 osc.Splay
 ```
