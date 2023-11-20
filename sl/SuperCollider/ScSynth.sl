@@ -15,6 +15,18 @@ ScSynth! : [Object] {
 		<primitive: return _self.isConnected();>
 	}
 
+	mainOutputs { :self |
+		system.preference('ScSynth.Outputs.Main.NumberOfChannels', 2)
+	}
+
+	mainOrientation { :self |
+		system.preference('ScSynth.Outputs.Main.FrontIsVertex', false).if {
+			0
+		} {
+			0.5
+		}
+	}
+
 	options { :self |
 		<primitive: return _self.options;>
 	}

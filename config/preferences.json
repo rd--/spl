@@ -1,5 +1,5 @@
 {
-	"Configuration": "Default",
+	"Configuration": "1×2+1×8+2×4",
 	"Default": {
 		"ScSynth.Protocol": "Tcp",
 		"ScSynth.Hostname": "127.0.0.1",
@@ -8,7 +8,7 @@
 		"ScSynth.Outputs.Stereo.BusOffset": 0,
 		"ScSynth.Outputs.Main.NumberOfChannels": 2,
 		"ScSynth.Outputs.Main.BusOffset": 0,
-		"ScSynth.Outputs.Main.Orientation": 0.5,
+		"ScSynth.Outputs.Main.FrontIsVertex": false,
 		"ScSynth.Outputs.Mixer.Rules": ["1×2"],
 		"ScSynth.Outputs.Mixer.Rules.Buses": {"1×2": [1, 2]},
 		"ScSynth.Outputs.Mixer.LowFrequencySends": [],
@@ -22,7 +22,7 @@
 		"ScSynth.Outputs.Stereo.BusOffset": 0,
 		"ScSynth.Outputs.Main.NumberOfChannels": 8,
 		"ScSynth.Outputs.Main.BusOffset": 8,
-		"ScSynth.Outputs.Main.Orientation": 0,
+		"ScSynth.Outputs.Main.FrontIsVertex": true,
 		"ScSynth.Outputs.Mixer.Rules": [
 			"1×2+1×8+2×4",
 			"1×8+2×4",

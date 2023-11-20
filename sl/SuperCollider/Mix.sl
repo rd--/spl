@@ -87,10 +87,10 @@
 					[1 .. 14],
 					1 ! 14
 				].transposed,
-				'8×2→1×8+2×4': [
-					[1 .. 16],
-					[1 .. 16],
-					1 ! 16
+				'8×1→1×8': [
+					[1 .. 8],
+					[1 .. 8],
+					1 ! 8
 				].transposed,
 				'9×2→1×2+1×8+2×4': [
 					[1 .. 18],
@@ -236,8 +236,8 @@
 
 	Splay { :inArray |
 		|(
-			numberOfChannels = system.preference('ScSynth.Outputs.Main.NumberOfChannels', 2),
-			orientation = system.preference('ScSynth.Outputs.Main.Orientation', 0.5)
+			numberOfChannels = system.scSynth.mainOutputs,
+			orientation = system.scSynth.mainOrientation
 		)|
 		(numberOfChannels = 2).if {
 			Splay2(inArray)
@@ -252,8 +252,8 @@
 
 	EqPan { :input :position |
 		|(
-			numberOfChannels = system.preference('ScSynth.Outputs.Main.NumberOfChannels', 2),
-			orientation = system.preference('ScSynth.Outputs.Main.Orientation', 0.5)
+			numberOfChannels = system.scSynth.mainOutputs,
+			orientation = system.scSynth.mainOrientation
 		)|
 		(numberOfChannels = 2).if {
 			EqPan2(input, position)

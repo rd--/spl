@@ -1,42 +1,49 @@
 # GrainFm -- granular synthesis with frequency modulated sine tones
 
-_GrainFm(numChannels, trigger, dur, carfreq, modfreq, index, pan, envbufnum, maxGrains)_
+_GrainFm(numChannels=1, trigger=0, dur=1, carfreq=440, modfreq=220, index=1, pan=0, envbufnum=-1, maxGrains=512)_
 
 - numChannels: the number of channels to output
 - trigger: a trigger to start a new grain
 - dur: size of the grain (in seconds)
-- carfreq: the carrier freq of the grain generators internal oscillator
-- modfreq: the modulating freq of the grain generators internal oscillator
+- carFreq: the carrier freq of the grain generators internal oscillator
+- modFreq: the modulating freq of the grain generators internal oscillator
 - index: the index of modulation
 - pan: determines where to pan the output
-- envbufnum: the buffer number containing a signal to use for the grain envelope, -1 uses a built-in Hann envelope.
+- envBufNum: the buffer number containing a signal to use for the grain envelope, -1 uses a built-in Hann envelope.
 - maxGrains: the maximum number of overlapping grains that can be used at a given time (ir)
 
 Linear envelopes modulating controls:
 
 ```
-var d = 15;
-var tr = Impulse(Line(7.5, 15, d), 0);
-var pan = Line(-0.5, 0.5, d);
-var carFreq = Line(200, 800, d);
-var index = Line(-1, 1, d);
-GrainFm(2, tr, 0.1, carFreq, 200, index, pan, -1, 512) * 0.1
+var numChannels = system.scSynth.mainOutputs;
+var envDur = 15;
+var trigger = Impulse(Line(7.5, 15, envDur), 0);
+var dur = 0.1;
+var carFreq = Line(200, 800, envDur);
+var modFreq = 200;
+var index = Line(-1, 1, envDur);
+var pan = Line(-0.85, 0.85, envDur);
+var envBufNum = -1;
+var maxGrains = 512;
+GrainFm(numChannels, trigger, dur, carFreq, modFreq, index, pan, envBufNum, maxGrains) * 0.1
 ```
 
 Mouse controls panning, noise and mouse control deviation from center pitch:
 
 ```
-var tr = Impulse(10, 0);
+var numChannels = system.scSynth.mainOutputs;
+var trigger = Impulse(10, 0);
+var dur = 0.1;
 GrainFm(
-	2,
-	tr,
-	0.1,
-	WhiteNoise() * MouseY(0, 400, 0, 0.2) + 440,
-	Rand(tr, 20, 200),
-	LfNoise1(500).Range(1, 10),
-	MouseX(-1, 1, 0, 0.2),
-	-1,
-	512
+	numChannels,
+	trigger,
+	0.1, (* dur *)
+	WhiteNoise() * MouseY(0, 400, 0, 0.2) + 440, (* carFreq *)
+	Rand(trigger, 20, 200), (* modFreq *)
+	LfNoise1(500).Range(1, 10), (* index *)
+	MouseX(-1, 1, 0, 0.2), (* pan *)
+	-1, (* envBufNum *)
+	512 (* maxGrains *)
 ) * 0.1
 ```
 
