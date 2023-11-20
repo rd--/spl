@@ -69,7 +69,7 @@ Ugen! : [Object, Number] {
 			{ 2 } -> {
 				system.preference('ScSynth.Outputs.Stereo.BusOffset', 0)
 			},
-			{ system.preference('ScSynth.Outputs.Main.NumberOfChannels', 2) } -> {
+			{ system.scSynth.mainOutputs } -> {
 				system.preference('ScSynth.Outputs.Main.BusOffset', 0)
 			}
 		]) {

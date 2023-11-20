@@ -1,6 +1,9 @@
 import { stringCapitalizeFirstLetter } from '../lib/jssc3/ts/kernel/string.ts'
 
-// : and ; and . aren't allowed in operator names, but they're here so help file lookup can find them.
+/*
+The characters ':' and ';' and '.' aren't allowed in operator names.
+They're here so help file lookup can find them.
+*/
 export const operatorCharacters = '+*-/&|@<>=%!\\~?^#$:;.';
 
 export function isOperatorName(name: string): boolean {
@@ -36,6 +39,6 @@ export function operatorMethodName(operator: string): string {
 	return words.slice(0, 1).concat(words.slice(1).map(stringCapitalizeFirstLetter)).join('');
 }
 
-export function methodName(name: string): string {
+export function resolveMethodName(name: string): string {
 	return isOperatorName(name) ? operatorMethodName(name) : name;
 }

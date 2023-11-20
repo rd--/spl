@@ -1,6 +1,6 @@
 # TGrains -- buffer granulator
 
-_TGrains(numChannels, trigger, bufnum, rate, centerPos, dur, pan, amp, interp)_
+_TGrains(numChannels, trigger=0, bufnum=0, rate=1, centerPos=0, dur=0.1, pan=0, amp=0.1, interp=4)_
 
 Triggers generate grains from a buffer.
 Each grain has a Hanning envelope (_sin^2(x)_ for x from 0 to pi),
@@ -21,7 +21,7 @@ Demand sequences for _rate_ and _pan_ inputs, mouse control of _trigger_ rate an
 	var numChannels = system.scSynth.mainOutputs;
 	var triggerRate = MouseY(2, 200, 1, 0.2);
 	var trigger = Impulse(triggerRate, 0);
-	var sf = SfAcquire1('floating_1', 1, 1);
+	var sf = SfAcquireMono('floating_1');
 	var rate = Dseq(inf, [10, 1, 1, 0.5, 0.5, 0.2, 0.1]);
 	var centerPos = MouseX(0, SfDur(sf), 0, 0.2);
 	var dur = 4 / triggerRate;
@@ -35,7 +35,7 @@ Uniform unary rate, perturb _centerPos_ at clock rate
 	var numChannels = system.scSynth.mainOutputs;
 	var triggerRate = MouseY(8, 120, 1, 0.2);
 	var trigger = Impulse(triggerRate, 0);
-	var sf = SfAcquire1('floating_1', 1, 1);
+	var sf = SfAcquireMono('floating_1');
 	var rate = 1;
 	var centerPos0 = MouseX(0, SfDur(sf), 0, 0.2);
 	var centerPos = centerPos0 + Rand(trigger, 0, 0.01);
@@ -50,7 +50,7 @@ Stochastic clock (_Dust_):
 	var numChannels = system.scSynth.mainOutputs;
 	var triggerRate = MouseY(8, 120, 1, 0.2);
 	var trigger = Dust(triggerRate);
-	var sf = SfAcquire1('floating_1', 1, 1);
+	var sf = SfAcquireMono('floating_1');
 	var rate = 1;
 	var centerPos0 = MouseX(0, SfDur(sf), 0, 0.2);
 	var centerPos = centerPos0 + Rand(trigger, 0, 0.01);
@@ -65,7 +65,7 @@ Mouse control of _centerPos_ and _dur_:
 	var numChannels = system.scSynth.mainOutputs;
 	var triggerRate = 12;
 	var trigger = Impulse(triggerRate, 0);
-	var sf = SfAcquire1('floating_1', 1, 1);
+	var sf = SfAcquireMono('floating_1');
 	var rate = 1;
 	var centerPos0 = MouseX(0, SfDur(sf), 0, 0.2);
 	var centerPos = centerPos0 + Rand(trigger, 0, 0.01);
@@ -80,7 +80,7 @@ Stochastic _centerPos_, no external control:
 	var numChannels = system.scSynth.mainOutputs;
 	var triggerRate = 100;
 	var trigger = Impulse(triggerRate, 0);
-	var sf = SfAcquire1('floating_1', 1, 1);
+	var sf = SfAcquireMono('floating_1');
 	var rate = 1;
 	var centerPos = Integrator(BrownNoise().kr * 0.001, 1);
 	var dur = 8 / triggerRate;
@@ -94,7 +94,7 @@ Stochastic _rate_:
 	var numChannels = system.scSynth.mainOutputs;
 	var triggerRate = MouseY(1, 400, 1, 0.2);
 	var trigger = Impulse(triggerRate, 0);
-	var sf = SfAcquire1('floating_1', 1, 1);
+	var sf = SfAcquireMono('floating_1');
 	var rate = 2 ^ (WhiteNoise().kr * 2);
 	var centerPos = MouseX(0, SfDur(sf), 0, 0.2);
 	var dur = 8 / triggerRate;
@@ -107,7 +107,7 @@ Stochastic _rate_, fixed clock rate:
 
 	var numChannels = system.scSynth.mainOutputs;
 	var trigger = Impulse(440, 0);
-	var sf = SfAcquire1('floating_1', 1, 1);
+	var sf = SfAcquireMono('floating_1');
 	var rate = 1.2 ^ (WhiteNoise() * 3).RoundTo(1);
 	var centerPos = MouseX(0, SfDur(sf), 0, 0.2);
 	var dur = 1.2 / MouseY(2, 120, 1, 0.2);

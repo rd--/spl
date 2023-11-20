@@ -74,13 +74,33 @@ export function typeOf(anObject: unknown): TypeName {
 	}
 }
 
-export function isArray<T>(anObject: unknown): anObject is Array<T> { return Array.isArray(anObject); }
-export function isByteArray(anObject: unknown): anObject is Uint8Array { return anObject instanceof Uint8Array; }
-export function isFunction(anObject: unknown): anObject is Function { return anObject instanceof Function; }
-export function isSmallFloat(anObject: unknown): anObject is number { return typeof anObject === 'number'; }
-export function isLargeInteger(anObject: unknown): anObject is bigint { return typeof anObject === 'bigint'; }
-export function isSet<T>(anObject: unknown): anObject is Set<T> { return anObject instanceof Set; }
-export function isString(anObject: unknown): anObject is string { return typeof anObject === 'string'; }
+export function isArray<T>(anObject: unknown): anObject is Array<T> {
+	return Array.isArray(anObject);
+}
+
+export function isByteArray(anObject: unknown): anObject is Uint8Array {
+	return anObject instanceof Uint8Array;
+}
+
+export function isFunction(anObject: unknown): anObject is Function {
+	return anObject instanceof Function;
+}
+
+export function isSmallFloat(anObject: unknown): anObject is number {
+	return typeof anObject === 'number';
+}
+
+export function isLargeInteger(anObject: unknown): anObject is bigint {
+	return typeof anObject === 'bigint';
+}
+
+export function isSet<T>(anObject: unknown): anObject is Set<T> {
+	return anObject instanceof Set;
+}
+
+export function isString(anObject: unknown): anObject is string {
+	return typeof anObject === 'string';
+}
 
 export function isSmallFloatInteger(anObject: unknown): anObject is number {
 	return isSmallFloat(anObject) && Number.isInteger(anObject)
@@ -101,7 +121,13 @@ export class MethodInformation {
 	arity: Arity;
 	sourceCode: MethodSourceCode;
 	origin: MethodOrigin;
-	constructor(name: MethodName, packageName: PackageName, arity: Arity, sourceCode: MethodSourceCode, origin: MethodOrigin) {
+	constructor(
+		name: MethodName,
+		packageName: PackageName,
+		arity: Arity,
+		sourceCode: MethodSourceCode,
+		origin: MethodOrigin
+	) {
 		this.name = name;
 		this.packageName = packageName;
 		this.arity = arity;
@@ -143,7 +169,13 @@ export class Type {
 	traitNameArray: TraitName[];
 	slotNameArray: string[];
 	methodDictionary: QualifiedMethodDictionary;
-	constructor(name: TypeName, packageName: PackageName, traitNameArray: TraitName[], slotNameArray: string[], methodDictionary: QualifiedMethodDictionary) {
+	constructor(
+		name: TypeName,
+		packageName: PackageName,
+		traitNameArray: TraitName[],
+		slotNameArray: string[],
+		methodDictionary: QualifiedMethodDictionary
+	) {
 		this.name = name;
 		this.packageName = packageName;
 		this.traitNameArray = traitNameArray;
@@ -161,7 +193,14 @@ export class Package {
 	url: string;
 	text: string;
 	isLoaded: boolean;
-	constructor(category: string, name: string, requires: string[], url: string, text: string, isLoaded: boolean) {
+	constructor(
+		category: string,
+		name: string,
+		requires: string[],
+		url: string,
+		text: string,
+		isLoaded: boolean
+	) {
 		this.category = category;
 		this.name = name;
 		this.requires = requires;
@@ -194,6 +233,7 @@ export async function evaluatePackageArrayInSequence(pkgArray: Package[]) {
 }
 
 // required if methods are added before type definition, this should be cleared up
+// Void is not an ordinary type, it names the place in the method table for no-argument blocks
 const preinstalledTypes = ['Array', 'SmallFloat', 'String', 'Void'];
 
 export class System {
@@ -206,8 +246,9 @@ export class System {
 	constructor() {
 		this.methodDictionary = new Map();
 		this.traitDictionary = new Map();
-		// Void is not an ordinary type, it names the place in the method table for no-argument blocks.
-		this.typeDictionary = new Map(preinstalledTypes.map(function(each) { return [each, new Type(each, 'Kernel', [], [], new Map())]; }));
+		this.typeDictionary = new Map(preinstalledTypes.map(function(each) {
+			return [each, new Type(each, 'Kernel', [], [], new Map())];
+		}));
 		this.window = window;
 		this.packageDictionary = new Map();
 		this.cache = new Map();
@@ -237,11 +278,21 @@ export function addTrait(traitName: TraitName, packageName: PackageName): void {
 }
 
 // c.f. rewrite/makeMethodList
-export function addTraitMethod(traitName: TraitName, packageName: PackageName, methodName: MethodName, arity: Arity, block: Function, sourceCode: MethodSourceCode): Method {
+export function addTraitMethod(
+	traitName: TraitName,
+	packageName: PackageName,
+	methodName: MethodName,
+	arity: Arity,
+	block: Function,
+	sourceCode: MethodSourceCode
+): Method {
 	// console.debug(`addTraitMethod: ${traitName}, ${packageName}, ${methodName}, ${arity}`);
 	if(traitExists(traitName)) {
 		const trait = system.traitDictionary.get(traitName)!;
-		const method = new Method(block, new MethodInformation(methodName, packageName, arity, sourceCode, trait));
+		const method = new Method(
+			block,
+			new MethodInformation(methodName, packageName, arity, sourceCode, trait)
+		);
 		trait.methodDictionary.set(method.qualifiedName(), method);
 		return method;
 	} else {
@@ -272,7 +323,14 @@ export function traitTypeArray(traitName: TraitName): TypeName[] {
 }
 
 // c.f. rewrite/makeMethodList
-export function extendTraitWithMethod(traitName: TraitName, packageName: PackageName, name: MethodName, arity: Arity, block: Function, sourceCode: MethodSourceCode): Method {
+export function extendTraitWithMethod(
+	traitName: TraitName,
+	packageName: PackageName,
+	name: MethodName,
+	arity: Arity,
+	block: Function,
+	sourceCode: MethodSourceCode
+): Method {
 	if(traitExists(traitName)) {
 		const method = addTraitMethod(traitName, packageName, name, arity, block, sourceCode);
 		traitTypeArray(traitName).forEach(function(typeName) {
@@ -284,7 +342,11 @@ export function extendTraitWithMethod(traitName: TraitName, packageName: Package
 	}
 }
 
-export function lookupGeneric(methodName: MethodName, methodArity: Arity, receiverType: TypeName): Method {
+export function lookupGeneric(
+	methodName: MethodName,
+	methodArity: Arity,
+	receiverType: TypeName
+): Method {
 	return system.methodDictionary.get(methodName)!.get(methodArity)!.get(receiverType)!;
 }
 
@@ -292,13 +354,22 @@ export function nameWithoutArity(methodName: MethodName) {
 	return methodName.split(':')[0];
 }
 
-export function applyGenericAt(methodName: MethodName, parameterArray: unknown[], receiverType: TypeName) {
+export function applyGenericAt(
+	methodName: MethodName,
+	parameterArray: unknown[],
+	receiverType: TypeName
+) {
 	// console.log(`applyGenericAt: ${methodName}, ${parameterArray.length}, ${receiverType}`);
 	const method = lookupGeneric(methodName, parameterArray.length, receiverType);
 	return method.block.apply(null, parameterArray)
 }
 
-export function dispatchByType(name: string, arity: number, typeTable: ByTypeMethodDictionary, parameterArray: unknown[]) {
+export function dispatchByType(
+	name: string,
+	arity: number,
+	typeTable: ByTypeMethodDictionary,
+	parameterArray: unknown[]
+) {
 	if(arity === 0) {
 		const method = typeTable.get('Void');
 		if(method) {
@@ -319,7 +390,12 @@ export function dispatchByType(name: string, arity: number, typeTable: ByTypeMet
 	}
 }
 
-export function dispatchByArity(name: string, arity: number, arityTable: ByArityMethodDictionary, parameterArray: unknown[]) {
+export function dispatchByArity(
+	name: string,
+	arity: number,
+	arityTable: ByArityMethodDictionary,
+	parameterArray: unknown[]
+) {
 	const typeTable = arityTable.get(arity);
 	if(typeTable) {
 		return dispatchByType(name, arity, typeTable, parameterArray);

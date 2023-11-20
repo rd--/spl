@@ -3,7 +3,7 @@ import ohm from 'https://unpkg.com/ohm-js@17/dist/ohm.esm.js';
 import { arraySum } from '../lib/jssc3/ts/kernel/array.ts'
 
 import { slSemantics, slParse, slTemporariesSyntaxNames } from './grammar.ts'
-import { methodName, operatorMethodName } from './operator.ts'
+import { resolveMethodName, operatorMethodName } from './operator.ts'
 import { slOptions } from './options.ts'
 
 export const context = { packageName: 'UnknownPackage' };
@@ -13,59 +13,69 @@ function genName(name: string, arity: number): string {
 }
 
 function atMethod(): string {
-	return slOptions.uncheckedIndexing ? 'basicAt' : 'at';
+	return slOptions.uncheckedIndexing ? 'basicAt' : 'at'; // unsafeAt
 }
 
 function atPutMethod(): string {
-	return slOptions.uncheckedIndexing ? 'basicAtPut' : 'atPut';
+	return slOptions.uncheckedIndexing ? 'basicAtPut' : 'atPut'; // unsafeAtPut
 }
 
 function quoteNewLines(input: string): string {
 	return input.replaceAll('\n', '\\n');
 }
 
-function makeTypeDefinition(isHostType: boolean, typNm: string, trt: string, tmp: ohm.Node, mthNms: string[], mthBlks: ohm.Node[]):string {
-	// console.debug(`makeTypeDefinition: ${isHostType} ${typNm}`);
-	const tmpSrc = tmp.sourceString;
-	const tmpNm = tmpSrc === '' ? [] : slTemporariesSyntaxNames(tmpSrc).map(nm => `'${nm}'`);
-	const traitList = trt.split(', ').filter(each => each.length > 0);
-	const addType = `sl.addType(${isHostType}, '${typNm}', '${context.packageName}', [${trt}], [${tmpNm}]);`;
-	const copyTraits = traitList.map(trtNm => `sl.copyTraitToType(${trtNm}, '${typNm}');`).join(' ');
-	const addMethods = makeMethodList('addMethod', [typNm], mthNms, mthBlks);
+function makeTypeDefinition(
+	isHostType: boolean,
+	typeName: string,
+	traits: string,
+	instanceVariables: ohm.Node,
+	methodNames: string[],
+	methodBlocks: ohm.Node[]
+):string {
+	// console.debug(`makeTypeDefinition: ${isHostType} ${typeName}`);
+	const instanceVariablesSource = instanceVariables.sourceString;
+	const instanceVariablesList =
+		instanceVariablesSource === '' ?
+		[] :
+		slTemporariesSyntaxNames(instanceVariablesSource).map(name => `'${name}'`);
+	const traitList = traits.split(', ').filter(each => each.length > 0);
+	const addType = `sl.addType(${isHostType}, '${typeName}', '${context.packageName}', [${traits}], [${instanceVariablesList}]);`;
+	const copyTraits = traitList.map(traitNm => `sl.copyTraitToType(${traitNm}, '${typeName}');`).join(' ');
+	const addMethods = makeMethodList('addMethod', [typeName], methodNames, methodBlocks);
 	return `${addType}${copyTraits}${addMethods}`;
 }
 
 const asJs: ohm.ActionDict<string> = {
 
-	TypeExtension(_plus, typNm, _leftBrace, mthNm, mthBlk, _rightBrace) {
-		return makeMethodList('addMethod', [typNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
+	TypeExtension(_plus, typeName, _leftBrace, methodName, methodBlock, _rightBrace) {
+		return makeMethodList('addMethod', [typeName.sourceString], methodName.children.map(c => c.sourceString), methodBlock.children);
 	},
-	TypeListExtension(_plus, _leftBracket, typNmList, _rightBracket, _leftBrace, mthNm, mthBlk, _rightBrace) {
-		const typNmArray = typNmList.asIteration().children.map(c => c.sourceString);
-		// console.debug(`TypeListExtension: [${typNmArray}].size = ${typNmArray.length}`);
-		return makeMethodList('addMethod', typNmArray, mthNm.children.map(c => c.sourceString), mthBlk.children);
+	TypeListExtension(_plus, _leftBracket, typeNameList, _rightBracket, _leftBrace, methodName, methodBlock, _rightBrace) {
+		const typeNameArray = typeNameList.asIteration().children.map(c => c.sourceString);
+		// console.debug(`TypeListExtension: [${typeNameArray}].size = ${typeNameArray.length}`);
+		return makeMethodList('addMethod', typeNameArray, methodName.children.map(c => c.sourceString), methodBlock.children);
 	},
-	TypeDefinition(typNm, trt, _leftBrace, tmp, mthNm, mthBlk, _rightBrace) {
-		return makeTypeDefinition(false, typNm.sourceString, trt.asJs, tmp, mthNm.children.map(c => c.sourceString), mthBlk.children);
+	TypeDefinition(typeName, trait, _leftBrace, tmp, methodName, methodBlock, _rightBrace) {
+		return makeTypeDefinition(false, typeName.sourceString, trait.asJs, tmp, methodName.children.map(c => c.sourceString), methodBlock.children);
 	},
-	HostTypeDefinition(typNm, _isHostType, trt, _leftBrace, tmp, mthNm, mthBlk, _rightBrace) {
-		return makeTypeDefinition(true, typNm.sourceString, trt.asJs, tmp, mthNm.children.map(c => c.sourceString), mthBlk.children);
+	HostTypeDefinition(typeName, _isHostType, trait, _leftBrace, tmp, methodName, methodBlock, _rightBrace) {
+		return makeTypeDefinition(true, typeName.sourceString, trait.asJs, tmp, methodName.children.map(c => c.sourceString), methodBlock.children);
 	},
 	TraitList(_colon, _leftBracket, nm, _rightBracket) {
 		return nm.asIteration().children.map(c => `'${c.sourceString}'`).join(', ');
 	},
-	TraitExtension(_plus, _at, trtNm, _leftBrace, mthNm, mthBlk, _rightBrace) {
-		// console.debug(`TraitExtension: ${trtNm.sourceString}`);
-		return makeMethodList('extendTraitWithMethod', [trtNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
+	TraitExtension(_plus, _at, traitNm, _leftBrace, methodName, methodBlock, _rightBrace) {
+		// console.debug(`TraitExtension: ${traitNm.sourceString}`);
+		return makeMethodList('extendTraitWithMethod', [traitNm.sourceString], methodName.children.map(c => c.sourceString), methodBlock.children);
 	},
-	TypeTypeExtension(_plus, typNm, _caret, _leftBrace, mthNm, mthBlk, _rightBrace) {
-		// console.debug(`TypeTypeExtension: ${trtNm.sourceString}`);
-		return makeMethodList('addMethod', [typNm.sourceString + '^'], mthNm.children.map(c => c.sourceString), mthBlk.children);
+	TypeTypeExtension(_plus, typeName, _caret, _leftBrace, methodName, methodBlock, _rightBrace) {
+		// console.debug(`TypeTypeExtension: ${traitNm.sourceString}`);
+		return makeMethodList('addMethod', [typeName.sourceString + '^'], methodName.children.map(c => c.sourceString), methodBlock.children);
 	},
-	TraitDefinition(_at, trtNm, _leftBrace, mthNm, mthBlk, _rightBrace) {
-		const trt = `sl.addTrait('${trtNm.sourceString}', '${context.packageName}');`;
-		const mth = makeMethodList('addTraitMethod', [trtNm.sourceString], mthNm.children.map(c => c.sourceString), mthBlk.children);
-		return `${trt}${mth}`;
+	TraitDefinition(_at, traitNm, _leftBrace, methodName, methodBlock, _rightBrace) {
+		const trait = `sl.addTrait('${traitNm.sourceString}', '${context.packageName}');`;
+		const mth = makeMethodList('addTraitMethod', [traitNm.sourceString], methodName.children.map(c => c.sourceString), methodBlock.children);
+		return `${trait}${mth}`;
 	},
 	ConstantDefinition(_constant, _dot_, name, _equals, value) {
 		return `globalThis._${name.sourceString} = ${value.asJs};`
@@ -102,7 +112,7 @@ const asJs: ohm.ActionDict<string> = {
 		const slots = namesArray.map((name, index) => `_${name} = _${genName('at', 2)}(${rhsName}, ${index + 1})`).join(', ');
 		return `${rhsName} = _assertIsOfSize_2(${rhs.asJs}, ${namesArray.length}), ${slots}`;
 	},
-	TemporariesWithoutInitializers(_verticalBar1, tmp, _verticalBar2) {
+	TemporariesWithoutInitializers(_leftVerticalBar, tmp, _rightVerticalBar) {
 		return `var ${commaList(tmp.children)};`;
 	},
 	TemporariesParenSyntax(_leftParen, tmp, _rightParen) {
@@ -454,24 +464,34 @@ function gensym() {
 	return `__gensym${rewriteGensymCounter}`;
 }
 
-function makeMethod(slProc: string, clsNmArray: string[], mthNm: string, mthBlk: ohm.Node): string {
-	const blkSource = mthBlk.sourceString;
-	const blkArity = mthBlk.arityOf;
-	const blkJs = mthBlk.asJs;
+function makeMethod(
+	slProc: string,
+	clsNmArray: string[],
+	methodName: string,
+	methodBlock: ohm.Node
+): string {
+	const blkSource = methodBlock.sourceString;
+	const blkArity = methodBlock.arityOf;
+	const blkJs = methodBlock.asJs;
 	const blkSrc = JSON.stringify(blkSource);
-	const slName = methodName(mthNm);
+	const slName = resolveMethodName(methodName);
 	return clsNmArray.map(function(clsNm) {
-		// console.debug(`makeMethod: '${slProc}', '${clsNm}', '${context.packageName}', '${mthNm}'('${slName}'), ${blkArity}`);
+		// console.debug(`makeMethod: '${slProc}', '${clsNm}', '${context.packageName}', '${methodName}'('${slName}'), ${blkArity}`);
 		return ` sl.${slProc}('${clsNm}', '${context.packageName}', '${slName}', ${blkArity}, ${blkJs}, ${blkSrc});`
 	}).join(' ');
 }
 
-function makeMethodList(slProc: string, clsNmArray: string[], mthNms: string[], mthBlks: ohm.Node[]): string {
+function makeMethodList(
+	slProc: string,
+	clsNmArray: string[],
+	methodNames: string[],
+	methodBlocks: ohm.Node[]
+): string {
 	let mthList = '';
-	while (mthNms.length > 0) {
-		const mthNm = mthNms.shift()!;
-		const mthBlk = mthBlks.shift()!;
-		const mthSrc = makeMethod(slProc, clsNmArray, mthNm, mthBlk);
+	while (methodNames.length > 0) {
+		const methodName = methodNames.shift()!;
+		const methodBlock = methodBlocks.shift()!;
+		const mthSrc = makeMethod(slProc, clsNmArray, methodName, methodBlock);
 		// console.debug(`makeMethodList: ${mthSrc}`);
 		mthList += mthSrc;
 	}

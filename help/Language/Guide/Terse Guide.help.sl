@@ -1360,7 +1360,7 @@ system.includesPackage('Duration') (* duration package *)
 2.weeks - 12.days = 48.hours (* subtraction of durations *)
 0.25.seconds + 500.milliseconds = 750.milliseconds
 500.milliseconds + 0.25.seconds = 0.75.seconds
-| f = { :t0 | | t1 = 2.randomFloat.seconds; | f.valueAfterWith(t1, t1) }; | f(2.seconds).cancel = nil
+| f = { :t0 | | t1 = 2.randomFloat.seconds; | f:/1.valueAfterWith(t1, t1) }; | f(2.seconds).cancel = nil
 2.minutes < 2.hours (* durations are magnitudes *)
 2.hours > 2.minutes (* durations are magnitudes *)
 60.seconds.milliseconds = 60000 (* convert duration to milliseconds *)
@@ -2387,21 +2387,21 @@ collect:/2.numArgs = 2 (* method arity *)
 { { :i | i = nil }.value }.ifError { true } (* too few arguments, c.f. non-strict *)
 { { :x | 0 - x }.value(3, 4) = -3 }.ifError { true } (* too many arguments, c.f. non-strict *)
 collect:/2.name = 'collect:/2'
-var f = { :x | x * x }; [f(5), f.(5)] = [25, 25]
-var f = { :x | x * x }; var d = (p: f); d::p.value(5) = 25
+var f = { :x | x * x }; [f(5), f:/1.(5)] = [25, 25]
+var f = { :x | x * x }; var d = (p: f:/1); d::p.value(5) = 25
 { 0 }.cull(23) = 0 (* ignore one argument *)
 { 0 }.cull(23, 3.141) = 0 (* ignore two arguments *)
 { :x | x }.cull(23) = 23 (* recognise one argument *)
 { :x | x }.cull(23, 3.141) = 23 (* recognise one argument, ignore one argument *)
 { :x :y | x * y }.cull(23, 3.141) = 72.243 (* recognise two arguments *)
 var f = { :x | x * x }; f(3) = 9
-{ var f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49] }.ifError { true }
+{ var f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49] }.ifError { true } (* f not bound *)
 var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
 { :x | x * x }.map([3, 5, 7]) = [9, 25, 49] (* map is flipped collect *)
 { :x :y | x * y + y }.apply([3.141, 23]) = 95.243
 { { :x | x }.apply(0) }.ifError { true }
 { { :x | x }.apply([]) }.ifError { true }
-| x = { }; | x.isBlock (* blocks are objects and may be assigned to a variable *)
+| x = { }; | x:/0.isBlock (* blocks are objects and may be assigned to a variable *)
 { nil; 1 }.value = 1 (* value is last expression evaluated *)
 { { 1 }.value }.value = 1 (* blocks may be nested *)
 { :x | var y = x; y }.value(1) = 1 (* specification { arguments localvars expressions } *)
@@ -2414,7 +2414,7 @@ var f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
 { 1 } ~= { 1 } (* inequality *)
 { 1 } ~= 1 (* inequality *)
 { } ~~ { } (* non-identity *)
-var f = { }; f == f (* identity *)
+var f = { }; f:/0 == f:/0 (* identity *)
 { }.printString = 'a Block'
 { :x | x }.printString = 'a Block'
 { }.typeOf = 'Block'
@@ -2431,11 +2431,11 @@ pi.assert { true } = pi (* assert that block evaluates to true, answers self *)
 valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeat } (* repeat a block until it "returns" *)
 { 1.anUnknownMessage }.ifError { :err | err }.isError = true (* evaluate error block on error *)
 { 1.anUnknownMessage }.ifError { true } = true (* error block is culled (i.e. may elide error argument) *)
-| f = { | x = 0; | { x := x + 1; x } }, g = f.value; | [g.value, g.value] = [1, 2] (* closure *)
-| f = { | x = 0; | { x := x + 1; x } }; | [f.value.value, f.value.value] = [1, 1] (* closures *)
-| f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; | (7 .. 9).collect(f) = [5040, 40320, 362880]
-| f = { system.randomFloat }; | f.once = f.once (* evaluate block once and cache result *)
-| f = { (1 .. 9).atRandom }; | f.once = f.once & { f.once = f.once } (* the cache is kept in a weak map *)
+| f = { | x = 0; | { x := x + 1; x } }, g = f:/0.value; | [g.value, g.value] = [1, 2] (* closure *)
+| f = { | x = 0; | { x := x + 1; x } }; | [f:/0.value.value, f:/0.value.value] = [1, 1] (* closures *)
+| f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; | (7 .. 9).collect(f:/1) = [5040, 40320, 362880]
+| f = { system.randomFloat }; | f:/0.once = f:/0.once (* evaluate block once and cache result *)
+| f = { (1 .. 9).atRandom }; | f:/0.once = f:/0.once & { f:/0.once = f:/0.once } (* the cache is kept in a weak map *)
 '3'.replicate(3) = ['3', '3', '3'] (* answer an array of n places each having the same value *)
 '3'.replicate(3) = Array(3, '3')
 | m = { system.randomFloat }.duplicate(9).mean; | m > 0 & { m < 1 }
@@ -4019,7 +4019,7 @@ WeakMap().typeOf = 'WeakMap' (* type of weak map *)
 WeakMap().isWeakMap (* weak map predicate *)
 WeakMap().printString = 'a WeakMap' (* weak map print string *)
 { WeakMap().size }.ifError { true } (* the size of a weak map cannot be observed *)
-| f = { system.randomFloat }; | f.once = f.once (* Block>>once caches output using a weak map *)
+| f = { system.randomFloat }; | f:/0.once = f:/0.once (* Block>>once caches output using a weak map *)
 system.cache::onceCache.isWeakMap
 ```
 

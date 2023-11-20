@@ -2,7 +2,7 @@
 
 Random walk with Gendyn distributions.
 
-_LfBrownNoise1(freq, dev, dist)_
+_LfBrownNoise1(freq=20, dev=1, dist=0)_
 
 - freq: approximate rate at which to generate random values
 - dev: scale maximum step (0-1)
@@ -15,10 +15,10 @@ As audio signal:
 As frequency control:
 
 	SinOsc(
-		LfBrownNoise1([8, 11], 0.2, 2) * 400 + 450,
+		LfBrownNoise1([3 11] ! 8, 0.2, 2) * 400 + 450,
 		0
-	) * 0.1
+	).Mix * 0.1
 
 * * *
 
-See also: BrownNoise
+See also: BrownNoise, LfBrownNoise0, LfBrownNoise2
