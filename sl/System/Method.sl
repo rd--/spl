@@ -16,8 +16,12 @@ MethodInformation! : [Object] {
 		<primitive: return _self.packageName;>
 	}
 
+	parameterNames { :self |
+		<primitive: return _self.parameterNames;>
+	}
+
 	pseudoSlotNameArray { :self |
-		['name', 'packageName', 'arity', 'sourceCode', 'origin']
+		['name', 'packageName', 'parameterNames', 'sourceCode', 'origin']
 	}
 
 	sourceCode { :self |

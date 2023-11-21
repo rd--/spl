@@ -16,6 +16,7 @@ type PackageName = string;
 type TypeName = string;
 type TraitName = string;
 type MethodName = string;
+type ParameterNames = string[];
 type QualifiedMethodName = string; // i.e. MethodName:/Arity
 type MethodSourceCode = string;
 type MethodOrigin = Trait | Type;
@@ -118,21 +119,23 @@ export function isBitwise(anObject: unknown): boolean {
 export class MethodInformation {
 	name: MethodName;
 	packageName: PackageName;
-	arity: Arity;
+	parameterNames: ParameterNames;
 	sourceCode: MethodSourceCode;
 	origin: MethodOrigin;
+	arity: Arity;
 	constructor(
 		name: MethodName,
 		packageName: PackageName,
-		arity: Arity,
+		parameterNames: ParameterNames,
 		sourceCode: MethodSourceCode,
 		origin: MethodOrigin
 	) {
 		this.name = name;
 		this.packageName = packageName;
-		this.arity = arity;
+		this.parameterNames = parameterNames;
 		this.sourceCode = sourceCode;
 		this.origin = origin;
+		this.arity = parameterNames.length; // derived
 	}
 	qualifiedName() {
 		// console.debug(`MethodInformation>>qualifiedName: ${this.name}, ${this.arity}`);
@@ -282,21 +285,21 @@ export function addTraitMethod(
 	traitName: TraitName,
 	packageName: PackageName,
 	methodName: MethodName,
-	arity: Arity,
+	parameterNames: ParameterNames,
 	block: Function,
 	sourceCode: MethodSourceCode
 ): Method {
-	// console.debug(`addTraitMethod: ${traitName}, ${packageName}, ${methodName}, ${arity}`);
+	// console.debug(`addTraitMethod: ${traitName}, ${packageName}, ${methodName}, ${parameterNames}`);
 	if(traitExists(traitName)) {
 		const trait = system.traitDictionary.get(traitName)!;
 		const method = new Method(
 			block,
-			new MethodInformation(methodName, packageName, arity, sourceCode, trait)
+			new MethodInformation(methodName, packageName, parameterNames, sourceCode, trait)
 		);
 		trait.methodDictionary.set(method.qualifiedName(), method);
 		return method;
 	} else {
-		throw(`addTraitMethod: trait does not exist: ${traitName}, ${methodName}, ${arity}`);
+		throw(`addTraitMethod: trait does not exist: ${traitName}, ${methodName}, ${parameterNames.length}`);
 	}
 }
 
@@ -327,12 +330,12 @@ export function extendTraitWithMethod(
 	traitName: TraitName,
 	packageName: PackageName,
 	name: MethodName,
-	arity: Arity,
+	parameterNames: ParameterNames,
 	block: Function,
 	sourceCode: MethodSourceCode
 ): Method {
 	if(traitExists(traitName)) {
-		const method = addTraitMethod(traitName, packageName, name, arity, block, sourceCode);
+		const method = addTraitMethod(traitName, packageName, name, parameterNames, block, sourceCode);
 		traitTypeArray(traitName).forEach(function(typeName) {
 			addMethodFor(typeName, method, true);
 		});
@@ -443,6 +446,7 @@ export function addMethodFor(typeName: TypeName, method: Method, requireTypeExis
 				};
 				Object.defineProperty(globalFunctionWithArity, "name", { value: method.qualifiedName() });
 				Object.defineProperty(globalFunctionWithArity, "length", { value: method.information.arity }); // c.f. makeCheckedAritySpecificFunction
+				Object.defineProperty(globalFunctionWithArity, "parameterNames", { value: method.information.parameterNames });
 			}
 		}
 	}
@@ -465,8 +469,15 @@ function isTypeType(typeName: TypeName):boolean {
 }
 
 // c.f. rewrite/makeMethodList
-export function addMethod(typeName: TypeName, packageName: PackageName, methodName: MethodName, arity: Arity, block: Function, sourceCode: MethodSourceCode): Method {
-	// console.debug(`addMethod: ${typeName}, ${packageName}, ${methodName}, ${arity}`);
+export function addMethod(
+	typeName: TypeName,
+	packageName: PackageName,
+	methodName: MethodName,
+	parameterNames: ParameterNames,
+	block: Function,
+	sourceCode: MethodSourceCode
+): Method {
+	// console.debug(`addMethod: ${typeName}, ${packageName}, ${methodName}, ${parameterNames}`);
 	const isMeta = isTypeType(typeName);
 	if(isMeta && !typeExists(typeName)) {
 		// Lazily add meta-type entries as required
@@ -474,26 +485,32 @@ export function addMethod(typeName: TypeName, packageName: PackageName, methodNa
 	}
 	if(typeExists(typeName)) {
 		const typeValue = system.typeDictionary.get(typeName)!;
-		const method = new Method(block, new MethodInformation(methodName, packageName, arity, sourceCode, typeValue));
+		const method = new Method(block, new MethodInformation(methodName, packageName, parameterNames, sourceCode, typeValue));
 		return addMethodFor(typeName, method, slOptions.requireTypeExists);
 	} else {
-		throw(`addMethod: type does not exist: ${typeName}, ${methodName}, ${arity}`);
+		throw(`addMethod: type does not exist: ${typeName}, ${methodName}, ${parameterNames.length}`);
 	}
 }
 
 // Allows methods to be added to 'pre-installed' types before the type is added, c.f. load &etc. (& parseInteger ...).
 // It'd be possible to only allow this for the 'pre-installed' methods, which might be saner.
 // Run for built-in types, which may have traits.  Assumes non-kernel types have at least one slot.
-export function addType(isHostType: boolean, typeName: TypeName, packageName: PackageName, traitList: TraitName[], slotNames: string[]): void {
+export function addType(
+	isHostType: boolean,
+	typeName: TypeName,
+	packageName: PackageName,
+	traitList: TraitName[],
+	slotNames: string[]
+): void {
 	if(!typeExists(typeName) || preinstalledTypes.includes(typeName)) {
 		const initializeSlots = slotNames.map(each => `anInstance.${each} = ${each}`).join('; ');
 		const nilSlots = slotNames.map(each => `${each}: null`).join(', ');
-		const defNewType = isHostType ? '' : `addMethod('Void', '${packageName}', 'new${typeName}', 0, function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
-		const defInitializeSlots = isHostType ? '' : `addMethod('${typeName}', '${packageName}', 'initializeSlots', ${slotNames.length + 1}, function(anInstance, ${slotNames.join(', ')}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
-		const defPredicateFalse = `extendTraitWithMethod('Object', '${packageName}', 'is${typeName}', 1, function(anObject) { return false; }, '<primitive: predicate>')`;
-		const defPredicateTrue = `addMethod('${typeName}', '${packageName}', 'is${typeName}', 1, function(anInstance) { return true; }, '<primitive: predicate>')`;
-		const defSlotAccess = slotNames.map(each => `addMethod('${typeName}', '${packageName}', '${each}', 1, function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`).join('; ');
-		const defSlotMutate = slotNames.map(each => `addMethod('${typeName}', '${packageName}', '${each}', 2, function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`).join('; ');
+		const defNewType = isHostType ? '' : `addMethod('Void', '${packageName}', 'new${typeName}', [], function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
+		const defInitializeSlots = isHostType ? '' : `addMethod('${typeName}', '${packageName}', 'initializeSlots', ${JSON.stringify(['self'].concat(slotNames))}, function(anInstance, ${slotNames.join(', ')}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
+		const defPredicateFalse = `extendTraitWithMethod('Object', '${packageName}', 'is${typeName}', ['self'], function(anObject) { return false; }, '<primitive: predicate>')`;
+		const defPredicateTrue = `addMethod('${typeName}', '${packageName}', 'is${typeName}', ['self'], function(anInstance) { return true; }, '<primitive: predicate>')`;
+		const defSlotAccess = slotNames.map(each => `addMethod('${typeName}', '${packageName}', '${each}', ['self'], function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`).join('; ');
+		const defSlotMutate = slotNames.map(each => `addMethod('${typeName}', '${packageName}', '${each}', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`).join('; ');
 		// console.debug(`addType: ${typeName}, ${packageName}, ${slotNames}`);
 		const methodDictionary = typeExists(typeName) ? system.typeDictionary.get(typeName)!.methodDictionary : new Map();
 		system.typeDictionary.set(typeName, new Type(typeName, packageName, traitList, slotNames, methodDictionary));

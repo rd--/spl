@@ -96,6 +96,10 @@ Block! : [Object] {
 		system.millisecondsToRun(self:/0)
 	}
 
+	name { :self |
+		<primitive: return _self.name;>
+	}
+
 	new { :self |
 		self.cull(0)
 	}
@@ -129,12 +133,12 @@ Block! : [Object] {
 		}
 	}
 
-	name { :self |
-		<primitive: return _self.name;>
-	}
-
 	ofSize { :self :aNumber |
 		self.cull(aNumber).ofSize(aNumber)
+	}
+
+	parameterNames { :self |
+		<primitive: return _self.parameterNames;>
 	}
 
 	repeat { :self:/0 |

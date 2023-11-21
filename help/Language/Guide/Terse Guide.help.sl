@@ -2445,6 +2445,10 @@ valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repea
 { '3' } ! 3 = ['3', '3', '3'] (* operator form of duplicate *)
 ({ system.randomFloat } ! 9).size = 9 (* the size of the answer is as requested *)
 ({ system.randomFloat } ! 3).allSatisfy(isNumber:/1) = true
+at:/2.parameterNames = ['self', 'index']
+json:/3.parameterNames = ['self', 'replacer', 'space']
+randomFloat:/2.parameterNames = ['self', 'aNumber']
+system.methodDictionary::at[2]::Map.information.parameterNames = ['self', 'key']
 ```
 
 ## Promise -- scheduling type

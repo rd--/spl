@@ -33,8 +33,8 @@ export async function primitiveReadLocalPackages(qualifiedPackageNames: string[]
 }
 
 export function addLoadUrlMethods(): void {
-	kernel.addMethod('Array', 'Kernel', 'primitiveReadLocalPackages', 1, primitiveReadLocalPackages, '<primitive: package reader>');
-	kernel.addMethod('Array', 'Kernel', 'primitiveLoadPackageSequence', 1, kernel.primitiveLoadPackageSequence, '<primitive: package loader>');
+	kernel.addMethod('Array', 'Kernel', 'primitiveReadLocalPackages', ['self'], primitiveReadLocalPackages, '<primitive: package reader>');
+	kernel.addMethod('Array', 'Kernel', 'primitiveLoadPackageSequence', ['self'], kernel.primitiveLoadPackageSequence, '<primitive: package loader>');
 }
 
 export async function loadUrl(packageName: string, fileName: string): Promise<void> {
