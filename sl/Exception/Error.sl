@@ -96,6 +96,10 @@ TypeError! : [Object, Exception, PrimitiveError] {
 		<primitive: return Error(_self);>
 	}
 
+	error { :self |
+		self.Error.signal
+	}
+
 }
 
 +Void {

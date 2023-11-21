@@ -2,6 +2,14 @@
 
 +[Array, SmallFloat, Ugen] {
 
+	CurveGen { :gate :levels :times :curves |
+		Env(levels, times, curves, nil, nil, 0).asEnvGen(gate)
+	}
+
+	LinGen { :gate :levels :times |
+		Env(levels, times, ['lin'], nil, nil, 0).asEnvGen(gate)
+	}
+
 	TBufChoose { :tr :buf |
 		BufRd(
 			1,

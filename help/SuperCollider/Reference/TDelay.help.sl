@@ -2,7 +2,8 @@
 
 _TDelay(trigger, delayTime)_
 
-Delays a trigger by a given time. Any triggers which arrive in the time between an input trigger and its delayed output, are ignored.
+Delays a trigger by a given time.
+Any triggers which arrive in the time between an input trigger and its delayed output, are ignored.
 
 - trigger: input trigger signal.
 - delayTime: delay time in seconds.
@@ -17,3 +18,6 @@ Dust runs faster than flip flop:
 	var z = Dust(5);
 	[z, ToggleFf(TDelay(z, 0.5)) * SinOsc(440, 0)] * 0.1
 
+* * *
+
+See also: Delay1, Delay2, DelayC

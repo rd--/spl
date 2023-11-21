@@ -24,15 +24,30 @@ so that embedding the same Ugen twice calls this stream twice.
 Mouse control of tone:
 
 ```
-var t = Impulse(24, 0);
-var s = Drand(inf, [
-	Dseq(1, [1, 2, 3, 4, 5, 4, 3, 2]),
-	Drand(8, [4 .. 11])
+var trig = Impulse(24, 0);
+var seq = Drand(2000, [
+	Dseq(1, [1 .. 5].mirror1),
+	Drand(8, [4 .. 10])
+]) * Drand(2000, [1 1 1 2 2 2 4 4 8]);
+var freq = Demand(trig, 0, seq * 100);
+var osc = SinOsc(freq + [0 0.7], 0);
+osc.Cubed.Cubed.ScaleNeg(MouseX(-1, 1, 0, 0.2)) * 0.1
+```
+
+Randomly select among sequences:
+
+```
+var trig = Impulse(8, 0);
+var seq = Drand(inf, [
+        Dseq(1, [4 0 0 1 2 1 0 1]),
+        Dseq(1, [4 0 2 0 1 0 1 1]),
+        Dseq(1, [4 0 0 2 0 0 1 1]),
+        Dseq(1, [4 0 1 2 0 1 2 0]),
+        Dseq(1, [4 1 1 1 2 2 3 3]),
+        Dseq(1, [4 1 0 1 0 1 0 1])
 ]);
-var f = Demand(t, 0, s * 100);
-var x = MouseX(-1, 1, 0, 0.1);
-var o = SinOsc([f, f + 0.7], 0);
-o.Cubed.Cubed.ScaleNeg(x) * 0.1
+var trig = Demand(trig, 0, seq * 0.4) * trig;
+{ Lpf(PinkNoise(), 5000) } ! 2 * Decay(trig, 0.5)
 ```
 
 * * *
