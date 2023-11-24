@@ -142,16 +142,14 @@ function evaluateInteractive(text: string): unknown {
 }
 
 function scEvalText(splText: string): unknown {
-	return evaluateInteractive(splText);
+	const answer = evaluateInteractive(splText);
+	console.log('scEvalText', answer);
+	return answer;
 }
 
 async function scEvalFile(fileName: string): Promise<unknown> {
 	const splText = await Deno.readTextFile(fileName);
 	return scEvalText(splText);
-}
-
-function scPlayText(splText: string): void {
-	evaluateInteractive(`{ ${splText} }.play`);
 }
 
 async function scPlayFile(fileName: string): Promise<void> {
@@ -161,7 +159,6 @@ async function scPlayFile(fileName: string): Promise<void> {
 
 /*
 echo '{"command": "evalText", "text": "{ SinOsc(440, 0) * 0.1 }.play"}' | netcat -C -q 1 -u 127.0.0.1 3010
-echo '{"command": "playText", "text": "SinOsc(440, 0) * 0.1"}' | netcat -C -q 1 -u 127.0.0.1 3010
 echo '{"command": "playFile", "fileName": "/home/rohan/sw/jssc3/help/graph/jmcc-analog-bubbles.stc"}' | netcat -C -q 1 -u 127.0.0.1 3010
 */
 
@@ -179,7 +176,6 @@ function scTcpServer(portNumber: number): void {
 				switch(message.command) {
 				case 'evalText': scEvalText(message.text); break;
 				case 'evalFile': scEvalFile(message.fileName); break;
-				case 'playText': scPlayText(message.text); break;
 				case 'playFile': scPlayFile(message.fileName); break;
 				default: console.warn(`scTcpServer: unknown command: ${message.command}`); break;
 				}

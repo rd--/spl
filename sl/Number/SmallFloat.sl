@@ -115,6 +115,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.acos(_self)>
 	}
 
+	arCosh { :self |
+		<primitive: return Math.acosh(_self)>
+	}
+
 	arcSin { :self |
 		<primitive: return Math.asin(_self)>
 	}

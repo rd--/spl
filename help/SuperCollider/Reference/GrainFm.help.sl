@@ -9,7 +9,7 @@ _GrainFm(numChannels=1, trigger=0, dur=1, carfreq=440, modfreq=220, index=1, pan
 - modFreq: the modulating freq of the grain generators internal oscillator
 - index: the index of modulation
 - pan: determines where to pan the output
-- envBufNum: the buffer number containing a signal to use for the grain envelope, -1 uses a built-in Hann envelope.
+- envBufNum: the buffer number containing a signal to use for the grain envelope, -1 uses a built-in Hann envelope.  Cannot be LocalBuf (Nov. 2023)
 - maxGrains: the maximum number of overlapping grains that can be used at a given time (ir)
 
 Linear envelopes modulating controls:

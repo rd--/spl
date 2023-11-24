@@ -68,6 +68,8 @@
 	DelayN { :in :maxdelaytime :delaytime | <primitive: return sc.DelayN(_in, _maxdelaytime, _delaytime);> }
 	Demand { :trig :reset :demandUGens | <primitive: return sc.Demand(_trig, _reset, _demandUGens);> }
 	DetectSilence { :in :amp :time :doneAction | <primitive: return sc.DetectSilence(_in, _amp, _time, _doneAction);> }
+	Ddup { :n :in | <primitive: return sc.Ddup(_n, _in);> }
+	Dgeom { :start :grow :length | <primitive: return sc.Dgeom(_start, _grow, _length);> }
 	Dibrown { :length :lo :hi :step | <primitive: return sc.Dibrown(_length, _lo, _hi, _step);> }
 	Diwhite { :length :lo :hi | <primitive: return sc.Diwhite(_length, _lo, _hi);> }
 	Drand { :repeats :list | <primitive: return sc.Drand(_repeats, _list);> }
@@ -99,7 +101,10 @@
 	FreqShift { :in :freq :phase | <primitive: return sc.FreqShift(_in, _freq, _phase);> }
 	GVerb { :in :roomsize :revtime :damping :inputbw :spread :drylevel :earlyreflevel :taillevel :maxroomsize | <primitive: return sc.GVerb(_in, _roomsize, _revtime, _damping, _inputbw, _spread, _drylevel, _earlyreflevel, _taillevel, _maxroomsize);> }
 	Gate { :in :trig | <primitive: return sc.Gate(_in, _trig);> }
+	GbmanN { :freq :xi :yi | <primitive: return sc.GbmanN(_freq, _xi, _yi);> }
 	Gendy1 { :ampdist :durdist :adparam :ddparam :minfreq :maxfreq :ampscale :durscale :initCPs :knum | <primitive: return sc.Gendy1(_ampdist, _durdist, _adparam, _ddparam, _minfreq, _maxfreq, _ampscale, _durscale, _initCPs, _knum);> }
+	Gendy2 { :ampdist :durdist :adparam :ddparam :minfreq :maxfreq :ampscale :durscale :initCPs :knum :a :c | <primitive: return sc.Gendy2(_ampdist, _durdist, _adparam, _ddparam, _minfreq, _maxfreq, _ampscale, _durscale, _initCPs, _knum, _a, _c);> }
+	Gendy3 { :ampdist :durdist :adparam :ddparam :freq :ampscale :durscale :initCPs :knum | <primitive: return sc.Gendy3(_ampdist, _durdist, _adparam, _ddparam, _freq, _ampscale, _durscale, _initCPs, _knum);> }
 	GrainBuf { :numChan :trigger :dur :sndbuf :rate :pos :interp :pan :envbufnum :maxGrains | <primitive: return sc.GrainBuf(_numChan, _trigger, _dur, _sndbuf, _rate, _pos, _interp, _pan, _envbufnum, _maxGrains);> }
 	GrainFm { :numChan :trigger :dur :carfreq :modfreq :index :pan :envbufnum :maxGrains | <primitive: return sc.GrainFm(_numChan, _trigger, _dur, _carfreq, _modfreq, _index, _pan, _envbufnum, _maxGrains);> }
 	GrainSin { :numChan :trigger :dur :freq :pan :envbufnum :maxGrains | <primitive: return sc.GrainSin(_numChan, _trigger, _dur, _freq, _pan, _envbufnum, _maxGrains);> }
@@ -175,6 +180,7 @@
 	OneZero { :in :coef | <primitive: return sc.OneZero(_in, _coef);> }
 	Osc { :bufnum :freq :phase | <primitive: return sc.Osc(_bufnum, _freq, _phase);> }
 	Out { :bus :channelsArray | <primitive: return sc.Out(_bus, _channelsArray);> }
+	PvBinScramble { :buffer :wipe :width :trig | <primitive: return sc.PvBinScramble(_buffer, _wipe, _width, _trig);> }
 	PvDiffuser { :buffer :trig | <primitive: return sc.PvDiffuser(_buffer, _trig);> }
 	PvRandComb { :buffer :wipe :trig | <primitive: return sc.PvRandComb(_buffer, _wipe, _trig);> }
 	Pan2 { :in :pos :level | <primitive: return sc.Pan2(_in, _pos, _level);> }
@@ -315,6 +321,11 @@
 	Sin { :self | <primitive: return sc.Sin(_self);> }
 	Cos { :self | <primitive: return sc.Cos(_self);> }
 	Tan { :self | <primitive: return sc.Tan(_self);> }
+	ArcSin { :self | <primitive: return sc.ArcSin(_self);> }
+	ArcCos { :self | <primitive: return sc.ArcCos(_self);> }
+	ArcTan { :self | <primitive: return sc.ArcTan(_self);> }
+	Sinh { :self | <primitive: return sc.Sinh(_self);> }
+	Cosh { :self | <primitive: return sc.Cosh(_self);> }
 	Tanh { :self | <primitive: return sc.Tanh(_self);> }
 }
 
@@ -350,6 +361,7 @@
 	Fold2 { :self :anObject | <primitive: return sc.Fold2(_self, _anObject);> }
 	Wrap2 { :self :anObject | <primitive: return sc.Wrap2(_self, _anObject);> }
 	Excess { :self :anObject | <primitive: return sc.Excess(_self, _anObject);> }
+	Ring1 { :self :anObject | <primitive: return sc.Ring1(_self, _anObject);> }
 	AbsDif { :self :anObject | <primitive: return sc.AbsDif(_self, _anObject);> }
 	SqrDif { :self :anObject | <primitive: return sc.SqrDif(_self, _anObject);> }
 	FirstArg { :self :anObject | <primitive: return sc.FirstArg(_self, _anObject);> }

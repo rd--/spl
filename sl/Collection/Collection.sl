@@ -435,6 +435,10 @@
 		self.collect(abs:/1)
 	}
 
+	arCosh { :self |
+		self.collect(arCosh:/1)
+	}
+
 	arcCos { :self |
 		self.collect(arcCos:/1)
 	}
@@ -463,6 +467,10 @@
 		self.collect(cubed:/1)
 	}
 
+	degreesToRadians { :self |
+		self.collect(degreesToRadians:/1)
+	}
+
 	exp { :self |
 		self.collect(exp:/1)
 	}
@@ -489,6 +497,10 @@
 
 	negated { :self |
 		self.collect(negated:/1)
+	}
+
+	radiansToDegrees { :self |
+		self.collect(radiansToDegrees:/1)
 	}
 
 	rounded { :self |

@@ -347,6 +347,12 @@
 		self
 	}
 
+	sineTable { :self :amplitudes :phases |
+		| answer = Array(self, 0); |
+		answer.sineFill(amplitudes, phases);
+		answer
+	}
+
 }
 
 +Block {
@@ -395,6 +401,19 @@
 
 +@Sequenceable {
 
+	addSine { :self :harmonicNumber :amplitude :initialPhase |
+		|(
+			size = self.size,
+			frequency = 1 / harmonicNumber,
+			increment = 2 * pi / size * frequency,
+			phase = initialPhase
+		)|
+		(1 .. size).do { :each |
+			self[each] +:= phase.sin * amplitude;
+			phase +:= increment
+		}
+	}
+
 	allTuples { :self |
 		| answer = []; |
 		self.allTuplesDo { :each |
@@ -417,6 +436,28 @@
 			};
 			aBlock(tuple)
 		}
+	}
+
+	asWavetable { :self |
+		|(
+			size = self.size * 2,
+			answer = self.species.ofSize(size),
+			index = 1
+		)|
+		(1 .. self.size).do { :each |
+			|(
+				e1 = self[each],
+				e2 = (each = self.size).if {
+					0
+				} {
+					self[each + 1]
+				}
+			)|
+			answer[index] := 2 * e1 - e2;
+			answer[index + 1] := e2 - e1;
+			index +:= 2
+		};
+		answer
 	}
 
 	atExtending { :self :index |
@@ -776,6 +817,13 @@
 			1 - (self.levenshteinDistance(other, equalityBlock:/2) / maxDistance)
 		} {
 			1
+		}
+	}
+
+	sineFill { :self :amplitudes :phases |
+		self.fill { :each | 0 };
+		amplitudes.withIndexDo { :each :index |
+			self.addSine(index, each, phases.atWrap(index))
 		}
 	}
 

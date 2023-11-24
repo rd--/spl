@@ -68,7 +68,7 @@
 (defun spl-play-region ()
   "Play region at Spl server."
   (interactive)
-  (spl-netcat-cmd 'playText 'text (spl-get-selection)))
+  (spl-netcat-cmd 'evalText 'text (format "{ %s }.play" (spl-get-selection))))
 
 (defun spl-play-current-file ()
   "Play current file at Spl server."

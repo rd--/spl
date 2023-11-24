@@ -234,16 +234,20 @@
 
 +Array {
 
-	Splay { :inArray |
+	Splay { :inArray :spread |
 		|(
 			numberOfChannels = system.scSynth.mainOutputs,
 			orientation = system.scSynth.mainOrientation
 		)|
 		(numberOfChannels = 2).if {
-			Splay2(inArray)
+			Splay2(inArray, spread, 1, 0, true)
 		} {
-			SplayAz(numberOfChannels, inArray, 1, 1, 2, 0, orientation, true)
+			SplayAz(numberOfChannels, inArray, spread, 1, 2, 0, orientation, true)
 		}
+	}
+
+	Splay { :inArray |
+		Splay(inArray, 1)
 	}
 
 }

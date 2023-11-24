@@ -114,6 +114,10 @@
 		LinLin(self, -1, 1, lo, hi)
 	}
 
+	ExpRange { :self :lo :hi |
+		LinExp(self, -1, 1, lo, hi)
+	}
+
 	Sequencer { :self :trig |
 		Demand(trig, 0, Dseq(inf, self))
 	}
@@ -168,6 +172,7 @@
 	BufRec { :bufnum :reset :inputArray | <primitive: return sc.BufRec(_bufnum, _reset, _inputArray);> }
 	BufWrite { :bufnum :phase :loop :inputArray | <primitive: return sc.BufWrite(_bufnum, _phase, _loop, _inputArray);> }
 	Changed { :input :threshold | <primitive: return sc.Changed(_input, _threshold);> }
+	CompanderD { :in :thresh :slopeBelow :slopeAbove :clampTime :relaxTime | <primitive: return sc.CompanderD(_in, _thresh, _slopeBelow, _slopeAbove, _clampTime, _relaxTime);> }
 	ControlIn { :numChannels :bus | <primitive: return sc.ControlIn(_numChannels, _bus);> }
 	ControlOut { :bus :channelsArray | <primitive: return sc.ControlOut(_bus, _channelsArray);> }
 	DelayTap { :bufnum :delayTime | <primitive: return sc.DelayTap(_bufnum, _delayTime);> }
@@ -196,7 +201,6 @@
 	Splay2 { :inArray :spread :level :center :levelComp | <primitive: return sc.Splay(_inArray, _spread, _level, _center, _levelComp);> }
 	Splay2 { :inArray | <primitive: return sc.Splay2(_inArray);> }
 	TChoose { :trig :array | <primitive: return sc.TChoose(_trig, _array);> }
-	TDmdFor { :dur :reset :level | <primitive: return sc.TDmdFor(_dur, _reset, _level);> }
 	TDmdFor { :dur :reset :level | <primitive: return sc.TDmdFor(_dur, _reset, _level);> }
 	TLine { :start :end :dur :trig | <primitive: return sc.TLine(_start, _end, _dur, _trig);> }
 	TxLine { :start :end :dur :trig | <primitive: return sc.TxLine(_start, _end, _dur, _trig);> }
