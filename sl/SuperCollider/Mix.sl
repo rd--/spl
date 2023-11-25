@@ -239,10 +239,14 @@
 			numberOfChannels = system.scSynth.mainOutputs,
 			orientation = system.scSynth.mainOrientation
 		)|
-		(numberOfChannels = 2).if {
-			Splay2(inArray, spread, 1, 0, true)
+		(inArray.size = numberOfChannels).if {
+			inArray
 		} {
-			SplayAz(numberOfChannels, inArray, spread, 1, 2, 0, orientation, true)
+			(numberOfChannels = 2).if {
+				Splay2(inArray, spread, 1, 0, true)
+			} {
+				SplayAz(numberOfChannels, inArray, spread, 1, 2, 0, orientation, true)
+			}
 		}
 	}
 

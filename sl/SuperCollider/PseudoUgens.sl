@@ -136,11 +136,13 @@
 			pos = (n = 1).if {
 				center
 			} {
-				[center - spread, center + spread].resamp1(n)
+				| spreadMax = spread * (n - 1 / n); |
+				[center - spreadMax, center + spreadMax].resamp1(n)
 			}
 		)|
 		levelComp.ifTrue {
-			level := level * n.reciprocal.sqrt
+			 (* Cf. <https://github.com/supercollider/supercollider/issues/5706> *)
+			level := level * n.reciprocal
 		};
 		PanAz(numChannels, inArray, pos, level, width, orientation).flop.collect(sum:/1)
 	}

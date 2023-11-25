@@ -11,9 +11,9 @@ modulate the pos.
 - level: a control rate level input.
 - width: The width of the panning envelope. Nominally this is 2.0 which pans between pairs of adjacent speakers. Width values greater than two will spread the pan over greater numbers of speakers. Width values less than one will leave silent gaps between speakers.
 
-Eight channel circular panning (with offset):
+Eight channel circular panning:
 
-	Silent(8) ++ PanAz(
+	PanAz(
 		8,
 		PinkNoise(),
 		LfSaw(MouseX(1 / 5, 5, 1, 0.2), 0),
