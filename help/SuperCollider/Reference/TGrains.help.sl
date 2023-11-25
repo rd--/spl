@@ -18,7 +18,7 @@ and is panned between two channels of multiple outputs.
 
 Demand sequences for _rate_ and _pan_ inputs, mouse control of _trigger_ rate and _pos_:
 
-	var numChannels = system.scSynth.mainOutputs;
+	var numChannels = 8;
 	var triggerRate = MouseY(2, 200, 1, 0.2);
 	var trigger = Impulse(triggerRate, 0);
 	var sf = SfAcquireMono('floating_1');
@@ -28,11 +28,11 @@ Demand sequences for _rate_ and _pan_ inputs, mouse control of _trigger_ rate an
 	var pan = Dseq(inf, [-1, -0.9 .. 1]);
 	var amp = 1 / 4;
 	var interp = 2;
-	TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp)
+	TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
 
 Uniform unary rate, perturb _centerPos_ at clock rate
 
-	var numChannels = system.scSynth.mainOutputs;
+	var numChannels = 8;
 	var triggerRate = MouseY(8, 120, 1, 0.2);
 	var trigger = Impulse(triggerRate, 0);
 	var sf = SfAcquireMono('floating_1');
@@ -40,14 +40,14 @@ Uniform unary rate, perturb _centerPos_ at clock rate
 	var centerPos0 = MouseX(0, SfDur(sf), 0, 0.2);
 	var centerPos = centerPos0 + Rand(trigger, 0, 0.01);
 	var dur = 12 / triggerRate;
-	var pan = WhiteNoise() * 0.6;
+	var pan = Rand(trigger, -1, 1) * 0.6;
 	var amp = 1 / 4;
 	var interp = 4;
-	TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp)
+	TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
 
 Stochastic clock (_Dust_):
 
-	var numChannels = system.scSynth.mainOutputs;
+	var numChannels = 8;
 	var triggerRate = MouseY(8, 120, 1, 0.2);
 	var trigger = Dust(triggerRate);
 	var sf = SfAcquireMono('floating_1');
@@ -55,14 +55,14 @@ Stochastic clock (_Dust_):
 	var centerPos0 = MouseX(0, SfDur(sf), 0, 0.2);
 	var centerPos = centerPos0 + Rand(trigger, 0, 0.01);
 	var dur = 4 / triggerRate;
-	var pan = WhiteNoise() * 0.6;
+	var pan = Rand(trigger, -1, 1) * 0.6;
 	var amp = 1 / 4;
 	var interp = 4;
-	TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp)
+	TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
 
 Mouse control of _centerPos_ and _dur_:
 
-	var numChannels = system.scSynth.mainOutputs;
+	var numChannels = 8;
 	var triggerRate = 12;
 	var trigger = Impulse(triggerRate, 0);
 	var sf = SfAcquireMono('floating_1');
@@ -70,51 +70,51 @@ Mouse control of _centerPos_ and _dur_:
 	var centerPos0 = MouseX(0, SfDur(sf), 0, 0.2);
 	var centerPos = centerPos0 + Rand(trigger, 0, 0.01);
 	var dur = MouseY(0.2, 24, 1, 0.2) / triggerRate;
-	var pan = WhiteNoise() * 0.6;
+	var pan = Rand(trigger, -1, 1) * 0.6;
 	var amp = 1 / 4;
 	var interp = 4;
-	TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp)
+	TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
 
 Stochastic _centerPos_, no external control:
 
-	var numChannels = system.scSynth.mainOutputs;
+	var numChannels = 8;
 	var triggerRate = 100;
 	var trigger = Impulse(triggerRate, 0);
 	var sf = SfAcquireMono('floating_1');
 	var rate = 1;
 	var centerPos = Integrator(BrownNoise().kr * 0.001, 1);
 	var dur = 8 / triggerRate;
-	var pan = WhiteNoise().kr * 0.6;
+	var pan = Rand(trigger, -1, 1) * 0.6;
 	var amp = 1 / 4;
 	var interp = 4;
-	TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp)
+	TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
 
 Stochastic _rate_:
 
-	var numChannels = system.scSynth.mainOutputs;
+	var numChannels = 8;
 	var triggerRate = MouseY(1, 400, 1, 0.2);
 	var trigger = Impulse(triggerRate, 0);
 	var sf = SfAcquireMono('floating_1');
-	var rate = 2 ^ (WhiteNoise().kr * 2);
+	var rate = 2 ^ Rand(trigger, -2, 2);
 	var centerPos = MouseX(0, SfDur(sf), 0, 0.2);
 	var dur = 8 / triggerRate;
-	var pan = WhiteNoise() * 0.8;
+	var pan = Rand(trigger, -1, 1) * 0.6;
 	var amp = 1 / 4;
 	var interp = 4;
-	TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp)
+	TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
 
 Stochastic _rate_, fixed clock rate:
 
-	var numChannels = system.scSynth.mainOutputs;
+	var numChannels = 8;
 	var trigger = Impulse(440, 0);
 	var sf = SfAcquireMono('floating_1');
-	var rate = 1.2 ^ (WhiteNoise() * 3).RoundTo(1);
+	var rate = 1.2 ^ IRand(trigger, -3, 3);
 	var centerPos = MouseX(0, SfDur(sf), 0, 0.2);
 	var dur = 1.2 / MouseY(2, 120, 1, 0.2);
-	var pan = WhiteNoise() * 0.6;
+	var pan = Rand(trigger, -1, 1) * 0.6;
 	var amp = 1 / 4;
 	var interp = 4;
-	TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp)
+	TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
 
 * * *
 

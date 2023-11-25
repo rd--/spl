@@ -62,8 +62,15 @@ var x = [4, 4.5], y = [2, 3, 5, 6]; [x * [x, y], y * [x, y]] = [[[16, 18], [9, 1
 [1].sizeForExtending = 1 (* size but answering one for scalar values *)
 [1 .. 9].blendAt(4.5) = 4.5 (* linear interpolating indexing *)
 [1 .. 9].blendAtAll([3, 4.5, 5]) = [3, 4.5, 5] (* linear interpolating indexing *)
+[1 .. 3].blendAtAll([1, 1.5 .. 3]) = [1, 1.5 .. 3]
 [1, 3 .. 9].resamp1(9) = [1 .. 9] (* linear interpolating resampler *)
 [1 .. 4].resamp1(12).roundTo(0.01) = [1 1.27 1.55 1.82 2.09 2.36 2.64 2.91 3.18 3.45 3.73 4]
+[2 3 5 6].indexInBetween(5.2) = 3.2 (* interpolated index for value (collection must be sorted) *)
+[2 3 5 6].blendAt(3.2) = 5.2 (* interpolated value between indices *)
+[0 1 2 3 4 4 3 2].integrate = [0 1 3 6 10 14 17 19] (* cummulative sum *)
+([0 1 2 3 4 4 3 2].asRandomTable * 100).rounded = [0 23 35 44 53 61 72 88]
+([0, 1, 2, 3, 2].asRandomTable * 100).round = [0, 30, 47, 60, 80]
+([0 1 2 3 4 4 3 2].integrate.normalize(1, 8) * 100).rounded = [100 137 211 321 468 616 726 800]
 ```
 
 ## String -- extensions

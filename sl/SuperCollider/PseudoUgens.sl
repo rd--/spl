@@ -203,6 +203,7 @@
 	Splay2 { :inArray :spread :level :center :levelComp | <primitive: return sc.Splay(_inArray, _spread, _level, _center, _levelComp);> }
 	Splay2 { :inArray | <primitive: return sc.Splay2(_inArray);> }
 	TChoose { :trig :array | <primitive: return sc.TChoose(_trig, _array);> }
+	TwChoose { :trig :array :weights :normalize | <primitive: return sc.TwChoose(_trig, _array, _weights, _normalize);> }
 	TDmdFor { :dur :reset :level | <primitive: return sc.TDmdFor(_dur, _reset, _level);> }
 	TLine { :start :end :dur :trig | <primitive: return sc.TLine(_start, _end, _dur, _trig);> }
 	TxLine { :start :end :dur :trig | <primitive: return sc.TxLine(_start, _end, _dur, _trig);> }

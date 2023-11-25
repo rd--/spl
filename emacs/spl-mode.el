@@ -197,6 +197,7 @@
      ("..." .?‥) ; U+2026 … Horizontal Ellipsis; U+22ef ⋯ Midline Horizontal Ellipsis
      ("--" .?—) ; U+2014 — Em Dash
      ("duplicate" .?!)
+     ("squared", .?²) ; U+00B2 ² Superscript Two
      ("first" .?₁) ; U+2081 ₁ Subscript One
      ("second" .?₂) ; U+2082 ₂ Subscript Two
      ("third" .?₃) ; U+2083 ₃ Subscript Three

@@ -67,6 +67,7 @@
 	DelayL { :in :maxdelaytime :delaytime | <primitive: return sc.DelayL(_in, _maxdelaytime, _delaytime);> }
 	DelayN { :in :maxdelaytime :delaytime | <primitive: return sc.DelayN(_in, _maxdelaytime, _delaytime);> }
 	Demand { :trig :reset :demandUGens | <primitive: return sc.Demand(_trig, _reset, _demandUGens);> }
+	DetectIndex { :bufnum :input | <primitive: return sc.DetectIndex(_bufnum, _input);> }
 	DetectSilence { :in :amp :time :doneAction | <primitive: return sc.DetectSilence(_in, _amp, _time, _doneAction);> }
 	Ddup { :n :in | <primitive: return sc.Ddup(_n, _in);> }
 	Dgeom { :start :grow :length | <primitive: return sc.Dgeom(_start, _grow, _length);> }
@@ -224,6 +225,7 @@
 	Stepper { :trig :reset :min :max :step :resetval | <primitive: return sc.Stepper(_trig, _reset, _min, _max, _step, _resetval);> }
 	Sweep { :trig :rate | <primitive: return sc.Sweep(_trig, _rate);> }
 	SyncSaw { :syncFreq :sawFreq | <primitive: return sc.SyncSaw(_syncFreq, _sawFreq);> }
+	TableRand { :trig :bufnum | <primitive: return sc.TableRand(_trig, _bufnum);> }
 	TDelay { :in :dur | <primitive: return sc.TDelay(_in, _dur);> }
 	TDuty { :dur :reset :doneAction :level :gapFirst | <primitive: return sc.TDuty(_dur, _reset, _doneAction, _level, _gapFirst);> }
 	TExpRand { :lo :hi :trig | <primitive: return sc.TExpRand(_lo, _hi, _trig);> }
@@ -234,6 +236,7 @@
 	ToggleFf { :trig | <primitive: return sc.ToggleFf(_trig);> }
 	Trig { :in :dur | <primitive: return sc.Trig(_in, _dur);> }
 	Trig1 { :in :dur | <primitive: return sc.Trig1(_in, _dur);> }
+	TwIndex { :input :normalize :array | <primitive: return sc.TwIndex(_input, _normalize, _array);> }
 	TwoPole { :in :freq :radius | <primitive: return sc.TwoPole(_in, _freq, _radius);> }
 	TwoZero { :in :freq :radius | <primitive: return sc.TwoZero(_in, _freq, _radius);> }
 	VarSaw { :freq :iphase :width | <primitive: return sc.VarSaw(_freq, _iphase, _width);> }

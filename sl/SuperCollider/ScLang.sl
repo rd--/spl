@@ -438,6 +438,24 @@
 		}
 	}
 
+	asRandomTable { :self :size |
+		|(
+			a = (size = self.size).if {
+				self
+			} {
+				self.resamp1(size)
+			}
+		)|
+		a := a.integrate.normalize(1, size);
+		(1 .. size).collect { :index |
+			a.indexInBetween(index) - 1 / size
+		}
+	}
+
+	asRandomTable { :self |
+		self.asRandomTable(self.size)
+	}
+
 	asWavetable { :self |
 		|(
 			size = self.size * 2,
@@ -843,6 +861,10 @@
 
 	stutter { :self :repeatCount |
 		self.duplicateEach(repeatCount)
+	}
+
+	tableRand { :self |
+		self.blendAt(1.randomFloat(self.size))
 	}
 
 	withWrappingCollectOrAdaptTo { :self :anObject :aBlock:/2 |
