@@ -330,6 +330,11 @@
 	Sinh { :self | <primitive: return sc.Sinh(_self);> }
 	Cosh { :self | <primitive: return sc.Cosh(_self);> }
 	Tanh { :self | <primitive: return sc.Tanh(_self);> }
+	BiLinRand { :self | <primitive: return sc.BiLinRand(_self);> }
+	LinRand { :self | <primitive: return sc.LinRand_(_self);> }
+	Sum3Rand { :self | <primitive: return sc.Sum3Rand(_self);> }
+	Coin { :self | <primitive: return sc.Coin(_self);> }
+
 }
 
 (* Auto-generated *)
