@@ -135,13 +135,13 @@ Sl {
 	IntervalSyntax = "(" Expression ".." Expression ")"
 	IntervalThenSyntax = "(" Expression "," Expression ".." Expression ")"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
-	VectorSyntaxItem = VectorSyntaxUnarySend | VectorSyntaxRange | literal | identifier | VectorSyntax
+	VectorSyntaxItem = VectorSyntaxUnarySend | VectorSyntaxRange | literal | identifier | VectorSyntax | MatrixSyntax
 	VectorSyntaxUnarySend = (literal | identifier) "." identifier
 	VectorSyntaxRange = integerLiteral ".." integerLiteral
-	MatrixSyntax = "[" ListOf<MatrixSyntaxItems, ";"> "]"
+	MatrixSyntax = "[" NonemptyListOf<MatrixSyntaxItems, ";"> "]"
 	MatrixSyntaxItems = VectorSyntaxItem+
-	VolumeSyntax = "[" ListOf<VolumeSyntaxItems, ";;"> "]"
-	VolumeSyntaxItems = ListOf<MatrixSyntaxItems, ";">
+	VolumeSyntax = "[" NonemptyListOf<VolumeSyntaxItems, ";;"> "]"
+	VolumeSyntaxItems = NonemptyListOf<MatrixSyntaxItems, ";">
 
 	methodName = identifier | binaryOperator
 	unqualifiedIdentifier = letter letterOrDigit*

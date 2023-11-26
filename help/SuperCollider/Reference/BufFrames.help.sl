@@ -6,7 +6,7 @@ _BufFrames(bufNum)_
 
 Get the current number of allocated frames.
 
-- bufnum: Buffer index.
+- bufNum: Buffer index.
 
 Note: A buffer can be reallocated at any time, the frame count can change at any time.
 

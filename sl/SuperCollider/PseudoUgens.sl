@@ -2,6 +2,23 @@
 
 +[Array, SmallFloat, Ugen] {
 
+	TableWindow { :trig :dur :bufNum |
+		var phase = Line(trig, 0, BufFrames(bufNum), dur);
+		BufRd(1, bufNum, phase, 0, 4)
+	}
+
+	SelectXFocus { :which :array :focus :wrap |
+		wrap.if {
+			array.withIndexCollect { :input :index |
+				(1 - (ModDif(which, index - 1, array.size) * focus)).Max(0) * input
+			}.sum
+		} {
+			array.withIndexCollect { :input :index |
+				(1 - (AbsDif(which, index - 1) * focus)).Max(0) * input
+			}
+		}
+	}
+
 	CurveGen { :gate :levels :times :curves |
 		Env(levels, times, curves, nil, nil, 0).asEnvGen(gate)
 	}
