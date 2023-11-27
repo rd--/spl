@@ -13,15 +13,23 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 	}
 
 	asArray { :self |
-		self.Array
-	}
-
-	Array { :self |
 		| answer = Array(self.size); |
 		self.withIndexDo { :each :index |
 			answer[index] := each
 		};
 		answer
+	}
+
+	asBag { :self |
+		| answer = Bag(); |
+		self.runsAndValuesDo { :run :value |
+			answer.addWithOccurrences(value, run)
+		};
+		answer
+	}
+
+	asSet  { :self |
+		self.values.Set
 	}
 
 	allocatedSize { :self |
@@ -64,14 +72,6 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 			offset +:= self.runs[run]
 		};
 		aBlock(run, offset, self.values[run])
-	}
-
-	Bag { :self |
-		| answer = Bag(); |
-		self.runsAndValuesDo { :run :value |
-			answer.addWithOccurrences(value, run)
-		};
-		answer
 	}
 
 	do { :self :aBlock:/1 |
@@ -121,12 +121,12 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 		}
 	}
 
-	runsAndValuesDo { :self :aBlock:/2 |
-		self.runs.withDo(self.values, aBlock:/2)
+	runsAndValuesCollect { :self :aBlock:/2 |
+		self.runs.withCollect(self.values, aBlock:/2)
 	}
 
-	Set  { :self |
-		self.values.Set
+	runsAndValuesDo { :self :aBlock:/2 |
+		self.runs.withDo(self.values, aBlock:/2)
 	}
 
 	size { :self |
@@ -156,6 +156,38 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 }
 
 +@Sequenceable {
+
+	asRunArray { :self |
+		self.asRunArrayWith(identity:/1)
+	}
+
+	asRunArrayWith { :self :aBlock:/1 |
+		|(
+			runs = [],
+			values = [],
+			lastLength = 0,
+			lastValue = nil,
+			lastIndex = nil
+		)|
+		self.do { :each |
+			| value = aBlock(each); |
+			(lastValue = value).if {
+				lastLength := lastLength + 1
+			} {
+				(lastLength > 0).ifTrue {
+					runs.add(lastLength);
+					values.add(lastValue)
+				};
+				lastLength := 1;
+				lastValue := value
+			}
+		};
+		(lastLength > 0).ifTrue {
+			runs.add(lastLength);
+			values.add(lastValue)
+		};
+		RunArray(runs, values)
+	}
 
 	RunArray { :self |
 		RunArray(self.collect(key:/1), self.collect(value:/1))

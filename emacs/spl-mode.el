@@ -1,7 +1,7 @@
 ;;; spl-mode.el --- Simple Programming Language
 
 ;;; Commentary:
-; .sl files contain Simple Programming Language codes
+;;; .sl files contain Simple Programming Language codes
 
 ;;; Code:
 
@@ -43,7 +43,7 @@
 
 (defun spl-delete-markdown-code-fences (str)
   "Remove Mardown code fences from the string STR if present."
-   (replace-regexp-in-string "^```" "" str))
+  (replace-regexp-in-string "^```" "" str))
 
 (defun spl-get-selection ()
   "Get the currently selected text as a string, with code fences deleted."
@@ -122,7 +122,7 @@
   (modify-syntax-entry ?\) ")(4" st)
   (modify-syntax-entry ?' "\"" st)
   (modify-syntax-entry ?\" "\"" st)
-  ;(modify-syntax-entry ?\; ". 12b" st)
+  ;;(modify-syntax-entry ?\; ". 12b" st)
   (modify-syntax-entry ?\n "> b" st)
   st)
 
@@ -171,7 +171,7 @@
      ("*.x" . ?⊗)
      ("Sqrt" . ?√)
      ("sqrt" . ?√) ; “√” U+221A Square Root
-     ;(";;" . ?⋯)
+     ;;(";;" . ?⋯)
      ("alpha" . ?α)
      ("beta" . ?β)
      ("|(" . ?⦇) ; ⦃ ⸠ ⦇
@@ -194,10 +194,10 @@
      (":?" .?⍰) ; U+2370 ⍰ Apl Functional Symbol Quad Question ; U+291D ⤝ Leftwards arrow to black diamond
      ("||" .?‖) ; U+2016 ‖ Double Vertical Line
      (".." .?‥) ; U+2025 ‥ Two Dot Leader
-     ("..." .?‥) ; U+2026 … Horizontal Ellipsis; U+22ef ⋯ Midline Horizontal Ellipsis
+     ;;("..." .?‥) ; U+2026 … Horizontal Ellipsis; U+22ef ⋯ Midline Horizontal Ellipsis
      ("--" .?—) ; U+2014 — Em Dash
      ("duplicate" .?!)
-     ("squared", .?²) ; U+00B2 ² Superscript Two
+     ("squared" .?²) ; U+00B2 ² Superscript Two
      ("first" .?₁) ; U+2081 ₁ Subscript One
      ("second" .?₂) ; U+2082 ₂ Subscript Two
      ("third" .?₃) ; U+2083 ₃ Subscript Three

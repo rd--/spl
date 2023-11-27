@@ -45,6 +45,14 @@ function makeTypeDefinition(
 	return `${addType}${copyTraits}${addMethods}`;
 }
 
+function intervalSyntax(start: ohm.Node, end: ohm.Node):string {
+	return `_${genName('upOrDownTo', 2)}(${start.asJs}, ${end.asJs})`;
+}
+
+function arrayIntervalSyntax(start: ohm.Node, end: ohm.Node):string {
+	return `_${genName('Array', 1)}(${intervalSyntax(start, end)})`;
+}
+
 const asJs: ohm.ActionDict<string> = {
 
 	TypeExtension(_plus, typeName, _leftBrace, methodName, methodBlock, _rightBrace) {
@@ -186,6 +194,11 @@ const asJs: ohm.ActionDict<string> = {
 	AtAllVectorSyntax(c, _leftBracket, k, _rightBracket) {
 		return `_${genName('atAll', 2)}(${c.asJs}, [${commaList(k.children)}])`;
 	},
+	AtAllIntervalSyntax(c, _leftBracket, start, _dotDot, end, _rightBracket) {
+		const answer = `_${genName('atAll', 2)}(${c.asJs}, ${intervalSyntax(start, end)})`;
+		// console.log('AtAllIntervalSyntax', answer);
+		return answer;
+	},
 	AtMatrixSyntax(c, _leftBracket, i, _semicolon, j, _rightBracket) {
 		var at = `_${genName(atMethod(), 2)}`;
 		return `${at}(${at}(${c.asJs}, ${i.asJs}), ${j.asJs})`;
@@ -315,13 +328,13 @@ const asJs: ohm.ActionDict<string> = {
 		return `[${commaList(array.asIteration().children)}]`;
 	},
 	ArrayIntervalSyntax(_leftBracket, start, _dotDot, end, _rightBracket) {
-		return `_${genName('Array', 1)}(_${genName('upOrDownTo', 2)}(${start.asJs}, ${end.asJs}))`;
+		return arrayIntervalSyntax(start, end);
 	},
 	ArrayIntervalThenSyntax(_leftBracket, start, _comma_, then, _dotDot, end, _rightBracket) {
 		return `_${genName('Array', 1)}(_${genName('thenTo', 3)}(${start.asJs}, ${then.asJs}, ${end.asJs}))`;
 	},
 	IntervalSyntax(_leftParen, start, _dotDot, end, _rightParen) {
-		return `_${genName('upOrDownTo', 2)}(${start.asJs}, ${end.asJs})`;
+		return intervalSyntax(start, end);
 	},
 	IntervalThenSyntax(_leftParen, start, _comma_, then, _dotDot, end, _rightParen) {
 		return `_${genName('thenTo', 3)}(${start.asJs}, ${then.asJs}, ${end.asJs})`;

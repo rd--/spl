@@ -2775,9 +2775,9 @@ RegExp('x|z', 'g').replaceAllModifying('x y z', toUppercase:/1) = 'X y Z'
 ```
 system.includesPackage('RunArray') (* RunArray package *)
 | a = RunArray([1, 3, 5], ['a', 'b', 'c']); | a.isRunArray & { a.size = 9 } (* from runs and values, size is sum of runs *)
-| a = RunArray([1, 3, 5], ['a', 'b', 'c']); | a.size = 9 & { a.Array.join = 'abbbccccc' } (* as array *)
-| a = RunArray([1 -> 'a', 3 -> 'b', 5 -> 'c']); | a.size = 9 & { a.Array.join = 'abbbccccc' } (* from associations *)
-| a = RunArray([1 4 2 1], [9 7 5 3]); | a.size = 8 & { a.Array = [9 7 7 7 7 5 5 3] }
+| a = RunArray([1, 3, 5], ['a', 'b', 'c']); | a.size = 9 & { a.asArray.join = 'abbbccccc' } (* as array *)
+| a = RunArray([1 -> 'a', 3 -> 'b', 5 -> 'c']); | a.size = 9 & { a.asArray.join = 'abbbccccc' } (* from associations *)
+| a = RunArray([1 4 2 1], [9 7 5 3]); | a.size = 8 & { a.asArray = [9 7 7 7 7 5 5 3] }
 { | a = RunArray([1 -> 'a', 3 -> 'b']); | a[5] }.ifError { true } (* invalid index *)
 | a = RunArray([1, 4, 2, 1], 'abca'.split); | a.first = 'a' & { a.last = 'a' } (* first and last are optimized *)
 | a = RunArray([1, 4, 2], 'abc'.split); | a.includes('c') & { a.isSorted } (* includes and isSorted are optimized *)
@@ -2785,6 +2785,7 @@ RunArray([1, 4, 2], ['a', 'b', 'c']).reversed = [2 -> 'c', 4 -> 'b', 1 -> 'a'].R
 | a = [23 -> 'a', 34 -> 'b', 45 -> 'a'].RunArray; | (a.allocatedSize / a.size * 100).rounded = 9 (* space saving, in % *)
 RunArray([1, 3, 5], ['a', 'b', 'c']).asArray.join = 'abbbccccc' (* from runs and values, as array *)
 RunArray([1 -> 'a', 3 -> 'b', 5 -> 'c']).asArray.join = 'abbbccccc' (* from associations, as array *)
+[4 3 3 2 2 2 1 1 1 1].asRunArray = RunArray([1 2 3 4], [4 3 2 1]) (* from sequence *)
 ```
 
 ## Sequenceable -- collection trait
@@ -2865,6 +2866,8 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString };
 ['one', 'two', 'three', 'four'].atAll([3, 2, 4]) = ['three', 'two', 'four'] (* at each index *)
 (1 .. 9).atAll((3 .. 5)) = [3 .. 5] (* at each index *)
 | a = ['1', '2', '3', '4']; | a[3, 2, 4] = ['3', '2', '4'] (* at each index syntax *)
+| a = [5 4 3 2 1]; | a[1 5 3] = [5 1 3] (* AtAllVectorSyntax *)
+| a = [5 4 3 2 1]; | a[2 .. 4] = [4 3 2] (* AtAllIntervalSyntax *)
 | a = Array(9); | a.atAllPut(0); a = [0, 0, 0, 0, 0, 0, 0, 0, 0] (* set all elements to a single value *)
 | a = [1 .. 9]; | a.atAllPut([3 .. 7], 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] (* set all selected indices to a value *)
 | a = [1 .. 9]; | a.atAllPut((3 .. 7), 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] (* set all selected indices to a value *)

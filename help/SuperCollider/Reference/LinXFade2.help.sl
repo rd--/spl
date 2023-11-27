@@ -1,8 +1,8 @@
 # LinXFade2 -- two channel linear crossfade
 
-_LinXFade2(a, b, pos)_
+_LinXFade2(a, b, pos=0)_
 
-Two channel linear crossdafe.
+Two channel linear cross-fade.
 
 - a: an input signal
 - b: another input signal
@@ -10,9 +10,12 @@ Two channel linear crossdafe.
 
 Cross fade from sine tone to noise and back again:
 
-	LinXFade2(SinOsc(800, 0), PinkNoise(), SinOsc(1, 0)) * 0.1
+	LinXFade2(
+		SinOsc(800, 0),
+		PinkNoise(),
+		SinOsc(1, 0)
+	) * 0.1
 
 * * *
 
 See also: XFade2
-

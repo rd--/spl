@@ -133,7 +133,7 @@
 					].concatenation,
 					1 ! 26
 				].transposed,
-				'16×1→1×8+2×4': [
+				'1×8+2×4→1×8+2×4': [
 					[1 .. 16],
 					[1 .. 16],
 					1 ! 16
@@ -166,17 +166,10 @@
 
 	mixByDerivedNamedRule { :self :names |
 		|(
-			shape = self.shape,
-			derivedPrefix = [
-				shape.first.asString,
-				'×',
-				(shape.size = 1).if {
-					'1'
-				} {
-					shape.second.asString
-				},
-				'→'
-			].join
+			runArray = self.collect(size:/1).asRunArray,
+			derivedPrefix = runArray.runsAndValuesCollect { :run :value |
+				[run.asString, '×', value.asString].join
+			}.joinSeparatedBy('+') ++ '→'
 		)|
 		['mixByDerivedNamedRule', names, derivedPrefix].postLine;
 		self.mixByAvailableNamedRule(derivedPrefix, names)

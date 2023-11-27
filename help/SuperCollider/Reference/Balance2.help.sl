@@ -2,7 +2,7 @@
 
 _Balance2_ is a stereo signal balancer.
 
-_Balance2(left, right, pos, level)_
+_Balance2(left, right, pos=0, level=1)_
 
 Equal power panning balances two channels. By panning from left (pos=-1) to right (pos=1) you are decrementing the level of the left channel from 1 to 0 taking the square root of the linear scaling factor, while at the same time incrementing the level of the right channel from 0 to 1 using the same curve. In the center position (pos=0) this results in a level for both channels of 0.5.sqrt (~=0.707 or -3dB). The output of _Balance2_ remains a stereo signal.
 

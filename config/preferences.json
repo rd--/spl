@@ -1,5 +1,5 @@
 {
-	"Configuration": "Default",
+	"Configuration": "1×2+1×8+2×4",
 	"Default": {
 		"ScSynth.Protocol": "Tcp",
 		"ScSynth.Hostname": "127.0.0.1",

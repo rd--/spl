@@ -50,6 +50,7 @@ Sl {
 		| AtIfAbsentSyntax
 		| AtIfAbsentPutSyntax
 		| AtSyntax
+		| AtAllIntervalSyntax
 		| AtAllVectorSyntax
 		| AtAllArraySyntax
 		| AtPathPutSyntax
@@ -91,6 +92,7 @@ Sl {
 	AtIfAbsentPutSyntax = Primary "[" Expression "]" ":=?" Block
 	AtAllArraySyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
 	AtAllVectorSyntax = Primary "[" VectorSyntaxItem+ "]"
+	AtAllIntervalSyntax = Primary "[" Expression ".." Expression "]"
 	AtMatrixSyntax = Primary "[" Expression ";" Expression "]"
 	AtVolumeSyntax = Primary "[" Expression ";" Expression ";" Expression "]"
 	AtPathPutSyntax = Primary "[" NonemptyListOf<Expression, ";"> "]" ":=" Expression

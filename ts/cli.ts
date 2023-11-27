@@ -154,7 +154,7 @@ async function scEvalFile(fileName: string): Promise<unknown> {
 
 async function scPlayFile(fileName: string): Promise<void> {
 	const splText = await Deno.readTextFile(fileName);
-	scPlayText(splText);
+	scEvalText(`{ ${splText} }.play`);
 }
 
 /*
