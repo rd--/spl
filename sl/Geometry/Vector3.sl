@@ -1,18 +1,24 @@
 Vector3 : [Object, Indexable] { | x y z |
 
-	= { :self :anObject |
-		anObject.isVector3.if {
-			(self.x = anObject.x) & {
-				self.y = anObject.y
-			} & {
-				self.z = anObject.z
-			}
-		} {
-			false
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isVector3 & {
+			aBlock(self.x, anObject.x)
+		} & {
+			aBlock(self.y, anObject.y)
+		} & {
+			aBlock(self.z, anObject.z)
 		}
 	}
 
-	Array { :self |
+	= { :self :anObject |
+		self.equalBy(anObject, equals:/2)
+	}
+
+	~ { :self :anObject |
+		self.equalBy(anObject, tilde:/2)
+	}
+
+	asArray { :self |
 		[self.x, self.y, self.z]
 	}
 
@@ -34,6 +40,14 @@ Vector3 : [Object, Indexable] { | x y z |
 		]) {
 			self.error('atPut: index out of range')
 		}
+	}
+
+	distance { :self :aVector |
+		(
+			(aVector.x - self.x).squared +
+			(aVector.y - self.y).squared +
+			(aVector.z - self.z).squared
+		).sqrt
 	}
 
 	first { :self |

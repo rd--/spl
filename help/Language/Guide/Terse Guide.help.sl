@@ -4013,6 +4013,13 @@ Vector3(0, 0, 0).isZero (* are x, y and z all zero *)
 | v = Vector3(3, 4, 5); | v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } (* implements at *)
 | v = Vector3(3, 4, 5); | v[1] := 5; v[3] := 3; v.Array = [5, 4, 3] (* implements atPut *)
 | v = Vector3(3, 4, 5); | [v.first, v.second, v.third] = [3, 4, 5] (* implements first &etc. *)
+Vector3(0, 0, 1).asSphericalCoordinate = SphericalCoordinate(1, 0, 0)
+SphericalCoordinate(1, 0, 0).asCartesianCoordinate = Vector3(0, 0, 1)
+Vector3(1, 1, 0).asSphericalCoordinate = SphericalCoordinate(2.sqrt, pi / 2, pi / 4)
+SphericalCoordinate(2.sqrt, pi / 2, pi / 4).asCartesianCoordinate ~ Vector3(1, 1, 0)
+Vector3(0, 0, 0).distance(Vector3(1, 1, 1)) = 3.sqrt
+Vector3(0, 0, 0).distance(Vector3(1, 1, 0)) = 2.sqrt
+Vector3(1, 2, 3).distance(Vector3(6, 5, 4)) = 35.sqrt
 ```
 
 ## Vector4 -- geometry type

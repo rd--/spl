@@ -202,6 +202,9 @@
      ("second" .?₂) ; U+2082 ₂ Subscript Two
      ("third" .?₃) ; U+2083 ₃ Subscript Three
      ("fourth" .?₄) ; U+2084 ₄ Subscript Four
+     ("rho" .?ρ)
+     ("phi" .?φ)
+     ("theta" .?θ)
      )))
 
 (defun spl-fill-mode-map (map)

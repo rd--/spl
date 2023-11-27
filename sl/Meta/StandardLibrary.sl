@@ -30,6 +30,7 @@
 	'Vector2'
 	'Vector3'
 	'Vector4'
+	'SphericalCoordinate' (* Requires: Vector3 *)
 
 	(* Graphics *)
 	'Colour'

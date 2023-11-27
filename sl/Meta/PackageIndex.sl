@@ -62,6 +62,7 @@
 	'Geometry-PolarPoint'
 	'Geometry-Projection3'
 	'Geometry-Rectangle'
+	'Geometry-SphericalCoordinate'
 	'Geometry-Vector2'
 	'Geometry-Vector3'
 	'Geometry-Vector4'
