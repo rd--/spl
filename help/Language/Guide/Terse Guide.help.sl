@@ -4028,6 +4028,10 @@ Vector3(1, 3, 5).asArray = [1 3 5]
 [1 3 5].asVector3 = Vector3(1, 3, 5)
 Vector3(1, 3, 5).asRecord = (x: 1, y: 3, z: 5)
 (x: 1, y: 3, z: 5).asVector3 = Vector3(1, 3, 5)
+SphericalCoordinate(1, 2, 3).asRecord = (r: 1, theta: 2, phi: 3)
+(r: 1, theta: 2, phi: 3).asSphericalCoordinate = SphericalCoordinate(1, 2, 3)
+CylindricalCoordinate(1, 1, 1).asCartesianCoordinate.asRecord = (x: 1.cos, y: 1.sin, z: 1)
+Vector3(1.cos, 1.sin, 1).asCylindricalCoordinate.asRecord = (rho: 1, phi: 1, z: 1)
 ```
 
 ## Vector4 -- geometry type

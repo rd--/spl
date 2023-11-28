@@ -1,6 +1,10 @@
 # PolarPoint -- geometry
 
-The _PolarPoint_ type represents an _(r, t)_ pair of numbers designating a location in Polar coordinate space.
+The _PolarPoint_ type represents a pair of numbers designating a location in Polar coordinate space.
+
+The usual mathematical notation is (r, theta), where r is the radius and theta the angle.
+
+The ISO standardised notation is (rho, phi).
 
 * * *
 

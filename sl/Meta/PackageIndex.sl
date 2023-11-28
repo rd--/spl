@@ -55,6 +55,7 @@
 	'Exception-Error'
 	'Geometry-Angle'
 	'Geometry-CartesianCoordinate'
+	'Geometry-CylindricalCoordinate'
 	'Geometry-Length'
 	'Geometry-Matrix22'
 	'Geometry-Matrix33'

@@ -1,18 +1,16 @@
 Vector2 : [Object, Indexable, Number, Point] { | x y |
 
 	= { :self :anObject |
-		anObject.isPoint.if {
+		anObject.isPoint & {
 			(self.x = anObject.x) & {
 				self.y = anObject.y
 			}
-		} {
-			false
 		}
 	}
 
 	+ { :self :anObject |
 		anObject.isPoint.if {
-			Point(self.x + anObject.x, self.y + anObject.y)
+			Vector2(self.x + anObject.x, self.y + anObject.y)
 		} {
 			anObject.adaptToPointAndApply(self, plus:/2)
 		}
@@ -20,7 +18,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 
 	- { :self :anObject |
 		anObject.isPoint.if {
-			Point(self.x - anObject.x, self.y - anObject.y)
+			Vector2(self.x - anObject.x, self.y - anObject.y)
 		} {
 			anObject.adaptToPointAndApply(self, minus:/2)
 		}
@@ -28,7 +26,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 
 	* { :self :anObject |
 		anObject.isPoint.if {
-			Point(self.x * anObject.x, self.y * anObject.y)
+			Vector2(self.x * anObject.x, self.y * anObject.y)
 		} {
 			anObject.adaptToPointAndApply(self, times:/2)
 		}
@@ -36,7 +34,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 
 	/ { :self :anObject |
 		anObject.isPoint.if {
-			Point(self.x / anObject.x, self.y / anObject.y)
+			Vector2(self.x / anObject.x, self.y / anObject.y)
 		} {
 			anObject.adaptToPointAndApply(self, dividedBy:/2)
 		}
@@ -44,7 +42,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 
 	// { :self :anObject |
 		anObject.isPoint.if {
-			Point(self.x // anObject.x, self.y // anObject.y)
+			Vector2(self.x // anObject.x, self.y // anObject.y)
 		} {
 			anObject.adaptToPointAndApply(self, dividedByDividedBy:/2)
 		}
@@ -52,7 +50,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 
 	% { :self :anObject |
 		anObject.isPoint.if {
-			Point(self.x % anObject.x, self.y % anObject.y)
+			Vector2(self.x % anObject.x, self.y % anObject.y)
 		} {
 			anObject.adaptToPointAndApply(self, modulo:/2)
 		}
@@ -70,8 +68,12 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 		self
 	}
 
+	asRecord { :self |
+		(x: self.x, y: self.y)
+	}
+
 	collect { :self :aBlock:/1 |
-		Point(self.x.aBlock, self.y.aBlock)
+		Vector2(self.x.aBlock, self.y.aBlock)
 	}
 
 	first { :self |
@@ -97,7 +99,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 
 	storeString { :self |
 		[
-			'Point(',
+			'Vector2(',
 			self.x.storeString,
 			', ',
 			self.y.storeString,
@@ -126,7 +128,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 
 	asVector2 { :self |
 		(self.size ~= 2).if {
-			self.error('Vector2: not 2-element array')
+			self.error('asVector2: not 2-element array')
 		} {
 			| [x, y] = self; |
 			Vector2(x, y)
@@ -135,10 +137,18 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 
 }
 
++Record {
+
+	asVector2 { :self |
+		Vector2(self::x, self::y)
+	}
+
+}
+
 +@Number {
 
-	@ { :self :y |
-		Vector2(self, y)
+	@ { :x :y |
+		Vector2(x, y)
 	}
 
 	adaptToPointAndApply { :self :aPoint :aBlock:/2 |

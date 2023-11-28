@@ -13,12 +13,16 @@
 	}
 
 	asCartesianCoordinate { :self |
-		|( rho = self.rho, theta = self.theta, phi = self.phi )|
+		|( r = self.r, theta = self.theta, phi = self.phi )|
 		Vector3(
-			rho * theta.sin * phi.cos,
-			rho * theta.sin * phi.sin,
-			rho * theta.cos
+			r * theta.sin * phi.cos,
+			r * theta.sin * phi.sin,
+			r * theta.cos
 		)
+	}
+
+	asRecord { :self |
+		(r: self.r, theta: self.theta, phi: self.phi)
 	}
 
 	azimuth { :self |
@@ -31,7 +35,7 @@
 
 	equalBy { :self :anObject :aBlock:/2 |
 		anObject.isSphericalCoordinate & {
-			aBlock(self.rho, anObject.rho)
+			aBlock(self.r, anObject.r)
 		} & {
 			aBlock(self.theta, anObject.theta)
 		} & {
@@ -44,31 +48,39 @@
 	}
 
 	radius { :self |
-		self.rho
+		self.r
+	}
+
+	rho { :self |
+		self.r
 	}
 
 	x { :self |
-		self.rho * self.theta.sin * self.phi.cos
+		self.r * self.theta.sin * self.phi.cos
+	}
+
+	xy { :self |
+		Vector2(self.x, self.y)
 	}
 
 	y { :self |
-		self.rho * self.theta.sin * self.phi.sin
+		self.r * self.theta.sin * self.phi.sin
 	}
 
 	z { :self |
-		self.rho * self.theta.cos
+		self.r * self.theta.cos
 	}
 
 }
 
-SphericalCoordinate : [Object, SphericalCoordinate] { | rho theta phi |
+SphericalCoordinate : [Object, SphericalCoordinate] { | r theta phi |
 
 }
 
 +@Number {
 
-	SphericalCoordinate { :rho :theta :phi |
-		newSphericalCoordinate().initializeSlots(rho, theta, phi)
+	SphericalCoordinate { :r :theta :phi |
+		newSphericalCoordinate().initializeSlots(r, theta, phi)
 	}
 
 }
@@ -76,8 +88,8 @@ SphericalCoordinate : [Object, SphericalCoordinate] { | rho theta phi |
 +Array {
 
 	asSphericalCoordinate { :self |
-		| [rho, theta, phi] = self; |
-		SphericalCoordinate(rho, theta, phi)
+		| [r, theta, phi] = self; |
+		SphericalCoordinate(r, theta, phi)
 	}
 
 }
@@ -85,7 +97,7 @@ SphericalCoordinate : [Object, SphericalCoordinate] { | rho theta phi |
 +Record {
 
 	asSphericalCoordinate { :self |
-		SphericalCoordinate(self::rho, self::theta, self::phi)
+		SphericalCoordinate(self::r, self::theta, self::phi)
 	}
 
 }

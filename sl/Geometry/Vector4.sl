@@ -1,3 +1,5 @@
+(* Requires: Vector2 Vector3 *)
+
 Vector4 : [Object, Indexable] { | w x y z |
 
 	= { :self :anObject |
@@ -10,6 +12,10 @@ Vector4 : [Object, Indexable] { | w x y z |
 
 	asArray { :self |
 		[self.w, self.x, self.y, self.z]
+	}
+
+	asRecord { :self |
+		(w: self.w, x: self.x, y: self.y, z: self.z)
 	}
 
 	isZero { :self |
@@ -42,11 +48,20 @@ Vector4 : [Object, Indexable] { | w x y z |
 
 	asVector4 { :self |
 		(self.size ~= 4).if {
-			self.error('Vector4: not 4-element array')
+			self.error('asVector4: not 4-element array')
 		} {
 			| [w, x, y, z] = self; |
 			Vector4(w, x, y, z)
 		}
+	}
+
+}
+
+
++Record {
+
+	asVector4 { :self |
+		Vector4(self::w, self::x, self::y, self::z)
 	}
 
 }

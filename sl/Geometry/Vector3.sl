@@ -1,3 +1,5 @@
+(* Requires: Vector2 *)
+
 Vector3 : [Object, Indexable, CartesianCoordinate] { | x y z |
 
 	at { :self :index |
@@ -46,7 +48,7 @@ Vector3 : [Object, Indexable, CartesianCoordinate] { | x y z |
 
 	asVector3 { :self |
 		(self.size ~= 3).if {
-			self.error('Vector3: not 3-element array')
+			self.error('asVector3: not 3-element array')
 		} {
 			| [x, y, z] = self; |
 			Vector3(x, y, z)
