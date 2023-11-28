@@ -27,7 +27,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 	}
 
 	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
-		aBlock(aCollection, self.Array)
+		aBlock(aCollection, self.asArray)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
@@ -36,7 +36,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 		}
 	}
 
-	Array { :self |
+	asArray { :self |
 		self.collect(identity:/1)
 	}
 
@@ -102,7 +102,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 	}
 
 	permutationsDo { :self :aBlock:/1 |
-		self.Array.permutationsDo(aBlock:/1)
+		self.asArray.permutationsDo(aBlock:/1)
 	}
 
 	printString { :self |

@@ -25,7 +25,7 @@ Mersenne : [Object, Random] { | next |
 +Void {
 
 	Mersenne {
-		system.unixTimeInMilliseconds.Mersenne
+		Mersenne(system.unixTimeInMilliseconds)
 	}
 
 }

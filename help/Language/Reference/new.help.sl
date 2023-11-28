@@ -1,6 +1,6 @@
 # new -- instance creation
 
-- _new(aBlock, anObject)_ ⟹= _aBlock(anObject)_
+- _new(aBlock:/1, anObject)_ ⟹= _aBlock(anObject)_
 
 Implements the Smalltalk idiom _aCollection.species.new(aSize)_.
 

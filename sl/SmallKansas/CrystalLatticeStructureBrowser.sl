@@ -49,7 +49,7 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 			self::name,
 			self::description,
 			self::vertexLabels.withCollect(self::vertexCoordinates) { :label :coordinate |
-				[label, coordinate.Vector3]
+				[label, coordinate.asVector3]
 			},
 			self::edges.collect { :item |
 				item.collect { :each |

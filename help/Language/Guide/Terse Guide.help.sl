@@ -245,7 +245,7 @@ system.includesPackage('Array') (* array package *)
 [].species.new(3) = [nil, nil, nil] (* new array of indicated size *)
 [].species.ofSize(3) = [nil, nil, nil] (* new array of indicated size *)
 [].species.newFrom((1 .. 9).asSet) = [1 .. 9] (* new array from collection *)
-[].species.newFrom([].Set) = [] (* new array from empty collection *)
+[].species.newFrom([].asSet) = [] (* new array from empty collection *)
 [].species.newFrom([]) = [] (* new array from empty array *)
 [].isArray = true (* the empty Array is an Array *)
 [].isCollection = true (* arrays are collections *)
@@ -258,10 +258,10 @@ Array(0) = [] (* SmallFloat constructor makes an initialised sized Array *)
 Array(3).size = 3 (* new array of indicated size *)
 Array(5) = [nil, nil, nil, nil, nil] (* array slots are initialised to nil *)
 Array(5, 0) = [0, 0, 0, 0, 0] (* array can have slots initialised to a value *)
-Array([]) = [] (* Array constructor, empty array *)
+[].asArray = [] (* Array constructor, empty array *)
 | a = [1 .. 9] ; | a.copy ~~ a (* copy does not answer argument *)
 | a = [1 .. 9]; | a.asArray == a (* asArray answers the receiver if it is an array *)
-| a = [1 .. 9]; | a.Array ~~ a (* Array constructor copies any collection, sequenceable or otherwise *)
+| a = [1 .. 9].asSet; | a.asArray ~~ a (* Array constructor copies any collection, sequenceable or otherwise *)
 1.asCollection = [1] (* enclose a non-collection in an array *)
 [1 .. 3].asCollection = [1 .. 3] (* an array is a collection *)
 (1 .. 3).asCollection = (1 .. 3) (* an interval is a collection *)
@@ -466,8 +466,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 (-1 .. 5).collect { :index | (1 .. 3).atFold(index) } = [3 2 1 2 3 2 1] (* at with index fold-around *)
 [1 .. 9].difference([3 .. 7]) = [1, 2, 8, 9] (* set theoretic difference of two collections *)
 [1 .. 9].difference([]) = [1 .. 9] (* set theoretic difference of two collections *)
-[1, 2, 3].symmetricDifference([3, 4]) = [1, 2, 4].Set (* elements which are in either set but not their intersection *)
-['A', 'B', 'D', 'E'].symmetricDifference(['B', 'E', 'F']) = ['A', 'D', 'F'].Set
+[1, 2, 3].symmetricDifference([3, 4]) = [1, 2, 4].asSet (* elements which are in either set but not their intersection *)
+['A', 'B', 'D', 'E'].symmetricDifference(['B', 'E', 'F']) = ['A', 'D', 'F'].asSet
 | a = [1 .. 9]; | a.reject { :each | a.includes(each) } = [] (* reject all *)
 [1 .. 9].difference([1 .. 9]) = [] (* set theoretic difference of two collections *)
 [1, 3 .. 9].intersection([2, 4 .. 8]) = [] (* set theoretic intersection, unicode = ∩ *)
@@ -477,7 +477,7 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 | a = []; | [1 .. 3].doWithout({ :each | a.add(each) }, 2); a = [1, 3]
 [1 .. 9].selectThenCollect(even:/1) { :each | each * 3 } = [6, 12, 18, 24] (* avoid intermediate collection *)
 [1 .. 9].collectThenSelect(squared:/1) { :each | each > 36 } = [49, 64, 81] (* avoid intermediate collection *)
-[1, 3 .. 9].union([3 .. 7]) = [1, 3, 4, 5, 6, 7, 9].Set (* set theoretic union, unicode = ∪ *)
+[1, 3 .. 9].union([3 .. 7]) = [1, 3, 4, 5, 6, 7, 9].asSet (* set theoretic union, unicode = ∪ *)
 | a = [1 .. 9]; | a.removeAllSuchThat(even:/1); a = [1, 3 .. 9] (* remove elements selected by predicate *)
 | a = [1 2 2]; | a.removeAllSuchThat { :each | each = 2 }; a = [1] (* remove elements selected by predicate, answers copy of self *)
 | a = [1 2 2]; | a.removeAllSuchThat { :each | each = 3 }; a = [1 2 2] (* it is not an error if no elements match *)
@@ -552,8 +552,8 @@ system.includesPackage('Association') (* association package *)
 Association('x', 1) = ('x' -> 1)
 'x'.minusGreaterThan(1) = ('x' -> 1) (* spelled out arrow method *)
 | a = 'x' -> 1; | [a.key, a.value] = ['x', 1] (* key and value accessors *)
-('x' -> 1).Array = ['x', 1] (* two element [key, value] array *)
-['x' -> 1, 'y' -> 2].collect(Array:/1) = [['x', 1], ['y', 2]]
+('x' -> 1).asArray = ['x', 1] (* two element [key, value] array *)
+['x' -> 1, 'y' -> 2].collect(asArray:/1) = [['x', 1], ['y', 2]]
 (23 -> 3.141).printString = '23 -> 3.141'
 (23 -> 3.141).storeString = 'Association(23, 3.141)'
 (1 -> '1').key = (1 -> 'one').key
@@ -583,48 +583,48 @@ Bag().isSequenceable = false
 | b = Bag(); | b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 (* add all elements of argument to bag *)
 | c = 'xyyzzz', r = Bag(); | r.addAll(c); r.size = 6 (* add all elements of a String to a Bag *)
 | c = 'xyyzzz'.split, r = Bag(); | r.addAll(c); r.size = 6 (* add all characters of a String to a Bag *)
-[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Bag.size = 10
-[2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
-[2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Bag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
+[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].asBag.size = 10
+[2, 3, 5, 7, 3, 5, 7, 5, 7, 7].asBag.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
+[2, 3, 5, 7, 3, 5, 7, 5, 7, 7].asBag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
 | b = Bag(), o = ['1' -> 10, '2' -> 1, '3' -> 5]; | o.collect { :a | b.addWithOccurrences(a.key, a.value) }; b.sortedElements = o
-[1, 3, 5, 1, 3, 1].Bag.sorted = [1, 1, 1, 3, 3, 5] (* array of elements, sorted *)
-[1, 3, 5, 1, 5, 1].Bag.sorted = [1, 1, 1, 3, 5, 5] (* array of elements, sorted *)
-[1, 3, 5, 1, 3, 1].Bag.sortedCounts = [3 -> 1, 2 -> 3, 1 -> 5]
-[1, 3, 5, 1, 5, 1].Bag.sortedCounts = [3 -> 1, 2 -> 5, 1 -> 3]
-[1, 3, 5, 1, 3, 1].Bag.sortedElements = [1 -> 3, 3 -> 2, 5 -> 1]
-[1, 3, 5, 1, 5, 1].Bag.sortedElements = [1 -> 3, 3 -> 1, 5 -> 2]
-| c1 = [2, 3, 3, 4, 4, 4].Bag, c2 = c1.copy, s2 = c2.size; | c1.removeAll; c1.size = 0 & { c2.size = s2 }
+[1, 3, 5, 1, 3, 1].asBag.sorted = [1, 1, 1, 3, 3, 5] (* array of elements, sorted *)
+[1, 3, 5, 1, 5, 1].asBag.sorted = [1, 1, 1, 3, 5, 5] (* array of elements, sorted *)
+[1, 3, 5, 1, 3, 1].asBag.sortedCounts = [3 -> 1, 2 -> 3, 1 -> 5]
+[1, 3, 5, 1, 5, 1].asBag.sortedCounts = [3 -> 1, 2 -> 5, 1 -> 3]
+[1, 3, 5, 1, 3, 1].asBag.sortedElements = [1 -> 3, 3 -> 2, 5 -> 1]
+[1, 3, 5, 1, 5, 1].asBag.sortedElements = [1 -> 3, 3 -> 1, 5 -> 2]
+| c1 = [2, 3, 3, 4, 4, 4].asBag, c2 = c1.copy, s2 = c2.size; | c1.removeAll; c1.size = 0 & { c2.size = s2 }
 | c = Bag(), x = 'x'; | c.add(x); c.remove(x); c.size = 0
-| c = ['x', 'x'].Bag; | c.remove('x'); c.remove('x'); c.size = 0
+| c = ['x', 'x'].asBag; | c.remove('x'); c.remove('x'); c.size = 0
 | c = Bag(); | { c.remove('x') }.ifError { true }
-[2, 3, 3, 4, 4, 4].Bag.occurrencesOf(3) = 2 (* number of occurrences of element in collection *)
-[2, 3, 3, 4, 4, 4].Bag.occurrencesOf(4) = 3
-[2, 3, 3, 4, 4, 4].Bag.occurrencesOf(5) = 0
-[2, 3, 3, 4, 4, 4].Bag.occurrencesOf(nil) = 0
-[nil].Bag.occurrencesOf(nil) = 1 (* count occurrences of nil *)
-| c = [2, 3, 3, 4, 4, 4].Bag; | c.copy = c (* copy answers new equal Bag *)
-| c = [2, 3, 3, 4, 4, 4].Bag; | c.copy ~~ c (* copy does not answer argument *)
+[2, 3, 3, 4, 4, 4].asBag.occurrencesOf(3) = 2 (* number of occurrences of element in collection *)
+[2, 3, 3, 4, 4, 4].asBag.occurrencesOf(4) = 3
+[2, 3, 3, 4, 4, 4].asBag.occurrencesOf(5) = 0
+[2, 3, 3, 4, 4, 4].asBag.occurrencesOf(nil) = 0
+[nil].asBag.occurrencesOf(nil) = 1 (* count occurrences of nil *)
+| c = [2, 3, 3, 4, 4, 4].asBag; | c.copy = c (* copy answers new equal Bag *)
+| c = [2, 3, 3, 4, 4, 4].asBag; | c.copy ~~ c (* copy does not answer argument *)
 | c = Bag(); | c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
-[2, 3, 3, 4, 4, 4].Bag.asSet.size = 3 (* number of unique elements *)
-[2, 3, 3, 4, 4, 4].Bag.asSet.occurrencesOf(3) = 1
+[2, 3, 3, 4, 4, 4].asBag.asSet.size = 3 (* number of unique elements *)
+[2, 3, 3, 4, 4, 4].asBag.asSet.occurrencesOf(3) = 1
 | s = Bag(); | 250.timesRepeat { s.add([1 .. 4].shuffled.asString) }; s.asSet.size = 24
-[1, 2, 3, 1, 4].Bag.isIndexable = false (* bags are not indexable *)
-[1, 2, 3, 1, 4].Bag.indices = nil (* sets are not indexable *)
-| a = [1, 1, 2, 1, 2, 3, 1, 1, 2, 3, 4]; | a.sum = a.Bag.sum (* sum may be optimised *)
-[1, 2, 3, 1, 3, 4].Bag.valuesAndCounts = [1 -> 2, 2 -> 1, 3 -> 2, 4 -> 1].Map (* contents *)
-[1, 1, 1, 1, 1, 2, 2, 2, 2, 3].Bag.cumulativeCounts = [50 -> 1, 90 -> 2, 100 -> 3]
-[1, 2, 2, 3, 3, 3].histogramOf { :each | each }.Array = [1, 2, 2, 3, 3, 3]
-[1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].Bag
-| c = [1, 2, 3, 1]; | c.Bag = c.histogramOf(identity:/1)
-| c = [1, 2, 3, 1]; | c.Bag = c.histogramOf { :each | each }
-[1, 2, 3, 1].Bag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.value }
-['x', 'y', 'y', 'z'].Bag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.key }
-(x: 1, y: 2, z: 1).histogramOf { :each | each } = [1, 2, 1].Bag
-(x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].Bag
-(x: 1, y: 2, z: 1).indices.histogramOf { :each | each } = ['x', 'y', 'z'].Bag
-[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].Bag
-[1, 3, 5].Bag.select { :x | x > 1 } = [3, 5].Bag
-| b = [1, 2, 3, 2, 1].Bag; | b.removeAll([1, 2, 3]); b = [2, 1].Bag (* only remove first instance *)
+[1, 2, 3, 1, 4].asBag.isIndexable = false (* bags are not indexable *)
+[1, 2, 3, 1, 4].asBag.indices = nil (* sets are not indexable *)
+| a = [1, 1, 2, 1, 2, 3, 1, 1, 2, 3, 4]; | a.sum = a.asBag.sum (* sum may be optimised *)
+[1, 2, 3, 1, 3, 4].asBag.valuesAndCounts = [1 -> 2, 2 -> 1, 3 -> 2, 4 -> 1].asMap (* contents *)
+[1, 1, 1, 1, 1, 2, 2, 2, 2, 3].asBag.cumulativeCounts = [50 -> 1, 90 -> 2, 100 -> 3]
+[1, 2, 2, 3, 3, 3].histogramOf { :each | each }.asArray = [1, 2, 2, 3, 3, 3]
+[1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].asBag
+| c = [1, 2, 3, 1]; | c.asBag = c.histogramOf(identity:/1)
+| c = [1, 2, 3, 1]; | c.asBag = c.histogramOf { :each | each }
+[1, 2, 3, 1].asBag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.value }
+['x', 'y', 'y', 'z'].asBag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.key }
+(x: 1, y: 2, z: 1).histogramOf { :each | each } = [1, 2, 1].asBag
+(x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].asBag
+(x: 1, y: 2, z: 1).indices.histogramOf { :each | each } = ['x', 'y', 'z'].asBag
+[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].asBag
+[1, 3, 5].asBag.select { :x | x > 1 } = [3, 5].asBag
+| b = [1, 2, 3, 2, 1].asBag; | b.removeAll([1, 2, 3]); b = [2, 1].asBag (* only remove first instance *)
 ```
 
 ## Binary -- numeric trait
@@ -822,33 +822,33 @@ ByteArray(8).size = 8
 ByteArray(8).at(1) = 0 (* lookup element at index *)
 ByteArray(8).atPut(1, 179) = 179 (* set element at index, answer element *)
 | a = ByteArray(8); | a.atPut(1, 179) = 179 & { a.at(1) = 179 }
-(1 .. 9).ByteArray.isByteArray = true (* array of numbers in 0-255 to byte array *)
-{ [-1].ByteArray }.ifError { true } (* out of range element error *)
-{ ['1'].ByteArray }.ifError { true } (* not a number element error *)
-(1 .. 9).ByteArray.reversed = (9 .. 1).ByteArray
-(1 .. 3).ByteArray.printString = '[1, 2, 3].ByteArray'
-(1 .. 3).ByteArray.storeString = '[1, 2, 3].ByteArray'
+(1 .. 9).asByteArray.isByteArray = true (* array of numbers in 0-255 to byte array *)
+{ [-1].asByteArray }.ifError { true } (* out of range element error *)
+{ ['1'].asByteArray }.ifError { true } (* not a number element error *)
+(1 .. 9).asByteArray.reversed = (9 .. 1).asByteArray
+(1 .. 3).asByteArray.printString = '[1, 2, 3].asByteArray'
+(1 .. 3).asByteArray.storeString = '[1, 2, 3].asByteArray'
 ByteArray(4).hex = '00000000'
 'text'.asciiByteArray[1] = 116 (* ByteArray subscript *)
 | b = ByteArray(4); | b[1] := 15; b[3] := 240; b.hex = '0f00f000'
 | b = ByteArray(4); | b[2] := 15; b[4] := 240; b.hex = '000f00f0'
-(1 .. 4).ByteArray.hex = '01020304'
+(1 .. 4).asByteArray.hex = '01020304'
 'string'.asciiByteArray.hex = '737472696e67' (* hexadecimal string of ByteArray *)
 '737472696e67'.parseHexString.asciiString = 'string' (* ByteArray of hexadecimal string *)
 | b = ByteArray(4); | b.atAllPut(15); b.hex = '0f0f0f0f'
-'string'.asciiByteArray.Array = [115, 116, 114, 105, 110, 103] (* array from ByteArray *)
-'0f00f010'.parseHexString = [15, 0, 240, 16].ByteArray
-{ [1, 2, 3].ByteArray.add(4) }.ifError { true } (* ByteArrays are not Extensible *)
-(1 .. 9).ByteArray.select { :each | false } = [].ByteArray (* select nothing *)
-(1 .. 9).ByteArray ~= [1 .. 9] (* ByteArray and Array of equal elements are not equal *)
-(1 .. 9).ByteArray.hasEqualElements((1 .. 9)) (* ByteArray and Array of equal elements *)
-[1, 13 .. 253].ByteArray.base64Encoded = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' (* base 64 encoding *)
-'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q=='.base64Decoded = (1, 13 .. 253).ByteArray (* base 64 decoding *)
+'string'.asciiByteArray.asArray = [115, 116, 114, 105, 110, 103] (* array from ByteArray *)
+'0f00f010'.parseHexString = [15, 0, 240, 16].asByteArray
+{ [1, 2, 3].asByteArray.add(4) }.ifError { true } (* ByteArrays are not Extensible *)
+(1 .. 9).asByteArray.select { :each | false } = [].asByteArray (* select nothing *)
+(1 .. 9).asByteArray ~= [1 .. 9] (* ByteArray and Array of equal elements are not equal *)
+(1 .. 9).asByteArray.hasEqualElements((1 .. 9)) (* ByteArray and Array of equal elements *)
+[1, 13 .. 253].asByteArray.base64Encoded = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' (* base 64 encoding *)
+'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q=='.base64Decoded = (1, 13 .. 253).asByteArray (* base 64 decoding *)
 'SGVsbG8gV29ybGQ='.base64Decoded.asciiString = 'Hello World' (* answer is a ByteArray *)
-[1, 3 .. 9].ByteArray.indices = (1 .. 5) (* indices of byte array (an interval) *)
-| b = [1, 3 .. 9].ByteArray; | b.copy = b & { b.copy ~~ b } (* copies are equal & not identical *)
-| b = [1 .. 9].ByteArray, c = b.copy; | c[1] := 9; c[1] = 9 & { b[1] = 1 } (* copies are distinct *)
-[115, 116, 114, 105, 110, 103].ByteArray.crc16 = 58909 (* 16 bit cyclic redundancy check, crc-16/arc *)
+[1, 3 .. 9].asByteArray.indices = (1 .. 5) (* indices of byte array (an interval) *)
+| b = [1, 3 .. 9].asByteArray; | b.copy = b & { b.copy ~~ b } (* copies are equal & not identical *)
+| b = [1 .. 9].asByteArray, c = b.copy; | c[1] := 9; c[1] = 9 & { b[1] = 1 } (* copies are distinct *)
+[115, 116, 114, 105, 110, 103].asByteArray.crc16 = 58909 (* 16 bit cyclic redundancy check, crc-16/arc *)
 | s = 'string', a = []; | a.addAll(s.asciiByteArray); a.size = 6 (* add elements from ByteArray to end of Array *)
 ```
 
@@ -864,36 +864,36 @@ system.categoryDictionary.categoryOf('type', 'Set') = 'Collection' (* category o
 ## Character -- text type
 ```
 system.includesPackage('Character') (* character package *)
-'𠮷'.Character.isCharacter
-'𠮷'.Character.string = '𠮷'
-'𠮷'.Character.codePoint = 134071
-134071.Character.string = '𠮷'
+'𠮷'.asCharacter.isCharacter
+'𠮷'.asCharacter.string = '𠮷'
+'𠮷'.asCharacter.codePoint = 134071
+134071.asCharacter.string = '𠮷'
 '䶰䶱䶲䶳䶴䶵'.characterArray.collect(codePoint:/1) = [19888 .. 19893]
-'x'.Character = 120.Character (* characters are comparable *)
-'x'.Character.asInteger = 120
-'x'.Character.printString = '$x'
-'x'.Character.storeString = 'Character(120)'
-'x'.Character == 120.Character (* characters are identical *)
-'𠮷'.Character == '𠮷'.Character (* characters are identical *)
-'x'.Character.asciiValue = 120 (* ascii code point of character *)
-{ '𠮷'.Character.asciiValue }.ifError { true } (* it is an error is the character is not ascii *)
-'xyz'.Array = ['x'.Character, 'y'.Character, 'z'.Character]
-'xyz'.Array.collect(codePoint:/1) = [120, 121, 122]
-32.Character.string = ' ' (* 32 is space *)
-' '.Character.codePoint = 32 (* space is 32 *)
-97.Character.string = 'a' (* 92 is a *)
-'a'.Character.printString = '$a' (* print using smalltalk notation, despite not being a literal *)
-'a'.Character.asString = 'a' (* single element string of Character *)
-{ 'xy'.Character }.ifError { true } (* it is an error is the string is not a single Character *)
-| c = '𠮷'.Character; | c = c.copy & { c ~~ c.copy } (* copy is equal but not identical *)
-92.Character.string = '\\' (* escaped character *)
+'x'.asCharacter = 120.asCharacter (* characters are comparable *)
+'x'.asCharacter.asInteger = 120
+'x'.asCharacter.printString = '$x'
+'x'.asCharacter.storeString = '120.asCharacter'
+'x'.asCharacter == 120.asCharacter (* characters are identical *)
+'𠮷'.asCharacter == '𠮷'.asCharacter (* characters are identical *)
+'x'.asCharacter.asciiValue = 120 (* ascii code point of character *)
+{ '𠮷'.asCharacter.asciiValue }.ifError { true } (* it is an error is the character is not ascii *)
+'xyz'.asArray = ['x'.asCharacter, 'y'.asCharacter, 'z'.asCharacter]
+'xyz'.asArray.collect(codePoint:/1) = [120, 121, 122]
+32.asCharacter.string = ' ' (* 32 is space *)
+' '.asCharacter.codePoint = 32 (* space is 32 *)
+97.asCharacter.string = 'a' (* 92 is a *)
+'a'.asCharacter.printString = '$a' (* print using smalltalk notation, despite not being a literal *)
+'a'.asCharacter.asString = 'a' (* single element string of Character *)
+{ 'xy'.asCharacter }.ifError { true } (* it is an error is the string is not a single Character *)
+| c = '𠮷'.asCharacter; | c = c.copy & { c ~~ c.copy } (* copy is equal but not identical *)
+92.asCharacter.string = '\\' (* escaped character *)
 '0123456789abcdef'.characterArray.collect(digitValue:/1) = [0 .. 15] (* digit value of character *)
 (0 .. 15).collect(digitValue:/1).join = '0123456789ABCDEF' (* character of given digit value *)
 { 36.digitValue }.ifError { true } (* error if integer is out of range *)
-'x'.Character.asUppercase = 'X'.Character (* to upper case *)
-'X'.Character.asLowercase = 'x'.Character (* to lower case *)
+'x'.asCharacter.asUppercase = 'X'.asCharacter (* to upper case *)
+'X'.asCharacter.asLowercase = 'x'.asCharacter (* to lower case *)
 | s = 'string', a = []; | a.addAll(s); a.size = 6 (* add elements from String to end of Array *)
-'fgaguzst'.characterArray.minMax = ['a'.Character, 'z'.Character] (* character minMax *)
+'fgaguzst'.characterArray.minMax = ['a'.asCharacter, 'z'.asCharacter] (* character minMax *)
 'alphabet'.characterArray.collect(isVowel:/1) = [true, false, false, false, true, false, true, false] (* is character a vowel *)
 ```
 
@@ -938,18 +938,18 @@ system.includesPackage('Collection') (* collection package *)
 (1 .. 9).range = (9 - 1) (* maxima - minima *)
 [-9, 0, 9].sign = [-1, 0, 1] (* signs of elements *)
 [1, 3, 5].select { :x | x > 1 } = [3, 5]
-[1, 3, 5].Set.select { :x | x > 1 } = [3, 5].Set
+[1, 3, 5].asSet.select { :x | x > 1 } = [3, 5].asSet
 (x: 1, y: 3, z: 5).select { :x | x > 1 } = (y: 3, z: 5)
 [].select { :each | 'select'.error } = []
 [].species.newFrom(Set()) = []
-Set().Array = []
+Set().asArray = []
 (1 .. 9).includesAnyOf([0, 6]) (*includes any element of a collection *)
 [4 .. 6].copyWithout(5) = [4, 6] (* copy without element *)
 (4 .. 6).copyWithout(5) = [4, 6] (* copy without element, interval becomes array *)
 [2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6] (* copy without element, removes multiples *)
 [2, 3, 4, 5, 5, 6].copyWithoutAll([3, 5]) = [2, 4, 6] (* copy without element, removes multiples *)
 | a = [1 .. 4], c = a.copyWith(5); | a ~= c & { c = [1 .. 5] } (* copy with new (last) element *)
-| s = [1 .. 4].Set, c = s.copyWith(5); | s ~= c & { c = [1 .. 5].Set } (* copy with new element *)
+| s = [1 .. 4].asSet, c = s.copyWith(5); | s ~= c & { c = [1 .. 5].asSet } (* copy with new element *)
 { [1, 2].take(-1) }.ifError { true }
 [].select { :each | each > 0 } = []
 [].ifEmpty { true } (* evaluate block if collection is empty *)
@@ -1191,12 +1191,12 @@ pi.asFloat = pi (* small float as float is identity *)
 23.asFloat = 23.0 (* integer as float *)
 23n.asFloat = 23.0 (* large integer as float *)
 { '23'.asFloat }.ifError { true } (* asFloat is not a parser *)
-pi.SmallFloat = pi (* identity *)
-3:4.SmallFloat = 0.75 (* fraction to small float *)
-23.SmallFloat = 23.0 (* integral to small float *)
+pi.asSmallFloat = pi (* identity *)
+3:4.asSmallFloat = 0.75 (* fraction to small float *)
+23.asSmallFloat = 23.0 (* integral to small float *)
 true.asInteger = 1 (* boolean as integer, c.f. asBit *)
 false.asInteger = 0 (* boolean as integer, asBit *)
-'~'.Character.asInteger = 126 (* character as integer, c.f. codePoint *)
+'~'.asCharacter.asInteger = 126 (* character as integer, c.f. codePoint *)
 23.asInteger = 23 (* small integer as integer, c.f. identity *)
 -23.asInteger = -23 (* identity *)
 pi.asInteger = 3 (* small float as integer, c.f. truncated *)
@@ -1225,18 +1225,18 @@ pi.asFraction(10) = 22:7 (* with maximum denominator *)
 1.asComplex = Complex(1, 0) (* number to complex *)
 1.i = Complex(0, 1) (* number to complex *)
 (2 + 3.i).asComplex = Complex(2, 3) (* identity *)
-126.Character = '~'.Character (* integer to character *)
-'~'.Character.isCharacter (* string to character *)
-| c = '~'.Character; | c.Character == c (* identity *)
-| c = 126.Character; | c.asString = '~' & { c.printString = '$~' } (* character to string *)
+126.asCharacter = '~'.asCharacter (* integer to character *)
+'~'.asCharacter.isCharacter (* string to character *)
+| c = '~'.asCharacter; | c.asCharacter == c (* identity *)
+| c = 126.asCharacter; | c.asString = '~' & { c.printString = '$~' } (* character to string *)
 '~'.asString = '~' (* identity operation *)
 '~'.asString == '~' (* identity operation *)
 23.asString = '23' (* Object>>printString (integral to string) *)
-15.asHexDigit = 'F'.Character (* integral to hex character *)
+15.asHexDigit = 'F'.asCharacter (* integral to hex character *)
 { 16.asHexDigit }.ifError { true } (* error if out of range *)
-'x'.asCharacter = 120.Character (* string to character *)
-120.asCharacter = 'x'.Character (* small integer to character *)
-| c = 'x'.Character; | c.asCharacter == c (* character to character *)
+'x'.asCharacter = 120.asCharacter (* string to character *)
+120.asCharacter = 'x'.asCharacter (* small integer to character *)
+| c = 'x'.asCharacter; | c.asCharacter == c (* character to character *)
 ```
 
 ## Converting -- unit conversion
@@ -1258,25 +1258,25 @@ pi.radiansToDegrees = 180 (* convert radians to degrees *)
 | a = [1, [2]], c = a.shallowCopy; | c[2][1] := -2; c = a & { a = [1, [-2]] } (* shallowCopy array *)
 | a = [1, [2]], c = a.deepCopy; | c[2][1] := -2; c ~= a & { a = [1, [2]] } (* deepCopy array *)
 | a = [1, [2]], c = a.copy; | c[2][1] := -2; c = a (* copy of array is shallowCopy and postCopy *)
-| b = [1, 2, 2].Bag, c = b.copy; | c.add(3); c ~= b & { c = [1, 2, 2, 3].Bag } (* copy bag *)
+| b = [1, 2, 2].asBag, c = b.copy; | c.add(3); c ~= b & { c = [1, 2, 2, 3].asBag } (* copy bag *)
 | b = [1, 2].Bitset, c = b.copy; | c.add(3); c ~= b & { c = [1, 2, 3].Bitset } (* copy bitset *)
-| b = [1, 2].ByteArray, c = b.copy; | c[1] := 3; c[1] = 3 & { b[1] = 1 } (* copy byte array *)
+| b = [1, 2].asByteArray, c = b.copy; | c[1] := 3; c[1] = 3 & { b[1] = 1 } (* copy byte array *)
 ```
 
 ## Date -- temporal type
 ```
 system.includesPackage('Date') (* date package *)
-system.Date.typeOf = 'Date' (* type of Date, system constructor gets current date and time *)
-0.Date.isDate (* Date type predicate, number constructor accepts time from epoch in seconds *)
-Date(60 * 60 * 12).iso8601 = '1970-01-01T12:00:00.000Z' (* translate Date to ISO-8601 string *)
-Date('1970-01-01T00:00:01.000Z').unixTimeInMilliseconds = 1000 (* parse ISO-8601 string & convert to unix time *)
-| d = Date(0); | [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] (* month and day are one-indexed *)
-| d = Date(0); | [d.hours + (d.offsetSeconds / 60 / 60), d.minutes, d.seconds] = [0, 0, 0] (* hour is in local time *)
-Date(0) = Date(0) (* dates are comparable *)
-Date(0) ~= Date(system) (* dates are comparable *)
-Date(0) < Date(system) (* dates are magnitudes *)
-Date(system) > Date(0) (* dates are magnitudes *)
-Date('2023-05-11').iso8601 = '2023-05-11T00:00:00.000Z' (* read date from partial ISO-8601 string *)
+Date(system).typeOf = 'Date' (* type of Date, system constructor gets current date and time *)
+0.asDate.isDate (* Date type predicate, number constructor accepts time from epoch in seconds *)
+(60 * 60 * 12).asDate.iso8601 = '1970-01-01T12:00:00.000Z' (* translate Date to ISO-8601 string *)
+'1970-01-01T00:00:01.000Z'.parseDate.unixTimeInMilliseconds = 1000 (* parse ISO-8601 string & convert to unix time *)
+| d = 0.asDate; | [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] (* month and day are one-indexed *)
+| d = 0.asDate; | [d.hours + (d.offsetSeconds / 60 / 60), d.minutes, d.seconds] = [0, 0, 0] (* hour is in local time *)
+0.asDate = 0.asDate (* dates are comparable *)
+0.asDate ~= Date(system) (* dates are comparable *)
+0.asDate < Date(system) (* dates are magnitudes *)
+Date(system) > 0.asDate (* dates are magnitudes *)
+'2023-05-11'.parseDate.iso8601 = '2023-05-11T00:00:00.000Z' (* read date from partial ISO-8601 string *)
 ```
 
 ## Dictionary -- collection trait
@@ -1368,9 +1368,9 @@ system.includesPackage('Duration') (* duration package *)
 60.seconds.minutes = 1 (* convert duration to minutes *)
 3.days.hours = 72 (* convert duration to hours *)
 3.weeks.days = 21 (* convert duration to days *)
-'P1W1DT1H1M1S'.Duration.seconds = 694861 (* parse ISO-8601 duration string *)
-'P2DT2H2M2S'.Duration.seconds = 180122 (* parse ISO-8601 duration string *)
-'P3DT4H'.Duration = (3.days + 4.hours)
+'P1W1DT1H1M1S'.parseDuration.seconds = 694861 (* parse ISO-8601 duration string *)
+'P2DT2H2M2S'.parseDuration.seconds = 180122 (* parse ISO-8601 duration string *)
+'P3DT4H'.parseDuration = (3.days + 4.hours)
 (2.days + 2.hours + 2.minutes + 2.seconds).seconds = ((2 * 24 * 60 * 60) + (2 * 60 * 60) + (2 * 60) + 2)
 | d = 2.seconds, c = d.copy; | d ~~ c & { d = c } (* copy duration *)
 1.siderealMonths = 27.321661.days (* as defined with respect to the celestial sphere *)
@@ -1413,16 +1413,16 @@ Float64Array(8).at(1) = 0
 Float64Array(8).atPut(1, pi) = pi (* answer value put *)
 | a = Float64Array(8); | a.atPut(1, pi) = pi & { a.at(1) = pi }
 | a = Float64Array(8); | (a[1] := pi) = pi & { a[1] = pi }
-(1 .. 9).Float64Array.isFloat64Array = true
-(1 .. 9).Float64Array.reversed = (9 .. 1).Float64Array (* (9 .. 1) is not allowed *)
-| a = [1 .. 9].Float64Array; | a.reverse; a = (9 .. 1).Float64Array
-| a = (9 .. 1).Float64Array; | a.sort; a = (1 .. 9).Float64Array (* sort array in place *)
+(1 .. 9).asFloat64Array.isFloat64Array = true
+(1 .. 9).asFloat64Array.reversed = (9 .. 1).asFloat64Array (* (9 .. 1) is not allowed *)
+| a = [1 .. 9].asFloat64Array; | a.reverse; a = (9 .. 1).asFloat64Array
+| a = (9 .. 1).asFloat64Array; | a.sort; a = (1 .. 9).asFloat64Array (* sort array in place *)
 { Float64Array(1).atPut(3, 'x') }.ifError { true }
 | a = Float64Array(1); | a.basicAtPut(1, 'x'); a.at(1).isNaN = true (* unsafe mutation inserts NaN *)
 | a = Float64Array(1); | a.basicAtPut(3, 'x'); a.basicAt(3) = nil (* unsafe mutation does not extend array *)
-(1 .. 3).Float64Array.printString = '[1, 2, 3].Float64Array'
-(1 .. 3).Float64Array.storeString = '[1, 2, 3].Float64Array'
-| a = (1 .. 3).Float64Array, c = a.copy; | c[1] := 3; c ~= a & { c.Array = [3, 2, 3] } (* copy *)
+(1 .. 3).asFloat64Array.printString = '[1, 2, 3].asFloat64Array'
+(1 .. 3).asFloat64Array.storeString = '[1, 2, 3].asFloat64Array'
+| a = (1 .. 3).asFloat64Array, c = a.copy; | c[1] := 3; c ~= a & { c.asArray = [3, 2, 3] } (* copy *)
 ```
 
 ## Floating point
@@ -1554,7 +1554,7 @@ Fraction(4, 6).reduced.denominator = 3
 -3:2 * -4:3 = 2
 -3:2 * 4:3 = -2
 5:3 + 1:3 = 2
-3:2.SmallFloat = 1.5 (* fraction as float *)
+3:2.asSmallFloat = 1.5 (* fraction as float *)
 0.5 < 2:3 = true
 2:3 > 0.5 = true
 1 < 3:2 = true
@@ -1599,8 +1599,8 @@ Fraction(-4, -12).normalized = 1:3
 5:12 - 1:4 = 1:6
 5:8 * 3:12 = 5:32
 6:5 / 10:7 = 21:25
-SmallFloat(3:4) = 0.75
-SmallFloat(1:2) = (1 / 2)
+(3:4).asSmallFloat = 0.75
+(1:2).asSmallFloat = (1 / 2)
 -1:3.typeOf = 'Fraction'
 3:5 + 1 = 8:5
 3:5 - 0.5 ~ 0.1
@@ -1635,10 +1635,10 @@ system.includesPackage('Frequency') (* frequency package *)
 1.hertz.typeOf = 'Frequency' (* frequency from hertz (cyles per second) *)
 1.hertz.isFrequency (* frequency predicate *)
 1.hertz.printString = '1.hertz' (* frequency print string *)
-10.hertz.Duration = (1 / 10).seconds (* duration is the reciprocal of frequency *)
-(1 / 10).seconds.Frequency = 10.hertz (* frequency is the reciprocal of duration *)
+10.hertz.asDuration = (1 / 10).seconds (* duration is the reciprocal of frequency *)
+(1 / 10).seconds.asFrequency = 10.hertz (* frequency is the reciprocal of duration *)
 44.1.kilohertz = 44100.hertz (* frequencies are eq, kilohertz (thousands of cycles per second) *)
-1.kilohertz.Duration = 1.milliseconds (* the period of 1kHz is 1ms *)
+1.kilohertz.asDuration = 1.milliseconds (* the period of 1kHz is 1ms *)
 44.1.hertz < 44.1.kilohertz (* frequencies are magnitudes *)
 1.kilohertz.asHertz = 1000.asHertz (* hertz of frequency, or identity of number *)
 ```
@@ -1677,10 +1677,10 @@ Heap().isEmpty (* an empty heap is empty *)
 | h = Heap(); | h.addAll([1 .. 9].shuffled); h.first = 1 (* add shuffled, first is always 1 *)
 | h = Heap(); | h.addAll([1 .. 9].shuffled); 8.timesRepeat { h.removeFirst }; h.first = 9
 | h = Heap(); | h.addAll([1 .. 9].shuffled); 8.timesRepeat { h.removeAt(2) }; h.first = 1
-| h = [1, 3, 5].Heap, a = []; | h.do { :each | a.add(each) }; a = [1, 3, 5]
+| h = [1, 3, 5].asHeap, a = []; | h.do { :each | a.add(each) }; a = [1, 3, 5]
 | h = Heap(greaterThan:/2); | h.addAll([1, 3, 5]); h.first = 5
 | h = Heap { :p :q | p > q }; | h.addAll([1, 3, 5]); [h.removeFirst, h.first] = [5, 3]
-| h = (1 .. 4).Heap, c = h.copy; | c.add(5); h ~= c & { c = [1 .. 5].Heap }
+| h = (1 .. 4).asHeap, c = h.copy; | c.add(5); h ~= c & { c = [1 .. 5].asHeap }
 ```
 
 ## Identity -- literals
@@ -1715,7 +1715,7 @@ system.includesPackage('Integer') (* integer package *)
 (0 .. 255).collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 0 }
 (256 .. 511).collect { :each | each.digitAt(1) } = [0 .. 255]
 (256 .. 511).collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 1 }
-(512 .. 1023).collect { :each | each.digitAt(2) }.Bag.sortedElements = [2 -> 256, 3 -> 256]
+(512 .. 1023).collect { :each | each.digitAt(2) }.asBag.sortedElements = [2 -> 256, 3 -> 256]
 [1, 8, 16, 24, 32n, 40n, 48n, 56n, 64n].collect { :each | (2 ^ each).digitLength } = [1 .. 9]
 (2 ^ 128n - 1).digitLength = 16
 123456n.fnv1aHash = 2230130162n
@@ -1747,12 +1747,12 @@ system.cache::primesArray[23] = 83 (* nthPrime extends the primesArray cache as 
 [2, 2, 3, 5].product = 60 (* product is the inverse of primeFactors *)
 1.primeFactors = [] (* the prime factors of one is empty *)
 60.primeFactors.product = 60 (* product of prime factors is identity *)
-315.primeFactors.Set = [3, 5, 7].Set (* prime factors, set *)
+315.primeFactors.asSet = [3, 5, 7].asSet (* prime factors, set *)
 2588.primeFactors = [2, 2, 647] (* prime factors *)
 (2 .. 15).select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
 (2 .. 999).allSatisfy { :each | each = each.primeFactors.product } = true (* equality with product of factors *)
-10071203840.primeFactors.Bag.sortedElements = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1] (* prime factor histogram *)
-6606028800.primeFactors.Bag.sortedCounts = [22 -> 2, 2 -> 5, 2 -> 3, 1 -> 7]
+10071203840.primeFactors.asBag.sortedElements = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1] (* prime factor histogram *)
+6606028800.primeFactors.asBag.sortedCounts = [22 -> 2, 2 -> 5, 2 -> 3, 1 -> 7]
 8589298611.primeFactors = [3, 2863099537] (* large prime factors *)
 120.primeFactorization = [2 -> 3, 3 -> 1, 5 -> 1]
 60.primeFactorization = [2 -> 2, 3 -> 1, 5 -> 1]
@@ -1817,7 +1817,7 @@ system.cache::primesArray[23] = 83 (* nthPrime extends the primesArray cache as 
 
 ## Interval -- collection type
 ```
-Interval(0, 12, 3).Array = [0, 3, 6, 9, 12] (* elements of interval as array *)
+Interval(0, 12, 3).asArray = [0, 3, 6, 9, 12] (* elements of interval as array *)
 Interval(0, 12, 3).size = 5 (* number of elements in interval *)
 Interval(0, 9, -1).isEmpty (* intervals may be empty *)
 2.toBy(14, 4).collect { :x | x * x } = [4, 36, 100, 196] (* toBy method at Integer *)
@@ -1842,7 +1842,7 @@ Interval(5, 10, 2).last = 9 (* create interval object with specified increment *
 { (9, 7 .. 1).detect(even:/1) }.ifError { true } (* if no element is detected, raise error *)
 { [].detect { :item | true } }.ifError { true } (* detect at an empty collection raises an error *)
 (1 .. 9).injectInto(0) { :sum :item | sum + item } = 45 (* sum elements *)
-(1 .. 9).Array = [1 .. 9] (* convert to array *)
+(1 .. 9).asArray = [1 .. 9] (* convert to array *)
 (1 .. 9) = (1 .. 9) (* equality *)
 (1 .. 9) ~= (9 .. 1) (* inequality *)
 (1 .. 9) ~= [1 .. 9] (* intervals are not equal to arrays *)
@@ -1850,12 +1850,12 @@ Interval(5, 10, 2).last = 9 (* create interval object with specified increment *
 10.toBy(90, 10) = (10, 20 .. 90)
 (0, 1:10 .. 1).size = 11
 (0, 1:10 .. 1).last = 1
-(9 .. 1).Array = [9 .. 1]
-(5 .. 1).Array = [5 .. 1]
-(5, 3 .. 1).Array = [5, 3 .. 1]
-5.toBy(1, -1).Array = [5, 4, 3, 2, 1]
-5.toBy(1, -2).Array = [5, 3, 1]
-(1.5 .. 4.5).Array = [1.5, 2.5, 3.5, 4.5] (* non-integer start and end *)
+(9 .. 1).asArray = [9 .. 1]
+(5 .. 1).asArray = [5 .. 1]
+(5, 3 .. 1).asArray = [5, 3 .. 1]
+5.toBy(1, -1).asArray = [5, 4, 3, 2, 1]
+5.toBy(1, -2).asArray = [5, 3, 1]
+(1.5 .. 4.5).asArray = [1.5, 2.5, 3.5, 4.5] (* non-integer start and end *)
 (1 .. 9).min = 1 & { (9 .. 1).min = 1 } (* minima *)
 (1 .. 9).max = 9 & { (9 .. 1).max = 9 } (* maxima *)
 (1 .. 9).species = Array:/1 (* species of Interval is Array *)
@@ -1866,7 +1866,7 @@ Interval(-2, 2, 1).collect(even:/1) = [true, false, true, false, true]
 (-2 .. 2).collect(odd:/1) = [false, true, false, true, false]
 1 + 1.to(9).collect(squared:/1) = [2, 5, 10, 17, 26,37, 50, 65, 82]
 2 * (1 .. 9).collect(squared:/1) = [2, 8, 18, 32, 50,72, 98, 128, 162]
-1.to(9).Array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+1.to(9).asArray = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 (1 .. 9).copyFromTo(3, 7) = (3 .. 7) (* copy from start to end indices, inclusive *)
 (1 .. 16).copyFromTo(1, 8) = (1 .. 8) (* copy from start to end indices, inclusive *)
 | i = 1; | 1.to(9).do { :each | i := i + each }; i = 46
@@ -1874,7 +1874,7 @@ Interval(-1, 1, 1).printString = '(-1 .. 1)'
 Interval(-1, 1, 1).storeString = 'Interval(-1, 1, 1)'
 Interval(1, 9, 1) = (1 .. 9)
 Interval(1, 10, 3).size = 4
-Interval(1, 10, 3).Array = [1, 4, 7, 10]
+Interval(1, 10, 3).asArray = [1, 4, 7, 10]
 1.to(6).reversed = (6 .. 1)
 1.to(6).first = 1 (* first element of interval *)
 { 1.upTo(0).first }.ifError { true } (* first element of empty interval *)
@@ -1883,31 +1883,31 @@ to(1, 6).last = 6 (* last element of interval *)
 | i = (1 .. 9); | i.first = i[1] (* one-indexed *)
 | i = (1 .. 9); | i.last = i[9] (* one-indexed *)
 (1 .. 6).sum = 21
-Interval(-1, 1, 1).Array = [-1, 0, 1]
+Interval(-1, 1, 1).asArray = [-1, 0, 1]
 1.to(99).asString = '(1 .. 99)'
 (1 .. 99).asString = '(1 .. 99)'
 downTo(1, -1).asString = 'Interval(1, -1, -1)'
 1.to(99).sum = 4950
-1.to(99).Array.sum = 4950
+1.to(99).asArray.sum = 4950
 (1 .. 9).size = 9
 (1 .. 9).sum = 45
 (1 .. 9999).sum = 49995000
-(1 .. 9999).Array.sum = 49995000
+(1 .. 9999).asArray.sum = 49995000
 to(1, 9) = Interval(1, 9, 1)
 to(9, 1) = Interval(9, 1, 1)
 downTo(9, 1) = Interval(9, 1, -1)
 1.thenTo(3, 9) = Interval(1, 9, 2)
 (1 .. 9) = (1 .. 9)
-[1 .. 9] = (1 .. 9).Array (* array interval syntax *)
-[9 .. 1] = (9 .. 1).Array (* array interval syntax *)
-[3 - 2 .. 7 + 2] = (3 - 2 .. 7 + 2).Array (* array interval syntax *)
+[1 .. 9] = (1 .. 9).asArray (* array interval syntax *)
+[9 .. 1] = (9 .. 1).asArray (* array interval syntax *)
+[3 - 2 .. 7 + 2] = (3 - 2 .. 7 + 2).asArray (* array interval syntax *)
 | l = []; | Interval(9, 1, -1).do { :each | l.add(each) }; l = [9 .. 1]
 collect(1.to(9)) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 1.to(9).collect { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
-Interval(1, 6, 2).Array = [1, 3, 5]
+Interval(1, 6, 2).asArray = [1, 3, 5]
 Interval(1, 6, 2).last = 5
-(1 .. 9).reversed.Array = [9, 8, 7, 6, 5, 4, 3, 2, 1]
-Interval(1, 6, 2).reversed.Array = [5, 3, 1]
+(1 .. 9).reversed.asArray = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 1.to(9).step = 1 (* get step size of interval *)
 (1, 3 .. 9) = Interval(1, 9, 2)
 (9, 7 .. 1) = Interval(9, 1, -2)
@@ -1986,10 +1986,10 @@ system.includesPackage('Iterable') (* Iterable package *)
 ```
 system.includesPackage('LargeInteger') (* LargeInteger package *)
 23n.typeOf = 'LargeInteger' (* syntax for large integer literals *)
-(2 ^ 54).LargeInteger.squared.printString = '324518553658426726783156020576256'
-(2 ^ 37).LargeInteger.squared.storeString = '18889465931478580854784n'
+(2 ^ 54).asLargeInteger.squared.printString = '324518553658426726783156020576256'
+(2 ^ 37).asLargeInteger.squared.storeString = '18889465931478580854784n'
 '324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
-2971215073.LargeInteger.isPrime = true
+2971215073.asLargeInteger.isPrime = true
 23n.factorial = 25852016738884976640000n (* factorial of LargeInteger *)
 100n.factorial = 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000n (* factorial of LargeInteger *)
 170n.factorial = 7257415615307998967396728211129263114716991681296451376543577798900561843401706157852350749242617459511490991237838520776666022565442753025328900773207510902400430280058295603966612599658257104398558294257568966313439612262571094946806711205568880457193340212661452800000000000000000000000000000000000000000n (* factorial of LargeInteger *)
@@ -2013,7 +2013,7 @@ system.includesPackage('LargeInteger') (* LargeInteger package *)
 92233720368n * 100000000n + 54775807n = 9223372036854775807n (* reader for large integer literals *)
 2n ^ 100n = 1267650600228229401496703205376n (* raised to *)
 | n = 2n; | n.copy == n (* copy is identity *)
-23n.SmallFloat = 23 (* large integer to small float *)
+23n.asSmallFloat = 23 (* large integer to small float *)
 | a = [9 .. 1]; | { a[5n] }.ifError { true } (* large integers are not valid indices *)
 58909n.printStringHex = 'E61D' (* hexadecimal representation *)
 20n.factorial = 2432902008176640000n (* large integer factorial *)
@@ -2055,35 +2055,35 @@ LinkedList().isLinkedList = true (* type predicate for linked list *)
 LinkedList().size = 0 (* empty linked list *)
 LinkedList().isEmpty (* empty linked list *)
 LinkedList:/0.ofSize(3).size = 3 (* linked list of three nil values *)
-[1, 2, 3].LinkedList.size = 3 (* linked list from array *)
-| l = LinkedList(); | l.addFirst(1); l.addFirst(2); l.Array = [2, 1] (* add to start *)
-| l = LinkedList(); | l.addLast(1); l.addLast(2); l.Array = [1, 2] (* add to end *)
-| l = LinkedList(); | 1.toDo(5) { :each | l.add(each) }; l.Array = [1 .. 5] (* add to end *)
-(1 .. 9).LinkedList.collect { :each | 10 - each } = [9 .. 1].LinkedList (* collect *)
-| l = [1 .. 9].LinkedList; | l.removeFirst; l.first = 2 (* remove first *)
-| l = [1 .. 9].LinkedList; | l.removeLast; l.last = 8 (* remove last *)
-| l = [1].LinkedList; | l.removeFirst = 1 & { l.isEmpty } (* remove first *)
-| l = [1].LinkedList; | l.removeLast = 1 & { l.isEmpty } (* remove last *)
-| l = [1 .. 5].LinkedList; | l.removeAllSuchThat(odd:/1); l.Array = [2, 4] (* in place reject *)
-| l = (1 .. 99).LinkedList; | l.removeAll; l.isEmpty (* remove all *)
-(1 .. 99).LinkedList.select(even:/1).Array = [2, 4 .. 98] (* select *)
-(1 .. 9).LinkedList.selectThenCollect(even:/1, squared:/1).Array = [4, 16, 36, 64] (* avoid intermediate collection *)
-(1 .. 9).LinkedList.collectThenSelect(squared:/1) { :each | each > 36 }.Array = [49, 64, 81] (* avoid intermediate collection *)
-(1 .. 9).LinkedList.reversed = [9 .. 1] (* reversed, species is Array *)
+[1, 2, 3].asLinkedList.size = 3 (* linked list from array *)
+| l = LinkedList(); | l.addFirst(1); l.addFirst(2); l.asArray = [2, 1] (* add to start *)
+| l = LinkedList(); | l.addLast(1); l.addLast(2); l.asArray = [1, 2] (* add to end *)
+| l = LinkedList(); | 1.toDo(5) { :each | l.add(each) }; l.asArray = [1 .. 5] (* add to end *)
+(1 .. 9).asLinkedList.collect { :each | 10 - each } = [9 .. 1].asLinkedList (* collect *)
+| l = [1 .. 9].asLinkedList; | l.removeFirst; l.first = 2 (* remove first *)
+| l = [1 .. 9].asLinkedList; | l.removeLast; l.last = 8 (* remove last *)
+| l = [1].asLinkedList; | l.removeFirst = 1 & { l.isEmpty } (* remove first *)
+| l = [1].asLinkedList; | l.removeLast = 1 & { l.isEmpty } (* remove last *)
+| l = [1 .. 5].asLinkedList; | l.removeAllSuchThat(odd:/1); l.asArray = [2, 4] (* in place reject *)
+| l = (1 .. 99).asLinkedList; | l.removeAll; l.isEmpty (* remove all *)
+(1 .. 99).asLinkedList.select(even:/1).asArray = [2, 4 .. 98] (* select *)
+(1 .. 9).asLinkedList.selectThenCollect(even:/1, squared:/1).asArray = [4, 16, 36, 64] (* avoid intermediate collection *)
+(1 .. 9).asLinkedList.collectThenSelect(squared:/1) { :each | each > 36 }.asArray = [49, 64, 81] (* avoid intermediate collection *)
+(1 .. 9).asLinkedList.reversed = [9 .. 1] (* reversed, species is Array *)
 { LinkedList().removeFirst }.ifError { :error | true } (* remove first, error if empty *)
 { LinkedList().removeLast }.ifError { :error | true } (* remove last, error if empty *)
-| l = (1 .. 5).LinkedList; | l[3] = 3 (* index into *)
-| l = (1 .. 5).LinkedList; | l[1] := -1; l.Array = [-1, 2, 3, 4, 5] (* mutate at index *)
-| l = (1 .. 5).LinkedList; | l[3] := -3; l.Array = [1, 2, -3, 4, 5] (* mutate at index *)
-(1 .. 9).LinkedList.firstLink.value = 1 (* first link *)
-(1 .. 9).LinkedList.firstLink.nextLink.value = 2 (* second link *)
-(1 .. 9).LinkedList.lastLink.value = 9 (* last link *)
-| l = (1 .. 3).LinkedList; | l.firstLink.value := -1; l.Array = [-1, 2, 3] (* mutate link value *)
-(1 .. 9).LinkedList.isSorted = true (* are elements in sequence *)
-(9 .. 1).LinkedList.isSortedBy(greaterThan:/2) = true (* are elements in sequence by predicate *)
-[1, 3 .. 9].LinkedList.indices = (1 .. 5) (* indices of linked list (an interval) *)
-| l = (1 .. 9).LinkedList; | l.copy = l & { l.copy ~~ l } (* copy is equal but not identical *)
-| l = (1 .. 9).LinkedList, c = l.copy; | c[1] := 9; c[1] = 9 & { l[1] = 1 } (* copies are distinct *)
+| l = (1 .. 5).asLinkedList; | l[3] = 3 (* index into *)
+| l = (1 .. 5).asLinkedList; | l[1] := -1; l.asArray = [-1, 2, 3, 4, 5] (* mutate at index *)
+| l = (1 .. 5).asLinkedList; | l[3] := -3; l.asArray = [1, 2, -3, 4, 5] (* mutate at index *)
+(1 .. 9).asLinkedList.firstLink.value = 1 (* first link *)
+(1 .. 9).asLinkedList.firstLink.nextLink.value = 2 (* second link *)
+(1 .. 9).asLinkedList.lastLink.value = 9 (* last link *)
+| l = (1 .. 3).asLinkedList; | l.firstLink.value := -1; l.asArray = [-1, 2, 3] (* mutate link value *)
+(1 .. 9).asLinkedList.isSorted = true (* are elements in sequence *)
+(9 .. 1).asLinkedList.isSortedBy(greaterThan:/2) = true (* are elements in sequence by predicate *)
+[1, 3 .. 9].asLinkedList.indices = (1 .. 5) (* indices of linked list (an interval) *)
+| l = (1 .. 9).asLinkedList; | l.copy = l & { l.copy ~~ l } (* copy is equal but not identical *)
+| l = (1 .. 9).asLinkedList, c = l.copy; | c[1] := 9; c[1] = 9 & { l[1] = 1 } (* copies are distinct *)
 ```
 
 ## Magnitude -- numeric trait
@@ -2120,10 +2120,10 @@ system.includesPackage('Magnitude') (* magnitude package *)
 system.includesPackage('Map') (* Map package *)
 | r = Map(); | r.add('x' -> 1); r.size = 1 (* add Association to Dictionary *)
 var d = Map(); d.add('x' -> 1); d.add('y' -> 2); d.size = 2 (* add two Associations to Dictionary *)
-var d = ['x' -> 1, 'y' -> 2].Map; d.indices = ['x', 'y'] (* answer Array of indices (keys) at Dictionary *)
-var d = ['x' -> 1, 'y' -> 2].Map; d.values = [1, 2] (* answer Array of values at Dictionary *)
-var d = ['x' -> 1, 'y' -> 2].Map; d.at('x') = 1 (* answer value at key in Dictionary *)
-var d = ['x' -> 1, 'y' -> 2].Map; d['x'] = 1 (* at (subscript) syntax *)
+var d = ['x' -> 1, 'y' -> 2].asMap; d.indices = ['x', 'y'] (* answer Array of indices (keys) at Dictionary *)
+var d = ['x' -> 1, 'y' -> 2].asMap; d.values = [1, 2] (* answer Array of values at Dictionary *)
+var d = ['x' -> 1, 'y' -> 2].asMap; d.at('x') = 1 (* answer value at key in Dictionary *)
+var d = ['x' -> 1, 'y' -> 2].asMap; d['x'] = 1 (* at (subscript) syntax *)
 var d = Map(); d.add('x' -> 1); d.removeKey('x'); d.isEmpty = true (* remove Association from Dictionary given key *)
 var d = Map(); (d['x'] := 1) = 1 & { d['x'] = 1 } (* atPut (subscript mutation) syntax *)
 var d = Map(); d[1] := 'x'; d[1] = 'x'
@@ -2133,14 +2133,14 @@ var d = (f: { :i | i * i }); d::f.value(9) = 81
 (x: 1, y: 1).copyWithoutDuplicates = (x: 1)
 var d = Map(); 1.toDo(100) { :i | d[i] := i; (i > 10).ifTrue { d.removeKey(i - 10) } }; d.size = 10
 var c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.removeKey(1); c.includesIndex(1) = false
-(x: 1, y: 2).Map.includesIndex('x') (* Record to Map, map includes key predicate *)
-(x: 1, y: 2).Map ++ (x: 2, y: 1) = (x: 2, y: 1).Map (* appending a record to a Map answers a Map, biases right *)
-(x: 1, y: 2, z: 3).Map ++ (x: 2, y: 1) = (x: 2, y: 1, z: 3).Map (* append record to Map *)
-(x: 1, y: 2).Map ++ (x: 2, y: 1, z: 3) = (x: 2, y: 1, z: 3).Map (* append record to Map *)
-(x: 1, y: 2).Map.json = '{"x":1,"y":2}' (* maps with string keys are encoded as records *)
-(x: 1, y: 2, z: 3).Map.indices = ['x', 'y', 'z'] (* indices of map (an array) *)
-| m = (x: 1, y: 2).Map; | m.removeAssociation('x' -> 1); m = (y: 2).Map (* remove association *)
-| m = (x: 1, y: 2).Map; | m.removeAll; m.isEmpty (* remove all entries *)
+(x: 1, y: 2).asMap.includesIndex('x') (* Record to Map, map includes key predicate *)
+(x: 1, y: 2).asMap ++ (x: 2, y: 1) = (x: 2, y: 1).asMap (* appending a record to a Map answers a Map, biases right *)
+(x: 1, y: 2, z: 3).asMap ++ (x: 2, y: 1) = (x: 2, y: 1, z: 3).asMap (* append record to Map *)
+(x: 1, y: 2).asMap ++ (x: 2, y: 1, z: 3) = (x: 2, y: 1, z: 3).asMap (* append record to Map *)
+(x: 1, y: 2).asMap.json = '{"x":1,"y":2}' (* maps with string keys are encoded as records *)
+(x: 1, y: 2, z: 3).asMap.indices = ['x', 'y', 'z'] (* indices of map (an array) *)
+| m = (x: 1, y: 2).asMap; | m.removeAssociation('x' -> 1); m = (y: 2).asMap (* remove association *)
+| m = (x: 1, y: 2).asMap; | m.removeAll; m.isEmpty (* remove all entries *)
 ```
 
 ## Math
@@ -2273,8 +2273,8 @@ system.includesPackage('Number') (* package *)
 system.includesPackage('Object') (* package *)
 [1, 3, 5].typeOf = 'Array' (* name of type of object *)
 [1, 3, 5].species = Array:/1
-[1, 3, 5].Set.species = Set:/0
-[1, 3, 5].Bag.species = Bag:/0
+[1, 3, 5].asSet.species = Set:/0
+[1, 3, 5].asBag.species = Bag:/0
 (x: 1, y: 3, z: 5).species = Record:/0
 'b'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) = 2
 { 'd'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) }.ifError { true }
@@ -2437,7 +2437,7 @@ valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repea
 | f = { system.randomFloat }; | f:/0.once = f:/0.once (* evaluate block once and cache result *)
 | f = { (1 .. 9).atRandom }; | f:/0.once = f:/0.once & { f:/0.once = f:/0.once } (* the cache is kept in a weak map *)
 '3'.replicate(3) = ['3', '3', '3'] (* answer an array of n places each having the same value *)
-'3'.replicate(3) = Array(3, '3')
+'3'.replicate(3) = Array(3, '3') (* constructor with fill value *)
 | m = { system.randomFloat }.duplicate(9).mean; | m > 0 & { m < 1 }
 { 1 }.duplicate = [1, 1] (* evaluate a block twice and collect the answers in an array *)
 { '3' }.duplicate(3) = ['3', '3', '3'] (* evaluate block indicated number of times and collect answers in an array *)
@@ -2479,7 +2479,7 @@ inf.isNumber (* constant (infinity) *)
 system.includesPackage('Random') (* package *)
 9.randomInteger.isInteger (* random integers (1 to self) *)
 var s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s.minMax = [1, 9] (* check distribution *)
-var s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s.Array.sorted = [1 .. 9] (* check distribution *)
+var s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s.asArray.sorted = [1 .. 9] (* check distribution *)
 9.randomFloat.isNumber (* random floating point number (0 to self) *)
 var s = Set(); 729.timesRepeat { s.include(9.randomFloat.rounded) }; s.minMax = [0, 9] (* check distribution *)
 3.randomInteger(9).isInteger (* random integer in range *)
@@ -2488,7 +2488,7 @@ var b = Bag(); 5000.timesRepeat { b.add(5.atRandom) }; b.contents.values.allSati
 { [].atRandom = nil }.ifError { true } (* random element of empty collection (nil if unsafe indexing is allowed) *)
 [1].atRandom = 1 (* random element of one-element collection *)
 var c = [1 .. 5]; c.includes(c.atRandom) (* answer random element from a collection *)
-var a = [1 .. 5].Set, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.asSet (* random element of collection *)
+var a = [1 .. 5].asSet, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.asSet (* random element of collection *)
 ```
 
 ## Random -- Sfc32
@@ -2504,7 +2504,7 @@ system.includesPackage('Sfc32') (* Sfc32 package *)
 | r = Sfc32(98765); | r.randomInteger(1, 10000) = 4956 (* random integer in [1, 10000] *)
 | r = Sfc32(), n = r.randomFloat; | n >= 0 & { n < 1 } (* seed from system clock *)
 | r = Sfc32(), s = Set(); | 729.timesRepeat { s.include(r.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
-| r = Sfc32(), s = Set(); | 729.timesRepeat { s.include(r.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
+| r = Sfc32(), s = Set(); | 729.timesRepeat { s.include(r.randomInteger(9)) }; s.asArray.sorted = [1 .. 9] (* check distribution *)
 ```
 
 ## Random -- Mersenne
@@ -2521,7 +2521,7 @@ system.includesPackage('Mersenne') (* Mersenne package *)
 | m = Mersenne(), r = m.randomFloat; | r >= 0 & { r < 1 } (* seed from system clock *)
 Mersenne(123456).randomFloat = 0.12696983303810094 (* test from standard tests *)
 | m = Mersenne(), s = Set(); | 729.timesRepeat { s.include(m.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
-| m = Mersenne(), s = Set(); | 729.timesRepeat { s.include(m.randomInteger(9)) }; s.Array.sorted = [1 .. 9] (* check distribution *)
+| m = Mersenne(), s = Set(); | 729.timesRepeat { s.include(m.randomInteger(9)) }; s.asArray.sorted = [1 .. 9] (* check distribution *)
 ```
 
 ## Random -- SplitMix
@@ -2596,8 +2596,8 @@ var d = Record(); d.atPut('x', 1) = 1 & { d.at('x') = 1 }
 var d = Record(); (d['x'] := 1) = 1 & { d['x'] = 1 }
 var d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
 var d = Record(); d::x := 1; d::y := 2; d.size = 2
-['x' -> 1, 'y' -> 2].Record = (x: 1, y: 2) (* association array to record *)
-['x' -> 1, 'y' -> 2].Record['y'] = 2 (* association array to record *)
+['x' -> 1, 'y' -> 2].asRecord = (x: 1, y: 2) (* association array to record *)
+['x' -> 1, 'y' -> 2].asRecord['y'] = 2 (* association array to record *)
 { Record().atPut(1, 1) }.ifError { true }
 (x: 3.141, y: 23).json = '{"x":3.141,"y":23}' (* records have a json encoding where values do *)
 '{"x":3.141,"y":23}'.parseJson = (x: 3.141, y: 23) (* parse json record *)
@@ -2613,7 +2613,7 @@ var d = (x: 23, y: 3.141); d::x := 42; d = (x: 42, y: 3.141)
 | d = (x: 1, y: 2), c = d.copy; | c::x := 3; c::x = 3 & { d::x = 1 } (* copies are distinct *)
 (x:1, y:2) ++ (z:3) = (x:1, y:2, z:3) (* white space after colon is optional *)
 (x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2] (* array of associations at record *)
-(x: 1, y: 2).Array = [1, 2] (* values as Array *)
+(x: 1, y: 2).asArray = [1, 2] (* values as Array *)
 var d = (x:1, y:2, z:3), (x, z) = d; [x, z] = [1, 3]
 var (x, y) = { var n = system.randomFloat; (x: n, y: n) }.value; x = y
 (x:1, y:2, z:3).select(even:/1) = (y: 2)
@@ -2633,7 +2633,7 @@ var d = (length: { :self | (self::x.squared + self::y.squared).sqrt }); var p = 
 var d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7) = 21
 (x: 1) = ('x': 1) (* records with quoted keys *)
 ('font-size': '11pt', 'font-style': 'italic').indices = ['font-size', 'font-style'] (* records with quoted keys that are not identifiers *)
-(x: 1).Map.Record = (x: 1) (* record to map to record is identity *)
+(x: 1).asMap.asRecord = (x: 1) (* record to map to record is identity *)
 (x: true)::x = true (* true value answers true *)
 (x: false).includesIndex('x') = true (* includes index at false value answers true *)
 (x: false)::x = false (* at at key with false value answers false *)
@@ -2776,16 +2776,17 @@ RegExp('x|z', 'g').replaceAllModifying('x y z', toUppercase:/1) = 'X y Z'
 system.includesPackage('RunArray') (* RunArray package *)
 | a = RunArray([1, 3, 5], ['a', 'b', 'c']); | a.isRunArray & { a.size = 9 } (* from runs and values, size is sum of runs *)
 | a = RunArray([1, 3, 5], ['a', 'b', 'c']); | a.size = 9 & { a.asArray.join = 'abbbccccc' } (* as array *)
-| a = RunArray([1 -> 'a', 3 -> 'b', 5 -> 'c']); | a.size = 9 & { a.asArray.join = 'abbbccccc' } (* from associations *)
+| a = [1 -> 'a', 3 -> 'b', 5 -> 'c'].associationArrayToRunArray; | a.size = 9 & { a.asArray.join = 'abbbccccc' } (* from associations *)
 | a = RunArray([1 4 2 1], [9 7 5 3]); | a.size = 8 & { a.asArray = [9 7 7 7 7 5 5 3] }
-{ | a = RunArray([1 -> 'a', 3 -> 'b']); | a[5] }.ifError { true } (* invalid index *)
+{ | a = RunArray([1 3], ['a' 'b']); | a[5] }.ifError { true } (* invalid index *)
 | a = RunArray([1, 4, 2, 1], 'abca'.split); | a.first = 'a' & { a.last = 'a' } (* first and last are optimized *)
 | a = RunArray([1, 4, 2], 'abc'.split); | a.includes('c') & { a.isSorted } (* includes and isSorted are optimized *)
-RunArray([1, 4, 2], ['a', 'b', 'c']).reversed = [2 -> 'c', 4 -> 'b', 1 -> 'a'].RunArray (* reversed is optimized *)
-| a = [23 -> 'a', 34 -> 'b', 45 -> 'a'].RunArray; | (a.allocatedSize / a.size * 100).rounded = 9 (* space saving, in % *)
+RunArray([1, 4, 2], ['a', 'b', 'c']).reversed = [2 -> 'c', 4 -> 'b', 1 -> 'a'].associationArrayToRunArray (* reversed is optimized *)
+| a = RunArray([23, 34, 45], ['a', 'b', 'a']); | (a.allocatedSize / a.size * 100).rounded = 9 (* space saving, in % *)
 RunArray([1, 3, 5], ['a', 'b', 'c']).asArray.join = 'abbbccccc' (* from runs and values, as array *)
-RunArray([1 -> 'a', 3 -> 'b', 5 -> 'c']).asArray.join = 'abbbccccc' (* from associations, as array *)
+[1 -> 'a', 3 -> 'b', 5 -> 'c'].associationArrayToRunArray.asArray.join = 'abbbccccc' (* from associations, as array *)
 [4 3 3 2 2 2 1 1 1 1].asRunArray = RunArray([1 2 3 4], [4 3 2 1]) (* from sequence *)
+'abbbccccc'.asArray.asRunArray.runs = [1 3 5]
 ```
 
 ## Sequenceable -- collection trait
@@ -2823,7 +2824,7 @@ var c = [3, 2, 1], r = c.sorted; c ~= r (* sorted (answer a new array) *)
 | n = 0, i = (1 .. 4); | i.permutationsDo { :each | n := n + 1 }; n = 24 (* interval permutations do *)
 | n = 0, a = [1 .. 4]; | a.permutationsDo { :each | n := n + 1 }; n = 24 & { a = [1 .. 4] } (* array permutations do *)
 | a = [1 .. 3].permutations; | a = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]] (* permutations *)
-| i = (4, 7 .. 13), p = i.permutations; | p.size = i.size.factorial & { p.Set.size = p.size }
+| i = (4, 7 .. 13), p = i.permutations; | p.size = i.size.factorial & { p.asSet.size = p.size }
 | i = (4, 7 .. 13); | i.permutations.allSatisfy { :e | e.sorted.hasEqualElements(i) }
 | x = [1, 1, 3, 4]; | x[2, 4, 3, 1] = [1, 4, 3, 1] (* permute using atAll (array) indexing *)
 | x = [1 1 3 4]; | x[2 4 3 1] = [1 4 3 1] (* permute using atAll (vector) indexing *)
@@ -2876,7 +2877,7 @@ var s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString };
 | a = [1 .. 9]; | a.replace { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81] (* in place collect *)
 | c = [7, 2, 6, 1]; | c.sorted = [1, 2, 6, 7] & { c.sorted ~= c } (* sorted copy *)
 | c = [7, 2, 6, 1]; | c.sort = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } (* sort in place *)
-[7, 2, 6, 1].SortedArray.contents = [1, 2, 6, 7]
+[7, 2, 6, 1].asSortedArray.contents = [1, 2, 6, 7]
 [7, 2, 6, 1].sorted(greaterThan:/2) = [7, 6, 2, 1]
 | n = 0; | [3 .. 7].allButFirstDo { :each | n := n + each }; n = [4 .. 7].sum (* iterate skipping first element *)
 | n = 0; | [3 .. 7].allButLastDo { :each | n := n + each }; n = [3 .. 6].sum (* iterate skipping last element *)
@@ -2971,62 +2972,62 @@ system.includesPackage('Set') (* set package *)
 Set().isSet (* set type predicate *)
 Set().size = 0 (* count items in set *)
 Set().isEmpty (* is set empty? *)
-[1, 1, 2, 1, 2, 3].Set.size = 3 (* array to set *)
-[1, 3, 5, 3, 1].Set.isSet = true
-[1, 3, 5, 3, 1].Set.size = 3
-[1, 3, 5, 3, 1].Set.includes(3) = true (* does set include item *)
-[1, 3, 5, 3, 1].Set.includes(7) = false
-[1, 5, 3, 5, 1].Set.Array = [1, 5, 3] (* set from array to array *)
-[1, 5, 3, 5, 1].Set.sorted = [1, 3, 5] (* a sorted set is an array *)
-| s = [1 .. 5].Set; | s ~~ s.asSet (* a Set formed from a Set is not identical to the initial set *)
-| s = [1 .. 5].Set; | s = s.asSet (* a Set formed from a Set is equal to the initial set *)
-var s = [1, 3, 5, 3, 1].Set; s.remove(3) = 3; s.Array = [1, 5] (* remove answers removed element *)
-[1 .. 9].Set.atRandom.betweenAnd(1, 9) (* inclusive *)
+[1, 1, 2, 1, 2, 3].asSet.size = 3 (* array to set *)
+[1, 3, 5, 3, 1].asSet.isSet = true
+[1, 3, 5, 3, 1].asSet.size = 3
+[1, 3, 5, 3, 1].asSet.includes(3) = true (* does set include item *)
+[1, 3, 5, 3, 1].asSet.includes(7) = false
+[1, 5, 3, 5, 1].asSet.asArray = [1, 5, 3] (* set from array to array *)
+[1, 5, 3, 5, 1].asSet.sorted = [1, 3, 5] (* a sorted set is an array *)
+| s = [1 .. 5].asSet; | s ~~ s.asSet (* a Set formed from a Set is not identical to the initial set *)
+| s = [1 .. 5].asSet; | s = s.asSet (* a Set formed from a Set is equal to the initial set *)
+var s = [1, 3, 5, 3, 1].asSet; s.remove(3) = 3; s.asArray = [1, 5] (* remove answers removed element *)
+[1 .. 9].asSet.atRandom.betweenAnd(1, 9) (* inclusive *)
 var s = Set(); s.add(5); s.includes(5) = true (* add element to Set *)
-{ [5].Set.add(5) }.ifError { true } (* add can only include elements if they do not already exist *)
-var s = ['x', 5].Set; var t = s.copy; t.include(5); s = t
-var s = [1 .. 4].Set; s.includes(s.atRandom) = true
+{ [5].asSet.add(5) }.ifError { true } (* add can only include elements if they do not already exist *)
+var s = ['x', 5].asSet; var t = s.copy; t.include(5); s = t
+var s = [1 .. 4].asSet; s.includes(s.atRandom) = true
 var s = (1 .. 10).asSet; var t = s.collect { :each | (each >= 1).if { each } { 'no' } }; s = t
-var s = (1 .. 10).asSet.collect { :each | (each >= 5).if { each } { 'no' } }; s = [5, 6, 7, 8, 9, 10, 'no'].Set
+var s = (1 .. 10).asSet.collect { :each | (each >= 5).if { each } { 'no' } }; s = [5, 6, 7, 8, 9, 10, 'no'].asSet
 var s = (1 .. 10).asSet; s.size = s.copy.size
 var s = (1 .. 10).asSet; var t = s.copy; s.select { :each | t.includes(each).not }.isEmpty
 var s = (1 .. 10).asSet; var t = s.copy; t.select { :each | s.includes(each).not }.isEmpty
 var s = (1 .. 10).asSet; var t = s.copyWithout(3); s.size - 1 = t.size
 var s = (1 .. 10).asSet; s.copyWithout(3).includes(3) = false
-var s = (1 .. 10).asSet; var t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].Set
+var s = (1 .. 10).asSet; var t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].asSet
 var s = (1 .. 5).asSet; var n = 0; s.do { :each | n := n + each }; n = 15
-var s = [].Set; s.addAll(['x', 'y', 'z']); s.size = 3 (* add all elements of an Array to a Set *)
-var s = [].Set; s.includeAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 (* include all elements of an Array to a Set *)
+var s = [].asSet; s.addAll(['x', 'y', 'z']); s.size = 3 (* add all elements of an Array to a Set *)
+var s = [].asSet; s.includeAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 (* include all elements of an Array to a Set *)
 | c = 'xyyzzz'.split, r = Set(); | r.includeAll(c); r.size = 3 (* include all characters of a String to a Set *)
 | c = 'xyyzzz', r = Set(); | r.includeAll(c); r.size = 3 (* include all elements of a String to a Set *)
-var s = [].Set; s.addAll([1 .. 99]); s.size = 99 (* add all from array *)
-var s = ['x', 5].Set; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
+var s = [].asSet; s.addAll([1 .. 99]); s.size = 99 (* add all from array *)
+var s = ['x', 5].asSet; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
 var s = (1 .. 5).asSet; var n = 0; s.do { :each | n := n + each }; n = 15
 var s = (1 .. 9).asSet; s.intersection(s) = s (* set intersection, self intersection is identity *)
-(1 .. 4).asSet.intersection((5 .. 9).asSet) = [].Set (* set intersection, empty intersection *)
-(1 .. 5).asSet.intersection((4 .. 9).asSet) = [4, 5].Set (* set intersection *)
+(1 .. 4).asSet.intersection((5 .. 9).asSet) = [].asSet (* set intersection, empty intersection *)
+(1 .. 5).asSet.intersection((4 .. 9).asSet) = [4, 5].asSet (* set intersection *)
 var s = (1 .. 9).asSet; s.remove(5); [s.includes(5), s.includes(9)] = [false, true]
 var s = (1 .. 9).asSet; var t = s.copy; var n = t.size; s.removeAll; [s.size = 0, t.size = n] = [true, true]
 (1 .. 4).asSet.union((5 .. 9)) = (1 .. 9).asSet (* set union, right hand side not a set *)
 | s = (1 .. 4).asSet, t = (5 .. 9), u = s.union(t); | u.size = (s.size + t.size) (* set union is not mutating *)
 (1 .. 5).asSet.ifAbsentAdd(3) = false
-(1 .. 9).asSet.select { :each | false } = [].Set (* select nothing *)
+(1 .. 9).asSet.select { :each | false } = [].asSet (* select nothing *)
 | s = Set(); | s.includeAll([4 / 2, 4, 2]); s.size = 2 (* 4 / 2 = 2 *)
-[1, 2, 3, 1, 4].Set = [1, 2, 3, 4, 3, 2, 1].Set = true
+[1, 2, 3, 1, 4].asSet = [1, 2, 3, 4, 3, 2, 1].asSet = true
 (1 .. 6).union((4 .. 10)) = (1 .. 10).asSet (* set union *)
 'hello'.split.intersection('there'.split) = 'he'.split (* set intersection *)
 'Smalltalk'.split.includes('k') = true
-[1, 2, 3, 1, 4].Set.isIndexable = false (* sets are not indexable *)
-[1, 2, 3, 1, 4].Set.indices = nil (* sets are not indexable *)
-[1, 2, 2, 3, 3, 3].Set.occurrencesOf(3) = 1 (* number of occurrences of element in set (zero or one) *)
-[1, 3, 3, 3].Set.occurrencesOf(2) = 0 (* number of occurrences of element in set (zero or one) *)
+[1, 2, 3, 1, 4].asSet.isIndexable = false (* sets are not indexable *)
+[1, 2, 3, 1, 4].asSet.indices = nil (* sets are not indexable *)
+[1, 2, 2, 3, 3, 3].asSet.occurrencesOf(3) = 1 (* number of occurrences of element in set (zero or one) *)
+[1, 3, 3, 3].asSet.occurrencesOf(2) = 0 (* number of occurrences of element in set (zero or one) *)
 ```
 
 ## SmallFloat -- numeric type
 ```
 system.includesPackage('SmallFloat') (* package *)
 3.141.typeOf = 'SmallFloat'
-3.141.SmallFloat = 3.141 (* SmallFloat is identity, c.f. Fraction>>SmallFloat *)
+3.141.asSmallFloat == 3.141 (* asSmallFloat is identity, c.f. Fraction>>SmallFloat *)
 0 = -0 = true
 1 = 1 = true
 1 >= 1 = true
@@ -3184,15 +3185,15 @@ SortedArray().isSortedArray (* sorted array *)
 SortedArray().species = SortedArray:/0 (* species is sorted array *)
 SortedArray().size = 0 (* query size *)
 | a = SortedArray(); | a.add(3); a.add(1); a.add(2); a.contents = [1 .. 3] (* add inserts items into sequence *)
-| a = [3, 1].SortedArray; | a.add(2); a.contents = [1 .. 3] (* sorted array from array *)
-| a = [7, 5 .. 1].SortedArray; | a.addAll([8, 6 .. 2]); a.contents = [1 .. 8] (* add all elements of collection into sequence *)
-| a = [9 .. 1].SortedArray; | a.collect { :x | 9 - x }; a.contents = [1 .. 9] (* collect into ordered collection *)
-| a = [1 .. 9].SortedArray(greaterThan:/2); | a.contents = [9 .. 1] (* sorted array with specified sort block *)
-| a = [5 .. 9].SortedArray(greaterThan:/2); | a.addAll([1 .. 4]); a.contents = [9 .. 1]
-(1 .. 10).SortedArray.median = 5
+| a = [3, 1].asSortedArray; | a.add(2); a.contents = [1 .. 3] (* sorted array from array *)
+| a = [7, 5 .. 1].asSortedArray; | a.addAll([8, 6 .. 2]); a.contents = [1 .. 8] (* add all elements of collection into sequence *)
+| a = [9 .. 1].asSortedArray; | a.collect { :x | 9 - x }; a.contents = [1 .. 9] (* collect into ordered collection *)
+| a = [1 .. 9].asSortedArray(greaterThan:/2); | a.contents = [9 .. 1] (* sorted array with specified sort block *)
+| a = [5 .. 9].asSortedArray(greaterThan:/2); | a.addAll([1 .. 4]); a.contents = [9 .. 1]
+(1 .. 10).asSortedArray.median = 5
 | a = SortedArray(); | a.add('truite'); a.add('porcinet'); a.add('carpe'); a.median = 'porcinet'
-[5, 2, 50, -10].SortedArray.Array = [-10, 2, 5, 50]
-'hello'.split.SortedArray.Array = 'ehllo'.split
+[5, 2, 50, -10].asSortedArray.asArray = [-10, 2, 5, 50]
+'hello'.split.asSortedArray.asArray = 'ehllo'.split
 ```
 
 ## Stack -- collection type
@@ -3217,15 +3218,15 @@ system.includesPackage('String') (* package *)
 'string'.isAsciiString = true (* does string contain only ascii characters *)
 'Mačiūnas'.isAsciiString = false (* ascii does not include diacritics *)
 ''.isAsciiString = true (* the empty string is an ascii string *)
-128.Character.string.isAsciiString = false (* not all byte arrays are ascii *)
+128.asCharacter.string.isAsciiString = false (* not all byte arrays are ascii *)
 'x' ++ 'y' = 'xy' (* append (catenation) *)
 'x' ++ 1 = 'x1' (* append, right hand side need not be a string *)
-'string'.asciiByteArray = [115, 116, 114, 105, 110, 103].ByteArray (* String to ByteArray of Ascii encoding *)
+'string'.asciiByteArray = [115, 116, 114, 105, 110, 103].asByteArray (* String to ByteArray of Ascii encoding *)
 { 'Mačiūnas'.asciiByteArray }.ifError { true } (* non-ascii characters *)
 '3.4'.asNumber = 3.4 (* parse float *)
 '3'.asInteger = 3 (* parse integer *)
-'string'.at(4) = 'i'.Character (* one-indexing *)
-'string'[4] = 'i'.Character (* one-indexing (bracket notation) *)
+'string'.at(4) = 'i'.asCharacter (* one-indexing *)
+'string'[4] = 'i'.asCharacter (* one-indexing (bracket notation) *)
 { 'string'[7] }.ifError { true } (* error on out of range index *)
 ''.isEmpty = true (* empty string predicate *)
 'string'.isEmpty = false (* is empty string *)
@@ -3254,8 +3255,8 @@ system.includesPackage('String') (* package *)
 { 'string'.add('!') }.ifError { :err | 'oh oh...' } = 'oh oh...' (* strings are immutable *)
 'quoted string with \'escaped\' quote characters'.words[4].copyFromTo(2, 8) = 'escaped'
 'string'.utf8ByteArray = 'string'.asciiByteArray (* Utf-8 is a superset of ascii *)
-'øéஃî'.utf8ByteArray = [195, 184, 195, 169, 224, 174, 131, 195, 174].ByteArray (* unicode *)
-'Mačiūnas'.utf8ByteArray = [77, 97, 196, 141, 105, 197, 171, 110, 97, 115].ByteArray (* Utf-8 encoding *)
+'øéஃî'.utf8ByteArray = [195, 184, 195, 169, 224, 174, 131, 195, 174].asByteArray (* unicode *)
+'Mačiūnas'.utf8ByteArray = [77, 97, 196, 141, 105, 197, 171, 110, 97, 115].asByteArray (* Utf-8 encoding *)
 'Mačiūnas'.size = 8
 'Mačiūnas'.utf8ByteArray.size = 10
 'Mačiūnas'.utf16Array = [77, 97, 269, 105, 363, 110, 97, 115] (* Utf-16 encoding *)
@@ -3269,9 +3270,9 @@ system.includesPackage('String') (* package *)
 'x'.printString.size = 3 (* printString is a quoted string *)
 1.asString = '1' (* integer as string *)
 pi.asString = '3.141592653589793' (* float as string *)
-'ascii'.asciiByteArray = [97, 115, 99, 105, 105].ByteArray
-'€'.utf8ByteArray = [226, 130, 172].ByteArray (* Utf-8 encoding of String as ByteArray *)
-[226, 130, 172].ByteArray.utf8String = '€' (* String from Utf-8 encoded ByteArray *)
+'ascii'.asciiByteArray = [97, 115, 99, 105, 105].asByteArray
+'€'.utf8ByteArray = [226, 130, 172].asByteArray (* Utf-8 encoding of String as ByteArray *)
+[226, 130, 172].asByteArray.utf8String = '€' (* String from Utf-8 encoded ByteArray *)
 '€'.utf8ByteArray.utf8String = '€' (* decode and encode Utf-8 *)
 'ascii'.asciiByteArray = 'ascii'.utf8ByteArray
 'ascii'.asciiByteArray.asciiString = 'ascii' (* decode and encode Ascii *)
@@ -3313,15 +3314,15 @@ pi.asString = '3.141592653589793' (* float as string *)
 '`quoted`'.withoutQuoting = 'quoted' (* remove backtick quotes *)
 "`x`" = '`x`' (* double quotes quoting backtick quote *)
 "'x'" = '\'x\''.parseDoubleQuotedString
-'string'[3] = 'r'.Character (* string indexing *)
+'string'[3] = 'r'.asCharacter (* string indexing *)
 { 'string'[3] := nil }.ifError { true } (* strings are immutable *)
 '{"x": 3.141, "y": 23}'.parseJson = (x: 3.141, y: 23)
 { '_'.parseJson }.ifError { true }
 'a text string'.json = '"a text string"' (* json encoding of string *)
 '"a text string"'.parseJson = 'a text string' (* parse json string *)
-'string'.first = 's'.Character (* first character *)
+'string'.first = 's'.asCharacter (* first character *)
 'element'.first.isVowel = true (* is first letter a vowel? *)
-'string'.last = 'g'.Character (* last character *)
+'string'.last = 'g'.asCharacter (* last character *)
 | x = ['a', 'bc', 'def']; | x.unlines.lines = x
 'a short string'.replaceString('short', 'longer') = 'a longer string' (* replace substring *)
 'x x x'.replaceString('x', 'y') = 'y x x' (* replace first occurence of one string with another *)
@@ -3351,7 +3352,7 @@ pi.asString = '3.141592653589793' (* float as string *)
 { 'testAt'.endsWith(nil) }.ifError { true }
 'sndfile.wav'.endsWith('.wav') = true
 ['a','b','','c'].unlines.paragraphs.collect(lines:/1) = [['a', 'b'], ['c']]
-'string'.at(3) = 'r'.Character (* string indexing *)
+'string'.at(3) = 'r'.asCharacter (* string indexing *)
 var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 ' x '.withBlanksTrimmed = 'x'
 ' x '.withoutLeadingBlanks = 'x '
@@ -3363,7 +3364,7 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 '𠮷'.countUtf16CodeUnits = 2
 '𠮷'.size = 2
 '𠮷'.isSingleCharacter = true
-'𠮷'.characterArray = ['𠮷'.Character]
+'𠮷'.characterArray = ['𠮷'.asCharacter]
 '𠮷'.codePointAt(1) = 134071 (* code point at index *)
 '𠮷'.codePointAt(2) = 57271
 '𠮷'.codePointAt(3) = nil (* nil for out of range indices *)
@@ -3371,7 +3372,7 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 '𠮷'.isInBasicMultilingualPlane = false
 '𠮷'.isWellFormed = true
 { '𠮷'.asciiByteArray }.ifError { true } (* non-ascii character *)
-'𠮷'[1] = '𠮷'.Character
+'𠮷'[1] = '𠮷'.asCharacter
 { '𠮷'[2] }.ifError { true } (* lone surrogate *)
 '0123456789'.isAllDigits
 '1'.isAllDigits
@@ -3381,7 +3382,7 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 { 'xy'.asciiValue }.ifError { true } (* it is an error is the string is not a single character *)
 { '𠮷'.asciiValue }.ifError { true } (* it is an error is the character is not ascii *)
 'string'.stringArray = ['s', 't', 'r', 'i', 'n', 'g']
-'string'.characterArray = [115, 116, 114, 105, 110, 103].collect(Character:/1)
+'string'.characterArray = [115, 116, 114, 105, 110, 103].collect(asCharacter:/1)
 'Gnu/Linux'.findString('Linux') = 5
 'Gnu/Linux'.findStringStartingAt('Linux', 1) = 5
 'Hello'.isEmpty = false
@@ -3392,23 +3393,23 @@ var s = 'string'; [s[2], s[4], s[5]].join = 'tin' (* string subscripting *)
 '154'.asNumber = 154 (* parse integral number *)
 'A clear but rather long-winded summary'.contractTo(19) = 'A clear ... summary' (* contract string to be of size *)
 'antidisestablishmentarianism'.contractTo(10) = 'anti...ism' (* contract string to be of size *)
-'string'.Array.sort.join = 'ginrst'
-'x' ~= 'x'.Character (* a single element string is not equal to a character *)
+'string'.asArray.sort.join = 'ginrst'
+'x' ~= 'x'.asCharacter (* a single element string is not equal to a character *)
 'Mačiūnas'.asAscii = 'Mainas' (* transform to ascii by deleting non-ascii characters *)
 'string'.copy == 'string' (* copy is identity *)
 'string'.asHex = '737472696e67' (* hex string of ascii codes of string *)
 | s = 'string'; | (s.size * 2) = s.asHex.size (* asHex, hex string is twice as long *)
 { 'Mačiūnas'.asHex }.ifError { true } (* asHex, non-ascii strings raise an error *)
-'"'.Character.codePoint = 34 (* double quote *)
-'\''.Character.codePoint = 39 (* single quote *)
-'\\'.Character.codePoint = 92 (* backslash (escape) *)
-'`'.Character.codePoint = 96 (* backtick *)
-'\b'.Character.codePoint = 8 (* backspace *)
-'\t'.Character.codePoint = 9 (* horizontal tab *)
-'\n'.Character.codePoint = 10 (* line feed, new line *)
-'\v'.Character.codePoint = 11 (* vertical tab *)
-'\f'.Character.codePoint = 12 (* form feed, new page *)
-'\r'.Character.codePoint = 13 (* carriage return *)
+'"'.asCharacter.codePoint = 34 (* double quote *)
+'\''.asCharacter.codePoint = 39 (* single quote *)
+'\\'.asCharacter.codePoint = 92 (* backslash (escape) *)
+'`'.asCharacter.codePoint = 96 (* backtick *)
+'\b'.asCharacter.codePoint = 8 (* backspace *)
+'\t'.asCharacter.codePoint = 9 (* horizontal tab *)
+'\n'.asCharacter.codePoint = 10 (* line feed, new line *)
+'\v'.asCharacter.codePoint = 11 (* vertical tab *)
+'\f'.asCharacter.codePoint = 12 (* form feed, new page *)
+'\r'.asCharacter.codePoint = 13 (* carriage return *)
 'The quick brown fox jumps over the lazy dog'.crc16 = 16rFCDF (* 16 bit cyclic redundancy check, crc-16/arc *)
 '* + - / ^ ? ~ = < >'.words.allSatisfy(isOperatorName:/1)
 'a comment'.asBracketedComment('/*', '*/') = '/* a comment */' (* add C comment brackets *)
@@ -3463,11 +3464,11 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 (1, 3 .. 9) = Interval(1, 9, 2)
 (9, 7 .. 1) = Interval(9, 1, -2)
 (1 .. 1) = Interval(1, 1, 1)
-[1 .. 3] = (1 .. 3).Array
-[3 .. 1] = (3 .. 1).Array
-[1, 3 .. 9] = (1, 3 .. 9).Array
-[9, 7 .. 1] = (9, 7 .. 1).Array
-[1 .. 1] = (1 .. 1).Array
+[1 .. 3] = (1 .. 3).asArray
+[3 .. 1] = (3 .. 1).asArray
+[1, 3 .. 9] = (1, 3 .. 9).asArray
+[9, 7 .. 1] = (9, 7 .. 1).asArray
+[1 .. 1] = (1 .. 1).asArray
 [1 3 5 2 4] = [1, 3, 5, 2, 4] (* vector syntax, literal items *)
 [9.sqrt 16.sqrt 25.sqrt] = [3, 4, 5] (* vector syntax, simple unary sends *)
 | a = 1, b = 3, c = 5; | [a b c b a] = [1, 3, 5, 3, 1] (* vector syntax, identifier items *)
@@ -3494,7 +3495,7 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 
 ## Syntax -- collection access and mutation
 ```
-'text'[3] = 'x'.Character (* [At Syntax] *)
+'text'[3] = 'x'.asCharacter (* [At Syntax] *)
 | x = [1 .. 5]; | x[3] := '3'; x[3] = '3' (* [AtPut Syntax] *)
 | i = (9 .. 1); | i[5, 3, 7] = [5, 7, 3] (* [AtAll Syntax] *)
 | m = [1 2 3; 4 5 6; 7 8 9]; | m[2; 3] = 6 & { m[3; 2] = 8 } (* [AtPath Syntax] *)
@@ -3521,8 +3522,8 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 ## Syntax -- dictionary literals
 ```
 ().isRecord (* () is the empty dictionary *)
-() = [].Record (* () the empty dictionary *)
-(x: 1, y: 2) = ['x' -> 1, 'y' -> 2].Record (* dictionary literal syntax *)
+() = [].asRecord (* () the empty dictionary *)
+(x: 1, y: 2) = ['x' -> 1, 'y' -> 2].asRecord (* dictionary literal syntax *)
 (x: 1, y: 2).printString = '(x: 1, y: 2)' (* Record print string *)
 (x: 1, y: 2).storeString = '(x: 1, y: 2)' (* Record print string *)
 ```
@@ -3559,10 +3560,10 @@ var [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries var array initia
 (9 .. 1) = Interval(9, 1, -1) (* 9 to 1 by -1 *)
 (1, 3 .. 9) = Interval(1, 9, 2) (* 1 to 9 by 2 *)
 (9, 7 .. 1) = Interval(9, 1, -2) (* 9 to 1 by -2 *)
-[1 .. 9] = (1 .. 9).Array (* 1 to 9 by 1 *)
-[9 .. 1] = (9 .. 1).Array (* 9 to 1 by -1 *)
-[1, 3 .. 9] = (1, 3 .. 9).Array (* 1 to 9 by 1 *)
-[9, 7 .. 1] = (9, 7 .. 1).Array (* 9 to 1 by -2 *)
+[1 .. 9] = (1 .. 9).asArray (* 1 to 9 by 1 *)
+[9 .. 1] = (9 .. 1).asArray (* 9 to 1 by -1 *)
+[1, 3 .. 9] = (1, 3 .. 9).asArray (* 1 to 9 by 1 *)
+[9, 7 .. 1] = (9, 7 .. 1).asArray (* 9 to 1 by -2 *)
 ```
 
 ## Syntax -- block application
@@ -3624,9 +3625,9 @@ system.uniqueId.isInteger (* system unique identifier generator, answers are int
 system.uniqueId ~= system.uniqueId (* system unique identifier generator *)
 | p = system.uniqueId, q = system.uniqueId; | p + 1 = q (* the generator is a simple counter *)
 system.highBitPerByteTable.size = 256 (* high bits per byte table *)
-system.highBitPerByteTable.Bag.sortedCounts = [128 -> 8, 64 -> 7, 32 -> 6, 16 -> 5, 8 -> 4, 4 -> 3, 2 -> 2, 1 -> 1, 1 -> 0]
+system.highBitPerByteTable.asBag.sortedCounts = [128 -> 8, 64 -> 7, 32 -> 6, 16 -> 5, 8 -> 4, 4 -> 3, 2 -> 2, 1 -> 1, 1 -> 0]
 system.lowBitPerByteTable.size = 255 (* low bits per byte table *)
-system.lowBitPerByteTable.Bag.sortedCounts = [128 -> 1, 64 -> 2, 32 -> 3, 16 -> 4, 8 -> 5, 4 -> 6, 2 -> 7, 1 -> 8]
+system.lowBitPerByteTable.asBag.sortedCounts = [128 -> 1, 64 -> 2, 32 -> 3, 16 -> 4, 8 -> 5, 4 -> 6, 2 -> 7, 1 -> 8]
 ```
 
 ## System -- system names
@@ -3841,7 +3842,7 @@ system.includesPackage('UrlSearchParams') (* timestamp package *)
 'x=a&y=b&x=c'.UrlSearchParams.atAllEntries('x') = ['a' 'c']
 | p = 'x=a&y=b&x=c'.UrlSearchParams; | p.removeKey('x'); p.asString = 'y=b'
 'x=a&x=b&x=c'.UrlSearchParams.size = 3 (* size *)
-(x: 1, y: 2, z: 3).UrlSearchParams.asString = 'x=1&y=2&z=3' (* record constructor *)
+(x: 1, y: 2, z: 3).asUrlSearchParams.asString = 'x=1&y=2&z=3' (* record constructor *)
 ```
 
 ## Temporaries
@@ -3950,8 +3951,8 @@ true.not = false
 ## Unordered -- collection trait
 ```
 system.includesPackage('Unordered') (* package *)
-{ [1, 2, 3].Set.at(1) }.ifError { true } (* unordered collections do not implement at *)
-{ [1, 2, 3].Bag.at(1) }.ifError { true }
+{ [1, 2, 3].asSet.at(1) }.ifError { true } (* unordered collections do not implement at *)
+{ [1, 2, 3].asBag.at(1) }.ifError { true }
 ```
 
 ## Vector2 -- geometry type
@@ -3960,7 +3961,7 @@ system.includesPackage('Vector2') (* package *)
 Vector2(0, 0).typeOf = 'Vector2' (* type of *)
 Vector2(-1, 1).isVector2 = true
 Vector2(3, 4).isVector2 & { true } = true
-[0, 0].Vector2 = (0@0)
+[0, 0].asVector2 = (0@0)
 (-1@1).isVector2.not = false
 -1@1 = Vector2(-1, 1)
 (-1@1).x = -1
@@ -3993,7 +3994,7 @@ Vector2(3, 4).isVector2 & { true } = true
 200 @ 100 - (50 @ 25) = (150 @ 75) (* subtract points *)
 200 @ 100 * (3 @ 4) = (600 @ 400) (* multiply points *)
 1800 @ 100 / (3 @ 4) = (600 @ 25) (* divide points *)
-(200 @ 100).Array = [200, 100] (* array of x and y *)
+(200 @ 100).asArray = [200, 100] (* array of x and y *)
 | v = Vector2(3, 4); | v.first = 3 & { v.second = 4 } (* implements first and second *)
 | v = Vector2(3, 4); | v[1] = 3 & { v[2] = 4 } (* implements at *)
 | v = Vector2(3, 4); | v[1] := 7; v.first = 7 (* implements atPut *)
@@ -4006,12 +4007,12 @@ Vector2(3, 4).swapped = Vector2(4, 3) (* answer swapped vector *)
 ## Vector3 -- geometry type
 ```
 system.includesPackage('Vector3') (* package *)
-[1, 2, 3].Vector3 = Vector3(1, 2, 3) (* three vector from array *)
-| a = [1, 2, 3], v = a.Vector3; | v.Array = [1, 2, 3] (* three vector to array *)
+[1, 2, 3].asVector3 = Vector3(1, 2, 3) (* three vector from array *)
+| a = [1, 2, 3], v = a.asVector3; | v.asArray = [1, 2, 3] (* three vector to array *)
 Vector3(0, 0, 0).isZero (* are x, y and z all zero *)
 | v = Vector3(1, 2, 3); | [v.x, v.y, v.z] = [1, 2, 3] (* fields are x, y, z *)
 | v = Vector3(3, 4, 5); | v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } (* implements at *)
-| v = Vector3(3, 4, 5); | v[1] := 5; v[3] := 3; v.Array = [5, 4, 3] (* implements atPut *)
+| v = Vector3(3, 4, 5); | v[1] := 5; v[3] := 3; v.asArray = [5, 4, 3] (* implements atPut *)
 | v = Vector3(3, 4, 5); | [v.first, v.second, v.third] = [3, 4, 5] (* implements first &etc. *)
 Vector3(0, 0, 1).asSphericalCoordinate = SphericalCoordinate(1, 0, 0)
 SphericalCoordinate(1, 0, 0).asCartesianCoordinate = Vector3(0, 0, 1)
@@ -4020,13 +4021,20 @@ SphericalCoordinate(2.sqrt, pi / 2, pi / 4).asCartesianCoordinate ~ Vector3(1, 1
 Vector3(0, 0, 0).distance(Vector3(1, 1, 1)) = 3.sqrt
 Vector3(0, 0, 0).distance(Vector3(1, 1, 0)) = 2.sqrt
 Vector3(1, 2, 3).distance(Vector3(6, 5, 4)) = 35.sqrt
+Vector3(0, 0, 0).isCartesianCoordinate = true (* is Cartesian coordinate *)
+Vector3(0, 0, 0).isZero = true (* is zero *)
+| v = Vector3(0, 0, 0); | v.asCartesianCoordinate == v (* identity *)
+Vector3(1, 3, 5).asArray = [1 3 5]
+[1 3 5].asVector3 = Vector3(1, 3, 5)
+Vector3(1, 3, 5).asRecord = (x: 1, y: 3, z: 5)
+(x: 1, y: 3, z: 5).asVector3 = Vector3(1, 3, 5)
 ```
 
 ## Vector4 -- geometry type
 ```
 system.includesPackage('Vector4') (* package *)
-[1, 2, 3, 4].Vector4 = Vector4(1, 2, 3, 4) (* four vector from array *)
-| a = [1, 2, 3, 4], v = a.Vector4; | v.Array = [1, 2, 3, 4] (* four vector to array *)
+[1, 2, 3, 4].asVector4 = Vector4(1, 2, 3, 4) (* four vector from array *)
+| a = [1, 2, 3, 4], v = a.asVector4; | v.asArray = [1, 2, 3, 4] (* four vector to array *)
 Vector4(0, 0, 0, 0).isZero (* are w, x, y and z all zero *)
 | v = Vector4(1, 2, 3, 4); | [v.w, v.x, v.y, v.z] = [1, 2, 3, 4] (* fields are w, x, y, z *)
 ```
@@ -4049,7 +4057,7 @@ system.includesPackage('WriteStream') (* WriteStream package *)
 | w = WriteStream(); | w.nextPut(1); w.nextPutAll([2 .. 8]); w.nextPut(9); w.contents = [1 .. 9]
 | w = WriteStream(); | 1.putOn(w); w.contents = [1]
 | w = WriteStream(); | 1.putOn(w); [2 .. 8].putOn(w); 9.putOn(w); w.contents = [1 .. 9]
-| w = [].ByteArray.WriteStream; | w.nextPutAll((1 .. 9)); w.contents = [1 .. 9].ByteArray
+| w = [].asByteArray.WriteStream; | w.nextPutAll((1 .. 9)); w.contents = [1 .. 9].asByteArray
 | w = Utf8WriteStream(); | 'bodlɛʁ'.encodeOn(w); w.contents.utf8String = 'bodlɛʁ'
 | w = Utf8WriteStream(); | 'bodlɛʁ'.encodeOn(w); w.utf8Contents = 'bodlɛʁ'
 | w = Utf8WriteStream(); | [3.141, nil].do { :each | each.printOn(w) }; w.utf8Contents = '3.141nil'

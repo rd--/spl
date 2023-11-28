@@ -29,11 +29,11 @@ Character : [Object, Magnitude] { | string codePoint |
 	}
 
 	asLowercase { :self |
-		self.string.asLowercase.Character
+		self.string.asLowercase.asCharacter
 	}
 
 	asUppercase { :self |
-		self.string.asUppercase.Character
+		self.string.asUppercase.asCharacter
 	}
 
 	asString { :self |
@@ -83,7 +83,7 @@ Character : [Object, Magnitude] { | string codePoint |
 	}
 
 	storeString { :self |
-		'Character(' ++ self.codePoint ++ ')'
+		self.codePoint.asString ++ '.asCharacter'
 	}
 
 }
@@ -91,16 +91,18 @@ Character : [Object, Magnitude] { | string codePoint |
 +SmallFloat {
 
 	asCharacter { :self |
-		self.Character
-	}
-
-	Character { :self |
 		<primitive: return _Character_2(String.fromCodePoint(_self), _self);>
 	}
 
 	digitValue { :self |
 		self.betweenAnd(0, 35).if {
-			Character(self + (self < 10).if { 48 } { 55 })
+			(
+				self + (self < 10).if {
+					48
+				} {
+					55
+				}
+			).asCharacter
 		} {
 			self.error('digitValue')
 		}
@@ -111,11 +113,7 @@ Character : [Object, Magnitude] { | string codePoint |
 +String {
 
 	asCharacter { :self |
-		self.Character
-	}
-
-	Character { :self |
-		self.Character(self.codePoint)
+		Character(self, self.codePoint)
 	}
 
 	Character { :self :codePoint |
@@ -126,11 +124,11 @@ Character : [Object, Magnitude] { | string codePoint |
 				newCharacter().initializeSlots(self, codePoint)
 			}
 		} {
-			self.error('Character: not character')
+			self.error('String>>Character: not character')
 		}
 	}
 
-	Array { :self |
+	asArray { :self |
 		self.characterArray
 	}
 

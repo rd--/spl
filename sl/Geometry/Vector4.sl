@@ -2,13 +2,13 @@ Vector4 : [Object, Indexable] { | w x y z |
 
 	= { :self :anObject |
 		anObject.isVector4.if {
-			self.Array = anObject.Array
+			self.asArray = anObject.asArray
 		} {
 			false
 		}
 	}
 
-	Array { :self |
+	asArray { :self |
 		[self.w, self.x, self.y, self.z]
 	}
 
@@ -40,7 +40,7 @@ Vector4 : [Object, Indexable] { | w x y z |
 
 +Array {
 
-	Vector4 { :self |
+	asVector4 { :self |
 		(self.size ~= 4).if {
 			self.error('Vector4: not 4-element array')
 		} {

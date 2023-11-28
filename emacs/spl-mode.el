@@ -205,6 +205,8 @@
      ("rho" .?ρ)
      ("phi" .?φ)
      ("theta" .?θ)
+     ("lambda" .?λ) ; U+03BB λ Greek Small Letter Lamda
+     ("delta" .?δ) ; U+03B4 δ Greek Small Letter Delta
      )))
 
 (defun spl-fill-mode-map (map)

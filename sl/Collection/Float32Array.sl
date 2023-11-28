@@ -22,8 +22,8 @@ Float32Array! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed]
 
 +[Array, Interval] {
 
-	Float32Array { :self |
-		Float32Array(self.size).fillFromWith(self, identity:/1)
+	asFloat32Array { :self |
+		Float32Array(self.size).fillFrom(self)
 	}
 
 }

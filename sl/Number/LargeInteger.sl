@@ -31,7 +31,7 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 	}
 
 	/ { :self :anInteger |
-		| fraction = Fraction(self, anInteger.LargeInteger).reduced; |
+		| fraction = Fraction(self, anInteger.asLargeInteger).reduced; |
 		fraction.isInteger.if {
 			fraction.numerator
 		} {
@@ -77,11 +77,19 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
-		aBlock(aNumber.LargeInteger, self)
+		aBlock(aNumber.asLargeInteger, self)
 	}
 
 	asFloat { :self |
-		self.SmallFloat
+		self.asSmallFloat
+	}
+
+	asLargeInteger { :self |
+		self
+	}
+
+	asSmallFloat { :self |
+		<primitive: return Number(_self);>
 	}
 
 	bitAnd { :self :anObject |
@@ -125,10 +133,6 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		true
 	}
 
-	LargeInteger { :self |
-		self
-	}
-
 	odd { :self |
 		(self % 2) = 1
 	}
@@ -153,10 +157,6 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		self
 	}
 
-	SmallFloat { :self |
-		<primitive: return Number(_self);>
-	}
-
 	sqrt { :self |
 		<primitive: return sl.bigIntSqrt(_self);>
 	}
@@ -177,7 +177,7 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 +SmallFloat {
 
-	LargeInteger { :self |
+	asLargeInteger { :self |
 		<primitive: return BigInt(_self);>
 	}
 

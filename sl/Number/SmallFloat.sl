@@ -108,7 +108,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
-		aFraction.SmallFloat.aBlock(self)
+		aFraction.asSmallFloat.aBlock(self)
 	}
 
 	arcCos { :self |
@@ -135,14 +135,22 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		self
 	}
 
+	asInteger { :self |
+		self.truncated
+	}
+
+	asLargeInteger { :self |
+		<primitive: return BigInt(_self);>
+	}
+
+	asSmallFloat { :self |
+		self
+	}
+
 	assertIsSmallInteger { :self |
 		self.assert {
 			self.isSmallInteger
 		}
-	}
-
-	asInteger { :self |
-		self.truncated
 	}
 
 	atan2 { :self :anObject |
@@ -213,7 +221,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 				(aNumber = 0).if {
 					self.abs < epsilon
 				} {
-					(self = aNumber.SmallFloat) | {
+					(self = aNumber.asSmallFloat) | {
 						| z = self.abs; |
 						(z < epsilon).if {
 							aNumber.abs < epsilon
@@ -284,10 +292,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	isZero { :self |
 		self = 0
-	}
-
-	LargeInteger { :self |
-		<primitive: return BigInt(_self);>
 	}
 
 	log { :self |
@@ -396,10 +400,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	sinh { :self |
 		<primitive: return Math.sinh(_self)>
-	}
-
-	SmallFloat { :self |
-		self
 	}
 
 	sqrt { :self |

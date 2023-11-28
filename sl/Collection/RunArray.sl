@@ -29,7 +29,7 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 	}
 
 	asSet  { :self |
-		self.values.Set
+		self.values.asSet
 	}
 
 	allocatedSize { :self |
@@ -189,8 +189,11 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 		RunArray(runs, values)
 	}
 
-	RunArray { :self |
-		RunArray(self.collect(key:/1), self.collect(value:/1))
+	associationArrayToRunArray { :self |
+		RunArray(
+			self.collect(key:/1),
+			self.collect(value:/1)
+		)
 	}
 
 	RunArray { :self :values |

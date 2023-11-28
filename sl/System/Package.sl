@@ -126,7 +126,7 @@ Package! : [Object] {
 			]) {
 				self.error('parsePackageHeader: unknown field: ' ++ key)
 			}
-		}.concatenation.Record
+		}.concatenation.asRecord
 	}
 
 	parseQualifiedPackageName { :self |

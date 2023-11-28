@@ -1,20 +1,23 @@
 # Record -- collection type
 
-- _Record(anAssociationArray)_
-- _Record(aMap)_
+A _Record_ is a _Dictionary_ type where all the keys are strings.
 
-_Record_ is a _Dictionary_ type where all the keys are strings.
+There is a literal syntax for records.
 
-	['x' -> 3.141, 'y' -> 23].Record.json = '{"x":3.141,"y":23}'
-	['x' -> 3.141, 'y' -> 23].Record = (x: 3.141, y: 23).Record
-	['pi' -> pi].Record.isDictionary = true
+	(x: 3.141, y: 23).isRecord
 
-At the ordinary constructor it is an error if any key is not a string.
+There is a conversion method from association lists:
+
+	['x' -> 3.141, 'y' -> 23].asRecord.json = '{"x":3.141,"y":23}'
+	['x' -> 3.141, 'y' -> 23].asRecord = (x: 3.141, y: 23)
+	['pi' -> pi].asRecord.isDictionary = true
+
+At the ordinary _asRecord_ constructor it is an error if any key is not a string.
 There is an _unsafeRecord_ form that coerces keys to strings.
 
-	{ [pi -> 'pi'].Record }.ifError { :err | true }
-	[pi -> 'pi'].Map.unsafeRecord.keys = ['3.141592653589793']
+	{ [pi -> 'pi'].asRecord }.ifError { :err | true }
+	[pi -> 'pi'].asMap.unsafeRecord.keys = ['3.141592653589793']
 
 * * *
 
-See also: Association, Dictionary, Map
+See also: asRecord, Association, Dictionary, Map

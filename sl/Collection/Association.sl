@@ -24,12 +24,12 @@ Association : [Object] { | key value |
 		self.key >= anAssociation.key
 	}
 
-	Array { :self |
-		[self.key, self.value]
-	}
-
 	first { :self |
 		self.key
+	}
+
+	asArray { :self |
+		[self.key, self.value]
 	}
 
 	keyValue { :self :key :value |

@@ -57,7 +57,7 @@
 		}
 	}
 
-	Array { :self |
+	asArray { :self |
 		| array = Array(self.size), index = 0; |
 		self.do { :each |
 			index +:= 1;
@@ -224,6 +224,10 @@
 		self.error('is not indexed/keyed')
 	}
 
+	fillFrom { :self :aCollection |
+		self.fillFromWith(aCollection, identity:/1)
+	}
+
 	groupBy { :self :keyBlock:/1 |
 		| result = Map(); |
 		self.do { :each |
@@ -371,11 +375,11 @@
 	}
 
 	sorted { :self |
-		self.Array.sort
+		self.asArray.sort
 	}
 
 	sorted { :self :sortBlock:/2 |
-		self.Array.sortBy(sortBlock:/2)
+		self.asArray.sortBy(sortBlock:/2)
 	}
 
 	symmetricDifference { :self :aCollection |

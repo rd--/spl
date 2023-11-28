@@ -7,8 +7,8 @@ Select an element of _aCollection_ at random.
 	| c = [1 .. 5]; | c.includes(c.atRandom)
 	| c = (1 .. 5); | c.includes(c.atRandom)
 	| c = (x: 1, y: 2); | c.values.includes(c.atRandom)
-	| c = [1 .. 5].Bag; | c.includes(c.atRandom)
-	| c = [1 .. 5].Set; | c.includes(c.atRandom)
+	| c = [1 .. 5].asBag; | c.includes(c.atRandom)
+	| c = [1 .. 5].asSet; | c.includes(c.atRandom)
 
 - _atRandom(anInteger)_
 

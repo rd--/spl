@@ -3,11 +3,11 @@
 A type to represent an interval of time.
 The base unit of time in the International System of Units (SI) is the second.
 
-- _Duration(aString)_
+- _parseDuration(aString)_
 
 Parse an ISO-8601 duration string.
 
-	'P3DT4H'.Duration = (3.days + 4.hours)
+	'P3DT4H'.parseDuration = (3.days + 4.hours)
 
 Durations are constructed from _Number_ values using the methods _milliseconds_, _seconds_, _minutes_, _hours_, _days_, _weeks_:
 

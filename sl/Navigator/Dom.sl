@@ -172,7 +172,7 @@
 	setPointerCapture { :self :pointerId | <primitive: return _self.setPointerCapture(_pointerId);> }
 
 	removeAllChildren { :self |
-		self.children.Array.do { :each |
+		self.children.asArray.do { :each |
 			each.remove
 		}
 	}
@@ -197,7 +197,7 @@
 	length { :self | <primitive: return _self.length;> }
 	namedItem { :self :aString | <primitive: return _self.namedItem(_aString);> }
 
-	Array { :self | <primitive: return Array.from(_self);> }
+	asArray { :self | <primitive: return Array.from(_self);> }
 
 }
 
@@ -687,7 +687,7 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 +Association {
 
 	asHtmlRow { :self :toString:/1 |
-		self.Array.asHtmlRow(toString:/1)
+		self.asArray.asHtmlRow(toString:/1)
 	}
 
 }

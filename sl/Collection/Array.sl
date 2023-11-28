@@ -31,6 +31,10 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 		<primitive: return _self.push(_anObject);>
 	}
 
+	asArray { :self |
+		self
+	}
+
 	atAllPut { :self :anObject |
 		<primitive:
 		_self.fill(_anObject);

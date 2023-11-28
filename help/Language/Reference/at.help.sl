@@ -20,8 +20,8 @@ Records (and all dictionaries) are indexable:
 
 Sets and Bags are not indexable:
 
-	{ [1, 2, 3].Set.at(1) }.ifError { true }
-	{ [1, 2, 3].Bag.at(1) }.ifError { true }
+	{ [1 2 3].asSet.at(1) }.ifError { true }
+	{ [1 2 3].asBag.at(1) }.ifError { true }
 
 There is [At Sytax] for accessing indexed values:
 

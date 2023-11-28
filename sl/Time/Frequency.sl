@@ -18,12 +18,12 @@ Frequency : [Object, Magnitude] { | hertz |
 		self.hertz < aFrequency.hertz
 	}
 
-	asHertz { :self |
-		self.hertz
+	asDuration { :self |
+		self.hertz.reciprocal.seconds
 	}
 
-	Duration { :self |
-		self.hertz.reciprocal.seconds
+	asHertz { :self |
+		self.hertz
 	}
 
 	cyclesPerMinute { :self |
@@ -70,7 +70,7 @@ Frequency : [Object, Magnitude] { | hertz |
 
 +Duration {
 
-	Frequency { :self |
+	asFrequency { :self |
 		self.seconds.reciprocal.hertz
 	}
 

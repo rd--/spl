@@ -66,7 +66,7 @@ Date! : [Object, Magnitude] {
 
 +SmallFloat {
 
-	Date { :self |
+	asDate { :self |
 		<primitive: return new Date(_self * 1000);>
 	}
 
@@ -74,7 +74,7 @@ Date! : [Object, Magnitude] {
 
 +String {
 
-	Date { :self |
+	parseDate { :self |
 		<primitive: return new Date(_self);>
 	}
 

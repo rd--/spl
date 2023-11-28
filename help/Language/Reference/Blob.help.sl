@@ -5,8 +5,8 @@
 
 A Blob is an opaque type containg binary data.
 
-	[1 .. 9].ByteArray.Blob.size = 9
-	[65 .. 69].ByteArray.Blob.text.then { :answer | (answer = 'ABCDE').postLine }
+	[1 .. 9].asByteArray.asBlob.size = 9
+	[65 .. 69].asByteArray.asBlob.text.then { :answer | (answer = 'ABCDE').postLine }
 
 * * *
 

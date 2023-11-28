@@ -4,7 +4,7 @@
 
 Answer a ByteArray of the Ascii encoding of _aString_, which must be an ascii string.
 
-	'ascii'.asciiByteArray = [97, 115, 99, 105, 105].ByteArray
+	'ascii'.asciiByteArray = [97 115 99 105 105].asByteArray
 
 * * *
 

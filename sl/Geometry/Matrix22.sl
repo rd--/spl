@@ -19,7 +19,7 @@ Matrix22 : [Object] { | a b c d |
 		)
 	}
 
-	Array { :self |
+	asArray { :self |
 		[self.a, self.b, self.c, self.d]
 	}
 
@@ -87,7 +87,7 @@ Matrix22 : [Object] { | a b c d |
 
 +Array {
 
-	Matrix22 { :self |
+	asMatrix22 { :self |
 		(self.size ~= 4).if {
 			self.error('Matrix22: not 4-element array')
 		} {

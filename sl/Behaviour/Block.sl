@@ -108,8 +108,10 @@ Block! : [Object] {
 		self.cull(aNumber)
 	}
 
-	newFrom { :self:/1 :anObject |
-		self(anObject)
+	newFrom { :self:/1 :aCollection |
+		| answer = self(aCollection.size); |
+		answer.fillFrom(aCollection);
+		answer
 	}
 
 	numArgsIfAbsent { :self :ifAbsent:/0 |

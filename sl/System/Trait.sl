@@ -39,7 +39,7 @@ Trait! : [Object] {
 +String {
 
 	isQualifiedTraitName { :self |
-		self[1] = '@'.Character
+		self[1] = '@'.asCharacter
 	}
 
 	parseQualifiedTraitName { :self |

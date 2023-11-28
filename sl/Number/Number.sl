@@ -136,7 +136,7 @@
 	}
 
 	log2 { :self |
-		self.SmallFloat.log2
+		self.asSmallFloat.log2
 	}
 
 	negated { :self |

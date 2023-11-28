@@ -2,6 +2,18 @@
 
 @PrimitiveMap {
 
+	asMap { :self |
+		self
+	}
+
+	asRecord { :self |
+		self.indices.allSatisfy(isString:/1).if {
+			self.unsafeRecord
+		} {
+			self.error('Record: not all keys are strings')
+		}
+	}
+
 	at { :self :key |
 		<primitive:
 		if(_self.has(_key)) {
@@ -50,7 +62,7 @@ Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictiona
 
 	json { :self :replacer :space |
 		self.indices.allSatisfy(isString:/1).if {
-			self.Record.json(replacer, space)
+			self.asRecord.json(replacer, space)
 		} {
 			self.error('json: not all keys are strings')
 		}
@@ -58,18 +70,6 @@ Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictiona
 
 	indices { :self |
 		<primitive: return Array.from(_self.keys());>
-	}
-
-	Map { :self |
-		self
-	}
-
-	Record { :self |
-		self.indices.allSatisfy(isString:/1).if {
-			self.unsafeRecord
-		} {
-			self.error('Record: not all keys are strings')
-		}
 	}
 
 	removeAll { :self |
@@ -90,7 +90,7 @@ Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictiona
 	}
 
 	storeString { :self |
-		self.associations.storeString ++ '.Map'
+		self.associations.storeString ++ '.asMap'
 	}
 
 	unsafeRecord { :self |
@@ -118,8 +118,8 @@ Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictiona
 		<primitive: return new Map(_self);>
 	}
 
-	Map { :self |
-		self.collect(Array:/1).mapFromTwoElementArrays
+	asMap { :self |
+		self.collect(asArray:/1).mapFromTwoElementArrays
 	}
 
 }
@@ -134,7 +134,7 @@ Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictiona
 
 +Record {
 
-	Map { :self |
+	asMap { :self |
 		<primitive: return new Map(Object.entries(_self));>
 	}
 

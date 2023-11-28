@@ -3,14 +3,17 @@
 A run array provides space-efficient storage of data which tends to be constant over long runs of the possible indices.
 Repeated values are stored singly and associated with a "run" length denoting the number of consecutive occurrences of the value.
 
-- _RunArray(associationSequence)_
 - _RunArray(runSequence, valueSequence)_
 
-The unary form reads a sequence of _run -> value_ associations.
-The binary form reads runs and values from separate sequences.
+Construct a RunArray from runs and values:
 
-	RunArray([1 -> 'a', 3 -> 'b', 5 -> 'c']).asArray.join = 'abbbccccc'
 	RunArray([1, 3, 5], ['a', 'b', 'c']).asArray.join = 'abbbccccc'
+
+- _asRunArray(anArraySequence)_
+
+The unary form reads a sequence of _run -> value_ associations.
+
+	'abbbccccc'.asArray.asRunArray.runs = [1 3 5]
 
 The method _runs_ answers an array of how many elements are in each run,
 and the method _values_ answer an array of what the value is over those elements.

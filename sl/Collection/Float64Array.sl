@@ -22,8 +22,8 @@ Float64Array! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed]
 
 +[Array, Interval] {
 
-	Float64Array { :self |
-		Float64Array(self.size).fillFromWith(self, identity:/1)
+	asFloat64Array { :self |
+		Float64Array(self.size).fillFrom(self)
 	}
 
 }

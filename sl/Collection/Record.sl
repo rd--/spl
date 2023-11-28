@@ -1,5 +1,9 @@
 Record! : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 
+	asRecord { :self |
+		self
+	}
+
 	at { :self :aString |
 		<primitive:
 		if(Object.hasOwn(_self, _aString)) {
@@ -46,10 +50,6 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 		Record:/0
 	}
 
-	Record { :self |
-		self
-	}
-
 	storeString { :self |
 		[
 			'(',
@@ -81,11 +81,11 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 		<primitive: return Object.fromEntries(_self);>
 	}
 
-	Record { :self |
+	asRecord { :self |
 		self.collect(key:/1).allSatisfy(isString:/1).if {
-			self.collect(Array:/1).recordFromTwoElementArrays
+			self.collect(asArray:/1).recordFromTwoElementArrays
 		} {
-			self.error('Record: not all keys are strings')
+			self.error('Array>>asRecord: not all keys are strings')
 		}
 	}
 

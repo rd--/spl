@@ -7,7 +7,7 @@ Duration : [Object, Magnitude] { | milliseconds |
 	}
 
 	< { :self :aDuration |
-		self.milliseconds < aDuration.Duration.milliseconds
+		self.milliseconds < aDuration.asDuration.milliseconds
 	}
 
 	* { :self :aNumber |
@@ -19,18 +19,18 @@ Duration : [Object, Magnitude] { | milliseconds |
 	}
 
 	+ { :self :aDuration |
-		(self.milliseconds + aDuration.Duration.milliseconds).milliseconds
+		(self.milliseconds + aDuration.asDuration.milliseconds).milliseconds
 	}
 
 	- { :self :aDuration |
-		(self.milliseconds - aDuration.Duration.milliseconds).milliseconds
+		(self.milliseconds - aDuration.asDuration.milliseconds).milliseconds
 	}
 
 	abs { :self |
 		self.milliseconds.abs.milliseconds
 	}
 
-	Duration { :self |
+	asDuration { :self |
 		self
 	}
 
@@ -82,7 +82,7 @@ Duration : [Object, Magnitude] { | milliseconds |
 		(self * 365.259636).days
 	}
 
-	Duration { :self |
+	asDuration { :self |
 		self.error('Duration: no units specified')
 	}
 
@@ -172,7 +172,7 @@ Duration : [Object, Magnitude] { | milliseconds |
 		>
 	}
 
-	Duration { :self |
+	parseDuration { :self |
 		|(
 			[
 				years, months, weeks, days,
@@ -180,7 +180,7 @@ Duration : [Object, Magnitude] { | milliseconds |
 			] = self.parseIso8601DurationAsArray
 		)|
 		(years + months > 0).if {
-			self.error('Duration: includes non-zero year or month fields')
+			self.error('String>>asDuration: includes non-zero year or month fields')
 		} {
 			weeks.weeks + days.days + hours.hours + minutes.minutes + seconds.seconds
 		}

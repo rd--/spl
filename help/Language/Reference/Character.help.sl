@@ -1,18 +1,18 @@
 # Character -- text type
 
-- _Character(anInteger)_
-- _Character(aString)_
+- _Character(aString, anInteger)_
 
-A Character can be constructed either from a single character string, or from a unicode code point.
+A Character is constructed from a single character string and a unicode code point.
 
-The _codePoint_ method retrieves the unicode code point and the _string_ method retrieves the single element string.
+The _codePoint_ method retrieves the unicode code point,
+and the _string_ method retrieves the single element string.
 
-	'x'.Character.codePoint = 120
-	120.Character.string = 'x'
+	'x'.asCharacter.codePoint = 120
+	120.asCharacter.string = 'x'
 
 Characters are cached on construction, and are therefore identical.
 
-	'x'.Character == 120.Character
+	'x'.asCharacter == 120.asCharacter
 
 There is no literal syntax for characters.
 

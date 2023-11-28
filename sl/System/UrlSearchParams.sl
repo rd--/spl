@@ -121,13 +121,17 @@ URLSearchParams! : [Object, Iterable, UrlSearchParams] {
 
 }
 
-+[String, Record] {
-
-	asUrlSearchParams { :self |
-		self.UrlSearchParams
-	}
++String {
 
 	UrlSearchParams { :self |
+		<primitive: return new URLSearchParams(_self);>
+	}
+
+}
+
++Record {
+
+	asUrlSearchParams { :self |
 		<primitive: return new URLSearchParams(_self);>
 	}
 

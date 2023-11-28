@@ -100,8 +100,8 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed] {
 
 +[Array, Interval] {
 
-	ByteArray { :self |
-		ByteArray(self.size).fillFromWith(self, identity:/1)
+	asByteArray { :self |
+		ByteArray(self.size).fillFrom(self)
 	}
 
 }

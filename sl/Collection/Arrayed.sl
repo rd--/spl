@@ -1,7 +1,7 @@
 @Arrayed {
 
-	Array { :self |
-		Array(self.size).fillFromWith(self, identity:/1)
+	asArray { :self |
+		Array(self.size).fillFrom(self)
 	}
 
 	at { :self :index |
@@ -74,8 +74,10 @@
 	}
 
 	fillFromWith { :self :aCollection :aBlock:/1 |
-		aCollection.withIndexDo { :each :index |
-			self[index] := aBlock(each)
+		| index = 1; |
+		aCollection.do { :each |
+			self[index] := aBlock(each);
+			index +:= 1
 		};
 		self
 	}
@@ -190,7 +192,7 @@
 	}
 
 	storeString { :self |
-		self.Array.storeString ++ '.' ++ self.Type.name
+		self.asArray.storeString ++ '.as' ++ self.Type.name
 	}
 
 }

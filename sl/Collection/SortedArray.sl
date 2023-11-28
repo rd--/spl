@@ -20,7 +20,7 @@ SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable] {
 		}
 	}
 
-	Array { :self |
+	asArray { :self |
 		self.contents.copy
 	}
 
@@ -77,11 +77,11 @@ SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable] {
 
 +Array {
 
-	SortedArray { :self |
+	asSortedArray { :self |
 		newSortedArray().initializeSlots(self.sorted, lessThanEquals:/2)
 	}
 
-	SortedArray { :self :sortBlock:/2 |
+	asSortedArray { :self :sortBlock:/2 |
 		newSortedArray().initializeSlots(self.sorted(sortBlock:/2), sortBlock:/2)
 	}
 
@@ -89,11 +89,11 @@ SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable] {
 
 +@Collection {
 
-	SortedArray { :self |
-		self.SortedArray(lessThanEquals:/2)
+	asSortedArray { :self |
+		self.asSortedArray(lessThanEquals:/2)
 	}
 
-	SortedArray { :self :aSortBlock:/2 |
+	asSortedArray { :self :aSortBlock:/2 |
 		| answer = SortedArray(); |
 		answer.sortBlock := aSortBlock:/2;
 		answer.addAll(self);

@@ -205,7 +205,7 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 
 +Array {
 
-	Heap { :self |
+	asHeap { :self |
 		newHeap().initializeSlots(self, nil, nil)
 	}
 
@@ -213,8 +213,8 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 
 +Interval {
 
-	Heap { :self |
-		self.asArray.Heap
+	asHeap { :self |
+		self.asArray.asHeap
 	}
 
 }

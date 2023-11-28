@@ -24,11 +24,11 @@
 	}
 
 	addAllFirst { :self :aCollection |
-		self.addArrayFirst(aCollection.Array)
+		self.addArrayFirst(aCollection.asArray)
 	}
 
 	addAllLast { :self :aCollection |
-		self.addArrayLast(aCollection.Array)
+		self.addArrayLast(aCollection.asArray)
 	}
 
 	ofSize { :self :aNumber |

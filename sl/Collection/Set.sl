@@ -122,12 +122,8 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 
 +Array {
 
-	Set { :self |
-		<primitive: return new Set(_self);>
-	}
-
 	asSet { :self |
-		self.Set
+		<primitive: return new Set(_self);>
 	}
 
 }
@@ -145,7 +141,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 +@Dictionary {
 
 	asSet { :self |
-		self.values.Set
+		self.values.asSet
 	}
 
 }

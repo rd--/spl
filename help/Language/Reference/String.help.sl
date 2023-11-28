@@ -11,7 +11,7 @@ There is a Character type.
 Iterating over a string supplies each succesive Character of the String,
 and fetching an indexed location in a string answers a Character.
 
-	'string'[1] = 's'.Character
+	'string'[1] = 's'.asCharacter
 
 Strings are not arrays of Characters.
 

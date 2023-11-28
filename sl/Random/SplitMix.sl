@@ -25,7 +25,7 @@ SplitMix : [Object, Random] { | next |
 +Void {
 
 	SplitMix {
-		system.unixTimeInMilliseconds.SplitMix
+		SplitMix(system.unixTimeInMilliseconds)
 	}
 
 }

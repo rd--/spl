@@ -5,7 +5,6 @@
 	'Bitset'
 	'ByteArray'
 	'CategoryDictionary'
-	'Converting' (* < Requires: Bag *)
 	'Float32Array'
 	'Float64Array'
 	'Graph'
@@ -20,6 +19,7 @@
 
 	(* Geometry *)
 	'Angle'
+	'CartesianCoordinate'
 	'Length'
 	'Matrix22'
 	'Matrix33'

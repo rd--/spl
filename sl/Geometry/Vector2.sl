@@ -62,7 +62,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 		aBlock(aNumber @ aNumber, self)
 	}
 
-	Array { :self |
+	asArray { :self |
 		[self.x, self.y]
 	}
 
@@ -84,10 +84,6 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 
 	printString { :self |
 		[self.x, '@', self.y].join
-	}
-
-	Point { :self |
-		self.copy
 	}
 
 	r { :self |
@@ -128,7 +124,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 
 +Array {
 
-	Vector2 { :self |
+	asVector2 { :self |
 		(self.size ~= 2).if {
 			self.error('Vector2: not 2-element array')
 		} {
@@ -153,12 +149,12 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 		Point(self, self)
 	}
 
-	Point { :self :y |
-		Vector2(self, y)
+	Point { :x :y |
+		Vector2(x, y)
 	}
 
-	Vector2 { :self :y |
-		newVector2().initializeSlots(self, y)
+	Vector2 { :x :y |
+		newVector2().initializeSlots(x, y)
 	}
 
 }

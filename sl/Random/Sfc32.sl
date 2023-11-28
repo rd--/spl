@@ -48,11 +48,11 @@ Sfc32 : [Object, Random] { | next |
 +SmallFloat {
 
 	Random { :self |
-		self.Sfc32
+		Sfc32(self)
 	}
 
 	Sfc32 { :self |
-		self.truncated.asWords.Sfc32
+		Sfc32(self.truncated.asWords)
 	}
 
 }
@@ -60,11 +60,11 @@ Sfc32 : [Object, Random] { | next |
 +Void {
 
 	Random {
-		self.Sfc32
+		Sfc32()
 	}
 
 	Sfc32 {
-		system.unixTimeInMilliseconds.Sfc32
+		Sfc32(system.unixTimeInMilliseconds)
 	}
 
 }

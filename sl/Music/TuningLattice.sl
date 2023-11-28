@@ -6,14 +6,14 @@
 		| answer = Set(); |
 		answer.includeAll(self.numerator.primeFactors);
 		answer.includeAll(self.denominator.primeFactors);
-		answer.without(2).Array.sort
+		answer.without(2).asArray.sort
 	}
 
 	latticeVector { :self :primes |
 		|(
 			pf1 = self.numerator.primeFactors,
 			pf2 = self.denominator.primeFactors.collect(negated:/1),
-			pf3 = (pf1 ++ pf2).Bag
+			pf3 = (pf1 ++ pf2).asBag
 		)|
 		primes.collect { :each |
 			pf3.occurrencesOf(each) - pf3.occurrencesOf(each.negated)
@@ -68,7 +68,7 @@
 		self.ratios.do { :each |
 			answer.includeAll(each.latticePrimes)
 		};
-		answer.Array.sort
+		answer.asArray.sort
 	}
 
 	latticeVertices { :self :primes |

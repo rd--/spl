@@ -227,8 +227,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	primeFactorization { :self |
 		|(
-			n = self.numerator.primeFactors.Bag.sortedElements,
-			d = self.denominator.primeFactors.Bag.sortedElements.collect { :each |
+			n = self.numerator.primeFactors.asBag.sortedElements,
+			d = self.denominator.primeFactors.asBag.sortedElements.collect { :each |
 				each.key -> each.value.negated
 			}
 		)|
@@ -291,7 +291,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
-	SmallFloat { :self |
+	asSmallFloat { :self |
 		self.asFloat
 	}
 
@@ -380,7 +380,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 +String {
 
 	asNumber { :self |
-		self.includes(':'.Character).if {
+		self.includes(':'.asCharacter).if {
 			self.parseFraction
 		} {
 			self.parseNumber

@@ -7,7 +7,7 @@ Matrix33 : [Object] { | elements |
 	}
 
 	applyTo { :self :vector |
-		| [a, b, c, d, e, f, g, h, i] = self.elements, [x, y, z] = vector.Array; |
+		| [a, b, c, d, e, f, g, h, i] = self.elements, [x, y, z] = vector.asArray; |
 		Vector3(
 			(a * x) + (b * y) + (c * z),
 			(d * x) + (e * y) + (f * z),
@@ -15,12 +15,12 @@ Matrix33 : [Object] { | elements |
 		)
 	}
 
-	Array { :self |
+	asArray { :self |
 		self.elements.copy
 	}
 
 	copy { :self |
-		self.elements.copy.Matrix33
+		self.elements.copy.asMatrix33
 	}
 
 	determinant { :self |
@@ -79,16 +79,16 @@ Matrix33 : [Object] { | elements |
 +@Number {
 
 	Matrix33 { :self :b :c :d :e :f :g :h :i |
-		[self, b, c, d, e, f, g, h, i].Matrix33
+		[self, b, c, d, e, f, g, h, i].asMatrix33
 	}
 
 }
 
 +Array {
 
-	Matrix33 { :self |
+	asMatrix33 { :self |
 		(self.size ~= 9).if {
-			self.error('Matrix33: not 9-element array')
+			self.error('Array>>asMatrix33: not 9-element array')
 		} {
 			newMatrix33().initializeSlots(self)
 		}

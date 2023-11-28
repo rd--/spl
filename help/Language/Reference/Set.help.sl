@@ -8,7 +8,7 @@ The comparison operator is ==, not =, i.e. Set is an identity set, not an equali
 
 	Set().isSet
 	Set().size = 0
-	[1, 1, 2, 1, 2, 3].Set.size = 3
+	[1 1 2 1 2 3].asSet.size = 3
 
 * * *
 

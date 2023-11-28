@@ -92,13 +92,13 @@ String! : [Object, Json, Iterable] {
 			codePoint.isUtf16SurrogateCode.if {
 				self.error('at: code point is lone surrogate')
 			} {
-				codePoint.Character
+				codePoint.asCharacter
 			}
 		}
 	}
 
 	basicAt { :self :index |
-		self.codePointAt(index).Character
+		self.codePointAt(index).asCharacter
 	}
 
 	basicReplaceString { :self :stringToFind :stringToReplaceWith |
@@ -144,7 +144,7 @@ String! : [Object, Json, Iterable] {
 
 	collectInto { :self :aBlock:/1 :aCollection |
 		self.primitiveCollectInto({ :each |
-			aBlock(each.Character)
+			aBlock(each.asCharacter)
 		}, [])
 	}
 
@@ -191,7 +191,7 @@ String! : [Object, Json, Iterable] {
 
 	do { :self :aBlock:/1 |
 		self.primitiveDo { :each |
-			aBlock(each.Character)
+			aBlock(each.asCharacter)
 		}
 	}
 

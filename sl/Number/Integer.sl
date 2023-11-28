@@ -244,7 +244,7 @@
 	}
 
 	primeFactorization { :self |
-		self.primeFactors.Bag.sortedElements
+		self.primeFactors.asBag.sortedElements
 	}
 
 	primeLimit { :self |

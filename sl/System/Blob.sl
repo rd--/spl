@@ -66,8 +66,8 @@ Blob! : [Object, Blob] {
 (*
 +[ByteArray, Float64Array] {
 
-	Blob { :self |
-		[self].Blob
+	asBlob { :self |
+		[self].asBlob
 	}
 
 }

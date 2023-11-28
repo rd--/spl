@@ -10,7 +10,7 @@ In the String case answer _parseDecimalInteger_
 
 	false.asInteger = 0
 	true.asInteger = 1
-	'~'.Character.asInteger = 126
+	'~'.asCharacter.asInteger = 126
 	23.asInteger = 23
 	pi.asInteger = 3
 	22:7.asInteger = 3

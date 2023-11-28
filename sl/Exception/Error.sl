@@ -97,7 +97,7 @@ TypeError! : [Object, Exception, PrimitiveError] {
 	}
 
 	error { :self |
-		self.Error.signal
+		Error(self).signal
 	}
 
 }

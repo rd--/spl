@@ -238,7 +238,7 @@ System! : [Object, Cache, Indexable, Random] {
 					answer.include(method)
 				}
 			};
-			answer.Array
+			answer.asArray
 		} {
 			('methodImplementations: not a methodName: ' ++ methodName).error
 		}
@@ -355,7 +355,7 @@ System! : [Object, Cache, Indexable, Random] {
 				each -> each.stringArray.collect { :letter |
 					table[letter]
 				}.camelCase.join
-			}.Record
+			}.asRecord
 		}
 	}
 

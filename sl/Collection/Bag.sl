@@ -28,8 +28,12 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 		anObject
 	}
 
-	Bag { :self |
+	asBag { :self |
 		self
+	}
+
+	asSet { :self |
+		self.contents.indices.asSet
 	}
 
 	cumulativeCounts { :self |
@@ -93,10 +97,6 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 		self.contents.removeAll
 	}
 
-	Set { :self |
-		self.contents.indices.Set
-	}
-
 	setContents { :self :aDictionary |
 		self.contents := aDictionary
 	}
@@ -122,7 +122,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 	}
 
 	storeString { :self |
-		self.contents.storeString ++ '.Bag'
+		self.contents.storeString ++ '.asBag'
 	}
 
 	species { :self |
@@ -157,7 +157,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 
 +@Collection {
 
-	Bag { :self |
+	asBag { :self |
 		| answer = Bag(); |
 		answer.addAll(self);
 		answer

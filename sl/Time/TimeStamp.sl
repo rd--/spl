@@ -13,23 +13,23 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 	}
 
 	+ { :self :aDuration |
-		(self.unixTimeInMilliseconds + aDuration.milliseconds).TimeStamp
+		(self.unixTimeInMilliseconds + aDuration.milliseconds).asTimeStamp
 	}
 
 	- { :self :aDuration |
-		(self.unixTimeInMilliseconds - aDuration.milliseconds).TimeStamp
+		(self.unixTimeInMilliseconds - aDuration.milliseconds).asTimeStamp
+	}
+
+	asDate { :self |
+		self.unixTimeInSeconds.asDate
 	}
 
 	asTimeStamp { :self |
 		self
 	}
 
-	Date { :self |
-		self.unixTimeInSeconds.Date
-	}
-
 	iso8601 { :self |
-		self.Date.iso8601
+		self.asDate.iso8601
 	}
 
 	roundTo { :self :aDuration |
@@ -50,12 +50,16 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 +System {
 
 	unixTime { :self |
-		self.unixTimeInMilliseconds.TimeStamp
+		self.unixTimeInMilliseconds.asTimeStamp
 	}
 
 }
 
 +SmallFloat {
+
+	asTimeStamp { :self |
+		TimeStamp(self)
+	}
 
 	TimeStamp { :self |
 		newTimeStamp().initializeSlots(self)
