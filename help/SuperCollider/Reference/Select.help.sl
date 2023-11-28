@@ -45,4 +45,4 @@ For selecting from an array consider also _BufRd_.
 
 * * *
 
-See also: BufRd
+See also: BufRd, SelectX, SelectXFocus, LinSelectX
