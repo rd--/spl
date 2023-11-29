@@ -66,14 +66,19 @@
   (spl-netcat-cmd 'evalFile 'fileName buffer-file-name))
 
 (defun spl-play-region ()
-  "Play region at Spl server."
+  "Play Ugen graph of current region."
   (interactive)
   (spl-netcat-cmd 'evalText 'text (format "{ %s }.play" (spl-get-selection))))
 
 (defun spl-draw-region ()
-  "Draw region at Spl server."
+  "Draw Ugen graph of current region."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (format "{ %s }.draw" (spl-get-selection))))
+  (spl-netcat-cmd 'evalText 'text (format "{ %s }.drawUgenGraph" (spl-get-selection))))
+
+(defun spl-print-region ()
+  "Print Ugen graph of current region."
+  (interactive)
+  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.printUgenGraph" (spl-get-selection))))
 
 (defun spl-play-current-file ()
   "Play current file at Spl server."
@@ -219,6 +224,7 @@
   "Install Spl keybindings into MAP."
   (define-key map (kbd "C-c C-h") 'spl-help)
   (define-key map (kbd "C-c C-a") 'spl-play-region)
+  (define-key map (kbd "C-c C-g") 'spl-draw-region)
   (define-key map (kbd "C-c C-e") 'spl-eval-region)
   (define-key map (kbd "C-c C-k") 'spl-reset-scsynth)
   (define-key map (kbd "C-c C-s") 'spl-stop)

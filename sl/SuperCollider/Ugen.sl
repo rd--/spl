@@ -86,3 +86,11 @@ Ugen! : [Object, Number] {
 	}
 
 }
+
++[Ugen, Array] {
+
+	printUgenGraph { :self |
+		<primitive: return sc.printSyndefOfAt(self, self.busOffset);>
+	}
+
+}

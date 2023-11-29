@@ -158,8 +158,9 @@
 			}
 		)|
 		levelComp.ifTrue {
-			 (* Cf. <https://github.com/supercollider/supercollider/issues/5706> *)
-			level := level * n.reciprocal
+			(* Cf. <https://github.com/supercollider/supercollider/issues/5706>
+				Note that deleting .sqrt can dramatically alter feedback paths. *)
+			level := level * n.reciprocal.sqrt
 		};
 		PanAz(numChannels, inArray, pos, level, width, orientation).flop.collect(sum:/1)
 	}

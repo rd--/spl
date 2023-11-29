@@ -124,13 +124,14 @@ ScSynth! : [Object] {
 
 +Block {
 
-	draw { :self:/0 |
+	drawUgenGraph { :self:/0 |
 		|(
 			ugenGraph = self(),
 			syndefName = 'Anonymous',
-			syndefFileName = '/tmp/splDrawUgenGraph.scsyndef'
+			syndefFileName = '/tmp/splDrawUgenGraph.scsyndef',
+			graphDef = syndefName.encodeUgenAt(ugenGraph.busOffset, ugenGraph)
 		)|
-		syndefFileName.writeFile(syndefName.encodeUgen(ugenGraph)).then { :unused |
+		syndefFileName.writeFile(graphDef).then { :unused |
 			'hsc3-dot'.callSubProcess(['scsyndef-draw', syndefFileName])
 		}
 	}
