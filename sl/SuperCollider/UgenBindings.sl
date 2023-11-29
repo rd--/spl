@@ -291,6 +291,9 @@
 	VbJonVerb { :in :decay :damping :inputbw :erfl :tail | <primitive: return sc.VbJonVerb(_in, _decay, _damping, _inputbw, _erfl, _tail);> }
 	Vosim { :trig :freq :nCycles :decay | <primitive: return sc.Vosim(_trig, _freq, _nCycles, _decay);> }
 	WaveLoss { :in :drop :outof :mode | <primitive: return sc.WaveLoss(_in, _drop, _outof, _mode);> }
+	WDistances { :gate :x :y :z :coordinateArray | <primitive: return sc.WDistances(_gate, _x, _y, _z, _coordinateArray);> }
+	WkNearest { :numChannels :gate :x :y :z :coordinateArray | <primitive: return sc.WkNearest(_numChannels, _gate, _x, _y, _z, _coordinateArray);> }
+	WaveLoss { :in :drop :outof :mode | <primitive: return sc.WaveLoss(_in, _drop, _outof, _mode);> }
 }
 
 (* Auto-generated *)
