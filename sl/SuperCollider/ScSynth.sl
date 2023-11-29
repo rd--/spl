@@ -124,6 +124,17 @@ ScSynth! : [Object] {
 
 +Block {
 
+	draw { :self:/0 |
+		|(
+			ugenGraph = self(),
+			syndefName = 'Anonymous',
+			syndefFileName = '/tmp/splDrawUgenGraph.scsyndef'
+		)|
+		syndefFileName.writeFile(syndefName.encodeUgen(ugenGraph)).then { :unused |
+			'hsc3-dot'.callSubProcess(['scsyndef-draw', syndefFileName])
+		}
+	}
+
 	play { :self:/0 |
 		self:/0.playAt(nil)
 	}

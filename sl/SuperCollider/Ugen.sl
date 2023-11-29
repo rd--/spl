@@ -41,7 +41,7 @@ Ugen! : [Object, Number] {
 +String {
 
 	encodeUgenAt { :self :bus :ugen |
-		<primitive: return sc.encodeUgen(_self, sc.wrapOut(bus, _aUgen));>
+		<primitive: return sc.encodeUgen(_self, sc.wrapOut(_bus, _ugen));>
 	}
 
 	encodeUgen { :self :ugen |

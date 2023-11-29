@@ -5,7 +5,7 @@ check-ts:
 	deno check --config deno.json *.ts
 
 deno=rlwrap --always-readline deno
-cli=$(deno) run --allow-read --allow-env --allow-net --unstable cli.ts --dir=../sl
+cli=$(deno) run --allow-read --allow-env --allow-net --allow-run --allow-write --unstable cli.ts --dir=../sl
 
 spl-repl-core:
 	$(cli) replPerLine --strict

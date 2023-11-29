@@ -70,6 +70,11 @@
   (interactive)
   (spl-netcat-cmd 'evalText 'text (format "{ %s }.play" (spl-get-selection))))
 
+(defun spl-draw-region ()
+  "Draw region at Spl server."
+  (interactive)
+  (spl-netcat-cmd 'evalText 'text (format "{ %s }.draw" (spl-get-selection))))
+
 (defun spl-play-current-file ()
   "Play current file at Spl server."
   (interactive)
