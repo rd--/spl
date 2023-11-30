@@ -153,8 +153,8 @@
 			pos = (n = 1).if {
 				center
 			} {
-				| spreadMax = spread * (n - 1 / n); |
-				[center - spreadMax, center + spreadMax].resamp1(n)
+				| normalizedSpread = spread * ((n - 1) / n); |
+				[center - normalizedSpread, center + normalizedSpread].resamp1(n)
 			}
 		)|
 		levelComp.ifTrue {

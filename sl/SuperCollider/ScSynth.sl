@@ -132,7 +132,7 @@ ScSynth! : [Object] {
 			graphDef = syndefName.encodeUgenAt(ugenGraph.busOffset, ugenGraph)
 		)|
 		syndefFileName.writeFile(graphDef).then { :unused |
-			'hsc3-dot'.callSubProcess(['scsyndef-draw', syndefFileName])
+			'hsc3-dot'.systemCommand(['scsyndef-draw', syndefFileName])
 		}
 	}
 

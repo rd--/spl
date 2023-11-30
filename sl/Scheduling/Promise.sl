@@ -1,23 +1,23 @@
 Promise! : [Object] {
 
-	catch { :self :aBlock |
-		<primitive: return _self.catch(_aBlock);>
+	catch { :self :aBlock:/1 |
+		<primitive: return _self.catch(_aBlock_1);>
 	}
 
-	finally { :self :aBlock |
-		<primitive: return _self.finally(_aBlock);>
+	finally { :self :aBlock:/0 |
+		<primitive: return _self.finally(_aBlock_0);>
 	}
 
 	resolvedPromise { :self |
 		<primitive: return Promise.resolve(_self);>
 	}
 
-	then { :self :aBlock |
-		<primitive: return _self.then(_aBlock);>
+	then { :self :aBlock:/1 |
+		<primitive: return _self.then(_aBlock_1);>
 	}
 
-	thenElse { :self :onResolve :onReject |
-		<primitive: return _self.then(_onResolve, _onReject);>
+	thenElse { :self :onResolve:/1 :onReject:/1 |
+		<primitive: return _self.then(_onResolve_1, _onReject_1);>
 	}
 
 }
