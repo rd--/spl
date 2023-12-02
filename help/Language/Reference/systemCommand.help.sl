@@ -1,7 +1,22 @@
 # systemCommand -- subprocess
 
-- _systemCommand(commandName, arguments)_
+- _systemCommand(system, commandName, arguments)_
 
-Run _commandName_ with _arguments_ and answer a Promise of the exit code.
+Run _commandName_ with _arguments_ and answer a Promise of the result,
+a _Record_ with the fields _exitCode_, _outputText_ and _errorText_.
 
-	'cat'.systemCommand(['/etc/pwd']).then { :exitCode | exitCode.postLine }
+Test that a file exists:
+
+```
+system.systemCommand('test', ['-f', '/etc/passwd']).then { :result |
+	(result::exitCode = 0).postLine
+}
+```
+
+Count the words in a file:
+
+```
+system.systemCommand('wc', ['-w', '/etc/passwd']).then { :result |
+	result::outputText.postLine
+}
+```

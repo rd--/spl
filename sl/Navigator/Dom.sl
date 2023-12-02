@@ -801,6 +801,10 @@ NamedNodeMap! : [Object] {
 
 Navigator! : [Object] {
 
+	hardwareConcurrency { :self |
+		<primitive: return _self.hardwareConcurrency;>
+	}
+
 	maxTouchPoints { :self |
 		<primitive: return _self.maxTouchPoints;>
 	}

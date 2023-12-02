@@ -8,7 +8,7 @@ The named controls are collected altogether, sorted by name, and assigned indexe
 In simple cases the indices can be readily inferred, below _amp_ will have index zero and _freq_ index one.
 
 ```
-SinOsc(NamedControl("freq", 440), 0) * NamedControl("amp", 0.1)
+SinOsc(NamedControl('freq', 440), 0) * NamedControl('amp', 0.1)
 ```
 
 However as a rule if controls are specified using _NamedControl_ they should be set by name, not index.
@@ -17,9 +17,9 @@ There is an abbreviated notation illustrated below, _kr_ is simply an alias for 
 
 ```
 SinOsc([
-	"freq1".kr(440),
-	"freq2".kr(440 + 3)
-], 0) * "amp".kr(0.1)
+	'freq1'.kr(440),
+	'freq2'.kr(440 + 3)
+], 0) * 'amp'.kr(0.1)
 ```
 
 [Local Controls] and Named Controls can not be used together.

@@ -15,9 +15,9 @@
 	asCartesianCoordinate { :self |
 		|( r = self.r, theta = self.theta, phi = self.phi )|
 		Vector3(
-			r * theta.sin * phi.cos,
+			r * theta.cos * phi.sin,
 			r * theta.sin * phi.sin,
-			r * theta.cos
+			r * phi.cos
 		)
 	}
 
@@ -26,11 +26,11 @@
 	}
 
 	azimuth { :self |
-		self.phi
+		self.theta
 	}
 
 	elevation { :self |
-		(self.theta - (pi / 2)).negated
+		(self.phi - (pi / 2)).negated
 	}
 
 	equalBy { :self :anObject :aBlock:/2 |
@@ -44,7 +44,7 @@
 	}
 
 	inclination { :self |
-		self.theta
+		self.phi
 	}
 
 	radius { :self |
@@ -56,11 +56,7 @@
 	}
 
 	x { :self |
-		self.r * self.theta.sin * self.phi.cos
-	}
-
-	xy { :self |
-		Vector2(self.x, self.y)
+		self.r * self.theta.cos * self.phi.sin
 	}
 
 	y { :self |
@@ -68,7 +64,7 @@
 	}
 
 	z { :self |
-		self.r * self.theta.cos
+		self.r * self.phi.cos
 	}
 
 }
@@ -78,6 +74,10 @@ SphericalCoordinate : [Object, SphericalCoordinate] { | r theta phi |
 }
 
 +@Number {
+
+	IsoSphericalCoordinate { :r :theta :phi |
+		newSphericalCoordinate().initializeSlots(r, phi, theta)
+	}
 
 	SphericalCoordinate { :r :theta :phi |
 		newSphericalCoordinate().initializeSlots(r, theta, phi)
@@ -108,8 +108,8 @@ SphericalCoordinate : [Object, SphericalCoordinate] { | r theta phi |
 		|( x = self.x, y = self.y, z = self.z )|
 		SphericalCoordinate(
 			(x.squared + y.squared + z.squared).sqrt,
-			(x.squared + y.squared).sqrt.atan2(z),
-			y.atan2(x)
+			y.atan2(x),
+			(x.squared + y.squared).sqrt.atan2(z)
 		)
 	}
 

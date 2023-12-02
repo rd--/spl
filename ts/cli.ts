@@ -13,20 +13,36 @@ import * as evaluate from './evaluate.ts'
 import * as fileio from './fileio.ts'
 import * as kernel from './kernel.ts'
 import * as load from './load.ts'
-import { Preferences, preferencesRead } from './preferences.ts'
+import * as preferences from './preferences.ts'
 import * as sl from './sl.ts'
-import { slOptions } from './options.ts'
+import * as options from './options.ts'
 import * as repl from './repl.ts'
 
+function getCwd(): string {
+	return Deno.cwd();
+}
+
+function getEnv(variableName: string): string | null {
+	return Deno.env.get(variableName) || null;
+}
+
+function getEnvOr(variableName: string, defaultValue: string) {
+	return getEnv(variableName) || defaultValue;
+}
+
 function getSplDirectory(): string {
-	return Deno.env.get('SplDirectory') || '?';
+	return getEnv('SplDirectory') || '?';
 }
 
 function getHomeDirectory(): string {
-	return Deno.env.get('HOME') || '?';
+	return getEnv('HOME') || '?';
 }
 
 function getSplConfigurationDirectory(): string {
+	return '../config';
+}
+
+function getSplUserConfigurationDirectory(): string {
 	return [getHomeDirectory(), '.config/spl'].join('/');
 }
 
@@ -42,7 +58,7 @@ async function readSplPreferencesFile(): Promise<string> {
 	});
 }
 
-async function readSplPreferences(): Promise<Preferences> {
+async function readSplPreferences(): Promise<preferences.Preferences> {
 	const preferencesText = await readSplPreferencesFile();
 	return JSON.parse(preferencesText);
 }
@@ -61,7 +77,7 @@ function help(): void {
 	console.log('  rewriteFile fileName');
 	console.log('  runFile fileName --dir=loadPath [lib]');
 	console.log('  sc playFile --dir=loadPath');
-	console.log('  sc tcpServer portNumber --dir=loadPath');
+	console.log('  sc tcpServer --port=portNumber --dir=loadPath');
 	console.log('    --strict');
 	console.log('    --unsafe');
 	console.log('    --verbose');
@@ -92,10 +108,12 @@ async function scSynthFromEnv(): Promise<sc.ScSynth> {
 	}
 }
 
-async function scSynthFromPreferences(preferences: Preferences): Promise<sc.ScSynth> {
-	const protocol: string = preferencesRead(preferences, 'ScSynth.Protocol', 'Tcp');
-	const hostname: string = preferencesRead(preferences, 'ScSynth.Hostname', '127.0.0.1');
-	const port: number = preferencesRead(preferences, 'ScSynth.Port', 57110);
+async function scSynthFromPreferences(
+	splPreferences: preferences.Preferences
+): Promise<sc.ScSynth> {
+	const protocol: string = preferences.preferencesRead(splPreferences, 'ScSynth.Protocol', 'Tcp');
+	const hostname: string = preferences.preferencesRead(splPreferences, 'ScSynth.Hostname', '127.0.0.1');
+	const port: number = preferences.preferencesRead(splPreferences, 'ScSynth.Port', 57110);
 	console.debug('cli: scSynthFromPreferences (await)', protocol, hostname, port);
 	if(protocol == 'Tcp') {
 		return await scTcp.ScSynthTcp(hostname, port);
@@ -195,25 +213,28 @@ async function scCmd(cmd: string, opt: flags.Args): Promise<void> {
 	await loadSpl(opt, ['StandardLibrary', 'SuperColliderLibrary']);
 	switch(cmd) {
 	case 'playFile': scPlayFile(<string>opt._[2]); break;
-	case 'tcpServer': scTcpServer(Number(opt._[2])); break;
+	case 'tcpServer': scTcpServer(Number(opt.port)); break;
 	default: help(); break;
 	}
 }
 
 function cli(): void {
-	const args = flags.parse(Deno.args, { boolean: true });
+	const args = flags.parse(Deno.args, {
+		boolean: ["strict", "unsafe", "verbose"],
+		string: ["dir", "port"]
+	});
 	if(args._.length < 1) {
 		help();
 	} else {
 		if(args.strict) {
-			slOptions.insertArityCheck = true;
-			slOptions.uncheckedIndexing = false;
+			options.slOptions.insertArityCheck = true;
+			options.slOptions.uncheckedIndexing = false;
 		}
 		if(args.unsafe) {
-			slOptions.insertArityCheck = false;
-			slOptions.uncheckedIndexing = true;
+			options.slOptions.insertArityCheck = false;
+			options.slOptions.uncheckedIndexing = true;
 		}
-		// console.debug('slOptions: ', slOptions);
+		// console.debug('slOptions: ', options.slOptions);
 		switch(args._[0]) {
 		case 'replPerLine': replPerLine(args, args._.slice(1)); break;
 		case 'rewriteFile': rewriteFile(<string>args._[1]); break;

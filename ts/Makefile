@@ -35,7 +35,7 @@ spl-repl-ui:
 	$(cli) replPerLine StandardLibrary SuperColliderLibrary SmallKansasLibrary --strict
 
 spl-server:
-	$(cli) sc tcpServer 3010
+	$(cli) sc tcpServer --port=3010
 
 ln-stc:
 	ln -s ~/sw/stsc3 lib/
