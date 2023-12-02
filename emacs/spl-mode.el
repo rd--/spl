@@ -40,46 +40,59 @@
   (let ((filename "/tmp/spl-netcat.json")
 	(text (json-encode `((command . ,cmd) (,key . ,value)))))
     (spl-write-text-file filename text)
-    (shell-command (format "netcat 127.0.0.1 3010 < %s" filename)))) ; -q 0 -C
+    (shell-command (format "ncat 127.0.0.1 3010 < %s" filename)))) ; netcat -q 0 -C
 
 (defun spl-delete-markdown-code-fences (str)
   "Remove Mardown code fences from the string STR if present."
   (replace-regexp-in-string "^```" "" str))
 
-(defun spl-get-selection ()
-  "Get the currently selected text as a string, with code fences deleted."
+(defun spl-set-region-to-paragraph ()
+  "Set the mark at the start and point at the end of the current paragraph."
+  (interactive)
+  (backward-paragraph)
+  (recenter t)
+  (push-mark nil t t)
+  (forward-paragraph))
+
+(defun spl-get-text (start end)
+  "Get the text from start to end as a string, with code fences deleted."
   (spl-delete-markdown-code-fences
-   (buffer-substring-no-properties (region-beginning) (region-end))))
+   (buffer-substring-no-properties start end)))
 
-(defun spl-eval-region ()
-  "Evaluate region at Spl server."
-  (interactive)
-  (spl-netcat-cmd 'evalText 'text (spl-get-selection)))
+(defun spl-get-paragraph ()
+  "Get the currently paragraph as a string, with code fences deleted."
+  (spl-set-region-to-paragraph)
+  (spl-get-text (region-beginning) (region-end)))
 
-(defun spl-print-ugen-graph-of-region ()
-  "Evaluate .printUgenGraph of region at Spl server."
+(defun spl-eval-paragraph ()
+  "Evaluate paragraph at Spl server."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.printUgenGraph" (spl-get-selection))))
+  (spl-netcat-cmd 'evalText 'text (spl-get-paragraph)))
+
+(defun spl-print-ugen-graph-of-paragraph ()
+  "Evaluate .printUgenGraph at Spl server."
+  (interactive)
+  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.printUgenGraph" (spl-get-paragraph))))
 
 (defun spl-eval-current-file ()
   "Load current file at Spl server."
   (interactive)
   (spl-netcat-cmd 'evalFile 'fileName buffer-file-name))
 
-(defun spl-play-region ()
-  "Play Ugen graph of current region."
+(defun spl-play-paragraph ()
+  "Play Ugen graph of current paragraph."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (format "{ %s }.play" (spl-get-selection))))
+  (spl-netcat-cmd 'evalText 'text (format "{ %s }.play" (spl-get-paragraph))))
 
-(defun spl-draw-region ()
-  "Draw Ugen graph of current region."
+(defun spl-draw-paragraph ()
+  "Draw Ugen graph of current paragraph."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (format "{ %s }.drawUgenGraph" (spl-get-selection))))
+  (spl-netcat-cmd 'evalText 'text (format "{ %s }.drawUgenGraph" (spl-get-paragraph))))
 
-(defun spl-print-region ()
-  "Print Ugen graph of current region."
+(defun spl-print-paragraph ()
+  "Print Ugen graph of current paragraph."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.printUgenGraph" (spl-get-selection))))
+  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.printUgenGraph" (spl-get-paragraph))))
 
 (defun spl-play-current-file ()
   "Play current file at Spl server."
@@ -224,9 +237,9 @@
 (defun spl-fill-mode-map (map)
   "Install Spl keybindings into MAP."
   (define-key map (kbd "C-c C-h") 'spl-help)
-  (define-key map (kbd "C-c C-a") 'spl-play-region)
-  (define-key map (kbd "C-c C-g") 'spl-draw-region)
-  (define-key map (kbd "C-c C-e") 'spl-eval-region)
+  (define-key map (kbd "C-c C-a") 'spl-play-paragraph)
+  (define-key map (kbd "C-c C-g") 'spl-draw-paragraph)
+  (define-key map (kbd "C-c C-e") 'spl-eval-paragraph)
   (define-key map (kbd "C-c C-k") 'spl-reset-scsynth)
   (define-key map (kbd "C-c C-s") 'spl-stop)
   (define-key map (kbd "C-c C-r") 'spl-insert-non-local-return)
