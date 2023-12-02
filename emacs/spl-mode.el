@@ -40,7 +40,7 @@
   (let ((filename "/tmp/spl-netcat.json")
 	(text (json-encode `((command . ,cmd) (,key . ,value)))))
     (spl-write-text-file filename text)
-    (shell-command (format "netcat -q 0 127.0.0.1 3010 < %s" filename)))) ; -C
+    (shell-command (format "netcat 127.0.0.1 3010 < %s" filename)))) ; -q 0 -C
 
 (defun spl-delete-markdown-code-fences (str)
   "Remove Mardown code fences from the string STR if present."
