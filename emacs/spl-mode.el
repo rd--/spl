@@ -7,9 +7,10 @@
 
 (require 'find-lisp)
 (require 'font-lock)
+(require 'imenu)
+(require 'json)
 (require 'sclang-mode)
 (require 'thingatpt)
-(require 'imenu)
 
 (defvar spl-directory nil
   "The Spl directory (default=nil).")
