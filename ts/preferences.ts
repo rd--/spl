@@ -1,17 +1,20 @@
 export type Preferences = Record<string, any>;
 
-export function preferencesRead<T>(preferences: Preferences, key: string, defaultValue: T): T {
+export function preferencesRead<T>(
+	preferences: Preferences,
+	key: string,
+	defaultValue: T,
+): T {
 	const configuration: string = preferences['Configuration'];
 	const configurationEntry: T | null = preferences[configuration][key];
-	if(configurationEntry) {
+	if (configurationEntry) {
 		return configurationEntry;
 	} else {
 		const defaultEntry: T | null = preferences['Default'][key];
-		if(defaultEntry) {
+		if (defaultEntry) {
 			return defaultEntry;
 		} else {
 			return defaultValue;
 		}
 	}
 }
-

@@ -1,4 +1,4 @@
-import { stringCapitalizeFirstLetter } from '../lib/jssc3/ts/kernel/string.ts'
+import { stringCapitalizeFirstLetter } from '../lib/jssc3/ts/kernel/string.ts';
 
 /*
 The characters ':' and ';' and '.' aren't allowed in operator names.
@@ -10,7 +10,7 @@ export function isOperatorName(name: string): boolean {
 	return operatorCharacters.includes(name.charAt(0));
 }
 
-export const operatorCharacterNameTable: Record<string,string> = {
+export const operatorCharacterNameTable: Record<string, string> = {
 	'+': 'plus',
 	'*': 'times', // asterisk
 	'-': 'minus',
@@ -31,12 +31,16 @@ export const operatorCharacterNameTable: Record<string,string> = {
 	'$': 'dollar', // dollarSign
 	':': 'colon',
 	';': 'semicolon',
-	'.': 'dot' // period fullStop
+	'.': 'dot', // period fullStop
 };
 
 export function operatorMethodName(operator: string): string {
-	const words = [...operator].map((letter) => operatorCharacterNameTable[letter]);
-	return words.slice(0, 1).concat(words.slice(1).map(stringCapitalizeFirstLetter)).join('');
+	const words = [...operator].map((letter) =>
+		operatorCharacterNameTable[letter]
+	);
+	return words.slice(0, 1).concat(
+		words.slice(1).map(stringCapitalizeFirstLetter),
+	).join('');
 }
 
 export function resolveMethodName(name: string): string {

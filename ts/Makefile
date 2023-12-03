@@ -4,6 +4,9 @@ dist:
 check-ts:
 	deno check --config deno.json *.ts
 
+fmt-ts:
+	deno fmt --use-tabs --single-quote
+
 deno=rlwrap --always-readline deno
 cli=$(deno) run --allow-read --allow-env --allow-net --allow-run --allow-write --unstable cli.ts --dir=../sl
 

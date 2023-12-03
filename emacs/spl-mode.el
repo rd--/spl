@@ -50,7 +50,7 @@
   "Set the mark at the start and point at the end of the current paragraph."
   (interactive)
   (backward-paragraph)
-  (recenter t)
+  ; (recenter t)
   (push-mark nil t t)
   (forward-paragraph))
 

@@ -1,15 +1,14 @@
-import { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js'
-export { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js'
+import { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
+export { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
 
-import { MersenneTwister } from '../lib/scsynth-wasm-builds/lib/ext/mersenne-twister.ts'
+import { MersenneTwister } from '../lib/scsynth-wasm-builds/lib/ext/mersenne-twister.ts';
 
-import { throwError } from '../lib/jssc3/ts/kernel/error.ts'
+import { throwError } from '../lib/jssc3/ts/kernel/error.ts';
 
-import * as evaluate from './evaluate.ts'
-import { isOperatorName, operatorMethodName } from './operator.ts'
-import { slOptions } from './options.ts'
+import * as evaluate from './evaluate.ts';
+import { slOptions } from './options.ts';
 
-export { slGrammar, slSemantics, slParse } from './grammar.ts'
+export { slGrammar, slParse, slSemantics } from './grammar.ts';
 
 type Arity = number;
 type PackageName = string;
@@ -21,15 +20,15 @@ type QualifiedMethodName = string; // i.e. MethodName:/Arity
 type MethodSourceCode = string;
 type MethodOrigin = Trait | Type;
 
-type SlObject = object & {_type: TypeName};
+type SlObject = object & { _type: TypeName };
 
-type QualifiedMethodDictionary = Map<QualifiedMethodName, Method>
+type QualifiedMethodDictionary = Map<QualifiedMethodName, Method>;
 type TraitDictionary = Map<TraitName, Trait>;
 type TypeDictionary = Map<TypeName, Type>;
 
 type ByTypeMethodDictionary = Map<TypeName, Method>;
 type ByArityMethodDictionary = Map<Arity, ByTypeMethodDictionary>;
-type MethodDictionary = Map<MethodName, ByArityMethodDictionary>
+type MethodDictionary = Map<MethodName, ByArityMethodDictionary>;
 
 function isRecord(anObject: SlObject): boolean {
 	// console.debug(`isRecord: ${anObject}`);
@@ -38,17 +37,28 @@ function isRecord(anObject: SlObject): boolean {
 }
 
 function objectType(anObject: SlObject): TypeName {
-	return anObject instanceof Array ? 'Array' :
-		(anObject instanceof Map ? 'Map' :
-		 (anObject instanceof Set ? 'Set' :
-		  (anObject instanceof Promise ? 'Promise' :
-		   (anObject instanceof PriorityQueue ? 'PriorityQueue' :
-		    (anObject instanceof Uint8Array ? 'ByteArray' :
-		     (anObject instanceof Float64Array ? 'Float64Array' :
-		      (anObject instanceof Error ? 'Error' :
-		       (anObject instanceof WeakMap ? 'WeakMap' :
-		        (anObject._type ||
-		         (isRecord(anObject) ? 'Record' : anObject.constructor.name))))))))));
+	return anObject instanceof Array
+		? 'Array'
+		: (anObject instanceof Map
+			? 'Map'
+			: (anObject instanceof Set
+				? 'Set'
+				: (anObject instanceof Promise
+					? 'Promise'
+					: (anObject instanceof PriorityQueue
+						? 'PriorityQueue'
+						: (anObject instanceof Uint8Array
+							? 'ByteArray'
+							: (anObject instanceof Float64Array
+								? 'Float64Array'
+								: (anObject instanceof Error
+									? 'Error'
+									: (anObject instanceof WeakMap
+										? 'WeakMap'
+										: (anObject._type ||
+											(isRecord(anObject)
+												? 'Record'
+												: anObject.constructor.name))))))))));
 }
 
 /* This runs slower than the form above, is .constructor.name slow?
@@ -60,17 +70,25 @@ function objectType(anObject: SlObject): TypeName {
 */
 
 export function typeOf(anObject: unknown): TypeName {
-	if(anObject === null || anObject === undefined) {
+	if (anObject === null || anObject === undefined) {
 		return 'Nil';
 	} else {
 		switch (typeof anObject) {
-		case 'boolean': return 'Boolean';
-		case 'function': return 'Block';
-		case 'number': return 'SmallFloat';
-		case 'bigint': return 'LargeInteger';
-		case 'string': return 'String';
-		case 'object': return objectType(<SlObject>anObject);
-		default: throwError(`typeOf: unknown type: ${anObject}`); return 'Unknown';
+			case 'boolean':
+				return 'Boolean';
+			case 'function':
+				return 'Block';
+			case 'number':
+				return 'SmallFloat';
+			case 'bigint':
+				return 'LargeInteger';
+			case 'string':
+				return 'String';
+			case 'object':
+				return objectType(<SlObject> anObject);
+			default:
+				throwError(`typeOf: unknown type: ${anObject}`);
+				return 'Unknown';
 		}
 	}
 }
@@ -104,7 +122,7 @@ export function isString(anObject: unknown): anObject is string {
 }
 
 export function isSmallFloatInteger(anObject: unknown): anObject is number {
-	return isSmallFloat(anObject) && Number.isInteger(anObject)
+	return isSmallFloat(anObject) && Number.isInteger(anObject);
 }
 
 export function isByte(anObject: unknown): boolean {
@@ -113,7 +131,8 @@ export function isByte(anObject: unknown): boolean {
 
 // Unsigned 32-bit? 2^31=2147483648 2^32=4294967296
 export function isBitwise(anObject: unknown): boolean {
-	return isSmallFloatInteger(anObject) && (anObject >= -2147483648) && (anObject <= 2147483647);
+	return isSmallFloatInteger(anObject) && (anObject >= -2147483648) &&
+		(anObject <= 2147483647);
 }
 
 export class MethodInformation {
@@ -128,7 +147,7 @@ export class MethodInformation {
 		packageName: PackageName,
 		parameterNames: ParameterNames,
 		sourceCode: MethodSourceCode,
-		origin: MethodOrigin
+		origin: MethodOrigin,
 	) {
 		this.name = name;
 		this.packageName = packageName;
@@ -177,7 +196,7 @@ export class Type {
 		packageName: PackageName,
 		traitNameArray: TraitName[],
 		slotNameArray: string[],
-		methodDictionary: QualifiedMethodDictionary
+		methodDictionary: QualifiedMethodDictionary,
 	) {
 		this.name = name;
 		this.packageName = packageName;
@@ -202,7 +221,7 @@ export class Package {
 		requires: string[],
 		url: string,
 		text: string,
-		isLoaded: boolean
+		isLoaded: boolean,
 	) {
 		this.category = category;
 		this.name = name;
@@ -214,9 +233,9 @@ export class Package {
 }
 
 export function parsePackageRequires(text: string): string[] {
-	var firstLine = text.split('\n', 1)[0];
-	var packageNames = firstLine.match(/Requires: (.*)\*\)/);
-	if(packageNames) {
+	const firstLine = text.split('\n', 1)[0];
+	const packageNames = firstLine.match(/Requires: (.*)\*\)/);
+	if (packageNames) {
 		return packageNames[1].trim().split(' ');
 	} else {
 		return [];
@@ -230,7 +249,7 @@ export function evaluatePackage(pkg: Package): unknown {
 
 export async function evaluatePackageArrayInSequence(pkgArray: Package[]) {
 	// console.debug(`evaluatePackageArrayInSequence: '${pkgArray}'`);
-	for(let pkg of pkgArray) {
+	for (const pkg of pkgArray) {
 		await evaluatePackage(pkg);
 	}
 }
@@ -249,7 +268,7 @@ export class System {
 	constructor() {
 		this.methodDictionary = new Map();
 		this.traitDictionary = new Map();
-		this.typeDictionary = new Map(preinstalledTypes.map(function(each) {
+		this.typeDictionary = new Map(preinstalledTypes.map(function (each) {
 			return [each, new Type(each, 'Kernel', [], [], new Map())];
 		}));
 		this.window = window;
@@ -273,8 +292,8 @@ function methodExists(methodName: MethodName): boolean {
 }
 
 export function addTrait(traitName: TraitName, packageName: PackageName): void {
-	if(traitExists(traitName)) {
-		throw(`addTrait: trait exists: ${traitName}`);
+	if (traitExists(traitName)) {
+		throw (`addTrait: trait exists: ${traitName}`);
 	} else {
 		system.traitDictionary.set(traitName, new Trait(traitName, packageName));
 	}
@@ -287,38 +306,48 @@ export function addTraitMethod(
 	methodName: MethodName,
 	parameterNames: ParameterNames,
 	block: Function,
-	sourceCode: MethodSourceCode
+	sourceCode: MethodSourceCode,
 ): Method {
 	// console.debug(`addTraitMethod: ${traitName}, ${packageName}, ${methodName}, ${parameterNames}`);
-	if(traitExists(traitName)) {
+	if (traitExists(traitName)) {
 		const trait = system.traitDictionary.get(traitName)!;
 		const method = new Method(
 			block,
-			new MethodInformation(methodName, packageName, parameterNames, sourceCode, trait)
+			new MethodInformation(
+				methodName,
+				packageName,
+				parameterNames,
+				sourceCode,
+				trait,
+			),
 		);
 		trait.methodDictionary.set(method.qualifiedName(), method);
 		return method;
 	} else {
-		throw(`addTraitMethod: trait does not exist: ${traitName}, ${methodName}, ${parameterNames.length}`);
+		throw (`addTraitMethod: trait does not exist: ${traitName}, ${methodName}, ${parameterNames.length}`);
 	}
 }
 
-export function copyTraitToType(traitName: TraitName, typeName: TypeName): void {
-	if(traitExists(traitName) && typeExists(typeName)) {
-		const methodDictionary = system.traitDictionary.get(traitName)!.methodDictionary;
-		for (const [name, method] of methodDictionary) {
+export function copyTraitToType(
+	traitName: TraitName,
+	typeName: TypeName,
+): void {
+	if (traitExists(traitName) && typeExists(typeName)) {
+		const methodDictionary =
+			system.traitDictionary.get(traitName)!.methodDictionary;
+		for (const [_unusedName, method] of methodDictionary) {
 			// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${method.information.arity}`);
 			addMethodFor(typeName, method, true);
 		}
 	} else {
-		throw(`copyTraitToType: trait or type does not exist: ${traitName}, ${typeName}`);
+		throw (`copyTraitToType: trait or type does not exist: ${traitName}, ${typeName}`);
 	}
 }
 
 export function traitTypeArray(traitName: TraitName): TypeName[] {
 	const answer = [];
 	for (const [typeName, typeValue] of system.typeDictionary) {
-		if(typeValue.traitNameArray.includes(traitName)) {
+		if (typeValue.traitNameArray.includes(traitName)) {
 			answer.push(typeName);
 		}
 	}
@@ -332,25 +361,34 @@ export function extendTraitWithMethod(
 	name: MethodName,
 	parameterNames: ParameterNames,
 	block: Function,
-	sourceCode: MethodSourceCode
+	sourceCode: MethodSourceCode,
 ): Method {
-	if(traitExists(traitName)) {
-		const method = addTraitMethod(traitName, packageName, name, parameterNames, block, sourceCode);
-		traitTypeArray(traitName).forEach(function(typeName) {
+	if (traitExists(traitName)) {
+		const method = addTraitMethod(
+			traitName,
+			packageName,
+			name,
+			parameterNames,
+			block,
+			sourceCode,
+		);
+		traitTypeArray(traitName).forEach(function (typeName) {
 			addMethodFor(typeName, method, true);
 		});
 		return method;
 	} else {
-		throw(`extendTraitWithMethod: trait does not exist: ${traitName}, ${name}`);
+		throw (`extendTraitWithMethod: trait does not exist: ${traitName}, ${name}`);
 	}
 }
 
 export function lookupGeneric(
 	methodName: MethodName,
 	methodArity: Arity,
-	receiverType: TypeName
+	receiverType: TypeName,
 ): Method {
-	return system.methodDictionary.get(methodName)!.get(methodArity)!.get(receiverType)!;
+	return system.methodDictionary.get(methodName)!.get(methodArity)!.get(
+		receiverType,
+	)!;
 }
 
 export function nameWithoutArity(methodName: MethodName) {
@@ -360,23 +398,23 @@ export function nameWithoutArity(methodName: MethodName) {
 export function applyGenericAt(
 	methodName: MethodName,
 	parameterArray: unknown[],
-	receiverType: TypeName
+	receiverType: TypeName,
 ) {
 	// console.log(`applyGenericAt: ${methodName}, ${parameterArray.length}, ${receiverType}`);
 	const method = lookupGeneric(methodName, parameterArray.length, receiverType);
-	return method.block.apply(null, parameterArray)
+	return method.block.apply(null, parameterArray);
 }
 
 export function dispatchByType(
 	name: string,
 	arity: number,
 	typeTable: ByTypeMethodDictionary,
-	parameterArray: unknown[]
+	parameterArray: unknown[],
 ) {
-	if(arity === 0) {
+	if (arity === 0) {
 		const method = typeTable.get('Void');
-		if(method) {
-			return method.block.apply(null, [])
+		if (method) {
+			return method.block.apply(null, []);
 		} else {
 			return throwError(`dispatchByType: no zero arity method: ${name}`);
 		}
@@ -384,11 +422,13 @@ export function dispatchByType(
 		const receiver = parameterArray[0];
 		const receiverType = typeOf(receiver);
 		const typeMethod = typeTable.get(receiverType);
-		if(typeMethod) {
+		if (typeMethod) {
 			// console.debug(`dispatchByType: name=${name}, arity=${arity}, type=${receiverType}`);
-			return typeMethod.block.apply(null, parameterArray)
+			return typeMethod.block.apply(null, parameterArray);
 		} else {
-			return throwError(`dispatchByType: no method ${name}:/${arity} for ${receiverType}`);
+			return throwError(
+				`dispatchByType: no method ${name}:/${arity} for ${receiverType}`,
+			);
 		}
 	}
 }
@@ -397,75 +437,112 @@ export function dispatchByArity(
 	name: string,
 	arity: number,
 	arityTable: ByArityMethodDictionary,
-	parameterArray: unknown[]
+	parameterArray: unknown[],
 ) {
 	const typeTable = arityTable.get(arity);
-	if(typeTable) {
+	if (typeTable) {
 		return dispatchByType(name, arity, typeTable, parameterArray);
 	} else {
-		return throwError(`dispatchbyArity: no entry for arity: name=${name}, arity=${arity}`);
+		return throwError(
+			`dispatchbyArity: no entry for arity: name=${name}, arity=${arity}`,
+		);
 	}
 }
 
 declare var globalThis: { [key: string]: unknown };
 
-export function addMethodFor(typeName: TypeName, method: Method, requireTypeExists: boolean): Method {
-	if(requireTypeExists && !typeExists(typeName)) {
-		throw(`addMethodFor: type does not exist: ${typeName} (${method})`);
+export function addMethodFor(
+	typeName: TypeName,
+	method: Method,
+	requireTypeExists: boolean,
+): Method {
+	if (requireTypeExists && !typeExists(typeName)) {
+		throw (`addMethodFor: type does not exist: ${typeName} (${method})`);
 	}
 	// console.debug(`addMethodFor: ${typeName}, ${method.qualifiedName()}`);
-	if(!methodExists(method.information.name)) {
+	if (!methodExists(method.information.name)) {
 		// console.debug(`addMethodFor: new method name`);
 		system.methodDictionary.set(method.information.name, new Map());
-		if(slOptions.simpleArityModel) {
+		if (slOptions.simpleArityModel) {
 			const prefixedName = '_' + method.information.name;
 			let globalFunction = globalThis[prefixedName];
-			if(globalFunction === undefined) {
-				globalFunction = globalThis[prefixedName] = function(...argumentsArray: unknown[]) {
+			if (globalFunction === undefined) {
+				globalFunction = globalThis[prefixedName] = function (
+					...argumentsArray: unknown[]
+				) {
 					// console.debug(`dispatchByArity: ${method.qualifiedName()}, ${JSON.stringify(argumentsArray)}`);
-					return dispatchByArity(method.information.name, argumentsArray.length, arityTable, argumentsArray);
+					return dispatchByArity(
+						method.information.name,
+						argumentsArray.length,
+						arityTable,
+						argumentsArray,
+					);
 				};
-				Object.defineProperty(globalFunction, "name", { value: method.information.name });
-				Object.defineProperty(globalFunction, "hasRestParameters", { value: true });
+				Object.defineProperty(globalFunction, 'name', {
+					value: method.information.name,
+				});
+				Object.defineProperty(globalFunction, 'hasRestParameters', {
+					value: true,
+				});
 			}
 		}
 	}
-	let arityTable = system.methodDictionary.get(method.information.name)!;
-	if(!arityTable.has(method.information.arity)) {
+	const arityTable = system.methodDictionary.get(method.information.name)!;
+	if (!arityTable.has(method.information.arity)) {
 		// console.debug(`addMethodFor: new method arity`);
 		arityTable.set(method.information.arity, new Map());
-		if(!slOptions.simpleArityModel) {
-			const prefixedNameWithArity = `_${method.information.name}_${method.information.arity}`;
+		if (!slOptions.simpleArityModel) {
+			const prefixedNameWithArity =
+				`_${method.information.name}_${method.information.arity}`;
 			// console.debug(`addMethodFor: generate global: ${prefixedNameWithArity}`);
 			let globalFunctionWithArity = globalThis[prefixedNameWithArity];
-			if(globalFunctionWithArity === undefined) {
+			if (globalFunctionWithArity === undefined) {
 				const typeTable = arityTable.get(method.information.arity)!;
-				globalFunctionWithArity = globalThis[prefixedNameWithArity] = function(...argumentsArray: unknown[]) {
+				globalFunctionWithArity = globalThis[prefixedNameWithArity] = function (
+					...argumentsArray: unknown[]
+				) {
 					// console.debug(`dispatchByType: ${method.qualifiedName()}, ${JSON.stringify(argumentsArray)}`);
-					return dispatchByType(method.information.name, method.information.arity, typeTable, argumentsArray);
+					return dispatchByType(
+						method.information.name,
+						method.information.arity,
+						typeTable,
+						argumentsArray,
+					);
 				};
-				Object.defineProperty(globalFunctionWithArity, "name", { value: method.qualifiedName() });
-				Object.defineProperty(globalFunctionWithArity, "length", { value: method.information.arity }); // c.f. makeCheckedAritySpecificFunction
-				Object.defineProperty(globalFunctionWithArity, "parameterNames", { value: method.information.parameterNames });
+				Object.defineProperty(globalFunctionWithArity, 'name', {
+					value: method.qualifiedName(),
+				});
+				Object.defineProperty(globalFunctionWithArity, 'length', {
+					value: method.information.arity,
+				}); // c.f. makeCheckedAritySpecificFunction
+				Object.defineProperty(globalFunctionWithArity, 'parameterNames', {
+					value: method.information.parameterNames,
+				});
 			}
 		}
 	}
 	const existingEntry = arityTable.get(method.information.arity)!.get(typeName);
 	// Todo: this is not a correct test, it needs to not over-write less specific traits as well... it works for stdlib...
-	if(existingEntry && existingEntry.information.origin.name === typeName && method.information.origin.name !== typeName) {
+	if (
+		existingEntry && existingEntry.information.origin.name === typeName &&
+		method.information.origin.name !== typeName
+	) {
 		// console.debug('addMethodFor: existing more specific entry');
 	} else {
 		arityTable.get(method.information.arity)!.set(typeName, method);
 	}
-	if(typeName === method.information.origin.name) {
-		system.typeDictionary.get(typeName)!.methodDictionary.set(method.qualifiedName(), method);
+	if (typeName === method.information.origin.name) {
+		system.typeDictionary.get(typeName)!.methodDictionary.set(
+			method.qualifiedName(),
+			method,
+		);
 	}
 	return method;
 }
 
 // Is type of type (i.e. meta-type)
-function isTypeType(typeName: TypeName):boolean {
-	return typeName.endsWith('^')
+function isTypeType(typeName: TypeName): boolean {
+	return typeName.endsWith('^');
 }
 
 // c.f. rewrite/makeMethodList
@@ -475,20 +552,32 @@ export function addMethod(
 	methodName: MethodName,
 	parameterNames: ParameterNames,
 	block: Function,
-	sourceCode: MethodSourceCode
+	sourceCode: MethodSourceCode,
 ): Method {
 	// console.debug(`addMethod: ${typeName}, ${packageName}, ${methodName}, ${parameterNames}`);
 	const isMeta = isTypeType(typeName);
-	if(isMeta && !typeExists(typeName)) {
+	if (isMeta && !typeExists(typeName)) {
 		// Lazily add meta-type entries as required
-		system.typeDictionary.set(typeName, new Type(typeName, 'Kernel-System-Meta', ['Object'], [], new Map()));
+		system.typeDictionary.set(
+			typeName,
+			new Type(typeName, 'Kernel-System-Meta', ['Object'], [], new Map()),
+		);
 	}
-	if(typeExists(typeName)) {
+	if (typeExists(typeName)) {
 		const typeValue = system.typeDictionary.get(typeName)!;
-		const method = new Method(block, new MethodInformation(methodName, packageName, parameterNames, sourceCode, typeValue));
+		const method = new Method(
+			block,
+			new MethodInformation(
+				methodName,
+				packageName,
+				parameterNames,
+				sourceCode,
+				typeValue,
+			),
+		);
 		return addMethodFor(typeName, method, slOptions.requireTypeExists);
 	} else {
-		throw(`addMethod: type does not exist: ${typeName}, ${methodName}, ${parameterNames.length}`);
+		throw (`addMethod: type does not exist: ${typeName}, ${methodName}, ${parameterNames.length}`);
 	}
 }
 
@@ -500,20 +589,41 @@ export function addType(
 	typeName: TypeName,
 	packageName: PackageName,
 	traitList: TraitName[],
-	slotNames: string[]
+	slotNames: string[],
 ): void {
-	if(!typeExists(typeName) || preinstalledTypes.includes(typeName)) {
-		const initializeSlots = slotNames.map(each => `anInstance.${each} = ${each}`).join('; ');
-		const nilSlots = slotNames.map(each => `${each}: null`).join(', ');
-		const defNewType = isHostType ? '' : `addMethod('Void', '${packageName}', 'new${typeName}', [], function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
-		const defInitializeSlots = isHostType ? '' : `addMethod('${typeName}', '${packageName}', 'initializeSlots', ${JSON.stringify(['self'].concat(slotNames))}, function(anInstance, ${slotNames.join(', ')}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
-		const defPredicateFalse = `extendTraitWithMethod('Object', '${packageName}', 'is${typeName}', ['self'], function(anObject) { return false; }, '<primitive: predicate>')`;
-		const defPredicateTrue = `addMethod('${typeName}', '${packageName}', 'is${typeName}', ['self'], function(anInstance) { return true; }, '<primitive: predicate>')`;
-		const defSlotAccess = slotNames.map(each => `addMethod('${typeName}', '${packageName}', '${each}', ['self'], function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`).join('; ');
-		const defSlotMutate = slotNames.map(each => `addMethod('${typeName}', '${packageName}', '${each}', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`).join('; ');
+	if (!typeExists(typeName) || preinstalledTypes.includes(typeName)) {
+		const initializeSlots = slotNames.map((each) =>
+			`anInstance.${each} = ${each}`
+		).join('; ');
+		const nilSlots = slotNames.map((each) => `${each}: null`).join(', ');
+		const defNewType = isHostType
+			? ''
+			: `addMethod('Void', '${packageName}', 'new${typeName}', [], function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
+		const defInitializeSlots = isHostType
+			? ''
+			: `addMethod('${typeName}', '${packageName}', 'initializeSlots', ${
+				JSON.stringify(['self'].concat(slotNames))
+			}, function(anInstance, ${
+				slotNames.join(', ')
+			}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
+		const defPredicateFalse =
+			`extendTraitWithMethod('Object', '${packageName}', 'is${typeName}', ['self'], function(anObject) { return false; }, '<primitive: predicate>')`;
+		const defPredicateTrue =
+			`addMethod('${typeName}', '${packageName}', 'is${typeName}', ['self'], function(anInstance) { return true; }, '<primitive: predicate>')`;
+		const defSlotAccess = slotNames.map((each) =>
+			`addMethod('${typeName}', '${packageName}', '${each}', ['self'], function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`
+		).join('; ');
+		const defSlotMutate = slotNames.map((each) =>
+			`addMethod('${typeName}', '${packageName}', '${each}', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`
+		).join('; ');
 		// console.debug(`addType: ${typeName}, ${packageName}, ${slotNames}`);
-		const methodDictionary = typeExists(typeName) ? system.typeDictionary.get(typeName)!.methodDictionary : new Map();
-		system.typeDictionary.set(typeName, new Type(typeName, packageName, traitList, slotNames, methodDictionary));
+		const methodDictionary = typeExists(typeName)
+			? system.typeDictionary.get(typeName)!.methodDictionary
+			: new Map();
+		system.typeDictionary.set(
+			typeName,
+			new Type(typeName, packageName, traitList, slotNames, methodDictionary),
+		);
 		eval(defNewType);
 		eval(defInitializeSlots);
 		eval(defPredicateFalse);
@@ -521,7 +631,7 @@ export function addType(
 		eval(defSlotAccess);
 		eval(defSlotMutate);
 	} else {
-		throw(`addType: type exists: ${typeName}`);
+		throw (`addType: type exists: ${typeName}`);
 	}
 }
 
@@ -531,18 +641,31 @@ export function shiftRight(lhs: number, rhs: number): number {
 }
 
 /* spl = one-indexed.  The index is not decremented because in Js '1' - 1 is 0 &etc. */
-export function arrayCheckIndex(anArray: unknown[], anInteger: number | bigint): boolean {
-	return isSmallFloatInteger(anInteger) && (anInteger >= 1) && (anInteger <= anArray.length);
+export function arrayCheckIndex(
+	anArray: unknown[],
+	anInteger: number | bigint,
+): boolean {
+	return isSmallFloatInteger(anInteger) && (anInteger >= 1) &&
+		(anInteger <= anArray.length);
 }
 
-export async function initializeLocalPackages(qualifiedPackageNames: string[]): Promise<Package[]> {
+export function initializeLocalPackages(
+	qualifiedPackageNames: string[],
+): Package[] {
 	const packageArray: Package[] = [];
-	qualifiedPackageNames.forEach(qualifiedName => {
+	qualifiedPackageNames.forEach((qualifiedName) => {
 		const parts = qualifiedName.split('-');
 		const category = parts[0];
 		const name = parts[1];
 		const url = category + '/' + name + '.sl';
-		const pkg = new Package(category, name, [], url, '', false); /* note: requires and text are set after fetch */
+		const pkg = new Package(
+			category,
+			name,
+			[],
+			url,
+			'',
+			false,
+		); /* note: requires and text are set after fetch */
 		/* add to dictionary (initialized & fetched, not loaded) */
 		system.packageDictionary.set(name, pkg);
 		packageArray.push(pkg);
@@ -551,13 +674,17 @@ export async function initializeLocalPackages(qualifiedPackageNames: string[]): 
 }
 
 /* Evaluate already fetched packages in sequence. */
-export async function primitiveLoadPackageSequence(packageNames: string[]): Promise<void> {
+export async function primitiveLoadPackageSequence(
+	packageNames: string[],
+): Promise<void> {
 	// console.debug(`primitiveLoadPackageSequence: '${packageNames}'`);
 	const packageArray: Package[] = [];
-	packageNames.forEach(name => {
+	packageNames.forEach((name) => {
 		const pkg = system.packageDictionary.get(name);
-		if(pkg == undefined) {
-			console.error(`primitiveLoadPackageSequence: no such package: ${name}, ${pkg}`);
+		if (pkg == undefined) {
+			console.error(
+				`primitiveLoadPackageSequence: no such package: ${name}, ${pkg}`,
+			);
 		} else {
 			pkg.isLoaded = true;
 			packageArray.push(pkg);
@@ -568,33 +695,33 @@ export async function primitiveLoadPackageSequence(packageNames: string[]): Prom
 
 /* https://github.com/Aisse-258/bigint-isqrt */
 export function bigIntSqrt(anInteger: bigint): bigint {
-	if(anInteger < 2n) {
+	if (anInteger < 2n) {
 		return anInteger;
 	}
-	if(anInteger < 16n) {
-		return BigInt(Math.sqrt(Number(anInteger))|0);
+	if (anInteger < 16n) {
+		return BigInt(Math.sqrt(Number(anInteger)) | 0);
 	}
 	let x0, x1;
-	if(anInteger < 4503599627370496n) {
-		x1 = BigInt(Math.sqrt(Number(anInteger))|0)-3n;
+	if (anInteger < 4503599627370496n) {
+		x1 = BigInt(Math.sqrt(Number(anInteger)) | 0) - 3n;
 	} else {
-		let vlen = anInteger.toString().length;
-		if(!(vlen&1)) {
-			x1 = 10n**(BigInt(vlen/2));
+		const vlen = anInteger.toString().length;
+		if (!(vlen & 1)) {
+			x1 = 10n ** (BigInt(vlen / 2));
 		} else {
-			x1 = 4n*10n**(BigInt((vlen/2)|0));
+			x1 = 4n * 10n ** (BigInt((vlen / 2) | 0));
 		}
 	}
 	do {
 		x0 = x1;
 		x1 = ((anInteger / x0) + x0) >> 1n;
-	} while((x0 !== x1 && x0 !== (x1 - 1n)));
+	} while ((x0 !== x1 && x0 !== (x1 - 1n)));
 	return x0;
 }
 
 declare global {
 	var _system: System;
-	var _workspace: Map<string,unknown>;
+	var _workspace: Map<string, unknown>;
 }
 
 export function assignGlobals() {
@@ -604,46 +731,56 @@ export function assignGlobals() {
 
 /* https://github.com/bryc/code/blob/master/jshash/PRNGs.md */
 export function sfc32Generator(a: number, b: number, c: number, d: number) {
-	return function() {
-		a |= 0; b |= 0; c |= 0; d |= 0;
-		var t = (a + b | 0) + d | 0;
+	return function () {
+		a |= 0;
+		b |= 0;
+		c |= 0;
+		d |= 0;
+		const t = (a + b | 0) + d | 0;
 		d = d + 1 | 0;
 		a = b ^ b >>> 9;
 		b = c + (c << 3) | 0;
 		c = c << 21 | c >>> 11;
 		c = c + t | 0;
 		return (t >>> 0) / 4294967296;
-    }
+	};
 }
 
 export function splitMix32Generator(a: number) {
-	return function() {
-		a |= 0; a = a + 0x9e3779b9 | 0;
-		var t = a ^ a >>> 15; t = Math.imul(t, 0x85ebca6b);
-        t = t ^ t >>> 13; t = Math.imul(t, 0xc2b2ae35);
+	return function () {
+		a |= 0;
+		a = a + 0x9e3779b9 | 0;
+		let t = a ^ a >>> 15;
+		t = Math.imul(t, 0x85ebca6b);
+		t = t ^ t >>> 13;
+		t = Math.imul(t, 0xc2b2ae35);
 		return ((t = t ^ t >>> 16) >>> 0) / 4294967296;
-    }
+	};
 }
 
 export function mersenneTwister53Generator(seed: number) {
-	var mt = new MersenneTwister(seed);
+	const mt = new MersenneTwister(seed);
 	return function () {
 		return mt.genrand_res53();
-	}
+	};
 }
 
 export function murmur3Generator(str: string, seed: number) {
-	var h = seed >>> 0; /* h = 2166136261 >>> 0 */
-	for(var k, i = 0; i < str.length; i++) {
-		k = Math.imul(str.charCodeAt(i), 3432918353); k = k << 15 | k >>> 17; /* 0xcc9e2d51 */
-		h ^= Math.imul(k, 461845907); h = h << 13 | h >>> 19; /* 0x1b873593 */
+	let h = seed >>> 0; /* h = 2166136261 >>> 0 */
+	for (let k, i = 0; i < str.length; i++) {
+		k = Math.imul(str.charCodeAt(i), 3432918353);
+		k = k << 15 | k >>> 17; /* 0xcc9e2d51 */
+		h ^= Math.imul(k, 461845907);
+		h = h << 13 | h >>> 19; /* 0x1b873593 */
 		h = Math.imul(h, 5) + 3864292196 | 0; /* 0xe6546b64 */
 	}
 	h ^= str.length;
-	return function() {
-		h ^= h >>> 16; h = Math.imul(h, 2246822507); /* 0x85ebcab6 */
-		h ^= h >>> 13; h = Math.imul(h, 3266489909); /* 0xc2b2ae35 */
+	return function () {
+		h ^= h >>> 16;
+		h = Math.imul(h, 2246822507); /* 0x85ebcab6 */
+		h ^= h >>> 13;
+		h = Math.imul(h, 3266489909); /* 0xc2b2ae35 */
 		h ^= h >>> 16;
 		return h >>> 0;
-	}
+	};
 }

@@ -1,19 +1,24 @@
-import { TextLineStream } from "https://deno.land/std/streams/text_line_stream.ts";
+import { TextLineStream } from 'https://deno.land/std/streams/text_line_stream.ts';
 
-import * as evaluate from './evaluate.ts'
+import * as evaluate from './evaluate.ts';
 
 const stdinStream: ReadableStream = Deno.stdin.readable;
 
-const lineStream: ReadableStream = stdinStream.pipeThrough(new TextDecoderStream()).pipeThrough(new TextLineStream());
+const lineStream: ReadableStream = stdinStream.pipeThrough(
+	new TextDecoderStream(),
+).pipeThrough(new TextLineStream());
 
 const lineReader: ReadableStreamDefaultReader = lineStream.getReader();
 
-export async function interact<T>(processLine: (line: string) => T): Promise<void> {
-    return lineReader.read().then(({ done, value }) => {
-        if(done) {
+export function interact<T>(
+	processLine: (line: string) => T,
+): Promise<void> {
+	return lineReader.read().then(({ done, value }) => {
+		if (done) {
 			// console.debug('repl: end of input');
-            return;
-        } {
+			return;
+		}
+		{
 			// console.debug('repl: next line', value);
 			processLine(value);
 			return interact(processLine);
@@ -23,10 +28,10 @@ export async function interact<T>(processLine: (line: string) => T): Promise<voi
 
 // Read and evaluate input per line.  Empty lines are not evaluated.
 export async function perLine(verbose: boolean): Promise<void> {
-	await interact(function(line: string) {
+	await interact(function (line: string) {
 		const withoutBlanks = line.trim();
-		if(withoutBlanks.length > 0) {
-			if(verbose) {
+		if (withoutBlanks.length > 0) {
+			if (verbose) {
 				console.log(withoutBlanks);
 			}
 			const answer = evaluate.evaluateFor('Repl', withoutBlanks);
