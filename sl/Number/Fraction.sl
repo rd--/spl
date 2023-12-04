@@ -7,9 +7,11 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 				d2 = self.denominator.gcd(aNumber.numerator),
 				numerator = (self.numerator // d1) * (aNumber.numerator // d2)
 			)|
-			(d2 = self.denominator & {
-				d1 = aNumber.denominator
-			}).if {
+			(
+				d2 = self.denominator & {
+					d1 = aNumber.denominator
+				}
+			).if {
 				(* preference: answer proper integer *)
 				Fraction(numerator, numerator.one)
 			} {

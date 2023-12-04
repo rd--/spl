@@ -2,7 +2,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 
 	= { :self :anObject |
 		anObject.isPoint & {
-			(self.x = anObject.x) & {
+			self.x = anObject.x & {
 				self.y = anObject.y
 			}
 		}

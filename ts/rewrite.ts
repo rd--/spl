@@ -217,7 +217,7 @@ const asJs: ohm.ActionDict<string> = {
 			(!slOptions.simpleArityModel && slOptions.multipleNamesForLocalBlocks)
 				? `, ${unqualifiedName} = ${qualifiedName}`
 				: '';
-		// console.log(`TemporaryWithBlockLiteralInitializer: ${reBinding}`);
+		// console.debug(`TemporaryWithBlockLiteralInitializer: ${reBinding}`);
 		return `${binding}${reBinding}`;
 	},
 	TemporaryWithExpressionInitializer(name, _equals, exp) {
@@ -291,7 +291,7 @@ const asJs: ohm.ActionDict<string> = {
 		return `_${genName(operatorMethodName(op.sourceString), 2)}`;
 	},
 	binaryOperatorWithAdverb(op, _dot, adverb) {
-		// console.log(`binaryOperatorWithAdverb: ${op.sourceString} ${adverb.sourceString}`);
+		// console.debug(`binaryOperatorWithAdverb: ${op.sourceString} ${adverb.sourceString}`);
 		return `_${genName(adverb.sourceString, 1)}(_${
 			genName(operatorMethodName(op.sourceString), 2)
 		})`;
@@ -342,7 +342,7 @@ const asJs: ohm.ActionDict<string> = {
 		const answer = `_${genName('atAll', 2)}(${c.asJs}, ${
 			intervalSyntax(start, end)
 		})`;
-		// console.log('AtAllIntervalSyntax', answer);
+		// console.debug('AtAllIntervalSyntax', answer);
 		return answer;
 	},
 	AtMatrixSyntax(c, _leftBracket, i, _semicolon, j, _rightBracket) {
@@ -576,18 +576,18 @@ const asJs: ohm.ActionDict<string> = {
 
 	unusedVariableIdentifier(_underscore) {
 		const identifier = genSym();
-		//console.log('unusedVariableIdentifier', identifier);
+		console.debug('unusedVariableIdentifier', identifier);
 		return identifier;
 	},
 	unqualifiedIdentifier(c1, cN) {
 		const identifier = `_${c1.sourceString}${cN.sourceString}`;
-		//console.log('unqualifiedIdentifier', identifier);
+		// console.debug('unqualifiedIdentifier', identifier);
 		return identifier;
 	},
 	arityQualifiedIdentifier(c1, cN, _aritySeparator, a) {
 		const arityPart = slOptions.simpleArityModel ? '' : `_${a.sourceString}`;
 		const identifier = `_${c1.sourceString}${cN.sourceString}${arityPart}`;
-		//console.log('arityQualifiedIdentifier', identifier);
+		// console.debug('arityQualifiedIdentifier', identifier);
 		return identifier;
 	},
 	reservedIdentifier(id) {
@@ -607,7 +607,7 @@ const asJs: ohm.ActionDict<string> = {
 		return op.sourceString;
 	},
 	integerIntervalLiteral(start, _dotDot, end) {
-		// console.log('integerIntervalLiteral', start.sourceString, end.sourceString);
+		// console.debug('integerIntervalLiteral', start.sourceString, end.sourceString);
 		return `_${genName('upTo', 2)}(${start.asJs}, ${end.asJs})`;
 	},
 	floatLiteral(s, i, _, f) {

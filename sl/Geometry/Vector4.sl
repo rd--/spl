@@ -19,7 +19,13 @@ Vector4 : [Object, Indexable] { | w x y z |
 	}
 
 	isZero { :self |
-		self.w = 0 & { self.x = 0 & { self.y = 0 & { self.z = 0 } } }
+		self.w = 0 & {
+			self.x = 0 & {
+				self.y = 0 & {
+					self.z = 0
+				}
+			}
+		}
 	}
 
 	size { :self |

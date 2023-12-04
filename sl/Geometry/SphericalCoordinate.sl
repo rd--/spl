@@ -35,11 +35,11 @@
 
 	equalBy { :self :anObject :aBlock:/2 |
 		anObject.isSphericalCoordinate & {
-			aBlock(self.r, anObject.r)
-		} & {
-			aBlock(self.theta, anObject.theta)
-		} & {
-			aBlock(self.phi, anObject.phi)
+			aBlock(self.r, anObject.r) & {
+				aBlock(self.theta, anObject.theta) & {
+					aBlock(self.phi, anObject.phi)
+				}
+			}
 		}
 	}
 

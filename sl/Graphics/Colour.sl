@@ -2,13 +2,13 @@ Colour : [Object] { | red green blue alpha |
 
 	= { :self :aColour |
 		aColour.isColour & {
-			self.red = aColour.red
-		} & {
-			self.green = aColour.green
-		} & {
-			self.blue = aColour.blue
-		} & {
-			self.alpha = aColour.alpha
+			self.red = aColour.red & {
+				self.green = aColour.green & {
+					self.blue = aColour.blue & {
+						self.alpha = aColour.alpha
+					}
+				}
+			}
 		}
 	}
 
@@ -37,17 +37,17 @@ Colour : [Object] { | red green blue alpha |
 
 	isBlue { :self |
 		self.blue > (self.green + 0.3) & {
-			self.blue > (self.red + 0.3)
-		} & {
-			(self.green - self.red).abs < 0.4
+			self.blue > (self.red + 0.3) & {
+				(self.green - self.red).abs < 0.4
+			}
 		}
 	}
 
 	isCyan { :self |
 		self.red < 0.05 & {
-			self.green.min(self.blue) > 0.5
-		} & {
-			(self.green - self.blue).abs < 0.2
+			self.green.min(self.blue) > 0.5 & {
+				(self.green - self.blue).abs < 0.2
+			}
 		}
 	}
 
@@ -60,27 +60,27 @@ Colour : [Object] { | red green blue alpha |
 	isGrey { :self |
 		| value = self.red; |
 		self.green = value & {
-			self.blue = value
-		} & {
-			value ~= 1
-		} & {
-			value ~= 0
+			self.blue = value & {
+				value ~= 1 & {
+					value ~= 0
+				}
+			}
 		}
 	}
 
 	isGreyOf { :self :value |
 		self.red = value & {
-			self.green = value
-		} & {
-			self.blue = value
+			self.green = value & {
+				self.blue = value
+			}
 		}
 	}
 
 	isMagenta { :self |
 		self.green < 0.05 & {
-			self.red.min(self.blue) > 0.4
-		} & {
-			(self.red - self.blue).abs < 0.3
+			self.red.min(self.blue) > 0.4 & {
+				(self.red - self.blue).abs < 0.3
+			}
 		}
 	}
 
@@ -90,9 +90,9 @@ Colour : [Object] { | red green blue alpha |
 
 	isRed { :self |
 		self.red > (self.green + 0.4) & {
-			self.red > (self.blue + 0.6)
-		} & {
-			(self.green - self.blue).abs < 0.4
+			self.red > (self.blue + 0.6) & {
+				(self.green - self.blue).abs < 0.4
+			}
 		}
 	}
 
@@ -106,9 +106,9 @@ Colour : [Object] { | red green blue alpha |
 
 	isYellow { :self |
 		self.blue < 0.1 & {
-			self.red.min(self.green) > 0.5
-		} & {
-			(self.red - self.green).abs < 0.2
+			self.red.min(self.green) > 0.5 & {
+				(self.red - self.green).abs < 0.2
+			}
 		}
 	}
 

@@ -560,7 +560,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'closeTo'
 		'closeToBy'
 		'crc16'
-		'equalsBy'
+		'equalBy'
 		'exclusivelyBetweenAnd'
 		'hasEqualElements'
 		'hasEqualElementsBy'

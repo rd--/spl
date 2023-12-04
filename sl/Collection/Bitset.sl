@@ -2,9 +2,9 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 
 	= { :self :anObject |
 		anObject.isBitset & {
-			anObject.size = self.tally
-		} & {
-			anObject.bytes = self.bytes
+			anObject.size = self.tally & {
+				anObject.bytes = self.bytes
+			}
 		}
 	}
 
@@ -79,11 +79,11 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 
 	includes { :self :anInteger |
 		anInteger.isInteger & {
-			-1 < anInteger
-		} & {
-			anInteger < self.capacity
-		} & {
-			self.bitAt(anInteger) = 1
+			-1 < anInteger & {
+				anInteger < self.capacity & {
+					self.bitAt(anInteger) = 1
+				}
+			}
 		}
 	}
 

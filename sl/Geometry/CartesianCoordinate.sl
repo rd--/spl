@@ -2,11 +2,11 @@
 
 	equalBy { :self :anObject :aBlock:/2 |
 		anObject.isVector3 & {
-			aBlock(self.x, anObject.x)
-		} & {
-			aBlock(self.y, anObject.y)
-		} & {
-			aBlock(self.z, anObject.z)
+			aBlock(self.x, anObject.x) & {
+				aBlock(self.y, anObject.y) & {
+					aBlock(self.z, anObject.z)
+				}
+			}
 		}
 	}
 

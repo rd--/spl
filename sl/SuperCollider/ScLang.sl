@@ -51,13 +51,13 @@
 +@Magnitude {
 
 	exclusivelyBetweenAnd { :self :lo :hi |
-		(lo < self) & {
+		lo < self & {
 			self < hi
 		}
 	}
 
 	inclusivelyBetweenAnd { :self :lo :hi |
-		(lo <= self) & {
+		lo <= self & {
 			self <= hi
 		}
 	}
@@ -176,9 +176,11 @@
 	}
 
 	fold { :self :lo :hi |
-		(self >= lo & {
-			self < hi
-		}).if {
+		(
+			self >= lo & {
+				self < hi
+			}
+		).if {
 			self
 		} {
 			|(
@@ -868,9 +870,11 @@
 	}
 
 	withWrappingCollectOrAdaptTo { :self :anObject :aBlock:/2 |
-		(anObject.isCollection & {
-			anObject.isSequenceable
-		}).if {
+		(
+			anObject.isCollection & {
+				anObject.isSequenceable
+			}
+		).if {
 			self.withWrappingCollect(anObject, aBlock:/2)
 		} {
 			anObject.adaptToCollectionAndApply(self, aBlock:/2)

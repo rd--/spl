@@ -1,9 +1,11 @@
 Cons : [Object, Collection] { | car cdr |
 
 	= { :self :anObject |
-		anObject.isCons &
-		{ self.car = anObject.car } &
-		{ self.cdr = anObject.cdr }
+		anObject.isCons & {
+			self.car = anObject.car & {
+				self.cdr = anObject.cdr
+			}
+		}
 	}
 
 	collect { :self :aBlock:/1 |

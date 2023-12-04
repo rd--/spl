@@ -479,9 +479,9 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		radix.assertIsSmallInteger;
 		self.assert {
 			radix > 1 & {
-				radix < 36
-			} & {
-				self.matchesRegExp('^[0-9a-zA-Z-]+$')
+				radix < 36 & {
+					self.matchesRegExp('^[0-9a-zA-Z-]+$')
+				}
 			}
 		};
 		self.basicParseInteger(radix).assertIsSmallInteger

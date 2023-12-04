@@ -31,10 +31,8 @@
 	}
 
 	betweenAnd { :self :min :max |
-		(min <= self).if {
+		min <= self & {
 			self <= max
-		} {
-			false
 		}
 	}
 

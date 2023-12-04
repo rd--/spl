@@ -279,9 +279,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	validIndex { :self :index |
-		(index > 0) & {
-			index <= self.size
-		}
+		index.betweenAnd(1, self.size)
 	}
 
 }

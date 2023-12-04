@@ -2,7 +2,7 @@ Graph : [Object] { | size edges vertexLabels edgeLabels |
 
 	isValid { :self |
 		self.edges.allSatisfy { :edge |
-			(edge.size = 2) & {
+			edge.size = 2 & {
 				edge.allSatisfy { :vertex |
 					vertex.betweenAnd(1, self.size)
 				}

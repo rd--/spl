@@ -232,7 +232,11 @@
 			numberOfChannels = system.scSynth.mainOutputs,
 			orientation = system.scSynth.mainOrientation
 		)|
-		(inArray.size = numberOfChannels & { spread = 1 }).if {
+		(
+			inArray.size = numberOfChannels & {
+				spread = 1
+			}
+		).if {
 			inArray
 		} {
 			(numberOfChannels = 2).if {

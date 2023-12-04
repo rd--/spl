@@ -13,11 +13,15 @@ Boolean! : [Object, Json] {
 	}
 
 	&& { :self :anObject |
-		self & { anObject.if { true } { false } }
+		self & {
+			anObject.assertIsBoolean
+		}
 	}
 
 	|| { :self :anObject |
-		self | { anObject.if { true } { false } }
+		self | {
+			anObject.assertIsBoolean
+		}
 	}
 
 	==> { :self :aBlock:/0 |
@@ -42,6 +46,10 @@ Boolean! : [Object, Json] {
 
 	asNumber { :self |
 		self.asBit
+	}
+
+	assertIsBoolean { :self |
+		self
 	}
 
 	if { :self :whenTrue:/0 :whenFalse:/0 |
@@ -78,6 +86,14 @@ Boolean! : [Object, Json] {
 
 	xor { :self :aBoolean |
 		aBoolean.value.if { self = false } { self = true }
+	}
+
+}
+
++@Object {
+
+	assertIsBoolean { :self |
+		self.error('assertIsBoolean')
 	}
 
 }

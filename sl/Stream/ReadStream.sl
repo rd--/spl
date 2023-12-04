@@ -71,9 +71,7 @@ ReadStream : [Object, Stream, PositionableStream] { | collection positionIndex r
 	}
 
 	validReadPosition { :self :anInteger |
-		(anInteger >= 0) & {
-			anInteger <= self.readLimit
-		}
+		anInteger.betweenAnd(0, self.readLimit)
 	}
 
 }

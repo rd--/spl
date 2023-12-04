@@ -122,9 +122,7 @@
 
 	isByte { :self |
 		self.isInteger & {
-			self >= 0 & {
-				self < 256
-			}
+			self.betweenAnd(0, 255)
 		}
 	}
 
@@ -441,7 +439,7 @@
 	}
 
 	isPowerOfTwo { :self |
-		(self ~= 0) & {
+		self ~= 0 & {
 			self.bitAnd(self - 1) = 0
 		}
 	}

@@ -283,7 +283,9 @@ String! : [Object, Json, Iterable] {
 	indicesOf { :self :aString |
 		aString.isString.if {
 			| answer = [], index = 1, end = self.size; |
-			{ index > 0 & { index <= end } }.whileTrue {
+			{
+				index.betweenAnd(1, end)
+			}.whileTrue {
 				index := self.findStringStartingAt(aString, index);
 				(index ~= 0).ifTrue {
 					answer.add(index);
@@ -363,7 +365,9 @@ String! : [Object, Json, Iterable] {
 	occurrencesOf { :self :aString |
 		aString.isString.if {
 			| index = 1, end = self.size, tally = 0; |
-			{ index > 0 & { index <= end } }.whileTrue {
+			{
+				index.betweenAnd(1, end)
+			}.whileTrue {
 				index := self.findStringStartingAt(aString, index);
 				(index ~= 0).ifTrue {
 					tally +:= 1;
@@ -582,16 +586,12 @@ String! : [Object, Json, Iterable] {
 +@Integer {
 
 	isAsciiCodePoint { :self |
-		self >= 0 & {
-			self < 128
-		}
+		self.betweenAnd(0, 127)
 	}
 
 	isUtf16SurrogateCode { :self |
 		(* 0xD800 = 55296, 0xDfFF = 57343 *)
-		self >= 55296 & {
-			self <= 57343
-		}
+		self.betweenAnd(55296, 57343)
 	}
 
 }

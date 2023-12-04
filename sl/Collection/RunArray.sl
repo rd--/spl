@@ -5,9 +5,9 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 			true
 		} {
 			anObject.isRunArray & {
-				self.runs.hasEqualElements(anObject.runs)
-			} & {
-				self.values.hasEqualElements(anObject.values)
+				self.runs.hasEqualElements(anObject.runs) & {
+					self.values.hasEqualElements(anObject.values)
+				}
 			}
 		}
 	}
@@ -60,7 +60,11 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 			run := self.cachedRun;
 			offset := self.cachedOffset + (index - self.cachedIndex)
 		};
-		{ run <= limit & { offset >= self.runs[run] } }.whileTrue {
+		{
+			run <= limit & {
+				offset >= self.runs[run]
+			}
+		}.whileTrue {
 			offset -:= self.runs[run];
 			run +:= 1
 		};

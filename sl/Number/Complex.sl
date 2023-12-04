@@ -3,31 +3,11 @@
 Complex : [Object] { | real imaginary |
 
 	= { :self :anObject |
-		anObject.isNumber.if {
-			anObject.isComplex.if {
-				(self.real = anObject.real) & {
-					self.imaginary = anObject.imaginary
-				}
-			} {
-				anObject.adaptToComplexAndApply(self, equals:/2)
-			}
-		} {
-			false
-		}
+		self.equalBy(anObject, equals:/2)
 	}
 
 	~ { :self :anObject |
-		anObject.isNumber.if {
-			anObject.isComplex.if {
-				(self.real ~ anObject.real) & {
-					self.imaginary ~ anObject.imaginary
-				}
-			} {
-				anObject.adaptToComplexAndApply(self, tilde:/2)
-			}
-		} {
-			false
-		}
+		self.equalBy(anObject, tilde:/2)
 	}
 
 	* { :self :anObject |
@@ -173,6 +153,20 @@ Complex : [Object] { | real imaginary |
 		)
 	}
 
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isNumber.if {
+			anObject.isComplex.if {
+				aBlock(self.real, anObject.real) & {
+					aBlock(self.imaginary, anObject.imaginary)
+				}
+			} {
+				anObject.adaptToComplexAndApply(self, aBlock:/2)
+			}
+		} {
+			false
+		}
+	}
+
 	exp { :self |
 		self.real.exp * (self.imaginary.cos + self.imaginary.sin.i)
 	}
@@ -245,9 +239,11 @@ Complex : [Object] { | real imaginary |
 	}
 
 	sqrt { :self |
-		(self.imaginary = 0 & {
-			self.real >= 0
-		}).if {
+		(
+			self.imaginary = 0 & {
+				self.real >= 0
+			}
+		).if {
 			self.real.sqrt.asComplex
 		} {
 			|(

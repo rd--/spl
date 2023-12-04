@@ -2,9 +2,11 @@
 Pair : [Object] { | first second |
 
 	= { :self :anObject |
-		anObject.isPair &
-		{ self[1] = anObject[1] } &
-		{ self[2] = anObject[2] }
+		anObject.isPair & {
+			self[1] = anObject[1] & {
+				self[2] = anObject[2]
+			}
+		}
 	}
 
 	at { :self :index |

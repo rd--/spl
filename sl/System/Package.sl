@@ -179,9 +179,11 @@ Package! : [Object] {
 				[categoryName, packageName] = name.parseQualifiedPackageName,
 				package = self.packageDictionary[packageName]
 			)|
-			(categoryName = package.category & {
-				self.includesPackage(packageName)
-			}).if {
+			(
+				categoryName = package.category & {
+					self.includesPackage(packageName)
+				}
+			).if {
 				package
 			} {
 				self.error('package: category name mismatch or package not registered')

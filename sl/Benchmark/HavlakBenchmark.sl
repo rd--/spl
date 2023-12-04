@@ -126,7 +126,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 	}
 
 	isAncestorV { :self :w :v |
-		(w <= v) & {
+		w <= v & {
 			v <= self.last[w]
 		}
 	}

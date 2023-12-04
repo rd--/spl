@@ -3,11 +3,11 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 	= { :self :anObject |
 		(self == anObject) | {
 			anObject.isHeap & {
-				anObject.size = self.size
-			} & {
-				anObject.sortBlock = self.sortBlock
-			} & {
-				self.array.sort(self.sortBlock) = anObject.array.sort(self.sortBlock)
+				anObject.size = self.size & {
+					anObject.sortBlock = self.sortBlock & {
+						self.array.sort(self.sortBlock) = anObject.array.sort(self.sortBlock)
+					}
+				}
 			}
 		}
 	}

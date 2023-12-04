@@ -4,11 +4,11 @@ RatioTuning : [Object, Tuning] { | name description ratios octave cachedLimit |
 
 	= { :self :anObject |
 		anObject.isRatioTuning & {
-			self.name = anObject.name
-		} & {
-			self.description = anObject.description
-		} & {
-			self.ratios = anObject.ratios
+			self.name = anObject.name & {
+				self.description = anObject.description & {
+					self.ratios = anObject.ratios
+				}
+			}
 		}
 	}
 

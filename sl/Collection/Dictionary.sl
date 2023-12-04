@@ -4,7 +4,7 @@
 
 	= { :self :aDictionary |
 		| keyArray = self.indices; |
-		(keyArray = aDictionary.indices) & {
+		keyArray = aDictionary.indices & {
 			keyArray.allSatisfy { :key |
 				self[key] = aDictionary[key]
 			}

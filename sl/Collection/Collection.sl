@@ -9,9 +9,11 @@
 	}
 
 	adaptToCollectionAndApply { :self :rcvr :aBlock:/2 |
-		(rcvr.isSequenceable & {
-			self.isSequenceable
-		}).if {
+		(
+			rcvr.isSequenceable & {
+				self.isSequenceable
+			}
+		).if {
 			rcvr.withCollect(self) { :rcvrItem :selfItem |
 				aBlock(rcvrItem, selfItem)
 			}

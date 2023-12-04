@@ -2,20 +2,12 @@
 
 @Sequenceable {
 
-	equalsBy { :self :anObject :aBlock:/2 |
-		(self == anObject) | {
-			(self.typeOf = anObject.typeOf) & {
-				self.hasEqualElementsBy(anObject, aBlock:/2)
-			}
-		}
-	}
-
 	= { :self :anObject |
-		self.equalsBy(anObject, equals:/2)
+		self.equalBy(anObject, equals:/2)
 	}
 
 	~ { :self :anObject |
-		self.equalsBy(anObject, tilde:/2)
+		self.equalBy(anObject, tilde:/2)
 	}
 
 	++ { :self :aSequence |
@@ -283,6 +275,14 @@
 
 	duplicateEach { :self :anInteger |
 		self.replicateEachApplying(anInteger, value:/1)
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		self == anObject | {
+			self.typeOf = anObject.typeOf & {
+				self.hasEqualElementsBy(anObject, aBlock:/2)
+			}
+		}
 	}
 
 	fillWith { :self :aBlock |
@@ -589,9 +589,7 @@
 	isOctetSequence { :self |
 		self.allSatisfy { :each |
 			each.isInteger & {
-				each >= 0
-			} & {
-				each < 256
+				each.betweenAnd(0, 255)
 			}
 		}
 	}

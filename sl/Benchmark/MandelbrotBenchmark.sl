@@ -20,7 +20,11 @@
 						notDone = true,
 						escape = 0
 					)|
-					{ notDone & { z < 50 } }.whileTrue {
+					{
+						notDone & {
+							z < 50
+						}
+					}.whileTrue {
 						zr := zrzr - zizi + cr;
 						zi := 2 * zr * zi + ci;
 						zrzr := zr * zr;
