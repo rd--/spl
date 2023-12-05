@@ -15,3 +15,7 @@ You will only hear the first two channels on a stereo setup.
 		0.1
 	);
 	Silent(8) ++ DecodeB2(8, w, x, y, 0)
+
+* * *
+
+See also: DecodeB2
