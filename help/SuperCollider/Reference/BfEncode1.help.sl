@@ -27,7 +27,7 @@ var [w, x, y, z] = BfEncode1(
 	0.3,
 	0
 );
-Silent(8) ++ BfDecode1(w, x, y, z, [-0.75 -0.5 -0.25 0 0.25 0.5 0.75 1] * pi, 0, 0)
+BfDecode1(w, x, y, z, [-0.75 -0.5 -0.25 0 0.25 0.5 0.75 1] * pi, 0, 0)
 ```
 
 Decode to quadraphonic in sequence _fl, fr, rl, rr_:
@@ -44,7 +44,7 @@ var [w, x, y, z] = BfEncode1(
 	0.3,
 	0
 );
-Silent(8 + 8) ++ BfDecode1(w, x, y, z, [-0.25 0.25 1.25 0.75] * pi, 0, 0)
+BfDecode1(w, x, y, z, [-0.25 0.25 1.25 0.75] * pi, 0, 0)
 ```
 
 * * *

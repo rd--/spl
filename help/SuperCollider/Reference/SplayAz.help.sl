@@ -18,8 +18,37 @@ The distance between the input signals in the output range is determined by the 
 - level: Scaling for all signals
 - width: Over how much of the channels each signal is distributed.
 _ center: Which of the channels will be the first channel
-- orientation: Should be zero if the front is a vertex of the polygon. The first speaker will be directly in front. Should be 0.5 if the front bisects a side of the polygon. Then the first speaker will be the one left of center.
+- orientation: Should be zero if the front is a vertex of the polygon.
+  The first speaker will be directly in front.
+  Should be 0.5 if the front bisects a side of the polygon.
+  Then the first speaker will be the one left of center.
 - levelComp: If true, the signal level is adjusted to maintain overall loudness the same (n.reciprocal.sqrt).
+
+With mouse control:
+
+```
+var numChannels = 8;
+var numVoices = 16;
+var inArray = (1 .. numVoices).collect { :each |
+	SinOsc(LfNoise2(Rand(10, 20)) * 200 + (each * 100 + 400), 0)
+};
+var spread = MouseY(1, 0, 0, 0.2);
+var level = 0.2;
+var width = 2;
+var center = MouseX(-1, 1, 0, 0.2);
+var orientation = 0.5;
+var levelComp = true;
+SplayAz(
+	numChannels,
+	inArray,
+	spread,
+	level,
+	width,
+	center,
+	orientation,
+	levelComp
+)
+```
 
 * * *
 
