@@ -58,3 +58,7 @@ var osc = Blip(
 ) * env / 2;
 osc.Splay
 ```
+
+* * *
+
+See also: Env, EnvGen

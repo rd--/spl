@@ -223,6 +223,7 @@
 	StandardL { :freq :k :xi :yi | <primitive: return sc.StandardL(_freq, _k, _xi, _yi);> }
 	StandardN { :freq :k :xi :yi | <primitive: return sc.StandardN(_freq, _k, _xi, _yi);> }
 	Stepper { :trig :reset :min :max :step :resetval | <primitive: return sc.Stepper(_trig, _reset, _min, _max, _step, _resetval);> }
+	Sum4 { :in0 :in1 :in2 :in3 | <primitive: return sc.Sum4(_in0, _in1, _in2, _in3);> }
 	Sweep { :trig :rate | <primitive: return sc.Sweep(_trig, _rate);> }
 	SyncSaw { :syncFreq :sawFreq | <primitive: return sc.SyncSaw(_syncFreq, _sawFreq);> }
 	TableRand { :trig :bufnum | <primitive: return sc.TableRand(_trig, _bufnum);> }

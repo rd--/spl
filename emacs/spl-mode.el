@@ -190,6 +190,7 @@
      ("and" . ?∧) ; U+2227 ∧ Logical and
      ("or" . ?∨) ; ∨ U+2228 Logical Or
      ("sum" . ?Σ) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation
+     ("Sum" . ?∑) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation
      ("product" . ?Π) ; U+03A0 Π Greek capital letter pi
      ("crossedMultiply" . ?⊗) ; U+2297 ⊗ Circled Times
      ("*.x" . ?⊗)

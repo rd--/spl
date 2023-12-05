@@ -8,7 +8,7 @@ _TableRand(trig, bufNum)_
 Select random value in (0,1) at each trigger input.
 The value follows the probability density function given in the associated table.
 
-Set the frequency of a sine oscillator is randomly according to an indicated probablity table:
+Randomly set the frequency of a sine oscillator according to an indicated probablity table:
 
 ```
 var k = 8;

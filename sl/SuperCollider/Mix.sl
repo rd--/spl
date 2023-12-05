@@ -251,6 +251,19 @@
 		Splay(inArray, 1)
 	}
 
+	Sum { :self |
+		(self.size >= 4).if {
+			| prefix = Sum4(self[1], self[2], self[3], self[4]); |
+			(self.size = 4).if {
+				prefix
+			} {
+				prefix + Sum(self.copyFromTo(5, self.size))
+			}
+		} {
+			self.sum
+		}
+	}
+
 }
 
 +[Ugen, Array] {

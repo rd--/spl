@@ -40,7 +40,7 @@ ContinuousEvent : [Object] { | contents |
 
 +Array {
 
-	ContinuousEvent { :self |
+	asContinuousEvent { :self |
 		self.assertIsOfSize(8);
 		newContinuousEvent().initializeSlots(self.kr) (* control rate? *)
 	}
@@ -50,14 +50,14 @@ ContinuousEvent : [Object] { | contents |
 +Void {
 
 	ContinuousEvent {
-		newContinuousEvent().initializeSlots([0 0 0 0 0 0 0 0])
+		[0 0 0 0 0 0 0 0].asContinuousEvent
 	}
 
 }
 
 +@Dictionary {
 
-	ContinuousEvent { :self |
+	asContinuousEvent { :self |
 		[
 			self::w :? { 0 },
 			self::x :? { 0 },
@@ -67,12 +67,12 @@ ContinuousEvent : [Object] { | contents |
 			self::j :? { 0 },
 			self::k :? { 0 },
 			self::p :? { 0 }
-		].ContinuousEvent
+		].asContinuousEvent
 	}
 
 	Voicer { :self :aBlock:/1 |
 		self.multiChannelExpand.collect { :each |
-			aBlock(each.ContinuousEvent)
+			aBlock(each.asContinuousEvent)
 		}
 	}
 
@@ -88,7 +88,7 @@ ContinuousEvent : [Object] { | contents |
 	Voicer { :self :voiceBlock:/1 |
 		| voiceOffset = 0; |
 		(1 .. self).collect { :each |
-			ControlIn(8, (each + voiceOffset).voicerVoiceAddress).ContinuousEvent.voiceBlock
+			ControlIn(8, (each + voiceOffset).voicerVoiceAddress).asContinuousEvent.voiceBlock
 		}
 	}
 
@@ -100,15 +100,14 @@ ContinuousEvent : [Object] { | contents |
 		(1 .. self).collect { :voiceNumber |
 			ControlOut(
 				voiceNumber.voicerVoiceAddress,
-				voiceBlock().ContinuousEvent.asArray
+				voiceBlock().asContinuousEvent.asArray
 			)
 		}
 	}
 
 }
 
-(*
-+@Integer {
++[Array, SmallFloat, Ugen] {
 
 	KeyDown { :self | <primitive: return sc.KeyDown(_self);> }
 	KeyTimbre { :self | <primitive: return sc.KeyTimbre(_self);> }
@@ -116,13 +115,11 @@ ContinuousEvent : [Object] { | contents |
 	KeyVelocity { :self | <primitive: return sc.KeyVelocity(_self);> }
 	KeyPitch { :self | <primitive: return sc.KeyPitch(_self);> }
 
-	PenDown { :self | <primitive: return sc.PenDown(_self);> }
-	PenX { :self | <primitive: return sc.PenX(_self);> }
-	PenY { :self | <primitive: return sc.PenY(_self);> }
-	PenZ { :self | <primitive: return sc.PenZ(_self);> }
-	PenAngle { :self | <primitive: return sc.PenAngle(_self);> }
-	PenRadius { :self | <primitive: return sc.PenRadius(_self);> }
+	PenDown { :voiceNumber | <primitive: return sc.PenDown(_voiceNumber);> }
+	PenX { :voiceNumber | <primitive: return sc.PenX(_voiceNumber);> }
+	PenY { :voiceNumber | <primitive: return sc.PenY(_voiceNumber);> }
+	PenZ { :voiceNumber | <primitive: return sc.PenZ(_voiceNumber);> }
+	PenAngle { :voiceNumber | <primitive: return sc.PenAngle(_voiceNumber);> }
+	PenRadius { :voiceNumber | <primitive: return sc.PenRadius(_voiceNumber);> }
 
 }
-*)
-

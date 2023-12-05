@@ -924,7 +924,7 @@
 				}
 			}
 		)|
-		places.collect(Record:/1)
+		places.collect(asRecord:/1)
 	}
 
 }
