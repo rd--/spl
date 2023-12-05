@@ -2,6 +2,13 @@
 
 +[Array, SmallFloat, Ugen] {
 
+	PenDown { :voiceNumber | <primitive: return sc.PenDown(_voiceNumber);> }
+	PenX { :voiceNumber | <primitive: return sc.PenX(_voiceNumber);> }
+	PenY { :voiceNumber | <primitive: return sc.PenY(_voiceNumber);> }
+	PenZ { :voiceNumber | <primitive: return sc.PenZ(_voiceNumber);> }
+	PenAngle { :voiceNumber | <primitive: return sc.PenAngle(_voiceNumber);> }
+	PenRadius { :voiceNumber | <primitive: return sc.PenRadius(_voiceNumber);> }
+
 	Distances { :x :y :z :coordinateArray |
 		WDistances(1, x, y, z, coordinateArray)
 	}
@@ -238,15 +245,3 @@
 	XLine { :start :end :dur | <primitive: return sc.XLine(_start, _end, _dur, 0);> }
 
 }
-
-+@Integer {
-
-	PenDown { :voiceNumber | <primitive: return sc.PenDown(_voiceNumber);> }
-	PenX { :voiceNumber | <primitive: return sc.PenX(_voiceNumber);> }
-	PenY { :voiceNumber | <primitive: return sc.PenY(_voiceNumber);> }
-	PenZ { :voiceNumber | <primitive: return sc.PenZ(_voiceNumber);> }
-	PenAngle { :voiceNumber | <primitive: return sc.PenAngle(_voiceNumber);> }
-	PenRadius { :voiceNumber | <primitive: return sc.PenRadius(_voiceNumber);> }
-
-}
-
