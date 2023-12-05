@@ -16,6 +16,12 @@ export async function rewriteFile(fileName: string): Promise<string> {
 }
 
 // Fetch files asynchronously, store at packageIndex
+export function primitiveReadLocalFile(fileName: string): Promise<Response> {
+	const resolvedFileName = load.resolveFileName(fileName);
+	return Deno.readTextFile(fileName);
+}
+
+// Fetch files asynchronously, store at packageIndex
 export async function primitiveReadLocalPackages(
 	qualifiedPackageNames: string[],
 ): Promise<void> {
@@ -54,5 +60,13 @@ export function addLoadFileMethods(): void {
 		['self'],
 		kernel.primitiveLoadPackageSequence,
 		'<primitive: package loader>',
+	);
+	kernel.addMethod(
+		'String',
+		'Kernel',
+		'primitiveReadLocalFile',
+		['self'],
+		primitiveReadLocalFile,
+		'<primitive: file reader>',
 	);
 }

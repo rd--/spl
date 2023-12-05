@@ -29,6 +29,7 @@
 	'Block'
 	'Adverb' (* > Block *)
 	'Promise'
+	'Request'
 	'Response'
 	'SmallFloat'
 	'String'

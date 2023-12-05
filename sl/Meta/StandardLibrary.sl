@@ -99,4 +99,10 @@
 	(* Sound *)
 	'SoundFile' (* > Url *)
 
-].primitiveLoadPackageSequence
+].primitiveLoadPackageSequence.then { :unused |
+	'../config/preferences.json'.primitiveReadLocalFile.then { :response |
+		response.json.then { :anObject |
+			system.cache::preferences := anObject
+		}
+	}
+}

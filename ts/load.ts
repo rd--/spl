@@ -18,6 +18,12 @@ export function resolveFileName(fileName: string): string {
 }
 
 // Fetch files asynchronously, store at packageIndex
+export function primitiveReadLocalFile(fileName: string): Promise<Response> {
+	const resolvedFileName = resolveFileName(fileName);
+	return fetch(resolvedFileName);
+}
+
+// Fetch files asynchronously, store at packageIndex
 export async function primitiveReadLocalPackages(
 	qualifiedPackageNames: string[],
 ): Promise<void> {
@@ -26,6 +32,7 @@ export async function primitiveReadLocalPackages(
 	);
 	const resolvedFileNameArray: string[] = [];
 	packageArray.forEach(function (pkg: kernel.Package) {
+		// console.debug('primitiveReadLocalPackages', pkg.url);
 		const resolvedFileName = resolveFileName(pkg.url);
 		return resolvedFileNameArray.push(resolvedFileName);
 	});
@@ -58,6 +65,14 @@ export function addLoadUrlMethods(): void {
 		['self'],
 		kernel.primitiveLoadPackageSequence,
 		'<primitive: package loader>',
+	);
+	kernel.addMethod(
+		'String',
+		'Kernel',
+		'primitiveReadLocalFile',
+		['self'],
+		primitiveReadLocalFile,
+		'<primitive: file reader>',
 	);
 }
 
