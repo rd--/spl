@@ -26,15 +26,15 @@ Example signal to process:
 		Impulse(8, 0) * MulAdd(LfSaw(0.3, 0), -0.3, 0.3),
 		0.001,
 		0.3
-	) * Pulse([80, 81], 0.3).sum
+	) * Pulse([80, 81], 0.3).Sum
 
-Noise gate:
+Noise gate (keywords):
 
 	var z = Decay2(
 		Impulse(8, 0) * MulAdd(LfSaw(0.3, 0), -0.3, 0.3),
 		0.001,
 		0.3
-	) * Pulse([80, 81], 0.3).sum;
+	) * Pulse([80, 81], 0.3).Sum;
 	Compander(
 		in: z,
 		control: z,
@@ -45,13 +45,13 @@ Noise gate:
 		relaxTime: 0.01
 	)
 
-Compressor:
+Compressor (keywords):
 
 	var z = Decay2(
 		Impulse(8, 0) * MulAdd(LfSaw(0.3, 0), -0.3, 0.3),
 		0.001,
 		0.3
-	) * Pulse([80, 81], 0.3).sum;
+	) * Pulse([80, 81], 0.3).Sum;
 	Compander(
 		in: z,
 		control: z,
@@ -62,13 +62,13 @@ Compressor:
 		relaxTime: 0.01
 	)
 
-Limiter:
+Limiter (keywords):
 
 	var z = Decay2(
 		Impulse(8, 0) * MulAdd(LfSaw(0.3, 0), -0.3, 0.3),
 		0.001,
 		0.3
-	) * Pulse([80, 81], 0.3).sum;
+	) * Pulse([80, 81], 0.3).Sum;
 	Compander(
 		in: z,
 		control: z,
@@ -79,13 +79,13 @@ Limiter:
 		relaxTime: 0.01
 	)
 
-Sustainer:
+Sustainer (keywords):
 
 	var z = Decay2(
 		Impulse(8, 0) * MulAdd(LfSaw(0.3, 0), -0.3, 0.3),
 		0.001,
 		0.3
-	) * Pulse([80, 81], 0.3).sum;
+	) * Pulse([80, 81], 0.3).Sum;
 	Compander(
 		in: z,
 		control: z,

@@ -16,7 +16,7 @@ Track sine oscillator:
 
 Track audio input, __use headphones__:
 
-	var z = AudioIn([1, 2]).sum;
+	var z = AudioIn([1, 2]).Sum;
 	var f = Pitch(z, 440, 60, 4000, 100, 16, 7, 0.02, 0.5, 1, 0);
 	var s = VarSaw(
 		f.first * [0.5, 1, 2],

@@ -34,4 +34,4 @@ Sum nine oscillators, utilising two _Sum4_ Ugens and two _Add_ Ugens:
 
 * * *
 
-See also: Mix, sum
+See also: Mix, sum, Sum4

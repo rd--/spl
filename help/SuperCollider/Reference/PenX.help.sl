@@ -13,7 +13,7 @@ Read from two pens, PenX controls frequency, PenY stereo location and PenZ ampli
 		SinOsc(PenX(k) * 111 + 111, 0),
 		PenY(k) * 2 - 1,
 		PenZ(k) * PenDown(k)
-	).sum
+	).Sum
 
 * * *
 

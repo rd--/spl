@@ -43,5 +43,5 @@ var t = LfPulse(8, 0, 0.5);
 	2.seq * SinOsc(2400, 0) * 0.04,
 	3.seq * BrownNoise() * 0.05,
 	4.seq * SinOsc(100, 0) * 0.2
-].sum
+].Splay
 ```

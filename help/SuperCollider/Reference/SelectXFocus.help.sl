@@ -41,7 +41,7 @@ SelectXFocus(
 	a,
 	MouseY(0, a.size, 0, 0.2),
 	false
-).sum * 0.2
+).Sum * 0.2
 ```
 
 Radio tuner (Jrh):
@@ -59,13 +59,14 @@ var a = {
         var phase = LfNoise2(mWrap(1, 20, 10, 1000)) * Rand(2, 5);
         SinOsc(freq * fMul, phase)
 } ! n;
+var b = OnePole({ PinkNoise() * 0.5 } ! 2, 0.4);
 a.add(
         SinOsc(
 		(LfdNoise0(11) * SetResetFf(Dust(1) * 0.3, Dust(1) * 0.3)).Range(0, 700) + 220,
 		0
 	)
 );
-SelectXFocus(mX * n, a, mY * n, false).sum * 0.2 + OnePole({ PinkNoise() * 0.5 } ! 2, 0.4) * Line(0, 1, 3)
+SelectXFocus(mX * n, a, mY * n, false).Sum * 0.2 + b * Line(0, 1, 3)
 ```
 
 * * *

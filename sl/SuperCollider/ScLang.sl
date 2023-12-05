@@ -360,7 +360,7 @@
 +Block {
 
 	!+ { :self :anInteger |
-		(self ! anInteger).sum
+		(self ! anInteger).Sum
 	}
 
 	!* { :self :anInteger |
