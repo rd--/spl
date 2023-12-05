@@ -55,10 +55,12 @@ function makeTypeDefinition(
 }
 
 function intervalSyntax(start: ohm.Node, end: ohm.Node): string {
+	// console.debug('intervalSyntax');
 	return `_${genName('upOrDownTo', 2)}(${start.asJs}, ${end.asJs})`;
 }
 
 function arrayIntervalSyntax(start: ohm.Node, end: ohm.Node): string {
+	// console.debug('arrayIntervalSyntax');
 	return `_${genName('Array', 1)}(${intervalSyntax(start, end)})`;
 }
 
@@ -244,11 +246,12 @@ const asJs: ohm.ActionDict<string> = {
 		_equals,
 		rhs,
 	) {
-		const namesArray = lhs.asIteration().children.map((c) => c.sourceString);
+		const namesArray = lhs.asIteration().children.map((c) => c.asJs);
 		const rhsName = genSym();
 		const slots = namesArray.map((name, index) =>
-			`_${name} = _${genName('at', 2)}(${rhsName}, ${index + 1})`
+			`${name} = _${genName('at', 2)}(${rhsName}, ${index + 1})`
 		).join(', ');
+		// console.debug('TemporaryWithArrayInitializer', namesArray, rhsName);
 		return `${rhsName} = _assertIsOfSize_2(${rhs.asJs}, ${namesArray.length}), ${slots}`;
 	},
 	TemporariesWithoutInitializers(_leftVerticalBar, tmp, _rightVerticalBar) {
@@ -267,11 +270,12 @@ const asJs: ohm.ActionDict<string> = {
 		return `${lhs.asJs} = ${rhs.asJs}`;
 	},
 	ArrayAssignment(_leftBracket, lhs, _rightBracket, _colonEquals, rhs) {
-		const namesArray = lhs.asIteration().children.map((c) => c.sourceString);
+		const namesArray = lhs.asIteration().children.map((c) => c.asJs);
 		const rhsArrayName = genSym();
 		const slots = namesArray.map((name, index) =>
-			`_${name} = _${genName('at', 2)}(${rhsArrayName}, ${index + 1})`
+			`${name} = _${genName('at', 2)}(${rhsArrayName}, ${index + 1})`
 		).join('; ');
+		// console.debug('ArrayAssignment', namesArray, rhsArrayName);
 		return `(function() { var ${rhsArrayName} = ${rhs.asJs}; ${slots}; })()`;
 	},
 	DictionaryAssignment(_leftParen, lhs, _rightParen, _colonEquals, rhs) {
@@ -576,7 +580,7 @@ const asJs: ohm.ActionDict<string> = {
 
 	unusedVariableIdentifier(_underscore) {
 		const identifier = genSym();
-		console.debug('unusedVariableIdentifier', identifier);
+		// console.debug('unusedVariableIdentifier', identifier);
 		return identifier;
 	},
 	unqualifiedIdentifier(c1, cN) {

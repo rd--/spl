@@ -27,8 +27,8 @@ Sl {
 		TemporaryWithArrayInitializer
 	TemporaryWithBlockLiteralInitializer = identifier "=" Block ~("." | binaryOperator)
 	TemporaryWithExpressionInitializer = identifier "=" Expression
-	TemporaryWithDictionaryInitializer = "("  NonemptyListOf<identifier, ","> ")" "=" Expression
-	TemporaryWithArrayInitializer = "["  NonemptyListOf<identifierOrUnused, ","> "]" "=" Expression
+	TemporaryWithDictionaryInitializer = "(" NonemptyListOf<identifier, ","> ")" "=" Expression
+	TemporaryWithArrayInitializer = "[" NonemptyListOf<identifierOrUnused, ","> "]" "=" Expression
 	TemporariesWithoutInitializers = "|" identifier+ "|"
 	TemporariesParenSyntax = "|(" NonemptyListOf<TemporaryWithInitializer, ","> ")|"
 	TemporariesVarWithoutInitializersSyntax = "var" NonemptyListOf<identifier, ","> ";"
@@ -105,8 +105,8 @@ Sl {
 	ReadSlotSyntax = Primary ":@" identifier
 	WriteSlotSyntax = Primary ":@" identifier ":=" Expression
 	ValueApply = Primary "." ParameterList
-	ParameterList =  "(" ListOf<Expression, ","> ")"
-	NonEmptyParameterList =  "(" NonemptyListOf<Expression, ","> ")"
+	ParameterList = "(" ListOf<Expression, ","> ")"
+	NonEmptyParameterList = "(" NonemptyListOf<Expression, ","> ")"
 
 	DotExpressionWithTrailingClosuresSyntax = Primary "." identifier NonEmptyParameterList? Block+
 	DotExpressionWithTrailingDictionariesSyntax = Primary "." identifier NonEmptyParameterList? NonEmptyDictionaryExpression+

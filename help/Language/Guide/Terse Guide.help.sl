@@ -3603,8 +3603,8 @@ var a = 'one' -> 1; a.key := 9; a.key = 9 (* p.x := y is syntax for p.x(y) *)
 ```
 (1 .. 3).collect { :_ | 0 } = [0, 0, 0] (* underscore can be used to indicate an unused variable *)
 | [x, _, z] = [1, 2, 3]; | [x, z] = [1, 3]
-(1 .. 3).withIndexCollect { :_ :_ | 0 } = [0, 0, 0] (* multiple unused variable can be declared *)
-| [x, _, _, z] = [1, 2, 3, 4]; | [x, z] = [1, 4] (* multiple unused variable can be declared *)
+(1 .. 3).withIndexCollect { :_ :_ | 0 } = [0, 0, 0] (* multiple unused variables can be declared *)
+| [x, _, _, z] = [1, 2, 3, 4]; | [x, z] = [1, 4] (* multiple unused variables can be declared *)
 ```
 
 ## Syntax -- whitespace
