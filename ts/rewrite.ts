@@ -465,6 +465,7 @@ const asJs: ohm.ActionDict<string> = {
 	BlockBody(arg, tmp, prm, stm) {
 		let arityCheck = '';
 		if (slOptions.insertArityCheck) {
+			/* console.error(${JSON.stringify(stm.sourceString)});  */
 			arityCheck =
 				`if(arguments.length !== ${arg.arityOf}) { var errorMessage = 'Arity: expected ${arg.arityOf}, ${arg.asJs}'; console.error(errorMessage); throw Error(errorMessage); }`;
 		}

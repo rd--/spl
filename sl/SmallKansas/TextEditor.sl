@@ -161,7 +161,7 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 				self.referencesTo(subject.currentWord.asMethodName, event)
 			},
 			MenuItem('Require It', nil) { :event |
-				system.package(subject.currentWord).require.then {
+				system.package(subject.currentWord).require.then { :unused |
 					subject.insertText('*Package loaded*')
 				}
 			},

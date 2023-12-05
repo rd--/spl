@@ -5,7 +5,6 @@
 			lineWidth = 1,
 			points = self.vertexLabels.collect(derivePoint:/1),
 			bbox = points.computeBoundingBox.scaleBy(scale),
-			lineWidth = 1,
 			dots = points.collect { :each |
 				'circle'.createSvgElement (
 					cx: each.x,

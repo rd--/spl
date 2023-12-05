@@ -550,9 +550,11 @@ String! : [Object, Json, Iterable] {
 			self
 		} {
 			| quote = self.first; |
-			(quote = self.last).and {
-				[34, 39, 96].includes(quote.codePoint)
-			}.if {
+			(
+				quote = self.last & {
+					[34, 39, 96].includes(quote.codePoint)
+				}
+			).if {
 				self.copyFromTo(2, self.size - 1)
 			} {
 				self

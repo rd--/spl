@@ -7,5 +7,5 @@ Start the process of fetching a resource from the network, returning a Promise w
 
 * * *
 
-See also: Promise, Repsonse
+See also: Promise, Response
 

@@ -47,6 +47,6 @@
 	'WindowMenu'
 	'Workspace'
 	'WorldMenu'
-].primitiveLoadPackageSequence.then {
+].primitiveLoadPackageSequence.then { :unused |
 	system.smallKansas
 }

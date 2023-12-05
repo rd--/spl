@@ -122,11 +122,11 @@ Frame : [Object, UserEventTarget] { | smallKansas framePane titlePane closeButto
 		self.titlePane.addEventListener('contextmenu') { :event |
 			(* ... *)
 		};
-		self.titlePane.addEventListener('pointerdown', pointerBegin);
-		self.titlePane.addEventListener('pointermove', pointerMove, (capture: true, passive: true));
-		self.titlePane.addEventListener('pointercancel', pointerEnd);
-		self.titlePane.addEventListener('pointerup', pointerEnd);
-		self.titlePane.addEventListener('pointerout', pointerEnd);
+		self.titlePane.addEventListener('pointerdown', pointerBegin:/1);
+		self.titlePane.addEventListener('pointermove', pointerMove:/1, (capture: true, passive: true));
+		self.titlePane.addEventListener('pointercancel', pointerEnd:/1);
+		self.titlePane.addEventListener('pointerup', pointerEnd:/1);
+		self.titlePane.addEventListener('pointerout', pointerEnd:/1);
 		self.framePane.addEventListener('keydown') { :event |
 			event.ctrlKey.ifTrue {
 				(event.key = 'Escape').ifTrue {

@@ -37,9 +37,9 @@
 			frame = self.addFrame(textEditor, event)
 		)|
 		textEditor.editable := false;
-		midiPort.addEventListener('midimessage', onMidiMessage);
+		midiPort.addEventListener('midimessage', onMidiMessage:/1);
 		frame.addEventListener('close') { :unusedEvent |
-			midiPort.removeEventListener('midimessage', onMidiMessage)
+			midiPort.removeEventListener('midimessage', onMidiMessage:/1)
 		};
 		frame
 	}

@@ -9,8 +9,8 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 			} {
 				identity:/1
 			},
-			filter = self.filterText.ifNil {
-				{
+			filter:/1 = self.filterText.ifNil {
+				{ :unusedString |
 					true
 				}
 			} {
@@ -21,7 +21,7 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 			}
 		)|
 		self.select.removeAll;
-		self.select.appendChildren(self.entries.select(filter).collect { :each |
+		self.select.appendChildren(self.entries.select(filter:/1).collect { :each |
 			TextOption(each)
 		});
 		self.select.deselect

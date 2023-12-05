@@ -4,7 +4,7 @@
 		self.eventListeners.atIfPresentIfAbsent(aString) { :aSet |
 			aSet.add(aBlock:/1)
 		} {
-			self.eventListeners[aString] := Set([aBlock:/1])
+			self.eventListeners[aString] := [aBlock:/1].asSet
 		}
 	}
 
