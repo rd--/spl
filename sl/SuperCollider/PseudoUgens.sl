@@ -2,6 +2,14 @@
 
 +[Array, SmallFloat, Ugen] {
 
+	Distances { :x :y :z :coordinateArray |
+		WDistances(1, x, y, z, coordinateArray)
+	}
+
+	KNearest { :numChannels :x :y :z :coordinateArray |
+		WkNearest(numChannels, 1, x, y, z, coordinateArray)
+	}
+
 	TableWindow { :trig :dur :bufNum |
 		var phase = Line(trig, 0, BufFrames(bufNum), dur);
 		BufRd(1, bufNum, phase, 0, 4)
@@ -230,3 +238,15 @@
 	XLine { :start :end :dur | <primitive: return sc.XLine(_start, _end, _dur, 0);> }
 
 }
+
++@Integer {
+
+	PenDown { :voiceNumber | <primitive: return sc.PenDown(_voiceNumber);> }
+	PenX { :voiceNumber | <primitive: return sc.PenX(_voiceNumber);> }
+	PenY { :voiceNumber | <primitive: return sc.PenY(_voiceNumber);> }
+	PenZ { :voiceNumber | <primitive: return sc.PenZ(_voiceNumber);> }
+	PenAngle { :voiceNumber | <primitive: return sc.PenAngle(_voiceNumber);> }
+	PenRadius { :voiceNumber | <primitive: return sc.PenRadius(_voiceNumber);> }
+
+}
+

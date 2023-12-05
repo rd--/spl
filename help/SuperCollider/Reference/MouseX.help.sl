@@ -24,6 +24,9 @@ Two oscillators:
 		0
 	) * 0.1
 
+_Note_:
+MouseX and MouseY can report unexpected values on systems with multiple displays.
+
 * * *
 
 See also: MouseY, MouseButton
