@@ -1,10 +1,11 @@
-import { bundle } from "https://deno.land/x/emit/mod.ts";
+import { bundle } from 'https://deno.land/x/emit/mod.ts';
 const result = await bundle(
 	new URL('./sl.ts', import.meta.url),
 	{
 		compilerOptions: {
 			sourceMap: false,
-			inlineSourceMap: false}
-	}
+			inlineSourceMap: false,
+		},
+	},
 );
 console.log(result.code);

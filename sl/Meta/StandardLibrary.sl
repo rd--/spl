@@ -100,9 +100,7 @@
 	'SoundFile' (* > Url *)
 
 ].primitiveLoadPackageSequence.then { :unused |
-	'../config/preferences.json'.primitiveReadLocalFile.then { :response |
-		response.json.then { :anObject |
-			system.cache::preferences := anObject
-		}
+	'../config/preferences.json'.primitiveReadLocalFile.then { :byteArray |
+		system.cache::preferences := byteArray.utf8String.parseJson
 	}
 }

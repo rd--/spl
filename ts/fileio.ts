@@ -16,9 +16,9 @@ export async function rewriteFile(fileName: string): Promise<string> {
 }
 
 // Fetch files asynchronously, store at packageIndex
-export function primitiveReadLocalFile(fileName: string): Promise<Response> {
+export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {
 	const resolvedFileName = load.resolveFileName(fileName);
-	return Deno.readTextFile(fileName);
+	return Deno.readFile(fileName);
 }
 
 // Fetch files asynchronously, store at packageIndex

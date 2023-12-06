@@ -18,9 +18,13 @@ export function resolveFileName(fileName: string): string {
 }
 
 // Fetch files asynchronously, store at packageIndex
-export function primitiveReadLocalFile(fileName: string): Promise<Response> {
+export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {
 	const resolvedFileName = resolveFileName(fileName);
-	return fetch(resolvedFileName);
+	return fetch(resolvedFileName).then(function (response) {
+		return response.arrayBuffer().then(function (arrayBuffer) {
+			return new Uint8Array(arrayBuffer);
+		});
+	});
 }
 
 // Fetch files asynchronously, store at packageIndex

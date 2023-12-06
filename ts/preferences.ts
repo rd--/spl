@@ -5,6 +5,7 @@ export function preferencesRead<T>(
 	key: string,
 	defaultValue: T,
 ): T {
+	// console.debug('preferencesRead', preferences, key, defaultValue);
 	const configuration: string = preferences['Configuration'];
 	const configurationEntry: T | null = preferences[configuration][key];
 	if (configurationEntry) {
