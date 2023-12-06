@@ -16,7 +16,7 @@ This method must be called before a connection is established using _connect_.
 At present _scsynth_ does not implement the
 [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) protocol
 and a bridge must be used,
-c.f. the _ws-bridge_ program at [jssc3](https://rohandrape.net/?t=jssc3).
+c.f. the _ws-tcp-bridge_ program at [jssc3](https://rohandrape.net/?t=jssc3).
 
 * * *
 
