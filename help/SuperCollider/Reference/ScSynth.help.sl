@@ -13,6 +13,9 @@ However the system can also connect to an existing external instance of the synt
 
 This method must be called before a connection is established using _connect_.
 
+The output connections and mixing behaviour of the synthesiser are defined as _Preferences_,
+which may be edited.
+
 At present _scsynth_ does not implement the
 [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) protocol
 and a bridge must be used,
@@ -20,4 +23,4 @@ c.f. the _ws-tcp-bridge_ program at [jssc3](https://rohandrape.net/?t=jssc3).
 
 * * *
 
-See also: addOscListener, removeOscListener
+See also: addOscListener, Preferences, removeOscListener

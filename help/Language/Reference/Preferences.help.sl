@@ -8,10 +8,14 @@ To read a preference, providing a default value in case it does not exist:
 
 	system.preference('Configuration', 'Default')
 
-To set the a preference, here the _Configuration_:
+Preferences can be assigned to:
 
-	system.preference::Configuration := '1×2+1×8+2×4'
+	system.preferences::Configuration := '1×2+1×8+2×4'
 
-The default configuration is called _Default_:
+The default configuration is _Default_:
 
-	system.preference::Configuration := 'Default'
+	system.preferences::Configuration := 'Default'
+
+By convention preferences are names using _PascalCase_.
+The path separator is the _._ character,
+for instance _ScSynth.Outputs.Main.NumberOfChannels_.
