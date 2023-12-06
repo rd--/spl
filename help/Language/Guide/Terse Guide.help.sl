@@ -2358,6 +2358,9 @@ system.package('BounceBenchmark').dependencies.collect(name:/1) = ['Benchmark', 
 system.includesPackage('Point') (* point package *)
 0.asPoint.isPoint (* number to point, point predicate *)
 0.asPoint.isZero (* are x and y both zero *)
+(1 @ 1).norm = 2.sqrt (* magnitude, distance to origin *)
+(1 @ 1).normalized = ((1 @ 1) / 2.sqrt) (* normalized to have unit magnitude *)
+(1 @ 1).normalized.norm ~ 1
 ```
 
 ## PriorityQueue -- collection type

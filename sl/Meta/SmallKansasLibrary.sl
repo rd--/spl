@@ -16,7 +16,7 @@
 	'TextElement'
 
 	(* SmallKansans *)
-	'AnalogueClock'
+(*	'AnalogueClock'
 	'CategoryBrowser'
 	'ColourChooser'
 	'CrystalLatticeStructureBrowser'
@@ -44,7 +44,7 @@
 	'TraitBrowser'
 	'TranscriptViewer'
 	'TypeBrowser'
-	'WindowMenu'
+	'WindowMenu' *)
 	'Workspace'
 	'WorldMenu'
 ].primitiveLoadPackageSequence.then { :unused |

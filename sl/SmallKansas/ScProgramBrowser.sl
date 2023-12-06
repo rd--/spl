@@ -80,9 +80,21 @@ ScProgramIndex : [Object] { | contents |
 					3 -> {
 						|(
 							[category, author, name] = path[1, 2, 3],
-							url = ['./lib/stsc3/help/', category, '/', author, ' - ', name, '.sl'].join
+							url = [
+								'./lib/stsc3/help/',
+								category,
+								'/',
+								author,
+								' - ',
+								name,
+								'.sl'
+							].join
 						)|
-						system.fetchString(url, (cache: 'no-cache'), { '*Fetch failed*' })
+						system.fetchString(
+							url,
+							(cache: 'no-cache'),
+							{ '*Fetch failed*' }
+						)
 					}
 				])
 			}

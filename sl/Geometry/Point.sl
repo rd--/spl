@@ -76,6 +76,14 @@
 		self.x.min(aPoint.x) @ self.y.min(aPoint.y)
 	}
 
+	norm { :self |
+		(self.x.squared + self.y.squared).sqrt
+	}
+
+	normalized { :self |
+		self / self.norm
+	}
+
 	size { :self |
 		2
 	}
