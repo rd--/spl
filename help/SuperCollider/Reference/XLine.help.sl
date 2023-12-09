@@ -1,7 +1,6 @@
 # XLine -- exponential line generator
 
-_XLine(tr=0, start=0, end=1, dur=1)_
-_XLine(start, end, dur)_ == _XLine(1, start, end, dur)_
+_XLine(start, end, dur)_
 
 Generates an exponential curve from the start value to the end value.
 Both the start and end values must be non-zero and have the same sign.

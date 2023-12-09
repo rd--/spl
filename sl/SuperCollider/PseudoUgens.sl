@@ -11,7 +11,7 @@
 	}
 
 	TableWindow { :trig :dur :bufNum |
-		var phase = Line(trig, 0, BufFrames(bufNum), dur);
+		var phase = TLine(0, BufFrames(bufNum), dur, trig);
 		BufRd(1, bufNum, phase, 0, 4)
 	}
 
@@ -57,6 +57,7 @@
 		}
 	}
 
+	(*
 	ExpRand { :tr :lo :hi | TExpRand(lo, hi, tr) }
 	LinRand { :tr :lo :hi :minmax | TLinRand(lo, hi, minmax, tr) }
 	Line { :tr :start :end :dur | TLine(start, end, dur, tr) }
@@ -64,6 +65,7 @@
 	Scramble { :tr :inArray | TScramble(tr, inArray) }
 	IRand { :tr :lo :hi | TIRand(lo, hi, tr) }
 	XLine { :tr :start :end :dur | TxLine(start, end, dur, tr) }
+	*)
 
 (*
 	AudioIn { :channelNumber |

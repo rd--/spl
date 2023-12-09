@@ -160,7 +160,7 @@
 	LinPan2 { :in :pos :level | <primitive: return sc.LinPan2(_in, _pos, _level);> }
 	LinRand { :lo :hi :minmax | <primitive: return sc.LinRand(_lo, _hi, _minmax);> }
 	LinXFade2 { :inA :inB :pan | <primitive: return sc.LinXFade2(_inA, _inB, _pan);> }
-	PrimitiveLine { :start :end :dur :doneAction | <primitive: return sc.Line(_start, _end, _dur, _doneAction);> }
+	(*Line { :start :end :dur :doneAction | <primitive: return sc.Line(_start, _end, _dur, _doneAction);> }*)
 	Linen { :gate :attackTime :susLevel :releaseTime :doneAction | <primitive: return sc.Linen(_gate, _attackTime, _susLevel, _releaseTime, _doneAction);> }
 	LocalBuf { :numChannels :numFrames | <primitive: return sc.LocalBuf(_numChannels, _numFrames);> }
 	LocalIn { :numChan :default | <primitive: return sc.LocalIn(_numChan, _default);> }
@@ -231,7 +231,7 @@
 	TDuty { :dur :reset :doneAction :level :gapFirst | <primitive: return sc.TDuty(_dur, _reset, _doneAction, _level, _gapFirst);> }
 	TExpRand { :lo :hi :trig | <primitive: return sc.TExpRand(_lo, _hi, _trig);> }
 	TGrains { :numChan :trigger :bufnum :rate :centerPos :dur :pan :amp :interp | <primitive: return sc.TGrains(_numChan, _trigger, _bufnum, _rate, _centerPos, _dur, _pan, _amp, _interp);> }
-	TIRand { :lo :hi :trig | <primitive: return sc.TiRand(_lo, _hi, _trig);> }
+	TiRand { :lo :hi :trig | <primitive: return sc.TiRand(_lo, _hi, _trig);> }
 	TRand { :lo :hi :trig | <primitive: return sc.TRand(_lo, _hi, _trig);> }
 	Timer { :trig | <primitive: return sc.Timer(_trig);> }
 	ToggleFf { :trig | <primitive: return sc.ToggleFf(_trig);> }
@@ -246,7 +246,7 @@
 	Wrap { :in :lo :hi | <primitive: return sc.Wrap(_in, _lo, _hi);> }
 	WrapIndex { :bufnum :in | <primitive: return sc.WrapIndex(_bufnum, _in);> }
 	XFade2 { :inA :inB :pan :level | <primitive: return sc.XFade2(_inA, _inB, _pan, _level);> }
-	PrimitiveXLine { :start :end :dur :doneAction | <primitive: return sc.XLine(_start, _end, _dur, _doneAction);> }
+	(*XLine { :start :end :dur :doneAction | <primitive: return sc.XLine(_start, _end, _dur, _doneAction);> }*)
 	ZeroCrossing { :in | <primitive: return sc.ZeroCrossing(_in);> }
 	MaxLocalBufs { :count | <primitive: return sc.MaxLocalBufs(_count);> }
 	MulAdd { :in :mul :add | <primitive: return sc.MulAdd(_in, _mul, _add);> }
