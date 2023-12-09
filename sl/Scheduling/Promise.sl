@@ -8,10 +8,6 @@ Promise! : [Object] {
 		<primitive: return _self.finally(_aBlock_0);>
 	}
 
-	resolvedPromise { :self |
-		<primitive: return Promise.resolve(_self);>
-	}
-
 	then { :self :aBlock:/1 |
 		<primitive: return _self.then(_aBlock_1);>
 	}

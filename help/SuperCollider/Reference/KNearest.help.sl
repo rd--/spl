@@ -14,8 +14,8 @@ Read index location from either Pen or Mouse input.
 The distance from four equally spaced co-ordinates on the unit circle controls the relative amplitude of four distinctly high-pass filtered noise signals.
 
 ```
-var k = 1;
-var usePen = true;
+var k = 2;
+var usePen = false;
 var x = usePen.if { PenX(1) * 2 - 1 } { MouseX(-1, 1, 0, 0.2) };
 var y = usePen.if { PenY(1) * 2 - 1 } { MouseY(-1, 1, 0, 0.2) };
 var c = [-45, 45, 135, -135].collect { :each |

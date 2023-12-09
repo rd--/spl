@@ -50,7 +50,6 @@
   "Set the mark at the start and point at the end of the current paragraph."
   (interactive)
   (backward-paragraph)
-  ; (recenter t)
   (push-mark nil t t)
   (forward-paragraph))
 
@@ -88,6 +87,11 @@
   "Draw Ugen graph of current paragraph."
   (interactive)
   (spl-netcat-cmd 'evalText 'text (format "{ %s }.drawUgenGraph" (spl-get-paragraph))))
+
+(defun spl-plot-paragraph ()
+  "Plot Ugen graph of current paragraph."
+  (interactive)
+  (spl-netcat-cmd 'evalText 'text (format "{ %s }.plotUgenGraph(0.1)" (spl-get-paragraph))))
 
 (defun spl-print-paragraph ()
   "Print Ugen graph of current paragraph."

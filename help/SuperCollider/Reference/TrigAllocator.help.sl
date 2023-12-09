@@ -53,4 +53,4 @@ o.Splay
 
 * * *
 
-See also: Trig, Trig1
+See also: Trig, Trig1, TrigRoundRobin

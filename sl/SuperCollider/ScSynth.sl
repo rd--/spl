@@ -127,14 +127,14 @@ ScSynth! : [Object] {
 	drawUgenGraph { :self:/0 |
 		|(
 			ugenGraph = self(),
-			syndefName = 'Anonymous',
-			syndefFileName = '/tmp/splDrawUgenGraph.scsyndef',
-			graphDef = syndefName.encodeUgenAt(ugenGraph.busOffset, ugenGraph)
+			scSynDefName = 'Anonymous',
+			scSynDefFileName = '/tmp/splDrawUgenGraph.scsyndef',
+			graphDef = scSynDefName.encodeUgenAt(ugenGraph.busOffset, ugenGraph)
 		)|
-		syndefFileName.writeFile(graphDef).then { :unused |
+		scSynDefFileName.writeFile(graphDef).then { :unused |
 			system.systemCommand(
 				'hsc3-dot',
-				['scsyndef-draw', syndefFileName]
+				['scsyndef-draw', scSynDefFileName]
 			)
 		}
 	}
@@ -149,6 +149,26 @@ ScSynth! : [Object] {
 			answer.playUgenAt(systemTimeInSeconds)
 		} {
 			'Block>>playAt: answer not ouput signal?'.error
+		}
+	}
+
+	plotUgenGraph { :self:/0 :duration |
+		|(
+			ugenGraph = self(),
+			scSynDefName = 'Anonymous',
+			scSynDefFileName = '/tmp/splPlotUgenGraph.scsyndef',
+			graphDef = scSynDefName.encodeUgenAt(ugenGraph.busOffset, ugenGraph),
+			numberOfChannels = ugenGraph.isCollection.if {
+				ugenGraph.size
+			} {
+				1
+			}
+		)|
+		scSynDefFileName.writeFile(graphDef).then { :unused |
+			system.systemCommand(
+				'hsc3-plot',
+				['scsyndef', scSynDefFileName, numberOfChannels.asString, duration.asString]
+			)
 		}
 	}
 
