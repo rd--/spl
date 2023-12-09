@@ -39,7 +39,7 @@
 		BufRd(
 			1,
 			buf,
-			TIRand(0, BufFrames(buf), tr),
+			TiRand(0, BufFrames(buf), tr),
 			0,
 			1
 		)
@@ -63,7 +63,7 @@
 	Line { :tr :start :end :dur | TLine(start, end, dur, tr) }
 	Rand { :tr :lo :hi | TRand(lo, hi, tr) }
 	Scramble { :tr :inArray | TScramble(tr, inArray) }
-	IRand { :tr :lo :hi | TIRand(lo, hi, tr) }
+	IRand { :tr :lo :hi | TiRand(lo, hi, tr) }
 	XLine { :tr :start :end :dur | TxLine(start, end, dur, tr) }
 	*)
 

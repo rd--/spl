@@ -1738,7 +1738,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'TExpRand'
 		'TGrains'
 		'Timer'
-		'TIRand'
+		'TiRand'
 		'TLine'
 		'TLinRand'
 		'ToggleFf'
