@@ -139,6 +139,10 @@
 		self.asSmallFloat.log2
 	}
 
+	mu { :self |
+		self / 1000000
+	}
+
 	negated { :self |
 		0 - self
 	}

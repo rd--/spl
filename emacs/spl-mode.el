@@ -237,6 +237,7 @@
      ("lambda" .?λ) ; U+03BB λ Greek Small Letter Lamda
      ("delta" .?δ) ; U+03B4 δ Greek Small Letter Delta
      ("r" .?𝑟) ; U+1D45F 𝑟 Mathematical Italic Small R
+     ("mu" .?μ) ; U+03BC μ Greek Small Letter Mu
      )))
 
 (defun spl-fill-mode-map (map)
