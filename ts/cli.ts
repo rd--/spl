@@ -44,7 +44,7 @@ function getHomeDirectory(): string {
 */
 
 function getSplConfigurationDirectory(): string {
-	return '../config';
+	return [getSplDirectory(),'config'].join('/');
 }
 
 /*
@@ -271,6 +271,7 @@ function cli(): void {
 	});
 	if (args._.length < 1) {
 		help();
+		Deno.exit(1);
 	} else {
 		if (args.strict) {
 			options.slOptions.insertArityCheck = true;
@@ -296,9 +297,11 @@ function cli(): void {
 				break;
 			case 'help':
 				help();
+				Deno.exit(0);
 				break;
 			default:
 				help();
+				Deno.exit(1);
 				break;
 		}
 	}

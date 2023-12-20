@@ -2,6 +2,10 @@
 
 +[Array, SmallFloat, Ugen] {
 
+	WrapOut { :self |
+		<primitive: return sc.wrapOut(_busOffset_1(_self), _self);>
+	}
+
 	Distances { :x :y :z :coordinateArray |
 		WDistances(1, x, y, z, coordinateArray)
 	}

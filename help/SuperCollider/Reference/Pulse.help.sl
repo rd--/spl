@@ -1,11 +1,11 @@
 # Pulse -- band limited pulse wave
 
-_Pulse(kfreq=440, kwidth=0.5)_
+_Pulse(freq=440, width=0.5)_
 
 Band limited pulse wave generator with pulse width modulation.
 
-- kfreq: frequency in Hertz
-- kwidth: pulse width ratio from zero to one. 0.5 makes a square wave.
+- freq: frequency in Hertz
+- width: pulse width ratio from zero to one. 0.5 makes a square wave.
 
 Modulate frequency:
 

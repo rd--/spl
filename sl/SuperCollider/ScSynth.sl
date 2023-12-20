@@ -124,17 +124,18 @@ ScSynth! : [Object] {
 
 +Block {
 
-	drawUgenGraph { :self:/0 |
-		|(
-			ugenGraph = self(),
-			scSynDefName = 'Anonymous',
-			scSynDefFileName = '/tmp/splDrawUgenGraph.scsyndef',
-			graphDef = scSynDefName.encodeUgenAt(ugenGraph.busOffset, ugenGraph)
-		)|
-		scSynDefFileName.writeFile(graphDef).then { :unused |
+	drawUgenGraph { :self |
+		| scSynDefFileName = '/tmp/splDrawUgenGraph.scsyndef'; |
+		self.writeScSynDefFile(
+			'Anonymous',
+			scSynDefFileName
+		).then { :unused |
 			system.systemCommand(
 				'hsc3-dot',
-				['scsyndef-draw', scSynDefFileName]
+				[
+					'scsyndef-draw',
+					scSynDefFileName
+				]
 			)
 		}
 	}
@@ -155,9 +156,8 @@ ScSynth! : [Object] {
 	plotUgenGraph { :self:/0 :duration |
 		|(
 			ugenGraph = self(),
-			scSynDefName = 'Anonymous',
+			graphDef = 'Anonymous'.encodeUgenAt(ugenGraph.busOffset, ugenGraph),
 			scSynDefFileName = '/tmp/splPlotUgenGraph.scsyndef',
-			graphDef = scSynDefName.encodeUgenAt(ugenGraph.busOffset, ugenGraph),
 			numberOfChannels = ugenGraph.isCollection.if {
 				ugenGraph.size
 			} {
@@ -167,10 +167,24 @@ ScSynth! : [Object] {
 		scSynDefFileName.writeFile(graphDef).then { :unused |
 			system.systemCommand(
 				'hsc3-plot',
-				['scsyndef', scSynDefFileName, numberOfChannels.asString, duration.asString]
+				[
+					'scsyndef',
+					scSynDefFileName,
+					numberOfChannels.asString,
+					duration.asString
+				]
 			)
 		}
 	}
+
+	writeScSynDefFile { :self:/0 :scSynDefName :scSynDefFileName |
+		|(
+			ugenGraph = self(),
+			graphDef = scSynDefName.encodeUgenAt(ugenGraph.busOffset, ugenGraph)
+		)|
+		scSynDefFileName.writeFile(graphDef)
+	}
+
 
 }
 
