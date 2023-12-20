@@ -4,7 +4,7 @@
 		| answer = Dc(0) ! numOutputs; |
 		sparseMatrix.do { :each |
 			| [inputIndex, outputIndex, gain] = each; |
-			['SparseMatrixMixer', each].postLine;
+			(* ['SparseMatrixMixer', each].postLine; *)
 			answer[outputIndex] +:= inputArray[inputIndex] * gain
 		};
 		answer
@@ -145,7 +145,7 @@
 						[8 12] +.x [1 2 2 4 4 3 3 1]
 					].concatenation,
 					1 ! 32
-				].transposed.postLine
+				].transposed
 			)
 		}
 	}
@@ -160,7 +160,7 @@
 
 	Mix { :self |
 		| mixerRules = system.preference('ScSynth.Outputs.Mixer.Rules', ['1×2']); |
-		['Mix', mixerRules].postLine;
+		(* ['Mix', mixerRules].postLine; *)
 		self.mixByDerivedNamedRule(mixerRules)
 	}
 
@@ -171,7 +171,7 @@
 				[run.asString, '×', value.asString].join
 			}.joinSeparatedBy('+') ++ '→'
 		)|
-		['mixByDerivedNamedRule', names, derivedPrefix].postLine;
+		(* ['mixByDerivedNamedRule', names, derivedPrefix].postLine; *)
 		self.mixByAvailableNamedRule(derivedPrefix, names)
 	}
 
@@ -180,10 +180,10 @@
 			ruleTable = system.mixRuleSparseMatrixTable,
 			busTable = system.preference('ScSynth.Outputs.Mixer.Rules.Buses', ('1×2': [1, 2]))
 		)|
-		['mixByAvailableNamedRule', ruleTable, busTable].postLine;
+		(* ['mixByAvailableNamedRule', ruleTable, busTable].postLine; *)
 		valueWithReturn { :return:/1 |
 			names.do { :each |
-				['mixByAvailableNamedRule', each, prefix ++ each].postLine;
+				(* ['mixByAvailableNamedRule', each, prefix ++ each].postLine; *)
 				ruleTable.atIfPresent(prefix ++ each) { :entries |
 					|(
 						busesByIndex = busTable[each],
@@ -197,7 +197,7 @@
 						},
 						channelCount = reindexedEntries.collect(second:/1).max
 					)|
-					['mixByAvailableNamedRule', channelCount, self.shape, reindexedEntries].postLine;
+					(* ['mixByAvailableNamedRule', channelCount, self.shape, reindexedEntries].postLine; *)
 					SparseMatrixMixer(
 						channelCount,
 						self.concatenation,

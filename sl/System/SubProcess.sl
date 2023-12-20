@@ -17,7 +17,7 @@
 	}
 
 	exit { :self :exitCode |
-		<primitive: Deno.exit(exitCode);>
+		<primitive: Deno.exit(_exitCode);>
 	}
 
 	hostname { :self |

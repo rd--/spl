@@ -80,9 +80,9 @@ BigInt.prototype.toJSON = function () {
 
 function help(): void {
 	console.log('spl');
-	console.log('  replPerLine --dir=loadPath [lib]');
+	console.log('  replPerLine --dir=loadPath [--lib=library ...]');
 	console.log('  rewriteFile fileName');
-	console.log('  runFile fileName --dir=loadPath [lib]');
+	console.log('  runFile fileName --dir=loadPath [--lib=library ...]');
 	console.log('  sc playFile --dir=loadPath');
 	console.log('  sc tcpServer --port=portNumber --dir=loadPath');
 	console.log('    --strict');
@@ -167,14 +167,17 @@ async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	}
 }
 
-async function replPerLine(opt: flags.Args, lib: string[]): Promise<void> {
-	await loadSpl(opt, lib);
+async function replPerLine(opt: flags.Args): Promise<void> {
+	await loadSpl(opt, opt.lib);
 	repl.perLine(opt.verbose);
 }
 
 async function runFile(fileName: string, opt: flags.Args): Promise<void> {
-	await loadSpl(opt, []);
+	await loadSpl(opt, opt.lib);
 	console.log(await fileio.evaluateFile(fileName, 'RunFile'));
+	if(opt.exit) {
+		Deno.exit(0);
+	}
 }
 
 function evaluateInteractive(text: string): unknown {
@@ -266,7 +269,8 @@ async function scCmd(cmd: string, opt: flags.Args): Promise<void> {
 
 function cli(): void {
 	const args = flags.parse(Deno.args, {
-		boolean: ['strict', 'unsafe', 'verbose'],
+		boolean: ['exit','strict', 'unsafe', 'verbose'],
+		collect: ['lib'],
 		string: ['dir', 'port'],
 	});
 	if (args._.length < 1) {
@@ -284,7 +288,7 @@ function cli(): void {
 		// console.debug('slOptions: ', options.slOptions);
 		switch (args._[0]) {
 			case 'replPerLine':
-				replPerLine(args, args._.slice(1));
+				replPerLine(args);
 				break;
 			case 'rewriteFile':
 				rewriteFile(<string> args._[1]);
