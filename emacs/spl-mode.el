@@ -238,6 +238,7 @@
      ("delta" .?δ) ; U+03B4 δ Greek Small Letter Delta
      ("r" .?𝑟) ; U+1D45F 𝑟 Mathematical Italic Small R
      ("mu" .?μ) ; U+03BC μ Greek Small Letter Mu
+     ("compose" .?∘) ;  U+2218 ∘ Ring Operator
      )))
 
 (defun spl-fill-mode-map (map)

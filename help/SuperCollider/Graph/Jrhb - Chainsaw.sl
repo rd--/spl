@@ -15,15 +15,10 @@ var f = { :saw |
 	};
 	u2.Clip2(1.0)
 };
-var compose = { :f:/1 :g:/1 |
-	{ :x |
-		f(g(x))
-	}
-};
-var g = { :func :n |
-	var r = func;
-	n.timesRepeat {
-		r := compose(r, r)
+var g = { :aBlock :count |
+	var r = aBlock;
+	count.timesRepeat {
+		r := r.compose(r)
 	};
 	r
 };

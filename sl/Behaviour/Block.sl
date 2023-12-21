@@ -20,6 +20,12 @@ Block! : [Object] {
 		nil
 	}
 
+	compose { :self:/1 :aBlock:/1 |
+		{ :anObject |
+			self(aBlock(anObject))
+		}
+	}
+
 	cull { :self :firstArg |
 		(self.numArgs >= 1).if {
 			self.value(firstArg)
