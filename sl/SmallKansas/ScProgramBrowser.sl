@@ -81,7 +81,7 @@ ScProgramIndex : [Object] { | contents |
 						|(
 							[category, author, name] = path[1, 2, 3],
 							url = [
-								'./lib/stsc3/help/',
+								'./lib/spl/help/SuperCollider/',
 								category,
 								'/',
 								author,
