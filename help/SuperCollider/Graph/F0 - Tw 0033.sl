@@ -2,7 +2,7 @@
 var f = LfPar(1 / 14, 0).RoundTo(1) * 20 + 80;
 var a = Pulse([1 .. 4], 0.35);
 var n = BrownNoise() * a;
-var z = (1 .. 4).collect { :i |
+var z = (0 .. 3).collect { :i |
 	[i + 1 * f, i * f + i + 0.333]
 };
 var o = LfPar(z, 0);
