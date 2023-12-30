@@ -177,6 +177,7 @@
      ("<=" . ?≤) ; U+2264 ≤ Less-than or equal to
      (">=" . ?≥) ; U+2265 ≥ Greater-than or equal to
      ("++" . ?⧺) ; U+29FA ⧺ Double plus
+     ("+++" . ?⧻) ; U+29FB ⧻ Triple Plus
      ("concatenation" .?⧻) ; U+29FB ⧻ Triple Plus
      ("transposed" .?ᵀ) ; U+1D40 ᵀ Modifier Letter Capital T
      ("reversed" .?ᴙ) ; U+1D19 ᴙ Latin Letter Small Capital Reversed R

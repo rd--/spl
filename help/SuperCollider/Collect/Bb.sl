@@ -1,10 +1,22 @@
 (* http://earslap.com/weblog/music-release-laconicism.html *)
 var k = DmdFor(6.4, 0, Dseq(inf, [0.05, Drand(1, [0.04, 0.08])]));
-Splay2(Integrator((LfNoise0([5, 5, 5]) * k).RoundTo(k / 10), 1).Sin.Sqrt.Tanh, 0.3, 1, 0, true)
+Integrator((LfNoise0([5, 5, 5]) * k).RoundTo(k / 10), 1).Sin.Sqrt.Tanh.Splay2(0.3,1, 0, true)
 
 (* http://earslap.com/weblog/music-release-laconicism.html ; wait *)
 var x = LfNoise1(0.5 * LocalIn(1, 0) + 0.1) * 0.5 + 0.5;
-var s = PitchShift(PitchShift(Pulse([90, 90.01], x), 10, x * 4, x, 0), 10, 4 - (x * 4), 1 - x, 0);
+var s = PitchShift(
+	PitchShift(
+		Pulse([90, 90.01], x),
+		10,
+		x * 4,
+		x,
+		0
+	),
+	10,
+	4 - (x * 4),
+	1 - x,
+	0
+);
 s <! LocalOut(x)
 
 (* http://earslap.com/weblog/music-release-laconicism.html ; wait *)
@@ -154,6 +166,11 @@ x <! LocalOut(x.Sum)
 var f = LocalIn(2, 0).Tanh;
 var k = Latch(f.first.Abs, Impulse(0.5, 0));
 f <! LocalOut(f + AllpassN(Pulse([2, 3], k * 0.01 + 0.000001) * 0.9, 1, k * 0.3, 100 * k))
+
+(* http://earslap.com/article/sctweeting.html ; requires=kr *)
+var f = LocalIn(2, 0).Tanh;
+var k = Latch(f.first.Abs.A2K, Impulse(1 / 4, 0).kr);
+f <! LocalOut(f + CombC(Blip([4, 6], 100 * k + 50) * 0.9, 1, k * 0.3, 50 * f))
 
 (* http://earslap.com/article/sctweeting.html *)
 var f = LocalIn(2, 0).Tanh;

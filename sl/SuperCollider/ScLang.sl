@@ -421,6 +421,12 @@
 
 +@Sequenceable {
 
+	+++ { :self :aMatrix |
+		self.withIndexCollect { :each :index |
+			each ++ aMatrix.atWrap(index)
+		}
+	}
+
 	addSine { :self :harmonicNumber :amplitude :initialPhase |
 		|(
 			size = self.size,

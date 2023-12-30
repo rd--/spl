@@ -2,6 +2,10 @@
 
 +[Array, SmallFloat, Ugen] {
 
+	ZeroBuf { :self |
+		self <! ClearBuf(self)
+	}
+
 	WrapOut { :self |
 		<primitive: return sc.wrapOut(_busOffset_1(_self), _self);>
 	}
@@ -43,7 +47,7 @@
 		BufRd(
 			1,
 			buf,
-			TiRand(0, BufFrames(buf), tr),
+			TiRand(0, BufFrames(buf) - 1, tr),
 			0,
 			1
 		)

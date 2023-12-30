@@ -1,6 +1,6 @@
 # asLocalBuf -- buffer
 
-- _asLocalBuf(anArray) == LocalBuf(anArray)_
+_asLocalBuf(anArray)_
 
 Make a local buffer from an array or matrix of numbers.
 
@@ -20,4 +20,4 @@ SinOsc(mnn.MidiCps, 0) * 0.1
 
 * * *
 
-See also: LocalBuf
+See also: ClearBuf, LocalBuf, SetBuf

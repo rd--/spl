@@ -1,22 +1,15 @@
-# DelayWrite, DelayTap
+# DelayWrite
 
-_DelayWrite(buffer, in)_,
-_DelayTap(buffer, delayTime)_
+_DelayWrite(buffer, input)_
 
-These unit generators implement delay line reading and writing in separate objects. This lets you put processing in the feedback loop, or granulate a delay line, or implement a ping pong delay or other feedback network. The Tap unit generators read from the delay line and DelayWr writes to it. You must supply an instance of Signal long enough to hold the maximum delay time you will require. You do not need to initialize the buffer. The maximum delay time is the length of the buffer minus the block size. The minimum delay time is equal to the block size + 1. A single delay line may have any number of Taps but only one DelayWr. The same buffer should be supplied to the DelayWr and all Tap unit generators which are part of the same delay line.
+- buffer: the memory for the delay line
+- input: the input signal to write to the delay line
+
+DelayWrite and DelayTap implement delay line reading and writing in separate objects. This lets you put processing in the feedback loop, or granulate a delay line, or implement a ping pong delay or other feedback network. The DelayTap unit generators read from the delay line and DelayWrite writes to it. You must supply a Buffer long enough to hold the maximum delay time you will require. You do not need to initialize the buffer. The maximum delay time is the length of the buffer minus the block size. The minimum delay time is equal to the block size + 1. A single delay line may have any number of Taps but only one DelayWrite. The same buffer should be supplied to the DelayWrite and all DelayTap unit generators which are part of the same delay line.
 
 TapN uses no interpolation, TapL uses linear interpolation, TapA uses all pass interpolation.
 
-The output of DelayWr is just its input. The output of DelayWr is usually not needed, but it must be in the call graph of the Synth. In order to acheive this you will usually use the _<!_ operator which returns the first argument but ignores the second. This is just a bit of prestidigitation to give the DelayWr object an order in the call graph. Otherwise, if the Synth object is unable to trace up the graph and find theDelayWr object, it will never get called and the Taps will produce either garbage or silence. The use of _<!_ is shown below. Also see the help for _<!_.
-
-DelayWr arguments:
-
-- buffer: an instance of Signal.
-- in: the input signal to write to the delay line.
-
-Tap arguments:
-
-- delaytime: delay time in seconds.
+The output of DelayWrite is just a copy of the input signal. The output of DelayWrite is usually not needed, but it must be in the call graph of the Synth. In order to acheive this you will usually use the _<!_ operator which returns the first argument but ignores the second. This is just a bit of prestidigitation to give the DelayWrite object an order in the call graph. Otherwise, if the Synth object is unable to trace up the graph and find theDelayWr object, it will never get called and the Taps will produce either garbage or silence. The use of _<!_ is shown below. Also see the help for _<!_.
 
 Simple feedback delay (if this is all you want, Comb is easier to use):
 
@@ -80,9 +73,12 @@ Pitch shift in the feedback loop:
  	(* apply pitch shift *)
 	var shifted = PitchShift(delayed, 0.2, 5 / 7, 0.01, 0.01);
  	(* mix the delayed signal with the input *)
-	var mixed = (shifted * 0.8) + input;
+	var mixedSignal = (shifted * 0.8) + input;
  	(* write the mixed signal to the delay line *)
 	var writer = DelayWrite(buffer, mixedSignal);
  	(* output the mixed signal *)
-	mixed <! writer
+	mixedSignal <! writer
 
+* * *
+
+See also: DelayWrite

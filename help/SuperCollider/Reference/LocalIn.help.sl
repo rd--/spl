@@ -1,8 +1,9 @@
 # LocalIn -- define and read from an audio bus local to the enclosing synth
 
-_LocalIn(numChannels)_
+_LocalIn(numChannels, defaultValues)_
 
 - numChannels: the number of channels (i.e. adjacent buses) to read
+- defaultValues: initial values on buses
 
 LocalIn defines buses that are local to the enclosing synth.
 These are like the global buses, but are more convenient if you want to implement a self contained effect that uses a feedback processing loop.

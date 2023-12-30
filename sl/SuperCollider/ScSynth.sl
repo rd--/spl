@@ -93,7 +93,13 @@ ScSynth! : [Object] {
 +[Array, SmallFloat, Ugen] {
 
 	<! { :self :aUgen |
-		self.multipleRootGraph(aUgen)
+		(aUgen.isUgen & {
+			aUgen.scUgen.numChannels = 0
+		}).if {
+			self.multipleRootGraph(aUgen)
+		} {
+			FirstArg(self, aUgen)
+		}
 	}
 
 	isOutputSignal { :self |

@@ -23,4 +23,3 @@ Convert oscillator output to frequency input:
 		SinOsc(mod * 400 + 500, 0),
 		SinOsc(LinExp(mod, -1, 1, 100, 900), 0)
 	] * 0.1
-

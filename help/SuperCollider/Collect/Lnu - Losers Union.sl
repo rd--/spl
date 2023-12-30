@@ -600,15 +600,16 @@ var g = Perc(e > 0.1, 0.005, 0.9 / f, -4);
 var p = (1 - g).LinLin(0, 1, -1, 1);
 (XFade2(e, (e * f).Sin, p, 1) + g).Tanh.Splay
 
-(* Tennis ; https://github.com/lukiss/Losers-Union-SC-Research *)
+(* Tennis ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=NonLocalBuffer *)
 var nf = 48000; (* sample rate *)
-var b = 1000; (* LocalBuf(1, nf); *)
+var b = 1000; (* BufAlloc(1, nf).BufClear *)
 var n = LeakDc(
 	StandardL(22050, LfNoise1(1).Range(0.72, 1.40), 0.5, 0),
 	0.995
 );
 var z = Sweep(0, 1 - n.ExpRange(0.01, 1)) % 1 * nf;
 var t = (n.Lag3(0.1) > 0);
+var w = RecordBuf(b, z, t, 1 - t, t, 1, t, 0, n);
 var p = PlayBuf(
 	1,
 	b,
@@ -617,7 +618,7 @@ var p = PlayBuf(
 	z,
 	1,
 	0
-);
+) <! w;
 EqPan2(
 	LeakDc(
 		MoogFf(
@@ -629,7 +630,7 @@ EqPan2(
 		0.995
 	).SoftClip,
 	TRand(-1, 1, t)
-) <! RecordBuf(b, z, t, 1 - t, t, 1, t, 0, n)
+)
 
 (* Cheap Singing Synth ; simpler (rd) ; https://github.com/lukiss/Losers-Union-SC-Research *)
 var tab = [
