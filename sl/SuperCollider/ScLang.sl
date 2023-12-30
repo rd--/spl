@@ -349,9 +349,27 @@
 		self
 	}
 
+	hammingWindow { :self |
+		| answer = Array(self); |
+		answer.hammingWindow;
+		answer
+	}
+
+	hanningWindow { :self |
+		| answer = Array(self); |
+		answer.hanningWindow;
+		answer
+	}
+
 	sineTable { :self :amplitudes :phases |
 		| answer = Array(self, 0); |
 		answer.sineFill(amplitudes, phases);
+		answer
+	}
+
+	welchWindow { :self |
+		| answer = Array(self); |
+		answer.welchWindow;
 		answer
 	}
 
@@ -602,6 +620,16 @@
 		count
 	}
 
+	hammingWindow { :self |
+		self.atAllPut(0.53836);
+		self.addSine(1, 0.46164, -0.5.pi)
+	}
+
+	hanningWindow { :self |
+		self.atAllPut(0.5);
+		self.addSine(1, 0.5, -0.5.pi)
+	}
+
 	indexInBetween { :self :aNumber |
 		self.isEmpty.if {
 			nil
@@ -819,7 +847,10 @@
 	}
 
 	shift { :self :count :item |
-		| fill = Array(count.abs, item), remain = self.drop(count.negated); |
+		|(
+			fill = Array(count.abs, item),
+			remain = self.drop(count.negated)
+		)|
 		(count < 0).if {
 			remain ++ fill
 		} {
@@ -841,7 +872,7 @@
 	}
 
 	sineFill { :self :amplitudes :phases |
-		self.fill { :each | 0 };
+		self.atAllPut(0);
 		amplitudes.withIndexDo { :each :index |
 			self.addSine(index, each, phases.atWrap(index))
 		}
@@ -867,6 +898,27 @@
 
 	tableRand { :self |
 		self.blendAt(1.randomFloat(self.size))
+	}
+
+	waveFill { :self :aBlock:/3 :start :end |
+		(self.size > 0).ifTrue {
+			|(
+				index = 1,
+				next = start,
+				size = self.size,
+				step = (end - start) / size
+			)|
+			{ i <= size }.while {
+				self[index] := aBlock(next, self[index], index);
+				next +:= step;
+				index +:= 1
+			}
+		}
+	}
+
+	welchWindow { :self |
+		self.atAllPut(0);
+		self.addSine(0.5, 1, 0)
 	}
 
 	withWrappingCollectOrAdaptTo { :self :anObject :aBlock:/2 |
