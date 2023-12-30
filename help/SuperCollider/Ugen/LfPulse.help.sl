@@ -33,6 +33,20 @@ snd := Lpf(snd, MouseY(9000, 11000, 1, 0.2));
 snd := snd + SinOsc(freqBass, 0);
 EqPan2(snd, pan) * amp
 
+(* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft *)
+var p = { :freq :lo :hi |
+	LfPulse(freq, 0, 0.5).LinLin(0, 1, lo, hi)
+};
+p(
+	p(
+		p(3, 4, 20),
+		p(0.75, 50, 70),
+		p(0.5, 100, 200)
+	),
+	-0.1,
+	0.1
+)
+
 (* ---- LfPulse ; jmcc ; process (Eval) *)
 {
 	var p1 = LfPulse(ExpRand(0.1, 1), 0, 0.3) * 0.2 + 0.02;

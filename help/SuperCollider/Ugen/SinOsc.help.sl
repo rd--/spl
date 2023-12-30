@@ -233,3 +233,16 @@ var freq = Lpf(DmdFor(0.05, 0, Dseq(inf, [723, 932, 1012])), 70);
 var osc = SinOsc(freq, 0);
 var operations = [osc, (osc * pi).Sin, (osc * pi).Cos, ((osc + 0.25) * pi).Cos];
 Select(MouseX(0, 4, 0, 0.2), operations) * 0.1
+
+(* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft *)
+var o = { :freq :lo :hi |
+	SinOsc(freq, 0).Range(lo, hi)
+};
+SinOsc(
+	o(
+		o(3, 4, 20),
+		o(0.75, 50, 70),
+		o(0.5, 100, 200 + [11, 22])
+	),
+	0
+) / 5
