@@ -14,24 +14,20 @@ Note: Normalize and array input values should be control rate only.
 
 Assuming normalized values:
 
-```
-var trig = Impulse(6, 0).kr;
-var index = TwIndex(trig, 0, [0.05, 0.45, 0.5]);
-SinOsc(Select(index, [333 444 555]), 0) * 0.1
-```
+	var trig = Impulse(6, 0).kr;
+	var index = TwIndex(trig, 0, [0.05, 0.45, 0.5]);
+	SinOsc(Select(index, [333 444 555]), 0) * 0.1
 
 Modulating probability values:
 
-```
-var trig = Impulse(6, 0).kr;
-var w3 = SinOsc(1 / 5, 0).kr * 0.5 + 0.5;
-var index = TwIndex(
-        trig,
-	1,
-        [0.05, 0.25, w3]
-);
-[
-	SinOsc(Select(index, [333 444 555]), 0),
-	SinOsc(w3.LinLin(0, 1, 444, 555), 0) / 3
-] * 0.1
-```
+	var trig = Impulse(6, 0).kr;
+	var w3 = SinOsc(1 / 5, 0).kr * 0.5 + 0.5;
+	var index = TwIndex(
+		trig,
+		1,
+		[0.05, 0.25, w3]
+	);
+	[
+		SinOsc(Select(index, [333 444 555]), 0),
+		SinOsc(w3.LinLin(0, 1, 444, 555), 0) / 3
+	] * 0.1

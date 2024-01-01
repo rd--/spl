@@ -1,8 +1,6 @@
 # Rand -- random number generator
 
-- _Rand(tr=0, lo=0, hi=1)_ ≡ _TRand(lo, hi, tr)_
-- _Rand(lo, hi)_ ≡ _TRand(lo, hi, 1)_
-- _Rand(hi)_ ≡ _TRand(0, hi, 1)_
+- _Rand(lo, hi)_
 
 Generates a single random float value in uniform distribution from lo to hi.
 It generates this when the SynthDef first starts playing, and remains fixed.
@@ -15,4 +13,4 @@ It generates this when the SynthDef first starts playing, and remains fixed.
 
 * * *
 
-See also: [Random Number Generators], Rand2, TRand, WhiteNoise
+See also: [Random Number Generators], Rand0, Rand2, TRand, WhiteNoise

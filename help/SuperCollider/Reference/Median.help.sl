@@ -20,16 +20,16 @@ The median length can be increased for longer duration noise.
 
 A signal with longer impulse noise:
 
-	Saw(500) * 0.1 + (LPZ1(Dust2(100) * 0.9))
+	Saw(500) * 0.1 + (Lpz1(Dust2(100) * 0.9))
 
-Length 3 doesn't help here because the impulses are 2 samples long.
+Length three does not help here because the impulses are two samples long.
 
-	var z = Saw(500) * 0.1 + (LPZ1(Dust2(100) * 0.9));
+	var z = Saw(500) * 0.1 + (Lpz1(Dust2(100) * 0.9));
 	Median(3, z)
 
-Length 5 does better:
+Length five does better:
 
-	var z = Saw(500) * 0.1 + (LPZ1(Dust2(100) * 0.9));
+	var z = Saw(500) * 0.1 + (Lpz1(Dust2(100) * 0.9));
 	Median(5, z)
 
 Long Median filters begin chopping off the peaks of the waveform:

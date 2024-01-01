@@ -1,4 +1,4 @@
-(* ---- PlayBuf ; requires=SfAcquire *)
+(* PlayBuf ; requires=SfAcquire *)
 var sf = SfAcquireStereo('piano-c5');
 PlayBuf(1, sf, SfRateScale(sf), 1, 0, 1, 0) * 0.5
 
@@ -33,7 +33,7 @@ var sampleLoop = PlayBuf(1, soundFile, 0.5, 0, 0, 1, 0);
 var ampMod = (sampleLoop * MouseY(0, 1, 0, 0.2)) + MouseY(1, 0, 0, 0.2);
 SinOsc([100 149.8], sampleLoop * MouseX(0, 7, 0, 0.1)) * ampMod * 0.2
 
-(* PlayBuf ; shuffler *)
+(* PlayBuf ; shuffler ; requires=TrigAllocator *)
 var trigger = Dust(256);
 var dur = TRand(0.05, 0.15, trigger);
 var w = TrigAllocator(64, 1, trigger, dur);

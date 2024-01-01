@@ -95,3 +95,8 @@ Sustainer (keywords):
 		clampTime: 0.01,
 		relaxTime: 0.05
 	) * 0.5
+
+* * *
+
+See also: Limiter
+

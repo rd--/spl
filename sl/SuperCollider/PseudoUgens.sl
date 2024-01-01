@@ -125,8 +125,16 @@
 		Sequencer(self, trig) * Trig(trig, SampleDur())
 	}
 
-	IRand { :self |
+	IRand0 { :self |
 		IRand(0, self)
+	}
+
+	IRand1 { :self |
+		IRand(1, self)
+	}
+
+	IRand2 { :self |
+		IRand(0 - self, self)
 	}
 
 	LinLin { :self :srclo :srchi :dstlo :dsthi |
@@ -137,7 +145,7 @@
 		MulAdd(self, mul, add)
 	}
 
-	Rand { :self |
+	Rand0 { :self |
 		Rand(0, self)
 	}
 
@@ -213,6 +221,7 @@
 	CompanderD { :in :thresh :slopeBelow :slopeAbove :clampTime :relaxTime | <primitive: return sc.CompanderD(_in, _thresh, _slopeBelow, _slopeAbove, _clampTime, _relaxTime);> }
 	ControlIn { :numChannels :bus | <primitive: return sc.ControlIn(_numChannels, _bus);> }
 	ControlOut { :bus :channelsArray | <primitive: return sc.ControlOut(_bus, _channelsArray);> }
+	Cutoff { :sustainTime :releaseTime :curve | <primitive: return sc.Cutoff(_sustainTime, _releaseTime, _curve);> }
 	DelayTap { :bufnum :delayTime | <primitive: return sc.DelayTap(_bufnum, _delayTime);> }
 	DelayWrite { :bufnum :input | <primitive: return sc.DelayWrite(_bufnum, _input);> }
 	DmdFor { :dur :reset :level | <primitive: return sc.DmdFor(_dur, _reset, _level);> }
@@ -220,6 +229,8 @@
 	InFb { :numChannels :bus | <primitive: return sc.InFb(_numChannels, _bus);> }
 	LinSeg { :gate :coordArray | <primitive: return sc.LinSeg(_gate, _coordArray);> }
 	Line { :start :end :dur | <primitive: return sc.Line(_start, _end, _dur, 0);> }
+	MultiTapDelay { :timesArray :levelsArray :input | <primitive: return sc.MultiTapDelay(_timesArray, _levelsArray, _input);> }
+	Osc1 { :buf :dur | <primitive: return sc.Osc1(_buf, _dur);> }
 	Perc { :trig :attackTime :releaseTime :curve | <primitive: return sc.Perc(_trig, _attackTime, _releaseTime, _curve);> }
 	PingPongDelay { :left :right :maxDelayTime :delayTime :feedback | <primitive: return sc.PingPongDelay(_left, _right, _maxDelayTime, _delayTime, _feedback);> }
 	PmOsc { :carfreq :modfreq :pmindex :modphase | <primitive: return sc.PmOsc(_carfreq, _modfreq, _pmindex, _modphase);> }

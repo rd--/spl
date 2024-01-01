@@ -178,10 +178,7 @@ var n = 16;
 	)
 } !+ n
 
-(* ---- SinOsc ; mce ; two out ; each single channel ; hence mono *)
-SinOsc([[440], [441]], 0).Sum * 0.1
-
-(* ---- SinOsc ; fm ; https://github.com/Thrifleganger/VisualSynth ; requires=Voicer *)
+(* SinOsc ; fm ; https://github.com/Thrifleganger/VisualSynth ; requires=Voicer *)
 var fmSignal = Voicer(16) { :e |
 	var index = e.y * 3;
 	var pitch = e.x * 24 + 48;
@@ -201,7 +198,7 @@ var fmSignal = Voicer(16) { :e |
 	var pitchModRate = 2;
 	var panModDepth = 0;
 	var panModRate = 2;
-	var indexEnv = Line(gate, index, 0.2, duration);
+	var indexEnv = TLine(index, 0.2, duration, gate);
 	var volEnv = Adsr(gate, attack, decay, sustain, release, -4);
 	var volMod = SinOsc(volModRate, 0) * volModDepth / 2 + 0.5;
 	var panMod = SinOsc(panModRate, 0) * panModDepth;
@@ -246,3 +243,6 @@ SinOsc(
 	),
 	0
 ) / 5
+
+(* ---- SinOsc ; mce ; two out ; each single channel ; hence mono *)
+SinOsc([[440], [441]], 0).Sum * 0.1

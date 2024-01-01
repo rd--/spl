@@ -54,7 +54,7 @@ allPassIo := combsOut;
 	allPassIo := AllpassN(
 		allPassIo,
 		0.050,
-		{ 0.050.Rand } ! 2,
+		{ 0.050.Rand0 } ! 2,
 		1
 	)
 };

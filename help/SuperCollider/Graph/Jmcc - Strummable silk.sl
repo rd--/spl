@@ -16,6 +16,6 @@ var str = (1 .. 8).collect { :ix |
 };
 var s = LeakDc(Lpf(str.Sum, 12000), 0.995);
 6.timesRepeat {
-	s := AllpassN(s, 0.1, { 0.05.Rand } ! 2, 4)
+	s := AllpassN(s, 0.1, { 0.05.Rand0 } ! 2, 4)
 };
 s

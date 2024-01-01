@@ -22,3 +22,6 @@ Modulate width frequency, other freqs stay constant:
 
 	Formant(400, 2000, XLine(800, 8000, 8)) * 0.125
 
+* * *
+
+See also: Formlet

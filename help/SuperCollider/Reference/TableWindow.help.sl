@@ -9,18 +9,16 @@ _TableWindow(trig, dur, bufNum)_
 The program below constructs a half-sine table,
 which is applied as a window (amplitude envelope) to a sine oscillator.
 
-```
-var tbl = (0 .. 511).collect { :each |
-	(each / 512 * pi).sin
-}.asLocalBuf;
-var k = 7;
-var dur = 1 / k;
-var tr = TrigRoundRobin(k, Impulse(k, 0));
-var win = TableWindow(tr, dur, tbl);
-Splay(
-	SinOsc(ExpRand(tr, 111, 555), 0) * win / 3
-)
-```
+	var tbl = (0 .. 511).collect { :each |
+		(each / 512 * pi).sin
+	}.asLocalBuf;
+	var k = 7;
+	var dur = 1 / k;
+	var tr = TrigRoundRobin(k, Impulse(k, 0));
+	var win = TableWindow(tr, dur, tbl);
+	Splay(
+		SinOsc(TExpRand(111, 555, tr), 0) * win / 3
+	)
 
 * * *
 

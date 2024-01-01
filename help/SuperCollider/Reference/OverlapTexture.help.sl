@@ -9,26 +9,24 @@ Creates a series of overlapped sounds from a user function. The user function sh
 - transitionTime: the transition time (in beats) of the envelope. The envelope transition is a welch envelope segment giving it a -3dB midpoint.
 - overlap: number of overlapping events.
 
-Texture of overlapping _n_-channel sine tones:
+Texture of overlapping stereo sine tones:
 
-```
-var n = 24;
-{ :tr |
-	{
-		SinOsc(Rand(tr, 220, 990), 0)
-	} ! n / n / 3
-}.OverlapTexture(3, 3, 3).Mix
-```
+	{ :tr |
+		{
+			SinOsc(TRand(220, 990, tr), 0)
+		} ! 2 * 0.1
+	}.OverlapTexture(3, 3, 3).Mix
 
-```
-{ :tr |
-	{
-		SinOsc(Rand(tr, 220, 990), 0)
-	} ! 2 * 0.1
-}.OverlapTexture(3, 3, 3).Mix
-```
+Texture of overlapping _n_-channel sine tones (n should be number of speakers in system):
 
-There are many examples of OverlapTexture in the examples files.
+	var n = 24;
+	{ :tr |
+		{
+			SinOsc(TRand(220, 990, tr), 0)
+		} ! n / n / 3
+	}.OverlapTexture(3, 3, 3).Mix
+
+There are many examples of OverlapTexture in the examples files:
 
 	var lfoFreq = 6;
 	var lfo = LfNoise0(lfoFreq) * 1000 + 1200;
@@ -43,7 +41,7 @@ There are many examples of OverlapTexture in the examples files.
 			).MidiCps;
 			[
 				LfPulse(f, 0, 0.2),
-				LfPulse(2 * f + Rand(tr, -0.5, 0.5), 0, 0.2)
+				LfPulse(2 * f + TRand(-0.5, 0.5, tr), 0, 0.2)
 			].Sum
 		}.OverlapTexture(4, 2, 4).Sum * 0.02,
 		lfo,

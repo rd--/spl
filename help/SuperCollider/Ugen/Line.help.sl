@@ -17,7 +17,7 @@ octaves.collect { :m0 |
 		EqPan2(
 			SinOsc(Line(m1[index], m2[index], du).MidiCps, 0),
 			Line(1.Rand2, 1.Rand2, du)
-		) * Line(0.1.Rand, 0.1.Rand, du)
+		) * Line(0.1.Rand0, 0.1.Rand0, du)
 	};
 	o.Sum
 }.Mix * 0.2
@@ -26,6 +26,6 @@ octaves.collect { :m0 |
 var f = Line(200, 17000, 5);
 SinOsc(f, 0) * 0.05
 
-(* ---- PrimitiveLine ; self deleting *)
+(* ---- PrimitiveLine ; with doneAction ; self deleting *)
 var a = PrimitiveLine(0.1, 0, 1, 2);
 SinOsc(440, 0) * a

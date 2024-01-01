@@ -47,7 +47,7 @@ p(
 	0.1
 )
 
-(* ---- LfPulse ; jmcc ; process (Eval) *)
+(* ---- LfPulse ; jmcc ; process ; requires=eval *)
 {
 	var p1 = LfPulse(ExpRand(0.1, 1), 0, 0.3) * 0.2 + 0.02;
 	var in = LfSaw([21000, 21001], 0) * p1;

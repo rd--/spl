@@ -1,4 +1,4 @@
-(* ---- MiClouds ; requires=keywords ; requires>#14 *)
+(* MiClouds ; requires=keywords ; requires>#14 *)
 var pit = LfNoise1(0.3) * 12;
 var pos = LfNoise2(0.4) * 0.5 + 0.5;
 var size = LfNoise1(0.3) * 0.5 + 0.5;
@@ -14,7 +14,7 @@ MiClouds(
 	size: size,
 	dens: dens,
 	tex: tex,
-	drywet: 0.5,
+	dryWet: 0.5,
 	inGain: 2,
 	spread: 0.5,
 	rvb: 0.3,

@@ -103,6 +103,18 @@
   (interactive)
   (spl-netcat-cmd 'playFile 'fileName buffer-file-name))
 
+(defun spl-indent-paragraph ()
+  "Indent current paragraph one TAB stop to the right."
+  (interactive)
+  (spl-set-region-to-paragraph)
+  (indent-rigidly-right-to-tab-stop (region-beginning) (region-end)))
+
+(defun spl-unindent-paragraph ()
+  "Indent current paragraph one TAB stop to the left."
+  (interactive)
+  (spl-set-region-to-paragraph)
+  (indent-rigidly-left-to-tab-stop (region-beginning) (region-end)))
+
 (defun spl-clear-clock ()
   (interactive)
   (spl-netcat-cmd 'evalText 'text "system.clock.removeAll"))
@@ -251,6 +263,7 @@
   (define-key map (kbd "C-c C-k") 'spl-reset-scsynth)
   (define-key map (kbd "C-c C-s") 'spl-stop)
   (define-key map (kbd "C-c C-r") 'spl-insert-non-local-return)
+  (define-key map (kbd "C-c C-i") 'spl-indent-paragraph)
   map)
 
 (defvar spl-mode-map

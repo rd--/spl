@@ -25,6 +25,6 @@ var f2 = CombL(
 ) + f1.reversed;
 var f3 = f2;
 5.timesRepeat {
-	f3 := AllpassN(f3, 0.18, { 0.06.Rand } ! 2 + 0.06, 8)
+	f3 := AllpassN(f3, 0.18, { 0.06.Rand0 } ! 2 + 0.06, 8)
 };
 Lpf(f2 + f3, 400) + (LfNoise1(0.2) * f2)

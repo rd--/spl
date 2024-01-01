@@ -18,6 +18,7 @@
 	'J'
 	'LocalControl'
 	'Mix' (* < Ugen *)
+	'KeywordUgens' (* < Ugen *)
 	'PseudoUgens' (* < Ugen *)
 	'ScLang'
 	'ScSynth' (* < Ugen *)

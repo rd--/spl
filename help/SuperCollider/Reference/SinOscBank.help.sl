@@ -10,34 +10,29 @@ A summed set of fixed frequency sin oscillators.
 
 Crossfading randomised oscillator banks:
 
-```
-{
-	{
-		SinOscBank(
-			{ 600.Rand(1000) } ! 8,
-			0.1,
-			{ 1.Rand } ! 8
-		)
-	} ! 2 * 0.1
-}.xfade(3, 4)
-```
+	{ :tr |
+		{
+			SinOscBank(
+				{ TRand(600, 1000, tr) } ! 8,
+				0.1,
+				{ TRand(0, 1, tr) } ! 8
+			)
+		} ! 2 * 0.1
+	}.XFadeTexture(3, 4)
 
 Equivalent to:
 
-```
-{
-	{
+	{ :tr |
 		{
-			FSinOsc(
-				600.Rand(1000),
-				1.Rand
-			) * 0.1
-		} !+ 8
-	} ! 2 * 0.1
-}.xfade(3, 4)
-```
+			{
+				SinOsc(
+					TRand(600, 1000, tr),
+					TRand(0, 1, tr)
+				) * 0.1
+			} !+ 8
+		} ! 2 * 0.1
+	}.XFadeTexture(3, 4)
 
 * * *
 
 See also: RingzBank
-

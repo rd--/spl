@@ -14,7 +14,7 @@
 		SinOscBank(
 			freq,
 			0.1,
-			{ 2 * pi.Rand } ! (3 * n)
+			{ 2 * pi.Rand0 } ! (3 * n)
 		)
 	} / n
 }.xfade(4, 4)

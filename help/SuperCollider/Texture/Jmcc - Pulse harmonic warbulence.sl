@@ -5,7 +5,7 @@
 	var p = LfPulse(ExpRand(0.2, 1.2), Rand(0.1, 0.2), 0.5);
 	var z = (1 .. 12).collect { :i |
 		var m = 0.Max(
-			SinOsc(r * Rand(0.9, 1.1), 2 * pi.Rand) * 0.1 - 0.05
+			SinOsc(r * Rand(0.9, 1.1), 2 * pi.Rand0) * 0.1 - 0.05
 		);
 		EqPan(
 			SinOsc(f * i, 0) * m * (1 / i),

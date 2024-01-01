@@ -15,68 +15,68 @@ Simple feedback delay (if this is all you want, Comb is easier to use):
 
 	(* allocate a buffer for the delay line *)
 	var buffer = BufAlloc(1, 48000 * 0.3).BufClear;
- 	(* make a percussive sound as input *)
+	(* make a percussive sound as input *)
 	var input = Decay(Impulse(1, 0), 0.2) * PinkNoise();
- 	(* tap the delay line at 0.15 second delay *)
+	(* tap the delay line at 0.15 second delay *)
 	var delayedSignal = DelayTap(buffer, 0.15);
- 	(* mix the delayed signal with the input *)
+	(* mix the delayed signal with the input *)
 	var mixedSignal = (delayedSignal * 0.4) + input;
- 	(* write the mixed signal to the delay line *)
+	(* write the mixed signal to the delay line *)
 	var writer = DelayWrite(buffer, mixedSignal);
- 	(* output the mixed signal *)
+	(* output the mixed signal *)
 	mixedSignal <! writer
 
 Ping pong delay:
 
- 	(* allocate a buffer for the left delay line *)
+	(* allocate a buffer for the left delay line *)
 	var leftBuffer = BufAlloc(1, 48000 * 0.4).BufClear;
- 	(* allocate a buffer for the right delay line *)
+	(* allocate a buffer for the right delay line *)
 	var rightBuffer = BufAlloc(1, 48000 * 0.4).BufClear;
- 	(* make a percussive sound as input *)
+	(* make a percussive sound as input *)
 	var input = Decay(Impulse(0.4, 0), 0.1) * PinkNoise();
- 	(* tap the left delay line *)
+	(* tap the left delay line *)
 	var leftDelayedSignal = DelayTap(leftBuffer, 0.3);
- 	(* tap the left delay line *)
+	(* tap the left delay line *)
 	var rightDelayedSignal = DelayTap(rightBuffer, 0.3);
- 	(* mix the delayed signal with the input *)
+	(* mix the delayed signal with the input *)
 	var output = [leftDelayedSignal + input, rightDelayedSignal];
 	(* scale delay signal *)
 	var toDelay = output * 0.8;
- 	(* feedback to buffers in reverse order *)
+	(* feedback to buffers in reverse order *)
 	var writer = DelayWrite([rightBuffer, leftBuffer], toDelay);
- 	(* output with writer attached to graph *)
+	(* output with writer attached to graph *)
 	output <! writer
 
 Distortion in the feedback loop:
 
- 	(* allocate a buffer for the delay line *)
+	(* allocate a buffer for the delay line *)
 	var buffer = BufAlloc(1, 48000 * 0.3).BufClear;
- 	(* sine pulse *)
+	(* sine pulse *)
 	var input = FSinOsc(1000, 0) * LfPulse(0.3, 0, 0.05) * 0.3;
- 	(* tap the delay line at 0.15 second delay and distort *)
+	(* tap the delay line at 0.15 second delay and distort *)
 	var delayedSignal = DelayTap(buffer, 0.15).Distort;
- 	(* mix the delayed signal with the input *)
+	(* mix the delayed signal with the input *)
 	var mixedSignal = (delayedSignal * 0.8) + input;
- 	(* write the mixed signal to the delay line *)
+	(* write the mixed signal to the delay line *)
 	var writer = DelayWrite(buffer, mixedSignal);
- 	(* output the mixed signal *)
+	(* output the mixed signal *)
 	mixedSignal <! writer
 
 Pitch shift in the feedback loop:
 
- 	(* allocate a buffer for the delay line *)
+	(* allocate a buffer for the delay line *)
 	var buffer = BufAlloc(1, 48000 * 0.3).BufClear;
- 	(* sine pulse *)
+	(* sine pulse *)
 	var input = FSinOsc(1000, 0) * LfPulse(0.3, 0, 0.05) * 0.3;
- 	(* tap the delay line at 0.15 seconds *)
+	(* tap the delay line at 0.15 seconds *)
 	var delayed = DelayTap(buffer, 0.15);
- 	(* apply pitch shift *)
+	(* apply pitch shift *)
 	var shifted = PitchShift(delayed, 0.2, 5 / 7, 0.01, 0.01);
- 	(* mix the delayed signal with the input *)
+	(* mix the delayed signal with the input *)
 	var mixedSignal = (shifted * 0.8) + input;
- 	(* write the mixed signal to the delay line *)
+	(* write the mixed signal to the delay line *)
 	var writer = DelayWrite(buffer, mixedSignal);
- 	(* output the mixed signal *)
+	(* output the mixed signal *)
 	mixedSignal <! writer
 
 * * *

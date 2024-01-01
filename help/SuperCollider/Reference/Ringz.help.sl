@@ -54,11 +54,11 @@ Texture of above:
 		{
 			Ringz(
 				exciter,
-				XLine(
-					tr,
-					ExpRand(tr, 100, 5000),
-					ExpRand(tr, 100, 5000),
-					20
+				TxLine(
+					TExpRand(100, 5000, tr),
+					TExpRand(100, 5000, tr),
+					20,
+					tr
 				),
 				0.5
 			)

@@ -1,7 +1,7 @@
 (* Release ; fixed duration envelope that releases (deletes) the sound on completion *)
 Release(SinOsc(440, 0) * 0.1, 0.01, 3, 7)
 
-(* ---- Release ; keywords *)
+(* Release ; requires=keywords *)
 Release(
 	in: SinOsc(440, 0) * 0.1,
 	attackTime: 0.01,

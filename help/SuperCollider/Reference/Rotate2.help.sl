@@ -10,8 +10,11 @@ It takes two audio inputs (x, y) and an angle control (pos).
 It outputs two channels (x, y).
 It computes:
 
-	xOut = cos(angle) * xIn + sin(angle) * yIn;
-	yOut = cos(angle) * yIn - sin(angle) * xIn;
+> xOut = cos(angle) * xIn + sin(angle) * yIn
+
+and:
+
+> yOut = cos(angle) * yIn - sin(angle) * xIn
 
 where angle = pos * pi,
 so that -1 becomes -pi and +1 becomes +pi.

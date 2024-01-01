@@ -8,4 +8,10 @@ Inverse of _MidiCps_.
 
 A4 = 440:
 
-	440.CpsMidi = 69
+```
+440.CpsMidi = 69
+```
+
+* * *
+
+See also: CpsRatio, MidiCps

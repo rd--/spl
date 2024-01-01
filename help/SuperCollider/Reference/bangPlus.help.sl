@@ -5,21 +5,19 @@
 Names the idiom of generating an array and then immediately summing it.
 This operator does not need to construct the intermediate array structure to calculate the answer.
 
-```
-{
-	{
-		var f = (48 .. 72).atRandom.MidiCps;
-		var ff = f * (SinOsc(ExpRand(4, 6), 0) * 0.008 + 1);
-		LfSaw(
-			[
-				ff * Rand(0.99, 1.01),
-				ff * Rand(0.99, 1.01)
-			],
-			0
-		) * 0.01
-	} !+ 10
-}.overlap(2, 3, 4)
-```
+	{ :tr |
+		{
+			var f = Choose(tr, [48 .. 72]).MidiCps;
+			var ff = f * (SinOsc(TExpRand(4, 6, tr), 0) * 0.008 + 1);
+			LfSaw(
+				[
+					ff * TRand(0.99, 1.01, tr),
+					ff * TRand(0.99, 1.01, tr)
+				],
+				0
+			) * 0.01
+		} !+ 10
+	}.OverlapTexture(2, 3, 4).Mix
 
 * * *
 

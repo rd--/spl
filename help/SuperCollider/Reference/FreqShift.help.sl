@@ -44,49 +44,72 @@ Shifting bandpassed noise:
 
 Simple detune & pitchmod via FreqShift:
 
-	{
-		var table = [0, 2, 4, 5, 7, 9, 11, 12];
-		var octave = [0 .. 2].atRandom;
-		var note = 48 + table.atRandom;
+	{ :tr |
+		var table = [0 2 4 5 7 9 11 12];
+		var octave = Choose(tr, [0 .. 2]);
+		var note = 48 + Choose(tr, table);
 		var freq = (octave * 12 + note).MidiCps;
 		var detune = 1.5;
 		var osc = SinOsc(freq, 0) * 0.1;
 		var left = osc + FreqShift(osc, freq * detune, 0);
 		var right = FreqShift(left, SinOsc(3.23, 0) * 5, 0);
 		[left, right] / 3
-	}.overlap(3, 3, 3)
+	}.OverlapTexture(3, 3, 3).Mix
 
 Shift pulse wave in opposite directions:
 
-	{
-		var table = [0, 2, 4, 5, 7, 9, 11, 12];
-		var octave = [0 .. 2].atRandom;
-		var note = 48 + table.atRandom;
+	{ :tr |
+		var table = [0 2 4 5 7 9 11 12];
+		var octave = Choose(tr, [0 .. 2]);
+		var note = 48 + Choose(tr, table);
 		var freq = (octave * 12 + note).MidiCps;
 		var width = SinOsc(2.3, 0).LinLin(-1, 1, 0.2, 0.8);
 		var osc = Pulse(freq, width) * 0.1;
 		var left = FreqShift(osc, XLine(-0.1, -200, 3), 0);
 		var right = FreqShift(osc, XLine(0.1, 200, 3), 0);
 		[left, right] / 3
-	}.overlap(3, 3, 3)
+	}.OverlapTexture(3, 3, 3).Mix
 
 FreqShift, feedback, FreqShift:
 
-	{
-		var table = [0, 2, 4, 5, 7, 9, 11, 12];
-		var octave = [0 .. 2].atRandom;
-		var note = 48 + table.atRandom;
+	{ :tr |
+		var table = [0 2 4 5 7 9 11 12];
+		var octave = Choose(tr, [0 .. 2]);
+		var note = 48 + Choose(tr, table);
 		var freq = (octave * 12 + note).MidiCps;
 		var in = FreqShift(
 			InFb(1, 0) * 3.2,
-			XLine(0.01, freq * 1.5, 1),
+			TxLine(0.01, freq * 1.5, 1, tr),
 			0
 		);
-		var osc = SinOsc(freq, 0) * Sine(1, 9) * 0.1;
+		var osc = SinOsc(freq, 0) * Sine(tr, 9) * 0.1;
 		var snd = FreqShift(
 			osc + in,
 			SinOsc(4.24, 0.5) * 3,
 			0
 		) * 0.5;
 		(osc + snd) / 3 ! 2
-	}.overlap(3, 3, 3)
+	}.OverlapTexture(3, 3, 3).Mix
+
+Non-graph variant:
+
+```
+{
+	var table = [0 2 4 5 7 9 11 12];
+	var octave = [0 .. 2].atRandom;
+	var note = 48 + table.atRandom;
+	var freq = (octave * 12 + note).MidiCps;
+	var in = FreqShift(
+		InFb(1, 0) * 3.2,
+		XLine(0.01, freq * 1.5, 1),
+		0
+	);
+	var osc = SinOsc(freq, 0) * Sine(1, 9) * 0.1;
+	var snd = FreqShift(
+		osc + in,
+		SinOsc(4.24, 0.5) * 3,
+		0
+	) * 0.5;
+	(osc + snd) / 3 ! 2
+}.overlap(3, 3, 3)
+```

@@ -22,12 +22,12 @@ SinOscFb(100 * SinOscFb(y, 0) + 200, x) * 0.1
 	} ! 16
 }.OverlapTexture(2, 6, 3).Mix
 
-(* ---- SinOscFb ; overlap (scheduled) *)
+(* ---- SinOscFb ; overlap ; requires=eval *)
 {
 	var x = MouseX(0.15, 0.85, 0, 0.2);
 	var f0 = [110, 220, 440].atRandom;
 	{
-		var freq = f0 + f0.Rand;
+		var freq = f0 + f0.Rand0;
 		var fb = LinLin(LfNoise2(1), -1, 1, 0, x);
 		EqPan2(SinOscFb(freq, fb), 1.Rand2) * 0.1
 	} !+ 16

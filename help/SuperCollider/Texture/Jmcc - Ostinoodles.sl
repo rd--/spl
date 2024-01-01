@@ -8,7 +8,7 @@ var major = [0 2 4 5 7 9 11];
 	var f = Sequencer(seq.MidiCps, trig);
 	var z = EqPan(LfTri(f, 0) * Decay2(trig, 0.004, 0.3) * 0.1, 1.Rand2);
 	6.timesRepeat {
-		z := AllpassN(z, 0.040, { 0.04.Rand } ! 2, 16)
+		z := AllpassN(z, 0.040, { 0.04.Rand0 } ! 2, 16)
 	};
 	z
 }.overlap(6, 3, 6)

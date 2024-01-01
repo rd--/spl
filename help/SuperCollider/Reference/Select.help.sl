@@ -14,32 +14,28 @@ For small arrays this is more efficient than reading from a buffer.
 
 Cycle though oscillator types:
 
-```
-var a = [
-	SinOsc(440, 0),
-	Saw(440),
-	Pulse(440, 0.5)
-];
-var cycle = a.size * 0.5;
-Select(LfSaw(1, 0) * cycle + cycle, a) * 0.2
-```
+	var a = [
+		SinOsc(440, 0),
+		Saw(440),
+		Pulse(440, 0.5)
+	];
+	var cycle = a.size * 0.5;
+	Select(LfSaw(1, 0) * cycle + cycle, a) * 0.2
 
 As a sequencer:
 
-```
-{
-	{
-		var a = { Rand(30, 80) } ! 32;
-		var cycle = a.size * 0.5;
-		Saw(
-			Select(
-				LfSaw(1, 0) * cycle + cycle,
-				a.MidiCps
-			)
-		) * 0.2
-	} ! 2
-}.xfade(3, 4)
-```
+	{ :tr |
+		{
+			var a = { TRand(30, 80, tr) } ! 32;
+			var cycle = a.size * 0.5;
+			Saw(
+				Select(
+					LfSaw(1, 0) * cycle + cycle,
+					a.MidiCps
+				)
+			) * 0.2
+		} ! 2
+	}.XFadeTexture(3, 4)
 
 For selecting from an array consider also _BufRd_.
 

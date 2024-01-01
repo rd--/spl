@@ -5,6 +5,6 @@ var f = (Demand(t, 0, Dseq(inf, s)) + 32).MidiCps;
 var e = Decay2(t, 0.05, 1) * 0.1;
 var z = Rlpf(LfSaw(f, 0) * e, (LfNoise1(1) * 36 + 110).MidiCps, 0.1);
 4.timesRepeat {
-	z := AllpassN(z, 0.05, { 0.05.Rand } ! 2, 4)
+	z := AllpassN(z, 0.05, { Rand(0, 0.05) } ! 2, 4)
 };
 z * 0.25

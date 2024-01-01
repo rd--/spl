@@ -1,8 +1,8 @@
 (* uplink (jmcc) #2 *)
 {
 	var osc = {
-		var e = LfPulse(4.Rand, 0, 1.Rand) * 8000.Rand + 2000.Rand;
-		LfPulse(20.Rand, 0, 1.Rand) * e
+		var e = LfPulse(4.Rand0, 0, 1.Rand0) * 8000.Rand0 + 2000.Rand0;
+		LfPulse(20.Rand0, 0, 1.Rand0) * e
 	};
 	var freq = osc() + osc();
 	EqPan(LfPulse(freq, 0, 0.5), 0.8.Rand2) * 0.04

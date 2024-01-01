@@ -12,9 +12,12 @@ The arguments can be a number or any other UGen.
 
 Mouse controls range of frequency and rate of change.
 
-```
-var seq = Dwhite(inf, 0, MouseY(7, 45, 0, 0.2));
-var trig = Impulse(MouseX(1, 40, 1, 0.2), 0);
-var freq = Demand(trig, 0, seq) * 30 + 340;
-SinOsc(freq, 0) * 0.1
-```
+	var seq = Dwhite(inf, 0, MouseY(7, 45, 0, 0.2));
+	var trig = Impulse(MouseX(1, 40, 1, 0.2), 0);
+	var freq = Demand(trig, 0, seq) * 30 + 340;
+	SinOsc(freq, 0) * 0.1
+
+* * *
+
+See also: Dbrown, WhiteNoise
+

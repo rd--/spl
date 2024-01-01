@@ -2,7 +2,7 @@
 {
 	var n = MoogFf(
 		ClipNoise() * 0.4,
-		LfPar({ 0.3.Rand } ! 2, 0) * 600 + 990,
+		LfPar({ 0.3.Rand0 } ! 2, 0) * 600 + 990,
 		2,
 		0
 	);

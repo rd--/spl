@@ -8,7 +8,7 @@
 	var j = XLine(ExpRand(0.01, 0.5), ExpRand(0.01, 0.5), t);
 	var z = EqPan(Decay2(i * j, 0.01, 0.2) * a, l);
 	4.timesRepeat {
-		z := AllpassN(z, 0.1, { 0.05.Rand } ! 2, 4)
+		z := AllpassN(z, 0.1, { 0.05.Rand0 } ! 2, 4)
 	};
 	z
 }.overlap(10, 1, 8)

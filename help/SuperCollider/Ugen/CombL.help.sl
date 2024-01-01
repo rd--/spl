@@ -53,7 +53,7 @@ var exciter = Decay(Impulse(repeatFreq, 0), 0.02) * PinkNoise();
 var string = CombL(exciter, 0.1, delayTime, 3);
 [string, LeakDc(string, 0.995)]
 
-(* ---- CombL ; simplistic karplus-strong synthesis (adc) ; keywords *)
+(* CombL ; simplistic karplus-strong synthesis (adc) ; requires=keywords *)
 var freq = 440;
 var repeatFreq = 0.3;
 var exciter = Decay(
@@ -65,9 +65,9 @@ var exciter = Decay(
 ) * PinkNoise();
 var string = CombL(
 	in: exciter,
-	maxdelaytime: 0.1,
-	delaytime: 1 / freq,
-	decaytime: 3
+	maxDelayTime: 0.1,
+	delayTime: 1 / freq,
+	decayTime: 3
 );
 [
 	string,

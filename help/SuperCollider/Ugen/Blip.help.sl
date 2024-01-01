@@ -20,8 +20,8 @@ Voicer(16) { :e |
 	EqPan2(o, e.i * 2 - 1) * e.z * e.w * 0.5
 }.Mix
 
-(* ---- Blip ; requires=keywords *)
+(* Blip ; requires=keywords *)
 Blip(
 	freq: MouseX([3, 12], 1, 0, 0.2),
-	numharm: MouseY([100, 1000], 1, 0, 0.2)
+	numHarm: MouseY([100, 1000], 1, 0, 0.2)
 ) * 0.1

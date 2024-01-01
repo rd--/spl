@@ -7,4 +7,10 @@ Inverse of _CpsOct_.
 Decimal octaves are a linear pitch space.
 _C4_ is _4_, _A4_ is _4 + (9/12)_.
 
-	(4 + (9 / 12)).OctCps = 440
+```
+(4 + (9 / 12)).OctCps = 440
+```
+
+* * *
+
+See also: CpsOct

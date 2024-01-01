@@ -296,11 +296,11 @@ var z = Rlpf(
 );
 var y = z * 0.6;
 z + [
-	CombL(y, 0.06, MulAdd(LfNoise1(0.3.Rand), 0.025, 0.035), 1) +
-	CombL(y, 0.06, MulAdd(LfNoise1(0.3.Rand), 0.025, 0.035), 1)
+	CombL(y, 0.06, MulAdd(LfNoise1(0.3.Rand0), 0.025, 0.035), 1) +
+	CombL(y, 0.06, MulAdd(LfNoise1(0.3.Rand0), 0.025, 0.035), 1)
 	,
-	CombL(y, 0.06, MulAdd(LfNoise1(0.3.Rand), 0.025, 0.035), 1) +
-	CombL(y, 0.06, MulAdd(LfNoise1(0.3.Rand), 0.025, 0.035), 1)
+	CombL(y, 0.06, MulAdd(LfNoise1(0.3.Rand0), 0.025, 0.035), 1) +
+	CombL(y, 0.06, MulAdd(LfNoise1(0.3.Rand0), 0.025, 0.035), 1)
 ]
 
 (* what was i thinking? (jmcc) #2 *)
@@ -311,7 +311,7 @@ var z = Rlpf(p, LfNoise1(0.2) * 2000 + 2400, 0.2) * 0.25;
 var y = z * 0.6;
 {
 	[y, y].collect { :i |
-		CombL(i, 0.06, LfNoise1(0.3.Rand) * 0.025 + 0.035, 1)
+		CombL(i, 0.06, LfNoise1(0.3.Rand0) * 0.025 + 0.035, 1)
 	}.Sum
 } ! 2 + z
 
@@ -329,9 +329,9 @@ var o = SinOsc(Rand(24, 108).MidiCps, Rand(0, 2 * pi));
 var s = o * a(ExpRand(0.3, 8)).Max(0) * a(ExpRand(6, 24)).Abs;
 EqPan(s, Rand(-1, 1))
 
-(* ---- analog bubbles (jmcc) #1 ; requires=keywords *)
+(* analog bubbles (jmcc) #1 ; requires=keywords *)
 var o = LfSaw(
-	freq: [8, 7.23],
+	freq: [8 7.23],
 	iphase: 0
 ) * 3 + 80;
 var m = LfSaw(
@@ -344,20 +344,20 @@ var s = SinOsc(
 ) * 0.04;
 CombN(
 	in: s,
-	maxdelaytime: 0.2,
-	delaytime: 0.2,
-	decaytime: 4
+	maxDelayTime: 0.2,
+	delayTime: 0.2,
+	decayTime: 4
 ) * 0.1 (* echoing sine wave *)
 
-(* ---- analog bubbles (jmcc) #1 ; left-to-right *)
+(* analog bubbles (jmcc) #1 ; left-to-right *)
 0.4.LfSaw(0).Mul(24).Add([8, 7.23].LfSaw(0).MulAdd(3, 80)).MidiCps.SinOsc(0).Mul(0.04).CombN(0.2, 0.2, 4)
 
-(* ---- analog bubbles (jmcc) #1 ; left-to-right *)
+(* analog bubbles (jmcc) #1 ; left-to-right *)
 var o = LfSaw([8, 7.23], 0).MulAdd(3, 80);
 var m = LfSaw(0.4, 0).MulAdd(24, o);
 SinOsc(m.MidiCps, 0).Mul(0.04).CombN(0.2, 0.2, 4)
 
-(* ---- babbling brook (jmcc) #SC3 ; left-to-right *)
+(* babbling brook (jmcc) #SC3 ; left-to-right *)
 var b = { :f :m :a :g |
 	BrownNoise()
 		.OnePole(0.99)
@@ -371,21 +371,10 @@ var b = { :f :m :a :g |
 	{ b(20, 800, 1000, 0.10) } ! 2
 ].Sum
 
-(* ---- birdies (jmcc) #6 ; muladd *)
-{
-	var p1 = MulAdd(LfPulse(0.4 + 1.Rand, 0, 0.8.Rand + 0.1), 3.Rand + 4, 2);
-	var p2 = MulAdd(LfPulse(0.4 + 1.Rand, 0, 0.8.Rand + 0.1), 3.Rand + 4, 0);
-	var p3 = MulAdd(LfPulse(0.2 + 0.5.Rand, 0, 0.4), 0.02, 0);
-	var sw = MulAdd(LfSaw(p1 + p2, 0), (1000 + 800.Rand).Neg, 4000 + 1200.Rand2);
-	var freq = Lag(sw, 0.05);
-	var amp = Lag(p3, 0.3);
-	Pan2(SinOsc(freq, 0) * amp, 1.Rand2, 1)
-}.overlap(7, 4, 4)
+(* coolant (jmcc) ; requires=filterMethods *)
+{ BrownNoise().Mul(0.002).OnePole(0.95).RingzBank({ 40 + 2000.Rand0 } ! 10, [0.1], [1]) } ! 2
 
-(* ---- coolant (jmcc) ; filtermethods *)
-{ BrownNoise().Mul(0.002).OnePole(0.95).RingzBank({ 40 + 2000.Rand } ! 10, [0.1], [1]) } ! 2
-
-(* ---- modal space (jmcc) #8 ; left-to-right *)
+(* modal space (jmcc) #8 ; left-to-right *)
 var b = [0 2 3.2 5 7 9 10].asLocalBuf;
 var k = DegreeToKey(b, MouseX(0, 15, 0, 0.1), 12);
 var c = { :n :r |
@@ -399,15 +388,15 @@ var c = { :n :r |
 var n = LfNoise1([3, 3]);
 c(n, 48) + c(n, 72) * 0.25
 
-(* ---- jmcc - ostinoodles ; requires=keywords *)
+(* jmcc - ostinoodles ; requires=keywords *)
 var z = { :tr |
-	var sequ = { :s :tr |
+	var sequ = { :list :trig |
 		Demand(
-			trig: tr,
+			trig: trig,
 			reset: 0,
-			demandUGens: Dseq(
+			demandUgens: Dseq(
 				repeats: inf,
-				list: s
+				list: list
 			)
 		)
 	};
@@ -423,7 +412,7 @@ var z = { :tr |
 		trig: tr
 	);
 	var sequence = DegreeToKey(
-		bufnum: major,
+		bufNum: major,
 		in: TScramble(
 			trigger: tr,
 			inputs: [0, 1, 2, 3] + offset
@@ -449,8 +438,8 @@ var z = { :tr |
 		phase: 0
 	);
 	var freq = sequ(
-		value: sequence.MidiCps,
-		value: trig
+		sequence.MidiCps,
+		trig
 	);
 	var sig = LfTri(
 		freq: freq.kr,
@@ -473,25 +462,25 @@ var z = { :tr |
 6.timesRepeat {
 	z := AllpassN(
 		in: z,
-		maxdelaytime: 0.04,
-		delaytime: {
+		maxDelayTime: 0.04,
+		delayTime: {
 			Rand(
 				lo: 0,
 				hi: 0.04
 			)
 		} ! 2,
-		decaytime: 16)
+		decayTime: 16)
 };
 z
 
-(* ---- scratchy ; jmcc ; left-to-right *)
+(* scratchy ; jmcc ; left-to-right *)
 { BrownNoise() }.duplicate(2).MulAdd(0.5, -0.49).Max(0).Mul(20).Rhpf(5000, 1)
 
-(* ---- slow beating sines (jmcc) #7 ; texture=xfade,4,4,inf *)
+(* slow beating sines (jmcc) #7 ; texture=xfade,4,4,inf *)
 var n = 20;
 var d = 5;
-var p = []; (* OrderedCollection() *)
-var q = []; (* OrderedCollection() *)
+var p = [];
+var q = [];
 n.timesRepeat {
 	var freq = Rand(24, 84).MidiCps;
 	p.add(freq);
@@ -502,15 +491,15 @@ n.timesRepeat {
 	SinOscBank(freq, [1], { Rand(0, 2 * pi) } ! (3 * n))
 } * 0.1 / n
 
-(* ---- police state ; jmcc ; keywords *)
+(* police state ; jmcc ; requires=keywords *)
 var n = 4; (* number of sirens *)
 var node = {
 	Pan2(
 		in: SinOsc(
 			freq: SinOsc(
-				freq: 0.1.Rand + 0.02,
-				phase: 2 * pi.Rand
-			) * 600.Rand + 1000 + 300.Rand2,
+				freq: 0.1.Rand0 + 0.02,
+				phase: 2 * pi.Rand0
+			) * 600.Rand0 + 1000 + 300.Rand2,
 			phase: 0
 		),
 		pos: 1.Rand2,
@@ -528,32 +517,15 @@ var e = LfNoise2(
 );
 CombL(
 	in: node:/0 !+ 4 + e,
-	maxdelaytime: 0.3,
-	delaytime: 0.3,
-	decaytime: 3
+	maxDelayTime: 0.3,
+	delayTime: 0.3,
+	decayTime: 3
 ) * 0.5
 
-(* ---- repeating harmonic klank (jmcc) ; requires=Klank *)
-{ :tr |
-	var p = 8;
-	var s = Decay(Dust(0.8) * 0.01, 3.4) * LfSaw(TRand(0, 40), 0); (* linrand *)
-	var f = Choose(tr, [400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1500, 1600]);
-	{
-		Klank(
-			s, 1, 0, 1,
-			[
-				{ f * TRand(1, 13) } ! p,
-				[1],
-				{ TRand(0.4, 3.4) } ! p
-			].asKlankSpec
-		)
-	} ! 2
-}.OverlapTexture(8, 2, 4).Mix
-
-(* ---- sample and hold liquidities (jmcc) #4 ; requires=keywords *)
+(* sample and hold liquidities (jmcc) #4 ; requires=keywords *)
 var r = MouseX(
-	minval: 1,
-	maxval: 200,
+	minVal: 1,
+	maxVal: 200,
 	warp: 1,
 	lag: 0.1
 );
@@ -563,8 +535,8 @@ var c = Impulse(
 	phase: 0
 ) * 0.4;
 var cf = MouseY(
-	minval: 100,
-	maxval: 8000,
+	minVal: 100,
+	maxVal: 8000,
 	warp: 1,
 	lag: 0.1
 );
@@ -589,26 +561,12 @@ var i = EqPan2(
 );
 CombN(
 	in: i,
-	maxdelaytime: 0.3,
-	delaytime: 0.3,
-	decaytime: 2
+	maxDelayTime: 0.3,
+	delayTime: 0.3,
+	decayTime: 2
 )
 
-(* ---- strummable metals ; use mouse to strum strings ; jmcc ; requires=Klank *)
-var mouseX = MouseX(0, 1, 0, 0.2);
-var strings = (1 .. 8).collect { :i |
-	var trigger = Hpz1(mouseX > (0.25 + (i * 0.07))).Abs;
-	var pluck = PinkNoise() * Decay(trigger, 0.05).kr * 0.04;
-	var n = 15;
-	var z = [{ 300 * i + LinRand(0, 8000, 0) } ! n, nil, { Rand(1, 4) } ! n].asKlankSpec;
-	Pan2(Klank(pluck, 1, 0, 1, z), i * 0.2 - 0.5, 1)
-}.Sum;
-LeakDc(
-	Lpf(string, 12000),
-	0.995
-)
-
-(* ---- why supercollider (jmcc) #0 ; requires=keywords *)
+(* why supercollider (jmcc) #0 ; requires=keywords *)
 var s = {
 	Resonz(
 		in: Dust(
@@ -623,33 +581,75 @@ var s = {
 } !+ 10;
 var z = DelayN(
 	in: s,
-	maxdelaytime: 0.048,
-	delaytime: 0.048
+	maxDelayTime: 0.048,
+	delayTime: 0.048
 );
 var x = {
 	CombL(
 		in: z,
-		maxdelaytime: 0.1,
-		delaytime: LfNoise1(
+		maxDelayTime: 0.1,
+		delayTime: LfNoise1(
 			freq: Rand(
 				lo: 0,
 				hi: 0.1
 			)
 		) * 0.04 + 0.05,
-		decaytime: 15
+		decayTime: 15
 	)
 } !+ 7;
 4.timesRepeat {
 	x := AllpassN(
 		in: x,
-		maxdelaytime: 0.050,
-		delaytime: {
+		maxDelayTime: 0.050,
+		delayTime: {
 			Rand(
 				lo: 0,
 				hi: 0.05
 			)
 		} ! 2,
-		decaytime: 1
+		decayTime: 1
 	)
 };
 s + (x * 0.2)
+
+(* ---- birdies (jmcc) #6 ; reqiuires=MulAdd requires=eval *)
+{
+	var p1 = MulAdd(LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1), 3.Rand0 + 4, 2);
+	var p2 = MulAdd(LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1), 3.Rand0 + 4, 0);
+	var p3 = MulAdd(LfPulse(0.2 + 0.5.Rand0, 0, 0.4), 0.02, 0);
+	var sw = MulAdd(LfSaw(p1 + p2, 0), (1000 + 800.Rand0).Neg, 4000 + 1200.Rand2);
+	var freq = Lag(sw, 0.05);
+	var amp = Lag(p3, 0.3);
+	Pan2(SinOsc(freq, 0) * amp, 1.Rand2, 1)
+}.overlap(7, 4, 4)
+
+(* ---- repeating harmonic klank (jmcc) ; requires=Klank *)
+{ :tr |
+	var p = 8;
+	var s = Decay(Dust(0.8) * 0.01, 3.4) * LfSaw(TRand(0, 40, tr), 0); (* linrand *)
+	var f = Choose(tr, [400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1500, 1600]);
+	{
+		Klank(
+			s, 1, 0, 1,
+			[
+				{ f * TRand(1, 13) } ! p,
+				[1],
+				{ TRand(0.4, 3.4) } ! p
+			].asKlankSpec
+		)
+	} ! 2
+}.OverlapTexture(8, 2, 4).Mix
+
+(* ---- strummable metals ; use mouse to strum strings ; jmcc ; requires=Klank *)
+var mouseX = MouseX(0, 1, 0, 0.2);
+var strings = (1 .. 8).collect { :i |
+	var trigger = Hpz1(mouseX > (0.25 + (i * 0.07))).Abs;
+	var pluck = PinkNoise() * Decay(trigger, 0.05).kr * 0.04;
+	var n = 15;
+	var z = [{ 300 * i + LinRand(0, 8000, 0) } ! n, nil, { Rand(1, 4) } ! n].asKlankSpec;
+	Pan2(Klank(pluck, 1, 0, 1, z), i * 0.2 - 0.5, 1)
+}.Sum;
+LeakDc(
+	Lpf(string, 12000),
+	0.995
+)

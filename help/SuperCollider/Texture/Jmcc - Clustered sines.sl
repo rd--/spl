@@ -4,7 +4,7 @@
 	var f1 = Rand(100, 1100);
 	var f2 = 4.0 * f1;
 	{
-		var y = { f1 + f2.Rand } ! n;
+		var y = { f1 + f2.Rand0 } ! n;
 		var a = f1 / y;
 		SinOscBank(y, a, nil) / n
 	} ! 2

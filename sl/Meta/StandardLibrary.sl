@@ -105,12 +105,12 @@
 		system.cache::preferences := byteArray.utf8String.parseJson
 	}
 *)
-(*
+
 	| splDirectory = system.environmentVariable('SplDirectory'); |
 	(splDirectory ++ '/config/preferences.json').primitiveReadLocalFile.then { :byteArray |
 		system.cache::preferences := byteArray.utf8String.parseJson
 	}
-*)
+
 (*
 	system.fetchJson(
 		'https://rohandrape.net/sw/spl/config/preferences.json',

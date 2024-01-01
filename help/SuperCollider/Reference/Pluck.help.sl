@@ -14,36 +14,32 @@ The delay line is filled using a rectangular envelope, that is there is no fadin
 
 Excitation signal is WhiteNoise, triggered twice a second with varying OnePole coef:
 
-```
-Pluck(
-	WhiteNoise() * 0.1,
-	Impulse(2, 0),
-	1 / 440,
-	1 / 440,
-	10,
-	MouseX(-0.999, 0.999, 0, 0.2)
-)
-```
+	Pluck(
+		WhiteNoise() * 0.1,
+		Impulse(2, 0),
+		1 / 440,
+		1 / 440,
+		10,
+		MouseX(-0.999, 0.999, 0, 0.2)
+	)
 
 Randomised duplicates:
 
-```
-var k = 12;
-var freq = SinOsc(
-	{ Rand(0.01, 0.15) } ! k,
-	{ Rand(0, 1) } ! k
-).Range(777, 3333);
-Splay(
-	LeakDc(
-		Pluck(
-			WhiteNoise() / 4 ! k,
-			Impulse({ Rand(3, 11) } ! k, 0),
-			1 / 100,
-			1 / freq,
-			2,
-			Rand(0.01, 0.2)
-		),
-		0.995
+	var k = 12;
+	var freq = SinOsc(
+		{ Rand(0.01, 0.15) } ! k,
+		{ Rand(0, 1) } ! k
+	).Range(777, 3333);
+	Splay(
+		LeakDc(
+			Pluck(
+				WhiteNoise() / 4 ! k,
+				Impulse({ Rand(3, 11) } ! k, 0),
+				1 / 100,
+				1 / freq,
+				2,
+				Rand(0.01, 0.2)
+			),
+			0.995
+		)
 	)
-)
-```

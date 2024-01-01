@@ -2,4 +2,10 @@
 
 Inverse of _OctCps_.
 
-	440.CpsOct = (4 + (9 / 12))
+```
+440.CpsOct = (4 + (9 / 12))
+```
+
+* * *
+
+See also: CpsMidi, CpsRatio

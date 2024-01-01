@@ -6,7 +6,7 @@
 	Splay2(o * a)
 }.OverlapTexture(6, 3, 3).Mix
 
-(* ---- Splay2 ; texture (Eval) *)
+(* ---- Splay2 ; texture ; requires=eval *)
 {
 	var k = 7;
 	var o = SinOsc({ IRand(40, 90).MidiCps } ! k, 0);

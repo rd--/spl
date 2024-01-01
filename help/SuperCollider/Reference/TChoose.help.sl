@@ -11,14 +11,12 @@ TChoose is defined in terms of Select and TiRand.
 
 Cycle though oscillator types, mouse control of trigger density:
 
-```
-var a = [
-	SinOsc(440, 0),
-	Saw(440),
-	Pulse(440, 0.5)
-];
-TChoose(Dust(MouseX(1, 1000, 1, 0.2)), a) * 0.2
-```
+	var a = [
+		SinOsc(440, 0),
+		Saw(440),
+		Pulse(440, 0.5)
+	];
+	TChoose(Dust(MouseX(1, 1000, 1, 0.2)), a) * 0.2
 
 Note:
 All ugens are continuously running.

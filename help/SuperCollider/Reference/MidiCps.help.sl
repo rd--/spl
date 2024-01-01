@@ -8,7 +8,9 @@ Inverse of _CpsMidi_.
 
 A4 = 440hz:
 
-	69.MidiCps = 440
+```
+69.MidiCps = 440
+```
 
 * * *
 

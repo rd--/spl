@@ -151,6 +151,7 @@
 	'SuperCollider-ContinuousEvent'
 	'SuperCollider-Env'
 	'SuperCollider-J'
+	'SuperCollider-KeywordUgens'
 	'SuperCollider-LocalControl'
 	'SuperCollider-Mix'
 	'SuperCollider-PseudoUgens'
