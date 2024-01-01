@@ -2561,8 +2561,8 @@ ReadStream().position = 0 (* initially the position is zero *)
 (1 .. 5).ReadStream.contents = (1 .. 5) (* contents of finite stream (a copy of the collection) *)
 (1 .. 5).ReadStream.originalContents = (1 .. 5) (* original contents of stream (the actual collection *)
 | r = (1 .. 5).ReadStream; | r.upToEnd; r.contents = (1 .. 5) (* contents of consumed stream *)
-| r = [1 .. 5].ReadStream; | [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil]
-| r = [1 .. 3].ReadStream; | [r.next, r.upToEnd] = [1, [2, 3]]
+| r = [1 .. 5].ReadStream; | [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] (* next answers nil at end *)
+| r = [1 .. 3].ReadStream; | [r.next, r.upToEnd] = [1, [2, 3]] (* read up to end *)
 | r = (1 .. 5).ReadStream; | [r.peek, r.next] = [1, 1] (* peek at the next item *)
 | r = (1 .. 5).ReadStream; | [r.peekFor(1), r.next] = [true, 2] (* peek or read next item *)
 | r = (1 .. 5).ReadStream; | [r.peekFor(nil), r.next] = [false, 1] (* peek or read next item *)

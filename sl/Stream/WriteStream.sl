@@ -1,6 +1,37 @@
 (* Requires: PositionableStream Stream *)
 
-WriteStream : [Object, Stream, PositionableStream] { | collection positionIndex writeLimit |
+@WriteStream {
+
+	nextPut { :self :anObject |
+		self.typeResponsibility('WriteStream>>nextPut')
+	}
+
+	nextPutAll { :self :aCollection |
+		aCollection.do { :each |
+			self.nextPut(each)
+		};
+		aCollection
+	}
+
+}
+
++@Object {
+
+	putOn { :self :aStream |
+		aStream.nextPut(self)
+	}
+
+}
+
++@Sequenceable {
+
+	putOn { :self :aStream |
+		aStream.nextPutAll(self)
+	}
+
+}
+
+WriteStream : [Object, Stream, PositionableStream, WriteStream] { | collection positionIndex writeLimit |
 
 	contents { :self |
 		self.collection.copyFromTo(1, self.position)

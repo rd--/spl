@@ -1,4 +1,4 @@
-(* Stream: collection, atEnd contents next nextPut *)
+(* Stream: collection, atEnd contents next *)
 @Stream {
 
 	any { :self :numberOfElements |
@@ -48,17 +48,6 @@
 
 	nextMatchFor { :self :anObject |
 		anObject = self.next
-	}
-
-	nextPut { :self :anObject |
-		self.typeResponsibility('Stream>>nextPut')
-	}
-
-	nextPutAll { :self :aCollection |
-		aCollection.do { :each |
-			self.nextPut(each)
-		};
-		aCollection
 	}
 
 	nextSatisfy { :self :aBlock:/1 |
@@ -114,18 +103,6 @@
 
 	isStream { :self |
 		false
-	}
-
-	putOn { :self :aStream |
-		aStream.nextPut(self)
-	}
-
-}
-
-+@Sequenceable {
-
-	putOn { :self :aStream |
-		aStream.nextPutAll(self)
 	}
 
 }

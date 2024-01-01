@@ -5,9 +5,7 @@
 
 This operator is the point constructor in Smalltalk.
 
-```
-0@0 = Point(0,0)
-```
+	0@0 = Point(0,0)
 
 _Rationale_:
 This is not given the simpler name of _at_ since that is the name of the lookup and indexing method in Smalltalk, and has it's own syntax.

@@ -6,4 +6,4 @@ The basic protocols on a ReadStream are _next_ and _reset_.
 
 * * *
 
-See also: next, peek, reset, WriteStream
+See also: next, peek, reset, Stream, PositionableStream, WriteStream

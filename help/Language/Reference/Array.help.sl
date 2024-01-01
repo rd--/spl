@@ -12,7 +12,7 @@ If the collection is an Array, answer it directly.
 
 Arrays are of variable size, elements can be added at the start, at the end, or in a place given by a relation to existing items.
 
-Array implements the _Iterable_, _Indexable_, _Collection_, _SequencableCollection_, _ArrayedCollection_ and _OrderedCollection_ traits.
+Array implements the _Iterable_, _Indexable_, _Collection_, _Sequencable_, _Arrayed_ and _Ordered_ traits.
 
 * * *
 
