@@ -165,6 +165,10 @@
 		Demand(trig, 0, Dseq(inf, self))
 	}
 
+	DurationSequencer { :self :dur |
+		Duty(dur, 0, Dseq(inf, self))
+	}
+
 	Silent { :numChannels |
 		(numChannels == 1).if {
 			Dc(0)
@@ -224,7 +228,6 @@
 	Cutoff { :sustainTime :releaseTime :curve | <primitive: return sc.Cutoff(_sustainTime, _releaseTime, _curve);> }
 	DelayTap { :bufnum :delayTime | <primitive: return sc.DelayTap(_bufnum, _delayTime);> }
 	DelayWrite { :bufnum :input | <primitive: return sc.DelayWrite(_bufnum, _input);> }
-	DmdFor { :dur :reset :level | <primitive: return sc.DmdFor(_dur, _reset, _level);> }
 	DynRingzBank { :input :freq :amp :time | <primitive: return sc.DynRingzBank(_input, _freq, _amp, _time);> }
 	InFb { :numChannels :bus | <primitive: return sc.InFb(_numChannels, _bus);> }
 	LinSeg { :gate :coordArray | <primitive: return sc.LinSeg(_gate, _coordArray);> }
@@ -251,7 +254,6 @@
 	Splay2 { :inArray | <primitive: return sc.Splay2(_inArray);> }
 	TChoose { :trig :array | <primitive: return sc.TChoose(_trig, _array);> }
 	TwChoose { :trig :array :weights :normalize | <primitive: return sc.TwChoose(_trig, _array, _weights, _normalize);> }
-	TDmdFor { :dur :reset :level | <primitive: return sc.TDmdFor(_dur, _reset, _level);> }
 	TLine { :start :end :dur :trig | <primitive: return sc.TLine(_start, _end, _dur, _trig);> }
 	TxLine { :start :end :dur :trig | <primitive: return sc.TxLine(_start, _end, _dur, _trig);> }
 	VarLag { :input :time :curve | <primitive: return sc.VarLag(_input, _time, _curve);> }

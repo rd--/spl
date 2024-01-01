@@ -1,10 +1,9 @@
 (* analogue daze (jmcc) #3 *)
 var pattern = [55 63 60 63 57 65 62 65];
 var f = { :octave :clockRate :pwmRate :fltRate |
-	var sequ = { :s :tr | Demand(tr, 0, Dseq(inf, s)) };
 	var tr = Impulse(clockRate, 0);
 	var patternCps = (pattern + (12 * octave)).MidiCps;
-	var sq = sequ(patternCps, tr);
+	var sq = Sequencer(patternCps, tr);
 	var pwm = SinOsc(pwmRate, Rand(0, 2 * pi)) * 0.4 + 0.5;
 	var cf = SinOsc(fltRate, Rand(0, 2 * pi)) * 1400 + 2000;
 	Rlpf(LfPulse(Lag(sq, 0.05), 0, pwm) * 0.1, cf, 1 / 15)

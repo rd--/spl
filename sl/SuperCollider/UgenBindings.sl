@@ -83,7 +83,7 @@
 	Dswitch1 { :index :list | <primitive: return sc.Dswitch1(_index, _list);> }
 	Dust { :density | <primitive: return sc.Dust(_density);> }
 	Dust2 { :density | <primitive: return sc.Dust2(_density);> }
-	Duty { :dur :reset :doneAction :level | <primitive: return sc.Duty(_dur, _reset, _doneAction, _level);> }
+	Duty { :dur :reset :level | <primitive: return sc.Duty(_dur, _reset, 0, _level);> }
 	Dwhite { :length :lo :hi | <primitive: return sc.Dwhite(_length, _lo, _hi);> }
 	Dwrand { :repeats :weights :list | <primitive: return sc.Dwrand(_repeats, _weights, _list);> }
 	Dxrand { :repeats :list | <primitive: return sc.Dxrand(_repeats, _list);> }
@@ -229,7 +229,7 @@
 	SyncSaw { :syncFreq :sawFreq | <primitive: return sc.SyncSaw(_syncFreq, _sawFreq);> }
 	TableRand { :trig :bufnum | <primitive: return sc.TableRand(_trig, _bufnum);> }
 	TDelay { :in :dur | <primitive: return sc.TDelay(_in, _dur);> }
-	TDuty { :dur :reset :doneAction :level :gapFirst | <primitive: return sc.TDuty(_dur, _reset, _doneAction, _level, _gapFirst);> }
+	TDuty { :dur :reset :level | <primitive: return sc.TDuty(_dur, _reset, 0, _level, 0);> }
 	TExpRand { :lo :hi :trig | <primitive: return sc.TExpRand(_lo, _hi, _trig);> }
 	TGrains { :numChan :trigger :bufnum :rate :centerPos :dur :pan :amp :interp | <primitive: return sc.TGrains(_numChan, _trigger, _bufnum, _rate, _centerPos, _dur, _pan, _amp, _interp);> }
 	TiRand { :lo :hi :trig | <primitive: return sc.TiRand(_lo, _hi, _trig);> }

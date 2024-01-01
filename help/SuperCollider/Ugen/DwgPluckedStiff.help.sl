@@ -1,5 +1,5 @@
 (* DwgPluckedStiff ; re-sounding *)
-var tr = TDmdFor(Dseq(inf, [1 1 2 1 1 1 2 3 1 1 1 1 2 3 4] * 0.175), 0, 1);
+var tr = TDuty(Dseq(inf, [1 1 2 1 1 1 2 3 1 1 1 1 2 3 4] * 0.175), 0, 1);
 var freq = [
 	Sequencer([60 62 63 58 48 55], tr),
 	Sequencer([63 60 48 62 55 58], tr)

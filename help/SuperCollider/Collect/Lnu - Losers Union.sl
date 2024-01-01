@@ -268,7 +268,7 @@ var n = 8;
 LeakDc(
 	GrainFm(
 		n,
-		TDmdFor(1 / d, 0, 1),
+		TDuty(1 / d, 0, 1),
 		2 + LfPar(0.3, 0) / d * 2,
 		[2 3],
 		f,
@@ -376,7 +376,7 @@ Splay(
 
 (* 30 Apr. 2020 ; https://github.com/lukiss/Losers-Union-SC-Research *)
 var t = {
-	TDmdFor(Drand(inf, (1 .. 8) / 16), 0, 1)
+	TDuty(Drand(inf, (1 .. 8) / 16), 0, 1)
 };
 var r = { :lo :hi |
 	TRand(lo, hi, t())

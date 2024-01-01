@@ -5,5 +5,5 @@ var n = [
 	1597 2584 4181 6765 10946 17711 28657 46368
 	75025 121393 196418 317811 514229 832040 1346269 2178309
 ];
-var a = DmdFor(0.1, 0, Dseq(inf, Wrap(n, 20, 55).MidiCps));
+var a = DurationSequencer(n.Wrap(20, 55).MidiCps, 0.1);
 Hpf(LeakDc(LfCub([-1, a, a / 3, -2], 0).Splay, 0.995) * 9, 440).Clip2(1) / 9

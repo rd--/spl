@@ -5,10 +5,9 @@ Splay2(
 		1
 	),
 	Saw(
-		DmdFor(
-			4,
-			0,
-			Dseq(inf, [1, Drand(1, [5, 10]), 1, Drand(1, [11, 20])])
+		DurationSequencer(
+			[1, Drand(1, [5, 10]), 1, Drand(1, [11, 20])],
+			4
 		)
 	),
 	1,

@@ -2,7 +2,7 @@
 var b = 1 / [2 .. 7];
 var d = 1 / 48;
 var g = 0.cos.cos;
-var f = DmdFor(b, 0, Dseq(inf, '0 0 00 0 0 000  _0 0 0 00 00 00000+  !'.ascii.asArray));
+var f = Duty(b, 0, Dseq(inf, '0 0 00 0 0 000  _0 0 0 00 00 00000+  !'.ascii.asArray));
 var o = SinOscFb(f, SinOsc(d, 0).Max(0) * 0.cos.sin);
 var c = SinOsc(0, pi ^ o);
 var p = PitchShift(c, g, 1 / b, d, d) * b;

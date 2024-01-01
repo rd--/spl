@@ -42,7 +42,7 @@ Rhpf(
 ) * 0.1
 
 (* https://sccode.org/1-4S6 ; f0 ; 't' *)
-var p = Saw([3, 4]) * (Saw(1) * 32 + 128) + DmdFor(1, 0, (Dseq(1, [0, 8, 1, 5]) * [1, 4, 8]).flop);
+var p = Saw([3, 4]) * (Saw(1) * 32 + 128) + Duty(1, 0, (Dseq(1, [0, 8, 1, 5]) * [1, 4, 8]).flop);
 var o = SinOsc(Saw(3) * 64 + 99, p) / 9;
 CombN(o, 1 / 4, 1 / 2.125, SinOsc(0.005, 1.5 * pi).Range(0, 6)).transposed.Sum
 
@@ -75,7 +75,7 @@ var n = 50;
 var b = 1 / [1 4 6 8 11];
 var c = LfTri(b / 98, 0);
 var q = Dseq(inf, Select(LfTri(b / 99, 0) + c * 5, 1 / b + 59).kr).MidiCps;
-Splay(LfTri(DmdFor(b, c, q) + c, 0) / 3)
+Splay(LfTri(Duty(b, c, q) + c, 0) / 3)
 
 (* https://sccode.org/1-4Qy ; f0 ; 0246 ; requires=DynRingzBank *)
 var b = [1 .. 9] * 1.5;
@@ -135,7 +135,7 @@ var c = 0.021;
 var d = LfTri(b / 999, 0) % 1;
 var m = LfTri(b * c, 0);
 var l = m * 7 + 20 + Dseq(inf, b % m * 5 + 6);
-var j = DmdFor(e / (12 ^ m), 0, l);
+var j = Duty(e / (12 ^ m), 0, l);
 var k = DegreeToKey(b.asLocalBuf, j, 12);
 var o = SinOscFb(k.MidiCps, LfTri(c / b + 1 / 3, Decay2(Impulse([2 / 3, 1.5, 3, 1.5, 3], 0), c, d)) * d);
 FreeVerb(o.Splay, 0.1, 1, 0.5) * 0.1

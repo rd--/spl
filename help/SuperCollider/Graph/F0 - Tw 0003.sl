@@ -6,7 +6,7 @@
 	).Abs;
 	{
 		Formlet(
-			TDmdFor(t, 0, t),
+			TDuty(t, 0, t),
 			TLinRand(20, 4000, 0, tr),
 			t,
 			1 - t

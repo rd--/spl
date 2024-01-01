@@ -48,8 +48,6 @@
 - DelayN -- delay line
 - DelayWrite, DelayTap
 - Distort -- nonlinear distortion
-- DmdFor -- demand results from demand rate ugens
-- DmdOn -- demand results from demand rate ugens
 - Dust -- random impulses
 - Dust2 -- bipolar random impulses
 - EqPan2 -- two channel equal power pan

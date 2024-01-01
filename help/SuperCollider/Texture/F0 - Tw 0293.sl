@@ -7,7 +7,7 @@
 		d := 1 / i;
 		Release(
 			EqPan(
-				SinOscFb(DmdFor(d, 0, Dseq(1, a * 99 / 2)), b),
+				SinOscFb(Duty(d, 0, Dseq(1, a * 99 / 2)), b),
 				b
 			) / 5,
 			0.02, 8, 0.02

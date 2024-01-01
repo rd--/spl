@@ -4,7 +4,7 @@
 	var d = 26 - z;
 	{
 		var y = LfTri(z, 0).Abs / 9 / z;
-		var s = Rlpf(TDmdFor(y, 0, y), z * 600, 0.06);
+		var s = Rlpf(TDuty(y, 0, y), z * 600, 0.06);
 		Release(EqPan(s, 0) * 4.5, d, 0, z)
 	}.play;
 	d

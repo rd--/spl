@@ -5,7 +5,7 @@ var n = [
 ];
 var b = [0 2 4 5 7 9 11].asLocalBuf;
 var tr = Impulse(4, 0);
-var k = DegreeToKey(b, Demand(tr, 0, Dseq(inf, n)), 12);
+var k = DegreeToKey(b, Sequencer(n, tr), 12);
 var e = Decay2(tr, 0.01, TRand(0.15, 0.5, tr));
 {
 	var m = 48 + k + TRand(0, 0.05, tr);

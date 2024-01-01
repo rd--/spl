@@ -48,4 +48,4 @@ Randomly select among sequences:
 
 * * *
 
-See also: DmdFor, Demand, Duty
+See also: Duty, TDuty

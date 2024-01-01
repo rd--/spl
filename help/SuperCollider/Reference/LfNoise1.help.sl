@@ -1,6 +1,6 @@
 # LfNoise1 -- ramp noise
 
-_LfNoise1(freq)_
+_LfNoise1(freq=500)_
 
 Generates linearly interpolated random values at a rate given by the nearest integer division of the sample rate by the freq argument.
 

@@ -1,5 +1,5 @@
 (* http://earslap.com/weblog/music-release-laconicism.html *)
-var k = DmdFor(6.4, 0, Dseq(inf, [0.05, Drand(1, [0.04, 0.08])]));
+var k = Duty(6.4, 0, Dseq(inf, [0.05, Drand(1, [0.04, 0.08])]));
 Integrator((LfNoise0([5, 5, 5]) * k).RoundTo(k / 10), 1).Sin.Sqrt.Tanh.Splay2(0.3,1, 0, true)
 
 (* http://earslap.com/weblog/music-release-laconicism.html ; wait *)
@@ -71,7 +71,7 @@ var o = (LfNoise0(4).Max(l).Max(SinOsc(f * (l * 9).Ceiling.Lag(0.1), 0) * 0.7));
 
 (* http://earslap.com/weblog/music-release-laconicism.html *)
 var t = [0 0 0 1 5 7 10 12 12 12] + 30;
-var a = DmdFor(1/8, 0, Drand(inf, t + 24 ++ t ++ t));
+var a = Duty(1/8, 0, Drand(inf, t + 24 ++ t ++ t));
 (BHiPass(LfNoise1(8) ^ 6, [a, a + 7].MidiCps, a / 3000) * (67 - a)).Tanh
 
 (* http://earslap.com/weblog/music-release-laconicism.html *)
@@ -84,7 +84,7 @@ SinOsc(LagUd(Impulse(2, 0), 0, 0.4) * 360, ph) / 3
 
 (* http://earslap.com/weblog/music-release-laconicism.html *)
 var t = [0 3 5 7 10 12] + 40;
-var p = DmdFor(1 / 4, 0, Drand(inf, (t + 12 ++ t).MidiCps));
+var p = Duty(1 / 4, 0, Drand(inf, (t + 12 ++ t).MidiCps));
 var b = TRand(1500, 2000, Impulse(16, 0)).Lag(0.1);
 Blip([b, b + p], 1).mean ^ 2
 
@@ -106,7 +106,7 @@ var v = Blip([20000, 20000 - 9], 1) * (LfNoise0(16) * 0.5 + 0.5 ^ 9);
 (Hpf(LfNoise1(2), [10, 10.1]) * 100).Tanh
 
 (* http://earslap.com/weblog/music-release-laconicism.html ; requires=kr *)
-var x = DmdFor(1/8, 0, Drand(inf, [0, Drand(1, [0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])]));
+var x = Duty(1/8, 0, Drand(inf, [0, Drand(1, [0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])]));
 LeakDc(Brf(Saw(8) * Decay2(x, 0.01, 0.3).kr ^ 1.5, x * 20 + [45.1, 45], 0.1), 0.995).Tanh
 
 (* http://earslap.com/weblog/music-release-laconicism.html ; wait *)
