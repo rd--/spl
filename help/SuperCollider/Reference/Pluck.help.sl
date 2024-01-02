@@ -3,7 +3,7 @@
 _Pluck(in, trig, maxdelaytime, delaytime, decaytime, coef)_
 
 - in: an excitation signal
-- trig: on a negative to positive transition fill delay line
+- trig: fill delay line on trigger
 - maxdelaytime: the max delay time in seconds (initializes the internal delay buffer).
 - delaytime: delay time in seconds.
 - decaytime: time for the echoes to decay by 60 decibels. Negative times emphasize odd partials.

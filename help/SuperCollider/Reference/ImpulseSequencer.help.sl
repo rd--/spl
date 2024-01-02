@@ -5,7 +5,7 @@ _ImpulseSequencer(sequence, trig)_
 Outputs a single sample impulse level from the sequence each time a trigger is received.
 
 - sequence: the values in the array are output cyclically
-- trig: trigger occurs when signal changes from non-positive to positive
+- trig: step to next item when triggered
 
 Use a pulse wave as a trigger:
 

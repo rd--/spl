@@ -6,7 +6,7 @@ When the normalize flag is set to 1, the values get normalized by the Ugen (less
 
 _TwIndex(in, normalize=0, array)_
 
-- input: The trigger. Trigger can be any signal. A trigger happens when the signal changes from non-positive to positive.
+- input: the trigger.
 - normalize: Controls whether to normalize the probability values.
 - array: The list of probabilities.
 

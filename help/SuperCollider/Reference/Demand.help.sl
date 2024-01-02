@@ -1,13 +1,13 @@
 # Demand -- demand results from demand rate ugens
 
-_Demand(trig, reset, demandUgens)_
+_Demand(trig, reset=0, demandUgens)_
 
 When there is a trigger at the _trig_ input, a value is demanded each Ugen in the list and output.
 The unit generators in the list should be _demand_ rate.
 
 When there is a trigger at the reset input, the demand rate Ugens in the list are reset.
 
-- trig: a trigger happens when the signal changes from non-positive to positive
+- trig: read next value when triggered
 - reset: resets the list of Ugens when triggered
 - demandUgens: list of demand-rate Ugens to get values from. When the shortest stream ends, this Ugen will set the 'done' flag.
 

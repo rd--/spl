@@ -19,5 +19,5 @@ _RecordBuf(bufnum=0, offset=0, recLevel=1, preLevel=0, run=1, loop=1, trigger=1,
 - preLevel: Value to multiply to existing data in buffer before mixing with input.
 - run: If zero, then recording stops, otherwise recording proceeds.
 - loop: If 1 then loop, otherwise do not. This is modulatable.
-- trigger: a trigger causes a jump to the start of the Buffer. A trigger occurs when a signal changes from negative value to positive value.
+- trigger: a trigger causes a jump to the start of the Buffer
 - doneAction: an integer representing an action to be executed when the buffer is finished recording.

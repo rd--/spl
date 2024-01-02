@@ -5,18 +5,17 @@ _TrigRoundRobin(numChannels=8, in=0)_
 Triggers are allocated to output channels from left to right.
 
 - numChannels: integer deciding number of output signals
-- in: a trigger is recorded when this signal goes from non-positive to positive
+- in: input signal to be allocated at each trigger
 
 A trigger (_t_) is received four times every second,
-a random duration (_d_) is selected for each trigger,
-the allocator generates five gate signals (_w_),
-each gate controls a _SinOsc_ with distinct
+the allocator generates five trigger signals (_r_),
+each controls a _SinOsc_ (_o_) with distinct
 frequency (_f_) and envelope (_e_).
 
 	var t = Impulse(4, 0);
-	var w = TrigRoundRobin(5, t);
-	var f = TiRand(48, 72, w).MidiCps;
-	var e = Decay2(w, 0.05, 2);
+	var r = TrigRoundRobin(5, t);
+	var f = TiRand(48, 72, r).MidiCps;
+	var e = Decay2(r, 0.05, 2);
 	var o = SinOsc(f, 0) * e;
 	o.Splay
 

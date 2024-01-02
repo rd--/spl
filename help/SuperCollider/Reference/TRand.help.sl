@@ -2,7 +2,7 @@
 
 _TRand(lo=0, hi=1, trig=0)_
 
-Generates a random float value in uniform distribution from lo to hi each time the trig signal changes from nonpositive to positive values.
+Generates a random float value in uniform distribution from _lo_ to _hi_ each time the _trig_ is set.
 
 	var tr = Dust(10);
 	SinOsc(TRand(300, 3000, tr), 0) * 0.1

@@ -3,7 +3,7 @@
 _Phasor(trig, rate=1, start=0, end=1, resetPos=0)_
 
 Phasor is a linear ramp between start and end values.
-When _trig_ crosses from non-positive to positive, the Phasor will jump to its reset position.
+When triggered the Phasor will jump to its reset position.
 Upon reaching the end of its ramp Phasor will wrap back to its start.
 Note: Since end is defined as the wrap point, its value is never actually output.
 

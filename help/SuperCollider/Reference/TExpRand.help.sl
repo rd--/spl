@@ -1,8 +1,10 @@
 # TExpRand -- triggered exponential random number generator
 
-_TExpRand(lo, hi, tr)_
+_TExpRand(lo=0, hi=1, tr=0)_
 
-Generates a random float value in exponential distribution from lo to hi each time the trig signal changes from nonpositive to positive values lo and hi must both have the same sign and be non-zero.
+Generates a random float value in exponential distribution from _lo_ to _hi_ each time the _trig_ signal is set.
+
+_lo_ and _hi_ must both have the same sign and be non-zero.
 
 	var tr = Dust(10);
 	SinOsc(TExpRand(300, 3000, tr), 0) * 0.1

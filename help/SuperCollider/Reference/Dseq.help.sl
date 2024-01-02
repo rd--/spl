@@ -14,7 +14,8 @@ Repeat sequence three times, mouse control of request frequency:
 	var freq = Demand(trig, 0, seq) * 30 + 340;
 	SinOsc(freq, 0) * 0.1
 
-Infinite repetitions of sequence of thirty-two random numbers, mouse control of request frequency with range into audio rate:
+Infinite repetitions of sequence of thirty-two random numbers,
+mouse control of request frequency with range into audio rate:
 
 	var seq = Dseq(inf, { IRand(0, 10) } ! 32);
 	var trig = Impulse(MouseX(1, 10000, 1, 0.2), 0);
@@ -23,4 +24,4 @@ Infinite repetitions of sequence of thirty-two random numbers, mouse control of 
 
 * * *
 
-See also: Demand
+See also: Demand, Duty, TDuty

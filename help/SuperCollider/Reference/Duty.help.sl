@@ -1,18 +1,16 @@
 # Duty -- demand results from demand rate ugens
 
-_Duty(dur, reset, level)_
+_Duty(dur=1, reset=0, level=1)_
 
-A value is demanded of each Ugen in the list and output according to a stream of duration values.
-The unit generators in the list should be _demand_ rate.
+A value is demanded of _level_ and output according to a stream of duration values.
 
-When there is a trigger at the reset input, the demand rate Ugens in the list and the duration are reset.
+When there is a trigger at the reset input, _dur_ and _level_ are reset.
+
 The reset input may also be a demand Ugen, providing a stream of reset times.
 
 - dur: time values, the next level is acquired after duration
-- reset: resets the list of Ugens and the duration Ugen when triggered.
+- reset: resets _level_ and _dur_ when triggered.
 - level: demand Ugen providing the output values
-
-The reset input may also be a demand UGen, providing a stream of reset times.
 
 Demand Ugen as durations:
 
@@ -20,7 +18,7 @@ Demand Ugen as durations:
 		Drand(inf, [0.01 0.2 0.4]),
 		0,
 		Dseq(inf, [204 400 201 502 300 200])
-	);
+	).Lag(0.2);
 	SinOsc(freq * [1 1.01], 0) * 0.1
 
 Control rate ugen as durations:
@@ -55,16 +53,24 @@ Demand Ugen as audio oscillator:
 	var n = 5;
 	var m = 64;
 	var a = {
-		var x = { Rand(-0.2, 0.2) } ! m;
-		x := x ++ ({ Drand(1, { Rand(-0.2, 0.2) } ! n) } ! m.atRandom);
+		var x = [
+			{ randomFloat(-0.2, 0.2) } ! m,
+			{ Drand(1, { randomFloat(-0.2, 0.2) } ! n) } ! m.atRandom
+		].concatenation;
 		Dseq(inf, x.scramble)
 	} ! n;
 	Duty(
 		MouseX(1, 125, 1, 0.2) * SampleDur() * [1, 1.02],
 		0,
-		Dswitch1(a, MouseY(0, n - 1, 0, 0.2))
+		Dswitch1(MouseY(0, n - 1, 0, 0.2), a)
 	)
+
+With non-demand inputs:
+
+	var freq = LfNoise2(1).Range(111, 555);
+	var latchFreq = Duty(MouseX(0.1, 1, 1, 0.2), 0, freq);
+	SinOsc([freq, latchFreq], 0) * 0.1
 
 * * *
 
-See also: TDuty
+See also: Latch, TDuty

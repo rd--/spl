@@ -4,8 +4,8 @@ _Latch(in=0, trig=0)_
 
 Holds input signal value when triggered.
 
-- in: input signal.
-- trig: trigger. Trigger can be any signal. A trigger happens when the signal changes from non-positive to positive.
+- in: input signal
+- trig: trigger
 
 Step noise:
 

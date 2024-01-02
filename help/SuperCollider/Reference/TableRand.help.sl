@@ -2,7 +2,7 @@
 
 _TableRand(trig, bufNum)_
 
-- trig: generate new random output value on each positive zero crossing
+- trig: generate new random output value on each trigger
 - bufNum: table giving probability density function for random number generation
 
 Select random value in (0,1) at each trigger input.

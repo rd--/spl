@@ -1,8 +1,13 @@
 # Sweep -- triggered linear ramp
 
-_Sweep(trig, rate)_
+_Sweep(trig=0, rate=1)_
 
-Starts a linear raise by rate/sec from zero when trig input crosses from non-positive to positive
+Starts a linear raise by rate/sec from zero when _trig_ is triggered.
+
+When rate is equal to one, Sweep may be used to get a continually-updating measurement of the time (in seconds) since the last trigger.
+
+- trig: start sweep, reset to zero
+- rate: raise rate
 
 Using sweep to modulate sine frequency:
 

@@ -12,7 +12,7 @@ var rewrite = { :n |
 (0 .. 6).collect { :i |
 	var str = rewrite(i + 6);
 	var dt = 2 ^ i.negated * 10;
-	var trig = DurationSequencer(str, dt);
+	var trig = Sequencer(str, Impulse(1 / dt, 0));
 	var freq = ExpRand(200, i + 1 / 7 * 10100);
 	Ringz(
 		trig,

@@ -1,15 +1,15 @@
 # Stepper -- pulse counter
 
-_Stepper(trig, reset=0, min=0, max=7, step=1, resetval=min)_
+_Stepper(trig, reset=0, min=0, max=7, step=1, resetVal=min)_
 
 Each trigger increments a counter which is output as a signal. The counter wraps between min and max.
 
-- trig: trigger. Trigger can be any signal. A trigger happens when the signal changes from non-positive to positive.
+- trig: step output on trigger.
 - reset: resets the counter to resetval when triggered.
 - min: minimum value of the counter.
 - max: maximum value of the counter.
 - step: step value each trigger. May be negative.
-- resetval: value to which the counter is reset when it receives a reset trigger. If nil, then this is patched to min.
+- resetVal: value to which the counter is reset when it receives a reset trigger. If nil, then this is patched to min.
 
 Count by 1:
 

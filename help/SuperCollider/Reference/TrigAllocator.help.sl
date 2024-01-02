@@ -3,13 +3,13 @@
 _TrigAllocator(numChannels=8, algorithm=1, in=0, dur=0.1)_
 
 Allocate a gate array defined by trigger and duration signals.
-Voices are allocated when a non-positive to positive transition occurs at _in_,
+Voices are allocated when a trigger occurs at _in_,
 at which time a gate signal is generated that will remain open for _dur_ seconds.
 Outputs are allocated left to right, if no output is free a voice-stealing algorithm is implemented.
 
 - numChannels: static integer deciding number of output gate signals
 - algorithm: selects voice stealing algorithm, see below
-- in: a trigger is recorded when this signal goes from non-positive to positive
+- in: input signal
 - dur: when a trigger is recorded this input is sampled and used as the allocated gate duration (in seconds)
 
 Algorithms are:

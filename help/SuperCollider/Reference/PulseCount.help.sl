@@ -4,7 +4,7 @@ _PulseCount(trig=0, reset=0)_
 
 Each trigger increments a counter which is output as a signal.
 
-- trig: trigger. Trigger can be any signal. A trigger happens when the signal changes from non-positive to positive.
+- trig: trigger
 - reset: resets the counter to zero when triggered.
 
 Pulse count as frequency input:

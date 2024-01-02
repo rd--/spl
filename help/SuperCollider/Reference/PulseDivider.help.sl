@@ -1,12 +1,14 @@
 # PulseDivider -- pulse divider
 
-_PulseDivider(trig, div, startCount)_
+_PulseDivider(trig=0, div=2, startCount=0)_
 
 Outputs one impulse each time it receives a certain number of triggers at its input.
 
-- trig: trigger. Trigger can be any signal. A trigger happens when the signal changes from non-positive to positive.
+- trig: trigger
 - div: number of pulses to divide by.
-- startCount: starting value for the trigger count. This lets you start somewhere in the middle of a count, or if startCount is negative it adds that many counts to the first time the output is triggers.
+- startCount: starting value for the trigger count.
+  This lets you start somewhere in the middle of a count,
+  or if startCount is negative it adds that many counts to the first time the output is triggers.
 
 Lower tone at quarter the clock rate:
 
@@ -29,3 +31,7 @@ Four divisions:
 		SinOsc(600, 0) * Decay2(p4, 0.005, 0.5),
 		SinOsc(200, 0) * Decay2(p16, 0.005, 1.0)
 	].Splay * 0.3
+
+* * *
+
+See also: Impulse

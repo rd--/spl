@@ -2,11 +2,11 @@
 
 _TiRand(lo, hi, tr)_
 
-Generates a random integer value in uniform distribution from _lo_ to _hi_ each time the _trig_ signal changes from nonpositive to positive values.
+Generates a random integer value in uniform distribution from _lo_ to _hi_ each time the _trig_ signal is set.
 
 - lo: Lower limit of the output range
 - hi: Upper limit of the output range
-- trig: A trigger occurs when this signal changes from non-positive to positive
+- trig: trigger next random number
 
 Random oscillator frequencies:
 

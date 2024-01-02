@@ -1,6 +1,6 @@
 # Ringz -- ringing filter
 
-_Ringz(in, freq, decaytime)_
+_Ringz(in, freq=440, decaytime=1)_
 
 This is the same as Resonz, except that instead of a resonance parameter, the bandwidth is specified in a 60dB ring decay time. One Ringz is equivalent to one component of the Klank UGen.
 
