@@ -37,7 +37,7 @@ As a sequencer:
 		} ! 2
 	}.XFadeTexture(3, 4)
 
-For selecting from an array consider also _BufRd_.
+For selecting from an array of constants consider also _BufRd_.
 
 * * *
 

@@ -65,7 +65,7 @@ var w = SinOsc((root + 24 + 7).MidiCps, 0) * Decay2(trig5, 0.005, 0.2);
 var snd = (r * 0.1 + x + z + [y, w]) * 0.4;
 (CombN(snd, 0.51, 0.51, 4) * 0.4 + snd.reversed).SoftClip
 
-(* Sequencer ; jmcc *)
+(* Sequencer ; Jmcc *)
 var z = 0, a = 0.1, b = 0.2, c = 0.4;
 var p = Dseq(1, [
 	Dseq(2, [c z z z z z z z]),
@@ -89,11 +89,11 @@ var clock = Impulse(9, 0);
 var trig1 = PulseDivider(clock, 16, 0);
 var r = SinOsc(80, 0) * Decay2(trig1, 0.005, 0.5) * 0.3;
 (* drum *)
-var trig2 = ImpulseSequencer([p], clock);
+var trig2 = DemandImpulseSequencer([p], clock);
 var exc2 = WhiteNoise() * Decay2(trig2, 0.005, 0.05);
 var x = RingzBank(exc2, { Rand(80, 800) } ! 4, nil, { Rand(0.05, 0.2) } ! 4).Distort * 0.2;
 (* metallic *)
-var trig3 = ImpulseSequencer([q], clock);
+var trig3 = DemandImpulseSequencer([q], clock);
 var exc3 = WhiteNoise() * Decay2(trig3, 0.005, 0.05);
 var s = RingzBank(exc3, { Rand(3500, 4000) } ! 4, nil, { Rand(0.05, 0.2) } ! 4).Distort * 0.1;
 (* whine *)
@@ -113,9 +113,9 @@ var snd = x + (y * 0.5) + s + r;
 };
 snd
 
-(* Sequencer ; jmcc *)
+(* Sequencer ; Jmcc *)
 var clock = Impulse(XLine(24, 1, 12), 0);
-var x = SinOsc(Sequencer(Dwhite(inf, 2000, 12000), clock), 0) * Decay2(clock, 0.002, 0.04);
+var x = SinOsc(DemandSequencer(Dwhite(inf, 2000, 12000), clock), 0) * Decay2(clock, 0.002, 0.04);
 {
-	CombN(x, 0.1, { ExpRand(0.02, 0.05) } ! 2, 2) * Line(0.2, 0, 12)
+	CombN(x, 0.1, { ExpRand(0.02, 0.05) } ! 2, 2) * XLine(0.2, 0.001, 12)
 } !+ 2

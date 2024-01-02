@@ -12,3 +12,15 @@ SinOsc(f, 0) * 0.1
 var tr = Dust([5, 12]);
 var f = TRand([200, 1600], [500, 3000], tr);
 SinOsc(f.Lag(0.07), 0) * TRand(0.01, 0.15, tr).Lag2(0.02)
+
+(* TRand ; Jmcc/Rd *)
+var clock = Impulse(16, 0);
+var x = SinOsc(TRand(2000, 12000, clock), 0) * Decay2(clock, 0.002, 0.04);
+CombN(x, 0.2, { Rand(0.04, 0.2) } ! 2, 2) * XLine(0.2, 0.001, 9)
+
+(* TRand ; Jmcc/Rd *)
+var clock = Impulse(XLine(24, 1, 12), 0);
+var x = SinOsc(TRand(2000, 12000, clock), 0) * Decay2(clock, 0.002, 0.04);
+{
+	CombN(x, 0.1, { ExpRand(0.02, 0.05) } ! 2, 2) * XLine(0.2, 0.001, 9)
+} !+ 2

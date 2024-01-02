@@ -6,6 +6,13 @@ var x = MouseX(-3, 4, 0, 0.1);
 SinOsc(Stepper(Impulse(10, 0), 0, 4, 16, x, 0) * 100, 0) * 0.05
 
 (* Stepper *)
+var scale = [0 2 4 5 7 9 11 12] + 60;
+var clock = Impulse(3, 0);
+var index = Stepper(clock, 1, 0, scale.size - 1, 1, 0);
+var freq = Multiplexer(index, scale).MidiCps;
+SinOsc(freq, 0) * 0.1
+
+(* Stepper *)
 var b = [43 55 72 70 55 58 41 67 41 60 55 39 58 55 43 51].asLocalBuf;
 var rate = MouseX(1, 3, 1, 0.2);
 var clock = Impulse(rate, 0);

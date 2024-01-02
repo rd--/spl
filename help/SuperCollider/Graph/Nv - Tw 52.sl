@@ -2,7 +2,7 @@
 var x = [4 4.5; 2 3 5 6];
 var z = x *.x (x *.x x).allTuples;
 var y = (z * 4).concatenation.clump(2) ++ [0];
-var f = DurationSequencer(y, 1 / 5);
+var f = HoldSequence(y, 1 / 5);
 GVerb(
 	VarSaw(f, 0, 0.9) * LfPulse(5, 0, 0.5).Lag(0.01),
 	99, 5, 0.5, 0.5, 15, 1, 0.7, 0.5, 300

@@ -67,3 +67,7 @@ Using Stepper and BufRd for sequencing, mouse controls clock rate:
 		out := DelayL(out, 0.1, lfo) + out
 	}; (* flanger *)
 	OnePole(out, 0.9) * 0.5
+
+* * *
+
+See also: PulseCount

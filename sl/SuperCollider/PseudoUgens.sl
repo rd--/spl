@@ -2,6 +2,20 @@
 
 +[Array, SmallFloat, Ugen] {
 
+	HoldSequence { :inArray :dur |
+		|(
+			gate = DurationGate(dur),
+			trig = Trig1(gate, SampleDur()),
+			(* note reset to start at zero if trig is initially one *)
+			index = Stepper(trig, 1, 0, inArray.size - 1, 1, 0)
+		)|
+		Latch(Multiplexer(index, inArray), trig)
+	}
+
+	THoldSequence { :inArray :dur |
+		HoldSequence(inArray, dur).Trig1(SampleDur())
+	}
+
 	ZeroBuf { :self |
 		self <! ClearBuf(self)
 	}
@@ -125,6 +139,10 @@
 		Sequencer(self, trig) * Trig(trig, SampleDur())
 	}
 
+	DemandImpulseSequencer { :self :trig |
+		DemandSequencer(self, trig) * Trig(trig, SampleDur())
+	}
+
 	IRand0 { :self |
 		IRand(0, self)
 	}
@@ -161,12 +179,23 @@
 		LinExp(self, -1, 1, lo, hi)
 	}
 
-	Sequencer { :self :trig |
+	Sequencer { :inArray :trig |
+		Multiplexer(
+			Stepper(trig, 1, 0, inArray.size - 1, 1, 0),
+			inArray
+		)
+	}
+
+	DemandSequencer { :self :trig |
 		Demand(trig, 0, Dseq(inf, self))
 	}
 
 	DurationSequencer { :self :dur |
 		Duty(dur, 0, Dseq(inf, self))
+	}
+
+	TDurationSequencer { :self :dur |
+		TDuty(dur, 0, Dseq(inf, self))
 	}
 
 	Silent { :numChannels |

@@ -71,6 +71,7 @@
 	DetectIndex { :bufnum :input | <primitive: return sc.DetectIndex(_bufnum, _input);> }
 	DetectSilence { :in :amp :time :doneAction | <primitive: return sc.DetectSilence(_in, _amp, _time, _doneAction);> }
 	Ddup { :n :in | <primitive: return sc.Ddup(_n, _in);> }
+	Demultiplexer { :numChannels :input :selector | <primitive: return sc.Demultiplexer(_numChannels, _input, _selector);> }
 	Dgeom { :start :grow :length | <primitive: return sc.Dgeom(_start, _grow, _length);> }
 	Dibrown { :length :lo :hi :step | <primitive: return sc.Dibrown(_length, _lo, _hi, _step);> }
 	Diwhite { :length :lo :hi | <primitive: return sc.Diwhite(_length, _lo, _hi);> }
@@ -81,6 +82,7 @@
 	Dshuf { :repeats :list | <primitive: return sc.Dshuf(_repeats, _list);> }
 	Dswitch { :index :list | <primitive: return sc.Dswitch(_index, _list);> }
 	Dswitch1 { :index :list | <primitive: return sc.Dswitch1(_index, _list);> }
+	DurationGate { :dur |  <primitive: return sc.DurationGate(_dur);> }
 	Dust { :density | <primitive: return sc.Dust(_density);> }
 	Dust2 { :density | <primitive: return sc.Dust2(_density);> }
 	Duty { :dur :reset :level | <primitive: return sc.Duty(_dur, _reset, 0, _level);> }
@@ -176,6 +178,7 @@
 	MouseButton { :minval :maxval :lag | <primitive: return sc.MouseButton(_minval, _maxval, _lag);> }
 	MouseX { :minval :maxval :warp :lag | <primitive: return sc.MouseX(_minval, _maxval, _warp, _lag);> }
 	MouseY { :minval :maxval :warp :lag | <primitive: return sc.MouseY(_minval, _maxval, _warp, _lag);> }
+	Multiplexer { :selector :inputArray | <primitive: return sc.Multiplexer(_selector, _inputArray);> }
 	NRand { :lo :hi :n | <primitive: return sc.NRand(_lo, _hi, _n);> }
 	Normalizer { :in :level :dur | <primitive: return sc.Normalizer(_in, _level, _dur);> }
 	OnePole { :in :coef | <primitive: return sc.OnePole(_in, _coef);> }

@@ -1,12 +1,11 @@
 (* berlin 1977 (jmcc) #4 *)
 |(
-	sequR = { :s :tr | Demand(tr, 0, Dshuf(inf, s)) },
 	clockRate = MouseX(5, 20, 1, 0.2),
 	clockTime = 1 / clockRate,
 	clock = Impulse(clockRate, 0),
 	note = Sequencer([55 60 63 62 60 67 63 58], clock),
 	clock16 = PulseDivider(clock, 16, 0),
-	noteTrs = sequR([-12 -7 -5 0 2 5], clock16) + note,
+	noteTrs = Sequencer([-12 -7 -5 0 2 5].shuffled, clock16) + note,
 	freq = noteTrs.MidiCps,
 	env = Decay2(clock, 0.05 * clockTime, 2 * clockTime),
 	amp = env * 0.1 + 0.02,
