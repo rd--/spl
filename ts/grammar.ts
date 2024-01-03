@@ -31,8 +31,8 @@ Sl {
 	TemporaryWithArrayInitializer = "[" NonemptyListOf<identifierOrUnused, ","> "]" "=" Expression
 	TemporariesWithoutInitializers = "|" identifier+ "|"
 	TemporariesParenSyntax = "|(" NonemptyListOf<TemporaryWithInitializer, ","> ")|"
-	TemporariesVarWithoutInitializersSyntax = "var" NonemptyListOf<identifier, ","> ";"
-	TemporariesVarWithInitializersSyntax = "var" NonemptyListOf<TemporaryWithInitializer, ","> ";"
+	TemporariesVarWithoutInitializersSyntax = ("var"|"let") NonemptyListOf<identifier, ","> ";"
+	TemporariesVarWithInitializersSyntax = ("var"|"let") NonemptyListOf<TemporaryWithInitializer, ","> ";"
 
 	Expression = Assignment | BinaryExpression | Primary
 	Assignment = ScalarAssignment | ArrayAssignment | DictionaryAssignment | AssignmentOperatorSyntax

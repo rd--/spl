@@ -74,6 +74,7 @@
 	MouseButton { :d | MouseButton(d::minVal, d::maxVal, d::lag) }
 	MouseX { :d | MouseX(d::minVal, d::maxVal, d::warp, d::lag) }
 	MouseY { :d | MouseY(d::minVal, d::maxVal, d::warp, d::lag) }
+	MVerb { :d | MVerb(d::in1, d::in2, d::dampingFreq, d::density, d::bandwidthFreq, d::decay, d::preDelay, d::size, d::gain, d::mix, d::earlyMix) }
 	NRand { :d | NRand(d::lo, d::hi, d::n) }
 	Osc { :d | Osc(d::bufNum, d::freq, d::phase) }
 	OscN { :d | OscN(d::bufNum, d::freq, d::phase) }
