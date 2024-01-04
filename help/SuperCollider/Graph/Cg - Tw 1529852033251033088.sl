@@ -5,9 +5,9 @@ Splay2(
 		1
 	),
 	Saw(
-		DurationSequencer(
+		Sequencer(
 			[1, Drand(1, [5, 10]), 1, Drand(1, [11, 20])],
-			4
+			Impulse(1 / 4, 0)
 		)
 	),
 	1,

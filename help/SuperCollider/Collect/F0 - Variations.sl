@@ -164,3 +164,31 @@ var o = GrainFm(
 	maxGrains: 512
 );
 (o / 2).Tanh / 5
+
+(* https://sccode.org/1-4Qy ; f0 ; 0340 ; edit (rd) *)
+var c = SinOscFb(1 / [12 8], 0) + 3 / 24;
+var m = HoldSequence([0 8 5 1 5 4 5] * (c * 18).RoundTo(1), c) + 60;
+AllpassN(SinOscFb(m.MidiCps, c * 2), 0.2, 0.2, 1) / 2
+
+(* f0 ; <https://twitter.com/redFrik/status/1395519538008141835> ; edit (rd) *)
+var c = Duty(0.004, 0, Dseries(inf, 1, [1, 2]) % HoldSequence((1 .. 6) * 75, 8.192));
+var d = Hpf(MantissaMask(c, 3),5);
+var f = { :x |
+	SinOscFb(x, 0).Max(0)
+};
+var p = [250, 200] * Lag(HoldSequence([4 6 5 5 5 5 3] / 4, 4.096), 0.1);
+var o = SinOscFb(p, f(0.08)) * f(1 / [99, 60]) / 3;
+Lpf((d.Sin + (SinOscFb(63, f(0.8)) * d) / 9 + o).Tanh / 2, 10000) * 0.2
+
+(* https://sccode.org/1-4Qy ; f0 ; 0232 ; requires=pyramid ; edit (rd) *)
+var b = [4, 3];
+var q = 9.fibonacciArray.pyramid(1) * 99;
+var o = SinOsc(HoldSequence(q, 1 / b), 0);
+var e = SinOsc(b / 9, 0);
+var d = SinOsc(b / 999, 0).Abs + 0.01;
+CombC(o * e, 1.01, d, 9).Tanh / 2
+
+(* https://sccode.org/1-4Qy ; f0 ; 0331 *)
+var b = [3 3 2 2 2 1 2 2 2] / 3;
+var c = Spring(ImpulseSequencer(b, Impulse(1, 0)) / 9, 1, 0);
+Ringz(c, 50 * HoldSequence(Lag(c, 0.1) > 0 + [2 4] / b, c + 1 / [6 3]), 1)

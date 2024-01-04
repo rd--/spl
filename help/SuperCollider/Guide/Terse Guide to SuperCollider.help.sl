@@ -25,7 +25,7 @@
 ```
 ```
 
-## SequenceableCollection -- extensions
+## Sequenceable -- extensions
 ```
 [1, 2, 3] * 4 = [4, 8, 12]
 [-2 .. 2].max(0) = [0, 0, 0, 1, 2]

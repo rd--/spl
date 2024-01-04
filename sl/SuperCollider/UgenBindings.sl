@@ -175,6 +175,7 @@
 	MidEq { :in :freq :rq :db | <primitive: return sc.MidEq(_in, _freq, _rq, _db);> }
 	ModDif { :x :y :mod | <primitive: return sc.ModDif(_x, _y, _mod);> }
 	MoogFf { :in :freq :gain :reset | <primitive: return sc.MoogFf(_in, _freq, _gain, _reset);> }
+	MoogVcf { :in :fco :res | <primitive: return sc.MoogVcf(_in, _fco, _res);> }
 	MouseButton { :minval :maxval :lag | <primitive: return sc.MouseButton(_minval, _maxval, _lag);> }
 	MouseX { :minval :maxval :warp :lag | <primitive: return sc.MouseX(_minval, _maxval, _warp, _lag);> }
 	MouseY { :minval :maxval :warp :lag | <primitive: return sc.MouseY(_minval, _maxval, _warp, _lag);> }
