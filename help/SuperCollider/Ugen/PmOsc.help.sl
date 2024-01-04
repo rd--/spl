@@ -26,7 +26,7 @@ var dur = 6;
 }.OverlapTexture(2, 2, 4).Mix * 0.05
 
 (* PmOsc ; event control *)
-var s = Voicer(16) { :e |
+var s = Voicer(1, 16) { :e |
 	var cps = (e.x * 24 + 42).MidiCps;
 	var cpsv = cps + (cps * SinOsc(e.y * 4 + 4, 0) * 0.02);
 	var mfreq = LinLin(LfPulse(1 / 8, 0, 0.5), 0, 1, 1.01, 2.01) * cps;

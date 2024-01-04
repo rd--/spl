@@ -1,9 +1,9 @@
 (* https://scsynth.org/t/6264/4 ; pt *)
-let numPartials = 32;
+let numPartials = 24;
 let numVoices = 16;
 let partialArray = [1 .. numPartials];
 let detune = 0.2;
-Voicer(16) { :e |
+Voicer(1, 16) { :e |
 	let detuneArray = (LfNoise1(0.2) ! numPartials * detune).MidiRatio;
 	let freqEnv = TxLine(1 - e.y * 2, 1, partialArray ^ 0.7 / 10, e.w);
 	let freq0 = e.p.UnitCps;

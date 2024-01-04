@@ -1,5 +1,5 @@
 (* MembraneCircle ; event control *)
-Voicer(16) { :e |
+Voicer(1, 16) { :e |
 	var loss = LinExp(e.y, 0, 1, 0.99999, 0.99950);
 	var wobble = SinOsc(2, 0);
 	var tension = LinExp(e.x, 0, 1, 0.01, 0.1) + (wobble * 0.0001);

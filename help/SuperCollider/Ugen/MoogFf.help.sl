@@ -7,7 +7,7 @@ MoogFf(
 )
 
 (* MoogFF ; Voicer *)
-Voicer(16) { :e |
+Voicer(1, 16) { :e |
 	let freq = e.x.UnitCps;
 	let osc = {
 		Saw(freq * TRand(0.99, 1.01, e.w)) * 0.75

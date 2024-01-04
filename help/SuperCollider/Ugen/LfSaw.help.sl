@@ -29,7 +29,7 @@ var o3 = o1 + o2;
 o3.Distort.Distort.Cubed * 0.5
 
 (* LfSaw ; https://scsynth.org/t/6320/2 (nh) ; requires=voicer *)
-Voicer(16) { :e |
+Voicer(1, 16) { :e |
 	var freq = e.p.UnitCps;
 	var auto = SinOsc(e.z * 2, 0).Range(1, 1 + e.y);
 	var formantTable = [400 1600 2700; 830 1200 4000; 325 600 2530].asLocalBuf;

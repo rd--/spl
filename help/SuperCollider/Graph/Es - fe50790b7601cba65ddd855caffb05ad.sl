@@ -14,7 +14,7 @@ let detuneCurve = { :x |
     (0.6717417634 * x) +
     0.0030115596
 };
-Voicer(16) { :e |
+Voicer(1, 16) { :e |
 	let freq = (e.x * 24 + 36).MidiCps;
 	let mix = e.y;
 	let centerGain = { :x |

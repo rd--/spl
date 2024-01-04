@@ -9,7 +9,7 @@ var voiceData = [
 	99 99 99 99 50 50 50 50  3  2  1 29 99 1 0 0  0  1 24
 ];
 var buf = voiceData.asLocalBuf;
-Voicer(16) { :e |
+Voicer(1, 16) { :e |
 	var x0 = Latch(e.x, e.w);
 	var dx7 = Dx7(buf, e.w, 0, 0, 0, e.x * 24 + 48, e.z, (8192 * (e.x - x0)), 0, 0, 0);
 	EqPan2(dx7, e.i * 2 - 1)

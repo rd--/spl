@@ -1,5 +1,5 @@
 (* event control ; https://www.listarc.bham.ac.uk/lists/sc-users/msg68844.html (ml) ; requires=voicer,kr *)
-Voicer(16) { :e |
+Voicer(1, 16) { :e |
 	var numPartials = 40;
 	var baseFreq = (e.x * 25 + 48).MidiCps;
 	var sig = Decay(K2A(e.w) * 0.1, 0.001) * PinkNoise();

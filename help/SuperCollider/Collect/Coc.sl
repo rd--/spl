@@ -213,7 +213,7 @@ SinOsc(Latch(LfSaw(MouseX(0.1, 20, 0, 0.2), 0) * 500 + 600, Impulse(10, 0)), 0) 
 SinOsc(Latch(LfSaw(Line(0.1, 20, 60), 0) * 500 + 600, Impulse(10, 0)), 0) * 0.1
 
 (* Rise fall pad ; requires=voicer *)
-Voicer(16) { :e |
+Voicer(1, 16) { :e |
 	var mnn = e.x * 24 + 48;
 	var freq = mnn.MidiCps;
 	var gate = e.w;

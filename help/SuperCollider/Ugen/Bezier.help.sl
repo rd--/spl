@@ -32,7 +32,7 @@ var w = { :l :r |
 } !> 4
 
 (* Bezier ; event control ; requires=voicer *)
-Voicer(16) { :e |
+Voicer(1, 16) { :e |
 	var w = { :l :r |
 		LinLin(LfdNoise3(e.j * 5), -1, 1, l, r)
 	};

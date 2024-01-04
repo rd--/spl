@@ -179,7 +179,7 @@ var n = 16;
 } !+ n
 
 (* SinOsc ; fm ; https://github.com/Thrifleganger/VisualSynth ; requires=Voicer *)
-var fmSignal = Voicer(16) { :e |
+var fmSignal = Voicer(1, 16) { :e |
 	var index = e.y * 3;
 	var pitch = e.x * 24 + 48;
 	var ratio = 3.5;

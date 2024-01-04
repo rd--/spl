@@ -1,5 +1,5 @@
 (* GrainFm ; requires=voicer *)
-Voicer(16) { :e |
+Voicer(1, 16) { :e |
 	var tr = Impulse(e.y * 64 + 10, 0);
 	var cf = (e.p * 127 + e.j).MidiCps;
 	var mf = (cf * 1.5) + ((1 - e.x) * e.z * cf);

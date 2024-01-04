@@ -1,5 +1,5 @@
 (* MoogVcf ; Voicer *)
-Voicer(16) { :e |
+Voicer(1, 16) { :e |
 	let freq = e.p.UnitCps;
 	let osc = {
 		Saw(freq * TExpRand(0.99, 1.01, e.w))

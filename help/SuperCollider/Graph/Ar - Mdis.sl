@@ -1,5 +1,5 @@
 (* Ar ; https://github.com/alikthename/Musical-Design-in-Supercollider ; 1 *)
-Voicer(16) { :e |
+Voicer(1, 16) { :e |
 	let withMod = true;
 	let level = e.z * e.w.LagUd(0, e.y * 4 + 0.1);
 	let f1 = (e.x * 36 + 48).MidiCps;

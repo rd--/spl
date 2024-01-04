@@ -8,7 +8,7 @@ snd := MoogFf(snd, LinExp(LfNoise2(1), -1, 1, 500, 16000), 0, 0);
 EqPan(snd, freq)
 
 (* Pluck ; event control ; requires=voicer *)
-Voicer(16) { :e |
+Voicer(1, 16) { :e |
 	var dm = 1 / 220;
 	var dl = (e.x.negated * 0.9 + 1) * dm;
 	var sig = Pluck(WhiteNoise() * e.z, e.w, dm, dl, 10, e.y / 3);

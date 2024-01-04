@@ -80,15 +80,15 @@ ContinuousEvent : [Object] { | contents |
 
 +@Integer {
 
-	voicerVoiceAddress { :self |
-		| eventAddr = 13000, eventIncr = 10, eventZero = 0; |
-		eventAddr + ((self - 1 + eventZero) * eventIncr)
+	voicerVoiceAddress { :part :voice |
+		| addrZero = 13000, maxEventParam = 10, maxVoices = 24; |
+		addrZero + (part - 1 * maxVoices * maxEventParam) + (voice - 1 * maxEventParam)
 	}
 
-	Voicer { :self :voiceBlock:/1 |
-		| voiceOffset = 0; |
-		(1 .. self).collect { :each |
-			ControlIn(8, (each + voiceOffset).voicerVoiceAddress).asContinuousEvent.voiceBlock
+	Voicer { :part :voice :voiceBlock:/1 |
+		(1 .. voice).collect { :each |
+			| bus = part.voicerVoiceAddress(each); |
+			ControlIn(8, bus).asContinuousEvent.voiceBlock
 		}
 	}
 
@@ -96,10 +96,10 @@ ContinuousEvent : [Object] { | contents |
 
 +@Integer {
 
-	VoiceWriter { :self :voiceBlock:/0 |
-		(1 .. self).collect { :voiceNumber |
+	VoiceWriter { :part :numVoices :voiceBlock:/0 |
+		(1 .. numVoices).collect { :voice |
 			ControlOut(
-				voiceNumber.voicerVoiceAddress,
+				part.voicerVoiceAddress(voice),
 				voiceBlock().asContinuousEvent.asArray
 			)
 		}
@@ -107,13 +107,13 @@ ContinuousEvent : [Object] { | contents |
 
 }
 
-+[Array, SmallFloat, Ugen] {
++[SmallFloat, Array] {
 
-	KeyDown { :self | <primitive: return sc.KeyDown(_self);> }
-	KeyTimbre { :self | <primitive: return sc.KeyTimbre(_self);> }
-	KeyPressure { :self | <primitive: return sc.KeyPressure(_self);> }
-	KeyVelocity { :self | <primitive: return sc.KeyVelocity(_self);> }
-	KeyPitch { :self | <primitive: return sc.KeyPitch(_self);> }
+	KeyDown { :voiceNumber | <primitive: return sc.KeyDown(_voiceNumber);> }
+	KeyTimbre { :voiceNumber | <primitive: return sc.KeyTimbre(_voiceNumber);> }
+	KeyPressure { :voiceNumber | <primitive: return sc.KeyPressure(_voiceNumber);> }
+	KeyVelocity { :voiceNumber | <primitive: return sc.KeyVelocity(_voiceNumber);> }
+	KeyPitch { :voiceNumber | <primitive: return sc.KeyPitch(_voiceNumber);> }
 
 	PenDown { :voiceNumber | <primitive: return sc.PenDown(_voiceNumber);> }
 	PenX { :voiceNumber | <primitive: return sc.PenX(_voiceNumber);> }

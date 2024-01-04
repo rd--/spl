@@ -10,7 +10,7 @@
 } !^ 5
 
 (* Decay2 ; c.f. MultiTouchPad help file *)
-Voicer(16) { :e |
+Voicer(1, 16) { :e |
 	var impulseFreq = Choose(e.w, [1 2 3 4 6 8 9]);
 	var oscFreq = TRand(80, 880, e.w);
 	var mul = (1 - e.y) * e.w;

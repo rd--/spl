@@ -141,5 +141,5 @@
 	Seq { :d | Seq(d::repeats ? inf, d::list) }
 	TScramble { :d | TScramble(d::trigger, d::inputs) }
 	TxLine { :d | TxLine(d::start, d::end, d::dur, d::trig) }
-	Voicer { :d | Voicer(d::numVoices, d::voiceFunc) }
+	Voicer { :d | Voicer(d::part, d::numVoices, d::voiceFunc) }
 }
