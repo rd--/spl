@@ -11,7 +11,7 @@ var clock = Impulse(8, 0);
 var trig1 = ImpulseSequencer([0.4 0.1 0.2 0.1], clock);
 var root = Sequencer([24 26 24 22], PulseDivider(clock, 64, 0));
 var x = Rlpf(
-	{ GrayNoise() } ! 2 * Decay2(trig1, 0.005, 0.7) * 0.4,
+	GrayNoise(2) * Decay2(trig1, 0.005, 0.7) * 0.4,
 	MouseX(200, 8000, 1, 0.2),
 	0.2
 ).Distort;
@@ -33,7 +33,7 @@ var trig1 = ImpulseSequencer(
 );
 var r = Lpf(
 	Rlpf(
-		{ BrownNoise() } ! 2 * Decay2(trig1, 0.005, 0.7) * 3,
+		BrownNoise(2) * Decay2(trig1, 0.005, 0.7) * 3,
 		MouseX(200, 300, 1, 0.2),
 		0.4
 	).Distort,
@@ -41,7 +41,7 @@ var r = Lpf(
 );
 var trig2 = ImpulseSequencer([0.4 0.1 0.2 0.1], clock);
 var x = Rlpf(
-	{ GrayNoise() } ! 2 * Decay2(trig2, 0.005, 0.3) * 0.4,
+	GrayNoise(2) * Decay2(trig2, 0.005, 0.3) * 0.4,
 	MouseX(200, 8000, 1, 0.2),
 	0.2
 ).Distort;
@@ -97,7 +97,7 @@ var trig3 = DemandImpulseSequencer([q], clock);
 var exc3 = WhiteNoise() * Decay2(trig3, 0.005, 0.05);
 var s = RingzBank(exc3, { Rand(3500, 4000) } ! 4, nil, { Rand(0.05, 0.2) } ! 4).Distort * 0.1;
 (* whine *)
-var exc4 = { GrayNoise() } ! 2 * 0.0007;
+var exc4 = GrayNoise(2) * 0.0007;
 var y = { :tr |
 	var env = SinOsc(TRand(1, 6, tr), { TRand(0, 2.pi, tr) } ! 2) * 0.5 + 0.5;
 	DynRingzBank(

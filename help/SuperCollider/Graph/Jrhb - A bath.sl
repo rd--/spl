@@ -1,9 +1,9 @@
-(* a bath (jrhb) ; requires=SelectX *)
+(* A bath (Jrhb) ; requires=SelectX *)
 var above = MouseY(0, 2, 0, 0.2).RoundTo(1);
 var aside = MouseX(1, 1.6, 0, 0.2);
 var sources = [
-	{ WhiteNoise() } ! 2 * 0.3,
-	{ PinkNoise() } ! 2,
+	WhiteNoise(2) * 0.3,
+	PinkNoise(2),
 	LfdNoise3(10000) * 0.1
 ];
 var u1 = SelectX(LfdNoise1(4).Range(0, sources.size), sources) * 0.1;

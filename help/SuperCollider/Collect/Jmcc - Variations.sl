@@ -121,21 +121,21 @@ Voicer(1, 16) { :e |
 	(k * 0.1).SoftClip.EqPan2(e.i * 2 - 1)
 }.Mix * 0.1
 
-(* bowed string (jmcc) ; Rand *)
+(* Bowed string (Jmcc) ; Rand *)
 var root = 5;
 var scale = [0 2 4 5 7 9 11] + root;
 var oct = [24 36 48 60 72 84];
 var f = (scale.atRandom + oct.atRandom).MidiCps;
-var x = { BrownNoise() } ! 2 * 0.007 * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
+var x = BrownNoise(2) * 0.007 * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
 var k = RingzBank(x, 12.arithmeticSeries(f, f), 12.geometricSeries(1, Rand(0.7, 0.9)), { Rand(1, 3) } ! 12);
 (k * 0.1).SoftClip
 
-(* bowed string (jmcc) ; .randomFloat *)
+(* Bowed string (Jmcc) ; .randomFloat *)
 var root = 5;
-var scale = [0, 2, 4, 5, 7, 9, 11] + root;
-var oct = [24, 36, 48, 60, 72, 84];
+var scale = [0 2 4 5 7 9 11] + root;
+var oct = [24 36 48 60 72 84];
 var f = (scale.atRandom + oct.atRandom).MidiCps;
-var x = { BrownNoise() } ! 2 * 0.007 * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
+var x = BrownNoise(2) * 0.007 * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
 var k = RingzBank(
 	x,
 	12.arithmeticSeries(f, f),
@@ -144,12 +144,12 @@ var k = RingzBank(
 );
 (k * 0.1).SoftClip
 
-(* bowed string (jmcc) ; klank *)
+(* Bowed string (Jmcc) ; klank *)
 var root = 5;
 var scale = [0 2 4 5 7 9 11] + root;
 var oct = [24 36 48 60 72 84];
 var f = (scale.atRandom + oct.atRandom).MidiCps;
-var x = { BrownNoise() } ! 2 * 0.007 * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
+var x = BrownNoise(2) * 0.007 * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
 var d = [
 	12.arithmeticSeries(f, f),
 	12.geometricSeries(1, Rand(0.7, 0.9)),
@@ -158,26 +158,26 @@ var d = [
 var k = Klank(x, 1, 0, 1, d);
 (k * 0.1).SoftClip
 
-(* coolant (jmcc) *)
+(* Coolant (Jmcc) *)
 { RingzBank(OnePole(BrownNoise() * 0.002, 0.95), { Rand(40, 2040) } ! 10, [0.1], [1]) } ! 2
 
-(* coolant (jmcc) ; default values *)
+(* Coolant (Jmcc) ; default values *)
 { RingzBank(OnePole(BrownNoise() * 0.002, 0.95), { Rand(40, 2040) } ! 10, nil, nil) } ! 2 * 0.1
 
-(* coolant (jmcc) ; Rand->rand *)
+(* Coolant (Jmcc) ; Rand->rand *)
 { RingzBank(OnePole(BrownNoise() * 0.002, 0.95), { 40 + 2000.randomFloat } ! 10, [0.1], [1]) } ! 2
 
-(* coolant (jmcc) ; Ringz *)
+(* Coolant (Jmcc) ; Ringz *)
 var o = OnePole(BrownNoise() * 0.01, 0.95);
 { Ringz(o, Rand(40, 2040), 1) * 0.1 } !^ 10
 
-(* deep trip (jmcc) #9 ; texture=overlap,12,4,4,inf *)
+(* Deep trip (Jmcc) #9 ; texture=overlap,12,4,4,inf *)
 var f = (LfNoise1(Rand(0, 0.3)) * 60 + 70).MidiCps;
 var a = LfNoise2(f * Rand(0, 0.5)) * (LfNoise1(Rand(0, 8)) * SinOsc(Rand(0, 40), 0) * 0.1).Max(0);
 var s = Pan2(SinOsc(f, 0) * a, LfNoise1(Rand(0, 5)), 1);
 { CombN(s, 0.5, { Rand(0, 0.2) + 0.3 } ! 2, 20) } !> 2 + s
 
-(* deep trip (jmcc) #9 ; graph rewrite ; left-to-right *)
+(* Deep trip (Jmcc) #9 ; graph rewrite ; left-to-right *)
 { :tr |
 	var trRand = { :lo :hi | TRand(lo, hi, tr) };
 	var f = LfNoise1(trRand(0, 0.3)).MulAdd(60, 70).MidiCps;
@@ -253,15 +253,15 @@ var n = 6;
 	Pan2(Resonz(WhiteNoise(), 400 + LinRand(0, 7000, 0), 0.01), l, 1) * a
 } !> n
 
-(* scratchy (jmcc) #1 *)
-var n = { BrownNoise() } ! 2 * 0.5 - 0.49;
+(* Scratchy (Jmcc) #1 *)
+var n = BrownNoise(2) * 0.5 - 0.49;
 var f = n.Max(0) * 20;
 Rhpf(f, 5000, 1)
 
-(* sprinkler (jmcc) #1 *)
+(* Sprinkler (Jmcc) #1 *)
 Bpz2(WhiteNoise() * LfPulse(LfPulse(0.09, 0, 0.16) * 10 + 7, 0, 0.25) * 0.1)
 
-(* theremin (jmcc) ; event control *)
+(* Theremin (Jmcc) ; event control *)
 Voicer(1, 16) { :e |
 	var freq = Lag(LinExp(e.y, 0, 1, 4000, 200), 0.8);
 	var a = SinOsc(freq + (freq * SinOsc(4 + 3 * e.j, 0) * 0.02), 0) * e.x * 0.6 * Lag(e.w, 0.2);
@@ -315,15 +315,15 @@ var y = z * 0.6;
 	}.Sum
 } ! 2 + z
 
-(* wind metals (jmcc) ; texture=overlap,5,2,12,inf *)
+(* Wind metals (Jmcc) ; texture=overlap,5,2,12,inf *)
 var n = 6;
-var exc = { BrownNoise() } ! 2 * 0.007 * (LfNoise1(ExpRand(0.125, 0.5)) * 0.75 + 0.25).Max(0);
+var exc = BrownNoise(2) * 0.007 * (LfNoise1(ExpRand(0.125, 0.5)) * 0.75 + 0.25).Max(0);
 var f = { Rand(0, Rand(500, 8000)) + ExpRand(60, 4000) } ! n;
 var dt = { Rand(0.1, 2) } ! n;
 var s = RingzBank(exc, f, nil, dt) * 0.1;
 s.SoftClip
 
-(* zizle (jmcc) #SC3d1.5 ; texture=overlap,4,4,12,inf *)
+(* Zizle (Jmcc) #SC3d1.5 ; texture=overlap,4,4,12,inf *)
 var a = { :f | (SinOsc(f * [Rand(0.7, 1.3), 1], { Rand(0, 2 * pi) } ! 2) * 0.1).Sum };
 var o = SinOsc(Rand(24, 108).MidiCps, Rand(0, 2 * pi));
 var s = o * a(ExpRand(0.3, 8)).Max(0) * a(ExpRand(6, 24)).Abs;
@@ -473,8 +473,8 @@ var z = { :tr |
 };
 z
 
-(* scratchy ; jmcc ; left-to-right *)
-{ BrownNoise() }.duplicate(2).MulAdd(0.5, -0.49).Max(0).Mul(20).Rhpf(5000, 1)
+(* Scratchy ; Jmcc ; left-to-right *)
+BrownNoise(2).MulAdd(0.5, -0.49).Max(0).Mul(20).Rhpf(5000, 1)
 
 (* slow beating sines (jmcc) #7 ; texture=xfade,4,4,inf *)
 var n = 20;

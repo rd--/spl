@@ -1,4 +1,4 @@
-(* landon rose (jmcc) #8 ; simpler *)
+(* Landon rose (Jmcc) #8 ; edit (simpler, Rd) *)
 var ringTimes = 3 ! 4;
 var noteList = [
 	32 43 54 89;
@@ -9,7 +9,7 @@ var noteList = [
 ];
 {
 	RingzBank(
-		Release({ PinkNoise() } ! 2 * 0.001, 2, 1, 2),
+		Release(PinkNoise(2) * 0.001, 2, 1, 2),
 		noteList.atRandom.MidiCps,
 		1,
 		ringTimes

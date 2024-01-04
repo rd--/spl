@@ -14,11 +14,15 @@
 
 +Block {
 
-	overlap { :self:/0 :sustainTime :transitionTime :overlap |
-		| period = (sustainTime + (transitionTime * 2)) / overlap; |
+	overlap { :self:/1 :sustainTime :transitionTime :overlap |
+		|(
+			period = (sustainTime + (transitionTime * 2)) / overlap,
+			counter = 0
+		)|
 		system.clock.schedule(0) { :currentTime |
 			{
-				self().withOverlapEnvelope(sustainTime, transitionTime)
+				counter +:= 1;
+				self:/1.cull(counter).withOverlapEnvelope(sustainTime, transitionTime)
 			}.playAt(currentTime + 0.5); (* fixed delay... *)
 			period
 		}
@@ -30,6 +34,17 @@
 
 	recurseEvery { :self:/2 :anObject :delay |
 		system.clock.recurseEvery(self:/2, anObject, delay)
+	}
+
+	spawn { :self:/1 :nextTime |
+		| counter = 0; |
+		system.clock.schedule(0) { :currentTime |
+			{
+				counter +:= 1;
+				self:/1.cull(counter)
+			}.playAt(currentTime + 0.5); (* fixed delay... *)
+			nextTime
+		}
 	}
 
 	xfade { :self :sustainTime :transitionTime |

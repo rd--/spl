@@ -1,18 +1,19 @@
 # WhiteNoise -- noise generator
 
 _WhiteNoise()_
+_WhiteNoise(numChan=1) ≡ { WhiteNoise() } ! numChan_
 
 Generates noise whose spectrum has equal power at all frequencies.
 
-	WhiteNoise() * 0.1
+	WhiteNoise(2) * 0.1
 
 High pass filtered:
 
-	WhiteNoise().Hpz1 * 0.1
+	WhiteNoise(2).Hpz1 * 0.1
 
 Low pass filtered:
 
-	WhiteNoise().Lpz1 * 0.1
+	WhiteNoise(2).Lpz1 * 0.1
 
 * * *
 

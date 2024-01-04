@@ -1,8 +1,8 @@
-(* wind metals (jmcc) ; graph rewrite *)
+(* Wind metals (Jmcc) ; graph rewrite *)
 { :tr |
 	var n = 6;
 	var exc = [
-		{ BrownNoise() } ! 2,
+		BrownNoise(2),
 		0.007,
 		(LfNoise1(TExpRand(0.125, 0.5, tr)) * 0.75 + 0.25).Max(0)
 	].product;

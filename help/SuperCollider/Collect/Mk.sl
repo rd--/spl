@@ -29,10 +29,10 @@ var lfo = { :rt | LfPulse(rt ! 2, 0, 0.5) };
 };
 z
 
-(* https://sccode.org/1-50L (mk) *)
+(* https://sccode.org/1-50L (Mk) *)
 var freq = 100;
 var rt = 0.5;
-var z = { PinkNoise() } ! 2;
+var z = PinkNoise(2);
 var rw = { :f1 :f2 :q |
 	4.timesRepeat {
 		z := Brf(

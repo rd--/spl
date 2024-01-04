@@ -1,5 +1,26 @@
 (* Requires: Ugen *)
 
++@Integer {
+
+	BrownNoise { :numChan |
+		{ BrownNoise() } ! numChan
+	}
+
+	GrayNoise { :numChan |
+		{ GrayNoise() } ! numChan
+	}
+
+	PinkNoise { :numChan |
+		{ PinkNoise() } ! numChan
+	}
+
+	WhiteNoise { :numChan |
+		{ WhiteNoise() } ! numChan
+	}
+
+}
+
+
 +[Array, SmallFloat, Ugen] {
 
 	HoldSequence { :inArray :dur |
@@ -141,6 +162,10 @@
 
 	DemandImpulseSequencer { :self :trig |
 		DemandSequencer(self, trig) * Trig(trig, SampleDur())
+	}
+
+	LinRand0 { :self |
+		LinRand(0, self, 1)
 	}
 
 	IRand0 { :self |

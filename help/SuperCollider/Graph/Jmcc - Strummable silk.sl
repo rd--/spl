@@ -8,7 +8,7 @@ var str = (1 .. 8).collect { :ix |
 	var freq = ([-2 0 3 5 7 10 12 15][ix] + 60).MidiCps;
 	var metal = RingzBank(
 		pluck,
-		(1 .. n).collect { :j | j * freq },
+		(1 .. n) * freq,
 		[1],
 		{ Rand(0.3, 1) } ! n
 	);
