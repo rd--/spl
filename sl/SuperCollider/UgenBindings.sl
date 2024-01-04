@@ -66,6 +66,7 @@
 	Delay2 { :in | <primitive: return sc.Delay2(_in);> }
 	DelayC { :in :maxdelaytime :delaytime | <primitive: return sc.DelayC(_in, _maxdelaytime, _delaytime);> }
 	DelayL { :in :maxdelaytime :delaytime | <primitive: return sc.DelayL(_in, _maxdelaytime, _delaytime);> }
+	DelayMap { :bufNum :in :dynamic :spec | <primitive: return sc.DelayMap(_bufNum, _in, _dynamic, _spec);> }
 	DelayN { :in :maxdelaytime :delaytime | <primitive: return sc.DelayN(_in, _maxdelaytime, _delaytime);> }
 	Demand { :trig :reset :demandUGens | <primitive: return sc.Demand(_trig, _reset, _demandUGens);> }
 	DetectIndex { :bufnum :input | <primitive: return sc.DetectIndex(_bufnum, _input);> }
@@ -216,6 +217,7 @@
 	RunningMax { :in :trig | <primitive: return sc.RunningMax(_in, _trig);> }
 	RunningSum { :in :numsamp | <primitive: return sc.RunningSum(_in, _numsamp);> }
 	Sos { :in :a0 :a1 :a2 :b1 :b2 | <primitive: return sc.Sos(_in, _a0, _a1, _a2, _b1, _b2);> }
+	SamplerIndex { :bufNum :size :mnn | <primitive: return sc.SamplerIndex(_bufNum, _size, _mnn);> }
 	Sanitize { :in :replace | <primitive: return sc.Sanitize(_in, _replace);> }
 	Saw { :freq | <primitive: return sc.Saw(_freq);> }
 	Schmidt { :in :lo :hi | <primitive: return sc.Schmidt(_in, _lo, _hi);> }
