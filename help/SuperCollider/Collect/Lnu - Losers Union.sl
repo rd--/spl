@@ -641,8 +641,8 @@ var tab = [
 	350 600 2400 2675 2950; 40 80 100 120 120; 0 -20 -32 -28 -36
 ];
 var x = LorenzL(24, 10, 28, 2.667, 0.05, 0.1, 0, 0).Sin.Range(1, 4) / Diwhite(inf, 2, 10);
-var dur = Duty(x, 0, 0, x);
-var trg = TDuty(dur, 0, 0, 1, 0);
+var dur = Duty(x, 0, x);
+var trg = TDuty(dur, 0, 1);
 var mel = (26 .. 42).degreeToKey([0 2 4 5 7 9 11], 12);
 var mnn = Demand(
 	trg,

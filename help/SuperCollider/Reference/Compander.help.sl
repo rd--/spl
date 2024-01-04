@@ -1,6 +1,6 @@
 # Compander -- compressor, expander, limiter, gate, ducker
 
-_Compander(in, control, thresh, slopeBelow, slopeAbove, clampTime, relaxTime)
+_Compander(in, control, thresh=0.5, slopeBelow=1, slopeAbove=1, clampTime=0.01, relaxTime=0.1)
 
 General purpose (hard-knee) dynamics processor.
 

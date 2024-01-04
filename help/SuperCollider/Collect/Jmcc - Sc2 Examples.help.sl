@@ -120,6 +120,300 @@ CombL(
 	+ LfNoise2(LfNoise2([0.4, 0.4]).MulAdd(90, 620)).Mul(LfNoise2([0.3, 0.3]).MulAdd(0.15, 0.18)),
 	0.3, 0.3, 3)
 
+(* analogue daze (commented) ; Jmcc *)
+(* define a function so that I can make a couple of copies of this instrument: *)
+let anaSynFunc = { :octave :clockRate :pwmrate :fltrate |
+	(* create a list of frequencies *)
+	let freqList = (
+		[55, 63, 60, 63, 57, 65, 62, 65] (* specify in MIDI notes *)
+		+ (12 * octave) (* offset by octaves argument *)
+	).MidiCps; (* convert to cycles per second *)
+	(* use a sequencer to step through the list of frequencies *)
+	let freq = Sequencer(
+		freqList,
+		Impulse(clockRate, 0) (* sequencer steps at each trigger from this oscillator *)
+	);
+	(* analog VCO->VCF voice: *)
+	Rlpf((* resonant lowpass filter *)
+		LfPulse((* pulse wave oscillator input to filter *)
+			Lag((* take the frequency and use a lag filter to make it glide *)
+				freq, (* from one pitch to another *)
+				0.05(* Lag time *)
+			), 0,
+			SinOsc((* pulse width modulator LfO *)
+				pwmrate, (* LfO rate *)
+				2.pi.Rand0).MulAdd( (* random initial phase *)
+					0.4, 0.5)) (* scale and offset give pulse widths from 0.1 to 0.9 *)
+		* 0.1, (* pulse oscillator amplitude *)
+		SinOsc((* filter cutoff freq LfO *)
+			fltrate, (* LfO rate *)
+			2.pi.Rand0).MulAdd( (* random initial phase *)
+				1400, 2000), (* scale and offset give cutoff freq from 600 to 3400 Hz *)
+		1/15 (* 1/Q *)
+	)
+}; (* end of function definition f *)
+(* analogue snare drum *)
+let snare = Decay((* an exponential decay envelope *)
+	Impulse(2, 0), (* impulses trigger envelope at 2 beats per second *)
+	0.15) * (* 0.15 seconds to decay by 60 dB *)
+LfNoise0((* step noise used as snare sound *)
+	LfNoise1(0.3).MulAdd(6000, 8000)) * (* sweep the noise frequency between 2000 and 14000 Hz *)
+[0.07, 0.07] (* amplitude (in stereo, causes whole snare subpatch to be stereo *)
+(*               see MultiChannel.help) *)
+;
+(* create two copies of sequencer patch in separate channels *)
+let g = [ (* call function f to create each instrument *)
+	anaSynFunc(1, 8, 0.31, 0.2), (* +1 octave,  8 clocks per second, PWM rate, Rlpf rate *)
+	anaSynFunc(0, 2, 0.13, 0.11) (* +0 octaves, 2 clocks per second, PWM rate, Rlpf rate *)
+]
++ snare; (* add to snares *)
+(* comb delay of input plus dry stereo pair reversed *)
+let z = 0.4 * ((* scale delayed part down *)
+	CombN((* feedback delay *)
+		g, (* input dry signal *)
+		0.375, 0.375, (* 3/8 second delay *)
+		5(* 5 second 60dB decay time *)
+	)
+	+ g.reverse); (* add dry stereo pair with the channels reversed *)
+let e = EnvLinen(2, 56, 2, 1, -4); (* one minute trapezoid envelope *)
+z * EnvGen(1, 1, 0, 1, 2, e.asArray) (* wrap a one minute envelope around entire sound *)
+
+(* analogue daze (un-commented) ; Jmcc *)
+let pattern = [55 63 60 63 57 65 62 65];
+let f = { :octave :clockRate :pwmrate :fltrate |
+	Rlpf(LfPulse(Lag(
+		Sequencer(
+			((pattern + (12 * octave)).MidiCps), (* sequencer pattern *)
+			Impulse(clockRate, 0) (* sequencer trigger *)
+		),
+		0.05 (* Lag time coefficient *)
+	), 0,
+		SinOsc(pwmrate, 2.pi.Rand0).MulAdd(0.4, 0.5)) * (* pulse width modulator *)
+		0.1, (* pulse amplitude *)
+		SinOsc(fltrate, 2.pi.Rand0).MulAdd(1400, 2000), (* cutoff freq LfO *)
+		1 / 15)
+};
+let x = Decay(Impulse(2, 0), 0.15) * LfNoise0(LfNoise1(0.3).MulAdd(6000, 8000)) * [0.07, 0.07];
+let g = [f(1, 8, 0.31, 0.2), f(0, 2, 0.13, 0.11)] + x;
+let z = 0.4 * (CombN(g, 0.375, 0.375, 5) + g.reverse);
+let e = EnvLinen(2, 56, 2, 1, -4); (* one minute trapezoid envelope *)
+z * EnvGen(1, 1, 0, 1, 2, e.asArray) (* wrap a one minute envelope around entire sound *)
+
+(* synthetic piano ; Jmcc *)
+let n = 6; (* number of keys playing *)
+{ (* mix an array of notes *)
+	let pitch = (36 + 54.Rand0); (* calculate delay based on a random note *)
+	let strike = Impulse(0.1 + 0.4.Rand0, 0) * 0.1; (* random period for each key *)
+	let hammerEnv = Decay2(strike, 0.008, 0.04); (* excitation envelope *)
+	EqPan2(
+		(* array of 3 strings per note *)
+		(1 .. 3).collect { :i |
+			(* detune strings, calculate delay time *)
+			let detune = [-0.05, 0, 0.04].at(i);
+			let delayTime = 1 / (pitch + detune).MidiCps;
+			(* each string gets own exciter *)
+			let hammer = LfNoise2(3000) * hammerEnv; (* 3000 Hz was chosen by ear *)
+			CombL(hammer, (* used as a string resonator *)
+				delayTime, (* max delay time *)
+				delayTime, (* actual delay time *)
+				6) (* decay time of string *)
+		},
+		(pitch - 36) / 27 - 1 (* pan position: lo notes left, hi notes right *)
+	).sum
+} !> n
+
+(* Strummable silk ; Jmcc *)
+let mousex = MouseX(0, 1, 0, 0.2);
+let out = (1 .. 8).collect { :ix |
+	var n = 15;
+	(* place trigger points from 0.25 to 0.75 *)
+	let trigger = Hpz1(mousex > (0.25 + (ix - 1 * 0.07))).Abs;
+	let pluck = PinkNoise() * Decay(Impulse(14, 0).Mul(Lag(Trig(trigger, 1), 0.2) * 0.01), 0.04);
+	let freq = ([-2 0 3 5 7 10 12 15].at(ix) + 60).MidiCps;
+	let metal = RingzBank(pluck,
+		(1 .. n) * freq, (* frequencies *)
+		nil, (* amplitudes default to 1.0 *)
+		{ Rand(0.3, 1.0) } ! n); (* ring times *)
+	EqPan2(metal, ix * 0.2 - 0.5)
+}.Sum.Lpf( 12000).LeakDc(0.995);
+6.timesRepeat {
+	out := AllpassN(out, 0.1, [0.05.Rand0, 0.05.Rand0], 4)
+};
+out
+
+(* Reverberated sine percussion ; Jmc *)
+let d = 10; (* number of percolators *)
+let c = 7; (* number of comb delays *)
+let a = 4; (* number of allpass delays *)
+(* sine percolation sound *)
+let s = Sum({ Resonz(Dust(2 / d) * 50, 200 + 3000.Rand0, 0.003) } ! d);
+(* reverb predelay time *)
+let z = DelayN(s, 0.048, 0.048);
+(* 7 length modulated comb delays in parallel *)
+let y = Sum(CombL(z, 0.1, LfNoise1({ 0.1.Rand0 } ! c).MulAdd(0.04, 0.05), 15));
+(* chain of 4 allpass delays on each of two channels (8 total) *)
+a.timesRepeat {
+	y := AllpassN(y, 0.050, [0.050.Rand0, 0.050.Rand0], 1)
+};
+(* add original sound to reverb and play it *)
+s + (0.2 * y)
+
+(* Reverberated noise bursts ; Jmcc *)
+(* pink noise percussion sound *)
+let s = Decay(Dust(0.6) * 0.2, 0.15) * PinkNoise();
+(* reverb predelay time *)
+let z = DelayN(s, 0.048, 0.048);
+(* 6 modulated comb delays in parallel *)
+let y = Sum(CombL(z, 0.1, LfNoise1({ 0.1.Rand0 } ! 6).MulAdd(0.04, 0.05), 15));
+(* chain of 4 allpass delays on each of two channels (8 total) *)
+4.timesRepeat {
+	y := AllpassN(y, 0.050, [0.05.Rand0, 0.05.Rand0], 1)
+};
+(* add original sound to reverb and play it *)
+s + y
+
+(* Mouse control ; Jmcc *)
+SinOsc(MouseX(200, 2000, 1, 0.2), 0) * 0.1
+
+(* Analog bubbles ; with mouse control ; Jmcc *)
+let freq = LfSaw(
+	MouseY(0.1, 10, 1, 0.2), 0).MulAdd( (* lfo 1 rate *)
+	24, (* lfo 1 depth in semitones *)
+	(* lfo 2 in lfo 1's add input *)
+	LfSaw(
+		MouseX(2, 40, 1, 0.2), 0).MulAdd( (* lfo 2 rate *)
+		-3, 80) (* lfo 2 depth & offset in semitones *)
+).MidiCps; (* convert to frequency *)
+CombN(SinOsc(freq, 0) * 0.04, 0.2, 0.2, 2) (* echoing sine wave *)
+
+(* Input thru ; Jmcc *)
+AudioIn([1, 2])
+
+(* Distort input ; Jmcc *)
+let gain = MouseX(1, 100, 1, 0.2); (* mouse x controls gain into distortion *)
+AudioIn([1, 2]).Mul(gain).Distort * 0.4
+
+(* Ring modulate input ; Jmcc *)
+let input = AudioIn([1, 2]);
+let modulator = SinOsc(
+	MouseX(10, 4000, 1, 0.2), (* mouse x controls ring mod freq *)
+	[0, 0.5.pi] (* offset phase ofone osc by 90 degrees *)
+);
+input * modulator
+
+(* Ring modulate input using ring1 ; Jmcc *)
+let input = AudioIn([1, 2]) * 0.5;
+let modulator = SinOsc(
+	MouseX(10, 4000, 1, 0.2), (* mouse x controls ring mod freq *)
+	[0, 0.5.pi] (* offset phase ofone osc by 90 degrees *)
+);
+input.Ring1(modulator)
+
+(* Filter the input ; Jmcc *)
+let rQ = MouseY(0.01, 1, 1, 0.2); (* bandwidth ratio = 1/Q *)
+Rlpf(
+	AudioIn([1, 2]) * 0.4 * rQ.Sqrt, (* attenuate to offset resonance *)
+	MouseX(100, 12000, 1, 0.2), (* mouse x controls cutoff freq *)
+	rQ
+)
+
+(* Input noise gate ; Jmcc *)
+let input = AudioIn([1, 2]);
+Compander(
+	input, input,
+	MouseX(0.01, 0.5, 0, 0.2), (* threshold *)
+	10, (* below threshold slope *)
+	1, (* above threshold slope *)
+	0.01, 0.1
+)
+
+(* Pitch shift input ; Jmcc *)
+PitchShift(
+	AudioIn([1, 2]) * 0.5, (* stereo audio input *)
+	0.04, (* grain size *)
+	MouseX(0, 2, 0, 0.2), (* mouse x controls pitch shift ratio *)
+	0, (* pitch dispersion *)
+	0.004(* time dispersion *)
+)
+
+(* Use PitchShift to granulate input ; upper left corner is normal playback. x = pitch dispersion, y = time dispersion ; Jmcc *)
+let grainSize = 0.1;
+PitchShift(
+	AudioIn([1, 2]) * 0.5,
+	grainSize,
+	1, (* nominal pitch rate = 1 *)
+	MouseX(0, 1, 0, 0.2), (* pitch dispersion *)
+	MouseY(0, grainSize, 0, 0.2) (* time dispersion *)
+)
+
+(* Echo input ; Jmcc *)
+let in = AudioIn([1, 2]) * 0.1;
+CombL(
+	in,
+	0.5, (* max delay time *)
+	MouseX(0, 0.5, 0, 0.2), (* mouse x controls delay time *)
+	4) (* echo 60 dB decay time in seconds *)
++ in (* mix with input *)
+
+(* Ring modulate & echo input ; Jmc *)
+let in = AudioIn([1, 2]) * 0.4 * SinOsc(MouseX(10, 2000, 1, 0.2), [0, 0.5.pi]);
+CombL(
+	in,
+	0.5,
+	MouseY(0, 0.5, 0, 0.2), (* mouse y controls delay time *)
+	4 (* echo 60 dB decay time in seconds *)
+) + in (* mix with input *)
+
+(* Ring modulated and resonant filtered input ; Jmcc *)
+let input = AudioIn([1, 2]) * 0.2;
+let modulator = SinOsc(
+	MouseX(10, 4000, 1, 0.2), (* mouse x controls ring mod freq *)
+	[0, 0.5.pi] (* offset phase ofone osc by 90 degrees *)
+);
+Rlpf(
+	input * modulator, (* do ring modulation *)
+	MouseY(100, 12000, 1, 0.2), (* mouse y controls cutoff freq *)
+	0.1) (* bandwidth ratio = 1/Q *)
+
+(* Distort, ring modulate & echo input, a real noise fest ; Jmcc *)
+let in = (AudioIn([1, 2]) * 20).Distort.Ring1(
+	SinOsc(MouseX(10, 2000, 1, 0.2), [0, 0.5.pi])
+) * 0.02;
+CombL(
+	in,
+	0.5,
+	MouseY(0, 0.5, 0, 0.2), (* mouse y controls delay time *)
+	4
+) + in
+
+(* Sweep verb ; Jmcc *)
+let s = AudioIn([1, 2]) * 0.01;
+(* reverb predelay time *)
+let z = DelayN(s.Sum, 0.048, 0.048);
+(* 6 modulated comb delays in parallel *)
+let y = CombL(z, 0.1, LfNoise1({ 0.1.Rand0 } ! 6).MulAdd(0.04, 0.05), 15).Sum;
+(* chain of 4 allpass delays on each of two channels (8 total) *)
+4.timesRepeat {
+	y := AllpassN(y, 0.050, [0.050.Rand0, 0.050.Rand0], 1)
+};
+(* eliminate DC *)
+LeakDc(y, 0.995)
+
+(* Monastic resonance ; mouse controls size and reverb time ; Jmcc *)
+let decayTime = MouseX(0, 16, 0, 0.2);
+let delayScale = MouseY(0.01, 1, 0, 0.2);
+let s = AudioIn([1, 2]) * 0.005;
+(* reverb predelay time *)
+let z = DelayN(Sum(s), 0.048, 0.048);
+(* 8 comb delays in parallel *)
+let y = Sum(CombL(z, 0.1, { 0.04.Rand2 + 0.05 } ! 8 * delayScale, decayTime));
+(* chain of 5 allpass delays on each of two channels (10 total) *)
+5.timesRepeat {
+	y := AllpassN(y, 0.050, [0.050.Rand0, 0.050.Rand0], 1)
+};
+(* eliminate DC *)
+LeakDc(y, 0.995)
+
 (* ---- Hell is busy ; texture ; Jmcc *)
 let n = 8; (* number of simultaneous events *)
 {
@@ -439,158 +733,6 @@ Texture.overlap({
 	Pan2(SinOsc(LfNoise2(1.0 + 0.3.rand2, 200, 350 + 50.rand), 0, a), 1.0.rand2);
 }, 4, 4, 4, 2)
 
-(* analogue daze (commented) ; Jmcc *)
-(* define a function so that I can make a couple of copies of this instrument: *)
-let anaSynFunc = { :octave :clockRate :pwmrate :fltrate |
-	(* create a list of frequencies *)
-	let freqList = (
-		[55, 63, 60, 63, 57, 65, 62, 65] (* specify in MIDI notes *)
-		+ (12 * octave) (* offset by octaves argument *)
-	).MidiCps; (* convert to cycles per second *)
-	(* use a sequencer to step through the list of frequencies *)
-	let freq = Sequencer(
-		freqList,
-		Impulse(clockRate, 0) (* sequencer steps at each trigger from this oscillator *)
-	);
-	(* analog VCO->VCF voice: *)
-	Rlpf((* resonant lowpass filter *)
-		LfPulse((* pulse wave oscillator input to filter *)
-			Lag((* take the frequency and use a lag filter to make it glide *)
-				freq, (* from one pitch to another *)
-				0.05(* Lag time *)
-			), 0,
-			SinOsc((* pulse width modulator LfO *)
-				pwmrate, (* LfO rate *)
-				2.pi.Rand0).MulAdd( (* random initial phase *)
-					0.4, 0.5)) (* scale and offset give pulse widths from 0.1 to 0.9 *)
-		* 0.1, (* pulse oscillator amplitude *)
-		SinOsc((* filter cutoff freq LfO *)
-			fltrate, (* LfO rate *)
-			2.pi.Rand0).MulAdd( (* random initial phase *)
-				1400, 2000), (* scale and offset give cutoff freq from 600 to 3400 Hz *)
-		1/15 (* 1/Q *)
-	)
-}; (* end of function definition f *)
-(* analogue snare drum *)
-let snare = Decay((* an exponential decay envelope *)
-	Impulse(2, 0), (* impulses trigger envelope at 2 beats per second *)
-	0.15) * (* 0.15 seconds to decay by 60 dB *)
-LfNoise0((* step noise used as snare sound *)
-	LfNoise1(0.3).MulAdd(6000, 8000)) * (* sweep the noise frequency between 2000 and 14000 Hz *)
-[0.07, 0.07] (* amplitude (in stereo, causes whole snare subpatch to be stereo *)
-(*               see MultiChannel.help) *)
-;
-(* create two copies of sequencer patch in separate channels *)
-let g = [ (* call function f to create each instrument *)
-	anaSynFunc(1, 8, 0.31, 0.2), (* +1 octave,  8 clocks per second, PWM rate, Rlpf rate *)
-	anaSynFunc(0, 2, 0.13, 0.11) (* +0 octaves, 2 clocks per second, PWM rate, Rlpf rate *)
-]
-+ snare; (* add to snares *)
-(* comb delay of input plus dry stereo pair reversed *)
-let z = 0.4 * ((* scale delayed part down *)
-	CombN((* feedback delay *)
-		g, (* input dry signal *)
-		0.375, 0.375, (* 3/8 second delay *)
-		5(* 5 second 60dB decay time *)
-	)
-	+ g.reverse); (* add dry stereo pair with the channels reversed *)
-let e = EnvLinen(2, 56, 2, 1, -4); (* one minute trapezoid envelope *)
-z * EnvGen(1, 1, 0, 1, 2, e.asArray) (* wrap a one minute envelope around entire sound *)
-
-(* analogue daze (un-commented) ; Jmcc *)
-let pattern = [55 63 60 63 57 65 62 65];
-let f = { :octave :clockRate :pwmrate :fltrate |
-	Rlpf(LfPulse(Lag(
-		Sequencer(
-			((pattern + (12 * octave)).MidiCps), (* sequencer pattern *)
-			Impulse(clockRate, 0) (* sequencer trigger *)
-		),
-		0.05 (* Lag time coefficient *)
-	), 0,
-		SinOsc(pwmrate, 2.pi.Rand0).MulAdd(0.4, 0.5)) * (* pulse width modulator *)
-		0.1, (* pulse amplitude *)
-		SinOsc(fltrate, 2.pi.Rand0).MulAdd(1400, 2000), (* cutoff freq LfO *)
-		1 / 15)
-};
-let x = Decay(Impulse(2, 0), 0.15) * LfNoise0(LfNoise1(0.3).MulAdd(6000, 8000)) * [0.07, 0.07];
-let g = [f(1, 8, 0.31, 0.2), f(0, 2, 0.13, 0.11)] + x;
-let z = 0.4 * (CombN(g, 0.375, 0.375, 5) + g.reverse);
-let e = EnvLinen(2, 56, 2, 1, -4); (* one minute trapezoid envelope *)
-z * EnvGen(1, 1, 0, 1, 2, e.asArray) (* wrap a one minute envelope around entire sound *)
-
-(* synthetic piano ; Jmcc *)
-let n = 6; (* number of keys playing *)
-{ (* mix an array of notes *)
-	let pitch = (36 + 54.Rand0); (* calculate delay based on a random note *)
-	let strike = Impulse(0.1 + 0.4.Rand0, 0) * 0.1; (* random period for each key *)
-	let hammerEnv = Decay2(strike, 0.008, 0.04); (* excitation envelope *)
-	EqPan2(
-		(* array of 3 strings per note *)
-		(1 .. 3).collect { :i |
-			(* detune strings, calculate delay time *)
-			let detune = [-0.05, 0, 0.04].at(i);
-			let delayTime = 1 / (pitch + detune).MidiCps;
-			(* each string gets own exciter *)
-			let hammer = LfNoise2(3000) * hammerEnv; (* 3000 Hz was chosen by ear *)
-			CombL(hammer, (* used as a string resonator *)
-				delayTime, (* max delay time *)
-				delayTime, (* actual delay time *)
-				6) (* decay time of string *)
-		},
-		(pitch - 36) / 27 - 1 (* pan position: lo notes left, hi notes right *)
-	).sum
-} !> n
-
-(* reverberated sine percussion jmc *)
-{
-	let d = 10; (* number of percolators *)
-	let c = 7; (* number of comb delays *)
-	let a = 4; (* number of allpass delays *)
-	(* sine percolation sound *)
-	let s = Mix(Array.fill(d, { Resonz(Dust(2/d, 50), 200 + 3000.0.rand, 0.003)}) );
-	(* reverb predelay time *)
-	let z = DelayN(s, 0.048);
-	(* 7 length modulated comb delays in parallel *)
-	let y = Mix(CombL(z, 0.1, LfNoise1(Array.fill(c, {0.1.rand}), 0.04, 0.05), 15));
-	(* chain of 4 allpass delays on each of two channels (8 total) *)
-	a.do({ y = AllpassN(y, 0.050, [0.050.rand, 0.050.rand], 1) });
-	(* add original sound to reverb and play it *)
-	s+(0.2*y)
-}
-
-(* reverberated noise bursts ; Jmcc *)
-{
-	(* pink noise percussion sound *)
-	let s = Decay(Dust(0.6, 0.2), 0.15, PinkNoise);
-	(* reverb predelay time *)
-	let z = DelayN(s, 0.048);
-	(* 6 modulated comb delays in parallel *)
-	let y = Mix(CombL(z, 0.1, LfNoise1(Array.fill(6, {0.1.rand}), 0.04, 0.05), 15));
-	(* chain of 4 allpass delays on each of two channels (8 total) *)
-	4.do({ y = AllpassN(y, 0.050, [0.050.rand, 0.050.rand], 1) });
-	(* add original sound to reverb and play it *)
-	s+y
-}
-
-(* Mouse control ; Jmcc *)
-{
-	SinOsc(MouseX(200, 2000, 'exponential'), 0, 0.1)
-}
-
-(* analog bubbles - with mouse control ; Jmcc *)
-{
-	let freq = LfSaw(
-		MouseY(0.1, 10, 'exponential'), 0, (* lfo 1 rate *)
-		24, (* lfo 1 depth in semitones *)
-		(* lfo 2 in lfo 1's add input *)
-		LfSaw(
-			MouseX(2, 40, 'exponential'), 0, (* lfo 2 rate *)
-			-3, 80(* lfo 2 depth & offset in semitones *)
-		)
-	).midicps; (* convert to frequency *)
-	CombN(SinOsc(freq, 0, 0.04), 0.2, 0.2, 2) (* echoing sine wave *)
-}
-
 (*----- textures *)
 
 (
@@ -652,7 +794,7 @@ plot({
 	let sequ = {arg s, tr; Demand(tr, 0, Dseq(inf, s))};
 	let sequR = {arg s, tr; Demand(tr, 0, Dshuf(s, inf))}; (* sequ with random selection function *)
 	let patternList, clockRate, clockTime, clock, note, freq, amp, filt;
-	clockRate = MouseX(5, 20);
+	clockRate = MouseX(5, 20, 0, 0.2);
 	clockTime = clockRate.reciprocal;
 	clock = Impulse(clockRate); (* sequencer trigger *)
 	patternList = [55, 60, 63, 62, 60, 67, 63, 58];
@@ -691,7 +833,7 @@ plot({
 	(* assign random tap times *)
 	let tapTimes = Array.rand(n, 0.015, 0.03);
 	(* excitation *)
-	let excitation = Decay2(Impulse(0.5, 0, 0.2), 0.01, 0.2, LfNoise2(MouseY(10, 8000)));
+	let excitation = Decay2(Impulse(0.5, 0, 0.2), 0.01, 0.2, LfNoise2(MouseY(10, 8000, 0, 0.2)));
 	(* tap the delay lines *)
 	let delayedSignals = n.collect({arg i; Tap(buffers[i], 1, tapTimes[i])});
 	(* filter the taps *)
@@ -728,10 +870,10 @@ plot({
 (* sample and hold liquidities ; mouse x controls clock rate, mouse y controls center frequency ; Jmcc *)
 {
 	let clockRate, clockTime, clock, centerFreq, freq, panPos, patch;
-	clockRate = MouseX(1, 200, 'exponential');
+	clockRate = MouseX(1, 200, 2);
 	clockTime = clockRate.reciprocal;
 	clock = Impulse(clockRate, 0.4);
-	centerFreq = MouseY(100, 8000, 'exponential');
+	centerFreq = MouseY(100, 8000, 2);
 	freq = Latch(WhiteNoise(centerFreq * 0.5, centerFreq), clock);
 	panPos = Latch(WhiteNoise, clock);
 	patch = CombN(
@@ -764,167 +906,13 @@ Texture.xfade({
 }, 8, 8, 2);
 )
 
-(* input thru *)
-{ SoundIn([0, 1]) }
-
-(* distort input *)
-{
-	let gain;
-	gain = MouseX(1, 100, 'exponential'); (* mouse x controls gain into distortion *)
-	SoundIn([0, 1], gain).distort * 0.4
-}
-
-(* ring modulate input *)
-{
-	let input, modulator;
-	input = SoundIn([0, 1]);
-	modulator = SinOsc(
-		MouseX(10, 4000, 'exponential'), (* mouse x controls ring mod freq *)
-		[0, 0.5.pi] (* offset phase ofone osc by 90 degrees *)
-	);
-	input * modulator
-}
-
-(* ring modulate input using ring1 *)
-{
-	let input, modulator;
-	input = SoundIn([0, 1], 0.5);
-	modulator = SinOsc(
-		MouseX(10, 4000, 'exponential'), (* mouse x controls ring mod freq *)
-		[0, 0.5.pi] (* offset phase ofone osc by 90 degrees *)
-	);
-	input ring1: modulator
-}
-
-(* filter the input *)
-{
-	let rQ;
-	rQ = MouseY(0.01, 1, 'exponential'); (* bandwidth ratio = 1/Q *)
-	Rlpf(
-		SoundIn([0, 1], 0.4 * rQ.sqrt), (* attenuate to offset resonance *)
-		MouseX(100, 12000, 'exponential'), (* mouse x controls cutoff freq *)
-		rQ
-	)
-}
-
-(* input limiter *)
-{
-	CompanderD(
-		SoundIn([0, 1]),
-		MouseX(0.01, 0.5), (* threshold *)
-		1, (* below threshold slope *)
-		0.1(* above threshold slope *)
-	)
-}
-
-(* input noise gate *)
-{
-	let input;
-	input = SoundIn([0, 1]);
-	Compander(
-		input, input,
-		MouseX(0.01, 0.5), (* threshold *)
-		10, (* below threshold slope *)
-		1(* above threshold slope *)
-	)
-}
-
-(* pitch shift input *)
-{
-	PitchShift(
-		SoundIn([0, 1], 0.5), (* stereo audio input *)
-		0.04, (* grain size *)
-		MouseX(0, 2), (* mouse x controls pitch shift ratio *)
-		0, (* pitch dispersion *)
-		0.004(* time dispersion *)
-	)
-}
-
-(* use PitchShift to granulate input ; upper left corner is normal playback. x = pitch dispersion, y = time dispersion *)
-{
-	let grainSize;
-	grainSize = 0.1;
-	PitchShift(
-		SoundIn([0, 1], 0.5),
-		grainSize,
-		1, (* nominal pitch rate = 1 *)
-		MouseX(0, 1), (* pitch dispersion *)
-		MouseY(0, grainSize) (* time dispersion *)
-	)
-}
-
-(* echo input *)
-{
-	let in;
-	in = SoundIn([0, 1], 0.1);
-	CombL(
-		in,
-		0.5, (* max delay time *)
-		MouseX(0, 0.5), (* mouse x controls delay time *)
-		4, (* echo 60 dB decay time in seconds *)
-		1, (* scale by unity *)
-		in(* mix with input *)
-	)
-}
-
-(* Ring modulate & echo input ; Jmc *)
-let in = AudioIn([1, 2]) * 0.4 * SinOsc(MouseX(10, 2000, 1, 0.2), [0, 0.5.pi]);
-CombL(
-	in,
-	0.5,
-	MouseY(0, 0.5, 0, 0.2), (* mouse y controls delay time *)
-	4 (* echo 60 dB decay time in seconds *)
-) + in (* mix with input *)
-
-(* Ring modulated and resonant filtered input ; Jmcc *)
-let input = AudioIn([1, 2]) * 0.2;
-let modulator = SinOsc(
-	MouseX(10, 4000, 1, 0.2), (* mouse x controls ring mod freq *)
-	[0, 0.5.pi] (* offset phase ofone osc by 90 degrees *)
-);
-Rlpf(
-	input * modulator, (* do ring modulation *)
-	MouseY(100, 12000, 1, 0.2), (* mouse y controls cutoff freq *)
-	0.1) (* bandwidth ratio = 1/Q *)
-
-(* Distort, ring modulate & echo input, a real noise fest ; Jmcc *)
-let in = (AudioIn([1, 2]) * 20).Distort.Ring1(
-	SinOsc(MouseX(10, 2000, 1, 0.2), [0, 0.5.pi])
-) * 0.02;
-CombL(
-	in,
-	0.5,
-	MouseY(0, 0.5, 0, 0.2), (* mouse y controls delay time *)
-	4
-) + in
-
-(* Sweep verb ; Jmcc *)
-let s = AudioIn([1, 2]) * 0.01;
-(* reverb predelay time *)
-let z = DelayN(s.Sum, 0.048, 0.048);
-(* 6 modulated comb delays in parallel *)
-let y = CombL(z, 0.1, LfNoise1({ 0.1.Rand0 } ! 6).MulAdd(0.04, 0.05), 15).Sum;
-(* chain of 4 allpass delays on each of two channels (8 total) *)
-4.timesRepeat {
-	y := AllpassN(y, 0.050, [0.050.Rand0, 0.050.Rand0], 1)
-};
-(* eliminate DC *)
-LeakDc(y, 0.995)
-
-(* Monastic resonance ; mouse controls size and reverb time ; Jmcc *)
-let decayTime = MouseX(0, 16, 0, 0.2);
-let delayScale = MouseY(0.01, 1, 0, 0.2);
-let s = AudioIn([1, 2]) * 0.005;
-(* reverb predelay time *)
-let z = DelayN(Sum(s), 0.048, 0.048);
-(* 8 comb delays in parallel *)
-let y = Sum(CombL(z, 0.1, { 0.04.Rand2 + 0.05 } ! 8 * delayScale, decayTime));
-(* chain of 5 allpass delays on each of two channels (10 total) *)
-5.timesRepeat {
-	y := AllpassN(y, 0.050, [0.050.Rand0, 0.050.Rand0], 1)
-};
-(* eliminate DC *)
-LeakDc(y, 0.995)
+(* Input limiter ; Jmcc *)
+CompanderD(
+	AudioIn([1, 2]),
+	MouseX(0.01, 0.5, 0, 0.2), (* threshold *)
+	1, (* below threshold slope *)
+	0.1(* above threshold slope *)
+)
 
 (*---- ; untranslated *)
 
@@ -1837,25 +1825,6 @@ out = MixFill(8, { arg i;
 LPF(out, 12000);
 out = LeakDC(out);
 6.do({ out = AllpassN(out, 0.1, [0.05.rand, 0.05.rand], 4) });
-out
-
-(* Strummable silk ; Jmcc *)
-let mousex = MouseX(0, 1, 0, 0.2);
-let out = (1 .. 8).collect { :ix |
-	var n = 15;
-	(* place trigger points from 0.25 to 0.75 *)
-	let trigger = Hpz1(mousex > (0.25 + (ix - 1 * 0.07))).Abs;
-	let pluck = PinkNoise() * Decay(Impulse(14, 0).Mul(Lag(Trig(trigger, 1), 0.2) * 0.01), 0.04);
-	let freq = ([-2 0 3 5 7 10 12 15].at(ix) + 60).MidiCps;
-	let metal = RingzBank(pluck,
-		(1 .. n) * freq, (* frequencies *)
-		nil, (* amplitudes default to 1.0 *)
-		{ Rand(0.3, 1.0) } ! n); (* ring times *)
-	EqPan2(metal, ix * 0.2 - 0.5)
-}.Sum.Lpf( 12000).LeakDc(0.995);
-6.timesRepeat {
-	out := AllpassN(out, 0.1, [0.05.Rand0, 0.05.Rand0], 4)
-};
 out
 
 (* inharmonic warbulence ; Jmcc ; graph rewrite *)
