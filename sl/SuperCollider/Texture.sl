@@ -20,10 +20,15 @@
 			counter = 0
 		)|
 		system.clock.schedule(0) { :currentTime |
-			{
-				counter +:= 1;
-				self:/1.cull(counter).withOverlapEnvelope(sustainTime, transitionTime)
-			}.playAt(currentTime + 0.5); (* fixed delay... *)
+			counter +:= 1;
+			self:/1.cull(
+				counter
+			).withOverlapEnvelope(
+				sustainTime,
+				transitionTime
+			).playAt(
+				currentTime + 0.5 (* fixed delay... *)
+			);
 			period
 		}
 	}
@@ -39,10 +44,8 @@
 	spawn { :self:/1 :nextTime |
 		| counter = 0; |
 		system.clock.schedule(0) { :currentTime |
-			{
-				counter +:= 1;
-				self:/1.cull(counter)
-			}.playAt(currentTime + 0.5); (* fixed delay... *)
+			counter +:= 1;
+			self:/1.cull(counter).playAt(currentTime + 0.5); (* fixed delay... *)
 			nextTime
 		}
 	}
@@ -58,9 +61,7 @@
 	collectTexture { :self :aCollection :aBlock:/1 :delay |
 		| end = aCollection.size; |
 		self.recurseEvery({ :currentTime :index |
-			{
-				aBlock(aCollection[index])
-			}.playAt(currentTime + 0.5); (* fixed delay... *)
+			aBlock(aCollection[index]).playAt(currentTime + 0.5); (* fixed delay... *)
 			(index = end).if {
 				nil
 			} {
@@ -71,9 +72,7 @@
 
 	playEvery { :self :aBlock:/1 :delay |
 		self.repeatEvery({ :currentTime :nextDelay |
-			{
-				aBlock:/1.cull(nextDelay)
-			}.playAt(currentTime + 0.5) (* fixed delay... *)
+			aBlock:/1.cull(nextDelay).playAt(currentTime + 0.5) (* fixed delay... *)
 		}, delay)
 	}
 

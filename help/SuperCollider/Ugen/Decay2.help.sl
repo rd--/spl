@@ -51,3 +51,9 @@ SinOsc([222, 2222], 0) * Decay2(tr, 0.01, [0.5, 0.1]) * [0.2, 0.1]
 	var env = Decay2(tr, 0.01, Rand(0.1, 0.5));
 	SinOsc(Rand(1111, 2222), 0) * env * Rand(0.01, 0.1)
 } !^ 24
+
+(* ---- ; plot ; excitation function *)
+let strike = Impulse(1, 0);
+let env = Decay2(strike, 0.01, 0.06);
+let noise = LfNoise2(3000) * env;
+[env, noise] * 0.4

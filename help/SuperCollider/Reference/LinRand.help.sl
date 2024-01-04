@@ -1,7 +1,7 @@
 # LinRand -- random number generator
 
 - _LinRand(input)_
-- _LinRand(lo, hi, minmax)_
+- _LinRand(lo=0, hi=1, minmax=0)_
 
 Unary form generates noise with a linear distribution between _0_ and _input_.
 

@@ -90,7 +90,7 @@ ScSynth! : [Object] {
 
 }
 
-+[Array, SmallFloat, Ugen] {
++[Array, Ugen] {
 
 	<! { :self :aUgen |
 		(aUgen.isUgen & {
@@ -99,6 +99,26 @@ ScSynth! : [Object] {
 			self.multipleRootGraph(aUgen)
 		} {
 			FirstArg(self, aUgen)
+		}
+	}
+
+	basicPlayAt { :self :systemTimeInSeconds |
+		<primitive: globalScSynth.playUgenAt(_self, _busOffset_1(_self), -1, 1, [], _systemTimeInSeconds);>
+	}
+
+	draw { :self |
+		| scSynDefFileName = '/tmp/splDraw.scsyndef'; |
+		self.writeScSynDefFile(
+			'Anonymous',
+			scSynDefFileName
+		).then { :unused |
+			system.systemCommand(
+				'hsc3-dot',
+				[
+					'scsyndef-draw',
+					scSynDefFileName
+				]
+			)
 		}
 	}
 
@@ -114,58 +134,24 @@ ScSynth! : [Object] {
 		<primitive: return sc.multipleRootGraph(_self, _aUgen);>
 	}
 
-	playUgenAt { :self :systemTimeInSeconds |
-		<primitive: globalScSynth.playUgenAt(_self, _busOffset_1(_self), -1, 1, [], _systemTimeInSeconds);>
+	play { :self |
+		self.playAt(nil)
 	}
 
-	playUgen { :self |
-		self.playUgenAt(nil)
-	}
-
-	printUgenGraph { :aUgen |
-		<primitive: return sc.prettyPrintSyndefOf(_aUgen);>
-	}
-
-}
-
-+Block {
-
-	drawUgenGraph { :self |
-		| scSynDefFileName = '/tmp/splDrawUgenGraph.scsyndef'; |
-		self.writeScSynDefFile(
-			'Anonymous',
-			scSynDefFileName
-		).then { :unused |
-			system.systemCommand(
-				'hsc3-dot',
-				[
-					'scsyndef-draw',
-					scSynDefFileName
-				]
-			)
-		}
-	}
-
-	play { :self:/0 |
-		self:/0.playAt(nil)
-	}
-
-	playAt { :self:/0 :systemTimeInSeconds |
-		| answer = self(); |
-		answer.isOutputSignal.if {
-			answer.playUgenAt(systemTimeInSeconds)
+	playAt { :self :systemTimeInSeconds |
+		self.isOutputSignal.if {
+			self.basicPlayAt(systemTimeInSeconds)
 		} {
-			'Block>>playAt: answer not ouput signal?'.error
+			'playAt: not ouput signal?'.error
 		}
 	}
 
-	plotUgenGraph { :self:/0 :duration |
+	plot { :self :duration |
 		|(
-			ugenGraph = self(),
-			graphDef = 'Anonymous'.encodeUgenAt(ugenGraph.busOffset, ugenGraph),
-			scSynDefFileName = '/tmp/splPlotUgenGraph.scsyndef',
-			numberOfChannels = ugenGraph.isCollection.if {
-				ugenGraph.size
+			graphDef = 'Anonymous'.encodeUgenAt(self.busOffset, self),
+			scSynDefFileName = '/tmp/splPlot.scsyndef',
+			numberOfChannels = self.isCollection.if {
+				self.size
 			} {
 				1
 			}
@@ -183,14 +169,20 @@ ScSynth! : [Object] {
 		}
 	}
 
-	writeScSynDefFile { :self:/0 :scSynDefName :scSynDefFileName |
+	print { :self |
+		<primitive: return sc.prettyPrintSyndefOf(_self);>
+	}
+
+	writeScSynDefFile { :self :scSynDefName :scSynDefFileName |
 		|(
-			ugenGraph = self(),
-			graphDef = scSynDefName.encodeUgenAt(ugenGraph.busOffset, ugenGraph)
+			graphDef = scSynDefName.encodeUgenAt(self.busOffset, self)
 		)|
 		scSynDefFileName.writeFile(graphDef)
 	}
 
+}
+
++Block {
 
 }
 

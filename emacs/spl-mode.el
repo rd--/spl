@@ -68,11 +68,6 @@
   (interactive)
   (spl-netcat-cmd 'evalText 'text (spl-get-paragraph)))
 
-(defun spl-print-ugen-graph-of-paragraph ()
-  "Evaluate .printUgenGraph at Spl server."
-  (interactive)
-  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.printUgenGraph" (spl-get-paragraph))))
-
 (defun spl-eval-current-file ()
   "Load current file at Spl server."
   (interactive)
@@ -81,22 +76,22 @@
 (defun spl-play-paragraph ()
   "Play Ugen graph of current paragraph."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (format "{ %s }.play" (spl-get-paragraph))))
+  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.play" (spl-get-paragraph))))
 
 (defun spl-draw-paragraph ()
   "Draw Ugen graph of current paragraph."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (format "{ %s }.drawUgenGraph" (spl-get-paragraph))))
+  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.draw" (spl-get-paragraph))))
 
 (defun spl-plot-paragraph ()
   "Plot Ugen graph of current paragraph."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (format "{ %s }.plotUgenGraph(0.1)" (spl-get-paragraph))))
+  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.plot(0.1)" (spl-get-paragraph))))
 
 (defun spl-print-paragraph ()
   "Print Ugen graph of current paragraph."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.printUgenGraph" (spl-get-paragraph))))
+  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.print" (spl-get-paragraph))))
 
 (defun spl-play-current-file ()
   "Play current file at Spl server."
