@@ -2548,52 +2548,62 @@ system.includesPackage('LinearCongruential') (* LinearCongruential package *)
 | r = LinearCongruential(); | [r.randomFloat, r.randomFloat] = [0.3746499199817101, 0.729023776863283]
 ```
 
-## ReadStream -- collection type
+## Stream -- collection trait
 ```
-system.includesPackage('ReadStream') (* ReadStream package *)
-ReadStream().typeOf = 'ReadStream' (* type of read stream *)
-ReadStream().isReadStream (* read stream predicate *)
-ReadStream().atEnd = true (* read stream at end predicate *)
-ReadStream().position = 0 (* initially the position is zero *)
-(1 .. 5).ReadStream.size = 5 (* read stream from interval, read stream size *)
-(1 .. 5).ReadStream.upTo(3) = (1 .. 2) (* read up to, but not including, an element *)
-(1 .. 5).ReadStream.upTo(9) = (1 .. 5) (* read up to end if element is not located *)
-(1 .. 5).ReadStream.contents = (1 .. 5) (* contents of finite stream (a copy of the collection) *)
-(1 .. 5).ReadStream.originalContents = (1 .. 5) (* original contents of stream (the actual collection *)
-| r = (1 .. 5).ReadStream; | r.upToEnd; r.contents = (1 .. 5) (* contents of consumed stream *)
-| r = [1 .. 5].ReadStream; | [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] (* next answers nil at end *)
-| r = [1 .. 3].ReadStream; | [r.next, r.upToEnd] = [1, [2, 3]] (* read up to end *)
-| r = (1 .. 5).ReadStream; | [r.peek, r.next] = [1, 1] (* peek at the next item *)
-| r = (1 .. 5).ReadStream; | [r.peekFor(1), r.next] = [true, 2] (* peek or read next item *)
-| r = (1 .. 5).ReadStream; | [r.peekFor(nil), r.next] = [false, 1] (* peek or read next item *)
-| r = (1 .. 5).ReadStream; | r.upTo(3) = (1 .. 2) & { r.next = 4} (* matching element is consumed *)
-| r = (1 .. 5).ReadStream; | r.skip(3); r.upToEnd = (4 .. 5) (* skip to a position *)
-| r = (1 .. 9).ReadStream; | r.skipTo(7); r.upToEnd = (8 .. 9) (* skip to an object *)
-| r = (1 .. 5).ReadStream; | r.position(3); r.skip(-1); r.next = 3 (* move to indicated position, which is the index before the next element *)
-ReadStream().next = nil (* next at an empty read stream answers nil *)
-{ ReadStream().position := -1 }.ifError { true } (* it is an error to move the position out of bounds *)
-{ ReadStream().position := 1 }.ifError { true } (* it is an error to move the position out of bounds *)
-| r = (9 .. 1).ReadStream; | [r.upTo(3), r.upToEnd] = [(9 .. 4), (2 .. 1)]
-| r = (9 .. 1).ReadStream; | [r.upToPosition(3), r.upToEnd] = [(9 .. 7), (6 .. 1)] (* read from current position up to indicated position *)
-| r = '.....ascii'.asciiByteArray.ReadStream, a = ByteArray(5); | r.skip(5); r.nextInto(a); a.asciiString = 'ascii'
-(1 .. 9).ReadStream.nextSatisfy { :each | each >= 5 } = 5
-(1 .. 9).ReadStream.take(23) = [1 .. 9]
-(1 .. 9).ReadStream.nextMatchFor(1) = true
-(1 .. 9).ReadStream.nextMatchAll([1, 2, 3]) = true
-(1 .. 9).ReadStream.collection = Interval(1, 9, 1) (* read stream over interval collection *)
-| r = (1 .. 9).ReadStream; | [r.next, r.back, r.next] = [1, 1, 1] (* go back one element and return it (by peeking) *)
-| r = (1 .. 1000).ReadStream; | [r.next, r.next, r.atEnd] = [1, 2, false]
+system.includesPackage('Stream') (* CollectionStream package *)
+[].asStream.typeOf = 'CollectionStream' (* type of stream *)
+[].asStream.isStream (* stream predicate *)
+[].asStream.atEnd = true (* read stream at end predicate *)
+(1 .. 5).asStream.upTo(3) = (1 .. 2) (* read up to, but not including, an element, answer is of species of collection *)
+(1 .. 5).asStream.upTo(9) = (1 .. 5) (* read up to end if element is not located *)
+| r = [1 .. 5].asStream; | [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] (* next answers nil at end *)
+| r = [1 .. 3].asStream; | [r.next, r.upToEnd] = [1, [2, 3]] (* read up to end *)
+| r = (1 .. 5).asStream; | r.upTo(3) = (1 .. 2) & { r.next = 4} (* matching element is consumed *)
+| r = (9 .. 1).asStream; | [r.upTo(3), r.upToEnd] = [(9 .. 4), (2 .. 1)] (* matching element is consumed *)
+[].asStream.next = nil (* next at an empty read stream answers nil *)
+| r = '.....ascii'.asciiByteArray.asStream, a = ByteArray(5); | r.next(5); r.nextInto(a); a.asciiString = 'ascii'
+(1 .. 9).asStream.nextSatisfy { :each | each >= 5 } = 5 (* read until element satisfies predicate *)
+(1 .. 9).asStream.take(23) = [1 .. 9] (* take at most n items from stream *)
+| r = (1 .. 9).asStream; | [r.nextMatchFor(1), r.next] = [true, 2] (* predicate at consumed item *)
+| r = (1 .. 9).asStream; | [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] (* predicate at consumed items *)
+| r = (1 .. 1000).asStream; | [r.next, r.next, r.atEnd] = [1, 2, false]
+```
+
+### PositionableStream -- collection trait
+```
+[].asStream.position = 0 (* initially the position is zero *)
+| r = (1 .. 5).asStream; | [r.peek, r.next] = [1, 1] (* peek at the next item *)
+| r = (1 .. 5).asStream; | [r.peekFor(1), r.next] = [true, 2] (* peek or read next item *)
+| r = (1 .. 5).asStream; | [r.peekFor(nil), r.next] = [false, 1] (* peek or read next item *)
+| r = (1 .. 5).asStream; | r.position(3); r.next = 4 (* move to indicated position, which is the index before the next element *)
+| r = (1 .. 5).asStream; | r.position(3); r.skip(-1); r.next = 3 (* relative re-positioning *)
+| r = (1, 3 .. 9).asStream; | r.skip(2); r.upToEnd = (5, 7 .. 9) (* skip to a position *)
+| r = (1 .. 9).asStream; | r.skipTo(7); r.upToEnd = (8 .. 9) (* skip to an object *)
+{ [].asStream.position := -1 }.ifError { true } (* it is an error to move the position out of bounds *)
+{ [].asStream.position := 1 }.ifError { true } (* it is an error to move the position out of bounds *)
+| r = (9 .. 1).asStream; | [r.upToPosition(3), r.upToEnd] = [(9 .. 7), (6 .. 1)] (* read from current up to indicated position *)
+| r = (1 .. 9).asStream; | [r.next, r.back, r.next] = [1, 1, 1] (* go back one element and return it (by peeking) *)
+```
+
+### CollectionStream -- collection trait
+```
+(1 .. 5).asStream.size = 5 (* stream from interval, stream size *)
+(1 .. 5).asStream.contents = (1 .. 5) (* contents of finite stream (a copy of the collection) *)
+| a = [1 .. 5]; | a.asStream.contents ~~ a (* contents of finite stream (a copy of the collection) *)
+| i = (1 .. 5); | i.asStream.originalContents == i (* original contents of stream (the actual collection *)
+| r = (1 .. 5).asStream; | r.upToEnd; r.contents = (1 .. 5) (* contents of consumed stream *)
+(1 .. 9).asStream.collection = Interval(1, 9, 1) (* read stream over interval collection *)
 ```
 
 ## Record -- collection type
 ```
 system.includesPackage('Record') (* package *)
-().typeOf = 'Record'
-().isRecord
-().species = Record:/0
-Record().isRecord
+().typeOf = 'Record' (* literal empty record syntax, typeOf query *)
+().isRecord (* record predicate *)
+().species = Record:/0 (* record species *)
+Record().isRecord (* empty record constructor *)
 Record().includesIndex('x') = false (* includes key predicate *)
-(w: 0, x: 1).includesIndex('x') = true
+(w: 0, x: 1).includesIndex('x') = true (* includes key predicate *)
 { Record().at('x') }.ifError { true } (* lookup for non-existing key raises an error *)
 { ()['x'] }.ifError { true } (* lookup for non-existing key is an error *)
 var d = Record(); d.atPut('x', 1) = 1 & { d.at('x') = 1 }
@@ -4058,16 +4068,28 @@ WeakMap().printString = 'a WeakMap' (* weak map print string *)
 system.cache::onceCache.isWeakMap
 ```
 
-## WriteStream -- collection type
+## MutableCollectionStream -- collection type
 ```
-system.includesPackage('WriteStream') (* WriteStream package *)
-| w = WriteStream(); | w.nextPut(1); w.contents = [1]
-| w = WriteStream(); | w.nextPut(1); w.nextPutAll([2 .. 8]); w.nextPut(9); w.contents = [1 .. 9]
-| w = WriteStream(); | 1.putOn(w); w.contents = [1]
-| w = WriteStream(); | 1.putOn(w); [2 .. 8].putOn(w); 9.putOn(w); w.contents = [1 .. 9]
-| w = [].asByteArray.WriteStream; | w.nextPutAll((1 .. 9)); w.contents = [1 .. 9].asByteArray
-| w = Utf8WriteStream(); | 'bodlɛʁ'.encodeOn(w); w.contents.utf8String = 'bodlɛʁ'
-| w = Utf8WriteStream(); | 'bodlɛʁ'.encodeOn(w); w.utf8Contents = 'bodlɛʁ'
-| w = Utf8WriteStream(); | [3.141, nil].do { :each | each.printOn(w) }; w.utf8Contents = '3.141nil'
-| w = [nil, nil].WriteStream; | w.nextPut('a'); w.nextPut('b'); w.contents.join = 'ab'
+system.includesPackage('MutableCollectionStream') (* MutableCollectionStream package *)
+| w = [].asWriteStream; | w.nextPut(1); w.contents = [1]
+| w = [].asWriteStream; | w.nextPut(1); w.nextPutAll([2 .. 8]); w.nextPut(9); w.contents = [1 .. 9]
+| w = [].asWriteStream; | 1.putOn(w); w.contents = [1]
+| w = [].asWriteStream; | 1.putOn(w); [2 .. 8].putOn(w); 9.putOn(w); w.contents = [1 .. 9]
+| w = [].asByteArray.asWriteStream; | w.nextPutAll((1 .. 9)); w.contents = [1 .. 9].asByteArray
+| w = [nil, nil].asWriteStream; | w.nextPut('a'); w.nextPut('b'); w.contents.join = 'ab'
+```
+
+### Utf8Stream -- collection type
+```
+| w = Utf8Stream(); | 'bodlɛʁ'.encodeOn(w); w.contents.utf8String = 'bodlɛʁ'
+| w = Utf8Stream(); | 'bodlɛʁ'.encodeOn(w); w.utf8Contents = 'bodlɛʁ'
+| w = Utf8Stream(); | [3.141, nil].do { :each | each.printOn(w) }; w.utf8Contents = '3.141nil'
+```
+
+### AsciiStream -- collection type
+```
+| w = AsciiStream(); | 'ascii'.encodeOn(w); w.contents.asciiString = 'ascii'
+| w = AsciiStream(); | 'ascii'.encodeOn(w); w.asciiContents = 'ascii'
+| w = AsciiStream(); | [3.141, nil].do { :each | each.printOn(w) }; w.asciiContents = '3.141nil'
+{ :stream | 'ascii'.asciiByteArray.putOn(stream) }.asciiStringStreamContents = 'ascii'
 ```

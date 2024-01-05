@@ -1,4 +1,3 @@
-(* Stream: collection, atEnd contents next *)
 @Stream {
 
 	any { :self :numberOfElements |
@@ -7,10 +6,6 @@
 
 	atEnd { :self |
 		self.typeResponsibility('Stream>>atEnd')
-	}
-
-	contents { :self |
-		self.typeResponsibility('Stream>>contents')
 	}
 
 	do { :self :aBlock:/1 |
@@ -22,7 +17,7 @@
 	}
 
 	isBinary { :self |
-		self.collection.isByteArray
+		self.typeResponsibility('Stream>>isBinary')
 	}
 
 	isStream { :self |

@@ -13,7 +13,6 @@ The basic Stream protocol consists of:
 
 - _atEnd_: answer if the stream can acccess any more elements
 - _next_: consume and answer the next element from the stream if it has one, else nil
-- _peek_: answer what _next_ would answer, but do not consume it
 
 Finite streams are collections and implement _do_ and _size_.
 

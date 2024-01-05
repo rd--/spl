@@ -53,8 +53,11 @@
 	(* Stream *)
 	'Stream'
 	'PositionableStream'
-	'ReadStream'
 	'WriteStream'
+	'CollectionStream'
+	'MutableCollectionStream'
+	'AsciiStream'
+	'Utf8Stream'
 
 	(* System *)
 	'Blob'

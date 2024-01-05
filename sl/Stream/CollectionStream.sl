@@ -1,6 +1,6 @@
 (* Requires: PositionableStream Stream *)
 
-ReadStream : [Object, Stream, PositionableStream] { | collection positionIndex readLimit |
+CollectionStream : [Object, Stream, PositionableStream] { | collection positionIndex readLimit |
 
 	atEnd { :self |
 		self.position >= self.readLimit
@@ -8,6 +8,10 @@ ReadStream : [Object, Stream, PositionableStream] { | collection positionIndex r
 
 	contents { :self |
 		self.collection.copyFromTo(1, self.readLimit)
+	}
+
+	isBinary { :self |
+		self.collection.isByteArray
 	}
 
 	next { :self |
@@ -78,16 +82,8 @@ ReadStream : [Object, Stream, PositionableStream] { | collection positionIndex r
 
 +@Sequenceable {
 
-	ReadStream { :self |
-		newReadStream().initializeSlots(self, 0, self.size)
-	}
-
-}
-
-+Void {
-
-	ReadStream {
-		ReadStream([])
+	asStream { :self |
+		newCollectionStream().initializeSlots(self, 0, self.size)
 	}
 
 }
