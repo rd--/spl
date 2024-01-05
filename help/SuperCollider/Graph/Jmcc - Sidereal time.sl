@@ -1,4 +1,4 @@
-(* sidereal time (jmcc) #9 *)
+(* Sidereal time (Jmcc) #9 *)
 var z = { :tr |
 	var p = 15;
 	var f = TxLine(

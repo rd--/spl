@@ -4,7 +4,7 @@
 
 Schedules a periodic process on the system clock to evalute _aBlock()_, which should construct a Ugen graph.
 
-The process runs at the interval _nextTime_.
+The process runs at the interval _nextTime_, which is sent the _value_ message at each recurrence.
 
 Texture of overlapping sine tones:
 

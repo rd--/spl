@@ -1,4 +1,4 @@
-(* ring modulated klank ; jmcc ; #2 *)
+(* Ring modulated klank ; Jmcc ; #2 *)
 {
 	var p = 8; (* number of partials *)
 	var i = Dust(20) * 0.02;

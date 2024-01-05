@@ -46,7 +46,7 @@
 		system.clock.schedule(0) { :currentTime |
 			counter +:= 1;
 			self:/1.cull(counter).playAt(currentTime + 0.5); (* fixed delay... *)
-			nextTime
+			nextTime.value
 		}
 	}
 

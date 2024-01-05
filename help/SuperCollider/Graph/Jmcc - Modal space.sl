@@ -1,6 +1,6 @@
-(* modal space (jmcc) #8 *)
+(* Modal space (Jmcc) #8 *)
 var b = [0 2 3.2 5 7 9 10].asLocalBuf;
-var k = DegreeToKey(b, MouseX(0, 15, 0, 0.1), 12);
+var k = DegreeToKey(b, MouseX(0, 15, 0, 0.2), 12);
 var c = { :n :r |
 	var o = SinOsc((r + k + (n * 0.04)).MidiCps, 0) * 0.1;
 	var t = LfPulse([48, 55].MidiCps, 0, 0.15);

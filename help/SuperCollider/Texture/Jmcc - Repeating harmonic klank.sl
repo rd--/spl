@@ -1,4 +1,4 @@
-(* repeating harmonic klank (jmcc) *)
+(* Repeating harmonic klank (Jmcc) *)
 {
 	var p = 8;
 	var s = Decay(Dust(0.8) * 0.01, 3.4) * LfSaw(LinRand(0, 40, 0), 0);

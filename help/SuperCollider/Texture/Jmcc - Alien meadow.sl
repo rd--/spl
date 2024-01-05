@@ -1,4 +1,4 @@
-(* alien meadow ; jmcc ; #6 *)
+(* Alien meadow ; Jmcc ; #6 *)
 {
 	var b = Rand(0, 5000);
 	var o1 = SinOsc(Rand(0, 20), 0) * (0.1 * b) + b;

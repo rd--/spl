@@ -1,5 +1,7 @@
 # CombL -- comb filter
 
-_CombL(in, maxdelaytime, delaytime, decaytime)_
+_CombL(in, maxdelaytime=0.2, delaytime=0.2, decaytime=1)_
 
-See _CombC_.
+* * *
+
+See also: AllpassL, CombC, CombN

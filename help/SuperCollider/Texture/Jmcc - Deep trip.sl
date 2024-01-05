@@ -1,4 +1,4 @@
-(* deep trip (jmcc) #9 *)
+(* Deep Trip (Jmcc) #9 *)
 {
 	var f = (LfNoise1(0.3.Rand0) * 60 + 70).MidiCps;
 	var a = Mul(

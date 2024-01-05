@@ -1,4 +1,4 @@
-(* ostinoodles (jmcc) #9 *)
+(* Ostinoodles (Jmcc) #9 *)
 var root = 81 + (-6 .. 6).atRandom;
 var major = [0 2 4 5 7 9 11];
 {

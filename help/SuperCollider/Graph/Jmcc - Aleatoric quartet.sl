@@ -1,4 +1,4 @@
-(* aleatoric quartet (jmcc) #7 *)
+(* Aleatoric quartet (Jmcc) #7 *)
 var amp = 0.07;
 var density = MouseX(0.01, 1, 0, 0.1);
 var dMul = density.Recip * 0.5 * amp;

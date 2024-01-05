@@ -1,4 +1,4 @@
-(* bouncing objects (jmcc) #2 *)
+(* Bouncing objects (Jmcc) #2 *)
 {
 	var impFreq = XLine(3 + 2.Rand0, 600, 4);
 	var impAmp = XLine(0.01 + 0.09.Rand0, 0.000009, 4);
