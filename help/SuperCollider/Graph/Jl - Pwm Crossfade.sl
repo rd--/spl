@@ -1,4 +1,4 @@
-(* pwm crossfade (jl) *)
+(* Pwm crossfade (Jl) *)
 var n = [400 500 450 376 600];
 var d = 1 / 20;
 var [f1, f2] = Demand(Impulse(d, [0 0.5]), 0, Dseq(inf, n));
