@@ -9,6 +9,7 @@ import * as scUdp from '../lib/jssc3/ts/sc3/scSynthUdp.ts';
 import * as sc from '../lib/jssc3/ts/sc3.ts';
 
 import * as evaluate from './evaluate.ts';
+import * as host from './host.ts';
 import * as fileio from './fileio.ts';
 import * as kernel from './kernel.ts';
 import * as load from './load.ts';
@@ -17,24 +18,8 @@ import * as sl from './sl.ts';
 import * as options from './options.ts';
 import * as repl from './repl.ts';
 
-/*
-function getCwd(): string {
-	return Deno.cwd();
-}
-*/
-
-function getEnv(variableName: string): string | null {
-	return Deno.env.get(variableName) || null;
-}
-
-/*
-function getEnvOr(variableName: string, defaultValue: string) {
-	return getEnv(variableName) || defaultValue;
-}
-*/
-
 function getSplDirectory(): string {
-	return getEnv('SplDirectory') || '?';
+	return host.getEnv('SplDirectory') || '?';
 }
 
 /*
@@ -59,7 +44,7 @@ function getSplPreferencesFilename(): string {
 
 async function readSplPreferencesFile(): Promise<string> {
 	const fileName = getSplPreferencesFilename();
-	return await Deno.readTextFile(fileName).catch(function (err) {
+	return await host.readTextFile(fileName).catch(function (err) {
 		console.error('readSplPreferencesFile', err);
 		return '{}';
 	});
@@ -105,9 +90,9 @@ declare global {
 
 /*
 async function scSynthFromEnv(): Promise<sc.ScSynth> {
-	const protocol: string = Deno.env.get('ScProtocol') || 'Tcp';
-	const hostname: string = Deno.env.get('ScHostname') || '127.0.0.1';
-	const port: number = Number(Deno.env.get('ScPort') || '57110');
+	const protocol: string = host.getEnv('ScProtocol') || 'Tcp';
+	const hostname: string = host.getEnv('ScHostname') || '127.0.0.1';
+	const port: number = Number(host.getEnv('ScPort') || '57110');
 	console.debug('cli: scSynthFromEnv (await)', protocol, hostname, port);
 	if (protocol == 'Tcp') {
 		return await scTcp.ScSynthTcp(hostname, port);
@@ -176,7 +161,7 @@ async function runFile(fileName: string, opt: flags.Args): Promise<void> {
 	await loadSpl(opt, opt.lib);
 	console.log(await fileio.evaluateFile(fileName, 'RunFile'));
 	if(opt.exit) {
-		Deno.exit(0);
+		host.exit(0);
 	}
 }
 
@@ -195,12 +180,12 @@ function scEvalText(splText: string): unknown {
 }
 
 async function scEvalFile(fileName: string): Promise<unknown> {
-	const splText = await Deno.readTextFile(fileName);
+	const splText = await host.readTextFile(fileName);
 	return scEvalText(splText);
 }
 
 async function scPlayFile(fileName: string): Promise<void> {
-	const splText = await Deno.readTextFile(fileName);
+	const splText = await host.readTextFile(fileName);
 	scEvalText(`{ ${splText} }.play`);
 }
 
@@ -275,7 +260,7 @@ function cli(): void {
 	});
 	if (args._.length < 1) {
 		help();
-		Deno.exit(1);
+		host.exit(1);
 	} else {
 		if (args.strict) {
 			options.slOptions.insertArityCheck = true;
@@ -301,11 +286,11 @@ function cli(): void {
 				break;
 			case 'help':
 				help();
-				Deno.exit(0);
+				host.exit(0);
 				break;
 			default:
 				help();
-				Deno.exit(1);
+				host.exit(1);
 				break;
 		}
 	}
@@ -317,5 +302,6 @@ declare global {
 
 globalThis.sl = sl;
 globalThis.sc = sc;
+globalThis.host = host;
 
 cli();

@@ -1,24 +1,25 @@
 import * as evaluate from './evaluate.ts';
+import * as host from './host.ts';
 import * as kernel from './kernel.ts';
 import * as load from './load.ts';
 import * as rewrite from './rewrite.ts';
 
 export async function evaluateFile(fileName: string, packageName: string) {
 	// console.debug(`evaluateFile: ${fileName} ${packageName}`);
-	return await Deno.readTextFile(fileName).then(function (text) {
+	return await host.readTextFile(fileName).then(function (text) {
 		return evaluate.evaluateFor(packageName, text);
 	});
 }
 
 export async function rewriteFile(fileName: string): Promise<string> {
 	// console.debug(`rewriteFile: ${fileName}`);
-	return await Deno.readTextFile(fileName).then(rewrite.rewriteString);
+	return await host.readTextFile(fileName).then(rewrite.rewriteString);
 }
 
 // Fetch files asynchronously, store at packageIndex
 export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {
 	const resolvedFileName = load.resolveFileName(fileName);
-	return Deno.readFile(fileName);
+	return host.readFile(fileName);
 }
 
 // Fetch files asynchronously, store at packageIndex
@@ -35,7 +36,7 @@ export async function primitiveReadLocalPackages(
 	});
 	const fetchedTextArray = await Promise.all(
 		resolvedFileNameArray.map(function (fileName: string) {
-			return Deno.readTextFile(fileName);
+			return host.readTextFile(fileName);
 		}),
 	);
 	fetchedTextArray.map(function (text, index) {

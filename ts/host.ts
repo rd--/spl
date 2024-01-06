@@ -1,0 +1,60 @@
+export function exit(code: number): never {
+	return Deno.exit(code)
+}
+
+export function getArch(): string {
+	return Deno.build.arch;
+}
+
+export function getCwd(): string {
+	return Deno.cwd();
+}
+
+export function getEnv(variableName: string): string | null {
+	return Deno.env.get(variableName) || null;
+}
+
+export function getEnviron(): Record<string, string> {
+	return Deno.env.toObject();
+}
+
+export function getHostname(): string {
+	return Deno.hostname();
+}
+
+export function getOs(): string {
+	return Deno.build.os;
+}
+
+export async function readFile(path: string | URL): Promise<Uint8Array> {
+	return Deno.readFile(path);
+}
+
+export async function readTextFile(path: string | URL): Promise<string> {
+	return Deno.readTextFile(path);
+}
+
+export async function systemCommand(commandName: string, argumentArray: string[]) {
+	const command = new Deno.Command(commandName, {args: argumentArray});
+	return command.output().then(function(result) {
+		return {
+			exitCode: result.code,
+			outputText: new TextDecoder().decode(result.stdout),
+			errorText: new TextDecoder().decode(result.stderr)
+		};
+	});
+}
+
+export async function writeFile(path: string | URL, data: Uint8Array): Promise<void> {
+	return Deno.writeFile(path, data);
+}
+
+export async function writeTextFile(path: string | URL, data: string): Promise<void> {
+	return Deno.writeTextFile(path, data);
+}
+
+/*
+function getEnvOr(variableName: string, defaultValue: string) {
+	return getEnv(variableName) || defaultValue;
+}
+*/
