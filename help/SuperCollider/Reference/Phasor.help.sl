@@ -17,10 +17,10 @@ Phasor is commonly used as an index control with [BufRd] and [BufWr].
 
 Phasor controls sine frequency, end frequency matches a second sine wave:
 
-	var rate = MouseX(0.2, 2, 1, 0.2);
-	var trig = Impulse(rate, 0);
-	var sr = SampleRate();
-	var x = Phasor(trig, rate / sr, 0, 1, 0);
+	let rate = MouseX(0.2, 2, 1, 0.2);
+	let trig = Impulse(rate, 0);
+	let sr = SampleRate();
+	let x = Phasor(trig, rate / sr, 0, 1, 0);
 	SinOsc(
 		[
 			x.LinLin(0, 1, 600, 1000), (* convert range *)
@@ -32,10 +32,10 @@ Phasor controls sine frequency, end frequency matches a second sine wave:
 Two phasors control two sine frequencies.
 _MouseX_ controls trigger frequency and _MouseY_ controls resetPos of the second:
 
-	var rate = MouseX(1, 200, 1, 0.2);
-	var trig = Impulse(rate, 0);
-	var sr = SampleRate();
-	var x = Phasor(trig, rate / sr, 0, 1, [0, MouseY(0, 1, 0, 0.2)]);
+	let rate = MouseX(1, 200, 1, 0.2);
+	let trig = Impulse(rate, 0);
+	let sr = SampleRate();
+	let x = Phasor(trig, rate / sr, 0, 1, [0, MouseY(0, 1, 0, 0.2)]);
 	SinOsc(x * 500 + 500, 0) * 0.2
 
 Use phasor to index into a sound file.
@@ -44,16 +44,16 @@ This means that the Phasor will output values from 0 to numFrames - 1 before loo
 which is perfect for driving BufRd.
 (See note above)
 
-	var b = SfAcquire('crotale-d6', 1, [1]);
+	let b = SfAcquire('crotale-d6', 1, [1]);
 	SfRead(b, Phasor(1, SfRateScale(b), 0, SfFrames(b), 0), 1, 2)
 
 Two phasors control two sound file positions.
 _MouseX_ controls trigger frequency and _MouseY_ controls resetPos of the second:
 
-	var b = SfAcquire('crotale-d6', 1, [1]);
-	var rate = MouseX(0.1, 100, 1, 0.2);
-	var trig = Impulse(rate, 0);
-	var bFrames = SfFrames(b);
-	var resetPos = [0, MouseY(0, bFrames, 0, 0.2)];
-	var x = Phasor(trig, SfRateScale(b), 0, bFrames, resetPos);
+	let b = SfAcquire('crotale-d6', 1, [1]);
+	let rate = MouseX(0.1, 100, 1, 0.2);
+	let trig = Impulse(rate, 0);
+	let bFrames = SfFrames(b);
+	let resetPos = [0, MouseY(0, bFrames, 0, 0.2)];
+	let x = Phasor(trig, SfRateScale(b), 0, bFrames, resetPos);
 	SfRead(b, x, 1, 2)

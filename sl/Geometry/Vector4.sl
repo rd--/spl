@@ -56,7 +56,7 @@ Vector4 : [Object, Indexable] { | w x y z |
 		(self.size ~= 4).if {
 			self.error('asVector4: not 4-element array')
 		} {
-			| [w, x, y, z] = self; |
+			let [w, x, y, z] = self;
 			Vector4(w, x, y, z)
 		}
 	}

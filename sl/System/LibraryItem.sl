@@ -7,7 +7,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 	}
 
 	readLocalStorage { :self |
-		| text = system.localStorage[self.key]; |
+		let text = system.localStorage[self.key];
 		self.mimeType.caseOfOtherwise([
 			'application/json' -> {
 				self.parser.value(text.parseJson)
@@ -113,7 +113,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 	}
 
 	useLibraryItem { :self :libraryItem |
-		| name = libraryItem.name; |
+		let name = libraryItem.name;
 		self.includesLibraryItem(name).ifFalse {
 			self.addLibraryItem(libraryItem)
 		};

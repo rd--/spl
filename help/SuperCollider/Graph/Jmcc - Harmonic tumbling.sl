@@ -1,8 +1,8 @@
 (* harmonic tumbling ; jmcc *)
-var f = 80; (* fundamental frequency *)
-var p = 10; (* number of partials per channel *)
-var z = 0.0; (* start of oscil daisy chain *)
-var trig = XLine([10, 10], 0.1, 60); (* trigger probability decreases over time *)
+let f = 80; (* fundamental frequency *)
+let p = 10; (* number of partials per channel *)
+let z = 0.0; (* start of oscil daisy chain *)
+let trig = XLine([10, 10], 0.1, 60); (* trigger probability decreases over time *)
 (1 .. p).do { :i |
 	z := MulAdd(
 		FSinOsc(

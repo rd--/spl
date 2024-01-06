@@ -108,7 +108,8 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 	}
 
 	swapInPlace { :self |
-		| x = self.x, y = self.y; |
+		let x = self.x;
+		let y = self.y;
 		self.x := y;
 		self.y := x
 	}
@@ -130,7 +131,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 		(self.size ~= 2).if {
 			self.error('asVector2: not 2-element array')
 		} {
-			| [x, y] = self; |
+			let [x, y] = self;
 			Vector2(x, y)
 		}
 	}

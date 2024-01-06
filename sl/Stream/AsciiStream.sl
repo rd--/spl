@@ -11,7 +11,7 @@
 +Block {
 
 	asciiStringStreamContents { :self:/1 |
-		| stream = AsciiStream(); |
+		let stream = AsciiStream();
 		self(stream);
 		stream.contents.asciiString
 	}

@@ -15,10 +15,10 @@ _BfEncode1(in, azimuth=0, elevation=0, rho=1, gain=1, wComp=0)_
 
 Decode to octaphonic:
 
-	var mouseAzimuth = MouseX(0, 2 * pi, 0, 0.2);
-	var mouseRho = MouseY(0, 4, 0, 0.2);
-	var cycleAzimuth = LfSaw(1 / 4, 0).LinLin(-1, 1, 0, 2 * pi);
-	var [w, x, y, z] = BfEncode1(
+	let mouseAzimuth = MouseX(0, 2 * pi, 0, 0.2);
+	let mouseRho = MouseY(0, 4, 0, 0.2);
+	let cycleAzimuth = LfSaw(1 / 4, 0).LinLin(-1, 1, 0, 2 * pi);
+	let [w, x, y, z] = BfEncode1(
 		PinkNoise(),
 		cycleAzimuth, (* mouseAzimuth *)
 		0,
@@ -30,10 +30,10 @@ Decode to octaphonic:
 
 Decode to quadraphonic in sequence _fl, fr, rl, rr_:
 
-	var mouseAzimuth = MouseX(0, 2 * pi, 0, 0.2);
-	var mouseRho = MouseY(0, 4, 0, 0.2);
-	var cycleAzimuth = LfSaw(1 / 4, 0).LinLin(-1, 1, 0, 2 * pi);
-	var [w, x, y, z] = BfEncode1(
+	let mouseAzimuth = MouseX(0, 2 * pi, 0, 0.2);
+	let mouseRho = MouseY(0, 4, 0, 0.2);
+	let cycleAzimuth = LfSaw(1 / 4, 0).LinLin(-1, 1, 0, 2 * pi);
+	let [w, x, y, z] = BfEncode1(
 		PinkNoise(),
 		cycleAzimuth, (* mouseAzimuth *)
 		0,

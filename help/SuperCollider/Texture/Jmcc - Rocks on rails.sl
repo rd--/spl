@@ -1,6 +1,6 @@
 (* Rocks on rails ; Jmcc #2 *)
-var p = 20; (* number of partials *)
-var n = 4; (* number of overlapping events *)
+let p = 20; (* number of partials *)
+let n = 4; (* number of overlapping events *)
 {
 	EqPan(
 		RingzBank( (* p resonant modes *)

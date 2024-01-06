@@ -13,7 +13,9 @@
 	}
 
 	asCartesianCoordinate { :self |
-		|( r = self.r, theta = self.theta, phi = self.phi )|
+		let r = self.r;
+		let theta = self.theta;
+		let phi = self.phi;
 		Vector3(
 			r * theta.cos * phi.sin,
 			r * theta.sin * phi.sin,
@@ -88,7 +90,7 @@ SphericalCoordinate : [Object, SphericalCoordinate] { | r theta phi |
 +Array {
 
 	asSphericalCoordinate { :self |
-		| [r, theta, phi] = self; |
+		let [r, theta, phi] = self;
 		SphericalCoordinate(r, theta, phi)
 	}
 
@@ -105,7 +107,9 @@ SphericalCoordinate : [Object, SphericalCoordinate] { | r theta phi |
 +@CartesianCoordinate {
 
 	asSphericalCoordinate { :self |
-		|( x = self.x, y = self.y, z = self.z )|
+		let x = self.x;
+		let y = self.y;
+		let z = self.z;
 		SphericalCoordinate(
 			(x.squared + y.squared + z.squared).sqrt,
 			y.atan2(x),

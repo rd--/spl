@@ -43,7 +43,7 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 	}
 
 	intersperse { :self :anObject |
-		| answer = []; |
+		let answer = [];
 		self.doSeparatedBy { :each |
 			answer.add(each)
 		} {
@@ -121,7 +121,7 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 	}
 
 	Array { :size :anObject |
-		| answer = Array(size); |
+		let answer = Array(size);
 		answer.atAllPut(anObject);
 		answer
 	}
@@ -133,19 +133,17 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 	}
 
 	geometricSeries { :self :start :grow |
-		| accum = start; |
+		let accum = start;
 		1.upTo(self).collect { :unusedItem |
-			| entry = accum; |
+			let entry = accum;
 			accum *:= grow;
 			entry
 		}
 	}
 
 	toAsCollect { :self :stop :species :aBlock:/1 |
-		|(
-			answerSize = stop - self + 1,
-			answer = species.ofSize(answerSize)
-		)|
+		let answerSize = stop - self + 1;
+		let answer = species.ofSize(answerSize);
 		1.toDo(answerSize) { :index |
 			answer[index] := aBlock(index + self - 1)
 		};
@@ -165,7 +163,8 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 +@Collection {
 
 	Array { :self |
-		| answer = Array(self.size), index = 0; |
+		let answer = Array(self.size);
+		let index = 0;
 		self.do { :each |
 			index +:= 1;
 			answer[index] := each
@@ -178,7 +177,7 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 +@Sequenceable {
 
 	Array { :self |
-		| answer = Array(self.size); |
+		let answer = Array(self.size);
 		self.indicesDo { :index |
 			answer[index] := self[index]
 		};
@@ -214,7 +213,7 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 +@Object {
 
 	replicateApplying { :self :anInteger :aBlock:/1 |
-		| answer = Array(anInteger); |
+		let answer = Array(anInteger);
 		answer.indicesDo { :index |
 			answer[index] := aBlock(self)
 		};

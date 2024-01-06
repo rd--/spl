@@ -9,14 +9,16 @@
 	}
 
 	squeakTinyBenchmarks { :self |
-		| size = 8190, count = nil; |
+		let size = 8190;
+		let count = nil;
 		self.timesRepeat {
-			| flags = Array(size); |
+			let flags = Array(size);
 			flags.atAllPut(true);
 			count := 0;
 			1.upToDo(size) { :index |
 				flags[index].ifTrue {
-					| prime = index + 1, k = index + prime; |
+					let prime = index + 1;
+					let k = index + prime;
 					{ k <= size }.whileTrue {
 						flags[k] := false;
 						k +:= prime

@@ -11,7 +11,7 @@ TChoose is defined in terms of Select and TiRand.
 
 Cycle though oscillator types, mouse control of trigger density:
 
-	var a = [
+	let a = [
 		SinOsc(440, 0),
 		Saw(440),
 		Pulse(440, 0.5)

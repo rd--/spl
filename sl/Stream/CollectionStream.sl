@@ -24,10 +24,8 @@ CollectionStream : [Object, Stream, PositionableStream] { | collection positionI
 	}
 
 	next { :self :anInteger |
-		|(
-			endPosition = (self.position + anInteger).min(self.readLimit),
-			answer = self.collection.copyFromTo(self.position + 1, endPosition)
-		)|
+		let endPosition = (self.position + anInteger).min(self.readLimit);
+		let answer = self.collection.copyFromTo(self.position + 1, endPosition);
 		self.position := endPosition;
 		answer
 	}
@@ -54,10 +52,8 @@ CollectionStream : [Object, Stream, PositionableStream] { | collection positionI
 	}
 
 	upTo { :self :anObject |
-		|(
-			start = self.position + 1,
-			end = self.collection.indexOfStartingAt(anObject, start)
-		)|
+		let start = self.position + 1;
+		let end = self.collection.indexOfStartingAt(anObject, start);
 		(end = 0 | {
 			end > self.readLimit
 		}).if {
@@ -69,7 +65,7 @@ CollectionStream : [Object, Stream, PositionableStream] { | collection positionI
 	}
 
 	upToEnd { :self |
-		| start = 1 + self.position; |
+		let start = 1 + self.position;
 		self.position := self.readLimit;
 		self.collection.copyFromTo(start, self.position)
 	}

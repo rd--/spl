@@ -11,19 +11,21 @@
 	}
 
 	asWords { :self |
-		|(
-			mils = [
-				'', ' thousand',
-				' million', ' billion', ' trillion', ' quadrillion', ' quintillion',
-				' sextillion', ' septillion', ' octillion', ' nonillion', ' decillion',
-				' undecillion', ' duodecillion', ' tredecillion', ' quattuordecillion', ' quindecillion',
-				' sexdecillion', ' septendecillion', ' octodecillion', ' novemdecillion', ' vigintillion'
-			]
-		)|
+		let mils = [
+			'', ' thousand',
+			' million', ' billion', ' trillion', ' quadrillion', ' quintillion',
+			' sextillion', ' septillion', ' octillion', ' nonillion', ' decillion',
+			' undecillion', ' duodecillion', ' tredecillion', ' quattuordecillion', ' quindecillion',
+			' sexdecillion', ' septendecillion', ' octodecillion', ' novemdecillion', ' vigintillion'
+		];
 		(self = 0).if {
 			'zero'
 		} {
-			| minus = '', three = nil, num = self, answer = '', milCount = 1; |
+			let minus = '';
+			let three = nil;
+			let num = self;
+			let answer = '';
+			let milCount = 1;
 			(self < 0).ifTrue {
 				minus := 'negative ';
 				num := self.negated
@@ -80,7 +82,8 @@
 		(self <= 1).if {
 			1
 		} {
-			| next = self, answer = self; |
+			let next = self;
+			let answer = self;
 			{ next > 1 }.whileTrue {
 				next -:= 1;
 				answer *:= next
@@ -90,10 +93,8 @@
 	}
 
 	foldBetweenAnd { :self :low :high |
-		|(
-			b = high - low,
-			c = (self - low) % (b * 2)
-		)|
+		let b = high - low;
+		let c = (self - low) % (b * 2);
 		(c > b).ifTrue {
 			c := (b * b) - c
 		};
@@ -101,9 +102,10 @@
 	}
 
 	gcd { :self :anInteger |
-		| a = self.abs, b = anInteger.abs; |
+		let a = self.abs;
+		let b = anInteger.abs;
 		{ b = 0 }.whileFalse {
-			| r = a % b; |
+			let r = a % b;
 			a := b;
 			b := r
 		};
@@ -111,7 +113,7 @@
 	}
 
 	indexOfPrime { :self |
-		| primesArray = system.primesArray; |
+		let primesArray = system.primesArray;
 		(self <= primesArray.last).if {
 			primesArray.indexOf(self)
 		} {
@@ -145,7 +147,8 @@
 			(self = 2).if {
 				true
 			} {
-				| selfSqrt = self.sqrt, i = 2; |
+				let selfSqrt = self.sqrt;
+				let i = 2;
 				valueWithReturn { :return:/1 |
 					{ i <= selfSqrt }.whileTrue {
 						(self % i = 0).ifTrue {
@@ -160,31 +163,32 @@
 	}
 
 	isPrimePower { :self |
-		| primeFactors = self.primeFactorization; |
+		let primeFactors = self.primeFactorization;
 		primeFactors.size = 1 & {
 			primeFactors.first.key.isPrime
 		}
 	}
 
 	lcm { :self :anInteger |
-		| a = self, b = anInteger; |
+		let a = self;
+		let b = anInteger;
 		(a = 0 | {
 			b = 0
 		}).if {
 			0
 		} {
-			| ab = a * b; |
+			let ab = a * b;
 			{ b = 0}.whileFalse {
-				| t = b; |
-				b := a % t;
-				a := t
+				let tmp = b;
+				b := a % tmp;
+				a := tmp
 			};
 			(ab / a).abs
 		}
 	}
 
 	leastPrimeGreaterThanOrEqualTo { :self |
-		| maybePrime = self; |
+		let maybePrime = self;
 		{ maybePrime.isPrime.not }.whileTrue {
 			maybePrime +:= 1
 		};
@@ -196,7 +200,7 @@
 	}
 
 	nthPrime { :self |
-		| primesArray = system.primesArray; |
+		let primesArray = system.primesArray;
 		(self > primesArray.size).if {
 			self.primesArrayExtend(primesArray)
 		} {
@@ -205,7 +209,7 @@
 	}
 
 	previousPrime { :self |
-		| index = self.leastPrimeGreaterThanOrEqualTo.indexOfPrime - 1; |
+		let index = self.leastPrimeGreaterThanOrEqualTo.indexOfPrime - 1;
 		system.primesArray[index]
 	}
 
@@ -218,7 +222,10 @@
 			[]
 		} {
 			valueWithReturn { :return:/1 |
-				| index = 1, prime = 2, k = self, answer = []; |
+				let index = 1;
+				let prime = 2;
+				let k = self;
+				let answer = [];
 				{
 					prime := index.nthPrime;
 					{
@@ -252,7 +259,8 @@
 	}
 
 	primesArray { :self |
-		| answer = Array(self), n = 1; |
+		let answer = Array(self);
+		let n = 1;
 		answer.indicesDo { :index |
 			n := n.nextPrime;
 			answer[index] := n
@@ -261,7 +269,7 @@
 	}
 
 	primesArrayExtend { :self :anArray |
-		| n = anArray.last; |
+		let n = anArray.last;
 		(self - anArray.size).timesRepeat {
 			n := n.nextPrime;
 			anArray.add(n)
@@ -274,7 +282,7 @@
 	}
 
 	primesUpToDo { :self :aBlock:/1 |
-		| primesArray = system.primesArray; |
+		let primesArray = system.primesArray;
 		1.toDo(self.leastPrimeGreaterThanOrEqualTo.indexOfPrime) { :index |
 			aBlock(primesArray[index])
 		}
@@ -295,7 +303,7 @@
 	}
 
 	romanDigitsForOn { :self :digits :base :aStream |
-		| n = self % (base * 10) // base; |
+		let n = self % (base * 10) // base;
 		(n = 9).if {
 			aStream.nextPutAll([digits.last, digits.first])
 		} {
@@ -313,14 +321,12 @@
 	}
 
 	romanDigitsOn { :self :aStream |
-		|(
-			integer = self.negative.if {
-				aStream.nextPut('-'.asciiValue);
-				self.negated
-			} {
-				self
-			}
-		)|
+		let integer = self.negative.if {
+			aStream.nextPut('-'.asciiValue);
+			self.negated
+		} {
+			self
+		};
 		(integer // 1000).timesRepeat {
 			aStream.nextPut('M'.asciiValue)
 		};
@@ -333,7 +339,8 @@
 		(k < 0 | { k > self }).if {
 			0
 		} {
-			| numerator = 1, denominator = 1; |
+			let numerator = 1;
+			let denominator = 1;
 			self.toByDo(k.max(self - k) + 1, -1) { :factor |
 				numerator *:= factor
 			};
@@ -345,18 +352,16 @@
 	}
 
 	threeDigitName { :self |
-		|(
-			units = [
-				'one', 'two', 'three', 'four', 'five',
-				'six', 'seven', 'eight', 'nine', 'ten',
-				'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
-				'sixteen', 'seventeen', 'eighteen', 'nineteen'
-			],
-			decades = [
-				'twenty', 'thirty', 'forty', 'fifty',
-				'sixty', 'seventy', 'eighty', 'ninety'
-			]
-		)|
+		let units = [
+			'one', 'two', 'three', 'four', 'five',
+			'six', 'seven', 'eight', 'nine', 'ten',
+			'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
+			'sixteen', 'seventeen', 'eighteen', 'nineteen'
+		];
+		let decades = [
+			'twenty', 'thirty', 'forty', 'fifty',
+			'sixty', 'seventy', 'eighty', 'ninety'
+		];
 		valueWithReturn { :return:/1 |
 			| answer |
 			(self = 0).ifTrue {
@@ -381,7 +386,7 @@
 	}
 
 	timesRepeat { :self :aBlock:/0 |
-		| remaining = self; |
+		let remaining = self;
 		{ remaining > 0 }.whileTrue {
 			aBlock();
 			remaining -:= 1
@@ -390,9 +395,9 @@
 	}
 
 	tuplesIndicesDo { :self :n :aBlock:/1 |
-		| indices = Array(n, 1); |
+		let indices = Array(n, 1);
 		(self ^ n).timesRepeat {
-			| k = n; |
+			let k = n;
 			aBlock(indices);
 			{
 				k >= 1 & {
@@ -465,7 +470,8 @@
 	}
 
 	digitLength { :self |
-		| value = self, length = 1; |
+		let value = self;
+		let length = 1;
 		(value < -255).ifTrue {
 			length := 2;
 			value := (-256 - self.bitShift(-8)) + 1

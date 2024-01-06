@@ -1,5 +1,5 @@
 (* Are-we-fast-yet micro benchmarks *)
-| b = BounceBenchmark(); | b.run(100) (* 10-35 *)
+let b = BounceBenchmark(); b.run(100) (* 10-35 *)
 { listBenchmark().length = 10 }.millisecondsToRun (* 10-35 *)
 { PermuteBenchmark() = 8660 }.millisecondsToRun (* 15-40 *)
 { QueensBenchmark() }.millisecondsToRun (* 10-30 *)
@@ -8,13 +8,13 @@
 { TowersBenchmark() = 8191 }.millisecondsToRun (* 20-50 *)
 
 (* Are-we-fast-yet benchmarks *)
-{ | o = JsonBenchmark(); | o.isObject & { o::head.isObject & { o::operations.isArray & { o::operations.size = 156 } } } }.millisecondsToRun (* 250-300 *)
-| h = HavlakBenchmark(); | [1, 15, 150, 1500, 15000].do { :each | h.run(each) } (* 4920 4800 5084 5336 7858 *)
-| m = MandelbrotBenchmark(); | [1, 500, 750].do { :each | m.run(each) } (* 0 5990 13606 *)
-| n = NBodyBenchmark(); | [1, 250000].do { :each | n.run(each) } (* 0 5386 *)
+{ let o = JsonBenchmark(); o.isObject & { o::head.isObject & { o::operations.isArray & { o::operations.size = 156 } } } }.millisecondsToRun (* 250-300 *)
+let h = HavlakBenchmark(); [1, 15, 150, 1500, 15000].do { :each | h.run(each) } (* 4920 4800 5084 5336 7858 *)
+let m = MandelbrotBenchmark(); [1, 500, 750].do { :each | m.run(each) } (* 0 5990 13606 *)
+let n = NBodyBenchmark(); [1, 250000].do { :each | n.run(each) } (* 0 5386 *)
 
 (* Squeak benchmarks *)
 | r t | t := { r := 26.squeakBenchFib }.millisecondsToRun; r = 392835 & { t < 500 }
 | r t | t := { r := 10.squeakTinyBenchmarks }.millisecondsToRun; r = 1028 & { t < 500 } (* c.f tinyBenchmarks *)
-| t = { 23.squeakBenchFib }.millisecondsToRun; | t > 1 & { t < 1000 }
-| [c, t] = { 23.squeakBenchFib }.benchForMilliseconds(100); | c >= 1 & { t >= 100 }
+let t = { 23.squeakBenchFib }.millisecondsToRun; t > 1 & { t < 1000 }
+let [c, t] = { 23.squeakBenchFib }.benchForMilliseconds(100); c >= 1 & { t >= 100 }

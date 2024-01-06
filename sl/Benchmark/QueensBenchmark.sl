@@ -1,7 +1,7 @@
 QueensBenchmark : [Object] { | freeMaxs freeRows freeMins queenRows |
 
 	benchmark { :self |
-		| result = true; |
+		let result = true;
 		1.toDo(10) { :i |
 			result := result & { self.queens }
 		};

@@ -9,7 +9,7 @@ A variant on _withTableCollect_ that writes folds away one layer of stucture.
 The matrix form is likewise folded.
 
 ```
-var x = [4 4.5; 2 3 5 6];
+let x = [4 4.5; 2 3 5 6];
 x.withCrossedCollect(x, times:/2) = [16 20.25; 8 13.5 20 27; 8 13.5 20 27; 4 9 25 36]
 ```
 

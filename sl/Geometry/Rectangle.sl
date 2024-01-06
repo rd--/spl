@@ -9,7 +9,8 @@ Rectangle : [Object] { | origin corner |
 	}
 
 	area { :self |
-		| h = self.height, w = self.width; |
+		let h = self.height;
+		let w = self.width;
 		(h <= 0 | { w <= 0 }).if {
 			0
 		} {
@@ -241,7 +242,7 @@ Rectangle : [Object] { | origin corner |
 +Array {
 
 	computeBoundingBox { :self |
-		| box = Rectangle(self[1], self[1]); |
+		let box = Rectangle(self[1], self[1]);
 		self.do { :aPoint |
 			box.swallow(Rectangle(aPoint, aPoint))
 		};
@@ -253,10 +254,8 @@ Rectangle : [Object] { | origin corner |
 +@Sequenceable {
 
 	rectangleMerging { :self |
-		|(
-			topLeft = self.first.topLeft,
-			bottomRight = self.first.bottomRight
-		)|
+		let topLeft = self.first.topLeft;
+		let bottomRight = self.first.bottomRight;
 		self.allButFirstDo { :each |
 			topLeft := topLeft.min(each.topLeft);
 			bottomRight := bottomRight.max(each.bottomRight)

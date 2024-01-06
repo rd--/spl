@@ -200,7 +200,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	byteHexString { :self |
 		self.isByte.if {
-			| hexString = self.printString(16); |
+			let hexString = self.printString(16);
 			(self < 16).if {
 				'0' ++ hexString
 			} {
@@ -222,7 +222,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 					self.abs < epsilon
 				} {
 					(self = aNumber.asSmallFloat) | {
-						| z = self.abs; |
+						let z = self.abs;
 						(z < epsilon).if {
 							aNumber.abs < epsilon
 						} {
@@ -463,7 +463,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	parseDecimalInteger { :self |
-		| answer = self.basicParseDecimalInteger; |
+		let answer = self.basicParseDecimalInteger;
 		answer.isNaN.if {
 			self.error('parseDecimalInteger: not a number')
 		} {

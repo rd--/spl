@@ -22,8 +22,8 @@ If you want to zero one out, use Dc(0).
 B-format decode to cube _lfh, rfh, rrh, lrh, lfl, rfl, rrl, lrl_,
 where lfl = left front high, lfl = left front low &etc.
 
-	var p = PinkNoise();
-	var [w, x, y, z] = BfEncode1(
+	let p = PinkNoise();
+	let [w, x, y, z] = BfEncode1(
 		p,
 		MouseX(0 - pi, pi, 0, 0.2),
 		MouseY(0.25 * pi, -0.25 * pi, 0, 0.2),

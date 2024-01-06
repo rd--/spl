@@ -3,10 +3,15 @@
 +[Array, SmallFloat, Ugen] {
 
 	withOverlapEnvelope { :aUgen :sustainTime :transitionTime |
-		|(
-			env = Env([0,1,1,0], [transitionTime,sustainTime,transitionTime], 'sin', nil, nil, 0),
-			amp = EnvGen(1, 1, 0, 1, 2, env.asArray)
-		)|
+		let env = Env(
+			[0, 1, 1, 0],
+			[transitionTime, sustainTime, transitionTime],
+			'sin',
+			nil,
+			nil,
+			0
+		);
+		let amp = EnvGen(1, 1, 0, 1, 2, env.asArray);
 		Out(0, aUgen * amp)
 	}
 
@@ -15,10 +20,8 @@
 +Block {
 
 	overlap { :self:/1 :sustainTime :transitionTime :overlap |
-		|(
-			period = (sustainTime + (transitionTime * 2)) / overlap,
-			counter = 0
-		)|
+		let period = (sustainTime + (transitionTime * 2)) / overlap;
+		let counter = 0;
 		system.clock.schedule(0) { :currentTime |
 			counter +:= 1;
 			self:/1.cull(
@@ -42,7 +45,7 @@
 	}
 
 	spawn { :self:/1 :nextTime |
-		| counter = 0; |
+		let counter = 0;
 		system.clock.schedule(0) { :currentTime |
 			counter +:= 1;
 			self:/1.cull(counter).playAt(currentTime + 0.5); (* fixed delay... *)
@@ -59,7 +62,7 @@
 +Clock {
 
 	collectTexture { :self :aCollection :aBlock:/1 :delay |
-		| end = aCollection.size; |
+		let end = aCollection.size;
 		self.recurseEvery({ :currentTime :index |
 			aBlock(aCollection[index]).playAt(currentTime + 0.5); (* fixed delay... *)
 			(index = end).if {

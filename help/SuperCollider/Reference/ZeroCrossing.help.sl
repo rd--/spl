@@ -8,5 +8,5 @@ Outputs a frequency based upon the distance between interceptions of the X axis.
 
 Track frequency of sine oscillator:
 
-	var a = SinOsc(SinOsc(1, 0) * 600 + 700, 0) * 0.1;
+	let a = SinOsc(SinOsc(1, 0) * 600 + 700, 0) * 0.1;
 	[a, ZeroCrossing(a) * 0.0005]

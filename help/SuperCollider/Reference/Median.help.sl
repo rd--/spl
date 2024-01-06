@@ -13,7 +13,7 @@ A signal with impulse noise.
 
 After applying median filter:
 
-	var z = Saw(500) * 0.1 + (Dust2(100) * 0.9);
+	let z = Saw(500) * 0.1 + (Dust2(100) * 0.9);
 	Median(3, z)
 
 The median length can be increased for longer duration noise.
@@ -24,17 +24,17 @@ A signal with longer impulse noise:
 
 Length three does not help here because the impulses are two samples long.
 
-	var z = Saw(500) * 0.1 + (Lpz1(Dust2(100) * 0.9));
+	let z = Saw(500) * 0.1 + (Lpz1(Dust2(100) * 0.9));
 	Median(3, z)
 
 Length five does better:
 
-	var z = Saw(500) * 0.1 + (Lpz1(Dust2(100) * 0.9));
+	let z = Saw(500) * 0.1 + (Lpz1(Dust2(100) * 0.9));
 	Median(5, z)
 
 Long Median filters begin chopping off the peaks of the waveform:
 
-	var x = SinOsc(1000, 0) * 0.1;
+	let x = SinOsc(1000, 0) * 0.1;
 	XFade2(x, Median(31, x), MouseX(-1, 1, 0, 0.2), 1)
 
 Another noise reduction application:
@@ -43,11 +43,11 @@ Another noise reduction application:
 
 Use Median filter for high frequency noise:
 
-	var z = WhiteNoise() + SinOsc(800, 0) * 0.1;
+	let z = WhiteNoise() + SinOsc(800, 0) * 0.1;
 	Median(31, z)
 
 Use LeakDc for low frequency noise:
 
-	var z = WhiteNoise() + SinOsc(800, 0) * 0.1;
+	let z = WhiteNoise() + SinOsc(800, 0) * 0.1;
 	LeakDc(Median(31, z), 0.9)
 

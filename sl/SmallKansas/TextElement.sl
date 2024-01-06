@@ -1,13 +1,13 @@
 +String {
 
 	TextButton { :self :attributeDictionary |
-		| button = 'button'.createElement(attributeDictionary); |
+		let button = 'button'.createElement(attributeDictionary);
 		button.innerText := self;
 		button
 	}
 
 	TextInput { :self :attributeDictionary |
-		| input = 'input'.createElement(attributeDictionary); |
+		let input = 'input'.createElement(attributeDictionary);
 		input.setAttributes((
 			type: 'text',
 			value: self
@@ -16,7 +16,7 @@
 	}
 
 	TextListItem { :self |
-		| listItem = 'li'.createElement; |
+		let listItem = 'li'.createElement;
 		listItem.textContent := self;
 		listItem
 	}
@@ -26,7 +26,7 @@
 	}
 
 	TextOption { :self :value |
-		| option = 'option'.createElement; |
+		let option = 'option'.createElement;
 		option.text := self.isEmpty.if {
 			'*Unspecified*'
 		} {
@@ -37,13 +37,13 @@
 	}
 
 	TextParagraph { :self |
-		| p = 'p'.createElement; |
+		let p = 'p'.createElement;
 		p.textContent := self;
 		p
 	}
 
 	TextSpan { :self |
-		| span = 'span'.createElement; |
+		let span = 'span'.createElement;
 		span.textContent := self;
 		span
 	}

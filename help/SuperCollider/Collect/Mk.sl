@@ -1,13 +1,13 @@
 (* https://sccode.org/1-50L (mk) *)
-var z = PinkNoise();
+let z = PinkNoise();
 16.timesRepeat {
 	z := Brf(z, { Rand(100, 15000) } ! 2, 1)
 };
 z
 
 (* https://sccode.org/1-50L (mk) *)
-var z = PinkNoise();
-var lfo = { :rt | LfNoise1(rt ! 2) };
+let z = PinkNoise();
+let lfo = { :rt | LfNoise1(rt ! 2) };
 16.timesRepeat {
 	z := Brf(
 		z,
@@ -18,8 +18,8 @@ var lfo = { :rt | LfNoise1(rt ! 2) };
 z
 
 (* https://sccode.org/1-50L (mk) *)
-var z = PinkNoise();
-var lfo = { :rt | LfPulse(rt ! 2, 0, 0.5) };
+let z = PinkNoise();
+let lfo = { :rt | LfPulse(rt ! 2, 0, 0.5) };
 16.timesRepeat {
 	z := Brf(
 		z,
@@ -30,10 +30,10 @@ var lfo = { :rt | LfPulse(rt ! 2, 0, 0.5) };
 z
 
 (* https://sccode.org/1-50L (Mk) *)
-var freq = 100;
-var rt = 0.5;
-var z = PinkNoise(2);
-var rw = { :f1 :f2 :q |
+let freq = 100;
+let rt = 0.5;
+let z = PinkNoise(2);
+let rw = { :f1 :f2 :q |
 	4.timesRepeat {
 		z := Brf(
 			z,

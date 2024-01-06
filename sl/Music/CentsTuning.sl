@@ -27,7 +27,7 @@ CentsTuning : [Object, Tuning] { | name description cents octave |
 +@Integer {
 
 	equalTemperamentTuning { :self |
-		| step = 1200 / self; |
+		let step = 1200 / self;
 		CentsTuning(
 			'ET-' ++ self,
 			self.asWords.capitalized ++ ' tone equal-temperament',

@@ -38,7 +38,7 @@ Pair : [Object] { | first second |
 	}
 
 	swapInPlace { :self |
-		| temporaryValue = self.first; |
+		let temporaryValue = self.first;
 		self.first := self.second;
 		self.second := temporaryValue
 	}

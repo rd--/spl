@@ -32,7 +32,7 @@
 	}
 
 	count { :self :aBlock:/1 |
-		| answer = 0; |
+		let answer = 0;
 		self.do { :each |
 			aBlock(each).ifTrue {
 				answer +:= 1
@@ -75,7 +75,7 @@
 	}
 
 	detectSum { :self :aBlock:/1 |
-		| sum = 0; |
+		let sum = 0;
 		self.do { :each |
 			sum +:= aBlock(each)
 		};
@@ -83,13 +83,14 @@
 	}
 
 	detectMax { :self :aBlock:/1 |
-		| maxElement maxValue |
+		let maxElement = nil;
+		let maxValue = nil;
 		self.do { :each |
 			maxValue.ifNil {
 				maxElement := each;
 				maxValue := aBlock(each)
 			} {
-				| nextValue = aBlock(each); |
+				let nextValue = aBlock(each);
 				(nextValue > maxValue).ifTrue {
 					maxElement := each;
 					maxValue := nextValue
@@ -100,13 +101,14 @@
 	}
 
 	detectMin { :self :aBlock:/1 |
-		| minElement minValue |
+		let minElement = nil;
+		let minValue = nil;
 		self.do { :each |
 			minValue.ifNil {
 				minElement := each;
 				minValue := aBlock(each)
 			} {
-				| nextValue = aBlock(each); |
+				let nextValue = aBlock(each);
 				(nextValue < minValue).ifTrue {
 					minElement := each;
 					minValue := nextValue
@@ -121,7 +123,7 @@
 	}
 
 	doSeparatedBy { :self :elementBlock:/1 :separatorBlock:/0 |
-		| beforeFirst = true; |
+		let beforeFirst = true;
 		self.do { :each |
 			beforeFirst.if {
 				beforeFirst := false
@@ -169,7 +171,7 @@
 	}
 
 	injectInto { :self :initialValue :aBlock:/2 |
-		| nextValue = initialValue; |
+		let nextValue = initialValue;
 		self.do { :each |
 			nextValue := aBlock(nextValue, each)
 		};
@@ -201,7 +203,7 @@
 	}
 
 	minMax { :self |
-		| min = self.anyOne, max = min; |
+		let min = self.anyOne, max = min;
 		self.do { :each |
 			min := min.min(each);
 			max := max.max(each)
@@ -221,7 +223,7 @@
 	}
 
 	occurrencesOf { :self :anObject |
-		| tally = 0; |
+		let tally = 0;
 		self.do { :each |
 			(anObject = each).ifTrue {
 				tally +:= 1
@@ -243,7 +245,7 @@
 	}
 
 	reduce { :self :aBlock:/2 |
-		| first = true, nextValue = nil; |
+		let first = true, nextValue = nil;
 		self.do { :each |
 			first.if {
 				nextValue := each;
@@ -275,7 +277,7 @@
 	}
 
 	size { :self |
-		| tally = 0; |
+		let tally = 0;
 		self.do { :each |
 			tally +:= 1
 		};

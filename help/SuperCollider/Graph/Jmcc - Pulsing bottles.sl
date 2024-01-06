@@ -1,5 +1,5 @@
 (* pulsing bottles ; jmcc *)
-var n = 6; (* number of 'bottles' *)
+let n = 6; (* number of 'bottles' *)
 {
 	EqPan2(
 		Resonz(

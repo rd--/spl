@@ -6,20 +6,22 @@
 			500 -> 191,
 			750 -> 50
 		].Map) { :size |
-			| sum = 0, byteAcc = 0, bitNum = 0, y = 0; |
+			let sum = 0;
+			let byteAcc = 0;
+			let bitNum = 0;
+			let y = 0;
 			{ y < size }.whileTrue {
-				| ci = (2 * y / size) - 1, x = 0; |
+				let ci = (2 * y / size) - 1;
+				let x = 0;
 				{ x < size }.whileTrue {
-					|(
-						zrzr = 0,
-						zr = 0,
-						zizi = 0,
-						zi = 0,
-						cr = (2 * x / size) - 1.5,
-						z = 0,
-						notDone = true,
-						escape = 0
-					)|
+					let zrzr = 0;
+					let zr = 0;
+					let zizi = 0;
+					let zi = 0;
+					let cr = (2 * x / size) - 1.5;
+					let z = 0;
+					let notDone = true;
+					let escape = 0;
 					{
 						notDone & {
 							z < 50

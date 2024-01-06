@@ -59,7 +59,7 @@
 	}
 
 	maxDepth { :self :max |
-		| answer = max; |
+		let answer = max;
 		self.do { :each |
 			each.isCollection.ifTrue {
 				answer := answer.max(each.maxDepth(max + 1))
@@ -69,18 +69,16 @@
 	}
 
 	maxSizeAtDepth { :self :rank |
-		| maxSize = 0; |
+		let maxSize = 0;
 		(rank = 0).if {
 			self.size
 		} {
 			self.do { :each |
-				|(
-					size = (each.isCollection).if {
-						each.maxSizeAtDepth(rank - 1)
-					} {
-						1
-					}
-				)|
+				let size = (each.isCollection).if {
+					each.maxSizeAtDepth(rank - 1)
+				} {
+					1
+				};
 				(size > maxSize).ifTrue {
 					maxSize := size
 				}
@@ -103,7 +101,7 @@
 		path.ifEmpty {
 			'Sequenceable>>atPath: empty path'.error
 		} {
-			| inner = self[path.first]; |
+			let inner = self[path.first];
 			(path.size = 1).if {
 				inner
 			} {
@@ -116,7 +114,7 @@
 		path.ifEmpty {
 			'Sequenceable>>atPathPut: empty path'.error
 		} {
-			| inner = self.at(path.first); |
+			let inner = self.at(path.first);
 			(path.size = 1).if {
 				self[path.first] := anObject
 			} {
@@ -147,7 +145,7 @@
 		self.ifEmpty {
 			1
 		} {
-			| inner = self.first; |
+			let inner = self.first;
 			(inner.typeOf = self.typeOf).if {
 				1 + inner.rank
 			} {
@@ -157,10 +155,8 @@
 	}
 
 	reshape { :self :shape |
-		|(
-			size = shape.product,
-			answer = self.flattened.wrapExtend(size)
-		)|
+		let size = shape.product;
+		let answer = self.flattened.wrapExtend(size);
 		shape.allButFirst.reverseDo { :n |
 			answer := answer.clump(n)
 		};
@@ -168,16 +164,17 @@
 	}
 
 	reshapeLike { :self :another |
-		| index = 1, items = self.flattened; |
+		let index = 1;
+		let items = self.flattened;
 		another.deepCollect(16r7FFFFFFF) { :unusedItem |
-			| item = items.atWrap(index); |
+			let item = items.atWrap(index);
 			index +:= 1;
 			item
 		}
 	}
 
 	shape { :self |
-		| inner = self.first; |
+		let inner = self.first;
 		(inner.typeOf = self.typeOf).if {
 			[self.size] ++ inner.shape
 		} {
@@ -201,14 +198,12 @@
 		(cuts.size = 0).if {
 			self.copy
 		} {
-			|(
-				firstCut = cuts.first,
-				answer = firstCut.ifNil {
-					self.copy
-				} {
-					self.atAll(firstCut.asCollection)
-				}
-			)|
+			let firstCut = cuts.first;
+			let answer = firstCut.ifNil {
+				self.copy
+			} {
+				self.atAll(firstCut.asCollection)
+			};
 			(cuts.size = 1).if {
 				answer.unbubble(0, 1)
 			} {
@@ -247,7 +242,7 @@
 +Block {
 
 	duplicateShape { :self:/0 :shape |
-		| answer = shape.iota; |
+		let answer = shape.iota;
 		shape.shapeIndicesDo { :index |
 			answer.atPathPut(index, self())
 		};

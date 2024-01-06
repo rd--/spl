@@ -1,11 +1,11 @@
 (* Slow beating sines (Jmcc) #7 *)
 {
-	var n = 20; (* n * 3 components in each channel *)
-	var d = 5.0; (* beating frequency deviation *)
-	var p = [];
-	var q = [];
+	let n = 20; (* n * 3 components in each channel *)
+	let d = 5.0; (* beating frequency deviation *)
+	let p = [];
+	let q = [];
 	n.timesRepeat {
-		var freq = IRand(24, 84).MidiCps;
+		let freq = IRand(24, 84).MidiCps;
 		p.add(freq);
 		{ p.add(freq + d.Rand2) } ! 2;
 		{ q.add(freq + d.Rand2) } ! 3

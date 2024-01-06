@@ -90,29 +90,27 @@ Frame : [Object, UserEventTarget] { | smallKansas framePane titlePane closeButto
 	}
 
 	setEventHandlers { :self |
-		|(
-			pointerBegin = { :event |
-				| titleRect = event.target.getBoundingClientRect; |
-				event.stopPropagationAndPreventDefault;
-				self.bringToFront;
-				event.target.setPointerCapture(event.pointerId);
-				self.inMove := true;
-				self.x0 := event.x - titleRect.x;
+		let pointerBegin = { :event |
+			let titleRect = event.target.getBoundingClientRect;
+			event.stopPropagationAndPreventDefault;
+			self.bringToFront;
+			event.target.setPointerCapture(event.pointerId);
+			self.inMove := true;
+			self.x0 := event.x - titleRect.x;
 				self.y0 := event.y - titleRect.y
-			},
-			pointerMove = { :event |
-				self.inMove.ifTrue {
-					self.moveTo(
-						event.x - self.x0,
-						event.y- self.y0
-					)
-				}
-			},
-			pointerEnd = { :event |
-				event.target.releasePointerCapture(event.pointerId);
-				self.inMove := false
+		};
+		let pointerMove = { :event |
+			self.inMove.ifTrue {
+				self.moveTo(
+					event.x - self.x0,
+					event.y- self.y0
+				)
 			}
-		)|
+		};
+		let pointerEnd = { :event |
+			event.target.releasePointerCapture(event.pointerId);
+			self.inMove := false
+		};
 		self.closeButton.addEventListener('click') { :event |
 			self.close
 		};

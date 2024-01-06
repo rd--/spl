@@ -11,27 +11,27 @@ export function isOperatorName(name: string): boolean {
 }
 
 export const operatorCharacterNameTable: Record<string, string> = {
-	'+': 'plus',
-	'*': 'times', // asterisk
-	'-': 'minus',
-	'/': 'dividedBy', // slash
-	'&': 'and', // ampersand
-	'|': 'or', // verticalBar
-	'@': 'commercialAt', // atSign p[q] == at(p,q)
-	'<': 'lessThan',
-	'>': 'greaterThan',
-	'=': 'equals',
-	'%': 'modulo', // percent
-	'!': 'bang', // exclamationMark exclamationPoint
-	'\\': 'backslash',
 	'~': 'tilde',
-	'?': 'query', // questionMark
-	'^': 'raisedTo', // caret circumflex hat
+	'!': 'bang', // exclamationMark exclamationPoint
+	'@': 'commercialAt', // atSign p[q] == at(p,q)
 	'#': 'hash', // numberSign
 	'$': 'dollar', // dollarSign
+	'%': 'modulo', // percent
+	'^': 'raisedTo', // caret circumflex hat
+	'&': 'and', // ampersand
+	'*': 'times', // asterisk
+	'-': 'minus', // hyphen
+	'+': 'plus',
+	'=': 'equals',
+	'|': 'or', // verticalBar
+	'\\': 'backslash',
 	':': 'colon',
 	';': 'semicolon',
 	'.': 'dot', // period fullStop
+	'<': 'lessThan',
+	'>': 'greaterThan',
+	'?': 'query', // questionMark
+	'/': 'dividedBy', // slash
 };
 
 export function operatorMethodName(operator: string): string {

@@ -1,12 +1,12 @@
 HashIndexTable : [Object, Indexable] { | hashTable |
 
 	at { :self :name |
-		| slot = self.hashSlotFor(name); |
+		let slot = self.hashSlotFor(name);
 		self.hashTable[slot].bitAnd(255) - 1
 	}
 
 	atPut { :self :name :index |
-		| slot = self.hashSlotFor(name); |
+		let slot = self.hashSlotFor(name);
 		(index < 255).if {
 			self.hashTable[slot] := index + 1
 		} {
@@ -137,7 +137,7 @@ JsonObject : [Object, Indexable, JsonValue] { | names values table |
 		name.ifNil {
 			'name is null'.error
 		} {
-			| index = self.indexOf(name); |
+			let index = self.indexOf(name);
 			(index = 0).if {
 				nil
 			} {
@@ -152,7 +152,7 @@ JsonObject : [Object, Indexable, JsonValue] { | names values table |
 	asObject { :self | self }
 
 	indexOf { :self :name |
-		| index = self.table[name]; |
+		let index = self.table[name];
 		(index ~= 0 & {
 			name = self.names[index]
 		}).if {
@@ -191,7 +191,7 @@ JsonString : [Object, JsonValue] { | string |
 JsonParser : [Object] { | input index line column current captureBuffer captureStart exceptionBlock |
 
 	parse { :self |
-		| result |
+		let result = nil;
 		self.read;
 		self.skipWhiteSpace;
 		result := self.readValue;
@@ -239,7 +239,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	readArray { :self |
-		| array = JsonArray(); |
+		let array = JsonArray();
 		self.read;
 		self.skipWhiteSpace;
 		(self.readChar(']')).if {
@@ -257,7 +257,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	readObjectKeyValuePair { :self :object |
-		| name |
+		let name |
 		self.skipWhiteSpace;
 		name := self.readName;
 		self.skipWhiteSpace;
@@ -270,7 +270,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	readObject { :self |
-		| object = JsonObject(); |
+		let object = JsonObject();
 		self.read;
 		self.skipWhiteSpace;
 		(self.readChar('}')).if {
@@ -330,7 +330,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	readStringInternal { :self |
-		| string |
+		let string |
 		self.read;
 		self.startCapture;
 		{ self.current = '"' }.whileFalse {
@@ -368,7 +368,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	readNumber { :self |
-		| firstDigit |
+		let firstDigit |
 		self.startCapture;
 		self.readChar('-');
 		firstDigit := self.current;
@@ -463,7 +463,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	endCapture { :self |
-		| captured |
+		let captured |
 		('' = self.captureBuffer).if {
 			captured := self.input.copyFromTo(self.captureStart, self.index - 1)
 		} {

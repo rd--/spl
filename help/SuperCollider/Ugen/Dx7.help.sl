@@ -1,5 +1,5 @@
 (* Dx7 ; data at local buffer ; event control *)
-var voiceData = [
+let voiceData = [
 	25 21 98 38 99  0 99  0 36 17 87  2  1 0 0 0 59  0  1 1 8
 	66 69 60 35  0  0 98  0  0  0  4  0  0 0 0 1 90  0  1 0 8
 	25 21 98 38 99  0 99  2 35 15 79  3  1 1 0 0 91  1  0 0 6
@@ -8,15 +8,15 @@ var voiceData = [
 	98 56 63 23 99 89 74  2  0  4  1  0  0 0 0 0 99  0  1 0 7
 	99 99 99 99 50 50 50 50  3  2  1 29 99 1 0 0  0  1 24
 ];
-var buf = voiceData.asLocalBuf;
+let buf = voiceData.asLocalBuf;
 Voicer(1, 16) { :e |
-	var x0 = Latch(e.x, e.w);
-	var dx7 = Dx7(buf, e.w, 0, 0, 0, e.x * 24 + 48, e.z, (8192 * (e.x - x0)), 0, 0, 0);
+	let x0 = Latch(e.x, e.w);
+	let dx7 = Dx7(buf, e.w, 0, 0, 0, e.x * 24 + 48, e.z, (8192 * (e.x - x0)), 0, 0, 0);
 	EqPan2(dx7, e.i * 2 - 1)
 }.Mix
 
 (* Dx7 ; data at local buffer, random notes *)
-var voiceData = [
+let voiceData = [
 	25 21 98 38 99  0 99  0 36 17 87  2  1 0 0 0 59  0  1 1 8
 	66 69 60 35  0  0 98  0  0  0  4  0  0 0 0 1 90  0  1 0 8
 	25 21 98 38 99  0 99  2 35 15 79  3  1 1 0 0 91  1  0 0 6
@@ -25,9 +25,9 @@ var voiceData = [
 	98 56 63 23 99 89 74  2  0  4  1  0  0 0 0 0 99  0  1 0 7
 	99 99 99 99 50 50 50 50  3  2  1 29 99 1 0 0  0  1 24
 ];
-var buf = voiceData.asLocalBuf;
+let buf = voiceData.asLocalBuf;
 {
-	var tr = Dust(1 / 16).kr;
-	var dx7 = Dx7(buf, tr, 0, 0, 0, TRand(48, 72, tr), TRand(0.1, 0.6, tr), 0, 0, 0, 0);
+	let tr = Dust(1 / 16).kr;
+	let dx7 = Dx7(buf, tr, 0, 0, 0, TRand(48, 72, tr), TRand(0.1, 0.6, tr), 0, 0, 0, 0);
 	EqPan2(dx7, TRand(-1, 1, tr))
 } !> 16 * 0.25

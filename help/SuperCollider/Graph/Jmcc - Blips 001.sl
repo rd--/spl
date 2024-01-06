@@ -1,13 +1,13 @@
 (* blips 001 (jmcc) #SC3d1.5 ; graph rewrite *)
-var z = { :tr |
-	var blips = {
-		var f = TxLine(
+let z = { :tr |
+	let blips = {
+		let f = TxLine(
 			TExpRand(0.25, 400, tr),
 			TExpRand(0.25, 400, tr),
 			4,
 			tr
 		);
-		var nh = TLine(
+		let nh = TLine(
 			TExpRand(2, 100, tr),
 			TExpRand(2, 100, tr),
 			4,

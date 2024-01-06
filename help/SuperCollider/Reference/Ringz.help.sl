@@ -18,7 +18,7 @@ Resonant noise:
 
 Modulate frequency:
 
-	var freq = XLine(100, 3000, 10);
+	let freq = XLine(100, 3000, 10);
 	[
 		Ringz(WhiteNoise() * 0.005, freq, 0.5),
 		Ringz(Impulse(6, 0) * 0.1, freq, 0.5)
@@ -34,7 +34,7 @@ Modulate ring time opposite direction:
 
 Parallel filters with frequency ramps:
 
-	var exciter = WhiteNoise() * 0.001;
+	let exciter = WhiteNoise() * 0.001;
 	{
 		Ringz(
 			exciter,
@@ -50,7 +50,7 @@ Parallel filters with frequency ramps:
 Texture of above:
 
 	{ :tr |
-		var exciter = WhiteNoise() * 0.001;
+		let exciter = WhiteNoise() * 0.001;
 		{
 			Ringz(
 				exciter,

@@ -12,11 +12,11 @@ the allocator generates five trigger signals (_r_),
 each controls a _SinOsc_ (_o_) with distinct
 frequency (_f_) and envelope (_e_).
 
-	var t = Impulse(4, 0);
-	var r = TrigRoundRobin(5, t);
-	var f = TiRand(48, 72, r).MidiCps;
-	var e = Decay2(r, 0.05, 2);
-	var o = SinOsc(f, 0) * e;
+	let t = Impulse(4, 0);
+	let r = TrigRoundRobin(5, t);
+	let f = TiRand(48, 72, r).MidiCps;
+	let e = Decay2(r, 0.05, 2);
+	let o = SinOsc(f, 0) * e;
 	o.Splay
 
 * * *

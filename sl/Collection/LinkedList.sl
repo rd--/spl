@@ -26,7 +26,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	addFirst { :self :aLinkOrObject |
-		| aLink = aLinkOrObject.asLink; |
+		let aLink = aLinkOrObject.asLink;
 		self.isEmpty.ifTrue {
 			self.lastLink := aLink
 		};
@@ -36,7 +36,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	addLast { :self :aLinkOrObject |
-		| aLink = aLinkOrObject.asLink; |
+		let aLink = aLinkOrObject.asLink;
 		self.isEmpty.if {
 			self.firstLink := aLink
 		} {
@@ -47,7 +47,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	asArray { :self |
-		| answer = Array(self.size), index = 1; |
+		let answer = Array(self.size), index = 1;
 		self.do { :each |
 			answer[index] := each;
 			index +:= 1
@@ -77,10 +77,8 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 				self.lastLink := aLink
 			}
 		} {
-			|(
-				previousLink = self.linkAt(index - 1),
-				nextLink = previousLink.nextLink.nextLink
-			)|
+			let previousLink = self.linkAt(index - 1);
+			let nextLink = previousLink.nextLink.nextLink;
 			nextLink.ifNil {
 				aLink.nextLink(self.lastLink)
 			} {
@@ -96,10 +94,8 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	collect { :self :aBlock:/1 |
-		|(
-			aLink = self.firstLink,
-			answer = LinkedList()
-		)|
+		let aLink = self.firstLink;
+		let answer = LinkedList();
 		{
 			aLink = nil
 		}.whileFalse {
@@ -110,7 +106,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	do { :self :aBlock:/1 |
-		| aLink = self.firstLink; |
+		let aLink = self.firstLink;
 		{
 			aLink = nil
 		}.whileFalse {
@@ -130,7 +126,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	linkAtIfAbsent { :self :index :errorBlock:/0 |
-		| counter = 0; |
+		let counter = 0;
 		valueWithReturn { :return:/1 |
 			self.linksDo { :link |
 				counter +:= 1;
@@ -160,7 +156,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	linksDo { :self :aBlock:/1 |
-		| aLink = self.firstLink; |
+		let aLink = self.firstLink;
 		{
 			aLink = nil
 		}.whileFalse {
@@ -178,7 +174,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 
 	postCopy { :self |
 		self.firstLink.ifNotNil {
-			| aLink = self.firstLink := self.firstLink.copy; |
+			let aLink = self.firstLink := self.firstLink.copy;
 			{ aLink.nextLink.isNil }.whileFalse {
 				aLink.nextLink(aLink := aLink.nextLink.copy)
 			};
@@ -200,7 +196,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	removeFirst { :self |
-		| oldLink = self.firstLink; |
+		let oldLink = self.firstLink;
 		self.emptyCheck;
 		(self.firstLink == self.lastLink).if {
 			self.removeAll
@@ -212,7 +208,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	removeIfAbsent { :self :aLinkOrObject :aBlock:/0 |
-		| link = self.linkOfIfAbsent(aLinkOrObject, aBlock:/0); |
+		let link = self.linkOfIfAbsent(aLinkOrObject, aBlock:/0);
 		self.removeLinkIfAbsent(link) {
 			aBlock()
 		};
@@ -220,7 +216,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	removeLast { :self |
-		| oldLink = self.lastLink, aLink = nil; |
+		let oldLink = self.lastLink, aLink = nil;
 		self.emptyCheck;
 		(self.firstLink == self.lastLink).if {
 			self.removeAll
@@ -246,7 +242,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 					self.lastLink := nil
 				}
 			} {
-				| tempLink = self.firstLink; |
+				let tempLink = self.firstLink;
 				{
 					tempLink.ifNil {
 						aBlock().return
@@ -265,7 +261,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	select { :self :aBlock:/1 |
-		| answer = LinkedList(); |
+		let answer = LinkedList();
 		self.do { :each |
 			each.aBlock.ifTrue {
 				answer.add(each)
@@ -287,7 +283,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 +@Collection {
 
 	asLinkedList { :self |
-		| answer = LinkedList(); |
+		let answer = LinkedList();
 		self.do { :each |
 			answer.add(each)
 		};

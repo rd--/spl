@@ -1,5 +1,5 @@
 (* blips 001 (jmcc) #SC3d1.5 *)
-var blipProc = {
+let blipProc = {
 	Blip(
 		XLine(ExpRand(0.25, 400), ExpRand(0.25, 400), 4),
 		XLine(ExpRand(2, 100), ExpRand(2, 100), 4)
@@ -7,7 +7,7 @@ var blipProc = {
 };
 {
 	if(0.8.coin) {
-		var z = EqPan(
+		let z = EqPan(
 			blipProc() * blipProc(),
 			Line(1.Rand2, 1.Rand2, 4)
 		).Distort * 0.3;

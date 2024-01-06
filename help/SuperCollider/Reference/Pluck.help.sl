@@ -25,8 +25,8 @@ Excitation signal is WhiteNoise, triggered twice a second with varying OnePole c
 
 Randomised duplicates:
 
-	var k = 12;
-	var freq = SinOsc(
+	let k = 12;
+	let freq = SinOsc(
 		{ Rand(0.01, 0.15) } ! k,
 		{ Rand(0, 1) } ! k
 	).Range(777, 3333);

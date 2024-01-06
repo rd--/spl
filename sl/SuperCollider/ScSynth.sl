@@ -107,7 +107,7 @@ ScSynth! : [Object] {
 	}
 
 	draw { :self |
-		| scSynDefFileName = '/tmp/splDraw.scsyndef'; |
+		let scSynDefFileName = '/tmp/splDraw.scsyndef';
 		self.writeScSynDefFile(
 			'Anonymous',
 			scSynDefFileName
@@ -147,15 +147,13 @@ ScSynth! : [Object] {
 	}
 
 	plot { :self :duration |
-		|(
-			graphDef = 'Anonymous'.encodeUgenAt(self.busOffset, self),
-			scSynDefFileName = '/tmp/splPlot.scsyndef',
-			numberOfChannels = self.isCollection.if {
-				self.size
-			} {
-				1
-			}
-		)|
+		let graphDef = 'Anonymous'.encodeUgenAt(self.busOffset, self);
+		let scSynDefFileName = '/tmp/splPlot.scsyndef';
+		let numberOfChannels = self.isCollection.if {
+			self.size
+		} {
+			1
+		};
 		scSynDefFileName.writeFile(graphDef).then { :unused |
 			system.systemCommand(
 				'hsc3-plot',
@@ -174,9 +172,7 @@ ScSynth! : [Object] {
 	}
 
 	writeScSynDefFile { :self :scSynDefName :scSynDefFileName |
-		|(
-			graphDef = scSynDefName.encodeUgenAt(self.busOffset, self)
-		)|
+		let graphDef = scSynDefName.encodeUgenAt(self.busOffset, self);
 		scSynDefFileName.writeFile(graphDef)
 	}
 

@@ -6,6 +6,6 @@ _Delay2(in)_
 
 Original, with delayed subtracted from original:
 
-	var z = Dust(1000);
+	let z = Dust(1000);
 	[z, z - Delay2(z)]
 

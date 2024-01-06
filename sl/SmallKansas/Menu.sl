@@ -70,18 +70,16 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 		self.menuList.removeAllChildren;
 		self.menuList.size := entries.size;
 		entries.collect { :menuItem |
-			|(
-				listItem = TextOption(menuItem.displayText),
-				pointerBegin = { :event |
-					event.stopPropagationAndPreventDefault;
-					menuItem.onSelect . (event);
-					self.isTransient.ifTrue {
-						self.frame.ifNotNil {
-							self.frame.close
-						}
+			let listItem = TextOption(menuItem.displayText);
+			let pointerBegin = { :event |
+				event.stopPropagationAndPreventDefault;
+				menuItem.onSelect . (event);
+				self.isTransient.ifTrue {
+					self.frame.ifNotNil {
+						self.frame.close
 					}
 				}
-			)|
+			};
 			self.menuList.appendChild(listItem);
 			listItem.addEventListener('pointerdown', pointerBegin:/1)
 		}
@@ -100,10 +98,8 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 +SmallKansas {
 
 	menu { :self :title :entries :isTransient :event |
-		|(
-			menu = Menu(title, entries),
-			frame = self.addFrame(menu, event)
-		)|
+		let menu = Menu(title, entries);
+		let frame = self.addFrame(menu, event);
 		menu.isTransient := isTransient;
 		frame
 	}

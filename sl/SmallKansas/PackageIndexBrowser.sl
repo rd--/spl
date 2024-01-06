@@ -3,10 +3,8 @@
 +SmallKansas  {
 
 	PackageIndexBrowser { :self |
-		|(
-			packages = system.packageDictionary.values,
-			packageCategories = packages.collect(category:/1).copyWithoutDuplicates.sort
-		)|
+		let packages = system.packageDictionary.values;
+		let packageCategories = packages.collect(category:/1).copyWithoutDuplicates.sort;
 		self.ColumnBrowser('Package Index Browser', 'text/plain', false, true, [1, 3], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
@@ -22,7 +20,7 @@
 					}.sort
 				},
 				2 -> {
-					| package = system.packageDictionary[path[2]]; |
+					let package = system.packageDictionary[path[2]];
 					browser.setStatus('Loaded: ' ++ package.isLoaded.asString);
 					package.text
 				}

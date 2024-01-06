@@ -1,12 +1,12 @@
 (* Bowed string (Jmcc) ; texture ; graph rewrite *)
 { :tr |
-	var root = 5;
-	var scale = [0 2 4 5 7 9 11] + root;
-	var oct = [24 36 48 60 72 84];
-	var f = (Choose(tr, scale) + Choose(tr, oct)).MidiCps;
-	var e = (LfNoise1(TExpRand(0.125, 0.5, tr)) * 0.6 + 0.4).Max(0);
-	var x = BrownNoise(2) * 0.007 * e;
-	var k = DynRingzBank(
+	let root = 5;
+	let scale = [0 2 4 5 7 9 11] + root;
+	let oct = [24 36 48 60 72 84];
+	let f = (Choose(tr, scale) + Choose(tr, oct)).MidiCps;
+	let e = (LfNoise1(TExpRand(0.125, 0.5, tr)) * 0.6 + 0.4).Max(0);
+	let x = BrownNoise(2) * 0.007 * e;
+	let k = DynRingzBank(
 		x,
 		12.arithmeticSeries(f, f),
 		12.geometricSeries(1, TRand(0.7, 0.9, tr)),

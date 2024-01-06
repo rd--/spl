@@ -1,11 +1,11 @@
 (* slow beating sines (jmcc) #7 ; graph rewrite ; requires Array>>add *)
 { :tr |
-	var n = 20;
-	var p = [];
-	var q = [];
+	let n = 20;
+	let p = [];
+	let q = [];
 	n.timesRepeat {
-		var freq = TRand(24, 84, tr).MidiCps;
-		var d = 5;
+		let freq = TRand(24, 84, tr).MidiCps;
+		let d = 5;
 		p.add(freq);
 		{ p.add(freq + TRand(d.negated, d, tr)) } ! 2;
 		{ q.add(freq + TRand(d.negated, d, tr)) } ! 3

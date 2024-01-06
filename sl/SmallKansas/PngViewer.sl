@@ -3,7 +3,7 @@
 PngViewer : [Object, View] { | pngPane title pngData pngUrl |
 
 	createElements { :self |
-		| img = 'img'.createElement; |
+		let img = 'img'.createElement;
 		self.pngPane := 'div'.createElement (
 			class: 'pngPane'
 		);

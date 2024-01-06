@@ -1,7 +1,7 @@
 Scale : [Object] { | startIndex intervals description |
 
 	fractionalDegreeToKey { :self :scaleDegree |
-		| accidental = (scaleDegree.fractionPart * 10).rounded; |
+		let accidental = (scaleDegree.fractionPart * 10).rounded;
 		(accidental > 5).ifTrue {
 			accidental := (10 - accidental).negated
 		};
@@ -9,11 +9,9 @@ Scale : [Object] { | startIndex intervals description |
 	}
 
 	integerDegreeToKey { :self :scaleDegree :accidental |
-		|(
-			stepsPerOctave = self.tuningSize,
-			tuningIndices = self.tuningIndices,
-			baseKey = (stepsPerOctave * (scaleDegree // (self.size + 1))) + tuningIndices.atWrap(scaleDegree)
-		)|
+		let stepsPerOctave = self.tuningSize;
+		let tuningIndices = self.tuningIndices;
+		let baseKey = (stepsPerOctave * (scaleDegree // (self.size + 1))) + tuningIndices.atWrap(scaleDegree);
 		(accidental = 0).if {
 			baseKey
 		} {
@@ -30,7 +28,9 @@ Scale : [Object] { | startIndex intervals description |
 	}
 
 	tuningIndices { :self |
-		| sum = self.startIndex, answer = [sum], tuningSize = self.tuningSize; |
+		let sum = self.startIndex;
+		let answer = [sum];
+		let tuningSize = self.tuningSize;
 		self.intervals.allButLastDo { :item |
 			sum := ((sum - 1 + item) % tuningSize) + 1; (* one-indexed modulo *)
 			answer.add(sum)
@@ -55,7 +55,7 @@ Scale : [Object] { | startIndex intervals description |
 +Array {
 
 	Scale { :self |
-		| [startIndex, intervals, description] = self; |
+		let [startIndex, intervals, description] = self;
 		Scale(startIndex, intervals, description)
 	}
 

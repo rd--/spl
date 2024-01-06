@@ -1,9 +1,9 @@
 (* https://sccode.org/1-4Qy ; f0 ; 0293 *)
 { :t :a |
-	var d;
+	let d;
 	{
-		var i = a[1];
-		var b = Saw(i);
+		let i = a[1];
+		let b = Saw(i);
 		d := 1 / i;
 		Release(
 			EqPan(

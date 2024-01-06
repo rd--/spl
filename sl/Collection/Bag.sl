@@ -37,7 +37,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 	}
 
 	cumulativeCounts { :self |
-		| s = self.size / 100.0, n = 0; |
+		let s = self.size / 100.0, n = 0;
 		self.sortedCounts.collect { :a |
 			n +:= a.key;
 			(n / s.roundTo(0.1)) -> a.value
@@ -81,7 +81,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 
 	removeIfAbsent { :self :oldObject :whenAbsent:/0 |
 		self.includes(oldObject).if {
-			| count = self.contents[oldObject]; |
+			let count = self.contents[oldObject];
 			(count = 1).if {
 				self.contents.removeKey(oldObject)
 			} {
@@ -102,7 +102,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 	}
 
 	size { :self |
-		| tally = 0; |
+		let tally = 0;
 		self.contents.do { :each |
 			tally +:= each
 		};
@@ -110,7 +110,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 	}
 
 	sortedCounts { :self |
-		| answer = []; |
+		let answer = [];
 		self.contents.associationsDo { :anAssociation |
 			answer.add(anAssociation.value -> anAssociation.key)
 		};
@@ -133,7 +133,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 		self.ifEmpty {
 			self.error('sum: empty')
 		} {
-			| sum = 0; |
+			let sum = 0;
 			self.contents.withIndexDo { :count :value |
 				sum +:= value * count
 			};
@@ -158,7 +158,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 +@Collection {
 
 	asBag { :self |
-		| answer = Bag(); |
+		let answer = Bag();
 		answer.addAll(self);
 		answer
 	}

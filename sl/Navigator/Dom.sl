@@ -50,7 +50,7 @@
 	}
 
 	createElement { :self :tagName :attributeDictionary |
-		| element = self.createElement(tagName); |
+		let element = self.createElement(tagName);
 		element.setAttributes(attributeDictionary);
 		element
 	}
@@ -64,7 +64,7 @@
 	}
 
 	createSvgElement { :self :tagName :attributeDictionary |
-		| element = self.createSvgElement(tagName); |
+		let element = self.createSvgElement(tagName);
 		element.setAttributesNS(nil, attributeDictionary);
 		element
 	}
@@ -659,9 +659,9 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 +@Sequenceable {
 
 	asHtmlRow { :self :toString:/1 |
-		| tr = 'tr'.createElement; |
+		let tr = 'tr'.createElement;
 		self.do { :cell |
-			| td = 'td'.createElement; |
+			let td = 'td'.createElement;
 			td.textContent(cell.toString);
 			tr.appendChild(td)
 		};
@@ -673,7 +673,7 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 	}
 
 	asHtmlTable { :self :toString:/1 |
-		| table = 'table'.createElement; |
+		let table = 'table'.createElement;
 		self.do { :row |
 			table.appendChild(
 				row.asHtmlRow(toString:/1)
@@ -1009,11 +1009,9 @@ Text! : [Object, EventTarget, Node, CharacterData] {
 
 
 	wordAtCaret { :self |
-		|(
-			selection = self.getSelection,
-			text = selection.focusNode.textContent,
-			index = selection.focusOffset
-		)|
+		let selection = self.getSelection;
+		let text = selection.focusNode.textContent;
+		let index = selection.focusOffset;
 		text.wordAtIndex(index)
 	}
 

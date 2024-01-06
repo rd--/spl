@@ -11,15 +11,13 @@ CategoryBrowser : [Object, SmallKansan] {
 +SmallKansas {
 
 	CategoryBrowser { :self |
-		|(
-			typeNames = system.typeDictionary.indicesSorted,
-			typeCategoryDictionary = system.categoryDictionary.domain('type'),
-			typeCategoryNames = typeCategoryDictionary.indicesSorted,
-			methodCategoryDictionary = system.categoryDictionary.domain('method'),
-			completeMethodSet = nil,
-			methodSet = nil,
-			selectedMethod = nil
-		)|
+		let typeNames = system.typeDictionary.indicesSorted;
+		let typeCategoryDictionary = system.categoryDictionary.domain('type');
+		let typeCategoryNames = typeCategoryDictionary.indicesSorted;
+		let methodCategoryDictionary = system.categoryDictionary.domain('method');
+		let completeMethodSet = nil;
+		let methodSet = nil;
+		let selectedMethod = nil;
 		self.ColumnBrowser('Category Browser', 'text/plain', false, true, [1, 1, 1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |

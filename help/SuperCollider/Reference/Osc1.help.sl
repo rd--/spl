@@ -9,7 +9,7 @@ An oscillator that reads through a table only once.
 
 Pitch class table, linear interpolation, first slowly, then quickly, then slowly again:
 
-	var tbl = [0 2 10 12].asLocalBuf;
+	let tbl = [0 2 10 12].asLocalBuf;
 	SinOsc((Osc1(tbl, 5) + 48).MidiCps, 0) * 0.1
 
 * * *

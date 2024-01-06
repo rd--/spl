@@ -1,5 +1,5 @@
-(* analog bubbles ; jmcc *)
-var f = MulAdd(
+(* Analog bubbles ; Jmcc *)
+let f = MulAdd(
 	LfSaw(0.4, 0),
 	24,
 	MulAdd(LfSaw([8, 7.23], 0), 3, 80)

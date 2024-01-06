@@ -1,5 +1,5 @@
 (* 20061023 ; rd *)
-var tr = Impulse(
+let tr = Impulse(
 	Slope(SinOsc(LfNoise0([0.5, 1.5]), 0)).Abs * [2, 3],
 	0
 );

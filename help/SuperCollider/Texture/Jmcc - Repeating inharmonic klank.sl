@@ -1,8 +1,8 @@
 (* Repeating inharmonic klank ; Jmcc #6 *)
-var n = 4;
+let n = 4;
 {
-	var s = Decay(Dust(0.8) * 0.004, 3.4) * LfSaw(Rand(0, 40), 0);
-	var p = 8;
+	let s = Decay(Dust(0.8) * 0.004, 3.4) * LfSaw(Rand(0, 40), 0);
+	let p = 8;
 	{
 		RingzBank(
 			s,

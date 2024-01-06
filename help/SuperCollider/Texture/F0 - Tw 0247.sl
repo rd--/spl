@@ -1,7 +1,7 @@
 (* https://sccode.org/1-4Qy ; f0 ; 0247 *)
 (0 .. 137).collectTexture { :i |
-	var j = i // 100 + 1;
-	var o = Blip(
+	let j = i // 100 + 1;
+	let o = Blip(
 		i * j % [99 98 97 96] + 1,
 		i * j % [98 97 96 95] + 1
 	);

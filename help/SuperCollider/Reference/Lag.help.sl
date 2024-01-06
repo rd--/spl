@@ -9,7 +9,7 @@ This is essentially the same as OnePole except that instead of supplying the coe
 
 As filter:
 
-	var x = LfPulse(300, 0, 0.5) * 0.1;
+	let x = LfPulse(300, 0, 0.5) * 0.1;
 	[x, Lag(x, 0.002)]
 
 Used to lag pitch:

@@ -1,5 +1,5 @@
 (* https://twitter.com/redFrik/status/582277939653439489 *)
-var b = [0.999 .. 9];
+let b = [0.999 .. 9];
 Hpf(
 	MoogFf(
 		LfSaw(50 * b, 0) - (Blip(LfSaw(b, 0) + 9, b * 99) * 9),

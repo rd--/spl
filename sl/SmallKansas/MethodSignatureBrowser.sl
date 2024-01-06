@@ -1,7 +1,7 @@
 +SmallKansas {
 
 	MethodSignatureBrowser { :self :methods :withFilter |
-		| selectedMethod = nil; |
+		let selectedMethod = nil;
 		self.ColumnBrowser('Method Signature Browser', 'text/plain', withFilter, true, [1], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |

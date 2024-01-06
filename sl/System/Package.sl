@@ -20,11 +20,9 @@ Package! : [Object] {
 
 	addDependenciesTo { :self :aSequence |
 		self.requires.ifNotEmpty { :packageNames |
-			|(
-				packages = packageNames.collect { :each |
-					system.package(each)
-				}
-			)|
+			let packages = packageNames.collect { :each |
+				system.package(each)
+			};
 			aSequence.addAllFirst(packages);
 			packages.do { :each |
 				each.addDependenciesTo(aSequence)
@@ -37,14 +35,14 @@ Package! : [Object] {
 	}
 
 	dependencies { :self |
-		| answer = []; |
+		let answer = [];
 		self.addDependenciesTo(answer);
 		answer.copyWithoutDuplicates
 	}
 
 	require { :self |
 		self.isLoaded.ifFalse {
-			| requirements = self.dependencies.reject(isLoaded:/1).collect(name:/1); |
+			let requirements = self.dependencies.reject(isLoaded:/1).collect(name:/1);
 			(requirements ++ [self.name]).primitiveLoadPackageSequence
 		}
 	}
@@ -112,12 +110,12 @@ Package! : [Object] {
 	}
 
 	parsePackageHeader { :self |
-		| fields = self.firstMlComment.splitBy(','); |
+		let fields = self.firstMlComment.splitBy(',');
 		fields.collect { :each |
-			| [key, value] = each.withBlanksTrimmed.splitBy(': '); |
+			let [key, value] = each.withBlanksTrimmed.splitBy(': ');
 			key.caseOfOtherwise([
 				'Package' -> {
-					| [category, name] = value.withBlanksTrimmed.parseQualifiedPackageName; |
+					let [category, name] = value.withBlanksTrimmed.parseQualifiedPackageName;
 					['Category' -> category, 'Name' -> name]
 				},
 				'Requires' -> {
@@ -130,7 +128,7 @@ Package! : [Object] {
 	}
 
 	parseQualifiedPackageName { :self |
-		| [category, name] = self.splitBy('-'); |
+		let [category, name] = self.splitBy('-');
 		[category, name]
 	}
 
@@ -175,10 +173,8 @@ Package! : [Object] {
 
 	package { :self :name |
 		name.isQualifiedPackageName.if {
-			|(
-				[categoryName, packageName] = name.parseQualifiedPackageName,
-				package = self.packageDictionary[packageName]
-			)|
+			let [categoryName, packageName] = name.parseQualifiedPackageName;
+			let package = self.packageDictionary[packageName];
 			(
 				categoryName = package.category & {
 					self.includesPackage(packageName)

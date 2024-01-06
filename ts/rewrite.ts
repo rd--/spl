@@ -257,12 +257,6 @@ const asJs: ohm.ActionDict<string> = {
 	TemporariesWithoutInitializers(_leftVerticalBar, tmp, _rightVerticalBar) {
 		return `let ${commaList(tmp.children)};`;
 	},
-	TemporariesParenSyntax(_leftParen, tmp, _rightParen) {
-		return `let ${commaList(tmp.asIteration().children)};`;
-	},
-	TemporariesVarWithoutInitializersSyntax(_var, tmp, _semicolon) {
-		return `let ${commaList(tmp.asIteration().children)};`;
-	},
 	TemporariesVarWithInitializersSyntax(_var, tmp, _semicolon) {
 		return `let ${commaList(tmp.asIteration().children)};`;
 	},

@@ -1,8 +1,8 @@
 (* repeating inharmonic klank ; jmcc #6 ; graph rewrite *)
-var n = 4;
-var p = 8;
+let n = 4;
+let p = 8;
 { :tr |
-	var s = Decay(Dust(0.8) * 0.004, 3.4) * LfSaw(TRand(0, 40, tr), 0);
+	let s = Decay(Dust(0.8) * 0.004, 3.4) * LfSaw(TRand(0, 40, tr), 0);
 	{
 		RingzBank(
 			s,

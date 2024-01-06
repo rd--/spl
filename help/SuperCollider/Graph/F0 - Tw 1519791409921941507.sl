@@ -1,16 +1,16 @@
 (* https://twitter.com/redFrik/status/1519791409921941507 ; f0 *)
-var f = { :freq |
+let f = { :freq |
 	SinOsc(freq, [0, 5])
 };
-var g = f(5);
-var i = (f(1) * f(0.005) + 1.02).RoundTo(1);
-var j = [
+let g = f(5);
+let i = (f(1) * f(0.005) + 1.02).RoundTo(1);
+let j = [
 	(g / 2 + 1).RoundTo(1) / 9 ^ i,
 	30,
 	(g * 3 + 40)
 ].product;
-var h = BLowPass(f(0.1) / 8 + 0.5 * f(252) * g, j, 0.05);
-var c = [
+let h = BLowPass(f(0.1) / 8 + 0.5 * f(252) * g, j, 0.05);
+let c = [
 	f(25 + f(50.01) * h * 50),
 	f(50.5 * f(50) / 5 + 0.5),
 	f(0.505)

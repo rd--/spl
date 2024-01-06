@@ -1,7 +1,7 @@
 (* 20061027 ; rd *)
-var h0 = {
-	var f = 40;
-	var h = HenonN(
+let h0 = {
+	let f = 40;
+	let h = HenonN(
 		[f, f * 0.5],
 		LfNoise0(1) * 0.2 + 1.2,
 		LfNoise0(1) * 0.15 + 0.15,
@@ -10,10 +10,10 @@ var h0 = {
 	);
 	Saw(h * 3200 + 1600) * 0.35
 };
-var h1 = {
-	var n = LfNoise0(2);
-	var p = n.Range(2400, 3200);
-	var o = Blip(
+let h1 = {
+	let n = LfNoise0(2);
+	let p = n.Range(2400, 3200);
+	let o = Blip(
 		HenonN(
 			40,
 			MouseX(1.2, 1.4, 0, 0.1),

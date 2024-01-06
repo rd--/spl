@@ -1,7 +1,7 @@
 (* sturmian sequencer ii (jrhb) *)
-var rules = [[0, 1], [0]];
-var rewrite = { :c :n |
-	var r = c;
+let rules = [[0, 1], [0]];
+let rewrite = { :c :n |
+	let r = c;
 	n.timesRepeat {
 		r := r.collect { :e |
 			rules[e + 1]
@@ -9,13 +9,13 @@ var rewrite = { :c :n |
 	};
 	r
 };
-var n = 7;
+let n = 7;
 (0 .. n - 1).collect { :i |
-	var str = rewrite([0], i + 6);
-	var dt = 2 ^ (n - i).negated * 20;
-	var trig = TDuty(dt, 0, Dseq(1, str));
-	var freq = TExpRand(200, (n - i) / n * 10100, trig);
-	var trigFlt = Bpf(trig, LfNoise2(0.1) * 0.02 + 1 * freq, 0.2);
+	let str = rewrite([0], i + 6);
+	let dt = 2 ^ (n - i).negated * 20;
+	let trig = TDuty(dt, 0, Dseq(1, str));
+	let freq = TExpRand(200, (n - i) / n * 10100, trig);
+	let trigFlt = Bpf(trig, LfNoise2(0.1) * 0.02 + 1 * freq, 0.2);
 	Ringz(
 		trigFlt,
 		freq * [1, 1.1, 1.2],

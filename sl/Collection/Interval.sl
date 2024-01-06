@@ -53,7 +53,8 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 	}
 
 	collect { :self :aBlock:/1 |
-		| result = Array(self.size), index = 1; |
+		let result = Array(self.size);
+		let index = 1;
 		self.do { :nextValue |
 			result[index] := aBlock(nextValue);
 			index +:= 1
@@ -74,7 +75,8 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 	}
 
 	do { :self :aBlock:/1 |
-		| nextValue = self.start, endValue = self.stop; |
+		let nextValue = self.start;
+		let endValue = self.stop;
 		(self.step > 0).if {
 			{ nextValue <= endValue }.whileTrue {
 				aBlock(nextValue);
@@ -121,7 +123,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 		self.isEmpty.if {
 			self.error('removeFirst: empty interval')
 		} {
-			| removed = self.start; |
+			let removed = self.start;
 			self.start +:= self.step;
 			removed
 		}
@@ -131,7 +133,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 		self.isEmpty.if {
 			self.error('removeLast: empty interval')
 		} {
-			| removed = self.stop; |
+			let removed = self.stop;
 			self.stop -:= self.step;
 			removed
 		}
@@ -146,14 +148,12 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 	}
 
 	reverseDo { :self :aBlock:/1 |
-		|(
-			each = self.last,
-			predicate = (self.step < 0).if {
-				{ self.start >= each }
-			} {
-				{ self.start <= each }
-			}
-		)|
+		let each = self.last;
+		let predicate = (self.step < 0).if {
+			{ self.start >= each }
+		} {
+			{ self.start <= each }
+		};
 		predicate.whileTrue {
 			aBlock(each);
 			each -:= self.step
@@ -161,7 +161,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 	}
 
 	size { :self |
-		| derived = (self.stop - self.start).quotient(self.step) + 1; |
+		let derived = (self.stop - self.start).quotient(self.step) + 1;
 		(self.step < 0).if {
 			(self.start < self.stop).if {
 				0

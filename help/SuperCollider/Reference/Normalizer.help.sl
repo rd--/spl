@@ -10,7 +10,7 @@ Normalizes the input amplitude to the given level. Normalize will not overshoot 
 
 Unprocessed signal at left, normalized at right:
 
-	var z = Decay2(
+	let z = Decay2(
 		Impulse(8, 0) * (LfSaw(0.25, 0) * -0.6 + 0.7),
 		0.001,
 		0.3

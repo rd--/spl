@@ -1,19 +1,17 @@
 DigitalClock : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		|(
-			getTime = {
-				system.Date.localeTimeString('en-US')
-			},
-			textEditor = smallKansas.TextEditor(
-				'Digital Clock',
-				'text/plain',
-				getTime()
-			),
-			frame = smallKansas.addFrameWithAnimator(textEditor, event, 1) {
-				textEditor.setEditorText(getTime())
-			}
-		)|
+		let getTime = {
+			system.Date.localeTimeString('en-US')
+		};
+		let textEditor = smallKansas.TextEditor(
+			'Digital Clock',
+			'text/plain',
+			getTime()
+		);
+		let frame = smallKansas.addFrameWithAnimator(textEditor, event, 1) {
+			textEditor.setEditorText(getTime())
+		};
 		textEditor.editable := false;
 		frame.outerElement.style.setProperties((height: '1em', width: '18em'));
 		frame

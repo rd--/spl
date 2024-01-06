@@ -222,7 +222,7 @@ let n = 6; (* number of keys playing *)
 (********** Strummable silk ; Jmcc **********)
 let mousex = MouseX(0, 1, 0, 0.2);
 let out = (1 .. 8).collect { :ix |
-	var n = 15;
+	let n = 15;
 	(* place trigger points from 0.25 to 0.75 *)
 	let trigger = Hpz1(mousex > (0.25 + (ix - 1 * 0.07))).Abs;
 	let pluck = PinkNoise() * Decay(Impulse(14, 0).Mul(Lag(Trig(trigger, 1), 0.2) * 0.01), 0.04);

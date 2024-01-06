@@ -1,7 +1,7 @@
 CategoryDictionary : [Object] { | domainDictionary |
 
 	categoriesOf { :self :domain :entry |
-		| dictionary = self.domain(domain); |
+		let dictionary = self.domain(domain);
 		dictionary.indices.select { :each |
 			dictionary[each].includes(entry)
 		}
@@ -18,7 +18,7 @@ CategoryDictionary : [Object] { | domainDictionary |
 	}
 
 	categorizeAll { :self :domain :category :entries |
-		| simpleCategory = category.splitBy('-').first; |
+		let simpleCategory = category.splitBy('-').first;
 		self.category(domain, simpleCategory).includeAll(entries)
 	}
 
@@ -39,7 +39,7 @@ CategoryDictionary : [Object] { | domainDictionary |
 	}
 
 	categoryOf { :self :domain :entry |
-		| all = self.categoriesOf(domain, entry); |
+		let all = self.categoriesOf(domain, entry);
 		all.size.caseOfOtherwise([
 			0 -> {
 				self.categorize(domain, '*Uncategorized*', entry);
@@ -54,7 +54,7 @@ CategoryDictionary : [Object] { | domainDictionary |
 	}
 
 	categoryOf { :self :entry |
-		| answer = self.categoriesOf(entry); |
+		let answer = self.categoriesOf(entry);
 		answer.size.caseOfOtherwise([
 			{ 0 } -> { '*Uncategorized*' },
 			{ 1 } -> { answer.first }
@@ -74,7 +74,7 @@ CategoryDictionary : [Object] { | domainDictionary |
 	}
 
 	entries { :self |
-		| answer = Set(); |
+		let answer = Set();
 		self.domainDictionary.do { :each |
 			each.valuesDo { :item |
 				answer.includeAll(item)

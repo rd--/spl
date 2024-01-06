@@ -1,6 +1,6 @@
 (* lots-o-sins (jmcc) #2 *)
 {
-	var n = 60;
+	let n = 60;
 	{
 		SinOscBank(
 			{ 40 + LinRand(0, 10000, 0) } ! n,

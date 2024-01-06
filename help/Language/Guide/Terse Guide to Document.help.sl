@@ -19,7 +19,7 @@ system.window.prompt('A prompt ', '23') (* cli *)
 ## Window -- document
 ```
 system.window.document.body
-var b = system.window.document.body; var e = 'div'.createElement; e.append(['Some text']); b.append([e])
+let b = system.window.document.body; let e = 'div'.createElement; e.append(['Some text']); b.append([e])
 system.window.getSelectedText
 'helpButton'.getElementById.click
 'helpButton'.getElementById.style.getPropertyValue('font-size')

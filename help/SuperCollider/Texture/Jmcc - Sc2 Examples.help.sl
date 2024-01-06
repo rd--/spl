@@ -186,6 +186,16 @@ let n = 4; (* number of simultaneous events *)
 		0).Mul(Lag(LfPulse(0.5.Rand0 + 0.2, 0, 0.4) * 0.02, 0.3)), 1.Rand2)
 }.overlap(7, 4, n)
 
+(********** Birdies ; Jmcc **********)
+let n = 4; (* number of simultaneous events *)
+{
+	let p1 = MulAdd(LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1), 3.Rand0 + 4, 2);
+	let p2 = MulAdd(LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1), 3.Rand0 + 4, 0);
+	let freq = Lag(MulAdd(LfSaw(p1 + p2, 0), (1000 + 800.Rand0).Neg, 4000 + 1200.Rand2), 0.05);
+	let amp = Lag(MulAdd(LfPulse(0.2 + 0.5.Rand0, 0, 0.4), 0.02, 0), 0.3);
+	EqPan2(SinOsc(freq, 0) * amp, 1.Rand2)
+}.overlap(7, 4, n)
+
 (********** Slight mod of "phase mod with slow beats" ; Jmcc **********)
 let n = 4; (* number of simultaneous events *)
 {

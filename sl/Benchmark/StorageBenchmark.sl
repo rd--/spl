@@ -1,7 +1,7 @@
 StorageBenchark : [Object] { | count |
 
 	benchmark { :self |
-		| random = SomRandom(); |
+		let random = SomRandom();
 		self.count := 0;
 		self.buildTreeDepthWith(7, random);
 		self.count

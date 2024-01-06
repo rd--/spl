@@ -19,7 +19,7 @@ URLSearchParams! : [Object, Iterable, UrlSearchParams] {
 	}
 
 	associations { :self |
-		| answer = []; |
+		let answer = [];
 		self.keysAndValuesDo { :key :value |
 			answer.add(key -> value)
 		};

@@ -1,16 +1,14 @@
 WindowMenu : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		|(
-			currentWindowTitles = {
-				smallKansas.frameSet.asArray.collect { :frame |
-					MenuItem(frame.title, nil) { :unusedEvent |
-						frame.bringToFront
-					}
-				}.sort
-			},
-			menu = Menu(self.title, currentWindowTitles())
-		)|
+		let currentWindowTitles = {
+			smallKansas.frameSet.asArray.collect { :frame |
+				MenuItem(frame.title, nil) { :unusedEvent |
+					frame.bringToFront
+				}
+			}.sort
+		};
+		let menu = Menu(self.title, currentWindowTitles());
 		smallKansas.addFrameWithAnimator(menu, event, 1) {
 			menu.setEntries(currentWindowTitles())
 		}

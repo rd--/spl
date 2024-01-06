@@ -1,11 +1,11 @@
 (* Red frik (F0) *)
-var tr = Impulse(0.1, 0);
-var o1 = MulAdd(
+let tr = Impulse(0.1, 0);
+let o1 = MulAdd(
 	SinOsc(TRand(0.3, 5, tr), 0),
 	TRand(0, 0.5, tr),
 	TRand(0.49, 0.56, tr)
 );
-var o2 = MulAdd(
+let o2 = MulAdd(
 	SinOsc(o1, 0),
 	TRand(0.3, 0.6, tr),
 	TRand(0.3, 0.5, tr)

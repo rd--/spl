@@ -1,13 +1,13 @@
 (* Sidereal time (Jmcc) #9 *)
-var z = { :tr |
-	var p = 15;
-	var f = TxLine(
+let z = { :tr |
+	let p = 15;
+	let f = TxLine(
 		TExpRand(40, 300, tr),
 		TExpRand(40, 300, tr),
 		12,
 		tr
 	);
-	var t = [
+	let t = [
 		LfPulse(f, TRand(0.1, 0.9, tr), 0),
 		0.002,
 		LfNoise2(TRand(0, 8, tr)).Max(0)

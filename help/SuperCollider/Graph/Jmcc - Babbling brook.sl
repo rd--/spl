@@ -1,5 +1,5 @@
 (* babbling brook (jmcc) #Sc3 *)
-var b = { :f :m :a :g |
+let b = { :f :m :a :g |
 	Rhpf(
 		OnePole(BrownNoise(), 0.99),
 		Lpf(BrownNoise(), f) * m + a,

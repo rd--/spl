@@ -1,8 +1,8 @@
 (* https://sccode.org/1-4Qy ; f0 ; 0205 *)
 { :t :i |
-	var a = Wrap(i * 9, 99, 8000);
+	let a = Wrap(i * 9, 99, 8000);
 	{
-		var o = SinOsc(Duty(1 / [8, 9], 0, Dseq(99, a)), 0);
+		let o = SinOsc(Duty(1 / [8, 9], 0, Dseq(99, a)), 0);
 		Release(o * 0.1, 0, 0, 9)
 	}.play;
 	a

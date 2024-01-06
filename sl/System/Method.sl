@@ -60,7 +60,7 @@ Method! : [Object] {
 
 	operatorNameOrQualifiedName { :self |
 		(self.arity = 2).if {
-			| name = self.name; |
+			let name = self.name;
 			valueWithReturn { :return:/1 |
 				system.operatorNameTable.associationsDo { :each |
 					(each.value = name).ifTrue {
@@ -127,7 +127,7 @@ Method! : [Object] {
 	}
 
 	parseQualifiedMethodName { :self |
-		| parts = self.splitBy(':/'); |
+		let parts = self.splitBy(':/');
 		(parts.size = 2).if {
 			[parts[1], parts[2].parseInteger(10)]
 		} {
@@ -136,7 +136,7 @@ Method! : [Object] {
 	}
 
 	parseMethodSignature { :self |
-		| parts = self.splitBy('>>'); |
+		let parts = self.splitBy('>>');
 		(parts.size = 2).if {
 			parts
 		} {

@@ -1,7 +1,8 @@
 ListElement : [Object] { | value next |
 
 	isShorterThan { :self :other |
-		| x = self, y = other; |
+		let x = self;
+		let y = other;
 		valueWithReturn { :return:/1 |
 			{ y.isNil }.whileFalse {
 				x.isNil.ifTrue {
@@ -46,7 +47,7 @@ ListElement : [Object] { | value next |
 		(self = 0).if {
 			nil
 		} {
-			| e = ListElement(self); |
+			let e = ListElement(self);
 			e.next := makeList(self - 1);
 			e
 		}

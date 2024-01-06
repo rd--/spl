@@ -1,13 +1,13 @@
 (* MiClouds ; requires=keywords ; requires>#14 *)
-var pit = LfNoise1(0.3) * 12;
-var pos = LfNoise2(0.4) * 0.5 + 0.5;
-var size = LfNoise1(0.3) * 0.5 + 0.5;
-var dens = LfNoise1(0.3) * 0.5 + 0.5;
-var tex = LfNoise1(0.3) * 0.5 + 0.5;
-var freeze = LfClipNoise(0.3);
-var tr = Dust([0.8, 1.1]);
-var freq = Latch(PinkNoise() * 24 + 80, tr).MidiCps;
-var inputArray = Rlpf(tr, freq, 0.002) * 4;
+let pit = LfNoise1(0.3) * 12;
+let pos = LfNoise2(0.4) * 0.5 + 0.5;
+let size = LfNoise1(0.3) * 0.5 + 0.5;
+let dens = LfNoise1(0.3) * 0.5 + 0.5;
+let tex = LfNoise1(0.3) * 0.5 + 0.5;
+let freeze = LfClipNoise(0.3);
+let tr = Dust([0.8, 1.1]);
+let freq = Latch(PinkNoise() * 24 + 80, tr).MidiCps;
+let inputArray = Rlpf(tr, freq, 0.002) * 4;
 MiClouds(
 	pit: pit,
 	pos: pos,

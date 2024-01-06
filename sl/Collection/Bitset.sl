@@ -39,12 +39,10 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 	}
 
 	clearBitAt { :self :anInteger |
-		|(
-			index = anInteger.bitShift(-3) + 1,
-			value = self.bytes[index],
-			mask = 1.bitShift(anInteger.bitAnd(7)),
-			newValue = value.bitOr(mask) - mask
-		)|
+		let index = anInteger.bitShift(-3) + 1;
+		let value = self.bytes[index];
+		let mask = 1.bitShift(anInteger.bitAnd(7));
+		let newValue = value.bitOr(mask) - mask;
 		(new = value).if {
 			false
 		} {
@@ -55,15 +53,13 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 	}
 
 	do { :self :aBlock:/1 |
-		|(
-			remainingBits = self.tally,
-			lowBits = system.lowBitPerByteTable
-		)|
+		let remainingBits = self.tally;
+		let lowBits = system.lowBitPerByteTable;
 		1.upToDo(self.bytes.size) { :index |
 			(1 <= remainingBits).if {
-				| byte = self.bytes[index]; |
+				let byte = self.bytes[index];
 				(byte = 0).ifFalse {
-					| byteOffset = index.bitShift(3) - 9; |
+					let byteOffset = index.bitShift(3) - 9;
 					{
 						aBlock(lowBits[byte] + byteOffset);
 						remainingBits -:= 1;
@@ -120,11 +116,9 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 	}
 
 	setBitAt { :self :anInteger |
-		|(
-			index = anInteger.bitShift(-3) + 1,
-			value = self.bytes[index],
-			newValue = 1.bitShift(anInteger.bitAnd(7)).bitOr(value)
-		)|
+		let index = anInteger.bitShift(-3) + 1;
+		let value = self.bytes[index];
+		let newValue = 1.bitShift(anInteger.bitAnd(7)).bitOr(value);
 		(newValue = value).if {
 			false
 		} {
@@ -154,7 +148,7 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 +@Collection {
 
 	Bitset { :self |
-		| answer = Bitset(self.max.roundUpTo(8)); |
+		let answer = Bitset(self.max.roundUpTo(8));
 		answer.addAll(self);
 		answer
 	}

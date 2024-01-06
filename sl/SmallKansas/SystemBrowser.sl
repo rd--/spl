@@ -3,11 +3,9 @@
 +SmallKansas {
 
 	SystemBrowser { :self |
-		|(
-			typeNames = system.typeDictionary.indicesSorted,
-			methodSet = nil,
-			selectedMethod = nil
-		)|
+		let typeNames = system.typeDictionary.indicesSorted;
+		let methodSet = nil;
+		let selectedMethod = nil;
 		self.ColumnBrowser('System Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |

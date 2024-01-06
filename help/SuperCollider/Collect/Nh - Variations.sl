@@ -1,7 +1,7 @@
 (* https://gist.github.com/nhthn/8f0dcc1c85e662fe5bf7d0132155c0af (nh) *)
-var freqScale = MouseY(0.01, 3, 1, 0.2);
-var snd = LocalIn(4, 0);
-var freq = 3000 * freqScale + ((Lpf(snd, 0.1) * 100) * [1000, 1500, 1200, 1100]);
+let freqScale = MouseY(0.01, 3, 1, 0.2);
+let snd = LocalIn(4, 0);
+let freq = 3000 * freqScale + ((Lpf(snd, 0.1) * 100) * [1000, 1500, 1200, 1100]);
 snd := Rlpf(Saw(Lpf(freq.Abs, 1) * snd), 1000 * freqScale + (900 * snd), snd.Abs + 0.01);
 snd := Select(PulseDivider(Bpf(snd, 0.1, 0.1), 1000, 0), [
 	snd,

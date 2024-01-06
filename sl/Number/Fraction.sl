@@ -2,11 +2,9 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	* { :self :aNumber |
 		aNumber.isFraction.if {
-			|(
-				d1 = self.numerator.gcd(aNumber.denominator),
-				d2 = self.denominator.gcd(aNumber.numerator),
-				numerator = (self.numerator // d1) * (aNumber.numerator // d2)
-			)|
+			let d1 = self.numerator.gcd(aNumber.denominator);
+			let d2 = self.denominator.gcd(aNumber.numerator);
+			let numerator = (self.numerator // d1) * (aNumber.numerator // d2);
 			(
 				d2 = self.denominator & {
 					d1 = aNumber.denominator
@@ -30,12 +28,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			Fraction(self.numerator + (self.denominator * aNumber), self.denominator)
 		} {
 			aNumber.isFraction.if {
-				|(
-					d = self.denominator.gcd(aNumber.denominator),
-					d1 = aNumber.denominator // d,
-					d2 = self.denominator // d,
-					n = (self.numerator * d1) + (aNumber.numerator * d2)
-				)|
+				let d = self.denominator.gcd(aNumber.denominator);
+				let d1 = aNumber.denominator // d;
+				let d2 = self.denominator // d;
+				let n = (self.numerator * d1) + (aNumber.numerator * d2);
 				d1 := d1 * d2;
 				d2 := n.gcd(d);
 				n := n // d2;
@@ -139,7 +135,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	gcd { :self :aFraction |
-		| d = self.denominator.gcd(aFraction.denominator); |
+		let d = self.denominator.gcd(aFraction.denominator);
 		Fraction(
 			(self.numerator * (aFraction.denominator // d)).gcd(aFraction.numerator * (self.denominator // d)),
 			(self.denominator // d * aFraction.denominator)
@@ -161,17 +157,19 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			(self.denominator <= maxDenominator).if {
 				self
 			} {
-				|(
-					p0 = 0, q0 = 1, p1 = 1, q1 = 0,
-					n = self.numerator, d = self.denominator,
-					continue = true,
-					k = nil, bound1 = nil, bound2 = nil
-				)|
+				let p0 = 0;
+				let q0 = 1;
+				let p1 = 1;
+				let q1 = 0;
+				let n = self.numerator;
+				let d = self.denominator;
+				let continue = true;
+				let k = nil;
+				let bound1 = nil;
+				let bound2 = nil;
 				{ continue }.whileTrue {
-					|(
-						a = n // d,
-						q2 = q0 + (a * q1)
-					)|
+					let a = n // d;
+					let q2 = q0 + (a * q1);
 					(q2 > maxDenominator).if {
 						continue := false
 					} {
@@ -206,11 +204,9 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		(self.denominator = 0).if {
 			self.error('normalized: zeroDenominatorError')
 		} {
-			|(
-				x = self.numerator * self.denominator.sign,
-				y = self.denominator.abs,
-				d = x.gcd(y)
-			)|
+			let x = self.numerator * self.denominator.sign;
+			let y = self.denominator.abs;
+			let d = x.gcd(y);
 			self.numerator := x // d;
 			self.denominator := y // d;
 			self
@@ -228,12 +224,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	primeFactorization { :self |
-		|(
-			n = self.numerator.primeFactors.asBag.sortedElements,
-			d = self.denominator.primeFactors.asBag.sortedElements.collect { :each |
-				each.key -> each.value.negated
-			}
-		)|
+		let n = self.numerator.primeFactors.asBag.sortedElements;
+		let d = self.denominator.primeFactors.asBag.sortedElements.collect { :each |
+			each.key -> each.value.negated
+		};
 		(n ++ d).sorted
 	}
 
@@ -277,11 +271,9 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		(self.denominator = 0).if {
 			self.error('reduced: zeroDenominatorError')
 		} {
-			|(
-				x = self.numerator * self.denominator.sign,
-				y = self.denominator.abs,
-				d = x.gcd(y)
-			)|
+			let x = self.numerator * self.denominator.sign;
+			let y = self.denominator.abs;
+			let d = x.gcd(y);
 			self.numerator := x // d;
 			self.denominator := y // d;
 			(self.denominator = 1).if {
@@ -372,7 +364,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.isSmallInteger.if {
 			Fraction(self, 1)
 		} {
-			| k = 10 ^ (maxDenominator.log10.ceiling + 1); |
+			let k = 10 ^ (maxDenominator.log10.ceiling + 1);
 			Fraction((self * k).rounded, k).reduced.limitDenominator(maxDenominator)
 		}
 	}
@@ -391,7 +383,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	parseFraction { :self :separator |
 		self.includesSubstring(separator).if {
-			| parts = self.splitBy(separator); |
+			let parts = self.splitBy(separator);
 			(parts.size = 2).if {
 				Fraction(parts[1].parseInteger(10), parts[2].parseInteger(10))
 			} {

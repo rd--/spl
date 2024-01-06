@@ -24,7 +24,7 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 	}
 
 	currentSelection { :self |
-		| text = system.window.getSelectedText; |
+		let text = system.window.getSelectedText;
 		text.isEmpty.ifTrue {
 			text := self.editorText.textContent
 		};
@@ -36,7 +36,7 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 	}
 
 	currentWord { :self |
-		| text = system.window.getSelectedText; |
+		let text = system.window.getSelectedText;
 		text.isEmpty.if {
 			system.window.wordAtCaret
 		} {
@@ -78,14 +78,12 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 			self.textEditorMenu(event)
 		};
 		self.editorText.addEventListener('keydown') { :event |
-			|(
-				bindingsArray = self.keyBindings.collect { :menuItem |
-					menuItem.accessKey -> {
-						event.preventDefault;
-						menuItem.onSelect . (nil)
-					}
+			let bindingsArray = self.keyBindings.collect { :menuItem |
+				menuItem.accessKey -> {
+					event.preventDefault;
+					menuItem.onSelect . (nil)
 				}
-			)|
+			};
 			event.ctrlKey.ifTrue {
 				event.key.caseOfOtherwise(
 					bindingsArray,
@@ -152,7 +150,7 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 				self.inspectorOn(self.evaluate(subject.currentWord, event), event)
 			},
 			MenuItem('Play It', 'Enter') { :event |
-				self.evaluate('{ ' ++ subject.currentSelection ++ ' }.play', event)
+				self.evaluate('{ ' ++ subject.currentSelection ++ ' }.value.play', event)
 			},
 			MenuItem('Print It', 'p') { :event |
 				subject.insertText(' ' ++ self.evaluate(subject.currentSelection, event).asString)

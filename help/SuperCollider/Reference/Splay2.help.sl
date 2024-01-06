@@ -7,7 +7,7 @@ Splay2 spreads an array of channels across a stereo field.
 
 Mouse control:
 
-	var freq = (0 .. 9).collect { :i |
+	let freq = (0 .. 9).collect { :i |
 		LfNoise2(Rand(10, 20)) * 200 + (i + 3 * 100)
 	};
 	Splay2(

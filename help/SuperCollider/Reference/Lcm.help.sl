@@ -5,9 +5,9 @@ This makes it consistent with the lattice-theoretical interpretation and its ide
 
 Following the example of the programming language _J_, Lcm is analogous to logical and.
 
-	var mx = MouseX(-200, 200, 0, 0.2);
-	var my = MouseY(-200, 200, 0, 0.2);
-	var freq = SinOsc(0.3, 0) * 20.Lcm([mx, my]) * 30 + 500;
+	let mx = MouseX(-200, 200, 0, 0.2);
+	let my = MouseY(-200, 200, 0, 0.2);
+	let freq = SinOsc(0.3, 0) * 20.Lcm([mx, my]) * 30 + 500;
 	SinOsc(freq, 0) * 0.1
 
 * * *

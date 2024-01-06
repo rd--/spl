@@ -74,7 +74,7 @@
 	}
 
 	fillFromWith { :self :aCollection :aBlock:/1 |
-		| index = 1; |
+		let index = 1;
 		aCollection.do { :each |
 			self[index] := aBlock(each);
 			index +:= 1
@@ -101,7 +101,7 @@
 	}
 
 	findLast { :self :aBlock:/1 |
-		| index = self.size + 1; |
+		let index = self.size + 1;
 		valueWithReturn { :return:/1 |
 			{ (index := index - 1) >= 1 }.whileTrue {
 				aBlock(self[index]).ifTrue {
@@ -113,7 +113,7 @@
 	}
 
 	injectInto { :self :anObject :aBlock:/2 |
-		| result = anObject; |
+		let result = anObject;
 		self.indicesDo { :index |
 			result := aBlock(result, self[index])
 		};
@@ -134,7 +134,7 @@
 	}
 
 	occurrencesOf { :self :anObject |
-		| tally = 0; |
+		let tally = 0;
 		self.indicesDo { :index |
 			(self[index] = anObject).ifTrue {
 				tally +:= 1

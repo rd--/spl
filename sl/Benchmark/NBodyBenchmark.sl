@@ -3,7 +3,7 @@
 Body : [Object] { | x y z vx vy vz mass |
 
 	offsetMomentumXYZ { :self :px :py :pz |
-		| solarMass = 4 * pi * pi; |
+		let solarMass = 4 * pi * pi;
 		self.vx := 0.0 - (px / solarMass);
 		self.vy := 0.0 - (py / solarMass);
 		self.vz := 0.0 - (pz / solarMass)
@@ -14,7 +14,8 @@ Body : [Object] { | x y z vx vy vz mass |
 +SmallFloat {
 
 	Body { :x :y :z :vx :vy :vz :mass |
-		| daysPerYear = 365.24, solarMass = 4 * pi * pi; |
+		let daysPerYear = 365.24;
+		let solarMass = 4 * pi * pi;
 		newBody().initializeSlots(
 			x, y, z,
 			vx * daysPerYear, vy * daysPerYear, vz * daysPerYear,
@@ -84,17 +85,15 @@ NBodySystem : [Object] { | bodies |
 
 	advance { :self :dt |
 		1.toDo(self.bodies.size) { :i |
-			| iBody = self.bodies[i]; |
+			let iBody = self.bodies[i];
 			(i + 1).toDo(self.bodies.size) { :j |
-				|(
-					jBody = self.bodies[j],
-					dx = iBody:@x - jBody:@x,
-					dy = iBody:@y - jBody:@y,
-					dz = iBody:@z - jBody:@z,
-					dSquared = (dx * dx) + (dy * dy) + (dz * dz),
-					distance = dSquared.sqrt,
-					mag = dt / (dSquared * distance)
-				)|
+				let jBody = self.bodies[j],
+				let dx = iBody:@x - jBody:@x;
+				let dy = iBody:@y - jBody:@y;
+				let dz = iBody:@z - jBody:@z;
+				let dSquared = (dx * dx) + (dy * dy) + (dz * dz);
+				let distance = dSquared.sqrt;
+				let mag = dt / (dSquared * distance);
 				iBody:@vx -:= dx * jBody:@mass * mag;
 				iBody:@vy -:= dy * jBody:@mass * mag;
 				iBody:@vz -:= dz * jBody:@mass * mag;
@@ -111,9 +110,9 @@ NBodySystem : [Object] { | bodies |
 	}
 
 	energy { :self |
-		| e = 0.0; |
+		let e = 0.0;
 		1.toDo(self.bodies.size) { :i |
-			| iBody = self.bodies[i]; |
+			let iBody = self.bodies[i];
 			e +:= (0.5 *
 				iBody.mass *
 				(
@@ -123,13 +122,11 @@ NBodySystem : [Object] { | bodies |
 				)
 			);
 			(i + 1).toDo(self.bodies.size) { :j |
-				|(
-					jBody = self.bodies[j],
-					dx = iBody.x - jBody.x,
-					dy = iBody.y - jBody.y,
-					dz = iBody.z - jBody.z,
-					distance = ((dx * dx) + (dy * dy) + (dz * dz)).sqrt
-				)|
+				let jBody = self.bodies[j];
+				let dx = iBody.x - jBody.x;
+				let dy = iBody.y - jBody.y;
+				let dz = iBody.z - jBody.z;
+				let distance = ((dx * dx) + (dy * dy) + (dz * dz)).sqrt;
 				e -:= (iBody.mass * jBody.mass) / distance
 			}
 		};
@@ -141,10 +138,10 @@ NBodySystem : [Object] { | bodies |
 +Void {
 
 	NBodySystem {
-		|(
-			px = 0, py = 0, pz = 0,
-			bodies = [Sun(), Jupiter(), Saturn(), Uranus(), Neptune()]
-		)|
+		let px = 0;
+		let py = 0;
+		let pz = 0;
+		let bodies = [Sun(), Jupiter(), Saturn(), Uranus(), Neptune()];
 		bodies.do { :b |
 			px +:= b.vx * b.mass;
 			py +:= b.vy * b.mass;
@@ -159,7 +156,7 @@ NBodySystem : [Object] { | bodies |
 			1 -> -0.16907495402506745,
 			250000 -> -0.1690859889909308
 		].Map) { :iterations |
-			| system = NBodySystem(); |
+			let system = NBodySystem();
 			iterations.timesRepeat {
 				system.advance(0.01)
 			};

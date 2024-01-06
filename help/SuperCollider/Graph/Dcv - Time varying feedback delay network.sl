@@ -1,18 +1,18 @@
 (* https://scsynth.org/t/time-varying-feedback-delay-network/5383/6 (dietcv) *)
-var rotatableMatrix = { :angle |
-	var s = angle.Sin;
-	var c = angle.Cos;
-	var givens2x2 = [
+let rotatableMatrix = { :angle |
+	let s = angle.Sin;
+	let c = angle.Cos;
+	let givens2x2 = [
 		c s.Neg;
 		s c
 	];
-	var householder4x4 = [
+	let householder4x4 = [
 		-0.5 0.5 0.5 0.5;
 		0.5 -0.5 0.5 0.5;
 		0.5 0.5 -0.5 0.5;
 		0.5 0.5 0.5 -0.5
 	];
-	var kronecker = { :a :b |
+	let kronecker = { :a :b |
 		a.collect { :x |
 			x.collect { :y |
 				b * y
@@ -21,12 +21,12 @@ var rotatableMatrix = { :angle |
 	};
 	kronecker(givens2x2, householder4x4)
 };
-var matrix = { :trig :rotateFreq :rotateAmount |
-	var rotate = SinOsc(rotateFreq, 0).LinLin(-1, 1, 0, rotateAmount);
-	var angle = Phasor(trig, rotate * SampleDur(), 0, 1, 0) * 2 * pi;
+let matrix = { :trig :rotateFreq :rotateAmount |
+	let rotate = SinOsc(rotateFreq, 0).LinLin(-1, 1, 0, rotateAmount);
+	let angle = Phasor(trig, rotate * SampleDur(), 0, 1, 0) * 2 * pi;
 	rotatableMatrix(angle)
 };
-var ctl = (
+let ctl = (
 	trig: 1,
 	size: 0.15,
 	sizeEnvAmount: 0.65,
@@ -35,18 +35,18 @@ var ctl = (
 	rotateFreq: 0.1,
 	rotateAmount: 55
 );
-var delMod = SinOsc(2, 0).LinLin(-1, 1, 1, 4);
-var gainEnv = Perc(ctl::trig, 0.001, 1, -4);
-var modEnv = Env([0 1 0], [0.125 0.5], [-8 -4], nil, nil, 0).asEnvGen(ctl::trig);
-var inSig = Saw(XLine(100, 1000, 0.1)) * gainEnv;
-var order = 8;
-var size = ctl::size + modEnv.LinLin(0, 1, 0, ctl::sizeEnvAmount);
-var delTimes = {
+let delMod = SinOsc(2, 0).LinLin(-1, 1, 1, 4);
+let gainEnv = Perc(ctl::trig, 0.001, 1, -4);
+let modEnv = Env([0 1 0], [0.125 0.5], [-8 -4], nil, nil, 0).asEnvGen(ctl::trig);
+let inSig = Saw(XLine(100, 1000, 0.1)) * gainEnv;
+let order = 8;
+let size = ctl::size + modEnv.LinLin(0, 1, 0, ctl::sizeEnvAmount);
+let delTimes = {
 	randomInteger(1000, 4599).nextPrime
 } ! order;
-var sampleRate = 48000;
-var delTimesSec = (delTimes * delMod) / sampleRate;
-var sig = inSig + LocalIn(order, 0 ! order);
+let sampleRate = 48000;
+let delTimesSec = (delTimes * delMod) / sampleRate;
+let sig = inSig + LocalIn(order, 0 ! order);
 sig := DelayC(sig, 0.5, delTimesSec * size - ControlDur());
 sig := sig * ctl::feedback;
 sig := OnePole(sig, ctl::coef);

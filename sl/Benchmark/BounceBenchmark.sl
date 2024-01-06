@@ -3,7 +3,9 @@
 Ball : [Object] { | x y xVel yVel |
 
 	bounce { :self |
-		| xLimit = 500, yLimit = 500, bounced = false; |
+		let xLimit = 500;
+		let yLimit = 500;
+		let bounced = false;
 		self.x +:= self.xVel;
 		self.y +:= self.yVel;
 		(self.x > xLimit).ifTrue {
@@ -48,13 +50,11 @@ Ball : [Object] { | x y xVel yVel |
 
 	BounceBenchmark {
 		Benchmark('Bounce', [100 -> 1331].Map) { :ballCount |
-			|(
-				random = SomRandom(),
-				bounces = 0,
-				balls = Array(ballCount).fillWith { :unusedIndex |
-					Ball(random)
-				}
-			)|
+			let random = SomRandom();
+			let bounces = 0;
+			let balls = Array(ballCount).fillWith { :unusedIndex |
+				Ball(random)
+			};
 			1.toDo(50) { :i |
 				balls.do { :ball |
 					ball.bounce.ifTrue {

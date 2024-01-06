@@ -66,12 +66,12 @@
 	}
 
 	asDigitsToPowerDo { :self :anInteger :aBlock:/1 |
-		| aCollection = Array(anInteger); |
+		let aCollection = Array(anInteger);
 		self.asDigitsAtInDo(1, aCollection, aBlock:/1)
 	}
 
 	atAll { :self :indexArray |
-		| answer = self.species.ofSize(indexArray.size); |
+		let answer = self.species.ofSize(indexArray.size);
 		indexArray.indicesDo { :index |
 			answer[index] := self[indexArray[index]]
 		};
@@ -79,7 +79,7 @@
 	}
 
 	atAllPut { :self :anObject |
-		| size = self.size; |
+		let size = self.size;
 		(size > 50).if {
 			self.fromToPut(1, size, anObject)
 		} {
@@ -123,7 +123,7 @@
 	}
 
 	beginsWith { :self :sequence |
-		| sequenceSize = sequence.size; |
+		let sequenceSize = sequence.size;
 		valueWithReturn { :return:/1 |
 			(self.size < sequenceSize).ifTrue {
 				false.return
@@ -144,7 +144,7 @@
 	}
 
 	collect { :self :aBlock:/1 |
-		| answer = self.species.ofSize(self.size); |
+		let answer = self.species.ofSize(self.size);
 		self.indicesDo { :index |
 			answer[index] := aBlock(self[index])
 		};
@@ -152,7 +152,7 @@
 	}
 
 	combinationsAtATimeDo { :self :kk :aBlock:/1 |
-		| aCollection = Array(kk); |
+		let aCollection = Array(kk);
 		self.combinationsAtInAfterDo(1, aCollection, 0, aBlock:/1)
 	}
 
@@ -168,13 +168,11 @@
 	}
 
 	concatenation { :self |
-		|(
-			answerSize = self.injectInto(0) { :sum :each |
-				sum + each.size
-			},
-			answer = self.species.ofSize(answerSize),
-			index = 1
-		)|
+		let answerSize = self.injectInto(0) { :sum :each |
+			sum + each.size
+		};
+		let answer = self.species.ofSize(answerSize);
+		let index = 1;
 		self.do { :each |
 			each.do { :item |
 				answer[index] := item;
@@ -191,11 +189,9 @@
 	}
 
 	copyReplaceFromToWith { :self :start :stop :aCollection |
-		|(
-			end = start - 1 + aCollection.size,
-			newSize = self.size + end - stop,
-			answer = self.species.ofSize(newSize)
-		)|
+		let end = start - 1 + aCollection.size;
+		let newSize = self.size + end - stop;
+		let answer = self.species.ofSize(newSize);
 		(start > 1).ifTrue {
 			answer.replaceFromToWithStartingAt(1, start - 1, self, 1)
 		};
@@ -209,7 +205,7 @@
 	}
 
 	copyUpThrough { :self :anElement |
-		| index = self.indexOf(anElement); |
+		let index = self.indexOf(anElement);
 		(index = 0).if {
 			self.copy
 		} {
@@ -218,7 +214,7 @@
 	}
 
 	copyUpTo { :self :anElement |
-		| index = self.indexOf(anElement); |
+		let index = self.indexOf(anElement);
 		(index = 0).if {
 			self.copy
 		} {
@@ -227,7 +223,7 @@
 	}
 
 	copyUpToLast { :self :anElement |
-		| index = self.lastIndexOf(anElement); |
+		let index = self.lastIndexOf(anElement);
 		(index = 0).if {
 			self.copy
 		} {
@@ -236,7 +232,7 @@
 	}
 
 	copyWithFirst { :self :newElement |
-		| answer = self.copy; |
+		let answer = self.copy;
 		answer.addFirst(newElement);
 		answer
 	}
@@ -258,8 +254,13 @@
 	}
 
 	doWhileTrue { :self :activity:/1 :conditionBlock:/0 |
-		| nextIndex = 1, endIndex = self.size; |
-		{ conditionBlock() & { nextIndex <= endIndex } }.whileTrue {
+		let nextIndex = 1;
+		let endIndex = self.size;
+		{
+			conditionBlock() & {
+				nextIndex <= endIndex
+			}
+		}.whileTrue {
 			activity(self[nextIndex]);
 			nextIndex +:= 1
 		}
@@ -324,10 +325,12 @@
 	}
 
 	findBinaryIndexDoIfNone { :self :aBlock:/1 :actionBlock:/1 :exceptionBlock |
-		| low = 1, high = self.size; |
+		let low = 1;
+		let high = self.size;
 		valueWithReturn { :return:/1 |
 			{ high < low }.whileFalse {
-				| index = high + low // 2, test = aBlock(self[index]); |
+				let index = high + low // 2;
+				let test = aBlock(self[index]);
 				(test < 0).if {
 					high := index - 1
 				} {
@@ -370,7 +373,7 @@
 	}
 
 	flattened { :self |
-		| answer = []; |
+		let answer = [];
 		self.do { :item |
 			item.isCollection.if {
 				answer.addAll(item.flattened)
@@ -389,7 +392,7 @@
 		self.ifEmpty {
 			self.errorEmptyCollection
 		} {
-			| answer = self.last; |
+			let answer = self.last;
 			(self.size - 1).toByDo(1, -1) { :index |
 				answer := aBlock(self[index], answer)
 			};
@@ -398,7 +401,7 @@
 	}
 
 	forceToPaddingWith { :self :length :anObject |
-		| answer = self.species.new(length); |
+		let answer = self.species.new(length);
 		answer.atAllPut(anObject);
 		answer.replaceFromToWithStartingAt(1, self.size.min(length), self, 1);
 		answer
@@ -422,7 +425,9 @@
 		(startIndex > endIndex).if {
 			self
 		} {
-			| written = 1, toWrite = endIndex - startIndex + 1, thisWrite = nil; |
+			let written = 1;
+			let toWrite = endIndex - startIndex + 1;
+			let thisWrite = nil;
 			self[startIndex] := anObject;
 			(written < toWrite).whileTrue {
 				thisWrite := written.min(toWrite - written);
@@ -439,18 +444,18 @@
 	}
 
 	groupsDo { :self :aBlock |
-		|numArgs = aBlock.numArgs; |
+		let numArgs = aBlock.numArgs;
 		numArgs.caseOfOtherwise([
 			{ 0 } -> { self.error('groupsDo: At least one block argument expected') },
 			{ 1 } -> { self.do(aBlock) },
 			{ 2 } -> { self.pairsDo(aBlock) }
 		]) {
-			|(
-				argumentArray = Array(numArgs),
-				index = 1,
-				endIndex = self.size - numArgs + 1
-			)|
-			{ index <= endIndex }.whileTrue {
+			let argumentArray = Array(numArgs);
+			let index = 1;
+			let endIndex = self.size - numArgs + 1;
+			{
+				index <= endIndex
+			}.whileTrue {
 				argumentArray.replaceFromToWithStartingAt(1, numArgs, self, index);
 				aBlock.valueWithArguments(argumentArray);
 				index +:= numArgs
@@ -459,7 +464,7 @@
 	}
 
 	grownBy { :self :length |
-		| answer = self.species.ofSize(self.size + length); |
+		let answer = self.species.ofSize(self.size + length);
 		answer.replaceFromToWithStartingAt(1, self.size, self, 1)
 	}
 
@@ -501,7 +506,7 @@
 	}
 
 	indexOfIfAbsent { :self :anElement :exceptionBlock:/0 |
-		| index = self.indexOfStartingAt(anElement, 1); |
+		let index = self.indexOfStartingAt(anElement, 1);
 		(index = 0).if {
 			exceptionBlock()
 		} {
@@ -525,15 +530,15 @@
 	}
 
 	indexOfSubCollectionStartingAt { :self :subCollection :start |
-		| subCollectionSize = subCollection.size; |
+		let subCollectionSize = subCollection.size;
 		(subCollectionSize = 0).if {
 			0
 		} {
-			| first = subCollection[1]; |
+			let first = subCollection[1];
 			valueWithReturn { :return:/1 |
 				start.max(1).toDo(self.size - subCollectionSize + 1) { :startIndex |
 					(self[startIndex] = first).ifTrue {
-						| index = 2; |
+						let index = 2;
 						{
 							(index <= subCollectionSize) & {
 								self[startIndex + index - 1] = subCollection[index]
@@ -552,7 +557,7 @@
 	}
 
 	indexValueAssociations { :self |
-		| answer = Array(self.size); |
+		let answer = Array(self.size);
 		self.withIndexDo { :each :index |
 			answer[index] := (index -> each)
 		};
@@ -576,7 +581,8 @@
 	}
 
 	indicesOfSubCollectionStartingAt { :self :subCollection :initialIndex |
-		| answer = [], index = initialIndex - 1; |
+		let answer = [];
+		let index = initialIndex - 1;
 		{
 			index := self.indexOfSubCollectionStartingAt(subCollection, index + 1);
 			index = 0
@@ -614,10 +620,10 @@
 		(endIndex <= startIndex).if {
 			true
 		} {
-			| previousElement = self[startIndex]; |
+			let previousElement = self[startIndex];
 			valueWithReturn { :return:/1 |
 				(startIndex + 1).toDo(endIndex) { :index |
-					| element = self[index]; |
+					let element = self[index];
 					aBlock(previousElement, element).ifFalse {
 						false.return
 					};
@@ -633,7 +639,7 @@
 	}
 
 	last { :self :n |
-		| size = self.size; |
+		let size = self.size;
 		self.copyFromTo(size - n + 1, size)
 	}
 
@@ -646,7 +652,7 @@
 	}
 
 	lastIndexOfIfAbsent { :self :anElement :exceptionBlock:/0 |
-		| index = self.lastIndexOfStartingAt(anElement, self.size); |
+		let index = self.lastIndexOfStartingAt(anElement, self.size);
 		(index = 0).if {
 			exceptionBlock()
 		} {
@@ -666,7 +672,7 @@
 	}
 
 	lastIndexOfStartingAtIfAbsent { :self :anElement :lastIndex :exceptionBlock:/0 |
-		| index = self.lastIndexOfStartingAt(anElement, lastIndex); |
+		let index = self.lastIndexOfStartingAt(anElement, lastIndex);
 		(index = 0).if {
 			exceptionBlock()
 		} {
@@ -691,7 +697,7 @@
 	}
 
 	permutations { :self |
-		| answer = []; |
+		let answer = [];
 		self.permutationsDo { :each |
 			answer.add(each.copy)
 		};
@@ -745,7 +751,7 @@
 	}
 
 	replaceAllWith { :self :oldObject :newObject |
-		| index = 0; |
+		let index = 0;
 		{
 			index := self.indexOfStartingAt(oldObject, index + 1);
 			index = 0
@@ -764,7 +770,8 @@
 	}
 
 	replaceFromToWithStartingAt { :self :start :stop :replacement :replacementStart |
-		| replacementOffset = replacementStart - start, index = start; |
+		let replacementOffset = replacementStart - start;
+		let index = start;
 		{ index <= stop }.whileTrue {
 			self[index] := replacement[replacementOffset + index];
 			index +:= 1
@@ -773,13 +780,11 @@
 	}
 
 	replicateEachApplying { :self :anInteger :aBlock:/1 |
-		|(
-			answerSize = self.size * anInteger,
-			answer = self.species.ofSize(answerSize),
-			answerIndex = 1
-		)|
+		let answerSize = self.size * anInteger;
+		let answer = self.species.ofSize(answerSize);
+		let answerIndex = 1;
 		(1 .. self.size).do { :selfIndex |
-			| entry = aBlock(self[selfIndex]); |
+			let entry = aBlock(self[selfIndex]);
 			(1 .. anInteger).do { :unusedCounter |
 				answer[answerIndex] := entry;
 				answerIndex +:= 1
@@ -793,7 +798,8 @@
 	}
 
 	reversed { :self |
-		| answer = self.species.ofSize(self.size), fromIndex = self.size + 1; |
+		let answer = self.species.ofSize(self.size);
+		let fromIndex = self.size + 1;
 		self.indicesDo { :toIndex |
 			answer[toIndex] := self[fromIndex - 1];
 			fromIndex -:= 1
@@ -805,7 +811,8 @@
 		self.ifEmpty {
 			self.copy
 		} {
-			| answer = self.species.new(self.size), sum = self[1]; |
+			let answer = self.species.new(self.size);
+			let sum = self[1];
 			answer[1] := sum;
 			2.toDo(self.size) { :index |
 				sum := aBlock(sum, self[index]);
@@ -860,7 +867,7 @@
 	}
 
 	select { :self :aBlock:/1 |
-		| answer = []; |
+		let answer = [];
 		self.indicesDo { :index |
 			aBlock(self[index]).ifTrue {
 				answer.add(self[index])
@@ -902,7 +909,7 @@
 	}
 
 	splitBy { :self :aCollection |
-		| answer = []; |
+		let answer = [];
 		self.splitByDo(aCollection) { :each |
 			answer.add(each)
 		};
@@ -910,7 +917,8 @@
 	}
 
 	splitByDo { :self :aCollection :aBlock:/1 |
-		| lastIndex = 1, nextIndex = nil; |
+		let lastIndex = 1;
+		let nextIndex = nil;
 		{
 			nextIndex := self.indexOfSubCollectionStartingAt(aCollection, lastIndex);
 			nextIndex = 0
@@ -922,7 +930,7 @@
 	}
 
 	swapWith { :self :oneIndex :anotherIndex |
-		| element = self[oneIndex]; |
+		let element = self[oneIndex];
 		self[oneIndex] := self[anotherIndex];
 		self[anotherIndex] := element
 	}
@@ -954,7 +962,7 @@
 	}
 
 	tuples { :self :n |
-		| answer = []; |
+		let answer = [];
 		self.tuplesDo(n) { :each |
 			answer.add(each)
 		};
@@ -983,7 +991,7 @@
 	}
 
 	withIndexCollect { :self :elementAndIndexBlock:/2 |
-		| answer = self.species.ofSize(self.size); |
+		let answer = self.species.ofSize(self.size);
 		self.indicesDo { :index |
 			answer[index] := elementAndIndexBlock(self[index], index)
 		};
@@ -1031,12 +1039,15 @@
 +SmallFloat {
 
 	fibonacciSequenceInto { :self :answer |
-		| a = 0, b = 1, i = 0, temp = nil; |
+		let a = 0;
+		let b = 1;
+		let i = 0;
 		{ i < self }.whileTrue {
+			let tmp = nil;
 			answer.add(b);
-			temp := b;
+			tmp := b;
 			b +:= a;
-			a := temp;
+			a := tmp;
 			i +:= 1
 		};
 		answer

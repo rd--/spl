@@ -138,7 +138,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 		lastId := current;
 		outerBlocks := currentNode.outEdges;
 		1.toDo(outerBlocks.size) { :i |
-			| target = outerBlocks[i]; |
+			let target = outerBlocks[i];
 			(self.number[target] = self.unvisited).ifTrue {
 				lastId := self.doDFSCurrent(target, lastId + 1)
 			}
@@ -156,7 +156,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 
 	identifyEdges { :self :size |
 		1.toDo(size) { :w |
-			| nodeW = self.nodes[w].bb; |
+			let nodeW = self.nodes[w].bb;
 			self.header[w] := 1;
 			self.type[w] := 'BBNonHeader';
 			nodeW.isNil.if {
@@ -170,7 +170,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 	processEdgesW { :self :nodeW :w |
 		(nodeW.numPred > 0 ).ifTrue {
 			nodeW.inEdges.do { :nodeV |
-				| v = self.number[nodeV]; |
+				let v = self.number[nodeV];
 				(v ~= self.unvisited).ifTrue {
 					self.isAncestorV(w, v).if {
 						self.backPreds[w].addLast(v)
@@ -187,7 +187,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 			self
 		} {
 			valueWithReturn { :return:/1 |
-				| size = self.cfg.numNodes; |
+				let size = self.cfg.numNodes;
 				self.nonBackPreds.removeAll;
 				self.backPreds.removeAll;
 				self.number.removeAll;
@@ -207,9 +207,9 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 				self.identifyEdges(size);
 				self.header[1] := 1;
 				size.downToDo(1) { :w |
-					| nodePool = Array(), nodeW = self.nodes[w].bb; |
+					let nodePool = Array(), nodeW = self.nodes[w].bb;
 					nodeW.notNil.ifTrue {
-						| workList = Array(); |
+						let workList = Array();
 						self.stepDNodePool(w, nodePool);
 						nodePool.do { :niter |
 							workList.addLast(niter)
@@ -218,7 +218,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 							self.type[w] := 'BBReducible'
 						};
 						{ workList.isEmpty }.whileFalse {
-							| x nonBackSize |
+							let x nonBackSize |
 							x := workList.removeFirst;
 							nonBackSize := self.nonBackPreds[x.dfsNumber].size;
 							(nonBackSize > self.maxNonBackPreds).ifTrue {
@@ -229,7 +229,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 						(nodePool.size > 0 | {
 							self.type[w] = 'BBSelf'
 						}).ifTrue {
-							| loop = self.lsg.createNewLoopReducible(nodeW, self.type[w] ~= 'BBIrreducible'); |
+							let loop = self.lsg.createNewLoopReducible(nodeW, self.type[w] ~= 'BBIrreducible');
 							self.setLoopAttributeNodePoolLoop(w, nodePool, loop)
 						}
 					}
@@ -240,7 +240,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 
 	stepEProcessNonBackPredsNodePoolWorkListX { :self :w :nodePool :workList :x |
 		self.nonBackPreds[x.dfsNumber].do { :iter |
-			| y = self.nodes[iter], ydash = y.findSet; |
+			let y = self.nodes[iter], ydash = y.findSet;
 			self.isAncestorV(w, ydash. dfsNumber).not.if {
 				self.type[w] := 'BBIrreducible';
 				self.nonBackPreds[w].include(ydash.dfsNumber)
@@ -304,7 +304,7 @@ LoopStructureGraph : [Object] { | root loops loopCounter |
 	}
 
 	createNewLoopReducible { :self :bb :isReducible |
-		| loop = SimpleLoop(bb, isReducible); |
+		let loop = SimpleLoop(bb, isReducible);
 		loop.counter(self.loopCounter);
 		self.loopCounter +:= 1;
 		self.loops.addLast(loop);
@@ -354,7 +354,7 @@ LoopTesterApp : [Object] { | cfg lsg |
 	}
 
 	buildDiamond { :self :start |
-		| bb0 = start; |
+		let bb0 = start;
 		BasicBlockEdge(self.cfg, bb0, bb0 + 1);
 		BasicBlockEdge(self.cfg, bb0, bb0 + 2);
 		BasicBlockEdge(self.cfg, bb0 + 1, bb0 + 3);
@@ -374,13 +374,11 @@ LoopTesterApp : [Object] { | cfg lsg |
 	}
 
 	buildBaseLoop { :self :from |
-		|(
-			header = self.buildStraightN(from, 1),
-			diamond1 = self.buildDiamond(header),
-			d11 = self.buildStraightN(diamond1, 1),
-			diamond2 = self.buildDiamond(d11),
-			footer = self.buildStraightN(diamond2,1)
-		)|
+		let header = self.buildStraightN(from, 1);
+		let diamond1 = self.buildDiamond(header);
+		let d11 = self.buildStraightN(diamond1, 1);
+		let diamond2 = self.buildDiamond(d11);
+		let footer = self.buildStraightN(diamond2,1);
 		self.buildConnectEnd(diamond2, d11);
 		self.buildConnectEnd(diamond1, header);
 		self.buildConnectEnd(footer, from);
@@ -401,13 +399,13 @@ LoopTesterApp : [Object] { | cfg lsg |
 	}
 
 	constructCFGPP { :self :parLoops :pparLoops :ppparLoops |
-		| n = 3; |
+		let n = 3;
 		parLoops.timesRepeat {
 			self.cfg.createNode(n + 1);
 			self.buildConnectEnd(2, n + 1);
 			n +:= 1;
 			pparLoops.timesRepeat {
-				| top bottom |
+				let top bottom |
 				top := n;
 				n := self.buildStraightN(n, 1);
 				ppparLoops.timesRepeat {
@@ -428,7 +426,7 @@ LoopTesterApp : [Object] { | cfg lsg |
 	}
 
 	findLoops { :self :loopStructure |
-		| finder = HavlakLoopFinder(self.cfg, loopStructure); |
+		let finder = HavlakLoopFinder(self.cfg, loopStructure);
 		finder.findLoops
 	}
 
@@ -510,7 +508,8 @@ UnionFindNode : [Object] { | parent bb dfsNumber loop |
 	}
 
 	findSet { :self |
-		| nodeList = Array(), node = self; |
+		let nodeList = Array();
+		let node = self;
 		{ node ~~ node.parent }.whileTrue {
 			(node.parent ~~ node.parent.parent).ifTrue {
 				nodeList.addLast(node)

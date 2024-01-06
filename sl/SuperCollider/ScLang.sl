@@ -21,12 +21,10 @@
 	}
 
 	normalize { :self |
-		|(
-			min = self.min,
-			max = self.max,
-			mul = 1 / (max - min),
-			add = 0 - (mul * min)
-		)|
+		let min = self.min;
+		let max = self.max;
+		let mul = 1 / (max - min);
+		let add = 0 - (mul * min);
 		self.collect { :each |
 			each * mul + add
 		}
@@ -34,7 +32,7 @@
 
 	powersetBitwise { :self |
 		(0 .. 1.bitShift(self.size) - 1).collect { :each |
-			| i = 0; |
+			let i = 0;
 			self.select { :elem |
 				i +:= 1;
 				each.bitAt(i) = 1
@@ -67,7 +65,7 @@
 +@Number {
 
 	ampComp { :freq :root :exp |
-		(root / freq) ** exp
+		(root / freq) ^ exp
 	}
 
 	AmpDb { :self |
@@ -108,11 +106,9 @@
 				(curve.abs < 0.001).if {
 					(self - inMin) / (inMax - inMin) * (outMax - outMin) + outMin
 				} {
-					|(
-						grow = curve.exp,
-						a = inMax - inMin / (1.0 - grow),
-						b = inMin + a
-					)|
+					let grow = curve.exp;
+					let a = inMax - inMin / (1.0 - grow);
+					let b = inMin + a;
 					((b - self) / a).log * (outMax - outMin) / curve + outMin
 				}
 			}
@@ -120,7 +116,7 @@
 	}
 
 	DbAmp { :self |
-		10 ** (self * 0.05)
+		10 ^ (self * 0.05)
 	}
 
 	DifSqr { :self :aNumber |
@@ -138,7 +134,7 @@
 			(self >= inMax).if {
 				outMax
 			} {
-				(outMax / outMin) ** ((self / inMin).log / (inMax / inMin).log) * outMin
+				(outMax / outMin) ^ ((self / inMin).log / (inMax / inMin).log) * outMin
 			}
 		}
 	}
@@ -183,12 +179,10 @@
 		).if {
 			self
 		} {
-			|(
-				x = self - lo,
-				range = hi - lo,
-				twiceRange = range + range,
-				c = x - (twiceRange * (x / twiceRange).floor)
-			)|
+			let x = self - lo;
+			let range = hi - lo;
+			let twiceRange = range + range;
+			let c = x - (twiceRange * (x / twiceRange).floor);
 			(c >= range).ifTrue {
 				c := twiceRange - c
 			};
@@ -222,13 +216,11 @@
 				(curve.abs < 0.001).if {
 					(self - inMin) / (inMax - inMin) * (outMax - outMin) + outMin
 				} {
-					|(
-						grow = curve.exp,
-						a = outMax - outMin / (1.0 - grow),
-						b = outMin + a,
-						scaled = (self - inMin) / (inMax - inMin)
-					)|
-					b - (a * (grow ** scaled))
+					let grow = curve.exp;
+					let a = outMax - outMin / (1.0 - grow);
+					let b = outMin + a;
+					let scaled = (self - inMin) / (inMax - inMin);
+					b - (a * (grow ^ scaled))
 				}
 			}
 		}
@@ -241,7 +233,7 @@
 			(self >= inMax).if {
 				outMax
 			} {
-				(outMax / outMin) ** ((self - inMin) / (inMax - inMin)) * outMin
+				(outMax / outMin) ^ ((self - inMin) / (inMax - inMin)) * outMin
 			}
 		}
 	}
@@ -263,19 +255,17 @@
 	}
 
 	LinLin { :self :srclo :srchi :dstlo :dsthi |
-		|(
-			mul = (dsthi - dstlo) / (srchi - srclo),
-			add = dstlo - (mul * srclo)
-		)|
+		let mul = (dsthi - dstlo) / (srchi - srclo);
+		let add = dstlo - (mul * srclo);
 		MulAdd(self, mul, add)
 	}
 
 	MidiCps { :self |
-		440 * (2 ** ((self - 69) * (1 / 12)))
+		440 * (2 ^ ((self - 69) * (1 / 12)))
 	}
 
 	MidiRatio { :self |
-		2.0 ** (self * (1 / 12))
+		2.0 ^ (self * (1 / 12))
 	}
 
 	MulAdd { :self :mul :add |
@@ -291,15 +281,15 @@
 	}
 
 	nextPowerOf { :self :base |
-		base ** (self.log / base.log).ceiling
+		base ^ (self.log / base.log).ceiling
 	}
 
 	OctCps { :self |
-		440 * (2 ** (self - 4.75))
+		440 * (2 ^ (self - 4.75))
 	}
 
 	previousPowerOf { :self :base |
-		base ** ((self.log / base.log).ceiling - 1)
+		base ^ ((self.log / base.log).ceiling - 1)
 	}
 
 	RatioCents { :self |
@@ -323,7 +313,7 @@
 +@Integer {
 
 	asBinaryDigits { :self :numDigits |
-		| answer = []; |
+		let answer = [];
 		0.toDo(numDigits - 1) { :i |
 			answer.addFirst(self.bitShiftRight(i).bitAnd(1))
 		};
@@ -331,7 +321,8 @@
 	}
 
 	asDigits { :self :base :numDigits |
-		| answer = [], num = self; |
+		let answer = [];
+		let num = self;
 		numDigits.timesRepeat {
 			answer.addFirst(num % base);
 			num := num // base
@@ -350,25 +341,25 @@
 	}
 
 	hammingWindow { :self |
-		| answer = Array(self); |
+		let answer = Array(self);
 		answer.hammingWindow;
 		answer
 	}
 
 	hanningWindow { :self |
-		| answer = Array(self); |
+		let answer = Array(self);
 		answer.hanningWindow;
 		answer
 	}
 
 	sineTable { :self :amplitudes :phases |
-		| answer = Array(self, 0); |
+		let answer = Array(self, 0);
 		answer.sineFill(amplitudes, phases);
 		answer
 	}
 
 	welchWindow { :self |
-		| answer = Array(self); |
+		let answer = Array(self);
 		answer.welchWindow;
 		answer
 	}
@@ -428,12 +419,10 @@
 	}
 
 	addSine { :self :harmonicNumber :amplitude :initialPhase |
-		|(
-			size = self.size,
-			frequency = 1 / harmonicNumber,
-			increment = 2 * pi / size * frequency,
-			phase = initialPhase
-		)|
+		let size = self.size;
+		let frequency = 1 / harmonicNumber;
+		let increment = 2 * pi / size * frequency;
+		let phase = initialPhase;
 		(1 .. size).do { :each |
 			self[each] +:= phase.sin * amplitude;
 			phase +:= increment
@@ -441,7 +430,7 @@
 	}
 
 	allTuples { :self |
-		| answer = []; |
+		let answer = [];
 		self.allTuplesDo { :each |
 			answer.add(each.copy)
 		};
@@ -449,14 +438,12 @@
 	}
 
 	allTuplesDo { :self :aBlock:/1 |
-		|(
-			tupleCount = self.collect(size:/1).product,
-			tuple = self.species.new(self.size)
-		)|
+		let tupleCount = self.collect(size:/1).product;
+		let tuple = self.species.new(self.size);
 		1.toDo(tupleCount) { :i |
-			| k = i - 1; |
+			let k = i - 1;
 			self.size.toByDo(1, -1) { :j |
-				| fromSequence = self[j]; |
+				let fromSequence = self[j];
 				tuple[j] := fromSequence[k % fromSequence.size + 1];
 				k := k // fromSequence.size
 			};
@@ -465,13 +452,11 @@
 	}
 
 	asRandomTable { :self :size |
-		|(
-			a = (size = self.size).if {
-				self
-			} {
-				self.resamp1(size)
-			}
-		)|
+		let a = (size = self.size).if {
+			self
+		} {
+			self.resamp1(size)
+		};
 		a := a.integrate.normalize(1, size);
 		(1 .. size).collect { :index |
 			a.indexInBetween(index) - 1 / size
@@ -483,20 +468,16 @@
 	}
 
 	asWavetable { :self |
-		|(
-			size = self.size * 2,
-			answer = self.species.ofSize(size),
-			index = 1
-		)|
+		let size = self.size * 2;
+		let answer = self.species.ofSize(size);
+		let index = 1;
 		(1 .. self.size).do { :each |
-			|(
-				e1 = self[each],
-				e2 = (each = self.size).if {
-					0
-				} {
-					self[each + 1]
-				}
-			)|
+			let e1 = self[each];
+			let e2 = (each = self.size).if {
+				0
+			} {
+				self[each + 1]
+			};
 			answer[index] := 2 * e1 - e2;
 			answer[index + 1] := e2 - e1;
 			index +:= 2
@@ -509,7 +490,7 @@
 	}
 
 	blendAt { :self :index |
-		| indexMin = index.roundUpTo(1) - 1; |
+		let indexMin = index.roundUpTo(1) - 1;
 		self.clipAt(indexMin).blend(
 			self.clipAt(indexMin + 1),
 			(index - indexMin).abs
@@ -533,7 +514,8 @@
 	}
 
 	clump { :self :groupSize |
-		| answer = [], segment = []; |
+		let answer = [];
+		let segment = [];
 		self.do { :item |
 			segment.add(item);
 			(segment.size >= groupSize).ifTrue {
@@ -565,7 +547,9 @@
 	}
 
 	differentiate { :self |
-		| prev = 0, index = 1, answer = self.species.new(self.size); |
+		let prev = 0;
+		let index = 1;
+		let answer = self.species.new(self.size);
 		self.do { :item |
 			answer[index] := item - prev;
 			prev := item;
@@ -599,7 +583,7 @@
 	}
 
 	extendToBeOfEqualSize { :self |
-		| size = self.collect(sizeForExtending:/1).max; |
+		let size = self.collect(sizeForExtending:/1).max;
 		self.collect { :each |
 			each.extendTo(size)
 		}
@@ -614,10 +598,8 @@
 	}
 
 	hammingDistance { :self :other |
-		|(
-			size = self.size.min(other.size),
-			count = (self.size - other.size).abs
-		)|
+		let size = self.size.min(other.size);
+		let count = (self.size - other.size).abs;
 		1.toDo(size) { :index |
 			(self[index] ~= other[index]).ifTrue {
 				count +:= 1
@@ -640,14 +622,16 @@
 		self.isEmpty.if {
 			nil
 		} {
-			| i = self.indexOfGreaterThan(aNumber); |
+			let i = self.indexOfGreaterThan(aNumber);
 			i.ifNil {
 				self.size
 			} {
 				(i = 1).if {
 					i
 				} {
-					| a = self[i - 1], b = self[i], div = b - a; |
+					let a = self[i - 1];
+					let b = self[i];
+					let div = b - a;
 					(div = 0).if {
 						i
 					} {
@@ -665,7 +649,7 @@
 	}
 
 	instill { :self :index :item :default |
-		| answer = self.copy; |
+		let answer = self.copy;
 		(index - self.size).timesRepeat {
 			answer.add(default)
 		};
@@ -674,7 +658,8 @@
 	}
 
 	integrate { :self |
-		| answer = [], sum = 0; |
+		let answer = [];
+		let sum = 0;
 		self.do { :item |
 			sum +:= item;
 			answer.add(sum)
@@ -692,7 +677,7 @@
 		} {
 			valueWithReturn { :return:/1 |
 				self.doAdjacentPairs { :a :b |
-					| diff = b - a; |
+					let diff = b - a;
 					step.ifNil {
 						step := diff
 					} {
@@ -720,7 +705,7 @@
 	}
 
 	keepLast { :self :n |
-		| size = self.size; |
+		let size = self.size;
 		self.copyFromTo(size - n, size)
 	}
 
@@ -734,12 +719,12 @@
 		}).if {
 			self.size
 		} {
-			| matrix = [0 .. other.size]; |
+			let matrix = [0 .. other.size];
 			1.toDo(self.size) { :xIndex |
-				| corner = xIndex - 1; |
+				let corner = xIndex - 1;
 				matrix[1] := xIndex - 1;
 				1.toDo(other.size) { :yIndex |
-					| upper = matrix[yIndex + 1]; |
+					let upper = matrix[yIndex + 1];
 					matrix[yIndex + 1] := equalityBlock(self[xIndex], other[yIndex]).if {
 						corner
 					} {
@@ -765,7 +750,7 @@
 	}
 
 	multiChannelExpand { :self |
-		| size = self.collect(sizeForExtending:/1).max; |
+		let size = self.collect(sizeForExtending:/1).max;
 		(1 .. size).collect { :index |
 			self.collect { :each |
 				each.atExtending(index)
@@ -774,7 +759,8 @@
 	}
 
 	normalize { :self :min :max |
-		| minItem = self.min, maxItem = self.max; |
+		let minItem = self.min;
+		let maxItem = self.max;
 		self.collect { :each |
 			(each - minItem) / (maxItem - minItem) * (max - min) + min
 		}
@@ -800,7 +786,8 @@
 		self.ifEmpty {
 			[self]
 		} {
-			| a = self.removeFirst, s = self.powerset; |
+			let a = self.removeFirst;
+			let s = self.powerset;
 			s ++ s.collect { :each |
 				[a] ++ each
 			}
@@ -808,10 +795,8 @@
 	}
 
 	pyramid { :self :patternType |
-		|(
-			answer = [],
-			lastIndex = self.size
-		)|
+		let answer = [];
+		let lastIndex = self.size;
 		(patternType = 1).ifTrue {
 			1.toDo(lastIndex) { :index |
 				answer.addAll(self.copyFromTo(1, index))
@@ -826,7 +811,7 @@
 	}
 
 	resamp1 { :self :newSize |
-		| factor = (self.size - 1) / (newSize - 1).max(1); |
+		let factor = (self.size - 1) / (newSize - 1).max(1);
 		(0 .. newSize - 1).collect { :each |
 			self.blendAt(1 + (each * factor))
 		}
@@ -837,7 +822,8 @@
 	}
 
 	separate { :self :aBlock:/2 |
-		| answer = [], segment = []; |
+		let answer = [];
+		let segment = [];
 		self.doAdjacentPairs { :a :b |
 			segment.add(a);
 			aBlock(a, b).ifTrue {
@@ -853,10 +839,8 @@
 	}
 
 	shift { :self :count :item |
-		|(
-			fill = Array(count.abs, item),
-			remain = self.drop(count.negated)
-		)|
+		let fill = Array(count.abs, item);
+		let remain = self.drop(count.negated);
 		(count < 0).if {
 			remain ++ fill
 		} {
@@ -869,7 +853,7 @@
 	}
 
 	similarity { :self :other :equalityBlock:/2 |
-		| maxDistance = self.size.max(other.size); |
+		let maxDistance = self.size.max(other.size);
 		(maxDistance > 0).if {
 			1 - (self.levenshteinDistance(other, equalityBlock:/2) / maxDistance)
 		} {
@@ -908,12 +892,10 @@
 
 	waveFill { :self :aBlock:/3 :start :end |
 		(self.size > 0).ifTrue {
-			|(
-				index = 1,
-				next = start,
-				size = self.size,
-				step = (end - start) / size
-			)|
+			let index = 1;
+			let next = start;
+			let size = self.size;
+			let step = (end - start) / size;
 			{ i <= size }.while {
 				self[index] := aBlock(next, self[index], index);
 				next +:= step;
@@ -940,7 +922,7 @@
 	}
 
 	wrapExtend { :self :size |
-		| answer = []; |
+		let answer = [];
 		1.toDo(size) { :index |
 			answer.add(self.atWrap(index))
 		};
@@ -972,16 +954,14 @@
 	}
 
 	multiChannelExpand { :self |
-		|(
-			keys = self.keys,
-			values = self.values,
-			size = values.collect(sizeForExtending:/1).max,
-			places = values.multiChannelExpand.collect { :each |
-				each.withIndexCollect { :item :index |
-					keys[index] -> item
-				}
+		let keys = self.keys;
+		let values = self.values;
+		let size = values.collect(sizeForExtending:/1).max;
+		let places = values.multiChannelExpand.collect { :each |
+			each.withIndexCollect { :item :index |
+				keys[index] -> item
 			}
-		)|
+		};
 		places.collect(asRecord:/1)
 	}
 
@@ -1006,11 +986,9 @@
 +SmallFloat {
 
 	degreeToKey { :scaleDegree :scale :stepsPerOctave |
-		|(
-			k = scale.size,
-			d = scaleDegree.rounded,
-			a = (scaleDegree - d) * 10 * (stepsPerOctave / 12)
-		)|
+		let k = scale.size;
+		let d = scaleDegree.rounded;
+		let a = (scaleDegree - d) * 10 * (stepsPerOctave / 12);
 		(stepsPerOctave * (d // k)) + scale[d % k + 1] + a
 	}
 

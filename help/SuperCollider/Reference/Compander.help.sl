@@ -30,7 +30,7 @@ Example signal to process:
 
 Noise gate (keywords):
 
-	var z = Decay2(
+	let z = Decay2(
 		Impulse(8, 0) * MulAdd(LfSaw(0.3, 0), -0.3, 0.3),
 		0.001,
 		0.3
@@ -47,7 +47,7 @@ Noise gate (keywords):
 
 Compressor (keywords):
 
-	var z = Decay2(
+	let z = Decay2(
 		Impulse(8, 0) * MulAdd(LfSaw(0.3, 0), -0.3, 0.3),
 		0.001,
 		0.3
@@ -64,7 +64,7 @@ Compressor (keywords):
 
 Limiter (keywords):
 
-	var z = Decay2(
+	let z = Decay2(
 		Impulse(8, 0) * MulAdd(LfSaw(0.3, 0), -0.3, 0.3),
 		0.001,
 		0.3
@@ -81,7 +81,7 @@ Limiter (keywords):
 
 Sustainer (keywords):
 
-	var z = Decay2(
+	let z = Decay2(
 		Impulse(8, 0) * MulAdd(LfSaw(0.3, 0), -0.3, 0.3),
 		0.001,
 		0.3

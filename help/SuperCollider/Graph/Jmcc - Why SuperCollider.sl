@@ -1,12 +1,12 @@
 (* why supercollider (jmcc) #0 *)
-var s = {
+let s = {
 	Resonz(
 		Dust(0.2) * 50,
 		200 + 3000.Rand0,
 		0.003
 	)
 } !+ 10;
-var x = {
+let x = {
 	CombL(
 		DelayN(s, 0.048, 0.048),
 		0.1,

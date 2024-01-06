@@ -1,39 +1,40 @@
 +Graph {
 
 	drawing { :self :scale :derivePoint:/1 |
-		|(
-			lineWidth = 1,
-			points = self.vertexLabels.collect(derivePoint:/1),
-			bbox = points.computeBoundingBox.scaleBy(scale),
-			dots = points.collect { :each |
-				'circle'.createSvgElement (
-					cx: each.x,
-					cy: each.y,
-					r: lineWidth * 2,
-					fill: 'black'
-				)
-			},
-			lines = self.edges.collect { :each |
-				| [i, j] = each; |
-				'line'.createSvgElement (
-					x1: points[i].x,
-					y1: points[i].y,
-					x2: points[j].x,
-					y2: points[j].y,
-					stroke: 'black',
-					'stroke-width': lineWidth
-				)
-			},
-			svg = 'svg'.createSvgElement (
-				width: bbox.width,
-				height: bbox.height,
-				viewBox: bbox.viewBoxString(5),
-				preserveAspectRatio: 'xMidYMid meet'
-			),
-			group = 'g'.createSvgElement (
-				transform: 'translate(0, ' ++ (bbox.height + (2 * bbox.origin.y)) ++ ') scale(' ++ scale ++ ', -' ++ scale ++ ')'
+		let lineWidth = 1;
+		let points = self.vertexLabels.collect(derivePoint:/1);
+		let bbox = points.computeBoundingBox.scaleBy(scale);
+		let dots = points.collect { :each |
+			'circle'.createSvgElement (
+				cx: each.x,
+				cy: each.y,
+				r: lineWidth * 2,
+				fill: 'black'
 			)
-		)|
+		};
+		let lines = self.edges.collect { :each |
+			let [i, j] = each;
+			'line'.createSvgElement (
+				x1: points[i].x,
+				y1: points[i].y,
+				x2: points[j].x,
+				y2: points[j].y,
+				stroke: 'black',
+				'stroke-width': lineWidth
+			)
+		};
+		let svg = 'svg'.createSvgElement (
+			width: bbox.width,
+			height: bbox.height,
+			viewBox: bbox.viewBoxString(5),
+			preserveAspectRatio: 'xMidYMid meet'
+		);
+		let group = 'g'.createSvgElement (
+			transform: [
+				'translate(0, ' ++ (bbox.height + (2 * bbox.origin.y)) ++ ')',
+				'scale(' ++ scale ++ ', -' ++ scale ++ ')'
+			].join
+		);
 		group.appendChildren(dots);
 		group.appendChildren(lines);
 		svg.appendChild(group);
@@ -45,22 +46,20 @@
 +RatioTuning {
 
 	htmlView { :self |
-		|(
-			ratios = self.ratios,
-			vectorLimit = self.limit.min(13),
-			limitPrimes = vectorLimit.primesUpTo.allButFirst,
-			tuningPrimes = self.latticePrimes,
-			primesVector = (self.limit <= 13).if {
-				limitPrimes
+		let ratios = self.ratios;
+		let vectorLimit = self.limit.min(13);
+		let limitPrimes = vectorLimit.primesUpTo.allButFirst;
+		let tuningPrimes = self.latticePrimes;
+		let primesVector = (self.limit <= 13).if {
+			limitPrimes
+		} {
+			(tuningPrimes.size <= 5).if {
+				tuningPrimes
 			} {
-				(tuningPrimes.size <= 5).if {
-					tuningPrimes
-				} {
-					nil
-				}
-			},
-			div = 'div'.createElement
-		)|
+				nil
+			}
+		};
+		let div = 'div'.createElement;
 		div.appendChildren([
 			[
 				['Size', self.size.asString],
@@ -96,11 +95,9 @@
 	}
 
 	latticeGraph { :self :primes |
-		|(
-			vertices = self.latticeVertices(primes),
-			edges = self.latticeEdges(vertices),
-			points = vertices.collect(wilsonLatticeCoordinates:/1) * 4
-		)|
+		let vertices = self.latticeVertices(primes);
+		let edges = self.latticeEdges(vertices);
+		let points = vertices.collect(wilsonLatticeCoordinates:/1) * 4;
 		Graph(vertices.size, edges, points, nil)
 	}
 
@@ -109,11 +106,9 @@
 +SmallKansas {
 
 	ScalaJiTuningBrowser { :self :jiTunings |
-		|(
-			sizes = jiTunings.collect(size:/1).values.copyWithoutDuplicates.sort.collect(asString:/1),
-			selectedSize = nil,
-			selectedLimit = nil
-		)|
+		let sizes = jiTunings.collect(size:/1).values.copyWithoutDuplicates.sort.collect(asString:/1);
+		let selectedSize = nil;
+		let selectedLimit = nil;
 		self.ColumnBrowser('Scala Ji Tuning Browser', 'text/html', false, true, [1, 1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
@@ -139,7 +134,7 @@
 					}.indices
 				},
 				3 -> {
-					| jiTuning = jiTunings[path[3]]; |
+					let jiTuning = jiTunings[path[3]];
 					browser.setStatus(jiTuning.description);
 					jiTuning.htmlView.outerHTML
 				}
@@ -160,7 +155,7 @@
 				{ :item |
 					item.collect { :each |
 						each.includesKey('octave').if {
-							| [numerator, denominator] = each::octave; |
+							let [numerator, denominator] = each::octave;
 							each::octave := Fraction(numerator, denominator)
 						} {
 							each::octave := 2:1

@@ -6,12 +6,12 @@ Generates a random float value in exponential distribution from _lo_ to _hi_ eac
 
 _lo_ and _hi_ must both have the same sign and be non-zero.
 
-	var tr = Dust(10);
+	let tr = Dust(10);
 	SinOsc(TExpRand(300, 3000, tr), 0) * 0.1
 
 Mouse controls density:
 
-	var tr = Dust(MouseX(1, 8000, 1, 0.2));
+	let tr = Dust(MouseX(1, 8000, 1, 0.2));
 	SinOsc(TExpRand(300, 3000, tr), 0) * 0.1
 
 * * *

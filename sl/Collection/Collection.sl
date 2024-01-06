@@ -3,7 +3,7 @@
 @Collection {
 
 	++ { :self :aCollection |
-		| answer = self.copy; |
+		let answer = self.copy;
 		answer.addAll(aCollection.assertIsCollection);
 		answer
 	}
@@ -26,7 +26,7 @@
 		self.isEmpty.if {
 			true
 		} {
-			| item = self.anyOne; |
+			let item = self.anyOne;
 			self.allSatisfy { :each |
 				aBlock(each, item)
 			}
@@ -42,7 +42,7 @@
 	}
 
 	anyAs { :self :numberOfElements :aBlock:/1 |
-		| index = 0, result = numberOfElements.aBlock; |
+		let index = 0, result = numberOfElements.aBlock;
 		valueWithReturn { :return:/1 |
 			result.fillFromWith(self) { :each |
 				index +:= 1;
@@ -60,7 +60,7 @@
 	}
 
 	asArray { :self |
-		| array = Array(self.size), index = 0; |
+		let array = Array(self.size), index = 0;
 		self.do { :each |
 			index +:= 1;
 			array[index] := each
@@ -87,7 +87,7 @@
 	}
 
 	atRandom { :self |
-		| randomIndex = self.size.atRandom, index = 1; |
+		let randomIndex = self.size.atRandom, index = 1;
 		valueWithReturn { :return:/1 |
 			self.do { :each |
 				(index = randomIndex).ifTrue {
@@ -119,7 +119,7 @@
 	}
 
 	cartesianProduct { :self :aCollection |
-		| answer = []; |
+		let answer = [];
 		self.cartesianProductDo(aCollection) { :x :y |
 			answer.add([x, y])
 		};
@@ -127,7 +127,7 @@
 	}
 
 	collect { :self :aBlock:/1 |
-		| answer = self.species.new; |
+		let answer = self.species.new;
 		self.do { :each |
 			answer.add(aBlock(each))
 		};
@@ -143,9 +143,9 @@
 	}
 
 	collectThenSelect { :self :collectBlock:/1 :selectBlock:/1 |
-		| answer = self.species.new; |
+		let answer = self.species.new;
 		self.do { :each |
-			| item = collectBlock(each); |
+			let item = collectBlock(each);
 			selectBlock(item).ifTrue {
 				answer.add(item)
 			}
@@ -158,7 +158,7 @@
 	}
 
 	copyWith { :self :newElement |
-		| answer = self.copy; |
+		let answer = self.copy;
 		answer.add(newElement);
 		answer
 	}
@@ -176,7 +176,7 @@
 	}
 
 	copyWithoutDuplicates { :self |
-		| seen = Set(); |
+		let seen = Set();
 		self.select { :each |
 			seen.ifAbsentAdd(each)
 		}
@@ -197,7 +197,7 @@
 			'Any'
 		} {
 			valueWithReturn { :return:/1 |
-				| answer = self.anyOne.typeOf; |
+				let answer = self.anyOne.typeOf;
 				self.do { :each |
 					(answer = each.typeOf).ifFalse {
 						'Any'.return
@@ -231,9 +231,9 @@
 	}
 
 	groupBy { :self :keyBlock:/1 |
-		| result = Map(); |
+		let result = Map();
 		self.do { :each |
-			| key = keyBlock(each); |
+			let key = keyBlock(each);
 			result.atIfAbsentPut(key) {
 				[]
 			}.add(each)
@@ -248,7 +248,7 @@
 	}
 
 	histogramOf { :self :aBlock:/1 |
-		| answer = Bag(); |
+		let answer = Bag();
 		self.collectInto(aBlock:/1, answer);
 		answer
 	}
@@ -359,7 +359,7 @@
 	}
 
 	select { :self :aBlock:/1 |
-		| answer = self.species.new; |
+		let answer = self.species.new;
 		self.do { :each |
 			aBlock(each).ifTrue {
 				answer.add(each)
@@ -369,7 +369,7 @@
 	}
 
 	selectThenCollect { :self :selectBlock:/1 :collectBlock:/1 |
-		| answer = self.species.new; |
+		let answer = self.species.new;
 		self.selectThenDo(selectBlock:/1) { :each |
 			answer.add(collectBlock(each))
 		};
@@ -395,7 +395,7 @@
 	}
 
 	union { :self :aCollection |
-		| answer = self.asSet; |
+		let answer = self.asSet;
 		answer.includeAll(aCollection);
 		answer
 	}

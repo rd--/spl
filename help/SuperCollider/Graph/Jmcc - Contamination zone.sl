@@ -1,8 +1,8 @@
 (* contamination zone ; jmcc #9 ; graph rewrite *)
-var z = { :tr |
-	var f = TExpRand(800, 8000, tr);
-	var s = PinkNoise() * (LfNoise1(TRand(0, 3, tr)) * 0.0008 + 0.0022);
-	var r = RingzBank(s, { TRand(50, 2000, tr) } ! 4, [1], { TRand(0.2, 4, tr) } ! 4).Abs;
+let z = { :tr |
+	let f = TExpRand(800, 8000, tr);
+	let s = PinkNoise() * (LfNoise1(TRand(0, 3, tr)) * 0.0008 + 0.0022);
+	let r = RingzBank(s, { TRand(50, 2000, tr) } ! 4, [1], { TRand(0.2, 4, tr) } ! 4).Abs;
 	EqPan2(
 		Rlpf(r, SinOsc(TRand(0, 1, tr), 0) * 0.7 * f + f, 0.1),
 		LfNoise1(TRand(0, 1, tr))

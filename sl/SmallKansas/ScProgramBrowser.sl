@@ -78,18 +78,16 @@ ScProgramIndex : [Object] { | contents |
 						index.names(path[1], path[2])
 					},
 					3 -> {
-						|(
-							[category, author, name] = path[1, 2, 3],
-							url = [
-								'./lib/spl/help/SuperCollider/',
-								category,
-								'/',
-								author,
-								' - ',
-								name,
-								'.sl'
-							].join
-						)|
+						let [category, author, name] = path[1, 2, 3];
+						let url = [
+							'./lib/spl/help/SuperCollider/',
+							category,
+							'/',
+							author,
+							' - ',
+							name,
+							'.sl'
+						].join;
 						system.fetchString(
 							url,
 							(cache: 'no-cache'),

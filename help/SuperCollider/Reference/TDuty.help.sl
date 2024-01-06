@@ -19,7 +19,7 @@ The reset input may also be a demand UGen, providing a stream of reset times.
 
 Demand Ugen as durations:
 
-	var trig = TDuty(
+	let trig = TDuty(
 		Drand(inf, [0.01 0.2 0.4 0.3]),
 		0,
 		Dseq(inf, [0.1 0.4 0.01 0.1 1])
@@ -28,7 +28,7 @@ Demand Ugen as durations:
 
 Control rate ugen as durations:
 
-	var trig = TDuty(
+	let trig = TDuty(
 		MouseX(0.1, 0.5, 1, 0.2),
 		0,
 		Dseq(inf, [0.1 0.4 0.01 0.1 1])

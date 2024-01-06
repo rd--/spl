@@ -8,7 +8,7 @@ Read x-coordinate of the first Pen to control the frequency of a sine tone oscil
 
 Read from two pens, PenX controls frequency, PenY stereo location and PenZ amplitude:
 
-	var k = [1, 2];
+	let k = [1, 2];
 	Pan2(
 		SinOsc(PenX(k) * 555 + 333, 0),
 		PenY(k) * 2 - 1,

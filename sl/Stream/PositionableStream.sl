@@ -20,7 +20,7 @@
 
 	nextMatchAll { :self :aCollection |
 		valueWithReturn { :return:/1 |
-			| savedPosition = self.position; |
+			let savedPosition = self.position;
 			aCollection.do { :each |
 				(self.next = each).ifFalse {
 					self.position := savedPosition;
@@ -48,7 +48,7 @@
 		self.atEnd.if {
 			nil
 		} {
-			| nextObject = self.next; |
+			let nextObject = self.next;
 			self.position -:= 1;
 			nextObject
 		}
@@ -106,7 +106,7 @@
 
 	upTo { :self :anObject |
 		self.withWriteStream { :aStream |
-			| element |
+			let element = nil;
 			{
 				self.atEnd | {
 					element := self.next;
@@ -133,7 +133,7 @@
 	}
 
 	withWriteStream { :self :aBlock:/1 |
-		| aStream = WriteStream(self.collection.species.new(100)); |
+		let aStream = WriteStream(self.collection.species.new(100));
 		aBlock(aStream);
 		aStream.contents
 	}

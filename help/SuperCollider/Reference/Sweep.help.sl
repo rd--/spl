@@ -11,28 +11,28 @@ When rate is equal to one, Sweep may be used to get a continually-updating measu
 
 Using sweep to modulate sine frequency:
 
-	var trig = Impulse(MouseX(0.5, 20, 1, 0.2), 0);
+	let trig = Impulse(MouseX(0.5, 20, 1, 0.2), 0);
 	SinOsc(Sweep(trig, 700) + 500, 0) * 0.1
 
 Using sweep to index into a buffer:
 
-	var trig = Impulse(MouseX(0.5, 10, 1, 0.2), 0);
-	var sf = SfAcquireMono('floating_1');
+	let trig = Impulse(MouseX(0.5, 10, 1, 0.2), 0);
+	let sf = SfAcquireMono('floating_1');
 	BufRd(1, sf, Sweep(trig, BufSampleRate(sf)), 1, 2)
 
 Backwards, variable offset:
 
-	var trig = Impulse(MouseX(0.5, 10, 1, 0.2), 0);
-	var sf = SfAcquireMono('floating_1');
-	var rate = BufSampleRate(sf);
-	var ph0 = BufFrames(sf) * LfNoise0(0.2);
-	var ph = Sweep(trig, rate.Neg) + ph0;
+	let trig = Impulse(MouseX(0.5, 10, 1, 0.2), 0);
+	let sf = SfAcquireMono('floating_1');
+	let rate = BufSampleRate(sf);
+	let ph0 = BufFrames(sf) * LfNoise0(0.2);
+	let ph = Sweep(trig, rate.Neg) + ph0;
 	BufRd(1, sf, ph, 1, 2)
 
 Raising rate:
 
-	var trig = Impulse(MouseX(0.5, 10, 1, 0.2), 0);
-	var sf = SfAcquireMono('floating_1');
-	var rate = Sweep(trig, 2) + 0.5;
+	let trig = Impulse(MouseX(0.5, 10, 1, 0.2), 0);
+	let sf = SfAcquireMono('floating_1');
+	let rate = Sweep(trig, 2) + 0.5;
 	BufRd(1, sf, Sweep(trig, BufSampleRate(sf) * rate), 1, 2)
 

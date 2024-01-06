@@ -1,7 +1,7 @@
 (* https://sccode.org/1-4Qy ; f0 ; 0307 *)
-var a = 2 + Blip(3 / [8, 9], 2).RoundTo(1);
-var c = a ^ Lag(a, 0.1);
-var o = Blip(
+let a = 2 + Blip(3 / [8, 9], 2).RoundTo(1);
+let c = a ^ Lag(a, 0.1);
+let o = Blip(
 	Duty(
 		1 / [9, 8],
 		0,

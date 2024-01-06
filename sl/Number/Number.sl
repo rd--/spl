@@ -41,7 +41,7 @@
 	}
 
 	absSquared { :self |
-		| abs = self.abs; |
+		let abs = self.abs;
 		abs * abs
 	}
 
@@ -58,7 +58,7 @@
 	}
 
 	ceiling { :self |
-		| truncation = self.truncated; |
+		let truncation = self.truncated;
 		(self <= 0).if {
 			truncation
 		} {
@@ -99,7 +99,7 @@
 	}
 
 	downToDo { :self :end :aBlock:/1 |
-		| index = self; |
+		let index = self;
 		{ index >= end }.whileTrue {
 			aBlock(index);
 			index -:= 1
@@ -107,7 +107,7 @@
 	}
 
 	floor { :self |
-		| truncation = self.truncated; |
+		let truncation = self.truncated;
 		(self >= 0).if {
 			truncation
 		} {
@@ -259,7 +259,7 @@
 		(step = 0).if {
 			'@Number>>toByDo: step must be non-zero'.error
 		} {
-			| nextValue = self; |
+			let nextValue = self;
 			(step < 0).if{
 				{ stop <= nextValue }.whileTrue {
 					aBlock(nextValue);
@@ -276,7 +276,7 @@
 	}
 
 	toDo { :self :end :aBlock:/1 |
-		| index = self; |
+		let index = self;
 		{ index <= end }.whileTrue {
 			aBlock(index);
 			index +:= 1
@@ -297,7 +297,7 @@
 	}
 
 	upOrDownToDo { :self :end :aBlock:/1 |
-		| step = (end < self).if { -1 } { 1 }; |
+		let step = (end < self).if { -1 } { 1 };
 		self.toByDo(end, step, aBlock:/1)
 	}
 

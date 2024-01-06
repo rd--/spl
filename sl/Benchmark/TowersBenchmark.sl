@@ -13,7 +13,7 @@ TowersDisk : [Object] { | size next |
 TowersBenchmark : [Object] { | piles movesdone |
 
 	pushDiskOnPile { :self :disk :pile |
-		| top = self.piles[pile]; |
+		let top = self.piles[pile];
 		(
 			top.notNil & {
 				disk.size >= top.size
@@ -26,7 +26,7 @@ TowersBenchmark : [Object] { | piles movesdone |
 	}
 
 	popDiskFrom { :self :pile |
-		| top = self.piles[pile]; |
+		let top = self.piles[pile];
 		top.isNil.ifTrue {
 			'Attempting to remove a disk from an empty pile'.error
 		};
@@ -50,7 +50,7 @@ TowersBenchmark : [Object] { | piles movesdone |
 		(disks = 1).if {
 			self.moveTopDiskFromTo(fromPile, toPile)
 		} {
-			| otherPile = 6 - fromPile - toPile; |
+			let otherPile = 6 - fromPile - toPile;
 			self.moveDisksFromTo(disks - 1, fromPile, otherPile);
 			self.moveTopDiskFromTo(fromPile, toPile);
 			self.moveDisksFromTo(disks - 1, otherPile, toPile)

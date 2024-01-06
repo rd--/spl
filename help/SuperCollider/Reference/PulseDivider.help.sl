@@ -12,8 +12,8 @@ Outputs one impulse each time it receives a certain number of triggers at its in
 
 Lower tone at quarter the clock rate:
 
-	var p = Impulse(8, 0);
-	var p4 = PulseDivider(p, 4, 0);
+	let p = Impulse(8, 0);
+	let p4 = PulseDivider(p, 4, 0);
 	[
 		SinOsc(1200, 0) * Decay2(p, 0.005, 0.1),
 		SinOsc(600, 0) * Decay2(p4, 0.005, 0.5)
@@ -21,10 +21,10 @@ Lower tone at quarter the clock rate:
 
 Four divisions:
 
-	var p = Impulse(8, 0);
-	var p2 = PulseDivider(p, 2, 1);
-	var p4 = PulseDivider(p, 4, 0);
-	var p16 = PulseDivider(p, 16, 0);
+	let p = Impulse(8, 0);
+	let p2 = PulseDivider(p, 2, 1);
+	let p4 = PulseDivider(p, 4, 0);
+	let p16 = PulseDivider(p, 16, 0);
 	[
 		SinOsc(1200, 0) * Decay2(p, 0.005, 0.1),
 		SinOsc(800, 0) * Decay2(p2, 0.005, 0.5),

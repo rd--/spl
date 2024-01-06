@@ -62,7 +62,7 @@
 	}
 
 	copy { :self |
-		| answer = self.shallowCopy; |
+		let answer = self.shallowCopy;
 		answer.postCopy;
 		answer
 	}
@@ -86,7 +86,7 @@
 	}
 
 	error { :self :message |
-		| description = self.errorMessage(message); |
+		let description = self.errorMessage(message);
 		Error(description).signal
 	}
 
@@ -163,7 +163,7 @@
 	}
 
 	printStringConcise { :self :count |
-		| answer = self.printString; |
+		let answer = self.printString;
 		(answer.size > count).if {
 			self.typeOf.withIndefiniteArticle
 		} {
@@ -172,7 +172,7 @@
 	}
 
 	printStringLimitedTo { :self :count |
-		| answer = self.printString; |
+		let answer = self.printString;
 		(answer.size > count).if {
 			answer.truncateTo(count - 8) ++ '... &etc'
 		} {

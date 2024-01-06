@@ -43,7 +43,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	asciiByteArray { :self |
-		| answer = self.utf8ByteArray; |
+		let answer = self.utf8ByteArray;
 		answer.allSatisfy(isAsciiCodePoint:/1).if {
 			answer
 		} {
@@ -85,7 +85,7 @@ String! : [Object, Json, Iterable] {
 
 	at { :self :index |
 		(* Note: index is in Utf-16 code units, not characters *)
-		| codePoint = self.codePointAt(index); |
+		let codePoint = self.codePointAt(index);
 		codePoint.ifNil {
 			self.error('at: invalid index')
 		} {
@@ -155,7 +155,7 @@ String! : [Object, Json, Iterable] {
 			(smallSize < 5).if {
 				self.copyFromTo(1, smallSize)
 			} {
-				| leftSize = smallSize - 2 // 2; |
+				let leftSize = smallSize - 2 // 2;
 				self.copyReplaceFromToWith(
 					leftSize + 1,
 					self.size - (smallSize - leftSize - 3),
@@ -178,7 +178,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	countCharacters { :self |
-		| answer = 0; |
+		let answer = 0;
 		self.do { :each |
 			answer +:= 1
 		};
@@ -205,7 +205,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	findLastOccurrenceOfStringStartingAt { :self :subString :start |
-		| last = self.findStringStartingAt(subString, start); |
+		let last = self.findStringStartingAt(subString, start);
 		(last = 0).if {
 			0
 		} {
@@ -235,10 +235,8 @@ String! : [Object, Json, Iterable] {
 	}
 
 	firstBracketedCommentIfAbsent { :self :open :close :aBlock:/0 |
-		|(
-			start = self.findString(open),
-			end = self.findString(close)
-		)|
+		let start = self.findString(open);
+		let end = self.findString(close);
 		(start = 0 | {
 			end = 0
 		}).if {
@@ -282,7 +280,7 @@ String! : [Object, Json, Iterable] {
 
 	indicesOf { :self :aString |
 		aString.isString.if {
-			| answer = [], index = 1, end = self.size; |
+			let answer = [], index = 1, end = self.size;
 			{
 				index.betweenAnd(1, end)
 			}.whileTrue {
@@ -364,7 +362,7 @@ String! : [Object, Json, Iterable] {
 
 	occurrencesOf { :self :aString |
 		aString.isString.if {
-			| index = 1, end = self.size, tally = 0; |
+			let index = 1, end = self.size, tally = 0;
 			{
 				index.betweenAnd(1, end)
 			}.whileTrue {
@@ -442,7 +440,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	romanNumber { :self |
-		| value = 0, v1 = 0, v2 = 0, letters = 'IVXLCDM'.asciiByteArray; |
+		let value = 0, v1 = 0, v2 = 0, letters = 'IVXLCDM'.asciiByteArray;
 		self.asciiByteArray.reverseDo { :each |
 			v1 := [1, 5, 10, 50, 100, 500, 1000].at(letters.indexOf(each));
 			(v1 >= v2).if {
@@ -512,7 +510,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	utf16Array { :self |
-		| answer = []; |
+		let answer = [];
 		1.toDo(self.countUtf16CodeUnits) { :index |
 			answer.add(self.utf16CodePointAt(index))
 		};
@@ -524,12 +522,10 @@ String! : [Object, Json, Iterable] {
 	}
 
 	whiteSpaceDelimitedWordAtIndex { :self :index |
-		|(
-			previousSpaceIndex = self.findPreviousOccurrenceOfStringStartingAt(' ', index - 1),
-			nextSpaceIndex = self.findStringStartingAt(' ', index),
-			begin = (previousSpaceIndex < 1).if { 1 } { previousSpaceIndex + 1 },
-			end = (nextSpaceIndex < 1).if { self.length } { nextSpaceIndex }
-		)|
+		let previousSpaceIndex = self.findPreviousOccurrenceOfStringStartingAt(' ', index - 1);
+		let nextSpaceIndex = self.findStringStartingAt(' ', index);
+		let begin = (previousSpaceIndex < 1).if { 1 } { previousSpaceIndex + 1 };
+		let end = (nextSpaceIndex < 1).if { self.length } { nextSpaceIndex };
 		self.copyFromTo(begin, end - 1)
 	}
 
@@ -549,7 +545,7 @@ String! : [Object, Json, Iterable] {
 		(self.size < 2).if {
 			self
 		} {
-			| quote = self.first; |
+			let quote = self.first;
 			(
 				quote = self.last & {
 					[34, 39, 96].includes(quote.codePoint)

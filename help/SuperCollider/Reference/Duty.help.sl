@@ -14,7 +14,7 @@ The reset input may also be a demand Ugen, providing a stream of reset times.
 
 Demand Ugen as durations:
 
-	var freq = Duty(
+	let freq = Duty(
 		Drand(inf, [0.01 0.2 0.4]),
 		0,
 		Dseq(inf, [204 400 201 502 300 200])
@@ -23,7 +23,7 @@ Demand Ugen as durations:
 
 Control rate ugen as durations:
 
-	var freq = Duty(
+	let freq = Duty(
 		MouseX(0.001, 2, 1, 0.2),
 		0,
 		Dseq(inf, [204 400 201 502 300 200])
@@ -32,7 +32,7 @@ Control rate ugen as durations:
 
 Control rate resetting the demand ugens:
 
-	var freq = Duty(
+	let freq = Duty(
 		Dseq(inf, [0.2, 0.3, 0.4, Dseq(inf, [1 1 1 2 1 2])]) / 2,
 		Dust(1).kr,
 		Dseq(inf, [0, 1, 2, Dseq(inf, [1 .. 5])])
@@ -41,7 +41,7 @@ Control rate resetting the demand ugens:
 
 Demand rate reset:
 
-	var freq = Duty(
+	let freq = Duty(
 		Dseq(inf, [0.2, 0.3, 0.4, Dseq(inf, [1 1 1 2 1 2])]) / 2,
 		Dseq(inf, [1 2 4 5]),
 		Dseq(inf, [0, 1, 2, Dseq(inf, [1 .. 5])])
@@ -50,10 +50,10 @@ Demand rate reset:
 
 Demand Ugen as audio oscillator:
 
-	var n = 5;
-	var m = 64;
-	var a = {
-		var x = [
+	let n = 5;
+	let m = 64;
+	let a = {
+		let x = [
 			{ randomFloat(-0.2, 0.2) } ! m,
 			{ Drand(1, { randomFloat(-0.2, 0.2) } ! n) } ! m.atRandom
 		].concatenation;
@@ -67,8 +67,8 @@ Demand Ugen as audio oscillator:
 
 With non-demand inputs:
 
-	var freq = LfNoise2(1).Range(111, 555);
-	var latchFreq = Duty(MouseX(0.1, 1, 1, 0.2), 0, freq);
+	let freq = LfNoise2(1).Range(111, 555);
+	let latchFreq = Duty(MouseX(0.1, 1, 1, 0.2), 0, freq);
 	SinOsc([freq, latchFreq], 0) * 0.1
 
 * * *

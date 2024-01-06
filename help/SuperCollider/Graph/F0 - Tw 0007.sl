@@ -1,6 +1,6 @@
 (* https://sccode.org/1-4Qy ; tweet0007 ; texture variant (rd) ; requires=LinRand *)
 { :tr |
-	var p = Pluck(
+	let p = Pluck(
 		Crackle([1.9, 1.8]),
 		Impulse(TiRand(1, 6, tr), 0),
 		0.05,

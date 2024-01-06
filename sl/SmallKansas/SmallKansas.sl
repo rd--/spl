@@ -11,10 +11,8 @@
 SmallKansas : [Object, Cache] { | container frameSet cache |
 
 	addFrameWithAnimator { :self :subject :event :delay :aBlock:/0 |
-		|(
-			timerId = aBlock:/0.valueEveryMilliseconds(delay.asSeconds * 1000),
-			frame = self.addFrame(subject, event)
-		)|
+		let timerId = aBlock:/0.valueEveryMilliseconds(delay.asSeconds * 1000);
+		let frame = self.addFrame(subject, event);
 		frame.addEventListener('close') { :unusedEvent |
 			timerId.cancel
 		};
@@ -22,7 +20,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 	}
 
 	addFrame { :self :subject :event |
-		| frame = Frame(self, subject); |
+		let frame = Frame(self, subject);
 		subject.frame := frame;
 		frame.zIndex := self.zIndices.max + 1;
 		event.ifNotNil {
@@ -50,7 +48,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 	}
 
 	dialog { :self :subject :event |
-		| dialog = 'dialog'.createElement; |
+		let dialog = 'dialog'.createElement;
 		dialog.appendChild(subject.outerElement);
 		dialog.style.setProperty('left', event.x.asString ++ 'px', '');
 		dialog.style.setProperty('top', event.y.asString ++ 'px', '');
@@ -104,12 +102,10 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 	}
 
 	implementorsOf { :self :subject :event |
-		|(
-			bracketedSubject = '>>' ++ subject ++ ':/',
-			methodSignatures = system.allMethods.collect(signature:/1).select { :each |
-				each.includesSubstring(bracketedSubject)
-			}.copyWithoutDuplicates.sort
-		)|
+		let bracketedSubject = '>>' ++ subject ++ ':/';
+		let methodSignatures = system.allMethods.collect(signature:/1).select { :each |
+			each.includesSubstring(bracketedSubject)
+		}.copyWithoutDuplicates.sort;
 		self.addFrame(self.MethodSignatureBrowser(methodSignatures, false), event)
 	}
 

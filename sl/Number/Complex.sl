@@ -12,12 +12,10 @@ Complex : [Object] { | real imaginary |
 
 	* { :self :anObject |
 		anObject.isComplex.if {
-			|(
-				a = self.real,
-				b = self.imaginary,
-				c = anObject.real,
-				d = anObject.imaginary
-			)|
+			let a = self.real;
+			let b = self.imaginary;
+			let c = anObject.real;
+			let d = anObject.imaginary;
 			Complex((a * c) - (b * d), (a * d) + (b * c))
 		} {
 			anObject.adaptToComplexAndApply(self, times:/2)
@@ -27,12 +25,10 @@ Complex : [Object] { | real imaginary |
 
 	+ { :self :anObject |
 		anObject.isComplex.if {
-			|(
-				a = self.real,
-				b = self.imaginary,
-				c = anObject.real,
-				d = anObject.imaginary
-			)|
+			let a = self.real;
+			let b = self.imaginary;
+			let c = anObject.real;
+			let d = anObject.imaginary;
 			Complex(a + c, b + d)
 		} {
 			anObject.adaptToComplexAndApply(self, plus:/2)
@@ -41,12 +37,10 @@ Complex : [Object] { | real imaginary |
 
 	- { :self :anObject |
 		anObject.isComplex.if {
-			|(
-				a = self.real,
-				b = self.imaginary,
-				c = anObject.real,
-				d = anObject.imaginary
-			)|
+			let a = self.real;
+			let b = self.imaginary;
+			let c = anObject.real;
+			let d = anObject.imaginary;
 			Complex(a - c, b - d)
 		} {
 			anObject.adaptToComplexAndApply(self, minus:/2)
@@ -55,12 +49,10 @@ Complex : [Object] { | real imaginary |
 
 	/ { :self :anObject |
 		anObject.isComplex.if {
-			|(
-				a = self.real,
-				b = self.imaginary,
-				c = anObject.real,
-				d = anObject.imaginary
-			)|
+			let a = self.real;
+			let b = self.imaginary;
+			let c = anObject.real;
+			let d = anObject.imaginary;
 			Complex(
 				((a * c) + (b * d)) / ((c * c) + (d * d)),
 				((b * c) - (a * d)) / ((c * c) + (d * d))
@@ -246,10 +238,8 @@ Complex : [Object] { | real imaginary |
 		).if {
 			self.real.sqrt.asComplex
 		} {
-			|(
-				v = (self.abs - self.real / 2).sqrt,
-				u = self.imaginary / 2 / v
-			)|
+			let v = (self.abs - self.real / 2).sqrt;
+			let u = self.imaginary / 2 / v;
 			Complex(u, v)
 		}
 	}

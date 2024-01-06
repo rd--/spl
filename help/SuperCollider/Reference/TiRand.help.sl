@@ -10,24 +10,24 @@ Generates a random integer value in uniform distribution from _lo_ to _hi_ each 
 
 Random oscillator frequencies:
 
-	var tr = Dust(10);
+	let tr = Dust(10);
 	SinOsc(TiRand(4, 12, tr) * 100, 0) * 0.1
 
 Mouse controls density:
 
-	var tr = Dust(MouseX(1, 8000, 1, 0.2));
+	let tr = Dust(MouseX(1, 8000, 1, 0.2));
 	SinOsc(TiRand(4, 12, tr) * 100, 0) * 0.1
 
 Random degree, octave and number of harmonics:
 
-	var scale = [0 2 4 5 7 9 10 12].asLocalBuf;
+	let scale = [0 2 4 5 7 9 10 12].asLocalBuf;
 	{ :tr |
 		{
-			var degree = TiRand(0, 7, tr);
-			var octave = TiRand(4, 7, tr);
-			var pitchClass = Index(scale, degree);
-			var mnn = (octave * 12) + pitchClass;
-			var numHarm = TiRand(1, 4, tr);
+			let degree = TiRand(0, 7, tr);
+			let octave = TiRand(4, 7, tr);
+			let pitchClass = Index(scale, degree);
+			let mnn = (octave * 12) + pitchClass;
+			let numHarm = TiRand(1, 4, tr);
 			Blip(mnn.MidiCps, numHarm) * 0.05
 		} !^ 7
 	}.OverlapTexture(4, 0.05, 2).Mix

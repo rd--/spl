@@ -57,11 +57,11 @@ With random frequencies input:
 Texture of variation of above:
 
 	{ :tr |
-		var z = Decay(
+		let z = Decay(
 			Impulse(4, 0),
 			TRand(0.03, 0.09, tr)
 		) * ClipNoise() * 0.0025;
-		var r = RingzBank(
+		let r = RingzBank(
 			z,
 			{ TRand(800, 4000, tr) } ! 12,
 			nil,

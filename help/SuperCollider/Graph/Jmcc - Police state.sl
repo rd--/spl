@@ -1,5 +1,5 @@
 (* police state ; jmcc *)
-var n = 4; (* number of sirens *)
+let n = 4; (* number of sirens *)
 CombL(
 	{
 		EqPan(

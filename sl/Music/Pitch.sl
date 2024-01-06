@@ -27,11 +27,9 @@
 	}
 
 	midiNoteNumberToOctavePitchClass { :self |
-		|(
-			octave = (self / 12).floor - 1,
-			zero = (octave + 1) * 12,
-			pitchClass = (self - zero) / 100
-		)|
+		let octave = (self / 12).floor - 1;
+		let zero = (octave + 1) * 12;
+		let pitchClass = (self - zero) / 100;
 		octave + pitchClass
 	}
 
@@ -40,10 +38,8 @@
 	}
 
 	octavePitchClassToMidiNoteNumber { :self |
-		|(
-			octave = self.floor,
-			pitchClass = (self - octave) * 100
-		)|
+		let octave = self.floor;
+		let pitchClass = (self - octave) * 100;
 		(octave + 1) * 12 + pitchClass
 	}
 

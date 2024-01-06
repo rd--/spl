@@ -8,17 +8,17 @@ This is a better pitch follower than ZeroCrossing, but more costly of CPU. For m
 
 Track sine oscillator:
 
-	var x = MouseX(220, 660, 0, 0.1);
-	var y = MouseY(0.01, 0.1, 0, 0.1);
-	var z = SinOsc(x, 0) * y;
-	var f = Pitch(z, 440, 60, 4000, 100, 16, 7, 0.02, 0.5, 1, 0);
+	let x = MouseX(220, 660, 0, 0.1);
+	let y = MouseY(0.01, 0.1, 0, 0.1);
+	let z = SinOsc(x, 0) * y;
+	let f = Pitch(z, 440, 60, 4000, 100, 16, 7, 0.02, 0.5, 1, 0);
 	[z, SinOsc(f.first / 2, 0) * 0.1]
 
 Track audio input, __use headphones__:
 
-	var z = AudioIn([1, 2]).Sum;
-	var f = Pitch(z, 440, 60, 4000, 100, 16, 7, 0.02, 0.5, 1, 0);
-	var s = VarSaw(
+	let z = AudioIn([1, 2]).Sum;
+	let f = Pitch(z, 440, 60, 4000, 100, 16, 7, 0.02, 0.5, 1, 0);
+	let s = VarSaw(
 		f.first * [0.5, 1, 2],
 		0,
 		LfNoise1(0.3) * 0.1 + 0.1

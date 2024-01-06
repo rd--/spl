@@ -29,7 +29,7 @@ system.clock.schedule(0) { :t | | x = 1.randomFloat; | [t, x].postLine; (x > 0.1
 A scheduling process that passes an object between iterations:
 
 ```
-system.clock.scheduleInjecting(0, 1) { :t :i | var x = 1.randomFloat; [t, i, x].postLine; if(x > 0.1) { [x, i + 1] } { nil } }
+system.clock.scheduleInjecting(0, 1) { :t :i | let x = 1.randomFloat; [t, i, x].postLine; if(x > 0.1) { [x, i + 1] } { nil } }
 ```
 
 _repeatEvery_ separates the _on wakeup_ and _next delay_ aspects into separate blocks:

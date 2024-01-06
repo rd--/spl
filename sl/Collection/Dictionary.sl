@@ -3,7 +3,7 @@
 @Dictionary {
 
 	= { :self :aDictionary |
-		| keyArray = self.indices; |
+		let keyArray = self.indices;
 		keyArray = aDictionary.indices & {
 			keyArray.allSatisfy { :key |
 				self[key] = aDictionary[key]
@@ -12,7 +12,7 @@
 	}
 
 	++ { :self :aDictionary |
-		| answer = self.copy; |
+		let answer = self.copy;
 		answer.includeAll(aDictionary);
 		answer
 	}
@@ -34,7 +34,7 @@
 	}
 
 	Array { :self |
-		| answer = Array(self.size), index = 1; |
+		let answer = Array(self.size), index = 1;
 		self.valuesDo { :each |
 			answer[index] := each;
 			index +:= 1
@@ -65,7 +65,7 @@
 	}
 
 	associations { :self |
-		| answer = Array(self.size), index = 1; |
+		let answer = Array(self.size), index = 1;
 		self.associationsDo { :each |
 			answer[index] := each;
 			index +:= 1
@@ -84,7 +84,7 @@
 	}
 
 	associationsSelect { :self :aBlock:/1 |
-		| answer = self.species.new; |
+		let answer = self.species.new;
 		self.associationsDo { :each |
 			each.aBlock.ifTrue {
 				answer.add(each)
@@ -150,7 +150,7 @@
 	}
 
 	collect { :self :aBlock:/1 |
-		| answer = self.species.new; |
+		let answer = self.species.new;
 		self.withIndexDo { :value :key |
 			answer.add(key -> aBlock(value))
 		};
@@ -162,7 +162,7 @@
 			nil
 		} {
 			aDictionary.includesIndex(key).if {
-				| association = aDictionary.associationAt(key); |
+				let association = aDictionary.associationAt(key);
 				self.add(association);
 				aDictionary.removeKey(key);
 				association
@@ -270,7 +270,7 @@
 	}
 
 	messageSend { :self :selector :delegateKey :argumentsArray |
-		| answer = self.atDelegateTo(selector, delegateKey); |
+		let answer = self.atDelegateTo(selector, delegateKey);
 		answer.isBlock.if {
 			answer.apply([self] ++ argumentsArray)
 		} {
@@ -289,7 +289,7 @@
 	}
 
 	removeAllSuchThat { :self :aBlock:/1 |
-		| removals = []; |
+		let removals = [];
 		self.associationsDo { :each |
 			aBlock(each).ifTrue {
 				removals.add(each.key)
@@ -316,7 +316,7 @@
 
 	removeAt { :self :key |
 		self.includesIndex(key).if {
-			| removed = self[key]; |
+			let removed = self[key];
 			self.removeKey(key);
 			removed
 		} {
@@ -341,7 +341,7 @@
 	}
 
 	select { :self :aBlock:/1 |
-		| answer = self.species.new; |
+		let answer = self.species.new;
 		self.associationsDo { :each |
 			each.value.aBlock.ifTrue {
 				answer.add(each.copy)

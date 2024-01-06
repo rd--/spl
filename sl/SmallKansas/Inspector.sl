@@ -1,13 +1,11 @@
 Inspector : [Object, View] { | inspectorPane inspectorList |
 
 	addInspector { :self :aValue :index |
-		|(
-			maxStringSize = 32,
-			maxIndices = 2048,
-			fields = aValue.inspectAsArray(maxIndices),
-			listChooser = ListChooser(false, aValue.printStringConcise(maxStringSize), 6),
-			select = listChooser.select
-		)|
+		let maxStringSize = 32;
+		let maxIndices = 2048;
+		let fields = aValue.inspectAsArray(maxIndices);
+		let listChooser = ListChooser(false, aValue.printStringConcise(maxStringSize), 6);
+		let select = listChooser.select;
 		listChooser.setEntries(fields.collect { :each |
 			each.key ++ ': ' ++ each.value.printStringConcise(maxStringSize)
 		});

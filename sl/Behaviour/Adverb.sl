@@ -5,10 +5,8 @@
 	}
 
 	withCrossedCollect { :self :aSequence :aBlock:/2 |
-		|(
-			answer = self.species.new(self.size * aSequence.size),
-			nextIndex = 1
-		)|
+		let answer = self.species.new(self.size * aSequence.size);
+		let nextIndex = 1;
 		self.do { :leftItem |
 			aSequence.do { :rightItem |
 				answer[nextIndex] := aBlock(leftItem, rightItem);
@@ -19,7 +17,7 @@
 	}
 
 	withFoldingCollect { :self :aCollection :aBlock:/2 |
-		| maximumSize = self.size.max(aCollection.size); |
+		let maximumSize = self.size.max(aCollection.size);
 		1.toAsCollect(maximumSize, self.species) { :index |
 			aBlock(self.atFold(index), aCollection.atFold(index))
 		}
@@ -40,7 +38,7 @@
 	}
 
 	withWrappingCollect { :self :aCollection :aBlock:/2 |
-		| maximumSize = self.size.max(aCollection.size); |
+		let maximumSize = self.size.max(aCollection.size);
 		1.toAsCollect(maximumSize, self.species) { :index |
 			aBlock(self.atWrap(index), aCollection.atWrap(index))
 		}

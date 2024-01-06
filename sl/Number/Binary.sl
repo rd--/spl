@@ -22,7 +22,7 @@
 		(self < 0).if {
 			self.error('@Binary>>bitCount: cannot count bits of negative integers')
 		} {
-			| n = self, bitCount = 0; |
+			let n = self, bitCount = 0;
 			{ n = 0 }.whileFalse {
 				bitCount +:= system.bitCountPerByteTable[n.bitAnd(16rFF) + 1];
 				n := n.bitShift(-8)
@@ -84,7 +84,7 @@
 	}
 
 	highBitOfPositiveReceiver { :self |
-		| shifted = self, bitNo = 0; |
+		let shifted = self, bitNo = 0;
 		{ shifted < 65536 }.whileFalse {
 			shifted := shifted.bitShiftRight(16);
 			bitNo +:= 16
@@ -104,7 +104,7 @@
 		(self = 0).if {
 			0
 		} {
-			| n = self, result = 0,	lastByte = nil; |
+			let n = self, result = 0,	lastByte = nil;
 			{
 				lastByte := n.bitAnd(16rFF);
 				n = 0
@@ -123,7 +123,7 @@
 	bitCountPerByteTable { :self |
 		self.cached('bitCountPerByteTable') {
 			(0 .. 255).collect { :i |
-				| bitCount = 0, n = i; |
+				let bitCount = 0, n = i;
 				{ n = 0 }.whileFalse {
 					bitCount +:= 1;
 					n := n.bitAnd(n - 1)
@@ -146,7 +146,7 @@
 	lowBitPerByteTable { :self |
 		self.cached('lowBitPerByteTable') {
 			(1 .. 8).injectInto([1]) { :lowBits :unusedRank |
-				| prefix = lowBits.copy; |
+				let prefix = lowBits.copy;
 				prefix[1] := lowBits[1] + 1;
 				prefix ++ lowBits
 			}.allButFirst.asByteArray

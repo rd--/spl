@@ -24,7 +24,7 @@ PermuteBenchmark : [Object] { | count v |
 	}
 
 	swapWith { :self :i :j |
-		| tmp = self.v[i]; |
+		let tmp = self.v[i];
 		self.v[i] := self.v[j];
 		self.v[j] := tmp
 	}

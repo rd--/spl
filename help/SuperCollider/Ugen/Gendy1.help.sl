@@ -21,13 +21,13 @@
 } !+ 10
 
 (* Gendy1 ; texture ; mouse control ; requires=keywords ; requires=kr *)
-var n = 11;
+let n = 11;
 Resonz(
 	{
-		var freq = Rand(50, 560.3);
-		var numCps = Rand(2, 20);
-		var kNum = MulAdd(SinOsc(ExpRand(0.02, 0.2), 0), numCps / 2, numCps / 2);
-		var osc = Gendy1(
+		let freq = Rand(50, 560.3);
+		let numCps = Rand(2, 20);
+		let kNum = MulAdd(SinOsc(ExpRand(0.02, 0.2), 0), numCps / 2, numCps / 2);
+		let osc = Gendy1(
 			ampDist: Rand(0, 6),
 			durDist: Rand(0, 6),
 			adParam: Rand(0, 1),
@@ -47,12 +47,12 @@ Resonz(
 
 (* ---- Gendy1 ; overlap texture ; requires=eval ; requires=keyword *)
 {
-	var n = 11;
+	let n = 11;
 	{
-		var freq = Rand(50, 560.3);
-		var numCps = Rand(2, 20);
-		var kNum = SinOsc(ExpRand(0.02, 0.2), 0).LinLin(-1, 1, 0, numCps);
-		var osc = Gendy1(
+		let freq = Rand(50, 560.3);
+		let numCps = Rand(2, 20);
+		let kNum = SinOsc(ExpRand(0.02, 0.2), 0).LinLin(-1, 1, 0, numCps);
+		let osc = Gendy1(
 			ampDist: Rand(0, 6),
 			durDist: Rand(0, 6),
 			adParam: Rand(0, 1),

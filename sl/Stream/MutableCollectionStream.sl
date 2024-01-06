@@ -11,11 +11,9 @@ MutableCollectionStream : [Object, Stream, PositionableStream, WriteStream] { | 
 	}
 
 	growTo { :self :anInteger |
-		|(
-			oldSize = self.collection.size,
-			newSize = anInteger + oldSize.quotient(4).max(20),
-			newCollection = self.collection.species.new(newSize)
-		)|
+		let oldSize = self.collection.size;
+		let newSize = anInteger + oldSize.quotient(4).max(20);
+		let newCollection = self.collection.species.new(newSize);
 		self.collection := newCollection.replaceFromToWithStartingAt(1, oldSize, collection, 1);
 		self.writeLimit := self.collection.size
 	}
@@ -31,7 +29,7 @@ MutableCollectionStream : [Object, Stream, PositionableStream, WriteStream] { | 
 
 	nextPutAll { :self :aCollection |
 		(self.collection.typeOf = aCollection.typeOf).if {
-			| newEnd = self.position + aCollection.size; |
+			let newEnd = self.position + aCollection.size;
 			(newEnd > self.writeLimit).ifTrue {
 				self.growTo(newEnd)
 			};

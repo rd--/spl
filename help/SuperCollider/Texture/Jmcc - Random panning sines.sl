@@ -1,6 +1,6 @@
 (* Random panning sines (Jmcc) #4 *)
 {
-	var n = 8;
+	let n = 8;
 	{
 		EqPan(
 			SinOsc(80 + LinRand(0, 2000, 0), 0),

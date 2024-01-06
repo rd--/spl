@@ -1,7 +1,7 @@
 (* 20060916 ; rd *)
 (1 .. 4).collect { :n |
-	var tr = Dust(1.6);
-	var rd = { :l |
+	let tr = Dust(1.6);
+	let rd = { :l |
 		BufRd(
 			1,
 			l.asLocalBuf,

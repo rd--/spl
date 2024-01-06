@@ -1,10 +1,10 @@
 (* https://composerprogrammer.com/teaching/supercollider/sctutorial/tutorial.html 1.1 *)
-var n = 11;
-var g = {
-	var freq = Rand(50, 560.3);
-	var numcps = Rand(2, 20);
-	var knum = SinOsc(ExpRand(0.02, 0.2), 0) * (numcps / 2) + (numcps / 2);
-	var gen = Gendy1(
+let n = 11;
+let g = {
+	let freq = Rand(50, 560.3);
+	let numcps = Rand(2, 20);
+	let knum = SinOsc(ExpRand(0.02, 0.2), 0) * (numcps / 2) + (numcps / 2);
+	let gen = Gendy1(
 		IRand(0, 6),
 		IRand(0, 6),
 		Rand(0, 1),
@@ -18,6 +18,6 @@ var g = {
 	);
 	EqPan(gen, Rand(-1, 1)) * 0.5 / n.sqrt
 } !+ n;
-var x = MouseX(100, 2000, 0, 0.2);
-var y = MouseY(0.01, 1.0, 0, 0.2);
+let x = MouseX(100, 2000, 0, 0.2);
+let y = MouseY(0.01, 1.0, 0, 0.2);
 Resonz(g, x, y) * 0.5

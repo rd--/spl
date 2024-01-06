@@ -1,9 +1,9 @@
 +@Integer {
 
 	SparseMatrixMixer { :numOutputs :inputArray :sparseMatrix |
-		| answer = Dc(0) ! numOutputs; |
+		let answer = Dc(0) ! numOutputs;
 		sparseMatrix.do { :each |
-			| [inputIndex, outputIndex, gain] = each; |
+			let [inputIndex, outputIndex, gain] = each;
 			(* ['SparseMatrixMixer', each].postLine; *)
 			answer[outputIndex] +:= inputArray[inputIndex] * gain
 		};
@@ -159,44 +159,41 @@
 	}
 
 	Mix { :self |
-		| mixerRules = system.preference('ScSynth.Outputs.Mixer.Rules', ['1×2']); |
+		let mixerRules = system.preference('ScSynth.Outputs.Mixer.Rules', ['1×2']);
 		(* ['Mix', mixerRules].postLine; *)
 		self.mixByDerivedNamedRule(mixerRules)
 	}
 
 	mixByDerivedNamedRule { :self :names |
-		|(
-			runArray = self.collect(size:/1).asRunArray,
-			derivedPrefix = runArray.runsAndValuesCollect { :run :value |
-				[run.asString, '×', value.asString].join
-			}.joinSeparatedBy('+') ++ '→'
-		)|
+		let runArray = self.collect(size:/1).asRunArray;
+		let derivedPrefix = runArray.runsAndValuesCollect { :run :value |
+			[run.asString, '×', value.asString].join
+		}.joinSeparatedBy('+') ++ '→';
 		(* ['mixByDerivedNamedRule', names, derivedPrefix].postLine; *)
 		self.mixByAvailableNamedRule(derivedPrefix, names)
 	}
 
 	mixByAvailableNamedRule { :self :prefix :names |
-		|(
-			ruleTable = system.mixRuleSparseMatrixTable,
-			busTable = system.preference('ScSynth.Outputs.Mixer.Rules.Buses', ('1×2': [1, 2]))
-		)|
+		let ruleTable = system.mixRuleSparseMatrixTable;
+		let busTable = system.preference(
+			'ScSynth.Outputs.Mixer.Rules.Buses',
+			('1×2': [1, 2])
+		);
 		(* ['mixByAvailableNamedRule', ruleTable, busTable].postLine; *)
 		valueWithReturn { :return:/1 |
 			names.do { :each |
 				(* ['mixByAvailableNamedRule', each, prefix ++ each].postLine; *)
 				ruleTable.atIfPresent(prefix ++ each) { :entries |
-					|(
-						busesByIndex = busTable[each],
-						inputs = self.concatenation,
-						reindexedEntries = entries.collect { :entry |
-							[
-								entry.first,
-								busesByIndex[entry.second],
-								entry.third
-							]
-						},
-						channelCount = reindexedEntries.collect(second:/1).max
-					)|
+					let busesByIndex = busTable[each];
+					let inputs = self.concatenation;
+					let reindexedEntries = entries.collect { :entry |
+						[
+							entry.first,
+							busesByIndex[entry.second],
+							entry.third
+						]
+					};
+					let channelCount = reindexedEntries.collect(second:/1).max;
 					(* ['mixByAvailableNamedRule', channelCount, self.shape, reindexedEntries].postLine; *)
 					SparseMatrixMixer(
 						channelCount,
@@ -210,10 +207,8 @@
 	}
 
 	lowFrequencySendsSparseMatrix { :self |
-		|(
-			lowFrequencySends = system.preference('ScSynth.Outputs.Mixer.LowFrequencySends', []),
-			lowFrequencyGain = system.preference('ScSynth.Outputs.Mixer.LowFrequencyGain', 1)
-		)|
+		let lowFrequencySends = system.preference('ScSynth.Outputs.Mixer.LowFrequencySends', []);
+		let lowFrequencyGain = system.preference('ScSynth.Outputs.Mixer.LowFrequencyGain', 1);
 		(1 .. self.shape.sum).collect { :input |
 			[
 				input,
@@ -228,10 +223,8 @@
 +Array {
 
 	Splay { :inArray :spread |
-		|(
-			numberOfChannels = system.scSynth.mainOutputs,
-			orientation = system.scSynth.mainOrientation
-		)|
+		let numberOfChannels = system.scSynth.mainOutputs;
+		let orientation = system.scSynth.mainOrientation;
 		(
 			inArray.size = numberOfChannels & {
 				spread = 1
@@ -253,7 +246,7 @@
 
 	Sum { :self |
 		(self.size >= 4).if {
-			| prefix = Sum4(self[1], self[2], self[3], self[4]); |
+			let prefix = Sum4(self[1], self[2], self[3], self[4]);
 			(self.size = 4).if {
 				prefix
 			} {
@@ -269,10 +262,8 @@
 +[Ugen, Array] {
 
 	EqPan { :input :position |
-		|(
-			numberOfChannels = system.scSynth.mainOutputs,
-			orientation = system.scSynth.mainOrientation
-		)|
+		let numberOfChannels = system.scSynth.mainOutputs;
+		let orientation = system.scSynth.mainOrientation;
 		(numberOfChannels = 2).if {
 			EqPan2(input, position)
 		} {

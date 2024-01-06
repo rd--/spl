@@ -48,11 +48,9 @@ RatioTuning : [Object, Tuning] { | name description ratios octave cachedLimit |
 +String {
 
 	IntegerTuning { :self :description :integers :octave |
-		|(
-			ratios = integers.collect { :each |
-				Fraction(each, integers.first).normalized
-			}
-		)|
+		let ratios = integers.collect { :each |
+			Fraction(each, integers.first).normalized
+		};
 		RatioTuning(self, description, ratios, octave)
 	}
 

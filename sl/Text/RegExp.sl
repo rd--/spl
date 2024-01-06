@@ -200,10 +200,8 @@ RegExp! : [Object] {
 	}
 
 	wordAtIndex { :self :index |
-		|(
-			before = self.copyFromTo(1, index - 1).matchRegExp('[a-zA-Z0-9-_]+$') ? { '' },
-			after = self.copyFromTo(index, self.size).matchRegExp('^[a-zA-Z0-9-_]+') ? { '' }
-		)|
+		let before = self.copyFromTo(1, index - 1).matchRegExp('[a-zA-Z0-9-_]+$') ? { '' };
+		let after = self.copyFromTo(index, self.size).matchRegExp('^[a-zA-Z0-9-_]+') ? { '' };
 		before ++ after
 	}
 

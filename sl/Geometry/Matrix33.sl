@@ -7,7 +7,7 @@ Matrix33 : [Object] { | elements |
 	}
 
 	applyTo { :self :vector |
-		| [a, b, c, d, e, f, g, h, i] = self.elements, [x, y, z] = vector.asArray; |
+		let [a, b, c, d, e, f, g, h, i] = self.elements, [x, y, z] = vector.asArray;
 		Vector3(
 			(a * x) + (b * y) + (c * z),
 			(d * x) + (e * y) + (f * z),
@@ -24,7 +24,7 @@ Matrix33 : [Object] { | elements |
 	}
 
 	determinant { :self |
-		| [a, b, c, d, e, f, g, h, i] = self.elements; |
+		let [a, b, c, d, e, f, g, h, i] = self.elements;
 		(a * e * i) + (b * f * g) + (c * d * h) - (c * e * g) - (b * d * i) - (a * f * h)
 	}
 
@@ -33,7 +33,7 @@ Matrix33 : [Object] { | elements |
 	}
 
 	invert { :self |
-		| [a, b, c, d, e, f, g, h, i] = self.elements; |
+		let [a, b, c, d, e, f, g, h, i] = self.elements;
 		self.elements := self.determinant * [
 			(e * i) - (f * h), ((b * i) - (c * h)).negated, (b * f) - (c * e),
 			((d * i) - (f * g)).negated, (a * i) - (c * g), ((a * f) - (c * d)).negated,

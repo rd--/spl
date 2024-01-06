@@ -6,6 +6,6 @@ Tanh is a form of distortion:
 
 Increase amplitude over time:
 
-	var e = XLine(0.1, 10, 10);
-	var o = SinOsc(500, 0);
+	let e = XLine(0.1, 10, 10);
+	let o = SinOsc(500, 0);
 	(o * e).Tanh * 0.25

@@ -12,12 +12,12 @@ Fold(SinOsc(440, 0) * 0.2, -0.1, 0.1)
 
 Modulate both fold points, at different ratios:
 
-	var x = MouseX(0.1, 0.2, 0, 0.2);
+	let x = MouseX(0.1, 0.2, 0, 0.2);
 	Fold(SinOsc(440, 0) * 0.2, x.Neg / 2, x)
 
 Modulate one fold point:
 
-	var x = MouseX(0.1, 0.2, 0, 0.2);
+	let x = MouseX(0.1, 0.2, 0, 0.2);
 	Fold(SinOsc(440, 0) * 0.2, -0.2, x)
 
 * * *

@@ -30,7 +30,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 	}
 
 	collect { :self :aBlock:/1 |
-		| answer = Set(); |
+		let answer = Set();
 		self.do { :each |
 			answer.include(aBlock(each))
 		};
@@ -131,7 +131,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 +@Collection {
 
 	asSet { :self |
-		| answer = Set(); |
+		let answer = Set();
 		answer.addAll(self);
 		answer
 	}

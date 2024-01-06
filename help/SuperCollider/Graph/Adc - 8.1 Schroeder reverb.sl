@@ -1,5 +1,5 @@
 (* adc ; 8.1 ; http://www.audiosynth.com/files/SC2.2.16.sea.hqx *)
-var tapData = [ (* Early reflection tap data (times, levels) *)
+let tapData = [ (* Early reflection tap data (times, levels) *)
 	[0.0043, 0.841],
 	[0.0215, 0.504],
 	[0.0268, 0.379],
@@ -11,7 +11,7 @@ var tapData = [ (* Early reflection tap data (times, levels) *)
 	[0.0741, 0.142],
 	[0.0797, 0.134]
 ];
-var combData = [ (* Table of comb data (times, levels) *)
+let combData = [ (* Table of comb data (times, levels) *)
 	[0.050,	0.46],
 	[0.056,	0.48],
 	[0.061,	0.50],
@@ -19,23 +19,23 @@ var combData = [ (* Table of comb data (times, levels) *)
 	[0.072,	0.53],
 	[0.078,	0.55]
 ];
-var revTime = 3; (* Global decay, time in seconds *)
-var revBalance = 0.5; (* Dry/wet balance, ratio *)
-var tapScale = revBalance / tapData.size; (* Tap amplitude scaling factor *)
-var combScale = revBalance / combData.size; (* Comb amplitude scaling factor *)
-var input = 0.5.coin.if { (* Audio input signal *)
+let revTime = 3; (* Global decay, time in seconds *)
+let revBalance = 0.5; (* Dry/wet balance, ratio *)
+let tapScale = revBalance / tapData.size; (* Tap amplitude scaling factor *)
+let combScale = revBalance / combData.size; (* Comb amplitude scaling factor *)
+let input = 0.5.coin.if { (* Audio input signal *)
 	Impulse(0.2, 2)
 } {
 	Decay2(Impulse(0.2, 2), 0.001, 0.2) * PinkNoise()
 };
-var buffer = BufAlloc(1, 48000 * 0.1).BufClear; (* A buffer for the early reflections delay line *)
-var revMonoInput = input.isArray.if {
+let buffer = BufAlloc(1, 48000 * 0.1).BufClear; (* A buffer for the early reflections delay line *)
+let revMonoInput = input.isArray.if {
 	input.Sum / input.size (* Reverb input must be mono *)
 } {
 	input
 };
-var delayWriter = DelayWrite(buffer, revMonoInput);
-var tapsOut = 0, combsOut = 0, allPassIo = 0;
+let delayWriter = DelayWrite(buffer, revMonoInput);
+let tapsOut = 0, combsOut = 0, allPassIo = 0;
 tapData.do { :params |
 	tapsOut := tapsOut + (DelayTap(buffer, params.first) * params.second)
 };

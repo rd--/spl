@@ -45,20 +45,18 @@ Character : [Object, Magnitude] { | string codePoint |
 	}
 
 	digitValue { :self |
-		|(
-			integerValue = self.asInteger,
-			digitValues = system.cache.atIfAbsentPut('digitValues') {
-				| answer = Array(256, -1); |
-				0.upToDo(9) { :i |
-					answer[48 + i + 1] := i
-				};
-				10.upToDo(35) { :i |
-					answer[55 + i + 1] := i;
-					answer[87 + i + 1] := i
-				};
-				answer
-			}
-		)|
+		let integerValue = self.asInteger;
+		let digitValues = system.cache.atIfAbsentPut('digitValues') {
+			let answer = Array(256, -1);
+			0.upToDo(9) { :i |
+				answer[48 + i + 1] := i
+			};
+			10.upToDo(35) { :i |
+				answer[55 + i + 1] := i;
+				answer[87 + i + 1] := i
+			};
+			answer
+		};
 		digitValues[integerValue + 1]
 	}
 

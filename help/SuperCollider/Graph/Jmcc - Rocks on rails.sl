@@ -1,6 +1,6 @@
 (* rocks on rails ; jmcc ; graph variant ; requires=LinRand *)
-var p = 20; (* number of partials *)
-var n = 4; (* number of overlapping events *)
+let p = 20; (* number of partials *)
+let n = 4; (* number of overlapping events *)
 { :tr |
 	EqPan2(
 		DynRingzBank( (* p resonant modes *)

@@ -5,7 +5,7 @@ Texture programs generate sound by scheduling overlapping instances of a synthes
 This program generates random panning three note chords.
 
 ```
-var dur = 12;
+let dur = 12;
 {
 	{
 		Pan2(

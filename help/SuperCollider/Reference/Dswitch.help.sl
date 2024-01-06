@@ -11,7 +11,7 @@ _Dswitch(index, list)_
 - list: array of values or other ugens
 - index: which of the inputs to return
 
-	var d = Dswitch(
+	let d = Dswitch(
 		Dseq(2, [0 1 2 1 0]),
 		[
 			Dwhite(2, 3, 4),
@@ -19,7 +19,7 @@ _Dswitch(index, list)_
 			Dseq(2, [1 1 1 0])
 		]
 	);
-	var trig = Impulse(4, 0);
+	let trig = Impulse(4, 0);
 	SinOsc(
 		Demand(trig, 0, d) * 300 + 400,
 		0
@@ -27,7 +27,7 @@ _Dswitch(index, list)_
 
 Compare with Dswitch1:
 
-	var d = Dswitch1(
+	let d = Dswitch1(
 		Dseq(2, [0 1 2 1 0]),
 		[
 			Dwhite(2, 3, 4),
@@ -35,7 +35,7 @@ Compare with Dswitch1:
 			Dseq(2, [1 1 1 0])
 		]
 	);
-	var trig = Impulse(4, 0);
+	let trig = Impulse(4, 0);
 	SinOsc(
 		Demand(trig, 0, d) * 300 + 400,
 		0

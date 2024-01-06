@@ -1,5 +1,5 @@
 (* Fm7 ; two of six *)
-var ctlMatrix = [
+let ctlMatrix = [
 	XLine(300, 310, 4), 0, 1,
 	XLine(300, 310, 8), 0, 1,
 	0, 0, 1,
@@ -7,7 +7,7 @@ var ctlMatrix = [
 	0, 0, 1,
 	0, 0, 1
 ];
-var modMatrix = [
+let modMatrix = [
 	Line(0, 0.001, 2), Line(0.1, 0, 4), 0, 0, 0, 0,
 	Line(0, 6, 1), 0, 0, 0, 0, 0,
 	0, 0, 0, 0, 0, 0,
@@ -19,8 +19,8 @@ Fm7(ctlMatrix, modMatrix).first(2) * 0.1
 
 (* Fm7 ; three set of six output channels (18 channels) *)
 {
-	var freq = LfNoise0(3).ExpRange(200, 310);
-	var ctlMatrix = [
+	let freq = LfNoise0(3).ExpRange(200, 310);
+	let ctlMatrix = [
 		[freq, 0, 1],
 		[freq, 0, 1],
 		[LfNoise2(0.5).ExpRange(3, 80), 0, 1],
@@ -28,8 +28,8 @@ Fm7(ctlMatrix, modMatrix).first(2) * 0.1
 		[LfNoise2(0.5).ExpRange(3, 800), 0, 1],
 		[LfNoise2(0.5).ExpRange(0.3, 10), 0, 1]
 	];
-	var x = MouseX(0, 3, 0, 0.2);
-	var modMatrix = {
+	let x = MouseX(0, 3, 0, 0.2);
+	let modMatrix = {
 		{
 			LfNoise1(0.5).Max(0)
 		} ! 6 * x
@@ -38,7 +38,7 @@ Fm7(ctlMatrix, modMatrix).first(2) * 0.1
 } !> 3
 
 (* Fm7 ; an algorithmically generated graph courtesy f0 ; note one-indexing *)
-var xMatrix = [
+let xMatrix = [
 	[
 		[0.0, -1/3, -1.0, 0.0],
 		[0.75, 0.75, 0.0, -0.5],
@@ -88,7 +88,7 @@ var xMatrix = [
 		[-7/6, -4/3, -1/6, 1.5]
 	]
 ];
-var yMatrix = [
+let yMatrix = [
 	[
 		[0.0, -0.5, 1.0, 0.0],
 		[-0.5, 1.0, 0.5, -0.5],
@@ -120,9 +120,9 @@ var yMatrix = [
 		[1.0, 0.5, -1/6, 0.5]
 	]
 ];
-var ctlMatrix = xMatrix.collect { :p | p.collect { :q | SinOsc(q[1], q[2]) * q[3] + q[4] } };
-var modMatrix = yMatrix.collect { :p | p.collect { :q | Pulse(q[1], q[2]) * q[3] + q[4] } };
-var o = Fm7Matrix(ctlMatrix, modMatrix);
-var g3 = LinLin(LfSaw(0.1, 0), -1, 1, 0, -12.DbAmp);
-var g6 = -3.DbAmp;
+let ctlMatrix = xMatrix.collect { :p | p.collect { :q | SinOsc(q[1], q[2]) * q[3] + q[4] } };
+let modMatrix = yMatrix.collect { :p | p.collect { :q | Pulse(q[1], q[2]) * q[3] + q[4] } };
+let o = Fm7Matrix(ctlMatrix, modMatrix);
+let g3 = LinLin(LfSaw(0.1, 0), -1, 1, 0, -12.DbAmp);
+let g6 = -3.DbAmp;
 [o[1] + (o[3] * g3) + o[5], o[2] + o[4] + o[6] * g6]

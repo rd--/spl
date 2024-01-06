@@ -1,5 +1,5 @@
 (* CombL ; array expansion (interior duplication) *)
-var n = 8;
+let n = 8;
 EqPan2(
 	CombL(
 		{ Dust(1) * 0.3 } ! n,
@@ -11,7 +11,7 @@ EqPan2(
 ).Mix
 
 (* CombL ; exterior duplication *)
-var n = 8;
+let n = 8;
 {
 	EqPan(
 		CombL(
@@ -25,45 +25,45 @@ var n = 8;
 } !+ n
 
 (* CombC ; https://sccode.org/1-5fc ; requires=AudioIn ; warning=feedback *)
-var reverb = { :input |
-	var c = CombL(input, 0.1, SinOsc(0.01, 0) * 0.03 + 0.07, 5) * 0.7;
+let reverb = { :input |
+	let c = CombL(input, 0.1, SinOsc(0.01, 0) * 0.03 + 0.07, 5) * 0.7;
 	XFade2(Lpf(c, 4800), input, -0.5, 0.3)
 };
 reverb(AudioIn([1, 2]) * 0.1)
 
 (* CombL ; simplistic karplus-strong synthesis (adc) *)
-var freq = 440;
-var repeatFreq = 0.3;
-var exciter = Decay(Impulse(repeatFreq, 0), 0.01) * PinkNoise();
-var string = CombL(exciter, 0.1, 1 / freq, 3);
+let freq = 440;
+let repeatFreq = 0.3;
+let exciter = Decay(Impulse(repeatFreq, 0), 0.01) * PinkNoise();
+let string = CombL(exciter, 0.1, 1 / freq, 3);
 [string, LeakDc(string, 0.995)]
 
 (* CombL ; karplus-strong ; mouse control (adc) *)
-var freq = MouseX(220, 1760, 1, 0.2);
-var repeatFreq = 0.3;
-var exciter = Decay(Impulse(repeatFreq, 0), 0.02) * PinkNoise();
-var string = CombL(exciter, 0.1, 1 / freq, 3);
+let freq = MouseX(220, 1760, 1, 0.2);
+let repeatFreq = 0.3;
+let exciter = Decay(Impulse(repeatFreq, 0), 0.02) * PinkNoise();
+let string = CombL(exciter, 0.1, 1 / freq, 3);
 [string, LeakDc(string, 0.995)]
 
 (* CombL ; karplus-strong ; very small frequency range ; note changes in sound quality of the decay (adc) *)
-var freq = MouseX(220, 1760, 1, 0.2);
-var delayTime = MouseX(1 / 100, 1 / (100 + 2), 0, 0.1);
-var repeatFreq = 0.3;
-var exciter = Decay(Impulse(repeatFreq, 0), 0.02) * PinkNoise();
-var string = CombL(exciter, 0.1, delayTime, 3);
+let freq = MouseX(220, 1760, 1, 0.2);
+let delayTime = MouseX(1 / 100, 1 / (100 + 2), 0, 0.1);
+let repeatFreq = 0.3;
+let exciter = Decay(Impulse(repeatFreq, 0), 0.02) * PinkNoise();
+let string = CombL(exciter, 0.1, delayTime, 3);
 [string, LeakDc(string, 0.995)]
 
 (* CombL ; simplistic karplus-strong synthesis (adc) ; requires=keywords *)
-var freq = 440;
-var repeatFreq = 0.3;
-var exciter = Decay(
+let freq = 440;
+let repeatFreq = 0.3;
+let exciter = Decay(
 	in: Impulse(
 		freq: repeatFreq,
 		phase: 0
 	),
 	decayTime: 0.01
 ) * PinkNoise();
-var string = CombL(
+let string = CombL(
 	in: exciter,
 	maxDelayTime: 0.1,
 	delayTime: 1 / freq,

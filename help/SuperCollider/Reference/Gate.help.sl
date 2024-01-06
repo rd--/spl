@@ -9,7 +9,7 @@ Allows input signal value to pass when gate is positive, otherwise holds last va
 
 Frequency is a random curve for a quarter of a cycle and a held tone for the remainder:
 
-	var gatedNoise = Gate(
+	let gatedNoise = Gate(
 		LfNoise2(4),
 		LfPulse(4 / 3, 0, 1 / 4)
 	);

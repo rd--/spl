@@ -20,11 +20,11 @@ LfPulse(XLine(1, 200, 10), 0, 0.2) * SinOsc(440, 0) * 0.1
 LfPulse(LfPulse(3, 0, 0.3) * 200 + 200, 0, 0.2) * 0.05
 
 (* LfPulse ; humm *)
-var freqBass = 50;
-var freq = 50;
-var pan = 0;
-var amp = 0.1;
-var snd = LfPulse(freq, 0, 0.5);
+let freqBass = 50;
+let freq = 50;
+let pan = 0;
+let amp = 0.1;
+let snd = LfPulse(freq, 0, 0.5);
 20.timesRepeat {
 	snd := MidEq(snd, ExpRand(300, 12000), 0.1, -20)
 };
@@ -34,7 +34,7 @@ snd := snd + SinOsc(freqBass, 0);
 EqPan2(snd, pan) * amp
 
 (* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft *)
-var p = { :freq :lo :hi |
+let p = { :freq :lo :hi |
 	LfPulse(freq, 0, 0.5).LinLin(0, 1, lo, hi)
 };
 p(
@@ -49,11 +49,11 @@ p(
 
 (* ---- LfPulse ; jmcc ; process ; requires=eval *)
 {
-	var p1 = LfPulse(ExpRand(0.1, 1), 0, 0.3) * 0.2 + 0.02;
-	var in = LfSaw([21000, 21001], 0) * p1;
-	var sr = ExpRand(300, 3000) + [-0.6, 0.6];
-	var p2 = LfPulse(sr, 0, MouseY(0.01, 0.99, 0, 0.2));
-	var p3 = LfPulse(ExpRand(0.1,12), 0, 0.7) * 0.2;
-	var p4 = LfPulse(ExpRand(0.1,12), 0, 0.4) * 0.2 + 0.2 + p3;
+	let p1 = LfPulse(ExpRand(0.1, 1), 0, 0.3) * 0.2 + 0.02;
+	let in = LfSaw([21000, 21001], 0) * p1;
+	let sr = ExpRand(300, 3000) + [-0.6, 0.6];
+	let p2 = LfPulse(sr, 0, MouseY(0.01, 0.99, 0, 0.2));
+	let p3 = LfPulse(ExpRand(0.1,12), 0, 0.7) * 0.2;
+	let p4 = LfPulse(ExpRand(0.1,12), 0, 0.4) * 0.2 + 0.2 + p3;
 	Rlpf(in * p2, sr * p4, 0.1)
 }.overlap(4, 4, 4)

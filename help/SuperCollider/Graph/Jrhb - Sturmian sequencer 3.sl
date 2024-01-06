@@ -1,7 +1,7 @@
 (* sturmian sequencer iii (jrhb) *)
-var rules = [[0, 1], [0]];
-var rewrite = { :c :n |
-	var r = c;
+let rules = [[0, 1], [0]];
+let rewrite = { :c :n |
+	let r = c;
 	n.timesRepeat {
 		r := r.collect { :e |
 			rules[e + 1]
@@ -9,10 +9,10 @@ var rewrite = { :c :n |
 	};
 	r
 };
-var n = 9;
-var x = MouseX(1, SampleRate(), 1, 0.2);
+let n = 9;
+let x = MouseX(1, SampleRate(), 1, 0.2);
 (1 .. n).collect { :i |
-	var str = rewrite([0], i + 5);
-	var dt = 1 / SampleRate() / (n - i + 1) * x;
+	let str = rewrite([0], i + 5);
+	let dt = 1 / SampleRate() / (n - i + 1) * x;
 	TDuty(dt, 0, Dseq(inf, str - 0.5))
 }.Splay * 0.3

@@ -11,7 +11,7 @@
 +Block {
 
 	utf8StringStreamContents { :self:/1 |
-		| stream = Utf8Stream(); |
+		let stream = Utf8Stream();
 		self(stream);
 		stream.contents.utf8String
 	}

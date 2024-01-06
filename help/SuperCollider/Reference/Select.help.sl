@@ -14,20 +14,20 @@ For small arrays this is more efficient than reading from a buffer.
 
 Cycle though oscillator types:
 
-	var a = [
+	let a = [
 		SinOsc(440, 0),
 		Saw(440),
 		Pulse(440, 0.5)
 	];
-	var cycle = a.size * 0.5;
+	let cycle = a.size * 0.5;
 	Select(LfSaw(1, 0) * cycle + cycle, a) * 0.2
 
 As a sequencer:
 
 	{ :tr |
 		{
-			var a = { TRand(30, 80, tr) } ! 32;
-			var cycle = a.size * 0.5;
+			let a = { TRand(30, 80, tr) } ! 32;
+			let cycle = a.size * 0.5;
 			Saw(
 				Select(
 					LfSaw(1, 0) * cycle + cycle,

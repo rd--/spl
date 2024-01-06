@@ -1,7 +1,7 @@
 (* cymbalism accellerando ; jmcc #2 ; graph rewrite *)
-var p = 15;
+let p = 15;
 { :tr |
-	var i = Impulse(
+	let i = Impulse(
 		TxLine(
 			TRand(0, 4, tr) + 0.5,
 			TRand(0, 35, tr) + 0.5,
@@ -10,9 +10,9 @@ var p = 15;
 		),
 		0
 	);
-	var s = Decay(i, 0.004) * WhiteNoise() * 0.03;
-	var f1 = TRand(500, 2500, tr);
-	var f2 = TRand(0, 8000, tr);
+	let s = Decay(i, 0.004) * WhiteNoise() * 0.03;
+	let f1 = TRand(500, 2500, tr);
+	let f2 = TRand(0, 8000, tr);
 	{
 		{
 			Ringz(s, f1 + TRand(0, f2, tr), TRand(1, 5, tr))

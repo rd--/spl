@@ -1,6 +1,6 @@
 (* https://sccode.org/1-4Qy ; f0 ; 0324 *)
-var c = [1 3 5 6];
-var f = Duty(
+let c = [1 3 5 6];
+let f = Duty(
 	c + 1 / 16,
 	0,
 	Dseq(inf, LfTri(1 / c / 8, 0) > 0 * 3 + c * 99)

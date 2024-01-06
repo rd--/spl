@@ -18,7 +18,7 @@ Sl {
 	TraitDefinition = "@" identifier "{" (methodName Block)* "}"
 	ConstantDefinition = "Constant" "." unqualifiedIdentifier "=" literal
 	Program = Temporaries? ListOf<Expression, ";">
-	Temporaries = TemporariesWithInitializers | TemporariesWithoutInitializers | TemporariesParenSyntax | TemporariesVarWithoutInitializersSyntax | TemporariesVarWithInitializersSyntax+
+	Temporaries = TemporariesWithInitializers | TemporariesWithoutInitializers | TemporariesVarWithInitializersSyntax+
 	TemporariesWithInitializers = "|" NonemptyListOf<TemporaryWithInitializer, ","> ";" "|"
 	TemporaryWithInitializer =
 		TemporaryWithBlockLiteralInitializer |
@@ -30,9 +30,7 @@ Sl {
 	TemporaryWithDictionaryInitializer = "(" NonemptyListOf<identifier, ","> ")" "=" Expression
 	TemporaryWithArrayInitializer = "[" NonemptyListOf<identifierOrUnused, ","> "]" "=" Expression
 	TemporariesWithoutInitializers = "|" identifier+ "|"
-	TemporariesParenSyntax = "|(" NonemptyListOf<TemporaryWithInitializer, ","> ")|"
-	TemporariesVarWithoutInitializersSyntax = ("var"|"let") NonemptyListOf<identifier, ","> ";"
-	TemporariesVarWithInitializersSyntax = ("var"|"let") NonemptyListOf<TemporaryWithInitializer, ","> ";"
+	TemporariesVarWithInitializersSyntax = "let" NonemptyListOf<TemporaryWithInitializer, ","> ";"
 
 	Expression = Assignment | BinaryExpression | Primary
 	Assignment = ScalarAssignment | ArrayAssignment | DictionaryAssignment | AssignmentOperatorSyntax

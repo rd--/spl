@@ -58,7 +58,7 @@ Colour : [Object] { | red green blue alpha |
 	}
 
 	isGrey { :self |
-		| value = self.red; |
+		let value = self.red;
 		self.green = value & {
 			self.blue = value & {
 				value ~= 1 & {
@@ -113,7 +113,7 @@ Colour : [Object] { | red green blue alpha |
 	}
 
 	over { :self :aColour |
-		| alpha = 1 - ((1 - aColour.alpha) * (1 - self.alpha)); |
+		let alpha = 1 - ((1 - aColour.alpha) * (1 - self.alpha));
 		Colour(
 			(aColour.red * aColour.alpha / alpha) + (self.red * self.alpha * (1 - aColour.alpha) / alpha),
 			(aColour.green * aColour.alpha / alpha) + (self.green * self.alpha * (1 - aColour.alpha) / alpha),
@@ -157,16 +157,14 @@ Colour : [Object] { | red green blue alpha |
 	}
 
 	Hsv { :self :saturation :brightness |
-		|(
-			s = saturation.min(1).max(0),
-			v = brightness.min(1).max(0),
-			hf = self % 360,
-			i = hf // 60,
-			f = (hf % 60) / 60,
-			p = (1 - s) * v,
-			q = (1 - (s * f)) * v,
-			t = (1 - (s * (1 - f))) * v
-		)|
+		let s = saturation.min(1).max(0);
+		let v = brightness.min(1).max(0);
+		let hf = self % 360;
+		let i = hf // 60;
+		let f = (hf % 60) / 60;
+		let p = (1 - s) * v;
+		let q = (1 - (s * f)) * v;
+		let t = (1 - (s * (1 - f))) * v;
 		i.caseOfOtherwise([
 			{ 0 } ->  { Colour(v, t, p) },
 			{ 1 } ->  { Colour(q, v, p) },
@@ -186,7 +184,7 @@ Colour : [Object] { | red green blue alpha |
 			(self <= 0.0031308).if {
 				12.92 * self
 			} {
-				| a = 0.055; |
+				let a = 0.055;
 				(1 + a) * (self ^ (1 / 2.4)) - a
 			}
 		}
@@ -199,7 +197,7 @@ Colour : [Object] { | red green blue alpha |
 			(self <= 0.04045).if {
 				self / 12.92
 			} {
-				| a = 0.055; |
+				let a = 0.055;
 				((self + a) / (1 + a)) ^ 2.4
 			}
 		}
@@ -212,11 +210,11 @@ Colour : [Object] { | red green blue alpha |
 	Colour { :self |
 		self.size.caseOf([
 			{ 3 } -> {
-				| [r, g, b] = self; |
+				let [r, g, b] = self;
 				Colour(r, g, b, 1)
 			},
 			{ 4 } -> {
-				| [r, g, b, a] = self; |
+				let [r, g, b, a] = self;
 				Colour(r, g, b, a)
 			}
 		])
@@ -228,11 +226,9 @@ Colour : [Object] { | red green blue alpha |
 
 	parseHexColour { :self |
 		(self.size = 7).if {
-			|(
-				r = self.copyFromTo(2, 3),
-				g = self.copyFromTo(4, 5),
-				b = self.copyFromTo(6, 7)
-			)|
+			let r = self.copyFromTo(2, 3);
+			let g = self.copyFromTo(4, 5);
+			let b = self.copyFromTo(6, 7);
 			[r, g, b, 'ff'].collect { :each |
 				each.parseInteger(16) / 255
 			}.Colour

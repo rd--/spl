@@ -24,12 +24,9 @@
 +[Array, SmallFloat, Ugen] {
 
 	HoldSequence { :inArray :dur |
-		|(
-			gate = DurationGate(dur),
-			trig = Trig1(gate, SampleDur()),
-			(* note reset to start at zero if trig is initially one *)
-			index = Stepper(trig, 1, 0, inArray.size - 1, 1, 0)
-		)|
+		let gate = DurationGate(dur);
+		let trig = Trig1(gate, SampleDur());
+		let index = Stepper(trig, 1, 0, inArray.size - 1, 1, 0);
 		Latch(Multiplexer(index, inArray), trig)
 	}
 
@@ -54,7 +51,7 @@
 	}
 
 	TableWindow { :trig :dur :bufNum |
-		var phase = TLine(0, BufFrames(bufNum), dur, trig);
+		let phase = TLine(0, BufFrames(bufNum), dur, trig);
 		BufRd(1, bufNum, phase, 0, 4)
 	}
 
@@ -125,10 +122,14 @@
 	}
 
 	EnvBreakPoint { :breakPointArray :curves |
-		| n = breakPointArray.size; |
+		let n = breakPointArray.size;
 		Env(
-			(1, 3 .. n).collect { :index | breakPointArray[index] },
-			(2, 4 .. n - 1).collect { :index | breakPointArray[index] }.differentiate,
+			(1, 3 .. n).collect { :index |
+				breakPointArray[index]
+			},
+			(2, 4 .. n - 1).collect { :index |
+				breakPointArray[index]
+			}.differentiate,
 			curves,
 			nil,
 			nil,
@@ -181,10 +182,8 @@
 	}
 
 	LinLin { :self :srclo :srchi :dstlo :dsthi |
-		|(
-			mul = (dsthi - dstlo) / (srchi - srclo),
-			add = dstlo - (mul * srclo)
-		)|
+		let mul = (dsthi - dstlo) / (srchi - srclo);
+		let add = dstlo - (mul * srclo);
 		MulAdd(self, mul, add)
 	}
 
@@ -232,15 +231,13 @@
 	}
 
 	SplayAz { :numChannels :inArray :spread :level :width :center :orientation :levelComp |
-		|(
-			n = 1.max(inArray.size),
-			pos = (n = 1).if {
-				center
-			} {
-				| normalizedSpread = spread * ((n - 1) / n); |
-				[center - normalizedSpread, center + normalizedSpread].resamp1(n)
-			}
-		)|
+		let n = 1.max(inArray.size);
+		let pos = (n = 1).if {
+			center
+		} {
+			let normalizedSpread = spread * ((n - 1) / n);
+			[center - normalizedSpread, center + normalizedSpread].resamp1(n)
+		};
 		levelComp.ifTrue {
 			(* Cf. <https://github.com/supercollider/supercollider/issues/5706>
 				Note that deleting .sqrt can dramatically alter feedback paths. *)

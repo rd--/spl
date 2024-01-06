@@ -11,23 +11,23 @@ Internally, the absolute value of the signal is used, to prevent underreporting 
 
 No decay:
 
-	var peak = PeakFollower(Dust(20) * Line(0, 1, 4), 1);
+	let peak = PeakFollower(Dust(20) * Line(0, 1, 4), 1);
 	SinOsc(peak * 1500 + 200, 0) * 0.1
 
 A little decay:
 
-	var peak = PeakFollower(Dust(20) * Line(0, 1, 4), 0.999);
+	let peak = PeakFollower(Dust(20) * Line(0, 1, 4), 0.999);
 	SinOsc(peak * 1500 + 200, 0) * 0.1
 
 Mouse controls decay:
 
-	var decay = MouseX(0.99, 1.00001, 0, 0.1).Min(1);
-	var peak = PeakFollower(Dust(20) * Line(0, 1, 4), decay);
+	let decay = MouseX(0.99, 1.00001, 0, 0.1).Min(1);
+	let peak = PeakFollower(Dust(20) * Line(0, 1, 4), decay);
 	SinOsc(peak * 1500 + 200, 0) * 0.1
 
 Follow a sine lfo, decay controlled by mouse:
 
-	var decay = MouseX(0, 1.1, 0, 0.1).Min(1);
-	var peak = PeakFollower(SinOsc(0.2, 0), decay);
+	let decay = MouseX(0, 1.1, 0, 0.1).Min(1);
+	let peak = PeakFollower(SinOsc(0.2, 0), decay);
 	SinOsc(peak * 200 + 500, 0) * 0.1
 

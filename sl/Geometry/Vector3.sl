@@ -50,7 +50,7 @@ Vector3 : [Object, Indexable, CartesianCoordinate] { | x y z |
 		(self.size ~= 3).if {
 			self.error('asVector3: not 3-element array')
 		} {
-			| [x, y, z] = self; |
+			let [x, y, z] = self;
 			Vector3(x, y, z)
 		}
 	}

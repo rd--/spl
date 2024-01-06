@@ -115,7 +115,7 @@ Block! : [Object] {
 	}
 
 	newFrom { :self:/1 :aCollection |
-		| answer = self(aCollection.size); |
+		let answer = self(aCollection.size);
 		answer.fillFrom(aCollection);
 		answer
 	}

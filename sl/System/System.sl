@@ -21,7 +21,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	allMethods { :self |
-		| answer = []; |
+		let answer = [];
 		system.addAllTraitMethodsTo(answer);
 		system.addAllTypeMethodsTo(answer);
 		answer
@@ -229,10 +229,8 @@ System! : [Object, Cache, Indexable, Random] {
 	methodImplementations { :self :methodName |
 		(* Implementations of methodName. *)
 		self.isMethodName(methodName).if {
-			|(
-				answer = Set(),
-				table = self.methodDictionary[methodName]
-			)|
+			let answer = Set();
+			let table = self.methodDictionary[methodName];
 			table.do { :dictionary |
 				dictionary.do { :method |
 					answer.include(method)
@@ -249,7 +247,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	methodLookupAtSignature { :self :signature |
-		| [qualifiedOriginName, qualifiedMethodName] = signature.parseMethodSignature; |
+		let [qualifiedOriginName, qualifiedMethodName] = signature.parseMethodSignature;
 		qualifiedOriginName.isQualifiedTraitName.if {
 			self.traitDictionary[
 				qualifiedOriginName.parseQualifiedTraitName
@@ -271,7 +269,7 @@ System! : [Object, Cache, Indexable, Random] {
 
 	methodPrintString { :self :methodName |
 		(* Print string of implementations of methodName. *)
-		| answer = []; |
+		let answer = [];
 		self.methodImplementations(methodName).do { :method |
 			answer.add(
 				[
@@ -294,7 +292,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	methodSourceCodeSearch { :self :aString |
-		| answer = []; |
+		let answer = [];
 		self.methodDo { :aMethod |
 			aMethod.sourceCode.includesSubstring(aString).ifTrue {
 				answer.add(aMethod)
@@ -316,7 +314,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	millisecondsToRun { :self :aBlock:/0 |
-		| beginTime = self.systemTimeInMilliseconds; |
+		let beginTime = self.systemTimeInMilliseconds;
 		aBlock();
 		self.systemTimeInMilliseconds - beginTime
 	}
@@ -349,7 +347,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	operatorNameTable { :self |
-		| table = self.operatorCharacterNameTable; |
+		let table = self.operatorCharacterNameTable;
 		self.cached('operatorNameTable') {
 			'+ ++ * - -> / // & && | || < << <= <~ <=> > >> >= >~ = == ==> % ! !~ \\ \\\\ ~ ~~ ~= ~? ? ?? ^'.words.collect { :each |
 				each -> each.stringArray.collect { :letter |
@@ -364,7 +362,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	packageMethods { :self :packageName |
-		| answer = []; |
+		let answer = [];
 		self.methodDo { :each |
 			(each.packageName = packageName).ifTrue {
 				answer.add(each)
@@ -473,7 +471,7 @@ System! : [Object, Cache, Indexable, Random] {
 
 	typeInheritedMethodDictionary { :self :typeName |
 		(* Methods inherited from Traits at typeName (most specific only). *)
-		| answer = (); |
+		let answer = ();
 		self.typeLookup(typeName).traitNameArray.do { :traitName |
 			self.traitLookup(traitName).methodDictionary.valuesDo { :method |
 				answer[method.qualifiedName] := method
@@ -521,7 +519,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	uniqueId { :self |
-		| answer = self.cached('uniqueId') { 1 }; |
+		let answer = self.cached('uniqueId') { 1 };
 		self.cache::uniqueId := answer + 1;
 		answer
 	}
@@ -547,11 +545,9 @@ System! : [Object, Cache, Indexable, Random] {
 +Block {
 
 	once { :self |
-		|(
-			cache = system.cached('onceCache') {
-				WeakMap()
-			}
-		)|
+		let cache = system.cached('onceCache') {
+			WeakMap()
+		};
 		cache.atIfAbsentPut(self) {
 			self.value
 		}
@@ -576,12 +572,10 @@ System! : [Object, Cache, Indexable, Random] {
 +Block {
 
 	benchForMilliseconds { :self:/0 :interval |
-		|(
-			t0 = system.systemTimeInMilliseconds,
-			t1 = nil,
-			t2 = t0 + interval,
-			count = 1
-		)|
+		let t0 = system.systemTimeInMilliseconds;
+		let t1 = nil;
+		let t2 = t0 + interval;
+		let count = 1;
 		self();
 		{
 			t1 := system.systemTimeInMilliseconds;
@@ -595,7 +589,7 @@ System! : [Object, Cache, Indexable, Random] {
 
 
 	benchFor { :self :aDuration |
-		| [count, elapsedTime] = self.benchForMilliseconds(aDuration.milliseconds); |
+		let [count, elapsedTime] = self.benchForMilliseconds(aDuration.milliseconds);
 		[
 			(count / (elapsedTime / 1000)).roundTo(0.001), ' per second; ',
 			((elapsedTime / 1000) / count).roundTo(0.001), ' per count'
@@ -633,7 +627,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	millisecondsToRun { :self:/0 |
-		| startTime = system.systemTimeInMilliseconds; |
+		let startTime = system.systemTimeInMilliseconds;
 		self();
 		system.systemTimeInMilliseconds - startTime
 	}

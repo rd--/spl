@@ -11,17 +11,15 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 	}
 
 	summary { :self |
-		|(
-			container = 'div'.createElement,
-			description = 'p'.createElement,
-			projectionsA = 'p'.createElement,
-			projectionsB = 'p'.createElement,
-			scaledDrawing = { :projection:/1 |
-				self.drawing(0.25) { :each |
-					each.projection * 50
-				}
+		let container = 'div'.createElement;
+		let description = 'p'.createElement;
+		let projectionsA = 'p'.createElement;
+		let projectionsB = 'p'.createElement;
+		let scaledDrawing = { :projection:/1 |
+			self.drawing(0.25) { :each |
+				each.projection * 50
 			}
-		)|
+		};
 		description.textContent := self.description;
 		projectionsA.appendChildren([
 			scaledDrawing(xy:/1),
@@ -87,7 +85,9 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 					structures.collect(name:/1)
 				},
 				1 -> {
-					| cls = structures.detect { :each | each.name = path[1] }; |
+					let cls = structures.detect { :each |
+						each.name = path[1]
+					};
 					cls.summary.outerHTML
 				}
 			])

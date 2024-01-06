@@ -25,10 +25,10 @@ All args except numChannels and trigger are polled at grain creation time.
 
 Use MouseY to control grain frequency and MouseX to control panning:
 
-	var sndBuf = SfAcquireMono('floating_1');
-	var envBuf = -1;
-	var freq = MouseY(10, 100, 1, 0.2);
-	var pan = MouseX(-1, 1, 0, 0.2);
+	let sndBuf = SfAcquireMono('floating_1');
+	let envBuf = -1;
+	let freq = MouseY(10, 100, 1, 0.2);
+	let pan = MouseX(-1, 1, 0, 0.2);
 	GrainBuf(
 		2,
 		Impulse(freq, 0),

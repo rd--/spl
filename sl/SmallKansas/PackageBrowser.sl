@@ -3,12 +3,10 @@
 +SmallKansas  {
 
 	PackageBrowser { :self |
-		|(
-			packages = system.packageDictionary.values.select(isLoaded:/1),
-			packageCategories = packages.collect(category:/1).copyWithoutDuplicates.sort,
-			methods = nil,
-			selectedMethod = nil
-		)|
+		let packages = system.packageDictionary.values.select(isLoaded:/1);
+		let packageCategories = packages.collect(category:/1).copyWithoutDuplicates.sort;
+		let methods = nil;
+		let selectedMethod = nil;
 		self.ColumnBrowser('Package Browser', 'text/plain', false, true, [1, 1, 1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
@@ -26,11 +24,9 @@
 					}.sort
 				},
 				2 -> {
-					|(
-						traits = system.packageTraits(path[2]),
-						types = system.packageTypes(path[2]),
-						implements = (traits ++ types).collect(qualifiedName:/1)
-					)|
+					let traits = system.packageTraits(path[2]);
+					let types = system.packageTypes(path[2]);
+					let implements = (traits ++ types).collect(qualifiedName:/1);
 					browser.setStatus(implements.joinSeparatedBy(', '));
 					methods := system.packageMethods(path[2]);
 					methods.collect { :each |

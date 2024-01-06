@@ -14,9 +14,9 @@ Answers an array of channels, one for each speaker.
   Should be 0.5 if the front bisects a side of the polygon.
   Then the first speaker will be the one left of center.
 
-	var p = PinkNoise(); (* Source *)
-	var [w, x, y] = PanB2(p, MouseX(-1, 1, 0, 0.2), 0.1); (* B-format encode *)
-	var [a, b, c, d] = DecodeB2(4, w, x, y, 0.5); (* B-format decode to quad *)
+	let p = PinkNoise(); (* Source *)
+	let [w, x, y] = PanB2(p, MouseX(-1, 1, 0, 0.2), 0.1); (* B-format encode *)
+	let [a, b, c, d] = DecodeB2(4, w, x, y, 0.5); (* B-format decode to quad *)
 	[a, b, d, c] (* Reorder for speaker arrangement *)
 
 * * *

@@ -51,5 +51,5 @@ If the type _Point_ implements _x_ and _y_ methods, these would be shadowed by _
 Here the method _x:/1_ is not shadowed by a local variable _x_:
 
 ```
-var x = 3.141, y = 23, p = Point(x, y); p.x = x & { p.y = y }
+let x = 3.141, y = 23, p = Point(x, y); p.x = x & { p.y = y }
 ```

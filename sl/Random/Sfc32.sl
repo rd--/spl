@@ -17,7 +17,7 @@
 	}
 
 	murmur3 { :self :seed |
-		| generator = self.murmur3Generator(seed); |
+		let generator = self.murmur3Generator(seed);
 		[
 			generator.value,
 			generator.value,
@@ -39,7 +39,7 @@ Sfc32 : [Object, Random] { | next |
 +String {
 
 	Sfc32 { :self |
-		| seed = self.murmur3(2166136261); |
+		let seed = self.murmur3(2166136261);
 		newSfc32().initializeSlots(seed.sfc32RandomNumberGenerator)
 	}
 

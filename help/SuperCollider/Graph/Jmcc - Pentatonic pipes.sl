@@ -1,10 +1,10 @@
 (* pentatonic pipes (jmcc) ; mousex on right half of screen causes pulsation ; requires=kr *)
-var n = 5;
-var mode = [0 3 5 7 10].asLocalBuf;
-var root = 36 + 12.atRandom;
-var z = { :tr |
-	var m = DegreeToKey(mode, TRand(0, 20, tr), 12) + root;
-	var o = Resonz(PinkNoise() * 20, m.MidiCps, 0.002) * 4;
+let n = 5;
+let mode = [0 3 5 7 10].asLocalBuf;
+let root = 36 + 12.atRandom;
+let z = { :tr |
+	let m = DegreeToKey(mode, TRand(0, 20, tr), 12) + root;
+	let o = Resonz(PinkNoise() * 20, m.MidiCps, 0.002) * 4;
 	EqPan2(
 		o.Distort * 0.2,
 		TRand(-1, 1, tr)

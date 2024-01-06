@@ -13,7 +13,7 @@ When _pos_ is 0 the two channels are balanced and both multipliers are √½ (�
 
 In this program two sine oscillators (at 440 and 550 hz) are balanced using a low frequency noise generator.
 
-	var o = SinOsc([440, 550], 0);
+	let o = SinOsc([440, 550], 0);
 	Balance2(o.first, o.second, LfNoise1(4), 0.1)
 
 * * *

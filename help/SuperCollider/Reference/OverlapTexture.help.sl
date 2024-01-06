@@ -19,7 +19,7 @@ Texture of overlapping stereo sine tones:
 
 Texture of overlapping _n_-channel sine tones (n should be number of speakers in system):
 
-	var n = 24;
+	let n = 24;
 	{ :tr |
 		{
 			SinOsc(TRand(220, 990, tr), 0)
@@ -28,11 +28,11 @@ Texture of overlapping _n_-channel sine tones (n should be number of speakers in
 
 There are many examples of OverlapTexture in the examples files:
 
-	var lfoFreq = 6;
-	var lfo = LfNoise0(lfoFreq) * 1000 + 1200;
-	var left = Rlpf(
+	let lfoFreq = 6;
+	let lfo = LfNoise0(lfoFreq) * 1000 + 1200;
+	let left = Rlpf(
 		{ :tr |
-			var f = Choose(
+			let f = Choose(
 				tr,
 				[
 					25 30 34 37 41 42 46
@@ -47,8 +47,8 @@ There are many examples of OverlapTexture in the examples files:
 		lfo,
 		MouseX(0.2, 0.02, 1, 0.2)
 	);
-	var delayTime = 2 / lfoFreq;
-	var right = DelayC(left, delayTime, delayTime);
+	let delayTime = 2 / lfoFreq;
+	let right = DelayC(left, delayTime, delayTime);
 	[left, right] (* delay right channel by two beats *)
 
 * * *

@@ -173,12 +173,10 @@ Duration : [Object, Magnitude] { | milliseconds |
 	}
 
 	parseDuration { :self |
-		|(
-			[
-				years, months, weeks, days,
-				hours, minutes, seconds
-			] = self.parseIso8601DurationAsArray
-		)|
+		let [
+			years, months, weeks, days,
+			hours, minutes, seconds
+		] = self.parseIso8601DurationAsArray;
 		(years + months > 0).if {
 			self.error('String>>asDuration: includes non-zero year or month fields')
 		} {

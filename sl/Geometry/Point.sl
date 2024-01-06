@@ -47,10 +47,8 @@
 	}
 
 	distance { :self :aPoint |
-		|(
-			dx = aPoint.x - self.x,
-			dy = aPoint.y - self.y
-		)|
+		let dx = aPoint.x - self.x;
+		let dy = aPoint.y - self.y;
 		((dx * dx) + (dy * dy)).sqrt
 	}
 

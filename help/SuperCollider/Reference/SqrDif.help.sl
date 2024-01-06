@@ -8,9 +8,9 @@ This is more efficient than using separate unit generators for each operation.
 
 Written out:
 
-	var a = SinOsc(800, 0);
-	var b = SinOsc(XLine(200, 500, 5), 0);
-	var c = a - b;
+	let a = SinOsc(800, 0);
+	let b = SinOsc(XLine(200, 500, 5), 0);
+	let c = a - b;
 	(c * c) * 0.125
 
 * * *

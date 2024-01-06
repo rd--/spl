@@ -3,18 +3,16 @@
 +Fraction {
 
 	latticePrimes { :self |
-		| answer = Set(); |
+		let answer = Set();
 		answer.includeAll(self.numerator.primeFactors);
 		answer.includeAll(self.denominator.primeFactors);
 		answer.without(2).asArray.sort
 	}
 
 	latticeVector { :self :primes |
-		|(
-			pf1 = self.numerator.primeFactors,
-			pf2 = self.denominator.primeFactors.collect(negated:/1),
-			pf3 = (pf1 ++ pf2).asBag
-		)|
+		let pf1 = self.numerator.primeFactors;
+		let pf2 = self.denominator.primeFactors.collect(negated:/1);
+		let pf3 = (pf1 ++ pf2).asBag;
 		primes.collect { :each |
 			pf3.occurrencesOf(each) - pf3.occurrencesOf(each.negated)
 		}
@@ -53,9 +51,10 @@
 +@Tuning {
 
 	latticeEdges { :self :vertices |
-		| indices = [1 .. self.size], answer = []; |
+		let indices = [1 .. self.size];
+		let answer = [];
 		indices.combinationsAtATimeDo(2) { :each |
-			| [i, j] = each; |
+			let [i, j] = each;
 			(vertices[i].latticeDistance(vertices[j]) = 1).ifTrue {
 				answer.add(each.copy)
 			}
@@ -64,7 +63,7 @@
 	}
 
 	latticePrimes { :self |
-		| answer = Set(); |
+		let answer = Set();
 		self.ratios.do { :each |
 			answer.includeAll(each.latticePrimes)
 		};

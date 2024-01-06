@@ -9,7 +9,7 @@ PanB2(in, azimuth, level)
 Output channels are in order _w, x, y, z_.
 You will only hear the first two channels on a stereo setup.
 
-	var [w, x, y] = PanB2(
+	let [w, x, y] = PanB2(
 		PinkNoise(),
 		LfSaw(MouseX(1 / 5, 5, 1, 0.2), 0),
 		0.1

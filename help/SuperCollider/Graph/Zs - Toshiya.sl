@@ -1,10 +1,10 @@
 (* https://github.com/schollz/18000/blob/main/drone/toshiya.scd *)
-var f0 = 440;
-var mnn0 = f0.CpsMidi;
-var amp = 1.0;
-var osc = {
-	var mnn = Choose(Impulse(Rand(1 / 30, 1 / 5), 0), [0 9 4 14 5 2 17]);
-	var sig = SinOsc((mnn0 + mnn).MidiCps, 0);
+let f0 = 440;
+let mnn0 = f0.CpsMidi;
+let amp = 1.0;
+let osc = {
+	let mnn = Choose(Impulse(Rand(1 / 30, 1 / 5), 0), [0 9 4 14 5 2 17]);
+	let sig = SinOsc((mnn0 + mnn).MidiCps, 0);
 	sig := Lpf(
 		sig,
 		LinExp(SinOsc(Rand(1 / 30, 1 / 10), Rand(0, 2 * pi)), -1, 1, 20, 12000)
@@ -19,9 +19,9 @@ var osc = {
 	SinOsc((mnn0 - 12).MidiCps, LinLin(LfTri(0.5, 0), -1, 1, 0.2, 0.8)) / 12 * amp,
 	SinOsc(0.1, 0) * 0.2
 );
-var snd = MoogLadder(osc.Tanh, LinExp(Lag(LfNoise0(1 / 6), 6), -1, 1, f0 * 2, f0 * 10), 0);
-var z = DelayN(snd, 0.048, 0.048);
-var y = {
+let snd = MoogLadder(osc.Tanh, LinExp(Lag(LfNoise0(1 / 6), 6), -1, 1, f0 * 2, f0 * 10), 0);
+let z = DelayN(snd, 0.048, 0.048);
+let y = {
 	CombL(z, 0.1, LfNoise1(Rand(0, 0.1)) * 0.04 + 0.05, 15)
 } !+ 7;
 4.timesRepeat {

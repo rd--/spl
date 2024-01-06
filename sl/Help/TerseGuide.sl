@@ -7,22 +7,22 @@
 	}
 
 	terseGuideSummary { :self :options |
-		| totalTestCount = 0, totalPassCount = 0, areas = self.paragraphs; |
+		let totalTestCount = 0;
+		let totalPassCount = 0;
+		let areas = self.paragraphs;
 		('Terse Guide Summary: Areas = ' ++ areas.size).postLine;
 		areas.do { :area |
-			|(
-				entries = area.lines.reject { :line |
-					line.isEmpty | {
-						line = '```'
-					}
-				},
-				testCount = entries.size - 1,
-				failCount = 0,
-				passCount = 0
-			)|
+			let entries = area.lines.reject { :line |
+				line.isEmpty | {
+					line = '```'
+				}
+			};
+			let testCount = entries.size - 1;
+			let failCount = 0;
+			let passCount = 0;
 			entries[1].postLine;
 			2.to(testCount + 1).collect { :index |
-				| test = entries[index]; |
+				let test = entries[index];
 				options.atIfAbsent('verbose', false).ifTrue {
 					test.postLine
 				};

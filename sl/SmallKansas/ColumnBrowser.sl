@@ -23,7 +23,7 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 			ListChooser(withFilter & { index = 1 }, nil, listSize)
 		};
 		1.toDo(columnProportions.size) { :index |
-			| list = self.columnLists[index].listChooserPane; |
+			let list = self.columnLists[index].listChooserPane;
 			list.style.setProperties((
 				'flex': columnProportions[index].asString ++ ' 1 16em'
 			))
@@ -75,9 +75,7 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 	}
 
 	columnEdited { :self :index :onChange:/2 |
-		|(
-			next = onChange(self, self.pathUpTo(index))
-		)|
+		let next = onChange(self, self.pathUpTo(index));
 		(index = self.numberOfColumns).if {
 			next.then { :view |
 				self.textEditor.setEditorText(view.asString)
@@ -96,7 +94,7 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 	}
 
 	setColumnValue { :self :index :value |
-		| select = self.columnLists[index].select; |
+		let select = self.columnLists[index].select;
 		select.select(value);
 		select.dispatchEvent(Event('change'))
 	}

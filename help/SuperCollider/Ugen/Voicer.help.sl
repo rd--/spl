@@ -9,7 +9,7 @@ Voicer(1, 16) { :e |
 }.Mix
 
 (* Blip ; event control ; shared parameter *)
-var nh = 1;
+let nh = 1;
 Voicer(1, 16) { :e |
 	Blip(e.p.UnitCps, nh) * e.w * e.z
 }.Splay
@@ -25,7 +25,7 @@ Voicer(1, 16) { :e |
 }.Mix
 
 (* PanAz ; event control *)
-var nc = 2;
+let nc = 2;
 Voicer(1, 16) { :e |
 	PanAz(
 		nc,
@@ -65,25 +65,25 @@ Voicer(
 	part: 1,
 	numVoices: 6,
 	voiceFunc: { :e |
-		var loss = LinExp(
+		let loss = LinExp(
 			in: e.y,
 			srcLo: 0,
 			srcHi: 1,
 			dstLo: 0.99999,
 			dstHi: 0.99950
 		);
-		var wobble = SinOsc(
+		let wobble = SinOsc(
 			freq: 2,
 			phase: 0
 		);
-		var tension = LinExp(
+		let tension = LinExp(
 			in: e.x,
 			srcLo: 0,
 			srcHi: 1,
 			dstLo: 0.01,
 			dstHi: 0.1
 		) + (wobble * 0.0001);
-		var env = Perc(
+		let env = Perc(
 			trig: e.w,
 			attackTime: 0.0001,
 			releaseTime: 1 - e.z,
@@ -105,9 +105,9 @@ Voicer(
 	part: 1,
 	numVoices: 16,
 	voiceFunc: { :e |
-		var n = WhiteNoise() * e.z * 2;
-		var dlMax = 1 / 220;
-		var dl = dlMax * (1 - e.x * 0.9);
+		let n = WhiteNoise() * e.z * 2;
+		let dlMax = 1 / 220;
+		let dl = dlMax * (1 - e.x * 0.9);
 		EqPan2(
 			in: Pluck(
 				in: n,

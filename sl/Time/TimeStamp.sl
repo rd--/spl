@@ -74,12 +74,12 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 +Block {
 
 	valueAt { :self :time |
-		| now = system.unixTimeInMilliseconds; |
+		let now = system.unixTimeInMilliseconds;
 		self.valueAfterMilliseconds(time.unixTimeInMilliseconds - now)
 	}
 
 	valueAtWith { :self :time :anObject |
-		| now = system.unixTimeInMilliseconds; |
+		let now = system.unixTimeInMilliseconds;
 		self.valueAfterMillisecondsWith(time.unixTimeInMilliseconds - now, anObject)
 	}
 

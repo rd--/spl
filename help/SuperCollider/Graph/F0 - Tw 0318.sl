@@ -1,5 +1,5 @@
 (* https://sccode.org/1-4Qy ; f0 ; 0318 *)
-var b = [1 .. 3];
+let b = [1 .. 3];
 MulAdd(
 	SinOscFb(13 * 13 * b, 1 / 3),
 	SinOscFb(b / 13, 1) / 13,

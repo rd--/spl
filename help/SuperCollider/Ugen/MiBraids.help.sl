@@ -12,7 +12,7 @@ MiBraids(
 ) ! 2 * 0.05
 
 (* MiBraids ; some modulation ; requires=keywords *)
-var mod = LfNoise1(0.5) * 0.5 + 0.5;
+let mod = LfNoise1(0.5) * 0.5 + 0.5;
 MiBraids(
 	pitch: 40,
 	timbre: mod,
@@ -26,9 +26,9 @@ MiBraids(
 ) ! 2 * 0.05
 
 (* MiBraids ; vosim ; requires=keywords *)
-var pitch = LinLin(LfNoise0(4), -1, 1, 33, 66).RoundTo(1);
-var timbre = LfNoise1(0.3) * 0.5 + 0.5;
-var color = LfNoise1(0.3) * 0.5 + 0.5;
+let pitch = LinLin(LfNoise0(4), -1, 1, 33, 66).RoundTo(1);
+let timbre = LfNoise1(0.3) * 0.5 + 0.5;
+let color = LfNoise1(0.3) * 0.5 + 0.5;
 MiBraids(
 	pitch: pitch,
 	timbre: timbre,
@@ -42,9 +42,9 @@ MiBraids(
 ) ! 2 * 0.1
 
 (* MiBraids ; fluted ; requires=keywords *)
-var pitch = 38;
-var timbre = MouseX(0.7, 1, 0, 0.2);
-var color = MouseY(0, 1, 0, 0.2);
+let pitch = 38;
+let timbre = MouseX(0.7, 1, 0, 0.2);
+let color = MouseY(0, 1, 0, 0.2);
 MiBraids(
 	pitch: pitch,
 	timbre: timbre,
@@ -58,10 +58,10 @@ MiBraids(
 ) ! 2 * 0.1
 
 (* MiBraids ; scanning ; requires=keywords *)
-var pitch = MouseY(33, 72, 0, 0.2);
-var timbre = LfNoise1(0.3) * 0.5 + 0.5;
-var color = LfNoise1(0.3) * 0.5 + 0.5;
-var model = MouseX(0, 47, 0, 0.2);
+let pitch = MouseY(33, 72, 0, 0.2);
+let timbre = LfNoise1(0.3) * 0.5 + 0.5;
+let color = LfNoise1(0.3) * 0.5 + 0.5;
+let model = MouseX(0, 47, 0, 0.2);
 MiBraids(
 	pitch: pitch,
 	timbre: timbre,
@@ -75,8 +75,8 @@ MiBraids(
 ) ! 2 * 0.1
 
 (* MiBraids ; paraphonic ; requires=keywords *)
-var timbre = LfNoise1(0.03) * 0.5 + 0.5;
-var color = LfNoise1(0.05) * 0.5 + 0.5; (* chord *)
+let timbre = LfNoise1(0.03) * 0.5 + 0.5;
+let color = LfNoise1(0.05) * 0.5 + 0.5; (* chord *)
 MiBraids(
 	pitch: 38,
 	timbre: timbre,
@@ -90,10 +90,10 @@ MiBraids(
 ) ! 2 * 0.1
 
 (* MiBraids ; trigger ; 28=plucked ; requires=keywords *)
-var tr = Dust(0.6);
-var pitch = TRand(45, 72, tr).RoundTo(1);
-var timbre = 0.5;
-var color = LfNoise1(0.3) * 0.5 + 0.5;
+let tr = Dust(0.6);
+let pitch = TRand(45, 72, tr).RoundTo(1);
+let timbre = 0.5;
+let color = LfNoise1(0.3) * 0.5 + 0.5;
 MiBraids(
 	pitch: pitch,
 	timbre: timbre,
@@ -107,10 +107,10 @@ MiBraids(
 ) ! 2 * 0.1
 
 (* MiBraids ; 34=kick ; requires=keywords *)
-var trig = Impulse(4, 0);
-var pitch = LinLin(Latch(PinkNoise(), trig), -1, 1, 30, 50).RoundTo(1);
-var timbre = LfNoise1(0.4) * 0.5 + 0.5;
-var color = LfNoise1(0.3) * 0.5 + 0.5;
+let trig = Impulse(4, 0);
+let pitch = LinLin(Latch(PinkNoise(), trig), -1, 1, 30, 50).RoundTo(1);
+let timbre = LfNoise1(0.4) * 0.5 + 0.5;
+let color = LfNoise1(0.3) * 0.5 + 0.5;
 MiBraids(
 	pitch: pitch,
 	timbre: timbre,
@@ -124,9 +124,9 @@ MiBraids(
 ) ! 2 * 0.2
 
 (* MiBraids ; 34=kick ; sample rate, bit reduction and distortion ; requires=keywords *)
-var tr = CoinGate(0.3, Impulse(4, 0));
-var decim = TRand(1, 32, tr);
-var ws = LinLin(LfTri(0.2, 0), -1, 1, 0,1);
+let tr = CoinGate(0.3, Impulse(4, 0));
+let decim = TRand(1, 32, tr);
+let ws = LinLin(LfTri(0.2, 0), -1, 1, 0,1);
 MiBraids(
 	pitch: 40,
 	timbre: 0.7,

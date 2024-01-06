@@ -3,15 +3,13 @@
 AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand secondHand |
 
 	createElements { :self |
-		|(
-			svg = 'svg'.createSvgElement (
-				viewBox: '0 0 200 200',
-				preserveAspectRatio: 'xMidYMid meet'
-			),
-			group = 'g'.createSvgElement (
-				transform: 'translate(100, 100) scale(1, -1)'
-			)
-		)|
+		let svg = 'svg'.createSvgElement (
+			viewBox: '0 0 200 200',
+			preserveAspectRatio: 'xMidYMid meet'
+		);
+		let group = 'g'.createSvgElement (
+			transform: 'translate(100, 100) scale(1, -1)'
+		);
 		self.clockPane := 'div'.createElement;
 		self.hourHand := 'line'.createSvgElement (
 			x1: '0',
@@ -48,18 +46,16 @@ AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand se
 			self.secondHand
 		]);
 		group.appendChildren([1 .. 12].collect { :each |
-			|(
-				theta = each - 3 / 12 * 2 * pi,
-				point = PolarPoint(80, theta),
-				text = 'text'.createSvgElement (
-					x: point.x,
-					y: point.y,
-					'font-size': '11pt',
-					'text-anchor': 'middle',
-					'dominant-baseline': 'middle',
-					transform: 'scale(1, -1)'
-				)
-			)|
+			let theta = each - 3 / 12 * 2 * pi;
+			let point = PolarPoint(80, theta);
+			let text = 'text'.createSvgElement (
+				x: point.x,
+				y: point.y,
+				'font-size': '11pt',
+				'text-anchor': 'middle',
+				'dominant-baseline': 'middle',
+				transform: 'scale(1, -1)'
+			);
 			text.textContent := each.printString;
 			text
 		});
@@ -74,17 +70,17 @@ AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand se
 	}
 
 	moveHourHand { :self :fractionalHour |
-		| theta = fractionalHour - 3 / 12 * 2 * pi; |
+		let theta = fractionalHour - 3 / 12 * 2 * pi;
 		self.hourHand.p2 := PolarPoint(55, theta.negated)
 	}
 
 	moveMinuteHand { :self :minute |
-		| theta = minute - 15 / 60 * 2 * pi; |
+		let theta = minute - 15 / 60 * 2 * pi;
 		self.minuteHand.p2 := PolarPoint(80, theta.negated)
 	}
 
 	moveSecondHand { :self :minute |
-		| theta = minute - 15 / 60 * 2 * pi; |
+		let theta = minute - 15 / 60 * 2 * pi;
 		self.secondHand.p2 := PolarPoint(85, theta.negated)
 	}
 
@@ -99,7 +95,7 @@ AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand se
 	}
 
 	tick { :self |
-		| dateAndTime = system.Date; |
+		let dateAndTime = system.Date;
 		self.moveHourHand(dateAndTime.hours + (dateAndTime.minutes / 60));
 		self.moveMinuteHand(dateAndTime.minutes);
 		self.moveSecondHand(dateAndTime.seconds)

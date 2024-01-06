@@ -1,10 +1,10 @@
 (* Cymbalism accelerando (Jmcc) #2 *)
 {
-	var p = 15; (* number of partials per channel per 'cymbal' *)
-	var f1 = 500 + 2000.Rand0;
-	var f2 = 8000.Rand0;
-	var tf = XLine(LinRand(0, 4, 0) + 0.5, 35.Rand0 + 0.5, 12);
-	var t = Impulse(tf, 0);
+	let p = 15; (* number of partials per channel per 'cymbal' *)
+	let f1 = 500 + 2000.Rand0;
+	let f2 = 8000.Rand0;
+	let tf = XLine(LinRand(0, 4, 0) + 0.5, 35.Rand0 + 0.5, 12);
+	let t = Impulse(tf, 0);
 	{
 		RingzBank(
 			Decay(t, 0.004) * WhiteNoise() * 0.02,

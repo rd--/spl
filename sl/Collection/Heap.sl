@@ -105,7 +105,7 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 	}
 
 	privateRemoveAt { :self :index |
-		| removed = self.array.at(index); |
+		let removed = self.array.at(index);
 		(index = self.array.size).if {
 			self.array.removeLast
 		} {
@@ -148,9 +148,9 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 	}
 
 	select { :self :aBlock:/1 |
-		| newCollection = Heap(); |
+		let newCollection = Heap();
 		1.upToDo(self.size) { :index |
-			| element = self.array[index]; |
+			let element = self.array[index];
 			aBlock(element).ifTrue {
 				newCollection.add(element)
 			}
@@ -167,7 +167,10 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 			self.indexUpdate(self.array[1], 1);
 			self
 		} {
-			| index parentValue parentIndex value |
+			let index = nil;
+			let parentValue = nil;
+			let parentIndex = nil;
+			let value = nil;
 			value := self.array[index := anIndex];
 			{
 				index > 1 & {

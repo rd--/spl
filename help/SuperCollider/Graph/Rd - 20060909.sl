@@ -1,5 +1,5 @@
 (* 20060909 ; rd *)
-var p = {
+let p = {
 	Resonz(
 		Pulse(
 			LfNoise0(4) * [32, 64],
@@ -9,10 +9,10 @@ var p = {
 		(LfNoise0(6) * 0.4) + 0.8
 	) * 0.5
 };
-var q = {
+let q = {
 	CombN(p(), 0.2, LfNoise0(128) * 0.1 + 0.1, 3)
 };
-var r = {
+let r = {
 	{
 		{
 			SinOsc(

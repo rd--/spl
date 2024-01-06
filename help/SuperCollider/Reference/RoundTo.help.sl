@@ -4,6 +4,6 @@ _RoundTo(self, aNumber=1)_
 
 Quantization by rounding. Rounds _self_ to the nearest multiple of _aNumber_.
 
-	var l = Line(48, 57, 23);
+	let l = Line(48, 57, 23);
 	SinOsc([l, l.RoundTo(1)].MidiCps, 0) * 0.1
 

@@ -1,8 +1,8 @@
 (* repeating harmonic klank (jmcc) *)
 { :tr |
-	var p = 8;
-	var s = Decay(Dust(0.8) * 0.01, 3.4) * LfSaw(TLinRand(0, 40, 0, tr), 0);
-	var f = TChoose(tr, [400 500 600 700 800 900 1000 1200 1400 1500 1600]);
+	let p = 8;
+	let s = Decay(Dust(0.8) * 0.01, 3.4) * LfSaw(TLinRand(0, 40, 0, tr), 0);
+	let f = TChoose(tr, [400 500 600 700 800 900 1000 1200 1400 1500 1600]);
 	{
 		RingzBank(
 			s,

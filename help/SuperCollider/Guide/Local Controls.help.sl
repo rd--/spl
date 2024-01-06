@@ -7,7 +7,7 @@ Messages can be sent to the synthesiser to set these controls.
 The ordinary way to make local controls is from a _Record_ using _localControls_.
 
 ```
-var ctl = (freq: 440, amp: 0.1).localControls;
+let ctl = (freq: 440, amp: 0.1).localControls;
 (SinOsc(ctl::freq, 0) * ctl::amp)
 ```
 
@@ -15,7 +15,7 @@ If the default values for a control are an array then an array of control inputs
 In the graph below there are three controls, _freq1_, _freq2_ and _amp_.
 
 ```
-var ctl = (freq: [440, 440 + 3], amp: 0.1).localControls;
+let ctl = (freq: [440, 440 + 3], amp: 0.1).localControls;
 SinOsc(ctl::freq, 0) * ctl::amp
 ```
 

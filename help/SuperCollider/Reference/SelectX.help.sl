@@ -10,17 +10,17 @@ _SelectX(which, array)_
 
 Cycle though oscillator types:
 
-	var a = [
+	let a = [
 		SinOsc(440, 0),
 		Saw(440),
 		Pulse(440, 0.5)
 	];
-	var cycle = a.size * 0.5;
+	let cycle = a.size * 0.5;
 	SelectX(LfSaw(1, 0) * cycle + cycle, a) * 0.2
 
 Use MouseX to select frequency modulator:
 
-	var a = [
+	let a = [
 		SinOsc(0.25, 0),
 		LfSaw(10, 0),
 		LfPulse(0.3, 0, 0.5)

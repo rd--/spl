@@ -1,5 +1,5 @@
 (* https://sccode.org/1-4Qy ; f0 ; 0306 *)
-var o = [0, 1].collect { :i |
+let o = [0, 1].collect { :i |
 	SinOsc(
 		Duty(
 			i + 1 / 9,

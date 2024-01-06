@@ -1,11 +1,9 @@
 +SmallKansas {
 
 	ScalaScaleBrowser { :self :scalaModenam |
-		|(
-			sizes = scalaModenam.collect(size:/1).copyWithoutDuplicates.sort.collect(asString:/1),
-			selectedSize = nil,
-			selectedTuningSize = nil
-		)|
+		let sizes = scalaModenam.collect(size:/1).copyWithoutDuplicates.sort.collect(asString:/1);
+		let selectedSize = nil;
+		let selectedTuningSize = nil;
 		self.ColumnBrowser('Scala Scale Browser', 'text/plain', false, true, [1, 1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {
@@ -54,7 +52,7 @@
 				'application/json',
 				{ :item |
 					item.collect { :each |
-						| [zeroIndexedStartIndex, intervals, description] = each; |
+						let [zeroIndexedStartIndex, intervals, description] = each;
 						Scale(zeroIndexedStartIndex + 1, intervals, description)
 					}
 				}

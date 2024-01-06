@@ -14,11 +14,11 @@ Pan2(Saw(LfNoise1(1) * 1000 + 1200) * FSinOsc(SampleRate() / 2, 1), 0, 0.3)
 Pan2(Bpf(PinkNoise(), (1 .. 64) * (LfNoise2(4) * 30 + 100), 0.01).Sum, 0, 0.6)
 
 (* Spectral harp ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #6 *)
-var p = SinOsc(1760, 0) * [0.01, 0.01];
+let p = SinOsc(1760, 0) * [0.01, 0.01];
 p + CombC(p, 0.1, LfNoise1(0.5) * 0.1 + 0.1, -10)
 
 (* Spectral harp ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #6 ; edit (Rd) *)
-var p = SinOsc(1760, 0) * [0.01, 0.01];
+let p = SinOsc(1760, 0) * [0.01, 0.01];
 p + CombC(p, 0.1, LfNoise1(0.5) * 0.1 + 0.1, [-10, 10])
 
 (* Fm curio ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #7a *)
@@ -37,11 +37,11 @@ SinOsc(2, SinOsc(6003, 0) * (LfNoise2(1 ! 2) * 200 + 201)) * 0.1
 SinOsc(0, SinOsc(9005, 0) * (LfNoise2(1 ! 2) * 100 + 101)) * 0.1
 
 (* Blizzard ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #8 ; edit (rd) *)
-var f = 0.2 ! 8;
+let f = 0.2 ! 8;
 Bpf(PinkNoise() * 0.2, LfNoise1(f) * 1000 + 1040, LfNoise1(f) * 0.3 + 0.31).Splay
 
 (* Fey emissions ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #9 *)
-var d = Dust(2 ! 2);
+let d = Dust(2 ! 2);
 CombN(Bpf(d, LfNoise0(10) * 3000 + 3040, 0.001) * 200, 0.2, 0.2, 5)
 
 (* Sine slurps ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #10 *)
@@ -51,43 +51,43 @@ SinOsc(0, Bpf(Dust(10 ! 2) * 20000, LfNoise1(10 ! 2) * 4000 + 4000, 0.1)) * 0.2
 SinOsc(0, Bpf(WhiteNoise(2) * 1000, LfNoise1(0.1 ! 2) * 2000 + 4000, 0.001)) * 0.1
 
 (* feedback racket ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #12a *)
-var p = Saw(440 + [0, 0.2]) * 0.02;
+let p = Saw(440 + [0, 0.2]) * 0.02;
 p + CombC(p, 0.1, LfNoise0(10) * 0.08 + 0.08, -10000)
 
 (* Feedback racket ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #12b *)
-var p = Saw(440 + [0, 0.2]) * 0.02;
+let p = Saw(440 + [0, 0.2]) * 0.02;
 p + CombC(p, 0.1, LfNoise1(10) * 0.08 + 0.08, -10000)
 
 (* Feedback racket ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #12c *)
-var p = PinkNoise(2) * 0.03;
+let p = PinkNoise(2) * 0.03;
 p + CombC(p, 0.2, LfNoise0(1) * 0.2 + 0.2, -10000)
 
 (* Feedback racket ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #12d *)
-var p = WhiteNoise(2) * 0.02;
+let p = WhiteNoise(2) * 0.02;
 p + CombC(p, 0.1, LfNoise1(10) * 0.08 + 0.08, -10000)
 
 (* Feedback racket ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #12e *)
-var p = Dust2(200 ! 2) * 0.2;
+let p = Dust2(200 ! 2) * 0.2;
 p + CombC(p, 0.4, LfNoise0(2) * 0.4 + 0.4, -10000)
 
 (* Trills ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #13a *)
-var p = [1, 3, 5];
+let p = [1, 3, 5];
 Pan2(SinOsc(800 * (SinOsc(p * 0.1, 0) / p).RoundTo(1 / 6).Sum, 0), 0, 0.2)
 
 (* Trills ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #13b *)
-var p = [1, 2] + 0.01;
+let p = [1, 2] + 0.01;
 Pan2(SinOsc(1000 * Lag((LfSaw(p * 0.4, 0) / p).RoundTo(1 / 6), 0.002).Sum, 0), 0, 0.2)
 
 (* trills ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #13c *)
-var p = [0.5, 1, 2];
+let p = [0.5, 1, 2];
 Pan2(SinOsc(1000 * Lag((LfSaw(p * 0.4, 0) / p).RoundTo(1 / 8), 0.002).Sum, 0), 0, 0.2)
 
 (* trills ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #13d *)
-var p = [1, 2] + 0.04;
+let p = [1, 2] + 0.04;
 Pan2(SinOsc(1400 * Lag((LfTri(p * 0.2, 0) / p).RoundTo(1 / 8), 0.002).Sum, 0), 0, 0.2)
 
 (* trills ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #13e *)
-var p = [1, 4] + 0.01;
+let p = [1, 4] + 0.01;
 Pan2(SinOsc(1400 * Lag((LfTri(p * 0.2, 0) / p).RoundTo(1 / 8), 0.002).Sum, 0), 0, 0.2)
 
 (* short-loops ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #14a *)

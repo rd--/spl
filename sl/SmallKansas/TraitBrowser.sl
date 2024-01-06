@@ -3,10 +3,8 @@
 +SmallKansas {
 
 	TraitBrowser { :self |
-		|(
-			traitNames = system.traitDictionary.indicesSorted,
-			selectedMethod = nil
-		)|
+		let traitNames = system.traitDictionary.indicesSorted;
+		let selectedMethod = nil;
 		self.ColumnBrowser('Trait Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |

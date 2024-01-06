@@ -10,12 +10,12 @@ Any triggers which arrive in the time between an input trigger and its delayed o
 
 Impulse runs faster than flip flop:
 
-	var z = Impulse(2, 0);
+	let z = Impulse(2, 0);
 	[z, ToggleFf(TDelay(z, 0.5)) * SinOsc(440, 0)] * 0.1
 
 Dust runs faster than flip flop:
 
-	var z = Dust(5);
+	let z = Dust(5);
 	[z, ToggleFf(TDelay(z, 0.5)) * SinOsc(440, 0)] * 0.1
 
 * * *

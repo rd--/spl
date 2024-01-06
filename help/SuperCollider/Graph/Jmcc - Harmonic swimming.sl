@@ -1,8 +1,8 @@
 (* harmonic swimming ; jmcc *)
-var f = 50; (* fundamental frequency *)
-var p = 20; (* number of partials per channel *)
-var z = 0; (* start of oscil daisy chain *)
-var offset = Line(0, -0.02, 60); (* causes sound to separate and fade *)
+let f = 50; (* fundamental frequency *)
+let p = 20; (* number of partials per channel *)
+let z = 0; (* start of oscil daisy chain *)
+let offset = Line(0, -0.02, 60); (* causes sound to separate and fade *)
 (1 .. p).do { :i |
 	z := MulAdd(
 		FSinOsc(

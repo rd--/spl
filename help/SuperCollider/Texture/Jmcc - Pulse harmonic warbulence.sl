@@ -1,10 +1,10 @@
 (* pulse harmonic warbulence (jmcc) #12 *)
 {
-	var f = Rand(24, 96).MidiCps;
-	var r = XLine(ExpRand(0.1, 20), ExpRand(0.1, 20), 25.6);
-	var p = LfPulse(ExpRand(0.2, 1.2), Rand(0.1, 0.2), 0.5);
-	var z = (1 .. 12).collect { :i |
-		var m = 0.Max(
+	let f = Rand(24, 96).MidiCps;
+	let r = XLine(ExpRand(0.1, 20), ExpRand(0.1, 20), 25.6);
+	let p = LfPulse(ExpRand(0.2, 1.2), Rand(0.1, 0.2), 0.5);
+	let z = (1 .. 12).collect { :i |
+		let m = 0.Max(
 			SinOsc(r * Rand(0.9, 1.1), 2 * pi.Rand0) * 0.1 - 0.05
 		);
 		EqPan(

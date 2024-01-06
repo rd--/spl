@@ -1,5 +1,5 @@
 (* https://sccode.org/1-4Qy ; f0 ; 0335 *)
-var o = GrainFm(
+let o = GrainFm(
 	1,
 	LfSaw([0.5, 0.6], 0),
 	16,

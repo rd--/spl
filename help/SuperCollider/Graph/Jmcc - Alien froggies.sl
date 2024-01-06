@@ -1,7 +1,7 @@
 (* alien froggies (jmcc) #1 *)
 { :tr |
-	var rate = 11;
-	var r = Fold(
+	let rate = 11;
+	let r = Fold(
 		rate * TRand(-0.2, [0.1, 0.2], tr).Exp,
 		1,
 		30

@@ -43,7 +43,7 @@ Matrix22 : [Object] { | a b c d |
 	}
 
 	invert { :self |
-		| m = 1 / self.determinant; |
+		let m = 1 / self.determinant;
 		self.initializeSlots(
 			self.d * m, self.b.negated * m,
 			self.c.negated * m, self.a * m
@@ -58,7 +58,7 @@ Matrix22 : [Object] { | a b c d |
 	}
 
 	transpose { :self |
-		| b = self.b, c = self.c; |
+		let b = self.b, c = self.c;
 		self.b := c;
 		self.c := b
 	}
@@ -91,7 +91,7 @@ Matrix22 : [Object] { | a b c d |
 		(self.size ~= 4).if {
 			self.error('Matrix22: not 4-element array')
 		} {
-			| [a, b, c, d] = self; |
+			let [a, b, c, d] = self;
 			Matrix22(a, b, c, d)
 		}
 	}

@@ -33,7 +33,7 @@
 	}
 
 	nextIntoStartingAt { :self :n :aCollection :startIndex |
-		| count = self.readIntoStartingAtCount(aCollection, startIndex, n); |
+		let count = self.readIntoStartingAtCount(aCollection, startIndex, n);
 		(count = n).if {
 			aCollection
 		} {
@@ -59,7 +59,7 @@
 	readIntoStartingAtCount { :self :aCollection :startIndex :n |
 		valueWithReturn { :return:/1 |
 			0.upToDo(n - 1) { :i |
-				| obj |
+				let obj = nil;
 				obj := self.next.ifNil {
 					i.return
 				};
@@ -70,7 +70,7 @@
 	}
 
 	take { :self :maxNumberOfElements |
-		| answer = []; |
+		let answer = [];
 		valueWithReturn { :return:/1 |
 			maxNumberOfElements.timesRepeat {
 				self.atEnd.ifTrue {
@@ -83,7 +83,7 @@
 	}
 
 	upToEnd { :self |
-		| answer = []; |
+		let answer = [];
 		{
 			self.atEnd
 		}.whileFalse {

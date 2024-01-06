@@ -81,13 +81,15 @@ ContinuousEvent : [Object] { | contents |
 +@Integer {
 
 	voicerVoiceAddress { :part :voice |
-		| addrZero = 13000, maxEventParam = 10, maxVoices = 24; |
+		let addrZero = 13000;
+		let maxEventParam = 10;
+		let maxVoices = 24;
 		addrZero + (part - 1 * maxVoices * maxEventParam) + (voice - 1 * maxEventParam)
 	}
 
 	Voicer { :part :voice :voiceBlock:/1 |
 		(1 .. voice).collect { :each |
-			| bus = part.voicerVoiceAddress(each); |
+			let bus = part.voicerVoiceAddress(each);
 			ControlIn(8, bus).asContinuousEvent.voiceBlock
 		}
 	}

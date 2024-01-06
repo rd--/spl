@@ -42,7 +42,7 @@ CylindricalCoordinate : [Object] { | rho phi z |
 +Array {
 
 	asCylindricalCoordinate { :self |
-		| [rho, phi, z] = self; |
+		let [rho, phi, z] = self;
 		CylindricalCoordinate(rho, phi, z)
 	}
 
@@ -59,7 +59,9 @@ CylindricalCoordinate : [Object] { | rho phi z |
 +@CartesianCoordinate {
 
 	asCylindricalCoordinate { :self |
-		|( x = self.x, y = self.y, z = self.z )|
+		let x = self.x;
+		let y = self.y;
+		let z = self.z;
 		CylindricalCoordinate(
 			(x.squared + y.squared).sqrt,
 			y.atan2(x),

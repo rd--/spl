@@ -41,7 +41,7 @@ PolarPoint : [Object, Point] { | r theta |
 +Array {
 
 	asPolarPoint { :self |
-		| [r, theta] = self; |
+		let [r, theta] = self;
 		PolarPoint(r, theta)
 	}
 

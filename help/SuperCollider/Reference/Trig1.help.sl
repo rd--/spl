@@ -16,10 +16,10 @@ A Dust signal occasionally triggers a gate be held open for one fifth of a secon
 
 The Dust signal also selects a random duration, frequency and amplitude:
 
-	var i = Dust([2, 3]);
-	var tr = Trig1(i, TRand([0.1, 0.01], 0.35, i));
-	var f = TExpRand([220, 550], 880, tr);
-	var a = TExpRand([0.1, 0.01], 0.25, tr);
+	let i = Dust([2, 3]);
+	let tr = Trig1(i, TRand([0.1, 0.01], 0.35, i));
+	let f = TExpRand([220, 550], 880, tr);
+	let a = TExpRand([0.1, 0.01], 0.25, tr);
 	tr.Lag(0.05) * SinOsc(f, 0) * a
 
 * * *

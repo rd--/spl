@@ -1,12 +1,10 @@
 LinearCongruential : [Object, Random] { | state |
 
 	randomFloat { :self |
-		|(
-			m = 139968,
-			a = 3877,
-			c = 29573,
-			r = (self.state * a + c) \\ m
-		)|
+		let m = 139968;
+		let a = 3877;
+		let c = 29573;
+		let r = (self.state * a + c) \\ m;
 		self.state := r;
 		r / m
 	}

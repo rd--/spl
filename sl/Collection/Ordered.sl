@@ -5,7 +5,7 @@
 	}
 
 	addAfter { :self :newObject :oldObject |
-		| index = self.indexOf(oldObject); |
+		let index = self.indexOf(oldObject);
 		self.insertAt(newObject, index + 1)
 	}
 
@@ -19,7 +19,7 @@
 	}
 
 	addBefore { :self :newObject :oldObject |
-		| index = self.indexOf(oldObject); |
+		let index = self.indexOf(oldObject);
 		self.insertAt(newObject, index)
 	}
 
@@ -39,7 +39,7 @@
 	}
 
 	removeIfAbsent { :self :oldObject :anExceptionBlock:/0 |
-		| index = self.indexOf(oldObject); |
+		let index = self.indexOf(oldObject);
 		(index = 0).if {
 			anExceptionBlock()
 		} {

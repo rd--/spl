@@ -3,23 +3,21 @@
 ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase |
 
 	applyFilter { :self |
-		|(
-			caseRule:/1 = self.ignoreCase.if {
-				asLowercase:/1
-			} {
-				identity:/1
-			},
-			filter:/1 = self.filterText.ifNil {
-				{ :unusedString |
-					true
-				}
-			} {
-				| matchString = self.filterText.value.caseRule; |
-				{ :aString |
-					aString.caseRule.includesSubstring(matchString)
-				}
+		let caseRule:/1 = self.ignoreCase.if {
+			asLowercase:/1
+		} {
+			identity:/1
+		};
+		let filter:/1 = self.filterText.ifNil {
+			{ :unusedString |
+				true
 			}
-		)|
+		} {
+			let matchString = self.filterText.value.caseRule;
+			{ :aString |
+				aString.caseRule.includesSubstring(matchString)
+			}
+		};
 		self.select.removeAll;
 		self.select.appendChildren(self.entries.select(filter:/1).collect { :each |
 			TextOption(each)
@@ -33,7 +31,7 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 			class: 'listChooserPane'
 		);
 		titleText.ifNotNil {
-			| title = TextButton(titleText) (class: 'listTitle'); |
+			let title = TextButton(titleText) (class: 'listTitle');
 			self.listChooserPane.appendChild(title)
 		};
 		withFilter.if {

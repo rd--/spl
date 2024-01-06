@@ -72,7 +72,7 @@
 	}
 
 	atPath { :self :indices |
-		| item = self; |
+		let item = self;
 		indices.ifEmpty {
 			self.error('atPath: empty indices')
 		} {
@@ -84,12 +84,12 @@
 	}
 
 	atPathPut { :self :indices :value |
-		| item = self; |
+		let item = self;
 		indices.ifEmpty {
 			self.error('atPath: empty indices')
 		} {
 			1.toDo(indices.size - 1) { :indicesIndex |
-				| index = indices[indicesIndex]; |
+				let index = indices[indicesIndex];
 				item := item[index]
 			};
 			item[indices.last] := value
@@ -144,7 +144,7 @@
 	}
 
 	indicesSorted { :self |
-		| answer = self.indices; |
+		let answer = self.indices;
 		answer.sort;
 		answer
 	}

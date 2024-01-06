@@ -6,7 +6,7 @@ HelpIndex : [Object] { | contents |
 
 	fetch { :self :path |
 		path.ifNotNil {
-			| url = self.url(path[1], path[2], path[3]); |
+			let url = self.url(path[1], path[2], path[3]);
 			self.notify('fetch: ' ++ path.joinSeparatedBy('/'));
 			system.fetchString(url, (cache: 'no-cache'), { '*Fetch Failed*' })
 		}
@@ -48,7 +48,7 @@ HelpIndex : [Object] { | contents |
 	HelpIndex { :self |
 		newHelpIndex().initializeSlots(
 			self.lines.select(notEmpty:/1).collect { :each |
-				| [spl, help, area, kind, name] = each.replaceString('.help.sl', '').splitBy('/'); |
+				let [spl, help, area, kind, name] = each.replaceString('.help.sl', '').splitBy('/');
 				[area, kind, name]
 			}
 		)

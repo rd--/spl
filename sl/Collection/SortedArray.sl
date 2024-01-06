@@ -4,7 +4,7 @@ SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable] {
 		self.contents.isEmpty.if {
 			self.contents.add(item)
 		} {
-			| nextIndex = self.indexForInserting(item); |
+			let nextIndex = self.indexForInserting(item);
 			self.contents.insertAt(item, nextIndex)
 		}
 	}
@@ -34,12 +34,10 @@ SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable] {
 	}
 
 	indexForInserting { :self :newObject |
-		|(
-			low = 1,
-			high = self.contents.size,
-			compare:/2 = self.sortBlock,
-			index = nil
-		)|
+		let low = 1;
+		let high = self.contents.size;
+		let compare:/2 = self.sortBlock;
+		let index = nil;
 		{
 			index := high + low // 2;
 			low <= high
@@ -94,7 +92,7 @@ SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable] {
 	}
 
 	asSortedArray { :self :aSortBlock:/2 |
-		| answer = SortedArray(); |
+		let answer = SortedArray();
 		answer.sortBlock := aSortBlock:/2;
 		answer.addAll(self);
 		answer

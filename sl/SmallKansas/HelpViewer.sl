@@ -16,7 +16,7 @@
 		self.frameSet.detectIfNone { :each |
 			each.title = 'Help Viewer'
 		} {
-			| editor = self.TextEditor('Help Viewer', 'text/markdown', ''); |
+			let editor = self.TextEditor('Help Viewer', 'text/markdown', '');
 			self.addFrame(editor, event)
 		}
 	}

@@ -13,7 +13,7 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 	}
 
 	asArray { :self |
-		| answer = Array(self.size); |
+		let answer = Array(self.size);
 		self.withIndexDo { :each :index |
 			answer[index] := each
 		};
@@ -21,7 +21,7 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 	}
 
 	asBag { :self |
-		| answer = Bag(); |
+		let answer = Bag();
 		self.runsAndValuesDo { :run :value |
 			answer.addWithOccurrences(value, run)
 		};
@@ -49,8 +49,9 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 	}
 
 	atSetRunOffsetAndValue { :self :index :aBlock:/3 |
-		| run limit offset |
-		limit := self.runs.size;
+		let limit = self.runs.size;
+		let run = nil;
+		let offset = nil;
 		(self.cachedIndex == nil | {
 			index < self.cachedIndex
 		}).if {
@@ -80,7 +81,7 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 
 	do { :self :aBlock:/1 |
 		1.toDo(self.runs.size) { :index |
-			| run = self.runs[index], value = self.values[index]; |
+			let run = self.runs[index], value = self.values[index];
 			{
 				run -:= 1;
 				run >= 0
@@ -138,9 +139,9 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 	}
 
 	withIndexDo { :self :aBlock:/2 |
-		| index = 0; |
+		let index = 0;
 		1.toDo(self.runs.size) { :runIndex |
-			| run = self.runs[runIndex], value = self.values[runIndex]; |
+			let run = self.runs[runIndex], value = self.values[runIndex];
 			{ (run := run - 1) >= 0 }.whileTrue {
 				index +:= 1;
 				aBlock(value, index)
@@ -149,9 +150,9 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 	}
 
 	withStartStopAndValueDo { :self :aBlock:/3 |
-		| start = 1; |
+		let start = 1;
 		self.runs.withDo(self.values) { :length :value |
-			| stop = start + length - 1; |
+			let stop = start + length - 1;
 			aBlock(start, stop, value);
 			start := stop + 1
 		}
@@ -166,15 +167,13 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 	}
 
 	asRunArrayWith { :self :aBlock:/1 |
-		|(
-			runs = [],
-			values = [],
-			lastLength = 0,
-			lastValue = nil,
-			lastIndex = nil
-		)|
+		let runs = [];
+		let values = [];
+		let lastLength = 0;
+		let lastValue = nil;
+		let lastIndex = nil;
 		self.do { :each |
-			| value = aBlock(each); |
+			let value = aBlock(each);
 			(lastValue = value).if {
 				lastLength := lastLength + 1
 			} {

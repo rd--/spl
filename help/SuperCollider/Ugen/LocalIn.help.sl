@@ -1,11 +1,11 @@
 (* LocalIn ; stereo cross channel feedback modulation ; mouse control *)
-var index = 5;
-var fb = [10, 5];
-var pan = 0;
-var amp = 0.1;
-var freq = MouseY(20, 4000, 1, 0.2);
-var mratio = MouseX(1 / 8, 8, 1, 0.2);
-var in = LocalIn(2, [0 0]);
-var mod = SinOsc(freq * mratio, 0) * freq * mratio * index;
-var car = SinOsc([freq * mod * in.second, freq + mod + in.first], 0);
+let index = 5;
+let fb = [10, 5];
+let pan = 0;
+let amp = 0.1;
+let freq = MouseY(20, 4000, 1, 0.2);
+let mratio = MouseX(1 / 8, 8, 1, 0.2);
+let in = LocalIn(2, [0 0]);
+let mod = SinOsc(freq * mratio, 0) * freq * mratio * index;
+let car = SinOsc([freq * mod * in.second, freq + mod + in.first], 0);
 Pan2(LeakDc(car.Sum, 0.995), pan, amp) <! LocalOut(car * fb)

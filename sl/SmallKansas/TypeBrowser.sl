@@ -11,10 +11,8 @@ TypeBrowser : [Object, SmallKansan] {
 +SmallKansas {
 
 	TypeBrowser { :self |
-		|(
-			typeNames = system.typeDictionary.indicesSorted,
-			selectedMethod = nil
-		)|
+		let typeNames = system.typeDictionary.indicesSorted;
+		let selectedMethod = nil;
 		self.ColumnBrowser('Type Browser', 'text/plain', false, true, [1, 3], nil) { :accepted |
 			selectedMethod.definition := accepted
 		} { :browser :path |
