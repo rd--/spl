@@ -66,7 +66,7 @@ let snd = (r * 0.1 + x + z + [y, w]) * 0.4;
 (CombN(snd, 0.51, 0.51, 4) * 0.4 + snd.reversed).SoftClip
 
 (* Sequencer ; Jmcc *)
-let z = 0, a = 0.1, b = 0.2, c = 0.4;
+let z = 0; let a = 0.1; let b = 0.2; let c = 0.4;
 let p = Dseq(1, [
 	Dseq(2, [c z z z z z z z]),
 	Dseq(2, [c z z b z z b z c z z z b z b a]),

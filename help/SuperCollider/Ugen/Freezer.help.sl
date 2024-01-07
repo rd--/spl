@@ -45,7 +45,7 @@ Freezer(
 (* Freezer ; event control *)
 let sf = SfAcquireMono('floating_1');
 Voicer(1, 16) { :e |
-	let incr=1, incrOff=0, incrRand=0, rightRand=0.1, phaseSync=0, phaseRand=1, numLp=4;
+	let incr = 1; let incrOff = 0; let incrRand = 0; let rightRand = 0.1; let phaseSync = 0; let phaseRand = 1; let numLp = 4;
 	Freezer(
 		sf,
 		e.x * 0.75,

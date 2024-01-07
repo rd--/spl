@@ -192,7 +192,7 @@ inf.positive = true
 25.sqrt = 5 (* integer sqrt *)
 (2 / 4) * 2 = 1 (* integer division *)
 2 * (2 / 4) = 1 (* integer division *)
-let x = 10 ^ -7, nearest = 10 ^ -8, furthest = 0; (x - nearest).abs < (x - furthest).abs & { (x ~ furthest) ==> { (x ~ nearest) } }
+let x = 10 ^ -7; let nearest = 10 ^ -8; let furthest = 0; (x - nearest).abs < (x - furthest).abs & { (x ~ furthest) ==> { (x ~ nearest) } }
 -1 !~ 1 (* negative one is not close to one *)
 1 !~ inf (* one is not close to inifinity *)
 inf ~ inf (* being equal, infinty is also close to itself *)
@@ -203,8 +203,8 @@ let n = 10 ^ -9; 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
 15 % 4 = 3 (* modulo *)
 15 \\ 4 = 3 (* remainder *)
 (15 // 4) * 4 + (15 \\ 4) = 15 (* // = quotient and \\ = remainder *)
-let x = 15, y = 4; (x // y) * y + (x \\ y) = x (* quotient by denominator + remainder = numerator *)
-let x = 9, y = 4; (x // y) * y + (x \\ y) = x (* // = quotient, \\ = remainder *)
+let x = 15; let y = 4; (x // y) * y + (x \\ y) = x (* quotient by denominator + remainder = numerator *)
+let x = 9; let y = 4; (x // y) * y + (x \\ y) = x (* // = quotient, \\ = remainder *)
 (-5 .. 5).collect { :each | each.remainder(3) } = [-2 -1 -0 -2 -1 0 1 2 0 1 2]
 1e6 = 1000000 (* scientific notation, unit base, positive exponent *)
 3e9 = (3 * (10 ^ 9)) (* scientific notation, integer base *)
@@ -212,8 +212,8 @@ let x = 9, y = 4; (x // y) * y + (x \\ y) = x (* // = quotient, \\ = remainder *
 3.141e-1 = 0.3141 (* scientific notation, float base, negative exponent *)
 0.1e-6 = 1e-7 (* scientific notation, equivalence *)
 8.625 / 0.75 = 11.5 (* a number divided by a number less than zero *)
-let x = 8.625, y = 0.75, q = x.quotient(y), r = x.remainder(y); [q, r, x = (y * q + r)] = [11, 0.375, true]
-let x = 8.625, y = 0.75, q = x.quotientBy(y, rounded:/1), r = x.remainderBy(y, rounded:/1); [q, r, x = (y * q + r)] = [12, -0.375, true]
+let x = 8.625; let y = 0.75; let q = x.quotient(y); let r = x.remainder(y); [q, r, x = (y * q + r)] = [11, 0.375, true]
+let x = 8.625; let y = 0.75; let q = x.quotientBy(y, rounded:/1); let r = x.remainderBy(y, rounded:/1); [q, r, x = (y * q + r)] = [12, -0.375, true]
 0.5.rounded = 1 (* round to neareset or upwards (not to nearest or even *)
 -0.5.rounded = -0 (* round upwards to negative zero *)
 1.5.rounded = 2 (* round to neareset or upwards (not to nearest or even *)
@@ -315,7 +315,7 @@ let a = [1, 3, 5, 7]; a.reverse; a = [7, 5, 3, 1] (* array reverse (in place) *)
 (1 .. 5).count { :each | each.even & { each > 2 } } = 1 (* exactly one element matches *)
 [1 .. 3] ++ [4 .. 6] = [1 .. 6] (* addAllLast, answering new like collection, unicode = ⧺ *)
 let a = [1 .. 3]; a.addAllLast([4 .. 6]); a = [1 .. 6]
-let a = [1 .. 3], b = a ++ [4 .. 6]; a ~~ b & { a = [1 .. 3] } & { b = [1 .. 6] }
+let a = [1 .. 3]; let b = a ++ [4 .. 6]; a ~~ b & { a = [1 .. 3] } & { b = [1 .. 6] }
 { [1 .. 3] ++ 4 }.ifError { true } (* right hand side must be a collection *)
 plusPlus([1 .. 3], [4 .. 6]) = [1 .. 6] (* ++ equals plusPlus *)
 [[1 .. 3], [4 .. 6], [7 .. 9]].concatenation = [1 .. 9] (* concatenation, unicode = ⧻ *)
@@ -344,7 +344,7 @@ let a = [1, 2, 3]; a.atModify(2, squared:/1) = 4 & { a = [1, 4, 3] } (* modify v
 [1 2 3; 4 5 6].transposed = [1 4; 2 5; 3 6] (* transposed, matrix syntax *)
 1.toAsCollect(9, Array:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 let a = [1 .. 9]; a.shuffle; a ~= [1 .. 9] (* shuffle in place, using system Random *)
-let a = [1 .. 9], r = Random(13579); a.shuffleBy(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] (* shuffle in place, using given Random *)
+let a = [1 .. 9]; let r = Random(13579); a.shuffleBy(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] (* shuffle in place, using given Random *)
 let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } (* answer shuffled copy *)
 [1 .. 9].shuffled.sorted = [1 .. 9] (* resort after shuffle *)
 [].shuffled = []
@@ -371,13 +371,13 @@ let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } (* answer shuffled copy *)
 [].includesAllOf([3 .. 7]) = false
 Array(5).fillWith(negated:/1) = [-1 .. -5] (* fill array with answers of a block applied to each index *)
 let r = Random(12345); Array(5).fillWith { r.randomInteger(9) } = [8, 5, 9, 9, 4] (* block is applied using cull *)
-let r = Random(12345), f = { r.randomInteger(9) }; Array(5).fillWith(f:/0) = [8, 5, 9, 9, 4] (* block is applied using cull *)
+let r = Random(12345); let f = { r.randomInteger(9) }; Array(5).fillWith(f:/0) = [8, 5, 9, 9, 4] (* block is applied using cull *)
 Array(5).fillFromWith((1 .. 5), negated:/1) = [-1 .. -5]
 let a = Array(5); a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
 let a = Array(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
 [1, 2, 3, 4, 3, 2, 1].occurrencesOf(3) = 2 (* number of occurrences of element in collection *)
-let a = [1, 2], [x, y] = a; [y, x] = [2, 1]
-let i = (1 .. 3), [x, y, z] = i; [z, y, x] = [3 .. 1] (* sequence binding syntax *)
+let a = [1, 2]; let [x, y] = a; [y, x] = [2, 1]
+let i = (1 .. 3); let [x, y, z] = i; [z, y, x] = [3 .. 1] (* sequence binding syntax *)
 let [x, y] = { let n = system.randomFloat; [n, n] }.value; x = y
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
@@ -483,7 +483,7 @@ let a = [1 .. 9]; a.removeAllSuchThat(even:/1); a = [1, 3 .. 9] (* remove elemen
 let a = [1 2 2]; a.removeAllSuchThat { :each | each = 2 }; a = [1] (* remove elements selected by predicate, answers copy of self *)
 let a = [1 2 2]; a.removeAllSuchThat { :each | each = 3 }; a = [1 2 2] (* it is not an error if no elements match *)
 let a = [1 2 2 3 3 3]; a.removeAllEqualTo(3); a = [1 2 2] (* remove all elements equal to argument *)
-let a = [1 .. 9], b = [1, 3 .. 9], c = [2, 4 .. 8]; a.removeAllFoundIn(b) == b & { a = c } (* remove elements found in a collection *)
+let a = [1 .. 9]; let b = [1, 3 .. 9]; let c = [2, 4 .. 8]; a.removeAllFoundIn(b) == b & { a = c } (* remove elements found in a collection *)
 let a = [1 2 2 3 3 3]; a.without(3) = [1 2 2] (* remove all elements equal to argument and answer self *)
 let a = [1 2 2 3 3 3]; a.withoutAll([1, 3]) = [2 2] (* remove all elements equal to argument and answer self *)
 5.arithmeticSeries(1, 2) = [1, 3 .. 9] (* arithmetic series (size from by) *)
@@ -502,7 +502,7 @@ let l = [4, 5]; l.addAllFirst(1.to(3)); l = [1 .. 5] (* add all elements to star
 let l = [1, 2, 3]; l.addAllLast(4.to(5)); l = [1 .. 5] (* add all elements to end of array *)
 [1].addAllLast([2, 3]) = [2, 3] (* answer is argument *)
 let l = [1]; l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6] (* alias for addAllLast *)
-let i = (1 .. 9), a = []; a.addAll(i); a.size = 9 (* add elements from Interval to end of Array *)
+let i = (1 .. 9); let a = []; a.addAll(i); a.size = 9 (* add elements from Interval to end of Array *)
 13.fibonacciSequenceInto([]) = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 let c = [1 .. 5]; [c.removeAt(1), c] = [1, [2, 3, 4, 5]] (* removeAt answers the removed element *)
 let c = [1 .. 5]; [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
@@ -516,8 +516,8 @@ let c = [1 .. 5]; c.removeIfAbsent(9) { true } & { c = [1 .. 5] } (* remove obje
 let a = [1, 2, 3]; a.ofSize(2) = a (* if requested size is smaller, do nothing *)
 let a = [1, 2, 3]; a.ofSize(2) == a (* if requested size is smaller, answer the array itself *)
 [1, 3 .. 9].indices = (1 .. 5) (* indices of array (an interval) *)
-let a = [1, [2, 3]], c = a.copy; c[2][1] := -2; c = a & { a = [1, [-2, 3]] } (* copy is a shallow copy *)
-let a = [1, [2, 3]], c = a.deepCopy; c[2][1] := -2; c ~= a & { a = [1, [2, 3]] } (* deepCopy is a deep copy *)
+let a = [1, [2, 3]]; let c = a.copy; c[2][1] := -2; c = a & { a = [1, [-2, 3]] } (* copy is a shallow copy *)
+let a = [1, [2, 3]]; let c = a.deepCopy; c[2][1] := -2; c ~= a & { a = [1, [2, 3]] } (* deepCopy is a deep copy *)
 let a = [nil, true, false, 3.141, 23, 'str']; a.deepCopy = a (* deepCopy of shallow array *)
 [1, 3 .. 9].copyUpTo(7) = [1, 3, 5] (* copy up to but not including element *)
 [1, 3 .. 9].copyUpThrough(7) = [1, 3, 5, 7] (* copy up to but and including element *)
@@ -539,10 +539,11 @@ let a = [1, 7, 3, 9, 5]; a.sortBy { :p :q | p >= q }; a = [9, 7 .. 1] (* sort us
 
 ## Assignment
 ```
-let a = 'a', b = 'b', c = 'c'; a := b := c; [a, b, c] = ['c', 'c', 'c'] (* assignment is right-associative *)
+| a b c | a := b := c := 'c'; [a, b, c] = ['c', 'c', 'c'] (* assignment is right-associative *)
+let a = 'a'; let b = 'b'; let c = 'c'; a := b := c; [a, b, c] = ['c', 'c', 'c'] (* assignment is right-associative *)
 | a | (a := 1) = 1 (* assignment answers assigned value *)
 | a b | a := (b := 2 + 2) + 3 = 7 & { b = 4 } (* assignment answers assigned value *)
-let a = 1, b = 2, c = 3; [a, b, c] := [b, c, a]; [a, b, c] = [2, 3, 1] (* permutation using array assignment syntax *)
+let a = 1; let b = 2; let c = 3; [a, b, c] := [b, c, a]; [a, b, c] = [2, 3, 1] (* permutation using array assignment syntax *)
 ```
 
 ## Association -- collection type
@@ -582,20 +583,20 @@ Bag().isSequenceable = false
 let b = Bag(); b.add('x'); b.add('x'); b.size = 2 (* number of objects in bag *)
 let b = Bag(); b.add('x'); b.add('y'); b.add('x'); b.size = 3 (* add element to bag *)
 let b = Bag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 (* add all elements of argument to bag *)
-let c = 'xyyzzz', r = Bag(); r.addAll(c); r.size = 6 (* add all elements of a String to a Bag *)
-let c = 'xyyzzz'.split, r = Bag(); r.addAll(c); r.size = 6 (* add all characters of a String to a Bag *)
+let c = 'xyyzzz'; let r = Bag(); r.addAll(c); r.size = 6 (* add all elements of a String to a Bag *)
+let c = 'xyyzzz'.split; let r = Bag(); r.addAll(c); r.size = 6 (* add all characters of a String to a Bag *)
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].asBag.size = 10
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].asBag.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].asBag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
-let b = Bag(), o = ['1' -> 10, '2' -> 1, '3' -> 5]; o.collect { :a | b.addWithOccurrences(a.key, a.value) }; b.sortedElements = o
+let b = Bag(); let o = ['1' -> 10, '2' -> 1, '3' -> 5]; o.collect { :a | b.addWithOccurrences(a.key, a.value) }; b.sortedElements = o
 [1, 3, 5, 1, 3, 1].asBag.sorted = [1, 1, 1, 3, 3, 5] (* array of elements, sorted *)
 [1, 3, 5, 1, 5, 1].asBag.sorted = [1, 1, 1, 3, 5, 5] (* array of elements, sorted *)
 [1, 3, 5, 1, 3, 1].asBag.sortedCounts = [3 -> 1, 2 -> 3, 1 -> 5]
 [1, 3, 5, 1, 5, 1].asBag.sortedCounts = [3 -> 1, 2 -> 5, 1 -> 3]
 [1, 3, 5, 1, 3, 1].asBag.sortedElements = [1 -> 3, 3 -> 2, 5 -> 1]
 [1, 3, 5, 1, 5, 1].asBag.sortedElements = [1 -> 3, 3 -> 1, 5 -> 2]
-let c1 = [2, 3, 3, 4, 4, 4].asBag, c2 = c1.copy, s2 = c2.size; c1.removeAll; c1.size = 0 & { c2.size = s2 }
-let c = Bag(), x = 'x'; c.add(x); c.remove(x); c.size = 0
+let c1 = [2, 3, 3, 4, 4, 4].asBag; let c2 = c1.copy; let s2 = c2.size; c1.removeAll; c1.size = 0 & { c2.size = s2 }
+let c = Bag(); let x = 'x'; c.add(x); c.remove(x); c.size = 0
 let c = ['x', 'x'].asBag; c.remove('x'); c.remove('x'); c.size = 0
 let c = Bag(); { c.remove('x') }.ifError { true }
 [2, 3, 3, 4, 4, 4].asBag.occurrencesOf(3) = 2 (* number of occurrences of element in collection *)
@@ -673,8 +674,8 @@ let b = [1, 3, 9].Bitset; b.includes(3) (* does bitset include element *)
 let b = [1, 3, 9].Bitset; [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
 let b = Bitset(64); b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 (* a three element bitset *)
 let b = Bitset(64); b[1] := 1; b[3] := 1; b[9] := 1; [1, 3 .. 9].collect { :each | b[each] } = [1, 1, 0, 0, 1]
-let a = [], b = Bitset(64), c = [1, 3, 9, 27]; b.addAll(c); b.do { :each | a.add(each) }; a = c
-let b = [1, 3].Bitset, c = b.copy; c.add(7); b ~= c & { c = [1, 3, 7].Bitset } (* copy bitset *)
+let a = []; let b = Bitset(64); let c = [1, 3, 9, 27]; b.addAll(c); b.do { :each | a.add(each) }; a = c
+let b = [1, 3].Bitset; let c = b.copy; c.add(7); b ~= c & { c = [1, 3, 7].Bitset } (* copy bitset *)
 ```
 
 ## Bitwise Manipulation
@@ -848,9 +849,9 @@ let b = ByteArray(4); b.atAllPut(15); b.hex = '0f0f0f0f'
 'SGVsbG8gV29ybGQ='.base64Decoded.asciiString = 'Hello World' (* answer is a ByteArray *)
 [1, 3 .. 9].asByteArray.indices = (1 .. 5) (* indices of byte array (an interval) *)
 let b = [1, 3 .. 9].asByteArray; b.copy = b & { b.copy ~~ b } (* copies are equal & not identical *)
-let b = [1 .. 9].asByteArray, c = b.copy; c[1] := 9; c[1] = 9 & { b[1] = 1 } (* copies are distinct *)
+let b = [1 .. 9].asByteArray; let c = b.copy; c[1] := 9; c[1] = 9 & { b[1] = 1 } (* copies are distinct *)
 [115, 116, 114, 105, 110, 103].asByteArray.crc16 = 58909 (* 16 bit cyclic redundancy check, crc-16/arc *)
-let s = 'string', a = []; a.addAll(s.asciiByteArray); a.size = 6 (* add elements from ByteArray to end of Array *)
+let s = 'string'; let a = []; a.addAll(s.asciiByteArray); a.size = 6 (* add elements from ByteArray to end of Array *)
 ```
 
 ## CategoryDictionary -- categorization type
@@ -893,7 +894,7 @@ let c = '𠮷'.asCharacter; c = c.copy & { c ~~ c.copy } (* copy is equal but no
 { 36.digitValue }.ifError { true } (* error if integer is out of range *)
 'x'.asCharacter.asUppercase = 'X'.asCharacter (* to upper case *)
 'X'.asCharacter.asLowercase = 'x'.asCharacter (* to lower case *)
-let s = 'string', a = []; a.addAll(s); a.size = 6 (* add elements from String to end of Array *)
+let s = 'string'; let a = []; a.addAll(s); a.size = 6 (* add elements from String to end of Array *)
 'fgaguzst'.characterArray.minMax = ['a'.asCharacter, 'z'.asCharacter] (* character minMax *)
 'alphabet'.characterArray.collect(isVowel:/1) = [true, false, false, false, true, false, true, false] (* is character a vowel *)
 ```
@@ -904,8 +905,8 @@ Clock().typeOf = 'Clock' (* type of clock *)
 Clock().isClock (* clock predicate *)
 Clock().priorityQueue.isPriorityQueue (* priority queue of clock *)
 Clock().priorityQueue.isEmpty (* priority queue is initially empty *)
-let c = Clock(), i = 3; c.schedule(i) { :t | t.postLine; nil }; c.nextEntryTime <= (system.systemTimeInSeconds + i)
-let c = Clock(), i = 3; c.schedule(i) { :t | t.postLine }; c.removeAll; c.nextEntryTime = nil
+let c = Clock(); let i = 3; c.schedule(i) { :t | t.postLine; nil }; c.nextEntryTime <= (system.systemTimeInSeconds + i)
+let c = Clock(); let i = 3; c.schedule(i) { :t | t.postLine }; c.removeAll; c.nextEntryTime = nil
 ```
 
 ## Collection -- collection trait
@@ -949,8 +950,8 @@ Set().asArray = []
 (4 .. 6).copyWithout(5) = [4, 6] (* copy without element, interval becomes array *)
 [2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6] (* copy without element, removes multiples *)
 [2, 3, 4, 5, 5, 6].copyWithoutAll([3, 5]) = [2, 4, 6] (* copy without element, removes multiples *)
-let a = [1 .. 4], c = a.copyWith(5); a ~= c & { c = [1 .. 5] } (* copy with new (last) element *)
-let s = [1 .. 4].asSet, c = s.copyWith(5); s ~= c & { c = [1 .. 5].asSet } (* copy with new element *)
+let a = [1 .. 4]; let c = a.copyWith(5); a ~= c & { c = [1 .. 5] } (* copy with new (last) element *)
+let s = [1 .. 4].asSet; let c = s.copyWith(5); s ~= c & { c = [1 .. 5].asSet } (* copy with new element *)
 { [1, 2].take(-1) }.ifError { true }
 [].select { :each | each > 0 } = []
 [].ifEmpty { true } (* evaluate block if collection is empty *)
@@ -1058,7 +1059,7 @@ Hsv(0, 0, 0.5).isGreyOf(0.5) & { Hsv(0, 0, 0.75).isGreyOf(0.75) }
 Hsv(0, 1, 0.75).isRed & { Hsv(120, 1, 0.5).isGreen } & { Hsv(240, 1, 0.5).isBlue }
 0.5.srgbFromLinear = 0.7353569830524495 (* transfer function from (linear) rgb to srgb *)
 0.7353569830524495.srgbToLinear = 0.5 (* transfer function from srgb to (linear) rgb *)
-let c = Colour(1, 0, 0, 0.5), z = c.copy; z.green := 1; c ~= z & { z = Colour(1, 1, 0, 0.5) } (* copy colour *)
+let c = Colour(1, 0, 0, 0.5); let z = c.copy; z.green := 1; c ~= z & { z = Colour(1, 1, 0, 0.5) } (* copy colour *)
 '#f97306'.parseHexColour = Colour(16rf9 / 255, 16r73 / 255, 16r06 / 255) (* parse hex colour, here orange *)
 system.colourNameTable::orange = Colour(1, 0.6, 0) (* colour name table *)
 system.colourNameTable::veryLightGray.isGrey (* colour name table *)
@@ -1112,7 +1113,7 @@ let c = (5 - 6.i); (c * 1.i) = c.i
 (1 + 2.i) = (1 + 2.i) = true (* equality = same value *)
 (1 + 2.i) == (1 + 2.i) = false (* identity = different objects *)
 (1 + 2.i) ~= (1 + 4.i) = true (* inequality *)
-let c = 2.i, z = c.copy; z.real := 3; z ~= c & { z = (3 + 2.i) } (* copy complex *)
+let c = 2.i; let z = c.copy; z.real := 3; z ~= c & { z = (3 + 2.i) } (* copy complex *)
 (0.5 * (2 + 0.i).log).exp = (0.5 * 2.log).exp (* natural logarithm *)
 (3 + 5.i) ^ 0 = (1 + 0.i) (* exponent of zero answers one *)
 (3 + 5.i) ^ 1 = (3 + 5.i) (* exponent of one is identity *)
@@ -1252,16 +1253,16 @@ let b = true; b.copy == b (* copy boolean, identity *)
 let n = 3.141; n.copy == n (* copy small float, identity *)
 let n = 23n; n.copy == n (* copy large integer, identity *)
 let s = 'string'; s.copy == s (* copy string, identity *)
-let a = ('x' -> 1), c = a.copy; c.value := 2; c ~= a & { c = ('x' -> 2) } (* copy association *)
-let p = (0 @ 0), c = p.copy; c.x := 1; c ~= p & { c = (1 @ 0) } (* copy point *)
-let f = 3:4, c = f.copy; c.numerator := 1; c ~= f & { c = 1:4 } (* copy fraction *)
-let c = 2.i, z = c.copy; z.real := 3; z ~= c & { z = (3 + 2.i) } (* copy complex *)
-let a = [1, [2]], c = a.shallowCopy; c[2][1] := -2; c = a & { a = [1, [-2]] } (* shallowCopy array *)
-let a = [1, [2]], c = a.deepCopy; c[2][1] := -2; c ~= a & { a = [1, [2]] } (* deepCopy array *)
-let a = [1, [2]], c = a.copy; c[2][1] := -2; c = a (* copy of array is shallowCopy and postCopy *)
-let b = [1, 2, 2].asBag, c = b.copy; c.add(3); c ~= b & { c = [1, 2, 2, 3].asBag } (* copy bag *)
-let b = [1, 2].Bitset, c = b.copy; c.add(3); c ~= b & { c = [1, 2, 3].Bitset } (* copy bitset *)
-let b = [1, 2].asByteArray, c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } (* copy byte array *)
+let a = ('x' -> 1); let c = a.copy; c.value := 2; c ~= a & { c = ('x' -> 2) } (* copy association *)
+let p = (0 @ 0); let c = p.copy; c.x := 1; c ~= p & { c = (1 @ 0) } (* copy point *)
+let f = 3:4; let c = f.copy; c.numerator := 1; c ~= f & { c = 1:4 } (* copy fraction *)
+let c = 2.i; let z = c.copy; z.real := 3; z ~= c & { z = (3 + 2.i) } (* copy complex *)
+let a = [1, [2]]; let c = a.shallowCopy; c[2][1] := -2; c = a & { a = [1, [-2]] } (* shallowCopy array *)
+let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c ~= a & { a = [1, [2]] } (* deepCopy array *)
+let a = [1, [2]]; let c = a.copy; c[2][1] := -2; c = a (* copy of array is shallowCopy and postCopy *)
+let b = [1, 2, 2].asBag; let c = b.copy; c.add(3); c ~= b & { c = [1, 2, 2, 3].asBag } (* copy bag *)
+let b = [1, 2].Bitset; let c = b.copy; c.add(3); c ~= b & { c = [1, 2, 3].Bitset } (* copy bitset *)
+let b = [1, 2].asByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } (* copy byte array *)
 ```
 
 ## Date -- temporal type
@@ -1301,14 +1302,14 @@ let d = (); d::x :=? { 1 } = 1 & { d::x = 1 } (* [Quoted AtIfAbsentPut Syntax] *
 (x: 1, y: 2).includesAssociation('y' -> 2) (* includes association, testing for equality *)
 (x: 1, y: [2, 3]).includesAssociation('y' -> [2, 3])
 (x: 1, y: 2).includesAssociation('x' -> 2) = false
-let d = (x: 1), a = 'y' -> 2; d.add(a) = a & { d = (x: 1, y: 2) } (* add association *)
+let d = (x: 1); let a = 'y' -> 2; d.add(a) = a & { d = (x: 1, y: 2) } (* add association *)
 { (x: 1).add('y') }.ifError { true } (* only associations may be added *)
 { (x: 1).add('x' -> 2) }.ifError { true } (* add can only add associations for keys that are not already included *)
 let d = (x: 1, y: 2); d.includeAll(y: 3, z: 4); d = (x: 1, y: 3, z: 4) (* includeAll replaces existing entries *)
-let p = (x: 1), q = (y: 2); p.declareFrom('y', q); [p, q] = [(x: 1, y: 2), ()]
-let p = (x: 1), q = (x: 2); p.declareFrom('x', q); [p, q] = [(x: 1), (x: 2)]
-let p = (), q = (x: 1); p.declareFrom('x', q); [p, q] = [(x: 1), ()]
-let p = (), q = (x: 1); p.declareFrom('y', q); [p, q] = [(y: nil), (x: 1)]
+let p = (x: 1); let q = (y: 2); p.declareFrom('y', q); [p, q] = [(x: 1, y: 2), ()]
+let p = (x: 1); let q = (x: 2); p.declareFrom('x', q); [p, q] = [(x: 1), (x: 2)]
+let p = (); let q = (x: 1); p.declareFrom('x', q); [p, q] = [(x: 1), ()]
+let p = (); let q = (x: 1); p.declareFrom('y', q); [p, q] = [(y: nil), (x: 1)]
 (x: 1, y: 2, z: 3).collect(squared:/1) = (x: 1, y: 4, z: 9)
 let d = (x: 1, y: 2, z: 3); d.replace(squared:/1); d = (x: 1, y: 4, z: 9) (* replace value at each key, in place collect *)
 { (x: 1).remove }.ifError { true } (* should not implement, see removeKey *)
@@ -1325,7 +1326,7 @@ let n = 0; (x: 1, y: 2, z: 3).withIndexDo { :value :key | n := n + value }; n = 
 (x: 'x', y: '.', z: 'z').associationsSelect { :each | each.key = each.value } = (x: 'x', z: 'z') (* select querying associations *)
 (x: 1, y: 2, z: 3).indices = ['x', 'y', 'z'] (* indices of dictionary (an array) *)
 let d = (a: 1, b: 2, c: 1); d.indexOf(2) = 'b' (* lookup key (index) given value *)
-let d = (a: 1, b: 2, c: 1), k = d.indexOf(1); k = 'a' | { k = 'c' } (* many keys with value *)
+let d = (a: 1, b: 2, c: 1); let k = d.indexOf(1); k = 'a' | { k = 'c' } (* many keys with value *)
 { (a: 1, b: 2, c: 1).indexOf(3) }.ifError { true } (* error if no such value *)
 let d = (x: 1, y: 2, z: 3); d.removeAllSuchThat { :each | each.key = 'y' | { each.value = 3 } }; d = (x: 1)
 let d = (x: 1, y: 2, z: 3); d.associationsRemove { :each | each.key = 'y' | { each.value = 3 } }; d = (x: 1)
@@ -1373,7 +1374,7 @@ let f = { :t0 | let t1 = 2.randomFloat.seconds; f:/1.valueAfterWith(t1, t1) }; f
 'P2DT2H2M2S'.parseDuration.seconds = 180122 (* parse ISO-8601 duration string *)
 'P3DT4H'.parseDuration = (3.days + 4.hours)
 (2.days + 2.hours + 2.minutes + 2.seconds).seconds = ((2 * 24 * 60 * 60) + (2 * 60 * 60) + (2 * 60) + 2)
-let d = 2.seconds, c = d.copy; d ~~ c & { d = c } (* copy duration *)
+let d = 2.seconds; let c = d.copy; d ~~ c & { d = c } (* copy duration *)
 1.siderealMonths = 27.321661.days (* as defined with respect to the celestial sphere *)
 1.synodicMonths = 29.53059.days (* as define with respect to the line joining the sun and earth *)
 (29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).abs = 76.milliseconds
@@ -1423,7 +1424,7 @@ let a = Float64Array(1); a.basicAtPut(1, 'x'); a.at(1).isNaN = true (* unsafe mu
 let a = Float64Array(1); a.basicAtPut(3, 'x'); a.basicAt(3) = nil (* unsafe mutation does not extend array *)
 (1 .. 3).asFloat64Array.printString = '[1, 2, 3].asFloat64Array'
 (1 .. 3).asFloat64Array.storeString = '[1, 2, 3].asFloat64Array'
-let a = (1 .. 3).asFloat64Array, c = a.copy; c[1] := 3; c ~= a & { c.asArray = [3, 2, 3] } (* copy *)
+let a = (1 .. 3).asFloat64Array; let c = a.copy; c[1] := 3; c ~= a & { c.asArray = [3, 2, 3] } (* copy *)
 ```
 
 ## Floating point
@@ -1678,10 +1679,10 @@ let h = Heap(); h.add(5); [h.removeFirst, h.size] = [5, 0] (* add & remove *)
 let h = Heap(); h.addAll([1 .. 9].shuffled); h.first = 1 (* add shuffled, first is always 1 *)
 let h = Heap(); h.addAll([1 .. 9].shuffled); 8.timesRepeat { h.removeFirst }; h.first = 9
 let h = Heap(); h.addAll([1 .. 9].shuffled); 8.timesRepeat { h.removeAt(2) }; h.first = 1
-let h = [1, 3, 5].asHeap, a = []; h.do { :each | a.add(each) }; a = [1, 3, 5]
+let h = [1, 3, 5].asHeap; let a = []; h.do { :each | a.add(each) }; a = [1, 3, 5]
 let h = Heap(greaterThan:/2); h.addAll([1, 3, 5]); h.first = 5
 let h = Heap { :p :q | p > q }; h.addAll([1, 3, 5]); [h.removeFirst, h.first] = [5, 3]
-let h = (1 .. 4).asHeap, c = h.copy; c.add(5); h ~= c & { c = [1 .. 5].asHeap }
+let h = (1 .. 4).asHeap; let c = h.copy; c.add(5); h ~= c & { c = [1 .. 5].asHeap }
 ```
 
 ## Identity -- literals
@@ -1729,7 +1730,7 @@ let a = []; 3.tuplesIndicesDo(2) { :each | a.add(each.copy) }; a = [1 1; 1 2; 1 
 let a = []; 3.tuplesIndicesDo(2) { :each | a.add(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
 let a = []; 2.tuplesIndicesDo(3) { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5 6]
 let a = []; 2.tuplesIndicesDo(4) { :each | a.add(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
-let c = 0, k = 3, n = 4; k.tuplesIndicesDo(n) { :each | c +:= 1 }; c = (k ^ n)
+let c = 0; let k = 3; let n = 4; k.tuplesIndicesDo(n) { :each | c +:= 1 }; c = (k ^ n)
 let c = 0; 4.tuplesIndicesDo(7) { :each | c +:= 1 }; c = 16384
 ```
 
@@ -2084,7 +2085,7 @@ let l = (1 .. 3).asLinkedList; l.firstLink.value := -1; l.asArray = [-1, 2, 3] (
 (9 .. 1).asLinkedList.isSortedBy(greaterThan:/2) = true (* are elements in sequence by predicate *)
 [1, 3 .. 9].asLinkedList.indices = (1 .. 5) (* indices of linked list (an interval) *)
 let l = (1 .. 9).asLinkedList; l.copy = l & { l.copy ~~ l } (* copy is equal but not identical *)
-let l = (1 .. 9).asLinkedList, c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } (* copies are distinct *)
+let l = (1 .. 9).asLinkedList; let c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } (* copies are distinct *)
 ```
 
 ## Magnitude -- numeric trait
@@ -2435,7 +2436,7 @@ pi.assert { true } = pi (* assert that block evaluates to true, answers self *)
 valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeat } (* repeat a block until it "returns" *)
 { 1.anUnknownMessage }.ifError { :err | err }.isError = true (* evaluate error block on error *)
 { 1.anUnknownMessage }.ifError { true } = true (* error block is culled (i.e. may elide error argument) *)
-let f = { let x = 0; { x := x + 1; x } }, g = f:/0.value; [g.value, g.value] = [1, 2] (* closure *)
+let f = { let x = 0; { x := x + 1; x } }; let g = f:/0.value; [g.value, g.value] = [1, 2] (* closure *)
 let f = { let x = 0; { x := x + 1; x } }; [f:/0.value.value, f:/0.value.value] = [1, 1] (* closures *)
 let f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; (7 .. 9).collect(f:/1) = [5040, 40320, 362880]
 let f = { system.randomFloat }; f:/0.once = f:/0.once (* evaluate block once and cache result *)
@@ -2492,7 +2493,7 @@ let b = Bag(); 5000.timesRepeat { b.add(5.atRandom) }; b.contents.values.allSati
 { [].atRandom = nil }.ifError { true } (* random element of empty collection (nil if unsafe indexing is allowed) *)
 [1].atRandom = 1 (* random element of one-element collection *)
 let c = [1 .. 5]; c.includes(c.atRandom) (* answer random element from a collection *)
-let a = [1 .. 5].asSet, b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.asSet (* random element of collection *)
+let a = [1 .. 5].asSet; let b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a = b.asSet (* random element of collection *)
 ```
 
 ## Random -- Sfc32
@@ -2506,9 +2507,9 @@ let r = Sfc32(98765); r.randomFloat(10) = 4.9556130869314075 (* random number in
 let r = Sfc32(98765); r.randomFloat(0, 100) = 49.556130869314075 (* random number in [0, 100) *)
 let r = Sfc32(98765); r.randomInteger(1000) = 496 (* random integer in [1, 1000] *)
 let r = Sfc32(98765); r.randomInteger(1, 10000) = 4956 (* random integer in [1, 10000] *)
-let r = Sfc32(), n = r.randomFloat; n >= 0 & { n < 1 } (* seed from system clock *)
-let r = Sfc32(), s = Set(); 729.timesRepeat { s.include(r.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
-let r = Sfc32(), s = Set(); 729.timesRepeat { s.include(r.randomInteger(9)) }; s.asArray.sorted = [1 .. 9] (* check distribution *)
+let r = Sfc32(); let n = r.randomFloat; n >= 0 & { n < 1 } (* seed from system clock *)
+let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
+let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.randomInteger(9)) }; s.asArray.sorted = [1 .. 9] (* check distribution *)
 ```
 
 ## Random -- Mersenne
@@ -2522,10 +2523,10 @@ let m = Mersenne(98765); m.randomFloat(10) = 0.88898599949636 (* random number i
 let m = Mersenne(98765); m.randomFloat(0, 100) = 8.8898599949636 (* random number in [0, 100) *)
 let m = Mersenne(98765); m.randomInteger(1000) = 89 (* random integer in [1, 1000] *)
 let m = Mersenne(98765); m.randomInteger(1, 10000) = 889 (* random integer in [1, 10000] *)
-let m = Mersenne(), r = m.randomFloat; r >= 0 & { r < 1 } (* seed from system clock *)
+let m = Mersenne(); let r = m.randomFloat; r >= 0 & { r < 1 } (* seed from system clock *)
 Mersenne(123456).randomFloat = 0.12696983303810094 (* test from standard tests *)
-let m = Mersenne(), s = Set(); 729.timesRepeat { s.include(m.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
-let m = Mersenne(), s = Set(); 729.timesRepeat { s.include(m.randomInteger(9)) }; s.asArray.sorted = [1 .. 9] (* check distribution *)
+let m = Mersenne(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
+let m = Mersenne(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(9)) }; s.asArray.sorted = [1 .. 9] (* check distribution *)
 ```
 
 ## Random -- SplitMix
@@ -2561,7 +2562,7 @@ let r = [1 .. 3].asStream; [r.next, r.upToEnd] = [1, [2, 3]] (* read up to end *
 let r = (1 .. 5).asStream; r.upTo(3) = (1 .. 2) & { r.next = 4} (* matching element is consumed *)
 let r = (9 .. 1).asStream; [r.upTo(3), r.upToEnd] = [(9 .. 4), (2 .. 1)] (* matching element is consumed *)
 [].asStream.next = nil (* next at an empty read stream answers nil *)
-let r = '.....ascii'.asciiByteArray.asStream, a = ByteArray(5); r.next(5); r.nextInto(a); a.asciiString = 'ascii'
+let r = '.....ascii'.asciiByteArray.asStream; let a = ByteArray(5); r.next(5); r.nextInto(a); a.asciiString = 'ascii'
 (1 .. 9).asStream.nextSatisfy { :each | each >= 5 } = 5 (* read until element satisfies predicate *)
 (1 .. 9).asStream.take(23) = [1 .. 9] (* take at most n items from stream *)
 let r = (1 .. 9).asStream; [r.nextMatchFor(1), r.next] = [true, 2] (* predicate at consumed item *)
@@ -2615,7 +2616,7 @@ let d = Record(); d::x := 1; d::y := 2; d.size = 2
 { Record().atPut(1, 1) }.ifError { true }
 (x: 3.141, y: 23).json = '{"x":3.141,"y":23}' (* records have a json encoding where values do *)
 '{"x":3.141,"y":23}'.parseJson = (x: 3.141, y: 23) (* parse json record *)
-let d = (x: 1, y: 2), i = 9; d.associationsDo { :each | i := i - each.value }; i = 6 (* iterate over associations *)
+let d = (x: 1, y: 2); let i = 9; d.associationsDo { :each | i := i - each.value }; i = 6 (* iterate over associations *)
 let d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
 (x: 23, y: 3.141).isDictionary
 (x: pi)::x = pi
@@ -2623,18 +2624,18 @@ let d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
 let d = (x: 23, y: 3.141); d::x = 23
 let d = (x: 23, y: 3.141); d::x := 42; d = (x: 42, y: 3.141)
 (x: 1).copy = (x: 1) (* a copy of record is a record *)
-let d = (x: 23, y: 3.141), c = d.copy; d ~~ c & { d = c } (* copy is equal to but not identical to *)
-let d = (x: 1, y: 2), c = d.copy; c::x := 3; c::x = 3 & { d::x = 1 } (* copies are distinct *)
+let d = (x: 23, y: 3.141); let c = d.copy; d ~~ c & { d = c } (* copy is equal to but not identical to *)
+let d = (x: 1, y: 2); let c = d.copy; c::x := 3; c::x = 3 & { d::x = 1 } (* copies are distinct *)
 (x:1, y:2) ++ (z:3) = (x:1, y:2, z:3) (* white space after colon is optional *)
 (x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2] (* array of associations at record *)
 (x: 1, y: 2).asArray = [1, 2] (* values as Array *)
-let d = (x:1, y:2, z:3), (x, z) = d; [x, z] = [1, 3]
+let d = (x:1, y:2, z:3); let (x, z) = d; [x, z] = [1, 3]
 let (x, y) = { let n = system.randomFloat; (x: n, y: n) }.value; x = y
 (x:1, y:2, z:3).select(even:/1) = (y: 2)
 (x:1, y:2, z:3).sum = 6
 let d = (x: 9); d::x.sqrt = 3
 size (x: 1, y: 2, z: 3) = 3
-let c = (y: 2, z: 3), r = (x: 1); r.addAll(c); r = (x: 1, y: 2, z: 3) (* add all elements of a Dictionary to a Dictionary *)
+let c = (y: 2, z: 3); let r = (x: 1); r.addAll(c); r = (x: 1, y: 2, z: 3) (* add all elements of a Dictionary to a Dictionary *)
 let c = (y: 2, z: 3); (x: 1).addAll(c) = c (* answer is argument *)
 let d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.atDelegateTo(each, 'parent') } = [1, 2, 3]
 let d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.messageSend(each, 'parent', []) } = [1, 2, 3]
@@ -2668,22 +2669,22 @@ Rectangle(0@0, 2@2).intersect(Rectangle(1@1, 4@4)) = Rectangle(1@1, 2@2)
 Rectangle(1@1, 3@3).area = 4
 Rectangle(1@1, 3@3).center = Vector2(2, 2)
 Rectangle(1@1, 3@3).containsPoint(2@2) = true
-let o = 0@0, p = 10@10, q = 0 - p; [Rectangle(q, o), Rectangle(o, p)].rectangleMerging = Rectangle(q, p)
+let o = 0@0; let p = 10@10; let q = 0 - p; [Rectangle(q, o), Rectangle(o, p)].rectangleMerging = Rectangle(q, p)
 let r = (0@0).extent(10@20); r.area = (10 * 20) (* area is width by height *)
 let r = (0@0).extent(10@20); r.translateBy(-20@10).area = (10 * 20) (* translation preserves area *)
 let r = (10@20).corner(0@0); r.area = 0 (* the area of an empty rectangle is zero *)
 let r = (10@20).corner(0@20); r.area = 0 (* the area of an empty rectangle is zero *)
 let r = (0@20).corner(10@0); r.area = 0 (* the area of an empty rectangle is zero *)
-let r = (0@0).extent(10@20), c = r.center; r.containsPoint(c) (* the center is inside the rectangle *)
-let r = (0@0).extent(10@20), c = r.center; r.topLeft.distance(c) = r.bottomRight.distance(c)
-let r = (0@0).extent(10@20), c = r.center; r.bottomLeft.distance(c) = r.topRight.distance(c)
-let r = (0@0).extent(10@20), c = r.center; r.topLeft.distance(c) = r.bottomLeft.distance(c)
-let r = (0@0).extent(10@20), c = r.center; r.translateBy(-20@10).center = c.translateBy(-20@10) (* the center is translated with the rectangle *)
-let r = (30@10).corner(10@20), c = r.center; r.containsPoint(c).not (* an empty rectangle does not contain any point *)
+let r = (0@0).extent(10@20); let c = r.center; r.containsPoint(c) (* the center is inside the rectangle *)
+let r = (0@0).extent(10@20); let c = r.center; r.topLeft.distance(c) = r.bottomRight.distance(c)
+let r = (0@0).extent(10@20); let c = r.center; r.bottomLeft.distance(c) = r.topRight.distance(c)
+let r = (0@0).extent(10@20); let c = r.center; r.topLeft.distance(c) = r.bottomLeft.distance(c)
+let r = (0@0).extent(10@20); let c = r.center; r.translateBy(-20@10).center = c.translateBy(-20@10) (* the center is translated with the rectangle *)
+let r = (30@10).corner(10@20); let c = r.center; r.containsPoint(c).not (* an empty rectangle does not contain any point *)
 let r = (0@0).extent(50@50); [r.center, 1.5@1.5, r.topLeft, r.topRight, r.bottomLeft, r.bottomRight].collect { :each | r.containsPoint(each) } = [true, true, true, false, false, false]
 let r = (10@10).extent(20@30); r.containsPoint(r.origin) (* a rectangle does contain its origin *)
 let r = (10@10).extent(20@30); r.containsPoint(r.corner).not (* a rectangle does not contain its corner *)
-let r = (0@0).extent(50@50), pt = r.randomPoint; r.containsPoint(pt) (* a rectangle contains any random point in it *)
+let r = (0@0).extent(50@50); let pt = r.randomPoint; r.containsPoint(pt) (* a rectangle contains any random point in it *)
 let r = (0@0).extent(50@50); r.pointAtFraction(0.5@0.5) = r.center (* pointAtFraction can find the center *)
 let r = (10@20).corner(30@50); (10@20).corner(30@35) = r.topHalf & { (10@20).corner(30@27.5) = r.topHalf.topHalf }
 let r = (10@20).corner(30@50); (10@20).corner(20@35) = r.topLeftQuadrant
@@ -2814,7 +2815,7 @@ system.includesPackage('Sequenceable') (* package *)
 let c = [3, 2, 1]; c.sort; c = [1, 2, 3] (* sort is in place (mutating) *)
 let a = [3, 2, 1]; a.sort = a (* sort is in place (mutating) *)
 let a = [3, 2, 1]; a.sorted ~= a (* sorted answers a new array *)
-let c = [3, 2, 1], r = c.sorted; c ~= r (* sorted (answer a new array) *)
+let c = [3, 2, 1]; let r = c.sorted; c ~= r (* sorted (answer a new array) *)
 [1 .. 5].isSorted (* is sequence sorted *)
 [1, 3 .. 11].isSorted (* is sequence sorted *)
 [].isSorted (* an empty sequence is sorted *)
@@ -2835,10 +2836,10 @@ let i = (1 .. 9); i.last = i[9] (* intervals are one-indexed sequences *)
 [1, 3, 5, 7, 9].middle = 5 (* middle element of *)
 [1 .. 4].beginsWith([1, 2]) = true (* is prefix of *)
 [1 .. 4].beginsWith([]) = true (* empty prefix answers true *)
-let n = 0, i = (1 .. 4); i.permutationsDo { :each | n := n + 1 }; n = 24 (* interval permutations do *)
-let n = 0, a = [1 .. 4]; a.permutationsDo { :each | n := n + 1 }; n = 24 & { a = [1 .. 4] } (* array permutations do *)
+let n = 0; let i = (1 .. 4); i.permutationsDo { :each | n := n + 1 }; n = 24 (* interval permutations do *)
+let n = 0; let a = [1 .. 4]; a.permutationsDo { :each | n := n + 1 }; n = 24 & { a = [1 .. 4] } (* array permutations do *)
 let a = [1 .. 3].permutations; a = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]] (* permutations *)
-let i = (4, 7 .. 13), p = i.permutations; p.size = i.size.factorial & { p.asSet.size = p.size }
+let i = (4, 7 .. 13); let p = i.permutations; p.size = i.size.factorial & { p.asSet.size = p.size }
 let i = (4, 7 .. 13); i.permutations.allSatisfy { :e | e.sorted.hasEqualElements(i) }
 let x = [1, 1, 3, 4]; x[2, 4, 3, 1] = [1, 4, 3, 1] (* permute using atAll (array) indexing *)
 let x = [1 1 3 4]; x[2 4 3 1] = [1 4 3 1] (* permute using atAll (vector) indexing *)
@@ -2910,7 +2911,7 @@ let a = [1 .. 9]; a.atLastPut(3, -7); a = [1, 2, 3, 4, 5, 6, -7, 8, 9] (* set at
 let a = 'string'.split; a.atAll([6, 4, 5, 3, 1, 2]) = a.sorted
 [1, 3, 2, 5, 4].sortedWithIndices = [1 -> 1, 2 -> 3, 3 -> 2, 4 -> 5, 5 -> 4]
 [1, 3, 2, 5, 4].atAll([1, 3, 2, 5, 4]) = [1 .. 5]
-let a = [2 .. 5], b = a.copyWithFirst(1); a ~= b & { b = [1 .. 5] } (* copy with new first element *)
+let a = [2 .. 5]; let b = a.copyWithFirst(1); a ~= b & { b = [1 .. 5] } (* copy with new first element *)
 let a = [1 .. 7]; a.replaceFromToWith(3, 5, [-3, -4, -5]); a = [1, 2, -3, -4, -5, 6, 7]
 { [1 .. 7].replaceFromToWith(3, 5, [-3, -4]) }.ifError { true } (* replacement must be of equal size *)
 let a = [1 .. 7]; a.replaceFromToWithStartingAt(3, 5, [-3, -4, -5], 1); a = [1, 2, -3, -4, -5, 6, 7]
@@ -3012,8 +3013,8 @@ let s = (1 .. 10).asSet; let t = s.copyWithout(3); s.select { :each | t.includes
 let s = (1 .. 5).asSet; let n = 0; s.do { :each | n := n + each }; n = 15
 let s = [].asSet; s.addAll(['x', 'y', 'z']); s.size = 3 (* add all elements of an Array to a Set *)
 let s = [].asSet; s.includeAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 (* include all elements of an Array to a Set *)
-let c = 'xyyzzz'.split, r = Set(); r.includeAll(c); r.size = 3 (* include all characters of a String to a Set *)
-let c = 'xyyzzz', r = Set(); r.includeAll(c); r.size = 3 (* include all elements of a String to a Set *)
+let c = 'xyyzzz'.split; let r = Set(); r.includeAll(c); r.size = 3 (* include all characters of a String to a Set *)
+let c = 'xyyzzz'; let r = Set(); r.includeAll(c); r.size = 3 (* include all elements of a String to a Set *)
 let s = [].asSet; s.addAll([1 .. 99]); s.size = 99 (* add all from array *)
 let s = ['x', 5].asSet; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
 let s = (1 .. 5).asSet; let n = 0; s.do { :each | n := n + each }; n = 15
@@ -3023,7 +3024,7 @@ let s = (1 .. 9).asSet; s.intersection(s) = s (* set intersection, self intersec
 let s = (1 .. 9).asSet; s.remove(5); [s.includes(5), s.includes(9)] = [false, true]
 let s = (1 .. 9).asSet; let t = s.copy; let n = t.size; s.removeAll; [s.size = 0, t.size = n] = [true, true]
 (1 .. 4).asSet.union((5 .. 9)) = (1 .. 9).asSet (* set union, right hand side not a set *)
-let s = (1 .. 4).asSet, t = (5 .. 9), u = s.union(t); u.size = (s.size + t.size) (* set union is not mutating *)
+let s = (1 .. 4).asSet; let t = (5 .. 9); let u = s.union(t); u.size = (s.size + t.size) (* set union is not mutating *)
 (1 .. 5).asSet.ifAbsentAdd(3) = false
 (1 .. 9).asSet.select { :each | false } = [].asSet (* select nothing *)
 let s = Set(); s.includeAll([4 / 2, 4, 2]); s.size = 2 (* 4 / 2 = 2 *)
@@ -3445,12 +3446,12 @@ let [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] (* temporaries let array initia
 { let [x, y] = [1, 2, 3]; false }.ifError { true } (* it is an error if the array is of the incorrect size *)
 | x y z | [x, y, z] := [1, 2, 3]; [z, y, x] = [3, 2, 1] (* variables array assignment syntax *)
 | x y z | [x, y, z] := [1 * 2, 3 * 4, 5 * 6]; [z, y, x] = [30, 12, 2] (* variables array assignment syntax *)
-let x = 1, y = 2; x := y + 1; y := x * 2; [x, y] = [3, 6] (* in sequential assignment evaluation and assignment are interleaved *)
+let x = 1; let y = 2; x := y + 1; y := x * 2; [x, y] = [3, 6] (* in sequential assignment evaluation and assignment are interleaved *)
 let [x, y] = [1, 2]; [x, y] := [y + 1, x * 2]; [x, y] = [3, 2] (* in array assignment the rhs expression is evaluated before any assignments *)
-let x = 1, y = 2, xTmp = nil; xTmp := y + 1; y := x * 2; x := xTmp; [x, y] = [3, 2]
+let x = 1; let y = 2; let xTmp = nil; xTmp := y + 1; y := x * 2; x := xTmp; [x, y] = [3, 2]
 let [x, y, z] = [1, 2, 3]; [x, y, z] := [x * y + z, x + y * z, x + y + z]; [x, y, z] = [5, 9, 6]
-let x = 1, y = 2, z = 3, x1 = nil, y1 = nil, z1 = nil; x1 := x * y + z; y1 := x + y * z; z1 := x + y + z; x := x1; y := y1; z := z1; [x, y, z] = [5, 9, 6]
-let x = 1, y = 2, z = 3; x := x * y + z; y := x + y * z; z := x + y + z; [x, y, z] = [5, 21, 29]
+let x = 1; let y = 2; let z = 3; let x1 = nil; let y1 = nil; let z1 = nil; x1 := x * y + z; y1 := x + y * z; z1 := x + y + z; x := x1; y := y1; z := z1; [x, y, z] = [5, 9, 6]
+let x = 1; let y = 2; let z = 3; x := x * y + z; y := x + y * z; z := x + y + z; [x, y, z] = [5, 21, 29]
 ```
 
 ## Syntax -- assignment operator syntax
@@ -3485,19 +3486,19 @@ let p = 3@3; p.x +:= 4; p.x = 7 (* dot expression syntax assignment *)
 [1 .. 1] = (1 .. 1).asArray
 [1 3 5 2 4] = [1, 3, 5, 2, 4] (* vector syntax, literal items *)
 [9.sqrt 16.sqrt 25.sqrt] = [3, 4, 5] (* vector syntax, simple unary sends *)
-let a = 1, b = 3, c = 5; [a b c b a] = [1, 3, 5, 3, 1] (* vector syntax, identifier items *)
+let a = 1; let b = 3; let c = 5; [a b c b a] = [1, 3, 5, 3, 1] (* vector syntax, identifier items *)
 [1 [1 3 [1 3 5] 5] 5] = [1, [1, 3, [1, 3, 5], 5], 5] (* vector syntax, vector items *)
 [1 3; 5 7] = [[1, 3], [5, 7]] (* matrix syntax, literal items *)
-let a = 1, b = 3, c = 5; [a b c; c b a] = [[1, 3, 5], [5, 3, 1]] (* matrix syntax, identifier items *)
+let a = 1; let b = 3; let c = 5; [a b c; c b a] = [[1, 3, 5], [5, 3, 1]] (* matrix syntax, identifier items *)
 [[], [1], [2 3], [4 5 6]] = [[], [1], [2, 3], [4, 5, 6]] (* non-square matrix, there is no syntax for an empty vector field *)
 [[1 2; 3 4] [5 6; 7 8]] = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]] (* vector syntax, matrix items *)
-let a = 1, b = 3; [[a b; b a] [b a; a b]] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] (* volume syntax, identifier items *)
+let a = 1; let b = 3; [[a b; b a] [b a; a b]] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] (* volume syntax, identifier items *)
 [[1 0 0; 0 1 0; 0 0 1] [0 1 0; 1 0 1; 0 1 0] [1 0 1; 0 1 0; 1 0 1]].collect(sum:/1) = [1 1 1; 1 2 1; 2 1 2] (* volume to matrix *)
 [[1 0 0; 0 1 0; 0 0 1] [0 1 0; 1 0 1; 0 1 0]].transposed = [[1 0 0; 0 1 0] [0 1 0; 1 0 1] [0 0 1; 0 1 0]] (* transposedd *)
 [1 2; 3 4;; 5 6; 7 8] = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]] (* volume syntax, literal items *)
-let a = 1, b = 3; [a b; b a;; b a; a b] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] (* volume syntax, identifier items *)
+let a = 1; let b = 3; [a b; b a;; b a; a b] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] (* volume syntax, identifier items *)
 [1 0 0; 0 1 0; 0 0 1;; 0 1 0; 1 0 1; 0 1 0;; 1 0 1; 0 1 0; 1 0 1].collect(sum:/1) = [1 1 1; 1 2 1; 2 1 2] (* volume to matrix *)
-[1 0 0; 0 1 0; 0 0 1;; 0 1 0; 1 0 1; 0 1 0].transposed = [1 0 0; 0 1 0;; 0 1 0; 1 0 1;; 0 0 1; 0 1 0] (* transposedd *)
+[1 0 0; 0 1 0; 0 0 1;; 0 1 0; 1 0 1; 0 1 0].transposed = [1 0 0; 0 1 0;; 0 1 0; 1 0 1;; 0 0 1; 0 1 0] (* transposed *)
 [1 2; 3 4;; 5 6; 7 8] = [[1 2; 3 4] [5 6; 7 8]]
 [1 2 3; 4 5 6][2][3] = 6 (* matrix indexing *)
 [1 2 3; 4 5 6].atPath([2]) = [4 5 6] (* matrix indexing; atPath, single index *)
@@ -3594,7 +3595,7 @@ let x = 1; x = 1 (* temporary syntax (with initialiser) *)
 | x y | x = nil & { y = nil } (* temporary syntax (no initializers) *)
 let x = 1; let y = 1; x = 1 & { y = 1 } (* temporary syntax (with initialisers) *)
 | x y | x = nil & { y = nil } (* let x, y; => | x y | *)
-let x = 1, y = 2; [x, y] = [1, 2] (* let x = i, y = i; => | x = i, y = j; *)
+let x = 1; let y = 2; [x, y] = [1, 2] (* let x = i, y = i; => | x = i, y = j; *)
 let x = 1; let y = 2; let z = 3; [x, y, z] = [1, 2, 3] (* there can be multiple let (with initializer) sequences *)
 ```
 
@@ -3636,7 +3637,7 @@ system.typeDictionary.indices.includes('System') = true
 system.randomFloat < 1 (* system random number generator *)
 system.uniqueId.isInteger (* system unique identifier generator, answers are integers *)
 system.uniqueId ~= system.uniqueId (* system unique identifier generator *)
-let p = system.uniqueId, q = system.uniqueId; p + 1 = q (* the generator is a simple counter *)
+let p = system.uniqueId; let q = system.uniqueId; p + 1 = q (* the generator is a simple counter *)
 system.highBitPerByteTable.size = 256 (* high bits per byte table *)
 system.highBitPerByteTable.asBag.sortedCounts = [128 -> 8, 64 -> 7, 32 -> 6, 16 -> 5, 8 -> 4, 4 -> 3, 2 -> 2, 1 -> 1, 1 -> 0]
 system.lowBitPerByteTable.size = 255 (* low bits per byte table *)
@@ -3753,7 +3754,7 @@ system.packageMethods('Frequency').detect { :each | each.name = 'asHertz' }.arit
 ```
 system.systemTimeInMilliseconds > 0 = true
 system.unixTimeInMilliseconds > 1671935015392 = true
-let t1 = system.unixTimeInMilliseconds, t2 = system.unixTimeInMilliseconds; t2 - t1 = 0
+let t1 = system.unixTimeInMilliseconds; let t2 = system.unixTimeInMilliseconds; t2 - t1 = 0
 let t = { 3579.nthPrime }.millisecondsToRun; t >= 0 & { t < 1000 }
 let [c, t] = { system.unixTimeInMilliseconds }.benchForMilliseconds(10); c > 1000 & { t >= 10 }
 ```
@@ -3861,8 +3862,8 @@ let p = 'x=a&y=b&x=c'.UrlSearchParams; p.removeKey('x'); p.asString = 'y=b'
 ## Temporaries
 ```
 let x = nil; x = nil (* uninitialised variables are nil *)
-let x = nil, y = nil; x = y (* uninitialised variables are nil *)
-let x = 1, y = 2; x < y (* initialisers are written as name = value *)
+let x = nil; let y = nil; x = y (* uninitialised variables are nil *)
+let x = 1; let y = 2; x < y (* initialisers are written as name = value *)
 ```
 
 ## TimeStamp -- temporal type
@@ -3877,7 +3878,7 @@ let t = system.unixTime; t - 0.seconds = t (* offset TimeStamp by Duration *)
 { system.unixTime.postLine }.valueAfter(0.5.seconds).cancel = nil
 { system.unixTime.postLine }.valueAt(system.unixTime + 0.5.seconds).cancel = nil
 { system.unixTime.postLine }.valueEvery(3.seconds).cancel = nil
-let t = 1676784053576.TimeStamp, c = t.copy; c ~~ t & { c = t }
+let t = 1676784053576.TimeStamp; let c = t.copy; c ~~ t & { c = t }
 ```
 
 ## Type -- reflection type
@@ -3988,8 +3989,8 @@ Vector2(3, 4).isVector2 & { true } = true
 (1 @ 1).negated = (-1 @ -1) (* negation *)
 0 - (1 @ 1) = (-1 @ -1) (* negation as subtraction from zero *)
 let p = -1@1; p.x := -3; p.y := 3; p = (-3@3) = true
-let p = -1@3, a = [p]; a.first.x := -3; p = (-3@3) = true
-let x = 3.141, y = 23, p = x@y; p.x = x & { p.y = y }
+let p = -1@3; let a = [p]; a.first.x := -3; p = (-3@3) = true
+let x = 3.141; let y = 23; let p = x@y; p.x = x & { p.y = y }
 [1@0, 1@1, 0@1, -1@1, -1@0, 0 @ -1].collect(t:/1) = (pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2])
 0@0 = Point(0,0)
 200 @ 100 = Point(200, 100) (* obtain a new point *)
@@ -4014,14 +4015,14 @@ let v = Vector2(3, 4); v[1] := 7; v.first = 7 (* implements atPut *)
 Vector2(3, 4).size = 2 (* implements size *)
 let v = Vector2(3, 4); v.swapInPlace; v[1] = 4 (* swap fields in place *)
 Vector2(3, 4).swapped = Vector2(4, 3) (* answer swapped vector *)
-let v = (0 @ 0), c = v.copy; c.x := 1; c ~= v & { c = (1 @ 0) } (* copy two vector *)
+let v = (0 @ 0); let c = v.copy; c.x := 1; c ~= v & { c = (1 @ 0) } (* copy two vector *)
 ```
 
 ## Vector3 -- geometry type
 ```
 system.includesPackage('Vector3') (* package *)
 [1, 2, 3].asVector3 = Vector3(1, 2, 3) (* three vector from array *)
-let a = [1, 2, 3], v = a.asVector3; v.asArray = [1, 2, 3] (* three vector to array *)
+let a = [1, 2, 3]; let v = a.asVector3; v.asArray = [1, 2, 3] (* three vector to array *)
 Vector3(0, 0, 0).isZero (* are x, y and z all zero *)
 let v = Vector3(1, 2, 3); [v.x, v.y, v.z] = [1, 2, 3] (* fields are x, y, z *)
 let v = Vector3(3, 4, 5); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } (* implements at *)
@@ -4051,7 +4052,7 @@ Vector3(1.cos, 1.sin, 1).asCylindricalCoordinate.asRecord = (rho: 1, phi: 1, z: 
 ```
 system.includesPackage('Vector4') (* package *)
 [1, 2, 3, 4].asVector4 = Vector4(1, 2, 3, 4) (* four vector from array *)
-let a = [1, 2, 3, 4], v = a.asVector4; v.asArray = [1, 2, 3, 4] (* four vector to array *)
+let a = [1, 2, 3, 4]; let v = a.asVector4; v.asArray = [1, 2, 3, 4] (* four vector to array *)
 Vector4(0, 0, 0, 0).isZero (* are w, x, y and z all zero *)
 let v = Vector4(1, 2, 3, 4); [v.w, v.x, v.y, v.z] = [1, 2, 3, 4] (* fields are w, x, y, z *)
 ```

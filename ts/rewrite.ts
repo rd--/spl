@@ -201,15 +201,15 @@ const asJs: ohm.ActionDict<string> = {
 	Program(tmp, stm) {
 		return tmp.asJs + stm.asJs;
 	},
-	TemporariesWithInitializers(
+/*	TemporariesWithInitializers(
 		_leftVerticalBar,
 		tmp,
 		_semiColon,
 		_rightVerticalBar,
 	) {
 		return `let ${commaList(tmp.asIteration().children)};`;
-	},
-	TemporaryWithBlockLiteralInitializer(name, _equals, blk) {
+	},*/
+	TemporaryBlockLiteralInitializer(name, _equals, blk) {
 		const unqualifiedName = name.asJs;
 		const qualifiedName = `${
 			genName(unqualifiedName, blk.parametersOf.length)
@@ -222,10 +222,10 @@ const asJs: ohm.ActionDict<string> = {
 		// console.debug(`TemporaryWithBlockLiteralInitializer: ${reBinding}`);
 		return `${binding}${reBinding}`;
 	},
-	TemporaryWithExpressionInitializer(name, _equals, exp) {
+	TemporaryExpressionInitializer(name, _equals, exp) {
 		return `${name.asJs} = ${exp.asJs}`;
 	},
-	TemporaryWithDictionaryInitializer(
+	TemporaryDictionaryInitializer(
 		_leftParen,
 		lhs,
 		_rightParen,
@@ -239,7 +239,7 @@ const asJs: ohm.ActionDict<string> = {
 		).join(', ');
 		return `${rhsName} = ${rhs.asJs}, ${slots}`;
 	},
-	TemporaryWithArrayInitializer(
+	TemporaryArrayInitializer(
 		_leftBracket,
 		lhs,
 		_rightBracket,
@@ -257,7 +257,10 @@ const asJs: ohm.ActionDict<string> = {
 	TemporariesWithoutInitializers(_leftVerticalBar, tmp, _rightVerticalBar) {
 		return `let ${commaList(tmp.children)};`;
 	},
-	TemporariesVarWithInitializersSyntax(_var, tmp, _semicolon) {
+	LetTemporary(_var, tmp, _semicolon) {
+		return `let ${tmp.asJs};`;
+	},
+	LetTemporaries(_var, tmp, _semicolon) {
 		return `let ${commaList(tmp.asIteration().children)};`;
 	},
 	ScalarAssignment(lhs, _colonEquals, rhs) {

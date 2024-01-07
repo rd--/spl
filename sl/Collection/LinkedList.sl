@@ -47,7 +47,8 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	asArray { :self |
-		let answer = Array(self.size), index = 1;
+		let answer = Array(self.size);
+		let index = 1;
 		self.do { :each |
 			answer[index] := each;
 			index +:= 1
@@ -216,7 +217,8 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	removeLast { :self |
-		let oldLink = self.lastLink, aLink = nil;
+		let oldLink = self.lastLink;
+		let aLink = nil;
 		self.emptyCheck;
 		(self.firstLink == self.lastLink).if {
 			self.removeAll

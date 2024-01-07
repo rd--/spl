@@ -20,15 +20,15 @@
 30:17.latticeVectorString([3 5 17]) = ' 1  1 -1'
 [1:1 10:9 20:17 4:3 3:2 5:3 30:17].RatioTuning.latticePrimes = [3 5 17] (* Average Bac System *)
 [1:1 10:9 20:17 4:3 3:2 5:3 30:17].RatioTuning.latticeVertices([3 5 17]) = [0 0 0; -2 1 0; 0 1 -1; -1 0 0; 1 0 0; -1 1 0; 1 1 -1]
-| r = [1:1 10:9 20:17 4:3 3:2 5:3 30:17], t = r.RatioTuning, p = t.latticePrimes, v = t.latticeVertices(p); | t.latticeEdges(v) = [1 4; 1 5; 2 6; 3 7; 4 6]
+let r = [1:1 10:9 20:17 4:3 3:2 5:3 30:17]; let t = r.RatioTuning; let p = t.latticePrimes; let v = t.latticeVertices(p); t.latticeEdges(v) = [1 4; 1 5; 2 6; 3 7; 4 6]
 ```
 
 ## Music-JiTuning
 ```
-| t = [63, 72, 84, 98, 112].JiTuning; | [t.limit, t.size, t.octave] = [7, 5, 2]
-| t = [63, 72, 84, 98, 112].JiTuning; | t.ratios = [1, 8:7, 4:3, 14:9, 16:9]
-| t = [63, 72, 84, 98, 112].JiTuning; | t.cents.rounded = [0, 231, 498, 765, 996]
-| r = [1, 8:7, 4:3, 14:9, 16:9]; | [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1:63, 112]
+let t = [63, 72, 84, 98, 112].JiTuning; [t.limit, t.size, t.octave] = [7, 5, 2]
+let t = [63, 72, 84, 98, 112].JiTuning; t.ratios = [1, 8:7, 4:3, 14:9, 16:9]
+let t = [63, 72, 84, 98, 112].JiTuning; t.cents.rounded = [0, 231, 498, 765, 996]
+let r = [1, 8:7, 4:3, 14:9, 16:9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1:63, 112]
 [1, 8:7, 4:3, 14:9, 16:9] / 1:63 = [63, 72, 84, 98, 112]
 [1, 8:7, 4:3, 14:9, 16:9].JiTuning.integers = [63, 72, 84, 98, 112]
 [63, 72, 84, 98, 112].JiTuning.ratios = [1, 8:7, 4:3, 14:9, 16:9]
@@ -37,7 +37,7 @@
 
 ## Music-RatioTuning
 ```
-| r = RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2); | [r.size, r.limit, r.cents.rounded] = [5 7 [0 231 498 765 996]]
+let r = RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2); [r.size, r.limit, r.cents.rounded] = [5 7 [0 231 498 765 996]]
 RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2).integers =  [63 72 84 98 112]
 IntegerTuning('', '', [63 72 84 98 112], 2).ratios = [1:1 8:7 4:3 14:9 16:9]
 RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2) = IntegerTuning('', '', [63 72 84 98 112], 2)
@@ -45,11 +45,11 @@ RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2) = IntegerTuning('', '', [63 72 8
 
 ## Music-Scale
 ```
-| s = Scale(1, [2 2 1 2 2 2 1], 'Major'); | (1 .. 7).collect { :degree | s.integerDegreeToKey(degree, 0) } = [1 3 5 6 8 10 12]
-| s = Scale(1, [2 2 1 2 2 2 1], 'Major'); | [1 1.sharp 2 2.sharp 3 4 4.sharp 5 5.sharp 6 6.sharp 7].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
-| s = Scale(1, [2 2 1 2 2 2 1], 'Major'); | [1 2.flat 2 3.flat 3 4 5.flat 5 6.flat 6 7.flat 7].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
-| s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); | [1 2.flat 2 3 3.sharp 4 5.flat 5 6 6.sharp 7 7.sharp].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
-| s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); | [1 2.flat 2 3 3.cancelFlat 4 5.flat 5 6 6.cancelFlat 7 7.cancelFlat].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
+let s = Scale(1, [2 2 1 2 2 2 1], 'Major'); (1 .. 7).collect { :degree | s.integerDegreeToKey(degree, 0) } = [1 3 5 6 8 10 12]
+let s = Scale(1, [2 2 1 2 2 2 1], 'Major'); [1 1.sharp 2 2.sharp 3 4 4.sharp 5 5.sharp 6 6.sharp 7].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
+let s = Scale(1, [2 2 1 2 2 2 1], 'Major'); [1 2.flat 2 3.flat 3 4 5.flat 5 6.flat 6 7.flat 7].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
+let s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); [1 2.flat 2 3 3.sharp 4 5.flat 5 6 6.sharp 7 7.sharp].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
+let s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); [1 2.flat 2 3 3.cancelFlat 4 5.flat 5 6 6.cancelFlat 7 7.cancelFlat].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
 ```
 
 ## Music-Pitch
@@ -239,25 +239,25 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 [4, 7, 6, 8].reshape([2, 2]) = [[4, 7], [6, 8]] (* reshape array given Apl type shape value *)
 [4, 7, 6, 8].reshape([2, 3]) = [[4, 7, 6], [8, 4, 7]] (* cycle input as required *)
 [[1, 2, 3], [4, 5], [6]].allTuples = [[1, 4, 6], [1, 5, 6], [2, 4, 6], [2, 5, 6], [3, 4, 6], [3, 5, 6]]
-| a = 1, b = 2, x = [a b]; | [x x].allTuples = [a a; a b; b a; b b]
-| k = 5, x = (1 .. k); | [x, x].allTuples.size = (k ^ 2)
+let a = 1; let b = 2; let x = [a b]; [x x].allTuples = [a a; a b; b a; b b]
+let k = 5; let x = (1 .. k); [x, x].allTuples.size = (k ^ 2)
 ['a' 'b'; 1 2 3 4; 'x'].allTuples = ['a' 1 'x'; 'a' 2 'x'; 'a' 3 'x'; 'a' 4 'x'; 'b' 1 'x'; 'b' 2 'x'; 'b' 3 'x'; 'b' 4 'x']
 [5, 5].shapeIndices = [[1 .. 5], [1 .. 5]].allTuples (* all indices to array of given shape *)
-| n = 0; | [5, 5].shapeIndicesDo { :each | n := n + 1 }; n = 25 (* all indices to array of given shape *)
-| r = Random(98765); | { r.randomInteger(9) }.duplicateShape([3, 5]) = [[5, 4, 2, 7, 1], [5, 2, 5, 5, 9], [6, 2, 4, 1, 5]]
-| r = Random(98765); | { r.randomInteger(9) }.duplicateShape([2, 2, 3]) = [[[5, 4, 2], [7, 1, 5]], [[2, 5, 5], [9, 6, 2]]]
-| s = [2, 3], a = s.iota; | s.shapeIndicesDo { :each | a.atPathPut(each, each.join.asInteger) }; a = [[11, 12, 13], [21, 22, 23]]
+let n = 0; [5, 5].shapeIndicesDo { :each | n := n + 1 }; n = 25 (* all indices to array of given shape *)
+let r = Random(98765); { r.randomInteger(9) }.duplicateShape([3, 5]) = [[5, 4, 2, 7, 1], [5, 2, 5, 5, 9], [6, 2, 4, 1, 5]]
+let r = Random(98765); { r.randomInteger(9) }.duplicateShape([2, 2, 3]) = [[[5, 4, 2], [7, 1, 5]], [[2, 5, 5], [9, 6, 2]]]
+let s = [2, 3]; let a = s.iota; s.shapeIndicesDo { :each | a.atPathPut(each, each.join.asInteger) }; a = [[11, 12, 13], [21, 22, 23]]
 [3, 2].iota = [[1, 2], [3, 4], [5, 6]]
 [3, 2].iota.bubble(0, 1) = [[[1, 2], [3, 4], [5, 6]]]
 [3, 2].iota.bubble(1, 1) = [[[1, 2]], [[3, 4]], [[5, 6]]]
 [3, 2].iota.bubble(2, 1) = [[[1], [2]], [[3], [4]], [[5], [6]]]
-| z = [3, 2].iota; | z.bubble(0, 0) = z.bubble(0, 1)
-| z = [3, 2].iota; | z.bubble(0, 1) = [z]
-| z = [3, 2].iota; | z.bubble(0, 1).unbubble(0, 1) = z
-| z = [3, 2].iota; | z.bubble(1, 1).unbubble(1, 1) = z
-| z = [3, 2].iota; | z.bubble(2, 1).unbubble(2, 1) = z
-| z = [3, 2].iota; | z.bubble(0, 2) = [[z]]
-| z = [3, 2].iota; | z.bubble(0, 2).unbubble(0, 2) = z
+let z = [3, 2].iota; z.bubble(0, 0) = z.bubble(0, 1)
+let z = [3, 2].iota; z.bubble(0, 1) = [z]
+let z = [3, 2].iota; z.bubble(0, 1).unbubble(0, 1) = z
+let z = [3, 2].iota; z.bubble(1, 1).unbubble(1, 1) = z
+let z = [3, 2].iota; z.bubble(2, 1).unbubble(2, 1) = z
+let z = [3, 2].iota; z.bubble(0, 2) = [[z]]
+let z = [3, 2].iota; z.bubble(0, 2).unbubble(0, 2) = z
 [[1, 2, 3], [[41, 52], 5, 6], 1, 2, 3].maxDepth = 3
 (0 .. 3).collect { :k | [[1, 2, 3], [[41, 52], 5, 6], 1, 2, 3].maxSizeAtDepth(k) } = [5, 3, 2, 1]
 [4, 5].iota.slice([nil, (1 .. 3)]) = [[1, 2, 3], [6, 7, 8], [11, 12, 13], [16, 17, 18]]
@@ -285,6 +285,6 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] (* fill array using block at indicie
 [2, 3, 2].iota.deepCollect(2, reverse:/1) = [[[2, 1], [4, 3], [6, 5]], [[8, 7], [10, 9], [12, 11]]]
 (6 .. 1).reshapeLike([1, [2, 3], [4, 5, 6]]) = [6, [5, 4], [3, 2, 1]]
 [[6, 5, 4], [3, 2], 1].reshapeLike([1, [2, 3], [4, 5, 6]]) = [6, [5, 4], [3, 2, 1]]
-| a = [[10, 20],[30, 40, 50], 60, 70, [80, 90]], b = [[1, 2, [3, 4], [[5], 6], 7], 8, [[9]]]; | a.reshapeLike(b) = [[10, 20, [30, 40], [[50], 60], 70], 80, [[90]]] & { b.reshapeLike(a) = [[1, 2], [3, 4, 5], 6, 7, [8, 9]] }
-| a = [1 2; 3 4; 5 6]; | a.assertShape([3 2]) = a (* assert that array has shape *)
+let a = [[10, 20],[30, 40, 50], 60, 70, [80, 90]]; let b = [[1, 2, [3, 4], [[5], 6], 7], 8, [[9]]]; a.reshapeLike(b) = [[10, 20, [30, 40], [[50], 60], 70], 80, [[90]]] & { b.reshapeLike(a) = [[1, 2], [3, 4, 5], 6, 7, [8, 9]] }
+let a = [1 2; 3 4; 5 6]; a.assertShape([3 2]) = a (* assert that array has shape *)
 ```

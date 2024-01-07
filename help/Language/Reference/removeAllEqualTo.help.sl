@@ -4,7 +4,7 @@
 
 Remove every element of _aCollection_ that compares equal to _anObject_.
 
-	| c = [1 2 2 3 3 3]; | c.without(3); c = [1 2 2]
+	let c = [1 2 2 3 3 3]; c.without(3); c = [1 2 2]
 
 * * *
 

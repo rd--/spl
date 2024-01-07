@@ -9,5 +9,5 @@ Message are received by registering a listener using either _addEventListener_ o
 WebSockets are somewhat similar to standard Unix-style sockets.
 
 ```
-| ws = WebSocket('ws://localhost:9160'); | ws.onOpen { ws.send('hello!'); ws.close }
+let ws = WebSocket('ws://localhost:9160'); ws.onOpen { ws.send('hello!'); ws.close }
 ```

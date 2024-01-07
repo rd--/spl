@@ -35,7 +35,9 @@ let revMonoInput = input.isArray.if {
 	input
 };
 let delayWriter = DelayWrite(buffer, revMonoInput);
-let tapsOut = 0, combsOut = 0, allPassIo = 0;
+let tapsOut = 0;
+let combsOut = 0;
+let allPassIo = 0;
 tapData.do { :params |
 	tapsOut := tapsOut + (DelayTap(buffer, params.first) * params.second)
 };

@@ -58,7 +58,8 @@ Matrix22 : [Object] { | a b c d |
 	}
 
 	transpose { :self |
-		let b = self.b, c = self.c;
+		let b = self.b;
+		let c = self.c;
 		self.b := c;
 		self.c := b
 	}

@@ -280,7 +280,9 @@ String! : [Object, Json, Iterable] {
 
 	indicesOf { :self :aString |
 		aString.isString.if {
-			let answer = [], index = 1, end = self.size;
+			let answer = [];
+			let index = 1;
+			let end = self.size;
 			{
 				index.betweenAnd(1, end)
 			}.whileTrue {
@@ -362,7 +364,9 @@ String! : [Object, Json, Iterable] {
 
 	occurrencesOf { :self :aString |
 		aString.isString.if {
-			let index = 1, end = self.size, tally = 0;
+			let index = 1;
+			let end = self.size;
+			let tally = 0;
 			{
 				index.betweenAnd(1, end)
 			}.whileTrue {
@@ -440,7 +444,10 @@ String! : [Object, Json, Iterable] {
 	}
 
 	romanNumber { :self |
-		let value = 0, v1 = 0, v2 = 0, letters = 'IVXLCDM'.asciiByteArray;
+		let value = 0;
+		let v1 = 0;
+		let v2 = 0;
+		let letters = 'IVXLCDM'.asciiByteArray;
 		self.asciiByteArray.reverseDo { :each |
 			v1 := [1, 5, 10, 50, 100, 500, 1000].at(letters.indexOf(each));
 			(v1 >= v2).if {

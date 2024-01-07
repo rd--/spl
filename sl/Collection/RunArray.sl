@@ -81,7 +81,8 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 
 	do { :self :aBlock:/1 |
 		1.toDo(self.runs.size) { :index |
-			let run = self.runs[index], value = self.values[index];
+			let run = self.runs[index];
+			let value = self.values[index];
 			{
 				run -:= 1;
 				run >= 0
@@ -141,7 +142,8 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 	withIndexDo { :self :aBlock:/2 |
 		let index = 0;
 		1.toDo(self.runs.size) { :runIndex |
-			let run = self.runs[runIndex], value = self.values[runIndex];
+			let run = self.runs[runIndex];
+			let value = self.values[runIndex];
 			{ (run := run - 1) >= 0 }.whileTrue {
 				index +:= 1;
 				aBlock(value, index)

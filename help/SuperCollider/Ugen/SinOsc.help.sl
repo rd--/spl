@@ -161,11 +161,7 @@ let carAmp = 0.1;
 SinOsc(freq * carRatio + modOsc, 0) * carAmp
 
 (* SinOsc ; SuperCollider derived temporaries syntax with initialiser expressions *)
-let freq = 440, phase = 0, amp = 0.1;
-SinOsc(freq, phase) * amp
-
-(* SinOsc ; Smalltalk derived temporaries syntax with initialiser expressions *)
-| freq = 440, phase = 0, amp = 0.1; |
+let freq = 440; let phase = 0; let amp = 0.1;
 SinOsc(freq, phase) * amp
 
 (* SinOsc ; requires 0.Max(aUgen) *)
@@ -208,7 +204,9 @@ let fmSignal = Voicer(1, 16) { :e |
 	let filter = Lpf(car * volMod, LinExp(tone, 0, 1, 200, 20000));
 	EqPan2(filter, (panModDepth < 0.01).if { pan } { panMod })
 }.Mix;
-let delayMix = 0.5, delayTime = 0.3, delayFeedback = 0.3;
+let delayMix = 0.5;
+let delayTime = 0.3;
+let delayFeedback = 0.3;
 let feedbackSignal = LocalIn(2, 0);
 let delayReturn = DelayL(fmSignal + feedbackSignal, 5, delayTime);
 let delaySignal = (fmSignal + (delayReturn * delayMix)) <! LocalOut(delayReturn * delayFeedback);

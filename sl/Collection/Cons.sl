@@ -17,7 +17,8 @@ Cons : [Object, Collection] { | car cdr |
 	}
 
 	depth { :self |
-		let answer = 1, next = self.car;
+		let answer = 1;
+		let next = self.car;
 		{ next.isCons }.whileTrue {
 			answer +:= 1;
 			next := next.car
@@ -43,7 +44,8 @@ Cons : [Object, Collection] { | car cdr |
 	}
 
 	length { :self |
-		let answer = 1, next = self.cdr;
+		let answer = 1;
+		let next = self.cdr;
 		{ next.isCons }.whileTrue {
 			answer +:= 1;
 			next := next.cdr
@@ -56,7 +58,8 @@ Cons : [Object, Collection] { | car cdr |
 	}
 
 	reversed { :self |
-		let answer = Cons(self.car, nil), next = self.cdr;
+		let answer = Cons(self.car, nil);
+		let next = self.cdr;
 		{ next.isCons }.whileTrue {
 			answer := Cons(next.car, answer);
 			next := next.cdr

@@ -37,7 +37,8 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 	}
 
 	cumulativeCounts { :self |
-		let s = self.size / 100.0, n = 0;
+		let s = self.size / 100.0;
+		let n = 0;
 		self.sortedCounts.collect { :a |
 			n +:= a.key;
 			(n / s.roundTo(0.1)) -> a.value

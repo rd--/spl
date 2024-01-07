@@ -34,7 +34,8 @@
 	}
 
 	Array { :self |
-		let answer = Array(self.size), index = 1;
+		let answer = Array(self.size);
+		let index = 1;
 		self.valuesDo { :each |
 			answer[index] := each;
 			index +:= 1
@@ -65,7 +66,8 @@
 	}
 
 	associations { :self |
-		let answer = Array(self.size), index = 1;
+		let answer = Array(self.size);
+		let index = 1;
 		self.associationsDo { :each |
 			answer[index] := each;
 			index +:= 1

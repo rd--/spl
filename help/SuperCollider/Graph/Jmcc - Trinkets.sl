@@ -1,7 +1,6 @@
 (* trinkets (1 & 2) (jmcc) ; http://www.iamas.ac.jp/~aka/dspss2004/materials/ *)
 let amp = 0.2;
 let gate = 1;
-let z = 0.0, a = 0.1, b = 0.2, c = 0.4;
 let tr = [Dust(4), Impulse(16, 0)].atRandom;
 let x = SinOsc(TRand([400, 2000].atRandom, 12000, tr), 0) * Decay2(tr, 0.002, 0.04);
 x := EqPan(x, TRand(-1, 1, tr));

@@ -25,8 +25,8 @@ Sets and Bags are not indexable:
 
 There is [At Sytax] for accessing indexed values:
 
-	| a = ['x', 'y']; | a[1] = 'x'
-	| d = (x: 1, y: 2); | d['x'] = 1
+	let a = ['x', 'y'];  a[1] = 'x'
+	let d = (x: 1, y: 2);  d['x'] = 1
 
 * * *
 

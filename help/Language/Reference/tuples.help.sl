@@ -10,7 +10,7 @@ Generates an array of all possible _anInteger_-tuples of elements from _aSequenc
 
 Two-tuples are the cartesian product of a set with itself:
 
-	| x = [0 1 2]; | x.tuples(2) = x.cartesianProduct(x)
+	let x = [0 1 2];  x.tuples(2) = x.cartesianProduct(x)
 
 * * *
 

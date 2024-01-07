@@ -18,19 +18,19 @@ Sl {
 	TraitDefinition = "@" identifier "{" (methodName Block)* "}"
 	ConstantDefinition = "Constant" "." unqualifiedIdentifier "=" literal
 	Program = Temporaries? ListOf<Expression, ";">
-	Temporaries = TemporariesWithInitializers | TemporariesWithoutInitializers | TemporariesVarWithInitializersSyntax+
-	TemporariesWithInitializers = "|" NonemptyListOf<TemporaryWithInitializer, ","> ";" "|"
-	TemporaryWithInitializer =
-		TemporaryWithBlockLiteralInitializer |
-		TemporaryWithExpressionInitializer |
-		TemporaryWithDictionaryInitializer |
-		TemporaryWithArrayInitializer
-	TemporaryWithBlockLiteralInitializer = identifier "=" Block ~("." | binaryOperator)
-	TemporaryWithExpressionInitializer = identifier "=" Expression
-	TemporaryWithDictionaryInitializer = "(" NonemptyListOf<identifier, ","> ")" "=" Expression
-	TemporaryWithArrayInitializer = "[" NonemptyListOf<identifierOrUnused, ","> "]" "=" Expression
+	Temporaries = TemporariesWithoutInitializers | LetTemporary+
+	TemporaryInitializer =
+		TemporaryBlockLiteralInitializer |
+		TemporaryExpressionInitializer |
+		TemporaryDictionaryInitializer |
+		TemporaryArrayInitializer
+	TemporaryBlockLiteralInitializer = identifier "=" Block ~("." | binaryOperator)
+	TemporaryExpressionInitializer = identifier "=" Expression
+	TemporaryDictionaryInitializer = "(" NonemptyListOf<identifier, ","> ")" "=" Expression
+	TemporaryArrayInitializer = "[" NonemptyListOf<identifierOrUnused, ","> "]" "=" Expression
+	LetTemporary = "let" TemporaryInitializer ";"
+	LetTemporaries = "let" NonemptyListOf<TemporaryInitializer, ","> ";"
 	TemporariesWithoutInitializers = "|" identifier+ "|"
-	TemporariesVarWithInitializersSyntax = "let" NonemptyListOf<TemporaryWithInitializer, ","> ";"
 
 	Expression = Assignment | BinaryExpression | Primary
 	Assignment = ScalarAssignment | ArrayAssignment | DictionaryAssignment | AssignmentOperatorSyntax

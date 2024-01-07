@@ -10,7 +10,7 @@ so that _x.truncated + x.fractionPart = x_.
 	1.fractionPart = 0
 	0.5.fractionPart = 0.5
 	pi.fractionPart + pi.truncated = pi
-	| x = pi.negated; | x.fractionPart + x.truncated = x
+	let x = pi.negated;  x.fractionPart + x.truncated = x
 
 * * *
 

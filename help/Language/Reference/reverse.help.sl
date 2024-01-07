@@ -5,7 +5,7 @@
 Reverse _aSequence_ in place, answering the receiver.
 
 	[1, 3, 5, 7].reverse = [7, 5, 3, 1]
-	| a = [1, 3, 5, 7]; | a.reverse = a
+	let a = [1, 3, 5, 7];  a.reverse = a
 
 * * *
 

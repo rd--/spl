@@ -7,7 +7,8 @@ Matrix33 : [Object] { | elements |
 	}
 
 	applyTo { :self :vector |
-		let [a, b, c, d, e, f, g, h, i] = self.elements, [x, y, z] = vector.asArray;
+		let [a, b, c, d, e, f, g, h, i] = self.elements;
+		let [x, y, z] = vector.asArray;
 		Vector3(
 			(a * x) + (b * y) + (c * z),
 			(d * x) + (e * y) + (f * z),

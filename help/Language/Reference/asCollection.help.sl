@@ -8,7 +8,7 @@ else answer a single element array containing the argument.
 
 	1.asCollection = [1]
 	[1].asCollection = [1]
-	| a = [1]; | a.asCollection == a
+	let a = [1];  a.asCollection == a
 
 * * *
 

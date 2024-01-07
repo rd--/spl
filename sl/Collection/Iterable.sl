@@ -203,7 +203,8 @@
 	}
 
 	minMax { :self |
-		let min = self.anyOne, max = min;
+		let min = self.anyOne;
+		let max = min;
 		self.do { :each |
 			min := min.min(each);
 			max := max.max(each)
@@ -245,7 +246,8 @@
 	}
 
 	reduce { :self :aBlock:/2 |
-		let first = true, nextValue = nil;
+		let first = true;
+		let nextValue = nil;
 		self.do { :each |
 			first.if {
 				nextValue := each;

@@ -4,8 +4,8 @@
 
 Evaluate _terminationBlock_ after evaluating _aBlock_, regardless of whether the initial evaluation completes.
 
-	| x | { { ''.error }.ensure { x := true } }.ifError { }; x
-	| x | { x := false }.ensure { x := true }; x
+	let x = nil; { { ''.error }.ensure { x := true } }.ifError { }; x
+	let x = nil; { x := false }.ensure { x := true }; x
 
 * * *
 

@@ -42,7 +42,8 @@
 	}
 
 	anyAs { :self :numberOfElements :aBlock:/1 |
-		let index = 0, result = numberOfElements.aBlock;
+		let index = 0;
+		let result = numberOfElements.aBlock;
 		valueWithReturn { :return:/1 |
 			result.fillFromWith(self) { :each |
 				index +:= 1;
@@ -60,7 +61,8 @@
 	}
 
 	asArray { :self |
-		let array = Array(self.size), index = 0;
+		let array = Array(self.size);
+		let index = 0;
 		self.do { :each |
 			index +:= 1;
 			array[index] := each
@@ -87,7 +89,8 @@
 	}
 
 	atRandom { :self |
-		let randomIndex = self.size.atRandom, index = 1;
+		let randomIndex = self.size.atRandom;
+		let index = 1;
 		valueWithReturn { :return:/1 |
 			self.do { :each |
 				(index = randomIndex).ifTrue {
