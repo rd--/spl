@@ -14,6 +14,7 @@ import * as fileio from './fileio.ts';
 import * as kernel from './kernel.ts';
 import * as load from './load.ts';
 import * as preferences from './preferences.ts';
+import * as rewrite from './rewrite.ts';
 import * as sl from './sl.ts';
 import * as options from './options.ts';
 import * as repl from './repl.ts';
@@ -56,7 +57,7 @@ async function readSplPreferences(): Promise<preferences.Preferences> {
 }
 
 const cliPreferences = await readSplPreferences();
-console.log('cliPreferences', getSplPreferencesFilename(), cliPreferences);
+// console.log('cliPreferences', getSplPreferencesFilename(), cliPreferences);
 sl.system.cache.set('preferences', cliPreferences);
 
 BigInt.prototype.toJSON = function () {
@@ -79,8 +80,47 @@ function help(): void {
 	console.log(`    ScPort=57110`);
 }
 
+function pathBasename(path: string): string {
+	return path.split(/[\\/]/).pop();
+}
+
+function pathFinalExtension(path: string): string {
+    const basename = pathBasename(path);
+    const index = basename.lastIndexOf('.');
+    if (basename === '' || index < 1) {
+        return '';
+	} else {
+		return basename.slice(index + 1);
+	}
+}
+
+function pathWithoutAnyExtension(path: string): string {
+    const basename = pathBasename(path);
+	if (basename === '') {
+		return '';
+	} else {
+		const index = basename.indexOf('.');
+		if(index < 1) {
+			return basename;
+		} else {
+			return basename.slice(0, index);
+		}
+	}
+}
+
 async function rewriteFile(fileName: string): Promise<void> {
-	console.log(await fileio.rewriteFile(fileName));
+	let slText = await host.readTextFile(fileName);
+	let packageName = pathWithoutAnyExtension(pathBasename(fileName));
+	console.debug('rewriteFile', fileName, packageName);
+	let jsText = rewrite.rewriteStringFor(packageName, slText);
+	host.writeTextFile(fileName + '.js', jsText);
+}
+
+async function rewriteFileSequence(fileNameSequence: string[]): Promise<void> {
+	for(const fileName of fileNameSequence) {
+		console.log(`rewriteFile: ${fileName}`);
+		await rewriteFile(fileName);
+	}
 }
 
 declare global {
@@ -252,7 +292,7 @@ async function scCmd(cmd: string, opt: flags.Args): Promise<void> {
 	}
 }
 
-function cli(): void {
+async function cli(): Promise<void> {
 	const args = flags.parse(Deno.args, {
 		boolean: ['exit','strict', 'unsafe', 'verbose'],
 		collect: ['lib'],
@@ -276,7 +316,8 @@ function cli(): void {
 				replPerLine(args);
 				break;
 			case 'rewriteFile':
-				rewriteFile(<string> args._[1]);
+				await rewriteFileSequence(<string[]> args._.slice(1));
+				host.exit(0);
 				break;
 			case 'runFile':
 				runFile(<string> args._[1], args);
@@ -304,4 +345,4 @@ globalThis.sl = sl;
 globalThis.sc = sc;
 globalThis.host = host;
 
-cli();
+await cli();

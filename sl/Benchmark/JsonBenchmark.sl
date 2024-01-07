@@ -257,7 +257,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	readObjectKeyValuePair { :self :object |
-		let name |
+		let name = nil;
 		self.skipWhiteSpace;
 		name := self.readName;
 		self.skipWhiteSpace;
@@ -330,7 +330,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	readStringInternal { :self |
-		let string |
+		let string = nil;
 		self.read;
 		self.startCapture;
 		{ self.current = '"' }.whileFalse {
@@ -368,7 +368,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	readNumber { :self |
-		let firstDigit |
+		let firstDigit = nil;
 		self.startCapture;
 		self.readChar('-');
 		firstDigit := self.current;
@@ -463,7 +463,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	endCapture { :self |
-		let captured |
+		let captured = nil;
 		('' = self.captureBuffer).if {
 			captured := self.input.copyFromTo(self.captureStart, self.index - 1)
 		} {

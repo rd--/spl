@@ -207,7 +207,8 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 				self.identifyEdges(size);
 				self.header[1] := 1;
 				size.downToDo(1) { :w |
-					let nodePool = Array(), nodeW = self.nodes[w].bb;
+					let nodePool = Array();
+					let nodeW = self.nodes[w].bb;
 					nodeW.notNil.ifTrue {
 						let workList = Array();
 						self.stepDNodePool(w, nodePool);
@@ -218,9 +219,8 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 							self.type[w] := 'BBReducible'
 						};
 						{ workList.isEmpty }.whileFalse {
-							let x nonBackSize |
-							x := workList.removeFirst;
-							nonBackSize := self.nonBackPreds[x.dfsNumber].size;
+							let x = workList.removeFirst;
+							let nonBackSize = self.nonBackPreds[x.dfsNumber].size;
 							(nonBackSize > self.maxNonBackPreds).ifTrue {
 								self.return
 							};
@@ -240,7 +240,8 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 
 	stepEProcessNonBackPredsNodePoolWorkListX { :self :w :nodePool :workList :x |
 		self.nonBackPreds[x.dfsNumber].do { :iter |
-			let y = self.nodes[iter], ydash = y.findSet;
+			let y = self.nodes[iter];
+			let ydash = y.findSet;
 			self.isAncestorV(w, ydash. dfsNumber).not.if {
 				self.type[w] := 'BBIrreducible';
 				self.nonBackPreds[w].include(ydash.dfsNumber)
@@ -405,8 +406,8 @@ LoopTesterApp : [Object] { | cfg lsg |
 			self.buildConnectEnd(2, n + 1);
 			n +:= 1;
 			pparLoops.timesRepeat {
-				let top bottom |
-				top := n;
+				let top = n;
+				let bottom = nil;
 				n := self.buildStraightN(n, 1);
 				ppparLoops.timesRepeat {
 					n := self.buildBaseLoop(n)
@@ -545,7 +546,7 @@ UnionFindNode : [Object] { | parent bb dfsNumber loop |
 			150 -> [2052, 5213],
 			1500 -> [6102, 5213],
 			15000 -> [46602, 5213]
-		].Map) { :iterations |
+		].asMap) { :iterations |
 			LoopTesterApp().mainLoopPPP(iterations, 50, 10, 10, 5)
 		}
 	}

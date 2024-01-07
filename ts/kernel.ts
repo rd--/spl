@@ -214,6 +214,7 @@ export class Package {
 	requires: string[];
 	url: string;
 	text: string;
+	preCompiled: boolean;
 	isLoaded: boolean;
 	constructor(
 		category: string,
@@ -221,6 +222,7 @@ export class Package {
 		requires: string[],
 		url: string,
 		text: string,
+		preCompiled: boolean,
 		isLoaded: boolean,
 	) {
 		this.category = category;
@@ -228,6 +230,7 @@ export class Package {
 		this.requires = requires;
 		this.url = url;
 		this.text = text;
+		this.preCompiled = preCompiled;
 		this.isLoaded = isLoaded;
 	}
 }
@@ -244,7 +247,11 @@ export function parsePackageRequires(text: string): string[] {
 
 export function evaluatePackage(pkg: Package): unknown {
 	// console.debug(`evaluatePackage: ${pkg.name}, ${pkg.text}`);
-	return evaluate.evaluateFor(pkg.name, pkg.text);
+	if(pkg.preCompiled) {
+		return eval(pkg.text);
+	} else {
+		return evaluate.evaluateFor(pkg.name, pkg.text);
+	}
 }
 
 export async function evaluatePackageArrayInSequence(pkgArray: Package[]) {
@@ -665,7 +672,8 @@ export function initializeLocalPackages(
 			url,
 			'',
 			false,
-		); /* note: requires and text are set after fetch */
+			false,
+		); /* note: requires and text and preCompiled are set after fetch */
 		/* add to dictionary (initialized & fetched, not loaded) */
 		system.packageDictionary.set(name, pkg);
 		packageArray.push(pkg);
@@ -675,14 +683,14 @@ export function initializeLocalPackages(
 
 /* Evaluate already fetched packages in sequence. */
 export async function primitiveLoadPackageSequence(
-	packageNames: string[],
+	packageNames: string[]
 ): Promise<void> {
 	// console.debug(`primitiveLoadPackageSequence: '${packageNames}'`);
 	const packageArray: Package[] = [];
 	packageNames.forEach((name) => {
 		const pkg = system.packageDictionary.get(name);
 		if (pkg == undefined) {
-			console.error(
+			throw Error(
 				`primitiveLoadPackageSequence: no such package: ${name}, ${pkg}`,
 			);
 		} else {

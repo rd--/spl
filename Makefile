@@ -2,6 +2,7 @@ all:
 	echo "spl"
 
 clean:
+	rm -f sl/*/*.sl.js
 	rm -f js/sl.js
 
 push-all:

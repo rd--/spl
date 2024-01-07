@@ -766,3 +766,16 @@ export function rewriteString(slText: string): string {
 	// console.debug(`rewriteString: ${slText} => ${jsText}`);
 	return jsText;
 }
+
+export function rewriteStringFor(packageName: string, slText: string): string {
+	let jsText: string;
+	context.packageName = packageName;
+	try {
+		jsText = rewriteString(slText);
+		context.packageName = '*UnknownPackage*';
+		return jsText;
+	} catch (err) {
+		context.packageName = '*UnknownPackage*';
+		throw new Error('Rewrite failed', { cause: err });
+	}
+}

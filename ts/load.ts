@@ -9,15 +9,19 @@ export function setLoadPath(directoryName: string): void {
 	loader.loadPath = directoryName;
 }
 
+// Resolve non-absolute file names against loader.loadPath.
 export function resolveFileName(fileName: string): string {
-	const resolvedName = fileName[0] === '/'
+	const resolvedFileName = fileName[0] === '/'
 		? fileName
 		: `${loader.loadPath}/${fileName}`;
-	console.log(`resolveFileName: ${resolvedName}`);
-	return resolvedName;
+	console.log(`resolveFileName: ${resolvedFileName}`);
+	return resolvedFileName;
 }
 
-// Fetch files asynchronously, store at packageIndex
+export function preCompiledFileName(fileName: string, preCompiled: boolean): string {
+	return preCompiled ? (fileName + '.js') : fileName;
+}
+
 export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {
 	const resolvedFileName = resolveFileName(fileName);
 	return fetch(resolvedFileName).then(function (response) {
@@ -30,6 +34,7 @@ export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {
 // Fetch files asynchronously, store at packageIndex
 export async function primitiveReadLocalPackages(
 	qualifiedPackageNames: string[],
+	preCompiled: boolean
 ): Promise<void> {
 	const packageArray = await kernel.initializeLocalPackages(
 		qualifiedPackageNames,
@@ -38,7 +43,10 @@ export async function primitiveReadLocalPackages(
 	packageArray.forEach(function (pkg: kernel.Package) {
 		// console.debug('primitiveReadLocalPackages', pkg.url);
 		const resolvedFileName = resolveFileName(pkg.url);
-		return resolvedFileNameArray.push(resolvedFileName);
+		pkg.preCompiled = preCompiled;
+		return resolvedFileNameArray.push(
+			preCompiledFileName(resolvedFileName, preCompiled)
+		);
 	});
 	const fetchedTextArray = await Promise.all(
 		resolvedFileNameArray.map(function (fileName: string): Promise<string> {
@@ -58,7 +66,7 @@ export function addLoadUrlMethods(): void {
 		'Array',
 		'Kernel',
 		'primitiveReadLocalPackages',
-		['self'],
+		['self', 'preCompiled'],
 		primitiveReadLocalPackages,
 		'<primitive: package reader>',
 	);

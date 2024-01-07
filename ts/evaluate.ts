@@ -8,27 +8,19 @@ function onlyBlanks(text: string): boolean {
 // Evaluate for named context, signals error conditions.
 export function evaluateForSignalling(
 	packageName: string,
-	text: string,
+	slText: string,
 ): unknown {
 	// console.debug(`evaluateForSignalling: ${packageName}, ${text}`);
-	if (onlyBlanks(text)) {
+	if (onlyBlanks(slText)) {
 		throw new Error('Empty string');
 	} else {
-		let toEval: string;
-		rewrite.context.packageName = packageName;
-		try {
-			toEval = rewrite.rewriteString(text);
-		} catch (err) {
-			rewrite.context.packageName = '*UnknownPackage*';
-			throw new Error('Rewrite failed', { cause: err });
-		}
-		rewrite.context.packageName = '*UnknownPackage*';
-		if (onlyBlanks(toEval)) {
+		let jsText = rewrite.rewriteStringFor(packageName, slText);
+		if (onlyBlanks(jsText)) {
 			throw new Error('Empty string after rewrite');
 		} else {
 			try {
-				// console.debug(`eval: ${toEval}`);
-				return eval(toEval);
+				// console.debug(`eval: ${jsText}`);
+				return eval(jsText);
 			} catch (err) {
 				throw new Error('Evaluation failed', { cause: err });
 			}
@@ -37,13 +29,13 @@ export function evaluateForSignalling(
 }
 
 // Evaluate for named context, traps error conditions and answers error values.
-export function evaluateFor(packageName: string, text: string): unknown {
-	// console.debug(`evaluateFor: ${packageName}, ${text}`);
+export function evaluateFor(packageName: string, slText: string): unknown {
+	// console.debug(`evaluateFor: ${packageName}, ${slText}`);
 	try {
-		return evaluateForSignalling(packageName, text);
+		return evaluateForSignalling(packageName, slText);
 	} catch (err) {
 		console.error(
-			`evaluateFor: ${packageName}: "${text}": ${err.message}: ${err.cause}`,
+			`evaluateFor: ${packageName}: "${slText}": ${err.message}: ${err.cause}`,
 		);
 		return err;
 	}

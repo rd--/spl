@@ -5,7 +5,7 @@
 			1 -> 128,
 			500 -> 191,
 			750 -> 50
-		].Map) { :size |
+		].asMap) { :size |
 			let sum = 0;
 			let byteAcc = 0;
 			let bitNum = 0;

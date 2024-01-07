@@ -87,7 +87,7 @@ NBodySystem : [Object] { | bodies |
 		1.toDo(self.bodies.size) { :i |
 			let iBody = self.bodies[i];
 			(i + 1).toDo(self.bodies.size) { :j |
-				let jBody = self.bodies[j],
+				let jBody = self.bodies[j];
 				let dx = iBody:@x - jBody:@x;
 				let dy = iBody:@y - jBody:@y;
 				let dz = iBody:@z - jBody:@z;
@@ -155,7 +155,7 @@ NBodySystem : [Object] { | bodies |
 		Benchmark('NBody', [
 			1 -> -0.16907495402506745,
 			250000 -> -0.1690859889909308
-		].Map) { :iterations |
+		].asMap) { :iterations |
 			let system = NBodySystem();
 			iterations.timesRepeat {
 				system.advance(0.01)
