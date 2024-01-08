@@ -24,17 +24,14 @@ export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {
 // Fetch files asynchronously, store at packageIndex
 export async function primitiveReadLocalPackages(
 	qualifiedPackageNames: string[],
-	preCompiled: boolean
 ): Promise<void> {
 	const packageArray = await kernel.initializeLocalPackages(
 		qualifiedPackageNames,
 	);
 	const resolvedFileNameArray: string[] = [];
 	packageArray.forEach((pkg) => {
-		const resolvedFileName = load.resolveFileName(pkg.url);
-		resolvedFileNameArray.push(
-			load.preCompiledFileName(resolvedFileName, preCompiled)
-		);
+		const resolvedFileName = load.resolveFileName(load.packageFileName(pkg));
+		resolvedFileNameArray.push(resolvedFileName);
 	});
 	const fetchedTextArray = await Promise.all(
 		resolvedFileNameArray.map(function (fileName: string) {
@@ -52,7 +49,7 @@ export function addLoadFileMethods(): void {
 		'Array',
 		'Kernel',
 		'primitiveReadLocalPackages',
-		['self', 'preCompiled'],
+		['self'],
 		primitiveReadLocalPackages,
 		'<primitive: package reader>',
 	);

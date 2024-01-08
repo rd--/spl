@@ -1,10 +1,45 @@
-import Data.Char {- base -}
+{- | A very simple indentation model for Spl programs.
 
+The next line is shifted one place right if:
+
+- there are more opening than closing tokens on the current line
+- there is a trailing opening token
+
+The current line is shifted left if:
+
+- there is a leading closing token
+
+The current line is shifted right if:
+
+- it begins with a period and the previous line does not
+
+-}
+
+import qualified Data.Char {- base -}
+import Data.List {- base -}
+import System.Environment {- base -}
+
+import qualified Music.Theory.Io as Io {- hmt-base -}
+
+-- | Is opening token.
 isOpening :: Char -> Bool
 isOpening = flip elem "({["
 
+-- | Is closing token.
 isClosing :: Char -> Bool
 isClosing = flip elem ")}]"
+
+firstIndexFor :: (a -> Bool) -> [a] -> Maybe Int
+firstIndexFor f s =
+  case findIndices f s of
+    [] -> Nothing
+    i:_ -> Just i
+
+lastIndexFor :: (a -> Bool) -> [a] -> Maybe Int
+lastIndexFor f s =
+  case findIndices f s of
+    [] -> Nothing
+    i -> Just (last i)
 
 {- | Count opening and closing parentheses, brackets and braces.
 
@@ -15,6 +50,9 @@ isClosing = flip elem ")}]"
 (0,1)
 
 >>> countOpeningAndClosing "{}"
+(1,1)
+
+>>> countOpeningAndClosing "} {"
 (1,1)
 -}
 countOpeningAndClosing :: String -> (Int, Int)
@@ -29,17 +67,28 @@ countOpeningAndClosing =
 
 {- | Count leading closing characters.
 
->>> countLeadingClosing "}"
+> countLeadingClosing "}"
 1
 
->>> countLeadingClosing "})]"
+> countLeadingClosing "})]"
 3
--}
 countLeadingClosing :: String -> Int
 countLeadingClosing = length . takeWhile isClosing
+-}
+
+{- | Count trailing opening characters.
+
+> countTrailingOpening "f(x) {"
+1
+
+> countTrailingOpening "f(["
+2
+countTrailingOpening :: String -> Int
+countTrailingOpening = length . takeWhile isOpening . reverse
+-}
 
 {- | Difference between opening and closing counts.
-A positive value indicates an increase in indentation for the following line,
+A positive value indicates an increase in indentation for the _following_ line,
 a negative value indicates a decrease, and zero indicates equal indentation.
 
 >>> inOrOutDent "("
@@ -50,33 +99,100 @@ a negative value indicates a decrease, and zero indicates equal indentation.
 
 >>> inOrOutDent "{}"
 0
+
+>>> inOrOutDent "} {"
+0
+
+>>> inOrOutDent "(["
+1
+
+>>> inOrOutDent "]) {"
+-1
 -}
 inOrOutDent :: String -> Int
 inOrOutDent = signum . uncurry (-) . countOpeningAndClosing
 
-leadingClosing :: String -> Int
-leadingClosing = signum . countLeadingClosing
+{- | Has leading closing
 
-{- | Indent line by indicated amount and return indent for next line and indented line.
+>>> hasLeadingClosing "x [] {"
+False
 
->>> indentLine 1 "f("
-(2,"\tf(")
-
->>> indentLine 1 ""
-(1,"")
+>>> hasLeadingClosing "]} {"
+True
 -}
-indentLine :: Int -> String -> (Int, String)
-indentLine i s =
-  let o = i + inOrOutDent s
-  in (o, if null s then s else replicate (i - leadingClosing s) '\t' ++ s)
+hasLeadingClosing :: String -> Bool
+hasLeadingClosing s =
+  case (firstIndexFor isOpening s, firstIndexFor isClosing s) of
+    (Nothing, Just _) -> True
+    (Just o, Just c) -> c < o
+    _ -> False
+
+{- | Has trailing opening
+
+>>> hasTrailingOpening "x [] {"
+True
+-}
+hasTrailingOpening :: String -> Bool
+hasTrailingOpening s =
+  case (lastIndexFor isOpening s, lastIndexFor isClosing s) of
+    (Just _, Nothing) -> True
+    (Just o, Just c) -> o > c
+    _ -> False
+
+firstNonWhiteSpaceChar :: String -> Maybe Char
+firstNonWhiteSpaceChar = find (not . Data.Char.isSpace)
+
+
+{- | Has leading dot
+
+>>> hasLeadingDot "\t.x(y)"
+True
+
+>>> hasLeadingDot "\tf.x(y)"
+False
+-}
+hasLeadingDot :: String -> Bool
+hasLeadingDot s =
+  case firstNonWhiteSpaceChar s of
+    Just '.' -> True
+    _ -> False
+
+indentNext :: String -> Bool
+indentNext s = inOrOutDent s > 0 || hasTrailingOpening s
+
+type State = (Int, Bool)
+
+{- | Indent line by indicated amount and return:
+
+- indent for next line
+- leading dot for this line
+- indented line
+
+>>> indentLine (1,False) "f("
+((2,False),"\tf(")
+
+>>> indentLine (1,False) ""
+((1,False),"")
+-}
+indentLine :: State -> String -> (State, String)
+indentLine (i, d) s =
+  let d' = hasLeadingDot s
+      next = if indentNext s then 1 else 0
+      current = if d' && (not d)
+                then 1
+                else if hasLeadingClosing s
+                     then -1
+                     else 0
+      s' = if null s then s else replicate (i + current) '\t' ++ s
+  in ((i + next + current, d'), s')
 
 {- | Indent sequence of non-indented lines. -}
-indentRegion :: Int -> [String] -> [String]
-indentRegion k = map snd . tail . scanl (\(i, _) s -> indentLine i s) (k, "")
+indentRegion :: State -> [String] -> [String]
+indentRegion z0 = snd . mapAccumL (\z s -> indentLine z s) z0
 
 {- | Remove indentation from line. -}
 clearIndent :: String -> String
-clearIndent = dropWhile isSpace
+clearIndent = dropWhile Data.Char.isSpace
 
 {- | Indent text starting at left (indent 0).
 
@@ -84,7 +200,16 @@ clearIndent = dropWhile isSpace
 "f(\n\tx,\n\ty\n)\n"
 -}
 indentText :: String -> String
-indentText = unlines . indentRegion 0 . map clearIndent . lines
+indentText = unlines . indentRegion (0, False) . map clearIndent . lines
+
+indentFileInPlace :: FilePath -> IO ()
+indentFileInPlace fn = do
+  i <- Io.read_file_utf8 fn
+  Io.write_file_utf8 fn (indentText i)
 
 main :: IO ()
-main = interact indentText
+main = do
+  a <- getArgs
+  case a of
+    [] -> interact indentText
+    fn -> mapM_ indentFileInPlace fn

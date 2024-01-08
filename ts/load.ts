@@ -18,8 +18,8 @@ export function resolveFileName(fileName: string): string {
 	return resolvedFileName;
 }
 
-export function preCompiledFileName(fileName: string, preCompiled: boolean): string {
-	return preCompiled ? (fileName + '.js') : fileName;
+export function packageFileName(pkg: kernel.Package): string {
+	return pkg.preCompiled ? ('.cache/' + pkg.name + '.js') : pkg.url;
 }
 
 export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {
@@ -34,7 +34,6 @@ export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {
 // Fetch files asynchronously, store at packageIndex
 export async function primitiveReadLocalPackages(
 	qualifiedPackageNames: string[],
-	preCompiled: boolean
 ): Promise<void> {
 	const packageArray = await kernel.initializeLocalPackages(
 		qualifiedPackageNames,
@@ -42,11 +41,8 @@ export async function primitiveReadLocalPackages(
 	const resolvedFileNameArray: string[] = [];
 	packageArray.forEach(function (pkg: kernel.Package) {
 		// console.debug('primitiveReadLocalPackages', pkg.url);
-		const resolvedFileName = resolveFileName(pkg.url);
-		pkg.preCompiled = preCompiled;
-		return resolvedFileNameArray.push(
-			preCompiledFileName(resolvedFileName, preCompiled)
-		);
+		const resolvedFileName = resolveFileName(packageFileName(pkg));
+		return resolvedFileNameArray.push(resolvedFileName);
 	});
 	const fetchedTextArray = await Promise.all(
 		resolvedFileNameArray.map(function (fileName: string): Promise<string> {
@@ -66,7 +62,7 @@ export function addLoadUrlMethods(): void {
 		'Array',
 		'Kernel',
 		'primitiveReadLocalPackages',
-		['self', 'preCompiled'],
+		['self'],
 		primitiveReadLocalPackages,
 		'<primitive: package reader>',
 	);

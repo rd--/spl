@@ -64,11 +64,11 @@ Blob! : [Object, Blob] {
 
 (* Requires: ByteArray Float64Array *)
 (*
-+[ByteArray, Float64Array] {
+	+[ByteArray, Float64Array] {
 
-	asBlob { :self |
-		[self].asBlob
+		asBlob { :self |
+			[self].asBlob
+		}
+
 	}
-
-}
 *)

@@ -12,11 +12,18 @@
 
 	asWords { :self |
 		let mils = [
-			'', ' thousand',
-			' million', ' billion', ' trillion', ' quadrillion', ' quintillion',
-			' sextillion', ' septillion', ' octillion', ' nonillion', ' decillion',
-			' undecillion', ' duodecillion', ' tredecillion', ' quattuordecillion', ' quindecillion',
-			' sexdecillion', ' septendecillion', ' octodecillion', ' novemdecillion', ' vigintillion'
+			'',
+			' thousand',
+			' million', ' billion',
+			' trillion', ' quadrillion',
+			' quintillion', ' sextillion',
+			' septillion', ' octillion',
+			' nonillion', ' decillion',
+			' undecillion', ' duodecillion',
+			' tredecillion', ' quattuordecillion',
+			' quindecillion', ' sexdecillion',
+			' septendecillion', ' octodecillion',
+			' novemdecillion', ' vigintillion'
 		];
 		(self = 0).if {
 			'zero'

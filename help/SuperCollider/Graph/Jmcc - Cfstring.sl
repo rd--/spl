@@ -12,7 +12,7 @@
 	let osc = {
 		LfSaw(
 			freq * [TRand(0.99, 1.0, tr), TRand(0.99, 1.01, tr)],
-			0)
+		0)
 		* amp
 	} !+ 8;
 	let eg = Decay2(tr, 0.5, 1);

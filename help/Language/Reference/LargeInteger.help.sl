@@ -1,4 +1,4 @@
-# LargeInteger -- number type
+# LargeInteger -- numeric type
 
 Type representing an arbitrary precision integral number.
 
@@ -8,4 +8,4 @@ Large integers have a distinct literal syntax indicated by an _n_ suffix.
 
 * * *
 
-See also: Integer, SmallFloat
+See also: Binary, Integer, Magnitude, Number, SmallFloat

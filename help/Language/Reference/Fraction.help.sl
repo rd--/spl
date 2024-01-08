@@ -51,7 +51,7 @@ Note that Fraction and Integer represent together the set of Rational numbers:
 	2:3.raisedToInteger(5) = 32:243
 
 A Fraction whose elements are of type SmallFloat will have odd behaviour for large components,
-a Fraction whose elements are of type LargeInteger will have behave ordinarily.
+a Fraction whose elements are of type LargeInteger will behave ordinarily.
 
 	let x = Fraction(2 ^ 55, 2);  x ~= (x - 1) = false
 	let x = Fraction(2n ^ 55n, 2);  x ~= (x - 1)

@@ -1,9 +1,8 @@
 # Complex -- numeric type
 
-- _Complex(aComplex | aNumber)_
+- _Complex(real, imaginary)_
 
-In the Complex case answer _identity_.
-In the Number case answer a Complex number with a real part of _aNumber_ and an imaginary part of zero.
+Answer a Complex number with the indicated real and imaginary parts.
 
 * * *
 

@@ -97,7 +97,7 @@ Frame : [Object, UserEventTarget] { | smallKansas framePane titlePane closeButto
 			event.target.setPointerCapture(event.pointerId);
 			self.inMove := true;
 			self.x0 := event.x - titleRect.x;
-				self.y0 := event.y - titleRect.y
+			self.y0 := event.y - titleRect.y
 		};
 		let pointerMove = { :event |
 			self.inMove.ifTrue {

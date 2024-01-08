@@ -1,8 +1,8 @@
 all:
-	spl rewriteFile */*.sl
+	spl cacheRewriteFile */*.sl
 
 clean:
-	rm -f */*.sl.js
+	rm -f .cache/*.js
 
 mk-tags:
 	etags --regex='/\t\([^ ]+\)/\1/' */*.sl */*/*.sl

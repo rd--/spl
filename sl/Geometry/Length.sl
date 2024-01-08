@@ -49,7 +49,7 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	miles { :self |
-		 self.metres / 1609.344
+		self.metres / 1609.344
 	}
 
 	nauticalMiles { :self |
@@ -121,7 +121,7 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	miles { :self |
-		 (self * 1609.344).metres
+		(self * 1609.344).metres
 	}
 
 	nauticalMiles { :self |

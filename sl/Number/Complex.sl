@@ -263,9 +263,9 @@ Complex : [Object] { | real imaginary |
 	storeString { :self |
 		[
 			'Complex(',
-			self.real.storeString,
-			', ',
-			self.imaginary.storeString,
+				self.real.storeString,
+				', ',
+				self.imaginary.storeString,
 			')'
 		].join
 	}
@@ -286,8 +286,8 @@ Complex : [Object] { | real imaginary |
 		Complex(self, self.zero)
 	}
 
-	Complex { :self :imaginary |
-		newComplex().initializeSlots(self, imaginary)
+	Complex { :real :imaginary |
+		newComplex().initializeSlots(real, imaginary)
 	}
 
 	i { :self |

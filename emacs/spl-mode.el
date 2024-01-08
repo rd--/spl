@@ -59,9 +59,13 @@
    (buffer-substring-no-properties start end)))
 
 (defun spl-get-paragraph ()
-  "Get the currently paragraph as a string, with code fences deleted."
+  "Get the current paragraph as a string, with code fences deleted."
   (spl-set-region-to-paragraph)
   (spl-get-text (region-beginning) (region-end)))
+
+(defun spl-get-line ()
+  "Get the currently line as a string."
+  (buffer-substring-no-properties (line-beginning-position) (line-end-position)))
 
 (defun spl-eval-paragraph ()
   "Evaluate paragraph at Spl server."
@@ -72,6 +76,11 @@
   "Load current file at Spl server."
   (interactive)
   (spl-netcat-cmd 'evalFile 'fileName buffer-file-name))
+
+(defun spl-eval-line ()
+  "Evaluate line at Spl server."
+  (interactive)
+  (spl-netcat-cmd 'evalText 'text (spl-get-line)))
 
 (defun spl-play-paragraph ()
   "Play Ugen graph of current paragraph."
@@ -256,6 +265,7 @@
   (define-key map (kbd "C-c C-a") 'spl-play-paragraph)
   (define-key map (kbd "C-c C-g") 'spl-draw-paragraph)
   (define-key map (kbd "C-c C-e") 'spl-eval-paragraph)
+  (define-key map (kbd "C-c C-l") 'spl-eval-line)
   (define-key map (kbd "C-c C-k") 'spl-reset-scsynth)
   (define-key map (kbd "C-c C-s") 'spl-stop)
   (define-key map (kbd "C-c C-r") 'spl-insert-non-local-return)

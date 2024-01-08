@@ -28,7 +28,7 @@ ScUgen! : [Object] {
 		[
 			self.name,
 			'(',
-			self.inputArray.collect(printString:/1).joinSeparatedBy(', ')
+				self.inputArray.collect(printString:/1).joinSeparatedBy(', ')
 			,')'
 		].join
 	}

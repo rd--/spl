@@ -13,3 +13,9 @@ remote-update:
 
 remote-dist:
 	sftp rd@rohandrape.net:rohandrape.net/pub/spl/dist/ <<< $'put dist/sl.js'
+
+indent:
+	spl-indent sl/*/*.sl
+
+doctest:
+	doctest -Wno-x-partial -Wno-incomplete-uni-patterns hs

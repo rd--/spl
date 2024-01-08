@@ -8,10 +8,10 @@ let maxDelayTime = 0.05;
 let output = sinInput * env + noiseInput;
 numDelays.timesRepeat {
 	output := AllpassN(
-                output,
-                maxDelayTime,
+		output,
+		maxDelayTime,
 		{ Rand(0, maxDelayTime) } ! 2,
-                decayTime
+		decayTime
 	)
 };
 output

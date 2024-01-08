@@ -19,8 +19,8 @@ GrainFm(
 	1,
 	TRand(-1, 1, tr),
 	-1,
-	2048)
-.Splay / 99
+	2048
+).Splay / 99
 
 (* https://scsynth.org/t/6452 ; rd edit *)
 let tr = Impulse(1 * Line(0.1, 10, 90), 0);

@@ -209,7 +209,7 @@ let h0 = {
 	let f = 40;
 	let h = HenonN([f, f * 0.5], a, b, 0, 0);
 	Saw(h * 3200 + 1600) * 0.35
- };
+};
 let h1 = {
 	let n0 = LfNoise0(32);
 	let n1 = LfNoise0(2);
@@ -222,5 +222,5 @@ let h1 = {
 	let f = 40;
 	let o = Blip(HenonN(f, a, b, 0, 0).Range(p, p * 2), h);
 	EqPan(o, l) * g * 0.35
- };
+};
 h0() + h1()

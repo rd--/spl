@@ -244,11 +244,11 @@ ScSynth! : [Object] {
 		<primitive: return sc.asLocalBuf(_self);>
 	}
 
-(*
-	Mix { :self |
-		self.sum
-	}
-*)
+	(*
+		Mix { :self |
+			self.sum
+		}
+	*)
 
 }
 

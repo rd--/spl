@@ -98,20 +98,20 @@
 	}
 
 	(*
-	ExpRand { :tr :lo :hi | TExpRand(lo, hi, tr) }
-	LinRand { :tr :lo :hi :minmax | TLinRand(lo, hi, minmax, tr) }
-	Line { :tr :start :end :dur | TLine(start, end, dur, tr) }
-	Rand { :tr :lo :hi | TRand(lo, hi, tr) }
-	Scramble { :tr :inArray | TScramble(tr, inArray) }
-	IRand { :tr :lo :hi | TiRand(lo, hi, tr) }
-	XLine { :tr :start :end :dur | TxLine(start, end, dur, tr) }
+		ExpRand { :tr :lo :hi | TExpRand(lo, hi, tr) }
+		LinRand { :tr :lo :hi :minmax | TLinRand(lo, hi, minmax, tr) }
+		Line { :tr :start :end :dur | TLine(start, end, dur, tr) }
+		Rand { :tr :lo :hi | TRand(lo, hi, tr) }
+		Scramble { :tr :inArray | TScramble(tr, inArray) }
+		IRand { :tr :lo :hi | TiRand(lo, hi, tr) }
+		XLine { :tr :start :end :dur | TxLine(start, end, dur, tr) }
 	*)
 
-(*
-	AudioIn { :channelNumber |
-		In(1, NumOutputBuses() + channelNumber - 1)
-	}
-*)
+	(*
+		AudioIn { :channelNumber |
+			In(1, NumOutputBuses() + channelNumber - 1)
+		}
+	*)
 
 	AudioOut { :channelsArray |
 		Out(0, channelsArray)
@@ -240,7 +240,7 @@
 		};
 		levelComp.ifTrue {
 			(* Cf. <https://github.com/supercollider/supercollider/issues/5706>
-				Note that deleting .sqrt can dramatically alter feedback paths. *)
+			Note that deleting .sqrt can dramatically alter feedback paths. *)
 			level := level * n.reciprocal.sqrt
 		};
 		PanAz(numChannels, inArray, pos, level, width, orientation).flop.collect(sum:/1)

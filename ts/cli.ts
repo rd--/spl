@@ -67,7 +67,7 @@ BigInt.prototype.toJSON = function () {
 function help(): void {
 	console.log('spl');
 	console.log('  replPerLine --dir=loadPath [--lib=library ...]');
-	console.log('  rewriteFile fileName');
+	console.log('  cacheRewriteFile fileName ...');
 	console.log('  runFile fileName --dir=loadPath [--lib=library ...]');
 	console.log('  sc playFile --dir=loadPath');
 	console.log('  sc tcpServer --port=portNumber --dir=loadPath');
@@ -81,7 +81,7 @@ function help(): void {
 }
 
 function pathBasename(path: string): string {
-	return path.split(/[\\/]/).pop();
+	return path.split(/[\\/]/).pop() || '';
 }
 
 function pathFinalExtension(path: string): string {
@@ -108,18 +108,23 @@ function pathWithoutAnyExtension(path: string): string {
 	}
 }
 
-async function rewriteFile(fileName: string): Promise<void> {
-	let slText = await host.readTextFile(fileName);
-	let packageName = pathWithoutAnyExtension(pathBasename(fileName));
-	console.debug('rewriteFile', fileName, packageName);
-	let jsText = rewrite.rewriteStringFor(packageName, slText);
-	host.writeTextFile(fileName + '.js', jsText);
+async function cacheRewriteFile(slFileName: string): Promise<void> {
+	const packageName = pathWithoutAnyExtension(pathBasename(slFileName));
+	const jsFileName = '.cache/' + packageName + '.js';
+	const slMtime = await host.statMtime(slFileName);
+	const jsMtime = await host.statMtime(jsFileName);
+	if(jsMtime < slMtime) {
+		const slText = await host.readTextFile(slFileName);
+		console.debug('cacheRewriteFile', slFileName, packageName, jsFileName);
+		const jsText = rewrite.rewriteStringFor(packageName, slText);
+		host.writeTextFile(jsFileName, jsText);
+	}
 }
 
-async function rewriteFileSequence(fileNameSequence: string[]): Promise<void> {
+async function cacheRewriteFileSequence(fileNameSequence: string[]): Promise<void> {
 	for(const fileName of fileNameSequence) {
-		console.log(`rewriteFile: ${fileName}`);
-		await rewriteFile(fileName);
+		// console.debug(`cacheRewriteFileSequence: ${fileName}`);
+		await cacheRewriteFile(fileName);
 	}
 }
 
@@ -315,8 +320,8 @@ async function cli(): Promise<void> {
 			case 'replPerLine':
 				replPerLine(args);
 				break;
-			case 'rewriteFile':
-				await rewriteFileSequence(<string[]> args._.slice(1));
+			case 'cacheRewriteFile':
+				await cacheRewriteFileSequence(<string[]> args._.slice(1));
 				host.exit(0);
 				break;
 			case 'runFile':

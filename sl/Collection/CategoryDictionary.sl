@@ -9,7 +9,7 @@ CategoryDictionary : [Object] { | domainDictionary |
 
 	categoriesOf { :self :entry |
 		self.domains.collect { :each |
-				self.categoriesOf(each, entry)
+			self.categoriesOf(each, entry)
 		}.concatenation
 	}
 

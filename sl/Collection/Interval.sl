@@ -192,11 +192,11 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 	storeString { :self |
 		[
 			'Interval(',
-			self.start,
-			', ',
-			self.stop,
-			', ',
-			self.step,
+				self.start,
+				', ',
+				self.stop,
+				', ',
+				self.step,
 			')'
 		].join
 	}

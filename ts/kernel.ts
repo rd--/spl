@@ -246,7 +246,7 @@ export function parsePackageRequires(text: string): string[] {
 }
 
 export function evaluatePackage(pkg: Package): unknown {
-	// console.debug(`evaluatePackage: ${pkg.name}, ${pkg.text}`);
+	// console.debug(`evaluatePackage: ${pkg.name}, ${pkg.url}, ${pkg.preCompiled}`);
 	if(pkg.preCompiled) {
 		return eval(pkg.text);
 	} else {
@@ -671,7 +671,7 @@ export function initializeLocalPackages(
 			[],
 			url,
 			'',
-			false,
+			true, // preCompiled
 			false,
 		); /* note: requires and text and preCompiled are set after fetch */
 		/* add to dictionary (initialized & fetched, not loaded) */

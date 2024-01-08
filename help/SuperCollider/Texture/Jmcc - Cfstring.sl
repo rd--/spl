@@ -12,8 +12,8 @@
 	let osc = {
 		LfSaw(
 			freq * [Rand(0.99, 1.01), Rand(0.99, 1.01)],
-			0)
-		* amp
+			0
+		) * amp
 	} !+ 8;
 	let eg = Decay2(Impulse(0, 0), 0.5, 1);
 	let out = eg * Rlpf(osc.Distort * 0.2, fc, 0.1);

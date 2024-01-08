@@ -21,9 +21,9 @@ Rectangle : [Object] { | origin corner |
 	asString { :self :toString:/1 |
 		[
 			'Rectangle(',
-			self.origin.toString,
-			', ',
-			self.corner.toString,
+				self.origin.toString,
+				', ',
+				self.corner.toString,
 			')'
 		].join
 	}

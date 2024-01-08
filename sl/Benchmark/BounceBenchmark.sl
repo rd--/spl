@@ -60,7 +60,7 @@ Ball : [Object] { | x y xVel yVel |
 					ball.bounce.ifTrue {
 						bounces +:= 1
 					}
-			}
+				}
 			};
 			bounces
 		}

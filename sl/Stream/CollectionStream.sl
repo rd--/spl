@@ -30,13 +30,13 @@ CollectionStream : [Object, Stream, PositionableStream] { | collection positionI
 		answer
 	}
 
-        position { :self :anInteger |
+	position { :self :anInteger |
 		self.validReadPosition(anInteger).if {
 			self.positionIndex := anInteger
 		} {
 			self.positionError
-                }
-        }
+		}
+	}
 
 	setFromTo { :self :newStart :newStop |
 		self.position := newStart - 1;

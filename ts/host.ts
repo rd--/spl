@@ -34,6 +34,14 @@ export async function readTextFile(path: string | URL): Promise<string> {
 	return Deno.readTextFile(path);
 }
 
+export async function statMtime(path: string | URL): Promise<number> {
+	return await Deno.stat(path).then(function(result) {
+		return result.mtime ? result.mtime.getTime() : 0;
+	}, function(reason) {
+		return 0;
+	});
+}
+
 export async function systemCommand(commandName: string, argumentArray: string[]) {
 	const command = new Deno.Command(commandName, {args: argumentArray});
 	return command.output().then(function(result) {

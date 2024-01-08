@@ -33,5 +33,8 @@ Trig(d, SampleDur()) * s.Sign * 0.1
 	SinOsc(freq, 0) * env
 } !^ 7
 
-(* ---- notes.md ---- *)
-DustRange ; inter-offset times generated randomly in range (seconds) ; uniform distribution
+(* ---- notes.md ----
+
+	Inter-offset times generated randomly in range (seconds) with uniform distribution.
+
+*)

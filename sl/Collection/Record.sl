@@ -53,9 +53,9 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 	storeString { :self |
 		[
 			'(',
-			self.associations.collect { :each |
-				each.key ++ ': ' ++ each.value.storeString
-			}.joinSeparatedBy(', '),
+				self.associations.collect { :each |
+					each.key ++ ': ' ++ each.value.storeString
+				}.joinSeparatedBy(', '),
 			')'
 		].join
 	}

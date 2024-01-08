@@ -100,9 +100,9 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 	storeString { :self |
 		[
 			'Vector2(',
-			self.x.storeString,
-			', ',
-			self.y.storeString,
+				self.x.storeString,
+				', ',
+				self.y.storeString,
 			')'
 		].join
 	}

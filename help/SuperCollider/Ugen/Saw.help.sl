@@ -8,5 +8,5 @@ let o = Saw(m.MidiCps);
 o.Splay / 2
 
 (* ---- ; calculations
-':>AEH.'.ascii = [58, 62, 65, 69, 72, 46]
+	':>AEH.'.ascii = [58, 62, 65, 69, 72, 46]
 *)

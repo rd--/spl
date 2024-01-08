@@ -1,4 +1,4 @@
-# Number -- number trait
+# Number -- numeric trait
 
 Trait for numerical values.
 

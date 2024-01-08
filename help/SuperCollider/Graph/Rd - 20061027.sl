@@ -17,7 +17,10 @@ let h1 = {
 		HenonN(
 			40,
 			MouseX(1.2, 1.4, 0, 0.1),
-			MouseY(0.2, 0.3, 0, 0.1), 0, 0).Range(p, p * 2),
+			MouseY(0.2, 0.3, 0, 0.1),
+			0,
+			0
+		).Range(p, p * 2),
 		LfNoise0(32).Range(1, 32)
 	);
 	EqPan(
