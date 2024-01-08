@@ -246,17 +246,17 @@
 	}
 
 	reduce { :self :aBlock:/2 |
-		let first = true;
+		let isFirst = true;
 		let nextValue = nil;
 		self.do { :each |
-			first.if {
+			isFirst.if {
 				nextValue := each;
-				first := false
+				isFirst := false
 			} {
 				nextValue := aBlock(nextValue, each)
 			}
 		};
-		first.ifTrue {
+		isFirst.ifTrue {
 			self.error('@Iterable>>reduce: empty collection')
 		};
 		nextValue

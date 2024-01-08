@@ -2510,6 +2510,8 @@ let r = Sfc32(98765); r.randomInteger(1, 10000) = 4956 (* random integer in [1, 
 let r = Sfc32(); let n = r.randomFloat; n >= 0 & { n < 1 } (* seed from system clock *)
 let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
 let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.randomInteger(9)) }; s.asArray.sorted = [1 .. 9] (* check distribution *)
+let r = Sfc32(98765); r.isStream (* stream predicate *)
+let r = Sfc32(98765); let a = r.next(9); r.reset; r.next(9) = a (* stream interface, next(k) answers next k items, reset resets *)
 ```
 
 ## Random -- Mersenne
@@ -2527,6 +2529,8 @@ let m = Mersenne(); let r = m.randomFloat; r >= 0 & { r < 1 } (* seed from syste
 Mersenne(123456).randomFloat = 0.12696983303810094 (* test from standard tests *)
 let m = Mersenne(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(9)) }; s.minMax = [1, 9] (* check distribution *)
 let m = Mersenne(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(9)) }; s.asArray.sorted = [1 .. 9] (* check distribution *)
+let m = Mersenne(98765); m.isStream (* stream predicate *)
+let m = Mersenne(98765); let a = m.next(9); m.reset; m.next(9) = a (* stream interface, next(k) answers next k items, reset resets *)
 ```
 
 ## Random -- SplitMix
@@ -2540,38 +2544,51 @@ let r = SplitMix(98765); r.randomFloat(10) = 0.8824091404676437 (* random number
 let r = SplitMix(98765); r.randomFloat(0, 100) = 8.824091404676437 (* random number in [0, 100) *)
 let r = SplitMix(98765); r.randomInteger(1000) = 89 (* random integer in [1, 1000] *)
 let r = SplitMix(98765); r.randomInteger(1, 10000) = 883 (* random integer in [1, 10000] *)
+let r = SplitMix(98765); r.isStream (* stream predicate *)
+let r = SplitMix(98765); let a = r.next(9); r.reset; r.next(9) = a (* stream interface, next(k) answers next k items, reset resets *)
 ```
 
 ## Random -- LinearCongruential
 ```
 system.includesPackage('LinearCongruential') (* LinearCongruential package *)
-let r = LinearCongruential(); r.typeOf = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandom }
-let r = LinearCongruential(); [r.randomFloat, r.randomFloat] = [0.3746499199817101, 0.729023776863283]
+let r = LinearCongruential(42); r.typeOf = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandom }
+let r = LinearCongruential(42); [r.randomFloat, r.randomFloat] = [0.3746499199817101, 0.729023776863283]
+let r = LinearCongruential(42); r.isStream (* stream predicate *)
+let r = LinearCongruential(42); let a = r.next(9); r.reset; r.next(9) = a (* stream interface, next(k) answers next k items, reset resets *)
+```
+
+## Iterator -- collection trait
+```
+system.includesPackage('Iterator') (* Iterator package *)
+[].asIterator.typeOf = 'CollectionStream' (* type of iterator *)
+[].asIterator.isIterator (* iterator predicate *)
+(1 .. 5).asIterator.upTo(3) = (1 .. 2) (* read up to, but not including, an element, answer is of species of collection *)
+(1 .. 5).asIterator.upTo(9) = (1 .. 5) (* read up to end if element is not located *)
+let r = [1 .. 5].asIterator; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] (* next answers nil at end *)
+let r = [1 .. 3].asIterator; [r.next, r.upToEnd] = [1, [2, 3]] (* read up to end *)
+let r = (1 .. 5).asIterator; r.upTo(3) = (1 .. 2) & { r.next = 4} (* matching element is consumed *)
+let r = (9 .. 1).asIterator; [r.upTo(3), r.upToEnd] = [(9 .. 4), (2 .. 1)] (* matching element is consumed *)
+[].asIterator.next = nil (* next at an empty read iterator answers nil *)
+let r = '.....ascii'.asciiByteArray.asIterator; let a = ByteArray(5); r.next(5); r.nextInto(a); a.asciiString = 'ascii'
+(1 .. 9).asIterator.nextSatisfy { :each | each >= 5 } = 5 (* read until element satisfies predicate *)
+(1 .. 9).asIterator.take(23) = [1 .. 9] (* take at most n items from iterator *)
+let r = (1 .. 9).asIterator; [r.nextMatchFor(1), r.next] = [true, 2] (* predicate at consumed item *)
+let r = (1 .. 9).asIterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] (* predicate at consumed items *)
 ```
 
 ## Stream -- collection trait
 ```
-system.includesPackage('Stream') (* CollectionStream package *)
+system.includesPackage('Stream') (* Stream package *)
 [].asStream.typeOf = 'CollectionStream' (* type of stream *)
 [].asStream.isStream (* stream predicate *)
-[].asStream.atEnd = true (* read stream at end predicate *)
-(1 .. 5).asStream.upTo(3) = (1 .. 2) (* read up to, but not including, an element, answer is of species of collection *)
-(1 .. 5).asStream.upTo(9) = (1 .. 5) (* read up to end if element is not located *)
-let r = [1 .. 5].asStream; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] (* next answers nil at end *)
-let r = [1 .. 3].asStream; [r.next, r.upToEnd] = [1, [2, 3]] (* read up to end *)
-let r = (1 .. 5).asStream; r.upTo(3) = (1 .. 2) & { r.next = 4} (* matching element is consumed *)
-let r = (9 .. 1).asStream; [r.upTo(3), r.upToEnd] = [(9 .. 4), (2 .. 1)] (* matching element is consumed *)
-[].asStream.next = nil (* next at an empty read stream answers nil *)
-let r = '.....ascii'.asciiByteArray.asStream; let a = ByteArray(5); r.next(5); r.nextInto(a); a.asciiString = 'ascii'
-(1 .. 9).asStream.nextSatisfy { :each | each >= 5 } = 5 (* read until element satisfies predicate *)
-(1 .. 9).asStream.take(23) = [1 .. 9] (* take at most n items from stream *)
-let r = (1 .. 9).asStream; [r.nextMatchFor(1), r.next] = [true, 2] (* predicate at consumed item *)
-let r = (1 .. 9).asStream; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] (* predicate at consumed items *)
-let r = (1 .. 1000).asStream; [r.next, r.next, r.atEnd] = [1, 2, false]
+let s = (1 .. 9).asStream; let a = s.next(9); s.reset; s.next(9) = a (* reset stream *)
 ```
 
 ### PositionableStream -- collection trait
 ```
+system.includesPackage('PositionableStream') (* PositionableStream package *)
+[].asStream.atEnd = true (* at end predicate *)
+let r = (1 .. 1000).asIterator; [r.next, r.next, r.atEnd] = [1, 2, false] (* at end predicate *)
 [].asStream.position = 0 (* initially the position is zero *)
 let r = (1 .. 5).asStream; [r.peek, r.next] = [1, 1] (* peek at the next item *)
 let r = (1 .. 5).asStream; [r.peekFor(1), r.next] = [true, 2] (* peek or read next item *)

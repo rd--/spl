@@ -1,13 +1,7 @@
-(* Require: Object *)
-
 @Random {
 
 	isRandom { :self |
 		true
-	}
-
-	next { :self |
-		self.randomFloat
 	}
 
 	randomFloat { :self |

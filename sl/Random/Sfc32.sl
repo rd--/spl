@@ -1,7 +1,17 @@
+(* Requires: Random Iterator Stream *)
+
 +Array {
 
-	sfc32RandomNumberGenerator { :self |
+	basicSfc32RandomNumberGenerator { :self |
 		<primitive: return sl.sfc32Generator(_self[0], _self[1], _self[2], _self[3]);>
+	}
+
+	sfc32RandomNumberGenerator { :self |
+		(self.size = 4).if {
+			self.basicSfc32RandomNumberGenerator
+		} {
+			'Array>>sfc32RandomNumberGenerator: invalid seed'.error
+		}
 	}
 
 }
@@ -28,10 +38,24 @@
 
 }
 
-Sfc32 : [Object, Random] { | next |
+Sfc32 : [Object, Random, Iterator, Stream] { | seed block |
+
+	initialize { :self :aNumber |
+		self.seed := aNumber;
+		self.reset;
+		self
+	}
+
+	next { :self |
+		self.block.value
+	}
 
 	randomFloat { :self |
-		self.next.value
+		self.block.value
+	}
+
+	reset { :self |
+		self.block := self.seed.sfc32RandomNumberGenerator
 	}
 
 }
@@ -39,8 +63,7 @@ Sfc32 : [Object, Random] { | next |
 +String {
 
 	Sfc32 { :self |
-		let seed = self.murmur3(2166136261);
-		newSfc32().initializeSlots(seed.sfc32RandomNumberGenerator)
+		newSfc32().initialize(self.murmur3(2166136261))
 	}
 
 }

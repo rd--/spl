@@ -9,12 +9,7 @@ A Stream represents the ability to maintain a position reference into a collecti
 > same collection, it is possible to maintain multiple position
 > references into the same collection. (Blue Book, p. 195)
 
-The basic Stream protocol consists of:
-
-- _atEnd_: answer if the stream can acccess any more elements
-- _next_: consume and answer the next element from the stream if it has one, else nil
-
-Finite streams are collections and implement _do_ and _size_.
+Stream adds _reset_ to the Iterator protocol.
 
 * * *
 

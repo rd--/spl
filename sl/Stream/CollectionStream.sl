@@ -1,6 +1,6 @@
 (* Requires: PositionableStream Stream *)
 
-CollectionStream : [Object, Stream, PositionableStream] { | collection positionIndex readLimit |
+CollectionStream : [Object, Iterator, Stream, PositionableStream] { | collection positionIndex readLimit |
 
 	atEnd { :self |
 		self.position >= self.readLimit
@@ -77,6 +77,10 @@ CollectionStream : [Object, Stream, PositionableStream] { | collection positionI
 }
 
 +@Sequenceable {
+
+	asIterator { :self |
+		self.asStream
+	}
 
 	asStream { :self |
 		newCollectionStream().initializeSlots(self, 0, self.size)

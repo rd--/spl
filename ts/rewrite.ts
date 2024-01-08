@@ -761,10 +761,25 @@ function makeMethodList(
 	return methodList;
 }
 
+function slFirstLineComment(slText: string): string | null {
+	if(slText.startsWith('(*')) {
+		const index = slText.indexOf('\n');
+		return (index > 0) ? slText.slice(0, index) : null;
+	} else {
+		return null;
+	}
+}
+
+// Preserve first line comment for Requires information
 export function rewriteString(slText: string): string {
 	const jsText = slParse(slText).asJs;
 	// console.debug(`rewriteString: ${slText} => ${jsText}`);
-	return jsText;
+	const slComment = slFirstLineComment(slText);
+	if(slComment) {
+		return `/* ${slComment} */` + jsText;
+	} else {
+		return jsText;
+	}
 }
 
 export function rewriteStringFor(packageName: string, slText: string): string {

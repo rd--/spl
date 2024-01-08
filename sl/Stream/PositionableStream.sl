@@ -1,5 +1,9 @@
 @PositionableStream {
 
+	atEnd { :self |
+		self.typeResponsibility('PositionableStream>>atEnd')
+	}
+
 	back { :self |
 		(self.position = 0).ifTrue {
 			'PositionableStream>>back: cannot go back'.error

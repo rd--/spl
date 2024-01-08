@@ -1,3 +1,5 @@
+(* Requires: Random Iterator Stream *)
+
 +SmallFloat {
 
 	mt53RandomNumberGenerator { :self |
@@ -6,10 +8,24 @@
 
 }
 
-Mersenne : [Object, Random] { | next |
+Mersenne : [Object, Random, Iterator, Stream] { | seed block |
+
+	initialize { :self :aNumber |
+		self.seed := aNumber;
+		self.reset;
+		self
+	}
+
+	next { :self |
+		self.randomFloat
+	}
 
 	randomFloat { :self |
-		self.next.value
+		self.block.value
+	}
+
+	reset { :self |
+		self.block := self.seed.mt53RandomNumberGenerator
 	}
 
 }
@@ -17,7 +33,7 @@ Mersenne : [Object, Random] { | next |
 +SmallFloat {
 
 	Mersenne { :self |
-		newMersenne().initializeSlots(self.mt53RandomNumberGenerator)
+		newMersenne().initialize(self)
 	}
 
 }

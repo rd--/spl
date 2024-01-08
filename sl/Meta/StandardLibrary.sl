@@ -44,13 +44,8 @@
 	'Fraction'
 	'LargeInteger'
 
-	(* Random *)
-	'Mersenne'
-	'LinearCongruential'
-	'Sfc32'
-	'SplitMix'
-
 	(* Stream *)
+	'Iterator'
 	'Stream'
 	'PositionableStream'
 	'WriteStream'
@@ -58,6 +53,12 @@
 	'MutableCollectionStream'
 	'AsciiStream'
 	'Utf8Stream'
+
+	(* Random *)
+	'Mersenne'
+	'LinearCongruential'
+	'Sfc32' (* Stream *)
+	'SplitMix'
 
 	(* System *)
 	'Blob'

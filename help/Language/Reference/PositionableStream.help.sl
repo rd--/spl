@@ -2,6 +2,7 @@
 
 A Stream over a sequence that is accessed by indices where the point of access can be repositioned.
 
+- _atEnd_: answer if the stream can acccess any more elements
 - _peek_: answer what _next_ would answer, but do not consume it
 
 * * *

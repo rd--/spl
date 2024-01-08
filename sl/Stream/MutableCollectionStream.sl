@@ -1,6 +1,6 @@
 (* Requires: PositionableStream Stream WriteStream *)
 
-MutableCollectionStream : [Object, Stream, PositionableStream, WriteStream] { | collection positionIndex writeLimit |
+MutableCollectionStream : [Object, Iterator, Stream, PositionableStream, WriteStream] { | collection positionIndex writeLimit |
 
 	contents { :self |
 		self.collection.copyFromTo(1, self.position)

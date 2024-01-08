@@ -146,6 +146,7 @@
 	'SmallKansas-WorldMenu'
 	'Stream-AsciiStream'
 	'Stream-CollectionStream'
+	'Stream-Iterator'
 	'Stream-MutableCollectionStream'
 	'Stream-PositionableStream'
 	'Stream-Stream'

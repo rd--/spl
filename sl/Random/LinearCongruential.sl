@@ -1,4 +1,16 @@
-LinearCongruential : [Object, Random] { | state |
+(* Requires: Random Iterator Stream *)
+
+LinearCongruential : [Object, Random, Iterator, Stream] { | seed state |
+
+	initialize { :self :aNumber |
+		self.seed := aNumber;
+		self.reset;
+		self
+	}
+
+	next { :self |
+		self.randomFloat
+	}
 
 	randomFloat { :self |
 		let m = 139968;
@@ -9,12 +21,24 @@ LinearCongruential : [Object, Random] { | state |
 		r / m
 	}
 
+	reset { :self |
+		self.state := self.seed
+	}
+
+}
+
++@Integer {
+
+	LinearCongruential { :self |
+		newLinearCongruential().initialize(self)
+	}
+
 }
 
 +Void {
 
 	LinearCongruential {
-		newLinearCongruential().initializeSlots(42)
+		LinearCongruential(42)
 	}
 
 }

@@ -1,3 +1,5 @@
+(* Requires: Random Iterator Stream *)
+
 +SmallFloat {
 
 	splitMix32RandomNumberGenerator { :self |
@@ -6,10 +8,24 @@
 
 }
 
-SplitMix : [Object, Random] { | next |
+SplitMix : [Object, Random, Iterator, Stream] { | seed block |
+
+	initialize { :self :aNumber |
+		self.seed := aNumber;
+		self.reset;
+		self
+	}
+
+	next { :self |
+		self.randomFloat
+	}
 
 	randomFloat { :self |
-		self.next.value
+		self.block.value
+	}
+
+	reset { :self |
+		self.block := self.seed.splitMix32RandomNumberGenerator
 	}
 
 }
@@ -17,7 +33,7 @@ SplitMix : [Object, Random] { | next |
 +SmallFloat {
 
 	SplitMix { :self |
-		newSplitMix().initializeSlots(self.splitMix32RandomNumberGenerator)
+		newSplitMix().initialize(self)
 	}
 
 }
