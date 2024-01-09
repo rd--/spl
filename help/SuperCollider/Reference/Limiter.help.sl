@@ -1,6 +1,6 @@
 # Limiter -- peak limiter
 
-_Limiter(input, level, lookAheadTime)_
+_Limiter(input, level, lookAheadTime=0.01)_
 
 Limits the input amplitude to the given level. Limiter will not overshoot like _Compander_ will, but it needs to look ahead in the audio. Thus there is a delay equal to twice the lookAheadTime.
 

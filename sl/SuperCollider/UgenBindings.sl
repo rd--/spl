@@ -29,7 +29,9 @@
 	BfDecode1 { :w :x :y :z :azimuth :elevation :wComp | <primitive: return sc.BfDecode1(_w, _x, _y, _z, _azimuth, _elevation, _wComp);> }
 	BfEncode1 { :input :azimuth :elevation :rho :gain :wComp | <primitive: return sc.BfEncode1(_input, _azimuth, _elevation, _rho, _gain, _wComp);> }
 	BHiPass { :in :freq :rq | <primitive: return sc.BHiPass(_in, _freq, _rq);> }
+	BHiShelf { :in :freq :rs :db | <primitive: return sc.BHiShelf(_in, _freq, _rs, _db);> }
 	BLowPass { :in :freq :rq | <primitive: return sc.BLowPass(_in, _freq, _rq);> }
+	BLowShelf { :in :freq :rs :db | <primitive: return sc.BLowShelf(_in, _freq, _rs, _db);> }
 	BMoog { :in :freq :q :mode :saturation | <primitive: return sc.BMoog(_in, _freq, _q, _mode, _saturation);> }	Bpf { :in :freq :rq | <primitive: return sc.Bpf(_in, _freq, _rq);> }
 	Bpz2 { :in | <primitive: return sc.Bpz2(_in);> }
 	BPeakEq { :in :freq :rq :db | <primitive: return sc.BPeakEq(_in, _freq, _rq, _db);> }

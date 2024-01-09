@@ -1,6 +1,6 @@
 # Bpf -- 2nd order Butterworth bandpass filter
 
-_Bpf(in, freq, rq)_
+_Bpf(in, freq=440, rq=1)_
 
 A second order low pass filter.
 
