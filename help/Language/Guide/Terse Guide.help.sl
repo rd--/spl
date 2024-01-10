@@ -2406,6 +2406,12 @@ let f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
 { :x :y | x * y + y }.apply([3.141, 23]) = 95.243
 { { :x | x }.apply(0) }.ifError { true }
 { { :x | x }.apply([]) }.ifError { true }
+9.with { :x | x.sqrt; x.negated } = -9 (* evaluate block with self and answer answer of block *)
+9.also { :x | x.sqrt; x.negated } = 9 (* evaluate block with self and answer self *)
+let d = (c: 1); d.with { :x | x::c := 2; 0 } = 0 & { d = (c: 2) }
+let d = (c: 1); d.also { :x | x::c := 2; 0 } == d & { d = (c: 2) }
+let d = (c: 1); let r = d.with { :x | x::c := 2; 0 }; d = (c: 2) & { r = 0 }
+let d = (c: 1); let r = d.also { :x | x::c := 2; 0 }; d = (c: 2) & { r == d }
 let x = { }; x:/0.isBlock (* blocks are objects and may be assigned to a variable *)
 { nil; 1 }.value = 1 (* value is last expression evaluated *)
 { { 1 }.value }.value = 1 (* blocks may be nested *)

@@ -234,3 +234,16 @@ Block! : [Object] {
 	}
 
 }
+
++@Object {
+
+	also { :self :aBlock:/1 |
+		aBlock(self);
+		self
+	}
+
+	with { :self :aBlock:/1 |
+		aBlock(self)
+	}
+
+}
