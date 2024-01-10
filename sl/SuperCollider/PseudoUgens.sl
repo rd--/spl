@@ -23,6 +23,23 @@
 
 +[Array, SmallFloat, Ugen] {
 
+	LinCurve { :self :inMin :inMax :outMin :outMax :curve |
+		let grow = curve.Exp;
+		let a = outMax - outMin / (1 - grow);
+		let b = outMin + a;
+		let scaled = (self.Clip(inMin, inMax) - inMin) / (inMax - inMin);
+		let curvedResult = b - (a * (grow ^ scaled));
+		curve.isNumber.if {
+			curvedResult
+		} {
+			Select2(
+				curve.Abs >= 0.125,
+				curvedResult,
+				self.LinLin(inMin, inMax, outMin, outMax)
+			)
+		}
+	}
+
 	HoldSequence { :inArray :dur |
 		let gate = DurationGate(dur);
 		let trig = Trig1(gate, SampleDur());
@@ -181,10 +198,10 @@
 		IRand(0 - self, self)
 	}
 
-	LinLin { :self :srclo :srchi :dstlo :dsthi |
-		let mul = (dsthi - dstlo) / (srchi - srclo);
-		let add = dstlo - (mul * srclo);
-		MulAdd(self, mul, add)
+	LinLin { :self :srcLo :srcHi :dstLo :dstHi |
+		let mul = (dstHi - dstLo) / (srcHi - srcLo);
+		let add = dstLo - (mul * srcLo);
+		MulAdd(self.Clip(srcLo, srcHi), mul, add)
 	}
 
 	Rand0 { :self |

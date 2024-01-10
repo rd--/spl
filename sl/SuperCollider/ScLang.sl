@@ -238,6 +238,10 @@
 		}
 	}
 
+	linExpFromTo { :self :lo :hi |
+		lo * ((hi / lo).log * self).exp
+	}
+
 	linLin { :self :inMin :inMax :outMin :outMax |
 		(self <= inMin).if {
 			outMin
@@ -248,16 +252,6 @@
 				(self - inMin) / (inMax - inMin) * (outMax - outMin) + outMin
 			}
 		}
-	}
-
-	linExpFromTo { :self :lo :hi |
-		lo * ((hi / lo).log * self).exp
-	}
-
-	LinLin { :self :srclo :srchi :dstlo :dsthi |
-		let mul = (dsthi - dstlo) / (srchi - srclo);
-		let add = dstlo - (mul * srclo);
-		MulAdd(self, mul, add)
 	}
 
 	MidiCps { :self |
