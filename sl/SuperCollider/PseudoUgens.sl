@@ -52,7 +52,7 @@
 
 	TableWindow { :trig :dur :bufNum |
 		let phase = TLine(0, BufFrames(bufNum), dur, trig);
-		BufRd(1, bufNum, phase, 0, 4)
+		BufRd(1, bufNum, phase, 0, 4) (* 4 = Cubic Interpolation *)
 	}
 
 	SelectXFocus { :which :array :focus :wrap |
@@ -81,7 +81,7 @@
 			buf,
 			TiRand(0, BufFrames(buf) - 1, tr),
 			0,
-			1
+			1 (* 1 = No Interpolation *)
 		)
 	}
 

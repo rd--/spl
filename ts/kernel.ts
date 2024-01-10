@@ -671,7 +671,7 @@ export function initializeLocalPackages(
 			[],
 			url,
 			'',
-			true, // preCompiled
+			false, // preCompiled
 			false,
 		); /* note: requires and text and preCompiled are set after fetch */
 		/* add to dictionary (initialized & fetched, not loaded) */
