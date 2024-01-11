@@ -1,4 +1,4 @@
-(* Pwm crossfade (Jl) *)
+{- Pwm crossfade (Jl) -}
 let n = [400 500 450 376 600];
 let d = 1 / 20;
 let [f1, f2] = Demand(Impulse(d, [0 0.5]), 0, Dseq(inf, n));

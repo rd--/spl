@@ -1,4 +1,4 @@
-(* https://twitter.com/redFrik/status/1590835403157688320 *)
+{- https://twitter.com/redFrik/status/1590835403157688320 -}
 let b = [1 .. 9];
 let g = 1 / b / 99;
 let z = Latch(

@@ -1,4 +1,4 @@
-(* Requires: Vector2 Vector3 *)
+{- Requires: Vector2 Vector3 -}
 
 Vector4 : [Object, Indexable] { | w x y z |
 

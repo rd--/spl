@@ -1,4 +1,4 @@
-(* Fm7 ; two of six *)
+{- Fm7 ; two of six -}
 let ctlMatrix = [
 	XLine(300, 310, 4), 0, 1,
 	XLine(300, 310, 8), 0, 1,
@@ -17,7 +17,7 @@ let modMatrix = [
 ];
 Fm7(ctlMatrix, modMatrix).first(2) * 0.1
 
-(* Fm7 ; three set of six output channels (18 channels) *)
+{- Fm7 ; three set of six output channels (18 channels) -}
 {
 	let freq = LfNoise0(3).ExpRange(200, 310);
 	let ctlMatrix = [
@@ -37,7 +37,7 @@ Fm7(ctlMatrix, modMatrix).first(2) * 0.1
 	Fm7Matrix(ctlMatrix, modMatrix) * -18.DbAmp
 } !> 3
 
-(* Fm7 ; an algorithmically generated graph courtesy f0 ; note one-indexing *)
+{- Fm7 ; an algorithmically generated graph courtesy f0 ; note one-indexing -}
 let xMatrix = [
 	[
 		[0.0, -1/3, -1.0, 0.0],

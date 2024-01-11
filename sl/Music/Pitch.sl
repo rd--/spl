@@ -1,4 +1,4 @@
-(* Requires: Frequency *)
+{- Requires: Frequency -}
 
 +Frequency {
 
@@ -45,7 +45,7 @@
 
 }
 
-(* csound naming *)
+{- csound naming -}
 +Frequency {
 
 	cps { :self |

@@ -1,4 +1,4 @@
-(* DynRingzBank *)
+{- DynRingzBank -}
 let tr = Dust(25);
 let mkRand = { :lhs :rhs |
 	Lag(TRand(lhs, rhs, tr), 0.01)

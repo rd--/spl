@@ -1,4 +1,4 @@
-(* Requires: Blob File *)
+{- Requires: Blob File -}
 
 @Url {
 
@@ -55,7 +55,7 @@ URL! : [Object, Url] {
 	}
 
 	origin { :self |
-		<primitive: return _self.origin;> (* Read only *)
+		<primitive: return _self.origin;> {- Read only -}
 	}
 
 	password { :self |
@@ -83,7 +83,7 @@ URL! : [Object, Url] {
 	}
 
 	username { :self |
-		<primitive: return _self.username;> (* Read only *)
+		<primitive: return _self.username;> {- Read only -}
 	}
 
 }

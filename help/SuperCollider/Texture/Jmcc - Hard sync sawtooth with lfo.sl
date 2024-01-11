@@ -1,4 +1,4 @@
-(* Hard sync sawtooth with lfo (Jmcc) #6 *)
+{- Hard sync sawtooth with lfo (Jmcc) #6 -}
 {
 	let f = Rand(30, 80).MidiCps;
 	let z = SyncSaw(

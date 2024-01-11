@@ -1,4 +1,4 @@
-(* Requires: ColumnBrowser LibraryItem SmallKansas TextEditor *)
+{- Requires: ColumnBrowser LibraryItem SmallKansas TextEditor -}
 
 +SmallKansas {
 

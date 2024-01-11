@@ -1,4 +1,4 @@
-(* Requires: ByteArray *)
+{- Requires: ByteArray -}
 
 OscParameter : [Object] { | typeTag value |
 

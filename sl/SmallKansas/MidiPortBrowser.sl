@@ -1,4 +1,4 @@
-(* Requires: ColumnBrowser Midi SmallKansas *)
+{- Requires: ColumnBrowser Midi SmallKansas -}
 
 +SmallKansas {
 

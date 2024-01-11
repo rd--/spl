@@ -1,4 +1,4 @@
-(* f0 ; <https://twitter.com/redFrik/status/1395878538297892865> *)
+{- f0 ; <https://twitter.com/redFrik/status/1395878538297892865> -}
 let t = Impulse(5, 0);
 let g = [3 2];
 let e = LagUd(t, 0.001, SinOscFb(g / 99, 0) + 1.08);

@@ -1,4 +1,4 @@
-(* fast lfos with slow beats *)
+{- fast lfos with slow beats -}
 { :tr |
 	let a0 = TRand(40, 240, tr);
 	let a1 = a0 + TRand(-1, 1, tr);

@@ -1,4 +1,4 @@
-(* Decay2 *)
+{- Decay2 -}
 {
 	let tr = Dust(1);
 	let env = Decay2(
@@ -9,7 +9,7 @@
 	SinOsc(TRand(110, 330, tr), 0) * env
 } !^ 5
 
-(* Decay2 ; c.f. MultiTouchPad help file *)
+{- Decay2 ; c.f. MultiTouchPad help file -}
 Voicer(1, 16) { :e |
 	let impulseFreq = Choose(e.w, [1 2 3 4 6 8 9]);
 	let oscFreq = TRand(80, 880, e.w);
@@ -25,7 +25,7 @@ Voicer(1, 16) { :e |
 	) * mul.Lag(0.1)
 }.Mix
 
-(* Decay2 ; c.f. MultiTouchPad help file *)
+{- Decay2 ; c.f. MultiTouchPad help file -}
 {
 	let tr = Dust(1 / 9);
 	let impulseFreq = Choose(tr, [1 2 3 4 6 8 9]);
@@ -39,12 +39,12 @@ Voicer(1, 16) { :e |
 	) * TxLine(TRand(0.2, 0.5, tr), 0.001, TRand(3, 7, tr), Impulse(0, 0) + tr)
 } !> 16
 
-(* Decay2 *)
+{- Decay2 -}
 let lfo = SinOsc([1, 11], 0);
 let tr = Tr1(lfo);
 SinOsc([222, 2222], 0) * Decay2(tr, 0.01, [0.5, 0.1]) * [0.2, 0.1]
 
-(* Decay2 *)
+{- Decay2 -}
 {
 	let lfo = SinOsc(Rand(1, 13), 0);
 	let tr = Tr1(lfo);
@@ -52,7 +52,7 @@ SinOsc([222, 2222], 0) * Decay2(tr, 0.01, [0.5, 0.1]) * [0.2, 0.1]
 	SinOsc(Rand(1111, 2222), 0) * env * Rand(0.01, 0.1)
 } !^ 24
 
-(* ---- ; plot ; excitation function *)
+{- ---- ; plot ; excitation function -}
 let strike = Impulse(1, 0);
 let env = Decay2(strike, 0.01, 0.06);
 let noise = LfNoise2(3000) * env;

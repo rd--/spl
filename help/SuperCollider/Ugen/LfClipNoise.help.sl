@@ -1,4 +1,4 @@
-(* ---- LfClipNoise ; process ; requires=eval *)
+{- ---- LfClipNoise ; process ; requires=eval -}
 {
 	let freq = Rand(47, 69) * [1, 1.1];
 	let mul = {

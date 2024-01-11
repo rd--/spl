@@ -1,4 +1,4 @@
-(* musikinformatik/clothesline/examples ; requires nthPrime *)
+{- musikinformatik/clothesline/examples ; requires nthPrime -}
 let n = 180;
 {
 	let primes = (2 .. n).collect { :index |

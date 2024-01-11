@@ -1,4 +1,4 @@
-(* Requires: Vector2 *)
+{- Requires: Vector2 -}
 
 Vector3 : [Object, Indexable, CartesianCoordinate] { | x y z |
 

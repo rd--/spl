@@ -1,11 +1,11 @@
 @SphericalCoordinate {
 
 	= { :self :anObject |
-		self.equalBy(anObject, equals:/2)
+		self.equalBy(anObject, =)
 	}
 
 	~ { :self :anObject |
-		self.equalBy(anObject, tilde:/2)
+		self.equalBy(anObject, ~)
 	}
 
 	asSphericalCoordinate { :self |

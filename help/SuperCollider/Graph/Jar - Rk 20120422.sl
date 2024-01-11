@@ -1,4 +1,4 @@
-(* rukano; apr 22, 2012; re: epic pads *)
+{- rukano; apr 22, 2012; re: epic pads -}
 let freq = {
 	[60 64 65 67].atRandom.MidiCps * (LfNoise2(1) * 0.01 + 1)
 } ! 24;

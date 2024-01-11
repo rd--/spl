@@ -1,4 +1,4 @@
-(* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/130117soft *)
+{- https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/130117soft -}
 MoogFf(
 	WhiteNoise(2) / 5,
 	MouseX(100, 10000, 1, 0.2),
@@ -6,7 +6,7 @@ MoogFf(
 	0
 )
 
-(* MoogFF ; Voicer *)
+{- MoogFF ; Voicer -}
 Voicer(1, 16) { :e |
 	let freq = e.x.UnitCps;
 	let osc = {

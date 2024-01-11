@@ -1,11 +1,11 @@
-(* ShufflerB ; static ; requires=SfAcquire *)
+{- ShufflerB ; static ; requires=SfAcquire -}
 let sf = SfAcquireMono('crotale-d6');
 ShufflerB(sf, 0, 0.05, 0.95, 1.05, 0.035, 0.05, 0.1, 0.2, 0.4, 0.6, 0.4, 0.6, 0, 1, 0.005, 0.01, 1, 0, 0)
 
-(* ShufflerB ; static, quantized *)
+{- ShufflerB ; static, quantized -}
 let sf = SfAcquireMono('crotale-d6');
 ShufflerB(sf, 0, 1, 0.5, 2, 0.025, 0.075, 0.2, 0.6, 0.1, 0.9, 0.1, 0.9, 0, 1, 0.005, 0.05, 0, 0.5, 0.005)
 
-(* ShufflerB ; static, pointilist *)
+{- ShufflerB ; static, pointilist -}
 let sf = SfAcquireMono('crotale-d6');
 ShufflerB(sf, 0.4, 0.5, 0.5, 2, 0.05, 0.15, 0.2, 0.5, 0.3, 0.7, 0.3, 0.7, 0, 1, 0.05, 0.25, 0, 0, 0)

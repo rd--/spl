@@ -1,4 +1,4 @@
-(* Gendy1 ; texture *)
+{- Gendy1 ; texture -}
 {
 	EqPan(
 		SinOsc(
@@ -20,7 +20,7 @@
 	) * 0.1
 } !+ 10
 
-(* Gendy1 ; texture ; mouse control ; requires=keywords ; requires=kr *)
+{- Gendy1 ; texture ; mouse control ; requires=keywords ; requires=kr -}
 let n = 11;
 Resonz(
 	{
@@ -45,7 +45,7 @@ Resonz(
 	MouseY(0.01, 1.0, 0, 0.2)
 )
 
-(* ---- Gendy1 ; overlap texture ; requires=eval ; requires=keyword *)
+{- ---- Gendy1 ; overlap texture ; requires=eval ; requires=keyword -}
 {
 	let n = 11;
 	{

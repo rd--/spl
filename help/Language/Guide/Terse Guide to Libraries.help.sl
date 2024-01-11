@@ -6,13 +6,13 @@
 
 ## Blob
 ```
-[1 .. 9].ByteArray.Blob.size = 9 (* size of Blob *)
-[65 .. 69].ByteArray.Blob.text.then { :answer | (answer = 'ABCDE').postLine }; true (* Blob text *)
+[1 .. 9].ByteArray.Blob.size = 9 {- size of Blob -}
+[65 .. 69].ByteArray.Blob.text.then { :answer | (answer = 'ABCDE').postLine }; true {- Blob text -}
 ```
 
 ## Compatibility
 ```
-| n = 0; | (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value | n := n + value }; n = 6 (* iterate over keys and values *)
+| n = 0; | (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value | n := n + value }; n = 6 {- iterate over keys and values -}
 ```
 
 ## Cons -- collection type

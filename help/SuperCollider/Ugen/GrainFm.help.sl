@@ -1,4 +1,4 @@
-(* GrainFm ; requires=voicer *)
+{- GrainFm ; requires=voicer -}
 Voicer(1, 16) { :e |
 	let tr = Impulse(e.y * 64 + 10, 0);
 	let cf = (e.p * 127 + e.j).MidiCps;

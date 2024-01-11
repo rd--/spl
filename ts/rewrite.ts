@@ -762,7 +762,7 @@ function makeMethodList(
 }
 
 function slFirstLineComment(slText: string): string | null {
-	if(slText.startsWith('(*')) {
+	if(slText.startsWith('{-')) {
 		const index = slText.indexOf('\n');
 		return (index > 0) ? slText.slice(0, index) : null;
 	} else {
@@ -791,6 +791,7 @@ export function rewriteStringFor(packageName: string, slText: string): string {
 		return jsText;
 	} catch (err) {
 		context.packageName = '*UnknownPackage*';
+		console.debug('rewriteStringFor', err)
 		throw new Error('Rewrite failed', { cause: err });
 	}
 }

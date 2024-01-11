@@ -1,4 +1,4 @@
-(* nv 52 https://swiki.hfbk-hamburg.de/MusicTechnology/899 ; requires=adverbs *)
+{- nv 52 https://swiki.hfbk-hamburg.de/MusicTechnology/899 ; requires=adverbs -}
 let x = [4 4.5; 2 3 5 6];
 let z = x *.x (x *.x x).allTuples;
 let y = (z * 4).concatenation.clump(2) ++ [0];

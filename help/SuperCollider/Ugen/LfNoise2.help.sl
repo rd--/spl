@@ -1,13 +1,13 @@
-(* LfNoise2 ; fixed frequency *)
+{- LfNoise2 ; fixed frequency -}
 LfNoise2(1000) * 0.05
 
-(* LfNoise2 ; modulate frequency *)
+{- LfNoise2 ; modulate frequency -}
 LfNoise2(XLine(1000, 10000, 10)) * 0.05
 
-(* LfNoise2 ; modulate frequency *)
+{- LfNoise2 ; modulate frequency -}
 LfNoise2(XLine(1000, 10000, 10)) * 0.05
 
-(* LfNoise2 ; modulate parameters *)
+{- LfNoise2 ; modulate parameters -}
 let n = 23;
 let s = (1 .. n).collect { :i |
 	let lf = 3 * (1.1 ^ i);

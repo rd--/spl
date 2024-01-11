@@ -1,4 +1,4 @@
-(* Clip ; https://scsynth.org/t/5208/2 (sp) *)
+{- Clip ; https://scsynth.org/t/5208/2 (sp) -}
 let freq = 10;
 let osc = SinOsc(freq, 0);
 let interp = (MouseX(1, 0, 0, 0.2) ^ 8) * 50 + 1;

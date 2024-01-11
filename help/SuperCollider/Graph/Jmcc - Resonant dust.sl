@@ -1,4 +1,4 @@
-(* resonant dust (jmcc) #2 ; graph rewrite *)
+{- resonant dust (jmcc) #2 ; graph rewrite -}
 { :tr |
 	let rf1 = TRand(0, 2000, tr) + 80;
 	let rf2 = rf1 + (TRand(-0.5, 0.5, tr) * rf1);

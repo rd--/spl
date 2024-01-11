@@ -1,4 +1,4 @@
-(* LocalBuf ; https://sccode.org/1-5fx *)
+{- LocalBuf ; https://sccode.org/1-5fx -}
 let t = { -0.08.randomFloat(0.08) }.duplicate(1024).asLocalBuf;
 let e = SinOsc(0.5 * LfNoise1(10) * 0.2 + 1, 0) * 0.1 + 1.05;
 EqPan2(

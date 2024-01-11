@@ -1,4 +1,4 @@
-(* TGrains ; requires=SfAcquire *)
+{- TGrains ; requires=SfAcquire -}
 let numChannels = 2;
 let sf = SfAcquireMono('crotale-d6');
 let triggerRate = MouseY(2, 120, 1, 0.2);

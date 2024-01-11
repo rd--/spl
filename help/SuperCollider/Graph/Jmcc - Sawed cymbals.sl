@@ -1,4 +1,4 @@
-(* sawed cymbals (jmcc) ; #10 ; graph rewrite *)
+{- sawed cymbals (jmcc) ; #10 ; graph rewrite -}
 let p = 15;
 { :tr |
 	let f1 = TRand(500, 2500, tr);

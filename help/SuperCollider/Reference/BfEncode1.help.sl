@@ -20,9 +20,9 @@ Decode to octaphonic:
 	let cycleAzimuth = LfSaw(1 / 4, 0).LinLin(-1, 1, 0, 2 * pi);
 	let [w, x, y, z] = BfEncode1(
 		PinkNoise(),
-		cycleAzimuth, (* mouseAzimuth *)
+		cycleAzimuth, {- mouseAzimuth -}
 		0,
-		1, (* mouseRho *)
+		1, {- mouseRho -}
 		0.3,
 		0
 	);
@@ -35,9 +35,9 @@ Decode to quadraphonic in sequence _fl, fr, rl, rr_:
 	let cycleAzimuth = LfSaw(1 / 4, 0).LinLin(-1, 1, 0, 2 * pi);
 	let [w, x, y, z] = BfEncode1(
 		PinkNoise(),
-		cycleAzimuth, (* mouseAzimuth *)
+		cycleAzimuth, {- mouseAzimuth -}
 		0,
-		1, (* mouseRho *)
+		1, {- mouseRho -}
 		0.3,
 		0
 	);

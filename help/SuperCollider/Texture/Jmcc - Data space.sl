@@ -1,4 +1,4 @@
-(* Data space ; Jmcc ; #2 *)
+{- Data space ; Jmcc ; #2 -}
 {
 	let dt = Rand(0.25, 0.35);
 	let osc = { :n :m |

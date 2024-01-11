@@ -1,4 +1,4 @@
-(* https://sccode.org/1-4Qy ; f0 ; 0345 *)
+{- https://sccode.org/1-4Qy ; f0 ; 0345 -}
 (0 .. 7).collect { :i |
 	let c = SinOsc(8 - i / 8, 0);
 	let p = SinOsc(1 + i, 0).Max(c);

@@ -19,7 +19,7 @@ export function resolveFileName(fileName: string): string {
 }
 
 export function packageFileName(pkg: kernel.Package): string {
-	return pkg.preCompiled ? ('.cache/' + pkg.name + '.js') : pkg.url;
+	return pkg.preCompiled ? ('../.cache/' + pkg.name + '.js') : pkg.url;
 }
 
 export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {

@@ -1,4 +1,4 @@
-(* Tapping tools (Jmcc) #7 *)
+{- Tapping tools (Jmcc) #7 -}
 {
 	let rate = XLine(64, 0.125, 60);
 	let exc = Decay(Impulse(LinRand(1, 20, 0) * rate, 0) * 0.03, 0.001);

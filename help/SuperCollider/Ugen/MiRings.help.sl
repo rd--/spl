@@ -1,4 +1,4 @@
-(* MiRings ; basics ; requires=keywords *)
+{- MiRings ; basics ; requires=keywords -}
 let in = Impulse(1, 0);
 MiRings(in: in,
 	trig: 0,
@@ -14,7 +14,7 @@ MiRings(in: in,
 	bypass: 0
 )
 
-(* MiRings ; basics ; requires=keywords *)
+{- MiRings ; basics ; requires=keywords -}
 let in = PinkNoise() * 0.05;
 MiRings(in: in,
 	trig: 0,
@@ -30,7 +30,7 @@ MiRings(in: in,
 	bypass: 0
 )
 
-(* MiRings ; using the 'trig' input to excite the resonator ; requires=keywords *)
+{- MiRings ; using the 'trig' input to excite the resonator ; requires=keywords -}
 let trig = Dust(0.7);
 let model = 1;
 MiRings(in: 0,
@@ -47,7 +47,7 @@ MiRings(in: 0,
 	bypass: 0
 ) * 0.2
 
-(* MiRings ; using the 'pit' input to set midi pitch and excite the resonator ; requires=keywords *)
+{- MiRings ; using the 'pit' input to set midi pitch and excite the resonator ; requires=keywords -}
 let pit = LfNoise0(2).Range(30,	50);
 let model = 2;
 MiRings(in: 0,
@@ -64,7 +64,7 @@ MiRings(in: 0,
 	bypass: 0
 ) * 0.5
 
-(* MiRings ; sympathetic strings ; requires=keywords *)
+{- MiRings ; sympathetic strings ; requires=keywords -}
 let trig = Dust(1);
 let pit = Latch(WhiteNoise(), trig).Range(30, 60).RoundTo(1);
 let struct = LfNoise2(0.4).Range(0, 1);
@@ -84,7 +84,7 @@ MiRings(in: 0,
 	bypass: 0
 ) * 0.5
 
-(* MiRings ; inharmonic string ; requires=keywords *)
+{- MiRings ; inharmonic string ; requires=keywords -}
 let trig = Dust(3);
 let pit = Latch(WhiteNoise(), Dust(0.5)).Range(30, 60);
 let struct = Latch(PinkNoise(),	trig).Range(0.1, 1);
@@ -105,7 +105,7 @@ MiRings(in: 0,
 	bypass: 0
 ) * 0.25
 
-(* MiRings ; simple vibrato ; requires=keywords *)
+{- MiRings ; simple vibrato ; requires=keywords -}
 let trig = Dust(0.5);
 let pit = Latch(WhiteNoise(), trig).Range(36, 48) + SinOsc(3, 0);
 MiRings(in: 0,

@@ -1,4 +1,4 @@
-(* https://scsynth.org/t/share-your-delay-reverb-designs/2206 (mk) ; warning=feedback ; left=? *)
+{- https://scsynth.org/t/share-your-delay-reverb-designs/2206 (mk) ; warning=feedback ; left=? -}
 let ctl = (
 	delay: 0.1,
 	delayFb: 0.33,

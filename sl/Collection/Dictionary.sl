@@ -1,4 +1,4 @@
-(* Require: Object *)
+{- Require: Object -}
 
 @Dictionary {
 
@@ -378,7 +378,7 @@
 
 }
 
-(* Keys *)
+{- Keys -}
 +@Dictionary {
 
 	includesKey { :self :key |

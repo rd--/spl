@@ -1,7 +1,7 @@
-(* Phase modulation with slow beats (Jmcc) #6 *)
+{- Phase modulation with slow beats (Jmcc) #6 -}
 {
-	let x = MouseX(100, 6000, 1, 0.2); (* random frequency of new events *)
-	let y = MouseY(0, 2, 0, 0.2); (* modulation index *)
+	let x = MouseX(100, 6000, 1, 0.2); {- random frequency of new events -}
+	let y = MouseY(0, 2, 0, 0.2); {- modulation index -}
 	let f1 = x.Rand0;
 	let ph = 0;
 	3.timesRepeat {

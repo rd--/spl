@@ -1,4 +1,4 @@
-(* 20060917 ; rd ; requires=DustRange *)
+{- 20060917 ; rd ; requires=DustRange -}
 let b = [
 	60 71 89 65 36 57 92 97 92 97;
 	71 89 60 57 65 36 95 92 93 97

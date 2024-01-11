@@ -1,12 +1,12 @@
-(* Sequencer ; audio rate *)
+{- Sequencer ; audio rate -}
 let freq = Sequencer([60 62 65 69], Impulse(2, 0)).MidiCps;
 SinOsc(freq, 0) * 0.1
 
-(* Sequencer ; control rate *)
+{- Sequencer ; control rate -}
 let freq = Sequencer([60 62 65 69], Impulse(2, 0).kr).MidiCps;
 SinOsc(freq, 0) * 0.1
 
-(* Sequencer ; jmcc *)
+{- Sequencer ; jmcc -}
 let clock = Impulse(8, 0);
 let trig1 = ImpulseSequencer([0.4 0.1 0.2 0.1], clock);
 let root = Sequencer([24 26 24 22], PulseDivider(clock, 64, 0));
@@ -20,7 +20,7 @@ let freq = (Sequencer([33 33 35 36 45 47 38 40 33 33 35 36 47 48 50 52], clock) 
 let z = VarSaw(freq * [1, 1.505], 0, MouseY(0, 1, 0, 0.2)) * Decay2(trig2, 0.005, 1.4);
 CombN(x + z * 0.5, 0.26, 0.26, 4).SoftClip
 
-(* Sequencer ; jmcc *)
+{- Sequencer ; jmcc -}
 let p = Drand(inf, [
 	Dseq(1, [0 0 1 2 7 8 9 8 10 10 1 2 1 2 3 4 0 0 1 2 7 8 9 8 11 11 1 2 1 2 3 4]),
 	Dseq(2, [0 0 1 2 7 8 3 4 0 0 1 2 1 2 3 4 0 0 1 2 7 8 3 4 0 0 1 2 1 2 3 4])
@@ -65,7 +65,7 @@ let w = SinOsc((root + 24 + 7).MidiCps, 0) * Decay2(trig5, 0.005, 0.2);
 let snd = (r * 0.1 + x + z + [y, w]) * 0.4;
 (CombN(snd, 0.51, 0.51, 4) * 0.4 + snd.reversed).SoftClip
 
-(* Sequencer ; Jmcc *)
+{- Sequencer ; Jmcc -}
 let z = 0; let a = 0.1; let b = 0.2; let c = 0.4;
 let p = Dseq(1, [
 	Dseq(2, [c z z z z z z z]),
@@ -85,18 +85,18 @@ let q = Drand(inf, [
 	Dseq(2, [c z z z a z z z b z b z a z c z])
 ]);
 let clock = Impulse(9, 0);
-(* bass drum *)
+{- bass drum -}
 let trig1 = PulseDivider(clock, 16, 0);
 let r = SinOsc(80, 0) * Decay2(trig1, 0.005, 0.5) * 0.3;
-(* drum *)
+{- drum -}
 let trig2 = DemandImpulseSequencer([p], clock);
 let exc2 = WhiteNoise() * Decay2(trig2, 0.005, 0.05);
 let x = RingzBank(exc2, { Rand(80, 800) } ! 4, nil, { Rand(0.05, 0.2) } ! 4).Distort * 0.2;
-(* metallic *)
+{- metallic -}
 let trig3 = DemandImpulseSequencer([q], clock);
 let exc3 = WhiteNoise() * Decay2(trig3, 0.005, 0.05);
 let s = RingzBank(exc3, { Rand(3500, 4000) } ! 4, nil, { Rand(0.05, 0.2) } ! 4).Distort * 0.1;
-(* whine *)
+{- whine -}
 let exc4 = GrayNoise(2) * 0.0007;
 let y = { :tr |
 	let env = SinOsc(TRand(1, 6, tr), { TRand(0, 2.pi, tr) } ! 2) * 0.5 + 0.5;
@@ -113,7 +113,7 @@ let snd = x + (y * 0.5) + s + r;
 };
 snd
 
-(* Sequencer ; Jmcc *)
+{- Sequencer ; Jmcc -}
 let clock = Impulse(XLine(24, 1, 12), 0);
 let x = SinOsc(DemandSequencer(Dwhite(inf, 2000, 12000), clock), 0) * Decay2(clock, 0.002, 0.04);
 {

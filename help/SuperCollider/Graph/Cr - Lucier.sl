@@ -1,5 +1,5 @@
-(* lucier (cr) ; http://www.listarc.bham.ac.uk/lists/sc-users/msg47539.html *)
-let bus = 20; (* These may audible on large multi-channel systems *)
+{- lucier (cr) ; http://www.listarc.bham.ac.uk/lists/sc-users/msg47539.html -}
+let bus = 20; {- These may audible on large multi-channel systems -}
 { :tr |
 	let freq = TRand(56, 64, tr);
 	let blocksize = 1 / ControlRate();
@@ -33,9 +33,9 @@ let bus = 20; (* These may audible on large multi-channel systems *)
 	[outL, outR] <! lOut <! drv
 }.OverlapTexture(1, 5, 3).Mix * 0.25
 
-(* ---- notes.md ----
+{- ---- notes.md ----
 
 	The OverlapTexture variant cannot use LocalIn & LocalOut,
 	since there can only be one pair per graph.
 
-*)
+-}

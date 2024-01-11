@@ -1,10 +1,10 @@
 [
 
-	(* Navigator *)
+	{- Navigator -}
 	'Dom'
 	'Midi'
 
-	(* SmallKansas *)
+	{- SmallKansas -}
 	'UserEventTarget'
 	'View'
 	'SmallKansas'
@@ -15,7 +15,7 @@
 	'TextEditor'
 	'TextElement'
 
-	(* SmallKansans *)
+	{- SmallKansans -}
 	'AnalogueClock'
 	'CategoryBrowser'
 	'ColourChooser'

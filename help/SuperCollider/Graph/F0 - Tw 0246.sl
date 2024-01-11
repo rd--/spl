@@ -1,4 +1,4 @@
-(* https://sccode.org/1-4Qy ; f0 ; 0246 *)
+{- https://sccode.org/1-4Qy ; f0 ; 0246 -}
 let b = (1 .. 9) * 1.5;
 let d = [2 / b, 3 / b];
 let e = LfPulse(d, 0, 0.5);

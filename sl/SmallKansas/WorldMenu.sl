@@ -1,4 +1,4 @@
-(* Requires: Menu SmallKansas *)
+{- Requires: Menu SmallKansas -}
 
 +SmallKansas {
 

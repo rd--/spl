@@ -49,7 +49,7 @@ There are many examples of OverlapTexture in the examples files:
 	);
 	let delayTime = 2 / lfoFreq;
 	let right = DelayC(left, delayTime, delayTime);
-	[left, right] (* delay right channel by two beats *)
+	[left, right] {- delay right channel by two beats -}
 
 * * *
 

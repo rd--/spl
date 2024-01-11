@@ -1,4 +1,4 @@
-(* Shepard tones ; Adc *)
+{- Shepard tones ; Adc -}
 let ampTable = 1024.hanningWindow.squared.asLocalBuf;
 let freqTable = (0 .. 1023).collect { :i |
 	0.5 ^ (i / 1024 * 10) * 20000

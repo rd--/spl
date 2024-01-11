@@ -1,4 +1,4 @@
-(* Requires: Fraction Tuning *)
+{- Requires: Fraction Tuning -}
 
 RatioTuning : [Object, Tuning] { | name description ratios octave cachedLimit |
 

@@ -1,7 +1,7 @@
 +@Sequenceable {
 
 	crossedMultiply { :self :aSequence |
-		self.withCrossedCollect(aSequence, times:/2)
+		self.withCrossedCollect(aSequence, *)
 	}
 
 	withCrossedCollect { :self :aSequence :aBlock:/2 |

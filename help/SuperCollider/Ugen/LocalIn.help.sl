@@ -1,4 +1,4 @@
-(* LocalIn ; stereo cross channel feedback modulation ; mouse control *)
+{- LocalIn ; stereo cross channel feedback modulation ; mouse control -}
 let index = 5;
 let fb = [10, 5];
 let pan = 0;

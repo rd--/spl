@@ -329,7 +329,7 @@
 	}
 
 	do { :self :aBlock:/1 |
-		(* Spl is one-indexed *)
+		{- Spl is one-indexed -}
 		1.toDo(self, aBlock:/1);
 		self
 	}
@@ -704,7 +704,7 @@
 	}
 
 	levenshteinDistance { :self :other |
-		self.levenshteinDistance(other, equals:/2)
+		self.levenshteinDistance(other, =)
 	}
 
 	levenshteinDistance { :self :other :equalityBlock:/2 |
@@ -843,7 +843,7 @@
 	}
 
 	similarity { :self :other |
-		self.similarity(other, equals:/2)
+		self.similarity(other, =)
 	}
 
 	similarity { :self :other :equalityBlock:/2 |
@@ -923,14 +923,14 @@
 		answer
 	}
 
-	+ { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, plus:/2) }
-	- { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, minus:/2) }
-	* { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, times:/2) }
-	/ { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, dividedBy:/2) }
-	< { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, lessThan:/2) }
-	> { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, greaterThan:/2) }
-	^ { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, raisedTo:/2) }
-	% { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, modulo:/2) }
+	+ { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, +) }
+	- { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, -) }
+	* { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, *) }
+	/ { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, /) }
+	< { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, <) }
+	> { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, >) }
+	^ { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, ^) }
+	% { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, %) }
 
 	bitAnd { :self :anObject | self.withWrappingCollectOrAdaptTo(anObject, bitAnd:/2) }
 	bitOr { :self :anObject | self.withWrappingCollectOrAdaptTo(anObject, bitOr:/2) }

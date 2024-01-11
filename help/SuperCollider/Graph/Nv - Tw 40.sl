@@ -1,4 +1,4 @@
-(* https://swiki.hfbk-hamburg.de/MusicTechnology/899 (nv) [Line 40] *)
+{- https://swiki.hfbk-hamburg.de/MusicTechnology/899 (nv) [Line 40] -}
 let x = (0 .. 8).collect { :i |
 	let t = 0.6 ^ i * 40 * Impulse(2 ^ i / 32, 1 / 2);
 	let f = 4 ^ LfNoise0(1 / 16) * 300;

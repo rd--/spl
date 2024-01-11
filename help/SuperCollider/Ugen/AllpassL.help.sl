@@ -1,4 +1,4 @@
-(* AllpassL ; Mouse controls decay time *)
+{- AllpassL ; Mouse controls decay time -}
 let t = Dust([2, 2]);
 let z = Decay(t * 0.5, TRand(0.05, 0.15, t)) * PinkNoise();
 let decayTime = MouseY(0.5, 1.5, 0, 0.2);
@@ -8,7 +8,7 @@ let decayTime = MouseY(0.5, 1.5, 0, 0.2);
 };
 z
 
-(* AllpassL ; Mouse controls feedback coefficient *)
+{- AllpassL ; Mouse controls feedback coefficient -}
 let t = Dust([2, 2]);
 let z = Decay(t * 0.5, TRand(0.05, 0.15, t)) * PinkNoise();
 let feedbackCoefficient = MouseY(0.35, 0.65, 0, 0.2);
@@ -19,7 +19,7 @@ let feedbackCoefficient = MouseY(0.35, 0.65, 0, 0.2);
 };
 z
 
-(* ---- calculations ---- *)
+{- ---- calculations ---- -}
 
 let delayTime = 0.1;
 let decayTime = 1;

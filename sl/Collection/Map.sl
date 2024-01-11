@@ -1,4 +1,4 @@
-(* Require: Record *)
+{- Require: Record -}
 
 @PrimitiveMap {
 

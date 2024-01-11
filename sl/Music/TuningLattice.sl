@@ -1,4 +1,4 @@
-(* Requires: Bag Fraction *)
+{- Requires: Bag Fraction -}
 
 +Fraction {
 

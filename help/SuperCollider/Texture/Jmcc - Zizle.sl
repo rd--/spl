@@ -1,4 +1,4 @@
-(* zizle (jmcc) #SC3d1.5 *)
+{- zizle (jmcc) #SC3d1.5 -}
 {
 	let a = { :f |
 		(SinOsc(f * [Rand(0.7, 1.3), 1], { 2 * pi.Rand0 } ! 2) * 0.1).Sum

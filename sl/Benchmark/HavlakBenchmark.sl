@@ -1,4 +1,4 @@
-(* Requires: Benchmark *)
+{- Requires: Benchmark -}
 
 BasicBlockEdge : [Object] { | from to |
 
@@ -62,7 +62,7 @@ ControlFlowGraph : [Object] { | basicBlockMap startNode edgeList |
 			node := self.basicBlockMap[name]
 		} {
 			node := BasicBlock(name);
-			self.basicBlockMap.ofSize(name); (* grow array *)
+			self.basicBlockMap.ofSize(name); {- grow array -}
 			self.basicBlockMap[name] := node
 		};
 		(self.numNodes == 1).ifTrue {

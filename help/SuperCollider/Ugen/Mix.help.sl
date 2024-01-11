@@ -1,4 +1,4 @@
-(* Mix ; rule based mixing ; system preference *)
+{- Mix ; rule based mixing ; system preference -}
 let n = 9;
 { :tr |
 	let ping = SinOsc(2222, 0) * Decay2(tr, 0.01, 0.2);
@@ -9,7 +9,7 @@ let n = 9;
 	).Sum * [0.1, 0.05]
 }.OverlapTexture(n, 0, n).Mix
 
-(* Mix ; !> is ! then Mix *)
+{- Mix ; !> is ! then Mix -}
 {
 	EqPan2(
 		SinOsc(Rand(22, 333), 0),
@@ -17,7 +17,7 @@ let n = 9;
 	) * Rand(0.01, 0.05)
 } !> 9
 
-(* Mix ; simple '2×2→1×4' rule *)
+{- Mix ; simple '2×2→1×4' rule -}
 {
 	SinOsc(
 		{ Rand(111, 333) } ! 2,

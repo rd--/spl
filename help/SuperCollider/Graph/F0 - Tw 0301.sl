@@ -1,4 +1,4 @@
-(* https://sccode.org/1-4Qy ; f0 ; 0301 ; requires=kr *)
+{- https://sccode.org/1-4Qy ; f0 ; 0301 ; requires=kr -}
 let b = (0 .. 3).collect { :i |
 	Duty(
 		i + 1 / 9,

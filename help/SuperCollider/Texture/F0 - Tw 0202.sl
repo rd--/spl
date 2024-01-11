@@ -1,4 +1,4 @@
-(* https://sccode.org/1-4Qy ; f0 ; 0202 *)
+{- https://sccode.org/1-4Qy ; f0 ; 0202 -}
 { :currentTime :each |
 	{
 		let b = 0.1;

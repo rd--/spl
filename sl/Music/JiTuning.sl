@@ -1,4 +1,4 @@
-(* Requires: Fraction RatioTuning Tuning *)
+{- Requires: Fraction RatioTuning Tuning -}
 
 +String {
 

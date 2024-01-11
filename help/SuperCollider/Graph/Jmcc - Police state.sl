@@ -1,5 +1,5 @@
-(* police state ; jmcc *)
-let n = 4; (* number of sirens *)
+{- police state ; jmcc -}
+let n = 4; {- number of sirens -}
 CombL(
 	{
 		EqPan(

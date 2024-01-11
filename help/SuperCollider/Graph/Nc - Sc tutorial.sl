@@ -1,4 +1,4 @@
-(* https://composerprogrammer.com/teaching/supercollider/sctutorial/tutorial.html 1.1 *)
+{- https://composerprogrammer.com/teaching/supercollider/sctutorial/tutorial.html 1.1 -}
 let n = 11;
 let g = {
 	let freq = Rand(50, 560.3);

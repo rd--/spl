@@ -1,5 +1,5 @@
 [
-	(* Music *)
+	{- Music -}
 	'Tuning'
 	'TuningLattice'
 	'CentsTuning'
@@ -8,24 +8,24 @@
 	'Pitch'
 	'Scale'
 
-	(* Protocol *)
+	{- Protocol -}
 	'OpenSoundControl'
 
-	(* SuperCollider *)
+	{- SuperCollider -}
 	'Ugen'
 	'ContinuousEvent'
 	'Env'
 	'J'
 	'LocalControl'
-	'Mix' (* < Ugen *)
-	'KeywordUgens' (* < Ugen *)
-	'PseudoUgens' (* < Ugen *)
+	'Mix' {- < Ugen -}
+	'KeywordUgens' {- < Ugen -}
+	'PseudoUgens' {- < Ugen -}
 	'ScLang'
-	'ScSynth' (* < Ugen *)
+	'ScSynth' {- < Ugen -}
 	'ScSynthOptions'
 	'ScSynthStatus'
 	'ScUgen'
-	'Texture' (* < Ugen *)
-	'UgenBindings' (* < Ugen *)
+	'Texture' {- < Ugen -}
+	'UgenBindings' {- < Ugen -}
 	'UgenGraph'
 ].primitiveLoadPackageSequence

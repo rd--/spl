@@ -1,4 +1,4 @@
-(* Resonz ; resonator *)
+{- Resonz ; resonator -}
 { :tr |
 	Resonz(
 		Pulse(TRand(2, 7, tr), 0.5),
@@ -7,26 +7,26 @@
 	).Splay2
 }.OverlapTexture(2, 4, 6).Mix
 
-(* Resonz *)
+{- Resonz -}
 Resonz(WhiteNoise() * 0.5, 2000, 0.1)
 
-(* Resonz ; modulate frequency ; SinOsc *)
+{- Resonz ; modulate frequency ; SinOsc -}
 let f = SinOsc(0.5, 0) * 40 + 220;
 Resonz(WhiteNoise(), f, 0.1)
 
-(* Resonz ; modulate frequency ; XLine *)
+{- Resonz ; modulate frequency ; XLine -}
 let f = XLine(1000, 8000, 10);
 Resonz(WhiteNoise() * 0.1, f, 0.05)
 
-(* Resonz ; modulate bandwidth *)
+{- Resonz ; modulate bandwidth -}
 let bw = XLine(1, 0.001, 8);
 Resonz(WhiteNoise() * 0.1, 2000, bw)
 
-(* Resonz ; modulate bandwidth opposite direction *)
+{- Resonz ; modulate bandwidth opposite direction -}
 let bw = XLine(0.001, 1, 8);
 Resonz(WhiteNoise() * 0.1, 2000, bw)
 
-(* Resonz ; PinkNoise ; event control *)
+{- Resonz ; PinkNoise ; event control -}
 Voicer(1, 16) { :e |
 	EqPan2(
 		Resonz(
@@ -37,7 +37,7 @@ Voicer(1, 16) { :e |
 	) * e.z * e.w
 }.Mix
 
-(* Resonz ; PinkNoise ; event control *)
+{- Resonz ; PinkNoise ; event control -}
 Voicer(1, 16) { :e |
 	let env = Perc(e.w, 0.01, 1 + e.j, -4);
 	let freq = e.p.UnitCps;

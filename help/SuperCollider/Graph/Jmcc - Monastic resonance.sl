@@ -1,4 +1,4 @@
-(* monastic resonance ; jmcc #5 ; mouse controls size and reverb time ; requires=AudioIn *)
+{- monastic resonance ; jmcc #5 ; mouse controls size and reverb time ; requires=AudioIn -}
 let decayTime = MouseX(0, 16, 0, 0.2);
 let delayScale = MouseY(0.01, 1, 0, 0.2);
 let s = AudioIn([1, 2]) * 0.005;

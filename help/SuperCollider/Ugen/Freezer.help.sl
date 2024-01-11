@@ -1,20 +1,20 @@
-(* Freezer ; static instance ; requires=SfAcquire *)
+{- Freezer ; static instance ; requires=SfAcquire -}
 let sf = SfAcquireMono('crotale-d6');
 Freezer(sf, 0.35, [0.4 0.45], 0.6, 0.1, 0.05, [0.02 0.05], 0.1, 0, 0, [6 8])
 
-(* Freezer ; static instance *)
+{- Freezer ; static instance -}
 let sf = SfAcquireMono('crotale-d6');
 Freezer(sf, 0.3, [0.4 0.45], 0.6, [0.98 1], [0.001 0.005], 0, 0, 0, 0, 6)
 
-(* Freezer ; static instance *)
+{- Freezer ; static instance -}
 let sf = SfAcquireMono('crotale-d6');
 Freezer(sf, 0.3, [0.7 0.75], 0.6, 0.35, 0, 0.5, 0.5, 0, 0, 6)
 
-(* Freezer ; static instance *)
+{- Freezer ; static instance -}
 let sf = SfAcquireMono('crotale-d6');
 Freezer(sf, 0.2500, 0.2505, [0.1 0.2], 1, 0, 0.050, [0.005 0.010], 0, 0, 16)
 
-(* Freezer ; k-rate instance *)
+{- Freezer ; k-rate instance -}
 let sf = SfAcquireMono('crotale-d6');
 let n = { :f :i :j |
 	LfNoise2(f).LinLin(-1, 1, i, j)
@@ -23,7 +23,7 @@ let left = n(1, 0.3, [0.6 0.8]);
 let right = left + n(1, 0.01, [0.05 0.1]);
 Freezer(sf, left, right, [0.1 0.2], 0.5, 0.1, 0.5, 0.05, 0, 0, 24)
 
-(* Freezer ; k-rate instance *)
+{- Freezer ; k-rate instance -}
 let sf = SfAcquireMono('crotale-d6');
 let n = { :i :j |
 	LfNoise2(0.1).LinLin(-1, 1, i, j)
@@ -42,7 +42,7 @@ Freezer(
 	36
 )
 
-(* Freezer ; event control *)
+{- Freezer ; event control -}
 let sf = SfAcquireMono('floating_1');
 Voicer(1, 16) { :e |
 	let incr = 1; let incrOff = 0; let incrRand = 0; let rightRand = 0.1; let phaseSync = 0; let phaseRand = 1; let numLp = 4;

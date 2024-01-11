@@ -1,4 +1,4 @@
-(* Requires: Ugen *)
+{- Requires: Ugen -}
 
 ScSynth! : [Object] {
 
@@ -244,11 +244,11 @@ ScSynth! : [Object] {
 		<primitive: return sc.asLocalBuf(_self);>
 	}
 
-	(*
+	{-
 		Mix { :self |
 			self.sum
 		}
-	*)
+	-}
 
 }
 

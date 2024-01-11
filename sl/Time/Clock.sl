@@ -1,4 +1,4 @@
-(* Requires: PriorityQueue *)
+{- Requires: PriorityQueue -}
 
 Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 

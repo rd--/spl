@@ -1,7 +1,7 @@
-(* https://scsynth.org/t/5296 ; tm881 *)
+{- https://scsynth.org/t/5296 ; tm881 -}
 { Saw({ Rand(33, 2000) } ! 2 * XLine(Rand(0.125, 8), Rand(0.125, 8), 60)) } !+ 99 / 99
 
-(* https://scsynth.org/t/5296 ; tm881 ; rd edit *)
+{- https://scsynth.org/t/5296 ; tm881 ; rd edit -}
 {
 	let f = { Rand(33, 2000) } ! 2 * TRand(0.125, 4, Impulse(1 / 10, 0));
 	let t = Impulse(1 / 2 * TRand(0.125, 4, Impulse(1 / 5, 0)), 0);
@@ -9,7 +9,7 @@
 	FreeVerb(Saw(f) * a, 0.33, 0.5, 0.5)
 } !> 16 * 0.1
 
-(* https://scsynth.org/t/5296 ; tm881 *)
+{- https://scsynth.org/t/5296 ; tm881 -}
 let a = Blip(
 	[
 		Rand(1, 30),

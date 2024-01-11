@@ -67,7 +67,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	atPutLink { :self :index :aLink |
-		(* Putting a link which is already in the list will create an infinite loop *)
+		{- Putting a link which is already in the list will create an infinite loop -}
 		self.validIndex(index).ifFalse {
 			'LinkedList>>atPutLink: errorOutOfBounds'.error
 		};

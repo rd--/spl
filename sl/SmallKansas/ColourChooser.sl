@@ -1,4 +1,4 @@
-(* Requires: Colour SmallKansas *)
+{- Requires: Colour SmallKansas -}
 
 ColourChooser : [Object, View] { | colourChooserPane colourInput |
 

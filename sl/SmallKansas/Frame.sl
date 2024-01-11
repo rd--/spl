@@ -118,7 +118,7 @@ Frame : [Object, UserEventTarget] { | smallKansas framePane titlePane closeButto
 			self.smallKansas.menu('Frame Menu', self.subject.frameMenuItems ++ self.menuItems, true, event)
 		};
 		self.titlePane.addEventListener('contextmenu') { :event |
-			(* ... *)
+			{- ... -}
 		};
 		self.titlePane.addEventListener('pointerdown', pointerBegin:/1);
 		self.titlePane.addEventListener('pointermove', pointerMove:/1, (capture: true, passive: true));

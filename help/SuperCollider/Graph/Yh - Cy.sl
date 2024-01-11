@@ -1,4 +1,4 @@
-(* https://github.com/pangrus/hachi/blob/master/lib/engine_hachi.sc ; yh (yoshinosuke horiuchi) *)
+{- https://github.com/pangrus/hachi/blob/master/lib/engine_hachi.sc ; yh (yoshinosuke horiuchi) -}
 let decay = 2;
 let amp = 10;
 let pan = 0;

@@ -1,13 +1,13 @@
-(* Requires: Array Number Object *)
+{- Requires: Array Number Object -}
 
 Complex : [Object] { | real imaginary |
 
 	= { :self :anObject |
-		self.equalBy(anObject, equals:/2)
+		self.equalBy(anObject, =)
 	}
 
 	~ { :self :anObject |
-		self.equalBy(anObject, tilde:/2)
+		self.equalBy(anObject, ~)
 	}
 
 	* { :self :anObject |
@@ -18,7 +18,7 @@ Complex : [Object] { | real imaginary |
 			let d = anObject.imaginary;
 			Complex((a * c) - (b * d), (a * d) + (b * c))
 		} {
-			anObject.adaptToComplexAndApply(self, times:/2)
+			anObject.adaptToComplexAndApply(self, *)
 		}
 	}
 
@@ -31,7 +31,7 @@ Complex : [Object] { | real imaginary |
 			let d = anObject.imaginary;
 			Complex(a + c, b + d)
 		} {
-			anObject.adaptToComplexAndApply(self, plus:/2)
+			anObject.adaptToComplexAndApply(self, +)
 		}
 	}
 
@@ -43,7 +43,7 @@ Complex : [Object] { | real imaginary |
 			let d = anObject.imaginary;
 			Complex(a - c, b - d)
 		} {
-			anObject.adaptToComplexAndApply(self, minus:/2)
+			anObject.adaptToComplexAndApply(self, -)
 		}
 	}
 
@@ -58,7 +58,7 @@ Complex : [Object] { | real imaginary |
 				((b * c) - (a * d)) / ((c * c) + (d * d))
 			)
 		} {
-			anObject.adaptToComplexAndApply(self, dividedBy:/2)
+			anObject.adaptToComplexAndApply(self, /)
 		}
 	}
 

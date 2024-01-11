@@ -1,4 +1,4 @@
-(* sin-gliss ; unknown *)
+{- sin-gliss ; unknown -}
 let t = 60;
 let z = [
 	0.5 0.5; 0.5 1;

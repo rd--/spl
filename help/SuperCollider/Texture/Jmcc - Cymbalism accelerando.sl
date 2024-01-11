@@ -1,6 +1,6 @@
-(* Cymbalism accelerando (Jmcc) #2 *)
+{- Cymbalism accelerando (Jmcc) #2 -}
 {
-	let p = 15; (* number of partials per channel per 'cymbal' *)
+	let p = 15; {- number of partials per channel per 'cymbal' -}
 	let f1 = 500 + 2000.Rand0;
 	let f2 = 8000.Rand0;
 	let tf = XLine(LinRand(0, 4, 0) + 0.5, 35.Rand0 + 0.5, 12);

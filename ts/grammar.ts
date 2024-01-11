@@ -46,7 +46,6 @@ Sl {
 		| AtPutDelegateSyntax
 		| WriteSlotSyntax
 		| AtIfAbsentSyntax
-		| AtIfAbsentPutSyntax
 		| AtSyntax
 		| AtAllIntervalSyntax
 		| AtAllVectorSyntax
@@ -72,6 +71,7 @@ Sl {
 		| reservedIdentifier
 		| literal
 		| identifier
+        | binaryOperator
 		| ParenthesisedExpression
 		| DictionaryExpression
 		| ArrayExpression
@@ -87,7 +87,7 @@ Sl {
 	QuotedAtPutSyntax = Primary "::" identifier ":=" Expression
 	AtSyntax = Primary "[" Expression "]"
 	AtIfAbsentSyntax = Primary "[" Expression "]" ":?" Block
-	AtIfAbsentPutSyntax = Primary "[" Expression "]" ":=?" Block
+	AtIfAbsentPutSyntax = Primary "[" Expression "]" ":?=" Block
 	AtAllArraySyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
 	AtAllVectorSyntax = Primary "[" VectorSyntaxItem+ "]"
 	AtAllIntervalSyntax = Primary "[" Expression ".." Expression "]"
@@ -97,7 +97,7 @@ Sl {
 	AtPathSyntax = Primary "[" NonemptyListOf<Expression, ";"> "]"
 	QuotedAtSyntax = Primary "::" identifier
 	QuotedAtIfAbsentSyntax = Primary "::" identifier ":?" Block
-	QuotedAtIfAbsentPutSyntax = Primary "::" identifier ":=?" Block
+	QuotedAtIfAbsentPutSyntax = Primary "::" identifier ":?=" Block
 	AtPutDelegateSyntax = Primary ":." identifier ":=" Expression
 	MessageSendSyntax = Primary ":." identifier NonEmptyParameterList?
 	ReadSlotSyntax = Primary ":@" identifier
@@ -174,9 +174,11 @@ Sl {
 
 	primitiveCharacter = ~">" sourceCharacter
 
-	comment = multiLineMlComment | singleLineMlComment
+	comment = multiLineHsComment
 	multiLineMlComment = "(*" (~"*)" sourceCharacter)* "*)"
 	singleLineMlComment = "(*)" (~lineTerminator sourceCharacter)*
+	multiLineHsComment = "{-" (~"-}" sourceCharacter)* "-}"
+	singleLineHsComment = "--" (~lineTerminator sourceCharacter)*
 	lineTerminator = "\n" | "\r"
 	space += comment
 

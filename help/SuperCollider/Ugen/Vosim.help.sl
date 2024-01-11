@@ -1,4 +1,4 @@
-(* Vosim ; mouse control of frequency *)
+{- Vosim ; mouse control of frequency -}
 Vosim(
 	Impulse(110 + [-1 0 1], 0),
 	MouseX([110 220 440], 880, 1, 0.2),
@@ -6,7 +6,7 @@ Vosim(
 	[0.77 0.88 0.99]
 ).Splay * 0.1
 
-(* Vosim ; noise modulation of frequency *)
+{- Vosim ; noise modulation of frequency -}
 Vosim(
 	Impulse(110 + [-1 0 1], 0),
 	LinExp(LfNoise2([0.35 0.25 0.15]), -1, 1, [110 220 440], 880),
@@ -14,7 +14,7 @@ Vosim(
 	[0.77 0.88 0.99]
 ).Splay * 0.1
 
-(* Vosim *)
+{- Vosim -}
 { :tr |
 	{
 		Vosim(
@@ -26,7 +26,7 @@ Vosim(
 	} ! 2
 }.OverlapTexture(3, 5, 3).Mix * 0.1
 
-(* Vosim *)
+{- Vosim -}
 let p = TRand(0, 1, Impulse([3, 7], 0));
 let tr = Impulse([9, 27] * (1 + (p > 0.95)), 0);
 let f = TRand([40, 120, 220], [440, 990, 880], tr);
@@ -44,7 +44,7 @@ EqPan2(
 	l
 ).Mix * 0.25
 
-(* Vosim ; requires=voicer *)
+{- Vosim ; requires=voicer -}
 Voicer(1, 16) { :e |
 	let tr = Impulse(e.p.UnitCps, 0);
 	let freq = LinExp(e.y, 0, 1, 440, 880);

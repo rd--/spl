@@ -1,4 +1,4 @@
-(* https://sccode.org/1-4Qy ; f0 ; 0306 *)
+{- https://sccode.org/1-4Qy ; f0 ; 0306 -}
 let o = [0, 1].collect { :i |
 	SinOsc(
 		Duty(

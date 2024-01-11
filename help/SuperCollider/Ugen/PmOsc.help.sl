@@ -1,18 +1,18 @@
-(* PmOsc ; mouse control *)
+{- PmOsc ; mouse control -}
 PmOsc(440, MouseY(1, 550, 0, 0.2), MouseX(1, 15, 0, 0.2), 0) * 0.1
 
-(* PmOsc ; carrier and modulator not linked *)
+{- PmOsc ; carrier and modulator not linked -}
 let tr = Impulse(10, 0);
 let c = TRand(100, 5000, tr);
 let m = TRand(100, 5000, tr);
 PmOsc(c, m, 12, 0) * 0.1
 
-(* PmOsc ; modulator expressed as ratio *)
+{- PmOsc ; modulator expressed as ratio -}
 let carrier = LfNoise0(MouseY(3, 11, 0, 0.2)) * 500 + 700;
 let modRatio = MouseX(1, 2, 0, 0.2);
 PmOsc(carrier, carrier * modRatio, 12, 0) * 0.1
 
-(* PmOsc ; random parameters, linear modulation *)
+{- PmOsc ; random parameters, linear modulation -}
 let dur = 6;
 { :tr |
 	let cf = TRand(0, 2000, tr);
@@ -25,7 +25,7 @@ let dur = 6;
 	EqPan2(PmOsc(cf, mf, pm, 0), l)
 }.OverlapTexture(2, 2, 4).Mix * 0.05
 
-(* PmOsc ; event control *)
+{- PmOsc ; event control -}
 let s = Voicer(1, 16) { :e |
 	let cps = (e.x * 24 + 42).MidiCps;
 	let cpsv = cps + (cps * SinOsc(e.y * 4 + 4, 0) * 0.02);

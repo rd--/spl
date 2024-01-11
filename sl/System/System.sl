@@ -201,7 +201,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	methodArities { :self :methodName |
-		(* Arities methodName is implemented for. *)
+		{- Arities methodName is implemented for. -}
 		self.methodDictionary[methodName].indices
 	}
 
@@ -227,7 +227,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	methodImplementations { :self :methodName |
-		(* Implementations of methodName. *)
+		{- Implementations of methodName. -}
 		self.isMethodName(methodName).if {
 			let answer = Set();
 			let table = self.methodDictionary[methodName];
@@ -268,7 +268,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	methodPrintString { :self :methodName |
-		(* Print string of implementations of methodName. *)
+		{- Print string of implementations of methodName. -}
 		let answer = [];
 		self.methodImplementations(methodName).do { :method |
 			answer.add(
@@ -287,7 +287,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	methodSignatures { :self :methodName |
-		(* Signatures of each implementation of methodName. *)
+		{- Signatures of each implementation of methodName. -}
 		self.methodImplementations(methodName).collect(signature:/1)
 	}
 
@@ -336,7 +336,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	onlyZeroArityMethodList { :self |
-		(* Methods implemented by typeName. *)
+		{- Methods implemented by typeName. -}
 		self.methodDictionary.indices.select { :methodName |
 			self.methodArities(methodName) = [0]
 		}
@@ -411,8 +411,8 @@ System! : [Object, Cache, Indexable, Random] {
 			'typeDictionary',
 			'packageDictionary',
 			'window',
-			'library', (* Package *)
-			'transcript' (* Package *)
+			'library', {- Package -}
+			'transcript' {- Package -}
 		]
 	}
 
@@ -465,12 +465,12 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	typeDirectMethodDictionary { :self :typeName |
-		(* Methods implemented directly at typeName. *)
+		{- Methods implemented directly at typeName. -}
 		self.typeLookup(typeName).methodDictionary
 	}
 
 	typeInheritedMethodDictionary { :self :typeName |
-		(* Methods inherited from Traits at typeName (most specific only). *)
+		{- Methods inherited from Traits at typeName (most specific only). -}
 		let answer = ();
 		self.typeLookup(typeName).traitNameArray.do { :traitName |
 			self.traitLookup(traitName).methodDictionary.valuesDo { :method |

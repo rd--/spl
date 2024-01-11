@@ -1,5 +1,5 @@
 [
-	(* Collection *)
+	{- Collection -}
 	'ArrayBuffer'
 	'Bag'
 	'Bitset'
@@ -13,11 +13,11 @@
 	'PriorityQueue'
 	'RunArray'
 	'Set'
-	'Stack' (* Requires: LinkedList *)
+	'Stack' {- Requires: LinkedList -}
 	'SortedArray'
 	'WeakMap'
 
-	(* Geometry *)
+	{- Geometry -}
 	'Angle'
 	'CartesianCoordinate'
 	'Length'
@@ -30,21 +30,21 @@
 	'Vector2'
 	'Vector3'
 	'Vector4'
-	'CylindricalCoordinate' (* Requires: Vector3 *)
-	'SphericalCoordinate' (* Requires: Vector3 *)
+	'CylindricalCoordinate' {- Requires: Vector3 -}
+	'SphericalCoordinate' {- Requires: Vector3 -}
 
-	(* Graphics *)
+	{- Graphics -}
 	'Colour'
 
-	(* Help *)
+	{- Help -}
 	'HelpIndex'
 
-	(* Number *)
+	{- Number -}
 	'Complex'
 	'Fraction'
 	'LargeInteger'
 
-	(* Stream *)
+	{- Stream -}
 	'Iterator'
 	'Stream'
 	'PositionableStream'
@@ -54,13 +54,13 @@
 	'AsciiStream'
 	'Utf8Stream'
 
-	(* Random *)
+	{- Random -}
 	'Mersenne'
 	'LinearCongruential'
-	'Sfc32' (* Stream *)
+	'Sfc32' {- Stream -}
 	'SplitMix'
 
-	(* System *)
+	{- System -}
 	'Blob'
 	'Event'
 	'EventTarget'
@@ -76,46 +76,46 @@
 	'Type'
 	'Url'
 	'UrlSearchParams'
-	'WebSocket' (* > EventTarget Url *)
+	'WebSocket' {- > EventTarget Url -}
 	'Window'
 
-	(* Text *)
+	{- Text -}
 	'Character'
 	'RegExp'
 
-	(* Time *)
+	{- Time -}
 	'Clock'
 	'Date'
 	'Duration'
 	'Frequency'
 	'TimeStamp'
 
-	(* Unit *)
+	{- Unit -}
 	'Mass'
 	'SiUnit'
 
-	(* Meta *)
+	{- Meta -}
 	'Categories'
 
-	(* Help *)
-	'TerseGuide' (* > Url *)
+	{- Help -}
+	'TerseGuide' {- > Url -}
 
-	(* Sound *)
-	'SoundFile' (* > Url *)
+	{- Sound -}
+	'SoundFile' {- > Url -}
 
 ].primitiveLoadPackageSequence.then { :unused |
-	(*
+	{-
 		'../config/preferences.json'.primitiveReadLocalFile.then { :byteArray |
 			system.cache::preferences := byteArray.utf8String.parseJson
 		}
-	*)
-	(*
+	-}
+	{-
 		let splDirectory = system.environmentVariable('SplDirectory');
 		(splDirectory ++ '/config/preferences.json').primitiveReadLocalFile.then { :byteArray |
 			system.cache::preferences := byteArray.utf8String.parseJson
 		}
-	*)
-	(*
+	-}
+	{-
 		system.fetchJson(
 			'https://rohandrape.net/sw/spl/config/preferences.json',
 			()
@@ -123,5 +123,5 @@
 			answer.postLine;
 			system.cache::preferences := answer
 		}
-	*)
+	-}
 }

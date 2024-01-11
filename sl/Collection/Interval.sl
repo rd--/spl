@@ -14,7 +14,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 		arg.isSmallFloat.if {
 			Interval(self.start + arg, self.stop + arg, self.step)
 		} {
-			arg.adaptToCollectionAndApply(self, plus:/2)
+			arg.adaptToCollectionAndApply(self, +)
 		}
 	}
 
@@ -22,7 +22,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 		arg.isSmallFloat.if {
 			Interval(self.start - arg, self.stop - arg, self.step)
 		} {
-			arg.adaptToCollectionAndApply(self, minus:/2)
+			arg.adaptToCollectionAndApply(self, -)
 		}
 	}
 

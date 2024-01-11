@@ -1,4 +1,4 @@
-(* Requires: Array String System *)
+{- Requires: Array String System -}
 
 Package! : [Object] {
 
@@ -89,7 +89,7 @@ Package! : [Object] {
 
 	Package { :self |
 		Package(
-			self::Category :=? { system.categoryDictionary.categoryOf('type', self::Name) },
+			self::Category :?= { system.categoryDictionary.categoryOf('type', self::Name) },
 			self::Name,
 			self::Requires :? { [] },
 			self::Url :? { self.derivePackageUrl },
@@ -110,7 +110,7 @@ Package! : [Object] {
 	}
 
 	parsePackageHeader { :self |
-		let fields = self.firstMlComment.splitBy(',');
+		let fields = self.firstHsComment.splitBy(',');
 		fields.collect { :each |
 			let [key, value] = each.withBlanksTrimmed.splitBy(': ');
 			key.caseOfOtherwise([

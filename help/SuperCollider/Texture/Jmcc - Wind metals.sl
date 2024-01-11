@@ -1,4 +1,4 @@
-(* Wind metals (Jmcc) *)
+{- Wind metals (Jmcc) -}
 {
 	let n = 6;
 	let env = (LfNoise1(ExpRand(0.125, 0.5)) * 0.75 + 0.25).Max(0);

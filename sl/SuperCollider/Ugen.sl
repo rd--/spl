@@ -64,7 +64,7 @@ Ugen! : [Object, Number] {
 +Array {
 
 	busOffset { :self |
-		(* ['busOffset', self.size].postLine; *)
+		{- ['busOffset', self.size].postLine; -}
 		self.size.caseOfOtherwise([
 			{ 2 } -> {
 				system.preference('ScSynth.Outputs.Stereo.BusOffset', 0)

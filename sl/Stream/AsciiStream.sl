@@ -1,4 +1,4 @@
-(* Requires: ByteArray MutableCollectionStream *)
+{- Requires: ByteArray MutableCollectionStream -}
 
 +MutableCollectionStream {
 

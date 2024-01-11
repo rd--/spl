@@ -1,4 +1,4 @@
-(* Requires: Duration *)
+{- Requires: Duration -}
 
 Frequency : [Object, Magnitude] { | hertz |
 

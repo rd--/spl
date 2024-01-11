@@ -1,4 +1,4 @@
-(* https://scsynth.org/t/6264/4 ; pt *)
+{- https://scsynth.org/t/6264/4 ; pt -}
 let numPartials = 24;
 let numVoices = 16;
 let partialArray = [1 .. numPartials];

@@ -23,8 +23,8 @@ Phasor controls sine frequency, end frequency matches a second sine wave:
 	let x = Phasor(trig, rate / sr, 0, 1, 0);
 	SinOsc(
 		[
-			x.LinLin(0, 1, 600, 1000), (* convert range *)
-			1000 (* constant second frequency *)
+			x.LinLin(0, 1, 600, 1000), {- convert range -}
+			1000 {- constant second frequency -}
 		],
 		0
 	) * 0.1

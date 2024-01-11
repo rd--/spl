@@ -1,4 +1,4 @@
-(* jmcc ; inharmonic warbulence ; graph rewrite *)
+{- jmcc ; inharmonic warbulence ; graph rewrite -}
 let z = { :tr |
 	let f = TRand(24, 96, tr).MidiCps;
 	let a = (500 / f).Min(1);

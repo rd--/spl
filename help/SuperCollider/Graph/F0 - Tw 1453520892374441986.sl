@@ -1,4 +1,4 @@
-(* https://twitter.com/redFrik/status/1453520892374441986 ; f0 *)
+{- https://twitter.com/redFrik/status/1453520892374441986 ; f0 -}
 let b = [1, 2, 3] / 3;
 let c = 2 * pi * b;
 let t = SinOsc(10, pi * b);

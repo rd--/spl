@@ -13,7 +13,7 @@
 	}
 
 	size { :self |
-		<primitive: return _self.size;> (* Read only *)
+		<primitive: return _self.size;> {- Read only -}
 	}
 
 	text { :self |
@@ -21,7 +21,7 @@
 	}
 
 	type { :self |
-		<primitive: return _self.type;> (* Read only *)
+		<primitive: return _self.type;> {- Read only -}
 	}
 
 }
@@ -62,8 +62,8 @@ Blob! : [Object, Blob] {
 
 }
 
-(* Requires: ByteArray Float64Array *)
-(*
+{- Requires: ByteArray Float64Array -}
+{-
 	+[ByteArray, Float64Array] {
 
 		asBlob { :self |
@@ -71,4 +71,4 @@ Blob! : [Object, Blob] {
 		}
 
 	}
-*)
+-}

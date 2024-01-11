@@ -1,4 +1,4 @@
-(* alien froggies (jmcc) #1 *)
+{- alien froggies (jmcc) #1 -}
 { :tr |
 	let rate = 11;
 	let r = Fold(

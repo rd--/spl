@@ -1,4 +1,4 @@
-(* Atan2 *)
+{- Atan2 -}
 let x = 10;
 let y = LfSaw(1/6, 0) * 100;
 let distance = Hypot(x, y);

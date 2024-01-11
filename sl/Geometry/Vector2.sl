@@ -12,7 +12,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 		anObject.isPoint.if {
 			Vector2(self.x + anObject.x, self.y + anObject.y)
 		} {
-			anObject.adaptToPointAndApply(self, plus:/2)
+			anObject.adaptToPointAndApply(self, +)
 		}
 	}
 
@@ -20,7 +20,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 		anObject.isPoint.if {
 			Vector2(self.x - anObject.x, self.y - anObject.y)
 		} {
-			anObject.adaptToPointAndApply(self, minus:/2)
+			anObject.adaptToPointAndApply(self, -)
 		}
 	}
 
@@ -28,7 +28,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 		anObject.isPoint.if {
 			Vector2(self.x * anObject.x, self.y * anObject.y)
 		} {
-			anObject.adaptToPointAndApply(self, times:/2)
+			anObject.adaptToPointAndApply(self, *)
 		}
 	}
 
@@ -36,7 +36,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 		anObject.isPoint.if {
 			Vector2(self.x / anObject.x, self.y / anObject.y)
 		} {
-			anObject.adaptToPointAndApply(self, dividedBy:/2)
+			anObject.adaptToPointAndApply(self, /)
 		}
 	}
 
@@ -44,7 +44,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 		anObject.isPoint.if {
 			Vector2(self.x // anObject.x, self.y // anObject.y)
 		} {
-			anObject.adaptToPointAndApply(self, dividedByDividedBy:/2)
+			anObject.adaptToPointAndApply(self, //)
 		}
 	}
 
@@ -52,7 +52,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 		anObject.isPoint.if {
 			Vector2(self.x % anObject.x, self.y % anObject.y)
 		} {
-			anObject.adaptToPointAndApply(self, modulo:/2)
+			anObject.adaptToPointAndApply(self, %)
 		}
 	}
 
@@ -89,7 +89,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 	}
 
 	r { :self |
-		(* r = radius = rho *)
+		{- r = radius = rho -}
 		(self.x.squared + self.y.squared).sqrt
 	}
 
@@ -119,7 +119,7 @@ Vector2 : [Object, Indexable, Number, Point] { | x y |
 	}
 
 	t { :self |
-		(* t = theta *)
+		{- t = theta -}
 		atan2(self.y, self.x)
 	}
 

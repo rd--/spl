@@ -1,4 +1,4 @@
-(* Requires: ColumnBrowser SmallKansas *)
+{- Requires: ColumnBrowser SmallKansas -}
 
 ScProgramIndex : [Object] { | contents |
 

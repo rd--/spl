@@ -1,19 +1,19 @@
-(* Bezier ; reference sine tone *)
+{- Bezier ; reference sine tone -}
 SinOsc(440, 0) * 0.1
 
-(* Bezier ; Bézier curve oscillator ; bezier approximation of sin function *)
+{- Bezier ; Bézier curve oscillator ; bezier approximation of sin function -}
 Bezier(100, 0.001, 440, 0, [0, 0, 0.2, -1.3, 0.3, -1.3, 0.5, 0, 0.7, 1.3, 0.8, 1.3, 1, 0]) * 0.1
 
-(* Bezier ; mouse control of frequency *)
+{- Bezier ; mouse control of frequency -}
 let x = MouseX(40, 4000, 1, 0.2);
 Bezier(100, 0.001, x, 0, [0, 0, 0.2, -1.3, 0.3, -1.3, 0.5, 0, 0.7, 1.3, 0.8, 1.3, 1, 0]) * 0.1
 
-(* Bezier ; mouse control of frequency & one control point *)
+{- Bezier ; mouse control of frequency & one control point -}
 let x = MouseX(40, 4000, 1, 0.2);
 let y = MouseY(0.1, 0.2, 0, 0.2);
 Bezier(100, 0.001, x, 0, [0, 0, y, -1.3, 0.3, -1.3, 0.5, 0, 0.7, 1.3, 0.8, 1.3, 1, 0]) * 0.1
 
-(* Bezier ; dynamic shifting of control points, as oscillator *)
+{- Bezier ; dynamic shifting of control points, as oscillator -}
 let w = { :l :r |
 	LinLin(LfdNoise3(2), -1, 1, l, r)
 };
@@ -31,7 +31,7 @@ let w = { :l :r |
 	EqPan2(o, IRand(-1, 1)) * 0.1
 } !> 4
 
-(* Bezier ; event control ; requires=voicer *)
+{- Bezier ; event control ; requires=voicer -}
 Voicer(1, 16) { :e |
 	let w = { :l :r |
 		LinLin(LfdNoise3(e.j * 5), -1, 1, l, r)
@@ -49,4 +49,4 @@ Voicer(1, 16) { :e |
 		let o = Bezier(100, 0.001, w(200, 205) * (e.x + 0.5), 0, p);
 		EqPan2(o, e.i * 2 - 1) * e.z * LagUd(e.w, 0.01, e.y * 4)
 	} !+ 4
-}.Mix (* Cpu Load: Mac Studio M1 Max 2022: 16 voices = 85% *)
+}.Mix {- Cpu Load: Mac Studio M1 Max 2022: 16 voices = 85% -}

@@ -1,4 +1,4 @@
-(* lots-o-sins (jmcc) #2 *)
+{- lots-o-sins (jmcc) #2 -}
 {
 	let n = 60;
 	{

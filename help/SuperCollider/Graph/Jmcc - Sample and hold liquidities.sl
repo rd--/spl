@@ -1,4 +1,4 @@
-(* sample and hold liquidities (jmcc) #4 *)
+{- sample and hold liquidities (jmcc) #4 -}
 let r = MouseX(1, 200, 1, 0.1);
 let t = r.Recip;
 let c = Impulse(r, 0) * 0.4;

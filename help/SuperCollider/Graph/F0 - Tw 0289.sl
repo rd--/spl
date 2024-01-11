@@ -1,4 +1,4 @@
-(* https://sccode.org/1-4Qy ; f0 ; 0289 *)
+{- https://sccode.org/1-4Qy ; f0 ; 0289 -}
 let b = (1 .. 50);
 let t = Impulse(b / 49, 0);
 let o = SinOscFb(33 * b, LagUd(t, 0.005, 0.2) * 99) * LagUd(t, 0.007, 1);

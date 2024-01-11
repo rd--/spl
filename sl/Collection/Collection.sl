@@ -1,4 +1,4 @@
-(* Require: Object *)
+{- Require: Object -}
 
 @Collection {
 
@@ -34,7 +34,7 @@
 	}
 
 	allEqual { :self |
-		self.allEqualBy(equals:/2)
+		self.allEqualBy(=)
 	}
 
 	any { :self :numberOfElements |
@@ -405,39 +405,39 @@
 
 }
 
-(* Numerical *)
+{- Numerical -}
 +@Collection {
 
 	+ { :self :arg |
-		arg.adaptToCollectionAndApply(self, plus:/2)
+		arg.adaptToCollectionAndApply(self, +)
 	}
 
 	- { :self :arg |
-		arg.adaptToCollectionAndApply(self, minus:/2)
+		arg.adaptToCollectionAndApply(self, -)
 	}
 
 	* { :self :arg |
-		arg.adaptToCollectionAndApply(self, times:/2)
+		arg.adaptToCollectionAndApply(self, *)
 	}
 
 	/ { :self :arg |
-		arg.adaptToCollectionAndApply(self, dividedBy:/2)
+		arg.adaptToCollectionAndApply(self, /)
 	}
 
 	< { :self :arg |
-		arg.adaptToCollectionAndApply(self, lessThan:/2)
+		arg.adaptToCollectionAndApply(self, <)
 	}
 
 	> { :self :arg |
-		arg.adaptToCollectionAndApply(self, greaterThan:/2)
+		arg.adaptToCollectionAndApply(self, >)
 	}
 
 	^ { :self :arg |
-		arg.adaptToCollectionAndApply(self, raisedTo:/2)
+		arg.adaptToCollectionAndApply(self, ^)
 	}
 
 	% { :self :arg |
-		arg.adaptToCollectionAndApply(self, modulo:/2)
+		arg.adaptToCollectionAndApply(self, %)
 	}
 
 	abs { :self |

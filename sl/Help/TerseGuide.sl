@@ -1,4 +1,4 @@
-(* Requires: Url *)
+{- Requires: Url -}
 
 +String {
 

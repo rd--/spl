@@ -1,4 +1,4 @@
-(* Bowed string (Jmcc) ; texture ; graph rewrite *)
+{- Bowed string (Jmcc) ; texture ; graph rewrite -}
 { :tr |
 	let root = 5;
 	let scale = [0 2 4 5 7 9 11] + root;

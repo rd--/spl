@@ -1,4 +1,4 @@
-(* Requires: Tuning *)
+{- Requires: Tuning -}
 
 CentsTuning : [Object, Tuning] { | name description cents octave |
 

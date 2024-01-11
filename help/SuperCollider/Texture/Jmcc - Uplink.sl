@@ -1,4 +1,4 @@
-(* Uplink (Jmcc) #2 *)
+{- Uplink (Jmcc) #2 -}
 {
 	let osc = {
 		let e = LfPulse(4.Rand0, 0, 1.Rand0) * 8000.Rand0 + 2000.Rand0;

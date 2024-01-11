@@ -1,10 +1,10 @@
-(* Dc *)
+{- Dc -}
 Dc(0)
 
-(* Dc ; Silence at left, SinOsc at right *)
+{- Dc ; Silence at left, SinOsc at right -}
 [Dc(0), SinOsc(440, 0)] * 0.1
 
-(* Dc ; Silence at first eight channels, random sine tones at next eight *)
+{- Dc ; Silence at first eight channels, random sine tones at next eight -}
 { :tr |
 	let p = { Dc(0) } ! 8;
 	let q = { SinOsc(TRand(220, 880, tr), 0) } ! 8;

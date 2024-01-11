@@ -1,4 +1,4 @@
-(* jj ; bohlen-pierce ; texture graph variant *)
+{- jj ; bohlen-pierce ; texture graph variant -}
 { :tr |
 	let f = { :x |
 		3 ^ (TRand(0, 17, tr) / 13) * x

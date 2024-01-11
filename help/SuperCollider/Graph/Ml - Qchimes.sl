@@ -1,4 +1,4 @@
-(* event control ; https://www.listarc.bham.ac.uk/lists/sc-users/msg68844.html (ml) ; requires=voicer,kr *)
+{- event control ; https://www.listarc.bham.ac.uk/lists/sc-users/msg68844.html (ml) ; requires=voicer,kr -}
 Voicer(1, 16) { :e |
 	let numPartials = 40;
 	let baseFreq = (e.x * 25 + 48).MidiCps;
@@ -18,6 +18,6 @@ Voicer(1, 16) { :e |
 	let amp = { Rand(0.1, 0.9) } ! numPartials;
 	let dcy = { Rand(0.5, 9) } ! numPartials;
 	let osc = DynRingzBank(sig, freq, amp, dcy);
-	let env = LagUd(e.w * e.z, 0.5, 8).kr * 0.1 * numPartials.reciprocal; (* note .kr! *)
+	let env = LagUd(e.w * e.z, 0.5, 8).kr * 0.1 * numPartials.reciprocal; {- note .kr! -}
 	EqPan2(osc, e.i * 2 - 1) * env
 }.Mix

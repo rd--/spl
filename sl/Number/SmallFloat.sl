@@ -1,4 +1,4 @@
-(* Requires: RegExp String *)
+{- Requires: RegExp String -}
 
 SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
@@ -12,7 +12,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			return _self < _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, lessThan:/2)
+		anObject.adaptToNumberAndApply(self, <)
 	}
 
 	<= { :self :anObject |
@@ -21,7 +21,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			return _self <= _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, lessThanEquals:/2)
+		anObject.adaptToNumberAndApply(self, <=)
 	}
 
 	+ { :self :anObject |
@@ -30,7 +30,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			return _self + _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, plus:/2)
+		anObject.adaptToNumberAndApply(self, +)
 	}
 
 	- { :self :anObject |
@@ -39,7 +39,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			return _self - _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, minus:/2)
+		anObject.adaptToNumberAndApply(self, -)
 	}
 
 	* { :self :anObject |
@@ -48,7 +48,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			return _self * _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, times:/2)
+		anObject.adaptToNumberAndApply(self, *)
 	}
 
 	/ { :self :anObject |
@@ -57,7 +57,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			return _self / _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, dividedBy:/2)
+		anObject.adaptToNumberAndApply(self, /)
 	}
 
 	% { :self :anObject |
@@ -66,7 +66,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			return ((_self % _anObject) + _anObject) % _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, modulo:/2)
+		anObject.adaptToNumberAndApply(self, %)
 	}
 
 	^ { :self :anObject |
@@ -75,7 +75,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			return Math.pow(_self, _anObject);
 		}
 		>
-		anObject.adaptToNumberAndApply(self, raisedTo:/2)
+		anObject.adaptToNumberAndApply(self, ^)
 	}
 
 	<< { :self :anObject |
@@ -84,7 +84,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			return _self << _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, lessThanLessThan:/2)
+		anObject.adaptToNumberAndApply(self, <<)
 	}
 
 	>> { :self :anObject |
@@ -93,7 +93,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			return sl.shiftRight(_self, _anObject);
 		}
 		>
-		anObject.adaptToNumberAndApply(self, greaterThanGreaterThan:/2)
+		anObject.adaptToNumberAndApply(self, >>)
 	}
 
 

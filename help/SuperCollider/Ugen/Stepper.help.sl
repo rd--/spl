@@ -1,18 +1,18 @@
-(* Stepper *)
+{- Stepper -}
 SinOsc(Stepper(Impulse(10, 0), 0, 4, 16, 1, 0) * 100, 0) * 0.05
 
-(* Stepper *)
+{- Stepper -}
 let x = MouseX(-3, 4, 0, 0.1);
 SinOsc(Stepper(Impulse(10, 0), 0, 4, 16, x, 0) * 100, 0) * 0.05
 
-(* Stepper *)
+{- Stepper -}
 let scale = [0 2 4 5 7 9 11 12] + 60;
 let clock = Impulse(3, 0);
 let index = Stepper(clock, 1, 0, scale.size - 1, 1, 0);
 let freq = Multiplexer(index, scale).MidiCps;
 SinOsc(freq, 0) * 0.1
 
-(* Stepper *)
+{- Stepper -}
 let b = [43 55 72 70 55 58 41 67 41 60 55 39 58 55 43 51].asLocalBuf;
 let rate = MouseX(1, 3, 1, 0.2);
 let clock = Impulse(rate, 0);
@@ -34,6 +34,6 @@ out := Rlpf(out, ffreq, 0.3) * env;
 out := Rlpf(out, ffreq, 0.3) * env;
 out := LeakDc(rvb(out * 0.02), 0.995);
 1.timesRepeat {
-	out := DelayL(out, 0.1, lfo) + out (* flanger *)
+	out := DelayL(out, 0.1, lfo) + out {- flanger -}
 };
 OnePole(out, 0.9) * 0.5

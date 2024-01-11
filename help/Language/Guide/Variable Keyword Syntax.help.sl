@@ -13,15 +13,15 @@ whereas in the _with initializers_ form a sequence of _var_ statements is allowe
 _Rationale_:  This is the SuperCollider syntax for temporary variables.  It can make programs that declare many variables, or that comment on variables between each declaration, clearer to read.  The program below is by James McCartney and is taken from the SuperCollider2 documentation.
 
 ```
-(* ten voices of a random sine percussion sound *)
+{- ten voices of a random sine percussion sound -}
 let s = { Resonz(Dust(0.2) * 50, Rand(200, 3200), 0.003) } !+ 10;
-(* reverb predelay time *)
+{- reverb predelay time -}
 let z = DelayC(s, 0.048, 0.048);
-(* seven length modulated comb delays in parallel *)
+{- seven length modulated comb delays in parallel -}
 let y = { CombL(z, 0.1, LfNoise1(Rand(0, 0.1)) * 0.04 + 0.05, 15) } !+ 7;
-(* two parallel chains of four allpass delays *)
+{- two parallel chains of four allpass delays -}
 4.timesRepeat { y := AllpassC(y, 0.050, [Rand(0, 0.050), Rand(0, 0.050)], 1) };
-(* add original sound to reverb *)
+{- add original sound to reverb -}
 s + (0.2 * y)
 ```
 
@@ -29,16 +29,16 @@ The [Initialised Temporaries Syntax] can also be quite clear, when offset and in
 
 ```
 |(
-	(* ten voices of a random sine percussion sound *)
+	{- ten voices of a random sine percussion sound -}
 	s = { Resonz(Dust(0.2) * 50, Rand(200, 3200), 0.003) } !+ 10,
-	(* reverb predelay time *)
+	{- reverb predelay time -}
 	z = DelayC(s, 0.048, 0.048),
-	(* seven length modulated comb delays in parallel *)
+	{- seven length modulated comb delays in parallel -}
 	y = { CombL(z, 0.1, LfNoise1(Rand(0, 0.1)) * 0.04 + 0.05, 15) } !+ 7
 )|
-(* two parallel chains of four allpass delays *)
+{- two parallel chains of four allpass delays -}
 4.timesRepeat { y := AllpassC(y, 0.050, [Rand(0, 0.050), Rand(0, 0.050)], 1) };
-(* add original sound to reverb *)
+{- add original sound to reverb -}
 s + (0.2 * y)
 ```
 

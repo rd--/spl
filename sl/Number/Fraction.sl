@@ -10,7 +10,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 					d1 = aNumber.denominator
 				}
 			).if {
-				(* preference: answer proper integer *)
+				{- preference: answer proper integer -}
 				Fraction(numerator, numerator.one)
 			} {
 				Fraction(
@@ -19,7 +19,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 				).normalized
 			}
 		} {
-			aNumber.adaptToFractionAndApply(self, times:/2)
+			aNumber.adaptToFractionAndApply(self, *)
 		}
 	}
 
@@ -37,13 +37,13 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 				n := n // d2;
 				d := d1 * (d // d2);
 				(d = 1).if {
-					(* preference: answer proper integer *)
+					{- preference: answer proper integer -}
 					Fraction(n, n.one)
 				} {
 					Fraction(n, d)
 				}
 			} {
-				aNumber.adaptToFractionAndApply(self, plus:/2)
+				aNumber.adaptToFractionAndApply(self, +)
 			}
 		}
 	}
@@ -55,7 +55,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			aNumber.isFraction.if {
 				self + aNumber.negated
 			} {
-				aNumber.adaptToFractionAndApply(self, minus:/2)
+				aNumber.adaptToFractionAndApply(self, -)
 			}
 		}
 	}
@@ -67,7 +67,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			aNumber.isFraction.if {
 				self * aNumber.reciprocal
 			} {
-				aNumber.adaptToFractionAndApply(self, dividedBy:/2)
+				aNumber.adaptToFractionAndApply(self, /)
 			}
 		}
 	}
@@ -92,7 +92,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		aNumber.isFraction.if {
 			(self.numerator * aNumber.denominator) < (aNumber.numerator * self.denominator)
 		} {
-			aNumber.adaptToFractionAndApply(self, lessThan:/2)
+			aNumber.adaptToFractionAndApply(self, <)
 		}
 	}
 
@@ -100,7 +100,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		aNumber.isFraction.if {
 			(self.numerator * aNumber.denominator) <= (aNumber.numerator * self.denominator)
 		} {
-			aNumber.adaptToFractionAndApply(self, lessThanEquals:/2)
+			aNumber.adaptToFractionAndApply(self, <=)
 		}
 	}
 
@@ -256,7 +256,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	reciprocal { :self |
 		(self.numerator.abs = 1).if {
-			(* preference: answer proper integer *)
+			{- preference: answer proper integer -}
 			Fraction(self.denominator * self.numerator, self.denominator.one)
 		} {
 			Fraction(self.denominator, self.numerator).normalized
@@ -277,7 +277,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			self.numerator := x // d;
 			self.denominator := y // d;
 			(self.denominator = 1).if {
-				(* preference: answer proper integer *)
+				{- preference: answer proper integer -}
 				self
 			} {
 				self
@@ -318,24 +318,24 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	unicodeFractionsTable { :self |
 		self.cached('unicodeFractionsTable') {
 			(
-				'⅒': 1:10, (* 0.1 *)
-				'⅑': 1:9, (* 1.111 *)
-				'⅛': 1:8, (* 0.125 *)
-				'⅐': 1:7, (* 0.142 *)
-				'⅙': 1:6, (* 0.166 *)
-				'⅕': 1:5, (* 0.2 *)
-				'¼': 1:4, (* 0.25 *)
-				'⅓': 1:3, (* 0.333 *)
-				'⅜': 3:8, (* 0.375 *)
-				'⅖': 2:5, (* 0.4 *)
-				'½': 1:2, (* 0.5 *)
-				'⅗': 3:5, (* 0.6 *)
-				'⅝': 5:8, (* 0.625 *)
-				'⅔': 2:3, (* 0.666*)
-				'¾': 3:4, (* 0.75 *)
-				'⅘': 4:5, (* 0.8 *)
-				'⅚': 5:6, (* 0.833 *)
-				'⅞': 7:8 (* 0.875 *)
+				'⅒': 1:10, {- 0.1 -}
+				'⅑': 1:9, {- 1.111 -}
+				'⅛': 1:8, {- 0.125 -}
+				'⅐': 1:7, {- 0.142 -}
+				'⅙': 1:6, {- 0.166 -}
+				'⅕': 1:5, {- 0.2 -}
+				'¼': 1:4, {- 0.25 -}
+				'⅓': 1:3, {- 0.333 -}
+				'⅜': 3:8, {- 0.375 -}
+				'⅖': 2:5, {- 0.4 -}
+				'½': 1:2, {- 0.5 -}
+				'⅗': 3:5, {- 0.6 -}
+				'⅝': 5:8, {- 0.625 -}
+				'⅔': 2:3, {- 0.666-}
+				'¾': 3:4, {- 0.75 -}
+				'⅘': 4:5, {- 0.8 -}
+				'⅚': 5:6, {- 0.833 -}
+				'⅞': 7:8 {- 0.875 -}
 			)
 		}
 	}

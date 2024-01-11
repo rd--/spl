@@ -152,7 +152,7 @@
 	}
 
 	sort { :self |
-		self.sortBy(lessThanEquals:/2)
+		self.sortBy(<=)
 	}
 
 	sort { :self :aBlock:/2 |
@@ -172,7 +172,7 @@
 	}
 
 	sortOn { :self :keyBlock:/1 |
-		self.sortOnBy(keyBlock:/1, lessThanEquals:/2)
+		self.sortOnBy(keyBlock:/1, <=)
 	}
 
 	sortOnBy { :self :keyBlock:/1 :compareBlock:/2 |

@@ -238,7 +238,7 @@
 	}
 
 	product { :self |
-		self.reduce(times:/2)
+		self.reduce(*)
 	}
 
 	range { :self |
@@ -287,7 +287,7 @@
 	}
 
 	sum { :self |
-		self.reduce(plus:/2)
+		self.reduce(+)
 	}
 
 }

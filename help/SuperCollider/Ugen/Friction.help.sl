@@ -1,4 +1,4 @@
-(* sc-140 ; 15 ; Jason Dixon *)
+{- sc-140 ; 15 ; Jason Dixon -}
 let x = {
 	MulAdd(Clip(LfNoise2(3), 0, 1), 0.02990, 0.00001).RoundTo(0)
 } ! 5;

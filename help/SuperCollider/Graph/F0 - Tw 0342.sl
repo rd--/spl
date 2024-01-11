@@ -1,4 +1,4 @@
-(* https://sccode.org/1-4Qy ; f0 ; 0342 *)
+{- https://sccode.org/1-4Qy ; f0 ; 0342 -}
 let b = (1 .. 8) / 128;
 let c = LfSaw(b, 0) % 1;
 let f = (2 ^ LfSaw(b, 0) * 256).RoundTo(64);

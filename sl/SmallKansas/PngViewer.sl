@@ -1,4 +1,4 @@
-(* Requires: SmallKansas *)
+{- Requires: SmallKansas -}
 
 PngViewer : [Object, View] { | pngPane title pngData pngUrl |
 

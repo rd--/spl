@@ -1,4 +1,4 @@
-(* Requires: Random Iterator Stream *)
+{- Requires: Random Iterator Stream -}
 
 LinearCongruential : [Object, Random, Iterator, Stream] { | seed state |
 

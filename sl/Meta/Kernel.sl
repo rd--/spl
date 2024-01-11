@@ -1,17 +1,17 @@
 [
-	(* Kernel Traits *)
+	{- Kernel Traits -}
 	'Cache'
-	'Binary' (* > Cache *)
-	'Integer' (* > Cache *)
+	'Binary' {- > Cache -}
+	'Integer' {- > Cache -}
 	'Json'
 	'Magnitude'
 	'Number'
 	'Object'
-	'Random' (* > Object *)
+	'Random' {- > Object -}
 
-	(* Collection Traits *)
+	{- Collection Traits -}
 	'Arrayed'
-	'Collection' (* > Object *)
+	'Collection' {- > Object -}
 	'Extensible'
 	'Dictionary'
 	'Indexable'
@@ -21,25 +21,25 @@
 	'Sequenceable'
 	'Unordered'
 
-	(* Kernel Types *)
+	{- Kernel Types -}
 	'Boolean'
 	'Error'
 	'Meta'
 	'Nil'
 	'Block'
-	'Adverb' (* > Block *)
+	'Adverb' {- > Block -}
 	'Promise'
 	'Request'
 	'Response'
 	'SmallFloat'
 	'String'
 	'System'
-	'Package' (* > System *)
+	'Package' {- > System -}
 
-	(* Collection Types *)
+	{- Collection Types -}
 	'Association'
 	'Array'
 	'Interval'
 	'Record'
-	'Map' (* > Record *)
+	'Map' {- > Record -}
 ].primitiveLoadPackageSequence

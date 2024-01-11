@@ -1,4 +1,4 @@
-(* f0 ; https://twitter.com/redFrik/status/1136928201886904320 *)
+{- f0 ; https://twitter.com/redFrik/status/1136928201886904320 -}
 [
 	0 -> LfTri:/2,
 	1 -> LfSaw:/2,

@@ -1,4 +1,4 @@
-(* Requires: LinkedList *)
+{- Requires: LinkedList -}
 
 Stack : [Object] { | linkedList |
 

@@ -1,4 +1,4 @@
-(* cymbalism accellerando ; jmcc #2 ; graph rewrite *)
+{- cymbalism accellerando ; jmcc #2 ; graph rewrite -}
 let p = 15;
 { :tr |
 	let i = Impulse(

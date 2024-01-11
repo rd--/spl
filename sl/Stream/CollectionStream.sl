@@ -1,4 +1,4 @@
-(* Requires: PositionableStream Stream *)
+{- Requires: PositionableStream Stream -}
 
 CollectionStream : [Object, Iterator, Stream, PositionableStream] { | collection positionIndex readLimit |
 

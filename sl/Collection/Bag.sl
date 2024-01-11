@@ -115,7 +115,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 		self.contents.associationsDo { :anAssociation |
 			answer.add(anAssociation.value -> anAssociation.key)
 		};
-		answer.sortBy(greaterThanEquals:/2)
+		answer.sortBy(>=)
 	}
 
 	sortedElements { :self |

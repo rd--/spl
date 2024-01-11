@@ -63,6 +63,10 @@ String! : [Object, Json, Iterable] {
 		self.asciiByteArray.hex
 	}
 
+	asHsComment { :self |
+		self.asBracketedComment('{-', '-}')
+	}
+
 	asLowercase { :self |
 		<primitive: return _self.toLowerCase(); >
 	}
@@ -84,7 +88,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	at { :self :index |
-		(* Note: index is in Utf-16 code units, not characters *)
+		{- Note: index is in Utf-16 code units, not characters -}
 		let codePoint = self.codePointAt(index);
 		codePoint.ifNil {
 			self.error('at: invalid index')
@@ -249,6 +253,16 @@ String! : [Object, Json, Iterable] {
 	firstBracketedComment { :self :open :close |
 		self.firstBracketedCommentIfAbsent(open, close) {
 			self.error('firstBracketedComment: no comment found')
+		}
+	}
+
+	firstHsCommentIfAbsent { :self :aBlock:/0 |
+		self.firstBracketedCommentIfAbsent('{-', '-}', aBlock:/0)
+	}
+
+	firstHsComment { :self |
+		self.firstHsCommentIfAbsent {
+			self.error('firstHsComment: no comment found')
 		}
 	}
 
@@ -573,7 +587,7 @@ String! : [Object, Json, Iterable] {
 		self.splitBy(' ')
 	}
 
-	(* ImmutableSequenceable *)
+	{- ImmutableSequenceable -}
 	allButFirst { :self | self.allButFirst(1) }
 	allButFirst { :self :n | self.copyFromTo(n + 1, self.size) }
 
@@ -595,7 +609,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	isUtf16SurrogateCode { :self |
-		(* 0xD800 = 55296, 0xDfFF = 57343 *)
+		{- 0xD800 = 55296, 0xDfFF = 57343 -}
 		self.betweenAnd(55296, 57343)
 	}
 

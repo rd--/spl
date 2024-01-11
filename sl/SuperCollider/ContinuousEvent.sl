@@ -42,7 +42,7 @@ ContinuousEvent : [Object] { | contents |
 
 	asContinuousEvent { :self |
 		self.assertIsOfSize(8);
-		newContinuousEvent().initializeSlots(self.kr) (* control rate? *)
+		newContinuousEvent().initializeSlots(self.kr) {- control rate? -}
 	}
 
 }

@@ -1,4 +1,4 @@
-(* Saucer base (Jmcc) #6 *)
+{- Saucer base (Jmcc) #6 -}
 {
 	let b = 1000.Rand0;
 	let c = 5000.Rand0;

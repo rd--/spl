@@ -1,4 +1,4 @@
-(* https://scsynth.org/t/pmono-and-dc-ar-to-send-out-stepped-cv-patterns/8773/13 *)
+{- https://scsynth.org/t/pmono-and-dc-ar-to-send-out-stepped-cv-patterns/8773/13 -}
 let rate = MouseY(1 / 7, 1, 0, 0.2);
 let div = MouseX(5, 23, 1, 0.2);
 let phase = Phasor(0, rate * SampleDur() * [1, Rand(1, 3)], 0, 1, 0);
@@ -11,7 +11,7 @@ let quantized = stepped / div;
 let freq = quantized * TExpRand(111, 1111, trigger) + TExpRand(111, 1111, trigger);
 Blip(freq, quantized * 13) * Perc(warpedTriggers, 0.01, 0.1, -4)
 
-(* ---- plotting ---- *)
+{- ---- plotting ---- -}
 
 Line(-1, 5, 0.1).LinCurve(0, 3, -1, 1, -4)
 

@@ -1,4 +1,4 @@
-(* Resonant dust (Jmcc) #2 *)
+{- Resonant dust (Jmcc) #2 -}
 {
 	let rf1 = 2000.Rand0 + 80;
 	let rf2 = rf1 + (0.5.Rand2 * rf1);

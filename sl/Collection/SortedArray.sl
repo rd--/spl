@@ -68,7 +68,7 @@ SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable] {
 +Void {
 
 	SortedArray {
-		newSortedArray().initializeSlots([], lessThanEquals:/2)
+		newSortedArray().initializeSlots([], <=)
 	}
 
 }
@@ -76,7 +76,7 @@ SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable] {
 +Array {
 
 	asSortedArray { :self |
-		newSortedArray().initializeSlots(self.sorted, lessThanEquals:/2)
+		newSortedArray().initializeSlots(self.sorted, <=)
 	}
 
 	asSortedArray { :self :sortBlock:/2 |
@@ -88,7 +88,7 @@ SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable] {
 +@Collection {
 
 	asSortedArray { :self |
-		self.asSortedArray(lessThanEquals:/2)
+		self.asSortedArray(<=)
 	}
 
 	asSortedArray { :self :aSortBlock:/2 |

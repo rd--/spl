@@ -142,16 +142,16 @@
 
 (defvar spl-imenu-generic-expression
   (list
-   (list nil "^\\((\\* .*\\*)\\)$" 1)
-   (list nil "^\\(#+ .*\\)$" 1)
+   (list nil "^\\({- .* -}\\)$" 1) ; Comment
+   (list nil "^\\(#+ .*\\)$" 1) ; Heading
    (list nil "^\\(\+?@?\[?[A-Z][, A-Za-z0-9]+[A-Za-z0-9]\]?\\).* {\\( |\\|$\\)" 1)
    (list nil "^\\(\t[*&|~+/%><=?!^a-zA-Z0-9-]+\\) {" 1))
   "Value for `imenu-generic-expression' in Spl mode.")
 
 (defconst spl-font-lock-keywords
   (list
-   `(,(regexp-opt '("var" "let") 'symbols) . font-lock-keyword-face)
-   `(,(regexp-opt '("false" "inf" "nil" "pi" "e" "epsilon" "true") 'symbols) . font-lock-builtin-face)
+   `(,(regexp-opt '("let") 'symbols) . font-lock-keyword-face)
+   `(,(regexp-opt '("false" "inf" "nil" "pi" "true") 'symbols) . font-lock-builtin-face)
    `(,(regexp-opt '("do" "if" "ifEmpty" "ifFalse" "ifNil" "ifNotNil" "ifTrue" "kr" "timesRepeat" "whileFalse" "whileTrue") 'symbols) . font-lock-function-name-face)
    `(,(regexp-opt '("error" "warn") 'symbols) . font-lock-warning-face)
    '("\\<[A-Z][a-zA-Z0-9]*\\>" . font-lock-type-face)
@@ -161,13 +161,13 @@
 
 (defun spl-fill-syntax-table (st)
   "Modify the syntax table ST for Spl."
-  (modify-syntax-entry ?\* ". 23n" st)
-  (modify-syntax-entry ?\( "()1" st)
-  (modify-syntax-entry ?\) ")(4" st)
-  (modify-syntax-entry ?' "\"" st)
-  (modify-syntax-entry ?\" "\"" st)
+  (modify-syntax-entry ?\- ". 23n" st) ; comment second and second last
+  (modify-syntax-entry ?\{ "()1" st) ; comment first
+  (modify-syntax-entry ?\} ")(4" st) ; comment last
+  (modify-syntax-entry ?' "\"" st) ; string quote
+  (modify-syntax-entry ?\" "\"" st) ; string quote
   ;;(modify-syntax-entry ?\; ". 12b" st)
-  (modify-syntax-entry ?\n "> b" st)
+  ;;(modify-syntax-entry ?\n "> b" st)
   st)
 
 (defvar spl-mode-syntax-table
@@ -286,8 +286,8 @@
   (set (make-local-variable 'tab-width) spl-indent-level)
   (set (make-local-variable 'sclang-indent-level) spl-indent-level)
   (set (make-local-variable 'indent-line-function) 'sclang-indent-line)
-  (set (make-local-variable 'comment-start) "(* ")
-  (set (make-local-variable 'comment-end) " *)")
+  (set (make-local-variable 'comment-start) "{\\- ")
+  (set (make-local-variable 'comment-end) " \\-}")
   (set (make-local-variable 'font-lock-defaults) '(spl-font-lock-keywords))
   (setq-local imenu-sort-function 'imenu--sort-by-name)
   (setq-local imenu-generic-expression spl-imenu-generic-expression))

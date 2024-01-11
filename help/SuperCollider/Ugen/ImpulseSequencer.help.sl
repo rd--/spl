@@ -1,4 +1,4 @@
-(* ImpulseSequencer ; jmcc *)
+{- ImpulseSequencer ; jmcc -}
 let trig = ImpulseSequencer([2 1 1 2 1 1 2 1] / 10, Impulse(8, 0));
 let amp = Decay2(trig, 0.0004, 0.2);
 let x = Resonz(GrayNoise(2) * amp, 5200, 0.2);

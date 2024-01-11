@@ -1,8 +1,8 @@
-(* prepared just piano ; colby leider ; modified by jmcc ; graph rewrite by rd *)
-let c = 4; (* number of combs *)
-let a = 4; (* number of allpasses *)
-let v = 3; (* number of overlapped voices *)
-let d = MouseY(0, 1, 0, 0.2) > 0.5; (* is pitch space discrete or continuous *)
+{- prepared just piano ; colby leider ; modified by jmcc ; graph rewrite by rd -}
+let c = 4; {- number of combs -}
+let a = 4; {- number of allpasses -}
+let v = 3; {- number of overlapped voices -}
+let d = MouseY(0, 1, 0, 0.2) > 0.5; {- is pitch space discrete or continuous -}
 { :tr |
 	let y = Dust(MouseX(0.1, 4, 1, 0.2)) * 0.4;
 	y := Resonz(y, 400, 0.4);
@@ -10,7 +10,7 @@ let d = MouseY(0, 1, 0, 0.2) > 0.5; (* is pitch space discrete or continuous *)
 	y := Integrator(y, 0.99);
 	y := Hpf(y, 200);
 	y := {
-		(* Partch tonality diamond about 1000Hz *)
+		{- Partch tonality diamond about 1000Hz -}
 		CombL(
 			y,
 			0.1,

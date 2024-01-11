@@ -1,4 +1,4 @@
-(* https://sccode.org/1-4Qy ; f0 ; 0310 *)
+{- https://sccode.org/1-4Qy ; f0 ; 0310 -}
 let b = 1 / [3, 2];
 let f = Duty(
 	Trig(LocalIn(2, 0), SinOscFb(b, 0) + 11 / 2),

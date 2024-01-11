@@ -1,4 +1,4 @@
-(* String wander-cluster (Jmcc) #6 ; with vibrato *)
+{- String wander-cluster (Jmcc) #6 ; with vibrato -}
 {
 	let note1 = IRand(50, 100);
 	let note2 = Fold(note1 + 15.IRand0 - 7, 50, 120);

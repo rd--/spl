@@ -1,4 +1,4 @@
-(* tw 0224 (f0) ; http://www.fredrikolofsson.com/f0blog/?q=node/617 *)
+{- tw 0224 (f0) ; http://www.fredrikolofsson.com/f0blog/?q=node/617 -}
 let c = 200000;
 let b = BufAlloc(2, c).BufClear;
 let d = BufRd(2, b, SinOsc([2 3] * 9, 0) * c, 0, 2);

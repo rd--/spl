@@ -1,4 +1,4 @@
-(* CombL ; array expansion (interior duplication) *)
+{- CombL ; array expansion (interior duplication) -}
 let n = 8;
 EqPan2(
 	CombL(
@@ -10,7 +10,7 @@ EqPan2(
 	{ Rand(-1, 1) } ! n
 ).Mix
 
-(* CombL ; exterior duplication *)
+{- CombL ; exterior duplication -}
 let n = 8;
 {
 	EqPan(
@@ -24,28 +24,28 @@ let n = 8;
 	)
 } !+ n
 
-(* CombC ; https://sccode.org/1-5fc ; requires=AudioIn ; warning=feedback *)
+{- CombC ; https://sccode.org/1-5fc ; requires=AudioIn ; warning=feedback -}
 let reverb = { :input |
 	let c = CombL(input, 0.1, SinOsc(0.01, 0) * 0.03 + 0.07, 5) * 0.7;
 	XFade2(Lpf(c, 4800), input, -0.5, 0.3)
 };
 reverb(AudioIn([1, 2]) * 0.1)
 
-(* CombL ; simplistic karplus-strong synthesis (adc) *)
+{- CombL ; simplistic karplus-strong synthesis (adc) -}
 let freq = 440;
 let repeatFreq = 0.3;
 let exciter = Decay(Impulse(repeatFreq, 0), 0.01) * PinkNoise();
 let string = CombL(exciter, 0.1, 1 / freq, 3);
 [string, LeakDc(string, 0.995)]
 
-(* CombL ; karplus-strong ; mouse control (adc) *)
+{- CombL ; karplus-strong ; mouse control (adc) -}
 let freq = MouseX(220, 1760, 1, 0.2);
 let repeatFreq = 0.3;
 let exciter = Decay(Impulse(repeatFreq, 0), 0.02) * PinkNoise();
 let string = CombL(exciter, 0.1, 1 / freq, 3);
 [string, LeakDc(string, 0.995)]
 
-(* CombL ; karplus-strong ; very small frequency range ; note changes in sound quality of the decay (adc) *)
+{- CombL ; karplus-strong ; very small frequency range ; note changes in sound quality of the decay (adc) -}
 let freq = MouseX(220, 1760, 1, 0.2);
 let delayTime = MouseX(1 / 100, 1 / (100 + 2), 0, 0.1);
 let repeatFreq = 0.3;
@@ -53,7 +53,7 @@ let exciter = Decay(Impulse(repeatFreq, 0), 0.02) * PinkNoise();
 let string = CombL(exciter, 0.1, delayTime, 3);
 [string, LeakDc(string, 0.995)]
 
-(* CombL ; simplistic karplus-strong synthesis (adc) ; requires=keywords *)
+{- CombL ; simplistic karplus-strong synthesis (adc) ; requires=keywords -}
 let freq = 440;
 let repeatFreq = 0.3;
 let exciter = Decay(

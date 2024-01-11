@@ -1,4 +1,4 @@
-(* Narrow band filtered crackle noise (Jmcc) #2 *)
+{- Narrow band filtered crackle noise (Jmcc) #2 -}
 {
 	let rf1 = 80 + 2000.Rand0;
 	let rf = XLine(rf1, rf1 * 0.2.Rand2 + rf1, 9);

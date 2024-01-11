@@ -1,4 +1,4 @@
-(* f0 ; https://twitter.com/redFrik/status/1105496695637454848 *)
+{- f0 ; https://twitter.com/redFrik/status/1105496695637454848 -}
 let b = (1 .. 15) + 1 / 151;
 let w = (VarSaw(b, b, 1 / 5.15) * 1 + 1.5).Ceiling;
 let s = BufRd(1, [51 * 1.5, 51, 151].asLocalBuf, (VarSaw(1/15, 1/5, b) * 5).Ceiling + 5 / 5, 0, 1);

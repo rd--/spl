@@ -1,4 +1,4 @@
-(* tw 0014 (f0) ; https://twitter.com/redFrik/status/24193534033 *)
+{- tw 0014 (f0) ; https://twitter.com/redFrik/status/24193534033 -}
 (1 .. 9).collect { :i |
 	let a0 = SinOscFb(i + 1, 1 / 9) * 999;
 	let a1 = SinOscFb(1 / 9, 1) / 9;

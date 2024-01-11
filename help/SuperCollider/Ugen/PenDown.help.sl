@@ -1,4 +1,4 @@
-(* Event control ; Kyma Pen name notation *)
+{- Event control ; Kyma Pen name notation -}
 (1 .. 16).collect { :vc |
 	let n = Lpf(WhiteNoise(), PenRadius(vc) + 1 * 6000) * PenZ(vc) * 2;
 	let dlMax = 1 / 110;

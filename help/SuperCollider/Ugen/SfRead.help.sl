@@ -1,10 +1,10 @@
-(* SfRead ; phasor as phase input ; requires=SfAcquire *)
+{- SfRead ; phasor as phase input ; requires=SfAcquire -}
 let sf = SfAcquireStereo('piano-c5');
 let tr = Impulse(1 / SfDur(sf), 0);
 let ph = Phasor(tr, SfRateScale(sf), 0, SfFrames(sf), 0);
 SfRead(sf, ph, 0, 2)
 
-(* SfRead ; phasor as phase input ; piano *)
+{- SfRead ; phasor as phase input ; piano -}
 let sf = SfAcquireStereo('piano-c5');
 {
 	let tr = Impulse(2 ^ Rand(1, 2) / SfDur(sf), 0).kr;
@@ -14,7 +14,7 @@ let sf = SfAcquireStereo('piano-c5');
 	SfRead(sf, ph, 0, 2)
 } !> 6 / 4
 
-(* SfRead ; phasor as phase input ; harp *)
+{- SfRead ; phasor as phase input ; harp -}
 let sf = SfAcquireStereo('harp-a4');
 {
 	let tr = Impulse(2 ^ Rand(1, 3) / (SfDur(sf) * 4), 0).kr;
@@ -24,7 +24,7 @@ let sf = SfAcquireStereo('harp-a4');
 	SfRead(sf, ph, 0, 2)
 } !> 6 / 9
 
-(* SfRead ; phasor as phase input ; mono sound file ; multiple voices *)
+{- SfRead ; phasor as phase input ; mono sound file ; multiple voices -}
 let sf = SfAcquireMono('crotale-d6');
 {
 	let tr = Impulse(2 ^ Rand(1, 3) / SfDur(sf), 0).kr;

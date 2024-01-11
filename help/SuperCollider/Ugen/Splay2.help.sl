@@ -1,4 +1,4 @@
-(* Splay2 ; texture (Play) *)
+{- Splay2 ; texture (Play) -}
 { :tr |
 	let k = 7;
 	let o = SinOsc({ TiRand(40, 90, tr).MidiCps } ! k, 0);
@@ -6,7 +6,7 @@
 	Splay2(o * a)
 }.OverlapTexture(6, 3, 3).Mix
 
-(* ---- Splay2 ; texture ; requires=eval *)
+{- ---- Splay2 ; texture ; requires=eval -}
 {
 	let k = 7;
 	let o = SinOsc({ IRand(40, 90).MidiCps } ! k, 0);

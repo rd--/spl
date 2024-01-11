@@ -1,4 +1,4 @@
-(* ---- ExpRand (jmcc) ; process ; requires=eval *)
+{- ---- ExpRand (jmcc) ; process ; requires=eval -}
 {
 	EqPan(
 		SinOsc(

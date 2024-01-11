@@ -1,4 +1,4 @@
-(* Requires: EventTarget Url *)
+{- Requires: EventTarget Url -}
 
 WebSocket! : [Object, EventTarget] {
 
@@ -21,7 +21,7 @@ WebSocket! : [Object, EventTarget] {
 	}
 
 	bufferedAmount { :self |
-		<primitive: return _self.bufferedAmount;> (* Read only *)
+		<primitive: return _self.bufferedAmount;> {- Read only -}
 	}
 
 	close { :self |
@@ -33,7 +33,7 @@ WebSocket! : [Object, EventTarget] {
 	}
 
 	extensions { :self |
-		<primitive: return _self.extensions;> (* Read only *)
+		<primitive: return _self.extensions;> {- Read only -}
 	}
 
 	onClose { :self :aBlock:/1 |
@@ -57,11 +57,11 @@ WebSocket! : [Object, EventTarget] {
 	}
 
 	protocol { :self |
-		<primitive: return _self.protocol;> (* Read only *)
+		<primitive: return _self.protocol;> {- Read only -}
 	}
 
 	readyState { :self |
-		<primitive: return _self.readyState;> (* Read only *)
+		<primitive: return _self.readyState;> {- Read only -}
 	}
 
 	send { :self :data |
@@ -69,7 +69,7 @@ WebSocket! : [Object, EventTarget] {
 	}
 
 	url { :self |
-		<primitive: return _self.url;> (* Read only *)
+		<primitive: return _self.url;> {- Read only -}
 	}
 
 }

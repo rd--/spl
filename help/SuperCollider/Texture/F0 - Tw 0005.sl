@@ -1,4 +1,4 @@
-(* https://sccode.org/1-4Qy ; f0 ; 0005 *)
+{- https://sccode.org/1-4Qy ; f0 ; 0005 -}
 { :unusedCurrentTime |
 	let z = 1.randomFloat(61);
 	let d = z / 3;

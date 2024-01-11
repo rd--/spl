@@ -1,4 +1,4 @@
-(* https://sccode.org/1-4Qy ; f0 ; tweet0350 ; Mix *)
+{- https://sccode.org/1-4Qy ; f0 ; tweet0350 ; Mix -}
 let b = (9 .. 1) / 99;
 let o = LfSaw(LfSaw(b, b) + 1 * 99, b) * (LfSaw(LfSaw(b, 0) > b, 0) > 0.9);
 CombN(

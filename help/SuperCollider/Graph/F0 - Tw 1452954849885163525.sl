@@ -1,4 +1,4 @@
-(* <https://twitter.com/redFrik/status/1452954849885163525> ; f0 ; reset (rd) *)
+{- <https://twitter.com/redFrik/status/1452954849885163525> ; f0 ; reset (rd) -}
 let tr = Impulse(1 / 9, 0);
 let i = TRand(1, 64, tr);
 let x = SinOsc(i % 9.33, 0).MulAdd(5, 5).Ceiling;

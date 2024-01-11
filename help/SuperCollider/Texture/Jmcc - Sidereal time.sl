@@ -1,4 +1,4 @@
-(* Sidereal time (Jmcc) #9 *)
+{- Sidereal time (Jmcc) #9 -}
 {
 	let p = 15;
 	let f = XLine(ExpRand(40, 300), ExpRand(40, 300), 12);

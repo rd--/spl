@@ -1,4 +1,4 @@
-(* Require: Object *)
+{- Require: Object -}
 
 @Indexable {
 

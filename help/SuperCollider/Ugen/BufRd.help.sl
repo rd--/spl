@@ -1,4 +1,4 @@
-(* BufRd ; requires *)
+{- BufRd ; requires -}
 let numFrames = 2 * 48000;
 let buf = BufAlloc(1, numFrames).BufClear;
 let osc = SinOsc(LfNoise1(2) * 300 + 400, 0) * 0.1;

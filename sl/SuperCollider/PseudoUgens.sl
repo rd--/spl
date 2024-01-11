@@ -1,4 +1,4 @@
-(* Requires: Ugen *)
+{- Requires: Ugen -}
 
 +@Integer {
 
@@ -69,7 +69,7 @@
 
 	TableWindow { :trig :dur :bufNum |
 		let phase = TLine(0, BufFrames(bufNum), dur, trig);
-		BufRd(1, bufNum, phase, 0, 4) (* 4 = Cubic Interpolation *)
+		BufRd(1, bufNum, phase, 0, 4) {- 4 = Cubic Interpolation -}
 	}
 
 	SelectXFocus { :which :array :focus :wrap |
@@ -98,7 +98,7 @@
 			buf,
 			TiRand(0, BufFrames(buf) - 1, tr),
 			0,
-			1 (* 1 = No Interpolation *)
+			1 {- 1 = No Interpolation -}
 		)
 	}
 
@@ -114,7 +114,7 @@
 		}
 	}
 
-	(*
+	{-
 		ExpRand { :tr :lo :hi | TExpRand(lo, hi, tr) }
 		LinRand { :tr :lo :hi :minmax | TLinRand(lo, hi, minmax, tr) }
 		Line { :tr :start :end :dur | TLine(start, end, dur, tr) }
@@ -122,13 +122,13 @@
 		Scramble { :tr :inArray | TScramble(tr, inArray) }
 		IRand { :tr :lo :hi | TiRand(lo, hi, tr) }
 		XLine { :tr :start :end :dur | TxLine(start, end, dur, tr) }
-	*)
+	-}
 
-	(*
+	{-
 		AudioIn { :channelNumber |
 			In(1, NumOutputBuses() + channelNumber - 1)
 		}
-	*)
+	-}
 
 	AudioOut { :channelsArray |
 		Out(0, channelsArray)
@@ -256,8 +256,8 @@
 			[center - normalizedSpread, center + normalizedSpread].resamp1(n)
 		};
 		levelComp.ifTrue {
-			(* Cf. <https://github.com/supercollider/supercollider/issues/5706>
-			Note that deleting .sqrt can dramatically alter feedback paths. *)
+			{- Cf. <https://github.com/supercollider/supercollider/issues/5706>
+			Note that deleting .sqrt can dramatically alter feedback paths. -}
 			level := level * n.reciprocal.sqrt
 		};
 		PanAz(numChannels, inArray, pos, level, width, orientation).flop.collect(sum:/1)

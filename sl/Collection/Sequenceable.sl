@@ -1,13 +1,13 @@
-(* Require: SmallFloat *)
+{- Require: SmallFloat -}
 
 @Sequenceable {
 
 	= { :self :anObject |
-		self.equalBy(anObject, equals:/2)
+		self.equalBy(anObject, =)
 	}
 
 	~ { :self :anObject |
-		self.equalBy(anObject, tilde:/2)
+		self.equalBy(anObject, ~)
 	}
 
 	++ { :self :aSequence |
@@ -486,7 +486,7 @@
 	}
 
 	hasEqualElements { :self :otherCollection |
-		self.hasEqualElementsBy(otherCollection, equals:/2)
+		self.hasEqualElementsBy(otherCollection, =)
 	}
 
 	includes { :self :anObject |
@@ -609,7 +609,7 @@
 	}
 
 	isSortedBetweenAnd { :self :startIndex :endIndex |
-		self.isSortedByBetweenAnd(lessThanEquals:/2, startIndex, endIndex)
+		self.isSortedByBetweenAnd(<=, startIndex, endIndex)
 	}
 
 	isSortedBy { :self :aBlock:/2 |
@@ -737,11 +737,11 @@
 	}
 
 	prefixProduct { :self |
-		self.scan(times:/2)
+		self.scan(*)
 	}
 
 	prefixSum { :self |
-		self.scan(plus:/2)
+		self.scan(+)
 	}
 
 	replace { :self :aBlock:/1 |
@@ -893,7 +893,7 @@
 	}
 
 	sortedWithIndices { :self |
-		self.sortedWithIndices(lessThanEquals:/2)
+		self.sortedWithIndices(<=)
 	}
 
 	sortedWithIndices { :self :sortBlock:/2 |
@@ -1019,19 +1019,19 @@
 	}
 
 	+= { :self :anObject |
-		applyBinaryMathOperatorInPlace(self, anObject, plus:/2)
+		applyBinaryMathOperatorInPlace(self, anObject, +)
 	}
 
 	-= { :self :anObject |
-		applyBinaryMathOperatorInPlace(self, anObject, minus:/2)
+		applyBinaryMathOperatorInPlace(self, anObject, -)
 	}
 
 	*= { :self :anObject |
-		applyBinaryMathOperatorInPlace(self, anObject, times:/2)
+		applyBinaryMathOperatorInPlace(self, anObject, *)
 	}
 
 	/= { :self :anObject |
-		applyBinaryMathOperatorInPlace(self, anObject, dividedBy:/2)
+		applyBinaryMathOperatorInPlace(self, anObject, /)
 	}
 
 }

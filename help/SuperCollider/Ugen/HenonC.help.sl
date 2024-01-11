@@ -1,4 +1,4 @@
-(* HenonC ; as a frequency control *)
+{- HenonC ; as a frequency control -}
 let x = MouseX(1, 1.4, 0, 0.1);
 let y = MouseY(0, 0.3, 0, 0.1);
 let f0 = 40;

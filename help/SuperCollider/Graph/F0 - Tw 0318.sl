@@ -1,4 +1,4 @@
-(* https://sccode.org/1-4Qy ; f0 ; 0318 *)
+{- https://sccode.org/1-4Qy ; f0 ; 0318 -}
 let b = [1 .. 3];
 MulAdd(
 	SinOscFb(13 * 13 * b, 1 / 3),

@@ -110,7 +110,7 @@ function pathWithoutAnyExtension(path: string): string {
 
 async function cacheRewriteFile(slFileName: string): Promise<void> {
 	const packageName = pathWithoutAnyExtension(pathBasename(slFileName));
-	const jsFileName = '.cache/' + packageName + '.js';
+	const jsFileName = '../.cache/' + packageName + '.js';
 	const slMtime = await host.statMtime(slFileName);
 	const jsMtime = await host.statMtime(jsFileName);
 	if(jsMtime < slMtime) {

@@ -1,4 +1,4 @@
-(* https://twitter.com/lukiss163/status/1559974704823341058 ; requires=StandardN *)
+{- https://twitter.com/lukiss163/status/1559974704823341058 ; requires=StandardN -}
 let f = {
 	StandardN((LfdNoise1(1) * 8 + 8).RoundTo(4), 1, 0.5, 0).Abs
 };

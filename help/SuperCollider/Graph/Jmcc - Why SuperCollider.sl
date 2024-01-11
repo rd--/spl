@@ -1,4 +1,4 @@
-(* why supercollider (jmcc) #0 *)
+{- why supercollider (jmcc) #0 -}
 let s = {
 	Resonz(
 		Dust(0.2) * 50,

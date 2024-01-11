@@ -1,4 +1,4 @@
-(* https://github.com/schollz/18000/blob/main/drone/toshiya.scd *)
+{- https://github.com/schollz/18000/blob/main/drone/toshiya.scd -}
 let f0 = 440;
 let mnn0 = f0.CpsMidi;
 let amp = 1.0;

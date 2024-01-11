@@ -1,4 +1,4 @@
-(* sturmian sequencer ii (jrhb) *)
+{- sturmian sequencer ii (jrhb) -}
 let rules = [[0, 1], [0]];
 let rewrite = { :c :n |
 	let r = c;

@@ -1,4 +1,4 @@
-(* https://sccode.org/1-5d6 (jpd) ; requires=SfAcquire *)
+{- https://sccode.org/1-5d6 (jpd) ; requires=SfAcquire -}
 let sampleRate = 48000;
 let sndBuf = SfAcquireMono('floating_1');
 let envBuf = [-1 1].resamp1(sampleRate).collect { :x |
@@ -23,7 +23,7 @@ let grains = GrainBuf(
 	[pos1, pos2],
 	2,
 	0,
-	-1 (* envBuf *),
+	-1 {- envBuf -},
 	512
 ) * amp;
 let diffused = grains.collect { :item |
@@ -35,8 +35,8 @@ let enveloped = diffused * PlayBuf(1, envBuf, 1 / trigPeriod, 1, 0, 1, 0);
 let delayed = DelayC(enveloped.second, trigPeriod / 2, trigPeriod / 2);
 Pan2(enveloped.first + delayed, pan, 1)
 
-(* ---- notes.md ----
+{- ---- notes.md ----
 
 	GrainBuf will not read envelope from LocalBuf (use default)
 
-*)
+-}

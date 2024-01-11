@@ -1,5 +1,5 @@
-(* pulsing bottles ; jmcc *)
-let n = 6; (* number of 'bottles' *)
+{- pulsing bottles ; jmcc -}
+let n = 6; {- number of 'bottles' -}
 {
 	EqPan2(
 		Resonz(

@@ -95,7 +95,7 @@
 	}
 
 	degreesToRadians { :self |
-		self * 0.01745329251994329547 (* pi / 180 *)
+		self * 0.01745329251994329547 {- pi / 180 -}
 	}
 
 	downToDo { :self :end :aBlock:/1 |
@@ -172,7 +172,7 @@
 	}
 
 	radiansToDegrees { :self |
-		self * 57.29577951308232286465 (* 180 / pi *)
+		self * 57.29577951308232286465 {- 180 / pi -}
 	}
 
 	reciprocal { :self |

@@ -1,4 +1,4 @@
-(* Comb delay sweeps (Jmcc) #6 *)
+{- Comb delay sweeps (Jmcc) #6 -}
 {
 	let dur = 4;
 	let note1 = 50 + 70.Rand0;

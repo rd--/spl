@@ -1,11 +1,11 @@
-(* https://sccode.org/1-50L (mk) *)
+{- https://sccode.org/1-50L (mk) -}
 let z = PinkNoise();
 16.timesRepeat {
 	z := Brf(z, { Rand(100, 15000) } ! 2, 1)
 };
 z
 
-(* https://sccode.org/1-50L (mk) *)
+{- https://sccode.org/1-50L (mk) -}
 let z = PinkNoise();
 let lfo = { :rt | LfNoise1(rt ! 2) };
 16.timesRepeat {
@@ -17,7 +17,7 @@ let lfo = { :rt | LfNoise1(rt ! 2) };
 };
 z
 
-(* https://sccode.org/1-50L (mk) *)
+{- https://sccode.org/1-50L (mk) -}
 let z = PinkNoise();
 let lfo = { :rt | LfPulse(rt ! 2, 0, 0.5) };
 16.timesRepeat {
@@ -29,7 +29,7 @@ let lfo = { :rt | LfPulse(rt ! 2, 0, 0.5) };
 };
 z
 
-(* https://sccode.org/1-50L (Mk) *)
+{- https://sccode.org/1-50L (Mk) -}
 let freq = 100;
 let rt = 0.5;
 let z = PinkNoise(2);

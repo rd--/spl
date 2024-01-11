@@ -1,4 +1,4 @@
-(* https://sccode.org/1-4Qy ; f0 ; 0307 *)
+{- https://sccode.org/1-4Qy ; f0 ; 0307 -}
 let a = 2 + Blip(3 / [8, 9], 2).RoundTo(1);
 let c = a ^ Lag(a, 0.1);
 let o = Blip(
@@ -11,8 +11,8 @@ let o = Blip(
 ) * (c + 5);
 CombN(o, 0.2, 0.2, 1).Tanh * 0.15
 
-(* ---- calculations ----
+{- ---- calculations ----
 
 	'AVVVF'.ascii.asArray = [65 86 86 86 70]
 
-*)
+-}
