@@ -26,13 +26,21 @@ let matrix = { :trig :rotateFreq :rotateAmount |
 	let angle = Phasor(trig, rotate * SampleDur(), 0, 1, 0) * 2 * pi;
 	rotatableMatrix(angle)
 };
-let trig = Dust(0.25);
+let ctl = (
+	trig: 1,
+	size: 0.15,
+	sizeEnvAmount: 0.65,
+	feedback: 0.9,
+	coef: 0.3,
+	rotateFreq: 0.1,
+	rotateAmount: 55
+).localControls;
 let delMod = SinOsc(2, 0).LinLin(-1, 1, 1, 4);
 let gainEnv = Perc(trig, 0.001, 1, -4);
 let modEnv = Env([0 1 0], [0.125 0.5], [-8 -4], nil, nil, 0).asEnvGen(trig);
 let inSig = Saw(XLine(100, 1000, 0.1)) * gainEnv;
 let order = 8;
-let size = 'size'.kr(0.15) + modEnv.LinLin(0, 1, 0, 'sizeEnvAmount'.kr(0.65));
+let size = ctl::size + modEnv.LinLin(0, 1, 0, ctl::sizeEnvAmount);
 let delTimes = {
 	randomInteger(1000, 4599).nextPrime
 } ! order;
@@ -40,8 +48,8 @@ let sampleRate = 48000;
 let delTimesSec = (delTimes * delMod) / sampleRate;
 let sig = inSig + LocalIn(order, 0 ! order);
 sig := DelayC(sig, 0.5, delTimesSec * size - ControlDur());
-sig := sig * 'feedback'.kr(0.9);
-sig := OnePole(sig, 'coef'.kr(0.3));
-sig := sig * matrix(trig, 'rotateFreq'.kr(0.1), 'rotateAmount'.kr(55)).transposed;
+sig := sig * ctl::feedback;
+sig := OnePole(sig, ctl::coef);
+sig := sig * matrix(trig, ctl::rotateFreq, ctl::rotateAmount).transposed;
 sig := sig.Sum;
 (inSig + sig.Splay2 <! LocalOut(sig)) * 0.5
