@@ -74,6 +74,7 @@ Sl {
         | binaryOperator
 		| ParenthesisedExpression
 		| DictionaryExpression
+		| TupleExpression
 		| ArrayExpression
 		| ArrayIntervalSyntax
 		| ArrayIntervalThenSyntax
@@ -129,6 +130,7 @@ Sl {
 	AssociationExpression = IdentifierAssociation | StringAssociation
 	IdentifierAssociation = identifier ":" Expression
 	StringAssociation = singleQuotedStringLiteral ":" Expression
+	TupleExpression = "(" NonemptyListOf<Expression, ","> ")"
 	ArrayExpression = "[" ListOf<Expression, ","> "]"
 	ArrayIntervalSyntax = "[" Expression ".." Expression "]"
 	ArrayIntervalThenSyntax = "[" Expression "," Expression ".." Expression "]"

@@ -20,13 +20,13 @@ PriorityQueue! : [Object] {
 		['size']
 	}
 
-	push { :self :item :priority |
+	pushWithPriority { :self :item :priority |
 		<primitive: return _self.push(_item, _priority);>
 	}
 
-	pushAll { :self :associationsArray |
+	pushAllWithPriority { :self :associationsArray |
 		associationsArray.do { :each |
-			self.push(each.key, each.value)
+			self.pushWithPriority(each.key, each.value)
 		}
 	}
 

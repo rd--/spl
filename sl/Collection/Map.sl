@@ -8,9 +8,9 @@
 
 	asRecord { :self |
 		self.indices.allSatisfy(isString:/1).if {
-			self.unsafeRecord
+			self.basicAsRecord
 		} {
-			self.error('Record: not all keys are strings')
+			self.error('asRecord: not all keys are strings')
 		}
 	}
 
@@ -56,6 +56,10 @@ Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictiona
 		>
 	}
 
+	basicAsRecord { :self |
+		<primitive: return Object.fromEntries(_self);>
+	}
+
 	json { :self |
 		self.json(nil, '')
 	}
@@ -91,10 +95,6 @@ Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictiona
 
 	storeString { :self |
 		self.associations.storeString ++ '.asMap'
-	}
-
-	unsafeRecord { :self |
-		<primitive: return Object.fromEntries(_self);>
 	}
 
 	values { :self |

@@ -11,7 +11,7 @@ Construct a RunArray from runs and values:
 
 - _asRunArray(anArraySequence)_
 
-The unary form reads a sequence of _run -> value_ associations.
+Convert a sequence of _run -> value_ associations into a RunArray:
 
 	'abbbccccc'.asArray.asRunArray.runs = [1 3 5]
 

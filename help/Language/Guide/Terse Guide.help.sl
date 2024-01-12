@@ -666,20 +666,23 @@ system.includesPackage('Binary') {- binary package -}
 ## Bitset -- collection type
 ```
 system.includesPackage('Bitset') {- bitset package -}
-Bitset(64).isBitset {- a bitset is a bitset -}
+Bitset(64).isBitset {- bitset predicate -}
 Bitset(64).size = 0 {- a new bitset is empty -}
 Bitset(64).capacity = 64 {- the capacity of a bitset is set when initialized -}
 Bitset(64).isEmpty {- a new bitset is empty -}
 Bitset(64).bytes.allSatisfy { :each | each = 0 } {- all bytes at the empty bitset are zero -}
-[1, 3, 9].Bitset.capacity = 16 {- bitset from array, capacity is rounded up to nearest byte -}
+[1, 3, 9].asBitset.capacity = 16 {- bitset from array, capacity is rounded up to nearest byte -}
 let b = Bitset(64); b.add(1); b.add(3); b.add(9); b.size = 3 {- add three integers to bitset -}
 let b = Bitset(64); b.add(5); b.add(5); b.add(5); b.size = 1 {- adding the same integer over again -}
-let b = [1, 3, 9].Bitset; b.includes(3) {- does bitset include element -}
-let b = [1, 3, 9].Bitset; [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
-let b = Bitset(64); b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 {- a three element bitset -}
-let b = Bitset(64); b[1] := 1; b[3] := 1; b[9] := 1; [1, 3 .. 9].collect { :each | b[each] } = [1, 1, 0, 0, 1]
+let b = [1, 3, 9].asBitset; b.includes(3) {- does bitset include element -}
+let b = [1, 3, 9].asBitset; [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
+let b = Bitset(64); b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 {- a three element bitset, atPut -}
+let b = [1, 3, 9].asBitset; [1, 3 .. 9].collect { :each | b[each] } = [1, 1, 0, 0, 1] {- at -}
 let a = []; let b = Bitset(64); let c = [1, 3, 9, 27]; b.addAll(c); b.do { :each | a.add(each) }; a = c
-let b = [1, 3].Bitset; let c = b.copy; c.add(7); b ~= c & { c = [1, 3, 7].Bitset } {- copy bitset -}
+let b = [1, 3].asBitset; let c = b.copy; c.add(7); b ~= c & { c = [1, 3, 7].asBitset } {- copy bitset -}
+[1, 3, 9].asBitset.bitAt(3) = 1 {- bitAt is equal to at -}
+Bitset(64).with { :b | b.setBitAt(3); b.bitAt(3) = 1 } {- setBitAt is equal to add -}
+[1, 3, 9].asBitset.with { :b | b.clearBitAt(3); b.asArray = [1, 9] } {- clearBitAt is equal to remove -}
 ```
 
 ## Bitwise Manipulation
@@ -988,6 +991,10 @@ let n = 0; (3 .. 7).collectThenDo(squared:/1) { :each | n := n + each } = [9, 16
 (x: (y: 1)).atPath(['x', 'y']) = 1 {- atPath of dictionary, depth = 2 -}
 (x: (y: (z: 1))).atPath(['x', 'y', 'z']) = 1 {- atPath of dictionary, depth = 3 -}
 (w: (x: (y: (z: 1)))).atPath(['w', 'x', 'y', 'z']) = 1 {- atPath of dictionary, depth = 4 -}
+(p: (q: (r: 1))) @> ['p' 'q' 'r'] = 1 {- @> = atPath -}
+(p: (q: (r: (s: 1)))) @> ['p' 'q' 'r' 's'] = 1
+(p: (q: (r: 1))) @/ 'p/q/r' = 1 {- @/ = atPath of splitBy('/') -}
+(p: (q: (r: (s: 1)))) @/ 'p/q/r/s' = 1
 let d = (w: (x: (y: (z: 1)))); d.atPathPut(['w', 'x', 'y', 'z'], -1); d::w::x::y::z = -1 {- atPathPut of dictionary, depth = 4 -}
 (x: (y: 1))::x::y = 1 {- index sequence -}
 (x: (y: 1))['x'; 'y'] = 1 {- atPath (matrix) syntax of dictionaries -}
@@ -1228,8 +1235,10 @@ pi.asFraction = 311:99 {- asFraction(100) -}
 pi.asFraction(10) = 22:7 {- with maximum denominator -}
 22:7.asFraction = 22:7 {- identity -}
 23.asFraction = 23 {- identity -}
-0.asPoint = (0@0) {- number to point -}
-(0@0).asPoint = (0@0) {- identity -}
+0.asPoint = (0 @ 0) {- number to point -}
+0.asPoint = (0, 0) {- number to point -}
+(0 @ 0).asPoint = (0 @ 0) {- identity -}
+(0, 0).asPoint = (0, 0) {- identity -}
 1.asComplex = Complex(1, 0) {- number to complex -}
 1.i = Complex(0, 1) {- number to complex -}
 (2 + 3.i).asComplex = Complex(2, 3) {- identity -}
@@ -1260,14 +1269,14 @@ let n = 3.141; n.copy == n {- copy small float, identity -}
 let n = 23n; n.copy == n {- copy large integer, identity -}
 let s = 'string'; s.copy == s {- copy string, identity -}
 let a = ('x' -> 1); let c = a.copy; c.value := 2; c ~= a & { c = ('x' -> 2) } {- copy association -}
-let p = (0 @ 0); let c = p.copy; c.x := 1; c ~= p & { c = (1 @ 0) } {- copy point -}
+let p = (0, 0); let c = p.copy; c.x := 1; c ~= p & { c = (1, 0) } {- copy two tuple -}
 let f = 3:4; let c = f.copy; c.numerator := 1; c ~= f & { c = 1:4 } {- copy fraction -}
 let c = 2.i; let z = c.copy; z.real := 3; z ~= c & { z = (3 + 2.i) } {- copy complex -}
 let a = [1, [2]]; let c = a.shallowCopy; c[2][1] := -2; c = a & { a = [1, [-2]] } {- shallowCopy array -}
 let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c ~= a & { a = [1, [2]] } {- deepCopy array -}
 let a = [1, [2]]; let c = a.copy; c[2][1] := -2; c = a {- copy of array is shallowCopy and postCopy -}
 let b = [1, 2, 2].asBag; let c = b.copy; c.add(3); c ~= b & { c = [1, 2, 2, 3].asBag } {- copy bag -}
-let b = [1, 2].Bitset; let c = b.copy; c.add(3); c ~= b & { c = [1, 2, 3].Bitset } {- copy bitset -}
+let b = [1, 2].asBitset; let c = b.copy; c.add(3); c ~= b & { c = [1, 2, 3].asBitset } {- copy bitset -}
 let b = [1, 2].asByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } {- copy byte array -}
 ```
 
@@ -1652,6 +1661,7 @@ system.includesPackage('Frequency') {- frequency package -}
 
 ## Graph -- collection type
 ```
+system.includesPackage('Graph') {- graph package -}
 Graph(0, []).typeOf = 'Graph' {- graph type -}
 Graph(0, []).isGraph {- graph predicate -}
 let g = Graph(3, [1 2; 2 3; 3 1]); g.size = 3 & { g.edges.size = 3 }
@@ -1665,12 +1675,13 @@ Graph(3, [1 2; 2 3; 3 1], ['x' 'y' 'z'], ['i', 'j', 'k']).isValid {- query coher
 
 ## Heap -- collection type
 ```
+system.includesPackage('Heap') {- heap package -}
 Heap().isHeap {- an empty heap is a heap -}
 Heap().size = 0 {- an empty heap has size 0 -}
 Heap().isEmpty {- an empty heap is empty -}
 let h = Heap(); h.add(3); h.size = 1 {- add element to heap, size is one -}
 let h = Heap(); h.add(3); h.first = 3 {- add element to heap, it is the first element -}
-let h = Heap(); h.add(3); h[1] = 3 {- add element to heap, it is the first element -}
+let h = Heap(); h.add(3); h[1] = 3 {- at protocol -}
 let h = Heap(); h.add(3); h.add(2); [h.size, h.first, h[2]] = [2, 2, 3] {- add elements to heap -}
 let h = Heap(); { h[1] }.ifError { true } {- out of bounds -}
 let h = Heap(); h.add(3); { h[2] }.ifError { true } {- out of bounds -}
@@ -2197,7 +2208,7 @@ Matrix22(1, 0, 0, 1).isMatrix22 {- matrix predicate -}
 Matrix22(1, 4, -1, 9).determinant = 13 {- determinant -}
 Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2) {- inverse, answers new matrix -}
 let m = Matrix22(-1, 3/2, 1,-1); m.invert; m = Matrix22(2, 3, 2, 2) {- inverse, in place -}
-Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1)).closeTo(1@0)
+Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1)).closeTo(1 @ 0)
 Matrix22(1, 2, 3, 4).transposed = Matrix22(1, 3, 2, 4) {- transpose, answers new matrix -}
 let m = Matrix22(1, 2, 3, 4); m.transpose; m = Matrix22(1, 3, 2, 4) {- transpose, in place -}
 ```
@@ -2370,6 +2381,9 @@ system.includesPackage('Point') {- point package -}
 (1 @ 1).norm = 2.sqrt {- magnitude, distance to origin -}
 (1 @ 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude -}
 (1 @ 1).normalized.norm ~ 1
+(1, 1).norm = 2.sqrt {- magnitude, distance to origin -}
+(1, 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude -}
+(1, 1).normalized.norm ~ 1
 ```
 
 ## PriorityQueue -- collection type
@@ -2377,9 +2391,9 @@ system.includesPackage('Point') {- point package -}
 system.includesPackage('PriorityQueue') {- PriorityQueue package -}
 PriorityQueue().isPriorityQueue = true
 PriorityQueue().isEmpty = true
-let p = PriorityQueue(); p.push('a', 1); p.pop = 'a'
-let p = PriorityQueue(); p.push('a', 1); p.push('b', 0); p.pop = 'b'
-let p = PriorityQueue(); p.pushAll(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 & { p.pop = 'c' }
+let p = PriorityQueue(); p.pushWithPriority('a', 1); p.pop = 'a'
+let p = PriorityQueue(); p.pushWithPriority('a', 1); p.pushWithPriority('b', 0); p.pop = 'b'
+let p = PriorityQueue(); p.pushAllWithPriority(['a' -> 3, 'b' -> 2, 'c' -> 1]); p.size = 3 & { p.pop = 'c' }
 let p = PriorityQueue(); p.peekPriority = nil
 ```
 
@@ -2902,6 +2916,7 @@ let d = []; (3 .. 1).withIndexDo { :each :index | d.add(each -> index) }; d = [3
 let a = []; (0 .. 1).asDigitsToPowerDo(2) { :each | a.add(each.copy) }; a = [[0, 0], [0, 1], [1, 0], [1, 1]]
 ['one', 'two', 'three', 'four'].atAll([3, 2, 4]) = ['three', 'two', 'four'] {- at each index -}
 (1 .. 9).atAll((3 .. 5)) = [3 .. 5] {- at each index -}
+(1 .. 9) @* (3 .. 5) = [3 .. 5] {- @* = atEach -}
 let a = ['1', '2', '3', '4']; a[3, 2, 4] = ['3', '2', '4'] {- at each index syntax -}
 let a = [5 4 3 2 1]; a[1 5 3] = [5 1 3] {- AtAllVectorSyntax -}
 let a = [5 4 3 2 1]; a[2 .. 4] = [4 3 2] {- AtAllIntervalSyntax -}
@@ -3490,12 +3505,13 @@ let x = 1; let y = 2; let z = 3; x := x * y + z; y := x + y * z; z := x + y + z;
 
 ## Syntax -- assignment operator syntax
 ```
-let x = 3; x +:= 4; x = 7 {- plus equals assignment -}
-let x = 3; x -:= 4; x = -1 {- minus equals assignment -}
-let x = 3; x *:= 4; x = 12 {- times equals assignment -}
-let x = 3; x /:= 4; x = 0.75 {- dividedBy equals assignment -}
-let x = 3; x ^:= 4; x = 81 {- raisedTo equals assignment -}
-let x = nil; x ?:= { 4 }; x = 4 {- query equals assignment -}
+let x = 3; x +:= 4; x = 7 {- plus assignment (increment) -}
+let x = 3; x -:= 4; x = -1 {- minus assignment (decrement) -}
+let x = 3; x *:= 4; x = 12 {- times assignment -}
+let x = 3; x /:= 4; x = 0.75 {- dividedBy assignment -}
+let x = 3; x ^:= 4; x = 81 {- raisedTo assignment -}
+let x = nil; x ?:= { 4 }; x = 4 {- query assignment -}
+let x = 3; x ?:= { 4 }; x = 3 {- query assignment -}
 let x = [3]; x[1] +:= 4; x[1] = 7 {- at syntax assignment -}
 let x = (y: 3); x::y +:= 4; x::y = 7 {- quoted at syntax assignment -}
 let p = 3@3; p.x +:= 4; p.x = 7 {- dot expression syntax assignment -}
@@ -4009,14 +4025,20 @@ system.includesPackage('Unordered') {- package -}
 system.includesPackage('Vector2') {- package -}
 Vector2(0, 0).typeOf = 'Vector2' {- type of -}
 Vector2(-1, 1).isVector2 = true
+(-1, 1).isVector2 = true {- tuple constructor syntax -}
 Vector2(3, 4).isVector2 & { true } = true
 [0, 0].asVector2 = (0@0)
 (-1@1).isVector2.not = false
 -1@1 = Vector2(-1, 1)
+-1@1 = (-1, 1)
 (-1@1).x = -1
 (-1@1).y = 1
 (-1@1).x(-3) = -3
 (-1@1).y(3) = 3
+(-1, 1).x = -1
+(-1, 1).y = 1
+(-1, 1).x(-3) = -3
+(-1, 1).y(3) = 3
 -1@1 * 9 = (-9@9)
 -1@1 + 2 = (1@3)
 2 * (-1@1) * 2 = (-4@4)

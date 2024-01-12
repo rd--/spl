@@ -1037,12 +1037,12 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'withIndefiniteArticle'
 	],
 	'private': [
+		'basicAsRecord'
 		'fillFromWith'
 		'indexForInserting'
 		'initializeSlots'
 		'pseudoSlotNameArray'
 		'reduced'
-		'unsafeRecord'
 	],
 	'random': [
 		'randomFloat'

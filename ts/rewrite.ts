@@ -519,8 +519,12 @@ const asJs: ohm.ActionDict<string> = {
 	StringAssociation(lhs, _colon, rhs) {
 		return `[${lhs.sourceString}, ${rhs.asJs}]`;
 	},
-	ArrayExpression(_leftBracket, array, _rightBracket) {
-		return `[${commaList(array.asIteration().children)}]`;
+	ArrayExpression(_leftBracket, items, _rightBracket) {
+		return `[${commaList(items.asIteration().children)}]`;
+	},
+	TupleExpression(_leftBracket, items, _rightBracket) {
+		// console.debug('TupleExpression');
+		return `_asTuple_1([${commaList(items.asIteration().children)}])`;
 	},
 	ArrayIntervalSyntax(_leftBracket, start, _dotDot, end, _rightBracket) {
 		return arrayIntervalSyntax(start, end);

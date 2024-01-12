@@ -43,7 +43,7 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 		let value = self.bytes[index];
 		let mask = 1.bitShift(anInteger.bitAnd(7));
 		let newValue = value.bitOr(mask) - mask;
-		(new = value).if {
+		(newValue = value).if {
 			false
 		} {
 			self.bytes[index] := newValue;
@@ -147,7 +147,7 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 
 +@Collection {
 
-	Bitset { :self |
+	asBitset { :self |
 		let answer = Bitset(self.max.roundUpTo(8));
 		answer.addAll(self);
 		answer

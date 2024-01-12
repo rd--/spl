@@ -1,11 +1,7 @@
 '/home/rohan/sw/spl/help/Language/Guide/Terse Guide.help.sl'.asFileUrl.terseGuideSummary
 
-Total => 3582 / 3582
+Total => 3595 / 3595
 
 '/home/rohan/sw/spl/help/Language/Guide/Terse Guide to Sound.help.sl'.asFileUrl.terseGuideSummary
 
 Total => 253 / 253
-
-Syntaxes:
-
-The notation _p ?:= q_ initializes _p_ if it is nil, where _q_ must be a no-argument block.

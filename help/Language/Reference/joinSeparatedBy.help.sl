@@ -8,4 +8,4 @@ Join _anArray_ of Strings into a String, separating each by _aString_
 
 * * *
 
-See also: join
+See also: join, split, splitBy

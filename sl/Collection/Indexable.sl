@@ -6,6 +6,10 @@
 		self.atPath(path)
 	}
 
+	@/ { :self :pathString |
+		self.atPath(pathString.splitBy('/'))
+	}
+
 	assertIsValidIndex { :self :index |
 		self.includesIndex(index).if {
 			index
