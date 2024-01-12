@@ -18,6 +18,10 @@
 		)
 	}
 
+	@* { :self :indexArray |
+		self.atAll(indexArray)
+	}
+
 	allButFirst { :self |
 		self.allButFirst(1)
 	}

@@ -7,7 +7,11 @@
 Syntax for accessing a nested collection using a path.
 The semicolons mirror the [Matrix Syntax] notation.
 
-	| m = [1 2 3; 4 5 6; 7 8 9]; | m[2; 3] = 6 & { m[3; 2] = 8 }
+	let m = [1 2 3; 4 5 6; 7 8 9]; m[2; 3] = 6 & { m[3; 2] = 8 }
+
+The operator @> can also express idiom succinctly:
+
+	let m = [1 2 3; 4 5 6; 7 8 9]; m @> [2 3] = 6 & { m @> [3 2] = 8 }
 
 _Note:_
 The matrix and volume special cases are compiled directly, while longer paths construct an Array value and call _atPath_.

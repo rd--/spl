@@ -15,7 +15,7 @@ let p2 = [
 	60 60 60 60 60 60 60 60 60 60 60 60 60 60 60 60
 ];
 let p = p1.collect { :x |
-	let y = x ++ x[3 4 5];
+	let y = x ++ (x @* [3 4 5]);
 	[y, y].concatenation
 }.concatenation ++ p2.concatenation;
 let tr = Impulse(5, 0);

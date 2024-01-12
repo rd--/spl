@@ -4,10 +4,9 @@ There is no _block return_ operator.
 Instead there is the _valueWithReturn_ method, implementing delimited non-local return.
 
 ```
-| answer |
-answer := valueWithReturn { :return:/1 |
+let answer = valueWithReturn { :return:/1 |
 	{ true }.whileTrue {
-		| n = system.randomFloat; |
+		let n = system.randomFloat;
 		(n > 0.9).if {
 			(0 - n).return
 		} {

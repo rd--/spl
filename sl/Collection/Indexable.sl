@@ -2,6 +2,10 @@
 
 @Indexable {
 
+	@> { :self :path |
+		self.atPath(path)
+	}
+
 	assertIsValidIndex { :self :index |
 		self.includesIndex(index).if {
 			index

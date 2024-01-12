@@ -9,7 +9,7 @@ _c::k_ reads the values at the key _'k'_ from the collection _c_.
 
 This syntax is a counterpart to the [Dictionary Syntax].
 
-	| d = (x: 1, y: 2); | d::x < d::y
+	let d = (x: 1, y: 2); d::x < d::y
 
 Where supported _::_ is displayed as _·_.
 
