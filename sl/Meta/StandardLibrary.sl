@@ -15,6 +15,7 @@
 	'Set'
 	'Stack' {- Requires: LinkedList -}
 	'SortedArray'
+	'Tuple'
 	'WeakMap'
 
 	{- Geometry -}

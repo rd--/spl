@@ -106,6 +106,14 @@
 		}
 	}
 
+	e { :self |
+		self * 2.71828182845904523536028747135266249775724709369995
+	}
+
+	epsilon { :self |
+		self * 0.000000000000001
+	}
+
 	floor { :self |
 		let truncation = self.truncated;
 		(self >= 0).if {
@@ -152,7 +160,7 @@
 	}
 
 	pi { :self |
-		self * pi
+		self * 3.1415926535897932384626433
 	}
 
 	positive { :self |

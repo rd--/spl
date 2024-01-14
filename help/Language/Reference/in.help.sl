@@ -2,8 +2,8 @@
 
 - _in(anObject, aBlock:/1)_
 
-Evaluate _aBlock_ with the _anObject_ as its argument.
+Evaluate _aBlock_ with _anObject_ as argument and answer the answer of _aBlock_.
 
 * * *
 
-See also: value
+See also: also, value, with

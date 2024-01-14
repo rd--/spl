@@ -50,6 +50,7 @@
 	'Collection-SortedArray'
 	'Collection-SoundFile'
 	'Collection-Stack'
+	'Collection-Tuple'
 	'Collection-Unordered'
 	'Collection-WeakMap'
 	'Exception-Error'

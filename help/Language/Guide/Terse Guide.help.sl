@@ -3,13 +3,13 @@
 ## Angle -- geometry type
 ```
 system.includesPackage('Angle') {- angle package -}
-pi.radians.typeOf = 'Angle' {- type of angle -}
-pi.radians.isAngle {- angle predicate -}
+1.pi.radians.typeOf = 'Angle' {- type of angle -}
+1.pi.radians.isAngle {- angle predicate -}
 1.radians.degrees ~ 57.296 {- radians to degrees -}
-pi.radians.degrees = 180 {- pi radians is 180 degrees -}
-180.degrees.radians = pi {- 180 degrees is pi radians -}
-pi.radians < 360.degrees {- angles are magnitudes -}
-pi.radians.asRadians = pi.asRadians {- radians of angle, or identity of number -}
+1.pi.radians.degrees = 180 {- pi radians is 180 degrees -}
+180.degrees.radians = 1.pi {- 180 degrees is pi radians -}
+1.pi.radians < 360.degrees {- angles are magnitudes -}
+1.pi.radians.asRadians = 1.pi.asRadians {- radians of angle, or identity of number -}
 ```
 
 ## Arithmetic expressions
@@ -63,9 +63,9 @@ pi.radians.asRadians = pi.asRadians {- radians of angle, or identity of number -
 -1.25.truncated = -1 {- integer part of number -}
 1.25.fractionPart = 0.25 {- fractional part -}
 -1.25.fractionPart = -0.25 {- fractional part -}
-pi.fractionPart + pi.truncated = pi {- fractional part and truncated part sum to identity -}
-let x = pi.negated; x.fractionPart + x.truncated = x {- fractional part and truncated part sum to identity -}
-let x = pi.negated; x.fractionPart + x.integerPart = x {- fractional part and truncated part sum to identity -}
+1.pi.fractionPart + 1.pi.truncated = 1.pi {- fractional part and truncated part sum to identity -}
+let x = 1.pi.negated; x.fractionPart + x.truncated = x {- fractional part and truncated part sum to identity -}
+let x = 1.pi.negated; x.fractionPart + x.integerPart = x {- fractional part and truncated part sum to identity -}
 2.fractionPart = 0 {- the fractional part of an integer is zero -}
 (1 / 2).fractionPart = (1 / 2) {- the fractional part of a number between zero and one is identity -}
 (4 / 3).fractionPart ~ (1 / 3) {- floating point math is not exact -}
@@ -92,7 +92,7 @@ NaN.isNaN {- literal for NaN -}
 3 ^ 4 = 81 {- 3 * 3 * 3 * 3 = 81 -}
 1.exp.veryCloseTo(2.718281828459) {- exponential -}
 -5.abs = 5 {- absolute value -}
-(0 - pi).abs = pi {- absolute value of floating point numbers -}
+(0 - 1.pi).abs = 1.pi {- absolute value of floating point numbers -}
 0.abs = 0 & { 5.abs = 5 } {- absolute value of zero and positive numbers -}
 -0 = 0 {- negative zero is equal to zero -}
 3.99.rounded = 4 {- round, c.f. rounded -}
@@ -100,12 +100,12 @@ NaN.isNaN {- literal for NaN -}
 3.99.roundTo(1) = 4.0 {- round to specified decimal places, c.f. roundTo: -}
 3.99.truncateTo(1) = 3.0 {- truncate to specified decimal places -}
 12345.truncateTo(600) = 12000 {- truncate to integer -}
-pi.roundDownTo(0.01) = 3.14 {- round down to nearest 1/100th -}
-pi.roundDownTo(0.1) = 3.1 {- round down to nearest 1/10th -}
+1.pi.roundDownTo(0.01) = 3.14 {- round down to nearest 1/100th -}
+1.pi.roundDownTo(0.1) = 3.1 {- round down to nearest 1/10th -}
 1923.roundDownTo(10) = 1920 {- round down to nearest multiple of 10 -}
-pi.roundDownTo(0.005) = 3.140 {- round down to nearest 5/1000th -}
-pi.negated.roundDownTo(0.01) = -3.15 {- rounding down a negative number rounds away from zero -}
-(3 - epsilon).roundDown = 2 {- round down to nearest integer -}
+1.pi.roundDownTo(0.005) = 3.140 {- round down to nearest 5/1000th -}
+1.pi.negated.roundDownTo(0.01) = -3.15 {- rounding down a negative number rounds away from zero -}
+(3 - 1.epsilon).roundDown = 2 {- round down to nearest integer -}
 0.9.roundToTowardsZero(1) = 0 {- round towards zero, i.e. down for positive numbers -}
 -0.9.roundToTowardsZero(1) = 0 {- round towards zero, i.e. up for negative numbers -}
 0.9.roundTowardsZero = 0 {- round to nearest integer towards zero -}
@@ -140,16 +140,16 @@ pi.negated.roundDownTo(0.01) = -3.15 {- rounding down a negative number rounds a
 2048.log2 = 11 {- base 2 logarithm -}
 100.log2 = 6.643856189774724 {- base 2 logarithm -}
 -1.log2.isNaN {- base 2 logarithm -}
-180.degreesToRadians = pi {- convert degrees to radians -}
-pi.radiansToDegrees = 180 {- convert radians to degrees -}
-(pi / 2).sin = 1.0 {- sine -}
+180.degreesToRadians = 1.pi {- convert degrees to radians -}
+1.pi.radiansToDegrees = 180 {- convert radians to degrees -}
+(1.pi / 2).sin = 1.0 {- sine -}
 0.0.cos = 1.0 {- cosine -}
 0.cos = 1 {- cosine -}
-pi.cos = -1 {- cosine -}
-(2 * pi).cos = 1 {- cosine -}
+1.pi.cos = -1 {- cosine -}
+(2 * 1.pi).cos = 1 {- cosine -}
 2.pi.cos = 1 {- pi as unary operator -}
 1.mu = 1e-6 {- mu as unary operator -}
-(pi / 2).cos.veryCloseTo(0) {- cosine -}
+(1.pi / 2).cos.veryCloseTo(0) {- cosine -}
 0.0.tan = 0.0 {- tangent -}
 [0, 45, 90, 180].collect(degreeSin:/1) = [0, 0.7071067811865475, 1, 0] {- sine given angle in degree -}
 [0, 45, 90, 180].collect(degreeCos:/1) = [1, 0.7071067811865475, 0, -1] {- cosine given angle in degree -}
@@ -159,19 +159,19 @@ pi.cos = -1 {- cosine -}
 10.maxBy(20, negated:/1) = 10 {- comparison of translated values -}
 10.min(20) = 10 {- get minimum of two numbers -}
 10.minBy(20, negated:/1) = 20 {- comparison of translated values -}
-pi.veryCloseTo(3.141592653589793) {- pi = 3.141592653589793 -}
+1.pi.veryCloseTo(3.141592653589793) {- pi = 3.141592653589793 -}
 1.exp.veryCloseTo(2.718281828459) {- e = 2.718281828459 -}
 let n = 100.randomFloat; (n >= 0) & { n < 100 } {- random number in (0, self-1) -}
 4 + 5 * 6 = 54 {- operators are evaluated left to right -}
-0.arcCos = (pi / 2) {- arc cosine -}
+0.arcCos = (1.pi / 2) {- arc cosine -}
 1.arcCos = 0 {- arc cosine -}
--1.arcCos = pi {- arc cosine -}
+-1.arcCos = 1.pi {- arc cosine -}
 0.arcSin = 0 {- arc sine -}
-1.arcSin =(pi / 2) {- arc sine -}
--1.arcSin = (pi / 2).negated {- arc sine -}
+1.arcSin =(1.pi / 2) {- arc sine -}
+-1.arcSin = (1.pi / 2).negated {- arc sine -}
 0.atan2(0) = 0 {- arc tangent -}
 0.atan2(1) = 0
-1.atan2(0) = (pi / 2)
+1.atan2(0) = (1.pi / 2)
 { 1.atan2(nil) }.ifError { true } {- operand not adaptable to number -}
 8.cubeRoot = 2 {- nthRoot 3 -}
 1000000.cubeRoot = 100 {- cube root -}
@@ -179,7 +179,7 @@ let n = 100.randomFloat; (n >= 0) & { n < 100 } {- random number in (0, self-1) 
 -0.cubeRoot = -0 {- cube root -}
 0.cubeRoot = 0 {- cube root -}
 -2.cubeRoot = -1.2599210498948732 {- cube root -}
-inf = Infinity {- Infinity is the literal for IEEE infinity, inf is a constant, like pi -}
+inf = Infinity {- Infinity is the literal for IEEE infinity, inf is a constant, like 1.pi -}
 3 / 0 = inf {- division by zero is infinity -}
 -3 / 0 = inf.negated {- negative division by zero is negative infinity -}
 (0 / 0).isNaN {- division of zero by zero is NaN -}
@@ -196,9 +196,9 @@ let x = 10 ^ -7; let nearest = 10 ^ -8; let furthest = 0; (x - nearest).abs < (x
 -1 !~ 1 {- negative one is not close to one -}
 1 !~ inf {- one is not close to inifinity -}
 inf ~ inf {- being equal, infinty is also close to itself -}
-0 ~ epsilon & { epsilon ~ 0 } & { 1 + epsilon ~ 1 } {- ε is ≈ zero ∧ ≈ is a symmetric operator ∧ one plus ε is ≈ one -}
+0 ~ 1.epsilon & { 1.epsilon ~ 0 } & { 1 + 1.epsilon ~ 1 } {- ε is ≈ zero ∧ ≈ is a symmetric operator ∧ one plus ε is ≈ one -}
 let n = 10 ^ -9; 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
-[8 % 3, 9 % 3, 8.9 % 3, epsilon % 3, epsilon.negated % 3] ~ [2, 0, 2.9, 0, 3] {- modulo -}
+[8 % 3, 9 % 3, 8.9 % 3, 1.epsilon % 3, 1.epsilon.negated % 3] ~ [2, 0, 2.9, 0, 3] {- modulo -}
 (-5 .. 5).collect { :each | each % 3 } = [1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2] {- modulo -}
 15 % 4 = 3 {- modulo -}
 15 \\ 4 = 3 {- remainder -}
@@ -1118,7 +1118,7 @@ Complex(-1, 0) + 1 = Complex(0, 0) {- complex addition with scalar -}
 (1 + (1 + 2.i)) = (2 + 2.i)
 ((1 + 2.i) + (2 / 3)).closeTo((5 / 3) + 2.i)
 ((2 / 3) + (1 + 2.i)).closeTo((5 / 3) + 2.i)
-(0 + 5.i).arg = (pi / 2)
+(0 + 5.i).arg = (1.pi / 2)
 let c = (5 - 6.i); (c * 1.i) = c.i
 (2 + 5.i).negated = (-2 - 5.i)
 (2 + 5.i).reciprocal = ((2 / 29) - (5 / 29).i)
@@ -1188,7 +1188,7 @@ true {- true constant -}
 false.not {- false constant -}
 nil.isNil {- nil object constant -}
 inf.isNumber {- Infinity constant -}
-pi.isNumber {- pi constant -}
+1.pi.isNumber {- pi constant -}
 1.isNumber {- integer constants -}
 3.14.isNumber {- float constants -}
 -1.isNumber {- negative integer constants -}
@@ -1201,12 +1201,12 @@ pi.isNumber {- pi constant -}
 ## Converting -- type conversion
 ```
 [true, false].collect(asBit:/1) = [1, 0] {- boolean to bit (integer) -}
-pi.asFloat = pi {- small float as float is identity -}
+1.pi.asFloat = 1.pi {- small float as float is identity -}
 3:4.asFloat = 0.75 {- fraction as float -}
 23.asFloat = 23.0 {- integer as float -}
 23n.asFloat = 23.0 {- large integer as float -}
 { '23'.asFloat }.ifError { true } {- asFloat is not a parser -}
-pi.asSmallFloat = pi {- identity -}
+1.pi.asSmallFloat = 1.pi {- identity -}
 3:4.asSmallFloat = 0.75 {- fraction to small float -}
 23.asSmallFloat = 23.0 {- integral to small float -}
 true.asInteger = 1 {- boolean as integer, c.f. asBit -}
@@ -1214,8 +1214,8 @@ false.asInteger = 0 {- boolean as integer, asBit -}
 '~'.asCharacter.asInteger = 126 {- character as integer, c.f. codePoint -}
 23.asInteger = 23 {- small integer as integer, c.f. identity -}
 -23.asInteger = -23 {- identity -}
-pi.asInteger = 3 {- small float as integer, c.f. truncated -}
-(0 - pi).asInteger = -3 {- floating point is truncated -}
+1.pi.asInteger = 3 {- small float as integer, c.f. truncated -}
+(0 - 1.pi).asInteger = -3 {- floating point is truncated -}
 22:7.asInteger = 3 {- fraction as integer, c.f. truncated -}
 -22:7.asInteger = -3 {- fraction is truncated -}
 7:8.asInteger = 0 {- fraction is truncated -}
@@ -1224,21 +1224,21 @@ pi.asInteger = 3 {- small float as integer, c.f. truncated -}
 { '3x'.asInteger }.ifError { true } {- large radix strings are not decimal integers -}
 false.asNumber = 0 {- asBit -}
 true.asNumber = 1 {- asBit -}
-pi.asNumber = pi {- identity -}
+1.pi.asNumber = 1.pi {- identity -}
 23.asNumber = 23 {- identity -}
 '3.141'.asNumber = 3.141 {- parse floating point -}
 '-672.433244'.asNumber = -672.433244 {- parse negative floating point -}
 '0.03141e2'.asNumber = 3.141 {- parse scientific -}
 '23'.asNumber = 23 {- parse integer -}
 '-23'.asNumber = -23 {- parse integer -}
-pi.asFraction = 311:99 {- asFraction(100) -}
-pi.asFraction(10) = 22:7 {- with maximum denominator -}
+1.pi.asFraction = 311:99 {- asFraction(100) -}
+1.pi.asFraction(10) = 22:7 {- with maximum denominator -}
 22:7.asFraction = 22:7 {- identity -}
 23.asFraction = 23 {- identity -}
 0.asPoint = (0 @ 0) {- number to point -}
-0.asPoint = (0, 0) {- number to point -}
+0.asPoint = Point(0, 0) {- number to point -}
 (0 @ 0).asPoint = (0 @ 0) {- identity -}
-(0, 0).asPoint = (0, 0) {- identity -}
+Point(0, 0).asPoint = Point(0, 0) {- identity -}
 1.asComplex = Complex(1, 0) {- number to complex -}
 1.i = Complex(0, 1) {- number to complex -}
 (2 + 3.i).asComplex = Complex(2, 3) {- identity -}
@@ -1258,8 +1258,8 @@ let c = 'x'.asCharacter; c.asCharacter == c {- character to character -}
 
 ## Converting -- unit conversion
 ```
-180.degreesToRadians = pi {- convert degrees to radians -}
-pi.radiansToDegrees = 180 {- convert radians to degrees -}
+180.degreesToRadians = 1.pi {- convert degrees to radians -}
+1.pi.radiansToDegrees = 180 {- convert radians to degrees -}
 ```
 
 ## Copying
@@ -1269,7 +1269,7 @@ let n = 3.141; n.copy == n {- copy small float, identity -}
 let n = 23n; n.copy == n {- copy large integer, identity -}
 let s = 'string'; s.copy == s {- copy string, identity -}
 let a = ('x' -> 1); let c = a.copy; c.value := 2; c ~= a & { c = ('x' -> 2) } {- copy association -}
-let p = (0, 0); let c = p.copy; c.x := 1; c ~= p & { c = (1, 0) } {- copy two tuple -}
+let t = (0, 0); let c = t.copy; c.first := 1; c ~= t & { c = (1, 0) } {- copy two tuple -}
 let f = 3:4; let c = f.copy; c.numerator := 1; c ~= f & { c = 1:4 } {- copy fraction -}
 let c = 2.i; let z = c.copy; z.real := 3; z ~= c & { z = (3 + 2.i) } {- copy complex -}
 let a = [1, [2]]; let c = a.shallowCopy; c[2][1] := -2; c = a & { a = [1, [-2]] } {- shallowCopy array -}
@@ -1426,9 +1426,9 @@ Float64Array(0).isFloat64Array {- predicate -}
 Float64Array(0).size = 0
 Float64Array(8).size = 8
 Float64Array(8).at(1) = 0
-Float64Array(8).atPut(1, pi) = pi {- answer value put -}
-let a = Float64Array(8); a.atPut(1, pi) = pi & { a.at(1) = pi }
-let a = Float64Array(8); (a[1] := pi) = pi & { a[1] = pi }
+Float64Array(8).atPut(1, 1.pi) = 1.pi {- answer value put -}
+let a = Float64Array(8); a.atPut(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
+let a = Float64Array(8); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
 (1 .. 9).asFloat64Array.isFloat64Array = true
 (1 .. 9).asFloat64Array.reversed = (9 .. 1).asFloat64Array {- (9 .. 1) is not allowed -}
 let a = [1 .. 9].asFloat64Array; a.reverse; a = (9 .. 1).asFloat64Array
@@ -1543,12 +1543,12 @@ Fraction(3, 1) = 3:1
 -6:5.rounded = -1
 3:2.rounded = 2 {- in case of tie, round to upper magnitude -}
 -3:2.rounded = -2
-pi.roundUpTo(0.01) = 3.15 {- round up to nearest 1/100th -}
-pi.roundUpTo(0.1) = 3.2 {- round up to nearest 1/10th -}
+1.pi.roundUpTo(0.01) = 3.15 {- round up to nearest 1/100th -}
+1.pi.roundUpTo(0.1) = 3.2 {- round up to nearest 1/10th -}
 1923.roundUpTo(10) = 1930 {- round up to nearest multiple of 10 -}
-pi.roundUpTo(0.005) = 3.145 {- round up to nearest 5/1000th -}
-pi.negated.roundUpTo(0.01) = -3.14 {- rounding up a negative number rounds towards zero -}
-pi.roundUp = 4 {- round up to nearest integer -}
+1.pi.roundUpTo(0.005) = 3.145 {- round up to nearest 5/1000th -}
+1.pi.negated.roundUpTo(0.01) = -3.14 {- rounding up a negative number rounds towards zero -}
+1.pi.roundUp = 4 {- round up to nearest integer -}
 -3:2.numerator.negative {- numerator of negative fraction is negative -}
 -3:2.denominator.positive {- denominator of negative fraction is positive -}
 4:6.numerator = 2 {- literal fractions are reduced -}
@@ -1596,8 +1596,8 @@ let x = Fraction(2n ^ 55n, 2); x ~= (x - 1) {- fractions of large large integers
 355:113.limitDenominator(7) = 22:7
 [1:2, 5:10, 10:20, 50:100, 500:1000].collect { :n | n.limitDenominator(5) } = [1:2, 1:2, 1:2, 1:2, 1:2]
 [10, 100].collect { :n | 0.367879.asFraction(n) } = [3:8, 32:87]
-(1 .. 5).collect { :n | pi.asFraction(10 ^ n) } = [22:7, 311:99, 2862:911, 9563:3044, 313842:99899]
-pi.asFraction = 311:99 {- with maximumDenominator set to one hundred -}
+(1 .. 5).collect { :n | 1.pi.asFraction(10 ^ n) } = [22:7, 311:99, 2862:911, 9563:3044, 313842:99899]
+1.pi.asFraction = 311:99 {- with maximumDenominator set to one hundred -}
 (1 / [2, 3, 5, 7, 11, 13, 17]).collect(asFraction:/1) = [1:2, 1:3, 1:5, 1:7, 1:11, 1:13, 1:17]
 6:8 * 4 = 3 {- answer integer -}
 7:8 / 3 = 7:24 {- division by integer is fraction -}
@@ -2168,7 +2168,7 @@ let m = (x: 1, y: 2).asMap; m.removeAll; m.isEmpty {- remove all entries -}
 -3.abs = 3 {- absolute value -}
 1.5.ceiling = 2 {- ceiling (round up) -}
 0.cos = 1 {- cosine -}
-180.degreesToRadians = pi {- degreesToRadians -}
+180.degreesToRadians = 1.pi {- degreesToRadians -}
 2.even = true {- eveness predicate -}
 1.exp.veryCloseTo(2.718281828459045) {- base e exponent function -}
 1.5.floor = 1 {- floor (round down) -}
@@ -2180,14 +2180,14 @@ let m = (x: 1, y: 2).asMap; m.removeAll; m.isEmpty {- remove all entries -}
 1.min(2) = 1 {- minimum -}
 3.negated = -3 {- negation -}
 3.odd = true {- oddness predicate -}
-pi.veryCloseTo(3.1415926535898) {- constant pi (Float pi) -}
+1.pi.veryCloseTo(3.1415926535898) {- constant pi (Float pi) -}
 inf.isNumber {- constant positive infinity (is a number) -}
 2 ^ 3 = 8 {- i to the power of j -}
 5.reciprocal = 0.2 {- 1 / x -}
-(pi / 2).sin = 1 {- sine -}
+(1.pi / 2).sin = 1 {- sine -}
 9.sqrt = 3 {- square root -}
 3.squared = 9 {- x * x -}
-pi.radiansToDegrees = 180 {- radiansToDegrees -}
+1.pi.radiansToDegrees = 180 {- radiansToDegrees -}
 { 1 / nil }.ifError { true } {- operand not apatable to number -}
 0.9.rounded = 1
 1.rounded = 1
@@ -2208,7 +2208,7 @@ Matrix22(1, 0, 0, 1).isMatrix22 {- matrix predicate -}
 Matrix22(1, 4, -1, 9).determinant = 13 {- determinant -}
 Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2) {- inverse, answers new matrix -}
 let m = Matrix22(-1, 3/2, 1,-1); m.invert; m = Matrix22(2, 3, 2, 2) {- inverse, in place -}
-Matrix22().rotation(pi / 2).applyTo(Vector2(0, 1)).closeTo(1 @ 0)
+Matrix22().rotation(1.pi / 2).applyTo(Vector2(0, 1)).closeTo(1 @ 0)
 Matrix22(1, 2, 3, 4).transposed = Matrix22(1, 3, 2, 4) {- transpose, answers new matrix -}
 let m = Matrix22(1, 2, 3, 4); m.transpose; m = Matrix22(1, 3, 2, 4) {- transpose, in place -}
 ```
@@ -2309,10 +2309,10 @@ let z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 }, { 'c' } -> { 3 + 3 } ]; 'b'
 4:3.slotArray = ['numerator' -> 4, 'denominator' -> 3]
 4:3.numerator = 4:3:@numerator {- slot access syntax -}
 let n = 4:3; n:@denominator := 5; n = 4:5 {- slot access syntax -}
-pi.in { :x | x.rounded + 20 } = 23 {- evaluate block with object -}
-pi.notify('pi') = pi {- user notification -}
-pi.warning('pi') = pi {- user warning -}
-{ pi.error('pi') }.ifError { true } {- user error -}
+1.pi.in { :x | x.rounded + 20 } = 23 {- evaluate block with object -}
+1.pi.notify('pi') = 1.pi {- user notification -}
+1.pi.warning('pi') = 1.pi {- user warning -}
+{ 1.pi.error('pi') }.ifError { true } {- user error -}
 ```
 
 ## Operator -- adverbs
@@ -2381,9 +2381,9 @@ system.includesPackage('Point') {- point package -}
 (1 @ 1).norm = 2.sqrt {- magnitude, distance to origin -}
 (1 @ 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude -}
 (1 @ 1).normalized.norm ~ 1
-(1, 1).norm = 2.sqrt {- magnitude, distance to origin -}
-(1, 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude -}
-(1, 1).normalized.norm ~ 1
+Point(1, 1).norm = 2.sqrt {- magnitude, distance to origin -}
+Point(1, 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude -}
+Point(1, 1).normalized.norm ~ 1
 ```
 
 ## PriorityQueue -- collection type
@@ -2456,8 +2456,8 @@ let f = { }; f:/0 == f:/0 {- identity -}
 { | c a | c := [1]; a := { | a | a := 4; a }.value; { | a | a := 2; c.add(a); { | a | a := 3; c.add(a) }.value }.value; c.add(a); c }.value = [1, 2, 3, 4]
 1.toDo(10) { :index | nil } = 1 {- answers start index -}
 valueWithReturn { :return:/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 {- non-local return -}
-pi.assert { true } = pi {- assert that block evaluates to true, answers self -}
-{ pi.assert { false } }.ifError { true } {- raise an error if block does not evaluate to true -}
+1.pi.assert { true } = 1.pi {- assert that block evaluates to true, answers self -}
+{ 1.pi.assert { false } }.ifError { true } {- raise an error if block does not evaluate to true -}
 { true }.assert = nil {- assert that block evaluates to true, answers nil -}
 { { false }.assert }.ifError { true } {- raise an error if block does not evaluate to true -}
 valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeat } {- repeat a block until it "returns" -}
@@ -2502,7 +2502,7 @@ let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter(0.05.randomFloat) } }; [
 false.isBoolean {- constant -}
 false.isBoolean {- constant -}
 nil.isNil {- constant -}
-pi.isNumber {- constant -}
+1.pi.isNumber {- constant -}
 inf.isNumber {- constant (infinity) -}
 ```
 
@@ -2663,8 +2663,8 @@ let d = Record(); d::x := 1; d::y := 2; d.size = 2
 let d = (x: 1, y: 2); let i = 9; d.associationsDo { :each | i := i - each.value }; i = 6 {- iterate over associations -}
 let d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
 (x: 23, y: 3.141).isDictionary
-(x: pi)::x = pi
-(x : pi) :: x = pi
+(x: 1.pi)::x = 1.pi
+(x : 1.pi) :: x = 1.pi
 let d = (x: 23, y: 3.141); d::x = 23
 let d = (x: 23, y: 3.141); d::x := 42; d = (x: 42, y: 3.141)
 (x: 1).copy = (x: 1) {- a copy of record is a record -}
@@ -2754,7 +2754,7 @@ RegExp('c(a|d)+r').match('-car-') = 'car' {- get match for regular expression -}
 RegExp('c(a|d)+r').match('-cdr-') = 'cdr' {- get match for regular expression -}
 RegExp('c(a|d)+r').match('xyz') = nil {- if there is no match answer nil -}
 let r = RegExp('ab*c'); ['ac', 'abc', 'abbc'].collect { :each | r.matches(each) } = [true, true, true] {- test input string against regexp -}
-{ RegExp('ab*c').matches(pi) }.ifError { true } {- test parameter must be a string -}
+{ RegExp('ab*c').matches(1.pi) }.ifError { true } {- test parameter must be a string -}
 RegExp('c(a|d)+r', 'g').matchAll('car cdr cadr') = ['car', 'cdr', 'cadr']
 RegExp('c(a|d)+r', 'g').matchAll('does not') = []
 RegExp('ab*c', 'g').matchAll('ab abc ac') = ['abc', 'ac']
@@ -3128,7 +3128,7 @@ let total = 0; 9.timesRepeat { total := total + system.randomFloat }; total < 7
 9.atRandom.isInteger = true {- random number between 1 and 9 -}
 9.randomInteger.isInteger = true
 9.randomFloat.isInteger = false
-pi.randomFloat.isInteger = false
+1.pi.randomFloat.isInteger = false
 [3.141.json, 23.json] = ['3.141', '23'] {- numbers have json encodings -}
 ['3.141', '23'].collect(parseJson:/1) = [3.141, 23] {- parse json numbers -}
 | r | 1.toDo(5) { :each | r := each }; r = 5
@@ -3157,19 +3157,19 @@ pi.randomFloat.isInteger = false
 60.divisors = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60]
 1729.divisors = [1, 7, 13, 19, 91, 133, 247, 1729]
 eulersNumber() = 1.exp {- euler's number -}
-e = eulersNumber() {- e is a constant, like pi -}
-epsilon() < (10 ^ -15)
-epsilon() > (10 ^ -16)
-1 - epsilon() ~= 1 {- epsilon() is the difference between 1.0 and previous representable value -}
-epsilon ~= epsilon() {- epsilon is a constant, like pi & e -}
-pi = 3.141592653589793 {- pi is a number -}
-epsilon = 0.000000000000001 {- epsilon is a number -}
-e = 2.718281828459045 {- e is a number -}
-(1 - epsilon).veryCloseTo(1)
+1.e = eulersNumber() {- e is a constant, like 1.pi -}
+smallFloatEpsilon() < (10 ^ -15) {- the difference between 1 and the smallest SmallFloat greater than 1 -}
+smallFloatEpsilon() > (10 ^ -16)
+1 - smallFloatEpsilon() ~= 1 {- epsilon() is the difference between 1.0 and previous representable value -}
+1.epsilon ~= smallFloatEpsilon() {- epsilon is a constant, like 1.pi & e -}
+1.pi = 3.141592653589793 {- 1.pi is a number -}
+1.epsilon = 0.000000000000001 {- epsilon is a number -}
+1.e = 2.718281828459045 {- e is a number -}
+(1 - 1.epsilon).veryCloseTo(1)
 Infinity.isFinite = false {- Infinity is not finite -}
 NaN.isFinite = false {- NaN is not finite -}
 inf.isFinite = false {- Infinity is not finite -}
-pi.isFinite = true {- pi is finite -}
+1.pi.isFinite = true {- 1.pi is finite -}
 { nil.isFinite }.ifError { true } {- nil is not a number, so we cannot ask if it is finite -}
 5.closeTo(5) = true
 5.closeTo('5') = false
@@ -3187,8 +3187,8 @@ let x = (2.0 ^ 54.0); x ~= (x - 1.0) = false {- large numbers behave strangely -
 [-1, 0, 1].collect(asString:/1) = ['-1', '0', '1']
 inf.asString = 'inf' {- inf prints as inf -}
 (0 - inf).asString = '(0 - inf)'
-pi.printString = '3.141592653589793'
-pi.storeString = '3.141592653589793'
+1.pi.printString = '3.141592653589793'
+1.pi.storeString = '3.141592653589793'
 23.isInteger {- is a small float an integer -}
 23.isSmallInteger {- is a small float a small integer -}
 (2 ^ 53) = 9007199254740992 {- a small float that is an integer that is beyond the range of small integers -}
@@ -3214,15 +3214,15 @@ let n = 23453456; (n * n).sqrt = n {- floating point square and square root -}
 1.0 = 1 {- there is no distinct integer type -}
 [1, 1.4, 1.49999, 1.5, 1.50000001].rounded = [1, 1, 1, 2, 2] {- rounding -}
 [14 / 10, 44534 / 100].rounded = [1, 445] {- rounding -}
-pi.sin.abs < 0.00000000001 {- sin of pi is close to zero -}
-(pi / 2).sin > 0.9999999999 {- sin of two pi is close to one -}
+1.pi.sin.abs < 0.00000000001 {- sin of 1.pi is close to zero -}
+(1.pi / 2).sin > 0.9999999999 {- sin of two 1.pi is close to one -}
 0 = -0 {- zero is equal to negative zero -}
 92233720368 * 100000000 + 54775807 = 9223372036854775807 {- reader for large small float integer literals -}
 let n = 3.141; n.copy == n {- copy is identity -}
-pi.in { :pi | pi } = pi {- pi is a constant, it can be shadowed -}
-let pi = 23; pi = 23 {- pi is a constant, it can be shadowed -}
-pi.zero = 0 {- zero of same type, i.e. small float -}
-pi.one = 1 {- one of same type, i.e. small float -}
+1.pi.in { :pi | pi } = 1.pi {- 1.pi is a constant, it can be shadowed -}
+let pi = 23; pi = 23 {- 1.pi is a constant, it can be shadowed -}
+1.pi.zero = 0 {- zero of same type, i.e. small float -}
+1.pi.one = 1 {- one of same type, i.e. small float -}
 ```
 
 ## SmallFloat -- modulo
@@ -3264,8 +3264,8 @@ Stack().typeOf = 'Stack' {- Stack is a type -}
 Stack().isStack {- empty stack, stack predicate -}
 Stack().isEmpty {- empty stack, empty predicate -}
 Stack().size = 0 {- empty stack, size -}
-let s = Stack(); s.push(pi); [s.size, s.top, s.size] = [1, pi, 1] {- push element onto stack, inspect top of stack -}
-let s = Stack(); s.push(pi); [s.size, s.pop, s.size] = [1, pi, 0] {- push element onto stack, inspect top of stack -}
+let s = Stack(); s.push(1.pi); [s.size, s.top, s.size] = [1, 1.pi, 1] {- push element onto stack, inspect top of stack -}
+let s = Stack(); s.push(1.pi); [s.size, s.pop, s.size] = [1, 1.pi, 0] {- push element onto stack, inspect top of stack -}
 let s = Stack(); s.push('x'); s.push('y'); [s.size, s.pop, s.size, s.pop, s.size] = [2, 'y', 1, 'x', 0] {- push two elements, pop two elements -}
 { let s = Stack(); s.pop }.ifError { true } {- cannot pop from empty stack -}
 let s = Stack(); s.push('x') = 'x' {- push answers object pushed -}
@@ -3330,7 +3330,7 @@ system.includesPackage('String') {- package -}
 'x'.asString.size = 1
 'x'.printString.size = 3 {- printString is a quoted string -}
 1.asString = '1' {- integer as string -}
-pi.asString = '3.141592653589793' {- float as string -}
+1.pi.asString = '3.141592653589793' {- float as string -}
 'ascii'.asciiByteArray = [97, 115, 99, 105, 105].asByteArray
 '€'.utf8ByteArray = [226, 130, 172].asByteArray {- Utf-8 encoding of String as ByteArray -}
 [226, 130, 172].asByteArray.utf8String = '€' {- String from Utf-8 encoded ByteArray -}
@@ -3755,9 +3755,9 @@ system.isIndexable {- system is indexable -}
 system.globalDictionary.isDictionary {- the system global dicitionary is a dictionary -}
 system.globalDictionary.isRecord {- specifically, it is a record -}
 { system::undefined }.ifError { true } {- system implements the indexable trait, unknown indices (keys) raise errors -}
-system::TwoPi := 2 * pi; system::TwoPi / 2 = pi {- declare and then access a global variable -}
+system::TwoPi := 2.pi; system::TwoPi / 2 = 1.pi {- declare and then access a global variable -}
 system.indices.includes('TwoPi') {- system is indexable -}
-system.indexOf(2 * pi) = 'TwoPi' {- system is indexable -}
+system.indexOf(2.pi) = 'TwoPi' {- system is indexable -}
 ```
 
 ## System -- methodDictionary
@@ -3860,10 +3860,10 @@ system.localStorage.typeOf = 'Storage' {- system local storage, persistent key-v
 system.localStorage.isStorage = true {- storage predicate -}
 system.localStorage.size >= 0 {- number of elements in local storage -}
 system.localStorage.indices.allSatisfy(isString:/1) {- keys and values must each be strings -}
-(system.localStorage::pi := pi.asString) = pi.asString {- store pi as string at index 'pi', answer item stored -}
-system.localStorage::pi = pi.asString {- read pi -}
+(system.localStorage::pi := 1.pi.asString) = 1.pi.asString {- store 1.pi as string at index 'pi', answer item stored -}
+system.localStorage::pi = 1.pi.asString {- read pi -}
 system.localStorage.indices.includes('pi') = true {- pi is an index -}
-system.localStorage.removeAt('pi') = pi.asString {- remove entry, answer removed item -}
+system.localStorage.removeAt('pi') = 1.pi.asString {- remove entry, answer removed item -}
 system.localStorage.removeAll = system.localStorage {- remove all entries, answer self -}
 ```
 
@@ -3932,6 +3932,29 @@ let t = system.unixTime; t - 0.seconds = t {- offset TimeStamp by Duration -}
 let t = 1676784053576.TimeStamp; let c = t.copy; c ~~ t & { c = t }
 ```
 
+## Tuple -- collection type
+```
+system.includesPackage('Tuple') {- tuple package -}
+(1, 2).typeOf = 'TwoTuple' {- type of -}
+(1, 2).isTwoTuple {- type predicate -}
+(1, 2).isTuple {- trait predicate -}
+(1, 2).first = 1 {- field accessor -}
+(1, 2).second = 2 {- field accessor -}
+let t = (1, 2); t.first := 3; t = (3, 2) {- field mutator -}
+let t = (1, 2); t.second := 3; t = (1, 3) {- field mutator -}
+(1, 2).size = 2 {- size -}
+(1, 2, 3).typeOf = 'ThreeTuple' {- type of -}
+(1, 2, 3).isThreeTuple {- type predicate -}
+(1, 2, 3).isTuple {- trait predicate -}
+(1, 2, 3).first = 1 {- field accessor -}
+(1, 2, 3).second = 2 {- field accessor -}
+(1, 2, 3).third = 3 {- field accessor -}
+let t = (1, 2, 3); t.first := 4; t = (4, 2, 3) {- field mutator -}
+let t = (1, 2, 3); t.second := 4; t = (1, 4, 3) {- field mutator -}
+let t = (1, 2, 3); t.third := 4; t = (1, 2, 4) {- field mutator -}
+(1, 2, 3).size = 3 {- size -}
+```
+
 ## Type -- reflection type
 ```
 system.typeLookup('Colour').typeOf = 'Type' {- type of type -}
@@ -3950,7 +3973,7 @@ system.typeLookup('Colour').traitNameArray = ['Object'] {- traits (named) implem
 ('x' -> 1):@key = 'x' {- read slot -}
 ('x' -> 1):@answer = nil {- unknown slot names answer nil -}
 let a = ('x' -> 1); a:@key := 'y'; a = ('y' -> 1) {- write slot -}
-let a = ('x' -> 1); a:@hidden := pi; a = ('x' -> 1) & { a:@hidden = pi } {- writes to unknown slot add a slot -}
+let a = ('x' -> 1); a:@hidden := 1.pi; a = ('x' -> 1) & { a:@hidden = 1.pi } {- writes to unknown slot add a slot -}
 let a = 'x' -> 1; a:@key = 'x' & { a:@value = 1 } {- read slots -}
 let a = 'x' -> 1; a:@key := 'y'; a:@value := 2; a = ('y' -> 2) {- write slots -}
 ```
@@ -3959,7 +3982,7 @@ let a = 'x' -> 1; a:@key := 'y'; a:@value := 2; a = ('y' -> 2) {- write slots -}
 ```
 89.sin = 0.8600694058124533
 3.sqrt = 1.7320508075688772
-pi.printString = '3.141592653589793'
+1.pi.printString = '3.141592653589793'
 'blop'.size = 4
 true.not = false
 ```
@@ -4025,20 +4048,20 @@ system.includesPackage('Unordered') {- package -}
 system.includesPackage('Vector2') {- package -}
 Vector2(0, 0).typeOf = 'Vector2' {- type of -}
 Vector2(-1, 1).isVector2 = true
-(-1, 1).isVector2 = true {- tuple constructor syntax -}
+Point(-1, 1).isVector2 = true {- point constructor -}
 Vector2(3, 4).isVector2 & { true } = true
 [0, 0].asVector2 = (0@0)
 (-1@1).isVector2.not = false
 -1@1 = Vector2(-1, 1)
--1@1 = (-1, 1)
+-1@1 = Point(-1, 1)
 (-1@1).x = -1
 (-1@1).y = 1
 (-1@1).x(-3) = -3
 (-1@1).y(3) = 3
-(-1, 1).x = -1
-(-1, 1).y = 1
-(-1, 1).x(-3) = -3
-(-1, 1).y(3) = 3
+Point(-1, 1).x = -1
+Point(-1, 1).y = 1
+Point(-1, 1).x(-3) = -3
+Point(-1, 1).y(3) = 3
 -1@1 * 9 = (-9@9)
 -1@1 + 2 = (1@3)
 2 * (-1@1) * 2 = (-4@4)
@@ -4048,7 +4071,7 @@ Vector2(3, 4).isVector2 & { true } = true
 let p = -1@1; p.x := -3; p.y := 3; p = (-3@3) = true
 let p = -1@3; let a = [p]; a.first.x := -3; p = (-3@3) = true
 let x = 3.141; let y = 23; let p = x@y; p.x = x & { p.y = y }
-[1@0, 1@1, 0@1, -1@1, -1@0, 0 @ -1].collect(t:/1) = (pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2])
+[1@0, 1@1, 0@1, -1@1, -1@0, 0 @ -1].collect(t:/1) = (1.pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2])
 0@0 = Point(0,0)
 200 @ 100 = Point(200, 100) {- obtain a new point -}
 (200 @ 100).x = 200 {- x coordinate -}
@@ -4087,8 +4110,8 @@ let v = Vector3(3, 4, 5); v[1] := 5; v[3] := 3; v.asArray = [5, 4, 3] {- impleme
 let v = Vector3(3, 4, 5); [v.first, v.second, v.third] = [3, 4, 5] {- implements first &etc. -}
 Vector3(0, 0, 1).asSphericalCoordinate = SphericalCoordinate(1, 0, 0)
 SphericalCoordinate(1, 0, 0).asCartesianCoordinate = Vector3(0, 0, 1)
-Vector3(1, 1, 0).asSphericalCoordinate = SphericalCoordinate(2.sqrt, pi / 4, pi / 2)
-SphericalCoordinate(2.sqrt, pi / 4, pi / 2).asCartesianCoordinate ~ Vector3(1, 1, 0)
+Vector3(1, 1, 0).asSphericalCoordinate = SphericalCoordinate(2.sqrt, 1.pi / 4, 1.pi / 2)
+SphericalCoordinate(2.sqrt, 1.pi / 4, 1.pi / 2).asCartesianCoordinate ~ Vector3(1, 1, 0)
 Vector3(0, 0, 0).distance(Vector3(1, 1, 1)) = 3.sqrt
 Vector3(0, 0, 0).distance(Vector3(1, 1, 0)) = 2.sqrt
 Vector3(1, 2, 3).distance(Vector3(6, 5, 4)) = 35.sqrt

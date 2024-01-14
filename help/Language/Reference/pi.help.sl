@@ -6,6 +6,8 @@ The ratio of a circles circumference to its diameter, approximately equal to _3.
 
 Answer _aNumber_ times pi.
 
+	2.pi = 6.283185307179586
+
 * * *
 
 See also: e

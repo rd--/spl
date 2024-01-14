@@ -523,8 +523,9 @@ const asJs: ohm.ActionDict<string> = {
 		return `[${commaList(items.asIteration().children)}]`;
 	},
 	TupleExpression(_leftBracket, items, _rightBracket) {
-		// console.debug('TupleExpression');
-		return `_asTuple_1([${commaList(items.asIteration().children)}])`;
+		const elem = items.asIteration().children;
+		console.debug('TupleExpression', elem.length);
+		return `_Tuple_${elem.length}(${commaList(elem)})`;
 	},
 	ArrayIntervalSyntax(_leftBracket, start, _dotDot, end, _rightBracket) {
 		return arrayIntervalSyntax(start, end);

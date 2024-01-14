@@ -502,7 +502,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		1.exp
 	}
 
-	epsilon {
+	smallFloatEpsilon {
 		<primitive: return Number.EPSILON;>
 	}
 
