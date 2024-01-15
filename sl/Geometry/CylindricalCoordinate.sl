@@ -1,3 +1,5 @@
+{- Requires: CartesianCoordinate -}
+
 CylindricalCoordinate : [Object] { | rho phi z |
 
 	asArray { :self |
@@ -5,11 +7,15 @@ CylindricalCoordinate : [Object] { | rho phi z |
 	}
 
 	asCartesianCoordinate { :self |
-		Vector3(self.x, self.y, self.z)
+		CartesianCoordinate(self.x, self.y, self.z)
 	}
 
 	asRecord { :self |
 		(rho: self.rho, phi: self.phi, z: self.z)
+	}
+
+	asTuple { :self |
+		(self.rho, self.phi, self.z)
 	}
 
 	r { :self |
@@ -27,7 +33,6 @@ CylindricalCoordinate : [Object] { | rho phi z |
 	y { :self |
 		self.rho * self.phi.sin
 	}
-
 
 }
 
@@ -56,6 +61,14 @@ CylindricalCoordinate : [Object] { | rho phi z |
 
 }
 
++ThreeTuple {
+
+	asCylindricalCoordinate { :self |
+		CylindricalCoordinate(self.first, self.second, self.third)
+	}
+
+}
+
 +@CartesianCoordinate {
 
 	asCylindricalCoordinate { :self |
@@ -70,4 +83,3 @@ CylindricalCoordinate : [Object] { | rho phi z |
 	}
 
 }
-

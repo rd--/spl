@@ -2208,7 +2208,7 @@ Matrix22(1, 0, 0, 1).isMatrix22 {- matrix predicate -}
 Matrix22(1, 4, -1, 9).determinant = 13 {- determinant -}
 Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2) {- inverse, answers new matrix -}
 let m = Matrix22(-1, 3/2, 1,-1); m.invert; m = Matrix22(2, 3, 2, 2) {- inverse, in place -}
-Matrix22().rotation(1.pi / 2).applyTo(Vector2(0, 1)).closeTo(1 @ 0)
+Matrix22().rotation(1.pi / 2).applyTo(Vector(0, 1)).closeTo(1 @ 0)
 Matrix22(1, 2, 3, 4).transposed = Matrix22(1, 3, 2, 4) {- transpose, answers new matrix -}
 let m = Matrix22(1, 2, 3, 4); m.transpose; m = Matrix22(1, 3, 2, 4) {- transpose, in place -}
 ```
@@ -2373,10 +2373,10 @@ system.package('Collection-Array') == system.package('Array') {- lookup package 
 system.package('BounceBenchmark').dependencies.collect(name:/1) = ['Benchmark', 'SomRandom']
 ```
 
-## Point -- geometry trait
+## RectangularCoordinate -- geometry trait
 ```
-system.includesPackage('Point') {- point package -}
-0.asPoint.isPoint {- number to point, point predicate -}
+system.includesPackage('RectangularCoordinate') {- rectangular coordinate package -}
+0.asPoint.isRectangularCoordinate {- number to point, point predicate -}
 0.asPoint.isZero {- are x and y both zero -}
 (1 @ 1).norm = 2.sqrt {- magnitude, distance to origin -}
 (1 @ 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude -}
@@ -2702,7 +2702,7 @@ system.includesPackage('Rectangle') {- Rectangle package -}
 Rectangle(0@0, 1@1).printString = 'Rectangle(0@0, 1@1)'
 Rectangle(0@0, 2@2).intersect(Rectangle(1@1, 4@4)) = Rectangle(1@1, 2@2)
 Rectangle(1@1, 3@3).area = 4
-Rectangle(1@1, 3@3).center = Vector2(2, 2)
+Rectangle(1@1, 3@3).center = Vector(2, 2)
 Rectangle(1@1, 3@3).containsPoint(2@2) = true
 let o = 0@0; let p = 10@10; let q = 0 - p; [Rectangle(q, o), Rectangle(o, p)].rectangleMerging = Rectangle(q, p)
 let r = (0@0).extent(10@20); r.area = (10 * 20) {- area is width by height -}
@@ -3797,7 +3797,7 @@ system.methodLookupAtType('sum', 1, 'Array') == system.methodLookupAtType('sum',
 system.packageDictionary.isDictionary = true
 system.packageDictionary.isEmpty = false
 let t = system.packageTypes('Complex'); t.size = 1 & { t[1].name = 'Complex' }
-let t = system.packageTraits('Point'); t.size = 1 & { t[1].name = 'Point' }
+let t = system.packageTraits('RectangularCoordinate'); t.size = 1 & { t[1].name = 'RectangularCoordinate' }
 system.packageMethods('Frequency').detect { :each | each.name = 'asHertz' }.arity = 1
 ```
 
@@ -4043,16 +4043,15 @@ system.includesPackage('Unordered') {- package -}
 { [1, 2, 3].asBag.at(1) }.ifError { true }
 ```
 
-## Vector2 -- geometry type
+## Vector -- geometry trait
 ```
-system.includesPackage('Vector2') {- package -}
-Vector2(0, 0).typeOf = 'Vector2' {- type of -}
-Vector2(-1, 1).isVector2 = true
-Point(-1, 1).isVector2 = true {- point constructor -}
-Vector2(3, 4).isVector2 & { true } = true
-[0, 0].asVector2 = (0@0)
-(-1@1).isVector2.not = false
--1@1 = Vector2(-1, 1)
+system.includesPackage('Vector') {- package -}
+Vector(0, 0).typeOf = 'TwoVector' {- type of -}
+Vector(-1, 1).isVector = true
+Point(-1, 1).isVector = true {- point constructor -}
+Vector(3, 4).isVector & { true } = true
+(-1@1).isVector.not = false
+-1@1 = Vector(-1, 1)
 -1@1 = Point(-1, 1)
 (-1@1).x = -1
 (-1@1).y = 1
@@ -4071,7 +4070,7 @@ Point(-1, 1).y(3) = 3
 let p = -1@1; p.x := -3; p.y := 3; p = (-3@3) = true
 let p = -1@3; let a = [p]; a.first.x := -3; p = (-3@3) = true
 let x = 3.141; let y = 23; let p = x@y; p.x = x & { p.y = y }
-[1@0, 1@1, 0@1, -1@1, -1@0, 0 @ -1].collect(t:/1) = (1.pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2])
+[1@0, 1@1, 0@1, -1@1, -1@0, 0 @ -1].collect(theta:/1) = (1.pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2]) {- theta = angle from (1,0) -}
 0@0 = Point(0,0)
 200 @ 100 = Point(200, 100) {- obtain a new point -}
 (200 @ 100).x = 200 {- x coordinate -}
@@ -4089,52 +4088,64 @@ let x = 3.141; let y = 23; let p = x@y; p.x = x & { p.y = y }
 200 @ 100 * (3 @ 4) = (600 @ 400) {- multiply points -}
 1800 @ 100 / (3 @ 4) = (600 @ 25) {- divide points -}
 (200 @ 100).asArray = [200, 100] {- array of x and y -}
-let v = Vector2(3, 4); v.first = 3 & { v.second = 4 } {- implements first and second -}
-let v = Vector2(3, 4); v[1] = 3 & { v[2] = 4 } {- implements at -}
-let v = Vector2(3, 4); v[1] := 7; v.first = 7 {- implements atPut -}
-Vector2(3, 4).size = 2 {- implements size -}
-let v = Vector2(3, 4); v.swapInPlace; v[1] = 4 {- swap fields in place -}
-Vector2(3, 4).swapped = Vector2(4, 3) {- answer swapped vector -}
+let v = Vector(3, 4); v.first = 3 & { v.second = 4 } {- implements first and second -}
+let v = Vector(3, 4); v[1] = 3 & { v[2] = 4 } {- implements at -}
+let v = Vector(3, 4); v[1] := 7; v.first = 7 {- implements atPut -}
+Vector(3, 4).size = 2 {- implements size -}
+let v = Vector(3, 4); v.swapInPlace; v[1] = 4 {- swap fields in place -}
+Vector(3, 4).swapped = Vector(4, 3) {- answer swapped vector -}
 let v = (0 @ 0); let c = v.copy; c.x := 1; c ~= v & { c = (1 @ 0) } {- copy two vector -}
+Vector(1, 1).asPolarCoordinate = PolarCoordinate(2.sqrt, 0.25.pi) {- radius and angle, r and theta -}
 ```
 
-## Vector3 -- geometry type
+## TwoVector -- geometry type
 ```
-system.includesPackage('Vector3') {- package -}
-[1, 2, 3].asVector3 = Vector3(1, 2, 3) {- three vector from array -}
-let a = [1, 2, 3]; let v = a.asVector3; v.asArray = [1, 2, 3] {- three vector to array -}
-Vector3(0, 0, 0).isZero {- are x, y and z all zero -}
-let v = Vector3(1, 2, 3); [v.x, v.y, v.z] = [1, 2, 3] {- fields are x, y, z -}
-let v = Vector3(3, 4, 5); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } {- implements at -}
-let v = Vector3(3, 4, 5); v[1] := 5; v[3] := 3; v.asArray = [5, 4, 3] {- implements atPut -}
-let v = Vector3(3, 4, 5); [v.first, v.second, v.third] = [3, 4, 5] {- implements first &etc. -}
-Vector3(0, 0, 1).asSphericalCoordinate = SphericalCoordinate(1, 0, 0)
-SphericalCoordinate(1, 0, 0).asCartesianCoordinate = Vector3(0, 0, 1)
-Vector3(1, 1, 0).asSphericalCoordinate = SphericalCoordinate(2.sqrt, 1.pi / 4, 1.pi / 2)
-SphericalCoordinate(2.sqrt, 1.pi / 4, 1.pi / 2).asCartesianCoordinate ~ Vector3(1, 1, 0)
-Vector3(0, 0, 0).distance(Vector3(1, 1, 1)) = 3.sqrt
-Vector3(0, 0, 0).distance(Vector3(1, 1, 0)) = 2.sqrt
-Vector3(1, 2, 3).distance(Vector3(6, 5, 4)) = 35.sqrt
-Vector3(0, 0, 0).isCartesianCoordinate = true {- is Cartesian coordinate -}
-Vector3(0, 0, 0).isZero = true {- is zero -}
-let v = Vector3(0, 0, 0); v.asCartesianCoordinate == v {- identity -}
-Vector3(1, 3, 5).asArray = [1 3 5]
-[1 3 5].asVector3 = Vector3(1, 3, 5)
-Vector3(1, 3, 5).asRecord = (x: 1, y: 3, z: 5)
-(x: 1, y: 3, z: 5).asVector3 = Vector3(1, 3, 5)
+[1, 2].asVector = Vector(1, 2) {- two vector from array -}
+(1, 2).asVector = Vector(1, 2) {- two vector from tuple -}
+(x: 1, y: 2).asVector = Vector(1, 2) {- two vector from array -}
+```
+
+## ThreeVector -- geometry type
+```
+[1, 2, 3].asVector = Vector(1, 2, 3) {- three vector from array -}
+(1, 2, 3).asVector = Vector(1, 2, 3) {- three vector from tuple -}
+(x: 1, y: 2, z: 3).asVector = Vector(1, 2, 3) {- three vector from array -}
+let a = [1, 2, 3]; let v = a.asVector; v.asArray = [1, 2, 3] {- three vector to array -}
+Vector(0, 0, 0).isZero {- are x, y and z all zero -}
+let v = Vector(1, 2, 3); [v.x, v.y, v.z] = [1, 2, 3] {- fields are x, y, z -}
+let v = Vector(3, 4, 5); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } {- implements at -}
+let v = Vector(3, 4, 5); v[1] := 5; v[3] := 3; v.asArray = [5, 4, 3] {- implements atPut -}
+let v = Vector(3, 4, 5); [v.first, v.second, v.third] = [3, 4, 5] {- implements first &etc. -}
+Vector(0, 0, 1).asSphericalCoordinate = SphericalCoordinate(1, 0, 0)
+SphericalCoordinate(1, 0, 0).asCartesianCoordinate = Vector(0, 0, 1)
+Vector(1, 1, 0).asSphericalCoordinate = SphericalCoordinate(2.sqrt, 1.pi / 4, 1.pi / 2)
+SphericalCoordinate(2.sqrt, 1.pi / 4, 1.pi / 2).asCartesianCoordinate ~ Vector(1, 1, 0)
+IsoSphericalCoordinate(3.sqrt, 2.sqrt.arcTan, 0.25.pi).asCartesianCoordinate ~ Vector(1, 1, 1)
+Vector(1, 1, 1).asSphericalCoordinate ~ IsoSphericalCoordinate(3.sqrt, 2.sqrt.arcTan, 0.25.pi)
+Vector(0, 0, 0).distance(Vector(1, 1, 1)) = 3.sqrt
+Vector(0, 0, 0).distance(Vector(1, 1, 0)) = 2.sqrt
+Vector(1, 2, 3).distance(Vector(6, 5, 4)) = 35.sqrt
+Vector(0, 0, 0).isCartesianCoordinate = true {- is Cartesian coordinate -}
+Vector(0, 0, 0).isZero = true {- is zero -}
+let v = Vector(0, 0, 0); v.asCartesianCoordinate == v {- identity -}
+Vector(1, 3, 5).asArray = [1 3 5] {- the vector to array -}
+[1 3 5].asVector = Vector(1, 3, 5) {- three vector from array -}
+Vector(1, 3, 5).asRecord = (x: 1, y: 3, z: 5)
+(x: 1, y: 3, z: 5).asVector = Vector(1, 3, 5) {- three vector from record -}
 SphericalCoordinate(1, 2, 3).asRecord = (r: 1, theta: 2, phi: 3)
 (r: 1, theta: 2, phi: 3).asSphericalCoordinate = SphericalCoordinate(1, 2, 3)
 CylindricalCoordinate(1, 1, 1).asCartesianCoordinate.asRecord = (x: 1.cos, y: 1.sin, z: 1)
-Vector3(1.cos, 1.sin, 1).asCylindricalCoordinate.asRecord = (rho: 1, phi: 1, z: 1)
+Vector(1.cos, 1.sin, 1).asCylindricalCoordinate.asRecord = (rho: 1, phi: 1, z: 1)
 ```
 
-## Vector4 -- geometry type
+## FourVector -- geometry type
 ```
-system.includesPackage('Vector4') {- package -}
-[1, 2, 3, 4].asVector4 = Vector4(1, 2, 3, 4) {- four vector from array -}
-let a = [1, 2, 3, 4]; let v = a.asVector4; v.asArray = [1, 2, 3, 4] {- four vector to array -}
-Vector4(0, 0, 0, 0).isZero {- are w, x, y and z all zero -}
-let v = Vector4(1, 2, 3, 4); [v.w, v.x, v.y, v.z] = [1, 2, 3, 4] {- fields are w, x, y, z -}
+[1, 2, 3, 4].asVector = Vector(1, 2, 3, 4) {- four vector from array -}
+(1, 2, 3, 4).asVector = Vector(1, 2, 3, 4) {- four vector from tuple -}
+(w: 1, x: 2, y: 3, z: 4).asVector = Vector(1, 2, 3, 4) {- four vector from record -}
+let a = [1, 2, 3, 4]; let v = a.asVector; v.asArray = [1, 2, 3, 4] {- four vector to array -}
+Vector(0, 0, 0, 0).isZero {- are w, x, y and z all zero -}
+let v = Vector(1, 2, 3, 4); [v.w, v.x, v.y, v.z] = [1, 2, 3, 4] {- fields are w, x, y, z -}
 ```
 
 ## WeakMap -- collection type

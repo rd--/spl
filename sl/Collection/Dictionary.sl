@@ -207,6 +207,12 @@
 		aCollection
 	}
 
+	includesAllIndices { :self :indices |
+		indices.allSatisfy { :each |
+			self.includesKey(each)
+		}
+	}
+
 	includesAssociation { :self :anAssociation |
 		self.atIfPresentIfAbsent(anAssociation.key) { :value |
 			anAssociation.value = value
@@ -226,8 +232,8 @@
 		}
 	}
 
-	includesIndex { :self :key |
-		self.indices.includes(key)
+	includesIndex { :self :index |
+		self.indices.includes(index)
 	}
 
 	indexOfIfAbsent { :self :value :exceptionBlock:/0 |

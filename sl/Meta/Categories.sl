@@ -95,9 +95,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'PolarPoint'
 		'Projection3'
 		'Rectangle'
-		'Vector2'
-		'Vector3'
-		'Vector4'
+		'Vector'
 	],
 	'Graphics': [
 		'Colour'
@@ -596,7 +594,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'adaptToComplexAndApply'
 		'adaptToFractionAndApply'
 		'adaptToNumberAndApply'
-		'adaptToPointAndApply'
+		'adaptToRectangularCoordinateAndApply'
 		'asArray'
 		'asAscii'
 		'asBag'
@@ -1312,9 +1310,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isMatrix22'
 		'isMatrix33'
 		'isRectangle'
-		'isVector2'
-		'isVector3'
-		'isVector4'
+		'isVector'
+		'isTwoVector'
+		'isThreeVector'
+		'isFourVector'
 	],
 	'type predicate-supercollider': [
 		'isCcEvent'

@@ -1,29 +1,35 @@
 @CartesianCoordinate {
 
-	equalBy { :self :anObject :aBlock:/2 |
-		anObject.isVector3 & {
-			aBlock(self.x, anObject.x) & {
-				aBlock(self.y, anObject.y) & {
-					aBlock(self.z, anObject.z)
-				}
-			}
-		}
-	}
-
 	= { :self :anObject |
-		self.equalBy(anObject, =)
+		self.compareBy(anObject, =)
 	}
 
 	~ { :self :anObject |
-		self.equalBy(anObject, ~)
+		self.compareBy(anObject, ~)
 	}
 
 	asCartesianCoordinate { :self |
 		self
 	}
 
-	isCartesianCoordinate { :self |
-		true
+	at { :self :index |
+		index.caseOfOtherwise([
+			1 -> { self.x },
+			2 -> { self.y },
+			3 -> { self.z }
+		]) {
+			self.error('CartesianCoordinate>>at: index out of range')
+		}
+	}
+
+	atPut { :self :index :value |
+		index.caseOfOtherwise([
+			1 -> { self.x := value },
+			2 -> { self.y := value },
+			3 -> { self.z := value }
+		]) {
+			self.error('CartesianCoordinate>>atPut: index out of range')
+		}
 	}
 
 	asArray { :self |
@@ -32,6 +38,20 @@
 
 	asRecord { :self |
 		(x: self.x, y: self.y, z: self.z)
+	}
+
+	asTuple { :self |
+		(self.x, self.y, self.z)
+	}
+
+	compareBy { :self :anObject :aBlock:/2 |
+		anObject.isCartesianCoordinate & {
+			aBlock(self.x, anObject.x) & {
+				aBlock(self.y, anObject.y) & {
+					aBlock(self.z, anObject.z)
+				}
+			}
+		}
 	}
 
 	distance { :self :aVector |
@@ -46,11 +66,15 @@
 		self.x
 	}
 
+	isCartesianCoordinate { :self |
+		true
+	}
+
 	isZero { :self |
 		self.x.isZero & {
-			self.y.isZero
-		} & {
-			self.z.isZero
+			self.y.isZero & {
+				self.z.isZero
+			}
 		}
 	}
 

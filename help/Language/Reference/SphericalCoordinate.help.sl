@@ -2,7 +2,7 @@
 
 _SphericalCoordinate(r, theta, phi)_
 
-Construct spherical coordinate following the convention:
+Construct a spherical coordinate following the convention:
 
 - r(𝑟), or rho(ρ): radial distance (radial line, radial coordinate)
 - theta(θ): azimuth
@@ -25,7 +25,7 @@ which is measured upward between the reference plane and the radial line,
 ie. from the reference plane upward (towards to the positive z-axis) to the radial line.
 The depression angle is the negative of the elevation angle.
 
-Where supported r is displayed as 𝑟 rho is displayed as ρ, theta as θ, and phi as φ.
+Where supported r is displayed as 𝑟, rho is displayed as ρ, theta as θ, and phi as φ.
 
 * * *
 

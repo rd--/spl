@@ -13,7 +13,7 @@ Matrix22 : [Object] { | a b c d |
 	}
 
 	applyTo { :self :vector |
-		Vector2(
+		Vector(
 			(self.a * vector.x) + (self.b * vector.y),
 			(self.c * vector.x) + (self.d * vector.y)
 		)

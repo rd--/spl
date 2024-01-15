@@ -37,11 +37,11 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 	asTuple { :self |
 		self.size.caseOfOtherwise([
-			{ 2 } -> { Vector2(self[1], self[2]) },
-			{ 3 } -> { Vector3(self[1], self[2], self[3]) },
-			{ 4 } -> { Vector4(self[1], self[2], self[3], self[4]) }
+			{ 2 } -> { (self[1], self[2]) },
+			{ 3 } -> { (self[1], self[2], self[3]) },
+			{ 4 } -> { (self[1], self[2], self[3], self[4]) }
 		]) {
-			'asTuple'.error
+			'Array>>asTuple'.error
 		}
 	}
 

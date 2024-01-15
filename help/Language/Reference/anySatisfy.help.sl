@@ -4,6 +4,7 @@
 
 Evaluate _aBlock:/1_ with the elements of _aCollection_.
 If _aBlock:/1_ returns true for any element return true, otherwise return false.
+Only tests elements until one answers true.
 
 	[].anySatisfy(even:/1) = false
 	[1, 3, 5, 7, 9].anySatisfy(even:/1) = false

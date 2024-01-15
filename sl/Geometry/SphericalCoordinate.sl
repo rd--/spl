@@ -1,11 +1,13 @@
+{- Requires: CartesianCoordinate -}
+
 @SphericalCoordinate {
 
 	= { :self :anObject |
-		self.equalBy(anObject, =)
+		self.compareBy(anObject, =)
 	}
 
 	~ { :self :anObject |
-		self.equalBy(anObject, ~)
+		self.compareBy(anObject, ~)
 	}
 
 	asSphericalCoordinate { :self |
@@ -16,7 +18,7 @@
 		let r = self.r;
 		let theta = self.theta;
 		let phi = self.phi;
-		Vector3(
+		CartesianCoordinate(
 			r * theta.cos * phi.sin,
 			r * theta.sin * phi.sin,
 			r * phi.cos
@@ -31,11 +33,7 @@
 		self.theta
 	}
 
-	elevation { :self |
-		(self.phi - (pi / 2)).negated
-	}
-
-	equalBy { :self :anObject :aBlock:/2 |
+	compareBy { :self :anObject :aBlock:/2 |
 		anObject.isSphericalCoordinate & {
 			aBlock(self.r, anObject.r) & {
 				aBlock(self.theta, anObject.theta) & {
@@ -43,6 +41,10 @@
 				}
 			}
 		}
+	}
+
+	elevation { :self |
+		(self.phi - (pi / 2)).negated
 	}
 
 	inclination { :self |

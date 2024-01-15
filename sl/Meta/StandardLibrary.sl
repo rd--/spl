@@ -24,15 +24,13 @@
 	'Length'
 	'Matrix22'
 	'Matrix33'
-	'Point'
-	'PolarPoint'
+	'PolarCoordinate'
 	'Projection3'
-	'Rectangle'
-	'Vector2'
-	'Vector3'
-	'Vector4'
-	'CylindricalCoordinate' {- Requires: Vector3 -}
-	'SphericalCoordinate' {- Requires: Vector3 -}
+	'RectangularCoordinate'
+	'Rectangle'  {- RectangularCoordinate -}
+	'Vector' {- RectangularCoordinate, CartesianCoordinate -}
+	'CylindricalCoordinate' {- Requires: CartesianCoordinate -}
+	'SphericalCoordinate' {- Requires: CartesianCoordinate -}
 
 	{- Graphics -}
 	'Colour'
