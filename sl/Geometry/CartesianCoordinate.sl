@@ -1,11 +1,11 @@
-CartesianCoordinate : [Object] { | x y z |
+CartesianCoordinate : [Object, Magnitude] { | x y z |
 
 	= { :self :anObject |
-		self.compareBy(anObject, =)
+		self.equalBy(anObject, =)
 	}
 
 	~ { :self :anObject |
-		self.compareBy(anObject, ~)
+		self.equalBy(anObject, ~)
 	}
 
 	asCartesianCoordinate { :self |
@@ -45,11 +45,9 @@ CartesianCoordinate : [Object] { | x y z |
 	}
 
 	compareBy { :self :anObject :aBlock:/2 |
-		anObject.isCartesianCoordinate & {
-			aBlock(self.x, anObject.x) & {
-				aBlock(self.y, anObject.y) & {
-					aBlock(self.z, anObject.z)
-				}
+		aBlock(self.x, anObject.x) & {
+			aBlock(self.y, anObject.y) & {
+				aBlock(self.z, anObject.z)
 			}
 		}
 	}
@@ -60,6 +58,20 @@ CartesianCoordinate : [Object] { | x y z |
 			(other.y - self.y).squared +
 			(other.z - self.z).squared
 		).sqrt
+	}
+
+	dotProduct { :self :anObject |
+		(self.x * anObject.x) + (self.y * anObject.y) + (self.z * anObject.z)
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isCartesianCoordinate & {
+			aBlock(self.x, anObject.x) & {
+				aBlock(self.y, anObject.y) & {
+					aBlock(self.z, anObject.z)
+				}
+			}
+		}
 	}
 
 	first { :self |

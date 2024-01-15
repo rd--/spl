@@ -24,12 +24,14 @@
 	'Length'
 	'PolarCoordinate'
 	'RectangularCoordinate'
+	'Circle'  {- RectangularCoordinate -}
 	'Matrix22' {- RectangularCoordinate -}
 	'Matrix33' {- CartesianCoordinate -}
 	'Projection3' {- Matrix33 -}
 	'Rectangle'  {- RectangularCoordinate -}
 	'FourVector' {- RectangularCoordinate CartesianCoordinate -}
 	'CylindricalCoordinate' {- Requires: CartesianCoordinate -}
+	'Sphere' {- Requires: CartesianCoordinate -}
 	'SphericalCoordinate' {- Requires: CartesianCoordinate -}
 	'Point' {- RectangularCoordinate, CartesianCoordinate -}
 

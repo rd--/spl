@@ -1,7 +1,10 @@
 # Point -- geometry
 
-The _Point_ trait represents an _(x, y)_ pair of numbers designating a location in Cartesian, or rectangular, coordinate space.
+The _Point_ method constructs co-ordinates of two and three dimensions.
+
+- _Point(x, y)_ ≡ RectangularCoordinate(x, y)
+- _Point(x, y, z)_ ≡ CartesianCoordinate(x, y, z)
 
 * * *
 
-See also: PolarPoint, Vector2
+See also: CartesianCoordinate, PolarCoordinate, RectangularCoordinate

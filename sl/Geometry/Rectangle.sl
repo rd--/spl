@@ -2,10 +2,10 @@
 
 Rectangle : [Object] { | origin corner |
 
-	= { :self :aRectangle |
-		aRectangle.isRectangle & {
-			self.origin = aRectangle.origin & {
-				self.corner = aRectangle.corner
+	= { :self :anObject |
+		aRectangle.anObject & {
+			self.origin = anObject.origin & {
+				self.corner = anObject.corner
 			}
 		}
 	}
@@ -200,11 +200,11 @@ Rectangle : [Object] { | origin corner |
 	}
 
 	x { :self |
-		origin.x
+		self.origin.x
 	}
 
 	y { :self |
-		origin.y
+		self.origin.y
 	}
 
 }

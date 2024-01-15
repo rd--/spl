@@ -1,9 +1,9 @@
 Association : [Object] { | key value |
 
-	= { :self :anAssociation |
-		anAssociation.isAssociation & {
-			self.key = anAssociation.key & {
-				self.value = anAssociation.value
+	= { :self :anObject |
+		anObject.isAssociation & {
+			self.key = anObject.key & {
+				self.value = anObject.value
 			}
 		}
 	}

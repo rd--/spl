@@ -1,7 +1,11 @@
-RectangularCoordinate : [Object] { | x y |
+RectangularCoordinate : [Object, Magnitude] { | x y |
 
 	= { :self :anObject |
-		self.compareBy(anObject, =)
+		self.equalBy(anObject, =)
+	}
+
+	~ { :self :anObject |
+		self.equalBy(anObject, ~)
 	}
 
 	< { :self :anObject |
@@ -95,10 +99,8 @@ RectangularCoordinate : [Object] { | x y |
 	}
 
 	compareBy { :self :anObject :aBlock:/2 |
-		anObject.isRectangularCoordinate & {
-			aBlock(self.x, anObject.x) & {
-				aBlock(self.y, anObject.y)
-			}
+		aBlock(self.x, anObject.x) & {
+			aBlock(self.y, anObject.y)
 		}
 	}
 
@@ -112,8 +114,28 @@ RectangularCoordinate : [Object] { | x y |
 		(self.x * anObject.x) + (self.y * anObject.y)
 	}
 
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isRectangularCoordinate & {
+			aBlock(self.x, anObject.x) & {
+				aBlock(self.y, anObject.y)
+			}
+		}
+	}
+
 	first { :self |
 		self.x
+	}
+
+	inverse { :self :inversionCenter :inversionRadius |
+		let x = self.x;
+		let y = self.y;
+		let x0 = inversionCenter.x;
+		let y0 = inversionCenter.y;
+		let k = inversionRadius;
+		RectangularCoordinate(
+			x0 + ((k.squared * (x - x0)) / ((x - x0).squared + (y - y0).squared)),
+			y0 + ((k.squared * (y - y0)) / ((x - x0).squared + (y - y0).squared))
+		)
 	}
 
 	isRectangularCoordinate { :self |

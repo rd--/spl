@@ -907,6 +907,18 @@ let s = 'string'; let a = []; a.addAll(s); a.size = 6 {- add elements from Strin
 'alphabet'.characterArray.collect(isVowel:/1) = [true, false, false, false, true, false, true, false] {- is character a vowel -}
 ```
 
+## Circle -- geometric type
+```
+system.includesPackage('Circle') {- package -}
+Circle(Point(0, 0), 1).typeOf = 'Circle' {- type of -}
+Circle(Point(0, 0), 1).isCircle {- predicate -}
+Circle(Point(0, 0), 1).center = Point(0, 0) {- center -}
+Circle(Point(0, 0), 1).radius = 1 {- radius -}
+Circle(Point(0, 0), 1).diameter = 2 {- diameter -}
+Circle(Point(0, 0), 1).circumference = 2.pi {- circumference -}
+Circle(Point(0, 0), 1).area = 1.pi {- area -}
+```
+
 ## Clock -- temporal type
 ```
 Clock().typeOf = 'Clock' {- type of clock -}
@@ -2601,6 +2613,18 @@ let r = '.....ascii'.asciiByteArray.asIterator; let a = ByteArray(5); r.next(5);
 (1 .. 9).asIterator.take(23) = [1 .. 9] {- take at most n items from iterator -}
 let r = (1 .. 9).asIterator; [r.nextMatchFor(1), r.next] = [true, 2] {- predicate at consumed item -}
 let r = (1 .. 9).asIterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] {- predicate at consumed items -}
+```
+
+## Sphere -- geometric type
+```
+system.includesPackage('Sphere') {- package -}
+Sphere(Point(0, 0, 0), 1).typeOf = 'Sphere' {- type of -}
+Sphere(Point(0, 0, 0), 1).isSphere {- predicate -}
+Sphere(Point(0, 0, 0), 1).center = Point(0, 0, 0) {- center -}
+Sphere(Point(0, 0, 0), 1).radius = 1 {- radius -}
+Sphere(Point(0, 0, 0), 1).diameter = 2 {- diameter -}
+Sphere(Point(0, 0, 0), 1).surfaceArea = 4.pi {- surface area -}
+Sphere(Point(0, 0, 0), 1).volume = (4.pi / 3) {- volume -}
 ```
 
 ## Stream -- collection trait
