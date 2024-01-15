@@ -1,4 +1,4 @@
-@CartesianCoordinate {
+CartesianCoordinate : [Object] { | x y z |
 
 	= { :self :anObject |
 		self.compareBy(anObject, =)
@@ -54,11 +54,11 @@
 		}
 	}
 
-	distance { :self :aVector |
+	distance { :self :other |
 		(
-			(aVector.x - self.x).squared +
-			(aVector.y - self.y).squared +
-			(aVector.z - self.z).squared
+			(other.x - self.x).squared +
+			(other.y - self.y).squared +
+			(other.z - self.z).squared
 		).sqrt
 	}
 
@@ -90,12 +90,49 @@
 		self.z
 	}
 
+	xy { :self |
+		RectangularCoordinate(self.x, self.y)
+	}
+
+	xz { :self |
+		RectangularCoordinate(self.x, self.z)
+	}
+
+	yz { :self |
+		RectangularCoordinate(self.y, self.z)
+	}
+
 }
 
-+@Object {
++@Number {
 
-	isCartesianCoordinate { :self |
-		false
+	CartesianCoordinate { :x :y :z |
+		newCartesianCoordinate().initializeSlots(x, y, z)
+	}
+
+}
+
++Array {
+
+	asCartesianCoordinate { :self |
+		let [x, y, z] = self;
+		CartesianCoordinate(x, y, z)
+	}
+
+}
+
++Record {
+
+	asCartesianCoordinate { :self |
+		CartesianCoordinate(self::x, self::y, self::z)
+	}
+
+}
+
++ThreeTuple {
+
+	asCartesianCoordinate { :self |
+		CartesianCoordinate(self.first, self.second, self.third)
 	}
 
 }

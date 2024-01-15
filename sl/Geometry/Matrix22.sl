@@ -1,3 +1,5 @@
+{- Requires: RectangularCoordinate -}
+
 Matrix22 : [Object] { | a b c d |
 
 	= { :self :aMatrix |
@@ -13,7 +15,7 @@ Matrix22 : [Object] { | a b c d |
 	}
 
 	applyTo { :self :vector |
-		Vector(
+		RectangularCoordinate(
 			(self.a * vector.x) + (self.b * vector.y),
 			(self.c * vector.x) + (self.d * vector.y)
 		)
@@ -80,8 +82,8 @@ Matrix22 : [Object] { | a b c d |
 
 +@Number {
 
-	Matrix22 { :self :b :c :d |
-		newMatrix22().initializeSlots(self, b, c, d)
+	Matrix22 { :a :b :c :d |
+		newMatrix22().initializeSlots(a, b, c, d)
 	}
 
 }
@@ -89,12 +91,8 @@ Matrix22 : [Object] { | a b c d |
 +Array {
 
 	asMatrix22 { :self |
-		(self.size ~= 4).if {
-			self.error('Matrix22: not 4-element array')
-		} {
-			let [a, b, c, d] = self;
-			Matrix22(a, b, c, d)
-		}
+		let [a, b, c, d] = self;
+		Matrix22(a, b, c, d)
 	}
 
 }

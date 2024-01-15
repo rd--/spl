@@ -69,7 +69,7 @@ CylindricalCoordinate : [Object] { | rho phi z |
 
 }
 
-+@CartesianCoordinate {
++CartesianCoordinate {
 
 	asCylindricalCoordinate { :self |
 		let x = self.x;

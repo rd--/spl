@@ -1,3 +1,5 @@
+{- Requires: CartesianCoordinate -}
+
 Matrix33 : [Object] { | elements |
 
 	= { :self :aMatrix |
@@ -9,7 +11,7 @@ Matrix33 : [Object] { | elements |
 	applyTo { :self :vector |
 		let [a, b, c, d, e, f, g, h, i] = self.elements;
 		let [x, y, z] = vector.asArray;
-		Vector3(
+		CartesianCoordinate(
 			(a * x) + (b * y) + (c * z),
 			(d * x) + (e * y) + (f * z),
 			(g * x) + (h * y) + (i * z)

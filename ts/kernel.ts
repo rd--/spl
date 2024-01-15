@@ -248,7 +248,11 @@ export function parsePackageRequires(text: string): string[] {
 export function evaluatePackage(pkg: Package): unknown {
 	// console.debug(`evaluatePackage: ${pkg.name}, ${pkg.url}, ${pkg.preCompiled}`);
 	if(pkg.preCompiled) {
-		return eval(pkg.text);
+		try {
+			return eval(pkg.text);
+		} catch (err) {
+			console.error('Error loading package', pkg, err);
+		}
 	} else {
 		return evaluate.evaluateFor(pkg.name, pkg.text);
 	}

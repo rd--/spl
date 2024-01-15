@@ -22,15 +22,16 @@
 	'Angle'
 	'CartesianCoordinate'
 	'Length'
-	'Matrix22'
-	'Matrix33'
 	'PolarCoordinate'
-	'Projection3'
 	'RectangularCoordinate'
+	'Matrix22' {- RectangularCoordinate -}
+	'Matrix33' {- CartesianCoordinate -}
+	'Projection3' {- Matrix33 -}
 	'Rectangle'  {- RectangularCoordinate -}
-	'Vector' {- RectangularCoordinate, CartesianCoordinate -}
+	'FourVector' {- RectangularCoordinate CartesianCoordinate -}
 	'CylindricalCoordinate' {- Requires: CartesianCoordinate -}
 	'SphericalCoordinate' {- Requires: CartesianCoordinate -}
+	'Point' {- RectangularCoordinate, CartesianCoordinate -}
 
 	{- Graphics -}
 	'Colour'

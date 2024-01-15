@@ -1,4 +1,4 @@
-@RectangularCoordinate {
+RectangularCoordinate : [Object] { | x y |
 
 	= { :self :anObject |
 		self.compareBy(anObject, =)
@@ -37,20 +37,20 @@
 	}
 
 	abs { :self |
-		self.species.value(self.x.abs, self.y.abs)
+		RectangularCoordinate(self.x.abs, self.y.abs)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
-		aBlock(self.species.value(aNumber, aNumber), self)
+		aBlock(RectangularCoordinate(aNumber, aNumber), self)
 	}
 
 	applyUnaryOperator { :self :aBlock:/1 |
-		self.species.value(self.x.aBlock, self.y.aBlock)
+		RectangularCoordinate(self.x.aBlock, self.y.aBlock)
 	}
 
 	applyBinaryOperator { :self :anObject :aBlock:/2 |
 		anObject.isRectangularCoordinate.if {
-			self.species.value(aBlock(self.x, anObject.x), aBlock(self.y, anObject.y))
+			RectangularCoordinate(aBlock(self.x, anObject.x), aBlock(self.y, anObject.y))
 		} {
 			anObject.adaptToRectangularCoordinateAndApply(self, aBlock:/2)
 		}
@@ -77,7 +77,7 @@
 			1 -> { self.x },
 			2 -> { self.y }
 		]) {
-			self.error('@RectangularCoordinate>>at: index out of range')
+			self.error('RectangularCoordinate>>at: index out of range')
 		}
 	}
 
@@ -86,7 +86,7 @@
 			1 -> { self.x := value },
 			2 -> { self.y := value }
 		]) {
-			self.error('@RectangularCoordinate>>atPut: index out of range')
+			self.error('RectangularCoordinate>>atPut: index out of range')
 		}
 	}
 
@@ -135,7 +135,12 @@
 	}
 
 	negate { :self |
-		self.applyUnaryOperator(negate:/1)
+		self.x := self.x.negated;
+		self.y := self.x.negated
+	}
+
+	negated { :self |
+		self.applyUnaryOperator(negated:/1)
 	}
 
 	norm { :self |
@@ -161,8 +166,7 @@
 
 	storeString { :self |
 		[
-			self.species.methodName,
-			'(',
+			'RectangularCoordinate(',
 				self.x.storeString,
 				', ',
 				self.y.storeString,
@@ -178,7 +182,7 @@
 	}
 
 	swapped { :self |
-		self.species.value(self.y, self.x)
+		RectangularCoordinate(self.y, self.x)
 	}
 
 	theta { :self |
@@ -191,10 +195,39 @@
 
 }
 
-+@Object {
++@Number {
 
-	isRectangularCoordinate { :self |
-		false
+	adaptToRectangularCoordinateAndApply { :self :aRectangularCoordinate :aBlock:/2 |
+		aBlock(aRectangularCoordinate, RectangularCoordinate(self, self))
+	}
+
+	RectangularCoordinate { :x :y |
+		newRectangularCoordinate().initializeSlots(x, y)
+	}
+
+}
+
++Array {
+
+	asRectangularCoordinate { :self |
+		let [x, y] = self;
+		RectangularCoordinate(x, y)
+	}
+
+}
+
++Record {
+
+	asRectangularCoordinate { :self |
+		RectangularCoordinate(self::x, self::y)
+	}
+
+}
+
++TwoTuple {
+
+	asRectangularCoordinate { :self |
+		RectangularCoordinate(self.first, self.second)
 	}
 
 }

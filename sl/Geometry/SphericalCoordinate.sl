@@ -106,7 +106,7 @@ SphericalCoordinate : [Object, SphericalCoordinate] { | r theta phi |
 
 }
 
-+@CartesianCoordinate {
++CartesianCoordinate {
 
 	asSphericalCoordinate { :self |
 		let x = self.x;

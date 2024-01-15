@@ -1,3 +1,5 @@
+{- Requires: Matrix33 -}
+
 Projection3 : [Object] { | alpha beta x y z |
 
 	applyTo { :self :vector |

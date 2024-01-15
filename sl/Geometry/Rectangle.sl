@@ -209,7 +209,7 @@ Rectangle : [Object] { | origin corner |
 
 }
 
-+@RectangularCoordinate {
++RectangularCoordinate {
 
 	corner { :self :aPoint |
 		self.rectangleOriginCorner(aPoint)
