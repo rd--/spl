@@ -474,62 +474,37 @@ export function addMethodFor(
 	if (!methodExists(method.information.name)) {
 		// console.debug(`addMethodFor: new method name`);
 		system.methodDictionary.set(method.information.name, new Map());
-		if (slOptions.simpleArityModel) {
-			const prefixedName = '_' + method.information.name;
-			let globalFunction = globalThis[prefixedName];
-			if (globalFunction === undefined) {
-				globalFunction = globalThis[prefixedName] = function (
-					...argumentsArray: unknown[]
-				) {
-					// console.debug(`dispatchByArity: ${method.qualifiedName()}, ${JSON.stringify(argumentsArray)}`);
-					return dispatchByArity(
-						method.information.name,
-						argumentsArray.length,
-						arityTable,
-						argumentsArray,
-					);
-				};
-				Object.defineProperty(globalFunction, 'name', {
-					value: method.information.name,
-				});
-				Object.defineProperty(globalFunction, 'hasRestParameters', {
-					value: true,
-				});
-			}
-		}
 	}
 	const arityTable = system.methodDictionary.get(method.information.name)!;
 	if (!arityTable.has(method.information.arity)) {
 		// console.debug(`addMethodFor: new method arity`);
 		arityTable.set(method.information.arity, new Map());
-		if (!slOptions.simpleArityModel) {
-			const prefixedNameWithArity =
-				`_${method.information.name}_${method.information.arity}`;
-			// console.debug(`addMethodFor: generate global: ${prefixedNameWithArity}`);
-			let globalFunctionWithArity = globalThis[prefixedNameWithArity];
-			if (globalFunctionWithArity === undefined) {
-				const typeTable = arityTable.get(method.information.arity)!;
-				globalFunctionWithArity = globalThis[prefixedNameWithArity] = function (
-					...argumentsArray: unknown[]
-				) {
-					// console.debug(`dispatchByType: ${method.qualifiedName()}, ${JSON.stringify(argumentsArray)}`);
-					return dispatchByType(
-						method.information.name,
-						method.information.arity,
-						typeTable,
-						argumentsArray,
-					);
-				};
-				Object.defineProperty(globalFunctionWithArity, 'name', {
-					value: method.qualifiedName(),
-				});
-				Object.defineProperty(globalFunctionWithArity, 'length', {
-					value: method.information.arity,
-				}); // c.f. makeCheckedAritySpecificFunction
-				Object.defineProperty(globalFunctionWithArity, 'parameterNames', {
-					value: method.information.parameterNames,
-				});
-			}
+		const prefixedNameWithArity =
+			`_${method.information.name}_${method.information.arity}`;
+		// console.debug(`addMethodFor: generate global: ${prefixedNameWithArity}`);
+		let globalFunctionWithArity = globalThis[prefixedNameWithArity];
+		if (globalFunctionWithArity === undefined) {
+			const typeTable = arityTable.get(method.information.arity)!;
+			globalFunctionWithArity = globalThis[prefixedNameWithArity] = function (
+				...argumentsArray: unknown[]
+			) {
+				// console.debug(`dispatchByType: ${method.qualifiedName()}, ${JSON.stringify(argumentsArray)}`);
+				return dispatchByType(
+					method.information.name,
+					method.information.arity,
+					typeTable,
+					argumentsArray,
+				);
+			};
+			Object.defineProperty(globalFunctionWithArity, 'name', {
+				value: method.qualifiedName(),
+			});
+			Object.defineProperty(globalFunctionWithArity, 'length', {
+				value: method.information.arity,
+			}); // c.f. makeCheckedAritySpecificFunction
+			Object.defineProperty(globalFunctionWithArity, 'parameterNames', {
+				value: method.information.parameterNames,
+			});
 		}
 	}
 	const existingEntry = arityTable.get(method.information.arity)!.get(typeName);

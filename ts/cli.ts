@@ -309,11 +309,9 @@ async function cli(): Promise<void> {
 	} else {
 		if (args.strict) {
 			options.slOptions.insertArityCheck = true;
-			options.slOptions.uncheckedIndexing = false;
 		}
 		if (args.unsafe) {
 			options.slOptions.insertArityCheck = false;
-			options.slOptions.uncheckedIndexing = true;
 		}
 		// console.debug('slOptions: ', options.slOptions);
 		switch (args._[0]) {

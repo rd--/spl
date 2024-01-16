@@ -9,7 +9,7 @@ import { slOptions } from './options.ts';
 export const context = { packageName: 'UnknownPackage' };
 
 function genName(name: string, arity: number): string {
-	return slOptions.simpleArityModel ? name : `${name}_${arity}`;
+	return `${name}_${arity}`;
 }
 
 function quoteNewLines(input: string): string {
@@ -208,7 +208,7 @@ const asJs: ohm.ActionDict<string> = {
 		}`; // blk.arityOf
 		const binding = `${qualifiedName} = ${blk.asJs}`;
 		const reBinding =
-			(!slOptions.simpleArityModel && slOptions.multipleNamesForLocalBlocks)
+			slOptions.multipleNamesForLocalBlocks
 				? `, ${unqualifiedName} = ${qualifiedName}`
 				: '';
 		// console.debug(`TemporaryWithBlockLiteralInitializer: ${reBinding}`);
@@ -588,7 +588,7 @@ const asJs: ohm.ActionDict<string> = {
 		return identifier;
 	},
 	arityQualifiedIdentifier(c1, cN, _aritySeparator, a) {
-		const arityPart = slOptions.simpleArityModel ? '' : `_${a.sourceString}`;
+		const arityPart = `_${a.sourceString}`;
 		const identifier = `_${c1.sourceString}${cN.sourceString}${arityPart}`;
 		// console.debug('arityQualifiedIdentifier', identifier);
 		return identifier;

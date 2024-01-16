@@ -9,8 +9,8 @@ so that _x.truncated + x.fractionPart = x_.
 	-1.6.fractionPart + -1.6.truncated = -1.6
 	1.fractionPart = 0
 	0.5.fractionPart = 0.5
-	pi.fractionPart + pi.truncated = pi
-	let x = pi.negated;  x.fractionPart + x.truncated = x
+	1.pi.fractionPart + 1.pi.truncated = 1.pi
+	let x = 1.pi.negated;  x.fractionPart + x.truncated = x
 
 * * *
 
