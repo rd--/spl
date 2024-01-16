@@ -154,37 +154,23 @@
 
 +Array {
 
-	Mix { :self :name |
-		self.mixByDerivedNamedRule(name)
-	}
-
 	Mix { :self |
-		let mixerRules = system.preference('ScSynth/Outputs/Mixer/Rules/Labels', ['1×2']);
-		{- ['Mix', mixerRules].postLine; -}
-		self.mixByDerivedNamedRule(mixerRules)
-	}
-
-	mixByDerivedNamedRule { :self :names |
+		let ruleTable = system.preference('ScSynth/Outputs/Mixer/RuleTable', ['1×2', [1, 2]]);
 		let runArray = self.collect(size:/1).asRunArray;
 		let derivedPrefix = runArray.runsAndValuesCollect { :run :value |
 			[run.asString, '×', value.asString].join
 		}.joinSeparatedBy('+') ++ '→';
-		{- ['mixByDerivedNamedRule', names, derivedPrefix].postLine; -}
-		self.mixByAvailableNamedRule(derivedPrefix, names)
+		{- ['Mix', ruleTable, derivedPrefix].postLine; -}
+		self.mixByAvailableNamedRule(derivedPrefix, ruleTable)
 	}
 
-	mixByAvailableNamedRule { :self :prefix :names |
-		let ruleTable = system.mixRuleSparseMatrixTable;
-		let busTable = system.preference(
-			'ScSynth/Outputs/Mixer/Rules/Buses',
-			('1×2': [1, 2])
-		);
-		{- ['mixByAvailableNamedRule', ruleTable, busTable].postLine; -}
+	mixByAvailableNamedRule { :self :prefix :ruleTable |
+		let sparseMatrixTable = system.mixRuleSparseMatrixTable;
 		valueWithReturn { :return:/1 |
-			names.do { :each |
-				{- ['mixByAvailableNamedRule', each, prefix ++ each].postLine; -}
-				ruleTable.atIfPresent(prefix ++ each) { :entries |
-					let busesByIndex = busTable[each];
+			ruleTable.do { :each |
+				let [name, busesByIndex] = each;
+				{- ['mixByAvailableNamedRule', each, prefix].postLine; -}
+				sparseMatrixTable.atIfPresent(prefix ++ name) { :entries |
 					let inputs = self.concatenation;
 					let reindexedEntries = entries.collect { :entry |
 						[
