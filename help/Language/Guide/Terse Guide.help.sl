@@ -332,7 +332,6 @@ let i = (1 .. 3); i[2] = i.at(2) {- [At Syntax] -}
 (1 .. 5).atIfPresent(3) { :x | x * x } = 9 {- clause if index is valid -}
 (1 .. 5).atIfPresent(9) { :x | false } = nil {- ifAbsent clause answers nil -}
 (1 .. 5).atIfAbsent(9) { true } {- exception clause if index is invalid -}
-let i = (1 .. 5); i[9] :? { true } {- [AtIfAbsent Syntax] -}
 (1 .. 5).atIfPresentIfAbsent(9) { :x | false } { true } {- ifPresent and ifAbsent clauses -}
 (1 .. 5).atIfPresentIfAbsent(3) { :x | x * x } { false } = 9 {- ifPresent and ifAbsent clauses -}
 let a = [1, 2, 3]; a.atPut(2, 'two') = 'two' & { a = [1, 'two', 3] } {- atPut answers value put -}
@@ -1003,18 +1002,15 @@ let n = 0; (3 .. 7).collectThenDo(squared:/1) { :each | n := n + each } = [9, 16
 (x: (y: 1)).atPath(['x', 'y']) = 1 {- atPath of dictionary, depth = 2 -}
 (x: (y: (z: 1))).atPath(['x', 'y', 'z']) = 1 {- atPath of dictionary, depth = 3 -}
 (w: (x: (y: (z: 1)))).atPath(['w', 'x', 'y', 'z']) = 1 {- atPath of dictionary, depth = 4 -}
-(p: (q: (r: 1))) @> ['p' 'q' 'r'] = 1 {- @> = atPath -}
+(p: (q: (r: 1))) @> ['p' 'q' 'r'] = 1 {- @> = atPath operator -}
 (p: (q: (r: (s: 1)))) @> ['p' 'q' 'r' 's'] = 1
 (p: (q: (r: 1))) @/ 'p/q/r' = 1 {- @/ = atPath of splitBy('/') -}
 (p: (q: (r: (s: 1)))) @/ 'p/q/r/s' = 1
 let d = (w: (x: (y: (z: 1)))); d.atPathPut(['w', 'x', 'y', 'z'], -1); d::w::x::y::z = -1 {- atPathPut of dictionary, depth = 4 -}
 (x: (y: 1))::x::y = 1 {- index sequence -}
-(x: (y: 1))['x'; 'y'] = 1 {- atPath (matrix) syntax of dictionaries -}
-(x: (y: (z: 1)))['x'; 'y'; 'z'] = 1 {- atPath (volume) syntax of dictionaries -}
-(w: (x: (y: (z: 1))))['w'; 'x'; 'y'; 'z'] = 1 {- atPath syntax of dictionaries -}
 [['w', 'x'], ['y', 'z']].atPath([1, 2]) = 'x' {- atPath of arrays -}
 [['w', 'x'], ['y', 'z']][1][2] = 'x' {- index sequence -}
-[['w', 'x'], ['y', 'z']][1; 2] = 'x' {- atPath syntax of arrays -}
+[['w', 'x'], ['y', 'z']] @> [1 2] = 'x' {- atPath operator on array or arrays -}
 (1, 3 .. 21).includes(9) {- does interval include value -}
 (1, 3 .. 21).doesNotInclude(6) {- does interval include value -}
 (x: 1, y: 1, z: 1).allEqualBy { :p :q | p.value = q.value } {- are all items equal by comparator -}
@@ -2319,8 +2315,8 @@ let z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 }, { 'c' } -> { 3 + 3 } ]; 'b'
 3.perform('plus', 4) = 7 {- perform named binary method, name is not qualified -}
 4:3.slotNameArray = ['numerator', 'denominator']
 4:3.slotArray = ['numerator' -> 4, 'denominator' -> 3]
-4:3.numerator = 4:3:@numerator {- slot access syntax -}
-let n = 4:3; n:@denominator := 5; n = 4:5 {- slot access syntax -}
+4:3.numerator = 4:3.slotRead('numerator') {- slot read -}
+let n = 4:3; n.slotWrite('denominator', 5); n = 4:5 {- slot write -}
 1.pi.in { :x | x.rounded + 20 } = 23 {- evaluate block with object -}
 1.pi.notify('pi') = 1.pi {- user notification -}
 1.pi.warning('pi') = 1.pi {- user warning -}
@@ -2901,8 +2897,8 @@ let n = 0; let a = [1 .. 4]; a.permutationsDo { :each | n := n + 1 }; n = 24 & {
 let a = [1 .. 3].permutations; a = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]] {- permutations -}
 let i = (4, 7 .. 13); let p = i.permutations; p.size = i.size.factorial & { p.asSet.size = p.size }
 let i = (4, 7 .. 13); i.permutations.allSatisfy { :e | e.sorted.hasEqualElements(i) }
-let x = [1, 1, 3, 4]; x[2, 4, 3, 1] = [1, 4, 3, 1] {- permute using atAll (array) indexing -}
-let x = [1 1 3 4]; x[2 4 3 1] = [1 4 3 1] {- permute using atAll (vector) indexing -}
+let a = [1, 1, 3, 4]; a @* [2, 4, 3, 1] = [1, 4, 3, 1] {- atAll as permutation -}
+let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] {- atAll as permutation -}
 [1, 9, 2, 8, 3, 7, 4, 6].pairsCollect { :i :j | i + j } = [10, 10, 10, 10]
 let s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printString }; s = '10101010'
 let s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291' {- do from end -}
@@ -2940,11 +2936,8 @@ let d = []; (3 .. 1).withIndexDo { :each :index | d.add(each -> index) }; d = [3
 [1, 3, 5, 7, 11, 15, 23].findBinaryIfNone { :arg | 25 - arg } { :a :b | [a, b] } = [23, nil]
 let a = []; (0 .. 1).asDigitsToPowerDo(2) { :each | a.add(each.copy) }; a = [[0, 0], [0, 1], [1, 0], [1, 1]]
 ['one', 'two', 'three', 'four'].atAll([3, 2, 4]) = ['three', 'two', 'four'] {- at each index -}
-(1 .. 9).atAll((3 .. 5)) = [3 .. 5] {- at each index -}
-(1 .. 9) @* (3 .. 5) = [3 .. 5] {- @* = atEach -}
-let a = ['1', '2', '3', '4']; a[3, 2, 4] = ['3', '2', '4'] {- at each index syntax -}
-let a = [5 4 3 2 1]; a[1 5 3] = [5 1 3] {- AtAllVectorSyntax -}
-let a = [5 4 3 2 1]; a[2 .. 4] = [4 3 2] {- AtAllIntervalSyntax -}
+(1 .. 9).atAll((3 .. 5)) = [3 .. 5] {- at all indices -}
+(1 .. 9) @* (3 .. 5) = [3 .. 5] {- @* atAll operator -}
 let a = Array(9); a.atAllPut(0); a = [0, 0, 0, 0, 0, 0, 0, 0, 0] {- set all elements to a single value -}
 let a = [1 .. 9]; a.atAllPut([3 .. 7], 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] {- set all selected indices to a value -}
 let a = [1 .. 9]; a.atAllPut((3 .. 7), 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] {- set all selected indices to a value -}
@@ -3570,32 +3563,20 @@ let a = 1; let b = 3; let c = 5; [a b c; c b a] = [[1, 3, 5], [5, 3, 1]] {- matr
 let a = 1; let b = 3; [[a b; b a] [b a; a b]] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] {- volume syntax, identifier items -}
 [[1 0 0; 0 1 0; 0 0 1] [0 1 0; 1 0 1; 0 1 0] [1 0 1; 0 1 0; 1 0 1]].collect(sum:/1) = [1 1 1; 1 2 1; 2 1 2] {- volume to matrix -}
 [[1 0 0; 0 1 0; 0 0 1] [0 1 0; 1 0 1; 0 1 0]].transposed = [[1 0 0; 0 1 0] [0 1 0; 1 0 1] [0 0 1; 0 1 0]] {- transposedd -}
-[1 2; 3 4;; 5 6; 7 8] = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]] {- volume syntax, literal items -}
-let a = 1; let b = 3; [a b; b a;; b a; a b] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] {- volume syntax, identifier items -}
-[1 0 0; 0 1 0; 0 0 1;; 0 1 0; 1 0 1; 0 1 0;; 1 0 1; 0 1 0; 1 0 1].collect(sum:/1) = [1 1 1; 1 2 1; 2 1 2] {- volume to matrix -}
-[1 0 0; 0 1 0; 0 0 1;; 0 1 0; 1 0 1; 0 1 0].transposed = [1 0 0; 0 1 0;; 0 1 0; 1 0 1;; 0 0 1; 0 1 0] {- transposed -}
-[1 2; 3 4;; 5 6; 7 8] = [[1 2; 3 4] [5 6; 7 8]]
 [1 2 3; 4 5 6][2][3] = 6 {- matrix indexing -}
 [1 2 3; 4 5 6].atPath([2]) = [4 5 6] {- matrix indexing; atPath, single index -}
 [1 2 3; 4 5 6].atPath([2, 3]) = 6 {- matrix indexing; atPath, two indices -}
 { [1 2 3; 4 5 6].atPath([]) }.ifError { true } {- matrix indexing; atPath, empty indices is an error -}
-[1 2 3; 4 5 6][2; 3] = 6 {- matrix indexing; atPath syntax -}
-let m = [1 2 3; 4 5 6; 7 8 9]; m[2; 3] = 6 & { m[3; 2] = 8 } {- matrix syntax, atPath syntax -}
+[1 2 3; 4 5 6] @> [2 3] = 6 {- matrix indexing; atPath operator -}
+let m = [1 2 3; 4 5 6; 7 8 9]; m @> [2 3] = 6 & { m @> [3 2] = 8 } {- matrix syntax and atPath operator -}
 ```
 
 ## Syntax -- collection access and mutation
 ```
 'text'[3] = 'x'.asCharacter {- [At Syntax] -}
 let x = [1 .. 5]; x[3] := '3'; x[3] = '3' {- [AtPut Syntax] -}
-let i = (9 .. 1); i[5, 3, 7] = [5, 7, 3] {- [AtAll Syntax] -}
-let m = [1 2 3; 4 5 6; 7 8 9]; m[2; 3] = 6 & { m[3; 2] = 8 } {- [AtPath Syntax] -}
-let d = (w: (x: (y: (z: 1)))); d['w'; 'x'; 'y'; 'z'] = 1 {- [AtPath Syntax] -}
-let m = [1 2 3; 4 5 6]; m[1; 2] := -2; m[2; 3] := -6; m = [1 -2 3; 4 5 -6] {- [AtPathPut Syntax] -}
-let d = (w: (x: (y: (z: 1)))); d['w'; 'x'; 'y'; 'z'] := -1; d = (w: (x: (y: (z: -1)))) {- [AtPathPut Syntax] -}
 let d = (x: 1); d::x = 1 {- [Quoted At Syntax] -}
 let d = (x: 1, y: 2); d::x < d::y {- [Quoted At Syntax] -}
-let d = (); d::x :? { 1 } = 1 {- [Quoted AtIfAbsent Syntax] -}
-let d = (); d::x :?= { 1 } = 1 & { d::x = 1 } {- [Quoted AtIfAbsentPut Syntax] -}
 let d = (w: (x: (y: (z: 1)))); d::w::x::y::z = 1 {- [Quoted At Syntax] -}
 let d = (w: (x: (y: (z: 1)))); d::w::x::y::z := -1; d = (w: (x: (y: (z: -1)))){- [Quoted AtPut Syntax] -}
 ```
@@ -3995,12 +3976,10 @@ system.typeLookup('Colour').traitNameArray = ['Object'] {- traits (named) implem
 ## Type -- slot access
 ```
 ('x' -> 1).slotNameArray = ['key', 'value'] {- slot names -}
-('x' -> 1):@key = 'x' {- read slot -}
-('x' -> 1):@answer = nil {- unknown slot names answer nil -}
-let a = ('x' -> 1); a:@key := 'y'; a = ('y' -> 1) {- write slot -}
-let a = ('x' -> 1); a:@hidden := 1.pi; a = ('x' -> 1) & { a:@hidden = 1.pi } {- writes to unknown slot add a slot -}
-let a = 'x' -> 1; a:@key = 'x' & { a:@value = 1 } {- read slots -}
-let a = 'x' -> 1; a:@key := 'y'; a:@value := 2; a = ('y' -> 2) {- write slots -}
+('x' -> 1).slotRead('key') = 'x' {- read slot -}
+('x' -> 1).slotRead('answer') = nil {- unknown slot names answer nil -}
+let a = ('x' -> 1); a.slotWrite('key', 'y'); a = ('y' -> 1) {- write slot -}
+let a = ('x' -> 1); a.slotWrite('hidden', 1.pi); a = ('x' -> 1) & { a.slotRead('hidden') = 1.pi } {- writes to unknown slot add a slot -}
 ```
 
 ## Syntax -- unary messages
@@ -4008,7 +3987,7 @@ let a = 'x' -> 1; a:@key := 'y'; a:@value := 2; a = ('y' -> 2) {- write slots -}
 89.sin = 0.8600694058124533
 3.sqrt = 1.7320508075688772
 1.pi.printString = '3.141592653589793'
-'blop'.size = 4
+'text'.size = 4
 true.not = false
 ```
 

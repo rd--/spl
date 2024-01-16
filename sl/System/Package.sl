@@ -89,10 +89,16 @@ Package! : [Object] {
 
 	Package { :self |
 		Package(
-			self::Category :?= { system.categoryDictionary.categoryOf('type', self::Name) },
+			self.atIfAbsentPut('Category') {
+				system.categoryDictionary.categoryOf('type', self::Name)
+			},
 			self::Name,
-			self::Requires :? { [] },
-			self::Url :? { self.derivePackageUrl },
+			self.atIfAbsent('Requires') {
+				[]
+			},
+			self.atIfAbsentPut('Url') {
+				self.derivePackageUrl
+			},
 			''
 		)
 	}

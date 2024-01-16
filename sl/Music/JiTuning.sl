@@ -23,7 +23,9 @@
 			self::name,
 			self::description,
 			self::tuning,
-			self::octave :? { 2:1 },
+			self.atIfAbsent('octave') {
+				2:1
+			},
 			self::limit
 		)
 	}

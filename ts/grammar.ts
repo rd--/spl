@@ -43,21 +43,21 @@ Sl {
 	Primary
 		= AtPutSyntax
 		| QuotedAtPutSyntax
-		| AtPutDelegateSyntax
-		| WriteSlotSyntax
-		| AtIfAbsentSyntax
+		// | AtPutDelegateSyntax
+		// | WriteSlotSyntax
+		// | AtIfAbsentSyntax
 		| AtSyntax
-		| AtAllIntervalSyntax
-		| AtAllVectorSyntax
-		| AtAllArraySyntax
-		| AtPathPutSyntax
-		| AtMatrixSyntax
-		| AtVolumeSyntax
-		| AtPathSyntax
-		| QuotedAtIfAbsentSyntax
-		| QuotedAtIfAbsentPutSyntax
+		// | AtAllIntervalSyntax
+		// | AtAllVectorSyntax
+		// | AtAllArraySyntax
+		// | AtPathPutSyntax
+		// | AtMatrixSyntax
+		// | AtVolumeSyntax
+		// | AtPathSyntax
+		// | QuotedAtIfAbsentSyntax
+		// | QuotedAtIfAbsentPutSyntax
 		| QuotedAtSyntax
-		| ReadSlotSyntax
+		// | ReadSlotSyntax
 		| ValueApply
 		| DotExpressionWithTrailingClosuresSyntax
 		| DotExpressionWithTrailingDictionariesSyntax
@@ -82,7 +82,7 @@ Sl {
 		| IntervalThenSyntax
 		| VectorSyntax
 		| MatrixSyntax
-		| VolumeSyntax
+		// | VolumeSyntax
 
 	AtPutSyntax = Primary "[" Expression "]" ":=" Expression
 	QuotedAtPutSyntax = Primary "::" identifier ":=" Expression

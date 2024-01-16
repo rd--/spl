@@ -3,7 +3,7 @@
 Rectangle : [Object] { | origin corner |
 
 	= { :self :anObject |
-		aRectangle.anObject & {
+		anObject.isRectangle & {
 			self.origin = anObject.origin & {
 				self.corner = anObject.corner
 			}

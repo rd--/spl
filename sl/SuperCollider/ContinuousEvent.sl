@@ -59,14 +59,14 @@ ContinuousEvent : [Object] { | contents |
 
 	asContinuousEvent { :self |
 		[
-			self::w :? { 0 },
-			self::x :? { 0 },
-			self::y :? { 0 },
-			self::z :? { 0 },
-			self::i :? { 0 },
-			self::j :? { 0 },
-			self::k :? { 0 },
-			self::p :? { 0 }
+			self.atIfAbsent('w') { 0 },
+			self.atIfAbsent('x') { 0 },
+			self.atIfAbsent('y') { 0 },
+			self.atIfAbsent('z') { 0 },
+			self.atIfAbsent('i') { 0 },
+			self.atIfAbsent('j') { 0 },
+			self.atIfAbsent('k') { 0 },
+			self.atIfAbsent('p') { 0 }
 		].asContinuousEvent
 	}
 

@@ -78,7 +78,7 @@ ScProgramIndex : [Object] { | contents |
 						index.names(path[1], path[2])
 					},
 					3 -> {
-						let [category, author, name] = path[1, 2, 3];
+						let [category, author, name] = path @* [1, 2, 3];
 						let url = [
 							'./lib/spl/help/SuperCollider/',
 							category,

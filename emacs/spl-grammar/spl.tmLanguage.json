@@ -1,0 +1,59 @@
+{
+	"fileTypes": [
+		"sl"
+	],
+	"foldingStartMarker": "\\{|\\[|^\\(",
+	"foldingStopMarker": "\\}|\\]|^\\)",
+	"name": "Spl",
+	"patterns": [
+		{
+			"name": "constant.numeric.spl",
+			"match": "\\b(\\d(?>_?\\d)*(\\.(?![^[:space:][:digit:]])(?>_?\\d)*)?(e[-+]?\\d(?>_?\\d)*)?)\\b"
+		},
+		{
+			"name": "variable.spl",
+			"match": "([a-z][a-zA-Z0-9]*)\\b"
+		},
+		{
+			"name": "entity.name.class.spl",
+			"match": "([A-Z][a-zA-Z0-9]*)\\b"
+		},
+		{
+			"name": "variable.language.spl",
+			"match": "\\b(true|false|nil|inf)\\b"
+		},
+		{
+			"name": "storage.type.spl",
+			"match": "\\b(let)\\b"
+		},
+		{
+			"name": "keyword.control.spl",
+			"match": "\\b(if|ifTrue|ifFalse|whileTrue|whileFalse|do)\\b"
+		},
+		{
+			"name": "keyword.operator.spl",
+			"match": "\\b(\\*|\/|\\\\|\\+|\\-|<|>|\\||@|\\?|\\!)+\\b"
+		},
+		{
+			"match": "(\\:[a-z][A-Z0-9]*)\\b",
+			"name": "variable.parameter.function.supercollider"
+		},
+		{
+			"begin": "'",
+			"end": "'",
+			"name": "string.quoted.single.spl",
+			"patterns": [
+				{
+					"match": "\\.",
+					"name": "constant.character.escape.supercollider"
+				}
+			]
+		},
+		{
+			"begin": "\\{\\-",
+			"end": "\\-\\}",
+			"name": "comment.multiline.spl"
+		}
+	],
+	"scopeName": "source.spl"
+}

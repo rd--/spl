@@ -88,24 +88,24 @@ NBodySystem : [Object] { | bodies |
 			let iBody = self.bodies[i];
 			(i + 1).toDo(self.bodies.size) { :j |
 				let jBody = self.bodies[j];
-				let dx = iBody:@x - jBody:@x;
-				let dy = iBody:@y - jBody:@y;
-				let dz = iBody:@z - jBody:@z;
+				let dx = iBody.x - jBody.x;
+				let dy = iBody.y - jBody.y;
+				let dz = iBody.z - jBody.z;
 				let dSquared = (dx * dx) + (dy * dy) + (dz * dz);
 				let distance = dSquared.sqrt;
 				let mag = dt / (dSquared * distance);
-				iBody:@vx -:= dx * jBody:@mass * mag;
-				iBody:@vy -:= dy * jBody:@mass * mag;
-				iBody:@vz -:= dz * jBody:@mass * mag;
-				jBody:@vx +:= dx * iBody:@mass * mag;
-				jBody:@vy +:= dy * iBody:@mass * mag;
-				jBody:@vz +:= dz * iBody:@mass * mag
+				iBody.vx -:= dx * jBody.mass * mag;
+				iBody.vy -:= dy * jBody.mass * mag;
+				iBody.vz -:= dz * jBody.mass * mag;
+				jBody.vx +:= dx * iBody.mass * mag;
+				jBody.vy +:= dy * iBody.mass * mag;
+				jBody.vz +:= dz * iBody.mass * mag
 			}
 		};
 		self.bodies.do { :body |
-			body:@x +:= dt * body:@vx;
-			body:@y +:= dt * body:@vy;
-			body:@z +:= dt * body:@vz
+			body.x +:= dt * body.vx;
+			body.y +:= dt * body.vy;
+			body.z +:= dt * body.vz
 		}
 	}
 

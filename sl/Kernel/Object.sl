@@ -204,6 +204,15 @@
 		self.Type.slotNameArray
 	}
 
+	slotRead { :self :key |
+		<primitive: return _self[_key];>
+	}
+
+	slotWrite { :self :key :value |
+		<primitive: _self[_key] = _value;>
+		nil
+	}
+
 	storeString { :self |
 		self.typeOf.withIndefiniteArticle
 	}

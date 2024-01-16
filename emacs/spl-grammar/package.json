@@ -1,0 +1,35 @@
+{
+	"name": "spl-grammar",
+	"displayName": "Spl Grammar",
+	"version": "0.0.0",
+	"publisher": "rd",
+	"description": "Spl grammar file.",
+	"author": {
+		"name": "rd"
+	},
+	"categories": ["Programming Languages"],
+	"contributes": {
+		"languages": [
+			{
+				"id": "spl",
+				"extensions": [".sl"]
+			}
+		],
+		"grammars": [
+			{
+				"language": "spl",
+				"scopeName": "source.spl",
+				"path": "./spl.tmGrammar.json"
+			}
+		]
+	},
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"license": "GPL-3.0",
+	"repository": {
+		"type": "git",
+		"url": "https://gitlab.com/rd--/spl"
+	},
+	"homepage": "https://gitlab.com/rd--/spl"
+}
