@@ -393,13 +393,37 @@ System! : [Object, Cache, Indexable, Random] {
 		system.consoleNotification(aString)
 	}
 
-	preference { :self :key :defaultValue |
-		<primitive: return sl.preferencesRead(_preferences_1(_self), _key, _defaultValue);>
+	preference { :self :path :defaultValue |
+		self.preferencesReadPath(path.splitBy('/'), defaultValue)
 	}
 
 	preferences { :self |
 		self.cached('preferences') {
 			()
+		}
+	}
+
+	preferencesRead { :self :key :defaultValue |
+		<primitive: return sl.preferencesRead(_preferences_1(_self), _key, _defaultValue);>
+	}
+
+	preferencesReadPath { :self :path :defaultValue |
+		path.isEmpty.if {
+			'System>>preferencesReadPath: empty path'.error
+		} {
+			let item = self.preferencesRead(path[1], nil);
+			let index = 2;
+			{
+				item.notNil & {
+					index <= path.size
+				}
+			}.whileTrue {
+				item := item.atIfAbsent(path[index]) { nil };
+				index := index + 1
+			};
+			item ? {
+				defaultValue
+			}
 		}
 	}
 

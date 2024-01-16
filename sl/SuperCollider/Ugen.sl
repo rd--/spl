@@ -67,10 +67,10 @@ Ugen! : [Object, Number] {
 		{- ['busOffset', self.size].postLine; -}
 		self.size.caseOfOtherwise([
 			{ 2 } -> {
-				system.preference('ScSynth.Outputs.Stereo.BusOffset', 0)
+				system.preference('ScSynth/Outputs/Stereo/BusOffset', 0)
 			},
 			{ system.scSynth.mainOutputs } -> {
-				system.preference('ScSynth.Outputs.Main.BusOffset', 0)
+				system.preference('ScSynth/Outputs/Main/BusOffset', 0)
 			}
 		]) {
 			0
@@ -82,7 +82,7 @@ Ugen! : [Object, Number] {
 +Ugen {
 
 	busOffset { :self |
-		system.preference('ScSynth.Outputs.Mono.BusOffset', 0)
+		system.preference('ScSynth/Outputs/Mono/BusOffset', 0)
 	}
 
 }

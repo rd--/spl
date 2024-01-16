@@ -42,10 +42,6 @@
 		RectangularCoordinate(x, y)
 	}
 
-	asPoint { :self |
-		RectangularCoordinate(self, self)
-	}
-
 	Point { :x :y |
 		RectangularCoordinate(x, y)
 	}

@@ -1,4 +1,4 @@
-RectangularCoordinate : [Object, Magnitude] { | x y |
+RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 
 	= { :self :anObject |
 		self.equalBy(anObject, =)

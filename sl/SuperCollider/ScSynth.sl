@@ -16,11 +16,11 @@ ScSynth! : [Object] {
 	}
 
 	mainOutputs { :self |
-		system.preference('ScSynth.Outputs.Main.NumberOfChannels', 2)
+		system.preference('ScSynth/Outputs/Main/NumberOfChannels', 2)
 	}
 
 	mainOrientation { :self |
-		system.preference('ScSynth.Outputs.Main.FrontIsVertex', false).if {
+		system.preference('ScSynth/Outputs/Main/FrontIsVertex', false).if {
 			0
 		} {
 			0.5

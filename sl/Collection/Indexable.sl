@@ -2,6 +2,10 @@
 
 @Indexable {
 
+	@ { :self :index |
+		self[index]
+	}
+
 	@> { :self :path |
 		self.atPath(path)
 	}

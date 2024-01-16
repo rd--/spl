@@ -159,7 +159,7 @@
 	}
 
 	Mix { :self |
-		let mixerRules = system.preference('ScSynth.Outputs.Mixer.Rules', ['1×2']);
+		let mixerRules = system.preference('ScSynth/Outputs/Mixer/Rules/Labels', ['1×2']);
 		{- ['Mix', mixerRules].postLine; -}
 		self.mixByDerivedNamedRule(mixerRules)
 	}
@@ -176,7 +176,7 @@
 	mixByAvailableNamedRule { :self :prefix :names |
 		let ruleTable = system.mixRuleSparseMatrixTable;
 		let busTable = system.preference(
-			'ScSynth.Outputs.Mixer.Rules.Buses',
+			'ScSynth/Outputs/Mixer/Rules/Buses',
 			('1×2': [1, 2])
 		);
 		{- ['mixByAvailableNamedRule', ruleTable, busTable].postLine; -}
@@ -207,8 +207,8 @@
 	}
 
 	lowFrequencySendsSparseMatrix { :self |
-		let lowFrequencySends = system.preference('ScSynth.Outputs.Mixer.LowFrequencySends', []);
-		let lowFrequencyGain = system.preference('ScSynth.Outputs.Mixer.LowFrequencyGain', 1);
+		let lowFrequencySends = system.preference('ScSynth/Outputs/Mixer/LowFrequency/Sends', []);
+		let lowFrequencyGain = system.preference('ScSynth/Outputs/Mixer/LowFrequency/Gain', 1);
 		(1 .. self.shape.sum).collect { :input |
 			[
 				input,

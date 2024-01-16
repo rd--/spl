@@ -1,4 +1,4 @@
-CartesianCoordinate : [Object, Magnitude] { | x y z |
+CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
 
 	= { :self :anObject |
 		self.equalBy(anObject, =)
