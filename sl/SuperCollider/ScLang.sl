@@ -32,10 +32,10 @@
 
 	powersetBitwise { :self |
 		(0 .. 1.bitShift(self.size) - 1).collect { :each |
-			let i = 0;
+			let index = 0;
 			self.select { :elem |
-				i +:= 1;
-				each.bitAt(i) = 1
+				index := index + 1;
+				each.bitAt(index) = 1
 			}
 		}
 	}
@@ -418,8 +418,8 @@
 		let increment = 2 * pi / size * frequency;
 		let phase = initialPhase;
 		(1 .. size).do { :each |
-			self[each] +:= phase.sin * amplitude;
-			phase +:= increment
+			self[each] := self[each] + (phase.sin * amplitude);
+			phase := phase + increment
 		}
 	}
 
@@ -474,7 +474,7 @@
 			};
 			answer[index] := 2 * e1 - e2;
 			answer[index + 1] := e2 - e1;
-			index +:= 2
+			index := index + 2
 		};
 		answer
 	}
@@ -547,7 +547,7 @@
 		self.do { :item |
 			answer[index] := item - prev;
 			prev := item;
-			index +:= 1
+			index := index + 1
 		};
 		answer
 	}
@@ -596,7 +596,7 @@
 		let count = (self.size - other.size).abs;
 		1.toDo(size) { :index |
 			(self[index] ~= other[index]).ifTrue {
-				count +:= 1
+				count := count + 1
 			}
 		};
 		count
@@ -655,7 +655,7 @@
 		let answer = [];
 		let sum = 0;
 		self.do { :item |
-			sum +:= item;
+			sum := sum + item;
 			answer.add(sum)
 		};
 		answer
@@ -890,10 +890,12 @@
 			let next = start;
 			let size = self.size;
 			let step = (end - start) / size;
-			{ i <= size }.while {
+			{
+				i <= size
+			}.while {
 				self[index] := aBlock(next, self[index], index);
-				next +:= step;
-				index +:= 1
+				next := next + step;
+				index := index + 1
 			}
 		}
 	}

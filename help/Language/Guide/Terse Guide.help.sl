@@ -1766,8 +1766,8 @@ let a = []; 3.tuplesIndicesDo(2) { :each | a.add(each.copy) }; a = [1 1; 1 2; 1 
 let a = []; 3.tuplesIndicesDo(2) { :each | a.add(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
 let a = []; 2.tuplesIndicesDo(3) { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5 6]
 let a = []; 2.tuplesIndicesDo(4) { :each | a.add(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
-let c = 0; let k = 3; let n = 4; k.tuplesIndicesDo(n) { :each | c +:= 1 }; c = (k ^ n)
-let c = 0; 4.tuplesIndicesDo(7) { :each | c +:= 1 }; c = 16384
+let c = 0; let k = 3; let n = 4; k.tuplesIndicesDo(n) { :each | c := c + 1 }; c = (k ^ n)
+let c = 0; 4.tuplesIndicesDo(7) { :each | c := c + 1 }; c = 16384
 ```
 
 ## Integer -- prime numbers
@@ -3530,20 +3530,6 @@ let x = 1; let y = 2; let xTmp = nil; xTmp := y + 1; y := x * 2; x := xTmp; [x, 
 let [x, y, z] = [1, 2, 3]; [x, y, z] := [x * y + z, x + y * z, x + y + z]; [x, y, z] = [5, 9, 6]
 let x = 1; let y = 2; let z = 3; let x1 = nil; let y1 = nil; let z1 = nil; x1 := x * y + z; y1 := x + y * z; z1 := x + y + z; x := x1; y := y1; z := z1; [x, y, z] = [5, 9, 6]
 let x = 1; let y = 2; let z = 3; x := x * y + z; y := x + y * z; z := x + y + z; [x, y, z] = [5, 21, 29]
-```
-
-## Syntax -- assignment operator syntax
-```
-let x = 3; x +:= 4; x = 7 {- plus assignment (increment) -}
-let x = 3; x -:= 4; x = -1 {- minus assignment (decrement) -}
-let x = 3; x *:= 4; x = 12 {- times assignment -}
-let x = 3; x /:= 4; x = 0.75 {- dividedBy assignment -}
-let x = 3; x ^:= 4; x = 81 {- raisedTo assignment -}
-let x = nil; x ?:= { 4 }; x = 4 {- query assignment -}
-let x = 3; x ?:= { 4 }; x = 3 {- query assignment -}
-let x = [3]; x[1] +:= 4; x[1] = 7 {- at syntax assignment -}
-let x = (y: 3); x::y +:= 4; x::y = 7 {- quoted at syntax assignment -}
-let p = 3@3; p.x +:= 4; p.x = 7 {- dot expression syntax assignment -}
 ```
 
 ## Syntax -- array and interval syntax

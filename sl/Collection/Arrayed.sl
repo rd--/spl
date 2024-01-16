@@ -77,7 +77,7 @@
 		let index = 1;
 		aCollection.do { :each |
 			self[index] := aBlock(each);
-			index +:= 1
+			index := index + 1
 		};
 		self
 	}
@@ -137,7 +137,7 @@
 		let tally = 0;
 		self.indicesDo { :index |
 			(self[index] = anObject).ifTrue {
-				tally +:= 1
+				tally := tally + 1
 			}
 		};
 		tally

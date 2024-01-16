@@ -10,7 +10,7 @@
 		self.do { :leftItem |
 			aSequence.do { :rightItem |
 				answer[nextIndex] := aBlock(leftItem, rightItem);
-				nextIndex +:= 1
+				nextIndex := nextIndex + 1
 			}
 		};
 		answer

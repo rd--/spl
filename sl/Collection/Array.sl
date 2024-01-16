@@ -143,12 +143,13 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 	}
 
 	geometricSeries { :self :start :grow |
-		let accum = start;
-		1.upTo(self).collect { :unusedItem |
-			let entry = accum;
-			accum *:= grow;
-			entry
-		}
+		let answer = [];
+		let next = start;
+		self.timesRepeat {
+			answer.add(next);
+			next := next * grow
+		};
+		answer
 	}
 
 	toAsCollect { :self :stop :species :aBlock:/1 |
@@ -176,7 +177,7 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 		let answer = Array(self.size);
 		let index = 0;
 		self.do { :each |
-			index +:= 1;
+			index := index + 1;
 			answer[index] := each
 		};
 		answer

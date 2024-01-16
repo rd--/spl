@@ -57,7 +57,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 		let index = 1;
 		self.do { :nextValue |
 			result[index] := aBlock(nextValue);
-			index +:= 1
+			index := index + 1
 		};
 		result
 	}
@@ -80,12 +80,12 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 		(self.step > 0).if {
 			{ nextValue <= endValue }.whileTrue {
 				aBlock(nextValue);
-				nextValue +:= self.step
+				nextValue := nextValue + self.step
 			}
 		} {
 			{ nextValue >= endValue }.whileTrue {
 				aBlock(nextValue);
-				nextValue +:= self.step
+				nextValue := nextValue + self.step
 			}
 		};
 		self
@@ -124,7 +124,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 			self.error('removeFirst: empty interval')
 		} {
 			let removed = self.start;
-			self.start +:= self.step;
+			self.start := self.start + self.step;
 			removed
 		}
 	}
@@ -134,7 +134,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 			self.error('removeLast: empty interval')
 		} {
 			let removed = self.stop;
-			self.stop -:= self.step;
+			self.stop := self.stop - self.step;
 			removed
 		}
 	}
@@ -156,7 +156,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 		};
 		predicate.whileTrue {
 			aBlock(each);
-			each -:= self.step
+			each := each - self.step
 		}
 	}
 

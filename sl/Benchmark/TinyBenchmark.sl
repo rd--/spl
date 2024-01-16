@@ -9,7 +9,7 @@
 			};
 			t1 < 1000
 		}.whileTrue {
-			n1 *:= 2
+			n1 := n1 * 2
 		};
 		n2 := 28;
 		{
@@ -18,7 +18,7 @@
 			};
 			t2 < 1000
 		}.whileTrue {
-			n2 +:= 1
+			n2 := n2 + 1
 		};
 		[
 			((n1 * 500000 * 1000) // t1.roundTo(100)).asStringWithCommas,

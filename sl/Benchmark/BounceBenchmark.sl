@@ -6,8 +6,8 @@ Ball : [Object] { | x y xVel yVel |
 		let xLimit = 500;
 		let yLimit = 500;
 		let bounced = false;
-		self.x +:= self.xVel;
-		self.y +:= self.yVel;
+		self.x := self.x + self.xVel;
+		self.y := self.y + self.yVel;
 		(self.x > xLimit).ifTrue {
 			self.x := xLimit;
 			self.xVel := 0 - self.xVel.abs;
@@ -58,7 +58,7 @@ Ball : [Object] { | x y xVel yVel |
 			1.toDo(50) { :i |
 				balls.do { :ball |
 					ball.bounce.ifTrue {
-						bounces +:= 1
+						bounces := bounces + 1
 					}
 				}
 			};

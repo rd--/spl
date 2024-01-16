@@ -1,5 +1,21 @@
 # Terse Guide to Syntax
 
+## AssignmentOperator Syntax
+```
+let x = 3; x +:= 4; x = 7 {- plus assignment (increment) -}
+let x = 3; x -:= 4; x = -1 {- minus assignment (decrement) -}
+let x = 3; x *:= 4; x = 12 {- times assignment -}
+let x = 3; x /:= 4; x = 0.75 {- dividedBy assignment -}
+let x = 3; x ^:= 4; x = 81 {- raisedTo assignment -}
+let x = nil; x ?:= { 4 }; x = 4 {- query assignment -}
+let x = 3; x ?:= { 4 }; x = 3 {- query assignment -}
+let x = [3]; x[1] +:= 4; x[1] = 7 {- at syntax assignment -}
+let x = (y: 3); x::y +:= 4; x::y = 7 {- quoted at syntax assignment -}
+let p = 3@3; p.x +:= 4; p.x = 7 {- dot expression syntax assignment -}
+let c = 0; let k = 3; let n = 4; k.tuplesIndicesDo(n) { :each | c +:= 1 }; c = (k ^ n)
+let c = 0; 4.tuplesIndicesDo(7) { :each | c +:= 1 }; c = 16384
+```
+
 ## AtDelegateTo Syntax
 ```
 let d = (c: 3, parent: (b: 2, parent: (a: 1))); [d:.a, d:.b, d:.c] = [1, 2, 3] {- [AtDelegateTo Syntax] -}

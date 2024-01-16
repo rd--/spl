@@ -38,7 +38,7 @@
 		let index = 1;
 		self.valuesDo { :each |
 			answer[index] := each;
-			index +:= 1
+			index := index + 1
 		};
 		answer
 	}
@@ -70,7 +70,7 @@
 		let index = 1;
 		self.associationsDo { :each |
 			answer[index] := each;
-			index +:= 1
+			index := index + 1
 		};
 		answer
 	}

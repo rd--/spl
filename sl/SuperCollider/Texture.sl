@@ -23,7 +23,7 @@
 		let period = (sustainTime + (transitionTime * 2)) / overlap;
 		let counter = 0;
 		system.clock.schedule(0) { :currentTime |
-			counter +:= 1;
+			counter := counter + 1;
 			self:/1.cull(
 				counter
 			).withOverlapEnvelope(
@@ -47,7 +47,7 @@
 	spawn { :self:/1 :nextTime |
 		let counter = 0;
 		system.clock.schedule(0) { :currentTime |
-			counter +:= 1;
+			counter := counter + 1;
 			self:/1.cull(counter).playAt(currentTime + 0.5); {- fixed delay... -}
 			nextTime.value
 		}

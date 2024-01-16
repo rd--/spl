@@ -37,7 +37,9 @@
 				minus := 'negative ';
 				num := self.negated
 			};
-			{ num > 0 }.whileTrue {
+			{
+				num > 0
+			}.whileTrue {
 				three := (num % 1000).threeDigitName;
 				num := num // 1000;
 				three.isEmpty.ifFalse {
@@ -46,7 +48,7 @@
 					};
 					answer := three ++ mils[milCount] ++ answer
 				};
-				milCount +:= 1
+				milCount := milCount + 1
 			};
 			minus ++ answer
 		}
@@ -92,8 +94,8 @@
 			let next = self;
 			let answer = self;
 			{ next > 1 }.whileTrue {
-				next -:= 1;
-				answer *:= next
+				next := next - 1;
+				answer := answer * next
 			};
 			answer
 		}
@@ -161,7 +163,7 @@
 						(self % i = 0).ifTrue {
 							false.return
 						};
-						i +:= 1
+						i := i + 1
 					};
 					true.return
 				}
@@ -197,7 +199,7 @@
 	leastPrimeGreaterThanOrEqualTo { :self |
 		let maybePrime = self;
 		{ maybePrime.isPrime.not }.whileTrue {
-			maybePrime +:= 1
+			maybePrime := maybePrime + 1
 		};
 		maybePrime
 	}
@@ -248,7 +250,7 @@
 						answer.add(k);
 						answer.return
 					};
-					index +:= 1
+					index := index + 1
 				}.repeat;
 				answer
 			}
@@ -349,10 +351,10 @@
 			let numerator = 1;
 			let denominator = 1;
 			self.toByDo(k.max(self - k) + 1, -1) { :factor |
-				numerator *:= factor
+				numerator := numerator * factor
 			};
 			1.toDo(k.min(self - k)) { :factor |
-				denominator *:= factor
+				denominator :=denominator *  factor
 			};
 			numerator // denominator
 		}
@@ -396,7 +398,7 @@
 		let remaining = self;
 		{ remaining > 0 }.whileTrue {
 			aBlock();
-			remaining -:= 1
+			remaining := remaining - 1
 		};
 		self
 	}
@@ -408,12 +410,12 @@
 			aBlock(indices);
 			{
 				k >= 1 & {
-					indices[k] +:= 1;
+					indices[k] := indices[k] + 1;
 					indices[k] > self
 				}
 			}.whileTrue {
 				indices[k] := 1;
-				k -:= 1
+				k := k - 1
 			}
 		}
 	}
@@ -485,7 +487,7 @@
 		};
 		{ value > 255 }.whileTrue {
 			value := value.bitShift(-8);
-			length +:= 1
+			length := length + 1
 		};
 		length
 	}

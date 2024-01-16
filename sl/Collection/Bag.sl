@@ -21,7 +21,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 
 	addWithOccurrences { :self :anObject :anInteger |
 		self.includes(anObject).if {
-			self.contents[anObject] +:= anInteger
+			self.contents[anObject] := self.contents[anObject] + anInteger
 		} {
 			self.contents[anObject] := anInteger
 		};
@@ -40,7 +40,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 		let s = self.size / 100.0;
 		let n = 0;
 		self.sortedCounts.collect { :a |
-			n +:= a.key;
+			n := n + a.key;
 			(n / s.roundTo(0.1)) -> a.value
 		}
 	}
@@ -105,7 +105,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 	size { :self |
 		let tally = 0;
 		self.contents.do { :each |
-			tally +:= each
+			tally := tally + each
 		};
 		tally
 	}
@@ -136,7 +136,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 		} {
 			let sum = 0;
 			self.contents.withIndexDo { :count :value |
-				sum +:= value * count
+				sum := sum + (value * count)
 			};
 			sum
 		}

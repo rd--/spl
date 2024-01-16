@@ -66,15 +66,15 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 				offset >= self.runs[run]
 			}
 		}.whileTrue {
-			offset -:= self.runs[run];
-			run +:= 1
+			offset := offset - self.runs[run];
+			run := run + 1
 		};
 		self.cachedIndex := index;
 		self.cachedRun := run;
 		self.cachedOffset := offset;
 		(run > limit).ifTrue {
-			run -:= 1;
-			offset +:= self.runs[run]
+			run := run - 1;
+			offset := offset + self.runs[run]
 		};
 		aBlock(run, offset, self.values[run])
 	}
@@ -84,7 +84,7 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 			let run = self.runs[index];
 			let value = self.values[index];
 			{
-				run -:= 1;
+				run := run - 1;
 				run >= 0
 			}.whileTrue {
 				aBlock(value)
@@ -145,7 +145,7 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 			let run = self.runs[runIndex];
 			let value = self.values[runIndex];
 			{ (run := run - 1) >= 0 }.whileTrue {
-				index +:= 1;
+				index := index + 1;
 				aBlock(value, index)
 			}
 		}

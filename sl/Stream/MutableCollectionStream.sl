@@ -22,7 +22,7 @@ MutableCollectionStream : [Object, Iterator, Stream, PositionableStream, WriteSt
 		(self.position >= self.writeLimit).if {
 			self.pastEndPut(anObject)
 		} {
-			self.position +:= 1;
+			self.position := self.position + 1;
 			self.collection[self.position] := anObject
 		}
 	}
@@ -46,7 +46,7 @@ MutableCollectionStream : [Object, Iterator, Stream, PositionableStream, WriteSt
 	pastEndPut { :self :anObject |
 		self.collection := self.collection.grownBy(self.collection.size.max(20).min(1000000));
 		self.writeLimit := self.collection.size;
-		self.position +:= 1;
+		self.position := self.position + 1;
 		self.collection[self.position] := anObject;
 		anObject
 	}

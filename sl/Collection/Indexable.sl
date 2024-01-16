@@ -84,7 +84,7 @@
 	}
 
 	atIncrementBy { :self :index :value |
-		self[index] +:= value
+		self[index] := self[index] + value
 	}
 
 	atModify { :self :index :aBlock:/1 |

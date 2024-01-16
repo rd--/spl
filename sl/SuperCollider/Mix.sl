@@ -5,7 +5,7 @@
 		sparseMatrix.do { :each |
 			let [inputIndex, outputIndex, gain] = each;
 			{- ['SparseMatrixMixer', each].postLine; -}
-			answer[outputIndex] +:= inputArray[inputIndex] * gain
+			answer[outputIndex] := answer[outputIndex] + inputArray[inputIndex] * gain
 		};
 		answer
 	}

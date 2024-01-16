@@ -73,7 +73,7 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed] {
 		self.do { :each |
 			array[index] := map[each.bitShiftRight(4) + 1];
 			array[index + 1] := map[each.bitAnd(15) + 1];
-			index +:= 2
+			index := index + 2
 		};
 		array.asciiString
 	}

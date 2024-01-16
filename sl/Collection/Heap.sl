@@ -60,7 +60,7 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 			(childIndex := 2 * index) >= self.size | {
 				childValue := self.array[childIndex];
 				self.compare(self.array[childIndex + 1], childValue).ifTrue {
-					childIndex +:= 1;
+					childIndex := childIndex + 1;
 					childValue := self.array[childIndex]
 				};
 				self.compare(value, childValue)

@@ -27,14 +27,14 @@
 					test.postLine
 				};
 				(system.evaluate(test) = true).if {
-					passCount +:= 1
+					passCount := passCount + 1
 				} {
-					failCount +:= 1;
+					failCount := failCount + 1;
 					('	Error: ' ++ test).postLine
 				}
 			};
-			totalTestCount +:= testCount;
-			totalPassCount +:= passCount;
+			totalTestCount := totalTestCount + testCount;
+			totalPassCount := totalPassCount + passCount;
 			[
 				'	=> ',
 				passCount, ' / ', testCount,

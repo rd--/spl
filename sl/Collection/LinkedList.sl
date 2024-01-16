@@ -51,7 +51,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 		let index = 1;
 		self.do { :each |
 			answer[index] := each;
-			index +:= 1
+			index := index + 1
 		};
 		answer
 	}
@@ -130,7 +130,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 		let counter = 0;
 		valueWithReturn { :return:/1 |
 			self.linksDo { :link |
-				counter +:= 1;
+				counter := counter + 1;
 				(counter = index).ifTrue {
 					link.return
 				}

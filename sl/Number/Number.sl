@@ -100,9 +100,11 @@
 
 	downToDo { :self :end :aBlock:/1 |
 		let index = self;
-		{ index >= end }.whileTrue {
+		{
+			index >= end
+		}.whileTrue {
 			aBlock(index);
-			index -:= 1
+			index := index - 1
 		}
 	}
 
@@ -269,14 +271,18 @@
 		} {
 			let nextValue = self;
 			(step < 0).if{
-				{ stop <= nextValue }.whileTrue {
+				{
+					stop <= nextValue
+				}.whileTrue {
 					aBlock(nextValue);
-					nextValue +:= step
+					nextValue := nextValue + step
 				}
 			} {
-				{ stop >= nextValue }.whileTrue {
+				{
+					stop >= nextValue
+				}.whileTrue {
 					aBlock(nextValue);
-					nextValue +:= step
+					nextValue := nextValue + step
 				}
 			}
 		};
@@ -285,9 +291,11 @@
 
 	toDo { :self :end :aBlock:/1 |
 		let index = self;
-		{ index <= end }.whileTrue {
+		{
+			index <= end
+		}.whileTrue {
 			aBlock(index);
-			index +:= 1
+			index := index + 1
 		};
 		self
 	}

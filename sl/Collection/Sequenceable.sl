@@ -180,7 +180,7 @@
 		self.do { :each |
 			each.do { :item |
 				answer[index] := item;
-				index +:= 1
+				index := index + 1
 			}
 		};
 		answer
@@ -266,7 +266,7 @@
 			}
 		}.whileTrue {
 			activity(self[nextIndex]);
-			nextIndex +:= 1
+			nextindex := index + 1
 		}
 	}
 
@@ -442,7 +442,7 @@
 					startIndex
 				)
 			};
-			written +:= thisWrite
+			written := written + thisWrite
 		};
 		anObject
 	}
@@ -462,7 +462,7 @@
 			}.whileTrue {
 				argumentArray.replaceFromToWithStartingAt(1, numArgs, self, index);
 				aBlock.valueWithArguments(argumentArray);
-				index +:= numArgs
+				index := index + numArgs
 			}
 		}
 	}
@@ -548,7 +548,7 @@
 								self[startIndex + index - 1] = subCollection[index]
 							}
 						}.whileTrue {
-							index +:= 1
+							index := index + 1
 						};
 						(index <= subCollectionSize).ifFalse {
 							startIndex.return
@@ -778,7 +778,7 @@
 		let index = start;
 		{ index <= stop }.whileTrue {
 			self[index] := replacement[replacementOffset + index];
-			index +:= 1
+			index := index + 1
 		};
 		self
 	}
@@ -791,7 +791,7 @@
 			let entry = aBlock(self[selfIndex]);
 			(1 .. anInteger).do { :unusedCounter |
 				answer[answerIndex] := entry;
-				answerIndex +:= 1
+				answerIndex := answerIndex + 1
 			}
 		};
 		answer
@@ -806,7 +806,7 @@
 		let fromIndex = self.size + 1;
 		self.indicesDo { :toIndex |
 			answer[toIndex] := self[fromIndex - 1];
-			fromIndex -:= 1
+			fromIndex := fromIndex - 1
 		};
 		answer
 	}
@@ -1047,12 +1047,11 @@
 		let b = 1;
 		let i = 0;
 		{ i < self }.whileTrue {
-			let tmp = nil;
+			let tmp = b;
 			answer.add(b);
-			tmp := b;
-			b +:= a;
+			b := b + a;
 			a := tmp;
-			i +:= 1
+			i := i + 1
 		};
 		answer
 	}

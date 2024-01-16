@@ -582,7 +582,7 @@ System! : [Object, Cache, Indexable, Random] {
 			t1 < t2
 		}.whileTrue {
 			self();
-			count +:= 1
+			count := count + 1
 		};
 		[count, t1 - t0]
 	}

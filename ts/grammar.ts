@@ -33,7 +33,7 @@ Sl {
 	TemporariesWithoutInitializers = "|" identifier+ "|"
 
 	Expression = Assignment | BinaryExpression | Primary
-	Assignment = ScalarAssignment | ArrayAssignment | DictionaryAssignment | AssignmentOperatorSyntax
+	Assignment = ScalarAssignment | ArrayAssignment | DictionaryAssignment // | AssignmentOperatorSyntax
 	ScalarAssignment = identifier ":=" Expression
 	ArrayAssignment = "[" NonemptyListOf<identifier, ","> "]" ":=" Expression
 	DictionaryAssignment = "(" NonemptyListOf<identifier, ","> ")" ":=" Expression

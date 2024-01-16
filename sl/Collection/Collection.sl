@@ -46,7 +46,7 @@
 		let result = numberOfElements.aBlock;
 		valueWithReturn { :return:/1 |
 			result.fillFromWith(self) { :each |
-				index +:= 1;
+				index := index + 1;
 				(index > numberOfElements).if {
 					result.return
 				} {
@@ -64,7 +64,7 @@
 		let array = Array(self.size);
 		let index = 0;
 		self.do { :each |
-			index +:= 1;
+			index := index + 1;
 			array[index] := each
 		};
 		array
@@ -96,7 +96,7 @@
 				(index = randomIndex).ifTrue {
 					each.return
 				};
-				index +:= 1
+				index := index + 1
 			}
 		}
 	}

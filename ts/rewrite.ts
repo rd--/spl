@@ -12,14 +12,6 @@ function genName(name: string, arity: number): string {
 	return slOptions.simpleArityModel ? name : `${name}_${arity}`;
 }
 
-function atMethod(): string {
-	return slOptions.uncheckedIndexing ? 'basicAt' : 'at'; // unsafeAt
-}
-
-function atPutMethod(): string {
-	return slOptions.uncheckedIndexing ? 'basicAtPut' : 'atPut'; // unsafeAtPut
-}
-
 function quoteNewLines(input: string): string {
 	return input.replaceAll('\n', '\\n');
 }
@@ -311,11 +303,11 @@ const asJs: ohm.ActionDict<string> = {
 
 	AtPutSyntax(c, _leftBracket, k, _rightBracket, _equals, v) {
 		const elem = k.asIteration().children;
-		return `_${genName(atPutMethod(), 2 + elem.length)}(${c.asJs}, ${commaList(elem)}, ${v.asJs})`;
+		return `_${genName('atPut', 2 + elem.length)}(${c.asJs}, ${commaList(elem)}, ${v.asJs})`;
 	},
 	QuotedAtPutSyntax(c, _colonColon, k, _colonEquals, v) {
 		return `_${
-			genName(atPutMethod(), 3)
+			genName('atPut', 3)
 		}(${c.asJs}, '${k.sourceString}', ${v.asJs})`;
 	},
 	AtPutDelegateSyntax(c, _colonDot, k, _colonEquals, v) {
@@ -351,7 +343,7 @@ const asJs: ohm.ActionDict<string> = {
 		return answer;
 	},
 	AtMatrixSyntax(c, _leftBracket, i, _semicolon, j, _rightBracket) {
-		const at = `_${genName(atMethod(), 2)}`;
+		const at = `_${genName('at', 2)}`;
 		return `${at}(${at}(${c.asJs}, ${i.asJs}), ${j.asJs})`;
 	},
 	AtVolumeSyntax(
@@ -364,7 +356,7 @@ const asJs: ohm.ActionDict<string> = {
 		k,
 		_rightBracket,
 	) {
-		const at = `_${genName(atMethod(), 2)}`;
+		const at = `_${genName('at', 2)}`;
 		return `${at}(${at}(${at}(${c.asJs}, ${i.asJs}), ${j.asJs}), ${k.asJs})`;
 	},
 	AtPathSyntax(c, _leftBracket, k, _rightBracket) {
@@ -385,7 +377,7 @@ const asJs: ohm.ActionDict<string> = {
 		}], ${value.asJs})`;
 	},
 	QuotedAtSyntax(c, _colonColon, k) {
-		return `_${genName(atMethod(), 2)}(${c.asJs}, '${k.sourceString}')`;
+		return `_${genName('at', 2)}(${c.asJs}, '${k.sourceString}')`;
 	},
 	QuotedAtIfAbsentSyntax(c, _colonColon, k, _colonQuery, a) {
 		return `_${

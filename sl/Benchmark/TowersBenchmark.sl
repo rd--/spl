@@ -10,7 +10,7 @@ TowersDisk : [Object] { | size next |
 
 }
 
-TowersBenchmark : [Object] { | piles movesdone |
+TowersBenchmark : [Object] { | piles movesDone |
 
 	pushDiskOnPile { :self :disk :pile |
 		let top = self.piles[pile];
@@ -37,7 +37,7 @@ TowersBenchmark : [Object] { | piles movesdone |
 
 	moveTopDiskFromTo { :self :fromPile :toPile |
 		self.pushDiskOnPile((self.popDiskFrom(fromPile)), toPile);
-		self.movesdone +:= 1
+		self.movesDone := self.movesDone + 1
 	}
 
 	buildTowerAtDisks { :self :pile :disks |
@@ -60,9 +60,9 @@ TowersBenchmark : [Object] { | piles movesdone |
 	benchmark { :self |
 		self.piles := Array(3);
 		self.buildTowerAtDisks(1, 13);
-		self.movesdone := 0;
+		self.movesDone := 0;
 		self.moveDisksFromTo(13, 1, 2);
-		self.movesdone
+		self.movesDone
 	}
 
 	verifyResult { :self :result |

@@ -184,7 +184,7 @@ String! : [Object, Json, Iterable] {
 	countCharacters { :self |
 		let answer = 0;
 		self.do { :each |
-			answer +:= 1
+			answer := answer + 1
 		};
 		answer
 	}
@@ -214,7 +214,9 @@ String! : [Object, Json, Iterable] {
 			0
 		} {
 			| answer |
-			{ last > 0 }.whileTrue {
+			{
+				last > 0
+			}.whileTrue {
 				answer := last;
 				last := self.findStringStartingAt(subString, last + 1)
 			};
@@ -303,7 +305,7 @@ String! : [Object, Json, Iterable] {
 				index := self.findStringStartingAt(aString, index);
 				(index ~= 0).ifTrue {
 					answer.add(index);
-					index +:= 1
+					index := index + 1
 				}
 			};
 			answer
@@ -386,8 +388,8 @@ String! : [Object, Json, Iterable] {
 			}.whileTrue {
 				index := self.findStringStartingAt(aString, index);
 				(index ~= 0).ifTrue {
-					tally +:= 1;
-					index +:= 1
+					tally := tally + 1;
+					index := index + 1
 				}
 			};
 			tally
@@ -465,9 +467,9 @@ String! : [Object, Json, Iterable] {
 		self.asciiByteArray.reverseDo { :each |
 			v1 := [1, 5, 10, 50, 100, 500, 1000].at(letters.indexOf(each));
 			(v1 >= v2).if {
-				value +:= v1
+				value := value + v1
 			} {
-				value -:= v1
+				value := value - v1
 			};
 			v2 := v1
 		};

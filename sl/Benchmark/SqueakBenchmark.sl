@@ -21,9 +21,9 @@
 					let k = index + prime;
 					{ k <= size }.whileTrue {
 						flags[k] := false;
-						k +:= prime
+						k := k + prime
 					};
-					count +:= 1
+					count := count + 1
 				}
 			}
 		};

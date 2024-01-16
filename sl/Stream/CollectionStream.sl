@@ -18,7 +18,7 @@ CollectionStream : [Object, Iterator, Stream, PositionableStream] { | collection
 		(self.position >= self.readLimit).if {
 			nil
 		} {
-			self.position +:= 1;
+			self.position := self.position + 1;
 			self.collection[self.position]
 		}
 	}
