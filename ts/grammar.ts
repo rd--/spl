@@ -84,9 +84,9 @@ Sl {
 		| MatrixSyntax
 		// | VolumeSyntax
 
-	AtPutSyntax = Primary "[" Expression "]" ":=" Expression
+	AtPutSyntax = Primary "[" NonemptyListOf<Expression, ","> "]" ":=" Expression
 	QuotedAtPutSyntax = Primary "::" identifier ":=" Expression
-	AtSyntax = Primary "[" Expression "]"
+	AtSyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
 	AtIfAbsentSyntax = Primary "[" Expression "]" ":?" Block
 	AtIfAbsentPutSyntax = Primary "[" Expression "]" ":?=" Block
 	AtAllArraySyntax = Primary "[" NonemptyListOf<Expression, ","> "]"

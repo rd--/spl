@@ -22,6 +22,18 @@
 		self.error('@Indexable>>at: type responsibility')
 	}
 
+	at { :self :primaryIndex :secondaryIndex |
+		self.at(primaryIndex).at(secondaryIndex)
+	}
+
+	at { :self :primaryIndex :secondaryIndex :tertiaryIndex |
+		self.at(primaryIndex).at(secondaryIndex).at(tertiaryIndex)
+	}
+
+	at { :self :primaryIndex :secondaryIndex :tertiaryIndex :quaternaryIndex |
+		self.at(primaryIndex).at(secondaryIndex).at(tertiaryIndex).at(quaternaryIndex)
+	}
+
 	atAllPut { :self :anObject |
 		self.indices.do { :index |
 			self[index] := anObject
@@ -106,6 +118,18 @@
 
 	atPut { :self :index :anObject |
 		self.error('@Indexable>>atPut: type responsibility')
+	}
+
+	atPut { :self :primaryIndex :secondaryIndex :anObject |
+		self.at(primaryIndex).atPut(secondaryIndex, anObject)
+	}
+
+	atPut { :self :primaryIndex :secondaryIndex :tertiaryIndex :anObject |
+		self.at(primaryIndex).at(secondaryIndex).atPut(tertiaryIndex, anObject)
+	}
+
+	atPut { :self :primaryIndex :secondaryIndex :tertiaryIndex :quaternaryIndex :anObject |
+		self.at(primaryIndex).at(secondaryIndex).at(tertiaryIndex).atPut(quaternaryIndex, anObject)
 	}
 
 	basicAt { :self :index |

@@ -328,6 +328,8 @@ plusPlus([1 .. 3], [4 .. 6]) = [1 .. 6] {- ++ equals plusPlus -}
 [1 2 3; 4 5; 6].concatenation = [1 .. 6] {- non-square [Matrix Syntax] -}
 let a = [1 .. 3]; a[2] = a.at(2) {- [At Syntax] -}
 let i = (1 .. 3); i[2] = i.at(2) {- [At Syntax] -}
+let m = [1 2 3; 4 5 6; 7 8 9]; m[2, 2] = 5 & { m[3, 1] = 7 } {- [At Syntax] -}
+let m = [1 2; 3 4; 5 6]; m[2, 2] := 16; m[3, 1] := 25; m = [1 2; 3 16; 25 6] {- [AtPut Syntax] -}
 (1 .. 5).includesIndex(3) {- is valid index -}
 (1 .. 5).atIfPresent(3) { :x | x * x } = 9 {- clause if index is valid -}
 (1 .. 5).atIfPresent(9) { :x | false } = nil {- ifAbsent clause answers nil -}
@@ -527,6 +529,12 @@ let a = [nil, true, false, 3.141, 23, 'str']; a.deepCopy = a {- deepCopy of shal
 [1, 3 .. 9].copyUpTo(-1) = [1, 3 .. 9] {- copy up to end if no such element -}
 [1, 2, 3, 4, 2, 3, 4, 3, 4, 4].copyUpToLast(3) = [1, 2, 3, 4, 2, 3, 4] {- copy up to last instance of element -}
 [1, 3 .. 9].copyUpToLast(-1) = [1, 3 .. 9] {- copy up to end if no such element -}
+let i = (9 .. 1); i @* [5, 3, 7] = [5, 7, 3] {- atAll operator -}
+let a = [9 .. 1]; a @* [5, 3, 7] = [5, 7, 3] {- atAll operator -}
+let a = [5 .. 1]; a @* [1 5 3] = [5 1 3] {- atAll operator -}
+let a = [5 .. 1]; a @* [2 .. 4] = [4 3 2] {- atAll operator -}
+let a = [1, 1, 3, 4]; a @* [2, 4, 3, 1] = [1, 4, 3, 1] {- atAll operator -}
+let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] {- atAll operator -}
 ```
 
 ## Arrayed -- collection trait
@@ -1370,6 +1378,9 @@ let d = (x: 1, y: 2); d.removeAll; d.isEmpty {- remove all entries -}
 let d = (x: 1, y: 2); d.keyAtValue(2) = d.indexOf(2) {- dictionary name for indexOf -}
 (x: 1, y: 2, z: 3).keys = ['x' 'y' 'z'] {- array of keys at dictionary -}
 (x: 1, y: 2, z: 3).values = [1 2 3] {- array of values at dictionary -}
+let d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.atDelegateTo(each, 'parent') } = [1, 2, 3]
+let d = (c: 3, parent: (b: 2, parent: (a: 1))); ['a', 'b', 'c'].collect { :each | d.messageSend(each, 'parent', []) } = [1, 2, 3]
+let d = (x: 1, parent: (y: 2, parent: (z: 3))); d.atPutDelegateTo('z', -3, 'parent'); d.atDelegateTo('z', 'parent') = -3
 ```
 
 ## Duration -- temporal type
@@ -3571,6 +3582,22 @@ let a = 1; let b = 3; [[a b; b a] [b a; a b]] = [[[1, 3], [3, 1]], [[3, 1], [1, 
 let m = [1 2 3; 4 5 6; 7 8 9]; m @> [2 3] = 6 & { m @> [3 2] = 8 } {- matrix syntax and atPath operator -}
 ```
 
+## Syntax - At Syntax
+```
+let m = [1 2 3; 4 5 6; 7 8 9]; m[2, 3] = 6 & { m[3, 2] = 8 } {- [At Syntax] -}
+let d = (w: (x: (y: (z: 1)))); d['w', 'x', 'y', 'z'] = 1 {- [At Syntax] -}
+let a = [['w', 'x'], ['y', 'z']]; a[1, 2] = 'x' {- [At Syntax] -}
+(x: (y: 1))['x', 'y'] = 1 {- [At Syntax] -}
+(x: (y: (z: 1)))['x', 'y', 'z'] = 1 {- [At Syntax] -}
+(w: (x: (y: (z: 1))))['w', 'x', 'y', 'z'] = 1 {- [At Syntax] -}
+```
+
+## AtPut Syntax
+```
+let m = [1 2 3; 4 5 6]; m[1, 2] := -2; m[2, 3] := -6; m = [1 -2 3; 4 5 -6] {- [AtPut Syntax] -}
+let d = (w: (x: (y: (z: 1)))); d['w', 'x', 'y', 'z'] := -1; d = (w: (x: (y: (z: -1)))) {- [AtPut Syntax] -}
+```
+
 ## Syntax -- collection access and mutation
 ```
 'text'[3] = 'x'.asCharacter {- [At Syntax] -}
@@ -3578,7 +3605,7 @@ let x = [1 .. 5]; x[3] := '3'; x[3] = '3' {- [AtPut Syntax] -}
 let d = (x: 1); d::x = 1 {- [Quoted At Syntax] -}
 let d = (x: 1, y: 2); d::x < d::y {- [Quoted At Syntax] -}
 let d = (w: (x: (y: (z: 1)))); d::w::x::y::z = 1 {- [Quoted At Syntax] -}
-let d = (w: (x: (y: (z: 1)))); d::w::x::y::z := -1; d = (w: (x: (y: (z: -1)))){- [Quoted AtPut Syntax] -}
+let d = (w: (x: (y: (z: 1)))); d::w::x::y::z := -1; d = (w: (x: (y: (z: -1)))) {- [Quoted AtPut Syntax] -}
 ```
 
 ## Syntax -- dictionary assignment syntax

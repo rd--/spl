@@ -97,32 +97,6 @@
 		}
 	}
 
-	atPath { :self :path |
-		path.ifEmpty {
-			'Sequenceable>>atPath: empty path'.error
-		} {
-			let inner = self[path.first];
-			(path.size = 1).if {
-				inner
-			} {
-				inner.atPath(path.allButFirst)
-			}
-		}
-	}
-
-	atPathPut { :self :path :anObject |
-		path.ifEmpty {
-			'Sequenceable>>atPathPut: empty path'.error
-		} {
-			let inner = self.at(path.first);
-			(path.size = 1).if {
-				self[path.first] := anObject
-			} {
-				inner.atPathPut(path.allButFirst, anObject)
-			}
-		}
-	}
-
 	bubble { :self :depth :levels |
 		(depth <= 0).if {
 			(levels <= 1).if {

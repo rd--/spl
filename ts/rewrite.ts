@@ -310,7 +310,8 @@ const asJs: ohm.ActionDict<string> = {
 	},
 
 	AtPutSyntax(c, _leftBracket, k, _rightBracket, _equals, v) {
-		return `_${genName(atPutMethod(), 3)}(${c.asJs}, ${k.asJs}, ${v.asJs})`;
+		const elem = k.asIteration().children;
+		return `_${genName(atPutMethod(), 2 + elem.length)}(${c.asJs}, ${commaList(elem)}, ${v.asJs})`;
 	},
 	QuotedAtPutSyntax(c, _colonColon, k, _colonEquals, v) {
 		return `_${
@@ -323,7 +324,10 @@ const asJs: ohm.ActionDict<string> = {
 		}(${c.asJs}, '${k.sourceString}', ${v.asJs}, 'parent')`;
 	},
 	AtSyntax(c, _leftBracket, k, _rightBracket) {
-		return `_${genName(atMethod(), 2)}(${c.asJs}, ${k.asJs})`;
+		const elem = k.asIteration().children;
+		return `_${genName('at', 1 + elem.length)}(${c.asJs}, ${
+			commaList(elem)
+		})`;
 	},
 	AtIfAbsentSyntax(c, _leftBracket, k, _rightBracket, _colonQuery, a) {
 		return `_${genName('atIfAbsent', 3)}(${c.asJs}, ${k.asJs}, ${a.asJs})`;

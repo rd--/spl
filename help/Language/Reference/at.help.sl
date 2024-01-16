@@ -23,6 +23,11 @@ Sets and Bags are not indexable:
 	{ [1 2 3].asSet.at(1) }.ifError { true }
 	{ [1 2 3].asBag.at(1) }.ifError { true }
 
+- _at(c, i, j)_ ⇒ _at(c, i).at(j)_
+- _at(c, i, j, k)_ ⇒ _at(c, i).at(j).at(k)_
+
+The extended arity forms are translated as above.
+
 There is [At Sytax] for accessing indexed values:
 
 	let a = ['x', 'y'];  a[1] = 'x'
