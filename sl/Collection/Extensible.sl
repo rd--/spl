@@ -36,4 +36,14 @@
 		}
 	}
 
+	intersperse { :self :anObject |
+		let answer = self.species.new;
+		self.doSeparatedBy { :each |
+			answer.add(each)
+		} {
+			answer.add(anObject)
+		};
+		answer
+	}
+
 }

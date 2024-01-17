@@ -1,3 +1,5 @@
+{- Requires: Array -}
+
 String! : [Object, Json, Iterable] {
 
 	= { :self :anObject |
@@ -623,8 +625,36 @@ String! : [Object, Json, Iterable] {
 		[self.first] ++ self.allButFirst.collect(capitalized:/1)
 	}
 
+	join { :self |
+		self.joinSeparatedBy('')
+	}
+
+	joinCharacters { :self |
+		self.collect(string:/1).joinSeparatedBy('')
+	}
+
+	joinSeparatedBy { :self :aString |
+		self.collect(asString:/1).joinStringsSeparatedBy(aString)
+	}
+
 	pascalCase { :self |
 		self.collect(capitalized:/1)
+	}
+
+	unlines { :self |
+		self.joinSeparatedBy('\n')
+	}
+
+	unwords { :self |
+		self.joinSeparatedBy(' ')
+	}
+
+}
+
++Array {
+
+	joinStringsSeparatedBy { :self :aString |
+		<primitive: return _self.join(_aString);>
 	}
 
 }

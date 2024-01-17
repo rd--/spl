@@ -16,6 +16,7 @@
 	'Stack' {- Requires: LinkedList -}
 	'SortedArray'
 	'Tuple'
+	'Vector' {- Requires: Array -}
 	'WeakMap'
 
 	{- Geometry -}

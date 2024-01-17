@@ -1,11 +1,5 @@
 Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable, Arrayed, Ordered] {
 
-	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
-		self.collect { :each |
-			aBlock(aNumber, each)
-		}
-	}
-
 	addArrayFirst { :self :anArray |
 		<primitive:
 		_self.unshift(..._anArray);
@@ -35,47 +29,11 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 		self
 	}
 
-	asTuple { :self |
-		self.size.caseOfOtherwise([
-			{ 2 } -> { (self[1], self[2]) },
-			{ 3 } -> { (self[1], self[2], self[3]) },
-			{ 4 } -> { (self[1], self[2], self[3], self[4]) }
-		]) {
-			'Array>>asTuple'.error
-		}
-	}
-
 	atAllPut { :self :anObject |
 		<primitive:
 		_self.fill(_anObject);
 		return _anObject;
 		>
-	}
-
-	intersperse { :self :anObject |
-		let answer = [];
-		self.doSeparatedBy { :each |
-			answer.add(each)
-		} {
-			answer.add(anObject)
-		};
-		answer
-	}
-
-	join { :self |
-		self.joinSeparatedBy('')
-	}
-
-	joinCharacters { :self |
-		self.collect(string:/1).joinSeparatedBy('')
-	}
-
-	joinSeparatedBy { :self :aString |
-		self.collect(asString:/1).joinStringsSeparatedBy(aString)
-	}
-
-	joinStringsSeparatedBy { :self :aString |
-		<primitive: return _self.join(_aString);>
 	}
 
 	printString { :self :toString:/1 |
@@ -112,14 +70,6 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 	storeString { :self |
 		self.printString(storeString:/1)
-	}
-
-	unlines { :self |
-		<primitive: return _self.join('\n');>
-	}
-
-	unwords { :self |
-		self.joinSeparatedBy(' ')
 	}
 
 }
@@ -173,7 +123,7 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 +@Collection {
 
-	Array { :self |
+	asArray { :self |
 		let answer = Array(self.size);
 		let index = 0;
 		self.do { :each |
@@ -187,7 +137,7 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 +@Sequenceable {
 
-	Array { :self |
+	asArray { :self |
 		let answer = Array(self.size);
 		self.indicesDo { :index |
 			answer[index] := self[index]

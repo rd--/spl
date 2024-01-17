@@ -22,6 +22,12 @@
 		}
 	}
 
+	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
+		self.collect { :each |
+			aBlock(aNumber, each)
+		}
+	}
+
 	allEqualBy { :self :aBlock:/2 |
 		self.isEmpty.if {
 			true

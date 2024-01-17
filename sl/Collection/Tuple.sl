@@ -85,3 +85,17 @@ FourTuple : [Object, Tuple] { | first second third fourth |
 	}
 
 }
+
++@Sequenceable {
+
+	asTuple { :self |
+		self.size.caseOfOtherwise([
+			{ 2 } -> { (self[1], self[2]) },
+			{ 3 } -> { (self[1], self[2], self[3]) },
+			{ 4 } -> { (self[1], self[2], self[3], self[4]) }
+		]) {
+			'@Sequenceable>>asTuple'.error
+		}
+	}
+
+}

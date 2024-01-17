@@ -2500,6 +2500,7 @@ at:/2.parameterNames = ['self', 'index']
 json:/3.parameterNames = ['self', 'replacer', 'space']
 randomFloat:/2.parameterNames = ['self', 'aNumber']
 system.methodDictionary::at[2]::Map.information.parameterNames = ['self', 'key']
+let c = []; let a = []; (1 .. 3).do { :i | c.add { a.add(i) } }; c.do(value:/1); a = [1, 2, 3]
 ```
 
 ## Promise -- scheduling type
@@ -4167,6 +4168,21 @@ Point(1.cos, 1.sin, 1).asCylindricalCoordinate.asRecord = (rho: 1, phi: 1, z: 1)
 let a = [1, 2, 3, 4]; let v = a.asPoint; v.asArray = [1, 2, 3, 4] {- four vector to array -}
 Point(0, 0, 0, 0).isZero {- are w, x, y and z all zero -}
 let v = Point(1, 2, 3, 4); [v.w, v.x, v.y, v.z] = [1, 2, 3, 4] {- fields are w, x, y, z -}
+```
+
+## Vector -- collection type
+```
+system.includesPackage('Vector') {- package -}
+Vector(9).typeOf = 'Vector' {- type of -}
+Vector(9).isVector = true {- type predicate -}
+Vector(9).size = 9 {- vector of size -}
+Vector(9).species = Vector:/1 {- species -}
+Vector(9).isCollection = true {- collection trait -}
+Vector(9).isIndexable = true {- indexable trait -}
+Vector(9).isSequenceable = true {- sequenceable trait -}
+Vector(0).isEmpty = true {- the empty vector -}
+[].asVector = Vector(0) {- array as vector -}
+let v = Vector(9); let c = v.copy; v[5] := 5; c[5] = nil {- copy -}
 ```
 
 ## WeakMap -- collection type

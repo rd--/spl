@@ -52,6 +52,7 @@
 	'Collection-Stack'
 	'Collection-Tuple'
 	'Collection-Unordered'
+	'Collection-Vector'
 	'Collection-WeakMap'
 	'Exception-Error'
 	'Geometry-Angle'
