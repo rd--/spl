@@ -46,7 +46,7 @@
 	}
 
 	removeIfAbsent { :self :oldObject :anExceptionBlock |
-		self.typeResponsibility('@Collection>>removeIfAbsent')
+		self.typeResponsibility('@Removable>>removeIfAbsent')
 	}
 
 	without { :self :oldObject |

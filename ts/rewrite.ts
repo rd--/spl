@@ -53,7 +53,7 @@ function intervalSyntax(start: ohm.Node, end: ohm.Node): string {
 
 function arrayIntervalSyntax(start: ohm.Node, end: ohm.Node): string {
 	// console.debug('arrayIntervalSyntax');
-	return `_${genName('Array', 1)}(${intervalSyntax(start, end)})`;
+	return `_${genName('asArray', 1)}(${intervalSyntax(start, end)})`;
 }
 
 const asJs: ohm.ActionDict<string> = {
@@ -535,7 +535,7 @@ const asJs: ohm.ActionDict<string> = {
 		end,
 		_rightBracket,
 	) {
-		return `_${genName('Array', 1)}(_${
+		return `_${genName('asArray', 1)}(_${
 			genName('thenTo', 3)
 		}(${start.asJs}, ${then.asJs}, ${end.asJs}))`;
 	},
@@ -560,7 +560,7 @@ const asJs: ohm.ActionDict<string> = {
 		return `${genName(rhs.asJs, 1)}(${lhs.asJs})`;
 	},
 	VectorSyntaxRange(start, _dotDot_, end) {
-		return `_${genName('Array', 1)}(_${
+		return `_${genName('asArray', 1)}(_${
 			genName('upTo', 2)
 		}(${start.asJs}, ${end.asJs}))`;
 	},

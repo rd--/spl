@@ -73,15 +73,6 @@
 		self
 	}
 
-	fillFromWith { :self :aCollection :aBlock:/1 |
-		let index = 1;
-		aCollection.do { :each |
-			self[index] := aBlock(each);
-			index := index + 1
-		};
-		self
-	}
-
 	findFirstElement { :self :aBlock:/1 |
 		<primitive:
 		var item = _self.find(function(element) {
@@ -100,26 +91,6 @@
 		>
 	}
 
-	findLast { :self :aBlock:/1 |
-		let index = self.size + 1;
-		valueWithReturn { :return:/1 |
-			{ (index := index - 1) >= 1 }.whileTrue {
-				aBlock(self[index]).ifTrue {
-					index.return
-				}
-			};
-			0
-		}
-	}
-
-	injectInto { :self :anObject :aBlock:/2 |
-		let result = anObject;
-		self.indicesDo { :index |
-			result := aBlock(result, self[index])
-		};
-		result
-	}
-
 	insertAt { :self :anObject :index |
 		<primitive:
 		_self.splice(_index - 1, 0, _anObject);
@@ -133,34 +104,12 @@
 		>
 	}
 
-	occurrencesOf { :self :anObject |
-		let tally = 0;
-		self.indicesDo { :index |
-			(self[index] = anObject).ifTrue {
-				tally := tally + 1
-			}
-		};
-		tally
-	}
-
 	reverse { :self |
 		<primitive: return _self.reverse();>
 	}
 
 	size { :self |
 		<primitive: return _self.length;>
-	}
-
-	sort { :self |
-		self.sortBy(<=)
-	}
-
-	sort { :self :aBlock:/2 |
-		aBlock:/2.ifNil {
-			self.sort
-		} {
-			self.sortBy(aBlock:/2)
-		}
 	}
 
 	sortBy { :self :aBlock:/2 |
@@ -171,24 +120,12 @@
 		>
 	}
 
-	sortOn { :self :keyBlock:/1 |
-		self.sortOnBy(keyBlock:/1, <=)
-	}
-
 	sortOnBy { :self :keyBlock:/1 :compareBlock:/2 |
 		<primitive:
 		return _self.sort(function(p, q) {
 			return _compareBlock_2(_keyBlock_1(p), _keyBlock_1(q)) ? -1 : 1
 		});
 		>
-	}
-
-	sorted { :self :aSortBlock:/2 |
-		self.copy.sortBy(aSortBlock:/2)
-	}
-
-	sorted { :self |
-		self.copy.sort
 	}
 
 	storeString { :self |

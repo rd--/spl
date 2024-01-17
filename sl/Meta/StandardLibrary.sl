@@ -13,10 +13,10 @@
 	'PriorityQueue'
 	'RunArray'
 	'Set'
-	'Stack' {- Requires: LinkedList -}
+	'Stack' {- LinkedList -}
 	'SortedArray'
 	'Tuple'
-	'Vector' {- Requires: Array -}
+	'Vector' {- Array -}
 	'WeakMap'
 
 	{- Geometry -}
@@ -31,10 +31,10 @@
 	'Projection3' {- Matrix33 -}
 	'Rectangle'  {- RectangularCoordinate -}
 	'FourVector' {- RectangularCoordinate CartesianCoordinate -}
-	'CylindricalCoordinate' {- Requires: CartesianCoordinate -}
-	'Sphere' {- Requires: CartesianCoordinate -}
-	'SphericalCoordinate' {- Requires: CartesianCoordinate -}
-	'Point' {- RectangularCoordinate, CartesianCoordinate -}
+	'CylindricalCoordinate' {- CartesianCoordinate -}
+	'Sphere' {- CartesianCoordinate -}
+	'SphericalCoordinate' {- CartesianCoordinate -}
+	'Point' {- RectangularCoordinate CartesianCoordinate -}
 
 	{- Graphics -}
 	'Colour'
@@ -79,7 +79,7 @@
 	'Type'
 	'Url'
 	'UrlSearchParams'
-	'WebSocket' {- > EventTarget Url -}
+	'WebSocket' {- EventTarget Url -}
 	'Window'
 
 	{- Text -}
@@ -101,10 +101,10 @@
 	'Categories'
 
 	{- Help -}
-	'TerseGuide' {- > Url -}
+	'TerseGuide' {- Url -}
 
 	{- Sound -}
-	'SoundFile' {- > Url -}
+	'SoundFile' {- Url -}
 
 ].primitiveLoadPackageSequence.then { :unused |
 	{-

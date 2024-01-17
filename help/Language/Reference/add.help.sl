@@ -17,4 +17,4 @@ Answers _newObject_.
 
 * * *
 
-See also: addAll, include, remove
+See also: addAll, Extensible, include, remove

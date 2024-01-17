@@ -60,6 +60,14 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 		<primitive: return _self.splice(0, _count);>
 	}
 
+	removeLast { :self |
+		<primitive: return _self.pop();>
+	}
+
+	removeLast { :self :count |
+		<primitive: return _self.splice(_self.length - _count, _count);>
+	}
+
 	shallowCopy { :self |
 		<primitive: return Array.from(_self);>
 	}
@@ -98,15 +106,6 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 		self.timesRepeat {
 			answer.add(next);
 			next := next * grow
-		};
-		answer
-	}
-
-	toAsCollect { :self :stop :species :aBlock:/1 |
-		let answerSize = stop - self + 1;
-		let answer = species.ofSize(answerSize);
-		1.toDo(answerSize) { :index |
-			answer[index] := aBlock(index + self - 1)
 		};
 		answer
 	}

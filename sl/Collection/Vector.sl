@@ -1,6 +1,6 @@
 {- Requires: Array -}
 
-Vector : [Object, Json, Iterable, Indexable, Collection, Sequenceable, Arrayed] { | contents |
+Vector : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed] { | contents |
 
 	asArray { :self |
 		self.contents.copy

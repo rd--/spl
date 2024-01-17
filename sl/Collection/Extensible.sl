@@ -1,5 +1,9 @@
 @Extensible {
 
+	add { :self :anObject |
+		self.typeResponsibility('@Extensible>>add')
+	}
+
 	addAll { :self :aCollection |
 		aCollection.do { :each |
 			self.add(each)

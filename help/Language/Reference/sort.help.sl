@@ -11,4 +11,4 @@ If the sort block is omitted or is nil, sort by _<=_.
 
 * * *
 
-See also: sortBy, sorted
+See also: sortBy, sorted, sortOn

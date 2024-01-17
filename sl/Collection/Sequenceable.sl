@@ -290,6 +290,15 @@
 		}
 	}
 
+	fillFromWith { :self :aCollection :aBlock:/1 |
+		let index = 1;
+		aCollection.do { :each |
+			self[index] := aBlock(each);
+			index := index + 1
+		};
+		self
+	}
+
 	fillWith { :self :aBlock |
 		self.indicesDo { :index |
 			self[index] := aBlock.cull(index)
@@ -351,6 +360,18 @@
 
 	findBinaryIndexIfNone { :self :aBlock:/1 :exceptionBlock |
 		self.findBinaryIndexDoIfNone(aBlock:/1, { :found | found }, exceptionBlock)
+	}
+
+	findLast { :self :aBlock:/1 |
+		let index = self.size + 1;
+		valueWithReturn { :return:/1 |
+			{ (index := index - 1) >= 1 }.whileTrue {
+				aBlock(self[index]).ifTrue {
+					index.return
+				}
+			};
+			0
+		}
 	}
 
 	first { :self |
@@ -596,6 +617,14 @@
 		answer
 	}
 
+	injectInto { :self :anObject :aBlock:/2 |
+		let answer = anObject;
+		self.indicesDo { :index |
+			answer := aBlock(answer, self[index])
+		};
+		answer
+	}
+
 	isOctetSequence { :self |
 		self.allSatisfy { :each |
 			each.isInteger & {
@@ -686,6 +715,16 @@
 
 	middle { :self |
 		self[self.size // 2 + 1]
+	}
+
+	occurrencesOf { :self :anObject |
+		let tally = 0;
+		self.indicesDo { :index |
+			(self[index] = anObject).ifTrue {
+				tally := tally + 1
+			}
+		};
+		tally
 	}
 
 	pairsCollect { :self :aBlock:/2 |
@@ -896,6 +935,30 @@
 		self.copy.fisherYatesShuffle
 	}
 
+	sort { :self |
+		self.sortBy(<=)
+	}
+
+	sort { :self :aBlock:/2 |
+		aBlock:/2.ifNil {
+			self.sort
+		} {
+			self.sortBy(aBlock:/2)
+		}
+	}
+
+	sortOn { :self :keyBlock:/1 |
+		self.sortOnBy(keyBlock:/1, <=)
+	}
+
+	sorted { :self :aSortBlock:/2 |
+		self.copy.sortBy(aSortBlock:/2)
+	}
+
+	sorted { :self |
+		self.copy.sort
+	}
+
 	sortedWithIndices { :self |
 		self.sortedWithIndices(<=)
 	}
@@ -1040,7 +1103,7 @@
 
 }
 
-+SmallFloat {
++@Integer {
 
 	fibonacciSequenceInto { :self :answer |
 		let a = 0;
@@ -1052,6 +1115,15 @@
 			b := b + a;
 			a := tmp;
 			i := i + 1
+		};
+		answer
+	}
+
+	toAsCollect { :self :stop :species :aBlock:/1 |
+		let answerSize = stop - self + 1;
+		let answer = species.ofSize(answerSize);
+		1.toDo(answerSize) { :index |
+			answer[index] := aBlock(index + self - 1)
 		};
 		answer
 	}

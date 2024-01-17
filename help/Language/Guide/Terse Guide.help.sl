@@ -1251,8 +1251,8 @@ true.asNumber = 1 {- asBit -}
 1.pi.asFraction(10) = 22:7 {- with maximum denominator -}
 22:7.asFraction = 22:7 {- identity -}
 23.asFraction = 23 {- identity -}
-0.asPoint = (0 @ 0) {- number to point -}
-0.asPoint = Point(0, 0) {- number to point -}
+[0, 0].asPoint = (0 @ 0) {- array as point -}
+(0, 0).asPoint = Point(0, 0) {- tuple as point -}
 (0 @ 0).asPoint = (0 @ 0) {- identity -}
 Point(0, 0).asPoint = Point(0, 0) {- identity -}
 1.asComplex = Complex(1, 0) {- number to complex -}
@@ -1441,18 +1441,18 @@ let x = nil; { { ''.error }.ensure { x := true } }.ifError { }; x {- ensure term
 system.includesPackage('Float64Array') {- package -}
 Float64Array(0).typeOf = 'Float64Array' {- type of -}
 Float64Array(0).species = Float64Array:/1 {- species -}
-Float64Array(0).isFloat64Array {- predicate -}
-Float64Array(0).size = 0
-Float64Array(8).size = 8
-Float64Array(8).at(1) = 0
-Float64Array(8).atPut(1, 1.pi) = 1.pi {- answer value put -}
+Float64Array(0).isFloat64Array {- type predicate -}
+Float64Array(0).isEmpty {- is empty predicate -}
+Float64Array(8).size = 8 {- size of -}
+Float64Array(8).at(1) = 0 {- at protocol, initialized to zero -}
+Float64Array(8).atPut(1, 1.pi) = 1.pi {- atPut protocol, answer value put -}
 let a = Float64Array(8); a.atPut(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
 let a = Float64Array(8); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
-(1 .. 9).asFloat64Array.isFloat64Array = true
-(1 .. 9).asFloat64Array.reversed = (9 .. 1).asFloat64Array {- (9 .. 1) is not allowed -}
-let a = [1 .. 9].asFloat64Array; a.reverse; a = (9 .. 1).asFloat64Array
-let a = (9 .. 1).asFloat64Array; a.sort; a = (1 .. 9).asFloat64Array {- sort array in place -}
-{ Float64Array(1).atPut(3, 'x') }.ifError { true }
+(1 .. 9).asFloat64Array.isFloat64Array = true {- interval as array -}
+(1 .. 9).asFloat64Array.reversed = (9 .. 1).asFloat64Array {- reversed copy -}
+let a = [1 .. 9].asFloat64Array; a.reverse; a = (9 .. 1).asFloat64Array {- reverse in place -}
+let a = (9 .. 1).asFloat64Array; a.sort; a = (1 .. 9).asFloat64Array {- sort in place -}
+{ Float64Array(1).atPut(3, 'x') }.ifError { true } {- out of bounds error -}
 let a = Float64Array(1); a.basicAtPut(1, 'x'); a.at(1).isNaN = true {- unsafe mutation inserts NaN -}
 let a = Float64Array(1); a.basicAtPut(3, 'x'); a.basicAt(3) = nil {- unsafe mutation does not extend array -}
 (1 .. 3).asFloat64Array.printString = '[1, 2, 3].asFloat64Array'
@@ -2390,19 +2390,6 @@ system.package('Array').isPackage {- lookup package by unqualified name -}
 system.package('Collection-Array') == system.package('Array') {- lookup package by qualified name -}
 { system.package('Kernel-Array') }.ifError { true } {- for qualified names the system checks the category -}
 system.package('BounceBenchmark').dependencies.collect(name:/1) = ['Benchmark', 'SomRandom']
-```
-
-## RectangularCoordinate -- geometry trait
-```
-system.includesPackage('RectangularCoordinate') {- rectangular coordinate package -}
-0.asPoint.isRectangularCoordinate {- number to point, point predicate -}
-0.asPoint.isZero {- are x and y both zero -}
-(1 @ 1).norm = 2.sqrt {- magnitude, distance to origin -}
-(1 @ 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude -}
-(1 @ 1).normalized.norm ~ 1
-Point(1, 1).norm = 2.sqrt {- magnitude, distance to origin -}
-Point(1, 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude -}
-Point(1, 1).normalized.norm ~ 1
 ```
 
 ## PriorityQueue -- collection type
@@ -3802,7 +3789,7 @@ system.multipleArityMethodList.includes('randomFloat') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
 system.operatorNameTable['^'] = 'raisedTo' = true
 system.doesTraitImplementMethod('Collection', 'select') = true
-system.doesTypeImplementMethod('Array', 'adaptToNumberAndApply') = true
+system.doesTypeImplementMethod('Array', 'species') = true
 [1, 2, 3].respondsTo(select:/2) = true {- does a value (courtesy the type) implement a method -}
 system.methodPrintString('add').size >= 3
 system.methodLookupAtType('collect', 2, 'Array').isMethod = true
@@ -4070,9 +4057,9 @@ RectangularCoordinate(-1, 1).isRectangularCoordinate = true
 (1, 2).asRectangularCoordinate = RectangularCoordinate(1, 2) {- two vector from tuple -}
 (x: 1, y: 2).asRectangularCoordinate = RectangularCoordinate(1, 2) {- two vector from array -}
 Point(-1, 1).isRectangularCoordinate = true {- point constructor -}
-[1, 2].asPoint = Point(1, 2) {- two vector from array -}
-(1, 2).asPoint = Point(1, 2) {- two vector from tuple -}
-(x: 1, y: 2).asPoint = Point(1, 2) {- two vector from array -}
+[1, 2].asPoint = Point(1, 2) {- array as point -}
+(1, 2).asPoint = Point(1, 2) {- tuple as point -}
+(x: 1, y: 2).asPoint = Point(1, 2) {- record as point -}
 Point(3, 4).isPoint & { true } = true
 (-1@1).isPoint.not = false
 -1@1 = Point(-1, 1)
@@ -4119,6 +4106,14 @@ let v = Point(3, 4); v.swapInPlace; v[1] = 4 {- swap fields in place -}
 Point(3, 4).swapped = Point(4, 3) {- answer swapped vector -}
 let v = (0 @ 0); let c = v.copy; c.x := 1; c ~= v & { c = (1 @ 0) } {- copy two vector -}
 Point(1, 1).asPolarCoordinate = PolarCoordinate(2.sqrt, 0.25.pi) {- radius and angle, r and theta -}
+[0, 0].asPoint.isRectangularCoordinate {- array as point, point predicate -}
+(0, 0).asPoint.isZero {- are x and y both zero -}
+(1 @ 1).norm = 2.sqrt {- magnitude, distance to origin -}
+(1 @ 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude -}
+(1 @ 1).normalized.norm ~ 1
+Point(1, 1).norm = 2.sqrt {- magnitude, distance to origin -}
+Point(1, 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude -}
+Point(1, 1).normalized.norm ~ 1
 ```
 
 ## CartesianCoordinate -- geometry type
@@ -4126,10 +4121,10 @@ Point(1, 1).asPolarCoordinate = PolarCoordinate(2.sqrt, 0.25.pi) {- radius and a
 [1, 2, 3].asCartesianCoordinate = CartesianCoordinate(1, 2, 3) {- three vector from array -}
 (1, 2, 3).asCartesianCoordinate = CartesianCoordinate(1, 2, 3) {- three vector from tuple -}
 (x: 1, y: 2, z: 3).asCartesianCoordinate = CartesianCoordinate(1, 2, 3) {- three vector from array -}
-[1, 2, 3].asPoint = Point(1, 2, 3) {- three vector from array -}
-(1, 2, 3).asPoint = Point(1, 2, 3) {- three vector from tuple -}
-(x: 1, y: 2, z: 3).asPoint = Point(1, 2, 3) {- three vector from array -}
-let a = [1, 2, 3]; let v = a.asPoint; v.asArray = [1, 2, 3] {- three vector to array -}
+[1, 2, 3].asPoint = Point(1, 2, 3) {- array as point -}
+(1, 2, 3).asPoint = Point(1, 2, 3) {- tuple as point -}
+(x: 1, y: 2, z: 3).asPoint = Point(1, 2, 3) {- record as point -}
+let a = [1, 2, 3]; let v = a.asPoint; v.asArray = [1, 2, 3] {- point as array -}
 Point(0, 0, 0).isZero {- are x, y and z all zero -}
 let v = Point(1, 2, 3); [v.x, v.y, v.z] = [1, 2, 3] {- fields are x, y, z -}
 let v = Point(3, 4, 5); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } {- implements at -}
@@ -4147,10 +4142,10 @@ Point(1, 2, 3).distance(Point(6, 5, 4)) = 35.sqrt
 Point(0, 0, 0).isCartesianCoordinate = true {- is Cartesian coordinate -}
 Point(0, 0, 0).isZero = true {- is zero -}
 let v = Point(0, 0, 0); v.asCartesianCoordinate == v {- identity -}
-Point(1, 3, 5).asArray = [1 3 5] {- the vector to array -}
-[1 3 5].asPoint = Point(1, 3, 5) {- three vector from array -}
+Point(1, 3, 5).asArray = [1 3 5] {- point as array -}
+[1 3 5].asPoint = Point(1, 3, 5) {- array as point -}
 Point(1, 3, 5).asRecord = (x: 1, y: 3, z: 5)
-(x: 1, y: 3, z: 5).asPoint = Point(1, 3, 5) {- three vector from record -}
+(x: 1, y: 3, z: 5).asPoint = Point(1, 3, 5) {- record as point -}
 SphericalCoordinate(1, 2, 3).asRecord = (r: 1, theta: 2, phi: 3)
 (r: 1, theta: 2, phi: 3).asSphericalCoordinate = SphericalCoordinate(1, 2, 3)
 CylindricalCoordinate(1, 1, 1).asCartesianCoordinate.asRecord = (x: 1.cos, y: 1.sin, z: 1)
@@ -4162,9 +4157,9 @@ Point(1.cos, 1.sin, 1).asCylindricalCoordinate.asRecord = (rho: 1, phi: 1, z: 1)
 [1, 2, 3, 4].asFourVector = FourVector(1, 2, 3, 4) {- four vector from array -}
 (1, 2, 3, 4).asFourVector = FourVector(1, 2, 3, 4) {- four vector from tuple -}
 (w: 1, x: 2, y: 3, z: 4).asFourVector = FourVector(1, 2, 3, 4) {- four vector from record -}
-[1, 2, 3, 4].asPoint = Point(1, 2, 3, 4) {- four vector from array -}
-(1, 2, 3, 4).asPoint = Point(1, 2, 3, 4) {- four vector from tuple -}
-(w: 1, x: 2, y: 3, z: 4).asPoint = Point(1, 2, 3, 4) {- four vector from record -}
+[1, 2, 3, 4].asPoint = Point(1, 2, 3, 4) {- array as point -}
+(1, 2, 3, 4).asPoint = Point(1, 2, 3, 4) {- tuple as point -}
+(w: 1, x: 2, y: 3, z: 4).asPoint = Point(1, 2, 3, 4) {- record as point -}
 let a = [1, 2, 3, 4]; let v = a.asPoint; v.asArray = [1, 2, 3, 4] {- four vector to array -}
 Point(0, 0, 0, 0).isZero {- are w, x, y and z all zero -}
 let v = Point(1, 2, 3, 4); [v.w, v.x, v.y, v.z] = [1, 2, 3, 4] {- fields are w, x, y, z -}
@@ -4181,7 +4176,12 @@ Vector(9).isCollection = true {- collection trait -}
 Vector(9).isIndexable = true {- indexable trait -}
 Vector(9).isSequenceable = true {- sequenceable trait -}
 Vector(0).isEmpty = true {- the empty vector -}
-[].asVector = Vector(0) {- array as vector -}
+[1 .. 5].asVector.first = 1 {- array as vector -}
+(1 .. 5).asVector.second = 2 {- interval as vector -}
+(1 .. 5).asVector.asArray = [1 .. 5] {- vector as array -}
+(1 .. 5).asVector.reversed.first = 5 {- reversed -}
+let v = Vector(9); v[5] = nil {- at protocol, initialised to nil -}
+let v = Vector(9); v[5] := 5; v[5] = 5 {- atPut protocol -}
 let v = Vector(9); let c = v.copy; v[5] := 5; c[5] = nil {- copy -}
 ```
 

@@ -47,12 +47,4 @@
 		}
 	}
 
-	removeLast { :self |
-		<primitive: return _self.pop();>
-	}
-
-	removeLast { :self :count |
-		<primitive: return _self.splice(_self.length - _count, _count);>
-	}
-
 }
