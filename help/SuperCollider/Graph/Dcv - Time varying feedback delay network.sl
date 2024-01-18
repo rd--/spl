@@ -36,8 +36,8 @@ let ctl = (
 	rotateAmount: 55
 ).localControls;
 let delMod = SinOsc(2, 0).LinLin(-1, 1, 1, 4);
-let gainEnv = Perc(trig, 0.001, 1, -4);
-let modEnv = Env([0 1 0], [0.125 0.5], [-8 -4], nil, nil, 0).asEnvGen(trig);
+let gainEnv = Perc(ctl::trig, 0.001, 1, -4);
+let modEnv = Env([0 1 0], [0.125 0.5], [-8 -4], nil, nil, 0).asEnvGen(ctl::trig);
 let inSig = Saw(XLine(100, 1000, 0.1)) * gainEnv;
 let order = 8;
 let size = ctl::size + modEnv.LinLin(0, 1, 0, ctl::sizeEnvAmount);
@@ -50,6 +50,6 @@ let sig = inSig + LocalIn(order, 0 ! order);
 sig := DelayC(sig, 0.5, delTimesSec * size - ControlDur());
 sig := sig * ctl::feedback;
 sig := OnePole(sig, ctl::coef);
-sig := sig * matrix(trig, ctl::rotateFreq, ctl::rotateAmount).transposed;
+sig := sig * matrix(ctl::trig, ctl::rotateFreq, ctl::rotateAmount).transposed;
 sig := sig.Sum;
 (inSig + sig.Splay2 <! LocalOut(sig)) * 0.5

@@ -18,7 +18,7 @@ let output = (1 .. numChans).collect { :cNum |
 	} {
 		1
 	};
-	let delayVal = (delayScale * randScale * delay.kr(0.1).LinLin(0, 1, 0.0001, 2)).Lag3(0.1);
+	let delayVal = (delayScale * randScale * ctl::delay.LinLin(0, 1, 0.0001, 2)).Lag3(0.1);
 	let phase = cNum.LinLin(1, numChans, -8.pi, 8.pi);
 	let lfoFreq = (randScale * ctl::modFreq.LinExp(0, 1, 0.0001, 10)).Lag3(0.1);
 	let minModAmount = ctl::modAmount.LinLin(0, 1, 1, 0.001).Lag(0.1) * delayVal;

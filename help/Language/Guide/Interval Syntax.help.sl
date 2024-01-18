@@ -14,8 +14,8 @@ The rewrite rules are:
 
 - _(p .. q)_ ⟹ _upOrDownTo(p, q)_
 - _(p, q .. r)_ ⟹ _thenTo(p, q, r)_
-- _[p .. q]_ ⟹ _(p .. q).Array_
-- _[p, q .. r]_ ⟹ _(p, q .. r).Array_
+- _[p .. q]_ ⟹ _(p .. q).asArray_
+- _[p, q .. r]_ ⟹ _(p, q .. r).asArray_
 
 In the case where both _p_ and _q_ are integer literals the interval can be written _p...q_.
 In the literal form, as with literal Fractions, white space is significant, and _p ... q_ is not allowed.

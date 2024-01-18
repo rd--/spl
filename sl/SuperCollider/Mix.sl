@@ -155,7 +155,7 @@
 +Array {
 
 	Mix { :self |
-		let ruleTable = system.preference('ScSynth/Outputs/Mixer/RuleTable', ['1×2', [1, 2]]);
+		let ruleTable = system.preference('ScSynth/Outputs/Mixer/RuleTable', [['1×2', [1, 2]]]);
 		let runArray = self.collect(size:/1).asRunArray;
 		let derivedPrefix = runArray.runsAndValuesCollect { :run :value |
 			[run.asString, '×', value.asString].join
