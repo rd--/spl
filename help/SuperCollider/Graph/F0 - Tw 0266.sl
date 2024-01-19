@@ -1,4 +1,4 @@
-{- https://sccode.org/1-4Qy ; f0 ; 0266 -}
+{- http://sccode.org/1-4Qy (F0) ; 0266 -}
 let b = (1 .. 6) / 2;
 let e = SinOsc(b / 99, 0) * 2 + 3;
 let c = (SinOsc(b, 0) / (4 / b)) + e.RoundTo(1) * 99;

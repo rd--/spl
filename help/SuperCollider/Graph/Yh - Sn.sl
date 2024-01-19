@@ -1,4 +1,4 @@
-{- https://github.com/pangrus/hachi/blob/master/lib/engine_hachi.sc ; yh (yoshinosuke horiuchi) -}
+{- http://github.com/pangrus/hachi/blob/master/lib/engine_hachi.sc ; yh (yoshinosuke horiuchi) -}
 let amp = 2;
 let tone = 340;
 let tone2 = 189;

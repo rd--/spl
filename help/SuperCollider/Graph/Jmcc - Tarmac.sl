@@ -1,4 +1,4 @@
-{- tarmac ; jmcc #10 ; graph rewrite ; requires=TScramble -}
+{- Tarmac (Jmcc) #10 ; Graph rewrite ; requires=TScramble -}
 let a = [
 	1 0 0;
 	1 1 0;

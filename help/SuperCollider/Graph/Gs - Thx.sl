@@ -1,4 +1,4 @@
-{- thx simulation (geirmund simonsen) -}
+{- Thx simulation (geirmund simonsen) -}
 let freqArray = [77 74 72 70 65 62 60 58 53 50 46 34].MidiCps;
 let randomFreq = Env([1 1 0.007], [8 6], [0 -4], 0, 0, 0).asEnvGen(1);
 let ampEnv = Env([0.07 0.07 0.21], [8 6], [0 1], 0, 0, 0).asEnvGen(1);

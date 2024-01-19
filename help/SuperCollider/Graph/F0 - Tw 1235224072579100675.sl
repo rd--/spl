@@ -1,4 +1,4 @@
-{- ---- CRASH? ---- https://twitter.com/redFrik/status/1235224072579100675 -}
+{- ---- CRASH? ---- http://twitter.com/redFrik/status/1235224072579100675 -}
 let f = 9;
 let e = (f % pi).Floor;
 let b = [0 .. 8] - 1 + pi.Tanh * pi * pi;

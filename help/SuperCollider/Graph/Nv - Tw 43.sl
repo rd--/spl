@@ -1,4 +1,4 @@
-{- https://swiki.hfbk-hamburg.de/MusicTechnology/899 (nv) L43 -}
+{- http://swiki.hfbk-hamburg.de/MusicTechnology/899 (nv) L43 -}
 (0 .. 9).collect { :i |
 	let x = Impulse(1, i / 10) + Impulse(0, 0);
 	let o = LfSaw([102 101], 0);

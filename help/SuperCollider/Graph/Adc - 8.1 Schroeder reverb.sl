@@ -1,4 +1,4 @@
-{- adc ; 8.1 ; http://www.audiosynth.com/files/SC2.2.16.sea.hqx -}
+{- Adc ; 8.1 ; http://www.audiosynth.com/files/SC2.2.16.sea.hqx -}
 let tapData = [ {- Early reflection tap data (times, levels) -}
 	[0.0043, 0.841],
 	[0.0215, 0.504],
@@ -44,7 +44,7 @@ tapData.do { :params |
 (1 .. 6).do { :index |
 	combsOut := combsOut + (
 		CombC(
-			revMonoInput + tapsOut, {- tapsOut could be scaled -}
+			revMonoInput + tapsOut, {- TapsOut could be scaled -}
 			0.1,
 			combData[index].first,
 			revTime

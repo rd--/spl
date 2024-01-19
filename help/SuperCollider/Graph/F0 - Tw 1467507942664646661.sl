@@ -1,4 +1,4 @@
-{- https://twitter.com/redFrik/status/1467507942664646661 ; requires=FbSineC -}
+{- http://twitter.com/redFrik/status/1467507942664646661 ; requires=FbSineC -}
 let b = [3 4 5 6 7 8 1 2];
 let fb1 = { :freq | FbSineC(freq, 1, 0.1, 1.1, 0.5, 0.1, 0.1) };
 let d = fb1(b / 12) > 0 / 80 + 1.051;

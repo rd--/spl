@@ -1,4 +1,4 @@
-{- swept resonant noise (jmcc) #2 ; graph rewrite -}
+{- Swept resonant noise (Jmcc) #2 ; Graph rewrite -}
 { :tr |
 	let p = 10;
 	let n = WhiteNoise() * 0.007;

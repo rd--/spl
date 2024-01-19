@@ -1,4 +1,4 @@
-{- https://sccode.org/1-4Qy ; f0 ; 0281 -}
+{- http://sccode.org/1-4Qy (F0) ; 0281 -}
 let b = 2 / (2 .. 9);
 let o = LfCub(b, 0) % LfCub(b / 5, 0);
 let p = b * [300 303] - Lag2(LfCub(b / 9, 0) > 0 * 50, 0.1);

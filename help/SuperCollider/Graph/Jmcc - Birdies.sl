@@ -1,4 +1,4 @@
-{- birdies (jmcc) #6 -}
+{- Birdies (Jmcc) #6 -}
 { :tr |
 	let p1 = {
 		LfPulse(

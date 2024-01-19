@@ -1,4 +1,4 @@
-{- f0  https://twitter.com/redFrik/status/1210118661022867458 -}
+{- F0  http://twitter.com/redFrik/status/1210118661022867458 -}
 let b = 1 / [2 .. 7];
 let d = 1 / 48;
 let g = 0.cos.cos;

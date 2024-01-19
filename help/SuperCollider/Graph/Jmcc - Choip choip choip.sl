@@ -1,4 +1,4 @@
-{- jmcc ; choip choip choip -}
+{- Jmcc ; choip choip choip -}
 let dur = 12;
 let z = { :tr |
 	let i = Impulse(

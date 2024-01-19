@@ -1,4 +1,4 @@
-{- https://twitter.com/hrhkymd/status/1601331785409134592 -}
+{- http://twitter.com/hrhkymd/status/1601331785409134592 -}
 let b = 1 / 25.6;
 let p = Impulse(b, 0);
 let f = Choose(p, [58 58.2 62; 56 56.2 67]) ++ [39 51 60 63 65];

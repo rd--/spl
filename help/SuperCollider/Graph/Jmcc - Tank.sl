@@ -1,4 +1,4 @@
-{- tank (jmcc) -}
+{- Tank (Jmcc) -}
 let r = { :i |
 	let l1 = OnePole(LocalIn(2, 0) * 0.98, 0.33);
 	let l2 = Rotate2(l1.first, l1.second, 0.23);

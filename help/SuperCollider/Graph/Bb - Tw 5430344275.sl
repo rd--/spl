@@ -1,4 +1,4 @@
-{- https://twitter.com/earslap/status/5430344275 -}
+{- http://twitter.com/earslap/status/5430344275 -}
 let n = { :freq | LfNoise0(freq) };
 let f = [60, 61];
 let l = n(6);

@@ -1,4 +1,4 @@
-{- tw 0049 (f0) -}
+{- Tw 0049 (F0) -}
 let o0 = LfSaw(3, 0) * 9 + 99;
 let s0 = Sweep(0, [3 .. 9]) % o0;
 let s1 = (Sweep(0, [31 .. 1] * -1 + 34) % 128).BitAnd(s0);

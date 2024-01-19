@@ -1,4 +1,4 @@
-{- https://sccode.org/1-4Qy ; f0 ; 0335 -}
+{- http://sccode.org/1-4Qy (F0) ; 0335 -}
 let o = GrainFm(
 	1,
 	LfSaw([0.5, 0.6], 0),

@@ -1,4 +1,4 @@
-{- dragtokeyboard (jmcc) ; graph rewrite ; http://www.iamas.ac.jp/~aka/dspss2004/materials/ -}
+{- Dragtokeyboard (Jmcc) ; Graph rewrite ; http://www.iamas.ac.jp/~aka/dspss2004/materials/ -}
 { :tr |
 	let sr = TExpRand(300, 3000, tr) + [-0.6 0.6];
 	let p1 = LfPulse(TExpRand(0.1, 1, tr), 0, 0.3) * 0.2 + 0.02;

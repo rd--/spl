@@ -1,4 +1,4 @@
-{- https://sccode.org/1-4Qy ; tweet0006 ; texture variant (rd) -}
+{- http://sccode.org/1-4Qy ; tweet0006 ; texture variant (rd) -}
 { :tr |
 	let n = MoogFf(
 		ClipNoise() * 0.4,

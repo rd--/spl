@@ -1,4 +1,4 @@
-{- https://sccode.org/1-4Q6 ; f0 ; risset ; requires=LinRand -}
+{- http://sccode.org/1-4Q6 (F0) ; risset ; requires=LinRand -}
 { :tr |
 	let pan = TRand(-1, 1, tr);
 	let freq = TRand(90, 2000, tr);

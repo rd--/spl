@@ -1,4 +1,4 @@
-{- clustered sines ; jmcc #2 ; graph rewrite -}
+{- Clustered sines (Jmcc) #2 ; Graph rewrite -}
 let n = 80;
 { :tr |
 	let f1 = TRand(100, 1100, tr);

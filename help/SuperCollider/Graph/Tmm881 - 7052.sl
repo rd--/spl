@@ -1,4 +1,4 @@
-{- https://scsynth.org/t/7052 ; tmm881 ; graph texture rewrite ; requires=XFadeTexture -}
+{- http://scsynth.org/t/7052 ; tmm881 ; graph texture rewrite ; requires=XFadeTexture -}
 { :tr |
 	let freqMul = TRand(0.5, 2, tr);
 	let env = {

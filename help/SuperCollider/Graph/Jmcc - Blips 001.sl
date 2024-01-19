@@ -1,4 +1,4 @@
-{- blips 001 (jmcc) #SC3d1.5 ; graph rewrite -}
+{- Blips 001 (Jmcc) #SC3d1.5 ; Graph rewrite -}
 let z = { :tr |
 	let blips = {
 		let f = TxLine(

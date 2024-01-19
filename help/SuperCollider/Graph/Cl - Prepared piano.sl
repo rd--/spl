@@ -1,8 +1,8 @@
-{- prepared just piano ; colby leider ; modified by jmcc ; graph rewrite by rd -}
-let c = 4; {- number of combs -}
-let a = 4; {- number of allpasses -}
-let v = 3; {- number of overlapped voices -}
-let d = MouseY(0, 1, 0, 0.2) > 0.5; {- is pitch space discrete or continuous -}
+{- Prepared just piano ; Colby Leider ; modified by Jmcc ; Graph rewrite (rd) -}
+let c = 4; {- Number of combs -}
+let a = 4; {- Number of allpasses -}
+let v = 3; {- Number of overlapped voices -}
+let d = MouseY(0, 1, 0, 0.2) > 0.5; {- Is pitch space discrete or continuous -}
 { :tr |
 	let y = Dust(MouseX(0.1, 4, 1, 0.2)) * 0.4;
 	y := Resonz(y, 400, 0.4);

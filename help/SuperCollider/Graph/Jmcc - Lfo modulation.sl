@@ -1,4 +1,4 @@
-{- lfo modulation of pulse waves and resonant filters ; jmcc -}
+{- Lfo modulation of pulse waves and resonant filters (Jmcc) -}
 CombL(
 	Rlpf(
 		LfPulse(MulAdd(SinOsc(0.05, 0), 80, 160), 0, 0.4) * 0.05,

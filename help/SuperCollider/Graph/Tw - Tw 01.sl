@@ -1,4 +1,4 @@
-{- https://swiki.hfbk-hamburg.de/MusicTechnology/899 ; tw ; tim walters -}
+{- http://swiki.hfbk-hamburg.de/MusicTechnology/899 ; Tw ; Tim Walters -}
 (0 .. 15).collect { :k |
 	(1 .. 6).collect { :i |
 		SinOsc(

@@ -1,4 +1,4 @@
-{- https://twitter.com/redFrik/status/1546903641575112715 ; requires=StandardL ; wait -}
+{- http://twitter.com/redFrik/status/1546903641575112715 ; requires=StandardL ; wait -}
 let b = [0 3.084 5.028 6.972 10.056];
 let k = DegreeToKey(b.asLocalBuf, 2 ^ StandardL(StandardL(b + 1 / 32, b + 1, 0.5, 0), b / 7 + 1, 0.5, 0) * 12, 12);
 let f1 = (k + 36 - (StandardL(1 / 32, 1, 0.5, 0) > 0)).MidiCps;

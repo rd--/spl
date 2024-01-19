@@ -1,4 +1,4 @@
-{- contamination zone ; jmcc #9 ; graph rewrite -}
+{- Contamination zone (Jmcc) #9 ; Graph rewrite -}
 let z = { :tr |
 	let f = TExpRand(800, 8000, tr);
 	let s = PinkNoise() * (LfNoise1(TRand(0, 3, tr)) * 0.0008 + 0.0022);

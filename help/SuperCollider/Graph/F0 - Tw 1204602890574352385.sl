@@ -1,4 +1,4 @@
-{- https://twitter.com/redFrik/status/1204602890574352385 -}
+{- http://twitter.com/redFrik/status/1204602890574352385 -}
 let c = 1 + 1;
 let d = 1 / ((1 .. 11) + 1) / 1;
 let p = VarSaw([11 - 1, 11 << 1, 11, 11 >> 1, 11 + 1] ^ (VarSaw(11.1, 1, 1 / 11) + 1.11111111), 0, 0.5);

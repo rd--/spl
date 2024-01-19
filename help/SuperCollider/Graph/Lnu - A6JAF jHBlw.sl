@@ -1,4 +1,4 @@
-{- https://www.youtube.com/watch?v=a6JAF-jHBlw ; lnu ; requires=Fm7 -}
+{- http://www.youtube.com/watch?v=a6JAF-jHBlw ; lnu ; requires=Fm7 -}
 let m = {
 	LfTri(0.005.Rand0, 0) * 0.0003 + 0.5
 };

@@ -1,4 +1,4 @@
-{- bidirectional strummable guitar (jmcc) #11 -}
+{- Bidirectional strummable guitar (Jmcc) #11 -}
 let pitch1 = [52 57 62 67 71 76];
 let pitch2 = pitch1 + 7;
 let mouseX = MouseX(0, 1, 0, 0.2);

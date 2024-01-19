@@ -1,4 +1,4 @@
-{- f0 ; https://twitter.com/redFrik/status/1395040511795372038 -}
+{- F0 ; http://twitter.com/redFrik/status/1395040511795372038 -}
 let b = [2 6 3 1];
 let c = 500;
 let f = Duty(

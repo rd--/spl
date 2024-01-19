@@ -1,4 +1,4 @@
-{- https://sccode.org/1-4Qy ; f0 ; 0347 -}
+{- http://sccode.org/1-4Qy (F0) ; 0347 -}
 (0 .. 29).collect { :i |
 	let c = i / 48;
 	let b = c / 72;

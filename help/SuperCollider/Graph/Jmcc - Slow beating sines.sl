@@ -1,4 +1,4 @@
-{- slow beating sines (jmcc) #7 ; graph rewrite ; requires Array>>add -}
+{- Slow beating sines (Jmcc) #7 ; Graph rewrite ; requires Array>>add -}
 { :tr |
 	let n = 20;
 	let p = [];

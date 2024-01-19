@@ -1,4 +1,4 @@
-{- coolant ; jmcc #2 ; graph rewrite ; requires=XFadeTexture -}
+{- Coolant (Jmcc) #2 ; Graph rewrite ; requires=XFadeTexture -}
 let o = OnePole(BrownNoise() * 0.002, 0.95);
 XFadeTexture({ :tr |
 	{

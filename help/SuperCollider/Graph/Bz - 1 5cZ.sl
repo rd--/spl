@@ -1,4 +1,4 @@
-{- https://sccode.org/1-5cZ ; bz (bernardo zitto) ; graph edit -}
+{- http://sccode.org/1-5cZ ; bz (bernardo zitto) ; graph edit -}
 { :tr |
 	let n = 16;
 	let sig = {

@@ -1,4 +1,4 @@
-{- 20060914 ; rd ; graph rewrite ; requires=Sine ; requires=arrayedEnv -}
+{- 20060914 ; rd ; Graph rewrite ; requires=Sine ; requires=arrayedEnv -}
 { :tr |
 	let chrd = { :m |
 		let ds = 3;

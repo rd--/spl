@@ -1,4 +1,4 @@
-{- Noise beats ; Jmcc -}
+{- Noise beats (Jmcc) -}
 let imp = Impulse(8, 0);
 let trig = Demand(imp, 0, Dseq(inf, [0.2, 0.1, 0.1, 0.2, 0.1, 0.1, 0.2, 0.1])) * imp;
 let amp = Decay2(trig, 0.0004, 0.2);

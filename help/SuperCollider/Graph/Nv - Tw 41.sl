@@ -1,4 +1,4 @@
-{- https://swiki.hfbk-hamburg.de/MusicTechnology/899 (Nv) [Line 41] -}
+{- http://swiki.hfbk-hamburg.de/MusicTechnology/899 (Nv) [Line 41] -}
 (1 .. 15).collect { :i |
 	let f = 1.9 ^ i / 128;
 	let p = PinkNoise(2);

@@ -1,4 +1,4 @@
-{- random sine waves (jmcc) #1 ; graph rewrite -}
+{- Random sine waves (Jmcc) #1 ; Graph rewrite -}
 { :tr |
 	EqPan2(
 		SinOsc(TRand(20, 2000, tr), 0),

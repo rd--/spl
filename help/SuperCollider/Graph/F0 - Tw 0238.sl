@@ -1,4 +1,4 @@
-{- https://sccode.org/1-4Qy ; f0 ; 0238 -}
+{- http://sccode.org/1-4Qy (F0) ; 0238 -}
 let b = [7 6 5 4];
 let c = LfCub(b / 99, 0) % 1 / 50;
 let o = Formlet(

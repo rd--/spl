@@ -1,4 +1,4 @@
-{- https://twitter.com/redFrik/status/1562193233001623552 ; f0 -}
+{- http://twitter.com/redFrik/status/1562193233001623552 ; F0 -}
 let c = SinOscFb(1 / 64, 0).RoundTo(1) * 10 + 50;
 let o = SinOscFb((SinOscFb([1 .. 5], 1) * 3).RoundTo(1) + 5 * c, 1);
 let p = o * SinOscFb(12, 1).Max(1) * 3;

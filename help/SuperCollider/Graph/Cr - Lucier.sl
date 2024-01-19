@@ -1,4 +1,4 @@
-{- lucier (cr) ; http://www.listarc.bham.ac.uk/lists/sc-users/msg47539.html -}
+{- Lucier (cr) ; http://www.listarc.bham.ac.uk/lists/sc-users/msg47539.html -}
 let bus = 20; {- These may audible on large multi-channel systems -}
 { :tr |
 	let freq = TRand(56, 64, tr);

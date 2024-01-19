@@ -1,4 +1,4 @@
-{- https://sccode.org/1-4Qy ; f0 ; 0288 -}
+{- http://sccode.org/1-4Qy (F0) ; 0288 -}
 let b = [1 .. 4];
 let c = b + 8;
 let f = SelectX(

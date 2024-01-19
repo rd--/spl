@@ -1,4 +1,4 @@
-{- https://twitter.com/redFrik/status/1598714366483959809 -}
+{- http://twitter.com/redFrik/status/1598714366483959809 -}
 let b = [1 .. 9];
 let l = SinOsc(9 ^ SinOsc(1 / 99, 0) / b, 0);
 let p = LocalIn(9, 0);

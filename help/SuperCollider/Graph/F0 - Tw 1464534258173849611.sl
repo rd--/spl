@@ -1,4 +1,4 @@
-{- https://twitter.com/redFrik/status/1464534258173849611 ; f0 -}
+{- http://twitter.com/redFrik/status/1464534258173849611 ; F0 -}
 let b = [11 12 13 1 2 3 4 5 6 7 8 9 10];
 let n = GrayNoise() * SinOsc(1 / b / 99, 0).Max(0);
 let f = 62.5 * b;

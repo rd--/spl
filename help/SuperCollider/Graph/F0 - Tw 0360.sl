@@ -1,4 +1,4 @@
-{- https://sccode.org/1-4Qy ; f0 ; 0360 -}
+{- http://sccode.org/1-4Qy (F0) ; 0360 -}
 let t = SinOsc([7.992, 8], 0);
 let e = Perc(t, 0.005, 0.2, -4);
 let f = [1, 2].collect { :i |

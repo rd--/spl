@@ -1,4 +1,4 @@
-{- impulse sequencer (jmcc) Sc2 -}
+{- Impulse sequencer (Jmcc) Sc2 -}
 let t = Impulse(8, 0);
 let seq = { :s | t * Demand(t, 0, Dseq(inf, s)) };
 let cSeq = seq([1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0]);
