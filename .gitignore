@@ -1,4 +1,6 @@
-dist/spl.js
+.cache
+deno.lock
+dist/sl.js
 lib/flatqueue
 lib/jssc3
 lib/osc.js
