@@ -1,0 +1,108 @@
+{
+	"fileTypes": ["sl"],
+	"scopeName": "source.spl",
+	"foldingStartMarker": "\\{|\\[|\\(",
+	"foldingStopMarker": "\\}|\\]|\\)",
+	"name": "Spl",
+	"repository": {
+		"numeric": {
+			"patterns": [
+				{
+					"name": "constant.numeric.spl",
+					"match": "\\b(\\d(?>_?\\d)*(\\.(?![^[:space:][:digit:]])(?>_?\\d)*)?(e[-+]?\\d(?>_?\\d)*)?)\\b"
+				}
+			]
+		},
+		"variable": {
+			"patterns": [
+				{
+					"name": "variable.spl",
+					"match": "([a-z][a-zA-Z0-9]*)\\b"
+				}
+			]
+		},
+		"class": {
+			"patterns": [
+				{
+					"captures": {
+						"1": {
+							"name": "entity.name.class.spl"
+						}
+					},
+					"match": "\\b([A-Z_]{1}[a-zA-Z0-9_]*)[^a-zA-Z0-9_]"
+				}
+			]
+		}
+	},
+	"patterns": [
+		{
+			"include": "#class"
+		},
+		{
+			"include": "#variable"
+		},
+		{
+			"include": "#numeric"
+		},
+		{
+			"name": "variable.language.spl",
+			"match": "\\b(true|false|nil|inf)\\b"
+		},
+		{
+			"name": "storage.type.spl",
+			"match": "\\blet\\b"
+		},
+		{
+			"name": "keyword.control.spl",
+			"match": "\\b(ifTrue|ifFalse|if|whileTrue|whileFalse|do)\\b"
+		},
+		{
+			"name": "keyword.operator.spl",
+			"match": "\\b(\\*|\/|\\\\|\\+|\\-|<|>|\\||@|\\?|\\!)+\\b"
+		},
+		{
+			"name": "variable.parameter.function.spl",
+			"match": "\\b(\\:[a-z][A-Z0-9]*)\\b"
+		},
+		{
+			"begin": "'",
+			"end": "'",
+			"name": "string.quoted.single.spl",
+			"patterns": [
+				{
+					"match": "\\.",
+					"name": "constant.character.escape.spl"
+				}
+			]
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "constant.other.symbol.spl"
+				}
+			},
+			"match": "([a-z][a-zA-Z0-9]*)\\s*\\:"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "entity.name.class.supercollider"
+				}
+			},
+			"match": "^\\s*\\+*\\s*([@A-Z]{1}[a-zA-Z0-9_]*)\\s*\\:{1}\\s*([A-Z]{1}[a-zA-Z0-9_]*)\\s*\\{"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "entity.name.function.spl"
+				}
+			},
+			"match": "^\\s*(\\**[a-zA-Z]{1}[a-zA-Z0-9]+)\\s*\\{"
+		},
+		{
+			"begin": "\\{\\-",
+			"end": "\\-\\}",
+			"name": "comment.multiline.spl"
+		}
+	]
+}

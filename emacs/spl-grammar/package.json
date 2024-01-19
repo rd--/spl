@@ -19,7 +19,7 @@
 			{
 				"language": "spl",
 				"scopeName": "source.spl",
-				"path": "./spl.tmGrammar.json"
+				"path": "./spl.tmLanguage.json"
 			}
 		]
 	},
