@@ -159,6 +159,7 @@
 	'SuperCollider-Env'
 	'SuperCollider-J'
 	'SuperCollider-KeywordUgens'
+	'SuperCollider-L'
 	'SuperCollider-LocalControl'
 	'SuperCollider-Mix'
 	'SuperCollider-PseudoUgens'

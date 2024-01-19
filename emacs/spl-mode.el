@@ -161,9 +161,9 @@
 
 (defun spl-fill-syntax-table (st)
   "Modify the syntax table ST for Spl."
-  (modify-syntax-entry ?\- ". 23n" st) ; comment second and second last
-  (modify-syntax-entry ?\{ "()1" st) ; comment first
-  (modify-syntax-entry ?\} ")(4" st) ; comment last
+  ;;(modify-syntax-entry ?\- ". 23n" st) ; comment second and second last
+  ;;(modify-syntax-entry ?\{ "()1" st) ; comment first
+  ;;(modify-syntax-entry ?\} ")(4" st) ; comment last
   (modify-syntax-entry ?' "\"" st) ; string quote
   (modify-syntax-entry ?\" "\"" st) ; string quote
   ;;(modify-syntax-entry ?\; ". 12b" st)
@@ -257,6 +257,8 @@
      ("mu" .?μ) ; U+03BC μ Greek Small Letter Mu
      ("compose" .?∘) ;  U+2218 ∘ Ring Operator
      ("inf" .?∞) ; U+221E ∞ Infinity
+     ("{-" . ?⦃) ; U+2983 ⦃ Left White Curly Bracket
+     ("-}" . ?⦄) ; U+2984 ⦄ Right White Curly Bracket
      )))
 
 (defun spl-fill-mode-map (map)

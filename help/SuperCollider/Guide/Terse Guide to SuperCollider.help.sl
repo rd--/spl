@@ -97,3 +97,28 @@ SfAcquire('piano-c5', 2, [1, 2]) = [100, 101]
 system.scSynth.typeOf = 'ScSynth'
 system.scSynth.isScSynth
 ```
+
+## L -- stream library
+```
+Lonce(1).upToEnd = [1]
+let l = Lonce(1); let a = l.upToEnd; l.reset ; l.upToEnd = a
+Lonce(Lseries(1, 1, 3)).upToEnd = [1 2 3]
+Lforever(1).next(5) = [1 1 1 1 1]
+Lgeom(1, 3, inf).next(5) = [1 3 9 27 81]
+let l = Lgeom(1, 3, inf); let a = l.next(5); l.reset; l.next(5) = a
+let p = Lgeom(1, 3, inf); let q = Lgeom(3, 5, inf); p.next(4) ++ q.next(4) = [1 3 9 27 3 15 75 375]
+Lseries(1, 3, inf).next(5) = [1 4 7 10 13]
+let l = Lseries(1, 3, inf); let a = l.next(5); l.reset; l.next(5) = a
+let p = Lseries(1, 3, inf); let q = Lseries(3, 5, inf); p.next(4) ++ q.next(4) = [1 4 7 10 3 8 13 18]
+Lcat([1 2 3]).upToEnd = [1 2 3]
+let l = Lcat([1 2 3]); let a = l.upToEnd; l.reset; l.upToEnd = a
+Lcat([Lgeom(1, 3, 4), 0, Lseries(1, 3, 4)]).upToEnd = [1 3 9 27 0 1 4 7 10]
+Ln(Lseries(1, 1, 3), 2).upToEnd = [1 2 3 1 2 3]
+Lseq([1 2 3], 2).upToEnd = [1 2 3 1 2 3]
+Lseq([1 2 3], inf).next(9) = [1 2 3 1 2 3 1 2 3]
+Lseq([Lgeom(1, 3, 3), Lseries(1, 3, 3)], 2).upToEnd = [1 3 9 1 4 7 1 3 9 1 4 7]
+Ldup(Lseries(1, 3, 5), 2).upToEnd = [1 1 4 4 7 7 10 10 13 13]
+Ldup(Lseries(1, 3, 5), Lseq([2, 3], inf)).upToEnd = [1 1 4 4 4 7 7 10 10 10 13 13]
+Ltake(Lforever(1), 3).upToEnd = [1 1 1]
+Lclutch(Lseries(1, 3, 5), Lseq([true, false, true, true, false], inf), -1).upToEnd = [1 1 4 7 7 10 10 13]
+```

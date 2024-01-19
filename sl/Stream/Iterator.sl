@@ -92,7 +92,7 @@
 	upToEnd { :self |
 		let answer = [];
 		self.do { :each |
-			asnwer.addLast(each)
+			answer.addLast(each)
 		};
 		answer
 	}

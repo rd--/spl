@@ -16,6 +16,7 @@
 	'ContinuousEvent'
 	'Env'
 	'J'
+	'L'
 	'LocalControl'
 	'Mix' {- < Ugen -}
 	'KeywordUgens' {- < Ugen -}
