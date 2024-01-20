@@ -1,22 +1,4 @@
-BlockStream : [Object, Iterator, Stream] { | onNext onReset |
-
-	next { :self |
-		self.onNext.value
-	}
-
-	reset { :self |
-		self.onReset.value
-	}
-
-}
-
-+Block {
-
-	BlockStream { :onNext :onReset |
-		newBlockStream().initializeSlots(onNext, onReset)
-	}
-
-}
+{- Requires: BlockStream -}
 
 +@Object {
 
@@ -179,9 +161,70 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 		}
 	}
 
+	Lxrand { :list |
+		let previous = nil;
+		let next = list.atRandom;
+		BlockStream {
+			{
+				next = previous
+			}.whileTrue {
+				next := list.atRandom
+			};
+			previous := next;
+			next
+		} {
+		}
+	}
+
+	Lxrand { :list :count |
+		Ltake(Lxrand(list), count)
+	}
+
 }
 
 +@Stream {
+
+	* { :lhs :rhs |
+		rhs.adaptToStreamAndApply(lhs, *)
+	}
+
+	/ { :lhs :rhs |
+		rhs.adaptToStreamAndApply(lhs, /)
+	}
+
+	+ { :lhs :rhs |
+		rhs.adaptToStreamAndApply(lhs, +)
+	}
+
+	- { :lhs :rhs |
+		rhs.adaptToStreamAndApply(lhs, -)
+	}
+
+	Lbinop { :lhs :rhs :aBlock:/2 |
+		let atEnd = false;
+		BlockStream {
+			atEnd.if {
+				nil
+			} {
+				let p = lhs.next;
+				let q = rhs.next;
+				(
+					p.isNil | {
+						q.isNil
+					}
+				).if {
+					atEnd := true;
+					nil
+				} {
+					aBlock(p, q)
+				}
+			}
+		} {
+			lhs.reset;
+			rhs.reset;
+			atEnd := false
+		}
+	}
 
 	Lclump { :input :size |
 		size := Lforever(size);
@@ -208,19 +251,6 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 		} {
 			input.reset;
 			latch.reset
-		}
-	}
-
-	Lcollect { :input :aBlock:/1 |
-		BlockStream {
-			let next = input.next;
-			next.isNil.if {
-				nil
-			} {
-				aBlock(next)
-			}
-		} {
-			input.reset
 		}
 	}
 

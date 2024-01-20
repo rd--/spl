@@ -162,8 +162,8 @@
 (defun spl-fill-syntax-table (st)
   "Modify the syntax table ST for Spl."
   ;;(modify-syntax-entry ?\- ". 23n" st) ; comment second and second last
-  ;;(modify-syntax-entry ?\{ "()1" st) ; comment first
-  ;;(modify-syntax-entry ?\} ")(4" st) ; comment last
+  (modify-syntax-entry ?\{ "(}1" st) ; comment first
+  (modify-syntax-entry ?\} "){4" st) ; comment last
   (modify-syntax-entry ?' "\"" st) ; string quote
   (modify-syntax-entry ?\" "\"" st) ; string quote
   ;;(modify-syntax-entry ?\; ". 12b" st)

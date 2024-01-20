@@ -125,7 +125,7 @@ Lclutch(Lseries(1, 3, 5), Lseq([1 0 1 1 0], inf), -1).upToEnd = [1 1 4 7 7 10 10
 Lclump(Lseries(1, 1, 5), 2).upToEnd = [1 2; 3 4; 5]
 Lclump(Lseries(1, 1, 11), Lcyc([2 3])).upToEnd = [1 2; 3 4 5; 6 7; 8 9 10; 11]
 Lrand([1 3 5 7 9], 99).upToEnd.asSet = [1 3 5 7 9].asSet
-Lcollect(Lseries(1, 1, 9)) { :each | each * each }.upToEnd = [1 4 9 16 25 36 49 64 81]
+Lseries(1, 1, 9).collect { :each | each * each }.upToEnd = [1 4 9 16 25 36 49 64 81]
 Lselect(Lseries(1, 1, 9), even:/1).upToEnd = [2 4 6 8]
 Lselect(Lseries(1, 1, inf), even:/1).next(4) = [2 4 6 8]
 Lreject(Lseries(1, 1, 9), even:/1).upToEnd = [1 3 5 7 9]
@@ -135,10 +135,14 @@ Lswitch1([Lseries(1, 2, 3), Lgeom(2, 3, 3)], Lcyc([1, 2])).next(9) = [1 2 3 6 5 
 let a = Lseq([1 2], 2); let b = Lseq([6 7], 1); Lswitch([a b 8], Lseq([3 3 1 2], inf)).next(10) = [8 8 1 2 1 2 6 7 8 8]
 Llace([1, Lcyc([2 5]), Lcyc([3 6])]).next(8) = [1 2 3 1 5 6 1 2]
 Llace([1, Lcyc([2 5]), Lcyc([3 6])], 8).upToEnd = [1 2 3 1 5 6 1 2]
-a = Lcyc([1 2 3]);
-b = Pseq([65, 76], inf);
 Ltuple([1 2 3; 4 5; 6].collect(Lcyc:/1), inf).next(6) = [1 4 6; 2 5 6; 3 4 6; 1 5 6; 2 4 6; 3 5 6]
 Ltuple([Lcyc([1 .. 5]), Lseq([5 6 7], 2)], 1).upToEnd = [1 5; 2 6; 3 7; 4 5; 5 6; 1 7; 1 5]
 Ldrop(Lseries(1, 2, 5), 2).upToEnd = [5 7 9]
 let l = Ldrop(Lseries(1, 2, 5), 2); let a = l.upToEnd; l.reset; l.upToEnd = a
+Lxrand([1 3 5 7 9], 99).upToEnd.differentiate.includes(0).not {- does not includes succesive duplicates -}
+Lrand([1 3 5 7 9], 99).upToEnd.differentiate.includes(0) {- includes succesive duplicates -}
+(Lgeom(1, 3, 4) + Lseries(1, 3, inf)).upToEnd = [1 + 1, 3 + 4, 9 + 7, 27 + 10]
+(Lgeom(1, 3, 4) * Lseries(1, 3, inf)).upToEnd = ([1 3 9 27] * [1 4 7 10])
+(Lgeom(2, 4, 5) / 2).upToEnd = [1 4 16 64 256]
+(512 / Lgeom(2, 4, 5)).upToEnd = [256 64 16 4 1]
 ```

@@ -52,6 +52,7 @@
 	'Stream'
 	'PositionableStream'
 	'WriteStream'
+	'BlockStream'
 	'CollectionStream'
 	'MutableCollectionStream'
 	'AsciiStream'

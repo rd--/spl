@@ -148,6 +148,7 @@
 	'SmallKansas-Workspace'
 	'SmallKansas-WorldMenu'
 	'Stream-AsciiStream'
+	'Stream-BlockStream'
 	'Stream-CollectionStream'
 	'Stream-Iterator'
 	'Stream-MutableCollectionStream'
