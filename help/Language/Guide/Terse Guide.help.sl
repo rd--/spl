@@ -2447,6 +2447,7 @@ let x = { }; x:/0.isBlock {- blocks are objects and may be assigned to a variabl
 { :p1 :p2| p1 ++ ' & ' ++ p2 }.value('x', 'y') = 'x & y' {- block with argument passing -}
 { :x | x + 1 }.numArgs = 1 {- the number of arguments can be retrieved -}
 { :x | x := nil }.value(42).isNil {- arguments are mutable -}
+let f = { :x :y | x := y; x }; f(1, 3) = 3 {- arguments are mutable -}
 { } ~= { } {- inequality -}
 ({ } = { }).not {- inequality -}
 { 1 } ~= { 1 } {- inequality -}

@@ -40,6 +40,10 @@ Boolean! : [Object, Json] {
 		self.if { 1 } { 0 }
 	}
 
+	asBoolean { :self |
+		self
+	}
+
 	asInteger { :self |
 		self.asBit
 	}
@@ -94,6 +98,22 @@ Boolean! : [Object, Json] {
 
 	assertIsBoolean { :self |
 		self.error('assertIsBoolean')
+	}
+
+}
+
++@Integer {
+
+	asBoolean { :self |
+		(self = 0).if {
+			false
+		} {
+			(self = 1).if {
+				true
+			} {
+				'@Integer>>asBoolean: not 0 or 1'.error
+			}
+		}
 	}
 
 }

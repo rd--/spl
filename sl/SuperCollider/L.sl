@@ -63,88 +63,215 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 +@Sequenceable {
 
 	Lcat { :list |
-		let items = list.collect(Lonce:/1);
 		let index = 1;
+		list.replace(Lonce:/1);
 		BlockStream {
-			(index > items.size).if {
+			(index > list.size).if {
 				nil
 			} {
-				let next = items[index].next;
+				let next = list[index].next;
 				{
 					next.isNil & {
-						index < items.size
+						index < list.size
 					}
 				}.whileTrue {
 					index := index + 1;
-					next := items[index].next
+					next := list[index].next
 				};
 				next
 			}
 		} {
-			items.do(reset:/1);
+			list.do(reset:/1);
 			index := 1
 		}
+	}
+
+	Lcyc { :list |
+		Lseq(list, inf)
+	}
+
+	Llace { :list |
+		let index = 1;
+		list.replace(Lonce:/1);
+		BlockStream {
+			let next = list[index].next;
+			next.ifNil {
+				list[index].reset;
+				next := list[index].next
+			};
+			(index >= list.size).if {
+				index := 1
+			} {
+				index := index + 1
+			};
+			next
+		} {
+		}
+	}
+
+	Llace { :list :count |
+		Ltake(Llace(list), count)
+	}
+
+	Lrand { :list |
+		BlockStream {
+			list.atRandom
+		} {
+		}
+	}
+
+	Lrand { :list :count |
+		Ltake(Lrand(list), count)
 	}
 
 	Lseq { :list :repeats |
 		Ln(Lcat(list), repeats)
 	}
 
+	Lswitch { :list :which |
+		| index |
+		list.replace(Lonce:/1);
+		which := Lforever(which);
+		index := which.next;
+		BlockStream {
+			let next = list[index].next;
+			next.ifNil {
+				list[index].reset;
+				index := which.next;
+				next := list[index].next
+			};
+			next
+		} {
+			list.do(reset:/1);
+			which.reset
+		}
+	}
+
+	Lswitch1 { :list :which |
+		list.replace(Lforever:/1);
+		which := Lforever(which);
+		BlockStream {
+			list[which.next].next
+		} {
+			list.do(reset:/1);
+			which.reset
+		}
+	}
+
+	Ltuple { :list :repeats |
+		let count = repeats;
+		list.replace(Lonce:/1);
+		BlockStream {
+			(count <= 0).if {
+				nil
+			} {
+				let next = list.collect(next:/1);
+				next.anySatisfy(isNil:/1).ifTrue {
+					count := count - 1;
+					list.do(reset:/1);
+					next := list.collect(next:/1)
+				};
+				next
+			}
+		} {
+			list.do(reset:/1);
+			count := repeats
+		}
+	}
+
 }
 
 +@Stream {
 
-	Lclutch { :self :latch :initialValue |
+	Lclump { :input :size |
+		size := Lforever(size);
+		BlockStream {
+			let answer = input.take(size.next);
+			answer.isEmpty.if {
+				nil
+			} {
+				answer
+			}
+		} {
+			input.reset;
+			size.reset
+		}
+	}
+
+	Lclutch { :input :latch :initialValue |
 		let previous = initialValue;
 		BlockStream {
-			latch.next.ifTrue {
-				previous := self.next
+			latch.next.asBoolean.ifTrue {
+				previous := input.next
 			};
 			previous
 		} {
-			self.reset;
+			input.reset;
 			latch.reset
 		}
 	}
 
-	Ldup { :self :repeats |
-		let repeatsForever = Lforever(repeats);
+	Lcollect { :input :aBlock:/1 |
+		BlockStream {
+			let next = input.next;
+			next.isNil.if {
+				nil
+			} {
+				aBlock(next)
+			}
+		} {
+			input.reset
+		}
+	}
+
+	Ldrop { :input :count |
+		input.next(count);
+		BlockStream {
+			input.next
+		} {
+			input.reset;
+			input.next(count)
+		}
+	}
+
+	Ldup { :input :repeats |
 		let remain = 1;
 		let next = nil;
+		repeats := Lforever(repeats);
 		BlockStream {
 			remain := remain - 1;
 			(remain <= 0).ifTrue {
-				remain := repeatsForever.next;
-				next := self.next
+				remain := repeats.next;
+				next := input.next
 			};
 			next
 		} {
-			self.reset;
-			repeatsForever.reset;
+			input.reset;
+			repeats.reset;
 			remain := 1
 		}
 	}
 
-	Lforever { :self |
-		Ln(self, inf)
+	Lforever { :input |
+		Ln(input, inf)
 	}
 
-	Ln { :self :repeats |
+	Ln { :input :repeats |
 		let repeat = 1;
 		BlockStream {
-			let next = self.next;
+			let next = input.next;
 			{
 				next.isNil & {
 					repeat < repeats
 				}
 			}.whileTrue {
-				self.reset;
+				input.reset;
 				repeat := repeat + 1;
-				next := self.next
+				next := input.next
 			};
 			next
 		} {
-			self.reset;
+			input.reset;
 			repeat := 1
 		}
 	}
@@ -153,18 +280,40 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 		self
 	}
 
-	Ltake { :self :limit |
+	Lreject { :input :aBlock:/1 |
+		Lselect(input) { :each |
+			aBlock(each).not
+		}
+	}
+
+	Lselect { :input :aBlock:/1 |
+		BlockStream {
+			let next = input.next;
+			{
+				next.isNil | {
+					aBlock(next)
+				}
+			}.whileFalse {
+				next := input.next
+			};
+			next
+		} {
+			input.reset
+		}
+	}
+
+	Ltake { :input :limit |
 		let count = 1;
 		BlockStream {
 			(count > limit).if {
 				nil
 			} {
 				count := count + 1;
-				self.next
+				input.next
 			}
 		} {
 			count := 1;
-			self.reset
+			input.reset
 		}
 	}
 

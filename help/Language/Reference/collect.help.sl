@@ -17,5 +17,4 @@ and in terms of _ofSize_, _size_, _at_ and _atPut_ for sequenceable collections.
 
 * * *
 
-See also: select, reject, withCollect, withIndexCollect
-
+See also: reject, replace, select, withCollect, withIndexCollect
