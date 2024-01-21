@@ -45,7 +45,7 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 	% { :self :anInteger |
 		<primitive:
-		var i = BigInt(_anInteger);
+		const i = BigInt(_anInteger);
 		return ((_self % i) + i) % i;
 		>
 	}

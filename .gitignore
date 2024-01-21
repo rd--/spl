@@ -1,4 +1,4 @@
-.cache
+.cache/*.js
 deno.lock
 dist/sl.js
 lib/flatqueue

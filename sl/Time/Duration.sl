@@ -165,7 +165,7 @@ Duration : [Object, Magnitude] { | milliseconds |
 	parseIso8601DurationAsArray { :self |
 		<primitive:
 		const regex = /P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?$/;
-		const [unused, years, months, weeks, days, hours, minutes, seconds] = _self.match(regex);
+		const [_unused, years, months, weeks, days, hours, minutes, seconds] = _self.match(regex);
 		return [years, months, weeks, days, hours, minutes, seconds].map(function(x) {
 			return x ? Number(x) : 0;
 		});

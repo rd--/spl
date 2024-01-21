@@ -36,7 +36,7 @@
 
 	removeKeyIfAbsent { :self :key :aBlock |
 		<primitive:
-		var existed = _self.delete(_key);
+		const existed = _self.delete(_key);
 		if(existed) {
 			return _key;
 		} else {

@@ -66,7 +66,7 @@ URLSearchParams! : [Object, Iterable, UrlSearchParams] {
 
 	keys { :self |
 		<primitive:
-		var answer = [];
+		const answer = [];
 		for(const key of _self.keys()) {
 			answer.push(key);
 		}
@@ -76,7 +76,7 @@ URLSearchParams! : [Object, Iterable, UrlSearchParams] {
 
 	keysAndValuesDo { :self :aBlock:/2 |
 		<primitive:
-		return _self.forEach(function(value, key, myself) {
+		_self.forEach(function(value, key, _myself) {
 			_aBlock_2(key, value);
 		});
 		return _self;
@@ -103,7 +103,7 @@ URLSearchParams! : [Object, Iterable, UrlSearchParams] {
 
 	values { :self |
 		<primitive:
-		var answer = [];
+		const answer = [];
 		for(const value of _self.values()) {
 			answer.push(value);
 		}

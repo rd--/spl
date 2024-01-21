@@ -57,7 +57,7 @@
 
 	detectIfFoundIfNone { :self :aBlock:/1 :whenFound:/1 :whenNone:/0 |
 		<primitive:
-		var item = _self.find(function(element) {
+		const item = _self.find(function(element) {
 			return _aBlock_1(element);
 		});
 		return (item !== undefined) ? _whenFound_1(item) : _whenNone_0();
@@ -75,7 +75,7 @@
 
 	findFirstElement { :self :aBlock:/1 |
 		<primitive:
-		var item = _self.find(function(element) {
+		const item = _self.find(function(element) {
 			return _aBlock_1(element);
 		});
 		return (item === undefined) ? null : item;
@@ -84,7 +84,7 @@
 
 	findFirst { :self :aBlock:/1 |
 		<primitive:
-		var index = _self.findIndex(function(element) {
+		const index = _self.findIndex(function(element) {
 			return _aBlock_1(element);
 		});
 		return index + 1;

@@ -12,6 +12,16 @@ function genName(name: string, arity: number): string {
 	return `${name}_${arity}`;
 }
 
+function genArityCheck(k: number, a: string): string {
+	return [
+		`if(arguments.length !== ${k}) {`,
+		`const errorMessage = 'Arity: expected ${k}, ${a}';`,
+		'console.error(errorMessage);',
+		'throw Error(errorMessage);',
+		'}\n',
+	].join(' ');
+}
+
 function quoteNewLines(input: string): string {
 	return input.replaceAll('\n', '\\n');
 }
@@ -32,18 +42,26 @@ function makeTypeDefinition(
 			`'${name}'`
 		);
 	const traitList = traits.split(', ').filter((each) => each.length > 0);
-	const addType =
-		`sl.addType(${isHostType}, '${typeName}', '${context.packageName}', [${traits}], [${instanceVariablesList}]);`;
-	const copyTraits = traitList.map((traitName) =>
-		`sl.copyTraitToType(${traitName}, '${typeName}');`
-	).join(' ');
+	const addType = `
+sl.addType(
+	${isHostType},
+	'${typeName}',
+	'${context.packageName}',
+	[${traits}],
+	[${instanceVariablesList}]
+);`;
+	const copyTraits = traitList.map((traitName) => `
+sl.copyTraitToType(
+	${traitName},
+	'${typeName}'
+);`).join('\n');
 	const addMethods = makeMethodList(
 		'addMethod',
 		[typeName],
 		methodNames,
 		methodBlocks,
 	);
-	return `${addType}${copyTraits}${addMethods}`;
+	return `${addType}\n\n${copyTraits}\n\n${addMethods}\n`;
 }
 
 function intervalSyntax(start: ohm.Node, end: ohm.Node): string {
@@ -178,28 +196,28 @@ const asJs: ohm.ActionDict<string> = {
 		_rightBrace,
 	) {
 		const trait =
-			`sl.addTrait('${traitName.sourceString}', '${context.packageName}');`;
+			`sl.addTrait('${traitName.sourceString}', '${context.packageName}');\n`;
 		const mth = makeMethodList(
 			'addTraitMethod',
 			[traitName.sourceString],
 			methodName.children.map((c) => c.sourceString),
 			methodBlock.children,
 		);
-		return `${trait}${mth}`;
+		return `${trait}\n${mth}\n`;
 	},
 	ConstantDefinition(_constant, _dot_, name, _equals, value) {
-		return `globalThis._${name.sourceString} = ${value.asJs};`;
+		return `globalThis._${name.sourceString} = ${value.asJs};\n`;
 	},
 	Program(tmp, stm) {
 		return tmp.asJs + stm.asJs;
 	},
-/*	TemporariesWithInitializers(
+	/*	TemporariesWithInitializers(
 		_leftVerticalBar,
 		tmp,
 		_semiColon,
 		_rightVerticalBar,
 	) {
-		return `let ${commaList(tmp.asIteration().children)};`;
+		return `let ${commaList(tmp.asIteration().children)};\n`;
 	},*/
 	TemporaryBlockLiteralInitializer(name, _equals, blk) {
 		const unqualifiedName = name.asJs;
@@ -207,10 +225,9 @@ const asJs: ohm.ActionDict<string> = {
 			genName(unqualifiedName, blk.parametersOf.length)
 		}`; // blk.arityOf
 		const binding = `${qualifiedName} = ${blk.asJs}`;
-		const reBinding =
-			slOptions.multipleNamesForLocalBlocks
-				? `, ${unqualifiedName} = ${qualifiedName}`
-				: '';
+		const reBinding = slOptions.multipleNamesForLocalBlocks
+			? `, ${unqualifiedName} = ${qualifiedName}`
+			: '';
 		// console.debug(`TemporaryWithBlockLiteralInitializer: ${reBinding}`);
 		return `${binding}${reBinding}`;
 	},
@@ -263,17 +280,17 @@ const asJs: ohm.ActionDict<string> = {
 		const rhsArrayName = genSym();
 		const slots = namesArray.map((name, index) =>
 			`${name} = _${genName('at', 2)}(${rhsArrayName}, ${index + 1})`
-		).join('; ');
+		).join(';\n');
 		// console.debug('ArrayAssignment', namesArray, rhsArrayName);
-		return `(function() { var ${rhsArrayName} = ${rhs.asJs}; ${slots}; })()`;
+		return `/* Array Assignment */(function() {\n\tconst ${rhsArrayName} = ${rhs.asJs};\n\t${slots};\n})()`;
 	},
 	DictionaryAssignment(_leftParen, lhs, _rightParen, _colonEquals, rhs) {
 		const namesArray = lhs.asIteration().children.map((c) => c.sourceString);
 		const rhsDictionaryName = genSym();
 		const slots = namesArray.map((name) =>
 			`_${name} = _${genName('at', 2)}(${rhsDictionaryName}, '${name}')`
-		).join('; ');
-		return `(function() { var ${rhsDictionaryName} = ${rhs.asJs}; ${slots}; })()`;
+		).join(';\n');
+		return `/* DictionaryAssignment */\n(function() {\n\tconst ${rhsDictionaryName} = ${rhs.asJs};\n\t${slots};\n})()`;
 	},
 	AssignmentOperatorSyntax(lhs, op, rhs) {
 		const text =
@@ -303,12 +320,12 @@ const asJs: ohm.ActionDict<string> = {
 
 	AtPutSyntax(c, _leftBracket, k, _rightBracket, _equals, v) {
 		const elem = k.asIteration().children;
-		return `_${genName('atPut', 2 + elem.length)}(${c.asJs}, ${commaList(elem)}, ${v.asJs})`;
+		return `_${genName('atPut', 2 + elem.length)}(${c.asJs}, ${
+			commaList(elem)
+		}, ${v.asJs})`;
 	},
 	QuotedAtPutSyntax(c, _colonColon, k, _colonEquals, v) {
-		return `_${
-			genName('atPut', 3)
-		}(${c.asJs}, '${k.sourceString}', ${v.asJs})`;
+		return `_${genName('atPut', 3)}(${c.asJs}, '${k.sourceString}', ${v.asJs})`;
 	},
 	AtPutDelegateSyntax(c, _colonDot, k, _colonEquals, v) {
 		return `_${
@@ -317,9 +334,7 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	AtSyntax(c, _leftBracket, k, _rightBracket) {
 		const elem = k.asIteration().children;
-		return `_${genName('at', 1 + elem.length)}(${c.asJs}, ${
-			commaList(elem)
-		})`;
+		return `_${genName('at', 1 + elem.length)}(${c.asJs}, ${commaList(elem)})`;
 	},
 	AtIfAbsentSyntax(c, _leftBracket, k, _rightBracket, _colonQuery, a) {
 		return `_${genName('atIfAbsent', 3)}(${c.asJs}, ${k.asJs}, ${a.asJs})`;
@@ -456,13 +471,25 @@ const asJs: ohm.ActionDict<string> = {
 		return blockBody.asJs;
 	},
 	BlockBody(arg, tmp, prm, stm) {
+		let tmpJs = tmp.asJs;
+		let prmJs = prm.asJs;
+		let stmJs = stm.asJs;
 		let arityCheck = '';
 		if (slOptions.insertArityCheck) {
 			/* console.error(${JSON.stringify(stm.sourceString)});  */
-			arityCheck =
-				`if(arguments.length !== ${arg.arityOf}) { var errorMessage = 'Arity: expected ${arg.arityOf}, ${arg.asJs}'; console.error(errorMessage); throw Error(errorMessage); }`;
+			arityCheck = [
+				'/* ArityCheck */',
+				genArityCheck(arg.arityOf, arg.asJs)
+			].join('\n');
 		}
-		return `(function(${arg.asJs}) { ${arityCheck} ${tmp.asJs} ${prm.asJs} ${stm.asJs} })`;
+		return [
+			`(function(${arg.asJs}) {\n`,
+			arityCheck,
+			(tmpJs.length > 0) ? ('/* Temporaries */\n' + tmpJs + '\n') : '',
+			(prmJs.length > 0) ? ('/* Primitive */\n' + prmJs + '\n') : '',
+			(stmJs.length > 0) ? ('/* Statements */\n' + stmJs + '\n') : '',
+			'})'
+		].join('')
 	},
 	Arguments(arg, _verticalBar) {
 		return commaList(arg.children);
@@ -734,10 +761,10 @@ function makeMethod(
 	// console.debug('makeMethod', methodName, blkParameters);
 	return typeNameArray.map(function (typeName) {
 		// console.debug(`makeMethod: '${slProc}', '${typeName}', '${context.packageName}', '${methodName}'('${slName}'), ${blkParameters}`);
-		return ` sl.${slProc}('${typeName}', '${context.packageName}', '${slName}', ${
+		return `sl.${slProc}(\n\t'${typeName}',\n\t'${context.packageName}',\n\t'${slName}',\n\t${
 			JSON.stringify(blkParameters)
-		}, ${blkJs}, ${blkSrc});`;
-	}).join(' ');
+		},\n\t${blkJs},\n\t${blkSrc}\n);\n\n`;
+	}).join('\n');
 }
 
 function makeMethodList(
@@ -763,7 +790,7 @@ function makeMethodList(
 }
 
 function slFirstLineComment(slText: string): string | null {
-	if(slText.startsWith('{-')) {
+	if (slText.startsWith('{-')) {
 		const index = slText.indexOf('\n');
 		return (index > 0) ? slText.slice(0, index) : null;
 	} else {
@@ -776,8 +803,8 @@ export function rewriteString(slText: string): string {
 	const jsText = slParse(slText).asJs;
 	// console.debug(`rewriteString: ${slText} => ${jsText}`);
 	const slComment = slFirstLineComment(slText);
-	if(slComment) {
-		return `/* ${slComment} */` + jsText;
+	if (slComment) {
+		return `/* ${slComment} */\n\n` + jsText;
 	} else {
 		return jsText;
 	}
@@ -792,7 +819,7 @@ export function rewriteStringFor(packageName: string, slText: string): string {
 		return jsText;
 	} catch (err) {
 		context.packageName = '*UnknownPackage*';
-		console.debug('rewriteStringFor', err)
+		console.debug('rewriteStringFor', err);
 		throw new Error('Rewrite failed', { cause: err });
 	}
 }

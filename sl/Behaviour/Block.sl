@@ -70,7 +70,7 @@ Block! : [Object] {
 
 	ensure { :self :aBlock:/0 |
 		<primitive:
-		var returnValue;
+		let returnValue;
 		try {
 			returnValue = _self();
 		} finally {

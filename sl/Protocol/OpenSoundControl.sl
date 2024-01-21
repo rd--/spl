@@ -58,8 +58,8 @@ OscMessage : [Object] { | address parameterArray |
 	}
 
 	encode { :self |
-		<primitive: return
-		sc.encodeServerPacket(
+		<primitive:
+		return sc.encodeServerPacket(
 			_dictionary_1(_self),
 			{metadata: true}
 		);

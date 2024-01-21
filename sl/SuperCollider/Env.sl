@@ -39,10 +39,10 @@ Env! : [Object] {
 	releaseNode { :self | <primitive: return _self.releaseNode;> }
 	loopNode { :self | <primitive: return _self.loopNode;> }
 
-	levels { :self :anObject | <primitive: return _self.levels = _anObject; return _anObject;> }
-	times { :self :anObject | <primitive: return _self.times = _anObject; return _anObject;> }
-	curves { :self :anObject | <primitive: return _self.curves = _anObject; return _anObject;> }
-	releaseNode { :self :anObject | <primitive: return _self.releaseNode = _anObject; return _anObject;> }
+	levels { :self :anObject | <primitive: _self.levels = _anObject; return _anObject;> }
+	times { :self :anObject | <primitive: _self.times = _anObject; return _anObject;> }
+	curves { :self :anObject | <primitive: _self.curves = _anObject; return _anObject;> }
+	releaseNode { :self :anObject | <primitive: _self.releaseNode = _anObject; return _anObject;> }
 	loopNode { :self :anObject | <primitive: _self.loopNode = _anObject; return _anObject;> }
 
 	pseudoSlotNameArray { :self |

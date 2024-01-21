@@ -370,8 +370,8 @@ String! : [Object, Json, Iterable] {
 
 	markdownToHtml { :self |
 		<primitive:
-		var reader = new commonmark.Parser({smart: true});
-		var writer = new commonmark.HtmlRenderer();
+		const reader = new commonmark.Parser({smart: true});
+		const writer = new commonmark.HtmlRenderer();
 		return writer.render(reader.parse(_self));
 		>
 	}

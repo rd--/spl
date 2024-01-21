@@ -30,7 +30,7 @@ function getHomeDirectory(): string {
 */
 
 function getSplConfigurationDirectory(): string {
-	return [getSplDirectory(),'config'].join('/');
+	return [getSplDirectory(), 'config'].join('/');
 }
 
 /*
@@ -85,22 +85,22 @@ function pathBasename(path: string): string {
 }
 
 function pathFinalExtension(path: string): string {
-    const basename = pathBasename(path);
-    const index = basename.lastIndexOf('.');
-    if (basename === '' || index < 1) {
-        return '';
+	const basename = pathBasename(path);
+	const index = basename.lastIndexOf('.');
+	if (basename === '' || index < 1) {
+		return '';
 	} else {
 		return basename.slice(index + 1);
 	}
 }
 
 function pathWithoutAnyExtension(path: string): string {
-    const basename = pathBasename(path);
+	const basename = pathBasename(path);
 	if (basename === '') {
 		return '';
 	} else {
 		const index = basename.indexOf('.');
-		if(index < 1) {
+		if (index < 1) {
 			return basename;
 		} else {
 			return basename.slice(0, index);
@@ -113,7 +113,7 @@ async function cacheRewriteFile(slFileName: string): Promise<void> {
 	const jsFileName = '../.cache/' + packageName + '.js';
 	const slMtime = await host.statMtime(slFileName);
 	const jsMtime = await host.statMtime(jsFileName);
-	if(jsMtime < slMtime) {
+	if (jsMtime < slMtime) {
 		const slText = await host.readTextFile(slFileName);
 		console.debug('cacheRewriteFile', slFileName, packageName, jsFileName);
 		const jsText = rewrite.rewriteStringFor(packageName, slText);
@@ -121,8 +121,10 @@ async function cacheRewriteFile(slFileName: string): Promise<void> {
 	}
 }
 
-async function cacheRewriteFileSequence(fileNameSequence: string[]): Promise<void> {
-	for(const fileName of fileNameSequence) {
+async function cacheRewriteFileSequence(
+	fileNameSequence: string[],
+): Promise<void> {
+	for (const fileName of fileNameSequence) {
 		// console.debug(`cacheRewriteFileSequence: ${fileName}`);
 		await cacheRewriteFile(fileName);
 	}
@@ -205,7 +207,7 @@ async function replPerLine(opt: flags.Args): Promise<void> {
 async function runFile(fileName: string, opt: flags.Args): Promise<void> {
 	await loadSpl(opt, opt.lib);
 	console.log(await fileio.evaluateFile(fileName, 'RunFile'));
-	if(opt.exit) {
+	if (opt.exit) {
 		host.exit(0);
 	}
 }
@@ -299,7 +301,7 @@ async function scCmd(cmd: string, opt: flags.Args): Promise<void> {
 
 async function cli(): Promise<void> {
 	const args = flags.parse(Deno.args, {
-		boolean: ['exit','strict', 'unsafe', 'verbose'],
+		boolean: ['exit', 'strict', 'unsafe', 'verbose'],
 		collect: ['lib'],
 		string: ['dir', 'port'],
 	});

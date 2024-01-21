@@ -247,7 +247,7 @@ export function parsePackageRequires(text: string): string[] {
 
 export function evaluatePackage(pkg: Package): unknown {
 	// console.debug(`evaluatePackage: ${pkg.name}, ${pkg.url}, ${pkg.preCompiled}`);
-	if(pkg.preCompiled) {
+	if (pkg.preCompiled) {
 		try {
 			return eval(pkg.text);
 		} catch (err) {
@@ -662,7 +662,7 @@ export function initializeLocalPackages(
 
 /* Evaluate already fetched packages in sequence. */
 export async function primitiveLoadPackageSequence(
-	packageNames: string[]
+	packageNames: string[],
 ): Promise<void> {
 	// console.debug(`primitiveLoadPackageSequence: '${packageNames}'`);
 	const packageArray: Package[] = [];

@@ -274,13 +274,11 @@
 	Lbind { :self |
 		let atEnd = false;
 		self.replace(Lconstant:/1);
-		self.postLine;
 		BlockStream {
 			atEnd.if {
 				nil
 			} {
 				let next = self.collect(next:/1);
-				next.postLine;
 				next.anySatisfy(isNil:/1).if {
 					atEnd := true;
 					nil

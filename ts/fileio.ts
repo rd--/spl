@@ -4,7 +4,10 @@ import * as kernel from './kernel.ts';
 import * as load from './load.ts';
 import * as rewrite from './rewrite.ts';
 
-export function evaluateFile(fileName: string, packageName: string): Promise<unknown> {
+export function evaluateFile(
+	fileName: string,
+	packageName: string,
+): Promise<unknown> {
 	// console.debug(`evaluateFile: ${fileName} ${packageName}`);
 	return host.readTextFile(fileName).then(function (text) {
 		return evaluate.evaluateFor(packageName, text);
