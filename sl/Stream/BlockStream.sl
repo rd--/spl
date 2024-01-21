@@ -2,6 +2,10 @@
 
 BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 
+	copy { :self |
+		'BlockStream>>copy: not implemented'.error
+	}
+
 	next { :self |
 		self.onNext.value
 	}
@@ -22,6 +26,22 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 
 
 +@Stream {
+
+	* { :lhs :rhs |
+		rhs.adaptToStreamAndApply(lhs, *)
+	}
+
+	/ { :lhs :rhs |
+		rhs.adaptToStreamAndApply(lhs, /)
+	}
+
+	+ { :lhs :rhs |
+		rhs.adaptToStreamAndApply(lhs, +)
+	}
+
+	- { :lhs :rhs |
+		rhs.adaptToStreamAndApply(lhs, -)
+	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
 		self.collect { :each |
@@ -64,6 +84,53 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 				aBlock(next)
 			}
 		} {
+			self.reset
+		}
+	}
+
+	drop { :input :count |
+		input.next(count);
+		BlockStream {
+			input.next
+		} {
+			input.reset;
+			input.next(count)
+		}
+	}
+
+	reject { :self :aBlock:/1 |
+		self.select { :each |
+			aBlock(each).not
+		}
+	}
+
+	select { :self :aBlock:/1 |
+		BlockStream {
+			let next = self.next;
+			{
+				next.isNil | {
+					aBlock(next)
+				}
+			}.whileFalse {
+				next := self.next
+			};
+			next
+		} {
+			self.reset
+		}
+	}
+
+	take { :self :limit |
+		let count = 1;
+		BlockStream {
+			(count > limit).if {
+				nil
+			} {
+				count := count + 1;
+				self.next
+			}
+		} {
+			count := 1;
 			self.reset
 		}
 	}

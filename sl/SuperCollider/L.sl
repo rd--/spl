@@ -10,22 +10,27 @@
 		[self].asStream
 	}
 
-	Lunfold { :start :step :length |
+	Lconstant { :self |
+		Lforever(self)
+	}
+
+}
+
++Block {
+
+	Lunfold { :self:/1 :start |
 		let next = start;
-		let index = 1;
 		BlockStream {
-			(index > length).if {
-				nil
-			} {
-				let answer = next;
-				next := step.value(next);
-				index := index + 1;
-				answer
-			}
+			let answer = next;
+			next := self(next);
+			answer
 		} {
-			next := start;
-			index := 1
+			next := start
 		}
+	}
+
+	Lunfold { :self:/1 :start :length |
+		Lunfold(self:/1, start).take(length)
 	}
 
 }
@@ -33,11 +38,11 @@
 +@Number {
 
 	Lgeom { :start :grow :length |
-		Lunfold(start, { :each | each * grow }, length)
+		Lunfold({ :each | each * grow }, start, length)
 	}
 
 	Lseries { :start :step :length |
-		Lunfold(start, { :each | each + step }, length)
+		Lunfold({ :each | each + step }, start, length)
 	}
 
 }
@@ -92,7 +97,7 @@
 	}
 
 	Llace { :list :count |
-		Ltake(Llace(list), count)
+		Llace(list).take(count)
 	}
 
 	Lrand { :list |
@@ -103,7 +108,7 @@
 	}
 
 	Lrand { :list :count |
-		Ltake(Lrand(list), count)
+		Lrand(list).take(count)
 	}
 
 	Lseq { :list :repeats |
@@ -177,59 +182,17 @@
 	}
 
 	Lxrand { :list :count |
-		Ltake(Lxrand(list), count)
+		Lxrand(list).take(count)
 	}
 
 }
 
 +@Stream {
 
-	* { :lhs :rhs |
-		rhs.adaptToStreamAndApply(lhs, *)
-	}
-
-	/ { :lhs :rhs |
-		rhs.adaptToStreamAndApply(lhs, /)
-	}
-
-	+ { :lhs :rhs |
-		rhs.adaptToStreamAndApply(lhs, +)
-	}
-
-	- { :lhs :rhs |
-		rhs.adaptToStreamAndApply(lhs, -)
-	}
-
-	Lbinop { :lhs :rhs :aBlock:/2 |
-		let atEnd = false;
-		BlockStream {
-			atEnd.if {
-				nil
-			} {
-				let p = lhs.next;
-				let q = rhs.next;
-				(
-					p.isNil | {
-						q.isNil
-					}
-				).if {
-					atEnd := true;
-					nil
-				} {
-					aBlock(p, q)
-				}
-			}
-		} {
-			lhs.reset;
-			rhs.reset;
-			atEnd := false
-		}
-	}
-
 	Lclump { :input :size |
 		size := Lforever(size);
 		BlockStream {
-			let answer = input.take(size.next);
+			let answer = input.nextOrUpToEnd(size.next);
 			answer.isEmpty.if {
 				nil
 			} {
@@ -251,16 +214,6 @@
 		} {
 			input.reset;
 			latch.reset
-		}
-	}
-
-	Ldrop { :input :count |
-		input.next(count);
-		BlockStream {
-			input.next
-		} {
-			input.reset;
-			input.next(count)
 		}
 	}
 
@@ -310,40 +263,34 @@
 		self
 	}
 
-	Lreject { :input :aBlock:/1 |
-		Lselect(input) { :each |
-			aBlock(each).not
-		}
+	Lconstant { :self |
+		self
 	}
 
-	Lselect { :input :aBlock:/1 |
-		BlockStream {
-			let next = input.next;
-			{
-				next.isNil | {
-					aBlock(next)
-				}
-			}.whileFalse {
-				next := input.next
-			};
-			next
-		} {
-			input.reset
-		}
-	}
+}
 
-	Ltake { :input :limit |
-		let count = 1;
++@Dictionary {
+
+	Lbind { :self |
+		let atEnd = false;
+		self.replace(Lconstant:/1);
+		self.postLine;
 		BlockStream {
-			(count > limit).if {
+			atEnd.if {
 				nil
 			} {
-				count := count + 1;
-				input.next
+				let next = self.collect(next:/1);
+				next.postLine;
+				next.anySatisfy(isNil:/1).if {
+					atEnd := true;
+					nil
+				} {
+					next
+				}
 			}
 		} {
-			count := 1;
-			input.reset
+			self.do(reset:/1);
+			atEnd := false
 		}
 	}
 

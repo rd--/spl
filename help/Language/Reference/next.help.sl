@@ -7,7 +7,8 @@ Fail if the stream is positioned at its end, or if the position is out of bounds
 
 - _next(aStream, anInteger)_
 
-Answer the next _anInteger_ number of objects accessible by _aStream_
+Answer the next _anInteger_ number of objects accessible by _aStream_.
+If the stream ends, the answer will contain _nil_ elements, see _nextOrUpToEnd_.
 
 * * *
 

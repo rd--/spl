@@ -998,7 +998,7 @@ let a = [1, 2, 3, 2, 1]; a.removeAllFoundIn([2, 3]); a = [1, 2, 1] {- removes on
 [2, -3, 4, -35, 4, -11].collect { :each | each.abs } = [2, 3, 4, 35, 4, 11]
 [2, -3, 4, -35, 4, -11].collect(abs:/1) = [2, 3, 4, 35, 4, 11]
 (1 .. 100).injectInto(0) { :sum :each | sum + each } = 5050
-let a = [1 .. 5]; a.contents = a {- an array is it's contents -}
+let a = [1 .. 5]; a.contents == a {- contents at is identity -}
 ((1 .. 9) / 3).rounded = [0, 1, 1, 1, 2, 2, 2, 3, 3] {- unary math operator at collection -}
 [].collectThenDo { :each | 'error'.error } { :each | 'error'.error }.isEmpty {- neither block is run for empty collections -}
 let n = 0; (3 .. 7).collectThenDo(squared:/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } {- collect then do -}
@@ -1097,11 +1097,11 @@ system.colourNameTable::veryLightGray.isGrey {- colour name table -}
 ## Comparing
 ```
 1 = 1 {- 1 is equal to 1 -}
-2 ~= 1 {- 2 isn't equal to 1 -}
+2 ~= 1 {- 2 is not equal to 1 -}
 2 > 1 {- 2 is greater than 1 -}
 1 < 2 {- 1 is less than 2 -}
 1 >= 1 {- 1 is greater than or equal to 1 -}
-2 <= 1 = false {- 2 isn't less than or equal to 1 -}
+2 <= 1 = false {- 2 is not less than or equal to 1 -}
 'x' < 'y' {- 'x' is less than 'y' -}
 { false < true }.ifError { true } {- booleans are not magnitudes -}
 ```
@@ -1645,7 +1645,7 @@ Fraction(-4, -12).normalized = 1:3
 1:3 - 0.33 ~ 0.003333
 1:3.zero = Fraction(0, 1) {- zero of same type, i.e. fraction -}
 1:3.one = Fraction(1, 1) {- one of same type, i.e. fraction -}
-1:3 ~ (1 / 3) {- a fraction is close to it's floating point representation -}
+1:3 ~ (1 / 3) {- a fraction is close the floating point division it represents -}
 1:2 * 2 = 1 {- multiply to integer -}
 4:2 / 2 = 1 {- divide to integer -}
 1:2 + 1:2 = 1 {- sum to integer -}
@@ -2489,6 +2489,19 @@ json:/3.parameterNames = ['self', 'replacer', 'space']
 randomFloat:/2.parameterNames = ['self', 'aNumber']
 system.methodDictionary::at[2]::Map.information.parameterNames = ['self', 'key']
 let c = []; let a = []; (1 .. 3).do { :i | c.add { a.add(i) } }; c.do(value:/1); a = [1, 2, 3]
+let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] {- closure -}
+{ { }.deepCopy }.ifError { true } {- blocks cannot be deep copied -}
+```
+
+## BlockStream
+```
+system.includesPackage('BlockStream') {- package -}
+let n = 1; let s = BlockStream { let r = n; n := n + 1; r } { }; s.next(9) = [1 .. 9]
+(1 .. 9).asStream.collect(squared:/1).upToEnd = [1 4 9 16 25 36 49 64 81]
+(1 .. 9).asStream.select(even:/1).upToEnd = [2 4 6 8]
+(1 .. 9).asStream.reject(even:/1).upToEnd = [1 3 5 7 9]
+(1 .. inf).asStream.select(even:/1).next(4) = [2 4 6 8]
+(1 .. inf).asStream.reject(even:/1).next(5) = [1 3 5 7 9]
 ```
 
 ## Promise -- scheduling type
@@ -2606,7 +2619,7 @@ let r = (9 .. 1).asIterator; [r.upTo(3), r.upToEnd] = [(9 .. 4), (2 .. 1)] {- ma
 [].asIterator.next = nil {- next at an empty read iterator answers nil -}
 let r = '.....ascii'.asciiByteArray.asIterator; let a = ByteArray(5); r.next(5); r.nextInto(a); a.asciiString = 'ascii'
 (1 .. 9).asIterator.nextSatisfy { :each | each >= 5 } = 5 {- read until element satisfies predicate -}
-(1 .. 9).asIterator.take(23) = [1 .. 9] {- take at most n items from iterator -}
+(1 .. 9).asIterator.nextOrUpToEnd(23) = [1 .. 9] {- take at most n items from iterator -}
 let r = (1 .. 9).asIterator; [r.nextMatchFor(1), r.next] = [true, 2] {- predicate at consumed item -}
 let r = (1 .. 9).asIterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] {- predicate at consumed items -}
 ```
@@ -2658,6 +2671,7 @@ let a = [1 .. 5]; a.asStream.contents ~~ a {- contents of finite stream (a copy 
 let i = (1 .. 5); i.asStream.originalContents == i {- original contents of stream (the actual collection -}
 let r = (1 .. 5).asStream; r.upToEnd; r.contents = (1 .. 5) {- contents of consumed stream -}
 (1 .. 9).asStream.collection = Interval(1, 9, 1) {- read stream over interval collection -}
+let i = (1 .. 9); let s = i.asStream; let c = s.copy; c.next; s.next = 1 & { c.next = 2 } {- copy -}
 ```
 
 ## Record -- collection type
@@ -3174,7 +3188,7 @@ let total = 0; 9.timesRepeat { total := total + system.randomFloat }; total < 7
 (1 .. 9999).select(isPrime:/1).size = 1229
 60.divisors = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60]
 1729.divisors = [1, 7, 13, 19, 91, 133, 247, 1729]
-eulersNumber() = 1.exp {- euler's number -}
+eulersNumber() = 1.exp {- eulers number -}
 1.e = eulersNumber() {- e is a constant, like 1.pi -}
 smallFloatEpsilon() < (10 ^ -15) {- the difference between 1 and the smallest SmallFloat greater than 1 -}
 smallFloatEpsilon() > (10 ^ -16)

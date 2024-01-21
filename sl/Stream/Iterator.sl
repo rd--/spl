@@ -51,6 +51,20 @@
 		anObject = self.next
 	}
 
+	nextOrUpToEnd { :self :maxNumberOfElements |
+		let answer = [];
+		valueWithReturn { :return:/1 |
+			maxNumberOfElements.timesRepeat {
+				let item = self.next;
+				item.ifNil {
+					answer.return
+				};
+				answer.addLast(item)
+			};
+			answer
+		}
+	}
+
 	nextSatisfy { :self :aBlock:/1 |
 		valueWithReturn { :return:/1 |
 			self.do { :each |
@@ -72,20 +86,6 @@
 				aCollection[startIndex + i] := obj
 			};
 			n
-		}
-	}
-
-	take { :self :maxNumberOfElements |
-		let answer = [];
-		valueWithReturn { :return:/1 |
-			maxNumberOfElements.timesRepeat {
-				let item = self.next;
-				item.ifNil {
-					answer.return
-				};
-				answer.addLast(item)
-			};
-			answer
 		}
 	}
 
