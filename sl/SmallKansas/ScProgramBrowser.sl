@@ -46,7 +46,7 @@ ScProgramIndex : [Object] { | contents |
 		self.useLibraryItem(
 			LibraryItem(
 				'scProgramIndex',
-				'https://rohandrape.net/sw/jssc3/text/smallhours-programs.text',
+				'https://rohandrape.net/sw/jssc3/text/SmallHoursPrograms.text',
 				'text/plain',
 				ScProgramIndex:/1
 			)

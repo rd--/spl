@@ -240,13 +240,13 @@ However, Strings are not collections in the ordinary sense.
 # Input/Output
 
 ```
-system.window.fetch('./text/smallhours-programs.text').then { :aResponse |
+system.window.fetch('./text/SmallHoursPrograms.text').then { :aResponse |
 	aResponse.text.then { :aString |
 		aString.postLine
 	}
 }
 
-system.window.fetchString('./text/smallhours-programs.text').then { :aString |
+system.window.fetchString('./text/SmallHoursPrograms.text').then { :aString |
 	aString.lines.collect { :each | each.splitRegExp(RegExp(' - |/')) }.postLine
 }
 

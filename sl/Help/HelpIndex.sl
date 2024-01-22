@@ -62,7 +62,7 @@ HelpIndex : [Object] { | contents |
 		self.useLibraryItem(
 			LibraryItem(
 				'helpIndex',
-				'https://rohandrape.net/sw/jssc3/text/smallhours-help.text',
+				'https://rohandrape.net/sw/jssc3/text/SmallHoursHelp.text',
 				'text/plain',
 				HelpIndex:/1
 			)

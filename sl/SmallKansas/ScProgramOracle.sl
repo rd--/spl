@@ -4,7 +4,7 @@
 		self.useLibraryItem(
 			LibraryItem(
 				'scProgramOracle',
-				'https://rohandrape.net/sw/jssc3/text/smallhours-oracle.text',
+				'https://rohandrape.net/sw/jssc3/text/SmallHoursOracle.text',
 				'text/plain',
 				ScProgramIndex:/1
 			)
