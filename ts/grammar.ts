@@ -71,7 +71,7 @@ Sl {
 		| reservedIdentifier
 		| literal
 		| identifier
-        | binaryOperator
+		| binaryOperator
 		| ParenthesisedExpression
 		| DictionaryExpression
 		| TupleExpression
@@ -158,9 +158,9 @@ Sl {
 	binaryChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 	operatorAssignment = binaryChar ":" "="
 
-	literal = integerIntervalLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
+	literal = /* integerIntervalLiteral | */ numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
 	numberLiteral = scientificLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
-	integerIntervalLiteral = integerLiteral "..." integerLiteral
+	// integerIntervalLiteral = integerLiteral "..." integerLiteral
 	floatLiteral = "-"? digit+ "." digit+
 	scientificLiteral = (floatLiteral | integerLiteral) "e" integerLiteral
 	fractionLiteral = "-"? digit+ ":" digit+

@@ -1,25 +1,25 @@
 import * as evaluate from './evaluate.ts';
 import * as kernel from './kernel.ts';
 
-export const loader: { loadPath: string } = {
-	loadPath: '',
+export const loader: { splDir: string } = {
+	splDir: '',
 };
 
-export function setLoadPath(directoryName: string): void {
-	loader.loadPath = directoryName;
+export function setSplDir(directoryName: string): void {
+	loader.splDir = directoryName;
 }
 
-// Resolve non-absolute file names against loader.loadPath.
+// Resolve non-absolute file names against loader.splDir.
 export function resolveFileName(fileName: string): string {
 	const resolvedFileName = fileName[0] === '/'
 		? fileName
-		: `${loader.loadPath}/${fileName}`;
+		: `${loader.splDir}/${fileName}`;
 	console.log(`resolveFileName: ${resolvedFileName}`);
 	return resolvedFileName;
 }
 
 export function packageFileName(pkg: kernel.Package): string {
-	return pkg.preCompiled ? ('../.cache/' + pkg.name + '.js') : pkg.url;
+	return pkg.preCompiled ? ('.cache/' + pkg.name + '.js') : ('sl/' + pkg.url);
 }
 
 export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {

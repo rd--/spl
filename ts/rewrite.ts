@@ -479,7 +479,7 @@ const asJs: ohm.ActionDict<string> = {
 			/* console.error(${JSON.stringify(stm.sourceString)});  */
 			arityCheck = [
 				'/* ArityCheck */',
-				genArityCheck(arg.arityOf, arg.asJs)
+				genArityCheck(arg.arityOf, arg.asJs),
 			].join('\n');
 		}
 		return [
@@ -488,8 +488,8 @@ const asJs: ohm.ActionDict<string> = {
 			(tmpJs.length > 0) ? ('/* Temporaries */\n' + tmpJs + '\n') : '',
 			(prmJs.length > 0) ? ('/* Primitive */\n' + prmJs + '\n') : '',
 			(stmJs.length > 0) ? ('/* Statements */\n' + stmJs + '\n') : '',
-			'})'
-		].join('')
+			'})',
+		].join('');
 	},
 	Arguments(arg, _verticalBar) {
 		return commaList(arg.children);
@@ -510,19 +510,19 @@ const asJs: ohm.ActionDict<string> = {
 	ApplyWithTrailingClosuresSyntax(rcv, arg, tc) {
 		const opt = arg.asJs;
 		const name = `${genName(rcv.asJs, arg.arityOf + tc.children.length)}`;
-		return `${name}(...[${opt === '' ? '' : opt + ', '} ${
+		return `${name}(${opt === '' ? '' : opt + ', '} ${
 			commaList(tc.children)
-		}])`;
+		})`;
 	},
 	ApplyWithTrailingDictionariesSyntax(rcv, arg, tc) {
 		const opt = arg.asJs;
 		const name = `${genName(rcv.asJs, arg.arityOf + tc.children.length)}`;
-		return `${name}(...[${opt === '' ? '' : opt + ', '} ${
+		return `${name}(${opt === '' ? '' : opt + ', '} ${
 			commaList(tc.children)
-		}])`;
+		})`;
 	},
 	ApplySyntax(rcv, arg) {
-		return `${genName(rcv.asJs, arg.arityOf)}(...[${arg.asJs}])`;
+		return `${genName(rcv.asJs, arg.arityOf)}(${arg.asJs})`;
 	},
 	ParameterList(_leftParen, sq, _rightParen) {
 		return commaList(sq.asIteration().children);
@@ -636,10 +636,10 @@ const asJs: ohm.ActionDict<string> = {
 	operatorAssignment(op, _colon, _equals) {
 		return op.sourceString;
 	},
-	integerIntervalLiteral(start, _dotDot, end) {
+	/*integerIntervalLiteral(start, _dotDot, end) {
 		// console.debug('integerIntervalLiteral', start.sourceString, end.sourceString);
 		return `_${genName('upTo', 2)}(${start.asJs}, ${end.asJs})`;
-	},
+	},*/
 	floatLiteral(s, i, _, f) {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
 	},

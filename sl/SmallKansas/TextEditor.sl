@@ -150,7 +150,9 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 				self.inspectorOn(self.evaluate(subject.currentWord, event), event)
 			},
 			MenuItem('Play It', 'Enter') { :event |
-				self.evaluate('{ ' ++ subject.currentSelection ++ ' }.value.play', event)
+				let text = '{ ' ++ subject.currentSelection ++ ' }.value.play';
+				text.postLine;
+				self.evaluate(text, event)
 			},
 			MenuItem('Print It', 'p') { :event |
 				subject.insertText(' ' ++ self.evaluate(subject.currentSelection, event).asString)

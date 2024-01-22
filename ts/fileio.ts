@@ -21,7 +21,8 @@ export function rewriteFile(fileName: string): Promise<string> {
 
 export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {
 	const resolvedFileName = load.resolveFileName(fileName);
-	return host.readFile(fileName);
+	// console.debug('primitiveReadLocalFile', fileName, resolvedFileName);
+	return host.readFile(resolvedFileName);
 }
 
 // Fetch files asynchronously, store at packageIndex

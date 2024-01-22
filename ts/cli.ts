@@ -66,11 +66,11 @@ BigInt.prototype.toJSON = function () {
 
 function help(): void {
 	console.log('spl');
-	console.log('  replPerLine --dir=loadPath [--lib=library ...]');
+	console.log('  replPerLine --dir=splPath [--lib=library ...]');
 	console.log('  cacheRewriteFile fileName ...');
-	console.log('  runFile fileName --dir=loadPath [--lib=library ...]');
-	console.log('  sc playFile --dir=loadPath');
-	console.log('  sc tcpServer --port=portNumber --dir=loadPath');
+	console.log('  runFile fileName --dir=splPath [--lib=library ...]');
+	console.log('  sc playFile --dir=splPath');
+	console.log('  sc tcpServer --port=portNumber --dir=splPath');
 	console.log('    --strict');
 	console.log('    --unsafe');
 	console.log('    --verbose');
@@ -181,16 +181,16 @@ async function scSynthFromPreferences(
 }
 
 async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
-	const loadPath = opt.dir || getSplDirectory() || './';
+	const splDir = opt.dir || getSplDirectory() || '../';
 	console.log(
 		`loadSpl: opt.dir=${opt.dir}`,
 		`getSplDirectory=${getSplDirectory()}`,
-		`loadPath=${loadPath}`,
+		`splDir=${splDir}`,
 	);
 	fileio.addLoadFileMethods();
 	sl.assignGlobals();
-	load.setLoadPath(loadPath);
-	await fileio.evaluateFile(loadPath + '/Meta/PackageIndex.sl', 'LoadSpl');
+	load.setSplDir(splDir);
+	await fileio.evaluateFile(splDir + '/sl/Meta/PackageIndex.sl', 'LoadSpl');
 	await kernel.primitiveLoadPackageSequence(['Kernel'].concat(lib));
 	if (lib.includes('SuperColliderLibrary')) {
 		globalThis.sc = sc;

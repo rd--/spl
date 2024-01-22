@@ -92,7 +92,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 	'Geometry': [
 		'Matrix22'
 		'Matrix33'
-		'PolarPoint'
+		'PolarCoordinate'
 		'Projection3'
 		'Rectangle'
 		'Vector'
@@ -876,7 +876,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'Matrix22'
 		'Matrix33'
 		'Point'
-		'PolarPoint'
+		'PolarCoordinate'
 		'Rectangle'
 		'Vector2'
 		'Vector3'
