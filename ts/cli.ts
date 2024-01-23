@@ -57,7 +57,7 @@ async function readSplPreferences(): Promise<preferences.Preferences> {
 }
 
 const cliPreferences = await readSplPreferences();
-// console.log('cliPreferences', getSplPreferencesFilename(), cliPreferences);
+console.log('cliPreferences', getSplPreferencesFilename(), cliPreferences);
 sl.system.cache.set('preferences', cliPreferences);
 
 BigInt.prototype.toJSON = function () {
@@ -152,21 +152,10 @@ async function scSynthFromEnv(): Promise<sc.ScSynth> {
 async function scSynthFromPreferences(
 	splPreferences: preferences.Preferences,
 ): Promise<sc.ScSynth> {
-	const protocol: string = preferences.preferencesRead(
-		splPreferences,
-		'ScSynth.Protocol',
-		'Tcp',
-	);
-	const hostname: string = preferences.preferencesRead(
-		splPreferences,
-		'ScSynth.Hostname',
-		'127.0.0.1',
-	);
-	const port: number = preferences.preferencesRead(
-		splPreferences,
-		'ScSynth.Port',
-		57110,
-	);
+	const pref = preferences.preferencesRead(splPreferences, 'ScSynth');
+	const protocol: string = pref['Protocol'];
+	const hostname: string = pref['Hostname'];
+	const port: number = pref['Port'];
 	console.debug(
 		'cli: scSynthFromPreferences (await)',
 		protocol,

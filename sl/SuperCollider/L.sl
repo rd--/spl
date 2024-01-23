@@ -268,43 +268,20 @@
 	}
 
 	play { :self |
-		let latency = 0.2;
-		let timeDifference = system.unixTimeInMilliseconds - system.systemTimeInMilliseconds;
-		let oscTime = { :systemTime |
-			(systemTime + latency * 1000) + timeDifference
-		};
+		let timeDifference = (system.unixTimeInMilliseconds - system.systemTimeInMilliseconds) / 1000;
 		{ :currentTime |
 			let next = self.next;
 			next.ifNil {
 				nil
 			} {
-				let instrument = next::instrument;
 				let dur = next::dur;
-				let hasGate = next.includesKey('gate');
-				let nextTime = currentTime + dur;
-				let synthId = 100 + system.uniqueId;
-				let beginMessage = OscMessage(
-					'/s_new',
-					[
-						instrument,
-						OscParameter(synthId),
-						OscParameter(0),
-						OscParameter(1)
-					] ++ next.associations.collect { :each |
-						[
-							OscParameter(each.key),
-							OscParameter(each.value)
-						]
-					}.concatenation
-				);
-				let beginBundle = OscBundle(oscTime(currentTime), [beginMessage]);
-				system.scSynth.sendOsc(beginBundle);
-				next.includesKey('gate').ifTrue {
-					let sustain = next::sustain;
-					let releaseTime = currentTime + sustain;
-					let endMessage = OscMessage('/n_set', [synthId, 'gate', 0]);
-					let endBundle = OscBundle(oscTime(releaseTime), [endMessage]);
-					system.scSynth.sendOsc(endBundle)
+				let events = next.multiChannelExpand;
+				let packets = events.collect { :each |
+					each.asPatternEventMessages(currentTime + timeDifference)
+				}.concatenation;
+				packets.do { :each |
+					each.asRecord.postLine;
+					system.scSynth.sendOsc(each)
 				};
 				dur
 			}
@@ -314,6 +291,38 @@
 }
 
 +@Dictionary {
+
+	asPatternEventMessages { :self :currentTime |
+		let latency = 0.2; {- Preferences -}
+		let instrument = self::instrument;
+		let synthId = 100 + system.uniqueId; {- Node allocator -}
+		let addAction = 0;
+		let targetNode = 1;
+		let sNewMessage = OscMessage(
+			'/s_new',
+			[
+				instrument,
+				synthId,
+				addAction,
+				targetNode
+			] ++ self.associations.collect { :each |
+				[
+					each.key,
+					each.value
+				]
+			}.concatenation
+		);
+		let sNewBundle = OscBundle(currentTime + latency, [sNewMessage]);
+		self.includesKey('gate').if {
+			let sustain = self::sustain;
+			let releaseTime = currentTime + sustain;
+			let nSetMessage = OscMessage('/n_set', [synthId, 'gate', 0]);
+			let nSetBundle = OscBundle(releaseTime + latency, [nSetMessage]);
+			[sNewBundle, nSetBundle]
+		} {
+			[sNewBundle]
+		}
+	}
 
 	Lbind { :self |
 		let atEnd = false;

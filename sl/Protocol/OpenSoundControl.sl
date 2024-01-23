@@ -78,7 +78,7 @@ OscBundle : [Object] { | time messageArray |
 
 	asRecord { :self |
 		(
-			timeTag: (native: self.time),
+			timeTag: (native: self.time * 1000),
 			packets: self.messageArray.collect(asRecord:/1)
 		)
 	}

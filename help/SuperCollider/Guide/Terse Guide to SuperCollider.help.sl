@@ -2,8 +2,10 @@
 
 ## Dictionary -- extensions
 ```
+(x: 1, y: 2, z: 3).multiChannelExpand = [(x: 1, y: 2, z: 3)]
 (x: 1, y: [2 3]).multiChannelExpand = [(x: 1, y: 2), (x: 1, y: 3)]
 (x: 1, y: [2 3], z: [4 5 6]).multiChannelExpand = [(x: 1, y: 2, z: 4), (x: 1, y: 3, z: 5), (x: 1, y: 2, z: 6)]
+(w: [1 2], x: [3 4 5], y: 6).multiChannelExpand = [(w: 1, x: 3, y: 6), (w: 2, x: 4, y: 6), (w: 1, x: 5, y: 6)]
 ```
 
 ## Nil -- extensions

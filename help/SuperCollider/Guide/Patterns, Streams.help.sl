@@ -70,3 +70,17 @@ Lbind(
 	pan: Lrand([-1, 0, 1], inf)
 ).play
 ```
+
+Array expansion:
+
+```
+Lbind(
+	instrument: 'default',
+	gate: 1,
+	dur: 2,
+	sustain: 0.8,
+	freq: Ltuple({ Lxrand([1 .. 17] * 55, inf) } ! 2, inf),
+	amp: 0.1,
+	pan: 0
+).play
+```

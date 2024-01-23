@@ -2,7 +2,7 @@
 	"Configuration": "Default",
 	"Default": {
 		"ScSynth": {
-			"Protocol": "Tcp",
+			"Protocol": "Udp",
 			"Hostname": "127.0.0.1",
 			"Port": 57110,
 			"Outputs" : {
