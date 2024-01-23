@@ -49,8 +49,8 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 			self::vertexLabels.withCollect(self::vertexCoordinates) { :label :coordinate |
 				[label, coordinate.asCartesianCoordinate]
 			},
-			self::edges.collect { :item |
-				item.collect { :each |
+			self::edges.collect { :edge |
+				edge.collect { :each |
 					each + 1
 				}
 			}
@@ -67,8 +67,8 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 				'clsLeitner',
 				'https://rohandrape.net/sw/hsc3-data/data/chemistry/json/cls.json',
 				'application/json',
-				{ :item |
-					item.collect(CrystalLatticeStructure:/1)
+				{ :libraryItem |
+					libraryItem.collect(CrystalLatticeStructure:/1)
 				}
 			)
 		)

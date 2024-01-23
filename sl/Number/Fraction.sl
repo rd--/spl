@@ -5,11 +5,9 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			let d1 = self.numerator.gcd(aNumber.denominator);
 			let d2 = self.denominator.gcd(aNumber.numerator);
 			let numerator = (self.numerator // d1) * (aNumber.numerator // d2);
-			(
-				d2 = self.denominator & {
-					d1 = aNumber.denominator
-				}
-			).if {
+			(d2 = self.denominator).and {
+				d1 = aNumber.denominator
+			}.if {
 				{- preference: answer proper integer -}
 				Fraction(numerator, numerator.one)
 			} {
@@ -167,7 +165,9 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 				let k = nil;
 				let bound1 = nil;
 				let bound2 = nil;
-				{ continue }.whileTrue {
+				{
+					continue
+				}.whileTrue {
 					let a = n // d;
 					let q2 = q0 + (a * q1);
 					(q2 > maxDenominator).if {

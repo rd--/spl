@@ -11,9 +11,9 @@ Inspector : [Object, View] { | inspectorPane inspectorList |
 		});
 		select.deselect;
 		select.addEventListener('change') { :event |
-			fields.atIfPresent(select.selectedIndex + 1) { :item |
+			fields.atIfPresent(select.selectedIndex + 1) { :each |
 				self.removeInspectorsFrom(index + 1);
-				self.addInspector(item.value, index + 1)
+				self.addInspector(each.value, index + 1)
 			}
 		};
 		self.inspectorPane.appendChild(listChooser.listChooserPane);

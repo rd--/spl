@@ -21,13 +21,13 @@
 	}
 
 	<~ { :self :aNumber |
-		(self < aNumber) | {
+		self < aNumber | {
 			self.closeTo(aNumber)
 		}
 	}
 
 	>~ { :self :aNumber |
-		(self > aNumber) | {
+		self > aNumber | {
 			self.closeTo(aNumber)
 		}
 	}

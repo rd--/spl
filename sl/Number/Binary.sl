@@ -90,7 +90,9 @@
 	highBitOfPositiveReceiver { :self |
 		let shifted = self;
 		let bitNo = 0;
-		{ shifted < 65536 }.whileFalse {
+		{
+			shifted < 65536
+		}.whileFalse {
 			shifted := shifted.bitShiftRight(16);
 			bitNo := bitNo + 16
 		};

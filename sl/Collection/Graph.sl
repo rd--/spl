@@ -10,10 +10,10 @@ Graph : [Object] { | size edges vertexLabels edgeLabels |
 		} & {
 			self.vertexLabels.isNil | {
 				self.vertexLabels.size = self.size
-			}
-		} & {
-			self.edgeLabels.isNil | {
-				self.edgeLabels.size = self.edges.size
+			} & {
+				self.edgeLabels.isNil | {
+					self.edgeLabels.size = self.edges.size
+				}
 			}
 		}
 	}

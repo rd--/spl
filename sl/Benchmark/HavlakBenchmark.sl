@@ -218,7 +218,9 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 						(nodePool.size ~= 0).ifTrue {
 							self.type[w] := 'BBReducible'
 						};
-						{ workList.isEmpty }.whileFalse {
+						{
+							workList.isEmpty
+						}.whileFalse {
 							let x = workList.removeFirst;
 							let nonBackSize = self.nonBackPreds[x.dfsNumber].size;
 							(nonBackSize > self.maxNonBackPreds).ifTrue {
@@ -226,9 +228,9 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 							};
 							self.stepEProcessNonBackPredsNodePoolWorkListX(w, nodePool, workList, x)
 						};
-						(nodePool.size > 0 | {
+						(nodePool.size > 0).or {
 							self.type[w] = 'BBSelf'
-						}).ifTrue {
+						}.ifTrue {
 							let loop = self.lsg.createNewLoopReducible(nodeW, self.type[w] ~= 'BBIrreducible');
 							self.setLoopAttributeNodePoolLoop(w, nodePool, loop)
 						}
@@ -511,7 +513,9 @@ UnionFindNode : [Object] { | parent bb dfsNumber loop |
 	findSet { :self |
 		let nodeList = Array();
 		let node = self;
-		{ node ~~ node.parent }.whileTrue {
+		{
+			node ~~ node.parent
+		}.whileTrue {
 			(node.parent ~~ node.parent.parent).ifTrue {
 				nodeList.addLast(node)
 			};

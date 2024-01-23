@@ -1,7 +1,7 @@
 # schedule -- process
 
 - _schedule(aClock, deltaTime, aBlock:/1)_
-- _schedule(deltaTime, aBlock:/1)_ ⇒ _aClock = workspace::clock_
+- _schedule(deltaTime, aBlock:/1)_ ⇒ _aClock = system.clock_
 - _schedule(aBlock:/1)_ ⇒ _deltaTime = 0_
 
 Schedule _aBlock_ for _deltaTime_ (in seconds) at _aClock_.

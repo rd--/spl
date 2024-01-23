@@ -4,7 +4,9 @@ ListElement : [Object] { | value next |
 		let x = self;
 		let y = other;
 		valueWithReturn { :return:/1 |
-			{ y.isNil }.whileFalse {
+			{
+				y.isNil
+			}.whileFalse {
 				x.isNil.ifTrue {
 					true.return
 				};

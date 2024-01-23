@@ -176,7 +176,9 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	postCopy { :self |
 		self.firstLink.ifNotNil {
 			let aLink = self.firstLink := self.firstLink.copy;
-			{ aLink.nextLink.isNil }.whileFalse {
+			{
+				aLink.nextLink.isNil
+			}.whileFalse {
 				aLink.nextLink(aLink := aLink.nextLink.copy)
 			};
 			self.lastLink := aLink

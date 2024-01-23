@@ -93,7 +93,9 @@
 		} {
 			let next = self;
 			let answer = self;
-			{ next > 1 }.whileTrue {
+			{
+				next > 1
+			}.whileTrue {
 				next := next - 1;
 				answer := answer * next
 			};
@@ -113,7 +115,9 @@
 	gcd { :self :anInteger |
 		let a = self.abs;
 		let b = anInteger.abs;
-		{ b = 0 }.whileFalse {
+		{
+			b = 0
+		}.whileFalse {
 			let r = a % b;
 			a := b;
 			b := r
@@ -159,7 +163,9 @@
 				let selfSqrt = self.sqrt;
 				let i = 2;
 				valueWithReturn { :return:/1 |
-					{ i <= selfSqrt }.whileTrue {
+					{
+						i <= selfSqrt
+					}.whileTrue {
 						(self % i = 0).ifTrue {
 							false.return
 						};
@@ -181,13 +187,15 @@
 	lcm { :self :anInteger |
 		let a = self;
 		let b = anInteger;
-		(a = 0 | {
+		(a = 0).or {
 			b = 0
-		}).if {
+		}.if {
 			0
 		} {
 			let ab = a * b;
-			{ b = 0}.whileFalse {
+			{
+				b = 0
+			}.whileFalse {
 				let tmp = b;
 				b := a % tmp;
 				a := tmp
@@ -198,7 +206,9 @@
 
 	leastPrimeGreaterThanOrEqualTo { :self |
 		let maybePrime = self;
-		{ maybePrime.isPrime.not }.whileTrue {
+		{
+			maybePrime.isPrime.not
+		}.whileTrue {
 			maybePrime := maybePrime + 1
 		};
 		maybePrime
@@ -345,7 +355,9 @@
 	}
 
 	take { :self :k |
-		(k < 0 | { k > self }).if {
+		(k < 0).or {
+			k > self
+		}.if {
 			0
 		} {
 			let numerator = 1;
@@ -396,7 +408,9 @@
 
 	timesRepeat { :self :aBlock:/0 |
 		let remaining = self;
-		{ remaining > 0 }.whileTrue {
+		{
+			remaining > 0
+		}.whileTrue {
 			aBlock();
 			remaining := remaining - 1
 		};
@@ -485,7 +499,9 @@
 			length := 2;
 			value := (-256 - self.bitShift(-8)) + 1
 		};
-		{ value > 255 }.whileTrue {
+		{
+			value > 255
+		}.whileTrue {
 			value := value.bitShift(-8);
 			length := length + 1
 		};

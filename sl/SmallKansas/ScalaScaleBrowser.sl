@@ -50,8 +50,8 @@
 				'scalaModenam',
 				'https://rohandrape.net/sw/hmt/data/json/scala-modenam.json',
 				'application/json',
-				{ :item |
-					item.collect { :each |
+				{ :libraryItem |
+					libraryItem.collect { :each |
 						let [zeroIndexedStartIndex, intervals, description] = each;
 						Scale(zeroIndexedStartIndex + 1, intervals, description)
 					}

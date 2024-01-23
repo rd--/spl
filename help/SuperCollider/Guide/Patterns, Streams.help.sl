@@ -54,3 +54,19 @@ Answer a stream that applies _aBlock_ at each element of _aStream_.
 Answer a stream that skips over items from _aStream_ that do not answer true for the predicate _aBlock_.
 
 	Lseries(1, 1, 9).select(even:/1).upToEnd = [2 4 6 8]
+
+- _Lbind(aDictionary)_
+
+Transform a dictionary of streams into a stream of dictionaries.
+
+```
+Lbind(
+	instrument: 'default',
+	gate: 1,
+	dur: Lxrand(1 / [17 13 11 7 5 3], inf),
+	sustain: Lrand(1 / [13 11 7 5 3 1], inf),
+	freq: Lxrand([1 .. 7] * 111, inf),
+	amp: Lrand(1 / [99 77 55 33 11], inf),
+	pan: Lrand([-1, 0, 1], inf)
+).play
+```

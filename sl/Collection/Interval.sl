@@ -63,11 +63,9 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 	}
 
 	copyFromTo { :self :startIndex :stopIndex |
-		(
-			startIndex = 1 & {
-				stopIndex = self.size
-			}
-		).if {
+		(startIndex = 1).and {
+			stopIndex = self.size
+		}.if {
 			self
 		} {
 			self[startIndex].toBy(self[stopIndex], self.step)
@@ -78,12 +76,16 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 		let nextValue = self.start;
 		let endValue = self.stop;
 		(self.step > 0).if {
-			{ nextValue <= endValue }.whileTrue {
+			{
+				nextValue <= endValue
+			}.whileTrue {
 				aBlock(nextValue);
 				nextValue := nextValue + self.step
 			}
 		} {
-			{ nextValue >= endValue }.whileTrue {
+			{
+				nextValue >= endValue
+			}.whileTrue {
 				aBlock(nextValue);
 				nextValue := nextValue + self.step
 			}

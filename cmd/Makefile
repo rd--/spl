@@ -1,4 +1,4 @@
-spl = (cd ../sl ; make) ; ./spl
+spl = (cd ../sl ; make update-cache) ; ./spl
 
 spl-repl-core:
 	$(spl) replPerLine --strict

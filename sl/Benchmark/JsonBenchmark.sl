@@ -153,9 +153,9 @@ JsonObject : [Object, Indexable, JsonValue] { | names values table |
 
 	indexOf { :self :name |
 		let index = self.table[name];
-		(index ~= 0 & {
+		(index ~= 0).and {
 			name = self.names[index]
-		}).if {
+		}.if {
 			index
 		} {
 			'not implement'.error
@@ -246,7 +246,9 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 			array
 		} {
 			self.readArrayElement(array);
-			{ self.readChar(',') }.whileTrue {
+			{
+				self.readChar(',')
+			}.whileTrue {
 				self.readArrayElement(array)
 			};
 			(self.readChar(']')).ifFalse {
@@ -277,7 +279,9 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 			object
 		} {
 			self.readObjectKeyValuePair(object);
-			{ self.readChar(',') }.whileTrue {
+			{
+				self.readChar(',')
+			}.whileTrue {
 				self.readObjectKeyValuePair(object)
 			};
 			(self.readChar('}')).ifFalse {
@@ -333,7 +337,9 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 		let string = nil;
 		self.read;
 		self.startCapture;
-		{ self.current = '"' }.whileFalse {
+		{
+			self.current = '"'
+		}.whileFalse {
 			(self.current = '\\' ).if {
 				self.pauseCapture;
 				self.readEscape;
@@ -376,7 +382,10 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 			self.expected('digit')
 		};
 		(firstDigit ~= '0').ifTrue {
-			{ self.readDigit }.whileTrue { }
+			{
+				self.readDigit
+			}.whileTrue {
+			}
 		};
 		self.readFraction;
 		self.readExponent;
@@ -388,7 +397,10 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 			self.readDigit.ifFalse {
 				self.expected('digit')
 			};
-			{ self.readDigit }.whileTrue { };
+			{
+				self.readDigit
+			}.whileTrue {
+			};
 			true
 		} {
 			false
@@ -396,16 +408,19 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	readExponent { :self |
-		(self.readChar('e') | {
+		self.readChar('e').or {
 			self.readChar('E')
-		}).if {
+		}.if {
 			self.readChar('+').ifFalse {
 				self.readChar('-')
 			};
 			self.readDigit.ifFalse {
 				self.expected('digit')
 			};
-			{ self.readDigit }.whileTrue { };
+			{
+				self.readDigit
+			}.whileTrue {
+			};
 			true
 		} {
 			false
@@ -431,7 +446,9 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	skipWhiteSpace { :self |
-		{ self.isWhiteSpace }.whileTrue {
+		{
+			self.isWhiteSpace
+		}.whileTrue {
 			self.read
 		}
 	}

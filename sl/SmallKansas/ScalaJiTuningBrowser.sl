@@ -152,8 +152,8 @@
 				'jiScala',
 				'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
 				'application/json',
-				{ :item |
-					item.collect { :each |
+				{ :libraryItem |
+					libraryItem.collect { :each |
 						each.includesKey('octave').if {
 							let [numerator, denominator] = each::octave;
 							each::octave := Fraction(numerator, denominator)

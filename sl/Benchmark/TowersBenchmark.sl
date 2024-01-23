@@ -14,11 +14,9 @@ TowersBenchmark : [Object] { | piles movesDone |
 
 	pushDiskOnPile { :self :disk :pile |
 		let top = self.piles[pile];
-		(
-			top.notNil & {
-				disk.size >= top.size
-			}
-		).ifTrue {
+		top.notNil.and {
+			disk.size >= top.size
+		}.ifTrue {
 			'Cannot put a big disk on a smaller one'.error
 		};
 		disk.next := top;

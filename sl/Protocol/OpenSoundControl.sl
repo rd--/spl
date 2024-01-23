@@ -2,7 +2,7 @@
 
 OscParameter : [Object] { | typeTag value |
 
-	dictionary { :self |
+	asRecord { :self |
 		(
 			type: self.typeTag,
 			value: self.value
@@ -50,20 +50,15 @@ OscParameter : [Object] { | typeTag value |
 
 OscMessage : [Object] { | address parameterArray |
 
-	dictionary { :self |
+	asRecord { :self |
 		(
 			address: self.address,
-			args: self.parameterArray.collect(dictionary:/1)
+			args: self.parameterArray.collect(asRecord:/1)
 		)
 	}
 
 	encode { :self |
-		<primitive:
-		return sc.encodeServerPacket(
-			_dictionary_1(_self),
-			{metadata: true}
-		);
-		>
+		<primitive: return sc.encodeOscMessage(_asRecord_1(_self));>
 	}
 
 }
@@ -75,6 +70,25 @@ OscMessage : [Object] { | address parameterArray |
 			self,
 			parameterArray.collect(OscParameter:/1)
 		)
+	}
+
+}
+
+OscBundle : [Object] { | time messageArray |
+
+	asRecord { :self |
+		(
+			timeTag: (native: self.time),
+			packets: self.messageArray.collect(asRecord:/1)
+		)
+	}
+
+}
+
++SmallFloat {
+
+	OscBundle { :self :messageArray |
+		newOscBundle().initializeSlots(self, messageArray)
 	}
 
 }

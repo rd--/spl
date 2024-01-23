@@ -95,8 +95,8 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 	}
 
 	arithmeticSeries { :self :start :step |
-		1.upTo(self).collect { :item |
-			(step * (item - 1)) + start
+		1.upTo(self).collect { :each |
+			(step * (each - 1)) + start
 		}
 	}
 

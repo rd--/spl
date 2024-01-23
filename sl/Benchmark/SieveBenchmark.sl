@@ -9,7 +9,9 @@
 			flags[i - 1].ifTrue{
 				let k = i + i;
 				primeCount := primeCount + 1;
-				{ k <= size }.whileTrue {
+				{
+					k <= size
+				}.whileTrue {
 					flags[k - 1] := false;
 					k := k + i
 				}

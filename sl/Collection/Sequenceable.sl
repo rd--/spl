@@ -341,7 +341,9 @@
 		let low = 1;
 		let high = self.size;
 		valueWithReturn { :return:/1 |
-			{ high < low }.whileFalse {
+			{
+				high < low
+			}.whileFalse {
 				let index = high + low // 2;
 				let test = aBlock(self[index]);
 				(test < 0).if {
@@ -365,7 +367,9 @@
 	findLast { :self :aBlock:/1 |
 		let index = self.size + 1;
 		valueWithReturn { :return:/1 |
-			{ (index := index - 1) >= 1 }.whileTrue {
+			{
+				(index := index - 1) >= 1
+			}.whileTrue {
 				aBlock(self[index]).ifTrue {
 					index.return
 				}
@@ -387,8 +391,8 @@
 	}
 
 	fisherYatesShuffleBy { :self :random |
-		self.size.downToDo(2) { :item |
-			self.swapWith(item, random.randomInteger(1, item))
+		self.size.downToDo(2) { :each |
+			self.swapWith(each, random.randomInteger(1, each))
 		};
 		self
 	}
@@ -399,11 +403,11 @@
 
 	flattened { :self |
 		let answer = [];
-		self.do { :item |
-			item.isCollection.if {
-				answer.addAll(item.flattened)
+		self.do { :each |
+			each.isCollection.if {
+				answer.addAll(each.flattened)
 			} {
-				answer.add(item)
+				answer.add(each)
 			}
 		};
 		answer
@@ -454,16 +458,18 @@
 			let toWrite = endIndex - startIndex + 1;
 			let thisWrite = nil;
 			self[startIndex] := anObject;
-			(written < toWrite).whileTrue {
+			{
+				written < toWrite
+			}.whileTrue {
 				thisWrite := written.min(toWrite - written);
 				self.replaceFromToWithStartingAt(
 					startIndex + written,
 					startIndex + written + thisWrite - 1,
 					self,
 					startIndex
-				)
-			};
-			written := written + thisWrite
+				);
+				written := written + thisWrite
+			}
 		};
 		anObject
 	}
@@ -494,9 +500,9 @@
 	}
 
 	hasEqualElementsBy { :self :otherCollection :aBlock:/2 |
-		(otherCollection.isSequenceable & {
+		otherCollection.isSequenceable.and {
 			self.size = otherCollection.size
-		}).if {
+		}.if {
 			valueWithReturn { :return:/1 |
 				self.indicesDo { :index |
 					aBlock(self[index], otherCollection[index]).ifFalse {
@@ -565,7 +571,7 @@
 					(self[startIndex] = first).ifTrue {
 						let index = 2;
 						{
-							(index <= subCollectionSize) & {
+							index <= subCollectionSize & {
 								self[startIndex + index - 1] = subCollection[index]
 							}
 						}.whileTrue {
@@ -815,7 +821,9 @@
 	replaceFromToWithStartingAt { :self :start :stop :replacement :replacementStart |
 		let replacementOffset = replacementStart - start;
 		let index = start;
-		{ index <= stop }.whileTrue {
+		{
+			index <= stop
+		}.whileTrue {
 			self[index] := replacement[replacementOffset + index];
 			index := index + 1
 		};

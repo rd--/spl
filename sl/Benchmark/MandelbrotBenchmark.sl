@@ -10,10 +10,14 @@
 			let byteAcc = 0;
 			let bitNum = 0;
 			let y = 0;
-			{ y < size }.whileTrue {
+			{
+				y < size
+			}.whileTrue {
 				let ci = (2 * y / size) - 1;
 				let x = 0;
-				{ x < size }.whileTrue {
+				{
+					x < size
+				}.whileTrue {
 					let zrzr = 0;
 					let zr = 0;
 					let zizi = 0;

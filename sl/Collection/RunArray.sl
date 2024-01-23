@@ -52,9 +52,9 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 		let limit = self.runs.size;
 		let run = nil;
 		let offset = nil;
-		(self.cachedIndex == nil | {
+		(self.cachedIndex == nil).or {
 			index < self.cachedIndex
-		}).if {
+		}.if {
 			run := 1;
 			offset := index - 1
 		} {
@@ -144,7 +144,9 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 		1.toDo(self.runs.size) { :runIndex |
 			let run = self.runs[runIndex];
 			let value = self.values[runIndex];
-			{ (run := run - 1) >= 0 }.whileTrue {
+			{
+				(run := run - 1) >= 0
+			}.whileTrue {
 				index := index + 1;
 				aBlock(value, index)
 			}

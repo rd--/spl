@@ -161,7 +161,7 @@
 
 (defun spl-fill-syntax-table (st)
   "Modify the syntax table ST for Spl."
-  ;;(modify-syntax-entry ?\- ". 23n" st) ; comment second and second last
+  (modify-syntax-entry ?- ". 23n" st) ; comment second and second last
   (modify-syntax-entry ?\{ "(}1" st) ; comment first
   (modify-syntax-entry ?\} "){4" st) ; comment last
   (modify-syntax-entry ?' "\"" st) ; string quote
@@ -259,6 +259,7 @@
      ("inf" .?∞) ; U+221E ∞ Infinity
      ("{-" . ?⦃) ; U+2983 ⦃ Left White Curly Bracket
      ("-}" . ?⦄) ; U+2984 ⦄ Right White Curly Bracket
+     ("each" . ?⍵) ; U+2375 ⍵ APL Functional Symbol Omega
      )))
 
 (defun spl-fill-mode-map (map)

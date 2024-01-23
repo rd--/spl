@@ -31,8 +31,8 @@ Scale : [Object] { | startIndex intervals description |
 		let sum = self.startIndex;
 		let answer = [sum];
 		let tuningSize = self.tuningSize;
-		self.intervals.allButLastDo { :item |
-			sum := ((sum - 1 + item) % tuningSize) + 1; {- one-indexed modulo -}
+		self.intervals.allButLastDo { :each |
+			sum := ((sum - 1 + each) % tuningSize) + 1; {- one-indexed modulo -}
 			answer.add(sum)
 		};
 		answer

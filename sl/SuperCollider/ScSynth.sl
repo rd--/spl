@@ -53,19 +53,11 @@ ScSynth! : [Object] {
 	}
 
 	sendOsc { :self :oscPacket |
-		<primitive: return _self.sendOsc(_oscPacket);>
+		<primitive: return _self.sendOsc(_asRecord_1(_oscPacket));>
 	}
 
 	setControl { :self :index :value |
-		self.sendOsc(
-			(
-				address: '/c_set',
-				args: [
-					(type: 'i', value: index),
-					(type: 'f', value: value)
-				]
-			)
-		)
+		self.sendOsc(OscMessage('/c_set', [index, value]))
 	}
 
 	status { :self |
@@ -93,9 +85,9 @@ ScSynth! : [Object] {
 +[Array, Ugen] {
 
 	<! { :self :aUgen |
-		(aUgen.isUgen & {
+		aUgen.isUgen.and {
 			aUgen.scUgen.numChannels = 0
-		}).if {
+		}.if {
 			self.multipleRootGraph(aUgen)
 		} {
 			FirstArg(self, aUgen)

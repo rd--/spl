@@ -221,7 +221,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 				(aNumber = 0).if {
 					self.abs < epsilon
 				} {
-					(self = aNumber.asSmallFloat) | {
+					self = aNumber.asSmallFloat | {
 						let z = self.abs;
 						(z < epsilon).if {
 							aNumber.abs < epsilon

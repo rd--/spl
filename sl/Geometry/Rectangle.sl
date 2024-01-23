@@ -13,7 +13,9 @@ Rectangle : [Object] { | origin corner |
 	area { :self |
 		let h = self.height;
 		let w = self.width;
-		(h <= 0 | { w <= 0 }).if {
+		(h <= 0).or {
+			w <= 0
+		}.if {
 			0
 		} {
 			w * h

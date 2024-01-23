@@ -22,6 +22,19 @@ function genArityCheck(k: number, a: string): string {
 	].join(' ');
 }
 
+function genDotTrailing(lhs, name, args, trailing) {
+	const qualifiedName = `${genName(name.asJs, 1 + args.arityOf + trailing.children.length)}`;
+	const argsJs = args.children.map((each) => each.asJs);
+	const trailingJs = trailing.children.map((each) => each.asJs);
+	return `${qualifiedName}(${[lhs.asJs].concat(argsJs, trailingJs)})`;
+}
+
+function genApplyTrailing(rcv, arg, trailing) {
+	const opt = arg.asJs;
+	const name = `${genName(rcv.asJs, arg.arityOf + trailing.children.length)}`;
+	return `${name}(${opt === '' ? '' : opt + ', '} ${commaList(trailing.children)})`;
+}
+
 function quoteNewLines(input: string): string {
 	return input.replaceAll('\n', '\\n');
 }
@@ -424,28 +437,15 @@ const asJs: ohm.ActionDict<string> = {
 		return commaList(sq.asIteration().children);
 	},
 
-	DotExpressionWithTrailingClosuresSyntax(lhs, _dot, name, args, tc) {
-		const qualifiedName = `${
-			genName(name.asJs, 1 + args.arityOf + tc.children.length)
-		}`;
-		return `${qualifiedName}(${
-			[lhs.asJs].concat(
-				args.children.map((c) => c.asJs),
-				tc.children.map((c) => c.asJs),
-			)
-		})`;
+	DotExpressionWithTrailingClosuresSyntax(lhs, _dot, name, args, trailing) {
+		return genDotTrailing(lhs, name, args, trailing);
 	},
-	DotExpressionWithTrailingDictionariesSyntax(lhs, _dot, name, args, tc) {
-		const qualifiedName = `${
-			genName(name.asJs, 1 + args.arityOf + tc.children.length)
-		}`;
-		return `${qualifiedName}(${
-			[lhs.asJs].concat(
-				args.children.map((c) => c.asJs),
-				tc.children.map((c) => c.asJs),
-			)
-		})`;
+	DotExpressionWithTrailingDictionariesSyntax(lhs, _dot, name, args, trailing) {
+		return genDotTrailing(lhs, name, args, trailing);
 	},
+	/*DotExpressionWithTrailingArraysSyntax(lhs, _dot, name, args, trailing) {
+		return genDotTrailing(lhs, name, args, trailing);
+	},*/
 	DotExpressionWithAssignmentSyntax(lhs, _dot, name, _colonEquals, rhs) {
 		return `${genName(name.asJs, 2)}(${lhs.asJs}, ${rhs.asJs})`;
 	},
@@ -507,20 +507,15 @@ const asJs: ohm.ActionDict<string> = {
 		return `return ${e.asJs};`;
 	},
 
-	ApplyWithTrailingClosuresSyntax(rcv, arg, tc) {
-		const opt = arg.asJs;
-		const name = `${genName(rcv.asJs, arg.arityOf + tc.children.length)}`;
-		return `${name}(${opt === '' ? '' : opt + ', '} ${
-			commaList(tc.children)
-		})`;
+	ApplyWithTrailingClosuresSyntax(rcv, arg, trailing) {
+		return genApplyTrailing(rcv, arg, trailing);
 	},
-	ApplyWithTrailingDictionariesSyntax(rcv, arg, tc) {
-		const opt = arg.asJs;
-		const name = `${genName(rcv.asJs, arg.arityOf + tc.children.length)}`;
-		return `${name}(${opt === '' ? '' : opt + ', '} ${
-			commaList(tc.children)
-		})`;
-	},
+	ApplyWithTrailingDictionariesSyntax(rcv, arg, trailing) {
+		return genApplyTrailing(rcv, arg, trailing);
+	},/*
+	ApplyWithTrailingArraysSyntax(rcv, arg, trailing) {
+		return genApplyTrailing(rcv, arg, trailing);
+	},*/
 	ApplySyntax(rcv, arg) {
 		return `${genName(rcv.asJs, arg.arityOf)}(${arg.asJs})`;
 	},

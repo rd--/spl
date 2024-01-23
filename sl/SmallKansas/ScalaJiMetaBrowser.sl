@@ -31,9 +31,9 @@
 					'jiMeta',
 					'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
 					'application/json',
-					{ :item |
-						item.collect { :anArray |
-							anArray.collect { :aName |
+					{ :libraryItem |
+						libraryItem.collect { :each |
+							each.collect { :aName |
 								jiScala[aName]
 							}.select(notNil:/1)
 						}

@@ -57,11 +57,9 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 			} {
 				let p = self.next;
 				let q = aStream.next;
-				(
-					p.isNil | {
-						q.isNil
-					}
-				).if {
+				p.isNil.or {
+					q.isNil
+				}.if {
 					atEnd := true;
 					nil
 				} {

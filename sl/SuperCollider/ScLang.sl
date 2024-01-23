@@ -172,11 +172,9 @@
 	}
 
 	fold { :self :lo :hi |
-		(
-			self >= lo & {
-				self < hi
-			}
-		).if {
+		(self >= lo).and {
+			self < hi
+		}.if {
 			self
 		} {
 			let x = self - lo;
@@ -510,8 +508,8 @@
 	clump { :self :groupSize |
 		let answer = [];
 		let segment = [];
-		self.do { :item |
-			segment.add(item);
+		self.do { :each |
+			segment.add(each);
 			(segment.size >= groupSize).ifTrue {
 				answer.add(segment);
 				segment := []
@@ -544,9 +542,9 @@
 		let prev = 0;
 		let index = 1;
 		let answer = self.species.new(self.size);
-		self.do { :item |
-			answer[index] := item - prev;
-			prev := item;
+		self.do { :each |
+			answer[each] := each - prev;
+			prev := each;
 			index := index + 1
 		};
 		answer
@@ -637,8 +635,8 @@
 	}
 
 	indexOfGreaterThan { :self :aMagnitude |
-		self.detectIndex { :item |
-			item > aMagnitude
+		self.detectIndex { :each |
+			each > aMagnitude
 		}
 	}
 
@@ -654,8 +652,8 @@
 	integrate { :self |
 		let answer = [];
 		let sum = 0;
-		self.do { :item |
-			sum := sum + item;
+		self.do { :each |
+			sum := sum + each;
 			answer.add(sum)
 		};
 		answer
@@ -708,9 +706,9 @@
 	}
 
 	levenshteinDistance { :self :other :equalityBlock:/2 |
-		(self.isEmpty | {
+		self.isEmpty.or {
 			other.isEmpty
-		}).if {
+		}.if {
 			self.size
 		} {
 			let matrix = [0 .. other.size];
@@ -892,7 +890,7 @@
 			let step = (end - start) / size;
 			{
 				i <= size
-			}.while {
+			}.whileTrue {
 				self[index] := aBlock(next, self[index], index);
 				next := next + step;
 				index := index + 1
@@ -906,11 +904,9 @@
 	}
 
 	withWrappingCollectOrAdaptTo { :self :anObject :aBlock:/2 |
-		(
-			anObject.isCollection & {
-				anObject.isSequenceable
-			}
-		).if {
+		anObject.isCollection.and {
+			anObject.isSequenceable
+		}.if {
 			self.withWrappingCollect(anObject, aBlock:/2)
 		} {
 			anObject.adaptToCollectionAndApply(self, aBlock:/2)

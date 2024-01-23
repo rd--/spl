@@ -9,3 +9,7 @@ _system.unixTimeInMilliseconds_ gets the current time in milliseconds since the 
 _aTimeStamp.unixTimeInMilliseconds_ converts a TimeStamp into the number of milliseconds since the Unix epoch.
 
 _aNumber.unixTimeInMilliseconds_ is the identity function.
+
+* * *
+
+See also: Number, System, systemTimeInMilliseconds, TimeStamp

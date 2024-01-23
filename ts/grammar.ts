@@ -61,11 +61,13 @@ Sl {
 		| ValueApply
 		| DotExpressionWithTrailingClosuresSyntax
 		| DotExpressionWithTrailingDictionariesSyntax
+		// | DotExpressionWithTrailingArraysSyntax
 		| DotExpressionWithAssignmentSyntax
 		| DotExpression
 		| Block
 		| ApplyWithTrailingDictionariesSyntax
 		| ApplyWithTrailingClosuresSyntax
+		// | ApplyWithTrailingArraysSyntax
 		| ApplySyntax
 		| MessageSendSyntax
 		| reservedIdentifier
@@ -109,6 +111,7 @@ Sl {
 
 	DotExpressionWithTrailingClosuresSyntax = Primary "." identifier NonEmptyParameterList? Block+
 	DotExpressionWithTrailingDictionariesSyntax = Primary "." identifier NonEmptyParameterList? NonEmptyDictionaryExpression+
+	//DotExpressionWithTrailingArraysSyntax = Primary "." identifier NonEmptyParameterList? ArrayExpression+
 	DotExpressionWithAssignmentSyntax = Primary "." identifier ":=" Expression
 	DotExpression = Primary ("." identifier ~("{" | ":=") NonEmptyParameterList?~("{"))+
 
@@ -123,6 +126,7 @@ Sl {
 
 	ApplyWithTrailingClosuresSyntax = identifier NonEmptyParameterList? Block+
 	ApplyWithTrailingDictionariesSyntax = identifier NonEmptyParameterList? NonEmptyDictionaryExpression+
+	//ApplyWithTrailingArraysSyntax = identifier NonEmptyParameterList? ArrayExpression+
 	ApplySyntax = identifier ParameterList
 	ParenthesisedExpression = "(" Expression ")"
 	NonEmptyDictionaryExpression = "(" NonemptyListOf<AssociationExpression, ","> ")"

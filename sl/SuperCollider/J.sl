@@ -32,7 +32,7 @@
 	}
 
 	deepCollect { :self :depth :aBlock:/3 :index :rank |
-		(depth.isNil).if {
+		depth.isNil.if {
 			rank := rank + 1;
 			self.withIndexCollect { :item :itemIndex |
 				item.deepCollect(depth, aBlock, itemIndex, rank)
@@ -43,11 +43,11 @@
 			} {
 				depth := depth - 1;
 				rank := rank + 1;
-				self.collect { :item |
-					item.isCollection.if {
-						item.deepCollect(depth, aBlock:/3, index, rank)
+				self.collect { :each |
+					each.isCollection.if {
+						each.deepCollect(depth, aBlock:/3, index, rank)
 					} {
-						aBlock(item, index, rank)
+						aBlock(each, index, rank)
 					}
 				}
 			}
@@ -105,8 +105,8 @@
 				[self.bubble(depth, levels - 1)]
 			}
 		} {
-			self.collect { :item |
-				item.bubble(depth - 1, levels)
+			self.collect { :each |
+				each.bubble(depth - 1, levels)
 			}
 		}
 	}
@@ -182,11 +182,11 @@
 				answer.unbubble(0, 1)
 			} {
 				cuts := cuts.allButFirst;
-				answer.collect { :item |
-					item.isCollection.if {
-						item.slice(cuts)
+				answer.collect { :each |
+					each.isCollection.if {
+						each.slice(cuts)
 					} {
-						item
+						each
 					}
 				}.unbubble(0, 1)
 			}
@@ -205,8 +205,8 @@
 				}
 			}
 		} {
-			self.collect { :item |
-				item.unbubble(depth - 1, 1)
+			self.collect { :each |
+				each.unbubble(depth - 1, 1)
 			}
 		}
 	}

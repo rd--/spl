@@ -119,7 +119,7 @@ Complex : [Object] { | real imaginary |
 	closeTo { :self :anObject |
 		anObject.isNumber.if {
 			anObject.isComplex.if {
-				(self.real.closeTo(anObject.real)) & {
+				self.real.closeTo(anObject.real) & {
 					self.imaginary.closeTo(anObject.imaginary)
 				}
 			} {
@@ -231,11 +231,9 @@ Complex : [Object] { | real imaginary |
 	}
 
 	sqrt { :self |
-		(
-			self.imaginary = 0 & {
-				self.real >= 0
-			}
-		).if {
+		(self.imaginary = 0).and {
+			self.real >= 0
+		}.if {
 			self.real.sqrt.asComplex
 		} {
 			let v = (self.abs - self.real / 2).sqrt;

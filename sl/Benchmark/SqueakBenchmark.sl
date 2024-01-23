@@ -19,7 +19,9 @@
 				flags[index].ifTrue {
 					let prime = index + 1;
 					let k = index + prime;
-					{ k <= size }.whileTrue {
+					{
+						k <= size
+					}.whileTrue {
 						flags[k] := false;
 						k := k + prime
 					};
