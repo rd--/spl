@@ -222,6 +222,7 @@
 	SamplerIndex { :bufNum :size :mnn | <primitive: return sc.SamplerIndex(_bufNum, _size, _mnn);> }
 	Sanitize { :in :replace | <primitive: return sc.Sanitize(_in, _replace);> }
 	Saw { :freq | <primitive: return sc.Saw(_freq);> }
+	SawDpw { :freq :iphase | <primitive: return sc.SawDpw(_freq, _iphase);> }
 	Schmidt { :in :lo :hi | <primitive: return sc.Schmidt(_in, _lo, _hi);> }
 	Select { :which :array | <primitive: return sc.Select(_which, _array);> }
 	SetResetFf { :trig :reset | <primitive: return sc.SetResetFf(_trig, _reset);> }
@@ -292,6 +293,7 @@
 	Scm { :clock :bpm :rotate :slip :shuffle :skip :pw | <primitive: return sc.Scm(_clock, _bpm, _rotate, _slip, _shuffle, _skip, _pw);> }
 	ShufflerB { :bufnum :readLocationMinima :readLocationMaxima :readIncrementMinima :readIncrementMaxima :durationMinima :durationMaxima :envelopeAmplitudeMinima :envelopeAmplitudeMaxima :envelopeShapeMinima :envelopeShapeMaxima :envelopeSkewMinima :envelopeSkewMaxima :stereoLocationMinima :stereoLocationMaxima :interOffsetTimeMinima :interOffsetTimeMaxima :ftableReadLocationIncrement :readIncrementQuanta :interOffsetTimeQuanta | <primitive: return sc.ShufflerB(_bufnum, _readLocationMinima, _readLocationMaxima, _readIncrementMinima, _readIncrementMaxima, _durationMinima, _durationMaxima, _envelopeAmplitudeMinima, _envelopeAmplitudeMaxima, _envelopeShapeMinima, _envelopeShapeMaxima, _envelopeSkewMinima, _envelopeSkewMaxima, _stereoLocationMinima, _stereoLocationMaxima, _interOffsetTimeMinima, _interOffsetTimeMaxima, _ftableReadLocationIncrement, _readIncrementQuanta, _interOffsetTimeQuanta);> }
 	SinGrain { :trigger :dur :freq | <primitive: return sc.SinGrain(_trigger, _dur, _freq);> }
+	Svf { :signal :cutoff :res :lowpass :bandpass :highpass :notch :peak | <primitive: return sc.Svf(_signal, _cutoff, _res, _lowpass, _bandpass, _highpass, _notch, _peak);> }
 	SvfBp { :in :freq :q | <primitive: return sc.SvfBp(_in, _freq, _q);> }
 	SvfHp { :in :freq :q | <primitive: return sc.SvfHp(_in, _freq, _q);> }
 	SvfLp { :in :freq :q | <primitive: return sc.SvfLp(_in, _freq, _q);> }

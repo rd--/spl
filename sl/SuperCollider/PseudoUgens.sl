@@ -23,6 +23,10 @@
 
 +[Array, SmallFloat, Ugen] {
 
+	PulseDpw { :freq :width |
+		SawDpw(freq, 0) - SawDpw(freq, (width + width).Wrap(-1, 1))
+	}
+
 	LinCurve { :self :inMin :inMax :outMin :outMax :curve |
 		let grow = curve.Exp;
 		let a = outMax - outMin / (1 - grow);
