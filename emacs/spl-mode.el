@@ -12,11 +12,46 @@
 (require 'sclang-mode)
 (require 'thingatpt)
 
+(defcustom spl-buffer "*spl*"
+  "The name of the spl process buffer."
+  :type 'string)
+
+(defcustom spl-interpreter (list "spl" "sc" "tcpServer" "--port=3010")
+  "The name of the spl interpreter."
+  :type '(repeat string))
+
 (defvar spl-directory nil
   "The Spl directory (default=nil).")
 
-(defvar stsc3-directory nil
-  "The StSc3 directory (default=nil).")
+(defun spl-start-interpeter ()
+  "Start the spl process.
+
+If `spl-interpreter' is not already a subprocess it is
+started and a new window is created to display the results of
+evaluating spl expressions.  Input and output is via `spl-buffer'."
+  (interactive)
+  (if (comint-check-proc spl-buffer)
+      (spl-see-spl)
+    (apply
+     'make-comint
+     "spl"
+     (car spl-interpreter)
+     nil
+     (cdr spl-interpreter))
+    (spl-see-spl)))
+
+(defun spl-see-spl ()
+ "Show spl output."
+ (interactive)
+  (if (not (comint-check-proc spl-buffer))
+      (spl-start-spl)
+   (delete-other-windows)
+   (split-window-vertically)
+   (with-current-buffer spl-buffer
+     (let ((window (display-buffer (current-buffer))))
+       (goto-char (point-max))
+       (save-selected-window
+         (set-window-point window (point-max)))))))
 
 (defun spl-find-files (dir rgx)
   "Find files at DIR matching RGX."
@@ -28,8 +63,7 @@
   "Lookup up the name at point in the Spl help files."
   (interactive)
   (let ((rgx (concat "^" (thing-at-point 'symbol) "\\.help\\.sl$")))
-    (spl-find-files (concat spl-directory "help/") rgx)
-    (spl-find-files (concat stsc3-directory "help/") rgx)))
+    (spl-find-files (concat spl-directory "help/") rgx)))
 
 (defun spl-write-text-file (filename text)
   "Write TEXT to FILENAME"
@@ -264,6 +298,7 @@
 
 (defun spl-fill-mode-map (map)
   "Install Spl keybindings into MAP."
+  (define-key map (kbd "C-c >") 'spl-see-spl)
   (define-key map (kbd "C-c C-h") 'spl-help)
   (define-key map (kbd "C-c C-a") 'spl-play-paragraph)
   (define-key map (kbd "C-c C-g") 'spl-draw-paragraph)
