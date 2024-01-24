@@ -13,8 +13,9 @@ Sl {
 	HostTypeDefinition = identifier "!" TraitList? "{" Temporaries? (methodName Block)* "}"
 	TypeDefinition = identifier TraitList? "{" Temporaries? (methodName Block)* "}"
 	TraitList = ":" "[" NonemptyListOf<identifier, ","> "]"
-	TraitExpression = TraitExtension | TraitDefinition
+	TraitExpression = TraitExtension | TraitListExtension | TraitDefinition
 	TraitExtension = "+" "@" identifier "{" (methodName Block)* "}"
+	TraitListExtension = "+" "@" "[" NonemptyListOf<identifier, ","> "]" "{" (methodName Block)* "}"
 	TraitDefinition = "@" identifier "{" (methodName Block)* "}"
 	ConstantDefinition = "Constant" "." unqualifiedIdentifier "=" literal
 	Program = Temporaries? ListOf<Expression, ";">

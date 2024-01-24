@@ -166,6 +166,32 @@
 		}
 	}
 
+	Lwalk { :list :steps :directions :start |
+		let index = start;
+		let direction = (directions := Lforever(directions)).next;
+		steps := Lconstant(steps);
+		BlockStream {
+			let step = steps.next;
+			step.isNil.if {
+				nil
+			} {
+				let answer = list[index];
+				step := step * direction;
+				(index + step < 1).or {
+					(index + step) > list.size
+				}.ifTrue {
+					direction := directions.next;
+					step := step.abs * direction.sign
+				};
+				index := (index + step - 1) % list.size + 1;
+				answer
+			}
+		} {
+			steps.reset;
+			directions.reset
+		}
+	}
+
 	Lxrand { :list |
 		let previous = nil;
 		let next = list.atRandom;
@@ -286,6 +312,34 @@
 				dur
 			}
 		}.schedule
+	}
+
+}
+
++@[Number, Stream] {
+
+	Lwhite { :low :high |
+		let rng = Random();
+		low := Lconstant(low);
+		high := Lconstant(high);
+		BlockStream {
+			let l = low.next;
+			let h = high.next;
+			l.isNil.or {
+				h.isNil
+			}.if {
+				nil
+			} {
+				rng.randomFloat.linLin(0, 1, l, h)
+			}
+		} {
+			low.reset;
+			high.reset
+		}
+	}
+
+	Lwhite { :low :high :length |
+		Lwhite(low, high).take(length)
 	}
 
 }

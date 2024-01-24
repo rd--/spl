@@ -103,6 +103,7 @@
 	Fold { :in :lo :hi | <primitive: return sc.Fold(_in, _lo, _hi);> }
 	Formant { :fundfreq :formfreq :bwfreq | <primitive: return sc.Formant(_fundfreq, _formfreq, _bwfreq);> }
 	Formlet { :in :freq :attacktime :decaytime | <primitive: return sc.Formlet(_in, _freq, _attacktime, _decaytime);> }
+	FreeSelfWhenDone { :src | <primitive: return sc.FreeSelfWhenDone(_src);> }
 	FreeVerb { :in :mix :room :damp | <primitive: return sc.FreeVerb(_in, _mix, _room, _damp);> }
 	FreeVerb2 { :in :in2 :mix :room :damp | <primitive: return sc.FreeVerb2(_in, _in2, _mix, _room, _damp);> }
 	FreqShift { :in :freq :phase | <primitive: return sc.FreqShift(_in, _freq, _phase);> }

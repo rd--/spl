@@ -57,7 +57,7 @@ async function readSplPreferences(): Promise<preferences.Preferences> {
 }
 
 const cliPreferences = await readSplPreferences();
-console.log('cliPreferences', getSplPreferencesFilename(), cliPreferences);
+// console.log('cliPreferences', getSplPreferencesFilename(), cliPreferences);
 sl.system.cache.set('preferences', cliPreferences);
 
 BigInt.prototype.toJSON = function () {

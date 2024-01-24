@@ -44,7 +44,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
  "Show spl output."
  (interactive)
   (if (not (comint-check-proc spl-buffer))
-      (spl-start-spl)
+      (spl-start-interpeter)
    (delete-other-windows)
    (split-window-vertically)
    (with-current-buffer spl-buffer
@@ -76,6 +76,11 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
     (spl-write-text-file filename text)
     (shell-command (format "ncat 127.0.0.1 3010 < %s" filename)))) ; netcat -q 0 -C
 
+(defun spl-eval-current-file ()
+  "Evaluate current file."
+  (interactive)
+  (spl-netcat-cmd 'evalFile 'fileName buffer-file-name))
+
 (defun spl-delete-markdown-code-fences (str)
   "Remove Mardown code fences from the string STR if present."
   (replace-regexp-in-string "^```" "" str))
@@ -98,43 +103,64 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   (spl-get-text (region-beginning) (region-end)))
 
 (defun spl-get-line ()
-  "Get the currently line as a string."
-  (buffer-substring-no-properties (line-beginning-position) (line-end-position)))
+  "Get the current line as a string."
+  (buffer-substring-no-properties
+   (line-beginning-position)
+   (line-end-position)))
+
+(defun spl-get-region ()
+  "Get the current region as a string."
+  (spl-get-text
+   (region-beginning)
+   (region-end)))
+
+(defun spl-eval-string (STR)
+  "Evaluate string."
+  (spl-netcat-cmd 'evalText 'text STR))
 
 (defun spl-eval-paragraph ()
-  "Evaluate paragraph at Spl server."
+  "Evaluate paragraph."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (spl-get-paragraph)))
-
-(defun spl-eval-current-file ()
-  "Load current file at Spl server."
-  (interactive)
-  (spl-netcat-cmd 'evalFile 'fileName buffer-file-name))
+  (spl-eval-string (spl-get-paragraph)))
 
 (defun spl-eval-line ()
-  "Evaluate line at Spl server."
+  "Evaluate line."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (spl-get-line)))
+  (spl-eval-string (spl-get-line))
+  (if (/= (line-end-position) (point-max))
+      (forward-line 1)))
+
+(defun spl-eval-region ()
+  "Evaluate the region."
+  (interactive)
+  (spl-eval-string (spl-get-region)))
+
+(defun spl-eval-region-or-line ()
+  "Evaluate region if selected, else current line."
+  (interactive)
+  (if (and transient-mark-mode mark-active)
+      (spl-eval-region)
+    (spl-eval-line)))
 
 (defun spl-play-paragraph ()
   "Play Ugen graph of current paragraph."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.play" (spl-get-paragraph))))
+  (spl-eval-string (format "{ %s }.value.play" (spl-get-paragraph))))
 
 (defun spl-draw-paragraph ()
   "Draw Ugen graph of current paragraph."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.draw" (spl-get-paragraph))))
+  (spl-eval-string (format "{ %s }.value.draw" (spl-get-paragraph))))
 
 (defun spl-plot-paragraph ()
   "Plot Ugen graph of current paragraph."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.plot(0.1)" (spl-get-paragraph))))
+  (spl-eval-string (format "{ %s }.value.plot(0.1)" (spl-get-paragraph))))
 
 (defun spl-print-paragraph ()
   "Print Ugen graph of current paragraph."
   (interactive)
-  (spl-netcat-cmd 'evalText 'text (format "{ %s }.value.print" (spl-get-paragraph))))
+  (spl-eval-string (format "{ %s }.value.print" (spl-get-paragraph))))
 
 (defun spl-play-current-file ()
   "Play current file at Spl server."
@@ -155,16 +181,20 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
 
 (defun spl-clear-clock ()
   (interactive)
-  (spl-netcat-cmd 'evalText 'text "system.clock.removeAll"))
+  (spl-eval-string "system.clock.removeAll"))
 
 (defun spl-reset-scsynth ()
   (interactive)
-  (spl-netcat-cmd 'evalText 'text "system.scSynth.reset"))
+  (spl-eval-string "system.scSynth.reset"))
 
 (defun spl-stop ()
   (interactive)
   (spl-clear-clock)
   (spl-reset-scsynth))
+
+(defun spl-exit ()
+  (interactive)
+  (spl-eval-string "system.exit(0)"))
 
 (defun spl-insert-non-local-return ()
   (interactive)
@@ -303,11 +333,12 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   (define-key map (kbd "C-c C-a") 'spl-play-paragraph)
   (define-key map (kbd "C-c C-g") 'spl-draw-paragraph)
   (define-key map (kbd "C-c C-e") 'spl-eval-paragraph)
-  (define-key map (kbd "C-c C-l") 'spl-eval-line)
+  (define-key map (kbd "C-c C-c") 'spl-eval-region-or-line)
   (define-key map (kbd "C-c C-k") 'spl-reset-scsynth)
   (define-key map (kbd "C-c C-s") 'spl-stop)
   (define-key map (kbd "C-c C-r") 'spl-insert-non-local-return)
   (define-key map (kbd "C-c C-i") 'spl-indent-paragraph)
+  (define-key map (kbd "C-c C-q") 'spl-exit)
   map)
 
 (defvar spl-mode-map

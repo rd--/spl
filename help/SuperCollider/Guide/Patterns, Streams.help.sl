@@ -43,13 +43,13 @@ Select elements from _aCollection_ at random.
 
 	Lrand([1 3 5 7 9], 99).upToEnd.asSet = [1 3 5 7 9].asSet
 
-- _Lcollect(aStream, aBlock:/1)_
+- _collect(aStream, aBlock:/1)_
 
 Answer a stream that applies _aBlock_ at each element of _aStream_.
 
 	Lseries(1, 1, 5).collect { :each | each * each }.upToEnd = [1 4 9 16 25]
 
-- _Lselect(aStream, aBlock:/1)_
+- _select(aStream, aBlock:/1)_
 
 Answer a stream that skips over items from _aStream_ that do not answer true for the predicate _aBlock_.
 
@@ -59,28 +59,79 @@ Answer a stream that skips over items from _aStream_ that do not answer true for
 
 Transform a dictionary of streams into a stream of dictionaries.
 
+An instrument that releases itself (ie. no gate):
+
+```
+let ctl = (
+	freq: 440,
+	amp: 0.1,
+	release: 1,
+	detune: 1.01,
+	cutoff: 5000,
+	q: 0.5
+).localControls;
+let env = Linen(Impulse(0, 0), 0, 1, ctl::release, 2);
+let osc = Saw([ctl::freq, ctl::freq * ctl::detune]) * env;
+let sig = Rlpf(osc, XLine(ctl::cutoff, 100, ctl::release), 1 / ctl::q) * ctl::amp;
+UgenGraph('saw', sig).send
+```
+
+Random linear sequence:
+
 ```
 Lbind(
-	instrument: 'default',
-	gate: 1,
-	dur: Lxrand(1 / [17 13 11 7 5 3], inf),
-	sustain: Lrand(1 / [13 11 7 5 3 1], inf),
-	freq: Lxrand([1 .. 7] * 111, inf),
+	instrument: 'saw',
+	dur: Lxrand(1 / [23 19 17 13 11 7 5 3 1], inf),
+	release: Lrand(5 / [17 13 11 7 5 3 1], inf),
+	freq: Lxrand([1 .. 23] * 111, inf),
 	amp: Lrand(1 / [99 77 55 33 11], inf),
-	pan: Lrand([-1, 0, 1], inf)
+	detune: Lrand([3 2 1.5 1 0.5] / 100 + 1, inf),
+	cutoff: Lrand(1000 * [1 .. 9], inf)
 ).play
 ```
 
-Array expansion:
+Dyads courtesy array expansion:
 
 ```
 Lbind(
-	instrument: 'default',
-	gate: 1,
-	dur: 2,
-	sustain: 0.8,
-	freq: Ltuple({ Lxrand([1 .. 17] * 55, inf) } ! 2, inf),
+	instrument: 'saw',
+	dur: 1 / 5,
+	sustain: 3,
+	freq: Ltuple({ Lxrand([1 .. 23] * 55, inf) } ! 2, inf),
+	amp: Lrand(1 / [99 77 55 33 11], inf),
+	detune: Lrand([3 2 1.5 1 0.5] / 100 + 1, inf)
+).play
+```
+
+A very similar instrument with a _gate_ control:
+
+```
+let ctl = (
+	freq: 440,
+	detune: 1.01,
+	cutoff: 5000,
+	q: 0.5,
 	amp: 0.1,
-	pan: 0
+	gate: 1,
+	attack: 0.01,
+	release: 1
+).localControls;
+let env = Asr(ctl::gate, ctl::attack, ctl::release, -4).FreeSelfWhenDone;
+let osc = Saw([ctl::freq, ctl::freq * ctl::detune]) * env;
+let sig = Rlpf(osc, ctl::cutoff, 1 / ctl::q) * ctl::amp;
+UgenGraph('saw', sig).send
+```
+
+```
+Lbind(
+	instrument: 'saw',
+	gate: 1,
+	dur: Lxrand(1 / [23 19 17 13 11 7 5 3 1], inf),
+	sustain: Lrand(3 / [17 13 11 7 5 3 1], inf),
+	release: Lrand(5 / [17 13 11 7 5 3 1], inf),
+	freq: Lxrand([1 .. 23] * 111, inf),
+	amp: Lrand(1 / [99 77 55 33 11], inf),
+	detune: Lrand([3 2 1.5 1 0.5] / 100 + 1, inf),
+	cutoff: Lrand(1000 * [1 .. 9], inf)
 ).play
 ```

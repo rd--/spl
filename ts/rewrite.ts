@@ -183,6 +183,28 @@ const asJs: ohm.ActionDict<string> = {
 			methodBlock.children,
 		);
 	},
+	TraitListExtension(
+		_plus,
+		_at,
+		_leftBracket,
+		traitNameList,
+		_rightBracket,
+		_leftBrace,
+		methodName,
+		methodBlock,
+		_rightBrace,
+	) {
+		const traitNameArray = traitNameList.asIteration().children.map((c) =>
+			c.sourceString
+		);
+		console.debug(`TraitListExtension: [${traitNameArray}].size = ${traitNameArray.length}`);
+		return makeMethodList(
+			'extendTraitWithMethod',
+			traitNameArray,
+			methodName.children.map((c) => c.sourceString),
+			methodBlock.children,
+		);
+	},
 	TypeTypeExtension(
 		_plus,
 		typeName,

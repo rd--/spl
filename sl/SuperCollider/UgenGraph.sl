@@ -20,6 +20,11 @@ UgenGraph! : [Object] {
 		['name', 'ugenArray', 'constantArray', 'controlArray']
 	}
 
+	send { :self |
+		let message = OscMessage('/d_recv', [self.encode]);
+		system.scSynth.sendOsc(message)
+	}
+
 	ugenArray { :self |
 		<primitive: return _self.ugenArray>
 	}
@@ -32,7 +37,7 @@ UgenGraph! : [Object] {
 		<primitive: return sc.makeUgenGraph(_self, sc.wrapOut(_bus, _ugen));>
 	}
 
-	ugenGraph { :self :ugen |
+	UgenGraph { :self :ugen |
 		self.ugenGraphAt(
 			ugen.busOffset,
 			ugen
