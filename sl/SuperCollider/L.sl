@@ -2,35 +2,35 @@
 
 +@Object {
 
-	Lforever { :self |
-		BlockStream { self } { }
+	Lforever { :anObject |
+		BlockStream { anObject } { }
 	}
 
-	Lonce { :self |
-		[self].asStream
+	Lonce { :anObject |
+		[anObject].asStream
 	}
 
-	Lconstant { :self |
-		Lforever(self)
+	Lconstant { :anObject |
+		Lforever(anObject)
 	}
 
 }
 
 +Block {
 
-	Lunfold { :self:/1 :start |
+	Lunfold { :aBlock:/1 :start |
 		let next = start;
 		BlockStream {
 			let answer = next;
-			next := self(next);
+			next := aBlock(next);
 			answer
 		} {
 			next := start
 		}
 	}
 
-	Lunfold { :self:/1 :start :length |
-		Lunfold(self:/1, start).take(length)
+	Lunfold { :aBlock:/1 :start :length |
+		Lunfold(aBlock:/1, start).take(length)
 	}
 
 }
@@ -91,13 +91,9 @@
 
 	Llace { :list |
 		let index = 1;
-		list.replace(Lonce:/1);
+		list.replace(Lforever:/1);
 		BlockStream {
 			let next = list[index].next;
-			next.ifNil {
-				list[index].reset;
-				next := list[index].next
-			};
 			(index >= list.size).if {
 				index := 1
 			} {
@@ -105,6 +101,8 @@
 			};
 			next
 		} {
+			list.do(reset:/1);
+			index := 1
 		}
 	}
 
@@ -178,30 +176,8 @@
 		}
 	}
 
-	Lwalk { :list :steps :directions :start |
-		let index = start;
-		let direction = (directions := Lforever(directions)).next;
-		steps := Lconstant(steps);
-		BlockStream {
-			let step = steps.next;
-			step.isNil.if {
-				nil
-			} {
-				let answer = list[index];
-				step := step * direction;
-				(index + step < 1).or {
-					(index + step) > list.size
-				}.ifTrue {
-					direction := directions.next;
-					step := step.abs * direction.sign
-				};
-				index := (index + step - 1) % list.size + 1;
-				answer
-			}
-		} {
-			steps.reset;
-			directions.reset
-		}
+	Lwalk { :list :steps |
+		LatFold(list, Laccum(Lconstant(steps)))
 	}
 
 	Lxrand { :list |
@@ -215,6 +191,14 @@
 }
 
 +@Stream {
+
+	Laccum { :input |
+		let sum = 0;
+		input.collect { :each |
+			sum := sum + each;
+			sum
+		}
+	}
 
 	Lclump { :input :size |
 		size := Lforever(size);
@@ -244,6 +228,10 @@
 		}
 	}
 
+	Lcollect { :self :aBlock:/1 |
+		self.collect(aBlock:/1)
+	}
+
 	Lconstant { :self |
 		self
 	}
@@ -266,6 +254,10 @@
 
 	LremDup { :self |
 		self.removeSuccesiveDuplicates
+	}
+
+	Ltake { :self :anInteger |
+		self.take(anInteger)
 	}
 
 	play { :self |

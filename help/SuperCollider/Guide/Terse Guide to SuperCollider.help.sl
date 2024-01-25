@@ -138,8 +138,8 @@ Lseries(1, 1, inf).reject(even:/1).next(5) = [1 3 5 7 9]
 Lswitch1([1 3 5], 2).next(3) = [3 3 3]
 Lswitch1([Lseries(1, 2, 3), Lgeom(2, 3, 3)], Lcyc([1, 2])).next(9) = [1 2 3 6 5 18 1 2 3]
 let a = Lseq([1 2], 2); let b = Lseq([6 7], 1); Lswitch([a b 8], Lseq([3 3 1 2], inf)).next(10) = [8 8 1 2 1 2 6 7 8 8]
-Llace([1, Lcyc([2 5]), Lcyc([3 6])]).next(8) = [1 2 3 1 5 6 1 2]
-Llace([1, Lcyc([2 5]), Lcyc([3 6])], 8).upToEnd = [1 2 3 1 5 6 1 2]
+Llace([1, Lcyc([2 5]), Lcyc([3 4])]).next(8) = [1 2 3 1 5 4 1 2]
+Llace([1, Lcyc([2 5]), Lcyc([3 4])], 8).upToEnd = [1 2 3 1 5 4 1 2]
 Ltuple([1 2 3; 4 5; 6].collect(Lcyc:/1), inf).next(6) = [1 4 6; 2 5 6; 3 4 6; 1 5 6; 2 4 6; 3 5 6]
 Ltuple([Lcyc([1 .. 5]), Lseq([5 6 7], 2)], 1).upToEnd = [1 5; 2 6; 3 7; 4 5; 5 6; 1 7; 1 5]
 Lseries(1, 2, 5).drop(2).upToEnd = [5 7 9]
@@ -158,8 +158,9 @@ LatFold([1 3 5 7 9], Lseries(-1, 1, 9)).upToEnd = [5 3 1 3 5 7 9 7 5]
 Lbrown(3, 7, 1, 999).upToEnd.allSatisfy { :each | each.betweenAnd(3, 7) }
 Librown(3, 11, 1, 999).upToEnd.asSet = (3 .. 11).asSet
 Librown(3, 11, 1, 999).upToEnd.asSet = (3 .. 11).asSet
-Lwalk([1 3 5 7 9], 1, 1, 1).next(13) = [1 3 5 7 9 1 3 5 7 9 1 3 5]
-Lwalk([1 3 5 7 9], Lforever(1), Lcyc([1, -1]), 1).next(13) = [1 3 5 7 9 7 5 3 1 3 5 7 9]
+Laccum(Lseries(1, 1, 9)).upToEnd = [1 3 6 10 15 21 28 36 45]
+Lwalk([1 3 5 7 9], 1).next(13) = [1 3 5 7 9 7 5 3 1 3 5 7 9]
+Lwalk([1 3 5 7 9 11], Lcyc([1, 2])).next(13) = [1 5 7 11 9 5 3 3 5 9 11 7 5]
 Lbind(freq: Lcyc([3 5 7] * 111), amp: 0.1).next(3) = [(freq: 333, amp: 0.1), (freq: 555, amp: 0.1), (freq: 777, amp: 0.1)]
 Lbind(freq: 333, amp: 0.1).next(2) = [(freq: 333, amp: 0.1), (freq: 333, amp: 0.1)]
 ```
