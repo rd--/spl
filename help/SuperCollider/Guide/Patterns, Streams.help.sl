@@ -135,3 +135,21 @@ Lbind(
 	cutoff: Lrand(1000 * [1 .. 9], inf)
 ).play
 ```
+
+- _Lbeta(low, high, p1, p2, length)_
+
+Random values that follow an Eulerian Beta Distribution.
+
+Biased low:
+
+	Lbeta(0, 1, 1 / 3, 3, 99).upToEnd.plot
+
+Biased high:
+
+	Lbeta(0, 1, 3, 1 / 3, 99).upToEnd.plot
+
+- Lcauchy(mean, spread, length)_
+
+Random values that follow a Cauchy Distribution.
+
+	Lcauchy(0, 1 / 9, 99).upToEnd.plot

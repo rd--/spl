@@ -59,8 +59,9 @@
 	'Utf8Stream'
 
 	{- Random -}
-	'Mersenne'
 	'LinearCongruential'
+	'Mersenne'
+	'ProbabilityDistribution'
 	'Sfc32' {- Stream -}
 	'SplitMix'
 

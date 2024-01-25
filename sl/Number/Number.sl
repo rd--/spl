@@ -129,6 +129,16 @@
 		}
 	}
 
+	foldBetweenAnd { :self :low :high |
+		let range = high - low;
+		let twiceRange = range + range;
+		let z = (self - low) % twiceRange;
+		(z > range).ifTrue {
+			z := twiceRange - z
+		};
+		low + z
+	}
+
 	fractionPart { :self |
 		self - self.integerPart
 	}
@@ -322,6 +332,12 @@
 			self.error('upToDo: not ascending')
 		};
 		self.toDo(end, aBlock:/1)
+	}
+
+	wrapBetweenAnd { :self :low :high |
+		let range = high - low;
+		let z = (self - low) % range;
+		low + z
 	}
 
 	zero { :self |

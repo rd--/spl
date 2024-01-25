@@ -38,7 +38,7 @@
 
 }
 
-Sfc32 : [Object, Random, Iterator, Stream] { | seed block |
+Sfc32 : [Object, Iterator, Random, Stream] { | seed block |
 
 	initialize { :self :aNumber |
 		self.seed := aNumber;
@@ -46,11 +46,7 @@ Sfc32 : [Object, Random, Iterator, Stream] { | seed block |
 		self
 	}
 
-	next { :self |
-		self.block.value
-	}
-
-	randomFloat { :self |
+	nextRandomFloat { :self |
 		self.block.value
 	}
 

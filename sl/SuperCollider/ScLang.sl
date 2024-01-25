@@ -77,7 +77,7 @@
 	}
 
 	coin { :self |
-		system.randomFloat < self
+		system.nextRandomFloat < self
 	}
 
 	CentsRatio { :self |
@@ -152,7 +152,7 @@
 	}
 
 	expRand { :self :upperBound |
-		1.randomFloat.linExpFromTo(self, upperBound)
+		1.nextRandomFloat.linExpFromTo(self, upperBound)
 	}
 
 	foldOnce { :self :lo :hi |
@@ -543,7 +543,7 @@
 		let index = 1;
 		let answer = self.species.new(self.size);
 		self.do { :each |
-			answer[each] := each - prev;
+			answer[index] := each - prev;
 			prev := each;
 			index := index + 1
 		};
@@ -879,7 +879,7 @@
 	}
 
 	tableRand { :self |
-		self.blendAt(1.randomFloat(self.size))
+		self.blendAt(1.nextRandomFloat(self.size))
 	}
 
 	waveFill { :self :aBlock:/3 :start :end |

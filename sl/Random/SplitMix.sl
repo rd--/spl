@@ -8,7 +8,7 @@
 
 }
 
-SplitMix : [Object, Random, Iterator, Stream] { | seed block |
+SplitMix : [Object, Iterator, Random, Stream] { | seed block |
 
 	initialize { :self :aNumber |
 		self.seed := aNumber;
@@ -16,11 +16,7 @@ SplitMix : [Object, Random, Iterator, Stream] { | seed block |
 		self
 	}
 
-	next { :self |
-		self.randomFloat
-	}
-
-	randomFloat { :self |
+	nextRandomFloat { :self |
 		self.block.value
 	}
 

@@ -104,6 +104,7 @@
 	'Protocol-OpenSoundControl'
 	'Random-LinearCongruential'
 	'Random-Mersenne'
+	'Random-ProbabilityDistribution'
 	'Random-Sfc32'
 	'Random-SplitMix'
 	'Scheduling-Promise'

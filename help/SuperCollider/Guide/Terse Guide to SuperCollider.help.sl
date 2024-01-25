@@ -73,6 +73,7 @@ let x = [4, 4.5]; let y = [2, 3, 5, 6]; [x * [x, y], y * [x, y]] = [[[16, 18], [
 ([0 1 2 3 4 4 3 2].asRandomTable * 100).rounded = [0 23 35 44 53 61 72 88]
 ([0, 1, 2, 3, 2].asRandomTable * 100).rounded = [0, 30, 47, 60, 80]
 ([0 1 2 3 4 4 3 2].integrate.normalize(1, 8) * 100).rounded = [100 137 211 321 468 616 726 800]
+[1 2 4 7 11 16].differentiate = [1 1 2 3 4 5] {- differentiate, first entry is distance from zero -}
 ```
 
 ## String -- extensions
@@ -122,8 +123,9 @@ Ln(Lseries(1, 1, 3), 2).upToEnd = [1 2 3 1 2 3]
 Lseq([1 2 3], 2).upToEnd = [1 2 3 1 2 3]
 Lseq([1 2 3], inf).next(9) = [1 2 3 1 2 3 1 2 3]
 Lseq([Lgeom(1, 3, 3), Lseries(1, 3, 3)], 2).upToEnd = [1 3 9 1 4 7 1 3 9 1 4 7]
-Ldup(Lseries(1, 3, 5), 2).upToEnd = [1 1 4 4 7 7 10 10 13 13]
-Ldup(Lseries(1, 3, 5), Lseq([2 3], inf)).upToEnd = [1 1 4 4 4 7 7 10 10 10 13 13]
+LdupEach(Lseries(1, 3, 5), 2).upToEnd = [1 1 4 4 7 7 10 10 13 13]
+LdupEach(Lseries(1, 3, 5), Lseq([2 3], inf)).upToEnd = [1 1 4 4 4 7 7 10 10 10 13 13]
+LremDup(LdupEach(Lseries(1, 3, 5), 2)).upToEnd = [1 4 7 10 13]
 Lforever(1).take(3).upToEnd = [1 1 1]
 Lclutch(Lseries(1, 3, 5), Lseq([true false true true false], inf), -1).upToEnd = [1 1 4 7 7 10 10 13]
 Lclutch(Lseries(1, 3, 5), Lseq([1 0 1 1 0], inf), -1).upToEnd = [1 1 4 7 7 10 10 13]
@@ -148,8 +150,14 @@ Lrand([1 3 5 7 9], 99).upToEnd.differentiate.includes(0) {- includes succesive d
 (Lgeom(1, 3, 4) * Lseries(1, 3, inf)).upToEnd = ([1 3 9 27] * [1 4 7 10])
 (Lgeom(2, 4, 5) / 2).upToEnd = [1 4 16 64 256]
 (512 / Lgeom(2, 4, 5)).upToEnd = [256 64 16 4 1]
-let l = Lwhite(-1, 1); let a = l.next(99); l.reset; l.next(99) ~= a {- reset does not reset seed -}
-Lwhite(Lseries(1, 1, 9), Lseries(2, 1, 9)).next(9).floor = [1 .. 9]
+let l = Lwhite(-1, 1, inf); let a = l.next(99); l.reset; l.next(99) ~= a {- reset does not reset seed -}
+Lwhite(Lseries(1, 1, 9), Lseries(2, 1, 9), inf).next(9).floor = [1 .. 9]
+Lat([1 3 5 7 9], Lseries(1, 1, 5)).upToEnd = [1 3 5 7 9]
+LatWrap([1 3 5 7 9], Lseries(-1, 1, 9)).upToEnd = [7 9 1 3 5 7 9 1 3]
+LatFold([1 3 5 7 9], Lseries(-1, 1, 9)).upToEnd = [5 3 1 3 5 7 9 7 5]
+Lbrown(3, 7, 1, 999).upToEnd.allSatisfy { :each | each.betweenAnd(3, 7) }
+Librown(3, 11, 1, 999).upToEnd.asSet = (3 .. 11).asSet
+Librown(3, 11, 1, 999).upToEnd.asSet = (3 .. 11).asSet
 Lwalk([1 3 5 7 9], 1, 1, 1).next(13) = [1 3 5 7 9 1 3 5 7 9 1 3 5]
 Lwalk([1 3 5 7 9], Lforever(1), Lcyc([1, -1]), 1).next(13) = [1 3 5 7 9 7 5 3 1 3 5 7 9]
 Lbind(freq: Lcyc([3 5 7] * 111), amp: 0.1).next(3) = [(freq: 333, amp: 0.1), (freq: 555, amp: 0.1), (freq: 777, amp: 0.1)]

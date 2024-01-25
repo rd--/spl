@@ -54,12 +54,12 @@
 		}
 	}
 
-	atRandomBy { :self :random |
-		random.randomInteger(self)
+	atRandomUsing { :self :random |
+		random.nextRandomInteger(self)
 	}
 
 	atRandom { :self |
-		system.randomInteger(self)
+		system.nextRandomInteger(self)
 	}
 
 	denominator { :self |
@@ -103,13 +103,8 @@
 		}
 	}
 
-	foldBetweenAnd { :self :low :high |
-		let b = high - low;
-		let c = (self - low) % (b * 2);
-		(c > b).ifTrue {
-			c := (b * b) - c
-		};
-		c + low
+	foldIndex { :self :size |
+		self.foldBetweenAnd(1, size)
 	}
 
 	gcd { :self :anInteger |
@@ -321,6 +316,10 @@
 		}.asciiStringStreamContents
 	}
 
+	randomIntegerBipolar { :self |
+		system.nextRandomIntegerBipolar(self)
+	}
+
 	romanDigitsForOn { :self :digits :base :aStream |
 		let n = self % (base * 10) // base;
 		(n = 9).if {
@@ -432,6 +431,10 @@
 				k := k - 1
 			}
 		}
+	}
+
+	wrapIndex { :self :size |
+		self - 1 % size + 1
 	}
 
 }

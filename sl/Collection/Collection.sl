@@ -8,18 +8,6 @@
 		answer
 	}
 
-	adaptToCollectionAndApply { :self :rcvr :aBlock:/2 |
-		rcvr.isSequenceable.and {
-			self.isSequenceable
-		}.if {
-			rcvr.withCollect(self) { :rcvrItem :selfItem |
-				aBlock(rcvrItem, selfItem)
-			}
-		} {
-			self.error('@Collection: only sequenceable collections may be combined arithmetically')
-		}
-	}
-
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
 		self.collect { :each |
 			aBlock(aNumber, each)
@@ -409,40 +397,7 @@
 
 }
 
-{- Numerical -}
 +@Collection {
-
-	+ { :self :arg |
-		arg.adaptToCollectionAndApply(self, +)
-	}
-
-	- { :self :arg |
-		arg.adaptToCollectionAndApply(self, -)
-	}
-
-	* { :self :arg |
-		arg.adaptToCollectionAndApply(self, *)
-	}
-
-	/ { :self :arg |
-		arg.adaptToCollectionAndApply(self, /)
-	}
-
-	< { :self :arg |
-		arg.adaptToCollectionAndApply(self, <)
-	}
-
-	> { :self :arg |
-		arg.adaptToCollectionAndApply(self, >)
-	}
-
-	^ { :self :arg |
-		arg.adaptToCollectionAndApply(self, ^)
-	}
-
-	% { :self :arg |
-		arg.adaptToCollectionAndApply(self, %)
-	}
 
 	abs { :self |
 		self.collect(abs:/1)

@@ -22,6 +22,16 @@
 		self.atAll(indexArray)
 	}
 
+	adaptToCollectionAndApply { :self :rcvr :aBlock:/2 |
+		rcvr.isSequenceable.if {
+			rcvr.withCollect(self) { :rcvrItem :selfItem |
+				aBlock(rcvrItem, selfItem)
+			}
+		} {
+			self.error('@Sequence: only sequenceable collections may be combined arithmetically')
+		}
+	}
+
 	allButFirst { :self |
 		self.allButFirst(1)
 	}
@@ -95,7 +105,7 @@
 	}
 
 	atFold { :self :index |
-		self[index.foldBetweenAnd(1, self.size)]
+		self[index.foldIndex(self.size)]
 	}
 
 	atLastPut { :self :indexFromEnd :anObject |
@@ -118,12 +128,12 @@
 		self[index - 1 % self.size + 1] := anObject
 	}
 
-	atRandomBy { :self :random |
-		self[random.randomInteger(1, self.size)]
+	atRandomUsing { :self :random |
+		self[random.nextRandomInteger(self.size)]
 	}
 
 	atRandom { :self |
-		self.atRandomBy(system)
+		self[system.nextRandomInteger(self.size)]
 	}
 
 	beginsWith { :self :sequence |
@@ -390,15 +400,15 @@
 		1
 	}
 
-	fisherYatesShuffleBy { :self :random |
+	fisherYatesShuffleUsing { :self :random |
 		self.size.downToDo(2) { :each |
-			self.swapWith(each, random.randomInteger(1, each))
+			self.swapWith(each, random.nextRandomInteger(1, each))
 		};
 		self
 	}
 
 	fisherYatesShuffle { :self |
-		self.fisherYatesShuffleBy(system)
+		self.fisherYatesShuffleUsing(system)
 	}
 
 	flattened { :self |
@@ -927,8 +937,8 @@
 		self.species.newFrom(answer)
 	}
 
-	shuffleBy { :self :random |
-		self.fisherYatesShuffleBy(random)
+	shuffleUsing { :self :random |
+		self.fisherYatesShuffleUsing(random)
 	}
 
 	shuffle { :self |
@@ -1077,6 +1087,43 @@
 		self.indicesDo { :index |
 			elementAndIndexBlock(self[index], index)
 		}
+	}
+
+}
+
+{- Numerical -}
++@Sequenceable {
+
+	+ { :self :arg |
+		arg.adaptToCollectionAndApply(self, +)
+	}
+
+	- { :self :arg |
+		arg.adaptToCollectionAndApply(self, -)
+	}
+
+	* { :self :arg |
+		arg.adaptToCollectionAndApply(self, *)
+	}
+
+	/ { :self :arg |
+		arg.adaptToCollectionAndApply(self, /)
+	}
+
+	< { :self :arg |
+		arg.adaptToCollectionAndApply(self, <)
+	}
+
+	> { :self :arg |
+		arg.adaptToCollectionAndApply(self, >)
+	}
+
+	^ { :self :arg |
+		arg.adaptToCollectionAndApply(self, ^)
+	}
+
+	% { :self :arg |
+		arg.adaptToCollectionAndApply(self, %)
 	}
 
 }

@@ -1043,8 +1043,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'reduced'
 	],
 	'random': [
-		'randomFloat'
-		'randomInteger'
+		'nextRandomFloat'
+		'nextRandomInteger'
 	],
 	'removing': [
 		'associationsRemove'

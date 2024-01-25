@@ -49,6 +49,18 @@
 
 +@Sequenceable {
 
+	Lat { :list :indices |
+		indices.collect { :each | list[each] }
+	}
+
+	LatFold { :list :indices |
+		indices.collect { :each | list.atFold(each) }
+	}
+
+	LatWrap { :list :indices |
+		indices.collect { :each | list.atWrap(each) }
+	}
+
 	Lcat { :list |
 		let index = 1;
 		list.replace(Lonce:/1);
@@ -193,18 +205,7 @@
 	}
 
 	Lxrand { :list |
-		let previous = nil;
-		let next = list.atRandom;
-		BlockStream {
-			{
-				next = previous
-			}.whileTrue {
-				next := list.atRandom
-			};
-			previous := next;
-			next
-		} {
-		}
+		LremDup(Lrand(list))
 	}
 
 	Lxrand { :list :count |
@@ -243,22 +244,12 @@
 		}
 	}
 
-	Ldup { :input :repeats |
-		let remain = 1;
-		let next = nil;
-		repeats := Lforever(repeats);
-		BlockStream {
-			remain := remain - 1;
-			(remain <= 0).ifTrue {
-				remain := repeats.next;
-				next := input.next
-			};
-			next
-		} {
-			input.reset;
-			repeats.reset;
-			remain := 1
-		}
+	Lconstant { :self |
+		self
+	}
+
+	LdupEach { :input :repeats |
+		input.duplicateEach(Lforever(repeats))
 	}
 
 	Lforever { :input |
@@ -266,31 +257,15 @@
 	}
 
 	Ln { :input :repeats |
-		let repeat = 1;
-		BlockStream {
-			let next = input.next;
-			{
-				next.isNil & {
-					repeat < repeats
-				}
-			}.whileTrue {
-				input.reset;
-				repeat := repeat + 1;
-				next := input.next
-			};
-			next
-		} {
-			input.reset;
-			repeat := 1
-		}
+		input.repeat(repeats)
 	}
 
 	Lonce { :self |
 		self
 	}
 
-	Lconstant { :self |
-		self
+	LremDup { :self |
+		self.removeSuccesiveDuplicates
 	}
 
 	play { :self |
@@ -312,34 +287,6 @@
 				dur
 			}
 		}.schedule
-	}
-
-}
-
-+@[Number, Stream] {
-
-	Lwhite { :low :high |
-		let rng = Random();
-		low := Lconstant(low);
-		high := Lconstant(high);
-		BlockStream {
-			let l = low.next;
-			let h = high.next;
-			l.isNil.or {
-				h.isNil
-			}.if {
-				nil
-			} {
-				rng.randomFloat.linLin(0, 1, l, h)
-			}
-		} {
-			low.reset;
-			high.reset
-		}
-	}
-
-	Lwhite { :low :high :length |
-		Lwhite(low, high).take(length)
 	}
 
 }
@@ -397,6 +344,56 @@
 			self.do(reset:/1);
 			atEnd := false
 		}
+	}
+
+}
+
++@[Number, Stream] {
+
+	Lbeta { :low :high :p1 :p2 :length |
+		low := Lconstant(low);
+		high := Lconstant(high);
+		p1 := Lconstant(p1);
+		p2 := Lconstant(p2);
+		BlockStream {
+			randomFloatEularianBetaDistribution(low.next, high.next, p1.next, p2.next)
+		} {
+			low.reset;
+			high.reset;
+			p1.reset;
+			p2.reset
+		}.take(length)
+	}
+
+	LbrownUsing { :low :high :step :aBlock:/2 |
+		| next |
+		low := Lconstant(low);
+		high := Lconstant(high);
+		step := Lconstant(step);
+		next := aBlock(low.next, high.next);
+		low.withAndCollect(high, step) { :low :high :step |
+			let answer = next;
+			next := (next + aBlock(step.negated, step)).foldBetweenAnd(low, high);
+			answer
+		}
+	}
+
+	Lbrown { :low :high :step :length |
+		LbrownUsing(low, high, step, randomFloat:/2).take(length)
+	}
+
+	Lcauchy { :mean :spread :length |
+		mean := Lconstant(mean);
+		spread := Lconstant(spread);
+		mean.withCollect(spread, randomFloatCauchyDistribution:/2).take(length)
+	}
+
+	Librown { :low :high :step :length |
+		LbrownUsing(low, high, step, randomIntegerExcludingZero:/2).take(length)
+	}
+
+	Lwhite { :low :high :length |
+		Lconstant(low).randomFloat(high).take(length)
 	}
 
 }

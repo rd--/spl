@@ -350,19 +350,36 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	randomFloat { :self |
-		self * system.randomFloat
+		self * system.nextRandomFloat
 	}
 
 	randomFloat { :self :aNumber |
 		self + (aNumber - self).randomFloat
 	}
 
+	randomFloatBipolar { :self |
+		self.negated.randomFloat(self)
+	}
+
 	randomInteger { :self |
 		1.randomFloat(self + 1).floor
 	}
 
-	randomInteger { :self :aNumber |
-		self.randomFloat(aNumber + 1).floor
+	randomInteger { :self :anInteger |
+		self.randomFloat(anInteger + 1).floor
+	}
+
+	randomIntegerExcluding { :self :anInteger :excluded |
+		let answer = self.randomInteger(anInteger);
+		(answer = excluded).if {
+			anInteger
+		} {
+			answer
+		}
+	}
+
+	randomIntegerExcludingZero { :self :anInteger |
+		self.randomIntegerExcluding(anInteger, 0)
 	}
 
 	reduce { :self |

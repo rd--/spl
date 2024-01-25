@@ -209,3 +209,23 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 	}
 
 }
+
++Array {
+
+	plot { :self |
+		let fileName = '/tmp/arrayPlot.json';
+		fileName.writeTextFile([self].json).then { :unused |
+			system.systemCommand(
+				'hsc3-plot',
+				[
+					'json',
+					'x',
+					'--rows',
+					fileName,
+					0
+				]
+			)
+		}
+	}
+
+}

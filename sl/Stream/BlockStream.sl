@@ -96,6 +96,23 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 		}
 	}
 
+	duplicateEach { :input :repeats |
+		let remain = 1;
+		let next = nil;
+		BlockStream {
+			remain := remain - 1;
+			(remain <= 0).ifTrue {
+				remain := repeats.next;
+				next := input.next
+			};
+			next
+		} {
+			input.reset;
+			repeats.reset;
+			remain := 1
+		}
+	}
+
 	randomFloat { :self |
 		self.collect(randomFloat:/1)
 	}
@@ -107,6 +124,36 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 	reject { :self :aBlock:/1 |
 		self.select { :each |
 			aBlock(each).not
+		}
+	}
+
+	removeSuccesiveDuplicates { :self |
+		let previous = nil;
+		self.reject { :each |
+			(each = previous).if {
+				true
+			} {
+				previous := each;
+				false
+			}
+		}
+	}
+
+	repeat { :self :repeats |
+		let repeat = 1;
+		BlockStream {
+			let next = self.next;
+			next.isNil.and {
+					repeat < repeats
+			}.ifTrue {
+				self.reset;
+				repeat := repeat + 1;
+				next := self.next
+			};
+			next
+		} {
+			self.reset;
+			repeat := 1
 		}
 	}
 
@@ -138,6 +185,44 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 		} {
 			count := 1;
 			self.reset
+		}
+	}
+
+	withAndCollect { :self :aStream :anotherStream :aBlock:/3 |
+		BlockStream {
+			let selfNext = self.next;
+			let aStreamNext = aStream.next;
+			let anotherStreamNext = anotherStream.next;
+			(selfNext.isNil | {
+				aStreamNext.isNil | {
+					anotherStreamNext.isNil
+				}
+			}).if {
+				nil
+			} {
+				aBlock(selfNext, aStreamNext, anotherStreamNext)
+			}
+		} {
+			self.reset;
+			aStream.reset;
+			anotherStream.reset
+		}
+	}
+
+	withCollect { :self :aStream :aBlock:/2 |
+		BlockStream {
+			let selfNext = self.next;
+			let aStreamNext = aStream.next;
+			selfNext.isNil.or {
+				aStreamNext.isNil
+			}.if {
+				nil
+			} {
+				aBlock(selfNext, aStreamNext)
+			}
+		} {
+			self.reset;
+			aStream.reset
 		}
 	}
 

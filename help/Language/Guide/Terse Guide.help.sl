@@ -349,7 +349,7 @@ let a = [1, 2, 3]; a.atModify(2, squared:/1) = 4 & { a = [1, 4, 3] } {- modify v
 [1 2 3; 4 5 6].transposed = [1 4; 2 5; 3 6] {- transposed, matrix syntax -}
 1.toAsCollect(9, Array:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 let a = [1 .. 9]; a.shuffle; a ~= [1 .. 9] {- shuffle in place, using system Random -}
-let a = [1 .. 9]; let r = Random(13579); a.shuffleBy(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] {- shuffle in place, using given Random -}
+let a = [1 .. 9]; let r = Random(13579); a.shuffleUsing(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] {- shuffle in place, using given Random -}
 let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } {- answer shuffled copy -}
 [1 .. 9].shuffled.sorted = [1 .. 9] {- resort after shuffle -}
 [].shuffled = []
@@ -375,15 +375,15 @@ let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } {- answer shuffled copy -}
 [5 .. 3].includesAllOf([3 .. 7]) = false
 [].includesAllOf([3 .. 7]) = false
 Array(5).fillWith(negated:/1) = [-1 .. -5] {- fill array with answers of a block applied to each index -}
-let r = Random(12345); Array(5).fillWith { r.randomInteger(9) } = [8, 5, 9, 9, 4] {- block is applied using cull -}
-let r = Random(12345); let f = { r.randomInteger(9) }; Array(5).fillWith(f:/0) = [8, 5, 9, 9, 4] {- block is applied using cull -}
+let r = Random(12345); Array(5).fillWith { r.nextRandomInteger(9) } = [8, 5, 9, 9, 4] {- block is applied using cull -}
+let r = Random(12345); let f = { r.nextRandomInteger(9) }; Array(5).fillWith(f:/0) = [8, 5, 9, 9, 4] {- block is applied using cull -}
 Array(5).fillFromWith((1 .. 5), negated:/1) = [-1 .. -5]
 let a = Array(5); a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
 let a = Array(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
 [1, 2, 3, 4, 3, 2, 1].occurrencesOf(3) = 2 {- number of occurrences of element in collection -}
 let a = [1, 2]; let [x, y] = a; [y, x] = [2, 1]
 let i = (1 .. 3); let [x, y, z] = i; [z, y, x] = [3 .. 1] {- sequence binding syntax -}
-let [x, y] = { let n = system.randomFloat; [n, n] }.value; x = y
+let [x, y] = { let n = system.nextRandomFloat; [n, n] }.value; x = y
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
 [1 .. 3].printString = '[1, 2, 3]' {- array print string -}
@@ -1768,6 +1768,8 @@ let a = []; 2.tuplesIndicesDo(3) { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5
 let a = []; 2.tuplesIndicesDo(4) { :each | a.add(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
 let c = 0; let k = 3; let n = 4; k.tuplesIndicesDo(n) { :each | c := c + 1 }; c = (k ^ n)
 let c = 0; 4.tuplesIndicesDo(7) { :each | c := c + 1 }; c = 16384
+(-2 .. 7).collect { :each | each.foldIndex(5) } = [4 3 2 1 2 3 4 5 4 3]
+(-2 .. 7).collect { :each | each.wrapIndex(5) } = [3 4 5 1 2 3 4 5 1 2]
 ```
 
 ## Integer -- prime numbers
@@ -2473,17 +2475,17 @@ valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repea
 let f = { let x = 0; { x := x + 1; x } }; let g = f:/0.value; [g.value, g.value] = [1, 2] {- closure -}
 let f = { let x = 0; { x := x + 1; x } }; [f:/0.value.value, f:/0.value.value] = [1, 1] {- closures -}
 let f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; (7 .. 9).collect(f:/1) = [5040, 40320, 362880]
-let f = { system.randomFloat }; f:/0.once = f:/0.once {- evaluate block once and cache result -}
+let f = { system.nextRandomFloat }; f:/0.once = f:/0.once {- evaluate block once and cache result -}
 let f = { (1 .. 9).atRandom }; f:/0.once = f:/0.once & { f:/0.once = f:/0.once } {- the cache is kept in a weak map -}
 '3'.replicate(3) = ['3', '3', '3'] {- answer an array of n places each having the same value -}
 '3'.replicate(3) = Array(3, '3') {- constructor with fill value -}
-let m = { system.randomFloat }.duplicate(9).mean; m > 0 & { m < 1 }
+let m = { system.nextRandomFloat }.duplicate(9).mean; m > 0 & { m < 1 }
 { 1 }.duplicate = [1, 1] {- evaluate a block twice and collect the answers in an array -}
 { '3' }.duplicate(3) = ['3', '3', '3'] {- evaluate block indicated number of times and collect answers in an array -}
 { 9.atRandom }.duplicate(9).allSatisfy(isInteger:/1) {- evaluate a block n times and collect answers in an array -}
 { '3' } ! 3 = ['3', '3', '3'] {- operator form of duplicate -}
-({ system.randomFloat } ! 9).size = 9 {- the size of the answer is as requested -}
-({ system.randomFloat } ! 3).allSatisfy(isNumber:/1) = true
+({ system.nextRandomFloat } ! 9).size = 9 {- the size of the answer is as requested -}
+({ system.nextRandomFloat } ! 3).allSatisfy(isNumber:/1) = true
 at:/2.parameterNames = ['self', 'index']
 json:/3.parameterNames = ['self', 'replacer', 'space']
 randomFloat:/2.parameterNames = ['self', 'aNumber']
@@ -2530,9 +2532,12 @@ inf.isNumber {- constant (infinity) -}
 ## Random -- trait and system random number generator
 ```
 system.includesPackage('Random') {- package -}
+let r = Random(); r.isStream = true
+let r = Random(); randomInteger(1, 9).isInteger {- random integer between 1 and 9 inclusive -}
 9.randomInteger.isInteger {- random integers (1 to self) -}
 let s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s.minMax = [1, 9] {- check distribution -}
-let s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s.asArray.sorted = [1 .. 9] {- check distribution -}
+let s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s = (1 .. 9).asSet {- check distribution -}
+let s = Set(); 729.timesRepeat { s.include(3.randomIntegerBipolar) }; s = (-3 .. 3).asSet {- check distribution -}
 9.randomFloat.isNumber {- random floating point number (0 to self) -}
 let s = Set(); 729.timesRepeat { s.include(9.randomFloat.rounded) }; s.minMax = [0, 9] {- check distribution -}
 3.randomInteger(9).isInteger {- random integer in range -}
@@ -2550,14 +2555,14 @@ system.includesPackage('Sfc32') {- Sfc32 package -}
 let r = Sfc32(98765); r.typeOf = 'Sfc32' {- type -}
 let r = Sfc32(98765); r.isSfc32 {- predicate -}
 let r = Sfc32(98765); r.isRandom {- predicate -}
-let r = Sfc32(98765); r.randomFloat = 0.49556130869314075 {- random number in [0, 1) -}
-let r = Sfc32(98765); r.randomFloat(10) = 4.9556130869314075 {- random number in [0, 10) -}
-let r = Sfc32(98765); r.randomFloat(0, 100) = 49.556130869314075 {- random number in [0, 100) -}
-let r = Sfc32(98765); r.randomInteger(1000) = 496 {- random integer in [1, 1000] -}
-let r = Sfc32(98765); r.randomInteger(1, 10000) = 4956 {- random integer in [1, 10000] -}
-let r = Sfc32(); let n = r.randomFloat; n >= 0 & { n < 1 } {- seed from system clock -}
-let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.randomInteger(9)) }; s.minMax = [1, 9] {- check distribution -}
-let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.randomInteger(9)) }; s.asArray.sorted = [1 .. 9] {- check distribution -}
+let r = Sfc32(98765); r.nextRandomFloat = 0.49556130869314075 {- random number in [0, 1) -}
+let r = Sfc32(98765); r.nextRandomFloat(10) = 4.9556130869314075 {- random number in [0, 10) -}
+let r = Sfc32(98765); r.nextRandomFloat(0, 100) = 49.556130869314075 {- random number in [0, 100) -}
+let r = Sfc32(98765); r.nextRandomInteger(1000) = 496 {- random integer in [1, 1000] -}
+let r = Sfc32(98765); r.nextRandomInteger(1, 10000) = 4956 {- random integer in [1, 10000] -}
+let r = Sfc32(); let n = r.nextRandomFloat; n >= 0 & { n < 1 } {- seed from system clock -}
+let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.nextRandomInteger(9)) }; s.minMax = [1, 9] {- check distribution -}
+let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.nextRandomInteger(9)) }; s.asArray.sorted = [1 .. 9] {- check distribution -}
 let r = Sfc32(98765); r.isStream {- stream predicate -}
 let r = Sfc32(98765); let a = r.next(9); r.reset; r.next(9) = a {- stream interface, next(k) answers next k items, reset resets -}
 ```
@@ -2568,15 +2573,15 @@ system.includesPackage('Mersenne') {- Mersenne package -}
 let m = Mersenne(98765); m.typeOf = 'Mersenne' {- type of -}
 let m = Mersenne(98765); m.isMersenne {- predicate -}
 let m = Mersenne(98765); m.isRandom {- predicate -}
-let m = Mersenne(98765); m.randomFloat = 0.088898599949636 {- random number in [0, 1) -}
-let m = Mersenne(98765); m.randomFloat(10) = 0.88898599949636 {- random number in [0, 10) -}
-let m = Mersenne(98765); m.randomFloat(0, 100) = 8.8898599949636 {- random number in [0, 100) -}
-let m = Mersenne(98765); m.randomInteger(1000) = 89 {- random integer in [1, 1000] -}
-let m = Mersenne(98765); m.randomInteger(1, 10000) = 889 {- random integer in [1, 10000] -}
-let m = Mersenne(); let r = m.randomFloat; r >= 0 & { r < 1 } {- seed from system clock -}
-Mersenne(123456).randomFloat = 0.12696983303810094 {- test from standard tests -}
-let m = Mersenne(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(9)) }; s.minMax = [1, 9] {- check distribution -}
-let m = Mersenne(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(9)) }; s.asArray.sorted = [1 .. 9] {- check distribution -}
+let m = Mersenne(98765); m.nextRandomFloat = 0.088898599949636 {- random number in [0, 1) -}
+let m = Mersenne(98765); m.nextRandomFloat(10) = 0.88898599949636 {- random number in [0, 10) -}
+let m = Mersenne(98765); m.nextRandomFloat(0, 100) = 8.8898599949636 {- random number in [0, 100) -}
+let m = Mersenne(98765); m.nextRandomInteger(1000) = 89 {- random integer in [1, 1000] -}
+let m = Mersenne(98765); m.nextRandomInteger(1, 10000) = 889 {- random integer in [1, 10000] -}
+let m = Mersenne(); let r = m.nextRandomFloat; r >= 0 & { r < 1 } {- seed from system clock -}
+Mersenne(123456).nextRandomFloat = 0.12696983303810094 {- test from standard tests -}
+let m = Mersenne(); let s = Set(); 729.timesRepeat { s.include(m.nextRandomInteger(9)) }; s.minMax = [1, 9] {- check distribution -}
+let m = Mersenne(); let s = Set(); 729.timesRepeat { s.include(m.nextRandomInteger(9)) }; s.asArray.sorted = [1 .. 9] {- check distribution -}
 let m = Mersenne(98765); m.isStream {- stream predicate -}
 let m = Mersenne(98765); let a = m.next(9); m.reset; m.next(9) = a {- stream interface, next(k) answers next k items, reset resets -}
 ```
@@ -2587,11 +2592,11 @@ system.includesPackage('SplitMix') {- SplitMix package -}
 let r = SplitMix(98765); r.typeOf = 'SplitMix' {- type of -}
 let r = SplitMix(98765); r.isSplitMix {- predicate -}
 let r = SplitMix(98765); r.isRandom {- predicate -}
-let r = SplitMix(98765); r.randomFloat = 0.08824091404676437 {- random number in [0, 1) -}
-let r = SplitMix(98765); r.randomFloat(10) = 0.8824091404676437 {- random number in [0, 10) -}
-let r = SplitMix(98765); r.randomFloat(0, 100) = 8.824091404676437 {- random number in [0, 100) -}
-let r = SplitMix(98765); r.randomInteger(1000) = 89 {- random integer in [1, 1000] -}
-let r = SplitMix(98765); r.randomInteger(1, 10000) = 883 {- random integer in [1, 10000] -}
+let r = SplitMix(98765); r.nextRandomFloat = 0.08824091404676437 {- random number in [0, 1) -}
+let r = SplitMix(98765); r.nextRandomFloat(10) = 0.8824091404676437 {- random number in [0, 10) -}
+let r = SplitMix(98765); r.nextRandomFloat(0, 100) = 8.824091404676437 {- random number in [0, 100) -}
+let r = SplitMix(98765); r.nextRandomInteger(1000) = 89 {- random integer in [1, 1000] -}
+let r = SplitMix(98765); r.nextRandomInteger(1, 10000) = 883 {- random integer in [1, 10000] -}
 let r = SplitMix(98765); r.isStream {- stream predicate -}
 let r = SplitMix(98765); let a = r.next(9); r.reset; r.next(9) = a {- stream interface, next(k) answers next k items, reset resets -}
 ```
@@ -2600,7 +2605,7 @@ let r = SplitMix(98765); let a = r.next(9); r.reset; r.next(9) = a {- stream int
 ```
 system.includesPackage('LinearCongruential') {- LinearCongruential package -}
 let r = LinearCongruential(42); r.typeOf = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandom }
-let r = LinearCongruential(42); [r.randomFloat, r.randomFloat] = [0.3746499199817101, 0.729023776863283]
+let r = LinearCongruential(42); [r.nextRandomFloat, r.nextRandomFloat] = [0.3746499199817101, 0.729023776863283]
 let r = LinearCongruential(42); r.isStream {- stream predicate -}
 let r = LinearCongruential(42); let a = r.next(9); r.reset; r.next(9) = a {- stream interface, next(k) answers next k items, reset resets -}
 ```
@@ -2708,7 +2713,7 @@ let d = (x: 1, y: 2); let c = d.copy; c::x := 3; c::x = 3 & { d::x = 1 } {- copi
 (x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2] {- array of associations at record -}
 (x: 1, y: 2).asArray = [1, 2] {- values as Array -}
 let d = (x:1, y:2, z:3); let (x, z) = d; [x, z] = [1, 3]
-let (x, y) = { let n = system.randomFloat; (x: n, y: n) }.value; x = y
+let (x, y) = { let n = system.nextRandomFloat; (x: n, y: n) }.value; x = y
 (x:1, y:2, z:3).select(even:/1) = (y: 2)
 (x:1, y:2, z:3).sum = 6
 let d = (x: 9); d::x.sqrt = 3
@@ -3149,7 +3154,7 @@ system.includesPackage('SmallFloat') {- package -}
 0.9.remainder(0.5) = 0.4
 0.9.remainder(0.4) ~ 0.1 {- approximately equal to -}
 [9 \\ 4, -9 \\ 4, 0.9 \\ 0.5, 0.9 \\ 0.4] ~ [1, -1, 0.4, 0.1] {- remainder, operator -}
-let total = 0; 9.timesRepeat { total := total + system.randomFloat }; total < 7
+let total = 0; 9.timesRepeat { total := total + system.nextRandomFloat }; total < 7
 3.max(7) = 7
 3.max(7) = 7.max(3)
 7.min(3) = 3
@@ -3707,7 +3712,7 @@ system.includesPackage('System') {- package -}
 system.typeOf = 'System' {- system type -}
 system.isSystem {- system predicate -}
 system.typeDictionary.indices.includes('System') = true
-system.randomFloat < 1 {- system random number generator -}
+system.nextRandomFloat < 1 {- system random number generator -}
 system.uniqueId.isInteger {- system unique identifier generator, answers are integers -}
 system.uniqueId ~= system.uniqueId {- system unique identifier generator -}
 let p = system.uniqueId; let q = system.uniqueId; p + 1 = q {- the generator is a simple counter -}
@@ -4207,7 +4212,7 @@ WeakMap().typeOf = 'WeakMap' {- type of weak map -}
 WeakMap().isWeakMap {- weak map predicate -}
 WeakMap().printString = 'a WeakMap' {- weak map print string -}
 { WeakMap().size }.ifError { true } {- the size of a weak map cannot be observed -}
-let f = { system.randomFloat }; f:/0.once = f:/0.once {- Block>>once caches output using a weak map -}
+let f = { system.nextRandomFloat }; f:/0.once = f:/0.once {- Block>>once caches output using a weak map -}
 system.cache::onceCache.isWeakMap
 ```
 

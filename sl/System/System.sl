@@ -440,7 +440,7 @@ System! : [Object, Cache, Indexable, Random] {
 		]
 	}
 
-	randomFloat { :self |
+	nextRandomFloat { :self |
 		<primitive: return Math.random();>
 	}
 
