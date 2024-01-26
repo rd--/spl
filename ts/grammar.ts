@@ -75,6 +75,8 @@ Sl {
 		| literal
 		| identifier
 		| binaryOperator
+		| VectorSyntax
+		| MatrixSyntax
 		| ParenthesisedExpression
 		| DictionaryExpression
 		| TupleExpression
@@ -83,8 +85,6 @@ Sl {
 		| ArrayIntervalThenSyntax
 		| IntervalSyntax
 		| IntervalThenSyntax
-		| VectorSyntax
-		| MatrixSyntax
 		// | VolumeSyntax
 
 	AtPutSyntax = Primary "[" NonemptyListOf<Expression, ","> "]" ":=" Expression

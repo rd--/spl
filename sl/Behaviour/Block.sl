@@ -221,6 +221,16 @@ Block! : [Object] {
 		>
 	}
 
+	whileNil { :self:/0 :aBlock:/0 |
+		let answer = nil;
+		{
+			(answer := self()).isNil
+		}.whileTrue {
+			aBlock()
+		};
+		answer
+	}
+
 	whileTrue { :self:/0 |
 		{
 			self()

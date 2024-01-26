@@ -195,6 +195,20 @@
 		}
 	}
 
+	hasEqualElements { :self :aDictionary |
+		(self.size = aDictionary.size).if {
+			self.keys.allSatisfy { :key |
+				aDictionary.atIfPresentIfAbsent(key) { :value |
+					self[key] = value
+				} {
+					false
+				}
+			}
+		} {
+			false
+		}
+	}
+
 	include { :self :anAssociation |
 		self[anAssociation.key] := anAssociation.value;
 		anAssociation

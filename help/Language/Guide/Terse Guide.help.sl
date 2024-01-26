@@ -2182,6 +2182,8 @@ let c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.re
 (x: 1, y: 2, z: 3).asMap.indices = ['x', 'y', 'z'] {- indices of map (an array) -}
 let m = (x: 1, y: 2).asMap; m.removeAssociation('x' -> 1); m = (y: 2).asMap {- remove association -}
 let m = (x: 1, y: 2).asMap; m.removeAll; m.isEmpty {- remove all entries -}
+(x: 1, y: 2).asMap = (x: 1, y: 2).asMap {- key sequence and equality -}
+(x: 1, y: 2).asMap ~= (y: 2, x: 1).asMap {- key sequence and equality -}
 ```
 
 ## Math
@@ -2733,6 +2735,16 @@ let c = (y: 2, z: 3); (x: 1).addAll(c) = c {- answer is argument -}
 let r = (x: 1, y: 2); r == r {- Record identity -}
 (x: 1, y: 2) ~~ (x: 1, y: 2) {- Record non-identity -}
 (x: 1, y: 2, z: 3).indices = ['x', 'y', 'z'] {- indices of record (an array) -}
+(x: 1, y: 2) = (x: 1, y: 2) {- key sequence and equality -}
+(x: 1, y: 2) ~= (y: 2, x: 1) {- key sequence and equality -}
+Record().hasEqualElements(Record()) {- key sequence and equality -}
+(x: 1, y: 2).hasEqualElements(x: 1, y: 2) {- key sequence and equality -}
+(x: 1, y: 2).hasEqualElements(y: 2, x: 1) {- key sequence and equality -}
+(x: 1, y: 2).hasEqualElements(x: 1, z: 2) = false {- has equal keys and values -}
+(x: 1, y: 2).hasEqualElements(x: 2, y: 1) = false {- has equal keys and values -}
+(x: 1, z: 2).hasEqualElements(z: 1, y: 2) = false {- has equal keys and values -}
+(x: 1, y: 2).hasEqualElements(x: 1, y: 2, z: 3) = false {- has equal keys and values -}
+(x: 1, y: 2, z: 3).hasEqualElements(x: 1, y: 2) = false {- has equal keys and values -}
 ```
 
 ## Rectangle -- geometry type
@@ -3557,6 +3569,10 @@ let x = 1; let y = 2; let z = 3; x := x * y + z; y := x + y * z; z := x + y + z;
 [1, 3 .. 9] = (1, 3 .. 9).asArray
 [9, 7 .. 1] = (9, 7 .. 1).asArray
 [1 .. 1] = (1 .. 1).asArray
+```
+
+## Syntax - vector and matrix syntax
+```
 [1 3 5 2 4] = [1, 3, 5, 2, 4] {- vector syntax, literal items -}
 [9.sqrt 16.sqrt 25.sqrt] = [3, 4, 5] {- vector syntax, simple unary sends -}
 let a = 1; let b = 3; let c = 5; [a b c b a] = [1, 3, 5, 3, 1] {- vector syntax, identifier items -}
@@ -3574,6 +3590,8 @@ let a = 1; let b = 3; [[a b; b a] [b a; a b]] = [[[1, 3], [3, 1]], [[3, 1], [1, 
 { [1 2 3; 4 5 6].atPath([]) }.ifError { true } {- matrix indexing; atPath, empty indices is an error -}
 [1 2 3; 4 5 6] @> [2 3] = 6 {- matrix indexing; atPath operator -}
 let m = [1 2 3; 4 5 6; 7 8 9]; m @> [2 3] = 6 & { m @> [3 2] = 8 } {- matrix syntax and atPath operator -}
+[1 -1 -4 -8 -13 -19 -26 -34 -43].size = 9 {- negative integer literals -}
+[1 - 1 - 4 - 8 - 13 - 19 - 26 - 34 - 43] = [-147] {- subtraction -}
 ```
 
 ## Syntax - At Syntax

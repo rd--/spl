@@ -2,23 +2,30 @@
 
 +@Object {
 
-	Lforever { :anObject |
-		BlockStream { anObject } { }
+	LsCons { :anObject :aStream |
+		LsCat([LsOnce(anObject), aStream])
 	}
 
-	Lonce { :anObject |
+	LsConstant { :anObject |
+		LsForever(anObject)
+	}
+
+	LsForever { :anObject |
+		BlockStream {
+			anObject
+		} {
+		}
+	}
+
+	LsOnce { :anObject |
 		[anObject].asStream
-	}
-
-	Lconstant { :anObject |
-		Lforever(anObject)
 	}
 
 }
 
 +Block {
 
-	Lunfold { :aBlock:/1 :start |
+	LsUnfold { :aBlock:/1 :start |
 		let next = start;
 		BlockStream {
 			let answer = next;
@@ -29,41 +36,49 @@
 		}
 	}
 
-	Lunfold { :aBlock:/1 :start :length |
-		Lunfold(aBlock:/1, start).take(length)
+	LsUnfold { :aBlock:/1 :start :length |
+		LsUnfold(aBlock:/1, start).take(length)
+	}
+
+}
+
++@Integer {
+
+	LsFin { :count :input |
+		input.take(count)
 	}
 
 }
 
 +@Number {
 
-	Lgeom { :start :grow :length |
-		Lunfold({ :each | each * grow }, start, length)
+	LsGeom { :start :grow :length |
+		LsUnfold({ :each | each * grow }, start, length)
 	}
 
-	Lseries { :start :step :length |
-		Lunfold({ :each | each + step }, start, length)
+	LsSeries { :start :step :length |
+		LsUnfold({ :each | each + step }, start, length)
 	}
 
 }
 
 +@Sequenceable {
 
-	Lat { :list :indices |
+	LsAt { :list :indices |
 		indices.collect { :each | list[each] }
 	}
 
-	LatFold { :list :indices |
+	LsAtFold { :list :indices |
 		indices.collect { :each | list.atFold(each) }
 	}
 
-	LatWrap { :list :indices |
+	LsAtWrap { :list :indices |
 		indices.collect { :each | list.atWrap(each) }
 	}
 
-	Lcat { :list |
+	LsCat { :list |
 		let index = 1;
-		list.replace(Lonce:/1);
+		list.replace(LsOnce:/1);
 		BlockStream {
 			(index > list.size).if {
 				nil
@@ -85,13 +100,13 @@
 		}
 	}
 
-	Lcyc { :list |
-		Lseq(list, inf)
+	LsCyc { :list |
+		LsSeq(list, inf)
 	}
 
-	Llace { :list |
+	LsLace { :list |
 		let index = 1;
-		list.replace(Lforever:/1);
+		list.replace(LsForever:/1);
 		BlockStream {
 			let next = list[index].next;
 			(index >= list.size).if {
@@ -106,29 +121,29 @@
 		}
 	}
 
-	Llace { :list :count |
-		Llace(list).take(count)
+	LsLace { :list :count |
+		LsLace(list).take(count)
 	}
 
-	Lrand { :list |
+	LsRand { :list |
 		BlockStream {
 			list.atRandom
 		} {
 		}
 	}
 
-	Lrand { :list :count |
-		Lrand(list).take(count)
+	LsRand { :list :count |
+		LsRand(list).take(count)
 	}
 
-	Lseq { :list :repeats |
-		Ln(Lcat(list), repeats)
+	LsSeq { :list :repeats |
+		LsN(LsCat(list), repeats)
 	}
 
-	Lswitch { :list :which |
+	LsSwitch { :list :which |
 		| index |
-		list.replace(Lonce:/1);
-		which := Lforever(which);
+		list.replace(LsOnce:/1);
+		which := LsForever(which);
 		index := which.next;
 		BlockStream {
 			let next = list[index].next;
@@ -144,9 +159,9 @@
 		}
 	}
 
-	Lswitch1 { :list :which |
-		list.replace(Lforever:/1);
-		which := Lforever(which);
+	LsSwitch1 { :list :which |
+		list.replace(LsForever:/1);
+		which := LsForever(which);
 		BlockStream {
 			list[which.next].next
 		} {
@@ -155,9 +170,9 @@
 		}
 	}
 
-	Ltuple { :list :repeats |
+	LsTuple { :list :repeats |
 		let count = repeats;
-		list.replace(Lonce:/1);
+		list.replace(LsOnce:/1);
 		BlockStream {
 			(count <= 0).if {
 				nil
@@ -176,32 +191,28 @@
 		}
 	}
 
-	Lwalk { :list :steps |
-		LatFold(list, Laccum(Lconstant(steps)))
+	LsWalk { :list :steps |
+		LsAtFold(list, LsAccum(LsConstant(steps)))
 	}
 
-	Lxrand { :list |
-		LremDup(Lrand(list))
+	LsXRand { :list |
+		LsRemDup(LsRand(list))
 	}
 
-	Lxrand { :list :count |
-		Lxrand(list).take(count)
+	LsXRand { :list :count |
+		LsXRand(list).take(count)
 	}
 
 }
 
 +@Stream {
 
-	Laccum { :input |
-		let sum = 0;
-		input.collect { :each |
-			sum := sum + each;
-			sum
-		}
+	LsAccum { :input |
+		LsScan(input, +)
 	}
 
-	Lclump { :input :size |
-		size := Lforever(size);
+	LsClump { :input :size |
+		size := LsForever(size);
 		BlockStream {
 			let answer = input.nextOrUpToEnd(size.next);
 			answer.isEmpty.if {
@@ -215,7 +226,7 @@
 		}
 	}
 
-	Lclutch { :input :latch :initialValue |
+	LsClutch { :input :latch :initialValue |
 		let previous = initialValue;
 		BlockStream {
 			latch.next.asBoolean.ifTrue {
@@ -228,40 +239,68 @@
 		}
 	}
 
-	Lcollect { :self :aBlock:/1 |
+	LsCollect { :self :aBlock:/1 |
 		self.collect(aBlock:/1)
 	}
 
-	Lconstant { :self |
+	LsConstant { :self |
 		self
 	}
 
-	LdupEach { :input :repeats |
-		input.duplicateEach(Lforever(repeats))
+	LsDupEach { :input :repeats |
+		input.duplicateEach(LsForever(repeats))
 	}
 
-	Lforever { :input |
-		Ln(input, inf)
+	LsFold { :input :aBlock:/2 |
+		LsLast(LsScan(input, aBlock:/2))
 	}
 
-	Ln { :input :repeats |
+	LsForever { :input |
+		LsN(input, inf)
+	}
+
+	LsLast { :input |
+		let answer = input.next;
+		let next = nil;
+		{
+			next := input.next;
+			next.notNil
+		}.whileTrue {
+			answer := next
+		};
+		answer
+	}
+
+	LsN { :input :repeats |
 		input.repeat(repeats)
 	}
 
-	Lonce { :self |
+	LsOnce { :self |
 		self
 	}
 
-	LremDup { :self |
+	LsRemDup { :self |
 		self.removeSuccesiveDuplicates
 	}
 
-	Ltake { :self :anInteger |
+	LsScan { :input :aBlock:/2 |
+		let z = input.next;
+		LsCons(
+			z,
+			input.collect { :each |
+				z := aBlock(z, each)
+			}
+		)
+	}
+
+	LsTake { :self :anInteger |
 		self.take(anInteger)
 	}
 
 	play { :self |
-		let timeDifference = (system.unixTimeInMilliseconds - system.systemTimeInMilliseconds) / 1000;
+		let unixTime = system.unixTimeInMilliseconds;
+		let systemTime = system.systemTimeInMilliseconds;
+		let timeDifference = (unixTime - systemTime) / 1000;
 		{ :currentTime |
 			let next = self.next;
 			next.ifNil {
@@ -317,9 +356,9 @@
 		}
 	}
 
-	Lbind { :self |
+	LsBind { :self |
 		let atEnd = false;
-		self.replace(Lconstant:/1);
+		self.replace(LsConstant:/1);
 		BlockStream {
 			atEnd.if {
 				nil
@@ -342,11 +381,11 @@
 
 +@[Number, Stream] {
 
-	Lbeta { :low :high :p1 :p2 :length |
-		low := Lconstant(low);
-		high := Lconstant(high);
-		p1 := Lconstant(p1);
-		p2 := Lconstant(p2);
+	LsBeta { :low :high :p1 :p2 :length |
+		low := LsConstant(low);
+		high := LsConstant(high);
+		p1 := LsConstant(p1);
+		p2 := LsConstant(p2);
 		BlockStream {
 			randomFloatEularianBetaDistribution(low.next, high.next, p1.next, p2.next)
 		} {
@@ -357,11 +396,11 @@
 		}.take(length)
 	}
 
-	LbrownUsing { :low :high :step :aBlock:/2 |
+	LsBrownUsing { :low :high :step :aBlock:/2 |
 		| next |
-		low := Lconstant(low);
-		high := Lconstant(high);
-		step := Lconstant(step);
+		low := LsConstant(low);
+		high := LsConstant(high);
+		step := LsConstant(step);
 		next := aBlock(low.next, high.next);
 		low.withAndCollect(high, step) { :low :high :step |
 			let answer = next;
@@ -370,22 +409,34 @@
 		}
 	}
 
-	Lbrown { :low :high :step :length |
-		LbrownUsing(low, high, step, randomFloat:/2).take(length)
+	LsBrown { :low :high :step :length |
+		LsBrownUsing(low, high, step, randomFloat:/2).take(length)
 	}
 
-	Lcauchy { :mean :spread :length |
-		mean := Lconstant(mean);
-		spread := Lconstant(spread);
+	LsCauchy { :mean :spread :length |
+		mean := LsConstant(mean);
+		spread := LsConstant(spread);
 		mean.withCollect(spread, randomFloatCauchyDistribution:/2).take(length)
 	}
 
-	Librown { :low :high :step :length |
-		LbrownUsing(low, high, step, randomIntegerExcludingZero:/2).take(length)
+	LsIBrown { :low :high :step :length |
+		LsBrownUsing(low, high, step, randomIntegerExcludingZero:/2).take(length)
 	}
 
-	Lwhite { :low :high :length |
-		Lconstant(low).randomFloat(high).take(length)
+	LsWhite { :low :high :length |
+		LsConstant(low).randomFloat(high).take(length)
+	}
+
+}
+
++String {
+
+	LsSet { :key :value :input |
+		value := LsConstant(value);
+		input.withCollect(value) { :each :z |
+			each[key] := z;
+			each
+		}
 	}
 
 }

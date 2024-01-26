@@ -247,6 +247,10 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("valueWithReturn" . ?↓) ; U+2193 ↓ Downwards Arrow
      ("->" . ?→) ; U+2190 → Rightwards Arrow
      (":=" . ?←) ; U+2190 ← Leftwards Arrow (U+2254 ≔ Colon Equals)
+     (":/1" .?₁) ; U+2081 ₁ Subscript One
+     (":/2" .?₂) ; U+2082 ₂ Subscript Two
+     (":/3" .?₃) ; U+2083 ₃ Subscript Three
+     (":/4" .?₄) ; U+2084 ₄ Subscript Four
      (":/" . ?⧸) ; U+00B0 ⧸ Big Solidus
      ("::" . ?·) ; U+00B7 · Middle Dot
      (":." . ?‣)
