@@ -157,6 +157,27 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 		}
 	}
 
+	scan { :input :aBlock:/2 |
+		let z1 = input.next;
+		BlockStream {
+			let z2 = input.next;
+			z1.isNil.if {
+				nil
+			} {
+				let answer = z1;
+				z2.isNil.if {
+					z1 := nil
+				} {
+					z1 := aBlock(z1, z2)
+				};
+				answer
+			}
+		} {
+			input.reset;
+			z1 := input.next
+		}
+	}
+
 	select { :self :aBlock:/1 |
 		BlockStream {
 			let next = self.next;

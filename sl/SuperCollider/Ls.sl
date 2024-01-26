@@ -65,15 +65,21 @@
 +@Sequenceable {
 
 	LsAt { :list :indices |
-		indices.collect { :each | list[each] }
+		indices.collect { :each |
+			list[each]
+		}
 	}
 
 	LsAtFold { :list :indices |
-		indices.collect { :each | list.atFold(each) }
+		indices.collect { :each |
+			list.atFold(each)
+		}
 	}
 
 	LsAtWrap { :list :indices |
-		indices.collect { :each | list.atWrap(each) }
+		indices.collect { :each |
+			list.atWrap(each)
+		}
 	}
 
 	LsCat { :list |
@@ -138,6 +144,10 @@
 
 	LsSeq { :list :repeats |
 		LsN(LsCat(list), repeats)
+	}
+
+	LsSer { :list :count |
+		LsTake(LsCyc(list), count)
 	}
 
 	LsSwitch { :list :which |
@@ -211,6 +221,25 @@
 		LsScan(input, +)
 	}
 
+
+	LsAdjacent { :input :aBlock:/2 |
+		let previous = input.next;
+		BlockStream {
+			let next = input.next;
+			next.isNil.if {
+				nil
+			} {
+				let answer = aBlock(previous, next);
+				previous := next;
+				answer
+			}
+		} {
+			input.reset;
+			previous := input.next
+		}
+	}
+
+
 	LsClump { :input :size |
 		size := LsForever(size);
 		BlockStream {
@@ -245,6 +274,14 @@
 
 	LsConstant { :self |
 		self
+	}
+
+	LsDiff { :input |
+		LsAdjacent(input, -.flip)
+	}
+
+	LsDrop { :self :anInteger |
+		self.drop(anInteger)
 	}
 
 	LsDupEach { :input :repeats |
@@ -284,17 +321,18 @@
 	}
 
 	LsScan { :input :aBlock:/2 |
-		let z = input.next;
-		LsCons(
-			z,
-			input.collect { :each |
-				z := aBlock(z, each)
-			}
-		)
+		input.scan(aBlock:/2)
 	}
 
-	LsTake { :self :anInteger |
-		self.take(anInteger)
+	LsTake { :input :anInteger |
+		input.take(anInteger)
+	}
+
+	LsTrace { :input |
+		input.collect { :each |
+			each.postLine;
+			each
+		}
 	}
 
 	play { :self |

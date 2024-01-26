@@ -2495,6 +2495,7 @@ system.methodDictionary::at[2]::Map.information.parameterNames = ['self', 'key']
 let c = []; let a = []; (1 .. 3).do { :i | c.add { a.add(i) } }; c.do(value:/1); a = [1, 2, 3]
 let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] {- closure -}
 { { }.deepCopy }.ifError { true } {- blocks cannot be deep copied -}
+let f = -.flip; f.value(3, 1) = -2 {- flip of two argument block -}
 ```
 
 ## BlockStream
@@ -3129,6 +3130,8 @@ let s = Set(); s.includeAll([4 / 2, 4, 2]); s.size = 2 {- 4 / 2 = 2 -}
 [1, 2, 3, 1, 4].asSet.indices = nil {- sets are not indexable -}
 [1, 2, 2, 3, 3, 3].asSet.occurrencesOf(3) = 1 {- number of occurrences of element in set (zero or one) -}
 [1, 3, 3, 3].asSet.occurrencesOf(2) = 0 {- number of occurrences of element in set (zero or one) -}
+[5 4 6 7 8 9 10 11 3].asSet = (3 .. 11).asSet {- from array out of order array -}
+let s = Set(); [5 4 6 7 8 9 10 11 3].do { :each | s.include(each) }; s = (3 .. 11).asSet {- out of order insertion -}
 ```
 
 ## SmallFloat -- numeric type

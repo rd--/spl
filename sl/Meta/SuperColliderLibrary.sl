@@ -16,8 +16,8 @@
 	'ContinuousEvent'
 	'Env'
 	'J'
-	'L'
 	'LocalControl'
+	'Ls'
 	'Mix' {- < Ugen -}
 	'KeywordUgens' {- < Ugen -}
 	'PseudoUgens' {- < Ugen -}

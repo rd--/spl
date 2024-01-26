@@ -80,6 +80,16 @@ Block! : [Object] {
 		>
 	}
 
+	flip { :self:/2 |
+		(self:/2.numArgs = 2).if {
+			{ :rhs :lhs |
+				self(lhs, rhs)
+			}
+		} {
+			'Block>>flip: not two argument block'.error
+		}
+	}
+
 	ifError { :self :errorHandlerBlock |
 		<primitive:
 		try {
