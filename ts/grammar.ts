@@ -181,7 +181,7 @@ Sl {
 
 	primitiveCharacter = ~">" sourceCharacter
 
-	comment = multiLineHsComment
+	comment = multiLineHsComment | singleLineHsComment
 	multiLineMlComment = "(*" (~"*)" sourceCharacter)* "*)"
 	singleLineMlComment = "(*)" (~lineTerminator sourceCharacter)*
 	multiLineHsComment = "{-" (~"-}" sourceCharacter)* "-}"

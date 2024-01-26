@@ -206,7 +206,8 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
 
 (defvar spl-imenu-generic-expression
   (list
-   (list nil "^\\({- .* -}\\)$" 1) ; Comment
+   (list nil "^\\({- .* -}\\)$" 1) ; Region Comment
+   (list nil "^\\(-- .*\\)$" 1) ; Line Comment
    (list nil "^\\(#+ .*\\)$" 1) ; Heading
    (list nil "^\\(\+?@?\[?[A-Z][, A-Za-z0-9]+[A-Za-z0-9]\]?\\).* {\\( |\\|$\\)" 1)
    (list nil "^\\(\t[*&|~+/%><=?!^a-zA-Z0-9-]+\\) {" 1))
@@ -225,13 +226,22 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
 
 (defun spl-fill-syntax-table (st)
   "Modify the syntax table ST for Spl."
-  (modify-syntax-entry ?- ". 23n" st) ; comment second and second last
-  (modify-syntax-entry ?\{ "(}1" st) ; comment first
-  (modify-syntax-entry ?\} "){4" st) ; comment last
+  (modify-syntax-entry ?\  " " st) ; whitespace
+  (modify-syntax-entry ?\t " " st) ; whitespace
+  (modify-syntax-entry ?\( "()" st) ; open parenthesis
+  (modify-syntax-entry ?\) ")(" st) ; close parenthesis
+  (modify-syntax-entry ?\[ "(]" st) ; open parenthesis
+  (modify-syntax-entry ?\] ")[" st) ; close parenthesis
+  (modify-syntax-entry ?\{ "(}1" st) ; open parenthesis & comment start
+  (modify-syntax-entry ?\} "){4" st) ; close parenthesis & comment end
+  (modify-syntax-entry ?- ". 123" st) ; punctuation & comment
+  (modify-syntax-entry ?\n ">" st) ; comment end
   (modify-syntax-entry ?' "\"" st) ; string quote
   (modify-syntax-entry ?\" "\"" st) ; string quote
-  ;;(modify-syntax-entry ?\; ". 12b" st)
-  ;;(modify-syntax-entry ?\n "> b" st)
+  (modify-syntax-entry ?\` "\"" st) ; string quote
+  (mapc (lambda (x)
+          (modify-syntax-entry x "." st)) ; punctuation
+        "!#$%&*+./:<=>?@^|~,;\\")
   st)
 
 (defvar spl-mode-syntax-table
@@ -242,92 +252,99 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   "Unicode symbols"
   (setq
    prettify-symbols-alist
-   '(("return:/1" . ?↑) ; U+2191 ↑ Upwards Arrow
-     ("return" . ?↑) ; U+2191 ↑ Upwards Arrow
-     ("valueWithReturn" . ?↓) ; U+2193 ↓ Downwards Arrow
+   '(
+     ("!!" . ?‼) ; U+203C ‼ Double Exclamation Mark
+     ("!~" . ?≉) ; U+2249 ≉ Not Almost Equal To ; ≁
+     ("*" . ?×) ; U+00D7 × Multiplication Sign
+     ("**" . ?⇈) ; U+21C8 ⇈ Upwards Paired Arrows
+     ("*.x" . ?⊗) ; U+2297 ⊗ Circled Times
+     ("++" . ?⧺) ; U+29FA ⧺ Double plus
+     ("+++" . ?⧻) ; U+29FB ⧻ Triple Plus
+     ("-" . ?−) ; U+2212 − Minus Sign
+     ("--" .?⍝) ; U+235D ⍝ APL Functional Symbol Up Shoe Jot ; U+2014 — Em Dash
+     ("-<" . ?⤙) ; U+2919 ⤙ Leftwards Arrow-Tail
      ("->" . ?→) ; U+2190 → Rightwards Arrow
-     (":=" . ?←) ; U+2190 ← Leftwards Arrow (U+2254 ≔ Colon Equals)
+     (".." .?…) ; U+2026 … Horizontal Ellipsis; U+2025 ‥ Two Dot Leader
+     ("/" . ?÷) ; U+00F7 ÷ Division Sign
+     (":." . ?‣) ; U+2023 ‣ Triangular Bullet
+     (":/" . ?⧸) ; U+00B0 ⧸ Big Solidus
      (":/1" .?₁) ; U+2081 ₁ Subscript One
      (":/2" .?₂) ; U+2082 ₂ Subscript Two
      (":/3" .?₃) ; U+2083 ₃ Subscript Three
      (":/4" .?₄) ; U+2084 ₄ Subscript Four
-     (":/" . ?⧸) ; U+00B0 ⧸ Big Solidus
-     ("::" . ?·) ; U+00B7 · Middle Dot
-     (":." . ?‣)
+     ("::" . ?·) ; U+00B7 · Middle Dot ; ∷
+     (":=" . ?←) ; U+2190 ← Leftwards Arrow (U+2254 ≔ Colon Equals)
+     (":?" .?⍰) ; U+2370 ⍰ Apl Functional Symbol Quad Question ; U+291D ⤝ Leftwards arrow to black diamond
      (":@" . ?⋄) ; U+22C4 ⋄ Diamond Operator
-     ("~=" . ?≠) ; U+2260 ≠ Not equal to
-     ("==" . ?≡) ; U+2261 ≡ Identical To
-     ("~~" . ?≢) ; U+2262 ≢ Not Identical To
      ("<=" . ?≤) ; U+2264 ≤ Less-than or equal to
+     ("<~" . ?⪅) ; U+2A85 ⪅ Less-Than or Approximate ; ⪝
+     ("==" . ?≡) ; U+2261 ≡ Identical To
+     ("=>" . ?⇒) ; U+21D2 ⇒ Rightwards Double Arrow
      (">=" . ?≥) ; U+2265 ≥ Greater-than or equal to
-     ("++" . ?⧺) ; U+29FA ⧺ Double plus
-     ("+++" . ?⧻) ; U+29FB ⧻ Triple Plus
-     ("concatenation" .?⧻) ; U+29FB ⧻ Triple Plus
-     ("transposed" .?ᵀ) ; U+1D40 ᵀ Modifier Letter Capital T
-     ("reversed" .?ᴙ) ; U+1D19 ᴙ Latin Letter Small Capital Reversed R
-     ("pi" . ?π) ; U+03C0 π Greek Small Letter Pi
-     ("epsilon" . ?ε) ; U+03B5 ε Greek Small Letter Epsilon
-     ;; ("e" . ?𝑒)
-     ("*" . ?×) ; U+00D7 × Multiplication Sign
-     ("-" . ?−) ; U+2212 − Minus Sign
-     ("^" . ?ˆ) ; U+2191 ↑ Upwards Arrow ; U+02C6 ˆ Modifier Letter Circumflex Accent
-     ("**" . ?⇈) ; U+21C8 ⇈ Upwards Paired Arrows
-     ("/" . ?÷) ; U+00F7 ÷ Division Sign
-     ("true" . ?⊤) ; U+22A4 ⊤ Down Tack
-     ("false" . ?⊥) ; U+22A5 ⊥ Up tack
-     ("not" . ?¬) ; U+00AC ¬ Not sign
-     ("and" . ?∧) ; U+2227 ∧ Logical and
-     ("or" . ?∨) ; ∨ U+2228 Logical Or
-     ("sum" . ?Σ) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation
+     (">~" . ?⪆) ; U+2A86 ⪆ Greater-Than or Approximate ; ⪞
+     ("Phi" . ?ϕ) ; U+03D5 ϕ Greek Phi Symbol
+     ("Sqrt" . ?√) ; U+221A √ Square Root
      ("Sum" . ?∑) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation
-     ("product" . ?Π) ; U+03A0 Π Greek capital letter pi
-     ("crossedMultiply" . ?⊗) ; U+2297 ⊗ Circled Times
-     ("*.x" . ?⊗)
-     ("Sqrt" . ?√)
-     ("sqrt" . ?√) ; “√” U+221A Square Root
-     ;;(";;" . ?⋯)
-     ("alpha" . ?α)
-     ("beta" . ?β)
-     ("|(" . ?⦇) ; ⦃ ⸠ ⦇
-     (")|" . ?⦈) ; ⦄ ⸡ ⦈
-     ("~" . ?≈) ; U+2248 ≈ Almost Equal To
-     ("!~" . ?≉) ; ≁
-     ("<~" . ?⪅) ; ⪝
-     (">~" . ?⪆) ; ⪞
-     ("union" . ?∪) ; U+222A ∪ Union
-     ("intersection" . ?∩) ; U+2229 ∩ Intersection
-     ("includes" . ?∋) ; U+220B ∋ Contains as Member
-     ("doesNotInclude" . ?∌) ; Unicode: U+220C ∌ Does not contain as member
-     ("flat" . ?♭) ; U+266D ♭ Music Flat Sign
-     ("sharp" . ?♯) ; U+266F ♯ Music Sharp Sign
-     ("natural" . ?♮) ; U+266E ♮ Music Natural Sign
+     ("^" . ?ˆ) ; U+02C6 ˆ Modifier Letter Circumflex Accent ; U+2191 ↑ Upwards Arrow
+     ("alpha" . ?α) ; U+03B1 α Greek Small Letter Alpha
+     ("and" . ?∧) ; U+2227 ∧ Logical and
+     ("beta" . ?β) ; U+03B2 β Greek Small Letter Beta
      ("cancelFlat" . ?♮) ; U+266E ♮ Music Natural Sign
      ("cancelSharp" . ?♮) ; U+266E ♮ Music Natural Sign
+     ("compose" .?∘) ;  U+2218 ∘ Ring Operator
+     ("concatenation" .?⧻) ; U+29FB ⧻ Triple Plus
+     ("crossedMultiply" . ?⊗) ; U+2297 ⊗ Circled Times
+     ("delta" .?δ) ; U+03B4 δ Greek Small Letter Delta
+     ("doesNotInclude" . ?∌) ; Unicode: U+220C ∌ Does not contain as member
+     ("duplicate" .?!)
+     ("each" . ?⍵) ; U+2375 ⍵ APL Functional Symbol Omega
+     ("epsilon" . ?ε) ; U+03B5 ε Greek Small Letter Epsilon
+     ("false" . ?⊥) ; U+22A5 ⊥ Up tack
+     ("first" .?₁) ; U+2081 ₁ Subscript One
+     ("flat" . ?♭) ; U+266D ♭ Music Flat Sign
+     ("fourth" .?₄) ; U+2084 ₄ Subscript Four
+     ("includes" . ?∋) ; U+220B ∋ Contains as Member
+     ("inf" .?∞) ; U+221E ∞ Infinity
+     ("intersection" . ?∩) ; U+2229 ∩ Intersection
+     ("lambda" .?λ) ; U+03BB λ Greek Small Letter Lamda
+     ("mu" .?μ) ; U+03BC μ Greek Small Letter Mu
+     ("natural" . ?♮) ; U+266E ♮ Music Natural Sign
+     ("not" . ?¬) ; U+00AC ¬ Not sign
+     ("or" . ?∨) ; ∨ U+2228 Logical Or
+     ("phi" .?φ) ; U+03C6 φ Greek Small Letter Phi
+     ("pi" . ?π) ; U+03C0 π Greek Small Letter Pi
+     ("product" . ?Π) ; U+03A0 Π Greek Capital Letter Pi
      ("quarterToneFlat" .?𝄳) ; U+1D133 𝄳 Musical Symbol Quarter Tone Flat
      ("quarterToneSharp" .?𝄲) ; U+1D132 𝄲 Musical Symbol Quarter Tone Sharp
-     (":?" .?⍰) ; U+2370 ⍰ Apl Functional Symbol Quad Question ; U+291D ⤝ Leftwards arrow to black diamond
-     ("||" .?‖) ; U+2016 ‖ Double Vertical Line
-     (".." .?…) ; U+2026 … Horizontal Ellipsis; U+2025 ‥ Two Dot Leader
-     ;;("..." .?‥) ; U+2026 … Horizontal Ellipsis; U+22ef ⋯ Midline Horizontal Ellipsis
-     ("--" .?—) ; U+2014 — Em Dash
-     ("duplicate" .?!)
-     ("squared" .?²) ; U+00B2 ² Superscript Two
-     ("first" .?₁) ; U+2081 ₁ Subscript One
-     ("second" .?₂) ; U+2082 ₂ Subscript Two
-     ("third" .?₃) ; U+2083 ₃ Subscript Three
-     ("fourth" .?₄) ; U+2084 ₄ Subscript Four
-     ("rho" .?ρ)
-     ("phi" .?φ)
-     ("theta" .?θ)
-     ("lambda" .?λ) ; U+03BB λ Greek Small Letter Lamda
-     ("delta" .?δ) ; U+03B4 δ Greek Small Letter Delta
      ("r" .?𝑟) ; U+1D45F 𝑟 Mathematical Italic Small R
-     ("mu" .?μ) ; U+03BC μ Greek Small Letter Mu
-     ("compose" .?∘) ;  U+2218 ∘ Ring Operator
-     ("inf" .?∞) ; U+221E ∞ Infinity
-     ("{-" . ?⦃) ; U+2983 ⦃ Left White Curly Bracket
-     ("-}" . ?⦄) ; U+2984 ⦄ Right White Curly Bracket
-     ("each" . ?⍵) ; U+2375 ⍵ APL Functional Symbol Omega
+     ("return" . ?↑) ; U+2191 ↑ Upwards Arrow
+     ("return:/1" . ?↑) ; U+2191 ↑ Upwards Arrow
+     ("reversed" .?ᴙ) ; U+1D19 ᴙ Latin Letter Small Capital Reversed R
+     ("rho" .?ρ) ; U+03C1 ρ Greek Small Letter Rho
+     ("second" .?₂) ; U+2082 ₂ Subscript Two
+     ("sharp" . ?♯) ; U+266F ♯ Music Sharp Sign
+     ("sqrt" . ?√) ; “√” U+221A Square Root
+     ("squared" .?²) ; U+00B2 ² Superscript Two
+     ("sum" . ?Σ) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation
+     ("theta" .?θ) ; U+03B8 θ Greek Small Letter Theta
+     ("third" .?₃) ; U+2083 ₃ Subscript Three
+     ("transposed" .?ᵀ) ; U+1D40 ᵀ Modifier Letter Capital T
+     ("true" . ?⊤) ; U+22A4 ⊤ Down Tack
+     ("undefined" . ?⊥) ; U+22A5 ⊥ Up tack
+     ("union" . ?∪) ; U+222A ∪ Union
+     ("valueWithReturn" . ?↓) ; U+2193 ↓ Downwards Arrow
+     ("||" .?‖) ; U+2016 ‖ Double Vertical Line
+     ("~" . ?≈) ; U+2248 ≈ Almost Equal To
+     ("~=" . ?≠) ; U+2260 ≠ Not equal to
+     ("~>" . ?⇝) ; U+21DD ⇝ Rightwards Squiggle Arrow
+     ("~~" . ?≢) ; U+2262 ≢ Not Identical To
+     ;; (")|" . ?⦈) ; U+2988 ⦈ Z Notation Right Image Bracket ; ⦄ ; ⸡
+     ;; ("-}" . ?⦄) ; U+2984 ⦄ Right White Curly Bracket
+     ;; ("..." .?‥) ; U+2026 … Horizontal Ellipsis; U+22ef ⋯ Midline Horizontal Ellipsis
+     ;; (";;" . ?⋯)
+     ;; ("e" . ?𝑒)
+     ;; ("{-" . ?⦃) ; U+2983 ⦃ Left White Curly Bracket
+     ;; ("|(" . ?⦇) ; U+2989 ⦇ Z Notation Left Image Bracket
      )))
 
 (defun spl-fill-mode-map (map)
