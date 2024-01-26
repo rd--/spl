@@ -507,6 +507,12 @@
 		self.collect(truncated:/1)
 	}
 
+	wrapIndex { :self :size |
+		self.collect { :each |
+			each.wrapIndex(size)
+		}
+	}
+
 }
 
 +@Object {

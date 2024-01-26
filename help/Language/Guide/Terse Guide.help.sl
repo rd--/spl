@@ -2949,8 +2949,14 @@ let c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5] {- swap elements at indi
 [1, [2, [3, ['45', 6], '78']], 9].flattened = [1, 2, 3, '45', 6, '78', 9] {- strings are not flattened to sequences of characters -}
 [3, 4, [2, 4, ['xy'], 'wz']].flattened = [3, 4, 2, 4, 'xy', 'wz']
 (1 .. 9).rotatedLeft(3) = ([4 .. 9] ++ [1 .. 3]) {- rotate left -}
+(1 .. 7).rotatedLeft(3) = [4 5 6 7 1 2 3] {- rotate left -}
+(1 .. 7).rotatedLeft(-4) = [4 5 6 7 1 2 3] {- negative argument rotates right -}
 let a = [1 .. 9]; a.rotatedLeft(3) ~~ a {- rotation is not in place -}
 (1 .. 9).rotatedRight(3) = ([7 .. 9] ++ [1 .. 6]) {- rotate right -}
+(1 .. 7).rotatedRight(3) = [5 6 7 1 2 3 4] {- rotate right -}
+(1 .. 7).rotatedRight(-4) = [5 6 7 1 2 3 4] {- negative argument rotates left -}
+(1 .. 7).rotated(3) = [5 6 7 1 2 3 4] {- rotate right -}
+(1 .. 7).rotated(-4) = [5 6 7 1 2 3 4] {- negative argument rotates left -}
 let d = []; (3 .. 1).withDo((1 .. 3)) { :p :q | d.add(p -> q) }; d = [3 -> 1, 2 -> 2, 1 -> 3] {- do with elements from a second sequence of equal size -}
 let d = []; (3 .. 1).reverseWithDo((1 .. 3)) { :p :q | d.add(p -> q) }; d = [1 -> 3, 2 -> 2, 3 -> 1]
 let d = []; (3 .. 1).withIndexDo { :each :index | d.add(each -> index) }; d = [3 -> 1, 2 -> 2, 1 -> 3]
@@ -2969,6 +2975,12 @@ let d = []; (3 .. 1).withIndexDo { :each :index | d.add(each -> index) }; d = [3
 let a = []; (0 .. 1).asDigitsToPowerDo(2) { :each | a.add(each.copy) }; a = [[0, 0], [0, 1], [1, 0], [1, 1]]
 ['one', 'two', 'three', 'four'].atAll([3, 2, 4]) = ['three', 'two', 'four'] {- at each index -}
 (1 .. 9).atAll((3 .. 5)) = [3 .. 5] {- at all indices -}
+(1 .. 9).atWrapAll((7 .. 11)) = [7 8 9 1 2] {- atWrap all indices -}
+(1 .. 9).atFoldAll((7 .. 11)) = [7 8 9 8 7] {- atFold all indices -}
+(1 .. 9).atPinAll((7 .. 11)) = [7 8 9 9 9] {- atPin all indices -}
+(1 .. 9).atWrapAll((3 .. -1)) = [3 2 1 9 8] {- atWrap all indices -}
+(1 .. 9).atFoldAll((3 .. -1)) = [3 2 1 2 3] {- atFold all indices -}
+(1 .. 9).atPinAll((3 .. -1)) = [3 2 1 1 1] {- atPin all indices -}
 (1 .. 9) @* (3 .. 5) = [3 .. 5] {- @* atAll operator -}
 let a = Array(9); a.atAllPut(0); a = [0, 0, 0, 0, 0, 0, 0, 0, 0] {- set all elements to a single value -}
 let a = [1 .. 9]; a.atAllPut([3 .. 7], 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] {- set all selected indices to a value -}

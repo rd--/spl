@@ -4,9 +4,7 @@ let d = 0.14 * 1.4;
 let h = Hilbert(
 	Lpf(
 		Hpf(
-			(2 .. 15).collect { :each |
-				z.atWrap(each)
-			},
+			z.rotated(-1),
 			140
 		),
 		11400

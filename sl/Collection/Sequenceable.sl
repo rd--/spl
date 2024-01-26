@@ -84,12 +84,17 @@
 		self.asDigitsAtInDo(1, aCollection, aBlock:/1)
 	}
 
-	atAll { :self :indexArray |
+
+	atAllUsing { :self :indexArray :aBlock:/2 |
 		let answer = self.species.ofSize(indexArray.size);
 		indexArray.indicesDo { :index |
-			answer[index] := self[indexArray[index]]
+			answer[index] := aBlock(self, indexArray[index])
 		};
 		answer
+	}
+
+	atAll { :self :indexArray |
+		self.atAllUsing(indexArray, at:/2)
 	}
 
 	atAllPut { :self :anObject |
@@ -108,6 +113,10 @@
 		self[index.foldIndex(self.size)]
 	}
 
+	atFoldAll { :self :indexArray |
+		self.atAllUsing(indexArray, atFold:/2)
+	}
+
 	atLastPut { :self :indexFromEnd :anObject |
 		self[self.size + 1 - indexFromEnd] := anObject
 	}
@@ -116,12 +125,20 @@
 		self[self.pinnedIndex(index)]
 	}
 
+	atPinAll { :self :indexArray |
+		self.atAllUsing(indexArray, atPin:/2)
+	}
+
 	atPinPut { :self :index :value |
 		self.atPut(self.pinnedIndex(index), value)
 	}
 
 	atWrap { :self :index |
 		self[index - 1 % self.size + 1]
+	}
+
+	atWrapAll { :self :indexArray |
+		self.atAllUsing(indexArray, atWrap:/2)
 	}
 
 	atWrapPut { :self :index :anObject |
