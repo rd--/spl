@@ -17,4 +17,6 @@ Effects of 'shape':
 - 'shape' = 1: same as exponential distribution
 
 
-	({ randomFloatWeibullDistribution(0, 1, 3 / 4) } ! 99).plot
+```
+({ randomFloatWeibullDistribution(0, 1, 3 / 4) } ! 99).plot
+```

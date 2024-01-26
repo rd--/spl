@@ -123,6 +123,7 @@
 	HenonC { :freq :a :b :x0 :x1 | <primitive: return sc.HenonC(_freq, _a, _b, _x0, _x1);> }
 	HenonL { :freq :a :b :x0 :x1 | <primitive: return sc.HenonL(_freq, _a, _b, _x0, _x1);> }
 	HenonN { :freq :a :b :x0 :x1 | <primitive: return sc.HenonN(_freq, _a, _b, _x0, _x1);> }
+	Hilbert { :in | <primitive: return sc.Hilbert(_in);> }
 	Ifft { :buffer :wintype :winsize | <primitive: return sc.Ifft(_buffer, _wintype, _winsize);> }
 	IRand { :lo :hi | <primitive: return sc.IRand(_lo, _hi);> }
 	Impulse { :freq :phase | <primitive: return sc.Impulse(_freq, _phase);> }

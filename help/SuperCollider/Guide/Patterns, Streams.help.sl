@@ -6,6 +6,7 @@ SuperCollider names:
 - Pbind ⟹ LsBind
 - Pbrown ⟹ LsBrown
 - Pcauchy ⟹ LsCauchy
+- Pclump ⟹ LsClump
 - Pdiff ⟹ LsDiff
 - Pdrop ⟹ LsDrop
 - Pdup ⟹ LsDupEach
@@ -13,14 +14,16 @@ SuperCollider names:
 - Pgeom ⟹ LsGeom
 - Place ⟹ LsLace
 - Pn ⟹ LsN
-- Pran ⟹ LsRand
+- Prand ⟹ LsRand
 - Pset ⟹ LsSet
 - Pseq ⟹ LsSeq
 - Pser ⟹ LsSer
 - Pseries ⟹ LsSeries
 - Ptrace ⟹ LsTrace
 - Ptuple ⟹ LsTuple
+- Pwalk ⟹ LsWalk
 - Pwhite ⟹ LsWhite
+- Pxrand ⟹ LsXRand
 
 Further:
 

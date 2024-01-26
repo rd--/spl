@@ -9,7 +9,9 @@ Generate a random number between zero (inclusive) and one (exclusive).
 
 Uniform distribution:
 
-	({ randomFloat(-1, 1) } ! 99).plot
+```
+({ randomFloat(-1, 1) } ! 99).plot
+```
 
 * * *
 

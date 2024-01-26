@@ -144,7 +144,7 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 		BlockStream {
 			let next = self.next;
 			next.isNil.and {
-					repeat < repeats
+				repeat < repeats
 			}.ifTrue {
 				self.reset;
 				repeat := repeat + 1;

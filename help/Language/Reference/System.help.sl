@@ -8,7 +8,7 @@ Type, trait and method dictionaries, timers, random number and unique identifier
 
 	system.typeOf = 'System'
 	system.typeDictionary.keys.includes('System') = true
-	system.randomFloat < 1
+	system.nextRandomFloat < 1
 	system.uniqueId ~= system.uniqueId
 
 * * *

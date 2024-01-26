@@ -13,7 +13,7 @@ spl-repl-unsafe:
 	$(spl) replPerLine --unsafe
 
 spl-repl-verbose:
-	$(spl) replPerLine --lib=StandardLibrary --strict --verbose
+	./spl replPerLine --lib=StandardLibrary --strict --verbose
 
 spl-repl-bm:
 	$(spl) replPerLine --lib=StandardLibrary --lib=BenchmarkLibrary --strict

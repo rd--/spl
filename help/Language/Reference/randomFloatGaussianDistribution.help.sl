@@ -9,4 +9,6 @@ Also known as _Normal Distribution_.
 
 Mean at zero, small deviation:
 
-	({ randomFloatGaussianDistribution(0, 1 / 9) } ! 99).plot
+```
+({ randomFloatGaussianDistribution(0, 1 / 9) } ! 99).plot
+```

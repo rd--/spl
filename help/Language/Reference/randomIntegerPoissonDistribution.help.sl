@@ -9,8 +9,12 @@ The mean and variance of the function are _aNumber_.
 
 Small mean and variance:
 
-	({ randomIntegerPoissonDistribution(1 / 9) } ! 99).plot
+```
+({ randomIntegerPoissonDistribution(1 / 9) } ! 99).plot
+```
 
 Less small mean and variance:
 
-	({ randomIntegerPoissonDistribution(9) } ! 99).plot
+```
+({ randomIntegerPoissonDistribution(9) } ! 99).plot
+```
