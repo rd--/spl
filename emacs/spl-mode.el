@@ -238,7 +238,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   (modify-syntax-entry ?\n ">" st) ; comment end
   (modify-syntax-entry ?' "\"" st) ; string quote
   (modify-syntax-entry ?\" "\"" st) ; string quote
-  (modify-syntax-entry ?\` "\"" st) ; string quote
+  ;; (modify-syntax-entry ?\` "\"" st) ; string quote
   (mapc (lambda (x)
           (modify-syntax-entry x "." st)) ; punctuation
         "!#$%&*+./:<=>?@^|~,;\\")

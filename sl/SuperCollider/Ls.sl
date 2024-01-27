@@ -221,7 +221,6 @@
 		LsScan(input, +)
 	}
 
-
 	LsAdjacent { :input :aBlock:/2 |
 		let previous = input.next;
 		BlockStream {
@@ -238,7 +237,6 @@
 			previous := input.next
 		}
 	}
-
 
 	LsClump { :input :size |
 		size := LsForever(size);
@@ -322,6 +320,30 @@
 
 	LsScan { :input :aBlock:/2 |
 		input.scan(aBlock:/2)
+	}
+
+	LsSlidingWindows { :input :windowSize :stepSize |
+		let overlap = (windowSize - stepSize).max(0);
+		let require = windowSize - overlap;
+		let skip = (stepSize - windowSize).max(0);
+		let window = input.next(overlap);
+		BlockStream {
+			let current = input.nextOrUpToEnd(require);
+			(current.size ~= require).if {
+				nil
+			} {
+				let answer = window ++ current;
+				(skip > 0).ifTrue {
+					input.next(skip)
+				};
+				window.addAll(current);
+				window.removeFirst(require);
+				answer
+			}
+		} {
+			input.reset;
+			window := input.next(overlap)
+		}
 	}
 
 	LsTake { :input :anInteger |

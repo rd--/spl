@@ -1,11 +1,20 @@
 # Comment Syntax -- syntax
 
-The only allowed comment form is a bracketed comment syntax.
+Spl follows the Haskell comment notation.
 
-The token `{-` comments until a closing `-}` token, as in Mls.
+There two forms,
+a bracketed syntax that may span multiple lines,
+and a prefix syntax that comments until the end of a line.
+
+The bracket tokens are `{-` and `-}`.
+
+The prefix token is `--`.
 
 _Rationale_:
-The usual C-language family comment tokens of `//`, `/*` and `*/` are all valid operators.
-`//` means quotient, as in Smalltalk.
-The comment tokens selected are all otherwise disallowed syntax.
-Fortress uses `{-)` as the until-end-of-line comment token.
+The C-language family prefix comment token `//` means quotient in Smalltalk.
+
+The Ml comment token `(*` dissallow `c.reduce(*)`.
+
+The Haskell comment token `{-` disallows `{-}`,
+however the ordinary notation for blocks includes spaces,
+and `{ - }` is allowed.

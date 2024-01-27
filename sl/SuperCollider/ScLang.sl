@@ -864,13 +864,13 @@
 		self.size
 	}
 
-	slide { :self :windowLength :stepSize |
-		self.slidingWindows(windowLength, stepSize).concatenation
+	slide { :self :windowSize :stepSize |
+		self.slidingWindows(windowSize, stepSize).concatenation
 	}
 
-	slidingWindows { :self :windowLength :stepSize |
-		(1, 1 + stepSize .. self.size - windowLength + 1).collect { :index |
-			self.copyFromTo(index, index + windowLength - 1)
+	slidingWindows { :self :windowSize :stepSize |
+		(1, 1 + stepSize .. self.size - windowSize + 1).collect { :index |
+			self.copyFromTo(index, index + windowSize - 1)
 		}
 	}
 

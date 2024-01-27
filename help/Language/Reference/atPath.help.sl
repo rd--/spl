@@ -10,6 +10,10 @@ The _indices_ describe a path of accesses into _aCollection_, taken in sequence.
 	(w: (x: (y: (z: 1)))).atPath(['w', 'x', 'y', 'z']) = 1
 	[['w', 'x'], ['y', 'z']].atPath([1, 2]) = 'x'
 
+The infix form is @>.
+
+	(w: (x: (y: (z: 1)))) @> ['w', 'x', 'y', 'z'] = 1
+
 * * *
 
 See also: at

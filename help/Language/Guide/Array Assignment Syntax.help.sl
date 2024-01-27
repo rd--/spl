@@ -6,7 +6,7 @@ There is array assignment syntax for both temporary variable initialisers:
 
 and for variable assignment:
 
-	| x y z | [x, y, z] := [1 * 2, 3 * 4, 5 * 6]; [z, y, x] = [30, 12, 2]
+	let [x, y] = [0, 0];  [x, y] := [1 * 2, 3 * 4]; [y, x] = [12, 2]
 
 Note that where in sequential assignment, evaluation and assignment are interleaved:
 

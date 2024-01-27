@@ -501,6 +501,7 @@ let l = []; l.addLast(1); l.addLast(2); l = [1, 2] {- add item to end of array -
 let l = [1]; l.addLast(2) = 2 & { l = [1, 2] } {- answer is argument -}
 let l = []; (1 .. 5).do { :each | l.add(each) }; l = [1 .. 5] {- alias for addLast -}
 let l = [1 .. 9]; l.removeFirst = 1 & { l.size = 8 } {- remove first object from array -}
+let l = [1 .. 9]; l.removeFirst = 1 & { l = [2 .. 9] } {- remove first object from array -}
 let l = [1 .. 9]; l.removeLast = 9 & { l.size = 8 } {- remove last object from array, answers removed element -}
 let l = [4, 5]; l.addAllFirst(1.to(3)); l = [1 .. 5] {- add all elements to start of array -}
 [1].addAllFirst([2, 3]) = [2, 3] {- answer is argument -}

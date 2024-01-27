@@ -197,7 +197,7 @@ const asJs: ohm.ActionDict<string> = {
 		const traitNameArray = traitNameList.asIteration().children.map((c) =>
 			c.sourceString
 		);
-		console.debug(`TraitListExtension: [${traitNameArray}].size = ${traitNameArray.length}`);
+		// console.debug(`TraitListExtension: [${traitNameArray}].size = ${traitNameArray.length}`);
 		return makeMethodList(
 			'extendTraitWithMethod',
 			traitNameArray,
