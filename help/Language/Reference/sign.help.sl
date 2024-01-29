@@ -4,6 +4,12 @@
 
 Sign function, -1 when _aNumber < 0_, +1 when _aNumber > 0_, 0 when _aNumber = 0_.
 
+- _sign(aSequence)_
+
+Pointwise sign function:
+
+	[-3 0 5].sign = [-1 0 1]
+
 - _sign(aNumber, anotherNumber)_
 
 Answer a Number with the same sign as _anotherNumber_ and same magnitude as _aNumber_.

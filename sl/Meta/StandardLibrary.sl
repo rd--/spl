@@ -108,6 +108,8 @@
 	{- Sound -}
 	'SoundFile' {- Url -}
 
+	'Apl'
+
 ].primitiveLoadPackageSequence.then { :unused |
 	'config/preferences.json'.primitiveReadLocalFile.then { :byteArray |
 		system.cache::preferences := byteArray.utf8String.parseJson

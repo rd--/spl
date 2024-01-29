@@ -84,6 +84,10 @@ Character : [Object, Magnitude] { | string codePoint |
 		self.codePoint.asString ++ '.asCharacter'
 	}
 
+	zero { :self |
+		' '.asCharacter
+	}
+
 }
 
 +SmallFloat {

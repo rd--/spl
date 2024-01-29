@@ -90,6 +90,7 @@ NaN.isNaN {- literal for NaN -}
 5 ^ 2 = 25 {- raisedTo integer -}
 5.raisedTo(2) = 25 {- raisedTo integer -}
 3 ^ 4 = 81 {- 3 * 3 * 3 * 3 = 81 -}
+{ :each | each ^ 0.5 } . (16) = 4 {- square root -}
 1.exp.veryCloseTo(2.718281828459) {- exponential -}
 -5.abs = 5 {- absolute value -}
 (0 - 1.pi).abs = 1.pi {- absolute value of floating point numbers -}
@@ -1186,6 +1187,11 @@ let n = (1 + 2.i); n.reciprocal * n = 1 {- multiplicative inverse -}
 0:1.i = Complex(0, 0:1) {- complex with integral real part and fractional imaginary part -}
 3:2 + 0:1.i = 3:2.asComplex
 3:2.asComplex + 0:1.i = 3:2.asComplex {- add 0i to a complex number is identity -}
+1.asComplex = Complex(1, 0) {- asComplex is a monadic complex number constructor -}
+1.i = Complex(0, 1) {- asComplex is a monadic complex number constructor -}
+(1 + -2.i) + (3 + 4.i) = (4 + 2.i) {- i is a monadic complex number constructor -}
+1.j(-2) + 3.j(4) = 4.j(2) {- j is the dyadic complex number constructor -}
+1.j(-2) = 1.Complex(-2) {- j is an alias for Complex -}
 ```
 
 ## Conditional Statements

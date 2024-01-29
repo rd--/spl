@@ -22,7 +22,10 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 	}
 
 	addLast { :self :anObject |
-		<primitive: return _self.push(_anObject);>
+		<primitive:
+		_self.push(_anObject);
+		return _anObject;
+		>
 	}
 
 	asArray { :self |

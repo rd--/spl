@@ -6,6 +6,19 @@ Block! : [Object] {
 		self == anObject
 	}
 
+	!< { :self:/1 :count |
+		{ :z |
+			count.timesRepeat {
+				z := self(z)
+			};
+			z
+		}
+	}
+
+	$ { :self:/1 :anObject |
+		self(anObject)
+	}
+
 	apply { :self :anArray |
 		<primitive:
 		if(sl.isArray(_anArray) && (_self.length === _anArray.length)) {
@@ -136,7 +149,7 @@ Block! : [Object] {
 
 	numArgsIfAbsent { :self :ifAbsent:/0 |
 		{-
-			Js doesn't have a proper numArgs mechanism.
+			Js does not have a proper numArgs mechanism.
 			In the simple arity model Spl adds hasRestParameters to the arity dispatch method functions, else it is undefined.
 			From within Spl there is no concept of a variadic block.
 		-}

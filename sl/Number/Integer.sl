@@ -62,6 +62,10 @@
 		system.nextRandomInteger(self)
 	}
 
+	binomialCoefficient { :n :k |
+		n.factorial / (k.factorial * (n - k).factorial)
+	}
+
 	denominator { :self |
 		1
 	}

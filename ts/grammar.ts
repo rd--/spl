@@ -159,7 +159,9 @@ Sl {
 	letterOrDigit = letter | digit
 	reservedIdentifier = "nil" | "true" | "false"
 	binaryOperator = binaryChar+
-	binaryOperatorWithAdverb = binaryOperator "." identifier
+	binaryOperatorWithAdverb = binaryOperatorWithBinaryAdverb | binaryOperatorWithUnaryAdverb
+	binaryOperatorWithUnaryAdverb = binaryOperator "." identifier
+	binaryOperatorWithBinaryAdverb = binaryOperator "." identifier "(" methodName ")"
 	binaryChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 	operatorAssignment = binaryChar ":" "="
 

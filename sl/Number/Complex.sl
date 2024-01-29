@@ -292,6 +292,10 @@ Complex : [Object] { | real imaginary |
 		Complex(self.zero, self)
 	}
 
+	j { :real :imaginary |
+		Complex(real, imaginary)
+	}
+
 }
 
 +Array {

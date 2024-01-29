@@ -1,5 +1,6 @@
 [
 	'Behaviour-Adverb'
+	'Behaviour-Apl'
 	'Behaviour-Block'
 	'Benchmark-Benchmark'
 	'Benchmark-BounceBenchmark'

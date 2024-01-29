@@ -335,11 +335,18 @@ const asJs: ohm.ActionDict<string> = {
 	binaryOperator(op) {
 		return `_${genName(operatorMethodName(op.sourceString), 2)}`;
 	},
-	binaryOperatorWithAdverb(op, _dot, adverb) {
+	binaryOperatorWithUnaryAdverb(op, _dot, adverb) {
 		// console.debug(`binaryOperatorWithAdverb: ${op.sourceString} ${adverb.sourceString}`);
 		return `_${genName(adverb.sourceString, 1)}(_${
 			genName(operatorMethodName(op.sourceString), 2)
 		})`;
+	},
+	binaryOperatorWithBinaryAdverb(op, _dot, adverb, _openParen, parameter, _closeParen) {
+		// console.debug(`binaryOperatorWithAdverb: ${op.sourceString} ${adverb.sourceString}`);
+		return `_${genName(adverb.sourceString, 2)}(
+			_${genName(operatorMethodName(op.sourceString), 2)},
+			${parameter.asJs}
+		)`;
 	},
 	BinaryExpression(lhs, ops, rhs) {
 		let left = lhs.asJs;

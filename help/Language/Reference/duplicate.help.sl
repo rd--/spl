@@ -5,6 +5,9 @@
 
 Evaluate _aBlock_ _count_ times and collect the results into an Array.
 
+	{ 1 }.duplicate(3) = [1 1 1]
+	{ 1.duplicate(3) }.ifError { true }
+
 * * *
 
 See also: replicate

@@ -557,11 +557,19 @@
 	}
 
 	drop { :self :count |
-		(count < 0).if {
-			self.dropLast(count.negated)
+		(count.abs >= self.size).if {
+			self.species.new
 		} {
-			self.copyFromTo(count + 1, self.size)
+			(count < 0).if {
+				self.dropLast(count.negated)
+			} {
+				self.dropFirst(count)
+			}
 		}
+	}
+
+	dropFirst { :self :count |
+		self.copyFromTo(count + 1, self.size)
 	}
 
 	dropLast { :self :count |
@@ -880,6 +888,30 @@
 
 	tableRand { :self |
 		self.blendAt(1.nextRandomFloat(self.size))
+	}
+
+	take { :self :count |
+		(count < 0).if {
+			self.takeLast(count.negated)
+		} {
+			self.takeFirst(count)
+		}
+	}
+
+	takeFirst { :self :count |
+		(count > self.size).if {
+			self ++ (self.first.zero ! (count - self.size))
+		} {
+			self.copyFromTo(1, count)
+		}
+	}
+
+	takeLast { :self :count |
+		(count > self.size).if {
+			(self.first.zero ! (count - self.size)) ++ self
+		} {
+			self.copyFromTo(self.size - count + 1, self.size)
+		}
 	}
 
 	waveFill { :self :aBlock:/3 :start :end |

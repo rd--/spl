@@ -16,7 +16,11 @@ for unordered collections the order is unspecified.
 
 For instance, to sum the numeric elements of a collection:
 
-	[1 .. 9].reduce(plus:/2) = 45
+	[1 .. 9].reduce(+) = 45
+	[1 .. 9].reduce(-) = -43
+	(1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9) = -43
+	[1 .. 9].foldRight(-) = 5
+	(1 - (2 - (3 - (4 - (5 - (6 - (7 - (8 - 9)))))))) = 5
 
 * * *
 
