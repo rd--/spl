@@ -4,7 +4,7 @@ let c = 500;
 let f = Duty(
 	b,
 	SinOscFb(b / 9, 0),
-	Dseq(inf, (SinOscFb(b / 24, 0).RoundTo(1) + (0 .. 9) * 7 + 29.17).MidiCps)
+	Dseq(inf, (SinOscFb(b / 24, 0).RoundTo(1) + 0:9 * 7 + 29.17).MidiCps)
 );
 let o = SinOscFb(f, SinOscFb(b / 13, 0).Max(0) / 3 * 2);
 let p = AllpassC(o/8, 1, 0.51, 8);

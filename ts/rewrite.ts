@@ -77,14 +77,14 @@ sl.copyTraitToType(
 	return `${addType}\n\n${copyTraits}\n\n${addMethods}\n`;
 }
 
-function intervalSyntax(start: ohm.Node, end: ohm.Node): string {
+function genInterval(start: ohm.Node, end: ohm.Node): string {
 	// console.debug('intervalSyntax');
 	return `_${genName('upOrDownTo', 2)}(${start.asJs}, ${end.asJs})`;
 }
 
-function arrayIntervalSyntax(start: ohm.Node, end: ohm.Node): string {
+function genArrayInterval(start: ohm.Node, end: ohm.Node): string {
 	// console.debug('arrayIntervalSyntax');
-	return `_${genName('asArray', 1)}(${intervalSyntax(start, end)})`;
+	return `_${genName('asArray', 1)}(${genInterval(start, end)})`;
 }
 
 const asJs: ohm.ActionDict<string> = {
@@ -393,9 +393,7 @@ const asJs: ohm.ActionDict<string> = {
 		return `_${genName('atAll', 2)}(${c.asJs}, [${commaList(k.children)}])`;
 	},
 	AtAllIntervalSyntax(c, _leftBracket, start, _dotDot, end, _rightBracket) {
-		const answer = `_${genName('atAll', 2)}(${c.asJs}, ${
-			intervalSyntax(start, end)
-		})`;
+		const answer = `_${genName('atAll', 2)}(${c.asJs}, ${genInterval(start, end)})`;
 		// console.debug('AtAllIntervalSyntax', answer);
 		return answer;
 	},
@@ -575,7 +573,7 @@ const asJs: ohm.ActionDict<string> = {
 		return `_Tuple_${elem.length}(${commaList(elem)})`;
 	},
 	ArrayIntervalSyntax(_leftBracket, start, _dotDot, end, _rightBracket) {
-		return arrayIntervalSyntax(start, end);
+		return genArrayInterval(start, end);
 	},
 	ArrayIntervalThenSyntax(
 		_leftBracket,
@@ -591,7 +589,7 @@ const asJs: ohm.ActionDict<string> = {
 		}(${start.asJs}, ${then.asJs}, ${end.asJs}))`;
 	},
 	IntervalSyntax(_leftParen, start, _dotDot, end, _rightParen) {
-		return intervalSyntax(start, end);
+		return genInterval(start, end);
 	},
 	IntervalThenSyntax(
 		_leftParen,
@@ -660,18 +658,31 @@ const asJs: ohm.ActionDict<string> = {
 	operatorAssignment(op, _colon, _equals) {
 		return op.sourceString;
 	},
-	/*integerIntervalLiteral(start, _dotDot, end) {
+	intervalLiteral(start, _colon, end) {
 		// console.debug('integerIntervalLiteral', start.sourceString, end.sourceString);
-		return `_${genName('upTo', 2)}(${start.asJs}, ${end.asJs})`;
-	},*/
+		return genInterval(start, end);
+	},
 	floatLiteral(s, i, _, f) {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
 	},
 	scientificLiteral(base, _e, exponent) {
 		return `${base.sourceString}e${exponent.sourceString}`;
 	},
-	fractionLiteral(s, n, _colon, d) {
-		return `_normalized_1(_Fraction_2(${s.sourceString}${n.sourceString}, ${d.sourceString}))`;
+	fractionLiteral(sign, numerator, _divisor, denominator) {
+		// console.debug('fractionLiteral', sign.sourceString, numerator.sourceString, denominator.sourceString);
+		return `_normalized_1(
+			_Fraction_2(
+				${sign.sourceString}${numerator.sourceString},
+				${denominator.sourceString}
+			)
+		)`;
+	},
+	complexLiteral(real, _j, imaginary) {
+		console.debug('complexLiteral', real.sourceString, imaginary.sourceString);
+		return `_Complex_2(
+			${real.sourceString},
+			${imaginary.sourceString}
+		)`;
 	},
 	largeIntegerLiteral(s, i, _n) {
 		return `${s.sourceString}${i.sourceString}n`;

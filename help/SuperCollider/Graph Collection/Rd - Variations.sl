@@ -61,7 +61,7 @@ z.Clip2(TRand(0, 1, Dust(8))) * 0.25
 let mkRead = { :l :t |
 	BufRd(1, l.asLocalBuf, TRand(0, 6, t), 0, 1)
 };
-(1 .. 4).collect { :n |
+1:4.collect { :n |
 	let t = Dust(1.6);
 	let f = mkRead([60, 62, 64, 65, 67, 69], t).MidiCps;
 	let p = mkRead([-1, -0.5, 0, 0.25, 0.75, 1], t);

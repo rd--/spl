@@ -461,6 +461,10 @@ String! : [Object, Json, Iterable] {
 		self.basicReplaceStringAll(stringToFind, stringToReplaceWith)
 	}
 
+	reversed { :self |
+		self.asArray.reversed.join
+	}
+
 	romanNumber { :self |
 		let value = 0;
 		let v1 = 0;

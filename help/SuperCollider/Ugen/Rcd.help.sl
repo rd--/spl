@@ -1,6 +1,6 @@
 {- Rcd ; div16 -}
 let trig = LfPulse(8, 0, 0.001);
-let freqs = (1 .. 8) * 100;
+let freqs = 1:8 * 100;
 let rotate = 0;
 let div = 1;
 let pulses = Rcd(trig, rotate, 0, div, 0, 0, 0, 0, 0);
@@ -8,8 +8,8 @@ let out = Ringz(pulses, freqs, [2, 1, 0.5, 0.3, 0.2, 0.3, 0.5, 1]) * 0.05;
 Splay2(out)
 
 {- Rcd ; rotation -}
-let freqs = (1 .. 8) * 100;
-let decays = 8 / (1 .. 8);
+let freqs = 1:8 * 100;
+let decays = 8 / 1:8;
 let trig = LfPulse(5, 0, 0.005);
 let rotate = LfNoise0(0.3) * 8 + 8;
 let reset = 0;
@@ -21,7 +21,7 @@ Splay2(out * 0.7).Tanh + metronome
 
 {- Rcd ; using 'reset' -}
 let clock = LfPulse(8, 0, 0.001);
-let freqs = ((0 .. 7) * 4 + 50).MidiCps;
+let freqs = (0:7 * 4 + 50).MidiCps;
 let rotate = 4;
 let reset = CoinGate(0.05, clock);
 let pulses = Rcd(clock, rotate, reset, 0, 0, 0, 0, 0, 0);
@@ -29,8 +29,8 @@ let out = Ringz(pulses, freqs, [1, 1, 0.5, 0.2, 0.2, 0.3, 0.5, 1]) * 0.05;
 Splay2(out)
 
 {- Rcd ; auto-reset on -}
-let freqs = (1 .. 8) * 100;
-let decays = 1 / (1 .. 8);
+let freqs = 1:8 * 100;
+let decays = 1 / 1:8;
 let clock = LfPulse(8, 0, 0.001);
 let rotate = 7;
 let spread = 1;
@@ -40,8 +40,8 @@ let out = Ringz(pulses, freqs, decays) * 0.05;
 Splay2(out)
 
 {- Rcd ; auto-reset off -}
-let freqs = (1 .. 8) * 100;
-let decays = 1 / (1 .. 8);
+let freqs = 1:8 * 100;
+let decays = 1 / 1:8;
 let clock = LfPulse(8, 0, 0.001);
 let rotate = 7;
 let spread = 1;
@@ -50,7 +50,7 @@ let out = Ringz(pulses, freqs, decays) * 0.05;
 Splay2(out)
 
 {- Rcd ; gates -}
-let freqs = ((0 .. 7) * 5 + 50).MidiCps;
+let freqs = (0:7 * 5 + 50).MidiCps;
 let amps = [10 5 3 3 3 2 2 2] / 10;
 let trig = LfPulse(7, 0, 0.01);
 let rotate = -2;

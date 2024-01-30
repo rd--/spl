@@ -3,7 +3,7 @@ let c = SinOscFb(1 / 64, 0).RoundTo(1) * 10 + 50;
 let o = SinOscFb((SinOscFb([1 .. 5], 1) * 3).RoundTo(1) + 5 * c, 1);
 let p = o * SinOscFb(12, 1).Max(1) * 3;
 let q = SinOscFb(c, 0.7) * (SinOscFb(3, 1).Min(0) / 3);
-(0 .. 11).collect { :i |
+0:11.collect { :i |
 	let p = SinOscFb(
 		(i + 1 * c) + (SinOscFb(2.02, 1) * 2),
 		SinOscFb(i + 1 / 24, 1) + 1 / 2

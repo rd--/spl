@@ -45,7 +45,7 @@ CombN(o, 1 / 4, 1 / 2.125, SinOsc(0.005, 1.5 * pi).Range(0, 6)).transposed.Sum
 
 {- tw 0120 (f0) ; requires=kr -}
 let z = LfTri(1 / [7, 8], 0) * LfTri(1 / 9, 0) * 99;
-let l = (60 .. 79).MidiCps;
+let l = 60:79.MidiCps;
 let f = Select(z, l);
 let w = LfTri(1 / [3, 4], 0) % 1;
 let o = VarSaw(f.kr, 0, w.kr);
@@ -53,14 +53,14 @@ CombN(o, 1, 1 / [5, 6], 8) / 8
 
 {- tw 0121 (f0) ; requires=kr -}
 let z = SinOsc(1 / [8, 7], 0) * SinOsc(1 / 30, 0) * 9;
-let l = (0 .. 7) * 6 + 56;
+let l = 0:7 * 6 + 56;
 let m = SinOsc(1 / [4, 3], 0);
 let o = SinOsc(Select(z, l).kr.MidiCps, 0) * m;
 CombN(o, 1, 1 / [6, 5], 9).Tanh * 0.1
 
 {- tw 0134 (f0) -}
 let n = 50;
-(1 .. n).collect { :i |
+1:n.collect { :i |
 	Ringz(
 		Blip(LfSaw(i + 1 / [3, 4], 0) > (LfSaw(i + 1 / 8, 0) + 1) * (n / 2) + n, i + [2, 3]) *
 		LfSaw(i + 1 / n, i / (n / 2)), i + 1 * (n * 2 - 1),
@@ -75,7 +75,7 @@ let q = Dseq(inf, Select(LfTri(b / 99, 0) + c * 5, 1 / b + 59).kr).MidiCps;
 Splay(LfTri(Duty(b, c, q) + c, 0) / 3)
 
 {- https://sccode.org/1-4Qy ; f0 ; 0246 ; requires=DynRingzBank -}
-let b = [1 .. 9] * 1.5;
+let b = 1:9 * 1.5;
 let d = [2 / b, 3 / b];
 let e = LfPulse(d, 0, 0.5);
 CombC(
@@ -89,21 +89,21 @@ CombC(
 let b = [1 .. 3];
 let o1 = SinOscFb(13 * 13 * b, 1 / 3);
 let o2 = SinOscFb(b / 13, 1);
-let o3 = SinOscFb(1 / (13 .. 3), 0) + 133 * b;
+let o3 = SinOscFb(1 / 13:3, 0) + 133 * b;
 let o4 = SinOscFb(b, 1) % 1;
 let o5 = SinOscFb(b / 333, o4) % 1;
 let o6 = SinOscFb(o3, o5);
 Splay(o1 * o2 / 13 + o6) / 3
 
 {- https://sccode.org/1-4Qy ; f0 ; 0333 ; Splay/Stereo -}
-(0 .. 7).collect { :i |
+0:7.collect { :i |
 	let b = i + 2 * 99;
 	let f = SinOscFb(i + 1 / 150, 0).RoundTo(1) + 1 + i * 99 + SinOscFb([3, 2], 0);
 	(Formant(f, b, b) * SinOscFb(i + 1 / 130, 0).Max(0)).Tanh
 }.Sum.Splay / 7
 
 {- https://sccode.org/1-4Qy ; f0 ; tweet0350 ; Splay -}
-let b = (9 .. 1) / 99;
+let b = 9:1 / 99;
 let o = LfSaw(LfSaw(b, b) + 1 * 99, b) * (LfSaw(LfSaw(b, 0) > b, 0) > 0.9);
 CombN(
 	GVerb(o, 99, 1, b * 9, b, 15, 1, 0.7, 0.5, 300) / 19,
@@ -113,9 +113,9 @@ CombN(
 ).transposed.Sum.Splay * 0.9
 
 {- f0 ; https://twitter.com/redFrik/status/1105496695637454848 ; requires=kr -}
-let b = (1 .. 15) + 1 / 151;
+let b = 1:15 + 1 / 151;
 let w = (VarSaw(b, b, 1 / 5.15) * 1 + 1.5).Ceiling;
-let s = Select((VarSaw(1/15, 1/5, b) * 5).Ceiling + 5 / 5, [51 * 1.5, 51, 151]).kr;
+let s = Select((VarSaw(1 / 15, 1 / 5, b) * 5).Ceiling + 5 / 5, [51 * 1.5, 51, 151]).kr;
 let x = Lag(s, b);
 let y = VarSaw(5 + b, 0, 0.5);
 let z = VarSaw(b, b, b) * b / 5 + [1.5, 5, 1];
@@ -168,7 +168,7 @@ let m = HoldSequence([0 8 5 1 5 4 5] * (c * 18).RoundTo(1), c) + 60;
 AllpassN(SinOscFb(m.MidiCps, c * 2), 0.2, 0.2, 1) / 2
 
 {- f0 ; <https://twitter.com/redFrik/status/1395519538008141835> ; edit (rd) -}
-let c = Duty(0.004, 0, Dseries(inf, 1, [1, 2]) % HoldSequence((1 .. 6) * 75, 8.192));
+let c = Duty(0.004, 0, Dseries(inf, 1, [1, 2]) % HoldSequence(1:6 * 75, 8.192));
 let d = Hpf(MantissaMask(c, 3),5);
 let f = { :x |
 	SinOscFb(x, 0).Max(0)

@@ -25,7 +25,7 @@ let f = 50; {- fundamental frequency -}
 let p = 20; {- number of partials per channel -}
 let z = 0; {- start of oscil daisy chain -}
 let offset = Line(0, -0.02, 60); {- causes sound to separate and fade -}
-(1 .. p).do { :i |
+1:p.do { :i |
 	z := SinOsc(
 		f * i, 0).MulAdd( {- freq of partial -}
 			Max(0, {- clip negative amplitudes to zero -}
@@ -45,7 +45,7 @@ let f = 80; {- fundamental frequency -}
 let p = 10; {- number of partials per channel -}
 let z = 0; {- start of oscil daisy chain -}
 let trig = XLine([10, 10], 0.1, 60); {- trigger probability decreases over time -}
-(1 .. p).do { :i |
+1:p.do { :i |
 	z := SinOsc(
 		f * i, 0).MulAdd( {- freq of partial -}
 			Decay2(
@@ -204,7 +204,7 @@ let n = 6; {- number of keys playing -}
 	let hammerEnv = Decay2(strike, 0.008, 0.04); {- excitation envelope -}
 	EqPan2(
 		{- array of 3 strings per note -}
-		(1 .. 3).collect { :i |
+		1:3.collect { :i |
 			{- detune strings, calculate delay time -}
 			let detune = [-0.05, 0, 0.04].at(i);
 			let delayTime = 1 / (pitch + detune).MidiCps;
@@ -221,14 +221,14 @@ let n = 6; {- number of keys playing -}
 
 {-********* Strummable silk ; Jmcc *********-}
 let mousex = MouseX(0, 1, 0, 0.2);
-let out = (1 .. 8).collect { :ix |
+let out = 1:8.collect { :ix |
 	let n = 15;
 	{- place trigger points from 0.25 to 0.75 -}
 	let trigger = Hpz1(mousex > (0.25 + (ix - 1 * 0.07))).Abs;
 	let pluck = PinkNoise() * Decay(Impulse(14, 0).Mul(Lag(Trig(trigger, 1), 0.2) * 0.01), 0.04);
 	let freq = ([-2 0 3 5 7 10 12 15].at(ix) + 60).MidiCps;
 	let metal = RingzBank(pluck,
-		(1 .. n) * freq, {- frequencies -}
+		1:n * freq, {- frequencies -}
 		nil, {- amplitudes default to 1.0 -}
 		{ Rand(0.3, 1.0) } ! n); {- ring times -}
 	EqPan2(metal, ix * 0.2 - 0.5)

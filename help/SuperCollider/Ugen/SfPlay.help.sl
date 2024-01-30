@@ -19,16 +19,16 @@ SfPlay(sf, rateMultiplier, Impulse(rateMultiplier / SfDur(sf), 0), 0, 0)
 {- SfPlay ; recursive scrubbing (adc) ; https://www.listarc.cal.bham.ac.uk/lists/sc-users-2002/msg00736.html -}
 let sf = SfAcquireMono('floating_1');
 let r = 10;
-(1 .. 6).do { :i |
+1:6.do { :i |
 	r := LfNoise1(0.2 ^ i * 50) * r
 };
 SfPlay(sf, r, 1, [0, 18000], 1)
 
 {- SfPlay ; floating dust (adc) ; https://www.listarc.cal.bham.ac.uk/lists/sc-users-2002/msg00736.html ; panning edit (rd) -}
 let sf = SfAcquireMono('floating_1');
-(0 .. 9).collect { :n |
+0:9.collect { :n |
 	let r = 0.1 ^ (n - 1);
-	(0 .. n).collect { :i |
+	0:n.collect { :i |
 		let a = (n - 2 < i).if {
 			0.5
 		} {

@@ -32,7 +32,7 @@ let d = (x: 1, parent: (y: 2, parent: (z: 3))); d:.z := -3; [d:.x, d:.y, d:.z] =
 
 ## AtIfAbsent Syntax
 ```
-let i = (1 .. 5); i[9] :? { true } {- [AtIfAbsent Syntax] -}
+let i = 1:5; i[9] :? { true } {- [AtIfAbsent Syntax] -}
 ```
 
 ## Quoted AtIfAbsent Syntax
@@ -50,7 +50,7 @@ let d = (); d::x :?= { 1 } = 1 & { d::x = 1 } {- [Quoted AtIfAbsentPut Syntax] -
 ('x' -> 1):@key = 'x' {- read slot syntax -}
 ('x' -> 1):@answer = nil {- unknown slot names answer nil -}
 let a = 'x' -> 1; a:@key = 'x' & { a:@value = 1 } {- read slots -}
-4:3.numerator = 4:3:@numerator {- slot read syntax -}
+4/3.numerator = 4/3:@numerator {- slot read syntax -}
 ```
 
 ## Slot Write Syntax
@@ -58,7 +58,7 @@ let a = 'x' -> 1; a:@key = 'x' & { a:@value = 1 } {- read slots -}
 let a = ('x' -> 1); a:@key := 'y'; a = ('y' -> 1) {- write slot -}
 let a = ('x' -> 1); a:@hidden := 1.pi; a = ('x' -> 1) & { a:@hidden = 1.pi } {- writes to unknown slot add a slot -}
 let a = 'x' -> 1; a:@key := 'y'; a:@value := 2; a = ('y' -> 2) {- write slots -}
-let n = 4:3; n:@denominator := 5; n = 4:5 {- slot write syntax -}
+let n = 4/3; n:@denominator := 5; n = 4/5 {- slot write syntax -}
 ```
 
 ## Volume Syntax

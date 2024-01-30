@@ -16,7 +16,7 @@ let p = Pan2(o, TRand(-1.0, 1.0, t), Decay2(t, 0.1, 3) * 0.5);
 p + CombL(p, 2.0, 4 / 6, 6)
 
 {- Interesting rising sounds -}
-(1 .. 5).collect { :c |
+1:5.collect { :c |
 	Pan2(SinOsc(LfSaw((c * 0.2 + 1) / 3, 0) * 500 + 700, 0), LfNoise0(1), 0.05)
 }.Mix
 
@@ -27,7 +27,7 @@ p + CombL(p, 2.0, 4 / 6, 6)
 } !+ 20
 
 {- Pretty nice but inessential ; Rand -}
-(1 .. 12).collect { :i |
+1:12.collect { :i |
 	let freq = MouseX(Rand(0.1, 5), Rand(3, 20), 0, 0.2);
 	let amp = LfNoise0(MouseX(Rand(1, 6), Rand(1, 6), 0, 0.2)).Max(0);
 	let osc = SinOsc(SinOsc(freq, 0) * MouseY(10, 50, 0, 0.2) + Rand(200, 5000), 0) * amp;
@@ -91,7 +91,7 @@ freq.indices.collect { :i |
 let speed = 14;
 let f = SinOsc(1000, 0) * 150 + 300;
 let t = Impulse(1 / 3, 0);
-(1 .. 12).collect { :n |
+1:12.collect { :n |
 	SinOsc(f * n, 0) * (LfNoise1(Rand(speed, speed * 2)) * 0.5 + 0.5) / n
 }.Sum * 0.1
 
@@ -99,14 +99,14 @@ let t = Impulse(1 / 3, 0);
 let f = 100;
 let t = Impulse(1 / 3, 0);
 let dt = [1.4, 1.1, 2, 1, 1.8, 2.9, 4, 0.3, 1, 3.6, 2.3, 1.1];
-(1 .. 12).collect { :n |
+1:12.collect { :n |
 	SinOsc(f * n, 0) * Decay2(t, 0.01, dt[n]) / n
 }.Sum * 0.1
 
 {- Lovely bells -}
 let t = Impulse(1 / 3, 0);
 let m = { Rand(1, 3) } ! 2;
-let env = Decay2(t, 0.01 * m, 1 * m) / (1 .. 6);
+let env = Decay2(t, 0.01 * m, 1 * m) / 1:6;
 SinOsc([60 64 67 71 74 78].MidiCps, 0).Sum * env * 0.1
 
 {- Interesting drone -}
@@ -136,17 +136,17 @@ let harmonics = 16;
 {- Worth experimenting with -}
 let tr = Dust(3 / 7);
 let f0 = Rand(100, 400);
-(1 .. 16).collect { :partial |
+1:16.collect { :partial |
 	let env = Asr(tr, 0, 5, [0]) / partial;
 	let amp = LfNoise1(Rand(5, 12)).Max(0);
 	Pan2(SinOsc(f0 * partial, 0), 1.Rand2, env * amp)
 }.Mix * 0.5
 
 {- Multiple sines -}
-let speeds = (1 .. 11) / 20;
+let speeds = 1:11 / 20;
 let f0 = (MouseX(0, 36, 0, 0.2).RoundTo(7) + 24).MidiCps;
 let harmonics = 16;
-(1 .. harmonics).collect { :partial |
+1:harmonics.collect { :partial |
 	Pan2(SinOsc(f0 * partial, 0), 1.Rand2, SinOsc(speeds.atRandom, 0).Max(0))
 }.Mix / harmonics * 0.5
 

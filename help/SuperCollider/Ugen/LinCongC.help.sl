@@ -8,7 +8,7 @@
 }.OverlapTexture(1, 2, 4).Mix
 
 {- LinCongC ; rd edit ; https://github.com/lukiss/Losers-Union-SC-Research -}
-let p = 9 / 7 ^ (0 .. 16);
+let p = 9 / 7 ^ 0:16;
 let c = { :freq |
 	LinCongC(freq, 1.1, 0.13, 1, 0)
 };

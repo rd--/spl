@@ -9,16 +9,16 @@ Instance variables are:
 - numerator<Integer>: the number appearing before the fraction bar (above)
 - denominator<Integer>: the number appearing after the fraction bar (below)
 
-A Fraction is generally created by writing it using the literal syntax _1:3_.
+A Fraction is generally created by writing it using the literal syntax _1/3_.
 
-	1:3 = Fraction(1, 3)
-	3:4.asSmallFloat = 0.75
-	7:6 > 1.1 = true
+	1/3 = Fraction(1, 3)
+	3/4.asSmallFloat = 0.75
+	7/6 > 1.1 = true
 
 Fractions written using this syntax are _reduced_ by construction.
 
-	2:4 = 1:2
-	2:4 ~= Fraction(2, 4)
+	2/4 = 1/2
+	2/4 ~= Fraction(2, 4)
 
 Literal fractions are _normalized_ and have the following invariants:
 
@@ -33,7 +33,7 @@ For instance:
 
 	Fraction(3, -2).reduced = Fraction(-3, 2)
 	Fraction(2, 1).reduced = 2
-	8:6 = Fraction(4, 3)
+	8/6 = Fraction(4, 3)
 
 A Fraction that does not conform to above invariants could be the cause of undefined behavior and unexpected results.
 
@@ -45,10 +45,10 @@ Note that Fraction and Integer represent together the set of Rational numbers:
 - Integer is a subset of rational (those which are whole numbers)
 - Fraction is used for representing the complementary subset of rational (those which are not whole numbers)
 
-	2:3 + 2:3 = 4:3
-	2:3 + 1:2 = 7:6
-	2:3 + 4:3 = 2
-	2:3.raisedToInteger(5) = 32:243
+	2/3 + 2/3 = 4/3
+	2/3 + 1/2 = 7/6
+	2/3 + 4/3 = 2
+	2/3.raisedToInteger(5) = 32/243
 
 A Fraction whose elements are of type SmallFloat will have odd behaviour for large components,
 a Fraction whose elements are of type LargeInteger will behave ordinarily.

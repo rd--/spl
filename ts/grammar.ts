@@ -161,16 +161,17 @@ Sl {
 	binaryOperator = binaryChar+
 	binaryOperatorWithAdverb = binaryOperatorWithBinaryAdverb | binaryOperatorWithUnaryAdverb
 	binaryOperatorWithUnaryAdverb = binaryOperator "." identifier
-	binaryOperatorWithBinaryAdverb = binaryOperator "." identifier "(" methodName ")"
+	binaryOperatorWithBinaryAdverb = binaryOperator "." identifier "(" (methodName | numberLiteral) ")"
 	binaryChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 	operatorAssignment = binaryChar ":" "="
 
-	literal = /* integerIntervalLiteral | */ numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
-	numberLiteral = scientificLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
-	// integerIntervalLiteral = integerLiteral "..." integerLiteral
+	literal = intervalLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
+	numberLiteral = scientificLiteral | complexLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
+	intervalLiteral = integerLiteral ":" (integerLiteral | identifier)
 	floatLiteral = "-"? digit+ "." digit+
 	scientificLiteral = (floatLiteral | integerLiteral) "e" integerLiteral
-	fractionLiteral = "-"? digit+ ":" digit+
+	complexLiteral = (floatLiteral | integerLiteral) ("j" | "J") (floatLiteral | integerLiteral)
+	fractionLiteral = "-"? digit+ "/" digit+
 	largeIntegerLiteral = "-"? digit+ "n"
 	radixIntegerLiteral = "-"? digit+ "r" letterOrDigit+
 	constantNumberLiteral = "Infinity" | "NaN"

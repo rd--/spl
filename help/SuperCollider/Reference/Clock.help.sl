@@ -35,7 +35,7 @@ system.clock.scheduleInjecting(0, 1) { :t :i | let x = 1.randomFloat; [t, i, x].
 _repeatEvery_ separates the _on wakeup_ and _next delay_ aspects into separate blocks:
 
 ```
-system.clock.repeatEvery { :t :d | [t, d].postLine } { | x = 1.randomFloat; | (x > 0.1).if { x } { nil } }
+system.clock.repeatEvery { :t :d | [t, d].postLine } { let x = 1.randomFloat; (x > 0.1).if { x } { nil } }
 ```
 
 _recurseEvery_ is a related interface to _scheduleInjecting_, a _nil_ at either block stops the sequence.

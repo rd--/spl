@@ -455,6 +455,11 @@
 		self.collect(log:/1)
 	}
 
+	log { :self :base |
+		let k = 1 / base.log;
+		self.log * k
+	}
+
 	log10 { :self |
 		self.collect(log10:/1)
 	}

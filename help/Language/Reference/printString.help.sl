@@ -6,7 +6,7 @@ Answer a _String_ that is a description of the receiver.
 
 	23.printString = '23'
 	3.141.printString = '3.141'
-	2:3.printString = '2:3'
+	2/3.printString = '2/3'
 	true.printString = 'true'
 	false.printString = 'false'
 	nil.printString = 'nil'

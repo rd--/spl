@@ -5,7 +5,7 @@ let mkRand = { :lhs :rhs |
 };
 let k = DynRingzBank(
 	Trig(tr, SampleDur()),
-	(1 .. 5) * 2700,
+	1:5 * 2700,
 	{ mkRand(0.025, 0.04) } ! 5,
 	[0.1]
 );

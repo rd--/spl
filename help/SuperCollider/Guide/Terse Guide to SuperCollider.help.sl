@@ -14,13 +14,13 @@
 
 ## Number -- extensions
 ```
-1:3.coin.isBoolean {- probability may be a fraction -}
+1/3.coin.isBoolean {- probability may be a fraction -}
 let c = 0.5.coin.if { 't' } { 'f' }; c = 't' | { c = 'f' }
-(0 .. 14).collect { :each | each.degreeToKey([0, 2, 4, 5, 7, 9, 11], 12) } = [0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24]
-(-3 .. 13).collect { :each | each.foldOnce(1, 9) } = [5, 4, 3, 2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5]
-(-3 .. 13).collect { :each | each.fold(1, 9) } = [5, 4, 3, 2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5]
-(-3 .. 13).collect { :each | each.foldOnce(4, 7) } = [11, 10, 9, 8, 7, 6, 5, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1]
-(-3 .. 13).collect { :each | each.fold(4, 7) } = [5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7]
+0:14.collect { :each | each.degreeToKey([0, 2, 4, 5, 7, 9, 11], 12) } = [0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24]
+-3:13.collect { :each | each.foldOnce(1, 9) } = [5, 4, 3, 2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5]
+-3:13.collect { :each | each.fold(1, 9) } = [5, 4, 3, 2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5]
+-3:13.collect { :each | each.foldOnce(4, 7) } = [11, 10, 9, 8, 7, 6, 5, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1]
+-3:13.collect { :each | each.fold(4, 7) } = [5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7]
 ```
 
 ## Object -- extensions
@@ -159,7 +159,7 @@ LsAt([1 3 5 7 9], LsSeries(1, 1, 5)).upToEnd = [1 3 5 7 9]
 LsAtWrap([1 3 5 7 9], LsSeries(-1, 1, 9)).upToEnd = [7 9 1 3 5 7 9 1 3]
 LsAtFold([1 3 5 7 9], LsSeries(-1, 1, 9)).upToEnd = [5 3 1 3 5 7 9 7 5]
 LsBrown(3, 7, 1, 999).upToEnd.allSatisfy { :each | each.betweenAnd(3, 7) }
-LsIBrown(3, 11, 2, 999).upToEnd.asSet = (3 .. 11).asSet
+LsIBrown(3, 11, 2, 999).upToEnd.asSet = 3:11.asSet
 LsAccum(LsSeries(1, 1, 9)).upToEnd = [1 3 6 10 15 21 28 36 45]
 LsWalk([1 3 5 7 9], 1).next(13) = [1 3 5 7 9 7 5 3 1 3 5 7 9]
 LsWalk([1 3 5 7 9 11], LsCyc([1, 2])).next(13) = [1 5 7 11 9 5 3 3 5 9 11 7 5]

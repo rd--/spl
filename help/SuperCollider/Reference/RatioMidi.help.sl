@@ -17,7 +17,7 @@ A rational perfect fifth is 702 cents:
 Generate Pythagorean scale:
 
 	let genScale = { :ratio |
-		(0 .. 11).collect { :each |
+		0:11.collect { :each |
 			(ratio ^ each).RatioMidi % 12
 		}
 	};

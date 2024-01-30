@@ -23,16 +23,16 @@ let tendencyMask = [
 			Impulse(tendencyMask * modRate, 0)
 		)
 	} ! 2;
-	let dur = (1 .. 3).collect { :i |
+	let dur = 1:3.collect { :i |
 		Rand(0.25, 4) * mod[1][i] * (mouse + 0.1).atRandom
 	};
-	let triggerRate = (1 .. 3).collect { :i |
+	let triggerRate = 1:3.collect { :i |
 		Rand(0.25, 4) * mod[2][i] * (mouse / 10 + 0.1).atRandom
 	};
 	let freqMul = {
 		(mouse * 10 + 0.1).atRandom
 	} ! 3;
-	let dry = (1 .. 3).collect { :i |
+	let dry = 1:3.collect { :i |
 		let freqRange = 10 ^ i * [22, 88] * freqMul[i];
 		let freq = {
 			TRand(

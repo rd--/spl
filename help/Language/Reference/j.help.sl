@@ -6,6 +6,7 @@ Answer a _Complex_ number with a real part of _real_ and an imaginary part of _i
 
 	(1 + -2.i) + (3 + 4.i) = (4 + 2.i)
 	1.j(-2) + 3.j(4) = 4.j(2)
+	1j-2 + 3j4 = 4j2
 
 * * *
 

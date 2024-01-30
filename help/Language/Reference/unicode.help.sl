@@ -4,8 +4,8 @@
 
 If _aFraction_ has a unicode code-point answer it.
 
-	3:4.unicode = '¾'
-	2:3.unicode = '⅔'
+	3/4.unicode = '¾'
+	2/3.unicode = '⅔'
 
 * * *
 

@@ -298,6 +298,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.log(_self)>
 	}
 
+	log { :self :base |
+		<primitive: return Math.log(_self) / Math.log(_base)>
+	}
+
 	log2 { :self |
 		<primitive: return Math.log2(_self)>
 	}
@@ -319,6 +323,28 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		>
 		anObject.adaptToNumberAndApply(self, max:/2)
 	}
+
+	nthRoot { :self :aPositiveInteger |
+		(aPositiveInteger = 2).if {
+			self.sqrt
+		} {
+			aPositiveInteger.isInteger.not.or {
+				aPositiveInteger.negative
+			}.ifTrue {
+				'nthRoot: only defined for positive integer'.error
+			};
+			self.negative.if {
+				aPositiveInteger.odd.if {
+					(self.negated.raisedTo(1) / aPositiveInteger).negated
+				} {
+					'nthRoot: negative numbers do not have even roots.'.error
+				}
+			} {
+				self.raisedTo(1 / aPositiveInteger)
+			}
+		}
+	}
+
 
 	Number { :self |
 		self

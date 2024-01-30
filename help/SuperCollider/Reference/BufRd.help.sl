@@ -33,7 +33,7 @@ Ordinary playback, phase courtesy _Phasor_:
 
 Play window function at local buffer:
 
-	let tbl = (0 .. 180).collect { :each |
+	let tbl = 0:180.collect { :each |
 		each.degreesToRadians.sin
 	}.asLocalBuf;
 	let dur = 3;
@@ -43,7 +43,7 @@ Play window function at local buffer:
 
 Trigger window function at local buffer:
 
-	let tbl = (0 .. 180).collect { :each |
+	let tbl = 0:180.collect { :each |
 		each.degreesToRadians.sin
 	}.asLocalBuf;
 	let dur = 1 / 7;

@@ -1,5 +1,5 @@
 {- Event control ; Kyma Pen name notation -}
-(1 .. 16).collect { :vc |
+1:16.collect { :vc |
 	let n = Lpf(WhiteNoise(), PenRadius(vc) + 1 * 6000) * PenZ(vc) * 2;
 	let dlMax = 1 / 110;
 	let dl = dlMax * (1 - PenX(vc).RoundTo(0.025) * 0.9);

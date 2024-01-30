@@ -3,3 +3,6 @@ format:
 
 lint:
 	deno lint --rules-exclude=prefer-const *.js
+
+clean:
+	rm -f *.js

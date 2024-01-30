@@ -3,7 +3,7 @@ let f = 50; {- Fundamental frequency -}
 let p = 20; {- Number of partials per channel -}
 let z = 0; {- Start of oscil daisy chain -}
 let offset = Line(0, -0.02, 60); {- Causes sound to separate and fade -}
-(1 .. p).do { :i |
+1:p.do { :i |
 	z := MulAdd(
 		FSinOsc(
 			f * i, {- Freq of partial -}

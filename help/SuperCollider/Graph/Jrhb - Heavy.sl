@@ -1,8 +1,8 @@
 {- Musikinformatik/clothesline/examples ; requires nthPrime -}
 let n = 180;
 {
-	let primes = (2 .. n).collect { :index |
-		(1 .. index).collect { :each |
+	let primes = 2:n.collect { :index |
+		1:index.collect { :each |
 			each.nthPrime
 		}.scramble.keepAtMost(8)
 	}.concatenation.asSet.asArray;

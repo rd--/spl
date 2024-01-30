@@ -6,15 +6,6 @@ Block! : [Object] {
 		self == anObject
 	}
 
-	!< { :self:/1 :count |
-		{ :z |
-			count.timesRepeat {
-				z := self(z)
-			};
-			z
-		}
-	}
-
 	$ { :self:/1 :anObject |
 		self(anObject)
 	}

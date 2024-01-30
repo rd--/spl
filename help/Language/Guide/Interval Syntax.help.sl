@@ -12,21 +12,21 @@ and _Array_ values:
 
 The rewrite rules are:
 
-- _(p .. q)_ ⟹ _upOrDownTo(p, q)_
-- _(p, q .. r)_ ⟹ _thenTo(p, q, r)_
-- _[p .. q]_ ⟹ _(p .. q).asArray_
-- _[p, q .. r]_ ⟹ _(p, q .. r).asArray_
+- _(alpha .. beta)_ ⟹ _upOrDownTo(alpha, beta)_
+- _(alpha, beta .. gamma)_ ⟹ _thenTo(alpha, beta, gamma)_
+- _[alpha .. beta]_ ⟹ _(alpha .. beta).asArray_
+- _[alpha, beta .. gamma]_ ⟹ _(alpha, beta .. gamma).asArray_
 
-In the case where both _p_ and _q_ are integer literals the interval can be written _p...q_.
-In the literal form, as with literal Fractions, white space is significant, and _p ... q_ is not allowed.
+In the case where alpha is an integer literal, and beta is an integer literal or an identifier, the interval can be written alpha:beta.
+In the literal form, as with literal Fractions, white space is significant, and `alpha : beta` is not allowed.
 
-Where supported the notations _.._ and _..._ are displayed as _‥_.
+Where supported the notations _.._ and _:_ are displayed as _‥_.
 
 _Note_:
-In Smalltalk _p to: q_ is an empty interval if _p <= q_.
-The re-write rule here calls _upOrDownTo_ which allows descending intervals to be specified.
-Care must be taken not to use _(p .. q)_ where _p.to(q)_ is required.
-In Fortress intervals are written _p:q_, however here that notation indicates a Fraction.
+In Smalltalk `alpha to: beta` is an empty interval if alpha <= beta.
+The re-write rule here calls `upOrDownTo` which allows descending intervals to be specified.
+Care must be taken not to use `(alpha .. beta)` where `alpha.to(beta)` is required.
+In notation `alpha:beta` is from Fortress.
 The literal case is not written _p..q_ since it would make white space significant in the array case,
 i.e. _[p..q]_ would be an array of one interval, and not equal to _[p .. q]_.
 

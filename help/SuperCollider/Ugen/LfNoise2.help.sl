@@ -9,7 +9,7 @@ LfNoise2(XLine(1000, 10000, 10)) * 0.05
 
 {- LfNoise2 ; modulate parameters -}
 let n = 23;
-let s = (1 .. n).collect { :i |
+let s = 1:n.collect { :i |
 	let lf = 3 * (1.1 ^ i);
 	let o1 = LfNoise2(lf) * SinOsc(ExpRand(0.08, 0.16), Rand(0, 1)).Range(0, 4);
 	let o2 = SinOsc(

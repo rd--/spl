@@ -2,7 +2,7 @@
 let a = { :freq |
 	LfPulse(freq, 0, 0.5)
 };
-let b = (0 .. 3);
+let b = 0:3;
 let a1 = a(b / 32) + 1 / 8;
 let a2 = a(a1) + 1 * b;
 let a3 = a(b / 64);

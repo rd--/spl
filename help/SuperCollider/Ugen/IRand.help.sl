@@ -19,5 +19,5 @@ let scale = [0, 2, 4, 5, 7, 9, 10, 12].asLocalBuf;
 		let mnn = (octave * 12) + pitchClass;
 		let numHarm = IRand(1, 4);
 		Blip(mnn.MidiCps, numHarm) * Rand(0.01, 0.1)
-	} !^ (3 .. 7).atRandom
+	} !^ 3:7.atRandom
 }.overlap(3, 3, 3)

@@ -29,7 +29,7 @@ system.includesPackage('Angle') {- angle package -}
 9 // 3 = 3 {- integer division (quotient) -}
 9.dividedByDividedBy(3) = 3 {- integer division -}
 [9 // 4, -5 // 3, 5 // 2] = [2, -1, 2] {- the quotient from euclidean (integer) division -}
-(-5 .. 5).collect { :n | n // 3 } = [-1, -1, -1, -0, -0, 0, 0, 0, 1, 1, 1] {- integer division -}
+-5:5.collect { :n | n // 3 } = [-1, -1, -1, -0, -0, 0, 0, 0, 1, 1, 1] {- integer division -}
 [1 // 1, 3 // 2, 4 // -2, -6 // 3, -12 // -4] = [1, 1, -2, -2, 3] {- integer division -}
 1 + 2 * 3 = 9 {- evaluation always left to right, operators equal precedence -}
 3 * 2 + 1 = 7 {- evaluation always left to right, operators equal precedence -}
@@ -48,7 +48,7 @@ system.includesPackage('Angle') {- angle package -}
 5 % 3 = 2 {- modulo -}
 5.modulo(3) = 2 {- modulo -}
 [10 % 3, 10 % -3, -10 % 3, -10 % -3, 10 % 5] = [1, -2, 2, -1, 0] {- modulo -}
-(0 .. 9).collect { :i | i % 5 } = [0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
+0:9.collect { :i | i % 5 } = [0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
 [10 % 5, -4 % 3, 4 % -3, -4 % -3] = [0, 2, -2, -1] {- modulo, negative operands -}
 13 % 7 % 4 = 2 {- left assocative -}
 13 + 1 % 7 = 0 {- equal precedence -}
@@ -72,7 +72,7 @@ let x = 1.pi.negated; x.fractionPart + x.integerPart = x {- fractional part and 
 (4 / 3) - 1 ~ (1 / 3) {- floating point math is not exact -}
 0.5.fractionPart = 0.5
 2.5.fractionPart = 0.5
-5.reciprocal = (1/5) {- reciprocal function -}
+5.reciprocal = (1 / 5) {- reciprocal function -}
 6 * 3.1 = 18.6 {- auto convert to float -}
 5.squared = 25 {- square function -}
 25.sqrt = 5 {- square root -}
@@ -118,9 +118,9 @@ NaN.isNaN {- literal for NaN -}
 18.factorial = 6402373705728000 {- large small integer factorial -}
 20.factorial = 2432902008176640000 {- large small float factorial -}
 20.factorial.isSmallInteger = false {- 20! is not a small integer -}
-(0 .. 9).collect(factorial:/1) = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
+0:9.collect(factorial:/1) = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
 { -1.factorial }.ifError { true } {- factorial is not defined for negative integers -}
-9.factorial = (1 .. 9).product {- factorial is product of interval -}
+9.factorial = 1:9.product {- factorial is product of interval -}
 12.factorial.log2.floor = 28 {- bit-depth of factorial -}
 [12, 18, 20, 100, 170].collect { :each | each.factorial.log2.floor } = [28, 52, 61, 524, 1019]
 9.doubleFactorial = 945 {- double factorial -}
@@ -185,7 +185,7 @@ inf = Infinity {- Infinity is the literal for IEEE infinity, inf is a constant, 
 -3 / 0 = inf.negated {- negative division by zero is negative infinity -}
 (0 / 0).isNaN {- division of zero by zero is NaN -}
 1.isNaN.not {- one is a number -}
-4 / (0 .. 3) = [inf, 4, 2, 4 / 3] {- divide by zero is infinity -}
+4 / 0:3 = [inf, 4, 2, 4 / 3] {- divide by zero is infinity -}
 inf.sign = 1
 inf.positive = true
 (0 - inf).sign = -1
@@ -200,13 +200,13 @@ inf ~ inf {- being equal, infinty is also close to itself -}
 0 ~ 1.epsilon & { 1.epsilon ~ 0 } & { 1 + 1.epsilon ~ 1 } {- ε is ≈ zero ∧ ≈ is a symmetric operator ∧ one plus ε is ≈ one -}
 let n = 10 ^ -9; 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
 [8 % 3, 9 % 3, 8.9 % 3, 1.epsilon % 3, 1.epsilon.negated % 3] ~ [2, 0, 2.9, 0, 3] {- modulo -}
-(-5 .. 5).collect { :each | each % 3 } = [1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2] {- modulo -}
+-5:5.collect { :each | each % 3 } = [1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2] {- modulo -}
 15 % 4 = 3 {- modulo -}
 15 \\ 4 = 3 {- remainder -}
 (15 // 4) * 4 + (15 \\ 4) = 15 {- // = quotient and \\ = remainder -}
 let x = 15; let y = 4; (x // y) * y + (x \\ y) = x {- quotient by denominator + remainder = numerator -}
 let x = 9; let y = 4; (x // y) * y + (x \\ y) = x {- // = quotient, \\ = remainder -}
-(-5 .. 5).collect { :each | each.remainder(3) } = [-2 -1 -0 -2 -1 0 1 2 0 1 2]
+-5:5.collect { :each | each.remainder(3) } = [-2 -1 -0 -2 -1 0 1 2 0 1 2]
 1e6 = 1000000 {- scientific notation, unit base, positive exponent -}
 3e9 = (3 * (10 ^ 9)) {- scientific notation, integer base -}
 23e-1 = 2.3 {- scientific notation, negative exponent -}
@@ -228,7 +228,7 @@ let x = 8.625; let y = 0.75; let q = x.quotientBy(y, rounded:/1); let r = x.rema
 ## Math -- power of two
 ```
 8.isPowerOfTwo {- is the receiver a power of two -}
-(1 .. 999).select(isPowerOfTwo:/1) = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+1:999.select(isPowerOfTwo:/1) = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
 (2 ^ 30).isPowerOfTwo = true {- this is only reliable for numbers that can be represented in 32-bits -}
 (2 ^ 30 - 1).isPowerOfTwo = false
 127.asLargerPowerOfTwo = 128 {- next power of two that is not less than the receiver -}
@@ -246,7 +246,7 @@ system.includesPackage('Array') {- array package -}
 [].species.new = [] {- new empty array -}
 [].species.new(3) = [nil, nil, nil] {- new array of indicated size -}
 [].species.ofSize(3) = [nil, nil, nil] {- new array of indicated size -}
-[].species.newFrom((1 .. 9).asSet) = [1 .. 9] {- new array from collection -}
+[].species.newFrom(1:9.asSet) = [1 .. 9] {- new array from collection -}
 [].species.newFrom([].asSet) = [] {- new array from empty collection -}
 [].species.newFrom([]) = [] {- new array from empty array -}
 [].isArray = true {- the empty Array is an Array -}
@@ -266,10 +266,9 @@ let a = [1 .. 9]; a.asArray == a {- asArray answers the receiver if it is an arr
 let a = [1 .. 9].asSet; a.asArray ~~ a {- Array constructor copies any collection, sequenceable or otherwise -}
 1.asCollection = [1] {- enclose a non-collection in an array -}
 [1 .. 3].asCollection = [1 .. 3] {- an array is a collection -}
-(1 .. 3).asCollection = (1 .. 3) {- an interval is a collection -}
-(1 .. 3).asCollection = (1 .. 3) {- an interval is a collection -}
+1:3.asCollection = 1:3 {- an interval is a collection -}
 let x = [1 .. 3]; x.asCollection == x {- in the case of a collection, it is not copied -}
-let x = (1 .. 3); x.asCollection == x {- in the case of a collection, it is not copied -}
+let x = 1:3; x.asCollection == x {- in the case of a collection, it is not copied -}
 let x = [[1, 2], [3, 4, 5]]; x.collect(asCollection:/1) = x {- identity -}
 [1, 2, 3] = [1, 2, 3] = true {- array equality -}
 [1, 2, 3] ~= [1, 2, 4] {- array inequality, differ by value -}
@@ -289,7 +288,7 @@ let a = [1, 3, 5, 7]; a.reverse = a {- reverse mutates array in place -}
 let a = [1, 3, 5, 7]; a.reverse; a = [7, 5, 3, 1] {- array reverse (in place) -}
 [1, 2, 3, 5, 7, 9].sum = 27 {- sum of elements, unicode = Σ -}
 [1, 2, 3, 5, 7, 9].reduce { :a :b | a + b } = 27 {- reduce by plus is sum -}
-(1 .. 4).reduce { :sum :each | sum + each } = 10 {- sum is first argument, element is second -}
+1:4.reduce { :sum :each | sum + each } = 10 {- sum is first argument, element is second -}
 [1, 2, 3, 5, 7, 9].reduce(+) = 27 {- reduce by plus is sum -}
 [1, 2, 3, 5, 7, 9].reduce(plus:/2) = 27 {- with operator written out -}
 [1, 4, 2, 3, 5].reduce(min:/2) = 1 {- reduce by min is min -}
@@ -315,9 +314,9 @@ let a = [1, 3, 5, 7]; a.reverse; a = [7, 5, 3, 1] {- array reverse (in place) -}
 [0, 1].anySatisfy(odd:/1) = true
 [].noneSatisfy(odd:/1) = true {- empty collection answers true -}
 [1, 3, 5, 7, 9].noneSatisfy(even:/1) = true {- no odd number is even -}
-(1 .. 5).noneSatisfy(odd:/1) = false {- one is odd -}
-(1 .. 5).oneSatisfies { :each | each.even & { each > 2 } } {- exactly one element matches -}
-(1 .. 5).count { :each | each.even & { each > 2 } } = 1 {- exactly one element matches -}
+1:5.noneSatisfy(odd:/1) = false {- one is odd -}
+1:5.oneSatisfies { :each | each.even & { each > 2 } } {- exactly one element matches -}
+1:5.count { :each | each.even & { each > 2 } } = 1 {- exactly one element matches -}
 [1 .. 3] ++ [4 .. 6] = [1 .. 6] {- addAllLast, answering new like collection, unicode = ⧺ -}
 let a = [1 .. 3]; a.addAllLast([4 .. 6]); a = [1 .. 6]
 let a = [1 .. 3]; let b = a ++ [4 .. 6]; a ~~ b & { a = [1 .. 3] } & { b = [1 .. 6] }
@@ -328,15 +327,15 @@ plusPlus([1 .. 3], [4 .. 6]) = [1 .. 6] {- ++ equals plusPlus -}
 [[1, 2, 3], [4, 5], [6]].concatenation = [1 .. 6]
 [1 2 3; 4 5; 6].concatenation = [1 .. 6] {- non-square [Matrix Syntax] -}
 let a = [1 .. 3]; a[2] = a.at(2) {- [At Syntax] -}
-let i = (1 .. 3); i[2] = i.at(2) {- [At Syntax] -}
+let i = 1:3; i[2] = i.at(2) {- [At Syntax] -}
 let m = [1 2 3; 4 5 6; 7 8 9]; m[2, 2] = 5 & { m[3, 1] = 7 } {- [At Syntax] -}
 let m = [1 2; 3 4; 5 6]; m[2, 2] := 16; m[3, 1] := 25; m = [1 2; 3 16; 25 6] {- [AtPut Syntax] -}
-(1 .. 5).includesIndex(3) {- is valid index -}
-(1 .. 5).atIfPresent(3) { :x | x * x } = 9 {- clause if index is valid -}
-(1 .. 5).atIfPresent(9) { :x | false } = nil {- ifAbsent clause answers nil -}
-(1 .. 5).atIfAbsent(9) { true } {- exception clause if index is invalid -}
-(1 .. 5).atIfPresentIfAbsent(9) { :x | false } { true } {- ifPresent and ifAbsent clauses -}
-(1 .. 5).atIfPresentIfAbsent(3) { :x | x * x } { false } = 9 {- ifPresent and ifAbsent clauses -}
+1:5.includesIndex(3) {- is valid index -}
+1:5.atIfPresent(3) { :x | x * x } = 9 {- clause if index is valid -}
+1:5.atIfPresent(9) { :x | false } = nil {- ifAbsent clause answers nil -}
+1:5.atIfAbsent(9) { true } {- exception clause if index is invalid -}
+1:5.atIfPresentIfAbsent(9) { :x | false } { true } {- ifPresent and ifAbsent clauses -}
+1:5.atIfPresentIfAbsent(3) { :x | x * x } { false } = 9 {- ifPresent and ifAbsent clauses -}
 let a = [1, 2, 3]; a.atPut(2, 'two') = 'two' & { a = [1, 'two', 3] } {- atPut answers value put -}
 let a = [1, 2, 3]; (a[2] := 'two') = 'two' & { a = [1, 'two', 3] }
 let a = [1, 2, 3]; a.atModify(2, squared:/1) = 4 & { a = [1, 4, 3] } {- modify value at index -}
@@ -357,8 +356,8 @@ let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } {- answer shuffled copy -}
 13.fibonacciArray = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 '3'.replicate(3) = ['3', '3', '3']
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity:/1) = 4
-[(1 .. 3), (1 .. 6), (1 .. 9)].detectMax(size:/1) = (1 .. 9)
-[(1 .. 3), (1 .. 6), (1 .. 9)].detectMin(size:/1) = (1 .. 3)
+[1:3, 1:6, 1:9].detectMax(size:/1) = 1:9
+[1:3, 1:6, 1:9].detectMin(size:/1) = 1:3
 ['1', '2', '3', '4', '5'].indexOf('3') = 3 {- index of first occurrence of element in sequence -}
 [9 .. 1].indexOf(3) = 7 {- index of first occurrence of element in sequence -}
 [1, 2, 3, 2, 3].indexOf(3) = 3 {- first of multiple occurrences -}
@@ -378,12 +377,12 @@ let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } {- answer shuffled copy -}
 Array(5).fillWith(negated:/1) = [-1 .. -5] {- fill array with answers of a block applied to each index -}
 let r = Random(12345); Array(5).fillWith { r.nextRandomInteger(9) } = [8, 5, 9, 9, 4] {- block is applied using cull -}
 let r = Random(12345); let f = { r.nextRandomInteger(9) }; Array(5).fillWith(f:/0) = [8, 5, 9, 9, 4] {- block is applied using cull -}
-Array(5).fillFromWith((1 .. 5), negated:/1) = [-1 .. -5]
+Array(5).fillFromWith(1:5, negated:/1) = [-1 .. -5]
 let a = Array(5); a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
 let a = Array(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
 [1, 2, 3, 4, 3, 2, 1].occurrencesOf(3) = 2 {- number of occurrences of element in collection -}
 let a = [1, 2]; let [x, y] = a; [y, x] = [2, 1]
-let i = (1 .. 3); let [x, y, z] = i; [z, y, x] = [3 .. 1] {- sequence binding syntax -}
+let i = 1:3; let [x, y, z] = i; [z, y, x] = [3 .. 1] {- sequence binding syntax -}
 let [x, y] = { let n = system.nextRandomFloat; [n, n] }.value; x = y
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
@@ -396,8 +395,8 @@ let [x, y] = { let n = system.nextRandomFloat; [n, n] }.value; x = y
 { [].allButFirst }.ifError { true } {- error if too few elements -}
 [1 .. 9].allButLast = [1 .. 8] {- all but last element -}
 [1 .. 9].allButLast(7) = [1, 2] {- all but last k elements -}
-(1 .. 9).allButFirstAndLast = (2 .. 8) {- all but first and last element -}
-(1 .. 9).allButFirstAndLast(3) = (4 .. 6) {- all but first and last element -}
+1:9.allButFirstAndLast = 2:8 {- all but first and last element -}
+1:9.allButFirstAndLast(3) = 4:6 {- all but first and last element -}
 { [].allButLast }.ifError { true } {- error if too few elements -}
 { let a = Array(1); a.at(3) }.ifError { true } {- out of bound indexing is an error -}
 { let a = [1]; a[3] }.ifError { true } {- out of bound indexing is an error -}
@@ -418,8 +417,8 @@ Array:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].reject { :x | true } = [] {- reject everything -}
 [1 .. 9].reject { :x | false } = [1 .. 9] {- reject nothing -}
 [].reject { :x | true } = [] & { [].reject { :x | false } = [] } {- reject from empty collection -}
-(1 .. 9).collect{ :x | x * x }.last = 81
-(1 .. 9).collect{ :x | x * x }.collect{ :x | x * x }.last = 6561
+1:9.collect{ :x | x * x }.last = 81
+1:9.collect{ :x | x * x }.collect{ :x | x * x }.last = 6561
 [1 .. 9].last(5) = [5 .. 9]
 { [1 .. 3].last(5) }.ifError { true }
 [1 .. 9].anyOne = 1 {- any element, chooses first -}
@@ -464,13 +463,13 @@ let a = [1, 2, 4]; a.addAfter(3, 2); a = [1 .. 4] {- insert value after existing
 let a = [1, 2, 4]; a.addBefore(3, 4); a = [1 .. 4] {- insert value before existing value -}
 [1 .. 5].atPin(-1) = 1 {- pin left -}
 [1 .. 5].atPin(9) = 5 {- pin right -}
-(-1 .. 5).collect { :index | (1 .. 3).atPin(index) } = [1 1 1 2 3 3 3] {- index answering bound if out of bounds -}
+(-1 .. 5).collect { :index | 1:3.atPin(index) } = [1 1 1 2 3 3 3] {- index answering bound if out of bounds -}
 [-1 .. 5].collect { :index | [1 .. 3].atPin(index) } = [1 1 1 2 3 3 3] {- index answering bound if out of bounds -}
 [2, 7, 5, 0, 1, -2].collect { :index | [5, 6, 8].atWrap(index) } = [6, 5, 6, 8, 5, 5] {- at with index wrap-around -}
-(-1 .. 5).collect { :index | (1 .. 3).atWrap(index) } = [2 3 1 2 3 1 2] {- index wrapping if out of bounds -}
+(-1 .. 5).collect { :index | 1:3.atWrap(index) } = [2 3 1 2 3 1 2] {- index wrapping if out of bounds -}
 let a = [1, nil, 3]; a.atWrapPut(5, 2); a = [1, 2, 3] {- atPut with index wrap around -}
-(1 .. 3).atFold(4) = 2 {- at with index fold-around -}
-(-1 .. 5).collect { :index | (1 .. 3).atFold(index) } = [3 2 1 2 3 2 1] {- at with index fold-around -}
+1:3.atFold(4) = 2 {- at with index fold-around -}
+(-1 .. 5).collect { :index | 1:3.atFold(index) } = [3 2 1 2 3 2 1] {- at with index fold-around -}
 [1 .. 9].difference([3 .. 7]) = [1, 2, 8, 9] {- set theoretic difference of two collections -}
 [1 .. 9].difference([]) = [1 .. 9] {- set theoretic difference of two collections -}
 [1, 2, 3].symmetricDifference([3, 4]) = [1, 2, 4].asSet {- elements which are in either set but not their intersection -}
@@ -500,7 +499,7 @@ let l = []; l.addFirst(2); l.addFirst(1); l = [1, 2] {- add item to start of arr
 let l = [2]; l.addFirst(1) = 1 & { l = [1, 2] } {- answer is argument -}
 let l = []; l.addLast(1); l.addLast(2); l = [1, 2] {- add item to end of array -}
 let l = [1]; l.addLast(2) = 2 & { l = [1, 2] } {- answer is argument -}
-let l = []; (1 .. 5).do { :each | l.add(each) }; l = [1 .. 5] {- alias for addLast -}
+let l = []; 1:5.do { :each | l.add(each) }; l = [1 .. 5] {- alias for addLast -}
 let l = [1 .. 9]; l.removeFirst = 1 & { l.size = 8 } {- remove first object from array -}
 let l = [1 .. 9]; l.removeFirst = 1 & { l = [2 .. 9] } {- remove first object from array -}
 let l = [1 .. 9]; l.removeLast = 9 & { l.size = 8 } {- remove last object from array, answers removed element -}
@@ -509,7 +508,7 @@ let l = [4, 5]; l.addAllFirst(1.to(3)); l = [1 .. 5] {- add all elements to star
 let l = [1, 2, 3]; l.addAllLast(4.to(5)); l = [1 .. 5] {- add all elements to end of array -}
 [1].addAllLast([2, 3]) = [2, 3] {- answer is argument -}
 let l = [1]; l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6] {- alias for addAllLast -}
-let i = (1 .. 9); let a = []; a.addAll(i); a.size = 9 {- add elements from Interval to end of Array -}
+let i = 1:9; let a = []; a.addAll(i); a.size = 9 {- add elements from Interval to end of Array -}
 13.fibonacciSequenceInto([]) = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 let c = [1 .. 5]; [c.removeAt(1), c] = [1, [2, 3, 4, 5]] {- removeAt answers the removed element -}
 let c = [1 .. 5]; [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
@@ -522,7 +521,7 @@ let c = [1 .. 5]; c.removeIfAbsent(9) { true } & { c = [1 .. 5] } {- remove obje
 [1, 2, 3].ofSize(4) = [1, 2, 3, nil] {- extend to be of size, new slots are nil -}
 let a = [1, 2, 3]; a.ofSize(2) = a {- if requested size is smaller, do nothing -}
 let a = [1, 2, 3]; a.ofSize(2) == a {- if requested size is smaller, answer the array itself -}
-[1, 3 .. 9].indices = (1 .. 5) {- indices of array (an interval) -}
+[1, 3 .. 9].indices = 1:5 {- indices of array (an interval) -}
 let a = [1, [2, 3]]; let c = a.copy; c[2][1] := -2; c = a & { a = [1, [-2, 3]] } {- copy is a shallow copy -}
 let a = [1, [2, 3]]; let c = a.deepCopy; c[2][1] := -2; c ~= a & { a = [1, [2, 3]] } {- deepCopy is a deep copy -}
 let a = [nil, true, false, 3.141, 23, 'str']; a.deepCopy = a {- deepCopy of shallow array -}
@@ -531,7 +530,7 @@ let a = [nil, true, false, 3.141, 23, 'str']; a.deepCopy = a {- deepCopy of shal
 [1, 3 .. 9].copyUpTo(-1) = [1, 3 .. 9] {- copy up to end if no such element -}
 [1, 2, 3, 4, 2, 3, 4, 3, 4, 4].copyUpToLast(3) = [1, 2, 3, 4, 2, 3, 4] {- copy up to last instance of element -}
 [1, 3 .. 9].copyUpToLast(-1) = [1, 3 .. 9] {- copy up to end if no such element -}
-let i = (9 .. 1); i @* [5, 3, 7] = [5, 7, 3] {- atAll operator -}
+let i = 9:1; i @* [5, 3, 7] = [5, 7, 3] {- atAll operator -}
 let a = [9 .. 1]; a @* [5, 3, 7] = [5, 7, 3] {- atAll operator -}
 let a = [5 .. 1]; a @* [1 5 3] = [5 1 3] {- atAll operator -}
 let a = [5 .. 1]; a @* [2 .. 4] = [4 3 2] {- atAll operator -}
@@ -653,7 +652,7 @@ system.includesPackage('Binary') {- binary package -}
 (2 ^ 30).bitAnd(2 ^ 30 - 1) = 0 {- bitwise and of a power of two and one less is zero -}
 2r1111.bitOr(2r1001) = 2r1111 {- bitwise or -}
 2r1111.bitXor(2r1001) = 2r0110 {- bitwise exclusive or -}
-(1 .. 8).collect { :each | 2r10010110.bitAt(each) } = [0 1 1 0 1 0 0 1] {- bit at index -}
+1:8.collect { :each | 2r10010110.bitAt(each) } = [0 1 1 0 1 0 0 1] {- bit at index -}
 ```
 
 ## Binary -- counting & testing
@@ -704,7 +703,7 @@ Bitset(64).with { :b | b.setBitAt(3); b.bitAt(3) = 1 } {- setBitAt is equal to a
 16.bitShiftRight(3) = 2 {- right shift (lower) -}
 2.bitShift(3) = 16 {- left shift (higher) -}
 16.bitShift(-3) = 2 {- right shift (lower) -}
-(1 .. 4).select { :bit | 6.bitTest(bit) } = [2, 3] {- bit at position (0|1) [!Squeak] -}
+1:4.select { :bit | 6.bitTest(bit) } = [2, 3] {- bit at position (0|1) [!Squeak] -}
 2 << 3 = 16 {- left shift operator -}
 16 >> 3 = 2 {- right shift operator -}
 { 1.bitAnd(nil) }.ifError { true } {- operand not adaptable to number -}
@@ -841,30 +840,30 @@ ByteArray(8).size = 8
 ByteArray(8).at(1) = 0 {- lookup element at index -}
 ByteArray(8).atPut(1, 179) = 179 {- set element at index, answer element -}
 let a = ByteArray(8); a.atPut(1, 179) = 179 & { a.at(1) = 179 }
-(1 .. 9).asByteArray.isByteArray = true {- array of numbers in 0-255 to byte array -}
+1:9.asByteArray.isByteArray = true {- array of numbers in 0-255 to byte array -}
 { [-1].asByteArray }.ifError { true } {- out of range element error -}
 { ['1'].asByteArray }.ifError { true } {- not a number element error -}
-(1 .. 9).asByteArray.reversed = (9 .. 1).asByteArray
-(1 .. 3).asByteArray.printString = '[1, 2, 3].asByteArray'
-(1 .. 3).asByteArray.storeString = '[1, 2, 3].asByteArray'
+1:9.asByteArray.reversed = 9:1.asByteArray
+1:3.asByteArray.printString = '[1, 2, 3].asByteArray'
+1:3.asByteArray.storeString = '[1, 2, 3].asByteArray'
 ByteArray(4).hex = '00000000'
 'text'.asciiByteArray[1] = 116 {- ByteArray subscript -}
 let b = ByteArray(4); b[1] := 15; b[3] := 240; b.hex = '0f00f000'
 let b = ByteArray(4); b[2] := 15; b[4] := 240; b.hex = '000f00f0'
-(1 .. 4).asByteArray.hex = '01020304'
+1:4.asByteArray.hex = '01020304'
 'string'.asciiByteArray.hex = '737472696e67' {- hexadecimal string of ByteArray -}
 '737472696e67'.parseHexString.asciiString = 'string' {- ByteArray of hexadecimal string -}
 let b = ByteArray(4); b.atAllPut(15); b.hex = '0f0f0f0f'
 'string'.asciiByteArray.asArray = [115, 116, 114, 105, 110, 103] {- array from ByteArray -}
 '0f00f010'.parseHexString = [15, 0, 240, 16].asByteArray
 { [1, 2, 3].asByteArray.add(4) }.ifError { true } {- ByteArrays are not Extensible -}
-(1 .. 9).asByteArray.select { :each | false } = [].asByteArray {- select nothing -}
-(1 .. 9).asByteArray ~= [1 .. 9] {- ByteArray and Array of equal elements are not equal -}
-(1 .. 9).asByteArray.hasEqualElements((1 .. 9)) {- ByteArray and Array of equal elements -}
+1:9.asByteArray.select { :each | false } = [].asByteArray {- select nothing -}
+1:9.asByteArray ~= [1 .. 9] {- ByteArray and Array of equal elements are not equal -}
+1:9.asByteArray.hasEqualElements(1:9) {- ByteArray and Array of equal elements -}
 [1, 13 .. 253].asByteArray.base64Encoded = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' {- base 64 encoding -}
 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q=='.base64Decoded = (1, 13 .. 253).asByteArray {- base 64 decoding -}
 'SGVsbG8gV29ybGQ='.base64Decoded.asciiString = 'Hello World' {- answer is a ByteArray -}
-[1, 3 .. 9].asByteArray.indices = (1 .. 5) {- indices of byte array (an interval) -}
+[1, 3 .. 9].asByteArray.indices = 1:5 {- indices of byte array (an interval) -}
 let b = [1, 3 .. 9].asByteArray; b.copy = b & { b.copy ~~ b } {- copies are equal & not identical -}
 let b = [1 .. 9].asByteArray; let c = b.copy; c[1] := 9; c[1] = 9 & { b[1] = 1 } {- copies are distinct -}
 [115, 116, 114, 105, 110, 103].asByteArray.crc16 = 58909 {- 16 bit cyclic redundancy check, crc-16/arc -}
@@ -907,7 +906,7 @@ system.includesPackage('Character') {- character package -}
 let c = '𠮷'.asCharacter; c = c.copy & { c ~~ c.copy } {- copy is equal but not identical -}
 92.asCharacter.string = '\\' {- escaped character -}
 '0123456789abcdef'.characterArray.collect(digitValue:/1) = [0 .. 15] {- digit value of character -}
-(0 .. 15).collect(digitValue:/1).join = '0123456789ABCDEF' {- character of given digit value -}
+0:15.collect(digitValue:/1).join = '0123456789ABCDEF' {- character of given digit value -}
 { 36.digitValue }.ifError { true } {- error if integer is out of range -}
 'x'.asCharacter.asUppercase = 'X'.asCharacter {- to upper case -}
 'X'.asCharacter.asLowercase = 'x'.asCharacter {- to lower case -}
@@ -952,8 +951,8 @@ system.includesPackage('Collection') {- collection package -}
 [9, 4, 5, 7, 8, 6].minBy(negated:/1) = 9 {- comparison of translated values -}
 [9, 4, 5, 7, 8, 6].sum = 39 {- sum of collection -}
 [9, 4, 5, 7, 8, 6].mean = 6.5 {- sum of collection divided by size -}
-(1 .. 9).mean = 5 {- sum of collection divided by size -}
-let c = (1 .. 9); c.sum / c.size = 5 {- sum of collection divided by size -}
+1:9.mean = 5 {- sum of collection divided by size -}
+let c = 1:9; c.sum / c.size = 5 {- sum of collection divided by size -}
 [9, 4, 5, 7, 8, 6].product = 60480 {- product of collection, unicode = Π -}
 [9, 4, 5, 7, 8, 6].injectInto(0) { :z :e | e + z } = 39 {- sum of collection -}
 [9, 4, 5, 7, 8, 6].injectInto(1) { :z :e | e * z } = 60480 {- product of collection -}
@@ -966,7 +965,7 @@ let c = (1 .. 9); c.sum / c.size = 5 {- sum of collection divided by size -}
 [].allSatisfy { :item | false } = true {- allSatisfy is true for empty collections -}
 [9, 4, 5, 7, 8, 6].occurrencesOf(7) = 1 {- count elements that are equal to object -}
 [1, 2, 3, 4, 5].atRandom <= 5 {- random element of collection -}
-(1 .. 9).range = (9 - 1) {- maxima - minima -}
+1:9.range = (9 - 1) {- maxima - minima -}
 [-9, 0, 9].sign = [-1, 0, 1] {- signs of elements -}
 [1, 3, 5].select { :x | x > 1 } = [3, 5]
 [1, 3, 5].asSet.select { :x | x > 1 } = [3, 5].asSet
@@ -974,9 +973,9 @@ let c = (1 .. 9); c.sum / c.size = 5 {- sum of collection divided by size -}
 [].select { :each | 'select'.error } = []
 [].species.newFrom(Set()) = []
 Set().asArray = []
-(1 .. 9).includesAnyOf([0, 6]) {-includes any element of a collection -}
+1:9.includesAnyOf([0, 6]) {-includes any element of a collection -}
 [4 .. 6].copyWithout(5) = [4, 6] {- copy without element -}
-(4 .. 6).copyWithout(5) = [4, 6] {- copy without element, interval becomes array -}
+4:6.copyWithout(5) = [4, 6] {- copy without element, interval becomes array -}
 [2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6] {- copy without element, removes multiples -}
 [2, 3, 4, 5, 5, 6].copyWithoutAll([3, 5]) = [2, 4, 6] {- copy without element, removes multiples -}
 let a = [1 .. 4]; let c = a.copyWith(5); a ~= c & { c = [1 .. 5] } {- copy with new (last) element -}
@@ -987,28 +986,28 @@ let s = [1 .. 4].asSet; let c = s.copyWith(5); s ~= c & { c = [1 .. 5].asSet } {
 [].ifEmpty { true } { false } {- evaluate emptyBlock if collection is empty -}
 [1].ifEmpty { false } { true } {- evaluate notEmptyBlock if collection is not empty -}
 [1].ifEmpty { false } { :c | c = [1] } {- evaluate notEmptyBlock with collection if not empty -}
-(1 .. 9).detectSum(squared:/1) = 285 {- apply block to each element and sum -}
-(1 .. 9).collect(squared:/1).sum = 285
-let a = [1 .. 9]; a.removeAll((3 .. 7)); a = [1, 2, 8, 9] {- remove all indicated elements -}
+1:9.detectSum(squared:/1) = 285 {- apply block to each element and sum -}
+1:9.collect(squared:/1).sum = 285
+let a = [1 .. 9]; a.removeAll(3:7); a = [1, 2, 8, 9] {- remove all indicated elements -}
 let a = [1, 2, 3, 2, 1]; [a.removeAll([1, 2, 3]), a] = [[1, 2, 3], [2, 1]] {- answer items to remove, only remove first instance -}
-{ [1 .. 3].removeAll((7 .. 9)) }.ifError { true } {- it is an error if an element to be removed is not located -}
-let a = [1 .. 3]; a.removeAllFoundIn((7 .. 9)); a = [1 .. 3] {- unlike removeAll it is not an error if items are not found -}
+{ [1 .. 3].removeAll(7:9) }.ifError { true } {- it is an error if an element to be removed is not located -}
+let a = [1 .. 3]; a.removeAllFoundIn(7:9); a = [1 .. 3] {- unlike removeAll it is not an error if items are not found -}
 let a = [1, 2, 3, 2, 1]; a.removeAllFoundIn([2, 3]); a = [1, 2, 1] {- removes only first matching element -}
 [1 .. 6].collect { :each | each * 2 } = [2, 4 .. 12] {- apply block at each element and answer like collection -}
-(1 .. 6).collect { :each | each * 2 } = [2, 4 .. 12] {- interval species is array -}
-(1 .. 6).collect { :each | each * 2 } = [2, 4 .. 12] {- literal integer interval syntax -}
+1:6.collect { :each | each * 2 } = [2, 4 .. 12] {- interval species is array -}
+1:6.collect { :each | each * 2 } = [2, 4 .. 12] {- literal integer interval syntax -}
 [2, -3, 4, -35, 4, -11].collect { :each | each.abs } = [2, 3, 4, 35, 4, 11]
 [2, -3, 4, -35, 4, -11].collect(abs:/1) = [2, 3, 4, 35, 4, 11]
-(1 .. 100).injectInto(0) { :sum :each | sum + each } = 5050
+1:100.injectInto(0) { :sum :each | sum + each } = 5050
 let a = [1 .. 5]; a.contents == a {- contents at is identity -}
-((1 .. 9) / 3).rounded = [0, 1, 1, 1, 2, 2, 2, 3, 3] {- unary math operator at collection -}
+(1:9 / 3).rounded = [0, 1, 1, 1, 2, 2, 2, 3, 3] {- unary math operator at collection -}
 [].collectThenDo { :each | 'error'.error } { :each | 'error'.error }.isEmpty {- neither block is run for empty collections -}
-let n = 0; (3 .. 7).collectThenDo(squared:/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } {- collect then do -}
+let n = 0; 3:7.collectThenDo(squared:/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } {- collect then do -}
 [].ifEmptyIfNotEmptyDo { true } { :aCollection | false } = true {- branch on isEmpty -}
-(1 .. 9).ifEmptyIfNotEmptyDo { false } { :aCollection | aCollection.size = 9 } = true {- branch on isEmpty -}
-(1 .. 9).ifNotEmptyDo { :aCollection | aCollection.size = 9 } = true {- branch on isEmpty -}
-(1 .. 9).average = 5 {- mean, sum divided by size -}
-(1 .. 9).average = (45 / 9) {- mean, sum divided by size -}
+1:9.ifEmptyIfNotEmptyDo { false } { :aCollection | aCollection.size = 9 } = true {- branch on isEmpty -}
+1:9.ifNotEmptyDo { :aCollection | aCollection.size = 9 } = true {- branch on isEmpty -}
+1:9.average = 5 {- mean, sum divided by size -}
+1:9.average = (45 / 9) {- mean, sum divided by size -}
 (x: (y: 1)).atPath(['x', 'y']) = 1 {- atPath of dictionary, depth = 2 -}
 (x: (y: (z: 1))).atPath(['x', 'y', 'z']) = 1 {- atPath of dictionary, depth = 3 -}
 (w: (x: (y: (z: 1)))).atPath(['w', 'x', 'y', 'z']) = 1 {- atPath of dictionary, depth = 4 -}
@@ -1027,12 +1026,12 @@ let d = (w: (x: (y: (z: 1)))); d.atPathPut(['w', 'x', 'y', 'z'], -1); d::w::x::y
 (x: 1, y: 2, z: 3).allEqualBy { :p :q | p.value = q.value }.not {- are all items equal by comparator -}
 [1, 1, 1].allEqual {- are all items equal -}
 [1, 2, 3].allEqual.not {- are all items equal -}
-(1 .. 4).reduce(Association:/2) = (((1 -> 2) -> 3) -> 4) {- reduce, happens to be left associative -}
-(1 .. 4).reduce(-) = (((1 - 2) - 3) - 4) {- reduce, happens to be left associative -}
-(1 .. 4).reduce(minus:/2) = (((1 - 2) - 3) - 4) {- with operator written out -}
-(1 .. 4).assertIsOfSize(4) = (1 .. 4) {- assert collection is of indicated size -}
-{ (1 .. 4).assertIsOfSize(3) }.ifError { true } {- assert collection is of indicated size -}
-(1 .. 4).assertIsCollection = (1 .. 4) {- require that an object is a collection -}
+1:4.reduce(Association:/2) = (((1 -> 2) -> 3) -> 4) {- reduce, happens to be left associative -}
+1:4.reduce(-) = (((1 - 2) - 3) - 4) {- reduce, happens to be left associative -}
+1:4.reduce(minus:/2) = (((1 - 2) - 3) - 4) {- with operator written out -}
+1:4.assertIsOfSize(4) = 1:4 {- assert collection is of indicated size -}
+{ 1:4.assertIsOfSize(3) }.ifError { true } {- assert collection is of indicated size -}
+1:4.assertIsCollection = 1:4 {- require that an object is a collection -}
 { '1 to 4'.assertIsCollection }.ifError { true } {- a string is not a collection, hence error -}
 let a = []; [1, 2].cartesianProductDo([3, 4]) { :x :y | a.add(x -> y) }; a = [1 -> 3, 1 -> 4, 2 -> 3, 2 -> 4]
 [1 2].cartesianProduct([3 4]) = [1 3; 1 4; 2 3; 2 4]
@@ -1183,15 +1182,19 @@ let z = 1 + 2.i; z.abs ~ 2.2361 & { z.arg ~ 1.1071 } {- absolute value (modulus,
 let n = (1 + 2.i); n.reciprocal * n = 1 {- multiplicative inverse -}
 (1 + 0.i).isInteger = false {- a complex number is not an integer -}
 (1 + 0.i).isFraction = false {- a complex number is not a fraction -}
-3:2.asComplex = Complex(3:2, 0) {- fraction as complex -}
-0:1.i = Complex(0, 0:1) {- complex with integral real part and fractional imaginary part -}
-3:2 + 0:1.i = 3:2.asComplex
-3:2.asComplex + 0:1.i = 3:2.asComplex {- add 0i to a complex number is identity -}
+3/2.asComplex = Complex(3/2, 0) {- fraction as complex -}
+0/1.i = Complex(0, 0/1) {- complex with integral real part and fractional imaginary part -}
+3/2 + 0/1.i = 3/2.asComplex
+3/2.asComplex + 0/1.i = 3/2.asComplex {- add 0i to a complex number is identity -}
 1.asComplex = Complex(1, 0) {- asComplex is a monadic complex number constructor -}
 1.i = Complex(0, 1) {- asComplex is a monadic complex number constructor -}
 (1 + -2.i) + (3 + 4.i) = (4 + 2.i) {- i is a monadic complex number constructor -}
 1.j(-2) + 3.j(4) = 4.j(2) {- j is the dyadic complex number constructor -}
 1.j(-2) = 1.Complex(-2) {- j is an alias for Complex -}
+1j-2 = Complex(1, -2) {- complex literal, integral components -}
+3.1J2.3 = Complex(3.1, 2.3) {- complex literal, fractional components -}
+1j-2 + 3j4 = 4j2 {- complex literals, lower case -}
+1J-2 + 3J4 = 4J2 {- complex literals, upper case -}
 ```
 
 ## Conditional Statements
@@ -1225,12 +1228,12 @@ inf.isNumber {- Infinity constant -}
 ```
 [true, false].collect(asBit:/1) = [1, 0] {- boolean to bit (integer) -}
 1.pi.asFloat = 1.pi {- small float as float is identity -}
-3:4.asFloat = 0.75 {- fraction as float -}
+3/4.asFloat = 0.75 {- fraction as float -}
 23.asFloat = 23.0 {- integer as float -}
 23n.asFloat = 23.0 {- large integer as float -}
 { '23'.asFloat }.ifError { true } {- asFloat is not a parser -}
 1.pi.asSmallFloat = 1.pi {- identity -}
-3:4.asSmallFloat = 0.75 {- fraction to small float -}
+3/4.asSmallFloat = 0.75 {- fraction to small float -}
 23.asSmallFloat = 23.0 {- integral to small float -}
 true.asInteger = 1 {- boolean as integer, c.f. asBit -}
 false.asInteger = 0 {- boolean as integer, asBit -}
@@ -1239,9 +1242,9 @@ false.asInteger = 0 {- boolean as integer, asBit -}
 -23.asInteger = -23 {- identity -}
 1.pi.asInteger = 3 {- small float as integer, c.f. truncated -}
 (0 - 1.pi).asInteger = -3 {- floating point is truncated -}
-22:7.asInteger = 3 {- fraction as integer, c.f. truncated -}
--22:7.asInteger = -3 {- fraction is truncated -}
-7:8.asInteger = 0 {- fraction is truncated -}
+22/7.asInteger = 3 {- fraction as integer, c.f. truncated -}
+-22/7.asInteger = -3 {- fraction is truncated -}
+7/8.asInteger = 0 {- fraction is truncated -}
 '23'.asInteger = 23 {- string is parsed, c.f. parseDecimalInteger -}
 { '3.141'.asInteger }.ifError { true } {- floating point strings are not decimal integers -}
 { '3x'.asInteger }.ifError { true } {- large radix strings are not decimal integers -}
@@ -1254,9 +1257,9 @@ true.asNumber = 1 {- asBit -}
 '0.03141e2'.asNumber = 3.141 {- parse scientific -}
 '23'.asNumber = 23 {- parse integer -}
 '-23'.asNumber = -23 {- parse integer -}
-1.pi.asFraction = 311:99 {- asFraction(100) -}
-1.pi.asFraction(10) = 22:7 {- with maximum denominator -}
-22:7.asFraction = 22:7 {- identity -}
+1.pi.asFraction = 311/99 {- asFraction(100) -}
+1.pi.asFraction(10) = 22/7 {- with maximum denominator -}
+22/7.asFraction = 22/7 {- identity -}
 23.asFraction = 23 {- identity -}
 [0, 0].asPoint = (0 @ 0) {- array as point -}
 (0, 0).asPoint = Point(0, 0) {- tuple as point -}
@@ -1293,7 +1296,7 @@ let n = 23n; n.copy == n {- copy large integer, identity -}
 let s = 'string'; s.copy == s {- copy string, identity -}
 let a = ('x' -> 1); let c = a.copy; c.value := 2; c ~= a & { c = ('x' -> 2) } {- copy association -}
 let t = (0, 0); let c = t.copy; c.first := 1; c ~= t & { c = (1, 0) } {- copy two tuple -}
-let f = 3:4; let c = f.copy; c.numerator := 1; c ~= f & { c = 1:4 } {- copy fraction -}
+let f = 3/4; let c = f.copy; c.numerator := 1; c ~= f & { c = 1/4 } {- copy fraction -}
 let c = 2.i; let z = c.copy; z.real := 3; z ~= c & { z = (3 + 2.i) } {- copy complex -}
 let a = [1, [2]]; let c = a.shallowCopy; c[2][1] := -2; c = a & { a = [1, [-2]] } {- shallowCopy array -}
 let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c ~= a & { a = [1, [2]] } {- deepCopy array -}
@@ -1424,7 +1427,7 @@ let d = 2.seconds; let c = d.copy; d ~~ c & { d = c } {- copy duration -}
 9.minutes / 3 = 3.minutes {- divide duration by number -}
 -3.seconds.abs = 3.seconds {- absolute value -}
 (3.minutes - 2.hours).abs = (1.hours + 57.minutes) {- absolute value -}
-7:8.milliseconds.seconds = 7:8000 {- fraction as duration -}
+7/8.milliseconds.seconds = 7/8000 {- fraction as duration -}
 2.minutes.asSeconds = 120.asSeconds {- seconds of duration, or identity of number -}
 ```
 
@@ -1455,16 +1458,16 @@ Float64Array(8).at(1) = 0 {- at protocol, initialized to zero -}
 Float64Array(8).atPut(1, 1.pi) = 1.pi {- atPut protocol, answer value put -}
 let a = Float64Array(8); a.atPut(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
 let a = Float64Array(8); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
-(1 .. 9).asFloat64Array.isFloat64Array = true {- interval as array -}
-(1 .. 9).asFloat64Array.reversed = (9 .. 1).asFloat64Array {- reversed copy -}
-let a = [1 .. 9].asFloat64Array; a.reverse; a = (9 .. 1).asFloat64Array {- reverse in place -}
-let a = (9 .. 1).asFloat64Array; a.sort; a = (1 .. 9).asFloat64Array {- sort in place -}
+1:9.asFloat64Array.isFloat64Array = true {- interval as array -}
+1:9.asFloat64Array.reversed = 9:1.asFloat64Array {- reversed copy -}
+let a = [1 .. 9].asFloat64Array; a.reverse; a = 9:1.asFloat64Array {- reverse in place -}
+let a = 9:1.asFloat64Array; a.sort; a = 1:9.asFloat64Array {- sort in place -}
 { Float64Array(1).atPut(3, 'x') }.ifError { true } {- out of bounds error -}
 let a = Float64Array(1); a.basicAtPut(1, 'x'); a.at(1).isNaN = true {- unsafe mutation inserts NaN -}
 let a = Float64Array(1); a.basicAtPut(3, 'x'); a.basicAt(3) = nil {- unsafe mutation does not extend array -}
-(1 .. 3).asFloat64Array.printString = '[1, 2, 3].asFloat64Array'
-(1 .. 3).asFloat64Array.storeString = '[1, 2, 3].asFloat64Array'
-let a = (1 .. 3).asFloat64Array; let c = a.copy; c[1] := 3; c ~= a & { c.asArray = [3, 2, 3] } {- copy -}
+1:3.asFloat64Array.printString = '[1, 2, 3].asFloat64Array'
+1:3.asFloat64Array.storeString = '[1, 2, 3].asFloat64Array'
+let a = 1:3.asFloat64Array; let c = a.copy; c[1] := 3; c ~= a & { c.asArray = [3, 2, 3] } {- copy -}
 ```
 
 ## Floating point
@@ -1481,194 +1484,194 @@ let a = (1 .. 3).asFloat64Array; let c = a.copy; c[1] := 3; c ~= a & { c.asArray
 ## Fraction -- numeric type
 ```
 system.includesPackage('Fraction') {- fraction package -}
-2:3.isFraction {- literal syntax for fractions is numerator:denominator -}
+2/3.isFraction {- literal syntax for fractions is numerator/denominator -}
 Fraction(2, 3).isFraction {- fractional type -}
-2:3 = Fraction(2, 3) {- literal syntax -}
-Fraction(4, 6).reduced = 2:3 {- reduced fraction -}
-Fraction(4, 6) ~= 2:3 {- non-reduced fraction -}
-2:3 = 4:6 {- literals are reduced by construction -}
-2 / 3:4 = 8:3 {- division -}
-2:3 + 2:3 = 4:3 {- addition -}
-2/3 + 2/3 = (8/9) {- (2 / 3 + 2) / 3 -}
-2:3 + 1:2 = 7:6 {- reduction to common denominator -}
-2:3 + 4:3 = 2 {- addition to integer -}
-1:2 - 1:2 = 0 {- subtraction -}
-3:4 - 1:2 = 1:4 {- subtraction -}
-3:2.ceiling = 2 {- ceiling -}
--3:2.ceiling = -1 {- ceiling -}
-4:3.denominator = 3 {- denominator -}
-4:3.gcd(7:5) = 1:15 {- greatest common denominator -}
-4:3.lcm(7:5) = 28 {- least common multiple -}
-4:3.negated = -4:3 {- negation -}
-4:3.negative.not {- is negative predicate -}
-4:3.numerator = 4 {- numerator -}
-2:3.raisedToInteger(5) = 32:243 {- fractions also can be exponentiated -}
-2:3 ^ 5 = 32:243 {- fractions also can be exponentiated using infix operator -}
-{ 2:3 ^ 3:4 }.ifError { true } {- only integer exponents are implemented -}
-9:5.reciprocal = 5:9 {- reciprocal, mutiplicative inverse -}
-let n = 9:5; n.reciprocal * n = 1 {- mutiplicative inverse -}
-7:5.squared = 49:25 {- square of -}
-3:2.truncated = 1 {- truncation -}
-1:2 < 0.5 = false
-1:3 > 0.25
-0.5 < 1:2 = false
-0.25 < 1:3
-0.5 < 1:4 = false
-0.5 < 1:2 = false
-0.5 < 3:4
-0.5 <= 1:4 = false {- less than or equal to, unicode = ≤ -}
-0.5 <= 1:2
-0.5 <= 3:4
-0.5 > 1:4
-0.5 > 1:2 = false
-0.5 > 3:4 = false
-0.5 >= 1:4
-0.5 >= 1:2
-0.5 >= 3:4 = false
-0.5 = 1:4 = false
-0.5 - 1:2 = 0
-0.5 = 3:4 = false
-0.5 ~= 1:4
-1:2 - 0.5 = 0
-0.5 ~= 3:4
+2/3 = Fraction(2, 3) {- literal syntax -}
+Fraction(4, 6).reduced = 2/3 {- reduced fraction -}
+Fraction(4, 6) ~= 2/3 {- non-reduced fraction -}
+2/3 = 4/6 {- literals are reduced by construction -}
+2 / 3/4 = 8/3 {- division -}
+2/3 + 2/3 = 4/3 {- addition -}
+2/3 + 2 / 3 = (8/9) {- (2 / 3 + 2) / 3 -}
+2/3 + 1/2 = 7/6 {- reduction to common denominator -}
+2/3 + 4/3 = 2 {- addition to integer -}
+1/2 - 1/2 = 0 {- subtraction -}
+3/4 - 1/2 = 1/4 {- subtraction -}
+3/2.ceiling = 2 {- ceiling -}
+-3/2.ceiling = -1 {- ceiling -}
+4/3.denominator = 3 {- denominator -}
+4/3.gcd(7/5) = 1/15 {- greatest common denominator -}
+4/3.lcm(7/5) = 28 {- least common multiple -}
+4/3.negated = -4/3 {- negation -}
+4/3.negative.not {- is negative predicate -}
+4/3.numerator = 4 {- numerator -}
+2/3.raisedToInteger(5) = 32/243 {- fractions also can be exponentiated -}
+2/3 ^ 5 = 32/243 {- fractions also can be exponentiated using infix operator -}
+{ 2/3 ^ 3/4 }.ifError { true } {- only integer exponents are implemented -}
+9/5.reciprocal = 5/9 {- reciprocal, mutiplicative inverse -}
+let n = 9/5; n.reciprocal * n = 1 {- mutiplicative inverse -}
+7/5.squared = 49/25 {- square of -}
+3/2.truncated = 1 {- truncation -}
+1/2 < 0.5 = false
+1/3 > 0.25
+0.5 < 1/2 = false
+0.25 < 1/3
+0.5 < 1/4 = false
+0.5 < 1/2 = false
+0.5 < 3/4
+0.5 <= 1/4 = false {- less than or equal to, unicode = ≤ -}
+0.5 <= 1/2
+0.5 <= 3/4
+0.5 > 1/4
+0.5 > 1/2 = false
+0.5 > 3/4 = false
+0.5 >= 1/4
+0.5 >= 1/2
+0.5 >= 3/4 = false
+0.5 = 1/4 = false
+0.5 - 1/2 = 0
+0.5 = 3/4 = false
+0.5 ~= 1/4
+1/2 - 0.5 = 0
+0.5 ~= 3/4
 Fraction(6, 4).reduced = Fraction(3, 2)
 Fraction(-6, 4).reduced = Fraction(-3, 2)
 Fraction(6, -4).reduced = Fraction(-3, 2)
 { Fraction(6, 0) }.ifError { true }
-1:2 = 2:4 = true
-1:2 * 2 = 1
-2 * 1:2 = 1
+1/2 = 2/4 = true
+1/2 * 2 = 1
+2 * 1/2 = 1
 23.isFraction = true
 23.numerator = 23
 23.denominator = 1 {- denominator of integer is one -}
-1:3 + 1:7 = 10:21
-Fraction(3, 1) = 3:1
--3:2.negated = 3:2
--3:2.abs = 3:2
-3:2.ceiling = 2
--3:2.ceiling = -1
-3:2.floor = 1
--3:2.floor = -2
-353:359.printString = '353:359' {- Fraction print string -}
-59:61.storeString = 'Fraction(59, 61)' {- Fraction store string -}
-4 / (2:3) = 6
-4 / (-2:3) = -6
--4 / (-2:3) = 6
--4 / (2:3) = -6
-4 * (3:2) = 6
-4 * (-3:2) = -6
--4 * (-3:2) = 6
--4 * (3:2) = -6
-1:2.reciprocal = 2
-3:4.reciprocal = 4:3
--1:3.reciprocal = -3
--3:5.reciprocal = -5:3
-4:5.rounded = 1
-6:5.rounded = 1
--4:5.rounded = -1
--6:5.rounded = -1
-3:2.rounded = 2 {- in case of tie, round to upper magnitude -}
--3:2.rounded = -2
+1/3 + 1/7 = 10/21
+Fraction(3, 1) = 3/1
+-3/2.negated = 3/2
+-3/2.abs = 3/2
+3/2.ceiling = 2
+-3/2.ceiling = -1
+3/2.floor = 1
+-3/2.floor = -2
+353/359.printString = '353/359' {- Fraction print string -}
+59/61.storeString = 'Fraction(59, 61)' {- Fraction store string -}
+4 / (2/3) = 6
+4 / (-2/3) = -6
+-4 / (-2/3) = 6
+-4 / (2/3) = -6
+4 * (3/2) = 6
+4 * (-3/2) = -6
+-4 * (-3/2) = 6
+-4 * (3/2) = -6
+1/2.reciprocal = 2
+3/4.reciprocal = 4/3
+-1/3.reciprocal = -3
+-3/5.reciprocal = -5/3
+4/5.rounded = 1
+6/5.rounded = 1
+-4/5.rounded = -1
+-6/5.rounded = -1
+3/2.rounded = 2 {- in case of tie, round to upper magnitude -}
+-3/2.rounded = -2
 1.pi.roundUpTo(0.01) = 3.15 {- round up to nearest 1/100th -}
 1.pi.roundUpTo(0.1) = 3.2 {- round up to nearest 1/10th -}
 1923.roundUpTo(10) = 1930 {- round up to nearest multiple of 10 -}
 1.pi.roundUpTo(0.005) = 3.145 {- round up to nearest 5/1000th -}
 1.pi.negated.roundUpTo(0.01) = -3.14 {- rounding up a negative number rounds towards zero -}
 1.pi.roundUp = 4 {- round up to nearest integer -}
--3:2.numerator.negative {- numerator of negative fraction is negative -}
--3:2.denominator.positive {- denominator of negative fraction is positive -}
-4:6.numerator = 2 {- literal fractions are reduced -}
-4:6.denominator = 3 {- literal fractions are reduced -}
-4:2 = 2
+-3/2.numerator.negative {- numerator of negative fraction is negative -}
+-3/2.denominator.positive {- denominator of negative fraction is positive -}
+4/6.numerator = 2 {- literal fractions are reduced -}
+4/6.denominator = 3 {- literal fractions are reduced -}
+4/2 = 2
 Fraction(4, 6).numerator = 4 {- Fraction is not initially reduced -}
 Fraction(4, 6).denominator = 6 {- Fraction is not initially reduced -}
 Fraction(4, 6).reduced.numerator = 2
 Fraction(4, 6).reduced.denominator = 3
-3:2.truncated = 1
--3:2.truncated = -1
-2:3 - 5:3 = -1
-3:2 / 3:4 = 2
-3:2 / -3:4 = -2
--3:2 / -3:4 = 2
--3:2 / 3:4 = -2
-3:2 * 4:3 = 2
-3:2 * -4:3 = -2
--3:2 * -4:3 = 2
--3:2 * 4:3 = -2
-5:3 + 1:3 = 2
-3:2.asSmallFloat = 1.5 {- fraction as float -}
-0.5 < 2:3 = true
-2:3 > 0.5 = true
-1 < 3:2 = true
-3:2 > 1 = true
-3:4.unicode = '¾' {- unicode character for fraction, else error -}
-2:3.unicode = '⅔' {- unicode character for fraction, else error -}
-{ 9:11.unicode }.ifError { true } {- unicode character for fraction, else error -}
+3/2.truncated = 1
+-3/2.truncated = -1
+2/3 - 5/3 = -1
+3/2 / 3/4 = 2
+3/2 / -3/4 = -2
+-3/2 / -3/4 = 2
+-3/2 / 3/4 = -2
+3/2 * 4/3 = 2
+3/2 * -4/3 = -2
+-3/2 * -4/3 = 2
+-3/2 * 4/3 = -2
+5/3 + 1/3 = 2
+3/2.asSmallFloat = 1.5 {- fraction as float -}
+0.5 < 2/3 = true
+2/3 > 0.5 = true
+1 < 3/2 = true
+3/2 > 1 = true
+3/4.unicode = '¾' {- unicode character for fraction, else error -}
+2/3.unicode = '⅔' {- unicode character for fraction, else error -}
+{ 9/11.unicode }.ifError { true } {- unicode character for fraction, else error -}
 system.unicodeFractionsTable.isDictionary = true
 system.unicodeFractionsTable.associations.isArray = true
 let n = system.unicodeFractionsTable.associations.collect(value:/1); n = n.sorted
-'4:3'.parseFraction = 4:3 {- parse fraction -}
-'4/3'.parseFraction('/') = 4:3 {- parse fraction given delimiter -}
-'4:3'.asNumber = 4:3 {- the fraction module modifies asNumber to parse fractions -}
+'4/3'.parseFraction = 4/3 {- parse fraction -}
+'4/3'.parseFraction('/') = 4/3 {- parse fraction given delimiter -}
+'4/3'.asNumber = 4/3 {- the fraction module modifies asNumber to parse fractions -}
 let x = Fraction(2 ^ 55, 2); x ~= (x - 1) = false {- fractions of large small floats behave strangely -}
 let x = Fraction(2n ^ 55n, 2); x ~= (x - 1) {- fractions of large large integers behave ordinarily -}
-2:3 ~= 3:4 {- unequal fractions -}
-(2:3 == 2:3).not {- non-identical fractions (equal fractions need not be the same object) -}
-2:3 ~~ 2:3 {- non-identical fractions -}
-2:3 ~~ 3:4 {- non-identical fractions -}
-355:113.limitDenominator(77) = 223:71
-223:71.limitDenominator(7) = 22:7
-22:7.limitDenominator(5) = 16:5
-355:113.limitDenominator(7) = 22:7
-[1:2, 5:10, 10:20, 50:100, 500:1000].collect { :n | n.limitDenominator(5) } = [1:2, 1:2, 1:2, 1:2, 1:2]
-[10, 100].collect { :n | 0.367879.asFraction(n) } = [3:8, 32:87]
-(1 .. 5).collect { :n | 1.pi.asFraction(10 ^ n) } = [22:7, 311:99, 2862:911, 9563:3044, 313842:99899]
-1.pi.asFraction = 311:99 {- with maximumDenominator set to one hundred -}
-(1 / [2, 3, 5, 7, 11, 13, 17]).collect(asFraction:/1) = [1:2, 1:3, 1:5, 1:7, 1:11, 1:13, 1:17]
-6:8 * 4 = 3 {- answer integer -}
-7:8 / 3 = 7:24 {- division by integer is fraction -}
-6:9 = 2:3
--4:8 = -1:2
-Fraction(5, -15).normalized = -1:3
-Fraction(-4, -12).normalized = 1:3
-2:3.numerator = 2
-2:3.denominator = 3
-2:3 = 6:9
-2:3 ~= 9:27
-3:7 < 1:2
-3:4 > 2:3
-2:4 + 1:6 = 2:3
-5:12 - 1:4 = 1:6
-5:8 * 3:12 = 5:32
-6:5 / 10:7 = 21:25
-(3:4).asSmallFloat = 0.75
-(1:2).asSmallFloat = (1 / 2)
--1:3.typeOf = 'Fraction'
-3:5 + 1 = 8:5
-3:5 - 0.5 ~ 0.1
-0.5 ~ 1:2
-0.3333 ~ 1:3
-0.33 < (1:3)
-1:3 - 0.33 ~ 0.003333
-1:3.zero = Fraction(0, 1) {- zero of same type, i.e. fraction -}
-1:3.one = Fraction(1, 1) {- one of same type, i.e. fraction -}
-1:3 ~ (1 / 3) {- a fraction is close the floating point division it represents -}
-1:2 * 2 = 1 {- multiply to integer -}
-4:2 / 2 = 1 {- divide to integer -}
-1:2 + 1:2 = 1 {- sum to integer -}
-3:2 - 1:2 = 1 {- subtract to integer -}
-2:7 * (1 + 2.i) = (2:7 + 4:7.i)
-2:7 * (1.5 + 2.i) ~ (0.4286 + 0.5714.i)
-3:2 / (1 + 2.i) ~ (3:10 - 3:5.i)
-1:2 + 2.i ~ (1:2 + 2:1.i)
-(1:2 + 1:2).isInteger {- fractions with unit denominators are integers -}
-1:2.fractionPart = 1:2 {- the fractional part of a number between zero and one is identity -}
-4:3.fractionPart = 1:3 {- fraction math is exact -}
-64:33.primeLimit = 11 {- the prime limit of a fraction is maximum of the limit of each part -}
-1:1.primeLimit = 0 {- by convention the prime limit of one is zero -}
-64:33.primeFactors = [2, 2, 2, 2, 2, 2, 1:3, 1:11] {- the factors of the denominator are fractions -}
-64:33.primeFactors.product = 64:33 {- the product of the factors is the fraction -}
-3:8.primeFactorization = [2 -> -3, 3 -> 1] {- factors of fraction -}
+2/3 ~= 3/4 {- unequal fractions -}
+(2/3 == 2/3).not {- non-identical fractions (equal fractions need not be the same object) -}
+2/3 ~~ 2/3 {- non-identical fractions -}
+2/3 ~~ 3/4 {- non-identical fractions -}
+355/113.limitDenominator(77) = 223/71
+223/71.limitDenominator(7) = 22/7
+22/7.limitDenominator(5) = 16/5
+355/113.limitDenominator(7) = 22/7
+[1/2, 5/10, 10/20, 50/100, 500/1000].collect { :n | n.limitDenominator(5) } = [1/2, 1/2, 1/2, 1/2, 1/2]
+[10, 100].collect { :n | 0.367879.asFraction(n) } = [3/8, 32/87]
+1:5.collect { :n | 1.pi.asFraction(10 ^ n) } = [22/7, 311/99, 2862/911, 9563/3044, 313842/99899]
+1.pi.asFraction = 311/99 {- with maximumDenominator set to one hundred -}
+(1 / [2, 3, 5, 7, 11, 13, 17]).collect(asFraction:/1) = [1/2, 1/3, 1/5, 1/7, 1/11, 1/13, 1/17]
+6/8 * 4 = 3 {- answer integer -}
+7/8 / 3 = 7/24 {- division by integer is fraction -}
+6/9 = 2/3
+-4/8 = -1/2
+Fraction(5, -15).normalized = -1/3
+Fraction(-4, -12).normalized = 1/3
+2/3.numerator = 2
+2/3.denominator = 3
+2/3 = 6/9
+2/3 ~= 9/27
+3/7 < 1/2
+3/4 > 2/3
+2/4 + 1/6 = 2/3
+5/12 - 1/4 = 1/6
+5/8 * 3/12 = 5/32
+6/5 / 10/7 = 21/25
+(3/4).asSmallFloat = 0.75
+(1/2).asSmallFloat = (1 / 2)
+-1/3.typeOf = 'Fraction'
+3/5 + 1 = 8/5
+3/5 - 0.5 ~ 0.1
+0.5 ~ 1/2
+0.3333 ~ 1/3
+0.33 < (1/3)
+1/3 - 0.33 ~ 0.003333
+1/3.zero = Fraction(0, 1) {- zero of same type, i.e. fraction -}
+1/3.one = Fraction(1, 1) {- one of same type, i.e. fraction -}
+1/3 ~ (1 / 3) {- a fraction is close the floating point division it represents -}
+1/2 * 2 = 1 {- multiply to integer -}
+4/2 / 2 = 1 {- divide to integer -}
+1/2 + 1/2 = 1 {- sum to integer -}
+3/2 - 1/2 = 1 {- subtract to integer -}
+2/7 * (1 + 2.i) = (2/7 + 4/7.i)
+2/7 * (1.5 + 2.i) ~ (0.4286 + 0.5714.i)
+3/2 / (1 + 2.i) ~ (3/10 - 3/5.i)
+1/2 + 2.i ~ (1/2 + 2/1.i)
+(1/2 + 1/2).isInteger {- fractions with unit denominators are integers -}
+1/2.fractionPart = 1/2 {- the fractional part of a number between zero and one is identity -}
+4/3.fractionPart = 1/3 {- fraction math is exact -}
+64/33.primeLimit = 11 {- the prime limit of a fraction is maximum of the limit of each part -}
+1/1.primeLimit = 0 {- by convention the prime limit of one is zero -}
+64/33.primeFactors = [2, 2, 2, 2, 2, 2, 1/3, 1/11] {- the factors of the denominator are fractions -}
+64/33.primeFactors.product = 64/33 {- the product of the factors is the fraction -}
+3/8.primeFactorization = [2 -> -3, 3 -> 1] {- factors of fraction -}
 ```
 
 ## Frequency -- temporal type
@@ -1725,7 +1728,7 @@ let h = [1, 3, 5].asHeap; let a = []; h.do { :each | a.add(each) }; a = [1, 3, 5
 let h = Heap(>); h.addAll([1, 3, 5]); h.first = 5
 let h = Heap(greaterThan:/2); h.addAll([1, 3, 5]); h.first = 5 {- with operator written out -}
 let h = Heap { :p :q | p > q }; h.addAll([1, 3, 5]); [h.removeFirst, h.first] = [5, 3]
-let h = (1 .. 4).asHeap; let c = h.copy; c.add(5); h ~= c & { c = [1 .. 5].asHeap }
+let h = 1:4.asHeap; let c = h.copy; c.add(5); h ~= c & { c = [1 .. 5].asHeap }
 ```
 
 ## Identity -- literals
@@ -1747,7 +1750,7 @@ system.includesPackage('Integer') {- integer package -}
 -987654321.printString = '-987654321' {- negative integer print string -}
 4 / 2 = 2 {- integer division with integer result -}
 let n = 2; 3.timesRepeat { n := n * n }; n = 256 {- iteration -}
-(0 .. 15).collect(asHexDigit:/1).join = '0123456789ABCDEF' {- integer to hex character -}
+0:15.collect(asHexDigit:/1).join = '0123456789ABCDEF' {- integer to hex character -}
 let a = []; 1.upToDo(5) { :each | a.add(each) }; a = [1 .. 5] {- iterate over integer sequence -}
 { 5.upToDo(1) { :each | nil } }.ifError { true } {- non-ascending sequences are an error -}
 let a = []; 5.downToDo(1) { :each | a.add(each) }; a = [5 .. 1] {- iterate over integer sequence -}
@@ -1756,11 +1759,11 @@ let a = []; 1.toByDo(5, 1) { :each | a.add(each) }; a = [1 .. 5] {- with step -}
 let a = []; 5.upOrDownToDo(1) { :each | a.add(each) }; a = [5 .. 1] {- iterate over integer sequence -}
 let a = []; 1.toDo(5) { :each | a.add(each) }; a = [1 .. 5] {- toDo is upToDo if ascending -}
 let a = []; 5.toDo(1) { :each | a.add(each) }; a = [] {- non-ascending sequences are empty -}
-(0 .. 255).collect { :each | each.digitAt(1) } = [0 .. 255]
-(0 .. 255).collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 0 }
-(256 .. 511).collect { :each | each.digitAt(1) } = [0 .. 255]
-(256 .. 511).collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 1 }
-(512 .. 1023).collect { :each | each.digitAt(2) }.asBag.sortedElements = [2 -> 256, 3 -> 256]
+0:255.collect { :each | each.digitAt(1) } = [0 .. 255]
+0:255.collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 0 }
+256:511.collect { :each | each.digitAt(1) } = [0 .. 255]
+256:511.collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 1 }
+512:1023.collect { :each | each.digitAt(2) }.asBag.sortedElements = [2 -> 256, 3 -> 256]
 [1, 8, 16, 24, 32n, 40n, 48n, 56n, 64n].collect { :each | (2 ^ each).digitLength } = [1 .. 9]
 (2 ^ 128n - 1).digitLength = 16
 123456n.fnv1aHash = 2230130162n
@@ -1775,8 +1778,8 @@ let a = []; 2.tuplesIndicesDo(3) { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5
 let a = []; 2.tuplesIndicesDo(4) { :each | a.add(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
 let c = 0; let k = 3; let n = 4; k.tuplesIndicesDo(n) { :each | c := c + 1 }; c = (k ^ n)
 let c = 0; 4.tuplesIndicesDo(7) { :each | c := c + 1 }; c = 16384
-(-2 .. 7).collect { :each | each.foldIndex(5) } = [4 3 2 1 2 3 4 5 4 3]
-(-2 .. 7).collect { :each | each.wrapIndex(5) } = [3 4 5 1 2 3 4 5 1 2]
+-2:7.collect { :each | each.foldIndex(5) } = [4 3 2 1 2 3 4 5 4 3]
+-2:7.collect { :each | each.wrapIndex(5) } = [3 4 5 1 2 3 4 5 1 2]
 ```
 
 ## Integer -- prime numbers
@@ -1788,16 +1791,16 @@ system.cache::primesArray[9] = 23 {- the primes array is cached (memoized) by th
 23.nthPrime = 83 {- the nth entry in the sequence of prime numbers -}
 system.cache::primesArray[23] = 83 {- nthPrime extends the primesArray cache as required -}
 23.primesArray = system.primesArray.first(23) {- the k primesArray is the first k elements of the cached array -}
-(2 .. 20).select { :each | each.isPrime } = [2, 3, 5, 7, 11, 13, 17, 19]
-(2 .. 20).reject { :each | each.isPrime } = [4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20]
+2:20.select { :each | each.isPrime } = [2, 3, 5, 7, 11, 13, 17, 19]
+2:20.reject { :each | each.isPrime } = [4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20]
 60.primeFactors = [2, 2, 3, 5] {- prime factors -}
 [2, 2, 3, 5].product = 60 {- product is the inverse of primeFactors -}
 1.primeFactors = [] {- the prime factors of one is empty -}
 60.primeFactors.product = 60 {- product of prime factors is identity -}
 315.primeFactors.asSet = [3, 5, 7].asSet {- prime factors, set -}
 2588.primeFactors = [2, 2, 647] {- prime factors -}
-(2 .. 15).select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
-(2 .. 999).allSatisfy { :each | each = each.primeFactors.product } = true {- equality with product of factors -}
+2:15.select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
+2:999.allSatisfy { :each | each = each.primeFactors.product } = true {- equality with product of factors -}
 10071203840.primeFactors.asBag.sortedElements = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1] {- prime factor histogram -}
 6606028800.primeFactors.asBag.sortedCounts = [22 -> 2, 2 -> 5, 2 -> 3, 1 -> 7]
 8589298611.primeFactors = [3, 2863099537] {- large prime factors -}
@@ -1811,17 +1814,17 @@ system.cache::primesArray[23] = 83 {- nthPrime extends the primesArray cache as 
 6.factorial.primeFactorization = [2 -> 4, 3 -> 2, 5 -> 1]
 324.primeFactorization = [2 -> 2, 3 -> 4] {- powerful numbers are numbers whose prime factors are all repeated -}
 2401.isPrimePower {- the factorization has one place and the base is a prime number -}
-(2 .. 49).select(isPrimePower:/1) = [2 3 4 5 7 8 9 11 13 16 17 19 23 25 27 29 31 32 37 41 43 47 49] {- A246655 in the OEIS -}
+2:49.select(isPrimePower:/1) = [2 3 4 5 7 8 9 11 13 16 17 19 23 25 27 29 31 32 37 41 43 47 49] {- A246655 in the OEIS -}
 1.isPrimePower = false {- one is not a prime power -}
 [7, 9, 64].allSatisfy(isPrimePower:/1)
 [6, 12, 36].noneSatisfy(isPrimePower:/1)
-(1 .. 19).select { :each | each.isAlmostPrime(1) } = [2, 3, 5, 7, 11, 13, 17, 19] {- A000040 -}
-(1 .. 22).select { :each | each.isAlmostPrime(2) } = [4, 6, 9, 10, 14, 15, 21, 22] {- A001358 -}
-(1 .. 449).select { :each | each.isAlmostPrime(7) } = [128, 192, 288, 320, 432, 448] {- A046308 -}
-(1 .. 5121).select { :each | each.isAlmostPrime(11) } = [2048, 3072, 4608, 5120] {- A069272 -}
+1:19.select { :each | each.isAlmostPrime(1) } = [2, 3, 5, 7, 11, 13, 17, 19] {- A000040 -}
+1:22.select { :each | each.isAlmostPrime(2) } = [4, 6, 9, 10, 14, 15, 21, 22] {- A001358 -}
+1:449.select { :each | each.isAlmostPrime(7) } = [128, 192, 288, 320, 432, 448] {- A046308 -}
+1:5121.select { :each | each.isAlmostPrime(11) } = [2048, 3072, 4608, 5120] {- A069272 -}
 (10 ^ 12 + 3).primeFactorization = [61 -> 1, 14221 -> 1, 1152763 -> 1] {- moderately large number -}
-(2 .. 30).select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30]
-(2 .. 15).select { :each | each.primeLimit <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
+2:30.select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30]
+2:15.select { :each | each.primeLimit <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
 1.primeLimit = 0{- by convention the prime limit of one is zero -}
 23.isPrime = true {- prime number predicate -}
 2971215073.isPrime = true {- prime number predicate -}
@@ -1852,8 +1855,8 @@ system.cache::primesArray[23] = 83 {- nthPrime extends the primesArray cache as 
 
 ## Integer -- roman numerals
 ```
-(1 .. 10).collect(printStringRoman:/1) = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
-(11 .. 20).collect(printStringRoman:/1) = ['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX']
+1:10.collect(printStringRoman:/1) = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
+11:20.collect(printStringRoman:/1) = ['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX']
 (50, 61 .. 160).collect(printStringRoman:/1) = ['L', 'LXI', 'LXXII', 'LXXXIII', 'XCIV', 'CV', 'CXVI', 'CXXVII', 'CXXXVIII', 'CXLIX', 'CLX']
 ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'].collect(romanNumber:/1) = [1 .. 10]
 ['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'].collect(romanNumber:/1) = [11 .. 20]
@@ -1875,138 +1878,138 @@ Interval(5, 10, 1).isInterval {- create interval object -}
 Interval(5, 10, 1) = 5.to(10) {- interval from 5 to 10 -}
 Interval(5, 10, 2).last = 9 {- create interval object with specified increment -}
 5.toBy(10, 2).last = 9 {- interval from 5 to 10 by 2 -}
-(1 .. 5).isEmpty.not {- test if empty -}
-(1 .. 5).size = 5 {- number of elements -}
-let i = (1 .. 9); i.copy ~~ i & { i.copy = i } {- copy is equal not identical -}
-(1 .. 9).includes(9) {- test if element is in collection, interval is inclusive -}
-(1 .. 9).includes(11).not {- test if element is in collection -}
-(1 .. 9).includesIndex(3) {- does interval include index -}
-(1 .. 9).select { :item | item > 7 } = [8, 9] {- return elements that pass test -}
-(1 .. 9).reject { :item | item < 7 } = [7, 8, 9] {- return elements that fail test -}
-(1 .. 9).collect { :item | item + item }.last = 18 {- transform each element -}
-(1 .. 9).detect { :item | item > 3 } = 4 {- detect first element that passes test -}
-(9 .. 1).detect(even:/1) = 8 {- detect first element that passes test -}
+1:5.isEmpty.not {- test if empty -}
+1:5.size = 5 {- number of elements -}
+let i = 1:9; i.copy ~~ i & { i.copy = i } {- copy is equal not identical -}
+1:9.includes(9) {- test if element is in collection, interval is inclusive -}
+1:9.includes(11).not {- test if element is in collection -}
+1:9.includesIndex(3) {- does interval include index -}
+1:9.select { :item | item > 7 } = [8, 9] {- return elements that pass test -}
+1:9.reject { :item | item < 7 } = [7, 8, 9] {- return elements that fail test -}
+1:9.collect { :item | item + item }.last = 18 {- transform each element -}
+1:9.detect { :item | item > 3 } = 4 {- detect first element that passes test -}
+9:1.detect(even:/1) = 8 {- detect first element that passes test -}
 { (9, 7 .. 1).detect(even:/1) }.ifError { true } {- if no element is detected, raise error -}
 { [].detect { :item | true } }.ifError { true } {- detect at an empty collection raises an error -}
-(1 .. 9).injectInto(0) { :sum :item | sum + item } = 45 {- sum elements -}
-(1 .. 9).asArray = [1 .. 9] {- convert to array -}
-(1 .. 9) = (1 .. 9) {- equality -}
-(1 .. 9) ~= (9 .. 1) {- inequality -}
-(1 .. 9) ~= [1 .. 9] {- intervals are not equal to arrays -}
+1:9.injectInto(0) { :sum :item | sum + item } = 45 {- sum elements -}
+1:9.asArray = [1 .. 9] {- convert to array -}
+1:9 = 1:9 {- equality -}
+1:9 ~= 9:1 {- inequality -}
+1:9 ~= [1 .. 9] {- intervals are not equal to arrays -}
 10.toBy(90, 10).includes(30)
 10.toBy(90, 10) = (10, 20 .. 90)
-(0, 1:10 .. 1).size = 11
-(0, 1:10 .. 1).last = 1
-(9 .. 1).asArray = [9 .. 1]
-(5 .. 1).asArray = [5 .. 1]
+(0, 1/10 .. 1).size = 11
+(0, 1/10 .. 1).last = 1
+9:1.asArray = [9 .. 1]
+5:1.asArray = [5 .. 1]
 (5, 3 .. 1).asArray = [5, 3 .. 1]
 5.toBy(1, -1).asArray = [5, 4, 3, 2, 1]
 5.toBy(1, -2).asArray = [5, 3, 1]
 (1.5 .. 4.5).asArray = [1.5, 2.5, 3.5, 4.5] {- non-integer start and end -}
-(1 .. 9).min = 1 & { (9 .. 1).min = 1 } {- minima -}
-(1 .. 9).max = 9 & { (9 .. 1).max = 9 } {- maxima -}
-(1 .. 9).species = Array:/1 {- species of Interval is Array -}
+1:9.min = 1 & { 9:1.min = 1 } {- minima -}
+1:9.max = 9 & { 9:1.max = 9 } {- maxima -}
+1:9.species = Array:/1 {- species of Interval is Array -}
 1.to(9).isInterval = true {- to generates an Interval -}
 to(1, 9).size = 9 {- to generates an Interval -}
-(1 .. 9) = 1.to(9)
+1:9 = 1.to(9)
 Interval(-2, 2, 1).collect(even:/1) = [true, false, true, false, true]
-(-2 .. 2).collect(odd:/1) = [false, true, false, true, false]
+-2:2.collect(odd:/1) = [false, true, false, true, false]
 1 + 1.to(9).collect(squared:/1) = [2, 5, 10, 17, 26,37, 50, 65, 82]
-2 * (1 .. 9).collect(squared:/1) = [2, 8, 18, 32, 50,72, 98, 128, 162]
+2 * 1:9.collect(squared:/1) = [2, 8, 18, 32, 50,72, 98, 128, 162]
 1.to(9).asArray = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-(1 .. 9).copyFromTo(3, 7) = (3 .. 7) {- copy from start to end indices, inclusive -}
-(1 .. 16).copyFromTo(1, 8) = (1 .. 8) {- copy from start to end indices, inclusive -}
+1:9.copyFromTo(3, 7) = 3:7 {- copy from start to end indices, inclusive -}
+1:16.copyFromTo(1, 8) = 1:8 {- copy from start to end indices, inclusive -}
 let i = 1; 1.to(9).do { :each | i := i + each }; i = 46
-Interval(-1, 1, 1).printString = '(-1 .. 1)'
+Interval(-1, 1, 1).printString = '-1:1'
 Interval(-1, 1, 1).storeString = 'Interval(-1, 1, 1)'
-Interval(1, 9, 1) = (1 .. 9)
+Interval(1, 9, 1) = 1:9
 Interval(1, 10, 3).size = 4
 Interval(1, 10, 3).asArray = [1, 4, 7, 10]
-1.to(6).reversed = (6 .. 1)
+1.to(6).reversed = 6:1
 1.to(6).first = 1 {- first element of interval -}
 { 1.upTo(0).first }.ifError { true } {- first element of empty interval -}
-(1 .. 6).second = 2 {- second element of interval -}
+1:6.second = 2 {- second element of interval -}
 to(1, 6).last = 6 {- last element of interval -}
-let i = (1 .. 9); i.first = i[1] {- one-indexed -}
-let i = (1 .. 9); i.last = i[9] {- one-indexed -}
-(1 .. 6).sum = 21
+let i = 1:9; i.first = i[1] {- one-indexed -}
+let i = 1:9; i.last = i[9] {- one-indexed -}
+1:6.sum = 21
 Interval(-1, 1, 1).asArray = [-1, 0, 1]
-1.to(99).asString = '(1 .. 99)'
-(1 .. 99).asString = '(1 .. 99)'
+1.to(99).asString = '1:99'
+1:99.asString = '1:99'
 downTo(1, -1).asString = 'Interval(1, -1, -1)'
 1.to(99).sum = 4950
 1.to(99).asArray.sum = 4950
-(1 .. 9).size = 9
-(1 .. 9).sum = 45
-(1 .. 9999).sum = 49995000
-(1 .. 9999).asArray.sum = 49995000
+1:9.size = 9
+1:9.sum = 45
+1:9999.sum = 49995000
+1:9999.asArray.sum = 49995000
 to(1, 9) = Interval(1, 9, 1)
 to(9, 1) = Interval(9, 1, 1)
 downTo(9, 1) = Interval(9, 1, -1)
 1.thenTo(3, 9) = Interval(1, 9, 2)
-(1 .. 9) = (1 .. 9)
-[1 .. 9] = (1 .. 9).asArray {- array interval syntax -}
-[9 .. 1] = (9 .. 1).asArray {- array interval syntax -}
+1:9 = 1:9
+[1 .. 9] = 1:9.asArray {- array interval syntax -}
+[9 .. 1] = 9:1.asArray {- array interval syntax -}
 [3 - 2 .. 7 + 2] = (3 - 2 .. 7 + 2).asArray {- array interval syntax -}
 let l = []; Interval(9, 1, -1).do { :each | l.add(each) }; l = [9 .. 1]
 collect(1.to(9)) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 1.to(9).collect { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 Interval(1, 6, 2).asArray = [1, 3, 5]
 Interval(1, 6, 2).last = 5
-(1 .. 9).reversed.asArray = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+1:9.reversed.asArray = [9, 8, 7, 6, 5, 4, 3, 2, 1]
 Interval(1, 6, 2).reversed.asArray = [5, 3, 1]
 1.to(9).step = 1 {- get step size of interval -}
 (1, 3 .. 9) = Interval(1, 9, 2)
 (9, 7 .. 1) = Interval(9, 1, -2)
-(3 .. 7).anyOne = 3 {- any element, chooses first -}
-(3 .. 7).any(3) = [3 .. 5] {- any three elements, chooses first -}
-(1 .. 9).max = 9
-(1 .. 0).size = 2
-3.to(5) = (3 .. 5)
+3:7.anyOne = 3 {- any element, chooses first -}
+3:7.any(3) = [3 .. 5] {- any three elements, chooses first -}
+1:9.max = 9
+1:0.size = 2
+3.to(5) = 3:5
 1.to(0).size = 0
-3.upTo(5) = (3 .. 5)
+3.upTo(5) = 3:5
 { 1.upTo(0) }.ifError { true } {- upTo must be ascending -}
 { 0.downTo(1) }.ifError { true } {- downTo must be descending -}
 0.toBy(1, -1).size = 0 {- toBy is the correct way to write a downTo that may be empty -}
-5.downTo(3) = (5 .. 3)
+5.downTo(3) = 5:3
 3.upOrDownTo(5) = 5.upOrDownTo(3).reversed
 let s = ''; (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531' {- do from end -}
-(1 .. 9) + 3 = (4 .. 12) {- plus with a number answers an Interval -}
-(1 .. 9) - 2 = (-1 .. 7) {- minus with a number answers an Interval -}
-3 + (1 .. 9) = [4 .. 12]
-(1 .. 5) + (1, 3 .. 9) = [2, 5 .. 14]
-(1 .. 5) - (9, 7 .. 1) = [-8, -5 .. 4]
+1:9 + 3 = 4:12 {- plus with a number answers an Interval -}
+1:9 - 2 = -1:7 {- minus with a number answers an Interval -}
+3 + 1:9 = [4 .. 12]
+1:5 + (1, 3 .. 9) = [2, 5 .. 14]
+1:5 - (9, 7 .. 1) = [-8, -5 .. 4]
 (0.5, 1 .. 4.5) = Interval(0.5, 4.5, 0.5) {- non-integer (fractional) step -}
 (0.5, 1 .. 4.5).size = 9 {- fractional step size -}
-(1, 1 + 1:3 .. 3).size = 7 {- fractional step size -}
-(1:3 .. 7:3).size = 3 {- fractional start and end, integral step size -}
-(1:3, 2:3 .. 3).size = 9 {- fractional step size -}
-1:3.thenTo(2:3, 3).middle = 5:3
+(1, 1 + 1/3 .. 3).size = 7 {- fractional step size -}
+(1/3 .. 7/3).size = 3 {- fractional start and end, integral step size -}
+(1/3, 2/3 .. 3).size = 9 {- fractional step size -}
+1/3.thenTo(2/3, 3).middle = 5/3
 Interval(1, 100, 1) = 1.to(100)
 Interval(1, 100, 0.5).size = 199
 (1, 1.5 .. 100).at(198) = 99.5
 (1 / 2).toBy(54 / 7, 1 / 3).last = (15 / 2)
-1:2.toBy(54:7, 1:3).last = 15:2
-(1 .. 3) ++ ['4', '5'] = [1, 2, 3, '4', '5'] {- append array to interval -}
+1/2.toBy(54/7, 1/3).last = 15/2
+1:3 ++ ['4', '5'] = [1, 2, 3, '4', '5'] {- append array to interval -}
 let i = (1, 3 .. 9); i.removeFirst = 1 & { i = (3, 5 .. 9) } {- remove first element -}
 let i = (9, 7 .. 1); i.removeFirst = 9 & { i = (7, 5 .. 1) } {- remove first element -}
 let i = (1, 3 .. 9); i.removeLast = 9 & { i = (1, 3 .. 7) } {- remove first element -}
 let i = (9, 7 .. 1); i.removeLast = 1 & { i = (9, 7 .. 3) } {- remove first element -}
-(1 .. 9).sorted = (1 .. 9) {- ascending intervals are sorted -}
-(9 .. 1).sorted = (1 .. 9) {- reverse interval if descending -}
-let n = 0; (1 .. 5).permutationsDo { :each | n := n + 1 }; n = 120 {- interval permutations -}
+1:9.sorted = 1:9 {- ascending intervals are sorted -}
+9:1.sorted = 1:9 {- reverse interval if descending -}
+let n = 0; 1:5.permutationsDo { :each | n := n + 1 }; n = 120 {- interval permutations -}
 (1, 3 .. 17).copyFromTo(3, 6) = (5, 7 .. 11) {- copy from start index to end index -}
 (17, 15 .. 1).copyFromTo(3, 6) = (13, 11 .. 7) {- copy from start index to end index -}
 (1, 3 .. 17).copyFromTo(6, 3).isEmpty {- if indices are out of order the interval is empty -}
-(1 .. 99).printStringConcise(8) = 'an Interval' {- consise printer -}
+9999:99999.printStringConcise(8) = 'an Interval' {- consise printer -}
 ```
 
 ## Iterable -- collection trait
 ```
 system.includesPackage('Iterable') {- Iterable package -}
-(1 .. 9).count(odd:/1) = 5
-(1 .. 9).count(even:/1) = 4
-(1 .. 9).countAll = 9
+1:9.count(odd:/1) = 5
+1:9.count(even:/1) = 4
+1:9.countAll = 9
 ```
 
 ## Iteration
@@ -2016,17 +2019,17 @@ let n = 0; -4.timesRepeat { n := nil }; n = 0 {- times repeat loop (zero or nega
 let n = 0; 1.toDo(4) { :x | n := n + x }; n = 10 {- for loop (int) -}
 let n = 0; 1.toDo(4) { :x | n := n + x }; n = 10 {- for loop (int) -}
 let s = ''; 1.toDo(4) { :x | s := s ++ x }; s = '1234' {- for loop (int) -}
-let s = ''; (1 .. 5).do { :x | s := s ++ x }; s = '12345' {- for loop (interval) -}
+let s = ''; 1:5.do { :x | s := s ++ x }; s = '12345' {- for loop (interval) -}
 let s = ''; 1.toDo(5) { :x | s := s ++ x }; s = '12345' {- for loop (start & end indices) -}
 let s = ''; 1.toDo(0) { :x | 'error'.error }; s = '' {- for loop (end less than start) -}
-let s = ''; (1 .. 3).reverseDo { :x | s := s ++ x }; s = '321' {- for loop (interval, reversed) -}
+let s = ''; 1:3.reverseDo { :x | s := s ++ x }; s = '321' {- for loop (interval, reversed) -}
 let s = ''; [1, 3, 5].do { :x | s := s ++ x }; s = '135' {- for loop (collection) -}
 let n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 {- while true loop -}
 let n = 9; { n < 7 }.whileFalse { n := n - 1 }; n = 6 {- while false loop -}
 10.timesRepeat { nil } = 10 {- timesRepeat answers the receiver) -}
 1.toDo(10) { :unused | nil } = 1 {- toDo answers the receiver -}
-let a = []; (1 .. 9).rejectThenDo(even:/1) { :each | a.add(each * 3) }; a = [3, 9, 15, 21, 27] {- avoid intermediate collection -}
-let a = []; (1 .. 9).selectThenDo(even:/1) { :each | a.add(each * 3) }; a = [6, 12, 18, 24] {- avoid intermediate collection -}
+let a = []; 1:9.rejectThenDo(even:/1) { :each | a.add(each * 3) }; a = [3, 9, 15, 21, 27] {- avoid intermediate collection -}
+let a = []; 1:9.selectThenDo(even:/1) { :each | a.add(each * 3) }; a = [6, 12, 18, 24] {- avoid intermediate collection -}
 ```
 
 ## LargeInteger -- numeric type
@@ -2106,32 +2109,32 @@ LinkedList:/0.ofSize(3).size = 3 {- linked list of three nil values -}
 let l = LinkedList(); l.addFirst(1); l.addFirst(2); l.asArray = [2, 1] {- add to start -}
 let l = LinkedList(); l.addLast(1); l.addLast(2); l.asArray = [1, 2] {- add to end -}
 let l = LinkedList(); 1.toDo(5) { :each | l.add(each) }; l.asArray = [1 .. 5] {- add to end -}
-(1 .. 9).asLinkedList.collect { :each | 10 - each } = [9 .. 1].asLinkedList {- collect -}
+1:9.asLinkedList.collect { :each | 10 - each } = [9 .. 1].asLinkedList {- collect -}
 let l = [1 .. 9].asLinkedList; l.removeFirst; l.first = 2 {- remove first -}
 let l = [1 .. 9].asLinkedList; l.removeLast; l.last = 8 {- remove last -}
 let l = [1].asLinkedList; l.removeFirst = 1 & { l.isEmpty } {- remove first -}
 let l = [1].asLinkedList; l.removeLast = 1 & { l.isEmpty } {- remove last -}
 let l = [1 .. 5].asLinkedList; l.removeAllSuchThat(odd:/1); l.asArray = [2, 4] {- in place reject -}
-let l = (1 .. 99).asLinkedList; l.removeAll; l.isEmpty {- remove all -}
-(1 .. 99).asLinkedList.select(even:/1).asArray = [2, 4 .. 98] {- select -}
-(1 .. 9).asLinkedList.selectThenCollect(even:/1, squared:/1).asArray = [4, 16, 36, 64] {- avoid intermediate collection -}
-(1 .. 9).asLinkedList.collectThenSelect(squared:/1) { :each | each > 36 }.asArray = [49, 64, 81] {- avoid intermediate collection -}
-(1 .. 9).asLinkedList.reversed = [9 .. 1] {- reversed, species is Array -}
+let l = 1:99.asLinkedList; l.removeAll; l.isEmpty {- remove all -}
+1:99.asLinkedList.select(even:/1).asArray = [2, 4 .. 98] {- select -}
+1:9.asLinkedList.selectThenCollect(even:/1, squared:/1).asArray = [4, 16, 36, 64] {- avoid intermediate collection -}
+1:9.asLinkedList.collectThenSelect(squared:/1) { :each | each > 36 }.asArray = [49, 64, 81] {- avoid intermediate collection -}
+1:9.asLinkedList.reversed = [9 .. 1] {- reversed, species is Array -}
 { LinkedList().removeFirst }.ifError { :error | true } {- remove first, error if empty -}
 { LinkedList().removeLast }.ifError { :error | true } {- remove last, error if empty -}
-let l = (1 .. 5).asLinkedList; l[3] = 3 {- index into -}
-let l = (1 .. 5).asLinkedList; l[1] := -1; l.asArray = [-1, 2, 3, 4, 5] {- mutate at index -}
-let l = (1 .. 5).asLinkedList; l[3] := -3; l.asArray = [1, 2, -3, 4, 5] {- mutate at index -}
-(1 .. 9).asLinkedList.firstLink.value = 1 {- first link -}
-(1 .. 9).asLinkedList.firstLink.nextLink.value = 2 {- second link -}
-(1 .. 9).asLinkedList.lastLink.value = 9 {- last link -}
-let l = (1 .. 3).asLinkedList; l.firstLink.value := -1; l.asArray = [-1, 2, 3] {- mutate link value -}
-(1 .. 9).asLinkedList.isSorted = true {- are elements in sequence -}
-(9 .. 1).asLinkedList.isSortedBy(>) = true {- are elements in sequence by predicate -}
-(9 .. 1).asLinkedList.isSortedBy(greaterThan:/2) = true {- with operator written out -}
-[1, 3 .. 9].asLinkedList.indices = (1 .. 5) {- indices of linked list (an interval) -}
-let l = (1 .. 9).asLinkedList; l.copy = l & { l.copy ~~ l } {- copy is equal but not identical -}
-let l = (1 .. 9).asLinkedList; let c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } {- copies are distinct -}
+let l = 1:5.asLinkedList; l[3] = 3 {- index into -}
+let l = 1:5.asLinkedList; l[1] := -1; l.asArray = [-1, 2, 3, 4, 5] {- mutate at index -}
+let l = 1:5.asLinkedList; l[3] := -3; l.asArray = [1, 2, -3, 4, 5] {- mutate at index -}
+1:9.asLinkedList.firstLink.value = 1 {- first link -}
+1:9.asLinkedList.firstLink.nextLink.value = 2 {- second link -}
+1:9.asLinkedList.lastLink.value = 9 {- last link -}
+let l = 1:3.asLinkedList; l.firstLink.value := -1; l.asArray = [-1, 2, 3] {- mutate link value -}
+1:9.asLinkedList.isSorted = true {- are elements in sequence -}
+9:1.asLinkedList.isSortedBy(>) = true {- are elements in sequence by predicate -}
+9:1.asLinkedList.isSortedBy(greaterThan:/2) = true {- with operator written out -}
+[1, 3 .. 9].asLinkedList.indices = 1:5 {- indices of linked list (an interval) -}
+let l = 1:9.asLinkedList; l.copy = l & { l.copy ~~ l } {- copy is equal but not identical -}
+let l = 1:9.asLinkedList; let c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } {- copies are distinct -}
 ```
 
 ## Magnitude -- numeric trait
@@ -2311,7 +2314,7 @@ system.includesPackage('Number') {- package -}
 -951.asStringWithCommas = '-951'
 let i = 1; 1.toDo(5) { :each | i := i + each.squared }; i = 56 {- iterate over numbers from start to end -}
 let i = 1; 1.toByDo(5, 2) { :each | i := i + each.squared }; i = 36 {- iterate over numbers from start to end by step -}
-let i = 1; (1 .. 3).do { :each | i := i + each.squared }; i = 15 {- iterate over numbers from one to end -}
+let i = 1; 1:3.do { :each | i := i + each.squared }; i = 15 {- iterate over numbers from one to end -}
 { 23.size }.ifError { true } {- numbers do not have a size -}
 { 23.at(1) }.ifError { true } {- numbers are not indexable -}
 { 23.do { :each | nil } }.ifError { true } {- numbers are not iterable -}
@@ -2332,13 +2335,13 @@ system.includesPackage('Object') {- package -}
 'd'.caseOfOtherwise(['a' -> 1, 'b' -> 2, 'c' -> 3]) { :notFound | notFound = 'd' }
 let z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 }, { 'c' } -> { 3 + 3 } ]; 'b'.caseOf(z) = 4
 { let z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 } ]; 'c'.caseOf(z) }.ifError { true }
-3:2.perform('numerator') = 3 {- perform named unary method, name is not qualified -}
+3/2.perform('numerator') = 3 {- perform named unary method, name is not qualified -}
 (3 -> 2).perform('key') = 3
 3.perform('plus', 4) = 7 {- perform named binary method, name is not qualified -}
-4:3.slotNameArray = ['numerator', 'denominator']
-4:3.slotArray = ['numerator' -> 4, 'denominator' -> 3]
-4:3.numerator = 4:3.slotRead('numerator') {- slot read -}
-let n = 4:3; n.slotWrite('denominator', 5); n = 4:5 {- slot write -}
+4/3.slotNameArray = ['numerator', 'denominator']
+4/3.slotArray = ['numerator' -> 4, 'denominator' -> 3]
+4/3.numerator = 4/3.slotRead('numerator') {- slot read -}
+let n = 4/3; n.slotWrite('denominator', 5); n = 4/5 {- slot write -}
 1.pi.in { :x | x.rounded + 20 } = 23 {- evaluate block with object -}
 1.pi.notify('pi') = 1.pi {- user notification -}
 1.pi.warning('pi') = 1.pi {- user warning -}
@@ -2483,9 +2486,9 @@ valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repea
 { 1.anUnknownMessage }.ifError { true } = true {- error block is culled (i.e. may elide error argument) -}
 let f = { let x = 0; { x := x + 1; x } }; let g = f:/0.value; [g.value, g.value] = [1, 2] {- closure -}
 let f = { let x = 0; { x := x + 1; x } }; [f:/0.value.value, f:/0.value.value] = [1, 1] {- closures -}
-let f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; (7 .. 9).collect(f:/1) = [5040, 40320, 362880]
+let f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; 7:9.collect(f:/1) = [5040, 40320, 362880]
 let f = { system.nextRandomFloat }; f:/0.once = f:/0.once {- evaluate block once and cache result -}
-let f = { (1 .. 9).atRandom }; f:/0.once = f:/0.once & { f:/0.once = f:/0.once } {- the cache is kept in a weak map -}
+let f = { 1:9.atRandom }; f:/0.once = f:/0.once & { f:/0.once = f:/0.once } {- the cache is kept in a weak map -}
 '3'.replicate(3) = ['3', '3', '3'] {- answer an array of n places each having the same value -}
 '3'.replicate(3) = Array(3, '3') {- constructor with fill value -}
 let m = { system.nextRandomFloat }.duplicate(9).mean; m > 0 & { m < 1 }
@@ -2499,7 +2502,7 @@ at:/2.parameterNames = ['self', 'index']
 json:/3.parameterNames = ['self', 'replacer', 'space']
 randomFloat:/2.parameterNames = ['self', 'aNumber']
 system.methodDictionary::at[2]::Map.information.parameterNames = ['self', 'key']
-let c = []; let a = []; (1 .. 3).do { :i | c.add { a.add(i) } }; c.do(value:/1); a = [1, 2, 3]
+let c = []; let a = []; 1:3.do { :i | c.add { a.add(i) } }; c.do(value:/1); a = [1, 2, 3]
 let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] {- closure -}
 { { }.deepCopy }.ifError { true } {- blocks cannot be deep copied -}
 let f = -.flip; f.value(3, 1) = -2 {- flip of two argument block -}
@@ -2509,11 +2512,11 @@ let f = -.flip; f.value(3, 1) = -2 {- flip of two argument block -}
 ```
 system.includesPackage('BlockStream') {- package -}
 let n = 1; let s = BlockStream { let r = n; n := n + 1; r } { }; s.next(9) = [1 .. 9]
-(1 .. 9).asStream.collect(squared:/1).upToEnd = [1 4 9 16 25 36 49 64 81]
-(1 .. 9).asStream.select(even:/1).upToEnd = [2 4 6 8]
-(1 .. 9).asStream.reject(even:/1).upToEnd = [1 3 5 7 9]
-(1 .. inf).asStream.select(even:/1).next(4) = [2 4 6 8]
-(1 .. inf).asStream.reject(even:/1).next(5) = [1 3 5 7 9]
+1:9.asStream.collect(squared:/1).upToEnd = [1 4 9 16 25 36 49 64 81]
+1:9.asStream.select(even:/1).upToEnd = [2 4 6 8]
+1:9.asStream.reject(even:/1).upToEnd = [1 3 5 7 9]
+1:inf.asStream.select(even:/1).next(4) = [2 4 6 8]
+1:inf.asStream.reject(even:/1).next(5) = [1 3 5 7 9]
 ```
 
 ## Promise -- scheduling type
@@ -2546,8 +2549,8 @@ let r = Random(); r.isStream = true
 let r = Random(); randomInteger(1, 9).isInteger {- random integer between 1 and 9 inclusive -}
 9.randomInteger.isInteger {- random integers (1 to self) -}
 let s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s.minMax = [1, 9] {- check distribution -}
-let s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s = (1 .. 9).asSet {- check distribution -}
-let s = Set(); 729.timesRepeat { s.include(3.randomIntegerBipolar) }; s = (-3 .. 3).asSet {- check distribution -}
+let s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s = 1:9.asSet {- check distribution -}
+let s = Set(); 729.timesRepeat { s.include(3.randomIntegerBipolar) }; s = -3:3.asSet {- check distribution -}
 9.randomFloat.isNumber {- random floating point number (0 to self) -}
 let s = Set(); 729.timesRepeat { s.include(9.randomFloat.rounded) }; s.minMax = [0, 9] {- check distribution -}
 3.randomInteger(9).isInteger {- random integer in range -}
@@ -2625,18 +2628,18 @@ let r = LinearCongruential(42); let a = r.next(9); r.reset; r.next(9) = a {- str
 system.includesPackage('Iterator') {- Iterator package -}
 [].asIterator.typeOf = 'CollectionStream' {- type of iterator -}
 [].asIterator.isIterator {- iterator predicate -}
-(1 .. 5).asIterator.upTo(3) = (1 .. 2) {- read up to, but not including, an element, answer is of species of collection -}
-(1 .. 5).asIterator.upTo(9) = (1 .. 5) {- read up to end if element is not located -}
+1:5.asIterator.upTo(3) = 1:2 {- read up to, but not including, an element, answer is of species of collection -}
+1:5.asIterator.upTo(9) = 1:5 {- read up to end if element is not located -}
 let r = [1 .. 5].asIterator; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] {- next answers nil at end -}
 let r = [1 .. 3].asIterator; [r.next, r.upToEnd] = [1, [2, 3]] {- read up to end -}
-let r = (1 .. 5).asIterator; r.upTo(3) = (1 .. 2) & { r.next = 4} {- matching element is consumed -}
-let r = (9 .. 1).asIterator; [r.upTo(3), r.upToEnd] = [(9 .. 4), (2 .. 1)] {- matching element is consumed -}
+let r = 1:5.asIterator; r.upTo(3) = 1:2 & { r.next = 4} {- matching element is consumed -}
+let r = 9:1.asIterator; [r.upTo(3), r.upToEnd] = [9:4, 2:1] {- matching element is consumed -}
 [].asIterator.next = nil {- next at an empty read iterator answers nil -}
 let r = '.....ascii'.asciiByteArray.asIterator; let a = ByteArray(5); r.next(5); r.nextInto(a); a.asciiString = 'ascii'
-(1 .. 9).asIterator.nextSatisfy { :each | each >= 5 } = 5 {- read until element satisfies predicate -}
-(1 .. 9).asIterator.nextOrUpToEnd(23) = [1 .. 9] {- take at most n items from iterator -}
-let r = (1 .. 9).asIterator; [r.nextMatchFor(1), r.next] = [true, 2] {- predicate at consumed item -}
-let r = (1 .. 9).asIterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] {- predicate at consumed items -}
+1:9.asIterator.nextSatisfy { :each | each >= 5 } = 5 {- read until element satisfies predicate -}
+1:9.asIterator.nextOrUpToEnd(23) = [1 .. 9] {- take at most n items from iterator -}
+let r = 1:9.asIterator; [r.nextMatchFor(1), r.next] = [true, 2] {- predicate at consumed item -}
+let r = 1:9.asIterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] {- predicate at consumed items -}
 ```
 
 ## Sphere -- geometric type
@@ -2656,37 +2659,37 @@ Sphere(Point(0, 0, 0), 1).volume = (4.pi / 3) {- volume -}
 system.includesPackage('Stream') {- Stream package -}
 [].asStream.typeOf = 'CollectionStream' {- type of stream -}
 [].asStream.isStream {- stream predicate -}
-let s = (1 .. 9).asStream; let a = s.next(9); s.reset; s.next(9) = a {- reset stream -}
+let s = 1:9.asStream; let a = s.next(9); s.reset; s.next(9) = a {- reset stream -}
 ```
 
 ### PositionableStream -- collection trait
 ```
 system.includesPackage('PositionableStream') {- PositionableStream package -}
 [].asStream.atEnd = true {- at end predicate -}
-let r = (1 .. 1000).asIterator; [r.next, r.next, r.atEnd] = [1, 2, false] {- at end predicate -}
+let r = 1:1000.asIterator; [r.next, r.next, r.atEnd] = [1, 2, false] {- at end predicate -}
 [].asStream.position = 0 {- initially the position is zero -}
-let r = (1 .. 5).asStream; [r.peek, r.next] = [1, 1] {- peek at the next item -}
-let r = (1 .. 5).asStream; [r.peekFor(1), r.next] = [true, 2] {- peek or read next item -}
-let r = (1 .. 5).asStream; [r.peekFor(nil), r.next] = [false, 1] {- peek or read next item -}
-let r = (1 .. 5).asStream; r.position(3); r.next = 4 {- move to indicated position, which is the index before the next element -}
-let r = (1 .. 5).asStream; r.position(3); r.skip(-1); r.next = 3 {- relative re-positioning -}
+let r = 1:5.asStream; [r.peek, r.next] = [1, 1] {- peek at the next item -}
+let r = 1:5.asStream; [r.peekFor(1), r.next] = [true, 2] {- peek or read next item -}
+let r = 1:5.asStream; [r.peekFor(nil), r.next] = [false, 1] {- peek or read next item -}
+let r = 1:5.asStream; r.position(3); r.next = 4 {- move to indicated position, which is the index before the next element -}
+let r = 1:5.asStream; r.position(3); r.skip(-1); r.next = 3 {- relative re-positioning -}
 let r = (1, 3 .. 9).asStream; r.skip(2); r.upToEnd = (5, 7 .. 9) {- skip to a position -}
-let r = (1 .. 9).asStream; r.skipTo(7); r.upToEnd = (8 .. 9) {- skip to an object -}
+let r = 1:9.asStream; r.skipTo(7); r.upToEnd = 8:9 {- skip to an object -}
 { [].asStream.position := -1 }.ifError { true } {- it is an error to move the position out of bounds -}
 { [].asStream.position := 1 }.ifError { true } {- it is an error to move the position out of bounds -}
-let r = (9 .. 1).asStream; [r.upToPosition(3), r.upToEnd] = [(9 .. 7), (6 .. 1)] {- read from current up to indicated position -}
-let r = (1 .. 9).asStream; [r.next, r.back, r.next] = [1, 1, 1] {- go back one element and return it (by peeking) -}
+let r = 9:1.asStream; [r.upToPosition(3), r.upToEnd] = [9:7, 6:1] {- read from current up to indicated position -}
+let r = 1:9.asStream; [r.next, r.back, r.next] = [1, 1, 1] {- go back one element and return it (by peeking) -}
 ```
 
 ### CollectionStream -- collection trait
 ```
-(1 .. 5).asStream.size = 5 {- stream from interval, stream size -}
-(1 .. 5).asStream.contents = (1 .. 5) {- contents of finite stream (a copy of the collection) -}
+1:5.asStream.size = 5 {- stream from interval, stream size -}
+1:5.asStream.contents = 1:5 {- contents of finite stream (a copy of the collection) -}
 let a = [1 .. 5]; a.asStream.contents ~~ a {- contents of finite stream (a copy of the collection) -}
-let i = (1 .. 5); i.asStream.originalContents == i {- original contents of stream (the actual collection -}
-let r = (1 .. 5).asStream; r.upToEnd; r.contents = (1 .. 5) {- contents of consumed stream -}
-(1 .. 9).asStream.collection = Interval(1, 9, 1) {- read stream over interval collection -}
-let i = (1 .. 9); let s = i.asStream; let c = s.copy; c.next; s.next = 1 & { c.next = 2 } {- copy -}
+let i = 1:5; i.asStream.originalContents == i {- original contents of stream (the actual collection -}
+let r = 1:5.asStream; r.upToEnd; r.contents = 1:5 {- contents of consumed stream -}
+1:9.asStream.collection = Interval(1, 9, 1) {- read stream over interval collection -}
+let i = 1:9; let s = i.asStream; let c = s.copy; c.next; s.next = 1 & { c.next = 2 } {- copy -}
 ```
 
 ## Record -- collection type
@@ -2719,10 +2722,12 @@ let d = (x: 23, y: 3.141); d::x := 42; d = (x: 42, y: 3.141)
 (x: 1).copy = (x: 1) {- a copy of record is a record -}
 let d = (x: 23, y: 3.141); let c = d.copy; d ~~ c & { d = c } {- copy is equal to but not identical to -}
 let d = (x: 1, y: 2); let c = d.copy; c::x := 3; c::x = 3 & { d::x = 1 } {- copies are distinct -}
-(x:1, y:2) ++ (z:3) = (x:1, y:2, z:3) {- white space after colon is optional -}
+(x: 1, y: 2) ++ (z: 3) = (x: 1, y: 2, z: 3) {- white space after colon is optional -}
+let x = 1; (x:9) = (x: 9) {- white space after colon is optional -}
+let x = 9; (9:x) = 9:x {- interval literals may have identifiers as upper bound -}
 (x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2] {- array of associations at record -}
 (x: 1, y: 2).asArray = [1, 2] {- values as Array -}
-let d = (x:1, y:2, z:3); let (x, z) = d; [x, z] = [1, 3]
+let d = (x: 1, y: 2, z: 3); let (x, z) = d; [x, z] = [1, 3]
 let (x, y) = { let n = system.nextRandomFloat; (x: n, y: n) }.value; x = y
 (x:1, y:2, z:3).select(even:/1) = (y: 2)
 (x:1, y:2, z:3).sum = 6
@@ -2921,17 +2926,17 @@ let c = [3, 2, 1]; let r = c.sorted; c ~= r {- sorted (answer a new array) -}
 [1, 3, 5, 7, 9].indexOfSubCollection([5, 7, 9]) = 3 {- locate index of subsequence -}
 [1, 3, 5, 7, 9].indexOf(5) = 3 {- index of element (compared using =) -}
 [1, 3, 5, 7, 9].first = 1 {- first element of sequence -}
-(1 .. 9).first(5) = (1 .. 5) {- first n elements of sequence -}
-{ (1 .. 9).first(11) }.ifError { true } {- error if too few elements -}
-let a = (1 .. 9); a.first = a[1] {- one-indexed -}
+1:9.first(5) = 1:5 {- first n elements of sequence -}
+{ 1:9.first(11) }.ifError { true } {- error if too few elements -}
+let a = 1:9; a.first = a[1] {- one-indexed -}
 [1, 3, 5, 7, 9].last = 9 {- last element of -}
-(1 .. 9).last(5) = (5 .. 9) {- last n elements of -}
-{ (1 .. 9).last(11) }.ifError { true } {- too few elements -}
-let i = (1 .. 9); i.last = i[9] {- intervals are one-indexed sequences -}
+1:9.last(5) = 5:9 {- last n elements of -}
+{ 1:9.last(11) }.ifError { true } {- too few elements -}
+let i = 1:9; i.last = i[9] {- intervals are one-indexed sequences -}
 [1, 3, 5, 7, 9].middle = 5 {- middle element of -}
 [1 .. 4].beginsWith([1, 2]) = true {- is prefix of -}
 [1 .. 4].beginsWith([]) = true {- empty prefix answers true -}
-let n = 0; let i = (1 .. 4); i.permutationsDo { :each | n := n + 1 }; n = 24 {- interval permutations do -}
+let n = 0; let i = 1:4; i.permutationsDo { :each | n := n + 1 }; n = 24 {- interval permutations do -}
 let n = 0; let a = [1 .. 4]; a.permutationsDo { :each | n := n + 1 }; n = 24 & { a = [1 .. 4] } {- array permutations do -}
 let a = [1 .. 3].permutations; a = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]] {- permutations -}
 let i = (4, 7 .. 13); let p = i.permutations; p.size = i.size.factorial & { p.asSet.size = p.size }
@@ -2943,32 +2948,32 @@ let s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printSt
 let s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291' {- do from end -}
 [1, 2, 2, 3, 3, 3, 4, 4, 4, 4].copyWithoutDuplicates = [1, 2, 3, 4] {- copy without duplicates, retain order -}
 ([1, 3 .. 9] ++ [1, 3 .. 9] ++ [2, 4 .. 10] ++ [2, 4 .. 10]).copyWithoutDuplicates = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
-(1 .. 9).hasEqualElements((1 .. 9)) {- an array is not equal to an interval, but can have equal elements -}
-(1 .. 9).hasEqualElements((1 .. 9)) {- an interval is not equal to an array, but can have equal elements -}
-[1 .. 9] ~= (1 .. 9) {- an array is not equal to an interval -}
-(1 .. 9) ~= [1 .. 9] {- an interval is not equal to an array -}
-[1 .. 9] ~= (1 .. 9) {- an array is not equal to an interval -}
-(1 .. 9) ~= [1 .. 9] {- an interval is not equal to an array -}
+1:9.hasEqualElements(1:9) {- an array is not equal to an interval, but can have equal elements -}
+1:9.hasEqualElements(1:9) {- an interval is not equal to an array, but can have equal elements -}
+[1 .. 9] ~= 1:9 {- an array is not equal to an interval -}
+1:9 ~= [1 .. 9] {- an interval is not equal to an array -}
+[1 .. 9] ~= 1:9 {- an array is not equal to an interval -}
+1:9 ~= [1 .. 9] {- an interval is not equal to an array -}
 [1.5 .. 9.5].middle = 5.5 {- range start need not be an integer -}
 let c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5] {- swap elements at indices in place -}
 { [1 .. 5].swapWith(1, 9) }.ifError { true } {- it is an error if an index is invalid -}
 [1, [2, [3, [4, [5], 6], 7], 8], 9].flattened = [1 .. 9] {- concatenation removing all nesting -}
 [1, [2, [3, ['45', 6], '78']], 9].flattened = [1, 2, 3, '45', 6, '78', 9] {- strings are not flattened to sequences of characters -}
 [3, 4, [2, 4, ['xy'], 'wz']].flattened = [3, 4, 2, 4, 'xy', 'wz']
-(1 .. 9).rotatedLeft(3) = ([4 .. 9] ++ [1 .. 3]) {- rotate left -}
-(1 .. 7).rotatedLeft(3) = [4 5 6 7 1 2 3] {- rotate left -}
-(1 .. 7).rotatedLeft(-4) = [4 5 6 7 1 2 3] {- negative argument rotates right -}
+1:9.rotatedLeft(3) = ([4 .. 9] ++ [1 .. 3]) {- rotate left -}
+1:7.rotatedLeft(3) = [4 5 6 7 1 2 3] {- rotate left -}
+1:7.rotatedLeft(-4) = [4 5 6 7 1 2 3] {- negative argument rotates right -}
 let a = [1 .. 9]; a.rotatedLeft(3) ~~ a {- rotation is not in place -}
-(1 .. 9).rotatedRight(3) = ([7 .. 9] ++ [1 .. 6]) {- rotate right -}
-(1 .. 7).rotatedRight(3) = [5 6 7 1 2 3 4] {- rotate right -}
-(1 .. 7).rotatedRight(-4) = [5 6 7 1 2 3 4] {- negative argument rotates left -}
-(1 .. 7).rotated(3) = [5 6 7 1 2 3 4] {- rotate right -}
-(1 .. 7).rotated(-4) = [5 6 7 1 2 3 4] {- negative argument rotates left -}
-let d = []; (3 .. 1).withDo((1 .. 3)) { :p :q | d.add(p -> q) }; d = [3 -> 1, 2 -> 2, 1 -> 3] {- do with elements from a second sequence of equal size -}
-let d = []; (3 .. 1).reverseWithDo((1 .. 3)) { :p :q | d.add(p -> q) }; d = [1 -> 3, 2 -> 2, 3 -> 1]
-let d = []; (3 .. 1).withIndexDo { :each :index | d.add(each -> index) }; d = [3 -> 1, 2 -> 2, 1 -> 3]
-(9 .. 1).withCollect((1 .. 9)) { :p :q | p * 2 + q } = [19 .. 11]
-(9 .. 1).withIndexCollect { :each :index | each * 2 + index } = [19 .. 11]
+1:9.rotatedRight(3) = ([7 .. 9] ++ [1 .. 6]) {- rotate right -}
+1:7.rotatedRight(3) = [5 6 7 1 2 3 4] {- rotate right -}
+1:7.rotatedRight(-4) = [5 6 7 1 2 3 4] {- negative argument rotates left -}
+1:7.rotated(3) = [5 6 7 1 2 3 4] {- rotate right -}
+1:7.rotated(-4) = [5 6 7 1 2 3 4] {- negative argument rotates left -}
+let d = []; 3:1.withDo(1:3) { :p :q | d.add(p -> q) }; d = [3 -> 1, 2 -> 2, 1 -> 3] {- do with elements from a second sequence of equal size -}
+let d = []; 3:1.reverseWithDo(1:3) { :p :q | d.add(p -> q) }; d = [1 -> 3, 2 -> 2, 3 -> 1]
+let d = []; 3:1.withIndexDo { :each :index | d.add(each -> index) }; d = [3 -> 1, 2 -> 2, 1 -> 3]
+9:1.withCollect(1:9) { :p :q | p * 2 + q } = [19 .. 11]
+9:1.withIndexCollect { :each :index | each * 2 + index } = [19 .. 11]
 [1, 3, 5, 7, 11, 15, 23].findBinary { :arg | 11 - arg } = 11
 [1, 3, 5, 7, 11, 15, 23].findBinaryIndex { :arg | 11 - arg } = 5
 { [1, 3, 5, 7, 11, 15, 23].findBinaryIndex { :arg | 12 - arg } }.ifError { true }
@@ -2979,21 +2984,21 @@ let d = []; (3 .. 1).withIndexDo { :each :index | d.add(each -> index) }; d = [3
 [1, 3, 5, 7, 11, 15, 23].findBinaryIfNone { :arg | 12 - arg } { :a :b | [a, b] } = [11, 15]
 [1, 3, 5, 7, 11, 15, 23].findBinaryIfNone { :arg | 0.5 - arg } { :a :b | [a, b] } = [nil, 1]
 [1, 3, 5, 7, 11, 15, 23].findBinaryIfNone { :arg | 25 - arg } { :a :b | [a, b] } = [23, nil]
-let a = []; (0 .. 1).asDigitsToPowerDo(2) { :each | a.add(each.copy) }; a = [[0, 0], [0, 1], [1, 0], [1, 1]]
+let a = []; 0:1.asDigitsToPowerDo(2) { :each | a.add(each.copy) }; a = [[0, 0], [0, 1], [1, 0], [1, 1]]
 ['one', 'two', 'three', 'four'].atAll([3, 2, 4]) = ['three', 'two', 'four'] {- at each index -}
-(1 .. 9).atAll((3 .. 5)) = [3 .. 5] {- at all indices -}
-(1 .. 9).atWrapAll((7 .. 11)) = [7 8 9 1 2] {- atWrap all indices -}
-(1 .. 9).atFoldAll((7 .. 11)) = [7 8 9 8 7] {- atFold all indices -}
-(1 .. 9).atPinAll((7 .. 11)) = [7 8 9 9 9] {- atPin all indices -}
-(1 .. 9).atWrapAll((3 .. -1)) = [3 2 1 9 8] {- atWrap all indices -}
-(1 .. 9).atFoldAll((3 .. -1)) = [3 2 1 2 3] {- atFold all indices -}
-(1 .. 9).atPinAll((3 .. -1)) = [3 2 1 1 1] {- atPin all indices -}
-(1 .. 9) @* (3 .. 5) = [3 .. 5] {- @* atAll operator -}
+1:9.atAll(3:5) = [3 .. 5] {- at all indices -}
+1:9.atWrapAll(7:11) = [7 8 9 1 2] {- atWrap all indices -}
+1:9.atFoldAll(7:11) = [7 8 9 8 7] {- atFold all indices -}
+1:9.atPinAll(7:11) = [7 8 9 9 9] {- atPin all indices -}
+1:9.atWrapAll(3:-1) = [3 2 1 9 8] {- atWrap all indices -}
+1:9.atFoldAll(3:-1) = [3 2 1 2 3] {- atFold all indices -}
+1:9.atPinAll(3:-1) = [3 2 1 1 1] {- atPin all indices -}
+1:9 @* 3:5 = [3 .. 5] {- @* atAll operator -}
 let a = Array(9); a.atAllPut(0); a = [0, 0, 0, 0, 0, 0, 0, 0, 0] {- set all elements to a single value -}
 let a = [1 .. 9]; a.atAllPut([3 .. 7], 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] {- set all selected indices to a value -}
-let a = [1 .. 9]; a.atAllPut((3 .. 7), 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] {- set all selected indices to a value -}
+let a = [1 .. 9]; a.atAllPut(3:7, 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] {- set all selected indices to a value -}
 let a = [1 .. 9]; a.atAllPutAll([3 .. 7], [7 .. 3]); a = [1, 2, 7, 6, 5, 4, 3, 8, 9] {- set all selected indices to corresponding values -}
-let a = [1 .. 9]; a.atAllPutAll((3 .. 7), (7 .. 3)); a = [1, 2, 7, 6, 5, 4, 3, 8, 9] {- set all selected indices to corresponding values -}
+let a = [1 .. 9]; a.atAllPutAll(3:7, 7:3); a = [1, 2, 7, 6, 5, 4, 3, 8, 9] {- set all selected indices to corresponding values -}
 let a = [1 .. 9]; a.replace { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81] {- in place collect -}
 let c = [7, 2, 6, 1]; c.sorted = [1, 2, 6, 7] & { c.sorted ~= c } {- sorted copy -}
 let c = [7, 2, 6, 1]; c.sort = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } {- sort in place -}
@@ -3002,14 +3007,14 @@ let c = [7, 2, 6, 1]; c.sort = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } {- sort in pl
 [7, 2, 6, 1].sorted(greaterThan:/2) = [7, 6, 2, 1] {- with operator written out -}
 let n = 0; [3 .. 7].allButFirstDo { :each | n := n + each }; n = [4 .. 7].sum {- iterate skipping first element -}
 let n = 0; [3 .. 7].allButLastDo { :each | n := n + each }; n = [3 .. 6].sum {- iterate skipping last element -}
-let a = []; (1 .. 4).combinationsAtATimeDo(3) { :each | a.add(each.copy) }; a = [[1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]
-let a = []; (1 .. 5).combinationsAtATimeDo(3) { :each | a.add(each.sum) }; a = [6, 7, 8, 8, 9, 10, 9, 10, 11, 12]
-let a = []; (1 .. 9).fromToDo(3, 7) { :each | a.add(each) }; a = [3 .. 7] {- partial iterator -}
+let a = []; 1:4.combinationsAtATimeDo(3) { :each | a.add(each.copy) }; a = [[1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]
+let a = []; 1:5.combinationsAtATimeDo(3) { :each | a.add(each.sum) }; a = [6, 7, 8, 8, 9, 10, 9, 10, 11, 12]
+let a = []; 1:9.fromToDo(3, 7) { :each | a.add(each) }; a = [3 .. 7] {- partial iterator -}
 let a = []; [1 / 3, 1 / 4, 1 / 4, 0.9, 1 / 3, 1].groupsDo { :p :q :r | a.add(p.roundTo(q) = r) }; a = [true, true]
-let a = []; (9 .. 1).indicesDo { :index | a.add(index * 2) }; a = [2, 4 .. 19] {- indexed -}
-let a = []; (9 .. 1).withIndexDo { :value :index | a.add(index * 2 + value) }; a = [11 .. 19] {- keys are indices -}
-let a = []; (9 .. 7).withIndexDo { :value :index | a.add(index -> value) }; a = [1 -> 9, 2 -> 8, 3 -> 7] {- keys are indices -}
-let a = []; (9 .. 7).withIndexDo { :each :index | a.add(index -> each) }; a = [1 -> 9, 2 -> 8, 3 -> 7]{- index is second argument -}
+let a = []; 9:1.indicesDo { :index | a.add(index * 2) }; a = [2, 4 .. 19] {- indexed -}
+let a = []; 9:1.withIndexDo { :value :index | a.add(index * 2 + value) }; a = [11 .. 19] {- keys are indices -}
+let a = []; 9:7.withIndexDo { :value :index | a.add(index -> value) }; a = [1 -> 9, 2 -> 8, 3 -> 7] {- keys are indices -}
+let a = []; 9:7.withIndexDo { :each :index | a.add(index -> each) }; a = [1 -> 9, 2 -> 8, 3 -> 7]{- index is second argument -}
 let a = [1 .. 5]; a.atIncrementBy(3, 6); a = [1, 2, 9, 4, 5] {- increment value at index by -}
 let a = [1 .. 9]; a.atLastPut(3, -7); a = [1, 2, 3, 4, 5, 6, -7, 8, 9] {- set at index from end -}
 'string'.split.sorted = ['g', 'i', 'n', 'r', 's', 't']
@@ -3031,15 +3036,15 @@ let a = [1 .. 4]; a *= 2; a = [2, 4 .. 8] {- in place array/scalar multiplicatio
 let a = [1 .. 4]; a *= [4 .. 1]; a = [4, 6, 6, 4] {- in place array/array multiplication -}
 let a = [2, 4 .. 8]; a /= 2; a = [1, 2 .. 4] {- in place array/scalar division -}
 let a = [2, 4 .. 8]; a /= [1 .. 4]; a = [2, 2, 2, 2] {- in place array/array division -}
-let a = [9 .. 1]; a.withReplace((1 .. 9)) { :p :q | p * 2 + q }; a = [19 .. 11] {- in place withCollect -}
+let a = [9 .. 1]; a.withReplace(1:9) { :p :q | p * 2 + q }; a = [19 .. 11] {- in place withCollect -}
 [7 .. 4].indexValueAssociations = [1 -> 7, 2 -> 6, 3 -> 5, 4 -> 4] {- the (index -> value) associations of a sequence -}
 let a = []; (x: 1, y: 2, z: 3).indicesDo { :each | a.add(each) }; a = ['x', 'y', 'z'] {- iterate indices -}
-(1 .. 4).foldLeft(Association:/2) = (((1 -> 2) -> 3) -> 4) {- fold, left associative -}
-(1 .. 4).foldRight(Association:/2) = (1 -> (2 -> (3 -> 4))) {- fold, right associative -}
-(1 .. 4).foldLeft(-) = (((1 - 2) - 3) - 4) {- fold, left associative -}
-(1 .. 4).foldLeft(minus:/2) = (((1 - 2) - 3) - 4) {- with operator written out -}
-(1 .. 4).foldRight(-) = (1 - (2 - (3 - 4))) {- fold, right associative -}
-(1 .. 4).foldRight(minus:/2) = (1 - (2 - (3 - 4))) {- with operator written out -}
+1:4.foldLeft(Association:/2) = (((1 -> 2) -> 3) -> 4) {- fold, left associative -}
+1:4.foldRight(Association:/2) = (1 -> (2 -> (3 -> 4))) {- fold, right associative -}
+1:4.foldLeft(-) = (((1 - 2) - 3) - 4) {- fold, left associative -}
+1:4.foldLeft(minus:/2) = (((1 - 2) - 3) - 4) {- with operator written out -}
+1:4.foldRight(-) = (1 - (2 - (3 - 4))) {- fold, right associative -}
+1:4.foldRight(minus:/2) = (1 - (2 - (3 - 4))) {- with operator written out -}
 let a = [1 3 5 3 5 7]; a.replaceAllWith(3, -3); a = [1 -3 5 -3 5 7] {- replace each occurence of an item with another -}
 [0, 1].tuples(2) = [[0, 0], [0, 1], [1, 0], [1, 1]] {- all n-tuples, of two elements is binary counting -}
 [0 1].tuples(3) = [0 0 0; 0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1] {- all n-tuples -}
@@ -3058,19 +3063,20 @@ let x = [0 1]; x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] {- self cartesian pr
 [1 2 3].withTruncatingCollect([4 5 6 7], times:/2) = [4 10 18] {- with operator written out -}
 [1 2 3 4].withWrappingCollect([5 6 7 8 9], * ) = [5 12 21 32 9]
 [1 2 3 4].withWrappingCollect([5 6 7 8 9], times:/2) = [5 12 21 32 9] {- with operator written out -}
-(1 .. 9).prefixSum = [1 3 6 10 15 21 28 36 45] {- prefix sum -}
-(1 .. 9).prefixProduct = [1 2 6 24 120 720 5040 40320 362880] {- prefix product -}
-(1 .. 9).scan(+) = (1 .. 9).prefixSum {- scan, generalized prefix sum -}
-(1 .. 9).scan(plus:/2) = (1 .. 9).prefixSum {- with operator written out -}
-(1 .. 9).scan( * ) = (1 .. 9).prefixProduct
-(1 .. 9).scan(times:/2) = (1 .. 9).prefixProduct {- with operator written out -}
-(1 .. 16).first(4) = (1 .. 4) {- first group of n elements of sequence -}
-(1 .. 16).second(4) = (5 .. 8) {- second group of n elements of sequence -}
-(1 .. 16).third(4) = (9 .. 12) {- third group of n elements of sequence -}
-(1 .. 16).fourth(4) = (13 .. 16) {- fourth group of n elements of sequence -}
-(1 .. 16).last(4) = (13 .. 16)  {- last group of n elements of sequence -}
-(1 .. 4).replicateEach(2) = [1 1 2 2 3 3 4 4]  {- replicate each element n times -}
-(1 .. 4).replicateEachApplying(2, squared:/1) = [1 1 4 4 9 9 16 16] {- replicate each element -}
+1:9.prefixSum = [1 3 6 10 15 21 28 36 45] {- prefix sum -}
+1:9.prefixProduct = [1 2 6 24 120 720 5040 40320 362880] {- prefix product -}
+1:9.scan(+) = 1:9.prefixSum {- scan, generalized prefix sum -}
+1:9.scan(plus:/2) = 1:9.prefixSum {- with operator written out -}
+1:9.scan( * ) = 1:9.prefixProduct
+1:9.scan(times:/2) = 1:9.prefixProduct {- with operator written out -}
+1:16.first(4) = 1:4 {- first group of n elements of sequence -}
+1:16.second(4) = 5:8 {- second group of n elements of sequence -}
+1:16.third(4) = 9:12 {- third group of n elements of sequence -}
+1:16.fourth(4) = 13:16 {- fourth group of n elements of sequence -}
+1:16.last(4) = 13:16  {- last group of n elements of sequence -}
+1:4.replicateEach(2) = [1 1 2 2 3 3 4 4]  {- replicate each element n times -}
+1:4.replicateEach([2 2 2 2]) = [1 1 2 2 3 3 4 4]  {- replicate each element n times -}
+1:4.replicateEachApplying([2 2 2 2], squared:/1) = [1 1 4 4 9 9 16 16] {- replicate each element -}
 [{ 1 }, { 2 }].duplicateEach(2) = [1 1 2 2] {- duplicate each element n times -}
 ```
 
@@ -3091,7 +3097,7 @@ let x = [0 1]; x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] {- self cartesian pr
 { [1 .. 5] + [6 .. 9] = [7, 9, 11, 13, 11] }.ifError { true } {- sequences must be of equal size, Sc/Lang extends this behaviour -}
 [1 .. 5].squared = [1, 4, 9, 16, 25] {- unary math lifted to collection -}
 [1, 4, 9, 16, 25].sqrt = [1 .. 5] {- unary math lifted to collection -}
-(1 .. 3).asSet ++ (4 .. 7).asSet = (1 .. 7).asSet {- append -}
+1:3.asSet ++ 4:7.asSet = 1:7.asSet {- append -}
 ```
 
 ## Set -- collection type
@@ -3115,42 +3121,42 @@ let s = Set(); s.add(5); s.includes(5) = true {- add element to Set -}
 { [5].asSet.add(5) }.ifError { true } {- add can only include elements if they do not already exist -}
 let s = ['x', 5].asSet; let t = s.copy; t.include(5); s = t
 let s = [1 .. 4].asSet; s.includes(s.atRandom) = true
-let s = (1 .. 10).asSet; let t = s.collect { :each | (each >= 1).if { each } { 'no' } }; s = t
-let s = (1 .. 10).asSet.collect { :each | (each >= 5).if { each } { 'no' } }; s = [5, 6, 7, 8, 9, 10, 'no'].asSet
-let s = (1 .. 10).asSet; s.size = s.copy.size
-let s = (1 .. 10).asSet; let t = s.copy; s.select { :each | t.includes(each).not }.isEmpty
-let s = (1 .. 10).asSet; let t = s.copy; t.select { :each | s.includes(each).not }.isEmpty
-let s = (1 .. 10).asSet; let t = s.copyWithout(3); s.size - 1 = t.size
-let s = (1 .. 10).asSet; s.copyWithout(3).includes(3) = false
-let s = (1 .. 10).asSet; let t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].asSet
-let s = (1 .. 5).asSet; let n = 0; s.do { :each | n := n + each }; n = 15
+let s = 1:10.asSet; let t = s.collect { :each | (each >= 1).if { each } { 'no' } }; s = t
+let s = 1:10.asSet.collect { :each | (each >= 5).if { each } { 'no' } }; s = [5, 6, 7, 8, 9, 10, 'no'].asSet
+let s = 1:10.asSet; s.size = s.copy.size
+let s = 1:10.asSet; let t = s.copy; s.select { :each | t.includes(each).not }.isEmpty
+let s = 1:10.asSet; let t = s.copy; t.select { :each | s.includes(each).not }.isEmpty
+let s = 1:10.asSet; let t = s.copyWithout(3); s.size - 1 = t.size
+let s = 1:10.asSet; s.copyWithout(3).includes(3) = false
+let s = 1:10.asSet; let t = s.copyWithout(3); s.select { :each | t.includes(each).not } = [3].asSet
+let s = 1:5.asSet; let n = 0; s.do { :each | n := n + each }; n = 15
 let s = [].asSet; s.addAll(['x', 'y', 'z']); s.size = 3 {- add all elements of an Array to a Set -}
 let s = [].asSet; s.includeAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 {- include all elements of an Array to a Set -}
 let c = 'xyyzzz'.split; let r = Set(); r.includeAll(c); r.size = 3 {- include all characters of a String to a Set -}
 let c = 'xyyzzz'; let r = Set(); r.includeAll(c); r.size = 3 {- include all elements of a String to a Set -}
 let s = [].asSet; s.addAll([1 .. 99]); s.size = 99 {- add all from array -}
 let s = ['x', 5].asSet; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
-let s = (1 .. 5).asSet; let n = 0; s.do { :each | n := n + each }; n = 15
-let s = (1 .. 9).asSet; s.intersection(s) = s {- set intersection, self intersection is identity -}
-(1 .. 4).asSet.intersection((5 .. 9).asSet) = [].asSet {- set intersection, empty intersection -}
-(1 .. 5).asSet.intersection((4 .. 9).asSet) = [4, 5].asSet {- set intersection -}
-let s = (1 .. 9).asSet; s.remove(5); [s.includes(5), s.includes(9)] = [false, true]
-let s = (1 .. 9).asSet; let t = s.copy; let n = t.size; s.removeAll; [s.size = 0, t.size = n] = [true, true]
-(1 .. 4).asSet.union((5 .. 9)) = (1 .. 9).asSet {- set union, right hand side not a set -}
-let s = (1 .. 4).asSet; let t = (5 .. 9); let u = s.union(t); u.size = (s.size + t.size) {- set union is not mutating -}
-(1 .. 5).asSet.ifAbsentAdd(3) = false
-(1 .. 9).asSet.select { :each | false } = [].asSet {- select nothing -}
+let s = 1:5.asSet; let n = 0; s.do { :each | n := n + each }; n = 15
+let s = 1:9.asSet; s.intersection(s) = s {- set intersection, self intersection is identity -}
+1:4.asSet.intersection(5:9.asSet) = [].asSet {- set intersection, empty intersection -}
+1:5.asSet.intersection(4:9.asSet) = [4, 5].asSet {- set intersection -}
+let s = 1:9.asSet; s.remove(5); [s.includes(5), s.includes(9)] = [false, true]
+let s = 1:9.asSet; let t = s.copy; let n = t.size; s.removeAll; [s.size = 0, t.size = n] = [true, true]
+1:4.asSet.union(5:9) = 1:9.asSet {- set union, right hand side not a set -}
+let s = 1:4.asSet; let t = 5:9; let u = s.union(t); u.size = (s.size + t.size) {- set union is not mutating -}
+1:5.asSet.ifAbsentAdd(3) = false
+1:9.asSet.select { :each | false } = [].asSet {- select nothing -}
 let s = Set(); s.includeAll([4 / 2, 4, 2]); s.size = 2 {- 4 / 2 = 2 -}
 [1, 2, 3, 1, 4].asSet = [1, 2, 3, 4, 3, 2, 1].asSet = true
-(1 .. 6).union((4 .. 10)) = (1 .. 10).asSet {- set union -}
+1:6.union(4:10) = 1:10.asSet {- set union -}
 'hello'.split.intersection('there'.split) = 'he'.split {- set intersection -}
 'Smalltalk'.split.includes('k') = true
 [1, 2, 3, 1, 4].asSet.isIndexable = false {- sets are not indexable -}
 [1, 2, 3, 1, 4].asSet.indices = nil {- sets are not indexable -}
 [1, 2, 2, 3, 3, 3].asSet.occurrencesOf(3) = 1 {- number of occurrences of element in set (zero or one) -}
 [1, 3, 3, 3].asSet.occurrencesOf(2) = 0 {- number of occurrences of element in set (zero or one) -}
-[5 4 6 7 8 9 10 11 3].asSet = (3 .. 11).asSet {- from array out of order array -}
-let s = Set(); [5 4 6 7 8 9 10 11 3].do { :each | s.include(each) }; s = (3 .. 11).asSet {- out of order insertion -}
+[5 4 6 7 8 9 10 11 3].asSet = 3:11.asSet {- from array out of order array -}
+let s = Set(); [5 4 6 7 8 9 10 11 3].do { :each | s.include(each) }; s = 3:11.asSet {- out of order insertion -}
 ```
 
 ## SmallFloat -- numeric type
@@ -3222,9 +3228,9 @@ let total = 0; 9.timesRepeat { total := total + system.nextRandomFloat }; total 
 9.remainder(4) = 1
 -9.remainder(4) = -1
 0.9.remainder(0.5) = 0.4
-(1 .. 99).select(isPrime:/1) = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97]
-(1 .. 999).select(isPrime:/1).size = 168
-(1 .. 9999).select(isPrime:/1).size = 1229
+1:99.select(isPrime:/1) = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97]
+1:999.select(isPrime:/1).size = 168
+1:9999.select(isPrime:/1).size = 1229
 60.divisors = [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60]
 1729.divisors = [1, 7, 13, 19, 91, 133, 247, 1729]
 eulersNumber() = 1.exp {- eulers number -}
@@ -3294,6 +3300,11 @@ let n = 3.141; n.copy == n {- copy is identity -}
 let pi = 23; pi = 23 {- 1.pi is a constant, it can be shadowed -}
 1.pi.zero = 0 {- zero of same type, i.e. small float -}
 1.pi.one = 1 {- one of same type, i.e. small float -}
+8.nthRoot(3) = 2 & { 2 ^ 3 = 8 } {- nth root -}
+81.nthRoot(4) = 3 & { 3 ^ 4 = 81 } {- nth root -}
+{ -1.23.nthRoot(4) }.ifError { true }
+{ -2.nthRoot(1 / 4) }.ifError { true }
+{ -2.nthRoot(1.24) }.ifError { true }
 ```
 
 ## SmallFloat -- modulo
@@ -3322,7 +3333,7 @@ let a = [1 .. 9].asSortedArray(>); a.contents = [9 .. 1] {- sorted array with sp
 let a = [1 .. 9].asSortedArray(greaterThan:/2); a.contents = [9 .. 1] {- with operator written out -}
 let a = [5 .. 9].asSortedArray(>); a.addAll([1 .. 4]); a.contents = [9 .. 1]
 let a = [5 .. 9].asSortedArray(greaterThan:/2); a.addAll([1 .. 4]); a.contents = [9 .. 1] {- with operator written out -}
-(1 .. 10).asSortedArray.median = 5
+1:10.asSortedArray.median = 5
 let a = SortedArray(); a.add('truite'); a.add('porcinet'); a.add('carpe'); a.median = 'porcinet'
 [5, 2, 50, -10].asSortedArray.asArray = [-10, 2, 5, 50]
 'hello'.split.asSortedArray.asArray = 'ehllo'.split
@@ -3533,7 +3544,7 @@ let a = 'string'.characterArray; a.joinCharacters = 'string' & { a.join = 'strin
 let s = 'string'; (s.size * 2) = s.asHex.size {- asHex, hex string is twice as long -}
 { 'Mačiūnas'.asHex }.ifError { true } {- asHex, non-ascii strings raise an error -}
 '"'.asCharacter.codePoint = 34 {- double quote -}
-'\''.asCharacter.codePoint = 39 {- single quote -}
+'\''.asCharacter.codePoint = 39 {- single quote (') -}
 '\\'.asCharacter.codePoint = 92 {- backslash (escape) -}
 '`'.asCharacter.codePoint = 96 {- backtick -}
 '\b'.asCharacter.codePoint = 8 {- backspace -}
@@ -3581,16 +3592,17 @@ let x = 1; let y = 2; let z = 3; x := x * y + z; y := x + y * z; z := x + y + z;
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
 [1 .. 1] = [1]
-(1 .. 3) = Interval(1, 3, 1)
-(3 .. 1) = Interval(3, 1, -1)
+1:3 = Interval(1, 3, 1)
+3:1 = Interval(3, 1, -1)
 (1, 3 .. 9) = Interval(1, 9, 2)
 (9, 7 .. 1) = Interval(9, 1, -2)
-(1 .. 1) = Interval(1, 1, 1)
-[1 .. 3] = (1 .. 3).asArray
-[3 .. 1] = (3 .. 1).asArray
+1:1 = Interval(1, 1, 1)
+[1 .. 3] = 1:3.asArray
+[3 .. 1] = 3:1.asArray
 [1, 3 .. 9] = (1, 3 .. 9).asArray
 [9, 7 .. 1] = (9, 7 .. 1).asArray
-[1 .. 1] = (1 .. 1).asArray
+[1 .. 1] = 1:1.asArray
+let z = 9; 1:z = 1:9 {- upper bound may be identifier -}
 ```
 
 ## Syntax - vector and matrix syntax
@@ -3688,13 +3700,13 @@ let (x, y, z) = (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [30, 12, 2]
 
 ## Syntax -- interval & array syntax
 ```
-(1 .. 9) = Interval(1, 9, 1) {- 1 to 9 by 1 -}
-(1 .. 9) = Interval(1, 9, 1) {- 1 to 9 by 1 -}
-(9 .. 1) = Interval(9, 1, -1) {- 9 to 1 by -1 -}
+1:9 = Interval(1, 9, 1) {- 1 to 9 by 1 -}
+1:9 = Interval(1, 9, 1) {- 1 to 9 by 1 -}
+9:1 = Interval(9, 1, -1) {- 9 to 1 by -1 -}
 (1, 3 .. 9) = Interval(1, 9, 2) {- 1 to 9 by 2 -}
 (9, 7 .. 1) = Interval(9, 1, -2) {- 9 to 1 by -2 -}
-[1 .. 9] = (1 .. 9).asArray {- 1 to 9 by 1 -}
-[9 .. 1] = (9 .. 1).asArray {- 9 to 1 by -1 -}
+[1 .. 9] = 1:9.asArray {- 1 to 9 by 1 -}
+[9 .. 1] = 9:1.asArray {- 9 to 1 by -1 -}
 [1, 3 .. 9] = (1, 3 .. 9).asArray {- 1 to 9 by 1 -}
 [9, 7 .. 1] = (9, 7 .. 1).asArray {- 9 to 1 by -2 -}
 ```
@@ -3720,8 +3732,8 @@ let x = 1; let y = 2; let z = 3; [x, y, z] = [1, 2, 3] {- there can be multiple 
 ## Syntax -- trailing blocks
 ```
 1.to(9).collect { :x | x * x }.last = 81
-(1 .. 9).collect { :x | x * x }.last = 81
-(1 .. 9).collect { :x | x * x }.collect { :x | x * x }.last = 6561
+1:9.collect { :x | x * x }.last = 81
+1:9.collect { :x | x * x }.collect { :x | x * x }.last = 6561
 [1, 3, 5].withCollect([1, 3, 5]) { :p :q | p -> q } = [1 -> 1, 3 -> 3, 5 -> 5]
 [1, 3, 5].reversed.withCollect([1, 3, 5]) { :p :q | p -> q } = [5 -> 1, 3 -> 3, 1 -> 5]
 ```
@@ -3733,9 +3745,9 @@ let a = 'one' -> 1; a.key := 9; a.key = 9 {- p.x := y is syntax for p.x(y) -}
 
 ## Syntax -- unused variable name syntax
 ```
-(1 .. 3).collect { :_ | 0 } = [0, 0, 0] {- underscore can be used to indicate an unused variable -}
+1:3.collect { :_ | 0 } = [0, 0, 0] {- underscore can be used to indicate an unused variable -}
 let [x, _, z] = [1, 2, 3]; [x, z] = [1, 3]
-(1 .. 3).withIndexCollect { :_ :_ | 0 } = [0, 0, 0] {- multiple unused variables can be declared -}
+1:3.withIndexCollect { :_ :_ | 0 } = [0, 0, 0] {- multiple unused variables can be declared -}
 let [x, _, _, z] = [1, 2, 3, 4]; [x, z] = [1, 4] {- multiple unused variables can be declared -}
 ```
 
@@ -3918,7 +3930,7 @@ system.typeMethodDictionary('Array').anySatisfy { :each | each.name ='select' } 
 system.typeLookup('String').isType = true
 system.typeLookup('String').methodDictionary.includesIndex('includesSubstring:/2') = true
 system.typeLookup('Void').methodDictionary.includesIndex('Set:/0') = true
-system.typeLookup(4:3.typeOf).slotNameArray = ['numerator', 'denominator']
+system.typeLookup(4/3.typeOf).slotNameArray = ['numerator', 'denominator']
 ```
 
 ## System -- localStorage
@@ -4058,8 +4070,8 @@ true.not = false
 3 + 4 = 7
 10 - 1 = 9
 4 <= 3 = false
-4:3 * 3 = 4 = true {- equality is a binary message; fractions are exact -}
-3:4 == 3:4 = false {- two equal Fractions are not the same object -}
+4/3 * 3 = 4 = true {- equality is a binary message; fractions are exact -}
+3/4 == 3/4 = false {- two equal Fractions are not the same object -}
 ```
 
 ## Syntax -- precedence
@@ -4237,9 +4249,9 @@ Vector(9).isIndexable = true {- indexable trait -}
 Vector(9).isSequenceable = true {- sequenceable trait -}
 Vector(0).isEmpty = true {- the empty vector -}
 [1 .. 5].asVector.first = 1 {- array as vector -}
-(1 .. 5).asVector.second = 2 {- interval as vector -}
-(1 .. 5).asVector.asArray = [1 .. 5] {- vector as array -}
-(1 .. 5).asVector.reversed.first = 5 {- reversed -}
+1:5.asVector.second = 2 {- interval as vector -}
+1:5.asVector.asArray = [1 .. 5] {- vector as array -}
+1:5.asVector.reversed.first = 5 {- reversed -}
 let v = Vector(9); v[5] = nil {- at protocol, initialised to nil -}
 let v = Vector(9); v[5] := 5; v[5] = 5 {- atPut protocol -}
 let v = Vector(9); let c = v.copy; v[5] := 5; c[5] = nil {- copy -}
@@ -4263,7 +4275,7 @@ let w = [].asWriteStream; w.nextPut(1); w.contents = [1]
 let w = [].asWriteStream; w.nextPut(1); w.nextPutAll([2 .. 8]); w.nextPut(9); w.contents = [1 .. 9]
 let w = [].asWriteStream; 1.putOn(w); w.contents = [1]
 let w = [].asWriteStream; 1.putOn(w); [2 .. 8].putOn(w); 9.putOn(w); w.contents = [1 .. 9]
-let w = [].asByteArray.asWriteStream; w.nextPutAll((1 .. 9)); w.contents = [1 .. 9].asByteArray
+let w = [].asByteArray.asWriteStream; w.nextPutAll(1:9); w.contents = [1 .. 9].asByteArray
 let w = [nil, nil].asWriteStream; w.nextPut('a'); w.nextPut('b'); w.contents.join = 'ab'
 ```
 

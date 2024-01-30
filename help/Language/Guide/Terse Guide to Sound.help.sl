@@ -2,50 +2,50 @@
 
 ## Music-Tuning
 ```
-[1 9:8 5:4 4:3 3:2 2].collect(ratioToCents:/1).rounded = [0 204 386 498 702 1200]
-[0 203.9 386.3 498 701.9 1200].collect(centsToRatio:/1) ~ [1 9:8 5:4 4:3 3:2 2]
+[1 9/8 5/4 4/3 3/2 2].collect(ratioToCents:/1).rounded = [0 204 386 498 702 1200]
+[0 203.9 386.3 498 701.9 1200].collect(centsToRatio:/1) ~ [1 9/8 5/4 4/3 3/2 2]
 12.equalTemperamentTuning.name = 'ET-12'
 12.equalTemperamentTuning.description = 'Twelve tone equal-temperament'
 12.equalTemperamentTuning.cents = [0 100 200 300 400 500 600 700 800 900 1000 1100]
 12.equalTemperamentTuning.octave = 2
-12.equalTemperamentTuning.ratios.collect(asFraction:/1) = [1 18:17 46:41 107:90 63:50 4:3 140:99 3:2 73:46 37:22 139:78 185:98]
+12.equalTemperamentTuning.ratios.collect(asFraction:/1) = [1 18/17 46/41 107/90 63/50 4/3 140/99 3/2 73/46 37/22 139/78 185/98]
 7.equalTemperamentTuning.cents.rounded = [0 171 343 514 686 857 1029]
-7.equalTemperamentTuning.ratios.collect(asFraction:/1) = [1 85:77 89:73 35:26 107:72 64:39 163:90]
-[1 6:5 4:3 3:2 8:5].RatioTuning.ratios = [1 6:5 4:3 3:2 8:5]
-[1 6:5 4:3 3:2 8:5].RatioTuning.cents.rounded = [0 316 498 702 814]
-[1 6:5 4:3 3:2 8:5].RatioTuning.integers = [30 36 40 45 48]
-[1 6:5 4:3 3:2 8:5].RatioTuning.octave = 2
-30:17.latticePrimes = [3 5 17]
-30:17.latticeVector([3 5 17]) = [1 1 -1]
-30:17.latticeVectorString([3 5 17]) = ' 1  1 -1'
-[1:1 10:9 20:17 4:3 3:2 5:3 30:17].RatioTuning.latticePrimes = [3 5 17] {- Average Bac System -}
-[1:1 10:9 20:17 4:3 3:2 5:3 30:17].RatioTuning.latticeVertices([3 5 17]) = [0 0 0; -2 1 0; 0 1 -1; -1 0 0; 1 0 0; -1 1 0; 1 1 -1]
-let r = [1:1 10:9 20:17 4:3 3:2 5:3 30:17]; let t = r.RatioTuning; let p = t.latticePrimes; let v = t.latticeVertices(p); t.latticeEdges(v) = [1 4; 1 5; 2 6; 3 7; 4 6]
+7.equalTemperamentTuning.ratios.collect(asFraction:/1) = [1 85/77 89/73 35/26 107/72 64/39 163/90]
+[1 6/5 4/3 3/2 8/5].RatioTuning.ratios = [1 6/5 4/3 3/2 8/5]
+[1 6/5 4/3 3/2 8/5].RatioTuning.cents.rounded = [0 316 498 702 814]
+[1 6/5 4/3 3/2 8/5].RatioTuning.integers = [30 36 40 45 48]
+[1 6/5 4/3 3/2 8/5].RatioTuning.octave = 2
+30/17.latticePrimes = [3 5 17]
+30/17.latticeVector([3 5 17]) = [1 1 -1]
+30/17.latticeVectorString([3 5 17]) = ' 1  1 -1'
+[1/1 10/9 20/17 4/3 3/2 5/3 30/17].RatioTuning.latticePrimes = [3 5 17] {- Average Bac System -}
+[1/1 10/9 20/17 4/3 3/2 5/3 30/17].RatioTuning.latticeVertices([3 5 17]) = [0 0 0; -2 1 0; 0 1 -1; -1 0 0; 1 0 0; -1 1 0; 1 1 -1]
+let r = [1/1 10/9 20/17 4/3 3/2 5/3 30/17]; let t = r.RatioTuning; let p = t.latticePrimes; let v = t.latticeVertices(p); t.latticeEdges(v) = [1 4; 1 5; 2 6; 3 7; 4 6]
 ```
 
 ## Music-JiTuning
 ```
 let t = [63, 72, 84, 98, 112].JiTuning; [t.limit, t.size, t.octave] = [7, 5, 2]
-let t = [63, 72, 84, 98, 112].JiTuning; t.ratios = [1, 8:7, 4:3, 14:9, 16:9]
+let t = [63, 72, 84, 98, 112].JiTuning; t.ratios = [1, 8/7, 4/3, 14/9, 16/9]
 let t = [63, 72, 84, 98, 112].JiTuning; t.cents.rounded = [0, 231, 498, 765, 996]
-let r = [1, 8:7, 4:3, 14:9, 16:9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1:63, 112]
-[1, 8:7, 4:3, 14:9, 16:9] / 1:63 = [63, 72, 84, 98, 112]
-[1, 8:7, 4:3, 14:9, 16:9].JiTuning.integers = [63, 72, 84, 98, 112]
-[63, 72, 84, 98, 112].JiTuning.ratios = [1, 8:7, 4:3, 14:9, 16:9]
+let r = [1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/63, 112]
+[1, 8/7, 4/3, 14/9, 16/9] / 1/63 = [63, 72, 84, 98, 112]
+[1, 8/7, 4/3, 14/9, 16/9].JiTuning.integers = [63, 72, 84, 98, 112]
+[63, 72, 84, 98, 112].JiTuning.ratios = [1, 8/7, 4/3, 14/9, 16/9]
 [1, 3].JiTuning.ratios = [1, 3]
 ```
 
 ## Music-RatioTuning
 ```
-let r = RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2); [r.size, r.limit, r.cents.rounded] = [5 7 [0 231 498 765 996]]
-RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2).integers =  [63 72 84 98 112]
-IntegerTuning('', '', [63 72 84 98 112], 2).ratios = [1:1 8:7 4:3 14:9 16:9]
-RatioTuning('', '', [1:1 8:7 4:3 14:9 16:9], 2) = IntegerTuning('', '', [63 72 84 98 112], 2)
+let r = RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2); [r.size, r.limit, r.cents.rounded] = [5 7 [0 231 498 765 996]]
+RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2).integers =  [63 72 84 98 112]
+IntegerTuning('', '', [63 72 84 98 112], 2).ratios = [1/1 8/7 4/3 14/9 16/9]
+RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2) = IntegerTuning('', '', [63 72 84 98 112], 2)
 ```
 
 ## Music-Scale
 ```
-let s = Scale(1, [2 2 1 2 2 2 1], 'Major'); (1 .. 7).collect { :degree | s.integerDegreeToKey(degree, 0) } = [1 3 5 6 8 10 12]
+let s = Scale(1, [2 2 1 2 2 2 1], 'Major'); 1:7.collect { :degree | s.integerDegreeToKey(degree, 0) } = [1 3 5 6 8 10 12]
 let s = Scale(1, [2 2 1 2 2 2 1], 'Major'); [1 1.sharp 2 2.sharp 3 4 4.sharp 5 5.sharp 6 6.sharp 7].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
 let s = Scale(1, [2 2 1 2 2 2 1], 'Major'); [1 2.flat 2 3.flat 3 4 5.flat 5 6.flat 6 7.flat 7].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
 let s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); [1 2.flat 2 3 3.sharp 4 5.flat 5 6 6.sharp 7 7.sharp].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
@@ -104,14 +104,15 @@ let s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); [1 2.flat 2 3 3.cancelFlat 4 5.flat 
 
 ## SuperCollider-Lang
 ```
-(1 .. 5).keep(3) = (1 .. 3) {- keep first count items, alias for first: -}
-(1 .. 5).drop(2) = (3 .. 5) {- discard first count items -}
-(1 .. 9).drop(3) = (4 .. 9)
-(1 .. 9).dropLast(3) = (1 .. 6)
-(1 .. 9).drop(-3) = (1 .. 6) {- negative count drops from end -}
-(1 .. 9).keep(3) = (1 .. 3)
-(1 .. 9).keepLast(3) = (6 .. 9)
-[3, 5, 4].normalize = [0, 1, 1/2]
+1:5.keep(3) = 1:3 {- keep first count items, alias for first: -}
+1:5.drop(2) = 3:5 {- discard first count items -}
+1:9.drop(3) = 4:9
+1:9.dropLast(3) = 1:6
+1:9.drop(-3) = 1:6 {- negative count drops from end -}
+1:9.keep(3) = 1:3
+1:9.keepLast(3) = 6:9
+[3, 5, 4].normalize(0, 1) = [0, 1, 1 / 2] {- linLin with calculated min and max -}
+[3, -5, 4].normalize(0, 1) = [8 / 9, 0, 1]
 ({ :x | x * 2 } <> { :x | x + 3 }).value(4) = 14 {- function composition, right to left -}
 'x' + 'y' = 'x y' {- catenation with space -}
 '/usr' +/+ 'local' = '/usr/local' {- file path catenation -}
@@ -125,16 +126,16 @@ let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 127.asDigits(10, 3) = [1, 2, 7]
 127.asDigits(10) = [1, 2, 7]
 127.asDigits(2, 7) = [1, 1, 1, 1, 1, 1, 1]
-(1 .. 5000).select { :n | n = n.asDigits(10).collect { :x | x ^ x }.sum } = [1, 3435]
-(1 .. 9).atRandom.inclusivelyBetweenAnd(1, 9)
-(1 .. 9).atRandom.exclusivelyBetweenAnd(0, 10)
+1:5000.select { :n | n = n.asDigits(10).collect { :x | x ^ x }.sum } = [1, 3435]
+1:9.atRandom.inclusivelyBetweenAnd(1, 9)
+1:9.atRandom.exclusivelyBetweenAnd(0, 10)
 [3, 4, 1, 1].integrate = [3, 7, 8, 9]
 [3, 4, 1, 1].differentiate = [3, 1, -3, 0]
 [0, 3, 1].differentiate = [0, 3, -2]
 [1, 2, 4].separate { :a :b | (b - a) > 1 } = [[1, 2], [4]] {- separate using predicate block -}
 [1, 2, 4, 5, 7, 8].separate { :a :b | (b - a) > 1 } = [[1, 2], [4, 5], [7, 8]]
 [1, 3, 5].stutter(3) = [1, 1, 1, 3, 3, 3, 5, 5, 5]
-(1 .. 5).duplicateEach(2) = [1 1 2 2 3 3 4 4 5 5]
+1:5.duplicateEach(2) = [1 1 2 2 3 3 4 4 5 5]
 [0, 0, 0, 1, 1, 1].hammingDistance([0, 0, 1, 1, 0, 0]) = 3 {- number places at which element differs -}
 [0, 0, 0, 1, 1, 1].hammingDistance([0, 0, 1, 1, 0]) = 3 {- rhs has fewer elements, includes difference -}
 [0, 0, 0, 1, 1].hammingDistance([0, 0, 1, 1, 0, 0]) = 3 {- lhs has fewer elements, includes difference -}
@@ -149,17 +150,17 @@ let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [1 .. 4].similarity([5 .. 8]) = 0 {- similarity based on Levenshtein distance (0 = unequal) -}
 [1 .. 4].similarity([1, 3, 2, 4]) = 0.5 {- similarity based on Levenshtein distance -}
 [1 .. 4].mirror = [1, 2, 3, 4, 3, 2, 1] {- append reverse of prefix of array -}
-(1 .. 4).mirror1 = [1, 2, 3, 4, 3, 2] {- mirror without last element -}
-(1 .. 4).mirror2 = [1, 2, 3, 4, 4, 3, 2, 1] {- append reverse of array -}
+1:4.mirror1 = [1, 2, 3, 4, 3, 2] {- mirror without last element -}
+1:4.mirror2 = [1, 2, 3, 4, 4, 3, 2, 1] {- append reverse of array -}
 [1 .. 9].normalizeSum.sum = 1 {- self / self.sum -}
 [1 .. 9].normalize(10, 90) = [10, 20 .. 90] {- normalise between minima and maxima -}
 [1 .. 5].wrapExtend(9) = ([1 .. 5] ++ [1 .. 4]) {- extend array cyclically -}
 [1 .. 5].wrapExtend(3) = [1 .. 3] {- truncate is required -}
-(1 .. 9).clump(3) = [[1 .. 3], [4 .. 6], [7 .. 9]] {- chunks of n places -}
-(1 .. 7).clump(3) = [[1 .. 3], [4 .. 6], [7]] {- chunks of n places, last segment may have less places -}
+1:9.clump(3) = [[1 .. 3], [4 .. 6], [7 .. 9]] {- chunks of n places -}
+1:7.clump(3) = [[1 .. 3], [4 .. 6], [7]] {- chunks of n places, last segment may have less places -}
 'string'.asciiByteArray.clump(2).collect { :each | each.asByteArray.asciiString } = ['st', 'ri', 'ng']
-(9 .. 1).detectIndex(even:/1) = 2 {- answer index of detected element, else nil -}
-(9 .. 1).detectIndex(isZero:/1).isNil {- answer index of detected element, else nil -}
+9:1.detectIndex(even:/1) = 2 {- answer index of detected element, else nil -}
+9:1.detectIndex(isZero:/1).isNil {- answer index of detected element, else nil -}
 5.geom(3, 2) = [3, 6, 12, 24, 48] {- geometric series (size from by) -}
 (1, 3 .. 9).isSeries {- is arithmetic series -}
 (1, 3 .. 9).isSeriesBy(2) {- is arithmetic series by -}
@@ -167,12 +168,12 @@ let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [2, 3, 5, 6].indexInBetween(5.2) = 3.2 {- interpolated index for value (collection must be sorted) -}
 [2, 3, 5, 6].blendAt(3.2) = 5.2 {- interpolated value between indices -}
 [0, 4].collect { :i | [2, 3, 5].clipAt(i) } = [2, 5] {- clamp index to valid range-}
-(0 .. 10).collect { :n | n.linLin(0, 10, -4.3, 100).rounded } = [-4, 6, 17, 27, 37, 48, 58, 69, 79, 90, 100]
-(0 .. 10).collect { :n | n.linExp(0, 10, 4.3, 100).rounded } = [4, 6, 8, 11, 15, 21, 28, 39, 53, 73, 100]
-(1 .. 10).collect { :n | n.expLin(0.1, 10, -4.3, 100).rounded } = [48, 64, 73, 79, 84, 88, 92, 95, 98, 100]
-(1 .. 10).collect { :n | n.expExp(0.1, 10, 4.3, 100).rounded } = [21, 33, 44, 53, 62, 71, 78, 86, 93, 100]
-(0 .. 10).collect { :n | n.linCurve(0, 10, -4.3, 100, -3).rounded } = [-4, 24, 45, 61, 72, 81, 87, 92, 96, 98, 100]
-(1 .. 10).collect { :n | n.curveLin(0, 10, -4.3, 100, -3).rounded } = [-1, 3, 7, 12, 18, 25, 34, 45, 63, 100]
+0:10.collect { :n | n.linLin(0, 10, -4.3, 100).rounded } = [-4, 6, 17, 27, 37, 48, 58, 69, 79, 90, 100]
+0:10.collect { :n | n.linExp(0, 10, 4.3, 100).rounded } = [4, 6, 8, 11, 15, 21, 28, 39, 53, 73, 100]
+1:10.collect { :n | n.expLin(0.1, 10, -4.3, 100).rounded } = [48, 64, 73, 79, 84, 88, 92, 95, 98, 100]
+1:10.collect { :n | n.expExp(0.1, 10, 4.3, 100).rounded } = [21, 33, 44, 53, 62, 71, 78, 86, 93, 100]
+0:10.collect { :n | n.linCurve(0, 10, -4.3, 100, -3).rounded } = [-4, 24, 45, 61, 72, 81, 87, 92, 96, 98, 100]
+1:10.collect { :n | n.curveLin(0, 10, -4.3, 100, -3).rounded } = [-1, 3, 7, 12, 18, 25, 34, 45, 63, 100]
 5.linLin(0, 10, -4.3, 100).rounded = 48 {- linear to linear mapping -}
 5.linExp(0, 10, 4.3, 100).rounded = 21 {- linear to exponential mapping -}
 5.expLin(0.1, 10, -4.3, 100).rounded = 84 {- exponential to linear mapping -}
@@ -194,10 +195,10 @@ let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 nil ? { 'x' } = 'x' {- right hand side if nil -}
 'x' ? { 'y' } = 'x' {- left hand side unless nil -}
 Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] {- fill array using block at indicies -}
-3:2.RatioCents.rounded = 702 {- ratio (interval) to cents -}
-3:2.RatioCents ~ 702 {- ratio (interval) to cents -}
+3/2.RatioCents.rounded = 702 {- ratio (interval) to cents -}
+3/2.RatioCents ~ 702 {- ratio (interval) to cents -}
 702.CentsRatio ~ 1.5 {- cents (interval) to ratio -}
-3:2.RatioMidi ~ 7.02 {- ratio (interval) to midi -}
+3/2.RatioMidi ~ 7.02 {- ratio (interval) to midi -}
 7.02.MidiRatio ~ 1.5 {- midi (interval) to ratio -}
 [1, 3, 2, 5, 4].order = [1, 3, 2, 5, 4] {- indices that would sort reciever -}
 'string'.split.order = [6, 4, 5, 3, 1, 2] {- indices that would sort reciever -}
@@ -207,14 +208,14 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] {- fill array using block at indicie
 69.MidiCps = 440 {- midi note number to hertz -}
 0.MidiCps.rounded = 8 {- midi note zero -}
 1.CpsMidi.rounded = -36 {- one hertz -}
-(1 .. 5).slide(3, 1) = [1 2 3 2 3 4 3 4 5] {- adjacent elements given windowLength and stepSize -}
-(1 .. 7).slide(3, 2) = [1 2 3 3 4 5 5 6 7] {- 1-3, 3-5, 5-7 -}
-(1 .. 6).slide(4, 1) = [1 2 3 4 2 3 4 5 3 4 5 6] {- 1-4, 2-5, 3-6 -}
-(1 .. 5).slidingWindows(3, 1) = [(1 .. 3), (2 .. 4), (3 .. 5)] {- 1-3, 2-4, 3-5 -}
-(1 .. 7).slidingWindows(3, 2) = [(1 .. 3), (3 .. 5), (5 .. 7)] {- 1-3, 3-5, 5-7 -}
-(1 .. 6).slidingWindows(4, 1) = [(1 .. 4), (2 .. 5), (3 .. 6)] {- 1-4, 2-5, 3-6 -}
-(1 .. 6).shift(3, 0) = [0 0 0 1 2 3] {- shift right with fill value -}
-(1 .. 6).shift(-3, 0) = [4 5 6 0 0 0] {- shift left with fill value -}
+1:5.slide(3, 1) = [1 2 3 2 3 4 3 4 5] {- adjacent elements given windowLength and stepSize -}
+1:7.slide(3, 2) = [1 2 3 3 4 5 5 6 7] {- 1-3, 3-5, 5-7 -}
+1:6.slide(4, 1) = [1 2 3 4 2 3 4 5 3 4 5 6] {- 1-4, 2-5, 3-6 -}
+1:5.slidingWindows(3, 1) = [1:3, 2:4, 3:5] {- 1-3, 2-4, 3-5 -}
+1:7.slidingWindows(3, 2) = [1:3, 3:5, 5:7] {- 1-3, 3-5, 5-7 -}
+1:6.slidingWindows(4, 1) = [1:4, 2:5, 3:6] {- 1-4, 2-5, 3-6 -}
+1:6.shift(3, 0) = [0 0 0 1 2 3] {- shift right with fill value -}
+1:6.shift(-3, 0) = [4 5 6 0 0 0] {- shift left with fill value -}
 [1 2 3].powerset = [[], [3], [2], [2 3], [1], [1 3], [1 2], [1 2 3]] {- powerset -}
 [1 2 3].powerset.allButFirst = [3; 2; 2 3; 1; 1 3; 1 2; 1 2 3] {- powerset -}
 [1 .. 4].powerset.size = (2 ^ 4) {- powerset size -}
@@ -240,7 +241,7 @@ Array(4).fill { :i | i * 2 } = [2, 4, 6, 8] {- fill array using block at indicie
 [4, 7, 6, 8].reshape([2, 3]) = [[4, 7, 6], [8, 4, 7]] {- cycle input as required -}
 [[1, 2, 3], [4, 5], [6]].allTuples = [[1, 4, 6], [1, 5, 6], [2, 4, 6], [2, 5, 6], [3, 4, 6], [3, 5, 6]]
 let a = 1; let b = 2; let x = [a b]; [x x].allTuples = [a a; a b; b a; b b]
-let k = 5; let x = (1 .. k); [x, x].allTuples.size = (k ^ 2)
+let k = 5; let x = 1:k; [x, x].allTuples.size = (k ^ 2)
 ['a' 'b'; 1 2 3 4; 'x'].allTuples = ['a' 1 'x'; 'a' 2 'x'; 'a' 3 'x'; 'a' 4 'x'; 'b' 1 'x'; 'b' 2 'x'; 'b' 3 'x'; 'b' 4 'x']
 [5, 5].shapeIndices = [[1 .. 5], [1 .. 5]].allTuples {- all indices to array of given shape -}
 let n = 0; [5, 5].shapeIndicesDo { :each | n := n + 1 }; n = 25 {- all indices to array of given shape -}
@@ -259,13 +260,13 @@ let z = [3, 2].iota; z.bubble(2, 1).unbubble(2, 1) = z
 let z = [3, 2].iota; z.bubble(0, 2) = [[z]]
 let z = [3, 2].iota; z.bubble(0, 2).unbubble(0, 2) = z
 [[1, 2, 3], [[41, 52], 5, 6], 1, 2, 3].maxDepth = 3
-(0 .. 3).collect { :k | [[1, 2, 3], [[41, 52], 5, 6], 1, 2, 3].maxSizeAtDepth(k) } = [5, 3, 2, 1]
-[4, 5].iota.slice([nil, (1 .. 3)]) = [[1, 2, 3], [6, 7, 8], [11, 12, 13], [16, 17, 18]]
-[4, 5].iota.slice([[3], (1 .. 3)]) = [11, 12, 13]
-[4, 5].iota.slice([3, (1 .. 3)]) = [11, 12, 13]
-[4, 5].iota.slice([(3 .. 4), (1 .. 3)]) = [[11, 12, 13], [16, 17, 18]]
-[4, 5].iota.slice([(2 .. 4), [4]]) = [9, 14, 19]
-[4, 5].iota.slice([(2 .. 4), 4]) = [9, 14, 19]
+0:3.collect { :k | [[1, 2, 3], [[41, 52], 5, 6], 1, 2, 3].maxSizeAtDepth(k) } = [5, 3, 2, 1]
+[4, 5].iota.slice([nil, 1:3]) = [[1, 2, 3], [6, 7, 8], [11, 12, 13], [16, 17, 18]]
+[4, 5].iota.slice([[3], 1:3]) = [11, 12, 13]
+[4, 5].iota.slice([3, 1:3]) = [11, 12, 13]
+[4, 5].iota.slice([3:4, 1:3]) = [[11, 12, 13], [16, 17, 18]]
+[4, 5].iota.slice([2:4, [4]]) = [9, 14, 19]
+[4, 5].iota.slice([2:4, 4]) = [9, 14, 19]
 [4, 5].iota.slice([[3], [4]]) = 14
 [4, 5].iota.slice([3, 4]) = 14
 [3, 3, 3].iota.slice([[1, 2], [2, 3], [1, 3]]) = [[[4, 6], [7, 9]], [[13, 15], [16, 18]]]
@@ -276,14 +277,14 @@ let z = [3, 2].iota; z.bubble(0, 2).unbubble(0, 2) = z
 [3, 3, 3].iota.slice([nil, nil, 2]) = [[2, 5, 8], [11, 14, 17], [20, 23, 26]]
 [3, 3, 3].iota.slice([nil, [3], [2]]) = [8, 17, 26]
 [3, 3, 3].iota.slice([nil, 3, 2]) = [8, 17, 26]
-[3, 3, 3].iota.slice([nil, [2], (2 .. 3)]) = [[5, 6], [14, 15], [23, 24]]
-[3, 3, 3].iota.slice([nil, 2, (2 .. 3)]) = [[5, 6], [14, 15], [23, 24]]
+[3, 3, 3].iota.slice([nil, [2], 2:3]) = [[5, 6], [14, 15], [23, 24]]
+[3, 3, 3].iota.slice([nil, 2, 2:3]) = [[5, 6], [14, 15], [23, 24]]
 [3, 3, 3].iota.slice([[2], [1, 2]]) = [[10, 11, 12], [13, 14, 15]]
 [3, 3, 3].iota.slice([2, [1, 2]]) = [[10, 11, 12], [13, 14, 15]]
 [2, 3, 2].iota.collect(reverse:/1) = [[[5, 6], [3, 4], [1, 2]], [[11, 12], [9, 10], [7, 8]]]
 [2, 3, 2].iota.deepCollect(0, reverse:/1) = [[[7, 8], [9, 10], [11, 12]], [[1, 2], [3, 4], [5, 6]]]
 [2, 3, 2].iota.deepCollect(2, reverse:/1) = [[[2, 1], [4, 3], [6, 5]], [[8, 7], [10, 9], [12, 11]]]
-(6 .. 1).reshapeLike([1, [2, 3], [4, 5, 6]]) = [6, [5, 4], [3, 2, 1]]
+6:1.reshapeLike([1, [2, 3], [4, 5, 6]]) = [6, [5, 4], [3, 2, 1]]
 [[6, 5, 4], [3, 2], 1].reshapeLike([1, [2, 3], [4, 5, 6]]) = [6, [5, 4], [3, 2, 1]]
 let a = [[10, 20],[30, 40, 50], 60, 70, [80, 90]]; let b = [[1, 2, [3, 4], [[5], 6], 7], 8, [[9]]]; a.reshapeLike(b) = [[10, 20, [30, 40], [[50], 60], 70], 80, [[90]]] & { b.reshapeLike(a) = [[1, 2], [3, 4, 5], 6, 7, [8, 9]] }
 let a = [1 2; 3 4; 5 6]; a.assertShape([3 2]) = a {- assert that array has shape -}

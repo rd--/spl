@@ -1,5 +1,5 @@
 {- http://twitter.com/n_peeq_t/status/1613573427717345282 -}
-((1 .. 99) ^ 1.046).collect { :i |
+(1:99 ^ 1.046).collect { :i |
 	EqPan(
 		SinOsc(99 * i, 0) * i / 99 / 9,
 		SinOsc(i / 50, 0)

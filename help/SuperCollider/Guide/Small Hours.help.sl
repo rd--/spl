@@ -8,7 +8,7 @@ To play a synthesiser program select it and type _Ctrl-Enter_.
 
 ```
 {- https://sccode.org/1-4Qy ; f0 ; 0283 -}
-let b = 1 / (2 .. 6);
+let b = 1 / 2:6;
 let o1 = SinOscFb(
 	SinOscFb(b, 1) < b * 500 + 99,
 	0

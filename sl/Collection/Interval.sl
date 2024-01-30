@@ -115,7 +115,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequenceable] { | start sto
 
 	printString { :self |
 		(self.step = 1).if {
-			'(' ++ self.start ++ ' .. ' ++ self.stop ++ ')'
+			self.start.printString ++ ':' ++ self.stop.printString
 		} {
 			self.storeString
 		}

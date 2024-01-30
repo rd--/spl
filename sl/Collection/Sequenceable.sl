@@ -305,8 +305,11 @@
 		}
 	}
 
-	duplicateEach { :self :anInteger |
-		self.replicateEachApplying(anInteger, value:/1)
+	duplicateEach { :self :counts |
+		counts.isInteger.ifTrue {
+			counts := counts.replicate(self.size)
+		};
+		self.replicateEachApplying(counts, value:/1)
 	}
 
 	equalBy { :self :anObject :aBlock:/2 |
@@ -857,22 +860,29 @@
 		self
 	}
 
-	replicateEachApplying { :self :anInteger :aBlock:/1 |
-		let answerSize = self.size * anInteger;
-		let answer = self.species.ofSize(answerSize);
-		let answerIndex = 1;
-		(1 .. self.size).do { :selfIndex |
-			let entry = aBlock(self[selfIndex]);
-			(1 .. anInteger).do { :unusedCounter |
-				answer[answerIndex] := entry;
-				answerIndex := answerIndex + 1
-			}
-		};
-		answer
+	replicateEachApplying { :self :counts :aBlock:/1 |
+		(self.size ~= counts.size).if {
+			'Sequence>>replicateEachApplying: counts not of correct size'.error
+		} {
+			let answerSize = counts.sum;
+			let answer = self.species.ofSize(answerSize);
+			let answerIndex = 1;
+			(1 .. self.size).do { :selfIndex |
+				let entry = aBlock(self[selfIndex]);
+				counts[selfIndex].timesRepeat {
+					answer[answerIndex] := entry;
+					answerIndex := answerIndex + 1
+				}
+			};
+			answer
+		}
 	}
 
-	replicateEach { :self :anInteger |
-		self.replicateEachApplying(anInteger, identity:/1)
+	replicateEach { :self :counts |
+		counts.isInteger.ifTrue {
+			counts := counts.replicate(self.size)
+		};
+		self.replicateEachApplying(counts, identity:/1)
 	}
 
 	reversed { :self |

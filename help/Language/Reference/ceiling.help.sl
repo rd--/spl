@@ -10,10 +10,9 @@ Answer the integer nearest the receiver toward  infinity.
 	-2.1.ceiling = -2
 	(3 / 2).ceiling = 2
 	(-3 / 2).ceiling = -1
-	3:2.ceiling = 2
-	-3:2.ceiling = -1
+	3/2.ceiling = 2
+	-3/2.ceiling = -1
 
 * * *
 
-See also: floor, rounded
-
+See also: floor, max, min, rounded

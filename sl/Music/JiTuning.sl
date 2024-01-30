@@ -24,7 +24,7 @@
 			self::description,
 			self::tuning,
 			self.atIfAbsent('octave') {
-				2:1
+				2/1
 			},
 			self::limit
 		)
@@ -39,7 +39,7 @@
 			'',
 			'',
 			self,
-			2:1,
+			2/1,
 			nil
 		)
 	}

@@ -129,7 +129,7 @@ let p = 12; {- number of overtones -}
 		RingzBank(
 			noise,
 			{ 0.5.Rand2 } ! p + p.arithmeticSeries(freq, freq),
-			1 / (1 .. p),
+			1 / 1:p,
 			{ 0.5 + 4.Rand0 } ! p
 		)
 	} ! 2
@@ -147,7 +147,7 @@ let p = 12; {- number of overtones -}
 		RingzBank(
 			noise,
 			{ 0.5.Rand2 } ! p + p.arithmeticSeries(freq, 2 * freq),
-			1 / (1 .. p),
+			1 / 1:p,
 			{ 0.2 + 0.8.Rand0 } ! p
 		)
 	} ! 2

@@ -32,7 +32,7 @@ Voicer(1, 16) { :e |
 		(freq + (freq * (detuneCurve(detune)) * 0.06216538)),
 		(freq + (freq * (detuneCurve(detune)) * 0.10745242))
 	];
-	let side = (1 .. 6).collect { :n |
+	let side = 1:6.collect { :n |
 		LfSaw(freqs[n], Rand(0, 2))
 	}.Sum;
 	let sig = (center * centerGain(mix)) + (side * sideGain(mix));

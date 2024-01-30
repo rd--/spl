@@ -4,8 +4,8 @@ _FreeVerb(in, mix=0.33, room=0.5, damp=0.5)_
 
 - in: input signal
 - mix: 0 = dry, 1 = wet
-- room: room size (0 .. 1)
-- damp: high frequency damping (0 .. 1)
+- room: room size (0, 1)
+- damp: high frequency damping (0, 1)
 
 Reverberate decaying impulse shaped cubic oscillator:
 

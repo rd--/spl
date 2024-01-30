@@ -292,6 +292,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("constant" . ?⍨) ; Apl
      ("drop" . ?↓) ; Apl
      ("enclose" . ?⊂) ; Apl
+     ("exp" . ?*) ; Apl
      ("expand" . ?\\) ; Apl
      ("factorial" . ?!) ; Apl
      ("find" . ?⍷) ; Apl
@@ -301,8 +302,9 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("gradeUp" . ?⍋) ; Apl
      ("identity" . ?⊣) ; Apl
      ("innerProduct" . ?‧) ; Apl ; U+2027 ‧ Hyphenation Point ; U+25AA ▪ Black Small Square
-     ("iota" . ?⍳) ; Apl
+     ("iota" . ?⍳) ; Apl ; U+2373 ⍳ APL Functional Symbol Iota
      ("leftIdentity" . ?⊣) ; Apl ; U+22A3 ⊣ Left Tack
+     ("log" . ?⍟) ; Apl
      ("max" . ?⌈) ; Apl
      ("min" . ?⌊) ; Apl
      ("negated" . ?-) ; Apl
@@ -317,6 +319,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("rightIdentity" . ?⊢) ; Apl ; U+22A2 ⊢ Right Tack
      ("rotatedLeft" . ?⌽) ; Apl
      ("shape" . ?⍴) ; Apl
+     ("swap" . ?⍨) ; Apl ; U+2368 ⍨ APL Functional Symbol Tilde Diaeresis
      ("take" . ?↑) ; Apl
      ("tally" . ?≢) ; Apl
      ("unique" . ?∪) ; Apl ; U+2191 ↑ Upwards Arrow; U+222A ∪ Union
@@ -338,7 +341,10 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("first" . ?₁) ; U+2081 ₁ Subscript One
      ("flat" . ?♭) ; U+266D ♭ Music Flat Sign
      ("fourth" . ?₄) ; U+2084 ₄ Subscript Four
+     ("gamma" . ?γ) ; U+03B3 γ Greek Small Letter Gamma
+     ("i" . ?𝒊) ; U+1D48A 𝒊 Mathematical Italic Small I
      ("includes" . ?∋) ; U+220B ∋ Contains as Member
+     ("index" . ?𝒊) ; U+1D48A 𝒊 Mathematical Italic Small I
      ("inf" . ?∞) ; U+221E ∞ Infinity
      ("intersection" . ?∩) ; U+2229 ∩ Intersection
      ("lambda" . ?λ) ; U+03BB λ Greek Small Letter Lamda
@@ -354,7 +360,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("r" . ?𝑟) ; U+1D45F 𝑟 Mathematical Italic Small R
      ("return" . ?↑) ; U+2191 ↑ Upwards Arrow
      ("return:/1" . ?↑) ; U+2191 ↑ Upwards Arrow
-     ("reversed" . ?ᴙ) ; U+1D19 ᴙ Latin Letter Small Capital Reversed R
+     ("reversed" . ?ᴙ) ; U+1D19 ᴙ Latin Letter Small Capital Reversed R ; U+233D ⌽ APL Functional Symbol Circle Stile
      ("rotatedLeft" . ?⌽) ; U+233D ⌽ APL Functional Symbol Circle Stile
      ("rho" . ?ρ) ; U+03C1 ρ Greek Small Letter Rho
      ("second" . ?₂) ; U+2082 ₂ Subscript Two
@@ -366,6 +372,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("third" . ?₃) ; U+2083 ₃ Subscript Three
      ("transposed" . ?ᵀ) ; U+1D40 ᵀ Modifier Letter Capital T
      ("true" . ?⊤) ; U+22A4 ⊤ Down Tack
+     ("u" . ?𝑢) ; U+1D462 𝑢 Mathematical Italic Small U
      ("undefined" . ?⊥) ; U+22A5 ⊥ Up tack
      ("union" . ?∪) ; U+222A ∪ Union
      ("valueWithReturn" . ?↓) ; U+2193 ↓ Downwards Arrow

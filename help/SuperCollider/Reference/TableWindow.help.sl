@@ -9,7 +9,7 @@ _TableWindow(trig, dur, bufNum)_
 The program below constructs a half-sine table,
 which is applied as a window (amplitude envelope) to a sine oscillator.
 
-	let tbl = (0 .. 511).collect { :each |
+	let tbl = 0:511.collect { :each |
 		(each / 512 * pi).sin
 	}.asLocalBuf;
 	let k = 7;

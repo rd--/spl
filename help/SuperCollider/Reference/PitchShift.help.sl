@@ -2,7 +2,8 @@
 
 _PitchShift(in, windowSize, pitchRatio, pitchDispersion, timeDispersion)_
 
-A time domain granular pitch shifter. Grains have a triangular amplitude envelope and an overlap of 4:1.
+A time domain granular pitch shifter.
+Grains have a triangular amplitude envelope and an overlap of 4:1.
 
 - in: the input signal.
 - windowSize: the size of the grain window in seconds. This value cannot be modulated.

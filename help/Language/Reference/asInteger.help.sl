@@ -13,7 +13,7 @@ In the String case answer _parseDecimalInteger_
 	'~'.asCharacter.asInteger = 126
 	23.asInteger = 23
 	pi.asInteger = 3
-	22:7.asInteger = 3
+	22/7.asInteger = 3
 	'23'.asInteger = 23
 
 * * *

@@ -3,7 +3,7 @@
 _VarSaw(freq=440, iphase=0, width=0.5)_
 
 - freq: frequency in Hertz
-- iphase: initial phase offset in cycles (0 .. 1)
+- iphase: initial phase offset in cycles (0-1)
 - width: duty cycle from zero to one.
 
 Modulate frequency and width:

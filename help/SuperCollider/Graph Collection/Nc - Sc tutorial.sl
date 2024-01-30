@@ -22,21 +22,21 @@ Resonz(z, MouseX(100, 2000, 0, 0.2), MouseY(0.01, 1.0, 0, 0.2))
 
 {- tutorial 2.1 ; sawtooth -}
 let n = 9;
-(0 .. n).collect { :i |
+0:n.collect { :i |
 	let mult = (-1 ^ i) * (0.5 / (i + 1));
 	SinOsc(440 * (i + 1), 0) * mult
 }.Sum / n
 
 {- tutorial 2.1 ; square -}
 let n = 9;
-(0 .. n).collect { :i |
+0:n.collect { :i |
 	let harmonicnumber = 2 * i + 1;
 	SinOsc(440 * harmonicnumber, 0) / harmonicnumber
 }.Sum / n
 
 {- tutorial 2.1 ; triangle -}
 let n = 9;
-(0 .. n).collect { :i |
+0:n.collect { :i |
 	let harmonicnumber = 2 * i + 1;
 	let mult = (-1 ^ (harmonicnumber - 1 / 2)) * (1 / (harmonicnumber * harmonicnumber));
 	SinOsc(440 * harmonicnumber, 0) * mult
@@ -86,10 +86,10 @@ let amplitudes = [0.25 1 0.8 0.5 0.9 0.4 0.3 0.6 0.1];
 let numPartials = spectrum.size;
 let modFreqs1 = { Rand(1, 5) } ! numPartials;
 let modFreqs2 = { Rand(0.1, 3) } ! numPartials;
-let decayTimes = (1 .. numPartials).collect { :i |
+let decayTimes = 1:numPartials.collect { :i |
 	Rand(2.5, 2.5 + (5 * (1.0 - (i - 1 / numPartials))))
 };
-(1 .. numPartials).collect { :i |
+1:numPartials.collect { :i |
 	let freq = spectrum[i] + (SinOsc(modFreqs1[i], 0) * 0.005) * 500;
 	let amp = 0.1 * Line(
 		1,

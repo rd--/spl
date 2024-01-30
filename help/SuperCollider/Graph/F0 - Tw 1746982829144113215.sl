@@ -10,5 +10,5 @@ let h = Hilbert(
 		11400
 	)
 ) * 1.4;
-let l = LocalOut(DelayN(h.transposed.second.Sin, d, d / (1 .. 4)));
+let l = LocalOut(DelayN(h.transposed.second.Sin, d, d / 1:4));
 Splay(z) <! l / 4

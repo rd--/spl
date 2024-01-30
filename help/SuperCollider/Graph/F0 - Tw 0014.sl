@@ -1,5 +1,5 @@
 {- Tw 0014 (F0) ; http://twitter.com/redFrik/status/24193534033 -}
-(1 .. 9).collect { :i |
+1:9.collect { :i |
 	let a0 = SinOscFb(i + 1, 1 / 9) * 999;
 	let a1 = SinOscFb(1 / 9, 1) / 9;
 	let a2 = SinOscFb(a0, 1 / 9) * a1;

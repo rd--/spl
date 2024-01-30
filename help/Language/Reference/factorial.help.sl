@@ -4,7 +4,7 @@
 
 The product of 1 up to _anInteger_.
 
-	9.factorial = (1 .. 9).product
+	9.factorial = 1:9.product
 	18.factorial = 6402373705728000
 	23n.factorial = 25852016738884976640000n
 

@@ -1,5 +1,5 @@
 {- http://sccode.org/1-4Qy (F0) ; 0301 ; requires=kr -}
-let b = (0 .. 3).collect { :i |
+let b = 0:3.collect { :i |
 	Duty(
 		i + 1 / 9,
 		0,

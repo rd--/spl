@@ -20,14 +20,8 @@
 		self.collect(MidiCps:/1)
 	}
 
-	normalize { :self |
-		let min = self.min;
-		let max = self.max;
-		let mul = 1 / (max - min);
-		let add = 0 - (mul * min);
-		self.collect { :each |
-			each * mul + add
-		}
+	normalize { :self :outMin :outMax |
+		self.linLin(self.min, self.max, outMin, outMax)
 	}
 
 	powersetBitwise { :self |
@@ -556,26 +550,6 @@
 		}
 	}
 
-	drop { :self :count |
-		(count.abs >= self.size).if {
-			self.species.new
-		} {
-			(count < 0).if {
-				self.dropLast(count.negated)
-			} {
-				self.dropFirst(count)
-			}
-		}
-	}
-
-	dropFirst { :self :count |
-		self.copyFromTo(count + 1, self.size)
-	}
-
-	dropLast { :self :count |
-		self.copyFromTo(1, self.size - count)
-	}
-
 	extendTo { :self :size |
 		1.toAsCollect(size, self.species) { :index |
 			self.atWrap(index)
@@ -888,30 +862,6 @@
 
 	tableRand { :self |
 		self.blendAt(1.nextRandomFloat(self.size))
-	}
-
-	take { :self :count |
-		(count < 0).if {
-			self.takeLast(count.negated)
-		} {
-			self.takeFirst(count)
-		}
-	}
-
-	takeFirst { :self :count |
-		(count > self.size).if {
-			self ++ (self.first.zero ! (count - self.size))
-		} {
-			self.copyFromTo(1, count)
-		}
-	}
-
-	takeLast { :self :count |
-		(count > self.size).if {
-			(self.first.zero ! (count - self.size)) ++ self
-		} {
-			self.copyFromTo(self.size - count + 1, self.size)
-		}
 	}
 
 	waveFill { :self :aBlock:/3 :start :end |

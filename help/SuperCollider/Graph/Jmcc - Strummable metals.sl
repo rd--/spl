@@ -1,6 +1,6 @@
 {- Strummable metals ; use mouse to strum strings (Jmcc) -}
 let mousex = MouseX(0, 1, 0, 0.2);
-let str = (1 .. 8).collect { :i |
+let str = 1:8.collect { :i |
 	let trigger = Hpz1(mousex > (0.25 + (i * 0.07))).Abs;
 	let pluck = PinkNoise() * Decay(trigger, 0.05) * 0.04;
 	let n = 15;

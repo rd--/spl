@@ -4,7 +4,7 @@
 
 Wrap an integer between two indices, not that the wrap occurs _before_ the high value is reached:
 
-	(1 .. 9).collect { :each | each.wrapBetweenAnd(3, 7 + 1) } = [6 7 3 4 5 6 7 3 4]
+	1:9.collect { :each | each.wrapBetweenAnd(3, 7 + 1) } = [6 7 3 4 5 6 7 3 4]
 
 Wrap a float between two values:
 

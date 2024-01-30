@@ -72,6 +72,15 @@
 		}
 	}
 
+	power { :self:/1 :count |
+		{ :each |
+			count.timesRepeat {
+				each := self(each)
+			};
+			each
+		}
+	}
+
 	self { :self:/2 |
 		{ :each |
 			self(each, each)
@@ -103,6 +112,26 @@
 }
 
 +@Sequenceable {
+
+	drop { :self :count |
+		(count.abs >= self.size).if {
+			self.species.new
+		} {
+			(count < 0).if {
+				self.dropLast(count.negated)
+			} {
+				self.dropFirst(count)
+			}
+		}
+	}
+
+	dropFirst { :self :count |
+		self.copyFromTo(count + 1, self.size)
+	}
+
+	dropLast { :self :count |
+		self.copyFromTo(1, self.size - count)
+	}
 
 	expand { :self :counts |
 		let index = 0;
@@ -179,14 +208,33 @@
 		answer
 	}
 
+
 	reciprocal { :self |
 		self.collect(reciprocal:/1)
 	}
 
-	replicateEach { :self :counts |
-		self.withCollect(counts) { :each :k |
-			each.replicate(k)
-		}.concatenation
+	take { :self :count |
+		(count < 0).if {
+			self.takeLast(count.negated)
+		} {
+			self.takeFirst(count)
+		}
+	}
+
+	takeFirst { :self :count |
+		(count > self.size).if {
+			self ++ (self.first.zero ! (count - self.size))
+		} {
+			self.copyFromTo(1, count)
+		}
+	}
+
+	takeLast { :self :count |
+		(count > self.size).if {
+			(self.first.zero ! (count - self.size)) ++ self
+		} {
+			self.copyFromTo(self.size - count + 1, self.size)
+		}
 	}
 
 	tally { :self |
@@ -251,7 +299,7 @@
 	}
 
 	replicateEach { :self :counts |
-		self.asArray.replicateEach(counts).join
+		self.asArray.replicateEach(counts).join
 	}
 
 	shape { :self |

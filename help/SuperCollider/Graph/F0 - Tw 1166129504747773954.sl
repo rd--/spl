@@ -1,5 +1,5 @@
 {- http://twitter.com/redFrik/status/1166129504747773954 -}
-let z = (0 .. 2);
+let z = 0:2;
 let f = z.collect { :i |
 	i + 3.33 + LfTri(3 / 3333, 0)
 } % 3 * 33 * (3 / (3 * pi) + LfPulse(0.003 * 3, 0, 0.5));

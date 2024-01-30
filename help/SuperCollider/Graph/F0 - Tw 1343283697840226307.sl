@@ -1,5 +1,5 @@
 {- F0 <http://twitter.com/redFrik/status/1343283697840226307> -}
-let b = (2 .. 12) / 12;
+let b = 2:12 / 12;
 let f = [136.1 163.3 181.4 204.1 244.9 272.1 326.5 362.8 408.2 489.8 544.2];
 let z = WhiteNoise(11) * (LfTri(b, 0) + 1 / 2) + BrownNoise();
 let t = LfTri(121 ^ LfTri(2 / 121 * b, 0), 0);

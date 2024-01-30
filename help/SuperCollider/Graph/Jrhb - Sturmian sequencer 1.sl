@@ -9,7 +9,7 @@ let rewrite = { :n |
 	};
 	r
 };
-(0 .. 6).collect { :i |
+0:6.collect { :i |
 	let str = rewrite(i + 6);
 	let dt = 2 ^ i.negated * 10;
 	let trig = Sequencer(str, Impulse(1 / dt, 0));

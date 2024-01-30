@@ -41,7 +41,7 @@ let allPassIo = 0;
 tapData.do { :params |
 	tapsOut := tapsOut + (DelayTap(buffer, params.first) * params.second)
 };
-(1 .. 6).do { :index |
+1:6.do { :index |
 	combsOut := combsOut + (
 		CombC(
 			revMonoInput + tapsOut, {- TapsOut could be scaled -}

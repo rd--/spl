@@ -5,7 +5,7 @@ let o = Splay2(
 		DelayC(
 			i + ((1 + i) ^ 0.999),
 			1,
-			SinOsc(0.01 / (1 .. 8), 0).ExpRange(0.01, 1)
+			SinOsc(0.01 / 1:8, 0).ExpRange(0.01, 1)
 		),
 		0.995
 	).Tanh
@@ -45,7 +45,7 @@ Splay(
 		FreeVerb(
 			SinOsc(
 				f,
-				SinOsc(3 * f, 0) * e ^ 2 * (SinOsc(1.1 ^ (0 .. 3) / 16, 0) * 2 + 3)
+				SinOsc(3 * f, 0) * e ^ 2 * (SinOsc(1.1 ^ 0:3 / 16, 0) * 2 + 3)
 			) * e,
 			m.Abs / 2,
 			1 - m ^ 2 * 2,
@@ -60,7 +60,7 @@ Splay(
 {- Stretching again ; https://github.com/lukiss/Losers-Union-SC-Research -}
 let c = 16;
 let f = 41;
-let t = (0 .. c).collect { :n |
+let t = 0:c.collect { :n |
 	PulseDivider(Impulse(f, 0), c, 15 - n)
 };
 Splay(
@@ -93,7 +93,7 @@ Splay(
 )
 
 {- Phasing Patterns ; https://github.com/lukiss/Losers-Union-SC-Research -}
-let f = (48 + (0 .. 2).collect { :n |
+let f = (48 + 0:2.collect { :n |
 	[0 -5 15 10] + (n * 12)
 }.concatenation).MidiCps;
 Splay(
@@ -105,7 +105,7 @@ Splay(
 ) / 3
 
 {- Mistakes were made ; https://github.com/lukiss/Losers-Union-SC-Research -}
-let p = 9 / 7 ^ (0 .. 16);
+let p = 9 / 7 ^ 0:16;
 let c = { :freq |
 	LinCongC(freq, 1.1, 0.13, 1, 0)
 };
@@ -153,7 +153,7 @@ LeakDc(
 ).SoftClip / 2
 
 {- Spa Saw Shower Wash ; https://github.com/lukiss/Losers-Union-SC-Research -}
-let c = 4096.sineTable(1 / (1 .. 128), [0]).normalize.asWavetable.asLocalBuf;
+let c = 4096.sineTable(1 / 1:128, [0]).normalize(0, 1).asWavetable.asLocalBuf;
 let w = { :freq |
 	LfdNoise3(freq).LinLin(-1, 1, 80, 6880) {- LinCurve -}
 };
@@ -181,7 +181,7 @@ o
 
 {- Suspect jazz ; https://github.com/lukiss/Losers-Union-SC-Research -}
 let x = HenonL(1 + LfdNoise1(3).ExpRange(0.01, 1) * 8, 1.4, 0.3, 0, 0).Fold2(1);
-let t = (0 .. 8).collect { :n |
+let t = 0:8.collect { :n |
 	PulseDivider(x, 8, 7 - n)
 };
 let d = 1.5 + x.ExpRange(0.01, 1);
@@ -194,7 +194,7 @@ let f = Demand(
 	0,
 	[
 		Drand(inf, c),
-		Dxrand(inf, 48 + (0 .. 2).collect { :o |
+		Dxrand(inf, 48 + 0:2.collect { :o |
 			o * 12 + c
 		}.concatenation)
 	].Sum
@@ -351,9 +351,9 @@ let l = { :mul |
 let d = {
 	{
 		Demand(
-			Impulse(1 / (30 .. 53).atRandom, 0),
+			Impulse(1 / 30:53.atRandom, 0),
 			0,
-			Dxrand(inf, (7 .. 53).degreeToKey([0 1 4 5 7 9 10], 12).MidiCps)
+			Dxrand(inf, 7:53.degreeToKey([0 1 4 5 7 9 10], 12).MidiCps)
 		)
 	} ! n
 };
@@ -376,7 +376,7 @@ Splay(
 
 {- 30 Apr. 2020 ; https://github.com/lukiss/Losers-Union-SC-Research -}
 let t = {
-	TDuty(Drand(inf, (1 .. 8) / 16), 0, 1)
+	TDuty(Drand(inf, 1:8 / 16), 0, 1)
 };
 let r = { :lo :hi |
 	TRand(lo, hi, t())
@@ -409,7 +409,7 @@ Normalizer(
 {- 22 Nov. 2021 ; https://github.com/lukiss/Losers-Union-SC-Research -}
 let k = 1 / 100000;
 let n = {
-	1 + ((k * (1 .. 7))).scramble
+	1 + ((k * 1:7)).scramble
 };
 Splay(
 	VarSaw(
@@ -462,7 +462,7 @@ let r = { :freq :mul |
 	(Gendy3(6, 6, l(), l(), freq, l(), l(), 5, l() * 5) * mul).Abs.kr
 };
 -12.DbAmp * Splay(
-	(1 .. 6).collect { :n |
+	1:6.collect { :n |
 		CombC(
 			LeakDc(
 				Fm7Matrix(
@@ -516,7 +516,7 @@ let d = Dust(1);
 let m = {
 	TRand(0.5, 2.5, d).Lag3(1 / 16)
 };
-let c = (0 .. 9).collect { :n |
+let c = 0:9.collect { :n |
 	m() ^ n
 };
 let n = c / c.Sum;
@@ -541,7 +541,7 @@ Splay(
 {- 27 Oktober 2022 ; https://github.com/lukiss/Losers-Union-SC-Research -}
 let a = [41 73 123 196];
 let f = SinOsc(440, 0);
-(0 .. 8).do { :i |
+0:8.do { :i |
 	a := a * 5.MidiRatio;
 	f := SinOsc(f * a.rotated(i + 3), 0) * SinOsc(f, 0).Tanh
 };
@@ -590,7 +590,7 @@ Splay(
 let l = { :lo :hi |
 	TChoose(
 		Dust(3 ! 2),
-		CuspN(1.1 ^ (0 .. 5), 1, 1.9, 0).Tanh
+		CuspN(1.1 ^ 0:5, 1, 1.9, 0).Tanh
 	).ExpRange(lo, hi)
 };
 let a = { l(0.001, 1) } ! 6;
@@ -643,7 +643,7 @@ let tab = [
 let x = LorenzL(24, 10, 28, 2.667, 0.05, 0.1, 0, 0).Sin.Range(1, 4) / Diwhite(inf, 2, 10);
 let dur = Duty(x, 0, x);
 let trg = TDuty(dur, 0, 1);
-let mel = (26 .. 42).degreeToKey([0 2 4 5 7 9 11], 12);
+let mel = 26:42.degreeToKey([0 2 4 5 7 9 11], 12);
 let mnn = Demand(
 	trg,
 	0,
@@ -671,7 +671,7 @@ Splay(
 			LfNoise2(voc.second) * mnn / (voc.first) + mnn.MidiCps,
 			atk + sus
 		),
-		env - (Perc(trg, 0, 1 / (2 ^ (0 .. 5)) / 8, -4) * 0.5) * voc.first + 30,
+		env - (Perc(trg, 0, 1 / (2 ^ 0:5) / 8, -4) * 0.5) * voc.first + 30,
 		voc.second / voc.first
 	).SoftClip * voc.third.DbAmp * env
 )

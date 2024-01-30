@@ -1,5 +1,5 @@
 {- 20060916 ; rd -}
-(1 .. 4).collect { :n |
+1:4.collect { :n |
 	let tr = Dust(1.6);
 	let rd = { :l |
 		BufRd(
