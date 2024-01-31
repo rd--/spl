@@ -4,7 +4,7 @@
 
 Evaluate _aBlock_ with _anObject_ as argument and answer _anObject_.
 
-See _with_ for a slight variation that answers the answer of _aBlock_ instead.
+See _in_ (or _with_) for a slight variation that answers the answer of _aBlock_ instead.
 
 ```
 let d = (c: 1);
@@ -14,4 +14,9 @@ d = (c: 2) & { r == d }
 
 * * *
 
-See also: value, with
+See also: in, value, with
+
+References:
+_Kotlin_
+[1](https://kotlinlang.org/docs/scope-functions.html#also)
+[2](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/also.html)

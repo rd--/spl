@@ -61,6 +61,12 @@
 		}
 	}
 
+	constant { :self |
+		{ :unusedObject |
+			self
+		}
+	}
+
 	copy { :self |
 		let answer = self.shallowCopy;
 		answer.postCopy;

@@ -309,6 +309,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("min" . ?⌊) ; Apl
      ("negated" . ?-) ; Apl
      ("nest" . ?⊆) ; Apl
+     ("nthRoot" . ?√) ; Apl
      ("nubSieve" . ?≠) ; Apl
      ("over" . ?⍥) ; Apl
      ("partition" . ?⊆) ; Apl

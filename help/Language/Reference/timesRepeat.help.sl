@@ -8,4 +8,4 @@ Unlike _toDo_, or _do_ at an _Interval_ the block does not receive the iteration
 
 * * *
 
-See also: do, toDo
+See also: do, iterate, toDo

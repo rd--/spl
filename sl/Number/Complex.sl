@@ -219,6 +219,10 @@ Complex : [Object] { | real imaginary |
 		}
 	}
 
+	sign { :self |
+		self / self.abs
+	}
+
 	sin { :self |
 		self.i.sinh.i.negated
 	}

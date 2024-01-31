@@ -1,0 +1,32 @@
+# iterate
+
+- _iterate(aBlock:/1, anObject)_
+
+Answer an infinite stream of repeated applications of _aBlock_ to _anObject_.
+
+	not:/1.iterate(true).next(10) = [true false true false true false true false true false]
+	{ :each | each + 3 }.iterate(42).next(10) = [42 45 48 51 54 57 60 63 66 69]
+
+- _iterate(aBlock:/1, anInteger, anObject)_
+
+Apply _aBlock_ iteratively _anInteger_ times, initially to _anObject_.
+
+	{ :x | x ^ 2 }.iterate(3, 2) = 256
+	let x = 2; 3.timesRepeat { x := x ^ 2}; x = 256
+	2 ^ 2 ^ 2 ^ 2 = 256
+
+_Rationale:_
+This notation can be more compact that a written out loop,
+and can also be written in the middle of a sequence of bindings,
+where a loop statement is not allowed.
+
+* * *
+
+See also: timesRepeat
+
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/Power_(operator))
+
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:iterate)

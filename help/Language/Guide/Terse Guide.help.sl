@@ -12,14 +12,26 @@ system.includesPackage('Angle') {- angle package -}
 1.pi.radians.asRadians = 1.pi.asRadians {- radians of angle, or identity of number -}
 ```
 
-## Arithmetic expressions
+## Arithmetic -- addition
 ```
+1 + 2 = 3 {- addition -}
 6 + 3 = 9 {- addition -}
 6.plus(3) = 9 {- addition -}
 [0 + 0, 1 + 0, 0 + 1, 1 + 1, -1 + 1, -1 + 2] = [0, 1, 1, 2, 0, 1] {- addition -}
+[1 2 3] + [2 3 4] = [3 5 7] {- pointwise array addition -}
+0.1 + [3 4 5] = [3.1 4.1 5.1] {- number array addition -}
+1e20 + (-1e20 + 1) = 0 & { (1e20 + -1e20) + 1 = 1 } {- non-associative addition -}
+```
+
+## Arithmetic -- subtraction
+```
 6 - 3 = 3 {- subtraction -}
 6.minus(3) = 3 {- subtraction -}
 [1 - 0, 0 - 1, 2 - 1] = [1, -1, 1] {- subtraction -}
+```
+
+## Arithmetic expressions
+```
 6 * 3 = 18 {- multiplication, unicode = × -}
 6.times(3) = 18 {- multiplication -}
 [1 * 0, -1 * 1, 5 * -5, -3 * -4] = [0, -1, -25, 12] {- multiplication -}
@@ -123,6 +135,9 @@ NaN.isNaN {- literal for NaN -}
 9.factorial = 1:9.product {- factorial is product of interval -}
 12.factorial.log2.floor = 28 {- bit-depth of factorial -}
 [12, 18, 20, 100, 170].collect { :each | each.factorial.log2.floor } = [28, 52, 61, 524, 1019]
+[0 1 2 3 4].collect(factorial:/1) = [1 1 2 6 24]
+[0 1 2 3 4].factorial = [1 1 2 6 24] {- array factorial -}
+4.iota.reduce(*) = 24 {- factorial is sum of product -}
 9.doubleFactorial = 945 {- double factorial -}
 [12, 18, 20].collect { :n | n.doubleFactorial } = [46080, 185794560, 3715891200]
 [12, 18, 20].collect { :n | n.doubleFactorial.log2.floor } = [15, 27, 31]
@@ -218,11 +233,13 @@ let x = 8.625; let y = 0.75; let q = x.quotientBy(y, rounded:/1); let r = x.rema
 0.5.rounded = 1 {- round to neareset or upwards (not to nearest or even -}
 -0.5.rounded = -0 {- round upwards to negative zero -}
 1.5.rounded = 2 {- round to neareset or upwards (not to nearest or even -}
-1 + 2 = 3 {- addition -}
 5 - 3 = 2 {- subtraction -}
 2 * 3 = 6 {- multiplication -}
 10 / 2.5 = 4 {- division -}
 9 % 4 = 1 & { 9 = (4 * 2 + 1) } {- modulo -}
+[0 1 2 3 4 5].collect { :each | 5.binomialCoefficient(each) } = [1 5 10 10 5 1] {- binomial coefficient -}
+10.binomialCoefficient(3) = 120
+0:5.collect { :n | 0:n.collect { :k | n.binomialCoefficient(k) } } = [1; 1 1; 1 2 1; 1 3 3 1; 1 4 6 4 1; 1 5 10 10 5 1] {- pascal triangle -}
 ```
 
 ## Math -- power of two
@@ -1195,6 +1212,17 @@ let n = (1 + 2.i); n.reciprocal * n = 1 {- multiplicative inverse -}
 3.1J2.3 = Complex(3.1, 2.3) {- complex literal, fractional components -}
 1j-2 + 3j4 = 4j2 {- complex literals, lower case -}
 1J-2 + 3J4 = 4J2 {- complex literals, upper case -}
+4j3 / 2j-1 = 1j2 {- ratio of two complex number -}
+2j9.exp ~ -6.73239j3.04517 {- complex exponential -}
+2j3.real = 2 {- real part -}
+2j3.imaginary = 3 {- imaginary part -}
+1.4j2.3.abs ~ 2.69258 {- absolute value -}
+[3 -5 2j5].abs = [3 5 29.sqrt] {- absolute value -}
+-1j0.arg = pi {- argument (in radians) -}
+1j1.arg = (pi/4)
+[5j12.abs, 5j12.arg] = [13, (12 / 5).arcTan] {- absolute value & argument -}
+1.4j2.3.sign ~ 0.519947j0.854199 {- sign -}
+1j1.conjugated = 1j-1
 ```
 
 ## Conditional Statements
@@ -1574,6 +1602,7 @@ Fraction(3, 1) = 3/1
 -3/2.rounded = -2
 1.pi.roundUpTo(0.01) = 3.15 {- round up to nearest 1/100th -}
 1.pi.roundUpTo(0.1) = 3.2 {- round up to nearest 1/10th -}
+226.roundUpTo(10) = 230 {- round up to nearest multiple of 10 -}
 1923.roundUpTo(10) = 1930 {- round up to nearest multiple of 10 -}
 1.pi.roundUpTo(0.005) = 3.145 {- round up to nearest 5/1000th -}
 1.pi.negated.roundUpTo(0.01) = -3.14 {- rounding up a negative number rounds towards zero -}
@@ -2200,6 +2229,8 @@ let m = (x: 1, y: 2).asMap; m.removeAll; m.isEmpty {- remove all entries -}
 ```
 -3.abs = 3 {- absolute value -}
 1.5.ceiling = 2 {- ceiling (round up) -}
+[2 2.8 -2 -2.8].ceiling = [2 3 -2 -2] {- ceiling, pointwise at array -}
+let v = [2 2.8 -2 -2.8]; v.ceiling = v.negated.floor.negated {- ceiling is equal to negate/floor/negate -}
 0.cos = 1 {- cosine -}
 180.degreesToRadians = 1.pi {- degreesToRadians -}
 2.even = true {- eveness predicate -}
@@ -2443,7 +2474,8 @@ let f = { :x | x * x }; let d = (p: f:/1); d::p.value(5) = 25
 let f = { :x | x * x }; f(3) = 9
 { let f = { :x | x * x }; [3, 5, 7].collect(f) = [9, 25, 49] }.ifError { true } {- f not bound -}
 let f = { :x | x * x }; [3, 5, 7].collect(f:/1) = [9, 25, 49]
-{ :x | x * x }.map([3, 5, 7]) = [9, 25, 49] {- map is flipped collect -}
+{ :x | x * x }.map([3, 5, 7]) = [9, 25, 49] {- map is swap of collect -}
+collect:/2.swap . ({ :x | x * x }, [3 5 7]) = [9 25 49] {- swap of collect is map -}
 { :x :y | x * y + y }.apply([3.141, 23]) = 95.243
 { { :x | x }.apply(0) }.ifError { true }
 { { :x | x }.apply([]) }.ifError { true }
@@ -2505,7 +2537,15 @@ system.methodDictionary::at[2]::Map.information.parameterNames = ['self', 'key']
 let c = []; let a = []; 1:3.do { :i | c.add { a.add(i) } }; c.do(value:/1); a = [1, 2, 3]
 let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] {- closure -}
 { { }.deepCopy }.ifError { true } {- blocks cannot be deep copied -}
-let f = -.flip; f.value(3, 1) = -2 {- flip of two argument block -}
+let f = -.swap; f.value(3, 1) = -2 {- swap arguments of two argument block -}
+1 -.swap 3 = 2 {- swap arguments at binary operator -}
+let f:/1 = constant(3); f(4) = 3 {- block that answers a constant -}
+3.constant . (4) = 3 {- block that answers a constant -}
+42.constant . ('hello') = 42
+1:4.collect(42.constant) = [42 42 42 42]
+{ :x | x ^ 2 }.iterate(3, 2) = 256 {- iterate -}
+let x = 2; 3.timesRepeat { x := x ^ 2}; x = 256 {- timesRepeat loop -}
+2 ^ 2 ^ 2 ^ 2 = 256 {- written out -}
 ```
 
 ## BlockStream
@@ -2517,6 +2557,8 @@ let n = 1; let s = BlockStream { let r = n; n := n + 1; r } { }; s.next(9) = [1 
 1:9.asStream.reject(even:/1).upToEnd = [1 3 5 7 9]
 1:inf.asStream.select(even:/1).next(4) = [2 4 6 8]
 1:inf.asStream.reject(even:/1).next(5) = [1 3 5 7 9]
+not:/1.iterate(true).next(10) = [true false true false true false true false true false]
+{ :each | each + 3 }.iterate(42).next(10) = [42 45 48 51 54 57 60 63 66 69]
 ```
 
 ## Promise -- scheduling type

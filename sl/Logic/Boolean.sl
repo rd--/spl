@@ -76,6 +76,14 @@ Boolean! : [Object, Json] {
 		<primitive: return _self ? false : true;>
 	}
 
+	notAnd { :self :anObject |
+		self.and(anObject).not
+	}
+
+	notOr { :self :anObject |
+		self.or(anObject).not
+	}
+
 	shallowCopy { :self |
 		self
 	}

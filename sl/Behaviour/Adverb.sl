@@ -49,38 +49,38 @@
 +Block {
 
 	e { :self:/2 |
-		{ :p :q |
-			p.withCollect(q, self:/2)
+		{ :alpha :beta |
+			alpha.withCollect(beta, self:/2)
 		}
 	}
 
 	f { :self:/2 |
-		{ :p :q |
-			p.withFoldingCollect(q, self:/2)
+		{ :alpha :beta |
+			alpha.withFoldingCollect(beta, self:/2)
 		}
 	}
 
 	s { :self:/2 |
-		{ :p :q |
-			p.withTruncatingCollect(q, self:/2)
+		{ :alpha :beta |
+			alpha.withTruncatingCollect(beta, self:/2)
 		}
 	}
 
 	t { :self:/2 |
-		{ :p :q |
-			p.withTableCollect(q, self:/2)
+		{ :alpha :beta |
+			alpha.withTableCollect(beta, self:/2)
 		}
 	}
 
 	w { :self:/2 |
-		{ :p :q |
-			p.withWrappingCollect(q, self:/2)
+		{ :alpha :beta |
+			alpha.withWrappingCollect(beta, self:/2)
 		}
 	}
 
 	x { :self:/2 |
-		{ :p :q |
-			p.withCrossedCollect(q, self:/2)
+		{ :alpha :beta |
+			alpha.withCrossedCollect(beta, self:/2)
 		}
 	}
 

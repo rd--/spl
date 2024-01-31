@@ -84,16 +84,6 @@ Block! : [Object] {
 		>
 	}
 
-	flip { :self:/2 |
-		(self:/2.numArgs = 2).if {
-			{ :rhs :lhs |
-				self(lhs, rhs)
-			}
-		} {
-			'Block>>flip: not two argument block'.error
-		}
-	}
-
 	ifError { :self :errorHandlerBlock |
 		<primitive:
 		try {
@@ -106,6 +96,13 @@ Block! : [Object] {
 			}
 		}
 		>
+	}
+
+	iterate { :self:/1 :anInteger :anObject |
+		anInteger.timesRepeat {
+			anObject := self(anObject)
+		};
+		anObject
 	}
 
 	map { :self:/1 :aCollection |
@@ -172,6 +169,15 @@ Block! : [Object] {
 			self();
 			true
 		}.whileTrue
+	}
+
+	swap { :self:/2 |
+		(self:/2.numArgs ~= 2).ifTrue {
+			'Block>>swap: not two argument block'.error
+		};
+		{ :alpha :beta |
+			self(beta, alpha)
+		}
 	}
 
 	value { :self:/0 |

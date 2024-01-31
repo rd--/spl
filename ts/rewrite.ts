@@ -678,7 +678,7 @@ const asJs: ohm.ActionDict<string> = {
 		)`;
 	},
 	complexLiteral(real, _j, imaginary) {
-		console.debug('complexLiteral', real.sourceString, imaginary.sourceString);
+		// console.debug('complexLiteral', real.sourceString, imaginary.sourceString);
 		return `_Complex_2(
 			${real.sourceString},
 			${imaginary.sourceString}

@@ -6,12 +6,6 @@
 		}
 	}
 
-	constant { :self |
-		{ :unused |
-			self
-		}
-	}
-
 	enclose { :self |
 		[self]
 	}
@@ -87,12 +81,6 @@
 		}
 	}
 
-	swap { :self:/2 |
-		{ :alpha :each |
-			self(each, alpha)
-		}
-	}
-
 }
 
 +@Number {
@@ -112,6 +100,14 @@
 }
 
 +@Sequenceable {
+
+	&& { :self :other |
+		self.withCollect(other, &&)
+	}
+
+	|| { :self :other |
+		self.withCollect(other, ||)
+	}
 
 	drop { :self :count |
 		(count.abs >= self.size).if {
@@ -171,6 +167,10 @@
 		self.sortedWithIndices.collect(value:/1)
 	}
 
+	j { :real :imaginary |
+		real.withCollect(imaginary, j:/2)
+	}
+
 	membership { :self :aCollection |
 		self.collect { :each |
 			aCollection.includes(each).asInteger
@@ -214,24 +214,36 @@
 	}
 
 	take { :self :count |
+		self.take(count, self.first.zero)
+	}
+
+	take { :self :count :fill |
 		(count < 0).if {
-			self.takeLast(count.negated)
+			self.takeLast(count.negated, fill)
 		} {
-			self.takeFirst(count)
+			self.takeFirst(count, fill)
 		}
 	}
 
 	takeFirst { :self :count |
+		self.takeFirst(count, self.first.zero)
+	}
+
+	takeFirst { :self :count :fill |
 		(count > self.size).if {
-			self ++ (self.first.zero ! (count - self.size))
+			self ++ (fill ! (count - self.size))
 		} {
 			self.copyFromTo(1, count)
 		}
 	}
 
 	takeLast { :self :count |
+		self.takeLast(count, self.last.zero)
+	}
+
+	takeLast { :self :count :fill |
 		(count > self.size).if {
-			(self.first.zero ! (count - self.size)) ++ self
+			(fill ! (count - self.size)) ++ self
 		} {
 			self.copyFromTo(self.size - count + 1, self.size)
 		}
@@ -265,6 +277,10 @@
 }
 
 +String {
+
+	withCollect { :self :aString :aBlock:/2 |
+		self.asArray.withCollect(aString.asArray, aBlock:/2)
+	}
 
 	expand { :self :counts |
 		self.asArray.expand(counts).join

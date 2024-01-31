@@ -9,7 +9,8 @@ Answer the next multiple of _anotherNumber_ toward infinity that is nearest _aNu
 	1923.roundUpTo(10) = 1930
 	3.1479.roundUpTo(0.005) = 3.15
 	-3.1479.roundUpTo(0.01) = -3.14
+	226.roundUpTo(10) = 230
 
 * * *
 
-See also: roundTo, truncateTo
+See also: ceiling, roundTo, truncateTo

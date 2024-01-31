@@ -22,6 +22,17 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 		newBlockStream().initializeSlots(onNext, onReset)
 	}
 
+	iterate { :self:/1 :anObject |
+		let state = anObject;
+		BlockStream {
+			let next = state;
+			state := self(state);
+			next
+		} {
+			state := anObject
+		}
+	}
+
 }
 
 

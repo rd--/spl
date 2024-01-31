@@ -447,16 +447,20 @@
 		self.reduce(aBlock:/2)
 	}
 
-	foldRight { :self :aBlock:/2 |
+	foldRightPrefix { :self :count :aBlock:/2 |
 		self.ifEmpty {
 			self.errorEmptyCollection
 		} {
-			let answer = self.last;
-			(self.size - 1).toByDo(1, -1) { :index |
+			let answer = self[count];
+			(count - 1).toByDo(1, -1) { :index |
 				answer := aBlock(self[index], answer)
 			};
 			answer
 		}
+	}
+
+	foldRight { :self :aBlock:/2 |
+		self.foldRightPrefix(self.size, aBlock:/2)
 	}
 
 	forceToPaddingWith { :self :length :anObject |
@@ -900,13 +904,23 @@
 			self.copy
 		} {
 			let answer = self.species.new(self.size);
-			let sum = self[1];
-			answer[1] := sum;
+			let next = self[1];
+			answer[1] := next;
 			2.toDo(self.size) { :index |
-				sum := aBlock(sum, self[index]);
-				answer[index] := sum
+				next := aBlock(next, self[index]);
+				answer[index] := next
 			};
 			answer
+		}
+	}
+
+	scanRight { :self :aBlock:/2 |
+		self.ifEmpty {
+			self.copy
+		} {
+			(1 .. self.size).collect { :each |
+				self.foldRightPrefix(each, aBlock:/2)
+				}
 		}
 	}
 

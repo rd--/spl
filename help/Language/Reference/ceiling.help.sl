@@ -15,4 +15,12 @@ Answer the integer nearest the receiver toward  infinity.
 
 * * *
 
-See also: floor, max, min, rounded
+See also: floor, max, min, rounded, roundUpTo
+
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/Ceiling)
+
+_Wolfram_
+[1](https://mathworld.wolfram.com/CeilingFunction.html)
+[2](https://reference.wolfram.com/language/ref/Ceiling.html)
