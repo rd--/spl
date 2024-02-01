@@ -98,7 +98,7 @@ Block! : [Object] {
 		>
 	}
 
-	iterate { :self:/1 :anInteger :anObject |
+	iterate { :self:/1 :anObject :anInteger |
 		anInteger.timesRepeat {
 			anObject := self(anObject)
 		};
