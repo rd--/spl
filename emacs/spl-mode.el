@@ -264,6 +264,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("--" . ?⍝) ; U+235D ⍝ APL Functional Symbol Up Shoe Jot ; U+2014 — Em Dash
      ("-<" . ?⤙) ; U+2919 ⤙ Leftwards Arrow-Tail
      ("->" . ?→) ; U+2190 → Rightwards Arrow
+     ("->>" . ?↠) ; U+21A0 ↠ Rightwards Two Headed Arrow
      (".." . ?…) ; U+2026 … Horizontal Ellipsis; U+2025 ‥ Two Dot Leader
      ("/" . ?÷) ; U+00F7 ÷ Division Sign
      (":." . ?‣) ; U+2023 ‣ Triangular Bullet
@@ -276,12 +277,15 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      (":=" . ?←) ; U+2190 ← Leftwards Arrow (U+2254 ≔ Colon Equals)
      (":?" . ?⍰) ; U+2370 ⍰ Apl Functional Symbol Quad Question ; U+291D ⤝ Leftwards arrow to black diamond
      (":@" . ?⋄) ; U+22C4 ⋄ Diamond Operator
+     ("<-" . ?←) ; U+2190 ← Leftwards Arrow
      ("<=" . ?≤) ; U+2264 ≤ Less-than or equal to
+     ("<|" . ?◁) ; U+25C1 ◁ White Left-Pointing Triangle
      ("<~" . ?⪅) ; U+2A85 ⪅ Less-Than or Approximate ; ⪝
      ("==" . ?≡) ; U+2261 ≡ Identical To
      ("=>" . ?⇒) ; U+21D2 ⇒ Rightwards Double Arrow
      (">=" . ?≥) ; U+2265 ≥ Greater-than or equal to
      (">~" . ?⪆) ; U+2A86 ⪆ Greater-Than or Approximate ; ⪞
+     ("|>" . ?▷) ; U+25B7 ▷ White Right-Pointing Triangle
      ("Phi" . ?ϕ) ; U+03D5 ϕ Greek Phi Symbol
      ("Sqrt" . ?√) ; U+221A √ Square Root
      ("Sum" . ?∑) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation
@@ -352,6 +356,8 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("mu" . ?μ) ; U+03BC μ Greek Small Letter Mu
      ("natural" . ?♮) ; U+266E ♮ Music Natural Sign
      ("not" . ?¬) ; U+00AC ¬ Not sign
+     ("omega" . ?ω) ; U+03C9 ω Greek Small Letter Omega
+     ("Omega" . ?Ω) ; U+03A9 Ω Greek Capital Letter Omega
      ("or" . ?∨) ; ∨ U+2228 Logical Or
      ("phi" . ?φ) ; U+03C6 φ Greek Small Letter Phi
      ("pi" . ?π) ; U+03C0 π Greek Small Letter Pi
@@ -371,7 +377,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("sum" . ?Σ) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation
      ("theta" . ?θ) ; U+03B8 θ Greek Small Letter Theta
      ("third" . ?₃) ; U+2083 ₃ Subscript Three
-     ("transposed" . ?ᵀ) ; U+1D40 ᵀ Modifier Letter Capital T
+     ("transposed" . ?ᵀ) ; U+1D40 ᵀ Modifier Letter Capital T ; U+2349 ⍉ APL Functional Symbol Circle Backslash
      ("true" . ?⊤) ; U+22A4 ⊤ Down Tack
      ("u" . ?𝑢) ; U+1D462 𝑢 Mathematical Italic Small U
      ("undefined" . ?⊥) ; U+22A5 ⊥ Up tack
