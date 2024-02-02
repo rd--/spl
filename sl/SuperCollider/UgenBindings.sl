@@ -188,6 +188,7 @@
 	MVerb { :in1 :in2 :dampingFreq :density :bandwidthFreq :decay :predelay :size :gain :mix :earlyMix | <primitive: return sc.MVerb(_in1, _in2, _dampingFreq, _density, _bandwidthFreq, _decay, _predelay, _size, _gain, _mix, _earlyMix);> }
 	NRand { :lo :hi :n | <primitive: return sc.NRand(_lo, _hi, _n);> }
 	Normalizer { :in :level :dur | <primitive: return sc.Normalizer(_in, _level, _dur);> }
+	OffsetOut { :bus :channelsArray | <primitive: return sc.OffsetOut(_bus, _channelsArray);> }
 	OnePole { :in :coef | <primitive: return sc.OnePole(_in, _coef);> }
 	OneZero { :in :coef | <primitive: return sc.OneZero(_in, _coef);> }
 	Osc { :bufnum :freq :phase | <primitive: return sc.Osc(_bufnum, _freq, _phase);> }

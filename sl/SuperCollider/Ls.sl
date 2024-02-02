@@ -372,7 +372,6 @@
 					each.asPatternEventMessages(currentTime + timeDifference)
 				}.concatenation;
 				packets.do { :each |
-					each.asRecord.postLine;
 					system.scSynth.sendOsc(each)
 				};
 				dur

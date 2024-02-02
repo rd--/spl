@@ -23,10 +23,10 @@ let env = Linen(Impulse(0, 0), 0, 1, ctl::release, 2);
 let osc = Saw([ctl::freq, ctl::freq * ctl::detune]) * env;
 let saw = Rlpf(osc, XLine(ctl::cutoff, 100, ctl::release), 1 / ctl::q) * ctl::amp;
 UgenGraph('saw', saw).send;
-Lbind(
+LsBind(
 	instrument: 'saw',
 	dur: 1 / 16,
-	freq: Lseq((60 + (seq - 1).degreeToKey([0 2 5 7 9], 12)).MidiCps, inf),
+	freq: LsSeq((60 + (seq - 1).degreeToKey([0 2 5 7 9], 12)).MidiCps, inf),
 	amp: 0.1
 ).play
 
