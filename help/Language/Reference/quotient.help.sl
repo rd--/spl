@@ -1,6 +1,6 @@
 # quotient -- arithmetic
 
-- _quotient(aNumber, aNumber)_
+- _quotient(aNumber, anotherNumber)_
 
 Integer quotient defined by division with truncation toward zero.
 

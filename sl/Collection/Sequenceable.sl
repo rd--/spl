@@ -443,8 +443,20 @@
 		answer
 	}
 
+	foldLeftPrefix { :self :count :aBlock:/2 |
+		self.ifEmpty {
+			self.errorEmptyCollection
+		} {
+			let answer = self[1];
+			2.upTo(self.size) { :index |
+				answer := aBlock(self[index], answer)
+			};
+			answer
+		}
+	}
+
 	foldLeft { :self :aBlock:/2 |
-		self.reduce(aBlock:/2)
+		self.foldLeftPrefix(self.size, aBlock:/2)
 	}
 
 	foldRightPrefix { :self :count :aBlock:/2 |
@@ -753,6 +765,10 @@
 		}
 	}
 
+	median { :self |
+		self.asSortedArray.median
+	}
+
 	middle { :self |
 		self[self.size // 2 + 1]
 	}
@@ -900,6 +916,10 @@
 	}
 
 	scan { :self :aBlock:/2 |
+		self.scanLeft(aBlock:/2)
+	}
+
+	scanLeft { :self :aBlock:/2 |
 		self.ifEmpty {
 			self.copy
 		} {
@@ -914,13 +934,28 @@
 		}
 	}
 
-	scanRight { :self :aBlock:/2 |
+	scanLeftAssociatingRight { :self :aBlock:/2 |
 		self.ifEmpty {
 			self.copy
 		} {
 			(1 .. self.size).collect { :each |
 				self.foldRightPrefix(each, aBlock:/2)
-				}
+			}
+		}
+	}
+
+	scanRight { :self :aBlock:/2 |
+		self.ifEmpty {
+			self.copy
+		} {
+			let answer = self.species.new(self.size);
+			let next = self[self.size];
+			answer[self.size] := next;
+			(self.size - 1).toByDo(1, -1) { :index |
+				next := aBlock(self[index], next);
+				answer[index] := next
+			};
+			answer
 		}
 	}
 

@@ -11,3 +11,7 @@ All collection types are iterable.
 * * *
 
 See also: associationsDo, collect, Iterable, keysAndValuesDo, keysDo, timesRepeat, valuesDo
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Scan.html)

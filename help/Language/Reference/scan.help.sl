@@ -3,18 +3,19 @@
 - _scan(aSequence, aBlock:2)_
 
 Similar to _reduce_ but answer a sequence of successive reduced values.
+Just as _reduce_ is an alias for _foldLeft_, _scan_ is an alias for _scanLeft_.
 
-	1:5.scan(+) = [1 3 6 10 15]
-	[1, 1 + 2, 1 + 2 + 3, 1 + 2 + 3 + 4, 1 + 2 + 3 + 4 + 5] = [1 3 6 10 15]
-	1:5.reduce(+) = 15
+	[].scan(+) = []
+	[1].scan(+) = [1]
+	1:4.scan(+) = [1 3 6 10]
+	1:4.reduce(+) = 10
 
 * * *
 
-See also: reduce
+See also: foldLeft, foldRight, reduce, scanLeft, scanRight
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/Scan)
-
+[1](https://aplwiki.com/wiki/Scan),
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:scanl)
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:scanl1)

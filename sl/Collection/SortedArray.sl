@@ -1,4 +1,4 @@
-SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable] { | contents sortBlock |
+SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable] { | contents sortBlock |
 
 	add { :self :item |
 		self.contents.isEmpty.if {
@@ -28,6 +28,10 @@ SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable] {
 		self.contents[index]
 	}
 
+	collect { :self :aBlock:/1 |
+		self.contents.collect(aBlock:/1).asSortedArray(self.sortBlock)
+	}
+
 	do { :self :aBlock:/1 |
 		self.contents.do(aBlock:/1);
 		self
@@ -52,7 +56,13 @@ SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable] {
 	}
 
 	median { :self |
-		self[self.size + 1 // 2]
+		let n = self.size;
+		n.odd.if {
+			self[n // 2 + 1]
+		} {
+			let i = n // 2;
+			(self[i] + self[i + 1]) / 2
+		}
 	}
 
 	size { :self |

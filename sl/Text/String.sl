@@ -6,20 +6,35 @@ String! : [Object, Json, Iterable] {
 		self == anObject
 	}
 
-	< { :self :anObject |
-		<primitive: return _self < _anObject;>
+	<=> { :self :aString |
+		<primitive:
+		if(typeof _aString == 'string') {
+			if(_self < _aString) {
+				return -1;
+			} else if(_self == _aString) {
+				return 0;
+			} else {
+				return 1;
+			}
+		};
+		>
+		'String>><=>: non string operand'.error
 	}
 
-	<= { :self :anObject |
-		<primitive: return _self <= _anObject;>
+	< { :self :aString |
+		self <=> aString = -1
 	}
 
-	> { :self :anObject |
-		<primitive: return _anObject < _self;>
+	<= { :self :aString |
+		self <=> aString <= 0
 	}
 
-	>= { :self :anObject |
-		<primitive: return _anObject <= _self;>
+	> { :self :aString |
+		self <=> aString = 1
+	}
+
+	> { :self :aString |
+		self <=> aString >= 1
 	}
 
 	++ { :self :anObject |
@@ -198,6 +213,14 @@ String! : [Object, Json, Iterable] {
 	do { :self :aBlock:/1 |
 		self.primitiveDo { :each |
 			aBlock(each.asCharacter)
+		}
+	}
+
+	drop { :self :anInteger |
+		(anInteger >= self.size).if {
+			''
+		} {
+			self.copyFromTo(self.size - anInteger + 1, self.size)
 		}
 	}
 
@@ -516,6 +539,10 @@ String! : [Object, Json, Iterable] {
 
 	stringArray { :self |
 		self.primitiveCollectInto(identity:/1, [])
+	}
+
+	take { :self :anInteger |
+		self.copyFromTo(1, anInteger.min(self.size))
 	}
 
 	toLowercase { :self |

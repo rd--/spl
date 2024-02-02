@@ -124,6 +124,10 @@
 		a
 	}
 
+	harmonicNumber { :self |
+		1:self.reciprocal.sum
+	}
+
 	indexOfPrime { :self |
 		let primesArray = system.primesArray;
 		(self <= primesArray.last).if {

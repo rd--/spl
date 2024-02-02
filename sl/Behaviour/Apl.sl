@@ -6,6 +6,10 @@
 		}
 	}
 
+	catenate { :alpha :beta |
+		alpha.nest ++ beta.nest
+	}
+
 	enclose { :self |
 		[self]
 	}
@@ -41,6 +45,18 @@
 	bind { :self:/2 :anObject |
 		{ :each |
 			self(anObject, each)
+		}
+	}
+
+	each { :self |
+		(self.numArgs = 1).if {
+			{ :aCollection |
+				aCollection.collect(self)
+			}
+		} {
+			{ :alpha :beta |
+				alpha.withCollect(beta, self)
+			}
 		}
 	}
 
@@ -171,6 +187,10 @@
 		real.withCollect(imaginary, j:/2)
 	}
 
+	laminate { :alpha :beta |
+		[alpha, beta].extendToBeOfEqualSize
+	}
+
 	membership { :self :aCollection |
 		self.collect { :each |
 			aCollection.includes(each).asInteger
@@ -213,10 +233,6 @@
 		self.collect(reciprocal:/1)
 	}
 
-	take { :self :count |
-		self.take(count, self.first.zero)
-	}
-
 	take { :self :count :fill |
 		(count < 0).if {
 			self.takeLast(count.negated, fill)
@@ -225,20 +241,12 @@
 		}
 	}
 
-	takeFirst { :self :count |
-		self.takeFirst(count, self.first.zero)
-	}
-
 	takeFirst { :self :count :fill |
 		(count > self.size).if {
 			self ++ (fill ! (count - self.size))
 		} {
 			self.copyFromTo(1, count)
 		}
-	}
-
-	takeLast { :self :count |
-		self.takeLast(count, self.last.zero)
 	}
 
 	takeLast { :self :count :fill |

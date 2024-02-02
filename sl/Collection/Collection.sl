@@ -148,6 +148,10 @@
 		answer
 	}
 
+	contraharmonicMean { :self |
+		self.squared.sum / self.sum
+	}
+
 	contents { :self |
 		self
 	}
@@ -225,6 +229,10 @@
 		self.fillFromWith(aCollection, identity:/1)
 	}
 
+	geometricMean { :self |
+		self.product ^ (1 / self.size)
+	}
+
 	groupBy { :self :keyBlock:/1 |
 		let result = Map();
 		self.do { :each |
@@ -234,6 +242,10 @@
 			}.add(each)
 		};
 		result
+	}
+
+	harmonicMean { :self |
+		self.size / self.reciprocal.sum
 	}
 
 	histogramOf { :self |
@@ -332,6 +344,11 @@
 		self.sum / self.size
 	}
 
+	meanDeviation { :self |
+		let mean = self.mean;
+		(self - mean).abs.sum / self.size
+	}
+
 	notEmpty { :self |
 		self.isEmpty.not
 	}
@@ -351,6 +368,10 @@
 		self.select { :element |
 			aBlock(element).not
 		}
+	}
+
+	rootMeanSquare { :self |
+		self.squared.sum.sqrt / 2
 	}
 
 	select { :self :aBlock:/1 |
@@ -379,6 +400,10 @@
 		self.asArray.sortBy(sortBlock:/2)
 	}
 
+	standardDeviation { :self |
+		self.variance.sqrt
+	}
+
 	symmetricDifference { :self :aCollection |
 		self.difference(aCollection).union(
 			aCollection.difference(self)
@@ -393,6 +418,10 @@
 		let answer = self.asSet;
 		answer.includeAll(aCollection);
 		answer
+	}
+
+	variance { :self |
+		((self - self.mean) ^ 2).sum / (self.size - 1)
 	}
 
 }
@@ -417,6 +446,10 @@
 
 	arcTan { :self |
 		self.collect(arcTan:/1)
+	}
+
+	asFloat { :self |
+		self.collect(asFloat:/1)
 	}
 
 	ceiling { :self |
@@ -449,6 +482,10 @@
 
 	fractionPart { :self |
 		self.collect(fractionPart:/1)
+	}
+
+	harmonicNumber { :self |
+		self.collect(harmonicNumber:/1)
 	}
 
 	log { :self |

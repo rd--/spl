@@ -19,6 +19,6 @@ Answer a Number with the same sign as _anotherNumber_ and same magnitude as _aNu
 See also: abs, copySignTo, negated
 
 References:
-_Wolfram_
+_Mathematica_
 [1](https://mathworld.wolfram.com/Sign.html)
 [2](https://reference.wolfram.com/language/ref/Sign.html)

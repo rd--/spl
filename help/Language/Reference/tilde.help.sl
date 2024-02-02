@@ -16,3 +16,7 @@ If these operators were written != and !== it may be less confusing.
 See also: =, <~, >~, closeTo, veryCloseTo
 
 Unicode: ≈ U+2248 Almost Equal To
+
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/Not_Match)

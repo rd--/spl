@@ -17,11 +17,32 @@ for unordered collections the order is unspecified.
 For instance, to sum the numeric elements of a collection:
 
 	[1 .. 9].reduce(+) = 45
+
+In cases where _aBlock_ is not associative, reduce associates to the left:
+
 	[1 .. 9].reduce(-) = -43
-	(1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9) = -43
+	(((((((1 - 2) - 3) - 4) - 5) - 6) - 7) - 8) - 9 = -43
+
+_reduce_ is an alias for _foldLeft_, the dual of which is _foldRight_:
+
 	[1 .. 9].foldRight(-) = 5
 	(1 - (2 - (3 - (4 - (5 - (6 - (7 - (8 - 9)))))))) = 5
 
+Reducing an empty collection is an error:
+
+	{ [].reduce(+) }.ifError { true }
+
+Reducing with logical combinators:
+
+	[true false true true].reduce(&&) = false
+	[false false true true].reduce(||) = true
+
 * * *
 
-See also: injectInto
+See also: injectInto, scan
+
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/Reduce),
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:foldr1)

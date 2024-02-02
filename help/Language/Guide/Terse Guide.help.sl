@@ -560,10 +560,10 @@ let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] {- atAll operator -}
 system.includesPackage('Arrayed') {- arrayed package -}
 [3, 5, 7].basicAt(1) = 3 {- unchecked lookup -}
 [3, 5, 7].basicAt(7) = nil {- unchecked lookup, nil on invalid index -}
-let a = [1, 7, 3, 9, 5]; a.sortBy { :p :q | p >= q }; a = [9, 7 .. 1] {- sort using provided comparison, in place -}
+let a = [1, 7, 3, 9, 5]; let b = a.sortBy { :p :q | p >= q }; a = [9, 7 .. 1] & { a == b } {- sort using provided comparison, in place -}
 [1, 7, 3, 9, 5].sortBy { :p :q | p >= q } = [9, 7 .. 1] {- sort using provided comparison, in place answering array -}
 [1, 7, 3, 9, 5].sort = [1, 3 .. 9] {- sort using default comparison of <= -}
-[(x: 1, y: 9), (x: 9, y: 1)].sortOn { :each | each::y } = [(x: 9, y: 1), (x: 1, y: 9)] {- sort using provided key block -}
+let a = [(x: 1, y: 9), (x: 9, y: 1)]; let b = a.sortOn { :each | each::y }; a = [(x: 9, y: 1), (x: 1, y: 9)] & { b == a } {- sort using provided key block -}
 ```
 
 ## Assignment
@@ -1145,7 +1145,8 @@ Complex(-1, 0) + 1 = Complex(0, 0) {- complex addition with scalar -}
 5 + 5.i * [1 + 2.i, 3, 5 + 6.i] = [-5 + 15.i, 15 + 15.i, -5 + 55.i]
 (5 = 5.i) = false
 1 ~= 1.i
-(6 - 6.i).abs = 72.sqrt
+(6 - 6.i).abs = 72.sqrt {- absolute value -}
+-2j1.abs = 5.sqrt {- absolute value -}
 (1 + 2.i) + 1 = (2 + 2.i)
 1 + (1 + 2.i) = (2 + 2.i)
 ((1 + 2.i) + 1) = (2 + 2.i)
@@ -2193,6 +2194,13 @@ system.includesPackage('Magnitude') {- magnitude package -}
 2 <=> 2 = 0
 3 <=> 1 = 1
 3.minMax(1, 5) = 3.min(1).max(5)
+3 < 5 {- integer -}
+3.3 < 5.5 {- float -}
+3/4 < 4/5 {- fraction -}
+'3' < '5' {- string -}
+{ 3j3 < 5j5 }.ifError { true } {- complex -}
+{ '3' < 5 }.ifError { true } {- string & number are not comparable -}
+{ 3 < '5' }.ifError { true } {- number & string are not comparable -}
 ```
 
 ## Map -- collection type
@@ -2543,7 +2551,7 @@ let f:/1 = constant(3); f(4) = 3 {- block that answers a constant -}
 3.constant . (4) = 3 {- block that answers a constant -}
 42.constant . ('hello') = 42
 1:4.collect(42.constant) = [42 42 42 42]
-{ :x | x ^ 2 }.iterate(3, 2) = 256 {- iterate -}
+{ :x | x ^ 2 }.iterate(2, 3) = 256 {- iterate -}
 let x = 2; 3.timesRepeat { x := x ^ 2}; x = 256 {- timesRepeat loop -}
 2 ^ 2 ^ 2 ^ 2 = 256 {- written out -}
 ```
@@ -3375,8 +3383,10 @@ let a = [1 .. 9].asSortedArray(>); a.contents = [9 .. 1] {- sorted array with sp
 let a = [1 .. 9].asSortedArray(greaterThan:/2); a.contents = [9 .. 1] {- with operator written out -}
 let a = [5 .. 9].asSortedArray(>); a.addAll([1 .. 4]); a.contents = [9 .. 1]
 let a = [5 .. 9].asSortedArray(greaterThan:/2); a.addAll([1 .. 4]); a.contents = [9 .. 1] {- with operator written out -}
-1:10.asSortedArray.median = 5
-let a = SortedArray(); a.add('truite'); a.add('porcinet'); a.add('carpe'); a.median = 'porcinet'
+1:10.middle = 6 {- middle element -}
+1:10.median = 5.5 {- mean of two middle-most elements -}
+1:11.median = 6 {- middle element -}
+let a = SortedArray(); a.add('truite'); a.add('porcinet'); a.add('carpe'); a.middle = 'porcinet'
 [5, 2, 50, -10].asSortedArray.asArray = [-10, 2, 5, 50]
 'hello'.split.asSortedArray.asArray = 'ehllo'.split
 ```

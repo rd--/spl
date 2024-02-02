@@ -1,10 +1,14 @@
 # // -- mathematical operator
 
-- _self // aNumber_
-- _p // q_ ⟹ _dividedByDividedBy(p, q)_ ⟹ _quotient(p, q)_
+- _aNumber // anotherNumber_
 
-Operator name for _quotient_.
+Operator form of _quotient_.
+
+	-9 // 4 = -2
+	-0.9 // 0.4 = -2
+
+The name of this operator is _dividedByDividedBy_.
 
 * * *
 
-See also: quotient, remainder
+See also: /, dividedBy, quotient, remainder

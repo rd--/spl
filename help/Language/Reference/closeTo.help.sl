@@ -16,3 +16,7 @@ and ~~ is the binary operator for _not identical to_.
 * * *
 
 See also: =, <~, >~, veryCloseTo
+
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/Match)

@@ -19,8 +19,9 @@ See also: floor, max, min, rounded, roundUpTo
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/Ceiling)
-
-_Wolfram_
+[1](https://aplwiki.com/wiki/Ceiling),
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:ceiling),
+_Mathematica_
 [1](https://mathworld.wolfram.com/CeilingFunction.html)
 [2](https://reference.wolfram.com/language/ref/Ceiling.html)

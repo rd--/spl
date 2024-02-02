@@ -15,3 +15,7 @@ If these operators were written != and !== then !~ could indicate _not similar t
 See also: =, <~, >~, closeTo, veryCloseTo
 
 Unicode: ≉ U+2249 Not Almost Equal To, ≁ U+2241 Not Tilde
+
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/Not_Match)

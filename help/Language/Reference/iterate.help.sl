@@ -26,7 +26,6 @@ See also: timesRepeat
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/Power_(operator))
-
+[1](https://aplwiki.com/wiki/Power_(operator)),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:iterate)

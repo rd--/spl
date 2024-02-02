@@ -14,3 +14,12 @@ Answer the integer nearest the receiver toward negative infinity.
 * * *
 
 See also: ceiling, max, min, rounded
+
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/Floor),
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:floor),
+_Mathematica_
+[1](https://mathworld.wolfram.com/FloorFunction.html)
+[2](https://reference.wolfram.com/language/ref/Floor.html)

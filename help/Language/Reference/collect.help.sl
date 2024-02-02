@@ -17,4 +17,10 @@ and in terms of _ofSize_, _size_, _at_ and _atPut_ for sequenceable collections.
 
 * * *
 
-See also: reject, replace, select, withCollect, withIndexCollect
+See also: map, reject, replace, select, withCollect, withIndexCollect
+
+References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:map)
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Map.html)

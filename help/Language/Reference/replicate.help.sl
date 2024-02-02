@@ -4,8 +4,8 @@
 
 Make an Array having _anInteger_ copies of _anObject_.
 
-	'x'.replicate(3) = ['x', 'x', 'x']
+	'x'.replicate(3) = ['x' 'x' 'x']
 
 * * *
 
-See also: duplicate, replicateApplying
+See also: duplicate, replicateApplying, replicateEach
