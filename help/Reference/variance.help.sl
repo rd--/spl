@@ -1,4 +1,4 @@
-# variance
+# variance -- statistics
 
 - _variance(aCollection)_
 

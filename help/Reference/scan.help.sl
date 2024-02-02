@@ -1,4 +1,4 @@
-# scan
+# scan -- enumerating
 
 - _scan(aSequence, aBlock:2)_
 

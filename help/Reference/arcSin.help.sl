@@ -1,4 +1,4 @@
-# arcSin
+# arcSin -- trigonometry
 
 - _arcSin(z)_
 

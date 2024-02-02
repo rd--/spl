@@ -1,4 +1,4 @@
-# foldIndex
+# foldIndex -- indexing
 
 - _foldIndex(anInteger, size)_
 

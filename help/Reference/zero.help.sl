@@ -1,4 +1,4 @@
-# zero
+# zero -- instance creation
 
 - _zero(anObject)_
 
@@ -11,3 +11,7 @@ Answer a zero value of the same type as _anObject_.
 * * *
 
 See also: one
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Zero.html)

@@ -1,8 +1,8 @@
-# wrapBetweenAnd
+# wrapBetweenAnd -- testing
 
 - _wrapBetweenAnd(aNumber, low, high)_
 
-Wrap an integer between two indices, not that the wrap occurs _before_ the high value is reached:
+Wrap an integer between two indices, note that the wrap occurs _before_ the high value is reached:
 
 	1:9.collect { :each | each.wrapBetweenAnd(3, 7 + 1) } = [6 7 3 4 5 6 7 3 4]
 

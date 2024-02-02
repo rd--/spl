@@ -1,4 +1,4 @@
-# values
+# values -- accessing
 
 - _values(aDictionary)_
 

@@ -1,4 +1,4 @@
-# wrapIndex
+# wrapIndex -- indexing
 
 - _wrapIndex(anInteger, size)_
 

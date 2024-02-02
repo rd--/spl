@@ -1,4 +1,4 @@
-# cos
+# cos -- trigonometry
 
 - _cos(z)_
 

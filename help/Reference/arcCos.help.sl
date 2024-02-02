@@ -1,4 +1,4 @@
-# arcCos
+# arcCos -- trigonometry
 
 - _arcCos(z)_
 

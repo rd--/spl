@@ -292,6 +292,10 @@ Complex : [Object] { | real imaginary |
 		newComplex().initializeSlots(real, imaginary)
 	}
 
+	conjugated { :self |
+		self
+	}
+
 	i { :self |
 		Complex(self.zero, self)
 	}

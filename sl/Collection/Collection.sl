@@ -462,6 +462,10 @@
 		self.collect(ceiling:/1)
 	}
 
+	conjugated { :self |
+		self.collect(conjugated:/1)
+	}
+
 	cos { :self |
 		self.collect(cos:/1)
 	}
@@ -528,7 +532,7 @@
 	}
 
 	sin { :self |
-		self.collect(sinh:/1)
+		self.collect(sin:/1)
 	}
 
 	sinh { :self |
@@ -544,7 +548,7 @@
 	}
 
 	tan { :self |
-		self.collect(tanh:/1)
+		self.collect(tan:/1)
 	}
 
 	tanh { :self |

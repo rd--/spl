@@ -1,4 +1,4 @@
-# scanLeft
+# scanLeft -- enumerating
 
 - _scanLeft(aSequence, aBlock:2)_
 

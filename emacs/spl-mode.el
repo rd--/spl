@@ -336,6 +336,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("cancelSharp" . ?♮) ; U+266E ♮ Music Natural Sign
      ("compose" . ?∘) ;  U+2218 ∘ Ring Operator
      ("concatenation" . ?⧻) ; U+29FB ⧻ Triple Plus
+     ("conjugated" . ?*) ; U+002A * Asterisk ; U+203B ※ Reference Mark ; U+A673 ꙳ Slavonic Asterisk
      ("crossedMultiply" . ?⊗) ; U+2297 ⊗ Circled Times
      ("delta" . ?δ) ; U+03B4 δ Greek Small Letter Delta
      ("doesNotInclude" . ?∌) ; Unicode: U+220C ∌ Does not contain as member

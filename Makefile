@@ -19,3 +19,6 @@ indent:
 
 doctest:
 	doctest -Wno-x-partial -Wno-incomplete-uni-patterns hs
+
+help-index:
+	(cd help; ls Guide/* Reference/* > Index.text)

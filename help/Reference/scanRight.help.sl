@@ -1,4 +1,4 @@
-# scanRight
+# scanRight -- enumerating
 
 - _scanRight(aSequence, aBlock:2)_
 

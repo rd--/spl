@@ -1,4 +1,4 @@
-# tan
+# tan -- trigonometry
 
 - _tan(z)_
 

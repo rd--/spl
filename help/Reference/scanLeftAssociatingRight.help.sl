@@ -1,4 +1,4 @@
-# scanLeftAssociatingRight
+# scanLeftAssociatingRight -- enumerating
 
 - _scanLeftAssociatingRight(aSequence, aBlock:2)_
 

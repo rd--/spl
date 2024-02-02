@@ -42,7 +42,7 @@ HelpIndex : [Object] { | contents |
 	HelpIndex { :self |
 		newHelpIndex().initializeSlots(
 			self.lines.select(notEmpty:/1).collect { :each |
-				let [spl, help, kind, name] = each.replaceString('.help.sl', '').splitBy('/');
+				let [kind, name] = each.replaceString('.help.sl', '').splitBy('/');
 				[kind, name]
 			}
 		)
@@ -56,7 +56,7 @@ HelpIndex : [Object] { | contents |
 		self.useLibraryItem(
 			LibraryItem(
 				'helpIndex',
-				'https://rohandrape.net/sw/jssc3/text/SmallHoursHelp.text',
+				'https://rohandrape.net/sw/spl/help/Index.text',
 				'text/plain',
 				HelpIndex:/1
 			)
