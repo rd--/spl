@@ -19,3 +19,10 @@ Loses amplitude towards the end:
 
 	FSinOsc(FSinOsc(XLine(4, 401, 8), 0) * 200 + 800, 0) * 0.25
 
+* * *
+
+See also: Osc, SinOsc
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/FSinOsc.html)

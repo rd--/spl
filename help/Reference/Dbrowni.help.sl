@@ -8,7 +8,7 @@ _Dibrown(length, lo, hi, step)_
 - step: maximum step for each new value
 
 Demand rate brownian movement generator.
-_Dibrown_ returns numbers in the continuous range between lo and hi.
+_Dibrown_ answers numbers in the continuous range between lo and hi.
 The arguments can be a number or any other ugen.
 
 	let a = Dibrown(inf, 0, 15, 1);

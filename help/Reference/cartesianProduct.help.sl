@@ -13,3 +13,7 @@ The Cartesian product of two sets A and B is the set of all (a, b) where a ∈ A
 * * *
 
 See also: cartesianProductDo, tuples
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/CartesianProduct.html)

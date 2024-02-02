@@ -181,6 +181,12 @@
 		}
 	}
 
+	clip { :self :min :max |
+		self.collect { :each |
+			each.clip(min, max)
+		}
+	}
+
 	difference { :self :aCollection |
 		self.reject { :each |
 			aCollection.includes(each)

@@ -8,21 +8,18 @@
 			'text/markdown',
 			false,
 			false,
-			[1, 1, 3],
+			[1, 3],
 			nil,
 			nil,
 			{ :browser :path |
 				path.size.caseOf([
 					0 -> {
-						helpIndex.areas
+						helpIndex.kind
 					},
 					1 -> {
-						helpIndex.kind(path[1])
+						helpIndex.names(path[1])
 					},
 					2 -> {
-						helpIndex.names(path[1], path[2])
-					},
-					3 -> {
 						helpIndex.fetch(path)
 					}
 				])

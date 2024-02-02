@@ -2,7 +2,7 @@
 
 - _keysAndValuesRemove(aDictionary, keyValueBlock:/2)_
 
-Removes all entries from _aDictionary_ for which _keyValueBlock_ returns true.
+Removes all entries from _aDictionary_ for which _keyValueBlock_ answers true.
 
 When removing many items, you must not do it while iterating over the dictionary, which may be changing.
 

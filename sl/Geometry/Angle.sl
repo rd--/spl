@@ -8,12 +8,24 @@ Angle : [Object, Magnitude] { | radians |
 		self.radians
 	}
 
+	cos { :self |
+		self.radians.cos
+	}
+
 	degrees { :self |
 		self.radians / pi * 180
 	}
 
+	sin { :self |
+		self.radians.sin
+	}
+
 	storeString { :self |
 		self.radians.storeString ++ '.radians'
+	}
+
+	tan { :self |
+		self.radians.tan
 	}
 
 }

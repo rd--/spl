@@ -48,6 +48,10 @@
 		self.min(highMagnitude)
 	}
 
+	clip { :self :min :max |
+		self.min(max).max(min)
+	}
+
 	inRangeOfAnd { :self :first :second |
 		(first < second).if {
 			self.betweenAnd(first, second)

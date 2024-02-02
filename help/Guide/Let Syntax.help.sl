@@ -2,7 +2,7 @@
 
 Rewrite rules:
 
-- _let t = i; let u = j; ..._ ⟹ _| t u ... | r := i; u := j; ...
+- _let t = i; let u = j; ..._ ⟹ _| t u ... | r := i; u := j; ..._
 
 These rules implement a _let_ keyword syntax for declaring and initialising temporary variables.
 
@@ -15,15 +15,14 @@ The syntax requires that all temporaries have initialisers, there is no implicit
 
 Note that the initialiser syntax, _p = x_, is distinct from the assignment syntax, _p := x_.
 
-- _let (k, ...) = d; ... _ ⟹ _let k = at(d, 'k'); let ...; ..._
-- _let [e, ...] = c; ... _ ⟹ _let e = at(c, 1); let ...; ..._
+- _let (k, ...) = d; ..._ ⟹ _let k = at(d, 'k'); let ...; ..._
+- _let [e, ...] = c; ..._ ⟹ _let e = at(c, 1); let ...; ..._
 
 These rules allow destructuring _Dictionary_ and _Sequencable_ values respectively.
 
 The notation _let (x, y) = p;_ initialises the variables _x_ and _y_ to the values _p::x_ and _p::y_.
 
 This rule can make writing temporaries with long initializers spanning multiple lines clearer.
-Where supported the opening and closing tokens are displayed as ⦇ and ⦈.
 
 _Rationale_: Initialising temporary variables as they are declared makes it clear in which cases they are used simply as names (assigned to using the `=` notation) and in which cases they are used as mutable state (assigned to using `:=`).
 

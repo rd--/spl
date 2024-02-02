@@ -18,6 +18,10 @@ There are _degrees_ and _radians_ accessors.
 	2.pi.radians.degrees = 360
 	360.degrees.radians = 2.pi
 
+The circular functions are implemented:
+
+	30.degrees.cos ~ (3.sqrt / 2)
+
 * * *
 
 See also: degreesToRadians, radiansToDegrees

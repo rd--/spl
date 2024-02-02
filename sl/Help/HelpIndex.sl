@@ -1,12 +1,8 @@
 HelpIndex : [Object] { | contents |
 
-	areas { :self |
-		['Language', 'SmallKansas', 'SuperCollider']
-	}
-
 	fetch { :self :path |
 		path.ifNotNil {
-			let url = self.url(path[1], path[2], path[3]);
+			let url = self.url(path[1], path[2]);
 			self.notify('fetch: ' ++ path.joinSeparatedBy('/'));
 			system.fetchString(url, (cache: 'no-cache'), { '*Fetch Failed*' })
 		}
@@ -18,27 +14,25 @@ HelpIndex : [Object] { | contents |
 
 	find { :self :topic |
 		self.contents.detectIfNone { :each |
-			each.third = topic
+			each.second = topic
 		} {
 			self.warning('find: no help for: ' ++ topic);
 			nil
 		}
 	}
 
-	kind { :self :area |
+	kind { :self |
 		['Guide', 'Reference']
 	}
 
-	names { :self :area :kind |
+	names { :self :kind |
 		self.contents.select { :each |
-			each.first = area & {
-				each.second = kind
-			}
-		}.collect(third:/1).copyWithoutDuplicates.sort
+			each.first = kind
+		}.collect(second:/1).copyWithoutDuplicates.sort
 	}
 
-	url { :self :area :kind :name |
-		['./lib/spl/help/', area, '/', kind, '/', name, '.help.sl'].join
+	url { :self :kind :name |
+		['./lib/spl/help/', kind, '/', name, '.help.sl'].join
 	}
 
 }
@@ -48,8 +42,8 @@ HelpIndex : [Object] { | contents |
 	HelpIndex { :self |
 		newHelpIndex().initializeSlots(
 			self.lines.select(notEmpty:/1).collect { :each |
-				let [spl, help, area, kind, name] = each.replaceString('.help.sl', '').splitBy('/');
-				[area, kind, name]
+				let [spl, help, kind, name] = each.replaceString('.help.sl', '').splitBy('/');
+				[kind, name]
 			}
 		)
 	}

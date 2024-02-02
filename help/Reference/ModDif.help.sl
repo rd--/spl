@@ -4,7 +4,7 @@ _ModDif(x, y, mod)_
 
 Returns the minimum difference of two values in modulo arithmetics.
 On a circle, there are two distances between two points.
-This UGen returns the smaller value of the two.
+This Ugen returns the smaller value of the two.
 
 - x: First input value
 - y: Second input value

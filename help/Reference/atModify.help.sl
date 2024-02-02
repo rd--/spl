@@ -1,6 +1,5 @@
 # atModify -- accessing
 
-- _atModify(aCollection, index, aBlock:/1)
+- _atModify(aCollection, index, aBlock:/1)_
 
 Replace the element of the collection with itself transformed by the block.
-

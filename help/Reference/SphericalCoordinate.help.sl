@@ -29,9 +29,13 @@ Where supported r is displayed as 𝑟, rho is displayed as ρ, theta as θ, and
 
 * * *
 
-See also:
-<https://mathworld.wolfram.com/SphericalCoordinates.html>,
-<https://en.wikipedia.org/wiki/ISO/IEC_80000>
+See also: PolarCoordinate
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/SphericalCoordinates.html)
+_W_
+[1](https://en.wikipedia.org/wiki/ISO/IEC_80000)
 
 Unicode:
 U+1D45F 𝑟 Mathematical Italic Small R

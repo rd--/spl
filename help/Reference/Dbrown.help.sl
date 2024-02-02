@@ -8,7 +8,7 @@ _Dbrown(length, lo, hi, step)_
 - step: maximum step for each new value
 
 Demand rate brownian movement generator.
-_Dbrown_ returns numbers in the continuous range between lo and hi.
+_Dbrown_ answers numbers in the continuous range between lo and hi.
 The arguments can be a number or any other ugen.
 
 	let seq = Dbrown(inf, 10, 15, 1);

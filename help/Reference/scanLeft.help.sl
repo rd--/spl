@@ -2,7 +2,7 @@
 
 - _scanLeft(aSequence, aBlock:2)_
 
-_scanLeft_ is similar to _foldLeft_, but returns a list of each successive reduced value from the left.
+_scanLeft_ is similar to _foldLeft_, but answers a list of each successive reduced value from the left.
 
 	[1 .. 4].scanLeft(+) = [1 3 6 10]
 	[].scanLeft(+) = []

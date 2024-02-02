@@ -23,6 +23,7 @@ The program below is by James McCartney and is taken from the SuperCollider2 doc
 s + (0.2 * y)
 ```
 
+Where supported the opening and closing tokens are displayed as ⦇ and ⦈.
 
 * * *
 

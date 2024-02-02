@@ -3,7 +3,7 @@
 - _randomIntegerPoissonDistribution(aNumber)_
 
 This function models the occurance rate of rare events.
-This is a discrete distribution that returns positive integer values.
+This is a discrete distribution that answer positive integer values.
 The distribution of values is unbounded at the upper end.
 The mean and variance of the function are _aNumber_.
 

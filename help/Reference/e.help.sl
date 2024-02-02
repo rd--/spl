@@ -13,3 +13,7 @@ Answer _aNumber_ times e.
 * * *
 
 See also: pi
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/e.html)

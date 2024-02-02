@@ -1,8 +1,13 @@
 # ! -- duplicate
 
-- _p ! q_ ⟹ _bang(p, q)_
+- _p ! q_
 
 ! is defined as _duplicate_ at _Block_ and as _replicate_ at _Object_.
+
+	3 ! 5 = [3 3 3 3 3]
+	let x = 1; { x := x * 2; x } ! 5 = [2 4 8 16 32]
+
+The name of this operator is _bang_.
 
 Answer an _Array_ constructed by evaluating a no-argument block the indicated number of times.
 

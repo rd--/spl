@@ -3,7 +3,7 @@
 _Dwhite(length, lo, hi)_
 
 Demand rate white noise random generator.
-Dwhite returns numbers in the continuous range between lo and hi.
+Dwhite answers numbers in the continuous range between lo and hi.
 The arguments can be a number or any other UGen.
 
 - length: Number of values to create
