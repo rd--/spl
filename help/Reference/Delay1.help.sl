@@ -19,4 +19,4 @@ References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Delay1.html)
 
-Categories: Ugen, delay
+Categories: Ugen, Delay
