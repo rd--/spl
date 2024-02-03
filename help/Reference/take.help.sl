@@ -24,11 +24,12 @@ Answer a copy of _aSequence_ with only the first _anInteger_ places.
 
 	[5 4 3 2 1].take(3) = [5 4 3]
 
-If _anInteger_ is negative, answer a copy of _aSequence_ with only the last _anInteger_ places.
-
-	[5 4 3 2 1].take(-3) = [3 2 1]
-
 - _take(aSequence, anInteger, anObject)_
+
+In the ternary form, if _anInteger_ is negative, answer a copy of _aSequence_ with only the last _anInteger_ places.
+
+	[5 4 3 2 1].take(-3, 0) = [3 2 1]
+	[5 4 3 2 1].takeLast(3, 0) = [3 2 1]
 
 The ternary form allows taking more elements than the sequence contains,
 filling the empty slots with _anObject_, either as a suffix:

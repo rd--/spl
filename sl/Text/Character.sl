@@ -76,6 +76,14 @@ Character : [Object, Magnitude] { | string codePoint |
 		self.codePoint = 10
 	}
 
+	isLowerCaseAscii { :self |
+		self.codePoint.betweenAnd(97, 122)
+	}
+
+	isUpperCaseAscii { :self |
+		self.codePoint.betweenAnd(65, 90)
+	}
+
 	isTab { :self |
 		self.codePoint = 9
 	}

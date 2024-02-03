@@ -5,7 +5,13 @@
 Answer a Promise that will either resolve to a String holding the contents of the named file,
 or reject with an Error value.
 
-	'/tmp/file.text'.readTextFile.then { :answer | answer.postLine }.catch { :reason | reason.postLine }
+```
+'/etc/passwd'.readTextFile.then { :answer |
+	answer.postLine
+}.catch { :reason |
+	reason.postLine
+}
+```
 
 * * *
 

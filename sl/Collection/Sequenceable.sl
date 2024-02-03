@@ -448,8 +448,8 @@
 			self.errorEmptyCollection
 		} {
 			let answer = self[1];
-			2.upTo(self.size) { :index |
-				answer := aBlock(self[index], answer)
+			2.upToDo(self.size) { :index |
+				answer := aBlock(answer, self[index])
 			};
 			answer
 		}
@@ -773,6 +773,10 @@
 		self[self.size // 2 + 1]
 	}
 
+	norm { :self |
+		(self.scalarProduct(self.conjugated)).sqrt
+	}
+
 	occurrencesOf { :self :anObject |
 		let tally = 0;
 		self.indicesDo { :index |
@@ -913,6 +917,10 @@
 			fromIndex := fromIndex - 1
 		};
 		answer
+	}
+
+	scalarProduct { :self :aSequence |
+		(self *.e aSequence).sum
 	}
 
 	scan { :self :aBlock:/2 |

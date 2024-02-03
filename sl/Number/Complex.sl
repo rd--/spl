@@ -199,6 +199,10 @@ Complex : [Object] { | real imaginary |
 		Complex(self.real.negated, self.imaginary.negated)
 	}
 
+	norm { :self |
+		self.abs
+	}
+
 	one { :self |
 		1.asComplex
 	}

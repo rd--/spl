@@ -2,7 +2,11 @@
 
 +String {
 
-	terseReferenceDirectorySummary { :directoryName :options |
+	terseReferenceSummary { :self |
+		self.terseReferenceSummary(verbose: false)
+	}
+
+	terseReferenceSummary { :directoryName :options |
 		let totalTestCount = 0;
 		let totalPassCount = 0;
 		directoryName.readDirectoryFileNames.then { :fileNameArray |
@@ -10,30 +14,28 @@
 			fileNameArray.size.postLine;
 			fileNameArray.sorted.do { :fileName |
 				let pathArray = fileName.splitBy('/');
-				let leadingCodePoint = pathArray.last.first.codePoint;
-				((leadingCodePoint >= 97) && (leadingCodePoint <= 99)).ifTrue {
+				pathArray.last.first.isLowerCaseAscii.ifTrue {
 					selectedFileNameArray.add(fileName)
 				}
 			};
 			selectedFileNameArray.readTextFileArray.then { :referenceTextArray |
 				referenceTextArray.withIndexDo { :referenceText :index |
-					| testCount passCount |
-					selectedFileNameArray[index].postLine;
-					[testCount, passCount] := referenceText.terseReferenceSummary(options);
-					[testCount, passCount].postLine;
+					let [testCount, passCount] = referenceText.terseReferenceEntry(options);
+					(testCount > 0).and {
+						testCount ~= passCount
+					}.ifTrue {
+						selectedFileNameArray[index].postLine;
+						['Failure', testCount, passCount].postLine
+					};
 					totalTestCount := totalTestCount + testCount;
 					totalPassCount := totalPassCount + passCount
 				};
-				[totalTestCount, totalPassCount].postLine
+				['Terse Reference Summary', totalTestCount, totalPassCount].postLine
 			}
 		}
 	}
 
-	terseReferenceSummary { :self |
-		self.terseReferenceSummary(verbose: false)
-	}
-
-	terseReferenceSummary { :self :options |
+	terseReferenceEntry { :self :options |
 		let testCount = 0;
 		let passCount = 0;
 		self.extractIndentedCodeBlocks.concatenation.do { :each |
@@ -48,18 +50,6 @@
 			}
 		};
 		[testCount, passCount]
-	}
-
-}
-
-+@Url {
-
-	terseReferenceSummary { :self :options |
-		self.asUrl.fetchText {
-			self.error('terseReferenceSummary: fetch failed')
-		}.then { :text |
-			text.terseReferenceSummary(options)
-		}
 	}
 
 }
