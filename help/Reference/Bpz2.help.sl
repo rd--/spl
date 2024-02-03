@@ -1,4 +1,6 @@
-# Bpz2 -- two zero fixed midpass
+# Bpz2
+
+Two zero fixed midpass.
 
 _Bpz2(in)_
 
@@ -8,9 +10,16 @@ This filter cuts out 0 Hz and the Nyquist frequency.
 
 Compare:
 
-	WhiteNoise() * 0.1
+```
+WhiteNoise() * 0.1
+```
 
 and:
 
-	Bpz2(WhiteNoise() * 0.1)
+```
+Bpz2(WhiteNoise() * 0.1)
+```
 
+* * *
+
+See also: Bpf

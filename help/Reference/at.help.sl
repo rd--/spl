@@ -1,4 +1,4 @@
-# at -- accessing
+# at
 
 - _at(aCollection, anIndex)_
 
@@ -36,3 +36,5 @@ There is [At Sytax] for accessing indexed values:
 * * *
 
 See also: atPut, [AtPut Syntax], [At Syntax], Indexable, [Quoted At Syntax], size
+
+Categories: Accessing

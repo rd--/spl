@@ -1,4 +1,4 @@
-# !~ -- comparing
+# !~
 
 - _p !~ q_ ⟹ p.closeTo(q).not
 
@@ -19,3 +19,5 @@ Unicode: ≉ U+2249 Not Almost Equal To, ≁ U+2241 Not Tilde
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Not_Match)
+
+Categories: Comparing

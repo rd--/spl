@@ -1,4 +1,4 @@
-# Bag -- collection type
+# Bag
 
 An unordered collection of possibly duplicated elements.
 
@@ -15,6 +15,8 @@ To get the elements as an Array of Associations use _sortedCounts_ or _sortedEle
 See also: add, asBag, sortedCounts, sortedElements, Set
 
 Smalltalk: _IdentityBag_
+
+Categories: Collection, Type
 
 * * *
 

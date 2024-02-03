@@ -1,4 +1,4 @@
-# asciiString -- string encoding
+# asciiString
 
 - _asciiString(aByteArray)_
 
@@ -11,3 +11,4 @@ Answer a String of _aByteArray_ which must be an Ascii encoding.
 
 See also: asciiByteArray, ByteArray, String
 
+Categories: String, Encoding

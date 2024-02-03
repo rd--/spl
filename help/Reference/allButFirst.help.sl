@@ -1,4 +1,4 @@
-# allButFirst -- accessing
+# allButFirst
 
 - _allButFirst(aSequence)
 - _allButFirst(aSequence, anInteger)
@@ -17,3 +17,5 @@ The unary form answers all but the first element.
 * * *
 
 See also: allButLast
+
+Categories: Accessing

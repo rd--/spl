@@ -1,4 +1,4 @@
-# Association -- collection type
+# Association
 
 - _Association(key, value)_
 
@@ -11,4 +11,6 @@ In a Dictionary context there cannot be duplicate keys, hence considering only k
 
 * * *
 
-See also: minusGreaterThan or ->
+See also: ->, minusGreaterThan
+
+Categories: Collection, Type

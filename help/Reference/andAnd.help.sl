@@ -1,4 +1,4 @@
-# && -- logic operator
+# &&
 
 - _aBoolean && anotherBoolean_
 
@@ -11,8 +11,15 @@ The operand must be a Boolean.
 	[true true true true true].reduce(&&) = true
 	[true false false true true].reduce(&&) = false
 
+Combine assertions with &&:
+
+	(2 > 1) && (pi > 3) = true
+
+
 The name of this operator is _andAnd_.
 
 * * *
 
 See also: &, |, ||, and, or
+
+Categories: Logic, Operator

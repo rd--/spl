@@ -1,4 +1,4 @@
-# atWrapPut -- acccessing
+# atWrapPut
 
 - _atWrapPut(aSequence, index, value)_
 
@@ -9,3 +9,5 @@ Answer _value_.
 * * *
 
 See also: atPut, atPinPut, atWrap
+
+Categories: Acccessing

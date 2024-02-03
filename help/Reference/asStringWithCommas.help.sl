@@ -1,4 +1,4 @@
-# asStringWithCommas -- printing
+# asStringWithCommas
 
 - _asStringWithCommas(aNumber)_
 
@@ -12,3 +12,4 @@ Answer the number formatted with commas every three digits.
 
 See also: asString, printString, storeString
 
+Categories: Printing

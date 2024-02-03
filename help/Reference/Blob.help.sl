@@ -1,7 +1,6 @@
-# Blob -- system trait & type
+# Blob
 
-- _Blob(anArray)_
-- _Blob(aByteArray)_
+- _Blob(anArray | aByteArray)_
 
 A Blob represents a "Binary Large Object".
 
@@ -15,3 +14,5 @@ A Blob is an opaque type containg immutable binary data.
 * * *
 
 See also: File
+
+Categories: System, Trait, Type

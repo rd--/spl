@@ -1,4 +1,4 @@
-# asBoolean -- converting
+# asBoolean
 
 _asBoolean(aBoolean | anInteger)_
 
@@ -12,3 +12,5 @@ _asBoolean(aBoolean | anInteger)_
 * * *
 
 See also: asBit, asInteger
+
+Categories: Converting

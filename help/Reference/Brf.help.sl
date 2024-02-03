@@ -1,4 +1,6 @@
-# Brf -- 2nd order Butterworth band reject filter
+# Brf
+
+2nd order Butterworth band reject filter.
 
 _Brf(in, freq, rq)_
 
@@ -10,11 +12,13 @@ A second order low pass filter.
 
 Modulate frequency:
 
-	Brf(
-		Saw(200) * 0.1,
-		SinOsc(XLine(0.7, 300, 20), 0) * 3800 + 4000,
-		0.3
-	)
+```
+Brf(
+	Saw(200) * 0.1,
+	SinOsc(XLine(0.7, 300, 20), 0) * 3800 + 4000,
+	0.3
+)
+```
 
 * * *
 

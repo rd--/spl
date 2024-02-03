@@ -1,4 +1,4 @@
-# atIfPresent -- accessing
+# atIfPresent
 
 - _atIfPresent(aCollection, aKey, aBlock:/1)_
 
@@ -10,3 +10,5 @@ Otherwise, answer nil.
 * * *
 
 See also: at, atIfAbsent, atIfPresentIfAbsent
+
+Categories: Accessing

@@ -1,4 +1,4 @@
-# ! -- duplicate
+# !
 
 - _p ! q_
 
@@ -36,3 +36,5 @@ This can be more written more simply using the _!^_ operator as:
 * * *
 
 See also: duplicate, replicate
+
+Categories: Copying

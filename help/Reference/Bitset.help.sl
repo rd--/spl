@@ -1,4 +1,4 @@
-# Bitset -- collection type
+# Bitset
 
 A Bitset is a dictionary-like data structures mapping 0-1 values to integers between 0 and capacity-1.
 
@@ -12,3 +12,5 @@ each corresponding to a way of thinking about this data structure:
 * * *
 
 See also: add, asBitset, at, atPut, bitAt, clearBitAt, includes, remove, setBitAt
+
+Categories: Collection, Type

@@ -1,4 +1,4 @@
-# atIfAbsentPut -- accessing
+# atIfAbsentPut
 
 - _atIfAbsentPut(aDictionary, aKey, aBlock:/0)_
 
@@ -8,3 +8,5 @@ If the key is absent, add the result of evaluating _aBlock_ to _aDictionary_ at 
 * * *
 
 See also: at, atIfPresent
+
+Categories: Accessing

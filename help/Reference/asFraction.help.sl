@@ -1,4 +1,4 @@
-# asFraction -- converting
+# asFraction
 
 - _asFraction(aSmallFloat, anInteger)_
 - _asFraction(aSmallFloat)_ ≡ _asFraction(aSmallFloat, 100)_
@@ -10,3 +10,5 @@ Derive a Fraction that approximates a floating point number given a maxima for t
 * * *
 
 See also: asFloat, asInteger, asNumber, limitDenominator
+
+Categories: Converting

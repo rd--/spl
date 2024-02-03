@@ -1,4 +1,4 @@
-# Array -- collection type
+# Array
 
 - _Array(anInteger)_
 - _Array(anInteger, anObject)_
@@ -17,3 +17,5 @@ Array implements the _Iterable_, _Indexable_, _Collection_, _Sequencable_, _Arra
 * * *
 
 See also: asArray, asCollection, ByteArray, Float64Array
+
+Categories: Collection, Type

@@ -1,4 +1,4 @@
-# anyOne -- accessing
+# anyOne
 
 - _anyOne(aCollection)_
 
@@ -8,3 +8,5 @@ It is an error if there are not any elements in the collection.
 * * *
 
 See also: any
+
+Categories: Accessing

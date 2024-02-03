@@ -1,4 +1,4 @@
-# addOscListener -- scheduling
+# addOscListener
 
 - _addOscListener(aMessageSource, anOscAddress, aBlock:/1)_
 
@@ -13,3 +13,5 @@ system.scSynth.addOscListener('/done', workspace::onDone)
 * * *
 
 See also: removeOscListener, ScSynth
+
+Categories: Scheduling

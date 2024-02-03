@@ -1,4 +1,4 @@
-# any -- accessing
+# any
 
 - _any(aCollection, anInteger)_
 
@@ -8,3 +8,5 @@ It is an error if there are not enough elements.
 * * *
 
 See also: take
+
+Categories: Accessing

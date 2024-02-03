@@ -1,4 +1,4 @@
-# addAllFirst -- adding
+# addAllFirst
 
 - _addAllFirst(aSequence, anotherSequence)_
 
@@ -8,3 +8,5 @@ Answer _anotherSequence_.
 * * *
 
 See also: addAllLast
+
+Categories: Adding

@@ -1,4 +1,4 @@
-# also -- behaviour
+# also
 
 - _also(anObject, aBlock:/1)_
 
@@ -20,3 +20,5 @@ References:
 _Kotlin_
 [1](https://kotlinlang.org/docs/scope-functions.html#also)
 [2](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/also.html)
+
+Categories: Behaviour

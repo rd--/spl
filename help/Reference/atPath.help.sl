@@ -1,4 +1,4 @@
-# atPath -- accessing
+# atPath
 
 - _atPath(aCollection, indices)_
 
@@ -17,3 +17,5 @@ The infix form is @>.
 * * *
 
 See also: at
+
+Categories: Accessing

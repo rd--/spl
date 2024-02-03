@@ -1,4 +1,4 @@
-# associationAt -- accessing
+# associationAt
 
 - _associationAt(aDictionary, key)_
 
@@ -8,3 +8,5 @@ If key is not found, signal an error.
 * * *
 
 See also: associationAtIfAbsent
+
+Categories: Accessing

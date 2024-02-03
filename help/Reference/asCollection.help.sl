@@ -1,4 +1,4 @@
-# asCollection -- converting
+# asCollection
 
 - _asCollection(aCollection)_ ⟹ _aCollection_
 - _asCollection(anObject)_ ⟹ _[anObject]_
@@ -13,3 +13,5 @@ else answer a single element array containing the argument.
 * * *
 
 See also: Array, asArray, assertIsCollection
+
+Categories: Converting

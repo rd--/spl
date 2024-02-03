@@ -1,4 +1,4 @@
-# atPut -- accessing
+# atPut
 
 - _atPut(aCollection, anInteger, anObject)_
 
@@ -22,9 +22,11 @@ The extended arity forms are translated as above.
 
 There is [AtPut Sytax] for accessing indexed values:
 
-	let a = ['x', 'y'];  a[1] := 'z'; a = ['z', 'y']
-	let d = (x: 1, y: 2);  d['x'] := 3; d = (x: 3, y: 2)
+	let a = ['x', 'y']; a[1] := 'z'; a = ['z', 'y']
+	let d = (x: 1, y: 2); d['x'] := 3; d = (x: 3, y: 2)
 
 * * *
 
 See also: at, size, [AtPut Syntax]
+
+Categories: Accessing

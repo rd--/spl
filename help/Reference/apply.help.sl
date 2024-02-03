@@ -1,4 +1,4 @@
-# apply -- evaluating
+# apply
 
 - _apply(aBlock, anArray)_
 
@@ -10,3 +10,5 @@ It is an error is _anArray_ is not an _Array_ or has the wrong number of argumen
 * * *
 
 See also: Array, cull, Block, value
+
+Categories: Evaluating

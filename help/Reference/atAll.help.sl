@@ -1,4 +1,4 @@
-# atAll -- accessing
+# atAll
 
 - _atAll(aSequence, indices)_
 
@@ -13,3 +13,5 @@ The infix form of this is @*.
 * * *
 
 See also: at, atAllPut
+
+Categories: Accessing

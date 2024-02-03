@@ -1,4 +1,4 @@
-# asWords -- printing
+# asWords
 
 - _asWords(anInteger)_
 
@@ -10,3 +10,5 @@ Answer _anInteger_ spelled out in English words.
 * * *
 
 See also: asString, printString, storeString
+
+Categories: Printing

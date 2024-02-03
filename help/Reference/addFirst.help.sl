@@ -1,4 +1,4 @@
-# addFirst -- adding
+# addFirst
 
 - _addFirst(aSequence, newObject)_
 
@@ -8,3 +8,5 @@ Answer _newObject_.
 * * *
 
 See also: addLast
+
+Categories: Adding

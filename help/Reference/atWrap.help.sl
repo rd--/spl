@@ -1,4 +1,4 @@
-# atWrap -- acccessing
+# atWrap
 
 - _atWrap(aSequence, index)_
 
@@ -11,3 +11,5 @@ If _index_ is out of bounds, let it wrap around from the end to the beginning un
 * * *
 
 See also: at, atFold, atPin, atWrapPut
+
+Categories: Acccessing

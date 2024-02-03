@@ -1,4 +1,4 @@
-# associationAtIfAbsent -- acccesing
+# associationAtIfAbsent
 
 - _associationAtIfAbsent(aDictionary, key, aBlock:/0)_
 
@@ -8,3 +8,5 @@ If key is not found, return the result of evaluating _aBlock_.
 * * *
 
 See also: atIfAbsent
+
+Categories: Accessing

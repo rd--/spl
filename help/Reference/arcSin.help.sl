@@ -1,4 +1,4 @@
-# arcSin -- trigonometry
+# arcSin
 
 - _arcSin(z)_
 
@@ -13,3 +13,5 @@ See also: cos, sin, tan
 References:
 [1](https://mathworld.wolfram.com/InverseSine.html)
 [2](https://reference.wolfram.com/language/ref/ArcSin.html)
+
+Categories: Trigonometry

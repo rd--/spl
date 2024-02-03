@@ -1,4 +1,4 @@
-# asInteger -- converting
+# asInteger
 
 - _asInteger(aBoolean | aCharacter | anInteger | aNumber | aString)_
 
@@ -19,3 +19,5 @@ In the String case answer _parseDecimalInteger_
 * * *
 
 See also: asFloat, asNumber
+
+Categories: Converting

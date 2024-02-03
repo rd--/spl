@@ -1,4 +1,4 @@
-# associations -- accessing
+# associations
 
 - _associations(aDictionary)_
 
@@ -7,3 +7,5 @@ Answer a new collection containing the associations of _aDictionary_.
 * * *
 
 See also: indexValueAssociations
+
+Categories: Accessing

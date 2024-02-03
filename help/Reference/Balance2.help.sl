@@ -1,5 +1,6 @@
-# Balance2 -- panning
+# Balance2
 
+Panning.
 _Balance2_ is a stereo signal balancer.
 
 _Balance2(left, right, pos=0, level=1)_
@@ -13,8 +14,10 @@ When _pos_ is 0 the two channels are balanced and both multipliers are √½ (�
 
 In this program two sine oscillators (at 440 and 550 hz) are balanced using a low frequency noise generator.
 
-	let o = SinOsc([440, 550], 0);
-	Balance2(o.first, o.second, LfNoise1(4), 0.1)
+```
+let o = SinOsc([440, 550], 0);
+Balance2(o.first, o.second, LfNoise1(4), 0.1)
+```
 
 * * *
 

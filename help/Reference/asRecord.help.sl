@@ -1,4 +1,11 @@
-# asRecord -- converting
+# asRecord
 
-- _asRecord(anAssociationArray)_
-- _asRecord(aMap)_
+- _asRecord(anAssociationArray | aMap)_
+
+Convert an array of Association or a Map to a Record.
+
+	['x' -> 1, 'y' -> 2].asRecord = (x: 1, y: 2)
+
+* * *
+
+Categories: Converting

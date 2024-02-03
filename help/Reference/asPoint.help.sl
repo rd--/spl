@@ -1,4 +1,4 @@
-# asPoint -- converting
+# asPoint
 
 - _asPoint(aNumber | aPoint)_
 
@@ -8,3 +8,5 @@ In the Point case answer _identity_.
 * * *
 
 See also: asComplex
+
+Categories: Converting

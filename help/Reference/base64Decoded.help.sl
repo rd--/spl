@@ -1,4 +1,4 @@
-# base64Decoded -- converting
+# base64Decoded
 
 - _base64Decoded(aString)_
 
@@ -6,3 +6,7 @@ Decode _aString_ from base 64.
 The answer is a ByteArray.
 
 	'SGVsbG8gV29ybGQ='.base64Decoded.asciiString = 'Hello World'
+
+* * *
+
+Categories: Converting

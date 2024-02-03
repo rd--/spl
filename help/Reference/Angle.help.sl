@@ -1,4 +1,4 @@
-# Angle -- geometry type
+# Angle
 
 A type representing a unit of measure for angles.
 
@@ -25,3 +25,9 @@ The circular functions are implemented:
 * * *
 
 See also: degreesToRadians, radiansToDegrees
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Angle.html)
+
+Categories: Geometry, Type

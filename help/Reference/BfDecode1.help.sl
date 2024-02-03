@@ -1,4 +1,4 @@
-# BfDecode1 -- panning
+# BfDecode1
 
 3D Ambisonic decoder.
 
@@ -22,18 +22,28 @@ If you want to zero one out, use Dc(0).
 B-format decode to cube _lfh, rfh, rrh, lrh, lfl, rfl, rrl, lrl_,
 where lfl = left front high, lfl = left front low &etc.
 
-	let p = PinkNoise();
-	let [w, x, y, z] = BfEncode1(
-		p,
-		MouseX(0 - pi, pi, 0, 0.2),
-		MouseY(0.25 * pi, -0.25 * pi, 0, 0.2),
-		1,
-		1,
-		0
-	);
-	BfDecode1(
-		w, x, y, z,
-		[-0.25 0.25 1.25 0.75 -0.25 0.25 1.25 0.75] * pi,
-		[0.25 0.25 0.25 0.25 -0.25 -0.25 -0.25 -0.25] * pi,
-		0
-	)
+```
+let p = PinkNoise();
+let [w, x, y, z] = BfEncode1(
+	p,
+	MouseX(0 - pi, pi, 0, 0.2),
+	MouseY(0.25 * pi, -0.25 * pi, 0, 0.2),
+	1,
+	1,
+	0
+);
+BfDecode1(
+	w, x, y, z,
+	[-0.25 0.25 1.25 0.75 -0.25 0.25 1.25 0.75] * pi,
+	[0.25 0.25 0.25 0.25 -0.25 -0.25 -0.25 -0.25] * pi,
+	0
+)
+```
+
+* * *
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/BFDecode1.html)
+
+Categories: Panning

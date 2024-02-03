@@ -1,4 +1,4 @@
-# BfEncode1 -- panning
+# BfEncode1
 
 Ambisonic B format encoder
 
@@ -15,34 +15,44 @@ _BfEncode1(in, azimuth=0, elevation=0, rho=1, gain=1, wComp=0)_
 
 Decode to octaphonic:
 
-	let mouseAzimuth = MouseX(0, 2 * pi, 0, 0.2);
-	let mouseRho = MouseY(0, 4, 0, 0.2);
-	let cycleAzimuth = LfSaw(1 / 4, 0).LinLin(-1, 1, 0, 2 * pi);
-	let [w, x, y, z] = BfEncode1(
-		PinkNoise(),
-		cycleAzimuth, {- mouseAzimuth -}
-		0,
-		1, {- mouseRho -}
-		0.3,
-		0
-	);
-	BfDecode1(w, x, y, z, [-0.75 -0.5 -0.25 0 0.25 0.5 0.75 1] * pi, 0, 0)
+```
+let mouseAzimuth = MouseX(0, 2 * pi, 0, 0.2);
+let mouseRho = MouseY(0, 4, 0, 0.2);
+let cycleAzimuth = LfSaw(1 / 4, 0).LinLin(-1, 1, 0, 2 * pi);
+let [w, x, y, z] = BfEncode1(
+	PinkNoise(),
+	cycleAzimuth, {- mouseAzimuth -}
+	0,
+	1, {- mouseRho -}
+	0.3,
+	0
+);
+BfDecode1(w, x, y, z, [-0.75 -0.5 -0.25 0 0.25 0.5 0.75 1] * pi, 0, 0)
+```
 
 Decode to quadraphonic in sequence _fl, fr, rl, rr_:
 
-	let mouseAzimuth = MouseX(0, 2 * pi, 0, 0.2);
-	let mouseRho = MouseY(0, 4, 0, 0.2);
-	let cycleAzimuth = LfSaw(1 / 4, 0).LinLin(-1, 1, 0, 2 * pi);
-	let [w, x, y, z] = BfEncode1(
-		PinkNoise(),
-		cycleAzimuth, {- mouseAzimuth -}
-		0,
-		1, {- mouseRho -}
-		0.3,
-		0
-	);
-	BfDecode1(w, x, y, z, [-0.25 0.25 1.25 0.75] * pi, 0, 0)
+```
+let mouseAzimuth = MouseX(0, 2 * pi, 0, 0.2);
+let mouseRho = MouseY(0, 4, 0, 0.2);
+let cycleAzimuth = LfSaw(1 / 4, 0).LinLin(-1, 1, 0, 2 * pi);
+let [w, x, y, z] = BfEncode1(
+	PinkNoise(),
+	cycleAzimuth, {- mouseAzimuth -}
+	0,
+	1, {- mouseRho -}
+	0.3,
+	0
+);
+BfDecode1(w, x, y, z, [-0.25 0.25 1.25 0.75] * pi, 0, 0)
+```
 
 * * *
 
 See also: BfDecode1
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/BFEncode1.html)
+
+Categories: Panning

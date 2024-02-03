@@ -1,4 +1,4 @@
-# asBag -- converting
+# asBag
 
 - asBag(aCollection)_
 
@@ -10,3 +10,5 @@ Convert a collection to a Bag.
 * * *
 
 See also: Bag
+
+Categories: Converting

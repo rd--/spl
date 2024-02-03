@@ -1,4 +1,4 @@
-# addAfterIndex -- adding
+# addAfterIndex
 
 - _addAfterIndex(aSequence, newObject, index)_
 
@@ -9,3 +9,5 @@ Answer _newObject_.
 * * *
 
 See also: addAfter, addBefore
+
+Categories: Adding

@@ -1,4 +1,4 @@
-# betweenAnd -- comparing
+# betweenAnd
 
 - _betweenAnd(self, min, max)_
 
@@ -9,3 +9,5 @@ Is _self_ between (inclusively) _min_ and _max_?
 * * *
 
 See also: <=, >=, exclusivelyBetweenAnd, inclusivelyBetweenAnd
+
+Categories: Comparing

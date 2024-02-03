@@ -1,5 +1,6 @@
-# AudioIn -- sound input
+# AudioIn
 
+Sound input.
 Read audio input from analogue-to-digital converter.
 
 _AudioIn(channelArray)_
@@ -10,7 +11,9 @@ Reads audio from the sound input hardware.
 
 Stereo through patching from input to output with one second delay:
 
-		DelayN(AudioIn([1, 2]), 1, 1)
+```
+DelayN(AudioIn([1, 2]), 1, 1)
+```
 
 * * *
 

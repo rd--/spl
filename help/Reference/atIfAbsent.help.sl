@@ -1,4 +1,4 @@
-# atIfAbsent -- accessing
+# atIfAbsent
 
 - _atIfAbsent(aCollection, aKey, aBlock:/0)_
 
@@ -8,3 +8,5 @@ If the key is absent, answer the result of evaluating _aBlock_.
 * * *
 
 See also: at, atIfPresent
+
+Categories: Accessing

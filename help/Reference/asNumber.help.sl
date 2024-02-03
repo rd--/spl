@@ -1,4 +1,4 @@
-# asNumber -- converting
+# asNumber
 
 - _asNumber(aBoolean | aNumber | aString)_
 
@@ -16,3 +16,5 @@ In the String case answer _parseNumber_.
 * * *
 
 See also: asInteger
+
+Categories: Converting

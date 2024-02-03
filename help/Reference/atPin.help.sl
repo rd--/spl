@@ -1,4 +1,4 @@
-# atPin -- accessing
+# atPin
 
 - _atPin(aSequence, index)_
 
@@ -11,3 +11,5 @@ Answer the first or last element if _index_ is out of bounds.
 * * *
 
 See also: at, atWrap
+
+Categories: Accessing

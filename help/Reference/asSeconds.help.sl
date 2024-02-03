@@ -1,4 +1,4 @@
-# asSeconds -- converting
+# asSeconds
 
 - _asSeconds(aDuration | aNumber)_ == _aNumber_
 
@@ -20,3 +20,5 @@ There are equivalent methods for Angle (asRadians) and Frequency (asHertz) and L
 * * *
 
 See also: Duration, seconds
+
+Categories: Converting

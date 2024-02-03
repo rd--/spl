@@ -1,4 +1,4 @@
-# atRandom -- random selection
+# atRandom
 
 - _atRandom(aCollection)_
 
@@ -19,3 +19,5 @@ Select an integer between one and _anInteger_ at random.
 * * *
 
 See also: anyOne
+
+Categories: Random selection

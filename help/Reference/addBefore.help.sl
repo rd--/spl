@@ -1,4 +1,4 @@
-# addBefore -- adding
+# addBefore
 
 - _addBefore(aSequence, newObject, oldObject)_
 
@@ -10,3 +10,4 @@ Answer _newObject_.
 
 See also: addAfter
 
+Categories: Adding

@@ -1,4 +1,6 @@
-# Blip -- band limited impulse oscillator
+# Blip
+
+Band limited impulse oscillator.
 
 _Blip(freq=440, numHarm=200)_
 
@@ -9,12 +11,24 @@ Implementation notes: It is improved from other implementations in that it will 
 (_Synth-O-Matic_ (1990) had an impulse generator called blip, hence that name here rather than 'buzz').
 
 - freq: frequency in Hertz
-- numharm: number of harmonics. This may be lowered internally if it would cause aliasing.
+- numHarm: number of harmonics. This may be lowered internally if it would cause aliasing.
 
 Modulate frequency:
 
-	Blip(XLine(20000, 200, 6), 100) * 0.2
+```
+Blip(XLine(20000, 200, 6), 100) * 0.2
+```
 
-Modulate numharmonics:
+Modulate number of harmonics:
 
-	Blip(200,Line(1, 100, 20)) * 0.2
+```
+Blip(200,Line(1, 100, 20)) * 0.2
+```
+
+* * *
+
+See also: Impulse
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Blip.html)

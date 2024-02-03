@@ -1,4 +1,4 @@
-# cached -- accessing
+# cached
 
 - _cached(where, key, aBlock)_ ⟹ _atIfAbsentPut(cache(where), key, aBlock)_
 
@@ -8,3 +8,5 @@ This is ordinarily used by methods that provide access to tables &etc. that are 
 * * *
 
 See also: atIfAbsentPut, whenCached
+
+Categories: Accessing

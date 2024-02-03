@@ -1,4 +1,4 @@
-# asComplex -- converting
+# asComplex
 
 - _asComplex(aComplex | aNumber)_
 
@@ -8,3 +8,5 @@ In the Number case answer a Complex number with a real part of _aNumber_ and an 
 * * *
 
 See also: asFloat, asInteger, asNumber, i
+
+Categories: Converting

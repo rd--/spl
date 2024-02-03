@@ -1,4 +1,6 @@
-# BLowPass -- 12db/oct rolloff 2nd order resonant low pass filter
+# BLowPass
+
+12db/oct rolloff 2nd order resonant low pass filter.
 
 The B equalization suite is based on the Second Order Section (SOS) biquad UGen.
 
@@ -12,8 +14,18 @@ Warning: frequency values close to zero may cause loud audio artifacts.
 
 Mouse control of parameters:
 
-	BLowPass(
-		PinkNoise(),
-		MouseX(10, 20000, 1, 0.2),
-		MouseY(0, 1, 0, 0.2)
-	) * 0.25
+```
+BLowPass(
+	PinkNoise(),
+	MouseX(10, 20000, 1, 0.2),
+	MouseY(0, 1, 0, 0.2)
+) * 0.25
+```
+
+* * *
+
+See also: Sos, BLowPass4, BHiPass, BHiPass4, BPeakEQ, BLowShelf, BHiShelf, BBandPass, BBandStop, BAllPass
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/BLowPass.html)

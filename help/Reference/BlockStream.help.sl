@@ -1,4 +1,4 @@
-# BlockStream -- stream type
+# BlockStream
 
 - _BlockStream(nextBlock:/0, resetBlock:/0)_
 
@@ -13,3 +13,5 @@ as well as the _adaptTo_ protocol and the usual math operators.
 * * *
 
 See also: CollectionStream, Stream
+
+Categories: Stream, Type

@@ -1,4 +1,4 @@
-# addAfter -- adding
+# addAfter
 
 - _addAfter(aSequence, newObject, oldObject)_
 
@@ -9,3 +9,5 @@ Answer _newObject_.
 * * *
 
 See also: add, addBefore
+
+Categories: Adding

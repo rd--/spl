@@ -1,4 +1,4 @@
-# Boolean -- logic
+# Boolean
 
 _Boolean_ is the type of the two values _true_ and _false_.
 
@@ -15,3 +15,5 @@ Methods are: &, and, |, or, not, xor
 * * *
 
 See also: and, false, not, or, true
+
+Categories: Logic, Type

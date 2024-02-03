@@ -1,4 +1,4 @@
-# addAll -- adding
+# addAll
 
 - _addAll(aCollection, anotherCollection)_
 
@@ -16,3 +16,5 @@ In general, any object responding to _do_ can be used as the second argument.
 * * *
 
 See also: add, include, includeAll, Iterable, remove, removeAll
+
+Categories: Adding

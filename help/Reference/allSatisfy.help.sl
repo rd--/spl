@@ -1,4 +1,4 @@
-# allSatisfy -- testing
+# allSatisfy
 
 - _allSatisfy(aCollection, aBlock:/1)_
 
@@ -13,3 +13,5 @@ Only tests elements until one answers false.
 * * *
 
 See also: anySatisfy, noneSatisfy
+
+Categories: Testing

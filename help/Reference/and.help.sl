@@ -1,4 +1,4 @@
-# & -- logic operator
+# &
 
 - _aBoolean & aBlock:/0_
 
@@ -28,4 +28,8 @@ Unicode: U+2227 ∧ Logical and
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/And)
+[1](https://aplwiki.com/wiki/And),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/And.html)
+
+Categories: Logic, Operator

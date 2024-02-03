@@ -1,4 +1,4 @@
-# asPowerOfTwo -- truncation and round off
+# asPowerOfTwo
 
 - _asPowerOfTwo(anInteger)_
 
@@ -9,3 +9,5 @@ Answers the next power of two less than _anInteger_.
 * * *
 
 See also: asLargerPowerOfTwo, isPowerOfTwo
+
+Categories: Truncation, Rounding

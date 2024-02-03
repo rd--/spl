@@ -1,4 +1,4 @@
-# add -- adding
+# add
 
 - _add(aCollection, newObject)_
 
@@ -18,3 +18,5 @@ Answers _newObject_.
 * * *
 
 See also: addAll, Extensible, include, remove
+
+Categories: Adding

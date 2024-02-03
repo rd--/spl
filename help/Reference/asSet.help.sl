@@ -1,4 +1,4 @@
-# asSet -- converting
+# asSet
 
 - _asSet(aCollection)_
 
@@ -9,3 +9,5 @@ Answer a Set of the elements of _aCollection_.
 * * *
 
 See also: Collection, Set
+
+Categories: Converting

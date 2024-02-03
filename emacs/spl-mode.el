@@ -269,6 +269,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("/" . ?÷) ; U+00F7 ÷ Division Sign
      (":." . ?‣) ; U+2023 ‣ Triangular Bullet
      (":/" . ?⧸) ; U+00B0 ⧸ Big Solidus
+     (":/0" . ?₀) ; U+2080 ₀ Subscript Zero
      (":/1" . ?₁) ; U+2081 ₁ Subscript One
      (":/2" . ?₂) ; U+2082 ₂ Subscript Two
      (":/3" . ?₃) ; U+2083 ₃ Subscript Three
@@ -446,6 +447,14 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   "Run spl-indent on region."
   (interactive)
   (shell-command-on-region (region-beginning) (region-end) "spl-indent" nil t))
+
+(defun spl-fix-category ()
+  (interactive)
+  (shell-command-on-region (point-min) (point-max) "/home/rohan/sw/spl/hs/fixCategory" t t))
+
+(defun spl-to-fenced ()
+  (interactive)
+  (shell-command-on-region (point-min) (point-max) "/home/rohan/sw/spl/hs/toFenced" t t))
 
 (provide 'spl-mode)
 

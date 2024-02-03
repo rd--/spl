@@ -1,6 +1,6 @@
-# \\\\ -- arithmetic operators
+# \\\\
 
-- _aNumber \\\\ anotheNumber_
+- _aNumber \\\\ anotherNumber_
 
 The operator name for _remainder_.
 
@@ -14,3 +14,5 @@ The name of this operator is _backslashBackslash_
 * * *
 
 See also: quotient, remainder
+
+Categories: Arithmetic operators

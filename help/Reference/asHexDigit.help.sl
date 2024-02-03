@@ -1,4 +1,4 @@
-# asHexDigit -- converting
+# asHexDigit
 
 - _asNumber(anInteger)_
 
@@ -8,3 +8,5 @@ or raise an error if out of bounds.
 * * *
 
 See also: Integer
+
+Categories: Converting

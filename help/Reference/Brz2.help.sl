@@ -1,4 +1,6 @@
-# Brz2 -- two zero fixed midcut
+# Brz2
+
+Two zero fixed midcut.
 
 _Brz2(in)_
 
@@ -8,9 +10,16 @@ This filter cuts out frequencies around 1/2 of the Nyquist frequency.
 
 Compare:
 
-	WhiteNoise() * 0.1
+```
+WhiteNoise() * 0.1
+```
 
 and:
 
-	Brz2(WhiteNoise() * 0.1)
+```
+Brz2(WhiteNoise() * 0.1)
+```
 
+* * *
+
+See also: Bpz2

@@ -1,4 +1,4 @@
-# asFloat -- converting
+# asFloat
 
 - _asFloat(aNumber)_
 
@@ -12,3 +12,5 @@ Answer a SmallFloat that closely approximates the value of _aNumber_.
 * * *
 
 See also: asInteger, asNumber
+
+Categories: Converting

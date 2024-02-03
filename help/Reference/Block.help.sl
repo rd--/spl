@@ -1,4 +1,4 @@
-# Block -- behaviour type
+# Block
 
 The behaviour type.
 Blocks have fixed arity and must be applied to the correct number of arguments.
@@ -13,3 +13,5 @@ Blocks have fixed arity and must be applied to the correct number of arguments.
 See also: [Block Syntax], [Block Semantics]
 
 Unicode: U+03BB λ Greek Small Letter Lamda
+
+Categories: Behaviour, Type
