@@ -1,4 +1,6 @@
-# VarSaw -- variable duty saw
+# VarSaw
+
+Variable duty Saw.
 
 _VarSaw(freq=440, iphase=0, width=0.5)_
 
@@ -33,3 +35,12 @@ Compare VarSaw and LfPulse:
 	LfPulse(LfPulse(3, 0, 0.3) * 200 + 200, 0, 0.2) * 0.1,
 	VarSaw(LfPulse(3, 0, 0.3) * 200 + 200, 0, 0.2) * 0.1
 ]
+```
+
+* * *
+
+See also: LfSaw, Saw, SyncSaw
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/VarSaw.html)

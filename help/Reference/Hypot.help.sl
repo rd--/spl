@@ -1,8 +1,9 @@
-# Hypot -- hypotenuse
+# Hypot
 
-_Hypot(self, aNumber)_
+_Hypot(x, y)_
 
-Answer the square root of the sum of the squares of the arguments. Or equivalently, the distance from the origin to the point _(x, y)_.
+Answer the square root of the sum of the squares of the arguments.
+Or equivalently, the distance from the origin to the point _(x, y)_.
 
 In this example, _Hypot_ is used to calculate a doppler shift pitch and amplitude based on distance.
 Object travels 200 meters in 6 secs (=120kph) passing 10 meters from the listener.
@@ -31,3 +32,12 @@ let motorSound = Rlpf(
 	0.3
 );
 DelayL(motorSound, 110 / 344, distance / 344) * amplitude
+```
+
+* * *
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Hyoptenuse.html)
+
+Categories: Ugen

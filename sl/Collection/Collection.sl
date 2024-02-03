@@ -494,8 +494,16 @@
 		self.collect(fractionPart:/1)
 	}
 
+	gcd { :self |
+		self.reduce(gcd:/2)
+	}
+
 	harmonicNumber { :self |
 		self.collect(harmonicNumber:/1)
+	}
+
+	lcm { :self |
+		self.reduce(lcm:/2)
 	}
 
 	log { :self |

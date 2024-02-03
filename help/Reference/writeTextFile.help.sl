@@ -1,4 +1,4 @@
-# writeTextFile -- file system
+# writeTextFile
 
 - _writeTextFile(aString | aUrl, aString)_
 
@@ -14,3 +14,5 @@ or reject with an Error value.
 * * *
 
 See also: Promise, readTextFile
+
+Categories: FileSystem, InputOutput

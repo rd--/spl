@@ -33,6 +33,10 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 		}
 	}
 
+	nestList { :self:/1 :anObject :count |
+		self:/1.iterate(anObject).next(count + 1)
+	}
+
 }
 
 

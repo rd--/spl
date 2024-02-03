@@ -1,6 +1,8 @@
-# Gcd -- greatest common divisor
+# Gcd
 
-_Gcd(self, aNumber)_
+Greatest common divisor.
+
+_Gcd(aNumber, anotherNumber)_
 
 This definition extends the usual definition and returns a negative number if both operands are negative.
 This makes it consistent with the lattice-theoretical interpretation and its idempotency, commutative, associative, absorption laws.
@@ -20,3 +22,10 @@ SinOsc(freq, 0) * 0.1
 * * *
 
 See also: Lcm
+
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/GCD),
+_Mathematica_
+[1](https://mathworld.wolfram.com/GreatestCommonDivisor.html)
+[2](https://mathworld.wolfram.com/GCD.html)

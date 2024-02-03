@@ -1,4 +1,4 @@
-# Fraction -- arithmetic
+# Fraction
 
 - _Fraction(numerator, denominator)_
 
@@ -62,3 +62,5 @@ The _Fraction_ package re-defines _asNumber_ to call either _parseFraction_ or _
 * * *
 
 See also: denominator, [Fraction Literals], numerator, reduced
+
+Categories: Arithmetic

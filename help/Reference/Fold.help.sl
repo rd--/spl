@@ -1,4 +1,6 @@
-# Fold -- fold a signal outside given thresholds
+# Fold
+
+Fold a signal outside given thresholds.
 
 _Fold(in, lo, hi)_
 
@@ -26,4 +28,8 @@ Fold(SinOsc(440, 0) * 0.2, -0.2, x)
 
 * * *
 
-See also: Clip, Clip2, Fold2, Wrap2
+See also: Clip, Clip2, Fold2, Wrap, Wrap2
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Fold.html)

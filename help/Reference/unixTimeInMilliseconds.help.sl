@@ -1,4 +1,4 @@
-# unixTimeInMilliseconds -- time
+# unixTimeInMilliseconds
 
 - _unixTimeInMilliseconds(aSystem)_
 - _unixTimeInMilliseconds(aTimeStamp)_
@@ -13,3 +13,5 @@ _aNumber.unixTimeInMilliseconds_ is the identity function.
 * * *
 
 See also: Number, System, systemTimeInMilliseconds, TimeStamp
+
+Categories: Time

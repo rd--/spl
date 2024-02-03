@@ -1,4 +1,6 @@
-# TwoPole -- two pole filter
+# TwoPole
+
+Two pole filter.
 
 _TwoPole(in, freq, radius)_
 
@@ -20,3 +22,10 @@ Modulate frequency:
 TwoPole(WhiteNoise() * 0.005, XLine(800, 8000, 8), 0.95)
 ```
 
+* * *
+
+See also: TwoZero
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/TwoPole.html)

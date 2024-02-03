@@ -1,4 +1,6 @@
-# GrainFm -- granular synthesis with frequency modulated sine tones
+# GrainFm
+
+Granular synthesis with frequency modulated sine tones.
 
 _GrainFm(numChannels=1, trigger=0, dur=1, carfreq=440, modfreq=220, index=1, pan=0, envbufnum=-1, maxGrains=512)_
 
@@ -50,3 +52,7 @@ GrainFm(
 * * *
 
 See also: GrainBuf, GrainIn, GrainSin, TGrains, Warp1
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/GrainFM.html)

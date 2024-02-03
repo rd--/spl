@@ -112,16 +112,20 @@
 	}
 
 	gcd { :self :anInteger |
-		let a = self.abs;
-		let b = anInteger.abs;
-		{
-			b = 0
-		}.whileFalse {
-			let r = a % b;
-			a := b;
-			b := r
-		};
-		a
+		anInteger.isInteger.if {
+			let a = self.abs;
+			let b = anInteger.abs;
+			{
+				b = 0
+			}.whileFalse {
+				let r = a % b;
+				a := b;
+				b := r
+			};
+			a
+		} {
+			anInteger.adaptToNumberAndApply(self, gcd:/2)
+		}
 	}
 
 	harmonicNumber { :self |
@@ -188,22 +192,26 @@
 	}
 
 	lcm { :self :anInteger |
-		let a = self;
-		let b = anInteger;
-		(a = 0).or {
-			b = 0
-		}.if {
-			0
-		} {
-			let ab = a * b;
-			{
+		anInteger.isInteger.if {
+			let a = self;
+			let b = anInteger;
+			(a = 0).or {
 				b = 0
-			}.whileFalse {
-				let tmp = b;
-				b := a % tmp;
-				a := tmp
-			};
-			(ab / a).abs
+			}.if {
+				0
+			} {
+				let ab = a * b;
+				{
+					b = 0
+				}.whileFalse {
+					let tmp = b;
+					b := a % tmp;
+					a := tmp
+				};
+				(ab / a).abs
+			}
+		} {
+			anInteger.adaptToNumberAndApply(self, lcm:/2)
 		}
 	}
 

@@ -13,4 +13,4 @@ The _Status Text_ shows the _Traits_ the selected type implements.
 
 * * *
 
-See also: TypeBrowser, SystemBrowser
+See also: TraitBrowser, SystemBrowser

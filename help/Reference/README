@@ -9,7 +9,8 @@ Below the horizontal rule there may be the following entries:
 - "See also:" indicates a list of help files to consult
 - "References:" indicates external references (Apl, Mathematica, SuperCollider)
 - "Categories:" indicates which categories the entry should be listed in
+- "Unicode:" glyphs related to the entry
 
 '/home/rohan/sw/spl/help/Reference'.terseReferenceSummary(verbose: false)
 
-857
+941

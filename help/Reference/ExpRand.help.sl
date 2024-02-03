@@ -16,6 +16,10 @@ o.Splay
 
 * * *
 
-See also: IRand, Rand, TExpRand, TRand
+See also: IRand, LinRand, NRand, Rand, TExpRand, TiRand, TRand
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/ExpRand.html)
 
 Categories: Random

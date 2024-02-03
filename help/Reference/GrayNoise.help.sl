@@ -1,4 +1,6 @@
-# GrayNoise -- noise generator
+# GrayNoise
+
+Noise generator.
 
 _GrayNoise()_
 _GrayNoise(numChan=1) ≡ { GrayNoise() } ! numChan_
@@ -15,3 +17,6 @@ GrayNoise() * 0.125
 
 See also: BrownNoise, ClipNoise, PinkNoise, WhiteNoise
 
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/GrayNoise.html)

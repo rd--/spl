@@ -1,5 +1,6 @@
-# TwChoose -- indexing
+# TwChoose
 
+Indexing.
 Randomly select one of several inputs
 
 An output is selected randomly on receiving a trigger from an array of inputs.
@@ -29,3 +30,9 @@ TwChoose(
 
 Note: All Ugens are continuously running.
 This may not be the most efficient way if each input is Cpu-expensive.
+
+* * *
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/TWChoose.html)

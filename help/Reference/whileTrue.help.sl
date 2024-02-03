@@ -1,4 +1,6 @@
-# whileTrue -- conditional evaluation
+# whileTrue
+
+Conditional evaluation.
 
 - _whileTrue(condition:/0, aBlock:/0)_
 - _whileTrue(condition:/0)_ ⟹ _whileTrue(condition:/0, { })_
@@ -12,3 +14,5 @@ In the second case, simply evaluate _condition_ repeatedly as long as it answers
 * * *
 
 See also: if, ifFalse, ifNil, ifTrue, whileFalse
+
+Categories: Evaluating

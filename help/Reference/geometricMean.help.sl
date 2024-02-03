@@ -11,6 +11,8 @@ The product of _aCollection_ raised to the reciprocal of the size.
 
 * * *
 
+See also: arithmeticMean, mean
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GeometricMean.html)

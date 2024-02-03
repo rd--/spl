@@ -21,7 +21,7 @@ Granular synthesis with sound stored in a buffer.
 - envbufnum: the buffer number containing a signal to use for the grain envelope. -1 uses a built-in Hann envelope.
 - maxGrains: the maximum number of overlapping grains that can be used at a given time. This value is set at the UGens init time and cannot be modified. Defaults to 512. This can be set lower for more efficient use of memory.
 
-All args except numChannels and trigger are polled at grain creation time.
+All arguments except numChannels and trigger are polled at grain creation time.
 
 Use MouseY to control grain frequency and MouseX to control panning:
 
@@ -44,7 +44,10 @@ GrainBuf(
 )
 ```
 
-
 * * *
 
-See also: GrainIn, GrainFM, GrainSin
+See also: GrainIn, GrainFm, GrainSin
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/GrainBuf.html)

@@ -7,7 +7,8 @@
 
 * * *
 
+See also: geometricMean, mean
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HarmonicMean.html)
-

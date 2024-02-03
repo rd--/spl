@@ -1,4 +1,6 @@
-# ZeroCrossing -- zero crossing frequency follower
+# ZeroCrossing
+
+Zero crossing frequency follower.
 
 _ZeroCrossing(in)_
 
@@ -11,3 +13,10 @@ Track frequency of sine oscillator:
 ```
 let a = SinOsc(SinOsc(1, 0) * 600 + 700, 0) * 0.1;
 [a, ZeroCrossing(a) * 0.0005]
+```
+
+* * *
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/ZeroCrossing.html)

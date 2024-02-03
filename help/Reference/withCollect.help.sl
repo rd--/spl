@@ -1,4 +1,4 @@
-# withCollect -- enumerating
+# withCollect
 
 - _withCollect(aSequence, anotherSequence, aBlock:/2)_
 
@@ -9,3 +9,5 @@ Collect and answer the result of evaluating _aBlock_ with corresponding elements
 * * *
 
 See also: collect, withIndexCollect
+
+Categories: Enumerating

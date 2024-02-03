@@ -1,4 +1,4 @@
-# WeakMap -- collection type
+# WeakMap
 
 A WeakMap is a collection of (key, value) which does not create strong references to its keys.
 
@@ -9,3 +9,5 @@ Once an object used as a key has been collected, its corresponding values in any
 * * *
 
 See also: Map
+
+Categories: Collection, Type

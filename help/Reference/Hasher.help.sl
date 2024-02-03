@@ -1,4 +1,6 @@
-# Hasher -- randomized value
+# Hasher
+
+Randomized value.
 
 _Hasher(in)_
 
@@ -28,3 +30,7 @@ SinOsc(
 * * *
 
 See also: WhiteNoise
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Hasher.html)

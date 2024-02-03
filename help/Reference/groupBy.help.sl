@@ -1,4 +1,4 @@
-# groupBy -- enumerating
+# groupBy
 
 - _groupBy(aCollection, keyBlock:/1)_
 
@@ -11,3 +11,5 @@ The answer is a Map keyed by the answers of _keyBlock_.
 * * *
 
 See also: reject, select
+
+Categories: Enumerating

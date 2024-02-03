@@ -1,4 +1,6 @@
-# Formlet -- FOF-like filter
+# Formlet
+
+FOF-like filter.
 
 _Formlet(in, freq, attackTime, decayTime)_
 
@@ -48,3 +50,7 @@ Formlet(
 * * *
 
 See also: Formant
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Formlet.html)

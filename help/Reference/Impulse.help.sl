@@ -1,11 +1,13 @@
-# Impulse -- impulse oscillator
+# Impulse
+
+Impulse oscillator.
 
 _Impulse(freq=440, phase=0)_
 
 Outputs non band limited single sample impulses.
 
 - freq: frequency in Hertz
-- phase: phase offset in cycles (0..1)
+- phase: phase offset in cycles (0,1)
 
 Constant frequency:
 
@@ -23,3 +25,12 @@ Modulate phase:
 
 ```
 Impulse(4, [0, MouseX(0, 1, 0, 0.2)]) * 0.2
+```
+
+* * *
+
+See also: Blip
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Impulse.html)

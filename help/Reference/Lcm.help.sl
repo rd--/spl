@@ -1,4 +1,6 @@
-# Lcm -- least common multiple
+# Lcm
+
+Least common multiple.
 
 This definition extends the usual definition and returns a negative number if any of the operands is negative.
 This makes it consistent with the lattice-theoretical interpretation and its idempotency, commutative, associative, absorption laws.
@@ -15,3 +17,10 @@ SinOsc(freq, 0) * 0.1
 * * *
 
 See also: Gcd
+
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/LCM),
+_Mathematica_
+[1](https://mathworld.wolfram.com/LeastCommonMultiple.html)
+[2](https://mathworld.wolfram.com/LCM.html)

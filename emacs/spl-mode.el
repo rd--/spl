@@ -470,6 +470,13 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   "_SuperCollider_\n"
   "[1](https://doc.sccode.org/Classes/" str | " *** Ref *** " ".html)\n")
 
+(define-skeleton spl-haskell-reference-skeleton
+  "Insert a Haskell Prelude reference."
+  "Ref: "
+  "References:\n"
+  "_Haskell_\n"
+  "[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:" str | " *** Ref *** " ")\n")
+
 (provide 'spl-mode)
 
 ;;; spl.el ends here

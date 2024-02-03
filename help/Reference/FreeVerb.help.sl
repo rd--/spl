@@ -1,4 +1,6 @@
-# FreeVerb -- a reverb
+# FreeVerb
+
+A reverb.
 
 _FreeVerb(in, mix=0.33, room=0.5, damp=0.5)_
 
@@ -19,3 +21,12 @@ FreeVerb(
 	MouseY(0, 1, 0, 0.2),
 	LfNoise2(0.1).Range(0, 1)
 )
+```
+
+* * *
+
+See also: FreeVerb2, GVerb
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/FreeVerb.html)

@@ -1,9 +1,13 @@
-# fromToDo -- enumerating
+# fromToDo
 
 - _fromToDo(aSequence, start, stop, aBlock:/1)_
 
-Evaluate _aBlock_ for all elements between start and stop (inclusive).
+Evaluate _aBlock_ for all elements of _aSequence_ between indices start and stop (inclusive).
+
+	let a = []; 1:9.fromToDo(3, 7) { :each | a.add(each) }; a = [3 .. 7]
 
 * * *
 
 See also: do, toDo
+
+Categories: Enumerating

@@ -1,4 +1,4 @@
-# wrapBetweenAnd -- testing
+# wrapBetweenAnd
 
 - _wrapBetweenAnd(aNumber, low, high)_
 
@@ -13,3 +13,5 @@ Wrap a float between two values:
 * * *
 
 See also: atFold, atWrap, foldIndex, wrapBetweenAnd, wrapIndex
+
+Categories: Testing

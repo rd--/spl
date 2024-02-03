@@ -1,4 +1,4 @@
-# quotient -- arithmetic
+# quotient
 
 - _quotient(aNumber, anotherNumber)_
 
@@ -12,3 +12,9 @@ _remainder_ answers the remainder from this division.
 * * *
 
 See also: remainder
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Quotient.html)
+
+Categories: Arithmetic

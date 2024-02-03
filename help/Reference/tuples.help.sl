@@ -1,4 +1,4 @@
-# tuples -- enumerating
+# tuples
 
 - _tuples(aSequence, anInteger)
 
@@ -15,7 +15,7 @@ The first element given is always picked first:
 
 Two-tuples are the cartesian product of a set with itself:
 
-	let x = [0 1 2];  x.tuples(2) = x.cartesianProduct(x)
+	let x = [0 1 2]; x.tuples(2) = x.cartesianProduct(x)
 
 * * *
 
@@ -24,3 +24,5 @@ See also: cartesianProduct, tuplesDo, tuplesIndicesDo
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Tuples.html)
+
+Categories: Enumerating

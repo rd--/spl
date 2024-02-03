@@ -1,4 +1,4 @@
-# histogramOf -- converting
+# histogramOf
 
 - _histogramOf(aCollection, aBlock:/1)_
 
@@ -9,3 +9,5 @@ A more efficient form of _aCollection.collect(aBlock:/1).asBag_.
 * * *
 
 See also: Bag
+
+Categories: Converting

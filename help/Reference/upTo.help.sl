@@ -1,4 +1,4 @@
-# upTo -- intervals
+# upTo
 
 - _upTo(start, stop)_
 
@@ -11,3 +11,5 @@ Unlike _to_ it is an error if stop is less than start.
 * * *
 
 See also: downTo, Interval, thenTo, to, toBy
+
+Categories: Interval

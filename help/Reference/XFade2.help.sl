@@ -1,4 +1,6 @@
-# XFade2 -- equal power two channel cross fade
+# XFade2
+
+Equal power two channel cross fade.
 
 _XFade2(inA, inB, pan=0, level=1)_
 
@@ -31,3 +33,7 @@ XFade2(
 * * *
 
 See also: Balance2, LinXFade2
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/XFade2.html)

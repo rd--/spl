@@ -1,4 +1,4 @@
-# fetch -- networking
+# fetch
 
 - _fetch(address)_
 - _fetch(address, options)_
@@ -9,3 +9,4 @@ Start the process of fetching a resource from the network, returning a Promise w
 
 See also: Promise, Response
 
+Categories: Networking

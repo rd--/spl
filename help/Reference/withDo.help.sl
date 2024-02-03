@@ -1,4 +1,4 @@
-# withDo -- enumerating
+# withDo
 
 - _withDo(aSequence, anotherSequence, aBlock:/2)_
 
@@ -7,3 +7,5 @@ Evaluate _aBlock_ with corresponding elements from _aSequence_ and _anotherSeque
 * * *
 
 See also: do, reverseWithDo, withCollect, withIndexDo
+
+Categories: Enumerating

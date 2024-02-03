@@ -1,8 +1,11 @@
-# FreqShift -- Frequency Shifter
+# FreqShift
+
+Frequency shifter.
 
 _FreqShift(input, shift, phase)_
 
-FreqShift implements single sideband amplitude modulation, also known as frequency shifting, but not to be confused with pitch shifting. Frequency shifting moves all the components of a signal by a fixed amount but does not preserve the original harmonic relationships.
+FreqShift implements single sideband amplitude modulation, also known as frequency shifting, but not to be confused with pitch shifting.
+Frequency shifting moves all the components of a signal by a fixed amount but does not preserve the original harmonic relationships.
 
 - input: audio input
 - shift: amount of shift in cycles per second
@@ -129,3 +132,11 @@ Non-graph variant:
 	(osc + snd) / 3 ! 2
 }.overlap(3, 3, 3)
 ```
+
+* * *
+
+See also: Hilbert, HilbertFir
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/FreqShift.html)

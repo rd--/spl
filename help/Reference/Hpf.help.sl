@@ -1,4 +1,6 @@
-# Hpf -- 2nd order Butterworth highpass filter
+# Hpf
+
+2nd order Butterworth highpass filter.
 
 _Hpf(in, freq)_
 
@@ -18,4 +20,8 @@ Hpf(
 
 * * *
 
-See also: Lpf
+See also: Bpf, Brf, Lpf
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/HPF.html)

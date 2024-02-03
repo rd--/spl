@@ -1956,6 +1956,7 @@ Interval(1, 9, 1) = 1:9
 Interval(1, 10, 3).size = 4
 Interval(1, 10, 3).asArray = [1, 4, 7, 10]
 1.to(6).reversed = 6:1
+1:6.first = 1 {- first element of interval -}
 1.to(6).first = 1 {- first element of interval -}
 { 1.upTo(0).first }.ifError { true } {- first element of empty interval -}
 1:6.second = 2 {- second element of interval -}

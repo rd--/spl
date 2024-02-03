@@ -1,4 +1,6 @@
-# Warp1 -- Warp a buffer with a time pointer
+# Warp1
+
+Warp a buffer with a time pointer.
 
 Inspired Warp1 from SuperCollider2 by Chad Kirby, which was inspired by sndwarp from CSound by Richard Karpen.
 A granular time stretcher and pitchshifter.
@@ -54,3 +56,7 @@ EqPan(sound, pointer * 2 - 1) / 4
 * * *
 
 See also: GrainFm, TGrains
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Warp1.html)

@@ -1,4 +1,4 @@
-# union -- enumerating
+# union
 
 - _union(aCollection, anotherCollection)_
 
@@ -11,8 +11,10 @@ Answer the set theoretic union of two collections.
 
 See also: difference, intersection, Set
 
-Unicode: ∪ U+222A Union
-
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:union)
+
+Unicode: ∪ U+222A Union
+
+Categories: Enumerating

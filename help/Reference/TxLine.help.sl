@@ -1,4 +1,6 @@
-# TxLine -- exponential line generator
+# TxLine
+
+Exponential line generator.
 
 _TxLine(start=0, end=1, dur=1, tr=0)_
 

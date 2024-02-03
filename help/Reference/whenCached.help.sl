@@ -1,4 +1,4 @@
-# whenCached -- accessing
+# whenCached
 
 - _whenCached(hasCache, key, aysncInitializerBlock:/0)_
 
@@ -10,3 +10,5 @@ This is ordinarily used by methods that provide access to tables &etc. that are 
 * * *
 
 See also: atIfAbsentPut, cached
+
+Categories: Accessing

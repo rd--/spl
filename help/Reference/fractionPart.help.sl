@@ -1,4 +1,4 @@
-# fractionPart -- truncation and round off
+# fractionPart
 
 - _fractionPart(aNumber)_
 
@@ -15,3 +15,5 @@ so that _x.truncated + x.fractionPart = x_.
 * * *
 
 See also: integerPart, truncated
+
+Categories: Truncation, Rounding

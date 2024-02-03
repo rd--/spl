@@ -1,4 +1,6 @@
-# HenonC -- Henon map chaotic generator
+# HenonC
+
+Henon map chaotic generator.
 
 _HenonC(freq, a, b, x0, x1)_
 
@@ -41,3 +43,14 @@ HenonC(
 	0,
 	0
 ) * 0.2
+```
+
+* * *
+
+See also: HenonN, HenonL
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/HenonC.html)
+
+Categories: Ugen, Noise, Chaos

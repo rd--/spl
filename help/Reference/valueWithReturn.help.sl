@@ -1,4 +1,6 @@
-# valueWithReturn -- non-local control flow
+# valueWithReturn
+
+Non-local control flow.
 
 - _valueWithReturn(aBlock:/1)_
 

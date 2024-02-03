@@ -1,4 +1,6 @@
-# WhiteNoise -- noise generator
+# WhiteNoise
+
+Noise generator.
 
 _WhiteNoise()_
 _WhiteNoise(numChan=1) ≡ { WhiteNoise() } ! numChan_
@@ -24,3 +26,7 @@ WhiteNoise(2).Lpz1 * 0.1
 * * *
 
 See also: BrownNoise, ClipNoise, PinkNoise, Rand, TRand
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/WhiteNoise.html)

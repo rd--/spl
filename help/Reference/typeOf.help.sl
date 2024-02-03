@@ -1,4 +1,4 @@
-# typeOf -- reflection
+# typeOf
 
 - _typeOf(anObject)_
 
@@ -21,3 +21,5 @@ The system includes a _typeDictionary_ that maps type names to _Type_ values.
 * * *
 
 See also: species, Type
+
+Categories: Reflection

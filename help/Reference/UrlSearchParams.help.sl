@@ -1,6 +1,6 @@
-# UrlSearchParams -- uniform resource locator
+# UrlSearchParams
 
-The query string of a Url.
+The query string of a Url (Uniform resource locator).
 
 This object is somewhat like a dictionary, however it allows duplicate keys.
 

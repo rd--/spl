@@ -1,4 +1,6 @@
-# VarLag -- variable lag
+# VarLag
+
+Variable lag.
 
 _VarLag(input, time, curvature)_
 
@@ -21,3 +23,7 @@ SinOsc(crv, 0) ! 2 * 0.3
 * * *
 
 See also: Lag, Lag2, Lag3, LagUd
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/VarLag.html)

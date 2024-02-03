@@ -1,4 +1,4 @@
-# variance -- statistics
+# variance
 
 - _variance(aCollection)_
 
@@ -14,4 +14,7 @@ See also: mean, standardDeviation
 
 References:
 _Mathematica_
+[1](https://mathworld.wolfram.com/Variance.html)
 [2](https://reference.wolfram.com/language/ref/Variance.html)
+
+Categories: Statistics

@@ -20,3 +20,4 @@ See also: foldRight, reduce
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:foldl1)
+[2](https://hackage.haskell.org/package/base/docs/Prelude.html#v:foldl)

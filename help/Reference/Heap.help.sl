@@ -1,4 +1,4 @@
-# Heap -- collection type
+# Heap
 
 A binary heap, a kind of binary tree stored in a linear array.
 
@@ -19,3 +19,6 @@ Unless the Heap has been sorted iterators will not enumerate elements in order.
 
 Heap implements the Iterable, Collection, Extensible and Removable traits.
 
+* * *
+
+Categories: Collection, Type

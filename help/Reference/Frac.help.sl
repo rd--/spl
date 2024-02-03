@@ -1,4 +1,6 @@
-# Frac -- fractional part
+# Frac
+
+Fractional part.
 
 Answer only the fractional part of the signal.
 

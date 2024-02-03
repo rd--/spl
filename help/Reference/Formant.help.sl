@@ -1,4 +1,6 @@
-# Formant -- formant oscillator
+# Formant
+
+Formant oscillator.
 
 _Formant(kfundfreq, kformfreq, kwidthfreq)_
 
@@ -31,3 +33,7 @@ Formant(400, 2000, XLine(800, 8000, 8)) * 0.125
 * * *
 
 See also: Formlet
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Formant.html)

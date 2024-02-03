@@ -1,4 +1,6 @@
-# xfade -- texture generator
+# xfade
+
+Texture generator.
 
 - _xfade(aBlock, sustainTime, transitionTime)_ ≡ _overlap(aBlock, sustainTime, transitionTime, 2)_
 

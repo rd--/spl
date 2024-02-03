@@ -1,4 +1,4 @@
-# wrapIndex -- indexing
+# wrapIndex
 
 - _wrapIndex(anInteger, size)_
 
@@ -9,3 +9,5 @@ Wrap _anInteger_ between one and _size_, ie. for one-based indexing:
 * * *
 
 See also: foldIndex
+
+Categories: Indexing

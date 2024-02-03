@@ -1,4 +1,4 @@
-# values -- accessing
+# values
 
 - _values(aDictionary)_
 
@@ -13,3 +13,5 @@ See also: keys
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Values.html)
+
+Categories: Accessing

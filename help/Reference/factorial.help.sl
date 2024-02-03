@@ -1,9 +1,10 @@
-# factorial -- math
+# factorial
 
 - _factorial(anInteger)_
 
 The product of 1 up to _anInteger_.
 
+	1:10.factorial = [1 2 6 24 120 720 5040 40320 362880 3628800]
 	9.factorial = 1:9.product
 	18.factorial = 6402373705728000
 	23n.factorial = 25852016738884976640000n
@@ -22,3 +23,10 @@ Notable limits:
 * * *
 
 See also: doubleFactorial
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Factorial.html)
+[2](https://reference.wolfram.com/language/ref/Factorial.html)
+
+Categories: Math

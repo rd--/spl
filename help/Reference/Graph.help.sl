@@ -1,4 +1,4 @@
-# Graph -- collection type
+# Graph
 
 - _Graph(size, edges, vertexLabels, edgeLabels)_
 - _Graph(k, e)_ ⟹ _Graph(k, e, nil, nil)_
@@ -19,3 +19,7 @@ _labeledVertices_ answers an Array of Associations between vertices and labels,
 providing a default empty label if _vertexLabels_ is nil.
 
 The coherence of a Graph can be queried using _isValid_.
+
+* * *
+
+Categories: Collection, Type

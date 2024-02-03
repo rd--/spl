@@ -1,4 +1,6 @@
-# ImpulseSequencer -- clocked impulses
+# ImpulseSequencer
+
+Clocked impulses.
 
 _ImpulseSequencer(sequence, trig)_
 
@@ -36,3 +38,6 @@ let t = LfPulse(8, 0, 0.5);
 * * *
 
 See also: Sequencer
+
+Categories: Ugen, Sequencing
+

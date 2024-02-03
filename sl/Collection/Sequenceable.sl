@@ -22,6 +22,10 @@
 		self.atAll(indexArray)
 	}
 
+	accumulate { :self |
+		self.scan(+)
+	}
+
 	adaptToCollectionAndApply { :self :rcvr :aBlock:/2 |
 		rcvr.isSequenceable.if {
 			rcvr.withCollect(self) { :rcvrItem :selfItem |
@@ -1208,6 +1212,14 @@
 
 	% { :self :arg |
 		arg.adaptToCollectionAndApply(self, %)
+	}
+
+	gcd { :self :arg |
+		arg.adaptToCollectionAndApply(self, gcd:/2)
+	}
+
+	lcm { :self :arg |
+		arg.adaptToCollectionAndApply(self, lcm:/2)
 	}
 
 }

@@ -1,4 +1,4 @@
-# scan -- enumerating
+# scan
 
 - _scan(aSequence, aBlock:2)_
 
@@ -18,4 +18,9 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Scan),
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:scanl1)
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:scanl1),
+[2](https://hackage.haskell.org/package/base/docs/Prelude.html#v:scanl),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/FoldList.html)
+
+Categories: Enumerating

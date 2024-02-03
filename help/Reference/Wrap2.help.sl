@@ -1,4 +1,6 @@
-# Wrap2 -- bilateral wrapping
+# Wrap2
+
+Bilateral wrapping.
 
 _Wrap2(self, aNumber)_
 

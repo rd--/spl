@@ -1,4 +1,6 @@
-# TwoZero -- two zero filter
+# TwoZero
+
+Two zero filter.
 
 _TwoZero(in, freq, radius)_
 
@@ -12,3 +14,12 @@ Modulate frequency:
 
 ```
 TwoZero(WhiteNoise() * 0.125, XLine(20, 20000, 8), 1)
+```
+
+* * *
+
+See also: TwoPole
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/TwoZero.html)

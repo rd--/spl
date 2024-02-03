@@ -1,14 +1,17 @@
-# >= -- comparison operator
+# >=
 
 - _aMagnitude >= anotherMagnitude_
-- _p >= q_ ⟹ _greaterThanEquals(p, q)_
 
 Answers _true_ if _aMagnitude_ is greater than or equal to _anotherMagnitude_
 
 Where supported this operator is displayed as ≥.
 
+The name of this operator is _greaterThanEquals_.
+
 * * *
 
-See also: lessThan or <, greaterThan or >, lessThanEquals or <=, greaterThanEquals or >=
+See also: <, >, <=, greaterThan, greaterThanEquals, lessThan, lessThanEquals
 
 Unicode: U+2265 ≥ Greater-than or equal to
+
+Categories: Comparison, Operator

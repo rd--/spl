@@ -1,4 +1,6 @@
-# Gate -- gate or hold
+# Gate
+
+Gate or hold.
 
 _Gate(in=0, gate=0)_
 
@@ -20,3 +22,7 @@ SinOsc(gatedNoise * 100 + 200, 0) * 0.1
 * * *
 
 See also: Latch
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Gate.html)

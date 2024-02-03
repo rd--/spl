@@ -1,4 +1,4 @@
-# floor -- truncating and rounding
+# floor
 
 - _floor(aNumber)_
 
@@ -23,3 +23,5 @@ _Haskell_
 _Mathematica_
 [1](https://mathworld.wolfram.com/FloorFunction.html)
 [2](https://reference.wolfram.com/language/ref/Floor.html)
+
+Categories: Truncating, Rounding

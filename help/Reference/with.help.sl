@@ -1,4 +1,4 @@
-# with -- behaviour
+# with
 
 - _with(anObject, aBlock:/1)_
 
@@ -15,3 +15,5 @@ References:
 _Kotlin_
 [1](https://kotlinlang.org/docs/scope-functions.html#with)
 [2](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/with.html)
+
+Categories: Behaviour

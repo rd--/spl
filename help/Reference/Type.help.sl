@@ -1,4 +1,4 @@
-# Type -- value type
+# Type
 
 A _Type_ describes a kind of value.
 
@@ -14,3 +14,5 @@ The _system_ dictionary holds a _typeDictionary_.
 * * *
 
 See also: Trait
+
+Categories: Type

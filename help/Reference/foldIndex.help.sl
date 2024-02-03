@@ -1,4 +1,4 @@
-# foldIndex -- indexing
+# foldIndex
 
 - _foldIndex(anInteger, size)_
 
@@ -9,3 +9,5 @@ Fold _anInteger_ between one and _size_, ie. for one-based indexing:
 * * *
 
 See also: atFold, atWrap, wrapIndex
+
+Categories: Indexing

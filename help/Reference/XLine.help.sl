@@ -1,4 +1,6 @@
-# XLine -- exponential line generator
+# XLine
+
+Exponential line generator.
 
 _XLine(start, end, dur)_
 
@@ -20,3 +22,7 @@ _Note_: This is the Sc _XLine_ Ugen without the _doneAction_ input.
 * * *
 
 See also: Line, TLine, TxLine
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/XLine.html)

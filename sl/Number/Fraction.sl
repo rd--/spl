@@ -133,19 +133,29 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	gcd { :self :aFraction |
-		let d = self.denominator.gcd(aFraction.denominator);
-		Fraction(
-			(self.numerator * (aFraction.denominator // d)).gcd(aFraction.numerator * (self.denominator // d)),
-			(self.denominator // d * aFraction.denominator)
-		)
+		aFraction.isFraction.if {
+			let d = self.denominator.gcd(aFraction.denominator);
+			Fraction(
+				(self.numerator * (aFraction.denominator // d)).gcd(
+					aFraction.numerator * (self.denominator // d)
+				),
+				(self.denominator // d * aFraction.denominator)
+			)
+		} {
+			aFraction.adaptToFractionAndApply(self, lcm:/2)
+		}
 	}
 
 	isInteger { :self |
 		self.denominator = 1
 	}
 
-	lcm { :self :n |
-		self // self.gcd(n) * n
+	lcm { :self :aFraction |
+		aFraction.isFraction.if {
+			self // self.gcd(aFraction) * aFraction
+		} {
+			aFraction.adaptToFractionAndApply(self, lcm:/2)
+		}
 	}
 
 	limitDenominator { :self :maxDenominator |

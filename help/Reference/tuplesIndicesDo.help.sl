@@ -1,4 +1,4 @@
-# tuplesIndicesDo -- enumerating
+# tuplesIndicesDo
 
 - _tuplesIndicesDo(size, n, aBlock:/1)
 
@@ -8,3 +8,5 @@ evaluating _aBlock:/1_ at each index array.
 * * *
 
 See also: tuples, tuplesDo
+
+Categories: Enumerating
