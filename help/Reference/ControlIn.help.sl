@@ -1,4 +1,6 @@
-# ControlIn -- read bus
+# ControlIn
+
+Read bus.
 
 _ControlIn(numChannels, index)_
 
@@ -27,3 +29,5 @@ Multiple-channel expansion on index, place reader and writer in same graph:
 * * *
 
 See also: AudioIn, ControlOut, In, Out
+
+Categories: Ugen

@@ -1,5 +1,9 @@
 +String {
 
+	readDirectoryFileNames { :self |
+		<primitive: return host.readDirectoryFileNames(_self);>
+	}
+
 	readFile { :self |
 		<primitive: return host.readFile(_self);>
 	}
@@ -14,6 +18,14 @@
 
 	writeTextFile { :self :aString |
 		<primitive: return host.writeTextFile(_self, _aString);>
+	}
+
+}
+
++Array {
+
+	readTextFileArray { :self |
+		<primitive: return host.readTextFileArray(_self);>
 	}
 
 }

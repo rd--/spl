@@ -27,7 +27,7 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 
 	initialize { :self :withFilter :titleText :listSize |
 		self.ignoreCase := true;
-		self.listChooserPane := 'div'.createElement (
+		self.listChooserPane := 'div'.createElement(
 			class: 'listChooserPane'
 		);
 		titleText.ifNotNil {

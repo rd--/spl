@@ -1,4 +1,4 @@
-# Collection -- collection trait
+# Collection
 
 _Collection_ is a trait holding behaviours common to collections.
 
@@ -21,3 +21,5 @@ _size_ and _do_ are the basic methods of a collection.
 * * *
 
 See also: Dictionary, do, SequenceableCollection, size
+
+Categories: Collection, Trait

@@ -1,4 +1,6 @@
-# Delay1 -- single sample delay
+# Delay1
+
+Single sample delay
 
 _Delay1(in)_
 
@@ -6,6 +8,15 @@ _Delay1(in)_
 
 Original, with delayed subtracted from original:
 
-	let z = Dust(1000);
-	[z, z - Delay1(z)]
+```
+let z = Dust(1000);
+[z, z - Delay1(z)]
+```
 
+* * *
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Delay1.html)
+
+Categories: Ugen, delay

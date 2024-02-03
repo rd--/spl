@@ -1,4 +1,4 @@
-# downTo -- interval constructor
+# downTo
 
 - _downTo(start, stop)_
 
@@ -11,3 +11,5 @@ Unlike to it is an error is stop is greater than start.
 * * *
 
 See also: downTo, Interval, thenTo, toBy, upOrDownTo, upTo
+
+Categories: Interval

@@ -1,4 +1,4 @@
-# copy -- copying
+# copy
 
 - _copy(anObject)_
 
@@ -13,3 +13,5 @@ Copy is defined in terms of _shallowCopy_ and _postCopy_.
 * * *
 
 See also: copyFromTo, copyWith, copyWithout, deepCopy, postCopy, shallowCopy
+
+Categories: Copying

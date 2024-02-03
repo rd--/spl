@@ -1,4 +1,4 @@
-# copyWithoutAll -- copying
+# copyWithoutAll
 
 - _copyWithout(aCollection, anotherCollection)_
 
@@ -7,3 +7,5 @@ Answer a copy of _aCollection_ that does not contain any elements of _anotherCol
 * * *
 
 See also: copyWithout
+
+Categories: Copying

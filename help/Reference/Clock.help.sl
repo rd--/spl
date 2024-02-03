@@ -1,4 +1,4 @@
-# Clock -- scheduling
+# Clock
 
 - _Clock()_
 
@@ -43,3 +43,7 @@ _recurseEvery_ is a related interface to _scheduleInjecting_, a _nil_ at either 
 ```
 system.clock.recurseEvery({ :t :x | [t, x].postLine; (x < 7).if { x + 1 } { nil } }, 1) { let x = 1.randomFloat; (x > 0.1).if { x } { nil } }
 ```
+
+* * *
+
+Categories: Scheduling

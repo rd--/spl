@@ -86,6 +86,7 @@
 
 	{- Text -}
 	'Character'
+	'Markdown'
 	'RegExp'
 
 	{- Time -}
@@ -104,6 +105,7 @@
 
 	{- Help -}
 	'TerseGuide' {- Url -}
+	'TerseReference' {- Url -}
 
 	{- Sound -}
 	'SoundFile' {- Url -}

@@ -461,7 +461,7 @@ String! : [Object, Json, Iterable] {
 
 	primitiveDo { :self :aBlock:/1 |
 		<primitive:
-		for (const each of _self) {
+		for(const each of _self) {
 			_aBlock_1(each);
 		};
 		return _self;

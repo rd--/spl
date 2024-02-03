@@ -1,4 +1,6 @@
-# CoinGate -- statistical gate
+# CoinGate
+
+Statistical gate.
 
 _CoinGate(prob, trig)_
 
@@ -9,19 +11,27 @@ When it receives a trigger, it tosses a coin, and either passes the trigger or d
 
 Mouse controls probablity:
 
-	let prob = MouseX(0, 1, 0, 0.2);
-	let trig = CoinGate(prob, Impulse(10, 0));
-	let freq = TRand([200, 300], [400, 900], trig);
-	SinOsc(freq, 0) * 0.1
+```
+let prob = MouseX(0, 1, 0, 0.2);
+let trig = CoinGate(prob, Impulse(10, 0));
+let freq = TRand([200, 300], [400, 900], trig);
+SinOsc(freq, 0) * 0.1
+```
 
 Trigger level is preserved, mouse controls probablity over partial range:
 
-	let prob = MouseX(0, 0.65, 0, 0.2);
-	let trig = Impulse(20, 0) * (SinOsc(0.5, 0) + 1);
-	{
-		Ringz(
-			CoinGate(prob, trig * 0.5),
-			[1, 1.5] * Rand(1000, 9000),
-			0.01
-		)
-	} !+ 3
+```
+let prob = MouseX(0, 0.65, 0, 0.2);
+let trig = Impulse(20, 0) * (SinOsc(0.5, 0) + 1);
+{
+	Ringz(
+		CoinGate(prob, trig * 0.5),
+		[1, 1.5] * Rand(1000, 9000),
+		0.01
+	)
+} !+ 3
+```
+
+* * *
+
+Categories: Ugen

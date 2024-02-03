@@ -126,7 +126,7 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed] {
 	parseHexString { :self |
 		<primitive:
 		const bytes = new Uint8Array(_self.length / 2);
-		for (let i = 0; i < _self.length; i ++) {
+		for(let i = 0; i < _self.length; i ++) {
 			bytes[i] = parseInt(_self.substr(i * 2, 2), 16);
 		}
 		return bytes;

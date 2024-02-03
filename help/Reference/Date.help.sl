@@ -1,4 +1,4 @@
-# Date -- time type
+# Date
 
 An object representing a date and time.
 
@@ -28,3 +28,5 @@ i.e. _year_, _month_, _dayOfMonth_, _hour_, _minute_, _second_ &etc.
 * * *
 
 See also: Duration, TimeStamp
+
+Categories: Time, Type

@@ -1,4 +1,4 @@
-# detectIfNone -- enumerating
+# detectIfNone
 
 - _detect(aCollection, aBlock:/1, exceptionBlock:/0)_
 
@@ -9,3 +9,5 @@ If there is no such element, evaluate and answer _exceptionBlock_.
 * * *
 
 See also: detect, findFirst, reject, select
+
+Categories: Enumerating

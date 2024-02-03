@@ -24,6 +24,9 @@ spl-repl-bm-unsafe:
 spl-repl-sc:
 	$(spl) replPerLine --lib=StandardLibrary --lib=SuperColliderLibrary --strict
 
+spl-repl-sc-verbose:
+	./spl replPerLine --lib=StandardLibrary --lib=SuperColliderLibrary --strict --verbose
+
 spl-repl-ui:
 	$(spl) replPerLine --lib=StandardLibrary --lib=SuperColliderLibrary --lib=SmallKansasLibrary --strict
 

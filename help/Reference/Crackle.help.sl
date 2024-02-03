@@ -1,4 +1,6 @@
-# Crackle -- chaotic noise function
+# Crackle
+
+Chaotic noise function.
 
 _Crackle(param)_
 
@@ -8,9 +10,16 @@ A noise generator based on a chaotic function.
 
 Fixed param:
 
-	Crackle(1.95) * 0.1
+```
+Crackle(1.95) * 0.1
+```
 
 Modulate param:
 
-	Crackle(Line(1, 2, 10)) * 0.1
+```
+Crackle(Line(1, 2, 10)) * 0.1
+```
 
+* * *
+
+Categories: Ugen, Noise

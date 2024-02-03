@@ -1,2 +1,7 @@
-# Cos -- cosine
+# Cos
 
+Cosine.
+
+* * *
+
+Categories: Ugen

@@ -1,4 +1,4 @@
-# denominator -- arithmetic
+# denominator
 
 - _denominator(aNumber)_
 
@@ -11,3 +11,5 @@ Answer the denominator of a _Fraction_ or 1 for an _Integer_.
 * * *
 
 See also: Fraction, numerator
+
+Categories: Arithmetic

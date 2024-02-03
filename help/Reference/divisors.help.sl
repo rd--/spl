@@ -1,4 +1,4 @@
-# divisors -- arithmetic
+# divisors
 
 - _divisors(anInteger)_
 
@@ -10,3 +10,5 @@ Answers the array of integers that are divisors of _anInteger_.
 * * *
 
 See also: remainder
+
+Categories: Arithmetic

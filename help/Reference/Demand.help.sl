@@ -1,4 +1,6 @@
-# Demand -- demand results from demand rate ugens
+# Demand
+
+Demand results from demand rate Ugens.
 
 _Demand(trig, reset=0, demandUgens)_
 
@@ -23,29 +25,39 @@ so that embedding the same Ugen twice calls this stream twice.
 
 Mouse control of tone:
 
-	let trig = Impulse(24, 0);
-	let seq = Drand(2000, [
-		Dseq(1, [1 .. 5].mirror1),
-		Drand(8, [4 .. 10])
-	]) * Drand(2000, [1 1 1 2 2 2 4 4 8]);
-	let freq = Demand(trig, 0, seq * 100);
-	let osc = SinOsc(freq + [0 0.7], 0);
-	osc.Cubed.Cubed.ScaleNeg(MouseX(-1, 1, 0, 0.2)) * 0.1
+```
+let trig = Impulse(24, 0);
+let seq = Drand(2000, [
+	Dseq(1, [1 .. 5].mirror1),
+	Drand(8, [4 .. 10])
+]) * Drand(2000, [1 1 1 2 2 2 4 4 8]);
+let freq = Demand(trig, 0, seq * 100);
+let osc = SinOsc(freq + [0 0.7], 0);
+osc.Cubed.Cubed.ScaleNeg(MouseX(-1, 1, 0, 0.2)) * 0.1
+```
 
 Randomly select among sequences:
 
-	let trig = Impulse(8, 0);
-	let seq = Drand(inf, [
-		Dseq(1, [4 0 0 1 2 1 0 1]),
-		Dseq(1, [4 0 2 0 1 0 1 1]),
-		Dseq(1, [4 0 0 2 0 0 1 1]),
-		Dseq(1, [4 0 1 2 0 1 2 0]),
-		Dseq(1, [4 1 1 1 2 2 3 3]),
-		Dseq(1, [4 1 0 1 0 1 0 1])
-	]);
-	let trigSeq = Demand(trig, 0, seq * 0.4) * trig;
-	{ Lpf(PinkNoise(), 5000) } ! 2 * Decay(trigSeq, 0.5)
+```
+let trig = Impulse(8, 0);
+let seq = Drand(inf, [
+	Dseq(1, [4 0 0 1 2 1 0 1]),
+	Dseq(1, [4 0 2 0 1 0 1 1]),
+	Dseq(1, [4 0 0 2 0 0 1 1]),
+	Dseq(1, [4 0 1 2 0 1 2 0]),
+	Dseq(1, [4 1 1 1 2 2 3 3]),
+	Dseq(1, [4 1 0 1 0 1 0 1])
+]);
+let trigSeq = Demand(trig, 0, seq * 0.4) * trig;
+{ Lpf(PinkNoise(), 5000) } ! 2 * Decay(trigSeq, 0.5)
+```
 
 * * *
 
 See also: Duty, TDuty
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Demand.html)
+
+Categories: Ugen, Demand

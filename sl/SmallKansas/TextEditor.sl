@@ -7,7 +7,7 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 	}
 
 	createElements { :self |
-		self.editorPane := 'div'.createElement (
+		self.editorPane := 'div'.createElement(
 			class: 'editorPane'
 		);
 		self.editorText := (self.mimeType = 'text/plain').if {

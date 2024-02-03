@@ -1,4 +1,4 @@
-# doubleFactorial -- math
+# doubleFactorial
 
 - _doubleFactorial(anInteger)_
 
@@ -17,3 +17,5 @@ For odd numbers (<http://oeis.org/A001147>):
 * * *
 
 See also: factorial
+
+Categories: Math

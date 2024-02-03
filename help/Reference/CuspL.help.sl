@@ -1,4 +1,6 @@
-# CuspL -- cusp map chaotic generator
+# CuspL
+
+Cusp map chaotic generator.
 
 _CuspL(freq, a, b, xi)_
 
@@ -12,30 +14,40 @@ A linear-interpolating sound generator based on the difference equation:
 
 Vary frequency:
 
-	CuspL(
-		MouseX(20, SampleRate(), 0, 0.2),
-		1,
-		1.99,
-		0
-	) * 0.1
+```
+CuspL(
+	MouseX(20, SampleRate(), 0, 0.2),
+	1,
+	1.99,
+	0
+) * 0.1
+```
 
 Mouse-controlled params:
 
-	CuspL(
-		SampleRate() / 4,
-		MouseX(0.9, 1.1, 1, 0.2),
-		MouseY(1.8, 2, 1, 0.2),
-		0
-	) * 0.1
+```
+CuspL(
+	SampleRate() / 4,
+	MouseX(0.9, 1.1, 1, 0.2),
+	MouseY(1.8, 2, 1, 0.2),
+	0
+) * 0.1
+```
 
 As a frequency control:
 
-	SinOsc(
-		CuspL(
-			40,
-			MouseX(0.9, 1.1, 1, 0.2),
-			MouseY(1.8, 2, 1, 0.2),
-			0
-		) * 800 + 900,
+```
+SinOsc(
+	CuspL(
+		40,
+		MouseX(0.9, 1.1, 1, 0.2),
+		MouseY(1.8, 2, 1, 0.2),
 		0
-	) * 0.2
+	) * 800 + 900,
+	0
+) * 0.2
+```
+
+* * *
+
+Categories: Ugen, Noise, Chaos

@@ -7,10 +7,10 @@ ColourChooser : [Object, View] { | colourChooserPane colourInput |
 	}
 
 	initialize { :self :initialColour :onSelect:/1 |
-		self.colourChooserPane := 'div'.createElement (
+		self.colourChooserPane := 'div'.createElement(
 			class: 'colourChooser'
 		);
-		self.colourInput := 'input'.createElement (
+		self.colourInput := 'input'.createElement(
 			class: 'colourInput',
 			type: 'color',
 			value: initialColour.hexString

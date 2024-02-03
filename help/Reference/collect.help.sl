@@ -1,4 +1,4 @@
-# collect -- enumerating
+# collect
 
 - _collect(aCollection, aBlock:/1)_
 
@@ -24,3 +24,5 @@ _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:map)
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Map.html)
+
+Categories: Enumerating

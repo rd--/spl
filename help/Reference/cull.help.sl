@@ -1,4 +1,4 @@
-# cull -- evaluating
+# cull
 
 - _cull(aBlock, firstArg)_
 - _cull(aBlock, firstArg, secondArg)_
@@ -17,3 +17,5 @@ and passes only the required number of arguments.
 * * *
 
 See also: numArgs, value
+
+Categories: Evaluating

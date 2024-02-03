@@ -1,4 +1,4 @@
-# := -- assignment syntax
+# :=
 
 Assign a value to a variable.
 Variables must be declared.
@@ -15,3 +15,5 @@ or as a colon equals glyph, ≔.
 See also: = or equals
 
 Unicode: U+2190 ← Leftwards Arrow, U+2254 ≔ Colon Equals
+
+Categories: Assignment, Syntax

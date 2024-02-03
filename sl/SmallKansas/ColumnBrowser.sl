@@ -7,13 +7,13 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 	}
 
 	createElements { :self :mimeType :withFilter :withStatus :columnProportions :listSize |
-		self.browserPane := 'div'.createElement (
+		self.browserPane := 'div'.createElement(
 			class: 'browserPane'
 		);
-		self.columnsPane := 'div'.createElement (
+		self.columnsPane := 'div'.createElement(
 			class: 'columnsPane'
 		);
-		self.previewPane := 'div'.createElement (
+		self.previewPane := 'div'.createElement(
 			class: 'previewPane'
 		);
 		self.textEditor := self.smallKansas.TextEditor(
@@ -35,10 +35,10 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 			self.previewPane
 		]);
 		withStatus.ifTrue {
-			self.statusPane := 'div'.createElement (
+			self.statusPane := 'div'.createElement(
 				class: 'statusPane'
 			);
-			self.statusText := 'span'.createElement (
+			self.statusText := 'span'.createElement(
 				class: 'statusText'
 			);
 			self.statusPane.appendChild(self.statusText);

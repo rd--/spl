@@ -1,4 +1,4 @@
-# ensure -- exceptions
+# ensure
 
 - _ensure(aBlock:/0, terminationBlock:/0)_
 
@@ -10,3 +10,5 @@ Evaluate _terminationBlock_ after evaluating _aBlock_, regardless of whether the
 * * *
 
 See also: Error, ifError
+
+Categories: Exceptions

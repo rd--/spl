@@ -1,4 +1,4 @@
-# concatenation -- converting
+# concatenation
 
 _concatenation(aCollection)_
 
@@ -12,3 +12,5 @@ Flattens the collection by one level into an Array.
 See also: ++ or plusPlus
 
 Unicode: U+29FB ⧻ Triple Plus
+
+Categories: Converting

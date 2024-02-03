@@ -1,4 +1,4 @@
-# degreesToRadians -- math
+# degreesToRadians
 
 _degreesToRadians(aNumber)_
 
@@ -9,3 +9,5 @@ Convert from degrees to radians.
 * * *
 
 See also: radiansToDegrees
+
+Categories: Math

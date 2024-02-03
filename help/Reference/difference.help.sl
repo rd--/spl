@@ -1,4 +1,4 @@
-# difference -- set logic
+# difference
 
 - _difference(aCollection, anotherCollection)_
 
@@ -13,3 +13,5 @@ See also: intersection, union
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SymmetricDifference.html)
+
+Categories: Set, Logic

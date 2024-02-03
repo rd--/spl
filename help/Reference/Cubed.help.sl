@@ -1,1 +1,7 @@
-# Cubed -- cubed value
+# Cubed
+
+Cubed value.
+
+* * *
+
+Categories: Ugen

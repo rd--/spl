@@ -1,4 +1,4 @@
-# equals -- comparing
+# equals
 
 - _anObject = anotherObject_
 
@@ -26,3 +26,5 @@ See also: ~=, ==, equalSlots, equalsEquals
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Equal_to)
+
+Categories: Comparing

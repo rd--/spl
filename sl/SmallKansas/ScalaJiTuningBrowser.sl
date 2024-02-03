@@ -5,7 +5,7 @@
 		let points = self.vertexLabels.collect(derivePoint:/1);
 		let bbox = points.computeBoundingBox.scaleBy(scale);
 		let dots = points.collect { :each |
-			'circle'.createSvgElement (
+			'circle'.createSvgElement(
 				cx: each.x,
 				cy: each.y,
 				r: lineWidth * 2,
@@ -14,7 +14,7 @@
 		};
 		let lines = self.edges.collect { :each |
 			let [i, j] = each;
-			'line'.createSvgElement (
+			'line'.createSvgElement(
 				x1: points[i].x,
 				y1: points[i].y,
 				x2: points[j].x,
@@ -23,13 +23,13 @@
 				'stroke-width': lineWidth
 			)
 		};
-		let svg = 'svg'.createSvgElement (
+		let svg = 'svg'.createSvgElement(
 			width: bbox.width,
 			height: bbox.height,
 			viewBox: bbox.viewBoxString(5),
 			preserveAspectRatio: 'xMidYMid meet'
 		);
-		let group = 'g'.createSvgElement (
+		let group = 'g'.createSvgElement(
 			transform: [
 				'translate(0, ' ++ (bbox.height + (2 * bbox.origin.y)) ++ ')',
 				'scale(' ++ scale ++ ', -' ++ scale ++ ')'

@@ -1,7 +1,7 @@
 SvgViewer : [Object, View] { | svgPane title svg |
 
 	createElements { :self |
-		self.svgPane := 'div'.createElement (
+		self.svgPane := 'div'.createElement(
 			class: 'svgPane'
 		);
 		self.svgPane.appendChild(self.svg)

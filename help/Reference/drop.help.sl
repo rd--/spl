@@ -24,7 +24,6 @@ Removing more elements than the length of the sequence gives an empty result:
 
 See also: dropFirst, dropLast, take
 
-
 References:
 _Apl_
 [1](http://aplwiki.com/wiki/Drop),

@@ -1,4 +1,4 @@
-# ceiling -- truncating and rounding
+# ceiling
 
 - _ceiling(aNumber)_
 
@@ -25,3 +25,5 @@ _Haskell_
 _Mathematica_
 [1](https://mathworld.wolfram.com/CeilingFunction.html)
 [2](https://reference.wolfram.com/language/ref/Ceiling.html)
+
+Categories: Truncating and rounding

@@ -494,7 +494,7 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	typeInheritedMethodDictionary { :self :typeName |
-		{- Methods inherited from Traits at typeName (most specific only). -}
+		{- Methods inherited from Traits at typeName, most specific only. -}
 		let answer = ();
 		self.typeLookup(typeName).traitNameArray.do { :traitName |
 			self.traitLookup(traitName).methodDictionary.valuesDo { :method |

@@ -1,4 +1,4 @@
-# / -- mathematical operator
+# /
 
 - _aNumber / anotherNumber_
 
@@ -25,3 +25,5 @@ Unicode: U+00F7 ÷ Division Sign
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Divide)
+
+Categories: Mathe, Operator

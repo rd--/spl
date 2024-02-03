@@ -1,4 +1,4 @@
-# cartesianProductDo -- enumerating
+# cartesianProductDo
 
 - _cartesianProductDo(aCollection, anotherCollection, aBlock:/2)_
 
@@ -9,3 +9,5 @@ The Cartesian product of two sets A and B is the set of all (a, b) where a ∈ A
 * * *
 
 See also: cartesianProduct
+
+Categories: Enumerating

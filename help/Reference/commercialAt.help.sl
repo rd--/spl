@@ -1,4 +1,4 @@
-# @ -- graphics
+# @
 
 - _aNumber @ anotherNumber_
 - _p & q_ ⟹ _commercialAt(p, q)_
@@ -25,3 +25,5 @@ such as atAll and atPath, and @* is a nice mnemonic for atAll.
 * * *
 
 See also: at, [At Syntax]
+
+Categories: Graphics, Accessing

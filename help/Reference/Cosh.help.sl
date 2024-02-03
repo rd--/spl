@@ -1,1 +1,7 @@
-# Cosh -- hyperbolic cosine
+# Cosh
+
+Hyperbolic cosine.
+
+* * *
+
+Categories: Ugen

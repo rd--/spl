@@ -1,4 +1,4 @@
-# digitValue -- accessing
+# digitValue
 
 - _digitValue(aCharacter)_
 
@@ -13,3 +13,5 @@ For example, answer $9 for 9, $0 for 0, $A for 10, $Z for 35.
 * * *
 
 See also: asciiValue, Character
+
+Categories: Accessing

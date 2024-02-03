@@ -13,71 +13,79 @@ The output of DelayWrite is just a copy of the input signal. The output of Delay
 
 Simple feedback delay (if this is all you want, Comb is easier to use):
 
-	{- allocate a buffer for the delay line -}
-	let buffer = BufAlloc(1, 48000 * 0.3).BufClear;
-	{- make a percussive sound as input -}
-	let input = Decay(Impulse(1, 0), 0.2) * PinkNoise();
-	{- tap the delay line at 0.15 second delay -}
-	let delayedSignal = DelayTap(buffer, 0.15);
-	{- mix the delayed signal with the input -}
-	let mixedSignal = (delayedSignal * 0.4) + input;
-	{- write the mixed signal to the delay line -}
-	let writer = DelayWrite(buffer, mixedSignal);
-	{- output the mixed signal -}
-	mixedSignal <! writer
+```
+{- allocate a buffer for the delay line -}
+let buffer = BufAlloc(1, 48000 * 0.3).BufClear;
+{- make a percussive sound as input -}
+let input = Decay(Impulse(1, 0), 0.2) * PinkNoise();
+{- tap the delay line at 0.15 second delay -}
+let delayedSignal = DelayTap(buffer, 0.15);
+{- mix the delayed signal with the input -}
+let mixedSignal = (delayedSignal * 0.4) + input;
+{- write the mixed signal to the delay line -}
+let writer = DelayWrite(buffer, mixedSignal);
+{- output the mixed signal -}
+mixedSignal <! writer
+```
 
 Ping pong delay:
 
-	{- allocate a buffer for the left delay line -}
-	let leftBuffer = BufAlloc(1, 48000 * 0.4).BufClear;
-	{- allocate a buffer for the right delay line -}
-	let rightBuffer = BufAlloc(1, 48000 * 0.4).BufClear;
-	{- make a percussive sound as input -}
-	let input = Decay(Impulse(0.4, 0), 0.1) * PinkNoise();
-	{- tap the left delay line -}
-	let leftDelayedSignal = DelayTap(leftBuffer, 0.3);
-	{- tap the left delay line -}
-	let rightDelayedSignal = DelayTap(rightBuffer, 0.3);
-	{- mix the delayed signal with the input -}
-	let output = [leftDelayedSignal + input, rightDelayedSignal];
-	{- scale delay signal -}
-	let toDelay = output * 0.8;
-	{- feedback to buffers in reverse order -}
-	let writer = DelayWrite([rightBuffer, leftBuffer], toDelay);
-	{- output with writer attached to graph -}
-	output <! writer
+```
+{- allocate a buffer for the left delay line -}
+let leftBuffer = BufAlloc(1, 48000 * 0.4).BufClear;
+{- allocate a buffer for the right delay line -}
+let rightBuffer = BufAlloc(1, 48000 * 0.4).BufClear;
+{- make a percussive sound as input -}
+let input = Decay(Impulse(0.4, 0), 0.1) * PinkNoise();
+{- tap the left delay line -}
+let leftDelayedSignal = DelayTap(leftBuffer, 0.3);
+{- tap the left delay line -}
+let rightDelayedSignal = DelayTap(rightBuffer, 0.3);
+{- mix the delayed signal with the input -}
+let output = [leftDelayedSignal + input, rightDelayedSignal];
+{- scale delay signal -}
+let toDelay = output * 0.8;
+{- feedback to buffers in reverse order -}
+let writer = DelayWrite([rightBuffer, leftBuffer], toDelay);
+{- output with writer attached to graph -}
+output <! writer
+```
 
 Distortion in the feedback loop:
 
-	{- allocate a buffer for the delay line -}
-	let buffer = BufAlloc(1, 48000 * 0.3).BufClear;
-	{- sine pulse -}
-	let input = FSinOsc(1000, 0) * LfPulse(0.3, 0, 0.05) * 0.3;
-	{- tap the delay line at 0.15 second delay and distort -}
-	let delayedSignal = DelayTap(buffer, 0.15).Distort;
-	{- mix the delayed signal with the input -}
-	let mixedSignal = (delayedSignal * 0.8) + input;
-	{- write the mixed signal to the delay line -}
-	let writer = DelayWrite(buffer, mixedSignal);
-	{- output the mixed signal -}
-	mixedSignal <! writer
+```
+{- allocate a buffer for the delay line -}
+let buffer = BufAlloc(1, 48000 * 0.3).BufClear;
+{- sine pulse -}
+let input = FSinOsc(1000, 0) * LfPulse(0.3, 0, 0.05) * 0.3;
+{- tap the delay line at 0.15 second delay and distort -}
+let delayedSignal = DelayTap(buffer, 0.15).Distort;
+{- mix the delayed signal with the input -}
+let mixedSignal = (delayedSignal * 0.8) + input;
+{- write the mixed signal to the delay line -}
+let writer = DelayWrite(buffer, mixedSignal);
+{- output the mixed signal -}
+mixedSignal <! writer
+```
 
 Pitch shift in the feedback loop:
 
-	{- allocate a buffer for the delay line -}
-	let buffer = BufAlloc(1, 48000 * 0.3).BufClear;
-	{- sine pulse -}
-	let input = FSinOsc(1000, 0) * LfPulse(0.3, 0, 0.05) * 0.3;
-	{- tap the delay line at 0.15 seconds -}
-	let delayed = DelayTap(buffer, 0.15);
-	{- apply pitch shift -}
-	let shifted = PitchShift(delayed, 0.2, 5 / 7, 0.01, 0.01);
-	{- mix the delayed signal with the input -}
-	let mixedSignal = (shifted * 0.8) + input;
-	{- write the mixed signal to the delay line -}
-	let writer = DelayWrite(buffer, mixedSignal);
-	{- output the mixed signal -}
-	mixedSignal <! writer
+```
+{- allocate a buffer for the delay line -}
+let buffer = BufAlloc(1, 48000 * 0.3).BufClear;
+{- sine pulse -}
+let input = FSinOsc(1000, 0) * LfPulse(0.3, 0, 0.05) * 0.3;
+{- tap the delay line at 0.15 seconds -}
+let delayed = DelayTap(buffer, 0.15);
+{- apply pitch shift -}
+let shifted = PitchShift(delayed, 0.2, 5 / 7, 0.01, 0.01);
+{- mix the delayed signal with the input -}
+let mixedSignal = (shifted * 0.8) + input;
+{- write the mixed signal to the delay line -}
+let writer = DelayWrite(buffer, mixedSignal);
+{- output the mixed signal -}
+mixedSignal <! writer
+```
 
 * * *
 

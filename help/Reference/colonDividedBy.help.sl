@@ -1,4 +1,6 @@
-# :/ -- arity selector syntax
+# :/
+
+Arity selector syntax.
 
 When a method is declared two names are bound to it.
 

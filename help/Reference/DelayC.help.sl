@@ -1,4 +1,6 @@
-# DelayC -- delay line
+# DelayC
+
+Delay line.
 
 _DelayC(in, maxdelaytime=0.2, delaytime=0.2)_
 
@@ -10,6 +12,15 @@ Simple delay line. DelayN uses no interpolation, DelayL uses linear interpolatio
 
 Dust randomly triggers Decay to create an exponential decay envelope for the WhiteNoise input source, input is mixed with delay:
 
-	let z = Decay(Dust(1) * 0.5, 0.3) * WhiteNoise();
-	DelayC(z, 0.2, 0.2) + z
+```
+let z = Decay(Dust(1) * 0.5, 0.3) * WhiteNoise();
+DelayC(z, 0.2, 0.2) + z
+```
 
+* * *
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/DelayC.html)
+
+Categories: Ugen, Delay

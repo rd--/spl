@@ -1,4 +1,4 @@
-# downToDo -- intervals
+# downToDo
 
 - _downToDo(start, stop, aBlock:/1)_
 
@@ -8,3 +8,5 @@ It is an error if stop is not less than start.
 * * *
 
 See also: downTo, Interval, thenTo, to, toBy, upToDo
+
+Categories: Interval

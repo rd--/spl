@@ -1,4 +1,4 @@
-# cos -- trigonometry
+# cos
 
 - _cos(z)_
 
@@ -15,3 +15,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Cosine.html)
 [2](https://reference.wolfram.com/language/ref/Cos.html)
+
+Categories: Trigonometry

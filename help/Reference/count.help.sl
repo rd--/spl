@@ -1,4 +1,4 @@
-# count -- enumerating
+# count
 
 - _count(aCollection, aBlock:/1)_
 
@@ -13,3 +13,5 @@ Answer the number of elements that answered true.
 * * *
 
 See also: select
+
+Categories: Enumerating

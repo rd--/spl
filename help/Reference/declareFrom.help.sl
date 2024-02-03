@@ -1,4 +1,4 @@
-# declareFrom -- adding
+# declareFrom
 
 - _declareFrom(aDictionary, key, anotherDictionary)_
 
@@ -11,3 +11,5 @@ If _anotherDictionary_ includes key, then remove it from anotherDictionary and u
 * * *
 
 See also: Dictionary
+
+Categories: Adding

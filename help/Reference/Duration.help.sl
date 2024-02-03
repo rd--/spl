@@ -1,4 +1,4 @@
-# Duration -- temporal type
+# Duration
 
 A type to represent an interval of time.
 The base unit of time in the International System of Units (SI) is the second.
@@ -31,3 +31,5 @@ Durations are queried using the same methods:
 * * *
 
 See also: Date, Frequency, TimeStamp
+
+Categories: Temporal, Type

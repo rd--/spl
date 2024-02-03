@@ -3,15 +3,15 @@
 AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand secondHand |
 
 	createElements { :self |
-		let svg = 'svg'.createSvgElement (
+		let svg = 'svg'.createSvgElement(
 			viewBox: '0 0 200 200',
 			preserveAspectRatio: 'xMidYMid meet'
 		);
-		let group = 'g'.createSvgElement (
+		let group = 'g'.createSvgElement(
 			transform: 'translate(100, 100) scale(1, -1)'
 		);
 		self.clockPane := 'div'.createElement;
-		self.hourHand := 'line'.createSvgElement (
+		self.hourHand := 'line'.createSvgElement(
 			x1: '0',
 			y1: '0',
 			x2: '0',
@@ -19,7 +19,7 @@ AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand se
 			stroke: 'cornflowerblue',
 			'stroke-width': '2'
 		);
-		self.minuteHand := 'line'.createSvgElement (
+		self.minuteHand := 'line'.createSvgElement(
 			x1: '0',
 			y1: '0',
 			x2: '0',
@@ -27,7 +27,7 @@ AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand se
 			stroke: 'coral',
 			'stroke-width': '2'
 		);
-		self.secondHand := 'line'.createSvgElement (
+		self.secondHand := 'line'.createSvgElement(
 			x1: '0',
 			y1: '0',
 			x2: '0',
@@ -35,7 +35,7 @@ AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand se
 			stroke: 'darkseagreen'
 		);
 		group.appendChildren([
-			'circle'.createSvgElement (
+			'circle'.createSvgElement(
 				cx: '0',
 				cy: '0',
 				r: '90',
@@ -48,7 +48,7 @@ AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand se
 		group.appendChildren([1 .. 12].collect { :each |
 			let theta = each - 3 / 12 * 2 * pi;
 			let point = PolarCoordinate(80, theta);
-			let text = 'text'.createSvgElement (
+			let text = 'text'.createSvgElement(
 				x: point.x,
 				y: point.y,
 				'font-size': '11pt',

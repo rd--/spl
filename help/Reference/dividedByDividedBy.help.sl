@@ -1,4 +1,4 @@
-# // -- mathematical operator
+# //
 
 - _aNumber // anotherNumber_
 
@@ -12,3 +12,5 @@ The name of this operator is _dividedByDividedBy_.
 * * *
 
 See also: /, dividedBy, quotient, remainder
+
+Categories: Math, Operator

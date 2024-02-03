@@ -22,14 +22,14 @@ function genArityCheck(k: number, a: string): string {
 	].join(' ');
 }
 
-function genDotTrailing(lhs, name, args, trailing) {
+function genDotTrailing(lhs: ohm.Node, name: ohm.Node, args: ohm.Node, trailing: ohm.Node) {
 	const qualifiedName = `${genName(name.asJs, 1 + args.arityOf + trailing.children.length)}`;
 	const argsJs = args.children.map((each) => each.asJs);
 	const trailingJs = trailing.children.map((each) => each.asJs);
 	return `${qualifiedName}(${[lhs.asJs].concat(argsJs, trailingJs)})`;
 }
 
-function genApplyTrailing(rcv, arg, trailing) {
+function genApplyTrailing(rcv: ohm.Node, arg: ohm.Node, trailing: ohm.Node) {
 	const opt = arg.asJs;
 	const name = `${genName(rcv.asJs, arg.arityOf + trailing.children.length)}`;
 	return `${name}(${opt === '' ? '' : opt + ', '} ${commaList(trailing.children)})`;

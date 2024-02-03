@@ -456,6 +456,20 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   (interactive)
   (shell-command-on-region (point-min) (point-max) "/home/rohan/sw/spl/hs/toFenced" t t))
 
+(define-skeleton spl-mathematica-reference-skeleton
+  "Insert a Mathematica reference."
+  "Ref: "
+  "References:\n"
+  "_Mathematica_\n"
+  "[1](https://mathworld.wolfram.com/" str | " *** Ref *** " ".html)\n")
+
+(define-skeleton spl-supercollider-reference-skeleton
+  "Insert a SuperCollider reference."
+  "Ref: "
+  "References:\n"
+  "_SuperCollider_\n"
+  "[1](https://doc.sccode.org/Classes/" str | " *** Ref *** " ".html)\n")
+
 (provide 'spl-mode)
 
 ;;; spl.el ends here

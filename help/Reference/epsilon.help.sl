@@ -1,4 +1,6 @@
-# epsilon -- mathematical constant
+# epsilon
+
+Mathematical constant.
 
 - _epsilon(aNumber)_
 
@@ -12,3 +14,5 @@ Answer _aNumber_ times epsilon.
 See also: closeTo, pi, veryCloseTo
 
 Unicode: U+03B5 ε Greek Small Letter Epsilon
+
+Categories: Math

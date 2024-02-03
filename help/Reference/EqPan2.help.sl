@@ -1,4 +1,4 @@
-# EqPan2 -- two channel equal power pan
+# EqPan2
 
 _EqPan2(in, pos=0)_
 
@@ -9,8 +9,12 @@ Two channel equal power panner.
 
 Pan noise:
 
-	EqPan2(PinkNoise(), SinOsc(2, 0)) * 0.1
+```
+EqPan2(PinkNoise(), SinOsc(2, 0)) * 0.1
+```
 
 * * *
 
 See also: LinPan2, Pan2
+
+Categories: Ugen, Panning

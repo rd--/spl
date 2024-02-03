@@ -1,4 +1,4 @@
-# Character -- text type
+# Character
 
 - _Character(aString, anInteger)_
 
@@ -23,3 +23,5 @@ Except where necessary Characters and Character arrays are not recommended.
 * * *
 
 See also: String
+
+Categories: Text, Type

@@ -1,4 +1,6 @@
-# Dust -- random impulses
+# Dust
+
+Random impulses.
 
 _Dust(density)_
 
@@ -8,11 +10,15 @@ Generates random impulses from 0 to +1.
 
 Fixed density:
 
-	Dust(200) * 0.1
+```
+Dust(200) * 0.1
+```
 
 Modulate density:
 
-	Dust(XLine(20000, 2, 10)) * 0.1
+```
+Dust(XLine(20000, 2, 10)) * 0.1
+```
 
 * * *
 

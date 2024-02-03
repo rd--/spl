@@ -1,4 +1,6 @@
-# Dibrown -- noise generator
+# Dibrown
+
+Noise generator.
 
 _Dibrown(length, lo, hi, step)_
 
@@ -19,3 +21,9 @@ The arguments can be a number or any other ugen.
 * * *
 
 See also: Demand, Dbrown, Dwhite
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Dibrown.html)
+
+Categories: Ugen, Noise, Demand

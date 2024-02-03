@@ -70,6 +70,25 @@ export async function writeTextFile(
 	return Deno.writeTextFile(path, data);
 }
 
+export async function readDirectoryFileNames(path: string | URL): Promise<string[]> {
+	const fileNameArray: string[] = [];
+	for await (const dirEntry of Deno.readDir(path)) {
+		// console.debug('readDirectoryFileNames', dirEntry.name);
+		if(dirEntry.isFile) {
+			fileNameArray.push(path + '/' + dirEntry.name);
+		}
+	};
+	return fileNameArray;
+}
+
+export function readTextFileArray(pathArray: string[]): Promise<string[]> {
+	return Promise.all(
+		pathArray.map(function (path: string): Promise<string> {
+			return Deno.readTextFile(path);
+		}),
+	);
+}
+
 /*
 function getEnvOr(variableName: string, defaultValue: string) {
 	return getEnv(variableName) || defaultValue;

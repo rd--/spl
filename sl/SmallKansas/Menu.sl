@@ -29,10 +29,10 @@ MenuItem : [Object] { | name accessKey onSelect |
 Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 
 	createElements { :self |
-		self.menuPane := 'div'.createElement (
+		self.menuPane := 'div'.createElement(
 			class: 'menuPane'
 		);
-		self.listPane := 'div'.createElement (
+		self.listPane := 'div'.createElement(
 			class: 'listPane'
 		);
 		self.menuList := 'select'.createElement;

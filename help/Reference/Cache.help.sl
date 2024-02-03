@@ -1,4 +1,4 @@
-# Cache -- trait
+# Cache
 
 Cache is used to implement initialise-on-demand global variables.
 
@@ -15,3 +15,5 @@ The _primesArray_ method caches previous requests, and continues any required ca
 * * *
 
 See also: cached, whenCached
+
+Categories: Trait

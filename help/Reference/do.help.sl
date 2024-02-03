@@ -1,4 +1,4 @@
-# do -- enumerating
+# do
 
 - _do(aCollection, aBlock:/1)_
 
@@ -15,3 +15,5 @@ See also: associationsDo, collect, Iterable, keysAndValuesDo, keysDo, timesRepea
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Scan.html)
+
+Categories: Enumerating

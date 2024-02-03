@@ -21,7 +21,7 @@ Inspector : [Object, View] { | inspectorPane inspectorList |
 	}
 
 	initialize { :self :aValue |
-		self.inspectorPane := 'div'.createElement (
+		self.inspectorPane := 'div'.createElement(
 			class: 'inspectorPane'
 		);
 		self.inspectorList([]);

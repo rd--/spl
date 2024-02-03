@@ -1,4 +1,4 @@
-# cartesianProduct -- enumerating
+# cartesianProduct
 
 - _cartesianProduct(aCollection, anotherCollection)_
 
@@ -17,3 +17,5 @@ See also: cartesianProductDo, tuples
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CartesianProduct.html)
+
+Categories: Enumerating

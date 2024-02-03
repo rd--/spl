@@ -31,6 +31,20 @@ export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {
 	});
 }
 
+export function primitiveReadLocalTextFileArray(fileNameArray: string[]): Promise<string[]> {
+	const resolvedFileNameArray: string[] = [];
+	fileNameArray.forEach(function (fileName: string) {
+		resolvedFileNameArray.push(resolveFileName(fileName));
+	});
+	return Promise.all(
+		resolvedFileNameArray.map(function (fileName: string): Promise<string> {
+			return fetch(fileName, { cache: 'no-cache' }).then((response) =>
+				response.text()
+			);
+		}),
+	);
+}
+
 // Fetch files asynchronously, store at packageIndex
 export async function primitiveReadLocalPackages(
 	qualifiedPackageNames: string[],
@@ -38,19 +52,12 @@ export async function primitiveReadLocalPackages(
 	const packageArray = await kernel.initializeLocalPackages(
 		qualifiedPackageNames,
 	);
-	const resolvedFileNameArray: string[] = [];
+	const fileNameArray: string[] = [];
 	packageArray.forEach(function (pkg: kernel.Package) {
 		// console.debug('primitiveReadLocalPackages', pkg.url);
-		const resolvedFileName = resolveFileName(packageFileName(pkg));
-		return resolvedFileNameArray.push(resolvedFileName);
+		return fileNameArray.push(packageFileName(pkg));
 	});
-	const fetchedTextArray = await Promise.all(
-		resolvedFileNameArray.map(function (fileName: string): Promise<string> {
-			return fetch(fileName, { cache: 'no-cache' }).then((response) =>
-				response.text()
-			);
-		}),
-	);
+	const fetchedTextArray = await primitiveReadLocalTextFileArray(fileNameArray);
 	fetchedTextArray.map(function (text, index) {
 		packageArray[index].text = text;
 		packageArray[index].requires = kernel.parsePackageRequires(text);

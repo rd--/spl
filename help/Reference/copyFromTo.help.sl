@@ -1,4 +1,4 @@
-# copyFromTo -- copying
+# copyFromTo
 
 - _copyFromTo(aSequence, startIndex, stopIndex)_
 
@@ -11,3 +11,4 @@ inclusive of both.
 
 See also: copy, copyWith, copyWithout
 
+Categories: Copying

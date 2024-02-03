@@ -1,4 +1,4 @@
-# Dictionary -- collection trait
+# Dictionary
 
 _Dictionary_ is a trait holding behaviours common to collections of (key, value) associations.
 
@@ -21,3 +21,5 @@ Methods for enumerating: do, keysDo, valuesDo, keysAndValuesDo, associationsDo
 * * *
 
 See also: Association, Map, Record
+
+Categories: Collection, Trait

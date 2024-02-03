@@ -1,4 +1,6 @@
-# Decay -- exponential decay
+# Decay
+
+Exponential decay.
 
 _Decay(in, decayTime=1)_
 
@@ -9,12 +11,22 @@ This is essentially the same as _Integrator_ except that instead of supplying th
 
 Decay time of one centisecond:
 
-	Decay(Impulse(1, 0) * 0.25, 0.01)
+```
+Decay(Impulse(1, 0) * 0.25, 0.01)
+```
 
 Used as an envelope:
 
-	Decay(Impulse(XLine(1, 50, 20), 0) * 0.25, 0.2) * PinkNoise()
+```
+Decay(Impulse(XLine(1, 50, 20), 0) * 0.25, 0.2) * PinkNoise()
+```
 
 * * *
 
 See also: Decay2
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Decay.html)
+
+Categories: Ugen, envelope

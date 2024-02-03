@@ -1,4 +1,6 @@
-# Changed -- triggers when a value changes
+# Changed
+
+Triggers when a value changes.
 
 _Changed(input, threshold=0)_
 
@@ -13,7 +15,13 @@ Implements the formula:
 
 Detect changes in a signal:
 
-	let s = LfNoise0(2);
-	let c = Changed(s, 0);
-	let d = Decay2(c, 0.01, 0.5);
-	SinOsc(440 + ([s, d] * 440), 0) * 0.1
+```
+let s = LfNoise0(2);
+let c = Changed(s, 0);
+let d = Decay2(c, 0.01, 0.5);
+SinOsc(440 + ([s, d] * 440), 0) * 0.1
+```
+
+* * *
+
+Categories: Ugen, Filter

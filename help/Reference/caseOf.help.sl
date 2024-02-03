@@ -1,4 +1,4 @@
-# caseOf -- casing
+# caseOf
 
 - _caseOf(anObject, aCollection)_
 
@@ -9,3 +9,5 @@ If no match is found, report an error.
 * * *
 
 See also: caseOfOtherwise
+
+Categories: Casing

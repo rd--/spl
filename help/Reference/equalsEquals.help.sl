@@ -1,4 +1,4 @@
-# == -- comparing
+# ==
 
 - _anObject == anotherObject_
 
@@ -16,3 +16,5 @@ Where supported this operator is displayed as ≡.
 See also: =, ~~, equals, tildeTilde
 
 Unicode: U+2261 ≡ Identical To
+
+Categories: Comparing

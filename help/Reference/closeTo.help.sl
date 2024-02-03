@@ -1,4 +1,4 @@
-# closeTo -- comparing
+# closeTo
 
 - _closeTo(aNumber, anotherNumber)_
 - _p ~ q_ ⟹ _closeTo(p, q)_
@@ -20,3 +20,5 @@ See also: =, <~, >~, veryCloseTo
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Match)
+
+Categories: Comparing

@@ -14,19 +14,19 @@ Frame : [Object, UserEventTarget] { | smallKansas framePane titlePane closeButto
 	}
 
 	createElements { :self |
-		self.framePane := 'div'.createElement (
+		self.framePane := 'div'.createElement(
 			class: ['framePane', self.subject.typeOf, self.subject.name].unwords
 		);
-		self.titlePane := 'div'.createElement (
+		self.titlePane := 'div'.createElement(
 			class: 'titlePane'
 		);
-		self.closeButton := 'span'.createElement (
+		self.closeButton := 'span'.createElement(
 			class: 'closeButton'
 		);
-		self.titleText := 'span'.createElement (
+		self.titleText := 'span'.createElement(
 			class: 'titleText'
 		);
-		self.menuButton := 'span'.createElement (
+		self.menuButton := 'span'.createElement(
 			class: 'menuButton'
 		);
 		self.titlePane.appendChildren([

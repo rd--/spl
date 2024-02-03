@@ -1,7 +1,7 @@
 TableViewer : [Object, View] { | title tablePane |
 
 	createElements { :self :tableData |
-		self.tablePane := 'div'.createElement (
+		self.tablePane := 'div'.createElement(
 			class: 'tablePane'
 		);
 		self.tablePane.appendChild(

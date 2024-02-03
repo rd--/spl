@@ -1,4 +1,4 @@
-# contractTo -- converting
+# contractTo
 
 - _contractTo(aString, anInteger)_
 
@@ -10,3 +10,5 @@ Answer _aString_ or a copy shortened by ellipsis to _anInteger_ places.
 * * *
 
 See also: String
+
+Categories: Converting

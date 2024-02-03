@@ -1,4 +1,4 @@
-# caseOfOtherwise -- casing
+# caseOfOtherwise
 
 - _caseOfOtherwise(anObject, aCollection, otherwiseBlock:/1)_
 
@@ -9,3 +9,5 @@ If no match is found, answer the result of evaluating _otherwiseBlock(anObject)_
 * * *
 
 See also: caseOf
+
+Categories: Casing

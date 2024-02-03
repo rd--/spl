@@ -1,4 +1,4 @@
-# CylindricalCoordinate -- geometry type
+# CylindricalCoordinate
 
 The three components (ρ, φ, z) of a CylindricalCoordinate _p_ are:
 
@@ -9,3 +9,9 @@ The three components (ρ, φ, z) of a CylindricalCoordinate _p_ are:
 * * *
 
 See also: CartesianCoordinate, SphericalCoordinate
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/CylindricalCoordinates.html)
+
+Categories: Geometry, Type

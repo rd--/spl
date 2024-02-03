@@ -1,4 +1,6 @@
-# :: -- quoted at syntax
+# ::
+
+Quoted at syntax
 
 Read a value from a dictionary that has symbolic keys.
 
@@ -11,3 +13,5 @@ Where supported this operator is displayed as a middle dot, ·.
 See also: [at], [At Syntax], [Quoted At Syntax]
 
 Unicode: U+00B7 · Middle Dot
+
+Categories: Syntax

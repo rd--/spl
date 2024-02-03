@@ -1,4 +1,4 @@
-# crc16 -- comparing
+# crc16
 
 - _crc16(aByteArray | aString)_
 
@@ -12,3 +12,5 @@ In the String case the check is made of the _utf8ByteArray_ of the string.
 * * *
 
 See also: ByteArray, String, utf8ByteArray
+
+Categories: Comparing

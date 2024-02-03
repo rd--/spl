@@ -1,4 +1,6 @@
-# EnvGen - Envelope Generator
+# EnvGen
+
+Envelope Generator.
 
 - _EnvGen(gate=1, levelScale=1, levelBias=0, timeScale=1, doneAction=0, envelope)_
 
@@ -15,12 +17,20 @@ If the gate input is not supplied then the envelope begins at time zero of the e
 
 Slow envelope with slow trigger:
 
-	let trg = Impulse(1 / 9, 0);
-	let env = Env([0, 0.1, 0.1, 0], [3, 2, 3], 3, nil, nil, 0);
-	SinOsc(440, 0) * EnvGen(trg, 1, 0, 1, 0, env.asArray)
+```
+let trg = Impulse(1 / 9, 0);
+let env = Env([0, 0.1, 0.1, 0], [3, 2, 3], 3, nil, nil, 0);
+SinOsc(440, 0) * EnvGen(trg, 1, 0, 1, 0, env.asArray)
+```
 
 Trigger EnvGen with a pulse wave. MouseX controls trigger frequency. MouseY controls sustain time.
 
-	let gate = LfPulse(MouseX(0.2, 20, 1, 0.2) ,0, MouseY(0.01, 0.99, 0, 0.2));
-	let env = Env([0, 0.1, 0.1, 0], [0.001, 0.2, 0.3], -4, 2, nil, 0);
-	SinOsc(440, 0) * EnvGen(gate, 1, 0, 1, 0, env.asArray)
+```
+let gate = LfPulse(MouseX(0.2, 20, 1, 0.2) ,0, MouseY(0.01, 0.99, 0, 0.2));
+let env = Env([0, 0.1, 0.1, 0], [0.001, 0.2, 0.3], -4, 2, nil, 0);
+SinOsc(440, 0) * EnvGen(gate, 1, 0, 1, 0, env.asArray)
+```
+
+* * *
+
+Categories: Ugen, Envelope
