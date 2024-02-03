@@ -22,8 +22,15 @@ function genArityCheck(k: number, a: string): string {
 	].join(' ');
 }
 
-function genDotTrailing(lhs: ohm.Node, name: ohm.Node, args: ohm.Node, trailing: ohm.Node) {
-	const qualifiedName = `${genName(name.asJs, 1 + args.arityOf + trailing.children.length)}`;
+function genDotTrailing(
+	lhs: ohm.Node,
+	name: ohm.Node,
+	args: ohm.Node,
+	trailing: ohm.Node,
+) {
+	const qualifiedName = `${
+		genName(name.asJs, 1 + args.arityOf + trailing.children.length)
+	}`;
 	const argsJs = args.children.map((each) => each.asJs);
 	const trailingJs = trailing.children.map((each) => each.asJs);
 	return `${qualifiedName}(${[lhs.asJs].concat(argsJs, trailingJs)})`;
@@ -32,7 +39,9 @@ function genDotTrailing(lhs: ohm.Node, name: ohm.Node, args: ohm.Node, trailing:
 function genApplyTrailing(rcv: ohm.Node, arg: ohm.Node, trailing: ohm.Node) {
 	const opt = arg.asJs;
 	const name = `${genName(rcv.asJs, arg.arityOf + trailing.children.length)}`;
-	return `${name}(${opt === '' ? '' : opt + ', '} ${commaList(trailing.children)})`;
+	return `${name}(${opt === '' ? '' : opt + ', '} ${
+		commaList(trailing.children)
+	})`;
 }
 
 function quoteNewLines(input: string): string {
@@ -341,7 +350,14 @@ const asJs: ohm.ActionDict<string> = {
 			genName(operatorMethodName(op.sourceString), 2)
 		})`;
 	},
-	binaryOperatorWithBinaryAdverb(op, _dot, adverb, _openParen, parameter, _closeParen) {
+	binaryOperatorWithBinaryAdverb(
+		op,
+		_dot,
+		adverb,
+		_openParen,
+		parameter,
+		_closeParen,
+	) {
 		// console.debug(`binaryOperatorWithAdverb: ${op.sourceString} ${adverb.sourceString}`);
 		return `_${genName(adverb.sourceString, 2)}(
 			_${genName(operatorMethodName(op.sourceString), 2)},
@@ -393,7 +409,9 @@ const asJs: ohm.ActionDict<string> = {
 		return `_${genName('atAll', 2)}(${c.asJs}, [${commaList(k.children)}])`;
 	},
 	AtAllIntervalSyntax(c, _leftBracket, start, _dotDot, end, _rightBracket) {
-		const answer = `_${genName('atAll', 2)}(${c.asJs}, ${genInterval(start, end)})`;
+		const answer = `_${genName('atAll', 2)}(${c.asJs}, ${
+			genInterval(start, end)
+		})`;
 		// console.debug('AtAllIntervalSyntax', answer);
 		return answer;
 	},
@@ -539,7 +557,7 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	ApplyWithTrailingDictionariesSyntax(rcv, arg, trailing) {
 		return genApplyTrailing(rcv, arg, trailing);
-	},/*
+	}, /*
 	ApplyWithTrailingArraysSyntax(rcv, arg, trailing) {
 		return genApplyTrailing(rcv, arg, trailing);
 	},*/

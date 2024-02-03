@@ -16,6 +16,7 @@ remote-dist:
 
 indent:
 	spl-indent sl/*/*.sl help/SuperCollider/Graph/*.sl help/SuperCollider/Ugen/*.sl
+	(cd ts ; make format-ts)
 
 doctest:
 	doctest -Wno-x-partial -Wno-incomplete-uni-patterns hs

@@ -31,7 +31,9 @@ export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {
 	});
 }
 
-export function primitiveReadLocalTextFileArray(fileNameArray: string[]): Promise<string[]> {
+export function primitiveReadLocalTextFileArray(
+	fileNameArray: string[],
+): Promise<string[]> {
 	const resolvedFileNameArray: string[] = [];
 	fileNameArray.forEach(function (fileName: string) {
 		resolvedFileNameArray.push(resolveFileName(fileName));

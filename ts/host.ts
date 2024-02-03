@@ -70,14 +70,16 @@ export async function writeTextFile(
 	return Deno.writeTextFile(path, data);
 }
 
-export async function readDirectoryFileNames(path: string | URL): Promise<string[]> {
+export async function readDirectoryFileNames(
+	path: string | URL,
+): Promise<string[]> {
 	const fileNameArray: string[] = [];
 	for await (const dirEntry of Deno.readDir(path)) {
 		// console.debug('readDirectoryFileNames', dirEntry.name);
-		if(dirEntry.isFile) {
+		if (dirEntry.isFile) {
 			fileNameArray.push(path + '/' + dirEntry.name);
 		}
-	};
+	}
 	return fileNameArray;
 }
 
