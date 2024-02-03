@@ -9,13 +9,19 @@ A one zero filter. Implements the formula _out(i) = ((1 - abs(coef)) * in(i)) + 
 
 Low pass:
 
-	OneZero(WhiteNoise() * 0.2, 0.5)
+```
+OneZero(WhiteNoise() * 0.2, 0.5)
+```
 
 High pass:
 
-	OneZero(WhiteNoise() * 0.2, -0.5)
+```
+OneZero(WhiteNoise() * 0.2, -0.5)
+```
 
 Modulate coeficient:
 
-	OneZero(WhiteNoise() * 0.2, Line(-0.5, 0.5, 10))
+```
+OneZero(WhiteNoise() * 0.2, Line(-0.5, 0.5, 10))
+```
 

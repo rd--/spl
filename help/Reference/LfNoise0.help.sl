@@ -8,9 +8,13 @@ Generates random values at a rate given by the nearest integer division of the s
 
 Fixed frequency:
 
-	LfNoise0(1000) * 0.05
+```
+LfNoise0(1000) * 0.05
+```
 
 Modulate frequency:
 
-	LfNoise0(XLine(1000, 10000, 10)) * 0.05
+```
+LfNoise0(XLine(1000, 10000, 10)) * 0.05
+```
 

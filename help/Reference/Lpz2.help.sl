@@ -6,11 +6,15 @@ A special case fixed filter. Implements the formula _out[i] = 0.25 * (in[i] + (2
 
 Compare:
 
-	WhiteNoise() * 0.1
+```
+WhiteNoise() * 0.1
+```
 
 and:
 
-	Lpz2(WhiteNoise() * 0.1)
+```
+Lpz2(WhiteNoise() * 0.1)
+```
 
 * * *
 

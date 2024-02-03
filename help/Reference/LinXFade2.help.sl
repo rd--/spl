@@ -10,11 +10,13 @@ Two channel linear cross-fade.
 
 Cross fade from sine tone to noise and back again:
 
-	LinXFade2(
-		SinOsc(800, 0),
-		PinkNoise(),
-		SinOsc(1, 0)
-	) * 0.1
+```
+LinXFade2(
+	SinOsc(800, 0),
+	PinkNoise(),
+	SinOsc(1, 0)
+) * 0.1
+```
 
 * * *
 

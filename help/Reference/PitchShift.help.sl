@@ -13,29 +13,34 @@ Grains have a triangular amplitude envelope and an overlap of 4:1.
 
 Modulate pitch ratio:
 
-	let z = Blip(800, 6) * 0.1;
-	PitchShift(z, 0.02, Line(0.1, 4, 20), 0, 0.0001)
+```
+let z = Blip(800, 6) * 0.1;
+PitchShift(z, 0.02, Line(0.1, 4, 20), 0, 0.0001)
+```
 
 Pitch shift input. __Use headphones__ to prevent feedback:
 
-	PitchShift(
-		in: AudioIn([1, 2]),
-		windowSize: 0.1,
-		pitchRatio: MouseX(0, 2, 0, 0.2),
-		pitchDispersion: 0,
-		timeDispersion: 0.004
-	)
+```
+PitchShift(
+	in: AudioIn([1, 2]),
+	windowSize: 0.1,
+	pitchRatio: MouseX(0, 2, 0, 0.2),
+	pitchDispersion: 0,
+	timeDispersion: 0.004
+)
+```
 
 Use PitchShift to granulate input.
 __Use headphones__ to prevent feedback.
 Upper left corner is normal playback.
 x = pitch dispersion, y = time dispersion.
 
-	let grainSize = 0.5;
-	PitchShift(
-		in: AudioIn([1, 2]),
-		windowSize: grainSize,
-		pitchRatio: 1,
-		pitchDispersion: MouseX(0, 1, 0, 0.2),
-		timeDispersion: MouseY(0, grainSize, 0, 0.2)
-	)
+```
+let grainSize = 0.5;
+PitchShift(
+	in: AudioIn([1, 2]),
+	windowSize: grainSize,
+	pitchRatio: 1,
+	pitchDispersion: MouseX(0, 1, 0, 0.2),
+	timeDispersion: MouseY(0, grainSize, 0, 0.2)
+)

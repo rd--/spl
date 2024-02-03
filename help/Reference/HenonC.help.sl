@@ -15,24 +15,29 @@ This equation was discovered by French astronomer Michel Henon while studying th
 
 Default initial params:
 
-	HenonC(MouseX(20, SampleRate(), 0, 0.2), 1.4, 0.3, 0, 0) * 0.2
+```
+HenonC(MouseX(20, SampleRate(), 0, 0.2), 1.4, 0.3, 0, 0) * 0.2
+```
 
 Mouse-control of params:
 
-	HenonC(
-		SampleRate() / 4,
-		MouseX(1, 1.4, 0, 0.2),
-		MouseY(0, 0.3, 0, 0.2),
-		0,
-		0
-	) * 0.2
+```
+HenonC(
+	SampleRate() / 4,
+	MouseX(1, 1.4, 0, 0.2),
+	MouseY(0, 0.3, 0, 0.2),
+	0,
+	0
+) * 0.2
+```
 
 Randomly modulate params:
 
-	HenonC(
-		SampleRate() / 8,
-		LfNoise2(1) * 0.2 + 1.2,
-		LfNoise2(1) * 0.15 + 0.15,
-		0,
-		0
-	) * 0.2
+```
+HenonC(
+	SampleRate() / 8,
+	LfNoise2(1) * 0.2 + 1.2,
+	LfNoise2(1) * 0.15 + 0.15,
+	0,
+	0
+) * 0.2

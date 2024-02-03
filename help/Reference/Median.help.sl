@@ -9,45 +9,63 @@ Returns the median of the last length input points. This non linear filter is go
 
 A signal with impulse noise.
 
-	Saw(500) * 0.1 + (Dust2(100) * 0.9)
+```
+Saw(500) * 0.1 + (Dust2(100) * 0.9)
+```
 
 After applying median filter:
 
-	let z = Saw(500) * 0.1 + (Dust2(100) * 0.9);
-	Median(3, z)
+```
+let z = Saw(500) * 0.1 + (Dust2(100) * 0.9);
+Median(3, z)
+```
 
 The median length can be increased for longer duration noise.
 
 A signal with longer impulse noise:
 
-	Saw(500) * 0.1 + (Lpz1(Dust2(100) * 0.9))
+```
+Saw(500) * 0.1 + (Lpz1(Dust2(100) * 0.9))
+```
 
 Length three does not help here because the impulses are two samples long.
 
-	let z = Saw(500) * 0.1 + (Lpz1(Dust2(100) * 0.9));
-	Median(3, z)
+```
+let z = Saw(500) * 0.1 + (Lpz1(Dust2(100) * 0.9));
+Median(3, z)
+```
 
 Length five does better:
 
-	let z = Saw(500) * 0.1 + (Lpz1(Dust2(100) * 0.9));
-	Median(5, z)
+```
+let z = Saw(500) * 0.1 + (Lpz1(Dust2(100) * 0.9));
+Median(5, z)
+```
 
 Long Median filters begin chopping off the peaks of the waveform:
 
-	let x = SinOsc(1000, 0) * 0.1;
-	XFade2(x, Median(31, x), MouseX(-1, 1, 0, 0.2), 1)
+```
+let x = SinOsc(1000, 0) * 0.1;
+XFade2(x, Median(31, x), MouseX(-1, 1, 0, 0.2), 1)
+```
 
 Another noise reduction application:
 
-	WhiteNoise() + SinOsc(800, 0) * 0.1
+```
+WhiteNoise() + SinOsc(800, 0) * 0.1
+```
 
 Use Median filter for high frequency noise:
 
-	let z = WhiteNoise() + SinOsc(800, 0) * 0.1;
-	Median(31, z)
+```
+let z = WhiteNoise() + SinOsc(800, 0) * 0.1;
+Median(31, z)
+```
 
 Use LeakDc for low frequency noise:
 
-	let z = WhiteNoise() + SinOsc(800, 0) * 0.1;
-	LeakDc(Median(31, z), 0.9)
+```
+let z = WhiteNoise() + SinOsc(800, 0) * 0.1;
+LeakDc(Median(31, z), 0.9)
+```
 

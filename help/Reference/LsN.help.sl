@@ -4,4 +4,8 @@
 
 Repeat α β times.
 
-	LsSeries(1, 3, 3).repeat(2).upToEnd [1 4 7 1 4 7]
+	LsSeries(1, 3, 3).repeat(2).upToEnd = [1 4 7 1 4 7]
+
+* * *
+
+See also: LsForever

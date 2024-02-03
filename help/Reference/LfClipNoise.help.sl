@@ -8,9 +8,13 @@ Randomly generates the values -1 or +1 at a rate given by the nearest integer di
 
 Fixed frequency:
 
-	LfClipNoise(1000) * 0.05
+```
+LfClipNoise(1000) * 0.05
+```
 
 Modulate frequency:
 
-	LfClipNoise(XLine(1000, 10000, 10)) * 0.05
+```
+LfClipNoise(XLine(1000, 10000, 10)) * 0.05
+```
 

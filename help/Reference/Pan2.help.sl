@@ -10,7 +10,9 @@ Two channel equal power panner.
 
 Pan noise:
 
-	Pan2(PinkNoise(), FSinOsc(2, 0), 0.1)
+```
+Pan2(PinkNoise(), FSinOsc(2, 0), 0.1)
+```
 
 * * *
 

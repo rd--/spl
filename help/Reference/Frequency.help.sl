@@ -6,11 +6,15 @@ The period (T) is the interval of time between events, the reciprocal of the fre
 
 Frequencies are constructed from _Number_ values using the method _hertz_:
 
-	3.hertz.isFrequency
+```
+3.hertz.isFrequency
+```
 
 Frequencies are queried using the same methods:
 
-	3.kilohertz.hertz = 3000
+```
+3.kilohertz.hertz = 3000
+```
 
 * * *
 

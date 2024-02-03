@@ -12,17 +12,25 @@ The reciprocal of Q is used rather than Q because it saves a divide operation in
 
 Fixed frequency:
 
-	Resonz(WhiteNoise() * 0.5, 2000, 0.1)
+```
+Resonz(WhiteNoise() * 0.5, 2000, 0.1)
+```
 
 Modulate frequency:
 
-	Resonz(WhiteNoise() * 0.5, XLine(1000, 8000, 10), 0.05)
+```
+Resonz(WhiteNoise() * 0.5, XLine(1000, 8000, 10), 0.05)
+```
 
 Modulate bandwidth:
 
-	Resonz(WhiteNoise() * 0.5, 2000, XLine(1, 0.001, 8))
+```
+Resonz(WhiteNoise() * 0.5, 2000, XLine(1, 0.001, 8))
+```
 
 Modulate bandwidth opposite direction:
 
-	Resonz(WhiteNoise() * 0.5, 2000, XLine(0.001, 1, 8))
+```
+Resonz(WhiteNoise() * 0.5, 2000, XLine(0.001, 1, 8))
+```
 

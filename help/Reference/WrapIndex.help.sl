@@ -10,5 +10,6 @@ Out of range index values are wrapped cyclically to the valid range.
 
 Indexing into a table:
 
-	let buf = [200 300 400 500 600 800].asLocalBuf;
-	SinOsc(WrapIndex(buf, MouseX(0, 6 * 3, 0, 0.1)), 0) * 0.1
+```
+let buf = [200 300 400 500 600 800].asLocalBuf;
+SinOsc(WrapIndex(buf, MouseX(0, 6 * 3, 0, 0.1)), 0) * 0.1

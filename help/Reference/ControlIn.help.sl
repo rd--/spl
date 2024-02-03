@@ -15,16 +15,22 @@ _ControlIn_ always reads the current value on the bus, whether it was:
 
 Write signals to control buses, this program does not generate an audio signal:
 
-	ControlOut(0, SinOsc([3 5 7 9] / 11, 0).Range(0, 1).kr)
+```
+ControlOut(0, SinOsc([3 5 7 9] / 11, 0).Range(0, 1).kr)
+```
 
 Read signals from control buses written to by above program:
 
-	SinOsc(ControlIn(4, 0) * 333 + 55, 0).Splay * 0.1
+```
+SinOsc(ControlIn(4, 0) * 333 + 55, 0).Splay * 0.1
+```
 
 Multiple-channel expansion on index, place reader and writer in same graph:
 
-	let w = ControlOut(0, SinOsc([3 5 7 9] / 11, 0).Range(0, 1).kr);
-	SinOsc(ControlIn(1, [0 .. 3]) * 333 + 55, 0).Splay * 0.1 <! w
+```
+let w = ControlOut(0, SinOsc([3 5 7 9] / 11, 0).Range(0, 1).kr);
+SinOsc(ControlIn(1, [0 .. 3]) * 333 + 55, 0).Splay * 0.1 <! w
+```
 
 * * *
 

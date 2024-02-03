@@ -10,21 +10,14 @@
 		let totalTestCount = 0;
 		let totalPassCount = 0;
 		directoryName.readDirectoryFileNames.then { :fileNameArray |
-			let selectedFileNameArray = [];
-			fileNameArray.size.postLine;
-			fileNameArray.sorted.do { :fileName |
-				let pathArray = fileName.splitBy('/');
-				pathArray.last.first.isLowerCaseAscii.ifTrue {
-					selectedFileNameArray.add(fileName)
-				}
-			};
-			selectedFileNameArray.readTextFileArray.then { :referenceTextArray |
-				referenceTextArray.withIndexDo { :referenceText :index |
-					let [testCount, passCount] = referenceText.terseReferenceEntry(options);
+			fileNameArray.sort;
+			fileNameArray.readTextFileArray.then { :textArray |
+				textArray.withIndexDo { :text :index |
+					let [testCount, passCount] = text.terseReferenceEntry(fileNameArray[index], options);
 					(testCount > 0).and {
 						testCount ~= passCount
 					}.ifTrue {
-						selectedFileNameArray[index].postLine;
+						fileNameArray[index].postLine;
 						['Failure', testCount, passCount].postLine
 					};
 					totalTestCount := totalTestCount + testCount;
@@ -35,9 +28,12 @@
 		}
 	}
 
-	terseReferenceEntry { :self :options |
+	terseReferenceEntry { :self :name :options |
 		let testCount = 0;
 		let passCount = 0;
+		options::verbose.ifTrue {
+			name.postLine
+		};
 		self.extractIndentedCodeBlocks.concatenation.do { :each |
 			testCount := testCount + 1;
 			options::verbose.ifTrue {

@@ -12,9 +12,10 @@ There are many examples of XFadeTexture in the examples files.
 
 A pair of sine oscillators crossfading between randomly shifting pitches and stereo locations.
 
-	{ :tr |
-		EqPan(
-			SinOsc(TiRand(48, 72, tr).MidiCps, 0),
-			TRand(-1, 1, tr)
-		) * 0.1
-	}.XFadeTexture(2, 0.5)
+```
+{ :tr |
+	EqPan(
+		SinOsc(TiRand(48, 72, tr).MidiCps, 0),
+		TRand(-1, 1, tr)
+	) * 0.1
+}.XFadeTexture(2, 0.5)

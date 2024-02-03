@@ -6,11 +6,15 @@ A standard first order filter section. Filter coefficients are given directly ra
 
 Same as OnePole:
 
-	let x = MouseX(-1, 1, 0, 0.2);
-	Fos(LfSaw(200, 0) * 0.1, 1 - x.Abs, 0, x)
+```
+let x = MouseX(-1, 1, 0, 0.2);
+Fos(LfSaw(200, 0) * 0.1, 1 - x.Abs, 0, x)
+```
 
 Same as OneZero:
 
-	let x = MouseX(-1, 1, 0, 0.2);
-	Fos(LfSaw(200, 0) * 0.1, 1 - x.Abs, x, 0)
+```
+let x = MouseX(-1, 1, 0, 0.2);
+Fos(LfSaw(200, 0) * 0.1, 1 - x.Abs, x, 0)
+```
 

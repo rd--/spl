@@ -9,13 +9,19 @@ A one pole filter. Implements the formula _out(i) = ((1 - abs(coef)) * in(i)) + 
 
 Low pass:
 
-	OnePole(WhiteNoise() * 0.2, 0.95)
+```
+OnePole(WhiteNoise() * 0.2, 0.95)
+```
 
 High pass:
 
-	OnePole(WhiteNoise() * 0.2, -0.95)
+```
+OnePole(WhiteNoise() * 0.2, -0.95)
+```
 
 Modulate coeficient:
 
-	OnePole(WhiteNoise() * 0.2, Line(0.95, -0.95, 10))
+```
+OnePole(WhiteNoise() * 0.2, Line(0.95, -0.95, 10))
+```
 

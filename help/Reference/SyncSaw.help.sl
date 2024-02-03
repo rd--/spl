@@ -9,15 +9,19 @@ A sawtooth wave that is hard synched to a fundamental pitch. This produces an ef
 
 Modulate saw frequency:
 
-	SyncSaw(100, Line(100, 800, 12)) * 0.1
+```
+SyncSaw(100, Line(100, 800, 12)) * 0.1
+```
 
 Modulate saw frequency with mouse (view is oscilloscope, _Impulse_ shows sync frequency):
 
-	let freq = 400;
-	[
-		SyncSaw(freq, freq * MouseX(1, 3, 0, 0.2)),
-		Impulse(freq, 0)
-	] * 0.1
+```
+let freq = 400;
+[
+	SyncSaw(freq, freq * MouseX(1, 3, 0, 0.2)),
+	Impulse(freq, 0)
+] * 0.1
+```
 
 * * *
 

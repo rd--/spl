@@ -4,7 +4,9 @@
 
 At each step answer _at_ of _indices_ into _list_.
 
-	let l = [1, 3 .. 23]; Lat(l, Librown(1, l.size, 2, 99)).upToEnd.plot
+```
+let l = [1, 3 .. 23]; LsAt(l, LsIBrown(1, l.size, 2, 99)).upToEnd.plot
+```
 
 * * *
 

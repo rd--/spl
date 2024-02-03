@@ -6,15 +6,19 @@ _Map_ is a dictionary type where the keys are compared using the identity (==) o
 
 Construct an empty _Map_.
 
-	Map().isMap
+```
+Map().isMap
+```
 
 - _asMap(anAssociationArray)_
 - _asMap(aRecord)_
 
 Construct a _Map_ from an Array of associations, or from a Record.
 
-	['x' -> 1, 'y' -> 2].asMap.isMap
-	(x: 1, y: 2).asMap.isMap
+```
+['x' -> 1, 'y' -> 2].asMap.isMap
+(x: 1, y: 2).asMap.isMap
+```
 
 * * *
 

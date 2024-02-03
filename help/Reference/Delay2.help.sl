@@ -8,8 +8,10 @@ _Delay2(in)_
 
 Original, with delayed subtracted from original:
 
-	let z = Dust(1000);
-	[z, z - Delay2(z)]
+```
+let z = Dust(1000);
+[z, z - Delay2(z)]
+```
 
 * * *
 

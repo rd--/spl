@@ -26,23 +26,29 @@ This allows you to use an LfSaw to do continuous rotation around a circle.
 
 B-format encoding of two signals at opposite sides of the circle:
 
-	let p = WhiteNoise() * 0.05;
-	let q = LfSaw([200, 200.37, 201], 0).Sum * 0.03;
-	let [w, x, y] = PanB2(p, -0.5, 1) + PanB2(q, 0.5, 1);
-	let [rx, ry] = Rotate2(x, y, MouseX(-1, 1, 0, 0.2));
-	DecodeB2(8, w, rx, ry, 0)
+```
+let p = WhiteNoise() * 0.05;
+let q = LfSaw([200, 200.37, 201], 0).Sum * 0.03;
+let [w, x, y] = PanB2(p, -0.5, 1) + PanB2(q, 0.5, 1);
+let [rx, ry] = Rotate2(x, y, MouseX(-1, 1, 0, 0.2));
+DecodeB2(8, w, rx, ry, 0)
+```
 
 Rotation of stereo sound using Lfo:
 
-	let x = PinkNoise() * 0.2;
-	let y = LfTri(800, 0) * LfPulse(3, 0, 0.3) * 0.2;
-	Rotate2(x, y, LfSaw(0.1, 0))
+```
+let x = PinkNoise() * 0.2;
+let y = LfTri(800, 0) * LfPulse(3, 0, 0.3) * 0.2;
+Rotate2(x, y, LfSaw(0.1, 0))
+```
 
 Rotation using mouse control:
 
-	let x = { LfSaw(200 + Rand(-2, 2), 0) * 0.1 } !+ 4;
-	let y = SinOsc(900, 0) * LfPulse(3, 0, 0.3) * 0.2;
-	Rotate2(x, y, MouseX(0, 2, 0, 0.2))
+```
+let x = { LfSaw(200 + Rand(-2, 2), 0) * 0.1 } !+ 4;
+let y = SinOsc(900, 0) * LfPulse(3, 0, 0.3) * 0.2;
+Rotate2(x, y, MouseX(0, 2, 0, 0.2))
+```
 
 * * *
 

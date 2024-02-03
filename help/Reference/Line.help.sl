@@ -10,11 +10,15 @@ Generates a line from the start value to the end value.
 
 Sweep oscillator frequency:
 
-	SinOsc(Line(200, 17000, 10), 0) * 0.1
+```
+SinOsc(Line(200, 17000, 10), 0) * 0.1
+```
 
 XLine is usually better than Line for frequency:
 
-	SinOsc(XLine(200, 17000, 10), 0) * 0.1
+```
+SinOsc(XLine(200, 17000, 10), 0) * 0.1
+```
 
 _Note_: This is the Sc _Line_ Ugen without the _doneAction_ input.
 

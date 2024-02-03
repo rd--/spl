@@ -12,7 +12,9 @@ The output will be zero.
 - trig: the trigger that sets output to one.
 - reset: the trigger that sets output to zero.
 
-	SetResetFf(Dust(5), Dust(5)) * BrownNoise() * 0.1
+```
+SetResetFf(Dust(5), Dust(5)) * BrownNoise() * 0.1
+```
 
 * * *
 

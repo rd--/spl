@@ -10,4 +10,5 @@ A two zero filter.
 
 Modulate frequency:
 
-	TwoZero(WhiteNoise() * 0.125, XLine(20, 20000, 8), 1)
+```
+TwoZero(WhiteNoise() * 0.125, XLine(20, 20000, 8), 1)

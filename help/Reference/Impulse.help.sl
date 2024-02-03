@@ -9,12 +9,17 @@ Outputs non band limited single sample impulses.
 
 Constant frequency:
 
-	Impulse(800, 0) * 0.2
+```
+Impulse(800, 0) * 0.2
+```
 
 Modulate frequency:
 
-	Impulse(XLine(800, 100, 5), 0) * 0.2
+```
+Impulse(XLine(800, 100, 5), 0) * 0.2
+```
 
 Modulate phase:
 
-	Impulse(4, [0, MouseX(0, 1, 0, 0.2)]) * 0.2
+```
+Impulse(4, [0, MouseX(0, 1, 0, 0.2)]) * 0.2

@@ -11,26 +11,36 @@ _LfPar(freq, iphase)_
 
 Fixed frequency oscillator:
 
-	LfPar([440, 800], 0) * 0.1
+```
+LfPar([440, 800], 0) * 0.1
+```
 
 Modulating frequency:
 
-	LfPar(XLine(100, 2000, 10), 0) * 0.1
+```
+LfPar(XLine(100, 2000, 10), 0) * 0.1
+```
 
 Amplitude modulation:
 
-	LfPar(XLine(1, 200, 10), 0) * SinOsc(440, 0) * 0.1
+```
+LfPar(XLine(1, 200, 10), 0) * SinOsc(440, 0) * 0.1
+```
 
 Used as both oscillator and lfo:
 
-	LfPar(LfPar(3, 0.3) * 200 + 400, 0) * 0.1
+```
+LfPar(LfPar(3, 0.3) * 200 + 400, 0) * 0.1
+```
 
 Used as phase modulator (behaves like a triangular modulator in fm):
 
-	[
-		SinOsc(440, LfPar(1, 2) * 8 * pi),
-		SinOsc(440 + (LfTri(1, 0) * 8 *pi), 0)
-	] * 0.1
+```
+[
+	SinOsc(440, LfPar(1, 2) * 8 * pi),
+	SinOsc(440 + (LfTri(1, 0) * 8 *pi), 0)
+] * 0.1
+```
 
 * * *
 

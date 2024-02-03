@@ -8,21 +8,25 @@ _XFade2(inA, inB, pan=0, level=1)_
 
 Cross-fade between sawtooth and sine osillators:
 
-	XFade2(
-		Saw(440),
-		SinOsc(440, 0),
-		LfTri(0.1, 0),
-		0.1
-	)
+```
+XFade2(
+	Saw(440),
+	SinOsc(440, 0),
+	LfTri(0.1, 0),
+	0.1
+)
+```
 
 Stereo (multiple-channel expansion):
 
-	XFade2(
-		Saw([440, 441]),
-		SinOsc([440, 441], 0),
-		LfTri(1 / [9, 10], 0),
-		0.1
-	)
+```
+XFade2(
+	Saw([440, 441]),
+	SinOsc([440, 441], 0),
+	LfTri(1 / [9, 10], 0),
+	0.1
+)
+```
 
 * * *
 

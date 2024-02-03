@@ -10,10 +10,11 @@ PanB(in, azimuth, elevation, level)
 Output channels are in order _w, x, y, z_.
 You will only hear the first two channels on a stereo setup.
 
-	let [w, x, y, z] = PanB(
-		PinkNoise() * 0.1,
-		LfSaw(0.5, pi),
-		0,
-		0.3
-	);
-	Silent(8) ++ DecodeB2(8, w, x, y, 0)
+```
+let [w, x, y, z] = PanB(
+	PinkNoise() * 0.1,
+	LfSaw(0.5, pi),
+	0,
+	0.3
+);
+Silent(8) ++ DecodeB2(8, w, x, y, 0)

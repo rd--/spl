@@ -12,15 +12,19 @@ Any trigger received while the output is non-zero is ignored.
 
 A Dust signal occasionally triggers a gate be held open for one fifth of a second.
 
-	Trig1(Dust(1), 0.2) * SinOsc(800, 0) * 0.1
+```
+Trig1(Dust(1), 0.2) * SinOsc(800, 0) * 0.1
+```
 
 The Dust signal also selects a random duration, frequency and amplitude:
 
-	let i = Dust([2, 3]);
-	let tr = Trig1(i, TRand([0.1, 0.01], 0.35, i));
-	let f = TExpRand([220, 550], 880, tr);
-	let a = TExpRand([0.1, 0.01], 0.25, tr);
-	tr.Lag(0.05) * SinOsc(f, 0) * a
+```
+let i = Dust([2, 3]);
+let tr = Trig1(i, TRand([0.1, 0.01], 0.35, i));
+let f = TExpRand([220, 550], 880, tr);
+let a = TExpRand([0.1, 0.01], 0.25, tr);
+tr.Lag(0.05) * SinOsc(f, 0) * a
+```
 
 * * *
 

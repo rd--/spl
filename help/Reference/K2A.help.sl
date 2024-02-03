@@ -10,7 +10,9 @@ K2A converts via linear interpolation.
 
 Control rate white noise interpolated to audio rate.
 
-	K2A(WhiteNoise().kr * 0.2)
+```
+K2A(WhiteNoise().kr * 0.2)
+```
 
 * * *
 

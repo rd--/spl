@@ -9,8 +9,10 @@ This filter removes a Dc offset from a signal.
 
 Add Dc to a pulse wave and then remove it:
 
-	let a = LfPulse(800, 0, 0.5) * 0.5 + 0.5;
-	[a * 0.1, LeakDc(a, 0.995) * 0.1]
+```
+let a = LfPulse(800, 0, 0.5) * 0.5 + 0.5;
+[a * 0.1, LeakDc(a, 0.995) * 0.1]
+```
 
 * * *
 

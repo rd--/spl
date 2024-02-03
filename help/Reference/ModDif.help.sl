@@ -12,13 +12,16 @@ This Ugen returns the smaller value of the two.
 
 Different moduli:
 
-	let sig = LfSaw(10, 0);
-	let dist = ModDif(sig, 0, 0:8 * MouseX(0, 1 / 5, 0, 0.2));
-	SinOsc(dist * 4000 + 400, 0).Splay * 0.1
+```
+let sig = LfSaw(10, 0);
+let dist = ModDif(sig, 0, 0:8 * MouseX(0, 1 / 5, 0, 0.2));
+SinOsc(dist * 4000 + 400, 0).Splay * 0.1
+```
 
 Wrapping amplitude crossfade:
 
-	let nc = 12;
-	let x = SinOsc(RandN(nc, 300, 800), 0);
-	let d = ModDif (MouseX(0, nc * 2, 0, 0.2), [0 .. nc - 1], nc);
-	(x * (1 - d).Max(0)).Splay * 0.1
+```
+let nc = 12;
+let x = SinOsc(RandN(nc, 300, 800), 0);
+let d = ModDif (MouseX(0, nc * 2, 0, 0.2), [0 .. nc - 1], nc);
+(x * (1 - d).Max(0)).Splay * 0.1

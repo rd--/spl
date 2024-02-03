@@ -275,7 +275,7 @@
 	}
 
 	LsDiff { :input |
-		LsAdjacent(input, -.flip)
+		LsAdjacent(input, -.swap)
 	}
 
 	LsDrop { :self :anInteger |

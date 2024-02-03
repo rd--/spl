@@ -17,35 +17,39 @@ _Warp1(numChannels=1, bufnum=0, pointer=0, freqScale=1, windowSize=0.2, envbufnu
 
 Here the pointer moves from the beginning to the end of the soundfile over fifteen seconds, control pitch with _MouseX_:
 
-	let numChannels = 1;
-	let sf = SfAcquireMono('floating_1');
-	let pointer = LfSaw(1 / 15, 0).Range(0, 1);
-	let freqScale = MouseX(0.5, 2, 0, 0.2);
-	let windowSize = 0.1;
-	Warp1(numChannels, sf, pointer, freqScale, windowSize, -1, 8, 0.1, 2) * 0.25
+```
+let numChannels = 1;
+let sf = SfAcquireMono('floating_1');
+let pointer = LfSaw(1 / 15, 0).Range(0, 1);
+let freqScale = MouseX(0.5, 2, 0, 0.2);
+let windowSize = 0.1;
+Warp1(numChannels, sf, pointer, freqScale, windowSize, -1, 8, 0.1, 2) * 0.25
+```
 
 Pointer is _Phasor_, playback slows from unit to a quarter over twenty seconds:
 
-	let sf = SfAcquireMono('floating_1');
-	let pointer = Phasor(
-		0,
-		SampleDur() / SfDur(sf) * XLine(1, 0.25, 20),
-		0,
-		1,
-		0
-	);
-	let sound = Warp1(
-		1,
-		sf,
-		pointer,
-		1,
-		0.3,
-		-1,
-		16,
-		Line(0, 1, 40),
-		4
-	);
-	EqPan(sound, pointer * 2 - 1) / 4
+```
+let sf = SfAcquireMono('floating_1');
+let pointer = Phasor(
+	0,
+	SampleDur() / SfDur(sf) * XLine(1, 0.25, 20),
+	0,
+	1,
+	0
+);
+let sound = Warp1(
+	1,
+	sf,
+	pointer,
+	1,
+	0.3,
+	-1,
+	16,
+	Line(0, 1, 40),
+	4
+);
+EqPan(sound, pointer * 2 - 1) / 4
+```
 
 * * *
 

@@ -9,12 +9,17 @@ A sine like shape made of two cubic pieces. Smoother than _LfPar_.
 
 As frequency modulator:
 
-	LfCub(LfCub(0.2, 0) * 400 + 800, 0) * 0.1
+```
+LfCub(LfCub(0.2, 0) * 400 + 800, 0) * 0.1
+```
 
 As nested frequency modulator:
 
-	LfCub(LfCub(LfCub(0.2, 0) * 8 + 10, 0) * 400 + 800, 0) * 0.1
+```
+LfCub(LfCub(LfCub(0.2, 0) * 8 + 10, 0) * 400 + 800, 0) * 0.1
+```
 
 Frequency sweep:
 
-	LfCub(XLine(100, 8000, 30), 0) * 0.1
+```
+LfCub(XLine(100, 8000, 30), 0) * 0.1

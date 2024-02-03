@@ -11,7 +11,9 @@ Both the start and end values must be non-zero and have the same sign.
 
 Control frequency of sine oscillator:
 
-	SinOsc(XLine(200, 17000, 10), 0) * 0.1
+```
+SinOsc(XLine(200, 17000, 10), 0) * 0.1
+```
 
 _Note_: This is the Sc _XLine_ Ugen without the _doneAction_ input.
 

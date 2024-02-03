@@ -12,18 +12,20 @@ TwChoose is a composite of TwIndex and Select.
 
 _TwChoose(trig, array, weights, normalize=0)_
 
-	let array = [
-		SinOsc(111, 0),
-		Saw(333),
-		Pulse(555, 0.5)
-	] / [9, 17, 23];
-	let weights = [0.7 0.2 0.1];
-	TwChoose(
-		Dust(MouseX(1, 1000, 1, 0.2)),
-		array,
-		weights,
-		0
-	)
+```
+let array = [
+	SinOsc(111, 0),
+	Saw(333),
+	Pulse(555, 0.5)
+] / [9, 17, 23];
+let weights = [0.7 0.2 0.1];
+TwChoose(
+	Dust(MouseX(1, 1000, 1, 0.2)),
+	array,
+	weights,
+	0
+)
+```
 
 Note: All Ugens are continuously running.
 This may not be the most efficient way if each input is Cpu-expensive.

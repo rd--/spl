@@ -8,9 +8,13 @@ Generates quadratically interpolated random values at a rate given by the neares
 
 Fixed frequency:
 
-	LfNoise2(1000) * 0.05
+```
+LfNoise2(1000) * 0.05
+```
 
 Modulate frequency:
 
-	LfNoise2(XLine(1000, 10000, 10)) * 0.05
+```
+LfNoise2(XLine(1000, 10000, 10)) * 0.05
+```
 

@@ -8,9 +8,13 @@ Generates linearly interpolated random values at a rate given by the nearest int
 
 Fixed frequency:
 
-	LfNoise1(1000) * 0.05
+```
+LfNoise1(1000) * 0.05
+```
 
 Modulate frequency:
 
-	LfNoise1(XLine(1000, 10000, 10)) * 0.05
+```
+LfNoise1(XLine(1000, 10000, 10)) * 0.05
+```
 

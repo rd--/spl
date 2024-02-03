@@ -7,15 +7,17 @@ Basically this allows a modulation between a sine wave and a sawtooth like wave.
 Overmodulation causes chaotic oscillation.
 It may be useful if you want to simulate feedback Fm synths.
 
-	{ :tr |
-		let x = MouseX(0.15, 0.85, 0, 0.2);
-		let f0 = Choose(tr, [110 220 440]);
-		{
-			let freq = f0 + TRand(0, f0, tr);
-			let fb = LfNoise2(1).Range(0, x);
-			EqPan(SinOscFb(freq, fb), TRand(-1, 1, tr)) / 16
-		} !+ 16
-	}.OverlapTexture(2, 6, 3).Mix
+```
+{ :tr |
+	let x = MouseX(0.15, 0.85, 0, 0.2);
+	let f0 = Choose(tr, [110 220 440]);
+	{
+		let freq = f0 + TRand(0, f0, tr);
+		let fb = LfNoise2(1).Range(0, x);
+		EqPan(SinOscFb(freq, fb), TRand(-1, 1, tr)) / 16
+	} !+ 16
+}.OverlapTexture(2, 6, 3).Mix
+```
 
 Non-graph variant:
 

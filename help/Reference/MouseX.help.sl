@@ -8,21 +8,27 @@ _MouseX(minval=0, maxval=1, warp=0, lag=0.2)_
 
 Mouse control of frequency:
 
-	SinOsc(MouseX(40, 10000, 1, 0.2), 0) * 0.1
+```
+SinOsc(MouseX(40, 10000, 1, 0.2), 0) * 0.1
+```
 
 Same as above but with a two second lag:
 
-	SinOsc(MouseX(40, 10000, 1, 2), 0) * 0.1
+```
+SinOsc(MouseX(40, 10000, 1, 2), 0) * 0.1
+```
 
 Two oscillators:
 
-	SinOsc(
-		[
-			MouseX(40, 10000, 1, 0.2),
-			MouseY(40, 10000, 1, 0.2)
-		],
-		0
-	) * 0.1
+```
+SinOsc(
+	[
+		MouseX(40, 10000, 1, 0.2),
+		MouseY(40, 10000, 1, 0.2)
+	],
+	0
+) * 0.1
+```
 
 _Note_:
 MouseX and MouseY can report unexpected values on systems with multiple displays.

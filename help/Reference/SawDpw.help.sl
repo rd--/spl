@@ -17,11 +17,15 @@ The technique is documented in Välimäki (2005) Signal Processing Letters 12(3)
 
 Move mouse to change frequency:
 
-	SawDpw(MouseX(50, 2000, 1, 0.2), 0) * 0.1
+```
+SawDpw(MouseX(50, 2000, 1, 0.2), 0) * 0.1
+```
 
 Compare aliasing characteristics:
 
-	SawDpw(MouseX(50, 10000, 1, 0.2), 0) * 0.1
+```
+SawDpw(MouseX(50, 10000, 1, 0.2), 0) * 0.1
+```
 
 * * *
 

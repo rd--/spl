@@ -12,18 +12,24 @@ Any trigger received while the output is non-zero is ignored.
 
 A Dust signal occasionally triggers a gate be held open for one fifth of a second.
 
-	Trig(Dust(1), 0.2) * SinOsc(800, 0) * 0.5
+```
+Trig(Dust(1), 0.2) * SinOsc(800, 0) * 0.5
+```
 
 The trigger signal also selects a random duration and frequency:
 
-	let tr = Dust(2);
-	let d = TRand(0.2, 0.5, tr);
-	let f = TExpRand(220, 880, tr);
-	Trig(tr, d) * SinOsc(f, 0) * 0.5
+```
+let tr = Dust(2);
+let d = TRand(0.2, 0.5, tr);
+let f = TExpRand(220, 880, tr);
+Trig(tr, d) * SinOsc(f, 0) * 0.5
+```
 
 An Impulse triggers more frequently than the duration resets:
 
-	Trig(Impulse(1, 0), 2 - [0, 0.001]) * SinOsc(800, 0) * 0.2
+```
+Trig(Impulse(1, 0), 2 - [0, 0.001]) * SinOsc(800, 0) * 0.2
+```
 
 * * *
 

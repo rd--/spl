@@ -27,25 +27,29 @@ the allocator generates five gate signals (_w_),
 each gate controls a _SinOsc_ with distinct
 frequency (_f_) and envelope (_e_).
 
-	let t = Impulse(4, 0);
-	let d = TRand(0.2, 2, t);
-	let w = TrigAllocator(5, 1, t, d);
-	let f = TiRand(48, 72, w).MidiCps + TRand(-9, 9, w);
-	let e = Asr(w, 0.01, d / 2, -4) * TRand(0.1, 0.2, w);
-	let o = SinOsc(f, 0) * e;
-	o.Splay
+```
+let t = Impulse(4, 0);
+let d = TRand(0.2, 2, t);
+let w = TrigAllocator(5, 1, t, d);
+let f = TiRand(48, 72, w).MidiCps + TRand(-9, 9, w);
+let e = Asr(w, 0.01, d / 2, -4) * TRand(0.1, 0.2, w);
+let o = SinOsc(f, 0) * e;
+o.Splay
+```
 
 The allocator cycles indexes when not stealing.
 In the graph below the gate duration is one millisecond,
 so each impulse could be allocated to the same voice,
 however it cycles, allowing the decay envelope to sound.
 
-	let t = Impulse(4, 0);
-	let w = TrigAllocator(16, 0, t, 0.001);
-	let e = Decay2(w, 0.01, 4);
-	let f = TiRand(84, 96, w).MidiCps + TRand(-9, 9, w);
-	let o = SinOsc(f, 0) * e * 0.1;
-	o.Splay
+```
+let t = Impulse(4, 0);
+let w = TrigAllocator(16, 0, t, 0.001);
+let e = Decay2(w, 0.01, 4);
+let f = TiRand(84, 96, w).MidiCps + TRand(-9, 9, w);
+let o = SinOsc(f, 0) * e * 0.1;
+o.Splay
+```
 
 * * *
 

@@ -11,27 +11,34 @@ Phase modulation sine oscillator pair.
 
 Modulate carfreq:
 
-	PmOsc(Line(600, 900, 5), 600, 3, 0) * 0.1
+```
+PmOsc(Line(600, 900, 5), 600, 3, 0) * 0.1
+```
 
 Modulate modfreq:
 
-	PmOsc(300, Line(600, 900, 5), 3, 0) * 0.1
+```
+PmOsc(300, Line(600, 900, 5), 3, 0) * 0.1
+```
 
 Modulate index:
 
-	PmOsc(300, 550, Line(0, 20, 8), 0) * 0.1
+```
+PmOsc(300, 550, Line(0, 20, 8), 0) * 0.1
+```
 
 Texture:
 
-	{ :tr |
-		LinPan2(
-			PmOsc(
-				TRand(20, 2000, tr),
-				TRand(0, 800, tr),
-				TLine(0, TRand(0, 12, tr), 9, tr),
-				0
-			),
-			TRand(-1, 1, tr),
-			0.1
-		)
-	}.OverlapTexture(2, 5, 4).Mix
+```
+{ :tr |
+	LinPan2(
+		PmOsc(
+			TRand(20, 2000, tr),
+			TRand(0, 800, tr),
+			TLine(0, TRand(0, 12, tr), 9, tr),
+			0
+		),
+		TRand(-1, 1, tr),
+		0.1
+	)
+}.OverlapTexture(2, 5, 4).Mix
