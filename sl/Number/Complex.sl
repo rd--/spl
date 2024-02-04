@@ -1,4 +1,4 @@
-{- Requires: Array Number Object -}
+{- Requires: List Number Object -}
 
 Complex : [Object, Number] { | real imaginary |
 
@@ -310,7 +310,7 @@ Complex : [Object, Number] { | real imaginary |
 
 }
 
-+Array {
++List {
 
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock:/2 |
 		self.collect { :each |

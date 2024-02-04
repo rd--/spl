@@ -10,9 +10,9 @@ StorageBenchark : [Object] { | count |
 	buildTreeDepthWith { :self :depth :random |
 		self.count := self.count + 1;
 		(depth = 1).if {
-			Array(random.next % 10 + 1)
+			List(random.next % 10 + 1)
 		} {
-			Array(4).fillWith { :unusedIndex |
+			List(4).fillWith { :unusedIndex |
 				self.buildTreeDepthWith(depth - 1, random)
 			}
 		}

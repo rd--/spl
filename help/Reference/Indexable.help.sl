@@ -3,7 +3,7 @@
 _Indexable_ is a collection trait.
 The required methods are _at_, _atPut_ and _indices_.
 
-	system.traitTypes('Indexable').includes('Array') = true
+	system.traitTypes('Indexable').includes('List') = true
 	system.traitDictionary::Indexable.isTrait = true
 
 * * *

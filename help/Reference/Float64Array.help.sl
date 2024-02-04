@@ -1,11 +1,11 @@
 # Float64Array
 
-An Array whose elements are IEEE 64-bit floating point values.
+A List whose elements are IEEE 64-bit floating point values.
 
-Unlike Array, a Float64Array is of fixed size.
+Unlike List, a Float64Array is of fixed size.
 
 * * *
 
-See also: Array, ByteArray, Float32Array
+See also: List, ByteArray, Float32List
 
 Categories: Collection, Type

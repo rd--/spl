@@ -16,7 +16,7 @@ Plus threads element-wise over lists:
 
 	0.1 + [3 4 5] = [3.1 4.1 5.1]
 
-Array implements plus:
+List implements plus:
 
 	[1 2 3] + [2 3 4] = [3 5 7]
 

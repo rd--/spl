@@ -1,11 +1,11 @@
 # Out -- summing output
 
-_Out(bus, channelsArray)_
+_Out(bus, channelsList)_
 
 Sum a sequence of signals to a bus.
 
 - bus: the index of the bus to sum out to, the lowest numbers correspond to the audio hardware
-- channelsArray: an array of channels to write out
+- channelsList: an array of channels to write out
 
 One _Out_ summing one _SinOsc_ to two buses:
 

@@ -16,14 +16,14 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'System'
 	],
 	'Collection-Kernel': [
-		'Array'
+		'List'
 		'Record'
 	],
-	'Collection-Arrayed': [
+	'Collection-PrimitiveList': [
 		'ArrayBuffer'
 		'ByteArray'
 		'Float64Array'
-		'SortedArray'
+		'SortedList'
 	],
 	'Collection-Ordered': [
 		'Heap'
@@ -291,7 +291,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'basicNext'
 		'binary'
 		'blob'
-		'byteArray'
+		'byteList'
 		'byteSize'
 		'cached'
 		'capacity'
@@ -362,7 +362,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'setContents'
 		'signature'
 		'size'
-		'slotNameArray'
+		'slotNameList'
 		'sortBlock'
 		'sortedCounts'
 		'sortedElements'
@@ -476,8 +476,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'addAfterIndex'
 		'addAllFirst'
 		'addAllLast'
-		'addArrayFirst'
-		'addArrayLast'
+		'addListFirst'
+		'addListLast'
 		'addBefore'
 		'addAll'
 		'addAllFirstTo'
@@ -595,7 +595,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'adaptToFractionAndApply'
 		'adaptToNumberAndApply'
 		'adaptToRectangularCoordinateAndApply'
-		'asArray'
+		'asList'
 		'asAscii'
 		'asBag'
 		'asBit'
@@ -640,16 +640,16 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	'converting-string': [
 		'ascii'
 		'asciiByteArray'
-		'characterArray'
-		'codePointArray'
+		'characterList'
+		'codePointList'
 		'contractTo'
 		'lines'
 		'paragraphs'
-		'stringArray'
+		'stringList'
 		'toLowercase'
 		'toUppercase'
 		'utf8ByteArray'
-		'utf16Array'
+		'utf16List'
 		'utf16CodePointAt'
 		'withBlanksTrimmed'
 		'withoutLeadingBlanks'
@@ -803,7 +803,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'initialize'
 	],
 	'instance creation': [
-		'Array'
+		'List'
 		'ArrayBuffer'
 		'Association'
 		'Bag'
@@ -831,7 +831,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'RegExp'
 		'RunArray'
 		'Set'
-		'SortedArray'
+		'SortedList'
 		'Stack'
 		'String'
 		'TimeStamp'
@@ -1012,8 +1012,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'primeFactorization'
 		'primeFactors'
 		'primeLimit'
-		'primesArray'
-		'primesArrayExtend'
+		'primesList'
+		'primesListExtend'
 		'primesUpTo'
 		'primesUpToDo'
 	],
@@ -1039,7 +1039,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'fillFromWith'
 		'indexForInserting'
 		'initializeSlots'
-		'pseudoSlotNameArray'
+		'pseudoSlotNameList'
 		'reduced'
 	],
 	'random': [
@@ -1257,7 +1257,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'truncateTo'
 	],
 	'type predicate': [
-		'isArray'
+		'isList'
 		'isArrayBuffer'
 		'isAssociation'
 		'isBag'
@@ -1295,7 +1295,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isRunArray'
 		'isSet'
 		'isSmallFloat'
-		'isSortedArray'
+		'isSortedList'
 		'isStack'
 		'isStorage'
 		'isString'

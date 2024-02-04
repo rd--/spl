@@ -1,11 +1,11 @@
 # ByteArray
 
-An Array whose elements are integers between 0 and 255.
+A List whose elements are integers between 0 and 255.
 
-Unlike Array, a ByteArray is of fixed size.
+Unlike List, a ByteArray is of fixed size.
 
 * * *
 
-See also: Array, Float64Array
+See also: List, Float64Array
 
 Categories: Collection, Type

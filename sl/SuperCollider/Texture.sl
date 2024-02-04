@@ -1,6 +1,6 @@
 {- Requires: Clock Ugen -}
 
-+[Array, SmallFloat, Ugen] {
++[List, SmallFloat, Ugen] {
 
 	withOverlapEnvelope { :aUgen :sustainTime :transitionTime |
 		let env = Env(
@@ -11,7 +11,7 @@
 			nil,
 			0
 		);
-		let amp = EnvGen(1, 1, 0, 1, 2, env.asArray);
+		let amp = EnvGen(1, 1, 0, 1, 2, env.asList);
 		Out(0, aUgen * amp)
 	}
 

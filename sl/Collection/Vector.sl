@@ -1,8 +1,8 @@
-{- Requires: Array -}
+{- Requires: List -}
 
-Vector : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed] { | contents |
+Vector : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
 
-	asArray { :self |
+	asList { :self |
 		self.contents.copy
 	}
 
@@ -43,16 +43,16 @@ Vector : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed] { | co
 +@Integer {
 
 	Vector { :size |
-		Array(size).asVector
+		List(size).asVector
 	}
 
 	Vector { :size :anObject |
-		Array(size, anObject).asVector
+		List(size, anObject).asVector
 	}
 
 }
 
-+Array {
++List {
 
 	asVector { :self |
 		newVector().initializeSlots(self.copy)
@@ -63,7 +63,7 @@ Vector : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed] { | co
 +@Sequenceable {
 
 	asVector { :self |
-		self.asArray.asVector
+		self.asList.asVector
 	}
 
 }

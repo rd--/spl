@@ -28,7 +28,7 @@ Window! : [Object] {
 		<primitive: return _self.prompt(_message, _defaultValue);>
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['localStorage', 'location', 'name', 'navigator', 'sessionStorage']
 	}
 

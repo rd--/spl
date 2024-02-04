@@ -81,7 +81,7 @@ RegExp! : [Object] {
 		self.match(aString) = aString
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['flags', 'isGlobal', 'hasIndices', 'source']
 	}
 

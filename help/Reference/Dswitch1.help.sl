@@ -5,7 +5,7 @@ Demand rate generator for switching between inputs.
 _Dswitch1(index, list)_
 
 - index: Which of the inputs to return.
-- list: Array of values or other UGens.
+- list: List of values or other UGens.
 
 MouseX selects input:
 

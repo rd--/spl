@@ -18,7 +18,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		}
 	}
 
-	asArray { :self |
+	asList { :self |
 		<primitive: return Array.from(_self);>
 	}
 
@@ -78,7 +78,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		}
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['size']
 	}
 
@@ -120,7 +120,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 
 }
 
-+Array {
++List {
 
 	asSet { :self |
 		<primitive: return new Set(_self);>

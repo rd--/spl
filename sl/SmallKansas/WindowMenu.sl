@@ -2,7 +2,7 @@ WindowMenu : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		let currentWindowTitles = {
-			smallKansas.frameSet.asArray.collect { :frame |
+			smallKansas.frameSet.asList.collect { :frame |
 				MenuItem(frame.title, nil) { :unusedEvent |
 					frame.bringToFront
 				}

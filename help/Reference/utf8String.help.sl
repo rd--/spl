@@ -10,6 +10,6 @@ which must be a valid Utf-8 sequence.
 
 * * *
 
-See also: asciiString, ByteArray, String, utf8ByteArray, utf16Array
+See also: asciiString, ByteArray, String, utf8ByteArray, utf16List
 
 Categories: String, Encoding

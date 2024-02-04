@@ -46,7 +46,7 @@ CategoryBrowser : [Object, SmallKansan] {
 					methodSet := completeMethodSet.select { :each |
 						system.categoryDictionary.categoryOf('method', each.name) = path[3]
 					};
-					methodSet.collect(qualifiedName:/1).asArray.sorted
+					methodSet.collect(qualifiedName:/1).asList.sorted
 				},
 				4 -> {
 					selectedMethod := methodSet.detect { :each |

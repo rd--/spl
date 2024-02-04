@@ -75,17 +75,17 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 
 }
 
-+Array {
++List {
 
-	recordFromTwoElementArrays { :self |
+	recordFromTwoElementLists { :self |
 		<primitive: return Object.fromEntries(_self);>
 	}
 
 	asRecord { :self |
 		self.collect(key:/1).allSatisfy(isString:/1).if {
-			self.collect(asArray:/1).recordFromTwoElementArrays
+			self.collect(asList:/1).recordFromTwoElementLists
 		} {
-			self.error('Array>>asRecord: not all keys are strings')
+			self.error('List>>asRecord: not all keys are strings')
 		}
 	}
 

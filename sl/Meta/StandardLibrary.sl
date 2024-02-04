@@ -14,9 +14,9 @@
 	'RunArray'
 	'Set'
 	'Stack' {- LinkedList -}
-	'SortedArray'
+	'SortedList'
 	'Tuple'
-	'Vector' {- Array -}
+	'Vector' {- List -}
 	'WeakMap'
 
 	{- Geometry -}
@@ -113,7 +113,7 @@
 	'Apl'
 
 ].primitiveLoadPackageSequence.then { :unused |
-	'config/preferences.json'.primitiveReadLocalFile.then { :byteArray |
-		system.cache::preferences := byteArray.utf8String.parseJson
+	'config/preferences.json'.primitiveReadLocalFile.then { :byteList |
+		system.cache::preferences := byteList.utf8String.parseJson
 	}
 }

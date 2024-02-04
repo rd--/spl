@@ -1,4 +1,4 @@
-# Array Assignment Syntax -- syntax
+# List Assignment Syntax -- syntax
 
 There is array assignment syntax for both temporary variable initialisers:
 

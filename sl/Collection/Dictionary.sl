@@ -3,9 +3,9 @@
 @Dictionary {
 
 	= { :self :aDictionary |
-		let keyArray = self.indices;
-		keyArray = aDictionary.indices & {
-			keyArray.allSatisfy { :key |
+		let keyList = self.indices;
+		keyList = aDictionary.indices & {
+			keyList.allSatisfy { :key |
 				self[key] = aDictionary[key]
 			}
 		}
@@ -33,8 +33,8 @@
 		aCollection
 	}
 
-	Array { :self |
-		let answer = Array(self.size);
+	List { :self |
+		let answer = List(self.size);
 		let index = 1;
 		self.valuesDo { :each |
 			answer[index] := each;
@@ -66,7 +66,7 @@
 	}
 
 	associations { :self |
-		let answer = Array(self.size);
+		let answer = List(self.size);
 		let index = 1;
 		self.associationsDo { :each |
 			answer[index] := each;
@@ -291,10 +291,10 @@
 		self.indexOfIfAbsent(value, exceptionBlock:/0)
 	}
 
-	messageSend { :self :selector :delegateKey :argumentsArray |
+	messageSend { :self :selector :delegateKey :argumentsList |
 		let answer = self.atDelegateTo(selector, delegateKey);
 		answer.isBlock.if {
-			answer.apply([self] ++ argumentsArray)
+			answer.apply([self] ++ argumentsList)
 		} {
 			answer
 		}

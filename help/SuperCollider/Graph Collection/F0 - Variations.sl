@@ -179,7 +179,7 @@ Lpf((d.Sin + (SinOscFb(63, f(0.8)) * d) / 9 + o).Tanh / 2, 10000) * 0.2
 
 {- https://sccode.org/1-4Qy ; f0 ; 0232 ; requires=pyramid ; edit (rd) -}
 let b = [4, 3];
-let q = 9.fibonacciArray.pyramid(1) * 99;
+let q = 9.fibonacciList.pyramid(1) * 99;
 let o = SinOsc(HoldSequence(q, 1 / b), 0);
 let e = SinOsc(b / 9, 0);
 let d = SinOsc(b / 999, 0).Abs + 0.01;

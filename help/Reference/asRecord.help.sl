@@ -1,6 +1,6 @@
 # asRecord
 
-- _asRecord(anAssociationArray | aMap)_
+- _asRecord(anAssociationList | aMap)_
 
 Convert an array of Association or a Map to a Record.
 

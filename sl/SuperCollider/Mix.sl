@@ -1,11 +1,11 @@
 +@Integer {
 
-	SparseMatrixMixer { :numOutputs :inputArray :sparseMatrix |
+	SparseMatrixMixer { :numOutputs :inputList :sparseMatrix |
 		let answer = Dc(0) ! numOutputs;
 		sparseMatrix.do { :each |
 			let [inputIndex, outputIndex, gain] = each;
 			{- ['SparseMatrixMixer', each].postLine; -}
-			answer[outputIndex] := answer[outputIndex] + inputArray[inputIndex] * gain
+			answer[outputIndex] := answer[outputIndex] + inputList[inputIndex] * gain
 		};
 		answer
 	}
@@ -152,12 +152,12 @@
 
 }
 
-+Array {
++List {
 
 	Mix { :self |
 		let ruleTable = system.preference('ScSynth/Outputs/Mixer/RuleTable', [['1×2', [1, 2]]]);
-		let runArray = self.collect(size:/1).asRunArray;
-		let derivedPrefix = runArray.runsAndValuesCollect { :run :value |
+		let runList = self.collect(size:/1).asRunArray;
+		let derivedPrefix = runList.runsAndValuesCollect { :run :value |
 			[run.asString, '×', value.asString].join
 		}.joinSeparatedBy('+') ++ '→';
 		{- ['Mix', ruleTable, derivedPrefix].postLine; -}
@@ -206,28 +206,28 @@
 
 }
 
-+Array {
++List {
 
-	Splay { :inArray :spread |
+	Splay { :inList :spread |
 		let numberOfChannels = system.scSynth.mainOutputs;
 		let orientation = system.scSynth.mainOrientation;
 		(
-			inArray.size = numberOfChannels & {
+			inList.size = numberOfChannels & {
 				spread = 1
 			}
 		).if {
-			inArray
+			inList
 		} {
 			(numberOfChannels = 2).if {
-				Splay2(inArray, spread, 1, 0, true)
+				Splay2(inList, spread, 1, 0, true)
 			} {
-				SplayAz(numberOfChannels, inArray, spread, 1, 2, 0, orientation, true)
+				SplayAz(numberOfChannels, inList, spread, 1, 2, 0, orientation, true)
 			}
 		}
 	}
 
-	Splay { :inArray |
-		Splay(inArray, 1)
+	Splay { :inList |
+		Splay(inList, 1)
 	}
 
 	Sum { :self |
@@ -245,7 +245,7 @@
 
 }
 
-+[Ugen, Array] {
++[Ugen, List] {
 
 	EqPan { :input :position |
 		let numberOfChannels = system.scSynth.mainOutputs;

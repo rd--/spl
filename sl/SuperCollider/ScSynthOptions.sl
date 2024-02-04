@@ -24,7 +24,7 @@ ScSynthOptions! : [Object] {
 		<primitive: _self.numOutputs = _anInteger; return _anInteger;>
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['hardwareBufferSize', 'blockSize', 'numInputs', 'numOutputs']
 	}
 

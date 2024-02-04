@@ -3,7 +3,7 @@
 - _sorted(aCollection, aBlock:/2)_
 - _sorted(aCollection)_ ≡ _sorted(aCollection, <=)_
 
-Answer a new Array which contains the same elements as _aCollection_ where the elements are sorted by _aBlock_.
+Answer a new List which contains the same elements as _aCollection_ where the elements are sorted by _aBlock_.
 
 The block should take two arguments and answer true if the first element should preceed the second one.
 

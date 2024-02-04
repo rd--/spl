@@ -1,6 +1,6 @@
 Guide/Apply Syntax.help.sl
-Guide/Array Assignment Syntax.help.sl
-Guide/Array Syntax.help.sl
+Guide/List Assignment Syntax.help.sl
+Guide/List Syntax.help.sl
 Guide/Assignment, initialisation, equality, identity.help.sl
 Guide/Assignment Operator Syntax.help.sl
 Guide/AtIfAbsentPut Syntax.help.sl
@@ -61,7 +61,7 @@ Guide/Quoted At Syntax.help.sl
 Guide/Quoted Indexable Syntax.help.sl
 Guide/Random Number Generators.help.sl
 Guide/README
-Guide/Scalars, Arrays, Operators.help.sl
+Guide/Scalars, Lists, Operators.help.sl
 Guide/Sc Help Index.help.sl
 Guide/Scheme Perspective.help.sl
 Guide/Simple Editor.help.sl
@@ -134,8 +134,8 @@ Reference/arcSin.help.sl
 Reference/ArcSin.help.sl
 Reference/ArcTan.help.sl
 Reference/arithmeticSeries.help.sl
-Reference/Array.help.sl
-Reference/asArray.help.sl
+Reference/List.help.sl
+Reference/asList.help.sl
 Reference/asAscii.help.sl
 Reference/asBag.help.sl
 Reference/asBoolean.help.sl
@@ -379,7 +379,7 @@ Reference/findFirst.help.sl
 Reference/first.help.sl
 Reference/fisherYatesShuffle.help.sl
 Reference/flattened.help.sl
-Reference/Float32Array.help.sl
+Reference/Float32List.help.sl
 Reference/Float64Array.help.sl
 Reference/floor.help.sl
 Reference/Floor.help.sl
@@ -707,7 +707,7 @@ Reference/Pow.help.sl
 Reference/Preferences.help.sl
 Reference/primeFactors.help.sl
 Reference/primeLimit.help.sl
-Reference/primesArray.help.sl
+Reference/primesList.help.sl
 Reference/printString.help.sl
 Reference/printStringRoman.help.sl
 Reference/PriorityQueue.help.sl
@@ -824,11 +824,11 @@ Reference/size.help.sl
 Reference/Slew.help.sl
 Reference/slidingWindows.help.sl
 Reference/Slope.help.sl
-Reference/slotNameArray.help.sl
+Reference/slotNameList.help.sl
 Reference/SmallFloat.help.sl
 Reference/SoftClip.help.sl
 Reference/sortBy.help.sl
-Reference/SortedArray.help.sl
+Reference/SortedList.help.sl
 Reference/sortedCounts.help.sl
 Reference/sortedElements.help.sl
 Reference/sorted.help.sl

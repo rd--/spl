@@ -18,7 +18,7 @@ Type! : [Object] {
 		self.name.endsWith('^')
 	}
 
-	methodArray { :self |
+	methodList { :self |
 		self.methodDictionary.values
 	}
 
@@ -38,25 +38,25 @@ Type! : [Object] {
 		self.qualifiedName
 	}
 
-	pseudoSlotNameArray { :self |
-		['name', 'packageName', 'traitNameArray', 'slotNameArray', 'methodDictionary']
+	pseudoSlotNameList { :self |
+		['name', 'packageName', 'traitNameList', 'slotNameList', 'methodDictionary']
 	}
 
 	qualifiedName { :self |
 		self.name
 	}
 
-	slotNameArray { :self |
+	slotNameList { :self |
 		<primitive: return _self.slotNameArray;>
 	}
 
-	traitArray { :self |
-		self.traitNameArray.collect { :each |
+	traitList { :self |
+		self.traitNameList.collect { :each |
 			system.traitLookup(each)
 		}
 	}
 
-	traitNameArray { :self |
+	traitNameList { :self |
 		<primitive: return _self.traitNameArray;>
 	}
 

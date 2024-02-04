@@ -1,6 +1,6 @@
 # TableViewer -- table viewer
 
-- _TableViewer(aSmallKansas, aString, anArray)_
+- _TableViewer(aSmallKansas, aString, aList)_
 
 Add a window displaying a table.
 

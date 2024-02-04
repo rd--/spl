@@ -10,6 +10,6 @@ and for variable assignment:
 
 * * *
 
-See also: [Array Assignment Syntax]
+See also: [List Assignment Syntax]
 
 

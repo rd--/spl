@@ -133,11 +133,11 @@
 	}
 
 	indexOfPrime { :self |
-		let primesArray = system.primesArray;
-		(self <= primesArray.last).if {
-			primesArray.indexOf(self)
+		let primesList = system.primesList;
+		(self <= primesList.last).if {
+			primesList.indexOf(self)
 		} {
-			(primesArray.size + 8).primesArrayExtend(primesArray);
+			(primesList.size + 8).primesListExtend(primesList);
 			self.indexOfPrime
 		}
 	}
@@ -230,17 +230,17 @@
 	}
 
 	nthPrime { :self |
-		let primesArray = system.primesArray;
-		(self > primesArray.size).if {
-			self.primesArrayExtend(primesArray)
+		let primesList = system.primesList;
+		(self > primesList.size).if {
+			self.primesListExtend(primesList)
 		} {
-			primesArray[self]
+			primesList[self]
 		}
 	}
 
 	previousPrime { :self |
 		let index = self.leastPrimeGreaterThanOrEqualTo.indexOfPrime - 1;
-		system.primesArray[index]
+		system.primesList[index]
 	}
 
 	primeDivisors { :self |
@@ -288,8 +288,8 @@
 		}
 	}
 
-	primesArray { :self |
-		let answer = Array(self);
+	primesList { :self |
+		let answer = List(self);
 		let n = 1;
 		answer.indicesDo { :index |
 			n := n.nextPrime;
@@ -298,23 +298,23 @@
 		answer
 	}
 
-	primesArrayExtend { :self :anArray |
-		let n = anArray.last;
-		(self - anArray.size).timesRepeat {
+	primesListExtend { :self :aList |
+		let n = aList.last;
+		(self - aList.size).timesRepeat {
 			n := n.nextPrime;
-			anArray.add(n)
+			aList.add(n)
 		};
 		n
 	}
 
 	primesUpTo { :self |
-		system.primesArray.copyFromTo(1, self.nextPrime.indexOfPrime - 1)
+		system.primesList.copyFromTo(1, self.nextPrime.indexOfPrime - 1)
 	}
 
 	primesUpToDo { :self :aBlock:/1 |
-		let primesArray = system.primesArray;
+		let primesList = system.primesList;
 		1.toDo(self.leastPrimeGreaterThanOrEqualTo.indexOfPrime) { :index |
-			aBlock(primesArray[index])
+			aBlock(primesList[index])
 		}
 	}
 
@@ -433,7 +433,7 @@
 	}
 
 	tuplesIndicesDo { :self :n :aBlock:/1 |
-		let indices = Array(n, 1);
+		let indices = List(n, 1);
 		(self ^ n).timesRepeat {
 			let k = n;
 			aBlock(indices);
@@ -531,9 +531,9 @@
 
 +@Cache {
 
-	primesArray { :self |
-		self.cached('primesArray') {
-			23.primesArray
+	primesList { :self |
+		self.cached('primesList') {
+			23.primesList
 		}
 	}
 

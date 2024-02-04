@@ -149,11 +149,11 @@
 
 @Element {
 
-	append { :self :anArray | <primitive: return _self.append(..._anArray);> }
+	append { :self :aList | <primitive: return _self.append(..._aList);> }
 	attributes { :self | <primitive: return _self.attributes;> }
 	childElementCount { :self | <primitive: return _self.childElementCount;> }
 	children { :self | <primitive: return _self.children;> }
-	classList { :self | <primitive: return _self.classList;> }
+	classList { :self | <primitive: return _self.classArray;> }
 	className { :self | <primitive: return _self.className;> }
 	className { :self :aString | <primitive: return _self.className = _aString;> }
 	getAttribute { :self :name | <primitive: return _self.getAttribute(_name);> }
@@ -172,7 +172,7 @@
 	setPointerCapture { :self :pointerId | <primitive: return _self.setPointerCapture(_pointerId);> }
 
 	removeAllChildren { :self |
-		self.children.asArray.do { :each |
+		self.children.asList.do { :each |
 			each.remove
 		}
 	}
@@ -197,7 +197,7 @@
 	length { :self | <primitive: return _self.length;> }
 	namedItem { :self :aString | <primitive: return _self.namedItem(_aString);> }
 
-	asArray { :self | <primitive: return Array.from(_self);> }
+	asList { :self | <primitive: return Array.from(_self);> }
 
 }
 
@@ -255,8 +255,8 @@
 	textContent { :self | <primitive: return _self.textContent;> }
 	textContent { :self :aString | <primitive: return _self.textContent = _aString;> }
 
-	appendChildren { :self :anArray |
-		anArray.do { :each |
+	appendChildren { :self :aList |
+		aList.do { :each |
 			self.appendChild(each)
 		}
 	}
@@ -270,7 +270,7 @@
 	}
 
 	transform { :self :transformList |
-		<primitive: return _self.transform = transformList;>
+		<primitive: return _self.transform = _transformList;>
 	}
 
 }
@@ -418,7 +418,7 @@ DOMMatrixReadOnly! : [Object, DOMMatrixReadOnly] {
 
 }
 
-+Array {
++List {
 
 	DOMMatrix { :self |
 		<primitive: return new DOMMatrix(_self);>
@@ -687,7 +687,7 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 +Association {
 
 	asHtmlRow { :self :toString:/1 |
-		self.asArray.asHtmlRow(toString:/1)
+		self.asList.asHtmlRow(toString:/1)
 	}
 
 }
@@ -777,7 +777,7 @@ Location! : [Object] {
 	reload { :self | <primitive: return _self.reload();> }
 	replace { :self :url | <primitive: return _self.reload(_url);> }
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['protocol', 'hostname', 'port', 'pathname', 'search', 'hash']
 	}
 

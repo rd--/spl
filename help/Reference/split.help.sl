@@ -2,7 +2,7 @@
 
 - _split(aString)_
 
-Split _aString_ into an Array of single character Strings.
+Split _aString_ into a List of single character Strings.
 
 	'mississippi'.split.join = 'mississippi'
 

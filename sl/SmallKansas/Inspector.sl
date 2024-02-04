@@ -3,7 +3,7 @@ Inspector : [Object, View] { | inspectorPane inspectorList |
 	addInspector { :self :aValue :index |
 		let maxStringSize = 32;
 		let maxIndices = 2048;
-		let fields = aValue.inspectAsArray(maxIndices);
+		let fields = aValue.inspectAsList(maxIndices);
 		let listChooser = ListChooser(false, aValue.printStringConcise(maxStringSize), 6);
 		let select = listChooser.select;
 		listChooser.setEntries(fields.collect { :each |

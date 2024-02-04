@@ -20,7 +20,7 @@ LocalControl! : [Object] {
 		<primitive: return _self.operatingRate>
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['name', 'index', 'defaultValue', 'operatingRate', 'isTriggered']
 	}
 

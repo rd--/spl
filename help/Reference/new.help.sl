@@ -11,7 +11,7 @@ Implements the Smalltalk idiom _aCollection.species.new()_.
 
 Implements the Smalltalk idiom _aCollection.species.new(aSize)_.
 
-	[].species = Array:/1
+	[].species = List:/1
 	[].species.new(3) = [nil, nil, nil]
 
 * * *

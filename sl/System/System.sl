@@ -205,7 +205,7 @@ System! : [Object, Cache, Indexable, Random] {
 		self.methodDictionary[methodName].indices
 	}
 
-	methodArray { :self |
+	methodList { :self |
 		self.allMethods
 	}
 
@@ -236,7 +236,7 @@ System! : [Object, Cache, Indexable, Random] {
 					answer.include(method)
 				}
 			};
-			answer.asArray
+			answer.asList
 		} {
 			('methodImplementations: not a methodName: ' ++ methodName).error
 		}
@@ -350,7 +350,7 @@ System! : [Object, Cache, Indexable, Random] {
 		let table = self.operatorCharacterNameTable;
 		self.cached('operatorNameTable') {
 			'+ ++ * - -> / // & && | || < << <= <~ <=> > >> >= >~ = == ==> % ! !~ \\ \\\\ ~ ~~ ~= ~? ? ?? ^'.words.collect { :each |
-				each -> each.stringArray.collect { :letter |
+				each -> each.stringList.collect { :letter |
 					table[letter]
 				}.camelCase.join
 			}.asRecord
@@ -427,7 +427,7 @@ System! : [Object, Cache, Indexable, Random] {
 		}
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		[
 			'cache',
 			'methodDictionary',
@@ -496,7 +496,7 @@ System! : [Object, Cache, Indexable, Random] {
 	typeInheritedMethodDictionary { :self :typeName |
 		{- Methods inherited from Traits at typeName, most specific only. -}
 		let answer = ();
-		self.typeLookup(typeName).traitNameArray.do { :traitName |
+		self.typeLookup(typeName).traitNameList.do { :traitName |
 			self.traitLookup(traitName).methodDictionary.valuesDo { :method |
 				answer[method.qualifiedName] := method
 			}
@@ -517,12 +517,12 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	typeTraits { :self :typeName |
-		self.typeLookup(typeName).traitNameArray
+		self.typeLookup(typeName).traitNameList
 	}
 
 	typesImplementingTrait { :self :traitName |
 		system.typeDictionary.select { :each |
-			each.traitNameArray.includes(traitName)
+			each.traitNameList.includes(traitName)
 		}.indices
 	}
 

@@ -48,7 +48,7 @@
 		<primitive: return _self.message;>
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['cause', 'messageText', 'name']
 	}
 

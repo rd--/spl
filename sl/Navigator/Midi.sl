@@ -8,7 +8,7 @@
 		<primitive: return Array.from(_self.values());>
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['size', 'ports']
 	}
 
@@ -44,7 +44,7 @@
 		self.asDictionary.json(nil, '	')
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['type', 'id', 'manufacturer', 'name', 'version', 'state', 'connection']
 	}
 
@@ -76,7 +76,7 @@ MIDIAccess! : [Object, EventTarget] {
 		}
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['inputs', 'outputs', 'sysexEnabled']
 	}
 

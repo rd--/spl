@@ -35,7 +35,7 @@ ScSynth! : [Object] {
 		<primitive: return _self.oscListeners;>
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['options', 'oscListeners', 'readyState', 'status', 'useIoUgens']
 	}
 
@@ -82,7 +82,7 @@ ScSynth! : [Object] {
 
 }
 
-+[Array, Ugen] {
++[List, Ugen] {
 
 	<! { :self :aUgen |
 		aUgen.isUgen.and {
@@ -184,12 +184,12 @@ ScSynth! : [Object] {
 
 +Block {
 
-	OverlapTextureArray { :self :sustainTime :transitionTime :overlap |
+	OverlapTextureList { :self :sustainTime :transitionTime :overlap |
 		<primitive: return sc.OverlapTextureArray(_self, _sustainTime, _transitionTime, _overlap);>
 	}
 
 	OverlapTexture { :self :sustainTime :transitionTime :overlap |
-		self.OverlapTextureArray(sustainTime, transitionTime, overlap)
+		self.OverlapTextureList(sustainTime, transitionTime, overlap)
 	}
 
 	XFadeTexture { :self :sustainTime :transitionTime |
@@ -218,15 +218,15 @@ ScSynth! : [Object] {
 
 }
 
-+Array {
++List {
 
 	asLocalBuf { :self |
 		<primitive: return sc.asLocalBuf(_self);>
 	}
 
-	asLocalBufferArray { :self |
+	asLocalBufferList { :self |
 		(self.rank ~= 2).if {
-			'asLocalBufferArray: not a matrix'.error
+			'asLocalBufferList: not a matrix'.error
 		} {
 			self.collect(asLocalBuf:/1)
 		}

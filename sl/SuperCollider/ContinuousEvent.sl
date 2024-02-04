@@ -1,6 +1,6 @@
 ContinuousEvent : [Object] { | contents |
 
-	asArray { :self |
+	asList { :self |
 		self.contents
 	}
 
@@ -38,7 +38,7 @@ ContinuousEvent : [Object] { | contents |
 
 }
 
-+Array {
++List {
 
 	asContinuousEvent { :self |
 		self.assertIsOfSize(8);
@@ -102,14 +102,14 @@ ContinuousEvent : [Object] { | contents |
 		(1 .. numVoices).collect { :voice |
 			ControlOut(
 				part.voicerVoiceAddress(voice),
-				voiceBlock().asContinuousEvent.asArray
+				voiceBlock().asContinuousEvent.asList
 			)
 		}
 	}
 
 }
 
-+[SmallFloat, Array] {
++[SmallFloat, List] {
 
 	KeyDown { :voiceNumber | <primitive: return sc.KeyDown(_voiceNumber);> }
 	KeyTimbre { :voiceNumber | <primitive: return sc.KeyTimbre(_voiceNumber);> }

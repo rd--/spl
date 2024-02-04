@@ -1,6 +1,6 @@
 # Sum
 
-_Sum(inputArray)_
+_Sum(inputList)_
 
 Sums an array of inputs.
 

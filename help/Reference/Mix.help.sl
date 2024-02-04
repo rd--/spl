@@ -1,6 +1,6 @@
 # Mix
 
-_Mix(inArray)_
+_Mix(inList)_
 
 Mix an array of arrays of signals to an array of signals, as configured in Preferences.
 

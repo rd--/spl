@@ -8,7 +8,7 @@ Answers the type name of _anObject_.
 	true.typeOf = 'Boolean'
 	nil.typeOf = 'Nil'
 	'x'.typeOf = 'String'
-	[].typeOf = 'Array'
+	[].typeOf = 'List'
 	().typeOf = 'Record'
 	23.typeOf.typeOf = 'String'
 	typeOf:/1.typeOf = 'Block'

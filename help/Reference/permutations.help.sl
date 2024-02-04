@@ -2,7 +2,7 @@
 
 - _permutations(aSequence)_
 
-Collect permutations of _aSequence_ into a new Array.
+Collect permutations of _aSequence_ into a new List.
 
 * * *
 

@@ -6,7 +6,7 @@ A priority queue with external numeric priority values.
 - _peekPriority(aPriorityQueue)_
 - _pop(aPriorityQueue)_
 - _pushWithPriority(aPriorityQueue, anObject, aPriority)_
-- _pushAllWithPriority(aPriorityQueue, anAssociationArray)_
+- _pushAllWithPriority(aPriorityQueue, anAssociationList)_
 
 * * *
 

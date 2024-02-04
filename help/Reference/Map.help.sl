@@ -10,10 +10,10 @@ Construct an empty _Map_.
 Map().isMap
 ```
 
-- _asMap(anAssociationArray)_
+- _asMap(anAssociationList)_
 - _asMap(aRecord)_
 
-Construct a _Map_ from an Array of associations, or from a Record.
+Construct a _Map_ from a List of associations, or from a Record.
 
 ```
 ['x' -> 1, 'y' -> 2].asMap.isMap

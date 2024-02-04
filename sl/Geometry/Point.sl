@@ -56,7 +56,7 @@
 
 }
 
-+Array {
++List {
 
 	asPoint { :self |
 		self.size.caseOfOtherwise([
@@ -64,7 +64,7 @@
 			{ 3 } -> { self.asCartesianCoordinate },
 			{ 4 } -> { self.asFourVector }
 		]) {
-			'Array>>asPoint: invalid size'.error
+			'List>>asPoint: invalid size'.error
 		}
 	}
 

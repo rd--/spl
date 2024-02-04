@@ -4,11 +4,11 @@ FourVector : [Object] { | w x y z |
 
 	= { :self :anObject |
 		anObject.isFourVector & {
-			self.asArray = anObject.asArray
+			self.asList = anObject.asList
 		}
 	}
 
-	asArray { :self |
+	asList { :self |
 		[self.w, self.x, self.y, self.z]
 	}
 
@@ -48,7 +48,7 @@ FourVector : [Object] { | w x y z |
 
 }
 
-+Array {
++List {
 
 	asFourVector { :self |
 		let [w, x, y, z] = self;

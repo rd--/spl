@@ -1,12 +1,12 @@
 # SinOscBank -- sin oscillator bank
 
-_SinOscBank(freqArray, ampArray, phaseArray)_
+_SinOscBank(freqList, ampList, phaseList)_
 
 A summed set of fixed frequency sin oscillators.
 
-- freqArray: frequency array
-- ampArray: amplitude array
-- phaseArray: phase array
+- freqList: frequency array
+- ampList: amplitude array
+- phaseList: phase array
 
 Crossfading randomised oscillator banks:
 

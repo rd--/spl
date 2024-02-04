@@ -8,7 +8,7 @@ If the collection does not support indexing,
 or if the index is not valid,
 report an _error_.
 
-Arrays (and all sequenceable collections) are indexable:
+Lists (and all sequenceable collections) are indexable:
 
 	['x', 'y'].at(1) = 'x'
 	{ ['x', 'y'].at(3) }.ifError { :err | true }

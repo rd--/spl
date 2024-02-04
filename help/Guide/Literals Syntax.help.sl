@@ -15,9 +15,9 @@ The _Block_ syntax is as in Smalltalk, with braces replacing brackets.
 - _{ :a ...| e; ... }_ ⇒ _Block_ (with arguments _a_)
 - _{ :a ...| | t ... | e; ... }_ ⇒ _Block_ (with temporary variables _t_)
 
-There is no literal _Array_ syntax (as in Smalltalk) however there is an array expression syntax.
+There is no literal _List_ syntax (as in Smalltalk) however there is an array expression syntax.
 
-- _[p, q, r]_ ⇒ _Array_
+- _[p, q, r]_ ⇒ _List_
 
 There is also a _Dictionary_ expression syntax.
 

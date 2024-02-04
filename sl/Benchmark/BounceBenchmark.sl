@@ -52,7 +52,7 @@ Ball : [Object] { | x y xVel yVel |
 		Benchmark('Bounce', [100 -> 1331].asMap) { :ballCount |
 			let random = SomRandom();
 			let bounces = 0;
-			let balls = Array(ballCount).fillWith { :unusedIndex |
+			let balls = List(ballCount).fillWith { :unusedIndex |
 				Ball(random)
 			};
 			1.toDo(50) { :i |

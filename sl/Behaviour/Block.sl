@@ -10,13 +10,13 @@ Block! : [Object] {
 		self(anObject)
 	}
 
-	apply { :self :anArray |
+	apply { :self :aList |
 		<primitive:
-		if(sl.isArray(_anArray) && (_self.length === _anArray.length)) {
-			return _self(... _anArray);
+		if(sl.isArray(_aList) && (_self.length === _aList.length)) {
+			return _self(... _aList);
 		}
 		>
-		self.error('apply: argument is not array or not of required size')
+		self.error('apply: argument is not a list or not of required size')
 	}
 
 	assert { :self |
@@ -204,8 +204,8 @@ Block! : [Object] {
 		self(p1, p2, p3, p4, p5)
 	}
 
-	valueWithArguments { :self :argumentsArray |
-		<primitive: _self.apply(null, _argumentsArray)>
+	valueWithArguments { :self :argumentsList |
+		<primitive: _self.apply(null, _argumentsList)>
 	}
 
 	valueWithReturn { :self:/1 |

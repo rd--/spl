@@ -2,7 +2,7 @@
 
 - _nestList(aBlock:/1, anObject, count)_
 
-Answer a _count + 1_ element Array of repeated applications of _aBlock_ to _anObject_.
+Answer a _count + 1_ element List of repeated applications of _aBlock_ to _anObject_.
 
 	cos:/1.nestList(1, 10) ~ [1 0.54030 0.85755 0.65429 0.79348 0.70137 0.76396 0.72210 0.75042 0.73140 0.74424]
 	sqrt:/1.nestList(100, 4) ~ [100 10 3.16228 1.77828 1.33352]

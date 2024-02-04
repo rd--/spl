@@ -16,7 +16,7 @@
 }
 
 {- Auto-generated -}
-+[Array, SmallFloat, Ugen] {
++[List, SmallFloat, Ugen] {
 	A2K { :in | <primitive: return sc.A2K(_in);> }
 	AllpassC { :in :maxdelaytime :delaytime :decaytime | <primitive: return sc.AllpassC(_in, _maxdelaytime, _delaytime, _decaytime);> }
 	AllpassL { :in :maxdelaytime :delaytime :decaytime | <primitive: return sc.AllpassL(_in, _maxdelaytime, _delaytime, _decaytime);> }
@@ -44,7 +44,7 @@
 	BufRateScale { :bufnum | <primitive: return sc.BufRateScale(_bufnum);> }
 	BufRd { :numChan :bufnum :phase :loop :interpolation | <primitive: return sc.BufRd(_numChan, _bufnum, _phase, _loop, _interpolation);> }
 	BufSampleRate { :bufnum | <primitive: return sc.BufSampleRate(_bufnum);> }
-	BufWr { :bufnum :phase :loop :inputArray | <primitive: return sc.BufWr(_bufnum, _phase, _loop, _inputArray);> }
+	BufWr { :bufnum :phase :loop :inputList | <primitive: return sc.BufWr(_bufnum, _phase, _loop, _inputList);> }
 	ClearBuf { :buf | <primitive: return sc.ClearBuf(_buf);> }
 	Clip { :in :lo :hi | <primitive: return sc.Clip(_in, _lo, _hi);> }
 	CoinGate { :prob :in | <primitive: return sc.CoinGate(_prob, _in);> }
@@ -135,8 +135,8 @@
 	Integrator { :in :coef | <primitive: return sc.Integrator(_in, _coef);> }
 	K2A { :in | <primitive: return sc.K2A(_in);> }
 	KeyState { :keycode :minval :maxval :lag | <primitive: return sc.KeyState(_keycode, _minval, _maxval, _lag);> }
-	Klang { :freqscale :freqoffset :specificationsArrayRef | <primitive: return sc.Klang(_freqscale, _freqoffset, _specificationsArrayRef);> }
-	Klank { :input :freqscale :freqoffset :decayscale :specificationsArrayRef | <primitive: return sc.Klank(_input, _freqscale, _freqoffset, _decayscale, _specificationsArrayRef);> }
+	Klang { :freqscale :freqoffset :specificationsListRef | <primitive: return sc.Klang(_freqscale, _freqoffset, _specificationsListRef);> }
+	Klank { :input :freqscale :freqoffset :decayscale :specificationsListRef | <primitive: return sc.Klank(_input, _freqscale, _freqoffset, _decayscale, _specificationsListRef);> }
 	LfClipNoise { :freq | <primitive: return sc.LfClipNoise(_freq);> }
 	LfCub { :freq :iphase | <primitive: return sc.LfCub(_freq, _iphase);> }
 	LfdClipNoise { :freq | <primitive: return sc.LfdClipNoise(_freq);> }
@@ -172,7 +172,7 @@
 	Linen { :gate :attackTime :susLevel :releaseTime :doneAction | <primitive: return sc.Linen(_gate, _attackTime, _susLevel, _releaseTime, _doneAction);> }
 	LocalBuf { :numChannels :numFrames | <primitive: return sc.LocalBuf(_numChannels, _numFrames);> }
 	LocalIn { :numChan :default | <primitive: return sc.LocalIn(_numChan, _default);> }
-	LocalOut { :channelsArray | <primitive: return sc.LocalOut(_channelsArray);> }
+	LocalOut { :channelsList | <primitive: return sc.LocalOut(_channelsList);> }
 	Logistic { :chaosParam :freq :init | <primitive: return sc.Logistic(_chaosParam, _freq, _init);> }
 	LorenzL { :freq :s :r :b :h :xi :yi :zi | <primitive: return sc.LorenzL(_freq, _s, _r, _b, _h, _xi, _yi, _zi);> }
 	MantissaMask { :in :bits | <primitive: return sc.MantissaMask(_in, _bits);> }
@@ -184,15 +184,15 @@
 	MouseButton { :minval :maxval :lag | <primitive: return sc.MouseButton(_minval, _maxval, _lag);> }
 	MouseX { :minval :maxval :warp :lag | <primitive: return sc.MouseX(_minval, _maxval, _warp, _lag);> }
 	MouseY { :minval :maxval :warp :lag | <primitive: return sc.MouseY(_minval, _maxval, _warp, _lag);> }
-	Multiplexer { :selector :inputArray | <primitive: return sc.Multiplexer(_selector, _inputArray);> }
+	Multiplexer { :selector :inputList | <primitive: return sc.Multiplexer(_selector, _inputList);> }
 	MVerb { :in1 :in2 :dampingFreq :density :bandwidthFreq :decay :predelay :size :gain :mix :earlyMix | <primitive: return sc.MVerb(_in1, _in2, _dampingFreq, _density, _bandwidthFreq, _decay, _predelay, _size, _gain, _mix, _earlyMix);> }
 	NRand { :lo :hi :n | <primitive: return sc.NRand(_lo, _hi, _n);> }
 	Normalizer { :in :level :dur | <primitive: return sc.Normalizer(_in, _level, _dur);> }
-	OffsetOut { :bus :channelsArray | <primitive: return sc.OffsetOut(_bus, _channelsArray);> }
+	OffsetOut { :bus :channelsList | <primitive: return sc.OffsetOut(_bus, _channelsList);> }
 	OnePole { :in :coef | <primitive: return sc.OnePole(_in, _coef);> }
 	OneZero { :in :coef | <primitive: return sc.OneZero(_in, _coef);> }
 	Osc { :bufnum :freq :phase | <primitive: return sc.Osc(_bufnum, _freq, _phase);> }
-	Out { :bus :channelsArray | <primitive: return sc.Out(_bus, _channelsArray);> }
+	Out { :bus :channelsList | <primitive: return sc.Out(_bus, _channelsList);> }
 	PvBinScramble { :buffer :wipe :width :trig | <primitive: return sc.PvBinScramble(_buffer, _wipe, _width, _trig);> }
 	PvDiffuser { :buffer :trig | <primitive: return sc.PvDiffuser(_buffer, _trig);> }
 	PvRandComb { :buffer :wipe :trig | <primitive: return sc.PvRandComb(_buffer, _wipe, _trig);> }
@@ -214,8 +214,8 @@
 	Rhpf { :in :freq :rq | <primitive: return sc.Rhpf(_in, _freq, _rq);> }
 	Rlpf { :in :freq :rq | <primitive: return sc.Rlpf(_in, _freq, _rq);> }
 	Rand { :lo :hi | <primitive: return sc.Rand(_lo, _hi);> }
-	RecordBuf { :bufnum :offset :recLevel :preLevel :run :loop :trigger :doneAction :inputArray | <primitive: return sc.RecordBuf(_bufnum, _offset, _recLevel, _preLevel, _run, _loop, _trigger, _doneAction, _inputArray);> }
-	ReplaceOut { :bus :channelsArray | <primitive: return sc.ReplaceOut(_bus, _channelsArray);> }
+	RecordBuf { :bufnum :offset :recLevel :preLevel :run :loop :trigger :doneAction :inputList | <primitive: return sc.RecordBuf(_bufnum, _offset, _recLevel, _preLevel, _run, _loop, _trigger, _doneAction, _inputList);> }
+	ReplaceOut { :bus :channelsList | <primitive: return sc.ReplaceOut(_bus, _channelsList);> }
 	Resonz { :in :freq :bwr | <primitive: return sc.Resonz(_in, _freq, _bwr);> }
 	Ringz { :in :freq :decaytime | <primitive: return sc.Ringz(_in, _freq, _decaytime);> }
 	Rotate2 { :x :y :pos | <primitive: return sc.Rotate2(_x, _y, _pos);> }
@@ -268,7 +268,7 @@
 }
 
 {- Auto-generated -}
-+[Array, SmallFloat, Ugen] {
++[List, SmallFloat, Ugen] {
 	AnalogFoldOsc { :freq :amp | <primitive: return sc.AnalogFoldOsc(_freq, _amp);> }
 	Bezier { :haltAfter :dx :freq :phase :param | <primitive: return sc.Bezier(_haltAfter, _dx, _freq, _phase, _param);> }
 	CrossoverDistortion { :in :amp :smooth | <primitive: return sc.CrossoverDistortion(_in, _amp, _smooth);> }
@@ -286,7 +286,7 @@
 	LinRandN { :numChan :lo :hi :minmax | <primitive: return sc.LinRandN(_numChan, _lo, _hi, _minmax);> }
 	MembraneCircle { :excitation :tension :loss | <primitive: return sc.MembraneCircle(_excitation, _tension, _loss);> }
 	MiBraids { :pitch :timbre :color :model :trig :resamp :decim :bits :ws | <primitive: return sc.MiBraids(_pitch, _timbre, _color, _model, _trig, _resamp, _decim, _bits, _ws);> }
-	MiClouds { :pit :pos :size :dens :tex :drywet :inGain :spread :rvb :fb :freeze :mode :lofi :trig :inputArray | <primitive: return sc.MiClouds(_pit, _pos, _size, _dens, _tex, _drywet, _inGain, _spread, _rvb, _fb, _freeze, _mode, _lofi, _trig, _inputArray);> }
+	MiClouds { :pit :pos :size :dens :tex :drywet :inGain :spread :rvb :fb :freeze :mode :lofi :trig :inputList | <primitive: return sc.MiClouds(_pit, _pos, _size, _dens, _tex, _drywet, _inGain, _spread, _rvb, _fb, _freeze, _mode, _lofi, _trig, _inputList);> }
 	MiRings { :in :trig :pit :struct :bright :damp :pos :model :poly :internExciter :easteregg :bypass | <primitive: return sc.MiRings(_in, _trig, _pit, _struct, _bright, _damp, _pos, _model, _poly, _internExciter, _easteregg, _bypass);> }
 	MoogLadder { :in :ffreq :res | <primitive: return sc.MoogLadder(_in, _ffreq, _res);> }
 	ObxdFilter { :in :cutoff :resonance :multimode :bandpass :fourpole | <primitive: return sc.ObxdFilter(_in, _cutoff, _resonance, _multimode, _bandpass, _fourpole);> }
@@ -307,12 +307,12 @@
 	VbJonVerb { :in :decay :damping :inputbw :erfl :tail | <primitive: return sc.VbJonVerb(_in, _decay, _damping, _inputbw, _erfl, _tail);> }
 	Vosim { :trig :freq :nCycles :decay | <primitive: return sc.Vosim(_trig, _freq, _nCycles, _decay);> }
 	WaveLoss { :in :drop :outof :mode | <primitive: return sc.WaveLoss(_in, _drop, _outof, _mode);> }
-	WDistances { :gate :x :y :z :coordinateArray | <primitive: return sc.WDistances(_gate, _x, _y, _z, _coordinateArray);> }
-	WkNearest { :numChannels :gate :x :y :z :coordinateArray | <primitive: return sc.WkNearest(_numChannels, _gate, _x, _y, _z, _coordinateArray);> }
+	WDistances { :gate :x :y :z :coordinateList | <primitive: return sc.WDistances(_gate, _x, _y, _z, _coordinateList);> }
+	WkNearest { :numChannels :gate :x :y :z :coordinateList | <primitive: return sc.WkNearest(_numChannels, _gate, _x, _y, _z, _coordinateList);> }
 }
 
 {- Auto-generated -}
-+[Array, Ugen] {
++[List, Ugen] {
 	Neg { :self | <primitive: return sc.Neg(_self);> }
 	Squared { :self | <primitive: return sc.Squared(_self);> }
 	Cubed { :self | <primitive: return sc.Cubed(_self);> }
@@ -328,7 +328,7 @@
 }
 
 {- Auto-generated -}
-+[Array, SmallFloat, Ugen] {
++[List, SmallFloat, Ugen] {
 	Abs { :self | <primitive: return sc.Abs(_self);> }
 	Ceiling { :self | <primitive: return sc.Ceil(_self);> }
 	Floor { :self | <primitive: return sc.Floor(_self);> }
@@ -356,7 +356,7 @@
 }
 
 {- Auto-generated -}
-+[Array, SmallFloat, Ugen] {
++[List, SmallFloat, Ugen] {
 	Add { :self :anObject | <primitive: return sc.Add(_self, _anObject);> }
 	Sub { :self :anObject | <primitive: return sc.Sub(_self, _anObject);> }
 	Mul { :self :anObject | <primitive: return sc.Mul(_self, _anObject);> }

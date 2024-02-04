@@ -29,7 +29,7 @@ let input = 0.5.coin.if { {- Audio input signal -}
 	Decay2(Impulse(0.2, 2), 0.001, 0.2) * PinkNoise()
 };
 let buffer = BufAlloc(1, 48000 * 0.1).BufClear; {- A buffer for the early reflections delay line -}
-let revMonoInput = input.isArray.if {
+let revMonoInput = input.isList.if {
 	input.Sum / input.size {- Reverb input must be mono -}
 } {
 	input

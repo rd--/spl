@@ -10,9 +10,9 @@ Note:
 The number of channels is fixed,
 it cannot vary depending on which buffer you use.
 
-_RecordBuf(bufnum=0, offset=0, recLevel=1, preLevel=0, run=1, loop=1, trigger=1, doneAction=0, inputArray)_
+_RecordBuf(bufnum=0, offset=0, recLevel=1, preLevel=0, run=1, loop=1, trigger=1, doneAction=0, inputList)_
 
-- inputArray: An Array of input channels.
+- inputList: A List of input channels.
 - bufnum: The index of the buffer to use.
 - offset: An offset into the buffer in samples.
 - recLevel: Value to multiply by input before mixing with existing data.

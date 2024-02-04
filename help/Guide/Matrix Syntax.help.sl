@@ -12,4 +12,4 @@ There is no syntax for writing an empty field.
 
 * * *
 
-See also: [Array Syntax], [Vector Syntax], [Volume Syntax]
+See also: [List Syntax], [Vector Syntax], [Volume Syntax]

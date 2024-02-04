@@ -8,7 +8,7 @@ PolarCoordinate : [Object] { | r theta |
 		}
 	}
 
-	asArray { :self |
+	asList { :self |
 		[self.r, self.theta]
 	}
 
@@ -50,7 +50,7 @@ PolarCoordinate : [Object] { | r theta |
 
 }
 
-+Array {
++List {
 
 	asPolarCoordinate { :self |
 		let [r, theta] = self;

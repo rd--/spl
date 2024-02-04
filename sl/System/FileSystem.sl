@@ -22,9 +22,9 @@
 
 }
 
-+Array {
++List {
 
-	readTextFileArray { :self |
+	readTextFileList { :self |
 		<primitive: return host.readTextFileArray(_self);>
 	}
 

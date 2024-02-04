@@ -6,7 +6,7 @@
 		let answer = Set();
 		answer.includeAll(self.numerator.primeFactors);
 		answer.includeAll(self.denominator.primeFactors);
-		answer.without(2).asArray.sort
+		answer.without(2).asList.sort
 	}
 
 	latticeVector { :self :primes |
@@ -30,7 +30,7 @@
 
 }
 
-+Array {
++List {
 
 	latticeCoordinates { :self :unitVector |
 		self.withCollect(unitVector.first(self.size)) { :count :unit |
@@ -38,8 +38,8 @@
 		}.sum
 	}
 
-	latticeDistance { :self :anArray |
-		(self - anArray).abs.sum
+	latticeDistance { :self :aList |
+		(self - aList).abs.sum
 	}
 
 	wilsonLatticeCoordinates { :self |
@@ -67,7 +67,7 @@
 		self.ratios.do { :each |
 			answer.includeAll(each.latticePrimes)
 		};
-		answer.asArray.sort
+		answer.asList.sort
 	}
 
 	latticeVertices { :self :primes |

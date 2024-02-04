@@ -4,7 +4,7 @@ ScUgen! : [Object] {
 		<primitive: return _self.id>
 	}
 
-	inputArray { :self |
+	inputList { :self |
 		<primitive: return _self.inputArray>
 	}
 
@@ -28,13 +28,13 @@ ScUgen! : [Object] {
 		[
 			self.name,
 			'(',
-				self.inputArray.collect(printString:/1).joinSeparatedBy(', ')
+				self.inputList.collect(printString:/1).joinSeparatedBy(', ')
 			,')'
 		].join
 	}
 
-	pseudoSlotNameArray { :self |
-		['name', 'numChannels', 'rate', 'specialIndex', 'id', 'inputArray', 'multipleRootGraph', 'localControl']
+	pseudoSlotNameList { :self |
+		['name', 'numChannels', 'rate', 'specialIndex', 'id', 'inputList', 'multipleRootGraph', 'localControl']
 	}
 
 	rate { :self |

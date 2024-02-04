@@ -20,8 +20,8 @@ BasicBlock : [Object] { | inEdges outEdges name |
 	}
 
 	initialize { :self :name |
-		self.inEdges := Array();
-		self.outEdges := Array();
+		self.inEdges := List();
+		self.outEdges := List();
 		self.name := name;
 		self
 	}
@@ -51,8 +51,8 @@ BasicBlock : [Object] { | inEdges outEdges name |
 ControlFlowGraph : [Object] { | basicBlockMap startNode edgeList |
 
 	initialize { :self |
-		self.basicBlockMap := Array();
-		self.edgeList := Array();
+		self.basicBlockMap := List();
+		self.edgeList := List();
 		self
 	}
 
@@ -110,8 +110,8 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 	initialize { :self :cfg :lsg |
 		self.cfg := cfg;
 		self.lsg := lsg;
-		self.nonBackPreds := Array();
-		self.backPreds := Array();
+		self.nonBackPreds := List();
+		self.backPreds := List();
 		self.number := Map();
 		self.maxSize := 0;
 		self
@@ -192,25 +192,25 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 				self.backPreds.removeAll;
 				self.number.removeAll;
 				(size > self.maxSize).ifTrue {
-					self.header := Array(size);
-					self.type := Array(size);
-					self.last := Array(size);
-					self.nodes := Array(size);
+					self.header := List(size);
+					self.type := List(size);
+					self.last := List(size);
+					self.nodes := List(size);
 					self.maxSize := size
 				};
 				1.toDo(size) { :i |
 					self.nonBackPreds.addLast(Set());
-					self.backPreds.addLast(Array());
+					self.backPreds.addLast(List());
 					self.nodes[i] := UnionFindNode()
 				};
 				self.initAllNodes;
 				self.identifyEdges(size);
 				self.header[1] := 1;
 				size.downToDo(1) { :w |
-					let nodePool = Array();
+					let nodePool = List();
 					let nodeW = self.nodes[w].bb;
 					nodeW.notNil.ifTrue {
-						let workList = Array();
+						let workList = List();
 						self.stepDNodePool(w, nodePool);
 						nodePool.do { :niter |
 							workList.addLast(niter)
@@ -297,7 +297,7 @@ LoopStructureGraph : [Object] { | root loops loopCounter |
 
 	initialize { :self |
 		self.root := SimpleLoop(nil, false);
-		self.loops := Array();
+		self.loops := List();
 		self.loopCounter := 0;
 		self.root.setNestingLevel(0);
 		self.root.counter(self.loopCounter);
@@ -511,7 +511,7 @@ UnionFindNode : [Object] { | parent bb dfsNumber loop |
 	}
 
 	findSet { :self |
-		let nodeList = Array();
+		let nodeList = List();
 		let node = self;
 		{
 			node ~~ node.parent

@@ -27,7 +27,7 @@ HashIndexTable : [Object, Indexable] { | hashTable |
 +Void {
 
 	HashIndexTable {
-		newHashIndexTable().initializeSlots(Array(32, 0))
+		newHashIndexTable().initializeSlots(List(32, 0))
 	}
 
 }
@@ -35,7 +35,7 @@ HashIndexTable : [Object, Indexable] { | hashTable |
 @JsonValue {
 
 	isObject { :self | false }
-	isArray { :self | false }
+	isList { :self | false }
 	isNumber { :self | false }
 	isString { :self | false }
 	isBoolean { :self | false }
@@ -43,20 +43,20 @@ HashIndexTable : [Object, Indexable] { | hashTable |
 	isFalse { :self | false }
 	isNull { :self | false }
 	asObject { :self | ('Unsupported operation, not an object: ' ++ self.asString).error }
-	asArray { :self | ('Unsupported operation, not an array: ' ++ self.asString).error }
+	asList { :self | ('Unsupported operation, not an array: ' ++ self.asString).error }
 
 }
 
-JsonArray : [Object, Indexable, JsonValue] { | values |
+JsonList : [Object, Indexable, JsonValue] { | values |
 
 	append { :self :value |
 		value.ifNil {
-			'JsonArray>>append: value is null'.error
+			'JsonList>>append: value is null'.error
 		};
 		self.values.add(value)
 	}
 
-	asArray { :self |
+	asList { :self |
 		self
 	}
 
@@ -64,7 +64,7 @@ JsonArray : [Object, Indexable, JsonValue] { | values |
 		self.values[index]
 	}
 
-	isArray { :self |
+	isList { :self |
 		true
 	}
 
@@ -76,8 +76,8 @@ JsonArray : [Object, Indexable, JsonValue] { | values |
 
 +Void {
 
-	JsonArray {
-		newJsonArray().initializeSlots(Array())
+	JsonList {
+		newJsonList().initializeSlots(List())
 	}
 
 }
@@ -167,7 +167,7 @@ JsonObject : [Object, Indexable, JsonValue] { | names values table |
 +Void {
 
 	JsonObject {
-		newJsonObject().initializeSlots(Array(), Array(), HashIndexTable())
+		newJsonObject().initializeSlots(List(), List(), HashIndexTable())
 	}
 
 }
@@ -217,7 +217,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 				self.readString.return
 			};
 			(self.current = '[').ifTrue {
-				self.readArray.return
+				self.readList.return
 			};
 			(self.current = '{').ifTrue {
 				self.readObject.return
@@ -232,24 +232,24 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 		}
 	}
 
-	readArrayElement { :self :array |
+	readListElement { :self :array |
 		self.skipWhiteSpace;
 		array.append(self.readValue);
 		self.skipWhiteSpace
 	}
 
-	readArray { :self |
-		let array = JsonArray();
+	readList { :self |
+		let array = JsonList();
 		self.read;
 		self.skipWhiteSpace;
 		(self.readChar(']')).if {
 			array
 		} {
-			self.readArrayElement(array);
+			self.readListElement(array);
 			{
 				self.readChar(',')
 			}.whileTrue {
-				self.readArrayElement(array)
+				self.readListElement(array)
 			};
 			(self.readChar(']')).ifFalse {
 				self.expected(', or ]')

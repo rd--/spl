@@ -69,7 +69,7 @@
 	Linen { :d | Linen(d::gate, d::attackTime, d::susLevel, d::releaseTime, d::doneAction) }
 	LocalBuf { :d | LocalBuf(d::numChannels, d::numFrames) }
 	LocalIn { :d | LocalIn(d::numChan, d::default) }
-	LocalOut { :d | LocalOut(d::channelsArray) }
+	LocalOut { :d | LocalOut(d::channelsList) }
 	MoogFf { :d | MoogFf(d::in, d::freq, d::gain, d::reset) }
 	MouseButton { :d | MouseButton(d::minVal, d::maxVal, d::lag) }
 	MouseX { :d | MouseX(d::minVal, d::maxVal, d::warp, d::lag) }
@@ -78,7 +78,7 @@
 	NRand { :d | NRand(d::lo, d::hi, d::n) }
 	Osc { :d | Osc(d::bufNum, d::freq, d::phase) }
 	OscN { :d | OscN(d::bufNum, d::freq, d::phase) }
-	Out { :d | Out(d::bus, d::channelsArray) }
+	Out { :d | Out(d::bus, d::channelsList) }
 	Pan2 { :d | Pan2(d::in, d::pos, d::level) }
 	Pan4 { :d | Pan4(d::in, d::xpos, d::ypos, d::level) }
 	PanAz { :d | PanAz(d::numChan, d::in, d::pos, d::level, d::width, d::orientation) }
@@ -133,7 +133,7 @@
 	EqPan2 { :d | EqPan2(d::in, d::pos) }
 	MembraneCircle { :d | MembraneCircle(d::excitation, d::tension, d::loss) }
 	MiBraids { :d | MiBraids(d::pitch, d::timbre, d::color, d::model, d::trig, d::resamp, d::decim, d::bits, d::ws) }
-	MiClouds { :d | MiClouds(d::pit, d::pos, d::size, d::dens, d::tex, d::dryWet, d::inGain, d::spread, d::rvb, d::fb, d::freeze, d::mode, d::lofi, d::trig, d::inputArray) }
+	MiClouds { :d | MiClouds(d::pit, d::pos, d::size, d::dens, d::tex, d::dryWet, d::inGain, d::spread, d::rvb, d::fb, d::freeze, d::mode, d::lofi, d::trig, d::inputList) }
 	MiRings { :d | MiRings(d::in, d::trig, d::pit, d::struct, d::bright, d::damp, d::pos, d::model, d::poly, d::internExciter, d::easterEgg, d::bypass) }
 	Ln { :d | Ln(d::start, d::end, d::dur) }
 	Perc { :d | Perc(d::trig, d::attackTime, d::releaseTime, d::curve) }

@@ -4,7 +4,7 @@ let o = [0, 1].collect { :i |
 		Duty(
 			i + 1 / 9,
 			0,
-			Dseq(inf, 1:8.stutter(32)) * Dseq(inf, 8.fibonacciArray) * 99
+			Dseq(inf, 1:8.stutter(32)) * Dseq(inf, 8.fibonacciList) * 99
 		),
 		0
 	)

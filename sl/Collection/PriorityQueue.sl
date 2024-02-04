@@ -16,7 +16,7 @@ PriorityQueue! : [Object] {
 		<primitive: return _self.pop();>
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['size']
 	}
 
@@ -24,8 +24,8 @@ PriorityQueue! : [Object] {
 		<primitive: return _self.push(_item, _priority);>
 	}
 
-	pushAllWithPriority { :self :associationsArray |
-		associationsArray.do { :each |
+	pushAllWithPriority { :self :associationsList |
+		associationsList.do { :each |
 			self.pushWithPriority(each.key, each.value)
 		}
 	}

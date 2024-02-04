@@ -2,7 +2,7 @@
 
 - _enclose(anObject)_
 
-Enclose _anObject_ in an Array.
+Enclose _anObject_ in a List.
 
 	1.enclose = [1]
 	[1].enclose = [[1]]

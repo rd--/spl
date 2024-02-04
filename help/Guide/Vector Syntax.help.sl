@@ -10,4 +10,4 @@ This is particularly useful as a part of [Matrix Syntax] and [Volume Syntax]
 
 * * *
 
-See also: [Array Syntax], [Matrix Syntax], [Volume Syntax]
+See also: [List Syntax], [Matrix Syntax], [Volume Syntax]

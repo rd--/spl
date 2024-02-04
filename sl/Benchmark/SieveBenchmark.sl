@@ -2,7 +2,7 @@
 
 	sieveBenchmark { :self |
 		let size = self;
-		let flags = Array(size);
+		let flags = List(size);
 		let primeCount = 0;
 		flags.atAllPut(true);
 		2.toDo(size) { :i |

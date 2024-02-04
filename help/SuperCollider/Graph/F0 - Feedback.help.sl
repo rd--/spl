@@ -1,7 +1,7 @@
 {- http://www.fredrikolofsson.com/f0blog/?q=node/619 ; texture -}
 { : tr |
-	let ch = { :anArray |
-		Choose(tr, anArray)
+	let ch = { :aList |
+		Choose(tr, aList)
 	};
 	let freq = [100 300 400].ch;
 	let amp = 0.1;

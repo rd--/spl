@@ -14,9 +14,9 @@ Answer a Promise tied to the execution of _aBlock_,
 which recieves two blocks, _resolve:/1_ and _reject:/1_, as arguments.
 When _aBlock_ runs either _resolve_ or _reject_ the answer Promise is resolved or rejected.
 
-- _Promise(anArray)_
+- _Promise(aList)_
 
-Answer a Promise that resolves when all of the promises in _anArray_ resolve,
+Answer a Promise that resolves when all of the promises in _aList_ resolve,
 and rejects when any of the promises rejects.
 
 * * *

@@ -4,7 +4,12 @@ _Pitch(in, initFreq, minFreq, maxFreq, execFreq, maxBinsPerOctave, median, ampTh
 
 Returns two signals, _freq_ and _hasFreq_.
 
-This is a better pitch follower than ZeroCrossing, but more costly of CPU. For most purposes the default settings can be used and only in needs to be supplied. Pitch returns two values (via an Array of OutputProxys, see the OutputProxy help file), a freq which is the pitch estimate and hasFreq, which tells whether a pitch was found. Some vowels are still problematic, for instance a wide open mouth sound somewhere between a low pitched short 'a' sound as in 'sat', and long 'i' sound as in 'fire', contains enough overtone energy to confuse the algorithm.
+This is a better pitch follower than ZeroCrossing, but more costly of CPU.
+For most purposes the default settings can be used and only in needs to be supplied.
+Pitch returns two values (via a List of OutputProxys, see the OutputProxy help file),
+a freq which is the pitch estimate and hasFreq,
+which tells whether a pitch was found.
+Some vowels are still problematic, for instance a wide open mouth sound somewhere between a low pitched short 'a' sound as in 'sat', and long 'i' sound as in 'fire', contains enough overtone energy to confuse the algorithm.
 
 Track sine oscillator:
 

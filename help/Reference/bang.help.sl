@@ -9,7 +9,7 @@
 
 The name of this operator is _bang_.
 
-Answer an _Array_ constructed by evaluating a no-argument block the indicated number of times.
+Answer an _List_ constructed by evaluating a no-argument block the indicated number of times.
 
 ```
 {

@@ -121,11 +121,11 @@ PinkNoise() * 0.1 * [source, Trig1(source, 0.001)]
 SinOsc(300 + (200 * Latch(SinOsc(13.3, 0), Impulse(10, 0))), 0) * 0.2
 
 {- tutorial 3.4 ; ? -}
-let env = Env([0 1 0 0.5 -0.4], [0.1], [0], nil, nil, 0).asArray;
+let env = Env([0 1 0 0.5 -0.4], [0.1], [0], nil, nil, 0).asList;
 SinOsc(400 * (1 + EnvGen(Impulse(2.5, 0), 1, 0, 1, 0, env)), 0) * 0.1
 
 {- tutorial 3.4 ; ? -}
-let env = Env([63 63 60 55 60], [0.125], [0], nil, nil, 0).asArray;
+let env = Env([63 63 60 55 60], [0.125], [0], nil, nil, 0).asList;
 SinOsc(EnvGen(Impulse(2, 0), 1, 0, 1, 0, env).MidiCps, 0) * 0.1
 
 {- tutorial 3.4 -}
@@ -136,7 +136,7 @@ Pan2(sound * env, 0, 1)
 
 {- tutorial 3.4 ; ? -}
 let t = MouseY(0, 1, 0, 0.2) * [0 128 256 128] / SampleRate();
-let e = Env([0 0 1 -1 0], t, [1], nil, nil, 0).asArray;
+let e = Env([0 0 1 -1 0], t, [1], nil, nil, 0).asList;
 EnvGen(Impulse(MouseX(10, 300, 1, 0.2), 0), 1, 0, 1, 0, e) * 0.2
 
 {- tutorial 3.4 ; portamento/glide -}

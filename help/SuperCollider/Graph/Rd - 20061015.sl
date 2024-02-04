@@ -1,6 +1,6 @@
 {- 20061015 ; rd ; requires=EnvBreakPoint -}
 let ls = { :ts :bp |
-	EnvGen(1, 1, 0, ts, 2, EnvBreakPoint(bp, 0).asArray)
+	EnvGen(1, 1, 0, ts, 2, EnvBreakPoint(bp, 0).asList)
 };
 {
 	let ts = 21;

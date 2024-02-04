@@ -1,10 +1,10 @@
 UgenGraph! : [Object] {
 
-	controlArray { :self |
+	controlList { :self |
 		<primitive: return _self.controlArray>
 	}
 
-	constantArray { :self |
+	constantList { :self |
 		<primitive: return _self.constantArray>
 	}
 
@@ -16,8 +16,8 @@ UgenGraph! : [Object] {
 		<primitive: return _self.name>
 	}
 
-	pseudoSlotNameArray { :self |
-		['name', 'ugenArray', 'constantArray', 'controlArray']
+	pseudoSlotNameList { :self |
+		['name', 'ugenList', 'constantList', 'controlList']
 	}
 
 	send { :self |
@@ -25,7 +25,7 @@ UgenGraph! : [Object] {
 		system.scSynth.sendOsc(message)
 	}
 
-	ugenArray { :self |
+	ugenList { :self |
 		<primitive: return _self.ugenArray>
 	}
 

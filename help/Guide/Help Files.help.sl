@@ -9,7 +9,7 @@ A # indicates a heading, so formatted help files must begin with a heading.
 Help files have the extension _.help.sl_ and are looked up by _topic_.
 The topic of this help file is _Help Files_.
 Help files are looked for in one of two locations.
-If the topic has no space characters in it the help file is looked for at _help_, i.e. _help/Array.help.sl_.
+If the topic has no space characters in it the help file is looked for at _help_, i.e. _help/List.help.sl_.
 Otherwise the file is looked for at _doc_, i.e. _doc/Help Files.help.sl_.
 
 References to help topics are written in brackets, i.e. [Operator Syntax].

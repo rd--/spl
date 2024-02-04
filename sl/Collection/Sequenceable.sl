@@ -18,8 +18,8 @@
 		)
 	}
 
-	@* { :self :indexArray |
-		self.atAll(indexArray)
+	@* { :self :indexList |
+		self.atAll(indexList)
 	}
 
 	accumulate { :self |
@@ -84,21 +84,21 @@
 	}
 
 	asDigitsToPowerDo { :self :anInteger :aBlock:/1 |
-		let aCollection = Array(anInteger);
+		let aCollection = List(anInteger);
 		self.asDigitsAtInDo(1, aCollection, aBlock:/1)
 	}
 
 
-	atAllUsing { :self :indexArray :aBlock:/2 |
-		let answer = self.species.ofSize(indexArray.size);
-		indexArray.indicesDo { :index |
-			answer[index] := aBlock(self, indexArray[index])
+	atAllUsing { :self :indexList :aBlock:/2 |
+		let answer = self.species.ofSize(indexList.size);
+		indexList.indicesDo { :index |
+			answer[index] := aBlock(self, indexList[index])
 		};
 		answer
 	}
 
-	atAll { :self :indexArray |
-		self.atAllUsing(indexArray, at:/2)
+	atAll { :self :indexList |
+		self.atAllUsing(indexList, at:/2)
 	}
 
 	atAllPut { :self :anObject |
@@ -117,8 +117,8 @@
 		self[index.foldIndex(self.size)]
 	}
 
-	atFoldAll { :self :indexArray |
-		self.atAllUsing(indexArray, atFold:/2)
+	atFoldAll { :self :indexList |
+		self.atAllUsing(indexList, atFold:/2)
 	}
 
 	atLastPut { :self :indexFromEnd :anObject |
@@ -129,8 +129,8 @@
 		self[self.pinnedIndex(index)]
 	}
 
-	atPinAll { :self :indexArray |
-		self.atAllUsing(indexArray, atPin:/2)
+	atPinAll { :self :indexList |
+		self.atAllUsing(indexList, atPin:/2)
 	}
 
 	atPinPut { :self :index :value |
@@ -141,8 +141,8 @@
 		self[index - 1 % self.size + 1]
 	}
 
-	atWrapAll { :self :indexArray |
-		self.atAllUsing(indexArray, atWrap:/2)
+	atWrapAll { :self :indexList |
+		self.atAllUsing(indexList, atWrap:/2)
 	}
 
 	atWrapPut { :self :index :anObject |
@@ -187,7 +187,7 @@
 	}
 
 	combinationsAtATimeDo { :self :kk :aBlock:/1 |
-		let aCollection = Array(kk);
+		let aCollection = List(kk);
 		self.combinationsAtInAfterDo(1, aCollection, 0, aBlock:/1)
 	}
 
@@ -531,14 +531,14 @@
 			{ 1 } -> { self.do(aBlock) },
 			{ 2 } -> { self.pairsDo(aBlock) }
 		]) {
-			let argumentArray = Array(numArgs);
+			let argumentList = List(numArgs);
 			let index = 1;
 			let endIndex = self.size - numArgs + 1;
 			{
 				index <= endIndex
 			}.whileTrue {
-				argumentArray.replaceFromToWithStartingAt(1, numArgs, self, index);
-				aBlock.valueWithArguments(argumentArray);
+				argumentList.replaceFromToWithStartingAt(1, numArgs, self, index);
+				aBlock.valueWithArguments(argumentList);
 				index := index + numArgs
 			}
 		}
@@ -638,7 +638,7 @@
 	}
 
 	indexValueAssociations { :self |
-		let answer = Array(self.size);
+		let answer = List(self.size);
 		self.withIndexDo { :each :index |
 			answer[index] := (index -> each)
 		};
@@ -770,7 +770,7 @@
 	}
 
 	median { :self |
-		self.asSortedArray.median
+		self.asSortedList.median
 	}
 
 	middle { :self |

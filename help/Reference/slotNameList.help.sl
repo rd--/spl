@@ -1,6 +1,6 @@
-# slotNameArray -- accessing
+# slotNameList -- accessing
 
-- _slotNameArray(anObject)_
+- _slotNameList(anObject)_
 
 Answer an array of Strings giving the slot names for the type of _anObject_.
 

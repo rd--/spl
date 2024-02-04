@@ -3,9 +3,9 @@
 - _isIndexable(anObject)_
 
 Answers true if _anObject_ is a Collection where the elements can be accessed using an index.
-The index may be of any type, so that Arrays and Maps and Records all answer true.
+The index may be of any type, so that Lists and Maps and Records all answer true.
 
-	Array().isIndexable = true
+	List().isIndexable = true
 	Bag().isIndexable = false
 	Map().isIndexable = true
 	Record().isIndexable = true

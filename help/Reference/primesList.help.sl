@@ -1,10 +1,10 @@
-# primesArray -- primes
+# primesList -- primes
 
-- _primesArray(anInteger)_
+- _primesList(anInteger)_
 
 Answer the first _anInteger_ elements of the prime number sequence.
 
-	9.primesArray = [2, 3, 5, 7, 11, 13, 17, 19, 23]
+	9.primesList = [2, 3, 5, 7, 11, 13, 17, 19, 23]
 
 * * *
 

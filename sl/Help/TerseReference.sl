@@ -9,15 +9,15 @@
 	terseReferenceSummary { :directoryName :options |
 		let totalTestCount = 0;
 		let totalPassCount = 0;
-		directoryName.readDirectoryFileNames.then { :fileNameArray |
-			fileNameArray.sort;
-			fileNameArray.readTextFileArray.then { :textArray |
-				textArray.withIndexDo { :text :index |
-					let [testCount, passCount] = text.terseReferenceEntry(fileNameArray[index], options);
+		directoryName.readDirectoryFileNames.then { :fileNameList |
+			fileNameList.sort;
+			fileNameList.readTextFileList.then { :textList |
+				textList.withIndexDo { :text :index |
+					let [testCount, passCount] = text.terseReferenceEntry(fileNameList[index], options);
 					(testCount > 0).and {
 						testCount ~= passCount
 					}.ifTrue {
-						fileNameArray[index].postLine;
+						fileNameList[index].postLine;
 						['Failure', testCount, passCount].postLine
 					};
 					totalTestCount := totalTestCount + testCount;

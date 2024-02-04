@@ -28,7 +28,7 @@ Association : [Object] { | key value |
 		self.key
 	}
 
-	asArray { :self |
+	asList { :self |
 		[self.key, self.value]
 	}
 

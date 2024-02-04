@@ -1,4 +1,4 @@
-{- Slow beating sines (Jmcc) #7 ; Graph rewrite ; requires Array>>add -}
+{- Slow beating sines (Jmcc) #7 ; Graph rewrite ; requires List>>add -}
 { :tr |
 	let n = 20;
 	let p = [];
@@ -10,8 +10,8 @@
 		{ p.add(freq + TRand(d.negated, d, tr)) } ! 2;
 		{ q.add(freq + TRand(d.negated, d, tr)) } ! 3
 	};
-	[p, q].collect { :freqArray |
-		freqArray.collect { :freq |
+	[p, q].collect { :freqList |
+		freqList.collect { :freq |
 			SinOsc(freq, TRand(0, 2 * pi, tr))
 		}.Sum
 	} * 0.1 / n

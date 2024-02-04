@@ -20,13 +20,13 @@
 		);
 		let messages = [];
 		let onMidiMessage = { :midiMessageEvent |
-			let byteArray = midiMessageEvent.data;
+			let byteList = midiMessageEvent.data;
 			messages.add(midiMessageEvent);
 			{- Temporary: write Cc data to Sc known buses -}
-			(byteArray.size = 3).and {
-				byteArray[1] = 176
+			(byteList.size = 3).and {
+				byteList[1] = 176
 			}.ifTrue {
-				system.scSynth.setControl(11000 + byteArray[2], byteArray[3] / 127)
+				system.scSynth.setControl(11000 + byteList[2], byteList[3] / 127)
 			};
 			textEditor.setEditorText(messages.last(25.min(messages.size)).collect { :midi |
 				midi.data.asString

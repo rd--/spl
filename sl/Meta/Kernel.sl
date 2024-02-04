@@ -10,7 +10,7 @@
 	'Random' {- > Object -}
 
 	{- Collection Traits -}
-	'Arrayed'
+	'PrimitiveList'
 	'Collection' {- > Object -}
 	'Extensible'
 	'Dictionary'
@@ -38,7 +38,7 @@
 
 	{- Collection Types -}
 	'Association'
-	'Array'
+	'List'
 	'Interval'
 	'Record'
 	'Map' {- > Record -}

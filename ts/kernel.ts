@@ -38,7 +38,7 @@ function isRecord(anObject: SlObject): boolean {
 
 function objectType(anObject: SlObject): TypeName {
 	return anObject instanceof Array
-		? 'Array'
+		? 'List'
 		: (anObject instanceof Map
 			? 'Map'
 			: (anObject instanceof Set
@@ -267,7 +267,7 @@ export async function evaluatePackageArrayInSequence(pkgArray: Package[]) {
 
 // required if methods are added before type definition, this should be cleared up
 // Void is not an ordinary type, it names the place in the method table for no-argument blocks
-const preinstalledTypes = ['Array', 'SmallFloat', 'String', 'Void'];
+const preinstalledTypes = ['List', 'SmallFloat', 'String', 'Void'];
 
 export class System {
 	methodDictionary: MethodDictionary;

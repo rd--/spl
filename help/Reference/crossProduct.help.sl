@@ -18,7 +18,7 @@ Cross product of exact vectors:
 
 Find the area of the parallelogram defined by two vectors:
 
-	Point(1, 2, -2).crossProduct(Point(1, -1, 2)).asArray.norm = 29.sqrt
+	Point(1, 2, -2).crossProduct(Point(1, -1, 2)).asList.norm = 29.sqrt
 
 * * *
 

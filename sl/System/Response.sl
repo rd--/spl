@@ -8,7 +8,7 @@ Response! : [Object] {
 		<primitive: return _self.blob();>
 	}
 
-	byteArray { :self |
+	byteList { :self |
 		<primitive:
 		return _self.arrayBuffer().then(function(b) {
 			return new Uint8Array(b);
@@ -22,7 +22,7 @@ Response! : [Object] {
 				self.json
 			},
 			'application/octet-stream' -> {
-				self.byteArray
+				self.byteList
 			},
 			'text/plain' -> {
 				self.text
@@ -40,7 +40,7 @@ Response! : [Object] {
 		<primitive: return _self.ok;>
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['ok']
 	}
 

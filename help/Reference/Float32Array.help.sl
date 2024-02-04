@@ -1,11 +1,11 @@
-# Float32Array
+# Float32List
 
-An Array whose elements are IEEE 32-bit floating point values.
+A List whose elements are IEEE 32-bit floating point values.
 
-Unlike Array, a Float32Array is of fixed size.
+Unlike List, a Float32List is of fixed size.
 
 * * *
 
-See also: Array, ByteArray, Float64Array
+See also: List, ByteArray, Float64Array
 
 Categories: Collection, Type

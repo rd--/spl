@@ -2,7 +2,7 @@
 
 - _splitBy(aString, separator)_
 
-Split _aString_ into an Array of Strings according to _separator_.
+Split _aString_ into a List of Strings according to _separator_.
 
         'mississippi'.splitBy('i').joinSeparatedBy('i') = 'mississippi'
 

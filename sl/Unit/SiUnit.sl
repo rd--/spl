@@ -5,7 +5,7 @@ SiUnit : [Object] { | symbol name dimension quantity |
 	}
 
 	isBaseUnit { :self |
-		system.siBaseUnitArray.includes(self)
+		system.siBaseUnitList.includes(self)
 	}
 
 	isDerivedUnit { :self |
@@ -27,7 +27,7 @@ SiUnit : [Object] { | symbol name dimension quantity |
 	}
 
 	siBaseUnit { :self :exceptionBlock:/0 |
-		system.siBaseUnitArray.detectIfNone { :each |
+		system.siBaseUnitList.detectIfNone { :each |
 			each.namedBy(self)
 		} {
 			exceptionBlock()
@@ -36,7 +36,7 @@ SiUnit : [Object] { | symbol name dimension quantity |
 
 	siUnit { :self |
 		self.siBaseUnit {
-			system.siDerivedUnitArray.detectIfNone { :each |
+			system.siDerivedUnitList.detectIfNone { :each |
 				each.namedBy(self)
 			} {
 				self.error('siUnit')
@@ -48,8 +48,8 @@ SiUnit : [Object] { | symbol name dimension quantity |
 
 +@Cache {
 
-	siBaseUnitArray { :self |
-		self.cache.atIfAbsentPut('siBaseUnitArray') {
+	siBaseUnitList { :self |
+		self.cache.atIfAbsentPut('siBaseUnitList') {
 			[
 				'm'.SiUnit('meter', 'L', 'length'),
 				's'.SiUnit('second', 'T', 'time'),
@@ -62,8 +62,8 @@ SiUnit : [Object] { | symbol name dimension quantity |
 		}
 	}
 
-	siDerivedUnitArray { :self |
-		self.cache.atIfAbsentPut('siDerivedUnitArray') {
+	siDerivedUnitList { :self |
+		self.cache.atIfAbsentPut('siDerivedUnitList') {
 			[
 				'Hz'.SiUnit('hertz', 'f', 'frequency'),
 				'rad'.SiUnit('radian', nil, 'angle'),

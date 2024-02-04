@@ -20,7 +20,7 @@ MethodInformation! : [Object] {
 		<primitive: return _self.parameterNames;>
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['name', 'packageName', 'parameterNames', 'sourceCode', 'origin']
 	}
 
@@ -90,7 +90,7 @@ Method! : [Object] {
 		[self.packageName, ':', self.origin.name].join
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['block', 'information']
 	}
 

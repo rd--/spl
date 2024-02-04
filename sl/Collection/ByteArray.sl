@@ -1,4 +1,4 @@
-ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed] {
+ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveList] {
 
 	asciiString { :self |
 		<primitive: return new TextDecoder('ascii').decode(_self);>
@@ -92,7 +92,7 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed] {
 
 }
 
-+[Array, Interval] {
++[List, Interval] {
 
 	asByteArray { :self |
 		ByteArray(self.size).fillFrom(self)
@@ -140,7 +140,7 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed] {
 	fetchByteArray { :self :resource :options :onErrorBlock |
 		self.fetch(resource, options).then { :response |
 			response.ok.if {
-				response.byteArray
+				response.byteList
 			} {
 				onErrorBlock.cull(response.ok)
 			}

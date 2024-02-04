@@ -9,10 +9,10 @@ QueensBenchmark : [Object] { | freeMaxs freeRows freeMins queenRows |
 	}
 
 	queens { :self |
-		self.freeRows := Array(8, true);
-		self.freeMaxs := Array(16, true);
-		self.freeMins := Array(16, true);
-		self.queenRows := Array(8, -1);
+		self.freeRows := List(8, true);
+		self.freeMaxs := List(16, true);
+		self.freeMins := List(16, true);
+		self.queenRows := List(8, -1);
 		self.placeQueen(1)
 	}
 

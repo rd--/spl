@@ -1,4 +1,4 @@
-Float64Array! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed] {
+Float64Array! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveList] {
 
 	atPut { :self :index :aFloat |
 		<primitive:
@@ -20,7 +20,7 @@ Float64Array! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed]
 
 }
 
-+[Array, Interval] {
++[List, Interval] {
 
 	asFloat64Array { :self |
 		Float64Array(self.size).fillFrom(self)

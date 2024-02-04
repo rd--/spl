@@ -2,7 +2,7 @@
 
 CylindricalCoordinate : [Object] { | rho phi z |
 
-	asArray { :self |
+	asList { :self |
 		[self.rho, self.phi, self.z]
 	}
 
@@ -44,7 +44,7 @@ CylindricalCoordinate : [Object] { | rho phi z |
 
 }
 
-+Array {
++List {
 
 	asCylindricalCoordinate { :self |
 		let [rho, phi, z] = self;

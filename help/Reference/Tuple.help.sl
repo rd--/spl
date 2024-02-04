@@ -10,6 +10,6 @@ There is a syntax for writing tuples, _(p, q) ⇒ Tuple(p, q)_ &etc.
 
 * * *
 
-See also: Array
+See also: List
 
 Categories: Collection, Trait

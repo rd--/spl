@@ -12,8 +12,8 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 		}
 	}
 
-	asArray { :self |
-		let answer = Array(self.size);
+	asList { :self |
+		let answer = List(self.size);
 		self.withIndexDo { :each :index |
 			answer[index] := each
 		};
@@ -196,7 +196,7 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 		RunArray(runs, values)
 	}
 
-	associationArrayToRunArray { :self |
+	associationListToRunArray { :self |
 		RunArray(
 			self.collect(key:/1),
 			self.collect(value:/1)

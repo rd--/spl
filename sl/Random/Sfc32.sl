@@ -1,6 +1,6 @@
 {- Requires: Random Iterator Stream -}
 
-+Array {
++List {
 
 	basicSfc32RandomNumberGenerator { :self |
 		<primitive: return sl.sfc32Generator(_self[0], _self[1], _self[2], _self[3]);>
@@ -10,7 +10,7 @@
 		(self.size = 4).if {
 			self.basicSfc32RandomNumberGenerator
 		} {
-			'Array>>sfc32RandomNumberGenerator: invalid seed'.error
+			'List>>sfc32RandomNumberGenerator: invalid seed'.error
 		}
 	}
 

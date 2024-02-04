@@ -1,4 +1,4 @@
-{- Requires: Array String System -}
+{- Requires: List String System -}
 
 Package! : [Object] {
 
@@ -59,7 +59,7 @@ Package! : [Object] {
 		<primitive: return _self.name;>
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['category', 'name', 'requires', 'url', 'text', 'isLoaded']
 	}
 
@@ -140,7 +140,7 @@ Package! : [Object] {
 
 }
 
-+Array {
++List {
 
 	loadPackages { :self |
 		self.do { :each |

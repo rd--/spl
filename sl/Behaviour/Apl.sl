@@ -287,35 +287,35 @@
 +String {
 
 	withCollect { :self :aString :aBlock:/2 |
-		self.asArray.withCollect(aString.asArray, aBlock:/2)
+		self.asList.withCollect(aString.asList, aBlock:/2)
 	}
 
 	expand { :self :counts |
-		self.asArray.expand(counts).join
+		self.asList.expand(counts).join
 	}
 
 	find { :haystack :needle |
-		haystack.asArray.find(needle.asArray)
+		haystack.asList.find(needle.asList)
 	}
 
 	gradeDown { :self |
-		self.asArray.gradeDown
+		self.asList.gradeDown
 	}
 
 	gradeUp { :self |
-		self.asArray.gradeUp
+		self.asList.gradeUp
 	}
 
 	membership { :self :aString |
-		self.asArray.membership(aString.asArray)
+		self.asList.membership(aString.asList)
 	}
 
 	nubSieve { :self |
-		self.asArray.nubSieve
+		self.asList.nubSieve
 	}
 
 	partition { :self :aSequence |
-		self.asArray.partition(aSequence).collect(join:/1)
+		self.asList.partition(aSequence).collect(join:/1)
 	}
 
 	rank { :self |
@@ -323,7 +323,7 @@
 	}
 
 	replicateEach { :self :counts |
-		self.asArray.replicateEach(counts).join
+		self.asList.replicateEach(counts).join
 	}
 
 	shape { :self |
@@ -335,7 +335,7 @@
 	}
 
 	unique { :self |
-		self.asArray.unique.join
+		self.asList.unique.join
 	}
 
 }

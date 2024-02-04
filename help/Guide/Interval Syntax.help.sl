@@ -5,17 +5,17 @@ There are syntaxes to form both _Interval_ values:
 - _(start .. end)_ ⇒ _Interval_
 - _(start, then .. end)_ ⇒ _Interval_
 
-and _Array_ values:
+and _List_ values:
 
-- _[start .. end]_ ⇒ _Array_
-- _[start, then .. end]_ ⇒ _Array_
+- _[start .. end]_ ⇒ _List_
+- _[start, then .. end]_ ⇒ _List_
 
 The rewrite rules are:
 
 - _(alpha .. beta)_ ⟹ _upOrDownTo(alpha, beta)_
 - _(alpha, beta .. gamma)_ ⟹ _thenTo(alpha, beta, gamma)_
-- _[alpha .. beta]_ ⟹ _(alpha .. beta).asArray_
-- _[alpha, beta .. gamma]_ ⟹ _(alpha, beta .. gamma).asArray_
+- _[alpha .. beta]_ ⟹ _(alpha .. beta).asList_
+- _[alpha, beta .. gamma]_ ⟹ _(alpha, beta .. gamma).asList_
 
 In the case where alpha is an integer literal, and beta is an integer literal or an identifier, the interval can be written alpha:beta.
 In the literal form, as with literal Fractions, white space is significant, and `alpha : beta` is not allowed.
@@ -32,6 +32,6 @@ i.e. _[p..q]_ would be an array of one interval, and not equal to _[p .. q]_.
 
 * * *
 
-See also: Array, Interval, thenTo, upOrDownTo
+See also: List, Interval, thenTo, upOrDownTo
 
 Unicode: U+2025 ‥ Two Dot Leader

@@ -6,4 +6,4 @@ Methods are: addBefore, addAfter, addAfterIndex, addFirst, addAllFirst, addLast,
 
 * * *
 
-See also: Collection, SequenceableCollection, SortedArray
+See also: Collection, SequenceableCollection, SortedList

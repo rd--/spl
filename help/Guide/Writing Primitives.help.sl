@@ -5,7 +5,7 @@ Primitives have Smalltalk semantics and are written inline using a Smalltalk-lik
 If a primitive succeeds it returns from the block,
 if it fails it continues with the remainder of the definition.
 
-Below is the implementation of _at_ from _Arrayed_.
+Below is the implementation of _at_ from _Listed_.
 
 ```
 at { :self :anInteger |

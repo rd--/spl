@@ -79,7 +79,7 @@
 
 	equalSlots { :self :anObject |
 		self.typeOf = anObject.typeOf & {
-			self.slotArray = anObject.slotArray
+			self.slotList = anObject.slotList
 		}
 	}
 
@@ -108,11 +108,11 @@
 		self
 	}
 
-	inspectAsArray { :self :maxIndices |
+	inspectAsList { :self :maxIndices |
 		[
 			['Type' -> self.Type],
-			self.slotArray,
-			self.pseudoSlotArray,
+			self.slotList,
+			self.pseudoSlotList,
 			self.isIndexable.if {
 				self.indices.take(maxIndices).collect { :each |
 					each.asString -> self[each]
@@ -186,13 +186,13 @@
 		}
 	}
 
-	pseudoSlotArray { :self |
-		self.pseudoSlotNameArray.collect { :each |
+	pseudoSlotList { :self |
+		self.pseudoSlotNameList.collect { :each |
 			each -> self.perform(each)
 		}
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		[]
 	}
 
@@ -200,14 +200,14 @@
 		<primitive: return Object.assign({}, _self);>
 	}
 
-	slotArray { :self |
-		self.Type.slotNameArray.collect { :each |
+	slotList { :self |
+		self.Type.slotNameList.collect { :each |
 			each -> self.perform(each)
 		}
 	}
 
-	slotNameArray { :self |
-		self.Type.slotNameArray
+	slotNameList { :self |
+		self.Type.slotNameList
 	}
 
 	slotRead { :self :key |

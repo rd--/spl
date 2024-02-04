@@ -1,9 +1,9 @@
-# SortedArray -- collection type
+# SortedList -- collection type
 
 An array where insertions (using _add_ and _addAll_) maintain the array ordering, which is specified by a sort block.
 
 * * *
 
-See also: Array, sort, sorted
+See also: List, sort, sorted
 
 Smalltalk: _SortedCollection_

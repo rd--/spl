@@ -205,7 +205,7 @@ Colour : [Object] { | red green blue alpha |
 
 }
 
-+Array {
++List {
 
 	Colour { :self |
 		self.size.caseOf([

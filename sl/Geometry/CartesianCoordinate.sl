@@ -32,7 +32,7 @@ CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
 		}
 	}
 
-	asArray { :self |
+	asList { :self |
 		[self.x, self.y, self.z]
 	}
 
@@ -132,7 +132,7 @@ CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
 
 }
 
-+Array {
++List {
 
 	asCartesianCoordinate { :self |
 		let [x, y, z] = self;

@@ -1,8 +1,8 @@
 # OscMessage -- open sound control
 
-- _OscMessage(address, parameterArray)_
+- _OscMessage(address, parameterList)_
 
-An _Open Sound Control_ message consists of an _address_ string and a (possibly empty) _parameterArray_.
+An _Open Sound Control_ message consists of an _address_ string and a (possibly empty) _parameterList_.
 
 ```
 OscMessage('/x', []).encode = [47, 120, 0, 0, 44, 0, 0, 0].ByteArray

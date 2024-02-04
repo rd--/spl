@@ -48,12 +48,12 @@ OscParameter : [Object] { | typeTag value |
 }
 
 
-OscMessage : [Object] { | address parameterArray |
+OscMessage : [Object] { | address parameterList |
 
 	asRecord { :self |
 		(
 			address: self.address,
-			args: self.parameterArray.collect(asRecord:/1)
+			args: self.parameterList.collect(asRecord:/1)
 		)
 	}
 
@@ -65,21 +65,21 @@ OscMessage : [Object] { | address parameterArray |
 
 +String {
 
-	OscMessage { :self :parameterArray |
+	OscMessage { :self :parameterList |
 		newOscMessage().initializeSlots(
 			self,
-			parameterArray.collect(OscParameter:/1)
+			parameterList.collect(OscParameter:/1)
 		)
 	}
 
 }
 
-OscBundle : [Object] { | time messageArray |
+OscBundle : [Object] { | time messageList |
 
 	asRecord { :self |
 		(
 			timeTag: (native: self.time * 1000),
-			packets: self.messageArray.collect(asRecord:/1)
+			packets: self.messageList.collect(asRecord:/1)
 		)
 	}
 
@@ -87,8 +87,8 @@ OscBundle : [Object] { | time messageArray |
 
 +SmallFloat {
 
-	OscBundle { :self :messageArray |
-		newOscBundle().initializeSlots(self, messageArray)
+	OscBundle { :self :messageList |
+		newOscBundle().initializeSlots(self, messageList)
 	}
 
 }

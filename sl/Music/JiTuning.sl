@@ -32,7 +32,7 @@
 
 }
 
-+Array {
++List {
 
 	JiTuning { :self |
 		JiTuning(

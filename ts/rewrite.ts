@@ -91,9 +91,9 @@ function genInterval(start: ohm.Node, end: ohm.Node): string {
 	return `_${genName('upOrDownTo', 2)}(${start.asJs}, ${end.asJs})`;
 }
 
-function genArrayInterval(start: ohm.Node, end: ohm.Node): string {
-	// console.debug('arrayIntervalSyntax');
-	return `_${genName('asArray', 1)}(${genInterval(start, end)})`;
+function genListInterval(start: ohm.Node, end: ohm.Node): string {
+	// console.debug('genListInterval');
+	return `_${genName('asList', 1)}(${genInterval(start, end)})`;
 }
 
 const asJs: ohm.ActionDict<string> = {
@@ -292,7 +292,7 @@ const asJs: ohm.ActionDict<string> = {
 		).join(', ');
 		return `${rhsName} = ${rhs.asJs}, ${slots}`;
 	},
-	TemporaryArrayInitializer(
+	TemporaryListInitializer(
 		_leftBracket,
 		lhs,
 		_rightBracket,
@@ -304,7 +304,7 @@ const asJs: ohm.ActionDict<string> = {
 		const slots = namesArray.map((name, index) =>
 			`${name} = _${genName('at', 2)}(${rhsName}, ${index + 1})`
 		).join(', ');
-		// console.debug('TemporaryWithArrayInitializer', namesArray, rhsName);
+		// console.debug('TemporaryListInitializer', namesArray, rhsName);
 		return `${rhsName} = _assertIsOfSize_2(${rhs.asJs}, ${namesArray.length}), ${slots}`;
 	},
 	TemporariesWithoutInitializers(_leftVerticalBar, tmp, _rightVerticalBar) {
@@ -319,14 +319,14 @@ const asJs: ohm.ActionDict<string> = {
 	ScalarAssignment(lhs, _colonEquals, rhs) {
 		return `${lhs.asJs} = ${rhs.asJs}`;
 	},
-	ArrayAssignment(_leftBracket, lhs, _rightBracket, _colonEquals, rhs) {
+	ListAssignment(_leftBracket, lhs, _rightBracket, _colonEquals, rhs) {
 		const namesArray = lhs.asIteration().children.map((c) => c.asJs);
-		const rhsArrayName = genSym();
+		const rhsListName = genSym();
 		const slots = namesArray.map((name, index) =>
-			`${name} = _${genName('at', 2)}(${rhsArrayName}, ${index + 1})`
+			`${name} = _${genName('at', 2)}(${rhsListName}, ${index + 1})`
 		).join(';\n');
-		// console.debug('ArrayAssignment', namesArray, rhsArrayName);
-		return `/* Array Assignment */(function() {\n\tconst ${rhsArrayName} = ${rhs.asJs};\n\t${slots};\n})()`;
+		// console.debug('ListAssignment', namesArray, rhsListName);
+		return `/* List Assignment */(function() {\n\tconst ${rhsListName} = ${rhs.asJs};\n\t${slots};\n})()`;
 	},
 	DictionaryAssignment(_leftParen, lhs, _rightParen, _colonEquals, rhs) {
 		const namesArray = lhs.asIteration().children.map((c) => c.sourceString);
@@ -400,55 +400,6 @@ const asJs: ohm.ActionDict<string> = {
 	AtIfAbsentPutSyntax(c, _leftBracket, k, _rightBracket, _colonQueryEquals, a) {
 		return `_${genName('atIfAbsentPut', 3)}(${c.asJs}, ${k.asJs}, ${a.asJs})`;
 	},
-	AtAllArraySyntax(c, _leftBracket, k, _rightBracket) {
-		return `_${genName('atAll', 2)}(${c.asJs}, [${
-			commaList(k.asIteration().children)
-		}])`;
-	},
-	AtAllVectorSyntax(c, _leftBracket, k, _rightBracket) {
-		return `_${genName('atAll', 2)}(${c.asJs}, [${commaList(k.children)}])`;
-	},
-	AtAllIntervalSyntax(c, _leftBracket, start, _dotDot, end, _rightBracket) {
-		const answer = `_${genName('atAll', 2)}(${c.asJs}, ${
-			genInterval(start, end)
-		})`;
-		// console.debug('AtAllIntervalSyntax', answer);
-		return answer;
-	},
-	AtMatrixSyntax(c, _leftBracket, i, _semicolon, j, _rightBracket) {
-		const at = `_${genName('at', 2)}`;
-		return `${at}(${at}(${c.asJs}, ${i.asJs}), ${j.asJs})`;
-	},
-	AtVolumeSyntax(
-		c,
-		_leftBracket,
-		i,
-		_semicolonOne,
-		j,
-		_semicolonTwo,
-		k,
-		_rightBracket,
-	) {
-		const at = `_${genName('at', 2)}`;
-		return `${at}(${at}(${at}(${c.asJs}, ${i.asJs}), ${j.asJs}), ${k.asJs})`;
-	},
-	AtPathSyntax(c, _leftBracket, k, _rightBracket) {
-		return `_${genName('atPath', 2)}(${c.asJs}, [${
-			commaList(k.asIteration().children)
-		}])`;
-	},
-	AtPathPutSyntax(
-		collection,
-		_leftBracket,
-		keys,
-		_rightBracket,
-		_colonEquals,
-		value,
-	) {
-		return `_${genName('atPathPut', 3)}(${collection.asJs}, [${
-			commaList(keys.asIteration().children)
-		}], ${value.asJs})`;
-	},
 	QuotedAtSyntax(c, _colonColon, k) {
 		return `_${genName('at', 2)}(${c.asJs}, '${k.sourceString}')`;
 	},
@@ -488,9 +439,6 @@ const asJs: ohm.ActionDict<string> = {
 	DotExpressionWithTrailingDictionariesSyntax(lhs, _dot, name, args, trailing) {
 		return genDotTrailing(lhs, name, args, trailing);
 	},
-	/*DotExpressionWithTrailingArraysSyntax(lhs, _dot, name, args, trailing) {
-		return genDotTrailing(lhs, name, args, trailing);
-	},*/
 	DotExpressionWithAssignmentSyntax(lhs, _dot, name, _colonEquals, rhs) {
 		return `${genName(name.asJs, 2)}(${lhs.asJs}, ${rhs.asJs})`;
 	},
@@ -557,10 +505,7 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	ApplyWithTrailingDictionariesSyntax(rcv, arg, trailing) {
 		return genApplyTrailing(rcv, arg, trailing);
-	}, /*
-	ApplyWithTrailingArraysSyntax(rcv, arg, trailing) {
-		return genApplyTrailing(rcv, arg, trailing);
-	},*/
+	},
 	ApplySyntax(rcv, arg) {
 		return `${genName(rcv.asJs, arg.arityOf)}(${arg.asJs})`;
 	},
@@ -582,7 +527,7 @@ const asJs: ohm.ActionDict<string> = {
 	StringAssociation(lhs, _colon, rhs) {
 		return `[${lhs.sourceString}, ${rhs.asJs}]`;
 	},
-	ArrayExpression(_leftBracket, items, _rightBracket) {
+	ListExpression(_leftBracket, items, _rightBracket) {
 		return `[${commaList(items.asIteration().children)}]`;
 	},
 	TupleExpression(_leftBracket, items, _rightBracket) {
@@ -590,10 +535,10 @@ const asJs: ohm.ActionDict<string> = {
 		// console.debug('TupleExpression', elem.length);
 		return `_Tuple_${elem.length}(${commaList(elem)})`;
 	},
-	ArrayIntervalSyntax(_leftBracket, start, _dotDot, end, _rightBracket) {
-		return genArrayInterval(start, end);
+	ListIntervalSyntax(_leftBracket, start, _dotDot, end, _rightBracket) {
+		return genListInterval(start, end);
 	},
-	ArrayIntervalThenSyntax(
+	ListIntervalThenSyntax(
 		_leftBracket,
 		start,
 		_comma_,
@@ -602,7 +547,7 @@ const asJs: ohm.ActionDict<string> = {
 		end,
 		_rightBracket,
 	) {
-		return `_${genName('asArray', 1)}(_${
+		return `_${genName('asList', 1)}(_${
 			genName('thenTo', 3)
 		}(${start.asJs}, ${then.asJs}, ${end.asJs}))`;
 	},
@@ -627,7 +572,7 @@ const asJs: ohm.ActionDict<string> = {
 		return `${genName(rhs.asJs, 1)}(${lhs.asJs})`;
 	},
 	VectorSyntaxRange(start, _dotDot_, end) {
-		return `_${genName('asArray', 1)}(_${
+		return `_${genName('asList', 1)}(_${
 			genName('upTo', 2)
 		}(${start.asJs}, ${end.asJs}))`;
 	},

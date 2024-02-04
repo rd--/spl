@@ -30,7 +30,7 @@ Blob! : [Object, Blob] {
 
 }
 
-+Array {
++List {
 
 	Blob { :self |
 		<primitive: return new Blob(_self);>

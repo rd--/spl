@@ -47,7 +47,7 @@ Character : [Object, Magnitude] { | string codePoint |
 	digitValue { :self |
 		let integerValue = self.asInteger;
 		let digitValues = system.cache.atIfAbsentPut('digitValues') {
-			let answer = Array(256, -1);
+			let answer = List(256, -1);
 			0.upToDo(9) { :i |
 				answer[48 + i + 1] := i
 			};
@@ -154,8 +154,8 @@ Character : [Object, Magnitude] { | string codePoint |
 		}
 	}
 
-	asArray { :self |
-		self.characterArray
+	asList { :self |
+		self.characterList
 	}
 
 }

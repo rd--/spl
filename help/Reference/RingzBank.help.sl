@@ -1,13 +1,13 @@
 # RingzBank -- bank of resonators
 
-_RingzBank(input, freqArray, ampArray, timeArray)_
+_RingzBank(input, freqList, ampList, timeList)_
 
 RingzBank (_Klank_) is a bank of fixed frequency resonators which can be used to simulate the resonant modes of an object. Each mode is given a ring time, which is the time for the mode to decay by 60 dB.
 
 - input: the excitation input to the resonant filter bank.
-- frequencies: an Array of filter frequencies.
-- amplitudes: an Array of filter amplitudes. If _nil_ default to 1.
-- ring times: an Array of 60 dB decay times for the filters. If _nil_ default to 1.
+- frequencies: a List of filter frequencies.
+- amplitudes: a List of filter amplitudes. If _nil_ default to 1.
+- ring times: a List of 60 dB decay times for the filters. If _nil_ default to 1.
 
 Four resonant filters, default amplitudes and decay times:
 

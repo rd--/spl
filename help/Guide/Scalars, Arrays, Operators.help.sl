@@ -1,7 +1,7 @@
-# Scalars, Arrays, Operators
+# Scalars, Lists, Operators
 
 _Preliminaries_:
-Arrays are written between square brackets.
+Lists are written between square brackets.
 Addition is written infix using the _plus_ sign.
 The equality predicate is written infix using the _equals_ sign.
 Expressions are offset typographically and each evaluates to _true_.

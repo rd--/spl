@@ -8,9 +8,9 @@ Implements the methods _cached_, for where the initializer is synchronous, and _
 
 The _System_ type, which is instantiated once as _system_, implements _Cache_.
 
-The _primesArray_ method caches previous requests, and continues any required calculations from the cached answers.
+The _primesList_ method caches previous requests, and continues any required calculations from the cached answers.
 
-	23.primesArray = system.primesArray.first(23)
+	23.primesList = system.primesList.first(23)
 
 * * *
 

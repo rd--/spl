@@ -1,4 +1,4 @@
-SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable] { | contents sortBlock |
+SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable] { | contents sortBlock |
 
 	add { :self :item |
 		self.contents.isEmpty.if {
@@ -20,7 +20,7 @@ SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable, S
 		}
 	}
 
-	asArray { :self |
+	asList { :self |
 		self.contents.copy
 	}
 
@@ -29,7 +29,7 @@ SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable, S
 	}
 
 	collect { :self :aBlock:/1 |
-		self.contents.collect(aBlock:/1).asSortedArray(self.sortBlock)
+		self.contents.collect(aBlock:/1).asSortedList(self.sortBlock)
 	}
 
 	do { :self :aBlock:/1 |
@@ -70,39 +70,39 @@ SortedArray : [Object, Iterable, Indexable, Collection, Extensible, Removable, S
 	}
 
 	species { :self |
-		SortedArray:/0
+		SortedList:/0
 	}
 
 }
 
 +Void {
 
-	SortedArray {
-		newSortedArray().initializeSlots([], <=)
+	SortedList {
+		newSortedList().initializeSlots([], <=)
 	}
 
 }
 
-+Array {
++List {
 
-	asSortedArray { :self |
-		newSortedArray().initializeSlots(self.sorted, <=)
+	asSortedList { :self |
+		newSortedList().initializeSlots(self.sorted, <=)
 	}
 
-	asSortedArray { :self :sortBlock:/2 |
-		newSortedArray().initializeSlots(self.sorted(sortBlock:/2), sortBlock:/2)
+	asSortedList { :self :sortBlock:/2 |
+		newSortedList().initializeSlots(self.sorted(sortBlock:/2), sortBlock:/2)
 	}
 
 }
 
 +@Collection {
 
-	asSortedArray { :self |
-		self.asSortedArray(<=)
+	asSortedList { :self |
+		self.asSortedList(<=)
 	}
 
-	asSortedArray { :self :aSortBlock:/2 |
-		let answer = SortedArray();
+	asSortedList { :self :aSortBlock:/2 |
+		let answer = SortedList();
 		answer.sortBlock := aSortBlock:/2;
 		answer.addAll(self);
 		answer

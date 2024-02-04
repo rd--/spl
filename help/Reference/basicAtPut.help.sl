@@ -1,6 +1,6 @@
 # basicAtPut
 
-- _basicAtPut(anArray | aDictionary, index, value)_
+- _basicAtPut(aList | aDictionary, index, value)_
 
 Unchecked mutation, answers nil for invalid indices.
 

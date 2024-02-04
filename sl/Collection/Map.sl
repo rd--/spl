@@ -112,14 +112,14 @@ Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictiona
 
 }
 
-+Array {
++List {
 
-	mapFromTwoElementArrays { :self |
+	mapFromTwoElementLists { :self |
 		<primitive: return new Map(_self);>
 	}
 
 	asMap { :self |
-		self.collect(asArray:/1).mapFromTwoElementArrays
+		self.collect(asList:/1).mapFromTwoElementLists
 	}
 
 }

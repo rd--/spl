@@ -162,7 +162,7 @@ Duration : [Object, Magnitude] { | milliseconds |
 
 +String {
 
-	parseIso8601DurationAsArray { :self |
+	parseIso8601DurationAsList { :self |
 		<primitive:
 		const regex = /P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?$/;
 		const [_unused, years, months, weeks, days, hours, minutes, seconds] = _self.match(regex);
@@ -176,7 +176,7 @@ Duration : [Object, Magnitude] { | milliseconds |
 		let [
 			years, months, weeks, days,
 			hours, minutes, seconds
-		] = self.parseIso8601DurationAsArray;
+		] = self.parseIso8601DurationAsList;
 		(years + months > 0).if {
 			self.error('String>>asDuration: includes non-zero year or month fields')
 		} {

@@ -1,27 +1,27 @@
 Env! : [Object] {
 
-	asArray { :self |
-		self.coordinateArrayForEnvGen
+	asList { :self |
+		self.coordinateListForEnvGen
 	}
 
 	asEnvGen { :self :gate |
-		EnvGen(gate, 1, 0, 1, 0, self.coordinateArrayForEnvGen)
+		EnvGen(gate, 1, 0, 1, 0, self.coordinateListForEnvGen)
 	}
 
 	asEnvGenWithDoneAction { :self :gate :doneAction |
-		EnvGen(gate, 1, 0, 1, doneAction, self.coordinateArrayForEnvGen)
+		EnvGen(gate, 1, 0, 1, doneAction, self.coordinateListForEnvGen)
 	}
 
 	circle { :self :timeFromLastToFirst :curve |
 		let first0Then1 = Latch(1, Impulse(0, 0));
 		self.releaseNode.isNil.if {
 			self.levels := [0] ++ self.levels ++ [0];
-			self.curves := [curve] ++ self.curves.asArray.wrapExtend(self.times.size) ++ ['lin'];
+			self.curves := [curve] ++ self.curves.asList.wrapExtend(self.times.size) ++ ['lin'];
 			self.times  := [first0Then1 * timeFromLastToFirst] ++ self.times ++ [inf];
 			self.releaseNode := self.levels.size - 2
 		} {
 			self.levels := [0] ++ self.levels;
-			self.curves := [curve] ++ self.curves.asArray.wrapExtend(self.times.size);
+			self.curves := [curve] ++ self.curves.asList.wrapExtend(self.times.size);
 			self.times  := [first0Then1 * timeFromLastToFirst] ++ self.times;
 			self.releaseNode := self.releaseNode + 1
 		};
@@ -29,7 +29,7 @@ Env! : [Object] {
 		self
 	}
 
-	coordinateArrayForEnvGen { :self |
+	coordinateListForEnvGen { :self |
 		<primitive: return sc.envCoord(_self);>
 	}
 
@@ -45,7 +45,7 @@ Env! : [Object] {
 	releaseNode { :self :anObject | <primitive: _self.releaseNode = _anObject; return _anObject;> }
 	loopNode { :self :anObject | <primitive: _self.loopNode = _anObject; return _anObject;> }
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['levels', 'times', 'curves', 'releaseNode', 'loopNode', 'offset']
 	}
 

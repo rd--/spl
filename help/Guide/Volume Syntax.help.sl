@@ -8,4 +8,4 @@ Allows writing volumes (three-dimensional arrays) as [Matrix Syntax] entries sep
 
 * * *
 
-See also: [Array Syntax], [Matrix Syntax], [Vector Syntax]
+See also: [List Syntax], [Matrix Syntax], [Vector Syntax]

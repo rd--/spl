@@ -1,8 +1,8 @@
 # atAllPutAll
 
-- _atAllPutAll(aSequence, indexArray, valueArray)_
+- _atAllPutAll(aSequence, indexList, valueList)_
 
-Store the elements of _valueArray_ into the slots of _aSequence_ selected by _indexArray_.
+Store the elements of _valueList_ into the slots of _aSequence_ selected by _indexList_.
 
 * * *
 

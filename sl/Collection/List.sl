@@ -1,16 +1,16 @@
-Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable, Arrayed, Ordered] {
+List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable, PrimitiveList, Ordered] {
 
-	addArrayFirst { :self :anArray |
+	addListFirst { :self :aList |
 		<primitive:
-		_self.unshift(..._anArray);
-		return _anArray;
+		_self.unshift(..._aList);
+		return _aList;
 		>
 	}
 
-	addArrayLast { :self :anArray |
+	addListLast { :self :aList |
 		<primitive:
-		_self.push(..._anArray);
-		return _anArray;
+		_self.push(..._aList);
+		return _aList;
 		>
 	}
 
@@ -28,7 +28,7 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 		>
 	}
 
-	asArray { :self |
+	asList { :self |
 		self
 	}
 
@@ -76,7 +76,7 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 	}
 
 	species { :self |
-		Array:/1
+		List:/1
 	}
 
 	storeString { :self |
@@ -87,12 +87,12 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 +SmallFloat {
 
-	Array { :size |
+	List { :size |
 		<primitive: return Array(_size);>
 	}
 
-	Array { :size :anObject |
-		let answer = Array(size);
+	List { :size :anObject |
+		let answer = List(size);
 		answer.atAllPut(anObject);
 		answer
 	}
@@ -117,7 +117,7 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 +Void {
 
-	Array {
+	List {
 		<primitive: return [];>
 	}
 
@@ -125,8 +125,8 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 +@Collection {
 
-	asArray { :self |
-		let answer = Array(self.size);
+	asList { :self |
+		let answer = List(self.size);
 		let index = 0;
 		self.do { :each |
 			index := index + 1;
@@ -139,8 +139,8 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 +@Sequenceable {
 
-	asArray { :self |
-		let answer = Array(self.size);
+	asList { :self |
+		let answer = List(self.size);
 		self.indicesDo { :index |
 			answer[index] := self[index]
 		};
@@ -165,7 +165,7 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 }
 
-+Array {
++List {
 
 	!++ { :self :anInteger |
 		(self ! anInteger).concatenation
@@ -176,7 +176,7 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 +@Object {
 
 	replicateApplying { :self :anInteger :aBlock:/1 |
-		let answer = Array(anInteger);
+		let answer = List(anInteger);
 		answer.indicesDo { :index |
 			answer[index] := aBlock(self)
 		};
@@ -195,7 +195,7 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 +@Integer {
 
-	fibonacciArray { :self |
+	fibonacciList { :self |
 		self.fibonacciSequenceInto([])
 	}
 
@@ -209,16 +209,16 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 	zeroMatrix { :self :other |
 		1:self.collect { :unused |
-			Array(other, 0)
+			List(other, 0)
 		}
 	}
 
 }
 
-+Array {
++List {
 
 	isMatrixOf { :self :elementType |
-		self.elementType = 'Array' & {
+		self.elementType = 'List' & {
 			self.allSatisfy { :each |
 				each.elementType = elementType
 			}
@@ -227,10 +227,10 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 
 }
 
-+Array {
++List {
 
 	plot { :self |
-		let fileName = '/tmp/arrayPlot.json';
+		let fileName = '/tmp/listPlot.json';
 		fileName.writeTextFile([self].json).then { :unused |
 			system.systemCommand(
 				'hsc3-plot',

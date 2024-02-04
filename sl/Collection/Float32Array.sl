@@ -1,4 +1,4 @@
-Float32Array! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed] {
+Float32Array! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveList] {
 
 	atPut { :self :index :aFloat |
 		<primitive:
@@ -20,7 +20,7 @@ Float32Array! : [Object, Iterable, Indexable, Collection, Sequenceable, Arrayed]
 
 }
 
-+[Array, Interval] {
++[List, Interval] {
 
 	asFloat32Array { :self |
 		Float32Array(self.size).fillFrom(self)

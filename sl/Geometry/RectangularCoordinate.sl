@@ -60,7 +60,7 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 		}
 	}
 
-	asArray { :self |
+	asList { :self |
 		[self.x, self.y]
 	}
 
@@ -229,7 +229,7 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 
 }
 
-+Array {
++List {
 
 	asRectangularCoordinate { :self |
 		let [x, y] = self;

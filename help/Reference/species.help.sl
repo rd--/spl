@@ -4,7 +4,7 @@
 
 Answers the primary factory method for the type of the receiver.
 
-	[1 3 5].species = Array:/1
+	[1 3 5].species = List:/1
 	[1 3 5].asBag.species = Bag:/0
 	[1 3 5].asSet.species = Set:/0
 	(x: 1, y: 3, z: 5).species = Record:/0

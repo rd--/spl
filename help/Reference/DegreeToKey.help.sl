@@ -6,7 +6,7 @@ _DegreeToKey(table, in, octave)_
 
 The input signal value is truncated to an integer value and used as an index into an octave repeating table of note values. Indices wrap around the table and shift octaves as they do.
 
-- table: an instance of FloatArray or Signal which contains the steps for each scale degree.
+- table: an instance of FloatList or Signal which contains the steps for each scale degree.
 - in: the input signal.
 - octave: the number of steps per octave in the scale. The default is 12.
 

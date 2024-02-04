@@ -27,7 +27,7 @@ let n = 12; {- number of simultaneous events -}
 let env = EnvLinen(2, 5, 2, 1, -4);
 {
 	EqPan2(
-		SinOsc(2000.Rand0, 0) * EnvGen(1, 0.02, 0, 1, 2, env.asArray),
+		SinOsc(2000.Rand0, 0) * EnvGen(1, 0.02, 0, 1, 2, env.asList),
 		1.Rand2)
 }.spawn(9 / n)
 
@@ -36,7 +36,7 @@ let n = 8; {- number of simultaneous events -}
 let env = EnvLinen(2, 5, 2, 0.02, -4);
 {
 	EqPan2(
-		(SinOsc(2000.Rand0, 0) * EnvGen(1, 1, 0, 1, 2, env.asArray)).AmClip(SinOsc(8 + 80.LinRand0, 0)),
+		(SinOsc(2000.Rand0, 0) * EnvGen(1, 1, 0, 1, 2, env.asList)).AmClip(SinOsc(8 + 80.LinRand0, 0)),
 		SinOsc(0.3 + 0.5.Rand0, 2.pi.Rand0) * 0.7)
 }.spawn(9 / n)
 

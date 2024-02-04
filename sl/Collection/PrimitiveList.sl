@@ -1,7 +1,7 @@
-@Arrayed {
+@PrimitiveList {
 
-	asArray { :self |
-		Array(self.size).fillFrom(self)
+	asList { :self |
+		List(self.size).fillFrom(self)
 	}
 
 	at { :self :index |
@@ -52,7 +52,7 @@
 			});
 		}
 		>
-		self.error('@Arrayed>>collect: not a block')
+		self.error('@PrimitiveList>>collect: not a block')
 	}
 
 	detectIfFoundIfNone { :self :aBlock:/1 :whenFound:/1 :whenNone:/0 |
@@ -129,7 +129,7 @@
 	}
 
 	storeString { :self |
-		self.asArray.storeString ++ '.as' ++ self.Type.name
+		self.asList.storeString ++ '.as' ++ self.Type.name
 	}
 
 }

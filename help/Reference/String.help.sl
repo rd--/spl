@@ -25,7 +25,7 @@ String indexing only makes sense for strings that are in the _Basic Multilingual
 
 * * *
 
-See also: ascii, characterArray, Character, utf8, utf16
+See also: ascii, characterList, Character, utf8, utf16
 
 * * *
 

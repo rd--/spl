@@ -5,7 +5,7 @@
 
 The _Point_ method constructs co-ordinates of two and three dimensions.
 
-- _asPoint(anArray | aRecord | aTuple)_
+- _asPoint(aList | aRecord | aTuple)_
 
 The _asPoint_ method constructs co-ordinates of two and three dimensions given an appropriate array, record or tuple.
 

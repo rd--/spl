@@ -1,6 +1,6 @@
 # Blob
 
-- _Blob(anArray | aByteArray)_
+- _Blob(aList | aByteArray)_
 
 A Blob represents a "Binary Large Object".
 

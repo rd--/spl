@@ -320,32 +320,26 @@
 		self.asDigits(base, (self.log / base.log + 0.0000000001).asInteger + 1)
 	}
 
-	do { :self :aBlock:/1 |
-		{- Spl is one-indexed -}
-		1.toDo(self, aBlock:/1);
-		self
-	}
-
 	hammingWindow { :self |
-		let answer = Array(self);
+		let answer = List(self);
 		answer.hammingWindow;
 		answer
 	}
 
 	hanningWindow { :self |
-		let answer = Array(self);
+		let answer = List(self);
 		answer.hanningWindow;
 		answer
 	}
 
 	sineTable { :self :amplitudes :phases |
-		let answer = Array(self, 0);
+		let answer = List(self, 0);
 		answer.sineFill(amplitudes, phases);
 		answer
 	}
 
 	welchWindow { :self |
-		let answer = Array(self);
+		let answer = List(self);
 		answer.welchWindow;
 		answer
 	}
@@ -371,7 +365,7 @@
 	}
 
 	extendTo { :self :size |
-		Array(size, self)
+		List(size, self)
 	}
 
 	instill { :self :index :item :default |
@@ -813,7 +807,7 @@
 	}
 
 	shift { :self :count :item |
-		let fill = Array(count.abs, item);
+		let fill = List(count.abs, item);
 		let remain = self.drop(count.negated);
 		(count < 0).if {
 			remain ++ fill
@@ -941,7 +935,7 @@
 
 }
 
-+Array {
++List {
 
 	clump { :self :groupSize |
 		<primitive: return sc.clump(_self, _groupSize);>

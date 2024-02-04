@@ -10,9 +10,9 @@ Answer the prime at index _anInteger_ in the sequence of prime numbers.
 This value is cached (memoized) by the system,
 so that subsequenct accesses do not require recalculation.
 
-	system.cache::primesArray[5] = 11
-	system.cache::primesArray[3579] = 33413
+	system.cache::primesList[5] = 11
+	system.cache::primesList[3579] = 33413
 
 * * *
 
-See also: isPrime, nextPrime, primesArray, primesUpTo
+See also: isPrime, nextPrime, primesList, primesUpTo

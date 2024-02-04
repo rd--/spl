@@ -50,7 +50,7 @@ export async function primitiveReadLocalPackages(
 
 export function addLoadFileMethods(): void {
 	kernel.addMethod(
-		'Array',
+		'List',
 		'Kernel',
 		'primitiveReadLocalPackages',
 		['self'],
@@ -58,7 +58,7 @@ export function addLoadFileMethods(): void {
 		'<primitive: package reader>',
 	);
 	kernel.addMethod(
-		'Array',
+		'List',
 		'Kernel',
 		'primitiveLoadPackageSequence',
 		['self'],

@@ -52,7 +52,7 @@ Scale : [Object] { | startIndex intervals description |
 
 }
 
-+Array {
++List {
 
 	Scale { :self |
 		let [startIndex, intervals, description] = self;

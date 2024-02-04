@@ -8,6 +8,6 @@ Answer a ByteArray of the Utf-8 encoding of _aString_.
 
 * * *
 
-See also: asciiByteArray, ByteArray, String, utf8String, utf16Array
+See also: asciiByteArray, ByteArray, String, utf8String, utf16List
 
 Categories: String, Encoding

@@ -4,7 +4,7 @@ _Index(table, in)_
 
 The input signal value is truncated to an integer value and used as an index into the table. Out of range index values are clipped to the valid range.
 
-- table: an instance of FloatArray or Signal.
+- table: an instance of FloatList or Signal.
 - in: the input signal.
 
 Index buffer for frequency values:

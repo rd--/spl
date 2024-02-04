@@ -243,7 +243,7 @@ Rectangle : [Object] { | origin corner |
 
 }
 
-+Array {
++List {
 
 	computeBoundingBox { :self |
 		let box = Rectangle(self[1], self[1]);

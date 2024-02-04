@@ -14,12 +14,12 @@ let rMinor = 0.1;
 let circlefreq = 0.0001;
 let xMinor = xMajor + (rMajor * SinOsc(circlefreq, 0));
 let yMinor = yMajor + (rMajor * SinOsc(circlefreq, pi / 2));
-let freqArray = { 50.ExpRand(1500) }.duplicate(segments).sorted;
-let oscArray = 1:segments.collect { :index |
+let freqList = { 50.ExpRand(1500) }.duplicate(segments).sorted;
+let oscList = 1:segments.collect { :index |
 	let x = xMinor + (rMinor * (index * 2 * pi / segments).Sin);
 	let y = yMinor + (rMinor * (index * 2 * pi / segments).Cos);
 	let grey = shuheiKawachi(x, y, 2 * pi, 0.5);
 	let amp = Lag(Wrap(grey, 0, 1), 0.01) / segments;
-	SinOsc(freqArray[index], 0) * amp
+	SinOsc(freqList[index], 0) * amp
 };
-oscArray.Splay * 5
+oscList.Splay * 5

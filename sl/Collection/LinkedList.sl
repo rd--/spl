@@ -46,8 +46,8 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 		aLink
 	}
 
-	asArray { :self |
-		let answer = Array(self.size);
+	asList { :self |
+		let answer = List(self.size);
 		let index = 1;
 		self.do { :each |
 			answer[index] := each;
@@ -275,7 +275,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 	}
 
 	species { :self |
-		Array:/1
+		List:/1
 	}
 
 	validIndex { :self :index |

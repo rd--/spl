@@ -8,7 +8,7 @@ Compile Ugen graph and send it to the synthesiser to be played.
 (SinOsc(440, 0) * 0.1).play
 ```
 
-Arrays of Ugens signals:
+Lists of Ugens signals:
 
 ```
 [SinOsc(333, 0) * 0.1, Saw(111) * 0.02].play
@@ -16,4 +16,4 @@ Arrays of Ugens signals:
 
 * * *
 
-See also: Array, Ugen
+See also: List, Ugen

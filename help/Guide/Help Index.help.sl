@@ -22,7 +22,7 @@
 - / -- mathematical operator
 - :: -- quoted at syntax
 - .. -- range operator syntax
-- Array -- collection type
+- List -- collection type
 - Association -- associate with
 - Boolean -- logic
 - Collection -- collection trait
@@ -44,7 +44,7 @@
 - add -- adding
 - addAll -- adding
 - allButFirst -- accesing
-- asArray -- converting
+- asList -- converting
 - ascii -- encoding
 - at -- accessing
 - atPut -- accessing

@@ -1,4 +1,4 @@
-{- Requires: Array -}
+{- Requires: List -}
 
 String! : [Object, Json, Iterable] {
 
@@ -46,7 +46,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	asAscii { :self |
-		self.characterArray.select(isAscii:/1).joinCharacters
+		self.characterList.select(isAscii:/1).joinCharacters
 	}
 
 	asBracketedComment { :self :open :close |
@@ -143,7 +143,7 @@ String! : [Object, Json, Iterable] {
 		<primitive: return _self[0].toUpperCase() + _self.slice(1);>
 	}
 
-	characterArray { :self |
+	characterList { :self |
 		self.collectInto(identity:/1, [])
 	}
 
@@ -159,7 +159,7 @@ String! : [Object, Json, Iterable] {
 		<primitive: return _self.codePointAt(_index - 1);>
 	}
 
-	codePointArray { :self |
+	codePointList { :self |
 		self.collectInto(codePoint:/1, [])
 	}
 
@@ -304,7 +304,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	includes { :self :aCharacter |
-		self.characterArray.includes(aCharacter)
+		self.characterList.includes(aCharacter)
 	}
 
 	indefiniteArticle { :self |
@@ -468,7 +468,7 @@ String! : [Object, Json, Iterable] {
 		>
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['size']
 	}
 
@@ -485,7 +485,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	reversed { :self |
-		self.asArray.reversed.join
+		self.asList.reversed.join
 	}
 
 	romanNumber { :self |
@@ -522,7 +522,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	split { :self |
-		self.stringArray
+		self.stringList
 	}
 
 	splitBy { :self :aString |
@@ -537,7 +537,7 @@ String! : [Object, Json, Iterable] {
 		<primitive: return `'${_self}'`;>
 	}
 
-	stringArray { :self |
+	stringList { :self |
 		self.primitiveCollectInto(identity:/1, [])
 	}
 
@@ -565,7 +565,7 @@ String! : [Object, Json, Iterable] {
 		<primitive: return new TextEncoder().encode(_self.normalize('NFC'));>
 	}
 
-	utf16Array { :self |
+	utf16List { :self |
 		let answer = [];
 		1.toDo(self.countUtf16CodeUnits) { :index |
 			answer.add(self.utf16CodePointAt(index))
@@ -682,7 +682,7 @@ String! : [Object, Json, Iterable] {
 
 }
 
-+Array {
++List {
 
 	joinStringsSeparatedBy { :self :aString |
 		<primitive: return _self.join(_aString);>

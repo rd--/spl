@@ -52,8 +52,8 @@
 		}
 	}
 
-	asArray { :self |
-		let array = Array(self.size);
+	asList { :self |
+		let array = List(self.size);
 		let index = 0;
 		self.do { :each |
 			index := index + 1;
@@ -366,7 +366,7 @@
 		self
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['size']
 	}
 
@@ -399,11 +399,11 @@
 	}
 
 	sorted { :self |
-		self.asArray.sort
+		self.asList.sort
 	}
 
 	sorted { :self :sortBlock:/2 |
-		self.asArray.sortBy(sortBlock:/2)
+		self.asList.sortBy(sortBlock:/2)
 	}
 
 	standardDeviation { :self |

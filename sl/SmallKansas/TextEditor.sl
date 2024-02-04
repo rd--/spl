@@ -78,7 +78,7 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 			self.textEditorMenu(event)
 		};
 		self.editorText.addEventListener('keydown') { :event |
-			let bindingsArray = self.keyBindings.collect { :menuItem |
+			let bindingsList = self.keyBindings.collect { :menuItem |
 				menuItem.accessKey -> {
 					event.preventDefault;
 					menuItem.onSelect . (nil)
@@ -86,7 +86,7 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 			};
 			event.ctrlKey.ifTrue {
 				event.key.caseOfOtherwise(
-					bindingsArray,
+					bindingsList,
 					{ :key | nil }
 				)
 			}

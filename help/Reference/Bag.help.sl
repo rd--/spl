@@ -8,7 +8,7 @@ To convert a collection to a Bag use _asBag_.
 
 To add an element to a Bag use _add_.
 
-To get the elements as an Array of Associations use _sortedCounts_ or _sortedElements_.
+To get the elements as a List of Associations use _sortedCounts_ or _sortedElements_.
 
 * * *
 

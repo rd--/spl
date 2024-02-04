@@ -24,19 +24,19 @@ Sl {
 		TemporaryBlockLiteralInitializer |
 		TemporaryExpressionInitializer |
 		TemporaryDictionaryInitializer |
-		TemporaryArrayInitializer
+		TemporaryListInitializer
 	TemporaryBlockLiteralInitializer = identifier "=" Block ~("." | binaryOperator)
 	TemporaryExpressionInitializer = identifier "=" Expression
 	TemporaryDictionaryInitializer = "(" NonemptyListOf<identifier, ","> ")" "=" Expression
-	TemporaryArrayInitializer = "[" NonemptyListOf<identifierOrUnused, ","> "]" "=" Expression
+	TemporaryListInitializer = "[" NonemptyListOf<identifierOrUnused, ","> "]" "=" Expression
 	LetTemporary = "let" TemporaryInitializer ";"
 	LetTemporaries = "let" NonemptyListOf<TemporaryInitializer, ","> ";"
 	TemporariesWithoutInitializers = "|" identifier+ "|"
 
 	Expression = Assignment | BinaryExpression | Primary
-	Assignment = ScalarAssignment | ArrayAssignment | DictionaryAssignment // | AssignmentOperatorSyntax
+	Assignment = ScalarAssignment | ListAssignment | DictionaryAssignment // | AssignmentOperatorSyntax
 	ScalarAssignment = identifier ":=" Expression
-	ArrayAssignment = "[" NonemptyListOf<identifier, ","> "]" ":=" Expression
+	ListAssignment = "[" NonemptyListOf<identifier, ","> "]" ":=" Expression
 	DictionaryAssignment = "(" NonemptyListOf<identifier, ","> ")" ":=" Expression
 	AssignmentOperatorSyntax = Primary operatorAssignment Expression
 	BinaryExpression = Expression ((binaryOperatorWithAdverb | binaryOperator) Primary)+
@@ -48,13 +48,6 @@ Sl {
 		// | WriteSlotSyntax
 		// | AtIfAbsentSyntax
 		| AtSyntax
-		// | AtAllIntervalSyntax
-		// | AtAllVectorSyntax
-		// | AtAllArraySyntax
-		// | AtPathPutSyntax
-		// | AtMatrixSyntax
-		// | AtVolumeSyntax
-		// | AtPathSyntax
 		// | QuotedAtIfAbsentSyntax
 		// | QuotedAtIfAbsentPutSyntax
 		| QuotedAtSyntax
@@ -62,13 +55,11 @@ Sl {
 		| ValueApply
 		| DotExpressionWithTrailingClosuresSyntax
 		| DotExpressionWithTrailingDictionariesSyntax
-		// | DotExpressionWithTrailingArraysSyntax
 		| DotExpressionWithAssignmentSyntax
 		| DotExpression
 		| Block
 		| ApplyWithTrailingDictionariesSyntax
 		| ApplyWithTrailingClosuresSyntax
-		// | ApplyWithTrailingArraysSyntax
 		| ApplySyntax
 		| MessageSendSyntax
 		| reservedIdentifier
@@ -80,25 +71,17 @@ Sl {
 		| ParenthesisedExpression
 		| DictionaryExpression
 		| TupleExpression
-		| ArrayExpression
-		| ArrayIntervalSyntax
-		| ArrayIntervalThenSyntax
+		| ListExpression
+		| ListIntervalSyntax
+		| ListIntervalThenSyntax
 		| IntervalSyntax
 		| IntervalThenSyntax
-		// | VolumeSyntax
 
 	AtPutSyntax = Primary "[" NonemptyListOf<Expression, ","> "]" ":=" Expression
 	QuotedAtPutSyntax = Primary "::" identifier ":=" Expression
 	AtSyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
 	AtIfAbsentSyntax = Primary "[" Expression "]" ":?" Block
 	AtIfAbsentPutSyntax = Primary "[" Expression "]" ":?=" Block
-	AtAllArraySyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
-	AtAllVectorSyntax = Primary "[" VectorSyntaxItem+ "]"
-	AtAllIntervalSyntax = Primary "[" Expression ".." Expression "]"
-	AtMatrixSyntax = Primary "[" Expression ";" Expression "]"
-	AtVolumeSyntax = Primary "[" Expression ";" Expression ";" Expression "]"
-	AtPathPutSyntax = Primary "[" NonemptyListOf<Expression, ";"> "]" ":=" Expression
-	AtPathSyntax = Primary "[" NonemptyListOf<Expression, ";"> "]"
 	QuotedAtSyntax = Primary "::" identifier
 	QuotedAtIfAbsentSyntax = Primary "::" identifier ":?" Block
 	QuotedAtIfAbsentPutSyntax = Primary "::" identifier ":?=" Block
@@ -112,7 +95,6 @@ Sl {
 
 	DotExpressionWithTrailingClosuresSyntax = Primary "." identifier NonEmptyParameterList? Block+
 	DotExpressionWithTrailingDictionariesSyntax = Primary "." identifier NonEmptyParameterList? NonEmptyDictionaryExpression+
-	//DotExpressionWithTrailingArraysSyntax = Primary "." identifier NonEmptyParameterList? ArrayExpression+
 	DotExpressionWithAssignmentSyntax = Primary "." identifier ":=" Expression
 	DotExpression = Primary ("." identifier ~("{" | ":=") NonEmptyParameterList?~("{"))+
 
@@ -127,7 +109,6 @@ Sl {
 
 	ApplyWithTrailingClosuresSyntax = identifier NonEmptyParameterList? Block+
 	ApplyWithTrailingDictionariesSyntax = identifier NonEmptyParameterList? NonEmptyDictionaryExpression+
-	//ApplyWithTrailingArraysSyntax = identifier NonEmptyParameterList? ArrayExpression+
 	ApplySyntax = identifier ParameterList
 	ParenthesisedExpression = "(" Expression ")"
 	NonEmptyDictionaryExpression = "(" NonemptyListOf<AssociationExpression, ","> ")"
@@ -136,9 +117,9 @@ Sl {
 	IdentifierAssociation = identifier ":" Expression
 	StringAssociation = singleQuotedStringLiteral ":" Expression
 	TupleExpression = "(" NonemptyListOf<Expression, ","> ")"
-	ArrayExpression = "[" ListOf<Expression, ","> "]"
-	ArrayIntervalSyntax = "[" Expression ".." Expression "]"
-	ArrayIntervalThenSyntax = "[" Expression "," Expression ".." Expression "]"
+	ListExpression = "[" ListOf<Expression, ","> "]"
+	ListIntervalSyntax = "[" Expression ".." Expression "]"
+	ListIntervalThenSyntax = "[" Expression "," Expression ".." Expression "]"
 	IntervalSyntax = "(" Expression ".." Expression ")"
 	IntervalThenSyntax = "(" Expression "," Expression ".." Expression ")"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"

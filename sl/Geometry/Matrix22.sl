@@ -21,7 +21,7 @@ Matrix22 : [Object] { | a b c d |
 		)
 	}
 
-	asArray { :self |
+	asList { :self |
 		[self.a, self.b, self.c, self.d]
 	}
 
@@ -88,7 +88,7 @@ Matrix22 : [Object] { | a b c d |
 
 }
 
-+Array {
++List {
 
 	asMatrix22 { :self |
 		let [a, b, c, d] = self;

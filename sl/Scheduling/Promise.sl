@@ -26,7 +26,7 @@ Promise! : [Object] {
 
 }
 
-+Array {
++List {
 
 	allResolved { :self |
 		<primitive: return Promise.all(_self);>

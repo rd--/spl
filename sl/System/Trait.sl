@@ -6,7 +6,7 @@ Trait! : [Object] {
 		}
 	}
 
-	methodArray { :self |
+	methodList { :self |
 		self.methodDictionary.values
 	}
 
@@ -22,7 +22,7 @@ Trait! : [Object] {
 		<primitive: return _self.packageName;>
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['methodDictionary', 'name', 'packageName']
 	}
 

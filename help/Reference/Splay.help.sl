@@ -1,7 +1,7 @@
 # Splay -- panner
 
-- _Splay(inArray, spread=1)_
-- _Splay(inArray)_ == _Splay(inArray, 1)_
+- _Splay(inList, spread=1)_
+- _Splay(inList)_ == _Splay(inList, 1)_
 
 Pan an array of signals at equally spaced locations across the main output channels,
 as configured in Preferences.

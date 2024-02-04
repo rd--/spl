@@ -28,7 +28,7 @@ Ugen! : [Object, Number] {
 		].join
 	}
 
-	pseudoSlotNameArray { :self |
+	pseudoSlotNameList { :self |
 		['scUgen', 'port']
 	}
 
@@ -61,7 +61,7 @@ Ugen! : [Object, Number] {
 
 }
 
-+Array {
++List {
 
 	busOffset { :self |
 		{- ['busOffset', self.size].postLine; -}
@@ -87,7 +87,7 @@ Ugen! : [Object, Number] {
 
 }
 
-+[Ugen, Array] {
++[Ugen, List] {
 
 	printUgenGraph { :self |
 		<primitive: return sc.printSyndefOfAt(self, self.busOffset);>

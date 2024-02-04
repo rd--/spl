@@ -8,6 +8,6 @@ Answer a ByteArray of the Ascii encoding of _aString_, which must be an ascii st
 
 * * *
 
-See also: asciiString, ByteArray, String, utf8ByteArray, utf8String, utf16Array
+See also: asciiString, ByteArray, String, utf8ByteArray, utf8String, utf16List
 
 Categories: String, Encoding

@@ -89,7 +89,7 @@ SphericalCoordinate : [Object, SphericalCoordinate] { | r theta phi |
 
 }
 
-+Array {
++List {
 
 	asSphericalCoordinate { :self |
 		let [r, theta, phi] = self;

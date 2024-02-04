@@ -1,6 +1,6 @@
 # unlines
 
-- _unlines(anArray)_
+- _unlines(aList)_
 
 For an array of Strings, answer a String that joins together all of the input strings separated by newline characters.
 

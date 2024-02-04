@@ -12,6 +12,6 @@ else answer a single element array containing the argument.
 
 * * *
 
-See also: Array, asArray, assertIsCollection
+See also: List, asList, assertIsCollection
 
 Categories: Converting
