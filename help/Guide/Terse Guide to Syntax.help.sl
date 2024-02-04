@@ -67,5 +67,5 @@ let n = 4/3; n:@denominator := 5; n = 4/5 {- slot write syntax -}
 let a = 1; let b = 3; [a b; b a;; b a; a b] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] {- [Volume Syntax] identifier items -}
 [1 0 0; 0 1 0; 0 0 1;; 0 1 0; 1 0 1; 0 1 0;; 1 0 1; 0 1 0; 1 0 1].collect(sum:/1) = [1 1 1; 1 2 1; 2 1 2] {- volume to matrix -}
 [1 0 0; 0 1 0; 0 0 1;; 0 1 0; 1 0 1; 0 1 0].transposed = [1 0 0; 0 1 0;; 0 1 0; 1 0 1;; 0 0 1; 0 1 0] {- transposed -}
-[1 2; 3 4;; 5 6; 7 8] = [[1 2; 3 4] [5 6; 7 8]] {- volume as array of matrices -}
+[1 2; 3 4;; 5 6; 7 8] = [[1 2; 3 4] [5 6; 7 8]] {- volume as list of matrices -}
 ```

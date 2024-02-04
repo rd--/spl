@@ -2,7 +2,7 @@
 
 _asLocalBuf(aList)_
 
-Make a local buffer from an array or matrix of numbers.
+Make a local buffer from a list or matrix of numbers.
 
 ```
 let scaleBuf = [0 2 3 5 7 8 10 12].asLocalBuf;

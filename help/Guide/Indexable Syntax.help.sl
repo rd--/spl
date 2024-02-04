@@ -9,9 +9,9 @@ Rewrite rules:
 
 Collection types implement the _at_ and _atPut_ protocols.
 
-The first rule, [At Syntax], provides the usual array notation for reading from a collection.
+The first rule, [At Syntax], provides the usual indexing notation for reading from a collection.
 
-The second rule, [AtPut Syntax], provides the usual array notation for writing to a collection.
+The second rule, [AtPut Syntax], provides the usual indexing notation for writing to a collection.
 
 The third rule, [AtIfAbsent Syntax], allows for specifying the answer if the index is absent.
 

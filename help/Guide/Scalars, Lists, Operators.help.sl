@@ -31,3 +31,5 @@ If the vectors are of different sizes there are a number of behaviours selected 
 In the standard library the un-adorned operator requires that the vectors be of equal size, as if the the _e_ adverb were selected.
 
 The _SuperCollider_ library redefines the un-adorned form to cycle the shorter vector, as if the _w_ adverb were selected.
+
+This should be changed to always recycle, as in R & S & SuperCollider.

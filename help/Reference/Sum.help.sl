@@ -2,11 +2,11 @@
 
 _Sum(inputList)_
 
-Sums an array of inputs.
+Sums a list of inputs.
 
 Unlike _sum_, implements optimization using the _Sum4_ primitive Ugen.
 
-Sum an array of sawtooths:
+Sum a list of sawtooths:
 
 ```
 [

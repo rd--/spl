@@ -482,6 +482,10 @@
 		self.collect(degreesToRadians:/1)
 	}
 
+	divisors { :self |
+		self.collect(divisors:/1)
+	}
+
 	exp { :self |
 		self.collect(exp:/1)
 	}

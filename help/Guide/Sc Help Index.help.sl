@@ -116,7 +116,7 @@
 - MidiCps -- convert midi note to cycles per second
 - MidiRatio -- convert an interval in midi notes into a frequency ratio
 - Min -- minimum
-- Mix -- sum an array of inputs
+- Mix -- sum a list of inputs
 - ModDif -- minimum difference of two values in modulo arithmetics
 - MouseX -- cursor unit generator
 - MouseY -- cursor unit generator
@@ -161,7 +161,7 @@
 - RunningSum -- summing
 - Saw -- band limited sawtooth
 - Schmidt -- Schmidt trigger
-- Select -- select output from an array of inputs
+- Select -- select output from a list of inputs
 - Seq -- demand rate sequence generator
 - Silent -- output silence
 - Sin -- sine

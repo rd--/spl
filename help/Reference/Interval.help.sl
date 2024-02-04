@@ -1,4 +1,4 @@
-# Interval -- collection type
+# Interval
 
 An Interval represents a finite arithmetic progression.
 
@@ -7,8 +7,10 @@ An Interval represents a finite arithmetic progression.
 	Interval(1, 9, 2).asList = [1 3 5 7 9]
 	Interval(9, 1, -2).asList = [9 7 5 3 1]
 
-There is an [Interval Syntax] for writing Intervals and interval arrays.
+There is an [Interval Syntax] for writing Intervals and interval lists.
 
 * * *
 
 See also: downTo, thenTo, to, toBy, upOrDownTo, upTo
+
+Categories: Collection, Type

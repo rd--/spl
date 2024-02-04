@@ -1,17 +1,17 @@
-# SelectXFocus -- mixing
+# SelectXFocus
 
 Mix one output from many sources
 
-The output is mixed from an array of inputs,
+The output is mixed from a list of inputs,
 linearly interpolating from a number of adjacent channels.
 A focus argument allows to control how many adjacent sources are mixed.
 
-_SelectXFocus(which, array, focus=1, wrap=false)_
+_SelectXFocus(which, list, focus=1, wrap=false)_
 
 - which: Index of the selected input, which is also the center of the selection for a focus > 0.
-- array: A collection of inputs.
+- list: A collection of inputs.
 - focus: The fuzziness of the selection: the larger the focus, the less adjacent inputs are mixed in.
-- wrap: If set to true, index will wrap around the array of inputs, cf. wrapAt.
+- wrap: If set to true, index will wrap around the list of inputs, cf. wrapAt.
 
 Note:
 All the Ugens are continuously running.
@@ -20,10 +20,10 @@ This may not be the most efficient way if each input is Cpu-expensive.
 Select one of eight input signals using mouse, fixed focus:
 
 ```
-let array = {
+let list = {
 	Saw(Rand(1, 3)) * Saw(Rand(100, 3000))
 } ! 8;
-SelectXFocus(MouseX(-20, 20, 0, 0.2), array, 0.3, true) * 0.1
+SelectXFocus(MouseX(-20, 20, 0, 0.2), list, 0.3, true) * 0.1
 ```
 
 Select one of four stereo input signals using mouse,
@@ -72,3 +72,5 @@ SelectXFocus(mX * n, a, mY * n, false).Sum * 0.2 + b * Line(0, 1, 3)
 * * *
 
 See also: Select, SelectX
+
+Categories: Mixing

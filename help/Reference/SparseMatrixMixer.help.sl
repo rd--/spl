@@ -2,7 +2,7 @@
 
 _SparseMatrixMixer(numOutputs, inputList, sparseMatrix)_
 
-Mixes _inputList_ to an array of _numOutputs_ places according to _sparseMatrix_.
+Mixes _inputList_ to a list of _numOutputs_ places according to _sparseMatrix_.
 
 Each element at _sparseMatrix_ is a triple of _(inputIndex, outputIndex, gain)_,
 allowing arbitrary mapping of inputs to outputs.

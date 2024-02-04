@@ -4,7 +4,7 @@ _Sequencer(sequence, trig)_
 
 Outputs a different value from the sequence each time a trigger is received.
 
-- sequence: the values in the array are output cyclically
+- sequence: the values in the list are output cyclically
 - trig: step signal
 
 Sequence triggered by square wave:

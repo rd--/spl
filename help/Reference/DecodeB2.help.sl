@@ -5,7 +5,7 @@ _DecodeB2(numChans, w, x, y, orientation=0.5)_
 Decode a two dimensional ambisonic B-format signal to a set of speakers in a regular polygon.
 The outputs will be in clockwise order.
 The position of the first speaker is either center or left of center.
-Answers an array of channels, one for each speaker.
+Answers a List of channels, one for each speaker.
 
 - numChans: Number of output speakers. Typically 4 to 8.
 - w,x,y: The B-format signal.

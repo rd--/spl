@@ -18,7 +18,7 @@ There is no literal syntax for characters.
 
 _Note:_
 Strings in Spl are not Lists of Characters.
-Except where necessary Characters and Character arrays are not recommended.
+Except where necessary Characters and Character lists are not recommended.
 
 * * *
 

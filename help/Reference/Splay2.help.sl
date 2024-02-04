@@ -1,9 +1,11 @@
-# Splay2 -- stereo panner
+# Splay2
+
+Stereo panner.
 
 _Splay2(inList, spread=1, level=1, center=0, levelComp=true)_
 _Splay2(inList)_ ⟹ _Splay2(inList, 1, 1, 0, true)_
 
-Splay2 spreads an array of channels across a stereo field.
+Splay2 spreads a list of channels across a stereo field.
 
 Mouse control:
 
@@ -20,8 +22,12 @@ Splay2(
 )
 ```
 
-_Note:_ The primitive Sc Ugen is called _Splay_.
+_Note:_ The Sc Ugen is called _Splay_.
 
 * * *
 
 See also: Pan2, Splay, SplayAz
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Splay.html)

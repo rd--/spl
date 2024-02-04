@@ -1,22 +1,22 @@
-# List Assignment Syntax -- syntax
+# List Assignment Syntax
 
-There is array assignment syntax for both temporary variable initialisers:
+There is a list assignment syntax for both temporary variable initialisers:
 
 	let [x, y, z] = [1 * 2, 3 * 4, 5 * 6]; [z, y, x] = [30, 12, 2]
 
 and for variable assignment:
 
-	let [x, y] = [0, 0];  [x, y] := [1 * 2, 3 * 4]; [y, x] = [12, 2]
+	let [x, y] = [0, 0]; [x, y] := [1 * 2, 3 * 4]; [y, x] = [12, 2]
 
 Note that where in sequential assignment, evaluation and assignment are interleaved:
 
 	let x = 1; let y = 2; x := y + 1; y := x * 2; [x, y] = [3, 6]
 
-in array assignment the right hand side expression is evaluated before any assignments are made:
+in list assignment the right hand side expression is evaluated before any assignments are made:
 
 	let [x, y] = [1, 2]; [x, y] := [y + 1, x * 2]; [x, y] = [3, 2]
 
-This latter form can significantly reduce the need for declared temporaries in expressions that update a set of inter-related variables, c.f. the array case:
+This latter form can significantly reduce the need for declared temporaries in expressions that update a set of inter-related variables, c.f. the list case:
 
 	let [x, y, z] = [1, 2, 3]; [x, y, z] := [x * y + z, x + y * z, x + y + z]; [x, y, z] = [5, 9, 6]
 
@@ -31,3 +31,5 @@ or with temporary variables:
 * * *
 
 See also: [Dictionary Assignment Syntax]
+
+Categories: Syntax

@@ -1,16 +1,18 @@
-# Select -- select output from an array of inputs
+# Select
 
-_Select(which, array)_
+Select output from a list of inputs.
 
-The output is selected from an array of inputs.
+_Select(which, list)_
+
+The output is selected from a list of inputs.
 
 All the Ugens are continuously running.
 This may not be the most efficient way if each input is Cpu-expensive.
-Note that the array is fixed at the time of writing the SynthDef, and the whole array is embedded in the SynthDef file itself.
-For small arrays this is more efficient than reading from a buffer.
+Note that the list is fixed at the time of writing the SynthDef, and the whole list is embedded in the SynthDef file itself.
+For small lists this is more efficient than reading from a buffer.
 
 - which: integer index (zero indexed)
-- array: input array of signals
+- list: input list of signals
 
 Cycle though oscillator types:
 
@@ -41,8 +43,12 @@ As a sequencer:
 }.XFadeTexture(3, 4)
 ```
 
-For selecting from an array of constants consider also _BufRd_.
+For selecting from a list of constants consider also _BufRd_.
 
 * * *
 
 See also: BufRd, SelectX, SelectXFocus, LinSelectX
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Select.html)

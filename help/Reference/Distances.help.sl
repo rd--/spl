@@ -5,7 +5,7 @@ _Distances(x=0, y=0, z=0, coordinateList)_
 Calculate distances between an index location _(x, y, z)_ and each element of _coordinateList_.
 
 - x,y,z: cartesian coordinate of index location
-- coordinateList: array of cartesian triples
+- coordinateList: list of cartesian triples
 
 There are as many output channels as there are entries in _coordinateList_,
 ie. the output channel count is _coordinateList.size / 3_.

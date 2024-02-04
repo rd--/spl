@@ -2,7 +2,7 @@
 
 - _asRecord(anAssociationList | aMap)_
 
-Convert an array of Association or a Map to a Record.
+Convert a List of Association or a Map to a Record.
 
 	['x' -> 1, 'y' -> 2].asRecord = (x: 1, y: 2)
 

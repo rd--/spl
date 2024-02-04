@@ -1,6 +1,6 @@
 # SortedList -- collection type
 
-An array where insertions (using _add_ and _addAll_) maintain the array ordering, which is specified by a sort block.
+A list where insertions (using _add_ and _addAll_) maintain the list ordering, which is specified by a sort block.
 
 * * *
 

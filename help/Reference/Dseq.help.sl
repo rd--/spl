@@ -5,7 +5,7 @@ Sequence generator.
 _Dseq(repeats=1, list)_
 
 - repeats: number of repeats
-- list: an array of values or other Ugens
+- list: a list of values or other Ugens
 
 Demand rate sequence generator.
 

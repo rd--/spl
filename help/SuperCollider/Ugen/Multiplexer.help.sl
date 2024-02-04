@@ -9,7 +9,7 @@ let signalB = Select(selector, inputList);
 let signalC = Demultiplexer(numChannels, signalA, selector).Sum;
 [signalA, signalB, signalC].Splay2
 
-{- Multiplexer ; array expansion at first input -}
+{- Multiplexer ; list expansion at first input -}
 let m = [0 2 3 5 7 9] + 48;
 let k = m.size + 1;
 let x = MouseX(0, k, 0, 0.2);

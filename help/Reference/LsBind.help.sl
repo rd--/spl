@@ -35,7 +35,7 @@ LsBind(
 ).play
 ```
 
-Dyads courtesy array expansion:
+Dyads courtesy list expansion:
 
 ```
 LsBind(

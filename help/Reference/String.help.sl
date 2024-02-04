@@ -13,7 +13,7 @@ and fetching an indexed location in a string answers a Character.
 
 	'string'[1] = 's'.asCharacter
 
-Strings are not arrays of Characters.
+Strings are not lists of Characters.
 
 Strings are immutable, i.e. there is no _atPut_ implementation.
 

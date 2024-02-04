@@ -8,7 +8,7 @@ sorted according to the least distance between the index location and the entrie
 
 - numChannels: the number of nearest coordinate indices to output
 - x,y,z: cartesian coordinate of index location
-- coordinateList: array of cartesian triples
+- coordinateList: list of cartesian triples
 
 Read index location from either Pen or Mouse input.
 The distance from four equally spaced co-ordinates on the unit circle controls the relative amplitude of four distinctly high-pass filtered noise signals.

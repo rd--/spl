@@ -1,6 +1,6 @@
 # Heap
 
-A binary heap, a kind of binary tree stored in a linear array.
+A binary heap, a kind of binary tree stored in a linear list.
 
 Heaps are useful for priority queues because:
 

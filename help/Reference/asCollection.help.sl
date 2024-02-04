@@ -4,14 +4,14 @@
 - _asCollection(anObject)_ ⟹ _[anObject]_
 
 If the argument is a collection, answer the collection,
-else answer a single element array containing the argument.
+else answer a single element list containing the argument.
 
 	1.asCollection = [1]
 	[1].asCollection = [1]
-	let a = [1];  a.asCollection == a
+	let a = [1]; a.asCollection == a
 
 * * *
 
-See also: List, asList, assertIsCollection
+See also: asList, assertIsCollection, List, nest
 
 Categories: Converting

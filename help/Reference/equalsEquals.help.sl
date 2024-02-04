@@ -12,7 +12,7 @@ String and integers are identical:
 	'abc' == 'abc'
 	123 == 123
 
-Complex numbers, fractions and arrays are not:
+Complex numbers, fractions and lists are not:
 
 	(1j1 == 1j1).not
 	(1/3 == 1/3).not

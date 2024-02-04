@@ -117,7 +117,7 @@ let s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); [1 2.flat 2 3 3.cancelFlat 4 5.flat 
 'x' + 'y' = 'x y' {- catenation with space -}
 '/usr' +/+ 'local' = '/usr/local' {- file path catenation -}
 let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
-[1, 3, 5, 7, 9].isSeries = true {- is array an arithmetic series -}
+[1 3 5 7 9].isSeries = true {- is a list an arithmetic series -}
 [1 .. 7].collect { :x | x.asBinaryDigits(3) } = [[0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]]
 23.asDigits(2, 5) = [1, 0, 1, 1, 1] {- binary -}
 23.asDigits(8, 2) = [2, 7] {- octal digits -}
@@ -148,13 +148,13 @@ let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [1, 2, 3].levenshteinDistance([1, 3, 2]) = 2 {- substitutions -}
 [1 .. 4].similarity([1 .. 4]) = 1 {- similarity based on Levenshtein distance (1 = equal) -}
 [1 .. 4].similarity([5 .. 8]) = 0 {- similarity based on Levenshtein distance (0 = unequal) -}
-[1 .. 4].similarity([1, 3, 2, 4]) = 0.5 {- similarity based on Levenshtein distance -}
-[1 .. 4].mirror = [1, 2, 3, 4, 3, 2, 1] {- append reverse of prefix of array -}
-1:4.mirror1 = [1, 2, 3, 4, 3, 2] {- mirror without last element -}
-1:4.mirror2 = [1, 2, 3, 4, 4, 3, 2, 1] {- append reverse of array -}
+[1 .. 4].similarity([1 3 2 4]) = 0.5 {- similarity based on Levenshtein distance -}
+[1 .. 4].mirror = [1 2 3 4 3 2 1] {- append reverse of prefix of list -}
+1:4.mirror1 = [1 2 3 4 3 2] {- mirror without last element -}
+1:4.mirror2 = [1 2 3 4 4 3 2 1] {- append reverse of list -}
 [1 .. 9].normalizeSum.sum = 1 {- self / self.sum -}
 [1 .. 9].normalize(10, 90) = [10, 20 .. 90] {- normalise between minima and maxima -}
-[1 .. 5].wrapExtend(9) = ([1 .. 5] ++ [1 .. 4]) {- extend array cyclically -}
+[1 .. 5].wrapExtend(9) = ([1 .. 5] ++ [1 .. 4]) {- extend list cyclically -}
 [1 .. 5].wrapExtend(3) = [1 .. 3] {- truncate is required -}
 1:9.clump(3) = [[1 .. 3], [4 .. 6], [7 .. 9]] {- chunks of n places -}
 1:7.clump(3) = [[1 .. 3], [4 .. 6], [7]] {- chunks of n places, last segment may have less places -}
@@ -187,14 +187,14 @@ let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [10, 20].obtain(3, 30) = 30
 7.obtain(2, 1) = 1 {- obtain is defined at Object -}
 7.obtain(1, nil) = 7
-[10, 20, 30, 40].instill(3, -30, nil) = [10, 20, -30, 40] {- atPut or extends array if required -}
+[10, 20, 30, 40].instill(3, -30, nil) = [10, 20, -30, 40] {- atPut or extends list if required -}
 [10, 20].instill(3, -30, nil) = [10, 20, -30]
 [10].instill(3, -30, 20) = [10, 20, -30]
 10.instill(3, -30, 20) = [10, 20, -30] {- instill is defined at Object -}
 10.instill(1, -10, nil) = -10
 nil ? { 'x' } = 'x' {- right hand side if nil -}
 'x' ? { 'y' } = 'x' {- left hand side unless nil -}
-List(4).fill { :i | i * 2 } = [2, 4, 6, 8] {- fill array using block at indicies -}
+List(4).fill { :i | i * 2 } = [2, 4, 6, 8] {- fill list using block at indicies -}
 3/2.RatioCents.rounded = 702 {- ratio (interval) to cents -}
 3/2.RatioCents ~ 702 {- ratio (interval) to cents -}
 702.CentsRatio ~ 1.5 {- cents (interval) to ratio -}
@@ -231,11 +231,11 @@ List(4).fill { :i | i * 2 } = [2, 4, 6, 8] {- fill array using block at indicies
 [1 2 3; 4 5 6].shape = [2 3] {- size of shape is rank -}
 [1 2; 3 4; 5 6].shape = [3 2] {- size of each element is size at depth -}
 [1 2; 3; 4 5 6].shape = [3, 2] {- rank and shape both assume and do not check regularity -}
-[4].iota = [1, 2, 3, 4] {- array with counter -}
+[4].iota = [1 2 3 4] {- list with counter -}
 [3, 2].iota = [[1, 2], [3, 4], [5, 6]] {- matrix (two-dimensional array) with counter -}
 [3, 2, 1].iota = [[[1], [2]], [[3], [4]], [[5], [6]]] {- three-dimensional array with counter -}
 [3, 2, 1].iota.rank = 3 {- iota rank is size of input -}
-[3, 2, 1].iota.shape = [3, 2, 1] {- iota shape is input array -}
+[3 2 1].iota.shape = [3 2 1] {- iota shape is input list -}
 [3, 2, 1].iota.reshape([2, 3, 1]).shape = [2, 3, 1] {- shape after reshape is requested shape -}
 [4, 7, 6, 8].reshape([2, 2]) = [[4, 7], [6, 8]] {- reshape array given Apl type shape value -}
 [4, 7, 6, 8].reshape([2, 3]) = [[4, 7, 6], [8, 4, 7]] {- cycle input as required -}

@@ -4,9 +4,9 @@ _SinOscBank(freqList, ampList, phaseList)_
 
 A summed set of fixed frequency sin oscillators.
 
-- freqList: frequency array
-- ampList: amplitude array
-- phaseList: phase array
+- freqList: frequency list
+- ampList: amplitude list
+- phaseList: phase list
 
 Crossfading randomised oscillator banks:
 

@@ -27,7 +27,7 @@ This rule can make writing temporaries with long initializers spanning multiple 
 _Rationale_: Initialising temporary variables as they are declared makes it clear in which cases they are used simply as names (assigned to using the `=` notation) and in which cases they are used as mutable state (assigned to using `:=`).
 
 _Subtleties_:
-The array and dictionary initialisers must only evaluate the right hand side once.
+The list and dictionary initialisers must only evaluate the right hand side once.
 A gensym-ed private name is used to store the initial value, and that name is used for the destructuring.
 
 This syntax can make programs that declare many variables, or that comment on variables between each declaration, clearer to read.

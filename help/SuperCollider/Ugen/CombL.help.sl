@@ -1,4 +1,4 @@
-{- CombL ; array expansion (interior duplication) -}
+{- CombL ; list expansion (interior duplication) -}
 let n = 8;
 EqPan2(
 	CombL(

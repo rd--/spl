@@ -2,7 +2,7 @@
 
 - _tuplesIndicesDo(size, n, aBlock:/1)
 
-Iterates through each index sequence for an array of _size_ places to generate the all _n_-tuples,
+Iterates through each index sequence for a list of _size_ places to generate all _n_-tuples,
 evaluating _aBlock:/1_ at each index array.
 
 * * *

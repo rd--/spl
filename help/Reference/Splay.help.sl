@@ -3,7 +3,7 @@
 - _Splay(inList, spread=1)_
 - _Splay(inList)_ == _Splay(inList, 1)_
 
-Pan an array of signals at equally spaced locations across the main output channels,
+Pan a list of signals at equally spaced locations across the main output channels,
 as configured in Preferences.
 
 ```
@@ -14,7 +14,7 @@ let k = 16;
 ```
 
 There is a special case,
-where if the size of the input array is equal to the number of available channels,
+where if the size of the input list is equal to the number of available channels,
 the input is sent directly and no panning is performed.
 
 * * *

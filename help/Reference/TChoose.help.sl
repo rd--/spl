@@ -1,13 +1,15 @@
-# TChoose -- randomly select one of several inputs
+# TChoose
 
-_TChoose(trig, array)_
+Randomly select one of several inputs.
 
-An output is selected randomly on receiving a trigger from an array of inputs.
+_TChoose(trig, list)_
+
+An output is selected randomly on receiving a trigger from a list of inputs.
 
 TChoose is defined in terms of Select and TiRand.
 
 - trig: select new input
-- array: array of inputs
+- list: list of inputs
 
 Cycle though oscillator types, mouse control of trigger density:
 

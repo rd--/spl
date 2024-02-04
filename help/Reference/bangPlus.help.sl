@@ -4,8 +4,8 @@
 
 Duplicate and Sum.
 
-Names the idiom of generating an array and then immediately summing it.
-This operator does not need to construct the intermediate array structure to calculate the answer.
+Names the idiom of generating a list and then immediately summing it.
+This operator does not need to construct the intermediate list structure to calculate the answer.
 
 ```
 { :tr |

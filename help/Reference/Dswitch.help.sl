@@ -8,7 +8,7 @@ before looking up the next index.
 
 _Dswitch(index, list)_
 
-- list: array of values or other ugens
+- list: list of values or other ugens
 - index: which of the inputs to return
 
 ```

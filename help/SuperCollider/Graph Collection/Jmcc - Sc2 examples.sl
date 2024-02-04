@@ -198,12 +198,12 @@ z * EnvGen(1, 1, 0, 1, 2, e.asList) {- wrap a one minute envelope around entire 
 
 {-********* synthetic piano ; Jmcc *********-}
 let n = 6; {- number of keys playing -}
-{ {- mix an array of notes -}
+{ {- mix an list of notes -}
 	let pitch = (36 + 54.Rand0); {- calculate delay based on a random note -}
 	let strike = Impulse(0.1 + 0.4.Rand0, 0) * 0.1; {- random period for each key -}
 	let hammerEnv = Decay2(strike, 0.008, 0.04); {- excitation envelope -}
 	EqPan2(
-		{- array of 3 strings per note -}
+		{- list of 3 strings per note -}
 		1:3.collect { :i |
 			{- detune strings, calculate delay time -}
 			let detune = [-0.05, 0, 0.04].at(i);
@@ -425,7 +425,7 @@ let amp = 0.07;
 let density = MouseX(0.01, 1, 0, 0.2); {- mouse determines density of excitation -}
 let dmul = density.Recip * 0.5 * amp; {- calculate multiply and add for excitation probability -}
 let dadd = dmul.Neg + amp;
-let signal = Sum( {- mix an array of 4 instruments -}
+let signal = Sum( {- mix a list of 4 instruments -}
 	{
 		{- if amplitude is below zero it is clipped, density determines the probability of being above zero -}
 		let excitation = PinkNoise() * Max(0, LfNoise1(8).MulAdd(dmul, dadd));
