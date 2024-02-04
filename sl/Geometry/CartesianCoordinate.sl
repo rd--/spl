@@ -132,7 +132,7 @@ CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
 
 }
 
-+List {
++@Sequenceable {
 
 	asCartesianCoordinate { :self |
 		let [x, y, z] = self;
@@ -145,14 +145,6 @@ CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
 
 	asCartesianCoordinate { :self |
 		CartesianCoordinate(self::x, self::y, self::z)
-	}
-
-}
-
-+ThreeTuple {
-
-	asCartesianCoordinate { :self |
-		CartesianCoordinate(self.first, self.second, self.third)
 	}
 
 }

@@ -1,87 +1,61 @@
-@Tuple {
+{- Requires: List -}
 
-	isTuple { :self |
-		true
+Tuple : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
+
+	asList { :self |
+		self.contents.copy
 	}
 
-}
-
-+@Object {
-
-	isTuple { :self |
-		false
+	at { :self :index |
+		self.contents[index]
 	}
 
-}
-
-TwoTuple : [Object, Tuple] { | first second |
-
-	= { :self :anObject |
-		anObject.isTwoTuple & {
-			self.first = anObject.first & {
-				self.second = anObject.second
-			}
-		}
+	atPut { :self :index :anObject |
+		self.contents[index] := anObject
 	}
 
-	size { :self |
-		2
+	copy { :self |
+		self.contents.asTuple
 	}
 
-}
+	do { :self :aBlock:/1 |
+		self.contents.do(aBlock:/1)
+	}
 
-ThreeTuple : [Object, Tuple] { | first second third |
-
-	= { :self :anObject |
-		anObject.isThreeTuple & {
-			self.first = anObject.first & {
-				self.second = anObject.second & {
-					self.third = anObject.third
-				}
-			}
-		}
+	indices { :self |
+		self.contents.indices
 	}
 
 	size { :self |
-		3
+		self.contents.size
+	}
+
+	species { :self |
+		Tuple:/1
+	}
+
+	storeString { :self:/1 |
+		'(' ++ self.collect(storeString:/1).joinSeparatedBy(', ') ++ ')'
 	}
 
 }
 
-FourTuple : [Object, Tuple] { | first second third fourth |
++@Integer {
 
-	= { :self :anObject |
-		anObject.isFourTuple & {
-			self.first = anObject.first & {
-				self.second = anObject.second & {
-					self.third = anObject.third & {
-						self.fourth = anObject.fourth
-					}
-				}
-			}
-		}
+	Tuple { :size |
+		List(size).asTuple
 	}
 
-	size { :self |
-		4
+	Tuple { :size :anObject |
+		List(size, anObject).asTuple
 	}
 
 }
 
-+@Object {
++List {
 
-	Tuple { :first :second |
-		newTwoTuple().initializeSlots(first, second)
-	}
-
-
-	Tuple { :first :second :third |
-		newThreeTuple().initializeSlots(first, second, third)
-	}
-
-
-	Tuple { :first :second :third :fourth |
-		newFourTuple().initializeSlots(first, second, third, fourth)
+	asTuple { :self |
+		newTuple().initializeSlots(self.copy)
 	}
 
 }
@@ -89,13 +63,7 @@ FourTuple : [Object, Tuple] { | first second third fourth |
 +@Sequenceable {
 
 	asTuple { :self |
-		self.size.caseOfOtherwise([
-			{ 2 } -> { (self[1], self[2]) },
-			{ 3 } -> { (self[1], self[2], self[3]) },
-			{ 4 } -> { (self[1], self[2], self[3], self[4]) }
-		]) {
-			'@Sequenceable>>asTuple'.error
-		}
+		self.asList.asTuple
 	}
 
 }

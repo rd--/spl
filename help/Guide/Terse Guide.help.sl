@@ -1324,7 +1324,7 @@ let n = 3.141; n.copy == n {- copy small float, identity -}
 let n = 23n; n.copy == n {- copy large integer, identity -}
 let s = 'string'; s.copy == s {- copy string, identity -}
 let a = ('x' -> 1); let c = a.copy; c.value := 2; c ~= a & { c = ('x' -> 2) } {- copy association -}
-let t = (0, 0); let c = t.copy; c.first := 1; c ~= t & { c = (1, 0) } {- copy two tuple -}
+let t = (0, 0); let c = t.copy; c[1] := 1; c ~= t & { c = (1, 0) } {- copy two tuple -}
 let f = 3/4; let c = f.copy; c.numerator := 1; c ~= f & { c = 1/4 } {- copy fraction -}
 let c = 2.i; let z = c.copy; z.real := 3; z ~= c & { z = (3 + 2.i) } {- copy complex -}
 let a = [1, [2]]; let c = a.shallowCopy; c[2][1] := -2; c = a & { a = [1, [-2]] } {- shallowCopy array -}
@@ -2778,7 +2778,7 @@ let x = 1; (x:9) = (x: 9) {- white space after colon is optional -}
 let x = 9; (9:x) = 9:x {- interval literals may have identifiers as upper bound -}
 (x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2] {- array of associations at record -}
 (x: 1, y: 2).asList = [1, 2] {- values as List -}
-let d = (x: 1, y: 2, z: 3); let (x, z) = d; [x, z] = [1, 3]
+let d = (x: 1, y: 2, z: 3); let (x, z) = d; [x, z] = [1, 3] {- partial dictionary match -}
 let (x, y) = { let n = system.nextRandomFloat; (x: n, y: n) }.value; x = y
 (x:1, y:2, z:3).select(even:/1) = (y: 2)
 (x:1, y:2, z:3).sum = 6
@@ -3929,7 +3929,7 @@ system.methodLookupAtType('sum', 1, 'List') == system.methodLookupAtType('sum', 
 system.packageDictionary.isDictionary = true
 system.packageDictionary.isEmpty = false
 let t = system.packageTypes('Complex'); t.size = 1 & { t[1].name = 'Complex' }
-let t = system.packageTraits('Tuple'); t.size = 1 & { t[1].name = 'Tuple' }
+let t = system.packageTraits('Iterable'); t.size = 1 & { t[1].name = 'Iterable' }
 system.packageMethods('Frequency').detect { :each | each.name = 'asHertz' }.arity = 1
 ```
 
@@ -4066,25 +4066,43 @@ let t = 1676784053576.TimeStamp; let c = t.copy; c ~~ t & { c = t }
 
 ## Tuple -- collection type
 ```
-system.includesPackage('Tuple') {- tuple package -}
-(1, 2).typeOf = 'TwoTuple' {- type of -}
-(1, 2).isTwoTuple {- type predicate -}
-(1, 2).isTuple {- trait predicate -}
-(1, 2).first = 1 {- field accessor -}
-(1, 2).second = 2 {- field accessor -}
-let t = (1, 2); t.first := 3; t = (3, 2) {- field mutator -}
-let t = (1, 2); t.second := 3; t = (1, 3) {- field mutator -}
-(1, 2).size = 2 {- size -}
-(1, 2, 3).typeOf = 'ThreeTuple' {- type of -}
-(1, 2, 3).isThreeTuple {- type predicate -}
-(1, 2, 3).isTuple {- trait predicate -}
-(1, 2, 3).first = 1 {- field accessor -}
-(1, 2, 3).second = 2 {- field accessor -}
-(1, 2, 3).third = 3 {- field accessor -}
-let t = (1, 2, 3); t.first := 4; t = (4, 2, 3) {- field mutator -}
-let t = (1, 2, 3); t.second := 4; t = (1, 4, 3) {- field mutator -}
-let t = (1, 2, 3); t.third := 4; t = (1, 2, 4) {- field mutator -}
-(1, 2, 3).size = 3 {- size -}
+system.includesPackage('Tuple') {- package -}
+(1, 2).typeOf = 'Tuple' {- type of -}
+(1, 2).isTuple {- type predicate -}
+(1, 2).first = 1 {- first element -}
+(1, 2).second = 2 {- second element -}
+let t = (1, 2); t[1] := 3; t = (3, 2) {- mutate first -}
+let t = (1, 2); t[2] := 3; t = (1, 3) {- mutate second -}
+(1, 2).size = 2 {- size of -}
+(1, 2, 3).typeOf = 'Tuple' {- type of -}
+(1, 2, 3).isTuple {- type predicate -}
+(1, 2, 3).first = 1 {- first element -}
+(1, 2, 3).second = 2 {- second element -}
+(1, 2, 3).third = 3 {- third element -}
+let t = (1, 2, 3); t[1] := 4; t = (4, 2, 3) {- mutate first -}
+let t = (1, 2, 3); t[2] := 4; t = (1, 4, 3) {- mutate second -}
+let t = (1, 2, 3); t[3] := 4; t = (1, 2, 4) {- mutate third -}
+(1, 2, 3).size = 3 {- size of -}
+[1 2 3].asTuple = (1, 2, 3) {- from list -}
+(1, 2, 3).rotatedLeft = (2, 3, 1) {- rotated left -}
+(1, 2, 3).rotatedRight = (3, 1, 2) {- rotated right -}
+(1, 2, 3).typeOf = 'Tuple' {- type of -}
+(1, 2, 3).isTuple = true {- type predicate -}
+(1, 2, 3).size = 3 {- size of -}
+(1, 2, 3).species = Tuple:/1 {- species -}
+(1, 2, 3).isCollection = true {- collection trait -}
+(1, 2, 3).isIndexable = true {- indexable trait -}
+(1, 2, 3).isSequenceable = true {- sequenceable trait -}
+Tuple(0).isEmpty = true {- the empty tuple -}
+[1 .. 5].asTuple.first = 1 {- from list -}
+1:5.asTuple.second = 2 {- from interval -}
+1:5.asTuple.asList = [1 .. 5] {- as list -}
+1:5.asTuple.reversed.first = 5 {- reversed -}
+let t = (1, 2, 3); t[3] = 3 {- at protocol -}
+let t = (1, 2, 3); t[3] := '3'; t = (1, 2, '3') {- atPut protocol -}
+let t = (1, 2, 3); let c = t.copy; t[3] := '3'; c[3] = 3 {- copy -}
+(1, 4, 9).collect(sqrt:/1) = (1, 2, 3) {- collect -}
+(1, 4, 9).reduce(+) = 14 {- reduce -}
 ```
 
 ## Type -- reflection type
@@ -4178,11 +4196,11 @@ system.includesPackage('Unordered') {- package -}
 system.includesPackage('RectangularCoordinate') {- package -}
 RectangularCoordinate(0, 0).typeOf = 'RectangularCoordinate' {- type of -}
 RectangularCoordinate(-1, 1).isRectangularCoordinate = true
-[1, 2].asRectangularCoordinate = RectangularCoordinate(1, 2) {- two vector from array -}
-(1, 2).asRectangularCoordinate = RectangularCoordinate(1, 2) {- two vector from tuple -}
-(x: 1, y: 2).asRectangularCoordinate = RectangularCoordinate(1, 2) {- two vector from array -}
+[1, 2].asRectangularCoordinate = RectangularCoordinate(1, 2) {- from list -}
+(1, 2).asRectangularCoordinate = RectangularCoordinate(1, 2) {- from tuple -}
+(x: 1, y: 2).asRectangularCoordinate = RectangularCoordinate(1, 2) {- from record -}
 Point(-1, 1).isRectangularCoordinate = true {- point constructor -}
-[1, 2].asPoint = Point(1, 2) {- array as point -}
+[1, 2].asPoint = Point(1, 2) {- list as point -}
 (1, 2).asPoint = Point(1, 2) {- tuple as point -}
 (x: 1, y: 2).asPoint = Point(1, 2) {- record as point -}
 Point(3, 4).isPoint & { true } = true
@@ -4243,9 +4261,9 @@ Point(1, 1).normalized.norm ~ 1
 
 ## CartesianCoordinate -- geometry type
 ```
-[1, 2, 3].asCartesianCoordinate = CartesianCoordinate(1, 2, 3) {- three vector from array -}
-(1, 2, 3).asCartesianCoordinate = CartesianCoordinate(1, 2, 3) {- three vector from tuple -}
-(x: 1, y: 2, z: 3).asCartesianCoordinate = CartesianCoordinate(1, 2, 3) {- three vector from array -}
+[1, 2, 3].asCartesianCoordinate = CartesianCoordinate(1, 2, 3) {- from list -}
+(1, 2, 3).asCartesianCoordinate = CartesianCoordinate(1, 2, 3) {- from tuple -}
+(x: 1, y: 2, z: 3).asCartesianCoordinate = CartesianCoordinate(1, 2, 3) {- from record -}
 [1, 2, 3].asPoint = Point(1, 2, 3) {- array as point -}
 (1, 2, 3).asPoint = Point(1, 2, 3) {- tuple as point -}
 (x: 1, y: 2, z: 3).asPoint = Point(1, 2, 3) {- record as point -}
@@ -4279,35 +4297,15 @@ Point(1.cos, 1.sin, 1).asCylindricalCoordinate.asRecord = (rho: 1, phi: 1, z: 1)
 
 ## FourVector -- geometry type
 ```
-[1, 2, 3, 4].asFourVector = FourVector(1, 2, 3, 4) {- four vector from array -}
-(1, 2, 3, 4).asFourVector = FourVector(1, 2, 3, 4) {- four vector from tuple -}
-(w: 1, x: 2, y: 3, z: 4).asFourVector = FourVector(1, 2, 3, 4) {- four vector from record -}
+[1, 2, 3, 4].asFourVector = FourVector(1, 2, 3, 4) {- from list -}
+(1, 2, 3, 4).asFourVector = FourVector(1, 2, 3, 4) {- from tuple -}
+(w: 1, x: 2, y: 3, z: 4).asFourVector = FourVector(1, 2, 3, 4) {- from record -}
 [1, 2, 3, 4].asPoint = Point(1, 2, 3, 4) {- array as point -}
 (1, 2, 3, 4).asPoint = Point(1, 2, 3, 4) {- tuple as point -}
 (w: 1, x: 2, y: 3, z: 4).asPoint = Point(1, 2, 3, 4) {- record as point -}
-let a = [1, 2, 3, 4]; let v = a.asPoint; v.asList = [1, 2, 3, 4] {- four vector to array -}
+let a = [1 2 3 4]; let v = a.asPoint; v.asList = [1 2 3 4] {- to list -}
 Point(0, 0, 0, 0).isZero {- are w, x, y and z all zero -}
 let v = Point(1, 2, 3, 4); [v.w, v.x, v.y, v.z] = [1, 2, 3, 4] {- fields are w, x, y, z -}
-```
-
-## Vector -- collection type
-```
-system.includesPackage('Vector') {- package -}
-Vector(9).typeOf = 'Vector' {- type of -}
-Vector(9).isVector = true {- type predicate -}
-Vector(9).size = 9 {- vector of size -}
-Vector(9).species = Vector:/1 {- species -}
-Vector(9).isCollection = true {- collection trait -}
-Vector(9).isIndexable = true {- indexable trait -}
-Vector(9).isSequenceable = true {- sequenceable trait -}
-Vector(0).isEmpty = true {- the empty vector -}
-[1 .. 5].asVector.first = 1 {- array as vector -}
-1:5.asVector.second = 2 {- interval as vector -}
-1:5.asVector.asList = [1 .. 5] {- vector as array -}
-1:5.asVector.reversed.first = 5 {- reversed -}
-let v = Vector(9); v[5] = nil {- at protocol, initialised to nil -}
-let v = Vector(9); v[5] := 5; v[5] = 5 {- atPut protocol -}
-let v = Vector(9); let c = v.copy; v[5] := 5; c[5] = nil {- copy -}
 ```
 
 ## WeakMap -- collection type

@@ -5,7 +5,7 @@ Formlet(Impulse(20, 0.5), 1000, 0.01, 0.1)
 Formlet(Blip(XLine(10, 400, 8), 1000) * 0.2, 1000, 0.01, 0.1)
 
 {- Formlet -}
-Formlet (Blip(XLine([10, 15], [400, 700], 8), 1000) * 0.2, 1000, 0.01, 0.1)
+Formlet(Blip(XLine([10, 15], [400, 700], 8), 1000) * 0.2, 1000, 0.01, 0.1)
 
 {- Formlet ; mouse control of frequency and decay time -}
 let f = LinExp(LfNoise2([1, 3]), -1, 1, [10, 15], [400, 700]);

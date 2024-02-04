@@ -44,7 +44,7 @@ CylindricalCoordinate : [Object] { | rho phi z |
 
 }
 
-+List {
++[List, Tuple] {
 
 	asCylindricalCoordinate { :self |
 		let [rho, phi, z] = self;
@@ -57,14 +57,6 @@ CylindricalCoordinate : [Object] { | rho phi z |
 
 	asCylindricalCoordinate { :self |
 		CylindricalCoordinate(self::rho, self::phi, self::z)
-	}
-
-}
-
-+ThreeTuple {
-
-	asCylindricalCoordinate { :self |
-		CylindricalCoordinate(self.first, self.second, self.third)
 	}
 
 }

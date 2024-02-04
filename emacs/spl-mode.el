@@ -220,7 +220,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
    `(,(regexp-opt '("do" "if" "ifEmpty" "ifFalse" "ifNil" "ifNotNil" "ifTrue" "kr" "timesRepeat" "whileFalse" "whileTrue") 'symbols) . font-lock-function-name-face)
    `(,(regexp-opt '("error" "warn") 'symbols) . font-lock-warning-face)
    '("\\<[A-Z][a-zA-Z0-9]*\\>" . font-lock-type-face)
-   '(":[a-z][a-zA-Z0-9]*" . 'font-lock-variable-name-face)
+   '(" :[a-z][a-zA-Z0-9]*" . 'font-lock-variable-name-face)
    '("primitive:" . 'font-lock-warning-face))
   "Spl font-lock rules.")
 

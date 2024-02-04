@@ -229,7 +229,7 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 
 }
 
-+List {
++[List, Tuple] {
 
 	asRectangularCoordinate { :self |
 		let [x, y] = self;
@@ -242,14 +242,6 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 
 	asRectangularCoordinate { :self |
 		RectangularCoordinate(self::x, self::y)
-	}
-
-}
-
-+TwoTuple {
-
-	asRectangularCoordinate { :self |
-		RectangularCoordinate(self.first, self.second)
 	}
 
 }

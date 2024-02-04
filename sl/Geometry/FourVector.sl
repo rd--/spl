@@ -65,7 +65,7 @@ FourVector : [Object] { | w x y z |
 
 }
 
-+FourTuple {
++Tuple {
 
 	asFourVector { :self |
 		FourVector(self.first, self.second, self.third, self.fourth)

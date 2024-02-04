@@ -15,8 +15,7 @@
 	'Set'
 	'Stack' {- LinkedList -}
 	'SortedList'
-	'Tuple'
-	'Vector' {- List -}
+	'Tuple' {- List -}
 	'WeakMap'
 
 	{- Geometry -}

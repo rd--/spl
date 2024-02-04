@@ -90,26 +90,16 @@
 
 }
 
-+TwoTuple {
++Tuple {
 
 	asPoint { :self |
-		RectangularCoordinate(self.first, self.second)
-	}
-
-}
-
-+ThreeTuple {
-
-	asPoint { :self |
-		CartesianCoordinate(self.first, self.second, self.third)
-	}
-
-}
-
-+FourTuple {
-
-	asPoint { :self |
-		FourVector(self.first, self.second, self.third, self.fourth)
+		self.size.caseOfOtherwise([
+			{ 2 } -> { RectangularCoordinate(self.first, self.second) },
+			{ 3 } -> { CartesianCoordinate(self.first, self.second, self.third) },
+			{ 4 } -> { FourVector(self.first, self.second, self.third, self.fourth) }
+		]) {
+			'Tuple>>asPoint'.error
+		}
 	}
 
 }

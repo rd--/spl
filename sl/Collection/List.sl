@@ -39,6 +39,25 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		>
 	}
 
+	diagonalMatrix { :self |
+		let k = self.size;
+		let answer = k.zeroMatrix(k);
+		1.toDo(k) { :each |
+			answer[each][each] := self[each]
+		};
+		answer
+	}
+
+	isMatrix { :self |
+		self.allSatisfy { :each | each.isList & { each.isVector } }.and {
+			self.collect(size:/1).asSet.size = 1
+		}
+	}
+
+	isVector { :self |
+		self.noneSatisfy(isList:/1)
+	}
+
 	printString { :self :toString:/1 |
 		'[' ++ self.collect(toString:/1).joinSeparatedBy(', ') ++ ']'
 	}
