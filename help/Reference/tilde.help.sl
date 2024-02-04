@@ -1,4 +1,4 @@
-# ~ -- comparing
+# ~
 
 - _p ~ q_ ⟹ _closeTo(p, q)_
 
@@ -20,3 +20,5 @@ Unicode: ≈ U+2248 Almost Equal To
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Not_Match)
+
+Categories: Comparing

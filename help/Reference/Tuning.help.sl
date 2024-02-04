@@ -1,4 +1,4 @@
-# Tuning -- music trait
+# Tuning
 
 A Tuning is a sequence of intervals, one of which is marked especially as the _octave_ interval.
 
@@ -21,3 +21,5 @@ A _CentsTuning_ is a type where the intervals are stored as cents.
 * * *
 
 See also: cents, CentsTuning, isRational, limit, octave, RatioTuning, ratios, size
+
+Categories: Music, Trait

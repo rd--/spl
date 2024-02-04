@@ -1,4 +1,4 @@
-# TimeStamp -- time type
+# TimeStamp
 
 A type to represent a zero duration point in time.
 
@@ -14,3 +14,5 @@ i.e. the number of milliseconds since the Unix epoch (1970-01-01).
 * * *
 
 See also: Date, Duration
+
+Categories: Time, Type

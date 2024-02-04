@@ -1,4 +1,6 @@
-# TrigRoundRobin -- trigger round robin allocator
+# TrigRoundRobin
+
+Trigger round robin allocator.
 
 _TrigRoundRobin(numChannels=8, in=0)_
 

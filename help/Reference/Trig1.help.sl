@@ -1,4 +1,6 @@
-# Trig1 -- timed trigger
+# Trig1
+
+Timed trigger.
 
 _Trig1(in=0, dur=0.1)_
 
@@ -29,3 +31,7 @@ tr.Lag(0.05) * SinOsc(f, 0) * a
 * * *
 
 See also: Trig
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Trig1.html)

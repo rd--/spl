@@ -1,4 +1,6 @@
-# TRand -- triggered random number generator
+# TRand
+
+Triggered random number generator.
 
 _TRand(lo=0, hi=1, trig=0)_
 
@@ -19,3 +21,7 @@ SinOsc(TRand(300, 3000, tr), 0) * 0.1
 * * *
 
 See also: IRand, Rand, TiRand
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/TRand.html)

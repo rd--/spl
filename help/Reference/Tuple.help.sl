@@ -1,4 +1,4 @@
-# Tuple -- collection trait
+# Tuple
 
 An n-tuple is an ordered set of n elements.
 
@@ -11,3 +11,5 @@ There is a syntax for writing tuples, _(p, q) ⇒ Tuple(p, q)_ &etc.
 * * *
 
 See also: Array
+
+Categories: Collection, Trait

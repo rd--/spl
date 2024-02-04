@@ -1,4 +1,4 @@
-# toDo -- intervals
+# toDo
 
 - _toDo(start, stop, aBlock:/1)_ ≡ _to(start, stop).do(aBlock:/1)_
 
@@ -8,3 +8,5 @@ If stop is less than start the interval is empty and there are no values to iter
 * * *
 
 See also: do, downToDo, to, toByDo, upToDo
+
+Categories: enumeration, Interval

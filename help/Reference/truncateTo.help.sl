@@ -1,4 +1,4 @@
-# truncateTo -- truncating and rounding
+# truncateTo
 
 - _truncated(aNumber, anotherNumber)_
 
@@ -13,3 +13,5 @@ Answer the next multiple of _anotherNumber_ toward zero that is nearest the _aNu
 * * *
 
 See also: roundTo, truncated
+
+Categories: Truncating, Rounding

@@ -1,4 +1,4 @@
-# timesRepeat -- enumerating
+# timesRepeat
 
 _timesRepeat(anInteger, aBlock:/0)_
 
@@ -9,3 +9,5 @@ Unlike _toDo_, or _do_ at an _Interval_ the block does not receive the iteration
 * * *
 
 See also: do, iterate, toDo
+
+Categories: Enumerating

@@ -1,4 +1,6 @@
-# Timer -- returns time since last triggered
+# Timer
+
+Returns time since last triggered.
 
 _Timer(trig)_
 
@@ -10,3 +12,8 @@ let trig = Impulse(x, 0);
 SinOsc([x * 20 + 100, Timer(trig) * 500 + 500], 0) * 0.1
 ```
 
+* * *
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Timer.html)

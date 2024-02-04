@@ -1,4 +1,6 @@
-# TLine -- line generator
+# TLine
+
+Line generator.
 
 _TLine(start, end, dur, tr)_
 

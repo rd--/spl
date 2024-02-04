@@ -1,4 +1,4 @@
-# to -- interval constructor
+# to
 
 - _to(start, stop)_ ⟹ _upTo(start, stop)_
 
@@ -10,3 +10,5 @@ Construct an Interval by counting up from _start_ to _stop_ by one.
 * * *
 
 See also: downTo, Interval, thenTo, toBy, upTo
+
+Categories: Interval, Constructor

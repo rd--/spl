@@ -1,4 +1,6 @@
-# ToggleFf -- toggle flip flop
+# ToggleFf
+
+Toggle flip flop.
 
 _ToggleFf(trig)_
 
@@ -16,3 +18,7 @@ SinOsc(ff * 400 + 800, 0) * 0.1
 * * *
 
 See also: SetResetFf
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/ToggleFF.html)

@@ -199,6 +199,20 @@ Array! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, 
 		self.fibonacciSequenceInto([])
 	}
 
+	identityMatrix { :self |
+		let answer = self.zeroMatrix(self);
+		1:self.do { :each |
+			answer[each][each] := 1
+		};
+		answer
+	}
+
+	zeroMatrix { :self :other |
+		1:self.collect { :unused |
+			Array(other, 0)
+		}
+	}
+
 }
 
 +Array {

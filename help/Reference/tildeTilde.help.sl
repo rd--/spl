@@ -1,4 +1,4 @@
-# ~~ -- comparing
+# ~~
 
 - _anObject ~~ anotherObject_
 
@@ -16,3 +16,5 @@ Where supported this operator is displayed as ≢.
 See also: =, ~=, ==, equals, equalsEquals, tildeEquals
 
 Unicode: U+2262 ≢ Not Identical To
+
+Categories: Comparing

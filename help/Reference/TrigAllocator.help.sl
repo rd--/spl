@@ -1,4 +1,6 @@
-# TrigAllocator -- timed trigger allocator
+# TrigAllocator
+
+Timed trigger allocator.
 
 _TrigAllocator(numChannels=8, algorithm=1, in=0, dur=0.1)_
 
