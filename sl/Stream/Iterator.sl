@@ -76,6 +76,24 @@
 		}
 	}
 
+	nextUntil { :self :aBlock:/1 |
+		self.nextWhile { :each |
+			each.aBlock.not
+		}
+	}
+
+	nextWhile { :self :aBlock:/1 |
+		let answer = [];
+		let next = nil;
+		{
+			next := self.next;
+			answer.addLast(next)
+		}.doWhileTrue {
+			next.aBlock
+		};
+		answer
+	}
+
 	readIntoStartingAtCount { :self :aCollection :startIndex :n |
 		valueWithReturn { :return:/1 |
 			0.upToDo(n - 1) { :i |

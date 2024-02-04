@@ -25,6 +25,11 @@ See also: ~=, ==, equalSlots, equalsEquals
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/Equal_to)
+[1](https://aplwiki.com/wiki/Equal_to),
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#t:Eq),
+_Mathematica_
+[1](https://mathworld.wolfram.com/Equal.html)
+[2](https://reference.wolfram.com/language/ref/Equal.html)
 
 Categories: Comparing

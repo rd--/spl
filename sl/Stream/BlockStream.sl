@@ -22,6 +22,21 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 		newBlockStream().initializeSlots(onNext, onReset)
 	}
 
+	fixedPointList { :self:/1 :anObject |
+		self:/1.fixedPointList(anObject, ~)
+	}
+
+	fixedPointList { :self:/1 :anObject :aBlock:/2 |
+		let previous = nil;
+		self:/1.iterate(anObject).nextUntil { :each |
+			let continue = previous.notNil & {
+				aBlock(previous, each)
+			};
+			previous := each;
+			continue
+		}
+	}
+
 	iterate { :self:/1 :anObject |
 		let state = anObject;
 		BlockStream {

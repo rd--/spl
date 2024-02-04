@@ -32,6 +32,10 @@ Sin has the mirror property:
 
 	let n = 2.pi.randomFloat.j(1); n.conjugated.sin = n.sin.conjugated
 
+Fixed point:
+
+	0.sin = 0
+
 * * *
 
 See also: cos, tan

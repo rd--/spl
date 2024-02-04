@@ -31,6 +31,14 @@ Linear congruential pseudorandom generator:
 
 	{ :x | (59 * x) % 101 }.nestList(1, 15) = [1 59 47 46 88 41 96 8 68 73 65 98 25 61 64 39]
 
+Successively append to a string:
+
+	{ :x | x ++ 'x' }.nestList('a', 5) = ['a' 'ax' 'axx' 'axxx' 'axxxx' 'axxxxx']
+
+Successively rotate a list:
+
+	rotatedLeft:/1.nestList([1 2 3 4], 4) = [[1 2 3 4] [2 3 4 1] [3 4 1 2] [4 1 2 3] [1 2 3 4]]
+
 * * *
 
 See also: iterate

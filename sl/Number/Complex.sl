@@ -1,6 +1,6 @@
 {- Requires: Array Number Object -}
 
-Complex : [Object] { | real imaginary |
+Complex : [Object, Number] { | real imaginary |
 
 	= { :self :anObject |
 		self.equalBy(anObject, =)

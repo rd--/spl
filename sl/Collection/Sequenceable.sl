@@ -991,10 +991,18 @@
 		self.rotatedRight(anInteger)
 	}
 
+	rotatedLeft { :self |
+		self.rotatedLeft(1)
+	}
+
 	rotatedLeft { :self :anInteger |
 		(1 + anInteger).toAsCollect(self.size + anInteger, self.species) { :index |
 			self.atWrap(index)
 		}
+	}
+
+	rotatedRight { :self |
+		self.rotatedRight(1)
 	}
 
 	rotatedRight { :self :anInteger |
