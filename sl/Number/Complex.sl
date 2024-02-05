@@ -134,7 +134,6 @@ Complex : [Object, Number] { | real imaginary |
 	arcSin { :self |
 		(self.imaginary = 0).if {
 			(self.real.abs > 1).if {
-				'arcSin: >1j0 branch'.postLine;
 				(pi / 2 * self.real.sign).j(
 					self.real.copySignTo(self.real.abs.arcCosh).negated
 				)

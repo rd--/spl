@@ -179,6 +179,14 @@
 		self >= 0
 	}
 
+	powerMod { :self :exponent :modulo |
+		(exponent > 0).if {
+			(self ^ exponent) % modulo
+		} {
+			'Number>>powerMod: not implemented for negative exponents'
+		}
+	}
+
 	quotientBy { :self :aNumber :aBlock:/1 |
 		(aNumber = 0).if {
 			'@Number>>quotient: divideByZero'.error

@@ -1,12 +1,16 @@
 # at
 
 - _at(aCollection, anIndex)_
+- _atPut(c, i, j, v)_ ⇒ _at(c, i).atPut(j, v)_
+- _atPut(c, i, j, k, v)_ ⇒ _at(c, i).at(j).atPut(k, v)_
 
 Answer the item associated with _anIndex_ in _aCollection_.
 
 If the collection does not support indexing,
 or if the index is not valid,
 report an _error_.
+
+The trait definitions of the extended arity forms are as above.
 
 Lists (and all sequenceable collections) are indexable:
 

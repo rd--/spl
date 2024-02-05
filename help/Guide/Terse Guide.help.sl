@@ -353,9 +353,9 @@ let m = [1 2; 3 4; 5 6]; m[2, 2] := 16; m[3, 1] := 25; m = [1 2; 3 16; 25 6] {- 
 1:5.atIfAbsent(9) { true } {- exception clause if index is invalid -}
 1:5.atIfPresentIfAbsent(9) { :x | false } { true } {- ifPresent and ifAbsent clauses -}
 1:5.atIfPresentIfAbsent(3) { :x | x * x } { false } = 9 {- ifPresent and ifAbsent clauses -}
-let a = [1, 2, 3]; a.atPut(2, 'two') = 'two' & { a = [1, 'two', 3] } {- atPut answers value put -}
+let l = [1 2 3]; l.atPut(2, 'two') = 'two' & { l = [1 'two' 3] } {- atPut answers value put -}
 let a = [1, 2, 3]; (a[2] := 'two') = 'two' & { a = [1, 'two', 3] }
-let a = [1, 2, 3]; a.atModify(2, squared:/1) = 4 & { a = [1, 4, 3] } {- modify value at index -}
+let l = [1, 2, 3]; l.atModify(2, squared:/1) = 4 & { l = [1, 4, 3] } {- modify value at index -}
 [5, 4, 3, 2, 1].detect { :each | each % 2 = 0 } = 4
 { [5, 4, 3, 2, 1].detect { :each | each % 7 = 0 } }.ifError { true }
 [5, 4, 3, 2, 1].detect { :each | each * 2 <= 4 } = 2 {- find first element matching predicate -}
@@ -484,7 +484,7 @@ let l = [1 2 4]; l.addBefore(3, 4) = 3 & { l = [1 2 3 4] } {- insert value befor
 [-1 .. 5].collect { :index | [1 .. 3].atPin(index) } = [1 1 1 2 3 3 3] {- index answering bound if out of bounds -}
 [2, 7, 5, 0, 1, -2].collect { :index | [5, 6, 8].atWrap(index) } = [6, 5, 6, 8, 5, 5] {- at with index wrap-around -}
 (-1 .. 5).collect { :index | 1:3.atWrap(index) } = [2 3 1 2 3 1 2] {- index wrapping if out of bounds -}
-let a = [1, nil, 3]; a.atWrapPut(5, 2); a = [1, 2, 3] {- atPut with index wrap around -}
+let l = [1 nil 3]; l.atWrapPut(5, 2); l = [1 2 3] {- atPut with index wrap around -}
 1:3.atFold(4) = 2 {- at with index fold-around -}
 (-1 .. 5).collect { :index | 1:3.atFold(index) } = [3 2 1 2 3 2 1] {- at with index fold-around -}
 [1 .. 9].difference([3 .. 7]) = [1, 2, 8, 9] {- set theoretic difference of two collections -}
