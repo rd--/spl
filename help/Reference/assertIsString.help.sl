@@ -4,6 +4,11 @@
 
 Answer _anObject_ if it is a _String_, else signal an _Error_.
 
+```
+>>> 'text'.assertIsString
+'text'
+```
+
 * * *
 
 See also: assert, isString

@@ -1,6 +1,6 @@
 # with
 
-- _with(anObject, aBlock:/1)_
+_with(anObject, aBlock:/1)_
 
 Evaluate _aBlock_ with _anObject_ as argument and answer the answer of _aBlock_.
 

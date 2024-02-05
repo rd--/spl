@@ -1,12 +1,11 @@
 +String {
 
-	extractIndentedCodeBlocks { :self |
-		let lines = self.lines;
+	parseMarkdownIndentedCodeBlocks { :self |
 		let answer = [];
 		let previous = '';
 		let inBlock = false;
 		let block = [];
-		lines.do { :current |
+		self.lines.do { :current |
 			current.notEmpty.and {
 				current.first.isTab.and {
 					previous.isEmpty.and {

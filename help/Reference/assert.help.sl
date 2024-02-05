@@ -1,9 +1,29 @@
 # assert
 
 - _assert(anObject, aBlock:/0)_
-- _assert(aBlock:/0)_ ⟹ _assert(aBlock:/0, aBlock:/0)_
+- _assert(α)_ ⇒ _assert(nil, α)_
 
-Throw an assertion error if _aBlock_ does not evaluates to true.
+Throw an assertion error if _aBlock_ does not evaluate to true.
+Answers _anObject_.
+
+```
+>>> 1.pi.assert { true }
+1.pi
+
+>>> { 1.pi.assert { false } }.ifError { true }
+true
+```
+
+In the unary case assert that a block evaluates to true.
+Answers nil.
+
+```
+>>> { true }.assert
+nil
+
+>>> { { false }.assert }.ifError { true }
+true
+```
 
 * * *
 

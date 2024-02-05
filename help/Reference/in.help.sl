@@ -1,6 +1,6 @@
-# in -- accessing
+# in
 
-- _in(anObject, aBlock:/1)_
+_in(anObject, aBlock:/1)_
 
 Evaluate _aBlock_ with _anObject_ as argument and answer the answer of _aBlock_.
 
@@ -12,11 +12,14 @@ to apply a sequence of message sends to an object and answer the value of the la
 See _also_ for a slight variation that answers _anObject_ instead.
 
 ```
-let d = (c: 1);
-let r = d.in { :x | x::c := 2; 0 };
-d = (c: 2) & { r = 0 }
+>>> let d = (c: 1);
+>>> let r = d.in { :x | x::c := 2; 0 };
+>>> d = (c: 2) & { r = 0 }
+true
 ```
 
 * * *
 
 See also: also, value, with
+
+Categories: Accessing

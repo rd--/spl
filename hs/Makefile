@@ -6,8 +6,11 @@ all:
 fixCategory : fixCategory.hs
 	ghc -Wno-x-partial -Wno-incomplete-uni-patterns --make fixCategory
 
+toDoctest : toDoctest.hs
+	ghc -Wno-x-partial -Wno-incomplete-uni-patterns --make toDoctest
+
 toFenced : toFenced.hs
 	ghc -Wno-x-partial -Wno-incomplete-uni-patterns --make toFenced
 
 clean:
-	rm -f fixCategory toFenced *.hi *.o *~
+	rm -f fixCategory toDoctest toFenced *.hi *.o *~

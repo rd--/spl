@@ -104,6 +104,56 @@ Complex : [Object, Number] { | real imaginary |
 		aBlock(aNumber.asComplex, self)
 	}
 
+	arcCos { :self |
+		(self.imaginary = 0).if {
+			(self.real.abs > 1).if {
+				(self.real < 0).if {
+					pi
+				} {
+					0
+				}.j(
+					self.real.copySignTo(self.real.abs.arcCosh)
+				)
+			} {
+				self.real.arcCos.j(0)
+			}
+		} {
+			let tmp = self.squaredNorm - 1 / 2;
+			let delta = tmp.squared + self.imaginary.squared;
+			let sh2y = tmp + delta.sqrt;
+			let shy = sh2y.sqrt;
+			let ch2y = 1 + sh2y;
+			let chy = ch2y.sqrt;
+			(self.real / chy).arcCos.j(
+				self.imaginary.copySignTo(shy.arcSinh.negated)
+			)
+		}
+	}
+
+
+	arcSin { :self |
+		(self.imaginary = 0).if {
+			(self.real.abs > 1).if {
+				'arcSin: >1j0 branch'.postLine;
+				(pi / 2 * self.real.sign).j(
+					self.real.copySignTo(self.real.abs.arcCosh).negated
+				)
+			} {
+				self.real.arcSin.j(0)
+			}
+		} {
+			let tmp = self.squaredNorm - 1 / 2;
+			let delta = tmp.squared + self.imaginary.squared;
+			let sh2y = tmp + delta.sqrt;
+			let shy = sh2y.sqrt;
+			let ch2y = 1 + sh2y;
+			let chy = ch2y.sqrt;
+			(self.real / chy).arcSin.j(
+				self.imaginary.copySignTo(shy.arcSinh)
+			)
+		}
+	}
+
 	arg { :self |
 		self.isZero.if {
 			self.error('Zero has no argument')

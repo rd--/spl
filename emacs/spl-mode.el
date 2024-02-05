@@ -102,11 +102,18 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   (spl-set-region-to-paragraph)
   (spl-get-text (region-beginning) (region-end)))
 
+(defun spl-uncomment (s)
+  "Remove initial comment and Bird-literate markers from the string S if present."
+   (replace-regexp-in-string "^[- ]*[> ]*" "" s))
+
 (defun spl-get-line ()
-  "Get the current line as a string."
-  (buffer-substring-no-properties
-   (line-beginning-position)
-   (line-end-position)))
+  "Get the current line as a string, without any initial > markers."
+  (replace-regexp-in-string
+   "^[> ]*"
+   ""
+   (buffer-substring-no-properties
+    (line-beginning-position)
+    (line-end-position))))
 
 (defun spl-get-region ()
   "Get the current region as a string."
@@ -282,10 +289,14 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("<=" . ?≤) ; U+2264 ≤ Less-than or equal to
      ("<|" . ?◁) ; U+25C1 ◁ White Left-Pointing Triangle
      ("<~" . ?⪅) ; U+2A85 ⪅ Less-Than or Approximate ; ⪝
+     ("<<" . ?≪) ; U+226A ≪ Much Less-Than ; U+00AB « Left-Pointing Double Angle Quotation Mark
+     ("<<<" . ?⋘) ; U+22D8 ⋘ Very Much Less-Than Unicode Character
      ("==" . ?≡) ; U+2261 ≡ Identical To
      ("=>" . ?⇒) ; U+21D2 ⇒ Rightwards Double Arrow
      (">=" . ?≥) ; U+2265 ≥ Greater-than or equal to
      (">~" . ?⪆) ; U+2A86 ⪆ Greater-Than or Approximate ; ⪞
+     (">>" . ?≫) ; U+226B ≫ Much Greater-Than ; U+00BB » Right-Pointing Double Angle Quotation Mark
+     (">>>" . ?⋙) ; U+22D9 ⋙ Very Much Greater-Than
      ("|>" . ?▷) ; U+25B7 ▷ White Right-Pointing Triangle
      ("Phi" . ?ϕ) ; U+03D5 ϕ Greek Phi Symbol
      ("Sqrt" . ?√) ; U+221A √ Square Root
@@ -335,6 +346,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("beta" . ?β) ; U+03B2 β Greek Small Letter Beta
      ("cancelFlat" . ?♮) ; U+266E ♮ Music Natural Sign
      ("cancelSharp" . ?♮) ; U+266E ♮ Music Natural Sign
+     ("complement" . ?∁) ; U+2201 ∁ Complement
      ("compose" . ?∘) ;  U+2218 ∘ Ring Operator
      ("concatenation" . ?⧻) ; U+29FB ⧻ Triple Plus
      ("conjugated" . ?*) ; U+002A * Asterisk ; U+203B ※ Reference Mark ; U+A673 ꙳ Slavonic Asterisk
@@ -452,9 +464,9 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   (interactive)
   (shell-command-on-region (point-min) (point-max) "/home/rohan/sw/spl/hs/fixCategory" t t))
 
-(defun spl-to-fenced ()
+(defun spl-to-doctest ()
   (interactive)
-  (shell-command-on-region (point-min) (point-max) "/home/rohan/sw/spl/hs/toFenced" t t))
+  (shell-command-on-region (point-min) (point-max) "/home/rohan/sw/spl/hs/toDoctest" t t))
 
 (define-skeleton spl-mathematica-reference-skeleton
   "Insert a Mathematica reference."

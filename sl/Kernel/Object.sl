@@ -4,6 +4,10 @@
 		self.typeResponsibility('@Object>>=')
 	}
 
+	~ { :self :anObject |
+		self = anObject
+	}
+
 	~= { :self :anObject |
 		not(self = anObject)
 	}

@@ -438,8 +438,8 @@
 		self.collect(abs:/1)
 	}
 
-	arCosh { :self |
-		self.collect(arCosh:/1)
+	arcCosh { :self |
+		self.collect(arcCosh:/1)
 	}
 
 	arcCos { :self |

@@ -1,11 +1,22 @@
 # allButLast
 
-- _allButLast(aSequence)_
 - _allButLast(aSequence, anInteger)_
+- _allButLast(α)_ ⇒ _allButLast(α, 1)_
 
 Answer a copy of _aSequence_ containing all but the last _anInteger_ elements.
 Signal an error if there are not enough elements.
+
+```
+>>> [1 .. 9].allButLast(5)
+[1 .. 4]
+```
+
 The unary form answers all but the last element.
+
+```
+>>> [1 .. 9].allButLast
+[1 .. 8]
+```
 
 * * *
 

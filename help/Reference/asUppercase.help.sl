@@ -4,7 +4,10 @@
 
 Answer a String made up from _aString_ whose characters are all uppercase.
 
-	'ascii'.asUppercase = 'ASCII'
+```
+>>> 'ascii'.asUppercase
+'ASCII'
+```
 
 * * *
 

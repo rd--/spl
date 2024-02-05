@@ -2,6 +2,32 @@
 
 +String {
 
+	parseTerseDoctestBlocks { :self |
+		let answer = [];
+		let inBlock = false;
+		let block = [];
+		self.lines.do { :current |
+			current.beginsWith('>>> ').and {
+				inBlock.not
+			}.ifTrue {
+				inBlock := true
+			};
+			current.isEmpty.or {
+				current.beginsWith('```')
+			}.and {
+				inBlock
+			}.ifTrue {
+				answer.add(block.copy);
+				block.removeAll;
+				inBlock := false
+			};
+			inBlock.ifTrue {
+				block.add(current)
+			}
+		};
+		answer
+	}
+
 	terseReferenceSummary { :self |
 		self.terseReferenceSummary(verbose: false)
 	}
@@ -34,7 +60,7 @@
 		options::verbose.ifTrue {
 			name.postLine
 		};
-		self.extractIndentedCodeBlocks.concatenation.do { :each |
+		self.parseMarkdownIndentedCodeBlocks.concatenation.do { :each |
 			testCount := testCount + 1;
 			options::verbose.ifTrue {
 				each.postLine
@@ -45,7 +71,31 @@
 				['Fail', each].postLine
 			}
 		};
+		self.parseTerseDoctestBlocks.do { :each |
+			let test = each.formatTerseDoctestEntry;
+			testCount := testCount + 1;
+			options::verbose.ifTrue {
+				('	' ++ test).postLine
+			};
+			system.evaluate(test).if {
+				passCount := passCount + 1
+			} {
+				['Fail', each].postLine
+			}
+		};
 		[testCount, passCount]
+	}
+
+}
+
++List {
+
+	formatTerseDoctestEntry { :self |
+		let lhs = self.allButLast.collect { :each |
+			each.drop(4)
+		}.unwords;
+		let rhs = self.last;
+		lhs ++ ' ~ ' ++ rhs
 	}
 
 }

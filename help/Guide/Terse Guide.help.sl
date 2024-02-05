@@ -476,8 +476,8 @@ let c = [1 .. 5]; { c[1.5] }.ifError { true } {- index not an integer -}
 let c = [1 .. 5]; { c['1'] }.ifError { true } {- index not an integer -}
 { [1 .. 5].not }.ifError { true } {- cannot be negated -}
 let a = [1, 2, 4]; a.insertAt(3, 3); a = [1 .. 4] {- insert value at index -}
-let a = [1, 2, 4]; a.addAfter(3, 2); a = [1 .. 4] {- insert value after existing value -}
-let a = [1, 2, 4]; a.addBefore(3, 4); a = [1 .. 4] {- insert value before existing value -}
+let l = [1 2 4]; l.addAfter(3, 2) = 3 & { l = [1 2 3 4] } {- insert value after existing value -}
+let l = [1 2 4]; l.addBefore(3, 4) = 3 & { l = [1 2 3 4] } {- insert value before existing value -}
 [1 .. 5].atPin(-1) = 1 {- pin left -}
 [1 .. 5].atPin(9) = 5 {- pin right -}
 (-1 .. 5).collect { :index | 1:3.atPin(index) } = [1 1 1 2 3 3 3] {- index answering bound if out of bounds -}
@@ -512,18 +512,18 @@ let a = [1 2 2 3 3 3]; a.withoutAll([1, 3]) = [2 2] {- remove all elements equal
 5.geometricSeries(1, 2) = [1, 2, 4, 8, 16] {- geometric series (size from by) -}
 List(3).size = 3
 List:/1.ofSize(3) = [nil, nil, nil]
-let l = []; l.addFirst(2); l.addFirst(1); l = [1, 2] {- add item to start of array -}
-let l = [2]; l.addFirst(1) = 1 & { l = [1, 2] } {- answer is argument -}
+let l = [3]; l.addFirst(2); l.addFirst(1); l = [1 2 3] {- add item to start of array -}
+let l = [2]; l.addFirst(1) = 1 & { l = [1 2] } {- answer is argument -}
 let l = []; l.addLast(1); l.addLast(2); l = [1, 2] {- add item to end of array -}
-let l = [1]; l.addLast(2) = 2 & { l = [1, 2] } {- answer is argument -}
+let l = [1]; l.addLast(2); l.addLast(3) = 3 & { l = [1 2 3] } {- answer is argument -}
 let l = []; 1:5.do { :each | l.add(each) }; l = [1 .. 5] {- alias for addLast -}
 let l = [1 .. 9]; l.removeFirst = 1 & { l.size = 8 } {- remove first object from array -}
 let l = [1 .. 9]; l.removeFirst = 1 & { l = [2 .. 9] } {- remove first object from array -}
 let l = [1 .. 9]; l.removeLast = 9 & { l.size = 8 } {- remove last object from array, answers removed element -}
-let l = [4, 5]; l.addAllFirst(1.to(3)); l = [1 .. 5] {- add all elements to start of array -}
+let l = [4 5]; l.addAllFirst([1 2 3]) = [1 2 3] & { l = [1 2 3 4 5] } {- add all elements to start of array -}
 [1].addAllFirst([2, 3]) = [2, 3] {- answer is argument -}
-let l = [1, 2, 3]; l.addAllLast(4.to(5)); l = [1 .. 5] {- add all elements to end of array -}
-[1].addAllLast([2, 3]) = [2, 3] {- answer is argument -}
+let l = [1 2 3]; l.addAllLast([4 5]) = [4 5] & { l = [1 2 3 4 5] } {- add all elements to end of array -}
+[1].addAllLast([2 3]) = [2 3] {- answer is argument -}
 let l = [1]; l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6] {- alias for addAllLast -}
 let i = 1:9; let a = []; a.addAll(i); a.size = 9 {- add elements from Interval to end of List -}
 13.fibonacciSequenceInto([]) = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
@@ -2411,7 +2411,7 @@ let n = 4/3; n.slotWrite('denominator', 5); n = 4/5 {- slot write -}
 system.includesPackage('Ordered') {- package -}
 let a = [1, 2, 4]; a.addBefore(3, 4); a = [1 .. 4] {- insert value before existing value -}
 let a = [1, 2, 4]; a.addAfter(3, 2); a = [1 .. 4] {- insert value after existing value -}
-let a = ['w', 'x', 'z']; a.addAfterIndex('y', 2); a = ['w', 'x', 'y', 'z'] {- insert value after index -}
+let l = ['w' 'x' 'z']; l.addAfterIndex('y', 2) = 'y' & { l = ['w' 'x' 'y' 'z'] } {- insert value after index -}
 let a = [2, 3]; a.addFirst(1) = 1 & { a = [1, 2, 3] } {- insert value at start -}
 let a = [4, 5]; a.addAllFirst([1 .. 3]); a = [1 .. 5] {- add sequence at start -}
 let a = [1, 2]; a.addLast(3) = 3 & { a = [1, 2, 3] } {- insert value at end -}
@@ -3048,8 +3048,8 @@ let a = []; 0:1.asDigitsToPowerDo(2) { :each | a.add(each.copy) }; a = [[0, 0], 
 let a = List(9); a.atAllPut(0); a = [0, 0, 0, 0, 0, 0, 0, 0, 0] {- set all elements to a single value -}
 let a = [1 .. 9]; a.atAllPut([3 .. 7], 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] {- set all selected indices to a value -}
 let a = [1 .. 9]; a.atAllPut(3:7, 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] {- set all selected indices to a value -}
-let a = [1 .. 9]; a.atAllPutAll([3 .. 7], [7 .. 3]); a = [1, 2, 7, 6, 5, 4, 3, 8, 9] {- set all selected indices to corresponding values -}
-let a = [1 .. 9]; a.atAllPutAll(3:7, 7:3); a = [1, 2, 7, 6, 5, 4, 3, 8, 9] {- set all selected indices to corresponding values -}
+let l = [1 .. 9]; l.atAllPutAll([3 .. 7], [7 .. 3]); l = [1 2 7 6 5 4 3 8 9] {- set all selected indices to corresponding values -}
+let l = [1 .. 9]; l.atAllPutAll(3:7, 7:3); l = [1 2 7 6 5 4 3 8 9] {- set all selected indices to corresponding values -}
 let a = [1 .. 9]; a.replace { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81] {- in place collect -}
 let c = [7, 2, 6, 1]; c.sorted = [1, 2, 6, 7] & { c.sorted ~= c } {- sorted copy -}
 let c = [7, 2, 6, 1]; c.sort = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } {- sort in place -}

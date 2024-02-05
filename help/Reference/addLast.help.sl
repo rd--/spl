@@ -5,8 +5,15 @@
 Add _newObject_ to the end of _aSequence_.
 Answer _newObject_.
 
+```
+>>> let l = [1];
+>>> l.addLast(2);
+>>> l.addLast(3) = 3 & { l = [1 2 3] }
+true
+```
+
 * * *
 
-See also: addFirst
+See also: add, addFirst
 
 Categories: Adding

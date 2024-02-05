@@ -8,12 +8,58 @@ Therefore, for collections with invariants such as _Dictionary_ and _Set_, add m
 In these cases see _include_, which is like _add_ except that the size of the collection may stay the same.
 Answers _newObject_.
 
-	let r = List();  r.add('x'); r.add('x'); r.size = 2
-	let r = Bag();  r.add('x'); r.add('x'); r.size = 2
-	let r = Map();  r.add('x' -> 1); r.add('y' -> 2); r.size = 2
-	let r = Record();  r.add('x' -> 1); r.add('y' -> 2); r.size = 2
-	let r = Set();  r.add('x'); r.add('y'); r.size = 2
-	let r = 'string';  { r.add('!') }.ifError { :err | true }
+At Bag:
+
+```
+>>> let b = Bag();
+>>> b.add('x');
+>>> b.add('y') = 'y' & { b.size = 2 }
+true
+```
+
+At List:
+
+```
+>>> let l = List();
+>>> l.add('x');
+>>> l.add('y') = 'y' & { l.size = 2 }
+true
+```
+
+At Map:
+
+```
+>>> let m = Map();
+>>> m.add('x' -> 1);
+>>> m.add('y' -> 2) = ('y' -> 2) & { m.size = 2 }
+true
+```
+
+At Record:
+
+```
+>>> let r = Record();
+>>> r.add('x' -> 1);
+>>> r.add('y' -> 2) = ('y' -> 2) & { r.size = 2 }
+true
+```
+
+At Set:
+
+```
+>>> let s = Set();
+>>> s.add('x');
+>>> s.add('y') = 'y' & { s.size = 2 }
+true
+```
+
+At String, which is not Extensible:
+
+```
+>>> let s = 'string';
+>>> { s.add('!') }.ifError { :err | true }
+true
+```
 
 * * *
 

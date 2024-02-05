@@ -1,13 +1,18 @@
 # asSeconds
 
-- _asSeconds(aDuration | aNumber)_ == _aNumber_
+_asSeconds(aDuration | aNumber)_
 
 The method to get a duration in seconds, either directly from a number, or from a _Duration_.
 
 _Rationale_: Duration has symmetrical constructors and accessors, i.e.
 
-	5.seconds.isDuration
-	5.seconds.seconds = 5
+```
+>>> 5.seconds.isDuration
+true
+
+>>> 5.seconds.seconds
+5
+```
 
 It is a confusing error if a Duration is required, but a Number is provided,
 since what was intended as the accessor (say _seconds_) acts instead as a constructor.

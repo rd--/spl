@@ -157,18 +157,22 @@
 		self[system.nextRandomInteger(self.size)]
 	}
 
-	beginsWith { :self :sequence |
-		let sequenceSize = sequence.size;
-		valueWithReturn { :return:/1 |
-			(self.size < sequenceSize).ifTrue {
-				false.return
-			};
-			1.toDo(sequenceSize) { :index |
-				(sequence[index] = self[index]).ifFalse {
+	beginsWith { :self :aSequence |
+		aSequence.isSequenceable.if {
+			let k = aSequence.size;
+			valueWithReturn { :return:/1 |
+				(self.size < k).ifTrue {
 					false.return
-				}
-			};
-			true
+				};
+				1.toDo(k) { :index |
+					(aSequence[index] = self[index]).ifFalse {
+						false.return
+					}
+				};
+				true
+			}
+		} {
+			'Sequencable>>beginsWith: not a sequence'.error
 		}
 	}
 
@@ -1285,6 +1289,14 @@
 			answer[index] := aBlock(index + self - 1)
 		};
 		answer
+	}
+
+}
+
++@Object {
+
+	isSequenceable { :self |
+		false
 	}
 
 }

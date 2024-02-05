@@ -1,10 +1,13 @@
 # arithmeticSeries
 
-- _arithmeticSeries(count, start, step)_
+_arithmeticSeries(count, start, step)_
 
 Arithmetic series:
 
-	5.arithmeticSeries(1, 2) = [1 3 5 7 9]
+```
+>>> 5.arithmeticSeries(1, 2)
+[1 3 5 7 9]
+```
 
 The count and step values may be signals:
 

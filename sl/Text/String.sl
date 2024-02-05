@@ -220,7 +220,7 @@ String! : [Object, Json, Iterable] {
 		(anInteger >= self.size).if {
 			''
 		} {
-			self.copyFromTo(self.size - anInteger + 1, self.size)
+			self.copyFromTo(anInteger + 1, self.size)
 		}
 	}
 
