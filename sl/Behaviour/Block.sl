@@ -55,7 +55,7 @@ Block! : [Object] {
 	}
 
 	doWhileFalse { :self:/0 :conditionBlock:/0 |
-		| answer |
+		let answer = nil;
 		{
 			answer := self();
 			conditionBlock()
@@ -64,7 +64,7 @@ Block! : [Object] {
 	}
 
 	doWhileTrue { :self:/0 :conditionBlock:/0 |
-		| answer |
+		let answer = nil;
 		{
 			answer := self();
 			conditionBlock()

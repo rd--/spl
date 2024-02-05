@@ -1,4 +1,4 @@
-# Operator Adverbs -- syntax
+# Operator Adverbs
 
 Adverbs are methods at _Block_.
 Adverbs modify how operators iterate over sequences.
@@ -17,9 +17,26 @@ The library defines the following adverbs, which are all mnemonics:
 
 The _t_ adverb is the only form that changes the shape of the input sequence.
 
-	[1 2 3] +.e [4 5 6] = [5 7 9]
-	[1 2 3] +.s [4 5 6 7] = [5 7 9]
-	[1 2 3] +.w [4 5 6 7] = [5 7 9 8]
-	[1 2 3] +.f [4 5 6 7] = [5 7 9 9]
-	[1 2 3] +.x [4 5 6] = [5 6 7 6 7 8 7 8 9]
-	[1 2 3] +.t [4 5 6] = [5 6 7; 6 7 8; 7 8 9]
+```
+>>> [1 2 3] +.e [4 5 6]
+[5 7 9]
+
+>>> [1 2 3] +.s [4 5 6 7]
+[5 7 9]
+
+>>> [1 2 3] +.w [4 5 6 7]
+[5 7 9 8]
+
+>>> [1 2 3] +.f [4 5 6 7]
+[5 7 9 9]
+
+>>> [1 2 3] +.x [4 5 6]
+[5 6 7 6 7 8 7 8 9]
+
+>>> [1 2 3] +.t [4 5 6]
+[5 6 7; 6 7 8; 7 8 9]
+```
+
+* * *
+
+Categories: Syntax

@@ -1,4 +1,4 @@
-# AtPut Syntax -- syntax
+# AtPut Syntax
 
 Rewrite rule:
 
@@ -8,6 +8,27 @@ Rewrite rule:
 
 Syntax for the _atPut_ protocol.
 
+At List:
+
+```
+>>> let list = [1 2 3 4 5 6];
+>>> list[3] := -3;
+>>> list
+[1 2 -3 4 5 6]
+```
+
+At List of List:
+
+```
+>>> let matrix = [1 2; 3 4; 5 6];
+>>> matrix[2, 2] := -4;
+>>> matrix[3, 1] := -5;
+>>> matrix
+[1 2; 3 -4; -5 6]
+```
+
 * * *
 
 See also: [At Syntax], [Quoted AtPut Syntax].
+
+Categories: Syntax

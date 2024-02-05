@@ -1,4 +1,4 @@
-# MessageSend Syntax -- syntax
+# MessageSend Syntax
 
 Rewrite rule:
 
@@ -8,3 +8,7 @@ Rewrite rule:
 Syntax for the messageSend protocol.
 
 This syntax makes using _delegation_ or _proto-type_ objects concise.
+
+* * *
+
+Categories: Syntax

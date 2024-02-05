@@ -1,4 +1,7 @@
 [
+	{- Behaviour -}
+	'Prototype'
+
 	{- Collection -}
 	'ArrayBuffer'
 	'Bag'

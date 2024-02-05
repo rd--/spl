@@ -1,24 +1,72 @@
-# Let Syntax -- syntax
+# Let Syntax
 
 Rewrite rules:
 
-- _let t = i; let u = j; ..._ ⟹ _| t u ... | r := i; u := j; ..._
+- _let t = i; let u = j; ..._ ⟹ _var t, u ...; t := i; u := j; ..._
 
 These rules implement a _let_ keyword syntax for declaring and initialising temporary variables.
+
+```
+>>> let n = 1;
+>>> n + n
+2
+```
 
 This rule allows temporaries to be initialised when declared.
 Note that only one binding is allowed per _let_ statement.
 
 The sequence of initiliasers is retained, subsequent initialisations may refer to the value of previous initialisations.
 
+```
+>>> let i = 3;
+>>> let j = i + 4;
+>>> j
+7
+```
+
 The syntax requires that all temporaries have initialisers, there is no implicit _nil_ initialiser.
 
 Note that the initialiser syntax, _p = x_, is distinct from the assignment syntax, _p := x_.
 
-- _let (k, ...) = d; ..._ ⟹ _let k = at(d, 'k'); let ...; ..._
-- _let [e, ...] = c; ..._ ⟹ _let e = at(c, 1); let ...; ..._
+```
+>>> let n = 3 + 4;
+>>> n
+7
 
-These rules allow destructuring _Dictionary_ and _Sequencable_ values respectively.
+>>> var n;
+>>> n := 3 + 4;
+>>> n
+7
+```
+
+- _let [e, ...] = c; ..._ ⟹ _let e = at(c, 1); let ...; ..._
+- _let (k, ...) = d; ..._ ⟹ _let k = at(d, 'k'); let ...; ..._
+
+These rules allow destructuring _Sequence_ and _Dictionary_ values respectively.
+
+At List:
+
+```
+>>> let [i, j, k] = [1, 2, 3];
+>>> i + j * k
+9
+```
+
+At Tuple:
+
+```
+>>> let [i, j, k] = (1, 2, 3);
+>>> i + j * k
+9
+```
+
+At Record:
+
+```
+>>> let (i, j, k) = (i: 1, j: 2, k: 3);
+>>> i + j * k
+9
+```
 
 The notation _let (x, y) = p;_ initialises the variables _x_ and _y_ to the values _p::x_ and _p::y_.
 
@@ -49,3 +97,5 @@ s + (0.2 * y)
 * * *
 
 See also: [Initialised Temporaries Syntax]
+
+Categories: Syntax

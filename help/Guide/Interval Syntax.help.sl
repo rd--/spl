@@ -1,14 +1,30 @@
-# Interval Syntax -- syntax
+# Interval Syntax
 
 There are syntaxes to form both _Interval_ values:
 
 - _(start .. end)_ ⇒ _Interval_
 - _(start, then .. end)_ ⇒ _Interval_
 
+```
+>>> (1 .. 9)
+Interval(1, 9, 1)
+
+>>> (1, 3 .. 9)
+Interval(1, 9, 3 - 1)
+```
+
 and _List_ values:
 
 - _[start .. end]_ ⇒ _List_
 - _[start, then .. end]_ ⇒ _List_
+
+```
+>>> [1 .. 9]
+[1 2 3 4 5 6 7 8 9]
+
+>>> [1, 3 .. 9]
+[1 3 5 7 9]
+```
 
 The rewrite rules are:
 
@@ -19,6 +35,15 @@ The rewrite rules are:
 
 In the case where alpha is an integer literal, and beta is an integer literal or an identifier, the interval can be written alpha:beta.
 In the literal form, as with literal Fractions, white space is significant, and `alpha : beta` is not allowed.
+
+```
+>>> 1:9
+Interval(1, 9, 1)
+
+>>> let k = 9;
+>>> 1:k
+Interval(1, 9, 1)
+```
 
 Where supported the notations _.._ and _:_ are displayed as _‥_.
 
@@ -32,6 +57,8 @@ i.e. _[p..q]_ would be an array of one interval, and not equal to _[p .. q]_.
 
 * * *
 
-See also: List, Interval, thenTo, upOrDownTo
+See also: Interval, List, thenTo, upOrDownTo
 
 Unicode: U+2025 ‥ Two Dot Leader
+
+Categories: Syntax

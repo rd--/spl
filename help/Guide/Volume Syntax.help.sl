@@ -1,4 +1,4 @@
-# Volume Syntax -- syntax
+# Volume Syntax
 
 Rewrite rule:
 
@@ -9,3 +9,5 @@ Allows writing volumes (three-dimensional arrays) as [Matrix Syntax] entries sep
 * * *
 
 See also: [List Syntax], [Matrix Syntax], [Vector Syntax]
+
+Categories: Syntax

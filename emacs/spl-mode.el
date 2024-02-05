@@ -222,7 +222,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
 
 (defconst spl-font-lock-keywords
   (list
-   `(,(regexp-opt '("let") 'symbols) . font-lock-keyword-face)
+   `(,(regexp-opt '("let" "var") 'symbols) . font-lock-keyword-face)
    `(,(regexp-opt '("false" "inf" "nil" "pi" "true") 'symbols) . font-lock-builtin-face)
    `(,(regexp-opt '("do" "if" "ifEmpty" "ifFalse" "ifNil" "ifNotNil" "ifTrue" "kr" "timesRepeat" "whileFalse" "whileTrue") 'symbols) . font-lock-function-name-face)
    `(,(regexp-opt '("error" "warn") 'symbols) . font-lock-warning-face)

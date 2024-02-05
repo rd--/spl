@@ -238,7 +238,7 @@ String! : [Object, Json, Iterable] {
 		(last = 0).if {
 			0
 		} {
-			| answer |
+			let answer = nil;
 			{
 				last > 0
 			}.whileTrue {

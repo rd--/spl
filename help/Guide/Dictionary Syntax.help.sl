@@ -1,4 +1,4 @@
-# Dictionary Syntax -- syntax
+# Dictionary Syntax
 
 Rewrite rule:
 
@@ -6,6 +6,13 @@ Rewrite rule:
 
 The notation _(p: x, q: y)_ constructs a _Record_ with associations _'p' → x_ and _'q' → y_.
 
+```
+>>> (p: 1, q: 2).associations
+['p' -> 1, 'q' -> 2]
+```
+
 * * *
 
-See also: [Quoted At Syntax], [Quoted Put Syntax], [Initialised Temporaries Syntax]
+See also: [Initialised Temporaries Syntax], [Quoted At Syntax], [Quoted Put Syntax], Record
+
+Categories: Syntax

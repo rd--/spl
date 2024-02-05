@@ -399,7 +399,7 @@
 			'sixty', 'seventy', 'eighty', 'ninety'
 		];
 		valueWithReturn { :return:/1 |
-			| answer |
+			let answer = nil;
 			(self = 0).ifTrue {
 				''.return
 			};

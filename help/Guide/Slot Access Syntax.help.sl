@@ -1,13 +1,17 @@
-# Slot Access Syntax -- syntax
+# Slot Access Syntax
 
 The _:@_ syntax directly reads the value of a slot at a type.
 
-	('x' -> 1).slotNameList = ['key', 'value']
-	('x' -> 1):@key = 'x'
+```
+('x' -> 1).slotNameList = ['key', 'value']
+('x' -> 1):@key = 'x'
+```
 
 There is a mutation form of this syntax that allows writing a value into the slot.
 
-	let a = ('x' -> 1); a:@key := 'y'; a = ('y' -> 1)
+```
+let a = ('x' -> 1); a:@key := 'y'; a = ('y' -> 1)
+```
 
 Where supported the syntax :@ is written ⋄.
 
@@ -26,3 +30,5 @@ this syntax would allow compilation to a slot index.
 * * *
 
 Unicode: U+22C4 ⋄ Diamond Operator
+
+Categories: Syntax

@@ -6,7 +6,7 @@ Instead there is the _valueWithReturn_ method, implementing delimited non-local 
 ```
 let answer = valueWithReturn { :return:/1 |
 	{ true }.whileTrue {
-		let n = system.randomFloat;
+		let n = system.nextRandomFloat;
 		(n > 0.9).if {
 			(0 - n).return
 		} {

@@ -568,10 +568,10 @@ let a = [(x: 1, y: 9), (x: 9, y: 1)]; let b = a.sortOn { :each | each::y }; a = 
 
 ## Assignment
 ```
-| a b c | a := b := c := 'c'; [a, b, c] = ['c', 'c', 'c'] {- assignment is right-associative -}
+var a, b, c; a := b := c := 'c'; [a, b, c] = ['c', 'c', 'c'] {- assignment is right-associative -}
 let a = 'a'; let b = 'b'; let c = 'c'; a := b := c; [a, b, c] = ['c', 'c', 'c'] {- assignment is right-associative -}
-| a | (a := 1) = 1 {- assignment answers assigned value -}
-| a b | a := (b := 2 + 2) + 3 = 7 & { b = 4 } {- assignment answers assigned value -}
+var a; (a := 1) = 1 {- assignment answers assigned value -}
+var a, b; a := (b := 2 + 2) + 3 = 7 & { b = 4 } {- assignment answers assigned value -}
 let a = 1; let b = 2; let c = 3; [a, b, c] := [b, c, a]; [a, b, c] = [2, 3, 1] {- permutation using array assignment syntax -}
 ```
 
@@ -2513,9 +2513,9 @@ let f = { }; f:/0 == f:/0 {- identity -}
 { :x | x }.printString = 'a Block'
 { }.typeOf = 'Block'
 { }.value = nil {- empty block evaluates to nil -}
-{ | x | }.value = nil {- empty block with unused temporary evaluates to nil -}
+{ var x; }.value = nil {- empty block with unused temporary evaluates to nil -}
 { let x = 1; }.value = nil {- empty block with unused initialised temporary evaluates to nil -}
-{ | c a | c := [1]; a := { | a | a := 4; a }.value; { | a | a := 2; c.add(a); { | a | a := 3; c.add(a) }.value }.value; c.add(a); c }.value = [1, 2, 3, 4]
+{ var c, a; c := [1]; a := { var a; a := 4; a }.value; { var a; a := 2; c.add(a); { var a; a := 3; c.add(a) }.value }.value; c.add(a); c }.value = [1, 2, 3, 4]
 1.toDo(10) { :index | nil } = 1 {- answers start index -}
 valueWithReturn { :return:/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 {- non-local return -}
 1.pi.assert { true } = 1.pi {- assert that block evaluates to true, answers self -}
@@ -3259,8 +3259,8 @@ let total = 0; 9.timesRepeat { total := total + system.nextRandomFloat }; total 
 1.pi.randomFloat.isInteger = false
 [3.141.json, 23.json] = ['3.141', '23'] {- numbers have json encodings -}
 ['3.141', '23'].collect(parseJson:/1) = [3.141, 23] {- parse json numbers -}
-| r | 1.toDo(5) { :each | r := each }; r = 5
-| r | 1.to(0).do { :each | r := each }; r = nil
+let r = nil; 1.toDo(5) { :each | r := each }; r = 5
+let r = nil; 1.to(0).do { :each | r := each }; r = nil
 1.toDo(0) { :each | 'toDo'.error }; true {- end less than start -}
 '3.141'.parseNumber = 3.141
 '23'.parseInteger(10) = 23 {- 20 + 3 -}
@@ -3628,8 +3628,8 @@ let [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] {- temporaries array initialisa
 let [x, y, z] = [1 * 2, 3 * 4, 5 * 6]; [z, y, x] = [30, 12, 2] {- temporaries array initialisation syntax -}
 let [x, y, z] = [1, 2, 3]; [z, y, x] = [3, 2, 1] {- temporaries let array initialisation syntax -}
 { let [x, y] = [1, 2, 3]; false }.ifError { true } {- it is an error if the array is of the incorrect size -}
-| x y z | [x, y, z] := [1, 2, 3]; [z, y, x] = [3, 2, 1] {- variables array assignment syntax -}
-| x y z | [x, y, z] := [1 * 2, 3 * 4, 5 * 6]; [z, y, x] = [30, 12, 2] {- variables array assignment syntax -}
+var x, y, z; [x, y, z] := [1, 2, 3]; [z, y, x] = [3, 2, 1] {- variables array assignment syntax -}
+var x, y, z; [x, y, z] := [1 * 2, 3 * 4, 5 * 6]; [z, y, x] = [30, 12, 2] {- variables array assignment syntax -}
 let x = 1; let y = 2; x := y + 1; y := x * 2; [x, y] = [3, 6] {- in sequential assignment evaluation and assignment are interleaved -}
 let [x, y] = [1, 2]; [x, y] := [y + 1, x * 2]; [x, y] = [3, 2] {- in array assignment the rhs expression is evaluated before any assignments -}
 let x = 1; let y = 2; let xTmp = nil; xTmp := y + 1; y := x * 2; x := xTmp; [x, y] = [3, 2]
@@ -3712,9 +3712,9 @@ let d = (w: (x: (y: (z: 1)))); d::w::x::y::z := -1; d = (w: (x: (y: (z: -1)))) {
 let (x, y) = (x: 1, y: 2); x = 1 & { y = 2 } {- variable declaration, retrieve named fields from the dictionary -}
 let (y, x) = (x: 1, y: 2); y = 2 & { x = 1 } {- selection is by name, not position -}
 let (x, y, z) = (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [30, 12, 2]
-| x y | (x, y) := (x: 1, y: 2); x = 1 & { y = 2 } {- variable assignment, retrieve named fields from the dictionary -}
-| y x | (y, x) := (x: 1, y: 2); y = 2 & { x = 1 } {- selection is by name, not position -}
-| x y z | (x, y, z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [30, 12, 2]
+var x, y; (x, y) := (x: 1, y: 2); x = 1 & { y = 2 } {- variable assignment, retrieve named fields from the dictionary -}
+var y, x; (y, x) := (x: 1, y: 2); y = 2 & { x = 1 } {- selection is by name, not position -}
+var x, y, z; (x, y, z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [30, 12, 2]
 ```
 
 ## Syntax -- dictionary literals
@@ -3768,16 +3768,16 @@ let (x, y, z) = (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [30, 12, 2]
 ```
 { } . () = nil {- apply no argument block -}
 { :n | n * n } . (23) = 529 {- apply one argument block -}
-{ :p :q | p ++ q } . ('x', 'y') = 'xy' {- apply one argument block -}
+{ :p :q | p ++ q } . ('x', 'y') = 'xy' {- apply two argument block -}
 ```
 
 ## Syntax -- temporaries
 ```
-| x | x = nil {- temporary syntax (nil initializer) -}
+var x; x = nil {- temporary syntax (implicit nil initializer) -}
 let x = 1; x = 1 {- temporary syntax (with initialiser) -}
-| x y | x = nil & { y = nil } {- temporary syntax (no initializers) -}
+var x, y; x = nil & { y = nil } {- temporary syntax (no initializers) -}
 let x = 1; let y = 1; x = 1 & { y = 1 } {- temporary syntax (with initialisers) -}
-| x y | x = nil & { y = nil } {- let x, y; => | x y | -}
+var x, y; x = nil & { y = nil } {- var x, y; => let x = nil; let y = nil; -}
 let x = 1; let y = 2; [x, y] = [1, 2] {- let x = i, y = i; => | x = i, y = j; -}
 let x = 1; let y = 2; let z = 3; [x, y, z] = [1, 2, 3] {- there can be multiple let (with initializer) sequences -}
 ```

@@ -1,8 +1,11 @@
 Benchmark : [Object] { | name verification benchmark |
 
 	run { :self :parameter |
-		| answer elapsedTime |
-		elapsedTime := { answer := self.benchmark.value(parameter) }.millisecondsToRun;
+		let answer = nil;
+		let elapsedTime = nil;
+		elapsedTime := {
+			answer := self.benchmark.value(parameter)
+		}.millisecondsToRun;
 		[
 			self.name,
 			': Parameter = ', parameter,

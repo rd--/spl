@@ -57,7 +57,7 @@ ControlFlowGraph : [Object] { | basicBlockMap startNode edgeList |
 	}
 
 	createNode { :self :name |
-		| node |
+		let node = nil;
 		self.basicBlockMap.includesIndex(name).if {
 			node := self.basicBlockMap[name]
 		} {
@@ -132,7 +132,8 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 	}
 
 	doDFSCurrent { :self :currentNode :current |
-		| lastId outerBlocks |
+		let lastId = nil;
+		let outerBlocks = nil;
 		self.nodes[current].initNodeDfs(currentNode, current);
 		self.number[currentNode] := current;
 		lastId := current;

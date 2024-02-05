@@ -20,7 +20,11 @@
 					}.copyWithoutDuplicates.sort.collect(asString:/1)
 				},
 				2 -> {
-					browser.setStatus(['Size = ', path[1], ', TuningSize = ', path[2]].join);
+					browser.setStatus(
+						[
+							'Size = ', path[1], ', ',
+							'TuningSize = ', path[2]
+						].join);
 					selectedTuningSize := path[2].parseInteger(10);
 					scalaModenam.select { :each |
 						each.size = selectedSize & {
@@ -29,12 +33,14 @@
 					}.collect(description:/1)
 				},
 				3 -> {
-					| modenam |
-					browser.setStatus(path[3]);
-					modenam := scalaModenam.detect { :each |
+					let modenam = scalaModenam.detect { :each |
 						each.description = path[3]
 					};
-					[modenam.printString, modenam.tuningIndices.printString].unlines
+					browser.setStatus(path[3]);
+					[
+						modenam.printString,
+						modenam.tuningIndices.printString
+					].unlines
 				}
 			])
 		}

@@ -1,4 +1,4 @@
-# Quoted Indexable Syntax -- syntax
+# Quoted Indexable Syntax
 
 Rewrite rules:
 
@@ -24,3 +24,5 @@ the message is interpreted as a field access message.
 * * *
 
 See also: [Indexable Syntax]
+
+Categories: Syntax

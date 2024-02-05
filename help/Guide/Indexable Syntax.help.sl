@@ -1,4 +1,4 @@
-# Indexable Syntax -- syntax
+# Indexable Syntax
 
 Rewrite rules:
 
@@ -20,3 +20,5 @@ The fourth rule, [AtIfAbsentPut Syntax], allows for specifying the answer if the
 * * *
 
 See also: [At Syntax], [AtIfAbsent Syntax], [AtIfAbsentPut Syntax], [AtPut Syntax], [Quoted Indexable Syntax].
+
+Categories: Syntax

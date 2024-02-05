@@ -1,4 +1,4 @@
-# Comment Syntax -- syntax
+# Comment Syntax
 
 Spl follows the Haskell comment notation.
 
@@ -18,3 +18,7 @@ The Ml comment token `(*` dissallow `c.reduce(*)`.
 The Haskell comment token `{-` disallows `{-}`,
 however the ordinary notation for blocks includes spaces,
 and `{ - }` is allowed.
+
+* * *
+
+Categories: Syntax

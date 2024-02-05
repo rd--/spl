@@ -1,4 +1,4 @@
-# AtIfAbsent Syntax -- syntax
+# AtIfAbsent Syntax
 
 Rewrite rule:
 
@@ -17,3 +17,5 @@ Where supported _:?_ is displayed as _⍰_.
 See also: [At Synax], [AtAll Syntax], [AtPut Syntax], [Quoted AtIfAbsent Syntax] [Quoted At Syntax]
 
 Unicode: U+2370 ⍰ Apl Functional Symbol Quad Question
+
+Categories: Syntax

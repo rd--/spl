@@ -8,7 +8,7 @@ In Spl the second and third meanings are written as _x.Lag(y)_ and _x.LagUd(y, z
 Implementing the first meaning requires writing an additional method.
 
 ```
-+ [List, Ugen] {
++[List, Ugen] {
 	Lag { :self |
 		Lag(self, 0.1)
 	}

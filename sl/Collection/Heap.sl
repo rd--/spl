@@ -53,9 +53,10 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 	}
 
 	downHeap { :self :anIndex |
-		| childIndex childValue index value |
-		index := anIndex;
-		value := self.array[anIndex];
+		let value = self.array[anIndex];
+		let index = anIndex;
+		let childIndex = nil;
+		let childValue = nil;
 		{
 			(childIndex := 2 * index) >= self.size | {
 				childValue := self.array[childIndex];

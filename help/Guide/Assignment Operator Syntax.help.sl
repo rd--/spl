@@ -1,4 +1,4 @@
-# Assignment Operator Syntax -- syntax
+# Assignment Operator Syntax
 
 Rewrite rule:
 
@@ -13,5 +13,11 @@ However the query operator ? is also interesting.
 
 The notation _p ?:= q_ initializes _p_ if it is nil, where _q_ must be a no-argument block.
 
-	| x | x ?:= { 4 }; x = 4
-	let x = 1; x ?:= { 4 }; x = 1
+```
+var x; x ?:= { 4 }; x = 4
+let x = 1; x ?:= { 4 }; x = 1
+```
+
+* * *
+
+Categories: Syntax

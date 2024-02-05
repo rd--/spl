@@ -2,7 +2,7 @@ import ohm from 'https://unpkg.com/ohm-js@17/dist/ohm.esm.js';
 
 import { arraySum } from '../lib/jssc3/ts/kernel/array.ts';
 
-import { slParse, slSemantics, slTemporariesSyntaxNames } from './grammar.ts';
+import { slParse, slSemantics } from './grammar.ts';
 import { operatorMethodName, resolveMethodName } from './operator.ts';
 import { slOptions } from './options.ts';
 
@@ -52,17 +52,12 @@ function makeTypeDefinition(
 	isHostType: boolean,
 	typeName: string,
 	traits: string,
-	instanceVariables: ohm.Node,
+	instanceVariables: string,
 	methodNames: string[],
 	methodBlocks: ohm.Node[],
 ): string {
-	// console.debug(`makeTypeDefinition: ${isHostType} ${typeName}`);
-	const instanceVariablesSource = instanceVariables.sourceString;
-	const instanceVariablesList = instanceVariablesSource === ''
-		? []
-		: slTemporariesSyntaxNames(instanceVariablesSource).map((name) =>
-			`'${name}'`
-		);
+	// console.debug(`makeTypeDefinition: ${isHostType} ${typeName} ${instanceVariables}`);
+	const instanceVariablesList = instanceVariables.split(' ');
 	const traitList = traits.split(', ').filter((each) => each.length > 0);
 	const addType = `
 sl.addType(
@@ -137,7 +132,7 @@ const asJs: ohm.ActionDict<string> = {
 		typeName,
 		trait,
 		_leftBrace,
-		tmp,
+		instanceVariables,
 		methodName,
 		methodBlock,
 		_rightBrace,
@@ -146,7 +141,7 @@ const asJs: ohm.ActionDict<string> = {
 			false,
 			typeName.sourceString,
 			trait.asJs,
-			tmp,
+			instanceVariables.asJs,
 			methodName.children.map((c) => c.sourceString),
 			methodBlock.children,
 		);
@@ -156,7 +151,7 @@ const asJs: ohm.ActionDict<string> = {
 		_isHostType,
 		trait,
 		_leftBrace,
-		tmp,
+		instanceVariables,
 		methodName,
 		methodBlock,
 		_rightBrace,
@@ -165,7 +160,7 @@ const asJs: ohm.ActionDict<string> = {
 			true,
 			typeName.sourceString,
 			trait.asJs,
-			tmp,
+			instanceVariables.asJs,
 			methodName.children.map((c) => c.sourceString),
 			methodBlock.children,
 		);
@@ -307,10 +302,14 @@ const asJs: ohm.ActionDict<string> = {
 		// console.debug('TemporaryListInitializer', namesArray, rhsName);
 		return `${rhsName} = _assertIsOfSize_2(${rhs.asJs}, ${namesArray.length}), ${slots}`;
 	},
-	TemporariesWithoutInitializers(_leftVerticalBar, tmp, _rightVerticalBar) {
-		return `let ${commaList(tmp.children)};`;
+    SlotNames(_leftVerticalBar, slots, _rightVerticalBar) {
+		// Space separated list of quoted names for internal use only, see makeTypeDefinition
+		return slots.children.map((e) => `'${e.sourceString}'`).join(' ');
 	},
-	LetTemporary(_var, tmp, _semicolon) {
+	VarTemporaries(_var, tmp, _semicolon) {
+		return `let ${commaList(tmp.asIteration().children)};`;
+	},
+	LetTemporary(_let, tmp, _semicolon) {
 		return `let ${tmp.asJs};`;
 	},
 	LetTemporaries(_var, tmp, _semicolon) {

@@ -151,7 +151,7 @@
 	}
 
 	LsSwitch { :list :which |
-		| index |
+		let index = nil;
 		list.replace(LsOnce:/1);
 		which := LsForever(which);
 		index := which.next;
@@ -456,7 +456,7 @@
 	}
 
 	LsBrownUsing { :low :high :step :aBlock:/2 |
-		| next |
+		let next = nil;
 		low := LsConstant(low);
 		high := LsConstant(high);
 		step := LsConstant(step);

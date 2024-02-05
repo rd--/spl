@@ -5,16 +5,16 @@ Primitives have Smalltalk semantics and are written inline using a Smalltalk-lik
 If a primitive succeeds it returns from the block,
 if it fails it continues with the remainder of the definition.
 
-Below is the implementation of _at_ from _Listed_.
+Below is the implementation of _at_ from _PrimitiveSequence_.
 
 ```
 at { :self :anInteger |
 	<primitive:
-		if(sl.arrayCheckIndex(_self, _anInteger)) {
-			return _self[_anInteger - 1];
-		}
+	if(sl.arrayCheckIndex(_self, _anInteger)) {
+		return _self[_anInteger - 1];
+	}
 	>
-	self.errorInvalidIndex('at', index)
+	self.errorInvalidIndex('at', anInteger)
 }
 ```
 

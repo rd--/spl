@@ -10,8 +10,9 @@ Sl {
 	TypeExtension = "+" identifier "{" (methodName Block)* "}"
 	TypeTypeExtension = "+" identifier "^" "{" (methodName Block)* "}"
 	TypeListExtension = "+" "[" NonemptyListOf<identifier, ","> "]" "{" (methodName Block)* "}"
-	HostTypeDefinition = identifier "!" TraitList? "{" Temporaries? (methodName Block)* "}"
-	TypeDefinition = identifier TraitList? "{" Temporaries? (methodName Block)* "}"
+	HostTypeDefinition = identifier "!" TraitList? "{" SlotNames? (methodName Block)* "}"
+	TypeDefinition = identifier TraitList? "{" SlotNames? (methodName Block)* "}"
+	SlotNames = "|" identifier+ "|"
 	TraitList = ":" "[" NonemptyListOf<identifier, ","> "]"
 	TraitExpression = TraitExtension | TraitListExtension | TraitDefinition
 	TraitExtension = "+" "@" identifier "{" (methodName Block)* "}"
@@ -19,7 +20,7 @@ Sl {
 	TraitDefinition = "@" identifier "{" (methodName Block)* "}"
 	ConstantDefinition = "Constant" "." unqualifiedIdentifier "=" literal
 	Program = Temporaries? ListOf<Expression, ";">
-	Temporaries = TemporariesWithoutInitializers | LetTemporary+
+	Temporaries = VarTemporaries | LetTemporary+
 	TemporaryInitializer =
 		TemporaryBlockLiteralInitializer |
 		TemporaryExpressionInitializer |
@@ -31,7 +32,7 @@ Sl {
 	TemporaryListInitializer = "[" NonemptyListOf<identifierOrUnused, ","> "]" "=" Expression
 	LetTemporary = "let" TemporaryInitializer ";"
 	LetTemporaries = "let" NonemptyListOf<TemporaryInitializer, ","> ";"
-	TemporariesWithoutInitializers = "|" identifier+ "|"
+	VarTemporaries = "var" NonemptyListOf<identifier, ","> ";"
 
 	Expression = Assignment | BinaryExpression | Primary
 	Assignment = ScalarAssignment | ListAssignment | DictionaryAssignment // | AssignmentOperatorSyntax
@@ -188,14 +189,6 @@ export function slParseToAst(str: string) {
 	return extras.toAST(slGrammar.match(str));
 }
 
-export function slTemporariesKeywordNames(str: string): string[] {
-	return slParseToAst(str)[0][0];
-}
-
-export function slTemporariesSyntaxNames(str: string): string[] {
-	return slParseToAst(str)[0];
-}
-
 export function slBlockArity(str: string): number {
 	const arg = slParseToAst(str)[1][0][0];
 	return arg === null ? 0 : arg.length;
@@ -204,7 +197,5 @@ export function slBlockArity(str: string): number {
 /*
 import * as sl from './grammar.ts'
 sl.slParseToAst('3 + 4')
-sl.slTemporariesKeywordNames('var i = 0, j = 1;') //= ['i', 'j']
-sl.slTemporariesSyntaxNames('| i j |') //= ['i', 'j']
 sl.slBlockArity('{ :i :j | i + 1 * j }') === 2
 */

@@ -4,6 +4,10 @@
 ```
 system.typeOf = 'System'
 system.window.typeOf = 'Window'
+```
+
+## System -- window (browser)
+```
 system.window.navigator.typeOf = 'Navigator'
 system.window.navigator.userAgent.typeOf = 'String'
 system.window.document = nil {- cli -}

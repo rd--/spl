@@ -9,7 +9,7 @@ Cons : [Object, Collection] { | car cdr |
 	}
 
 	collect { :self :aBlock:/1 |
-		| answer |
+		let answer = nil;
 		self.do { :each |
 			answer := Cons(aBlock(each), answer)
 		};

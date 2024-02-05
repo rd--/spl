@@ -7,7 +7,8 @@ In this model it is not possible to refer to a method by name, methods are not _
 To calculate the square root of each number in a collection an anonymous block must be written:
 
 ```
-[9, 16, 25].collect { :each | each.sqrt } = [3, 4, 5]
+>>> [9, 16, 25].collect { :each | each.sqrt }
+[3 4 5]
 ```
 
 If we are to write this directly it must be possible to refer to _sqrt_ by name.
@@ -18,9 +19,11 @@ In the simple model the name _sqrt_ refers to a variable arity block.
 It dispatches first on the number of arguments it receives, and second on the type of the first argument.
 While simple this model requires the interpreter perform two indirections at each block application,
 and introduces into the system a kind of value (a variable arity block) that is not permitted in the language.
+The simple arity model allows eliding the arity qualifier (:/1) in the expression below:
 
 ```
-[9, 16, 25].collect(sqrt) = [3, 4, 5]
+>>> [9 16 25].collect(sqrt:/1)
+[3 4 5]
 ```
 
 In the complicated model the name _sqrt:/1_ refers to a single argument block.
@@ -31,7 +34,8 @@ it requires only one indirection at each block application,
 and does not require variable arity blocks.
 
 ```
-[9, 16, 25].collect(sqrt:/1) = [3, 4, 5]
+>>> [9 16 25].collect(sqrt:/1)
+[3 4 5]
 ```
 
 This syntax is allowed in the simple model, where the arity qualifier is treated as a comment.

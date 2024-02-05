@@ -8,9 +8,8 @@ _Spl:_
 
 ```
 { :n |
-	| i j |
-	i := random(0, n);
-	j := random(0, i);
+	let i = random(0, n);
+	let j = random(0, i);
 	[i, j]
 }
 ```
@@ -30,19 +29,17 @@ _Scheme_:
 
 ```
 (lambda (n)
-	(let ((i nil) (j nil))
-		(set! i (random 0 n))
-		(set! j (random 0 i))
-		(vector i j)))
+	(let* ((i (random 0 n))
+		(j (random 0 i)))
+	(vector i j)))
 ```
 
 _Js_:
 
 ```
 function(n) {
-	var i = nil, j = nil;
-	i = random(0, n);
-	j = random(0, i);
+	const i = random(0, n);
+	const j = random(0, i);
 	return [i, j];
 }
 ```

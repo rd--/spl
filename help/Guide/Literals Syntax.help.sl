@@ -1,4 +1,4 @@
-# Literals Syntax -- syntax
+# Literals Syntax
 
 The four primitive types are _Nil, _Boolean_, _Number_ and _String_.
 
@@ -9,11 +9,13 @@ The four primitive types are _Nil, _Boolean_, _Number_ and _String_.
 -  _3.141_ ⇒ _Number_
 - _'xyz'_ ⇒ _String_
 
-The _Block_ syntax is as in Smalltalk, with braces replacing brackets.
+The _Block_ syntax is similar to Smalltalk,
+with braces replacing brackets,
+and _var_ replacing _|_.
 
 - _{ e; ... }_ ⇒ _Block_ (with expressions _e_)
 - _{ :a ...| e; ... }_ ⇒ _Block_ (with arguments _a_)
-- _{ :a ...| | t ... | e; ... }_ ⇒ _Block_ (with temporary variables _t_)
+- _{ :a ...| var t, ...; e; ... }_ ⇒ _Block_ (with temporary variables _t_)
 
 There is no literal _List_ syntax (as in Smalltalk) however there is a list expression syntax.
 
@@ -26,3 +28,5 @@ There is also a _Dictionary_ expression syntax.
 * * *
 
 See also: [Dictionary Syntax], [Integer Literals], [Interval Syntax]
+
+Categories: Syntax
