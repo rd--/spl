@@ -20,6 +20,6 @@ _size_ and _do_ are the basic methods of a collection.
 
 * * *
 
-See also: Dictionary, do, SequenceableCollection, size
+See also: Dictionary, do, SequenceCollection, size
 
 Categories: Collection, Trait

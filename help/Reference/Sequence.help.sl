@@ -1,4 +1,4 @@
-# SequenceableCollection -- collection trait
+# Sequence
 
 Collections that have a well-defined order associated with their elements.
 Thus each element is externally-named by integers referred to as indices.
@@ -11,4 +11,6 @@ Methods for enumerating: findFirst, findLast, keysAndValuesDo, reverseDo, withDo
 
 * * *
 
-See also: Collection, OrderedCollection
+See also: Collection, Iterable, Ordered
+
+Categories: Collection, Trait

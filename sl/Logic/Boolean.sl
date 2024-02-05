@@ -56,6 +56,10 @@ Boolean! : [Object, Json] {
 		self
 	}
 
+	boole { :self |
+		self.asBit
+	}
+
 	if { :self :whenTrue:/0 :whenFalse:/0 |
 		<primitive: return _self ? _whenTrue_0() : _whenFalse_0();>
 	}

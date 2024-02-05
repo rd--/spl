@@ -480,7 +480,7 @@ Reference/iso8601.help.sl
 Reference/isPositive.help.sl
 Reference/isPowerOfTwo.help.sl
 Reference/isPrime.help.sl
-Reference/isSequenceable.help.sl
+Reference/isSequence.help.sl
 Reference/isSortedBy.help.sl
 Reference/isSorted.help.sl
 Reference/isStrictlyPositive.help.sl
@@ -805,7 +805,7 @@ Reference/Select.help.sl
 Reference/SelectXFocus.help.sl
 Reference/SelectX.help.sl
 Reference/semicolonSemicolon.help.sl
-Reference/SequenceableCollection.help.sl
+Reference/SequenceCollection.help.sl
 Reference/Sequencer.help.sl
 Reference/Set.help.sl
 Reference/SetResetFf.help.sl

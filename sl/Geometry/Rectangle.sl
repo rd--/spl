@@ -255,7 +255,7 @@ Rectangle : [Object] { | origin corner |
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	rectangleMerging { :self |
 		let topLeft = self.first.topLeft;

@@ -83,13 +83,13 @@ Cons : [Object, Collection] { | car cdr |
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	Cons { :self |
 		let answer = nil;
 		self.do { :each |
 			answer := Cons(
-				each.isSequenceable.if { Cons(each) } { each },
+				each.isSequence.if { Cons(each) } { each },
 				answer
 			)
 		};

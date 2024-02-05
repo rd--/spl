@@ -269,7 +269,7 @@ system.includesPackage('List') {- array package -}
 [].isList = true {- the empty List is a List -}
 [].isCollection = true {- arrays are collections -}
 [].isIndexable = true {- arrays are indexable -}
-[].isSequenceable = true {- arrays are sequenceable -}
+[].isSequence = true {- arrays are sequenceable -}
 [].isEmpty = true {- the empty array is empty -}
 [].copy = [] {- copy empty array -}
 List() = [] {- Void constructor makes the empty List -}
@@ -555,9 +555,9 @@ let a = [1, 1, 3, 4]; a @* [2, 4, 3, 1] = [1, 4, 3, 1] {- atAll operator -}
 let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] {- atAll operator -}
 ```
 
-## PrimitiveList -- collection trait
+## PrimitiveSequence -- collection trait
 ```
-system.includesPackage('PrimitiveList') {- package -}
+system.includesPackage('PrimitiveSequence') {- package -}
 [3, 5, 7].basicAt(1) = 3 {- unchecked lookup -}
 [3, 5, 7].basicAt(7) = nil {- unchecked lookup, nil on invalid index -}
 let a = [1, 7, 3, 9, 5]; let b = a.sortBy { :p :q | p >= q }; a = [9, 7 .. 1] & { a == b } {- sort using provided comparison, in place -}
@@ -608,7 +608,7 @@ Bag().isBag = true
 Bag().typeOf = 'Bag'
 Bag().isCollection
 Bag().isIndexable = false
-Bag().isSequenceable = false
+Bag().isSequence = false
 let b = Bag(); b.add('x'); b.add('x'); b.size = 2 {- number of objects in bag -}
 let b = Bag(); b.add('x'); b.add('y'); b.add('x'); b.size = 3 {- add element to bag -}
 let b = Bag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 {- add all elements of argument to bag -}
@@ -851,7 +851,7 @@ ByteArray(0).species = ByteArray:/1 {- byte array species -}
 ByteArray(0).isList = false {- byte arrays are arrays -}
 ByteArray(0).isByteArray {- byte array predicate -}
 ByteArray(0).isIndexable {- byte arrays are indexable -}
-ByteArray(0).isSequenceable {- byte arrays are sequenceable -}
+ByteArray(0).isSequence {- byte arrays are sequenceable -}
 ByteArray(0).size = 0 {- size of byte array (number of elements) -}
 ByteArray(8).size = 8
 ByteArray(8).at(1) = 0 {- lookup element at index -}
@@ -2955,9 +2955,9 @@ RunArray([1, 3, 5], ['a', 'b', 'c']).asList.join = 'abbbccccc' {- from runs and 
 'abbbccccc'.asList.asRunArray.runs = [1 3 5]
 ```
 
-## Sequenceable -- collection trait
+## Sequence -- collection trait
 ```
-system.includesPackage('Sequenceable') {- package -}
+system.includesPackage('Sequence') {- package -}
 [1, 3, 2] ++ [4, 5] = [1, 3, 2, 4, 5] {- append sequences -}
 [1, 3, 2, 4, 5].reversed = [5, 4, 2, 3, 1] {- reverse sequence (anwer new array) -}
 [1, 3, 2, 4, 5].sorted = [1, 2, 3, 4, 5] {- sort using default comparison (answer new array) -}
@@ -3918,7 +3918,7 @@ system.doesTypeImplementMethod('List', 'species') = true
 [1, 2, 3].respondsTo(select:/2) = true {- does a value (courtesy the type) implement a method -}
 system.methodPrintString('add').size >= 3
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
-system.methodLookupAtType('collect', 2, 'List').origin.name = 'PrimitiveList'
+system.methodLookupAtType('collect', 2, 'List').origin.name = 'PrimitiveSequence'
 system.methodLookupAtType('collect', 2, 'List').block.value([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.methodLookupAtType('sum', 1, 'List') == system.methodLookupAtType('sum', 1, 'Set')
 'sum:/1'.parseQualifiedMethodName = ['sum', 1]
@@ -3947,8 +3947,8 @@ let [c, t] = { system.unixTimeInMilliseconds }.benchForMilliseconds(10); c > 100
 system.traitDictionary.isDictionary = true
 system.traitDictionary.includesIndex('Collection') = true
 system.traitTypes('Collection').includes('List') = true
-system.typeTraits('List').includes('PrimitiveList') = true
-system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'Sequenceable']) = true
+system.typeTraits('List').includes('PrimitiveSequence') = true
+system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'Sequence']) = true
 system.methodTraits('sum:/1') = ['Iterable']
 system.traitTypes('Object').includes('SmallFloat') = true
 system.traitLookup('Object').methodDictionary.includesIndex('respondsTo:/2') = true
@@ -4092,7 +4092,7 @@ let t = (1, 2, 3); t[3] := 4; t = (1, 2, 4) {- mutate third -}
 (1, 2, 3).species = Tuple:/1 {- species -}
 (1, 2, 3).isCollection = true {- collection trait -}
 (1, 2, 3).isIndexable = true {- indexable trait -}
-(1, 2, 3).isSequenceable = true {- sequenceable trait -}
+(1, 2, 3).isSequence = true {- sequenceable trait -}
 Tuple(0).isEmpty = true {- the empty tuple -}
 [1 .. 5].asTuple.first = 1 {- from list -}
 1:5.asTuple.second = 2 {- from interval -}

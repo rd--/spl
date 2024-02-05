@@ -12,7 +12,7 @@ If the collection is a List, answer it directly.
 
 Lists are of variable size, elements can be added at the start, at the end, or in a place given by a relation to existing items.
 
-List implements the _Iterable_, _Indexable_, _Collection_, _Sequencable_, _PrimitiveList_ and _Ordered_ traits.
+List implements the _Iterable_, _Indexable_, _Collection_, _Sequencable_, _PrimitiveSequence_ and _Ordered_ traits.
 
 * * *
 

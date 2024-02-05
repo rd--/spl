@@ -326,7 +326,7 @@
 		}
 	}
 
-	isSequenceable { :self |
+	isSequence { :self |
 		false
 	}
 
@@ -468,6 +468,10 @@
 
 	asFloat { :self |
 		self.collect(asFloat:/1)
+	}
+
+	boole { :self |
+		self.collect(boole:/1)
 	}
 
 	ceiling { :self |

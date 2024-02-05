@@ -656,7 +656,7 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	asHtmlRow { :self :toString:/1 |
 		let tr = 'tr'.createElement;

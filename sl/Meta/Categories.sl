@@ -19,7 +19,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'List'
 		'Record'
 	],
-	'Collection-PrimitiveList': [
+	'Collection-PrimitiveSequence': [
 		'ArrayBuffer'
 		'ByteArray'
 		'Float64Array'
@@ -1158,7 +1158,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isDictionary'
 		'isEmpty'
 		'isEmptyOrNil'
-		'isSequenceable'
+		'isSequence'
 		'noneSatisfy'
 		'notEmpty'
 		'oneSatisfies'

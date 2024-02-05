@@ -10,7 +10,7 @@
 	'Random' {- > Object -}
 
 	{- Collection Traits -}
-	'PrimitiveList'
+	'PrimitiveSequence'
 	'Collection' {- > Object -}
 	'Extensible'
 	'Dictionary'
@@ -18,7 +18,7 @@
 	'Iterable'
 	'Ordered'
 	'Removable'
-	'Sequenceable'
+	'Sequence'
 	'Unordered'
 
 	{- Kernel Types -}

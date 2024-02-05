@@ -1,4 +1,4 @@
-@PrimitiveList {
+@PrimitiveSequence {
 
 	asList { :self |
 		List(self.size).fillFrom(self)
@@ -52,7 +52,7 @@
 			});
 		}
 		>
-		self.error('@PrimitiveList>>collect: not a block')
+		self.error('@PrimitiveSequence>>collect: not a block')
 	}
 
 	detectIfFoundIfNone { :self :aBlock:/1 :whenFound:/1 :whenNone:/0 |

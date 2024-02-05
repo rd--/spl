@@ -76,7 +76,7 @@ CollectionStream : [Object, Iterator, Stream, PositionableStream] { | collection
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	asIterator { :self |
 		self.asStream

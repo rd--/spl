@@ -60,7 +60,7 @@ RatioTuning : [Object, Tuning] { | name description ratios octave cachedLimit |
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	RatioTuning { :self |
 		RatioTuning('Unnamed tuning', 'Undescribed tuning', self, 2)

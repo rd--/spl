@@ -89,7 +89,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	assertShape { :self :shape |
 		self.assert {
@@ -130,7 +130,7 @@
 
 	reshape { :self :shape |
 		shape.ifEmpty {
-			'Sequenceable>>reshape: empty shape?'.error
+			'Sequence>>reshape: empty shape?'.error
 		} {
 			let size = shape.product;
 			let answer = self.flattened.wrapExtend(size);

@@ -1,6 +1,6 @@
 {- Requires: List -}
 
-Tuple : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
+Tuple : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 
 	asList { :self |
 		self.contents.copy
@@ -60,7 +60,7 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	asTuple { :self |
 		self.asList.asTuple

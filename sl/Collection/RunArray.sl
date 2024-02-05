@@ -164,7 +164,7 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	asRunArray { :self |
 		self.asRunArrayWith(identity:/1)

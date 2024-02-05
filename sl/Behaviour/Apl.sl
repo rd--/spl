@@ -115,7 +115,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	&& { :self :other |
 		self.withCollect(other, &&)

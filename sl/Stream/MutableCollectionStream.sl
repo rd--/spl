@@ -69,7 +69,7 @@ MutableCollectionStream : [Object, Iterator, Stream, PositionableStream, WriteSt
 
 }
 
-+@PrimitiveList {
++@PrimitiveSequence {
 
 	asWriteStream { :self |
 		newMutableCollectionStream().initializeSlots(self, 0, self.size)

@@ -180,7 +180,7 @@ let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 5.expExp(0.1, 10, 4.3, 100).rounded = 62 {- exponential to exponential mapping -}
 5.linCurve(0, 10, -4.3, 100, -3).rounded = 81 {- linear to parametric curve mapping -}
 5.curveLin(0, 10, -4.3, 100, -3).rounded = 18 {- parametric curve to liner mapping -}
-{ :break:/1 | 10.do { :index | (index = 5).ifTrue { 5.break } } }.block = 5 {- non-local return -}
+{ :break:/1 | 1:10.do { :index | (index = 5).ifTrue { 5.break } } }.block = 5 {- non-local return -}
 [1, 2, 4, 8, 16, 32, 64, 128, 256].collect { :each | (each + 1).nextPowerOfTwo } = [2, 4, 8, 16, 32, 64, 128, 256, 512]
 [4, 8, 16, 32, 64, 128, 256, 512].collect { :each | (each - 1).previousPowerOf(2) } = [2, 4, 8, 16, 32, 64, 128, 256]
 [10, 20, 30].obtain(3, nil) = 30 {- at or default value for out of range index -}

@@ -1,4 +1,4 @@
-+@Sequenceable {
++@Sequence {
 
 	crossedMultiply { :self :aSequence |
 		self.withCrossedCollect(aSequence, *)

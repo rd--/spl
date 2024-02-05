@@ -62,7 +62,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	LsAt { :list :indices |
 		indices.collect { :each |

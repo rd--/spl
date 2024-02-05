@@ -390,7 +390,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	+++ { :self :aMatrix |
 		self.withIndexCollect { :each :index |
@@ -881,7 +881,7 @@
 
 	withWrappingCollectOrAdaptTo { :self :anObject :aBlock:/2 |
 		anObject.isCollection.and {
-			anObject.isSequenceable
+			anObject.isSequence
 		}.if {
 			self.withWrappingCollect(anObject, aBlock:/2)
 		} {

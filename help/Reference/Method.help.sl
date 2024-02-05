@@ -15,7 +15,7 @@ The _methodDictionary_ is reflected in the _System_ type.
 	system.methodDictionary.isDictionary = true
 	system.methodDictionary.includesKey('collect') = true
 	system.methodLookupAtType('collect', 2, 'List').isMethod = true
-	system.methodLookupAtType('collect', 2, 'List').origin.name = 'PrimitiveList'
+	system.methodLookupAtType('collect', 2, 'List').origin.name = 'PrimitiveSequence'
 	system.methodLookupAtType('collect', 2, 'List').block . ([3, 4, 5], { :x | x * x }) = [9, 16, 25]
 	collect([3, 4, 5], { :x | x * x }) = [9, 16, 25]
 	system.methodLookupAtType('sum', 1, 'List') == system.methodLookupAtType('sum', 1, 'Set')

@@ -359,7 +359,7 @@ String! : [Object, Json, Iterable] {
 		<primitive: return /^[a-z]+$/.test(_self);>
 	}
 
-	isSequenceable { :self |
+	isSequence { :self |
 		true
 	}
 
@@ -622,7 +622,7 @@ String! : [Object, Json, Iterable] {
 		self.splitBy(' ')
 	}
 
-	{- ImmutableSequenceable -}
+	{- ImmutableSequence -}
 	allButFirst { :self | self.allButFirst(1) }
 	allButFirst { :self :n | self.copyFromTo(n + 1, self.size) }
 
@@ -650,7 +650,7 @@ String! : [Object, Json, Iterable] {
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	camelCase { :self |
 		[self.first] ++ self.allButFirst.collect(capitalized:/1)

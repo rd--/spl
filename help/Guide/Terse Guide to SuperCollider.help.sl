@@ -27,7 +27,7 @@ let c = 0.5.coin.if { 't' } { 'f' }; c = 't' | { c = 'f' }
 ```
 ```
 
-## Sequenceable -- extensions
+## Sequence -- extensions
 ```
 [1, 2, 3] * 4 = [4, 8, 12]
 [-2 .. 2].max(0) = [0, 0, 0, 1, 2]
@@ -171,7 +171,7 @@ LsTrace(LsSeries(1, 1, 3)).upToEnd = [1 .. 3]
 LsScan(LsSeries(1, 1, 9), +).upToEnd = [1 3 6 10 15 21 28 36 45]
 LsScan(LsSeries(1, 1, 9), *).upToEnd = [1 2 6 24 120 720 5040 40320 362880]
 LsScan(LsSeries(1, 1, 9), -).upToEnd = [1 -1 -4 -8 -13 -19 -26 -34 -43]
-LsScan(LsSeries(1, 1, 9), -.flip).upToEnd = [1 1 2 2 3 3 4 4 5]
+LsScan(LsSeries(1, 1, 9), -.swap).upToEnd = [1 1 2 2 3 3 4 4 5]
 LsN(LsScan(LsSeries(1, 1, 6), *), 2).upToEnd = [1 2 6 24 120 720 1 2 6 24 120 720]
 LsGeom(1, 2, 9).upToEnd = [1 2 4 8 16 32 64 128 256]
 LsDiff(LsSeries(1, 1, 9)).upToEnd = [1 1 1 1 1 1 1 1]

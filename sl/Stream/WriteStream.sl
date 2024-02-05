@@ -21,7 +21,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	putOn { :self :aStream |
 		aStream.nextPutAll(self)

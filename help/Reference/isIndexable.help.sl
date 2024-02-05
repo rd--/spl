@@ -13,4 +13,4 @@ The index may be of any type, so that Lists and Maps and Records all answer true
 
 * * *
 
-See also: isCollection, isDictionary, isSequenceable
+See also: isCollection, isDictionary, isSequence

@@ -8,7 +8,10 @@ Types are said to implement a trait.
 
 We can ask the system which traits a given type implements:
 
-	system.typeTraits('List').includes('Sequenceable')
+```
+>>> system.typeTraits('List').includes('Sequence')
+true
+```
 
 A type receives copies of the methods defined in each of the traits it implements.
 The traits are applied in the sequence they are listed in the type definition.

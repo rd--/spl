@@ -1,6 +1,6 @@
 {- Require: SmallFloat -}
 
-@Sequenceable {
+@Sequence {
 
 	= { :self :anObject |
 		self.equalBy(anObject, =)
@@ -27,7 +27,7 @@
 	}
 
 	adaptToCollectionAndApply { :self :rcvr :aBlock:/2 |
-		rcvr.isSequenceable.if {
+		rcvr.isSequence.if {
 			rcvr.withCollect(self) { :rcvrItem :selfItem |
 				aBlock(rcvrItem, selfItem)
 			}
@@ -158,7 +158,7 @@
 	}
 
 	beginsWith { :self :aSequence |
-		aSequence.isSequenceable.if {
+		aSequence.isSequence.if {
 			let k = aSequence.size;
 			valueWithReturn { :return:/1 |
 				(self.size < k).ifTrue {
@@ -348,7 +348,7 @@
 		self.findBinaryDoIfNone(aBlock:/1) { :found |
 			found
 		} {
-			self.error('@Sequenceable>>findBinary: not found')
+			self.error('@Sequence>>findBinary: not found')
 		}
 	}
 
@@ -371,7 +371,7 @@
 		self.findBinaryIndexDoIfNone(aBlock:/1) { :found |
 			found
 		} {
-			self.error('@Sequenceable>>findBinaryIndex: not found')
+			self.error('@Sequence>>findBinaryIndex: not found')
 		}
 	}
 
@@ -554,7 +554,7 @@
 	}
 
 	hasEqualElementsBy { :self :otherCollection :aBlock:/2 |
-		otherCollection.isSequenceable.and {
+		otherCollection.isSequence.and {
 			self.size = otherCollection.size
 		}.if {
 			valueWithReturn { :return:/1 |
@@ -693,7 +693,7 @@
 		}
 	}
 
-	isSequenceable { :self |
+	isSequence { :self |
 		true
 	}
 
@@ -1192,7 +1192,7 @@
 }
 
 {- Numerical -}
-+@Sequenceable {
++@Sequence {
 
 	+ { :self :arg |
 		arg.adaptToCollectionAndApply(self, +)
@@ -1236,7 +1236,7 @@
 
 }
 
-+@Sequenceable {
++@Sequence {
 
 	applyBinaryMathOperatorInPlace { :self :anObject :aBlock:/2 |
 		anObject.isNumber.if {
@@ -1295,7 +1295,7 @@
 
 +@Object {
 
-	isSequenceable { :self |
+	isSequence { :self |
 		false
 	}
 
