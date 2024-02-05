@@ -366,6 +366,12 @@
 		self
 	}
 
+	one { :self |
+		self.collect { :each |
+			each.one
+		}
+	}
+
 	pseudoSlotNameList { :self |
 		['size']
 	}
@@ -428,6 +434,12 @@
 
 	variance { :self |
 		((self - self.mean) ^ 2).sum / (self.size - 1)
+	}
+
+	zero { :self |
+		self.collect { :each |
+			each.zero
+		}
 	}
 
 }

@@ -129,12 +129,16 @@
 	}
 
 	reshape { :self :shape |
-		let size = shape.product;
-		let answer = self.flattened.wrapExtend(size);
-		shape.allButFirst.reverseDo { :n |
-			answer := answer.clump(n)
-		};
-		answer
+		shape.ifEmpty {
+			'Sequenceable>>reshape: empty shape?'.error
+		} {
+			let size = shape.product;
+			let answer = self.flattened.wrapExtend(size);
+			shape.allButFirst.reverseDo { :n |
+				answer := answer.clump(n)
+			};
+			answer
+		}
 	}
 
 	reshapeLike { :self :another |

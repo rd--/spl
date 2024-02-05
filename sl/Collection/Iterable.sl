@@ -238,7 +238,11 @@
 	}
 
 	product { :self |
-		self.reduce(*)
+		self.ifEmpty {
+			1
+		} {
+			self.reduce(*)
+		}
 	}
 
 	range { :self |

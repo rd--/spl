@@ -137,7 +137,7 @@ NaN.isNaN {- literal for NaN -}
 [12, 18, 20, 100, 170].collect { :each | each.factorial.log2.floor } = [28, 52, 61, 524, 1019]
 [0 1 2 3 4].collect(factorial:/1) = [1 1 2 6 24]
 [0 1 2 3 4].factorial = [1 1 2 6 24] {- array factorial -}
-4.iota.reduce(*) = 24 {- factorial is sum of product -}
+4.iota.reduce(*) = 24 {- factorial is product of interval -}
 9.doubleFactorial = 945 {- double factorial -}
 [12, 18, 20].collect { :n | n.doubleFactorial } = [46080, 185794560, 3715891200]
 [12, 18, 20].collect { :n | n.doubleFactorial.log2.floor } = [15, 27, 31]

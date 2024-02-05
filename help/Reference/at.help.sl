@@ -1,8 +1,8 @@
 # at
 
 - _at(aCollection, anIndex)_
-- _atPut(c, i, j, v)_ ⇒ _at(c, i).atPut(j, v)_
-- _atPut(c, i, j, k, v)_ ⇒ _at(c, i).at(j).atPut(k, v)_
+- _at(c, i, j)_ ⇒ _at(c, i).at(j)_
+- _at(c, i, j, k)_ ⇒ _at(c, i).at(j).at(k)_
 
 Answer the item associated with _anIndex_ in _aCollection_.
 
@@ -20,6 +20,9 @@ Lists (and all sequenceable collections) are indexable:
 
 >>> { ['x', 'y'].at(3) }.ifError { true }
 true
+
+>>> [1 2 3; 4 5 6].at(2, 3)
+6
 ```
 
 Records (and all dictionaries) are indexable:
