@@ -66,6 +66,29 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		self.printString(printString:/1)
 	}
 
+	reflectionMatrix { :self |
+		self := self / self.norm;
+		self.size.caseOfOtherwise([
+			{ 2 } -> {
+				let [a, b] = self;
+				[
+					[a.squared - b.squared, 2 * a * b],
+					[2 * a * b, b.squared - a.squared]
+				]
+			},
+			{ 3 } -> {
+				let [a, b, c] = self;
+				[
+					[1 - (2 * a.squared), -2 * a * b, -2 * a * c],
+					[-2 * a * b, 1 - (2 * b.squared), -2 * b * c],
+					[-2 * a * c, -2 * b * c, 1 - (2 * c.squared)]
+				]
+			}
+		]) {
+			'List>>reflectionMatrix: not two or three list'.error
+		}
+	}
+
 	removeAll { :self |
 		<primitive: return _self.splice(0);>
 	}
@@ -88,6 +111,10 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 	removeLast { :self :count |
 		<primitive: return _self.splice(_self.length - _count, _count);>
+	}
+
+	scalingMatrix { :self |
+		self.diagonalMatrix
 	}
 
 	shallowCopy { :self |

@@ -3,7 +3,10 @@
 Assign a value to a variable.
 Variables must be declared.
 
-	{ | x | x := 3; x * x }.value = 9
+```
+>>> { var x; x := 3; x * x }.value
+9
+```
 
 The _:=_ symbol is also part of [AtPut Syntax] and [Quoted AtPut Syntax].
 

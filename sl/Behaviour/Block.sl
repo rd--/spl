@@ -10,6 +10,10 @@ Block! : [Object] {
 		self(anObject)
 	}
 
+	@* { :self:/1 :aBlock:/1 |
+		self:/1.composeLeft(aBlock:/1)
+	}
+
 	apply { :self :aList |
 		<primitive:
 		if(sl.isArray(_aList) && (_self.length === _aList.length)) {
@@ -24,9 +28,33 @@ Block! : [Object] {
 		nil
 	}
 
-	compose { :self:/1 :aBlock:/1 |
+	atop { :self:/2 :aBlock:/1 |
+		{ :anObject :anotherObject |
+			aBlock(self(anObject, anotherObject))
+		}
+	}
+
+	composeLeft { :self:/1 :aBlock:/1 |
 		{ :anObject |
 			self(aBlock(anObject))
+		}
+	}
+
+	composeRight { :self:/1 :aBlock:/1 |
+		{ :anObject |
+			aBlock(self(anObject))
+		}
+	}
+
+	bindLeft { :self:/2 :anObject |
+		{ :each |
+			self(anObject, each)
+		}
+	}
+
+	bindRight { :self:/2 :anObject |
+		{ :each |
+			self(each, anObject)
 		}
 	}
 
@@ -107,6 +135,10 @@ Block! : [Object] {
 
 	map { :self:/1 :aCollection |
 		aCollection.collect(self:/1)
+	}
+
+	map { :self:/2 :aSequence :anotherSequence |
+		aSequence.withCollect(anotherSequence, self:/2)
 	}
 
 	methodName { :self |

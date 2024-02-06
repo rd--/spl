@@ -207,12 +207,27 @@
 		1 / self
 	}
 
+	reflectionMatrix { :self |
+		let n = 2 * self;
+		[
+			[n.cos, n.sin],
+			[n.sin, n.cos.negated]
+		]
+	}
+
 	remainderBy { :self :aNumber :aBlock:/1 |
 		self - (self.quotientBy(aNumber, aBlock:/1) * aNumber)
 	}
 
 	remainder { :self :aNumber |
 		self.remainderBy(aNumber, truncated:/1)
+	}
+
+	rotationMatrix { :self |
+		[
+			[self.cos, self.sin.negated],
+			[self.sin, self.cos]
+		]
 	}
 
 	roundDown { :self |

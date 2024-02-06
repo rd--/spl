@@ -18,7 +18,7 @@ An identityMatrix is a special case of a diagonalMatrix:
 
 * * *
 
-See also: identityMatrix
+See also: identityMatrix, scalingMatrix
 
 References:
 _Mathematica_

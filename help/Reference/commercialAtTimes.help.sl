@@ -1,15 +1,32 @@
 # @*
 
+- aBlock:/1 @* aBlock:/1
+
+The operator (infix) form of _compose_.
+
+```
+>>> (squared:/1 @* sqrt:/1) . (23)
+23
+```
+
 - aCollection @* aCollection
 
-	let c = [1 .. 9]; c @* [3, 5, 7] = [3, 5, 7]
+The operator (infix) form of _atAll_.
 
-This is the infix form at atAll.
+```
+>>> let c = [1 .. 9];
+>>> c @* [3 5 7]
+[3 5 7]
+```
 
 The name of this operator is _commercialAtTimes_.
 
 * * *
 
-See also: @, @>, commercialAt, atAll
+See also: @, @>, commercialAt, atAll, compose
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Composition.html)
 
 Categories: Accessing

@@ -1,11 +1,5 @@
 +@Object {
 
-	bind { :self :aBlock:/2 |
-		{ :each |
-			aBlock(each, self)
-		}
-	}
-
 	catenate { :alpha :beta |
 		alpha.nest ++ beta.nest
 	}
@@ -41,12 +35,6 @@
 }
 
 +Block {
-
-	bind { :self:/2 :anObject |
-		{ :each |
-			self(anObject, each)
-		}
-	}
 
 	each { :self |
 		(self.numArgs = 1).if {
