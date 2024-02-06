@@ -4,85 +4,12 @@
 		alpha.nest ++ beta.nest
 	}
 
-	enclose { :self |
-		[self]
-	}
-
-	leftIdentity { :self :anObject |
-		self
-	}
-
 	link { :p :q |
 		p.enclose ++ q.nest
 	}
 
-	nest { :self |
-		self.isCollection.if {
-			self
-		} {
-			[self]
-		}
-	}
-
 	pair { :p :q |
 		p.enclose ++ q.enclose
-	}
-
-	rightIdentity { :self :anObject |
-		anObject
-	}
-
-}
-
-+Block {
-
-	each { :self |
-		(self.numArgs = 1).if {
-			{ :aCollection |
-				aCollection.collect(self)
-			}
-		} {
-			{ :alpha :beta |
-				alpha.withCollect(beta, self)
-			}
-		}
-	}
-
-	innerProduct { :self:/2 :aBlock:/2 |
-		{ :p :q |
-			p.withCollect(q,self:/2).foldRight(aBlock:/2)
-		}
-	}
-
-	outerProduct { :self:/2 |
-		{ :p :q |
-			p.collect { :each |
-				q.collect { :alpha |
-					self(each, alpha)
-				}
-			}
-		}
-	}
-
-	over { :f:/2 :g:/1 |
-		{ :p :q |
-			f(p.g, q.g)
-		}
-	}
-
-	power { :self:/1 :count |
-		{ :each |
-			count.timesRepeat {
-				each := self(each)
-			};
-			each
-		}
-	}
-
-	self { :self:/2 |
-		{ :each |
-			self(each, each)
-		}
 	}
 
 }

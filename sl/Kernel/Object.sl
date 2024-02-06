@@ -139,6 +139,10 @@
 		false
 	}
 
+	leftIdentity { :self :anObject |
+		self
+	}
+
 	notificationMessage { :self :message |
 		[
 			self.typeOf, ': ',
@@ -198,6 +202,10 @@
 
 	pseudoSlotNameList { :self |
 		[]
+	}
+
+	rightIdentity { :self :anObject |
+		anObject
 	}
 
 	shallowCopy { :self |

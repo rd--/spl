@@ -28,36 +28,6 @@ Block! : [Object] {
 		nil
 	}
 
-	atop { :self:/2 :aBlock:/1 |
-		{ :anObject :anotherObject |
-			aBlock(self(anObject, anotherObject))
-		}
-	}
-
-	composeLeft { :self:/1 :aBlock:/1 |
-		{ :anObject |
-			self(aBlock(anObject))
-		}
-	}
-
-	composeRight { :self:/1 :aBlock:/1 |
-		{ :anObject |
-			aBlock(self(anObject))
-		}
-	}
-
-	bindLeft { :self:/2 :anObject |
-		{ :each |
-			self(anObject, each)
-		}
-	}
-
-	bindRight { :self:/2 :anObject |
-		{ :each |
-			self(each, anObject)
-		}
-	}
-
 	cull { :self :firstArg |
 		(self.numArgs >= 1).if {
 			self.value(firstArg)
@@ -201,15 +171,6 @@ Block! : [Object] {
 			self();
 			true
 		}.whileTrue
-	}
-
-	swap { :self:/2 |
-		(self:/2.numArgs ~= 2).ifTrue {
-			'Block>>swap: not two argument block'.error
-		};
-		{ :alpha :beta |
-			self(beta, alpha)
-		}
 	}
 
 	value { :self:/0 |

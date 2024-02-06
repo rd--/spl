@@ -276,6 +276,10 @@
 		answer
 	}
 
+	crossedMultiply { :self :aSequence |
+		self.withCollectCrossed(aSequence, *)
+	}
+
 	do { :self :aBlock:/1 |
 		self.indicesDo { :index |
 			aBlock(self[index])
@@ -1154,10 +1158,54 @@
 		answer
 	}
 
-	withCollect { :self :otherCollection :aBlock:/2 |
-		self.isOfSameSizeCheck(otherCollection);
+	withCollect { :self :aSequence :aBlock:/2 |
+		self.withCollectWrapping(aSequence, aBlock:/2)
+	}
+
+	withCollectCrossed { :self :aSequence :aBlock:/2 |
+		let answer = self.species.new(self.size * aSequence.size);
+		let nextIndex = 1;
+		self.do { :leftItem |
+			aSequence.do { :rightItem |
+				answer[nextIndex] := aBlock(leftItem, rightItem);
+				nextIndex := nextIndex + 1
+			}
+		};
+		answer
+	}
+
+	withCollectEqual { :self :aSequence :aBlock:/2 |
+		self.isOfSameSizeCheck(aSequence);
 		1.toAsCollect(self.size, self.species) { :index |
-			aBlock(self[index], otherCollection[index])
+			aBlock(self[index], aSequence[index])
+		}
+	}
+
+	withCollectFolding { :self :aCollection :aBlock:/2 |
+		let maximumSize = self.size.max(aCollection.size);
+		1.toAsCollect(maximumSize, self.species) { :index |
+			aBlock(self.atFold(index), aCollection.atFold(index))
+		}
+	}
+
+	withCollectTable { :self :aSequence :aBlock:/2 |
+		self.collect { :each |
+			each.aBlock(aSequence)
+		}
+	}
+
+	withCollectTruncating { :self :aSequence :aBlock:/2 |
+		(self.size < aSequence.size).if {
+			self.withCollect(aSequence.take(self.size), aBlock:/2)
+		} {
+			self.take(aSequence.size).withCollect(aSequence, aBlock:/2)
+		}
+	}
+
+	withCollectWrapping { :self :aCollection :aBlock:/2 |
+		let maximumSize = self.size.max(aCollection.size);
+		1.toAsCollect(maximumSize, self.species) { :index |
+			aBlock(self.atWrap(index), aCollection.atWrap(index))
 		}
 	}
 

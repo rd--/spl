@@ -1,7 +1,19 @@
 # map
 
+- _map(aBlock:/2)_
 - _map(aBlock:/1, aCollection)_
 - _map(aBlock:/2, aSequence, anotherSequence)_
+
+The unary form answer a Block that will apply _aBlock_ element wise to two sequences.
+If the sequences are not of equal size the shorted will be cycled.
+
+```
+>>> ['i' 'j' 'k'] ++.map ['w' 'x' 'y' 'z']
+['iw' 'jx' 'ky' 'iz']
+
+>>> ['i' 'j' 'k'].withCollect(['w' 'x' 'y' 'z'], ++)
+['iw' 'jx' 'ky' 'iz']
+```
 
 The binary form of _map_ is _swap_ of _collect_,
 i.e. _map(α, β) ⇒ collect(β, α)_.

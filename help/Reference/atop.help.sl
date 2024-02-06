@@ -18,7 +18,6 @@ The negation of the pointwise maximum of two lists:
 
 The maximum of the pointwise difference of two lists:
 
-
 ```
 >>> -.atop(max:/1) . ([3 1 2], [4 6 5])
 -1

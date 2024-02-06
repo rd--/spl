@@ -879,11 +879,11 @@
 		self.addSine(0.5, 1, 0)
 	}
 
-	withWrappingCollectOrAdaptTo { :self :anObject :aBlock:/2 |
+	withCollectWrappingOrAdaptTo { :self :anObject :aBlock:/2 |
 		anObject.isCollection.and {
 			anObject.isSequence
 		}.if {
-			self.withWrappingCollect(anObject, aBlock:/2)
+			self.withCollectWrapping(anObject, aBlock:/2)
 		} {
 			anObject.adaptToCollectionAndApply(self, aBlock:/2)
 		}
@@ -897,21 +897,21 @@
 		answer
 	}
 
-	+ { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, +) }
-	- { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, -) }
-	* { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, *) }
-	/ { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, /) }
-	< { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, <) }
-	> { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, >) }
-	^ { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, ^) }
-	% { :self :aNumber | withWrappingCollectOrAdaptTo(self, aNumber, %) }
+	+ { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, +) }
+	- { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, -) }
+	* { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, *) }
+	/ { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, /) }
+	< { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, <) }
+	> { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, >) }
+	^ { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, ^) }
+	% { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, %) }
 
-	bitAnd { :self :anObject | self.withWrappingCollectOrAdaptTo(anObject, bitAnd:/2) }
-	bitOr { :self :anObject | self.withWrappingCollectOrAdaptTo(anObject, bitOr:/2) }
-	min { :self :anObject | self.withWrappingCollectOrAdaptTo(anObject, min:/2) }
-	max { :self :anObject | self.withWrappingCollectOrAdaptTo(anObject, max:/2) }
-	roundTo { :self :anObject | self.withWrappingCollectOrAdaptTo(anObject, roundTo:/2) }
-	truncateTo { :self :anObject | self.withWrappingCollectOrAdaptTo(anObject, truncateTo:/2) }
+	bitAnd { :self :anObject | self.withCollectWrappingOrAdaptTo(anObject, bitAnd:/2) }
+	bitOr { :self :anObject | self.withCollectWrappingOrAdaptTo(anObject, bitOr:/2) }
+	min { :self :anObject | self.withCollectWrappingOrAdaptTo(anObject, min:/2) }
+	max { :self :anObject | self.withCollectWrappingOrAdaptTo(anObject, max:/2) }
+	roundTo { :self :anObject | self.withCollectWrappingOrAdaptTo(anObject, roundTo:/2) }
+	truncateTo { :self :anObject | self.withCollectWrappingOrAdaptTo(anObject, truncateTo:/2) }
 
 }
 

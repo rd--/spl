@@ -1,7 +1,9 @@
 # Operator Adverbs
 
 Adverbs are methods at _Block_.
+
 Adverbs modify how operators iterate over sequences.
+
 Adverbs are present in the J programming language, which is a successor of Apl.
 
 An adverb _a_ is applied to an operator _o_ using the notation _o.a_.
@@ -21,6 +23,9 @@ The _t_ adverb is the only form that changes the shape of the input sequence.
 >>> [1 2 3] +.e [4 5 6]
 [5 7 9]
 
+>>> ['1' '2' '3'] ++.e ['4' '5' '6']
+['14' '25' '36']
+
 >>> [1 2 3] +.s [4 5 6 7]
 [5 7 9]
 
@@ -38,5 +43,9 @@ The _t_ adverb is the only form that changes the shape of the input sequence.
 ```
 
 * * *
+
+References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/Modifiers)
 
 Categories: Syntax

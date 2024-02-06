@@ -1,86 +1,140 @@
-+@Sequence {
-
-	crossedMultiply { :self :aSequence |
-		self.withCrossedCollect(aSequence, *)
-	}
-
-	withCrossedCollect { :self :aSequence :aBlock:/2 |
-		let answer = self.species.new(self.size * aSequence.size);
-		let nextIndex = 1;
-		self.do { :leftItem |
-			aSequence.do { :rightItem |
-				answer[nextIndex] := aBlock(leftItem, rightItem);
-				nextIndex := nextIndex + 1
-			}
-		};
-		answer
-	}
-
-	withFoldingCollect { :self :aCollection :aBlock:/2 |
-		let maximumSize = self.size.max(aCollection.size);
-		1.toAsCollect(maximumSize, self.species) { :index |
-			aBlock(self.atFold(index), aCollection.atFold(index))
-		}
-	}
-
-	withTableCollect { :self :aSequence :aBlock:/2 |
-		self.collect { :each |
-			each.aBlock(aSequence)
-		}
-	}
-
-	withTruncatingCollect { :self :aSequence :aBlock:/2 |
-		(self.size < aSequence.size).if {
-			self.withCollect(aSequence.take(self.size), aBlock:/2)
-		} {
-			self.take(aSequence.size).withCollect(aSequence, aBlock:/2)
-		}
-	}
-
-	withWrappingCollect { :self :aCollection :aBlock:/2 |
-		let maximumSize = self.size.max(aCollection.size);
-		1.toAsCollect(maximumSize, self.species) { :index |
-			aBlock(self.atWrap(index), aCollection.atWrap(index))
-		}
-	}
-
-}
-
 +Block {
+
+	atop { :self:/2 :aBlock:/1 |
+		{ :anObject :anotherObject |
+			aBlock(self(anObject, anotherObject))
+		}
+	}
+
+	bind { :self:/2 :anObject |
+		self.bindLeft(anObject)
+	}
+
+	bindLeft { :self:/2 :anObject |
+		{ :each |
+			self(anObject, each)
+		}
+	}
+
+	bindRight { :self:/2 :anObject |
+		{ :each |
+			self(each, anObject)
+		}
+	}
+
+	compose { :self:/1 :aBlock:/1 |
+		self.composeLeft(aBlock:/1)
+	}
+
+	composeLeft { :self:/1 :aBlock:/1 |
+		{ :anObject |
+			self(aBlock(anObject))
+		}
+	}
+
+	composeRight { :self:/1 :aBlock:/1 |
+		{ :anObject |
+			aBlock(self(anObject))
+		}
+	}
 
 	e { :self:/2 |
 		{ :alpha :beta |
-			alpha.withCollect(beta, self:/2)
+			alpha.withCollectEqual(beta, self:/2)
+		}
+	}
+
+	each { :self |
+		(self.numArgs = 1).if {
+			{ :aCollection |
+				aCollection.collect(self)
+			}
+		} {
+			{ :alpha :beta |
+				alpha.withCollect(beta, self)
+			}
 		}
 	}
 
 	f { :self:/2 |
 		{ :alpha :beta |
-			alpha.withFoldingCollect(beta, self:/2)
+			alpha.withCollectFolding(beta, self:/2)
+		}
+	}
+
+	innerProduct { :self:/2 :aBlock:/2 |
+		{ :p :q |
+			p.withCollect(q,self:/2).foldRight(aBlock:/2)
+		}
+	}
+
+	map { :self:/2 |
+		{ :alpha :beta |
+			alpha.withCollect(beta, self:/2)
+		}
+	}
+
+	outerProduct { :self:/2 |
+		{ :p :q |
+			p.collect { :each |
+				q.collect { :alpha |
+					self(each, alpha)
+				}
+			}
+		}
+	}
+
+	over { :f:/2 :g:/1 |
+		{ :p :q |
+			f(p.g, q.g)
+		}
+	}
+
+	power { :self:/1 :count |
+		{ :each |
+			count.timesRepeat {
+				each := self(each)
+			};
+			each
 		}
 	}
 
 	s { :self:/2 |
 		{ :alpha :beta |
-			alpha.withTruncatingCollect(beta, self:/2)
+			alpha.withCollectTruncating(beta, self:/2)
+		}
+	}
+
+	self { :self:/2 |
+		{ :each |
+			self(each, each)
+		}
+	}
+
+	swap { :self:/2 |
+		(self:/2.numArgs ~= 2).ifTrue {
+			'Block>>swap: not two argument block'.error
+		};
+		{ :alpha :beta |
+			self(beta, alpha)
 		}
 	}
 
 	t { :self:/2 |
 		{ :alpha :beta |
-			alpha.withTableCollect(beta, self:/2)
+			alpha.withCollectTable(beta, self:/2)
 		}
 	}
 
 	w { :self:/2 |
 		{ :alpha :beta |
-			alpha.withWrappingCollect(beta, self:/2)
+			alpha.withCollectWrapping(beta, self:/2)
 		}
 	}
 
 	x { :self:/2 |
 		{ :alpha :beta |
-			alpha.withCrossedCollect(beta, self:/2)
+			alpha.withCollectCrossed(beta, self:/2)
 		}
 	}
 

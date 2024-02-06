@@ -221,6 +221,18 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 +@Object {
 
+	enclose { :self |
+		[self]
+	}
+
+	nest { :self |
+		self.isList.if {
+			self
+		} {
+			[self]
+		}
+	}
+
 	replicateApplying { :self :anInteger :aBlock:/1 |
 		let answer = List(anInteger);
 		answer.indicesDo { :index |
