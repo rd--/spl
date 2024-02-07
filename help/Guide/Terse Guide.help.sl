@@ -3955,7 +3955,7 @@ system.traitLookup('Object').methodDictionary.includesIndex('respondsTo:/2') = t
 system.traitLookup('Collection').isTrait = true
 system.traitLookup('Collection').name = 'Collection'
 system.traitLookup('Iterable').methodDictionary.includesIndex('do:/2') = true
-system.traitLookup('Iterable').methodDictionary::do:/2.isMethod = true
+system.traitLookup('Iterable').methodDictionary['do:/2'].isMethod = true
 system.traitTypes('Collection').includes('List') = true
 system.traitTypes('Dictionary').includes('Map') = true
 system.traitDictionary['Dictionary'].isTrait = true
@@ -3978,7 +3978,7 @@ system.typeLookup('Association').methodDictionary.anySatisfy { :each | each.name
 system.typeLookup('List').isType = true
 system.typeLookup('List').name = 'List'
 system.typeLookup('List').methodDictionary.includesIndex('shallowCopy:/1') = true
-system.typeLookup('List').methodDictionary::shallowCopy:/1.isMethod = true
+system.typeLookup('List').methodDictionary['shallowCopy:/1'].isMethod = true
 system.typeMethodDictionary('List').anySatisfy { :each | each.name ='select' } = true
 system.typeLookup('String').isType = true
 system.typeLookup('String').methodDictionary.includesIndex('includesSubstring:/2') = true

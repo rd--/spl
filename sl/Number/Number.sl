@@ -1,5 +1,9 @@
 @Number {
 
+	- { :self |
+		self.zero - self
+	}
+
 	// { :self :aNumber |
 		self.quotient(aNumber)
 	}
@@ -116,6 +120,10 @@
 		self * 0.000000000000001
 	}
 
+	factorialPower { :self :anInteger |
+		(self - (0 .. anInteger - 1)).product
+	}
+
 	floor { :self |
 		let truncation = self.truncated;
 		(self >= 0).if {
@@ -164,7 +172,7 @@
 	}
 
 	negated { :self |
-		0 - self
+		self.zero - self
 	}
 
 	negative { :self |

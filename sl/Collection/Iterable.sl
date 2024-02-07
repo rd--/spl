@@ -1,5 +1,13 @@
 @Iterable {
 
+	+ { :self |
+		self.sum
+	}
+
+	* { :self |
+		self.product
+	}
+
 	allSatisfy { :self :aBlock:/1 |
 		valueWithReturn { :return:/1 |
 			self.do { :each |

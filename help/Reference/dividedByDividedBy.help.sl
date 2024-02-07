@@ -4,8 +4,13 @@
 
 Operator form of _quotient_.
 
-	-9 // 4 = -2
-	-0.9 // 0.4 = -2
+```
+>>> -9 // 4
+-2
+
+>>> -0.9 // 0.4
+-2
+```
 
 The name of this operator is _dividedByDividedBy_.
 

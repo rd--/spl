@@ -10,6 +10,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		<primitive: return _self === BigInt(_anInteger);>
 	}
 
+	~ { :self :anInteger |
+		self = anInteger
+	}
+
 	< { :self :anInteger |
 		<primitive: return _self < BigInt(_anInteger);>
 	}

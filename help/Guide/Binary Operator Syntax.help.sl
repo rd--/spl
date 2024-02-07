@@ -1,20 +1,20 @@
-# Operator Syntax
+# Binary Operator Syntax
 
-Operators are written _α + β_.
+Binary operators are written _α + β_.
 
 ```
 >>> 3 + 4
 7
 ```
 
-Operators associate to the left, _α + β * γ_ = _(α + β) * γ_.
+Binary operators associate to the left, _α + β * γ_ = _(α + β) * γ_.
 
 ```
 >>> 3 + 4 * 5
 35
 ```
 
-Operators are grouped using parentheses:
+Binary operators are grouped using parentheses:
 
 
 ```
@@ -22,21 +22,21 @@ Operators are grouped using parentheses:
 23
 ```
 
-Operators have lower precedence than ordinary application, _α + β.γ_ = _α + (β.γ)_
+Binary operators have lower precedence than ordinary application, _α + β.γ_ = _α + (β.γ)_
 
 ```
 >>> 3 + 4.squared
 19
 ```
 
-Operators may be written as names in non-operator contexts, i.e. _α.β(+)_.
+Binary operators may be written as names in non-operator contexts, i.e. _α.β(+)_.
 
 ```
 >>> 1:9.reduce(*)
 362880
 ```
 
-Operators are rewritten as the arity qualified names of their symbols.
+Binary operators are rewritten as the arity qualified names of their symbols.
 _+_ as _plus:/2_,
 _*_ as _times:/2_, &etc.
 
@@ -52,7 +52,7 @@ These names are in the same space as all other block names, defining _&_ defines
 7
 ```
 
-Operators with multiple characters are named by joining together the character names,
+Binary operators with multiple characters are named by joining together the character names,
 i.e. _++_ is _plusPlus_ not _append_, and _<=_ is _lessThanEquals_.
 
 ```
@@ -60,17 +60,19 @@ i.e. _++_ is _plusPlus_ not _append_, and _<=_ is _lessThanEquals_.
 true
 ```
 
-Math and logic operators:
+Math and logic binary operators:
 
 - +: plus, *: times, -: minus, /: dividedBy, %: modulo
 - =: equals, <: lessThan, >: greaterThan
 - &: and, |: or, ~: tilde
 
-Other operators:
+Other binary operators:
 
 - !: bang, @: commercialAt, #: hash, $: dollar, ^: hat
 - \: backslash, ?: query
 
 * * *
+
+See also: [Unary Operator Syntax]
 
 Categories: Syntax

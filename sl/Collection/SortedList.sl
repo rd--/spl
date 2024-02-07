@@ -40,13 +40,12 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 	indexForInserting { :self :newObject |
 		let low = 1;
 		let high = self.contents.size;
-		let compare:/2 = self.sortBlock;
 		let index = nil;
 		{
 			index := high + low // 2;
 			low <= high
 		}.whileTrue {
-			self.contents[index].compare(newObject).if {
+			self.sortBlock.value(self.contents[index], newObject).if {
 				low := index + 1
 			} {
 				high := index - 1

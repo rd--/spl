@@ -212,8 +212,16 @@ Complex : [Object, Number] { | real imaginary |
 		self.real.exp * (self.imaginary.cos + self.imaginary.sin.i)
 	}
 
+	fractionPart { :self |
+		Complex(self.real.fractionPart, self.imaginary.fractionPart)
+	}
+
 	i { :self |
 		Complex(self.imaginary.negated, self.real)
+	}
+
+	integerPart { :self |
+		Complex(self.real.integerPart, self.imaginary.integerPart)
 	}
 
 	isComplex { :self |

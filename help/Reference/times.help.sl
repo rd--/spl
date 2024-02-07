@@ -1,15 +1,38 @@
 # *
 
+- _aCollection.*_
 - _aNumber * anotherNumber_
 
 Answer _aNumber_ multiplied by _anotherNumber_.
 
-	2 * 3 * 4 = 24
+```
+>>> 2 * 3 * 4
+24
+```
 
 Times threads element-wise:
 
-	2 * [3 4 5] = [6 8 10]
-	[2 3 4] * 5 = [10 15 20]
+```
+>>> 2 * [3 4 5]
+[6 8 10]
+
+>>> [2 3 4] * 5
+[10 15 20]
+```
+
+As argument to reduce:
+
+```
+>>> 1:9.reduce(*)
+362880
+```
+
+The unary form of _times_ is _product_:
+
+```
+>>> 1:9.*
+362880
+```
 
 The name of this operator is _times_.
 
@@ -17,7 +40,7 @@ Where supported * is displayed as ×.
 
 * * *
 
-See also: plus
+See also: +, -, /, dividedBy, plus, times
 
 Unicode: U+00D7 × Multiplication Sign
 

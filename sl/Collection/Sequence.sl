@@ -1258,6 +1258,10 @@
 		arg.adaptToCollectionAndApply(self, /)
 	}
 
+	// { :self :arg |
+		arg.adaptToCollectionAndApply(self, //)
+	}
+
 	< { :self :arg |
 		arg.adaptToCollectionAndApply(self, <)
 	}

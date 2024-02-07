@@ -7,18 +7,18 @@ Sl {
 	TopLevel = LibraryExpression+ | Program
 	LibraryExpression = TypeExpression | TraitExpression | ConstantDefinition
 	TypeExpression = TypeExtension | TypeTypeExtension | TypeListExtension | HostTypeDefinition | TypeDefinition
-	TypeExtension = "+" identifier "{" (methodName Block)* "}"
-	TypeTypeExtension = "+" identifier "^" "{" (methodName Block)* "}"
-	TypeListExtension = "+" "[" NonemptyListOf<identifier, ","> "]" "{" (methodName Block)* "}"
-	HostTypeDefinition = identifier "!" TraitList? "{" SlotNames? (methodName Block)* "}"
-	TypeDefinition = identifier TraitList? "{" SlotNames? (methodName Block)* "}"
-	SlotNames = "|" identifier+ "|"
-	TraitList = ":" "[" NonemptyListOf<identifier, ","> "]"
+	TypeExtension = "+" typeName "{" (methodName Block)* "}"
+	TypeTypeExtension = "+" typeName "^" "{" (methodName Block)* "}"
+	TypeListExtension = "+" "[" NonemptyListOf<typeName, ","> "]" "{" (methodName Block)* "}"
+	HostTypeDefinition = typeName "!" TraitList? "{" SlotNames? (methodName Block)* "}"
+	TypeDefinition = typeName TraitList? "{" SlotNames? (methodName Block)* "}"
+	SlotNames = "|" slotName+ "|"
+	TraitList = ":" "[" NonemptyListOf<traitName, ","> "]"
 	TraitExpression = TraitExtension | TraitListExtension | TraitDefinition
-	TraitExtension = "+" "@" identifier "{" (methodName Block)* "}"
-	TraitListExtension = "+" "@" "[" NonemptyListOf<identifier, ","> "]" "{" (methodName Block)* "}"
-	TraitDefinition = "@" identifier "{" (methodName Block)* "}"
-	ConstantDefinition = "Constant" "." unqualifiedIdentifier "=" literal
+	TraitExtension = "+" "@" traitName "{" (methodName Block)* "}"
+	TraitListExtension = "+" "@" "[" NonemptyListOf<traitName, ","> "]" "{" (methodName Block)* "}"
+	TraitDefinition = "@" traitName "{" (methodName Block)* "}"
+	ConstantDefinition = "Constant" "." constantName "=" literal
 	Program = Temporaries? ListOf<Expression, ";">
 	Temporaries = VarTemporaries | LetTemporary+
 	TemporaryInitializer =
@@ -26,21 +26,22 @@ Sl {
 		TemporaryExpressionInitializer |
 		TemporaryDictionaryInitializer |
 		TemporaryListInitializer
-	TemporaryBlockLiteralInitializer = identifier "=" Block ~("." | binaryOperator)
-	TemporaryExpressionInitializer = identifier "=" Expression
-	TemporaryDictionaryInitializer = "(" NonemptyListOf<identifier, ","> ")" "=" Expression
-	TemporaryListInitializer = "[" NonemptyListOf<identifierOrUnused, ","> "]" "=" Expression
+	TemporaryBlockLiteralInitializer = varName "=" Block ~("." | operator)
+	TemporaryExpressionInitializer = varName "=" Expression
+	TemporaryDictionaryInitializer = "(" NonemptyListOf<keyName, ","> ")" "=" Expression
+	TemporaryListInitializer = "[" NonemptyListOf<varNameOrUnused, ","> "]" "=" Expression
 	LetTemporary = "let" TemporaryInitializer ";"
 	LetTemporaries = "let" NonemptyListOf<TemporaryInitializer, ","> ";"
-	VarTemporaries = "var" NonemptyListOf<identifier, ","> ";"
+	VarTemporaries = "var" NonemptyListOf<varName, ","> ";"
 
-	Expression = Assignment | BinaryExpression | Primary
+	Expression = Assignment | BinaryExpression | UnaryExpression | Primary
 	Assignment = ScalarAssignment | ListAssignment | DictionaryAssignment // | AssignmentOperatorSyntax
-	ScalarAssignment = identifier ":=" Expression
-	ListAssignment = "[" NonemptyListOf<identifier, ","> "]" ":=" Expression
-	DictionaryAssignment = "(" NonemptyListOf<identifier, ","> ")" ":=" Expression
+	ScalarAssignment = varName ":=" Expression
+	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression
+	DictionaryAssignment = "(" NonemptyListOf<keyName, ","> ")" ":=" Expression
 	AssignmentOperatorSyntax = Primary operatorAssignment Expression
-	BinaryExpression = Expression ((binaryOperatorWithAdverb | binaryOperator) Primary)+
+	BinaryExpression = Expression ((binaryOperatorWithAdverb | operator) Primary)+
+	UnaryExpression = Expression "." operator
 
 	Primary
 		= AtPutSyntax
@@ -66,7 +67,7 @@ Sl {
 		| reservedIdentifier
 		| literal
 		| identifier
-		| binaryOperator
+		| operator
 		| VectorSyntax
 		| MatrixSyntax
 		| ParenthesisedExpression
@@ -79,43 +80,43 @@ Sl {
 		| IntervalThenSyntax
 
 	AtPutSyntax = Primary "[" NonemptyListOf<Expression, ","> "]" ":=" Expression
-	QuotedAtPutSyntax = Primary "::" identifier ":=" Expression
+	QuotedAtPutSyntax = Primary "::" keyName ":=" Expression
 	AtSyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
 	AtIfAbsentSyntax = Primary "[" Expression "]" ":?" Block
 	AtIfAbsentPutSyntax = Primary "[" Expression "]" ":?=" Block
-	QuotedAtSyntax = Primary "::" identifier
-	QuotedAtIfAbsentSyntax = Primary "::" identifier ":?" Block
-	QuotedAtIfAbsentPutSyntax = Primary "::" identifier ":?=" Block
-	AtPutDelegateSyntax = Primary ":." identifier ":=" Expression
-	MessageSendSyntax = Primary ":." identifier NonEmptyParameterList?
-	ReadSlotSyntax = Primary ":@" identifier
-	WriteSlotSyntax = Primary ":@" identifier ":=" Expression
+	QuotedAtSyntax = Primary "::" keyName
+	QuotedAtIfAbsentSyntax = Primary "::" keyName ":?" Block
+	QuotedAtIfAbsentPutSyntax = Primary "::" keyName ":?=" Block
+	AtPutDelegateSyntax = Primary ":." keyName ":=" Expression
+	MessageSendSyntax = Primary ":." keyName NonEmptyParameterList?
+	ReadSlotSyntax = Primary ":@" slotName
+	WriteSlotSyntax = Primary ":@" slotName ":=" Expression
 	ValueApply = Primary "." ParameterList
 	ParameterList = "(" ListOf<Expression, ","> ")"
 	NonEmptyParameterList = "(" NonemptyListOf<Expression, ","> ")"
 
-	DotExpressionWithTrailingClosuresSyntax = Primary "." identifier NonEmptyParameterList? Block+
-	DotExpressionWithTrailingDictionariesSyntax = Primary "." identifier NonEmptyParameterList? NonEmptyDictionaryExpression+
-	DotExpressionWithAssignmentSyntax = Primary "." identifier ":=" Expression
-	DotExpression = Primary ("." identifier ~("{" | ":=") NonEmptyParameterList?~("{"))+
+	DotExpressionWithTrailingClosuresSyntax = Primary "." selectorName NonEmptyParameterList? Block+
+	DotExpressionWithTrailingDictionariesSyntax = Primary "." selectorName NonEmptyParameterList? NonEmptyDictionaryExpression+
+	DotExpressionWithAssignmentSyntax = Primary "." selectorName ":=" Expression
+	DotExpression = Primary ("." selectorName ~("{" | ":=") NonEmptyParameterList?~("{"))+
 
 	Block = "{" BlockBody "}"
 	BlockBody = Arguments? Temporaries? Primitive? Statements?
 	Arguments = ArgumentName+ "|"
-	ArgumentName = ":" identifierOrUnused
+	ArgumentName = ":" varNameOrUnused
 	Primitive = "<primitive:" primitiveCharacter* ">"
 	Statements = NonFinalExpression | FinalExpression
 	NonFinalExpression = Expression ";" Statements
 	FinalExpression = Expression
 
-	ApplyWithTrailingClosuresSyntax = identifier NonEmptyParameterList? Block+
-	ApplyWithTrailingDictionariesSyntax = identifier NonEmptyParameterList? NonEmptyDictionaryExpression+
-	ApplySyntax = identifier ParameterList
+	ApplyWithTrailingClosuresSyntax = selectorName NonEmptyParameterList? Block+
+	ApplyWithTrailingDictionariesSyntax = selectorName NonEmptyParameterList? NonEmptyDictionaryExpression+
+	ApplySyntax = selectorName ParameterList
 	ParenthesisedExpression = "(" Expression ")"
 	NonEmptyDictionaryExpression = "(" NonemptyListOf<AssociationExpression, ","> ")"
 	DictionaryExpression = "(" ListOf<AssociationExpression, ","> ")"
-	AssociationExpression = IdentifierAssociation | StringAssociation
-	IdentifierAssociation = identifier ":" Expression
+	AssociationExpression = NameAssociation | StringAssociation
+	NameAssociation = keyName ":" Expression
 	StringAssociation = singleQuotedStringLiteral ":" Expression
 	TupleExpression = "(" NonemptyListOf<Expression, ","> ")"
 	ListExpression = "[" ListOf<Expression, ","> "]"
@@ -124,28 +125,37 @@ Sl {
 	IntervalSyntax = "(" Expression ".." Expression ")"
 	IntervalThenSyntax = "(" Expression "," Expression ".." Expression ")"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
-	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | identifier | VectorSyntax | MatrixSyntax
-	VectorSyntaxUnarySend = (literal | identifier) "." identifier
+	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | varName | VectorSyntax | MatrixSyntax
+	VectorSyntaxUnarySend = (literal | varName) "." selectorName
 	VectorSyntaxRange = integerLiteral ".." integerLiteral // ?
 	MatrixSyntax = "[" NonemptyListOf<MatrixSyntaxItems, ";"> "]"
 	MatrixSyntaxItems = VectorSyntaxItem+
 	VolumeSyntax = "[" NonemptyListOf<VolumeSyntaxItems, ";;"> "]"
 	VolumeSyntaxItems = NonemptyListOf<MatrixSyntaxItems, ";">
 
-	methodName = identifier | binaryOperator
 	unqualifiedIdentifier = letter letterOrDigit*
 	arityQualifiedIdentifier = letter letterOrDigit* (":/" digit+)
 	identifier = arityQualifiedIdentifier | unqualifiedIdentifier
+	methodName = unqualifiedIdentifier | operator
+	selectorName = unqualifiedIdentifier
 	unusedVariableIdentifier = "_"
-	identifierOrUnused = (identifier | unusedVariableIdentifier)
+    uppercaseIdentifier = upper letterOrDigit*
+	typeName = uppercaseIdentifier
+	traitName = uppercaseIdentifier
+    lowercaseIdentifier = lower letterOrDigit*
+	varName = arityQualifiedIdentifier | lowercaseIdentifier // arity branch should be lowercase
+	varNameOrUnused = (varName | unusedVariableIdentifier)
+	slotName = lowercaseIdentifier
+	constantName = lowercaseIdentifier
+	keyName = lowercaseIdentifier | uppercaseIdentifier
 	letterOrDigit = letter | digit
 	reservedIdentifier = "nil" | "true" | "false"
-	binaryOperator = binaryChar+
+	operator = operatorChar+
 	binaryOperatorWithAdverb = binaryOperatorWithBinaryAdverb | binaryOperatorWithUnaryAdverb
-	binaryOperatorWithUnaryAdverb = binaryOperator "." identifier
-	binaryOperatorWithBinaryAdverb = binaryOperator "." identifier "(" (methodName | numberLiteral) ")"
-	binaryChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
-	operatorAssignment = binaryChar ":" "="
+	binaryOperatorWithUnaryAdverb = operator "." selectorName
+	binaryOperatorWithBinaryAdverb = operator "." selectorName "(" (selectorName | numberLiteral) ")"
+	operatorChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
+	operatorAssignment = operatorChar ":" "="
 
 	literal = intervalLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
 	numberLiteral = scientificLiteral | complexLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral

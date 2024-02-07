@@ -6,7 +6,7 @@
 		}
 	}
 
-	bind { :self:/2 :anObject |
+	bind { :self :anObject |
 		self.bindLeft(anObject)
 	}
 

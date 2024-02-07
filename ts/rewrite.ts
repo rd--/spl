@@ -3,13 +3,17 @@ import ohm from 'https://unpkg.com/ohm-js@17/dist/ohm.esm.js';
 import { arraySum } from '../lib/jssc3/ts/kernel/array.ts';
 
 import { slParse, slSemantics } from './grammar.ts';
-import { operatorMethodName, resolveMethodName } from './operator.ts';
+import { isOperatorName, operatorMethodName, resolveMethodName } from './operator.ts';
 import { slOptions } from './options.ts';
 
 export const context = { packageName: 'UnknownPackage' };
 
 function genName(name: string, arity: number): string {
-	return `${name}_${arity}`;
+	if(isOperatorName(name)) {
+		return `${operatorMethodName}_${arity}`;
+	} else {
+		return `${name}_${arity}`;
+	}
 }
 
 function genArityCheck(k: number, a: string): string {
@@ -340,8 +344,9 @@ const asJs: ohm.ActionDict<string> = {
 			`${lhs.sourceString} := ${lhs.sourceString} ${op.asJs} (${rhs.sourceString})`;
 		return rewriteString(text);
 	},
-	binaryOperator(op) {
+	operator(op) {
 		return `_${genName(operatorMethodName(op.sourceString), 2)}`;
+		// return `_${operatorMethodName(op.sourceString)}`; // ALLOW UNARY
 	},
 	binaryOperatorWithUnaryAdverb(op, _dot, adverb) {
 		// console.debug(`binaryOperatorWithAdverb: ${op.sourceString} ${adverb.sourceString}`);
@@ -373,6 +378,11 @@ const asJs: ohm.ActionDict<string> = {
 			left = `${op}(${left}, ${right})`;
 		}
 		return left;
+	},
+	UnaryExpression(lhs, _dot, uop) {
+		const uopName = operatorMethodName(uop.sourceString);
+		// console.debug('UnaryExpression', uopName);
+		return `_${uopName}_1(${lhs.asJs})`;
 	},
 
 	AtPutSyntax(c, _leftBracket, k, _rightBracket, _equals, v) {
@@ -520,7 +530,7 @@ const asJs: ohm.ActionDict<string> = {
 	NonEmptyDictionaryExpression(_leftParen, dict, _rightParen) {
 		return `Object.fromEntries([${commaList(dict.asIteration().children)}])`;
 	},
-	IdentifierAssociation(lhs, _colon, rhs) {
+	NameAssociation(lhs, _colon, rhs) {
 		return `['${lhs.sourceString}', ${rhs.asJs}]`;
 	},
 	StringAssociation(lhs, _colon, rhs) {
@@ -602,6 +612,16 @@ const asJs: ohm.ActionDict<string> = {
 		const arityPart = `_${a.sourceString}`;
 		const identifier = `_${c1.sourceString}${cN.sourceString}${arityPart}`;
 		// console.debug('arityQualifiedIdentifier', identifier);
+		return identifier;
+	},
+	uppercaseIdentifier(c1, cN) {
+		const identifier = `_${c1.sourceString}${cN.sourceString}`;
+		// console.debug('uppercaseIdentifier', identifier);
+		return identifier;
+	},
+	lowercaseIdentifier(c1, cN) {
+		const identifier = `_${c1.sourceString}${cN.sourceString}`;
+		// console.debug('lowercaseIdentifier', identifier);
 		return identifier;
 	},
 	reservedIdentifier(id) {
@@ -795,7 +815,7 @@ function slFirstLineComment(slText: string): string | null {
 	}
 }
 
-// Preserve first line comment for Requires information
+// Preserve first line comment for Requires information in .cache
 export function rewriteString(slText: string): string {
 	const jsText = slParse(slText).asJs;
 	// console.debug(`rewriteString: ${slText} => ${jsText}`);

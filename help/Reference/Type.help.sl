@@ -9,7 +9,7 @@ The _system_ dictionary holds a _typeDictionary_.
 	system.typeLookup('List').isType = true
 	system.typeLookup('List').name = 'List'
 	system.typeLookup('List').methodDictionary.includesKey('shallowCopy:/1') = true
-	system.typeLookup('List').methodDictionary::shallowCopy:/1.isMethod = true
+	system.typeLookup('List').methodDictionary['shallowCopy:/1'].isMethod = true
 
 * * *
 

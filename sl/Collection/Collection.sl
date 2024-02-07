@@ -2,6 +2,10 @@
 
 @Collection {
 
+	- { :self |
+		self.collect(negated:/1)
+	}
+
 	++ { :self :aCollection |
 		let answer = self.copy;
 		answer.addAll(aCollection.assertIsCollection);
@@ -185,6 +189,10 @@
 		self.collect { :each |
 			each.clip(min, max)
 		}
+	}
+
+	cubeRoot { :self |
+		self.collect(cubeRoot:/1)
 	}
 
 	difference { :self :aCollection |
@@ -520,6 +528,10 @@
 
 	harmonicNumber { :self |
 		self.collect(harmonicNumber:/1)
+	}
+
+	integerPart { :self |
+		self.collect(integerPart:/1)
 	}
 
 	lcm { :self |

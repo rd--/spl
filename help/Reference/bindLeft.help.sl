@@ -14,7 +14,7 @@ Answer a unary Block that evaluates _aBlock_ with _anObject_ bound to the first 
 
 * * *
 
-See also: bindRight, constant
+See also: bind, bindRight, constant
 
 References:
 _Apl_
