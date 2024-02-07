@@ -1188,6 +1188,16 @@
 		}
 	}
 
+	withCollectOrAdaptTo { :self :anObject :aBlock:/2 |
+		anObject.isCollection.and {
+			anObject.isSequence
+		}.if {
+			self.withCollect(anObject, aBlock:/2)
+		} {
+			anObject.adaptToCollectionAndApply(self, aBlock:/2)
+		}
+	}
+
 	withCollectTable { :self :aSequence :aBlock:/2 |
 		self.collect { :each |
 			each.aBlock(aSequence)
@@ -1242,48 +1252,76 @@
 {- Numerical -}
 +@Sequence {
 
-	+ { :self :arg |
-		arg.adaptToCollectionAndApply(self, +)
+	+ { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, +)
 	}
 
-	- { :self :arg |
-		arg.adaptToCollectionAndApply(self, -)
+	- { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, -)
 	}
 
-	* { :self :arg |
-		arg.adaptToCollectionAndApply(self, *)
+	* { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, *)
 	}
 
-	/ { :self :arg |
-		arg.adaptToCollectionAndApply(self, /)
+	/ { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, /)
 	}
 
-	// { :self :arg |
-		arg.adaptToCollectionAndApply(self, //)
+	// { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, //)
 	}
 
-	< { :self :arg |
-		arg.adaptToCollectionAndApply(self, <)
+	< { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, <)
 	}
 
-	> { :self :arg |
-		arg.adaptToCollectionAndApply(self, >)
+	> { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, >)
 	}
 
-	^ { :self :arg |
-		arg.adaptToCollectionAndApply(self, ^)
+	^ { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, ^)
 	}
 
-	% { :self :arg |
-		arg.adaptToCollectionAndApply(self, %)
+	% { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, %)
 	}
 
-	gcd { :self :arg |
-		arg.adaptToCollectionAndApply(self, gcd:/2)
+	bitAnd { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, bitAnd:/2)
 	}
 
-	lcm { :self :arg |
-		arg.adaptToCollectionAndApply(self, lcm:/2)
+	bitOr { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, bitOr:/2)
+	}
+
+	gcd { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, gcd:/2)
+	}
+
+	integerDigits { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, integerDigits:/2)
+	}
+
+	lcm { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, lcm:/2)
+	}
+
+	min { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, min:/2)
+	}
+
+	max { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, max:/2)
+	}
+
+	roundTo { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, roundTo:/2)
+	}
+
+	truncateTo { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, truncateTo:/2)
 	}
 
 }

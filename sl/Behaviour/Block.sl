@@ -162,6 +162,10 @@ Block! : [Object] {
 		self.cull(aNumber).ofSize(aNumber)
 	}
 
+	outerProduct { :self :aSequence :anotherSequence |
+		(self.outerProduct).value(aSequence, anotherSequence)
+	}
+
 	parameterNames { :self |
 		<primitive: return _self.parameterNames;>
 	}

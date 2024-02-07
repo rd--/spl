@@ -201,6 +201,10 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		self.duplicate(anInteger)
 	}
 
+	! { :self |
+		self ! 2
+	}
+
 	duplicate { :self |
 		self.duplicate(2)
 	}

@@ -142,6 +142,31 @@
 		}
 	}
 
+	integerDigits { :self :base :numDigits |
+		let answer = [];
+		let num = self;
+		numDigits.timesRepeat {
+			answer.addFirst(num % base);
+			num := num // base
+		};
+		answer
+	}
+
+	integerDigits { :self :base |
+		base.isInteger.if {
+			self.integerDigits(
+				base,
+				(self.log / base.log + 0.0000000001).asInteger + 1
+			)
+		} {
+			base.adaptToNumberAndApply(self, integerDigits:/2)
+		}
+	}
+
+	integerDigits { :self |
+		self.integerDigits(10)
+	}
+
 	isByte { :self |
 		self.isInteger & {
 			self.betweenAnd(0, 255)

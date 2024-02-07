@@ -41,6 +41,7 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/And),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/And.html)
+[1](https://mathworld.wolfram.com/AND.html)
+[2](https://reference.wolfram.com/language/ref/And.html)
 
 Categories: Logic, Operator

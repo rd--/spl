@@ -1810,6 +1810,14 @@ let c = 0; let k = 3; let n = 4; k.tuplesIndicesDo(n) { :each | c := c + 1 }; c 
 let c = 0; 4.tuplesIndicesDo(7) { :each | c := c + 1 }; c = 16384
 -2:7.collect { :each | each.foldIndex(5) } = [4 3 2 1 2 3 4 5 4 3]
 -2:7.collect { :each | each.wrapIndex(5) } = [3 4 5 1 2 3 4 5 1 2]
+23.integerDigits(2, 5) = [1, 0, 1, 1, 1] {- binary -}
+23.integerDigits(8, 2) = [2, 7] {- octal digits -}
+23.integerDigits(10, 2) = [2, 3] {- decimal digits -}
+23.integerDigits(16, 2) = [1, 7] {- hexadecimal digits -}
+127.integerDigits(10, 3) = [1, 2, 7]
+127.integerDigits(10) = [1, 2, 7]
+127.integerDigits(2, 7) = [1, 1, 1, 1, 1, 1, 1]
+1:5000.select { :n | n = n.integerDigits(10).collect { :x | x ^ x }.sum } = [1, 3435]
 ```
 
 ## Integer -- prime numbers

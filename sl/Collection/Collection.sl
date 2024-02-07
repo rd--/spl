@@ -478,6 +478,14 @@
 		self.collect(asFloat:/1)
 	}
 
+	bitAnd { :self |
+		self.reduce(bitAnd:/2)
+	}
+
+	bitOr { :self |
+		self.reduce(bitOr:/2)
+	}
+
 	boole { :self |
 		self.collect(boole:/1)
 	}
@@ -528,6 +536,16 @@
 
 	harmonicNumber { :self |
 		self.collect(harmonicNumber:/1)
+	}
+
+	integerDigits { :self :base :count |
+		self.collect { :each |
+			each.integerDigits(base, count)
+		}
+	}
+
+	integerDigits { :self |
+		self.collect(integerDigits:/1)
 	}
 
 	integerPart { :self |

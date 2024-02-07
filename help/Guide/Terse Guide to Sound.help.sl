@@ -119,14 +119,6 @@ let s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); [1 2.flat 2 3 3.cancelFlat 4 5.flat 
 let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [1 3 5 7 9].isSeries = true {- is a list an arithmetic series -}
 [1 .. 7].collect { :x | x.asBinaryDigits(3) } = [[0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]]
-23.asDigits(2, 5) = [1, 0, 1, 1, 1] {- binary -}
-23.asDigits(8, 2) = [2, 7] {- octal digits -}
-23.asDigits(10, 2) = [2, 3] {- decimal digits -}
-23.asDigits(16, 2) = [1, 7] {- hexadecimal digits -}
-127.asDigits(10, 3) = [1, 2, 7]
-127.asDigits(10) = [1, 2, 7]
-127.asDigits(2, 7) = [1, 1, 1, 1, 1, 1, 1]
-1:5000.select { :n | n = n.asDigits(10).collect { :x | x ^ x }.sum } = [1, 3435]
 1:9.atRandom.inclusivelyBetweenAnd(1, 9)
 1:9.atRandom.exclusivelyBetweenAnd(0, 10)
 [3, 4, 1, 1].integrate = [3, 7, 8, 9]

@@ -1,10 +1,35 @@
-# | -- logic operator
+# |
 
 - _aBoolean | aBlock:/0_
-- _p | q_ ⟹ _or(p, q)_
 
 true if _aBoolean_ is true or _aBlock_ evaluates to true, else false.
 If _aBoolean_ is true then _aBlock_ is not evaluated.
+
+Combine assertions:
+
+```
+>>> true | { true }
+true
+
+>>> true | { false }
+true
+
+>>> false | { false }
+false
+
+>>> (1 > 2) | { pi > 3 }
+true
+```
+
+The name of this operator is _or_.
+
+```
+>>> true.or { false }
+true
+
+>>> false.or { false }
+false
+```
 
 Where supported _or_ is displayed as ∨.
 
@@ -18,6 +43,13 @@ However for the moment _||_ is the name of the non-evaluating form.
 
 * * *
 
-See also: and or &
+See also: &, &&, ||, and, or
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/OR.html)
+[2](https://reference.wolfram.com/language/ref/Or.html)
 
 Unicode: U+2228 ∨ Logical or
+
+Categories: Logic operator

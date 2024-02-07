@@ -38,6 +38,13 @@ Unary - is negated:
 [-1 -2 -3 -4 -5 -6 -7 -8 -9]
 ```
 
+Unary ! is ! 2:
+
+```
+>>> { 0 }.!
+[0 0]
+```
+
 Unary operators are defined in the same manner as binary operators,
 binding to blocks of one rather than two arguments.
 

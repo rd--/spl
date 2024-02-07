@@ -306,20 +306,6 @@
 		answer
 	}
 
-	asDigits { :self :base :numDigits |
-		let answer = [];
-		let num = self;
-		numDigits.timesRepeat {
-			answer.addFirst(num % base);
-			num := num // base
-		};
-		answer
-	}
-
-	asDigits { :self :base |
-		self.asDigits(base, (self.log / base.log + 0.0000000001).asInteger + 1)
-	}
-
 	hammingWindow { :self |
 		let answer = List(self);
 		answer.hammingWindow;
@@ -879,16 +865,6 @@
 		self.addSine(0.5, 1, 0)
 	}
 
-	withCollectWrappingOrAdaptTo { :self :anObject :aBlock:/2 |
-		anObject.isCollection.and {
-			anObject.isSequence
-		}.if {
-			self.withCollectWrapping(anObject, aBlock:/2)
-		} {
-			anObject.adaptToCollectionAndApply(self, aBlock:/2)
-		}
-	}
-
 	wrapExtend { :self :size |
 		let answer = [];
 		1.toDo(size) { :index |
@@ -896,22 +872,6 @@
 		};
 		answer
 	}
-
-	+ { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, +) }
-	- { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, -) }
-	* { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, *) }
-	/ { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, /) }
-	< { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, <) }
-	> { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, >) }
-	^ { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, ^) }
-	% { :self :aNumber | withCollectWrappingOrAdaptTo(self, aNumber, %) }
-
-	bitAnd { :self :anObject | self.withCollectWrappingOrAdaptTo(anObject, bitAnd:/2) }
-	bitOr { :self :anObject | self.withCollectWrappingOrAdaptTo(anObject, bitOr:/2) }
-	min { :self :anObject | self.withCollectWrappingOrAdaptTo(anObject, min:/2) }
-	max { :self :anObject | self.withCollectWrappingOrAdaptTo(anObject, max:/2) }
-	roundTo { :self :anObject | self.withCollectWrappingOrAdaptTo(anObject, roundTo:/2) }
-	truncateTo { :self :anObject | self.withCollectWrappingOrAdaptTo(anObject, truncateTo:/2) }
 
 }
 
