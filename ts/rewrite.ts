@@ -9,11 +9,7 @@ import { slOptions } from './options.ts';
 export const context = { packageName: 'UnknownPackage' };
 
 function genName(name: string, arity: number): string {
-	if(isOperatorName(name)) {
-		return `${operatorMethodName}_${arity}`;
-	} else {
-		return `${name}_${arity}`;
-	}
+	return `${resolveMethodName(name)}_${arity}`;
 }
 
 function genArityCheck(k: number, a: string): string {
@@ -344,17 +340,19 @@ const asJs: ohm.ActionDict<string> = {
 			`${lhs.sourceString} := ${lhs.sourceString} ${op.asJs} (${rhs.sourceString})`;
 		return rewriteString(text);
 	},
-	operator(op) {
-		return `_${genName(operatorMethodName(op.sourceString), 2)}`;
-		// return `_${operatorMethodName(op.sourceString)}`; // ALLOW UNARY
+	infixMethod(name) {
+		return `_${genName(name.sourceString, 2)}`;
 	},
-	binaryOperatorWithUnaryAdverb(op, _dot, adverb) {
-		// console.debug(`binaryOperatorWithAdverb: ${op.sourceString} ${adverb.sourceString}`);
+	operator(op) {
+		return `_${genName(op.sourceString, 2)}`;
+	},
+	operatorWithUnaryAdverb(op, _dot, adverb) {
+		// console.debug(`operatorWithAdverb: ${op.sourceString} ${adverb.sourceString}`);
 		return `_${genName(adverb.sourceString, 1)}(_${
-			genName(operatorMethodName(op.sourceString), 2)
+			genName(op.sourceString, 2)
 		})`;
 	},
-	binaryOperatorWithBinaryAdverb(
+	operatorWithBinaryAdverb(
 		op,
 		_dot,
 		adverb,
@@ -362,9 +360,9 @@ const asJs: ohm.ActionDict<string> = {
 		parameter,
 		_closeParen,
 	) {
-		// console.debug(`binaryOperatorWithAdverb: ${op.sourceString} ${adverb.sourceString}`);
+		// console.debug(`operatorWithAdverb: ${op.sourceString} ${adverb.sourceString}`);
 		return `_${genName(adverb.sourceString, 2)}(
-			_${genName(operatorMethodName(op.sourceString), 2)},
+			_${genName(op.sourceString, 2)},
 			${parameter.asJs}
 		)`;
 	},

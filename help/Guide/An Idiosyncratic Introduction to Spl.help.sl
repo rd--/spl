@@ -240,6 +240,18 @@ Function tables are a good way to organize systematic experimentation on unfamil
 
 >>> (0:3 >.t 0:3).boole
 [0 0 0 0; 1 0 0 0; 1 1 0 0; 1 1 1 0]
+
+>>> 0:3 max.t 0:3
+[0 1 2 3; 1 1 2 3; 2 2 2 3; 3 3 3 3]
+
+>>> 0:3 min.t 0:3
+[0 0 0 0; 0 1 1 1; 0 1 2 2; 0 1 2 3]
+
+>>> 0:3 gcd.t 0:3
+[0 1 2 3; 1 1 1 1; 2 1 2 1; 3 1 1 3]
+
+>>> 0:3 lcm.t 0:3
+[0 0 0 0; 0 1 2 3; 0 2 2 6; 0 3 6 3]
 ```
 
 * * *

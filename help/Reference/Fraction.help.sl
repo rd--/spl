@@ -1,6 +1,6 @@
 # Fraction
 
-- _Fraction(numerator, denominator)_
+_Fraction(numerator, denominator)_
 
 Fraction provides methods for dealing with fractions like 1/3 as a ratio of two integers.
 
@@ -11,14 +11,26 @@ Instance variables are:
 
 A Fraction is generally created by writing it using the literal syntax _1/3_.
 
-	1/3 = Fraction(1, 3)
-	3/4.asSmallFloat = 0.75
-	7/6 > 1.1 = true
+```
+>>> 1/3
+Fraction(1, 3)
+
+>>> 3/4.asSmallFloat
+0.75
+
+>>> 7/6 > 1.1
+true
+```
 
 Fractions written using this syntax are _reduced_ by construction.
 
-	2/4 = 1/2
-	2/4 ~= Fraction(2, 4)
+```
+>>> 2/4
+1/2
+
+>>> 2/4 ~= Fraction(2, 4)
+true
+```
 
 Literal fractions are _normalized_ and have the following invariants:
 
@@ -31,9 +43,16 @@ Properly reduced fractions have the additional invariant:
 
 For instance:
 
-	Fraction(3, -2).reduced = Fraction(-3, 2)
-	Fraction(2, 1).reduced = 2
-	8/6 = Fraction(4, 3)
+```
+>>> Fraction(3, -2).reduced
+Fraction(-3, 2)
+
+>>> Fraction(2, 1).reduced
+2
+
+>>> 8/6
+Fraction(4, 3)
+```
 
 A Fraction that does not conform to above invariants could be the cause of undefined behavior and unexpected results.
 
@@ -45,16 +64,48 @@ Note that Fraction and Integer represent together the set of Rational numbers:
 - Integer is a subset of rational (those which are whole numbers)
 - Fraction is used for representing the complementary subset of rational (those which are not whole numbers)
 
-	2/3 + 2/3 = 4/3
-	2/3 + 1/2 = 7/6
-	2/3 + 4/3 = 2
-	2/3.raisedToInteger(5) = 32/243
+```
+>>> 2/3 + 2/3
+4/3
+
+>>> 2/3 + 1/2
+7/6
+
+>>> 2/3 + 4/3
+2
+
+>>> 2/3.raisedToInteger(5)
+32/243
+```
 
 A Fraction whose elements are of type SmallFloat will have odd behaviour for large components,
 a Fraction whose elements are of type LargeInteger will behave ordinarily.
 
-	let x = Fraction(2 ^ 55, 2);  x ~= (x - 1) = false
-	let x = Fraction(2n ^ 55n, 2);  x ~= (x - 1)
+```
+>>> let x = Fraction(2 ^ 55, 2);  x ~= (x - 1) = false
+true
+
+>>> let x = Fraction(2n ^ 55n, 2);  x ~= (x - 1)
+true
+```
+
+There are accessor methods for the _numerator_ and _denominator_:
+
+```
+>>> let n = 22/7;
+>>> (n.numerator, n.denominator)
+(22, 7)
+```
+
+The letter _r_ abbreviates _Fraction_ (_r_ for _rational_), in the same manner that _j_ abbreviates _Complex_.
+
+```
+>>> 3.r(7)
+3/7
+
+>>> 3.j(7)
+3j7
+```
 
 _Note:_
 The _Fraction_ package re-defines _asNumber_ to call either _parseFraction_ or _parseNumber_ as appropriate.

@@ -554,6 +554,10 @@
 		self.collect(floor:/1)
 	}
 
+	factorInteger { :self |
+		self.collect(factorInteger:/1)
+	}
+
 	fractionPart { :self |
 		self.collect(fractionPart:/1)
 	}

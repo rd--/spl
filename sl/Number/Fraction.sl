@@ -132,6 +132,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.asFloat.closeToBy(aNumber.asFloat, 0.0001)
 	}
 
+	factorInteger { :self |
+		self.primeFactorization
+	}
+
 	gcd { :self :aFraction |
 		aFraction.isFraction.if {
 			let d = self.denominator.gcd(aFraction.denominator);
@@ -354,12 +358,32 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 +@Integer {
 
-	Fraction { :self :denominator |
-		(denominator = 0).if {
-			self.error('@Integer>>Fraction: zeroDenominatorError')
+	Fraction { :numerator :denominator |
+		denominator.isInteger.if {
+			(denominator = 0).if {
+				'@Integer>>Fraction: zeroDenominatorError'.error
+			} {
+				newFraction().initializeSlots(numerator, denominator)
+			}
 		} {
-			newFraction().initializeSlots(self, denominator)
+			denominator.adaptToNumberAndApply(numerator, Fraction:/2)
 		}
+	}
+
+	r { :numerator :denominator |
+		Fraction(numerator, denominator)
+	}
+
+}
+
++@Sequence {
+
+	Fraction { :numerator :denominator |
+		numerator.withCollectOrAdaptTo(denominator, Fraction:/2)
+	}
+
+	r { :numerator :denominator |
+		Fraction(numerator, denominator)
 	}
 
 }

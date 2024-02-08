@@ -40,7 +40,7 @@ Sl {
 	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression
 	DictionaryAssignment = "(" NonemptyListOf<keyName, ","> ")" ":=" Expression
 	AssignmentOperatorSyntax = Primary operatorAssignment Expression
-	BinaryExpression = Expression ((binaryOperatorWithAdverb | operator) Primary)+
+	BinaryExpression = Expression ((operatorWithAdverb | operator | infixMethod) Primary)+
 	UnaryExpression = Expression "." operator
 
 	Primary
@@ -150,10 +150,11 @@ Sl {
 	keyName = lowercaseIdentifier | uppercaseIdentifier
 	letterOrDigit = letter | digit
 	reservedIdentifier = "nil" | "true" | "false"
+	infixMethod = lowercaseIdentifier
 	operator = operatorChar+
-	binaryOperatorWithAdverb = binaryOperatorWithBinaryAdverb | binaryOperatorWithUnaryAdverb
-	binaryOperatorWithUnaryAdverb = operator "." selectorName
-	binaryOperatorWithBinaryAdverb = operator "." selectorName "(" (selectorName | numberLiteral) ")"
+	operatorWithAdverb = operatorWithBinaryAdverb | operatorWithUnaryAdverb
+	operatorWithUnaryAdverb = (operator | infixMethod) "." selectorName
+	operatorWithBinaryAdverb = (operator | infixMethod) "." selectorName "(" (selectorName | numberLiteral) ")"
 	operatorChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 	operatorAssignment = operatorChar ":" "="
 

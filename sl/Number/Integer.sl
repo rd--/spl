@@ -107,6 +107,16 @@
 		}
 	}
 
+	factorInteger { :self |
+		self.isNegative.if {
+			let answer = self.negated.factorInteger;
+			answer.addFirst(-1 -> -1);
+			answer
+		} {
+			self.primeFactors.asBag.sortedElements
+		}
+	}
+
 	foldIndex { :self :size |
 		self.foldBetweenAnd(1, size)
 	}
