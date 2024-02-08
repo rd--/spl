@@ -121,15 +121,27 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	asFloat { :self |
-		self.numerator / self.denominator
+		self.numerator.asFloat / self.denominator.asFloat
 	}
 
 	asFraction { :self |
 		self
 	}
 
+	asSmallFloat { :self |
+		self.asFloat
+	}
+
+	asTuple { :self |
+		(self.numerator, self.denominator)
+	}
+
 	closeTo { :self :aNumber |
-		self.asFloat.closeToBy(aNumber.asFloat, 0.0001)
+		self.closeToBy(aNumber, 0.0001)
+	}
+
+	closeToBy { :self :aNumber :epsilon |
+		self.asFloat.closeToBy(aNumber.asFloat, epsilon)
 	}
 
 	factorInteger { :self |
@@ -299,10 +311,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
-	asSmallFloat { :self |
-		self.asFloat
-	}
-
 	storeString { :self |
 		[
 			'Fraction(',
@@ -399,7 +407,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			Fraction(self, 1)
 		} {
 			let k = 10 ^ (maxDenominator.log10.ceiling + 1);
-			Fraction((self * k).rounded, k).reduced.limitDenominator(maxDenominator)
+			Fraction(
+				(self * k).rounded,
+				k
+			).reduced.limitDenominator(maxDenominator)
 		}
 	}
 

@@ -10,7 +10,7 @@ In general, any object responding to _do_ can be used as the second argument.
 At Bag:
 
 ```
->>> let c = 'xyyzzz';
+>>> let c = [1 2 2 3 3 3];
 >>> let b = Bag();
 >>> b.addAll(c) = c & { b.size = 6 }
 true
@@ -19,7 +19,7 @@ true
 At Set:
 
 ```
->>> let c = 'xyz';
+>>> let c = [1 2 3];
 >>> let s = Set();
 >>> s.addAll(c) = c & { c.size = 3 }
 true

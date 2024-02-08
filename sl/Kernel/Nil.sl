@@ -32,6 +32,10 @@ Nil! : [Object, Json] {
 		whenNil()
 	}
 
+	isImmediate { :self |
+		true
+	}
+
 	isNil { :self |
 		true
 	}

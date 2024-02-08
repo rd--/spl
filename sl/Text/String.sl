@@ -96,6 +96,10 @@ String! : [Object, Json, Iterable] {
 		self
 	}
 
+	asSet { :self |
+		self.stringList.asSet
+	}
+
 	asString { :self |
 		self
 	}
@@ -355,6 +359,10 @@ String! : [Object, Json, Iterable] {
 		self.size = 0
 	}
 
+	isImmediate { :self |
+		true
+	}
+
 	isLowercase { :self |
 		<primitive: return /^[a-z]+$/.test(_self);>
 	}
@@ -404,7 +412,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	nub { :self |
-		let seen = Set();
+		let seen = [];
 		self.select { :each |
 			seen.ifAbsentAdd(each)
 		}

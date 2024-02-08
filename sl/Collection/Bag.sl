@@ -20,12 +20,10 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 	}
 
 	addWithOccurrences { :self :anObject :anInteger |
-		self.includes(anObject).if {
-			self.contents[anObject] := self.contents[anObject] + anInteger
-		} {
-			self.contents[anObject] := anInteger
+		anObject.isImmediate.ifFalse {
+			'Bag>>addWithOccurrences: non-immediate entry'.error
 		};
-		anObject
+		self.basicAddWithOccurrences(anObject, anInteger)
 	}
 
 	asBag { :self |
@@ -34,6 +32,15 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 
 	asSet { :self |
 		self.contents.indices.asSet
+	}
+
+	basicAddWithOccurrences { :self :anObject :anInteger |
+		self.includes(anObject).if {
+			self.contents[anObject] := self.contents[anObject] + anInteger
+		} {
+			self.contents[anObject] := anInteger
+		};
+		anObject
 	}
 
 	cumulativeCounts { :self |

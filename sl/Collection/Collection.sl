@@ -189,7 +189,12 @@
 	copyWithoutIdenticalElements { :self |
 		let seen = Set();
 		self.select { :each |
-			seen.ifAbsentAdd(each)
+			seen.includes(each).if {
+				false
+			} {
+				seen.basicInclude(each);
+				true
+			}
 		}
 	}
 

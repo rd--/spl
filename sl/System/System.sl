@@ -233,7 +233,7 @@ System! : [Object, Cache, Indexable, Random] {
 			let table = self.methodDictionary[methodName];
 			table.do { :dictionary |
 				dictionary.do { :method |
-					answer.include(method)
+					answer.basicInclude(method)
 				}
 			};
 			answer.asList

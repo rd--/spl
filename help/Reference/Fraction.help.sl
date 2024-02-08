@@ -9,20 +9,31 @@ Instance variables are:
 - numerator<Integer>: the number appearing before the fraction bar (above)
 - denominator<Integer>: the number appearing after the fraction bar (below)
 
-A Fraction is generally created by writing it using the literal syntax _1/3_.
+A Fraction can be written using the literal syntax _1/3_:
 
 ```
 >>> 1/3
 Fraction(1, 3)
+```
 
+Fractions can be converted to floating point numbers:
+
+```
 >>> 3/4.asSmallFloat
 0.75
+```
+
+Fractions and floats are comparable:
+
+```
+>>> 3/4 ~ 0.75
+true
 
 >>> 7/6 > 1.1
 true
 ```
 
-Fractions written using this syntax are _reduced_ by construction.
+Fractions written using a literal syntax are _reduced_ by construction.
 
 ```
 >>> 2/4
@@ -64,17 +75,26 @@ Note that Fraction and Integer represent together the set of Rational numbers:
 - Integer is a subset of rational (those which are whole numbers)
 - Fraction is used for representing the complementary subset of rational (those which are not whole numbers)
 
+LargeInteger defines _/_ to answer a Fraction:
+
 ```
->>> 2/3 + 2/3
-4/3
+>>> 2n / 3n
+2/3
+```
 
->>> 2/3 + 1/2
-7/6
+Fraction implements the ordinary mathematical operators:
 
+```
 >>> 2/3 + 4/3
 2
 
->>> 2/3.raisedToInteger(5)
+>>> 2/3 * 3/4
+1/2
+
+>>> 5/3 - 1/2
+7/6
+
+>>> 2/3 ^ 5
 32/243
 ```
 
@@ -82,10 +102,12 @@ A Fraction whose elements are of type SmallFloat will have odd behaviour for lar
 a Fraction whose elements are of type LargeInteger will behave ordinarily.
 
 ```
->>> let x = Fraction(2 ^ 55, 2);  x ~= (x - 1) = false
-true
+>>> let x = Fraction(2 ^ 55, 2);
+>>> x ~= (x - 1)
+false
 
->>> let x = Fraction(2n ^ 55n, 2);  x ~= (x - 1)
+>>> let x = Fraction(2n ^ 55n, 2);
+>>> x ~= (x - 1)
 true
 ```
 
@@ -97,6 +119,13 @@ There are accessor methods for the _numerator_ and _denominator_:
 (22, 7)
 ```
 
+The _asTuple_ method answers a two tuple of these:
+
+```
+>>> 22/7.asTuple
+(22, 7)
+```
+
 The letter _r_ abbreviates _Fraction_ (_r_ for _rational_), in the same manner that _j_ abbreviates _Complex_.
 
 ```
@@ -105,6 +134,61 @@ The letter _r_ abbreviates _Fraction_ (_r_ for _rational_), in the same manner t
 
 >>> 3.j(7)
 3j7
+```
+
+Written using [Infix Method Syntax] this closely resembles the literal syntax,
+and allows writing Fractions with LargeInteger parts:
+
+```
+>>> (2n r 3n).asTuple
+(2n, 3n)
+```
+
+Enter a rational number with very big integers in the numerator and denominator:
+
+```
+>>> let n = 1237918739182739817238917127398123n r 12809812308120812038038101n;
+>>> (n.numerator, n.denominator)
+(1237918739182739817238917127398123n, 12809812308120812038038101n)
+```
+
+Rational numbers are represented with the smallest possible positive denominator:
+
+```
+>>> 7/49
+1/7
+```
+
+The store string of a Fraction is the constructor notation:
+
+```
+>>> 22/7.storeString
+'Fraction(22, 7)'
+```
+
+The reciprocal of a Fraction is a Fraction:
+
+```
+>>> 22/7./
+7/22
+```
+
+This is a close approximation to 2.sqrt:
+
+```
+>>> let f = { :r | let [x, y] = r.asTuple; (x ^ 2 + (2 * (y ^ 2))).r(2 * x * y) };
+>>> (f:/1.iterate(3/2, 4), f:/1.iterate(3n r 2n, 5))
+(886731088897 r 627013566048, 1572584048032918633353217n r 1111984844349868137938112n)
+
+>>> 886731088897 / 627013566048
+2.sqrt
+```
+
+Fractions are numbers:
+
+```
+>>> 3/4.isNumber
+true
 ```
 
 _Note:_

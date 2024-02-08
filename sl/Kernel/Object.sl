@@ -131,6 +131,10 @@
 		false
 	}
 
+	isImmediate { :self |
+		false
+	}
+
 	isInteger { :self |
 		false
 	}

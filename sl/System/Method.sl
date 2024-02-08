@@ -32,6 +32,10 @@ MethodInformation! : [Object] {
 
 Method! : [Object] {
 
+	= { :self :anObject |
+		self == anObject
+	}
+
 	arity { :self |
 		self.information.arity
 	}

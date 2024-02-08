@@ -76,6 +76,10 @@ Boolean! : [Object, Json] {
 		}
 	}
 
+	isImmediate { :self |
+		true
+	}
+
 	not { :self |
 		<primitive: return _self ? false : true;>
 	}

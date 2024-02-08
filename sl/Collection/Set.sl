@@ -22,6 +22,22 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		<primitive: return Array.from(_self);>
 	}
 
+	basicInclude { :self :anObject |
+		<primitive:
+		_self.add(_anObject);
+		return _anObject;
+		>
+	}
+
+	basicIncludeAll { :self :aCollection |
+		<primitive:
+		for (const item of _aCollection) {
+			_self.add(item);
+		};
+		return _aCollection;
+		>
+	}
+
 	basicRemove { :self :anObject |
 		<primitive:
 		_self.delete(_anObject);
@@ -32,7 +48,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 	collect { :self :aBlock:/1 |
 		let answer = Set();
 		self.do { :each |
-			answer.include(aBlock(each))
+			answer.basicInclude(aBlock(each))
 		};
 		answer
 	}
@@ -46,20 +62,11 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		self
 	}
 
-	ifAbsentAdd { :self :anObject |
-		self.includes(anObject).if {
-			false
-		} {
-			self.add(anObject);
-			true
-		}
-	}
-
 	include { :self :anObject |
-		<primitive:
-		_self.add(_anObject);
-		return _anObject;
-		>
+		anObject.isImmediate.ifFalse {
+			'Set>>include: non-immediate entry'.error
+		};
+		self.basicInclude(anObject)
 	}
 
 	includes { :self :anObject |
@@ -122,8 +129,15 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 
 +List {
 
-	asSet { :self |
+	basicAsSet { :self |
 		<primitive: return new Set(_self);>
+	}
+
+	asSet { :self |
+		self.allSatisfy(isImmediate:/1).ifFalse {
+			'List>>asSet: non-immediate entry'.error
+		};
+		self.basicAsSet
 	}
 
 }
@@ -132,7 +146,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 
 	asSet { :self |
 		let answer = Set();
-		answer.addAll(self);
+		answer.includeAll(self);
 		answer
 	}
 

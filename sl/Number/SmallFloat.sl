@@ -282,6 +282,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		self.isInteger
 	}
 
+	isImmediate { :self |
+		true
+	}
+
 	isInteger { :self |
 		<primitive: return Number.isInteger(_self);>
 	}

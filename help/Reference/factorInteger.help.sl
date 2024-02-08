@@ -8,8 +8,14 @@ Answer the list of prime factors of _anInteger_, together with their exponents.
 >>> 120.factorInteger
 [2 -> 3, 3 -> 1, 5 -> 1]
 
+>>> (2 ^ 3) * 3 * 5
+120
+
 >>> 36.factorInteger
-[2 -> 3, 3 -> 2]
+[2 -> 2, 3 -> 2]
+
+>>> (2 ^ 2) * (3 ^ 2)
+36
 ```
 
 At Fraction:

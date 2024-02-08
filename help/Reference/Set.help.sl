@@ -25,11 +25,28 @@ Set from List:
 3
 ```
 
+Set from Tuple:
+
+```
+>>> (1, 1, 2, 1, 2, 3).asSet.size
+3
+```
+
+Set from String:
+
+```
+'abracadabra'.asSet.size
+5
+```
+
 Lists that compare = do not compare ==:
 
 ```
->>> [1 1; 1 1].asSet.size
+>>> [1 1; 1 1].basicAsSet.size
 2
+
+>>> { [1 1; 1 1].asSet }.ifError { true }
+true
 ```
 
 Note:

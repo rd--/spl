@@ -1,4 +1,4 @@
-# Integer Literals -- syntax
+# Integer Literals
 
 By default integers are written in decimal.
 Other radices are allowed using an infix _r_ syntax.
@@ -21,8 +21,13 @@ _Note_:
 The radices two, eight, ten and sixteen should be implemented by all systems,
 other radices may raise errors.
 
-	9r55 = 50
+```
+>>> 9r55
+50
+```
 
 * * *
 
 See also: [Literals Syntax]
+
+Categories: Syntax

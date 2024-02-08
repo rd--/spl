@@ -133,6 +133,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		(self % 2) = 0
 	}
 
+	isImmediate { :self |
+		true
+	}
+
 	isInteger { :self |
 		true
 	}

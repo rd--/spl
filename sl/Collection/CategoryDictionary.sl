@@ -14,12 +14,12 @@ CategoryDictionary : [Object] { | domainDictionary |
 	}
 
 	categorize { :self :domain :category :entry |
-		self.category(domain, category).add(entry)
+		self.category(domain, category).basicInclude(entry)
 	}
 
 	categorizeAll { :self :domain :category :entries |
 		let simpleCategory = category.splitBy('-').first;
-		self.category(domain, simpleCategory).includeAll(entries)
+		self.category(domain, simpleCategory).basicIncludeAll(entries)
 	}
 
 	categorizeDictionary { :self :domain :aBlock:/1 :aDictionary |
@@ -77,7 +77,7 @@ CategoryDictionary : [Object] { | domainDictionary |
 		let answer = Set();
 		self.domainDictionary.do { :each |
 			each.valuesDo { :item |
-				answer.includeAll(item)
+				answer.basicInclude(item)
 			}
 		};
 		answer

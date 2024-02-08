@@ -10,6 +10,12 @@
 		}
 	}
 
+	addAllIfNotPresent { :self :aCollection |
+		aCollection.do { :each |
+			self.addIfNotPresent(each)
+		}
+	}
+
 	addIfNotPresent { :self :anObject |
 		self.includes(anObject).ifFalse {
 			self.add(anObject)
@@ -27,6 +33,15 @@
 	fillFromWith { :self :aCollection :aBlock:/1 |
 		aCollection.do { :each |
 			self.add(aBlock(each))
+		}
+	}
+
+	ifAbsentAdd { :self :anObject |
+		self.includes(anObject).if {
+			false
+		} {
+			self.add(anObject);
+			true
 		}
 	}
 

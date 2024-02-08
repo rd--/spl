@@ -612,8 +612,8 @@ Bag().isSequence = false
 let b = Bag(); b.add('x'); b.add('x'); b.size = 2 {- number of objects in bag -}
 let b = Bag(); b.add('x'); b.add('y'); b.add('x'); b.size = 3 {- add element to bag -}
 let b = Bag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 {- add all elements of argument to bag -}
-let c = 'xyyzzz'; let r = Bag(); r.addAll(c); r.size = 6 {- add all elements of a String to a Bag -}
-let c = 'xyyzzz'.split; let r = Bag(); r.addAll(c); r.size = 6 {- add all characters of a String to a Bag -}
+let c = 'xyyzzz'.ascii; let r = Bag(); r.addAll(c); r.size = 6 {- add all ascii code points of a String to a Bag -}
+let c = 'xyyzzz'.split; let r = Bag(); r.addAll(c); r.size = 6 {- add all one element strings of a String to a Bag -}
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].asBag.size = 10
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].asBag.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].asBag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
@@ -2227,7 +2227,7 @@ let d = Map(); d[1] := 'x'; d[1] = 'x'
 let d = Map(); d['x'] := 1; d.removeKey('x'); d.isEmpty = true
 let d = (f: { :i | i * i }); d::f.value(9) = 81
 { Map().removeKey('unknownKey') }.ifError { true }
-(x: 1, y: 1).copyWithoutDuplicates = (x: 1)
+(x: 1, y: 1).copyWithoutIdenticalElements = (x: 1)
 let d = Map(); 1.toDo(100) { :i | d[i] := i; (i > 10).ifTrue { d.removeKey(i - 10) } }; d.size = 10
 let c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.removeKey(1); c.includesIndex(1) = false
 (x: 1, y: 2).asMap.includesIndex('x') {- Record to Map, map includes key predicate -}
@@ -2998,15 +2998,15 @@ let i = 1:9; i.last = i[9] {- intervals are one-indexed sequences -}
 let n = 0; let i = 1:4; i.permutationsDo { :each | n := n + 1 }; n = 24 {- interval permutations do -}
 let n = 0; let a = [1 .. 4]; a.permutationsDo { :each | n := n + 1 }; n = 24 & { a = [1 .. 4] } {- array permutations do -}
 let a = [1 .. 3].permutations; a = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]] {- permutations -}
-let i = (4, 7 .. 13); let p = i.permutations; p.size = i.size.factorial & { p.asSet.size = p.size }
+let i = (4, 7 .. 13); let p = i.permutations; p.size = i.size.factorial & { p.nub.size = p.size }
 let i = (4, 7 .. 13); i.permutations.allSatisfy { :e | e.sorted.hasEqualElements(i) }
 let a = [1, 1, 3, 4]; a @* [2, 4, 3, 1] = [1, 4, 3, 1] {- atAll as permutation -}
 let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] {- atAll as permutation -}
 [1, 9, 2, 8, 3, 7, 4, 6].pairsCollect { :i :j | i + j } = [10, 10, 10, 10]
 let s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printString }; s = '10101010'
 let s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291' {- do from end -}
-[1, 2, 2, 3, 3, 3, 4, 4, 4, 4].copyWithoutDuplicates = [1, 2, 3, 4] {- copy without duplicates, retain order -}
-([1, 3 .. 9] ++ [1, 3 .. 9] ++ [2, 4 .. 10] ++ [2, 4 .. 10]).copyWithoutDuplicates = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
+[1, 2, 2, 3, 3, 3, 4, 4, 4, 4].copyWithoutIdenticalElements = [1, 2, 3, 4] {- copy without duplicates, retain order -}
+([1, 3 .. 9] ++ [1, 3 .. 9] ++ [2, 4 .. 10] ++ [2, 4 .. 10]).copyWithoutIdenticalElements = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
 1:9.hasEqualElements(1:9) {- an array is not equal to an interval, but can have equal elements -}
 1:9.hasEqualElements(1:9) {- an interval is not equal to an array, but can have equal elements -}
 [1 .. 9] ~= 1:9 {- an array is not equal to an interval -}
@@ -3191,8 +3191,8 @@ let s = 1:10.asSet; let t = s.copyWithout(3); s.select { :each | t.includes(each
 let s = 1:5.asSet; let n = 0; s.do { :each | n := n + each }; n = 15
 let s = [].asSet; s.addAll(['x', 'y', 'z']); s.size = 3 {- add all elements of a List to a Set -}
 let s = [].asSet; s.includeAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 {- include all elements of a List to a Set -}
-let c = 'xyyzzz'.split; let r = Set(); r.includeAll(c); r.size = 3 {- include all characters of a String to a Set -}
-let c = 'xyyzzz'; let r = Set(); r.includeAll(c); r.size = 3 {- include all elements of a String to a Set -}
+let c = 'xyyzzz'.split; let r = Set(); r.includeAll(c); r.size = 3 {- include all single character strings of a String to a Set -}
+let c = 'xyyzzz'.ascii; let r = Set(); r.includeAll(c); r.size = 3 {- include all ascii code points of a String to a Set -}
 let s = [].asSet; s.addAll([1 .. 99]); s.size = 99 {- add all from array -}
 let s = ['x', 5].asSet; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
 let s = 1:5.asSet; let n = 0; s.do { :each | n := n + each }; n = 15
@@ -3618,9 +3618,9 @@ let s = 'string'; (s.size * 2) = s.asHex.size {- asHex, hex string is twice as l
 '* + - / ^ ? ~ = < >'.words.allSatisfy(isOperatorName:/1)
 'a comment'.asBracketedComment('/*', '*/') = '/* a comment */' {- add C comment brackets -}
 'a comment'.asMlComment = '(* a comment *)' {- add Ml comment brackets -}
-'a comment'.asHsComment = '{- a comment -}' {- add Hs comment brackets -}
+'a comment'.asHaskellComment = '{- a comment -}' {- add Hs comment brackets -}
 { '(* a comment *)'.asMlComment }.ifError { true } {- it is an error if there are existing brackets -}
-{ '{- a comment -}'.asHsComment }.ifError { true } {- it is an error if there are existing brackets -}
+{ '{- a comment -}'.asHaskellComment }.ifError { true } {- it is an error if there are existing brackets -}
 'before and {- a comment -} then after'.firstBracketedComment('{-', '-}') = ' a comment '
 'before and (* a comment *) then after'.firstMlComment = ' a comment '
 'before and {- a comment -} then after'.firstHsComment = ' a comment '
