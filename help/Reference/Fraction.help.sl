@@ -191,11 +191,40 @@ Fractions are numbers:
 true
 ```
 
+Fractions are not immediate:
+
+```
+>>> 3/4.isImmediate
+false
+```
+
+The denominator of a rational is positive:
+
+```
+>>> -3/4.denominator
+4
+```
+
+The numerator and denominator of a rational are relatively prime:
+
+```
+>>> let r = system.nextRandomFloat.asFraction;
+>>> r.numerator.gcd(r.denominator)
+1
+```
+
 _Note:_
 The _Fraction_ package re-defines _asNumber_ to call either _parseFraction_ or _parseNumber_ as appropriate.
 
 * * *
 
 See also: denominator, [Fraction Literals], numerator, reduced
+
+References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#t:Rational),
+_Mathematica_
+[1](https://mathworld.wolfram.com/Fraction.html)
+[2](https://reference.wolfram.com/language/ref/Rational.html)
 
 Categories: Arithmetic

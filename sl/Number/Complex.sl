@@ -165,6 +165,10 @@ Complex : [Object, Number] { | real imaginary |
 		self
 	}
 
+	asTuple { :self |
+		(self.real, self.imaginary)
+	}
+
 	closeTo { :self :anObject |
 		anObject.isNumber.if {
 			anObject.isComplex.if {

@@ -108,12 +108,39 @@ Standard functions:
 -0.48906j1.40312
 ```
 
+The store string of a Complex is the constructor notation:
+
+```
+>>> 1j2.storeString
+'Complex(1, 2)'
+>>>
+
+Use _real_ and _imaginary_ to extract parts of Complex numbers:
+
+```
+>>> let c = 1j2;
+>>> (c.real, c.imaginary)
+(1, 2)
+```
+
+The _asTuple_ method answers a two tuple of these:
+
+```
+>>> 1j2.asTuple
+(1, 2)
+```
+
 * * *
 
 See also: asInteger, asNumber, i, SmallFloat
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Complex_number)
 _Julia_
 [1](https://docs.julialang.org/en/v1/manual/complex-and-rational-numbers/)
+_Mathematica_
+[1](https://mathworld.wolfram.com/ComplexNumber.html)
+[2](https://reference.wolfram.com/language/ref/Complex.html)
 
 Categories: Math, Numeric, Type
