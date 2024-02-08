@@ -2,7 +2,7 @@
 
 Let is a keyword that introduces a variable binding.
 
-Let bindings are of the form _let namePatern = valueExpression;_.
+Let bindings are of the form _let namePattern = valueExpression;_.
 
 Let bindings must be placed in sequence at the start of a block, immediately following any argument names.
 

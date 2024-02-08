@@ -6,6 +6,14 @@
 		self.collect(negated:/1)
 	}
 
+	/ { :self |
+		self.collect(reciprocal:/1)
+	}
+
+	^ { :self |
+		e ^ self
+	}
+
 	++ { :self :aCollection |
 		let answer = self.copy;
 		answer.addAll(aCollection.assertIsCollection);

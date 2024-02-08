@@ -4,6 +4,14 @@
 		self.zero - self
 	}
 
+	/ { :self |
+		self.one / self
+	}
+
+	^ { :self |
+		e ^ self
+	}
+
 	// { :self :aNumber |
 		self.quotient(aNumber)
 	}
