@@ -106,7 +106,7 @@
 +SmallKansas {
 
 	ScalaJiTuningBrowser { :self :jiTunings |
-		let sizes = jiTunings.collect(size:/1).values.copyWithoutDuplicates.sort.collect(asString:/1);
+		let sizes = jiTunings.collect(size:/1).values.copyWithoutIdenticalElements.sort.collect(asString:/1);
 		let selectedSize = nil;
 		let selectedLimit = nil;
 		self.ColumnBrowser('Scala Ji Tuning Browser', 'text/html', false, true, [1, 1, 4], nil, nil) { :browser :path |
@@ -122,7 +122,7 @@
 						each.size = selectedSize
 					}.collect { :each |
 						each.limit
-					}.values.copyWithoutDuplicates.sort.collect(asString:/1)
+					}.values.copyWithoutIdenticalElements.sort.collect(asString:/1)
 				},
 				2 -> {
 					browser.setStatus(['Size = ', path[1], ', Limit = ', path[2]].join);

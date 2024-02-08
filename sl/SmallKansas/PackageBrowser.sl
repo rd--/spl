@@ -4,7 +4,7 @@
 
 	PackageBrowser { :self |
 		let packages = system.packageDictionary.values.select(isLoaded:/1);
-		let packageCategories = packages.collect(category:/1).copyWithoutDuplicates.sort;
+		let packageCategories = packages.collect(category:/1).copyWithoutIdenticalElements.sort;
 		let methods = nil;
 		let selectedMethod = nil;
 		self.ColumnBrowser('Package Browser', 'text/plain', false, true, [1, 1, 1, 3], nil) { :accepted |
@@ -31,7 +31,7 @@
 					methods := system.packageMethods(path[2]);
 					methods.collect { :each |
 						each.origin.qualifiedName
-					}.copyWithoutDuplicates.sort
+					}.copyWithoutIdenticalElements.sort
 				},
 				3 -> {
 					system.isTypeName(path[3]).if {

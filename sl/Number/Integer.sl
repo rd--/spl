@@ -142,12 +142,18 @@
 		}
 	}
 
-	integerDigits { :self :base :numDigits |
-		let answer = [];
+	integerDigitsReverseDo { :self :base :numDigits :aBlock:/1 |
 		let num = self;
 		numDigits.timesRepeat {
-			answer.addFirst(num % base);
+			aBlock(num % base);
 			num := num // base
+		}
+	}
+
+	integerDigits { :self :base :numDigits |
+		let answer = [];
+		self.integerDigitsReverseDo(base, numDigits) { :each |
+			answer.addFirst(each)
 		};
 		answer
 	}
@@ -248,6 +254,18 @@
 			maybePrime := maybePrime + 1
 		};
 		maybePrime
+	}
+
+	mixedRadixEncode { :self :factors |
+		let answer = List(factors.size);
+		factors.size.downToDo(1) { :index |
+			answer[index] := self % factors[index];
+			self := self // factors[index]
+		};
+		(self > 0).ifTrue {
+			answer.addFirst(self)
+		};
+		answer
 	}
 
 	nextPrime { :self |

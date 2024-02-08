@@ -46,6 +46,13 @@ Find only the last 4 digits:
 [5 3 5 4]
 ```
 
+Count from zero to seven in binary, answers to three places:
+
+```
+>>> 0:7.integerDigits(2, 3)
+[0 0 0; 0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1]
+```
+
 * * *
 
 References:

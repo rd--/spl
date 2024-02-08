@@ -785,6 +785,24 @@
 		self[self.size // 2 + 1]
 	}
 
+	mixedRadixDecode { :self :factors |
+		let answer = 0;
+		let base = 1;
+		let k = factors.size.min(self.size);
+		let prefix = self.size - factors.size;
+		(prefix > 1).ifTrue {
+			'Sequence>>mixedRadixDecode: sequence too long'.error
+		};
+		(k .. 1).do { :index |
+			answer := answer + (self[index + prefix] * base);
+			base := base * factors[index]
+		};
+		(prefix = 1).ifTrue {
+			answer := answer + (self[1] * base)
+		};
+		answer
+	}
+
 	norm { :self |
 		(self.scalarProduct(self.conjugated)).sqrt
 	}
@@ -849,6 +867,20 @@
 				index
 			}
 		}
+	}
+
+	prefixesDo { :self :aBlock:/1 |
+		1.upToDo(self.size) { :each |
+			aBlock(self.copyFromTo(1, each))
+		}
+	}
+
+	prefixes { :self |
+		let answer = [];
+		self.prefixesDo { :each |
+			answer.add(each)
+		};
+		answer
 	}
 
 	prefixProduct { :self |
@@ -977,6 +1009,21 @@
 			};
 			answer
 		}
+	}
+
+	suffixesDo { :self :aBlock:/1 |
+		let size = self.size;
+		1.upToDo(size) { :each |
+			aBlock(self.copyFromTo(each, size))
+		}
+	}
+
+	suffixes { :self |
+		let answer = [];
+		self.suffixesDo { :each |
+			answer.add(each)
+		};
+		answer
 	}
 
 	reverseDo { :self :aBlock:/1 |

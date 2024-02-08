@@ -669,7 +669,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'copyWith'
 		'copyWithFirst'
 		'copyWithoutFirst'
-		'copyWithout'
+		'copyWithoutIdenticalElements'
 		'copyWithoutAll'
 		'deepCopy'
 		'duplicate'
@@ -683,7 +683,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'reversed'
 		'shallowCopy'
 		'veryDeepCopy'
-		'copyWithoutDuplicates'
 	],
 	'delegating': [
 		'atDelegateTo'

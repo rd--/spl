@@ -1,4 +1,4 @@
-Cons : [Object, Collection] { | car cdr |
+Cons : [Object, Iterable, Collection] { | car cdr |
 
 	= { :self :anObject |
 		anObject.isCons & {
@@ -89,7 +89,11 @@ Cons : [Object, Collection] { | car cdr |
 		let answer = nil;
 		self.do { :each |
 			answer := Cons(
-				each.isSequence.if { Cons(each) } { each },
+				each.isSequence.if {
+					Cons(each)
+				} {
+					each
+				},
 				answer
 			)
 		};

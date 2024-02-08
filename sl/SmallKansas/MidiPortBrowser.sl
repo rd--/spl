@@ -9,7 +9,7 @@
 					['input', 'output']
 				},
 				1 -> {
-					midiAccess.ports(path[1]).collect(manufacturer:/1).copyWithoutDuplicates
+					midiAccess.ports(path[1]).collect(manufacturer:/1).copyWithoutIdenticalElements
 				},
 				2 -> {
 					midiAccess.ports(path[1]).select { :port |

@@ -44,12 +44,15 @@ At Record:
 true
 ```
 
-At Set:
+At Set, add will include _newObject_ as one of the set elements only if not already present:
 
 ```
 >>> let s = Set();
 >>> s.add('x');
 >>> s.add('y') = 'y' & { s.size = 2 }
+true
+
+>>> { [1].asSet.add(1) }.ifError { true}
 true
 ```
 

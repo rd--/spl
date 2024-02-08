@@ -9,11 +9,11 @@ ScProgramIndex : [Object] { | contents |
 	authors { :self :category |
 		self.contents.select { :each |
 			each[1] = category
-		}.collect(second:/1).copyWithoutDuplicates.sort
+		}.collect(second:/1).copyWithoutIdenticalElements.sort
 	}
 
 	categories { :self |
-		self.contents.collect(first:/1).copyWithoutDuplicates.sort.reject { :each |
+		self.contents.collect(first:/1).copyWithoutIdenticalElements.sort.reject { :each |
 			each = 'collect'
 		}
 	}

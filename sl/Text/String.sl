@@ -76,12 +76,12 @@ String! : [Object, Json, Iterable] {
 		}
 	}
 
-	asHex { :self |
-		self.asciiByteArray.hex
+	asHaskellComment { :self |
+		self.asBracketedComment('{-', '-}')
 	}
 
-	asHsComment { :self |
-		self.asBracketedComment('{-', '-}')
+	asHex { :self |
+		self.asciiByteArray.hex
 	}
 
 	asLowercase { :self |
@@ -403,6 +403,13 @@ String! : [Object, Json, Iterable] {
 		self.isEmpty.not
 	}
 
+	nub { :self |
+		let seen = Set();
+		self.select { :each |
+			seen.ifAbsentAdd(each)
+		}
+	}
+
 	occurrencesOf { :self :aString |
 		aString.isString.if {
 			let index = 1;
@@ -511,6 +518,16 @@ String! : [Object, Json, Iterable] {
 		} {
 			self.asLowercase = aString.asLowercase
 		}
+	}
+
+	select { :self :aBlock:/1 |
+		let list = [];
+		self.do { :each |
+			aBlock(each).ifTrue {
+				list.add(each)
+			}
+		};
+		list.join
 	}
 
 	shallowCopy { :self |

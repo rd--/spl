@@ -28,7 +28,7 @@ HelpIndex : [Object] { | contents |
 	names { :self :kind |
 		self.contents.select { :each |
 			each.first = kind
-		}.collect(second:/1).copyWithoutDuplicates.sort
+		}.collect(second:/1).copyWithoutIdenticalElements.sort
 	}
 
 	url { :self :kind :name |

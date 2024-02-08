@@ -3,7 +3,7 @@
 +SmallKansas {
 
 	MethodBrowser { :self |
-		let methodNames = system.allMethods.collect(qualifiedName:/1).copyWithoutDuplicates.sort;
+		let methodNames = system.allMethods.collect(qualifiedName:/1).copyWithoutIdenticalElements.sort;
 		let selectedMethod = nil;
 		self.ColumnBrowser('Method Browser', 'text/plain', true, true, [3, 1], nil) { :accepted |
 			selectedMethod.definition := accepted

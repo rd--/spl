@@ -37,7 +37,7 @@ Package! : [Object] {
 	dependencies { :self |
 		let answer = [];
 		self.addDependenciesTo(answer);
-		answer.copyWithoutDuplicates
+		answer.copyWithoutIdenticalElements
 	}
 
 	require { :self |

@@ -178,7 +178,7 @@
 		}
 	}
 
-	copyWithoutDuplicates { :self |
+	copyWithoutIdenticalElements { :self |
 		let seen = Set();
 		self.select { :each |
 			seen.ifAbsentAdd(each)
@@ -367,6 +367,18 @@
 		self.isEmpty.not
 	}
 
+	nub { :self |
+		let seen = [];
+		self.select { :each |
+			seen.includes(each).if {
+				false
+			} {
+				seen.add(each);
+				true
+			}
+		}
+	}
+
 	ofSize { :self :aNumber |
 		(self.size = aNumber).ifFalse {
 			self.error('@Collection>>ofSize')
@@ -518,8 +530,16 @@
 		self.collect(divisors:/1)
 	}
 
+	doubleFactorial { :self |
+		self.collect(doubleFactorial:/1)
+	}
+
 	exp { :self |
 		self.collect(exp:/1)
+	}
+
+	factorial { :self |
+		self.collect(factorial:/1)
 	}
 
 	floor { :self |

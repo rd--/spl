@@ -16,7 +16,7 @@ Answers the bitwise or of the integers _aNumber_ and _anotherNumber_.
 At LargeInteger:
 
 ```
-(3n ^ 100).bitOr(5n ^ 100)
+>>> (3n ^ 100).bitOr(5n ^ 100)
 7888609052210118054117297117069515706082347426840895402878464599718897n
 ```
 
@@ -52,7 +52,7 @@ Plot bitOr with double and triple:
 1:64.collect { :i | [i, i * 2, i * 3].bitOr }.plot
 ```
 
-Truth table for and:
+Truth table for or:
 
 ```
 >>> bitOr:/2.outerProduct([1 0], [1 0])

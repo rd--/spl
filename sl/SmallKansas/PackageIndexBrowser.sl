@@ -4,7 +4,7 @@
 
 	PackageIndexBrowser { :self |
 		let packages = system.packageDictionary.values;
-		let packageCategories = packages.collect(category:/1).copyWithoutDuplicates.sort;
+		let packageCategories = packages.collect(category:/1).copyWithoutIdenticalElements.sort;
 		self.ColumnBrowser('Package Index Browser', 'text/plain', false, true, [1, 3], nil, nil) { :browser :path |
 			path.size.caseOf([
 				0 -> {

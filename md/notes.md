@@ -267,6 +267,7 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+0024 $ Dollar Sign
 - U+0025 % Percent Sign
 - U+0026 & Ampersand
+- U+0027 ' Apostrophe
 - U+002a * Asterisk
 - U+002b + Plus Sign
 - U+002d - Hyphen-Minus
@@ -440,6 +441,8 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+1019a 𐆚 Roman As Sign
 - U+2014 — Em Dash
 - U+2016 ‖ Double Vertical Line
+- U+2018 ‘ Left Single Quotation Mark
+- U+2019 ’ Right Single Quotation Mark
 - U+2019 ’ Right Single Quotation Mark
 - U+2020 † Dagger
 - U+2021 ‡ Double Dagger

@@ -1,22 +1,42 @@
-# Set -- collection type
+# Set
 
-- _Set()_
-- _Set(aCollection)_
+_Set()_
 
 A collection of objects without duplicates.
 The comparison operator is ==, not =, i.e. Set is an identity set, not an equality set.
+The empty set constructor:
 
-	Set().isSet
-	Set().size = 0
-	[1 1 2 1 2 3].asSet.size = 3
+```
+>>> Set().size
+0
+```
+
+Set predicate:
+
+```
+>>> Set().isSet
+true
+```
+
+Set from List:
+
+```
+>>> [1 1 2 1 2 3].asSet.size
+3
+```
+
+Lists that compare = do not compare ==:
+
+```
+>>> [1 1; 1 1].asSet.size
+2
+```
+
+Note:
+Set is what Smalltalk calls _IdentitySet_.
 
 * * *
 
-See also: Bag
+See also: asSet, add, Bag, isSet, List
 
-Smalltalk: _IdentitySet_
-
-* * *
-
-- add(self, newObject): Include newObject as one of the receivers elements, but only if not already present. Answer newObject.
-- ifAbsentAdd(self, anObject): Ensure anObject is part of the receiver.  Answer whether its membership was newly acquired.
+Categories: Collection, Type

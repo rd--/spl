@@ -1,5 +1,6 @@
 # |
 
+- _or(aCollection)_
 - _aBoolean | aBlock:/0_
 
 true if _aBoolean_ is true or _aBlock_ evaluates to true, else false.
@@ -31,6 +32,21 @@ true
 false
 ```
 
+The unary form of or is _anySatisfy_ of _value_:
+
+```
+>>> [1 < 0, { 2 < 1 }, { 3 < 2 }].or
+false
+```
+
+The first element may also be a Block,
+and the unary operator syntax may be used:
+
+```
+>>> [{ 1 < 0 }, { 2 < 1 }, { 3 < 2 }].|
+false
+```
+
 Where supported _or_ is displayed as ∨.
 
 Note that _|_ is not displayed as ∨ because it is part of the [Block Syntax].
@@ -43,7 +59,7 @@ However for the moment _||_ is the name of the non-evaluating form.
 
 * * *
 
-See also: &, &&, ||, and, or
+See also: &, &&, ||, and, anySatisfy, or
 
 References:
 _Mathematica_

@@ -1,7 +1,7 @@
 +SmallKansas {
 
 	ScalaScaleBrowser { :self :scalaModenam |
-		let sizes = scalaModenam.collect(size:/1).copyWithoutDuplicates.sort.collect(asString:/1);
+		let sizes = scalaModenam.collect(size:/1).copyWithoutIdenticalElements.sort.collect(asString:/1);
 		let selectedSize = nil;
 		let selectedTuningSize = nil;
 		self.ColumnBrowser('Scala Scale Browser', 'text/plain', false, true, [1, 1, 4], nil, nil) { :browser :path |
@@ -17,7 +17,7 @@
 						each.size = selectedSize
 					}.collect { :each |
 						each.tuningSize
-					}.copyWithoutDuplicates.sort.collect(asString:/1)
+					}.copyWithoutIdenticalElements.sort.collect(asString:/1)
 				},
 				2 -> {
 					browser.setStatus(

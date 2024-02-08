@@ -105,7 +105,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 		let bracketedSubject = '>>' ++ subject ++ ':/';
 		let methodSignatures = system.allMethods.collect(signature:/1).select { :each |
 			each.includesSubstring(bracketedSubject)
-		}.copyWithoutDuplicates.sort;
+		}.copyWithoutIdenticalElements.sort;
 		self.addFrame(self.MethodSignatureBrowser(methodSignatures, false), event)
 	}
 

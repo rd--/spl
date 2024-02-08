@@ -8,6 +8,15 @@
 		self.product
 	}
 
+	& { :self |
+		self.allSatisfy(value:/1)
+	}
+
+
+	| { :self |
+		self.anySatisfy(value:/1)
+	}
+
 	allSatisfy { :self :aBlock:/1 |
 		valueWithReturn { :return:/1 |
 			self.do { :each |
