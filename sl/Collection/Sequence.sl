@@ -1375,6 +1375,10 @@
 		anObject.adaptToCollectionAndApply(self, %)
 	}
 
+	binomialCoefficient { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, binomialCoefficient:/2)
+	}
+
 	bitAnd { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, bitAnd:/2)
 	}

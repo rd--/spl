@@ -5,8 +5,23 @@
 The binomial coefficients are the positive integers that occur as coefficients in the binomial theorem.
 Commonly, a binomial coefficient is indexed by a pair of integers n ≥ k ≥ 0.
 
-	5.binomialCoefficient(3) = 10
-	[0 1 2 3 4 5].collect { :each | 5.binomialCoefficient(each) } = [1 5 10 10 5 1]
+```
+>>> 5.binomialCoefficient(3)
+10
+
+>>> 3.binomialCoefficient(5)
+0
+
+>>> 0:5.collect { :each | each.binomialCoefficient(0:each) }
+[1; 1 1; 1 2 1; 1 3 3 1; 1 4 6 4 1; 1 5 10 10 5 1]
+```
+
+At zero:
+
+```
+>>> 0.binomialCoefficient(0)
+1
+```
 
 * * *
 

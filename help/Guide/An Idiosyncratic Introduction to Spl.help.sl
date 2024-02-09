@@ -254,6 +254,18 @@ Function tables are a good way to organize systematic experimentation on unfamil
 [0 0 0 0; 0 1 2 3; 0 2 2 6; 0 3 6 3]
 ```
 
+The _triangle_ of Pascal is an example of a function table,
+using the binomial coefficient function.
+
+An advantage of looking at it as a table rather than as a triangle,
+is that one can then apply matrix operations to it, such as matrix inverse.
+
+```
+>>> let x = 0:4;
+>>> x binomialCoefficient.t x
+[1 0 0 0 0; 1 1 0 0 0; 1 2 1 0 0; 1 3 3 1 0; 1 4 6 4 1]
+```
+
 * * *
 
 References:

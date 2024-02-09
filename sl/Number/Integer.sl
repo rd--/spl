@@ -63,7 +63,15 @@
 	}
 
 	binomialCoefficient { :n :k |
-		n.factorial / (k.factorial * (n - k).factorial)
+		k.isInteger.if {
+			(k > n).if {
+				0
+			} {
+				n.factorial / (k.factorial * (n - k).factorial)
+			}
+		} {
+			k.adaptToNumberAndApply(n, binomialCoefficient:/2)
+		}
 	}
 
 	denominator { :self |
