@@ -296,6 +296,38 @@
 		}
 	}
 
+	dot { :self :aSequence |
+		basicTimes:/2.inner(self, aSequence, basicPlus:/2)
+	}
+
+	dotProduct { :self :aSequence |
+		self.isVector.if {
+			(aSequence.isVector | { aSequence.isMatrix }).if {
+				(self *.e aSequence).sum
+			} {
+				'@Sequence>>dotProduct: argument not vector or matrix'.error
+			}
+		} {
+			self.isMatrix.if {
+				aSequence.isVector.if {
+					self.collect { :each |
+						(each *.e aSequence).sum
+					}
+				} {
+					aSequence.isMatrix.if {
+						self.collect { :each |
+							each.dot(aSequence)
+						}
+					} {
+						'@Sequence>>dotProduct: argument not vector or matrix'.error
+					}
+				}
+			} {
+				'@Sequence>>dotProduct: self not vector or matrix'.error
+			}
+		}
+	}
+
 	doWhileTrue { :self :activity:/1 :conditionBlock:/0 |
 		let nextIndex = 1;
 		let endIndex = self.size;
@@ -1203,6 +1235,14 @@
 			answer.add(each)
 		};
 		answer
+	}
+
+	vectorAngle { :u :v |
+		(u.isVector & { v.isVector }).if {
+			(u.dot(v) / (u.norm * v.norm)).arcCos
+		} {
+			'Sequence>>vectorAngle: not vectors'.error
+		}
 	}
 
 	withCollect { :self :aSequence :aBlock:/2 |

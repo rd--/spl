@@ -96,6 +96,41 @@ Block! : [Object] {
 		>
 	}
 
+	inner { :f:/2 :p :q :g:/2 |
+		let h:/2 = f:/2.e;
+		p.isVector.if {
+			q.isVector.if {
+				h(p, q).reduce(g:/2)
+			} {
+				q.isMatrix.if {
+					q.transposed.collect { :each |
+						h(p, each).reduce(g:/2)
+					}
+				} {
+					'Block>>inner: q not vector or matrix'.error
+				}
+			}
+		} {
+			p.isMatrix.if {
+				q.isVector.if {
+					p.collect { :each |
+						h(each, q).reduce(g:/2)
+					}
+				} {
+					q.isMatrix.if {
+						p.collect { :each |
+							inner(f:/2, each, q, g:/2)
+						}
+					} {
+						'Block>>inner: argument not vector or matrix'.error
+					}
+				}
+			} {
+				'Block>>inner: p not vector or matrix'.error
+			}
+		}
+	}
+
 	iterate { :self:/1 :anObject :anInteger |
 		anInteger.timesRepeat {
 			anObject := self(anObject)
@@ -162,7 +197,7 @@ Block! : [Object] {
 		self.cull(aNumber).ofSize(aNumber)
 	}
 
-	outerProduct { :self :aSequence :anotherSequence |
+	outer { :self :aSequence :anotherSequence |
 		(self.outerProduct).value(aSequence, anotherSequence)
 	}
 

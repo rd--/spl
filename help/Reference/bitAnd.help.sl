@@ -76,7 +76,7 @@ Plot bitAnd with double and triple:
 Truth table for and:
 
 ```
->>> bitAnd:/2.outerProduct([1 0], [1 0])
+>>> bitAnd:/2.outer([1 0], [1 0])
 [1 0; 0 0]
 ```
 

@@ -444,6 +444,10 @@ System! : [Object, Cache, Indexable, Random] {
 		<primitive: return Math.random();>
 	}
 
+	nextRandomFloat { :self :count |
+		{ system.nextRandomFloat } ! count
+	}
+
 	sessionStorage { :self |
 		self.window.sessionStorage
 	}

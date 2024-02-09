@@ -113,7 +113,7 @@ The store string of a Complex is the constructor notation:
 ```
 >>> 1j2.storeString
 'Complex(1, 2)'
->>>
+```
 
 Use _real_ and _imaginary_ to extract parts of Complex numbers:
 
@@ -132,7 +132,7 @@ The _asTuple_ method answers a two tuple of these:
 
 * * *
 
-See also: asInteger, asNumber, i, SmallFloat
+See also: asInteger, asNumber, i, j, SmallFloat
 
 References:
 _Apl_

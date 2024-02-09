@@ -154,7 +154,7 @@ Sl {
 	operator = operatorChar+
 	operatorWithAdverb = operatorWithBinaryAdverb | operatorWithUnaryAdverb
 	operatorWithUnaryAdverb = (operator | infixMethod) "." selectorName
-	operatorWithBinaryAdverb = (operator | infixMethod) "." selectorName "(" (selectorName | numberLiteral) ")"
+	operatorWithBinaryAdverb = (operator | infixMethod) "." selectorName "(" (methodName | numberLiteral) ")"
 	operatorChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 	operatorAssignment = operatorChar ":" "="
 

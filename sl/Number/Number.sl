@@ -69,6 +69,22 @@
 		<primitive: return _self.toLocaleString('en-US');>
 	}
 
+	basicPlus { :self :aNumber |
+		aNumber.isNumber.if {
+			self + aNumber
+		} {
+			('Number>>basicPlus: operand not number' ++ aNumber).error
+		}
+	}
+
+	basicTimes { :self :aNumber |
+		aNumber.isNumber.if {
+			self * aNumber
+		} {
+			('Number>>basicTimes: operand not number: ' ++ aNumber).error
+		}
+	}
+
 	ceiling { :self |
 		let truncation = self.truncated;
 		(self <= 0).if {
@@ -359,6 +375,12 @@
 
 	unit { :self |
 		1
+	}
+
+	unitVector { :n :k |
+		let answer = List(n, 0);
+		answer[k] := 1;
+		answer
 	}
 
 	upOrDownToDo { :self :end :aBlock:/1 |

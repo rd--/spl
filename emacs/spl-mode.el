@@ -85,6 +85,10 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   "Remove Mardown code fences from the string STR if present."
   (replace-regexp-in-string "^```" "" str))
 
+(defun spl-delete-doctest-prefixes (str)
+  "Remove Doctest prefixes from the string STR if present."
+  (replace-regexp-in-string "^[> ]*" "" str))
+
 (defun spl-set-region-to-paragraph ()
   "Set the mark at the start and point at the end of the current paragraph."
   (interactive)
@@ -95,7 +99,8 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
 (defun spl-get-text (start end)
   "Get the text from start to end as a string, with code fences deleted."
   (spl-delete-markdown-code-fences
-   (buffer-substring-no-properties start end)))
+   (spl-delete-doctest-prefixes
+    (buffer-substring-no-properties start end))))
 
 (defun spl-get-paragraph ()
   "Get the current paragraph as a string, with code fences deleted."
@@ -107,13 +112,10 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
    (replace-regexp-in-string "^[- ]*[> ]*" "" s))
 
 (defun spl-get-line ()
-  "Get the current line as a string, without any initial > markers."
-  (replace-regexp-in-string
-   "^[> ]*"
-   ""
-   (buffer-substring-no-properties
-    (line-beginning-position)
-    (line-end-position))))
+  "Get the current line as a string."
+  (spl-get-text
+   (line-beginning-position)
+   (line-end-position)))
 
 (defun spl-get-region ()
   "Get the current region as a string."

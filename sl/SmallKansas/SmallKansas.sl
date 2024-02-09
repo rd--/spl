@@ -26,7 +26,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 		event.ifNotNil {
 			frame.moveTo(event.x, event.y)
 		};
-		self.frameSet.add(frame);
+		self.frameSet.basicInclude(frame);
 		self.container.appendChild(frame.outerElement);
 		frame
 	}

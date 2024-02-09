@@ -55,7 +55,7 @@ Plot bitOr with double and triple:
 Truth table for or:
 
 ```
->>> bitOr:/2.outerProduct([1 0], [1 0])
+>>> bitOr:/2.outer([1 0], [1 0])
 [1 1; 1 0]
 ```
 

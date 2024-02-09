@@ -3,7 +3,8 @@
 - _outerProduct(aBlock:/2)_
 - _outerProduct(aBlock:/2, aSequence, anotherSequence)_
 
-Answer the generalized outer product of two sequences, passing all combinations of the elements in each to _aBlock_.
+Answer the generalized outer product of two sequences,
+passing all combinations of the elements in each to _aBlock_.
 
 Concatenate strings:
 
