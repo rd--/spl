@@ -132,7 +132,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	arcTan { :self :anObject |
-		self.atan2(anObject)
+		anObject.atan2(self)
 	}
 
 	asFloat { :self |
@@ -158,7 +158,11 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	atan2 { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return Math.atan2(_self, _anObject); }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return Math.atan2(_self, _anObject);
+		}
+		>
 		anObject.adaptToNumberAndApply(self, atan2:/2)
 	}
 

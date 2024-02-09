@@ -20,6 +20,10 @@ PolarCoordinate : [Object] { | r theta |
 		(r: self.r, theta: self.theta)
 	}
 
+	asRectangularCoordinate { :self |
+		RectangularCoordinate(self.x, self.y)
+	}
+
 	asTuple { :self |
 		(self.r, self.theta)
 	}
@@ -55,6 +59,22 @@ PolarCoordinate : [Object] { | r theta |
 	asPolarCoordinate { :self |
 		let [r, theta] = self;
 		PolarCoordinate(r, theta)
+	}
+
+	fromPolarCoordinates { :self |
+		self.isVector.if {
+			self.asPolarCoordinate.asRectangularCoordinate.asList
+		} {
+			self.collect(fromPolarCoordinates:/1)
+		}
+	}
+
+	toPolarCoordinates { :self |
+		self.isVector.if {
+			self.asRectangularCoordinate.asPolarCoordinate.asList
+		} {
+			self.collect(toPolarCoordinates:/1)
+		}
 	}
 
 }

@@ -1,4 +1,4 @@
-# SphericalCoordinate -- geometry
+# SphericalCoordinate
 
 _SphericalCoordinate(r, theta, phi)_
 
@@ -29,7 +29,7 @@ Where supported r is displayed as 𝑟, rho is displayed as ρ, theta as θ, and
 
 * * *
 
-See also: PolarCoordinate
+See also: CartesianCoordinate, PolarCoordinate, IsoSphericalCoordinate, RectangularCoordinate
 
 References:
 _Mathematica_
@@ -39,3 +39,5 @@ _W_
 
 Unicode:
 U+1D45F 𝑟 Mathematical Italic Small R
+
+Categories: Geometry

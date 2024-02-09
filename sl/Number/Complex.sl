@@ -86,6 +86,10 @@ Complex : [Object, Number] { | real imaginary |
 		self.absSquared.sqrt
 	}
 
+	absArg { :self |
+		[self.abs, self.arg]
+	}
+
 	absSquared { :self |
 		(self.real * self.real) + (self.imaginary * self.imaginary)
 	}
@@ -153,11 +157,40 @@ Complex : [Object, Number] { | real imaginary |
 		}
 	}
 
+	arcTan { :self |
+		let r2 = self.squaredNorm;
+		Complex(
+			(1 - r2).arcTan(self.real * 2) / 2,
+			((r2 + (self.imaginary * 2) + 1) / (r2 - (self.imaginary * 2) + 1)).log / 4
+		)
+	}
+
+	arcTan { :self :aNumber |
+		self.isZero.if {
+			aNumber.isZero.if {
+				Complex(0, 0)
+			} {
+				Complex(pi / aNumber.real.copySignTo(2), 0)
+			}
+		} {
+			let answer = (aNumber / self).arcTan;
+			(self.real < 0).if {
+				answer + pi
+			} {
+				(answer.real > pi).if {
+					answer - (pi * 2)
+				} {
+					answer
+				}
+			}
+		}
+	}
+
 	arg { :self |
 		self.isZero.if {
 			self.error('Zero has no argument')
 		} {
-			self.imaginary.arcTan(self.real)
+			self.real.arcTan(self.imaginary)
 		}
 	}
 

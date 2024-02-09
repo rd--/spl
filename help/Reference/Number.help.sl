@@ -1,4 +1,4 @@
-# Number -- numeric trait
+# Number
 
 Trait for numerical values.
 
@@ -11,3 +11,7 @@ Methods for testing: even, odd, negative, positive, strictlyPositive, sign, isZe
 Methods for truncating and rounding: ceiling, floor, truncated, truncateTo, rounded, roundTo, roundUpTo
 
 Methods for trigonometry: sin, cos, tan, degreeSin, degreeCos, arcSin, arcCos, arcTan, degreesToRadians, radiansToDegrees
+
+* * *
+
+Categories: Numeric trait

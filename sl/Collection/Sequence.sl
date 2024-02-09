@@ -1375,6 +1375,10 @@
 		anObject.adaptToCollectionAndApply(self, %)
 	}
 
+	absArg { :self |
+		self.collect(absArg:/1)
+	}
+
 	binomialCoefficient { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, binomialCoefficient:/2)
 	}

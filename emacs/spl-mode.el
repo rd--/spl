@@ -392,6 +392,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("squared" . ?²) ; U+00B2 ² Superscript Two
      ("sum" . ?Σ) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation
      ("theta" . ?θ) ; U+03B8 θ Greek Small Letter Theta
+     ("Theta" . ?Θ) ; U+0398 Θ Greek Capital Letter Theta
      ("third" . ?₃) ; U+2083 ₃ Subscript Three
      ("transposed" . ?ᵀ) ; U+1D40 ᵀ Modifier Letter Capital T ; U+2349 ⍉ APL Functional Symbol Circle Backslash
      ("true" . ?⊤) ; U+22A4 ⊤ Down Tack

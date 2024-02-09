@@ -16,9 +16,7 @@ true
 false
 ```
 
-The name of this operator is _ampersand_.
-
-The unary form of and is _allSatisfy_ of _value_:
+The unary form of & is _allSatisfy_ of _value_:
 
 ```
 >>> [1 > 0, { 2 > 1 }, { 3 > 2 }].&
@@ -32,6 +30,8 @@ and the unary operator syntax may be used:
 >>> [{ 1 > 0 }, { 2 > 1 }, { 3 > 2 }].&
 true
 ```
+
+The name of this operator is _ampersand_.
 
 _Note:_
 In Smalltalk the evaluting form is called _and:_ and the non-evaluating form _&_.

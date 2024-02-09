@@ -1,16 +1,20 @@
 # Point
 
-- _Point(x, y)_ ≡ RectangularCoordinate(x, y)
-- _Point(x, y, z)_ ≡ CartesianCoordinate(x, y, z)
+- _Point(x, y)_ ⇒ _RectangularCoordinate(x, y)_
+- _Point(x, y, z)_ ⇒ _CartesianCoordinate(x, y, z)_
 
-The _Point_ method constructs co-ordinates of two and three dimensions.
+Constructs Cartesian coordinates of two and three dimensions.
 
-- _asPoint(aList | aRecord | aTuple)_
+```
+>>> Point(1, 2)
+RectangularCoordinate(1, 2)
 
-The _asPoint_ method constructs co-ordinates of two and three dimensions given an appropriate list, record or tuple.
+>>> Point(1, 2, 3)
+CartesianCoordinate(1, 2, 3)
+```
 
 * * *
 
-See also: CartesianCoordinate, PolarCoordinate, RectangularCoordinate
+See also: asPoint, CartesianCoordinate, PolarCoordinate, RectangularCoordinate, SphericalCoordinate
 
 Categories: Geometry

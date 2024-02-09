@@ -25,6 +25,10 @@
 		)
 	}
 
+	asList { :self |
+		[self.r, self.theta, self.phi]
+	}
+
 	asRecord { :self |
 		(r: self.r, theta: self.theta, phi: self.phi)
 	}
@@ -89,11 +93,27 @@ SphericalCoordinate : [Object, SphericalCoordinate] { | r theta phi |
 
 }
 
-+List {
++[List, Tuple] {
 
 	asSphericalCoordinate { :self |
 		let [r, theta, phi] = self;
 		SphericalCoordinate(r, theta, phi)
+	}
+
+	fromSphericalCoordinates { :self |
+		self.isVector.if {
+			self.asSphericalCoordinate.asCartesianCoordinate.asList
+		} {
+			self.collect(fromSphericalCoordinates:/1)
+		}
+	}
+
+	toSphericalCoordinates { :self |
+		self.isVector.if {
+			self.asCartesianCoordinate.asSphericalCoordinate.asList
+		} {
+			self.collect(toSphericalCoordinates:/1)
+		}
 	}
 
 }

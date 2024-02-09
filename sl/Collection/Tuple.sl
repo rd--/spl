@@ -26,6 +26,10 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 		self.contents.indices
 	}
 
+	isVector { :self |
+		self.noneSatisfy(isTuple:/1)
+	}
+
 	size { :self |
 		self.contents.size
 	}

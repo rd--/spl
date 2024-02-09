@@ -52,6 +52,10 @@
 		}
 	}
 
+	absArg { :self |
+		self.j(0).absArg
+	}
+
 	absSquared { :self |
 		let abs = self.abs;
 		abs * abs

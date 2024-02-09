@@ -1,18 +1,37 @@
 # asPoint
 
-_asPoint(aNumber | aPoint)_
+_asPoint(aList | aRecord | aTuple)_
 
-In the Number case answer a point with equal x & y.
+Constructs Cartesian coordinates of two and three dimensions given an appropriate list, record or tuple.
+
+List case:
 
 ```
 >>> [1, 2].asPoint
-Point(1, 2)
+RectangularCoordinate(1, 2)
 
+>>> [1, 2, 3].asPoint
+CartesianCoordinate(1, 2, 3)
+```
+
+Tuple case:
+
+```
 >>> (1, 2).asPoint
-Point(1, 2)
+RectangularCoordinate(1, 2)
 
+>>> (1, 2, 3).asPoint
+CartesianCoordinate(1, 2, 3)
+```
+
+Record case:
+
+```
 >>> (x: 1, y: 2).asPoint
-Point(1, 2)
+RectangularCoordinate(1, 2)
+
+>>> (x: 1, y: 2, z: 3).asPoint
+CartesianCoordinate(1, 2, 3)
 ```
 
 In the Point case answer _identity_.
@@ -21,10 +40,14 @@ In the Point case answer _identity_.
 >>> let p = Point(1, 2);
 >>> p == p.asPoint
 true
+
+>>> let p = Point(1, 2, 3);
+>>> p == p.asPoint
+true
 ```
 
 * * *
 
-See also: asComplex
+See also: asComplex, CartesianCoordinate, Point, RectangularCoordinate
 
 Categories: Converting

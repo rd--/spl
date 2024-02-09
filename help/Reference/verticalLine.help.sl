@@ -23,8 +23,6 @@ false
 true
 ```
 
-The name of this operator is _verticalLine_.
-
 The unary form of | is _anySatisfy_ of _value_:
 
 ```
@@ -39,6 +37,8 @@ and the unary operator syntax may be used:
 >>> [{ 1 < 0 }, { 2 < 1 }, { 3 < 2 }].|
 false
 ```
+
+The name of this operator is _verticalLine_.
 
 Where supported _or_ is displayed as ∨.
 
