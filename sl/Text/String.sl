@@ -50,9 +50,9 @@ String! : [Object, Json, Iterable] {
 	}
 
 	asBracketedComment { :self :open :close |
-		self.includesSubstring(open).or {
+		(self.includesSubstring(open) | {
 			self.includesSubstring(close)
-		}.if {
+		}).if {
 			self.error('asBracketedComment: includes comment brackets')
 		} {
 			[open, ' ', self, ' ', close].join

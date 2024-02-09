@@ -13,7 +13,7 @@ Where supported this operator is displayed as ≢.
 
 * * *
 
-See also: =, ~=, ==, equals, equalsEquals, tildeEquals
+See also: =, ~=, ==
 
 Unicode: U+2262 ≢ Not Identical To
 

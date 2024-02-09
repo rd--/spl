@@ -499,12 +499,12 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'addWarning'
 	],
 	'arithmetic operators': [
-		'%' {- modulo -}
-		'*' {- times -}
-		'^' {- raisedTo -}
-		'+' {- plus -}
-		'-' {- minus -}
-		'/' {- dividedBy -}
+		'%' {- percentSign -}
+		'*' {- asterisk -}
+		'^' {- circumflexAccent -}
+		'+' {- plusSign -}
+		'-' {- hyphenMinus -}
+		'/' {- solidus -}
 		'//'
 		'\\\\'
 		'*='
@@ -542,16 +542,16 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'comparing': [
 		'!~'
-		'<' {- lessThan -}
+		'<'
 		'<='
 		'<=>'
 		'<~'
-		'=' {- equals -}
+		'='
 		'=='
-		'>' {- greaterThan -}
+		'>'
 		'>='
 		'>~'
-		'~' {- tilde -}
+		'~'
 		'~='
 		'~~'
 		'betweenAnd'
@@ -1347,15 +1347,15 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'allTuples'
 		'allTuplesDo'
 		'asLocalBuf'
-		'bang'
-		'bangPlus'
-		'bangRaisedTo'
+		'!'
+		'!+'
+		'!^'
 		'coin'
 		'collectTexture'
 		'crossedMultiply'
 		'differentiate'
 		'geom'
-		'lessThanBang'
+		'<!'
 		'overlap'
 		'play'
 		'playEvery'

@@ -35,7 +35,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: raisedTo, sqrt
+See also: ^, sqrt
 
 References:
 _Mathematica_

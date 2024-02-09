@@ -23,7 +23,10 @@ Note that the application syntax cannot be used to apply a name that was not ini
 In particular blocks passed as arguments cannot be applied using this syntax,
 and must be called using _apply_ or _value_.
 
-	[sqrt(9), 9.sqrt, sqrt:/1.value(9), sqrt:/1 . (9)] = [3, 3, 3, 3]
+```
+>>> [sqrt(9), 9.sqrt, sqrt:/1.value(9), sqrt:/1 . (9)]
+[3 3 3 3]
+```
 
 Where supported this operator is displayed as a big solidus, ⧸.
 

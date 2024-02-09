@@ -35,7 +35,7 @@ Divide is applied sequentially:
 (3 / (5 * 7 * 9))
 ```
 
-The name of this operator is _dividedBy_.
+The name of this operator is _solidus_.
 
 This glyph forms part of the Fraction literal syntax:
 
@@ -49,7 +49,7 @@ Fraction(56, 3)
 
 * * *
 
-See also: +, -, *, minus, plus, times
+See also: +, -, *
 
 Unicode: U+00F7 ÷ Division Sign
 

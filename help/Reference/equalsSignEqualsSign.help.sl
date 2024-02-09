@@ -9,22 +9,34 @@ It decides if two values are the same.
 
 String and integers are identical:
 
-	'abc' == 'abc'
-	123 == 123
+```
+>>> 'abc' == 'abc'
+true
+
+>>> 123 == 123
+true
+```
 
 Complex numbers, fractions and lists are not:
 
-	(1j1 == 1j1).not
-	(1/3 == 1/3).not
-	([1 2 3] == [1 2 3]).not
+```
+>>> 1j1 == 1j1
+false
 
-The name of this operator is _equalsEquals_
+>>> 1/3 == 1/3
+false
+
+>>> [1 2 3] == [1 2 3]
+false
+```
+
+The name of this operator is _equalsSignEqualsSign_
 
 Where supported this operator is displayed as ≡.
 
 * * *
 
-See also: =, ~~, equals, tildeTilde
+See also: =, ~~, ~
 
 Unicode: U+2261 ≡ Identical To
 

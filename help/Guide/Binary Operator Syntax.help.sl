@@ -37,39 +37,39 @@ Binary operators may be written as names in non-operator contexts, i.e. _α.β(+
 ```
 
 Binary operators are rewritten as the arity qualified names of their symbols.
-_+_ as _plus:/2_,
-_*_ as _times:/2_, &etc.
+_+_ as _plusSign:/2_,
+_*_ as _asterisk:/2_, &etc.
 
 ```
->>> + == plus:/2
+>>> + == plusSign:/2
 true
 ```
 
 These names are in the same space as all other block names, defining _&_ defines _and_, and defining _+_ defines _plus_.
 
 ```
->>> plus(3, 4)
+>>> plusSign(3, 4)
 7
 ```
 
 Binary operators with multiple characters are named by joining together the character names,
-i.e. _++_ is _plusPlus_ not _append_, and _<=_ is _lessThanEquals_.
+i.e. _++_ is _plusSignPlusSign_ not _append_, and _<=_ is _lessThanSignEqualsSign_.
 
 ```
->>> ++ == plusPlus:/2
+>>> ++ == plusSignPlusSign:/2
 true
 ```
 
 Math and logic binary operators:
 
-- +: plus, *: times, -: minus, /: dividedBy, %: modulo
-- =: equals, <: lessThan, >: greaterThan
-- &: and, |: or, ~: tilde
+- +: plusSign, *: asterisk, -: hyphenMinus, /: solidus, %: percentSign
+- =: equalsSign, <: lessThanSign, >: greaterThanSign
+- &: ampersand, |: verticalLine, ~: tilde
 
 Other binary operators:
 
-- !: bang, @: commercialAt, #: hash, $: dollar, ^: hat
-- \: backslash, ?: query
+- !: exclamationMark, @: commercialAt, #: numberSign, $: dollarSign, ^: circumflexAccent
+- \: reverseSolidus, ?: questionMark
 
 * * *
 

@@ -60,11 +60,11 @@ The unary form of _plus_ is _sum_:
 45
 ```
 
-The name of this operator is _plus_.
+The name of this operator is _plusSign_.
 
 * * *
 
-See also: -, *, /, dividedBy, minus, sum, times
+See also: -, *, /, sum
 
 Unicode: U+002B + Plus Sign
 

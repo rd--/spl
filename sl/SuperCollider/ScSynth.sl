@@ -85,9 +85,9 @@ ScSynth! : [Object] {
 +[List, Ugen] {
 
 	<! { :self :aUgen |
-		aUgen.isUgen.and {
+		(aUgen.isUgen & {
 			aUgen.scUgen.numChannels = 0
-		}.if {
+		}).if {
 			self.multipleRootGraph(aUgen)
 		} {
 			FirstArg(self, aUgen)

@@ -153,9 +153,9 @@ JsonObject : [Object, Indexable, JsonValue] { | names values table |
 
 	indexOf { :self :name |
 		let index = self.table[name];
-		(index ~= 0).and {
+		(index ~= 0 & {
 			name = self.names[index]
-		}.if {
+		}).if {
 			index
 		} {
 			'not implement'.error
@@ -408,9 +408,9 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 	}
 
 	readExponent { :self |
-		self.readChar('e').or {
+		(self.readChar('e') | {
 			self.readChar('E')
-		}.if {
+		}).if {
 			self.readChar('+').ifFalse {
 				self.readChar('-')
 			};

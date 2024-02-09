@@ -11,27 +11,27 @@ export function isOperatorName(name: string): boolean {
 }
 
 export const operatorCharacterNameTable: Record<string, string> = {
-	'~': 'tilde',
-	'!': 'bang', // exclamationMark exclamationPoint
-	'@': 'commercialAt', // atSign p[q] == at(p,q)
-	'#': 'hash', // numberSign
-	'$': 'dollar', // dollarSign
-	'%': 'modulo', // percent
-	'^': 'raisedTo', // caret circumflex hat
-	'&': 'and', // ampersand
-	'*': 'times', // asterisk
-	'-': 'minus', // hyphen
-	'+': 'plus',
-	'=': 'equals',
-	'|': 'or', // verticalBar
-	'\\': 'backslash',
-	':': 'colon',
-	';': 'semicolon',
-	'.': 'dot', // period fullStop
-	'<': 'lessThan',
-	'>': 'greaterThan',
-	'?': 'query', // questionMark
-	'/': 'dividedBy', // slash
+	'!': 'exclamationMark', // U+0021 ! Exclamation Mark
+	'#': 'numberSign', // U+0023 # Number Sign
+	'$': 'dollarSign', // U+0024 $ Dollar Sign
+	'%': 'percentSign', // U+0025 % Percent Sign
+	'&': 'ampersand', // U+0026 & Ampersand
+	'*': 'asterisk', // U+002a * Asterisk
+	'+': 'plusSign', // U+002b + Plus Sign
+	'-': 'hyphenMinus', // U+002d - Hyphen-Minus
+	':': 'colon', // U+003a : Colon
+	';': 'semicolon', // U+003b ; Semicolon
+	'<': 'lessThanSign', // U+003c < Less-Than Sign
+	'=': 'equalsSign', // U+003d = Equals Sign
+	'>': 'greaterThanSign', // U+003e > Greater-Than Sign
+	'.': 'fullStop', // U+002e . Full Stop
+	'/': 'solidus', // U+002f / Solidus
+	'?': 'questionMark', // U+003f ? Question Mark
+	'@': 'commercialAt', // U+0040 @ Commercial At
+	'\\': 'reverseSolidus', // U+005c \ Reverse Solidus
+	'^': 'circumflexAccent', // U+005e ^ Circumflex Accent
+	'|': 'verticalLine', // - U+007c | Vertical Line
+	'~': 'tilde', // U+007e ~ Tilde
 };
 
 export function operatorMethodName(operator: string): string {

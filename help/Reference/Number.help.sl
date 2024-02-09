@@ -2,9 +2,9 @@
 
 Trait for numerical values.
 
-Methods for arithmetic: plus, +, minus, -, times, *, divideBy, /, modulo, %, quotient, remainder, abs, negated, reciprocal
+Methods for arithmetic: +, -, *, /, %, quotient, remainder, abs, negated, reciprocal
 
-Methods implementing mathematical functions: exp, ln, log, floorLog, raisedTo, raisedToInteger, sqrt, squared
+Methods implementing mathematical functions: exp, log, floorLog, ^, raisedToInteger, sqrt, squared
 
 Methods for testing: even, odd, negative, positive, strictlyPositive, sign, isZero
 

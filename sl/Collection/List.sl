@@ -49,7 +49,7 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 	}
 
 	isMatrix { :self |
-		self.allSatisfy { :each | each.isList & { each.isVector } }.and {
+		self.allSatisfy { :each | each.isList & { each.isVector } } & {
 			self.collect(size:/1).asSet.size = 1
 		}
 	}

@@ -16,7 +16,6 @@ system.includesPackage('Angle') {- angle package -}
 ```
 1 + 2 = 3 {- addition -}
 6 + 3 = 9 {- addition -}
-6.plus(3) = 9 {- addition -}
 [0 + 0, 1 + 0, 0 + 1, 1 + 1, -1 + 1, -1 + 2] = [0, 1, 1, 2, 0, 1] {- addition -}
 [1 2 3] + [2 3 4] = [3 5 7] {- pointwise array addition -}
 0.1 + [3 4 5] = [3.1 4.1 5.1] {- number array addition -}
@@ -26,20 +25,16 @@ system.includesPackage('Angle') {- angle package -}
 ## Arithmetic -- subtraction
 ```
 6 - 3 = 3 {- subtraction -}
-6.minus(3) = 3 {- subtraction -}
 [1 - 0, 0 - 1, 2 - 1] = [1, -1, 1] {- subtraction -}
 ```
 
 ## Arithmetic expressions
 ```
 6 * 3 = 18 {- multiplication, unicode = × -}
-6.times(3) = 18 {- multiplication -}
 [1 * 0, -1 * 1, 5 * -5, -3 * -4] = [0, -1, -25, 12] {- multiplication -}
 9 / 3 = 3 {- division, unicode = ÷ -}
-9.dividedBy(3) = 3 {- division -}
 [36 / 6, -10 / 2, 20 / -5, -5 / -5] = [6, -5, -4, 1] {- division -}
 9 // 3 = 3 {- integer division (quotient) -}
-9.dividedByDividedBy(3) = 3 {- integer division -}
 [9 // 4, -5 // 3, 5 // 2] = [2, -1, 2] {- the quotient from euclidean (integer) division -}
 -5:5.collect { :n | n // 3 } = [-1, -1, -1, -0, -0, 0, 0, 0, 1, 1, 1] {- integer division -}
 [1 // 1, 3 // 2, 4 // -2, -6 // 3, -12 // -4] = [1, 1, -2, -2, 3] {- integer division -}
@@ -48,17 +43,13 @@ system.includesPackage('Angle') {- angle package -}
 1 + 2 * 3 = ((1 + 2) * 3) {- equals predicate is also left to right -}
 3 + 4 * 5 - 6 / 7 ~ 4.1428 {- precedence, longer sequence, not ~22.1428 -}
 3 = 3 {- equals -}
-3.equals(3) {- equals -}
 2 ~= 3 {- not equals -}
-2.tildeEquals(3) {- not equals -}
 3 == 3 {- identical -}
-3.equalsEquals(3) {- identity -}
 1 + (2 * 3) = 7 {- parentheses group sub-expressions -}
 (5 / 3).isInteger.not {- division with fractional result -}
 5 / 2 = 2.5 {- division with float result -}
 5 // 3 = 1 {- integer divide -}
 5 % 3 = 2 {- modulo -}
-5.modulo(3) = 2 {- modulo -}
 [10 % 3, 10 % -3, -10 % 3, -10 % -3, 10 % 5] = [1, -2, 2, -1, 0] {- modulo -}
 0:9.collect { :i | i % 5 } = [0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
 [10 % 5, -4 % 3, 4 % -3, -4 % -3] = [0, 2, -2, -1] {- modulo, negative operands -}
@@ -100,7 +91,6 @@ NaN.isNaN {- literal for NaN -}
 2.sqrt.squared.veryCloseTo(2) {- floating point errors -}
 5.0 ^ 2.0 = 25.0 {- raisedTo (power) function -}
 5 ^ 2 = 25 {- raisedTo integer -}
-5.raisedTo(2) = 25 {- raisedTo integer -}
 3 ^ 4 = 81 {- 3 * 3 * 3 * 3 = 81 -}
 { :each | each ^ 0.5 } . (16) = 4 {- square root -}
 1.exp.veryCloseTo(2.718281828459) {- exponential -}
@@ -307,19 +297,15 @@ let a = [1, 3, 5, 7]; a.reverse; a = [7, 5, 3, 1] {- array reverse (in place) -}
 [1, 2, 3, 5, 7, 9].reduce { :a :b | a + b } = 27 {- reduce by plus is sum -}
 1:4.reduce { :sum :each | sum + each } = 10 {- sum is first argument, element is second -}
 [1, 2, 3, 5, 7, 9].reduce(+) = 27 {- reduce by plus is sum -}
-[1, 2, 3, 5, 7, 9].reduce(plus:/2) = 27 {- with operator written out -}
 [1, 4, 2, 3, 5].reduce(min:/2) = 1 {- reduce by min is min -}
 [1, 4, 2, 3, 5].reduce(max:/2) = 5 {- reduce my max is max -}
 { [].reduce { :a :b | a + b } }.ifError { true } {- cannot reduce empty collection -}
 { [].reduce { :sum :each | sum + each } }.ifError { true } {- error if the collection is empty -}
 [1].reduce { :a :b | nil } = 1 {- reduce one-element collection -}
 [1 2 3 5 7 9].injectInto(0, +) = 27
-[1, 2, 3, 5, 7, 9].injectInto(0, plus:/2) = 27 {- with operator written out -}
 [1, 2, 3, 5, 7, 9].product = 1890 {- product, unicode = Π -}
 [1 2 3 5 7 9].reduce( * ) = 1890
-[1, 2, 3, 5, 7, 9].reduce(times:/2) = 1890 {- with operator written out -}
 [1 2 3 5 7 9].injectInto(1, * ) = 1890
-[1, 2, 3, 5, 7, 9].injectInto(1, times:/2) = 1890 {- with operator written out -}
 [1, 2, 3, 5, 7, 9].collect(sqrt:/1).sum.rounded = 12
 [9, 16, 25].collect(sqrt:/1) = [3, 4, 5]
 [9, 16, 25].collect { :each | sqrt(each) } = [3, 4, 5]
@@ -338,7 +324,6 @@ let a = [1, 3, 5, 7]; a.reverse; a = [7, 5, 3, 1] {- array reverse (in place) -}
 let a = [1 .. 3]; a.addAllLast([4 .. 6]); a = [1 .. 6]
 let a = [1 .. 3]; let b = a ++ [4 .. 6]; a ~~ b & { a = [1 .. 3] } & { b = [1 .. 6] }
 { [1 .. 3] ++ 4 }.ifError { true } {- right hand side must be a collection -}
-plusPlus([1 .. 3], [4 .. 6]) = [1 .. 6] {- ++ equals plusPlus -}
 [[1 .. 3], [4 .. 6], [7 .. 9]].concatenation = [1 .. 9] {- concatenation, unicode = ⧻ -}
 [1 2 3; 4 5 6; 7 8 9].concatenation = [1 .. 9] {- concatenation, [Matrix Syntax] -}
 [[1, 2, 3], [4, 5], [6]].concatenation = [1 .. 6]
@@ -581,7 +566,6 @@ system.includesPackage('Association') {- association package -}
 ('x' -> 1).typeOf = 'Association' {- arrow (->) constructor, unicode = → -}
 ('x' -> 1).isAssociation {- type predicate -}
 Association('x', 1) = ('x' -> 1)
-'x'.minusGreaterThan(1) = ('x' -> 1) {- spelled out arrow method -}
 let a = 'x' -> 1; [a.key, a.value] = ['x', 1] {- key and value accessors -}
 ('x' -> 1).asList = ['x', 1] {- two element [key, value] array -}
 ['x' -> 1, 'y' -> 2].collect(asList:/1) = [['x', 1], ['y', 2]]
@@ -592,7 +576,7 @@ let a = 'x' -> 1; [a.key, a.value] = ['x', 1] {- key and value accessors -}
 (1 -> '1') ~= (1 -> 'one')
 (1 -> 2) = system.evaluate((1 -> 2).storeString) {- store string can be evaluated to answer value -}
 (false -> true) = system.evaluate((false -> true).storeString)
-('+' -> 'plus') = system.evaluate(('+' -> 'plus').storeString)
+('+' -> 'plusSign') = system.evaluate(('+' -> 'plusSign').storeString)
 (0 -> 1) ~= (0 -> 2) {- equality considers both key and value, unlike in Smalltalk-80 -}
 ('x' -> 1) ~= ('y' -> 1) {- equality considers both key and value, unlike in Smalltalk-80 -}
 ('x' -> 1) ~= (x: 1) {- an association is not equal to a record -}
@@ -749,12 +733,9 @@ false == false {- false is identical to false -}
 1 ~= 2 = true {- inequality predicate (operator) -}
 (1 == 1) = true {- identical -}
 (1 ~~ 2) = true {- not identical, unicode = ≢ -}
-true.and { true } {- logical and -}
 true & { true } {- logical and (operator) -}
 false & { '&'.error } = false {- & is equal to and and is not strict (unlike in Smalltalk) -}
-true.and { false } = false {- logical and, unicode = ∧ -}
 true & { false } = false {- logical and (operator) -}
-true.or { false } = true {- logical or, unicode = ∨ -}
 true | { false } = true {- logical or (operator) -}
 false | { true } = true {- logical or (operator) -}
 true | { '|'.error } = true {- | is equal to or and is not strict (unlike in Smalltalk) -}
@@ -769,7 +750,6 @@ true.not.not = true {- not of not is the identity -}
 1.isInteger = true {- test if object is an integer -}
 1.respondsTo(sqrt:/1) = true {- test if object responds to message -}
 23.respondsTo(+) {- test if object responds to message -}
-23.respondsTo(plus:/2) {- with operator written out -}
 nil.isNil = true {- test if object is nil -}
 0.positive = (0 >= 0) {- test if number is non-negative -}
 0.strictlyPositive = (0 > 0) {- test if number is greater than zero -}
@@ -795,12 +775,10 @@ false.typeOf = 'Boolean' {- type of false is Boolean -}
 true.isInteger.not {- true is not an integer -}
 true.isBoolean {- true is a Boolean -}
 false.isBoolean {- false is a Boolean -}
-true & { false } = false {- logical and operator -}
-true.and { false } = false {- logical and block -}
+true & { false } = false {- logical and (operator) -}
 false & { 'false &'.postLine; false } = false
 true | { 'true |'.postLine; true } = true
-false | { true } = true {- logical or operator -}
-false.or { true } = true {- logical or block -}
+false | { true } = true {- logical or (operator) -}
 { true & false }.ifError { true } {- & applies the rhs, which must be a block -}
 true && true = true {- non-evaluating form of & (requires boolean operand) -}
 { true && 'true' }.ifError { true } {- it is an error if operand is not a boolean -}
@@ -1045,7 +1023,6 @@ let d = (w: (x: (y: (z: 1)))); d.atPathPut(['w', 'x', 'y', 'z'], -1); d::w::x::y
 [1, 2, 3].allEqual.not {- are all items equal -}
 1:4.reduce(Association:/2) = (((1 -> 2) -> 3) -> 4) {- reduce, happens to be left associative -}
 1:4.reduce(-) = (((1 - 2) - 3) - 4) {- reduce, happens to be left associative -}
-1:4.reduce(minus:/2) = (((1 - 2) - 3) - 4) {- with operator written out -}
 1:4.assertIsOfSize(4) = 1:4 {- assert collection is of indicated size -}
 { 1:4.assertIsOfSize(3) }.ifError { true } {- assert collection is of indicated size -}
 1:4.assertIsCollection = 1:4 {- require that an object is a collection -}
@@ -1755,8 +1732,7 @@ let h = Heap(); h.addAll([1 .. 9].shuffled); h.first = 1 {- add shuffled, first 
 let h = Heap(); h.addAll([1 .. 9].shuffled); 8.timesRepeat { h.removeFirst }; h.first = 9
 let h = Heap(); h.addAll([1 .. 9].shuffled); 8.timesRepeat { h.removeAt(2) }; h.first = 1
 let h = [1, 3, 5].asHeap; let a = []; h.do { :each | a.add(each) }; a = [1, 3, 5]
-let h = Heap(>); h.addAll([1, 3, 5]); h.first = 5
-let h = Heap(greaterThan:/2); h.addAll([1, 3, 5]); h.first = 5 {- with operator written out -}
+let h = Heap(>); h.addAll([1 3 5]); h.first = 5
 let h = Heap { :p :q | p > q }; h.addAll([1, 3, 5]); [h.removeFirst, h.first] = [5, 3]
 let h = 1:4.asHeap; let c = h.copy; c.add(5); h ~= c & { c = [1 .. 5].asHeap }
 ```
@@ -2170,7 +2146,6 @@ let l = 1:5.asLinkedList; l[3] := -3; l.asList = [1, 2, -3, 4, 5] {- mutate at i
 let l = 1:3.asLinkedList; l.firstLink.value := -1; l.asList = [-1, 2, 3] {- mutate link value -}
 1:9.asLinkedList.isSorted = true {- are elements in sequence -}
 9:1.asLinkedList.isSortedBy(>) = true {- are elements in sequence by predicate -}
-9:1.asLinkedList.isSortedBy(greaterThan:/2) = true {- with operator written out -}
 [1, 3 .. 9].asLinkedList.indices = 1:5 {- indices of linked list (an interval) -}
 let l = 1:9.asLinkedList; l.copy = l & { l.copy ~~ l } {- copy is equal but not identical -}
 let l = 1:9.asLinkedList; let c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } {- copies are distinct -}
@@ -2180,7 +2155,6 @@ let l = 1:9.asLinkedList; let c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } {- 
 ```
 system.includesPackage('Magnitude') {- magnitude package -}
 1 < 3 = true {- less than -}
-1.lessThan(3) = true
 2 < 2 = false
 3 < 1 = false
 1 <= 3 = true {- less than or equal to, unicode = ≤ -}
@@ -2385,7 +2359,7 @@ let z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 }, { 'c' } -> { 3 + 3 } ]; 'b'
 { let z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 } ]; 'c'.caseOf(z) }.ifError { true }
 3/2.perform('numerator') = 3 {- perform named unary method, name is not qualified -}
 (3 -> 2).perform('key') = 3
-3.perform('plus', 4) = 7 {- perform named binary method, name is not qualified -}
+3.perform('plusSign', 4) = 7 {- perform named binary method, name is not qualified -}
 4/3.slotNameList = ['numerator', 'denominator']
 4/3.slotList = ['numerator' -> 4, 'denominator' -> 3]
 4/3.numerator = 4/3.slotRead('numerator') {- slot read -}
@@ -3062,8 +3036,7 @@ let a = [1 .. 9]; a.replace { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 4
 let c = [7, 2, 6, 1]; c.sorted = [1, 2, 6, 7] & { c.sorted ~= c } {- sorted copy -}
 let c = [7, 2, 6, 1]; c.sort = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } {- sort in place -}
 [7, 2, 6, 1].asSortedList.contents = [1, 2, 6, 7]
-[7, 2, 6, 1].sorted(>) = [7, 6, 2, 1]
-[7, 2, 6, 1].sorted(greaterThan:/2) = [7, 6, 2, 1] {- with operator written out -}
+[7 2 6 1].sorted(>) = [7 6 2 1]
 let n = 0; [3 .. 7].allButFirstDo { :each | n := n + each }; n = [4 .. 7].sum {- iterate skipping first element -}
 let n = 0; [3 .. 7].allButLastDo { :each | n := n + each }; n = [3 .. 6].sum {- iterate skipping last element -}
 let a = []; 1:4.combinationsAtATimeDo(3) { :each | a.add(each.copy) }; a = [[1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]
@@ -3101,9 +3074,7 @@ let a = []; (x: 1, y: 2, z: 3).indicesDo { :each | a.add(each) }; a = ['x', 'y',
 1:4.foldLeft(Association:/2) = (((1 -> 2) -> 3) -> 4) {- fold, left associative -}
 1:4.foldRight(Association:/2) = (1 -> (2 -> (3 -> 4))) {- fold, right associative -}
 1:4.foldLeft(-) = (((1 - 2) - 3) - 4) {- fold, left associative -}
-1:4.foldLeft(minus:/2) = (((1 - 2) - 3) - 4) {- with operator written out -}
 1:4.foldRight(-) = (1 - (2 - (3 - 4))) {- fold, right associative -}
-1:4.foldRight(minus:/2) = (1 - (2 - (3 - 4))) {- with operator written out -}
 let a = [1 3 5 3 5 7]; a.replaceAllWith(3, -3); a = [1 -3 5 -3 5 7] {- replace each occurence of an item with another -}
 [0, 1].tuples(2) = [[0, 0], [0, 1], [1, 0], [1, 1]] {- all n-tuples, of two elements is binary counting -}
 [0 1].tuples(3) = [0 0 0; 0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1] {- all n-tuples -}
@@ -3116,18 +3087,13 @@ let x = [0 1]; x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] {- self cartesian pr
 [0 1].cartesianProduct([2 3]) = [0 2; 0 3; 1 2; 1 3] {- cartesian product of collections of equal size -}
 [0 1].cartesianProduct([2 3 4]) = [0 2; 0 3; 0 4; 1 2; 1 3; 1 4] {- cartesian product of collections of unequal size -}
 [1 2 3].withCollectCrossed([4 5 6], * ) = [4 5 6 8 10 12 12 15 18]
-[1 2 3].withCollectCrossed([4 5 6], times:/2) = [4 5 6 8 10 12 12 15 18] {- with operator written out -}
 [1 2 3].crossedMultiply([4 5 6]) = [4 5 6 8 10 12 12 15 18]
 [1 2 3].withCollectTruncating([4 5 6 7], * ) = [4 10 18]
-[1 2 3].withCollectTruncating([4 5 6 7], times:/2) = [4 10 18] {- with operator written out -}
 [1 2 3 4].withCollectWrapping([5 6 7 8 9], * ) = [5 12 21 32 9]
-[1 2 3 4].withCollectWrapping([5 6 7 8 9], times:/2) = [5 12 21 32 9] {- with operator written out -}
 1:9.prefixSum = [1 3 6 10 15 21 28 36 45] {- prefix sum -}
 1:9.prefixProduct = [1 2 6 24 120 720 5040 40320 362880] {- prefix product -}
 1:9.scan(+) = 1:9.prefixSum {- scan, generalized prefix sum -}
-1:9.scan(plus:/2) = 1:9.prefixSum {- with operator written out -}
 1:9.scan( * ) = 1:9.prefixProduct
-1:9.scan(times:/2) = 1:9.prefixProduct {- with operator written out -}
 1:16.first(4) = 1:4 {- first group of n elements of sequence -}
 1:16.second(4) = 5:8 {- second group of n elements of sequence -}
 1:16.third(4) = 9:12 {- third group of n elements of sequence -}
@@ -3389,9 +3355,7 @@ let a = [3, 1].asSortedList; a.add(2); a.contents = [1 .. 3] {- sorted array fro
 let a = [7, 5 .. 1].asSortedList; a.addAll([8, 6 .. 2]); a.contents = [1 .. 8] {- add all elements of collection into sequence -}
 let a = [9 .. 1].asSortedList; a.collect { :x | 9 - x }; a.contents = [1 .. 9] {- collect into ordered collection -}
 let a = [1 .. 9].asSortedList(>); a.contents = [9 .. 1] {- sorted array with specified sort block -}
-let a = [1 .. 9].asSortedList(greaterThan:/2); a.contents = [9 .. 1] {- with operator written out -}
 let a = [5 .. 9].asSortedList(>); a.addAll([1 .. 4]); a.contents = [9 .. 1]
-let a = [5 .. 9].asSortedList(greaterThan:/2); a.addAll([1 .. 4]); a.contents = [9 .. 1] {- with operator written out -}
 1:10.middle = 6 {- middle element -}
 1:10.median = 5.5 {- mean of two middle-most elements -}
 1:11.median = 6 {- middle element -}
@@ -3534,7 +3498,7 @@ let x = ['a', 'bc', 'def']; x.unlines.lines = x
 'x x x'.replaceStringAll('x', 'y') = 'y y y' {- replace all occurences of one string with another -}
 { 'x x x'.replaceStringAll('x', 1) }.ifError { true } {- replacement must be a string -}
 'A Bc Def'.replaceStringAll(' ', '') = 'ABcDef' {- replacement string may be empty -}
-'A-B-C'.replaceStringAll('-', '/') = 'A/B/C' {- replace hypens with forward slashes -}
+'A-B-C'.replaceStringAll('-', '/') = 'A/B/C' {- replace hyphens with forward slashes -}
 'anAnalogueClock'.camelCaseToWords = 'an Analogue Clock' {- camel case begins with a lower case letter -}
 'AnalogueClock'.pascalCaseToWords = 'Analogue Clock' {- pascal case begins with an upper case letter -}
 'an analogue Clock'.words.pascalCase.join = 'AnAnalogueClock'
@@ -3838,14 +3802,14 @@ system.lowBitPerByteTable.asBag.sortedCounts = [128 -> 1, 64 -> 2, 32 -> 3, 16 -
 ## System -- system names
 ```
 '!'.isOperatorName = true {- operator name predicate -}
-'*'.operatorMethodName = 'times' {- operator name -}
-['~', '!', '@', '#', '$','%'].collect(operatorMethodName:/1) = ['tilde', 'bang', 'commercialAt', 'hash', 'dollar', 'modulo']
-['^', '&', '*', '-', '+', '='].collect(operatorMethodName:/1) = ['raisedTo', 'and', 'times', 'minus', 'plus', 'equals']
-['?', '<', '>'].collect(operatorMethodName:/1) = ['query', 'lessThan', 'greaterThan']
-'!^'.operatorMethodName = 'bangRaisedTo' {- composite operator names capitalize non-initial names -}
-'~='.operatorMethodName = 'tildeEquals'
-system.operatorCharacterNameTable['^'] = 'raisedTo' {- table of operator names -}
-'+ ++ * / - %'.words.collect { :each | system.operatorNameTable[each] } = 'plus plusPlus times dividedBy minus modulo'.words
+'*'.operatorMethodName = 'asterisk' {- operator name -}
+['~', '!', '@', '#', '$','%'].collect(operatorMethodName:/1) = ['tilde', 'exclamationMark', 'commercialAt', 'numberSign', 'dollarSign', 'percentSign']
+['^', '&', '*', '-', '+', '='].collect(operatorMethodName:/1) = ['circumflexAccent', 'ampersand', 'asterisk', 'hyphenMinus', 'plusSign', 'equalsSign']
+['?', '<', '>'].collect(operatorMethodName:/1) = ['questionMark', 'lessThanSign', 'greaterThanSign']
+'!^'.operatorMethodName = 'exclamationMarkCircumflexAccent' {- composite operator names capitalize non-initial names -}
+'~='.operatorMethodName = 'tildeEqualsSign'
+system.operatorCharacterNameTable['^'] = 'circumflexAccent' {- table of operator names -}
+'+ ++ * / - %'.words.collect { :each | system.operatorNameTable[each] } = 'plusSign plusSignPlusSign asterisk solidus hyphenMinus percentSign'.words
 ```
 
 ## System -- cache
@@ -3912,7 +3876,7 @@ system.allMethods.collect { :each | each.signature }.includes('@Iterable>>do:/2'
 '@Iterable>>do:/2'.parseMethodSignature = ['@Iterable', 'do:/2']
 '@Collection'.parseQualifiedTraitName = 'Collection'
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
-let m = system.methodLookupAtType('plus', 2, 'SmallFloat'); m.operatorNameOrQualifiedName = '+'
+let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorNameOrQualifiedName = '+'
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Interval') = true
 system.methodSignatures('add').includes('Map>>add:/2') = true
 system.methodLookupAtSignature('@Iterable>>sum:/1').isMethod = true
@@ -3920,7 +3884,7 @@ system.methodLookupAtType('sum', 1, 'List').sourceCode = '{ :self |\n\t\tself.re
 system.methodTypes('last:/1').includes('Interval') = true
 system.multipleArityMethodList.includes('randomFloat') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
-system.operatorNameTable['^'] = 'raisedTo' = true
+system.operatorNameTable['^'] = 'circumflexAccent' = true
 system.doesTraitImplementMethod('Collection', 'select') = true
 system.doesTypeImplementMethod('List', 'species') = true
 [1, 2, 3].respondsTo(select:/2) = true {- does a value (courtesy the type) implement a method -}
@@ -3978,7 +3942,7 @@ system.typeDictionary::List.typeOf = 'Type' {- type of type is Type -}
 system.typeDictionary::List.isType = true {- Type type predicate -}
 system.typeDictionary::List.traitNameList.includes('Collection') = true
 system.typeDictionary::Association.slotNameList = ['key', 'value']
-system.typeDictionary::Association.methodDictionary.indices.includes('equals:/2')
+system.typeDictionary::Association.methodDictionary.indices.includes('equalsSign:/2')
 system.typeDictionary::Association.methodDictionary.includesIndex('key:/1') = true
 system.typeDictionary::Nil.methodDictionary.includesIndex('ifNil:/2') = true
 system.typeLookup('Association').methodDictionary.select { :each | each.name = 'key' }.size = 2

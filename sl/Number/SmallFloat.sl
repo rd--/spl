@@ -336,19 +336,19 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		(aPositiveInteger = 2).if {
 			self.sqrt
 		} {
-			aPositiveInteger.isInteger.not.or {
+			(aPositiveInteger.isInteger.not | {
 				aPositiveInteger.negative
-			}.ifTrue {
+			}).ifTrue {
 				'nthRoot: only defined for positive integer'.error
 			};
 			self.negative.if {
 				aPositiveInteger.odd.if {
-					(self.negated.raisedTo(1) / aPositiveInteger).negated
+					(self.negated ^ (1 / aPositiveInteger)).negated
 				} {
 					'nthRoot: negative numbers do not have even roots.'.error
 				}
 			} {
-				self.raisedTo(1 / aPositiveInteger)
+				self ^ (1 / aPositiveInteger)
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-# <! -- first argument
+# <!
 
 - _aUgen <! anotherUgen_ == - _lessThanBang(aUgen, anotherUgen)_
 
@@ -15,3 +15,5 @@ else it uses multipleRootGraph.
 * * *
 
 See also: FirstArg, multipleRootGraph
+
+Categories: First argument

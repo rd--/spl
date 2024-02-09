@@ -229,9 +229,9 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 							};
 							self.stepEProcessNonBackPredsNodePoolWorkListX(w, nodePool, workList, x)
 						};
-						(nodePool.size > 0).or {
+						(nodePool.size > 0 | {
 							self.type[w] = 'BBSelf'
-						}.ifTrue {
+						}).ifTrue {
 							let loop = self.lsg.createNewLoopReducible(nodeW, self.type[w] ~= 'BBIrreducible');
 							self.setLoopAttributeNodePoolLoop(w, nodePool, loop)
 						}

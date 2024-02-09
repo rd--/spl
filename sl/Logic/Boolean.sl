@@ -85,7 +85,7 @@ Boolean! : [Object, Json] {
 	}
 
 	notAnd { :self :anObject |
-		self.and(anObject).not
+		(self & { anObject }).not
 	}
 
 	notOr { :self :anObject |

@@ -264,14 +264,18 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 # Unicode
 
 - U+0021 ! Exclamation Mark
+- U+0023 # Number Sign
 - U+0024 $ Dollar Sign
 - U+0025 % Percent Sign
 - U+0026 & Ampersand
 - U+0027 ' Apostrophe
+- U+002E . Full Stop
 - U+002a * Asterisk
 - U+002b + Plus Sign
 - U+002d - Hyphen-Minus
 - U+002f / Solidus
+- U+003A : Colon
+- U+003B ; Semicolon
 - U+003c < Less-Than Sign
 - U+003d = Equals Sign
 - U+003e > Greater-Than Sign
@@ -279,7 +283,6 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+0040 @ Commercial At
 - U+005c \ Reverse Solidus
 - U+005e ^ Circumflex Accent
-- U+007c | Vertical Line
 - U+007c | Vertical Line
 - U+007e ~ Tilde
 - U+00a6 ¦ Broken Bar

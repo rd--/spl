@@ -52,9 +52,9 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 		let limit = self.runs.size;
 		let run = nil;
 		let offset = nil;
-		(self.cachedIndex == nil).or {
+		(self.cachedIndex == nil | {
 			index < self.cachedIndex
-		}.if {
+		}).if {
 			run := 1;
 			offset := index - 1
 		} {

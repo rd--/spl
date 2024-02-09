@@ -2,13 +2,13 @@
 
 ## AssignmentOperator Syntax
 ```
-let x = 3; x +:= 4; x = 7 {- plus assignment (increment) -}
-let x = 3; x -:= 4; x = -1 {- minus assignment (decrement) -}
-let x = 3; x *:= 4; x = 12 {- times assignment -}
-let x = 3; x /:= 4; x = 0.75 {- dividedBy assignment -}
-let x = 3; x ^:= 4; x = 81 {- raisedTo assignment -}
-let x = nil; x ?:= { 4 }; x = 4 {- query assignment -}
-let x = 3; x ?:= { 4 }; x = 3 {- query assignment -}
+let x = 3; x +:= 4; x = 7 {- + assignment (increment) -}
+let x = 3; x -:= 4; x = -1 {- - assignment (decrement) -}
+let x = 3; x *:= 4; x = 12 {- * assignment -}
+let x = 3; x /:= 4; x = 0.75 {- / assignment -}
+let x = 3; x ^:= 4; x = 81 {- ^ assignment -}
+let x = nil; x ?:= { 4 }; x = 4 {- ? assignment -}
+let x = 3; x ?:= { 4 }; x = 3 {- ? assignment -}
 let x = [3]; x[1] +:= 4; x[1] = 7 {- at syntax assignment -}
 let x = (y: 3); x::y +:= 4; x::y = 7 {- quoted at syntax assignment -}
 let p = 3@3; p.x +:= 4; p.x = 7 {- dot expression syntax assignment -}

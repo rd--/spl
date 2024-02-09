@@ -6,22 +6,22 @@
 		let inBlock = false;
 		let block = [];
 		self.lines.do { :current |
-			current.notEmpty.and {
-				current.first.isTab.and {
-					previous.isEmpty.and {
+			(current.notEmpty & {
+				current.first.isTab & {
+					previous.isEmpty & {
 						inBlock.not
 					}
 				}
-			}.ifTrue {
+			}).ifTrue {
 				inBlock := true
 			};
-			current.isEmpty.and {
-				previous.notEmpty.and {
-					previous.first.isTab.and {
+			(current.isEmpty & {
+				previous.notEmpty & {
+					previous.first.isTab & {
 						inBlock
 					}
 				}
-			}.ifTrue {
+			}).ifTrue {
 				answer.add(block.copy);
 				block.removeAll;
 				inBlock := false

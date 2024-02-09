@@ -244,9 +244,9 @@
 		anInteger.isInteger.if {
 			let a = self;
 			let b = anInteger;
-			(a = 0).or {
+			(a = 0 | {
 				b = 0
-			}.if {
+			}).if {
 				0
 			} {
 				let ab = a * b;
@@ -431,9 +431,9 @@
 	}
 
 	take { :self :k |
-		(k < 0).or {
+		(k < 0 | {
 			k > self
-		}.if {
+		}).if {
 			0
 		} {
 			let numerator = 1;

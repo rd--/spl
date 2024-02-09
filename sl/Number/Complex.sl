@@ -300,9 +300,9 @@ Complex : [Object, Number] { | real imaginary |
 	}
 
 	sqrt { :self |
-		(self.imaginary = 0).and {
+		(self.imaginary = 0 & {
 			self.real >= 0
-		}.if {
+		}).if {
 			self.real.sqrt.asComplex
 		} {
 			let v = (self.abs - self.real / 2).sqrt;

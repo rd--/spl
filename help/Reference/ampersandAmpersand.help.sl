@@ -37,10 +37,10 @@ Combine assertions with &&:
 true
 ```
 
-The name of this operator is _andAnd_.
+The name of this operator is _ampersandAmpersand_.
 
 * * *
 
-See also: &, |, ||, and, or
+See also: &, |, ||
 
 Categories: Logic, Operator

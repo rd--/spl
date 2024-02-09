@@ -1,7 +1,7 @@
 @Magnitude {
 
 	< { :self :aMagnitude |
-		self.typeResponsibility('@Magnitude>>lessThan')
+		self.typeResponsibility('@Magnitude>><')
 	}
 
 	<= { :self :aMagnitude |

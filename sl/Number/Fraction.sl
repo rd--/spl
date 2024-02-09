@@ -5,9 +5,9 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			let d1 = self.numerator.gcd(aNumber.denominator);
 			let d2 = self.denominator.gcd(aNumber.numerator);
 			let numerator = (self.numerator // d1) * (aNumber.numerator // d2);
-			(d2 = self.denominator).and {
+			(d2 = self.denominator & {
 				d1 = aNumber.denominator
-			}.if {
+			}).if {
 				{- preference: answer proper integer -}
 				Fraction(numerator, numerator.one)
 			} {

@@ -87,9 +87,9 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 			} {
 				let p = self.next;
 				let q = aStream.next;
-				p.isNil.or {
+				(p.isNil | {
 					q.isNil
-				}.if {
+				}).if {
 					atEnd := true;
 					nil
 				} {
@@ -173,9 +173,9 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 		let repeat = 1;
 		BlockStream {
 			let next = self.next;
-			next.isNil.and {
+			(next.isNil & {
 				repeat < repeats
-			}.ifTrue {
+			}).ifTrue {
 				self.reset;
 				repeat := repeat + 1;
 				next := self.next
@@ -264,9 +264,9 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 		BlockStream {
 			let selfNext = self.next;
 			let aStreamNext = aStream.next;
-			selfNext.isNil.or {
+			(selfNext.isNil | {
 				aStreamNext.isNil
-			}.if {
+			}).if {
 				nil
 			} {
 				aBlock(selfNext, aStreamNext)

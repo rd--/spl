@@ -23,7 +23,7 @@ The name of this operator is _commercialAtTimes_.
 
 * * *
 
-See also: @, @>, commercialAt, atAll, compose
+See also: @, @>, atAll, compose
 
 References:
 _Mathematica_

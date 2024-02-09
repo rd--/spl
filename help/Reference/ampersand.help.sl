@@ -1,6 +1,6 @@
 # &
 
-- _and(aCollection)_
+- _aCollection.&_
 - _aBoolean & aBlock:/0_
 
 true if _aBoolean_ is true and _aBlock_ evaluates to true, else false.
@@ -16,20 +16,12 @@ true
 false
 ```
 
-The name of this operator is _and_.
-
-```
->>> true.and { true }
-true
-
->>> true.and { false }
-false
-```
+The name of this operator is _ampersand_.
 
 The unary form of and is _allSatisfy_ of _value_:
 
 ```
->>> [1 > 0, { 2 > 1 }, { 3 > 2 }].and
+>>> [1 > 0, { 2 > 1 }, { 3 > 2 }].&
 true
 ```
 

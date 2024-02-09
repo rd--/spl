@@ -61,11 +61,10 @@ Plot over a subset of the reals:
 (0, 0.01 .. 5).collect { :each | each ^ 3 }.plot
 ```
 
-The name of this operator is _raisedTo_.
+The name of this operator is _circumflexAccent_.
 
 _Note:_
 In Smalltalk ^ is the _return_ operator, in C it is the _exclusive or_ operator.
-The raisedTo operator is sometimes written **, where supported ** is displayed as ⇈.
 
 * * *
 

@@ -18,10 +18,10 @@ The operator name for _remainder_.
 0.375
 ```
 
-The name of this operator is _backslashBackslash_
+The name of this operator is _reverseSolidusReverseSolidus_
 
 * * *
 
-See also: //, dividedByDividedBy, quotient, remainder
+See also: /, //, quotient, remainder
 
 Categories: Arithmetic operators

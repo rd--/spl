@@ -42,10 +42,10 @@ so that _f.value(x)_ is equal to _x.in(f)_ or _x.with(f)_.
 The ternary and quaternary forms answer the result of _aBlock(anObject, ...)_.
 
 ```
->>> raisedTo:/2.value(23, 2)
+>>> raisedToInteger:/2.value(23, 2)
 529
 
->>> 23.raisedTo(2)
+>>> 23 ^ 2
 529
 ```
 

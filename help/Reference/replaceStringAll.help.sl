@@ -10,7 +10,7 @@ Replacement string may be empty:
 
 	'A Bc Def'.replaceStringAll(' ', '') = 'ABcDef'
 
-Replace hypens with forward slashes:
+Replace hyphens with forward slashes:
 
 	'A-B-C'.replaceStringAll('-', '/') = 'A/B/C'
 

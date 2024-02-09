@@ -22,20 +22,12 @@ false
 true
 ```
 
-The name of this operator is _or_.
-
-```
->>> true.or { false }
-true
-
->>> false.or { false }
-false
-```
+The name of this operator is _verticalLine_.
 
 The unary form of or is _anySatisfy_ of _value_:
 
 ```
->>> [1 < 0, { 2 < 1 }, { 3 < 2 }].or
+>>> [1 < 0, { 2 < 1 }, { 3 < 2 }].|
 false
 ```
 

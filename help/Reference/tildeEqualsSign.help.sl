@@ -1,4 +1,4 @@
-# ~= -- comparing
+# ~=
 
 - _anObject ~= anotherObject_
 - p ~= q ⟹ _tildeEquals(p, q)_
@@ -11,6 +11,8 @@ Where supported this operator is displayed as ≠.
 
 * * *
 
-See also: = or equals, == or equalsEquals, ~~ or tildeTilde
+See also: =, ==, ~~
 
 Unicode: U+2260 ≠ Not equal to
+
+Categories: Comparing

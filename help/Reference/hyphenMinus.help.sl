@@ -59,11 +59,11 @@ The unary form answers the negation of _aNumber_:
 [-1 -2 -3 -4 -5 -6 -7 -8 -9]
 ```
 
-The name of this operator is _minus_.
+The name of this operator is _hyphenMinus_.
 
 * * *
 
-See also: +, *, /, dividedBy, plus, times
+See also: +, *, /
 
 References:
 _Apl_

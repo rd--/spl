@@ -12,10 +12,10 @@ Operator form of _quotient_.
 -2
 ```
 
-The name of this operator is _dividedByDividedBy_.
+The name of this operator is _solidusSolidus_.
 
 * * *
 
-See also: /, dividedBy, quotient, remainder
+See also: /, quotient, remainder
 
 Categories: Math, Operator

@@ -166,9 +166,9 @@
 	}
 
 	fold { :self :lo :hi |
-		(self >= lo).and {
+		(self >= lo & {
 			self < hi
-		}.if {
+		}).if {
 			self
 		} {
 			let x = self - lo;
@@ -668,9 +668,9 @@
 	}
 
 	levenshteinDistance { :self :other :equalityBlock:/2 |
-		self.isEmpty.or {
+		(self.isEmpty | {
 			other.isEmpty
-		}.if {
+		}).if {
 			self.size
 		} {
 			let matrix = [0 .. other.size];

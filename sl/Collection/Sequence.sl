@@ -590,9 +590,9 @@
 	}
 
 	hasEqualElementsBy { :self :otherCollection :aBlock:/2 |
-		otherCollection.isSequence.and {
+		(otherCollection.isSequence & {
 			self.size = otherCollection.size
-		}.if {
+		}).if {
 			valueWithReturn { :return:/1 |
 				self.indicesDo { :index |
 					aBlock(self[index], otherCollection[index]).ifFalse {
@@ -1276,9 +1276,9 @@
 	}
 
 	withCollectOrAdaptTo { :self :anObject :aBlock:/2 |
-		anObject.isCollection.and {
+		(anObject.isCollection & {
 			anObject.isSequence
-		}.if {
+		}).if {
 			self.withCollect(anObject, aBlock:/2)
 		} {
 			anObject.adaptToCollectionAndApply(self, aBlock:/2)

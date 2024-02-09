@@ -7,16 +7,14 @@
 		let inBlock = false;
 		let block = [];
 		self.lines.do { :current |
-			current.beginsWith('>>> ').and {
+			(current.beginsWith('>>> ') & {
 				inBlock.not
-			}.ifTrue {
+			}).ifTrue {
 				inBlock := true
 			};
-			current.isEmpty.or {
-				current.beginsWith('```')
-			}.and {
+			((current.isEmpty | { current.beginsWith('```') }) & {
 				inBlock
-			}.ifTrue {
+			}).ifTrue {
 				answer.add(block.copy);
 				block.removeAll;
 				inBlock := false
@@ -40,9 +38,9 @@
 			fileNameList.readTextFileList.then { :textList |
 				textList.withIndexDo { :text :index |
 					let [testCount, passCount] = text.terseReferenceEntry(fileNameList[index], options);
-					(testCount > 0).and {
+					(testCount > 0 & {
 						testCount ~= passCount
-					}.ifTrue {
+					}).ifTrue {
 						fileNameList[index].postLine;
 						['Failure', testCount, passCount].postLine
 					};

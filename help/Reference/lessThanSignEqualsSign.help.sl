@@ -1,4 +1,4 @@
-# <= -- comparison operator
+# <=
 
 - _aMagnitude <= anotherMagnitude_
 - _p <= q_ ⟹ _lessThanEquals(p, q)_
@@ -12,3 +12,5 @@ Where supported this operator is displayed as ≤.
 See also: <, >, >=, =
 
 Unicode: U+2264 ≤ Less-than or equal to
+
+Categories: Comparison operator

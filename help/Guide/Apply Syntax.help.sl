@@ -10,10 +10,20 @@ where _f_ is the _unqualified name_ of a method,
 and _x..._ are the arguments.
 
 ```
->>> plus:/2 . (3, 4)
+>>> min:/2 . (3, 4)
+3
+
+>>> min(3, 4)
+3
+```
+
+Infix operators are just especially named methods:
+
+```
+>>> + . (3, 4)
 7
 
->>> plus(3, 4)
+>>> 3 + 4
 7
 ```
 

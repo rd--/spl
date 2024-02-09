@@ -23,9 +23,9 @@
 			let byteList = midiMessageEvent.data;
 			messages.add(midiMessageEvent);
 			{- Temporary: write Cc data to Sc known buses -}
-			(byteList.size = 3).and {
+			(byteList.size = 3 & {
 				byteList[1] = 176
-			}.ifTrue {
+			}).ifTrue {
 				system.scSynth.setControl(11000 + byteList[2], byteList[3] / 127)
 			};
 			textEditor.setEditorText(messages.last(25.min(messages.size)).collect { :midi |

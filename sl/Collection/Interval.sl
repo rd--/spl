@@ -63,9 +63,9 @@ Interval : [Object, Iterable, Collection, Indexable, Sequence] { | start stop st
 	}
 
 	copyFromTo { :self :startIndex :stopIndex |
-		(startIndex = 1).and {
+		(startIndex = 1 & {
 			stopIndex = self.size
-		}.if {
+		}).if {
 			self
 		} {
 			self[startIndex].toBy(self[stopIndex], self.step)

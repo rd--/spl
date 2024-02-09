@@ -34,13 +34,13 @@ The unary form of _times_ is _product_:
 362880
 ```
 
-The name of this operator is _times_.
+The name of this operator is _asterisk_.
 
 Where supported * is displayed as ×.
 
 * * *
 
-See also: +, -, /, dividedBy, plus, times
+See also: +, -, /
 
 Unicode: U+00D7 × Multiplication Sign
 
