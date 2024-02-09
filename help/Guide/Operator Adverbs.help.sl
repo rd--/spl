@@ -42,6 +42,32 @@ The _t_ adverb is the only form that changes the shape of the input sequence.
 [5 6 7; 6 7 8; 7 8 9]
 ```
 
+# J
+
+To start, note that _verbs_ (i.e. Blocks) in J can apply to several data items at once.
+Indeed, the basic datatype is an array, and J verbs are designed to apply to arrays.
+For example, the following adds two lists of numbers:
+
+```
+>>> [1 2 3] * 10 + [2 3 5]
+[12 23 35]
+```
+
+The _adverb_ in J takes a verb argument and returns another verb, typically related.
+The J adverb / results in a verb that applies to each pair of elements, compare with above:
+
+```
+>>> [1 2 3] * 10 +.t [2 3 5]
+[12 13 15; 22 23 25; 32 33 35]
+```
+
+Thus, +/ forms an addition table, and similarly, */ forms a multiplication table:
+
+```
+>>> [1 2 3] * 10 *.t [2 3 5]
+[20 30 50; 40 60 100; 60 90 150]
+```
+
 * * *
 
 References:

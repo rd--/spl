@@ -63,14 +63,14 @@
 	}
 
 	binomialCoefficient { :n :k |
-		k.isInteger.if {
+		k.isCollection.if {
+			k.adaptToNumberAndApply(n, binomialCoefficient:/2)
+		} {
 			(k > n).if {
 				0
 			} {
 				n.factorial / (k.factorial * (n - k).factorial)
 			}
-		} {
-			k.adaptToNumberAndApply(n, binomialCoefficient:/2)
 		}
 	}
 

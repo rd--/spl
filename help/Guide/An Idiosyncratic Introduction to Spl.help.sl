@@ -266,6 +266,62 @@ is that one can then apply matrix operations to it, such as matrix inverse.
 [1 0 0 0 0; 1 1 0 0 0; 1 2 1 0 0; 1 3 3 1 0; 1 4 6 4 1]
 ```
 
+# Prefix
+
+Prefix can be implemented as a unary adverb,
+applying a unary block to the prefixes of the argument.
+
+```
+>>> 1:7.prefixes
+[1:1 1:2 1:3 1:4 1:5 1:6 1:7]
+
+>>> 1:7.prefixes.collect(sum:/1)
+[1 3 6 10 15 21 28]
+
+>>> 1:7.prefixes.collect(product:/1)
+[1 2 6 24 120 720 5040]
+
+>>> 1:7.prefixes.collect(min:/1)
+[1 1 1 1 1 1 1]
+
+>>> 1:7.prefixes.collect(max:/1)
+[1 2 3 4 5 6 7]
+
+>>> 1:7.prefixes.collect(gcd:/1)
+[1 1 1 1 1 1 1]
+
+>>> 1:7.prefixes.collect(lcm:/1)
+[1 2 6 12 60 60 420]
+```
+
+# Permutations
+
+The dyadic function _atAll(y, x)_ indexes _y_ by _x_.
+If _p_ is a permutation, _atAll(y, p)_ permutes _y_ by _p_.
+
+```
+>>> let p = [4 22 16 15 18 14 7 8 0 21 3 13 20 9 11 19 6 17 2 5 1 10 12] + 1;
+>>> let u = p atAll p;
+>>> u atAll p - 1
+[2 20 7 5 16 13 0 4 18 3 19 21 22 10 9 14 8 17 6 11 12 15 1]
+```
+
+Reducing _m_ copies of _p_ using _atAll_ computes the _m_-th power of _p_.
+
+```
+>>> let p = [4 22 16 15 18 14 7 8 0 21 3 13 20 9 11 19 6 17 2 5 1 10 12] + 1;
+>>> p.reshape([3 23]).reduce(atAll:/2) - 1
+[2 20 7 5 16 13 0 4 18 3 19 21 22 10 9 14 8 17 6 11 12 15 1]
+```
+
+The corresponding prefixes are the successive powers of _p_.
+
+```
+>>> let p = [4 22 16 15 18 14 7 8 0 21 3 13 20 9 11 19 6 17 2 5 1 10 12] + 1;
+>>> p.reshape([3 23]).prefixes.collect { :each | each.reduce(atAll:/2) - 1 }.middle
+[18 12  6 19  2 11 8 0  4 10 15  9  1 21 13  5 7 17 16 14 22  3 20]
+```
+
 * * *
 
 References:
