@@ -10,20 +10,20 @@ where _f_ is the _unqualified name_ of a method,
 and _x..._ are the arguments.
 
 ```
->>> min:/2 . (3, 4)
-3
-
 >>> min(3, 4)
 3
+
+>>> min:/2 . (3, 4)
+3
 ```
 
-Infix operators are just especially named methods:
+Infix operators are just especially named methods whose arity is know to be two.
 
 ```
->>> + . (3, 4)
+>>> 3 + 4
 7
 
->>> 3 + 4
+>>> + . (3, 4)
 7
 ```
 
@@ -31,12 +31,12 @@ No argument method application is written _f()_.
 
 ```
 >>> let f = { 7 };
->>> f:/0 . () = 7
-true
+>>> f()
+7
 
 >>> let f = { 7 };
->>> f() = 7
-true
+>>> f:/0 . ()
+7
 ```
 
 * * *

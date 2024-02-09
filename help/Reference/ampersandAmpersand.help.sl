@@ -2,7 +2,8 @@
 
 - _aBoolean && anotherBoolean_
 
-The _non-evaluating_ form of and.
+Evaluating conjunction.
+The _evaluating_ form of &.
 The operand must be a Boolean.
 
 ```
@@ -13,7 +14,7 @@ true
 false
 ```
 
-And collects over lists:
+Collects over lists:
 
 ```
 >>> [false false true true] && [false true false true]

@@ -1,6 +1,6 @@
 '/home/rohan/sw/spl/help/Guide/Terse Guide.help.sl'.asFileUrl.terseGuideSummary
 
-Total => 3769
+Total => 3733
 
 '/home/rohan/sw/spl/help/Guide/Terse Guide to Sound.help.sl'.asFileUrl.terseGuideSummary
 
@@ -12,4 +12,4 @@ Total => 141
 
 '/home/rohan/sw/spl/help/Guide'.terseReferenceSummary(verbose: true)
 
-Total => 157
+Total => 176

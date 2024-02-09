@@ -1,8 +1,9 @@
 # |
 
-- _or(aCollection)_
+- _aCollection.|_
 - _aBoolean | aBlock:/0_
 
+Nonevaluating conjunction.
 true if _aBoolean_ is true or _aBlock_ evaluates to true, else false.
 If _aBoolean_ is true then _aBlock_ is not evaluated.
 
@@ -24,7 +25,7 @@ true
 
 The name of this operator is _verticalLine_.
 
-The unary form of or is _anySatisfy_ of _value_:
+The unary form of | is _anySatisfy_ of _value_:
 
 ```
 >>> [1 < 0, { 2 < 1 }, { 3 < 2 }].|
@@ -44,14 +45,12 @@ Where supported _or_ is displayed as ∨.
 Note that _|_ is not displayed as ∨ because it is part of the [Block Syntax].
 
 _Note:_
-In Smalltalk _|_ and _or:_ have different behaviour,
-the former is _evaluating_ and the latter not.
-If _|_ were named _verticalBar_ this behaviour could be adopted.
-However for the moment _||_ is the name of the non-evaluating form.
+In Smalltalk the evaluting form is called _or:_ and the non-evaluating form _|_.
+In Spl the names are _|_ and _||_.
 
 * * *
 
-See also: &, &&, ||, and, anySatisfy, or
+See also: &, &&, ||, anySatisfy
 
 References:
 _Mathematica_
@@ -60,4 +59,4 @@ _Mathematica_
 
 Unicode: U+2228 ∨ Logical or
 
-Categories: Logic operator
+Categories: Logic, Operator
