@@ -28,4 +28,8 @@ This is particularly useful as a part of [Matrix Syntax] and [Volume Syntax]
 
 See also: [List Syntax], [Matrix Syntax], [Volume Syntax]
 
+References:
+_Fortress_
+[1](https://doi.org/10.1007/978-0-387-09766-4_190)
+
 Categories: Syntax

@@ -650,11 +650,9 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	fractionLiteral(sign, numerator, _divisor, denominator) {
 		// console.debug('fractionLiteral', sign.sourceString, numerator.sourceString, denominator.sourceString);
-		return `_normalized_1(
-			_Fraction_2(
-				${sign.sourceString}${numerator.sourceString},
-				${denominator.sourceString}
-			)
+		return `_Fraction_2(
+			${sign.sourceString}${numerator.sourceString},
+			${denominator.sourceString}
 		)`;
 	},
 	complexLiteral(real, _j, imaginary) {

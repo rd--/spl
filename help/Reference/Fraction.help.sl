@@ -33,19 +33,30 @@ true
 true
 ```
 
-Fractions written using a literal syntax are _reduced_ by construction.
+Fractions written using a literal syntax are _reduced_ by construction:
 
 ```
 >>> 2/4
 1/2
+```
 
->>> 2/4 ~= Fraction(2, 4)
-true
+The _Fraction_ method reduces fractions on construction:
+
+```
+>>> Fraction(2, 4)
+1/2
+```
+
+The _ReducedFraction_ method does not, it assumes the fraction being specified is in reduced form:
+
+```
+>>> ReducedFraction(2, 4).asTuple
+(2, 4)
 ```
 
 Literal fractions are _normalized_ and have the following invariants:
 
-- the denominator shall allways be positive
+- the denominator shall always be positive
 - the numerator and denominator shall never have common multiples
 
 Properly reduced fractions have the additional invariant:
@@ -65,7 +76,7 @@ Fraction(-3, 2)
 Fraction(4, 3)
 ```
 
-A Fraction that does not conform to above invariants could be the cause of undefined behavior and unexpected results.
+A Fraction that does not conform to the above invariants could be the cause of undefined behavior and unexpected results.
 
 The message _normalized:/1_ obtains a normal Fraction.
 The message _reduced:/1_ obtains a normal Fraction or an Integer.
@@ -136,8 +147,7 @@ The letter _r_ abbreviates _Fraction_ (_r_ for _rational_), in the same manner t
 3j7
 ```
 
-Written using [Infix Method Syntax] this closely resembles the literal syntax,
-and allows writing Fractions with LargeInteger parts:
+Written using [Infix Method Syntax] this provides a concise notation for writing Fractions with LargeInteger parts:
 
 ```
 >>> (2n r 3n).asTuple
@@ -218,7 +228,7 @@ The _Fraction_ package re-defines _asNumber_ to call either _parseFraction_ or _
 
 * * *
 
-See also: denominator, [Fraction Literals], numerator, reduced
+See also: denominator, [Fraction Literals], normalized, numerator, ReducedFraction, reduced
 
 References:
 _Haskell_
@@ -227,4 +237,4 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Fraction.html)
 [2](https://reference.wolfram.com/language/ref/Rational.html)
 
-Categories: Arithmetic
+Categories: Arithmetic, Math

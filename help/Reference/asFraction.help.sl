@@ -14,4 +14,4 @@ Derive a Fraction that approximates a floating point number given a maxima for t
 
 See also: asFloat, asInteger, asNumber, limitDenominator
 
-Categories: Converting
+Categories: Converting, Math

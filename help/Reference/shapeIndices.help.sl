@@ -1,0 +1,29 @@
+# shapeIndices
+
+_shapeIndices(aSequence)_
+
+Enumerate all of the indices given by the shape indicated at _aSequence_.
+Indices are Lists, if the shape indicates a vector the indices are lists of one place.
+
+```
+>>> [3].shapeIndices
+[1; 2; 3]
+
+>>> [3 2].shapeIndices
+[1 1; 1 2; 2 1; 2 2; 3 1; 3 2]
+
+>>> [2 2 2].shapeIndices
+[1 1 1; 1 1 2; 1 2 1; 1 2 2; 2 1 1; 2 1 2; 2 2 1; 2 2 2]
+```
+
+_atPath_ and _@>_ index using lists:
+
+```
+>>> let a = [1 2; 3 4;; 5 6; 7 8];
+>>> a.shape.shapeIndices.collect { :each | a @> each }
+[1 2 3 4 5 6 7 8]
+```
+
+* * *
+
+See also: @>, atPath, reshape, shape, shapeIndicesDo

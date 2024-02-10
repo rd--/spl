@@ -1,4 +1,4 @@
-# SortedList -- collection type
+# SortedList
 
 A list where insertions (using _add_ and _addAll_) maintain the list ordering, which is specified by a sort block.
 
@@ -7,3 +7,5 @@ A list where insertions (using _add_ and _addAll_) maintain the list ordering, w
 See also: List, sort, sorted
 
 Smalltalk: _SortedCollection_
+
+Categories: Collection type

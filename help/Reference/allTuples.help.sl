@@ -2,7 +2,8 @@
 
 - _allTuples(aSequence)_
 
-Answer all of the possible n-tuples of each of the elements of _aSequence_, which is an n-element sequence of any sized sequences.
+Answer all of the possible n-tuples of each of the elements of _aSequence_,
+which is an n-element sequence of any sized sequences.
 
 ```
 >>> [1 2; 3 4].allTuples

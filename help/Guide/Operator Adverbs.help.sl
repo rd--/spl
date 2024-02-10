@@ -68,6 +68,13 @@ Thus, +/ forms an addition table, and similarly, */ forms a multiplication table
 [20 30 50; 40 60 100; 60 90 150]
 ```
 
+Make a flattened list of associations:
+
+```
+>>> (1:3 ->.x 1:2)
+[1 -> 1, 1 -> 2, 2 -> 1, 2 -> 2, 3 -> 1, 3 -> 2]
+```
+
 * * *
 
 References:

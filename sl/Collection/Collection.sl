@@ -208,6 +208,10 @@
 		self.collect(cubeRoot:/1)
 	}
 
+	depth { :self |
+		1 + self.collect(depth:/1).max
+	}
+
 	difference { :self :aCollection |
 		self.reject { :each |
 			aCollection.includes(each)
@@ -349,6 +353,16 @@
 
 	isSequence { :self |
 		false
+	}
+
+	leafCount { :self |
+		self.collect { :each |
+			each.isCollection.if {
+				each.leafCount
+			} {
+				1
+			}
+		}.sum
 	}
 
 	maxIfEmpty { :self :aBlock:/0 |
@@ -610,6 +624,10 @@
 		self.collect(log2:/1)
 	}
 
+	negative { :self |
+		self.collect(negative:/1)
+	}
+
 	negated { :self |
 		self.collect(negated:/1)
 	}
@@ -666,6 +684,10 @@
 
 	asCollection { :self |
 		[self]
+	}
+
+	depth { :self |
+		1
 	}
 
 	isCollection { :self |

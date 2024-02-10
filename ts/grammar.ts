@@ -70,6 +70,7 @@ Sl {
 		| operator
 		| VectorSyntax
 		| MatrixSyntax
+		| VolumeSyntax
 		| ParenthesisedExpression
 		| DictionaryExpression
 		| TupleExpression

@@ -57,6 +57,8 @@ The name of this operator is _percentSign_.
 
 * * *
 
+See also: /, //, \\, quotient, remainder
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Mod.html)

@@ -5,10 +5,19 @@
 Similar to _reduce_ but answer a sequence of successive reduced values.
 Just as _reduce_ is an alias for _foldLeft_, _scan_ is an alias for _scanLeft_.
 
-	[].scan(+) = []
-	[1].scan(+) = [1]
-	1:4.scan(+) = [1 3 6 10]
-	1:4.reduce(+) = 10
+```
+>>> [].scan(+)
+[]
+
+>>> [1].scan(+)
+[1]
+
+>>> 1:4.scan(+)
+[1 3 6 10]
+
+>>> 1:4.reduce(+)
+10
+```
 
 * * *
 

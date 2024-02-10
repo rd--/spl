@@ -54,20 +54,6 @@
 		}
 	}
 
-	maxDepth { :self |
-		self.maxDepth(1)
-	}
-
-	maxDepth { :self :max |
-		let answer = max;
-		self.do { :each |
-			each.isCollection.ifTrue {
-				answer := answer.max(each.maxDepth(max + 1))
-			}
-		};
-		answer
-	}
-
 	maxSizeAtDepth { :self :rank |
 		let maxSize = 0;
 		(rank = 0).if {
@@ -91,12 +77,6 @@
 
 +@Sequence {
 
-	assertShape { :self :shape |
-		self.assert {
-			self.shape = shape
-		}
-	}
-
 	bubble { :self :depth :levels |
 		(depth <= 0).if {
 			(levels <= 1).if {
@@ -111,36 +91,6 @@
 		}
 	}
 
-	iota { :self |
-		(1 .. self.product).reshape(self)
-	}
-
-	rank { :self |
-		self.ifEmpty {
-			1
-		} {
-			let inner = self.first;
-			(inner.typeOf = self.typeOf).if {
-				1 + inner.rank
-			} {
-				1
-			}
-		}
-	}
-
-	reshape { :self :shape |
-		shape.ifEmpty {
-			'Sequence>>reshape: empty shape?'.error
-		} {
-			let size = shape.product;
-			let answer = self.flattened.wrapExtend(size);
-			shape.allButFirst.reverseDo { :n |
-				answer := answer.clump(n)
-			};
-			answer
-		}
-	}
-
 	reshapeLike { :self :another |
 		let index = 1;
 		let items = self.flattened;
@@ -151,24 +101,15 @@
 		}
 	}
 
-	shape { :self |
-		let inner = self.first;
-		(inner.typeOf = self.typeOf).if {
-			[self.size] ++ inner.shape
-		} {
-			[self.size]
-		}
-	}
-
 	shapeIndicesDo { :self :aBlock:/1 |
 		self.collect { :each |
-			1.to(each)
+			1.upTo(each)
 		}.allTuplesDo(aBlock:/1)
 	}
 
 	shapeIndices { :self |
 		self.collect { :each |
-			1.to(each)
+			1.upTo(each)
 		}.allTuples
 	}
 
@@ -225,14 +166,6 @@
 			answer.atPathPut(index, self())
 		};
 		answer
-	}
-
-}
-
-+@Number {
-
-	rank { :self |
-		0
 	}
 
 }

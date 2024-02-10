@@ -88,6 +88,11 @@
 		self.asDigitsAtInDo(1, aCollection, aBlock:/1)
 	}
 
+	assertShape { :self :shape |
+		self.assert {
+			self.shape = shape
+		}
+	}
 
 	atAllUsing { :self :indexList :aBlock:/2 |
 		let answer = self.species.ofSize(indexList.size);
@@ -475,6 +480,22 @@
 		self.fisherYatesShuffleUsing(system)
 	}
 
+	flattenedTo { :self :depth |
+		(depth <= 0).if {
+			self
+		} {
+			let answer = [];
+			self.do { :each |
+				each.isCollection.if {
+					answer.addAll(each.flattenedTo(depth - 1))
+				} {
+					answer.add(each)
+				}
+			};
+			answer
+		}
+	}
+
 	flattened { :self |
 		let answer = [];
 		self.do { :each |
@@ -721,6 +742,30 @@
 		answer
 	}
 
+	iota { :self |
+		(1 .. self.product).reshape(self)
+	}
+
+	isArray { :self |
+		{
+			self.shape;
+			true
+		}.ifError {
+			false
+		}
+	}
+
+	isMatrix { :self |
+		let type = self.typeOf;
+		self.allSatisfy { :each |
+			each.typeOf = type & {
+				each.isVector
+			}
+		} & {
+			self.collect(size:/1).asSet.size = 1
+		}
+	}
+
 	isOctetSequence { :self |
 		self.allSatisfy { :each |
 			each.isInteger & {
@@ -760,6 +805,13 @@
 				};
 				true
 			}
+		}
+	}
+
+	isVector { :self |
+		let type = self.typeOf;
+		self.noneSatisfy { :each |
+			each.typeOf = type
 		}
 	}
 
@@ -923,6 +975,10 @@
 		self.scan(+)
 	}
 
+	rank { :self |
+		self.shape.size
+	}
+
 	replace { :self :aBlock:/1 |
 		self.indicesDo { :index |
 			self[index] := aBlock(self[index])
@@ -985,6 +1041,19 @@
 		self.replicateEachApplying(counts, identity:/1)
 	}
 
+	reshape { :self :shape |
+		shape.ifEmpty {
+			'Sequence>>reshape: empty shape?'.error
+		} {
+			let size = shape.product;
+			let answer = self.flattened.wrapExtend(size);
+			shape.allButFirst.reverseDo { :n |
+				answer := answer.clump(n)
+			};
+			answer
+		}
+	}
+
 	reversed { :self |
 		let answer = self.species.ofSize(self.size);
 		let fromIndex = self.size + 1;
@@ -1040,6 +1109,31 @@
 				answer[index] := next
 			};
 			answer
+		}
+	}
+
+	shape { :self |
+		(self.size = 0).if {
+			[0]
+		} {
+			let type = self.typeOf;
+			let elementTypes = self.collect(typeOf:/1);
+			elementTypes.allSatisfy { :each |
+				each = type
+			}.if {
+				let elementShapes = self.collect(shape:/1);
+				(elementShapes.nub.size = 1).if {
+					[self.size] ++ elementShapes.first
+				} {
+					'@Sequence>>shape: irregular arrays do not have shape'.error
+				}
+			} {
+				elementTypes.includes(type).if {
+					'@Sequence>>shape: irregular arrays do not have shape'.error
+				} {
+					[self.size]
+				}
+			}
 		}
 	}
 
@@ -1482,6 +1576,14 @@
 
 	isSequence { :self |
 		false
+	}
+
+	rank { :self |
+		0
+	}
+
+	shape { :self |
+		[]
 	}
 
 }

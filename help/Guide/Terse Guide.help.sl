@@ -1493,8 +1493,8 @@ system.includesPackage('Fraction') {- fraction package -}
 2/3.isFraction {- literal syntax for fractions is numerator/denominator -}
 Fraction(2, 3).isFraction {- fractional type -}
 2/3 = Fraction(2, 3) {- literal syntax -}
-Fraction(4, 6).reduced = 2/3 {- reduced fraction -}
-Fraction(4, 6) ~= 2/3 {- non-reduced fraction -}
+Fraction(4, 6) = 2/3 {- Fraction normalises -}
+ReducedFraction(4, 6) ~= 2/3 {- ReducedFraction assumes fraction is normal, and will construct a non-reduced fraction -}
 2/3 = 4/6 {- literals are reduced by construction -}
 2 / 3/4 = 8/3 {- division -}
 2/3 + 2/3 = 4/3 {- addition -}
@@ -1540,9 +1540,9 @@ let n = 9/5; n.reciprocal * n = 1 {- mutiplicative inverse -}
 0.5 ~= 1/4
 1/2 - 0.5 = 0
 0.5 ~= 3/4
-Fraction(6, 4).reduced = Fraction(3, 2)
-Fraction(-6, 4).reduced = Fraction(-3, 2)
-Fraction(6, -4).reduced = Fraction(-3, 2)
+Fraction(6, 4) = Fraction(3, 2) {- Fraction normalizes -}
+Fraction(-6, 4) = Fraction(-3, 2) {- Fraction normalizes -}
+Fraction(6, -4) = Fraction(-3, 2) {- Fraction normalizes -}
 { Fraction(6, 0) }.ifError { true }
 1/2 = 2/4 = true
 1/2 * 2 = 1
@@ -1590,10 +1590,10 @@ Fraction(3, 1) = 3/1
 4/6.numerator = 2 {- literal fractions are reduced -}
 4/6.denominator = 3 {- literal fractions are reduced -}
 4/2 = 2
-Fraction(4, 6).numerator = 4 {- Fraction is not initially reduced -}
-Fraction(4, 6).denominator = 6 {- Fraction is not initially reduced -}
-Fraction(4, 6).reduced.numerator = 2
-Fraction(4, 6).reduced.denominator = 3
+ReducedFraction(4, 6).numerator = 4 {- ReducedFraction is not initially reduced -}
+ReducedFraction(4, 6).denominator = 6 {- ReducedFraction is not initially reduced -}
+Fraction(4, 6).numerator = 2
+Fraction(4, 6).denominator = 3
 3/2.truncated = 1
 -3/2.truncated = -1
 2/3 - 5/3 = -1
@@ -2149,6 +2149,8 @@ let l = 1:3.asLinkedList; l.firstLink.value := -1; l.asList = [-1, 2, 3] {- muta
 [1, 3 .. 9].asLinkedList.indices = 1:5 {- indices of linked list (an interval) -}
 let l = 1:9.asLinkedList; l.copy = l & { l.copy ~~ l } {- copy is equal but not identical -}
 let l = 1:9.asLinkedList; let c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } {- copies are distinct -}
+[6 5; 4 3; 2 1].asLinkedList.isMatrix.not
+[6 5; 4 3; 2 1].collect(asLinkedList:/1).asLinkedList.isMatrix
 ```
 
 ## Magnitude -- numeric trait
@@ -3103,6 +3105,9 @@ let x = [0 1]; x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] {- self cartesian pr
 1:4.replicateEach([2 2 2 2]) = [1 1 2 2 3 3 4 4]  {- replicate each element n times -}
 1:4.replicateEachApplying([2 2 2 2], squared:/1) = [1 1 4 4 9 9 16 16] {- replicate each element -}
 [{ 1 }, { 2 }].duplicateEach(2) = [1 1 2 2] {- duplicate each element n times -}
+1:10.middle = 6 {- middle element -}
+1:10.median = 5.5 {- mean of two middle-most elements -}
+1:11.median = 6 {- middle element -}
 ```
 
 ## Sequence arithmetic
@@ -3356,12 +3361,10 @@ let a = [7, 5 .. 1].asSortedList; a.addAll([8, 6 .. 2]); a.contents = [1 .. 8] {
 let a = [9 .. 1].asSortedList; a.collect { :x | 9 - x }; a.contents = [1 .. 9] {- collect into ordered collection -}
 let a = [1 .. 9].asSortedList(>); a.contents = [9 .. 1] {- sorted array with specified sort block -}
 let a = [5 .. 9].asSortedList(>); a.addAll([1 .. 4]); a.contents = [9 .. 1]
-1:10.middle = 6 {- middle element -}
-1:10.median = 5.5 {- mean of two middle-most elements -}
-1:11.median = 6 {- middle element -}
 let a = SortedList(); a.add('truite'); a.add('porcinet'); a.add('carpe'); a.middle = 'porcinet'
 [5, 2, 50, -10].asSortedList.asList = [-10, 2, 5, 50]
 'hello'.split.asSortedList.asList = 'ehllo'.split
+10:1.asSortedList.isVector
 ```
 
 ## Stack -- collection type

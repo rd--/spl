@@ -1,31 +1,65 @@
 # rank
 
-_rank(aNumber | aList)_
+_rank(aSequence | anObject)_
 
 In the Apl array model, the rank of an array is the number of dimensions or axes in its structure, or the length of its shape.
 
 Arrays are given names based on their rank.
-A rank zero array is a scalar,
-a rank one aray is a vector,
-a rank two aray is a matrix.
+A rank zero array is a scalar:
 
 ```
 >>> 1.rank
 0
+```
 
+A rank one array is a vector:
+
+```
 >>> [1 2 3 4 5 6 7 8].rank
 1
+```
+A rank two array is a matrix:
 
+```
 >>> [1 2 3 4; 5 6 7 8].rank
 2
+```
 
->>> [[1 2; 3 4] [5 6; 7 8]].rank
+Spl calls a rank three array a volume.
+
+```
+>>> [1 2; 3 4;; 5 6; 7 8].rank
 3
+```
+
+Tree structures that are not arrays,
+or are _irregular arrays_,
+do not have a shape,
+and therefore do not have a rank:
+
+```
+>>> { [1; 2 3].rank }.ifError { true }
+true
+```
+
+Such structures do have a _depth_:
+
+```
+>>> [1; 2 3].depth
+3
+```
+
+The depth of an array is one greater than its rank:
+
+```
+>>> let a = [1 2; 3 4;; 5 6; 7 8];
+>>> (a.rank, a.depth)
+(3, 4)
 ```
 
 * * *
 
-See also: List, shape
+See also: depth, isArray, isMatrix, isVector, reshape, Sequence, shape
 
 References:
 _Apl_

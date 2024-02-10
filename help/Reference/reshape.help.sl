@@ -44,11 +44,50 @@ Reshape can be used to produce an identity matrix by reshaping a vector which is
 [1 0 0 0; 0 1 0 0; 0 0 1 0; 0 0 0 1]
 ```
 
+Create a 2×3 matrix:
+
+```
+>>> 1:6.reshape([2 3])
+[1 2 3; 4 5 6]
+```
+
+Reshape a vector into a depth-3 array:
+
+```
+>>> 1:24.reshape([2 3 4])
+[1 2 3 4; 5 6 7 8; 9 10 11 12;; 13 14 15 16; 17 18 19 20; 21 22 23 24]
+```
+
+Reshape a matrix into another matrix with different dimensions:
+
+```
+>>> let m = [4 3].iota;
+>>> (m, m.reshape([3 4]))
+([1 2 3; 4 5 6; 7 8 9; 10 11 12], [1 2 3 4; 5 6 7 8; 9 10 11 12])
+```
+
+Reversing matrix dimensions does not give the same element order as _transposed_:
+
+```
+>>> let s = [3 4];
+>>> let m = s.iota;
+>>> (m.reshape(s.reversed), m.transposed)
+([1 2 3; 4 5 6; 7 8 9; 10 11 12], [1 5 9; 2 6 10; 3 7 11; 4 8 12])
+```
+
+Elements from the original list that do not fit in the given dimensions are dropped:
+
+```
+>>> 1:99.reshape([2 3 4])
+[1 2 3 4; 5 6 7 8; 9 10 11 12;; 13 14 15 16; 17 18 19 20; 21 22 23 24]
+```
+
 * * *
 
 See also: rank, shape
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/Reshape)
-
+[1](https://aplwiki.com/wiki/Reshape),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/ArrayReshape.html)

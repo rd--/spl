@@ -1,17 +1,40 @@
 # isMatrix
 
-_isMatrix(aList)_
+_isMatrix(aSequence)_
 
-A List is a _matrix_ if each of the elements in the list is a _vector_ of equal size.
+A Sequence is a _matrix_ if each of the elements is a _vector_ of equal size.
 
-	[1 2 3 4 5 6].isMatrix.not
-	[1 2 3; 4 5 6].isMatrix
-	[1 2; 3 4 5].isMatrix.not
+At List:
+
+```
+>>> [1 2 3 4 5 6].isMatrix
+false
+
+>>> [1 2 3; 4 5 6].isMatrix
+true
+
+>>> [1 2; 3 4 5].isMatrix
+false
+```
+
+At Tuple:
+
+```
+>>> (1, 2, 3, 4, 5, 6).isMatrix
+false
+
+>>> ((1, 2, 3), (4, 5, 6)).isMatrix
+true
+
+>>> ((1, 2), (3, 4, 5)).isMatrix
+false
+```
 
 * * *
 
-See also: isList, isMatrix
+See also: isSequence, isVector
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Matrix.html)
+[2](https://reference.wolfram.com/language/ref/VectorQ.html)
