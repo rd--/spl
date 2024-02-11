@@ -62,9 +62,9 @@
 		}
 	}
 
-	innerProduct { :self:/2 :aBlock:/2 |
+	inner { :self:/2 :aBlock:/2 |
 		{ :p :q |
-			p.withCollect(q, self:/2).foldRight(aBlock:/2)
+			self:/2.inner(p, q, aBlock:/2)
 		}
 	}
 

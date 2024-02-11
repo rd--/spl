@@ -1,6 +1,6 @@
 # outerProduct
 
-- _outerProduct(aSequence, anotherSequence)_
+_outerProduct(aSequence, anotherSequence)_
 
 Answer the outer product of two sequences.
 
@@ -22,4 +22,4 @@ A multiplication table:
 
 * * *
 
-See also: outer
+See also: dot, inner, outer

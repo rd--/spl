@@ -131,17 +131,7 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 }
 
-+SmallFloat {
-
-	List { :size |
-		<primitive: return Array(_size);>
-	}
-
-	List { :size :anObject |
-		let answer = List(size);
-		answer.atAllPut(anObject);
-		answer
-	}
++@Integer {
 
 	arithmeticSeries { :self :start :step |
 		1.upTo(self).collect { :each |
@@ -156,6 +146,16 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 			answer.add(next);
 			next := next * grow
 		};
+		answer
+	}
+
+	List { :size |
+		<primitive: return Array(Number(_size));>
+	}
+
+	List { :size :anObject |
+		let answer = List(size);
+		answer.atAllPut(anObject);
 		answer
 	}
 

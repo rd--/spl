@@ -63,4 +63,8 @@ Collections may implement extended arity forms as required.
 
 See also: atPut, [AtPut Syntax], [At Syntax], Indexable, [Quoted At Syntax], size
 
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Part.html)
+
 Categories: Accessing

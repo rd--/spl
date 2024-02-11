@@ -430,6 +430,12 @@
 		integer.romanDigitsForOn('XVI'.asciiByteArray, 1, aStream)
 	}
 
+	subfactorial { :self |
+		(0 .. self).collect { :each |
+			each.factorial * (-1 ^ (self - each)) * self.binomialCoefficient(each)
+		}.sum
+	}
+
 	take { :self :k |
 		(k < 0 | {
 			k > self

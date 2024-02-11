@@ -145,6 +145,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		(self % 2) = 1
 	}
 
+	one { :self |
+		1n
+	}
+
 	printString { :self |
 		<primitive: return _self.toString();>
 	}

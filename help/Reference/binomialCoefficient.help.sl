@@ -27,6 +27,13 @@ At zero:
 1
 ```
 
+At LargeInteger:
+
+```
+>>> 333n.binomialCoefficient(33n)
+3888653852803216535842634400242612716809201918n
+```
+
 * * *
 
 See also: factorial

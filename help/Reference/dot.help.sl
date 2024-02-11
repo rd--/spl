@@ -9,7 +9,7 @@ Scalar product of vectors in two dimensions:
 0
 ```
 
-Scalar product of machine-precision vectors:
+Scalar product of vectors in three dimensions:
 
 ```
 >>> [3.2 4.2 5.2].dot([0.75 1.1 0.0625])

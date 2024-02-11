@@ -38,6 +38,10 @@ true
 
 * * *
 
-See also: anyOne
+See also: anyOne, randomInteger, randomSample
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/RandomChoice.html)
 
 Categories: Random selection

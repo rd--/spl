@@ -1,6 +1,7 @@
 # inner
 
-_inner(f:/2, α, β, g:/2)_
+- _inner(f:/2, g:/2)_
+- _inner(f:/2, α, β, g:/2)_
 
 _inner_ is a generalization of _dot_ in which _f_ plays the role of multiplication and _g_ of addition.
 
@@ -34,6 +35,13 @@ Generalized inner product of:
 >>> let z = ['g(f(au)f(bw))' 'g(f(av)f(bx))'; 'g(f(cu)f(dw))' 'g(f(cv)f(dx))'];
 >>> [a = w, b = x, c = y, d = z]
 [true true true true]
+```
+
+The binary form is _adverbial_, it answers a Block that will perform _inner(f, α, β, g)_.
+
+```
+>>> [1 1] *.inner(+) [-1 1]
+0
 ```
 
 * * *

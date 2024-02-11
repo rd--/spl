@@ -13,4 +13,10 @@ Collect and answer the result of evaluating _aBlock_ with corresponding elements
 
 See also: collect, map, withIndexCollect
 
+References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:zipWith),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/MapThread.html)
+
 Categories: Enumerating

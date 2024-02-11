@@ -647,6 +647,44 @@
 		self.collect(radiansToDegrees:/1)
 	}
 
+	randomSampleSmallPool { :self :count |
+		let pool = self.asList;
+		let answer = [];
+		(count > self.size).ifTrue {
+			count := self.size
+		};
+		{
+			count > 0
+		}.whileTrue {
+			let next = pool.atRandom;
+			answer.add(next);
+			pool.remove(next);
+			count := count - 1
+		};
+		answer
+	}
+
+	randomSampleLargePool { :self :count |
+		let answer = [];
+		(count > self.size).ifTrue {
+			count := self.size
+		};
+		{
+			count > 0
+		}.whileTrue {
+			let next = self.atRandom;
+			answer.includes(next).ifFalse {
+				answer.add(next);
+				count := count - 1
+			}
+		};
+		answer
+	}
+
+	randomSample { :self :count |
+		self.randomSampleLargePool(count)
+	}
+
 	rounded { :self |
 		self.collect(rounded:/1)
 	}
