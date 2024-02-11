@@ -46,7 +46,7 @@ and in terms of _ofSize_, _size_, _at_ and _atPut_ for sequences.
 
 * * *
 
-See also: map, reject, replace, select, withCollect, withIndexCollect
+See also: deepCollect, do, map, reject, replace, select, withCollect, withIndexCollect
 
 References:
 _Haskell_

@@ -33,7 +33,7 @@
 		aCollection
 	}
 
-	List { :self |
+	asList { :self |
 		let answer = List(self.size);
 		let index = 1;
 		self.valuesDo { :each |
@@ -326,6 +326,14 @@
 		self.associationsDo { :association |
 			aBlock(association.value)
 		}
+	}
+
+	withIndexCollect { :self :aBlock:/2 |
+		let answer = self.species.new;
+		self.withIndexDo { :value :key |
+			answer.add(key -> aBlock(value, key))
+		};
+		answer
 	}
 
 	withIndexDo { :self :aBlock:/2 |

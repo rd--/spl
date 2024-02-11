@@ -16,44 +16,6 @@
 
 +@Collection {
 
-	deepCollect { :self :depth :aBlock |
-		aBlock.numArgs.caseOfOtherwise([
-			{ 1 } -> {
-				self.deepCollect(depth, { :each :unusedIndex :unusedRank |
-					aBlock . (each)
-				}, 1, 0)
-			},
-			{ 3 } -> {
-				self.deepCollect(depth, aBlock, 1, 0)
-			}
-		]) {
-			'Collection>>deepCollect: block must have one or three arguments'.error
-		}
-	}
-
-	deepCollect { :self :depth :aBlock:/3 :index :rank |
-		depth.isNil.if {
-			rank := rank + 1;
-			self.withIndexCollect { :item :itemIndex |
-				item.deepCollect(depth, aBlock, itemIndex, rank)
-			}
-		} {
-			(depth <= 0).if {
-				aBlock(self, index, rank)
-			} {
-				depth := depth - 1;
-				rank := rank + 1;
-				self.collect { :each |
-					each.isCollection.if {
-						each.deepCollect(depth, aBlock:/3, index, rank)
-					} {
-						aBlock(each, index, rank)
-					}
-				}
-			}
-		}
-	}
-
 	maxSizeAtDepth { :self :rank |
 		let maxSize = 0;
 		(rank = 0).if {
@@ -94,7 +56,7 @@
 	reshapeLike { :self :another |
 		let index = 1;
 		let items = self.flattened;
-		another.deepCollect(16r7FFFFFFF) { :unusedItem |
+		another.deepCollect { :unusedItem |
 			let item = items.atWrap(index);
 			index := index + 1;
 			item

@@ -497,15 +497,7 @@
 	}
 
 	flattened { :self |
-		let answer = [];
-		self.do { :each |
-			each.isCollection.if {
-				answer.addAll(each.flattened)
-			} {
-				answer.add(each)
-			}
-		};
-		answer
+		self.flattenedTo(inf)
 	}
 
 	foldLeftPrefix { :self :count :aBlock:/2 |

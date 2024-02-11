@@ -64,6 +64,17 @@
 		}
 	}
 
+	deepDo { :self :aBlock:/1 |
+		let type = self.typeOf;
+		self.do { :each |
+			(each.typeOf = type).if {
+				each.deepDo(aBlock:/1)
+			} {
+				aBlock(each)
+			}
+		}
+	}
+
 	detect { :self :aBlock:/1 |
 		self.detectIfNone(aBlock:/1) {
 			self.error('@Iterable>>detect: not found')

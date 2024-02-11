@@ -208,6 +208,17 @@
 		self.collect(cubeRoot:/1)
 	}
 
+	deepCollect { :self :aBlock:/1 |
+		let type = self.typeOf;
+		self.collect { :each |
+			(each.typeOf = type).if {
+				each.deepCollect(aBlock:/1)
+			} {
+				aBlock(each)
+			}
+		}
+	}
+
 	depth { :self |
 		1 + self.collect(depth:/1).max
 	}

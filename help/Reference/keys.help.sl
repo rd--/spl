@@ -4,7 +4,10 @@
 
 Answer the keys of a dictionary.
 
-	(x: 1, y: 2, z: 3).keys = ['x' 'y' 'z']
+```
+>>> (x: 1, y: 2, z: 3).keys
+['x' 'y' 'z']
+```
 
 * * *
 

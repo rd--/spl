@@ -1,13 +1,38 @@
-# indices -- accessing
+# indices
 
-- _indices(aCollection)_
+_indices(aCollection)_
 
 Answer the valid indices for _aCollection_.
-For sequenceable collections indices are in sequence.
 
-	[1 3 5 7 9].indices = 1:5
-	(x: 1, y: 2, z: 3).indices = ['x' 'y' 'z']
+For sequenceable collections _indices_ is the interval _(1 .. aCollection.size)_.
+
+At List:
+
+```
+>>> [1 3 5 7 9].indices
+1:5
+```
+
+At Tuple:
+
+```
+>>> (1, 3, 5, 7, 9).indices
+1:5
+```
+
+At Record:
+
+```
+>>> (x: 1, y: 2, z: 3).indices
+['x' 'y' 'z']
+
+>>> (x: 1, y: 2, z: 3).keys
+['x' 'y' 'z']
+```
+
 
 * * *
 
-See also: includesIndex, Indexable
+See also: deepIndices, includesIndex, Indexable, keys
+
+Categories: Accessing

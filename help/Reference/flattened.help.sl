@@ -10,6 +10,9 @@ Similar to _concatenation_ but removes all nesting.
 
 >>> [1 [2 [3 [4 [5 [6 [7 [8 [9]]]]]]]]].flattened
 [1 .. 9]
+
+>>> [[[[[[[[[1] 2] 3] 4] 5] 6] 7] 8] 9].flattened
+[1 .. 9]
 ```
 
 Strings are not flattened to sequences of characters.
@@ -42,9 +45,11 @@ As an inverse of _clump_:
 true
 ```
 
+_flattened_ is _flattenedTo(inf)_.
+
 * * *
 
-See also: concatenation
+See also: concatenation, flattenedTo
 
 References:
 _Apl_

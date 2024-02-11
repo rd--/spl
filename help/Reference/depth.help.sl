@@ -41,6 +41,9 @@ At deeply nested List:
 ```
 >>> [1 [2 [3 [4 [5 [6 [7 [8 [9]]]]]]]]].depth
 10
+
+>>> [[[[[[[[[1] 2] 3] 4] 5] 6] 7] 8] 9].depth
+10
 ```
 
 At deeply nested Tuple:

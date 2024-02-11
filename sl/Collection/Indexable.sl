@@ -144,6 +144,26 @@
 		self.error('@Indexable>>basicAtPut: type responsibility')
 	}
 
+	deepIndicesStartingAtDo { :self :startIndex :aBlock:/1 |
+		let type = self.typeOf;
+		self.withIndexDo { :each :index |
+			let here = startIndex ++ [index];
+			(each.typeOf = type).if {
+				each.deepIndicesStartingAtDo(here, aBlock:/1)
+			} {
+				aBlock(here)
+			}
+		}
+	}
+
+	deepIndices { :self |
+		let answer = [];
+		self.deepIndicesStartingAtDo([]) { :each |
+			answer.add(each)
+		};
+		answer
+	}
+
 	errorInvalidIndex { :self :for :index |
 		self.error([
 			'errorInvalidIndex: index not correct type or out of range.',
