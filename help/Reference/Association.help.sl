@@ -11,6 +11,6 @@ In a Dictionary context there cannot be duplicate keys, hence considering only k
 
 * * *
 
-See also: ->, minusGreaterThan
+See also: ->, associations
 
 Categories: Collection, Type

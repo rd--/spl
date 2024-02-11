@@ -2,7 +2,7 @@
 
 - _keys(aDictionary)_
 
-Answer the keys of a dictionary.
+Answer the keys of a Dictionary.
 
 ```
 >>> (x: 1, y: 2, z: 3).keys
@@ -11,7 +11,7 @@ Answer the keys of a dictionary.
 
 * * *
 
-See also: indices, values
+See also: Dictionary, indices, values
 
 References:
 _Mathematica_

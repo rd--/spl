@@ -4,7 +4,7 @@ _indices(aCollection)_
 
 Answer the valid indices for _aCollection_.
 
-For sequenceable collections _indices_ is the interval _(1 .. aCollection.size)_.
+For Sequences, _indices_ is the interval _(1 .. aCollection.size)_.
 
 At List:
 
@@ -33,6 +33,6 @@ At Record:
 
 * * *
 
-See also: deepIndices, includesIndex, Indexable, keys
+See also: deepIndices, Dictionary, includesIndex, Indexable, keys
 
 Categories: Accessing

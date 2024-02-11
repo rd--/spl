@@ -568,7 +568,8 @@ system.includesPackage('Association') {- association package -}
 Association('x', 1) = ('x' -> 1)
 let a = 'x' -> 1; [a.key, a.value] = ['x', 1] {- key and value accessors -}
 ('x' -> 1).asList = ['x', 1] {- two element [key, value] array -}
-['x' -> 1, 'y' -> 2].collect(asList:/1) = [['x', 1], ['y', 2]]
+('x' -> 1).asTuple = ('x', 1) {- two element [key, value] array -}
+['x' -> 1, 'y' -> 2].collect(asList:/1) = ['x' 1; 'y' 2]
 (23 -> 3.141).printString = '23 -> 3.141'
 (23 -> 3.141).storeString = 'Association(23, 3.141)'
 (1 -> '1').key = (1 -> 'one').key

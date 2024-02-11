@@ -36,6 +36,9 @@ Threads elementwise over lists and matrices:
 
 >>> 2 ^ [1 2 3]
 [2 4 8]
+
+>>> 1:10 ^ 2
+[1 4 9 16 25 36 49 64 81 100]
 ```
 
 Values at zero:

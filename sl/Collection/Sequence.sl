@@ -893,6 +893,10 @@
 		tally
 	}
 
+	outerProduct { :self :aSequence |
+		self *.outer aSequence
+	}
+
 	pairsCollect { :self :aBlock:/2 |
 		(1 .. self.size // 2).collect { :index |
 			aBlock(self[2 * index - 1], self[2 * index])
@@ -1043,6 +1047,16 @@
 				answer := answer.clump(n)
 			};
 			answer
+		}
+	}
+
+	reshapeLike { :self :another |
+		let index = 1;
+		let items = self.flattened;
+		another.deepCollect { :unusedItem |
+			let item = items.atWrap(index);
+			index := index + 1;
+			item
 		}
 	}
 
@@ -1371,9 +1385,13 @@
 		}
 	}
 
+	withCollectOuter { :self :aSequence :aBlock:/2 |
+		aBlock:/2.outer(self, aSequence)
+	}
+
 	withCollectTable { :self :aSequence :aBlock:/2 |
 		self.collect { :each |
-			each.aBlock(aSequence)
+				aBlock(each, aSequence)
 		}
 	}
 

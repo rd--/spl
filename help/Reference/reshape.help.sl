@@ -2,7 +2,7 @@
 
 _reshape(aCollection, shape)_
 
-Reshape answers a list with the indicated _shape_ and with elements drawn from _aCollection_.
+Answer a List with the indicated _shape_ and with elements drawn from _aCollection_.
 Elements are drawn in ravel order,
 truncating if the result has smaller bound than the right argument,
 and repeating cyclically if it has larger bound.

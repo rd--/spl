@@ -23,6 +23,12 @@ so that subsequenct accesses do not require recalculation.
 33413
 ```
 
+Plot first fifty primes:
+
+```
+1:50.collect(nthPrime:/1).plot
+```
+
 * * *
 
 See also: isPrime, nextPrime, primesList, primesUpTo

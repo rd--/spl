@@ -32,6 +32,10 @@ Association : [Object] { | key value |
 		[self.key, self.value]
 	}
 
+	asTuple { :self |
+		(self.key, self.value)
+	}
+
 	keyValue { :self :key :value |
 		self.key := key;
 		self.value := value;

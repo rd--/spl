@@ -74,11 +74,11 @@
 		}
 	}
 
-	outerProduct { :self:/2 |
-		{ :p :q |
-			p.collect { :each |
-				q.collect { :alpha |
-					self(each, alpha)
+	outer { :self:/2 |
+		{ :u :v |
+			u.collect { :alpha |
+				v.collect { :beta |
+					self(alpha, beta)
 				}
 			}
 		}

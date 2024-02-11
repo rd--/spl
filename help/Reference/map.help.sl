@@ -5,7 +5,7 @@
 - _map(aBlock:/2, aSequence, anotherSequence)_
 
 The unary form answer a Block that will apply _aBlock_ element wise to two sequences.
-If the sequences are not of equal size the shorted will be cycled.
+If the sequences are not of equal size the shorter will be cycled.
 
 ```
 >>> ['i' 'j' 'k'] ++.map ['w' 'x' 'y' 'z']
@@ -38,6 +38,6 @@ The ternary form is _map(α, β, γ) ⇒ withCollect(γ, α, β)_.
 
 * * *
 
-See also: collect, withCollect
+See also: collect, swap, withCollect
 
 Categories: Enumerating

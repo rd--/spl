@@ -53,16 +53,6 @@
 		}
 	}
 
-	reshapeLike { :self :another |
-		let index = 1;
-		let items = self.flattened;
-		another.deepCollect { :unusedItem |
-			let item = items.atWrap(index);
-			index := index + 1;
-			item
-		}
-	}
-
 	shapeIndicesDo { :self :aBlock:/1 |
 		self.collect { :each |
 			1.upTo(each)

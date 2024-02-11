@@ -34,6 +34,9 @@ Threads elementwise over lists and matrices:
 ```
 >>> [0 1.5 0j1 pi inf].sqrt
 [0, 1.22474, -1j0 ^ 0.25, pi.sqrt, inf]
+
+>>> [1 4 9 16].sqrt
+[1 2 3 4]
 ```
 
 Values at zero and infinity:

@@ -41,6 +41,13 @@ At Set:
 [4 36 100 196].asSet
 ```
 
+Make a triangular array:
+
+```
+>>> 1:5.collect { :i | 1:i.collect { :j | 10 * i + j } }
+[11; 21 22; 31 32 33; 41 42 43 44; 51 52 53 54 55]
+```
+
 Collect is implemented in terms of _new_, _do_ and _add_ for unordered collections,
 and in terms of _ofSize_, _size_, _at_ and _atPut_ for sequences.
 

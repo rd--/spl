@@ -198,7 +198,7 @@ Block! : [Object] {
 	}
 
 	outer { :self :aSequence :anotherSequence |
-		(self.outerProduct).value(aSequence, anotherSequence)
+		(self.outer).value(aSequence, anotherSequence)
 	}
 
 	parameterNames { :self |
