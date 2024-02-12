@@ -16,14 +16,14 @@
 
 +@Collection {
 
-	maxSizeAtDepth { :self :rank |
+	maxSizeAtDepth { :self :depth |
 		let maxSize = 0;
-		(rank = 0).if {
+		(depth = 1).if {
 			self.size
 		} {
 			self.do { :each |
 				let size = (each.isCollection).if {
-					each.maxSizeAtDepth(rank - 1)
+					each.maxSizeAtDepth(depth - 1)
 				} {
 					1
 				};
@@ -56,13 +56,13 @@
 	shapeIndicesDo { :self :aBlock:/1 |
 		self.collect { :each |
 			1.upTo(each)
-		}.allTuplesDo(aBlock:/1)
+		}.tuplesDo(aBlock:/1)
 	}
 
 	shapeIndices { :self |
 		self.collect { :each |
 			1.upTo(each)
-		}.allTuples
+		}.tuples
 	}
 
 	slice { :self :cuts |

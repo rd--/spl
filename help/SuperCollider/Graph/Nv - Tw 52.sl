@@ -1,6 +1,6 @@
 {- Nv 52 http://swiki.hfbk-hamburg.de/MusicTechnology/899 ; requires=adverbs -}
 let x = [4 4.5; 2 3 5 6];
-let z = x *.x (x *.x x).allTuples;
+let z = x *.x (x *.x x).tuples;
 let y = (z * 4).concatenation.clump(2) ++ [0];
 let f = Duty(1 / 5, 0, Dseq(inf, y));
 GVerb(

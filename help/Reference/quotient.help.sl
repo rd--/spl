@@ -60,6 +60,13 @@ For positive integers _quotient(m, n) + fractionPart(m / n)_ is always equal to 
 (24 / 7)
 ```
 
+Division by zero is an error:
+
+```
+{ 3 // 0 }.ifError { true }
+true
+```
+
 Plot the sequence of quotients:
 
 ```

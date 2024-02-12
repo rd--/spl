@@ -395,28 +395,6 @@
 		}
 	}
 
-	allTuples { :self |
-		let answer = [];
-		self.allTuplesDo { :each |
-			answer.add(each.copy)
-		};
-		answer
-	}
-
-	allTuplesDo { :self :aBlock:/1 |
-		let tupleCount = self.collect(size:/1).product;
-		let tuple = self.species.new(self.size);
-		1.toDo(tupleCount) { :i |
-			let k = i - 1;
-			self.size.toByDo(1, -1) { :j |
-				let fromSequence = self[j];
-				tuple[j] := fromSequence[k % fromSequence.size + 1];
-				k := k // fromSequence.size
-			};
-			aBlock(tuple)
-		}
-	}
-
 	asRandomTable { :self :size |
 		let a = (size = self.size).if {
 			self
@@ -734,18 +712,6 @@
 
 	order { :self |
 		self.sortedWithIndices.collect(value:/1)
-	}
-
-	powerset { :self |
-		self.ifEmpty {
-			[self]
-		} {
-			let a = self.removeFirst;
-			let s = self.powerset;
-			s ++ s.collect { :each |
-				[a] ++ each
-			}
-		}
 	}
 
 	pyramid { :self :patternType |

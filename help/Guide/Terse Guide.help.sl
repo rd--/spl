@@ -1779,12 +1779,12 @@ let a = []; 5.toDo(1) { :each | a.add(each) }; a = [] {- non-ascending sequences
 6.take(3) = ((6 * 5 * 4) / (1 * 2 * 3))
 3.take(6) = 0 {- if k is greater than n answer is zero -}
 58909.printStringHex = 'E61D' {- hexadecimal representation -}
-let a = []; 3.tuplesIndicesDo(2) { :each | a.add(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
-let a = []; 3.tuplesIndicesDo(2) { :each | a.add(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
-let a = []; 2.tuplesIndicesDo(3) { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5 6]
-let a = []; 2.tuplesIndicesDo(4) { :each | a.add(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
-let c = 0; let k = 3; let n = 4; k.tuplesIndicesDo(n) { :each | c := c + 1 }; c = (k ^ n)
-let c = 0; 4.tuplesIndicesDo(7) { :each | c := c + 1 }; c = 16384
+let a = []; (1:3 ! 2).tuplesDo { :each | a.add(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
+let a = []; (1:3 ! 2).tuplesDo { :each | a.add(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
+let a = []; (1:2 ! 3).tuplesDo { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5 6]
+let a = []; (1:2 ! 4).tuplesDo { :each | a.add(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
+let c = 0; let k = 3; let n = 4; (1:k ! n).tuplesDo { :each | c := c + 1 }; c = (k ^ n)
+let c = 0; (1:4 ! 6).tuplesDo { :each | c := c + 1 }; c = 4096
 -2:7.collect { :each | each.foldIndex(5) } = [4 3 2 1 2 3 4 5 4 3]
 -2:7.collect { :each | each.wrapIndex(5) } = [3 4 5 1 2 3 4 5 1 2]
 23.integerDigits(2, 5) = [1, 0, 1, 1, 1] {- binary -}

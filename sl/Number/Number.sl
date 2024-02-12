@@ -330,6 +330,10 @@
 		self * self
 	}
 
+	stope { :x :p :y |
+		(x + (p * (1:y - 1))).reduce(*)
+	}
+
 	strictlyPositive { :self |
 		self > 0
 	}

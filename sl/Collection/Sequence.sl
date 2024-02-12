@@ -949,6 +949,37 @@
 		}
 	}
 
+	powerSetDo { :self :aBlock:/1 |
+		let size = 2 ^ self.size;
+		let powersOfTwo = 2 ^ (0 .. self.size - 1);
+		(0 .. size - 1).do { :i |
+			let next = [];
+			powersOfTwo.withIndexDo { :each :j |
+				(i // each % 2 ~= 0).ifTrue {
+					next.add(self[j])
+				}
+			};
+			aBlock(next)
+		};
+		self
+	}
+
+	powerSet { :self :aBlock:/1 |
+		let answer = [];
+		self.powerSetDo { :each |
+			aBlock(each).ifTrue {
+				answer.add(each)
+			}
+		};
+		answer
+	}
+
+	powerSet { :self |
+		self.powerSet { :each |
+			true
+		}
+	}
+
 	prefixesDo { :self :aBlock:/1 |
 		1.upToDo(self.size) { :each |
 			aBlock(self.copyFromTo(1, each))
@@ -1323,18 +1354,30 @@
 		}
 	}
 
-	tuplesDo { :self :n :aBlock:/1 |
-		self.size.tuplesIndicesDo(n) { :each |
-			aBlock(self.atAll(each))
+	tuplesDo { :self :aBlock:/1 |
+		let tupleCount = self.collect(size:/1).product;
+		let tuple = self.species.new(self.size);
+		1.toDo(tupleCount) { :i |
+			let k = i - 1;
+			self.size.toByDo(1, -1) { :j |
+				let fromSequence = self[j];
+				tuple[j] := fromSequence[k % fromSequence.size + 1];
+				k := k // fromSequence.size
+			};
+			aBlock(tuple)
 		}
 	}
 
-	tuples { :self :n |
+	tuples { :self |
 		let answer = [];
-		self.tuplesDo(n) { :each |
-			answer.add(each)
+		self.tuplesDo { :each |
+			answer.add(each.copy)
 		};
 		answer
+	}
+
+	tuples { :self :count |
+		(self ! count).tuples
 	}
 
 	vectorAngle { :u :v |

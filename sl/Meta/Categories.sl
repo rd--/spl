@@ -749,6 +749,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'split'
 		'splitBy'
 		'timesRepeat'
+		'tuples'
+		'tuplesDo'
 		'upOrDownToDo'
 		'valuesDo'
 		'withCollect'
@@ -1344,8 +1346,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'over'
 	],
 	'supercollider': [
-		'allTuples'
-		'allTuplesDo'
 		'asLocalBuf'
 		'!'
 		'!+'

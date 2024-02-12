@@ -499,23 +499,6 @@
 		self
 	}
 
-	tuplesIndicesDo { :self :n :aBlock:/1 |
-		let indices = List(n, 1);
-		(self ^ n).timesRepeat {
-			let k = n;
-			aBlock(indices);
-			{
-				k >= 1 & {
-					indices[k] := indices[k] + 1;
-					indices[k] > self
-				}
-			}.whileTrue {
-				indices[k] := 1;
-				k := k - 1
-			}
-		}
-	}
-
 	wrapIndex { :self :size |
 		self - 1 % size + 1
 	}

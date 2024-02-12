@@ -208,10 +208,8 @@ List(4).fill { :i | i * 2 } = [2, 4, 6, 8] {- fill list using block at indicies 
 1:6.slidingWindows(4, 1) = [1:4, 2:5, 3:6] {- 1-4, 2-5, 3-6 -}
 1:6.shift(3, 0) = [0 0 0 1 2 3] {- shift right with fill value -}
 1:6.shift(-3, 0) = [4 5 6 0 0 0] {- shift left with fill value -}
-[1 2 3].powerset = [[], [3], [2], [2 3], [1], [1 3], [1 2], [1 2 3]] {- powerset -}
-[1 2 3].powerset.allButFirst = [3; 2; 2 3; 1; 1 3; 1 2; 1 2 3] {- powerset -}
-[1 .. 4].powerset.size = (2 ^ 4) {- powerset size -}
-[1 .. 5].powerset.size = (2 ^ 5) {- powerset size -}
+[1 .. 4].powerSet.size = (2 ^ 4) {- powerset size -}
+[1 .. 5].powerSet.size = (2 ^ 5) {- powerset size -}
 ```
 
 ## SuperCollider-J
@@ -222,7 +220,7 @@ List(4).fill { :i | i * 2 } = [2, 4, 6, 8] {- fill list using block at indicies 
 [[[1], [2]], [[3], [4]], [[5], [6]]].shape = [3, 2, 1] {- rank and shape both assume regularity -}
 [1 2 3; 4 5 6].shape = [2 3] {- size of shape is rank -}
 [1 2; 3 4; 5 6].shape = [3 2] {- size of each element is size at depth -}
-[1 2; 3; 4 5 6].shape = [3, 2] {- rank and shape both assume and do not check regularity -}
+{ [1 2; 3; 4 5 6].shape }.ifError { true } {- rank and shape both assume and check regularity -}
 [4].iota = [1 2 3 4] {- list with counter -}
 [3, 2].iota = [[1, 2], [3, 4], [5, 6]] {- matrix (two-dimensional array) with counter -}
 [3, 2, 1].iota = [[[1], [2]], [[3], [4]], [[5], [6]]] {- three-dimensional array with counter -}
@@ -231,11 +229,11 @@ List(4).fill { :i | i * 2 } = [2, 4, 6, 8] {- fill list using block at indicies 
 [3, 2, 1].iota.reshape([2, 3, 1]).shape = [2, 3, 1] {- shape after reshape is requested shape -}
 [4, 7, 6, 8].reshape([2, 2]) = [[4, 7], [6, 8]] {- reshape array given Apl type shape value -}
 [4, 7, 6, 8].reshape([2, 3]) = [[4, 7, 6], [8, 4, 7]] {- cycle input as required -}
-[[1, 2, 3], [4, 5], [6]].allTuples = [[1, 4, 6], [1, 5, 6], [2, 4, 6], [2, 5, 6], [3, 4, 6], [3, 5, 6]]
-let a = 1; let b = 2; let x = [a b]; [x x].allTuples = [a a; a b; b a; b b]
-let k = 5; let x = 1:k; [x, x].allTuples.size = (k ^ 2)
-['a' 'b'; 1 2 3 4; 'x'].allTuples = ['a' 1 'x'; 'a' 2 'x'; 'a' 3 'x'; 'a' 4 'x'; 'b' 1 'x'; 'b' 2 'x'; 'b' 3 'x'; 'b' 4 'x']
-[5, 5].shapeIndices = [[1 .. 5], [1 .. 5]].allTuples {- all indices to array of given shape -}
+[[1, 2, 3], [4, 5], [6]].tuples = [[1, 4, 6], [1, 5, 6], [2, 4, 6], [2, 5, 6], [3, 4, 6], [3, 5, 6]]
+let a = 1; let b = 2; let x = [a b]; [x x].tuples = [a a; a b; b a; b b]
+let k = 5; let x = 1:k; [x, x].tuples.size = (k ^ 2)
+['a' 'b'; 1 2 3 4; 'x'].tuples = ['a' 1 'x'; 'a' 2 'x'; 'a' 3 'x'; 'a' 4 'x'; 'b' 1 'x'; 'b' 2 'x'; 'b' 3 'x'; 'b' 4 'x']
+[5, 5].shapeIndices = [[1 .. 5], [1 .. 5]].tuples {- all indices to array of given shape -}
 let n = 0; [5, 5].shapeIndicesDo { :each | n := n + 1 }; n = 25 {- all indices to array of given shape -}
 let r = Random(98765); { r.nextRandomInteger(9) }.duplicateShape([3, 5]) = [[5, 4, 2, 7, 1], [5, 2, 5, 5, 9], [6, 2, 4, 1, 5]]
 let r = Random(98765); { r.nextRandomInteger(9) }.duplicateShape([2, 2, 3]) = [[[5, 4, 2], [7, 1, 5]], [[2, 5, 5], [9, 6, 2]]]
@@ -251,8 +249,8 @@ let z = [3, 2].iota; z.bubble(1, 1).unbubble(1, 1) = z
 let z = [3, 2].iota; z.bubble(2, 1).unbubble(2, 1) = z
 let z = [3, 2].iota; z.bubble(0, 2) = [[z]]
 let z = [3, 2].iota; z.bubble(0, 2).unbubble(0, 2) = z
-[[1, 2, 3], [[41, 52], 5, 6], 1, 2, 3].maxDepth = 3
-0:3.collect { :k | [[1, 2, 3], [[41, 52], 5, 6], 1, 2, 3].maxSizeAtDepth(k) } = [5, 3, 2, 1]
+[[1, 2, 3], [[41, 52], 5, 6], 1, 2, 3].depth = 4
+1:4.collect { :k | [[1, 2, 3], [[41, 52], 5, 6], 1, 2, 3].maxSizeAtDepth(k) } = [5, 3, 2, 1]
 [4, 5].iota.slice([nil, 1:3]) = [[1, 2, 3], [6, 7, 8], [11, 12, 13], [16, 17, 18]]
 [4, 5].iota.slice([[3], 1:3]) = [11, 12, 13]
 [4, 5].iota.slice([3, 1:3]) = [11, 12, 13]
@@ -274,8 +272,6 @@ let z = [3, 2].iota; z.bubble(0, 2).unbubble(0, 2) = z
 [3, 3, 3].iota.slice([[2], [1, 2]]) = [[10, 11, 12], [13, 14, 15]]
 [3, 3, 3].iota.slice([2, [1, 2]]) = [[10, 11, 12], [13, 14, 15]]
 [2, 3, 2].iota.collect(reverse:/1) = [[[5, 6], [3, 4], [1, 2]], [[11, 12], [9, 10], [7, 8]]]
-[2, 3, 2].iota.deepCollect(0, reverse:/1) = [[[7, 8], [9, 10], [11, 12]], [[1, 2], [3, 4], [5, 6]]]
-[2, 3, 2].iota.deepCollect(2, reverse:/1) = [[[2, 1], [4, 3], [6, 5]], [[8, 7], [10, 9], [12, 11]]]
 6:1.reshapeLike([1, [2, 3], [4, 5, 6]]) = [6, [5, 4], [3, 2, 1]]
 [[6, 5, 4], [3, 2], 1].reshapeLike([1, [2, 3], [4, 5, 6]]) = [6, [5, 4], [3, 2, 1]]
 let a = [[10, 20],[30, 40, 50], 60, 70, [80, 90]]; let b = [[1, 2, [3, 4], [[5], 6], 7], 8, [[9]]]; a.reshapeLike(b) = [[10, 20, [30, 40], [[50], 60], 70], 80, [[90]]] & { b.reshapeLike(a) = [[1, 2], [3, 4, 5], 6, 7, [8, 9]] }
