@@ -130,6 +130,22 @@
 		self * 0.01745329251994329547 {- pi / 180 -}
 	}
 
+	divisible { :self :aNumber |
+		aNumber.isNumber.if {
+			(self % aNumber).veryCloseTo(0)
+		} {
+			aNumber.adaptToNumberAndApply(self, divisible:/2)
+		}
+	}
+
+	divisorSigma { :k :n |
+		n.isNumber.if {
+			(n.divisors ^ k).sum
+		} {
+			n.adaptToNumberAndApply(k, divisorSigma:/2)
+		}
+	}
+
 	downToDo { :self :end :aBlock:/1 |
 		let index = self;
 		{

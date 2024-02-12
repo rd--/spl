@@ -96,6 +96,19 @@
 		}
 	}
 
+	eulerPhi { :self |
+		self.isZero.if {
+			0
+		} {
+			let l = self.negative.if {
+				-1.downTo(self)
+			} {
+				1.upTo(self)
+			};
+			l.select { :each | self.gcd(each) = 1 }.size
+		}
+	}
+
 	factorial { :self |
 		self.negative.ifTrue {
 			'@Integer>>factorial: not valid for negative integers'.error

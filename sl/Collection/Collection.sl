@@ -474,6 +474,44 @@
 		}
 	}
 
+	randomSampleSmallPool { :self :count |
+		let pool = self.asList;
+		let answer = [];
+		(count > self.size).ifTrue {
+			count := self.size
+		};
+		{
+			count > 0
+		}.whileTrue {
+			let next = pool.atRandom;
+			answer.add(next);
+			pool.remove(next);
+			count := count - 1
+		};
+		answer
+	}
+
+	randomSampleLargePool { :self :count |
+		let answer = [];
+		(count > self.size).ifTrue {
+			count := self.size
+		};
+		{
+			count > 0
+		}.whileTrue {
+			let next = self.atRandom;
+			answer.includes(next).ifFalse {
+				answer.add(next);
+				count := count - 1
+			}
+		};
+		answer
+	}
+
+	randomSample { :self :count |
+		self.randomSampleLargePool(count)
+	}
+
 	rootMeanSquare { :self |
 		self.squared.sum.sqrt / 2
 	}
@@ -658,6 +696,10 @@
 		self.collect(fractionPart:/1)
 	}
 
+	eulerPhi { :self |
+		self.collect(eulerPhi:/1)
+	}
+
 	gcd { :self |
 		self.reduce(gcd:/2)
 	}
@@ -711,44 +753,6 @@
 
 	radiansToDegrees { :self |
 		self.collect(radiansToDegrees:/1)
-	}
-
-	randomSampleSmallPool { :self :count |
-		let pool = self.asList;
-		let answer = [];
-		(count > self.size).ifTrue {
-			count := self.size
-		};
-		{
-			count > 0
-		}.whileTrue {
-			let next = pool.atRandom;
-			answer.add(next);
-			pool.remove(next);
-			count := count - 1
-		};
-		answer
-	}
-
-	randomSampleLargePool { :self :count |
-		let answer = [];
-		(count > self.size).ifTrue {
-			count := self.size
-		};
-		{
-			count > 0
-		}.whileTrue {
-			let next = self.atRandom;
-			answer.includes(next).ifFalse {
-				answer.add(next);
-				count := count - 1
-			}
-		};
-		answer
-	}
-
-	randomSample { :self :count |
-		self.randomSampleLargePool(count)
 	}
 
 	rounded { :self |

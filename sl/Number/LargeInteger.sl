@@ -181,6 +181,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		1n
 	}
 
+	veryCloseTo { :self :aNumber |
+		self = aNumber
+	}
+
 	zero { :self |
 		0n
 	}

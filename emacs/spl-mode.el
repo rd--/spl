@@ -388,6 +388,8 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("rho" . ?ρ) ; U+03C1 ρ Greek Small Letter Rho
      ("second" . ?₂) ; U+2082 ₂ Subscript Two
      ("sharp" . ?♯) ; U+266F ♯ Music Sharp Sign
+     ("sigma" . ?σ) ; U+03C3 σ Greek Small Letter Sigma
+     ("Sigma" . ?Σ) ; U+03A3 Σ Greek Capital Letter Sigma
      ("sqrt" . ?√) ; “√” U+221A Square Root
      ("squared" . ?²) ; U+00B2 ² Superscript Two
      ("sum" . ?Σ) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation

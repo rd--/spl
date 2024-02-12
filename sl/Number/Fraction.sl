@@ -329,6 +329,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		system.unicodeFractionsTable.indexOf(self)
 	}
 
+	veryCloseTo { :self :aNumber |
+		self = aNumber
+	}
+
 	zero { :self |
 		ReducedFraction(0, 1)
 	}

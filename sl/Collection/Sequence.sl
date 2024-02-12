@@ -1607,6 +1607,10 @@
 		anObject.adaptToCollectionAndApply(self, bitOr:/2)
 	}
 
+	divisible { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, divisible:/2)
+	}
+
 	gcd { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, gcd:/2)
 	}
