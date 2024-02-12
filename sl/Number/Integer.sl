@@ -207,6 +207,27 @@
 		self.integerDigits(10)
 	}
 
+	integerPartitions { :j :i |
+		let f = { :t :m :n |
+			(m = 1 & { t = n }).if {
+				[[t]]
+			} {
+				(n < m | { n < 1 | { m < 1 | { t < 1 } } }).if {
+					[]
+				} {
+					f(t, m - 1, n - t).collect { :r |
+						([t] ++ r)
+					} ++ f(t - 1, m, n)
+				}
+			}
+		};
+		f(j - i + 1, i, j)
+	}
+
+	integerPartitions { :n |
+		(1 .. n).collect { :k | n.integerPartitions(k) }.concatenation
+	}
+
 	isByte { :self |
 		self.isInteger & {
 			self.betweenAnd(0, 255)
