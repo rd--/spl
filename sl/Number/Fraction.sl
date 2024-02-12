@@ -245,7 +245,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	primeFactors { :self |
 		self.numerator.primeFactors ++ self.denominator.primeFactors.collect { :each |
-			 ReducedFraction(1, each)
+			ReducedFraction(1, each)
 		}
 	}
 

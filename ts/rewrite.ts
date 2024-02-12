@@ -3,7 +3,11 @@ import ohm from 'https://unpkg.com/ohm-js@17/dist/ohm.esm.js';
 import { arraySum } from '../lib/jssc3/ts/kernel/array.ts';
 
 import { slParse, slSemantics } from './grammar.ts';
-import { isOperatorName, operatorMethodName, resolveMethodName } from './operator.ts';
+import {
+	isOperatorName,
+	operatorMethodName,
+	resolveMethodName,
+} from './operator.ts';
 import { slOptions } from './options.ts';
 
 export const context = { packageName: 'UnknownPackage' };
@@ -302,7 +306,7 @@ const asJs: ohm.ActionDict<string> = {
 		// console.debug('TemporaryListInitializer', namesArray, rhsName);
 		return `${rhsName} = _assertIsOfSize_2(${rhs.asJs}, ${namesArray.length}), ${slots}`;
 	},
-    SlotNames(_leftVerticalBar, slots, _rightVerticalBar) {
+	SlotNames(_leftVerticalBar, slots, _rightVerticalBar) {
 		// Space separated list of quoted names for internal use only, see makeTypeDefinition
 		return slots.children.map((e) => `'${e.sourceString}'`).join(' ');
 	},

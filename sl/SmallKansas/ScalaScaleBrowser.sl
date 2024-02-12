@@ -24,7 +24,8 @@
 						[
 							'Size = ', path[1], ', ',
 							'TuningSize = ', path[2]
-						].join);
+						].join
+					);
 					selectedTuningSize := path[2].parseInteger(10);
 					scalaModenam.select { :each |
 						each.size = selectedSize & {

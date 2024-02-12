@@ -1503,7 +1503,7 @@
 
 	withCollectTable { :self :aSequence :aBlock:/2 |
 		self.collect { :each |
-				aBlock(each, aSequence)
+			aBlock(each, aSequence)
 		}
 	}
 
