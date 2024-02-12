@@ -1,15 +1,17 @@
 # accumulate
 
-- _accumulate(aSequence)_
+_accumulate(aSequence)_
 
-Gives a list of the successive accumulated totals of elements in _aSequence_.
-
-_accumulate(x)_ is effectively equivalent to _scan(x, +)_.
+Answer a List of the successive accumulated totals of elements in _aSequence_.
+This operation is also called _prefixSum_, and is equivalent to _scan(aSequence, +)_.
 
 Triangular numbers:
 
 ```
 >>> 1:10.accumulate
+[1 3 6 10 15 21 28 36 45 55]
+
+>>> 1:10.prefixSum
 [1 3 6 10 15 21 28 36 45 55]
 
 >>> 1:10.scan(+)
@@ -25,7 +27,7 @@ Diagonals of Pascal’s triangle:
 
 * * *
 
-See also: scan
+See also: scan, prefixSum
 
 References:
 _Mathematica_

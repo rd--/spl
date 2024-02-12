@@ -1,8 +1,8 @@
 # level
 
-_level(aCollection, anInteger | aCollection | aBlock:/1)_
+_level(aCollection, anInteger)_
 
-Answer a List of all sub-trees of _aCollection_ at indicated levels.
+Answer a List of all sub-trees of _aCollection_ at level _anInteger_.
 
 Values in a Dictionary are at the first level:
 
@@ -51,7 +51,7 @@ Level zero is the collection, which is then enclosed:
 
 * * *
 
-See also: withLevelCollect, depth, levelBy
+See also: depth, levelBy, levelEach, withLevelCollect
 
 References:
 _Mathematica_

@@ -529,17 +529,6 @@
 		self.multiChannelExpand
 	}
 
-	hammingDistance { :self :other |
-		let size = self.size.min(other.size);
-		let count = (self.size - other.size).abs;
-		1.toDo(size) { :index |
-			(self[index] ~= other[index]).ifTrue {
-				count := count + 1
-			}
-		};
-		count
-	}
-
 	hammingWindow { :self |
 		self.atAllPut(0.53836);
 		self.addSine(1, 0.46164, -0.5.pi)
@@ -639,34 +628,6 @@
 	keepLast { :self :n |
 		let size = self.size;
 		self.copyFromTo(size - n, size)
-	}
-
-	levenshteinDistance { :self :other |
-		self.levenshteinDistance(other, =)
-	}
-
-	levenshteinDistance { :self :other :equalityBlock:/2 |
-		(self.isEmpty | {
-			other.isEmpty
-		}).if {
-			self.size
-		} {
-			let matrix = [0 .. other.size];
-			1.toDo(self.size) { :xIndex |
-				let corner = xIndex - 1;
-				matrix[1] := xIndex - 1;
-				1.toDo(other.size) { :yIndex |
-					let upper = matrix[yIndex + 1];
-					matrix[yIndex + 1] := equalityBlock(self[xIndex], other[yIndex]).if {
-						corner
-					} {
-						[upper, corner, matrix[yIndex]].min + 1
-					};
-					corner := upper
-				}
-			};
-			matrix[other.size + 1]
-		}
 	}
 
 	mirror { :self |

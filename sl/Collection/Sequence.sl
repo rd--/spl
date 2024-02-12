@@ -187,6 +187,18 @@
 		}
 	}
 
+	brayCurtisDistance { :self :aSequence |
+		(self - aSequence).abs.sum / (self + aSequence).abs.sum
+	}
+
+	canberraDistance { :self :aSequence |
+		((self - aSequence).abs / (self.abs + aSequence.abs)).sum
+	}
+
+	chessboardDistance { :self :aSequence |
+		(self - aSequence).abs.max
+	}
+
 	collect { :self :aBlock:/1 |
 		let answer = self.species.ofSize(self.size);
 		self.indicesDo { :index |
@@ -361,12 +373,20 @@
 		self.replicateEachApplying(counts, value:/1)
 	}
 
+	editDistance { :self :other |
+		self.levenshteinDistance(other)
+	}
+
 	equalBy { :self :anObject :aBlock:/2 |
 		self == anObject | {
 			self.typeOf = anObject.typeOf & {
 				self.hasEqualElementsBy(anObject, aBlock:/2)
 			}
 		}
+	}
+
+	euclideanDistance { :self :aSequence |
+		(self - aSequence).norm
 	}
 
 	fillFromWith { :self :aCollection :aBlock:/1 |
@@ -600,6 +620,17 @@
 	grownBy { :self :length |
 		let answer = self.species.ofSize(self.size + length);
 		answer.replaceFromToWithStartingAt(1, self.size, self, 1)
+	}
+
+	hammingDistance { :self :other |
+		let size = self.size.min(other.size);
+		let count = (self.size - other.size).abs;
+		1.toDo(size) { :index |
+			(self[index] ~= other[index]).ifTrue {
+				count := count + 1
+			}
+		};
+		count
 	}
 
 	hasEqualElementsBy { :self :otherCollection :aBlock:/2 |
@@ -851,6 +882,38 @@
 		} {
 			index
 		}
+	}
+
+	levenshteinDistance { :self :other |
+		self.levenshteinDistance(other, =)
+	}
+
+	levenshteinDistance { :self :other :equalityBlock:/2 |
+		(self.isEmpty | {
+			other.isEmpty
+		}).if {
+			self.size
+		} {
+			let matrix = [0 .. other.size];
+			1.toDo(self.size) { :xIndex |
+				let corner = xIndex - 1;
+				matrix[1] := xIndex - 1;
+				1.toDo(other.size) { :yIndex |
+					let upper = matrix[yIndex + 1];
+					matrix[yIndex + 1] := equalityBlock(self[xIndex], other[yIndex]).if {
+						corner
+					} {
+						[upper, corner, matrix[yIndex]].min + 1
+					};
+					corner := upper
+				}
+			};
+			matrix[other.size + 1]
+		}
+	}
+
+	manhattanDistance { :self :aSequence |
+		(self - aSequence).abs.sum
 	}
 
 	median { :self |

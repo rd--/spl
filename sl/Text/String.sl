@@ -228,6 +228,10 @@ String! : [Object, Json, Iterable] {
 		}
 	}
 
+	editDistance { :self :aString |
+		self.stringList.editDistance(aString.stringList)
+	}
+
 	endsWith { :self :aString |
 		<primitive:
 		if(typeof _aString == 'string') {
@@ -305,6 +309,10 @@ String! : [Object, Json, Iterable] {
 		self.firstMlCommentIfAbsent {
 			self.error('firstMlComment: no comment found')
 		}
+	}
+
+	hammingDistance { :self :aString |
+		self.stringList.hammingDistance(aString.stringList)
 	}
 
 	includes { :self :aCharacter |

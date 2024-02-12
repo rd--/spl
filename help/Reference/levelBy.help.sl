@@ -52,4 +52,4 @@ Level zero is the collection, which is then enclosed:
 
 * * *
 
-See also: level
+See also: level, levelEach, withLevelCollect

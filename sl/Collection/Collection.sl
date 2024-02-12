@@ -397,19 +397,16 @@
 		answer
 	}
 
-	level { :self :anObject |
-		anObject.isInteger.if {
-			self.levelBy { :level | level = anObject }
-		} {
-			anObject.isCollection.if {
-				self.levelBy { :level | anObject.includes(level) }
-			} {
-				anObject.isBlock.if {
-					self.levelBy(anObject)
-				} {
-					'@Collection>>level: not Integer or Collection or Block'.error
-				}
-			}
+	levelEach { :self :aCollection |
+		self.levelBy { :level |
+			aCollection.includes(level)
+		}
+	}
+
+
+	level { :self :anInteger |
+		self.levelBy { :level |
+			level = anInteger
 		}
 	}
 

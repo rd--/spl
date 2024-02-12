@@ -146,6 +146,22 @@
 		}
 	}
 
+	hammingNumbersFromUpTo { :self :limit |
+		let answer = Set();
+		let step = { :n |
+			(n <= limit).ifTrue {
+				answer.includes(n).ifFalse {
+					answer.include(n);
+					step(n * 2);
+					step(n * 3);
+					step(n * 5)
+				}
+			}
+		};
+		step(self);
+		answer.asSortedList.contents
+	}
+
 	harmonicNumber { :self |
 		1:self.reciprocal.sum
 	}
