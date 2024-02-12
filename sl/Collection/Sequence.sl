@@ -567,6 +567,14 @@
 		self.copyFromTo(n * 3 + 1, n * 4)
 	}
 
+	fromCharacterCode { :self |
+		self.isVector.if {
+			self.collect(fromCharacterCode:/1).join
+		} {
+			self.collect(fromCharacterCode:/1)
+		}
+	}
+
 	fromToDo { :self :start :stop :aBlock:/1 |
 		start.toDo(stop) { :index |
 			aBlock(self[index])

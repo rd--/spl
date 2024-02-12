@@ -40,8 +40,8 @@ Character : [Object, Magnitude] { | string codePoint |
 		self.string
 	}
 
-	Character { :self |
-		self
+	characterRange { :self :aCharacter |
+		self.codePoint.characterRange(aCharacter.codePoint)
 	}
 
 	digitValue { :self |

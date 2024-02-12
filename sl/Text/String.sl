@@ -59,6 +59,15 @@ String! : [Object, Json, Iterable] {
 		}
 	}
 
+	asCharacter { :self |
+		let list = self.characterList;
+		(list.size = 1).if {
+			list.first
+		} {
+			'String>>asCharacter: not single character string'.error
+		}
+	}
+
 	asciiByteArray { :self |
 		let answer = self.utf8ByteArray;
 		answer.allSatisfy(isAsciiCodePoint:/1).if {
@@ -145,6 +154,10 @@ String! : [Object, Json, Iterable] {
 
 	capitalized { :self |
 		<primitive: return _self[0].toUpperCase() + _self.slice(1);>
+	}
+
+	characterRange { :self :aString |
+		self.asCharacter.characterRange(aString.asCharacter).collect(asString:/1)
 	}
 
 	characterList { :self |
@@ -359,6 +372,10 @@ String! : [Object, Json, Iterable] {
 		self.allSatisfy(isAscii:/1)
 	}
 
+	isDigit { :self |
+		<primitive: return /^[0-9]+$/.test(_self);>
+	}
+
 	isInBasicMultilingualPlane { :self |
 		self.countUtf16CodeUnits = self.countCharacters
 	}
@@ -369,6 +386,10 @@ String! : [Object, Json, Iterable] {
 
 	isImmediate { :self |
 		true
+	}
+
+	isLetter { :self |
+		self.isLowercase | { self.isUppercase }
 	}
 
 	isLowercase { :self |

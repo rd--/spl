@@ -74,6 +74,10 @@
 		}
 	}
 
+	characterRange { :self :anInteger |
+		(self .. anInteger).collect(asCharacter:/1)
+	}
+
 	denominator { :self |
 		1
 	}
@@ -140,6 +144,10 @@
 
 	foldIndex { :self :size |
 		self.foldBetweenAnd(1, size)
+	}
+
+	fromCharacterCode { :self |
+		self.asCharacter.string
 	}
 
 	gcd { :self :anInteger |
