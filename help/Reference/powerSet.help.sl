@@ -1,5 +1,9 @@
 # powerSet
 
+_powerSet(aCollection, aBlock:/1)_
+
+Answer the elements of the power set of _aCollection_ that satisfy the predicate _aBlock_.
+
 All subsets of _[1 2 3]_:
 
 ```
@@ -15,7 +19,6 @@ All possible subsets containing up to 2 elements:
 ```
 
 Subsets containing exactly 2 elements:
-
 
 ```
 >>> [1 2 3 4].powerSet { :each | each.size = 2 }

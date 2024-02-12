@@ -25,6 +25,8 @@ Calculate the _rising Pochhammer symbol (x)y_ as used in the hypergeometric func
 
 * * *
 
+See also: permutations
+
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/hat#stope)

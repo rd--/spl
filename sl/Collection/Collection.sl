@@ -387,28 +387,29 @@
 		}.sum
 	}
 
-	levelCollectFrom { :self :aBlock:/1 :levelPredicate:/1 :level |
-		let type = self.typeOf;
-		let levelBlock:/1 = level.levelPredicate.if {
-			aBlock:/1
-		} {
-			identity:/1
-		};
-		self.collect { :each |
-			(each.typeOf = type).if {
-				levelBlock(each.levelCollectFrom(aBlock:/1, levelPredicate:/1, level + 1))
-			} {
-				levelBlock(each)
+	levelBy { :self :aBlock:/1 |
+		let answer = [];
+		self.withLevelDo { :each :level |
+			aBlock(level).ifTrue {
+				answer.add(each)
 			}
-		}
+		};
+		answer
 	}
 
-	levelCollect { :self :aBlock:/1 :levelPredicate:/1 |
-		let answer = self.levelCollectFrom(aBlock:/1, levelPredicate:/1, 1);
-		0.levelPredicate.if {
-			aBlock(answer)
+	level { :self :anObject |
+		anObject.isInteger.if {
+			self.levelBy { :level | level = anObject }
 		} {
-			answer
+			anObject.isCollection.if {
+				self.levelBy { :level | anObject.includes(level) }
+			} {
+				anObject.isBlock.if {
+					self.levelBy(anObject)
+				} {
+					'@Collection>>level: not Integer or Collection or Block'.error
+				}
+			}
 		}
 	}
 
@@ -543,6 +544,23 @@
 
 	withLevelCollect { :self :aBlock:/2 |
 		aBlock(self.withLevelCollect(aBlock:/2, 1), 0)
+	}
+
+	withLevelDo { :self :aBlock:/2 :level |
+		let type = self.typeOf;
+		self.do { :each |
+			(each.typeOf = type).if {
+				each.withLevelDo(aBlock:/2, level + 1);
+				aBlock(each, level)
+			} {
+				aBlock(each, level)
+			}
+		}
+	}
+
+	withLevelDo { :self :aBlock:/2 |
+		self.withLevelDo(aBlock:/2, 1);
+		aBlock(self, 0)
 	}
 
 	zero { :self |

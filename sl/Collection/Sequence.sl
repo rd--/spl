@@ -917,6 +917,12 @@
 		answer
 	}
 
+	permutations { :self :size |
+		self.powerSet { :each |
+			each.size = size
+		}.collect(permutations:/1).concatenation
+	}
+
 	permutationsDo { :self :aBlock:/1 |
 		self.copy.permutationsStartingAtDo(1, aBlock:/1)
 	}

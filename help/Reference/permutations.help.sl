@@ -1,8 +1,9 @@
 # permutations
 
-- _permutations(aSequence)_
+- _permutations(aSequence, anInteger)_
+- _permutations(α)_ ⇒ _permutations(α, α.size)_
 
-Collect permutations of _aSequence_ into a new List.
+Collect permutations containing at most _anInteger_ elements of _aSequence_ into a new List.
 
 Length three permutations three elements:
 
@@ -11,8 +12,60 @@ Length three permutations three elements:
 [1 2 3; 1 3 2; 2 1 3; 2 3 1; 3 2 1; 3 1 2]
 ```
 
+Length-two permutations of three elements:
+
+```
+>>> 1:3.permutations(2)
+[1 2; 2 1; 1 3; 3 1; 2 3; 3 2]
+
+>>> 1:3.powerSet { :each | each.size = 2 }.collect(permutations:/1).concatenation
+[1 2; 2 1; 1 3; 3 1; 2 3; 3 2]
+```
+
+The number of length-_n_ permutations of a length-_n_ list of distinct elements is _n!_:
+
+```
+>>> 1:5.permutations.size
+120
+
+>>> 5.factorial
+120
+```
+
+A permutation that leaves no element invariant is called a derangement,
+the number of derangements of _n_ distinct elements is _n.subfactorial_:
+
+```
+>>> 1:5.permutations.select { :each | (each =.map each.sorted).noneSatisfy(identity:/1) }.size
+44
+
+>>> 5.subfactorial
+44
+```
+
+Length-two permutations of four elements:
+
+```
+>>> 1:4.permutations(2)
+[1 2; 2 1; 1 3; 3 1; 2 3; 3 2; 1 4; 4 1; 2 4; 4 2; 3 4; 4 3]
+```
+
+The number of _length-k_ permutations of _n_ elements is given by _k.stope(-1, n)_:
+
+```
+>>> 1:5.permutations(3).size
+60
+
+>>> 5.stope(-1, 3)
+60
+```
+
 * * *
 
-See also: permutationsDo
+See also: factorial, permutationsDo, stope, subfactorial
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Permutations.html)
 
 Categories: Enumerating
