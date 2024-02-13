@@ -215,6 +215,10 @@
 		}
 	}
 
+	clip { :self |
+		self.clip(-1, 1)
+	}
+
 	cubeRoot { :self |
 		self.collect(cubeRoot:/1)
 	}
@@ -517,6 +521,20 @@
 
 	randomSample { :self :count |
 		self.randomSampleLargePool(count)
+	}
+
+	rescale { :self :min :max :ymin :ymax |
+		self.collect { :each |
+			each.rescale(min, max, ymin, ymax)
+		}
+	}
+
+	rescale { :self :min :max |
+		self.rescale(min, max, 0, 1)
+	}
+
+	rescale { :self |
+		self.rescale(self.min, self.max, 0, 1)
 	}
 
 	rootMeanSquare { :self |

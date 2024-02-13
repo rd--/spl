@@ -275,6 +275,14 @@
 		self.remainderBy(aNumber, truncated:/1)
 	}
 
+	rescale { :self :min :max |
+		(self - min) / (max - min)
+	}
+
+	rescale { :self :min :max :ymin :ymax |
+		((self - min) / (max - min)) * (ymax - ymin) + ymin
+	}
+
 	rotationMatrix { :self |
 		[
 			[self.cos, self.sin.negated],

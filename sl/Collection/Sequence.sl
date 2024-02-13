@@ -1479,6 +1479,22 @@
 		}
 	}
 
+	weightedIndex { :self |
+		let r = system.nextRandomFloat;
+		let sum = 0;
+		let answer = 1;
+		valueWithReturn { :return:/1 |
+			self.do { :each |
+				sum := sum + each;
+				(sum > r).ifTrue {
+					answer.return
+				};
+				answer := answer + 1
+			};
+			answer
+		}
+	}
+
 	withCollect { :self :aSequence :aBlock:/2 |
 		self.withCollectWrapping(aSequence, aBlock:/2)
 	}
