@@ -28,13 +28,13 @@ pi
 Plot the unit clip function over a subset of the reals:
 
 ```
->>> (-3, -2.9 .. 3).clip.plot
+(-3, -2.9 .. 3).clip.plot
 ```
 
 Plot the composition of clip with a periodic function:
 
 ```
->>> ((-1, -0.99 .. 1) * 2 * pi).sin.clip(-0.5, 1).plot
+((-1, -0.99 .. 1) * 2 * pi).sin.clip(-0.5, 1).plot
 ```
 
 * * *

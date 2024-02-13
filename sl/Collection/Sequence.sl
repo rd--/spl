@@ -1093,6 +1093,22 @@
 		self.scan(+)
 	}
 
+	randomWeightedIndex { :self |
+		let r = system.nextRandomFloat;
+		let sum = 0;
+		let answer = 1;
+		valueWithReturn { :return:/1 |
+			self.do { :each |
+				sum := sum + each;
+				(sum > r).ifTrue {
+					answer.return
+				};
+				answer := answer + 1
+			};
+			answer
+		}
+	}
+
 	rank { :self |
 		self.shape.size
 	}
@@ -1192,6 +1208,46 @@
 		answer
 	}
 
+	reverseDo { :self :aBlock:/1 |
+		self.size.downToDo(1) { :index |
+			aBlock(self[index])
+		}
+	}
+
+	reverseWithDo { :self :aSequence :aBlock:/2 |
+		(self.size ~= aSequence.size).if {
+			self.error('reverseWithDo: unequal size')
+		} {
+			self.size.downToDo(1) { :index |
+				aBlock(self[index], aSequence[index])
+			}
+		}
+	}
+
+	rotated { :self :anInteger |
+		self.rotatedRight(anInteger)
+	}
+
+	rotatedLeft { :self |
+		self.rotatedLeft(1)
+	}
+
+	rotatedLeft { :self :anInteger |
+		(1 + anInteger).toAsCollect(self.size + anInteger, self.species) { :index |
+			self.atWrap(index)
+		}
+	}
+
+	rotatedRight { :self |
+		self.rotatedRight(1)
+	}
+
+	rotatedRight { :self :anInteger |
+		(1 - anInteger).toAsCollect(self.size - anInteger, self.species) { :index |
+			self.atWrap(index)
+		}
+	}
+
 	scalarProduct { :self :aSequence |
 		(self *.e aSequence).sum
 	}
@@ -1265,6 +1321,23 @@
 		}
 	}
 
+	standardize { :self :meanBlock:/1 :deviationBlock:/1 |
+		let deviation = deviationBlock(self);
+		(deviation = 0).if {
+			'standardize: deviation = 0?'.error
+		} {
+			(self - meanBlock(self)) / deviation
+		}
+	}
+
+	standardize { :self :meanBlock:/1 |
+		self.standardize(meanBlock:/1, standardDeviation:/1)
+	}
+
+	standardize { :self |
+		self.standardize(mean:/1, standardDeviation:/1)
+	}
+
 	suffixesDo { :self :aBlock:/1 |
 		let size = self.size;
 		1.upToDo(size) { :each |
@@ -1278,62 +1351,6 @@
 			answer.add(each)
 		};
 		answer
-	}
-
-	randomWeightedIndex { :self |
-		let r = system.nextRandomFloat;
-		let sum = 0;
-		let answer = 1;
-		valueWithReturn { :return:/1 |
-			self.do { :each |
-				sum := sum + each;
-				(sum > r).ifTrue {
-					answer.return
-				};
-				answer := answer + 1
-			};
-			answer
-		}
-	}
-
-	reverseDo { :self :aBlock:/1 |
-		self.size.downToDo(1) { :index |
-			aBlock(self[index])
-		}
-	}
-
-	reverseWithDo { :self :aSequence :aBlock:/2 |
-		(self.size ~= aSequence.size).if {
-			self.error('reverseWithDo: unequal size')
-		} {
-			self.size.downToDo(1) { :index |
-				aBlock(self[index], aSequence[index])
-			}
-		}
-	}
-
-	rotated { :self :anInteger |
-		self.rotatedRight(anInteger)
-	}
-
-	rotatedLeft { :self |
-		self.rotatedLeft(1)
-	}
-
-	rotatedLeft { :self :anInteger |
-		(1 + anInteger).toAsCollect(self.size + anInteger, self.species) { :index |
-			self.atWrap(index)
-		}
-	}
-
-	rotatedRight { :self |
-		self.rotatedRight(1)
-	}
-
-	rotatedRight { :self :anInteger |
-		(1 - anInteger).toAsCollect(self.size - anInteger, self.species) { :index |
-			self.atWrap(index)
-		}
 	}
 
 	second { :self |

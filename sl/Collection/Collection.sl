@@ -374,6 +374,16 @@
 		}
 	}
 
+	interquartileRange { :self :a :b :c :d |
+		let [q1, q2, q3] = self.quartiles(a, b, c, d);
+		q3 - q1
+	}
+
+	interquartileRange { :self |
+		let [q1, q2, q3] = self.quartiles;
+		q3 - q1
+	}
+
 	isEmpty { :self |
 		self.size = 0
 	}
@@ -477,6 +487,32 @@
 
 	pseudoSlotNameList { :self |
 		['size']
+	}
+
+	quantile { :self :p :a :b :c :d |
+		self.isVector.if {
+			self.asSortedList.quantile(p, a, b, c, d)
+		} {
+			self.isMatrix.if {
+				self.transposed.collect { :each |
+					each.asSortedList.quantile(p, a, b, c, d)
+				}
+			} {
+				'Collection>>quantile: not vector or matrix'
+			}
+		}
+	}
+
+	quantile { :self :p |
+		self.quantile(p, 0, 0, 1, 0)
+	}
+
+	quartiles { :self :a :b :c :d |
+		self.quantile([1 2 3] / 4, a, b, c, d)
+	}
+
+	quartiles { :self |
+		self.quartiles(1 / 2, 0, 0, 1)
 	}
 
 	reject { :self :aBlock:/1 |

@@ -64,6 +64,22 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 		}
 	}
 
+	quantile { :self :p :a :b :c :d |
+		p.isCollection.if {
+			p.collect { :each |
+				self.quantile(each, a, b, c, d)
+			}
+		} {
+			let y = self;
+			let n = y.size;
+			let r = a + ((n + b) * p);
+			let f = r.fractionPart;
+			let i0 = r.floor.max(1);
+			let i1 = r.ceiling.min(n);
+			y[i0] + ((y[i1] - y[i0]) * (c + (d * f)))
+		}
+	}
+
 	size { :self |
 		self.contents.size
 	}

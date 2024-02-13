@@ -11,7 +11,7 @@ Answer _aNumber_ rescaled to run from _yMin_ to _yMax_ over the range _min_ to _
 0.625
 
 >>> 12.5.rescale(-10, 10)
-0.125
+1.125
 
 >>> [-10, 0, 10].rescale(-10, 10)
 [0 0.5 1]
