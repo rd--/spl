@@ -19,3 +19,5 @@ nil
 * * *
 
 See also: elementTypeIfAbsent, elementTypes, typeOf
+
+Categories: Reflection, Types

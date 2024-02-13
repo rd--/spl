@@ -854,6 +854,12 @@
 		}
 	}
 
+	isVectorOf { :self :elementType |
+		self.isVector & {
+			self.elementType = elementType
+		}
+	}
+
 	last { :self |
 		self[self.size]
 	}

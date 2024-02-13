@@ -24,4 +24,4 @@ true
 
 * * *
 
-See also: isMatrix, isSequence, isVector
+See also: elementType, isMatrix, isSequence, isVector, isVectorOf, typeOf
