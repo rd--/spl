@@ -357,6 +357,49 @@
 		}
 	}
 
+	partitionFunctionP { :self |
+		let table = Map();
+		let p = { :n |
+			table.includesIndex(n).if {
+				table[n]
+			} {
+				(n < 1).if {
+					1
+				} {
+					let answer = (1 / n) * (0 .. n - 1).collect { :k |
+						1.divisorSigma(n - k) * p(k)
+					}.sum;
+					table[n] := answer;
+					answer
+				}
+			}
+		};
+		p(self)
+	}
+
+	partitionFunctionP { :self :anInteger |
+		let p = { :n :k |
+			(k > n).if {
+				0
+			} {
+				(k = n).if {
+					1
+				} {
+					(k = 0).if {
+						0
+					} {
+						p(n - 1, k - 1) + p(n - k, k)
+					}
+				}
+			}
+		};
+		p(self, anInteger)
+	}
+
+	partitionFunctionQ { :n :k |
+		partitionFunctionP(n - binomialCoefficient(k, 2), k)
+	}
+
 	previousPrime { :self |
 		let index = self.leastPrimeGreaterThanOrEqualTo.indexOfPrime - 1;
 		system.primesList[index]
