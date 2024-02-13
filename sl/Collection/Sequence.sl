@@ -1280,6 +1280,22 @@
 		answer
 	}
 
+	randomWeightedIndex { :self |
+		let r = system.nextRandomFloat;
+		let sum = 0;
+		let answer = 1;
+		valueWithReturn { :return:/1 |
+			self.do { :each |
+				sum := sum + each;
+				(sum > r).ifTrue {
+					answer.return
+				};
+				answer := answer + 1
+			};
+			answer
+		}
+	}
+
 	reverseDo { :self :aBlock:/1 |
 		self.size.downToDo(1) { :index |
 			aBlock(self[index])
@@ -1476,22 +1492,6 @@
 			(u.dot(v) / (u.norm * v.norm)).arcCos
 		} {
 			'Sequence>>vectorAngle: not vectors'.error
-		}
-	}
-
-	weightedIndex { :self |
-		let r = system.nextRandomFloat;
-		let sum = 0;
-		let answer = 1;
-		valueWithReturn { :return:/1 |
-			self.do { :each |
-				sum := sum + each;
-				(sum > r).ifTrue {
-					answer.return
-				};
-				answer := answer + 1
-			};
-			answer
 		}
 	}
 

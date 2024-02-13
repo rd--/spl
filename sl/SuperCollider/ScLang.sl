@@ -652,11 +652,7 @@
 	}
 
 	normalize { :self :min :max |
-		let minItem = self.min;
-		let maxItem = self.max;
-		self.collect { :each |
-			(each - minItem) / (maxItem - minItem) * (max - min) + min
-		}
+		self.rescale(self.min, self.max, min, max)
 	}
 
 	normalizeSum { :self |

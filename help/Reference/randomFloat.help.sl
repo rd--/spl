@@ -1,18 +1,22 @@
-# randomFloat -- random number generator
+# randomFloat
 
-- _randomFloat(aRandom | aSystem)_
+- _randomFloat(low, high)_
+- _randomFloat(alpha)_ => _randomFloat(0, alpha)_
 
-Generate a random number between zero (inclusive) and one (exclusive).
+Generate a random number between _low_ and _high_.
 
-- _randomFloat(high)_: generate a random number between zero and high
-- _randomFloat(low, high)_: generate a random number between low and high
-
-Uniform distribution:
+Uniform distribution, bi-polar:
 
 ```
 ({ randomFloat(-1, 1) } ! 99).plot
 ```
 
+Uni-polar:
+
+```
+({ randomFloat(1) } ! 99).plot
+```
+
 * * *
 
-See also: atRandom, randomInteger, Random, System
+See also: atRandom, nextRandomFloat, randomInteger, Random, System
