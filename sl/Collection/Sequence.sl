@@ -797,6 +797,14 @@
 		}
 	}
 
+	isMatrixOf { :self :elementType |
+		self.isMatrix & {
+			self.allSatisfy { :each |
+				each.elementType = elementType
+			}
+		}
+	}
+
 	isOctetSequence { :self |
 		self.allSatisfy { :each |
 			each.isInteger & {
@@ -1231,7 +1239,7 @@
 			[0]
 		} {
 			let type = self.typeOf;
-			let elementTypes = self.collect(typeOf:/1);
+			let elementTypes = self.elementTypes;
 			elementTypes.allSatisfy { :each |
 				each = type
 			}.if {

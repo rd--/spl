@@ -279,18 +279,6 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 +List {
 
-	isMatrixOf { :self :elementType |
-		self.elementType = 'List' & {
-			self.allSatisfy { :each |
-				each.elementType = elementType
-			}
-		}
-	}
-
-}
-
-+List {
-
 	plot { :self |
 		let fileName = '/tmp/listPlot.json';
 		fileName.writeTextFile([self].json).then { :unused |

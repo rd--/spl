@@ -245,19 +245,26 @@
 	}
 
 	elementType { :self |
-		self.isEmpty.if {
-			'Any'
-		} {
-			valueWithReturn { :return:/1 |
-				let answer = self.anyOne.typeOf;
-				self.do { :each |
-					(answer = each.typeOf).ifFalse {
-						'Any'.return
-					}
-				};
-				answer
-			}
+		self.elementTypeIfAbsent {
+			nil
 		}
+	}
+
+	elementTypeIfAbsent { :self :aBlock:/0 |
+		let types = self.elementTypes;
+		(types.size = 1).if {
+			types.anyOne
+		} {
+			aBlock()
+		}
+	}
+
+	elementTypes { :self |
+		let answer = Set();
+		self.do { :each |
+			answer.include(each.typeOf)
+		};
+		answer
 	}
 
 	emptyCheck { :self |

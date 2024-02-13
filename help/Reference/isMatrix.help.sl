@@ -32,7 +32,7 @@ false
 
 * * *
 
-See also: isSequence, isVector
+See also: isMatrixOf, isSequence, isVector
 
 References:
 _Mathematica_
