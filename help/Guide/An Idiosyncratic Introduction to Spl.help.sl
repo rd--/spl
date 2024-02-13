@@ -301,8 +301,8 @@ If _p_ is a permutation, _atAll(y, p)_ permutes _y_ by _p_.
 
 ```
 >>> let p = [4 22 16 15 18 14 7 8 0 21 3 13 20 9 11 19 6 17 2 5 1 10 12] + 1;
->>> let u = p atAll p;
->>> u atAll p - 1
+>>> let u = p atAll: p;
+>>> u atAll: p - 1
 [2 20 7 5 16 13 0 4 18 3 19 21 22 10 9 14 8 17 6 11 12 15 1]
 ```
 

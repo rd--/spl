@@ -2,12 +2,32 @@
 
 Lists are written between square brackets, items are separated by commas.
 
-```
->>> [1, 2, 3].isList
-true
+A list of integers:
 
+```
+>>> [1, 2, 3]
+[1, 2, 3]
+```
+
+A list of expressions:
+
+```
 >>> [1 + 2, 3 * 4, 25.sqrt]
 [3, 12, 5]
+```
+
+The empty list:
+
+```
+>>> []
+[]
+```
+
+A list of the empty list:
+
+```
+>>> [[]]
+[[]]
 ```
 
 * * *

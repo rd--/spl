@@ -30,8 +30,8 @@ The vector may appear on either side:
 A matrix is a vector of vectors:
 
 ```
->>> [[3 5 7] [7 9 11]] + 4
-[[7 9 11] [11 13 15]]
+>>> [3 5 7; 7 9 11] + 4
+[7 9 11; 11 13 15]
 ```
 
 Vector addition is pointwise if the vectors are of equal size:

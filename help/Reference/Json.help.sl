@@ -2,6 +2,8 @@
 
 A Trait for types that have an encoding in Json.
 
+The types implementing the trait are: Nil, Boolean, SmallFloat, String, List & Record.
+
 * * *
 
 See also: json, parseJson

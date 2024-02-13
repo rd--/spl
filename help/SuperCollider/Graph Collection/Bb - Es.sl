@@ -27,12 +27,12 @@ PitchShift(Saw(f) * Decay(t, 3), 7, 2, 0, 0)
 
 {- http://earslap.com/weblog/music-release-laconicism.html -}
 let snd = Hpf(
-	Pulse([[0.1, 0.11], [0.12, 0.13]], 0.6) * 0.005,
+	Pulse([0.1 0.11; 0.12 0.13], 0.6) * 0.005,
 	99
 );
 Hpf(
 	MidEq(
-		Limiter(GVerb(snd, [[1, 5 / 4], [1.5, 2]], 99, 0.5, 0.5, 15, 1, 0,7, 0.5) * 300, 1, 0.01) * 0.1,
+		Limiter(GVerb(snd, [1 1.25; 1.5 2], 99, 0.5, 0.5, 15, 1, 0,7, 0.5) * 300, 1, 0.01) * 0.1,
 		9000,
 		0.9,
 		9
@@ -143,8 +143,8 @@ let fundamentals = { 200.randomFloat(400) }.duplicate(numVoices).sorted.reversed
 let finalPitches = (1:numVoices.collect { :each |
 	(each / (numVoices / 6)).RoundTo(1) * 12
 } + 14.5).MidiCps;
-let outerEnv = CurveGen(1, [0, 0.1, 1], [8, 4], [2, 4]);
-let ampEnvelope = CurveGen(1, [0, 1, 1, 0], [3, 21, 3], [2, 0, -4]);
+let outerEnv = CurveGen(1, [0 0.1 1], [8 4], [2 4]);
+let ampEnvelope = CurveGen(1, [0 1 1 0], [3 21 3], [2 0 -4]);
 let snd = 1:numVoices.collect { :numTone |
 	let initRandomFreq = fundamentals[numTone] + (LfNoise2(0.5) * 6 * (numVoices - numTone));
 	let destinationFreq = finalPitches[numTone] + (LfNoise2(0.1) * numTone / 3);

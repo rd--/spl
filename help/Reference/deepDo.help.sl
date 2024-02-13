@@ -10,7 +10,7 @@ At List:
 
 ```
 >>> let l = [];
->>> ['a' ['b' ['c' ['d']]]].deepDo { :each | l.add(each) };
+>>> ['a', ['b', ['c', ['d']]]].deepDo { :each | l.add(each) };
 >>> l
 ['a' 'b' 'c' 'd']
 ```

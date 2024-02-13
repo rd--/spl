@@ -28,7 +28,7 @@ A rank two array is a matrix:
 Spl calls a rank three array a volume.
 
 ```
->>> [1 2; 3 4;; 5 6; 7 8].rank
+>>> [1 2; 3 4:; 5 6; 7 8].rank
 3
 ```
 
@@ -52,7 +52,7 @@ Such structures do have a _depth_:
 The depth of an array is one greater than its rank:
 
 ```
->>> let a = [1 2; 3 4;; 5 6; 7 8];
+>>> let a = [1 2; 3 4:; 5 6; 7 8];
 >>> (a.rank, a.depth)
 (3, 4)
 ```

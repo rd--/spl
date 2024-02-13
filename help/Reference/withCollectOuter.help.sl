@@ -18,7 +18,7 @@ The behaviour when each side is a matrix is quite subtle.
 >>> let y = [2 3 5 6];
 >>> let z = [x y];
 >>> z.withCollectOuter(z, *)
-[16 20.25; 8 13.5 20 27;; 8 13.5 20 27; 4 9 25 36]
+[16 20.25; 8 13.5 20 27:; 8 13.5 20 27; 4 9 25 36]
 ```
 
 Written out:
@@ -28,7 +28,7 @@ Written out:
 >>> let y = [2 3 5 6];
 >>> let z = [x y];
 >>> [[x * x, x * y], [y * x, y * y]]
-[16 20.25; 8 13.5 20 27;; 8 13.5 20 27; 4 9 25 36]
+[16 20.25; 8 13.5 20 27:; 8 13.5 20 27; 4 9 25 36]
 ```
 
 * * *

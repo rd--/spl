@@ -11,7 +11,7 @@ Answers the total number of non-collection elements in _aCollection_.
 >>> 1:9.leafCount
 9
 
->>> [1 [2 [3 [4 [5]]]]].leafCount
+>>> [1, [2, [3, [4, [5]]]]].leafCount
 5
 
 >>> (1, (2, (3, (4, 5)))).leafCount

@@ -11,9 +11,19 @@ Allows writing matrices (two dimensional arrays) as a sequence of [Vector Syntax
 [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 ```
 
-This is particularly useful as a part of [Volume Syntax].
+This notation can be used to write irregular arrays:
 
-There is no syntax for writing an empty field.
+```
+>>> [1; 2 3; 4 5 6]
+[[1], [2, 3], [4, 5, 6]]
+```
+
+Empty fields are allowed, both at the start, and the end and in the middle:
+
+```
+>>> [; 2 3; ; 5 6; ]
+[[], [2, 3], [], [5, 6], []]
+```
 
 * * *
 

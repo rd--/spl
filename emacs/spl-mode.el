@@ -407,10 +407,11 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("~=" . ?≠) ; U+2260 ≠ Not equal to
      ("~>" . ?⇝) ; U+21DD ⇝ Rightwards Squiggle Arrow
      ("~~" . ?≢) ; U+2262 ≢ Not Identical To
+     (";:" . ?↲) ; U+21B2 ↲ Downwards Arrow With Tip Leftwards
+
      ;; (")|" . ?⦈) ; U+2988 ⦈ Z Notation Right Image Bracket ; ⦄ ; ⸡
      ;; ("-}" . ?⦄) ; U+2984 ⦄ Right White Curly Bracket
      ;; ("..." . ?‥) ; U+2026 … Horizontal Ellipsis; U+22ef ⋯ Midline Horizontal Ellipsis
-     ;; (";;" . ?⋯)
      ;; ("e" . ?𝑒)
      ;; ("{-" . ?⦃) ; U+2983 ⦃ Left White Curly Bracket
      ;; ("|(" . ?⦇) ; U+2989 ⦇ Z Notation Left Image Bracket

@@ -3639,14 +3639,13 @@ let z = 9; 1:z = 1:9 {- upper bound may be identifier -}
 [1 3 5 2 4] = [1, 3, 5, 2, 4] {- vector syntax, literal items -}
 [9.sqrt 16.sqrt 25.sqrt] = [3, 4, 5] {- vector syntax, simple unary sends -}
 let a = 1; let b = 3; let c = 5; [a b c b a] = [1, 3, 5, 3, 1] {- vector syntax, identifier items -}
-[1 [1 3 [1 3 5] 5] 5] = [1, [1, 3, [1, 3, 5], 5], 5] {- vector syntax, vector items -}
 [1 3; 5 7] = [[1, 3], [5, 7]] {- matrix syntax, literal items -}
 let a = 1; let b = 3; let c = 5; [a b c; c b a] = [[1, 3, 5], [5, 3, 1]] {- matrix syntax, identifier items -}
 [[], [1], [2 3], [4 5 6]] = [[], [1], [2, 3], [4, 5, 6]] {- non-square matrix, there is no syntax for an empty vector field -}
-[[1 2; 3 4] [5 6; 7 8]] = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]] {- vector syntax, matrix items -}
-let a = 1; let b = 3; [[a b; b a] [b a; a b]] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] {- volume syntax, identifier items -}
-[[1 0 0; 0 1 0; 0 0 1] [0 1 0; 1 0 1; 0 1 0] [1 0 1; 0 1 0; 1 0 1]].collect(sum:/1) = [1 1 1; 1 2 1; 2 1 2] {- volume to matrix -}
-[[1 0 0; 0 1 0; 0 0 1] [0 1 0; 1 0 1; 0 1 0]].transposed = [[1 0 0; 0 1 0] [0 1 0; 1 0 1] [0 0 1; 0 1 0]] {- transposedd -}
+[1 2; 3 4:; 5 6; 7 8] = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]] {- matrix syntax -}
+let a = 1; let b = 3; [a b; b a:; b a; a b] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] {- volume syntax, identifier items -}
+[1 0 0; 0 1 0; 0 0 1:; 0 1 0; 1 0 1; 0 1 0:; 1 0 1; 0 1 0; 1 0 1].collect(sum:/1) = [1 1 1; 1 2 1; 2 1 2] {- volume to matrix -}
+[1 0 0; 0 1 0; 0 0 1:; 0 1 0; 1 0 1; 0 1 0].transposed = [1 0 0; 0 1 0:; 0 1 0; 1 0 1:; 0 0 1; 0 1 0] {- transposed -}
 [1 2 3; 4 5 6][2][3] = 6 {- matrix indexing -}
 [1 2 3; 4 5 6].atPath([2]) = [4 5 6] {- matrix indexing; atPath, single index -}
 [1 2 3; 4 5 6].atPath([2, 3]) = 6 {- matrix indexing; atPath, two indices -}

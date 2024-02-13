@@ -17,12 +17,17 @@ Identifier items:
 
 ```
 >>> let x = 1;
->>> let y = 2;
->>> [x y 3]
+>>> let z = 3;
+>>> [x 2 z]
 [1, 2, 3]
 ```
 
-This is particularly useful as a part of [Matrix Syntax] and [Volume Syntax]
+Vector syntax with vector items has been disallowed.
+This syntax is nice for writing tree structures.
+
+```
+[1 [1 3 [1 3 5] 5] 5] = [1, [1, 3, [1, 3, 5], 5], 5]
+```
 
 * * *
 

@@ -19,7 +19,7 @@ Scalar product of vectors in three dimensions:
 Dot product of exact vectors:
 
 ```
->>> [1 2 3 4 5] dot [1 8 9 0 -1]
+>>> [1 2 3 4 5] dot: [1 8 9 0 -1]
 39
 ```
 
@@ -29,7 +29,7 @@ Dot allows complex inputs, but does not conjugate any of them:
 >>> let u = [1 2j-1];
 >>> let z = 7;
 >>> let v = [z 3];
->>> u dot v
+>>> u dot: v
 (6j-3 + z)
 ```
 
@@ -66,11 +66,11 @@ Define a column and row matrices c and r with the same numerical entries as v.
 Products involving m, c and r have the same entries as those involving m and v, but are all matrices.
 
 ```
->>> let m = [[1 2] [3 4]];
->>> let c = [[5] [6]];
+>>> let m = [1 2; 3 4];
+>>> let c = [5; 6];
 >>> let r = [[5 6]];
 >>> (r.dot(m), m.dot(c), r.dot(m).dot(c))
-([[23 34]], [[17] [39]], [[319]])
+([[23, 34]], [17; 39], [[319]])
 ```
 
 Define a matrix and two vectors.

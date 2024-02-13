@@ -344,7 +344,7 @@ const asJs: ohm.ActionDict<string> = {
 			`${lhs.sourceString} := ${lhs.sourceString} ${op.asJs} (${rhs.sourceString})`;
 		return rewriteString(text);
 	},
-	infixMethod(name) {
+	infixMethod(name, _colon) {
 		return `_${genName(name.sourceString, 2)}`;
 	},
 	operator(op) {
@@ -576,7 +576,12 @@ const asJs: ohm.ActionDict<string> = {
 	) {
 		return `_${genName('thenTo', 3)}(${start.asJs}, ${then.asJs}, ${end.asJs})`;
 	},
+	EmptyListSyntax(_leftBracket, _rightBracket) {
+		// console.debug('EmptyListSyntax');
+		return '[]';
+	},
 	VectorSyntax(_leftBracket, items, _rightBracket) {
+		// console.debug('VectorSyntax', items.sourceString);
 		return `[${commaList(items.children)}]`;
 	},
 	VectorSyntaxUnarySend(lhs, _dot_, rhs) {
@@ -588,12 +593,14 @@ const asJs: ohm.ActionDict<string> = {
 		}(${start.asJs}, ${end.asJs}))`;
 	},
 	MatrixSyntax(_leftBracket, items, _rightBracket) {
+		// console.debug('MatrixSyntax', items.sourceString);
 		return `[${commaList(items.asIteration().children)}]`;
 	},
 	MatrixSyntaxItems(items) {
 		return `[${commaList(items.children)}]`;
 	},
 	VolumeSyntax(_leftBracket, items, _rightBracket) {
+		// console.debug('VolumeSyntax', items.sourceString);
 		return `[${commaList(items.asIteration().children)}]`;
 	},
 	VolumeSyntaxItems(items) {

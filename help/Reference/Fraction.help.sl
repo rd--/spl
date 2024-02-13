@@ -150,14 +150,14 @@ The letter _r_ abbreviates _Fraction_ (_r_ for _rational_), in the same manner t
 Written using [Infix Method Syntax] this provides a concise notation for writing Fractions with LargeInteger parts:
 
 ```
->>> (2n r 3n).asTuple
+>>> (2n r: 3n).asTuple
 (2n, 3n)
 ```
 
 Enter a rational number with very big integers in the numerator and denominator:
 
 ```
->>> let n = 1237918739182739817238917127398123n r 12809812308120812038038101n;
+>>> let n = 1237918739182739817238917127398123n r: 12809812308120812038038101n;
 >>> (n.numerator, n.denominator)
 (1237918739182739817238917127398123n, 12809812308120812038038101n)
 ```
@@ -187,8 +187,8 @@ This is a close approximation to 2.sqrt:
 
 ```
 >>> let f = { :r | let [x, y] = r.asTuple; (x ^ 2 + (2 * (y ^ 2))).r(2 * x * y) };
->>> (f:/1.iterate(3/2, 4), f:/1.iterate(3n r 2n, 5))
-(886731088897 r 627013566048, 1572584048032918633353217n r 1111984844349868137938112n)
+>>> (f:/1.iterate(3/2, 4), f:/1.iterate(3n r: 2n, 5))
+(886731088897 r: 627013566048, 1572584048032918633353217n r: 1111984844349868137938112n)
 
 >>> 886731088897 / 627013566048
 2.sqrt

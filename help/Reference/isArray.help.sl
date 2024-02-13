@@ -21,7 +21,7 @@ true
 Volumes are arrays:
 
 ```
->>> [1 2; 3 4;; 5 6; 7 8].isArray
+>>> [1 2; 3 4 :; 5 6; 7 8].isArray
 true
 ```
 
@@ -36,17 +36,17 @@ true
 A vector in which one element is itself a list is not a full array:
 
 ```
->>> [1 2 [3] 4].isArray
+>>> [1, 2, [3], 4].isArray
 false
 ```
 
 A ragged collection of nested lists is not a full array:
 
 ```
->>> [[1 2] [3]].isArray
+>>> [1 2; 3].isArray
 false
 
->>> [[1 2] [3 4]].isArray
+>>> [1 2; 3 4].isArray
 true
 ```
 

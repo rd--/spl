@@ -64,17 +64,18 @@ Sl {
 		| ApplyWithTrailingClosuresSyntax
 		| ApplySyntax
 		| MessageSendSyntax
+        | EmptyListSyntax
+		| VectorSyntax
+		| MatrixSyntax
+		| VolumeSyntax
 		| reservedIdentifier
 		| literal
 		| identifier
 		| operator
-		| VectorSyntax
-		| MatrixSyntax
-		| VolumeSyntax
+		| ListExpression
 		| ParenthesisedExpression
 		| DictionaryExpression
 		| TupleExpression
-		| ListExpression
 		| ListIntervalSyntax
 		| ListIntervalThenSyntax
 		| IntervalSyntax
@@ -125,13 +126,14 @@ Sl {
 	ListIntervalThenSyntax = "[" Expression "," Expression ".." Expression "]"
 	IntervalSyntax = "(" Expression ".." Expression ")"
 	IntervalThenSyntax = "(" Expression "," Expression ".." Expression ")"
+	EmptyListSyntax = "[" "]"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
-	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | varName | VectorSyntax | MatrixSyntax
+	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | varName
 	VectorSyntaxUnarySend = (literal | varName) "." selectorName
 	VectorSyntaxRange = integerLiteral ".." integerLiteral // ?
 	MatrixSyntax = "[" NonemptyListOf<MatrixSyntaxItems, ";"> "]"
-	MatrixSyntaxItems = VectorSyntaxItem+
-	VolumeSyntax = "[" NonemptyListOf<VolumeSyntaxItems, ";;"> "]"
+	MatrixSyntaxItems = VectorSyntaxItem*
+	VolumeSyntax = "[" NonemptyListOf<VolumeSyntaxItems, ":;"> "]"
 	VolumeSyntaxItems = NonemptyListOf<MatrixSyntaxItems, ";">
 
 	unqualifiedIdentifier = letter letterOrDigit*
@@ -151,11 +153,11 @@ Sl {
 	keyName = lowercaseIdentifier | uppercaseIdentifier
 	letterOrDigit = letter | digit
 	reservedIdentifier = "nil" | "true" | "false"
-	infixMethod = lowercaseIdentifier
+	infixMethod = lowercaseIdentifier ":"
 	operator = operatorChar+
 	operatorWithAdverb = operatorWithBinaryAdverb | operatorWithUnaryAdverb
-	operatorWithUnaryAdverb = (operator | infixMethod) "." selectorName
-	operatorWithBinaryAdverb = (operator | infixMethod) "." selectorName "(" (methodName | numberLiteral) ")"
+	operatorWithUnaryAdverb = (operator | lowercaseIdentifier) "." selectorName
+	operatorWithBinaryAdverb = (operator | lowercaseIdentifier) "." selectorName "(" (methodName | numberLiteral) ")"
 	operatorChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 	operatorAssignment = operatorChar ":" "="
 
