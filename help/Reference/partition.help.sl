@@ -81,6 +81,20 @@ In some cases _concatenation_ is an inverse of _partition_:
 l
 ```
 
+The empty sequence has no partitions:
+
+```
+>>> [].partition(2, 1)
+[]
+```
+
+A sequence has one zero partition:
+
+```
+>>> 1:3.partition(0, 1)
+[[]]
+```
+
 * * *
 
 See also: pairsCollect, pairsDo, partitionDo, windowedReduce

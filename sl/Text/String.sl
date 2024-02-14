@@ -428,6 +428,14 @@ String! : [Object, Json, Iterable] {
 		<primitive: return _self.split(/\r?\n/);>
 	}
 
+	longestCommonSubsequences { :self :aString |
+		self.asList.longestCommonSubsequences(aString.asList).collect(join:/1)
+	}
+
+	longestCommonSubsequence { :self :aString |
+		self.asList.longestCommonSubsequence(aString.asList).join
+	}
+
 	markdownToHtml { :self |
 		<primitive:
 		const reader = new commonmark.Parser({smart: true});

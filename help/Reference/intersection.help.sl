@@ -23,6 +23,13 @@ If there is no intersection, the result is []:
 []
 ```
 
+Comparison is by equality:
+
+```
+>>> [1 2; 3 4; 5 6].intersection([5 6; 7 8; 9 10])
+[[5, 6]]
+```
+
 * * *
 
 See also: difference, union

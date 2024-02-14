@@ -940,6 +940,31 @@
 		}
 	}
 
+	longestCommonSubsequences { :self :aSequence |
+		let find = { :k |
+			self.partition(k, 1).intersection(aSequence.partition(k, 1))
+		};
+		let n = self.size.min(aSequence.size);
+		valueWithReturn { :return:/1 |
+			n.downTo(1).do { :k |
+				let common = find(k);
+				common.isEmpty.ifFalse {
+					common.return
+				}
+			};
+			[]
+		}
+	}
+
+	longestCommonSubsequence { :self :aSequence |
+		let common = self.longestCommonSubsequences(aSequence);
+		common.isEmpty.if {
+			[]
+		} {
+			common.first
+		}
+	}
+
 	manhattanDistance { :self :aSequence |
 		(self - aSequence).abs.sum
 	}
@@ -1001,10 +1026,16 @@
 	}
 
 	partitionDo { :self :windowSize :stepSize :aBlock:/1 |
-		let answer = List(windowSize);
-		1.toByDo(self.size - windowSize + 1, stepSize) { :index |
-			self.copyFromToInto(index, index + windowSize - 1, answer);
-			aBlock(answer)
+		(windowSize <= self.size).ifTrue {
+			(windowSize = 0).if {
+				aBlock([])
+			} {
+				let answer = List(windowSize);
+				1.toByDo(self.size - windowSize + 1, stepSize) { :index |
+					self.copyFromToInto(index, index + windowSize - 1, answer);
+					aBlock(answer)
+				}
+			}
 		}
 	}
 
@@ -1476,6 +1507,30 @@
 			lastIndex := nextIndex + aCollection.size
 		};
 		aBlock(self.copyFromTo(lastIndex, self.size))
+	}
+
+	subsequencesDo { :self :aBlock:/1 |
+		0.toDo(self.size) { :each |
+			self.partitionDo(each, 1, aBlock:/1)
+		}
+	}
+
+	subsequences { :self :aPredicate:/1 |
+		let answer = [];
+		self.subsequencesDo { :each |
+			aPredicate(each).ifTrue {
+				answer.add(each.copy)
+			}
+		};
+		answer
+	}
+
+	subsequences { :self |
+		self.subsequences(true.constant)
+	}
+
+	subsequencesInCommon { :self :aSequence :k |
+		self.partition(k, 1).intersection(aSequence.partition(k, 1))
 	}
 
 	swapWith { :self :oneIndex :anotherIndex |
