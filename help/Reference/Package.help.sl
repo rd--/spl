@@ -1,4 +1,4 @@
-# Package -- system library organisation
+# Package
 
 A Package is a named collections of types, traits and methods.
 
@@ -11,4 +11,8 @@ The following trait packages are considered to be part of the _Kernel_ and do no
 
 The following types packages are considered to be part of the _Kernel_ and do not need to be required:
 
-- Association, List, Boolean, Error, Interval, Map, Nil, Block, Promise, Record, Reponse, SmallFloat, String, System, Void
+- Association, List, Boolean, Error, Range, Map, Nil, Block, Promise, Record, Reponse, SmallFloat, String, System, Void
+
+* * *
+
+Categories: System, Library, Organisation

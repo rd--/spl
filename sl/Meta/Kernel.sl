@@ -39,7 +39,7 @@
 	{- Collection Types -}
 	'Association'
 	'List'
-	'Interval'
+	'Range'
 	'Record'
 	'Map' {- > Record -}
 ].primitiveLoadPackageSequence

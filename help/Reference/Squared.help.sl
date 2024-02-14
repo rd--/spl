@@ -1,1 +1,8 @@
-# Squared -- squared value
+# Squared
+
+Squared value.
+
+* * *
+
+See also: Sqrt
+

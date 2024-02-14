@@ -20,7 +20,7 @@ Float32Array! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSeq
 
 }
 
-+[List, Interval] {
++[List, Range] {
 
 	asFloat32Array { :self |
 		Float32Array(self.size).fillFrom(self)

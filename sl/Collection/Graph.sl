@@ -31,7 +31,7 @@ Graph : [Object] { | size edges vertexLabels edgeLabels |
 	}
 
 	vertices { :self |
-		Interval(1, self.size, 1)
+		Range(1, self.size, 1)
 	}
 
 }

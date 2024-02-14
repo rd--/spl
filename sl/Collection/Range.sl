@@ -1,28 +1,28 @@
-Interval : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step |
+Range : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step |
 
-	= { :self :anInterval |
-		anInterval.isInterval & {
-			self.start = anInterval.start & {
-				self.stop = anInterval.stop & {
-					self.step = anInterval.step
+	= { :self :operand |
+		operand.isRange & {
+			self.start = operand.start & {
+				self.stop = operand.stop & {
+					self.step = operand.step
 				}
 			}
 		}
 	}
 
-	+ { :self :arg |
-		arg.isSmallFloat.if {
-			Interval(self.start + arg, self.stop + arg, self.step)
+	+ { :self :operand |
+		operand.isSmallFloat.if {
+			Range(self.start + operand, self.stop + operand, self.step)
 		} {
-			arg.adaptToCollectionAndApply(self, +)
+			operand.adaptToCollectionAndApply(self, +)
 		}
 	}
 
-	- { :self :arg |
-		arg.isSmallFloat.if {
-			Interval(self.start - arg, self.stop - arg, self.step)
+	- { :self :operand |
+		operand.isSmallFloat.if {
+			Range(self.start - operand, self.stop - operand, self.step)
 		} {
-			arg.adaptToCollectionAndApply(self, -)
+			operand.adaptToCollectionAndApply(self, -)
 		}
 	}
 
@@ -93,6 +93,10 @@ Interval : [Object, Iterable, Collection, Indexable, Sequence] { | start stop st
 		self
 	}
 
+	emptyError { :self :methodName |
+		self.error('Range>>' ++ methodName ++ ': empty')
+	}
+
 	increment { :self |
 		self.step
 	}
@@ -103,7 +107,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequence] { | start stop st
 
 	last { :self |
 		self.ifEmpty {
-			'last: empty interval'
+			self.emptyError('last')
 		} {
 			self.stop - (self.stop - self.start % self.step)
 		}
@@ -123,7 +127,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequence] { | start stop st
 
 	removeFirst { :self |
 		self.isEmpty.if {
-			self.error('removeFirst: empty interval')
+			self.emptyError('removeFirst')
 		} {
 			let removed = self.start;
 			self.start := self.start + self.step;
@@ -133,7 +137,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequence] { | start stop st
 
 	removeLast { :self |
 		self.isEmpty.if {
-			self.error('removeLast: empty interval')
+			self.emptyError('removeLast')
 		} {
 			let removed = self.stop;
 			self.stop := self.stop - self.step;
@@ -143,9 +147,9 @@ Interval : [Object, Iterable, Collection, Indexable, Sequence] { | start stop st
 
 	reversed { :self |
 		self.isEmpty.if {
-			Interval(self.stop, self.start, self.step.negated)
+			Range(self.stop, self.start, self.step.negated)
 		} {
-			Interval(self.last, self.start, self.step.negated)
+			Range(self.last, self.start, self.step.negated)
 		}
 	}
 
@@ -193,7 +197,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequence] { | start stop st
 
 	storeString { :self |
 		[
-			'Interval(',
+			'Range(',
 				self.start,
 				', ',
 				self.stop,
@@ -215,27 +219,27 @@ Interval : [Object, Iterable, Collection, Indexable, Sequence] { | start stop st
 		(stop > self).ifTrue {
 			self.error('downTo: non descending')
 		};
-		Interval(self, stop, -1)
+		Range(self, stop, -1)
 	}
 
-	Interval { :start :stop :step |
-		newInterval().initializeSlots(start, stop, step)
+	Range { :start :stop :step |
+		newRange().initializeSlots(start, stop, step)
 	}
 
 	thenTo { :self :second :last |
-		Interval(self, last, second - self)
+		Range(self, last, second - self)
 	}
 
 	to { :self :stop |
-		Interval(self, stop, 1)
+		Range(self, stop, 1)
 	}
 
 	toBy { :self :stop :step |
-		Interval(self, stop, step)
+		Range(self, stop, step)
 	}
 
 	upOrDownTo { :self :stop |
-		Interval(
+		Range(
 			self,
 			stop,
 			(self <= stop).if {
@@ -250,7 +254,7 @@ Interval : [Object, Iterable, Collection, Indexable, Sequence] { | start stop st
 		(stop < self).ifTrue {
 			self.error('upTo: non ascending')
 		};
-		Interval(self, stop, 1)
+		Range(self, stop, 1)
 	}
 
 }

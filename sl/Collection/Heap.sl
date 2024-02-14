@@ -215,7 +215,7 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 
 }
 
-+Interval {
++Range {
 
 	asHeap { :self |
 		self.asList.asHeap

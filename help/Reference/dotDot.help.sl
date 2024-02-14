@@ -1,18 +1,17 @@
 # ..
 
-Range operator syntax.
+.. is a syntax token, it is not an operator.
 
-- _(from .. to)_: create an _Interval_ from _from_ to _to_
-- _[from .. to]_: create a _List_ with elements from _from_ to _to_
+It forms a part of [Range Syntax].
 
-Interval case:
+The notation _(from .. to)_ create a _Range_ from _from_ to _to_.
 
 ```
 >>> (1 .. 9)
-Interval(1, 9, 1)
+Range(1, 9, 1)
 ```
 
-List case:
+The notation _[from .. to]_ creates a _List_ with elements from _from_ to _to_.
 
 ```
 >>> [1 .. 9]
@@ -21,6 +20,6 @@ List case:
 
 * * *
 
-See also: [Interval Syntax]
+See also: [Range Syntax]
 
 Categories: Syntax

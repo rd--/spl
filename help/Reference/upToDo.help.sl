@@ -7,6 +7,6 @@ Unlike _toDo_ it is an error if stop is less than start.
 
 * * *
 
-See also: downTo, Interval, thenTo, to, toBy
+See also: downTo, Range, thenTo, to, toBy
 
-Categories: Interval
+Categories: Range

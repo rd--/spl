@@ -12,7 +12,7 @@ let lfo = { :rt | LfNoise1(rt ! 2) };
 	z := Brf(
 		z,
 		Rand(100, 15000) * (0.75 + (lfo(Rand(0, 8)) * 0.25)),
-		lfo(Rand(0, 8)).Range(0.05, 1)
+		lfo(Rand(0, 8)).LinLin(-1, 1, 0.05, 1)
 	)
 };
 z
@@ -24,7 +24,7 @@ let lfo = { :rt | LfPulse(rt ! 2, 0, 0.5) };
 	z := Brf(
 		z,
 		Rand(100, 15000) * (0.75 + (lfo(Rand(0, 0.5)) * 0.25)),
-		lfo(Rand(0, 0.5)).Range(0.05, 1)
+		lfo(Rand(0, 0.5)).LinLin(-1, 1, 0.05, 1)
 	)
 };
 z

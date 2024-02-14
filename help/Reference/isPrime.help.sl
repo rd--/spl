@@ -41,7 +41,7 @@ Threads over lists:
 
 ```
 >>> 1:6.isPrime
-[false, true, true, false, true, false]
+[false true true false true false]
 ```
 
 Recognize Wieferich primes, prime numbers _p_ such that _p^2_ divides _2^(p-1) - 1_:

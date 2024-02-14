@@ -19,7 +19,7 @@ The product of an empty collection is one:
 1
 ```
 
-Factorial is product of an Interval:
+Factorial is product of a Range:
 
 ```
 >>> 9.factorial
@@ -34,4 +34,4 @@ See also: injectInto, reduce, sum
 
 Unicode: U+03A0 Π Greek capital letter pi
 
-Categories: Math operator
+Categories: Math, Operator

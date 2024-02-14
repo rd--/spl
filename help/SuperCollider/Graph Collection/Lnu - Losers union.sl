@@ -35,7 +35,7 @@ Splay(
 {- ChaosGen writes melodies ; https://github.com/lukiss/Losers-Union-SC-Research -}
 let f = DegreeToKey(
 	[0 2 3 5 7 8 10].asLocalBuf,
-	GbmanN([8 4 6 2], 1.2, 2.1).Range(8, 32).Ceiling,
+	GbmanN([8 4 6 2], 1.2, 2.1).LinLin(-1, 1, 8, 32).Ceiling,
 	12
 ).MidiCps;
 let m = SinOsc([8 4 0.5 1], 0);
@@ -604,7 +604,7 @@ let p = (1 - g).LinLin(0, 1, -1, 1);
 let nf = 48000; {- sample rate -}
 let b = 1000; {- BufAlloc(1, nf).BufClear -}
 let n = LeakDc(
-	StandardL(22050, LfNoise1(1).Range(0.72, 1.40), 0.5, 0),
+	StandardL(22050, LfNoise1(1).LinLin(-1, 1, 0.72, 1.40), 0.5, 0),
 	0.995
 );
 let z = Sweep(0, 1 - n.ExpRange(0.01, 1)) % 1 * nf;
@@ -640,7 +640,7 @@ let tab = [
 	[400 750 2400 2600 2900; 40 80 100 120 120; 0 -11 -21 -20 -40]
 	[350 600 2400 2675 2950; 40 80 100 120 120; 0 -20 -32 -28 -36]
 ];
-let x = LorenzL(24, 10, 28, 2.667, 0.05, 0.1, 0, 0).Sin.Range(1, 4) / Diwhite(inf, 2, 10);
+let x = LorenzL(24, 10, 28, 2.667, 0.05, 0.1, 0, 0).Sin.LinLin(-1, 1, 1, 4) / Diwhite(inf, 2, 10);
 let dur = Duty(x, 0, x);
 let trg = TDuty(dur, 0, 1);
 let mel = 26:42.degreeToKey([0 2 4 5 7 9 11], 12);
@@ -650,7 +650,7 @@ let mnn = Demand(
 	Dseq(inf, mel.scramble)
 );
 let env = Adsr(
-	Trig(trg, dur * LfNoise2(4).Range(0.5, 1)),
+	Trig(trg, dur * LfNoise2(4).LinLin(-1, 1, 0.5, 1)),
 	dur / 48,
 	1 / 4,
 	1,

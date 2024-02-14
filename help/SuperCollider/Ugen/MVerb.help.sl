@@ -18,7 +18,7 @@ MVerb(
 let freq = [1, 2.1, 2.9] * 1000;
 let src = Resonz({ Dust([0.25, 0.5]) } ! 3, freq, 0.01).Sum * 33;
 let noiseIn = { :min :max |
-	LfNoise2(1).Range(min, max)
+	LfNoise2(1).LinLin(-1, 1, min, max)
 };
 let dampingFreq = 0.1;
 let density = noiseIn(0.1, 0.9);

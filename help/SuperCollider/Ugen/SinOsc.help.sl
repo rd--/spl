@@ -122,8 +122,8 @@ SinOsc([freqSweep, freqSweep + 400], 0).mean
 {- SinOsc -}
 SinOsc(
 	LfNoise2(
-		SinOsc([3, 5], 0).Range([2, 7], 35)
-	).Range(100, [200, 300]),
+		SinOsc([3, 5], 0).LinLin(-1, 1, [2, 7], 35)
+	).LinLin(-1, 1, 100, [200, 300]),
 	0
 ) * 0.1
 
@@ -132,7 +132,7 @@ let modFreq = [400, MouseX(400, 700, 1, 0.2)];
 let modDev = SinOsc(LfNoise2(1) + 1, 0).Abs * 1200;
 let modOsc = SinOsc(modFreq, 0) * modDev;
 let carFreq = [400, MouseY(400, 500, 1, 0.2)];
-SinOsc(carFreq + modOsc, 0) * LfNoise2([1, 2]).Range(0, 0.1)
+SinOsc(carFreq + modOsc, 0) * LfNoise2([1, 2]).LinLin(-1, 1, 0, 0.1)
 
 {- SinOsc ; simple fm -}
 let modFreq = MouseX(1, 1000, 1, 0.2);
@@ -231,7 +231,7 @@ Select(MouseX(0, 4, 0, 0.2), operations) * 0.1
 
 {- https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft -}
 let o = { :freq :lo :hi |
-	SinOsc(freq, 0).Range(lo, hi)
+	SinOsc(freq, 0).LinLin(-1, 1, lo, hi)
 };
 SinOsc(
 	o(

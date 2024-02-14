@@ -10,7 +10,7 @@ LeakDc(a, 0.995) * 0.1
 let k = 8;
 let tr = Impulse(MouseY(1, 999, 0, 0.2), 0);
 let l = 0:15.collect { :i |
-	i ^ LfNoise0(1).Range(0.3, 0.7) + 1 * 99
+	i ^ LfNoise0(1).LinLin(-1, 1, 0.3, 0.7) + 1 * 99
 };
 GrainSin(
 	k,

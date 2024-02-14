@@ -8,7 +8,7 @@
 			TRand(0, 6, tr),
 			0,
 			1
-		).Lag(LfNoise2(0.3).Range(0.01, 0.1))
+		).Lag(LfNoise2(0.3).LinLin(-1, 1, 0.01, 0.1))
 	};
 	EqPan2(
 		SinOsc([60 62 64 65 67 69].rd.MidiCps, 0),

@@ -11,7 +11,7 @@ At a heterogeneous List:
 ['SmallFloat' 'Fraction' 'Complex' 'String' 'LargeInteger'].asSet
 ```
 
-At an Interval:
+At a Range:
 
 ```
 >>> 1:9.elementTypes

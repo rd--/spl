@@ -6,7 +6,7 @@ Evaluate _aBlock_ with each element of _aCollection_ as the argument.
 Collect the resulting values into a collection like the receiver.
 Answer the new collection.
 
-At Interval:
+At Range:
 
 ```
 >>> (2, 6 .. 14).collect { :x | x * x }

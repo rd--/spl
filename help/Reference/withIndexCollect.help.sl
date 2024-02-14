@@ -4,7 +4,7 @@
 
 Like _withCollect_ except that the iteration index supplies the second argument to the block.
 
-At Interval:
+At Range:
 
 ```
 >>> 9:1.withIndexCollect { :each :index | each * 2 + index }

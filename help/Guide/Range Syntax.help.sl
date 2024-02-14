@@ -1,16 +1,16 @@
-# Interval Syntax
+# Range Syntax
 
-There are syntaxes to form both _Interval_ values:
+There are syntaxes to form both _Range_ values:
 
-- _(start .. end)_ ⇒ _Interval_
-- _(start, then .. end)_ ⇒ _Interval_
+- _(start .. end)_ ⇒ _Range_
+- _(start, then .. end)_ ⇒ _Range_
 
 ```
 >>> (1 .. 9)
-Interval(1, 9, 1)
+Range(1, 9, 1)
 
 >>> (1, 3 .. 9)
-Interval(1, 9, 3 - 1)
+Range(1, 9, 3 - 1)
 ```
 
 and _List_ values:
@@ -38,17 +38,17 @@ In the literal form, as with literal Fractions, white space is significant, and 
 
 ```
 >>> 1:9
-Interval(1, 9, 1)
+Range(1, 9, 1)
 
 >>> let k = 9;
 >>> 1:k
-Interval(1, 9, 1)
+Range(1, 9, 1)
 ```
 
 Where supported the notations _.._ and _:_ are displayed as _‥_.
 
 _Note_:
-In Smalltalk `alpha to: beta` is an empty interval if alpha <= beta.
+In Smalltalk `alpha to: beta` is an empty Range if alpha <= beta.
 The re-write rule here calls `upOrDownTo` which allows descending intervals to be specified.
 Care must be taken not to use `(alpha .. beta)` where `alpha.to(beta)` is required.
 In notation `alpha:beta` is from Fortress.
@@ -57,7 +57,7 @@ i.e. _[p..q]_ would be an array of one interval, and not equal to _[p .. q]_.
 
 * * *
 
-See also: Interval, List, thenTo, upOrDownTo
+See also: List, Range, thenTo, upOrDownTo
 
 References:
 _Fortress_

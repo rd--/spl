@@ -21,6 +21,6 @@ let freq = 8.arithmeticSeries(start, step);
 
 * * *
 
-See also: geometricSeries, Interval
+See also: geometricSeries, Range
 
 Categories: Arithmetic

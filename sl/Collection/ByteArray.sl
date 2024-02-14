@@ -92,7 +92,7 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 
 }
 
-+[List, Interval] {
++[List, Range] {
 
 	asByteArray { :self |
 		ByteArray(self.size).fillFrom(self)

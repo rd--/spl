@@ -27,7 +27,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 	],
 	'Collection-Ordered': [
 		'Heap'
-		'Interval'
+		'Range'
 		'PriorityQueue'
 	],
 	'Collection-Stream': [
@@ -819,7 +819,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'Fraction'
 		'Frequency'
 		'Heap'
-		'Interval'
+		'Range'
 		'LargeInteger'
 		'LinkedList'
 		'Map'
@@ -1279,7 +1279,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isFrequency'
 		'isGraph'
 		'isHeap'
-		'isInterval'
+		'isRange'
 		'isLargeInteger'
 		'isLibraryItem'
 		'isLinkedList'

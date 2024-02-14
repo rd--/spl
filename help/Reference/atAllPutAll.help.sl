@@ -12,7 +12,7 @@ Answer _valueList_.
 ([1 2 7 6 5 4 3 8 9], [7 .. 3])
 ```
 
-Using Intervals as indices and values:
+Using Range as indices and values:
 
 ```
 >>> let l = [1 .. 9];

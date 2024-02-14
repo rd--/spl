@@ -76,10 +76,10 @@ Sl {
 		| ParenthesisedExpression
 		| DictionaryExpression
 		| TupleExpression
-		| ListIntervalSyntax
-		| ListIntervalThenSyntax
-		| IntervalSyntax
-		| IntervalThenSyntax
+		| ListRangeSyntax
+		| ListRangeThenSyntax
+		| RangeSyntax
+		| RangeThenSyntax
 
 	AtPutSyntax = Primary "[" NonemptyListOf<Expression, ","> "]" ":=" Expression
 	QuotedAtPutSyntax = Primary "::" keyName ":=" Expression
@@ -122,10 +122,10 @@ Sl {
 	StringAssociation = singleQuotedStringLiteral ":" Expression
 	TupleExpression = "(" NonemptyListOf<Expression, ","> ")"
 	ListExpression = "[" ListOf<Expression, ","> "]"
-	ListIntervalSyntax = "[" Expression ".." Expression "]"
-	ListIntervalThenSyntax = "[" Expression "," Expression ".." Expression "]"
-	IntervalSyntax = "(" Expression ".." Expression ")"
-	IntervalThenSyntax = "(" Expression "," Expression ".." Expression ")"
+	ListRangeSyntax = "[" Expression ".." Expression "]"
+	ListRangeThenSyntax = "[" Expression "," Expression ".." Expression "]"
+	RangeSyntax = "(" Expression ".." Expression ")"
+	RangeThenSyntax = "(" Expression "," Expression ".." Expression ")"
 	EmptyListSyntax = "[" "]"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
 	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | varName
@@ -161,9 +161,9 @@ Sl {
 	operatorChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 	operatorAssignment = operatorChar ":" "="
 
-	literal = intervalLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
+	literal = rangeLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
 	numberLiteral = scientificLiteral | complexLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
-	intervalLiteral = integerLiteral ":" (integerLiteral | identifier)
+	rangeLiteral = integerLiteral ":" (integerLiteral | identifier)
 	floatLiteral = "-"? digit+ "." digit+
 	scientificLiteral = (floatLiteral | integerLiteral) "e" integerLiteral
 	complexLiteral = (floatLiteral | integerLiteral) ("j" | "J") (floatLiteral | integerLiteral)

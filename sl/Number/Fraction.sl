@@ -267,7 +267,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	raisedToInteger { :self :anInteger |
 		(anInteger = 0).if {
-			1
+			self.one
 		} {
 			(anInteger < 0).if {
 				self.reciprocal.raisedToInteger(anInteger.negated)

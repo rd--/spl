@@ -10,7 +10,7 @@ Voicer(1, 16) { :e |
 	let overlapB = TChoose(e.w, [0.5 1 2]) * withMod.if { e.y * 2 } { 1 };
 	let attackTime = f2.LinLin(50, 1500, 0.1, 0.02);
 	let e0 = Perc(e.w, attackTime, Rand(1, 7), -4);
-	let e1 = e0 * PinkNoise().Range(0.1, 1).Lag(0.02);
+	let e1 = e0 * PinkNoise().LinLin(-1, 1, 0.1, 1).Lag(0.02);
 	let p = e.j * 2 - 1;
 	let gTrg = Impulse(f1, 0);
 	let fund = GrainSin(1, gTrg, overlapA * (1.05 - e1.Pow(1.1)) / f1, f1, p, -1, 512);

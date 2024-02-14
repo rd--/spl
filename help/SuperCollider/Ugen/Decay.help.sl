@@ -25,7 +25,7 @@ Dust(1).Mul(0.25).Decay(0.2).Mul(PinkNoise()).AllpassN(0.2, 0.2, 3)
 
 {- Dust ; as envelope ; left-to-right -}
 let lfo = { :freq :lo :hi |
-	LfNoise2(freq).Range(lo, hi)
+	LfNoise2(freq).LinLin(-1, 1, lo, hi)
 };
 Dust([3 / 5, 5 / 7])
 	.Mul(1 / 4)

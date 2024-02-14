@@ -820,7 +820,7 @@
 
 }
 
-+Interval {
++Range {
 
 	MulAdd { :self :mul :add |
 		self * mul + add

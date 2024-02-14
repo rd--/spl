@@ -6,7 +6,7 @@ let sources = [
 	PinkNoise(2),
 	LfdNoise3(10000) * 0.1
 ];
-let u1 = SelectX(LfdNoise1(4).Range(0, sources.size), sources) * 0.1;
+let u1 = SelectX(LfdNoise1(4).LinLin(-1, 1, 0, sources.size), sources) * 0.1;
 let u2 = u1 + DelayN(u1, 0.1, [0.001, 0.0012]) * 0.1;
 let u3 = { Rlpf(u2, { Rand(100.0, 340) * aside } ! 4, 0.2).Sum } ! 2;
 let u4 = CombL(u3.reversed, 0.05, 0.05, 0.3) * 0.3 * LfNoise2(0.2).Max(0) + u3;

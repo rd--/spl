@@ -85,14 +85,14 @@ sl.copyTraitToType(
 	return `${addType}\n\n${copyTraits}\n\n${addMethods}\n`;
 }
 
-function genInterval(start: ohm.Node, end: ohm.Node): string {
-	// console.debug('intervalSyntax');
+function genRange(start: ohm.Node, end: ohm.Node): string {
+	// console.debug('genRange');
 	return `_${genName('upOrDownTo', 2)}(${start.asJs}, ${end.asJs})`;
 }
 
-function genListInterval(start: ohm.Node, end: ohm.Node): string {
-	// console.debug('genListInterval');
-	return `_${genName('asList', 1)}(${genInterval(start, end)})`;
+function genListRange(start: ohm.Node, end: ohm.Node): string {
+	// console.debug('genListRange');
+	return `_${genName('asList', 1)}(${genRange(start, end)})`;
 }
 
 const asJs: ohm.ActionDict<string> = {
@@ -546,10 +546,10 @@ const asJs: ohm.ActionDict<string> = {
 		// console.debug('TupleExpression', elem.length);
 		return `_asTuple_1([${commaList(elem)}])`;
 	},
-	ListIntervalSyntax(_leftBracket, start, _dotDot, end, _rightBracket) {
-		return genListInterval(start, end);
+	ListRangeSyntax(_leftBracket, start, _dotDot, end, _rightBracket) {
+		return genListRange(start, end);
 	},
-	ListIntervalThenSyntax(
+	ListRangeThenSyntax(
 		_leftBracket,
 		start,
 		_comma_,
@@ -562,10 +562,10 @@ const asJs: ohm.ActionDict<string> = {
 			genName('thenTo', 3)
 		}(${start.asJs}, ${then.asJs}, ${end.asJs}))`;
 	},
-	IntervalSyntax(_leftParen, start, _dotDot, end, _rightParen) {
-		return genInterval(start, end);
+	RangeSyntax(_leftParen, start, _dotDot, end, _rightParen) {
+		return genRange(start, end);
 	},
-	IntervalThenSyntax(
+	RangeThenSyntax(
 		_leftParen,
 		start,
 		_comma_,
@@ -649,9 +649,9 @@ const asJs: ohm.ActionDict<string> = {
 	operatorAssignment(op, _colon, _equals) {
 		return op.sourceString;
 	},
-	intervalLiteral(start, _colon, end) {
-		// console.debug('integerIntervalLiteral', start.sourceString, end.sourceString);
-		return genInterval(start, end);
+	rangeLiteral(start, _colon, end) {
+		// console.debug('rangeLiteral', start.sourceString, end.sourceString);
+		return genRange(start, end);
 	},
 	floatLiteral(s, i, _, f) {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;

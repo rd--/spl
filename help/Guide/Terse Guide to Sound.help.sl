@@ -37,7 +37,7 @@ let r = [1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/63,
 
 ## Music-RatioTuning
 ```
-let r = RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2); [r.size, r.limit, r.cents.rounded] = [5 7 [0 231 498 765 996]]
+let r = RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2); [r.size, r.limit, r.cents.rounded] = [5, 7, [0, 231, 498, 765, 996]]
 RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2).integers =  [63 72 84 98 112]
 IntegerTuning('', '', [63 72 84 98 112], 2).ratios = [1/1 8/7 4/3 14/9 16/9]
 RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2) = IntegerTuning('', '', [63 72 84 98 112], 2)
@@ -203,9 +203,9 @@ List(4).fill { :i | i * 2 } = [2, 4, 6, 8] {- fill list using block at indicies 
 1:5.slide(3, 1) = [1 2 3 2 3 4 3 4 5] {- adjacent elements given windowLength and stepSize -}
 1:7.slide(3, 2) = [1 2 3 3 4 5 5 6 7] {- 1-3, 3-5, 5-7 -}
 1:6.slide(4, 1) = [1 2 3 4 2 3 4 5 3 4 5 6] {- 1-4, 2-5, 3-6 -}
-1:5.slidingWindows(3, 1) = [1:3, 2:4, 3:5] {- 1-3, 2-4, 3-5 -}
-1:7.slidingWindows(3, 2) = [1:3, 3:5, 5:7] {- 1-3, 3-5, 5-7 -}
-1:6.slidingWindows(4, 1) = [1:4, 2:5, 3:6] {- 1-4, 2-5, 3-6 -}
+1:5.partition(3, 1) = [1 2 3; 2 3 4; 3 4 5] {- 1-3, 2-4, 3-5 -}
+1:7.partition(3, 2) = [1 2 3; 3 4 5; 5 6 7] {- 1-3, 3-5, 5-7 -}
+1:6.partition(4, 1) = [1 2 3 4; 2 3 4 5; 3 4 5 6] {- 1-4, 2-5, 3-6 -}
 1:6.shift(3, 0) = [0 0 0 1 2 3] {- shift right with fill value -}
 1:6.shift(-3, 0) = [4 5 6 0 0 0] {- shift left with fill value -}
 [1 .. 4].powerSet.size = (2 ^ 4) {- powerset size -}

@@ -43,7 +43,7 @@ let seq = [
 	9 1 2 3 1 4 1 2 5 1 2 3 1 6 1 2 3 1 4 1 2 7 1 2 3 1 4 1 2 5 1 2 3 1
 	10 1 2 3 1 4 1 2 5 1 2 3 1 6 1 2 3 1 4 1 2 7 1 2 3 1 4 1 2 5 1 2 3 1 8 1 2 3 1 4 1 2 5 1 2 3 1 6 1 2 3 1 4 1 2
 ];
-let tr = Impulse(LfNoise2(1 / 3).Range(9, 16), 0);
+let tr = Impulse(LfNoise2(1 / 3).LinLin(-1, 1, 9, 16), 0);
 let freq = Sequencer(((seq - 1).degreeToKey([0 2 5 7 9], 12) + 60).MidiCps, tr);
 let w = TrigRoundRobin(24, tr);
 let env = Perc(w, 1 / 33, 3 / 5, TRand(-3, -1, w));

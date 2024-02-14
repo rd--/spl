@@ -407,7 +407,7 @@ let a = List(1); a.basicAt(3).isNil = true {- basic (unsafe) indexing, out of bo
 { let a = List(1); a.atPut(3, 'x') }.ifError { true } {- out of bound mutation is an error -}
 { let a = [1]; a[3] := 'x' }.ifError { true } {- out of bound mutation is an error -}
 let a = List(1); a.basicAtPut(3, 'x') = 'x' & { a.size = 3 } {- basic (unsafe) mutation, out of bounds indices extend array -}
-List:/1.newFrom(Interval(1, 5, 2)) = [1, 3, 5]
+List:/1.newFrom(Range(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(even:/1) = 4
 [nil, true, false, 3.141, 23, 'str'].json = '[null,true,false,3.141,23,"str"]' {- json encodings -}
 '[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str'] {- json parsing -}
@@ -510,7 +510,7 @@ let l = [4 5]; l.addAllFirst([1 2 3]) = [1 2 3] & { l = [1 2 3 4 5] } {- add all
 let l = [1 2 3]; l.addAllLast([4 5]) = [4 5] & { l = [1 2 3 4 5] } {- add all elements to end of array -}
 [1].addAllLast([2 3]) = [2 3] {- answer is argument -}
 let l = [1]; l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6] {- alias for addAllLast -}
-let i = 1:9; let a = []; a.addAll(i); a.size = 9 {- add elements from Interval to end of List -}
+let i = 1:9; let a = []; a.addAll(i); a.size = 9 {- add elements from Range to end of List -}
 13.fibonacciSequenceInto([]) = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 let c = [1 .. 5]; [c.removeAt(1), c] = [1, [2, 3, 4, 5]] {- removeAt answers the removed element -}
 let c = [1 .. 5]; [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
@@ -1880,18 +1880,18 @@ system.cache::primesList[23] = 83 {- nthPrime extends the primesList cache as re
 'MMXXIII'.romanNumber = 2023
 ```
 
-## Interval -- collection type
+## Range -- collection type
 ```
-Interval(0, 12, 3).asList = [0, 3, 6, 9, 12] {- elements of interval as array -}
-Interval(0, 12, 3).size = 5 {- number of elements in interval -}
-Interval(0, 9, -1).isEmpty {- intervals may be empty -}
+Range(0, 12, 3).asList = [0, 3, 6, 9, 12] {- elements of interval as array -}
+Range(0, 12, 3).size = 5 {- number of elements in interval -}
+Range(0, 9, -1).isEmpty {- intervals may be empty -}
 2.toBy(14, 4).collect { :x | x * x } = [4, 36, 100, 196] {- toBy method at Integer -}
 (2, 6 .. 14).collect { :x | x * x } = [4, 36, 100, 196] {- toBy syntax -}
-Interval(-1, 1, 0.000001).size = 2000001 {- 2000001 places between -1 and 1 -}
-Interval(-1, 1, 0.000001).at(1000001) = 0 {- access value at 1000001st place -}
-Interval(5, 10, 1).isInterval {- create interval object -}
-Interval(5, 10, 1) = 5.to(10) {- interval from 5 to 10 -}
-Interval(5, 10, 2).last = 9 {- create interval object with specified increment -}
+Range(-1, 1, 0.000001).size = 2000001 {- 2000001 places between -1 and 1 -}
+Range(-1, 1, 0.000001).at(1000001) = 0 {- access value at 1000001st place -}
+Range(5, 10, 1).isRange {- create interval object -}
+Range(5, 10, 1) = 5.to(10) {- interval from 5 to 10 -}
+Range(5, 10, 2).last = 9 {- create interval object with specified increment -}
 5.toBy(10, 2).last = 9 {- interval from 5 to 10 by 2 -}
 1:5.isEmpty.not {- test if empty -}
 1:5.size = 5 {- number of elements -}
@@ -1923,11 +1923,11 @@ let i = 1:9; i.copy ~~ i & { i.copy = i } {- copy is equal not identical -}
 (1.5 .. 4.5).asList = [1.5, 2.5, 3.5, 4.5] {- non-integer start and end -}
 1:9.min = 1 & { 9:1.min = 1 } {- minima -}
 1:9.max = 9 & { 9:1.max = 9 } {- maxima -}
-1:9.species = List:/1 {- species of Interval is List -}
-1.to(9).isInterval = true {- to generates an Interval -}
-to(1, 9).size = 9 {- to generates an Interval -}
+1:9.species = List:/1 {- species of Range is List -}
+1.to(9).isRange = true {- to generates a Range -}
+to(1, 9).size = 9 {- to generates a Range -}
 1:9 = 1.to(9)
-Interval(-2, 2, 1).collect(even:/1) = [true, false, true, false, true]
+Range(-2, 2, 1).collect(even:/1) = [true, false, true, false, true]
 -2:2.collect(odd:/1) = [false, true, false, true, false]
 1 + 1.to(9).collect(squared:/1) = [2, 5, 10, 17, 26,37, 50, 65, 82]
 2 * 1:9.collect(squared:/1) = [2, 8, 18, 32, 50,72, 98, 128, 162]
@@ -1935,11 +1935,11 @@ Interval(-2, 2, 1).collect(even:/1) = [true, false, true, false, true]
 1:9.copyFromTo(3, 7) = 3:7 {- copy from start to end indices, inclusive -}
 1:16.copyFromTo(1, 8) = 1:8 {- copy from start to end indices, inclusive -}
 let i = 1; 1.to(9).do { :each | i := i + each }; i = 46
-Interval(-1, 1, 1).printString = '-1:1'
-Interval(-1, 1, 1).storeString = 'Interval(-1, 1, 1)'
-Interval(1, 9, 1) = 1:9
-Interval(1, 10, 3).size = 4
-Interval(1, 10, 3).asList = [1, 4, 7, 10]
+Range(-1, 1, 1).printString = '-1:1'
+Range(-1, 1, 1).storeString = 'Range(-1, 1, 1)'
+Range(1, 9, 1) = 1:9
+Range(1, 10, 3).size = 4
+Range(1, 10, 3).asList = [1, 4, 7, 10]
 1.to(6).reversed = 6:1
 1:6.first = 1 {- first element of interval -}
 1.to(6).first = 1 {- first element of interval -}
@@ -1949,34 +1949,34 @@ to(1, 6).last = 6 {- last element of interval -}
 let i = 1:9; i.first = i[1] {- one-indexed -}
 let i = 1:9; i.last = i[9] {- one-indexed -}
 1:6.sum = 21
-Interval(-1, 1, 1).asList = [-1, 0, 1]
+Range(-1, 1, 1).asList = [-1, 0, 1]
 1.to(99).asString = '1:99'
 1:99.asString = '1:99'
-downTo(1, -1).asString = 'Interval(1, -1, -1)'
+downTo(1, -1).asString = 'Range(1, -1, -1)'
 1.to(99).sum = 4950
 1.to(99).asList.sum = 4950
 1:9.size = 9
 1:9.sum = 45
 1:9999.sum = 49995000
 1:9999.asList.sum = 49995000
-to(1, 9) = Interval(1, 9, 1)
-to(9, 1) = Interval(9, 1, 1)
-downTo(9, 1) = Interval(9, 1, -1)
-1.thenTo(3, 9) = Interval(1, 9, 2)
+to(1, 9) = Range(1, 9, 1)
+to(9, 1) = Range(9, 1, 1)
+downTo(9, 1) = Range(9, 1, -1)
+1.thenTo(3, 9) = Range(1, 9, 2)
 1:9 = 1:9
 [1 .. 9] = 1:9.asList {- array interval syntax -}
 [9 .. 1] = 9:1.asList {- array interval syntax -}
 [3 - 2 .. 7 + 2] = (3 - 2 .. 7 + 2).asList {- array interval syntax -}
-let l = []; Interval(9, 1, -1).do { :each | l.add(each) }; l = [9 .. 1]
+let l = []; Range(9, 1, -1).do { :each | l.add(each) }; l = [9 .. 1]
 collect(1.to(9)) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 1.to(9).collect { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
-Interval(1, 6, 2).asList = [1, 3, 5]
-Interval(1, 6, 2).last = 5
+Range(1, 6, 2).asList = [1, 3, 5]
+Range(1, 6, 2).last = 5
 1:9.reversed.asList = [9, 8, 7, 6, 5, 4, 3, 2, 1]
-Interval(1, 6, 2).reversed.asList = [5, 3, 1]
+Range(1, 6, 2).reversed.asList = [5, 3, 1]
 1.to(9).step = 1 {- get step size of interval -}
-(1, 3 .. 9) = Interval(1, 9, 2)
-(9, 7 .. 1) = Interval(9, 1, -2)
+(1, 3 .. 9) = Range(1, 9, 2)
+(9, 7 .. 1) = Range(9, 1, -2)
 3:7.anyOne = 3 {- any element, chooses first -}
 3:7.any(3) = [3 .. 5] {- any three elements, chooses first -}
 1:9.max = 9
@@ -1990,19 +1990,19 @@ Interval(1, 6, 2).reversed.asList = [5, 3, 1]
 5.downTo(3) = 5:3
 3.upOrDownTo(5) = 5.upOrDownTo(3).reversed
 let s = ''; (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531' {- do from end -}
-1:9 + 3 = 4:12 {- plus with a number answers an Interval -}
-1:9 - 2 = -1:7 {- minus with a number answers an Interval -}
+1:9 + 3 = 4:12 {- plus with a number answers a Range -}
+1:9 - 2 = -1:7 {- minus with a number answers a Range -}
 3 + 1:9 = [4 .. 12]
 1:5 + (1, 3 .. 9) = [2, 5 .. 14]
 1:5 - (9, 7 .. 1) = [-8, -5 .. 4]
-(0.5, 1 .. 4.5) = Interval(0.5, 4.5, 0.5) {- non-integer (fractional) step -}
+(0.5, 1 .. 4.5) = Range(0.5, 4.5, 0.5) {- non-integer (fractional) step -}
 (0.5, 1 .. 4.5).size = 9 {- fractional step size -}
 (1, 1 + 1/3 .. 3).size = 7 {- fractional step size -}
 (1/3 .. 7/3).size = 3 {- fractional start and end, integral step size -}
 (1/3, 2/3 .. 3).size = 9 {- fractional step size -}
 1/3.thenTo(2/3, 3).middle = 5/3
-Interval(1, 100, 1) = 1.to(100)
-Interval(1, 100, 0.5).size = 199
+Range(1, 100, 1) = 1.to(100)
+Range(1, 100, 0.5).size = 199
 (1, 1.5 .. 100).at(198) = 99.5
 (1 / 2).toBy(54 / 7, 1 / 3).last = (15 / 2)
 1/2.toBy(54/7, 1/3).last = 15/2
@@ -2017,7 +2017,7 @@ let n = 0; 1:5.permutationsDo { :each | n := n + 1 }; n = 120 {- interval permut
 (1, 3 .. 17).copyFromTo(3, 6) = (5, 7 .. 11) {- copy from start index to end index -}
 (17, 15 .. 1).copyFromTo(3, 6) = (13, 11 .. 7) {- copy from start index to end index -}
 (1, 3 .. 17).copyFromTo(6, 3).isEmpty {- if indices are out of order the interval is empty -}
-9999:99999.printStringConcise(8) = 'an Interval' {- consise printer -}
+9999:99999.printStringConcise(8) = 'a Range' {- consise printer -}
 ```
 
 ## Iterable -- collection trait
@@ -2724,7 +2724,7 @@ let r = 1:9.asStream; [r.next, r.back, r.next] = [1, 1, 1] {- go back one elemen
 let a = [1 .. 5]; a.asStream.contents ~~ a {- contents of finite stream (a copy of the collection) -}
 let i = 1:5; i.asStream.originalContents == i {- original contents of stream (the actual collection -}
 let r = 1:5.asStream; r.upToEnd; r.contents = 1:5 {- contents of consumed stream -}
-1:9.asStream.collection = Interval(1, 9, 1) {- read stream over interval collection -}
+1:9.asStream.collection = Range(1, 9, 1) {- read stream over interval collection -}
 let i = 1:9; let s = i.asStream; let c = s.copy; c.next; s.next = 1 & { c.next = 2 } {- copy -}
 ```
 
@@ -3621,11 +3621,11 @@ let x = 1; let y = 2; let z = 3; x := x * y + z; y := x + y * z; z := x + y + z;
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
 [1 .. 1] = [1]
-1:3 = Interval(1, 3, 1)
-3:1 = Interval(3, 1, -1)
-(1, 3 .. 9) = Interval(1, 9, 2)
-(9, 7 .. 1) = Interval(9, 1, -2)
-1:1 = Interval(1, 1, 1)
+1:3 = Range(1, 3, 1)
+3:1 = Range(3, 1, -1)
+(1, 3 .. 9) = Range(1, 9, 2)
+(9, 7 .. 1) = Range(9, 1, -2)
+1:1 = Range(1, 1, 1)
 [1 .. 3] = 1:3.asList
 [3 .. 1] = 3:1.asList
 [1, 3 .. 9] = (1, 3 .. 9).asList
@@ -3728,11 +3728,11 @@ var x, y, z; (x, y, z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [30, 12, 2
 
 ## Syntax -- interval & array syntax
 ```
-1:9 = Interval(1, 9, 1) {- 1 to 9 by 1 -}
-1:9 = Interval(1, 9, 1) {- 1 to 9 by 1 -}
-9:1 = Interval(9, 1, -1) {- 9 to 1 by -1 -}
-(1, 3 .. 9) = Interval(1, 9, 2) {- 1 to 9 by 2 -}
-(9, 7 .. 1) = Interval(9, 1, -2) {- 9 to 1 by -2 -}
+1:9 = Range(1, 9, 1) {- 1 to 9 by 1 -}
+1:9 = Range(1, 9, 1) {- 1 to 9 by 1 -}
+9:1 = Range(9, 1, -1) {- 9 to 1 by -1 -}
+(1, 3 .. 9) = Range(1, 9, 2) {- 1 to 9 by 2 -}
+(9, 7 .. 1) = Range(9, 1, -2) {- 9 to 1 by -2 -}
 [1 .. 9] = 1:9.asList {- 1 to 9 by 1 -}
 [9 .. 1] = 9:1.asList {- 9 to 1 by -1 -}
 [1, 3 .. 9] = (1, 3 .. 9).asList {- 1 to 9 by 1 -}
@@ -3880,11 +3880,11 @@ system.allMethods.collect { :each | each.signature }.includes('@Iterable>>do:/2'
 '@Collection'.parseQualifiedTraitName = 'Collection'
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
 let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorNameOrQualifiedName = '+'
-system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Interval') = true
+system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Range') = true
 system.methodSignatures('add').includes('Map>>add:/2') = true
 system.methodLookupAtSignature('@Iterable>>sum:/1').isMethod = true
 system.methodLookupAtType('sum', 1, 'List').sourceCode = '{ :self |\n\t\tself.reduce(+)\n\t}'
-system.methodTypes('last:/1').includes('Interval') = true
+system.methodTypes('last:/1').includes('Range') = true
 system.multipleArityMethodList.includes('randomFloat') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
 system.operatorNameTable['^'] = 'circumflexAccent' = true

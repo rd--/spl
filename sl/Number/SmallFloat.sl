@@ -70,12 +70,15 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	^ { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return Math.pow(_self, _anObject);
+		anObject.isInteger.if {
+			self.raisedToInteger(anObject)
+		} {
+			anObject.isSmallFloat.if {
+				self.raisedToSmallFloat(anObject)
+			} {
+				anObject.adaptToNumberAndApply(self, ^)
+			}
 		}
-		>
-		anObject.adaptToNumberAndApply(self, ^)
 	}
 
 	<< { :self :anObject |
@@ -381,6 +384,15 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		} {
 			'(0 - inf)'
 		}
+	}
+
+	raisedToSmallFloat { :self :aSmallFloat |
+		<primitive:
+		if(sl.isSmallFloat(_aSmallFloat)) {
+			return Math.pow(_self, _aSmallFloat);
+		}
+		>
+		'SmallFloat>>raisedToSmallFloat: not SmallFloat'.error
 	}
 
 	randomFloat { :self |

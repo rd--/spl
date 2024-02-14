@@ -20,7 +20,7 @@ Float64Array! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSeq
 
 }
 
-+[List, Interval] {
++[List, Range] {
 
 	asFloat64Array { :self |
 		Float64Array(self.size).fillFrom(self)

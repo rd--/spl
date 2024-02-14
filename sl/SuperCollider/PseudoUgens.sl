@@ -216,7 +216,7 @@
 		Rand(0 - self, self)
 	}
 
-	Range { :self :lo :hi |
+	LinRange { :self :lo :hi |
 		LinLin(self, -1, 1, lo, hi)
 	}
 
