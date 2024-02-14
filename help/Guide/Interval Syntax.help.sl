@@ -59,6 +59,10 @@ i.e. _[p..q]_ would be an array of one interval, and not equal to _[p .. q]_.
 
 See also: Interval, List, thenTo, upOrDownTo
 
+References:
+_Fortress_
+[1](https://doi.org/10.1007/978-0-387-09766-4_190)
+
 Unicode: U+2025 ‥ Two Dot Leader
 
 Categories: Syntax

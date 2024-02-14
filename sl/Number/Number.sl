@@ -164,6 +164,10 @@
 		self * 0.000000000000001
 	}
 
+	eulerGamma { :self |
+		self * 0.577215664901532860606512090082402431042
+	}
+
 	factorialPower { :self :anInteger |
 		(self - (0 .. anInteger - 1)).product
 	}
@@ -207,8 +211,25 @@
 		true
 	}
 
+	isPrimePower { :self |
+		let primeFactors = self.primeFactorization;
+		primeFactors.size = 1 & {
+			primeFactors.first.key.isPrime
+		}
+	}
+
 	log2 { :self |
 		self.asSmallFloat.log2
+	}
+
+	logarithmicIntegralRamanujan { :self :limit |
+		self.isZero.if {
+			0
+		} {
+			1.eulerGamma + (self.log.abs.log) + 1:limit.collect { :k |
+				(self.log ^ k) / (k.factorial * k)
+			}.sum
+		}
 	}
 
 	mu { :self |
@@ -253,6 +274,36 @@
 
 	radiansToDegrees { :self |
 		self * 57.29577951308232286465 {- 180 / pi -}
+	}
+
+	raisedToInteger { :self :operand |
+		operand.isInteger.ifFalse {
+			'Numnber>>raisedToInteger: operand is not an Integer'.error
+		};
+		(operand = 0).if {
+			self.one
+		} {
+			(operand = 1).if {
+				self
+			} {
+				(operand < 0).if {
+					self.raisedToInteger(operand.negated).reciprocal
+				} {
+					let count = 1.bitShift((operand - 1).highBit);
+					let result = self.one;
+					{
+						count > 0
+					}.whileTrue {
+						result := result.squared;
+						(operand.bitAnd(count) = 0).ifFalse {
+							result := result * self
+						};
+						count := count.bitShift(-1)
+					};
+					result
+				}
+			}
+		}
 	}
 
 	reciprocal { :self |

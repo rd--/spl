@@ -1,33 +1,23 @@
 # Integer Literals
 
-By default integers are written in decimal.
-Other radices are allowed using an infix _r_ syntax.
-The form is _radix_ followed by _r_ followed by the literal in the indicated radix.
-Below are equivalent ways of writing the integer twenty three:
+Integer literals evaluate to the type SmallFloat.
 
 ```
->>> [2r10111 8r27 10r23 16r17]
-[23 23 23 23]
+>>> 3.typeOf
+'SmallFloat'
 ```
 
-Negative integers are written with a leading minus sign:
+There is an Integer trait and a LargeInteger type.
+
+There is a [Radix Syntax] for specifying non-decimal integers.
 
 ```
->>> [-2r10111 -8r27 -10r23 -16r17]
-[-23 -23 -23 -23]
-```
-
-_Note_:
-The radices two, eight, ten and sixteen should be implemented by all systems,
-other radices may raise errors.
-
-```
->>> 9r55
-50
+>>> [2r1010, 8r12, 10r10, 16ra]
+[10, 10, 10, 10]
 ```
 
 * * *
 
-See also: [Literals Syntax]
+See also: [Literals Syntax], [Radix Syntax]
 
 Categories: Syntax

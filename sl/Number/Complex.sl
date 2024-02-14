@@ -63,20 +63,30 @@ Complex : [Object, Number] { | real imaginary |
 	}
 
 	^ { :self :aNumber |
-		(aNumber = 0).if {
-			1.asComplex
+		aNumber.isCollection.if {
+			aNumber.collect { :each |
+				self ^ each
+			}
 		} {
-			(aNumber = 1).if {
-				self
+			aNumber.isInteger.if {
+				self.raisedToInteger(aNumber)
 			} {
-				(self = 0).if {
-					(aNumber < 0).if {
-						self.error('^: zero divide')
-					} {
-						self
-					}
+				(aNumber = 0).if {
+					self.one
 				} {
-					(aNumber * self.log).exp
+					(aNumber = 1).if {
+						self
+					} {
+						(self = 0).if {
+							(aNumber < 0).if {
+								self.error('^: zero divide')
+							} {
+								self
+							}
+						} {
+							(aNumber * self.log).exp
+						}
+					}
 				}
 			}
 		}
@@ -133,7 +143,6 @@ Complex : [Object, Number] { | real imaginary |
 			)
 		}
 	}
-
 
 	arcSin { :self |
 		(self.imaginary = 0).if {
@@ -196,6 +205,10 @@ Complex : [Object, Number] { | real imaginary |
 
 	asComplex { :self |
 		self
+	}
+
+	asGaussianInteger { :self |
+		self.real.rounded.j(self.imaginary.rounded)
 	}
 
 	asTuple { :self |
@@ -268,6 +281,29 @@ Complex : [Object, Number] { | real imaginary |
 	isGaussianInteger { :self |
 		self.real.isInteger & {
 			self.imaginary.isInteger
+		}
+	}
+
+	isGaussianPrime { :self |
+		let a = self.real;
+		let b = self.imaginary;
+		let f = { :n |
+			n.isPrime & {
+				(n % 4) = 3
+			}
+		};
+		(a = 0).if {
+			b.abs.isPrime & {
+				f(b.abs)
+			}
+		} {
+			(b = 0).if {
+				a.abs.isPrime & {
+					f(a.abs)
+				}
+			} {
+				(a.squared + b.squared).isPrime
+			}
 		}
 	}
 
@@ -410,6 +446,15 @@ Complex : [Object, Number] { | real imaginary |
 		self.collect { :each |
 			aBlock(aComplexNumber, each)
 		}
+	}
+
+}
+
++@Sequence {
+
+	asComplex { :self |
+		let [a, b] = self;
+		a.j(b)
 	}
 
 }

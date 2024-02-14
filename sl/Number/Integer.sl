@@ -109,7 +109,9 @@
 			} {
 				1.upTo(self)
 			};
-			l.select { :each | self.gcd(each) = 1 }.size
+			l.select { :each |
+				self.gcd(each) = 1
+			}.size
 		}
 	}
 
@@ -291,13 +293,6 @@
 		}
 	}
 
-	isPrimePower { :self |
-		let primeFactors = self.primeFactorization;
-		primeFactors.size = 1 & {
-			primeFactors.first.key.isPrime
-		}
-	}
-
 	lcm { :self :anInteger |
 		anInteger.isInteger.if {
 			let a = self;
@@ -355,6 +350,10 @@
 		} {
 			primesList[self]
 		}
+	}
+
+	numerator { :self |
+		self
 	}
 
 	partitionFunctionP { :self |
@@ -484,10 +483,6 @@
 		<primitive: return _self.toString(16).toUpperCase();>
 	}
 
-	numerator { :self |
-		self
-	}
-
 	printStringRoman { :self |
 		{ :stream |
 			romanDigitsOn(self, stream)
@@ -529,6 +524,26 @@
 		integer.romanDigitsForOn('MDC'.asciiByteArray, 100, aStream);
 		integer.romanDigitsForOn('CLX'.asciiByteArray, 10, aStream);
 		integer.romanDigitsForOn('XVI'.asciiByteArray, 1, aStream)
+	}
+
+	sieveOfEratosthenes { :self |
+		let size = self;
+		let flags = List(size);
+		let primeCount = 0;
+		flags.atAllPut(true);
+		2.toDo(size) { :i |
+			flags[i - 1].ifTrue{
+				let k = i + i;
+				primeCount := primeCount + 1;
+				{
+					k <= size
+				}.whileTrue {
+					flags[k - 1] := false;
+					k := k + i
+				}
+			}
+		};
+		primeCount
 	}
 
 	subfactorial { :self |

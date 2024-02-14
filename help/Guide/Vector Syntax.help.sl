@@ -4,22 +4,34 @@ Rewrite rule:
 
 - _[p q r ...]_ ⟹ _[p, q, r, ...]_
 
-Allows writing lists where items are either literals or identifiers or _Vector Syntax_ without comma separators.
+Allows writing lists of literals without comma separators.
 
 Literal items:
 
 ```
 >>> [1 2 3 4 5 6 7 8 9]
 [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+>>> [3.141 pi 'text' true false]
+[3.141, pi, 'text', true, false]
 ```
 
 Identifier items:
 
 ```
 >>> let x = 1;
+>>> let y = 2;
 >>> let z = 3;
->>> [x 2 z]
+>>> [x y z]
 [1, 2, 3]
+```
+
+Literals and identifiers may be mixed together:
+
+```
+>>> let [x, y, z] = 3:5;
+>>> [1 2 x y z 6 7 8 9]
+[1 2 3 4 5 6 7 8 9]
 ```
 
 Vector syntax with vector items has been disallowed.
@@ -29,9 +41,22 @@ This syntax is nice for writing tree structures.
 [1 [1 3 [1 3 5] 5] 5] = [1, [1, 3, [1, 3, 5], 5], 5]
 ```
 
+_Note:_
+Vector syntax is parsed with a higher priority than [List Syntax].
+While most vector expressions are not valid list expressions,
+expressions such as  _[-1 -2 -3]_ are ambiguous.
+This expression could be parsed either as the one element list _[-1 - 2 - 3] = [-6]_,
+or as the three element vector _[-1 -2 -3]_.
+Spl parses it as the latter:
+
+```
+>>> [-1 -2 -3]
+[-1, -2, -3]
+```
+
 * * *
 
-See also: [List Syntax], [Matrix Syntax], [Volume Syntax]
+See also: [Array Syntax], List, [List Syntax], [Matrix Syntax], [Volume Syntax]
 
 References:
 _Fortress_

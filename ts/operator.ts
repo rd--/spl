@@ -4,7 +4,7 @@ import { stringCapitalizeFirstLetter } from '../lib/jssc3/ts/kernel/string.ts';
 The characters ':;.,()[]{}' aren't allowed in operator names.
 They're here so help file lookup can find them.
 */
-export const operatorCharacters = '+*-/&|@<>=%!\\~?^#$:;.';
+export const operatorCharacters = '+*-/&|@<>=%!\\~?^#$:;.,()[]{}';
 
 export function isOperatorName(name: string): boolean {
 	return operatorCharacters.includes(name.charAt(0));

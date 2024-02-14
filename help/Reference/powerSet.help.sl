@@ -1,6 +1,7 @@
 # powerSet
 
-_powerSet(aCollection, aBlock:/1)_
+- _powerSet(aCollection, aBlock:/1)_
+- _powerSet(alpha)_ => _powerSet(alpha, true.constant)_
 
 Answer the elements of the power set of _aCollection_ that satisfy the predicate _aBlock_.
 
@@ -8,14 +9,14 @@ All subsets of _[1 2 3]_:
 
 ```
 >>> [1 2 3].powerSet
-[[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+[; 1; 2; 1 2; 3; 1 3; 2 3; 1 2 3]
 ```
 
 All possible subsets containing up to 2 elements:
 
 ```
 >>> [1 2 3 4].powerSet { :each | each.size <= 2 }
-[[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [4], [1, 4], [2, 4], [3, 4]]
+[; 1; 2; 1 2; 3; 1 3; 2 3; 4; 1 4; 2 4; 3 4]
 ```
 
 Subsets containing exactly 2 elements:
@@ -60,7 +61,7 @@ Different occurrences of the same element are treated as distinct:
 
 ```
 >>> [1 1].powerSet
-[[], [1], [1], [1, 1]]
+[; 1; 1; 1 1]
 ```
 
 _tuples_ gives all possible combinations and reorderings of elements:

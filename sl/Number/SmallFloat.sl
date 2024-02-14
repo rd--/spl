@@ -383,10 +383,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
-	raisedToInteger { :self :anInteger |
-		self ^ anInteger
-	}
-
 	randomFloat { :self |
 		self * system.nextRandomFloat
 	}

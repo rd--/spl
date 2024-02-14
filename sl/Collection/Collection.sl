@@ -141,7 +141,11 @@
 	}
 
 	cartesianProduct { :self :aCollection |
-		[self, aCollection].tuples
+		let answer = [];
+		self.cartesianProductDo(aCollection) { :i :j |
+			answer.add([i, j])
+		};
+		answer
 	}
 
 	collect { :self :aBlock:/1 |
@@ -336,6 +340,19 @@
 
 	isCollection { :self |
 		true
+	}
+
+	isCoprime { :self |
+		valueWithReturn { :return:/1 |
+			1.upToDo(self.size - 1) { :i |
+				(i + 1).upToDo(self.size) { :j |
+					self[i].isCoprime(self[j]).ifFalse {
+						false.return
+					}
+				}
+			};
+			true
+		}
 	}
 
 	ifEmpty { :self :aBlock:/0 |
@@ -781,6 +798,14 @@
 
 	integerPart { :self |
 		self.collect(integerPart:/1)
+	}
+
+	isGaussianPrime { :self |
+		self.collect(isGaussianPrime:/1)
+	}
+
+	isPrime { :self |
+		self.collect(isPrime:/1)
 	}
 
 	lcm { :self |

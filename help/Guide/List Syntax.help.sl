@@ -1,6 +1,7 @@
 # List Syntax
 
-Lists are written between square brackets, items are separated by commas.
+Lists are written between square brackets.
+List items are separated by commas.
 
 A list of integers:
 
@@ -32,6 +33,6 @@ A list of the empty list:
 
 * * *
 
-See also: List, [List Assignment Syntax], [Vector Syntax]
+See also: [Array Syntax], List, [List Assignment Syntax], [Vector Syntax]
 
 Categories: Syntax

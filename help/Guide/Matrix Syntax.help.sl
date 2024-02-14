@@ -2,9 +2,11 @@
 
 Rewrite rule:
 
-- _[p q ...; r s ...; ...]_ ≡ _[[p, q ...], [r, s ...], ...]_
+- _[p q ...; r s ...; ...]_ ⟹ _[[p, q ...], [r, s ...], ...]_
 
-Allows writing matrices (two dimensional arrays) as a sequence of [Vector Syntax] entries separated by semicolons.
+Allows writing _matrices_, two dimensional arrays, as a sequence of _vectors_ separated by semicolons.
+
+A _3×3_ array:
 
 ```
 >>> [1 2 3; 4 5 6; 7 8 9]
@@ -18,12 +20,14 @@ This notation can be used to write irregular arrays:
 [[1], [2, 3], [4, 5, 6]]
 ```
 
-Empty fields are allowed, both at the start, and the end and in the middle:
+Empty fields are allowed, both at the start, and at the end, and in the middle:
 
 ```
 >>> [; 2 3; ; 5 6; ]
 [[], [2, 3], [], [5, 6], []]
 ```
+
+The _powerSet_ help file includes examples of this notation.
 
 * * *
 

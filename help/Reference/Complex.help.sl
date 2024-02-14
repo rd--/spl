@@ -130,6 +130,16 @@ The _asTuple_ method answers a two tuple of these:
 (1, 2)
 ```
 
+The _asComplex_ method:
+
+```
+>>> [1, 2].asComplex
+1j2
+
+>>> (1, 2).asComplex
+1j2
+```
+
 * * *
 
 See also: asInteger, asNumber, i, j, SmallFloat

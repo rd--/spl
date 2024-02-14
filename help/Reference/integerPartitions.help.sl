@@ -43,6 +43,8 @@ Find partitions of 6 of even length only:
 
 * * *
 
+See also: partitionFunctionP, partitionFunctionQ
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PartitionFunctionq.html)
