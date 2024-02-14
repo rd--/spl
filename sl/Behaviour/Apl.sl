@@ -124,7 +124,7 @@
 		}
 	}
 
-	partition { :self :aSequence |
+	partitionApl { :self :aSequence |
 		let previous = 0;
 		let start = 1;
 		let answer = [];
@@ -229,8 +229,8 @@
 		self.asList.nubSieve
 	}
 
-	partition { :self :aSequence |
-		self.asList.partition(aSequence).collect(join:/1)
+	partitionApl { :self :aSequence |
+		self.asList.partitionApl(aSequence).collect(join:/1)
 	}
 
 	rank { :self |

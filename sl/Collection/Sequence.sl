@@ -994,6 +994,16 @@
 		}
 	}
 
+	partition { :self :windowSize :stepSize |
+		(1, 1 + stepSize .. self.size - windowSize + 1).collect { :index |
+			self.copyFromTo(index, index + windowSize - 1)
+		}
+	}
+
+	partition { :self :windowSize |
+		self.partition(windowSize, windowSize)
+	}
+
 	permutations { :self |
 		let answer = [];
 		self.permutationsDo { :each |

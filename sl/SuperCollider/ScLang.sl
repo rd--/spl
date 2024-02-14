@@ -750,13 +750,7 @@
 	}
 
 	slide { :self :windowSize :stepSize |
-		self.slidingWindows(windowSize, stepSize).concatenation
-	}
-
-	slidingWindows { :self :windowSize :stepSize |
-		(1, 1 + stepSize .. self.size - windowSize + 1).collect { :index |
-			self.copyFromTo(index, index + windowSize - 1)
-		}
+		self.partition(windowSize, stepSize).concatenation
 	}
 
 	stutter { :self :repeatCount |
