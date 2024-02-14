@@ -83,7 +83,7 @@ l
 
 * * *
 
-See also: windowedReduce
+See also: pairsCollect, pairsDo, partitionDo, windowedReduce
 
 References:
 _Mathematica_

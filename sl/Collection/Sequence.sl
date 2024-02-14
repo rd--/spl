@@ -244,6 +244,12 @@
 		}
 	}
 
+	copyFromToInto { :self :start :stop :aSequence |
+		1.toDo(stop - start + 1) { :index |
+			aSequence[index] := self[index + start - 1]
+		}
+	}
+
 	copyReplaceFromToWith { :self :start :stop :aCollection |
 		let end = start - 1 + aCollection.size;
 		let newSize = self.size + end - stop;
@@ -994,10 +1000,20 @@
 		}
 	}
 
-	partition { :self :windowSize :stepSize |
-		(1, 1 + stepSize .. self.size - windowSize + 1).collect { :index |
-			self.copyFromTo(index, index + windowSize - 1)
+	partitionDo { :self :windowSize :stepSize :aBlock:/1 |
+		let answer = List(windowSize);
+		1.toByDo(self.size - windowSize + 1, stepSize) { :index |
+			self.copyFromToInto(index, index + windowSize - 1, answer);
+			aBlock(answer)
 		}
+	}
+
+	partition { :self :windowSize :stepSize |
+		let answer = [];
+		self.partitionDo(windowSize, stepSize) { :each |
+			answer.add(each.copy)
+		};
+		answer
 	}
 
 	partition { :self :windowSize |

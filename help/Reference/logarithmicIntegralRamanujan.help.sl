@@ -13,6 +13,7 @@ _logarithmicIntegralRamanujan(aNumber, anInteger)_
 9.9053
 
 >>> 0.5.logarithmicIntegralRamanujan(9)
+-0.37867
 ```
 
 At zero:
@@ -25,8 +26,8 @@ At zero:
 At one:
 
 ```
->>> 1.logarithmicIntegralRamanujan(9)
--inf
+>>> 1.logarithmicIntegralRamanujan(9).isFinite
+false
 ```
 
 Zero of:

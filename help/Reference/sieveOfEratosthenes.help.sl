@@ -48,7 +48,7 @@ Up to 99999 & 999999:
 Plot the prime counting function:
 
 ```
->>> 1:999.collect(sieveOfEratosthenes:/1).plot
+1:999.collect(sieveOfEratosthenes:/1).plot
 ```
 
 Approximations:
@@ -60,13 +60,13 @@ Approximations:
 >>> 5000 / 5000.log
 587.0478
 
-Out[5]=	
-In[6]:=	LogIntegral[5000.]	https://wolfram.com/xid/0j4165j8-ig9oxe
-Out[6]=	
-In[7]:=	RiemannR[5000.]	https://wolfram.com/xid/0j4165j8-wt25xh
-Out[7]=	
+>>> 5000.logarithmicIntegralRamanujan(99)
+684.281
+```
 
 * * *
+
+See also: isPrime, primesList
 
 References:
 _Mathematica_

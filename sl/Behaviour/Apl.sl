@@ -189,7 +189,7 @@
 	}
 
 	windowedReduce { :self :windowSize :aBlock:/2 |
-		self.slidingWindows(windowSize.abs, 1).collect { :each |
+		self.partition(windowSize.abs, 1).collect { :each |
 			windowSize.isNegative.ifTrue {
 				each.reverse
 			};

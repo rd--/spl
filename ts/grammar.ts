@@ -64,11 +64,14 @@ Sl {
 		| ApplyWithTrailingClosuresSyntax
 		| ApplySyntax
 		| MessageSendSyntax
-        // | EmptyListSyntax
+        | EmptyListSyntax
 		| reservedIdentifier
 		| literal
 		| identifier
 		| operator
+		| VectorSyntax
+		| MatrixSyntax
+		| VolumeSyntax
 		| ListExpression
 		| ParenthesisedExpression
 		| DictionaryExpression
@@ -77,9 +80,6 @@ Sl {
 		| ListIntervalThenSyntax
 		| IntervalSyntax
 		| IntervalThenSyntax
-		| VectorSyntax
-		| MatrixSyntax
-		| VolumeSyntax
 
 	AtPutSyntax = Primary "[" NonemptyListOf<Expression, ","> "]" ":=" Expression
 	QuotedAtPutSyntax = Primary "::" keyName ":=" Expression
