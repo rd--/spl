@@ -212,6 +212,34 @@ Block! : [Object] {
 		}.whileTrue
 	}
 
+	table { :self:/2 |
+		{ :aSequence :anotherSequence |
+			self:/2.table(aSequence, anotherSequence)
+		}
+	}
+
+	table { :self:/1 :aSequence |
+		aSequence.collect(self:/1)
+	}
+
+	table { :self:/2 :aSequence :anotherSequence |
+		aSequence.collect { :i |
+			anotherSequence.collect { :j |
+				self(i, j)
+			}
+		}
+	}
+
+	table { :self:/3 :aSequence :aSecondSequence :aThirdSequence |
+		aSequence.collect { :i |
+			aSecondSequence.collect { :j |
+				aThirdSequence.collect { :k |
+					self(i, j, k)
+				}
+			}
+		}
+	}
+
 	value { :self:/0 |
 		self()
 	}

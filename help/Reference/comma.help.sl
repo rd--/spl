@@ -1,7 +1,6 @@
 # ,
 
-Comma is not an operator,
-it is a reserved token that is a part of numerous syntaxes.
+Comma is syntax token, it is not an operator.
 
 Comma separates items in [List Syntax]:
 
@@ -31,6 +30,16 @@ Comma separates parameter items in [Value Apply Syntax]:
 3
 ```
 
+Comma separates the first to items in [Range Syntax]:
+
+```
+>>> (1, 3 .. 9)
+Range(1, 9, 2)
+
+>>> [1, 3 .. 9]
+[1, 3, 5, 7, 9]
+```
+
 * * *
 
-See also: ++
+See also: ;, ., .., ++

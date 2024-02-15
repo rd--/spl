@@ -270,7 +270,6 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("++" . ?⧺) ; U+29FA ⧺ Double plus
      ("+++" . ?⧻) ; U+29FB ⧻ Triple Plus
      ("-" . ?−) ; U+2212 − Minus Sign
-     ("--" . ?⍝) ; U+235D ⍝ APL Functional Symbol Up Shoe Jot ; U+2014 — Em Dash
      ("-<" . ?⤙) ; U+2919 ⤙ Leftwards Arrow-Tail
      ("->" . ?→) ; U+2190 → Rightwards Arrow
      ("->>" . ?↠) ; U+21A0 ↠ Rightwards Two Headed Arrow
@@ -409,6 +408,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("~~" . ?≢) ; U+2262 ≢ Not Identical To
      (":;" . ?↲) ; U+21B2 ↲ Downwards Arrow With Tip Leftwards
 
+     ;; ("--" . ?⍝) ; U+235D ⍝ APL Functional Symbol Up Shoe Jot ; U+2014 — Em Dash
      ;; (")|" . ?⦈) ; U+2988 ⦈ Z Notation Right Image Bracket ; ⦄ ; ⸡
      ;; ("-}" . ?⦄) ; U+2984 ⦄ Right White Curly Bracket
      ;; ("..." . ?‥) ; U+2026 … Horizontal Ellipsis; U+22ef ⋯ Midline Horizontal Ellipsis

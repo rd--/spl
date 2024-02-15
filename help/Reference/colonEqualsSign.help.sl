@@ -1,10 +1,13 @@
 # :=
 
-Assign a value to a variable.
-Variables must be declared.
+:= is a syntax token, it is not an operator.
+
+:= separates the variable name and the expression in [Assignment Syntax].
 
 ```
->>> { var x; x := 3; x * x }.value
+>>> var x;
+>>> x := 3;
+>>> x * x
 9
 ```
 
@@ -15,7 +18,7 @@ or as a colon equals glyph, ≔.
 
 * * *
 
-See also: = or equals
+See also: =
 
 Unicode: U+2190 ← Leftwards Arrow, U+2254 ≔ Colon Equals
 

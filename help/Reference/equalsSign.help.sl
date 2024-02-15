@@ -1,8 +1,9 @@
-# equals
+# =
 
 - _anObject = anotherObject_
 
-This is the _structural equality_ operator, it answers _true_ if _anObject_ is equal to _anotherObject_, else _false_.
+This is the _structural equality_ operator
+Answers _true_ if _anObject_ is equal to _anotherObject_, else _false_.
 The meaning of equality is determined by the type of _anObject_.
 
 ```
@@ -32,7 +33,7 @@ The _=_ method is not implemented at _Object_.
 
 The name of this operator is _equalsSign_.
 
-The _=_ symbol is also a part of [Initialised Temporaries Syntax] and [Variable Keyword Syntax].
+The _=_ symbol is also a part of [Initialised Temporaries Syntax].
 
 * * *
 

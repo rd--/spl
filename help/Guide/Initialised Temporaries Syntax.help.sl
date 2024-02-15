@@ -19,12 +19,8 @@ let y = { CombL(z, 0.1, LfNoise1(Rand(0, 0.1)) * 0.04 + 0.05, 15) } !+ 7;
 s + (0.2 * y)
 ```
 
-Where supported the opening and closing tokens are displayed as ⦇ and ⦈.
-
 * * *
 
 See also: [Variable Keyword Syntax]
-
-Unicode: ⦇ U+2987 Z Notation Left Image Bracket, ⦈ U+2988 Z Notation Right Image Bracket
 
 Categories: Syntax

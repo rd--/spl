@@ -1,6 +1,6 @@
 # Assignment, initialisation, equality, identity
 
-The assignment syntax is _p := q_.
+The [Assignment Syntax] is _p := q_.
 
 ```
 >>> var x;

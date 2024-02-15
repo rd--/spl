@@ -1,4 +1,4 @@
-# Block Syntax -- syntax
+# Block Syntax
 
 The _Block_ syntax follows the Smalltalk _Block_ syntax, with braces (`{` and `}`) replacing brackets (`[` and `]`), and semi-colons (`;`) replacing periods (`.`).
 
@@ -27,3 +27,5 @@ _p.q(r)_ is _q(p, r)_, not _(q(p))(r)_.
 * * *
 
 See also: [Block Semantics]
+
+Categories: Syntax

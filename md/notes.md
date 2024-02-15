@@ -592,6 +592,8 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+2919 ⤙ Leftwards Arrow-Tail
 - U+291b ⤛ Leftwards Double Arrow-Tail
 - U+291d ⤝ Leftwards Arrow To Black Diamond
+- U+2987 ⦇ Z Notation Left Image Bracket
+- U+2988 ⦈ Z Notation Right Image Bracket
 - U+29b0 ⦰ Reversed Empty Set
 - U+29be ⦾ Circled White Bullet
 - U+29bf ⦿ Circled Bullet

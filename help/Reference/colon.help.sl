@@ -1,0 +1,21 @@
+# :
+
+Colon is syntax token, it is not an operator.
+
+A colon prefix indicates argument names in [Block Syntax]:
+
+```
+>>> { :i | i * i } . (3)
+9
+```
+
+A colon suffix indicates key names in [Dictionary Syntax]:
+
+```
+>>> (x: 1, y: 2).keys
+['x', 'y']
+```
+
+* * *
+
+See also: ,, ., ;, comma, fullStop, semicolon
