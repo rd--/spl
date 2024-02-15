@@ -1,4 +1,4 @@
-# indexOfIfAbsent -- accessing
+# indexOfIfAbsent
 
 - _indexOf(aCollection, anElement, exceptionBlock:/0)_
 
@@ -8,3 +8,5 @@ If the collection does not contain _anElement_, answer the result of evaluating 
 * * *
 
 See also: indexOf
+
+Categories: Accessing

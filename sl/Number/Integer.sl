@@ -66,10 +66,20 @@
 		k.isCollection.if {
 			k.adaptToNumberAndApply(n, binomialCoefficient:/2)
 		} {
-			(k > n).if {
+			(k < 0 | {
+				k > n
+			}).if {
 				0
 			} {
-				n.factorial / (k.factorial * (n - k).factorial)
+				let numerator = n.one;
+				let denominator = n.one;
+				n.toByDo(k.max(n - k) + 1, -1) { :factor |
+					numerator := numerator * factor
+				};
+				1.toDo(k.min(n - k)) { :factor |
+					denominator :=denominator *  factor
+				};
+				numerator // denominator
 			}
 		}
 	}
@@ -553,21 +563,7 @@
 	}
 
 	take { :self :k |
-		(k < 0 | {
-			k > self
-		}).if {
-			0
-		} {
-			let numerator = 1;
-			let denominator = 1;
-			self.toByDo(k.max(self - k) + 1, -1) { :factor |
-				numerator := numerator * factor
-			};
-			1.toDo(k.min(self - k)) { :factor |
-				denominator :=denominator *  factor
-			};
-			numerator // denominator
-		}
+		self.binomialCoefficient(k)
 	}
 
 	threeDigitName { :self |

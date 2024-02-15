@@ -303,6 +303,12 @@
 		self.withCollectCrossed(aSequence, *)
 	}
 
+	differences { :self |
+		self.partition(2, 1).collect { :each |
+			each[2] - each[1]
+		}
+	}
+
 	do { :self :aBlock:/1 |
 		self.indicesDo { :index |
 			aBlock(self[index])
@@ -1009,6 +1015,14 @@
 		tally
 	}
 
+	ordering { :self |
+		self.sortedWithIndices.collect(value:/1)
+	}
+
+	ordering { :self :aBlock:/2|
+		self.sortedWithIndices(aBlock:/2).collect(value:/1)
+	}
+
 	outerProduct { :self :aSequence |
 		self *.outer aSequence
 	}
@@ -1168,6 +1182,12 @@
 
 	rank { :self |
 		self.shape.size
+	}
+
+	ratios { :self |
+		self.partition(2, 1).collect { :each |
+			each[2] / each[1]
+		}
 	}
 
 	replace { :self :aBlock:/1 |
@@ -1537,6 +1557,41 @@
 		let element = self[oneIndex];
 		self[oneIndex] := self[anotherIndex];
 		self[anotherIndex] := element
+	}
+
+	take { :self :count :fill |
+		(count < 0).if {
+			self.takeLast(count.negated, fill)
+		} {
+			self.takeFirst(count, fill)
+		}
+	}
+
+	takeFirst { :self :count :fill |
+		(count > self.size).if {
+			self ++ (fill ! (count - self.size))
+		} {
+			self.copyFromTo(1, count)
+		}
+	}
+
+	takeLast { :self :count :fill |
+		(count > self.size).if {
+			(fill ! (count - self.size)) ++ self
+		} {
+			self.copyFromTo(self.size - count + 1, self.size)
+		}
+	}
+
+	takeList { :self :aSequence |
+		let answer = [];
+		let startIndex = 1;
+		aSequence.do { :each |
+			let endIndex = startIndex + each - 1;
+			answer.add(self.copyFromTo(startIndex, endIndex));
+			startIndex := endIndex + 1
+		};
+		answer
 	}
 
 	third { :self |

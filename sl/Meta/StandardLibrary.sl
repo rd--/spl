@@ -47,6 +47,7 @@
 	{- Number -}
 	'Complex'
 	'Fraction'
+	'Interval'
 	'LargeInteger'
 
 	{- Stream -}

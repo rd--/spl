@@ -97,6 +97,7 @@
 	'Number-Complex'
 	'Number-Fraction'
 	'Number-Integer'
+	'Number-Interval'
 	'Number-LargeInteger'
 	'Number-Magnitude'
 	'Number-Number'

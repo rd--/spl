@@ -260,6 +260,18 @@
 		}
 	}
 
+	powerRange { :a :b :r |
+		let answer = [];
+		let next = a;
+		{
+			next.abs <= b.abs
+		}.whileTrue {
+			answer.add(next);
+			next := next * r
+		};
+		answer
+	}
+
 	quotientBy { :self :aNumber :aBlock:/1 |
 		(aNumber = 0).if {
 			'@Number>>quotient: divideByZero'.error

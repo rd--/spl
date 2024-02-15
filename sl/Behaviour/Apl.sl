@@ -148,30 +148,6 @@
 		self.collect(reciprocal:/1)
 	}
 
-	take { :self :count :fill |
-		(count < 0).if {
-			self.takeLast(count.negated, fill)
-		} {
-			self.takeFirst(count, fill)
-		}
-	}
-
-	takeFirst { :self :count :fill |
-		(count > self.size).if {
-			self ++ (fill ! (count - self.size))
-		} {
-			self.copyFromTo(1, count)
-		}
-	}
-
-	takeLast { :self :count :fill |
-		(count > self.size).if {
-			(fill ! (count - self.size)) ++ self
-		} {
-			self.copyFromTo(self.size - count + 1, self.size)
-		}
-	}
-
 	tally { :self |
 		self.size
 	}

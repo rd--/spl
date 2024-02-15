@@ -667,10 +667,6 @@
 		}
 	}
 
-	order { :self |
-		self.sortedWithIndices.collect(value:/1)
-	}
-
 	pyramid { :self :patternType |
 		let answer = [];
 		let lastIndex = self.size;

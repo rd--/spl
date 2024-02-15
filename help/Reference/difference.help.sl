@@ -4,7 +4,10 @@
 
 Answer the set theoretic difference of two collections.
 
-	1:4.difference(2:5) = [1]
+```
+>>> 1:4.difference(2:5)
+[1]
+```
 
 * * *
 

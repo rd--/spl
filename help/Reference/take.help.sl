@@ -1,8 +1,9 @@
 # take
 
-- _take(aCollection, maxNumberOfElements)_
+- _take(aCollection, anInteger)_
+- _take(aSequence, anInteger, anObject)_
 
-Answer _maxNumberOfElements_ from _aCollection_ as a new collection (using _species_),
+Answer a copy of _aCollection_ with only the first _anInteger_ places,
 or less if _aCollection_ is not large enough.
 
 ```
@@ -23,26 +24,13 @@ or less if _aCollection_ is not large enough.
 
 >>> { [1 2].take(-1) }.ifError { true }
 true
-```
 
-- _take(anInteger, aSmallerInteger)_
-
-Return the number of combinations of anInteger elements taken _aSmallerInteger_ at a time.
-For 6 take 3, this is (6 * 5 * 4) / (1 * 2 * 3).
-Zero outside of Pascals triangle.
-
-- _take(aSequence, anInteger)_
-
-Answer a copy of _aSequence_ with only the first _anInteger_ places.
-
-```
 >>> [5 4 3 2 1].take(3)
 [5 4 3]
 ```
 
-- _take(aSequence, anInteger, anObject)_
-
-In the ternary form, if _anInteger_ is negative, answer a copy of _aSequence_ with only the last _anInteger_ places.
+The ternary form only applies to sequences.
+If _anInteger_ is negative, answer a copy of _aSequence_ with only the last _anInteger_ places.
 
 ```
 >>> [5 4 3 2 1].take(-3, 0)
@@ -67,9 +55,19 @@ or as a prefix:
 [0 0 0 5 4 3 2 1]
 ```
 
+- _take(n, k)_ => _binomialCoefficient(n, k)_
+
+At _Integer_ _take_ is an alias for _binomialCoefficient_,
+which tells the number of combinations of _n_ elements taken _k_ at a time.
+
+```
+>>> 6.take(3)
+((6 * 5 * 4) / (1 * 2 * 3))
+```
+
 * * *
 
-See also: any, drop, takeFirst, takeLast
+See also: any, binomialCoefficient, drop, takeFirst, takeLast
 
 References:
 _Apl_

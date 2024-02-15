@@ -144,24 +144,30 @@
 		self.error('@Indexable>>basicAtPut: type responsibility')
 	}
 
-	deepIndicesStartingAtDo { :self :startIndex :aBlock:/1 |
+	deepIndices { :self |
+		self.deepIndices(true.constant)
+	}
+
+	deepIndices { :self :aBlock:/1 |
+		let answer = [];
+		self.deepIndicesStartingAtDo([]) { :each :index |
+			aBlock(each).ifTrue {
+				answer.add(index)
+			}
+		};
+		answer
+	}
+
+	deepIndicesStartingAtDo { :self :startIndex :aBlock:/2 |
 		let type = self.typeOf;
 		self.withIndexDo { :each :index |
 			let here = startIndex ++ [index];
 			(each.typeOf = type).if {
-				each.deepIndicesStartingAtDo(here, aBlock:/1)
+				each.deepIndicesStartingAtDo(here, aBlock:/2)
 			} {
-				aBlock(here)
+				aBlock(each, here)
 			}
 		}
-	}
-
-	deepIndices { :self |
-		let answer = [];
-		self.deepIndicesStartingAtDo([]) { :each |
-			answer.add(each)
-		};
-		answer
 	}
 
 	errorInvalidIndex { :self :for :index |
@@ -197,6 +203,16 @@
 
 	indices { :self |
 		self.error('@Indexable>>indices: type responsibility')
+	}
+
+	indices { :self :aBlock:/1 |
+		let answer = [];
+		self.withIndexDo { :each :index |
+			aBlock(each).ifTrue {
+				answer.add(index)
+			}
+		};
+		answer
 	}
 
 	indicesSorted { :self |

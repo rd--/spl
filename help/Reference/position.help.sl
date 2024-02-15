@@ -1,4 +1,4 @@
-# position -- positioning
+# position
 
 - _position(aStream)_
 
@@ -15,3 +15,5 @@ If it is not, create an error notification.
 * * *
 
 See also: Stream
+
+Categories: Positioning

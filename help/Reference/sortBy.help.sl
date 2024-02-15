@@ -1,4 +1,4 @@
-# sortBy -- sorting
+# sortBy
 
 - _sortBy(aSequence, aBlock:/2)_
 
@@ -8,3 +8,5 @@ Unlike _sort_, the comparison block must be valid, not nil.
 * * *
 
 See also: sort, sorted, sortOn
+
+Categories: Sorting

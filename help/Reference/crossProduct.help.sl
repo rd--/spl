@@ -36,8 +36,6 @@ Find the area of the parallelogram defined by two vectors:
 29.sqrt
 ```
 
-* * *
-
 See also:
 
 References:

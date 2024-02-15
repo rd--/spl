@@ -4,6 +4,7 @@
 
 The binomial coefficients are the positive integers that occur as coefficients in the binomial theorem.
 Commonly, a binomial coefficient is indexed by a pair of integers n ≥ k ≥ 0.
+Tells the number of combinations of _n_ elements taken _k_ at a time.
 
 ```
 >>> 5.binomialCoefficient(3)
@@ -11,9 +12,12 @@ Commonly, a binomial coefficient is indexed by a pair of integers n ≥ k ≥ 0.
 
 >>> 3.binomialCoefficient(5)
 0
+
+>>> 6.binomialCoefficient(3)
+((6 * 5 * 4) / (1 * 2 * 3))
 ```
 
-Make Pascal’s triangle:
+Make Pascal’s triangle (this function is zero outside of Pascal’s triangle):
 
 ```
 >>> 0:5.collect { :each | each.binomialCoefficient(0:each) }
@@ -32,6 +36,17 @@ At LargeInteger:
 ```
 >>> 333n.binomialCoefficient(33n)
 3888653852803216535842634400242612716809201918n
+```
+
+>>> 6.binomialCoefficient(3)
+6.take(3)
+```
+
+If _k_ is greater than _n_ answer is zero:
+
+```
+>>> 3.take(6)
+0
 ```
 
 * * *
