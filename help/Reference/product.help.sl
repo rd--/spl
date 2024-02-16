@@ -26,7 +26,7 @@ Factorial is product of a Range:
 1:9.product
 ```
 
-Where supported this operator is displayed as Π.
+Where supported this method is displayed as Π.
 
 * * *
 

@@ -512,14 +512,14 @@
 		self.fisherYatesShuffleUsing(system)
 	}
 
-	flattenedTo { :self :depth |
+	flattenTo { :self :depth |
 		(depth <= 0).if {
 			self
 		} {
 			let answer = [];
 			self.do { :each |
 				each.isCollection.if {
-					answer.addAll(each.flattenedTo(depth - 1))
+					answer.addAll(each.flattenTo(depth - 1))
 				} {
 					answer.add(each)
 				}
@@ -528,8 +528,8 @@
 		}
 	}
 
-	flattened { :self |
-		self.flattenedTo(inf)
+	flatten { :self |
+		self.flattenTo(inf)
 	}
 
 	foldLeftPrefix { :self :count :aBlock:/2 |
@@ -1254,7 +1254,7 @@
 			'Sequence>>reshape: empty shape?'.error
 		} {
 			let size = shape.product;
-			let answer = self.flattened.wrapExtend(size);
+			let answer = self.flatten.wrapExtend(size);
 			shape.allButFirst.reverseDo { :n |
 				answer := answer.clump(n)
 			};
@@ -1264,7 +1264,7 @@
 
 	reshapeLike { :self :another |
 		let index = 1;
-		let items = self.flattened;
+		let items = self.flatten;
 		another.deepCollect { :unusedItem |
 			let item = items.atWrap(index);
 			index := index + 1;

@@ -429,8 +429,8 @@ Reference/findFirst.help.sl
 Reference/first.help.sl
 Reference/fisherYatesShuffle.help.sl
 Reference/fixedPointList.help.sl
-Reference/flattened.help.sl
-Reference/flattenedTo.help.sl
+Reference/flatten.help.sl
+Reference/flattenTo.help.sl
 Reference/Float32Array.help.sl
 Reference/Float64Array.help.sl
 Reference/floor.help.sl

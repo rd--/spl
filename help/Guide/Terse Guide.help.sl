@@ -2993,9 +2993,9 @@ let s = ''; [1 9 2 8 3 7 4 6].reverseDo { :i | s := s ++ i }; s = '64738291' {- 
 [1.5 .. 9.5].middle = 5.5 {- range start need not be an integer -}
 let c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5] {- swap elements at indices in place -}
 { [1 .. 5].swapWith(1, 9) }.ifError { true } {- it is an error if an index is invalid -}
-[1, [2, [3, [4, [5], 6], 7], 8], 9].flattened = [1 .. 9] {- concatenation removing all nesting -}
-[1, [2, [3, ['45', 6], '78']], 9].flattened = [1, 2, 3, '45', 6, '78', 9] {- strings are not flattened to sequences of characters -}
-[3, 4, [2, 4, ['xy'], 'wz']].flattened = [3, 4, 2, 4, 'xy', 'wz']
+[1, [2, [3, [4, [5], 6], 7], 8], 9].flatten = [1 .. 9] {- concatenation removing all nesting -}
+[1, [2, [3, ['45', 6], '78']], 9].flatten = [1, 2, 3, '45', 6, '78', 9] {- strings are not flatten to sequences of characters -}
+[3, 4, [2, 4, ['xy'], 'wz']].flatten = [3, 4, 2, 4, 'xy', 'wz']
 1:9.rotatedLeft(3) = ([4 .. 9] ++ [1 .. 3]) {- rotate left -}
 1:7.rotatedLeft(3) = [4 5 6 7 1 2 3] {- rotate left -}
 1:7.rotatedLeft(-4) = [4 5 6 7 1 2 3] {- negative argument rotates right -}

@@ -1,38 +1,38 @@
-# flattened
+# flatten
 
-- _flattened(aSequence)_
+- _flatten(aSequence)_
 
 Similar to _concatenation_ but removes all nesting.
 
 ```
->>> [1, [2, [3, [4, [5], 6], 7], 8], 9].flattened
+>>> [1, [2, [3, [4, [5], 6], 7], 8], 9].flatten
 [1 .. 9]
 
->>> [1, [2, [3, [4, [5, [6, [7, [8, [9]]]]]]]]].flattened
+>>> [1, [2, [3, [4, [5, [6, [7, [8, [9]]]]]]]]].flatten
 [1 .. 9]
 
->>> [[[[[[[[[1], 2], 3], 4], 5], 6], 7], 8], 9].flattened
+>>> [[[[[[[[[1], 2], 3], 4], 5], 6], 7], 8], 9].flatten
 [1 .. 9]
 ```
 
-Strings are not flattened to sequences of characters.
+Strings are not flatten to sequences of characters.
 
 ```
->>> [1, [2, [3, ['45', 6], '78']], 9].flattened
+>>> [1, [2, [3, ['45', 6], '78']], 9].flatten
 [1 2 3 '45' 6 '78' 9]
 ```
 
 Join lists and individual elements:
 
 ```
->>> [1:5, -1, 1:5, 1:5, -1].flattened
+>>> [1:5, -1, 1:5, 1:5, -1].flatten
 [1 2 3 4 5 -1 1 2 3 4 5 1 2 3 4 5 -1]
 ```
 
 Unravel a matrix:
 
 ```
->>> (1:3 ^.t 1:4).flattened
+>>> (1:3 ^.t 1:4).flatten
 [1 1 1 1 2 4 8 16 3 9 27 81]
 ```
 
@@ -41,15 +41,15 @@ As an inverse of _clump_:
 ```
 >>> let l = [1 .. 20];
 >>> let m = l.clump(4);
->>> m.flattened = l
+>>> m.flatten = l
 true
 ```
 
-_flattened_ is _flattenedTo(inf)_.
+_flatten_ is _flattenTo(inf)_.
 
 * * *
 
-See also: concatenation, flattenedTo
+See also: concatenation, flattenTo
 
 References:
 _Apl_

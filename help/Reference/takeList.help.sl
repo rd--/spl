@@ -22,7 +22,7 @@ The original list can be reconstructed using flatten:
 ```
 >>> let l = [1 .. 10];
 >>> let t = l.takeList([4 2 3 1]);
->>> t.flattened
+>>> t.flatten
 l
 ```
 

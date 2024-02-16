@@ -617,7 +617,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'asUrl'
 		'capitalized'
 		'concatenation'
-		'flattened'
+		'flatten'
 		'histogramOf'
 		'i'
 		'iso8601'
