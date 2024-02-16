@@ -238,6 +238,14 @@
 		}
 	}
 
+	deleteDuplicates { :self :aBlock:/2 |
+		self.nubBy(aBlock:/2)
+	}
+
+	deleteDuplicates { :self |
+		self.nub
+	}
+
 	depth { :self |
 		1 + self.collect(depth:/1).max
 	}
@@ -477,16 +485,20 @@
 		self.isEmpty.not
 	}
 
-	nub { :self |
+	nubBy { :self :aBlock:/2 |
 		let seen = [];
 		self.select { :each |
-			seen.includes(each).if {
+			seen.includesBy(each, aBlock:/2).if {
 				false
 			} {
 				seen.add(each);
 				true
 			}
 		}
+	}
+
+	nub { :self |
+		self.nubBy(=)
 	}
 
 	ofSize { :self :aNumber |
@@ -754,6 +766,10 @@
 		self.collect(doubleFactorial:/1)
 	}
 
+	e { :self |
+		self.collect(e:/1)
+	}
+
 	exp { :self |
 		self.collect(exp:/1)
 	}
@@ -835,6 +851,10 @@
 
 	negated { :self |
 		self.collect(negated:/1)
+	}
+
+	pi { :self |
+		self.collect(pi:/1)
 	}
 
 	radiansToDegrees { :self |

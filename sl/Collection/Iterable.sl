@@ -170,10 +170,14 @@
 		}
 	}
 
-	includes { :self :anObject |
+	includesBy { :self :anObject :aBlock:/2 |
 		self.anySatisfy { :each |
-			each = anObject
+			aBlock(each, anObject)
 		}
+	}
+
+	includes { :self :anObject |
+		self.includesBy(=)
 	}
 
 	includesAnyOf { :self :aCollection |

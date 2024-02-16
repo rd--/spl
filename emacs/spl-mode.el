@@ -264,7 +264,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
    '(
      ("!!" . ?‼) ; U+203C ‼ Double Exclamation Mark
      ("!~" . ?≉) ; U+2249 ≉ Not Almost Equal To ; ≁
-     ("*" . ?×) ; U+00D7 × Multiplication Sign
+b     ("*" . ?×) ; U+00D7 × Multiplication Sign
      ("**" . ?⇈) ; U+21C8 ⇈ Upwards Paired Arrows
      ("*.x" . ?⊗) ; U+2297 ⊗ Circled Times
      ("++" . ?⧺) ; U+29FA ⧺ Double plus

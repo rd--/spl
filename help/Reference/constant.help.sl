@@ -8,7 +8,7 @@ Answer a unary Block that always answers _anObject_.
 >>> 1:4.collect(42.constant)
 [42 42 42 42]
 
->>> 1:3.powerSet(true.constant)
+>>> 1:3.subsets(true.constant)
 [; 1; 2; 1 2; 3; 1 3; 2 3; 1 2 3]
 ```
 

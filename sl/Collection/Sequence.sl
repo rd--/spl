@@ -587,6 +587,14 @@
 		}
 	}
 
+	fromContinuedFraction { :self |
+		let answer = 0;
+		self.reverseDo { :each |
+			answer := 1 / (each + answer)
+		};
+		1 / answer
+	}
+
 	fromToDo { :self :start :stop :aBlock:/1 |
 		start.toDo(stop) { :index |
 			aBlock(self[index])
@@ -1074,7 +1082,7 @@
 	}
 
 	permutations { :self :size |
-		self.powerSet { :each |
+		self.subsets { :each |
 			each.size = size
 		}.collect(permutations:/1).concatenation
 	}
@@ -1114,32 +1122,21 @@
 	powerSetDo { :self :aBlock:/1 |
 		let size = 2 ^ self.size;
 		let powersOfTwo = 2 ^ (0 .. self.size - 1);
+		let subset = [];
 		(0 .. size - 1).do { :i |
-			let next = [];
+			subset.removeAll;
 			powersOfTwo.withIndexDo { :each :j |
 				(i // each % 2 ~= 0).ifTrue {
-					next.add(self[j])
+					subset.add(self[j])
 				}
 			};
-			aBlock(next)
+			aBlock(subset)
 		};
 		self
 	}
 
-	powerSet { :self :aBlock:/1 |
-		let answer = [];
-		self.powerSetDo { :each |
-			aBlock(each).ifTrue {
-				answer.add(each)
-			}
-		};
-		answer
-	}
-
 	powerSet { :self |
-		self.powerSet { :each |
-			true
-		}
+		self.subsets(true.constant)
 	}
 
 	prefixesDo { :self :aBlock:/1 |
@@ -1551,6 +1548,16 @@
 
 	subsequencesInCommon { :self :aSequence :k |
 		self.partition(k, 1).intersection(aSequence.partition(k, 1))
+	}
+
+	subsets { :self :aBlock:/1 |
+		let answer = [];
+		self.powerSetDo { :each |
+			aBlock(each).ifTrue {
+				answer.add(each.copy)
+			}
+		};
+		answer
 	}
 
 	swapWith { :self :oneIndex :anotherIndex |

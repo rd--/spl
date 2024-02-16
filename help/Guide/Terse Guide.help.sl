@@ -2981,7 +2981,7 @@ let a = [1, 1, 3, 4]; a @* [2, 4, 3, 1] = [1, 4, 3, 1] {- atAll as permutation -
 let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] {- atAll as permutation -}
 [1, 9, 2, 8, 3, 7, 4, 6].pairsCollect { :i :j | i + j } = [10, 10, 10, 10]
 let s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printString }; s = '10101010'
-let s = ''; [1, 9, 2, 8, 3, 7, 4, 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291' {- do from end -}
+let s = ''; [1 9 2 8 3 7 4 6].reverseDo { :i | s := s ++ i }; s = '64738291' {- do from end -}
 [1, 2, 2, 3, 3, 3, 4, 4, 4, 4].copyWithoutIdenticalElements = [1, 2, 3, 4] {- copy without duplicates, retain order -}
 ([1, 3 .. 9] ++ [1, 3 .. 9] ++ [2, 4 .. 10] ++ [2, 4 .. 10]).copyWithoutIdenticalElements = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
 1:9.hasEqualElements(1:9) {- an array is not equal to an interval, but can have equal elements -}

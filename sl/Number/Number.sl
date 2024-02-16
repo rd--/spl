@@ -106,12 +106,35 @@
 		low.max(self.min(high))
 	}
 
+	continuedFraction { :self :limit |
+		let answer = [];
+		let i = self.floor;
+		let f = self - i;
+		{
+			(limit > 1) & {
+				f ~= 0
+			}
+		}.whileTrue {
+			answer.add(i);
+			f := 1 / f;
+			i := f.floor;
+			f := f - i;
+			limit := limit -1
+		};
+		answer.add(i);
+		answer
+	}
+
 	copySignTo { :self :aNumber |
 		(self.signBit = 0).if {
 			aNumber.abs
 		} {
 			aNumber.abs.negated
 		}
+	}
+
+	coth { :self |
+		self.cosh / self.sinh
 	}
 
 	cubed { :self |
@@ -197,6 +220,11 @@
 
 	fractionPart { :self |
 		self - self.integerPart
+	}
+
+	goldenRatio { :self |
+		let phi = (5.sqrt + 1) / 2;
+		self * phi
 	}
 
 	halved { :self |

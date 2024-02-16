@@ -18,6 +18,16 @@ The product of 1 up to _anInteger_.
 25852016738884976640000n
 ```
 
+Exact LargeInteger and inexact SmallFloat results for 30!:
+
+```
+>>> 30n.factorial
+265252859812191058636308480000000n
+
+>>> 30.factorial
+2.652528598121911e32
+```
+
 Notable limits:
 
 - 12! is the largest factorial that can fit into 32-bit integer.

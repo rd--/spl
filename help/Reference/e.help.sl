@@ -1,41 +1,40 @@
 # e
 
-Mathematical constant.
-The number e, also known as Eulers number, is a mathematical constant approximately equal to 2.71828.
-It is the base of natural logarithms.
+_e(aNumber)_
 
-- _e(aNumber)_
+The number _e_, also known as Eulers number, is a mathematical constant approximately equal to 2.71828.
+It is the base of natural logarithms.
 
 Answer _aNumber_ times e.
 
-	1.e = 2.718281828459045
-	2.e = 5.43656365691809
-
-- _e(aBlock:/2)_
-
-Answer a Block that will apply _aBlock_ element wise to two sequences of equal length.
-
 ```
->>> ['1' '2' '3'] ++.e ['4' '5' '6']
-['14' '25' '36']
+>>> 1.e
+2.71828
 
->>> ['1' '2' '3'].withCollectEqual(['4' '5' '6'], ++)
-['14' '25' '36']
+>>> 2.e
+5.43656
 ```
 
-It is an error if the sequences are not of equal size:
+_e_ threads over lists:
 
 ```
->>> { [1 2 3] +.e [4 5] }.ifError { true }
-true
+>>> [0.5, 1.5].e
+[1.35914, 4.07742]
+```
+
+_e_ is also defined as a constant:
+
+```
+>>> e * 3
+8.15485
 ```
 
 * * *
 
-See also: pi, [Operator Adverbs], withCollectEqual
+See also: exp, log, pi
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/e.html)
 
-Categories: Math
+Categories: Math, Constant

@@ -42,7 +42,7 @@ At String:
 
 * * *
 
-See also: =, ==, asSet, copyWithoutIdenticalElements, Set
+See also: =, ==, asSet, copyWithoutIdenticalElements, deleteDuplicates, Set
 
 References:
 _Apl_

@@ -2,10 +2,14 @@
 
 _exp(aNumber)_
 
-Answers the exponential of _aNumber_.
+Answers the exponential of _aNumber_,
+that is _e ^ n_.
 
 ```
 >>> 1.5.exp
+4.48169
+
+>>> e ^ 1.5
 4.48169
 
 >>> 3.4.exp
