@@ -56,6 +56,8 @@ Objects showing regularity in their continued fractions:
 [1 3 5 7 9 11 13 15]
 ```
 
+* * *
+
 See also: fromContinuedFraction
 
 References:

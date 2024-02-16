@@ -224,6 +224,84 @@
 		}
 	}
 
+	integerCompositionsDo { :n :k :aBlock:/1 |
+		(n < k).ifFalse {
+			let a = List(k, 1);
+			a[k] := n - k + 1;
+			aBlock(a);
+			{
+				a[1] = (n - k + 1)
+			}.whileFalse {
+				let last = k;
+				let z = nil;
+				{
+					a[last] = 1
+				}.whileTrue {
+					last := last - 1
+				};
+				z := a[last];
+				a[last - 1] := a[last - 1] + 1;
+				a[last] := 1;
+				a[k] := z - 1;
+				aBlock(a)
+			}
+		}
+	}
+
+	integerCompositionsDo { :n :aBlock:/1 |
+		1:n.do { :k |
+			n.integerCompositionsDo(k, aBlock:/1)
+		}
+	}
+
+	integerCompositions { :n :k |
+		let answer = [];
+		n.integerCompositionsDo(k) { :each |
+			answer.add(each.copy)
+		};
+		answer
+	}
+
+	integerCompositions { :n |
+		let answer = [];
+		n.integerCompositionsDo { :each |
+			answer.add(each.copy)
+		};
+		answer
+	}
+
+	integerCompositionsWeakDo { :n :k :aBlock:/1 |
+		(n < k).ifFalse {
+			let a = List(k, 0);
+			a[k] := n;
+			aBlock(a);
+			{
+				a[1] = n
+			}.whileFalse {
+				let last = k;
+				let z = nil;
+				{
+					a[last] = 0
+				}.whileTrue {
+					last := last - 1
+				};
+				z := a[last];
+				a[last - 1] := a[last - 1] + 1;
+				a[last] := 0;
+				a[k] := z - 1;
+				aBlock(a)
+			}
+		}
+	}
+
+	integerCompositionsWeak { :n :k |
+		let answer = [];
+		n.integerCompositionsWeakDo(k) { :each |
+			answer.add(each.copy)
+		};
+		answer
+	}
+
 	integerDigitsReverseDo { :self :base :numDigits :aBlock:/1 |
 		let num = self;
 		numDigits.timesRepeat {
@@ -255,6 +333,48 @@
 		self.integerDigits(10)
 	}
 
+	integerPartitionsDo { :self :aBlock:/1 |
+		let n = self;
+		let a = List(n, 0);
+		let k = 2;
+		let y = n - 1;
+		{
+			k ~= 1
+		}.whileTrue {
+			var x, l;
+			k := k - 1;
+			x := a[k] + 1;
+			{
+				(2 * x) <= y
+			}.whileTrue {
+				a[k] := x;
+				y := y - x;
+				k := k + 1
+			};
+			l := k + 1;
+			{
+				x <= y
+			}.whileTrue {
+				a[k] := x;
+				a[l] := y;
+				aBlock(a.copyFromTo(1, l));
+				x := x + 1;
+				y := y - 1
+			};
+			y := y + x - 1;
+			a[k] := y + 1;
+			aBlock(a.copyFromTo(1, k))
+		}
+	}
+
+	integerPartitions { :self |
+		let answer = [];
+		self.integerPartitionsDo { :each |
+			answer.addFirst(each)
+		};
+		answer
+	}
+
 	integerPartitions { :j :i |
 		let f = { :t :m :n |
 			(m = 1 & { t = n }).if {
@@ -272,7 +392,7 @@
 		f(j - i + 1, i, j)
 	}
 
-	integerPartitions { :n |
+	integerPartitionsRecursive { :n |
 		(1 .. n).collect { :k | n.integerPartitions(k) }.concatenation
 	}
 
@@ -375,6 +495,14 @@
 		} {
 			primesList[self]
 		}
+	}
+
+	numberOfCompositions { :n :k |
+		(n - 1).factorial / ((k - 1).factorial * (n - k).factorial)
+	}
+
+	numberOfCompositionsWeak { :n :k |
+		(n + k - 1).factorial / (n.factorial * (k - 1).factorial)
 	}
 
 	numerator { :self |
