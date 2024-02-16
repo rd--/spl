@@ -55,7 +55,7 @@ Apply a function on a tensor product grid:
 
 * * *
 
-See also: outerProduct
+See also: inner, outerProduct
 
 References:
 _Apl_
@@ -64,5 +64,6 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/slash#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/CartesianProduct.html)
-[2](https://reference.wolfram.com/language/ref/Outer.html)
-[3](https://reference.wolfram.com/language/ref/Table.html)
+[2](https://mathworld.wolfram.com/VectorSpaceTensorProduct.html)
+[3](https://reference.wolfram.com/language/ref/Outer.html)
+[4](https://reference.wolfram.com/language/ref/Table.html)

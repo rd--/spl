@@ -598,7 +598,7 @@ let b = Bag(); b.add('x'); b.add('x'); b.size = 2 {- number of objects in bag -}
 let b = Bag(); b.add('x'); b.add('y'); b.add('x'); b.size = 3 {- add element to bag -}
 let b = Bag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 {- add all elements of argument to bag -}
 let c = 'xyyzzz'.ascii; let r = Bag(); r.addAll(c); r.size = 6 {- add all ascii code points of a String to a Bag -}
-let c = 'xyyzzz'.split; let r = Bag(); r.addAll(c); r.size = 6 {- add all one element strings of a String to a Bag -}
+let c = 'xyyzzz'.contents; let r = Bag(); r.addAll(c); r.size = 6 {- add all one element strings of a String to a Bag -}
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].asBag.size = 10
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].asBag.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].asBag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
@@ -2859,12 +2859,12 @@ let r = RegExp('ab*c'); ['ac', 'abc', 'abbc'].collect { :each | r.matches(each) 
 RegExp('c(a|d)+r', 'g').matchAll('car cdr cadr') = ['car', 'cdr', 'cadr']
 RegExp('c(a|d)+r', 'g').matchAll('does not') = []
 RegExp('ab*c', 'g').matchAll('ab abc ac') = ['abc', 'ac']
-RegExp('-|:').split('a-b:c') = ['a', 'b', 'c'] {- split string at matching tokens -}
+RegExp('-|:').splitBy('a-b:c') = ['a', 'b', 'c'] {- split string at matching tokens -}
 RegExp('x|z').replaceWith('x y z', '-') = '- y z'
 RegExp('x|z', 'g').replaceAllWith('x y z', '-') = '- y -'
 { RegExp('x|z').replaceAllWith('x y z', '-') }.ifError { true } {- requires 'g' flag -}
 'ab abc ac'.allRegExpMatches(RegExp('ab*c', 'g')) = ['abc', 'ac']
-'a-b:c'.splitRegExp('-|:') = ['a', 'b', 'c'] {- split string at matching tokens -}
+'a-b:c'.splitByRegExp('-|:') = ['a', 'b', 'c'] {- split string at matching tokens -}
 'x y z'.replaceRegExp('x|z', '-') = '- y z'
 'x y z'.replaceRegExp(RegExp('x|z', 'g'), '-') = '- y -'
 RegExp('x|z').replaceModifying('x y z', toUppercase:/1) = 'X y z' {- instead of a replacement string, allows for a block to process the match -}
@@ -2930,8 +2930,8 @@ let a = RunArray([1, 3, 5], ['a', 'b', 'c']); a.size = 9 & { a.asList.join = 'ab
 let a = [1 -> 'a', 3 -> 'b', 5 -> 'c'].associationListToRunArray; a.size = 9 & { a.asList.join = 'abbbccccc' } {- from associations -}
 let a = RunArray([1 4 2 1], [9 7 5 3]); a.size = 8 & { a.asList = [9 7 7 7 7 5 5 3] }
 { let a = RunArray([1 3], ['a' 'b']); a[5] }.ifError { true } {- invalid index -}
-let a = RunArray([1, 4, 2, 1], 'abca'.split); a.first = 'a' & { a.last = 'a' } {- first and last are optimized -}
-let a = RunArray([1, 4, 2], 'abc'.split); a.includes('c') & { a.isSorted } {- includes and isSorted are optimized -}
+let a = RunArray([1, 4, 2, 1], 'abca'.contents); a.first = 'a' & { a.last = 'a' } {- first and last are optimized -}
+let a = RunArray([1, 4, 2], 'abc'.contents); a.includes('c') & { a.isSorted } {- includes and isSorted are optimized -}
 RunArray([1, 4, 2], ['a', 'b', 'c']).reversed = [2 -> 'c', 4 -> 'b', 1 -> 'a'].associationListToRunArray {- reversed is optimized -}
 let a = RunArray([23, 34, 45], ['a', 'b', 'a']); (a.allocatedSize / a.size * 100).rounded = 9 {- space saving, in % -}
 RunArray([1, 3, 5], ['a', 'b', 'c']).asList.join = 'abbbccccc' {- from runs and values, as array -}
@@ -3052,9 +3052,9 @@ let a = []; 9:7.withIndexDo { :value :index | a.add(index -> value) }; a = [1 ->
 let a = []; 9:7.withIndexDo { :each :index | a.add(index -> each) }; a = [1 -> 9, 2 -> 8, 3 -> 7]{- index is second argument -}
 let a = [1 .. 5]; a.atIncrementBy(3, 6); a = [1, 2, 9, 4, 5] {- increment value at index by -}
 let a = [1 .. 9]; a.atLastPut(3, -7); a = [1, 2, 3, 4, 5, 6, -7, 8, 9] {- set at index from end -}
-'string'.split.sorted = ['g', 'i', 'n', 'r', 's', 't']
-'string'.split.sortedWithIndices = ['g' -> 6, 'i' -> 4, 'n' -> 5, 'r' -> 3, 's' -> 1, 't' -> 2]
-let a = 'string'.split; a.atAll([6, 4, 5, 3, 1, 2]) = a.sorted
+'string'.contents.sorted = ['g', 'i', 'n', 'r', 's', 't']
+'string'.contents.sortedWithIndices = ['g' -> 6, 'i' -> 4, 'n' -> 5, 'r' -> 3, 's' -> 1, 't' -> 2]
+let a = 'string'.contents; a.atAll([6, 4, 5, 3, 1, 2]) = a.sorted
 [1, 3, 2, 5, 4].sortedWithIndices = [1 -> 1, 2 -> 3, 3 -> 2, 4 -> 5, 5 -> 4]
 [1, 3, 2, 5, 4].atAll([1, 3, 2, 5, 4]) = [1 .. 5]
 let a = [2 .. 5]; let b = a.copyWithFirst(1); a ~= b & { b = [1 .. 5] } {- copy with new first element -}
@@ -3163,7 +3163,7 @@ let s = 1:10.asSet; let t = s.copyWithout(3); s.select { :each | t.includes(each
 let s = 1:5.asSet; let n = 0; s.do { :each | n := n + each }; n = 15
 let s = [].asSet; s.addAll(['x', 'y', 'z']); s.size = 3 {- add all elements of a List to a Set -}
 let s = [].asSet; s.includeAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 {- include all elements of a List to a Set -}
-let c = 'xyyzzz'.split; let r = Set(); r.includeAll(c); r.size = 3 {- include all single character strings of a String to a Set -}
+let c = 'xyyzzz'.contents; let r = Set(); r.includeAll(c); r.size = 3 {- include all single character strings of a String to a Set -}
 let c = 'xyyzzz'.ascii; let r = Set(); r.includeAll(c); r.size = 3 {- include all ascii code points of a String to a Set -}
 let s = [].asSet; s.addAll([1 .. 99]); s.size = 99 {- add all from array -}
 let s = ['x', 5].asSet; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
@@ -3180,8 +3180,8 @@ let s = 1:4.asSet; let t = 5:9; let u = s.union(t); u.size = (s.size + t.size) {
 let s = Set(); s.includeAll([4 / 2, 4, 2]); s.size = 2 {- 4 / 2 = 2 -}
 [1, 2, 3, 1, 4].asSet = [1, 2, 3, 4, 3, 2, 1].asSet = true
 1:6.union(4:10) = 1:10.asSet {- set union -}
-'hello'.split.intersection('there'.split) = 'he'.split {- set intersection -}
-'Smalltalk'.split.includes('k') = true
+'hello'.contents.intersection('there'.contents) = 'he'.contents {- set intersection -}
+'Smalltalk'.contents.includes('k') = true
 [1, 2, 3, 1, 4].asSet.isIndexable = false {- sets are not indexable -}
 [1, 2, 3, 1, 4].asSet.indices = nil {- sets are not indexable -}
 [1, 2, 2, 3, 3, 3].asSet.occurrencesOf(3) = 1 {- number of occurrences of element in set (zero or one) -}
@@ -3364,7 +3364,7 @@ let a = [1 .. 9].asSortedList(>); a.contents = [9 .. 1] {- sorted array with spe
 let a = [5 .. 9].asSortedList(>); a.addAll([1 .. 4]); a.contents = [9 .. 1]
 let a = SortedList(); a.add('truite'); a.add('porcinet'); a.add('carpe'); a.middle = 'porcinet'
 [5, 2, 50, -10].asSortedList.asList = [-10, 2, 5, 50]
-'hello'.split.asSortedList.asList = 'ehllo'.split
+'hello'.contents.asSortedList.asList = 'ehllo'.contents
 10:1.asSortedList.isVector
 ```
 
@@ -3417,7 +3417,7 @@ system.includesPackage('String') {- package -}
 'string'.splitBy('absent') = ['string']
 'string'.splitBy('') = ['s', 't', 'r', 'i', 'n', 'g']
 'Set-Of-Three-Words'.splitByLimitedTo('-', 3) = ['Set', 'Of', 'Three'] {- limited to count number of elements -}
-'mississippi'.split.join = 'mississippi' {- join is the inverse of split -}
+'mississippi'.contents.join = 'mississippi' {- List>>join is the inverse of String>>contents -}
 'mississippi'.splitBy('i').joinSeparatedBy('i') = 'mississippi' {- joinSeparatedBy is the inverse of splitBy -}
 '/usr/local/bin'.splitBy('/') = ['', 'usr', 'local', 'bin']
 'Terse Guide.help.sl'.splitBy('.') = ['Terse Guide', 'help', 'sl']
@@ -3530,7 +3530,7 @@ let s = 'string'; [s[2], s[4], s[5]].join = 'tin' {- string subscripting -}
 ' x '.withoutLeadingBlanks = 'x '
 ' x '.withoutTrailingBlanks = ' x'
 let a = []; 'string'.do { :each | a.add(each) }; a.join = 'string'
-'string'.stringList.join = 'string'
+'string'.contents.join = 'string'
 let a = 'string'.characterList; a.joinCharacters = 'string' & { a.join = 'string' }
 '𠮷'.countCharacters = 1
 '𠮷'.countUtf16CodeUnits = 2
@@ -3553,7 +3553,7 @@ let a = 'string'.characterList; a.joinCharacters = 'string' & { a.join = 'string
 'x'.asciiValue = 120 {- ascii code point of string -}
 { 'xy'.asciiValue }.ifError { true } {- it is an error is the string is not a single character -}
 { '𠮷'.asciiValue }.ifError { true } {- it is an error is the character is not ascii -}
-'string'.stringList = ['s', 't', 'r', 'i', 'n', 'g']
+'string'.contents = ['s' 't' 'r' 'i' 'n' 'g'] {- the contents of a string is a list of one element strings -}
 'string'.characterList = [115, 116, 114, 105, 110, 103].collect(asCharacter:/1)
 'Gnu/Linux'.findString('Linux') = 5
 'Gnu/Linux'.findStringStartingAt('Linux', 1) = 5

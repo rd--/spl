@@ -92,6 +92,21 @@
 		1
 	}
 
+	digitCount { :n :b :d |
+		n.integerDigits(b).count { :each |
+			each = d
+		}
+	}
+
+	digitCount { :n :b |
+		let digits = n.integerDigits(b);
+		(b - 1 .. 0).collect { :d |
+			digits.count { :each |
+				each = d
+			}
+		}
+	}
+
 	divisors { :self |
 		1.to(self).select { :each |
 			self \\ each = 0

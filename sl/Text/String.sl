@@ -186,6 +186,10 @@ String! : [Object, Json, Iterable] {
 		}, [])
 	}
 
+	contents { :self |
+		self.stringList
+	}
+
 	contractTo { :self :smallSize |
 		(self.size <= smallSize).if {
 			self
@@ -581,10 +585,6 @@ String! : [Object, Json, Iterable] {
 
 	size { :self |
 		self.countUtf16CodeUnits
-	}
-
-	split { :self |
-		self.stringList
 	}
 
 	splitBy { :self :aString |

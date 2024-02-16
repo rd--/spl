@@ -13,6 +13,20 @@ All partitions of 5:
 [5; 4 1; 3 2; 3 1 1; 2 2 1; 2 1 1 1; 1 1 1 1 1]
 ```
 
+All partitions of 6:
+
+```
+>>> 6.integerPartitions
+[6; 5 1; 4 2; 3 3; 4 1 1; 3 2 1; 2 2 2; 3 1 1 1; 2 2 1 1; 2 1 1 1 1; 1 1 1 1 1 1]
+```
+
+The number of partitions of 20:
+
+```
+>>> 20.integerPartitions.size
+627
+```
+
 Partitions of 8 into at most 3 integers:
 
 ```

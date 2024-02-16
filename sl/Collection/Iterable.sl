@@ -177,7 +177,7 @@
 	}
 
 	includes { :self :anObject |
-		self.includesBy(=)
+		self.includesBy(anObject, =)
 	}
 
 	includesAnyOf { :self :aCollection |

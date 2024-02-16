@@ -12,6 +12,16 @@ Answer the outer product of two sequences.
 [3 4 5; 6 8 10]
 ```
 
+_outerProduct_ is _outer_ of _*_:
+
+```
+>>> [1 2 3] *.outer [4 5]
+[4 5; 8 10; 12 15]
+
+>>> [1 2] *.outer [3 4 5]
+[3 4 5; 6 8 10]
+```
+
 A multiplication table:
 
 ```

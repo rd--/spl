@@ -18,6 +18,9 @@ which is an n-element sequence of any sized sequences.
 
 >>> ['a' 'b'; 'x' 'y' 'z'; 'u' 'v'].tuples.collect(join:/1)
 ['axu' 'axv' 'ayu' 'ayv' 'azu' 'azv' 'bxu' 'bxv' 'byu' 'byv' 'bzu' 'bzv']
+
+>>> [0:2, 0:3].tuples
+[0 0; 0 1; 0 2; 0 3; 1 0; 1 1; 1 2; 1 3; 2 0; 2 1; 2 2; 2 3]
 ```
 
 Two-tuples are the cartesian product of a set with itself:

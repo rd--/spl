@@ -116,7 +116,7 @@ RegExp! : [Object] {
 		self.basicSearch(aString)
 	}
 
-	split { :self :aString |
+	splitBy { :self :aString |
 		aString.assertIsString;
 		self.basicSplit(aString)
 	}
@@ -187,8 +187,8 @@ RegExp! : [Object] {
 		aRegExp.asRegExp.search(self)
 	}
 
-	splitRegExp { :self :aRegExp |
-		aRegExp.asRegExp.split(self)
+	splitByRegExp { :self :aRegExp |
+		aRegExp.asRegExp.splitBy(self)
 	}
 
 	RegExp { :self :flags |

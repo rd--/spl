@@ -193,7 +193,7 @@ List(4).fill { :i | i * 2 } = [2, 4, 6, 8] {- fill list using block at indicies 
 3/2.RatioMidi ~ 7.02 {- ratio (interval) to midi -}
 7.02.MidiRatio ~ 1.5 {- midi (interval) to ratio -}
 [1, 3, 2, 5, 4].order = [1, 3, 2, 5, 4] {- indices that would sort reciever -}
-'string'.split.order = [6, 4, 5, 3, 1, 2] {- indices that would sort reciever -}
+'string'.contents.order = [6, 4, 5, 3, 1, 2] {- indices that would sort reciever -}
 4.75.OctCps = 440 {- linear octave to hertz -}
 440.CpsOct = 4.75 {- hertz to linear octave -}
 440.CpsMidi = 69 {- hertz to midi note number -}

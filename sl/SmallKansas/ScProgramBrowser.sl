@@ -33,7 +33,7 @@ ScProgramIndex : [Object] { | contents |
 	ScProgramIndex { :self |
 		newScProgramIndex().initializeSlots(
 			self.lines.select(notEmpty:/1).collect { :each |
-				each.replaceString('.sl', '').splitRegExp(RegExp(' - |/'))
+				each.replaceString('.sl', '').splitByRegExp(RegExp(' - |/'))
 			}
 		)
 	}

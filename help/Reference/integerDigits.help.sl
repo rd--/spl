@@ -55,6 +55,8 @@ Count from zero to seven in binary, answers to three places:
 
 * * *
 
+See also: digitCount
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Digit.html)

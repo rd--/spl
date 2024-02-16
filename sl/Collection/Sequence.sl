@@ -1505,6 +1505,26 @@
 		}
 	}
 
+	split { :self :aBlock:/2 |
+		self.ifEmpty {
+			[]
+		} {
+			let answer = [];
+			let startIndex = 1;
+			let previous = self.first;
+			2.upToDo(self.size) { :index |
+				let next = self[index];
+				aBlock(previous, next).ifFalse {
+					answer.add(self.copyFromTo(startIndex, index - 1));
+					startIndex := index
+				};
+				previous := next
+			};
+			answer.add(self.copyFromTo(startIndex, self.size));
+			answer
+		}
+	}
+
 	splitBy { :self :aCollection |
 		let answer = [];
 		self.splitByDo(aCollection) { :each |
