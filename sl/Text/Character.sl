@@ -7,9 +7,7 @@ Character : [Object, Magnitude] { | string codePoint |
 	}
 
 	< { :self :anObject |
-		anObject.isCharacter & {
-			self.codePoint < anObject.codePoint
-		}
+		self.codePoint < anObject.codePoint
 	}
 
 	asciiValue { :self |

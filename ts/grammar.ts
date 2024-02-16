@@ -72,6 +72,7 @@ Sl {
 		| VectorSyntax
 		| MatrixSyntax
 		| VolumeSyntax
+		| TreeSyntax
 		| ListExpression
 		| ParenthesisedExpression
 		| DictionaryExpression
@@ -100,7 +101,7 @@ Sl {
 	DotExpressionWithTrailingClosuresSyntax = Primary "." selectorName NonEmptyParameterList? Block+
 	DotExpressionWithTrailingDictionariesSyntax = Primary "." selectorName NonEmptyParameterList? NonEmptyDictionaryExpression+
 	DotExpressionWithAssignmentSyntax = Primary "." selectorName ":=" Expression
-	DotExpression = Primary ("." selectorName ~("{" | ":=") NonEmptyParameterList?~("{"))+
+	DotExpression = Primary ("." (selectorName | boundOperator) ~("{" | ":=") NonEmptyParameterList?~("{"))+
 
 	Block = "{" BlockBody "}"
 	BlockBody = Arguments? Temporaries? Primitive? Statements?
@@ -113,7 +114,7 @@ Sl {
 
 	ApplyWithTrailingClosuresSyntax = selectorName NonEmptyParameterList? Block+
 	ApplyWithTrailingDictionariesSyntax = selectorName NonEmptyParameterList? NonEmptyDictionaryExpression+
-	ApplySyntax = selectorName ParameterList
+	ApplySyntax = (selectorName | boundOperator) ParameterList
 	ParenthesisedExpression = "(" Expression ")"
 	NonEmptyDictionaryExpression = "(" NonemptyListOf<AssociationExpression, ","> ")"
 	DictionaryExpression = "(" ListOf<AssociationExpression, ","> ")"
@@ -135,6 +136,8 @@ Sl {
 	MatrixSyntaxItems = VectorSyntaxItem*
 	VolumeSyntax = "[" NonemptyListOf<VolumeSyntaxItems, ":;"> "]"
 	VolumeSyntaxItems = NonemptyListOf<MatrixSyntaxItems, ";">
+	TreeSyntax = "[" TreeSyntaxItem+ "]"
+	TreeSyntaxItem = VectorSyntaxItem | TreeSyntax
 
 	unqualifiedIdentifier = letter letterOrDigit*
 	arityQualifiedIdentifier = letter letterOrDigit* (":/" digit+)
@@ -155,6 +158,7 @@ Sl {
 	reservedIdentifier = "nil" | "true" | "false"
 	infixMethod = lowercaseIdentifier ":"
 	operator = operatorChar+
+	boundOperator = operatorChar+
 	operatorWithAdverb = operatorWithBinaryAdverb | operatorWithUnaryAdverb
 	operatorWithUnaryAdverb = (operator | lowercaseIdentifier) "." selectorName
 	operatorWithBinaryAdverb = (operator | lowercaseIdentifier) "." selectorName "(" (methodName | numberLiteral) ")"

@@ -1,8 +1,10 @@
 # Unary Operator Syntax
 
-The grammar allows for a limited form or unary operators.
+The grammar allows for operators to be written in ordinary method contexts.
 
-The last selector in a _dot_ message send may be an operator.
+In such contexts operators may have any arity that is defined for them.
+
+Thus an operator can be a unary selector in a _dot_ message send:
 
 ```
 >>> 3.-
@@ -10,9 +12,20 @@ The last selector in a _dot_ message send may be an operator.
 
 >>> 9.sqrt.-
 -3
+
+>>> -9.-.sqrt
+3
 ```
 
-The translation is _3.- ⇒ minus(3)  ⇒ minus:/1 . (3)_.
+or in a prefix apply:
+
+```
+>>> let x = 9;
+>>> -(sqrt(x))
+-3
+```
+
+The translation is _3.- ⇒ hyphenMinus(3)  ⇒ hyphenMinus:/1 . (3)_.
 
 Unary + is sum:
 
@@ -45,11 +58,18 @@ Unary / is reciprocal:
 [1 0.5 0.333333 0.25 0.2 0.16667]
 ```
 
-Unary ! is ! 2:
+Unary alpha.! at Block is (alpha ! 2):
 
 ```
 >>> { 0 }.!
 [0 0]
+```
+
+and at Integer it is _factorial_:
+
+```
+>>> 11.!
+39916800
 ```
 
 Unary operators are defined in the same manner as binary operators,

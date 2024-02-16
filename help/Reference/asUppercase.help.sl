@@ -1,6 +1,6 @@
 # asUppercase
 
-- _asUppercase(aString)_
+_asUppercase(aCharacter | aString)_
 
 Answer a String made up from _aString_ whose characters are all uppercase.
 

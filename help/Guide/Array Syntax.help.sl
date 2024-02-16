@@ -1,8 +1,8 @@
 # Array Syntax
 
-A notation for writing literal vectors, trees, matrices and volumes.
+A notation for writing literal vectors, matrices and volumes.
 
-A _vector_ of literals can be written without commas:
+A _vector_, a one-dimensional array, can be written as a sequence of literals:
 
 ```
 >>> [1 3 5 7 9]
@@ -23,7 +23,7 @@ A _volume_, a three-dimensional array, can be written as a sequence of matrices 
 [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
 ```
 
-The notations allow for writing irregular arrays and trees,
+The notations allow for writing irregular arrays,
 see the individual entries below for details.
 
 _Rationale:_
@@ -33,7 +33,7 @@ A concise notation can allow the _score_ for a work to be written directly in Sp
 
 * * *
 
-See also: List, [List Syntax], [Matrix Syntax], [Vector Syntax], [Volume Syntax]
+See also: List, [List Syntax], [Matrix Syntax], [Tree Syntax], [Vector Syntax], [Volume Syntax]
 
 References:
 _Fortress_

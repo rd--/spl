@@ -2,6 +2,10 @@
 
 @Integer {
 
+	! { :self |
+		self.factorial
+	}
+
 	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
 		aFraction.aBlock(Fraction(self, self.one))
 	}
@@ -333,7 +337,47 @@
 		self.integerDigits(10)
 	}
 
-	integerPartitionsDo { :self :aBlock:/1 |
+	integerPartitionsDescendingDo { :self :aBlock:/1 |
+		let n = self;
+		let d = List(n, 1);
+		let k = 1;
+		d[1] := n;
+		aBlock(d.copyFromTo(1, 1));
+		{
+			k ~= n
+		}.whileTrue {
+			let l = k;
+			let m = d[k];
+			let nPrime = nil;
+			{
+				m = 1
+			}.whileTrue {
+				k := k - 1;
+				m := d[k]
+			};
+			nPrime := m + l - k;
+			m := m - 1;
+			{
+				m < nPrime
+			}.whileTrue {
+				d[k] := m;
+				nPrime := nPrime - m;
+				k := k + 1
+			};
+			d[k] := nPrime;
+			aBlock(d.copyFromTo(1, k))
+		}
+	}
+
+	integerPartitions { :self |
+		let answer = [];
+		self.integerPartitionsDescendingDo { :each |
+			answer.add(each)
+		};
+		answer
+	}
+
+	integerPartitionsAscendingDo { :self :aBlock:/1 |
 		let n = self;
 		let a = List(n, 0);
 		let k = 2;
@@ -367,10 +411,10 @@
 		}
 	}
 
-	integerPartitions { :self |
+	integerPartitionsAscending { :self |
 		let answer = [];
-		self.integerPartitionsDo { :each |
-			answer.addFirst(each)
+		self.integerPartitionsAscendingDo { :each |
+			answer.add(each)
 		};
 		answer
 	}
@@ -393,7 +437,9 @@
 	}
 
 	integerPartitionsRecursive { :n |
-		(1 .. n).collect { :k | n.integerPartitions(k) }.concatenation
+		(1 .. n).collect { :k |
+			n.integerPartitions(k)
+		}.concatenation
 	}
 
 	isByte { :self |

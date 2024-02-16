@@ -15,3 +15,5 @@ Character('c', 99)
 * * *
 
 See also: asCodePoint, asString, Character
+
+Categories: Converting

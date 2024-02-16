@@ -215,6 +215,16 @@
 		answer
 	}
 
+	indicesOf { :self :anObject |
+		let answer = [];
+		self.withIndexDo { :each :index |
+			(each = anObject).ifTrue {
+				answer.add(index)
+			}
+		};
+		answer
+	}
+
 	indicesSorted { :self |
 		let answer = self.indices;
 		answer.sort;

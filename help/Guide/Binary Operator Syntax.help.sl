@@ -22,11 +22,28 @@ Binary operators are grouped using parentheses:
 23
 ```
 
-Binary operators have lower precedence than ordinary application, _α + β.γ_ = _α + (β.γ)_
+Binary operators have lower precedence than ordinary application,
+_α + β.γ_ = _α + (β.γ)_
 
 ```
 >>> 3 + 4.squared
 19
+
+>>> 3 + squared(4)
+19
+
+>>> (3 + 4).squared
+49
+```
+
+Binary operators may be written as names in ordinary method application contexts:
+
+```
+>>> +(3, 4)
+7
+
+>>> 3.+(4)
+7
 ```
 
 Binary operators may be written as names in non-operator contexts, i.e. _α.β(+)_.
@@ -45,11 +62,15 @@ _*_ as _asterisk:/2_, &etc.
 true
 ```
 
-These names are in the same space as all other block names, defining _&_ defines _and_, and defining _+_ defines _plus_.
+These names are in the same space as all other block names,
+defining _&_ defines _ampersand_, and defining _+_ defines _plusSign_.
 
 ```
 >>> plusSign(3, 4)
 7
+
+>>> ampersand(true) { true }
+true
 ```
 
 Binary operators with multiple characters are named by joining together the character names,

@@ -17,13 +17,20 @@ and _x..._ are the arguments.
 3
 ```
 
-Infix operators are just especially named methods whose arity is know to be two.
+Operators are just especially named methods whose arity when written _free_ is known to be two:
 
 ```
 >>> 3 + 4
 7
 
 >>> + . (3, 4)
+7
+```
+
+Operators can also be written in prefix form:
+
+```
+>>> +(3, 4)
 7
 ```
 

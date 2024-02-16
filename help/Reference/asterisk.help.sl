@@ -47,6 +47,16 @@ As argument to reduce:
 362880
 ```
 
+Apply and method send syntaxes:
+
+```
+>>> *(3, 4)
+12
+
+>>> 3.*(4)
+12
+```
+
 The unary form of _times_ is _product_:
 
 ```

@@ -5,6 +5,7 @@ Rewrite rule:
 - _[p q r ...]_ ⟹ _[p, q, r, ...]_
 
 Allows writing lists of literals without comma separators.
+A Vector cannot contain other Vectors, see [Matrix Syntax].
 
 Literal items:
 
@@ -32,13 +33,6 @@ Literals and identifiers may be mixed together:
 >>> let [x, y, z] = 3:5;
 >>> [1 2 x y z 6 7 8 9]
 [1 2 3 4 5 6 7 8 9]
-```
-
-Vector syntax with vector items has been disallowed.
-This syntax is nice for writing tree structures.
-
-```
-[1 [1 3 [1 3 5] 5] 5] = [1, [1, 3, [1, 3, 5], 5], 5]
 ```
 
 _Note:_

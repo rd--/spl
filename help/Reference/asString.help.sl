@@ -48,4 +48,4 @@ or a _Character_, in which case answer a single character string.
 
 See also: printString, storeString, String
 
-Categories: Printing
+Categories: Converting, Printing

@@ -1,6 +1,6 @@
 # asLowercase
 
-- _asLowercase(aString)_
+_asLowercase(aCharacter | aString)_
 
 Answer a String made up from _aString_ whose characters are all lowercase.
 

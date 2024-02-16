@@ -350,6 +350,11 @@ const asJs: ohm.ActionDict<string> = {
 	operator(op) {
 		return `_${genName(op.sourceString, 2)}`;
 	},
+	boundOperator(op) {
+		const name = `_${resolveMethodName(op.sourceString)}`;
+		// console.debug('boundOperator', name);
+		return name;
+	},
 	operatorWithUnaryAdverb(op, _dot, adverb) {
 		// console.debug(`operatorWithAdverb: ${op.sourceString} ${adverb.sourceString}`);
 		return `_${genName(adverb.sourceString, 1)}(_${
@@ -605,6 +610,10 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	VolumeSyntaxItems(items) {
 		return `[${commaList(items.asIteration().children)}]`;
+	},
+	TreeSyntax(_leftBracket, items, _rightBracket) {
+		// console.debug('TreeSyntax', items.sourceString);
+		return `[${commaList(items.children)}]`;
 	},
 
 	unusedVariableIdentifier(_underscore) {

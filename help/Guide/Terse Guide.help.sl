@@ -382,7 +382,7 @@ let r = Random(12345); let f = { r.nextRandomInteger(9) }; List(5).fillWith(f:/0
 List(5).fillFromWith(1:5, negated:/1) = [-1 .. -5]
 let a = List(5); a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
 let a = List(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
-[1, 2, 3, 4, 3, 2, 1].occurrencesOf(3) = 2 {- number of occurrences of element in collection -}
+[1 2 3 4 3 2 1].occurrencesOf(3) = 2 {- number of occurrences of element in collection -}
 let a = [1, 2]; let [x, y] = a; [y, x] = [2, 1]
 let i = 1:3; let [x, y, z] = i; [z, y, x] = [3 .. 1] {- sequence binding syntax -}
 let [x, y] = { let n = system.nextRandomFloat; [n, n] }.value; x = y
@@ -909,6 +909,7 @@ let c = '𠮷'.asCharacter; c = c.copy & { c ~~ c.copy } {- copy is equal but no
 let s = 'string'; let a = []; a.addAll(s); a.size = 6 {- add elements from String to end of List -}
 'fgaguzst'.characterList.minMax = ['a'.asCharacter, 'z'.asCharacter] {- character minMax -}
 'alphabet'.characterList.collect(isVowel:/1) = [true, false, false, false, true, false, true, false] {- is character a vowel -}
+'x'.asCharacter.zero = ' '.asCharacter
 ```
 
 ## Circle -- geometric type
