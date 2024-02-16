@@ -18,6 +18,7 @@
 	'Set'
 	'Stack' {- LinkedList -}
 	'SortedList'
+	'Tree'
 	'Tuple' {- List -}
 	'WeakMap'
 

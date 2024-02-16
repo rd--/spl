@@ -1,9 +1,11 @@
-# ifNil -- conditional evaluation
+# ifNil
 
-- _ifNil(aValue, aBlock:/0)_
+- _ifNil(anObject, aBlock:/0)_
 
-If _aValue_ is _nil_ answer the result of  _aBlock_, else answer _nil_.
+If _anObject_ is _nil_ answer the result of _aBlock_, else answer _nil_.
 
 * * *
 
 See also: if, ifEmpty, ifFalse, ifNotNil, ifTrue, nil, Nil
+
+Categories: Conditional, Evaluation

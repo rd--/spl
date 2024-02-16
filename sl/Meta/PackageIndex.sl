@@ -52,6 +52,7 @@
 	'Collection-SortedList'
 	'Collection-SoundFile'
 	'Collection-Stack'
+	'Collection-Tree'
 	'Collection-Tuple'
 	'Collection-Unordered'
 	'Collection-WeakMap'

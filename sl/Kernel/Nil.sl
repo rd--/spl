@@ -40,6 +40,10 @@ Nil! : [Object, Json] {
 		true
 	}
 
+	notNil { :self |
+		false
+	}
+
 	storeString { :self |
 		'nil'
 	}
@@ -69,7 +73,7 @@ Nil! : [Object, Json] {
 	}
 
 	notNil { :self |
-		self.isNil.not
+		true
 	}
 
 }

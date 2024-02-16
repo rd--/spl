@@ -1,6 +1,6 @@
 # leafCount
 
-_leafCount(aCollection)_
+_leafCount(aCollection | aTree)_
 
 Answers the total number of non-collection elements in _aCollection_.
 
@@ -22,6 +22,9 @@ Answers the total number of non-collection elements in _aCollection_.
 
 >>> (x: (y: (z: 3))).leafCount
 1
+
+>>> [1 [2 [3 4] 5]].asTree.leafCount
+5
 ```
 
 * * *
