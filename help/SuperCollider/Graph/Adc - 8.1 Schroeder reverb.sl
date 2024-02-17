@@ -61,6 +61,6 @@ allPassIo := combsOut;
 	)
 };
 [
-	input * (1 - revBalance) ! 2,
+	input * (1 - revBalance) # 2,
 	((tapsOut + allPassIo) * revBalance)
 ].Sum <! delayWriter

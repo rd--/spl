@@ -219,7 +219,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
    (list nil "^\\(-- .*\\)$" 1) ; Line Comment
    (list nil "^\\(#+ .*\\)$" 1) ; Heading
    (list nil "^\\(\+?@?\[?[A-Z][, A-Za-z0-9]+[A-Za-z0-9]\]?\\).* {\\( |\\|$\\)" 1)
-   (list nil "^\\(\t[*&|~+/%><=?!^a-zA-Z0-9-]+\\) {" 1))
+   (list nil "^\\(\t[*&|~+/%><=?!#^a-zA-Z0-9-]+\\) {" 1))
   "Value for `imenu-generic-expression' in Spl mode.")
 
 (defconst spl-font-lock-keywords

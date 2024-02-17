@@ -1,6 +1,6 @@
 # !+
 
-- _anObject !+ anInteger_ ≡ (_anObject ! anInteger).Sum_
+- _alpha !+ beta_ => _(alpha ! beta).Sum_
 
 Duplicate and Sum.
 

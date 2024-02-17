@@ -21,6 +21,13 @@ false
 false
 ```
 
+Object answers false:
+
+```
+>>> nil.isSequence
+false
+```
+
 * * *
 
 See also: isCollection, isDictionary, isIndexable

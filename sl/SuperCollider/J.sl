@@ -109,15 +109,3 @@
 	}
 
 }
-
-+Block {
-
-	duplicateShape { :self:/0 :shape |
-		let answer = shape.iota;
-		shape.shapeIndicesDo { :index |
-			answer.atPathPut(index, self())
-		};
-		answer
-	}
-
-}

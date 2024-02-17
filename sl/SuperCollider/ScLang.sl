@@ -521,10 +521,6 @@
 		}
 	}
 
-	fill { :self :aBlock:/1 |
-		self.fillFromWith((1 .. self.size), aBlock:/1)
-	}
-
 	flop { :self |
 		self.multiChannelExpand
 	}

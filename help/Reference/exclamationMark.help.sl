@@ -1,16 +1,17 @@
 # !
 
-- _p ! q_
+- _alpha ! beta_ => replicate(alpha, beta)
 
-! is defined as _duplicate_ at _Block_ and as _replicate_ at _Object_.
+Alias for replicate.
 
 ```
->>> 3 ! 5
-[3 3 3 3 3]
-
 >>> let x = 1;
 >>> { x := x * 2; x } ! 5
 [2 4 8 16 32]
+
+>>> let r = Random(12345);
+>>> { r.nextRandomInteger(9) } ! 5
+[8 5 9 9 4]
 ```
 
 The name of this operator is _exclamationMark_.

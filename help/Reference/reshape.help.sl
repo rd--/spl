@@ -55,7 +55,7 @@ Reshape a vector into a depth-3 array:
 
 ```
 >>> 1:24.reshape([2 3 4])
-[1 2 3 4; 5 6 7 8; 9 10 11 12 :; 13 14 15 16; 17 18 19 20; 21 22 23 24]
+[1 2 3 4; 5 6 7 8; 9 10 11 12:; 13 14 15 16; 17 18 19 20; 21 22 23 24]
 ```
 
 Reshape a matrix into another matrix with different dimensions:
@@ -79,21 +79,28 @@ Elements from the original list that do not fit in the given dimensions are drop
 
 ```
 >>> 1:99.reshape([2 3 4])
-[1 2 3 4; 5 6 7 8; 9 10 11 12 :; 13 14 15 16; 17 18 19 20; 21 22 23 24]
+[1 2 3 4; 5 6 7 8; 9 10 11 12:; 13 14 15 16; 17 18 19 20; 21 22 23 24]
 ```
 
 Make a vector of 10 places:
 
 ```
 >>> ['x'].reshape([10])
-('x' ! 10)
+('x' # 10)
 ```
 
 Make a 3×4 array:
 
 ```
->>> ['x'].reshape([3, 4])
-({ 'x' ! 4 } ! 3)
+>>> ['x'].reshape([3 4])
+('x' # 4 # 3)
+```
+
+shape after reshape is requested shape:
+
+```
+>>> [3 2 1].iota.reshape([2 3 1]).shape
+[2 3 1]
 ```
 
 * * *

@@ -386,11 +386,6 @@ const asJs: ohm.ActionDict<string> = {
 		}
 		return left;
 	},
-	UnaryExpression(lhs, _dot, uop) {
-		const uopName = operatorMethodName(uop.sourceString);
-		// console.debug('UnaryExpression', uopName);
-		return `_${uopName}_1(${lhs.asJs})`;
-	},
 
 	AtPutSyntax(c, _leftBracket, k, _rightBracket, _equals, v) {
 		const elem = k.asIteration().children;

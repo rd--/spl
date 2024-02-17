@@ -24,7 +24,7 @@ let trig = Impulse(4, 0);
 SinOsc(
 	Demand(trig, 0, d) * 300 + 400,
 	0
-) * 0.1 ! 2
+) * 0.1 # 2
 ```
 
 Compare with Dswitch1:
@@ -42,7 +42,7 @@ let trig = Impulse(4, 0);
 SinOsc(
 	Demand(trig, 0, d) * 300 + 400,
 	0
-) * 0.1 ! 2
+) * 0.1 # 2
 ```
 
 * * *

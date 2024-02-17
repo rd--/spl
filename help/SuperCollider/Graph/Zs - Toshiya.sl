@@ -34,8 +34,8 @@ snd := snd + [
 	RingzBank(
 		{ PinkNoise() * 0.007 } ! 2,
 		[f0, f0 * 2 + 23, f0 * 4 + 53, f0 * 8 + 23],
-		1 ! 4,
-		1 ! 4
+		1 # 4,
+		1 # 4
 	)
 ].product;
 snd := Lpf(snd, 10000);

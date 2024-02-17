@@ -28,7 +28,7 @@ Volume indices:
 _atPath_ and _@>_ index using lists:
 
 ```
->>> let a = [1 2; 3 4 :; 5 6; 7 8];
+>>> let a = [1 2; 3 4:; 5 6; 7 8];
 >>> let s = a.shape;
 >>> (s, s.shapeIndices.collect { :each | a @> each })
 ([2 2 2], [1 2 3 4 5 6 7 8])

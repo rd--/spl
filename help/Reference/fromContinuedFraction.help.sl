@@ -15,7 +15,7 @@ Reconstructs a number from the list of its continued fraction terms.
 Rational approximations to golden ratio:
 
 ```
->>> 1:9.collect { :k | (1 ! k).fromContinuedFraction }
+>>> 1:9.collect { :k | (1 # k).fromContinuedFraction }
 [1 2 3/2 5/3 8/5 13/8 21/13 34/21 55/34]
 
 >>> (55 / 34).roundTo(0.001)

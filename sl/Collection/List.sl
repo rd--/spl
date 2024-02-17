@@ -193,12 +193,20 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		answer
 	}
 
+	fill { :shape :aBlock:/1 |
+		let answer = shape.iota;
+		shape.shapeIndicesDo { :index |
+			answer.atPathPut(index, aBlock(index))
+		};
+		answer
+	}
+
 }
 
 +Block {
 
-	! { :self :anInteger |
-		self.duplicate(anInteger)
+	! { :self :anObject |
+		self.duplicate(anObject)
 	}
 
 	! { :self |
@@ -209,8 +217,24 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		self.duplicate(2)
 	}
 
-	duplicate { :self :anInteger |
-		self.replicateApplying(anInteger, value:/1)
+	duplicateInteger { :self:/0 :anInteger |
+		anInteger.fill { :unusedIndex |
+			self()
+		}
+	}
+
+	duplicateShape { :self:/0 :shape |
+		shape.fill { :unusedIndex |
+			self()
+		}
+	}
+
+	duplicate { :self:/0 :anObject |
+		anObject.isSequence.if {
+			self:/0.duplicateShape(anObject)
+		} {
+			self:/0.duplicateInteger(anObject)
+		}
 	}
 
 }
@@ -237,20 +261,24 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		}
 	}
 
-	replicateApplying { :self :anInteger :aBlock:/1 |
-		let answer = List(anInteger);
-		answer.indicesDo { :index |
-			answer[index] := aBlock(self)
-		};
-		answer
+	replicateInteger { :self :anInteger |
+		anInteger.fill(self.constant)
 	}
 
-	replicate { :self :anInteger |
-		self.replicateApplying(anInteger, identity:/1)
+	replicateShape { :self :aSequence |
+		aSequence.fill(self.constant)
 	}
 
-	! { :self :anInteger |
-		self.replicate(anInteger)
+	replicate { :self :anObject |
+		anObject.isSequence.if {
+			self.replicateShape(anObject)
+		} {
+			self.replicateInteger(anObject)
+		}
+	}
+
+	# { :self :anObject |
+		self.replicate(anObject)
 	}
 
 }
@@ -259,6 +287,14 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 	fibonacciList { :self |
 		self.fibonacciSequenceInto([])
+	}
+
+	fill { :self :aBlock:/1 |
+		let answer = List(self);
+		answer.indicesDo { :index |
+			answer[index] := aBlock(index)
+		};
+		answer
 	}
 
 	identityMatrix { :self |

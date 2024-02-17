@@ -247,7 +247,7 @@
 		(numChannels == 1).if {
 			Dc(0)
 		} {
-			Dc(0) ! numChannels
+			Dc(0) # numChannels
 		}
 	}
 

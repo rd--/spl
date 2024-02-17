@@ -34,14 +34,13 @@ Sl {
 	LetTemporaries = "let" NonemptyListOf<TemporaryInitializer, ","> ";"
 	VarTemporaries = "var" NonemptyListOf<varName, ","> ";"
 
-	Expression = Assignment | BinaryExpression | UnaryExpression | Primary
+	Expression = Assignment | BinaryExpression | Primary
 	Assignment = ScalarAssignment | ListAssignment | DictionaryAssignment // | AssignmentOperatorSyntax
 	ScalarAssignment = varName ":=" Expression
 	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression
 	DictionaryAssignment = "(" NonemptyListOf<keyName, ","> ")" ":=" Expression
 	AssignmentOperatorSyntax = Primary operatorAssignment Expression
 	BinaryExpression = Expression ((operatorWithAdverb | operator | infixMethod) Primary)+
-	UnaryExpression = Expression "." operator
 
 	Primary
 		= AtPutSyntax

@@ -6,6 +6,6 @@ Like _withDo_ except that the iteration index supplies the second argument to th
 
 * * *
 
-See also: do, withDo
+See also: do, withDo, withIndexCollect, withIndexReplace
 
 Categories: Enumerating

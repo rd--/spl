@@ -1,12 +1,22 @@
 # copy
 
-- _copy(anObject)_
+_copy(anObject)_
 
 Answer another object just like _anObject_.
 
-	[1 .. 5].copy = [1 .. 5]
-	let a = [1 .. 5]; a ~~ a.copy
-	let a = [1 .. 5]; let b = a.copy; a[1] := 5; b[1] ~= 5
+```
+>>> [1 .. 5].copy
+[1 .. 5]
+
+>>> let a = [1 .. 5];
+>>> a ~~ a.copy
+true
+
+>>> let a = [1 .. 5];
+>>> let b = a.copy;
+>>> a[1] := 5; b[1] ~= 5
+true
+```
 
 Copy is defined in terms of _shallowCopy_ and _postCopy_.
 

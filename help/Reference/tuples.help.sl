@@ -1,7 +1,7 @@
 # tuples
 
 - _tuples(aSequence)_
-- _tuples(α, β) ⇒ tuples(α ! β)_
+- _tuples(α, β) ⇒ tuples(α # β)_
 
 Answer all of the possible n-tuples of each of the elements of _aSequence_,
 which is an n-element sequence of any sized sequences.

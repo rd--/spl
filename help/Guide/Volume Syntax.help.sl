@@ -25,7 +25,7 @@ Empty fields are allowed.
 The empty field will be _[[]]_, an empty matrix, not an empty vector:
 
 ```
->>> [1 2; 3 4:; :;  5 6; 7 8]
+>>> [1 2; 3 4:; :; 5 6; 7 8]
 [[[1, 2], [3, 4]], [[]], [[5, 6], [7, 8]]]
 ```
 

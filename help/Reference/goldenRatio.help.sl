@@ -43,7 +43,7 @@ As continued fraction:
 
 ```
 >>> 1.goldenRatio.continuedFraction(20)
-(1 ! 20)
+(1 # 20)
 ```
 
 Plot the fractional part of multiples of the golden ratio:

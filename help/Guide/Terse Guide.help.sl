@@ -376,9 +376,9 @@ let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } {- answer shuffled copy -}
 [9 .. 1].includesAllOf([3 .. 7]) = true
 [5 .. 3].includesAllOf([3 .. 7]) = false
 [].includesAllOf([3 .. 7]) = false
-List(5).fillWith(negated:/1) = [-1 .. -5] {- fill array with answers of a block applied to each index -}
-let r = Random(12345); List(5).fillWith { r.nextRandomInteger(9) } = [8, 5, 9, 9, 4] {- block is applied using cull -}
-let r = Random(12345); let f = { r.nextRandomInteger(9) }; List(5).fillWith(f:/0) = [8, 5, 9, 9, 4] {- block is applied using cull -}
+5.fill(negated:/1) = [-1 .. -5] {- fill array with answers of a block applied to each index -}
+let r = Random(12345); { r.nextRandomInteger(9) } ! 5 = [8, 5, 9, 9, 4] {- duplicate block -}
+let r = Random(12345); let f = { r.nextRandomInteger(9) }; f:/0 ! 5 = [8, 5, 9, 9, 4] {- duplicate block -}
 List(5).fillFromWith(1:5, negated:/1) = [-1 .. -5]
 let a = List(5); a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
 let a = List(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
@@ -538,6 +538,7 @@ let a = [5 .. 1]; a @* [1 5 3] = [5 1 3] {- atAll operator -}
 let a = [5 .. 1]; a @* [2 .. 4] = [4 3 2] {- atAll operator -}
 let a = [1, 1, 3, 4]; a @* [2, 4, 3, 1] = [1, 4, 3, 1] {- atAll operator -}
 let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] {- atAll operator -}
+4.fill { :i | i * 2 } = [2, 4, 6, 8] {- fill list using block at indicies -}
 ```
 
 ## PrimitiveSequence -- collection trait
@@ -1780,12 +1781,12 @@ let a = []; 5.toDo(1) { :each | a.add(each) }; a = [] {- non-ascending sequences
 6.take(3) = ((6 * 5 * 4) / (1 * 2 * 3))
 3.take(6) = 0 {- if k is greater than n answer is zero -}
 58909.printStringHex = 'E61D' {- hexadecimal representation -}
-let a = []; (1:3 ! 2).tuplesDo { :each | a.add(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
-let a = []; (1:3 ! 2).tuplesDo { :each | a.add(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
-let a = []; (1:2 ! 3).tuplesDo { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5 6]
-let a = []; (1:2 ! 4).tuplesDo { :each | a.add(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
-let c = 0; let k = 3; let n = 4; (1:k ! n).tuplesDo { :each | c := c + 1 }; c = (k ^ n)
-let c = 0; (1:4 ! 6).tuplesDo { :each | c := c + 1 }; c = 4096
+let a = []; (1:3 # 2).tuplesDo { :each | a.add(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
+let a = []; (1:3 # 2).tuplesDo { :each | a.add(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
+let a = []; (1:2 # 3).tuplesDo { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5 6]
+let a = []; (1:2 # 4).tuplesDo { :each | a.add(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
+let c = 0; let k = 3; let n = 4; (1:k # n).tuplesDo { :each | c := c + 1 }; c = (k ^ n)
+let c = 0; (1:4 # 6).tuplesDo { :each | c := c + 1 }; c = 4096
 -2:7.collect { :each | each.foldIndex(5) } = [4 3 2 1 2 3 4 5 4 3]
 -2:7.collect { :each | each.wrapIndex(5) } = [3 4 5 1 2 3 4 5 1 2]
 23.integerDigits(2, 5) = [1, 0, 1, 1, 1] {- binary -}

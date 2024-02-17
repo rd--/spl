@@ -186,7 +186,6 @@ let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 10.instill(1, -10, nil) = -10
 nil ? { 'x' } = 'x' {- right hand side if nil -}
 'x' ? { 'y' } = 'x' {- left hand side unless nil -}
-List(4).fill { :i | i * 2 } = [2, 4, 6, 8] {- fill list using block at indicies -}
 3/2.RatioCents.rounded = 702 {- ratio (interval) to cents -}
 3/2.RatioCents ~ 702 {- ratio (interval) to cents -}
 702.CentsRatio ~ 1.5 {- cents (interval) to ratio -}
@@ -226,9 +225,9 @@ List(4).fill { :i | i * 2 } = [2, 4, 6, 8] {- fill list using block at indicies 
 [3, 2, 1].iota = [[[1], [2]], [[3], [4]], [[5], [6]]] {- three-dimensional array with counter -}
 [3, 2, 1].iota.rank = 3 {- iota rank is size of input -}
 [3 2 1].iota.shape = [3 2 1] {- iota shape is input list -}
-[3, 2, 1].iota.reshape([2, 3, 1]).shape = [2, 3, 1] {- shape after reshape is requested shape -}
-[4, 7, 6, 8].reshape([2, 2]) = [[4, 7], [6, 8]] {- reshape array given Apl type shape value -}
-[4, 7, 6, 8].reshape([2, 3]) = [[4, 7, 6], [8, 4, 7]] {- cycle input as required -}
+[3 2 1].iota.reshape([2 3 1]).shape = [2 3 1] {- shape after reshape is requested shape -}
+[4 7 6 8].reshape([2 2]) = [4 7; 6 8] {- reshape array given Apl type shape value -}
+[4 7 6 8].reshape([2 3]) = [4 7 6; 8 4 7] {- cycle input as required -}
 [[1, 2, 3], [4, 5], [6]].tuples = [[1, 4, 6], [1, 5, 6], [2, 4, 6], [2, 5, 6], [3, 4, 6], [3, 5, 6]]
 let a = 1; let b = 2; let x = [a b]; [x x].tuples = [a a; a b; b a; b b]
 let k = 5; let x = 1:k; [x, x].tuples.size = (k ^ 2)

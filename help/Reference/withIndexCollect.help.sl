@@ -23,6 +23,6 @@ At Record:
 
 * * *
 
-See also: collect, withCollect
+See also: collect, withCollect, withIndexDo, withIndexReplace
 
 Categories: Enumerating

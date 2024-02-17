@@ -2,6 +2,10 @@
 
 @Collection {
 
+	# { :self |
+		self.size
+	}
+
 	- { :self |
 		self.collect(negated:/1)
 	}

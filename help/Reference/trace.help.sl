@@ -20,7 +20,7 @@ For a vector Tr gives the sum of the elements:
 For a higher-rank Array, trace gives the sum of elements with equal indices:
 
 ```
->>> (3 * 3 * 3).iota.reshape([3 3 3]).trace
+>>> [3 3 3].iota.trace
 (1 + 14 + 27)
 ```
 
@@ -43,6 +43,7 @@ _trace(m, asList:/1)_ is equivalent to _diagonal(m)_ for a matrix m:
 ```
 >>> let m = [1 2 3; 4 5 6];
 >>> (m.trace(asList:/1), m.diagonal)
+([1 5], [1 5])
 ```
 
 * * *

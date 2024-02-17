@@ -425,13 +425,6 @@
 		self
 	}
 
-	fillWith { :self :aBlock |
-		self.indicesDo { :index |
-			self[index] := aBlock.cull(index)
-		};
-		self
-	}
-
 	findBinary { :self :aBlock:/1 |
 		self.findBinaryDoIfNone(aBlock:/1) { :found |
 			found
@@ -1611,7 +1604,7 @@
 
 	takeFirst { :self :count :fill |
 		(count > self.size).if {
-			self ++ (fill ! (count - self.size))
+			self ++ (fill # (count - self.size))
 		} {
 			self.copyFromTo(1, count)
 		}
@@ -1619,7 +1612,7 @@
 
 	takeLast { :self :count :fill |
 		(count > self.size).if {
-			(fill ! (count - self.size)) ++ self
+			(fill # (count - self.size)) ++ self
 		} {
 			self.copyFromTo(self.size - count + 1, self.size)
 		}
@@ -1657,7 +1650,7 @@
 				let limit = self.shape.min;
 				aBlock(
 					1:limit.collect { :each |
-						self.atPath(each ! rank)
+						self.atPath(each # rank)
 					}
 				)
 			} {
@@ -1701,7 +1694,7 @@
 	}
 
 	tuples { :self :count |
-		(self ! count).tuples
+		(self # count).tuples
 	}
 
 	vectorAngle { :u :v |
@@ -1802,6 +1795,12 @@
 	withIndexDo { :self :elementAndIndexBlock:/2 |
 		self.indicesDo { :index |
 			elementAndIndexBlock(self[index], index)
+		}
+	}
+
+	withIndexReplace { :self :aBlock:/2 |
+		self.indicesDo { :index |
+			self[index] := aBlock(self[index], index)
 		}
 	}
 

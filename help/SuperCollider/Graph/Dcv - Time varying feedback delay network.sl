@@ -46,7 +46,7 @@ let delTimes = {
 } ! order;
 let sampleRate = 48000;
 let delTimesSec = (delTimes * delMod) / sampleRate;
-let sig = inSig + LocalIn(order, 0 ! order);
+let sig = inSig + LocalIn(order, 0 # order);
 sig := DelayC(sig, 0.5, delTimesSec * size - ControlDur());
 sig := sig * ctl::feedback;
 sig := OnePole(sig, ctl::coef);
