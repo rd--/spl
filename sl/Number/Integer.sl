@@ -198,10 +198,6 @@
 		}
 	}
 
-	groupings { :n :k |
-		'Integer>>groupings'.error
-	}
-
 	hammingNumbersFromUpTo { :self :limit |
 		let answer = Set();
 		let step = { :n |
@@ -279,26 +275,24 @@
 	}
 
 	integerCompositionsWeakDo { :n :k :aBlock:/1 |
-		(n < k).ifFalse {
-			let a = List(k, 0);
-			a[k] := n;
-			aBlock(a);
+		let a = List(k, 0);
+		a[k] := n;
+		aBlock(a);
+		{
+			a[1] = n
+		}.whileFalse {
+			let last = k;
+			let z = nil;
 			{
-				a[1] = n
-			}.whileFalse {
-				let last = k;
-				let z = nil;
-				{
-					a[last] = 0
-				}.whileTrue {
-					last := last - 1
-				};
-				z := a[last];
-				a[last - 1] := a[last - 1] + 1;
-				a[last] := 0;
-				a[k] := z - 1;
-				aBlock(a)
-			}
+				a[last] = 0
+			}.whileTrue {
+				last := last - 1
+			};
+			z := a[last];
+			a[last - 1] := a[last - 1] + 1;
+			a[last] := 0;
+			a[k] := z - 1;
+			aBlock(a)
 		}
 	}
 

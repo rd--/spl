@@ -1,44 +1,44 @@
 # integerCompositionsWeak
 
-- _integerCompositions(n, k)_
+_integerCompositionsWeak(n, k)_
 
 A weak composition is an ordered arrangement of _k_ non-negative integers which sum to _n_.
-It is therefore a partition in which order is significant.
-
-
->>> 5.integerCompositionsWeak(3)
-[0 0 5; 0 1 4; 0 2 3; 0 3 2; 0 4 1; 0 5 0; 1 0 4; 1 1 3; 1 2 2; 1 3 1; 1 4 0; 2 0 3; 2 1 2; 2 2 1; 2 3 0; 3 0 2; 3 1 1; 3 2 0; 4 0 1; 4 1 0; 5 0 0]
-
-There are eight compositions of 4:
 
 ```
->>> 4.integerCompositions
-[4; 1 3; 2 2; 3 1; 1 1 2; 1 2 1; 2 1 1; 1 1 1 1]
+>>> 3.integerCompositionsWeak(2)
+[0 3; 1 2; 2 1; 3 0]
+
+>>> 3.integerCompositions(2)
+[1 2; 2 1]
 ```
 
-The compositions of 1, 2, 3 & 5:
+In the weak form _k_ may be greater than _n_:
 
 ```
->>> 1.integerCompositions
-[[1]]
-
->>> 2.integerCompositions
-[2; 1 1]
-
->>> 3.integerCompositions
-[3; 1 2; 2 1; 1 1 1]
-
->>> 5.integerCompositions.allButLast
-[5; 1 4; 2 3; 3 2; 4 1; 1 1 3; 1 2 2; 1 3 1; 2 1 2; 2 2 1; 3 1 1; 1 1 1 2; 1 1 2 1; 1 2 1 1; 2 1 1 1]
+>>> 2.integerCompositionsWeak(3)
+[0 0 2; 0 1 1; 0 2 0; 1 0 1; 1 1 0; 2 0 0]
 ```
 
-A positive integer _n_ has _2 ^ (n - 1)_ compositions:
+4-2 compositions:
 
 ```
->>> 9.integerCompositions.size
-(2 ^ 8)
+>>> 4.integerCompositionsWeak(2)
+[0 4; 1 3; 2 2; 3 1; 4 0]
+
+>>> 4.integerCompositions(2)
+[1 3; 2 2; 3 1]
+```
+
+4-3 compositions:
+
+```
+>>> 4.integerCompositionsWeak(3)
+[0 0 4; 0 1 3; 0 2 2; 0 3 1; 0 4 0; 1 0 3; 1 1 2; 1 2 1; 1 3 0; 2 0 2; 2 1 1; 2 2 0; 3 0 1; 3 1 0; 4 0 0]
+
+>>> 4.integerCompositions(3)
+[1 1 2; 1 2 1; 2 1 1]
 ```
 
 * * *
 
-See also: integerCompositionsDo, integerPartitions
+See also: integerCompositions, integerPartitions
