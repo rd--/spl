@@ -1,5 +1,13 @@
 Tree : [Object, Iterable, Indexable] { | value subTrees |
 
+	= { :self :anObject |
+		anObject.isTree & {
+			self.value = anObject.value & {
+				self.subTrees = anObject.subTrees
+			}
+		}
+	}
+
 	asList { :self |
 		self.subTrees.collect { :each |
 			each.isLeaf.if {
@@ -16,6 +24,15 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 
 	at { :self :index |
 		self.subTrees[index]
+	}
+
+	collect { :self :aBlock:/1 |
+		Tree(
+			aBlock(self.value),
+			self.subTrees.collect { :each |
+				each.collect(aBlock:/1)
+			}
+		)
 	}
 
 	deepWithIndicesDoStartingAt { :self :i :aBlock:/2 |
@@ -59,6 +76,10 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		}
 	}
 
+	flatten { :self |
+		self.leaves
+	}
+
 	indices { :self |
 		(1 .. self.size)
 	}
@@ -99,6 +120,16 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 			answer.add(each.value)
 		};
 		answer
+	}
+
+	level { :self :count |
+		(count <= 0).if {
+			[self]
+		} {
+			self.subTrees.collect { :each |
+				each.level(count - 1)
+			}.concatenation
+		}
 	}
 
 	reverseDo { :self :aBlock:/1 |

@@ -1,6 +1,6 @@
 # do
 
-- _do(aCollection, aBlock:/1)_
+_do(aCollection, aBlock:/1)_
 
 Evaluate _aBlock_ with each element of _aCollection_ as the argument.
 

@@ -1,6 +1,6 @@
 # flatten
 
-- _flatten(aSequence)_
+- _flatten(aCollection)_
 
 Similar to _concatenation_ but removes all nesting.
 
@@ -43,6 +43,13 @@ As an inverse of _clump_:
 >>> let m = l.clump(4);
 >>> m.flatten = l
 true
+```
+
+At Tree:
+
+```
+>>> [1 [2 [3] 4] 5].asTree.flatten
+[1 2 3 4 5]
 ```
 
 _flatten_ is _flattenTo(inf)_.

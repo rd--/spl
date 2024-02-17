@@ -41,6 +41,13 @@ At Set:
 [4 36 100 196].asSet
 ```
 
+At Tree:
+
+```
+>>> Tree(4, [Tree(9, [Tree(16, [])])]).collect(sqrt:/1)
+Tree(2, [Tree(3, [Tree(4, [])])])
+```
+
 Make a triangular array:
 
 ```

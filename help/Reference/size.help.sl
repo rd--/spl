@@ -82,6 +82,13 @@ _size_ gives the maximum index that can be used in a List:
 5
 ```
 
+At Tree size is the number of sub-trees, see also _leafCount_:
+
+```
+>>> [1 [2 3 4] 5].asTree.size
+3
+```
+
 * * *
 
 See also: at, atPut, depth, do, isEmpty, leafCount

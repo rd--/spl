@@ -53,6 +53,13 @@ At deeply nested Tuple:
 9
 ```
 
+At Tree:
+
+```
+>>> [1 [2 [3] 4] 5].asTree.depth
+4
+```
+
 All numbers have depth one:
 
 ```

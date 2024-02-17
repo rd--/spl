@@ -16,6 +16,17 @@ There are eight compositions of 4:
 (4 ! 8)
 ```
 
+There are three compositions of four into two parts,
+and two of three into two parts:
+
+```
+>>> 4.integerCompositions(2)
+[1 3; 2 2; 3 1]
+
+>>> 3.integerCompositions(2)
+[1 2; 2 1]
+```
+
 The compositions of 1, 2, 3 & 5:
 
 ```

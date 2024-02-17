@@ -198,6 +198,10 @@
 		}
 	}
 
+	groupings { :n :k |
+		'Integer>>groupings'.error
+	}
+
 	hammingNumbersFromUpTo { :self :limit |
 		let answer = Set();
 		let step = { :n |

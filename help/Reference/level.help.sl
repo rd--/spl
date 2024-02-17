@@ -34,6 +34,13 @@ At List:
 [1 2 3 4 5 6 7 8 9 10 11 12]
 ```
 
+At Tree:
+
+```
+>>> [1 [2 [3] 4] 5].asTree.level(2)
+[Tree(2, []), Tree(nil, [Tree(3, [])]), Tree(4, [])]
+```
+
 _depth_ answers the smallest value for which _level_ returns an empty list:
 
 ```

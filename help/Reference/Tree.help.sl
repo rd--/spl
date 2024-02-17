@@ -63,14 +63,14 @@ The leafCount of a Tree is the same as the leafCount of an equivalent nested Lis
 5
 ```
 
-The _leaves_ of a Tree is a List of the _value_ of each of the leaf trees:
+_flatten_ at a Tree is a List of the _value_ of each of the leaf trees:
 
 ```
->>> [1 [2 [3] 4] 5].asTree.leaves
+>>> [1 [2 [3] 4] 5].asTree.flatten
 [1 2 3 4 5]
 ```
 
-The leaves of a Tree are the same as the _flatten_ of an equivalent nested List:
+The flatten of a Tree is the same as the flatten of an equivalent nested List:
 
 ```
 >>> [1 [2 [3] 4] 5].flatten
@@ -183,8 +183,29 @@ The leafIndices of a tree are the same as the deepIndices of an equivalent neste
 [1; 2 1; 2 2 1; 2 3; 3]
 ```
 
+_level_ answers a List of the sub-trees at the indicated level:
+
+```
+>>> [1 [2 [3] 4] 5].asTree.level(2)
+[Tree(2, []), Tree(nil, [Tree(3, [])]), Tree(4, [])]
+
+>>> [1 [2 [3] 4] 5].asTree.level(3)
+[Tree(3, [])]
+```
+
+Tree implements _collect_:
+
+```
+>>> Tree(4, [Tree(9, [Tree(16, [])])]).collect(sqrt:/1)
+Tree(2, [Tree(3, [Tree(4, [])])])
+```
+
 * * *
 
 See also: List
+
+References:
+_Haskell_
+[1](https://hackage.haskell.org/package/containers/docs/Data-Tree.html)
 
 Categories: Type, Collection
