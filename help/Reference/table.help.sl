@@ -100,6 +100,13 @@ The two argument form of table is _collect_ with reversed arguments:
 1:9.collect { :i | i * i }
 ```
 
+A table of the values of _i^2_, with _i_ from 1 to 6:
+
+```
+>>> { :i | i ^ 2 }.table(1:6)
+[1, 4, 9, 16, 25, 36]
+```
+
 The unary form is _adverbial_,
 it answers a Block that will apply the ternary form:
 

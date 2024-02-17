@@ -303,6 +303,21 @@
 		self.withCollectCrossed(aSequence, *)
 	}
 
+	diagonal { :self :k |
+		self.isMatrix.if {
+			let l = self.shape.min - k.abs;
+			1:l.collect { :i |
+				self[i - k.min(0)][i + k.max(0)]
+			}
+		} {
+			'@Sequence>>diagonal: non matrix argument'.error
+		}
+	}
+
+	diagonal { :self |
+		self.diagonal(0)
+	}
+
 	differences { :self |
 		self.partition(2, 1).collect { :each |
 			each[2] - each[1]
@@ -1631,6 +1646,28 @@
 
 	thirdLast { :self |
 		self[self.size - 2]
+	}
+
+	trace { :self :aBlock:/1 |
+		self.isVector.if {
+			aBlock(self)
+		} {
+			self.isArray.if {
+				let rank = self.rank;
+				let limit = self.shape.min;
+				aBlock(
+					1:limit.collect { :each |
+						self.atPath(each ! rank)
+					}
+				)
+			} {
+				'Sequence>>trace: not an Array'.error
+			}
+		}
+	}
+
+	trace { :self |
+		self.trace(sum:/1)
 	}
 
 	transposed { :self |
