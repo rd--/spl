@@ -36,6 +36,13 @@ function isRecord(anObject: SlObject): boolean {
 	return c === undefined || c.name === 'Object';
 }
 
+function objectNameByConstructor(anObject: SlObject): TypeName {
+	const name = anObject.constructor.name
+	return name == 'Range'
+		? 'DOMRange'
+		: name;
+}
+
 function objectType(anObject: SlObject): TypeName {
 	return anObject instanceof Array
 		? 'List'
@@ -58,7 +65,7 @@ function objectType(anObject: SlObject): TypeName {
 										: (anObject._type ||
 											(isRecord(anObject)
 												? 'Record'
-												: anObject.constructor.name))))))))));
+												: objectNameByConstructor(anObject)))))))))));
 }
 
 /* This runs slower than the form above, is .constructor.name slow?

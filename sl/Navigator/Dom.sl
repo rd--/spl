@@ -386,6 +386,27 @@ CustomEvent! : [Object, Event] {
 
 }
 
+DOMMatrix! : [Object, DOMMatrixReadOnly] {
+
+}
+
+DOMMatrixReadOnly! : [Object, DOMMatrixReadOnly] {
+
+}
+
++List {
+
+	DOMMatrix { :self |
+		<primitive: return new DOMMatrix(_self);>
+	}
+
+	DOMMatrixReadOnly { :self |
+		<primitive: return new DOMMatrixReadOnly(_self);>
+	}
+
+}
+
+
 DOMParser! : [Object] {
 
 	parseFromString { :self :aString :mimeType |
@@ -406,26 +427,6 @@ DOMParser! : [Object] {
 
 	parseSvg { :self |
 		DOMParser().parseFromString(self, 'image/svg+xml').documentElement
-	}
-
-}
-
-DOMMatrix! : [Object, DOMMatrixReadOnly] {
-
-}
-
-DOMMatrixReadOnly! : [Object, DOMMatrixReadOnly] {
-
-}
-
-+List {
-
-	DOMMatrix { :self |
-		<primitive: return new DOMMatrix(_self);>
-	}
-
-	DOMMatrixReadOnly { :self |
-		<primitive: return new DOMMatrixReadOnly(_self);>
 	}
 
 }
@@ -455,6 +456,15 @@ DOMPointReadOnly! : [Object, DOMPointReadOnly] {
 	DOMPointReadOnly { :self |
 		<primitive: return DOMPointReadOnly.fromPoint(_self);>
 	}
+
+}
+
+DOMRange! : [Object, AbstractRange] { {- Note: Renamed by Spl kernel from Range -}
+
+	endOffset { :self | <primitive: return _self.endOffset;> }
+	startOffset { :self | <primitive: return _self.startOffset;> }
+	deleteContents { :self | <primitive: return _self.deleteContents();> }
+	insertNode { :self :aNode | <primitive: return _self.insertNode(_aNode);> }
 
 }
 
@@ -868,15 +878,6 @@ PointerEvent! : [Object, UiEvent, Event, MouseEvent] {
 	pointerId { :self | <primitive: return _self.pointerId;> }
 	pointerPressure { :self | <primitive: return _self.pointerPressure;> }
 	pointerType { :self | <primitive: return _self.pointerType;> }
-
-}
-
-Range! : [Object, AbstractRange] {
-
-	endOffset { :self | <primitive: return _self.endOffset;> }
-	startOffset { :self | <primitive: return _self.startOffset;> }
-	deleteContents { :self | <primitive: return _self.deleteContents();> }
-	insertNode { :self :aNode | <primitive: return _self.insertNode(_aNode);> }
 
 }
 

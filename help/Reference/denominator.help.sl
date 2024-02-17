@@ -1,6 +1,6 @@
 # denominator
 
-- _denominator(aNumber)_
+_denominator(aNumber)_
 
 Answer the denominator of a _Fraction_ or 1 for an _Integer_.
 

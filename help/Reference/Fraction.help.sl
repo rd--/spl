@@ -6,8 +6,8 @@ Fraction provides methods for dealing with fractions like 1/3 as a ratio of two 
 
 Instance variables are:
 
-- numerator<Integer>: the number appearing before the fraction bar (above)
-- denominator<Integer>: the number appearing after the fraction bar (below)
+- numerator: the number appearing before the fraction bar (above)
+- denominator: the number appearing after the fraction bar (below)
 
 A Fraction can be written using the literal syntax _1/3_:
 

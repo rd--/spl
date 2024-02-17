@@ -65,7 +65,7 @@ Range of large integers:
 
 * * *
 
-See also: downTo, thenTo, to, toBy, upOrDownTo, upTo
+See also: downTo, Interval, thenTo, to, toBy, upOrDownTo, upTo
 
 References:
 _Mathematica_
