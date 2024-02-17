@@ -1,25 +1,3 @@
-The Spl "Reference" files follow a few simple rules.
-
-Terse DocTest entries are any number of _>>>_ prefixed lines followed by one _answer_ line.
-DocTests are written so that the _>>>_ prefixed lines,
-when unprefixed and concatenated,
-evaluate to a value that is _~_ to the answer line.
-
-_Indented Code Blocks_ should contain only lines that each evaluate to a Boolean.
-
-The _terseReferenceSummary_ method will extract both of these kinds of tests,
-evaluate them all,
-note any errors,
-and summarise the result.
-All other examples should be given in _Fenced Code Blocks_.
-
-Below the horizontal rule there may be the following entries:
-
-- "See also:" indicates a list of help files to consult
-- "References:" indicates external references (Apl, Mathematica, SuperCollider)
-- "Categories:" indicates which categories the entry should be listed in
-- "Unicode:" glyphs related to the entry
-
 '/home/rohan/sw/spl/help/Reference'.terseReferenceSummary(verbose: false)
 
 Total => 2306

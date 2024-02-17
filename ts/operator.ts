@@ -1,10 +1,10 @@
 import { stringCapitalizeFirstLetter } from '../lib/jssc3/ts/kernel/string.ts';
 
 /*
-The characters ':;.,()[]{}' aren't allowed in operator names.
+The characters :;.,()[]{}`"' aren't allowed in operator names.
 They're here so help file lookup can find them.
 */
-export const operatorCharacters = '+*-/&|@<>=%!\\~?^#$:;.,()[]{}';
+export const operatorCharacters = '+*-/&|@<>=%!\\~?^#$:;.,()[]{}`"\'';
 
 export function isOperatorName(name: string): boolean {
 	return operatorCharacters.includes(name.charAt(0));
@@ -12,10 +12,12 @@ export function isOperatorName(name: string): boolean {
 
 export const operatorCharacterNameTable: Record<string, string> = {
 	'!': 'exclamationMark', // U+0021 ! Exclamation Mark
+	'"': 'quotationMark', // U+0022 " Quotation Mark
 	'#': 'numberSign', // U+0023 # Number Sign
 	'$': 'dollarSign', // U+0024 $ Dollar Sign
 	'%': 'percentSign', // U+0025 % Percent Sign
 	'&': 'ampersand', // U+0026 & Ampersand
+	"'": 'apostrophe', // U+0027 ' Apostrophe
 	'(': 'leftParenthesis', // U+0028 ( Left Parenthesis
 	')': 'rightParenthesis', // U+0029 ) Right Parenthesis
 	'*': 'asterisk', // U+002a * Asterisk
@@ -35,6 +37,7 @@ export const operatorCharacterNameTable: Record<string, string> = {
 	'\\': 'reverseSolidus', // U+005c \ Reverse Solidus
 	']': 'rightSquareBracket', // U+005D ] Right Square Bracket
 	'^': 'circumflexAccent', // U+005e ^ Circumflex Accent
+	'`': 'graveAccent', // U+0060 ` Grave Accent
 	'{': 'leftCurlyBracket', // U+007B { Left Curly Bracket
 	'|': 'verticalLine', // - U+007c | Vertical Line
 	'}': 'rightCurlyBracket', // U+007D } Right Curly Bracket
