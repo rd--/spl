@@ -1,6 +1,6 @@
 # integerDigits
 
-- _integerDigits(anInteger)_
+_integerDigits(anInteger)_
 
 Answer a list of the decimal digits in the integer _anInteger_.
 

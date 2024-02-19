@@ -623,3 +623,4 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 
 - <https://www.unicode.org/charts/PDF/U2300.pdf>
 - <https://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode>
+- <https://unicode.org/charts/nameslist/n_2190.html>

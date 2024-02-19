@@ -142,7 +142,7 @@ The _asComplex_ method:
 
 * * *
 
-See also: asInteger, asNumber, i, j, SmallFloat
+See also: abs, arg, asInteger, asNumber, conjugated, i, imaginary, j, real, SmallFloat
 
 References:
 _Apl_

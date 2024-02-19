@@ -65,13 +65,21 @@ Boolean! : [Object, Json] {
 	}
 
 	ifFalse { :self :whenFalse:/0 |
-		self.not.ifTrue(whenFalse:/0)
+		self.if {
+			nil
+		} {
+			whenFalse()
+		}
+	}
+
+	ifFalseIfTrue { :self :whenFalse:/0 :whenTrue:/0 |
+		self.if(whenTrue:/0, whenFalse:/0)
 	}
 
 	ifTrue { :self :whenTrue:/0 |
-		self.if(
-			whenTrue:/0
-		) {
+		self.if {
+			whenTrue()
+		} {
 			nil
 		}
 	}

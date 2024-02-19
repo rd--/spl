@@ -61,6 +61,14 @@
 		abs * abs
 	}
 
+	arg { :self |
+		self.isZero.if {
+			0
+		} {
+			self.j(0).arg
+		}
+	}
+
 	asInteger { :self |
 		self.truncated
 	}
@@ -220,6 +228,10 @@
 
 	fractionPart { :self |
 		self - self.integerPart
+	}
+
+	goldenAngle { :self |
+		self * (pi * (3 - 5.sqrt))
 	}
 
 	goldenRatio { :self |

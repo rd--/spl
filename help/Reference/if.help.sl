@@ -1,4 +1,4 @@
-# if -- conditional evaluation
+# if
 
 - _if(aBoolean, whenTrue:/0, whenFalse:/0)_
 
@@ -23,19 +23,22 @@ To delay evaluation of alternatives each must be written as a no argument block.
 The standard libraries write if conditions as:
 
 ```
-aBoolean.if { whenTrue } { whenFalse }
+>>> (3 > 2).if { true } { false }
+true
 ```
 
 where there are two branches and as either:
 
 ```
-aBoolean.ifTrue { whenTrue }
+>>> (3 > 2).ifTrue { true }
+true
 ```
 
 or
 
 ```
-aBoolean.ifFalse { whenFalse }
+>>> (3 < 2).ifFalse { true }
+true
 ```
 
 where there is one.
@@ -43,3 +46,5 @@ where there is one.
 * * *
 
 See also: ifEmpty, ifFalse, ifNil, ifNotNil, ifTrue
+
+Categories: Conditional evaluation

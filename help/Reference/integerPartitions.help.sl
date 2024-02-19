@@ -34,6 +34,13 @@ The number of partitions of 20:
 627
 ```
 
+This number is given by _partitionFunctionP_:
+
+```
+>>> 20.partitionFunctionP
+627
+```
+
 Partitions of 8 into at most 3 integers:
 
 ```

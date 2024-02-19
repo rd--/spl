@@ -403,6 +403,16 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		self + (aNumber - self).randomFloat
 	}
 
+	randomFloat { :min :max :countOrShape |
+		countOrShape.isInteger.if {
+			{ min.randomFloat(max) } ! countOrShape
+		} {
+			countOrShape.fill { :unusedIndex |
+				min.randomFloat(max)
+			}
+		}
+	}
+
 	randomFloatBipolar { :self |
 		self.negated.randomFloat(self)
 	}
@@ -413,6 +423,16 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	randomInteger { :self :anInteger |
 		self.randomFloat(anInteger + 1).floor
+	}
+
+	randomInteger { :min :max :countOrShape |
+		countOrShape.isInteger.if {
+			{ min.randomInteger(max) } ! countOrShape
+		} {
+			countOrShape.fill { :unusedIndex |
+				min.randomInteger(max)
+			}
+		}
 	}
 
 	randomIntegerExcluding { :self :anInteger :excluded |

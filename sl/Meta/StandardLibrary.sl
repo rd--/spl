@@ -1,5 +1,6 @@
 [
 	{- Behaviour -}
+	'Piecewise'
 	'Prototype'
 
 	{- Collection -}
