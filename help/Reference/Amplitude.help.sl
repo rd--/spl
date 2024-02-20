@@ -1,9 +1,8 @@
 # Amplitude
 
+- _Amplitude(in, attackTime, releaseTime)_
+
 Amplitude follower.
-
-_Amplitude(in, attackTime, releaseTime)_
-
 Tracks the peak amplitude of a signal.
 
 - in: input signal.

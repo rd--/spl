@@ -853,6 +853,10 @@
 		self.collect(mixedFractionParts:/1)
 	}
 
+	multinomialCoefficient { :self |
+		self.sum.factorial / self.factorial.product
+	}
+
 	negative { :self |
 		self.collect(negative:/1)
 	}
@@ -879,6 +883,10 @@
 
 	sin { :self |
 		self.collect(sin:/1)
+	}
+
+	sinc { :self |
+		self.collect(sinc:/1)
 	}
 
 	sinh { :self |

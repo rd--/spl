@@ -1,6 +1,6 @@
 # subfactorial
 
-_subfactorial(anInteger)_
+- _subfactorial(anInteger)_
 
 Answers the number of permutations of _anInteger_ objects that leave no object fixed.
 

@@ -1,6 +1,6 @@
 # accumulate
 
-_accumulate(aSequence)_
+- _accumulate(aSequence)_
 
 Answer a List of the successive accumulated totals of elements in _aSequence_.
 This operation is also called _prefixSum_, and is equivalent to _scan(aSequence, +)_.

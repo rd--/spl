@@ -4,68 +4,113 @@
 
 Operators:
 
-- _+_: addition
-- _-_: subtraction
-- _*_: multiplication
-- _/_: division
-- _^_: raised to
+- `+`: addition
+- `-`: subtraction
+- `*`: multiplication
+- `/`: division
+- `^`: raised to
 
 Functions:
 
-- _accumulate_: cumulative sums in a list
-- _differences_: successive differences in a list
-- _mean_: mean of a list
-- _product_: product of elements in a list
-- _ratios_: successive ratios in a list
-- _sqrt_: square root
-- _sum_: sum of elements in a list
+- `accumulate`: cumulative sums in a list
+- `differences`: successive differences in a list
+- `mean`: mean of a list
+- `product`: product of elements in a list
+- `ratios`: successive ratios in a list
+- `sqrt`: square root
+- `sum`: sum of elements in a list
 
-## Numerical
+## Comparison Operators
+
+- `<`: less than
+- `>`: greater than
+- `<=`: less than or equal to
+- `>=`: greater than or equal to
+- `<=>`: -1, 0, +1 for less than, equal to, greater than
+
+## Piecewise Functions:
+
+- `min`: minimum value
+- `max`: maximum value
+- `abs`: absolute value
+- `Piecewise`: general piecewise function
+
+## Exponential Functions
+
+- `log`: logarithm
+- `log2`: base-2 logarithms
+- `log10`: base-10 logarithms
+- `exp`: exponential
+- `^`: raised to
+- `sqrt`: square root
+- `cubeRoot`: real-number fractional powers
+- `nthRoot`: surd
+
+## Trigonometric Functions
+
+- `sin`: sine
+- `cos`: cosine
+- `tan`: tangent
+- `arcSin`: arc sine
+- `arcCos`: arc cosine
+- `arcTan`: arc tangent
+- `sinc`: sinc
+
+## Hyperbolic Functions
+
+- `sinh`:
+- `cosh`:
+- `tanh`:
+- `arcSinh`:
+- `arcCosh`:
+- `arcTanh`:
+
+## Numerical Functions
+
+- `round`: round to nearest integer
+- `floor`: round towards -∞
+- `ceiling`: round towards +∞
+- `integerPart`: integer part
+- `fractionPart`: fractional part
+- `mixedFractionParts`: integer and fractional parts
+- `sign`: sign of
+- `clip`: clip between
+- `rescale`: rescale between
+- `boole`: 1 for true, 0 for false
+
+## Division-Related
 
 Operators:
 
-- _<_: less than
-- _>_: greater than
-- _<=_: less than or equal to
-- _>=_: greater than or equal to
-- _<=>_: -1, 0, +1 for less than, equal to, greater than
+- `%`: modulo (remainder on division)
+- `//`: quotient
+- `\\`: remainder
 
 Functions:
 
-- _round_: round to nearest integer
-- _floor_: round towards -∞
-- _ceiling_: round towards +∞
-- _integerPart_: integer part
-- _fractionPart_: fractional part
-- _mixedFractionParts_: integer and fractional parts
-- _min_: minimum value
-- _max_: maximum value
-- _abs_: absolute value
-- _sign_: sign of
-- _clip_: clip between
-- _rescale_: rescale between
-- _Piecewise_: general piecewise function
-- _boole_: 1 for true, 0 for false
+- `divisible`: is divisible predicate
+- `even`: is even predicate
+- `gcd`: greatest common divisor
+- `isCoprime`: is coprime predicate
+- `isPrime`: is prime predicate
+- `lcm`: least common multiple
+- `modularInverse`: modular inverse
+- `odd`: is odd predicate
+- `powerMod`: power modulo
+- `quotientRemainder`: integer quotient & remainder
+- `quotient`: integer quotient
+- `remainder`: integer remainder
 
-## Division-Related 
+# Combinatorial Functions
 
-Operators:
-
-- _%_: modulo (remainder on division)
-- _//_: quotient
-- _\\\\_: remainder
-
-Functions:
-
-- _divisible_: is divisible predicate
-- _even_: is even predicate
-- _gcd_: greatest common divisor
-- _isCoprime_: is coprime predicate
-- _isPrime_: is prime predicate
-- _lcm_: least common multiple
-- _modularInverse_: modular inverse
-- _odd_: is odd predicate
-- _powerMod_: power modulo
-- _quotientRemainder_: integer quotient & remainder
-- _quotient_: integer quotient
-- _remainder_: integer remainder
+- `factorial`: factorial function (total arrangements of n objects)
+- `subfactorial`: number of derangements of  objects, leaving none unchanged
+- `factorialPower`: factorial power
+- `hyperfactorial`: hyperfactorial function
+- `doubleFactorial`: double factorial
+- `binomialCoefficient`: binomial coefficients
+- `multinomialCoefficient`: multinomial coefficients
+- `catalanNumber`: Catalan numbers
+- `polygonalNumber`: triangular and other polygonal numbers
+- `partitionsP`: number of partitions of an integer
+- `partitionsQ`: number of partitions of an integer

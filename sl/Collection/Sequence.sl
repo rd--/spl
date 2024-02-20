@@ -2064,6 +2064,10 @@
 		anObject.adaptToCollectionAndApply(self, max:/2)
 	}
 
+	nthRoot { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, nthRoot:/2)
+	}
+
 	roundTo { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, roundTo:/2)
 	}

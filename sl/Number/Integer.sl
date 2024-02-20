@@ -88,6 +88,10 @@
 		}
 	}
 
+	catalanNumber { :self |
+		(self.one / (self + 1)) * (2 * self).binomialCoefficient(self)
+	}
+
 	characterRange { :self :anInteger |
 		(self .. anInteger).collect(asCharacter:/1)
 	}
@@ -242,6 +246,14 @@
 
 	harmonicNumber { :self |
 		1:self.reciprocal.sum
+	}
+
+	hyperfactorial { :self |
+		self.isInteger.if {
+			(self.one .. self).collect { :k | k ^ k }.product
+		} {
+			'@Integer>>hyperfactorial: not implemented for non-integer'.error
+		}
 	}
 
 	indexOfPrime { :self |
@@ -688,6 +700,14 @@
 
 	partitionFunctionQ { :n :k |
 		partitionFunctionP(n - binomialCoefficient(k, 2), k)
+	}
+
+	polygonalNumber { :n |
+		binomialCoefficient(n + 1, 2)
+	}
+
+	polygonalNumber { :r :n |
+		(1 / 2) * n * (n * (r - 2) - r + 4)
 	}
 
 	previousPrime { :self |

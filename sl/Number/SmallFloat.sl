@@ -481,6 +481,14 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.sin(_self)>
 	}
 
+	sinc { :self |
+		self.isZero.if {
+			1
+		} {
+			self.sin / self
+		}
+	}
+
 	sinh { :self |
 		<primitive: return Math.sinh(_self)>
 	}

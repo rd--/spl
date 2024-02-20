@@ -1,6 +1,6 @@
 # absArg
 
-_absArg(aComplexNumber)_
+- _absArg(aComplexNumber)_
 
 Answers the list _[z.abs, z.arg]_ of the number _z_.
 

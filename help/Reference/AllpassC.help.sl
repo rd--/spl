@@ -1,8 +1,6 @@
 # AllpassC
 
-All pass filter.
-
-_AllpassC(in, maxdelaytime, delaytime, decaytime)_
+- _AllpassC(in, maxdelaytime, delaytime, decaytime)_
 
 All pass delay line. AllpassN uses no interpolation, AllpassL uses linear interpolation, AllpassC uses cubic interpolation.
 

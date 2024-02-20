@@ -1,6 +1,6 @@
 # also
 
-_also(anObject, aBlock:/1)_
+- _also(anObject, aBlock:/1)_
 
 Evaluate _aBlock_ with _anObject_ as argument and answer _anObject_.
 
