@@ -849,6 +849,10 @@
 		self.collect(log2:/1)
 	}
 
+	mixedFractionParts { :self |
+		self.collect(mixedFractionParts:/1)
+	}
+
 	negative { :self |
 		self.collect(negative:/1)
 	}

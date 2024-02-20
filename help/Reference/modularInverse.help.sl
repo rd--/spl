@@ -1,0 +1,118 @@
+# modularInverse
+
+_modularInverse(k, n)_
+
+Answer the modular inverse of _k_ modulo _n_,
+the number _r_ such that the remainder of the division of _r_ _k_ by _n_ is equal to 1.
+If _k_ and _n_ are not coprime, no modular inverse exists.
+
+Compute the inverse of 3 modulo 5 and check the result:
+
+```
+>>> 3.modularInverse(5)
+2
+
+>>> 3.modularInverse(7)
+5
+
+>>> 11.modularInverse(8)
+3
+
+>>> 7.modularInverse(31)
+9
+```
+
+Compute using integers:
+
+```
+>>> 3.modularInverse(7)
+5
+
+>>> -5.modularInverse(7)
+4
+
+>>> 42.modularInverse(2017)
+1969
+
+>>> 40.modularInverse(1)
+0
+
+>>> 52.modularInverse(-217)
+96
+
+>>> -486.modularInverse(217)
+121
+```
+
+ModularInverse is a periodic function:
+
+```
+>>> [2.modularInverse(5), (2 + 5).modularInverse(5)]
+[3 3]
+```
+
+If the results would be negative it is added to _n_:
+
+```
+>>> 5.modularInverse(7)
+3
+
+>>> 5.modularInverse(-7)
+(-4 + 7)
+```
+
+If  and  are coprime, then  is invertible modulo :
+
+```
+>>> 7.isCoprime(12)
+true
+
+>>> 7.modularInverse(12)
+7
+```
+
+Computing ModularInverse twice yields the original argument:
+
+```
+>>> 7.modularInverse(9).modularInverse(9)
+7
+```
+
+For nonzero integers k and n, _modularInverse(k, n) exists if and only if _k_ and _n_ are coprime:
+
+```
+>>> 10.isCoprime(21)
+true
+
+>>> 10.modularInverse(21)
+19
+
+>>> 21.modularInverse(10)
+1
+```
+
+However, neither 10 and 22 nor 40 and 2018 are not coprime:
+
+```
+>>> 10.isCoprime(22)
+false
+
+>>> { 10.modularInverse(22) }.ifError { true }
+true
+
+>>> 40.isCoprime(2018)
+false
+
+>>> { 40.modularInverse(2018) }.ifError { true }
+true
+```
+
+Plot the sequence with a fixed modulus:
+
+```
+1:16.collect { :k | k.modularInverse(17) }.plot
+```
+
+* * *
+
+See also: ^, eulerPhi, extendedGcd, isCoprime, mod, powerMod

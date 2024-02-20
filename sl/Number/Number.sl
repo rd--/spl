@@ -272,6 +272,11 @@
 		}
 	}
 
+	mixedFractionParts { :self |
+		let i = self.integerPart;
+		[i, self - i]
+	}
+
 	mu { :self |
 		self / 1000000
 	}

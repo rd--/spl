@@ -129,6 +129,17 @@
 		}
 	}
 
+	euclideanAlgorithm { :a :b |
+		{
+			b ~= 0
+		}.whileTrue {
+			let t = b;
+			b := a % b;
+			a := t
+		};
+		a
+	}
+
 	eulerPhi { :self |
 		self.isZero.if {
 			0
@@ -142,6 +153,21 @@
 				self.gcd(each) = 1
 			}.size
 		}
+	}
+
+	extendedEuclideanAlgorithm { :a :b |
+		let [r0, r] = [a, b];
+		let [s0, s] = [1, 0];
+		let [t0, t] = [0, 1];
+		{
+			r ~= 0
+		}.whileTrue {
+			let quotient = r0 // r;
+			[r0, r] := [r, r0 - (quotient * r)];
+			[s0, s] := [s, s0 - (quotient * s)];
+			[t0, t] := [t, t0 - (quotient * t)]
+		};
+		[r0, [s0, t0]]
 	}
 
 	factorial { :self |
@@ -571,6 +597,29 @@
 			answer.addFirst(self)
 		};
 		answer
+	}
+
+	modularInverse { :a :n |
+		let t = 0;
+		let t1 = 1;
+		let r = (n < 0).if { n.negated } { n };
+		let r1 = (a < 0).if { (n - (a.negated % n)) % n } { a % n };
+		{
+			r1 ~= 0
+		}.whileTrue {
+			let quotient = r // r1;
+			[t, t1] := [t1, t - (quotient * t1)];
+			[r, r1] := [r1, r - (quotient * r1)]
+		};
+		(r > 1).if {
+			'@Integer>>modularInverse: not invertible'.error
+		} {
+			(t < 0).if {
+				t + n
+			} {
+				t
+			}
+		}
 	}
 
 	nextPrime { :self |
