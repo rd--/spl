@@ -1,6 +1,6 @@
 # interquartileRange
 
-_interquartileRange(aCollection)_
+- _interquartileRange(aCollection)_
 
 Answer the difference between the upper and lower quartiles for the elements in _aCollection_.
 
@@ -34,7 +34,6 @@ Compute results using other parametrizations:
 >>> [-1 5 10 4 25 2 1].interquartileRange(0, 0, 1, 0)
 9
 ```
-
 
 * * *
 

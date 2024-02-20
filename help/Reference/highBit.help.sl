@@ -36,6 +36,16 @@ High bit is not defined for negative integers:
 true
 ```
 
+Plot it:
+
+```
+(0 .. 2 ^ 11 - 1).collect(highBit:/1).plot
+```
+
 * * *
 
-See also: Binary, highBitOfMagnitude, lowBit
+See also: bitShiftRight, Binary, byteCount, highBitOfMagnitude, lowBit
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/BitLength.html)

@@ -1,6 +1,6 @@
 # mean
 
-_mean(aCollection)_
+- _mean(aCollection)_
 
 Answer the sum of the collection divided by the size.
 

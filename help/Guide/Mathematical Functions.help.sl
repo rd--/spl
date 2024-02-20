@@ -56,12 +56,12 @@
 
 ## Hyperbolic Functions
 
-- `sinh`:
-- `cosh`:
-- `tanh`:
-- `arcSinh`:
-- `arcCosh`:
-- `arcTanh`:
+- `sinh`: hyperbolic sine
+- `cosh`: hyperbolic cosine
+- `tanh`: hyperbolic tangent
+- `arcSinh`: arc hyperbolic sine
+- `arcCosh`: arc hyperbolic cosine
+- `arcTanh`: arc hyperbolic tangent
 
 ## Numerical Functions
 
@@ -148,3 +148,81 @@
 
 - `factorInteger`: find the factors of an integer
 - `integerExponent`: highest divisble power of
+
+## Testing for Types
+
+- `isNumber`: is number predicate
+- `isInteger`: is integer predicate
+- `isSmallFloat`: is float predicate
+- `isComplex`: is complex predicate
+- `isFraction`: is fraction predicate
+- `isLargeInteger`: is extended precision integer predicate
+
+## Rational Numbers
+
+- `numerator`: numerator of a fraction
+- `denominator`: denominator of a fraction
+
+## Complex Numbers
+
+- `real`: real component of a complex number
+- `imaginary`: imaginary component of a complex number
+- `abs`: absolute value
+- `arg`: argument
+- `absArg`: absolute value and argument
+- `conjugated`: complex conjugate
+- `sign`: sign of
+
+## Bitwise Logic Operations
+
+- `bitAnd`: bitwise and
+- `bitOr`: bitwise or
+- `bitXor`: bitwise exclusive or
+- `bitNot`: bitwise not
+
+## Structural Bitwise Operations
+
+- `highBit`: bit length
+- `bitShiftLeft`: bit shift right
+- `bitShiftRight`: bit shift left
+
+## Single-Bit Operations
+
+- `bitAt`: read bit
+- `bitAtPut`: write bit
+
+## Location Statistics
+
+- `mean`: mean of collection
+- `median`: median of sequence
+- `commonest`: most common items
+- `harmonicMean`: harmonic mean
+- `geometricMean`: geometric mean
+- `contraharmonicMean`: contraharmonic mean
+
+## Dispersion Statistics
+
+- `variance`: unbiased estimate of variance
+- `standardDeviation`: standard deviation
+- `meanDeviation`: mean absolute deviation
+- `interquartileRange`: difference between the upper and lower quartiles
+
+## Shape Statistics
+
+- `skewness`: coefficient of skewness
+- `kurtosis`: coefficient of kurtosis
+
+## General Statistics
+- `moment`: order r moment
+- `centralMoment`: order r central moment
+- `rootMeanSquare`: root mean square
+
+## Order Statistics
+
+- `min`: minimum
+- `max`: maximun
+- `minMax`: minimum and maximun
+- `sort`: sort
+- `ordering`: grade
+- `quantile`: quantile estimate
+- `quartiles`: quartile estimate

@@ -1,6 +1,6 @@
 # ordering
 
-_ordering(aSequence)_
+- _ordering(aSequence)_
 
 Answer the positions in _aSequence_ at which each successive element of _sort(aSequence)_ appears.
 

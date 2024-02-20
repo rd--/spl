@@ -152,6 +152,11 @@
 		answer
 	}
 
+	centralMoment { :self :r |
+		let mean = self.mean;
+		(1 / self.size) * ((self - mean) ^ r).sum
+	}
+
 	collect { :self :aBlock:/1 |
 		let answer = self.species.new;
 		self.do { :each |
@@ -334,12 +339,6 @@
 		}
 	}
 
-	histogramOf { :self :aBlock:/1 |
-		let answer = Bag();
-		self.collectInto(aBlock:/1, answer);
-		answer
-	}
-
 	indices { :self |
 		nil
 	}
@@ -427,6 +426,18 @@
 		false
 	}
 
+	kurtosis { :self |
+		self.isVector.if {
+			self.centralMoment(4) / (self.centralMoment(2) ^ 2)
+		} {
+			self.isMatrix.if {
+				self.transposed.collect(kurtosis:/1)
+			} {
+				'@Collection>>kurtosis: not vector or matrix'.error
+			}
+		}
+	}
+
 	leafCount { :self |
 		self.collect { :each |
 			each.isCollection.if {
@@ -483,6 +494,10 @@
 	meanDeviation { :self |
 		let mean = self.mean;
 		(self - mean).abs.sum / self.size
+	}
+
+	moment { :self :r |
+		(1 / self.size) * (self ^ r).sum
 	}
 
 	notEmpty { :self |
@@ -626,6 +641,18 @@
 			answer.add(collectBlock(each))
 		};
 		answer
+	}
+
+	skewness { :self |
+		self.isVector.if {
+			self.centralMoment(3) / (self.centralMoment(2) ^ (3 / 2))
+		} {
+			self.isMatrix.if {
+				self.transposed.collect(skewness:/1)
+			} {
+				'@Collection>>skewness: not vector or matrix'.error
+			}
+		}
 	}
 
 	sorted { :self |

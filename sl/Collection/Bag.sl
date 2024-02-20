@@ -171,4 +171,20 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 		answer
 	}
 
+	commonest { :self |
+		let byCount = self.asBag.sortedCounts;
+		let count = byCount.first.key;
+		byCount.select { :each | each.key = count }.collect(value:/1)
+	}
+
+	counts { :self |
+		self.asBag.sortedElements
+	}
+
+	histogramOf { :self :aBlock:/1 |
+		let answer = Bag();
+		self.collectInto(aBlock:/1, answer);
+		answer
+	}
+
 }
