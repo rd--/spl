@@ -106,6 +106,14 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 		<primitive: return new Uint8Array(_self);>
 	}
 
+	randomByteArray { :self |
+		<primitive:
+		var bytes = new Uint8Array(_self);
+		crypto.getRandomValues(bytes);
+		return bytes;
+		>
+	}
+
 }
 
 +String {

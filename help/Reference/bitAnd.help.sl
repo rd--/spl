@@ -34,7 +34,7 @@ Extract the second-lowest-order bits in numbers:
 Mask to test whether bits 3 or 4 are 1:
 
 ```
-1:16.bitAnd((2 ^ 2) + (2 ^ 3)).sign
+>>> 1:16.bitAnd((2 ^ 2) + (2 ^ 3)).sign
 [0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 0]
 ```
 

@@ -38,4 +38,4 @@ true
 
 * * *
 
-See also: Binary, lowBit
+See also: Binary, highBitOfMagnitude, lowBit

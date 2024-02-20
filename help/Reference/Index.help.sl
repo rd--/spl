@@ -1,4 +1,6 @@
-# Index -- index into a table with a signal
+# Index
+
+Index into a table with a signal.
 
 _Index(table, in)_
 
@@ -15,3 +17,6 @@ let f = Index(b, LinLin(LfSaw(2, 0), -1, 1, 0, 6));
 SinOsc([f, f * 9], 0) * 0.1
 ```
 
+* * *
+
+Categories: Ugen

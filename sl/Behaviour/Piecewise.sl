@@ -7,7 +7,6 @@ Piecewise : [Object] { | pieces defaultValue |
 					each[1].value(x).return
 				}
 			};
-			['DEFAULT', x].postLine;
 			self.defaultValue.value(x)
 		}
 	}

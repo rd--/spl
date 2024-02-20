@@ -516,6 +516,51 @@
 		maybePrime
 	}
 
+	millerRabinPrimalityTest { :self :k |
+		var d, s, a, x, r;
+		valueWithReturn { :return:/1 |
+			(self = 1).ifTrue {
+				false.return
+			};
+			(self <= 3).ifTrue {
+				true.return
+			};
+			self.even.ifTrue {
+				false.return
+			};
+			d := self - 1;
+			s := 0;
+			{
+				d \\ 2 = 0
+			}.whileTrue {
+				d := d / 2;
+				s := s + 1
+			};
+			{
+				k := k - 1;
+				k >= 0
+			}.whileTrue {
+				a := (self.one * 2).randomInteger(self - 2);
+				x := (a ^ d) \\ self;
+				(x = 1).ifFalse {
+					r := -1;
+					{
+						r := r + 1;
+						r < s & {
+							x ~= (self - 1)
+						}
+					}.whileTrue {
+						x := (x ^ 2) \\ self
+					};
+					(x ~= (self - 1)).ifTrue {
+						false.return
+					}
+				}
+			};
+			true
+		}
+	}
+
 	mixedRadixEncode { :self :factors |
 		let answer = List(factors.size);
 		factors.size.downToDo(1) { :index |

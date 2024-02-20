@@ -13,7 +13,7 @@ Primes up to one hundred:
 
 ```
 >>> 1:99.select(isPrime:/1)
-[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+[2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97]
 ```
 
 Number of primes up to one-thousand:
@@ -21,6 +21,16 @@ Number of primes up to one-thousand:
 ```
 >>> 1:999.select(isPrime:/1).size
 168
+```
+
+Select primes:
+
+```
+>>> (1 .. 131).select(isPrime:/1)
+[2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 103 107 109 113 127 131]
+
+>>> (827 .. 999).select(isPrime:/1)
+[827 829 839 853 857 859 863 877 881 883 887 907 911 919 929 937 941 947 953 967 971 977 983 991 997]
 ```
 
 Number of primes up to ten-thousand:
@@ -42,6 +52,20 @@ Threads over lists:
 ```
 >>> 1:6.isPrime
 [false true true false true false]
+```
+
+Recognize Fermat primes, prime numbers of the form _2 ^ 2 ^ n + 1_:
+
+```
+>>> (2 ^ (2 ^ 3) + 1).isPrime
+true
+```
+
+The number _2 ^ 2 ^ 7 + 1_ is not a Fermat prime, & requires _millerRabinPrimalityTest_:
+
+```
+>>> (2n ^ (2 ^ 7) + 1).millerRabinPrimalityTest(10)
+false
 ```
 
 Recognize Wieferich primes, prime numbers _p_ such that _p^2_ divides _2^(p-1) - 1_:

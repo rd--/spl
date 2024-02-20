@@ -20,6 +20,19 @@ Generate a random integer between 3 and 11, inclusive:
 true
 ```
 
+At LargeInteger:
+
+```
+>>> (2n ^ 99n).digitLength
+13
+
+>>> (2n ^ 99n).randomInteger.betweenAnd(1n, 633825300114114700748351602688n)
+true
+
+>>> (2n ^ 98).randomInteger(2n ^ 99).betweenAnd(2n ^ 98, 2n ^ 99)
+true
+```
+
 The ternary form answers a List of _countOrShape_ random numbers.
 
 A List of 13 random integers:

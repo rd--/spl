@@ -133,6 +133,22 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		(self % 2) = 0
 	}
 
+	highBitOfMagnitude { :self |
+		valueWithReturn { :return:/1 |
+			let realLength = self.digitLength;
+			let lastDigit = self.digitAt(realLength);
+			{
+				lastDigit = 0
+			}.whileTrue {
+				realLength := realLength - 1;
+				(realLength = 0).ifTrue {
+					0.return
+				}
+			};
+			lastDigit.asSmallFloat.highBitOfByte + (8 * (realLength - 1))
+		}
+	}
+
 	isImmediate { :self |
 		true
 	}
@@ -159,6 +175,23 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 	quotient { :self :anInteger |
 		self // anInteger
+	}
+
+	randomInteger { :self |
+		let k = self.digitLength;
+		let h = self.highBitOfMagnitude;
+		let m = (2n ^ h) - 1;
+		let answer = nil;
+		{
+			let bytes = k.randomByteArray;
+			answer := bytes.asLargeInteger.bitAnd(m);
+			answer <= 0 || (answer > self)
+		}.whileTrue;
+		answer
+	}
+
+	randomInteger { :min :max |
+		(max - min).randomInteger + min
 	}
 
 	remainder { :self :anInteger |
@@ -220,6 +253,18 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 			hash := 16rFFFFFFFF.bitAnd(hash.bitXor(self.digitAt(index)) * fnvPrime)
 		};
 		hash
+	}
+
+}
+
++ByteArray {
+
+	asLargeInteger { :self |
+		let answer = 0n;
+		self.withIndexDo { :each :i |
+			answer := answer + (each << (i - 1n * 8))
+		};
+		answer
 	}
 
 }

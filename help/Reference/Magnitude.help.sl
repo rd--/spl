@@ -1,12 +1,14 @@
-# Magnitude -- comparison trait
+# Magnitude
 
 Trait defining comparison operators.
 Objects that are magnitudes should implement _=_.
 
-The operator that must be defined to implement this trait is _<_.
+The method that must be defined to implement this trait is _<_.
 
-Methods are: <, >, <=, >=, betweenAnd, min, max, minMax
+Magnitude implements: <, >, <=, >=, betweenAnd, min, max, minMax
 
 * * *
 
 See also: <=, >, >=, <=>, betweenAnd, clamp, min, max
+
+Categories: Comparison, Trait

@@ -6,7 +6,7 @@ Answer if _anObject_ will compare _==_ when it compares _=_.
 
 Immediate objects are suitable for inclusion in _Set_ and _Bag_.
 
-Nil, Boolean, SmallFloat, LargInteger and String values are all immediate.
+Nil, Boolean, SmallFloat, LargeInteger and String values are all immediate.
 
 ```
 >>> [nil, true, false, 3.141, 23n, 'txt'].collect(isImmediate:/1)
