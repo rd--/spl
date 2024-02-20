@@ -1,8 +1,6 @@
 # Mathematical Functions
 
-## Arithmetic
-
-Operators:
+## Arithmetic Operators
 
 - `+`: addition
 - `-`: subtraction
@@ -10,7 +8,7 @@ Operators:
 - `/`: division
 - `^`: raised to
 
-Functions:
+## Arithmetic Functions
 
 - `accumulate`: cumulative sums in a list
 - `differences`: successive differences in a list
@@ -78,15 +76,16 @@ Functions:
 - `rescale`: rescale between
 - `boole`: 1 for true, 0 for false
 
-## Division-Related
-
-Operators:
+## Division Functions
 
 - `%`: modulo (remainder on division)
 - `//`: quotient
 - `\\`: remainder
+- `quotientRemainder`: integer quotient & remainder
+- `quotient`: integer quotient
+- `remainder`: integer remainder
 
-Functions:
+## Divisibility
 
 - `divisible`: is divisible predicate
 - `even`: is even predicate
@@ -96,12 +95,19 @@ Functions:
 - `lcm`: least common multiple
 - `modularInverse`: modular inverse
 - `odd`: is odd predicate
-- `powerMod`: power modulo
-- `quotientRemainder`: integer quotient & remainder
-- `quotient`: integer quotient
-- `remainder`: integer remainder
 
-# Combinatorial Functions
+## Divisors
+
+- `divisors`: list of integers that divide
+- `divisorSigma`: the divisor function
+- `divisorSum`: sum of divisors
+
+## Congruences
+
+- `%`: modulo
+- `powerMod`: power modulo
+
+## Combinatorial Functions
 
 - `factorial`: factorial function (total arrangements of n objects)
 - `subfactorial`: number of derangements of  objects, leaving none unchanged
@@ -112,5 +118,33 @@ Functions:
 - `multinomialCoefficient`: multinomial coefficients
 - `catalanNumber`: Catalan numbers
 - `polygonalNumber`: triangular and other polygonal numbers
+
+## Integer Partitions
+
+- `integerPartitions`: find partitions of integers
 - `partitionsP`: number of partitions of an integer
 - `partitionsQ`: number of partitions of an integer
+
+## Base-Like Representations
+
+- `integerDigits`: gives a list of the decimal digits in the integer n.
+- `mixedRadixEncode`: mixed radix encoding
+- `mixedRadixDecode`: mixed radix decoding
+
+## Generating Primes
+
+- `primesList`: the list of primes
+- `nthPrime`: the nth prime number
+- `nextPrime`: next prime
+- `randomPrime`: pick a random prime
+- `primePi`: the number of primes up to
+
+## Primality Testing
+
+- `isPrime`: test if a number is prime
+- `isCoprime`: test if numbers are coprime
+
+## Factoring
+
+- `factorInteger`: find the factors of an integer
+- `integerExponent`: highest divisble power of

@@ -1,8 +1,10 @@
 # atRandom
 
-_atRandom(aCollection)_
+- _atRandom(anInteger | aCollection)_
+- _atRandom(anInteger | aCollection, count)_
 
-Select an element of _aCollection_ at random.
+Select an element of _aCollection_ or an integer in the range _1_ through _anInteger_ at random,
+or a List of _count_ random items.
 
 ```
 >>> let c = [1 .. 5];
@@ -26,9 +28,7 @@ true
 true
 ```
 
-- _atRandom(anInteger)_
-
-Select an integer between one and _anInteger_ at random.
+Select an integer between one and five at random:
 
 ```
 >>> let i = 5.atRandom;

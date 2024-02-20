@@ -66,6 +66,10 @@
 		system.nextRandomInteger(self)
 	}
 
+	atRandom { :self :count |
+		{ system.nextRandomInteger(self) } ! count
+	}
+
 	binomialCoefficient { :n :k |
 		k.isCollection.if {
 			k.adaptToNumberAndApply(n, binomialCoefficient:/2)
@@ -113,6 +117,10 @@
 				each = d
 			}
 		}
+	}
+
+	divisorSum { :self :aBlock:/1 |
+		self.divisors.collect(aBlock:/1).sum
 	}
 
 	divisors { :self |
@@ -371,6 +379,16 @@
 
 	integerDigits { :self |
 		self.integerDigits(10)
+	}
+
+	integerExponent { :n :b |
+		let answer = 0;
+		{
+			n.divisible(b ^ (answer + 1))
+		}.whileTrue {
+			answer := answer + 1
+		};
+		answer
 	}
 
 	integerPartitionsDescendingDo { :self :aBlock:/1 |
@@ -754,10 +772,30 @@
 		self.primeFactors.asBag.sortedElements
 	}
 
+	primePi { :self |
+		let answer = 0;
+		self.primesUpToDo { :each |
+			answer := answer + 1
+		};
+		answer
+	}
+
 	primeLimit { :self |
 		self.primeFactors.maxIfEmpty {
 			0
 		}
+	}
+
+	primesBetweenAnd { :iMin :iMax |
+		let startIndex = iMin.isPrime.if {
+			iMin.indexOfPrime
+		} {
+			iMin.nextPrime.indexOfPrime
+		};
+		system.primesList.copyFromTo(
+			startIndex,
+			iMax.nextPrime.indexOfPrime - 1
+		)
 	}
 
 	primesList { :self |
@@ -785,7 +823,7 @@
 
 	primesUpToDo { :self :aBlock:/1 |
 		let primesList = system.primesList;
-		1.toDo(self.leastPrimeGreaterThanOrEqualTo.indexOfPrime) { :index |
+		1.toDo(self.leastPrimeGreaterThanOrEqualTo.indexOfPrime - 1) { :index |
 			aBlock(primesList[index])
 		}
 	}
@@ -802,6 +840,14 @@
 
 	randomIntegerBipolar { :self |
 		system.nextRandomIntegerBipolar(self)
+	}
+
+	randomPrime { :iMin :iMax |
+		iMin.primesBetweenAnd(iMax).atRandom
+	}
+
+	randomPrime { :iMin :iMax :count |
+		iMin.primesBetweenAnd(iMax).atRandom(count)
 	}
 
 	romanDigitsForOn { :self :digits :base :aStream |

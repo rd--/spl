@@ -95,7 +95,7 @@ Plot divisorSigma:
 
 * * *
 
-See also: divisible, divisors, eulerPhi PerfectNumber PerfectNumberQ
+See also: divisible, divisors, eulerPhi
 
 References:
 _Mathematica_

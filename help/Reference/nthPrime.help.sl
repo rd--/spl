@@ -1,6 +1,6 @@
 # nthPrime
 
-_nthPrime(anInteger)_
+- _nthPrime(anInteger)_
 
 Answer the prime at index _anInteger_ in the sequence of prime numbers.
 
