@@ -1067,7 +1067,7 @@
 			}
 		} {
 			n := firstIndex + lastIndex // 2;
-				destination.mergeSortFromToIntoBy(firstIndex, n, self, aBlock:/2);
+			destination.mergeSortFromToIntoBy(firstIndex, n, self, aBlock:/2);
 			destination.mergeSortFromToIntoBy(n + 1, lastIndex, self, aBlock:/2);
 			self.mergeFirstMiddleLastIntoBy(firstIndex, n, lastIndex, destination, aBlock:/2)
 		}
@@ -1105,6 +1105,10 @@
 
 	norm { :self |
 		(self.scalarProduct(self.conjugated)).sqrt
+	}
+
+	normalize { :self |
+		self / self.norm
 	}
 
 	occurrencesOf { :self :anObject |

@@ -72,8 +72,6 @@
 - `fractionPart`: fractional part
 - `mixedFractionParts`: integer and fractional parts
 - `sign`: sign of
-- `clip`: clip between
-- `rescale`: rescale between
 - `boole`: 1 for true, 0 for false
 
 ## Division Functions
@@ -226,3 +224,10 @@
 - `ordering`: grade
 - `quantile`: quantile estimate
 - `quartiles`: quartile estimate
+
+## Data Transforms and Smoothing
+
+- `clip`: clip between
+- `rescale`: rescale between
+- `normalize`: normalize vector
+- `standardize`: zero mean and unit sample variance

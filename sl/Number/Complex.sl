@@ -333,6 +333,14 @@ Complex : [Object, Number] { | real imaginary |
 		self.abs
 	}
 
+	normalize { :self |
+		self.isZero.if {
+			0j0
+		} {
+			self / self.abs
+		}
+	}
+
 	one { :self |
 		1.asComplex
 	}
