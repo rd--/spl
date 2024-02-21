@@ -2,7 +2,7 @@
 
 - _Adverb_:
 An adverb is a _block_ that modifies the behaviour of another block.
-Cf. [Operator Adverbs].
+Cf. `Operator Adverbs`.
 
 - _Answer_:
 The value produced by executing a _program_,
@@ -28,13 +28,13 @@ An interpretation of _bytes_ as _characters_ according to the
 Cf. _Unicode_.
 
 - _Associativity_:
-Associativity determines how operators of equal precedence are grouped in the absence of parentheses.
+Associativity determines how operators of equal _precedence_ are grouped in the absence of parentheses.
 
 - _Assignment_:
 Attach a _value_ to a _name_, thus defining or re-defining the name.
 Assignment is particularly used for the latter case,
 the former case is usually called a _binding_ or a _definition_.
-Cf. [Assignment Syntax].
+Cf. `Assignment Syntax`.
 
 - _Atom_:
 Any value that is not a _collection_,
@@ -55,7 +55,7 @@ A _function_ of two _arguments_, such as _plus_.
 - _Binding_:
 The value that is associated with a name,
 or the expression that associates a value with a name.
-Cf. _Assignment_, [Let Syntax], _Name_, _Variable_.
+Cf. _Assignment_, `Let Syntax`, _Name_, _Variable_.
 
 - _Bit_:
 An _integer_ value that is either zero or one.
@@ -78,7 +78,7 @@ An _integer_ with 8-bits of precision that can represent 256 values.
 
 - _Character_:
 A _type_ representing one item in a _string_.
-Cf. _Ascii_, _CodePoint_, _Glyph_, _Unicode_.
+Cf. _Ascii_, _Code Point_, _Glyph_, _Unicode_.
 
 - _Code Point_:
 The integer value of a _character_ in the _unicode_ specification.
@@ -112,6 +112,9 @@ A _behaviour_ that answers equal values for equal inputs.
 Informally used to refer to _blocks_ and _procedures_.
 [[1](https://mathworld.wolfram.com/Function.html)]
 
+- _Glyph_:
+A glyph is the specific shape, design, or representation of a character.
+
 - _Head_:
 The first item is a _sequence_ or along an _axis_.
 
@@ -138,7 +141,7 @@ written _inf_.
 
 - _Infix_:
 A form of notation where a _verb_ is written between two _nouns_,
-in distinction to _prefix_ and _postfix_ notations.
+as distinct from _prefix_ and _postfix_ notations.
 Cf. _Operator_.
 
 - _Integer_:
@@ -163,7 +166,7 @@ A _collection type_ that stores a _sequence_ of _items_.
 - _Literal_:
 A value for which the grammar includes a written notation,
 a value that is written using such a notation.
-Cf. [Literals Syntax].
+Cf. `Literals Syntax`.
 
 - _Matrix_:
 An _array_ of _rank_ two, or a two-dimensional array.
@@ -196,14 +199,14 @@ Cf. _Argument_, _Parameter_.
 
 - _Operator_:
 A _behaviour_ that is named using a distinct lexical rule so that it may be written _infix_.
-Cf. [Operator Syntax].
+Cf. `Operator Syntax`.
 
 - _Parsing_:
 The process of analyzing a string of symbols as a sentence according to a formal grammar.
 
 - _Precedence_:
 The rules for deciding the order of evaluation of parts of a program.
-[1](https://mathworld.wolfram.com/Precedence.html)
+[[1](https://mathworld.wolfram.com/Precedence.html)]
 
 - _Precision_:
 An attribute of a number indicating the range of values that can be represented within its type.
@@ -223,6 +226,13 @@ A _behaviour_ that can be _evaluated_ to give an _answer_.
 - _Rank_:
 The number of axes along which the items of an _array_ are arranged.
 
+- _Recursive_:
+Any value, including _behaviours_, whose definition refers to itself.
+
+- _Result_:
+The value produced by executing a program,
+also called the _answer_.
+
 - _Scalar_:
 A mathematical term used to distinguish values that are not _vectors_ or _matrices_ or _arrays_.
 
@@ -236,15 +246,14 @@ The list of the lengths of the axes of an _array_.
 - _String_:
 A _sequence_ of _characters_.
 
-- _Recursive_:
-Any value, including _behaviours_, whose definition refers to itself.
-
-- _Result_:
-The value produced by executing a program,
-also called the _answer_.
-
 - _Ternary Function_:
 A _function_ of three _arguments_, such as _betweenAnd_.
+
+- _Trait_:
+A named collection of behaviours that can be implemented (or inherited) by a _type_.
+
+- _Tuple_:
+A _sequence type_ that is less general than `List`.
 
 - _Unary Function_:
 A _function_ of one _argument_, such as _negated_.
@@ -269,7 +278,11 @@ An array with one axis,
 also called a _list_ or a _sequence_.
 
 - _Verb_:
-A _behaviour_ object, in distinction to a _noun_ or _value_ object.
+A _behaviour_ object, as distinct from a _noun_ or _value_ object.
+
+- _Volume_:
+An _array_ of _rank_ three, or a three-dimensional array.
+Cf. _Array_, _Matrix_, _Vector_.
 
 - _Whitespace_:
 A string of one or more blank characters, either spaces, tabs, or newlines.
