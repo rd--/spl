@@ -4,9 +4,7 @@
 
 Random values that follow a Cauchy distribution.
 
-```
-LsCauchy(0, 1 / 9, 99).upToEnd.plot
-```
+	LsCauchy(0, 1 / 9, 99).upToEnd.plot
 
 * * *
 

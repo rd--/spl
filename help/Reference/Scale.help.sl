@@ -19,7 +19,8 @@ a seven note scale into a twelve-note tuning has a tuning size of twelve.
 The _tuningIndices_ of a scale are the indices into a Tuning of the required size.
 
 ```
-Scale(1, [2 2 1 2 2 2 1], "Major").tuningIndices = [1 3 5 6 8 10 12]
+>>> Scale(1, [2 2 1 2 2 2 1], "Major").tuningIndices
+[1 3 5 6 8 10 12]
 ```
 
 The file _modename.par_ in the [Scala](https://www.huygens-fokker.org/scala/) distribution includes many scales.

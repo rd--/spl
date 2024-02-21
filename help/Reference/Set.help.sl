@@ -35,7 +35,7 @@ Set from Tuple:
 Set from String:
 
 ```
-'abracadabra'.asSet.size
+>>> 'abracadabra'.asSet.size
 5
 ```
 

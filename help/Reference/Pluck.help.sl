@@ -32,7 +32,7 @@ let k = 12;
 let freq = SinOsc(
 	{ Rand(0.01, 0.15) } ! k,
 	{ Rand(0, 1) } ! k
-).Range(777, 3333);
+).LinLin(-1, 1, 777, 3333);
 Splay(
 	LeakDc(
 		Pluck(

@@ -19,10 +19,13 @@ Vectors have depth two:
 2
 ```
 
-Matrices have depth three:
+Matrices, regular and irregular, have depth three:
 
 ```
 >>> [1 2; 3 4; 5 6].depth
+3
+
+>>> [1 2; 3 4 5].depth
 3
 ```
 

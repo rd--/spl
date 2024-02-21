@@ -1,11 +1,11 @@
 {- Alien froggies (Jmcc) #1 ; left-to-right -}
 { :tr |
-	let TrRand = { :tr :lo :hi | TRand(lo, hi, tr) };
-	let TrExpRand = { :tr :lo :hi | TExpRand(lo, hi, tr) };
-	let r = tr.TrRand(-0.2, [0.1, 0.2]).Exp.Mul(11).Fold(1, 30);
+	let trRand = { :tr :lo :hi | TRand(lo, hi, tr) };
+	let trExpRand = { :tr :lo :hi | TExpRand(lo, hi, tr) };
+	let r = tr.trRand(-0.2, [0.1, 0.2]).Exp.Mul(11).Fold(1, 30);
 	r.Formant(
-		tr.TrExpRand([200, 300], 3000),
-		tr.TrRand([0, 1], 9).MulAdd(r, r)
+		tr.trExpRand([200, 300], 3000),
+		tr.trRand([0, 1], 9).MulAdd(r, r)
 	).Mul(0.05)
 }.OverlapTexture(0.5, 0.25, 5).Mix
 
@@ -272,7 +272,7 @@ Voicer(1, 16) { :e |
 
 {- Tremulate (Jmcc) ; event control ; requires=voicer -}
 let s = Voicer(1, 16) { :e |
-	let s = SinOsc(e.x * 400 + 500 * [1 1.2 1.5 1.8], 0); {- just minor seventh chord, 1/1 5/4 3/2 9/5 -}
+	let s = SinOsc(e.x * 400 + 500 * [1 1.2 1.5 1.8], 0); {- just minor seventh chord, 1:1 5:4 3:2 9:5 -}
 	let a = LfNoise2({ Rand(30, 90) } ! 4 * (0.75 + e.j)).Max(0) * e.z;
 	Pan2(s, { Rand(-1, 1) } ! 4 + (e.i * 2 - 1), a * LagUd(e.w, 0, e.k * 2)).Sum
 }.Mix * 0.5;

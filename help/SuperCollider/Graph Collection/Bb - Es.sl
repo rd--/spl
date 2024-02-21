@@ -71,7 +71,7 @@ let o = (LfNoise0(4).Max(l).Max(SinOsc(f * (l * 9).Ceiling.Lag(0.1), 0) * 0.7));
 
 {- http://earslap.com/weblog/music-release-laconicism.html -}
 let t = [0 0 0 1 5 7 10 12 12 12] + 30;
-let a = Duty(1/8, 0, Drand(inf, t + 24 ++ t ++ t));
+let a = Duty(1 / 8, 0, Drand(inf, t + 24 ++ t ++ t));
 (BHiPass(LfNoise1(8) ^ 6, [a, a + 7].MidiCps, a / 3000) * (67 - a)).Tanh
 
 {- http://earslap.com/weblog/music-release-laconicism.html -}
@@ -106,7 +106,7 @@ let v = Blip([20000, 20000 - 9], 1) * (LfNoise0(16) * 0.5 + 0.5 ^ 9);
 (Hpf(LfNoise1(2), [10, 10.1]) * 100).Tanh
 
 {- http://earslap.com/weblog/music-release-laconicism.html ; requires=kr -}
-let x = Duty(1/8, 0, Drand(inf, [0, Drand(1, [0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])]));
+let x = Duty(1 / 8, 0, Drand(inf, [0, Drand(1, [0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])]));
 LeakDc(Brf(Saw(8) * Decay2(x, 0.01, 0.3).kr ^ 1.5, x * 20 + [45.1, 45], 0.1), 0.995).Tanh
 
 {- http://earslap.com/weblog/music-release-laconicism.html ; wait -}

@@ -4,7 +4,7 @@ Decay(tr, { TRand(0.01, 0.35, tr) } ! 2) * SinOsc({ TRand(500, 700, tr) } ! 2, 0
 
 {- Dust ; as envelope ; applicative form -}
 let lfo = { :freq :lo :hi |
-	Range(LfNoise2(freq), lo, hi)
+	LfNoise2(freq).LinLin(-1, 1, lo, hi)
 };
 AllpassN(
 	Bpf(

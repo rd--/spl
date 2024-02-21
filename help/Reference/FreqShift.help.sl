@@ -112,26 +112,24 @@ FreqShift, feedback, FreqShift:
 
 Non-graph variant:
 
-```
-{
-	let table = [0 2 4 5 7 9 11 12];
-	let octave = [0 .. 2].atRandom;
-	let note = 48 + table.atRandom;
-	let freq = (octave * 12 + note).MidiCps;
-	let in = FreqShift(
-		InFb(1, 0) * 3.2,
-		XLine(0.01, freq * 1.5, 1),
-		0
-	);
-	let osc = SinOsc(freq, 0) * Sine(1, 9) * 0.1;
-	let snd = FreqShift(
-		osc + in,
-		SinOsc(4.24, 0.5) * 3,
-		0
-	) * 0.5;
-	(osc + snd) / 3 # 2
-}.overlap(3, 3, 3)
-```
+	{
+		let table = [0 2 4 5 7 9 11 12];
+		let octave = [0 .. 2].atRandom;
+		let note = 48 + table.atRandom;
+		let freq = (octave * 12 + note).MidiCps;
+		let in = FreqShift(
+			InFb(1, 0) * 3.2,
+			XLine(0.01, freq * 1.5, 1),
+			0
+		);
+		let osc = SinOsc(freq, 0) * Sine(1, 9) * 0.1;
+		let snd = FreqShift(
+			osc + in,
+			SinOsc(4.24, 0.5) * 3,
+			0
+		) * 0.5;
+		(osc + snd) / 3 # 2
+	}.overlap(3, 3, 3)
 
 * * *
 

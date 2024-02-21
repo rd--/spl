@@ -149,7 +149,7 @@ let anaSynFunc = { :octave :clockRate :pwmrate :fltrate |
 			fltrate, {- LfO rate -}
 			2.pi.Rand0).MulAdd( {- random initial phase -}
 				1400, 2000), {- scale and offset give cutoff freq from 600 to 3400 Hz -}
-		1/15 {- 1/Q -}
+		1 / 15 {- 1/Q -}
 	)
 }; {- end of function definition f -}
 {- analogue snare drum -}
@@ -168,7 +168,7 @@ let g = [ {- call function f to create each instrument -}
 let z = 0.4 * ( {- scale delayed part down -}
 	CombN( {- feedback delay -}
 		g, {- input dry signal -}
-		0.375, 0.375, {- 3/8 second delay -}
+		0.375, 0.375, {- 3 / 8 second delay -}
 		5 {- 5 second 60dB decay time -}
 	)
 	+ g.reverse); {- add dry stereo pair with the channels reversed -}

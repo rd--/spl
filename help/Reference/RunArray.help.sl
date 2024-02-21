@@ -8,7 +8,8 @@ Repeated values are stored singly and associated with a "run" length denoting th
 Construct a RunArray from runs and values:
 
 ```
-RunArray([1, 3, 5], ['a', 'b', 'c']).asList.join = 'abbbccccc'
+>>> RunArray([1, 3, 5], ['a', 'b', 'c']).asList.join
+'abbbccccc'
 ```
 
 - _asRunArray(aListSequence)_
@@ -16,7 +17,8 @@ RunArray([1, 3, 5], ['a', 'b', 'c']).asList.join = 'abbbccccc'
 Convert a sequence of _run -> value_ associations into a RunArray:
 
 ```
-'abbbccccc'.asList.asRunArray.runs = [1 3 5]
+>>> 'abbbccccc'.asList.asRunArray.runs
+[1 3 5]
 ```
 
 The method _runs_ answers an array of how many elements are in each run,

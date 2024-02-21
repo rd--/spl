@@ -23,7 +23,7 @@
 	}
 
 	compose { :self:/1 :aBlock:/1 |
-		self.composeLeft(aBlock:/1)
+		self:/1.composeLeft(aBlock:/1)
 	}
 
 	composeLeft { :self:/1 :aBlock:/1 |

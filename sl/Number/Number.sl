@@ -97,6 +97,10 @@
 		}
 	}
 
+	beta { :self :aNumber |
+		self.logBeta(aNumber).exp
+	}
+
 	ceiling { :self |
 		let truncation = self.truncated;
 		(self <= 0).if {
@@ -314,6 +318,9 @@
 		}
 	}
 
+	logBeta { :self :aNumber |
+		self.logGamma + aNumber.logGamma - (self + aNumber).logGamma
+	}
 
 	logGammaLanczosFormula { :self |
 		let sqrtTwoPi = (pi * 2).sqrt;

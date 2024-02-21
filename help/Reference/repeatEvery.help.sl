@@ -7,16 +7,12 @@ _aBlock_ receives the current time and the delay interval before the block will 
 
 Print a message every few seconds indefinitely:
 
-```
-system.clock.repeatEvery { :t :d |
-	['About to delay for', t, d].postLine
-} {
-	1:5.atRandom
-}
-```
+	system.clock.repeatEvery { :t :d |
+		['About to delay for', t, d].postLine
+	} {
+		1:5.atRandom
+	}
 
 Clear clock to end:
 
-```
-system.clock.removeAll
-```
+	system.clock.removeAll
