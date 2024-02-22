@@ -87,11 +87,11 @@ Abundant numbers, numbers _n_ such that the sum of their divisors is greater tha
 
 Plot divisorSigma:
 
-```
+~~~
 0.divisorSigma(1:50).plot
 1.divisorSigma(1:50).plot
 2.divisorSigma(1:50).plot
-```
+~~~
 
 * * *
 

@@ -2,13 +2,23 @@
 
 _Boolean_ is the type of the two values _true_ and _false_.
 
-	true.typeOf = 'Boolean'
-	false.typeOf = 'Boolean'
+```
+>>> true.typeOf
+'Boolean'
 
-The basic logical operations are _not_, _and_ and _or_.
+>>> false.typeOf
+'Boolean'
+```
 
-	true.not & { nil } = false
-	true | { nil } = true
+The basic logical operations are `not`, `&` and `|`.
+
+```
+>>> true.not & { nil }
+false
+
+>>> true | { nil }
+true
+```
 
 Methods are: &, &&, |, ||, and, or, not, xor
 

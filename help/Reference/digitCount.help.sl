@@ -27,9 +27,9 @@ Number of 1s and 0s:
 
 Plot the number of 1s in the base-2 representation:
 
-```
+~~~
 (1 .. 2 ^ 6 - 1).collect { :each | each.digitCount(2, 1) }.plot
-```
+~~~
 
 Count the number of digits 1 and 2 in ternary representation:
 

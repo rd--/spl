@@ -5,7 +5,10 @@
 
 Convert from degree to key.
 
-	[0 .. 7].degreeToKey([0 2 4 5 7 9 11], 12) = [0 2 4 5 7 9 11 12]
+```
+>>> [0 .. 7].degreeToKey([0 2 4 5 7 9 11], 12)
+[0 2 4 5 7 9 11 12]
+```
 
 * * *
 

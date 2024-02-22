@@ -9,6 +9,6 @@ Magnitude implements: <, >, <=, >=, betweenAnd, min, max, minMax
 
 * * *
 
-See also: <=, >, >=, <=>, betweenAnd, clamp, min, max
+See also: <=, >, >=, <=>, betweenAnd, boole, clamp, min, max
 
 Categories: Comparison, Trait

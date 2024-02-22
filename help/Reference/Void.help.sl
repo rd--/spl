@@ -5,8 +5,13 @@ It identifies the place in the method table where blocks of no arguments are loc
 
 No argument blocks are notated as methods of _Void_.
 
-	system.typeLookup('Void').methodDictionary.includesKey('Set:/0') = true
-	system.onlyZeroArityMethodList.includes('PriorityQueue') = true
+```
+>>> system.typeLookup('Void').methodDictionary.includesKey('Set:/0')
+true
+
+>>> system.onlyZeroArityMethodList.includes('PriorityQueue')
+true
+```
 
 * * *
 

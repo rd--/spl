@@ -1,11 +1,16 @@
 # Document
 
 A system Trait.
+Not all systems will implement Document.
+Where implemented it is accessed using `Window` and `Navigator`.
 
-	window.console == console
-	window.document == document
-	window.navigator == navigator
-	document.defaultView == window
+```
+>>> system.window.isWindow
+true
+
+>>> system.window.navigator.isNavigator
+true
+```
 
 * * *
 

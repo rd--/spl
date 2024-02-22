@@ -85,9 +85,9 @@ Find twin primes:
 
 Plot primes up to one-hundred-thousand:
 
-```
+~~~
 1:99999.select(isPrime:/1).plot
-```
+~~~
 
 * * *
 

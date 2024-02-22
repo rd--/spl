@@ -24,9 +24,9 @@ Threads elementwise over lists and matrices:
 
 Plot over a subset of the reals:
 
-```
+~~~
 (-4, -3.99 .. 4).sinh.plot
-```
+~~~
 
 * * *
 

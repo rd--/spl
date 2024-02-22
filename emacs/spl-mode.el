@@ -83,7 +83,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
 
 (defun spl-delete-markdown-code-fences (str)
   "Remove Mardown code fences from the string STR if present."
-  (replace-regexp-in-string "^```" "" str))
+  (replace-regexp-in-string "^```\\|~~~" "" str))
 
 (defun spl-delete-doctest-prefixes (str)
   "Remove Doctest prefixes from the string STR if present."

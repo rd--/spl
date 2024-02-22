@@ -11,9 +11,9 @@ Answer the first _anInteger_ elements of the prime number sequence.
 
 Plot first 500 places:
 
-```
+~~~
 500.primesList.plot
-```
+~~~
 
 * * *
 

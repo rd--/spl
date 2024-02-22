@@ -17,12 +17,12 @@ Answer the factorial power _aNumber ^ (anInteger)_.
 
 Plot over a subset of the reals:
 
-```
+~~~
 (-3, -2.99 .. 4).collect { :each | each.factorialPower(1) }.plot
 (-3, -2.99 .. 4).collect { :each | each.factorialPower(2) }.plot
 (-3, -2.99 .. 4).collect { :each | each.factorialPower(3) }.plot
 (-3, -2.99 .. 4).collect { :each | each.factorialPower(4) }.plot
-```
+~~~
 
 * * *
 

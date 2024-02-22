@@ -51,9 +51,9 @@ inf
 
 Plot over a subset of the reals:
 
-```
-(0, 0.01 .. 10).collect(sqrt:/1).plot
-```
+~~~
+(0, 0.01 .. 10).sqrt.plot
+~~~
 
 * * *
 

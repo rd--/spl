@@ -4,7 +4,10 @@ _degreesToRadians(aNumber)_
 
 Convert from degrees to radians.
 
-	360.degreesToRadians = 2.pi
+```
+>>> 360.degreesToRadians
+2.pi
+```
 
 * * *
 

@@ -38,9 +38,9 @@ Minimum of _cosh_:
 
 Plot over a subset of the reals:
 
-```
+~~~
 (-4, -3.99 .. 4).cosh.plot
-```
+~~~
 
 * * *
 

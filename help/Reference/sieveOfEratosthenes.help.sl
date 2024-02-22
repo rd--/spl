@@ -45,12 +45,6 @@ Up to 99999 & 999999:
 78496
 ```
 
-Plot the prime counting function:
-
-```
-1:999.collect(sieveOfEratosthenes:/1).plot
-```
-
 Approximations:
 
 ```
@@ -63,6 +57,12 @@ Approximations:
 >>> 5000.logarithmicIntegralRamanujan(99)
 684.281
 ```
+
+Plot the prime counting function:
+
+~~~
+1:999.collect(sieveOfEratosthenes:/1).plot
+~~~
 
 * * *
 

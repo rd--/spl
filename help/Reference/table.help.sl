@@ -52,12 +52,6 @@ Make a 4×3 matrix:
 [11 12 13; 21 22 23; 31 32 33; 41 42 43]
 ```
 
-Plot a table:
-
-```
-nthPrime:/1.table(1:50).plot
-```
-
 The index in the table can run backward:
 
 ```
@@ -121,6 +115,12 @@ At matrices answers a volume:
 >>> [1 2; 3 4] *.table [5 6; 7 8]
 [5 12; 7 16:; 15 24; 21 32]
 ```
+
+Plot a table:
+
+~~~
+nthPrime:/1.table(1:50).plot
+~~~
 
 * * *
 

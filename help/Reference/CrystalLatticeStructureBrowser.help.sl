@@ -18,7 +18,7 @@ When selected, the text view shows the description of the lattice and a number o
 Chinese projection:
 
 	system.smallKansas.clsLeitner.then { :clsLeitner |
-		| m = Projection3().chinese.Matrix33; |
+		let m = Projection3().chinese.Matrix33;
 		system.smallKansas.SvgViewer(
 			'Cls',
 			clsLeitner.atRandom.drawing(1) { :each |

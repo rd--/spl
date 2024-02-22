@@ -25,8 +25,9 @@ Exact values:
 
 Plot over a subset of the reals:
 
-```
->>> (0.025, 0.050 .. 3).collect { :x | 0.5.beta(x) }.plot
+~~~
+(0.025, 0.050 .. 3).collect { :x | 0.5.beta(x) }.plot
+~~~
 
 * * *
 

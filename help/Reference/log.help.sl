@@ -60,9 +60,9 @@ Log threads elementwise over lists:
 
 Plot over a subset of the reals:
 
-```
+~~~
 (0.01, 0.02 .. 5).log.plot
-```
+~~~
 
 * * *
 

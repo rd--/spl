@@ -1,18 +1,37 @@
-# rounded -- truncating and rounding
+# rounded
 
 - _rounded(aNumber)_
 
 Answer the integer nearest _aNumber_.
 
-	0.9.rounded = 1
-	1.rounded = 1
-	1.1.rounded = 1
-	-1.9.rounded = -2
-	-2.rounded = -2
-	-2.1.rounded = -2
-	1.5.rounded = 2
-	-1.5.rounded = -1
+```
+>>> 0.9.rounded
+1
+
+>>> 1.rounded
+1
+
+>>> 1.1.rounded
+1
+
+>>> -1.9.rounded
+-2
+
+>>> -2.rounded
+-2
+
+>>> -2.1.rounded
+-2
+
+>>> 1.5.rounded
+2
+
+>>> -1.5.rounded
+-1
+```
 
 * * *
 
 See also: ceiling, floor
+
+Categories: Truncating and rounding

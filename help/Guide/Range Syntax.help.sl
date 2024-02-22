@@ -1,22 +1,40 @@
 # Range Syntax
 
-There are syntaxes to form both _Range_ values:
+Rewrite rules:
 
-- _(start .. end)_ ⇒ _Range_
-- _(start, then .. end)_ ⇒ _Range_
+- _(alpha .. beta)_ ⇒ _Range(alpha, beta, (beta - alpha).sign)_
+- _[alpha .. beta]_ ⇒ _(alpha .. beta).asList_
+- _(alpha, beta .. gamma)_ ⇒ _Range(alpha, gamma, beta - alpha)_
+- _[alpha, beta .. gamma]_ ⇒ _(alpha, beta .. gamma).asList_
+- _alpha:beta_ => _(alpha .. beta)_
+
+Answer ascending _Range_ values:
 
 ```
+>>> 1:9
+Range(1, 9, (9 - 1).sign)
+
 >>> (1 .. 9)
-Range(1, 9, 1)
+Range(1, 9, (9 - 1).sign)
 
 >>> (1, 3 .. 9)
 Range(1, 9, 3 - 1)
 ```
 
-and _List_ values:
+Answer descending _Range_ values:
 
-- _[start .. end]_ ⇒ _List_
-- _[start, then .. end]_ ⇒ _List_
+```
+>>> 9:1
+Range(9, 1, (1 - 9).sign)
+
+>>> (9 .. 1)
+Range(9, 1, (1 - 9).sign)
+
+>>> (9, 7 .. 1)
+Range(9, 1, 7 - 9)
+```
+
+Answer _List_ values:
 
 ```
 >>> [1 .. 9]
@@ -25,13 +43,6 @@ and _List_ values:
 >>> [1, 3 .. 9]
 [1 3 5 7 9]
 ```
-
-The rewrite rules are:
-
-- _(alpha .. beta)_ ⟹ _upOrDownTo(alpha, beta)_
-- _(alpha, beta .. gamma)_ ⟹ _thenTo(alpha, beta, gamma)_
-- _[alpha .. beta]_ ⟹ _(alpha .. beta).asList_
-- _[alpha, beta .. gamma]_ ⟹ _(alpha, beta .. gamma).asList_
 
 In the case where alpha is an integer literal, and beta is an integer literal or an identifier, the interval can be written alpha:beta.
 In the literal form, as with literal Fractions, white space is significant, and `alpha : beta` is not allowed.
@@ -62,6 +73,8 @@ See also: List, Range, thenTo, upOrDownTo
 References:
 _Fortress_
 [1](https://doi.org/10.1007/978-0-387-09766-4_190)
+_R_
+[1](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Generating-regular-sequences)
 
 Unicode: U+2025 ‥ Two Dot Leader
 

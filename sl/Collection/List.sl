@@ -312,23 +312,3 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 	}
 
 }
-
-+List {
-
-	plot { :self |
-		let fileName = '/tmp/listPlot.json';
-		fileName.writeTextFile([self].json).then { :unused |
-			system.systemCommand(
-				'hsc3-plot',
-				[
-					'json',
-					'x',
-					'--rows',
-					fileName,
-					0
-				]
-			)
-		}
-	}
-
-}

@@ -11,7 +11,11 @@ Where supported this operator is displayed as ≠.
 
 * * *
 
-See also: =, ==, ~~
+See also: =, ==, ~~, <, <=, >=
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Unequal.html)
 
 Unicode: U+2260 ≠ Not equal to
 

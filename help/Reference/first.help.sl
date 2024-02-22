@@ -4,8 +4,13 @@
 
 Answer the first element of _aSequence_.
 
-	1:6.first = 1
-	6:1.first = 6
+```
+>>> 1:6.first
+1
+
+>>> 6:1.first
+6
+```
 
 * * *
 

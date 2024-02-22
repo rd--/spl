@@ -10,7 +10,10 @@ The _System_ type, which is instantiated once as _system_, implements _Cache_.
 
 The _primesList_ method caches previous requests, and continues any required calculations from the cached answers.
 
-	23.primesList = system.primesList.first(23)
+```
+>>> 23.primesList
+system.primesList.first(23)
+```
 
 * * *
 

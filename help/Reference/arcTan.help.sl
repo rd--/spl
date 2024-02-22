@@ -87,9 +87,9 @@ Zero of ArcTan:
 
 Plot over a subset of the reals:
 
-```
+~~~
 (-5, -4.99 .. 5).arcTan.plot
-```
+~~~
 
 Note:
 The two argument form reverses the argument order to _arcTan:_ in Smalltalk.

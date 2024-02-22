@@ -23,15 +23,15 @@ Sinc threads elementwise over lists and matrices:
 
 Plot:
 
-```
+~~~
 (-10, -9.9 .. 10).sinc.plot
-```
+~~~
 
 Single-slit diffraction pattern for a 4λ slit:
 
-```
+~~~
 (-1, -0.99 .. 1).collect { :x | ((4 * pi * x) / (1 + x.squared).sqrt).sinc.squared }.plot
-```
+~~~
 
 * * *
 

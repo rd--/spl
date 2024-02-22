@@ -4,14 +4,31 @@
 
 Reduce from left to right.
 
-	[1 .. 9].foldLeft(-) = -43
-	((((((((1 - 2) - 3) - 4) - 5) - 6) - 7) - 8) - 9) = -43
-	[1 2 3 4 5].foldLeft(/) = ((((1 / 2) / 3) / 4) / 5)
-	[1 .. 4].foldLeft(+) = 10
-	{ [].foldLeft(+) }.ifError { true }
-	[1 .. 4].foldLeft(-) = -8
-	[true false true true].foldLeft(&&) = false
-	[false false true true].foldLeft(||) = true
+```
+>>> [1 .. 9].foldLeft(-)
+-43
+
+>>> ((((((((1 - 2) - 3) - 4) - 5) - 6) - 7) - 8) - 9)
+-43
+
+>>> [1 2 3 4 5].foldLeft(/)
+((((1 / 2) / 3) / 4) / 5)
+
+>>> [1 .. 4].foldLeft(+)
+10
+
+>>> { [].foldLeft(+) }.ifError { true }
+true
+
+>>> [1 .. 4].foldLeft(-)
+-8
+
+>>> [true false true true].foldLeft(&&)
+false
+
+>>> [false false true true].foldLeft(||)
+true
+```
 
 * * *
 

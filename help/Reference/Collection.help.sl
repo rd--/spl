@@ -2,8 +2,13 @@
 
 _Collection_ is a trait holding behaviours common to collections.
 
-	system.traitDictionary['Collection'].isTrait = true
-	system.traitTypes('Collection').includes('List') = true
+```
+>>> system.traitDictionary['Collection'].isTrait
+true
+
+>>> system.traitTypes('Collection').includes('List')
+true
+```
 
 Methods for testing: isEmpty, occurrencesOf, anySatisfy, allSatisfy, includes, includesAllOf, includesAnyOf
 

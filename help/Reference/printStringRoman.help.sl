@@ -1,11 +1,16 @@
-# printStringRoman -- converting
+# printStringRoman
 
 - _printStringRoman(anInteger)_
 
 Answer the roman numeral notation for _anInteger_.
 
-	2023.printStringRoman = 'MMXXIII'
+```
+>>> 2023.printStringRoman
+'MMXXIII'
+```
 
 * * *
 
 See also: romanNumber
+
+Categories: Converting

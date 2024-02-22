@@ -24,9 +24,9 @@ _utf8String_ is the inverse of _utf8ByteArray_:
 
 Plot code points of a String:
 
-```
+~~~
 'this is a string.'.utf8ByteArray.asList.plot
-```
+~~~
 
 * * *
 

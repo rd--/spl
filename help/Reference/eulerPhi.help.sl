@@ -13,12 +13,6 @@ Compute the Euler totient function of ten:
 4
 ```
 
-Plot the sequence:
-
-```
-1:100.collect(eulerPhi:/1).plot
-```
-
 Negative numbers:
 
 ```
@@ -54,11 +48,17 @@ For any square-free number n, the totient of n is equal to the product of the to
 (3.eulerPhi * 11.eulerPhi * 31.eulerPhi)
 ```
 
+Plot the sequence:
+
+~~~
+1:100.collect(eulerPhi:/1).plot
+~~~
+
 Plot the cumulative sum of eulerPhi:
 
-```
+~~~
 1:50.eulerPhi.prefixSum.plot
-```
+~~~
 
 * * *
 

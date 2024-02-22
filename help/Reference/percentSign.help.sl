@@ -43,15 +43,15 @@ Mod threads over lists:
 
 Plot the sequence with fixed modulus:
 
-```
+~~~
 (1:50 % 8).plot
-```
+~~~
 
 Plot the sequence, varying the modulus:
 
-```
+~~~
 (100 % 1:50).plot
-```
+~~~
 
 The name of this operator is _percentSign_.
 

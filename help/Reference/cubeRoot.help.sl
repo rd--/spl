@@ -29,9 +29,9 @@ inf
 
 Plot over a subset of the reals:
 
-```
+~~~
 (-2, -1.99 .. 2).cubeRoot.plot
-```
+~~~
 
 * * *
 

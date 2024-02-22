@@ -41,9 +41,11 @@ A formula for digitCount:
 
 Plot it:
 
-```
-(1 .. 2 ^ 7 - 1).collect { :n | n.integerExponent(2) }.plot
-```
+~~~
+(1 .. 2 ^ 7 - 1).collect { :n |
+	n.integerExponent(2)
+}.plot
+~~~
 
 * * *
 

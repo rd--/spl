@@ -1,9 +1,14 @@
-# String -- text type
+# String
 
 _String_ is the type of text literals and constants.
 
-	'string'.typeOf = 'String'
-	'string'.size = 6
+```
+>>> 'string'.typeOf
+'String'
+
+>>> 'string'.size
+6
+```
 
 Strings do not implement the Collection trait, however they are Iterable.
 
@@ -11,7 +16,10 @@ There is a Character type.
 Iterating over a string supplies each succesive Character of the String,
 and fetching an indexed location in a string answers a Character.
 
-	'string'[1] = 's'.asCharacter
+```
+>>> 'string'[1]
+'s'.asCharacter
+```
 
 Strings are not lists of Characters.
 
@@ -32,3 +40,5 @@ See also: ascii, characterList, Character, utf8, utf16
 - withBlanksTrimmed(self): Return a copy of the receiver from which leading and trailing blanks have been trimmed.
 - withoutLeadingBlanks(self): Return a copy of the receiver from which leading blanks have been trimmed.
 - withoutTrailingBlanks(self): Return a copy of the receiver from which trailing blanks have been trimmed.
+
+Categories: Text type

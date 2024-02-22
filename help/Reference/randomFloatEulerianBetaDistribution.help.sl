@@ -30,12 +30,12 @@ Special cases:
 
 Biased low:
 
-```
+~~~
 ({ randomFloatEularianBetaDistribution(0, 1, 1 / 3, 3) } ! 99).plot
-```
+~~~
 
 Biased high:
 
-```
+~~~
 ({ randomFloatEularianBetaDistribution(0, 1, 3, 1 / 3) } ! 99).plot
-```
+~~~

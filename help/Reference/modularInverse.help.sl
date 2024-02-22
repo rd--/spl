@@ -109,9 +109,9 @@ true
 
 Plot the sequence with a fixed modulus:
 
-```
+~~~
 1:16.collect { :k | k.modularInverse(17) }.plot
-```
+~~~
 
 * * *
 

@@ -69,9 +69,9 @@ Make a Celsius-to-Fahrenheit conversion table:
 
 Plot over a subset of the reals:
 
-```
+~~~
 (-3, -2.99 .. 3).collect { :each | each.rescale(-2, 2) }.plot
-```
+~~~
 
 * * *
 

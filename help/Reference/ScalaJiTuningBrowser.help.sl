@@ -10,6 +10,7 @@ The browser is organised by degree and limit.
 		'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
 		()
 	).then { :answer |
-		| sk = system.smallKansas, ji = answer.collect(JiTuning:/1); |
+		let sk = system.smallKansas;
+		let ji = answer.collect(JiTuning:/1);
 		sk.addFrame(ScalaJiTuningBrowser(sk, ji), nil)
 	}

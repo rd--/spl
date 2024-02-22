@@ -18,9 +18,9 @@ The base two logarithm of _aNumber_.
 
 Plot over a subset of the reals:
 
-```
+~~~
 (0.01, 0.02 .. 5).log2.plot
-```
+~~~
 
 * * *
 

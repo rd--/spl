@@ -4,8 +4,13 @@
 
 Answer an integer nearest _aNumber_ toward zero.
 
-	1.25.truncated = 1
-	-1.25.truncated = -1
+```
+>>> 1.25.truncated
+1
+
+>>> -1.25.truncated
+-1
+```
 
 * * *
 

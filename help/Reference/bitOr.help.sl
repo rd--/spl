@@ -36,21 +36,21 @@ The unary form reduces over a collection:
 
 Plot a nested pattern:
 
-```
+~~~
 1:100.bitOr(0:99).plot
-```
+~~~
 
 Plot bitOr with double:
 
-```
+~~~
 1:63.bitOr(2 * 1:64).plot
-```
+~~~
 
 Plot bitOr with double and triple:
 
-```
+~~~
 1:64.collect { :i | [i, i * 2, i * 3].bitOr }.plot
-```
+~~~
 
 Truth table for or:
 

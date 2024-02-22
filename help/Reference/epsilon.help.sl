@@ -1,13 +1,17 @@
 # epsilon
 
-Mathematical constant.
-
 - _epsilon(aNumber)_
 
+Mathematical constant.
 Answer _aNumber_ times epsilon.
 
-	1.epsilon = 0.000000000000001
-	2.epsilon = 0.000000000000002
+```
+>>> 1.epsilon
+0.000000000000001
+
+>>> 2.epsilon
+0.000000000000002
+```
 
 * * *
 

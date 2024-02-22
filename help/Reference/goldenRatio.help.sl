@@ -48,9 +48,9 @@ As continued fraction:
 
 Plot the fractional part of multiples of the golden ratio:
 
-```
+~~~
 1:100.collect { :n | n.goldenRatio.fractionPart }.plot
-```
+~~~
 
 * * *
 

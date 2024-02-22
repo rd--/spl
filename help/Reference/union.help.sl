@@ -4,8 +4,13 @@
 
 Answer the set theoretic union of two collections.
 
-	[1 2 3].union([2 3 4]) = 1:4.asSet
-	[1 1 2 2 3 3].union([2 2 3 3 4 4]) = 1:4.asSet
+```
+>>> [1 2 3].union([2 3 4])
+1:4.asSet
+
+>>> [1 1 2 2 3 3].union([2 2 3 3 4 4])
+1:4.asSet
+```
 
 * * *
 

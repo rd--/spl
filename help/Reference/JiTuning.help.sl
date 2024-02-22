@@ -1,4 +1,4 @@
-# JiTuning -- instance creation-tuning
+# JiTuning
 
 - _JiTuning(name, description, ratiosOrIntegers, octave, limit)_
 
@@ -10,9 +10,16 @@ in which case they are understood to be ratios and the first ratio should be 1/1
 or as a sequence of integers,
 in which case they are understood to be integer pitches.
 
-	[1/1, 8/7, 4/3, 14/9, 16/9].JiTuning.integers = [63, 72, 84, 98, 112]
-	[63, 72, 84, 98, 112].JiTuning.ratios = [1/1, 8/7, 4/3, 14/9, 16/9]
+```
+>>> [1/1, 8/7, 4/3, 14/9, 16/9].JiTuning.integers
+[63, 72, 84, 98, 112]
+
+>>> [63, 72, 84, 98, 112].JiTuning.ratios
+[1/1, 8/7, 4/3, 14/9, 16/9]
+```
 
 * * *
 
 See also: IntegerTuning, RatioTuning, Tuning
+
+Categories: Instance Creation, Tuning

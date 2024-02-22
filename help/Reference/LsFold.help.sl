@@ -4,9 +4,16 @@
 
 Answer the last element of an LsScan.
 
-	LsFold(LsSeries(1, 1, 9), +) = 45
-	LsFold(LsSeries(1, 1, 9), *) = 362880
-	LsFold(LsSeries(1, 1, 9), -) = -43
+```
+>>> LsFold(LsSeries(1, 1, 9), +)
+45
+
+>>> LsFold(LsSeries(1, 1, 9), *)
+362880
+
+>>> LsFold(LsSeries(1, 1, 9), -)
+-43
+```
 
 * * *
 

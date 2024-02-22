@@ -1,7 +1,8 @@
-# Rand -- random number generator
+# Rand
 
 - _Rand(lo, hi)_
 
+Random number generator.
 Generates a single random float value in uniform distribution from lo to hi.
 It generates this when the SynthDef first starts playing, and remains fixed.
 

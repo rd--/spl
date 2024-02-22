@@ -188,6 +188,7 @@
 	'System-MessageEvent'
 	'System-Meta'
 	'System-Method'
+	'System-Navigator'
 	'System-Package'
 	'System-Request'
 	'System-Response'

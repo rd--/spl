@@ -32,9 +32,9 @@ Initial triangle of _P(n, k)_:
 
 Plot the number of unrestricted partitions:
 
-```
+~~~
 0:50.collect(partitionFunctionP:/1).log10.plot
-```
+~~~
 
 * * *
 

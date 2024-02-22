@@ -1,23 +1,40 @@
-# Record -- collection type
+# Record
 
 A _Record_ is a _Dictionary_ type where all the keys are strings.
 
 There is a literal syntax for records.
 
-	(x: 3.141, y: 23).isRecord
+```
+>>> (x: 3.141, y: 23).isRecord
+true
+```
 
 There is a conversion method from association lists:
 
-	['x' -> 3.141, 'y' -> 23].asRecord.json = '{"x":3.141,"y":23}'
-	['x' -> 3.141, 'y' -> 23].asRecord = (x: 3.141, y: 23)
-	['pi' -> 1.pi].asRecord.isDictionary = true
+```
+>>> ['x' -> 3.141, 'y' -> 23].asRecord.json
+'{"x":3.141,"y":23}'
+
+>>> ['x' -> 3.141, 'y' -> 23].asRecord
+(x: 3.141, y: 23)
+
+>>> ['pi' -> 1.pi].asRecord.isDictionary
+true
+```
 
 At the ordinary _asRecord_ constructor it is an error if any key is not a string.
 There is an _basicAsRecord_ form that coerces keys to strings.
 
-	{ [1.pi -> 'pi'].asRecord }.ifError { :err | true }
-	[1.pi -> 'pi'].asMap.basicAsRecord.keys = ['3.141592653589793']
+```
+>>> { [1.pi -> 'pi'].asRecord }.ifError { :err | true }
+true
+
+>>> [1.pi -> 'pi'].asMap.basicAsRecord.keys
+['3.141592653589793']
+```
 
 * * *
 
 See also: asRecord, Association, Dictionary, Map
+
+Categories: Collection, Type

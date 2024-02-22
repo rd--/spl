@@ -10,7 +10,10 @@ SinOsc(440.CpsMidi.MidiCps, 0) * 0.1
 
 A4 = 440:
 
-	440.CpsMidi = 69
+```
+>>> 440.CpsMidi
+69
+```
 
 * * *
 

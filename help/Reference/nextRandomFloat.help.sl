@@ -7,9 +7,9 @@ The answer will be between zero (inclusive) and one (exclusive).
 
 Uniform distribution:
 
-```
+~~~
 ({ system.nextRandomFloat } ! 99).plot
-```
+~~~
 
 * * *
 

@@ -9,6 +9,10 @@ Values closer to x1 are more likely to occur.
 
 Biased to -1:
 
-```
+~~~
 ({ randomFloatLinearDistribution(-1, 1) } ! 99).plot
-```
+~~~
+
+* * *
+
+See also: Random, randomFloat

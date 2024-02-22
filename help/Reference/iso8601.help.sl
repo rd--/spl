@@ -1,9 +1,17 @@
-# iso8601 -- time
+# iso8601
 
-- _iso8601(aDate)_
-- _iso8601(aTimeStamp)_
+- _iso8601(aDate | aTimeStamp)_
 
-Format a _Date_ or _TimeStamp_ in ISO-8601 format.
+Format a `Date` or `TimeStamp` in ISO-8601 format.
 
-	0.asDate.iso8601 = '1970-01-01T00:00:00.000Z'
-	TimeStamp(0).iso8601 = '1970-01-01T00:00:00.000Z'
+```
+>>> 0.asDate.iso8601
+'1970-01-01T00:00:00.000Z'
+
+>>> TimeStamp(0).iso8601
+'1970-01-01T00:00:00.000Z'
+```
+
+* * *
+
+Categories: Time

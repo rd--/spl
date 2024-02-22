@@ -54,9 +54,9 @@ Use factorInteger to find all prime divisors of a number:
 
 Plot the number of distinct prime factors of the first 100 numbers:
 
-```
+~~~
 1:99.collect { :each | each.factorInteger.size }.plot
-```
+~~~
 
 * * *
 

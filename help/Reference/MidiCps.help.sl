@@ -1,4 +1,4 @@
-# MidiCps -- arithmetic
+# MidiCps
 
 Convert midi note to cycles per second.
 
@@ -10,8 +10,13 @@ Saw(Line(24, 108, 10).MidiCps) * 0.1
 
 A4 = 440hz:
 
-	69.MidiCps = 440
+```
+>>> 69.MidiCps
+440
+```
 
 * * *
 
 See also: MidiRatio
+
+Categories: Arithmetic

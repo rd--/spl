@@ -70,9 +70,9 @@ At LargeInteger:
 
 Plot over a subset of the reals:
 
-```
+~~~
 (0, 0.01 .. 5).collect { :each | each ^ 3 }.plot
-```
+~~~
 
 The name of this operator is _circumflexAccent_.
 

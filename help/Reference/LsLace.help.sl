@@ -5,7 +5,10 @@
 Apply _LsForever_ at each element in _list_ and interlace the elements of the answers.
 This is a kind of _transposition_
 
-	LsLace([1, LsCyc([2 5]), LsCyc([3 4])], 8).upToEnd = [1 2 3 1 5 4 1 2]
+```
+>>> LsLace([1, LsCyc([2 5]), LsCyc([3 4])], 8).upToEnd
+[1 2 3 1 5 4 1 2]
+```
 
 * * *
 

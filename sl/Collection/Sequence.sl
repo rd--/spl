@@ -1217,6 +1217,22 @@
 		}
 	}
 
+	plot { :self |
+		let fileName = '/tmp/listPlot.json';
+		fileName.writeTextFile([self.asList].json).then { :unused |
+			system.systemCommand(
+				'hsc3-plot',
+				[
+					'json',
+					'x',
+					'--rows',
+					fileName,
+					0
+				]
+			)
+		}
+	}
+
 	powerSetDo { :self :aBlock:/1 |
 		let size = 2 ^ self.size;
 		let powersOfTwo = 2 ^ (0 .. self.size - 1);

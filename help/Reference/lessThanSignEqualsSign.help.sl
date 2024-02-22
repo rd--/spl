@@ -11,6 +11,10 @@ Where supported this operator is displayed as ≤.
 
 See also: <, >, >=, =
 
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/LessEqual.html)
+
 Unicode: U+2264 ≤ Less-than or equal to
 
 Categories: Comparison operator

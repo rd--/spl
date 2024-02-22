@@ -13,9 +13,9 @@ Find the sum of the divisors of :
 
 Plot the sum of divisors for the first 50 numbers:
 
-```
+~~~
 1:100.collect { :n | n.divisorSum(identity:/1) }.plot
-```
+~~~
 
 * * *
 

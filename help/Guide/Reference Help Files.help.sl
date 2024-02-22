@@ -2,10 +2,7 @@
 
 The _Reference_ help files follow a few simple rules.
 
-Terse DocTest entries are any number of _>>>_ prefixed lines followed by one _answer_ line.
-DocTests are written so that the _>>>_ prefixed lines,
-when unprefixed and concatenated,
-evaluate to a value that is _~_ to the answer line.
+Where possible examples are written as [Documentation Tests].
 
 _Indented Code Blocks_ should contain only lines that each evaluate to a Boolean.
 
@@ -21,3 +18,7 @@ Below the horizontal rule there may be the following entries:
 - "References:" indicates external references (Apl, Haskell, Mathematica, SuperCollider)
 - "Unicode:" glyphs related to the entry
 - "Categories:" indicates which categories the entry should be listed in
+
+* * *
+
+See also: [Documentation Tests]

@@ -16,9 +16,9 @@ Compute the number of primes up to 15:
 
 Plot the prime counting function:
 
-```
+~~~
 0:50.collect(primePi:/1).plot
-```
+~~~
 
 * * *
 

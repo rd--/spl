@@ -79,6 +79,7 @@
 	'LibraryItem'
 	'Method'
 	'MessageEvent'
+	'Navigator'
 	'Storage'
 	'SubProcess'
 	'Trait'

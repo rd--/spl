@@ -21,9 +21,9 @@ Find twin primes, i.e. pairs of primes of the form _(p, p + 2)_:
 
 Plot the sequence of primes:
 
-```
+~~~
 0:50.collect { :x | x.nextPrime }.plot
-```
+~~~
 
 * * *
 

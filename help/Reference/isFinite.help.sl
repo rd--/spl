@@ -1,13 +1,22 @@
-# isFinite -- arithmetic
+# isFinite
 
 - _isFinite(aNumber)
 
 Answer true if _aNumber_ is not infinite.
 
-	pi.isFinite = true
-	inf.isFinite = false
-	{ nil.isFinite }.ifError { true }
+```
+>>> pi.isFinite
+true
+
+>>> inf.isFinite
+false
+
+>>> { nil.isFinite }.ifError { true }
+true
+```
 
 * * *
 
 See also: isInteger
+
+Categories: Arithmetic

@@ -45,9 +45,9 @@ inf
 
 Plot over a subset of the reals:
 
-```
+~~~
 (-1, -0.99 .. 1).exp.plot
-```
+~~~
 
 * * *
 

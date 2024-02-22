@@ -1,4 +1,4 @@
-# scheduleInjecting -- scheduling
+# scheduleInjecting
 
 - _scheduleInjecting(aClock, deltaTime, aValue, aBlock:/2)_
 - _scheduleInjecting(deltaTime, aValue, aBlock:/2)_ ⇒ aClock = system.clock
@@ -26,3 +26,7 @@ with random inter-offset delays, durations and pan locations:
 			]
 		}
 	}.scheduleInjecting(36)
+
+* * *
+
+Categories: Scheduling

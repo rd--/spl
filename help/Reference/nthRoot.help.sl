@@ -46,9 +46,9 @@ Threads elementwise over lists and matrices:
 
 Plot over a subset of the reals:
 
-```
+~~~
 (-1, -0.99 .. 1).collect { :x | x.nthRoot(3) }.plot
-```
+~~~
 
 * * *
 

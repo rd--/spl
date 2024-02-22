@@ -2,6 +2,8 @@
 
 _logarithmicIntegralRamanujan(aNumber, anInteger)_
 
+The logarithmic integral function.
+
 ```
 >>> 2.logarithmicIntegralRamanujan(9)
 1.0452
@@ -39,6 +41,17 @@ Zero of:
 
 Plot over a subset of the reals:
 
-```
-(0, 0.01 .. 10).collect { :each | each.logarithmicIntegralRamanujan(9) }.clip(-5, inf).plot
-```
+~~~
+(0, 0.01 .. 10).collect { :each |
+	each.logarithmicIntegralRamanujan(9)
+}.clip(-5, inf).plot
+~~~
+
+* * *
+
+See also: log
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/LogarithmicIntegral.html)
+[2](https://reference.wolfram.com/language/ref/LogIntegral.html)

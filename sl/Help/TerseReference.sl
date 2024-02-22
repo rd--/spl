@@ -26,8 +26,42 @@
 		answer
 	}
 
-	terseReferenceSummary { :self |
-		self.terseReferenceSummary(verbose: false)
+	terseReferenceEntry { :self :name :options |
+		let testCount = 0;
+		let passCount = 0;
+		options::verbose.ifTrue {
+			name.postLine
+		};
+{-
+		self.parseMarkdownIndentedCodeBlocks.concatenation.do { :each |
+			testCount := testCount + 1;
+			options::verbose.ifTrue {
+				each.postLine
+			};
+			system.evaluate(each).if {
+				passCount := passCount + 1
+			} {
+				['Fail', each].postLine
+			}
+		};
+-}
+		self.parseTerseDoctestBlocks.do { :each |
+			let test = each.formatTerseDoctestEntry;
+			testCount := testCount + 1;
+			options::verbose.ifTrue {
+				('	' ++ test).postLine
+			};
+			system.evaluate(test).if {
+				passCount := passCount + 1
+			} {
+				['Fail', each].postLine
+			}
+		};
+		[testCount, passCount]
+	}
+
+	terseReferenceSummary { :directoryName |
+		directoryName.terseReferenceSummary(verbose: false)
 	}
 
 	terseReferenceSummary { :directoryName :options |
@@ -52,38 +86,6 @@
 		}
 	}
 
-	terseReferenceEntry { :self :name :options |
-		let testCount = 0;
-		let passCount = 0;
-		options::verbose.ifTrue {
-			name.postLine
-		};
-		self.parseMarkdownIndentedCodeBlocks.concatenation.do { :each |
-			testCount := testCount + 1;
-			options::verbose.ifTrue {
-				each.postLine
-			};
-			system.evaluate(each).if {
-				passCount := passCount + 1
-			} {
-				['Fail', each].postLine
-			}
-		};
-		self.parseTerseDoctestBlocks.do { :each |
-			let test = each.formatTerseDoctestEntry;
-			testCount := testCount + 1;
-			options::verbose.ifTrue {
-				('	' ++ test).postLine
-			};
-			system.evaluate(test).if {
-				passCount := passCount + 1
-			} {
-				['Fail', each].postLine
-			}
-		};
-		[testCount, passCount]
-	}
-
 }
 
 +List {
@@ -93,7 +95,7 @@
 			each.drop(4)
 		}.unwords;
 		let rhs = self.last;
-		lhs ++ ' ~ ' ++ rhs
+		lhs ++ ' ~ (' ++ rhs ++ ')'
 	}
 
 }

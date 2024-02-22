@@ -16,7 +16,7 @@ let p2 = [
 ];
 let p = p1.collect { :x |
 	let y = x ++ (x @* [3 4 5]);
-	[y, y].concatenation
+	y ++ y
 }.concatenation ++ p2.concatenation;
 let tr = Impulse(5, 0);
 let freq = Demand(tr, 0, Dseq(1, p.MidiCps));

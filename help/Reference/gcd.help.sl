@@ -51,9 +51,9 @@ Compute for large integers:
 
 Plot the gcd for a number with 12:
 
-```
+~~~
 1:100.gcd(12).plot
-```
+~~~
 
 * * *
 

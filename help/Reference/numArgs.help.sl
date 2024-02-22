@@ -1,15 +1,24 @@
-# numArgs -- accessing
+# numArgs
 
 - _numArgs(aBlock)_
 
 Answer the number of arguments that must be used to evaluate this block.
 
-	{ }.numArgs = 0
-	{ :x | x }.numArgs = 1
-	collect:/2.numArgs = 2
+```
+>>> { }.numArgs
+0
+
+>>> { :x | x }.numArgs
+1
+
+>>> collect:/2.numArgs
+2
+```
 
 _numArgs_ is used to implement _cull_.
 
 * * *
 
 See also: cull, value
+
+Categories: Accessing

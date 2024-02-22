@@ -10,7 +10,11 @@ The name of this operator is _greaterThanSignEqualsSign_.
 
 * * *
 
-See also: <, >, <=
+See also: <, >, <=, =, ~=, <=>, Magnitude
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/GreaterEqual.html)
 
 Unicode: U+2265 ≥ Greater-than or equal to
 

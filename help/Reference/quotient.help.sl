@@ -69,9 +69,9 @@ true
 
 Plot the sequence of quotients:
 
-```
+~~~
 1:50.collect { :n | n // 8 }.plot
-```
+~~~
 
 _remainder_ answers the remainder from this division.
 

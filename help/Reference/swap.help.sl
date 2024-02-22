@@ -4,13 +4,23 @@
 
 Answer a block that applies _aBlock_ with the arguments reversed.
 
-	3 - 1 = 2
-	1 -.swap 3 = 2
+```
+>>> 3 - 1
+2
+
+>>> 1 -.swap 3
+2
+```
 
 It is an error if _aBlock_ is not binary:
 
-	{ {}.swap }.ifError { true }
-	{ identity:/1.swap }.ifError { true }
+```
+>>> { {}.swap }.ifError { true }
+true
+
+>>> { identity:/1.swap }.ifError { true }
+true
+```
 
 * * *
 

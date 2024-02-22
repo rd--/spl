@@ -47,9 +47,9 @@ Thread elementwise over lists:
 
 Plot over a subset of the reals:
 
-```
-(-2, -1.99 .. 2).collect { :each | each.integerPart }.plot
-```
+~~~
+(-2, -1.99 .. 2).integerPart.plot
+~~~
 
 * * *
 

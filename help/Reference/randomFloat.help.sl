@@ -36,15 +36,15 @@ true
 
 Plot:
 
-```
+~~~
 -1.randomFloat(1, 99).plot
-```
+~~~
 
 A random walk:
 
-```
+~~~
 -1.randomFloat(1, 99).accumulate.plot
-```
+~~~
 
 * * *
 

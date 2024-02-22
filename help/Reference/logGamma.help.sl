@@ -24,9 +24,9 @@ At Integer:
 
 Plot over a subset of the reals:
 
-```
+~~~
 (0.02, 0.04 .. 5).collect(logGamma:/1).plot
-```
+~~~
 
 * * *
 

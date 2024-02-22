@@ -27,9 +27,9 @@ Evaluate numerically:
 
 Plot the Euler gamma function:
 
-```
+~~~
 (-4, -3.9 .. 4).collect { :each | each.gamma.clip(-10, 10) }.plot
-```
+~~~
 
 * * *
 

@@ -4,7 +4,10 @@
 
 Answer the values of a dictionary.
 
-	(x: 1, y: 2, z: 3).values = [1 2 3]
+```
+>>> (x: 1, y: 2, z: 3).values
+[1 2 3]
+```
 
 * * *
 
