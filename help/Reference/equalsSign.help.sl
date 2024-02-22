@@ -2,7 +2,7 @@
 
 - _anObject = anotherObject_
 
-This is the _structural equality_ operator
+The _structural equality_ operator.
 Answers _true_ if _anObject_ is equal to _anotherObject_, else _false_.
 The meaning of equality is determined by the type of _anObject_.
 
@@ -37,7 +37,7 @@ The _=_ symbol is also a part of [Initialised Temporaries Syntax].
 
 * * *
 
-See also: ~=, ==, equalSlots
+See also: ~=, ==, :=, equalSlots
 
 References:
 _Apl_

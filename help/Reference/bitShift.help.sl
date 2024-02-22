@@ -1,6 +1,6 @@
 # bitShift
 
-_bitShift(aNumber, anInteger)_
+- _bitShift(aNumber, anInteger)_
 
 Left shift, towards most significant:
 
@@ -18,4 +18,4 @@ Negative values shift right, towards least significant:
 
 * * *
 
-See also: bitShiftLeft, bitShiftRight
+See also: <<, >>, bitShiftLeft, bitShiftRight

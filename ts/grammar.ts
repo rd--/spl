@@ -160,7 +160,7 @@ Sl {
 	boundOperator = operatorChar+
 	operatorWithAdverb = operatorWithBinaryAdverb | operatorWithUnaryAdverb
 	operatorWithUnaryAdverb = (operator | lowercaseIdentifier) "." selectorName
-	operatorWithBinaryAdverb = (operator | lowercaseIdentifier) "." selectorName "(" (methodName | numberLiteral) ")"
+	operatorWithBinaryAdverb = (operator | lowercaseIdentifier) "." selectorName "(" (operator | arityQualifiedIdentifier | numberLiteral) ")"
 	operatorChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 	operatorAssignment = operatorChar ":" "="
 

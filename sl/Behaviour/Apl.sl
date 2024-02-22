@@ -113,12 +113,12 @@
 	}
 
 	nubSieve { :self |
-		let seen = Set();
+		let seen = [];
 		self.collect { :each |
 			seen.includes(each).if {
 				0
 			} {
-				seen.include(each);
+				seen.add(each);
 				1
 			}
 		}

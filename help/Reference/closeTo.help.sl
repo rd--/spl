@@ -6,7 +6,13 @@
 Answer true is _aNumber_ is close to _anotherNumber_, else false.
 This takes magnitude into account, so that a million is close to a million and one, but one is not close to two.
 
-	1000000 ~ 1000001 & { 1 !~ 2 }
+```
+>>> 1000000 ~ 1000001
+true
+
+>>> 1 !~ 2
+true
+```
 
 _Rationale_:
 The use of ~ as the operator to indicate _similar to_ is a standard mathematical notation.

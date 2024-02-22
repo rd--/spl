@@ -1,8 +1,8 @@
 # !
 
-- _alpha ! beta_ => replicate(alpha, beta)
+- _alpha ! beta_ => duplicate(alpha, beta)
 
-Alias for replicate.
+Alias for duplicate.
 
 ```
 >>> let x = 1;
@@ -42,6 +42,6 @@ This can be more written more simply using the _!^_ operator as:
 
 * * *
 
-See also: duplicate, replicate
+See also: #, duplicate, replicate
 
 Categories: Copying

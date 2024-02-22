@@ -46,22 +46,22 @@
 
 ## Trigonometric Functions
 
-- `sin`: sine
-- `cos`: cosine
-- `tan`: tangent
-- `arcSin`: arc sine
 - `arcCos`: arc cosine
+- `arcSin`: arc sine
 - `arcTan`: arc tangent
+- `cos`: cosine
+- `sin`: sine
 - `sinc`: sinc
+- `tan`: tangent
 
 ## Hyperbolic Functions
 
-- `sinh`: hyperbolic sine
-- `cosh`: hyperbolic cosine
-- `tanh`: hyperbolic tangent
-- `arcSinh`: arc hyperbolic sine
 - `arcCosh`: arc hyperbolic cosine
+- `arcSinh`: arc hyperbolic sine
 - `arcTanh`: arc hyperbolic tangent
+- `cosh`: hyperbolic cosine
+- `sinh`: hyperbolic sine
+- `tanh`: hyperbolic tangent
 
 ## Numerical Functions
 
@@ -211,6 +211,7 @@
 - `kurtosis`: coefficient of kurtosis
 
 ## General Statistics
+
 - `moment`: order r moment
 - `centralMoment`: order r central moment
 - `rootMeanSquare`: root mean square

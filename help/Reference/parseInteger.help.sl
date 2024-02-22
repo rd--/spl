@@ -27,6 +27,6 @@ If the string is not an integer, signal an error.
 
 * * *
 
-See also: parseDecimalInteger
+See also: parseDecimalInteger, parseNumber
 
 Categories: Parsing

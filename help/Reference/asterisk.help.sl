@@ -10,7 +10,7 @@ Answer _aNumber_ multiplied by _anotherNumber_.
 24
 ```
 
-Times threads element-wise:
+Threads element-wise over lists:
 
 ```
 >>> 2 * [3 4 5]

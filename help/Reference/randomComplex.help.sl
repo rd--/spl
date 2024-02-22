@@ -1,0 +1,19 @@
+# randomComplex
+
+- _randomComplex(min, max)_
+- _randomComplex(alpha)_ => _randomComplex(0j0, alpha)_
+
+Answer a pseudo-random complex number in the rectangle with corners given by the complex numbers _min_ and _max_.
+
+```
+>>> 1j1.randomComplex.arg < 2.sqrt
+true
+```
+
+* * *
+
+See also: randomFloat
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/RandomComplex.html)

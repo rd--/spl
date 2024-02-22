@@ -1,4 +1,4 @@
-# let -- keyword
+# let
 
 Let is a keyword that introduces a variable binding.
 
@@ -11,3 +11,5 @@ Let bindings may not be interspersed with statements.
 * * *
 
 See also: [Let Syntax]
+
+Categories: Keyword

@@ -15,4 +15,4 @@ Generate a random integer between negative and positive _anInteger_, inclusive:
 
 See also: randomFloatBipolar
 
-Categories: Random number generator
+Categories: Random

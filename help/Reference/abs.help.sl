@@ -15,6 +15,9 @@ Answer a number that is the absolute value (positive magnitude) of _aNumber_.
 Abs is defined at Complex:
 
 ```
+>>> 1j1.abs
+2.sqrt
+
 >>> 1.4j2.3.abs
 2.69258
 

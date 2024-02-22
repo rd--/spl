@@ -21,7 +21,7 @@ Threads over lists:
 
 * * *
 
-See also: negated
+See also: negated, positive
 
 References:
 _Mathematica_

@@ -12,7 +12,9 @@ Start printing a message once per second using the system clock:
 
 	let k = 1;
 	system.clock.schedule(0) { :t |
-		[t, k].postLine; k := k + 1; 1
+		[t, k].postLine;
+		k := k + 1;
+		1
 	}
 
 Schedule for the system clock to be cleared in nine seconds time:

@@ -1,12 +1,12 @@
 # <!
 
-- _aUgen <! anotherUgen_ == - _lessThanBang(aUgen, anotherUgen)_
+- _aUgen <! anotherUgen_
 
 Evaluates to _aUgen_ after attaching _anotherUgen_ to it.
 
-Used to require that _anotherUgen_ be included in the graph of which _aUgen_ is a part where it would otherwise not be discovered by traversing the completed graph.
+Ensures _anotherUgen_ is included in the graph of which _aUgen_ is a part in cases where it would otherwise not be discovered by traversing the completed graph.
 
-This if required where graphs have multiple end points, such as graphs using _LocalOut_ &etc.
+Required where graphs have multiple end points, such as graphs using _LocalOut_ &etc.
 
 _Note_:
 This uses FirstArg where _anotherUgen_ has output ports,

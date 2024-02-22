@@ -1,9 +1,7 @@
 # WhiteNoise
 
-Noise generator.
-
-_WhiteNoise()_
-_WhiteNoise(numChan=1) ≡ { WhiteNoise() } ! numChan_
+- _WhiteNoise()_
+- _WhiteNoise(numChan=1)_ => _{ WhiteNoise() } ! numChan_
 
 Generates noise whose spectrum has equal power at all frequencies.
 
@@ -30,3 +28,5 @@ See also: BrownNoise, ClipNoise, PinkNoise, Rand, TRand
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/WhiteNoise.html)
+
+Categories: Noise
