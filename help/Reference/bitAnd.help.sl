@@ -45,20 +45,27 @@ The unary form reduces over a collection:
 1025
 ```
 
-Plot a nested pattern:
-
-~~~
-1:100.bitAnd(0:99).plot
-~~~
-
 Test for powers of 2:
 
-~~~
+```
 >>> 1:20.collect { :i | (i.bitAnd(i - 1) = 0).boole }
 [1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0]
 
 >>> (1:20.bitAnd(0:19) =.map [0]).boole
 [1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0]
+```
+
+Truth table for and:
+
+```
+>>> bitAnd:/2.outer([1 0], [1 0])
+[1 0; 0 0]
+```
+
+Plot a nested pattern:
+
+~~~
+1:100.bitAnd(0:99).plot
 ~~~
 
 Plot bitAnd with double:
@@ -72,13 +79,6 @@ Plot bitAnd with double and triple:
 ~~~
 1:64.collect { :i | [i, i * 2, i * 3].bitAnd }.plot
 ~~~
-
-Truth table for and:
-
-```
->>> bitAnd:/2.outer([1 0], [1 0])
-[1 0; 0 0]
-```
 
 * * *
 

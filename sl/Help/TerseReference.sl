@@ -2,25 +2,33 @@
 
 +String {
 
-	parseTerseDoctestBlocks { :self |
+	parseTerseDocumentTestBlocks { :self |
 		let answer = [];
 		let inBlock = false;
 		let block = [];
-		self.lines.do { :current |
-			(current.beginsWith('>>> ') & {
-				inBlock.not
-			}).ifTrue {
+		self.lines.do { :currentLine |
+			(
+				currentLine.beginsWith('>>> ') & {
+					inBlock.not
+				}
+			).ifTrue {
 				inBlock := true
 			};
-			((current.isEmpty | { current.beginsWith('```') }) & {
-				inBlock
-			}).ifTrue {
+			(
+				(
+					currentLine.isEmpty | {
+						currentLine.beginsWith('```')
+					}
+				) & {
+					inBlock
+				}
+			).ifTrue {
 				answer.add(block.copy);
 				block.removeAll;
 				inBlock := false
 			};
 			inBlock.ifTrue {
-				block.add(current)
+				block.add(currentLine)
 			}
 		};
 		answer
@@ -32,21 +40,8 @@
 		options::verbose.ifTrue {
 			name.postLine
 		};
-{-
-		self.parseMarkdownIndentedCodeBlocks.concatenation.do { :each |
-			testCount := testCount + 1;
-			options::verbose.ifTrue {
-				each.postLine
-			};
-			system.evaluate(each).if {
-				passCount := passCount + 1
-			} {
-				['Fail', each].postLine
-			}
-		};
--}
-		self.parseTerseDoctestBlocks.do { :each |
-			let test = each.formatTerseDoctestEntry;
+		self.parseTerseDocumentTestBlocks.do { :each |
+			let test = each.formatTerseDocumentTestEntry;
 			testCount := testCount + 1;
 			options::verbose.ifTrue {
 				('	' ++ test).postLine
@@ -90,7 +85,7 @@
 
 +List {
 
-	formatTerseDoctestEntry { :self |
+	formatTerseDocumentTestEntry { :self |
 		let lhs = self.allButLast.collect { :each |
 			each.drop(4)
 		}.unwords;
