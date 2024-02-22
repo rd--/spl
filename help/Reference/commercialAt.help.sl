@@ -43,6 +43,6 @@ such as atAll and atPath, and @* is a nice mnemonic for atAll.
 
 * * *
 
-See also: at, [At Syntax]
+See also: at, At Syntax
 
 Categories: Graphics, Accessing

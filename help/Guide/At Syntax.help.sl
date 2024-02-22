@@ -6,9 +6,9 @@ Rewrite rule:
 - _c[i, j]_ ⟹ _at(c, i, j)_
 - _c[i, j, k]_ ⟹ _at(c, i, j, k)_
 
-Syntax for the _at_ protocol.
+Syntax for the `at` protocol.
 
-At List:
+At `List`:
 
 ```
 >>> let list = [1 2 3 4 5 6];
@@ -16,7 +16,7 @@ At List:
 3
 ```
 
-At Record:
+At `Record`:
 
 ```
 >>> let record = (x: 1, y: 2, z: 3);
@@ -60,6 +60,6 @@ The @* operator expresses this method succinctly:
 
 * * *
 
-See also: [AtIfAbsent Syntax], [AtPut Syntax], [Quoted At Syntax]
+See also: AtIfAbsent Syntax, AtPut Syntax, Quoted At Syntax
 
 Categories: Syntax

@@ -49,5 +49,5 @@ Iteration operators:
 
 * * *
 
-See also: [Operator Names], [Operator Syntax]
+See also: Operator Names, Operator Syntax
 

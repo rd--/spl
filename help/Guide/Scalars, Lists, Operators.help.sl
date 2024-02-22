@@ -41,7 +41,7 @@ Vector addition is pointwise if the vectors are of equal size:
 [11 11 11]
 ```
 
-If the vectors are of different sizes there are a number of behaviours selected by [Operator Adverbs].
+If the vectors are of different sizes there are a number of behaviours selected by `Operator Adverbs`.
 
 In the standard library the un-adorned operator requires that the vectors be of equal size, as if the the _e_ adverb were selected.
 

@@ -51,7 +51,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also:
+See also: ^, log
 
 References:
 _Apl_

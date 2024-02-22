@@ -21,6 +21,6 @@ s + (0.2 * y)
 
 * * *
 
-See also: [Variable Keyword Syntax]
+See also: Variable Keyword Syntax]
 
 Categories: Syntax

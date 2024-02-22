@@ -18,7 +18,7 @@ Where supported _::_ is displayed as _·_.
 
 * * *
 
-See also: [At Syntax], [AtPut Syntax].
+See also: At Syntax, AtPut Syntax
 
 Unicode: U+00B7 · Middle Dot
 

@@ -45,5 +45,5 @@ Syntax token names:
 
 * * *
 
-See also: [Operator List], [Operator Syntax]
+See also: Operator List, Operator Syntax
 

@@ -12,7 +12,7 @@ A coordinate in two-dimensional Cartesian space given by an ordered pair _(x, y)
 
 * * *
 
-See also: CartesianCoordinate, [Geometry Types], Point, x, y
+See also: CartesianCoordinate, Geometry Types, Point, x, y
 
 References:
 _Mathematica_

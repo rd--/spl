@@ -6,9 +6,9 @@ Rewrite rule:
 - _c[i, j] := v_ ⟹ _atPut(c, i, j, v)_
 - _c[i, j, k] := v_ ⟹ _atPut(c, i, j, k, v)_
 
-Syntax for the _atPut_ protocol.
+Syntax for the `atPut` protocol.
 
-At List:
+At `List`:
 
 ```
 >>> let list = [1 2 3 4 5 6];
@@ -29,6 +29,6 @@ At List of List:
 
 * * *
 
-See also: [At Syntax], [Quoted AtPut Syntax].
+See also: At Syntax, Quoted AtPut Syntax
 
 Categories: Syntax

@@ -14,7 +14,7 @@ Answer _aNumber_ × the golden angle, _pi × (3 - 5.sqrt)_.
 
 * * *
 
-See also: e, goldenRatio, [Mathematical Constants], pi
+See also: e, goldenRatio, Mathematical Constants, pi
 
 References:
 _Mathematica_

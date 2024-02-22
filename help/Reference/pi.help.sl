@@ -30,7 +30,7 @@ pi is also defined as a constant:
 
 * * *
 
-See also: e, [Mathematical Constants], pi
+See also: e, Mathematical Constants, pi
 
 Unicode: U+03C0 π Greek Small Letter Pi
 

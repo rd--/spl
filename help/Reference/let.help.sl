@@ -10,6 +10,6 @@ Let bindings may not be interspersed with statements.
 
 * * *
 
-See also: [Let Syntax]
+See also: Let Syntax
 
 Categories: Keyword

@@ -31,18 +31,22 @@ Answer _anObject_.
 true
 ```
 
-There is [AtPut Sytax] for accessing indexed values:
+There is [AtPut Sytax] for mutating indexed values:
 
 ```
->>> let a = ['x', 'y']; a[1] := 'z'; a = ['z', 'y']
-true
+>>> let a = ['x' 'y'];
+>>> a[1] := 'z';
+>>> a
+['z' 'y']
 
->>> let d = (x: 1, y: 2); d['x'] := 3; d = (x: 3, y: 2)
-true
+>>> let d = (x: 1, y: 2);
+>>> d['x'] := 3;
+>>> d
+(x: 3, y: 2)
 ```
 
 * * *
 
-See also: at, size, [AtPut Syntax]
+See also: at, AtPut Syntax, Quoted AtPut Syntax, size
 
 Categories: Accessing

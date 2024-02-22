@@ -39,7 +39,7 @@ Euler Gamma:
 
 * * *
 
-See also: e, eulerGamma, goldenRatio, [Mathematical Functions], pi
+See also: e, eulerGamma, goldenRatio, Mathematical Functions, pi
 
 References:
 _Mathematica_

@@ -1,6 +1,6 @@
 # ,
 
-Comma is syntax token, it is not an operator.
+Comma is a syntax token, it is not an operator.
 
 Comma separates items in [List Syntax]:
 

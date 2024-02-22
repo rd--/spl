@@ -9,4 +9,4 @@ so that it can be compared with the current input.
 
 * * *
 
-See also: [What is a Clock], [What is a Gate]
+See also: What is a Clock, What is a Gate

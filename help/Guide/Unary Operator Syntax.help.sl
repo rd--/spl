@@ -77,6 +77,6 @@ binding to blocks of one rather than two arguments.
 
 * * *
 
-See also: [Binary Operator Syntax]
+See also: Binary Operator Syntax]
 
 Categories: Syntax

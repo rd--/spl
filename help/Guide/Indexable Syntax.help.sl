@@ -9,16 +9,16 @@ Rewrite rules:
 
 Collection types implement the _at_ and _atPut_ protocols.
 
-The first rule, [At Syntax], provides the usual indexing notation for reading from a collection.
+The first rule, `At Syntax`, provides the usual indexing notation for reading from a collection.
 
-The second rule, [AtPut Syntax], provides the usual indexing notation for writing to a collection.
+The second rule, `AtPut Syntax`, provides the usual indexing notation for writing to a collection.
 
-The third rule, [AtIfAbsent Syntax], allows for specifying the answer if the index is absent.
+The third rule, `AtIfAbsent Syntax`, allows for specifying the answer if the index is absent.
 
-The fourth rule, [AtIfAbsentPut Syntax], allows for specifying the answer if the index is absent, and updating the collection accordingly.
+The fourth rule, `AtIfAbsentPut Syntax`, allows for specifying the answer if the index is absent, and updating the collection accordingly.
 
 * * *
 
-See also: [At Syntax], [AtIfAbsent Syntax], [AtIfAbsentPut Syntax], [AtPut Syntax], [Quoted Indexable Syntax].
+See also: At Syntax, AtIfAbsent Syntax, AtIfAbsentPut Syntax, AtPut Syntax, Quoted Indexable Syntax
 
 Categories: Syntax

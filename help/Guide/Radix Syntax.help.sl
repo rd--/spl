@@ -28,6 +28,6 @@ other radices may raise errors.
 
 * * *
 
-See also: [Integer Literals], [Literals Syntax]
+See also: Integer Literals, Literals Syntax
 
 Categories: Syntax

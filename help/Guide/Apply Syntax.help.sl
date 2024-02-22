@@ -48,6 +48,6 @@ No argument method application is written _f()_.
 
 * * *
 
-See also: [Value Apply Syntax]
+See also: Value Apply Syntax]
 
 Categories: Syntax

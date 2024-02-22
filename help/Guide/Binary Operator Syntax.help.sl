@@ -94,6 +94,6 @@ Other binary operators:
 
 * * *
 
-See also: [Unary Operator Syntax]
+See also: Unary Operator Syntax]
 
 Categories: Syntax

@@ -1,9 +1,8 @@
 # FSinOsc
 
+- _FSinOsc(freq=440, iphase=0)_
+
 Fast sine oscillator.
-
-_FSinOsc(freq, iphase)_
-
 Very fast sine wave generator (2 PowerPC instructions per output sample) implemented using a ringing filter.
 This generates a much cleaner sine wave than a table lookup oscillator and is a lot faster.
 However, the amplitude of the wave will vary with frequency.

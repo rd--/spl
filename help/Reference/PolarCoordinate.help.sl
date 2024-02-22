@@ -14,7 +14,7 @@ RectangularCoordinate(1, 1)
 
 * * *
 
-See also: CartesianCoordinate, fromPolarCoordinates, [Geometry Types], Point, RectangularCoordinate, SphericalCoordinate, toPolarCoordinates
+See also: CartesianCoordinate, fromPolarCoordinates, Geometry Types, Point, RectangularCoordinate, SphericalCoordinate, toPolarCoordinates
 
 References:
 _Mathematica_

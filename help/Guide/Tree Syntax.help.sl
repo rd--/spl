@@ -4,7 +4,7 @@ Rewrite rule:
 
 - _[p q r ...]_ ⟹ _[p, q, r, ...]_
 
-Tree syntax is the recursive form of [Vector Syntax].
+Tree syntax is the recursive form of `Vector Syntax`.
 
 Allows writing trees of literals or identifiers without comma separators.
 
@@ -25,6 +25,6 @@ Identifiers:
 
 * * *
 
-See also: [Array Syntax], [List Syntax], [Vector Syntax]
+See also: Array Syntax, List Syntax, Vector Syntax
 
 Categories: Syntax

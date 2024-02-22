@@ -228,7 +228,7 @@ The _Fraction_ package re-defines _asNumber_ to call either _parseFraction_ or _
 
 * * *
 
-See also: denominator, [Fraction Literals], normalized, numerator, ReducedFraction, reduced
+See also: denominator, Fraction Literals, normalized, numerator, ReducedFraction, reduced
 
 References:
 _Haskell_

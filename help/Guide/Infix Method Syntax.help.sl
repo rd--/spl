@@ -1,13 +1,13 @@
 # Infix Method Syntax
 
-Methods are ordinarily written using either [Apply Syntax] as:
+Methods are ordinarily written using either `Apply Syntax` as:
 
 ```
 >>> min(3, 4)
 3
 ```
 
-or using [Method Syntax] as:
+or using `Method Syntax` as:
 
 ```
 >>> 3.min(4)
@@ -33,6 +33,6 @@ When written infix, methods may also take an adverb, in which case the _:_ is el
 
 * * *
 
-See also: [Apply Syntax], [Binary Operator Syntax], [Method Syntax]
+See also: Apply Syntax, Binary Operator Syntax, Method Syntax
 
 Categories: Syntax

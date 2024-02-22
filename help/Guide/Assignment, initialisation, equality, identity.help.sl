@@ -1,6 +1,6 @@
 # Assignment, initialisation, equality, identity
 
-The [Assignment Syntax] is _p := q_.
+The `Assignment Syntax` is _p := q_.
 
 ```
 >>> var x;
@@ -9,7 +9,7 @@ The [Assignment Syntax] is _p := q_.
 1
 ```
 
-The [Initialised Temporaries Syntax] is _let p = q;_.
+The `Initialised Temporaries Syntax` is _let p = q;_.
 
 ```
 >>> let x = 1;

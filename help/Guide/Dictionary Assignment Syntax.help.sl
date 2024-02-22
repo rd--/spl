@@ -19,6 +19,6 @@ and for variable assignment:
 
 * * *
 
-See also: [List Assignment Syntax]
+See also: List Assignment Syntax]
 
 

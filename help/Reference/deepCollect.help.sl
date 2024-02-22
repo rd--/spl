@@ -8,21 +8,21 @@ else applying _aBlock_.
 
 The answer has the same structure as _aCollection_.
 
-At List:
+At `List`:
 
 ```
 >>> ['a' ['b' ['c' ['d']]]].deepCollect(asUppercase:/1)
 ['A' ['B' ['C' ['D']]]]
 ```
 
-At Tuple:
+At `Tuple`:
 
 ```
 >>> ('a', ('b', ('c', 'd'))).deepCollect(asUppercase:/1)
 ('A', ('B', ('C', 'D')))
 ```
 
-At Record:
+At `Record`:
 
 ```
 >>> (x: 'a', y: (x: 'b', y: (x: 'c'))).deepCollect(asUppercase:/1)

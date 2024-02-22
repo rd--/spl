@@ -31,7 +31,7 @@ _e_ is also defined as a constant:
 
 * * *
 
-See also: exp, log, [Mathematical Constants], pi
+See also: exp, log, Mathematical Constants, pi
 
 References:
 _Mathematica_

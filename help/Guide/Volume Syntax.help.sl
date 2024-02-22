@@ -34,7 +34,7 @@ This suggests the Apl notation where matrices are separated by empty lines.
 
 * * *
 
-See also: [Array Syntax], [List Syntax], [Matrix Syntax], [Vector Syntax]
+See also: Array Syntax, List Syntax, Matrix Syntax, Vector Syntax
 
 References:
 _Fortress_

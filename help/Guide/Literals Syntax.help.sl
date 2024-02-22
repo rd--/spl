@@ -27,6 +27,6 @@ There is also a _Dictionary_ expression syntax.
 
 * * *
 
-See also: [Dictionary Syntax], [Integer Literals], [Range Syntax]
+See also: Dictionary Syntax, Integer Literals, Range Syntax
 
 Categories: Syntax

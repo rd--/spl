@@ -54,7 +54,7 @@ Plot the fractional part of multiples of the golden ratio:
 
 * * *
 
-See also: e, [Mathematical Constants], pi
+See also: e, Mathematical Constants, pi
 
 References:
 _Mathematica_

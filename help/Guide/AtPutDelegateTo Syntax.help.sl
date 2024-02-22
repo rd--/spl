@@ -10,6 +10,6 @@ Where supported _c:.k_ is displayed as _c‣k_.
 
 * * *
 
-See also: [AtPut Syntax], [MessageSend Syntax].
+See also: AtPut Syntax, MessageSend Syntax
 
 Unicode: ‣ U+2023 Triangular Bullet

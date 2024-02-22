@@ -21,7 +21,8 @@ There are two distinct _evaluation_ commands.
 _Ctrl-Enter_ or Ctrl-Comma wraps the selected text in _{ ... }.value.play_ before evaluation.
 The _play_ method is defined for _output signals_, which it compiles and sends to the synthesiser.
 
-Note that it is not possible to _play_ expressions that are not synthesiser programs, for instance [Texture Programs].
+Note that it is not possible to _play_ expressions that are not synthesiser programs,
+for instance `Texture Programs`.
 
 - Ctrl-FullStop (.) ⇒ Clear schedule and reset synthesiser
 - Ctrl-Shift-GreaterThan (>) ⇒ Clear schedule
@@ -42,7 +43,7 @@ _Ctrl-?_ works by requesting both files, and displaying whichever arrives.
 The simple editor is only an experiment.
 The document editor could utilise something like [ProseMirror](https://prosemirror.net/).
 The program editor could utilise something like [CodeMirror](https://codemirror.net/).
-At present, for actual work [Emacs Editor] is a more appropriate environment.
+At present, for actual work `Emacs Editor` is a more appropriate environment.
 
 ## History
 

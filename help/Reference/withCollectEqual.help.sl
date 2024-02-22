@@ -25,4 +25,4 @@ There is also an _adverbial_ form, currently called _e_:
 
 * * *
 
-See also: [Operator Adverbs], withCollect
+See also: Operator Adverbs, withCollect

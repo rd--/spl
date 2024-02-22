@@ -31,7 +31,7 @@ The _powerSet_ help file includes examples of this notation.
 
 * * *
 
-See also: [List Syntax], [Vector Syntax], [Volume Syntax]
+See also: List Syntax, Vector Syntax, Volume Syntax
 
 References:
 _Fortress_

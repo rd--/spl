@@ -2,9 +2,9 @@
 
 The _Reference_ help files follow a few simple rules.
 
-Where possible examples are written as [Documentation Tests].
+Where possible examples are written as `Documentation Tests`.
 
-_Indented Code Blocks_ should contain only lines that each evaluate to a Boolean.
+_Indented Code Blocks_ should contain only lines that each evaluate to a `Boolean`.
 
 The _terseReferenceSummary_ method will extract both of these kinds of tests,
 evaluate them all,
@@ -21,4 +21,4 @@ Below the horizontal rule there may be the following entries:
 
 * * *
 
-See also: [Documentation Tests]
+See also: Documentation Tests

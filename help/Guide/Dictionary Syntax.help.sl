@@ -4,7 +4,7 @@ Rewrite rule:
 
 - _(k: v, ...)_ ⟹ _Record(['k' → v, ...])_
 
-The notation _(p: x, q: y)_ constructs a _Record_ with associations _'p' → x_ and _'q' → y_.
+The notation _(p: x, q: y)_ constructs a `Record` with associations _'p' → x_ and _'q' → y_.
 
 ```
 >>> (p: 1, q: 2).associations
@@ -13,6 +13,6 @@ The notation _(p: x, q: y)_ constructs a _Record_ with associations _'p' → x_ 
 
 * * *
 
-See also: [Initialised Temporaries Syntax], [Quoted At Syntax], [Quoted Put Syntax], Record
+See also: Initialised Temporaries Syntax, Quoted At Syntax, Quoted Put Syntax, Record
 
 Categories: Syntax

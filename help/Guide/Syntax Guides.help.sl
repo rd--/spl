@@ -1,42 +1,42 @@
 # Syntax Guides
 
-- [Apply Syntax]
-- [Array Syntax]
-- [Assignment Operator Syntax]
-- [At Syntax]
-- [AtIfAbsent Syntax]
-- [AtIfAbsentPut Syntax]
-- [AtPut Syntax]
-- [AtPutDelegateTo Syntax]
-- [Binary Operator Syntax]
-- [Block Syntax]
-- [Comment Syntax]
-- [Constant Syntax]
-- [Dictionary Assignment Syntax]
-- [Dictionary Syntax]
-- [Indexable Syntax]
-- [Infix Method Syntax]
-- [Initialised Temporaries Syntax]
-- [Let Syntax]
-- [List Assignment Syntax]
-- [List Syntax]
-- [Literals Syntax]
-- [Matrix Syntax]
-- [MessageSend Syntax]
-- [Method Syntax]
-- [Quoted At Syntax]
-- [Quoted AtIfAbsent Syntax]
-- [Quoted AtIfAbsentPut Syntax]
-- [Quoted AtPut Syntax]
-- [Quoted Indexable Syntax]
-- [Range Syntax]
-- [Slot Access Syntax]
-- [String Syntax]
-- [Temporary Block Syntax]
-- [Terse Guide to Syntax]
-- [Trailing Block Syntax]
-- [Trailing Dictionary Syntax]
-- [Unary Operator Syntax]
-- [Value Apply Syntax]
-- [Vector Syntax]
-- [Volume Syntax]
+- `Apply Syntax`
+- `Array Syntax`
+- `Assignment Operator Syntax`
+- `At Syntax`
+- `AtIfAbsent Syntax`
+- `AtIfAbsentPut Syntax`
+- `AtPut Syntax`
+- `AtPutDelegateTo Syntax`
+- `Binary Operator Syntax`
+- `Block Syntax`
+- `Comment Syntax`
+- `Constant Syntax`
+- `Dictionary Assignment Syntax`
+- `Dictionary Syntax`
+- `Indexable Syntax`
+- `Infix Method Syntax`
+- `Initialised Temporaries Syntax`
+- `Let Syntax`
+- `List Assignment Syntax`
+- `List Syntax`
+- `Literals Syntax`
+- `Matrix Syntax`
+- `MessageSend Syntax`
+- `Method Syntax`
+- `Quoted At Syntax`
+- `Quoted AtIfAbsent Syntax`
+- `Quoted AtIfAbsentPut Syntax`
+- `Quoted AtPut Syntax`
+- `Quoted Indexable Syntax`
+- `Range Syntax`
+- `Slot Access Syntax`
+- `String Syntax`
+- `Temporary Block Syntax`
+- `Terse Guide to Syntax`
+- `Trailing Block Syntax`
+- `Trailing Dictionary Syntax`
+- `Unary Operator Syntax`
+- `Value Apply Syntax`
+- `Vector Syntax`
+- `Volume Syntax`

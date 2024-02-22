@@ -24,7 +24,7 @@ true
 
 * * *
 
-See also: [Block Arity]
+See also: Block Arity
 
 References:
 _Apl_

@@ -12,7 +12,7 @@ To calculate the square root of each number in a collection an anonymous block m
 ```
 
 If we are to write this directly it must be possible to refer to _sqrt_ by name.
-There are two models for this, the first called [Simple Method Arity], the second [Complicated Method Arity].
+There are two models for this, the first called `Simple Method Arity`, the second `Complicated Method Arity`.
 There is a compiler switch to select between these two models.
 
 In the simple model the name _sqrt_ refers to a variable arity block.

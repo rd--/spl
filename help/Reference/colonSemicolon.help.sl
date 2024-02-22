@@ -13,4 +13,4 @@ Where supported, _:;_ is displayed as _↲_.
 
 * * *
 
-See also: [Volume Syntax]
+See also: Volume Syntax

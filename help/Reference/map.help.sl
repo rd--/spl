@@ -4,7 +4,7 @@
 - _map(aBlock:/1, aCollection)_
 - _map(aBlock:/2, aSequence, anotherSequence)_
 
-The unary form answer a Block that will apply _aBlock_ element wise to two sequences.
+The unary form answers a Block that will apply _aBlock_ element wise to two sequences.
 If the sequences are not of equal size the shorter will be cycled.
 
 ```

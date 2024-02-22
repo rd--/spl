@@ -16,4 +16,4 @@ It generates this when the SynthDef first starts playing, and remains fixed.
 
 * * *
 
-See also: [Random Number Generators], Rand0, Rand2, TRand, WhiteNoise
+See also: Random Number Generators, Rand0, Rand2, TRand, WhiteNoise

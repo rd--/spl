@@ -15,7 +15,7 @@ Parentheses are required to follow the usual mathematical conventions.
 23
 ```
 
-Operators have lower precedence than [Method Syntax]:
+Operators have lower precedence than `Method Syntax`:
 
 ```
 >>> 7 + 9.sqrt
@@ -25,7 +25,7 @@ Operators have lower precedence than [Method Syntax]:
 4
 ```
 
-[Apply Syntax] is in any case parenthesised:
+`Apply Syntax` is in any case parenthesised:
 
 ```
 >>> sqrt(9) + 7
@@ -47,4 +47,4 @@ Use parentheses to evaluate from right to left:
 
 * * *
 
-See also: [Operator Syntax]
+See also: Operator Syntax

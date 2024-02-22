@@ -6,4 +6,4 @@ Evaluation of the arguments to _if_, _whileTrue_, _timesRepeat_ &etc. must be de
 
 The notation to delay the evaluation of a value _x_ is _{ x }_.
 
-[Trailing Block Syntax] allows control structures to be written as _p.if { q } { r }_ and _{ p }.whileTrue { q }_.
+`Trailing Block Syntax` allows control structures to be written as _p.if { q } { r }_ and _{ p }.whileTrue { q }_.

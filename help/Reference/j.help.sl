@@ -20,7 +20,7 @@ Answer a _Complex_ number with a real part of _real_ and an imaginary part of _i
 
 * * *
 
-See also: Complex, [Complex Literals], i, imaginary, real
+See also: Complex, Complex Literals, i, imaginary, real
 
 References:
 _Apl_

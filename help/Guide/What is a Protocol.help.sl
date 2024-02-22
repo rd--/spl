@@ -19,4 +19,4 @@ For instance, the _Iterable_ trait collects behaviours that can be derived given
 
 * * *
 
-See also: Trait, [What is a Trait]
+See also: Trait, What is a Traitg

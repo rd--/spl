@@ -24,4 +24,4 @@ Where supported the token `>>>` is displayed as ⋙.
 
 Unicode: U+22D9 ⋙ Very Much Greater-Than
 
-See also: [Reference Help Files], terseReferenceSummary
+See also: Reference Help Files], terseReferenceSummary

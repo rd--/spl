@@ -1,4 +1,4 @@
-# slotNameList -- accessing
+# slotNameList
 
 - _slotNameList(anObject)_
 
@@ -8,4 +8,6 @@ These slots can be read using the slot reader syntax :@ and written using the sl
 
 * * *
 
-See also: [Slot Access Syntax]
+See also: Slot Access Syntax
+
+Categories: Accessing

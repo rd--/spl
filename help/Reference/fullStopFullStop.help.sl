@@ -26,6 +26,6 @@ The notation _[from .. to]_ creates a _List_ with elements from _from_ to _to_.
 
 * * *
 
-See also: [Range Syntax]
+See also: Range Syntax
 
 Categories: Syntax

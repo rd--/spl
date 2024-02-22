@@ -1,9 +1,18 @@
-# keysAndValuesDo -- enumerating
+# keysAndValuesDo
 
-- _keysAndValuesDo(aDictionary | aSequence, aBlock:/2)_
+- _keysAndValuesDo(aDictionary, aBlock:/2)_
 
-Enumerate over a collection with all the keys (or indices) and values.
+Apply _aBlock_ to each `key` and `value` of _aDictionary_.
+
+```
+>>> let list = [];
+>>> (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value | list.addAll([key, value]) };
+>>> list
+['x' 1 'y' 2 'z' 3]
+```
 
 * * *
 
-See also: do, withIndexDo
+See also: associationsDo, do, keysDo, valuesDo, withIndexDo
+
+Categories: Enumerating

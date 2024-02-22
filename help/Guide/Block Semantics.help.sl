@@ -24,4 +24,4 @@ The _cull_ family of blocks (as in Smalltalk) selectively apply a block to fewer
 
 * * *
 
-See also [Block Syntax]
+See also Block Syntax

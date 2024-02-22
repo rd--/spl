@@ -5,7 +5,7 @@ Rewrite rule:
 - _[p q r ...]_ ⟹ _[p, q, r, ...]_
 
 Allows writing lists of literals without comma separators.
-A Vector cannot contain other Vectors, see [Matrix Syntax].
+A Vector cannot contain other Vectors, see `Matrix Syntax` and `Tree Syntax`.
 
 Literal items:
 
@@ -36,7 +36,7 @@ Literals and identifiers may be mixed together:
 ```
 
 _Note:_
-Vector syntax is parsed with a higher priority than [List Syntax].
+Vector syntax is parsed with a higher priority than `List Syntax`.
 While most vector expressions are not valid list expressions,
 expressions such as  _[-1 -2 -3]_ are ambiguous.
 This expression could be parsed either as the one element list _[-1 - 2 - 3] = [-6]_,
@@ -50,7 +50,7 @@ Spl parses it as the latter:
 
 * * *
 
-See also: [Array Syntax], List, [List Syntax], [Matrix Syntax], [Volume Syntax]
+See also: Array Syntax, List, List Syntax, Matrix Syntax, Volume Syntax
 
 References:
 _Fortress_

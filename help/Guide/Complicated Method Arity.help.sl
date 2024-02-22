@@ -41,7 +41,7 @@ This is not possible in the simple model, since the method block is of variable 
 This model is a more complicated notation, but for a simpler and more uniform semantics.
 
 The _Spl_ standard libraries are written following this model.
-Libraries written in this form will work when the compiler is in [Simple Method Arity] mode.
+Libraries written in this form will work when the compiler is in `Simple Method Arity` mode.
 (The inverse is not the case.)
 
 There is a compiler switch to select if local blocks are aliased to the unqualified name.

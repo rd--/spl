@@ -1,7 +1,8 @@
-# SinOsc -- interpolating sine wavetable oscillator
+# SinOsc
 
-_SinOsc(freq=440, phase=0)_
+- _SinOsc(freq=440, phase=0)_
 
+Interpolating sine wavetable oscillator.
 This is the same as Osc except that the table is a sine table of 8192 entries.
 
 - freq: frequency in Hertz

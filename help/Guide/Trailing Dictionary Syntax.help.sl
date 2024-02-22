@@ -18,6 +18,6 @@ SinOsc(freq: 440, phase: 0)
 
 * * *
 
-See also: [Trailing Block Syntax]
+See also: Trailing Block Syntax]
 
 Categories: Syntax

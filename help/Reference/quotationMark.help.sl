@@ -4,6 +4,6 @@
 
 * * *
 
-See also: [String Syntax]
+See also: String Syntax
 
 Unicode: U+0022 " Quotation Mark

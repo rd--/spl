@@ -96,6 +96,6 @@ s + (0.2 * y)
 
 * * *
 
-See also: [Initialised Temporaries Syntax]
+See also: Initialised Temporaries Syntax]
 
 Categories: Syntax

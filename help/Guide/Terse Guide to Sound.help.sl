@@ -118,7 +118,7 @@ let s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); [1 2.flat 2 3 3.cancelFlat 4 5.flat 
 '/usr' +/+ 'local' = '/usr/local' {- file path catenation -}
 let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [1 3 5 7 9].isSeries = true {- is a list an arithmetic series -}
-[1 .. 7].collect { :x | x.asBinaryDigits(3) } = [[0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]]
+[1 .. 7].collect { :x | x.asBinaryDigits(3) } = [0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1]
 1:9.atRandom.inclusivelyBetweenAnd(1, 9)
 1:9.atRandom.exclusivelyBetweenAnd(0, 10)
 [3, 4, 1, 1].integrate = [3, 7, 8, 9]

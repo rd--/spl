@@ -29,4 +29,4 @@ true
 
 * * *
 
-See also: [List Syntax], [Vector Syntax]
+See also: List Syntax, Vector Syntax

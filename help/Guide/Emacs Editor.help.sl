@@ -27,4 +27,4 @@ Some of the notations are:
 
 * * *
 
-See also: [Unicode Symbols]
+See also: Unicode Symbols]

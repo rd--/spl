@@ -44,6 +44,6 @@ Operators are Blocks:
 
 * * *
 
-See also: [Apply Syntax], Block
+See also: Apply Syntax], Block
 
 Categories: Syntax
