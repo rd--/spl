@@ -1,10 +1,11 @@
 # EnvGen
 
-Envelope Generator.
-
 - _EnvGen(gate=1, levelScale=1, levelBias=0, timeScale=1, doneAction=0, envelope)_
 
-Plays back break point envelopes. The envelopes are instances of the Env class. See the Env help file for more info.
+Envelope Generator.
+Plays back break point envelopes.
+The envelopes are instances of the Env class.
+See the Env help file for more info.
 
 If the gate input is not supplied then the envelope begins at time zero of the event in which it is spawned and is released when the event is released. And envelope only has a physical end time (used to cut off events in a Spawn) if the gate input is not supplied.
 

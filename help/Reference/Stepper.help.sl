@@ -1,8 +1,10 @@
-# Stepper -- pulse counter
+# Stepper
 
 _Stepper(trig, reset=0, min=0, max=7, step=1, resetVal=min)_
 
-Each trigger increments a counter which is output as a signal. The counter wraps between min and max.
+Pulse counter.
+Each trigger increments a counter which is output as a signal.
+The counter wraps between min and max.
 
 - trig: step output on trigger.
 - reset: resets the counter to resetval when triggered.
@@ -13,36 +15,36 @@ Each trigger increments a counter which is output as a signal. The counter wraps
 
 Count by 1:
 
-```
+~~~
 let step = Stepper(Impulse(10, 0), 0, 4, 16, 1, 0);
 SinOsc(step * 100, 0) * 0.05
-```
+~~~
 
 Count by -3:
 
-```
+~~~
 let step = Stepper(Impulse(10, 0), 0, 4, 16, -3, 0);
 SinOsc(step * 100, 0) * 0.05
-```
+~~~
 
 Count by 4:
 
-```
+~~~
 let step = Stepper(Impulse(10, 0), 0, 4, 16, 4, 0);
 SinOsc(step * 100, 0) * 0.05
-```
+~~~
 
 Count by mouse control:
 
-```
+~~~
 let x = MouseX(-9, 9, 0, 0.2);
 let step = Stepper(Impulse(10, 0), 0, 4, 16, x, 0);
 SinOsc(step * 100, 0) * 0.05
-```
+~~~
 
 Using Stepper and BufRd for sequencing, mouse controls clock rate:
 
-```
+~~~
 let b = [
 	43 55 72 70 55 58 41 67
 	41 60 55 39 58 55 43 51
@@ -76,7 +78,7 @@ out := LeakDc(rvb(out * 0.02), 0.995);
 	out := DelayL(out, 0.1, lfo) + out
 }; {- flanger -}
 OnePole(out, 0.9) * 0.5
-```
+~~~
 
 * * *
 

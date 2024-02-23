@@ -1,9 +1,8 @@
 # Out
 
+- _Out(bus, channelsList)_
+
 Summing output.
-
-_Out(bus, channelsList)_
-
 Sum a sequence of signals to a bus.
 
 - bus: the index of the bus to sum out to, the lowest numbers correspond to the audio hardware

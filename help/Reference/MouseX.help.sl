@@ -1,6 +1,8 @@
-# MouseX -- cursor unit generator
+# MouseX
 
-_MouseX(minval=0, maxval=1, warp=0, lag=0.2)_
+- _MouseX(minval=0, maxval=1, warp=0, lag=0.2)_
+
+Cursor unit generator.
 
 - minval, maxval: range between left and right end of screen
 - warp: mapping curve. 0 is linear, 1 is exponential (for freq or times e.g)
@@ -8,19 +10,19 @@ _MouseX(minval=0, maxval=1, warp=0, lag=0.2)_
 
 Mouse control of frequency:
 
-```
+~~~
 SinOsc(MouseX(40, 10000, 1, 0.2), 0) * 0.1
-```
+~~~
 
 Same as above but with a two second lag:
 
-```
+~~~
 SinOsc(MouseX(40, 10000, 1, 2), 0) * 0.1
-```
+~~~
 
 Two oscillators:
 
-```
+~~~
 SinOsc(
 	[
 		MouseX(40, 10000, 1, 0.2),
@@ -28,7 +30,7 @@ SinOsc(
 	],
 	0
 ) * 0.1
-```
+~~~
 
 _Note_:
 MouseX and MouseY can report unexpected values on systems with multiple displays.
@@ -36,3 +38,5 @@ MouseX and MouseY can report unexpected values on systems with multiple displays
 * * *
 
 See also: MouseY, MouseButton
+
+Categories: Ugen

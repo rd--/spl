@@ -1,9 +1,8 @@
 # WrapIndex
 
+- _WrapIndex(table, in)_
+
 Index into a table with a signal.
-
-_WrapIndex(table, in)_
-
 The input signal value is truncated to an integer value and used as an index into the table.
 Out of range index values are wrapped cyclically to the valid range.
 

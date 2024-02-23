@@ -1,9 +1,10 @@
 # Clip2
 
+- _Clip2(a, b)_
+
 Waveshaping.
 Bilateral clipping.
-
-_Clip2(a, b)_ clips _a_ to +/- _b_.
+Clips _a_ to +/- _b_.
 
 Fixed clipping:
 

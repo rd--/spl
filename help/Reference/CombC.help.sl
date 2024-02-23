@@ -1,9 +1,8 @@
 # CombC
 
+-  _CombC(in, maxdelaytime=0.2, delaytime=0.2, decaytime=1)_
+
 Comb filter.
-
-_CombC(in, maxdelaytime=0.2, delaytime=0.2, decaytime=1)_
-
 Comb delay line. CombN uses no interpolation, CombL uses linear interpolation, CombC uses cubic interpolation.
 
 - in: the input signal.
@@ -33,5 +32,7 @@ CombC(z, 0.2, 0.2, 3)
 ```
 
 * * *
+
+See also: AllpassC
 
 Categories: Ugen, Filter

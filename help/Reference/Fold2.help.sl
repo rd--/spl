@@ -1,12 +1,13 @@
 # Fold2
 
+- _Fold2(a, b)_
+
 Bilateral folding.
+Folds _a_ to +/- _b_.
 
-_Fold2(a, b)_ folds _a_ to +/- _b_.
-
-```
+~~~
 SinOsc(1000, 0).Fold2(Line(0, 1, 23)) / 3
-```
+~~~
 
 * * *
 

@@ -1,21 +1,21 @@
 # Index
 
+- _Index(table, in)_
+
 Index into a table with a signal.
-
-_Index(table, in)_
-
-The input signal value is truncated to an integer value and used as an index into the table. Out of range index values are clipped to the valid range.
+The input signal value is truncated to an integer value and used as an index into the table.
+Out of range index values are clipped to the valid range.
 
 - table: an instance of FloatList or Signal.
 - in: the input signal.
 
 Index buffer for frequency values:
 
-```
+~~~
 let b = [50 100 200 400 800 1600].asLocalBuf;
 let f = Index(b, LinLin(LfSaw(2, 0), -1, 1, 0, 6));
 SinOsc([f, f * 9], 0) * 0.1
-```
+~~~
 
 * * *
 

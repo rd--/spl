@@ -32,7 +32,7 @@
 ## Binary, Bitwise
 
 - `bitAnd`, `bitOr`, `bitXor`, `bitNot`
-- <<, >>, `bitCount`, `bitShift`, `bitShiftLeft`, `bitShiftRight`, `highBit`, `lowBit`
+- `<<`, `>>`, `bitCount`, `bitShift`, `bitShiftLeft`, `bitShiftRight`, `highBit`, `lowBit`
 - `bitAt`, `bitAtPut`
 
 ## Boolean, Logic

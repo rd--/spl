@@ -1,8 +1,8 @@
 # HenonC
 
-Henon map chaotic generator.
+- _HenonC(freq=22050, a=1.4, b=0.3, x0=0, x1=0)_
 
-_HenonC(freq, a, b, x0, x1)_
+Henon map chaotic generator.
 
 - freq: iteration frequency in Hertz
 - a, b: equation variables
@@ -11,7 +11,7 @@ _HenonC(freq, a, b, x0, x1)_
 
 A cubic-interpolating sound generator based on the difference equation:
 
-1. x(n+2) = 1 - a * xn + 12 + b * xn
+> _x(n+2) = 1 - a * xn + 12 + b * xn_
 
 This equation was discovered by French astronomer Michel Henon while studying the orbits of stars in globular clusters.
 
@@ -21,7 +21,7 @@ Default initial params:
 HenonC(MouseX(20, SampleRate(), 0, 0.2), 1.4, 0.3, 0, 0) * 0.2
 ```
 
-Mouse-control of params:
+Mouse-control of parameters:
 
 ```
 HenonC(
@@ -33,7 +33,7 @@ HenonC(
 ) * 0.2
 ```
 
-Randomly modulate params:
+Randomly modulate parameters:
 
 ```
 HenonC(

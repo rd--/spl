@@ -1,6 +1,6 @@
 # reshapeLike
 
-_reshapeLike(material, model)_
+- _reshapeLike(material, model)_
 
 Answer a List with the same structure as _model_ and with elements drawn from _material_.
 Elements are drawn in ravel order,
@@ -8,7 +8,7 @@ truncating if the result has smaller bound than the right argument,
 and repeating cyclically if it has larger bound.
 
 _model_ does not need to be a regular array,
-_reshapeLike_ will reproduce and structure.
+_reshapeLike_ will reproduce any structure.
 
 ```
 >>> 6:1.reshapeLike([1; 2 3; 4 5 6])

@@ -1,11 +1,10 @@
 # Warp1
 
-Warp a buffer with a time pointer.
+- _Warp1(numChannels=1, bufnum=0, pointer=0, freqScale=1, windowSize=0.2, envbufnum=-1, overlaps=8, windowRandRatio=0, interp=1)_
 
+Warp a buffer with a time pointer.
 Inspired Warp1 from SuperCollider2 by Chad Kirby, which was inspired by sndwarp from CSound by Richard Karpen.
 A granular time stretcher and pitchshifter.
-
-_Warp1(numChannels=1, bufnum=0, pointer=0, freqScale=1, windowSize=0.2, envbufnum=-1, overlaps=8, windowRandRatio=0, interp=1)_
 
 - numChannels: number of channels at bufNum.
 - bufNum: buffer number of soundfile.

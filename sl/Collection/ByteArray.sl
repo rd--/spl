@@ -108,7 +108,7 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 
 	randomByteArray { :self |
 		<primitive:
-		var bytes = new Uint8Array(_self);
+		let bytes = new Uint8Array(_self);
 		crypto.getRandomValues(bytes);
 		return bytes;
 		>

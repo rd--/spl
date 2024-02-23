@@ -1,7 +1,8 @@
-# Latch -- sample and hold
+# Latch
 
 _Latch(in=0, trig=0)_
 
+Sample and hold.
 Holds input signal value when triggered.
 
 - in: input signal
@@ -9,21 +10,22 @@ Holds input signal value when triggered.
 
 Step noise:
 
-```
+~~~
 Latch(WhiteNoise(), Impulse(900, 0)) * 0.1
-```
+~~~
 
 Step noise as frequency input:
 
-```
+~~~
 Blip(Latch(WhiteNoise(), Impulse(9, 0)) * 400 + 500, 4) * 0.1
-```
+~~~
 
-The above are just meant as examples. _LfNoise0_ is a faster way to generate random steps:
+The above are just meant as examples.
+_LfNoise0_ is a faster way to generate random steps:
 
-```
+~~~
 Blip(LfNoise0(9) * 400 + 500, 4) * 0.1
-```
+~~~
 
 * * *
 

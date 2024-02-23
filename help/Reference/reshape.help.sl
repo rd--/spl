@@ -105,7 +105,7 @@ shape after reshape is requested shape:
 
 * * *
 
-See also: rank, shape
+See also: rank, reshapeLike, shape
 
 References:
 _Apl_

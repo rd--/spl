@@ -1,8 +1,6 @@
 # Cutoff
 
-Very simple envelope shape.
-
-_Cutoff(sustainTime, decayTime, curve)_
+- _Cutoff(sustainTime, decayTime, curve)_
 
 Apply a cutoff envelope to a continuous sound.
 

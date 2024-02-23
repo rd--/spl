@@ -1,8 +1,8 @@
-# In -- read from bus
+# In
+
+- _In(numChannels, bus)_
 
 Read a signal from a bus.
-
-_In(numChannels, bus)_
 
 - bus: the index of the bus to read in from
 - numChannels: the number of adjacent buses to read
@@ -44,3 +44,5 @@ DelayN(In(1, NumOutputBuses() + [0, 1]), 1, 1)
 * * *
 
 See also: AudioIn, ControlIn, InFeedback, Out
+
+Categories: Ugen
