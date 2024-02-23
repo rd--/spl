@@ -396,6 +396,10 @@ String! : [Object, Json, Iterable] {
 		self.isLowercase | { self.isUppercase }
 	}
 
+	isLiteral { :self |
+		true
+	}
+
 	isLowercase { :self |
 		<primitive: return /^[a-z]+$/.test(_self);>
 	}

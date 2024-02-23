@@ -3,7 +3,7 @@
 - _sortBy(aSequence, aBlock:/2)_
 
 Sort _aSequence_ in place using the comparator _aBlock_.
-Unlike _sort_, the comparison block must be valid, not nil.
+Unlike `sort`, the comparison block must be valid, not `nil`.
 
 * * *
 

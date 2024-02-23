@@ -1,6 +1,6 @@
 # Trait
 
-A _Trait_ is a named _Method_ dictionary.
+A `Trait` is a named `Method` dictionary.
 
 The dictionary keys are _qualified_ method names, i.e. _sum:/1_.
 

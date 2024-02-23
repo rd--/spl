@@ -19,7 +19,7 @@ With non-integer values, may not reach _stop_:
 [1.2 1.35 1.5 1.65 1.8 1.95 2.1]
 ```
 
-There is a [Range Syntax] for writing Ranges and interval lists:
+There is a `Range Syntax` for writing Ranges and interval lists:
 
 ```
 >>> 1:4

@@ -1,6 +1,8 @@
 # methodDictionary
 
-A method of _System_ fetching the [Method Dictionary].
+- _methodDictionary(aSystem)_
+
+Fetch the `Method Dictionary`.
 
 ```
 >>> system.methodDictionary.isDictionary
@@ -14,6 +16,7 @@ true
 
 >>> system.methodDictionary::collect[2]::List.isMethod
 true
+```
 
 * * *
 

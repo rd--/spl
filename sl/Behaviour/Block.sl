@@ -96,6 +96,10 @@ Block! : [Object] {
 		>
 	}
 
+	isLiteral { :self |
+		true
+	}
+
 	inner { :f:/2 :p :q :g:/2 |
 		let h:/2 = f:/2.e;
 		p.isVector.if {

@@ -6,13 +6,15 @@ The sum of the squares of _aCollection_ divided by the sum of _aCollection_.
 
 ```
 >>> [1 5 6].contraharmonicMean
-(31 / 6)
+31/6
 
 >>> [2 4 7].contraharmonicMean
-(69 / 13)
+69/13
 ```
 
 * * *
+
+See also: harmonicMean, mean, median
 
 References:
 _Mathematica_

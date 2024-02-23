@@ -1,6 +1,6 @@
 # highBit
 
-_highBit(anInteger)_
+- _highBit(anInteger)_
 
 Answer the number of bits required to represent _anInteger_.
 

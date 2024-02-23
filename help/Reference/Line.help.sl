@@ -1,7 +1,8 @@
-# Line -- line generator
+# Line
 
 _Line(start, end, dur)_
 
+Line generator.
 Generates a line from the start value to the end value.
 
 - start: starting value
@@ -25,3 +26,5 @@ _Note_: This is the Sc _Line_ Ugen without the _doneAction_ input.
 * * *
 
 See also: XLine
+
+Categories: Ugen

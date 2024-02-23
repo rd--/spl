@@ -2,7 +2,7 @@
 
 := is a syntax token, it is not an operator.
 
-:= separates the variable name and the expression in [Assignment Syntax].
+:= separates the variable name and the expression in `Assignment Syntax`.
 
 ```
 >>> var x;
@@ -11,7 +11,7 @@
 9
 ```
 
-The _:=_ symbol is also part of [AtPut Syntax] and [Quoted AtPut Syntax].
+The _:=_ symbol is also part of `AtPut Syntax` and `Quoted AtPut Syntax`.
 
 Where supported this operator is displayed either as a leftwards arrow, ←,
 or as a colon equals glyph, ≔.

@@ -27,10 +27,13 @@ Operators are just especially named methods whose arity when written _free_ is k
 7
 ```
 
-Operators can also be written in prefix form:
+Operators can also be written in prefix form and `Method Syntax` forms:
 
 ```
 >>> +(3, 4)
+7
+
+>>> 3.+(4)
 7
 ```
 
@@ -48,6 +51,6 @@ No argument method application is written _f()_.
 
 * * *
 
-See also: Value Apply Syntax]
+See also: Value Apply Syntax
 
 Categories: Syntax

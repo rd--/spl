@@ -25,11 +25,19 @@ which is measured upward between the reference plane and the radial line,
 ie. from the reference plane upward (towards to the positive z-axis) to the radial line.
 The depression angle is the negative of the elevation angle.
 
+```
+>>> SphericalCoordinate(2.sqrt, 1.pi / 4, 1.pi / 2).asCartesianCoordinate
+CartesianCoordinate(1, 1, 0)
+
+>>> SphericalCoordinate(3.sqrt, 0.25.pi, 2.sqrt.arcTan).asCartesianCoordinate
+CartesianCoordinate(1, 1, 1)
+```
+
 Where supported r is displayed as 𝑟, rho is displayed as ρ, theta as θ, and phi as φ.
 
 * * *
 
-See also: CartesianCoordinate, PolarCoordinate, IsoSphericalCoordinate, RectangularCoordinate
+See also: asCartesianCoordinate, CartesianCoordinate, PolarCoordinate, IsoSphericalCoordinate, RectangularCoordinate
 
 References:
 _Mathematica_

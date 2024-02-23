@@ -1,5 +1,7 @@
 # Integer
 
+`Integer` is a numeric `Trait`.
+
 Methods for arithmetic: isPowerOfTwo, factorial, gcd, lcm, take
 
 * * *
@@ -10,4 +12,4 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Integer.html)
 
-Categories: Numeric trait
+Categories: Numeric, Trait

@@ -31,6 +31,14 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 		<primitive: return Object.keys(_self);>
 	}
 
+	isJson { :self |
+		self.allSatisfy(isJson:/1)
+	}
+
+	isLiteral { :self |
+		self.allSatisfy(isLiteral:/1)
+	}
+
 	removeKeyIfAbsent { :self :key :aBlock |
 		<primitive:
 		if(Object.hasOwn(_self, _key)) {

@@ -1,32 +1,33 @@
 # Literals Syntax
 
-The four primitive types are _Nil, _Boolean_, _Number_ and _String_.
+The four primitive immediate types are `Nil`, `Boolean`, `SmallFloat` and `String`.
 
-- _nil_ ⇒ _Nil_
-- _true_ ⇒ _Boolean_
-- _false_ ⇒ _Boolean_
-- _23_ ⇒ _Number_
--  _3.141_ ⇒ _Number_
-- _'xyz'_ ⇒ _String_
+- _nil_ ⇒ `Nil`
+- _true_ ⇒ `Boolean`
+- _false_ ⇒ `Boolean`
+- _23_ ⇒ `SmallFloat`
+-  _3.141_ ⇒ `SmallFloat`
+- _'xyz'_ ⇒ `String`
 
 The _Block_ syntax is similar to Smalltalk,
 with braces replacing brackets,
+semicolons replacing full stops,
 and _var_ replacing _|_.
 
-- _{ e; ... }_ ⇒ _Block_ (with expressions _e_)
-- _{ :a ...| e; ... }_ ⇒ _Block_ (with arguments _a_)
-- _{ :a ...| var t, ...; e; ... }_ ⇒ _Block_ (with temporary variables _t_)
+- _{ e; ... }_ ⇒ `Block` (with expressions _e_)
+- _{ :a ...| e; ... }_ ⇒ `Block` (with arguments _a_)
+- _{ :a ...| var t, ...; e; ... }_ ⇒ `Block` (with temporary variables _t_)
 
 There is no literal _List_ syntax (as in Smalltalk) however there is a list expression syntax.
 
-- _[p, q, r]_ ⇒ _List_
+- _[p, q, r]_ ⇒ `List`
 
-There is also a _Dictionary_ expression syntax.
+There is also a `Dictionary` expression syntax.
 
-- _(x: p, y: q, z: r) ⇒ _Record_
+- _(x: p, y: q, z: r)_ ⇒ `Record`
 
 * * *
 
-See also: Dictionary Syntax, Integer Literals, Range Syntax
+See also: Dictionary Syntax, Integer Literals, List Syntax, Range Syntax
 
 Categories: Syntax

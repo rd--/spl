@@ -1,6 +1,6 @@
 # Binary
 
-Binary is a trait holding behaviours related to the binary (bit-level) represenation of numbers.
+`Binary` is a numeric `Trait` holding behaviours related to the binary (bit-level) represenation of numbers.
 
 * * *
 

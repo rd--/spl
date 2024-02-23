@@ -15,6 +15,10 @@
 - `addAllFirst`, `addAll`, `addAllIfNotPresent`, `addAllLast`
 - `addIfNotPresent`, `ifAbsentAdd`
 
+## Array Operations
+
+- `depth`, `iota`, `reshape`, `rank`, `shape`
+
 ## Arithmetic Operators
 
 - `+`, `-`, `*`, `/`, `^`
@@ -28,7 +32,7 @@
 ## Binary, Bitwise
 
 - `bitAnd`, `bitOr`, `bitXor`, `bitNot`
-- <<, >>, `bitCount`, `bitShift`, `bitShiftLeft`, `bitShiftRight`, `highBit`
+- <<, >>, `bitCount`, `bitShift`, `bitShiftLeft`, `bitShiftRight`, `highBit`, `lowBit`
 - `bitAt`, `bitAtPut`
 
 ## Boolean, Logic
@@ -58,7 +62,7 @@
 
 ## Comparison Operators
 
-- `>`, <, <=, >=, <=>
+- `>`, `<`, `<=`, `>=`, `<=>`
 - `closeTo`, `veryCloseTo`
 
 ## Complex Numbers
@@ -117,9 +121,14 @@
 
 - `PolarCoordinate`, `RectangularCoordinate`
 - `CartesianCoordinate`, `CylindricalCoordinate`, `SphericalCoordinate`
-- `Point`
 - `Circle`, `Rectangle`, `Sphere`
 - `Angle`, Projection3
+
+## Geometry Functions
+
+- `asPoint`, `Point`, `IsoSphericalCoordinate`
+- `fromSphericalCoordinates`, `fromPolarCoordinates`
+- `toPolarCoordinates`
 
 ## Iteration
 
@@ -128,6 +137,10 @@
 - `reverseDo`, `reverseWithDo`
 - `associationsDo`, `indicesDo`, `keysAndValuesDo`, `keysDo`, `valuesDo`
 - `withDo`, `withIndexDo`
+
+## Json
+
+- `isJson`, `Json`, `json`, `parseJson`
 
 ## Mathematical Constants
 
@@ -149,6 +162,11 @@
 - `isComplex`, `isFraction`, `isInteger`, `isLargeInteger`, `isNumber`, `isSmallFloat`, `isZero`
 - `even`, `negative`, `odd`, `positive`
 - `isCoprime`, `isPrime`
+
+## Open Sound Control
+
+- `OscMessage`, `OscParameter`
+- `addOscListener`, `removeOscListener`
 
 ## Parsing Numbers
 
@@ -216,6 +234,10 @@
 ## Timing
 
 - `systemTimeInMilliseconds`, `unixTime`, `unixTimeInMilliseconds`
+
+## Tree Operations
+
+- `asTree`, `depth`, `leafCount`, `size`
 
 ## Trigonometric Functions
 

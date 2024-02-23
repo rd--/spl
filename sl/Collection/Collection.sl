@@ -68,6 +68,10 @@
 		}
 	}
 
+	arithmeticMean { :self |
+		self.sum / self.size
+	}
+
 	asList { :self |
 		let array = List(self.size);
 		let index = 0;

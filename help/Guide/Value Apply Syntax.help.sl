@@ -3,39 +3,39 @@
 - _f . ()_
 - _f . (x, ...)_
 
-This is the primitive _Block_ application syntax.
-_f_ must be a _Block_ value,
+This is the primitive `Block` application syntax.
+_f_ must be a `Block` value,
 it is applied to the arguments given within the parentheses.
 
-No argument Block:
+No argument `Block`:
 
 ```
 >>> { } . ()
 nil
 ```
 
-One argument Block:
+One argument `Block`:
 
 ```
 >>> { :n | n * n } . (23)
 529
 ```
 
-Two argument Block:
+Two argument `Block`:
 
 ```
 >>> { :p :q | p ++ q } . ('x', 'y')
 'xy'
 ```
 
-Methods are Blocks:
+Methods are blocks:
 
 ```
 >>> sqrt:/1 . (529)
 23
 ```
 
-Operators are Blocks:
+Operators are blocks:
 
 ```
 >>> ^ . (23, 2)
@@ -44,6 +44,6 @@ Operators are Blocks:
 
 * * *
 
-See also: Apply Syntax], Block
+See also: Apply Syntax, Block
 
 Categories: Syntax

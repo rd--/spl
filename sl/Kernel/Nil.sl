@@ -36,6 +36,10 @@ Nil! : [Object, Json] {
 		true
 	}
 
+	isLiteral { :self |
+		true
+	}
+
 	isNil { :self |
 		true
 	}

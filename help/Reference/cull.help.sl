@@ -3,7 +3,7 @@
 - _cull(aBlock, firstArg)_
 - _cull(aBlock, firstArg, secondArg)_
 
-Activate the receiver, with two or one or zero arguments.
+Apply _aBlock_ with two or one or zero arguments.
 
 _cull_ calls _numArgs_ to ask how many arguments are required,
 and passes only the required number of arguments.
@@ -27,6 +27,6 @@ nil
 
 * * *
 
-See also: numArgs, value
+See also: Block Semantics, numArgs, value
 
 Categories: Evaluating

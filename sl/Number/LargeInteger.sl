@@ -157,6 +157,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		true
 	}
 
+	isLiteral { :self |
+		true
+	}
+
 	odd { :self |
 		(self % 2) = 1
 	}

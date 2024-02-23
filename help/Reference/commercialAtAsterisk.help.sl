@@ -19,7 +19,7 @@ The operator (infix) form of _atAll_.
 [3 5 7]
 ```
 
-The name of this operator is _commercialAtTimes_.
+The name of this operator is _commercialAtAsterisk_.
 
 * * *
 

@@ -1,5 +1,9 @@
 @Json {
 
+	isJson { :self |
+		true
+	}
+
 	json { :self |
 		<primitive: return JSON.stringify(_self);>
 	}

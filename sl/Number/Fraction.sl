@@ -166,6 +166,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.denominator = 1
 	}
 
+	isLiteral { :self |
+		true
+	}
+
 	lcm { :self :aFraction |
 		aFraction.isFraction.if {
 			self // self.gcd(aFraction) * aFraction

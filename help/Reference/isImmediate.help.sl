@@ -1,6 +1,6 @@
 # isImmediate
 
-_isImmediate(anObject)_
+- _isImmediate(anObject)_
 
 Answer if _anObject_ will compare _==_ when it compares _=_.
 
@@ -22,4 +22,4 @@ Character, Complex, Fraction, List and Tuple values are all non-immediate:
 
 * * *
 
-See also: ==, ===, Bag, Set
+See also: ==, ===, Bag, isJson, isLiteral, Set

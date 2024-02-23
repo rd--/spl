@@ -19,4 +19,6 @@ Type strings can be inferred for numbers, strings and byte arrays.
 
 * * *
 
+See also: OscMessage
+
 Categories: OpenSoundControl

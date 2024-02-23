@@ -2,7 +2,7 @@
 
 - _numArgs(aBlock)_
 
-Answer the number of arguments that must be used to evaluate this block.
+Answer the number of arguments that must be used to evaluate _aBlock_.
 
 ```
 >>> { }.numArgs
@@ -19,6 +19,6 @@ _numArgs_ is used to implement _cull_.
 
 * * *
 
-See also: cull, value
+See also: Block Semantics, cull, value
 
 Categories: Accessing

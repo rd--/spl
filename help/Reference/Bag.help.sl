@@ -17,9 +17,3 @@ See also: add, asBag, sortedCounts, sortedElements, Set
 Smalltalk: _IdentityBag_
 
 Categories: Collection, Type
-
-* * *
-
-- add(self, newObject): Include newObject as one of the receiver's elements. Answer newObject.
-- sortedCounts(self): Answer with a collection of counts with elements, sorted by decreasing count.
-- sortedElements(self): Answer with a collection of elements with counts, sorted by element.

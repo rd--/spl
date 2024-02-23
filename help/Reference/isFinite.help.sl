@@ -1,6 +1,6 @@
 # isFinite
 
-- _isFinite(aNumber)
+- _isFinite(aNumber)_
 
 Answer true if _aNumber_ is not infinite.
 
@@ -17,6 +17,6 @@ true
 
 * * *
 
-See also: isInteger
+See also: isInteger, Number, SmallFloat
 
 Categories: Arithmetic

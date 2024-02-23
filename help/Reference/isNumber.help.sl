@@ -2,21 +2,38 @@
 
 - _isNumber(anObject)_
 
-Answers true if the receiver is a number, else false.
+Answers `true` if _anObject_ is a number, else `false`.
+
+At `SmallFloat`:
 
 ```
->>> 23.isNumber
-true & { 23.isInteger }
+>>> 3.141.isNumber & { 3.141.isSmallFloat }
+true
 
->>> 3.141.isNumber
-true & { 3.141.isSmallFloat }
+>>> 23.isNumber & { 23.isSmallFloat & { 23.isInteger } }
+true
 
->>> 2/3.isNumber
-true & { 2/3.isFraction }
+>>> inf.isNumber & { inf.isSmallFloat & { inf.isFinite.not } }
+true
+```
 
->>> inf.isNumber
-true & { inf.isFinite.not }
+At `Fraction`:
 
+```
+>>> 2/3.isNumber & { 2/3.isFraction }
+true
+```
+
+At `Complex`:
+
+```
+>>> 2j3.isNumber & { 2j3.isComplex }
+true
+```
+
+A `String` is not a number:
+
+```
 >>> '23'.isNumber
 false
 ```

@@ -1,6 +1,6 @@
 # Record
 
-A _Record_ is a _Dictionary_ type where all the keys are strings.
+A `Record` is a `Dictionary` type where all the keys are strings.
 
 There is a literal syntax for records.
 
@@ -23,7 +23,7 @@ true
 ```
 
 At the ordinary _asRecord_ constructor it is an error if any key is not a string.
-There is an _basicAsRecord_ form that coerces keys to strings.
+There is a _basicAsRecord_ form that coerces keys to strings.
 
 ```
 >>> { [1.pi -> 'pi'].asRecord }.ifError { :err | true }
@@ -35,6 +35,6 @@ true
 
 * * *
 
-See also: asRecord, Association, Dictionary, Map
+See also: asRecord, Association, Dictionary, Dictionary Syntax, Map
 
 Categories: Collection, Type

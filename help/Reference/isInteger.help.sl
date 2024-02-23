@@ -1,10 +1,10 @@
 # isInteger
 
-_isInteger(anObject)_
+- _isInteger(anObject)_
 
-Answers true if the receiver is a number and is an integer, else false.
+Answers `true` if _anObject_ is a `Number` and is an `Integer`, else `false`.
 
-At SmallFloat:
+At `SmallFloat`:
 
 ```
 >>> 23.isInteger
@@ -17,7 +17,7 @@ false
 false
 ```
 
-At Fraction:
+At `Fraction`:
 
 ```
 >>> 2/3.isInteger
@@ -27,7 +27,7 @@ false
 true
 ```
 
-At Complex:
+At `Complex`:
 
 ```
 >>> 2j3.isInteger
@@ -49,6 +49,6 @@ false
 
 * * *
 
-See also: isNumber, isGaussianInteger, isSmallInteger
+See also: Integer, isNumber, isGaussianInteger, isSmallInteger
 
 Categories: Predicate

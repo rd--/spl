@@ -29,15 +29,15 @@ true
 [false true false]
 ```
 
-The _=_ method is not implemented at _Object_.
+The _=_ method is not implemented at `Object`.
 
 The name of this operator is _equalsSign_.
 
-The _=_ symbol is also a part of [Initialised Temporaries Syntax].
+The _=_ symbol is also a part of `Let Syntax`.
 
 * * *
 
-See also: ~=, ==, :=, equalSlots
+See also: ~=, ==, :=, equalSlots, Let Syntax
 
 References:
 _Apl_

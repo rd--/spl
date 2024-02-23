@@ -297,6 +297,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Number.isInteger(_self);>
 	}
 
+	isLiteral { :self |
+		true
+	}
+
 	isNaN { :self |
 		<primitive: return Number.isNaN(_self);>
 	}

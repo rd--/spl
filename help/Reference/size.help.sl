@@ -1,11 +1,11 @@
 # size
 
-_size(aCollection)_
+- _size(aCollection)_
 
 Answer the number of elements in _aCollection_.
 For indexable collections, this value is the same as the largest legal index.
 
-Size of a List:
+Size of a `List`:
 
 ```
 >>> [1, 2, 3, 4, 5].size
@@ -18,7 +18,7 @@ Size of a List:
 0
 ```
 
-Size of a Tuple:
+Size of a `Tuple`:
 
 ```
 >>> (1, 2, 3, 4, 5).size
@@ -28,7 +28,7 @@ Size of a Tuple:
 2
 ```
 
-Size of a Record:
+Size of a `Record`:
 
 ```
 >>> (x: 1, y: 2, z: 3).size
@@ -41,7 +41,7 @@ Size of a Record:
 0
 ```
 
-Size of a String:
+Size of a `String`:
 
 ```
 'text'.size
@@ -82,7 +82,7 @@ _size_ gives the maximum index that can be used in a List:
 5
 ```
 
-At Tree size is the number of sub-trees, see also _leafCount_:
+At `Tree` size is the number of sub-trees, see also _leafCount_:
 
 ```
 >>> [1 [2 3 4] 5].asTree.size

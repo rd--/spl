@@ -22,6 +22,6 @@ The syntax does not preclude further message sends:
 
 * * *
 
-See also: Trailing Dictionary Syntax]
+See also: Trailing Dictionary Syntax
 
 Categories: Syntax

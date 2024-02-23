@@ -202,7 +202,7 @@ Tree(2, [Tree(3, [Tree(4, [])])])
 
 * * *
 
-See also: List
+See also: asTree, List
 
 References:
 _Haskell_

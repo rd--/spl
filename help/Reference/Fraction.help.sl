@@ -147,7 +147,7 @@ The letter _r_ abbreviates _Fraction_ (_r_ for _rational_), in the same manner t
 3j7
 ```
 
-Written using [Infix Method Syntax] this provides a concise notation for writing Fractions with LargeInteger parts:
+Written using `Infix Method Syntax` this provides a concise notation for writing Fractions with `LargeInteger` parts:
 
 ```
 >>> (2n r: 3n).asTuple

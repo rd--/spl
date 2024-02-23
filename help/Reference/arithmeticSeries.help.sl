@@ -1,6 +1,6 @@
 # arithmeticSeries
 
-_arithmeticSeries(count, start, step)_
+- _arithmeticSeries(count, start, step)_
 
 Arithmetic series:
 

@@ -1,14 +1,14 @@
 # Comment Syntax
 
-Spl follows the Haskell comment notation.
+Spl follows the Haskell bracketed comment notation.
 
-There two forms,
+Haskell comments have two forms,
 a bracketed syntax that may span multiple lines,
 and a prefix syntax that comments until the end of a line.
 
-The bracket tokens are `{-` and `-}`.
+The Haskell bracket tokens are `{-` and `-}`.
 
-The prefix token is `--`.
+The Haskell prefix token is `--`.
 
 _Rationale_:
 The C-language family prefix comment token `//` means quotient in Smalltalk.

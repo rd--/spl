@@ -1,6 +1,6 @@
 # centralMoment
 
-- _centralMoment(aCollection, r)
+- _centralMoment(aCollection, r)_
 
 Answer the order _r_ central moment of _aCollection_.
 

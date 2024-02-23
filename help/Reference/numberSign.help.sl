@@ -12,21 +12,21 @@ The unary form is an alias for _size_.
 
 The binary form is an alias for _replicate_.
 
-With Integer count:
+With `Integer` count:
 
 ```
 >>> 3 # 5
 [3 3 3 3 3]
 ```
 
-With List count:
+With `List` count:
 
 ```
 >>> 3 # [2 3]
 [3 3 3; 3 3 3]
 ```
 
-C.f. reshape:
+C.f. `reshape`:
 
 ```
 >>> [3] # [2 3]
@@ -36,7 +36,7 @@ C.f. reshape:
 [3 3 3; 3 3 3]
 ```
 
-Cf. replicateEach:
+Cf. `replicateEach`:
 
 ```
 >>> [3 4] # [2 3]

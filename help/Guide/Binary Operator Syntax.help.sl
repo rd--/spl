@@ -83,17 +83,30 @@ true
 
 Math and logic binary operators:
 
-- +: plusSign, *: asterisk, -: hyphenMinus, /: solidus, %: percentSign
-- =: equalsSign, <: lessThanSign, >: greaterThanSign
-- &: ampersand, |: verticalLine, ~: tilde
+- `+`: plusSign
+- `*`: asterisk
+- `-`: hyphenMinus
+- `/`: solidus
+- `%`: percentSign
+- `=`: equalsSign
+- `<`: lessThanSign
+- `>`: greaterThanSign
+- `&`: ampersand
+- `|`: verticalLine
+- `~`: tilde
 
 Other binary operators:
 
-- !: exclamationMark, @: commercialAt, #: numberSign, $: dollarSign, ^: circumflexAccent
-- \: reverseSolidus, ?: questionMark
+- `!`: exclamationMark
+- `@`: commercialAt
+- `#`: numberSign
+- `$`: dollarSign
+- `^`: circumflexAccent
+- `\\`: reverseSolidus
+- `?`: questionMark
 
 * * *
 
-See also: Unary Operator Syntax]
+See also: Operator Names, Unary Operator Syntax
 
 Categories: Syntax

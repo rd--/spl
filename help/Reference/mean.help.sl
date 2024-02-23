@@ -1,15 +1,12 @@
 # mean
 
-- _mean(aCollection)_
+- _mean(alpha)_ => _arithmeticMean(alpha)_
 
-Answer the sum of the collection divided by the size.
+Answer the arithmeticMean of _aCollection_.
 
 ```
 >>> [1 .. 9].mean
 5
-
->>> let c = [1 .. 9];  c.sum / c.size = 5
-true
 
 >>> [1.21 3.4 2.15 4 1.55].mean
 2.462
@@ -17,7 +14,7 @@ true
 
 * * *
 
-See also: median, size, sum
+See also: arithmeticMean, geometricMean, median
 
 References:
 _Mathematica_

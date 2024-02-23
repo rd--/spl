@@ -1,13 +1,14 @@
-# Phasor -- a resettable linear ramp between two levels
+# Phasor
 
-_Phasor(trig, rate=1, start=0, end=1, resetPos=0)_
+- _Phasor(trig, rate=1, start=0, end=1, resetPos=0)_
 
+A resettable linear ramp between two levels.
 Phasor is a linear ramp between start and end values.
 When triggered the Phasor will jump to its reset position.
 Upon reaching the end of its ramp Phasor will wrap back to its start.
 Note: Since end is defined as the wrap point, its value is never actually output.
 
-Phasor is commonly used as an index control with [BufRd] and [BufWr].
+Phasor is commonly used as an index control with `BufRd` and `BufWr`.
 
 - trig: when triggered, reset value to resetPos (default: 0, Phasor outputs start initially)
 - rate: the amount of change per sample i.e at a rate of 1 the value of each sample will be 1 greater than the preceding sample
@@ -64,3 +65,10 @@ let bFrames = SfFrames(b);
 let resetPos = [0, MouseY(0, bFrames, 0, 0.2)];
 let x = Phasor(trig, SfRateScale(b), 0, bFrames, resetPos);
 SfRead(b, x, 1, 2)
+```
+
+* * *
+
+See also: Line
+
+Categories: Ugen

@@ -42,11 +42,11 @@ The name of this operator is _verticalLine_.
 
 Where supported _or_ is displayed as ∨.
 
-Note that _|_ is not displayed as ∨ because it is part of the [Block Syntax].
+Note that _|_ is not displayed as ∨ because it is part of the `Block Syntax.
 
 _Note:_
 In Smalltalk the evaluting form is called _or:_ and the non-evaluating form _|_.
-In Spl the names are _|_ and _||_.
+In Spl the names are `|` and `||`.
 
 * * *
 

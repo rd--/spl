@@ -12,12 +12,12 @@ This notation is particularly clear for methods that accept an _options_ diction
 
 The SuperCollider Ugen functions have unary instances at Record:
 
-```
-SinOsc(freq: 440, phase: 0)
-```
+~~~
+SinOsc(freq: 440, phase: 0) * 0.1
+~~~
 
 * * *
 
-See also: Trailing Block Syntax]
+See also: Trailing Block Syntax
 
 Categories: Syntax

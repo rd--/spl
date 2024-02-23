@@ -2,7 +2,7 @@
 
 Rewrite rule:
 
-- _(k: v, ...)_ ⟹ _Record(['k' → v, ...])_
+- _(k: v, ...)_ ⟹ _['k' → v, ...].asRecord_
 
 The notation _(p: x, q: y)_ constructs a `Record` with associations _'p' → x_ and _'q' → y_.
 

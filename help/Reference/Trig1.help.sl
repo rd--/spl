@@ -9,7 +9,7 @@ _Trig1_ outputs one for the specified _dur_ seconds,
 otherwise it outputs zero.
 Any trigger received while the output is non-zero is ignored.
 
-- in: trigger, cf. [What is a Trigger]
+- in: trigger, cf. `What is a Trigger`
 - dur: duration of the trigger output
 
 A Dust signal occasionally triggers a gate be held open for one fifth of a second.

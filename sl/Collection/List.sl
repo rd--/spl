@@ -48,6 +48,14 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		answer
 	}
 
+	isJson { :self |
+		self.allSatisfy(isJson:/1)
+	}
+
+	isLiteral { :self |
+		self.allSatisfy(isLiteral:/1)
+	}
+
 	isMatrix { :self |
 		self.allSatisfy { :each | each.isList & { each.isVector } } & {
 			self.collect(size:/1).asSet.size = 1

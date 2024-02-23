@@ -1,8 +1,8 @@
 # concatenation
 
-_concatenation(aCollection)_
+- _concatenation(aCollection)_
 
-Flattens the collection by one level into a List.
+Flattens the collection by one level into a `List`.
 
 ```
 >>> [[1, 2, 3], [4, 5], [6]].concatenation
@@ -12,9 +12,11 @@ Flattens the collection by one level into a List.
 [1, 2, 3, 4, 5, 6]
 ```
 
+Where supported this method is displayed as _⧻_.
+
 * * *
 
-See also: ++ or plusPlus
+See also: ++
 
 Unicode: U+29FB ⧻ Triple Plus
 

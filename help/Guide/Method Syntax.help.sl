@@ -2,48 +2,21 @@
 
 Rewrite rules:
 
-- _x.f_ ⟹ _f(x)_
-- _x.f(y, ...)_ ⟹ _f(x, y, ...)_
+- _x.f_ ⟹ _f(x)_ ⟹ _f:/1 . (x)_
+- _x.f(y, ...)_ ⟹ _f(x, y, ...)_ ⟹ _f:/n . (x, y, ...)_
 
-In the program below randomly spaced impulses (_Dust_) are scaled (_Mul_),
-trigger an envelope (_Decay_),
-which shapes a noise generator (_PinkNoise_),
-which is then filtered (_Bpf_) and
-echoed (_AllpassN_).
-The _lfo_ block generates quadratic noise (_LfNoise2_),
-which in then scaled (_Range_).
+The unary case:
 
 ```
-let lfo = { :freq :lo :hi |
-	LfNoise2(freq).Range(lo, hi)
-};
-Dust([1, 3])
-	.Mul(1 / 4)
-	.Decay((1 / 3).lfo(1 / 5, 5 / 7))
-	.Mul(PinkNoise())
-	.Bpf((1 / 3).lfo(700, 2300), (1 / 3).lfo(1 / 9, 3))
-	.AllpassN(1 / 5, 1 / 5, lfo(1 / 3, 1 / 3, 3))
+>>> 9.sqrt
+sqrt(9)
 ```
 
-The same program written in applicative form with infix operators:
+The binary case:
 
 ```
-let lfo = { :freq :lo :hi |
-	Range(LfNoise2(freq), lo, hi)
-};
-AllpassN(
-	Bpf(
-		PinkNoise() * Decay(
-			Dust([1, 3]) * 1 / 4,
-			lfo(1 / 3, 1 / 5, 5 / 7)
-		),
-		lfo(1 / 3, 700, 2300),
-		lfo(1 / 3, 1 / 9, 3)
-	),
-	1 / 5,
-	1 / 5,
-	lfo(1 / 3, 1 / 3, 3)
-)
+>>> 3.min(4)
+min(3, 4)
 ```
 
 _Rationale_:
@@ -57,5 +30,7 @@ _Note:_
 _().f_ means _f(())_.
 
 * * *
+
+See also: Apply Syntax
 
 Categories: Syntax

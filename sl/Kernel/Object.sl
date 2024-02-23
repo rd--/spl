@@ -127,6 +127,10 @@
 		].concatenation
 	}
 
+	isBinary { :self |
+		false
+	}
+
 	isByte { :self |
 		false
 	}
@@ -136,6 +140,14 @@
 	}
 
 	isInteger { :self |
+		false
+	}
+
+	isJson { :self |
+		false
+	}
+
+	isLiteral { :self |
 		false
 	}
 

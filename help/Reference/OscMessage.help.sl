@@ -14,4 +14,6 @@ An _Open Sound Control_ message consists of an _address_ string and a (possibly 
 
 * * *
 
+See also: OscParameter
+
 Categories: OpenSoundControl

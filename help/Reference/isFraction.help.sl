@@ -1,13 +1,23 @@
-# isFraction -- arithmetic
+# isFraction
 
 - _isFraction(anObject)_
 
-Answers if a value is a fraction.
-Both _Fraction_ and _Intergral_ values answer true.
+Answers if _anObject_ is a `Fraction`.
+Both `Fraction` and `Integer` values answer true.
 
-	2/3.isFraction
-	23.isFraction
+```
+>>> 2/3.isFraction
+true
+
+>>> 23.isFraction
+true
+
+>>> 3.141.isFraction
+false
+```
 
 * * *
 
 See also: denominator, Fraction, numerator
+
+Categories: Arithmetic, Testing

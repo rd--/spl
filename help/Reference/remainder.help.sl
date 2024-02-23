@@ -56,7 +56,7 @@ x
 
 * * *
 
-See also: \\\\, backslashBackslash, quotient, remainderBy
+See also: \\, quotient, remainderBy
 
 References:
 _Haskell_:

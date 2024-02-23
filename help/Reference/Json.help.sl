@@ -1,8 +1,8 @@
 # Json
 
-A Trait for types that have an encoding in Json.
+A `Trait` for types that have an encoding in Json.
 
-The types implementing the trait are: Nil, Boolean, SmallFloat, String, List & Record.
+The types implementing the trait are: `Nil`, `Boolean`, `SmallFloat`, `String`, `List` & `Record`.
 
 * * *
 

@@ -19,7 +19,7 @@ Harmonic mean of columns of a matrix:
 
 ```
 >>> [1 2; 5 10; 5 2; 4 8].harmonicMean
-[80 / 33, 160 / 49]
+[80/33 160/49]
 ```
 
 * * *

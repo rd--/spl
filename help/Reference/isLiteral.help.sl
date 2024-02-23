@@ -1,0 +1,52 @@
+# isLiteral
+
+- _isLiteral(anObject)_
+
+Answers `true` for values that have a literal representation in the grammar of the language,
+else `false`.
+
+The reserverd words `nil` (of type `Nil`) and `true` and `false` (of type `Boolean`) are all literals:
+
+```
+>>> [nil true false].collect(isLiteral:/1)
+[true true true]
+```
+
+`SmallFloat` and `LargeInteger` values are literals:
+
+```
+>>> [3.141 23n].collect(isLiteral:/1)
+[true true]
+```
+
+`Fraction` and `Complex` are both literals, but not `isJson` or `isImmediate`.
+
+```
+>>> [3/4 3j4].collect(isLiteral:/1)
+[true true]
+```
+
+`String` is a literal, `Character` and `RegExp` are not:
+
+```
+>>> 'string'.isLiteral
+true
+```
+
+A `List` is a literal if all of the items it holds are literal:
+
+```
+>>> [nil true false 3.14 23n 3/4 3j4 'x'].isLiteral
+true
+```
+
+A `Record` is a literal if all of the items it holds are literal:
+
+```
+>>> (x: 3.141, y: 23n, z: 3/4).isLiteral
+true
+```
+
+* * *
+
+See also: isImmediate, isJson

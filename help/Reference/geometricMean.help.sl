@@ -20,7 +20,7 @@ The product of _aCollection_ raised to the reciprocal of the size.
 
 * * *
 
-See also: arithmeticMean, mean
+See also: arithmeticMean, harmonicMean, mean, median
 
 References:
 _Mathematica_

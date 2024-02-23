@@ -45,7 +45,7 @@ true
 true
 ```
 
-There is [At Sytax] for accessing indexed values:
+There is `At Sytax` for accessing indexed values:
 
 ```
 >>> let l = ['x', 'y'];

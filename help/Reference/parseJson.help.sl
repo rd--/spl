@@ -1,45 +1,45 @@
 # parseJson
 
-_parseJson(aString)_
+- _parseJson(aString)_
 
-Answer the value represented by the Json encoded _aString_.
+Answer the value represented by the _Json_ encoded _aString_.
 
-Nil:
+Parse `Nil`:
 
 ```
 >>> 'null'.parseJson
 nil
 ```
 
-Boolean:
+Parse `Boolean`:
 
 ```
 >>> ['true' 'false'].collect(parseJson:/1)
 [true false]
 ```
 
-SmallFloat:
+Parse `SmallFloat`:
 
 ```
 >>> ['3.141' '23'].collect(parseJson:/1)
 [3.141 23]
 ```
 
-String:
+Parse `String`:
 
 ```
 >>> '"str"'.parseJson
 'str'
 ```
 
-List:
+Parse `List`:
 
 ```
 >>> '[3.141,23]'.parseJson
 [3.141, 23]
 ```
 
-Record:
+Parse `Record`:
 
 ```
 >>> '{"x":3.141,"y":23}'.parseJson

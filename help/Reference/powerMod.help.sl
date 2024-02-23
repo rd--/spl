@@ -1,6 +1,6 @@
 # powerMod
 
-_powerMod(a, b, m)_
+- _powerMod(a, b, m)_
 
 Answers _a ^ b % m_.
 

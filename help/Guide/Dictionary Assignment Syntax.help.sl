@@ -1,4 +1,4 @@
-# Dictionary Assignment Syntax -- syntax
+# Dictionary Assignment Syntax
 
 There is dictionary assignment syntax for both temporary variable initialisers:
 
@@ -19,6 +19,6 @@ and for variable assignment:
 
 * * *
 
-See also: List Assignment Syntax]
+See also: List Assignment Syntax
 
-
+Categories: Syntax

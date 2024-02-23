@@ -2,7 +2,7 @@
 
 .. is a syntax token, it is not an operator.
 
-It forms a part of [Range Syntax].
+It forms a part of `Range Syntax`.
 
 The notation _(from .. to)_ create a _Range_ from _from_ to _to_.
 

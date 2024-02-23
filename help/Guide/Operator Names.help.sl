@@ -30,7 +30,6 @@ Operator token names:
 Syntax token names:
 
 - `,`: comma
-- `:`: colon
 - `;`: semicolon
 - `.`: fullStop
 - `(`: leftParenthesis
@@ -41,7 +40,7 @@ Syntax token names:
 - `}`: rightCurlyBracket
 - `"`: quotationMark
 - `'`: apostrophe
-- \`: graveAccent
+- `\\`: graveAccent
 
 * * *
 

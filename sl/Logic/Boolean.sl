@@ -88,6 +88,10 @@ Boolean! : [Object, Json] {
 		true
 	}
 
+	isLiteral { :self |
+		true
+	}
+
 	not { :self |
 		<primitive: return _self ? false : true;>
 	}

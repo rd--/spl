@@ -4,7 +4,7 @@
 - _sort(aSequence)_ ≡ _sort(aSequence, <=)_
 
 Sort _aSequence_ in place using the comparator _aBlock_.
-If the sort block is omitted or is nil, sort by _<=_.
+If the sort block is omitted or is nil, sort by `<=`.
 
 ```
 >>> let a = [3 2 1];

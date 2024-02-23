@@ -1,7 +1,17 @@
-# nil -- undefined object
+# nil
 
-_nil_ represents a prior value for variables that have not been initialized, or for results which are meaningless.
+`nil` represents a prior value for variables that have not been initialized,
+or for results which are meaningless.
+
+```
+>>> nil.isNil
+true
+```
+
+`nil` is a reserved word, like `true` and `false`.
 
 * * *
 
-See also: Nil, Void
+See also: false, Nil, true, Void
+
+Categories: UndefinedObject, Type, Reserved Word

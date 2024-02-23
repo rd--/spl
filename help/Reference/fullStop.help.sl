@@ -2,7 +2,7 @@
 
 . is a syntax token, it is not an operator.
 
-A full stop separates the _receiver_ from the _method selector_ in [Method Syntax]:
+A full stop separates the _receiver_ from the _method selector_ in `Method Syntax`:
 
 ```
 >>> 9.sqrt
@@ -12,7 +12,7 @@ A full stop separates the _receiver_ from the _method selector_ in [Method Synta
 7
 ```
 
-A full stop separates the _procedure_ from the _parameter list_ in [Value Apply Syntax]:
+A full stop separates the _procedure_ from the _parameter list_ in `Value Apply Syntax`:
 
 ```
 >>> sqrt:/1 . (9)

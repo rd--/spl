@@ -19,7 +19,7 @@ true
 
 * * *
 
-See also: Block Syntax, Block Semantics
+See also: Apply Syntax, Block Syntax, Block Semantics, Value Apply Syntax
 
 Unicode: U+03BB λ Greek Small Letter Lamda
 

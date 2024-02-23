@@ -2,7 +2,7 @@
 
 - _standardDeviation(aCollection)_
 
-The standard deviation is the square root of the variance.
+The standard deviation is the square root of the `variance`.
 
 ```
 >>> [1.21 3.4 2 4.66 1.5 5.61 7.22].standardDeviation
