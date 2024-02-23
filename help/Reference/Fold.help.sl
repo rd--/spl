@@ -9,23 +9,23 @@ This differs from `Fold2` in that it allows one to set both low and high thresho
 - lo: low threshold of folding, values < lo will be folded.
 - hi: high threshold of folding, values > hi will be folded.
 
-~~~
+```
 Fold(SinOsc(440, 0) * 0.2, -0.1, 0.1)
-~~~
+```
 
 Modulate both fold points, at different ratios:
 
-~~~
+```
 let x = MouseX(0.1, 0.2, 0, 0.2);
 Fold(SinOsc(440, 0) * 0.2, x.Neg / 2, x)
-~~~
+```
 
 Modulate one fold point:
 
-~~~
+```
 let x = MouseX(0.1, 0.2, 0, 0.2);
 Fold(SinOsc(440, 0) * 0.2, -0.2, x)
-~~~
+```
 
 * * *
 

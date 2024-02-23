@@ -20,13 +20,13 @@ All of the parameters are integers and cannot be modulated.
 
 Default parameters:
 
-~~~
+```
 LinCongC(22050, 1.1, 0.13, 1.0, 0) * 0.1
-~~~
+```
 
 Texture:
 
-~~~
+```
 { :tr |
 	let freq = SampleRate() / 2;
 	let m = TiRand(0, 1000000, tr);
@@ -34,7 +34,7 @@ Texture:
 	let c = TiRand(1, 30000, tr);
 	LinCongC(freq, a, c, m, { TiRand(0, m, tr) } ! 2) * 0.05
 }.OverlapTexture(1, 2, 4).Mix
-~~~
+```
 
 * * *
 

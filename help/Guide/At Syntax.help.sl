@@ -60,6 +60,6 @@ The @* operator expresses this method succinctly:
 
 * * *
 
-See also: AtIfAbsent Syntax, AtPut Syntax, Quoted At Syntax
+See also: @*, AtPut Syntax, Quoted At Syntax
 
 Categories: Syntax

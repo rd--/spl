@@ -12,6 +12,17 @@ Variables must be declared.
 9
 ```
 
+Variables defined using `let` may be mutated:
+
+```
+>>> let x = 1;
+>>> x := 3;
+>>> x * x
+9
+```
+
 * * *
 
-See also: :=
+See also: :=, Let Syntax, Var Syntax
+
+Categories: Syntax

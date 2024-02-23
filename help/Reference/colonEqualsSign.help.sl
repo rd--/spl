@@ -18,7 +18,7 @@ or as a colon equals glyph, ≔.
 
 * * *
 
-See also: =
+See also: =, Assignment Syntax
 
 Unicode: U+2190 ← Leftwards Arrow, U+2254 ≔ Colon Equals
 

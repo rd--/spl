@@ -15,26 +15,26 @@ Plays back a memory resident sample.
 
 Normal playback at same speed of recording:
 
-~~~
+```
 let sf = SfAcquireMono('floating_1');
 PlayBuf(1, sf, 1, 0, 0, 1, 0)
-~~~
+```
 
 Accelerating pitch:
 
-~~~
+```
 let sf = SfAcquireMono('floating_1');
 let rate = XLine(0.1, 100, 60);
 PlayBuf(1, sf, rate, 0, 0, 1, 0)
-~~~
+```
 
 Sine wave control of playback rate. Negative rate plays backwards:
 
-~~~
+```
 let sf = SfAcquireMono('floating_1');
 let rate = SinOsc(XLine(0.2, 8, 30), 0) * 2 + 0.1;
 PlayBuf(1, sf, rate, 0, 0, 1, 0)
-~~~
+```
 
 * * *
 

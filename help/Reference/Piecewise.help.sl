@@ -13,7 +13,10 @@ The default value for _defaultValue_ is _0.constant_.
 Plot a piecewise function with different pieces below and above zero:
 
 ~~~
-let pieces = [({ :x | x ^ 2 }, { :x | x < 0 }), ({ :x | x }, { :x | x > 0 })];
+let pieces = [
+	({ :x | x ^ 2 }, { :x | x < 0 }),
+	({ :x | x }, { :x | x > 0 })
+];
 let pieceWise = Piecewise(pieces);
 (-2, -1.95 .. 2).collect { :x | pieceWise.value(x) }.plot
 ~~~
@@ -21,7 +24,10 @@ let pieceWise = Piecewise(pieces);
 Plot another piecewise function with branches below and at zero, and with a _defaultValue_:
 
 ~~~
-let pieces = [({ :x | x.sin / x }, { :x | x < 0}), ({ :x | 1 }, { :x | x = 0 })];
+let pieces = [
+	({ :x | x.sin / x }, { :x | x < 0}),
+	({ :x | 1 }, { :x | x = 0 })
+];
 let defaultValue = { :x | (x ^ 2).- / 100 + 1 };
 let pieceWise = Piecewise(pieces, defaultValue:/1) ;
 (-10, -9.9 .. 10).collect { :x | pieceWise.value(x) }.plot

@@ -1,6 +1,6 @@
 # atAll
 
-_atAll(aSequence, indices)_
+- _atAll(aSequence, indices)_
 
 Answer a new collection like _aSequence_ containing all elements of _aSequence_ at _indices_.
 

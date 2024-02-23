@@ -13,6 +13,6 @@ The notation _(p: x, q: y)_ constructs a `Record` with associations _'p' → x_ 
 
 * * *
 
-See also: Initialised Temporaries Syntax, Quoted At Syntax, Quoted Put Syntax, Record
+See also: List Syntax, Quoted At Syntax, Quoted AtPut Syntax, Record
 
 Categories: Syntax

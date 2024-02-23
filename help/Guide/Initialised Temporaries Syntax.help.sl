@@ -23,6 +23,6 @@ s + (0.2 * y)
 
 * * *
 
-See also: Let Syntax, Variable Keyword Syntax
+See also: Let Syntax, Var Syntax
 
 Categories: Syntax

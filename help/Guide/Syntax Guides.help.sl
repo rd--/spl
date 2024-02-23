@@ -2,10 +2,13 @@
 
 ## Core Syntax
 
+- `Assignment Syntax`
 - `Block Syntax`
 - `List Syntax`
 - `Literals Syntax`
+- `Program Syntax`
 - `Value Apply Syntax`
+- `Var Syntax`
 
 ## Standard Syntax
 

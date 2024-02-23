@@ -1,6 +1,6 @@
 # atPath
 
-_atPath(aCollection, indices)_
+- _atPath(aCollection, indices)_
 
 The _indices_ describe a path of accesses into _aCollection_, taken in sequence.
 

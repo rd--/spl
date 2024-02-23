@@ -1,17 +1,16 @@
 # @*
 
 - aBlock:/1 @* aBlock:/1
+- aCollection @* aCollection
 
-The operator (infix) form of _compose_.
+At `Block` the operator (infix) form of _compose_:
 
 ```
 >>> (squared:/1 @* sqrt:/1) . (23)
 23
 ```
 
-- aCollection @* aCollection
-
-The operator (infix) form of _atAll_.
+At `Collection` the operator (infix) form of _atAll_.
 
 ```
 >>> let c = [1 .. 9];
