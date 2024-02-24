@@ -21,7 +21,7 @@ Subsets containing exactly 2 elements:
 All subsets with odd length:
 
 ```
->>> [1 2 3 4].subsets { :each | each.size.odd }
+>>> [1 2 3 4].subsets { :each | each.size.isOdd }
 [1; 2; 3; 1 2 3; 4; 1 2 4; 1 3 4; 2 3 4]
 ```
 

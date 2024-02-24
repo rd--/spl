@@ -1181,7 +1181,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'clamp'
 		'clampHigh'
 		'clampLow'
-		'even'
+		'isEven'
 		'isByte'
 		'isFinite'
 		'isGaussianInteger'
@@ -1194,7 +1194,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isSmallInteger'
 		'isStrictlyPositive'
 		'isZero'
-		'odd'
+		'isOdd'
 		'sign'
 	],
 	'testing-string': [

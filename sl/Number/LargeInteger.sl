@@ -129,10 +129,6 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		self.error('bitXor: operand not a LargeInteger or SmallFloat')
 	}
 
-	even { :self |
-		(self % 2) = 0
-	}
-
 	highBitOfMagnitude { :self |
 		valueWithReturn { :return:/1 |
 			let realLength = self.digitLength;
@@ -149,6 +145,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		}
 	}
 
+	isEven { :self |
+		(self % 2n) = 0n
+	}
+
 	isImmediate { :self |
 		true
 	}
@@ -161,8 +161,8 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		true
 	}
 
-	odd { :self |
-		(self % 2) = 1
+	isOdd { :self |
+		(self % 2n) = 1n
 	}
 
 	one { :self |

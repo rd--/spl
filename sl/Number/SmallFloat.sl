@@ -261,10 +261,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.cbrt(_self);>
 	}
 
-	even { :self |
-		<primitive: return _self % 2 === 0;>
-	}
-
 	exp { :self |
 		<primitive: return Math.exp(_self)>
 	}
@@ -279,6 +275,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	isBinary { :self |
 		<primitive: return sl.isBitwise(_self);>
+	}
+
+	isEven { :self |
+		<primitive: return _self % 2 === 0;>
 	}
 
 	isFinite { :self |
@@ -303,6 +303,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	isNaN { :self |
 		<primitive: return Number.isNaN(_self);>
+	}
+
+	isOdd { :self |
+		<primitive: return Math.abs(_self % 2) === 1;>
 	}
 
 	isSmallInteger { :self |
@@ -353,7 +357,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 				'nthRoot: only defined for positive integers'.error
 			};
 			self.isNegative.if {
-				aPositiveInteger.odd.if {
+				aPositiveInteger.isOdd.if {
 					(self.negated ^ (1 / aPositiveInteger)).negated
 				} {
 					'nthRoot: negative numbers do not have even roots.'.error
@@ -367,10 +371,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	Number { :self |
 		self
-	}
-
-	odd { :self |
-		<primitive: return Math.abs(_self % 2) === 1;>
 	}
 
 	one { :self |

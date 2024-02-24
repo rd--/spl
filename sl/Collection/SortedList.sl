@@ -56,7 +56,7 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 
 	median { :self |
 		let n = self.size;
-		n.odd.if {
+		n.isOdd.if {
 			self[n // 2 + 1]
 		} {
 			let i = n // 2;

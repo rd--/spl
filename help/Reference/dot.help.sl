@@ -1,6 +1,6 @@
 # dot
 
-_dot(aSequence, anotherSequence)_
+- _dot(aSequence, anotherSequence)_
 
 Scalar product of vectors in two dimensions:
 
@@ -14,6 +14,12 @@ Scalar product of vectors in three dimensions:
 ```
 >>> [3.2 4.2 5.2].dot([0.75 1.1 0.0625])
 7.345
+
+>>> [1 1 1] dot: [-1 -1 1]
+-1
+
+>>> [1 -1 2] dot: [0 1 1]
+1
 ```
 
 Dot product of exact vectors:
@@ -75,7 +81,7 @@ Products involving m, c and r have the same entries as those involving m and v, 
 
 Define a matrix and two vectors.
 Since _m.u_ is a vector, _m.u.v_ is an allowed product.
-Note that it is effectively multiplying  on the left side of the matrix, not the right.
+Note that it is effectively multiplying _v_ on the left side of the matrix, not the right.
 
 ```
 >>> let m = [0.5 0.32; 0.19 0.73];
@@ -146,6 +152,8 @@ v.norm
 See also: inner, outer
 
 References:
+_Maple_
+[1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=VectorCalculus/DotProduct),
 _Mathematica_
 [1](https://mathworld.wolfram.com/DotProduct.html)
 [2](https://reference.wolfram.com/language/ref/Dot.html)

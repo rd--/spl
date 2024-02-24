@@ -35,7 +35,7 @@ The first few prime powers that are not prime:
 Recognize Mersenne numbers, integers that have the form _2^n - 1_:
 
 ```
->>> let isMersenneNumber = { :n | (n + 1).even & { (n + 1).isPrimePower } };
+>>> let isMersenneNumber = { :n | (n + 1).isEven & { (n + 1).isPrimePower } };
 >>> [524285, 2147483647].collect(isMersenneNumber:/1)
 [false, true]
 ```

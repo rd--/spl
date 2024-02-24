@@ -7,24 +7,24 @@ If _aBlock:/1_ answers true for any element return true, otherwise return false.
 Only tests elements until one elements answers true.
 
 ```
->>> [1 3 5 7 9].anySatisfy(even:/1)
+>>> [1 3 5 7 9].anySatisfy(isEven:/1)
 false
 
->>> [1 2 3 4 5].anySatisfy(even:/1)
+>>> [1 2 3 4 5].anySatisfy(isEven:/1)
 true
 ```
 
 An empty collection always answers false:
 
 ```
->>> [].anySatisfy(even:/1)
+>>> [].anySatisfy(isEven:/1)
 false
 ```
 
 At Record:
 
 ```
->>> (a: 2, b: 3, c: 6).anySatisfy(odd:/1)
+>>> (a: 2, b: 3, c: 6).anySatisfy(isOdd:/1)
 true
 ```
 

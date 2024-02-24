@@ -10,14 +10,14 @@ Answer the trace of the matrix or tensor list.
 (1 + 5 + 9)
 ```
 
-For a vector Tr gives the sum of the elements:
+For a vector `trace` gives the sum of the elements:
 
 ```
 >>> 1:3.trace
 (1 + 2 + 3)
 ```
 
-For a higher-rank Array, trace gives the sum of elements with equal indices:
+For a higher-rank Array, trace gives the `sum` of elements with equal indices:
 
 ```
 >>> [3 3 3].iota.trace
@@ -38,7 +38,7 @@ Find the determinant of a triangular matrix:
 (1 * 4 * 6)
 ```
 
-_trace(m, asList:/1)_ is equivalent to _diagonal(m)_ for a matrix m:
+_trace(m, asList:/1)_ is equivalent to _diagonal(m)_ for a matrix _m_:
 
 ```
 >>> let m = [1 2 3; 4 5 6];
@@ -48,7 +48,7 @@ _trace(m, asList:/1)_ is equivalent to _diagonal(m)_ for a matrix m:
 
 * * *
 
-See also: diagonal, transpose
+See also: diagonal, transposed
 
 References:
 _Mathematica_

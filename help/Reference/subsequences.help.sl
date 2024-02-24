@@ -26,7 +26,7 @@ Subsequences containing exactly two elements:
 All subsequences with even length:
 
 ```
->>> 1:5.subsequences { :each | each.size.even }
+>>> 1:5.subsequences { :each | each.size.isEven }
 [; 1 2; 2 3; 3 4; 4 5; 1 2 3 4; 2 3 4 5]
 ```
 

@@ -27,7 +27,7 @@ At List:
 >>> [1, [2, [3]]].deepIndices
 [1; 2 1; 2 2 1]
 
->>> [1, [2, [3]]].deepIndices(even:/1)
+>>> [1, [2, [3]]].deepIndices(isEven:/1)
 [[2, 1]]
 ```
 
@@ -47,7 +47,7 @@ At Record:
 >>> (x: 1, y: (x: 2, y:3), z: (x: 4, y: 5, z: 6)).deepIndices
 ['x'; 'y' 'x'; 'y' 'y'; 'z' 'x'; 'z' 'y'; 'z' 'z']
 
->>> (x: 1, y: (x: 2, y:3), z: (x: 4, y: 5, z: 6)).deepIndices(even:/1)
+>>> (x: 1, y: (x: 2, y:3), z: (x: 4, y: 5, z: 6)).deepIndices(isEven:/1)
 ['y' 'x'; 'z' 'x'; 'z' 'z']
 ```
 

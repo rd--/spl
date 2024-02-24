@@ -7,10 +7,10 @@ If _aBlock_ returns false for any element return false, otherwise return true.
 Only tests elements until one answers false.
 
 ```
->>> [1 3 5 7 9].allSatisfy(odd:/1)
+>>> [1 3 5 7 9].allSatisfy(isOdd:/1)
 true
 
->>> 1:5.allSatisfy(odd:/1)
+>>> 1:5.allSatisfy(isOdd:/1)
 false
 
 >>> 1:5.allSatisfy { :each | each > 3 }
@@ -20,7 +20,7 @@ false
 The empty list always answers true:
 
 ```
->>> [].allSatisfy(odd:/1)
+>>> [].allSatisfy(isOdd:/1)
 true
 ```
 

@@ -12,7 +12,7 @@ Answer a List of the _value_ of each of the leaf trees:
 Count the even numbers in a Tree:
 
 ```
->>> [1 [2 [3] 4] 5].asTree.count { :each | each.value.isNumber & { each.value.even } }
+>>> [1 [2 [3] 4] 5].asTree.count { :each | each.value.isNumber & { each.value.isEven } }
 2
 ```
 

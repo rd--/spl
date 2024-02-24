@@ -65,7 +65,7 @@ Find all partitions of 8 that involve only 1, 2, and 5:
 Find partitions of 6 of even length only:
 
 ```
->>> 6.integerPartitions.select { :each | each.size.even }
+>>> 6.integerPartitions.select { :each | each.size.isEven }
 [5 1; 4 2; 3 3; 3 1 1 1; 2 2 1 1; 1 1 1 1 1 1]
 ```
 

@@ -73,7 +73,7 @@
 			(self <= 3).ifTrue {
 				true.return
 			};
-			self.even.ifTrue {
+			self.isEven.ifTrue {
 				false.return
 			};
 			d := self - 1;

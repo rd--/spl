@@ -6,10 +6,10 @@ Like in Sql answer the contents of _aCollection_ split into groups for which _ke
 The answer is a Map keyed by the answers of _keyBlock_.
 
 ```
->>> [1 .. 5].groupBy(even:/1).keys
+>>> [1 .. 5].groupBy(isEven:/1).keys
 [false, true]
 
->>> [1 .. 5].groupBy(even:/1)[true]
+>>> [1 .. 5].groupBy(isEven:/1)[true]
 [2, 4]
 ```
 

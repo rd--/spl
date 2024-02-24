@@ -51,7 +51,7 @@ Size of a `String`:
 0
 ```
 
-Find the number of rows (or columns) in a matrix:
+Find the number of rows in a matrix:
 
 ```
 >>> [1 2 3; 4 5 6].size

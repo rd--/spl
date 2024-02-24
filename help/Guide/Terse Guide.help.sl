@@ -309,17 +309,17 @@ let a = [1, 3, 5, 7]; a.reverse; a = [7, 5, 3, 1] {- array reverse (in place) -}
 [1, 2, 3, 5, 7, 9].collect(sqrt:/1).sum.rounded = 12
 [9, 16, 25].collect(sqrt:/1) = [3, 4, 5]
 [9, 16, 25].collect { :each | sqrt(each) } = [3, 4, 5]
-[].allSatisfy(odd:/1) = true
-[1, 3, 5, 7, 9].allSatisfy(odd:/1) = true
-[1, 2].allSatisfy(odd:/1) = false
-[].anySatisfy(odd:/1) = false
-[0, 2, 4, 6, 8].anySatisfy(odd:/1) = false
-[0, 1].anySatisfy(odd:/1) = true
-[].noneSatisfy(odd:/1) = true {- empty collection answers true -}
-[1, 3, 5, 7, 9].noneSatisfy(even:/1) = true {- no odd number is even -}
-1:5.noneSatisfy(odd:/1) = false {- one is odd -}
-1:5.oneSatisfies { :each | each.even & { each > 2 } } {- exactly one element matches -}
-1:5.count { :each | each.even & { each > 2 } } = 1 {- exactly one element matches -}
+[].allSatisfy(isOdd:/1) = true
+[1, 3, 5, 7, 9].allSatisfy(isOdd:/1) = true
+[1, 2].allSatisfy(isOdd:/1) = false
+[].anySatisfy(isOdd:/1) = false
+[0, 2, 4, 6, 8].anySatisfy(isOdd:/1) = false
+[0, 1].anySatisfy(isOdd:/1) = true
+[].noneSatisfy(isOdd:/1) = true {- empty collection answers true -}
+[1, 3, 5, 7, 9].noneSatisfy(isEven:/1) = true {- no odd number is even -}
+1:5.noneSatisfy(isOdd:/1) = false {- one is odd -}
+1:5.oneSatisfies { :each | each.isEven & { each > 2 } } {- exactly one element matches -}
+1:5.count { :each | each.isEven & { each > 2 } } = 1 {- exactly one element matches -}
 [1 .. 3] ++ [4 .. 6] = [1 .. 6] {- addAllLast, answering new like collection, unicode = ⧺ -}
 let a = [1 .. 3]; a.addAllLast([4 .. 6]); a = [1 .. 6]
 let a = [1 .. 3]; let b = a ++ [4 .. 6]; a ~~ b & { a = [1 .. 3] } & { b = [1 .. 6] }
@@ -408,7 +408,7 @@ let a = List(1); a.basicAt(3).isNil = true {- basic (unsafe) indexing, out of bo
 { let a = [1]; a[3] := 'x' }.ifError { true } {- out of bound mutation is an error -}
 let a = List(1); a.basicAtPut(3, 'x') = 'x' & { a.size = 3 } {- basic (unsafe) mutation, out of bounds indices extend array -}
 List:/1.newFrom(Range(1, 5, 2)) = [1, 3, 5]
-[1 .. 9].count(even:/1) = 4
+[1 .. 9].count(isEven:/1) = 4
 [nil, true, false, 3.141, 23, 'str'].json = '[null,true,false,3.141,23,"str"]' {- json encodings -}
 '[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str'] {- json parsing -}
 [1, 2, 3].select { :x | x > 1 } = [2, 3] {- select items in collection -}
@@ -433,8 +433,8 @@ List:/1.newFrom(Range(1, 5, 2)) = [1, 3, 5]
 [1 .. 5].beginsWith([1 .. 3]) = true {- does sequence begin with subsequence -}
 { [1 .. 5].beginsWith(1) = false }.ifError { true } {- prefix must be a sequence -}
 [1 .. 5].beginsWithAnyOf([[4, 5], [3, 4], [2, 3]]) = false {- does sequence begin with any of a set of subsequences -}
-[1 .. 5].groupBy(even:/1).indices = [false, true] {- answer a Map grouping elements according to a predicate -}
-[1 .. 5].groupBy(even:/1)[true] = [2, 4]
+[1 .. 5].groupBy(isEven:/1).indices = [false, true] {- answer a Map grouping elements according to a predicate -}
+[1 .. 5].groupBy(isEven:/1)[true] = [2, 4]
 let a = []; [1, 'x', 2, 'y', 3, 'x'].pairsDo { :p :q | a.add(q -> p) }; a = ['x' -> 1, 'y' -> 2, 'x' -> 3] {- iterate adjacent pairs -}
 let r = (); [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | r.add(q -> p) }; r::elmer = 3 {- iterate adjacent pairs -}
 [1 .. 9].indexOfSubCollection([3 .. 5]) = 3
@@ -483,10 +483,10 @@ let a = [1 .. 9]; a.reject { :each | a.includes(each) } = [] {- reject all -}
 let a = []; [1 .. 3].doSeparatedBy { :each | a.add(each) } { a.add(0) }; a = [1, 0, 2, 0, 3]
 [1, 2, 3].intersperse(0) = [1, 0, 2, 0, 3]
 let a = []; [1 .. 3].doWithout({ :each | a.add(each) }, 2); a = [1, 3]
-[1 .. 9].selectThenCollect(even:/1) { :each | each * 3 } = [6, 12, 18, 24] {- avoid intermediate collection -}
+[1 .. 9].selectThenCollect(isEven:/1) { :each | each * 3 } = [6, 12, 18, 24] {- avoid intermediate collection -}
 [1 .. 9].collectThenSelect(squared:/1) { :each | each > 36 } = [49, 64, 81] {- avoid intermediate collection -}
 [1, 3 .. 9].union([3 .. 7]) = [1, 3, 4, 5, 6, 7, 9].asSet {- set theoretic union, unicode = ∪ -}
-let a = [1 .. 9]; a.removeAllSuchThat(even:/1); a = [1, 3 .. 9] {- remove elements selected by predicate -}
+let a = [1 .. 9]; a.removeAllSuchThat(isEven:/1); a = [1, 3 .. 9] {- remove elements selected by predicate -}
 let a = [1 2 2]; a.removeAllSuchThat { :each | each = 2 }; a = [1] {- remove elements selected by predicate, answers copy of self -}
 let a = [1 2 2]; a.removeAllSuchThat { :each | each = 3 }; a = [1 2 2] {- it is not an error if no elements match -}
 let a = [1 2 2 3 3 3]; a.removeAllEqualTo(3); a = [1 2 2] {- remove all elements equal to argument -}
@@ -756,12 +756,12 @@ nil.isNil = true {- test if object is nil -}
 0.isNonNegative = (0 >= 0) {- test if number is non-negative -}
 0.isPositive = (0 > 0) {- test if number is greater than zero -}
 -1.isNegative = true {- test if number is negative -}
-2.even = true {- test if number is even -}
-1.even = false {- one is not even -}
-1073741825.even = false {- a large odd number is not even -}
-1073741824.even = true {- a large even number is even -}
-1.odd = true {- test if number is odd -}
-2.odd = false {- two is not odd -}
+2.isEven = true {- test if number is even -}
+1.isEven = false {- one is not even -}
+1073741825.isEven = false {- a large odd number is not even -}
+1073741824.isEven = true {- a large even number is even -}
+1.isOdd = true {- test if number is odd -}
+2.isOdd = false {- two is not odd -}
 'A'.isUppercase = true {- test if upper case character -}
 'a'.isLowercase = true {- test if lower case character -}
 false.asBit = 0 {- boolean as bit, false is zero -}
@@ -956,10 +956,10 @@ let c = 1:9; c.sum / c.size = 5 {- sum of collection divided by size -}
 [9, 4, 5, 7, 8, 6].injectInto(1) { :z :e | e * z } = 60480 {- product of collection -}
 [9, 4, 5, 7, 8, 6].includes(7) = true {- is element in collection, i.e. contains -}
 [9, 4, 5, 7, 8, 6].includes(3) = false {- is element in collection -}
-[9, 4, 5, 7, 8, 6].count { :item | item.even } = 3 {- count elements that satisfy predicate -}
-[9, 4, 5, 7, 8, 6].anySatisfy { :item | item.even } = true {- do any elements satisfy predicate -}
+[9, 4, 5, 7, 8, 6].count { :item | item.isEven } = 3 {- count elements that satisfy predicate -}
+[9, 4, 5, 7, 8, 6].anySatisfy { :item | item.isEven } = true {- do any elements satisfy predicate -}
 [].anySatisfy { :item | true } = false {- anySatisfy is false for empty collections -}
-[9, 4, 5, 7, 8, 6].allSatisfy { :item | item.even } = false {- do all elements satisfy predicate -}
+[9, 4, 5, 7, 8, 6].allSatisfy { :item | item.isEven } = false {- do all elements satisfy predicate -}
 [].allSatisfy { :item | false } = true {- allSatisfy is true for empty collections -}
 [9, 4, 5, 7, 8, 6].occurrencesOf(7) = 1 {- count elements that are equal to object -}
 [1, 2, 3, 4, 5].atRandom <= 5 {- random element of collection -}
@@ -1334,10 +1334,10 @@ Date(system) > 0.asDate {- dates are magnitudes -}
 ## Dictionary -- collection trait
 ```
 system.includesPackage('Dictionary') {- package -}
-(x: 1, y: 2, z: 3).count(even:/1) = 1 {- count elements that match predicate -}
+(x: 1, y: 2, z: 3).count(isEven:/1) = 1 {- count elements that match predicate -}
 (x: 1, y: 2).select { :each | false } = () {- select nothing -}
-(x: 1, y: 2, z: 3).select(odd:/1) = (x: 1, z: 3) {- select odd values -}
-(x: 1, y: 2, z: 3).select(even:/1) = (y: 2) {- select even values -}
+(x: 1, y: 2, z: 3).select(isOdd:/1) = (x: 1, z: 3) {- select odd values -}
+(x: 1, y: 2, z: 3).select(isEven:/1) = (y: 2) {- select even values -}
 { ().at('x') }.ifError { true } {- indexing with an unknown key is an error -}
 (x: nil).at('x') = nil {- as does indexing a field that is set to nil -}
 (x: nil).size = 1 {- nil fields exist -}
@@ -1365,8 +1365,8 @@ let d = (x: 1, y: 2, z: 3); d.replace(squared:/1); d = (x: 1, y: 4, z: 9) {- rep
 (x: 1, y: 2) ++ (x: 2, y: 1) = (x: 2, y: 1) {- appending two dictionaries is right-biased, unicode = ⧺ -}
 (x: 1, y: 2) ++ ['z' -> 3] = (x: 1, y: 2, z: 3) {- append an array of associations to a dictionary -}
 { (x: 1, y: 2) ++ [3] }.ifError { true } {- right hand side must be associations -}
-(x: 1, y: 2).anySatisfy(even:/1) {- collection predicates at dictionary consider values not associations -}
-(x: 1, y: 2, z: 3).detect(even:/1) = 2 {- detect value -}
+(x: 1, y: 2).anySatisfy(isEven:/1) {- collection predicates at dictionary consider values not associations -}
+(x: 1, y: 2, z: 3).detect(isEven:/1) = 2 {- detect value -}
 let n = 0; (x: 1, y: 2, z: 3).do { :each | n := n + each }; n = 6 {- do iterates over values, not associations -}
 let n = 0; (x: 1, y: 2, z: 3).valuesDo { :each | n := n + each }; n = 6 {- iterate over values -}
 let a = []; (x: 1, y: 2, z: 3).indicesDo { :each | a.add(each) }; a = ['x', 'y', 'z'] {- iterate over indices (keys) -}
@@ -1905,8 +1905,8 @@ let i = 1:9; i.copy ~~ i & { i.copy = i } {- copy is equal not identical -}
 1:9.reject { :item | item < 7 } = [7, 8, 9] {- return elements that fail test -}
 1:9.collect { :item | item + item }.last = 18 {- transform each element -}
 1:9.detect { :item | item > 3 } = 4 {- detect first element that passes test -}
-9:1.detect(even:/1) = 8 {- detect first element that passes test -}
-{ (9, 7 .. 1).detect(even:/1) }.ifError { true } {- if no element is detected, raise error -}
+9:1.detect(isEven:/1) = 8 {- detect first element that passes test -}
+{ (9, 7 .. 1).detect(isEven:/1) }.ifError { true } {- if no element is detected, raise error -}
 { [].detect { :item | true } }.ifError { true } {- detect at an empty collection raises an error -}
 1:9.injectInto(0) { :sum :item | sum + item } = 45 {- sum elements -}
 1:9.asList = [1 .. 9] {- convert to array -}
@@ -1929,8 +1929,8 @@ let i = 1:9; i.copy ~~ i & { i.copy = i } {- copy is equal not identical -}
 1.to(9).isRange = true {- to generates a Range -}
 to(1, 9).size = 9 {- to generates a Range -}
 1:9 = 1.to(9)
-Range(-2, 2, 1).collect(even:/1) = [true, false, true, false, true]
--2:2.collect(odd:/1) = [false, true, false, true, false]
+Range(-2, 2, 1).collect(isEven:/1) = [true, false, true, false, true]
+-2:2.collect(isOdd:/1) = [false, true, false, true, false]
 1 + 1.to(9).collect(squared:/1) = [2, 5, 10, 17, 26,37, 50, 65, 82]
 2 * 1:9.collect(squared:/1) = [2, 8, 18, 32, 50,72, 98, 128, 162]
 1.to(9).asList = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -2025,8 +2025,8 @@ let n = 0; 1:5.permutationsDo { :each | n := n + 1 }; n = 120 {- interval permut
 ## Iterable -- collection trait
 ```
 system.includesPackage('Iterable') {- Iterable package -}
-1:9.count(odd:/1) = 5
-1:9.count(even:/1) = 4
+1:9.count(isOdd:/1) = 5
+1:9.count(isEven:/1) = 4
 1:9.countAll = 9
 ```
 
@@ -2046,8 +2046,8 @@ let n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 {- while true loop -}
 let n = 9; { n < 7 }.whileFalse { n := n - 1 }; n = 6 {- while false loop -}
 10.timesRepeat { nil } = 10 {- timesRepeat answers the receiver) -}
 1.toDo(10) { :unused | nil } = 1 {- toDo answers the receiver -}
-let a = []; 1:9.rejectThenDo(even:/1) { :each | a.add(each * 3) }; a = [3, 9, 15, 21, 27] {- avoid intermediate collection -}
-let a = []; 1:9.selectThenDo(even:/1) { :each | a.add(each * 3) }; a = [6, 12, 18, 24] {- avoid intermediate collection -}
+let a = []; 1:9.rejectThenDo(isEven:/1) { :each | a.add(each * 3) }; a = [3, 9, 15, 21, 27] {- avoid intermediate collection -}
+let a = []; 1:9.selectThenDo(isEven:/1) { :each | a.add(each * 3) }; a = [6, 12, 18, 24] {- avoid intermediate collection -}
 ```
 
 ## LargeInteger -- numeric type
@@ -2071,8 +2071,8 @@ let x = (2n ^ 54n); x ~= (x - 1) {- large integers behave ordinarily -}
 13n % 7n % 4n = 2n {- left assocative -}
 13n + 1n % 7n = 0n {- equal precedence -}
 (2n ^ 170 - 1).isPowerOfTwo = false {- LargeInteger power of two test -}
-324518553658426726783156020576256n.even = true {- is large integer even -}
-324518553658426726783156020576257n.odd = true {- is large integer odd -}
+324518553658426726783156020576256n.isEven = true {- is large integer even -}
+324518553658426726783156020576257n.isOdd = true {- is large integer odd -}
 100n.factorial / 99n.factorial = 100n {- large integer factorial, c.f. small float -}
 1000n.factorial / 999n.factorial = 1000n {- large integer factorial -}
 8589298611n.primeFactors.last = 2863099537n
@@ -2132,10 +2132,10 @@ let l = [1 .. 9].asLinkedList; l.removeFirst; l.first = 2 {- remove first -}
 let l = [1 .. 9].asLinkedList; l.removeLast; l.last = 8 {- remove last -}
 let l = [1].asLinkedList; l.removeFirst = 1 & { l.isEmpty } {- remove first -}
 let l = [1].asLinkedList; l.removeLast = 1 & { l.isEmpty } {- remove last -}
-let l = [1 .. 5].asLinkedList; l.removeAllSuchThat(odd:/1); l.asList = [2, 4] {- in place reject -}
+let l = [1 .. 5].asLinkedList; l.removeAllSuchThat(isOdd:/1); l.asList = [2, 4] {- in place reject -}
 let l = 1:99.asLinkedList; l.removeAll; l.isEmpty {- remove all -}
-1:99.asLinkedList.select(even:/1).asList = [2, 4 .. 98] {- select -}
-1:9.asLinkedList.selectThenCollect(even:/1, squared:/1).asList = [4, 16, 36, 64] {- avoid intermediate collection -}
+1:99.asLinkedList.select(isEven:/1).asList = [2, 4 .. 98] {- select -}
+1:9.asLinkedList.selectThenCollect(isEven:/1, squared:/1).asList = [4, 16, 36, 64] {- avoid intermediate collection -}
 1:9.asLinkedList.collectThenSelect(squared:/1) { :each | each > 36 }.asList = [49, 64, 81] {- avoid intermediate collection -}
 1:9.asLinkedList.reversed = [9 .. 1] {- reversed, species is List -}
 { LinkedList().removeFirst }.ifError { :error | true } {- remove first, error if empty -}
@@ -2229,7 +2229,7 @@ let m = (x: 1, y: 2).asMap; m.removeAll; m.isEmpty {- remove all entries -}
 let v = [2 2.8 -2 -2.8]; v.ceiling = v.negated.floor.negated {- ceiling is equal to negate/floor/negate -}
 0.cos = 1 {- cosine -}
 180.degreesToRadians = 1.pi {- degreesToRadians -}
-2.even = true {- eveness predicate -}
+2.isEven = true {- eveness predicate -}
 1.exp.veryCloseTo(2.718281828459045) {- base e exponent function -}
 1.5.floor = 1 {- floor (round down) -}
 1.exp.log = 1 {- base e (natural) logarithm -}
@@ -2239,7 +2239,7 @@ let v = [2 2.8 -2 -2.8]; v.ceiling = v.negated.floor.negated {- ceiling is equal
 1.max(2) = 2 {- maximum -}
 1.min(2) = 1 {- minimum -}
 3.negated = -3 {- negation -}
-3.odd = true {- oddness predicate -}
+3.isOdd = true {- oddness predicate -}
 1.pi.veryCloseTo(3.1415926535898) {- constant pi (Float pi) -}
 inf.isNumber {- constant positive infinity (is a number) -}
 2 ^ 3 = 8 {- i to the power of j -}
@@ -2549,10 +2549,10 @@ let x = 2; 3.timesRepeat { x := x ^ 2}; x = 256 {- timesRepeat loop -}
 system.includesPackage('BlockStream') {- package -}
 let n = 1; let s = BlockStream { let r = n; n := n + 1; r } { }; s.next(9) = [1 .. 9]
 1:9.asStream.collect(squared:/1).upToEnd = [1 4 9 16 25 36 49 64 81]
-1:9.asStream.select(even:/1).upToEnd = [2 4 6 8]
-1:9.asStream.reject(even:/1).upToEnd = [1 3 5 7 9]
-1:inf.asStream.select(even:/1).next(4) = [2 4 6 8]
-1:inf.asStream.reject(even:/1).next(5) = [1 3 5 7 9]
+1:9.asStream.select(isEven:/1).upToEnd = [2 4 6 8]
+1:9.asStream.reject(isEven:/1).upToEnd = [1 3 5 7 9]
+1:inf.asStream.select(isEven:/1).next(4) = [2 4 6 8]
+1:inf.asStream.reject(isEven:/1).next(5) = [1 3 5 7 9]
 not:/1.iterate(true).next(10) = [true false true false true false true false true false]
 { :each | each + 3 }.iterate(42).next(10) = [42 45 48 51 54 57 60 63 66 69]
 ```
@@ -2767,7 +2767,7 @@ let x = 9; (9:x) = 9:x {- interval literals may have identifiers as upper bound 
 (x: 1, y: 2).asList = [1, 2] {- values as List -}
 let d = (x: 1, y: 2, z: 3); let (x, z) = d; [x, z] = [1, 3] {- partial dictionary match -}
 let (x, y) = { let n = system.nextRandomFloat; (x: n, y: n) }.value; x = y
-(x:1, y:2, z:3).select(even:/1) = (y: 2)
+(x:1, y:2, z:3).select(isEven:/1) = (y: 2)
 (x:1, y:2, z:3).sum = 6
 let d = (x: 9); d::x.sqrt = 3
 size (x: 1, y: 2, z: 3) = 3
@@ -3268,10 +3268,10 @@ let r = nil; 1.to(0).do { :each | r := each }; r = nil
 1729.divisors = [1, 7, 13, 19, 91, 133, 247, 1729]
 eulersNumber() = 1.exp {- eulers number -}
 1.e = eulersNumber() {- e is a constant, like 1.pi -}
-smallFloatEpsilon() < (10 ^ -15) {- the difference between 1 and the smallest SmallFloat greater than 1 -}
-smallFloatEpsilon() > (10 ^ -16)
-1 - smallFloatEpsilon() ~= 1 {- epsilon() is the difference between 1.0 and previous representable value -}
-1.epsilon ~= smallFloatEpsilon() {- epsilon is a constant, like 1.pi & e -}
+system.smallFloatEpsilon < (10 ^ -15) {- the difference between 1 and the smallest SmallFloat greater than 1 -}
+system.smallFloatEpsilon > (10 ^ -16)
+1 - system.smallFloatEpsilon ~= 1 {- epsilon() is the difference between 1.0 and previous representable value -}
+1.epsilon ~= system.smallFloatEpsilon {- epsilon is a constant, like 1.pi & e -}
 1.pi = 3.141592653589793 {- 1.pi is a number -}
 1.epsilon = 0.000000000000001 {- epsilon is a number -}
 1.e = 2.718281828459045 {- e is a number -}

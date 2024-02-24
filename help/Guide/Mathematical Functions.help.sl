@@ -86,13 +86,13 @@
 ## Divisibility
 
 - `divisible`: is divisible predicate
-- `even`: is even predicate
 - `gcd`: greatest common divisor
 - `isCoprime`: is coprime predicate
+- `isEven`: is even predicate
+- `isOdd`: is odd predicate
 - `isPrime`: is prime predicate
 - `lcm`: least common multiple
 - `modularInverse`: modular inverse
-- `odd`: is odd predicate
 
 ## Divisors
 

@@ -16,7 +16,7 @@ If _aCollection_ is a sequence the copy will preserve the order of elements.
 [1 7 8 4 3 9 2]
 ```
 
-Remove rows (or colums) from a table:
+Remove rows from a table:
 
 ```
 >>> [1 0 1; 1 1 0; 1 0 1; 0 1 0; 1 1 0].nub

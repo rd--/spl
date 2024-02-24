@@ -43,7 +43,7 @@ Iterated map:
 Iterates in the _3 n + 1_ problem:
 
 ```
->>> { :x | x.even.if { x / 2 } { (3 * x + 1) / 2 } }.nestList(100, 20)
+>>> { :x | x.isEven.if { x / 2 } { (3 * x + 1) / 2 } }.nestList(100, 20)
 [100 50 25 38 19 29 44 22 11 17 26 13 20 10 5 8 4 2 1 2 1]
 ```
 

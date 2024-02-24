@@ -92,7 +92,7 @@
 - `/`, `%`, `//`, `\\`
 - `mod`, `powerMod`, `quotient`, `remainder`
 - `gcd`, `lcm`
-- `divisible`, `even`, `odd`
+- `divisible`, `isEven`, `isOdd`
 - `isCoprime`, `isPrime`
 - `modularInverse`
 

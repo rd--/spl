@@ -9,7 +9,7 @@ Answer the new collection.
 Select elements that are even:
 
 ```
->>> [1 2 4 7 6 2].select(even:/1)
+>>> [1 2 4 7 6 2].select(isEven:/1)
 [2 4 6 2]
 ```
 
