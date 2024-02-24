@@ -1,6 +1,6 @@
 # identityMatrix
 
-_identityMatrix(anInteger)_
+- _identityMatrix(anInteger)_
 
 Answers the _n x n_ identity matrix.
 

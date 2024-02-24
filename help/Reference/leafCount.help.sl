@@ -4,14 +4,14 @@ _leafCount(aCollection | aTree)_
 
 Answers the total number of non-collection elements in _aCollection_.
 
-At Range:
+At `Range`:
 
 ```
 >>> 1:9.leafCount
 9
 ```
 
-At List:
+At `List`:
 
 ```
 >>> [1 2 3].leafCount
@@ -21,14 +21,14 @@ At List:
 5
 ```
 
-At Tuple:
+At `Tuple`:
 
 ```
 >>> (1, (2, (3, (4, 5)))).leafCount
 5
 ```
 
-At Record:
+At `Record`:
 
 ```
 >>> (x: 1, y: 2, z: 3).leafCount
@@ -38,7 +38,7 @@ At Record:
 1
 ```
 
-At Tree:
+At `Tree`:
 
 ```
 >>> [1 [2 [3 4] 5]].asTree.leafCount

@@ -2,9 +2,9 @@
 
 _isMatrix(aSequence)_
 
-A Sequence is a _matrix_ if each of the elements is a _vector_ of equal size.
+A `Sequence` is a _matrix_ if each of the elements is a _vector_ of equal size.
 
-At List:
+At `List`:
 
 ```
 >>> [1 2 3 4 5 6].isMatrix
@@ -17,7 +17,7 @@ true
 false
 ```
 
-At Tuple:
+At `Tuple`:
 
 ```
 >>> (1, 2, 3, 4, 5, 6).isMatrix
@@ -32,7 +32,7 @@ false
 
 * * *
 
-See also: isMatrixOf, isSequence, isVector
+See also: isColumnVector, isMatrixOf, isRowVector, isSequence, isVector, isVectorOf
 
 References:
 _Mathematica_

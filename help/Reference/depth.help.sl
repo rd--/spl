@@ -1,25 +1,25 @@
 # depth
 
-_depth(aCollection | anObject)_
+- _depth(aCollection | anObject)_
 
 Answer the maximum number of indices needed to specify any part of _aCollection_.
 Objects that are not collections have _depth_ of one.
 
-Strings have depth one:
+A `String` has depth one:
 
 ```
 >>> 'x'.depth
 1
 ```
 
-Vectors have depth two:
+A _vector_ has depth two:
 
 ```
 >>> [1 2 3].depth
 2
 ```
 
-Matrices, regular and irregular, have depth three:
+A _matrix_, regular and irregular, has depth three:
 
 ```
 >>> [1 2; 3 4; 5 6].depth
@@ -39,7 +39,7 @@ Only the deepest part of the expression affects the depth:
 4
 ```
 
-At deeply nested List:
+At deeply nested `List`:
 
 ```
 >>> [1, [2, [3, [4, [5, [6, [7, [8, [9]]]]]]]]].depth
@@ -49,21 +49,21 @@ At deeply nested List:
 10
 ```
 
-At deeply nested Tuple:
+At deeply nested `Tuple`:
 
 ```
 >>> (1, (2, (3, (4, (5, (6, (7, (8, 9)))))))).depth
 9
 ```
 
-At Tree:
+At `Tree`:
 
 ```
 >>> [1 [2 [3] 4] 5].asTree.depth
 4
 ```
 
-All numbers have depth one:
+A `Number` has depth one:
 
 ```
 >>> 12345.depth
@@ -79,7 +79,7 @@ All numbers have depth one:
 1
 ```
 
-The depth of values is considered when computing the depth of a Record:
+The depth of values is considered when computing the depth of a `Record`:
 
 ```
 >>> (x: 1, y: 2, z: 3).depth
@@ -89,7 +89,7 @@ The depth of values is considered when computing the depth of a Record:
 4
 ```
 
-Depth of a nested Record:
+Depth of a nested `Record`:
 
 ```
 >>> (x: (y: (z: 3))).depth

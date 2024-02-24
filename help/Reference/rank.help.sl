@@ -1,6 +1,6 @@
 # rank
 
-_rank(aSequence | anObject)_
+- _rank(aSequence | anObject)_
 
 In the Apl array model, the rank of an array is the number of dimensions or axes in its structure, or the length of its shape.
 

@@ -303,6 +303,27 @@
 		self.withCollectCrossed(aSequence, *)
 	}
 
+	determinant { :self |
+		self.isSquareMatrix.if {
+			(self.size = 2).if {
+				(self[1, 1] * self[2, 2]) - (self[1, 2] * self[2, 1])
+			} {
+				(self.size = 3).if {
+					(self[1, 1] * self[2, 2] * self[3, 3]) +
+					(self[1, 2] * self[2, 3] * self[3, 1]) +
+					(self[1, 3] * self[2, 1] * self[3, 2]) -
+					(self[1, 3] * self[2, 2] * self[3, 1]) -
+					(self[1, 2] * self[2, 1] * self[3, 3]) -
+					(self[1, 1] * self[2, 3] * self[3, 2])
+				} {
+					'@Sequence>>determinant: not implemented'.error
+				}
+			}
+		} {
+			'@Sequence>>determinant: not defined at non-square matrices'.error
+		}
+	}
+
 	diagonal { :self :k |
 		self.isMatrix.if {
 			let l = self.shape.min - k.abs;
@@ -814,6 +835,12 @@
 		}
 	}
 
+	isColumnVector { :self |
+		self.isMatrix & {
+			self.anyOne.size = 1
+		}
+	}
+
 	isMatrix { :self |
 		let type = self.typeOf;
 		self.allSatisfy { :each |
@@ -838,6 +865,12 @@
 			each.isInteger & {
 				each.betweenAnd(0, 255)
 			}
+		}
+	}
+
+	isRowVector { :self |
+		self.isMatrix & {
+			self.size = 1
 		}
 	}
 
@@ -872,6 +905,12 @@
 				};
 				true
 			}
+		}
+	}
+
+	isSquareMatrix { :self |
+		self.isMatrix & {
+			self.size = self.anyOne.size
 		}
 	}
 

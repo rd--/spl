@@ -1,20 +1,38 @@
 # Matrix Operations
 
-Addition, calculated entrywise:
+Matrix dimensions:
+
+```
+>>> [1 2 3; 4 5 6].shape
+[2 3]
+
+>>> [1 2; 3 4; 5 6].shape
+[3 2]
+```
+
+Matrix indexing:
+
+```
+>>> let m = [1 2 3; 4 5 6; 7 8 9];
+>>> (m[1, 2], m[2, 3], m[3, 1])
+(2, 6, 7)
+```
+
+Matrix addition, calculated entrywise:
 
 ```
 >>> [1 3 1; 1 0 0] + [0 0 5; 7 5 0]
 [1 3 6; 8 5 0]
 ```
 
-Scalar multiplication:
+Scalar and matrix multiplication:
 
 ```
 >>> 2 * [1 8 -3; 4 -2 5]
 [2 16 -6; 8 -4 10]
 ```
 
-Transposition:
+Matrix transposition:
 
 ```
 >>> [1 2 3; 0 -6 7].transposed
@@ -41,7 +59,7 @@ Matrix multiplication is not commutative:
 [3 4; 0 0]
 ```
 
-Vector & matrix multiplication:
+Vector and matrix multiplication:
 
 ```
 >>> [1 2 3; 4 5 6] dot: [1 1 1]
@@ -53,6 +71,25 @@ Vector & matrix multiplication:
 ([0 0 0], [-9 1 -2])
 ```
 
+Matrix predicates:
+
+```
+>>> [1 2; 3 4].isMatrix
+true
+
+>>> [1 2; 3 4].isSquareMatrix
+true
+
+>>> [[1 2 3 4]].isRowVector
+true
+
+>>> [1; 2; 3; 4].isColumnVector
+true
+
+>>> [1 2 3 4].isVector
+true
+```
+
 * * *
 
-See also: trace
+See also: +, *, at, determinant, dot, isColumnVector, isMatrix, isRowVector, isSquareMatrix, isVector, shape, trace
