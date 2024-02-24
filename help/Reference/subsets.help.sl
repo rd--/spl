@@ -31,7 +31,7 @@ Find all ways to pick 3 elements from 4:
 >>> [1 2 3 4].subsets { :each | each.size = 3 }
 [1 2 3; 1 2 4; 1 3 4; 2 3 4]
 
->>> 4.binomialCoefficient(3)
+>>> 4.binomial(3)
 4
 ```
 

@@ -1,7 +1,7 @@
 # Operator Precedence
 
 There are no precedence rules among operators,
-evaluation is strictly from left to right.
+evaluation is from left to right.
 
 ```
 >>> 3 + 4 * 5

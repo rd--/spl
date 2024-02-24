@@ -70,32 +70,6 @@
 		{ system.nextRandomInteger(self) } ! count
 	}
 
-	binomialCoefficient { :n :k |
-		k.isCollection.if {
-			k.adaptToNumberAndApply(n, binomialCoefficient:/2)
-		} {
-			(k < 0 | {
-				k > n
-			}).if {
-				0
-			} {
-				let numerator = n.one;
-				let denominator = n.one;
-				n.toByDo(k.max(n - k) + 1, -1) { :factor |
-					numerator := numerator * factor
-				};
-				1.toDo(k.min(n - k)) { :factor |
-					denominator :=denominator *  factor
-				};
-				numerator // denominator
-			}
-		}
-	}
-
-	catalanNumber { :self |
-		(self.one / (self + 1)) * (2 * self).binomialCoefficient(self)
-	}
-
 	characterRange { :self :anInteger |
 		(self .. anInteger).collect(asCharacter:/1)
 	}
@@ -130,7 +104,7 @@
 	}
 
 	doubleFactorial { :self |
-		self.negative.if {
+		self.isNegative.if {
 			self.error('@Integer>>doubleFactorial: not valid for negative integers')
 		} {
 			(self <= 3).if {
@@ -156,7 +130,7 @@
 		self.isZero.if {
 			0
 		} {
-			let l = self.negative.if {
+			let l = self.isNegative.if {
 				-1.downTo(self)
 			} {
 				1.upTo(self)
@@ -183,7 +157,7 @@
 	}
 
 	factorial { :self |
-		self.negative.ifTrue {
+		self.isNegative.ifTrue {
 			'@Integer>>factorial: not valid for negative integers'.error
 		};
 		(self <= 1).if {
@@ -198,16 +172,6 @@
 				answer := answer * next
 			};
 			answer
-		}
-	}
-
-	factorInteger { :self |
-		self.isNegative.if {
-			let answer = self.negated.factorInteger;
-			answer.addFirst(-1 -> -1);
-			answer
-		} {
-			self.primeFactors.asBag.sortedElements
 		}
 	}
 
@@ -261,16 +225,6 @@
 			(self.one .. self).collect { :k | k ^ k }.product
 		} {
 			'@Integer>>hyperfactorial: not implemented for non-integer'.error
-		}
-	}
-
-	indexOfPrime { :self |
-		let primesList = system.primesList;
-		(self <= primesList.last).if {
-			primesList.indexOf(self)
-		} {
-			(primesList.size + 8).primesListExtend(primesList);
-			self.indexOfPrime
 		}
 	}
 
@@ -502,39 +456,19 @@
 		}
 	}
 
-	isCoprime { :self :anInteger |
-		self.gcd(anInteger) = 1
-	}
-
 	isInteger { :self |
 		self.typeResponsibility('@Integer>>isInteger')
 	}
 
-	isAlmostPrime { :self :k |
-		self.primeFactors.size = k
+	isNonNegativeInteger { :self |
+		self.isInteger & {
+			self.isNonNegative
+		}
 	}
 
-	isPrime { :self |
-		(self <= 1).if {
-			false
-		} {
-			(self = 2).if {
-				true
-			} {
-				let selfSqrt = self.sqrt;
-				let i = 2;
-				valueWithReturn { :return:/1 |
-					{
-						i <= selfSqrt
-					}.whileTrue {
-						(self % i = 0).ifTrue {
-							false.return
-						};
-						i := i + 1
-					};
-					true.return
-				}
-			}
+	isPositiveInteger { :self |
+		self.isInteger & {
+			self.isPositive
 		}
 	}
 
@@ -559,61 +493,6 @@
 			}
 		} {
 			anInteger.adaptToNumberAndApply(self, lcm:/2)
-		}
-	}
-
-	leastPrimeGreaterThanOrEqualTo { :self |
-		let maybePrime = self;
-		{
-			maybePrime.isPrime.not
-		}.whileTrue {
-			maybePrime := maybePrime + 1
-		};
-		maybePrime
-	}
-
-	millerRabinPrimalityTest { :self :k |
-		var d, s, a, x, r;
-		valueWithReturn { :return:/1 |
-			(self = 1).ifTrue {
-				false.return
-			};
-			(self <= 3).ifTrue {
-				true.return
-			};
-			self.even.ifTrue {
-				false.return
-			};
-			d := self - 1;
-			s := 0;
-			{
-				d \\ 2 = 0
-			}.whileTrue {
-				d := d / 2;
-				s := s + 1
-			};
-			{
-				k := k - 1;
-				k >= 0
-			}.whileTrue {
-				a := (self.one * 2).randomInteger(self - 2);
-				x := (a ^ d) \\ self;
-				(x = 1).ifFalse {
-					r := -1;
-					{
-						r := r + 1;
-						r < s & {
-							x ~= (self - 1)
-						}
-					}.whileTrue {
-						x := (x ^ 2) \\ self
-					};
-					(x ~= (self - 1)).ifTrue {
-						false.return
-					}
-				}
-			};
-			true
 		}
 	}
 
@@ -652,19 +531,6 @@
 		}
 	}
 
-	nextPrime { :self |
-		(self + 1).leastPrimeGreaterThanOrEqualTo
-	}
-
-	nthPrime { :self |
-		let primesList = system.primesList;
-		(self > primesList.size).if {
-			self.primesListExtend(primesList)
-		} {
-			primesList[self]
-		}
-	}
-
 	numberOfCompositions { :n :k |
 		(n - 1).factorial / ((k - 1).factorial * (n - k).factorial)
 	}
@@ -697,135 +563,8 @@
 		p(self)
 	}
 
-	partitionFunctionP { :self :anInteger |
-		let p = { :n :k |
-			(k > n).if {
-				0
-			} {
-				(k = n).if {
-					1
-				} {
-					(k = 0).if {
-						0
-					} {
-						p(n - 1, k - 1) + p(n - k, k)
-					}
-				}
-			}
-		};
-		p(self, anInteger)
-	}
-
-	partitionFunctionQ { :n :k |
-		partitionFunctionP(n - binomialCoefficient(k, 2), k)
-	}
-
-	polygonalNumber { :n |
-		binomialCoefficient(n + 1, 2)
-	}
-
 	polygonalNumber { :r :n |
 		(1 / 2) * n * (n * (r - 2) - r + 4)
-	}
-
-	previousPrime { :self |
-		let index = self.leastPrimeGreaterThanOrEqualTo.indexOfPrime - 1;
-		system.primesList[index]
-	}
-
-	primeDivisors { :self |
-		self.primeFactorization.collect(key:/1)
-	}
-
-	primeFactors { :self |
-		(self <= 1).if {
-			[]
-		} {
-			valueWithReturn { :return:/1 |
-				let index = 1;
-				let prime = 2;
-				let k = self;
-				let answer = [];
-				{
-					prime := index.nthPrime;
-					{
-						k % prime = 0
-					}.whileTrue {
-						answer.add(prime);
-						k := k // prime;
-						(k = 1).ifTrue {
-							answer.return
-						}
-					};
-					(prime.squared > k).ifTrue {
-						answer.add(k);
-						answer.return
-					};
-					index := index + 1
-				}.repeat;
-				answer
-			}
-		}
-	}
-
-	primeFactorization { :self |
-		self.primeFactors.asBag.sortedElements
-	}
-
-	primePi { :self |
-		let answer = 0;
-		self.primesUpToDo { :each |
-			answer := answer + 1
-		};
-		answer
-	}
-
-	primeLimit { :self |
-		self.primeFactors.maxIfEmpty {
-			0
-		}
-	}
-
-	primesBetweenAnd { :iMin :iMax |
-		let startIndex = iMin.isPrime.if {
-			iMin.indexOfPrime
-		} {
-			iMin.nextPrime.indexOfPrime
-		};
-		system.primesList.copyFromTo(
-			startIndex,
-			iMax.nextPrime.indexOfPrime - 1
-		)
-	}
-
-	primesList { :self |
-		let answer = List(self);
-		let n = 1;
-		answer.indicesDo { :index |
-			n := n.nextPrime;
-			answer[index] := n
-		};
-		answer
-	}
-
-	primesListExtend { :self :aList |
-		let n = aList.last;
-		(self - aList.size).timesRepeat {
-			n := n.nextPrime;
-			aList.add(n)
-		};
-		n
-	}
-
-	primesUpTo { :self |
-		system.primesList.copyFromTo(1, self.nextPrime.indexOfPrime - 1)
-	}
-
-	primesUpToDo { :self :aBlock:/1 |
-		let primesList = system.primesList;
-		1.toDo(self.leastPrimeGreaterThanOrEqualTo.indexOfPrime - 1) { :index |
-			aBlock(primesList[index])
-		}
 	}
 
 	printStringHex { :self |
@@ -840,14 +579,6 @@
 
 	randomIntegerBipolar { :self |
 		system.nextRandomIntegerBipolar(self)
-	}
-
-	randomPrime { :iMin :iMax |
-		iMin.primesBetweenAnd(iMax).atRandom
-	}
-
-	randomPrime { :iMin :iMax :count |
-		iMin.primesBetweenAnd(iMax).atRandom(count)
 	}
 
 	romanDigitsForOn { :self :digits :base :aStream |
@@ -869,7 +600,7 @@
 	}
 
 	romanDigitsOn { :self :aStream |
-		let integer = self.negative.if {
+		let integer = self.isNegative.if {
 			aStream.nextPut('-'.asciiValue);
 			self.negated
 		} {
@@ -881,36 +612,6 @@
 		integer.romanDigitsForOn('MDC'.asciiByteArray, 100, aStream);
 		integer.romanDigitsForOn('CLX'.asciiByteArray, 10, aStream);
 		integer.romanDigitsForOn('XVI'.asciiByteArray, 1, aStream)
-	}
-
-	sieveOfEratosthenes { :self |
-		let size = self;
-		let flags = List(size);
-		let primeCount = 0;
-		flags.atAllPut(true);
-		2.toDo(size) { :i |
-			flags[i - 1].ifTrue{
-				let k = i + i;
-				primeCount := primeCount + 1;
-				{
-					k <= size
-				}.whileTrue {
-					flags[k - 1] := false;
-					k := k + i
-				}
-			}
-		};
-		primeCount
-	}
-
-	subfactorial { :self |
-		(0 .. self).collect { :each |
-			each.factorial * (-1 ^ (self - each)) * self.binomialCoefficient(each)
-		}.sum
-	}
-
-	take { :self :k |
-		self.binomialCoefficient(k)
 	}
 
 	threeDigitName { :self |
@@ -970,7 +671,7 @@
 		self.isPowerOfTwo.if {
 			self
 		} {
-			self.positive.if {
+			self.isNonNegative.if {
 				1.bitShiftLeft(self.highBitOfPositiveReceiver)
 			} {
 				self.error('@Integer>>asLargerPowerOfTwo: non-positive')
@@ -986,7 +687,7 @@
 		self.isPowerOfTwo.if {
 			self
 		} {
-			self.positive.if {
+			self.isNonNegative.if {
 				1.bitShiftLeft(self.highBitOfPositiveReceiver - 1)
 			} {
 				self.error('@Integer>>asSmallerPowerOfTwo: non-positive')
@@ -1034,16 +735,6 @@
 			length := length + 1
 		};
 		length
-	}
-
-}
-
-+@Cache {
-
-	primesList { :self |
-		self.cached('primesList') {
-			23.primesList
-		}
 	}
 
 }

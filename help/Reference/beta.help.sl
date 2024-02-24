@@ -34,6 +34,8 @@ Plot over a subset of the reals:
 See also: gamma, logGamma
 
 References:
+_Dlmf_
+[1](https://dlmf.nist.gov/5.12),
 _Mathematica_
 [1](https://mathworld.wolfram.com/BetaFunction.html)
 [2](https://reference.wolfram.com/language/ref/Beta.html)

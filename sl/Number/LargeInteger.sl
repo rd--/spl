@@ -248,7 +248,7 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 	fnv1aHash { :self |
 		let fnvPrime = 16777619;
-		let hash = self.negative.if {
+		let hash = self.isNegative.if {
 			3490449840
 		} {
 			2166136261

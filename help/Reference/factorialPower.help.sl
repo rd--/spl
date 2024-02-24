@@ -26,7 +26,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: ^, factorial, binomialCoefficient, sum
+See also: ^, factorial, binomial, sum
 
 References:
 _Mathematica_

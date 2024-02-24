@@ -192,9 +192,9 @@ inf = Infinity {- Infinity is the literal for IEEE infinity, inf is a constant, 
 1.isNaN.not {- one is a number -}
 4 / 0:3 = [inf, 4, 2, 4 / 3] {- divide by zero is infinity -}
 inf.sign = 1
-inf.positive = true
+inf.isPositive = true
 (0 - inf).sign = -1
-(0 - inf).negative = true
+(0 - inf).isNegative = true
 25.sqrt = 5 {- integer sqrt -}
 (2 / 4) * 2 = 1 {- integer division -}
 2 * (2 / 4) = 1 {- integer division -}
@@ -227,9 +227,9 @@ let x = 8.625; let y = 0.75; let q = x.quotientBy(y, rounded:/1); let r = x.rema
 2 * 3 = 6 {- multiplication -}
 10 / 2.5 = 4 {- division -}
 9 % 4 = 1 & { 9 = (4 * 2 + 1) } {- modulo -}
-[0 1 2 3 4 5].collect { :each | 5.binomialCoefficient(each) } = [1 5 10 10 5 1] {- binomial coefficient -}
-10.binomialCoefficient(3) = 120
-0:5.collect { :n | 0:n.collect { :k | n.binomialCoefficient(k) } } = [1; 1 1; 1 2 1; 1 3 3 1; 1 4 6 4 1; 1 5 10 10 5 1] {- pascal triangle -}
+[0 1 2 3 4 5].collect { :each | 5.binomial(each) } = [1 5 10 10 5 1] {- binomial coefficient -}
+10.binomial(3) = 120
+0:5.collect { :n | 0:n.collect { :k | n.binomial(k) } } = [1; 1 1; 1 2 1; 1 3 3 1; 1 4 6 4 1; 1 5 10 10 5 1] {- pascal triangle -}
 ```
 
 ## Math -- power of two
@@ -753,9 +753,9 @@ true.not.not = true {- not of not is the identity -}
 1.respondsTo(sqrt:/1) = true {- test if object responds to message -}
 23.respondsTo(+) {- test if object responds to message -}
 nil.isNil = true {- test if object is nil -}
-0.positive = (0 >= 0) {- test if number is non-negative -}
-0.strictlyPositive = (0 > 0) {- test if number is greater than zero -}
--1.negative = true {- test if number is negative -}
+0.isNonNegative = (0 >= 0) {- test if number is non-negative -}
+0.isPositive = (0 > 0) {- test if number is greater than zero -}
+-1.isNegative = true {- test if number is negative -}
 2.even = true {- test if number is even -}
 1.even = false {- one is not even -}
 1073741825.even = false {- a large odd number is not even -}
@@ -1512,7 +1512,7 @@ ReducedFraction(4, 6) ~= 2/3 {- ReducedFraction assumes fraction is normal, and 
 4/3.gcd(7/5) = 1/15 {- greatest common denominator -}
 4/3.lcm(7/5) = 28 {- least common multiple -}
 4/3.negated = -4/3 {- negation -}
-4/3.negative.not {- is negative predicate -}
+4/3.isNegative.not {- is negative predicate -}
 4/3.numerator = 4 {- numerator -}
 2/3.raisedToInteger(5) = 32/243 {- fractions also can be exponentiated -}
 2/3 ^ 5 = 32/243 {- fractions also can be exponentiated using infix operator -}
@@ -1588,8 +1588,8 @@ Fraction(3, 1) = 3/1
 1.pi.roundUpTo(0.005) = 3.145 {- round up to nearest 5/1000th -}
 1.pi.negated.roundUpTo(0.01) = -3.14 {- rounding up a negative number rounds towards zero -}
 1.pi.roundUp = 4 {- round up to nearest integer -}
--3/2.numerator.negative {- numerator of negative fraction is negative -}
--3/2.denominator.positive {- denominator of negative fraction is positive -}
+-3/2.numerator.isNegative {- numerator of negative fraction is negative -}
+-3/2.denominator.isPositive {- denominator of negative fraction is positive -}
 4/6.numerator = 2 {- literal fractions are reduced -}
 4/6.denominator = 3 {- literal fractions are reduced -}
 4/2 = 2
@@ -2235,7 +2235,7 @@ let v = [2 2.8 -2 -2.8]; v.ceiling = v.negated.floor.negated {- ceiling is equal
 1.exp.log = 1 {- base e (natural) logarithm -}
 1.2.isNumber = true {- is x a number -}
 0.isInteger = true {- is x an integer -}
-3.positive = true {- is x > 0 -}
+3.isPositive = true {- is x > 0 -}
 1.max(2) = 2 {- maximum -}
 1.min(2) = 1 {- minimum -}
 3.negated = -3 {- negation -}

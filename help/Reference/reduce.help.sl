@@ -19,6 +19,9 @@ For instance, to sum the numeric elements of a collection:
 ```
 >>> [1 .. 9].reduce(+)
 45
+
+>>> 1:5.reduce(+)
+15
 ```
 
 In cases where _aBlock_ is not associative, reduce associates to the left:
@@ -66,6 +69,8 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Reduce),
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:foldr1)
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:foldr1),
+_Maple_
+[1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=reduce)
 
 Categories: Enumerating

@@ -10,6 +10,9 @@ Answer a number that is the absolute value (positive magnitude) of _aNumber_.
 
 >>> 3.14.abs
 3.14
+
+>>> (-2 * 10).abs
+20
 ```
 
 Abs is defined at Complex:
@@ -23,6 +26,9 @@ Abs is defined at Complex:
 
 >>> -2j1.abs
 5.sqrt
+
+>>> 3j-4.abs
+5
 ```
 
 Abs collects over lists:
@@ -44,6 +50,8 @@ _Apl_
 [1](https://aplwiki.com/wiki/Magnitude),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:abs),
+_Maple_
+[1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=abs),
 _Mathematica_
 [1](https://mathworld.wolfram.com/AbsoluteValue.html)
 [2](https://reference.wolfram.com/language/ref/Abs.html)

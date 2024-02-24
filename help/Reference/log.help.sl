@@ -69,6 +69,8 @@ Plot over a subset of the reals:
 See also: log, log2, log10
 
 References:
+_Dlmf_
+[1](https://dlmf.nist.gov/4.2#i)
 _Mathematica_
 [1](https://mathworld.wolfram.com/Logarithm.html)
 [2](https://reference.wolfram.com/language/ref/Log.html)

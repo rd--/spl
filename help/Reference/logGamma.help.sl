@@ -20,6 +20,12 @@ At Integer:
 ```
 >>> 5.logGamma
 24.log
+
+>>> 6.logGamma
+6.gamma.log
+
+>>> 0.5.logGamma
+0.57236
 ```
 
 Plot over a subset of the reals:
@@ -33,6 +39,8 @@ Plot over a subset of the reals:
 See also: factorial, gamma
 
 References:
+_Maple_
+[1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=GAMMA),
 _Mathematica_
 [1](http://mathworld.wolfram.com/GammaFunction.html)
 [2](https://reference.wolfram.com/language/ref/LogGamma.html)

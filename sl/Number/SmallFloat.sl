@@ -348,11 +348,11 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			self.sqrt
 		} {
 			(aPositiveInteger.isInteger.not | {
-				aPositiveInteger.negative
+				aPositiveInteger.isNegative
 			}).ifTrue {
-				'nthRoot: only defined for positive integer'.error
+				'nthRoot: only defined for positive integers'.error
 			};
-			self.negative.if {
+			self.isNegative.if {
 				aPositiveInteger.odd.if {
 					(self.negated ^ (1 / aPositiveInteger)).negated
 				} {
@@ -383,7 +383,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			return _self.toString(_radix);
 		}
 		>
-		self.positive.if {
+		self.isPositive.if {
 			'inf'
 		} {
 			'(0 - inf)'
@@ -595,10 +595,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	eulersNumber {
 		1.exp
-	}
-
-	smallFloatEpsilon {
-		<primitive: return Number.EPSILON;>
 	}
 
 }

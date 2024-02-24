@@ -6,7 +6,7 @@ Methods for arithmetic: +, -, *, /, %, quotient, remainder, abs, negated, recipr
 
 Methods implementing mathematical functions: exp, log, floorLog, ^, raisedToInteger, sqrt, squared
 
-Methods for testing: even, odd, negative, positive, strictlyPositive, sign, isZero
+Methods for testing: even, odd, isNegative, isNonNegative, isPositive, isZero, sign
 
 Methods for truncating and rounding: ceiling, floor, truncated, truncateTo, rounded, roundTo, roundUpTo
 

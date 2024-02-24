@@ -8,6 +8,9 @@ Answer the prime at index _anInteger_ in the sequence of prime numbers.
 >>> 5.nthPrime
 11
 
+>>> 10.nthPrime
+29
+
 >>> 3579.nthPrime
 33413
 ```
@@ -34,6 +37,8 @@ Plot first fifty primes:
 See also: isPrime, nextPrime, primesList, primesUpTo
 
 References:
+_Maple_
+[1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=ithprime),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Prime.html)
 

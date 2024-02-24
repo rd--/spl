@@ -32,7 +32,7 @@ _polygonalNumber_ with integer arguments:
 
 * * *
 
-See also: ^, binomialCoefficient
+See also: ^, binomial
 
 References:
 _Mathematica_

@@ -144,10 +144,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.asFloat.closeToBy(aNumber.asFloat, epsilon)
 	}
 
-	factorInteger { :self |
-		self.primeFactorization
-	}
-
 	gcd { :self :aFraction |
 		aFraction.isFraction.if {
 			let d = self.denominator.gcd(aFraction.denominator);
@@ -168,6 +164,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	isLiteral { :self |
 		true
+	}
+
+	isNegative { :self |
+		self.numerator.isNegative
 	}
 
 	lcm { :self :aFraction |
@@ -222,10 +222,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		ReducedFraction(self.numerator.negated, self.denominator)
 	}
 
-	negative { :self |
-		self.numerator.negative
-	}
-
 	normalize { :self |
 		(self.denominator = 0).if {
 			self.error('Fraction>>normalize: zeroDenominatorError')
@@ -245,24 +241,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	one { :self |
 		ReducedFraction(1, 1)
-	}
-
-	primeFactors { :self |
-		self.numerator.primeFactors ++ self.denominator.primeFactors.collect { :each |
-			ReducedFraction(1, each)
-		}
-	}
-
-	primeFactorization { :self |
-		let n = self.numerator.primeFactors.asBag.sortedElements;
-		let d = self.denominator.primeFactors.asBag.sortedElements.collect { :each |
-			each.key -> each.value.negated
-		};
-		(n ++ d).sorted
-	}
-
-	primeLimit { :self |
-		self.numerator.primeLimit.max(self.denominator.primeLimit)
 	}
 
 	printString { :self |

@@ -14,6 +14,12 @@ that is _e ^ n_.
 
 >>> 3.4.exp
 29.9641
+
+>>> -1.exp
+0.367879
+
+>>> 1.379.exp
+3.970929
 ```
 
 Exp can take complex number inputs:
@@ -56,6 +62,10 @@ See also: ^, log
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Exponential)
+_Dlmf_
+[1](https://dlmf.nist.gov/4.2#iii),
+_Maple_
+[1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=exp),
 _Mathematica_
 [1](https://mathworld.wolfram.com/ExponentialFunction.html)
 [2](https://reference.wolfram.com/language/ref/Exp.html)

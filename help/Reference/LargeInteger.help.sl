@@ -13,4 +13,4 @@ Large integers have a distinct literal syntax indicated by an _n_ suffix.
 
 See also: Binary, Integer, Magnitude, Number, SmallFloat
 
-Categories: Numeric type
+Categories: Math, Type

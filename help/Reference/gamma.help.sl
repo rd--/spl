@@ -23,6 +23,12 @@ Evaluate numerically:
 ```
 >>> (22 / 10).gamma
 1.101802
+
+>>> -1.4.gamma
+2.659272
+
+>>> 2.5.gamma
+1.32934
 ```
 
 Plot the Euler gamma function:
@@ -36,6 +42,10 @@ Plot the Euler gamma function:
 See also: factorial, logGamma
 
 References:
+_Dlmf_
+[1](https://dlmf.nist.gov/5.2),
+_Maple_
+[1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=GAMMA),
 _Mathematica_
 [1](http://mathworld.wolfram.com/GammaFunction.html)
 [2](https://reference.wolfram.com/language/ref/Gamma.html)

@@ -12,11 +12,11 @@ Just as _reduce_ is an alias for _foldLeft_, _scan_ is an alias for _scanLeft_.
 >>> [1].scan(+)
 [1]
 
->>> 1:4.scan(+)
-[1 3 6 10]
+>>> 1:5.scan(+)
+[1 3 6 10 15]
 
->>> 1:4.reduce(+)
-10
+>>> 1:5.reduce(+)
+15
 ```
 
 * * *
@@ -27,8 +27,10 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Scan),
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:scanl1),
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:scanl1)
 [2](https://hackage.haskell.org/package/base/docs/Prelude.html#v:scanl),
+_Maple_
+[1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=reduce)
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FoldList.html)
 

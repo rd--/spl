@@ -452,6 +452,10 @@ System! : [Object, Cache, Indexable, Random] {
 		self.window.sessionStorage
 	}
 
+	smallFloatEpsilon { :self |
+		<primitive: return Number.EPSILON;>
+	}
+
 	traitDictionary { :self |
 		<primitive: return _self.traitDictionary;>
 	}

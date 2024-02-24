@@ -76,7 +76,7 @@
 	}
 
 	position { :self :anInteger |
-		anInteger.negative.if {
+		anInteger.isNegative.if {
 			self.positionError
 		} {
 			self.positionIndex := anInteger

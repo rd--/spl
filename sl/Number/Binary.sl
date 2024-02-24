@@ -69,7 +69,7 @@
 	}
 
 	bitShift { :self :anInteger |
-		anInteger.negative.if {
+		anInteger.isNegative.if {
 			self >> anInteger.negated
 		} {
 			self << anInteger

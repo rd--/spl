@@ -52,6 +52,12 @@
 	'Interval'
 	'LargeInteger'
 
+	{- Math -}
+	'Binomial'
+	'Elementwise'
+	'Gamma'
+	'Primes'
+
 	{- Stream -}
 	'Iterator'
 	'Stream'

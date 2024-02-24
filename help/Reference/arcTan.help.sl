@@ -21,12 +21,14 @@ _arcTan_ is the inverse tangent function.
 
 >>> arcTan(0.5, 2)
 1.32582
+
+>>> arcTan(-2, 1)
+2.67795
 ```
 
 Answers are in radians:
 
 ```
-
 >>> 1.arcTan.radians.degrees
 45
 
@@ -105,6 +107,8 @@ atan2(2, 0.5)
 See also: arcCos, arcSin, cos, sin, tan
 
 References:
+_Maple_
+[1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=invtrig),
 _Mathematica_
 [1](https://mathworld.wolfram.com/ArcTan.html)
 [2](https://reference.wolfram.com/language/ref/ArcTan.html)

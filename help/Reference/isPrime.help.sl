@@ -7,6 +7,9 @@ Determine if _anInteger_ is prime.
 ```
 >>> 23.isPrime
 true
+
+>>> (11.factorial + 1).isPrime
+true
 ```
 
 Primes up to one hundred:
@@ -94,6 +97,8 @@ Plot primes up to one-hundred-thousand:
 See also: isGaussianPrime, isPrimePower, nextPrime, nthPrime
 
 References:
+_Maple_
+[1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=isprime),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Primes.html)
 [2](https://reference.wolfram.com/language/ref/PrimeQ.html)

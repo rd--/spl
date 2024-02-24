@@ -56,7 +56,7 @@
 ## Combinations
 
 - `!`, `factorial`, `factorialPower`, `hyperfactorial`, `subfactorial`
-- `binomialCoefficient`, `catalanNumber`, `multinomialCoefficient`
+- `binomial`, `catalanNumber`, `multinomial`
 - `polygonalNumber`
 - `partitionsP`, `partitionsQ`
 
@@ -160,7 +160,7 @@
 ## Numerical Properties
 
 - `isComplex`, `isFraction`, `isInteger`, `isLargeInteger`, `isNumber`, `isSmallFloat`, `isZero`
-- `even`, `negative`, `odd`, `positive`
+- `even`, `isNegative`, `isPositive`, `odd`
 - `isCoprime`, `isPrime`
 
 ## Open Sound Control

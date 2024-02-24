@@ -112,8 +112,8 @@
 - `factorialPower`: factorial power
 - `hyperfactorial`: hyperfactorial function
 - `doubleFactorial`: double factorial
-- `binomialCoefficient`: binomial coefficients
-- `multinomialCoefficient`: multinomial coefficients
+- `binomial`: binomial coefficients
+- `multinomial`: multinomial coefficients
 - `catalanNumber`: Catalan numbers
 - `polygonalNumber`: triangular and other polygonal numbers
 

@@ -237,7 +237,7 @@ Reference/BiLinRand.help.sl
 Reference/Binary.help.sl
 Reference/bindLeft.help.sl
 Reference/bindRight.help.sl
-Reference/binomialCoefficient.help.sl
+Reference/binomial.help.sl
 Reference/bitAnd.help.sl
 Reference/bitAt.help.sl
 Reference/bitAtPut.help.sl
@@ -633,7 +633,6 @@ Reference/isPrimePower.help.sl
 Reference/isSequence.help.sl
 Reference/isSortedBy.help.sl
 Reference/isSorted.help.sl
-Reference/isStrictlyPositive.help.sl
 Reference/isVector.help.sl
 Reference/isVectorOf.help.sl
 Reference/Iterable.help.sl
@@ -798,7 +797,7 @@ Reference/MouseButton.help.sl
 Reference/MouseX.help.sl
 Reference/MouseY.help.sl
 Reference/MulAdd.help.sl
-Reference/multinomialCoefficient.help.sl
+Reference/multinomial.help.sl
 Reference/MultiTapDelay.help.sl
 Reference/MutableCollectionStream.help.sl
 Reference/negated.help.sl

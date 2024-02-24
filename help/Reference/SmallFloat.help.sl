@@ -33,4 +33,4 @@ pi
 
 See also: Fraction, Integer, LargeInteger
 
-Categories: Numeric type
+Categories: Math, Type

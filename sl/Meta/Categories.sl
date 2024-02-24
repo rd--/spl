@@ -956,7 +956,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'minBy'
 		'minMax'
 		'negated'
-		'negative'
+		'isNegative'
 		'normalize'
 		'numerator'
 		'pow'
@@ -1195,9 +1195,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isStrictlyPositive'
 		'isZero'
 		'odd'
-		'positive'
 		'sign'
-		'strictlyPositive'
 	],
 	'testing-string': [
 		'includesSubstring'

@@ -190,14 +190,6 @@
 		self.abs + aNumber.abs - ((2.sqrt - 1) * self.abs.min(aNumber.abs))
 	}
 
-	isNegative { :self |
-		self.negative
-	}
-
-	isPositive { :self |
-		self.positive
-	}
-
 	linCurve { :self :inMin :inMax :outMin :outMax :curve |
 		(self <= inMin).if {
 			outMin
@@ -710,7 +702,7 @@
 	shift { :self :count :item |
 		let fill = List(count.abs, item);
 		let remain = self.drop(count.negated);
-		(count < 0).if {
+		count.isNegative.if {
 			remain ++ fill
 		} {
 			fill ++ remain

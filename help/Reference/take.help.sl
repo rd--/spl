@@ -55,9 +55,9 @@ or as a prefix:
 [0 0 0 5 4 3 2 1]
 ```
 
-- _take(n, k)_ => _binomialCoefficient(n, k)_
+- _take(n, k)_ => _positiveIntegerBinomial(n, k)_
 
-At _Integer_ _take_ is an alias for _binomialCoefficient_,
+At _Integer_ _take_ is an alias for _positiveIntegerBinomial_,
 which tells the number of combinations of _n_ elements taken _k_ at a time.
 
 ```
@@ -65,9 +65,16 @@ which tells the number of combinations of _n_ elements taken _k_ at a time.
 ((6 * 5 * 4) / (1 * 2 * 3))
 ```
 
+If _k > n_ answers zero:
+
+```
+>>> 3.take(6)
+0
+```
+
 * * *
 
-See also: any, binomialCoefficient, drop, takeFirst, takeLast
+See also: any, binomial, drop, takeFirst, takeLast
 
 References:
 _Apl_

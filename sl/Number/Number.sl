@@ -45,7 +45,7 @@
 	}
 
 	abs { :self |
-		(self < 0).if {
+		self.isNegative.if {
 			self.negated
 		} {
 			self
@@ -95,10 +95,6 @@
 		} {
 			('Number>>basicTimes: operand not number: ' ++ aNumber).error
 		}
-	}
-
-	beta { :self :aNumber |
-		self.logBeta(aNumber).exp
 	}
 
 	ceiling { :self |
@@ -234,48 +230,6 @@
 		self - self.integerPart
 	}
 
-	gammaLanczosFormulaLeadingFactor { :self |
-		let z = self + 5.5;
-		z.log * (self + 0.5) - z
-	}
-
-	gammaLanczosFormulaSeries { :self |
-		let term = self;
-		let coefficients = [
-			76.18009172947146,
-			-86.50532032941677,
-			24.01409824083091,
-			-1.231739572450155,
-			0.001208650973866179,
-			-0.000005395239384953
-		];
-		coefficients.injectInto(1.000000000190015) { :sum :each |
-			term := term + 1;
-			each / term + sum
-		}
-	}
-
-	gammaLanczosFormula { :self |
-		let sqrtTwoPi = (pi * 2).sqrt;
-		let leadingFactor = self.gammaLanczosFormulaLeadingFactor;
-		let series = self.gammaLanczosFormulaSeries;
-		(leadingFactor.exp * series) * sqrtTwoPi / self
-	}
-
-	gamma { :self |
-		(self.isInteger & {
-			(self >= 1)
-		}).if {
-			(self - 1).factorial
-		} {
-			(self < 0).if {
-				pi / ((pi * self).sin * (1 - self).gamma)
-			} {
-				(self + 1).gammaLanczosFormula / self
-			}
-		}
-	}
-
 	goldenAngle { :self |
 		self * (pi * (3 - 5.sqrt))
 	}
@@ -293,15 +247,24 @@
 		self.truncated
 	}
 
+	isNegative { :self |
+		self < self.zero
+	}
+
+	isNonNegative { :self |
+		self >= self.zero
+	}
+
+	isNonPositive { :self |
+		self <= self.zero
+	}
+
 	isNumber { :self |
 		true
 	}
 
-	isPrimePower { :self |
-		let primeFactors = self.primeFactorization;
-		primeFactors.size = 1 & {
-			primeFactors.first.key.isPrime
-		}
+	isPositive { :self |
+		self > self.zero
 	}
 
 	log2 { :self |
@@ -318,29 +281,6 @@
 		}
 	}
 
-	logBeta { :self :aNumber |
-		self.logGamma + aNumber.logGamma - (self + aNumber).logGamma
-	}
-
-	logGammaLanczosFormula { :self |
-		let sqrtTwoPi = (pi * 2).sqrt;
-		let leadingFactor = self.gammaLanczosFormulaLeadingFactor;
-		let series = self.gammaLanczosFormulaSeries;
-		leadingFactor + (series * sqrtTwoPi / self).log
-	}
-
-	logGamma { :self |
-		(self > 1).if {
-			self.logGammaLanczosFormula
-		} {
-			(self > 0).if {
-				(self + 1).logGammaLanczosFormula - self.log
-			} {
-				'@Number>>logGamma: non-positive'.error
-			}
-		}
-	}
-
 	mixedFractionParts { :self |
 		let i = self.integerPart;
 		[i, self - i]
@@ -354,16 +294,8 @@
 		self.zero - self
 	}
 
-	negative { :self |
-		self < 0
-	}
-
 	pi { :self |
 		self * 3.1415926535897932384626433
-	}
-
-	positive { :self |
-		self >= 0
 	}
 
 	powerMod { :self :exponent :modulo |
@@ -528,7 +460,7 @@
 	}
 
 	signBit { :self |
-		self.negative.if {
+		(self < 0).if {
 			1
 		} {
 			0
