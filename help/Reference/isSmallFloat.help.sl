@@ -10,10 +10,19 @@ true
 
 >>> 3.141.isSmallFloat
 true
+
+>>> (2/3.isSmallFloat, 2/3.isFraction)
+(false, true)
+
+>>> (2j3.isSmallFloat, 2j3.isComplex)
+(false, true)
+
+>>> (23n.isSmallFloat, 23n.isLargeInteger)
+(false, true)
 ```
 
 * * *
 
-See also: isNumber, SmallFloat
+See also: isComplex, isFraction, isLargeInteger, isNumber, SmallFloat
 
 Categories: Testing

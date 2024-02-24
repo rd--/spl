@@ -49,4 +49,4 @@ true
 
 * * *
 
-See also: isImmediate, isJson
+See also: isImmediate, isJson, Literals Syntax

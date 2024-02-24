@@ -6,7 +6,7 @@ The types implementing the trait are: `Nil`, `Boolean`, `SmallFloat`, `String`, 
 
 * * *
 
-See also: json, parseJson
+See also: Boolean, isJson, json, List, parseJson, Nil, Record, SmallFloat, String
 
 References:
 _Json_

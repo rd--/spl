@@ -1,8 +1,8 @@
 # Type
 
-A _Type_ describes a kind of value.
+A `Type` describes a kind of value.
 
-The _system_ dictionary holds a _typeDictionary_.
+The `system` dictionary holds a _typeDictionary_.
 
 ```
 >>> system.typeDictionary.isDictionary
@@ -26,6 +26,6 @@ true
 
 * * *
 
-See also: Trait
+See also: Method, System, Trait
 
 Categories: Type

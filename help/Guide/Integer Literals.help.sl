@@ -7,7 +7,19 @@ Integer literals evaluate to the type `SmallFloat`.
 'SmallFloat'
 ```
 
-There is an `Integer` trait and a `LargeInteger` type.
+There is a `LargeInteger` type:
+
+```
+>>> 23n.isLargeInteger
+true
+```
+
+and an `Integer` trait:
+
+```
+>>> [23, 23n].collect(isInteger:/1)
+[true true]
+```
 
 There is a `Radix Syntax` for specifying non-decimal integers.
 
@@ -18,6 +30,6 @@ There is a `Radix Syntax` for specifying non-decimal integers.
 
 * * *
 
-See also: Literals Syntax, Radix Syntax
+See also: Integer, LargeInteger, Literals Syntax, Radix Syntax
 
 Categories: Syntax

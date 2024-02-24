@@ -26,4 +26,6 @@ true
 
 * * *
 
+See also: Method, System, Type
+
 Categories: Behaviour, Type

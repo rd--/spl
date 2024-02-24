@@ -1,6 +1,6 @@
 # system
 
-_system_ is the name of the singular instance of the `System` type.
+`system` is the name of the singular instance of the `System` type.
 
 ```
 >>> system.methodDictionary.keys.includes('sum')
@@ -28,6 +28,6 @@ true
 
 * * *
 
-See also: System
+See also: Method, Trait, Type, System
 
 Categories: Reflection

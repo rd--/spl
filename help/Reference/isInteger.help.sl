@@ -17,6 +17,13 @@ false
 false
 ```
 
+At `LargeInteger`:
+
+```
+>>> 23n.isInteger
+true
+```
+
 At `Fraction`:
 
 ```
@@ -49,6 +56,6 @@ false
 
 * * *
 
-See also: Integer, isNumber, isGaussianInteger, isSmallInteger
+See also: Integer, isNumber, isGaussianInteger, isSmallInteger, isLargeInteger, Number
 
 Categories: Predicate

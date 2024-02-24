@@ -1,16 +1,16 @@
 # Method
 
-_Method_ is the type of the entries in the [Method Table].
+`Method` is the `Type` of the entries in the `Method Dictionary`.
 
 Methods have the fields:
 
 - _arity_: an integer indicating the required number of arguments
 - _name_: a string
-- _origin_: the name of the type or Trait where the method is defined
+- _origin_: the name of the `Type` or `Trait` where the method is defined
 - _block_: the compiled implementation of the method
-- _sourceCode_: the definition of the method string
+- _sourceCode_: the definition of the method, a `String`
 
-The _methodDictionary_ is reflected in the _System_ type.
+The `methodDictionary` is reflected in the `System` type.
 
 ```
 >>> system.methodDictionary.isDictionary
@@ -39,6 +39,6 @@ true
 
 * * *
 
-See also: System, Trait, Type
+See also: methodDictionary, System, Trait, Type
 
 Categories: Behaviour, Type

@@ -1,8 +1,8 @@
 # asCharacter
 
-_asCharacter(aCharacter | anInteger | aString)_
+- _asCharacter(aCharacter | anInteger | aString)_
 
-Answer a Character given a single character string or an integer code point.
+Answer a `Character` given a single character `String` or an `Integer` code point.
 
 ```
 >>> 'c'.asCharacter

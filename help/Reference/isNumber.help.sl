@@ -17,6 +17,13 @@ true
 true
 ```
 
+At `LargeInteger`:
+
+```
+>>> 23n.isNumber & { 23n.isLargeInteger }
+true
+```
+
 At `Fraction`:
 
 ```
@@ -40,6 +47,6 @@ false
 
 * * *
 
-See also: isFinite, isFraction, isInteger, isSmallFloat, Number
+See also: isFinite, isFraction, isInteger, isLargeInteger, isSmallFloat, Number
 
 Categories: Predicate

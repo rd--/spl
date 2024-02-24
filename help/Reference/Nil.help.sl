@@ -1,6 +1,6 @@
 # Nil
 
-_Nil_ is the type of the value _nil_.
+`Nil` is the `Type` of the value `nil`.
 
 ```
 >>> nil.typeOf
