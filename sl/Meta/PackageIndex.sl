@@ -83,6 +83,7 @@
 	'Math-Binomial'
 	'Math-Elementwise'
 	'Math-Gamma'
+	'Math-Matrix'
 	'Math-Primes'
 	'Meta-BenchmarkLibrary'
 	'Meta-Categories'

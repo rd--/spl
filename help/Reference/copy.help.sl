@@ -1,6 +1,6 @@
 # copy
 
-_copy(anObject)_
+- _copy(anObject)_
 
 Answer another object just like _anObject_.
 

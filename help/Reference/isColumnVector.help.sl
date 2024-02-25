@@ -1,11 +1,14 @@
 # isColumnVector
 
-- _isColumnVector(aMatrix)_
+- _isColumnVector(aSequence | aMatrix)_
 
-A _column vector_ is a _matrix_ with a single column, ie. a _n×1_ matrix:
+A _column vector_ is a _matrix_ with a single column, ie. an _n×1_ matrix:
 
 ```
 >>> [1; 2; 3].isColumnVector
+true
+
+>>> [1; 2; 3].asMatrix.isColumnVector
 true
 ```
 

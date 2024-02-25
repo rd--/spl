@@ -1,6 +1,6 @@
 # isMatrix
 
-_isMatrix(aSequence)_
+- _isMatrix(aSequence | aMatrix)_
 
 A `Sequence` is a _matrix_ if each of the elements is a _vector_ of equal size.
 

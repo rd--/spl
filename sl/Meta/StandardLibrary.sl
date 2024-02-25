@@ -56,6 +56,7 @@
 	'Binomial'
 	'Elementwise'
 	'Gamma'
+	'Matrix'
 	'Primes'
 
 	{- Stream -}

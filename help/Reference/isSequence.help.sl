@@ -1,27 +1,46 @@
 # isSequence
 
-_isSequence(aCollection)_
+- _isSequence(aCollection)_
 
 Answers true if the elements of _aCollection_ can be accessed using an integral index between one and the size of the collection.
+
+At `List`:
 
 ```
 >>> List().isSequence
 true
+```
 
+At `Bag`:
+
+```
 >>> Bag().isSequence
 false
+```
 
+At `Map`:
+
+```
 >>> Map().isSequence
 false
+```
 
+
+At `Record`:
+
+```
 >>> Record().isSequence
 false
+```
 
+At `Set`:
+
+```
 >>> Set().isSequence
 false
 ```
 
-Object answers false:
+`Object` answers false:
 
 ```
 >>> nil.isSequence

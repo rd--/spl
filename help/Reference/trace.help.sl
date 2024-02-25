@@ -1,6 +1,6 @@
 # trace
 
-- _trace(aSequence, aBlock:/1)_
+- _trace(aSequence | aMatrix, aBlock:/1)_
 - _trace(alpha)_ => _trace(alpha, +)_
 
 Answer the trace of the matrix or tensor list.
@@ -8,6 +8,9 @@ Answer the trace of the matrix or tensor list.
 ```
 >>> [1 2 3; 4 5 6; 7 8 9].trace
 (1 + 5 + 9)
+
+>>> [1 2 3; 4 5 6; 7 8 9].asMatrix.trace
+15
 ```
 
 For a vector `trace` gives the sum of the elements:

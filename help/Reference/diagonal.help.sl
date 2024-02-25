@@ -1,6 +1,6 @@
 # diagonal
 
-- _diagonal(aMatrix, anInteger)_
+- _diagonal(aSequence | aMatrix, anInteger)_
 - _diagonal(alpha)_ => _diagonal(alpha, 0)_
 
 Answer the list of elements on the leading diagonal,
@@ -10,6 +10,9 @@ Diagonal works even if _aMatrix_ is not a square matrix.
 
 ```
 >>> [3 3].iota.diagonal
+[1 5 9]
+
+>>> [3 3].iota.asMatrix.diagonal
 [1 5 9]
 
 >>> [1.1 12.2 3.23; 2.3 42.2 35.3; 1.2 3.1 2.3].diagonal

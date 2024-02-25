@@ -1,6 +1,6 @@
 # shape
 
-- _shape(aSequence | anObject)_
+- _shape(aSequence | aMatrix | anObject)_
 
 Answer the shape of the argument, a vector of lengths of the array along each axis.
 
@@ -81,7 +81,7 @@ The empty sequence has shape [0]:
 [0]
 ```
 
-See also: isArray, isMatrix, isSequence, isVector, rank, reshape
+See also: isArray, isMatrix, isSequence, isVector, numberOfRows, numberOfColumns, rank, reshape
 
 References:
 _Apl_

@@ -177,7 +177,7 @@
 				true
 			}
 		} {
-			'Sequencable>>beginsWith: not a sequence'.error
+			self.error('@Sequencable>>beginsWith: not a sequence')
 		}
 	}
 
@@ -303,27 +303,6 @@
 		self.withCollectCrossed(aSequence, *)
 	}
 
-	determinant { :self |
-		self.isSquareMatrix.if {
-			(self.size = 2).if {
-				(self[1, 1] * self[2, 2]) - (self[1, 2] * self[2, 1])
-			} {
-				(self.size = 3).if {
-					(self[1, 1] * self[2, 2] * self[3, 3]) +
-					(self[1, 2] * self[2, 3] * self[3, 1]) +
-					(self[1, 3] * self[2, 1] * self[3, 2]) -
-					(self[1, 3] * self[2, 2] * self[3, 1]) -
-					(self[1, 2] * self[2, 1] * self[3, 3]) -
-					(self[1, 1] * self[2, 3] * self[3, 2])
-				} {
-					'@Sequence>>determinant: not implemented'.error
-				}
-			}
-		} {
-			'@Sequence>>determinant: not defined at non-square matrices'.error
-		}
-	}
-
 	diagonal { :self :k |
 		self.isMatrix.if {
 			let l = self.shape.min - k.abs;
@@ -331,7 +310,7 @@
 				self[i - k.min(0)][i + k.max(0)]
 			}
 		} {
-			'@Sequence>>diagonal: non matrix argument'.error
+			self.error('@Sequence>>diagonal: non matrix argument')
 		}
 	}
 
@@ -370,7 +349,7 @@
 			(aSequence.isVector | { aSequence.isMatrix }).if {
 				(self *.e aSequence).sum
 			} {
-				'@Sequence>>dotProduct: argument not vector or matrix'.error
+				self.error('@Sequence>>dotProduct: argument not vector or matrix')
 			}
 		} {
 			self.isMatrix.if {
@@ -384,11 +363,11 @@
 							each.dot(aSequence)
 						}
 					} {
-						'@Sequence>>dotProduct: argument not vector or matrix'.error
+						self.error('@Sequence>>dotProduct: argument not vector or matrix')
 					}
 				}
 			} {
-				'@Sequence>>dotProduct: self not vector or matrix'.error
+				self.error('@Sequence>>dotProduct: self not vector or matrix')
 			}
 		}
 	}
@@ -1130,7 +1109,7 @@
 		let k = factors.size.min(self.size);
 		let prefix = self.size - factors.size;
 		(prefix > 1).ifTrue {
-			'Sequence>>mixedRadixDecode: sequence too long'.error
+			self.error('@Sequence>>mixedRadixDecode: sequence too long')
 		};
 		(k .. 1).do { :index |
 			answer := answer + (self[index + prefix] * base);
@@ -1450,7 +1429,7 @@
 		(replacement.size = (stop - start + 1)).if {
 			self.replaceFromToWithStartingAt(start, stop, replacement, 1)
 		} {
-			self.error('replaceFromToWith: size of replacement doesnt match')
+			self.error('@Sequence>> replaceFromToWith: size of replacement does not match')
 		}
 	}
 
@@ -1468,7 +1447,7 @@
 
 	replicateEachApplying { :self :counts :aBlock:/1 |
 		(self.size ~= counts.size).if {
-			'Sequence>>replicateEachApplying: counts not of correct size'.error
+			self.error('@Sequence>>replicateEachApplying: counts not of correct size')
 		} {
 			let answerSize = counts.sum;
 			let answer = self.species.ofSize(answerSize);
@@ -1493,7 +1472,7 @@
 
 	reshape { :self :shape |
 		shape.ifEmpty {
-			'Sequence>>reshape: empty shape?'.error
+			self.error('@Sequence>>reshape: empty shape?')
 		} {
 			let size = shape.product;
 			let answer = self.flatten.wrapExtend(size);
@@ -1532,7 +1511,7 @@
 
 	reverseWithDo { :self :aSequence :aBlock:/2 |
 		(self.size ~= aSequence.size).if {
-			self.error('reverseWithDo: unequal size')
+			self.error('@Sequence>> reverseWithDo: unequal size')
 		} {
 			self.size.downToDo(1) { :index |
 				aBlock(self[index], aSequence[index])
@@ -1625,11 +1604,11 @@
 				(elementShapes.nub.size = 1).if {
 					[self.size] ++ elementShapes.first
 				} {
-					'@Sequence>>shape: irregular arrays do not have shape'.error
+					self.error('@Sequence>>shape: irregular arrays do not have shape')
 				}
 			} {
 				elementTypes.includes(type).if {
-					'@Sequence>>shape: irregular arrays do not have shape'.error
+					self.error('@Sequence>>shape: irregular arrays do not have shape')
 				} {
 					[self.size]
 				}
@@ -1640,7 +1619,7 @@
 	standardize { :self :meanBlock:/1 :deviationBlock:/1 |
 		let deviation = deviationBlock(self);
 		(deviation = 0).if {
-			'standardize: deviation = 0?'.error
+			self.error('@Sequence>>standardize: deviation = 0?')
 		} {
 			(self - meanBlock(self)) / deviation
 		}
@@ -1888,7 +1867,7 @@
 					}
 				)
 			} {
-				'Sequence>>trace: not an Array'.error
+				self.error('@Sequence>>trace: not an Array')
 			}
 		}
 	}
@@ -1935,7 +1914,7 @@
 		(u.isVector & { v.isVector }).if {
 			(u.dot(v) / (u.norm * v.norm)).arcCos
 		} {
-			'Sequence>>vectorAngle: not vectors'.error
+			self.error('@Sequence>>vectorAngle: not vectors')
 		}
 	}
 
