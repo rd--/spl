@@ -1,17 +1,32 @@
-# Sc Help Index
+# Unit Generators
 
 ## Amplitude & Dynamics
 
 - `AmpComp`: psychoacoustic amplitude compensation
 - `Amplitude`: amplitude follower
+- `Compander`: compressor, expander, limiter, gate, ducker
+- `Limiter`: peak limiter
 - `Normalizer`: flattens dynamics
 - `PeakFollower`: track peak signal amplitude
+
+## Analysis
+
+- `Pitch`: autocorrelation pitch follower
+- `RunningSum`: summing
+- `Slope`: slope of signal
+- `ZeroCrossing`: zero crossing frequency follower
+
+## Arrays
+
+- `Mix`: sum a list of inputs
+- `Select`: select output from a list of inputs
 
 ## Buffer Input & Output
 
 - `BufRd`: buffer reading oscillator
 - `Index`: index into a table with a signal
 - `PlayBuf`: sample playback oscillator
+- `TGrains`: buffer granulator
 - `Warp1`: warp a buffer with a time pointer
 - `WrapIndex`: index into a table with a signal
 
@@ -23,8 +38,11 @@
 
 ## Control Signals
 
+- `Integrator`: leaky integrator
+- `Lag`: exponential lag
 - `MouseX`: cursor unit generator
 - `MouseY`: cursor unit generator
+- `Slew`: slew rate limiter
 
 ## Converting
 
@@ -44,6 +62,7 @@
 ## Delays
 
 - `AllpassC`: all pass filter
+- `AllpassL`: all pass filter
 - `AllpassN`: all pass filter
 - `CombC`: comb filter
 - `CombL`: comb filter
@@ -51,11 +70,13 @@
 - `Delay1`: single sample delay
 - `Delay2`: two sample delay
 - `DelayC`: delay line
+- `DelayL`: delay line
 - `DelayN`: delay line
 - `DelayTap`: delay line read
 - `DelayWrite`: delay line write
 - `MultiTapDelay`: multi-tap delay line
 - `PingPongDelay`: stereo ping pong delay
+- `Pluck`: karplus-strong ugen
 
 ## Distortion
 
@@ -68,7 +89,9 @@
 - `Decay`: exponential decay
 - `Decay2`: exponential decay
 - `EnvGen`: envelope generator
+- `Line`: line generator
 - `Release`: release envelope
+- `XLine`: exponential line generator
 
 ## Filters
 
@@ -79,9 +102,11 @@
 - `Brz2`: two zero fixed midcut
 - `Formlet`: FOF-like filter
 - `Fos`: first order filter section
+- `FreqShift`: frequency shifter
 - `Hpf`: 2nd order Butterworth highpass filter
 - `Hpz1`: two point difference filter
 - `Hpz2`: two zero fixed highpass
+- `LeakDc`: remove dc
 - `Lpf`: 2nd order Butterworth lowpass filter
 - `Lpz1`: two point average filter
 - `Lpz2`: two zero fixed lowpass
@@ -98,6 +123,10 @@
 - `TwoPole`: two pole filter
 - `TwoZero`: two zero filter
 
+## Granular Synthesis
+
+- `PitchShift`: granular pitch shifter
+
 ## Input & Output
 
 - `AudioIn`: read audio input from analogue-to-digital converter
@@ -113,6 +142,7 @@
 - `ArcSin`: arc sine
 - `ArcTan`: arc tangent
 - `Ceiling`: next higher integer
+- `Clip`: clipping
 - `Clip2`: bilateral clipping
 - `Cos`: cosine
 - `Cosh`: hyperbolic cosine
@@ -142,6 +172,7 @@
 - `Squared`: squared value
 - `Tan`: tangent
 - `Tanh`: hyperbolic tangent
+- `Wrap`: wrap a signal outside given thresholds
 - `Wrap2`: bilateral wrapping
 
 ## Noise Generators
@@ -188,16 +219,23 @@
 
 - `EqPan2`: two channel equal power pan
 - `LinPan2`: two channel linear pan
+- `LinXFade2`: two channel linear crossfade
 - `Pan2`: two channel equal power pan
 - `PanAz`: azimuth panner
 - `PanB`: Ambisonic B format panner
 - `Splay`: panner
 - `Splay2`: stereo panner
 - `SplayAz`: panner
+- `XFade2`: equal power two channel cross fade
+
+## Physical Models
+
+- `Spring`: physical model of resonating spring
 
 ## Random Number Generators
 
 - `ExpRand`: random number generator
+- `Hasher`: randomized value
 - `IRand`: random number generator
 - `LinRand`: random number generator
 - `NRand`: random number generator
@@ -212,6 +250,10 @@
 
 - `FreeVerb`: a reverb
 - `GVerb`: two-channel reverb
+
+## Sequencing
+
+- `Seq`: demand rate sequence generator
 
 ## Testing
 
@@ -235,30 +277,6 @@
 ## Uncategorized
 
 - `Choose`: demand rate random sequence generator
-- `Compander`: compressor, expander, limiter, gate, ducker
-- `FreqShift`: frequency shifter
 - `GetTempo`: continuous tempo
-- `Hasher`: randomized value
-- `Integrator`: leaky integrator
-- `Lag`: exponential lag
-- `LeakDc`: remove dc
-- `Limiter`: peak limiter
-- `LinXFade2`: two channel linear crossfade
-- `Line`: line generator
-- `Mix`: sum a list of inputs
 - `OverlapTexture`: overlap events
-- `Pitch`: autocorrelation pitch follower
-- `PitchShift`: granular pitch shifter
-- `Pluck`: karplus-strong ugen
-- `RunningSum`: summing
-- `Select`: select output from a list of inputs
-- `Seq`: demand rate sequence generator
 - `Silent`: output silence
-- `Slew`: slew rate limiter
-- `Slope`: slope of signal
-- `Spring`: physical model of resonating spring
-- `TGrains`: buffer granulator
-- `Wrap`: wrap a signal outside given thresholds
-- `XFade2`: equal power two channel cross fade
-- `XLine`: exponential line generator
-- `ZeroCrossing`: zero crossing frequency follower

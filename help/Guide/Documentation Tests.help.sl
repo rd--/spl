@@ -2,11 +2,12 @@
 
 Documentation tests are written as any number of _>>>_ prefixed lines followed by one _answer_ line.
 
-The tests must be written so that the _>>>_ prefixed lines,
+The tests are written so that the _>>>_ prefixed lines,
 when unprefixed and concatenated,
-evaluate to a value that is _~_ to the answer line when placed in parentheses.
+evaluate to a value that is similar to the answer line when placed in parentheses,
+as implemented by `~`.
 
-To show that real numbers are _commutative_ under addition and multiplication we can write:
+To show that real numbers are commutative under addition and multiplication we can write:
 
 ```
 >>> pi + e
@@ -24,4 +25,4 @@ Where supported the token `>>>` is displayed as ⋙.
 
 Unicode: U+22D9 ⋙ Very Much Greater-Than
 
-See also: Reference Help Files], terseReferenceSummary
+See also: ~, Reference Help Files, terseReferenceSummary

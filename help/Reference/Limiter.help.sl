@@ -1,8 +1,11 @@
-# Limiter -- peak limiter
+# Limiter
 
-_Limiter(input, level, lookAheadTime=0.01)_
+- _Limiter(input, level, lookAheadTime=0.01)_
 
-Limits the input amplitude to the given level. Limiter will not overshoot like _Compander_ will, but it needs to look ahead in the audio. Thus there is a delay equal to twice the lookAheadTime.
+Peak limiter.
+Limits the input amplitude to the given level.
+Limiter will not overshoot like `Compander` will, but it needs to look ahead in the audio.
+Thus there is a delay equal to twice the lookAheadTime.
 
 Limiter, unlike Compander, is completely transparent for an in range signal.
 
@@ -30,3 +33,5 @@ Limiter(z, MouseX(0, 1, 0, 0.2), 0.01) * 0.2
 * * *
 
 See also: Compander
+
+Categories: Ugen, Amplitude

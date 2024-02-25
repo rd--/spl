@@ -1,9 +1,8 @@
 # Wrap
 
+- _Wrap(in, lo=0, hi=1)_
+
 Wrap a signal outside given thresholds.
-
-_Wrap(in, lo, hi)_
-
 This differs from _Wrap2_ in that it allows one to set both low and high thresholds.
 
 - in: signal to be wrapped
@@ -25,4 +24,6 @@ SinOsc(Wrap(z, [110, 130], [190, 170]), 0) * 0.1
 
 * * *
 
-See also: Wrap2
+See also: Clip, Fold, Wrap2
+
+Categories: Ugen

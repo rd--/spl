@@ -1,15 +1,15 @@
-# LinExp -- convert a linear range to an exponential range
+# LinExp
 
-_LinExp(in, srclo, srchi, dstlo, dsthi)_
+- _LinExp(in, srcLow=-1, srcHigh=1, dstLow=0.001, dstHigh=1)_
 
-Converts a linear range of values to an exponential range of values.
-The dstlo and dsthi arguments must be nonzero and have the same sign.
+Convert a linear range of values to an exponential range of values.
+The _dstLow_ and _dstHigh_ arguments must be non-zero and have the same sign.
 
-- in: input to convert.
-- srclo: lower limit of input range.
-- srchi: upper limit of input range.
-- dstlo: lower limit of output range.
-- dsthi: upper limit of output range.
+- in: input to convert
+- srcLoq: lower limit of input range
+- srcHigh: upper limit of input range
+- dstLoq: lower limit of output range
+- dstHigh: upper limit of output range
 
 Convert -1 to +1 sawtooth into 0.01 to 1.0 exponential:
 
@@ -26,3 +26,10 @@ let mod = SinOsc(Line(1, 10, 10), 0);
 	SinOsc(mod * 400 + 500, 0),
 	SinOsc(LinExp(mod, -1, 1, 100, 900), 0)
 ] * 0.1
+```
+
+* * *
+
+See also: LinLin
+
+Categories: Ugen

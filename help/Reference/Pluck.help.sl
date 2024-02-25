@@ -1,6 +1,8 @@
-# Pluck -- karplus-strong ugen
+# Pluck
 
-_Pluck(in, trig, maxdelaytime, delaytime, decaytime, coef)_
+- _Pluck(in, trig, maxdelaytime, delaytime, decaytime, coef)_
+
+Karplus-strong algorithm.
 
 - in: an excitation signal
 - trig: fill delay line on trigger
@@ -46,3 +48,8 @@ Splay(
 		0.995
 	)
 )
+```
+
+* * *
+
+Categories: Ugen

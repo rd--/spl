@@ -21,4 +21,4 @@ Below the horizontal rule there may be the following entries:
 
 * * *
 
-See also: Documentation Tests
+See also: Documentation Tests, Help Files

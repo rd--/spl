@@ -20,3 +20,5 @@ let o = SyncSaw(100, 440);
 * * *
 
 See also: abs, AbsDif
+
+Categories: Ugen

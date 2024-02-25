@@ -1,6 +1,6 @@
 # Normalizer
 
-_Normalizer(input, level, lookAheadTime)_
+- _Normalizer(input, level, lookAheadTime)_
 
 Flatten dynamics.
 Normalizes the input amplitude to the given level.

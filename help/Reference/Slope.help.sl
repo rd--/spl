@@ -1,8 +1,12 @@
-# Slope -- slope of signal
+# Slope
 
-_Slope(in)_
+- _Slope(in)_
 
-Measures the rate of change per second of a signal. Formula implemented is: _out[i] = (in[i] - in[i-1]) * sampling_rate_.
+Slope of signal.
+Measures the rate of change per second of a signal.
+Formula implemented is:
+
+> _out[i] = (in[i] - in[i-1]) * samplingRate_
 
 - in: input signal to measure.
 
@@ -21,4 +25,9 @@ let freq = [a, b * scale, c * scale.squared] * 100 + 200;
 SinOsc(freq, 0).Splay * 0.1
 ```
 
-For another example of Slope see [hypot].
+For another example of Slope see `Hypot`.
+
+* * *
+
+
+Categories: Ugen

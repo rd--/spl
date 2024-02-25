@@ -1,6 +1,6 @@
 # PeakFollower
 
-_PeakFollower(in, decay)_
+- _PeakFollower(in, decay)_
 
 Track peak signal amplitude.
 Outputs the peak amplitude of the signal received at the input.

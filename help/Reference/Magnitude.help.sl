@@ -1,6 +1,6 @@
 # Magnitude
 
-Trait defining comparison operators.
+A `Trait` defining comparison operators.
 Objects that are magnitudes should implement _=_.
 
 The method that must be defined to implement this trait is _<_.

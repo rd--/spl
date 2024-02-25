@@ -1,11 +1,11 @@
-# RunningSum -- summing
+# RunningSum
 
-_RunningSum(in, numsamp)_
+- _RunningSum(in, numSamp)_
 
 A running sum over a user specified number of samples, useful for running RMS power windowing.
 
 - in: Input signal
-- numsamp: How many samples to take the running sum over (initialisation time only, not modulatable)
+- numSamp: How many samples to take the running sum over (initialisation time only, not modulatable)
 
 Overloads of course, would need scaling:
 
@@ -36,3 +36,8 @@ let numsamp = 500;
 let power= MouseX(0.1, 4, 0, 0.2);
 let sum = RunningSum(input ^ power, numsamp);
 (sum / numsamp) ^ power.Recip
+```
+
+* * *
+
+Categories: Ugen

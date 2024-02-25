@@ -1,8 +1,14 @@
-# Schmidt -- Schmidt trigger
+# Schmidt
 
-_Schmidt(in, lo, hi)_
+- _Schmidt(in, lo, hi)_
 
-When in crosses to greater than hi, output 1, then when signal crosses lower than lo output 0. Uses the formula if(out == 1, { if(in < lo, { out = 0.0 }) }, { if(in > hi, { out = 1.0 }) }). Output is initially zero.
+Schmidt trigger.
+When _in_ crosses to greater than _hi_, output 1, then when signal crosses lower than _lo_ output 0.
+Uses the formula:
+
+> _if(out == 1, { if(in < lo, { out = 0.0 }) }, { if(in > hi, { out = 1.0 }) })_
+
+Output is initially zero.
 
 - in: signal to be tested
 - lo: low threshold

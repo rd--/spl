@@ -1,8 +1,8 @@
 # boole
 
-_boole(anObject)_
+- _boole(anObject)_
 
-Answer 1 if _anObject_ is true and 0 if it is false.
+Answer 1 if _anObject_ is `true` and 0 if it is `false`.
 
 ```
 >>> [false.boole, true.boole]
@@ -16,7 +16,7 @@ Threads over lists, convert a list of truth values to integers:
 [1 0 1 1 0]
 ```
 
-The inverse of boole:
+The inverse of `boole` is `asBoolean`:
 
 ```
 >>> [1 0 1 1 0].collect(asBoolean:/1)

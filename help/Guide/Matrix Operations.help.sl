@@ -100,4 +100,4 @@ Trace:
 
 * * *
 
-See also: +, *, at, determinant, dot, isColumnVector, isMatrix, isRowVector, isSquareMatrix, shape, trace
+See also: +, *, at, determinant, dot, isColumnVector, isMatrix, isRowVector, isSquareMatrix, Matrix, shape, trace

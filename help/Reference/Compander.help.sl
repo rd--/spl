@@ -1,9 +1,8 @@
 # Compander
 
+- _Compander(in, control, thresh=0.5, slopeBelow=1, slopeAbove=1, clampTime=0.01, relaxTime=0.1)_
+
 Compressor, expander, limiter, gate, ducker.
-
-_Compander(in, control, thresh=0.5, slopeBelow=1, slopeAbove=1, clampTime=0.01, relaxTime=0.1)_
-
 General purpose (hard-knee) dynamics processor.
 
 - in: The signal to be compressed / expanded / gated.
@@ -111,3 +110,5 @@ Compander(
 * * *
 
 See also: Limiter
+
+Categories: Ugen, Amplitude

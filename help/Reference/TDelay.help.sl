@@ -1,7 +1,8 @@
-# TDelay -- trigger delay
+# TDelay
 
-_TDelay(trigger, delayTime)_
+- _TDelay(trigger, delayTime)_
 
+Trigger delay.
 Delays a trigger by a given time.
 Any triggers which arrive in the time between an input trigger and its delayed output, are ignored.
 
@@ -25,3 +26,5 @@ let z = Dust(5);
 * * *
 
 See also: Delay1, Delay2, DelayC
+
+Categories: Ugen

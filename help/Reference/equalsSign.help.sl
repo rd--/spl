@@ -37,7 +37,7 @@ The _=_ symbol is also a part of `Let Syntax`.
 
 * * *
 
-See also: ~=, ==, :=, equalSlots, Let Syntax
+See also: ~=, ==, ~, :=, equalSlots, Let Syntax
 
 References:
 _Apl_
