@@ -3,7 +3,7 @@
 - _aNumber.^_
 - _aNumber ^ anotherNumber_
 
-Answer _aNumber_ raised to the power of _anotherNumber_.
+The binary form answers _aNumber_ raised to the power of _anotherNumber_.
 
 ```
 >>> 2 ^ -0.5
@@ -13,7 +13,7 @@ Answer _aNumber_ raised to the power of _anotherNumber_.
 1267650600228229401496703205376n
 ```
 
-At Complex:
+At `Complex`:
 
 ```
 >>> 2 ^ 0j1
@@ -45,7 +45,7 @@ Threads elementwise over lists and matrices:
 [1 4 9 16 25 36 49 64 81 100]
 ```
 
-Values at zero:
+Values at `zero`:
 
 ```
 >>> system.nextRandomFloat ^ 0
@@ -62,7 +62,7 @@ Five-percent compound interest:
 [1.05 1.1025 1.15763 1.21551 1.27628]
 ```
 
-At LargeInteger:
+At `LargeInteger`:
 
 ```
 >>> 33n ^ 33
@@ -84,6 +84,8 @@ Plot over a subset of the reals:
 ~~~
 (0, 0.01 .. 5).collect { :each | each ^ 3 }.plot
 ~~~
+
+Where supported this operator is displayed as _ˆ_.
 
 The name of this operator is _circumflexAccent_.
 

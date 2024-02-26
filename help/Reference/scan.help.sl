@@ -1,9 +1,9 @@
 # scan
 
-_scan(aSequence, aBlock:2)_
+- _scan(aSequence, aBlock:2)_
 
-Similar to _reduce_ but answer a sequence of successive reduced values.
-Just as _reduce_ is an alias for _foldLeft_, _scan_ is an alias for _scanLeft_.
+Similar to `reduce` but answer a sequence of successive reduced values.
+Just as `reduce` is an alias for `foldLeft`, `scan` is an alias for `scanLeft`.
 
 ```
 >>> [].scan(+)

@@ -1,5 +1,12 @@
-# isCollection -- testing
+# isCollection
 
-- _isCollection(aValue)_
+- _isCollection(anObject)_
 
-Return true if the _aValue_ is some sort of Collection and responds to basic collection messages such as _size_ and _do_.
+Answer `true` if _anObject_ is a sort of `Collection`,
+understaning the collection messages such as `size` and `do`.
+
+* * *
+
+See also: Collection, collect, do, size, species
+
+Categories: Testing

@@ -3,7 +3,7 @@
 - _aNumber.+_
 - _aNumber + anotherNumber_
 
-Answer sum of _aNumber_ and _anotherNumber_.
+The binary form answers the sum of _aNumber_ and _anotherNumber_.
 
 ```
 >>> 3 + 4
@@ -16,7 +16,7 @@ Answer sum of _aNumber_ and _anotherNumber_.
 15/4
 ```
 
-Complex numbers add their components:
+`Complex` numbers add their components:
 
 ```
 >>> 2j1 + 3j-7
@@ -33,14 +33,7 @@ Plus threads element-wise over lists:
 [3 5 7]
 ```
 
-List implements plus:
-
-```
->>> [1 2 3] + [2 3 4]
-[3 5 7]
-```
-
-Plus at SmallFloat is not always associative:
+Plus at `SmallFloat` is not always associative:
 
 ```
 >>> 1e20 + (-1e20 + 1)
@@ -64,7 +57,7 @@ The name of this operator is _plusSign_.
 
 * * *
 
-See also: -, *, /, sum
+See also: -, *, /, conjugated, sum
 
 Unicode: U+002B + Plus Sign
 

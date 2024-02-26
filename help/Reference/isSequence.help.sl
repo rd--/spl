@@ -2,7 +2,7 @@
 
 - _isSequence(aCollection)_
 
-Answers true if the elements of _aCollection_ can be accessed using an integral index between one and the size of the collection.
+Answers `true` if the elements of _aCollection_ can be accessed using an integral index between one and the size of the collection.
 
 At `List`:
 
@@ -24,7 +24,6 @@ At `Map`:
 >>> Map().isSequence
 false
 ```
-
 
 At `Record`:
 

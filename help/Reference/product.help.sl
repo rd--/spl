@@ -10,6 +10,9 @@ Answer the product of all the elements in _aCollection_
 
 >>> [1 2 3 5 7 9].reduce(*)
 1890
+
+>>> (1:6 ^ 2).product
+518400
 ```
 
 The product of an empty collection is one:
@@ -19,7 +22,7 @@ The product of an empty collection is one:
 1
 ```
 
-Factorial is product of a Range:
+Factorial is product of a `Range`:
 
 ```
 >>> 9.factorial
@@ -29,11 +32,20 @@ Factorial is product of a Range:
 362880
 ```
 
-Where supported this method is displayed as Π.
+```
+1:50.collect { :i | (11 / 12) ^ i * (2 + (i * 2 * pi / 15).sin) }.plot
+1:50.collect { :j | 1:j.collect { :i | (11 / 12) ^ i * (2 + (i * 2 * pi / 15).sin) }.product }.plot
+```
+
+Where supported this method is displayed as _Π_.
 
 * * *
 
 See also: *, injectInto, reduce, sum
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Product.html)
 
 Unicode: U+03A0 Π Greek capital letter pi
 

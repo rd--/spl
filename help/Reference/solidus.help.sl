@@ -3,7 +3,7 @@
 - _aNumber./_
 - _aNumber / anotherNumber_
 
-Answer _aNumber_ divided by _anotherNumber_.
+The binary form answers _aNumber_ divided by _anotherNumber_.
 
 ```
 >>> 77 / 11
@@ -45,6 +45,8 @@ The unary form is _reciprocal_:
 >>> [2 4 8]./
 [0.5 0.25 0.125]
 ```
+
+Where supported this operator is displayed as _÷_.
 
 The name of this operator is _solidus_.
 

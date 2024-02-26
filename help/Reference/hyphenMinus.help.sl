@@ -19,7 +19,7 @@ The binary form answers _anotherNumber_ subtracted from _aNumber_.
 7
 ```
 
-Subtracting complex numbers subtracts their components:
+Subtracting `Complex` numbers subtracts their components:
 
 ```
 >>> 2j1 - 1j-1
@@ -63,7 +63,7 @@ The name of this operator is _hyphenMinus_.
 
 * * *
 
-See also: +, *, /
+See also: +, *, /, ^
 
 References:
 _Apl_

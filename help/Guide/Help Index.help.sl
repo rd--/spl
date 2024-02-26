@@ -45,6 +45,8 @@
 ## Collection Tests
 
 - `isArray`, `isVector`, `isMatrix`
+- `isCollection`, `isDictionary`, `isIndexable`, `isSequence`
+- `isBag`, `isList`, `isMap`, `isRecord`, `isSet`
 
 ## Collection Types & Traits
 
@@ -117,12 +119,19 @@
 
 - `denominator`, `numerator`
 
+## Functional Programming
+
+- `collect`, `detect`, `reject`, `select`
+- `injectInto`, `reduce`, `scan`
+- `foldLeft`, `foldRight`
+- `withCollect`
+
 ## Geometry Types & Traits
 
 - `PolarCoordinate`, `RectangularCoordinate`
 - `CartesianCoordinate`, `CylindricalCoordinate`, `SphericalCoordinate`
 - `Circle`, `Rectangle`, `Sphere`
-- `Angle`, Projection3
+- `Angle`, `Projection3`
 
 ## Geometry Functions
 
@@ -151,6 +160,10 @@
 
 - `+`, `-`, `*`, `/`, `%`, `^`
 - `//`, `\\`
+
+## Mathematical Functions
+
+- `sum`, `product`
 
 ## Numeric Types & Traits
 

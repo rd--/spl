@@ -10,24 +10,35 @@ Answer the sum of all the elements in _aCollection_.
 
 >>> [pi 1 4 e 7 8].sum
 25.8599
+```
 
+At `Range`:
+
+```
 >>> 1:9.sum
 45
 
 >>> 1:9.reduce(+)
 45
+```
 
+Sums of matrices:
+
+```
 >>> [1 2 3; 4 5 6; 7 8 9].collect(sum:/1)
 [6 15 24]
 
 >>> [1 2 3; 4 5 6; 7 8 9].transposed.collect(sum:/1)
 [12 15 18]
 
+>>> [1 2 3; 4 5 6; 7 8 9].sum
+[12 15 18]
+
 >>> [1 2 3; 4 5 6; 7 8 9].sum.sum
 45
 ```
 
-Where supported this method is displayed as Σ.
+Where supported this method is displayed as _Σ_.
 
 * * *
 

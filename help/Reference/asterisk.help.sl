@@ -73,7 +73,7 @@ Where supported * is displayed as ×.
 
 * * *
 
-See also: +, -, /, sign
+See also: +, -, /, sign, product
 
 Unicode: U+00D7 × Multiplication Sign
 
