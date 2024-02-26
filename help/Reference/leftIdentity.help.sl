@@ -1,6 +1,6 @@
 # leftIdentity
 
-_leftIdentity(anObject, anotherObject)_
+- _leftIdentity(anObject, anotherObject)_
 
 Answer _anObject_.
 

@@ -1,6 +1,6 @@
 # squared
 
-_squared(aNumber)_
+- _squared(aNumber)_
 
 Answer _aNumber_ multiplied by itself.
 
@@ -18,4 +18,4 @@ The inverse is _sqrt_:
 
 * * *
 
-See also: sqrt
+See also: *, sqrt

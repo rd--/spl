@@ -57,7 +57,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: squared
+See also: cubeRoot, nthRoot, squared
 
 References:
 _Mathematica_

@@ -22,8 +22,8 @@ There is a conversion method from association lists:
 true
 ```
 
-At the ordinary _asRecord_ constructor it is an error if any key is not a string.
-There is a _basicAsRecord_ form that coerces keys to strings.
+At the ordinary `asRecord` constructor it is an error if any key is not a string.
+There is a `basicAsRecord` form that coerces keys to strings.
 
 ```
 >>> { [1.pi -> 'pi'].asRecord }.ifError { :err | true }

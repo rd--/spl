@@ -1,6 +1,6 @@
 # ->
 
-- _key -> value_ => _Association(key, value)_
+- _key -> value_ ⇒ _Association(key, value)_
 
 The _->_ operator creates as Association object associating _key_ with _value_.
 

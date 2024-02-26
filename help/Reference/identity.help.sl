@@ -1,6 +1,6 @@
 # identity
 
-_identity(anObject)_
+- _identity(anObject)_
 
 Answer _anObject_.
 

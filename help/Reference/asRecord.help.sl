@@ -14,4 +14,6 @@ Convert a List of Association or a Map to a Record.
 
 * * *
 
+See also: asList, Association, List, Map, Record
+
 Categories: Converting

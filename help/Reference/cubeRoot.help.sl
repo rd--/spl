@@ -1,6 +1,6 @@
 # cubeRoot
 
-_cubeRoot(aNumber)_
+- _cubeRoot(aNumber)_
 
 Answer the real-valued cube root of _aNumber_.
 

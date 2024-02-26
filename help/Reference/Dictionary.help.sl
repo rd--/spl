@@ -1,13 +1,14 @@
 # Dictionary
 
-_Dictionary_ is a trait holding behaviours common to collections of (key, value) associations.
+`Dictionary` is a `Trait` holding behaviours common to collections of (key, value) associations.
 
 Dictionaries are homogenous sets of key and value pairs.
-These pairs are called associations, key and value can be any object.
-Associations are created by sending the binary message "key -> value" (-> is defined at _Object_).
+These pairs are called associations.
+key and value can be any object.
+Associations are created by sending the binary operator _key -> value_ (`->` is defined at `Object`).
 Dictionaries have the property that each key occurs at most once.
-For both Map and Record the uniqueness of keys is determined using ==.
-Dictionaries are indexed using the unique key to obtain the corresponding value.
+For both `Map` and `Record` the uniqueness of keys is determined using `==`, not `=`.
+Dictionaries are indexed using the unique `key` to obtain the corresponding `value`.
 
 ```
 >>> system.traitTypes('Dictionary').includes('Map')

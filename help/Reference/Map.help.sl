@@ -1,17 +1,17 @@
 # Map
 
-_Map()_
+- _Map()_
 
-_Map_ is a Dictionary type where the keys are compared using the identitcal to (==) operator.
+`Map` is a `Dictionary` type where the keys are compared using the identitcal to (`==`) operator.
 
-Construct an empty _Map_:
+Construct an empty `Map`:
 
 ```
 >>> Map().isMap
 true
 ```
 
-Note: Map is _IdentityDictionary_ in Smalltalk.
+Note: `Map` is _IdentityDictionary_ in Smalltalk.
 
 * * *
 
