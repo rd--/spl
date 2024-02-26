@@ -1,6 +1,6 @@
 # +
 
-- _aCollection.+_
+- _aNumber.+_
 - _aNumber + anotherNumber_
 
 Answer sum of _aNumber_ and _anotherNumber_.
@@ -50,14 +50,14 @@ Plus at SmallFloat is not always associative:
 1
 ```
 
-The unary form of _plus_ is _sum_:
+The unary form of `+` is `conjugated`:
 
 ```
->>> 1:9.+
-45
+>>> [0 2 -1.1 1e300 -200].+
+[0 2 -1.1 1e300 -200]
 
->>> 1:9.reduce(+)
-45
+>>> [2j3 -4j-3 -12 1.5j1.5].+
+[2j-3 -4j3 -12 1.5j-1.5]
 ```
 
 The name of this operator is _plusSign_.
@@ -70,7 +70,10 @@ Unicode: U+002B + Plus Sign
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/Add),
+[1](https://aplwiki.com/wiki/Add)
+[2](https://aplwiki.com/wiki/Conjugate),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/plus),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Plus.html)
 [2](https://reference.wolfram.com/language/ref/Plus.html)

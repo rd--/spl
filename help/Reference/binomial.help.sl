@@ -26,6 +26,16 @@ Tells the number of combinations of _n_ elements taken _k_ at a time.
 (16 / 3.pi)
 ```
 
+_k_ may be a collection:
+
+```
+>>> [10 1 2 5].collect { :each | 10.binomial(each) }
+[1 10 45 252]
+
+>>> 10.binomial([10 1 2 5])
+[1 10 45 252]
+```
+
 Evaluate for half-integer arguments:
 
 ```
@@ -87,6 +97,8 @@ See also: factorial
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Binomial),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/bang#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/BinomialCoefficient.html)
 [2](https://reference.wolfram.com/language/ref/Binomial.html),

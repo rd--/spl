@@ -1,6 +1,8 @@
-# PanB2 -- Ambisonic B format panner
+# PanB2
 
-PanB2(in, azimuth, level)
+- _PanB2(in, azimuth, level)_
+
+Ambisonic B format panner.
 
 - in: input signal
 - azimuth: position, -1 to +1, -1/+1 is behind, -0.5 is left, 0 is forward, +0.5 is right
@@ -21,3 +23,5 @@ Silent(8) ++ DecodeB2(8, w, x, y, 0)
 * * *
 
 See also: DecodeB2
+
+Categories: Ugen

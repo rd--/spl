@@ -1,6 +1,6 @@
 # product
 
-- _product(aCollection)_ ⟹ _reduce(aCollection, times:/2)_
+- _product(aCollection)_ ⟹ _reduce(aCollection, *)_
 
 Answer the product of all the elements in _aCollection_
 
@@ -24,13 +24,16 @@ Factorial is product of a Range:
 ```
 >>> 9.factorial
 1:9.product
+
+>>> 1:9.product
+362880
 ```
 
 Where supported this method is displayed as Π.
 
 * * *
 
-See also: injectInto, reduce, sum
+See also: *, injectInto, reduce, sum
 
 Unicode: U+03A0 Π Greek capital letter pi
 

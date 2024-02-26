@@ -27,18 +27,18 @@ or in a prefix name in `Apply Syntax`:
 
 The translation is _3.- ⇒ hyphenMinus(3)  ⇒ hyphenMinus:/1 . (3)_.
 
-Unary `+` is `sum`:
+Unary `+` is `conjugated`:
 
 ```
->>> 1:9.+
-45
+>>> [2j3 -4j-3 -12 1.5j1.5].+
+[2j-3 -4j3 -12 1.5j-1.5]
 ```
 
-Unary `*` is `product`:
+Unary `*` is `sign`:
 
 ```
->>> 1:9.*
-362880
+>>> [-3 0 3].*
+[-1 0 1]
 ```
 
 Unary `-` is `negated`:
@@ -58,14 +58,7 @@ Unary `/` is `reciprocal`:
 [1 0.5 0.333333 0.25 0.2 0.16667]
 ```
 
-Unary `!` at `Block` is _(... ! 2)_:
-
-```
->>> { 0 }.!
-[0 0]
-```
-
-and at `Integer` it is `factorial`:
+Unary `!` is `factorial`:
 
 ```
 >>> 11.!

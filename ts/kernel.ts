@@ -3,8 +3,6 @@ export { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.
 
 import { MersenneTwister } from '../lib/scsynth-wasm-builds/lib/ext/mersenne-twister.ts';
 
-import { throwError } from '../lib/jssc3/ts/kernel/error.ts';
-
 import * as evaluate from './evaluate.ts';
 import { slOptions } from './options.ts';
 
@@ -92,7 +90,7 @@ export function typeOf(anObject: unknown): TypeName {
 			case 'object':
 				return objectType(<SlObject> anObject);
 			default:
-				throwError(`typeOf: unknown type: ${anObject}`);
+				throw new Error(`typeOf: unknown type: ${anObject}`);
 				return 'Unknown';
 		}
 	}
@@ -299,20 +297,36 @@ function traitExists(traitName: TraitName): boolean {
 	return system.traitDictionary.has(traitName);
 }
 
-function typeExists(typeName: TypeName): boolean {
-	return system.typeDictionary.has(typeName);
-}
-
-function methodExists(methodName: MethodName): boolean {
-	return system.methodDictionary.has(methodName);
+function getTrait(traitName: TraitName): Trait {
+	if(traitExists(traitName)) {
+		return system.traitDictionary.get(traitName)!;
+	} {
+		throw new Error(`getTrait: does not exist: ${traitName}`);
+	}
 }
 
 export function addTrait(traitName: TraitName, packageName: PackageName): void {
 	if (traitExists(traitName)) {
-		throw (`addTrait: trait exists: ${traitName}`);
+		throw new Error(`addTrait: trait exists: ${traitName}`);
 	} else {
 		system.traitDictionary.set(traitName, new Trait(traitName, packageName));
 	}
+}
+
+function typeExists(typeName: TypeName): boolean {
+	return system.typeDictionary.has(typeName);
+}
+
+function getType(typeName: TypeName): Type {
+	if(typeExists(typeName)) {
+		return system.typeDictionary.get(typeName)!;
+	} {
+		throw new Error(`getType: does not exist: ${typeName}`);
+	}
+}
+
+function methodExists(methodName: MethodName): boolean {
+	return system.methodDictionary.has(methodName);
 }
 
 // c.f. rewrite/makeMethodList
@@ -326,7 +340,7 @@ export function addTraitMethod(
 ): Method {
 	// console.debug(`addTraitMethod: ${traitName}, ${packageName}, ${methodName}, ${parameterNames}`);
 	if (traitExists(traitName)) {
-		const trait = system.traitDictionary.get(traitName)!;
+		const trait = getTrait(traitName);
 		const method = new Method(
 			block,
 			new MethodInformation(
@@ -340,26 +354,28 @@ export function addTraitMethod(
 		trait.methodDictionary.set(method.qualifiedName(), method);
 		return method;
 	} else {
-		throw (`addTraitMethod: trait does not exist: ${traitName}, ${methodName}, ${parameterNames.length}`);
+		throw new Error(`addTraitMethod: trait does not exist: ${traitName}, ${methodName}, ${parameterNames.length}`);
 	}
 }
 
+// Copy trait methods into type.  addMethodFor decides if the trait method is copied or not.
 export function copyTraitToType(
 	traitName: TraitName,
 	typeName: TypeName,
 ): void {
 	if (traitExists(traitName) && typeExists(typeName)) {
-		const methodDictionary =
-			system.traitDictionary.get(traitName)!.methodDictionary;
+		const trait = getTrait(traitName);
+		const methodDictionary = trait.methodDictionary;
 		for (const [_unusedName, method] of methodDictionary) {
 			// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${method.information.arity}`);
 			addMethodFor(typeName, method, true);
 		}
 	} else {
-		throw (`copyTraitToType: trait or type does not exist: ${traitName}, ${typeName}`);
+		throw new Error(`copyTraitToType: trait or type does not exist: ${traitName}, ${typeName}`);
 	}
 }
 
+// Get names of types that implement named trait.
 export function traitTypeArray(traitName: TraitName): TypeName[] {
 	const answer = [];
 	for (const [typeName, typeValue] of system.typeDictionary) {
@@ -393,7 +409,7 @@ export function extendTraitWithMethod(
 		});
 		return method;
 	} else {
-		throw (`extendTraitWithMethod: trait does not exist: ${traitName}, ${name}`);
+		throw new Error(`extendTraitWithMethod: trait does not exist: ${traitName}, ${name}`);
 	}
 }
 
@@ -432,7 +448,7 @@ export function dispatchByType(
 		if (method) {
 			return method.block.apply(null, []);
 		} else {
-			return throwError(`dispatchByType: no zero arity method: ${name}`);
+			throw new Error(`dispatchByType: no zero arity method: ${name}`);
 		}
 	} else {
 		const receiver = parameterArray[0];
@@ -442,13 +458,14 @@ export function dispatchByType(
 			// console.debug(`dispatchByType: name=${name}, arity=${arity}, type=${receiverType}`);
 			return typeMethod.block.apply(null, parameterArray);
 		} else {
-			return throwError(
+			throw new Error(
 				`dispatchByType: no method ${name}:/${arity} for ${receiverType}`,
 			);
 		}
 	}
 }
 
+/*
 export function dispatchByArity(
 	name: string,
 	arity: number,
@@ -459,13 +476,38 @@ export function dispatchByArity(
 	if (typeTable) {
 		return dispatchByType(name, arity, typeTable, parameterArray);
 	} else {
-		return throwError(
+		throw new Error(
 			`dispatchbyArity: no entry for arity: name=${name}, arity=${arity}`,
 		);
 	}
 }
+*/
 
 declare var globalThis: { [key: string]: unknown };
+
+// Is existingMethod more specific than method.
+// Todo: this is not a correct test, it needs to not over-write less specific traits as well... it works for stdlib...
+function isMoreSpecific(typeName: TypeName, existingMethod: Method, method: Method): boolean {
+	const methodOrigin = method.information.origin;
+	const methodIsAtType = methodOrigin.name === typeName;
+	if (methodIsAtType) {
+		return false;
+	} else {
+		const existingOrigin = existingMethod.information.origin;
+		const existingIsAtType = existingOrigin.name === typeName;
+		if (existingIsAtType && !methodIsAtType) {
+			return true;
+		} else  {
+			const typeValue = getType(typeName);
+			const existingTraitIndex = typeValue.traitNameArray.findIndex((item) => item === existingOrigin.name);
+			const methodTraitIndex = typeValue.traitNameArray.findIndex((item) => item === methodOrigin.name);
+			if((existingTraitIndex > methodTraitIndex)) {
+				console.log(`isMoreSpecific: ${typeName}, ${method.information.name}, ${existingOrigin.name}=${existingTraitIndex}, ${methodOrigin.name}=${methodTraitIndex}`)
+			};
+			return (existingTraitIndex > methodTraitIndex);
+		}
+	}
+}
 
 export function addMethodFor(
 	typeName: TypeName,
@@ -473,7 +515,7 @@ export function addMethodFor(
 	requireTypeExists: boolean,
 ): Method {
 	if (requireTypeExists && !typeExists(typeName)) {
-		throw (`addMethodFor: type does not exist: ${typeName} (${method})`);
+		throw new Error (`addMethodFor: type does not exist: ${typeName} (${method})`);
 	}
 	// console.debug(`addMethodFor: ${typeName}, ${method.qualifiedName()}`);
 	if (!methodExists(method.information.name)) {
@@ -513,11 +555,7 @@ export function addMethodFor(
 		}
 	}
 	const existingEntry = arityTable.get(method.information.arity)!.get(typeName);
-	// Todo: this is not a correct test, it needs to not over-write less specific traits as well... it works for stdlib...
-	if (
-		existingEntry && existingEntry.information.origin.name === typeName &&
-		method.information.origin.name !== typeName
-	) {
+	if (existingEntry && isMoreSpecific(typeName, existingEntry, method)) {
 		// console.debug('addMethodFor: existing more specific entry');
 	} else {
 		arityTable.get(method.information.arity)!.set(typeName, method);
@@ -549,6 +587,7 @@ export function addMethod(
 	const isMeta = isTypeType(typeName);
 	if (isMeta && !typeExists(typeName)) {
 		// Lazily add meta-type entries as required
+		throw new Error('Meta Types Unused');
 		system.typeDictionary.set(
 			typeName,
 			new Type(typeName, 'Kernel-System-Meta', ['Object'], [], new Map()),
@@ -568,7 +607,7 @@ export function addMethod(
 		);
 		return addMethodFor(typeName, method, slOptions.requireTypeExists);
 	} else {
-		throw (`addMethod: type does not exist: ${typeName}, ${methodName}, ${parameterNames.length}`);
+		throw new Error(`addMethod: type does not exist: ${typeName}, ${methodName}, ${parameterNames.length}`);
 	}
 }
 
@@ -622,7 +661,7 @@ export function addType(
 		eval(defSlotAccess);
 		eval(defSlotMutate);
 	} else {
-		throw (`addType: type exists: ${typeName}`);
+		throw new Error(`addType: type exists: ${typeName}`);
 	}
 }
 
@@ -674,7 +713,7 @@ export async function primitiveLoadPackageSequence(
 	packageNames.forEach((name) => {
 		const pkg = system.packageDictionary.get(name);
 		if (pkg == undefined) {
-			throw Error(
+			throw new Error(
 				`primitiveLoadPackageSequence: no such package: ${name}, ${pkg}`,
 			);
 		} else {

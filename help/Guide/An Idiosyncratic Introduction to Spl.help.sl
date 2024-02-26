@@ -201,10 +201,10 @@ reduce od min is minimum, &etc.
 Many of these idioms are already named:
 
 ```
->>> 1:7.+
+>>> 1:7.sum
 28
 
->>> 1:7.*
+>>> 1:7.product
 5040
 
 >>> 1:7.max

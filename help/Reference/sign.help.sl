@@ -48,9 +48,13 @@ Plot the real and imaginary parts of the sign function:
 
 * * *
 
-See also: abs, copySignTo, negated
+See also: *, abs, copySignTo, negated
 
 References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:signum),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/star),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Sign.html)
 [2](https://reference.wolfram.com/language/ref/Sign.html)

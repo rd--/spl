@@ -68,6 +68,8 @@ See also: +, *, /
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Subtract),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/minus),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:-45-),
 _Mathematica_

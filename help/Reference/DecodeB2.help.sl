@@ -1,6 +1,6 @@
 # DecodeB2
 
-_DecodeB2(numChans, w, x, y, orientation=0.5)_
+- _DecodeB2(numChans, w, x, y, orientation=0.5)_
 
 Decode a two dimensional ambisonic B-format signal to a set of speakers in a regular polygon.
 The outputs will be in clockwise order.

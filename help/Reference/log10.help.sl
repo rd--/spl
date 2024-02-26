@@ -1,18 +1,18 @@
 # log10
 
-_log10(aNumber)_
+- _log10(aNumber)_
 
 Answers the base-10 logarithm of _aNumber_.
 
 ```
->>> 1000000.log10
+>>> (10 ^ 6).log10
 6
 
 >>> 5.log10
 0.69897
 
->>> 2.log10
-0.30103
+>>> (2.log10, 2.log(10))
+(0.30103, 0.30103)
 
 >>> 1.75.log10
 0.243038

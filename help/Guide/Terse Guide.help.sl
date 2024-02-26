@@ -356,7 +356,7 @@ let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } {- answer shuffled copy -}
 [1 .. 9].shuffled.sorted = [1 .. 9] {- resort after shuffle -}
 [].shuffled = []
 13.fibonacciList = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
-'3'.replicate(3) = ['3', '3', '3']
+'3' # 3 = ['3', '3', '3']
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity:/1) = 4
 [1:3, 1:6, 1:9].detectMax(size:/1) = 1:9
 [1:3, 1:6, 1:9].detectMin(size:/1) = 1:3
@@ -1781,12 +1781,12 @@ let a = []; 5.toDo(1) { :each | a.add(each) }; a = [] {- non-ascending sequences
 6.take(3) = ((6 * 5 * 4) / (1 * 2 * 3))
 3.take(6) = 0 {- if k is greater than n answer is zero -}
 58909.printStringHex = 'E61D' {- hexadecimal representation -}
-let a = []; (1:3 # 2).tuplesDo { :each | a.add(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
-let a = []; (1:3 # 2).tuplesDo { :each | a.add(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
-let a = []; (1:2 # 3).tuplesDo { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5 6]
-let a = []; (1:2 # 4).tuplesDo { :each | a.add(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
-let c = 0; let k = 3; let n = 4; (1:k # n).tuplesDo { :each | c := c + 1 }; c = (k ^ n)
-let c = 0; (1:4 # 6).tuplesDo { :each | c := c + 1 }; c = 4096
+let a = []; (1:3 ! 2).tuplesDo { :each | a.add(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
+let a = []; (1:3 ! 2).tuplesDo { :each | a.add(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
+let a = []; (1:2 ! 3).tuplesDo { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5 6]
+let a = []; (1:2 ! 4).tuplesDo { :each | a.add(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
+let c = 0; let k = 3; let n = 4; (1:k ! n).tuplesDo { :each | c := c + 1 }; c = (k ^ n)
+let c = 0; (1:4 ! 6).tuplesDo { :each | c := c + 1 }; c = 4096
 -2:7.collect { :each | each.foldIndex(5) } = [4 3 2 1 2 3 4 5 4 3]
 -2:7.collect { :each | each.wrapIndex(5) } = [3 4 5 1 2 3 4 5 1 2]
 23.integerDigits(2, 5) = [1, 0, 1, 1, 1] {- binary -}
@@ -2517,13 +2517,13 @@ let f = { let x = 0; { x := x + 1; x } }; [f:/0.value.value, f:/0.value.value] =
 let f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; 7:9.collect(f:/1) = [5040, 40320, 362880]
 let f = { system.nextRandomFloat }; f:/0.once = f:/0.once {- evaluate block once and cache result -}
 let f = { 1:9.atRandom }; f:/0.once = f:/0.once & { f:/0.once = f:/0.once } {- the cache is kept in a weak map -}
-'3'.replicate(3) = ['3', '3', '3'] {- answer an array of n places each having the same value -}
-'3'.replicate(3) = List(3, '3') {- constructor with fill value -}
-let m = { system.nextRandomFloat }.duplicate(9).mean; m > 0 & { m < 1 }
-{ 1 }.duplicate = [1, 1] {- evaluate a block twice and collect the answers in an array -}
-{ '3' }.duplicate(3) = ['3', '3', '3'] {- evaluate block indicated number of times and collect answers in an array -}
-{ 9.atRandom }.duplicate(9).allSatisfy(isInteger:/1) {- evaluate a block n times and collect answers in an array -}
-{ '3' } ! 3 = ['3', '3', '3'] {- operator form of duplicate -}
+'3' # 3 = ['3', '3', '3'] {- answer an array of n places each having the same value -}
+'3' # 3 = List(3, '3') {- constructor with fill value -}
+let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
+{ 1 } ! 2 = [1 1] {- evaluate a block twice and collect the answers in an array -}
+{ '3' } ! 3 = ['3', '3', '3'] {- evaluate block indicated number of times and collect answers in an array -}
+{ 9.atRandom }.!(9).allSatisfy(isInteger:/1) {- evaluate a block n times and collect answers in an array -}
+{ '3' } ! 3 = ['3', '3', '3'] {- operator notation -}
 ({ system.nextRandomFloat } ! 9).size = 9 {- the size of the answer is as requested -}
 ({ system.nextRandomFloat } ! 3).allSatisfy(isNumber:/1) = true
 at:/2.parameterNames = ['self', 'index']

@@ -22,6 +22,10 @@
 
 }
 
++@Iterable {
+
+}
+
 +@Integer {
 
 	iota { :self |
@@ -66,9 +70,9 @@
 		counts.collect { :each |
 			(each > 0).if {
 				index := index + 1;
-				self[index].replicate(each)
+				self[index] # each
 			} {
-				zero.replicate(each.abs.max(1))
+				zero # each.abs.max(1)
 			}
 		}.concatenation
 	}

@@ -33,4 +33,8 @@ At `Record`:
 
 See also: collect, deepDo, deepIndices, do
 
+References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/lcapco)
+
 Categories: Enumerating

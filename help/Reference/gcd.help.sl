@@ -62,6 +62,8 @@ See also: lcm
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/GCD),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/plusdot#dyadic),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:gcd),
 _Mathematica_

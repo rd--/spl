@@ -14,7 +14,11 @@ The unary form answers the natural logarithm of _aNumber_:
 
 >>> e.log
 1
+```
 
+At `zero` and `one`:
+
+```
 >>> 0.log
 inf.negated
 
@@ -70,7 +74,9 @@ See also: log, log2, log10
 
 References:
 _Dlmf_
-[1](https://dlmf.nist.gov/4.2#i)
+[1](https://dlmf.nist.gov/4.2#i),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/hatdot),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Logarithm.html)
 [2](https://reference.wolfram.com/language/ref/Log.html)

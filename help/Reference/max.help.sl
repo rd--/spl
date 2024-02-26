@@ -41,6 +41,8 @@ _Apl_
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:max)
 [2](https://hackage.haskell.org/package/base/docs/Prelude.html#v:maximum),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/gtdot#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Maximum.html)
 [2](https://reference.wolfram.com/language/ref/Max.html)

@@ -18,6 +18,10 @@ true
 
 See also: reverse
 
+References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/bardot)
+
 Unicode: U+1D19 ᴙ Latin Letter Small Capital Reversed R
 
 Categories: Copying

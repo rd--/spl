@@ -1,6 +1,7 @@
 # ^
 
-_aNumber ^ anotherNumber_
+- _aNumber.^_
+- _aNumber ^ anotherNumber_
 
 Answer _aNumber_ raised to the power of _anotherNumber_.
 
@@ -68,6 +69,16 @@ At LargeInteger:
 129110040087761027839616029934664535539337183380513n
 ```
 
+The unary form is _exp_:
+
+```
+>>> 1.^
+e
+
+>>> [1 2 e].^
+[2.71828 7.38906 15.15426]
+```
+
 Plot over a subset of the reals:
 
 ~~~
@@ -81,11 +92,13 @@ In Smalltalk ^ is the _return_ operator, in C it is the _exclusive or_ operator.
 
 * * *
 
-See also: *, sqrt, log
+See also: *, exp, sqrt, log
 
 Unicode: U+02C6 ˆ Modifier Letter Circumflex Accent
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/hat),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Power.html)
 [2](https://reference.wolfram.com/language/ref/Power.html)

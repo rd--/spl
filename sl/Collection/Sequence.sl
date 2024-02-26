@@ -22,6 +22,10 @@
 		self.atAll(indexList)
 	}
 
+	# { :self :anObject |
+		self.replicateEach(anObject)
+	}
+
 	accumulate { :self |
 		self.scan(+)
 	}
@@ -395,7 +399,7 @@
 
 	duplicateEach { :self :counts |
 		counts.isInteger.ifTrue {
-			counts := counts.replicate(self.size)
+			counts := counts # self.size
 		};
 		self.replicateEachApplying(counts, value:/1)
 	}
@@ -1465,7 +1469,7 @@
 
 	replicateEach { :self :counts |
 		counts.isInteger.ifTrue {
-			counts := counts.replicate(self.size)
+			counts := counts # self.size
 		};
 		self.replicateEachApplying(counts, identity:/1)
 	}
@@ -1907,7 +1911,7 @@
 	}
 
 	tuples { :self :count |
-		(self # count).tuples
+		(self ! count).tuples
 	}
 
 	vectorAngle { :u :v |

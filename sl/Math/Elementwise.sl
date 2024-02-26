@@ -2,6 +2,26 @@
 
 +@Collection {
 
+	+ { :self |
+		self.collect(conjugated:/1)
+	}
+
+	- { :self |
+		self.collect(negated:/1)
+	}
+
+	* { :self |
+		self.collect(sign:/1)
+	}
+
+	/ { :self |
+		self.collect(reciprocal:/1)
+	}
+
+	^ { :self |
+		e ^ self
+	}
+
 	abs { :self |
 		self.collect(abs:/1)
 	}
@@ -243,8 +263,16 @@
 		anObject.adaptToCollectionAndApply(self, <)
 	}
 
+	<= { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, <=)
+	}
+
 	> { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, >)
+	}
+
+	>= { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, >=)
 	}
 
 	^ { :self :anObject |

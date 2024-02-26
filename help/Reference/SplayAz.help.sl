@@ -1,8 +1,6 @@
-# SplayAz -- panning
+# SplayAz
 
-Spreads an array of _n_ channels across a ring of _k_ channels.
-
-_SplayAz(numChans=4, inList, spread=1, level=1, width=2, center=0, orientation=0.5, levelComp=true)_
+- _SplayAz(numChans=4, inList, spread=1, level=1, width=2, center=0, orientation=0.5, levelComp=true)_
 
 SplayAz spreads an array of _inList.size_ channels across a ring of _numChans_ channels.
 Optional spread and center controls, and equal power levelCompensation.
@@ -53,3 +51,5 @@ SplayAz(
 * * *
 
 See also: Pan2, PanAz, Splay, Splay2
+
+Categories: Panning

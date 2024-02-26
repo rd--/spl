@@ -1,8 +1,9 @@
-# LinPan2 -- two channel linear pan
+# LinPan2
 
-_LinPan2(in, pos, level)_
+- _LinPan2(in, pos, level)_
 
-Two channel linear panner. This one sounds to me more like the Rhodes tremolo than Pan2.
+Two channel linear panner.
+This one sounds to me more like the Rhodes tremolo than Pan2.
 
 - in: input signal
 - pos: pan position, -1 is left, +1 is right
@@ -19,3 +20,8 @@ Pan sine:
 LinPan2(FSinOsc(800, 0), FSinOsc(3, 0), 0.1)
 ```
 
+* * *
+
+See also: EqPan2, Pan2, Splay2
+
+Categories: Panning

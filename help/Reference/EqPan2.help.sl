@@ -1,6 +1,6 @@
 # EqPan2
 
-_EqPan2(in, pos=0)_
+- _EqPan2(in, pos=0)_
 
 Two channel equal power panner.
 

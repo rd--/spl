@@ -1,24 +1,26 @@
-# Rotate2 -- panning
+# Rotate2
+
+- _Rotate2(x, y, pos=0)_
 
 Rotate a sound field.
-
-_Rotate2(x, y, pos=0)_
-
 Rotate2 can be used for rotating an ambisonic B-format sound field around an axis.
 Rotate2 does an equal power rotation so it also works well on stereo sounds.
 It takes two audio inputs (x, y) and an angle control (pos).
 It outputs two channels (x, y).
 It computes:
 
-> xOut = cos(angle) * xIn + sin(angle) * yIn
+> _xOut = cos(angle) * xIn + sin(angle) * yIn_
 
 and:
 
-> yOut = cos(angle) * yIn - sin(angle) * xIn
+> _yOut = cos(angle) * yIn - sin(angle) * xIn_
 
-where angle = pos * pi,
+where
+
+> _angle = pos * pi_
+
 so that -1 becomes -pi and +1 becomes +pi.
-This allows you to use an LfSaw to do continuous rotation around a circle.
+This allows you to use an `LfSaw` to do continuous rotation around a circle.
 
 - x: Input signal X
 - y: Input signal Y
@@ -53,3 +55,5 @@ Rotate2(x, y, MouseX(0, 2, 0, 0.2))
 * * *
 
 See also: BiPanB2, DecodeB2, PanB, PanB2
+
+Categories: Ugen, Panning

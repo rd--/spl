@@ -1,9 +1,8 @@
 # Sum
 
-_Sum(inputList)_
+- _Sum(inputList)_
 
 Sums a list of inputs.
-
 Unlike _sum_, implements optimization using the _Sum4_ primitive Ugen.
 
 Sum a list of sawtooths:

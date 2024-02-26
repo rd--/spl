@@ -3,8 +3,8 @@
 - _tuples(aSequence)_
 - _tuples(α, β) ⇒ tuples(α # β)_
 
-Answer all of the possible n-tuples of each of the elements of _aSequence_,
-which is an n-element sequence of any sized sequences.
+Answer all of the possible _n_-tuples of each of the elements of _aSequence_,
+which is an _n_-element sequence of any sized sequences.
 
 ```
 >>> [1 2; 3 4].tuples

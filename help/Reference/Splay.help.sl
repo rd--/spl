@@ -1,7 +1,7 @@
-# Splay -- panner
+# Splay
 
 - _Splay(inList, spread=1)_
-- _Splay(inList)_ == _Splay(inList, 1)_
+- _Splay(inList)_ ⇒ _Splay(inList, 1)_
 
 Pan a list of signals at equally spaced locations across the main output channels,
 as configured in Preferences.
@@ -20,3 +20,5 @@ the input is sent directly and no panning is performed.
 * * *
 
 See also: EqPan, Mix, Pan2, PanAz, Splay2, SplayAz
+
+Categories: Panner

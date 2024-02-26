@@ -20,6 +20,8 @@ Threads over lists and matrices:
 See also: abs, minus, sign
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/minus),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Negative.html)
 [2](https://reference.wolfram.com/language/ref/Minus.html)

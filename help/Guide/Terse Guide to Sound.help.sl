@@ -114,7 +114,7 @@ let s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); [1 2.flat 2 3 3.cancelFlat 4 5.flat 
 [3, 5, 4].normalize(0, 1) = [0, 1, 1 / 2] {- linLin with calculated min and max -}
 [3, -5, 4].normalize(0, 1) = [8 / 9, 0, 1]
 ({ :x | x * 2 } <> { :x | x + 3 }).value(4) = 14 {- function composition, right to left -}
-'x' + 'y' = 'x y' {- catenation with space -}
+'x' ++ ' ' ++ 'y' = 'x y' {- catenation with space -}
 '/usr' +/+ 'local' = '/usr/local' {- file path catenation -}
 let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [1 3 5 7 9].isSeries = true {- is a list an arithmetic series -}

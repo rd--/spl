@@ -1,8 +1,8 @@
 # conjugated
 
-_conjugated(aComplexNumber)_
+- _conjugated(aComplexNumber)_
 
-The complex conjugate of a complex number a+bi is defined to be a-bi.
+The complex conjugate of a complex number _a + bi_ is defined to be _a - bi_.
 
 ```
 >>> 1j1.conjugated
@@ -55,8 +55,12 @@ true
 See also: Complex
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Conjugate),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-Complex.html#v:conjugate),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/plus),
 _Mathematica_
 [1](https://mathworld.wolfram.com/ComplexConjugate.html)
 [2](https://reference.wolfram.com/language/ref/Conjugate.html)

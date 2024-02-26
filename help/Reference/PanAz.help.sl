@@ -1,7 +1,8 @@
-# PanAz -- azimuth panner
+# PanAz
 
-_PanAz(numChans, in, pos=0, level=1, width=2, orientation=0.5)_
+- _PanAz(numChans, in, pos=0, level=1, width=2, orientation=0.5)_
 
+Azimuth panner.
 Two channel equal power panner.
 
 - numChans: number of output channels

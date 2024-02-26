@@ -37,11 +37,20 @@ Generalized inner product of:
 [true true true true]
 ```
 
-The binary form is _adverbial_, it answers a Block that will perform _inner(f, α, β, g)_.
+The binary form is _adverbial_, it answers a `Block` that will perform _inner(f, α, β, g)_.
 
 ```
 >>> [1 1] *.inner(+) [-1 1]
 0
+
+>>> let m = [0 0 1; 1 0 0; 0 1 0];
+>>> m *.inner(+) m.transposed
+[1 0 0; 0 1 0; 0 0 1]
+
+>>> let x = [1 3 -5];
+>>> let y = [4 -2 -1];
+>>> (x * y, x *.inner(+) y)
+([4 -6 5], 3)
 ```
 
 * * *
@@ -51,6 +60,8 @@ See also: dot, outer
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Inner_Product),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/dot#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/InnerProduct.html)
 [2](https://reference.wolfram.com/language/ref/Inner.html)

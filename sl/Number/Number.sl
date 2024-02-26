@@ -1,11 +1,19 @@
 @Number {
 
+	+ { :self |
+		self.conjugated
+	}
+
+	* { :self |
+		self.sign
+	}
+
 	- { :self |
-		self.zero - self
+		self.negated
 	}
 
 	/ { :self |
-		self.one / self
+		self.reciprocal
 	}
 
 	^ { :self |

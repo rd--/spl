@@ -94,6 +94,8 @@ At `Tree` size is the number of sub-trees, see also _leafCount_:
 See also: at, atPut, depth, do, isEmpty, leafCount
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/number),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Length.html)
 

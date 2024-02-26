@@ -211,51 +211,35 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 }
 
-+Block {
++@Object {
 
 	! { :self :anObject |
-		self.duplicate(anObject)
-	}
-
-	! { :self |
-		self ! 2
-	}
-
-	duplicate { :self |
-		self.duplicate(2)
-	}
-
-	duplicateInteger { :self:/0 :anInteger |
-		anInteger.fill { :unusedIndex |
-			self()
-		}
-	}
-
-	duplicateShape { :self:/0 :shape |
-		shape.fill { :unusedIndex |
-			self()
-		}
-	}
-
-	duplicate { :self:/0 :anObject |
 		anObject.isSequence.if {
-			self:/0.duplicateShape(anObject)
+			self.duplicateShape(anObject)
 		} {
-			self:/0.duplicateInteger(anObject)
+			self.duplicateInteger(anObject)
 		}
 	}
 
-}
-
-+List {
-
-	!++ { :self :anInteger |
-		(self ! anInteger).concatenation
+	# { :self :anObject |
+		anObject.isSequence.if {
+			self.replicateEach(anObject)
+		} {
+			self.replicateInteger(anObject)
+		}
 	}
 
-}
+	duplicateInteger { :self :anInteger |
+		anInteger.fill { :unusedIndex |
+			self.value
+		}
+	}
 
-+@Object {
+	duplicateShape { :self :shape |
+		shape.fill { :unusedIndex |
+			self.value
+		}
+	}
 
 	enclose { :self |
 		[self]
@@ -275,18 +259,6 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 	replicateShape { :self :aSequence |
 		aSequence.fill(self.constant)
-	}
-
-	replicate { :self :anObject |
-		anObject.isSequence.if {
-			self.replicateShape(anObject)
-		} {
-			self.replicateInteger(anObject)
-		}
-	}
-
-	# { :self :anObject |
-		self.replicate(anObject)
 	}
 
 }

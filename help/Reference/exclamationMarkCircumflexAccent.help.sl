@@ -1,11 +1,9 @@
 # !^
 
+- _alpha !+ beta_ => _(alpha ! beta).Splay_
+
 Duplicate and distribute.
-
-- _anObject !^ anInteger_
-
 Names the idiom of generating an array and distributing it across the main ouput channels.
-_p !^ q_ is equivalent to _(p ! q).Splay_.
 
 ```
 { :tr |
@@ -19,4 +17,4 @@ _p !^ q_ is equivalent to _(p ! q).Splay_.
 
 * * *
 
-See also: Splay, !+
+See also: !, !+, Splay

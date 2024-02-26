@@ -1,6 +1,6 @@
 # EqPan
 
-_EqPan(in, pos=0)_
+- _EqPan(in, pos=0)_
 
 Equal power panner across the main output channels, as configured in Preferences.
 

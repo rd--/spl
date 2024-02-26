@@ -1,6 +1,6 @@
 # *
 
-- _aCollection.*_
+- _aNumber.*_
 - _aNumber * anotherNumber_
 
 Answer _aNumber_ multiplied by _anotherNumber_.
@@ -57,11 +57,14 @@ Apply and method send syntaxes:
 12
 ```
 
-The unary form of _times_ is _product_:
+The unary form is _sign_:
 
 ```
->>> 1:9.*
-362880
+>>> pi.*
+1
+
+>>> [-3 0 3].*
+[-1 0 1]
 ```
 
 The name of this operator is _asterisk_.
@@ -70,11 +73,13 @@ Where supported * is displayed as ×.
 
 * * *
 
-See also: +, -, /
+See also: +, -, /, sign
 
 Unicode: U+00D7 × Multiplication Sign
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/star),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Times.html)
 [2](https://reference.wolfram.com/language/ref/Times.html)

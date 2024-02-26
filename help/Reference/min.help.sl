@@ -44,6 +44,8 @@ _Apl_
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:min)
 [2](https://hackage.haskell.org/package/base/docs/Prelude.html#v:minimum),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/ltdot#dyadic)
 _Mathematica_
 [1](https://mathworld.wolfram.com/Minimum.html)
 [2](https://reference.wolfram.com/language/ref/Min.html)

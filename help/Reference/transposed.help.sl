@@ -68,6 +68,8 @@ See also: transpose
 Unicode: U+1D40 ᵀ Modifier Letter Capital T
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/barco),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Tranpose.html)
 [2](https://reference.wolfram.com/language/ref/Transpose.html)

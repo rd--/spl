@@ -86,14 +86,14 @@ Make a vector of 10 places:
 
 ```
 >>> ['x'].reshape([10])
-('x' # 10)
+('x' ! 10)
 ```
 
 Make a 3×4 array:
 
 ```
 >>> ['x'].reshape([3 4])
-('x' # 4 # 3)
+('x' ! 4 ! 3)
 ```
 
 shape after reshape is requested shape:

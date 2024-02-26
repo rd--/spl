@@ -49,9 +49,9 @@ _Apl_
 [1](https://aplwiki.com/wiki/Unique),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:nub),
-_Mathematica_
-[1](https://reference.wolfram.com/language/ref/DeleteDuplicates.html),
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/tildedot)
+[1](https://code.jsoftware.com/wiki/Vocabulary/tildedot),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/DeleteDuplicates.html)
 
 Categories: Copying

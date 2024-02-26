@@ -1,6 +1,6 @@
 # exp
 
-_exp(aNumber)_
+- _exp(aNumber)_
 
 Answers the exponential of _aNumber_,
 that is _e ^ n_.

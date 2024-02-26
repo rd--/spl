@@ -853,10 +853,6 @@
 
 +String {
 
-	+ { :self :aString |
-		self ++ ' ' ++ aString
-	}
-
 	++? { :self :anObject |
 		anObject.ifNil {
 			self

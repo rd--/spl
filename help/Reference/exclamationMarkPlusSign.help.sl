@@ -3,7 +3,6 @@
 - _alpha !+ beta_ => _(alpha ! beta).Sum_
 
 Duplicate and Sum.
-
 Names the idiom of generating a list and then immediately summing it.
 This operator does not need to construct the intermediate list structure to calculate the answer.
 
@@ -25,4 +24,4 @@ This operator does not need to construct the intermediate list structure to calc
 
 * * *
 
-See also: duplicate, sum
+See also: !, !^, Sum

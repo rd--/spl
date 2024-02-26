@@ -1,6 +1,6 @@
-# Pan2 -- two channel equal power pan
+# Pan2
 
-_Pan2(in, pos, level)_
+- _Pan2(in, pos, level)_
 
 Two channel equal power panner.
 
@@ -17,3 +17,5 @@ Pan2(PinkNoise(), FSinOsc(2, 0), 0.1)
 * * *
 
 See also: EqPan2, LinPan2
+
+Categories: Ugen

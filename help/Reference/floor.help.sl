@@ -31,6 +31,8 @@ See also: ceiling, max, min, rounded
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Floor),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/ltdot),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:floor),
 _Mathematica_

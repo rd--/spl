@@ -1,6 +1,6 @@
 # sum
 
-- _sum(aCollection)_ => _aCollection.reduce(plus:/2)_
+- _sum(aCollection)_ ⟹ _aCollection.reduce(+)_
 
 Answer the sum of all the elements in _aCollection_.
 
@@ -10,6 +10,12 @@ Answer the sum of all the elements in _aCollection_.
 
 >>> [pi 1 4 e 7 8].sum
 25.8599
+
+>>> 1:9.sum
+45
+
+>>> 1:9.reduce(+)
+45
 
 >>> [1 2 3; 4 5 6; 7 8 9].collect(sum:/1)
 [6 15 24]
@@ -25,7 +31,7 @@ Where supported this method is displayed as Σ.
 
 * * *
 
-See also: product, reduce
+See also: +, product, reduce
 
 References:
 _Mathematica_

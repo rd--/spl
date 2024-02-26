@@ -1,8 +1,33 @@
 # !
 
-- _alpha ! beta_ => duplicate(alpha, beta)
+- _anObject ! (anInteger | aSequence)_
 
-Alias for duplicate.
+In the `Integer` case,
+evaluate _value(anObject)_ _anInteger_ times and collect the results into a `List`.
+
+```
+>>> { 1 } ! 3
+[1 1 1]
+
+>>> 1 ! 3
+[1 1 1]
+```
+
+In the `Sequence` case,
+evaluate _value(anObject)_ to fill an array of the indicated shape:
+
+```
+>>> { 1 } ! [2 3]
+[1 1 1; 1 1 1]
+
+>>> 1 ! [3 2 3]
+[1 1 1; 1 1 1:; 1 1 1; 1 1 1:; 1 1 1; 1 1 1]
+
+>>> 'x' ! [3 2]
+['x' 'x'; 'x' 'x'; 'x' 'x']
+```
+
+With external state:
 
 ```
 >>> let x = 1;
@@ -42,6 +67,6 @@ This can be more written more simply using the _!^_ operator as:
 
 * * *
 
-See also: #, duplicate, replicate
+See also: !^, !+, #, duplicateInteger, duplicateShape, List
 
 Categories: Copying

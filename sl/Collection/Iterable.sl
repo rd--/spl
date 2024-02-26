@@ -4,10 +4,6 @@
 		self.sum
 	}
 
-	* { :self |
-		self.product
-	}
-
 	& { :self |
 		self.allSatisfy(value:/1)
 	}

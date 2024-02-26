@@ -20,6 +20,10 @@ or as a colon equals glyph, ≔.
 
 See also: =, Assignment Syntax
 
+References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/eqco)
+
 Unicode: U+2190 ← Leftwards Arrow, U+2254 ≔ Colon Equals
 
 Categories: Assignment, Syntax

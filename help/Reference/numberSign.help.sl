@@ -1,51 +1,54 @@
 # #
 
-- _#(alpha)_ => _size(alpha)_
-- _alpha # beta_ => _replicate(alpha, beta)_
+- _#(aCollection)_
+- _anObject # (anInteger | aSequence)_
 
-The unary form is an alias for _size_.
+The unary form answers the `size` of _aCollection_:
 
 ```
 >>> 1:5.#
 5
 ```
 
-The binary form is an alias for _replicate_.
+The binary form makes copies of _anObject_.
 
-With `Integer` count:
+With an `Integer` count of _n_,
+makes _n_ copies of a scalar,
+or _n_ copies of each element of a sequence:
 
 ```
 >>> 3 # 5
 [3 3 3 3 3]
+
+>>> 'x' # 3
+['x' 'x' 'x']
+
+>>> 1:3 # 2
+[1 1 2 2 3 3]
+
+>>> nil # 0
+[]
 ```
 
-With `List` count:
+With a `Sequence` count make the indicated number of copies of each element in turn:
 
 ```
->>> 3 # [2 3]
-[3 3 3; 3 3 3]
-```
+>>> [3] # [5]
+[3 3 3 3 3]
 
-C.f. `reshape`:
+>>> 1:3 # [1 0 1]
+[1 3]
 
-```
->>> [3] # [2 3]
-[3; 3; 3:; 3; 3; 3]
-
->>> [3].reshape([2 3])
-[3 3 3; 3 3 3]
-```
-
-Cf. `replicateEach`:
-
-```
->>> [3 4] # [2 3]
-[3 4; 3 4; 3 4:; 3 4; 3 4; 3 4]
-
->>> [3 4].replicateEach([2 3])
-[3 3 4 4 4]
+>>> 1:5 # [0 1 1 0 2]
+[2 3 5 5]
 ```
 
 * * *
 
-See also: !, duplicate, replicate, replicateEach, reshape, size
+See also: !, replicateInteger, replicateEach, reshape, shape
+
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/Replicate),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/number#dyadic)
