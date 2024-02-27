@@ -1,10 +1,10 @@
 # fill
 
-_fill(anInteger | aSequence, aBlock:/1)_
+- _fill(anInteger | aSequence, aBlock:/1)_
 
-Allocate a List or Array of the indicated shape and fill each slot by applying _aBlock_ to the index.
+Allocate a `List` or array of the indicated shape and fill each slot by applying _aBlock_ to the index.
 
-At Integer:
+At `Integer`:
 
 ```
 >>> 9.fill { :index | index * index }
@@ -17,7 +17,7 @@ At Integer:
 [-1 -2 -3 -4 -5]
 ```
 
-At Sequence:
+At `Sequence`:
 
 ```
 >>> [3 2].fill { :i | i * i }
@@ -29,4 +29,4 @@ At Sequence:
 
 * * *
 
-See also: !, atAllPut, duplicate, fillFromWith
+See also: !, atAllPut, fillFromWith

@@ -26,6 +26,14 @@
 		self.replicateEach(anObject)
 	}
 
+	&& { :self :other |
+		self.withCollect(other, &&)
+	}
+
+	|| { :self :other |
+		self.withCollect(other, ||)
+	}
+
 	accumulate { :self |
 		self.scan(+)
 	}
@@ -1131,6 +1139,18 @@
 
 	normalize { :self |
 		self / self.norm
+	}
+
+	nubSieve { :self |
+		let seen = [];
+		self.collect { :each |
+			seen.includes(each).if {
+				false
+			} {
+				seen.add(each);
+				true
+			}
+		}
 	}
 
 	occurrencesOf { :self :anObject |

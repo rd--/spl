@@ -149,7 +149,7 @@ v.norm
 
 * * *
 
-See also: inner, outer
+See also: +, *, inner, outer
 
 References:
 _Maple_

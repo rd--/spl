@@ -62,4 +62,8 @@ The @* operator expresses this method succinctly:
 
 See also: @*, AtPut Syntax, Quoted At Syntax
 
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/Bracket_indexing)
+
 Categories: Syntax

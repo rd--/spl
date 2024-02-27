@@ -13,10 +13,10 @@ Fraction(3, 4)
 Fraction(2, 3)
 ```
 
-The rewrite rule is _n/d => Fraction(n, d).normalized_.
+The rewrite rule is _n/d => Fraction(n, d)_.
 
-If the Fraction package is not installed,
-the SmallFloat package can implement Fraction as / and normalized as identity.
+If the `Fraction` package is not installed,
+the `SmallFloat` package can implement `Fraction` as `/`.
 
 * * *
 

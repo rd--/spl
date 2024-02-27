@@ -1,9 +1,9 @@
 # *
 
-- _aNumber.*_
 - _aNumber * anotherNumber_
+- _aNumber.*_
 
-Answer _aNumber_ multiplied by _anotherNumber_.
+The binary form answers _aNumber_ multiplied by _anotherNumber_.
 
 ```
 >>> 2 * 3 * 4
@@ -40,7 +40,7 @@ Matrix times matrix:
 [-1 2; 3 -4; -5 6]
 ```
 
-As argument to reduce:
+As argument to `reduce`:
 
 ```
 >>> 1:9.reduce(*)
@@ -57,7 +57,7 @@ Apply and method send syntaxes:
 12
 ```
 
-The unary form is _sign_:
+The unary form is `sign`:
 
 ```
 >>> pi.*
@@ -67,17 +67,21 @@ The unary form is _sign_:
 [-1 0 1]
 ```
 
-The name of this operator is _asterisk_.
+Where supported this operator is displayed as _×_.
 
-Where supported * is displayed as ×.
+The name of this operator is _asterisk_.
 
 * * *
 
-See also: +, -, /, sign, product
+See also: +, -, /, ^, sign, product
 
 Unicode: U+00D7 × Multiplication Sign
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Times),
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:-42-),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/star),
 _Mathematica_

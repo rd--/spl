@@ -59,6 +59,10 @@ Plot over a subset of the reals:
 See also: ^, sqrt, cubeRoot
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Root),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/percentco#dyadic),
 _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=root)
 [2](https://www.maplesoft.com/support/help/Maple/view.aspx?path=surd),

@@ -1,7 +1,7 @@
 # -
 
-- _aNumber.-_
 - _aNumber - anotherNumber_
+- _aNumber.-_
 
 The binary form answers _anotherNumber_ subtracted from _aNumber_.
 
@@ -39,7 +39,7 @@ Threads element-wise over lists:
 [1 0 -1]
 ```
 
-As the argument to reduce and foldRight:
+As the argument to `reduce` and `foldRight`:
 
 ```
 >>> [6 1 2].reduce(-)

@@ -60,6 +60,18 @@ Log threads elementwise over lists:
 ```
 >>> [1 2.1 3.1 4.1].log
 [0 0.741937 1.13140 1.41099]
+
+>>> [0.5 1 2 32 1024].log(2)
+[-1 0 1 5 10]
+
+>>> (2 ^ [1 2 3 4 5]).log(2)
+[1 2 3 4 5]
+
+>>> [2 4 8 16 32].reciprocal.log(2)
+[-1 -2 -3 -4 -5]
+
+>>> [2 4 8 16 32].log(1 / 2)
+[-1 -2 -3 -4 -5]
 ```
 
 Plot over a subset of the reals:
@@ -70,9 +82,11 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: log, log2, log10
+See also: exp, log2, log10
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Logarithm),
 _Dlmf_
 [1](https://dlmf.nist.gov/4.2#i),
 _J_

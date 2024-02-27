@@ -53,6 +53,13 @@ true
 [false true false]
 ```
 
+When the arguments to `=` are `boole`, it is the logical biconditional function:
+
+```
+>>> ([0 1] =.table [0 1]).boole
+[1 0; 0 1]
+```
+
 The _=_ method is not implemented at `Object`.
 
 The name of this operator is _equalsSign_.
@@ -61,7 +68,7 @@ The _=_ symbol is also a part of `Let Syntax`.
 
 * * *
 
-See also: ~=, ==, ~, :=, equalSlots, Let Syntax
+See also: <, <=, >, >=, ~=, ==, ~, :=, equalSlots, Let Syntax
 
 References:
 _Apl_
@@ -72,6 +79,9 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/eq#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Equal.html)
-[2](https://reference.wolfram.com/language/ref/Equal.html)
+[2](https://mathworld.wolfram.com/Equivalent.html)
+[3](https://reference.wolfram.com/language/ref/Equal.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Logical_biconditional)
 
 Categories: Comparing

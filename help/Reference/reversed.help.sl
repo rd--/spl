@@ -14,11 +14,30 @@ The answer is a new value of the same _species_ as _aSequence_.
 true
 ```
 
+At `String`:
+
+```
+>>> 'abcde'.reversed
+'edcba'
+
+>>> 'Backwards text'.reversed
+'txet sdrawkcaB'
+```
+
+`reversed` is it’s own inverse:
+
+```
+>>> 'Backwards text'.reversed.reversed
+'Backwards text'
+```
+
 * * *
 
 See also: reverse
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Reverse),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/bardot)
 

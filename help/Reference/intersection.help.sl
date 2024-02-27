@@ -30,11 +30,21 @@ Comparison is by equality:
 [[5, 6]]
 ```
 
+Implemented as _left argument filtered by its existence in the right argument_, so
+at `List` retains duplicates and order:
+
+```
+>>> [1 2 9 1].intersection([3 1 9])
+[1 9 1]
+```
+
 * * *
 
 See also: difference, union
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Intersection),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Intersection.html)
 

@@ -44,4 +44,8 @@ The name of this operator is _ampersandAmpersand_.
 
 See also: &, |, ||
 
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/And)
+
 Categories: Logic, Operator

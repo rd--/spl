@@ -1,6 +1,6 @@
 # composeRight
 
-_composeRight(aBlock:/1, anotherBlock:/1)_
+- _composeRight(aBlock:/1, anotherBlock:/1)_
 
 Compose the two unary Blocks _aBlock_ and _anotherBlock_ into one unary Block.
 

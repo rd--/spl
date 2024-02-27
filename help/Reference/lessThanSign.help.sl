@@ -50,26 +50,37 @@ Element-wise at `Sequence`:
 [true true false false false]
 ```
 
-`String` and `Number` cannot be compared:
+`String` and `Number` cannot be compared with each other:
 
 ```
->>> { '3' < 5 }.ifError { true }
+>>> { '5' < 3 }.ifError { true }
 true
 
->>> { 3 < '5' }.ifError { true }
+>>> { 5 < '3' }.ifError { true }
 true
+```
+
+When the arguments to `<` are `boole`, it is the converse non-implication `Boolean` function:
+
+```
+>>> ([0 1] <.table [0 1]).boole
+[0 1; 0 0]
 ```
 
 The name of this operator is _lessThanSign_.
 
 * * *
 
-See also: <=, >, >=, <=>, Magnitude
+See also: =, ~=, <=, >, >=, <=>, Magnitude
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Less_than),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/lt#dyadic),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Less.html)
+[1](https://reference.wolfram.com/language/ref/Less.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Converse_nonimplication)
 
 Categories: Comparison operator

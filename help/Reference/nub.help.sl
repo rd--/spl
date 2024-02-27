@@ -1,9 +1,9 @@
 # nub
 
-_nub(aCollection)_
+- _nub(aCollection)_
 
-Answer a copy of _aCollection_ that removes any duplicates, according to =.
-If _aCollection_ is a sequence the copy will preserve the order of elements.
+Answer a copy of _aCollection_ that removes any duplicates, according to `=`.
+If _aCollection_ is a `Sequence` the copy will preserve the order of elements.
 
 ```
 >>> [1 2 2 3 3 3].nub
@@ -23,7 +23,7 @@ Remove rows from a table:
 [1 0 1; 1 1 0; 0 1 0]
 ```
 
-At Record deletes assocations if a value occurs earlier in the record:
+At `Record` deletes assocations if a value occurs earlier in the record:
 
 ```
 >>> (x: 1, y: 1, z: 1).nub
@@ -33,7 +33,7 @@ At Record deletes assocations if a value occurs earlier in the record:
 (a: 1, b: 2, d: 3)
 ```
 
-At String:
+At `String`:
 
 ```
 >>> 'abracadabra'.nub
@@ -42,7 +42,7 @@ At String:
 
 * * *
 
-See also: =, ==, asSet, copyWithoutIdenticalElements, deleteDuplicates, nubBy, Set
+See also: =, ==, asSet, copyWithoutIdenticalElements, deleteDuplicates, nubBy, nubSieve, Set
 
 References:
 _Apl_

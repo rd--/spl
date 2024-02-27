@@ -15,6 +15,13 @@ Real numbers:
 1
 ```
 
+The unary operator `*` is `sign`:
+
+```
+>>> [-2.5 3.14].*
+[-1 1]
+```
+
 Complex numbers:
 
 ```
@@ -51,6 +58,8 @@ Plot the real and imaginary parts of the sign function:
 See also: *, abs, copySignTo, negated
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Signum),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:signum),
 _J_

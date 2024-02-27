@@ -126,6 +126,10 @@
 		self.collect(harmonicNumber:/1)
 	}
 
+	i { :self |
+		self.collect(i:/1)
+	}
+
 	integerDigits { :self :base :count |
 		self.collect { :each |
 			each.integerDigits(base, count)

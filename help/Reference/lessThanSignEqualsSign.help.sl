@@ -19,6 +19,13 @@ Element-wise at `Sequence`:
 [true true true false false]
 ```
 
+When the arguments to `<=` are `boole`, it is the material implication `Boolean` function:
+
+```
+>>> ([0 1] <=.table [0 1]).boole
+[1 1; 0 1]
+```
+
 Where supported this operator is displayed as ≤.
 
 The name of this operator is _lessThanSignEqualsSign_.
@@ -28,6 +35,8 @@ The name of this operator is _lessThanSignEqualsSign_.
 See also: <, >, >=, =
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Less_than_or_Equal_to),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/ltco#dyadic),
 _Mathematica_

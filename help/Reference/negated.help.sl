@@ -1,9 +1,9 @@
 # negated
 
-_negated(aNumber)_
+- _negated(aNumber)_
 
 Answer a number that is the negation of _aNumber_.
-Equivalent to multiplication by negative one.
+Equivalent to multiplication by negative `one`.
 
 Threads over lists and matrices:
 
@@ -15,11 +15,19 @@ Threads over lists and matrices:
 [-1, [-2, -3, -4], [[-5, -6], [-7, [-8, -9]]]]
 ```
 
+At `Complex`:
+
+```
+>>> [-2.5 1e20 3j-4].-
+[2.5 -1e20 -3j4]
+
 * * *
 
 See also: abs, minus, sign
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Negate)
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/minus),
 _Mathematica_

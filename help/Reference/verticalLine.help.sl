@@ -53,9 +53,13 @@ In Spl the names are `|` and `||`.
 See also: &, &&, ||, anySatisfy
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Or),
 _Mathematica_
 [1](https://mathworld.wolfram.com/OR.html)
-[2](https://reference.wolfram.com/language/ref/Or.html)
+[2](https://reference.wolfram.com/language/ref/Or.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Logical_disjunction)
 
 Unicode: U+2228 ∨ Logical or
 

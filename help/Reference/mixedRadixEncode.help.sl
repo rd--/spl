@@ -1,6 +1,6 @@
 # mixedRadixEncode
 
-_mixedRadixEncode(anInteger, bases)_
+- _mixedRadixEncode(anInteger, bases)_
 
 Given a list of _bases_ encode _anInteger_.
 Mixed radix counting systems are common in calendrical calculations.
@@ -14,6 +14,17 @@ Mixed radix counting systems are common in calendrical calculations.
 
 >>> 1084.mixedRadixEncode([17 15 11])
 [6 8 6]
+
+>>> 12345.mixedRadixEncode([7 24 60])
+[1 1 13 45]
+```
+
+Encode can be used to convert a measure given in the smallest unit to a hierarchy of units.
+For example, given that 1 day = 24 hours, 1 hour = 60 minutes, and 1 minute = 60 seconds, encode 210859 seconds:
+
+```
+>>> 210859.mixedRadixEncode([24 60 60])
+[2 10 34 19]
 ```
 
 The inverse is _mixedRadixDecode_.
@@ -106,6 +117,8 @@ Solving permutation puzzles, ie. <https://xkcd.com/287/>:
 See also: mixedRadixDecode
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Encode),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/numberdot#dyadic),
 _Mathematica_

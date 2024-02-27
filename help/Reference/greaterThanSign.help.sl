@@ -19,6 +19,13 @@ Element-wise at `Sequence`:
 [false false false true true]
 ```
 
+When the arguments to `>` are `boole`, it is the material non-implication `Boolean` function:
+
+```
+>>> ([0 1] >.table [0 1]).boole
+[0 0; 1 0]
+```
+
 The name of this operator is _greaterThanSign_.
 
 * * *
@@ -26,10 +33,14 @@ The name of this operator is _greaterThanSign_.
 See also: >=, <, <=, Magnitude
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Greater_than),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/gt#dyadic),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Greater.html)
+[1](https://reference.wolfram.com/language/ref/Greater.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Material_nonimplication)
 
 Unicode: U+003e > Greater-Than Sign
 

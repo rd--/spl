@@ -1,9 +1,9 @@
 # windowedReduce
 
-_windowedReduce(aSequence, anInteger, aBlock:/2)_
+- _windowedReduce(aSequence, anInteger, aBlock:/2)_
 
 Insert _aBlock_ between overlapping windows of size _anInteger_ drawn from _aSequence_,
-and evaluate into a List in left-to-right order.
+and evaluate into a `List` in left-to-right order.
 
 Sum adjacent triples:
 
@@ -26,7 +26,7 @@ Adjacent difference with swapped operator:
 [2 - 1, 4 - 2, 7 - 4, 11 - 7]
 ```
 
-Adjacent triples collected into a List:
+Adjacent triples collected into a `List`:
 
 ```
 >>> 1:5.windowedReduce(3, ++.over(nest:/1))
@@ -36,7 +36,7 @@ Adjacent triples collected into a List:
 [1 2 3; 2 3 4; 3 4 5]
 ```
 
-When the window size is negative, each window is reversed before the reduction is done.
+When the window size is negative, each window is reversed before the reduction is done:
 
 ```
 >>> [1 2 3 4 5].windowedReduce(-2, -)

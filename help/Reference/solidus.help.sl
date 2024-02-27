@@ -1,7 +1,7 @@
 # /
 
-- _aNumber./_
 - _aNumber / anotherNumber_
+- _aNumber./_
 
 The binary form answers _aNumber_ divided by _anotherNumber_.
 
@@ -36,7 +36,7 @@ Divide is applied sequentially:
 (3 / (5 * 7 * 9))
 ```
 
-The unary form is _reciprocal_:
+The unary form is `reciprocal`:
 
 ```
 >>> 4./
@@ -50,7 +50,7 @@ Where supported this operator is displayed as _÷_.
 
 The name of this operator is _solidus_.
 
-This glyph forms part of the Fraction literal syntax:
+This glyph forms part of the `Fraction Literals` syntax:
 
 ```
 >>> 616/33
@@ -62,13 +62,15 @@ Fraction(56, 3)
 
 * * *
 
-See also: +, -, *
+See also: +, -, *, Fraction Literals
 
 Unicode: U+00F7 ÷ Division Sign
 
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Divide),
+_Haskell_
+[1](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:-47-),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/percent),
 _Mathematica_

@@ -131,6 +131,10 @@ String! : [Object, Json, Iterable] {
 		}
 	}
 
+	atAll { :self :indices |
+		self.asList.atAll(indices).join
+	}
+
 	basicAt { :self :index |
 		self.codePointAt(index).asCharacter
 	}
@@ -463,6 +467,10 @@ String! : [Object, Json, Iterable] {
 		}
 	}
 
+	nubSieve { :self |
+		self.asList.nubSieve
+	}
+
 	occurrencesOf { :self :aString |
 		aString.isString.if {
 			let index = 1;
@@ -481,6 +489,10 @@ String! : [Object, Json, Iterable] {
 		} {
 			self.error('occurrencesOf: not a string: ' ++ aString)
 		}
+	}
+
+	onCharacters { :self :aBlock:/1 |
+		self.asList.aBlock.join
 	}
 
 	padLeft { :self :anInteger :aString |
@@ -545,7 +557,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	reversed { :self |
-		self.asList.reversed.join
+		self.onCharacters(reversed:/1)
 	}
 
 	romanNumber { :self |

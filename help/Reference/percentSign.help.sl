@@ -39,6 +39,12 @@ Mod threads over lists:
 ```
 >>> [1 2 3 4 5] % 3
 [1 2 0 1 2]
+
+>>> [-2 -1 0 1 2 3 4 5] % 2
+[0 1 0 1 0 1 0 1]
+
+>>> [5 10 14] % 3.5
+[1.5 3 0]
 ```
 
 Plot the sequence with fixed modulus:
@@ -60,6 +66,8 @@ The name of this operator is _percentSign_.
 See also: /, //, \\, quotient, remainder
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Residue),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Mod.html)
 [2](https://mathworld.wolfram.com/Congruence.html)

@@ -15,6 +15,9 @@ Matrix22(1, 3, 2, 4)
 Transpose a 3×3 numerical matrix:
 
 ```
+>>> 9.iota.reshape([3 3]).transposed
+[1 4 7; 2 5 8; 3 6 9]
+
 >>> [3 4 1; 2 3 1; 5 4 2].transposed
 [3 2 5; 4 3 4; 1 1 2]
 ```
@@ -68,6 +71,8 @@ See also: transpose
 Unicode: U+1D40 ᵀ Modifier Letter Capital T
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Transpose),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/barco),
 _Mathematica_

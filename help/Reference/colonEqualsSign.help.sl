@@ -21,6 +21,8 @@ or as a colon equals glyph, ≔.
 See also: =, Assignment Syntax
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Assignment),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/eqco)
 

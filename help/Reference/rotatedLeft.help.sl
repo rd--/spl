@@ -40,5 +40,7 @@ The unary form rotates by one place:
 See also: atWrap, rotatedRight
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Rotate),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/bardot#dyadic)

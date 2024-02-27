@@ -32,4 +32,8 @@ The infix form is @>.
 
 See also: at
 
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/Pick)
+
 Categories: Accessing

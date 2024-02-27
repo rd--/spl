@@ -36,14 +36,6 @@
 
 +@Sequence {
 
-	&& { :self :other |
-		self.withCollect(other, &&)
-	}
-
-	|| { :self :other |
-		self.withCollect(other, ||)
-	}
-
 	drop { :self :count |
 		(count.abs >= self.size).if {
 			self.species.new
@@ -113,18 +105,6 @@
 	membership { :self :aCollection |
 		self.collect { :each |
 			aCollection.includes(each).asInteger
-		}
-	}
-
-	nubSieve { :self |
-		let seen = [];
-		self.collect { :each |
-			seen.includes(each).if {
-				0
-			} {
-				seen.add(each);
-				1
-			}
 		}
 	}
 
@@ -203,10 +183,6 @@
 
 	membership { :self :aString |
 		self.asList.membership(aString.asList)
-	}
-
-	nubSieve { :self |
-		self.asList.nubSieve
 	}
 
 	partitionApl { :self :aSequence |

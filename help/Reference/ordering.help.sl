@@ -72,10 +72,19 @@ Find the inverse of a permutation:
 (['d' 'e' 'b' 'c' 'a'], ['b' 'c' 'a' 'd' 'e'])
 ```
 
+At `List` of `Character`:
+
+```
+>>> ', ZAMBIA.'.asList.ordering
+[2 1 9 8 4 6 7 5 3]
+```
+
 * * *
 
 See also: max, min, sort, sortBy
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Grade),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Order.html)

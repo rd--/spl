@@ -1,7 +1,7 @@
 # +
 
-- _aNumber.+_
 - _aNumber + anotherNumber_
+- _aNumber.+_
 
 The binary form answers the sum of _aNumber_ and _anotherNumber_.
 
@@ -65,6 +65,8 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Add)
 [2](https://aplwiki.com/wiki/Conjugate),
+_Haskell_
+[1](https://hackage.haskell.org/package/base-4.19.0.0/docs/Prelude.html#v:-43-),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/plus),
 _Mathematica_

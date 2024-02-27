@@ -92,7 +92,7 @@ Plot over a subset of the reals as a function of its second parameter:
 
 * * *
 
-See also: factorial
+See also: factorial, multinomial
 
 References:
 _Apl_

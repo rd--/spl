@@ -479,6 +479,10 @@
 		(1 / self.size) * (self ^ r).sum
 	}
 
+	not { :self |
+		self.collect(not:/1)
+	}
+
 	notEmpty { :self |
 		self.isEmpty.not
 	}

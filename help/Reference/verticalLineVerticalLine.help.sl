@@ -38,11 +38,32 @@ Combine assertions with ||:
 true
 ```
 
+When combined with `reduce`, `||` can be used to test if any value in a `Boolean` vector is `true`:
+
+```
+>>> [false false true false false].reduce(||)
+true
+
+>>> [false false false false false].reduce(||)
+false
+```
+
+`||` is logical disjunction in `Boolean` logic:
+
+```
+>>> [false true] ||.table [false true]
+[false true; true true]
+```
+
 The name of this operator is _verticalLineVerticalLine_.
 
 * * *
 
 See also: &, &&, |
+
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/Or)
 
 Unicode: U+2228 ∨ Logical or
 
