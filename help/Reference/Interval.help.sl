@@ -1,6 +1,6 @@
 # Interval
 
-_Interval(min, max)_
+- _Interval(min, max)_
 
 An interval represents the range of values between _min_ and _max_.
 
@@ -46,7 +46,8 @@ Use _min_ and _max_ to find end points of intervals:
 Use _includes_ to determine if a point is in the interval:
 
 ```
->>> [3.2, 5, 1, 9].collect { :each | Interval(1, 5).includes(each) }
+>>> let i = Interval(1, 5);
+>>> [3.2, 5, 1, 9].collect { :each | i.includes(each) }
 [true, true, true, false]
 ```
 

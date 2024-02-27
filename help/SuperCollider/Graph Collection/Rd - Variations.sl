@@ -56,7 +56,7 @@ z.Clip2(TRand(0, 1, Dust(8))) * 0.25
 		octaves.collect { :o |
 			n + (o * 12)
 		}
-	}.concatenation;
+	}.++;
 	let chd = {
 		Choose(tr, mnn)
 	} ! 6;

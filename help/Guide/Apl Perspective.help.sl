@@ -83,6 +83,7 @@ Methods:
 - [scan](https://aplwiki.com/wiki/Scan) Scan \
 - [shape](https://aplwiki.com/wiki/Shape) Shape ⍴
 - [sign](https://aplwiki.com/wiki/Signum) Signum ×
+- [size](https://aplwiki.com/wiki/Tally) Tally ≢
 - [swap](https://aplwiki.com/wiki/Commute) Commute ⍨
 - [take](http://aplwiki.com/wiki/Take) Take ↑
 - [transposed](https://aplwiki.com/wiki/Transpose) Transpose ⍉

@@ -95,7 +95,7 @@ Splay(
 {- Phasing Patterns ; https://github.com/lukiss/Losers-Union-SC-Research -}
 let f = (48 + 0:2.collect { :n |
 	[0 -5 15 10] + (n * 12)
-}.concatenation).MidiCps;
+}.++).MidiCps;
 Splay(
 	SinOsc(
 		f,
@@ -194,9 +194,12 @@ let f = Demand(
 	0,
 	[
 		Drand(inf, c),
-		Dxrand(inf, 48 + 0:2.collect { :o |
-			o * 12 + c
-		}.concatenation)
+		Dxrand(
+			inf,
+			48 + 0:2.collect { :o |
+				o * 12 + c
+			}.++
+		)
 	].Sum
 ).MidiCps;
 let o = SinOsc(

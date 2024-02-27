@@ -34,7 +34,7 @@ Real numbers:
 1.1416
 ```
 
-Mod threads over lists:
+`%` threads over lists:
 
 ```
 >>> [1 2 3 4 5] % 3

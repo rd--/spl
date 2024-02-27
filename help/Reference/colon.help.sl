@@ -18,4 +18,4 @@ A colon suffix indicates key names in `Dictionary Syntax`:
 
 * * *
 
-See also: ,, ., ;, comma, fullStop, semicolon
+See also: ,, ., ;, :;, :=

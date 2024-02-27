@@ -156,7 +156,7 @@ let d = [
 	12.arithmeticSeries(f, f),
 	12.geometricSeries(1, Rand(0.7, 0.9)),
 	{ Rand(1, 3) } ! 12
-].transposed.concatenation;
+].transposed.++;
 let k = Klank(x, 1, 0, 1, d);
 (k * 0.1).SoftClip
 

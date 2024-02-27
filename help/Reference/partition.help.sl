@@ -27,7 +27,7 @@ If the _stepSize_ is equal to the _windowSize_ the concatenation of the answer w
 >>> [1 .. 9].partition(3, 3)
 [1 2 3; 4 5 6; 7 8 9]
 
->>> [1 .. 9].partition(3, 3).concatenation
+>>> [1 .. 9].partition(3, 3).++
 [1 .. 9]
 ```
 
@@ -73,11 +73,11 @@ Find successive ratios in a list:
 [1/2 2/3 3/4 4/5]
 ```
 
-In some cases _concatenation_ is an inverse of _partition_:
+In some cases `++` (or `concatenation`) is an inverse of `partition`:
 
 ```
 >>> let l = [1 .. 6];
->>> l.partition(2).concatenation
+>>> l.partition(2).++
 l
 ```
 

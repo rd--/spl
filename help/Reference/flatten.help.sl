@@ -56,7 +56,7 @@ _flatten_ is _flattenTo(inf)_.
 
 * * *
 
-See also: concatenation, flattenTo
+See also: ++, concatenation, flattenTo
 
 References:
 _Apl_

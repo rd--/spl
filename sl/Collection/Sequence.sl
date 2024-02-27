@@ -18,6 +18,21 @@
 		)
 	}
 
+	++ { :self |
+		let answerSize = self.injectInto(0) { :sum :each |
+			sum + each.size
+		};
+		let answer = self.species.ofSize(answerSize);
+		let index = 1;
+		self.do { :each |
+			each.do { :item |
+				answer[index] := item;
+				index := index + 1
+			}
+		};
+		answer
+	}
+
 	@* { :self :indexList |
 		self.atAll(indexList)
 	}
@@ -236,18 +251,7 @@
 	}
 
 	concatenation { :self |
-		let answerSize = self.injectInto(0) { :sum :each |
-			sum + each.size
-		};
-		let answer = self.species.ofSize(answerSize);
-		let index = 1;
-		self.do { :each |
-			each.do { :item |
-				answer[index] := item;
-				index := index + 1
-			}
-		};
-		answer
+		self.++
 	}
 
 	copyFromTo { :self :start :stop |

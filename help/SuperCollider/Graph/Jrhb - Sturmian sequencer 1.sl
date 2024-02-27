@@ -5,7 +5,7 @@ let rewrite = { :n |
 	n.timesRepeat {
 		r := r.collect { :e |
 			rules[e + 1]
-		}.concatenation
+		}.++
 	};
 	r
 };

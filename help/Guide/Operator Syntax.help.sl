@@ -26,7 +26,7 @@ Written using the operator name:
 7
 ```
 
-When operators are written outside of `Apply Syntax & `Method Syntax` they have an implicit arity of two:
+When operators are written outside of `Apply Syntax` & `Method Syntax` they have an implicit arity of two:
 
 ```
 >>> 1:9.reduce(+)
@@ -38,5 +38,4 @@ When operators are written outside of `Apply Syntax & `Method Syntax` they have 
 
 * * *
 
-See also: Operator List, Operator Syntax
-
+See also: Operator List, Operator Names, Operator Syntax

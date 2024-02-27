@@ -1,13 +1,13 @@
 # Binary Operator Syntax
 
-Binary operators are written _α + β_.
+Binary operators are written _α + β_:
 
 ```
 >>> 3 + 4
 7
 ```
 
-Binary operators associate to the left, _α + β * γ_ = _(α + β) * γ_.
+Binary operators associate to the left, _α + β * γ_ = _(α + β) * γ_:
 
 ```
 >>> 3 + 4 * 5
@@ -23,7 +23,7 @@ Binary operators are grouped using parentheses:
 ```
 
 Binary operators have lower precedence than ordinary application,
-_α + β.γ_ = _α + (β.γ)_
+_α + β.γ_ = _α + (β.γ)_:
 
 ```
 >>> 3 + 4.squared

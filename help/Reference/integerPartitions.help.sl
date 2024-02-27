@@ -44,7 +44,7 @@ This number is given by _partitionFunctionP_:
 Partitions of 8 into at most 3 integers:
 
 ```
->>> 1:3.collect { :k | 8.integerPartitions(k) }.concatenation
+>>> 1:3.collect { :k | 8.integerPartitions(k) }.++
 [8; 7 1; 6 2; 5 3; 4 4; 6 1 1; 5 2 1; 4 3 1; 4 2 2; 3 3 2]
 ```
 

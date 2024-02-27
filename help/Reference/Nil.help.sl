@@ -6,7 +6,8 @@
 >>> nil.typeOf
 'Nil'
 
->>> system.typeDictionary['Nil'].methodDictionary.keys.includes('ifNil:/2')
+>>> let nilType = system.typeDictionary['Nil'];
+>>> nilType.methodDictionary.keys.includes('ifNil:/2')
 true
 
 >>> nil.respondsTo(ifNil:/2)

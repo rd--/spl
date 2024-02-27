@@ -15,7 +15,7 @@
 		octaves.collect { :o |
 			n + (o * 12)
 		}
-	}.concatenation;
+	}.++;
 	let chd = {
 		Choose(tr, mnn)
 	} ! 6;

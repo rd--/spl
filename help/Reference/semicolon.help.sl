@@ -18,4 +18,6 @@ A semicolon separates vectors in `Matrix Syntax`:
 
 * * *
 
-See also: :, ,, ., colon, comma, fullStop
+See also: :, ,, ., Block Syntax, Matrix Syntax
+
+Categories: Syntax

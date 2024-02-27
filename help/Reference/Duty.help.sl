@@ -67,7 +67,7 @@ let a = {
 	let x = [
 		{ randomFloat(-0.2, 0.2) } ! m,
 		{ Drand(1, { randomFloat(-0.2, 0.2) } ! n) } ! m.atRandom
-	].concatenation;
+	].++;
 	Dseq(inf, x.scramble)
 } ! n;
 Duty(

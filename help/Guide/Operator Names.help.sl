@@ -35,7 +35,7 @@ Syntax token names:
 - `(`: leftParenthesis
 - `)`: rightParenthesis
 - `[`: leftSquareBracket
-- `]`: rightSquareBracket
+- `\]`: rightSquareBracket
 - `{`: leftCurlyBracket
 - `}`: rightCurlyBracket
 - `"`: quotationMark

@@ -94,6 +94,8 @@ At `Tree` size is the number of sub-trees, see also _leafCount_:
 See also: at, atPut, depth, do, isEmpty, leafCount
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Tally),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/number),
 _Mathematica_

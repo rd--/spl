@@ -30,6 +30,13 @@ Comma separates parameter items in `Value Apply Syntax`:
 3
 ```
 
+Comma separates parameter items in `Method Syntax`:
+
+```
+>>> 3.betweenAnd(1, 5)
+true
+```
+
 Comma separates the first to items in `Range Syntax`:
 
 ```
