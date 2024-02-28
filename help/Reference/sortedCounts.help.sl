@@ -2,7 +2,7 @@
 
 - _sortedCounts(aBag)_
 
-Answer with a List of Associations between counts and elements, sorted by _decreasing_ count.
+Answer with a `List` of `Association`s between counts and elements, sorted by _decreasing_ count.
 
 ```
 >>> [1 2 3 1 2 1].asBag.sortedCounts
@@ -14,6 +14,6 @@ Answer with a List of Associations between counts and elements, sorted by _decre
 
 * * *
 
-See also: sortedElements
+See also: Association, Bag, List, sortedElements
 
 Categories: Accessing

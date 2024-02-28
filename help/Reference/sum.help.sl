@@ -1,6 +1,6 @@
 # sum
 
-- _sum(aCollection)_ ⟹ _aCollection.reduce(+)_
+- _sum(aCollection)_
 
 Answer the sum of all the elements in _aCollection_.
 
@@ -36,6 +36,13 @@ Sums of matrices:
 
 >>> [1 2 3; 4 5 6; 7 8 9].sum.sum
 45
+```
+
+Sum is implemented efficiently for `Bag` as a sum of products:
+
+```
+>>> [3 3 3 5 5 5 5 5].asBag.sum
+(3 * 3) + (5 * 5)
 ```
 
 Where supported this method is displayed as _Σ_.

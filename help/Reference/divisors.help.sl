@@ -1,8 +1,9 @@
 # divisors
 
-_divisors(anInteger)_
+- _divisors(anInteger)_
 
-Answers the list of integers that are divisors of _anInteger_.
+Answers the `List` of integers that are divisors of _anInteger_.
+For all positive integers, `divisors` includes `one` and _anInteger_ as the first and last entries.
 
 ```
 >>> 60.divisors

@@ -1,6 +1,6 @@
 # isPrimePower
 
-_isPrimePower(anInteger | aFraction)_
+- _isPrimePower(anInteger | aFraction)_
 
 Answers true if anInteger is an integer power of a prime number, else false.
 
@@ -9,6 +9,12 @@ Test whether a number is a prime power:
 ```
 >>> 8.isPrimePower
 true
+
+>>> 2401.isPrimePower
+true
+
+>>> 2401.factorInteger
+[7 -> 4]
 ```
 
 The number 6 is not a prime power:
@@ -18,11 +24,18 @@ The number 6 is not a prime power:
 false
 ```
 
-At Fraction:
+At `Fraction`:
 
 ```
 >>> 1/25.isPrimePower
 true
+```
+
+[A246655](https://oeis.org/A246655) in the Oeis:
+
+```
+>>> 2:49.select(isPrimePower:/1)
+[2 3 4 5 7 8 9 11 13 16 17 19 23 25 27 29 31 32 37 41 43 47 49]
 ```
 
 The first few prime powers that are not prime:
@@ -53,4 +66,5 @@ See also: isGaussianPrime, isPrime
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/PrimePowerQ.html)
+[1](https://mathworld.wolfram.com/PrimePower.html)
+[2](https://reference.wolfram.com/language/ref/PrimePowerQ.html)

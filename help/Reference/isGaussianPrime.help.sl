@@ -1,6 +1,6 @@
 # isGaussianPrime
 
-_isGaussianPrime(aComplex)_
+- _isGaussianPrime(aComplex)_
 
 Gaussian primes are Gaussian integers satisying one of three properties (see References below).
 

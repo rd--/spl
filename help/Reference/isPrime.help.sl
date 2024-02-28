@@ -1,6 +1,6 @@
 # isPrime
 
-_isPrime(anInteger)_
+- _isPrime(anInteger)_
 
 Determine if _anInteger_ is prime.
 
@@ -17,6 +17,13 @@ Primes up to one hundred:
 ```
 >>> 1:99.select(isPrime:/1)
 [2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97]
+```
+
+Non-primes up to thirty:
+
+```
+>>> 1:30.reject(isPrime:/1)
+[1 4 6 8 9 10 12 14 15 16 18 20 21 22 24 25 26 27 28 30]
 ```
 
 Number of primes up to one-thousand:
@@ -55,6 +62,9 @@ Threads over lists:
 ```
 >>> 1:6.isPrime
 [false true true false true false]
+
+>>> 0:24.isPrime.boole
+[0 0 1 1 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0]
 ```
 
 Recognize Fermat primes, prime numbers of the form _2 ^ 2 ^ n + 1_:
@@ -86,6 +96,13 @@ Find twin primes:
 [3 5 11 17 29 41 59 71 101 107 137 149 179 191 197 227 239 269 281 311]
 ```
 
+At `zero` and `one`:
+
+```
+>>> [0 1].isPrime
+[false false]
+```
+
 Plot primes up to one-hundred-thousand:
 
 ~~~
@@ -97,6 +114,8 @@ Plot primes up to one-hundred-thousand:
 See also: isGaussianPrime, isPrimePower, nextPrime, nthPrime
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/pco#dyadic),
 _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=isprime),
 _Mathematica_

@@ -11,6 +11,9 @@ Answer the least integer that is greater than _anInteger_ and is prime.
 >>> 31243.nextPrime
 31247
 
+>>> 17393.nextPrime
+17401
+
 >>> 2971215073.nextPrime
 2971215083
 

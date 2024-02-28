@@ -14,6 +14,15 @@ Iterate over the prime numbers up to _anInteger_.
 [2 3 5 7 11 13]
 ```
 
+Count number of primes less than a number:
+
+```
+>>> let n = 0;
+>>> 17401.primesUpToDo { :unused | n := n + 1 };
+>>> n
+2001
+```
+
 * * *
 
 See also: primesList, primesUpTo

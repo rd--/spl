@@ -21,7 +21,7 @@ function genArityCheck(k: number, a: string): string {
 		`if(arguments.length !== ${k}) {`,
 		`const errorMessage = 'Arity: expected ${k}, ${a}';`,
 		'console.error(errorMessage);',
-		'throw Error(errorMessage);',
+		'throw new Error(errorMessage);',
 		'}\n',
 	].join(' ');
 }
@@ -646,7 +646,7 @@ const asJs: ohm.ActionDict<string> = {
 			case 'false':
 				return 'false';
 			default:
-				throw Error('rewrite: reservedIdentifier?');
+				throw new Error('rewrite: reservedIdentifier?');
 		}
 	},
 
@@ -757,7 +757,7 @@ const parametersOf: ohm.ActionDict<string[]> = {
 		} else if (children.length == 1) {
 			return children[0].parametersOf;
 		} else {
-			throw Error('rewrite: parametersOf: _iter?');
+			throw new Error('rewrite: parametersOf: _iter?');
 		}
 	},
 };

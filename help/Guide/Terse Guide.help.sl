@@ -1803,7 +1803,7 @@ let c = 0; (1:4 ! 6).tuplesDo { :each | c := c + 1 }; c = 4096
 ```
 9.primesList = [2, 3, 5, 7, 11, 13, 17, 19, 23] {- first elements of prime number sequence -}
 9.nthPrime = 23 {- lookup prime by index in sequence -}
-system.cache::primesList[9] = 23 {- the primes array is cached (memoized) by the system -}
+system.cache::primesList[9] = 23 {- the primes list is cached (memoized) by the system -}
 5.nthPrime = 11 {- the nth entry in the sequence of prime numbers -}
 23.nthPrime = 83 {- the nth entry in the sequence of prime numbers -}
 system.cache::primesList[23] = 83 {- nthPrime extends the primesList cache as required -}
@@ -1846,8 +1846,8 @@ system.cache::primesList[23] = 83 {- nthPrime extends the primesList cache as re
 23.isPrime = true {- prime number predicate -}
 2971215073.isPrime = true {- prime number predicate -}
 2971215073.nextPrime = 2971215083 & { 2971215083.isPrime } {- find next prime -}
-13.primesUpTo = [2, 3, 5, 7, 11, 13] {- primes up to limit, if limit is prime it is the last element -}
-42.primesUpTo = [2, 3, 5, 7,11, 13, 17, 19, 23, 29, 31, 37, 41] {- if limit is not prime, the last element is the previous prime -}
+13.primesUpTo = [2 3 5 7 11 13] {- primes up to limit, if limit is prime it is the last element -}
+42.primesUpTo = [2 3 5 711 13 17 19 23 29 31 37 41] {- if limit is not prime, the last element is the previous prime -}
 35.isCoprime(64)
 1173.isCoprime(1547).not
 17.isPrime = true {- is number prime -}

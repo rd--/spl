@@ -466,10 +466,22 @@
 		}
 	}
 
+	isPerfectNumber { :self |
+		self.divisors.allButLast.sum = self
+	}
+
+	isPerfectSquare { :self |
+		self.sqrt.isInteger
+	}
+
 	isPositiveInteger { :self |
 		self.isInteger & {
 			self.isPositive
 		}
+	}
+
+	isSquareFree { :self |
+		self.divisors.allButFirst.noneSatisfy(isPerfectSquare:/1)
 	}
 
 	lcm { :self :anInteger |

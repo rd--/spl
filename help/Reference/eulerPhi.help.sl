@@ -6,11 +6,14 @@ Answer the Euler totient function.
 Also known as the Euler totient function or phi function.
 Counts positive integers up to _n_ that are relatively prime to _n_.
 
-Compute the Euler totient function of ten:
+Compute the Euler totient function:
 
 ```
 >>> 10.eulerPhi
 4
+
+>>> 17400.eulerPhi
+4480
 ```
 
 Negative numbers:
@@ -27,7 +30,7 @@ Threads over lists:
 [1 2 2]
 ```
 
-Length of the _nth_-order Farey sequence can be expressed in terms of _eulerPhi_:
+Length of the _nth_-order Farey sequence can be expressed in terms of `eulerPhi`:
 
 ```
 >>> 1:15.collect { :k | 1:k.eulerPhi.sum + 1 }
@@ -41,7 +44,8 @@ EulerPhi is non-negative:
 0
 ```
 
-For any square-free number n, the totient of n is equal to the product of the totients of each factor of n :
+For any square-free number _n_,
+the totient of _n_ is equal to the `product` of the totients of each factor of _n_:
 
 ```
 >>> 1023.eulerPhi
@@ -54,7 +58,7 @@ Plot the sequence:
 1:100.collect(eulerPhi:/1).plot
 ~~~
 
-Plot the cumulative sum of eulerPhi:
+Plot the cumulative `sum` of `eulerPhi`:
 
 ~~~
 1:50.eulerPhi.prefixSum.plot
@@ -65,6 +69,8 @@ Plot the cumulative sum of eulerPhi:
 See also: divisors, factorInteger, gcd, lcm, powerMod
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/pco#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/TotientFunction.html)
 [2](https://reference.wolfram.com/language/ref/EulerPhi.html)

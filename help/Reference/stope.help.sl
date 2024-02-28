@@ -1,6 +1,6 @@
 # stope
 
-_stope(x, p, y)_
+- _stope(x, p, y)_
 
 Answer _x * (x + p) * (x + (2 * p)) * ..._ for _y_ terms.
 

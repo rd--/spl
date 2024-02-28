@@ -32,6 +32,9 @@ Exp can take complex number inputs:
 Exp threads elementwise over lists and matrices:
 
 ```
+>>> [1 2].exp
+[2.71828 7.38906]
+
 >>> [0 1.5 pi.i inf].exp
 [1 4.48169 -1j0 inf]
 ```
@@ -49,6 +52,13 @@ e
 inf
 ```
 
+The inverse of `exp` is `log`:
+
+```
+>>> 123.45.exp.log
+123.45
+```
+
 Plot over a subset of the reals:
 
 ~~~
@@ -64,6 +74,8 @@ _Apl_
 [1](https://aplwiki.com/wiki/Exponential)
 _Dlmf_
 [1](https://dlmf.nist.gov/4.2#iii),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/hat),
 _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=exp),
 _Mathematica_

@@ -139,8 +139,11 @@
 
 ## Primality Testing
 
+- `isAlmostPrime`: test if a number is _k_-almost prime
+- `isGaussianPrime`: test if a complex number is a Gaussian prime
 - `isPrime`: test if a number is prime
 - `isCoprime`: test if numbers are coprime
+- `millerRabinPrimalityTest`: test if a number is likely prime
 
 ## Factoring
 

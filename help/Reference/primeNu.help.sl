@@ -1,0 +1,51 @@
+# primeNu
+
+- _primeNu(anInteger)_
+
+Answer the number of distinct prime factors of _anInteger_.
+
+```
+>>> 24.primeNu
+2
+
+>>> 105.primeNu
+3
+```
+
+Compute for large integers:
+
+```
+>>> 50n.!.primeNu
+15
+```
+
+`primeNu` is an additive function:
+
+```
+>>> (9 * 40).primeNu
+9.primeNu + 40.primeNu
+```
+
+`primeNu` gives `one` for a prime power:
+
+```
+>>> 49.isPrimePower
+true
+
+>>> 49.primeNu
+1
+```
+
+Plot the `primeNu` sequence for the first 100 numbers:
+
+~~~
+1:100.collect(primeNu:/1).plot
+~~~
+
+* * *
+
+See also: factorInteger, gcd, isPrime, isPrimePower, isSquareFree, primeOmega
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/PrimeNu.html)

@@ -1,9 +1,9 @@
 # asList
 
-_asList(aCollection)_
+- _asList(aCollection)_
 
-Answer a List whose elements are the elements of _aCollection_.
-If the collection is a List, answer it directly.
+Answer a `List` whose elements are the elements of _aCollection_.
+If the collection is a `List`, answer it directly.
 
 ```
 >>> let l = [1 .. 5];
@@ -11,7 +11,7 @@ If the collection is a List, answer it directly.
 true
 ```
 
-At Record:
+At `Record`:
 
 ```
 >>> (x: 1, y: 2, z: 3).asList
@@ -21,7 +21,14 @@ At Record:
 ['x' -> 1, 'y' -> 2, 'z' -> 3]
 ```
 
-At String:
+At `Bag`:
+
+```
+>>> [1 2 2 3 3 3 4 4 4 4].asBag.asList
+[1 2 2 3 3 3 4 4 4 4]
+```
+
+At `String`:
 
 ```
 >>> 'string'.asList

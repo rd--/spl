@@ -284,29 +284,6 @@ Complex : [Object, Number] { | real imaginary |
 		}
 	}
 
-	isGaussianPrime { :self |
-		let a = self.real;
-		let b = self.imaginary;
-		let f = { :n |
-			n.isPrime & {
-				(n % 4) = 3
-			}
-		};
-		(a = 0).if {
-			b.abs.isPrime & {
-				f(b.abs)
-			}
-		} {
-			(b = 0).if {
-				a.abs.isPrime & {
-					f(a.abs)
-				}
-			} {
-				(a.squared + b.squared).isPrime
-			}
-		}
-	}
-
 	isLiteral { :self |
 		true
 	}

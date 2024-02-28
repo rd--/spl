@@ -63,7 +63,7 @@ Sl {
 		| ApplyWithTrailingClosuresSyntax
 		| ApplySyntax
 		| MessageSendSyntax
-        | EmptyListSyntax
+		| EmptyListSyntax
 		| reservedIdentifier
 		| literal
 		| identifier
@@ -154,7 +154,7 @@ Sl {
 	constantName = lowercaseIdentifier
 	keyName = lowercaseIdentifier | uppercaseIdentifier
 	letterOrDigit = letter | digit
-	reservedIdentifier = "nil" | "true" | "false"
+	reservedIdentifier = ("nil" | "true" | "false") ~letterOrDigit
 	infixMethod = lowercaseIdentifier ":"
 	operator = operatorChar+
 	boundOperator = operatorChar+

@@ -1,0 +1,24 @@
+# primeDivisors
+
+- _primeDivisors(anInteger)_
+
+Answer the prime divisors of `anInteger`.
+
+```
+>>> 2434500.primeDivisors
+[2 3 5 541]
+
+>>> 2434500 / 541
+4500
+
+>>> (2 ^ 2) * (3 ^ 2) * (5 ^ 3)
+4500
+
+>>> 2434500.primeFactorization
+[2 2 3 3 5 5 5 541].asBag
+```
+
+* * *
+
+See also: primeExponents, primeFactorization
+

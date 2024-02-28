@@ -30,6 +30,18 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 		self
 	}
 
+	asList { :self |
+		let answer = [];
+		self.do { :each |
+			answer.add(each)
+		};
+		answer
+	}
+
+	asMap { :self |
+		self.contents
+	}
+
 	asSet { :self |
 		self.contents.indices.asSet
 	}

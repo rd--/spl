@@ -2,23 +2,23 @@
 
 - _factorInteger(anInteger)_
 
-Answer the list of prime factors of _anInteger_, together with their exponents.
+Answer the `List` of prime factors of _anInteger_, together with their exponents.
 
 ```
->>> 120.factorInteger
-[2 -> 3, 3 -> 1, 5 -> 1]
-
->>> (2 ^ 3) * 3 * 5
-120
-
 >>> 36.factorInteger
 [2 -> 2, 3 -> 2]
 
 >>> (2 ^ 2) * (3 ^ 2)
 36
+
+>>> 120.factorInteger
+[2 -> 3, 3 -> 1, 5 -> 1]
+
+>>> (2 ^ 3) * 3 * 5
+120
 ```
 
-At Fraction:
+At `Fraction`:
 
 ```
 >>> 3/8.factorInteger
@@ -39,13 +39,13 @@ A unit factor:
 [-1 -> 1, 2 -> 2, 3 -> 1, 5 -> 1]
 ```
 
-Use factorInteger to test for prime powers:
+Use `factorInteger` to test for prime powers:
 
 ```
 >>> 2401.factorInteger.size = 1
 true
 
-Use factorInteger to find all prime divisors of a number:
+Use `factorInteger` to find all prime divisors of a number:
 
 ```
 2434500.factorInteger.collect(key:/1)
@@ -60,9 +60,11 @@ Plot the number of distinct prime factors of the first 100 numbers:
 
 * * *
 
-See also: factorInteger, isPrime, product
+See also: isPrime, primeFactorization, product
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/pco#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/PrimeFactorization.html)
 [2](https://reference.wolfram.com/language/ref/FactorInteger.html)

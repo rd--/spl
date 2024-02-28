@@ -8,7 +8,7 @@
 			answer.addFirst(-1 -> -1);
 			answer
 		} {
-			self.primeFactors.asBag.sortedElements
+			self.primeFactorization.sortedElements
 		}
 	}
 
@@ -28,6 +28,12 @@
 
 	isAlmostPrime { :self :k |
 		self.primeFactors.size = k
+	}
+
+	isPowerfulNumber { :self |
+		self.primeFactorization.asMap.values.allSatisfy { :each |
+			each > 1
+		}
 	}
 
 	isPrime { :self |
@@ -128,7 +134,16 @@
 	}
 
 	primeDivisors { :self |
-		self.primeFactorization.collect(key:/1)
+		self.primeFactorization.asMap.keys
+	}
+
+	primeExponents { :self |
+		let map = self.primeFactorization.asMap;
+		map.keys.max.primesUpTo.collect { :each |
+			map.atIfAbsent(each) {
+				0
+			}
+		}
 	}
 
 	primeFactors { :self |
@@ -163,7 +178,15 @@
 	}
 
 	primeFactorization { :self |
-		self.primeFactors.asBag.sortedElements
+		self.primeFactors.asBag
+	}
+
+	primeNu { :self |
+		self.primeFactorization.asMap.size
+	}
+
+	primeOmega { :self |
+		self.primeFactors.size
 	}
 
 	primePi { :self |
@@ -255,7 +278,7 @@
 +@Number {
 
 	isPrimePower { :self |
-		let primeFactors = self.primeFactorization;
+		let primeFactors = self.factorInteger;
 		primeFactors.size = 1 & {
 			primeFactors.first.key.isPrime
 		}
@@ -266,7 +289,11 @@
 +Fraction {
 
 	factorInteger { :self |
-		self.primeFactorization
+		let n = self.numerator.factorInteger;
+		let d = self.denominator.factorInteger.collect { :each |
+			each.key -> each.value.negated
+		};
+		(n ++ d).sorted
 	}
 
 	primeFactors { :self |
@@ -275,16 +302,35 @@
 		}
 	}
 
-	primeFactorization { :self |
-		let n = self.numerator.primeFactors.asBag.sortedElements;
-		let d = self.denominator.primeFactors.asBag.sortedElements.collect { :each |
-			each.key -> each.value.negated
-		};
-		(n ++ d).sorted
-	}
-
 	primeLimit { :self |
 		self.numerator.primeLimit.max(self.denominator.primeLimit)
+	}
+
+}
+
++Complex {
+
+	isGaussianPrime { :self |
+		let a = self.real;
+		let b = self.imaginary;
+		let f = { :n |
+			n.isPrime & {
+				(n % 4) = 3
+			}
+		};
+		(a = 0).if {
+			b.abs.isPrime & {
+				f(b.abs)
+			}
+		} {
+			(b = 0).if {
+				a.abs.isPrime & {
+					f(a.abs)
+				}
+			} {
+				(a.squared + b.squared).isPrime
+			}
+		}
 	}
 
 }
@@ -302,6 +348,14 @@
 			};
 			true
 		}
+	}
+
+	nthPrime { :self |
+		self.collect(nthPrime:/1)
+	}
+
+	primeOmega { :self |
+		self.collect(primeOmega:/1)
 	}
 
 }
