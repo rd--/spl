@@ -1,6 +1,6 @@
 # System
 
-Type representing the system (interpreter and host).
+A `Type` representing the system (interpreter and host).
 
 The global value `system` is the singular instance.
 

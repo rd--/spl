@@ -42,16 +42,16 @@ Blob! : [Object, Blob] {
 
 }
 
-+System {
++[URL, String] {
 
-	fetchBlob { :self :resource :options |
-		self.fetchBlob(resource, options) { :errorCode |
+	fetchBlob { :self :options |
+		self.fetchBlob(options) { :errorCode |
 			self.error('fetchBlob: ' ++ errorCode)
 		}
 	}
 
-	fetchBlob { :self :resource :options :onError |
-		self.fetch(resource, options).then { :response |
+	fetchBlob { :self :options :onError |
+		self.fetch(options).then { :response |
 			response.ok.if {
 				response.blob
 			} {

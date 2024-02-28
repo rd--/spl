@@ -84,7 +84,9 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	evaluateNotifying { :self :aString :aBlock:/1 |
-		{ self.evaluateOrSignalError(aString) }.ifError { :err |
+		{
+			self.evaluateOrSignalError(aString)
+		}.ifError { :err |
 			aBlock(err)
 		}
 	}
@@ -92,71 +94,6 @@ System! : [Object, Cache, Indexable, Random] {
 	evaluate { :self :aString |
 		self.evaluateNotifying(aString) { :err |
 			system.consoleError(err)
-		}
-	}
-
-	fetch { :self :resource |
-		<primitive: return fetch(_resource);>
-	}
-
-	fetch { :self :resource :options |
-		<primitive: return fetch(_resource, _options);>
-	}
-
-	fetchJson { :self :resource :options |
-		self.fetchJson(resource, options) { :errorCode |
-			self.error('fetchJson: ' ++ errorCode)
-		}
-	}
-
-	fetchJson { :self :resource :options :onError |
-		self.fetch(resource, options).then { :response |
-			response.ok.if {
-				response.json
-			} {
-				onError.cull(reponse.ok)
-			}
-		}
-	}
-
-	fetchMimeType { :self :resource :mimeType :options |
-		self.fetchMimeType(resource, mimeType, options) { :errorCode |
-			self.error('fetchMimeType: ' ++ errorCode)
-		}
-	}
-
-	fetchMimeType { :self :resource :mimeType :options :onError |
-		self.fetch(resource, options).then { :response |
-			response.ok.if {
-				mimeType.caseOfOtherwise([
-					'application/json' -> {
-						response.json
-					},
-					'text/plain' -> {
-						response.text
-					}
-				]) { :unused |
-					onError.cull('unknown mime type')
-				}
-			} {
-				onError.cull(reponse.ok)
-			}
-		}
-	}
-
-	fetchString { :self :resource :options |
-		self.fetchString(resource, options) { :errorCode |
-			self.error('fetchString: ' ++ errorCode)
-		}
-	}
-
-	fetchString { :self :resource :options :onError |
-		self.fetch(resource, options).then { :response |
-			response.ok.if {
-				response.text
-			} {
-				onError.cull(response.ok)
-			}
 		}
 	}
 
@@ -238,7 +175,7 @@ System! : [Object, Cache, Indexable, Random] {
 			};
 			answer.asList
 		} {
-			('methodImplementations: not a methodName: ' ++ methodName).error
+			self.error('System>>methodImplementations: not a methodName: ' ++ methodName)
 		}
 	}
 
@@ -409,7 +346,7 @@ System! : [Object, Cache, Indexable, Random] {
 
 	preferencesReadPath { :self :path :defaultValue |
 		path.isEmpty.if {
-			'System>>preferencesReadPath: empty path'.error
+			self.error('System>>preferencesReadPath: empty path')
 		} {
 			let item = self.preferencesRead(path[1], nil);
 			let index = 2;
@@ -464,7 +401,7 @@ System! : [Object, Cache, Indexable, Random] {
 		self.isTraitName(traitName).if {
 			self.traitDictionary[traitName]
 		} {
-			self.error('trait: not a trait: ' ++ traitName)
+			self.error('System>>traitLookup: no such trait: ' ++ traitName)
 		}
 	}
 
@@ -479,7 +416,7 @@ System! : [Object, Cache, Indexable, Random] {
 			self.isTraitName(traitOrTypeName).if {
 				self.traitDictionary[traitOrTypeName]
 			} {
-				self.error('traitOrType: not a trait or type: ' ++ traitOrTypeName)
+				self.error('System>>traitOrType: not such trait or type: ' ++ traitOrTypeName)
 			}
 		}
 	}
@@ -488,7 +425,7 @@ System! : [Object, Cache, Indexable, Random] {
 		self.isTraitName(traitName).if {
 			self.typesImplementingTrait(traitName)
 		} {
-			self.error('traitTypes: not a trait: ' ++ traitName)
+			self.error('System>>traitTypes: no such trait: ' ++ traitName)
 		}
 	}
 
@@ -516,7 +453,7 @@ System! : [Object, Cache, Indexable, Random] {
 		self.isTypeName(typeName).if {
 			self.typeDictionary[typeName]
 		} {
-			self.error('typeLookup: not a type: ' ++ typeName)
+			self.error('System>>typeLookup: not a type: ' ++ typeName)
 		}
 	}
 
@@ -630,32 +567,29 @@ System! : [Object, Cache, Indexable, Random] {
 
 	valueAfterMilliseconds { :self:/0 :delayInMilliseconds |
 		<primitive:
-		if(!sl.isSmallFloat(_delayInMilliseconds)) {
-			return Error('valueAfterMilliseconds: not a number');
-		} else {
+		if(sl.isSmallFloat(_delayInMilliseconds)) {
 			return setTimeout(_self_0, _delayInMilliseconds);
 		}
 		>
+		self.error('System>>valueAfterMilliseconds: not a number')
 	}
 
 	valueAfterMillisecondsWith { :self:/1 :delayInMilliseconds :anObject |
 		<primitive:
-		if(!sl.isSmallFloat(_delayInMilliseconds)) {
-			return Error('valueAfterMillisecondsWith: not a number');
-		} else {
+		if(sl.isSmallFloat(_delayInMilliseconds)) {
 			return setTimeout(_self_1, _delayInMilliseconds, _anObject);
 		}
 		>
+		self.error('System>>valueAfterMillisecondsWith: not a number')
 	}
 
 	valueEveryMilliseconds { :self:/0 :delayInMilliseconds |
 		<primitive:
-		if(!sl.isSmallFloat(_delayInMilliseconds)) {
-			return Error('valueEveryMilliseconds: not a number');
-		} else {
+		if(sl.isSmallFloat(_delayInMilliseconds)) {
 			return setInterval(_self_0, _delayInMilliseconds);
 		}
 		>
+		self.error('System>>valueEveryMilliseconds: not a number')
 	}
 
 	millisecondsToRun { :self:/0 |

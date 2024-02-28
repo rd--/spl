@@ -142,17 +142,3 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 	}
 
 }
-
-+System {
-
-	fetchByteArray { :self :resource :options :onErrorBlock |
-		self.fetch(resource, options).then { :response |
-			response.ok.if {
-				response.byteList
-			} {
-				onErrorBlock.cull(response.ok)
-			}
-		}
-	}
-
-}

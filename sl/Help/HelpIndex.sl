@@ -4,7 +4,7 @@ HelpIndex : [Object] { | contents |
 		path.ifNotNil {
 			let url = self.url(path[1], path[2]);
 			self.notify('fetch: ' ++ path.joinSeparatedBy('/'));
-			system.fetchString(url, (cache: 'no-cache'), { '*Fetch Failed*' })
+			url.fetchTextWithDefault('*Fetch Failed*')
 		}
 	}
 
@@ -16,7 +16,7 @@ HelpIndex : [Object] { | contents |
 		self.contents.detectIfNone { :each |
 			each.second = topic
 		} {
-			self.warning('find: no help for: ' ++ topic);
+			self.warning('HelpIndex>>find: no help for: ' ++ topic);
 			nil
 		}
 	}
@@ -28,11 +28,17 @@ HelpIndex : [Object] { | contents |
 	names { :self :kind |
 		self.contents.select { :each |
 			each.first = kind
-		}.collect(second:/1).copyWithoutIdenticalElements.sort
+		}.collect(second:/1).sorted
 	}
 
 	url { :self :kind :name |
-		['./lib/spl/help/', kind, '/', name, '.help.sl'].join
+		[
+			'./lib/spl/help/',
+			kind,
+			'/',
+			name,
+			'.help.sl'
+		].join
 	}
 
 }

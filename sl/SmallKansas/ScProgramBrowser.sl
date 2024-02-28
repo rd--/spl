@@ -88,11 +88,7 @@ ScProgramIndex : [Object] { | contents |
 							name,
 							'.sl'
 						].join;
-						system.fetchString(
-							url,
-							(cache: 'no-cache'),
-							{ '*Fetch failed*' }
-						)
+						url.fetchTextWithDefault('*Fetch failed*')
 					}
 				])
 			}

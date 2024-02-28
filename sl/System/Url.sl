@@ -6,32 +6,16 @@
 		self.typeReponsibility('asUrl')
 	}
 
+	isUrl { :self |
+		true
+	}
+
 }
 
 URL! : [Object, Url] {
 
 	asUrl { :self |
 		self
-	}
-
-	fetch { :self |
-		<primitive: return fetch(_self);>
-	}
-
-	fetchText { :self |
-		self.fetchText { :errorCode |
-			self.error('fetchText: ' ++ errorCode)
-		}
-	}
-
-	fetchText { :self :onError |
-		self.fetch.then { :response |
-			response.ok.if {
-				response.text
-			} {
-				onError.cull(response.ok)
-			}
-		}
 	}
 
 	hash { :self |
@@ -48,10 +32,6 @@ URL! : [Object, Url] {
 
 	href { :self |
 		<primitive: return _self.href;>
-	}
-
-	isUrl { :self |
-		true
 	}
 
 	origin { :self |
@@ -140,6 +120,54 @@ URL! : [Object, Url] {
 
 	createObjectUrl { :self |
 		<primitive: return URL.createObjectURL(_self);>
+	}
+
+}
+
++[URL, String] {
+
+	fetch { :self |
+		<primitive: return fetch(_self);>
+	}
+
+	fetchThen { :self :onSuccess:/1 |
+		self.fetchThenElse(onSuccess:/1) { :errorCode |
+			self.error('Url>>fetchThenElse: ' ++ errorCode)
+		}
+	}
+
+	fetchThenElse { :self :onSuccess:/1 :onError |
+		self.fetch.then { :response |
+			response.ok.if {
+				onSuccess(response)
+			} {
+				onError.cull(response.ok)
+			}
+		}
+	}
+
+	fetchByteArray { :self |
+		self.fetchThen(byteArray:/1)
+	}
+
+	fetchJson { :self |
+		self.fetchThen(json:/1)
+	}
+
+	fetchMimeType { :self :mimeType |
+		self.fetchThen { :response |
+			response.mimeType(mimeType)
+		}
+	}
+
+	fetchText { :self |
+		self.fetchThen(text:/1)
+	}
+
+	fetchTextWithDefault { :self :defaultText |
+		self.fetchThenElse(text:/1) { :unused |
+			defaultText
+		}
 	}
 
 }

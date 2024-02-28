@@ -1,8 +1,8 @@
 # asSeconds
 
-_asSeconds(aDuration | aNumber)_
+- _asSeconds(aDuration | aNumber)_
 
-The method to get a duration in seconds, either directly from a number, or from a _Duration_.
+The method to get a duration in seconds, either directly from a number, or from a `Duration`.
 
 _Rationale_: Duration has symmetrical constructors and accessors, i.e.
 

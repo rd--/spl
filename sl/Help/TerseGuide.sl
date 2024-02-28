@@ -53,9 +53,7 @@
 +@Url {
 
 	terseGuideSummary { :self |
-		self.asUrl.fetchText {
-			self.error('terseGuideSummary: fetch failed')
-		}.then { :text |
+		self.asUrl.fetchText.then { :text |
 			text.terseGuideSummary
 		}
 	}

@@ -1,10 +1,8 @@
 # Url
 
-Uniform resource locator.
-
 - _Url(aString)_
 
-Construct a Url given a String.
+Construct a `Url`, a Uniform resource locator, given a `String`.
 
 ```
 >>> 'http://cern.ch/'.Url.isUrl
@@ -27,6 +25,13 @@ true
 
 >>> 'http://worldwideweb.cern.ch/browser/'.Url.pathname
 '/browser/'
+```
+
+File Url:
+
+```
+let url = '/home/rohan/sw/spl/help/Reference/Url.help.sl'.asFileUrl;
+url.fetchText.then { :aString | aString.postLine }
 ```
 
 _Note_:

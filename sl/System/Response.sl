@@ -8,7 +8,7 @@ Response! : [Object] {
 		<primitive: return _self.blob();>
 	}
 
-	byteList { :self |
+	byteArray { :self |
 		<primitive:
 		return _self.arrayBuffer().then(function(b) {
 			return new Uint8Array(b);
@@ -16,19 +16,27 @@ Response! : [Object] {
 		>
 	}
 
-	mimeType { :self :mimeType |
+	mimeType { :self :mimeType :onError |
 		mimeType.caseOfOtherwise([
 			'application/json' -> {
 				self.json
 			},
 			'application/octet-stream' -> {
-				self.byteList
+				self.byteArray
 			},
 			'text/plain' -> {
 				self.text
 			}
-		]) { :unused |
-			self.error('mimeType: unknown mimeType: ' ++ mimeType)
+		]) {
+			onError.cull(
+				Error('Response>>mimeType: unknown mimeType: ' ++ mimeType)
+			)
+		}
+	}
+
+	mimeType { :self :mimeType |
+		self.mimeType(mimeType) { :err |
+			self.error(err)
 		}
 	}
 

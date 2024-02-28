@@ -226,6 +226,10 @@
 - `fractionalPart`, `integerPart`, `mixedFractionParts`
 - `truncated`, `truncateTo`
 
+## Scheduling
+
+- `cancel`, `valueAfter`, `valueAfterWith`, `valueEvery`
+
 ## Sorting
 
 - `sort`, `sortBy`, `sorted`, `sortOn`

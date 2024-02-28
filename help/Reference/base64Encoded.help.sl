@@ -1,6 +1,6 @@
 # base64Encoded
 
-_base64Encoded(aByteArray)_
+- _base64Encoded(aByteArray)_
 
 Encode _aByteArray_ as a Base64 string.
 The answer is a String.

@@ -1,6 +1,6 @@
 # Duration
 
-A type to represent an interval of time.
+A `Type` to represent an interval of time.
 The base unit of time in the International System of Units (SI) is the second.
 
 - _parseDuration(aString)_
@@ -61,6 +61,6 @@ Durations are queried using the same methods:
 
 * * *
 
-See also: Date, Frequency, TimeStamp
+See also: asSeconds, Date, Frequency, TimeStamp
 
 Categories: Temporal, Type
