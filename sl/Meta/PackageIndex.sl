@@ -190,6 +190,7 @@
 	'System-File'
 	'System-FileSystem'
 	'System-LibraryItem'
+	'System-Location'
 	'System-MessageEvent'
 	'System-Meta'
 	'System-Method'

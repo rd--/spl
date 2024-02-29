@@ -214,19 +214,11 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 +@Object {
 
 	! { :self :anObject |
-		anObject.isSequence.if {
-			self.duplicateShape(anObject)
-		} {
-			self.duplicateInteger(anObject)
-		}
+		self.duplicateInteger(anObject)
 	}
 
 	# { :self :anObject |
-		anObject.isSequence.if {
-			self.replicateEach(anObject)
-		} {
-			self.replicateInteger(anObject)
-		}
+		self.replicateInteger(anObject)
 	}
 
 	duplicateInteger { :self :anInteger |

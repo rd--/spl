@@ -34,13 +34,13 @@ Syntax token names:
 - `.`: fullStop
 - `(`: leftParenthesis
 - `)`: rightParenthesis
-- `[`: leftSquareBracket
+- `\[`: leftSquareBracket
 - `\]`: rightSquareBracket
 - `{`: leftCurlyBracket
 - `}`: rightCurlyBracket
 - `"`: quotationMark
 - `'`: apostrophe
-- `\\`: graveAccent
+- `\``: graveAccent
 
 * * *
 

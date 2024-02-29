@@ -81,9 +81,10 @@
 	'Blob'
 	'Event'
 	'EventTarget'
-	'File'
+	'File' {- Blob -}
 	'FileSystem'
 	'LibraryItem'
+	'Location'
 	'Method'
 	'MessageEvent'
 	'Navigator'
@@ -92,7 +93,7 @@
 	'Trait'
 	'Transcript'
 	'Type'
-	'Url'
+	'Url' {- Blob File -}
 	'UrlSearchParams'
 	'WebSocket' {- EventTarget Url -}
 	'Window'

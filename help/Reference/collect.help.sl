@@ -1,6 +1,6 @@
 # collect
 
-_collect(aCollection, aBlock:/1)_
+- _collect(aCollection, aBlock:/1)_
 
 Evaluate _aBlock_ with each element of _aCollection_ as the argument.
 Collect the resulting values into a collection like the receiver.

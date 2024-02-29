@@ -83,10 +83,10 @@ export function typeOf(anObject: unknown): TypeName {
 				return 'Block';
 			case 'number':
 				return 'SmallFloat';
-			case 'bigint':
-				return 'LargeInteger';
 			case 'string':
 				return 'String';
+			case 'bigint':
+				return 'LargeInteger';
 			case 'object':
 				return objectType(<SlObject> anObject);
 			default:
@@ -285,7 +285,7 @@ export class System {
 		this.typeDictionary = new Map(preinstalledTypes.map(function (each) {
 			return [each, new Type(each, 'Kernel', [], [], new Map())];
 		}));
-		this.window = window;
+		this.window = globalThis;
 		this.packageDictionary = new Map();
 		this.cache = new Map();
 	}

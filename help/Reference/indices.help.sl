@@ -1,14 +1,14 @@
 # indices
 
-_indices(aCollection)_
-_indices(aCollection, aBlock:/1)_
+- _indices(aCollection)_
+- _indices(aCollection, aBlock:/1)_
 
 Answer the valid indices for _aCollection_.
 The binary form only answers indices where the associated item satisifes the predicate _aBlock_.
 
-For Sequences, _indices_ is the interval _(1 .. aCollection.size)_.
+For `Sequence`s, `indices` is _Range(1, aCollection.size, 1)_.
 
-At List:
+At `List`:
 
 ```
 >>> [1 3 5 7 9].indices
@@ -18,7 +18,7 @@ At List:
 [1 2 5]
 ```
 
-At Tuple:
+At `Tuple`:
 
 ```
 >>> (1, 3, 5, 7, 9).indices
@@ -28,7 +28,7 @@ At Tuple:
 [3 4]
 ```
 
-At Record:
+At `Record`:
 
 ```
 >>> (x: 1, y: 2, z: 3).indices

@@ -31,6 +31,6 @@ Cf. `replicateEach`:
 
 * * *
 
-See also: #, !, replicateInteger, replicateEach, reshape, shape
+See also: #, !, replicateEach, replicateInteger, reshape, shape
 
 Categories: Copying

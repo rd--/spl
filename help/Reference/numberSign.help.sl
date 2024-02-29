@@ -45,7 +45,7 @@ With a `Sequence` count make the indicated number of copies of each element in t
 
 * * *
 
-See also: !, replicateInteger, replicateEach, reshape, shape
+See also: !, fill, replicateInteger, replicateEach, reshape, shape, size
 
 References:
 _Apl_

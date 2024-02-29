@@ -8,7 +8,7 @@ Construct a `Url`, a Uniform resource locator, given a `String`.
 >>> 'http://cern.ch/'.Url.isUrl
 true
 
->>> 'http://cern.ch/'.Url.hostname
+>>> 'http://cern.ch/'.Url.hostName
 'cern.ch'
 
 >>> 'http://cern.ch:8080/'.Url.host
@@ -23,7 +23,7 @@ true
 >>> 'http://cern.ch/#home'.Url.hash
 '#home'
 
->>> 'http://worldwideweb.cern.ch/browser/'.Url.pathname
+>>> 'http://worldwideweb.cern.ch/browser/'.Url.pathName
 '/browser/'
 ```
 
@@ -39,4 +39,4 @@ The type itself has the non-standard spelling _URL_, which is defined by the sys
 
 * * *
 
-See also: UrlSearchParams
+See also: href, hostName, Location, origin, pathName, UrlSearchParams

@@ -20,7 +20,7 @@
 		<primitive: host.exit(_exitCode);>
 	}
 
-	hostname { :self |
+	hostName { :self |
 		<primitive: return host.getHostname();>
 	}
 

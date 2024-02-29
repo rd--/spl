@@ -41,6 +41,10 @@
 		self.replicateEach(anObject)
 	}
 
+	! { :self :anObject |
+		self.duplicateShape(anObject)
+	}
+
 	&& { :self :other |
 		self.withCollect(other, &&)
 	}

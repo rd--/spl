@@ -2,7 +2,7 @@
 
 - _indexValueAssociations(aSequence)_
 
-Answer a new collection containing the (index -> value) associations of _aSequence_.
+Answer a sequence containing the (index -> value) associations of _aSequence_.
 
 ```
 >>> 3:7.indexValueAssociations

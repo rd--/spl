@@ -1,23 +1,21 @@
-# Reference Help Filse
+# Reference Help Files
 
 The _Reference_ help files follow a few simple rules.
 
-Where possible examples are written as `Documentation Tests`.
+The main heading is the name of the entry and is written using the _#-prefix_ notation.
 
-_Indented Code Blocks_ should contain only lines that each evaluate to a `Boolean`.
+If the entry has any methods they are listed in the paragraph immediately following.
 
-The _terseReferenceSummary_ method will extract both of these kinds of tests,
-evaluate them all,
-note any errors,
-and summarise the result.
-All other examples should be given in _Fenced Code Blocks_.
+Examples are written in _Fenced Code Blocks_.
+
+Where appropriate examples are written as `Documentation Tests`.
 
 Below the horizontal rule there may be the following entries:
 
-- "See also:" indicates a list of help files to consult
-- "References:" indicates external references (Apl, Haskell, Mathematica, SuperCollider)
-- "Unicode:" glyphs related to the entry
-- "Categories:" indicates which categories the entry should be listed in
+- _See also_: indicates a list of related help files to consult
+- _References_: indicates external references (Apl, Haskell, J, Maple, Mathematica, SuperCollider)
+- _Unicode_: glyphs related to the entry
+- _Categories_: indicates which categories the entry should be listed in
 
 * * *
 

@@ -1,6 +1,6 @@
 # deepCollect
 
-_deepCollect(aCollection, aBlock:/1)_
+- _deepCollect(aCollection, aBlock:/1)_
 
 Collect over _aCollection_,
 descending into elements that are of the same type as _aCollection_,

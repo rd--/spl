@@ -1,7 +1,7 @@
 # Indexable
 
-_Indexable_ is a collection trait.
-The required methods are _at_, _atPut_ and _indices_.
+_Indexable_ is a collection `Trait`.
+The required methods are `at`, `atPut` and `indices`.
 
 ```
 >>> system.traitTypes('Indexable').includes('List')

@@ -11,7 +11,7 @@ Answer the values of a dictionary.
 
 * * *
 
-See also: keys
+See also: associations, Dictionary, indices, keys
 
 References:
 _Mathematica_

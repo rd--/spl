@@ -1,12 +1,12 @@
 # deepDo
 
-_deepDo(anIterable, aBlock:/1)_
+- _deepDo(anIterable, aBlock:/1)_
 
 Do over _anIterable_,
 descending into elements that are of the same type as _anIterable_,
 else applying _aBlock_.
 
-At List:
+At `List`:
 
 ```
 >>> let l = [];
@@ -15,7 +15,7 @@ At List:
 ['a' 'b' 'c' 'd']
 ```
 
-At Tuple:
+At `Tuple`:
 
 ```
 >>> let l = [];
@@ -24,7 +24,7 @@ At Tuple:
 ['a' 'b' 'c' 'd']
 ```
 
-At Record:
+At `Record`:
 
 ```
 >>> let l = [];

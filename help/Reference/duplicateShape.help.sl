@@ -2,7 +2,7 @@
 
 - _duplicateShape(anObject, aSequence)_
 
-Evaluate _value(anObject)_ to fill an array of the indicated shape:
+Evaluate _value(anObject)_ to fill each place in an array of the indicated shape:
 
 ```
 >>> { 1 }.duplicateShape([2 3])
@@ -14,6 +14,6 @@ Evaluate _value(anObject)_ to fill an array of the indicated shape:
 
 * * *
 
-See also: #, !, duplicateInteger, List
+See also: #, !, duplicateInteger, List, value
 
 Categories: Copying

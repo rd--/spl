@@ -3,7 +3,7 @@
 LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 
 	key { :self |
-		'sl/library/' ++ self.url.hostname ++ self.url.pathname
+		'sl/library/' ++ self.url.hostName ++ self.url.pathName
 	}
 
 	readLocalStorage { :self |

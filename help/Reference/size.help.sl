@@ -44,7 +44,7 @@ Size of a `Record`:
 Size of a `String`:
 
 ```
-'text'.size
+>>> 'text'.size
 4
 
 >>> ''.size

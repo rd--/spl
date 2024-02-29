@@ -3,12 +3,12 @@
 -  _deepIndices(aCollection, aBlock:/1)_
 -  _deepIndices(alpha)_ => _deepIndices(alpha, true.constant)_
 
-Answer a List of indices, each a List, of the paths to each leaf element in _aCollection_
+Answer a `List` of indices, each a `List`, of the paths to each leaf element in _aCollection_
 that satisfies the predicate _aBlock_.
 
 A leaf element is an item that is not of the same type as _aCollection_.
 
-At Range:
+At `Range`:
 
 ```
 >>> 1:9.deepIndices
@@ -18,7 +18,7 @@ At Range:
 [7; 8; 9]
 ```
 
-At List:
+At `List`:
 
 ```
 >>> [1; 2 3; 4 5 6].deepIndices
@@ -31,7 +31,7 @@ At List:
 [[2, 1]]
 ```
 
-At Tuple:
+At `Tuple`:
 
 ```
 >>> (1, (2, 3), (4, 5, 6)).deepIndices
@@ -41,7 +41,7 @@ At Tuple:
 [1; 2 1; 2 2 1; 2 2 2]
 ```
 
-At Record:
+At `Record`:
 
 ```
 >>> (x: 1, y: (x: 2, y:3), z: (x: 4, y: 5, z: 6)).deepIndices
@@ -51,7 +51,7 @@ At Record:
 ['y' 'x'; 'z' 'x'; 'z' 'z']
 ```
 
-_atPath_ and @>:
+`atPath` and @>:
 
 ```
 >>> let l = [1; 2 3; 4 5 6];

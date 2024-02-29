@@ -1,10 +1,10 @@
 # shapeIndices
 
-_shapeIndices(aSequence)_
+- _shapeIndices(aSequence)_
 
 Enumerate all of the indices given by the shape indicated at _aSequence_.
 
-Indices are Lists, if the shape indicates a vector the indices are lists of one place.
+Indices are `List`s, if the shape indicates a vector the indices are lists of one place.
 
 ```
 >>> [3].shapeIndices
@@ -25,7 +25,7 @@ Volume indices:
 [1 1 1; 1 1 2; 1 2 1; 1 2 2; 2 1 1; 2 1 2; 2 2 1; 2 2 2]
 ```
 
-_atPath_ and _@>_ index using lists:
+`atPath` and `@>` index using lists:
 
 ```
 >>> let a = [1 2; 3 4:; 5 6; 7 8];

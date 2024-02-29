@@ -67,6 +67,6 @@ This can be more written more simply using the _!^_ operator as:
 
 * * *
 
-See also: !^, !+, #, duplicateInteger, duplicateShape, List
+See also: !^, !+, #, duplicateInteger, duplicateShape, fill, List
 
 Categories: Copying

@@ -3982,7 +3982,7 @@ system.includesPackage('Url') {- package -}
 'http://cern.ch/'.Url.typeOf = 'URL' {- the system type is all upper case -}
 'http://cern.ch/'.Url.isUrl = true {- type predicate -}
 'http://cern.ch/'.Url.href = 'http://cern.ch/' {- url href -}
-'http://cern.ch/'.Url.hostname = 'cern.ch' {- url host name -}
+'http://cern.ch/'.Url.hostName = 'cern.ch' {- url host name -}
 'http://cern.ch/'.Url.port = '' {- url port -}
 'http://cern.ch/'.Url.protocol = 'http:' {- url protocol -}
 Url('browser', 'https://worldwideweb.cern.ch/').href = 'https://worldwideweb.cern.ch/browser' {- relative url -}

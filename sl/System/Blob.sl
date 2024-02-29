@@ -1,3 +1,5 @@
+{- Requires: Object -}
+
 @Blob {
 
 	arrayBuffer { :self |
@@ -42,33 +44,10 @@ Blob! : [Object, Blob] {
 
 }
 
-+[URL, String] {
++[ByteArray, Float64Array] {
 
-	fetchBlob { :self :options |
-		self.fetchBlob(options) { :errorCode |
-			self.error('fetchBlob: ' ++ errorCode)
-		}
-	}
-
-	fetchBlob { :self :options :onError |
-		self.fetch(options).then { :response |
-			response.ok.if {
-				response.blob
-			} {
-				onError.cull(response.ok)
-			}
-		}
+	asBlob { :self |
+		[self].asBlob
 	}
 
 }
-
-{- Requires: ByteArray Float64Array -}
-{-
-	+[ByteArray, Float64Array] {
-
-		asBlob { :self |
-			[self].asBlob
-		}
-
-	}
--}

@@ -220,7 +220,7 @@
 	title { :self | <primitive: return _self.title;> }
 	title { :self :aString | <primitive: return _self.title = _aString;> }
 
-	computedStyle { :self | <primitive: return window.getComputedStyle(_self);> }
+	computedStyle { :self | <primitive: return globalThis.getComputedStyle(_self);> }
 
 	isHtmlElement { :self |
 		true
@@ -769,27 +769,6 @@ KeyboardEvent! : [Object, UiEvent, Event] {
 	ctrlKey { :self | <primitive: return _self.ctrlKey;> }
 	key { :self | <primitive: return _self.key;> }
 	shiftKey { :self | <primitive: return _self.shiftKey;> }
-
-}
-
-Location! : [Object] {
-
-	hash { :self | <primitive: return _self.hash;> }
-	host { :self | <primitive: return _self.host;> }
-	hostname { :self | <primitive: return _self.hostname;> }
-	href { :self | <primitive: return _self.href;> }
-	origin { :self | <primitive: return _self.origin;> } {- read only -}
-	pathname { :self | <primitive: return _self.pathname;> }
-	port { :self | <primitive: return _self.port;> }
-	protocol { :self | <primitive: return _self.protocol;> }
-	search { :self | <primitive: return _self.search;> }
-
-	reload { :self | <primitive: return _self.reload();> }
-	replace { :self :url | <primitive: return _self.reload(_url);> }
-
-	pseudoSlotNameList { :self |
-		['protocol', 'hostname', 'port', 'pathname', 'search', 'hash']
-	}
 
 }
 

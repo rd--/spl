@@ -1,6 +1,6 @@
 # Help Index
 
-## Acccessing
+## Accessing
 
 - `at`, `atModify`, `atPut`
 - `atPath`, `atPin`, `atWrap`, `atWrapPut`
@@ -83,6 +83,8 @@
 
 - `copy`, `copyFromTo`, `copyUpTo`, `deepCopy`, `shallowCopy`
 - `copyReplaceAllWith`, `copyWith`, `copyWithout`, `copyWithoutAll`, `copyWithoutIdenticalElements`
+- `#`, `replicateEach`, `replicateInteger`
+- `!`, `duplicateInteger`, `duplicateShape`
 
 ## Distance Measures
 
@@ -101,6 +103,11 @@
 ## Divisors
 
 - `divisors`, `divisorSigma`, `divisorSum`
+
+## Enumerating
+
+- `indices`, `shapeIndices`
+- `fill`
 
 ## Equality Testing
 
@@ -165,6 +172,11 @@
 
 - `sum`, `product`
 
+## Network
+
+- `Location`, `Url`
+- `hostName`, `href`, `pathName`
+
 ## Numeric Types & Traits
 
 - `Binary`, `Integer`, `Magnitude`, `Number`, `Random`
@@ -184,6 +196,10 @@
 ## Parsing Numbers
 
 - `parseDecimalInteger`, `parseInteger`, `parseNumber`
+
+## Permutations
+
+- `permutations`, `permutationsDo`
 
 ## Prime Numbers
 

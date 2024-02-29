@@ -3,7 +3,7 @@
 - _permutations(aSequence, anInteger)_
 - _permutations(α)_ ⇒ _permutations(α, α.size)_
 
-Collect permutations containing at most _anInteger_ elements of _aSequence_ into a new List.
+Collect permutations containing at most _anInteger_ elements of _aSequence_ into a new `List`.
 
 Length three permutations three elements:
 
@@ -18,7 +18,9 @@ Length-two permutations of three elements:
 >>> 1:3.permutations(2)
 [1 2; 2 1; 1 3; 3 1; 2 3; 3 2]
 
->>> 1:3.subsets { :each | each.size = 2 }.collect(permutations:/1).++
+>>> 1:3.subsets { :each |
+>>> 	each.size = 2
+>>> }.collect(permutations:/1).++
 [1 2; 2 1; 1 3; 3 1; 2 3; 3 2]
 ```
 
@@ -28,7 +30,7 @@ The number of length-_n_ permutations of a length-_n_ list of distinct elements 
 >>> 1:5.permutations.size
 120
 
->>> 5.factorial
+>>> 5.!
 120
 ```
 
@@ -62,7 +64,7 @@ The number of _length-k_ permutations of _n_ elements is given by _k.stope(-1, n
 
 * * *
 
-See also: factorial, permutationsDo, stope, subfactorial
+See also: !, permutationsDo, stope, subfactorial
 
 References:
 _Mathematica_

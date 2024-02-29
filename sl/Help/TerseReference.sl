@@ -86,10 +86,14 @@
 +List {
 
 	formatTerseDocumentTestEntry { :self |
-		let lhs = self.allButLast.collect { :each |
+		let lhs = self.select { :each |
+			each.beginsWith('>>> ')
+		}.collect { :each |
 			each.drop(4)
 		}.unwords;
-		let rhs = self.last;
+		let rhs = self.reject { :each |
+			each.beginsWith('>>> ')
+		}.unwords;
 		lhs ++ ' ~ (' ++ rhs ++ ')'
 	}
 

@@ -1,4 +1,4 @@
-{- Requires: Blob File -}
+{- Requires: Blob File Location -}
 
 @Url {
 
@@ -12,50 +12,14 @@
 
 }
 
-URL! : [Object, Url] {
+URL! : [Object, Location, Url] {
 
 	asUrl { :self |
 		self
 	}
 
-	hash { :self |
-		<primitive: return _self.hash;>
-	}
-
-	host { :self |
-		<primitive: return _self.host;>
-	}
-
-	hostname { :self |
-		<primitive: return _self.hostname;>
-	}
-
-	href { :self |
-		<primitive: return _self.href;>
-	}
-
-	origin { :self |
-		<primitive: return _self.origin;> {- Read only -}
-	}
-
 	password { :self |
 		<primitive: return _self.password;>
-	}
-
-	pathname { :self |
-		<primitive: return _self.pathname;>
-	}
-
-	port { :self |
-		<primitive: return _self.port;>
-	}
-
-	protocol { :self |
-		<primitive: return _self.protocol;>
-	}
-
-	search { :self |
-		<primitive: return _self.search;>
 	}
 
 	searchParams { :self |
@@ -130,16 +94,16 @@ URL! : [Object, Url] {
 		<primitive: return fetch(_self);>
 	}
 
-	fetchThen { :self :onSuccess:/1 |
-		self.fetchThenElse(onSuccess:/1) { :errorCode |
-			self.error('Url>>fetchThenElse: ' ++ errorCode)
+	fetchBlob { :self :options |
+		self.fetchBlob(options) { :errorCode |
+			self.error('fetchBlob: ' ++ errorCode)
 		}
 	}
 
-	fetchThenElse { :self :onSuccess:/1 :onError |
-		self.fetch.then { :response |
+	fetchBlob { :self :options :onError |
+		self.fetch(options).then { :response |
 			response.ok.if {
-				onSuccess(response)
+				response.blob
 			} {
 				onError.cull(response.ok)
 			}
@@ -167,6 +131,22 @@ URL! : [Object, Url] {
 	fetchTextWithDefault { :self :defaultText |
 		self.fetchThenElse(text:/1) { :unused |
 			defaultText
+		}
+	}
+
+	fetchThen { :self :onSuccess:/1 |
+		self.fetchThenElse(onSuccess:/1) { :errorCode |
+			self.error('Url>>fetchThenElse: ' ++ errorCode)
+		}
+	}
+
+	fetchThenElse { :self :onSuccess:/1 :onError |
+		self.fetch.then { :response |
+			response.ok.if {
+				onSuccess(response)
+			} {
+				onError.cull(response.ok)
+			}
 		}
 	}
 
