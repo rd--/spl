@@ -8,10 +8,17 @@ The expression to match is read using `asRegExp`, so an uncompiled regular expre
 ```
 >>> 'caddar'.matchesRegExp('c(a|d)+r')
 true
+
+>>> 'acggtaagc'.matchesRegExp('[acgt]+')
+true
 ```
 
 * * *
 
 See also: RegExp
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/StringMatchQ.html)
 
 Categories: Testing

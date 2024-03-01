@@ -6,10 +6,10 @@ Answer a `Character` given a single character `String` or an `Integer` code poin
 
 ```
 >>> 'c'.asCharacter
-Character('c', 99)
+99.asCharacter
 
 >>> 99.asCharacter
-Character('c', 99)
+'c'.asCharacter
 ```
 
 * * *

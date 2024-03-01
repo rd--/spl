@@ -1,8 +1,8 @@
 # beginsWith
 
-_beginsWith(aSequence, anotherSequence)_
+- _beginsWith(aSequence, anotherSequence)_
 
-Answer if the _aSequence_ starts with _anotherSequence_.
+Answer `true` if _aSequence_ starts with _anotherSequence_, else `false`.
 
 ```
 >>> [1 .. 5].beginsWith([1 .. 3])
@@ -16,24 +16,24 @@ Prefix must be a sequence:
 true
 ```
 
-All lists, including the empty list, begins with the empty list:
+All lists, including the empty list, begin with the empty list:
 
 ```
 [].beginsWith([])
 true
 ```
 
-At String:
+At `String`:
 
 ```
 >>> 'Hello World'.beginsWith('Hello')
 true
 
->>> 'Hello World'.beginsWith('World')
-false
+>>> 'quickSort'.beginsWith('quick')
+true
 ```
 
-The empty string begins with the empty string, and with nothing else:
+The empty `String` begins with the empty string, and with nothing else:
 
 ```
 >>> ''.beginsWith('')
@@ -50,3 +50,5 @@ See also: beginsWithAnyOf, endsWith
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:isPrefixOf)
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/StringStartsQ.html)

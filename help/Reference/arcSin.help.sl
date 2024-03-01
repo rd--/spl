@@ -4,7 +4,7 @@
 
 Answers the arc sine of the complex number _z_.
 
-Real arguments:
+`SmallFloat` arguments:
 
 ```
 >>> 1.arcSin
@@ -14,7 +14,7 @@ Real arguments:
 0.41152
 ```
 
-Complex arguments:
+`Complex` arguments:
 
 ```
 >>> 1.5j0.arcSin
@@ -24,35 +24,41 @@ Complex arguments:
 1.16462j1.65869
 ```
 
-ArcSin threads elementwise over lists:
+Threads elementwise over lists:
 
 ```
 >>> [0.2 0.5 0.8].arcSin
 [0.20136 0.52360 0.92730]
 ```
 
-Zero of ArcSin:
+Zero of `arcSin`:
 
 ```
 >>> 0.arcSin
 0
 ```
 
-Compose with inverse:
+Inverse is `sin`:
 
 ```
 >>> let n = 1.randomFloat;
->>> n.arcSin.sin ~ n
-true
+>>> n.arcSin.sin
+n
 ```
+
+Plot over a subset of the reals:
+
+~~~
+(-0.95, -0.90 .. 0.95).arcSin.plot
+~~~
 
 * * *
 
-See also: cos, sin, tan
+See also: arcCos, cos, sin, tan
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/InverseSine.html)
 [2](https://reference.wolfram.com/language/ref/ArcSin.html)
 
-Categories: Trigonometry
+Categories: Math, Trigonometry

@@ -2,18 +2,18 @@
 
 - _joinSeparatedBy(aList, aString)_
 
-Join _aList_ of Strings into a String, separating each by _aString_
+Join _aList_ of `String`s into a `String`, separating each by _aString_
 
 ```
->>> ['x', 'y', 'z'].joinSeparatedBy(',')
+>>> ['x' 'y' 'z'].joinSeparatedBy(',')
 'x,y,z'
 ```
 
-The inverse of _List>>joinSeparatedBy_ is _String>>splitBy_;
+The inverse is `splitBy`:
 
 ```
->>> ['x', 'y', 'z'].joinSeparatedBy(',').splitBy(',')
-['x', 'y', 'z']
+>>> ['x' 'y' 'z'].joinSeparatedBy(',').splitBy(',')
+['x' 'y' 'z']
 ```
 
 * * *

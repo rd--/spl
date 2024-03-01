@@ -1,20 +1,34 @@
 # elementType
 
-_elementType(aCollection | aMatrix)_
+- _elementType(aCollection | aMatrix)_
 
-Answer the uniform _typeOf_ each element of _aCollection_,
-else _nil_.
+Answer the uniform `typeOf` each element of _aCollection_,
+else `nil`.
+
+At `Range`:
 
 ```
 >>> 1:9.elementType
 'SmallFloat'
+```
 
+At `List`:
+
+```
 >>> [1 2 3; 4 5 6; 7 8 9].elementType
 'List'
+```
 
+At `Matrix`:
+
+```
 >>> [1 2 3; 4 5 6; 7 8 9].asMatrix.elementType
 'SmallFloat'
+```
 
+At heterogeneous `List`:
+
+```
 >>> [1 2/3 4j5 '6' 7n].elementType
 nil
 ```

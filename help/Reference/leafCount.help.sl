@@ -1,6 +1,6 @@
 # leafCount
 
-_leafCount(aCollection | aTree)_
+- _leafCount(aCollection | aTree)_
 
 Answers the total number of non-collection elements in _aCollection_.
 

@@ -1,8 +1,8 @@
 # utf8ByteArray
 
-_utf8ByteArray(aString)_
+- _utf8ByteArray(aString)_
 
-Answer a ByteArray of the Utf-8 encoding of _aString_.
+Answer a `ByteArray` of the Utf-8 encoding of _aString_.
 
 ```
 >>> '€'.utf8ByteArray
@@ -22,7 +22,7 @@ _utf8String_ is the inverse of _utf8ByteArray_:
 (8750, [226 136 174], '∮')
 ```
 
-Plot code points of a String:
+Plot Utf-8 code points of a String:
 
 ~~~
 'this is a string.'.utf8ByteArray.asList.plot

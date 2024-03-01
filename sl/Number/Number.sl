@@ -251,6 +251,10 @@
 		self / 2
 	}
 
+	haversine { :self |
+		0.5 * (1 - self.cos)
+	}
+
 	integerPart { :self |
 		self.truncated
 	}

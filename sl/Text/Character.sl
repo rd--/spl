@@ -10,6 +10,14 @@ Character : [Object, Magnitude] { | string codePoint |
 		self.codePoint < anObject.codePoint
 	}
 
+	~ { :self :anObject |
+		self = anObject | {
+			anObject.isString & {
+				self.string = anObject
+			}
+		}
+	}
+
 	asciiValue { :self |
 		(self.codePoint > 127).if {
 			self.error('asciiValue: not ascii')
@@ -20,6 +28,10 @@ Character : [Object, Magnitude] { | string codePoint |
 
 	asCharacter { :self |
 		self
+	}
+
+	asCodePoint { :self |
+		self.codePoint
 	}
 
 	asInteger { :self |
@@ -153,7 +165,7 @@ Character : [Object, Magnitude] { | string codePoint |
 	}
 
 	asList { :self |
-		self.characterList
+		self.characters
 	}
 
 }

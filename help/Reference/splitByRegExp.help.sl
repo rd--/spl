@@ -1,6 +1,6 @@
 # splitByRegExp
 
-_splitByRegExp(aString, aRegExpString)_
+- _splitByRegExp(aString, aRegExpString)_
 
 Regular expressions:
 

@@ -79,6 +79,13 @@
 - `whileTrue`, `whileFalse`
 - `doWhileTrue`, `doWhileFalse`
 
+## Converting
+
+- `asBit`, `asBoolean`
+- `asComplex`, `asFloat`, `asFraction`, `asGaussianInteger`, `asInteger`, `asLargeInteger`, `asNumber`, `asSmallFloat`
+- `asCharacter`, `asCodePoint`, `asHexDigit`, `asLowercase`, `asRegExp`, `asString`, `asUppercase`, `asWords`
+- `asBag`, `asCollection`, `asList`, `asMap`, `asRecord`, `asSet`, `asSortedList`, `asTree`
+
 ## Copying
 
 - `copy`, `copyFromTo`, `copyUpTo`, `deepCopy`, `shallowCopy`
@@ -185,7 +192,7 @@
 ## Numerical Properties
 
 - `isComplex`, `isFraction`, `isInteger`, `isLargeInteger`, `isNumber`, `isSmallFloat`, `isZero`
-- `even`, `isNegative`, `isPositive`, `odd`
+- `isEven`, `isNegative`, `isOdd`, `isPositive`
 - `isCoprime`, `isPrime`
 
 ## Open Sound Control
@@ -225,6 +232,12 @@
 - `randomFloatCauchyDistribution`, `randomFloatGaussianDistribution`, `randomFloatLinearDistribution`
 - `randomFloatEulerianBetaDistribution`, `randomFloatWeibullDistribution`
 
+## Reflection
+
+- `perform`, `respondsTo`, `typeOf`
+- `elementType`, `elementTypeIfAbsent`, `elementTypes`
+- `traitDictionary`, `typeDictionary`
+
 ## Regular Expressions
 
 - `RegExp`
@@ -251,6 +264,12 @@
 - `sort`, `sortBy`, `sorted`, `sortOn`
 - `ordering`
 
+## String Operations
+
+- `join`, `splitBy`, `splitByRegExp`
+- `at`, `characters`, `codePoints`, `drop`, `size`, `reversed`, `take`
+- `capitalized`, `toLowerCase`, `toUpperCase`
+
 ## String Tests
 
 - `isString`, `isDecimalIntegerString`, `isFloatString`
@@ -276,3 +295,4 @@
 
 - `arcCos`, `arcSin`, `arcTan`, `cos`, `sin`, `sinc`, `tan`
 - `arcCosh`, `arcSinh`, `arcTanh`, `cosh`, `sinh`, `tanh`
+- `haversine`

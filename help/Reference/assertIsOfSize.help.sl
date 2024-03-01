@@ -1,6 +1,6 @@
 # assertIsOfSize
 
-_assertIsOfSize(aCollection, anInteger)_
+- _assertIsOfSize(aCollection, anInteger)_
 
 Identity if _aCollection_ is of size _anInteger_, else signal an error.
 Answers _aCollection_.

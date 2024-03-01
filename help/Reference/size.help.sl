@@ -72,13 +72,13 @@ Find the number of digits in 1000!:
 2568
 ```
 
-_size_ gives the maximum index that can be used in a List:
+_size_ gives the maximum index that can be used in a `Sequence`:
 
 ```
->>> [1, 2, 3, 4, 5].size
+>>> 1:5.size
 5
 
->>> [1, 2, 3, 4, 5].at(5)
+>>> 1:5.at(5)
 5
 ```
 

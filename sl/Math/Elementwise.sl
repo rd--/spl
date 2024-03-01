@@ -22,6 +22,10 @@
 		e ^ self
 	}
 
+	! { :self |
+		self.collect(factorial:/1)
+	}
+
 	abs { :self |
 		self.collect(abs:/1)
 	}
@@ -124,6 +128,10 @@
 
 	harmonicNumber { :self |
 		self.collect(harmonicNumber:/1)
+	}
+
+	haversine { :self |
+		self.collect(haversine:/1)
 	}
 
 	i { :self |

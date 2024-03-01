@@ -1,18 +1,29 @@
 # join
 
-- _join(aList)_
+- _join(alpha)_ => _join(alpha, '')_
+- _join(aList, aString)_
 
-Join _aList_ of Strings into a string.
+Join _aList_ of `String`s into a `String`, intercalating `aString` between each element.
 
 ```
 >>> ['x' 'y' 'z'].join
 'xyz'
+
+>>> ['x' 'y' 'z'].join(', ')
+'x, y, z'
 ```
 
-The inverse of _List>>join_ is _String>>contents_:
+The inverse of the unary form is `contents`:
 
 ```
 >>> ['x' 'y' 'z'].join.contents
+['x' 'y' 'z']
+```
+
+The inverse of the binary form is `splitBy`:
+
+```
+>>> ['x' 'y' 'z'].join(', ').splitBy(', ')
 ['x' 'y' 'z']
 ```
 

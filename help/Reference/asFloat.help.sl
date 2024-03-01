@@ -1,8 +1,10 @@
 # asFloat
 
-_asFloat(aNumber)_
+- _asFloat(aNumber)_
 
-Answer a SmallFloat that closely approximates the value of _aNumber_.
+Answer a `SmallFloat` that closely approximates the value of _aNumber_.
+
+At `SmallFloat`:
 
 ```
 >>> 23.asFloat
@@ -10,12 +12,20 @@ Answer a SmallFloat that closely approximates the value of _aNumber_.
 
 >>> 1.pi.asFloat
 1.pi
+```
 
+At `Fraction`:
+
+```
 >>> 3/4.asFloat
 0.75
+```
 
+At `LargeInteger`:
+
+```
 >>> 23n.asFloat
-23.0
+23
 ```
 
 * * *

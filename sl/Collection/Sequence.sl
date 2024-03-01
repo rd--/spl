@@ -195,12 +195,12 @@
 
 	beginsWith { :self :aSequence |
 		aSequence.isSequence.if {
-			let k = aSequence.size;
+			let sequenceSize = aSequence.size;
 			valueWithReturn { :return:/1 |
-				(self.size < k).ifTrue {
+				(self.size < sequenceSize).ifTrue {
 					false.return
 				};
-				1.toDo(k) { :index |
+				1.toDo(sequenceSize) { :index |
 					(aSequence[index] = self[index]).ifFalse {
 						false.return
 					}
@@ -422,6 +422,26 @@
 
 	editDistance { :self :other |
 		self.levenshteinDistance(other)
+	}
+
+	endsWith { :self :aSequence |
+		aSequence.isSequence.if {
+			let sequenceSize = aSequence.size;
+			let offset = self.size - sequenceSize;
+			valueWithReturn { :return:/1 |
+				(offset < 0).ifTrue {
+					false.return
+				};
+				1.toDo(sequenceSize) { :index |
+					(aSequence[index] = self[index + offset]).ifFalse {
+						false.return
+					}
+				};
+				true
+			}
+		} {
+			self.error('@Sequencable>>endsWith: not a sequence')
+		}
 	}
 
 	equalBy { :self :anObject :aBlock:/2 |

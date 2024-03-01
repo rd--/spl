@@ -19,3 +19,5 @@ Inerse is `i`:
 * * *
 
 See also: Complex, i, real
+
+Categories: Math, Accessing

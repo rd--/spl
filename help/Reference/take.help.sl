@@ -79,6 +79,8 @@ See also: any, binomial, drop, takeFirst, takeLast
 References:
 _Apl_
 [1](http://aplwiki.com/wiki/Take),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/bang#dyadic),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:take)
 _Mathematica_

@@ -10,6 +10,10 @@
 		aFraction.aBlock(Fraction(self, self.one))
 	}
 
+	asCodePoint { :self |
+		self
+	}
+
 	asHexDigit { :self |
 		'0123456789ABCDEF'[self + 1]
 	}

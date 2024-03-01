@@ -2,6 +2,7 @@
 
 - _if(aBoolean, whenTrue:/0, whenFalse:/0)_
 
+Conditional evaluation.
 If _aBoolean_ is `true` answer the result of  _whenTrue()_, else answer _whenFalse()_.
 
 Note that the branches are not evaluated using `value`, and therefore _must_ be no-argument blocks.
@@ -47,4 +48,4 @@ where there is one.
 
 See also: ifEmpty, ifFalse, ifNil, ifNotNil, ifTrue
 
-Categories: Conditional, Evaluation
+Categories: Evaluating

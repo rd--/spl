@@ -3,7 +3,7 @@
 - _asFraction(aSmallFloat, anInteger)_
 - _asFraction(α)_ ⇒ _asFraction(α, 100)_
 
-Derive a Fraction that approximates a floating point number given a maxima for the denominator.
+Derive a `Fraction` that approximates a floating point number given a maxima for the denominator.
 
 ```
 >>> 1:3.collect { :n | 1.pi.asFraction(10 ^ n) }

@@ -2,9 +2,7 @@
 
 - _asNumber(aBoolean | aNumber | aString)_
 
-In the Boolean case, answer _asBit_.
-In the Number case answer _identity_.
-In the String case answer _parseNumber_.
+In the `Boolean` case, answer `asBit`.
 
 ```
 >>> false.asNumber
@@ -12,13 +10,21 @@ In the String case answer _parseNumber_.
 
 >>> true.asNumber
 1
+```
 
+In the `Number` case answer `identity`.
+
+```
 >>> 23.asNumber
 23
 
 >>> 1.pi.asNumber
 1.pi
+```
 
+In the `String` case answer `parseNumber`.
+
+```
 >>> '23'.asNumber
 23
 

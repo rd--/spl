@@ -1,6 +1,6 @@
 # typeOf
 
-_typeOf(anObject)_
+- _typeOf(anObject)_
 
 Answers the type name of _anObject_.
 
@@ -30,13 +30,14 @@ Answers the type name of _anObject_.
 'Block'
 ```
 
-The system includes a _typeDictionary_ that maps type names to _Type_ values.
+The system includes a `typeDictionary` that maps type names to _Type_ values.
 
 ```
 >>> system.typeLookup('String').isType
 true
 
->>> system.typeLookup('String').methodDictionary.includesKey('includesSubstring:/2')
+>>> let type = system.typeLookup('String');
+>>> type.methodDictionary.includesKey('includesSubstring:/2')
 true
 ```
 

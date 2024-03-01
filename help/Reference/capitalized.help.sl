@@ -14,4 +14,6 @@ Answer a copy of _aString_ with the first character capitalized if it is a lette
 
 * * *
 
+See also: toLowerCase, toUpperCase, String
+
 Categories: Converting

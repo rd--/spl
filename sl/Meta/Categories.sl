@@ -640,8 +640,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	'converting-string': [
 		'ascii'
 		'asciiByteArray'
-		'characterList'
-		'codePointList'
+		'characters'
+		'codePoints'
 		'contractTo'
 		'lines'
 		'paragraphs'

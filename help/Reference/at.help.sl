@@ -10,9 +10,9 @@ If the collection does not support indexing,
 or if the index is not valid,
 report an _error_.
 
-The trait definitions of the extended arity forms are as above.
+The `Trait` definitions of the extended arity forms are as above.
 
-Lists (and all sequenceable collections) are indexable:
+All sequenceable collections, including `List`, are indexable:
 
 ```
 >>> ['x', 'y'].at(1)
@@ -25,7 +25,7 @@ true
 6
 ```
 
-Records (and all dictionaries) are indexable:
+All dictionaries, including `Record`, are indexable:
 
 ```
 >>> (x: 1, y: 2).at('x')
@@ -35,7 +35,14 @@ Records (and all dictionaries) are indexable:
 true
 ```
 
-Sets and Bags are not indexable:
+`String` is indexable:
+
+```
+>>> 'string'.at(3)
+'r'
+```
+
+`Set` and `Bag` are not indexable:
 
 ```
 >>> { [1 2 3].asSet.at(1) }.ifError { true }

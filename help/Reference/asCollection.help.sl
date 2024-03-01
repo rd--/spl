@@ -1,6 +1,6 @@
 # asCollection
 
-_asCollection(anObject)_
+- _asCollection(anObject)_
 
 If the argument is a collection, answer the collection,
 else answer a single element list containing the argument.

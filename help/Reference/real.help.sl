@@ -1,8 +1,8 @@
 # real
 
-_real(aComplex)_
+- _real(aComplex)_
 
-Answer the real part of a Complex number.
+Answer the real part of a `Complex` number.
 
 ```
 >>> 1j2.real
@@ -12,3 +12,5 @@ Answer the real part of a Complex number.
 * * *
 
 See also: Complex, real
+
+Categories: Math, Accessing

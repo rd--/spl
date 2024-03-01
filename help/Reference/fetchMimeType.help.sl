@@ -22,7 +22,7 @@ Fetch Json text:
 ~~~
 let url = Url('https://rohandrape.net/sw/spl/config/preferences.json');
 let mimeType = 'application/json';
-url.fetchMimeType(mimeType).then { :aValue | aValue.postLine }
+url.fetchMimeType(mimeType).then { :anObject | anObject.postLine }
 ~~~
 
 Fetch binary data:

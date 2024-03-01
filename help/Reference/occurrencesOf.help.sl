@@ -1,17 +1,17 @@
 # occurrencesOf
 
-- _occurrencesOf(aCollection, aValue)_
+- _occurrencesOf(aCollection, anObject)_
 
-Answer how many elements of _aCollection_ are equal to _aValue_.
+Answer how many elements of _aCollection_ are equal to _anObject_.
 
-At List:
+At `List`:
 
 ```
 >>> [1 2 3 4 3 2 1].occurrencesOf(3)
 2
 ```
 
-At Bag:
+At `Bag`:
 
 ```
 >>> [2 3 3 4 4 4].asBag.occurrencesOf(4)
@@ -19,14 +19,14 @@ At Bag:
 ```
 
 The number of occurrences of an element in set will be zero or one.
-At Set:
+At `Set`:
 
 ```
 >> [1 2 2 3 3 3].asSet.occurrencesOf(3)
 1
 ```
 
-At String:
+At `String`:
 
 ```
 >>> 'abracadabra'.occurrencesOf('a')

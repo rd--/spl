@@ -1,21 +1,21 @@
 # Iterable
 
-_Iterable_ is a collection trait.
+`Iterable` is a collection `Trait`.
 
-To implement Iterable a type must provide _do_.
+To implement `Iterable` a type must provide `do`.
 
-Iterable defines _size_ in terms of _do_, but for many types a more efficient form is possible.
+Iterable defines `size` in terms of `do`, but for many types a more efficient form is possible.
 
 ```
->>> system.traitTypes('Iterable').includes('List')
+>>> system.traitDictionary['Iterable'].isTrait
 true
 
->>> system.traitDictionary::Iterable.isTrait
+>>> system.traitTypes('Iterable').includes('List')
 true
 ```
 
 * * *
 
-See also: do, size
+See also: Collection, do, size, Trait
 
 Categories: Trait

@@ -1,10 +1,10 @@
 # asGaussianInteger
 
-_asGaussianInteger(aComplex)_
+- _asGaussianInteger(aComplex)_
 
-Round the real and imaginary components of a Complex number.
+Round the real and imaginary components of a `Complex` number.
 
-This may be required when using operations that introduce errors when operating on Complex numbers with SmallFloat components.
+This may be required when using operations that introduce errors when operating on `Complex` numbers with `SmallFloat` components.
 
 ```
 >>> (1j1 ^ 3.0000001).isGaussianInteger
@@ -17,3 +17,5 @@ false
 * * *
 
 See also: isGaussianInteger
+
+Categories: Converting

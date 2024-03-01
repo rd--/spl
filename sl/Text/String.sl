@@ -46,7 +46,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	asAscii { :self |
-		self.characterList.select(isAscii:/1).joinCharacters
+		self.characters.select(isAscii:/1).joinCharacters
 	}
 
 	asBracketedComment { :self :open :close |
@@ -60,7 +60,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	asCharacter { :self |
-		let list = self.characterList;
+		let list = self.characters;
 		(list.size = 1).if {
 			list.first
 		} {
@@ -99,6 +99,23 @@ String! : [Object, Json, Iterable] {
 
 	asMlComment { :self |
 		self.asBracketedComment('(*', '*)')
+	}
+
+	asCodePoint { :self |
+		self.codePoint
+	}
+
+	alphabet { :self |
+		self.caseOfOtherwise([
+			{ 'english' } -> {
+				['a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j' 'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't' 'u' 'v' 'w' 'x' 'y' 'z']
+			},
+			{ 'greek' } -> {
+				['α' 'β' 'γ' 'δ' 'ε' 'ζ' 'η' 'θ' 'ι' 'κ' 'λ' 'μ' 'ν' 'ξ' 'ο' 'π' 'ρ' 'σ' 'τ' 'υ' 'φ' 'χ' 'ψ' 'ω']
+			}
+		]) {
+			self.error('String>>alphabet: unknown alphabet')
+		}
 	}
 
 	assertIsString { :self |
@@ -164,7 +181,7 @@ String! : [Object, Json, Iterable] {
 		self.asCharacter.characterRange(aString.asCharacter).collect(asString:/1)
 	}
 
-	characterList { :self |
+	characters { :self |
 		self.collectInto(identity:/1, [])
 	}
 
@@ -180,7 +197,7 @@ String! : [Object, Json, Iterable] {
 		<primitive: return _self.codePointAt(_index - 1);>
 	}
 
-	codePointList { :self |
+	codePoints { :self |
 		self.collectInto(codePoint:/1, [])
 	}
 
@@ -337,7 +354,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	includes { :self :aCharacter |
-		self.characterList.includes(aCharacter)
+		self.characters.includes(aCharacter)
 	}
 
 	indefiniteArticle { :self |
@@ -736,6 +753,10 @@ String! : [Object, Json, Iterable] {
 
 	join { :self |
 		self.joinSeparatedBy('')
+	}
+
+	join { :self :aString |
+		self.joinSeparatedBy(aString)
 	}
 
 	joinCharacters { :self |

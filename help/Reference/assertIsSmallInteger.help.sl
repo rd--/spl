@@ -1,8 +1,8 @@
 # assertIsSmallInteger
 
-_assertIsSmallInteger(anObject)_
+- _assertIsSmallInteger(anObject)_
 
-Require that a number be a small integer:
+Require that _anObject_ be a small integer:
 
 ```
 >>> 23.assertIsSmallInteger

@@ -1,19 +1,20 @@
 # List
 
-List is a sequential collection Type.
-Lists may have any length or depth.
-
 - _List(anInteger, anObject)_
 - _List(α) ⇒ List(α, nil)_
 
-Create a new List of _anInteger_ places, each initialised to `nil`, or to _anObject_.
+`List` is a sequential collection `Type`.
+Lists may have any length or depth.
+
+Create a new `List` of _anInteger_ places, each initialised to `nil`, or to _anObject_.
 
 ```
 >>> List(3, 1)
 [1, 1, 1]
 ```
 
-Lists are of variable size, elements can be added at the start, at the end, or in a place given by a relation to existing items.
+Lists are of variable `size`.
+Elements can be added at the start, at the end, or in a place given by a relation to existing items.
 
 ```
 >>> let l = List(1, 2);
@@ -23,7 +24,7 @@ Lists are of variable size, elements can be added at the start, at the end, or i
 [1, 2, 3]
 ```
 
-List implements the `Iterable`, `Indexable`, `Collection`, `Sequence`, `PrimitiveSequence` and `Ordered` traits.
+`List` implements the `Iterable`, `Indexable`, `Collection`, `Sequence`, `PrimitiveSequence` and `Ordered` traits.
 
 Squares each number in the list, and add 1 to it:
 
@@ -39,7 +40,7 @@ The differences between corresponding elements in two lists:
 [ 2.5, 3, 5.5 ]
 ```
 
-Lists implement mathematical functions elementwise:
+`List` implement mathematical functions elementwise:
 
 ```
 >>> [2.5, 3, 5.5].exp

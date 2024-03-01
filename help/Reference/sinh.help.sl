@@ -1,6 +1,6 @@
 # sinh
 
-_sinh(aNumber)_
+- _sinh(aNumber)_
 
 Answer the hyperbolic sine of _aNumber_.
 
@@ -8,7 +8,8 @@ Answer the hyperbolic sine of _aNumber_.
 >>> 1.4.sinh
 1.90430
 ```
-Sinh can take complex number inputs:
+
+`sinh` can take `Complex` number inputs:
 
 ```
 >>> 2.5j1.sinh
@@ -36,3 +37,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HyperbolicSine.html)
 [2](https://reference.wolfram.com/language/ref/Sinh.html)
+
+Categories: Math, Trigonometry

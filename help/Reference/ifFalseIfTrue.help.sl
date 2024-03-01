@@ -1,6 +1,8 @@
 # ifFalseIfTrue
 
-_ifFalseIfTrue(alpha, beta, gamma)_ => _if(alpha, gamma, beta)_
+- _ifFalseIfTrue(alpha, beta, gamma)_ => _if(alpha, gamma, beta)_
+
+Ternary `if` with branches swapped.
 
 ```
 >>> true.ifFalseIfTrue { 1 } { 2 }
@@ -13,3 +15,5 @@ _ifFalseIfTrue(alpha, beta, gamma)_ => _if(alpha, gamma, beta)_
 * * *
 
 See also: if, ifFalse, ifTrue
+
+Categories: Evaluating

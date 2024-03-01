@@ -88,6 +88,7 @@
 	'Method'
 	'MessageEvent'
 	'Navigator'
+	'Scheduling'
 	'Storage'
 	'SubProcess'
 	'Trait'
@@ -97,6 +98,7 @@
 	'UrlSearchParams'
 	'WebSocket' {- EventTarget Url -}
 	'Window'
+	'Reflection' {- System -}
 
 	{- Text -}
 	'Character'

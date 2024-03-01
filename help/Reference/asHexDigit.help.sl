@@ -1,6 +1,6 @@
 # asHexDigit
 
-_asHexDigit(anInteger)_
+- _asHexDigit(anInteger)_
 
 Answer the Character representing given hexadecimal digit,
 or raise an error if out of bounds.

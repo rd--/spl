@@ -20,7 +20,7 @@ true
 
 - _atPut(aCollection, aKey, anObject)_
 
-Associate _aValue_ with _aKey_ in _aCollection_.
+Associate _anObject_ with _aKey_ in _aCollection_.
 If the collection is not a kind of dictionary then report an error.
 If the dictionary does not have an entry for _aKey_ create one.
 Answer _anObject_.

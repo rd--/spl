@@ -1,7 +1,10 @@
 # split
 
-_split(aSequence, aBlock:/2)_
+- _split(aSequence, aBlock:/2)_
 
+Split _aSequence_ into parts at points where _aBlock_, when applied to adjacent elements, answers `false`.
+
+Split when adjacent elements are not equal:
 
 ```
 >>> [1 1 1 2 2 1 1 3].split(=)
@@ -50,7 +53,6 @@ Split after every occurrence of 1:
 [1; 2 1; 2 3 4 1; 1]
 ```
 
-
 Split before every occurrence of 1:
 
 ```
@@ -96,7 +98,7 @@ Run-length encoding:
 [1 3; 2 2; 1 2; 3 3]
 ```
 
-Flatten acts an inverse of Split:
+`flatten` acts an inverse of `split`:
 
 ```
 >>> let l = [1 1 1 2 2 1 1 3 3 3];
@@ -108,4 +110,12 @@ Find runs of numbers in base 10 that contain the same number of 1s:
 
 ```
 1:50.collect { :n | n.digitCount(10, 1) }.split(=)
+```
 
+* * *
+
+See also: splitBy
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Split.html)

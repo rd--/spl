@@ -46,14 +46,14 @@ _arcTan(x, y)_ gives the angle of the point _(x, y)_:
 -0.75.pi
 ```
 
-Evaluate for complex arguments:
+Evaluate for `Complex` arguments:
 
 ```
 >>> 2.5j1.arcTan
 1.23343j0.12367
 ```
 
-The two-argument form supports complex numbers:
+The two-argument form supports `Complex` numbers:
 
 ```
 >>> arcTan(2.5j1, 2j0)
@@ -80,7 +80,7 @@ At infinity:
 0.5.pi
 ```
 
-Zero of ArcTan:
+Zero of `arcTan`:
 
 ```
 >>> 0.arcTan
@@ -112,3 +112,5 @@ _Maple_
 _Mathematica_
 [1](https://mathworld.wolfram.com/ArcTan.html)
 [2](https://reference.wolfram.com/language/ref/ArcTan.html)
+
+Categories: Math, Trigonometry

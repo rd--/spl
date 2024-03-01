@@ -2,7 +2,7 @@
 
 - _factorial(anInteger)_
 
-The product of 1 up to _anInteger_.
+The `product` of `one` up to _anInteger_.
 
 ```
 >>> 1:10.factorial
@@ -18,7 +18,7 @@ The product of 1 up to _anInteger_.
 25852016738884976640000n
 ```
 
-Exact LargeInteger and inexact SmallFloat results for 30!:
+Exact `LargeInteger` and inexact `SmallFloat` results for 30!:
 
 ```
 >>> 30n.factorial
@@ -46,6 +46,13 @@ Notable limits:
 61
 ```
 
+At `zero`:
+
+```
+>>> 0.factorial
+1
+```
+
 * * *
 
 See also: doubleFactorial
@@ -53,6 +60,8 @@ See also: doubleFactorial
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Factorial),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/bang),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Factorial.html)
 [2](https://reference.wolfram.com/language/ref/Factorial.html)

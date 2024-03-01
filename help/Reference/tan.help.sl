@@ -1,21 +1,44 @@
-# tan -- trigonometry
+# tan
 
 - _tan(z)_
 
 Answers the tangent of _z_.
 
-	(pi / 6).tan ~ (1 / 3.sqrt)
-	30.degrees.tan ~ (1 / 3.sqrt)
+```
+>>> (pi / 6).tan
+(1 / 3.sqrt)
 
-Fixed point:
+>>> 30.degrees.tan
+(1 / 3.sqrt)
+```
 
-	4.4934094579.tan ~ 4.4934094579
+`tan` can take `Complex` number inputs:
+
+```
+>>> 2.5j1.tan
+-0.237014j0.896438
+```
+
+Threads elementwise over lists and matrices:
+
+```
+>>> [1.2 1.5 1.8].tan
+[2.57215 14.10142 -4.28626]
+```
+
+Plot over a subset of the reals:
+
+~~~
+(0, 0.05 .. 2 * pi).tan.clip(-6, 6).plot
+~~~
 
 * * *
 
-See also: sin, tan
+See also: arcTan, cos, sin, tanh
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Tangent.html)
 [2](https://reference.wolfram.com/language/ref/Tan.html)
+
+Categories: Math, Trigonometry

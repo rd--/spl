@@ -9,7 +9,7 @@ The product of the positive integers of equal parity up to _anInteger_.
 [1 2 3 8 15 48 105 384 945 3840]
 ```
 
-For even numbers (<http://oeis.org/A000165>):
+For even numbers, Oeis [A000165](http://oeis.org/A000165):
 
 ```
 >>> (0, 2 .. 14).doubleFactorial
@@ -19,7 +19,7 @@ For even numbers (<http://oeis.org/A000165>):
 (2, 4 .. 14).product
 ```
 
-For odd numbers (<http://oeis.org/A001147>):
+For odd numbers, Oeis [A001147](http://oeis.org/A001147):
 
 ```
 >>> (1, 3 .. 13).collect(doubleFactorial:/1)
@@ -29,14 +29,14 @@ For odd numbers (<http://oeis.org/A001147>):
 (1, 3 .. 13).product
 ```
 
-Value at zero:
+Value at `zero`:
 
 ```
 >>> 0.doubleFactorial
 1
 ```
 
-At LargeInteger:
+At `LargeInteger`:
 
 ```
 >>> 27n.doubleFactorial

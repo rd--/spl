@@ -1,8 +1,6 @@
 # Character
 
-_Character(aString, anInteger)_
-
-A Character is constructed from a single character string and a unicode code point.
+A Character is a `Type` holding a single character string.
 
 The _codePoint_ method retrieves the unicode code point,
 and the _string_ method retrieves the single element string.

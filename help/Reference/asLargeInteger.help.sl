@@ -1,16 +1,16 @@
 # asLargeInteger
 
-_asLargeInteger(aSmallFloat | aByteArray)_
+- _asLargeInteger(aSmallFloat | aByteArray)_
 
-Convert a SmallFloat or a ByteArray into a LargeInteger.
+Convert a `SmallFloat` or a `ByteArray` into a `LargeInteger`.
 
-At _SmallFloat_:
+At `SmallFloat`:
 
 ```
 >>> (2 ^ 23).asLargeInteger
 8388608n
 
-At _ByteArray_:
+At `ByteArray`:
 
 ```
 >>> [1 3 5 7].asByteArray.asLargeInteger
@@ -28,3 +28,4 @@ At _ByteArray_:
 
 See also: ByteArray, LargeInteger
 
+Categories: Converting

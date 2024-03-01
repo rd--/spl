@@ -2,7 +2,7 @@
 
 - _asMap(anAssociationList | aBag | aRecord)_
 
-Construct a `Map` from a `List` of associations, or from a `Bag` or `Record`.
+Construct a `Map` from a `List` of `Association`s, or from a `Bag` or `Record`.
 
 ```
 >>> ['x' -> 1, 'y' -> 2].asMap.isMap
@@ -18,3 +18,5 @@ true
 * * *
 
 See also: ->, Association, Bag, List, Map, Record
+
+Categories: Converting

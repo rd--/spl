@@ -1,8 +1,8 @@
 # sinc
 
-_ sinc(z)_
+- _sinc(z)_
 
-_sinc(z) is equivalent to _sin(z) / z_, except at zero where it is one.
+_sinc(z)_ is equivalent to _sin(z) / z_, except at zero where it is one.
 
 The argument is given in radians:
 
@@ -30,7 +30,9 @@ Plot:
 Single-slit diffraction pattern for a 4λ slit:
 
 ~~~
-(-1, -0.99 .. 1).collect { :x | ((4 * pi * x) / (1 + x.squared).sqrt).sinc.squared }.plot
+(-1, -0.99 .. 1).collect { :x |
+	((4 * pi * x) / (1 + x.squared).sqrt).sinc.squared
+}.plot
 ~~~
 
 * * *
@@ -41,3 +43,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SincFunction.html)
 [2](https://reference.wolfram.com/language/ref/Sinc.html)
+
+Categories: Math, Trigonometry

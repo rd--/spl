@@ -50,7 +50,7 @@ Make Pascal’s triangle (this function is zero outside of Pascal’s triangle):
 [1; 1 1; 1 2 1; 1 3 3 1; 1 4 6 4 1; 1 5 10 10 5 1]
 ```
 
-At zero:
+At `zero`:
 
 ```
 >>> 0.binomial(0)
@@ -60,7 +60,7 @@ At zero:
 0
 ```
 
-At LargeInteger:
+At `LargeInteger`:
 
 ```
 >>> 333n.binomial(33n)
@@ -81,13 +81,13 @@ If _k_ is greater than _n_ answer is zero:
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~
-(-1.975, -1.95 .. 4).asList.collect { :x | x.binomial(3) }.plot
+(-1.975, -1.95 .. 4).collect { :x | x.binomial(3) }.plot
 ~~~
 
 Plot over a subset of the reals as a function of its second parameter:
 
 ~~~
-(-1.975, -1.95 .. 4).asList.collect { :x | 3.binomial(x) }.plot
+(-1.975, -1.95 .. 4).collect { :x | 3.binomial(x) }.plot
 ~~~
 
 * * *

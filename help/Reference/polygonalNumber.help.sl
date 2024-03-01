@@ -3,7 +3,7 @@
 - _polygonalNumber(n)_
 - _polygonalNumber(r, n)_
 
-Answer the _n_th triangular number, or
+Answer the _n_-th triangular number, or
 the _n_-th _r_-gonal number.
 
 Return the first 10 triangular numbers:
@@ -38,3 +38,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PolygonalNumber.html)
 [2](https://reference.wolfram.com/language/ref/PolygonalNumber.html)
+
+Categories: Math, Combinations

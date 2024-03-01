@@ -1,8 +1,8 @@
 # elementTypeIfAbsent
 
-_elementTypeIfAbsent(aCollection, aBlock:/0)_
+- _elementTypeIfAbsent(aCollection, aBlock:/0)_
 
-Answer the uniform _typeOf_ each element of _aCollection_,
+Answer the uniform `typeOf` each element of _aCollection_,
 else answer _aBlock()_.
 
 ```

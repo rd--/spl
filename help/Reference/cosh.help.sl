@@ -1,6 +1,6 @@
 # cosh
 
-_cosh(aNumber)_
+- _cosh(aNumber)_
 
 Answer the hyperbolic cosine of _aNumber_.
 
@@ -8,7 +8,7 @@ Answer the hyperbolic cosine of _aNumber_.
 >>> 1.2.cosh
 1.81066
 ```
-Cosh can take complex number inputs:
+`cosh` can take `Complex` number inputs:
 
 ```
 >>> 2.5j1.cosh
@@ -29,7 +29,7 @@ Value at infinity:
 inf
 ```
 
-Minimum of _cosh_:
+Minimum of `cosh`:
 
 ```
 0.cosh
@@ -50,3 +50,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HyperbolicCosine.html)
 [2](https://reference.wolfram.com/language/ref/Cosh.html)
+
+Categories: Math, Trigonometry

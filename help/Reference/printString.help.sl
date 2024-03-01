@@ -80,4 +80,8 @@ At `Assocaition`:
 
 See also: asString, storeString
 
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/ToString.html)
+
 Categories: Printing

@@ -1,6 +1,8 @@
 # traitLookup
 
-A method at _System_ to lookup a _Trait_ value by name.
+- _traitLookup(aSystem, aString)_
+
+A method at `System` to lookup a `Trait` value by name.
 
 ```
 >>> system.traitLookup('Collection').isTrait
@@ -14,4 +16,4 @@ true
 
 See also: System, Trait
 
-Categories: System
+Categories: System, Reflection

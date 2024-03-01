@@ -1,6 +1,6 @@
 # sin
 
-_sin(z)_
+- _sin(z)_
 
 Answers the sin of _z_.
 
@@ -22,39 +22,41 @@ Prefix notation:
 0.932039
 ```
 
-Sin can take complex number inputs:
+`sin` can take `Complex` number inputs:
 
 ```
 >>> 2.5j1.sin
 0.923491j-0.941505
 ```
 
-Sin threads elementwise over lists and matrices:
+Threads elementwise over lists and matrices:
 
 ```
 >>> [1.2 1.5 1.8].sin
 [0.932039 0.997495 0.973848]
 ```
 
-Values of sin at fixed points:
+Values of `sin` at fixed points:
 
 ```
 >>> 0:6.collect { :n | (n.pi / 6).sin }
 [0, 1 / 2, 3.sqrt / 2, 1, 3.sqrt / 2, 1 / 2, 0]
 ```
 
-Sin is an odd function:
+`sin` is an odd function:
 
 ```
->>> let n = 2.pi.randomFloat; n.negated.sin = n.sin.negated
-true
+>>> let n = 2.pi.randomFloat;
+>>> n.negated.sin
+n.sin.negated
 ```
 
-Sin has the mirror property:
+`sin` has the mirror property:
 
 ```
->>> let n = 2.pi.randomFloat.j(1); n.conjugated.sin = n.sin.conjugated
-true
+>>> let n = 2.pi.randomFloat.j(1);
+>>> n.conjugated.sin
+n.sin.conjugated
 ```
 
 Fixed point:
@@ -64,13 +66,25 @@ Fixed point:
 0
 ```
 
+Plot over a subset of the reals:
+
+~~~
+(0, 0.05 .. 2 * pi).sin.plot
+~~~
+
+Noncommensurate waves (quasiperiodic function):
+
+~~~
+(0, 0.1 .. 40 * pi).collect { :x | x.sin + (x * 2.sqrt).sin }.plot
+~~~
+
 * * *
 
-See also: cos, tan
+See also: arcSin, cos, haversine, tan
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Sine.html)
 [2](https://reference.wolfram.com/language/ref/Sin.html)
 
-Categories: Trigonometry
+Categories: Math, Trigonometry

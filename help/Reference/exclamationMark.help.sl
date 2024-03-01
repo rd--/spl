@@ -1,6 +1,17 @@
 # !
 
+- _aNumber.!_
 - _anObject ! (anInteger | aSequence)_
+
+The unary form answers the `factorial` of _aNumber_:
+
+```
+>>> 9.!
+362880
+
+>>> 1:9.!
+[1 2 6 24 120 720 5040 40320 362880]
+```
 
 In the `Integer` case,
 evaluate _value(anObject)_ _anInteger_ times and collect the results into a `List`.
@@ -49,7 +60,7 @@ Answer a _List_ constructed by evaluating a no-argument block the indicated numb
 } ! 2
 ```
 
-Ordinarily _aValue_ is a no-argument _Block_ and each element of the answer is a result of evaluating the block.
+Ordinarily _anObject_ is a no-argument _Block_ and each element of the answer is a result of evaluating the block.
 
 ```
 { :tr |
@@ -67,6 +78,6 @@ This can be more written more simply using the _!^_ operator as:
 
 * * *
 
-See also: !^, !+, #, duplicateInteger, duplicateShape, fill, List
+See also: !^, !+, #, duplicateInteger, duplicateShape, factorial, fill, List
 
 Categories: Copying

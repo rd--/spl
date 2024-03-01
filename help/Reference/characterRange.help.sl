@@ -1,8 +1,8 @@
 # characterRange
 
-_characterRange(min, max)_
+- _characterRange(min, max)_
 
-At String:
+At `String`:
 
 ```
 >>> 'c'.characterRange('x')
@@ -43,14 +43,14 @@ Printable Ascii characters that are not letters or numbers:
 ['[' '\\' ']' '^' '_' '`' '{' '|' '}' '~']
 ```
 
-At Integer:
+At `Integer`:
 
 ```
 1000.characterRange(1020).collect(asString:/1)
 ['Ϩ' 'ϩ' 'Ϫ' 'ϫ' 'Ϭ' 'ϭ' 'Ϯ' 'ϯ' 'ϰ' 'ϱ' 'ϲ' 'ϳ' 'ϴ' 'ϵ' '϶' 'Ϸ' 'ϸ' 'Ϲ' 'Ϻ' 'ϻ' 'ϼ']
 ```
 
-At Character:
+At `Character`:
 
 ```
 >>> 'a'.asCharacter.characterRange('c'.asCharacter)
