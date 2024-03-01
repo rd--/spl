@@ -16,6 +16,15 @@ let url = 'https://rohandrape.net/DoesNotExist';
 url.fetchText.thenElse { :aString | aString.postLine } { :err | '*Failed*'.postLine }
 ~~~
 
+A file protocol `Url`:
+
+```
+let url = '/home/rohan/sw/spl/help/Reference/Url.help.sl'.asFileUrl;
+url.fetchText.then { :aString | aString.postLine }
+```
+
 * * *
 
 See also: fetchByteArray, fetchJson, String, Url
+
+Categories: Network

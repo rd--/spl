@@ -84,7 +84,6 @@
 	'File' {- Blob -}
 	'FileSystem'
 	'LibraryItem'
-	'Location'
 	'Method'
 	'MessageEvent'
 	'Navigator'
@@ -98,6 +97,7 @@
 	'UrlSearchParams'
 	'WebSocket' {- EventTarget Url -}
 	'Window'
+	'Location' {- Url -}
 	'Reflection' {- System -}
 
 	{- Text -}

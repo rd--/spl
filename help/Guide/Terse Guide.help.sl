@@ -3979,13 +3979,13 @@ system.localStorage.removeAll = system.localStorage {- remove all entries, answe
 ## System -- Uniform Resource Locator (Url)
 ```
 system.includesPackage('Url') {- package -}
-'http://cern.ch/'.Url.typeOf = 'URL' {- the system type is all upper case -}
-'http://cern.ch/'.Url.isUrl = true {- type predicate -}
-'http://cern.ch/'.Url.href = 'http://cern.ch/' {- url href -}
-'http://cern.ch/'.Url.hostName = 'cern.ch' {- url host name -}
-'http://cern.ch/'.Url.port = '' {- url port -}
-'http://cern.ch/'.Url.protocol = 'http:' {- url protocol -}
-Url('browser', 'https://worldwideweb.cern.ch/').href = 'https://worldwideweb.cern.ch/browser' {- relative url -}
+'http://cern.ch/'.asUrl.typeOf = 'URL' {- the system type is all upper case -}
+'http://cern.ch/'.asUrl.isUrl = true {- type predicate -}
+'http://cern.ch/'.asUrl.href = 'http://cern.ch/' {- url href -}
+'http://cern.ch/'.asUrl.hostName = 'cern.ch' {- url host name -}
+'http://cern.ch/'.asUrl.port = '' {- url port -}
+'http://cern.ch/'.asUrl.protocol = 'http:' {- url protocol -}
+'browser'.asUrl('https://worldwideweb.cern.ch/').href = 'https://worldwideweb.cern.ch/browser' {- relative url -}
 ```
 
 ## System -- fetch
@@ -4000,22 +4000,22 @@ Url('browser', 'https://worldwideweb.cern.ch/').href = 'https://worldwideweb.cer
 ## System -- UrlSearchParams
 ```
 system.includesPackage('UrlSearchParams') {- timestamp package -}
-'x=1'.UrlSearchParams.typeOf = 'URLSearchParams' {- string constructor, type name (note case) -}
-'x=1'.UrlSearchParams.isUrlSearchParams {- type predicate -}
-'x=3.141&y=23'.UrlSearchParams.includes('x') = true
-'x=3.141&y=23'.UrlSearchParams::y = '23'
-'x=3.141&y=23&z=pi'.UrlSearchParams.keys = ['x' 'y' 'z'] {- keys -}
-'x=3.141&y=23&z=pi'.UrlSearchParams.values = ['3.141' '23' 'pi'] {- values -}
-'x=a&x=b&x=c'.UrlSearchParams.keys = ['x' 'x' 'x'] {- keys, allows duplicates -}
-'x=a&x=b&x=c'.UrlSearchParams.values = ['a' 'b' 'c'] {- values -}
-let p = 'x=3.141&y=23&z=pi'; p.UrlSearchParams.asString = p {- as search string -}
-'z=a&y=b&x=c'.UrlSearchParams.associations = ['z' -> 'a', 'y' -> 'b', 'x' -> 'c']
-let p = 'z=a&y=b&x=c'.UrlSearchParams; p.sort = p & { p.associations = ['x' -> 'c', 'y' -> 'b', 'z' -> 'a'] }
-let p = 'x=a&y=b'.UrlSearchParams; p.add('z' -> 'c'); p.associations = ['x' -> 'a', 'y' -> 'b', 'z' -> 'c']
-let p = 'x=a&y=b'.UrlSearchParams; p::x := 'c'; p.associations = ['x' -> 'c', 'y' -> 'b']
-'x=a&y=b&x=c'.UrlSearchParams.atAllEntries('x') = ['a' 'c']
-let p = 'x=a&y=b&x=c'.UrlSearchParams; p.removeKey('x'); p.asString = 'y=b'
-'x=a&x=b&x=c'.UrlSearchParams.size = 3 {- size -}
+'x=1'.asUrlSearchParams.typeOf = 'URLSearchParams' {- string constructor, type name (note case) -}
+'x=1'.asUrlSearchParams.isUrlSearchParams {- type predicate -}
+'x=3.141&y=23'.asUrlSearchParams.includes('x') = true
+'x=3.141&y=23'.asUrlSearchParams::y = '23'
+'x=3.141&y=23&z=pi'.asUrlSearchParams.keys = ['x' 'y' 'z'] {- keys -}
+'x=3.141&y=23&z=pi'.asUrlSearchParams.values = ['3.141' '23' 'pi'] {- values -}
+'x=a&x=b&x=c'.asUrlSearchParams.keys = ['x' 'x' 'x'] {- keys, allows duplicates -}
+'x=a&x=b&x=c'.asUrlSearchParams.values = ['a' 'b' 'c'] {- values -}
+let p = 'x=3.141&y=23&z=pi'; p.asUrlSearchParams.asString = p {- as search string -}
+'z=a&y=b&x=c'.asUrlSearchParams.associations = ['z' -> 'a', 'y' -> 'b', 'x' -> 'c']
+let p = 'z=a&y=b&x=c'.asUrlSearchParams; p.sort = p & { p.associations = ['x' -> 'c', 'y' -> 'b', 'z' -> 'a'] }
+let p = 'x=a&y=b'.asUrlSearchParams; p.add('z' -> 'c'); p.associations = ['x' -> 'a', 'y' -> 'b', 'z' -> 'c']
+let p = 'x=a&y=b'.asUrlSearchParams; p::x := 'c'; p.associations = ['x' -> 'c', 'y' -> 'b']
+'x=a&y=b&x=c'.asUrlSearchParams.atAllEntries('x') = ['a' 'c']
+let p = 'x=a&y=b&x=c'.asUrlSearchParams; p.removeKey('x'); p.asString = 'y=b'
+'x=a&x=b&x=c'.asUrlSearchParams.size = 3 {- size -}
 (x: 1, y: 2, z: 3).asUrlSearchParams.asString = 'x=1&y=2&z=3' {- record constructor -}
 ```
 

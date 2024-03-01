@@ -1,4 +1,4 @@
-{- Requires: Blob File Location -}
+{- Requires: Blob File -}
 
 @Url {
 
@@ -6,13 +6,49 @@
 		self.typeReponsibility('asUrl')
 	}
 
+	hash { :self |
+		<primitive: return _self.hash;>
+	}
+
+	host { :self |
+		<primitive: return _self.host;>
+	}
+
+	hostName { :self |
+		<primitive: return _self.hostname;>
+	}
+
+	href { :self |
+		<primitive: return _self.href;>
+	}
+
 	isUrl { :self |
 		true
 	}
 
+	origin { :self |
+		<primitive: return _self.origin;> {- Read only -}
+	}
+
+	pathName { :self |
+		<primitive: return _self.pathname;>
+	}
+
+	port { :self |
+		<primitive: return _self.port;>
+	}
+
+	protocol { :self |
+		<primitive: return _self.protocol;>
+	}
+
+	search { :self |
+		<primitive: return _self.search;>
+	}
+
 }
 
-URL! : [Object, Location, Url] {
+URL! : [Object, Url] {
 
 	asUrl { :self |
 		self
@@ -47,7 +83,11 @@ URL! : [Object, Location, Url] {
 	}
 
 	asUrl { :self |
-		Url(self)
+		<primitive: return new URL(_self);>
+	}
+
+	asUrl { :self :base |
+		<primitive: return new URL(_self, _base);>
 	}
 
 	decodeUri { :self |
@@ -68,14 +108,6 @@ URL! : [Object, Location, Url] {
 
 	revokeObjectUrl { :self |
 		<primitive: return URL.revokeObjectURL(_self);>
-	}
-
-	Url { :self |
-		<primitive: return new URL(_self);>
-	}
-
-	Url { :self :base |
-		<primitive: return new URL(_self, _base);>
 	}
 
 }

@@ -123,7 +123,7 @@ URLSearchParams! : [Object, Iterable, UrlSearchParams] {
 
 +String {
 
-	UrlSearchParams { :self |
+	asUrlSearchParams { :self |
 		<primitive: return new URLSearchParams(_self);>
 	}
 

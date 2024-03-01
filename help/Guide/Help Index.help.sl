@@ -183,6 +183,7 @@
 
 - `Location`, `Url`
 - `hostName`, `href`, `pathName`
+- `fetch`, `fetchText`, `fetchJson`, `fetchByteArray`
 
 ## Numeric Types & Traits
 

@@ -1,8 +1,13 @@
 # Location
 
-Location is both a `Trait` and a `Type` representing a location (Url) of an object.
+Location is a `Type` representing the location (Url) of an object.
 
-A `Location` implements the `hash`, `host`, `hostName`, `href`, `origin`, `pathName`, `port`, `protocol` and `search` methods.
+`Location` implements the `Url` trait.
+
+```
+>>> system.window.location.isLocation
+true
+```
 
 * * *
 
@@ -10,4 +15,8 @@ See also: Url
 
 References:
 _Mdn_
-[1](https://developer.mozilla.org/en-US/docs/Web/API/Location)
+[1](https://developer.mozilla.org/en-US/docs/Web/API/Location),
+_Whatwg_
+[1](https://html.spec.whatwg.org/multipage/nav-history-apis.html#the-location-interface)
+
+Categories: Network

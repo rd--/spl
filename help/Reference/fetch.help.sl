@@ -41,6 +41,13 @@ url.fetch.then { :response |
 
 * * *
 
-See also: Promise, Response
+See also: fetchByteArray, fetchJson, fetchText, Promise, Response
+
+References:
+_Mdn_
+[1](https://developer.mozilla.org/en-US/docs/Web/API/fetch),
+_Whatwg_
+[1](https://fetch.spec.whatwg.org/#fetch-method)
+
 
 Categories: Networking, Scheduling
