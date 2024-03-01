@@ -501,9 +501,19 @@ function isMoreSpecific(typeName: TypeName, existingMethod: Method, method: Meth
 			const typeValue = getType(typeName);
 			const existingTraitIndex = typeValue.traitNameArray.findIndex((item) => item === existingOrigin.name);
 			const methodTraitIndex = typeValue.traitNameArray.findIndex((item) => item === methodOrigin.name);
+			/*
 			if((existingTraitIndex > methodTraitIndex)) {
-				console.log(`isMoreSpecific: ${typeName}, ${method.information.name}, ${existingOrigin.name}=${existingTraitIndex}, ${methodOrigin.name}=${methodTraitIndex}`)
+				console.debug(
+					'isMoreSpecific',
+					typeName,
+					method.information.name,
+					existingOrigin.name,
+					existingTraitIndex,
+					methodOrigin.name,
+					methodTraitIndex
+				);
 			};
+			*/
 			return (existingTraitIndex > methodTraitIndex);
 		}
 	}
