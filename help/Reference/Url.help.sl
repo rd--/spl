@@ -2,6 +2,8 @@
 
 `Url` is both a `Trait` and a `Type` representing a _Uniform Resource Locator_.
 
+`Url` values are constructed using `asUrl`.
+
 `Url` implements the `hash`, `host`, `hostName`, `href`, `origin`, `pathName`, `port`, `protocol` and `search` methods.
 
 _Note_:

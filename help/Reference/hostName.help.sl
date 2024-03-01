@@ -1,6 +1,6 @@
 # hostName
 
-- _hostName(aLocation | aUrl)_
+- _hostName(aUrl)_
 
 Answer a `String` having the domain of the Url.
 

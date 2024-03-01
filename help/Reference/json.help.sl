@@ -1,6 +1,7 @@
 # json
 
-- _json(anObject)_
+- _json(nil | aBoolean | aSmallFloat | aString | aList | aRecord)_
+- _json(aResponse)_
 
 Encode _anObject_ using as a _Json_ value,
 as defined by _ECMA-404: The JSON Data Interchange Standard_.
@@ -48,9 +49,11 @@ At `Record`:
 '{"x":3.141,"y":23}'
 ```
 
+At `Response` answers a `Promise` that will hold the Json value encoded in the `Response`.
+
 * * *
 
-See also: isJson, Json, parseJson
+See also: isJson, Json, parseJson, Response
 
 References:
 _Json_

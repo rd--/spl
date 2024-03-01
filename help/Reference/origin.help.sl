@@ -1,6 +1,6 @@
 # origin
 
-- _origin(aLocation | aUrl)_
+- _origin(aUrl)_
 
 Answer a `String` having the canonical form of the origin of the Url.
 

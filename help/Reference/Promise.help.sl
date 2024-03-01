@@ -1,24 +1,30 @@
-# Promise -- process type
+# Promise
 
-A _Promise_ object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+- _Promise(aList | aBlock:/2)_
 
-A Promise is either _pending_ or _resolved_ or _rejected_.
+A `Promise` is a `Type` representing the eventual completion (or failure) of an asynchronous operation and its resulting value.
 
-When _resolved_ the Promise holds a _value_ which is the answer.
-When _rejected_ the Promise holds a _reason_ explaing why it did not resolve.
-A Promise that is no longer pending is _settled_.
+A `Promise` is either _pending_ or _resolved_ or _rejected_.
 
-- _Promise(aBlock:/2)_
+When _resolved_ the `Promise` holds a _value_ which is the answer.
+When _rejected_ the `Promise` holds a _reason_ explaining why it did not resolve.
+A `Promise` that is no longer pending is _settled_.
 
-Answer a Promise tied to the execution of _aBlock_,
+In the `Block` case, answer a `Promise` tied to the execution of _aBlock_,
 which recieves two blocks, _resolve:/1_ and _reject:/1_, as arguments.
-When _aBlock_ runs either _resolve_ or _reject_ the answer Promise is resolved or rejected.
+When _aBlock_ runs either _resolve_ or _reject_ the answer `Promise` is resolved or rejected.
 
-- _Promise(aList)_
-
-Answer a Promise that resolves when all of the promises in _aList_ resolve,
+In the `List` case, answer a `Promise` that resolves when all of the promises in _aList_ resolve,
 and rejects when any of the promises rejects.
 
 * * *
 
 See also: then, thenElse
+
+References:
+_Mdn_
+[1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise),
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-promise-objects)
+
+Categories: Type, Scheduling

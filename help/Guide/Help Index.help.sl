@@ -183,6 +183,7 @@
 
 - `Location`, `Url`
 - `hostName`, `href`, `pathName`
+- `Response`
 - `fetch`, `fetchText`, `fetchJson`, `fetchByteArray`
 
 ## Numeric Types & Traits
@@ -258,6 +259,7 @@
 
 ## Scheduling
 
+- `Promise`, `then`, `thenElse`
 - `cancel`, `valueAfter`, `valueAfterWith`, `valueEvery`
 
 ## Sorting

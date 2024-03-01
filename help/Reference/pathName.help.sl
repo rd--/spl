@@ -1,6 +1,6 @@
 # pathName
 
-- _pathName(aLocation | aUrl)_
+- _pathName(aUrl)_
 
 Answer a `String` having an initial '/' followed by the path of the Url, not including the query string or fragment.
 

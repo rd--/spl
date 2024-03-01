@@ -1,6 +1,6 @@
 # href
 
-- _href(aLocation | aUrl)_
+- _href(aUrl)_
 
 Answer a `String` having the entire Url.
 
