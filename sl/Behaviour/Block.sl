@@ -135,6 +135,10 @@ Block! : [Object] {
 		}
 	}
 
+	isImmediate { :self |
+		true
+	}
+
 	iterate { :self:/1 :anObject :anInteger |
 		anInteger.timesRepeat {
 			anObject := self(anObject)

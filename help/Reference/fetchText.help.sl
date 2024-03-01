@@ -25,6 +25,6 @@ url.fetchText.then { :aString | aString.postLine }
 
 * * *
 
-See also: fetchByteArray, fetchJson, String, Url
+See also: fetchByteArray, fetchJson, fetchTextWithDefault, String, Url
 
 Categories: Network
