@@ -18,4 +18,6 @@ Split into substrings separated by either delimiter:
 
 * * *
 
-See also: splitBy
+See also: RegExp, splitBy
+
+Categories: Converting

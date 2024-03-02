@@ -195,7 +195,7 @@ Reference/asInteger.help.sl
 Reference/asLargeInteger.help.sl
 Reference/asList.help.sl
 Reference/asLocalBuf.help.sl
-Reference/asLowercase.help.sl
+Reference/asLowerCase.help.sl
 Reference/asMap.help.sl
 Reference/asNumber.help.sl
 Reference/asPoint.help.sl
@@ -222,7 +222,7 @@ Reference/asStringWithCommas.help.sl
 Reference/asterisk.help.sl
 Reference/asTree.help.sl
 Reference/asTuple.help.sl
-Reference/asUppercase.help.sl
+Reference/asUpperCase.help.sl
 Reference/asUrl.help.sl
 Reference/asUrlSearchParams.help.sl
 Reference/asWords.help.sl

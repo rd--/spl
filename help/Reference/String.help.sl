@@ -1,6 +1,6 @@
 # String
 
-_String_ is the type of text literals and constants.
+`String` is the `Type` of text literals and constants.
 
 ```
 >>> 'string'.typeOf
@@ -10,11 +10,11 @@ _String_ is the type of text literals and constants.
 6
 ```
 
-Strings do not implement the Collection trait, however they are Iterable.
+Strings do not implement the `Collection` trait, however they are `Iterable`.
 
-There is a Character type.
-Iterating over a string supplies each succesive Character of the String,
-and fetching an indexed location in a string answers a Character.
+There is a `Character` type.
+Iterating over a string supplies each succesive `Character` of the `String`,
+and fetching an indexed location in a string answers a `Character`.
 
 ```
 >>> 'string'[1]
@@ -23,9 +23,9 @@ and fetching an indexed location in a string answers a Character.
 
 Strings are not lists of Characters.
 
-Strings are immutable, i.e. there is no _atPut_ implementation.
+Strings are immutable, i.e. there is no `atPut` implementation.
 
-Methods for converting: asLowercase, asUppercase, capitalized, asInteger, asNumber
+Methods for converting: `asLowerCase`, `asUpperCase`, `capitalized`, `asInteger`, `asNumber`
 
 _Implementation Note_:
 Javascript has a curious implementation of Unicode.
@@ -33,12 +33,6 @@ String indexing only makes sense for strings that are in the _Basic Multilingual
 
 * * *
 
-See also: ascii, characterList, Character, utf8, utf16
+See also: ascii, characters, Character, String Syntax, utf8, utf16
 
-* * *
-
-- withBlanksTrimmed(self): Return a copy of the receiver from which leading and trailing blanks have been trimmed.
-- withoutLeadingBlanks(self): Return a copy of the receiver from which leading blanks have been trimmed.
-- withoutTrailingBlanks(self): Return a copy of the receiver from which trailing blanks have been trimmed.
-
-Categories: Text type
+Categories: Text, Type

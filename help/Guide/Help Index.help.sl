@@ -47,6 +47,7 @@
 - `isArray`, `isVector`, `isMatrix`
 - `isCollection`, `isDictionary`, `isIndexable`, `isSequence`
 - `isBag`, `isList`, `isMap`, `isRecord`, `isSet`
+- `depth`, `size`
 
 ## Collection Types & Traits
 
@@ -83,7 +84,7 @@
 
 - `asBit`, `asBoolean`
 - `asComplex`, `asFloat`, `asFraction`, `asGaussianInteger`, `asInteger`, `asLargeInteger`, `asNumber`, `asSmallFloat`
-- `asCharacter`, `asCodePoint`, `asHexDigit`, `asLowercase`, `asRegExp`, `asString`, `asUppercase`, `asWords`
+- `asCharacter`, `asCodePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`, `asWords`
 - `asBag`, `asCollection`, `asList`, `asMap`, `asRecord`, `asSet`, `asSortedList`, `asTree`
 
 ## Copying
@@ -139,6 +140,7 @@
 - `injectInto`, `reduce`, `scan`
 - `foldLeft`, `foldRight`
 - `withCollect`
+- `atLevelCollect`, `deepCollect`, `withLevelCollect`
 
 ## Geometry Types & Traits
 
@@ -183,7 +185,7 @@
 
 - `Location`, `Url`
 - `hostName`, `href`, `pathName`
-- `Response`
+- `Request`, `Response`
 - `fetch`, `fetchText`, `fetchJson`, `fetchByteArray`
 
 ## Numeric Types & Traits
@@ -271,11 +273,16 @@
 
 - `join`, `splitBy`, `splitByRegExp`
 - `at`, `characters`, `codePoints`, `drop`, `size`, `reversed`, `take`
-- `capitalized`, `toLowerCase`, `toUpperCase`
+- `asLowerCase`, `asUpperCase`, `capitalized`
+- `asInteger`, `asNumber`
+- `trim`, `withBlanksTrimmed`, `withoutLeadingBlanks`, `withoutTrailingBlanks`
+- `lines`, `sentences`, `words`
+- `unlines`, `unsentences`, `unwords`
 
 ## String Tests
 
 - `isString`, `isDecimalIntegerString`, `isFloatString`
+- `isLowerCase`, `isUpperCase`
 
 ## Syntax Tokens
 

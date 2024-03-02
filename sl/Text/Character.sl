@@ -38,12 +38,12 @@ Character : [Object, Magnitude] { | string codePoint |
 		self.codePoint
 	}
 
-	asLowercase { :self |
-		self.string.asLowercase.asCharacter
+	asLowerCase { :self |
+		self.string.asLowerCase.asCharacter
 	}
 
-	asUppercase { :self |
-		self.string.asUppercase.asCharacter
+	asUpperCase { :self |
+		self.string.asUpperCase.asCharacter
 	}
 
 	asString { :self |
@@ -99,7 +99,7 @@ Character : [Object, Magnitude] { | string codePoint |
 	}
 
 	isVowel { :self |
-		'AEIOU'.includesSubstring(self.asUppercase.string)
+		'AEIOU'.includesSubstring(self.asUpperCase.string)
 	}
 
 	printString { :self |
@@ -110,7 +110,7 @@ Character : [Object, Magnitude] { | string codePoint |
 		(self == aCharacter).if {
 			true
 		} {
-			self.asLowercase == aCharacter.asLowercase
+			self.asLowerCase == aCharacter.asLowerCase
 		}
 	}
 

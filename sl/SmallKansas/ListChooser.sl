@@ -4,7 +4,7 @@ ListChooser : [Object] { | listChooserPane filterText select entries ignoreCase 
 
 	applyFilter { :self |
 		let caseRule:/1 = self.ignoreCase.if {
-			asLowercase:/1
+			asLowerCase:/1
 		} {
 			identity:/1
 		};

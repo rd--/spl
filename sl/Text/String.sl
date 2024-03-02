@@ -41,6 +41,22 @@ String! : [Object, Json, Iterable] {
 		self.appendString(anObject.asString)
 	}
 
+	allButFirst { :self |
+		self.allButFirst(1)
+	}
+
+	allButFirst { :self :n |
+		self.copyFromTo(n + 1, self.size)
+	}
+
+	allButLast { :self |
+		self.allButLast(1)
+	}
+
+	allButLast { :self :n |
+		self.copyFromTo(1, self.size - n)
+	}
+
 	appendString { :self :aString |
 		<primitive: return _self + _aString;>
 	}
@@ -93,8 +109,8 @@ String! : [Object, Json, Iterable] {
 		self.asciiByteArray.hex
 	}
 
-	asLowercase { :self |
-		<primitive: return _self.toLowerCase(); >
+	asLowerCase { :self |
+		<primitive: return _self.toLowerCase();>
 	}
 
 	asMlComment { :self |
@@ -108,10 +124,18 @@ String! : [Object, Json, Iterable] {
 	alphabet { :self |
 		self.caseOfOtherwise([
 			{ 'english' } -> {
-				['a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j' 'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't' 'u' 'v' 'w' 'x' 'y' 'z']
+				[
+					'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j'
+					'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't'
+					'u' 'v' 'w' 'x' 'y' 'z'
+				]
 			},
 			{ 'greek' } -> {
-				['α' 'β' 'γ' 'δ' 'ε' 'ζ' 'η' 'θ' 'ι' 'κ' 'λ' 'μ' 'ν' 'ξ' 'ο' 'π' 'ρ' 'σ' 'τ' 'υ' 'φ' 'χ' 'ψ' 'ω']
+				[
+					'α' 'β' 'γ' 'δ' 'ε' 'ζ' 'η' 'θ' 'ι' 'κ'
+					'λ' 'μ' 'ν' 'ξ' 'ο' 'π' 'ρ' 'σ' 'τ' 'υ'
+					'φ' 'χ' 'ψ' 'ω'
+				]
 			}
 		]) {
 			self.error('String>>alphabet: unknown alphabet')
@@ -130,7 +154,7 @@ String! : [Object, Json, Iterable] {
 		self
 	}
 
-	asUppercase { :self |
+	asUpperCase { :self |
 		<primitive: return _self.toUpperCase(); >
 	}
 
@@ -414,14 +438,16 @@ String! : [Object, Json, Iterable] {
 	}
 
 	isLetter { :self |
-		self.isLowercase | { self.isUppercase }
+		self.isLowerCase | {
+			self.isUpperCase
+		}
 	}
 
 	isLiteral { :self |
 		true
 	}
 
-	isLowercase { :self |
+	isLowerCase { :self |
 		<primitive: return /^[a-z]+$/.test(_self);>
 	}
 
@@ -437,7 +463,7 @@ String! : [Object, Json, Iterable] {
 		}
 	}
 
-	isUppercase { :self |
+	isUpperCase { :self |
 		<primitive: return /^[A-Z]+$/.test(_self);>
 	}
 
@@ -454,7 +480,11 @@ String! : [Object, Json, Iterable] {
 	}
 
 	lines { :self |
-		<primitive: return _self.split(/\r?\n/);>
+		self.isEmpty.if {
+			[]
+		} {
+			self.withoutTrailingNewline.splitBy('\n')
+		}
 	}
 
 	longestCommonSubsequences { :self :aString |
@@ -598,7 +628,7 @@ String! : [Object, Json, Iterable] {
 		(self = aString).if {
 			true
 		} {
-			self.asLowercase = aString.asLowercase
+			self.asLowerCase = aString.asLowerCase
 		}
 	}
 
@@ -640,12 +670,8 @@ String! : [Object, Json, Iterable] {
 		self.copyFromTo(1, anInteger.min(self.size))
 	}
 
-	toLowercase { :self |
-		<primitive: return _self.toLowerCase();>
-	}
-
-	toUppercase { :self |
-		<primitive: return _self.toUpperCase();>
+	trim { :self |
+		<primitive: return _self.trim();>
 	}
 
 	truncateTo { :self :smallSize |
@@ -681,7 +707,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	withBlanksTrimmed { :self |
-		<primitive: return _self.trim();>
+		self.trim
 	}
 
 	withIndefiniteArticle { :self |
@@ -713,13 +739,17 @@ String! : [Object, Json, Iterable] {
 		<primitive: return _self.trimEnd();>
 	}
 
-	words { :self |
-		self.splitBy(' ')
+	withoutTrailingNewline { :self |
+		self.isEmpty.if {
+			self
+		} {
+			(self.last.codePoint = 10).if {
+				self.allButLast
+			} {
+				self
+			}
+		}
 	}
-
-	{- ImmutableSequence -}
-	allButFirst { :self | self.allButFirst(1) }
-	allButFirst { :self :n | self.copyFromTo(n + 1, self.size) }
 
 }
 

@@ -1,19 +1,19 @@
-# asUppercase
+# asUpperCase
 
-- _asUppercase(aCharacter | aString)_
+- _asUpperCase(aCharacter | aString)_
 
 Answer a `String` made up from _aString_ whose characters are all uppercase.
 
 ```
->>> 'ascii'.asUppercase
+>>> 'ascii'.asUpperCase
 'ASCII'
 
->>> 'a'.asCharacter.asUppercase
+>>> 'a'.asCharacter.asUpperCase
 'A'.asCharacter
 ```
 
 * * *
 
-See also: asLowercase
+See also: asLowerCase
 
 Categories: Converting

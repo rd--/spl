@@ -1,8 +1,8 @@
 # withBlanksTrimmed
 
-_withBlanksTrimmed(aString)_
+- _withBlanksTrimmed(aString)_
 
-Remove whitespace from ends of a Strings:
+Remove whitespace from both ends of _aString_.
 
 ```
 >>> '   aaa bbb ccc   '.withBlanksTrimmed
@@ -11,4 +11,6 @@ Remove whitespace from ends of a Strings:
 
 * * *
 
-See also: String
+See also: String, trim, withoutLeadingBlanks, withoutTrailingBlanks
+
+Categories: Converting

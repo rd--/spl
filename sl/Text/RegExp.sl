@@ -205,4 +205,8 @@ RegExp! : [Object] {
 		before ++ after
 	}
 
+	words { :self |
+		self.trim.splitByRegExp('\\s')
+	}
+
 }

@@ -1,8 +1,8 @@
 # unlines
 
-_unlines(aList)_
+- _unlines(aList)_
 
-Given a List of Strings, answer a String that joins together all of the input strings separated by newline characters.
+Given a `List` of `String`s, answer a `String` that joins together all of the input strings separated by newline characters.
 
 ```
 >>> let list = ['a' 'bc' 'def'];
@@ -13,10 +13,10 @@ Given a List of Strings, answer a String that joins together all of the input st
 
 * * *
 
-See also: join, lines
+See also: join, lines, unwords
 
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:unlines)
 
-Categories: Accessing
+Categories: Converting

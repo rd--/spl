@@ -224,7 +224,7 @@ If Strings are made Collections and SequenceableCollections then:
 'string'.includes('i')
 'string'.indexOf('i') = 4
 'string'.atWrap(13) = 's'
-var a = Array(6); 'string'.collectInto({ :each | each.toUpperCase }, a); a.join = 'STRING'
+var a = Array(6); 'string'.collectInto({ :each | each.asUpperCase }, a); a.join = 'STRING'
 'string'.atRandom.isString = true
 ````
 

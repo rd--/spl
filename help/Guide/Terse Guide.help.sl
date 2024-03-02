@@ -762,8 +762,8 @@ nil.isNil = true {- test if object is nil -}
 1073741824.isEven = true {- a large even number is even -}
 1.isOdd = true {- test if number is odd -}
 2.isOdd = false {- two is not odd -}
-'A'.isUppercase = true {- test if upper case character -}
-'a'.isLowercase = true {- test if lower case character -}
+'A'.isUpperCase = true {- test if upper case character -}
+'a'.isLowerCase = true {- test if lower case character -}
 false.asBit = 0 {- boolean as bit, false is zero -}
 true.asBit = 1 {- boolean as bit, true is one -}
 true.asInteger > false.asInteger {- boolean as integer, c.f. asBit -}
@@ -905,8 +905,8 @@ let c = '𠮷'.asCharacter; c = c.copy & { c ~~ c.copy } {- copy is equal but no
 '0123456789abcdef'.characterList.collect(digitValue:/1) = [0 .. 15] {- digit value of character -}
 0:15.collect(digitValue:/1).join = '0123456789ABCDEF' {- character of given digit value -}
 { 36.digitValue }.ifError { true } {- error if integer is out of range -}
-'x'.asCharacter.asUppercase = 'X'.asCharacter {- to upper case -}
-'X'.asCharacter.asLowercase = 'x'.asCharacter {- to lower case -}
+'x'.asCharacter.asUpperCase = 'X'.asCharacter {- to upper case -}
+'X'.asCharacter.asLowerCase = 'x'.asCharacter {- to lower case -}
 let s = 'string'; let a = []; a.addAll(s); a.size = 6 {- add elements from String to end of List -}
 'fgaguzst'.characterList.minMax = ['a'.asCharacter, 'z'.asCharacter] {- character minMax -}
 'alphabet'.characterList.collect(isVowel:/1) = [true, false, false, false, true, false, true, false] {- is character a vowel -}
@@ -2869,8 +2869,8 @@ RegExp('x|z', 'g').replaceAllWith('x y z', '-') = '- y -'
 'a-b:c'.splitByRegExp('-|:') = ['a', 'b', 'c'] {- split string at matching tokens -}
 'x y z'.replaceRegExp('x|z', '-') = '- y z'
 'x y z'.replaceRegExp(RegExp('x|z', 'g'), '-') = '- y -'
-RegExp('x|z').replaceModifying('x y z', toUppercase:/1) = 'X y z' {- instead of a replacement string, allows for a block to process the match -}
-RegExp('x|z', 'g').replaceAllModifying('x y z', toUppercase:/1) = 'X y Z'
+RegExp('x|z').replaceModifying('x y z', asUpperCase:/1) = 'X y z' {- instead of a replacement string, allows for a block to process the match -}
+RegExp('x|z', 'g').replaceAllModifying('x y z', asUpperCase:/1) = 'X y Z'
 'A short sentence of six words'.wordAtIndex(23) = 'six' {- get word looking backwards and forwards from index for non-word characters -}
 ```
 
@@ -3474,8 +3474,8 @@ system.includesPackage('String') {- package -}
 'turramurra'.occurrencesOf('urra') = 2
 'turramurra'.indicesOf('urra') = [2, 7]
 'sum:/1'.splitBy(':/') = ['sum', '1']
-'ascii'.toUppercase = 'ASCII'
-'ASCII'.toLowercase = 'ascii'
+'ascii'.asUpperCase = 'ASCII'
+'ASCII'.asLowerCase = 'ascii'
 `'x'` = '\'x\'' {- backtick quotes quoting single quote -}
 `"x"` = '"x"' {- backtick quotes quoting double quote -}
 `x'""'y` = 'x\'""\'y'.parseBacktickQuotedString
@@ -3509,10 +3509,10 @@ let x = ['a', 'bc', 'def']; x.unlines.lines = x
 'AnalogueClock'.pascalCaseToWords = 'Analogue Clock' {- pascal case begins with an upper case letter -}
 'an analogue Clock'.words.pascalCase.join = 'AnAnalogueClock'
 'analogue clock'.words.camelCase.join = 'analogueClock'
-'Word'.asLowercase = 'word'
-'12345'.asLowercase = '12345' {- only if letters -}
-'Word'.asUppercase = 'WORD'
-'12345'.asUppercase = '12345' {- only if letters -}
+'Word'.asLowerCase = 'word'
+'12345'.asLowerCase = '12345' {- only if letters -}
+'Word'.asUpperCase = 'WORD'
+'12345'.asUpperCase = '12345' {- only if letters -}
 'x' ~= 'X' & { 'x'.sameAs('X') & { 'x'.sameAs('x') } } {- considered without case -}
 'word'.capitalized = 'Word' {- uppercase first letter only -}
 'anotherWord'.capitalized = 'AnotherWord' {- uppercase first letter only, do not lower case interior letters -}
@@ -3560,8 +3560,8 @@ let a = 'string'.characterList; a.joinCharacters = 'string' & { a.join = 'string
 'Gnu/Linux'.findString('Linux') = 5
 'Gnu/Linux'.findStringStartingAt('Linux', 1) = 5
 'Hello'.isEmpty = false
-'XYZ'.asLowercase = 'xyz'
-'xyz'.asUppercase = 'XYZ'
+'XYZ'.asLowerCase = 'xyz'
+'xyz'.asUpperCase = 'XYZ'
 'hilaire'.capitalized = 'Hilaire'
 '1.54'.asNumber = 1.54 {- parse floating point number -}
 '154'.asNumber = 154 {- parse integral number -}

@@ -1,9 +1,9 @@
 # atLevelCollect
 
-_atLevelCollect(aCollection, anInteger | aCollection, aBlock:/1)_
+- _atLevelCollect(aCollection, anInteger | aCollection, aBlock:/1)_
 
 A variant of _withLevelCollect_,
-levels are selected if they are equal to _anInteger_ or an element of _aCollection_.
+levels are selected if they are equal to _anInteger_ or are an element of _aCollection_.
 
 Select one level:
 
@@ -43,3 +43,5 @@ Select multiple levels:
 * * *
 
 See also: collect, deepCollect, depth, withLevelCollect
+
+Categories: Enumerating
