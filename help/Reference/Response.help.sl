@@ -4,9 +4,11 @@ A `Response` is a `Type` that is the promised answer to a `fetch` request.
 
 Implements `blob`, `byteArray`, `json` and `text` methods to retrieve the held value as a further `Promise`.
 
+Implement `headers` to retrieve any associated Http headers.
+
 * * *
 
-See also: blob, byteArray, fetch, json, Promise, text
+See also: blob, byteArray, fetch, headers, Headers, json, Promise, text
 
 References:
 _Mdn_

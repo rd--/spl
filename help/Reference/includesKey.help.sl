@@ -1,14 +1,21 @@
-# includesKey -- testing
+# includesKey
 
 - _includesKey(aDictionary, key)_
 
 Answer whether _aDictionary_ has a key equal to _key_.
 
+```
+>>> (Italie: 'Rome', France: 'Paris').includesKey('France')
+true
+```
+
 _Rationale:_
 The indices of dictionaries are called keys.
-_includesKey_ is another name for _includesIndices_,
-and _keys_ is another name for _indices_.
+`includesKey` is another name for `includesIndex`,
+and `keys` is another name for `indices`.
 
 * * *
 
-See also: Dictionary, includesIndex, Indexable, keys
+See also: at, Dictionary, includesIndex, Indexable, keys
+
+Categories: Testing

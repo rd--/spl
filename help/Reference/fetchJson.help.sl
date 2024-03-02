@@ -11,4 +11,6 @@ url.fetchJson.then { :anObject | anObject.postLine }
 
 * * *
 
-See also: fetchByteArray, fetchText, Json
+See also: fetch, fetchByteArray, fetchText, Json
+
+Categories: Network

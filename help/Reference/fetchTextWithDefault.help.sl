@@ -11,6 +11,6 @@ url.fetchTextWithDefault('*Failed*').then { :aString | aString.postLine }
 
 * * *
 
-See also: fetchByteArray, fetchJson, fetchText, String, Url
+See also: fetch, fetchByteArray, fetchJson, fetchText, String, Url
 
 Categories: Network

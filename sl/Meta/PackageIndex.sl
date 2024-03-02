@@ -189,6 +189,7 @@
 	'System-EventTarget'
 	'System-File'
 	'System-FileSystem'
+	'System-Headers'
 	'System-LibraryItem'
 	'System-Location'
 	'System-MessageEvent'

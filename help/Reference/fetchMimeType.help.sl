@@ -17,7 +17,7 @@ let mimeType = 'text/plain';
 url.fetchMimeType(mimeType).then { :aString | aString.postLine }
 ~~~
 
-Fetch Json text:
+Fetch and decode `Json`:
 
 ~~~
 let url = 'https://rohandrape.net/sw/spl/config/preferences.json';
@@ -35,6 +35,6 @@ url.fetchMimeType(mimeType).then { :aByteArray | aByteArray.base64Encoded.postLi
 
 * * *
 
-See also: fetchByteArray, fetchJson, fetchText, Url
+See also: fetch, fetchByteArray, fetchJson, fetchText, Url
 
 Categories: Network

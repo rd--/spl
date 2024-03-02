@@ -28,14 +28,31 @@ url.fetch.then { :response |
 }
 ~~~
 
-Fetch a binary file:
+Fetch a binary file, read _Content-Type_ from `Headers`:
 
 ~~~
 let url = 'https://rohandrape.net/sw/stsc3/lib/png/squeak-mouse.png';
 url.fetch.then { :response |
+	response.headers.atIfAbsent('Content-Type') {
+		''
+	}.postLine;
 	response.byteArray
 }.then { :aByteArray |
 	aByteArray.base64Encoded.postLine
+}
+~~~
+
+Fetch a binary file as a `Blob` with associated mime type:
+
+~~~
+let url = 'https://rohandrape.net/sw/stsc3/lib/png/squeak-mouse.png';
+url.fetch.then { :response |
+	response.blob
+}.then { :aBlob |
+	aBlob.type.postLine;
+	aBlob.arrayBuffer
+}.then { :anArrayBuffer |
+	anArrayBuffer.asByteArray.base64Encoded.postLine
 }
 ~~~
 
@@ -49,5 +66,4 @@ _Mdn_
 _Whatwg_
 [1](https://fetch.spec.whatwg.org/#fetch-method)
 
-
-Categories: Networking, Scheduling
+Categories: Network, Scheduling

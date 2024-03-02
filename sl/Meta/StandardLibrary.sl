@@ -83,6 +83,7 @@
 	'EventTarget'
 	'File' {- Blob -}
 	'FileSystem'
+	'Headers'
 	'LibraryItem'
 	'Method'
 	'MessageEvent'

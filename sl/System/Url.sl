@@ -126,20 +126,8 @@ URL! : [Object, Url] {
 		<primitive: return fetch(_self);>
 	}
 
-	fetchBlob { :self :options |
-		self.fetchBlob(options) { :errorCode |
-			self.error('fetchBlob: ' ++ errorCode)
-		}
-	}
-
-	fetchBlob { :self :options :onError |
-		self.fetch(options).then { :response |
-			response.ok.if {
-				response.blob
-			} {
-				onError.cull(response.ok)
-			}
-		}
+	fetchBlob { :self |
+		self.fetchThen(blob:/1)
 	}
 
 	fetchByteArray { :self |
@@ -168,7 +156,7 @@ URL! : [Object, Url] {
 
 	fetchThen { :self :onSuccess:/1 |
 		self.fetchThenElse(onSuccess:/1) { :errorCode |
-			self.error('Url>>fetchThenElse: ' ++ errorCode)
+			self.error('Url>>fetchThen: ' ++ errorCode)
 		}
 	}
 

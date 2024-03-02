@@ -13,4 +13,6 @@ url.fetchByteArray.then { :aByteArray |
 
 * * *
 
-See also: ByteArray, fetchJson, fetchText, Url
+See also: ByteArray, fetch, fetchBlob, fetchJson, fetchText, Url
+
+Categories: Network

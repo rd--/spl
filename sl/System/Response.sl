@@ -16,6 +16,10 @@ Response! : [Object] {
 		>
 	}
 
+	headers { :self |
+		<primitive: return _self.headers;>
+	}
+
 	mimeType { :self :mimeType :onError |
 		mimeType.caseOfOtherwise([
 			'application/json' -> {
