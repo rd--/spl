@@ -1,20 +1,22 @@
 # Pluck
 
-- _Pluck(in, trig, maxdelaytime, delaytime, decaytime, coef)_
+- _Pluck(in, trig, maxDelayTime, delayTime, decayTime, coef)_
 
 Karplus-strong algorithm.
 
 - in: an excitation signal
 - trig: fill delay line on trigger
-- maxdelaytime: the max delay time in seconds (initializes the internal delay buffer).
-- delaytime: delay time in seconds.
-- decaytime: time for the echoes to decay by 60 decibels. Negative times emphasize odd partials.
-- coef: the coef of the internal OnePole filter. Values should be between -1 and +1 (larger values will be unstable... so be careful!).
+- maxDelayTime: the max delay time in seconds (initializes the internal delay buffer)
+- delayTime: delay time in seconds
+- decayTime: time for the echoes to decay by 60 decibels.
+  Negative times emphasize odd partials
+- coef: the coef of the internal `OnePole` filter.
+  Values should be between -1 and +1 (larger values will be unstable... so be careful!)
 
 On _trig_, _n_ samples of the excitation signal are fed into the delay line, where _n = delaytime * SampleRate() / 2_.
 The delay line is filled using a rectangular envelope, that is there is no fading.
 
-Excitation signal is WhiteNoise, triggered twice a second with varying OnePole coef:
+Excitation signal is `WhiteNoise`, triggered twice a second with varying `OnePole` coef:
 
 ```
 Pluck(
@@ -51,5 +53,13 @@ Splay(
 ```
 
 * * *
+
+See also: OnePole, WhiteNoise
+
+References:
+_Csound_
+[1](https://csound.com/docs/manual/pluck.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Pluck.html)
 
 Categories: Ugen

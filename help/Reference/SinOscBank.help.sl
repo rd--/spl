@@ -1,7 +1,8 @@
-# SinOscBank -- sin oscillator bank
+# SinOscBank
 
-_SinOscBank(freqList, ampList, phaseList)_
+- _SinOscBank(freqList, ampList, phaseList)_
 
+Sin oscillator bank.
 A summed set of fixed frequency sin oscillators.
 
 - freqList: frequency list
@@ -40,3 +41,9 @@ Equivalent to:
 * * *
 
 See also: RingzBank
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Klang.html)
+
+Categories: Ugen

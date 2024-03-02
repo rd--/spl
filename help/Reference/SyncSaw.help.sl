@@ -1,8 +1,12 @@
-# SyncSaw -- hard sync sawtooth wave
+# SyncSaw
 
-_SyncSaw(ksyncFreq, ksawFreq)_
+- _SyncSaw(ksyncFreq, ksawFreq)_
 
-A sawtooth wave that is hard synched to a fundamental pitch. This produces an effect similar to moving formants or pulse width modulation. The sawtooth oscillator has its phase reset when the sync oscillator completes a cycle. This is not a band limited waveform, so it may alias.
+Hard sync sawtooth wave.
+A sawtooth wave that is hard synched to a fundamental pitch.
+This produces an effect similar to moving formants or pulse width modulation.
+The sawtooth oscillator has its phase reset when the sync oscillator completes a cycle.
+This is not a band limited waveform, so it may alias.
 
 - ksyncFreq: frequency of the fundamental.
 - ksawFreq: frequency of the slave synched sawtooth wave. sawFreq should always be greater than syncFreq.
@@ -25,4 +29,10 @@ let freq = 400;
 
 * * *
 
-See also: Saw
+See also: LfSaw, Saw, VarSaw
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/SyncSaw.html)
+
+Categories: Ugen, Oscillator

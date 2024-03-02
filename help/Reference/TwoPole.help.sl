@@ -1,10 +1,10 @@
 # TwoPole
 
-Two pole filter.
+- _TwoPole(in, freq, radius)_
 
-_TwoPole(in, freq, radius)_
-
-A two pole filter. This provides lower level access to setting of pole location. For general purposes Resonz is better.
+A two pole filter.
+This provides lower level access to setting of pole location.
+For general purposes `Resonz` is better.
 
 - in: input signal to be processed
 - freq: frequency of pole angle.
@@ -24,8 +24,10 @@ TwoPole(WhiteNoise() * 0.005, XLine(800, 8000, 8), 0.95)
 
 * * *
 
-See also: TwoZero
+See also: Resonz, TwoZero
 
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/TwoPole.html)
+
+Categories: Ugen

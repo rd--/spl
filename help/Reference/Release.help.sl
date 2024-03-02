@@ -1,7 +1,8 @@
-# Release -- envelope generator
+# Release
 
-_Release(in, attackTime=1, sustainTime=1, releaseTime=1)_
+- _Release(in, attackTime=1, sustainTime=1, releaseTime=1)_
 
+Envelope generator.
 Apply a three stage envelope to _in_ and release the synthesis node once the envelope is ended.
 
 ```
@@ -11,4 +12,6 @@ Release(SinOsc(440, 0) * 0.1, 3, 3, 5) + counter
 
 * * *
 
-See also: Asr
+See also: Asr, Cutoff
+
+Categories: Ugen

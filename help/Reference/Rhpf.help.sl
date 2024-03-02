@@ -1,6 +1,6 @@
-# Rhpf -- resonant high pass filter
+# Rhpf
 
-_Rhpf(in, freq, q)_
+- _Rhpf(in, freq, q)_
 
 A resonant high pass filter.
 
@@ -18,3 +18,12 @@ Rhpf(
 )
 ```
 
+* * *
+
+See also: Formlet, Rlpf, Resonz, Ringz
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/RHPF.html)
+
+Categories: Ugen

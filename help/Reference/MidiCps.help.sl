@@ -19,4 +19,8 @@ A4 = 440hz:
 
 See also: MidiRatio
 
+References:
+_Csound_
+[1](https://csound.com/docs/manual/mtof.html)
+
 Categories: Arithmetic

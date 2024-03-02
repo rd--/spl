@@ -3,10 +3,11 @@
 - _LfSaw(freq=440, phase=0)_
 
 Sawtooth oscillator.
-A non-band-limited sawtooth oscillator. Output ranges from -1 to +1.
+A non-band-limited sawtooth oscillator.
+Output ranges from -1 to +1.
 
 - freq: frequency in Hertz
-- iphase: initial phase offset. For efficiency reasons this is a value ranging from 0 to 2.
+- iphase: initial phase offset (0-2)
 
 Fixed frequency:
 
@@ -14,7 +15,7 @@ Fixed frequency:
 LfSaw(500, 1) * 0.1
 ```
 
-Used as both Oscillator and Lfo:
+Used as both oscillator and lfo:
 
 ```
 LfSaw(LfSaw(4, 0) * 400 + 400, 0) * 0.1
@@ -22,6 +23,10 @@ LfSaw(LfSaw(4, 0) * 400 + 400, 0) * 0.1
 
 * * *
 
-See also: LfPulse, Saw
+See also: LfPulse, LfTri, Saw, SyncSaw, VarSaw
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LFSaw.html)
 
 Categories: Ugen

@@ -32,5 +32,9 @@ Impulse(4, [0, MouseX(0, 1, 0, 0.2)]) * 0.2
 See also: Blip
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/mpulse.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Impulse.html)
+
+Categories: Ugen

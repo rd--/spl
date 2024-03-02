@@ -20,8 +20,12 @@ Bpf(
 
 * * *
 
-See also: Hpf, Lpf
+See also: Brf, Hpf, Lpf
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/butterbp.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/BPF.html)
+
+Categories: Ugen, Filter

@@ -1,8 +1,9 @@
-# MidEq -- parametric filter
+# MidEq
 
+- _MidEq(in, freq=440, rq=1, db=0)_
+
+Parametric filter.
 Attenuates or boosts a frequency band.
-
-_MidEq(in, freq=440, rq=1, db=0)_
 
 - in: the input signal
 - freq: center frequency of the band in hertz
@@ -25,3 +26,14 @@ Notch filter:
 ```
 let in = PinkNoise() + SinOsc(600, 0) * 0.1;
 MidEq(in, SinOsc(0.2, pi / 2) * 2 + 600, 0.01, -24)
+```
+
+* * *
+
+See also: Bpf, Hpf, Lpf
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/MidEQ.html)
+
+Categories: Ugen

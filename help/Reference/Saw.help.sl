@@ -20,6 +20,6 @@ Rlpf(Saw([100, 250]) * 0.1, XLine(8000, 400, 5), 0.05)
 
 * * *
 
-See also: LfSaw, Pulse
+See also: LfSaw, Pulse, SyncSaw, VarSaw
 
 Categories: Ugen

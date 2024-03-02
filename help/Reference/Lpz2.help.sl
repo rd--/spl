@@ -1,8 +1,12 @@
-# Lpz2 -- two zero fixed lowpass
+# Lpz2
 
-_Lpz2(in)_
+- _Lpz2(in)_
 
-A special case fixed filter. Implements the formula _out[i] = 0.25 * (in[i] + (2 * in[i - 1]) + in[i - 2])_.
+Two zero fixed lowpass.
+A special case fixed filter.
+Implements the formula:
+
+> _out[i] = 0.25 * (in[i] + (2 * in[i - 1]) + in[i - 2])_
 
 Compare:
 
@@ -19,3 +23,5 @@ Lpz2(WhiteNoise() * 0.1)
 * * *
 
 See also: Lpz1
+
+Categories: Ugen

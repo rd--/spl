@@ -1,6 +1,8 @@
-# PanB -- Ambisonic B format panner
+# PanB
 
-PanB(in, azimuth, elevation, level)
+- _PanB(in, azimuth, elevation, level)_
+
+Ambisonic B format panner.
 
 - in: input signal
 - azimuth: in radians, -pi to +pi
@@ -18,3 +20,14 @@ let [w, x, y, z] = PanB(
 	0.3
 );
 Silent(8) ++ DecodeB2(8, w, x, y, 0)
+```
+
+* * *
+
+See also: DecodeB2, PanAz, PanB2, Pan2, Rotate2
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/PanB.html)
+
+Categories: Ugen

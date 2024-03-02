@@ -1,14 +1,13 @@
 # Brf
 
+- _Brf(in, freq, rq)_
+
 2nd order Butterworth band reject filter.
-
-_Brf(in, freq, rq)_
-
 A second order low pass filter.
 
 - in: input signal to be processed
-- freq: cutoff frequency in Hertz.
-- rq: the reciprocal of Q. bandwidth / cutoffFreq.
+- freq: cutoff frequency in Hertz
+- rq: the reciprocal of Q. bandwidth / cutoffFreq
 
 Modulate frequency:
 
@@ -23,3 +22,11 @@ Brf(
 * * *
 
 See also: Bpf, Hpf, Lpf
+
+References:
+_Csound_
+[1](https://csound.com/docs/manual/butterbr.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/BRF.html)
+
+Categories: Ugen, Filter

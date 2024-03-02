@@ -1,10 +1,11 @@
 # Decay2
 
+- _Decay2(in, attackTime=0.01, decayTime=1)_
+
 Exponential decay.
-
-_Decay2(in, attackTime=0.01, decayTime=1)_
-
-_Decay_ has a very sharp attack and can produce clicks. _Decay2_ rounds off the attack by subtracting one Decay from another. _Decay2(in, attackTime, decayTime)_ is equivalent to _Decay(in, decayTime) - Decay(in, attackTime)_.
+`Decay` has a very sharp attack and can produce clicks.
+`Decay2` rounds off the attack by subtracting one `Decay` from another.
+_Decay2(in, attackTime, decayTime)_ is equivalent to _Decay(in, decayTime) - Decay(in, attackTime)_.
 
 - in: input signal
 - attackTime: 60 dB attack time in seconds.

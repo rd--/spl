@@ -1,6 +1,6 @@
 # Line
 
-_Line(start, end, dur)_
+- _Line(start, end, dur)_
 
 Line generator.
 Generates a line from the start value to the end value.
@@ -15,7 +15,7 @@ Sweep oscillator frequency:
 SinOsc(Line(200, 17000, 10), 0) * 0.1
 ```
 
-XLine is usually better than Line for frequency:
+`XLine` is usually better than `Line` for frequency:
 
 ```
 SinOsc(XLine(200, 17000, 10), 0) * 0.1
@@ -26,5 +26,9 @@ _Note_: This is the Sc _Line_ Ugen without the _doneAction_ input.
 * * *
 
 See also: XLine
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Line.html)
 
 Categories: Ugen

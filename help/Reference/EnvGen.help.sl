@@ -6,8 +6,8 @@ Envelope Generator.
 Plays back break point envelopes.
 The envelopes are instances of the Env class.
 See the Env help file for more info.
-
-If the gate input is not supplied then the envelope begins at time zero of the event in which it is spawned and is released when the event is released. And envelope only has a physical end time (used to cut off events in a Spawn) if the gate input is not supplied.
+If the gate input is not supplied then the envelope begins at time zero of the event in which it is spawned and is released when the event is released.
+An envelope only has a physical end time (used to cut off events in a Spawn) if the gate input is not supplied.
 
 - gate: The gate input will trigger an attack and hold a sustain of the envelope.
 - levelScale: scales the levels of the breakpoints.
@@ -33,5 +33,11 @@ SinOsc(440, 0) * EnvGen(gate, 1, 0, 1, 0, env.asList)
 ```
 
 * * *
+
+See also: Decay, Line, XLine
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/EnvGen.html)
 
 Categories: Ugen, Envelope

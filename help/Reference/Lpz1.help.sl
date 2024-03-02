@@ -1,8 +1,12 @@
-# Lpz1 -- two point average filter
+# Lpz1
 
-_Lpz1(in)_
+- _Lpz1(in)_
 
-A special case fixed filter. Implements the formula _out[i] = 0.5 * (in[i] + in[i - 1])_ which is a two point averager.
+Two point average filter.
+A special case fixed filter.
+Implements the formula:
+
+> _out[i] = 0.5 * (in[i] + in[i - 1])_
 
 Compare:
 
@@ -19,3 +23,9 @@ Lpz1(WhiteNoise() * 0.1)
 * * *
 
 See also: Hpz1, Hpz2, Lpz2
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LPZ1.html)
+
+Categories: Ugen

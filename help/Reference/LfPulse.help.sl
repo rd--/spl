@@ -38,4 +38,8 @@ Compare with band limited Pulse UGen:
 
 See also: Pulse, LfSaw
 
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LFPulse.html)
+
 Categories: Ugen

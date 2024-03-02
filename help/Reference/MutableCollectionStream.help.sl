@@ -1,4 +1,4 @@
-# MutableCollectionStream -- collection type
+# MutableCollectionStream
 
 The MutableCollectionStream type implements the Stream, PositionableStream and WriteStream traits.
 
@@ -9,3 +9,5 @@ Answer a MutableCollectionStream on _aCollection_.
 * * *
 
 See also: asStream, PositionableStream, Stream, WriteStream
+
+Categories: Collection, Type

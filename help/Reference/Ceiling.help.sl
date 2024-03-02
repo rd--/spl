@@ -13,4 +13,8 @@ SinOsc([m, m.Ceiling].MidiCps, 0) * 0.1
 
 See also: Floor, RoundTo
 
+References:
+_Csound_
+[1](https://csound.com/docs/manual/ceil.html)
+
 Categories: Ugen

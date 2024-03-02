@@ -1,16 +1,16 @@
 # Formant
 
+- _Formant(fundFreq, formFreq, widthFreq)_
+
 Formant oscillator.
-
-_Formant(kfundfreq, kformfreq, kwidthfreq)_
-
 Generates a set of harmonics around a formant frequency at a given fundamental frequency.
 
-- kfundfreq: fundamental frequency in Hertz.
-- kformfreq: formant frequency in Hertz.
-- kwidthfreq: pulse width frequency in Hertz. Controls the bandwidth of the formant.
+- fundFreq: fundamental frequency in Hertz
+- formFreq: formant frequency in Hertz
+- widthFreq: pulse width frequency in Hertz.
+  Controls the bandwidth of the formant
 
-Widthfreq must be greater than or equal fundfreq.
+_widthFreq_ must be greater than or equal to _fundFreq_.
 
 Modulate fundamental frequency, formant freq stays constant:
 
@@ -37,3 +37,5 @@ See also: Formlet
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Formant.html)
+
+Categories: Ugen

@@ -1,8 +1,6 @@
 # TwoZero
 
-Two zero filter.
-
-_TwoZero(in, freq, radius)_
+- _TwoZero(in, freq, radius)_
 
 A two zero filter.
 
@@ -23,3 +21,5 @@ See also: TwoPole
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/TwoZero.html)
+
+Categories: Ugen

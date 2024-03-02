@@ -5,6 +5,8 @@
 
 Generates noise whose spectrum has equal power at all frequencies.
 
+De-correlated stereo white noise:
+
 ```
 WhiteNoise(2) * 0.1
 ```
@@ -26,7 +28,9 @@ WhiteNoise(2).Lpz1 * 0.1
 See also: BrownNoise, ClipNoise, PinkNoise, Rand, TRand
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/noise.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/WhiteNoise.html)
 
-Categories: Noise
+Categories: Ugen, Noise

@@ -1,14 +1,14 @@
 # Brz2
 
+- _Brz2(in)_
+
 Two zero fixed midcut.
+A special case fixed filter.
+Implements the formula:
 
-_Brz2(in)_
+> _out(i) = 0.5 * (in(i) + in(i-2))_
 
-A special case fixed filter. Implements the formula _out(i) = 0.5 * (in(i) + in(i-2))_.
-
-This filter cuts out frequencies around 1/2 of the Nyquist frequency.
-
-Compare:
+This filter cuts out frequencies around 1/2 of the Nyquist frequency, compare:
 
 ```
 WhiteNoise() * 0.1
@@ -22,4 +22,10 @@ Brz2(WhiteNoise() * 0.1)
 
 * * *
 
-See also: Bpz2
+See also: Bpz2, Brf
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/BRZ2.html)
+
+Categories: Ugen

@@ -44,4 +44,10 @@ SinOsc(
 
 See also: LinExp
 
+References:
+_Csound_
+[1](https://csound.com/docs/manual/linlin.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LinLin.html)
+
 Categories: Ugen

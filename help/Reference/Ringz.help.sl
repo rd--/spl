@@ -1,8 +1,10 @@
-# Ringz -- ringing filter
+# Ringz
 
-_Ringz(in, freq=440, decaytime=1)_
+- _Ringz(in, freq=440, decaytime=1)_
 
-This is the same as Resonz, except that instead of a resonance parameter, the bandwidth is specified in a 60dB ring decay time. One Ringz is equivalent to one component of the Klank UGen.
+Ringing filter.
+This is the same as Resonz, except that instead of a resonance parameter, the bandwidth is specified in a 60dB ring decay time.
+One `Ringz` is equivalent to one component of the Klank UGen.
 
 - in: input signal to be processed
 - freq: resonant frequency in Hertz
@@ -77,3 +79,14 @@ Texture of above:
 		)
 	} !^ 10
 }.OverlapTexture(5, 10, 9).Mix
+```
+
+* * *
+
+See also: Formlet, Resonz, Rhpf, Rlpf
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Ringz.html)
+
+Categories: Ugen, Filter

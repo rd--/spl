@@ -1,8 +1,8 @@
 # VarSaw
 
-Variable duty Saw.
+- _VarSaw(freq=440, iphase=0, width=0.5)_
 
-_VarSaw(freq=440, iphase=0, width=0.5)_
+Variable duty `Saw`.
 
 - freq: frequency in Hertz
 - iphase: initial phase offset in cycles (0-1)
@@ -28,7 +28,7 @@ VarSaw(
 ) * 0.1
 ```
 
-Compare VarSaw and LfPulse:
+Compare `VarSaw` and `LfPulse`:
 
 ```
 [
@@ -44,3 +44,5 @@ See also: LfSaw, Saw, SyncSaw
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/VarSaw.html)
+
+Categories: Ugen, Oscillator

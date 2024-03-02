@@ -1,21 +1,23 @@
 # Formlet
 
+- _Formlet(in, freq, attackTime, decayTime)_
+
 FOF-like filter.
-
-_Formlet(in, freq, attackTime, decayTime)_
-
-This is a resonant filter whose impulse response is like that of a sine wave with a Decay2 envelope over it. It is possible to control the attacktime and decaytime.
-
-Formlet is equivalent to _Ringz(in, freq, decaytime) - Ringz(in, freq, attacktime)_.
-
-Note that if _attacktime = decaytime_ then the signal cancels out and if _attacktime > decaytime_ then the impulse response is inverted.
-
-The great advantage to this filter over FOF is that there is no limit to the number of overlapping grains since the grain is just the impulse response of the filter.
+This is a resonant filter whose impulse response is like that of a sine wave with a `Decay2` envelope over it.
+It is possible to control the attacktime and decaytime.
 
 - in: input signal to be processed
 - freq: resonant frequency in Hertz
 - attackTime: 60 dB attack time in seconds.
 - decayTime: 60 dB decay time in seconds.
+
+Formlet is equivalent to:
+
+>  _Ringz(in, freq, decayTime) - Ringz(in, freq, attackTime)_
+
+Note that if _attackTime = decayTime_ then the signal cancels out and if _attackTime > decayTime_ then the impulse response is inverted.
+
+The great advantage to this filter over FOF is that there is no limit to the number of overlapping grains since the grain is just the impulse response of the filter.
 
 Fixed parameters:
 
@@ -52,5 +54,11 @@ Formlet(
 See also: Formant
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/fof.html)
+[2](https://csound.com/docs/manual/fof2.html)
+[3](https://csound.com/docs/manual/fofilter.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Formlet.html)
+
+Categories: Ugen

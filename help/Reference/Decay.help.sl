@@ -1,10 +1,11 @@
 # Decay
 
+- _Decay(in, decayTime=1)_
+
 Exponential decay.
-
-_Decay(in, decayTime=1)_
-
-This is essentially the same as _Integrator_ except that instead of supplying the coefficient directly, it is caculated from a 60 dB decay time. This is the time required for the integrator to lose 99.9 % of its value or -60dB. This is useful for exponential decaying envelopes triggered by impulses.
+This is essentially the same as `Integrator` except that instead of supplying the coefficient directly, it is caculated from a 60 dB decay time.
+This is the time required for the integrator to lose 99.9 % of its value or -60dB.
+This is useful for exponential decaying envelopes triggered by impulses.
 
 - in: input signal
 - decayTime: 60 dB decay time in seconds.
@@ -29,4 +30,4 @@ References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Decay.html)
 
-Categories: Ugen, envelope
+Categories: Ugen, Envelope

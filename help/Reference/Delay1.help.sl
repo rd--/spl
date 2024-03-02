@@ -1,8 +1,8 @@
 # Delay1
 
-Single sample delay
+- _Delay1(in)_
 
-_Delay1(in)_
+Single sample delay
 
 - in: sample to be delayed.
 
@@ -16,6 +16,8 @@ let z = Dust(1000);
 * * *
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/delay1.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Delay1.html)
 

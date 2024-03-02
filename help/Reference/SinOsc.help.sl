@@ -39,3 +39,5 @@ See also: FSinOsc, Osc, Pulse, Saw
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/SinOsc.html)
+
+Categories: Ugen, Oscillator

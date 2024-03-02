@@ -5,7 +5,8 @@
 Band limited pulse wave generator with pulse width modulation.
 
 - freq: frequency in Hertz
-- width: pulse width ratio from zero to one. 0.5 makes a square wave.
+- width: pulse width ratio from zero to one.
+  0.5 makes a square wave.
 
 Modulate frequency:
 
@@ -29,4 +30,8 @@ Rlpf(Pulse([100, 250], 0.5) * 0.1, XLine(8000, 400, 5), 0.05)
 
 See also: LfPulse, SinOsc, Saw
 
-Categories: Ugen
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Pulse.html)
+
+Categories: Ugen, Oscillator
