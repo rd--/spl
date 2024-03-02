@@ -1,7 +1,8 @@
-# LfSaw -- sawtooth oscillator
+# LfSaw
 
-_LfSaw(freq=440, phase=0)_
+- _LfSaw(freq=440, phase=0)_
 
+Sawtooth oscillator.
 A non-band-limited sawtooth oscillator. Output ranges from -1 to +1.
 
 - freq: frequency in Hertz
@@ -19,3 +20,8 @@ Used as both Oscillator and Lfo:
 LfSaw(LfSaw(4, 0) * 400 + 400, 0) * 0.1
 ```
 
+* * *
+
+See also: LfPulse, Saw
+
+Categories: Ugen

@@ -1,6 +1,6 @@
-# Saw -- band limited sawtooth
+# Saw
 
-_Saw(kfreq)_
+- _Saw(kfreq)_
 
 Band limited sawtooth wave generator.
 
@@ -18,3 +18,8 @@ Two band limited sawtooth waves through a resonant low pass filter:
 Rlpf(Saw([100, 250]) * 0.1, XLine(8000, 400, 5), 0.05)
 ```
 
+* * *
+
+See also: LfSaw, Pulse
+
+Categories: Ugen

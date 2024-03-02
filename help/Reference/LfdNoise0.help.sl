@@ -1,6 +1,8 @@
-# LfdNoise0 -- dynamic step noise
+# LfdNoise0
 
-_LfdNoise0(freq)_
+- _LfdNoise0(freq)_
+
+Dynamic step noise.
 
 - freq: rate at which to generate random values
 
@@ -32,3 +34,4 @@ LfNoise quantizes time steps at high freqs, LfdNoise does not:
 ```
 let f = XLine(1000, 20000, 10);
 [LfNoise0(f), LfdNoise0(f)] * 0.1
+```

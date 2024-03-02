@@ -1,8 +1,9 @@
-# LfBrownNoise1 -- noise generator
+# LfBrownNoise1
 
+- _LfBrownNoise1(freq=20, dev=1, dist=0)_
+
+Noise generator.
 Random walk with Gendyn distributions.
-
-_LfBrownNoise1(freq=20, dev=1, dist=0)_
 
 - freq: approximate rate at which to generate random values
 - dev: scale maximum step (0-1)
@@ -26,3 +27,5 @@ SinOsc(
 * * *
 
 See also: BrownNoise, LfBrownNoise0, LfBrownNoise2
+
+Categories: Ugen

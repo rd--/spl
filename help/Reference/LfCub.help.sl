@@ -1,8 +1,10 @@
-# LfCub -- oscillator
+# LfCub
 
-_LfCub(freq, iphase)_
+- _LfCub(freq, iphase)_
 
-A sine like shape made of two cubic pieces. Smoother than _LfPar_.
+Oscillator.
+A sine like shape made of two cubic pieces.
+Smoother than `LfPar`.
 
 - freq: frequency in Hertz
 - iphase: initial phase offset, range=[0, 2]
@@ -23,3 +25,10 @@ Frequency sweep:
 
 ```
 LfCub(XLine(100, 8000, 30), 0) * 0.1
+```
+
+* * *
+
+See also: LfPar
+
+Categories: Ugen, Oscillator

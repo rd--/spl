@@ -1,8 +1,10 @@
-# LfPulse -- pulse oscillator
+# LfPulse
 
-_LfPulse(freq=440, phase=0, width=0.5)_
+- _LfPulse(freq=440, phase=0, width=0.5)_
 
-A non-band-limited pulse oscillator. Outputs a high value of one and a low value of zero.
+Pulse oscillator.
+A non-band-limited pulse oscillator.
+Outputs a high value of one and a low value of zero.
 
 - freq: frequency in Hertz
 - iphase: initial phase offset in cycles (0..1)
@@ -30,3 +32,10 @@ Compare with band limited Pulse UGen:
 
 ```
 [Pulse(100, 0.3), LfPulse(100, 0, 0.3)] * 0.15
+```
+
+* * *
+
+See also: Pulse, LfSaw
+
+Categories: Ugen

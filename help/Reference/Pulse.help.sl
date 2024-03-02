@@ -1,6 +1,6 @@
-# Pulse -- band limited pulse wave
+# Pulse
 
-_Pulse(freq=440, width=0.5)_
+- _Pulse(freq=440, width=0.5)_
 
 Band limited pulse wave generator with pulse width modulation.
 
@@ -25,3 +25,8 @@ Two band limited square waves thru a resonant low pass filter:
 Rlpf(Pulse([100, 250], 0.5) * 0.1, XLine(8000, 400, 5), 0.05)
 ```
 
+* * *
+
+See also: LfPulse, SinOsc, Saw
+
+Categories: Ugen
