@@ -26,6 +26,8 @@ See also: negated, isPositive
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Negative.html)
-[2](https://reference.wolfram.com/language/ref/Negative.html)
+[2](https://reference.wolfram.com/language/ref/Negative.html),
+_Smalltalk_
+5.6.2.23
 
 Categories: Math

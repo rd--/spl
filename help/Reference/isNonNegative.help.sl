@@ -13,4 +13,8 @@ Answers `true` if _aNumber_ is greater than or equal to zero.
 
 See also: >=, isNegative, isPositive, isZero, zero
 
+References:
+_Smalltalk_
+5.6.2.24
+
 Categories: Testing

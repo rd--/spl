@@ -39,4 +39,8 @@ true
 
 See also: basicAsSet, Collection, isImmediate, Set
 
+References:
+_Smalltalk_
+5.7.1.7
+
 Categories: Converting

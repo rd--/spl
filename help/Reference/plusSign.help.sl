@@ -71,6 +71,8 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/plus),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Plus.html)
-[2](https://reference.wolfram.com/language/ref/Plus.html)
+[2](https://reference.wolfram.com/language/ref/Plus.html),
+_Smalltalk_
+5.6.2.2
 
 Categories: Mathematical operator

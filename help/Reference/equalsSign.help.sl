@@ -81,6 +81,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Equal.html)
 [2](https://mathworld.wolfram.com/Equivalent.html)
 [3](https://reference.wolfram.com/language/ref/Equal.html),
+_Smalltalk_
+5.3.1.1,
 _W_
 [1](https://en.wikipedia.org/wiki/Logical_biconditional)
 

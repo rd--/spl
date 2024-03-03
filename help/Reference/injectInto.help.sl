@@ -41,6 +41,8 @@ See also: foldLeft, foldRight, reduce
 
 References:
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:foldl)
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:foldl),
+_Smalltalk_
+5.7.1.16
 
 Categories: Enumerating

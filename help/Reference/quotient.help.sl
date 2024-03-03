@@ -86,6 +86,8 @@ _Haskell_:
 _Mathematica_
 [1](https://mathworld.wolfram.com/IntegerDivision.html)
 [2](https://mathworld.wolfram.com/Quotient.html)
-[3](https://reference.wolfram.com/language/ref/Quotient.html)
+[3](https://reference.wolfram.com/language/ref/Quotient.html),
+_Smalltalk_
+5.6.2.26
 
 Categories: Math, Arithmetic

@@ -53,4 +53,9 @@ The ternary and quaternary forms answer the result of _aBlock(anObject, ...)_.
 
 See also: also, cull, identity, Value Protocol, with
 
+References:
+_Smalltalk_
+5.4.2.2
+5.4.4.2
+
 Categories: Evaluating

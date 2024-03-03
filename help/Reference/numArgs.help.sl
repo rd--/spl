@@ -15,10 +15,14 @@ Answer the number of arguments that must be used to evaluate _aBlock_.
 2
 ```
 
-_numArgs_ is used to implement _cull_.
+`numArgs` is used to implement `cull`.
 
 * * *
 
 See also: Block Semantics, cull, value
+
+References:
+_Smalltalk_
+5.4.2.1
 
 Categories: Accessing

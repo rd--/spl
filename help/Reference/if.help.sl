@@ -48,4 +48,8 @@ where there is one.
 
 See also: ifEmpty, ifFalse, ifNil, ifNotNil, ifTrue
 
+References:
+_Smalltalk_
+5.3.3.8
+
 Categories: Evaluating

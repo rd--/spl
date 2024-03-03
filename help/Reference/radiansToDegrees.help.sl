@@ -13,4 +13,8 @@ Convert from radians to degrees.
 
 See also: degreesToRadians
 
+References:
+_Smalltalk_
+5.6.7.12
+
 Categories: Math

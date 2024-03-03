@@ -44,4 +44,10 @@ SinOsc(peak * 200 + 500, 0) * 0.1
 
 * * *
 
+See also: Amplitude, Peak
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/PeakFollower.html)
+
 Categories: Ugen

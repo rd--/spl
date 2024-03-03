@@ -22,6 +22,8 @@ See also: associationsDo, collect, Iterable, keysAndValuesDo, keysDo, timesRepea
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Do.html)
-[2](https://reference.wolfram.com/language/ref/Scan.html)
+[2](https://reference.wolfram.com/language/ref/Scan.html),
+_Smalltalk_
+5.7.1.13
 
 Categories: Enumerating

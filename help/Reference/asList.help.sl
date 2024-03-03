@@ -41,4 +41,8 @@ This should not be defined for scalar values, see _asCollection_.
 
 See also: List, asCollection
 
+References:
+_Smalltalk_
+5.7.1.3
+
 Categories: Converting

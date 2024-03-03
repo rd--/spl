@@ -19,4 +19,8 @@ If the key is absent, add the result of evaluating _aBlock_ to _aDictionary_ at 
 
 See also: at, atIfPresent
 
+References:
+_Smalltalk_
+5.7.2.4
+
 Categories: Accessing

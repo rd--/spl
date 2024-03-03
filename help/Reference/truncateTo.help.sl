@@ -25,4 +25,8 @@ Answer the next multiple of _anotherNumber_ toward zero that is nearest the _aNu
 
 See also: roundTo, truncated
 
+References:
+_Smalltalk_
+5.6.2.42
+
 Categories: Truncating, Rounding

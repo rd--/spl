@@ -21,4 +21,6 @@ See also: bitAnd, bitOr
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/BitXor.html)
+[1](https://reference.wolfram.com/language/ref/BitXor.html),
+_Smalltalk_
+5.6.5.9

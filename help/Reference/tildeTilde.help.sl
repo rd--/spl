@@ -17,4 +17,8 @@ See also: =, ~=, ==
 
 Unicode: U+2262 ≢ Not Identical To
 
+References:
+_Smalltalk_
+5.3.1.4
+
 Categories: Comparing

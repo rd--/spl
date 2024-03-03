@@ -15,7 +15,9 @@ See also: anySatisfy
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/Membership)
+[1](https://aplwiki.com/wiki/Membership),
+_Smalltalk_
+5.7.1.15
 
 Unicode: ∋ U+220B Contains as Member
 

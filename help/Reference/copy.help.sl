@@ -24,4 +24,8 @@ Copy is defined in terms of _shallowCopy_ and _postCopy_.
 
 See also: copyFromTo, copyWith, copyWithout, deepCopy, postCopy, shallowCopy
 
+References:
+_Smalltalk_
+5.3.1.6
+
 Categories: Copying

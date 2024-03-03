@@ -13,4 +13,8 @@ true
 
 See also: asLowerCase, isUpperCase
 
+References:
+_Smalltalk_
+5.3.4.9
+
 Categories: Testing

@@ -68,4 +68,6 @@ _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:gcd),
 _Mathematica_
 [1](https://mathworld.wolfram.com/GreatestCommonDivisor.html)
-[2](https://mathworld.wolfram.com/GCD.html)
+[2](https://mathworld.wolfram.com/GCD.html),
+_Smalltalk_
+5.6.5.12

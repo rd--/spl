@@ -34,7 +34,7 @@ true
 The name of this operator is _ampersand_.
 
 _Note:_
-In Smalltalk the evaluting form is called _and:_ and the non-evaluating form _&_.
+In Smalltalk the evaluating form is called _and:_ and the non-evaluating form _&_.
 In Spl the names are _&_ and _&&_.
 
 * * *
@@ -48,6 +48,8 @@ _Apl_
 [1](https://aplwiki.com/wiki/And),
 _Mathematica_
 [1](https://mathworld.wolfram.com/AND.html)
-[2](https://reference.wolfram.com/language/ref/And.html)
+[2](https://reference.wolfram.com/language/ref/And.html),
+_Smalltalk_
+5.3.3.3
 
 Categories: Logic, Operator

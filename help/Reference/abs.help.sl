@@ -54,6 +54,8 @@ _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=abs),
 _Mathematica_
 [1](https://mathworld.wolfram.com/AbsoluteValue.html)
-[2](https://reference.wolfram.com/language/ref/Abs.html)
+[2](https://reference.wolfram.com/language/ref/Abs.html),
+_Smalltalk_
+5.6.2.10
 
 Categories: Arithmetic

@@ -71,7 +71,7 @@ See also: ^, log
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/Exponential)
+[1](https://aplwiki.com/wiki/Exponential),
 _Dlmf_
 [1](https://dlmf.nist.gov/4.2#iii),
 _J_
@@ -80,4 +80,8 @@ _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=exp),
 _Mathematica_
 [1](https://mathworld.wolfram.com/ExponentialFunction.html)
-[2](https://reference.wolfram.com/language/ref/Exp.html)
+[2](https://reference.wolfram.com/language/ref/Exp.html),
+_Smalltalk_
+5.6.7.7
+
+Categories: Math

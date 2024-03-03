@@ -20,4 +20,8 @@ true
 
 See also: Error, ifError
 
+References:
+_Smalltalk_
+5.4.3.1
+
 Categories: Exceptions

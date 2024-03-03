@@ -16,4 +16,8 @@ Construct a Range by counting up or down from _start_ to _stop_ by _step_.
 
 See also: downTo, Range, thenTo, to, upOrDownTo, upTo
 
+References:
+_Smalltalk_
+5.6.2.38
+
 Categories: Constructor, Range

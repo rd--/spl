@@ -16,4 +16,8 @@ true
 
 See also: isNil, Nil
 
+References:
+_Smalltalk_
+5.3.1.14
+
 Categories: Testing

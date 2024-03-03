@@ -46,6 +46,8 @@ See also: &, |, ||
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/And)
+[1](https://aplwiki.com/wiki/And),
+_Smalltalk_
+5.3.3.1
 
 Categories: Logic, Operator

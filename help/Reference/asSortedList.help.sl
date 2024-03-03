@@ -23,3 +23,7 @@ At `Set`:
 * * *
 
 See also: SortedList
+
+References:
+_Smalltalk_
+5.7.1.9

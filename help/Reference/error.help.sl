@@ -11,4 +11,8 @@ Generate an _Error_ value and then run _log_ and _signal_ in sequence.
 
 See also: Error, signal
 
+References:
+_Smalltalk_
+5.3.1.8
+
 Categories: Error

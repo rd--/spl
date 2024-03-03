@@ -99,6 +99,8 @@ _Apl_
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/number),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Length.html)
+[1](https://reference.wolfram.com/language/ref/Length.html),
+_Smalltalk_
+5.7.1.23
 
 Categories: Accessing

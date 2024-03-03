@@ -1,8 +1,9 @@
-# LinRand -- random number generator
+# LinRand
 
 - _LinRand(input)_
 - _LinRand(lo=0, hi=1, minmax=0)_
 
+Random number generator.
 Unary form generates noise with a linear distribution between _0_ and _input_.
 
 ```
@@ -16,7 +17,8 @@ let n = LinRand(SinOsc(1 / 2, 0)) * 0.1;
 n.Abs - n
 ```
 
-Ternary form generates a single random float value in linear distribution from _lo_ to _hi_, skewed towards _lo_ if _minmax_ `< 0`, otherwise skewed towards _hi_.
+Ternary form generates a single random float value in linear distribution from _lo_ to _hi_,
+skewed towards _lo_ if _minmax_ `< 0`, otherwise skewed towards _hi_.
 
 ```
 let minmax = MouseX(0, 1, 0, 0.2);
@@ -30,3 +32,9 @@ let minmax = MouseX(0, 1, 0, 0.2);
 * * *
 
 See also: BiLinRand, IRand, NRand, Rand, Rand2
+
+References:
+_Csound_
+[1](https://csound.com/docs/manual/linrand.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LinRand.html)

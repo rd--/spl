@@ -49,4 +49,8 @@ There is [AtPut Sytax] for mutating indexed values:
 
 See also: at, AtPut Syntax, Quoted AtPut Syntax, size
 
+References:
+_Smalltalk_
+5.7.2.5
+
 Categories: Accessing

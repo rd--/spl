@@ -47,4 +47,9 @@ true
 
 See also: add, include, includeAll, Iterable, remove, removeAll
 
+References:
+_Smalltalk_
+5.7.2.1
+5.7.5.2
+
 Categories: Adding

@@ -1,9 +1,8 @@
 # ExpRand
 
+- _ExpRand(lo, hi)_
+
 Random number generator.
-
-_ExpRand(lo, hi)_
-
 Generates a single random float value in an exponential distributions from _lo_ to _hi_.
 
 ```
@@ -19,6 +18,8 @@ o.Splay
 See also: IRand, LinRand, NRand, Rand, TExpRand, TiRand, TRand
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/exprand.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/ExpRand.html)
 

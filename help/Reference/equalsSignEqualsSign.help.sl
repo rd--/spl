@@ -42,6 +42,8 @@ Unicode: U+2261 ≡ Identical To
 
 References:
 _Mathematica_
-[2](https://reference.wolfram.com/language/ref/SameQ.html)
+[2](https://reference.wolfram.com/language/ref/SameQ.html),
+_Smalltalk_
+5.3.1.2
 
 Categories: Comparing

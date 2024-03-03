@@ -17,4 +17,8 @@ nil
 
 See also: at, atIfPresent
 
+References:
+_Smalltalk_
+5.7.2.3
+
 Categories: Accessing

@@ -28,4 +28,8 @@ List:/1
 
 See also: ofSize, newFrom, species
 
+References:
+_Smalltalk_
+5.3.9.1
+
 Categories: Instance Creation

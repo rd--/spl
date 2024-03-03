@@ -9,4 +9,8 @@ If stop is less than start the interval is empty and there are no values to iter
 
 See also: do, downToDo, to, toByDo, upToDo
 
+References:
+_Smalltalk_
+5.6.2.40
+
 Categories: Enumeration, Range

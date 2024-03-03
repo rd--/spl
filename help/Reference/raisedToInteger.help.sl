@@ -51,3 +51,7 @@ Negative exponents:
 * * *
 
 See also: ^
+
+References:
+_Smalltalk_
+5.6.2.28

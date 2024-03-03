@@ -68,4 +68,8 @@ true
 
 See also: addAll, Extensible, include, remove
 
+References:
+_Smalltalk_
+5.7.5.1
+
 Categories: Adding

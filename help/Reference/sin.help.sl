@@ -85,6 +85,8 @@ See also: arcSin, cos, haversine, tan
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Sine.html)
-[2](https://reference.wolfram.com/language/ref/Sin.html)
+[2](https://reference.wolfram.com/language/ref/Sin.html),
+_Smalltalk_
+5.6.7.13
 
 Categories: Math, Trigonometry

@@ -55,6 +55,8 @@ See also: collect, detect, reject
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Predicate.html)
-[2](https://reference.wolfram.com/language/ref/Select.html)
+[2](https://reference.wolfram.com/language/ref/Select.html),
+_Smalltalk_
+5.7.1.22
 
 Categories: Enumerating

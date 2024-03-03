@@ -24,4 +24,8 @@ The name of this operator is _reverseSolidusReverseSolidus_
 
 See also: /, //, quotient, remainder
 
+References:
+_Smalltalk_
+5.6.2.9
+
 Categories: Arithmetic operators

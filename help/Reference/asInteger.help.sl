@@ -47,4 +47,8 @@ In the `String` case answer _parseDecimalInteger_
 
 See also: asBit, asFloat, asNumber, codePoint, parseDecimalInteger, truncated
 
+References:
+_Smalltalk_
+5.6.2.16
+
 Categories: Converting

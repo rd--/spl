@@ -26,4 +26,8 @@ There are equivalent methods for Angle (asRadians) and Frequency (asHertz) and L
 
 See also: Duration, seconds
 
+References:
+_Smalltalk_
+5.8.2.8
+
 Categories: Converting

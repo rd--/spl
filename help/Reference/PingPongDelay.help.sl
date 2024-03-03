@@ -1,14 +1,16 @@
-# PingPongDelay -- stereo ping pong delay
+# PingPongDelay
 
-_PingPongDelay(left, right, maxdelaytime, delaytime, feedback)_
+- _PingPongDelay(left, right, maxDelayTime, delayTime, feedBack)_
 
-Bounces sound between two outputs. PingPong is actually a compound built upon DelayWr, TapN, and TapL.
+Stereo ping pong delay.
+Bounces sound between two outputs.
+PingPong is a pseudo-Ugen built upon `DelayWrite` and `DelayTap`.
 
-- left: left input.
-- right: right input.
-- maxdelaytime: the maximum delay time in seconds. used to initialize the delay buffer sizes.
-- delaytime: delay time in seconds.
-- feedback: feedback coefficient.
+- left: left input
+- right: right input
+- maxDelayTime: the maximum delay time in seconds, used to initialize the delay buffer sizes
+- delayTime: delay time in seconds
+- feedBack: feedback coefficient
 
 Mouse control of delay time:
 
@@ -22,3 +24,8 @@ let right = Mul(
 	Resonz(PinkNoise() * 4, SinOsc(2.7, 0) * 1000 + 2500, 0.2)
 );
 PingPongDelay(left, right, 0.5, MouseX(0.1, 0.5, 0, 0.2), 0.7)
+```
+
+* * *
+
+See also: BufRd, ClearBuf, DelayTap, DelayWrite, LocalBuf, Phasor, RecordBuf, SampleRate, Wrap

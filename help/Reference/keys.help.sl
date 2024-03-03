@@ -15,4 +15,8 @@ See also: associations, Dictionary, indices, values
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Keys.html)
+[1](https://reference.wolfram.com/language/ref/Keys.html),
+_Smalltalk_
+5.7.2.10
+
+Categories: Accessing

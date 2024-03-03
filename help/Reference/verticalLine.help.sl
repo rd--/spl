@@ -58,6 +58,8 @@ _Apl_
 _Mathematica_
 [1](https://mathworld.wolfram.com/OR.html)
 [2](https://reference.wolfram.com/language/ref/Or.html),
+_Smalltalk_
+5.3.3.10,
 _W_
 [1](https://en.wikipedia.org/wiki/Logical_disjunction)
 

@@ -74,6 +74,8 @@ See also: integerPart, truncated
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/FractionalPart.html)
-[2](https://reference.wolfram.com/language/ref/FractionalPart.html)
+[2](https://reference.wolfram.com/language/ref/FractionalPart.html),
+_Smalltalk_
+5.6.2.20
 
 Categories: Truncation, Rounding

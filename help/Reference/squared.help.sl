@@ -19,3 +19,7 @@ The inverse is _sqrt_:
 * * *
 
 See also: *, sqrt
+
+References:
+_Smalltalk_
+5.6.2.35

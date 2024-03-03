@@ -27,4 +27,8 @@ true
 
 See also: detectIfNone, findFirst, reject, select
 
+References:
+_Smalltalk_
+5.7.1.11
+
 Categories: Enumerating

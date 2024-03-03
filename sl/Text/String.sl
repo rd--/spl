@@ -417,6 +417,12 @@ String! : [Object, Json, Iterable] {
 		<primitive: return _self.includes(_aString);>
 	}
 
+	isAlphaNumeric { :self |
+		self.isDigit | {
+			self.isLetter
+		}
+	}
+
 	isAsciiString { :self |
 		self.allSatisfy(isAscii:/1)
 	}

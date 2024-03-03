@@ -15,4 +15,8 @@ Evaluate _aBlock_ with each key of _aDictionary_ as the argument.
 
 See also: associationsDo, do, keysAndValuesDo, valuesDo
 
+References:
+_Smalltalk_
+5.7.2.12
+
 Categories: Enumerating

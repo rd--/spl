@@ -35,4 +35,10 @@ For streams, answers true if both the set of past and future sequence values are
 
 See also: ifEmpty, notEmpty, size
 
+References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:null),
+_Smalltalk_
+5.7.1.17
+
 Categories: Testing

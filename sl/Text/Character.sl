@@ -70,6 +70,12 @@ Character : [Object, Magnitude] { | string codePoint |
 		digitValues[integerValue + 1]
 	}
 
+	isAlphaNumeric { :self |
+		self.isDigit | {
+			self.isLetter
+		}
+	}
+
 	isAscii { :self |
 		self.codePoint < 128
 	}
@@ -78,8 +84,16 @@ Character : [Object, Magnitude] { | string codePoint |
 		self.codePoint = 13
 	}
 
+	isDigit { :self |
+		self.string.isDigit
+	}
+
 	isFormFeed { :self |
 		self.codePoint = 12
+	}
+
+	isLetter { :self |
+		self.string.isLetter
 	}
 
 	isLineFeed { :self |
@@ -88,6 +102,18 @@ Character : [Object, Magnitude] { | string codePoint |
 
 	isLowerCaseAscii { :self |
 		self.codePoint.betweenAnd(97, 122)
+	}
+
+	isSeparator { :self |
+		[1 9 10 12 13 32].includes(self.codePoint)
+	}
+
+	isSpace { :self |
+		self.codePoint = 32
+	}
+
+	isStartOfHeading { :self |
+		self.codePoint = 1
 	}
 
 	isUpperCaseAscii { :self |

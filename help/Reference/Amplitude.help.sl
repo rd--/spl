@@ -30,3 +30,9 @@ SinOsc(
 	0
 ) * 0.2
 ```
+
+* * *
+
+See also: PeakFollower
+
+Categories: Ugen

@@ -2,7 +2,7 @@
 
 - _Delay1(in)_
 
-Single sample delay
+Single sample delay.
 
 - in: sample to be delayed.
 
@@ -14,6 +14,8 @@ let z = Dust(1000);
 ```
 
 * * *
+
+See also: DelayC, DelayL, DelayN, Delay2, DelayTap, DelayWrite
 
 References:
 _Csound_

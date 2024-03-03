@@ -19,4 +19,8 @@ See also: closeTo, pi, veryCloseTo
 
 Unicode: U+03B5 ε Greek Small Letter Epsilon
 
+References:
+_Smalltalk_
+5.6.8.5
+
 Categories: Math

@@ -111,6 +111,8 @@ _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=invtrig),
 _Mathematica_
 [1](https://mathworld.wolfram.com/ArcTan.html)
-[2](https://reference.wolfram.com/language/ref/ArcTan.html)
+[2](https://reference.wolfram.com/language/ref/ArcTan.html),
+_Smalltalk_
+5.6.7.4
 
 Categories: Math, Trigonometry

@@ -40,7 +40,9 @@ _Apl_
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/ltco#dyadic),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/LessEqual.html)
+[1](https://reference.wolfram.com/language/ref/LessEqual.html),
+_Smalltalk_
+5.6.1.2
 
 Unicode: U+2264 ≤ Less-than or equal to
 

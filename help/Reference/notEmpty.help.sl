@@ -30,4 +30,8 @@ false
 
 See also: isEmpty, size
 
+References:
+_Smalltalk_
+5.7.1.18
+
 Categories: Testing

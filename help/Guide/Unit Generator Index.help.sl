@@ -1,8 +1,21 @@
 # Unit Generator Index
 
+## Analysis
+
+- `Fft`, `Ifft`
+- `Amplitude`, `PeakFollower`
+- `Pitch`, `ZeroCrossing`
+- `Slope`
+
 ## Butterworth Filters
 
 - `Bpf`, `Brf`, `Hpf`, `Lpf`
+
+## Delay
+
+- `Delay1`, `Delay2`
+- `DelayC`, `DelayL`, `DelayN`
+- `DelayTap`, `DelayWrite`
 
 ## Envelopes
 

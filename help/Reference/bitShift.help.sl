@@ -19,3 +19,7 @@ Negative values shift right, towards least significant:
 * * *
 
 See also: <<, >>, bitShiftLeft, bitShiftRight
+
+References:
+_Smalltalk_
+5.6.5.8

@@ -1,16 +1,11 @@
-# RecordBuf -- recording
+# RecordBuf
+
+- _RecordBuf(bufnum=0, offset=0, recLevel=1, preLevel=0, run=1, loop=1, trigger=1, doneAction=0, inputList)_
 
 Records input into a Buffer.
-
 If recLevel is 1 and preLevel is 0 then the new input overwrites the old data.
 If they are both 1 then the new data is added to the existing data.
 (Any other settings are also valid.)
-
-Note:
-The number of channels is fixed,
-it cannot vary depending on which buffer you use.
-
-_RecordBuf(bufnum=0, offset=0, recLevel=1, preLevel=0, run=1, loop=1, trigger=1, doneAction=0, inputList)_
 
 - inputList: A List of input channels.
 - bufnum: The index of the buffer to use.
@@ -21,3 +16,11 @@ _RecordBuf(bufnum=0, offset=0, recLevel=1, preLevel=0, run=1, loop=1, trigger=1,
 - loop: If 1 then loop, otherwise do not. This is modulatable.
 - trigger: a trigger causes a jump to the start of the Buffer
 - doneAction: an integer representing an action to be executed when the buffer is finished recording.
+
+_Note_:
+The number of channels is fixed, it cannot vary depending on which buffer you use.
+
+* * *
+
+
+Categories: Recording

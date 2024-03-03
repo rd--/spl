@@ -1,4 +1,4 @@
-# removeAll -- removing
+# removeAll
 
 - _removeAll(aCollection)_
 
@@ -13,3 +13,9 @@ Multiples of items in _aCollection_ will not necessarily be removed.
 * * *
 
 See also: remove, removeAllFoundIn
+
+References:
+_Smalltalk_
+5.7.5.5
+
+Categories: Removing

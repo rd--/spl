@@ -16,4 +16,8 @@ Convert _aCollection_ to a `Bag`.
 
 See also: Bag, sortedCounts, sortedElements
 
+References:
+_Smalltalk_
+5.7.1.4
+
 Categories: Converting

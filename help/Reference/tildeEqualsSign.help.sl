@@ -36,6 +36,8 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/tildeco#dyadic),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Unequal.html),
+_Smalltalk_
+5.3.1.3,
 _W_
 [1](https://en.wikipedia.org/wiki/Exclusive_or)
 

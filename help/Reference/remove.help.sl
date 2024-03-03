@@ -1,4 +1,4 @@
-# remove -- removing
+# remove
 
 - _remove(aCollection, oldObject)_
 
@@ -8,3 +8,9 @@ Answer _oldObject_ unless no element is equal to _oldObject_, in which case, rai
 * * *
 
 See also: add, removeAll
+
+References:
+_Smalltalk_
+5.7.5.3
+
+Categories: Removing

@@ -18,6 +18,10 @@ let a = SinOsc(SinOsc(1, 0) * 600 + 700, 0) * 0.1;
 
 * * *
 
+See also: Pitch
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/ZeroCrossing.html)
+
+Categories: Ugen

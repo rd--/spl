@@ -1,4 +1,4 @@
-# reject -- enumerating
+# reject
 
 - _reject(aCollection, aBlock:/1)_
 
@@ -11,3 +11,9 @@ Answer the new collection.
 * * *
 
 See also: collect, detect, select
+
+References:
+_Smalltalk_
+5.7.1.21
+
+Categories: Enumerating

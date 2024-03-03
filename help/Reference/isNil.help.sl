@@ -16,4 +16,8 @@ false
 
 See also: Nil, notNil
 
+References:
+_Smalltalk_
+5.3.1.13
+
 Categories: Testing

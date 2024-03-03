@@ -32,6 +32,8 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/minus),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Negative.html)
-[2](https://reference.wolfram.com/language/ref/Minus.html)
+[2](https://reference.wolfram.com/language/ref/Minus.html),
+_Smalltalk_
+5.6.2.22
 
 Categories: Arithmetic

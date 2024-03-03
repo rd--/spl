@@ -34,4 +34,8 @@ See also: e, Mathematical Constants, pi
 
 Unicode: U+03C0 π Greek Small Letter Pi
 
+References:
+_Smalltalk_
+5.6.8.10
+
 Categories: Math, Constant

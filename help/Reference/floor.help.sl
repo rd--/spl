@@ -37,6 +37,8 @@ _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:floor),
 _Mathematica_
 [1](https://mathworld.wolfram.com/FloorFunction.html)
-[2](https://reference.wolfram.com/language/ref/Floor.html)
+[2](https://reference.wolfram.com/language/ref/Floor.html),
+_Smalltalk_
+5.6.2.19
 
 Categories: Truncating, Rounding

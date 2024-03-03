@@ -1,4 +1,4 @@
-# keyAtValueIfAbsent -- accessing
+# keyAtValueIfAbsent
 
 - _keyAtValueIfAbsent(aDictionary, value, aBlock:/0)_
 
@@ -8,3 +8,9 @@ If there is none, evaluate and answer _aBlock_.
 * * *
 
 See also: keyAtValue
+
+References:
+_Smalltalk_
+5.7.2.8
+
+Categories: Accessing

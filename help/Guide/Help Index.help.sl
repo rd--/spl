@@ -41,6 +41,13 @@
 - `false`, `true`
 - `boole`
 - `allSatisfy`, `anySatisfy`, `noneSatisfy`
+- `if`, `ifFalse`, `ifTrue`
+
+## Character
+
+- `asLowerCase`, `asString`, `asUpperCase`
+- `codePoint`
+- `isAlphaNumeric`, `isDigit`, `isLetter`, `isLowerCase`, `isUpperCase`
 
 ## Collection Tests
 

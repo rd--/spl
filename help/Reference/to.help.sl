@@ -2,7 +2,7 @@
 
 - _to(start, stop)_
 
-Construct a `Range` by counting up from _start_ up to _stop_ by `one`.
+Construct a `Range` by counting from _start_ up to _stop_ by `one`.
 
 ```
 >>> 1.to(5).asList
@@ -19,5 +19,9 @@ If _stop_ is less than _start_ the `Range` is empty:
 * * *
 
 See also: downTo, Range, thenTo, toBy, upTo, upOrDownTo
+
+References:
+_Smalltalk_
+5.6.2.37
 
 Categories: Constructor, Range

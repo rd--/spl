@@ -39,6 +39,8 @@ See also: arcTan, cos, sin, tanh
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Tangent.html)
-[2](https://reference.wolfram.com/language/ref/Tan.html)
+[2](https://reference.wolfram.com/language/ref/Tan.html),
+_Smalltalk_
+5.6.7.14
 
 Categories: Math, Trigonometry

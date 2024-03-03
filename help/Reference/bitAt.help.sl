@@ -33,4 +33,6 @@ See also: bitAtPut, bitClear, BitSet, highBit, integerDigits
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/BitGet.html)
+[1](https://reference.wolfram.com/language/ref/BitGet.html),
+_Smalltalk_
+5.6.5.5

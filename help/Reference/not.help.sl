@@ -41,7 +41,9 @@ See also: false, true
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/Not)
+[1](https://aplwiki.com/wiki/Not),
+_Smalltalk_
+5.3.3.9
 
 Unicode: U+007E ~ TILDE, U+00AC ¬ Not sign
 

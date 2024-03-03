@@ -32,6 +32,8 @@ References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:all),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/AllTrue.html)
+[1](https://reference.wolfram.com/language/ref/AllTrue.html),
+_Smalltalk_
+5.7.1.1
 
 Categories: Testing

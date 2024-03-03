@@ -32,4 +32,8 @@ At `LargeInteger`:
 
 See also: asInteger, asNumber
 
+References:
+_Smalltalk_
+5.6.2.11
+
 Categories: Converting

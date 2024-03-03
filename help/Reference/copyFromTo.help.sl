@@ -11,4 +11,8 @@ inclusive of both.
 
 See also: copy, copyWith, copyWithout
 
+References:
+_Smalltalk_
+5.7.8.7
+
 Categories: Copying

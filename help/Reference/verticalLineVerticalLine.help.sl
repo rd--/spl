@@ -63,7 +63,9 @@ See also: &, &&, |
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/Or)
+[1](https://aplwiki.com/wiki/Or),
+_Smalltalk_
+5.3.3.2
 
 Unicode: U+2228 ∨ Logical or
 

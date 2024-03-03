@@ -4,12 +4,13 @@
 
 Leaky integrator.
 Integrates an input signal with a leak.
-The formula implemented is:
-
-> _out(0) = in(0) + (leak * out(-1))_
 
 - in: input signal
 - leak: leak coefficient.
+
+The formula implemented is:
+
+> _out(0) = in(0) + (leak * out(-1))_
 
 As filter:
 
@@ -25,5 +26,10 @@ Integrator(LfPulse(3, 0, 0.2) * 0.0004, 0.999) * FSinOsc(700, 0)
 
 * * *
 
+See also: Slope
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Integrator.html)
 
 Categories: Ugen, Math, Filter, Control

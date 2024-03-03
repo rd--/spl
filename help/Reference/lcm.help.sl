@@ -76,4 +76,6 @@ _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:lcm),
 _Mathematica_
 [1](https://mathworld.wolfram.com/LeastCommonMultiple.html)
-[2](https://mathworld.wolfram.com/LCM.html)
+[2](https://mathworld.wolfram.com/LCM.html),
+_Smalltalk_
+5.6.5.14

@@ -82,6 +82,8 @@ See also: asString, storeString
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/ToString.html)
+[1](https://reference.wolfram.com/language/ref/ToString.html),
+_Smalltalk_
+5.3.1.18
 
 Categories: Printing

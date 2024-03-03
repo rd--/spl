@@ -66,6 +66,8 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/star),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Sign.html)
-[2](https://reference.wolfram.com/language/ref/Sign.html)
+[2](https://reference.wolfram.com/language/ref/Sign.html),
+_Smalltalk_
+5.6.2.33
 
 Categories: Mathematical functions

@@ -39,6 +39,8 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/gt#dyadic),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Greater.html),
+_Smalltalk_
+5.6.1.3,
 _W_
 [1](https://en.wikipedia.org/wiki/Material_nonimplication)
 

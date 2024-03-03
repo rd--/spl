@@ -1,8 +1,8 @@
 # Delay2
 
-Two sample delay.
+- _Delay2(in)_
 
-_Delay2(in)_
+Two sample delay.
 
 - in: sample to be delayed.
 
@@ -15,7 +15,7 @@ let z = Dust(1000);
 
 * * *
 
-See also: Delay1
+See also: Delay1, DelayC, DelayL, DelayN
 
 References:
 _SuperCollider_

@@ -18,4 +18,8 @@ The name of this operator is _solidusSolidus_.
 
 See also: /, quotient, remainder
 
+References:
+_Smalltalk_
+5.6.2.5
+
 Categories: Math, Operator

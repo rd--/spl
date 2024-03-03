@@ -50,4 +50,8 @@ See also: ++, concatenation
 
 Unicode: U+29FA ⧺ Double plus
 
+References:
+_Smalltalk_
+5.7.8.1
+
 Categories: Copying

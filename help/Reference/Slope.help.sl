@@ -4,11 +4,12 @@
 
 Slope of signal.
 Measures the rate of change per second of a signal.
+
+- in: input signal to measure.
+
 Formula implemented is:
 
 > _out[i] = (in[i] - in[i-1]) * samplingRate_
-
-- in: input signal to measure.
 
 Noise and derivatives control frequency of sine oscillator:
 
@@ -25,9 +26,14 @@ let freq = [a, b * scale, c * scale.squared] * 100 + 200;
 SinOsc(freq, 0).Splay * 0.1
 ```
 
-For another example of Slope see `Hypot`.
+For another example of `Slope` see `Hypot`.
 
 * * *
 
+See also: Integrator
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Slope.html)
 
 Categories: Ugen

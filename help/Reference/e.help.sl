@@ -35,6 +35,8 @@ See also: exp, log, Mathematical Constants, pi
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/e.html)
+[1](https://mathworld.wolfram.com/e.html),
+_Smalltalk_
+5.6.8.2
 
 Categories: Math, Constant

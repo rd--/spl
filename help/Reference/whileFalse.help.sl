@@ -14,4 +14,9 @@ In the unary case, simply evaluate _condition_ repeatedly as long as it answers 
 
 See also: if, ifEmpty, ifFalse, ifNil, ifNotNil, ifTrue, whileTrue
 
+References:
+_Smalltalk_
+5.4.2.3
+5.4.2.4
+
 Categories: Evaluating

@@ -59,6 +59,8 @@ See also: arcCosh, arcSin, cos, sin, tan
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/InverseCosine.html)
-[2](https://reference.wolfram.com/language/ref/ArcCos.html)
+[2](https://reference.wolfram.com/language/ref/ArcCos.html),
+_Smalltalk_
+5.6.7.2
 
 Categories: Math, Trigonometry

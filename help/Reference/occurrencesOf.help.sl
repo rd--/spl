@@ -43,4 +43,8 @@ At `String`:
 
 See also: includes, indicesOf
 
+References:
+_Smalltalk_
+5.7.1.19
+
 Categories: Testing

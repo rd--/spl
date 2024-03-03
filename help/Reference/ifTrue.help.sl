@@ -16,4 +16,8 @@ If _aBoolean_ is _true_ answer the result of  _aBlock()_, else answer _nil_.
 
 See also: if, ifEmpty, ifFalse, ifNil, ifNotNil
 
+References:
+_Smalltalk_
+5.3.3.7
+
 Categories: Evaluating

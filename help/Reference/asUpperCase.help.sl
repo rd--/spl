@@ -16,4 +16,8 @@ Answer a `String` made up from _aString_ whose characters are all uppercase.
 
 See also: asLowerCase
 
+References:
+_Smalltalk_
+5.3.4.4
+
 Categories: Converting

@@ -15,4 +15,8 @@ Apply _aBlock_ to each `key` and `value` of _aDictionary_.
 
 See also: associationsDo, do, keysDo, valuesDo, withIndexDo
 
+References:
+_Smalltalk_
+5.7.2.11
+
 Categories: Enumerating

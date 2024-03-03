@@ -15,4 +15,8 @@ nil
 
 See also: detect, findFirst, reject, select
 
+References:
+_Smalltalk_
+5.7.1.12
+
 Categories: Enumerating

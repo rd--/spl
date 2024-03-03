@@ -34,4 +34,8 @@ Answer the integer nearest _aNumber_.
 
 See also: ceiling, floor
 
+References:
+_Smalltalk_
+5.6.2.31
+
 Categories: Truncating and rounding

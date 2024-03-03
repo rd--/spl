@@ -30,6 +30,8 @@ See also: divisible, isEven, isInteger
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/OddQ.html)
+[1](https://reference.wolfram.com/language/ref/OddQ.html),
+_Smalltalk_
+5.6.5.16
 
 Categories: Testing
