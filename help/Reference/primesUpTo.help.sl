@@ -2,7 +2,7 @@
 
 - _primesUpTo(anInteger)_
 
-Answer a List of the prime numbers up to the limit _anInteger_.
+Answer a `List` of the prime numbers up to the limit _anInteger_.
 
 ```
 >>> 100.primesUpTo

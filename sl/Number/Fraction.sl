@@ -170,6 +170,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.numerator.isNegative
 	}
 
+	isZero { :self |
+		self.numerator.isZero
+	}
+
 	lcm { :self :aFraction |
 		aFraction.isFraction.if {
 			self // self.gcd(aFraction) * aFraction

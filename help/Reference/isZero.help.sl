@@ -12,7 +12,17 @@ true
 false
 ```
 
-At Complex:
+At `Fraction`:
+
+```
+>>> 3/4.isZero
+false
+
+>>> 0/3.isZero
+true
+```
+
+At `Complex`:
 
 ```
 >>> 0j0.isZero

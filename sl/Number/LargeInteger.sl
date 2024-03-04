@@ -173,6 +173,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		(self % 2n) = 1n
 	}
 
+	isZero { :self |
+		self = 0n
+	}
+
 	one { :self |
 		1n
 	}

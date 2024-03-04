@@ -883,7 +883,7 @@ system.includesPackage('Character') {- character package -}
 '𠮷'.asCharacter.string = '𠮷'
 '𠮷'.asCharacter.codePoint = 134071
 134071.asCharacter.string = '𠮷'
-'䶰䶱䶲䶳䶴䶵'.characterList.collect(codePoint:/1) = [19888 .. 19893]
+'䶰䶱䶲䶳䶴䶵'.characters.collect(codePoint:/1) = [19888 .. 19893]
 'x'.asCharacter = 120.asCharacter {- characters are comparable -}
 'x'.asCharacter.asInteger = 120
 'x'.asCharacter.printString = '$x'
@@ -902,14 +902,14 @@ system.includesPackage('Character') {- character package -}
 { 'xy'.asCharacter }.ifError { true } {- it is an error is the string is not a single Character -}
 let c = '𠮷'.asCharacter; c = c.copy & { c ~~ c.copy } {- copy is equal but not identical -}
 92.asCharacter.string = '\\' {- escaped character -}
-'0123456789abcdef'.characterList.collect(digitValue:/1) = [0 .. 15] {- digit value of character -}
+'0123456789abcdef'.characters.collect(digitValue:/1) = [0 .. 15] {- digit value of character -}
 0:15.collect(digitValue:/1).join = '0123456789ABCDEF' {- character of given digit value -}
 { 36.digitValue }.ifError { true } {- error if integer is out of range -}
 'x'.asCharacter.asUpperCase = 'X'.asCharacter {- to upper case -}
 'X'.asCharacter.asLowerCase = 'x'.asCharacter {- to lower case -}
 let s = 'string'; let a = []; a.addAll(s); a.size = 6 {- add elements from String to end of List -}
-'fgaguzst'.characterList.minMax = ['a'.asCharacter, 'z'.asCharacter] {- character minMax -}
-'alphabet'.characterList.collect(isVowel:/1) = [true, false, false, false, true, false, true, false] {- is character a vowel -}
+'fgaguzst'.characters.minMax = ['a'.asCharacter, 'z'.asCharacter] {- character minMax -}
+'alphabet'.characters.collect(isVowel:/1) = [true, false, false, false, true, false, true, false] {- is character a vowel -}
 'x'.asCharacter.zero = ' '.asCharacter
 ```
 
@@ -1318,16 +1318,16 @@ let b = [1, 2].asByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } {
 ## Date -- temporal type
 ```
 system.includesPackage('Date') {- date package -}
-Date(system).typeOf = 'Date' {- type of Date, system constructor gets current date and time -}
+system.now.asDate.typeOf = 'Date' {- type of Date, system constructor gets current date and time -}
 0.asDate.isDate {- Date type predicate, number constructor accepts time from epoch in seconds -}
 (60 * 60 * 12).asDate.iso8601 = '1970-01-01T12:00:00.000Z' {- translate Date to ISO-8601 string -}
 '1970-01-01T00:00:01.000Z'.parseDate.unixTimeInMilliseconds = 1000 {- parse ISO-8601 string & convert to unix time -}
 let d = 0.asDate; [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] {- month and day are one-indexed -}
 let d = 0.asDate; [d.hour + (d.offsetSeconds / 60 / 60), d.minute, d.second] = [0, 0, 0] {- hour is in local time -}
 0.asDate = 0.asDate {- dates are comparable -}
-0.asDate ~= Date(system) {- dates are comparable -}
-0.asDate < Date(system) {- dates are magnitudes -}
-Date(system) > 0.asDate {- dates are magnitudes -}
+0.asDate ~= system.now.asDate {- dates are comparable -}
+0.asDate < system.now.asDate {- dates are magnitudes -}
+system.now.asDate > 0.asDate {- dates are magnitudes -}
 '2023-05-11'.parseDate.iso8601 = '2023-05-11T00:00:00.000Z' {- read date from partial ISO-8601 string -}
 ```
 
@@ -1681,7 +1681,8 @@ Fraction(-4, -12).normalized = 1/3
 1/1.primeLimit = 0 {- by convention the prime limit of one is zero -}
 64/33.primeFactors = [2, 2, 2, 2, 2, 2, 1/3, 1/11] {- the factors of the denominator are fractions -}
 64/33.primeFactors.product = 64/33 {- the product of the factors is the fraction -}
-3/8.primeFactorization = [2 -> -3, 3 -> 1] {- factors of fraction -}
+3/8.primeFactors = [3 1/2 1/2 1/2] {- factors of fraction -}
+3/8.factorInteger = [2 -> -3, 3 -> 1] {- factors of fraction -}
 ```
 
 ## Frequency -- temporal type
@@ -1821,15 +1822,15 @@ system.cache::primesList[23] = 83 {- nthPrime extends the primesList cache as re
 10071203840.primeFactors.asBag.sortedElements = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1] {- prime factor histogram -}
 6606028800.primeFactors.asBag.sortedCounts = [22 -> 2, 2 -> 5, 2 -> 3, 1 -> 7]
 8589298611.primeFactors = [3, 2863099537] {- large prime factors -}
-120.primeFactorization = [2 -> 3, 3 -> 1, 5 -> 1]
-60.primeFactorization = [2 -> 2, 3 -> 1, 5 -> 1]
-36.primeFactorization = [2 -> 2, 3 -> 2]
-20.factorial.primeFactorization = [2 -> 18, 3 -> 8, 5 -> 4, 7 -> 2, 11 -> 1, 13 -> 1, 17 -> 1, 19 -> 1]
-2401.primeFactorization = [7 -> 4]
-2434500.primeFactorization.collect(key:/1) = [2, 3, 5, 541] {- prime divisors -}
+120.factorInteger = [2 -> 3, 3 -> 1, 5 -> 1]
+60.factorInteger = [2 -> 2, 3 -> 1, 5 -> 1]
+36.factorInteger = [2 -> 2, 3 -> 2]
+20.factorial.factorInteger = [2 -> 18, 3 -> 8, 5 -> 4, 7 -> 2, 11 -> 1, 13 -> 1, 17 -> 1, 19 -> 1]
+2401.factorInteger = [7 -> 4]
+2434500.factorInteger.collect(key:/1) = [2, 3, 5, 541] {- prime divisors -}
 2434500.primeDivisors = [2, 3, 5, 541] {- prime divisors -}
-6.factorial.primeFactorization = [2 -> 4, 3 -> 2, 5 -> 1]
-324.primeFactorization = [2 -> 2, 3 -> 4] {- powerful numbers are numbers whose prime factors are all repeated -}
+6.factorial.factorInteger = [2 -> 4, 3 -> 2, 5 -> 1]
+324.factorInteger = [2 -> 2, 3 -> 4] {- powerful numbers are numbers whose prime factors are all repeated -}
 2401.isPrimePower {- the factorization has one place and the base is a prime number -}
 2:49.select(isPrimePower:/1) = [2 3 4 5 7 8 9 11 13 16 17 19 23 25 27 29 31 32 37 41 43 47 49] {- A246655 in the OEIS -}
 1.isPrimePower = false {- one is not a prime power -}
@@ -1839,7 +1840,7 @@ system.cache::primesList[23] = 83 {- nthPrime extends the primesList cache as re
 1:22.select { :each | each.isAlmostPrime(2) } = [4, 6, 9, 10, 14, 15, 21, 22] {- A001358 -}
 1:449.select { :each | each.isAlmostPrime(7) } = [128, 192, 288, 320, 432, 448] {- A046308 -}
 1:5121.select { :each | each.isAlmostPrime(11) } = [2048, 3072, 4608, 5120] {- A069272 -}
-(10 ^ 12 + 3).primeFactorization = [61 -> 1, 14221 -> 1, 1152763 -> 1] {- moderately large number -}
+(10 ^ 12 + 3).factorInteger = [61 -> 1, 14221 -> 1, 1152763 -> 1] {- moderately large number -}
 2:30.select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30]
 2:15.select { :each | each.primeLimit <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
 1.primeLimit = 0{- by convention the prime limit of one is zero -}
@@ -1847,7 +1848,7 @@ system.cache::primesList[23] = 83 {- nthPrime extends the primesList cache as re
 2971215073.isPrime = true {- prime number predicate -}
 2971215073.nextPrime = 2971215083 & { 2971215083.isPrime } {- find next prime -}
 13.primesUpTo = [2 3 5 7 11 13] {- primes up to limit, if limit is prime it is the last element -}
-42.primesUpTo = [2 3 5 711 13 17 19 23 29 31 37 41] {- if limit is not prime, the last element is the previous prime -}
+42.primesUpTo = [2 3 5 7 11 13 17 19 23 29 31 37 41] {- if limit is not prime, the last element is the previous prime -}
 35.isCoprime(64)
 1173.isCoprime(1547).not
 17.isPrime = true {- is number prime -}
@@ -3533,16 +3534,16 @@ let s = 'string'; [s[2], s[4], s[5]].join = 'tin' {- string subscripting -}
 ' x '.withoutTrailingBlanks = ' x'
 let a = []; 'string'.do { :each | a.add(each) }; a.join = 'string'
 'string'.contents.join = 'string'
-let a = 'string'.characterList; a.joinCharacters = 'string' & { a.join = 'string' }
+let a = 'string'.characters; a.joinCharacters = 'string' & { a.join = 'string' }
 '𠮷'.countCharacters = 1
 '𠮷'.countUtf16CodeUnits = 2
 '𠮷'.size = 2
 '𠮷'.isSingleCharacter = true
-'𠮷'.characterList = ['𠮷'.asCharacter]
+'𠮷'.characters = ['𠮷'.asCharacter]
 '𠮷'.codePointAt(1) = 134071 {- code point at index -}
 '𠮷'.codePointAt(2) = 57271
 '𠮷'.codePointAt(3) = nil {- nil for out of range indices -}
-'𠮷'.codePointList = [134071]
+'𠮷'.codePoints = [134071]
 '𠮷'.isInBasicMultilingualPlane = false
 '𠮷'.isWellFormed = true
 { '𠮷'.asciiByteArray }.ifError { true } {- non-ascii character -}
@@ -3556,7 +3557,7 @@ let a = 'string'.characterList; a.joinCharacters = 'string' & { a.join = 'string
 { 'xy'.asciiValue }.ifError { true } {- it is an error is the string is not a single character -}
 { '𠮷'.asciiValue }.ifError { true } {- it is an error is the character is not ascii -}
 'string'.contents = ['s' 't' 'r' 'i' 'n' 'g'] {- the contents of a string is a list of one element strings -}
-'string'.characterList = [115, 116, 114, 105, 110, 103].collect(asCharacter:/1)
+'string'.characters = [115, 116, 114, 105, 110, 103].collect(asCharacter:/1)
 'Gnu/Linux'.findString('Linux') = 5
 'Gnu/Linux'.findStringStartingAt('Linux', 1) = 5
 'Hello'.isEmpty = false
@@ -4031,13 +4032,13 @@ let x = 1; let y = 2; x < y {- initialisers are written as name = value -}
 system.includesPackage('TimeStamp') {- timestamp package -}
 1676784053576.asTimeStamp.printString = '1676784053576.asTimeStamp' {- make TimeStamp from Number of milliseconds since unix epoch -}
 1676784053576.asTimeStamp.iso8601 = '2023-02-19T05:20:53.576Z' {- convert TimeStamp to ISO-8601 string -}
-system.unixTime.isTimeStamp = true {- get current time at system -}
-system.unixTime.iso8601.size = 24
+system.now.isTimeStamp = true {- get current time at system -}
+system.now.iso8601.size = 24
 1676784053576.asTimeStamp.roundTo(24.hours).iso8601 = '2023-02-19T00:00:00.000Z' {- round to duration -}
-let t = system.unixTime; t - 0.seconds = t {- offset TimeStamp by Duration -}
-{ system.unixTime.postLine }.valueAfter(0.5.seconds).cancel = nil
-{ system.unixTime.postLine }.valueAt(system.unixTime + 0.5.seconds).cancel = nil
-{ system.unixTime.postLine }.valueEvery(3.seconds).cancel = nil
+let t = system.now; t - 0.seconds = t {- offset TimeStamp by Duration -}
+{ system.now.postLine }.valueAfter(0.5.seconds).cancel = nil
+{ system.now.postLine }.valueAt(system.now + 0.5.seconds).cancel = nil
+{ system.now.postLine }.valueEvery(3.seconds).cancel = nil
 let t = 1676784053576.asTimeStamp; let c = t.copy; c ~~ t & { c = t }
 ```
 
