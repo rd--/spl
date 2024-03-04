@@ -1,4 +1,6 @@
-# Iterator -- collection trait
+# Iterator
+
+`Iterator` is a `Collection` `Trait`.
 
 A Stream represents the ability to maintain a position reference into a collection of objects.
 
@@ -10,4 +12,4 @@ Finite streams are collections and implement _do_ and _size_.
 
 * * *
 
-See also: PositionableStream, ReadStream, WriteStream
+See also: next

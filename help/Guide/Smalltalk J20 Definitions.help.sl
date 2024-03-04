@@ -4943,6 +4943,8 @@ year 1 B.C. is astronomical Gregorian year 0. The year 2 B.C. is
 astronomical Gregorian year -1. The year 1 A.D. is astronomical
 Gregorian year 1. The offset of the UTC local time is zero.
 
+Cf: Date
+
 ### 5.8.1.8
 
 _Message_: dayOfMonth
@@ -4986,8 +4988,6 @@ the receiver, which includes the receiver.
 
 _Return Values_: ⧼integer⧽
 
-Cf: dayOfYear
-
 ### 5.8.1.13
 
 _Message_: hour
@@ -5018,8 +5018,6 @@ objects that are equal can give different results for
 depends on their local time.
 
 _Return Values_: ⧼boolean⧽
-
-Cf: isLeapYear
 
 ### 5.8.1.18
 
@@ -5087,6 +5085,8 @@ _Conforms To_: ⧼magnitude⧽
 
 _Description_: Represents a length of time.
 
+Cf: Duration
+
 ### 5.8.2.8
 
 _Message_: asSeconds
@@ -5131,7 +5131,7 @@ number of complete days has been removed. If the receiver is less than
 
 _Return Values_: ⧼integer⧽
 
-Cf: days
+Cf: hours
 
 ### 5.8.2.12
 
@@ -5575,6 +5575,8 @@ whether a ⧼WriteStream⧽ is a write-back stream. Even if a
 <WriteStream⧽ is not a write-back stream, its associated collection may
 be subject to modification in an unspecified manner as long as it is
 associated with the stream.
+
+Cf. WriteStream
 
 ## 5.9.7
 

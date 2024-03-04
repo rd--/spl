@@ -1323,7 +1323,7 @@ Date(system).typeOf = 'Date' {- type of Date, system constructor gets current da
 (60 * 60 * 12).asDate.iso8601 = '1970-01-01T12:00:00.000Z' {- translate Date to ISO-8601 string -}
 '1970-01-01T00:00:01.000Z'.parseDate.unixTimeInMilliseconds = 1000 {- parse ISO-8601 string & convert to unix time -}
 let d = 0.asDate; [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] {- month and day are one-indexed -}
-let d = 0.asDate; [d.hours + (d.offsetSeconds / 60 / 60), d.minutes, d.seconds] = [0, 0, 0] {- hour is in local time -}
+let d = 0.asDate; [d.hour + (d.offsetSeconds / 60 / 60), d.minute, d.second] = [0, 0, 0] {- hour is in local time -}
 0.asDate = 0.asDate {- dates are comparable -}
 0.asDate ~= Date(system) {- dates are comparable -}
 0.asDate < Date(system) {- dates are magnitudes -}
@@ -4029,16 +4029,16 @@ let x = 1; let y = 2; x < y {- initialisers are written as name = value -}
 ## TimeStamp -- temporal type
 ```
 system.includesPackage('TimeStamp') {- timestamp package -}
-1676784053576.TimeStamp.printString = 'TimeStamp(1676784053576)' {- make TimeStamp from Number of milliseconds since unix epoch -}
-1676784053576.TimeStamp.iso8601 = '2023-02-19T05:20:53.576Z' {- convert TimeStamp to ISO-8601 string -}
+1676784053576.asTimeStamp.printString = '1676784053576.asTimeStamp' {- make TimeStamp from Number of milliseconds since unix epoch -}
+1676784053576.asTimeStamp.iso8601 = '2023-02-19T05:20:53.576Z' {- convert TimeStamp to ISO-8601 string -}
 system.unixTime.isTimeStamp = true {- get current time at system -}
 system.unixTime.iso8601.size = 24
-1676784053576.TimeStamp.roundTo(24.hours).iso8601 = '2023-02-19T00:00:00.000Z' {- round to duration -}
+1676784053576.asTimeStamp.roundTo(24.hours).iso8601 = '2023-02-19T00:00:00.000Z' {- round to duration -}
 let t = system.unixTime; t - 0.seconds = t {- offset TimeStamp by Duration -}
 { system.unixTime.postLine }.valueAfter(0.5.seconds).cancel = nil
 { system.unixTime.postLine }.valueAt(system.unixTime + 0.5.seconds).cancel = nil
 { system.unixTime.postLine }.valueEvery(3.seconds).cancel = nil
-let t = 1676784053576.TimeStamp; let c = t.copy; c ~~ t & { c = t }
+let t = 1676784053576.asTimeStamp; let c = t.copy; c ~~ t & { c = t }
 ```
 
 ## Tuple -- collection type

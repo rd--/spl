@@ -84,6 +84,13 @@ System! : [Object, Cache, Indexable, Random] {
 		self.window.localStorage
 	}
 
+	localTimeZoneOffsetInMinutes { :self |
+		<primitive:
+		const aDate = new Date(0);
+		return aDate.getTimezoneOffset();
+		>
+	}
+
 	methodDictionary { :self |
 		<primitive: return _self.methodDictionary;>
 	}

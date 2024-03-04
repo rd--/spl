@@ -185,3 +185,11 @@ Duration : [Object, Magnitude] { | milliseconds |
 	}
 
 }
+
++System {
+
+	localTimeZoneOffset { :self |
+		self.localTimeZoneOffsetInMinutes.minutes
+	}
+
+}

@@ -1,36 +1,26 @@
 # Date
 
-An object representing a date and time.
+`Date` is `Type` representing a date and time.
 
-- _parseDate(aString)_
-
-The string parser recognizes subsets of the ISO 8601 specification, _YYYY-MM-DDTHH:mm:ss.sssZ_:
+A `Date` can be read from a `String` using `parseDate`.
 
 ```
->>> '2023-05-11'.parseDate.iso8601
-'2023-05-11T00:00:00.000Z'
+>>> let date = '2024-03-04'.parseDate;
+>>> (date.year, date.month, date.dayOfMonth)
+(2024, 3, 4)
 ```
 
-- _asDate(aNumber)_
-
-The number conversion translates from unix time in milliseconds:
-
-```
->>> 0.asDate.iso8601
-'1970-01-01T00:00:00.000Z'
-```
-
-- _Date(aSystem)_
-
-The system constructor method answers the current date at _aSystem_:
+The current date and time can be read from the `System` as a `TimeStamp` using `now`,
+and translated into a `Date` using `asDate`:
 
 ```
->>> Date(system).isDate
+>>> let date = system.now.asDate;
+>>> date.year >= 2024
 true
 ```
 
 There are methods to access the elements of the date,
-i.e. _year_, _month_, _dayOfMonth_, _hour_, _minute_, _second_ &etc.
+i.e. `year`, `month`, `dayOfMonth`, `hour`, `minute`, `second` &etc.
 
 ```
 >>> let d = 0.asDate;
@@ -40,6 +30,6 @@ i.e. _year_, _month_, _dayOfMonth_, _hour_, _minute_, _second_ &etc.
 
 * * *
 
-See also: Duration, TimeStamp
+See also: asDate, dayOfMonth, Duration, hour, minute, month, now, parseDate, second, TimeStamp, year
 
 Categories: Time, Type

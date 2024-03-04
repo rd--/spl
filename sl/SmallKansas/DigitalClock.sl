@@ -2,7 +2,7 @@ DigitalClock : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		let getTime = {
-			system.Date.localeTimeString('en-US')
+			system.now.asDate.localeTimeString('en-US')
 		};
 		let textEditor = smallKansas.TextEditor(
 			'Digital Clock',

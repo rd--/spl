@@ -1,4 +1,6 @@
-# Stream -- collection trait
+# Stream
+
+`Stream` is a `Collection` `Trait`.
 
 A Stream represents the ability to maintain a position reference into a collection of objects.
 
@@ -9,8 +11,8 @@ A Stream represents the ability to maintain a position reference into a collecti
 > same collection, it is possible to maintain multiple position
 > references into the same collection. (Blue Book, p. 195)
 
-Stream adds _reset_ to the Iterator protocol.
+Stream adds `reset` to the Iterator protocol.
 
 * * *
 
-See also: PositionableStream, ReadStream, WriteStream
+See also: Iterator, PositionableStream, ReadStream, reset, WriteStream

@@ -10,6 +10,14 @@ Date! : [Object, Magnitude] {
 		self.unixTimeInMilliseconds < aDate.unixTimeInMilliseconds
 	}
 
+	asDate { :self |
+		self
+	}
+
+	asTimeStamp { :self |
+		self.unixTimeInMilliseconds.asTimeStamp
+	}
+
 	dayOfWeek { :self |
 		<primitive: return _self.getDay() + 1;>
 	}
@@ -18,7 +26,7 @@ Date! : [Object, Magnitude] {
 		<primitive: return _self.getDate();>
 	}
 
-	hours { :self |
+	hour { :self |
 		<primitive: return _self.getHours();>
 	}
 
@@ -30,11 +38,11 @@ Date! : [Object, Magnitude] {
 		<primitive: return _self.toLocaleTimeString(_localeName);>
 	}
 
-	milliseconds { :self |
+	millisecond { :self |
 		<primitive: return _self.getMilliseconds();>
 	}
 
-	minutes { :self |
+	minute { :self |
 		<primitive: return _self.getMinutes();>
 	}
 
@@ -46,7 +54,7 @@ Date! : [Object, Magnitude] {
 		<primitive: return Math.round(_self.getTimezoneOffset() * 60);>
 	}
 
-	seconds { :self |
+	second { :self |
 		<primitive: return _self.getSeconds();>
 	}
 
@@ -76,14 +84,6 @@ Date! : [Object, Magnitude] {
 
 	parseDate { :self |
 		<primitive: return new Date(_self);>
-	}
-
-}
-
-+System {
-
-	Date { :self |
-		<primitive: return new Date();>
 	}
 
 }

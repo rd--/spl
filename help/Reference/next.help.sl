@@ -11,7 +11,7 @@ If the stream ends, the answer will contain _nil_ elements, see _nextOrUpToEnd_.
 
 * * *
 
-See also: contents, reset, Stream
+See also: atEnd, contents, reset, Stream
 
 References:
 _Smalltalk_

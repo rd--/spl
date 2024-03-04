@@ -38,7 +38,7 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 	}
 
 	storeString { :self |
-		'TimeStamp(' ++ self.unixTimeInMilliseconds.storeString ++ ')'
+		self.unixTimeInMilliseconds.storeString ++ '.asTimeStamp'
 	}
 
 	unixTimeInSeconds { :self |
@@ -49,7 +49,7 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 
 +System {
 
-	unixTime { :self |
+	now { :self |
 		self.unixTimeInMilliseconds.asTimeStamp
 	}
 
@@ -58,10 +58,6 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 +SmallFloat {
 
 	asTimeStamp { :self |
-		TimeStamp(self)
-	}
-
-	TimeStamp { :self |
 		newTimeStamp().initializeSlots(self)
 	}
 

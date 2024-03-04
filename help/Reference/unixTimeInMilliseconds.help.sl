@@ -4,14 +4,36 @@
 - _unixTimeInMilliseconds(aTimeStamp)_
 - _unixTimeInMilliseconds(aNumber)_
 
-_system.unixTimeInMilliseconds_ gets the current time in milliseconds since the Unix epoch as a `SmallFloat`.
+At `System`, get the current time in milliseconds since the Unix epoch as a `SmallFloat`.
 
-_aTimeStamp.unixTimeInMilliseconds_ converts a `TimeStamp` into the number of milliseconds since the Unix epoch.
+```
+>>> system.unixTimeInMilliseconds > 1671935015392
+true
 
-_aNumber.unixTimeInMilliseconds_ is the identity function.
+>>> let t1 = system.unixTimeInMilliseconds;
+>>> let t2 = system.unixTimeInMilliseconds;
+>>> t2 - t1
+0
+```
+
+At `TimeStamp`, answer into the number of milliseconds since the Unix epoch.
+
+```
+>>> let t1 = system.unixTimeInMilliseconds;
+>>> let t2 = system.now.unixTimeInMilliseconds;
+>>> t2 - t1
+0
+```
+
+At `Number`, the identity function.
+
+```
+>>> 1671935015392.unixTimeInMilliseconds
+1671935015392
+```
 
 * * *
 
-See also: Number, System, systemTimeInMilliseconds, TimeStamp
+See also: now, Number, System, systemTimeInMilliseconds, TimeStamp
 
 Categories: Time

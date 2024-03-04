@@ -11,3 +11,5 @@ See also: putOn, Stream, WriteStream
 References:
 _Smalltalk_
 5.9.4.3
+
+Categories: Accessing

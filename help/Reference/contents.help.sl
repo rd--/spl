@@ -22,4 +22,8 @@ The inverse is `join`:
 
 See also: join, next, reset, splitBy
 
+References:
+_Smalltalk_
+5.9.1.2
+
 Categories: Accessing, String
