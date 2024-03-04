@@ -15,6 +15,7 @@ See also: contents, reset, Stream
 
 References:
 _Smalltalk_
-5.10.2.1
+5.9.2.3
+5.9.2.4
 
 Categories: Accessing

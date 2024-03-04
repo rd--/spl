@@ -16,4 +16,8 @@ Answer a `Character` given a single character `String` or an `Integer` code poin
 
 See also: asCodePoint, asString, Character
 
+References:
+_Smalltalk_
+5.3.5.1
+
 Categories: Converting

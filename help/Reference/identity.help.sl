@@ -30,4 +30,6 @@ _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:id),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Identity.html)
-[2](https://reference.wolfram.com/language/ref/Identity.html)
+[2](https://reference.wolfram.com/language/ref/Identity.html),
+_Smalltalk_
+5.3.1.20

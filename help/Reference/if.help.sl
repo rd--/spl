@@ -9,18 +9,11 @@ Note that the branches are not evaluated using `value`, and therefore _must_ be 
 
 Ordinarily _whenTrue_ and _whenFalse_ are literal no-argument blocks written using `Trailing Block Syntax`.
 
-* * *
-
 _Rationale:_
-
 Spl follows Smalltalk in having no special purpose conditional evaluation mechanisms.
-
 Conditionals expressions are implemented as ordinary blocks.
-
 To delay evaluation of alternatives each must be written as a no argument block.
-
 `Trailing Block Syntax` provides an idiomatic notation for writing conditionals.
-
 The standard libraries write if conditions as:
 
 ```

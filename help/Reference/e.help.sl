@@ -1,6 +1,6 @@
 # e
 
-_e(aNumber)_
+- _e(aNumber)_
 
 The number _e_, also known as Eulers number, is a mathematical constant approximately equal to 2.71828.
 It is the base of natural logarithms.

@@ -129,6 +129,14 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		self.error('bitXor: operand not a LargeInteger or SmallFloat')
 	}
 
+	floorLog { :self :radix |
+		(self <= 0).if {
+			self.error('LargeInteger>>floorLog: is only defined for x > 0')
+		} {
+			self.numberOfDigitsInBase(radix) - 1
+		}
+	}
+
 	highBitOfMagnitude { :self |
 		valueWithReturn { :return:/1 |
 			let realLength = self.digitLength;

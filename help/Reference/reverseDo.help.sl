@@ -17,4 +17,8 @@ This is the reverse of the enumeration for do.
 
 See also: do, Iterable
 
+References:
+_Smalltalk_
+5.7.8.27
+
 Categories: Enumerating

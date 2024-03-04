@@ -1,9 +1,9 @@
 # Character
 
-A Character is a `Type` holding a single character string.
+A `Character` is a `Type` holding a single character string.
 
-The _codePoint_ method retrieves the unicode code point,
-and the _string_ method retrieves the single element string.
+The `codePoint` method retrieves the unicode code point,
+and the `string` method retrieves the single element string.
 
 ```
 >>> 'x'.asCharacter.codePoint

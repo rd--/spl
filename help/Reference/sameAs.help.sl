@@ -1,8 +1,8 @@
 # sameAs
 
-_sameAs(anObject, anotherObject)_
+- _sameAs(anObject, anotherObject)_
 
-For Character and String values answers if the values are the same.
+For `Character` and `String` values answers if the values are the same.
 The comparison ignores case and possibly some other attributes.
 
 ```
@@ -16,5 +16,9 @@ The comparison ignores case and possibly some other attributes.
 * * *
 
 See also: =, ~, closeTo
+
+References:
+_Smalltalk_
+5.7.10.14
 
 Categories: Comparing

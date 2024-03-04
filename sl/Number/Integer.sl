@@ -555,6 +555,41 @@
 		(n + k - 1).factorial / (n.factorial * (k - 1).factorial)
 	}
 
+	numberOfDigitsInBase { :self :radix |
+		self.isNegative.if {
+			self.negated.numberOfDigitsInBase(radix)
+		} {
+			(self < radix).if {
+				1
+			} {
+				radix.isPowerOfTwo.if {
+					(self.highBit + radix.highBit - 2).quotient(
+						radix.highBit - 1
+					)
+				} {
+					let q = self;
+					let total = 0;
+					{
+						let nDigits = (radix = 10).if {
+							((q.highBit - 1) * 1233 >> 12) + 1
+						} {
+							q.highBit.quotient(radix.highBit)
+						};
+						total := total + nDigits;
+						q := q.quotient(radix.raisedToInteger(nDigits));
+						(q < radix)
+					}.whileFalse;
+					(q = 0).if {
+						total
+					} {
+						total + 1
+					}
+				}
+			}
+		}
+	}
+
+
 	numerator { :self |
 		self
 	}

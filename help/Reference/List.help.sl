@@ -63,6 +63,8 @@ References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-List.html),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/List.html)
+[1](https://reference.wolfram.com/language/ref/List.html),
+_Smalltalk_
+5.7.14
 
 Categories: Collection, Type

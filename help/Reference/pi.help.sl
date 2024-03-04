@@ -1,10 +1,10 @@
 # pi
 
-The ratio of a circles circumference to its diameter, approximately equal to _3.14159_.
+- _pi(aNumber)_
 
-_pi(aNumber)_
-
-Answer _aNumber_ times pi.
+Answer _aNumber_ times pi,
+the ratio of a circles circumference to its diameter,
+approximately equal to _3.14159_.
 
 ```
 >>> 1.pi

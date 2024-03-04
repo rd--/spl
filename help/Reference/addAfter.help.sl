@@ -16,4 +16,8 @@ true
 
 See also: add, addAfterIndex, addBefore
 
+References:
+_Smalltalk_
+5.7.18.2
+
 Categories: Adding

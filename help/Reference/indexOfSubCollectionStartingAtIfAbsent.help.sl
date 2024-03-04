@@ -1,4 +1,4 @@
-# indexOfSubCollectionStartingAtIfAbsent -- accessing
+# indexOfSubCollectionStartingAtIfAbsent
 
 - _indexOf(aCollection, aSubCollection, anIndex, exceptionBlock:/0)_
 
@@ -9,3 +9,9 @@ If no such match is found, answer the result of evaluating _exceptionBlock_.
 * * *
 
 See also: indexOfIfAbsent
+
+References:
+_Smalltalk_
+5.7.8.23
+
+Categories: Accessing

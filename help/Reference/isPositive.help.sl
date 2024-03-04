@@ -2,7 +2,7 @@
 
 - _isPositive(aNumber)_
 
-Answer `true` if _aNumber_ is greater than or equal to `zero`.
+Answer `true` if _aNumber_ is greater than `zero`.
 
 Evaluate at different types of numbers:
 

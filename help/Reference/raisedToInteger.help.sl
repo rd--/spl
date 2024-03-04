@@ -1,6 +1,6 @@
 # raisedToInteger
 
-_raisedToInteger(aNumber, anInteger)_
+- _raisedToInteger(aNumber, anInteger)_
 
 Special case of _^_ where the exponent is an integer.
 

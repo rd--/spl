@@ -23,6 +23,6 @@ See also: Block Semantics, cull, value
 
 References:
 _Smalltalk_
-5.4.2.1
+5.4.1.1
 
 Categories: Accessing

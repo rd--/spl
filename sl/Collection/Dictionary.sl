@@ -256,6 +256,12 @@
 		}
 	}
 
+	removeAllKeys { :self :keys |
+		self.removeAllSuchThat { :each |
+			keys.includes(each.key)
+		}
+	}
+
 	removeAllSuchThat { :self :aBlock:/1 |
 		let removals = [];
 		self.associationsDo { :each |

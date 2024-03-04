@@ -1,6 +1,6 @@
 # Range
 
-_Range(start, stop, step)_
+- _Range(start, stop, step)_
 
 A Range represents a finite arithmetic progression.
 
@@ -70,6 +70,8 @@ See also: downTo, Interval, thenTo, to, toBy, upOrDownTo, upTo
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Range.html)
-[2](https://reference.wolfram.com/language/ref/Span.html)
+[2](https://reference.wolfram.com/language/ref/Span.html),
+_Smalltalk_
+5.7.19
 
 Categories: Collection, Type

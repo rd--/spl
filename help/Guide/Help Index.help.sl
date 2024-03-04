@@ -128,6 +128,10 @@
 
 - `=`, `==`, `~=`, `~~`, `~`
 
+## Error Handling
+
+- `ensure`, `ifError`
+
 ## Evaluating
 
 - `cull`, `value`

@@ -12,6 +12,13 @@ Construct a Range by counting up or down from _start_ to _stop_ by _step_.
 [9 7 5 3 1]
 ```
 
+It is an `error` if _step_ is zero:
+
+```
+>>> { 1.toBy(9, 0) }.ifError { true }
+true
+```
+
 * * *
 
 See also: downTo, Range, thenTo, to, upOrDownTo, upTo

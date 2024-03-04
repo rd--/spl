@@ -15,7 +15,7 @@ Answer _aNumber_ times epsilon.
 
 * * *
 
-See also: closeTo, pi, veryCloseTo
+See also: closeTo, pi, smallFloatEpsilon, veryCloseTo
 
 Unicode: U+03B5 ε Greek Small Letter Epsilon
 

@@ -1,8 +1,8 @@
 # notNil
 
-_notNil(anObject)_
+- _notNil(anObject)_
 
-False if _anObject_ is _nil_ else true.
+Answer `false` if _anObject_ is `nil`, else `true`.
 
 ```
 >>> nil.notNil

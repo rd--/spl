@@ -16,4 +16,8 @@ Answer the first element of _aSequence_.
 
 See also: fourth, last, middle, second, third
 
+References:
+_Smalltalk_
+5.7.8.17
+
 Categories: Accessing

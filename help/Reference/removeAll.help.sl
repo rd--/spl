@@ -1,13 +1,12 @@
 # removeAll
 
 - _removeAll(aCollection)_
-
-Remove all items from _aCollection_.
-The answer is an empty collection.
-
 - _removeAll(aCollection, anotherCollection)_
 
-Remove all items in _anotherCollection_ from _aCollection_.
+In the unary case remove all items from _aCollection_.
+The answer is an empty collection.
+
+In the binary case remove all items in _anotherCollection_ from _aCollection_.
 Multiples of items in _aCollection_ will not necessarily be removed.
 
 * * *

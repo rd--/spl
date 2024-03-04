@@ -18,4 +18,8 @@ true
 
 See also: Error
 
+References:
+_Smalltalk_
+5.4.3.2
+
 Categories: Evaluating

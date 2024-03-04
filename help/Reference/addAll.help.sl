@@ -7,7 +7,7 @@ Answer _anotherCollection_.
 
 In general, any object responding to _do_ can be used as the second argument.
 
-At Bag:
+At `Bag`:
 
 ```
 >>> let c = [1 2 2 3 3 3];
@@ -16,7 +16,7 @@ At Bag:
 true
 ```
 
-At Set:
+At `Set`:
 
 ```
 >>> let c = [1 2 3];
@@ -25,7 +25,7 @@ At Set:
 true
 ```
 
-At List:
+At `List`:
 
 ```
 >>> let c = 1:9;
@@ -34,7 +34,7 @@ At List:
 true
 ```
 
-At Record:
+At `Record`:
 
 ```
 >>> let c = (y: 2, z: 3);
@@ -45,7 +45,7 @@ true
 
 * * *
 
-See also: add, include, includeAll, Iterable, remove, removeAll
+See also: add, Extensible, include, includeAll, Iterable, remove, removeAll
 
 References:
 _Smalltalk_

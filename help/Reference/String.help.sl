@@ -35,4 +35,8 @@ String indexing only makes sense for strings that are in the _Basic Multilingual
 
 See also: ascii, characters, Character, String Syntax, utf8, utf16
 
+References:
+_Smalltalk_
+5.7.13
+
 Categories: Text, Type

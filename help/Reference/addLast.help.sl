@@ -16,4 +16,8 @@ true
 
 See also: add, addFirst
 
+References:
+_Smalltalk_
+5.7.18.13
+
 Categories: Adding

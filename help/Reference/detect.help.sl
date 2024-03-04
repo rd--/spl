@@ -1,6 +1,6 @@
 # detect
 
-_detect(aCollection, aBlock:/1)_
+- _detect(aCollection, aBlock:/1)_
 
 Evaluate _aBlock_ with each of the elements of _aCollection_ as the argument.
 Answer the first element for which _aBlock_ evaluates to true.

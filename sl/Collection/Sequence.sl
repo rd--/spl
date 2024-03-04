@@ -67,6 +67,25 @@
 		}
 	}
 
+	after { :self :target |
+		self.afterIfAbsent(target) {
+			self.errorNotFound(target)
+		}
+	}
+
+	afterIfAbsent { :self :target :exceptionBlock:/0 |
+		let index = self.indexOf(target);
+		(
+			index = 0 | {
+				index = self.size
+			}
+		).if {
+			exceptionBlock()
+		} {
+			self[index + 1]
+		}
+	}
+
 	allButFirst { :self |
 		self.allButFirst(1)
 	}
@@ -191,6 +210,21 @@
 
 	atRandom { :self |
 		self[system.nextRandomInteger(self.size)]
+	}
+
+	before { :self :target |
+		self.beforeIfAbsent(target) {
+			self.errorNotFound(target)
+		}
+	}
+
+	beforeIfAbsent { :self :target :exceptionBlock:/0 |
+		let index = self.indexOf(target);
+		(index < 2).if {
+			exceptionBlock()
+		} {
+			self[index - 1]
+		}
 	}
 
 	beginsWith { :self :aSequence |
@@ -646,6 +680,12 @@
 	fromToDo { :self :start :stop :aBlock:/1 |
 		start.toDo(stop) { :index |
 			aBlock(self[index])
+		}
+	}
+
+	fromToKeysAndValuesDo { :self :start :stop :aBlock:/2 |
+		start.toDo(stop) { :index |
+			aBlock(self[index], index)
 		}
 	}
 

@@ -1,8 +1,8 @@
 # betweenAnd
 
-- _betweenAnd(self, min, max)_
+- _betweenAnd(aMagnitude, min, max)_
 
-Is _self_ between (inclusively) _min_ and _max_?
+Is _aMagnitude_ between (inclusively) _min_ and _max_?
 
 Check that a number is included in an interval:
 

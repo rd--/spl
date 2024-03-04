@@ -1,9 +1,9 @@
 # Object
 
-_Object_ is a _Trait_.
-Ordinarily _all_ types should implement _Object_.
+`Object` is a `Trait`.
+Ordinarily all `Type` definitions should implement `Object`.
 
-Object defines the basic system predicates.
+`Object` defines the basic system predicates.
 
 ```
 >>> system.traitTypes('Object').size + 1
@@ -13,11 +13,11 @@ system.typeDictionary.size
 true
 ```
 
-Methods for comparing objects: ==, ~~, =, ~=
+Methods for comparing objects: `==`, `~~`, `=`, `~=`
 
-Methods for copying objects: copy, shallowCopy, deepCopy, veryDeepCopy
+Methods for copying objects: `copy`, `shallowCopy`, `deepCopy`, `veryDeepCopy`
 
-Methods for displaying and storing objects: printString, printOn, storeString, storeOn
+Methods for displaying and storing objects: `printString`, `printOn`, `storeString`, `storeOn`
 
 * * *
 

@@ -7,6 +7,11 @@ Error handling.
 
 Generate an _Error_ value and then run _log_ and _signal_ in sequence.
 
+```
+>>> { 'An error'.error }.ifError { :err | err.messageText }
+'An error'
+```
+
 * * *
 
 See also: Error, signal

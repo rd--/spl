@@ -20,10 +20,11 @@ At `Complex`:
 ```
 >>> [-2.5 1e20 3j-4].-
 [2.5 -1e20 -3j4]
+```
 
 * * *
 
-See also: abs, minus, sign
+See also: -, abs, sign
 
 References:
 _Apl_

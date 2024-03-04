@@ -9,4 +9,8 @@ If the collection does not contain _anElement_, answer the result of evaluating 
 
 See also: indexOf
 
+References:
+_Smalltalk_
+5.7.8.21
+
 Categories: Accessing

@@ -1,4 +1,4 @@
-# peek -- accessing
+# peek
 
 - _peek(aStream)_
 
@@ -8,3 +8,9 @@ If the stream is at the end, answer nil.
 * * *
 
 See also: Stream
+
+References:
+_Smalltalk_
+5.9.2.7
+
+Categories: Accessing

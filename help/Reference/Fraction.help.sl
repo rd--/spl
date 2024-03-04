@@ -2,7 +2,7 @@
 
 _Fraction(numerator, denominator)_
 
-Fraction provides methods for dealing with fractions like 1/3 as a ratio of two integers.
+`Fraction` is a numerical `Type` that provides methods for dealing with fractions like 1/3 as a ratio of two integers.
 
 Instance variables are:
 
@@ -235,6 +235,8 @@ _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#t:Rational),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Fraction.html)
-[2](https://reference.wolfram.com/language/ref/Rational.html)
+[2](https://reference.wolfram.com/language/ref/Rational.html),
+_Smalltalk_
+5.6.9.1
 
 Categories: Arithmetic, Math

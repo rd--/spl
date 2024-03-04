@@ -16,4 +16,8 @@ true
 
 See also: add, addAfter
 
+References:
+_Smalltalk_
+5.7.18.4
+
 Categories: Adding

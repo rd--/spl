@@ -1,6 +1,6 @@
 # zero
 
-_zero(anObject)_
+- _zero(anObject)_
 
 Answer a zero value of the same type as _anObject_.
 

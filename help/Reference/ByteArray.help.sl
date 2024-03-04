@@ -8,4 +8,8 @@ Unlike List, a ByteArray is of fixed size.
 
 See also: List, Float64Array
 
+References:
+_Smalltalk_
+5.7.15
+
 Categories: Collection, Type

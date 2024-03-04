@@ -38,4 +38,4 @@ References:
 _Smalltalk_
 5.6.2.31
 
-Categories: Truncating and rounding
+Categories: Truncating, Rounding

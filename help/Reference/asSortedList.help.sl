@@ -1,14 +1,19 @@
 # asSortedList
 
-- _asSortedList(aCollection)_
+- _asSortedList(alpha)_ => _asSortedList(alpha, <)_
+- _asSortedList(aCollection, aBlock:/2)_
 
-Answer a `SortedList` having as items those of _aCollection_.
+Answer a `SortedList` having as items those of _aCollection_,
+sorted according to _aBlock_.
 
 At `List`:
 
 ```
 >>> [1 9 3 7 5].asSortedList.contents
 [1 3 5 7 9]
+
+>>> [1 9 3 7 5].asSortedList(>).contents
+[9 7 5 3 1]
 ```
 
 At `Set`:

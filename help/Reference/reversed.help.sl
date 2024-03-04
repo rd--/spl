@@ -41,7 +41,9 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Reverse),
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/bardot)
+[1](https://code.jsoftware.com/wiki/Vocabulary/bardot),
+_Smalltalk_
+5.7.8.26
 
 Unicode: U+1D19 ᴙ Latin Letter Small Capital Reversed R
 

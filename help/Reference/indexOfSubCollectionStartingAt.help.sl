@@ -1,4 +1,4 @@
-# indexOfSubCollectionStartingAt -- accessing
+# indexOfSubCollectionStartingAt
 
 - _indexOf(aCollection, aSubCollection, anIndex)_
 
@@ -9,3 +9,9 @@ If no such match is found, answer 0.
 * * *
 
 See also: indexOf
+
+References:
+_Smalltalk_
+5.7.8.22
+
+Categories: Accessing

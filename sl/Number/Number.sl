@@ -224,6 +224,10 @@
 		}
 	}
 
+	floorLog { :self :radix |
+		self.log(radix).floor
+	}
+
 	foldBetweenAnd { :self :low :high |
 		let range = high - low;
 		let twiceRange = range + range;

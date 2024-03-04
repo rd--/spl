@@ -34,4 +34,8 @@ Answers zero if the item is not in the sequence:
 
 See also: indexOfIfAbsent, lastIndexOf
 
+References:
+_Smalltalk_
+5.7.8.20
+
 Categories: Accessing

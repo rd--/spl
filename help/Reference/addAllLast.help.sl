@@ -15,4 +15,8 @@ true
 
 See also: add, addAll, addAllFirst
 
+References:
+_Smalltalk_
+5.7.18.11
+
 Categories: Adding

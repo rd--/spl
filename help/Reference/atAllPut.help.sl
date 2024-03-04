@@ -1,8 +1,10 @@
 # atAllPut
 
 - _atAllPut(aCollection, anObject)_
+- _atAllPut(aSequence, indices, anObject)_
 
-Put _anObject_ at every entry of _aCollection_.
+In the binary case,
+put _anObject_ at every entry of _aCollection_.
 Answer _anObject_.
 
 ```
@@ -12,9 +14,8 @@ Answer _anObject_.
 ([0 0 0 0 0 0 0 0 0], 0)
 ```
 
-- _atAllPut(aSequence, indices, anObject)_
-
-Put _anObject_ at every index specified by the elements of _indices_ in _aSequence_.
+In the ternary case,
+put _anObject_ at every index specified by the elements of _indices_ in _aSequence_.
 
 ```
 >>> let l = [1 .. 9];
@@ -29,5 +30,10 @@ This method imlpements both _atAllPut:_ and _atAll:put:_.
 * * *
 
 See also: at, atAll, atPut
+
+References:
+_Smalltalk_
+5.7.12.2
+5.7.12.3
 
 Categories: Accessing

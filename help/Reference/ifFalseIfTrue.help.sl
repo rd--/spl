@@ -16,4 +16,8 @@ Ternary `if` with branches swapped.
 
 See also: if, ifFalse, ifTrue
 
+References:
+_Smalltalk_
+5.3.3.6
+
 Categories: Evaluating

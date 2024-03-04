@@ -223,7 +223,11 @@ Range : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step 
 	}
 
 	Range { :start :stop :step |
-		newRange().initializeSlots(start, stop, step)
+		step.isZero.if {
+			start.error('Number>>Range: step is zero')
+		} {
+			newRange().initializeSlots(start, stop, step)
+		}
 	}
 
 	thenTo { :self :second :last |

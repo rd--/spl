@@ -1,6 +1,6 @@
 # anySatisfy
 
-_anySatisfy(aCollection, aBlock:/1)_
+- _anySatisfy(aCollection, aBlock:/1)_
 
 Evaluate _aBlock:/1_ with the elements of _aCollection_.
 If _aBlock:/1_ answers true for any element return true, otherwise return false.

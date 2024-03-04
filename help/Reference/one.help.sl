@@ -1,6 +1,6 @@
 # one
 
-_one(anObject)_
+- _one(anObject)_
 
 Answer a unit value of the same type as _anObject_.
 

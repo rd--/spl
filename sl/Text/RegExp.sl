@@ -191,6 +191,12 @@ RegExp! : [Object] {
 		aRegExp.asRegExp.splitBy(self)
 	}
 
+	subStrings { :self :separators |
+		self.splitByRegExp(
+			separators.contents.joinSeparatedBy('|')
+		).reject(isEmpty:/1)
+	}
+
 	RegExp { :self :flags |
 		<primitive: return new RegExp(_self, _flags);>
 	}

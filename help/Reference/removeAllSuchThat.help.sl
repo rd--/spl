@@ -1,4 +1,4 @@
-# removeAllSuchThat -- removing
+# removeAllSuchThat
 
 - _removeAllSuchThat(aCollection, aBlock:/1)
 
@@ -6,8 +6,10 @@ Evaluate _aBlock_ for each element of _aCollection_ and remove all elements that
 Use a copy to enumerate collections whose order changes when an element is removed (i.e. Sets).
 
 _Note:_
-This is defined at _Dictionary_, where the argument to _aBlock_ will be an _Association_.
+This is defined at `Dictionary`, where the argument to _aBlock_ will be an `Association`.
 
 * * *
 
 See also: reject, remove, keysAndValuesRemove
+
+Categories: Removing

@@ -1,8 +1,8 @@
 # Extensible
 
-To implement Extensible a type must define _add_.
+To implement `Extensible` a type must define `add`.
 
-Methods for adding: add, addAll
+Methods for adding: `add`, `addAll`
 
 * * *
 

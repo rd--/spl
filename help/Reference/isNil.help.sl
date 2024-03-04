@@ -1,6 +1,6 @@
 # isNil
 
-_isNil(anObject)_
+- _isNil(anObject)_
 
 True if _anObject_ is _nil_ else false.
 

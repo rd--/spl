@@ -2,7 +2,7 @@
 
 - _storeString(anObject)_
 
-Answer a String representation of _anObject_ from which it can be reconstructed.
+Answer a `String` representation of _anObject_ from which it can be reconstructed.
 
 ```
 >>> (1 -> 2)
