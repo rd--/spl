@@ -21,4 +21,10 @@ Methods for displaying and storing objects: `printString`, `printOn`, `storeStri
 
 * * *
 
+See also: Trait
+
+References:
+_Smalltalk_
+5.3.1
+
 Categories: Value, Trait

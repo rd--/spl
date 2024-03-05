@@ -4,6 +4,8 @@ Relevant extracts from the J20 draft for the
 [Ansi Smalltalk](https://wiki.squeak.org/squeak/172) Standard
 ([Pdf](https://wiki.squeak.org/squeak/uploads/172/standard_v1_9-indexed.pdf)).
 
+The _Cf:_ entries point to _Spl_ help files, which in turn reference the section number.
+
 # 5.3 Fundamental Protocols
 
 This section includes protocols that are fundamental to the Smalltalk
@@ -946,8 +948,7 @@ _Parameters_: argumentArray ⧼sequencedReadableCollection⧽
 
 _Protocol_: ⧼niladicValuable⧽
 
-Conforms To
-⧼valuable⧽
+_Conforms To_: ⧼valuable⧽
 
 _Description_: This protocol describes the behavior for objects
 supporting the `value` selector.
@@ -1036,8 +1037,7 @@ Cf: whileTrue
 
 _Protocol_: ⧼niladic Block⧽
 
-_Conforms To_:
-⧼niladicValuable⧽
+_Conforms To_: ⧼niladicValuable⧽
 
 _Description_: This protocol describes the behavior for blocks with no
 arguments.  Objects conforming to this protocol can be created only by
@@ -5578,7 +5578,7 @@ whether a ⧼WriteStream⧽ is a write-back stream. Even if a
 be subject to modification in an unspecified manner as long as it is
 associated with the stream.
 
-Cf. WriteStream
+Cf: WriteStream
 
 ## 5.9.7
 
@@ -5621,7 +5621,7 @@ ordering of the sequence values is the same as the ordering used by
 #do: when sent to aCollection. The stream backing store of the
 returned object is aCollection.
 
-_Parameters_: aCollection ⧼sequencedReadableCollection⧽ captured
+_Parameters_: aCollection ⧼sequencedReadableCollection⧽
 
 _Return Value_: ⧼ReadStream⧽ new
 
@@ -5641,7 +5641,7 @@ aCollection. The sequence value type of the write stream is the
 element type of aCollection. Any restrictions on objects that may be
 elements of aCollection also apply to the stream’s sequence elements.
 
-_Parameters_: aCollection ⧼sequencedCollection⧽ captured
+_Parameters_: aCollection ⧼sequencedCollection⧽
 
 _Return Value_: ⧼ReadWriteStream⧽ new
 
