@@ -1,12 +1,12 @@
 @PositionableStream {
 
 	atEnd { :self |
-		self.typeResponsibility('PositionableStream>>atEnd')
+		self.typeResponsibility('@PositionableStream>>atEnd')
 	}
 
 	back { :self |
 		(self.position = 0).ifTrue {
-			'PositionableStream>>back: cannot go back'.error
+			self.error('@PositionableStream>>back: cannot go back')
 		};
 		self.skip(-1);
 		self.peek
@@ -84,7 +84,7 @@
 	}
 
 	positionError { :self |
-		'PositionableStream>>positionError: position out of bounds'.error
+		self.error('@PositionableStream>>positionError: position out of bounds')
 	}
 
 	reset { :self |
@@ -137,7 +137,7 @@
 	}
 
 	withWriteStream { :self :aBlock:/1 |
-		let aStream = WriteStream(self.collection.species.new(100));
+		let aStream = self.collection.species.new(100).asWriteStream;
 		aBlock(aStream);
 		aStream.contents
 	}

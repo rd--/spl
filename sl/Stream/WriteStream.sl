@@ -1,7 +1,7 @@
 @WriteStream {
 
 	nextPut { :self :anObject |
-		self.typeResponsibility('WriteStream>>nextPut')
+		self.typeResponsibility('@WriteStream>>nextPut')
 	}
 
 	nextPutAll { :self :aCollection |

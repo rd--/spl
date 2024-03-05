@@ -1,8 +1,6 @@
 # Iterator
 
-`Iterator` is a `Collection` `Trait`.
-
-An iterator represents the ability to maintain a position reference into a collection of objects.
+`Iterator` is a `Trait` that represents the ability to maintain a position reference into a collection of objects.
 
 To implement `Iterator` a type must implement `next`.
 

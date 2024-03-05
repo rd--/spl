@@ -280,6 +280,17 @@
 - `sort`, `sortBy`, `sorted`, `sortOn`
 - `ordering`
 
+## Streams
+
+- `Iterator`, `Stream`, `WriteStream`
+- `BlockStream`, `CollectionStream`, `MutableCollectionStream`
+- `atEnd`, `next`, `reset`
+- `nextPut`, `nextPutAll`
+- `contents`
+- `position`, `setToEnd`
+- `asIterator`, `asStream`
+- `collect`, `reject`, `select`
+
 ## String Operations
 
 - `join`, `splitBy`, `splitByRegExp`

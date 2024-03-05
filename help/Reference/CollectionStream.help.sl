@@ -1,8 +1,10 @@
 # CollectionStream
 
-A `CollectionStream` is an accessor that can only read objects from a sequence.
+A `CollectionStream` is a `Type` that implements a `Stream` which is backed by a `Sequence` type.
 
-The basic protocols on a Stream are _next_ and _reset_.
+`CollectionStream` implements the `Iterator` and `Stream` traits.
+
+The basic protocols on a `Stream` are `next` and `reset`.
 
 * * *
 

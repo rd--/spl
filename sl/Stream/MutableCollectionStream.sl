@@ -2,6 +2,10 @@
 
 MutableCollectionStream : [Object, Iterator, Stream, PositionableStream, WriteStream] { | collection positionIndex writeLimit |
 
+	atEnd { :self |
+		true
+	}
+
 	contents { :self |
 		self.collection.copyFromTo(1, self.position)
 	}

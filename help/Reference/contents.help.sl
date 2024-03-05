@@ -2,7 +2,7 @@
 
 - _contents(aStream | aString)_
 
-The contents of a `Stream` is a `List` of all of the items in the stream.
+The contents of a `Stream` is a `Sequence` of all of the items in the stream.
 
 The contents of a `String` is a `List` of single character `String`s.
 

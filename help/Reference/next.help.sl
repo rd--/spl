@@ -16,7 +16,7 @@ If the stream ends before _anInteger_ items are read it is an `error`, see `next
 
 * * *
 
-See also: atEnd, contents, reset, Stream
+See also: atEnd, contents, nextPut, reset, Stream
 
 References:
 _Smalltalk_

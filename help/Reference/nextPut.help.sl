@@ -6,7 +6,7 @@ Write _anObject_ into _aStream_.
 
 * * *
 
-See also: putOn, Stream, WriteStream
+See also: nextPutAll, putOn, Stream, WriteStream
 
 References:
 _Smalltalk_

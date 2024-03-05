@@ -5283,12 +5283,16 @@ _Definition_: All of the receiver’s future sequence values are
 appended, in sequence, to the receiver’s past sequence values. The
 receiver then has no future sequence values.
 
+Cf: setToEnd
+
 ## 5.9.2
 
 _Protocol_: ⧼gettableStream>
 
 _Description_: An object conforming to ⧼gettableStream⧽ can read
 objects from its future sequence values.
+
+Cf: Stream
 
 ### 5.9.2.1
 
@@ -5459,12 +5463,16 @@ _Conforms To_: ⧼sequencedStream>
 _Description_: An object conforming to ⧼collectionStream⧽ has a
 ⧼sequencedReadableCollection⧽ as its stream backing store.
 
+Cf: CollectionStream
+
 ## 5.9.4
 
 _Protocol_: ⧼puttableStream>
 
 _Description_: An object conforming to ⧼puttableStream⧽ allows objects
 to be added to its past sequence values.
+
+Cf: WriteStream
 
 ### 5.9.4.1
 
@@ -5625,6 +5633,8 @@ _Parameters_: aCollection ⧼sequencedReadableCollection⧽
 
 _Return Value_: ⧼ReadStream⧽ new
 
+Cf: asStream
+
 ### 5.9.10.1
 
 _Message_: with: aCollection
@@ -5644,6 +5654,8 @@ elements of aCollection also apply to the stream’s sequence elements.
 _Parameters_: aCollection ⧼sequencedCollection⧽
 
 _Return Value_: ⧼ReadWriteStream⧽ new
+
+Cf: asWriteStream
 
 # 6. Glossary
 
