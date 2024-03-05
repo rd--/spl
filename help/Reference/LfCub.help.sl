@@ -31,4 +31,8 @@ LfCub(XLine(100, 8000, 30), 0) * 0.1
 
 See also: LfPar
 
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LFPar.html)
+
 Categories: Ugen, Oscillator

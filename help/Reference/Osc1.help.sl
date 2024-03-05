@@ -1,7 +1,8 @@
-# Osc1 -- one-shot oscillator
+# Osc1
 
-_Osc1(table, dur)_
+- _Osc1(table, dur)_
 
+One-shot oscillator.
 An oscillator that reads through a table only once.
 
 - table: an instance of Signal; its size must be a power of 2.
@@ -17,3 +18,5 @@ SinOsc((Osc1(tbl, 5) + 48).MidiCps, 0) * 0.1
 * * *
 
 See also: Osc
+
+Categories: Oscillator

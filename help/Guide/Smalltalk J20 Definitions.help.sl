@@ -1851,7 +1851,7 @@ _Parameters_: operand ⧼number⧽
 
 _Return Value_: ⧼number⧽
 
-_Errors_: receiver = 0 and operand ⧼= 0 receiver ⧼ 0
+_Errors_: receiver = 0 and operand <= 0 receiver < 0
 
 Cf: ^
 
@@ -2036,8 +2036,8 @@ Table.  Note that stop may not be the last element in the sequence,
 which is given by the formula (((stop - receiver) // step) * step) +
 receiver The interval answered will be empty if:
 
-1. receiver ⧼ stop, and step ⧼ 0.
-2. receiver ⧽ stop, and step ⧽ 0.
+1. receiver < stop, and step < 0.
+2. receiver > stop, and step > 0.
 
 _Parameters_: stop ⧼number⧽ step ⧼number⧽
 
@@ -2064,8 +2064,8 @@ Table.  Note that stop is not necessarily an element in the sequence,
 which is given by the formula (((stop - receiver) // step) * step) +
 receiver No evaluation takes place if:
 
-1. receiver ⧼ stop, and step ⧼ 0.
-2. receiver ⧽ stop, and step ⧽ 0.
+1. receiver < stop, and step < 0.
+2. receiver > stop, and step > 0.
 
 Implementations are not required to actually create the interval
 described by the receiver, stop and step. Implementations may restrict
@@ -2515,7 +2515,7 @@ It is erroneous if the absolute value of the receiver is greater than
 
 _Return Value_: ⧼Float⧽
 
-_Errors_: |receiver| ⧽ 1
+_Errors_: |receiver| > 1
 
 Cf: arcCos
 
@@ -2535,7 +2535,7 @@ It is erroneous if the absolute value of the receiver is greater than 1.
 
 _Return Value_: ⧼Float⧽
 
-_Errors_: |receiver| ⧽ 1
+_Errors_: |receiver| > 1
 
 Cf: arcSin
 
@@ -3688,7 +3688,7 @@ receiver has no element at position index.
 
 _Parameters_: index ⧼integer⧽
 
-_Errors_: If index is ⧼= 0.  If index is greater than the receiver’s size.
+_Errors_: If index is <= 0.  If index is greater than the receiver’s size.
 
 Cf: at
 
@@ -3748,8 +3748,8 @@ _Parameters_: start ⧼integer⧽ stop ⧼integer⧽
 
 _Return Values_: ⧼receiver⧽ new
 
-_Errors_: If stop >= start and (start ⧼ 1 or start ⧽ the receiver’s size).
-If stop >= start and (stop ⧼ 1 or stop ⧽ the receiver’s size).
+_Errors_: If stop >= start and (start < 1 or start > the receiver’s size).
+If stop >= start and (stop < 1 or stop > the receiver’s size).
 
 Cf: copyFromTo
 
@@ -3829,8 +3829,8 @@ replacementElements⧼sequencedReadableCollection⧽
 _Return Values_: ⧼receiver⧽ new
 
 _Errors_: The elements in replacementElements are not suitable for
-storage in instances of the receiver’s class.  start ⧽ receiver’s size
-+ 1.  start ⧼ 1. stop ⧽ receiver’s size. stop ⧼ start - 1.
+storage in instances of the receiver’s class.  start > receiver’s size
++ 1.  start < 1. stop > receiver’s size. stop < start - 1.
 
 Cf: copyReplaceFromToWith
 
@@ -3865,8 +3865,8 @@ _Parameters_: start ⧼integer⧽ stop ⧼integer⧽ replacementElement
 _Return Values_: ⧼receiver⧽ new
 
 _Errors_: The replacementElement is not suitable for storage in
-instances of the receiver’s class.  start ⧽ receiver’s size + 1.
-start ⧼ 1.  stop ⧽ receiver’s size.  stop ⧼ start - 1.
+instances of the receiver’s class.  start > receiver’s size + 1.
+start < 1.  stop > receiver’s size.  stop < start - 1.
 
 ### 5.7.8.11
 
@@ -3983,7 +3983,7 @@ _Parameters_: start ⧼integer⧽ stop ⧼integer⧽ operation
 ⧼monadicValuable⧽
 
 _Errors_: If the elements of the receiver are inappropriate for use as
-arguments to operation.  start ⧼ 1.  stop ⧽ receiver’s size.
+arguments to operation.  start < 1.  stop > receiver’s size.
 
 Cf: fromToDo
 
@@ -4003,7 +4003,7 @@ _Parameters_: start ⧼integer⧽ stop ⧼integer⧽ operation
 ⧼dyadicValuable⧽
 
 _Errors_: If the elements of the receiver or its indices are
-inappropriate for use as arguments to operation.  start ⧼ 1.  stop >
+inappropriate for use as arguments to operation.  start < 1.  stop >
 receiver’s size.
 
 Cf: fromToKeysAndValuesDo
@@ -4066,7 +4066,7 @@ _Parameters_: targetSequence ⧼sequencedReadableCollection⧽ start
 
 _Return Values_: ⧼integer⧽
 
-_Errors_: start ⧼ 1.  start ⧽ the receiver’s size
+_Errors_: start < 1.  start > the receiver’s size
 
 Cf: indexOfSubCollectionStartingAt
 
@@ -4095,7 +4095,7 @@ _Parameters_: targetSequence ⧼sequencedReadableCollection⧽ start
 
 _Return Values_: ⧼integer⧽ ⧼Object⧽
 
-_Errors_: start ⧼ 1.  start ⧽ the receiver’s size
+_Errors_: start < 1.  start > the receiver’s size
 
 Cf: indexOfSubCollectionStartingAtIfAbsent
 
@@ -4334,7 +4334,7 @@ index will answer newElement.
 
 _Parameters_: index ⧼integer⧽ newElement ⧼Object⧽
 
-_Errors_: If index ⧼ 0.  If index ⧽ the receiver’s size.  If newElement does not
+_Errors_: If index < 0.  If index > the receiver’s size.  If newElement does not
 conform to any element type restrictions of the receiver.
 
 Cf: atPut
@@ -4356,7 +4356,7 @@ the #at:put: message for the receiver.
 _Parameters_: indices ⧼collection⧽ newElement ⧼Object⧽
 
 _Errors_: If any element of indices does not conform to ⧼integer⧽.  If
-any element in indices is ⧼= 0 or greater than the receiver’s size.  If
+any element in indices is <= 0 or greater than the receiver’s size.  If
 newElement does not conform to any element type restrictions of the
 receiver.
 
@@ -4395,8 +4395,8 @@ of sending this message is unspecified.
 _Parameters_: start ⧼integer⧽ stop ⧼integer⧽
 replacementElements⧼sequencedReadableCollection⧽
 
-_Errors_: If start ⧼ 1 or start ⧽ the receiver’s size.  If stop ⧼ 1 or
-stop ⧽ the receiver’s size.  If replacementElements size ⧼⧽ stop -
+_Errors_: If start < 1 or start > the receiver’s size.  If stop < 1 or
+stop > the receiver’s size.  If replacementElements size <> stop -
 start + 1.
 
 Cf: replaceFromToWith
@@ -4423,10 +4423,12 @@ _Parameters_: start ⧼integer⧽ stop ⧼integer⧽
 replacementElements⧼sequencedReadableCollection⧽ replacementStart
 ⧼integer⧽
 
-_Errors_: If start ⧼ 1 or start ⧽ the receiver’s size.  If stop ⧼ 1 or
-stop ⧽ the receiver’s size.  If replacementStart ⧼ 1 or
-replacementStart ⧽ replacementElements size.  If replacementElements
-size - replacementStart + 1 ⧼ stop - start + 1.
+_Errors_: If start < 1 or start > the receiver’s size.  If stop < 1 or
+stop > the receiver’s size.  If replacementStart < 1 or
+replacementStart > replacementElements size.  If replacementElements
+size - replacementStart + 1 < stop - start + 1.
+
+Cf: replaceFromToWithStartingAt
 
 ### 5.7.12.6
 
@@ -4441,8 +4443,8 @@ stop inclusive with replacementElement. Answer the receiver.
 _Parameters_: start ⧼integer⧽ stop ⧼integer⧽ replacementElement
 ⧼Object⧽
 
-_Errors_: If start ⧼ 1 or start ⧽ the receiver’s size.  If stop ⧼ 1 or
-stop ⧽ the receiver’s size.
+_Errors_: If start < 1 or start > the receiver’s size.  If stop < 1 or
+stop > the receiver’s size.
 
 ## 5.7.13
 
@@ -4638,7 +4640,7 @@ is equal to 0, newElement becomes the first element of the receiver.
 
 _Parameters_: newElement ⧼Object⧽ index ⧼integer⧽
 
-_Errors_: If index ⧼ 0.  If index ⧽ receiver’s size.
+_Errors_: If index < 0.  If index > receiver’s size.
 
 Cf: addAfterIndex
 
@@ -4677,7 +4679,7 @@ receiver’s size plus 1.
 
 _Parameters_: newElement ⧼Object⧽ index ⧼integer⧽
 
-_Errors_: If index ⧼=0.  If index ⧽ receiver’s size + 1.
+_Errors_: If index ⧼=0.  If index > receiver’s size + 1.
 
 Cf: addBeforeIndex
 
@@ -4719,7 +4721,7 @@ integer less than or equal to the receiver’s size.
 
 _Parameters_: newElements ⧼collection⧽ index ⧼integer⧽
 
-_Errors_: If index ⧼ 0.  If index ⧽ receiver’s size.
+_Errors_: If index < 0.  If index > receiver’s size.
 
 ### 5.7.18.8
 
@@ -4762,7 +4764,7 @@ receiver’s size plus 1.
 
 _Parameters_: newElements ⧼collection⧽ index ⧼integer⧽
 
-_Errors_: If index ⧼=0.  If index ⧽ receiver’s size + 1.
+_Errors_: If index ⧼=0.  If index > receiver’s size + 1.
 
 ### 5.7.18.10
 
@@ -4850,7 +4852,7 @@ the last element is given by the formula
 	start + ((stop - start) // 1)
 
 The interval answered will be empty (it will answer 0 to the #size
-message) if start ⧽ stop
+message) if start > stop
 
 _Parameters_: start ⧼number⧽ stop ⧼number⧽
 
@@ -4874,8 +4876,8 @@ element in the sequence; the last element is given by the formula
 
 	(((stop - start) // step) * step) + start
 
-The interval answered will be empty (it will answer 0 to the #size
-message) if: start ⧼ stop and step ⧼ 0, or start ⧽ stop and step ⧽ 0.
+The interval answered will be empty (it will answer 0 to the `#size`
+message) if: start < stop and step < 0, or start > stop and step > 0.
 
 _Parameters_: start ⧼number⧽ stop ⧼number⧽ step ⧼number⧽
 
@@ -5335,7 +5337,7 @@ _Parameters_: amount ⧼integer⧽
 
 _Return Value_: ⧼sequencedReadableCollection⧽ new
 
-_Errors_: amount ⧼ 0
+_Errors_: amount < 0
 
 Cf: next
 

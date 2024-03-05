@@ -1,10 +1,11 @@
-# LfPar -- parabolic oscillator
+# LfPar
 
+- _LfPar(freq, iphase)_
+
+Parabolic oscillator.
 A sine-like shape made of two parabolas and the integral of a triangular wave.
 It has audible odd harmonics and is non-band-limited.
 Output ranges from -1 to +1.
-
-_LfPar(freq, iphase)_
 
 - freq: frequency in Hertz.
 - iphase: initial phase offset. For efficiency reasons this is a value ranging from 0 to 4.
@@ -44,4 +45,10 @@ Used as phase modulator (behaves like a triangular modulator in fm):
 
 * * *
 
-See also: LfCub
+See also: LfCub, LfPar, LfPulse, LfSaw, LfTri
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LFPar.html)
+
+Categories: Oscillator

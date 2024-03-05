@@ -1,7 +1,8 @@
-# Sweep -- triggered linear ramp
+# Sweep
 
-_Sweep(trig=0, rate=1)_
+- _Sweep(trig=0, rate=1)_
 
+Triggered linear ramp.
 Starts a linear raise by rate/sec from zero when _trig_ is triggered.
 
 When rate is equal to one, Sweep may be used to get a continually-updating measurement of the time (in seconds) since the last trigger.
@@ -44,3 +45,12 @@ let rate = Sweep(trig, 2) + 0.5;
 BufRd(1, sf, Sweep(trig, BufSampleRate(sf) * rate), 1, 2)
 ```
 
+* * *
+
+See also: Line, Phasor
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Sweep.html)
+
+Categories: Trigger

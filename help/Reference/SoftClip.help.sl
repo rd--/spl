@@ -1,5 +1,8 @@
-# SoftClip -- nonlinear distortion
+# SoftClip
 
+- _SoftClip(aNumber)_
+
+Nonlinear distortion.
 Distortion with a perfectly linear region from -0.5 to +0.5.
 
 ```
@@ -9,3 +12,5 @@ Distortion with a perfectly linear region from -0.5 to +0.5.
 * * *
 
 See also: Distort
+
+Categories: Ugen

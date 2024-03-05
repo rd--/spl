@@ -1,6 +1,6 @@
-# PmOsc -- phase modulation oscillator pair
+# PmOsc
 
-_PmOsc(carfreq, modfreq, index=0, modphase=0)_
+- _PmOsc(carfreq, modfreq, index=0, modphase=0)_
 
 Phase modulation sine oscillator pair.
 
@@ -42,3 +42,14 @@ Texture:
 		0.1
 	)
 }.OverlapTexture(2, 5, 4).Mix
+```
+
+* * *
+
+See also: SinOsc
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/PMOsc.html)
+
+Categories: Oscillator

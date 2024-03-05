@@ -1,7 +1,8 @@
-# LfdClipNoise -- Dynamic clipped noise
+# LfdClipNoise
 
-_LfdClipNoise(freq=500)_
+- _LfdClipNoise(freq=500)_
 
+Dynamic clipped noise.
 Generate the values -1 or +1 at a rate given by the _freq_ argument.
 
 - freq: Approximate rate at which to generate random values.

@@ -1,7 +1,8 @@
-# PulseCount -- pulse counter
+# PulseCount
 
-_PulseCount(trig=0, reset=0)_
+- _PulseCount(trig=0, reset=0)_
 
+Pulse counter.
 Each trigger increments a counter which is output as a signal.
 
 - trig: trigger
@@ -17,3 +18,7 @@ SinOsc(count * 200, 0) * 0.05
 * * *
 
 See also: Stepper
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/PulseCount.html)

@@ -1,7 +1,8 @@
-# TGrains -- buffer granulator
+# TGrains
 
-_TGrains(numChannels, trigger=0, bufnum=0, rate=1, centerPos=0, dur=0.1, pan=0, amp=0.1, interp=4)_
+- _TGrains(numChannels, trigger=0, bufnum=0, rate=1, centerPos=0, dur=0.1, pan=0, amp=0.1, interp=4)_
 
+Buffer granulator.
 Triggers generate grains from a buffer.
 Each grain has a Hanning envelope (_sin^2(x)_ for x from 0 to pi),
 and is panned between two channels of multiple outputs.
@@ -135,3 +136,7 @@ TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
 * * *
 
 See also: GrainFm, Warp1
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/TGrains.html)

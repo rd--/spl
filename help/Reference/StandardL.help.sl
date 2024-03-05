@@ -1,10 +1,9 @@
-# StandardL -- chaos
+# StandardL
+
+- _StandardL(freq=22050, k=1, xi=0.5, yi=0)_
 
 Standard map chaotic generator.
-
 The standard map is an area preserving map of a cylinder discovered by the plasma physicist Boris Chirikov.
-
-_StandardL(freq=22050, k=1, xi=0.5, yi=0)_
 
 - freq: Iteration frequency in Hertz
 - k: Perturbation amount
@@ -27,3 +26,8 @@ As frequency control:
 
 ```
 SinOsc(StandardL(40, MouseX(0.9, 4, 0, 0.2), 0.5, 0) * 800 + 900, 0) * 0.1
+```
+
+* * *
+
+Categories: Chaos

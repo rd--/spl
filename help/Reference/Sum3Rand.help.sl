@@ -1,4 +1,4 @@
-# Sum3Rand -- math operator
+# Sum3Rand
 
 - _Sum3Rand(input)_
 
@@ -18,3 +18,5 @@ n.Abs - n
 * * *
 
 See also: BiLinRand, LinRand
+
+Categories: Math, Operator

@@ -1,7 +1,8 @@
-# Sequencer -- clocked values
+# Sequencer
 
-_Sequencer(sequence, trig)_
+- _Sequencer(sequence, trig)_
 
+Clocked values.
 Outputs a different value from the sequence each time a trigger is received.
 
 - sequence: the values in the list are output cyclically

@@ -1,7 +1,8 @@
-# RingzBank -- bank of resonators
+# RingzBank
 
-_RingzBank(input, freqList, ampList, timeList)_
+- _RingzBank(input, freqList, ampList, timeList)_
 
+Bank of resonators.
 RingzBank (_Klank_) is a bank of fixed frequency resonators which can be used to simulate the resonant modes of an object. Each mode is given a ring time, which is the time for the mode to decay by 60 dB.
 
 - input: the excitation input to the resonant filter bank.
@@ -82,3 +83,8 @@ Texture of variation of above:
 }.OverlapTexture(8, 3, 4).Mix
 ```
 
+* * *
+
+See also: Resonz, Ringz, SinOscBank
+
+Categories: Filter

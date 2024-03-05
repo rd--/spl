@@ -1,5 +1,7 @@
 # Ceiling
 
+- _Ceiling(aNumber)_
+
 Next higher integer.
 
 Stepped line:

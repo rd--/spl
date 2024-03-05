@@ -1,4 +1,4 @@
-# PriorityQueue -- collection type
+# PriorityQueue
 
 A priority queue with external numeric priority values.
 
@@ -11,3 +11,5 @@ A priority queue with external numeric priority values.
 * * *
 
 See also: peek, peekPriority, pop, pushAllWithPriority, pushWithPriority, size
+
+Categories: Collection, Type

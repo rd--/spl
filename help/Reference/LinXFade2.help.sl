@@ -1,6 +1,6 @@
-# LinXFade2 -- two channel linear crossfade
+# LinXFade2
 
-_LinXFade2(a, b, pos=0)_
+- _LinXFade2(a, b, pos=0)_
 
 Two channel linear cross-fade.
 
@@ -21,3 +21,7 @@ LinXFade2(
 * * *
 
 See also: XFade2
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LinXFade2.html)

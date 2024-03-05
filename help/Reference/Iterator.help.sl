@@ -16,4 +16,4 @@ To implement `Iterator` a type must implement `next`.
 
 * * *
 
-See also: asIterator, next, Stream
+See also: asIterator, do, next, Stream

@@ -1,8 +1,9 @@
-# IRand -- random number generator
+# IRand
 
-- _IRand(lo, hi)_
+- _IRand(low, high)_
 
-Generates a single random integer value in uniform distribution from lo to hi
+Random number generator.
+Generates a single random integer value in uniform distribution from _low_ to _high_.
 
 ```
 let scale = [0 2 4 5 7 9 10 12].asLocalBuf;
@@ -19,3 +20,5 @@ let scale = [0 2 4 5 7 9 10 12].asLocalBuf;
 * * *
 
 See also: Rand, TiRand
+
+Categories: Random
