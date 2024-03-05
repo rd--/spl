@@ -45,7 +45,7 @@ true
 ```
 
 A symmetric matrix obeys _s=sT_,
-an antisymmetric matrix _a=-aT.
+an antisymmetric matrix _a=-aT_.
 This matrix is symmetric:
 
 ```
@@ -62,7 +62,7 @@ This matrix is antisymmetric:
 true
 ```
 
-Where supported _transposed_ is displayed as _ᵀ_.
+Where supported `transposed` is displayed as ᵀ.
 
 * * *
 

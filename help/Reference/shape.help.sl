@@ -81,6 +81,20 @@ The empty sequence has shape [0]:
 [0]
 ```
 
+A row vector:
+
+```
+>>> [[1 2 3 4 5]].shape
+[1 5]
+```
+
+A column vector:
+
+```
+>>> [1; 2; 3; 4; 5].shape
+[5 1]
+```
+
 See also: isArray, isMatrix, isSequence, isVector, numberOfRows, numberOfColumns, rank, reshape
 
 References:

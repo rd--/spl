@@ -100,6 +100,12 @@ A _trait_ that describes container types that hold zero or more items,
 or a _type_ that implements such a trait.
 Cf: Collection
 
+- _Column_:
+The second axis of a _matrix_ or a _table_.
+
+- _Column vector_:
+A _matrix_ with a single column, the _transpose_ of a _row vector_.
+
 - _Complex:_
 A numeric _type_ that stores the real and imaginary parts of complex numbers.
 If the components are both _integers_ it is called a _Gaussian integer_.
@@ -263,6 +269,12 @@ Any value, including _behaviours_, whose definition refers to itself.
 The value produced by executing a program,
 also called the _answer_.
 
+- _Row_:
+The first axis of a _matrix_ or a _table_.
+
+- _Row vector_:
+A _matrix_ with a single row, the _transpose_ of a _column vector_.
+
 - _Scalar_:
 A mathematical term used to distinguish values that are not _vectors_ or _matrices_ or _arrays_.
 
@@ -330,4 +342,6 @@ Cf: isSeparator
 
 References:
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/Glossary)
+[1](https://code.jsoftware.com/wiki/Vocabulary/Glossary),
+_Smalltalk_
+6

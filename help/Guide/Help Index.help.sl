@@ -192,6 +192,11 @@
 
 - `sum`, `product`
 
+## Matrix Operations
+
+- `isMatrix`, `isSquareMatrix`, `shape`
+- `determinant`, `diagonal`, `trace`, `transposed`
+
 ## Network
 
 - `Location`, `Url`

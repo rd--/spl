@@ -26,12 +26,14 @@ At `String`:
 'txet sdrawkcaB'
 ```
 
-`reversed` is it’s own inverse:
+`reversed` is its own inverse:
 
 ```
 >>> 'Backwards text'.reversed.reversed
 'Backwards text'
 ```
+
+Where supported `reversed` is displayed as ᴙ.
 
 * * *
 
