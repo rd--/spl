@@ -584,7 +584,7 @@
 	}
 
 	fisherYatesShuffleUsing { :self :random |
-		self.size.downToDo(2) { :each |
+		self.size.toByDo(2, -1) { :each |
 			self.swapWith(each, random.nextRandomInteger(1, each))
 		};
 		self
@@ -619,7 +619,7 @@
 			self.errorEmptyCollection
 		} {
 			let answer = self[1];
-			2.upToDo(self.size) { :index |
+			2.toDo(self.size) { :index |
 				answer := aBlock(answer, self[index])
 			};
 			answer
@@ -1014,7 +1014,7 @@
 
 	lastIndexOfStartingAt { :self :anElement :lastIndex |
 		valueWithReturn { :return:/1 |
-			lastIndex.downToDo(1) { :index |
+			lastIndex.toByDo(1, -1) { :index |
 				(self[index] = anElement).ifTrue {
 					index.return
 				}
@@ -1066,7 +1066,7 @@
 		};
 		let n = self.size.min(aSequence.size);
 		valueWithReturn { :return:/1 |
-			n.downTo(1).do { :k |
+			n.toByDo(1, -1) { :k |
 				let common = find(k);
 				common.isEmpty.ifFalse {
 					common.return
@@ -1306,7 +1306,7 @@
 			(anInteger = self.size).if {
 				aBlock(self)
 			} {
-				anInteger.upToDo(self.size) { :index |
+				anInteger.toDo(self.size) { :index |
 					self.swapWith(anInteger, index);
 					self.permutationsStartingAtDo(anInteger + 1, aBlock:/1);
 					self.swapWith(anInteger, index)
@@ -1364,7 +1364,7 @@
 	}
 
 	prefixesDo { :self :aBlock:/1 |
-		1.upToDo(self.size) { :each |
+		1.toDo(self.size) { :each |
 			aBlock(self.copyFromTo(1, each))
 		}
 	}
@@ -1596,7 +1596,7 @@
 	}
 
 	reverseDo { :self :aBlock:/1 |
-		self.size.downToDo(1) { :index |
+		self.size.toByDo(1, -1) { :index |
 			aBlock(self[index])
 		}
 	}
@@ -1605,7 +1605,7 @@
 		(self.size ~= aSequence.size).if {
 			self.error('@Sequence>> reverseWithDo: unequal size')
 		} {
-			self.size.downToDo(1) { :index |
+			self.size.toByDo(1, -1) { :index |
 				aBlock(self[index], aSequence[index])
 			}
 		}
@@ -1727,7 +1727,7 @@
 
 	suffixesDo { :self :aBlock:/1 |
 		let size = self.size;
-		1.upToDo(size) { :each |
+		1.toDo(size) { :each |
 			aBlock(self.copyFromTo(each, size))
 		}
 	}
@@ -1825,7 +1825,7 @@
 			let answer = [];
 			let startIndex = 1;
 			let previous = self.first;
-			2.upToDo(self.size) { :index |
+			2.toDo(self.size) { :index |
 				let next = self[index];
 				aBlock(previous, next).ifFalse {
 					answer.add(self.copyFromTo(startIndex, index - 1));

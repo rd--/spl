@@ -24,10 +24,14 @@ CollectionStream : [Object, Iterator, Stream, PositionableStream] { | collection
 	}
 
 	next { :self :anInteger |
-		let endPosition = (self.position + anInteger).min(self.readLimit);
-		let answer = self.collection.copyFromTo(self.position + 1, endPosition);
-		self.position := endPosition;
-		answer
+		let endPosition = self.position + anInteger;
+		(endPosition > self.readLimit).if {
+			self.error('CollectionStream>>next: not enough items in stream')
+		} {
+			let answer = self.collection.copyFromTo(self.position + 1, endPosition);
+			self.position := endPosition;
+			answer
+		}
 	}
 
 	position { :self :anInteger |

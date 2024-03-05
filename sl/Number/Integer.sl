@@ -135,9 +135,9 @@
 			0
 		} {
 			let l = self.isNegative.if {
-				-1.downTo(self)
+				-1.toBy(self, -1)
 			} {
-				1.upTo(self)
+				1.to(self)
 			};
 			l.select { :each |
 				self.gcd(each) = 1
@@ -184,7 +184,7 @@
 	}
 
 	fromCharacterCode { :self |
-		self.asCharacter.string
+		self.asCharacter.characterString
 	}
 
 	gcd { :self :anInteger |
@@ -514,7 +514,7 @@
 
 	mixedRadixEncode { :self :factors |
 		let answer = List(factors.size);
-		factors.size.downToDo(1) { :index |
+		factors.size.toByDo(1, -1) { :index |
 			answer[index] := self % factors[index];
 			self := self // factors[index]
 		};

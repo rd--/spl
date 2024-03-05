@@ -1,6 +1,6 @@
 # arg
 
-_arg(aComplexNumber)_
+- _arg(aComplexNumber)_
 
 Answers the argument of _aComplexNumber_, the phase angle in radians between -pi and +pi.
 
@@ -34,12 +34,13 @@ Threads elementwise over lists and matrices:
 [0 1.5708 -1.5708]
 ```
 
-Values at zero & infinity:
+Values at `zero` & infinity:
 
 ```
 >>> [0, inf].arg
 [0 0]
 ```
+
 Polar decomposition of a complex number:
 
 ```

@@ -36,7 +36,7 @@ MutableCollectionStream : [Object, Iterator, Stream, PositionableStream, WriteSt
 			self.collection.replaceFromToWithStartingAt(self.position + 1, newEnd, aCollection, 1);
 			self.position := newEnd
 		} {
-			1.upToDo(aCollection.size) { :index |
+			1.toDo(aCollection.size) { :index |
 				self.nextPut(aCollection[index])
 			}
 		};

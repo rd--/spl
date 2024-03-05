@@ -16,7 +16,7 @@ _utf8String_ is the inverse of _utf8ByteArray_:
 
 ```
 >>> let integer = 8750;
->>> let string = integer.asCharacter.string;
+>>> let string = integer.asCharacter.characterString;
 >>> let byteArray = string.utf8ByteArray;
 >>> (integer, byteArray.asList, byteArray.utf8String)
 (8750, [226 136 174], '∮')

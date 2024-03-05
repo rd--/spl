@@ -3,6 +3,7 @@
 - _Interval(min, max)_
 
 An interval represents the range of values between _min_ and _max_.
+Intervals are closed, they includes both end points.
 
 Use _+_ to add intervals, getting an interval representing the result:
 
@@ -88,5 +89,10 @@ true
 * * *
 
 See also: Range
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Interval.html)
+[2](https://reference.wolfram.com/language/ref/Interval.html)
 
 Categories: Collection, Number, Type

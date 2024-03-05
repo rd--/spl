@@ -879,14 +879,14 @@ system.categoryDictionary.categoryOf('type', 'Set') = 'Collection' {- category o
 ## Character -- text type
 ```
 system.includesPackage('Character') {- character package -}
-'𠮷'.asCharacter.isCharacter
-'𠮷'.asCharacter.string = '𠮷'
-'𠮷'.asCharacter.codePoint = 134071
-134071.asCharacter.string = '𠮷'
+'𠮷'.asCharacter.isCharacter {- trait predicate -}
+'𠮷'.asCharacter.characterString = '𠮷' {- character string -}
+'𠮷'.asCharacter.codePoint = 134071 {- code point -}
+134071.asCharacter.characterString = '𠮷' {- integer as character, from code point -}
 '䶰䶱䶲䶳䶴䶵'.characters.collect(codePoint:/1) = [19888 .. 19893]
 'x'.asCharacter = 120.asCharacter {- characters are comparable -}
 'x'.asCharacter.asInteger = 120
-'x'.asCharacter.printString = '$x'
+'x'.asCharacter.printString = '\'x\''
 'x'.asCharacter.storeString = '120.asCharacter'
 'x'.asCharacter == 120.asCharacter {- characters are identical -}
 '𠮷'.asCharacter == '𠮷'.asCharacter {- characters are identical -}
@@ -894,14 +894,14 @@ system.includesPackage('Character') {- character package -}
 { '𠮷'.asCharacter.asciiValue }.ifError { true } {- it is an error is the character is not ascii -}
 'xyz'.asList = ['x'.asCharacter, 'y'.asCharacter, 'z'.asCharacter]
 'xyz'.asList.collect(codePoint:/1) = [120, 121, 122]
-32.asCharacter.string = ' ' {- 32 is space -}
+32.asCharacter.characterString = ' ' {- 32 is space -}
 ' '.asCharacter.codePoint = 32 {- space is 32 -}
-97.asCharacter.string = 'a' {- 92 is a -}
-'a'.asCharacter.printString = '$a' {- print using smalltalk notation, despite not being a literal -}
+97.asCharacter.characterString = 'a' {- 92 is a -}
+'a'.asCharacter.printString = '\'a\'' {- print as single character string -}
 'a'.asCharacter.asString = 'a' {- single element string of Character -}
 { 'xy'.asCharacter }.ifError { true } {- it is an error is the string is not a single Character -}
 let c = '𠮷'.asCharacter; c = c.copy & { c ~~ c.copy } {- copy is equal but not identical -}
-92.asCharacter.string = '\\' {- escaped character -}
+92.asCharacter.characterString = '\\' {- escaped character -}
 '0123456789abcdef'.characters.collect(digitValue:/1) = [0 .. 15] {- digit value of character -}
 0:15.collect(digitValue:/1).join = '0123456789ABCDEF' {- character of given digit value -}
 { 36.digitValue }.ifError { true } {- error if integer is out of range -}
@@ -1280,7 +1280,7 @@ Point(0, 0).asPoint = Point(0, 0) {- identity -}
 126.asCharacter = '~'.asCharacter {- integer to character -}
 '~'.asCharacter.isCharacter {- string to character -}
 let c = '~'.asCharacter; c.asCharacter == c {- identity -}
-let c = 126.asCharacter; c.asString = '~' & { c.printString = '$~' } {- character to string -}
+let c = 126.asCharacter; c.asString = '~' & { c.printString = '\'~\'' } {- character to string -}
 '~'.asString = '~' {- identity operation -}
 '~'.asString == '~' {- identity operation -}
 23.asString = '23' {- Object>>printString (integral to string) -}
@@ -1761,13 +1761,13 @@ system.includesPackage('Integer') {- integer package -}
 4 / 2 = 2 {- integer division with integer result -}
 let n = 2; 3.timesRepeat { n := n * n }; n = 256 {- iteration -}
 0:15.collect(asHexDigit:/1).join = '0123456789ABCDEF' {- integer to hex character -}
-let a = []; 1.upToDo(5) { :each | a.add(each) }; a = [1 .. 5] {- iterate over integer sequence -}
-{ 5.upToDo(1) { :each | nil } }.ifError { true } {- non-ascending sequences are an error -}
-let a = []; 5.downToDo(1) { :each | a.add(each) }; a = [5 .. 1] {- iterate over integer sequence -}
-{ 1.downToDo(5) }.ifError { true } {- non-descending sequences are an error -}
+let a = []; 1.toDo(5) { :each | a.add(each) }; a = [1 .. 5] {- iterate over integer sequence -}
+let a = []; 5.toDo(1) { :each | a.add(each) }; a = [] {- non-ascending sequences are empty -}
+let a = []; 5.toByDo(1, -1) { :each | a.add(each) }; a = [5 .. 1] {- iterate over integer sequence -}
+let a = []; 1.toByDo(5, -1) { :each | a.add(each) }; a = [] {- non-descending sequences are an error -}
 let a = []; 1.toByDo(5, 1) { :each | a.add(each) }; a = [1 .. 5] {- with step -}
 let a = []; 5.upOrDownToDo(1) { :each | a.add(each) }; a = [5 .. 1] {- iterate over integer sequence -}
-let a = []; 1.toDo(5) { :each | a.add(each) }; a = [1 .. 5] {- toDo is upToDo if ascending -}
+let a = []; 1.toDo(5) { :each | a.add(each) }; a = [1 .. 5] {- toDo is ascending only -}
 let a = []; 5.toDo(1) { :each | a.add(each) }; a = [] {- non-ascending sequences are empty -}
 0:255.collect { :each | each.digitAt(1) } = [0 .. 255]
 0:255.collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 0 }
@@ -1946,7 +1946,7 @@ Range(1, 10, 3).asList = [1, 4, 7, 10]
 1.to(6).reversed = 6:1
 1:6.first = 1 {- first element of interval -}
 1.to(6).first = 1 {- first element of interval -}
-{ 1.upTo(0).first }.ifError { true } {- first element of empty interval -}
+{ 1.to(0).first }.ifError { true } {- first element of empty interval -}
 1:6.second = 2 {- second element of interval -}
 to(1, 6).last = 6 {- last element of interval -}
 let i = 1:9; i.first = i[1] {- one-indexed -}
@@ -1955,7 +1955,7 @@ let i = 1:9; i.last = i[9] {- one-indexed -}
 Range(-1, 1, 1).asList = [-1, 0, 1]
 1.to(99).asString = '1:99'
 1:99.asString = '1:99'
-downTo(1, -1).asString = 'Range(1, -1, -1)'
+toBy(1, -1, -1).asString = 'Range(1, -1, -1)'
 1.to(99).sum = 4950
 1.to(99).asList.sum = 4950
 1:9.size = 9
@@ -1964,7 +1964,7 @@ downTo(1, -1).asString = 'Range(1, -1, -1)'
 1:9999.asList.sum = 49995000
 to(1, 9) = Range(1, 9, 1)
 to(9, 1) = Range(9, 1, 1)
-downTo(9, 1) = Range(9, 1, -1)
+toBy(9, 1, -1) = Range(9, 1, -1)
 1.thenTo(3, 9) = Range(1, 9, 2)
 1:9 = 1:9
 [1 .. 9] = 1:9.asList {- array interval syntax -}
@@ -1986,11 +1986,8 @@ Range(1, 6, 2).reversed.asList = [5, 3, 1]
 1:0.size = 2
 3.to(5) = 3:5
 1.to(0).size = 0
-3.upTo(5) = 3:5
-{ 1.upTo(0) }.ifError { true } {- upTo must be ascending -}
-{ 0.downTo(1) }.ifError { true } {- downTo must be descending -}
-0.toBy(1, -1).size = 0 {- toBy is the correct way to write a downTo that may be empty -}
-5.downTo(3) = 5:3
+3.to(5) = 3:5
+0.toBy(1, -1).size = 0 {- toBy may be empty -}
 3.upOrDownTo(5) = 5.upOrDownTo(3).reversed
 let s = ''; (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531' {- do from end -}
 1:9 + 3 = 4:12 {- plus with a number answers a Range -}
@@ -3393,7 +3390,7 @@ system.includesPackage('String') {- package -}
 'string'.isAsciiString = true {- does string contain only ascii characters -}
 'Mačiūnas'.isAsciiString = false {- ascii does not include diacritics -}
 ''.isAsciiString = true {- the empty string is an ascii string -}
-128.asCharacter.string.isAsciiString = false {- not all byte arrays are ascii -}
+128.asCharacter.characterString.isAsciiString = false {- not all byte arrays are ascii -}
 'x' ++ 'y' = 'xy' {- append (catenation) -}
 'x' ++ 1 = 'x1' {- append, right hand side need not be a string -}
 'string'.asciiByteArray = [115, 116, 114, 105, 110, 103].asByteArray {- String to ByteArray of Ascii encoding -}
@@ -3538,7 +3535,7 @@ let a = 'string'.characters; a.joinCharacters = 'string' & { a.join = 'string' }
 '𠮷'.countCharacters = 1
 '𠮷'.countUtf16CodeUnits = 2
 '𠮷'.size = 2
-'𠮷'.isSingleCharacter = true
+'𠮷'.isCharacter = true {- a string with one place is a character -}
 '𠮷'.characters = ['𠮷'.asCharacter]
 '𠮷'.codePointAt(1) = 134071 {- code point at index -}
 '𠮷'.codePointAt(2) = 57271

@@ -1,6 +1,6 @@
 # Smalltalk J20 Definitions
 
-Relevant extracts from the draft J20 draft for the
+Relevant extracts from the J20 draft for the
 [Ansi Smalltalk](https://wiki.squeak.org/squeak/172) Standard
 ([Pdf](https://wiki.squeak.org/squeak/uploads/172/standard_v1_9-indexed.pdf)).
 
@@ -5312,7 +5312,7 @@ _Definition_: The first object is removed from the receiver’s future
 sequence values and appended to the end of the receiver’s past sequence
 values. That object is returned as the value of the message. The
 returned object must conform to the receiver’s sequence value type.
-The result is undefined if there the receiver has no future sequence values.
+The result is undefined if the receiver has no future sequence values.
 
 Cf: next
 
@@ -5703,13 +5703,13 @@ exception environment does not contain an exception handler that
 handles the exception.
 
 - _element_: An object is an element of a collection if the object will be passed as an
-argument to the argument of the message #do:.
+argument to the argument of the message `#do:`.
 
 - _element type_: A set of acceptable objects for elements of a collection. Unless
 otherwise specified, the element type of a collection is ⧼Object⧽.
 
 - _equivalent_: Two objects are considered equivalent if the result of sending the
-message #= to one of the objects with the other object as the argument
+message `#=` to one of the objects with the other object as the argument
 returns true.
 
 - _evaluation context_: The stack of suspended method and block activations that represents
@@ -5727,7 +5727,7 @@ exception action for the duration of a protected block. During the
 evaluation of the protected block, occurrence of an exceptional condition
 that matches the exception selector will result in the execution of the
 exception action. An exception handler is established by sending the
-message #on:do: to the protected block with the exception selector as
+message `#on:do:` to the protected block with the exception selector as
 the first argument and the exception action as the second argument.
 
 - _exception selector_: An object conforming to the protocol ⧼exceptionSelector⧽ that is
@@ -5755,20 +5755,20 @@ selector will respond with true if asked if it should service the exception.
 - _handler block_: A block that is specified as an exception action.
 
 - _handler environment_: The state of the current exception environment as it existed immediately
-before the execution of the #on:do: message that establishes a new
+before the execution of the `#on:do:` message that establishes a new
 exception handler.
 
-- _hash value_: The non-negative integer result of sending the message #hash to an
+- _hash value_: The non-negative integer result of sending the message `#hash` to an
 object.
 
-- _identical Two objects are considered identical if they are the same object. In other
-workds, the _:result of sending the message #== to one of the objects with
+- _identical_: Two objects are considered identical if they are the same object. In other
+workds, the result of sending the message `#==` to one of the objects with
 the other object as the argument is true.
 
 - _identifier_: A lexical representation for variables and selectors.
 
 - _identity hash value_: The non-negative integer result of sending the message
-#identityHash to an object.
+`#identityHash` to an object.
 
 - _identity object_: An object defined such that a=b implies a==b
 
@@ -5781,7 +5781,7 @@ elements.
 - _key equivalence_: The operation used to compare keys in a dictionary. Protocols that
 refine ⧼abstractDictionary⧽ must define the meaning of this term.
 
-- _key_: lookup Lookup of a key in a dictionary using key equivalence.
+- _key lookup_: Lookup of a key in a dictionary using key equivalence.
 
 - _keyword_: An identifier with a trailing colon.
 

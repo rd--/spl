@@ -1,21 +1,13 @@
-Character : [Object, Magnitude] { | string codePoint |
+@Character {
 
 	= { :self :anObject |
 		anObject.isCharacter & {
-			self.string = anObject.string
+			self.characterString = anObject.characterString
 		}
 	}
 
 	< { :self :anObject |
 		self.codePoint < anObject.codePoint
-	}
-
-	~ { :self :anObject |
-		self = anObject | {
-			anObject.isString & {
-				self.string = anObject
-			}
-		}
 	}
 
 	asciiValue { :self |
@@ -26,10 +18,6 @@ Character : [Object, Magnitude] { | string codePoint |
 		}
 	}
 
-	asCharacter { :self |
-		self
-	}
-
 	asCodePoint { :self |
 		self.codePoint
 	}
@@ -38,36 +26,8 @@ Character : [Object, Magnitude] { | string codePoint |
 		self.codePoint
 	}
 
-	asLowerCase { :self |
-		self.string.asLowerCase.asCharacter
-	}
-
-	asUpperCase { :self |
-		self.string.asUpperCase.asCharacter
-	}
-
-	asString { :self |
-		self.string
-	}
-
 	characterRange { :self :aCharacter |
 		self.codePoint.characterRange(aCharacter.codePoint)
-	}
-
-	digitValue { :self |
-		let integerValue = self.asInteger;
-		let digitValues = system.cache.atIfAbsentPut('digitValues') {
-			let answer = List(256, -1);
-			0.upToDo(9) { :i |
-				answer[48 + i + 1] := i
-			};
-			10.upToDo(35) { :i |
-				answer[55 + i + 1] := i;
-				answer[87 + i + 1] := i
-			};
-			answer
-		};
-		digitValues[integerValue + 1]
 	}
 
 	isAlphaNumeric { :self |
@@ -85,7 +45,7 @@ Character : [Object, Magnitude] { | string codePoint |
 	}
 
 	isDigit { :self |
-		self.string.isDigit
+		self.codePoint.betweenAnd(48, 57)
 	}
 
 	isFormFeed { :self |
@@ -93,14 +53,16 @@ Character : [Object, Magnitude] { | string codePoint |
 	}
 
 	isLetter { :self |
-		self.string.isLetter
+		self.isLowerCase | {
+			self.isUpperCase
+		}
 	}
 
 	isLineFeed { :self |
 		self.codePoint = 10
 	}
 
-	isLowerCaseAscii { :self |
+	isLowerCase { :self |
 		self.codePoint.betweenAnd(97, 122)
 	}
 
@@ -116,7 +78,7 @@ Character : [Object, Magnitude] { | string codePoint |
 		self.codePoint = 1
 	}
 
-	isUpperCaseAscii { :self |
+	isUpperCase { :self |
 		self.codePoint.betweenAnd(65, 90)
 	}
 
@@ -125,11 +87,55 @@ Character : [Object, Magnitude] { | string codePoint |
 	}
 
 	isVowel { :self |
-		'AEIOU'.includesSubstring(self.asUpperCase.string)
+		[65 69 73 79 85].includes(self.asUpperCase.codePoint)
+	}
+
+}
+
+Character : [Object, Magnitude, Character] { | characterString codePoint |
+
+	asCharacter { :self |
+		self
+	}
+
+	asLowerCase { :self |
+		self.isUpperCase.if {
+			(self.codePoint + 32).asCharacter
+		} {
+			self
+		}
+	}
+
+	asUpperCase { :self |
+		self.isLowerCase.if {
+			(self.codePoint - 32).asCharacter
+		} {
+			self
+		}
+	}
+
+	asString { :self |
+		self.characterString
+	}
+
+	digitValue { :self |
+		let integerValue = self.asInteger;
+		let digitValues = system.cache.atIfAbsentPut('digitValues') {
+			let answer = List(256, -1);
+			0.toDo(9) { :i |
+				answer[48 + i + 1] := i
+			};
+			10.toDo(35) { :i |
+				answer[55 + i + 1] := i;
+				answer[87 + i + 1] := i
+			};
+			answer
+		};
+		digitValues[integerValue + 1]
 	}
 
 	printString { :self |
-		'$' ++ self.string
+		self.characterString.printString
 	}
 
 	sameAs { :self :aCharacter |
@@ -173,25 +179,5 @@ Character : [Object, Magnitude] { | string codePoint |
 }
 
 +String {
-
-	asCharacter { :self |
-		Character(self, self.codePoint)
-	}
-
-	Character { :self :codePoint |
-		self.isSingleCharacter.if {
-			system.cache.atIfAbsentPut('characterDictionary') {
-				()
-			}.atIfAbsentPut(self) {
-				newCharacter().initializeSlots(self, codePoint)
-			}
-		} {
-			self.error('String>>Character: not character')
-		}
-	}
-
-	asList { :self |
-		self.characters
-	}
 
 }

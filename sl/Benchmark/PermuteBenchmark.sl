@@ -15,7 +15,7 @@ PermuteBenchmark : [Object] { | count v |
 		self.count := self.count + 1;
 		(n ~= 0).ifTrue {
 			self.permute(n - 1);
-			n.downToDo(1) { :i |
+			n.toByDo(1, -1) { :i |
 				self.swapWith(n,i);
 				self.permute(n - 1);
 				self.swapWith(n,i)

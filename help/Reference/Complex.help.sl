@@ -1,6 +1,6 @@
 # Complex
 
-_Complex(real, imaginary)_
+- _Complex(real, imaginary)_
 
 Answer a Complex number with the indicated real and imaginary parts.
 
@@ -142,7 +142,7 @@ The _asComplex_ method:
 
 * * *
 
-See also: abs, absArg, arg, asInteger, asNumber, conjugated, i, imaginary, j, real, SmallFloat
+See also: abs, absArg, arg, isGaussianInteger, asInteger, asNumber, conjugated, i, imaginary, j, real, SmallFloat
 
 References:
 _Apl_

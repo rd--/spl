@@ -1,17 +1,17 @@
 # level
 
-_level(aCollection, anInteger)_
+- _level(aCollection, anInteger)_
 
-Answer a List of all sub-trees of _aCollection_ at level _anInteger_.
+Answer a `List` of all sub-trees of _aCollection_ at level _anInteger_.
 
-Values in a Dictionary are at the first level:
+Values in a `Dictionary` are at the first level:
 
 ```
 >>> (x: 1, y: 2).level(1)
 [1 2]
 ```
 
-Fetch elements from nested Records:
+Fetch elements from nested `Record`s:
 
 ```
 >>> (x: 1, y: (x: 2, y: 3)).level(2)
@@ -21,7 +21,7 @@ Fetch elements from nested Records:
 [1, (x: 2, y: 3)]
 ```
 
-At List:
+At `List`:
 
 ```
 >>> [2 3 2].iota.level(1)
@@ -34,7 +34,7 @@ At List:
 [1 2 3 4 5 6 7 8 9 10 11 12]
 ```
 
-At Tree:
+At `Tree`:
 
 ```
 >>> [1 [2 [3] 4] 5].asTree.level(2)

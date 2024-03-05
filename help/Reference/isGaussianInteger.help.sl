@@ -1,6 +1,6 @@
 # isGaussianInteger
 
-_isGaussianInteger(aComplex)_
+- _isGaussianInteger(aComplex)_
 
 A Gaussian integer is a complex number _a+bi_ where _a_ and _b_ are integers.
 
@@ -11,7 +11,7 @@ true
 
 * * *
 
-See also: isInteger
+See also: Complex, isInteger
 
 References:
 _Mathematica_

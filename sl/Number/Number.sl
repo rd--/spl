@@ -185,16 +185,6 @@
 		}
 	}
 
-	downToDo { :self :end :aBlock:/1 |
-		let index = self;
-		{
-			index >= end
-		}.whileTrue {
-			aBlock(index);
-			index := index - 1
-		}
-	}
-
 	e { :self |
 		self * 2.71828182845904523536028747135266249775724709369995
 	}
@@ -551,13 +541,6 @@
 	upOrDownToDo { :self :end :aBlock:/1 |
 		let step = (end < self).if { -1 } { 1 };
 		self.toByDo(end, step, aBlock:/1)
-	}
-
-	upToDo { :self :end :aBlock:/1 |
-		(end < self).ifTrue {
-			self.error('upToDo: not ascending')
-		};
-		self.toDo(end, aBlock:/1)
 	}
 
 	wrapBetweenAnd { :self :low :high |

@@ -15,7 +15,7 @@
 			let flags = List(size);
 			flags.atAllPut(true);
 			count := 0;
-			1.upToDo(size) { :index |
+			1.toDo(size) { :index |
 				flags[index].ifTrue {
 					let prime = index + 1;
 					let k = index + prime;

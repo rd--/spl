@@ -39,7 +39,7 @@ TowersBenchmark : [Object] { | piles movesDone |
 	}
 
 	buildTowerAtDisks { :self :pile :disks |
-		disks.downToDo(0) { :i |
+		disks.toByDo(0, -1) { :i |
 			self.pushDiskOnPile(TowersDisk(i), pile)
 		}
 	}

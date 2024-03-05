@@ -2,11 +2,11 @@
 
 The constant value inidicating the _Boolean_ false value.
 
-Where supported _false_ is displayed as false.
+Where supported _false_ is displayed as ⊥.
 
 * * *
 
-See also: not, true
+See also: Boolean, not, true
 
 References:
 _Mathematica_

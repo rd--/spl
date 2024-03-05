@@ -2,7 +2,7 @@
 
 The constant value inidicating the _Boolean_ true value.
 
-Where supported _true_ is displayed as true.
+Where supported _true_ is displayed as ⊤.
 
 * * *
 

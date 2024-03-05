@@ -2,14 +2,18 @@
 
 `Iterator` is a `Collection` `Trait`.
 
-A Stream represents the ability to maintain a position reference into a collection of objects.
+An iterator represents the ability to maintain a position reference into a collection of objects.
 
-The basic Stream protocol consists of:
+To implement `Iterator` a type must implement `next`.
 
-- _next_: consume and answer the next element from the stream if it has one, else nil
+```
+>>> let i = 1:9.asIterator;
+>>> (i.next, i.next, i.next)
+(1, 2, 3)
+```
 
-Finite streams are collections and implement _do_ and _size_.
+`Iterator` implements: `any`, `do`, `nextInto`, `nextMatchFor`, `nextSatisfy`, `nextUntil`, `nextWhile`, `upToEnd`.
 
 * * *
 
-See also: next
+See also: asIterator, next, Stream

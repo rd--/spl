@@ -902,16 +902,12 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'ImageBitmap'
 	],
 	'intervals': [
-		'downToDo'
 		'thenTo'
 		'toDo'
 		'toByDo'
 		'to'
 		'toBy'
-		'upTo'
-		'downTo'
 		'upOrDownTo'
-		'upToDo'
 	],
 	'loading': [
 		'loadFile'

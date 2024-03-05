@@ -96,7 +96,7 @@
 
 	readIntoStartingAtCount { :self :aCollection :startIndex :n |
 		valueWithReturn { :return:/1 |
-			0.upToDo(n - 1) { :i |
+			0.toDo(n - 1) { :i |
 				let obj = nil;
 				obj := self.next.ifNil {
 					i.return
@@ -105,6 +105,20 @@
 			};
 			n
 		}
+	}
+
+	upTo { :self :anObject |
+		let answer = [];
+		let next = self.next;
+		{
+			next = nil | {
+				next = anObject
+			}
+		}.whileFalse {
+			answer.addLast(next);
+			next := self.next
+		};
+		answer
 	}
 
 	upToEnd { :self |

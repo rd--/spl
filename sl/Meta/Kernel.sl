@@ -27,19 +27,20 @@
 	'Meta'
 	'Nil'
 	'Block'
-	'Adverb' {- > Block -}
+	'Adverb' {- Block -}
 	'Promise'
 	'Request'
 	'Response'
 	'SmallFloat'
-	'String'
+	'Character'
+	'String' {- Character -}
 	'System'
-	'Package' {- > System -}
+	'Package' {- System -}
 
 	{- Collection Types -}
 	'Association'
 	'List'
 	'Range'
 	'Record'
-	'Map' {- > Record -}
+	'Map' {- Record -}
 ].primitiveLoadPackageSequence

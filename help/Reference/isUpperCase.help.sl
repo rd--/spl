@@ -7,6 +7,9 @@ Answer `true` if _aString_ has only upper case characters.
 ```
 >>> 'ASCII'.isUpperCase
 true
+
+>>> 'A'.asCharacter.isUpperCase
+true
 ```
 
 * * *

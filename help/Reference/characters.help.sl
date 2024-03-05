@@ -12,3 +12,5 @@ Answer a `List` of the `Character` elements of _aString_.
 * * *
 
 See also: Character, codePoints, String
+
+Categories: Converting

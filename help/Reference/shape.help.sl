@@ -4,21 +4,21 @@
 
 Answer the shape of the argument, a vector of lengths of the array along each axis.
 
-The shape of a scalar is the empty list:
+The shape of a _scalar_ is the empty list:
 
 ```
 >>> 1.shape
 []
 ```
 
-The shape of a vector is a one element list:
+The shape of a _vector_ is a one element list:
 
 ```
 >>> 1:5.shape
 [5]
 ```
 
-The shape of a matrix is a two element list:
+The shape of a _matrix_ is a two element list:
 
 ```
 >>> [1 2; 3 4; 5 6].shape
@@ -31,7 +31,7 @@ The shape of a matrix is a two element list:
 [1 1]
 ```
 
-The shape of a volume is a three element list:
+The shape of a _volume_ is a three element list:
 
 ```
 >>> [1 2; 3 4:; 5 6; 7 8].shape

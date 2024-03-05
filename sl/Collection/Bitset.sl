@@ -55,7 +55,7 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 	do { :self :aBlock:/1 |
 		let remainingBits = self.tally;
 		let lowBits = system.lowBitPerByteTable;
-		1.upToDo(self.bytes.size) { :index |
+		1.toDo(self.bytes.size) { :index |
 			(1 <= remainingBits).if {
 				let byte = self.bytes[index];
 				(byte = 0).ifFalse {

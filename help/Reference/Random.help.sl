@@ -1,4 +1,6 @@
-# Random -- random number generator trait
+# Random
+
+Random number generator `Trait`.
 
 The required method is _nextRandomFloat(aRandom)_, which must provide the next random number in the half-open range zero to one.
 

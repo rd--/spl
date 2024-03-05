@@ -6,6 +6,11 @@ Evaluate _aBlock_ with each of the elements of _aCollection_ as the argument.
 Answer the element for which _aBlock_ evaluates to the highest magnitude.
 If _aCollection_ is empty, return nil.
 
+```
+>>> [3; 2 3; 1 2 3].detectMax(size:/1)
+[1 2 3]
+```
+
 * * *
 
 See also: detect, detectMin

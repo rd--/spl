@@ -8,12 +8,20 @@ There are ten digits, 0 1 2 3 4 5 6 7 8 and 9.
 ```
 >>> '3'.isDigit
 true
+
+>>> 'x'.asCharacter.isDigit
+false
+
+>>> ','.isDigit
+false
 ```
 
 * * *
 
-See also: isLetter
+See also: Character, isLetter
 
 References:
 _Smalltalk_
 5.3.4.7
+
+Categories: Testing

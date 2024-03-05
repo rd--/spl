@@ -2,7 +2,7 @@
 
 - _Adverb_:
 An adverb is a _block_ that modifies the behaviour of another block.
-Cf. `Operator Adverbs`.
+Cf: Operator Adverbs
 
 - _Answer_:
 The value produced by executing a _program_,
@@ -15,17 +15,17 @@ also called a _parameter_.
 - _Arity_:
 The number of arguments a _behaviour_ can accept,
 also called _valence_.
+Cf: numArgs
 
 - _Array_:
 A _collection_ of values arranged along zero or more orthogonal _axes_.
 Each value is identified by an _index list_, specifying one index value for each axis.
-_Regular Arrays_ are rectangular and have a _Shape_.
-Cf. _Rank_.
+_Regular arrays_ are rectangular and have a _shape_.
+Cf: rank, shape
 
 - _Ascii_:
 An interpretation of _bytes_ as _characters_ according to the
 [Ascii](https://en.wikipedia.org/wiki/ASCII) standard.
-Cf. _Unicode_.
 
 - _Associativity_:
 Associativity determines how operators of equal _precedence_ are grouped in the absence of parentheses.
@@ -34,7 +34,7 @@ Associativity determines how operators of equal _precedence_ are grouped in the 
 Attach a _value_ to a _name_, thus defining or re-defining the name.
 Assignment is particularly used for the latter case,
 the former case is usually called a _binding_ or a _definition_.
-Cf. `Assignment Syntax`.
+Cf: Assignment Syntax
 
 - _Atom_:
 Any value that is not a _collection_,
@@ -42,70 +42,88 @@ also called a _scalar_.
 
 - _Axis_:
 One of the dimensions along which the items in an _array_ are arranged.
-Cf. _Shape_.
+Cf: shape
 
 - _Behaviour_:
 The subset of objects that can be evaluated to perform a computation,
 ordinarily a _block_ or a _method_.
-Cf. _Block_, _Method_, _Verb_.
+Cf: Block, Method
 
 - _Binary Function_:
-A _function_ of two _arguments_, such as _plus_.
+A _function_ of two _arguments_, such as _+_ or _min_.
+Cf: Operator Syntax
 
 - _Binding_:
 The value that is associated with a name,
 or the expression that associates a value with a name.
-Cf. _Assignment_, `Let Syntax`, _Name_, _Variable_.
+Cf: Assignment Syntax, Let Syntax
 
 - _Bit_:
 An _integer_ value that is either zero or one.
-Cf. _Byte_.
+Cf: asBit, boole
 
 - _Block_:
 The _behaviour_ type,
 also called a _function_ or a _procedure_ or a _verb_.
+Cf: Block
 
 - _Body_:
 The _sequence_ of _statements_ that define a _block_.
 
 - _Boolean_:
 A logic _type_ that has the values _true_ and _false_.
-Comparisons and tests, such as =, <, &, | and produce boolean values.
-Cf. _Bit_, _Predicate_.
+Comparisons and tests, such as `=`, `<`, `&` and `|` produce boolean values,
+and are called _predicates_.
+Cf: Boolean
 
 - _Byte_:
 An _integer_ with 8-bits of precision that can represent 256 values.
+Cf: isByte
 
 - _Character_:
 A _type_ representing one item in a _string_.
-Cf. _Ascii_, _Code Point_, _Glyph_, _Unicode_.
+A drawing of a character is called a _glyph_.
+A character has a _unicode code point_.
+Cf: Character
+
+- _Closed interval_:
+A closed interval is an interval that includes its limit points.
+Closed intervals are written in square brackets.
+Cf: Interval, Range
 
 - _Code Point_:
-The integer value of a _character_ in the _unicode_ specification.
-
-- _Collection Trait_:
-A _trait_ that describes container types that hold zero or more items.
-Cf. _Sequence Trait_.
+The integer value of a _character_ in the _Unicode_ specification.
+Cf: codePoint
 
 - _Collection_:
-A _type_ that implements the _collection trait_.
+A _trait_ that describes container types that hold zero or more items,
+or a _type_ that implements such a trait.
+Cf: Collection
 
 - _Complex:_
 A numeric _type_ that stores the real and imaginary parts of complex numbers.
-Cf. _Float_, _Fraction_, _Integer_, _Number_.
+If the components are both _integers_ it is called a _Gaussian integer_.
+Cf: Complex
 
 - _Element_:
 An item in a _collection_.
 
+- _Element type_:
+The type of all elements in a _homogeneous collection_.
+Cf: elementType
+
 - _Equal_:
 A comparison that decides if two values are equal.
 Values may be equal without being _identical_.
+Cf: =
 
 - _Float_:
 A number stored in IEEE-754 double-precision floating-point format.
+Cf: SmallFloat
 
 - _Fraction_:
 A numeric type that stores rational real numbers as a _numerator_ and _denominator_.
+Cf: Fraction
 
 - _Function_:
 A _behaviour_ that answers equal values for equal inputs.
@@ -113,14 +131,16 @@ Informally used to refer to _blocks_ and _procedures_.
 [[1](https://mathworld.wolfram.com/Function.html)]
 
 - _Glyph_:
-A glyph is the specific shape, design, or representation of a character.
+A glyph is the specific shape, design, or representation of a _character_.
 
 - _Head_:
 The first item is a _sequence_ or along an _axis_.
+Cf: first
 
 - _Identical_:
 A comparison that decides if two values are identical.
 Values may be _equal_ without being identical.
+Cf: ==
 
 - _Identity Element_:
 The identity element of a _binary function_ is the value for which it will answer the other argument.
@@ -128,12 +148,15 @@ For addition it is zero, for multiplication it is one.
 
 - _Identity Function_:
 The _unary function_ that answers its _argument_.
+Cf: identity
 
 - _Identity Operator_:
 The operator that decides if two values are _identical_.
+Cf: ==
 
 - _Immediate Value_:
 A value that will compare as _identical_ if it compares as _equal_.
+Cf: isImmediate
 
 - _Infinity_:
 The floating point numeric values representing positive or negative infinity,
@@ -142,37 +165,43 @@ written _inf_.
 - _Infix_:
 A form of notation where a _verb_ is written between two _nouns_,
 as distinct from _prefix_ and _postfix_ notations.
-Cf. _Operator_.
+Cf: Infix Method Syntax, Operator Syntax
 
 - _Integer_:
 A numeric _trait_ describing whole numbers.
+Cf: Integer
 
 - _Interval_:
 A numeric _type_ described by minimum and maximum values.
-Cf. _Range_.
+Cf. Interval, Range
 
 - _Item_:
 An _element_ in a _collection_.
 
 - _Leaf_:
 An item in a _collection_ that is not itself a _collection_.
+Cf: isLeaf
 
 - _Level_:
 The _depth_ of an _item_ in a _nested collection_.
+Cf: depth, level
 
 - _List_:
 A _collection type_ that stores a _sequence_ of _items_.
+Cf: List
 
 - _Literal_:
 A value for which the grammar includes a written notation,
 a value that is written using such a notation.
-Cf. `Literals Syntax`.
+Cf: Literals Syntax
 
 - _Matrix_:
 An _array_ of _rank_ two, or a two-dimensional array.
+Cf: Matrix
 
 - _Method_:
 A named _behaviour_ that is associated with a _type_.
+Cf: Method
 
 - _Name_:
 A sequence of characters that follow a set of lexical rules and name a value.
@@ -182,24 +211,24 @@ Informally, a value that is not a _verb_ or _behaviour_.
 
 - _Number_:
 A numeric value, either a constant or computed value.
+Cf: Number
 
 - _Numeric_:
 A type of value representing numbers.
 Numeric types include _SmallFloat_, _LargeInteger_, _Fraction_ and _Complex_.
 
 - _Object_:
-Any value in the system.
-
-- _Object Trait_:
-A _trait_ that implement the fundamental behaviours for values in the system.
+A _trait_ that implement the fundamental behaviours for values in the system,
+or any value in the system.
+Cf: Object
 
 - _Operand_:
-A value supplied to a _block_ when the it is executed.
-Cf. _Argument_, _Parameter_.
+A value supplied to a _block_ when it is executed,
+also called an _argument_ or a _parameter_.
 
 - _Operator_:
 A _behaviour_ that is named using a distinct lexical rule so that it may be written _infix_.
-Cf. `Operator Syntax`.
+Cf: Operator Syntax
 
 - _Parsing_:
 The process of analyzing a string of symbols as a sentence according to a formal grammar.
@@ -225,6 +254,7 @@ A _behaviour_ that can be _evaluated_ to give an _answer_.
 
 - _Rank_:
 The number of axes along which the items of an _array_ are arranged.
+Cf: rank
 
 - _Recursive_:
 Any value, including _behaviours_, whose definition refers to itself.
@@ -239,21 +269,26 @@ A mathematical term used to distinguish values that are not _vectors_ or _matric
 - _Sequence_:
 A _collection trait_ for collections that have an ordering.
 Sequences are indexed by positive integers between one and the size of the collection.
+Cf: Sequence
 
 - _Shape_:
 The list of the lengths of the axes of an _array_.
+Cf: shape
 
 - _String_:
 A _sequence_ of _characters_.
+Cf: String
 
 - _Ternary Function_:
 A _function_ of three _arguments_, such as _betweenAnd_.
 
 - _Trait_:
 A named collection of behaviours that can be implemented (or inherited) by a _type_.
+Cf: Trait
 
 - _Tuple_:
 A _sequence type_ that is less general than `List`.
+Cf: Tuple
 
 - _Unary Function_:
 A _function_ of one _argument_, such as _negated_.
@@ -261,12 +296,13 @@ A _function_ of one _argument_, such as _negated_.
 - _Unicode Character_:
 A character encoded accoroding to the [Unicode](http://www.unicode.org/) specification.
 
-- _UTF-8_:
+- _Utf-8_:
 A method of representing _unicode_ character values as a sequence of bytes.
 
 - _Valence_:
 The number of arguments a _block_ can accept,
 also called _arity_.
+Cf: numArgs
 
 - _Value_:
 An entity in a program.
@@ -276,6 +312,7 @@ When a name is encountered it is replaced by its value.
 - _Vector_:
 An array with one axis,
 also called a _list_ or a _sequence_.
+Cf: isVector
 
 - _Verb_:
 A _behaviour_ object, as distinct from a _noun_ or _value_ object.
@@ -283,9 +320,11 @@ A _behaviour_ object, as distinct from a _noun_ or _value_ object.
 - _Volume_:
 An _array_ of _rank_ three, or a three-dimensional array.
 Cf. _Array_, _Matrix_, _Vector_.
+Cf: isVolume
 
 - _Whitespace_:
 A string of one or more blank characters, either spaces, tabs, or newlines.
+Cf: isSeparator
 
 * * *
 

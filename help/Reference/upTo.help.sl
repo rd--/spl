@@ -1,20 +1,37 @@
 # upTo
 
-- _upTo(start, stop)_
+- _upTo(aStream, anObject)_
 
-Construct a Range by counting up from _start_ to _stop_ by one.
-Unlike _to_ it is an error if stop is less than start.
+Answer a collection of all of the items in _aStream_ up to, but not including, the next occurrence of _anObject_.
+Sets the stream to read the object just after the next occurrence of _anObject_.
 
 ```
->>> 1.upTo(5).asList
-[1 2 3 4 5]
+>>> let stream = 1:9.asStream;
+>>> (stream.upTo(5), stream.upToEnd)
+(1:4, 6:9)
+```
 
->>> { 5.upTo(1) }.ifError { true }
-true
+If _anObject_ is not found and the end of the stream is encountered, the objects read are answered.
+
+```
+>>> 1:9.asStream.upTo(11)
+1:9
+```
+
+At `BlockStream`:
+
+```
+>>> let stream = 1:11.asStream.reject(isEven:/1);
+>>> (stream.upTo(7), stream.upToEnd)
+([1 3 5], [9 11])
 ```
 
 * * *
 
-See also: downTo, Range, thenTo, to, toBy
+See also: Iterator, next, Stream, upToEnd
 
-Categories: Range
+References:
+_Smalltalk_
+5.9.2.11
+
+Categories: Accessing

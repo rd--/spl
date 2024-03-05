@@ -265,7 +265,7 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		} {
 			2166136261
 		};
-		1.upTo(self.digitLength).do { :index |
+		1.to(self.digitLength).do { :index |
 			hash := 16rFFFFFFFF.bitAnd(hash.bitXor(self.digitAt(index)) * fnvPrime)
 		};
 		hash

@@ -1,8 +1,6 @@
 # CollectionStream
 
-A _CollectionStream_ is an accessor that can only read objects from a sequence.
-
-_asStream(aCollection)_
+A `CollectionStream` is an accessor that can only read objects from a sequence.
 
 The basic protocols on a Stream are _next_ and _reset_.
 

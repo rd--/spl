@@ -102,7 +102,6 @@
 	'Reflection' {- System -}
 
 	{- Text -}
-	'Character'
 	'Markdown'
 	'RegExp'
 

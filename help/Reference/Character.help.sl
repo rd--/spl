@@ -1,15 +1,24 @@
 # Character
 
-A `Character` is a `Type` holding a single character string.
+A `Character` is both a `Trait`, and also a `Type` holding a single character string.
 
-The `codePoint` method retrieves the unicode code point,
-and the `string` method retrieves the single element string.
+The `codePoint` method retrieves the unicode code point:
 
 ```
->>> 'x'.asCharacter.codePoint
+>>> 'x'.codePoint
 120
 
->>> 120.asCharacter.string
+>>> 'x'.asCharacter.codePoint
+120
+```
+
+The `characterString` method retrieves the single element string:
+
+```
+>>> 'x'.asCharacter.characterString
+'x'
+
+>>> 'x'.characterString
 'x'
 ```
 
@@ -24,11 +33,13 @@ There is no literal syntax for characters.
 
 ```
 >>> 'x'.asCharacter.printString
-'$x'
+'\'x\''
 
 >>> 'x'.asCharacter.storeString
 '120.asCharacter'
 ```
+
+Character predicates: `isCharacter`, `isDigit`, `isLetter`, `isUpperCase`, `isLowerCase`, `isAlphaNumeric`.
 
 _Note:_
 Strings in Spl are not Lists of Characters.

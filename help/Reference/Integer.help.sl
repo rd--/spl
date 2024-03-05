@@ -2,7 +2,7 @@
 
 `Integer` is a numeric `Trait`.
 
-Methods for arithmetic: isPowerOfTwo, factorial, gcd, lcm, take
+Methods for arithmetic: `isPowerOfTwo`, `factorial`, `gcd`, `lcm`, `take`
 
 * * *
 

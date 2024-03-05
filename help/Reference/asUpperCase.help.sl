@@ -14,7 +14,7 @@ Answer a `String` made up from _aString_ whose characters are all uppercase.
 
 * * *
 
-See also: asLowerCase
+See also: asLowerCase, isUpperCase
 
 References:
 _Smalltalk_

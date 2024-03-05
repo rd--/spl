@@ -22,7 +22,7 @@ Methods for set logic: `difference`
 
 * * *
 
-See also: Dictionary, do, SequenceCollection, size
+See also: Dictionary, do, Sequence, size
 
 References:
 _Smalltalk_

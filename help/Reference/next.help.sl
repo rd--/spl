@@ -3,11 +3,16 @@
 - _next(aStream)_
 - _next(aStream, anInteger)_
 
-Answer the next object accessible by _aStream_.
-Fail if the stream is positioned at its end, or if the position is out of bounds in the collection.
+In the unary case, answer the next object accessible by _aStream_.
+If the stream is positioned at its end, or if the position is out of bounds in the collection, answer `nil`.
 
-Answer the next _anInteger_ number of objects accessible by _aStream_.
-If the stream ends, the answer will contain _nil_ elements, see _nextOrUpToEnd_.
+In the binary case, answer the next _anInteger_ number of objects accessible by _aStream_.
+If the stream ends before _anInteger_ items are read it is an `error`, see `nextOrUpToEnd`.
+
+```
+>>> 1:inf.asStream.reject(isEven:/1).next(5)
+[1 3 5 7 9]
+```
 
 * * *
 

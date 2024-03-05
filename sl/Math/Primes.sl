@@ -339,8 +339,8 @@
 
 	isCoprime { :self |
 		valueWithReturn { :return:/1 |
-			1.upToDo(self.size - 1) { :i |
-				(i + 1).upToDo(self.size) { :j |
+			1.toDo(self.size - 1) { :i |
+				(i + 1).toDo(self.size) { :j |
 					self[i].isCoprime(self[j]).ifFalse {
 						false.return
 					}

@@ -207,7 +207,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 				self.initAllNodes;
 				self.identifyEdges(size);
 				self.header[1] := 1;
-				size.downToDo(1) { :w |
+				size.toByDo(1, -1) { :w |
 					let nodePool = List();
 					let nodeW = self.nodes[w].bb;
 					nodeW.notNil.ifTrue {

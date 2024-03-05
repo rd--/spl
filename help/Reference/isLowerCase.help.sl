@@ -7,6 +7,9 @@ Answer `true` if _aString_ is made up of all lower case characters, else `false`
 ```
 >>> 'word'.isLowerCase
 true
+
+>>> 'w'.asCharacter.isLowerCase
+true
 ```
 
 * * *

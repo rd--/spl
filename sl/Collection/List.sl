@@ -142,7 +142,7 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 +@Integer {
 
 	arithmeticSeries { :self :start :step |
-		1.upTo(self).collect { :each |
+		1.to(self).collect { :each |
 			(step * (each - 1)) + start
 		}
 	}

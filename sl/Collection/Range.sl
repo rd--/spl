@@ -215,13 +215,6 @@ Range : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step 
 
 +@Number {
 
-	downTo { :self :stop |
-		(stop > self).ifTrue {
-			self.error('downTo: non descending')
-		};
-		Range(self, stop, -1)
-	}
-
 	Range { :start :stop :step |
 		step.isZero.if {
 			start.error('Number>>Range: step is zero')
@@ -252,13 +245,6 @@ Range : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step 
 				-1
 			}
 		)
-	}
-
-	upTo { :self :stop |
-		(stop < self).ifTrue {
-			self.error('upTo: non ascending')
-		};
-		Range(self, stop, 1)
 	}
 
 }

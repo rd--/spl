@@ -4,6 +4,7 @@
 - _randomInteger(min, max)_
 - _randomInteger(min, max, countOrShape)_
 
+Random number generator.
 Generate a random integer between _min_ and _max_.
 
 Generate a random integer betwee one and nine, inclusive:
@@ -20,7 +21,7 @@ Generate a random integer between 3 and 11, inclusive:
 true
 ```
 
-At LargeInteger:
+At `LargeInteger`:
 
 ```
 >>> (2n ^ 99n).digitLength
@@ -35,7 +36,7 @@ true
 
 The ternary form answers a List of _countOrShape_ random numbers.
 
-A List of 13 random integers:
+A `List` of 13 random integers:
 
 ```
 >>> let l = 1.randomInteger(9, 13);
@@ -59,4 +60,4 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomInteger.html)
 
-Categories: Random number generator
+Categories: Random

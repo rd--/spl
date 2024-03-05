@@ -1,6 +1,6 @@
-{- Requires: List -}
+{- Requires: Character List -}
 
-String! : [Object, Json, Iterable] {
+String! : [Object, Json, Iterable, Character] {
 
 	= { :self :anObject |
 		self == anObject
@@ -18,7 +18,7 @@ String! : [Object, Json, Iterable] {
 			}
 		};
 		>
-		'String>><=>: non string operand'.error
+		self.error('String>><=>: non string operand')
 	}
 
 	< { :self :aString |
@@ -69,19 +69,14 @@ String! : [Object, Json, Iterable] {
 		(self.includesSubstring(open) | {
 			self.includesSubstring(close)
 		}).if {
-			self.error('asBracketedComment: includes comment brackets')
+			self.error('String>>asBracketedComment: includes comment brackets')
 		} {
 			[open, ' ', self, ' ', close].join
 		}
 	}
 
 	asCharacter { :self |
-		let list = self.characters;
-		(list.size = 1).if {
-			list.first
-		} {
-			'String>>asCharacter: not single character string'.error
-		}
+		Character(self, self.codePoint)
 	}
 
 	asciiByteArray { :self |
@@ -89,7 +84,7 @@ String! : [Object, Json, Iterable] {
 		answer.allSatisfy(isAsciiCodePoint:/1).if {
 			answer
 		} {
-			self.error('asciiByteArray: non-ascii character')
+			self.error('String>>asciiByteArray: non-ascii character')
 		}
 	}
 
@@ -97,7 +92,7 @@ String! : [Object, Json, Iterable] {
 		(self.size = 1).if {
 			self.asciiByteArray.first
 		} {
-			self.error('asciiValue: not single character')
+			self.error('String>>asciiValue: not single character')
 		}
 	}
 
@@ -107,6 +102,10 @@ String! : [Object, Json, Iterable] {
 
 	asHex { :self |
 		self.asciiByteArray.hex
+	}
+
+	asList { :self |
+		self.characters
 	}
 
 	asLowerCase { :self |
@@ -162,10 +161,10 @@ String! : [Object, Json, Iterable] {
 		{- Note: index is in Utf-16 code units, not characters -}
 		let codePoint = self.codePointAt(index);
 		codePoint.ifNil {
-			self.error('at: invalid index')
+			self.error('String>>at: invalid index')
 		} {
 			codePoint.isUtf16SurrogateCode.if {
-				self.error('at: code point is lone surrogate')
+				self.error('String>>at: code point is lone surrogate')
 			} {
 				codePoint.asCharacter
 			}
@@ -194,15 +193,35 @@ String! : [Object, Json, Iterable] {
 			return _self.startsWith(_aString);
 		}
 		>
-		self.error('beginsWith: non string operand')
+		self.error('String>>beginsWith: non string operand')
 	}
 
 	capitalized { :self |
 		<primitive: return _self[0].toUpperCase() + _self.slice(1);>
 	}
 
+	Character { :self :codePoint |
+		self.isCharacter.if {
+			system.cache.atIfAbsentPut('characterDictionary') {
+				()
+			}.atIfAbsentPut(self) {
+				newCharacter().initializeSlots(self, codePoint)
+			}
+		} {
+			self.error('String>>Character: not character?')
+		}
+	}
+
 	characterRange { :self :aString |
 		self.asCharacter.characterRange(aString.asCharacter).collect(asString:/1)
+	}
+
+	characterString { :self |
+		self.isCharacter.if {
+			self
+		} {
+			self.error('String>>characterString: not single character string')
+		}
 	}
 
 	characters { :self |
@@ -210,10 +229,10 @@ String! : [Object, Json, Iterable] {
 	}
 
 	codePoint { :self |
-		self.isSingleCharacter.if {
+		self.isCharacter.if {
 			self.codePointAt(1)
 		} {
-			self.error('codePoint: not single character string')
+			self.error('String>>codePoint: not single character string')
 		}
 	}
 
@@ -300,7 +319,7 @@ String! : [Object, Json, Iterable] {
 			return _self.endsWith(_aString);
 		}
 		>
-		self.error('endsWith: non string operand')
+		self.error('String>>endsWith: non string operand')
 	}
 
 	findLastOccurrenceOfStringStartingAt { :self :subString :start |
@@ -349,7 +368,7 @@ String! : [Object, Json, Iterable] {
 
 	firstBracketedComment { :self :open :close |
 		self.firstBracketedCommentIfAbsent(open, close) {
-			self.error('firstBracketedComment: no comment found')
+			self.error('String>>firstBracketedComment: no comment found')
 		}
 	}
 
@@ -359,7 +378,7 @@ String! : [Object, Json, Iterable] {
 
 	firstHsComment { :self |
 		self.firstHsCommentIfAbsent {
-			self.error('firstHsComment: no comment found')
+			self.error('String>>firstHsComment: no comment found')
 		}
 	}
 
@@ -369,7 +388,7 @@ String! : [Object, Json, Iterable] {
 
 	firstMlComment { :self |
 		self.firstMlCommentIfAbsent {
-			self.error('firstMlComment: no comment found')
+			self.error('String>>firstMlComment: no comment found')
 		}
 	}
 
@@ -409,7 +428,7 @@ String! : [Object, Json, Iterable] {
 			};
 			answer
 		} {
-			self.error('indicesOf: not a string: ' ++ aString)
+			self.error('String>>indicesOf: not a string: ' ++ aString)
 		}
 	}
 
@@ -417,18 +436,16 @@ String! : [Object, Json, Iterable] {
 		<primitive: return _self.includes(_aString);>
 	}
 
-	isAlphaNumeric { :self |
-		self.isDigit | {
-			self.isLetter
-		}
-	}
-
 	isAsciiString { :self |
 		self.allSatisfy(isAscii:/1)
 	}
 
-	isDigit { :self |
-		<primitive: return /^[0-9]+$/.test(_self);>
+	isCharacter { :self |
+		self.size = 1 | {
+			self.size = 2 & {
+				self.codePointAt(2).isUtf16SurrogateCode
+			}
+		}
 	}
 
 	isInBasicMultilingualPlane { :self |
@@ -443,12 +460,6 @@ String! : [Object, Json, Iterable] {
 		true
 	}
 
-	isLetter { :self |
-		self.isLowerCase | {
-			self.isUpperCase
-		}
-	}
-
 	isLiteral { :self |
 		true
 	}
@@ -459,14 +470,6 @@ String! : [Object, Json, Iterable] {
 
 	isSequence { :self |
 		true
-	}
-
-	isSingleCharacter { :self |
-		self.size = 1 | {
-			self.size = 2 & {
-				self.codePointAt(2).isUtf16SurrogateCode
-			}
-		}
 	}
 
 	isUpperCase { :self |
@@ -540,7 +543,7 @@ String! : [Object, Json, Iterable] {
 			};
 			tally
 		} {
-			self.error('occurrencesOf: not a string: ' ++ aString)
+			self.error('String>>occurrencesOf: not a string: ' ++ aString)
 		}
 	}
 
@@ -796,7 +799,7 @@ String! : [Object, Json, Iterable] {
 	}
 
 	joinCharacters { :self |
-		self.collect(string:/1).joinSeparatedBy('')
+		self.collect(characterString:/1).joinSeparatedBy('')
 	}
 
 	joinSeparatedBy { :self :aString |

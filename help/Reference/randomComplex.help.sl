@@ -6,7 +6,7 @@
 Answer a pseudo-random complex number in the rectangle with corners given by the complex numbers _min_ and _max_.
 
 ```
->>> 1j1.randomComplex.arg < 2.sqrt
+>>> 1j1.randomComplex.arg <= 0.5.pi
 true
 ```
 

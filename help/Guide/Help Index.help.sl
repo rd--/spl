@@ -169,7 +169,7 @@
 ## Iteration
 
 - `deepDo`, `do`, `doSeparatedBy`, `timesRepeat`
-- `downToDo`, `fromToDo`, `toByDo`, `toDo`, `upOrDownTo`, `upToDo`
+- `fromToDo`, `toByDo`, `toDo`, `upOrDownTo`
 - `reverseDo`, `reverseWithDo`
 - `associationsDo`, `indicesDo`, `keysAndValuesDo`, `keysDo`, `valuesDo`
 - `withDo`, `withIndexDo`

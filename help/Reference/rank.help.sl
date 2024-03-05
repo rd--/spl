@@ -5,27 +5,27 @@
 In the Apl array model, the rank of an array is the number of dimensions or axes in its structure, or the length of its shape.
 
 Arrays are given names based on their rank.
-A rank zero array is a scalar:
+A rank zero array is a _scalar_:
 
 ```
 >>> 1.rank
 0
 ```
 
-A rank one array is a vector:
+A rank one array is a _vector_:
 
 ```
 >>> [1 2 3 4 5 6 7 8].rank
 1
 ```
-A rank two array is a matrix:
+A rank two array is a _matrix_:
 
 ```
 >>> [1 2 3 4; 5 6 7 8].rank
 2
 ```
 
-Spl calls a rank three array a volume.
+Spl calls a rank three array a _volume_.
 
 ```
 >>> [1 2; 3 4:; 5 6; 7 8].rank
