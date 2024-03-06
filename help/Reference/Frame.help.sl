@@ -1,9 +1,7 @@
 # Frame
 
-User interface type.
-
-A _Frame_ is the _Type_ of the values that appear as windows in _SmallKansas_.
+A `Frame` is the `Type` of the values that appear as `Window`s in `SmallKansas`.
 
 * * *
 
-See also: SmallKansas
+See also: SmallKansas, Window

@@ -1,5 +1,9 @@
 # WindowMenu
 
-A menu listing all of the frames open in Small Kansas.
+A `Menu` listing all of the `Frame`s open in `SmallKansas`.
 
-Selecting a Frame brings it to the front of the viewing plane.
+Selecting a `Frame` brings it to the front of the viewing plane.
+
+* * *
+
+See also: Frame, SmallKansas

@@ -1,3 +1,5 @@
+{- Requires: SmallKansas -}
+
 WindowMenu : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |

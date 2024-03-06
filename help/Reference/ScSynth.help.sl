@@ -1,4 +1,4 @@
-# ScSynth -- synthesiser type
+# ScSynth
 
 An object representing a connection to the SuperCollider synthesiser, _scsynth_.
 
@@ -24,3 +24,5 @@ c.f. the _ws-tcp-bridge_ program at [jssc3](https://rohandrape.net/?t=jssc3).
 * * *
 
 See also: addOscListener, Preferences, removeOscListener
+
+Categories: Synthesiser, Type

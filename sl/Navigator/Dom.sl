@@ -521,6 +521,10 @@ HTMLDialogElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
+HTMLDetailsElement! : [Object, EventTarget, Node, Element, HtmlElement] {
+
+}
+
 HTMLDivElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
@@ -733,7 +737,10 @@ HTMLTextAreaElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 	cols { :self | <primitive: return _self.cols;> }
 	cols { :self :anInteger | <primitive: return _self.cols = _anInteger;> }
 	rows { :self | <primitive: return _self.rows;> }
+	readOnly { :self :aBoolean | <primitive: return _self.readOnly = _aBoolean;> }
+	readOnly { :self | <primitive: return _self.readOnly;> }
 	rows { :self :anInteger | <primitive: return _self.rows = _anInteger;> }
+	value { :self | <primitive: return _self.value;> }
 
 }
 

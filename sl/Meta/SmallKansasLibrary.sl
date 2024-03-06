@@ -29,6 +29,7 @@
 	'MethodSignatureBrowser'
 	'MidiMonitorMenu'
 	'MidiPortBrowser'
+	'Notebook'
 	'PackageBrowser'
 	'PackageIndexBrowser'
 	'PngViewer'

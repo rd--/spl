@@ -1,11 +1,18 @@
-# instanceOf -- instance creation
+# instanceOf
 
 - _instanceOf(aType)_
 
-Create an instance of a Type.
+Create an uninitialized instance of _aType_.
 
-	system.typeLookup('Colour').instanceOf.isColour
+~~~
+>>> let colourType = system.typeLookup('Colour');
+>>> let colourValue = colourType.instanceOf;
+>>> (colourType.isType, colourValue.isColour, colourValue.red)
+(true, true, nil)
+~~~
 
 * * *
 
-See also: Type
+See also: new, Type, typeLookup
+
+Categories: Instance Creation

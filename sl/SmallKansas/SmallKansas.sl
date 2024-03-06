@@ -3,7 +3,7 @@
 @SmallKansan {
 
 	openIn { :self :smallKansas :event |
-		self.typeResponsibility('SmallKansan>>openIn')
+		self.typeResponsibility('@SmallKansan>>openIn')
 	}
 
 }

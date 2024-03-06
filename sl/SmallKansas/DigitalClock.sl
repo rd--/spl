@@ -1,3 +1,5 @@
+{- Requires: SmallKansas -}
+
 DigitalClock : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
@@ -15,6 +17,14 @@ DigitalClock : [Object, SmallKansan] {
 		textEditor.editable := false;
 		frame.outerElement.style.setProperties((height: '1em', width: '18em'));
 		frame
+	}
+
+}
+
++Void {
+
+	DigitalClock {
+		newDigitalClock()
 	}
 
 }

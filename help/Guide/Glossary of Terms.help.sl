@@ -132,7 +132,7 @@ A numeric type that stores rational real numbers as a _numerator_ and _denominat
 Cf: Fraction
 
 - _Function_:
-A _behaviour_ that answers equal values for equal inputs.
+A _behaviour_, particularly one that answers equal values for equal inputs and has no _side effects_.
 Informally used to refer to _blocks_ and _procedures_.
 [[1](https://mathworld.wolfram.com/Function.html)]
 
@@ -246,14 +246,19 @@ The rules for deciding the order of evaluation of parts of a program.
 - _Precision_:
 An attribute of a number indicating the range of values that can be represented within its type.
 
-- _Prefix_:
-An infix that includes the first, or head, index-0 item.
-
 - _Predicate_:
 A _block_ that answers a _boolean_.
 
+- _Prefix_:
+An infix that includes the first, or head, index-0 item.
+
 - _Primitive_:
 A _behaviour_ whose definition is built in to the system.
+Cf: Primitive Syntax
+
+- _Procedure_:
+A _behaviour_, particularly one whose execution involves _side effects_,
+as distinct from a _function_.
 
 - _Program_:
 A _behaviour_ that can be _evaluated_ to give an _answer_.
@@ -266,7 +271,7 @@ Cf: rank
 Any value, including _behaviours_, whose definition refers to itself.
 
 - _Result_:
-The value produced by executing a program,
+The value produced by executing a _program_,
 also called the _answer_.
 
 - _Row_:
@@ -286,6 +291,9 @@ Cf: Sequence
 - _Shape_:
 The list of the lengths of the axes of an _array_.
 Cf: shape
+
+- _Side effect_:
+Of a _behaviour_ that has an observable effect other than its primary effect of answering a value.
 
 - _String_:
 A _sequence_ of _characters_.
@@ -328,11 +336,11 @@ Cf: isVector
 
 - _Verb_:
 A _behaviour_ object, as distinct from a _noun_ or _value_ object.
+Cf: Block
 
 - _Volume_:
 An _array_ of _rank_ three, or a three-dimensional array.
-Cf. _Array_, _Matrix_, _Vector_.
-Cf: isVolume
+Cf: isVolume, Volume Syntax
 
 - _Whitespace_:
 A string of one or more blank characters, either spaces, tabs, or newlines.

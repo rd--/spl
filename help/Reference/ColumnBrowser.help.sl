@@ -1,6 +1,6 @@
 # ColumnBrowser
 
-A _ColumnBrowser_ is an interface element modelled on the Smalltalk _System Browser_.
+A `ColumnBrowser` is an interface element modelled on the Smalltalk _System Browser_.
 
 A sequence of lists views allow traversing a tree structure from left to right.
 Selecting an element in the leftmost list populates the list to the right, and so on.

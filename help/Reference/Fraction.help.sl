@@ -1,6 +1,6 @@
 # Fraction
 
-_Fraction(numerator, denominator)_
+- _Fraction(numerator, denominator)_
 
 `Fraction` is a numerical `Type` that provides methods for dealing with fractions like 1/3 as a ratio of two integers.
 

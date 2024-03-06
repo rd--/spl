@@ -1,11 +1,6 @@
 # Writing Primitives
 
-Primitives have Smalltalk semantics and are written inline using a Smalltalk-like notation.
-
-If a primitive succeeds it returns from the block,
-if it fails it continues with the remainder of the definition.
-
-Below is the implementation of _at_ from _PrimitiveSequence_.
+Below is the implementation of _at_ from `PrimitiveSequence`:
 
 ```
 at { :self :anInteger |

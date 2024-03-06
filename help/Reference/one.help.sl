@@ -30,4 +30,4 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/1.html)
 
-Categories: InstanceCreation
+Categories: Instance Creation

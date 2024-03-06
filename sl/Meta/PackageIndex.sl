@@ -135,6 +135,7 @@
 	'SmallKansas-MethodSignatureBrowser'
 	'SmallKansas-MidiMonitorMenu'
 	'SmallKansas-MidiPortBrowser'
+	'SmallKansas-Notebook'
 	'SmallKansas-PackageBrowser'
 	'SmallKansas-PackageIndexBrowser'
 	'SmallKansas-PngViewer'
