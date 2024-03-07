@@ -2,7 +2,7 @@
 
 - _name(anObject)_
 
-Answer the name of _anObject_.
+Answer the name of _anObject_, if it has one.
 
 ```
 >>> Error('message text').name

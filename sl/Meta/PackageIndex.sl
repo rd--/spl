@@ -85,6 +85,7 @@
 	'Math-Gamma'
 	'Math-Matrix'
 	'Math-Primes'
+	'Math-WindowFunction'
 	'Meta-BenchmarkLibrary'
 	'Meta-Categories'
 	'Meta-Kernel'

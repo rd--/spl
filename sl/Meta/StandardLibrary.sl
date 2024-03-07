@@ -58,6 +58,7 @@
 	'Gamma'
 	'Matrix'
 	'Primes'
+	'WindowFunction'
 
 	{- Stream -}
 	'Iterator'

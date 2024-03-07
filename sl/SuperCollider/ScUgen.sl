@@ -1,5 +1,9 @@
 ScUgen! : [Object] {
 
+	displayName { :self |
+		<primitive: return _self.displayName();>
+	}
+
 	id { :self |
 		<primitive: return _self.id>
 	}
@@ -20,7 +24,7 @@ ScUgen! : [Object] {
 		<primitive: return _self.name>
 	}
 
-	numChannels { :self |
+	numberOfChannels { :self |
 		<primitive: return _self.numChannels>
 	}
 
@@ -34,7 +38,7 @@ ScUgen! : [Object] {
 	}
 
 	pseudoSlotNameList { :self |
-		['name', 'numChannels', 'rate', 'specialIndex', 'id', 'inputList', 'multipleRootGraph', 'localControl']
+		['name', 'numberOfChannels', 'rate', 'specialIndex', 'id', 'inputList', 'multipleRootGraph', 'localControl']
 	}
 
 	rate { :self |

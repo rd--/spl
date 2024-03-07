@@ -235,3 +235,18 @@
 - `rescale`: rescale between
 - `normalize`: normalize vector
 - `standardize`: zero mean and unit sample variance
+
+## Window Functions
+
+- `bartlettFunction`: Bartlett apodization function
+- `blackmanFunction`: Blackman apodization function
+- `dirichletFunction`: Dirichlet apodization function
+- `hammingFunction`: Hamming apodization function
+- `hannFunction`: Hann apodization function
+- `welchFunction`: Welch  apodization function
+
+BartlettHannWindow ▪  BartlettWindow ▪  BlackmanHarrisWindow ▪  BlackmanNuttallWindow ▪  BohmanWindow ▪  ExactBlackmanWindow ▪  FlatTopWindow ▪  KaiserBesselWindow ▪  LanczosWindow ▪  NuttallWindow ▪  ParzenWindow
+
+Parameterized Windows
+KaiserWindow —  HannWindow — 
+CauchyWindow ▪  ConnesWindow ▪  CosineWindow ▪  GaussianWindow ▪  HannPoissonWindow ▪  PoissonWindow ▪  TukeyWindow ▪  WelchWindow

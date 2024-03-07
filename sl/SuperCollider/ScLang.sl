@@ -298,27 +298,9 @@
 		answer
 	}
 
-	hammingWindow { :self |
-		let answer = List(self);
-		answer.hammingWindow;
-		answer
-	}
-
-	hanningWindow { :self |
-		let answer = List(self);
-		answer.hanningWindow;
-		answer
-	}
-
 	sineTable { :self :amplitudes :phases |
 		let answer = List(self, 0);
 		answer.sineFill(amplitudes, phases);
-		answer
-	}
-
-	welchWindow { :self |
-		let answer = List(self);
-		answer.welchWindow;
 		answer
 	}
 
@@ -373,17 +355,6 @@
 	+++ { :self :aMatrix |
 		self.withIndexCollect { :each :index |
 			each ++ aMatrix.atWrap(index)
-		}
-	}
-
-	addSine { :self :harmonicNumber :amplitude :initialPhase |
-		let size = self.size;
-		let frequency = 1 / harmonicNumber;
-		let increment = 2 * pi / size * frequency;
-		let phase = initialPhase;
-		(1 .. size).do { :each |
-			self[each] := self[each] + (phase.sin * amplitude);
-			phase := phase + increment
 		}
 	}
 
@@ -515,16 +486,6 @@
 
 	flop { :self |
 		self.multiChannelExpand
-	}
-
-	hammingWindow { :self |
-		self.atAllPut(0.53836);
-		self.addSine(1, 0.46164, -0.5.pi)
-	}
-
-	hanningWindow { :self |
-		self.atAllPut(0.5);
-		self.addSine(1, 0.5, -0.5.pi)
 	}
 
 	indexInBetween { :self :aNumber |
@@ -759,11 +720,6 @@
 				index := index + 1
 			}
 		}
-	}
-
-	welchWindow { :self |
-		self.atAllPut(0);
-		self.addSine(0.5, 1, 0)
 	}
 
 	wrapExtend { :self :size |
