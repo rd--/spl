@@ -24,20 +24,20 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 		('LibraryItem>>require' ++ self.name).postLine;
 		Promise { :resolve:/1 :reject:/1 |
 			self.value.ifNotNil { :answer |
-				answer.resolve
+				resolve(answer)
 			} {
 				system.localStorage.includesIndex(self.key).if {
 					self.value := self.readLocalStorage;
-					self.value.resolve
+					resolve(self.value)
 				} {
 					self.url.fetchMimeType(self.mimeType).thenElse { :answer |
 						self.useLocalStorage.ifTrue {
 							self.writeLocalStorage(answer)
 						};
 						self.value := self.parser.value(answer);
-						self.value.resolve
+						resolve(self.value)
 					} { :message |
-						message.reject
+						reject(message)
 					}
 				}
 			}

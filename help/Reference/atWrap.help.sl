@@ -1,6 +1,6 @@
 # atWrap
 
-_atWrap(aSequence, index)_
+- _atWrap(aSequence, index)_
 
 Answer the element at _index_ in _aSequence_.
 If _index_ is out of bounds, let it wrap around from the end to the beginning until it is in bounds.

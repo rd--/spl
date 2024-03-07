@@ -966,7 +966,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'minBy'
 		'minMax'
 		'negated'
-		'isNegative'
 		'normalize'
 		'numerator'
 		'pow'
@@ -1076,9 +1075,9 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'removeLast'
 	],
 	'scheduling': [
-		'allResolved'
+		'allFulfilled'
 		'allSettled'
-		'anyResolved'
+		'anyFulfilled'
 		'anySettled'
 		'cancel'
 		'catch'

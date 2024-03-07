@@ -8,6 +8,10 @@ The answer is an equivalent `Promise` object to _aPromise_.
 
 * * *
 
-See also: Promise, then
+See also: finally, onRejection, Promise, then
+
+References
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-promise.prototype.then)
 
 Categories: Scheduling

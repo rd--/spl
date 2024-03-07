@@ -3,6 +3,7 @@
 	{- Navigator -}
 	'Dom'
 	'Midi'
+	'Svg'
 
 	{- SmallKansas -}
 	'UserEventTarget'

@@ -1,11 +1,11 @@
 Promise! : [Object] {
 
-	catch { :self :aBlock:/1 |
-		<primitive: return _self.catch(_aBlock_1);>
-	}
-
 	finally { :self :aBlock:/0 |
 		<primitive: return _self.finally(_aBlock_0);>
+	}
+
+	onRejection { :self :aBlock:/1 |
+		<primitive: return _self.catch(_aBlock_1);>
 	}
 
 	then { :self :aBlock:/1 |
@@ -28,7 +28,7 @@ Promise! : [Object] {
 
 +List {
 
-	allResolved { :self |
+	allFulfilled { :self |
 		<primitive: return Promise.all(_self);>
 	}
 
@@ -36,7 +36,7 @@ Promise! : [Object] {
 		<primitive: return Promise.allSettled(_self);>
 	}
 
-	anyResolved { :self |
+	anyFulfilled { :self |
 		<primitive: return Promise.any(_self);>
 	}
 
@@ -44,15 +44,11 @@ Promise! : [Object] {
 		<primitive: return Promise.race(_self);>
 	}
 
-	Promise { :self |
-		self.allResolved
-	}
-
 }
 
 +Error {
 
-	Promise { :self |
+	rejectedPromise { :self |
 		<primitive: return Promise.reject(_self);>
 	}
 

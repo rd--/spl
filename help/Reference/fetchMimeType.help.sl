@@ -5,9 +5,9 @@
 Answer a `Promise` that will resolve to the contents of _aUrl_,
 according to the value of _aMimeType_, which should be either:
 
-- application/octet-stream
-- application/json
-- text/plain
+- 'application/octet-stream'
+- 'application/json'
+- 'text/plain'
 
 Fetch Utf-8 encoded text:
 

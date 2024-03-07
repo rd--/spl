@@ -140,7 +140,7 @@ URL! : [Object, Url] {
 
 	fetchMimeType { :self :mimeType |
 		self.fetchThen { :response |
-			response.mimeType(mimeType)
+			response.asMimeType(mimeType)
 		}
 	}
 

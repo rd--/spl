@@ -26,6 +26,12 @@ Headers! : [Object] {
 		>
 	}
 
+	contentType { :self |
+		self.atIfAbsent('Content-Type') {
+			''
+		}
+	}
+
 	includesKey { :self :name |
 		<primitive: return _self.has(_name);>
 	}

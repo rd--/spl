@@ -4,6 +4,30 @@ Response! : [Object] {
 		<primitive: return _self.arrayBuffer();>
 	}
 
+	asMimeType { :self :mimeType :onError |
+		mimeType.caseOfOtherwise([
+			'application/json' -> {
+				self.json
+			},
+			'application/octet-stream' -> {
+				self.byteArray
+			},
+			'text/plain' -> {
+				self.text
+			}
+		]) {
+			onError.cull(
+				Error('Response>>asMimeType: unknown mimeType: ' ++ mimeType)
+			)
+		}
+	}
+
+	asMimeType { :self :mimeType |
+		self.asMimeType(mimeType) { :err |
+			self.error(err)
+		}
+	}
+
 	blob { :self |
 		<primitive: return _self.blob();>
 	}
@@ -18,30 +42,6 @@ Response! : [Object] {
 
 	headers { :self |
 		<primitive: return _self.headers;>
-	}
-
-	mimeType { :self :mimeType :onError |
-		mimeType.caseOfOtherwise([
-			'application/json' -> {
-				self.json
-			},
-			'application/octet-stream' -> {
-				self.byteArray
-			},
-			'text/plain' -> {
-				self.text
-			}
-		]) {
-			onError.cull(
-				Error('Response>>mimeType: unknown mimeType: ' ++ mimeType)
-			)
-		}
-	}
-
-	mimeType { :self :mimeType |
-		self.mimeType(mimeType) { :err |
-			self.error(err)
-		}
 	}
 
 	json { :self |

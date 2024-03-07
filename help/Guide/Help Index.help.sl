@@ -277,7 +277,9 @@
 
 ## Scheduling
 
-- `Promise`, `then`, `thenElse`
+- `Promise`, `rejectedPromise`, `resolvedPromise`
+- `finally`, `onRejection`, `then`, `thenElse`
+- `allFulfilled`, `allSettled`, `anyFulfilled`, `anySettled`
 - `cancel`, `valueAfter`, `valueAfterWith`, `valueEvery`
 
 ## Sorting

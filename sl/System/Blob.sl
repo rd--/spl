@@ -34,11 +34,11 @@ Blob! : [Object, Blob] {
 
 +List {
 
-	Blob { :self |
+	asBlob { :self |
 		<primitive: return new Blob(_self);>
 	}
 
-	Blob { :self :options |
+	asBlob { :self :options |
 		<primitive: return new Blob(_self, _options);>
 	}
 

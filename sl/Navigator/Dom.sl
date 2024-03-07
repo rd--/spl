@@ -59,16 +59,6 @@
 		<primitive: return _self.createElementNS(_namespaceURI, _qualifiedName);>
 	}
 
-	createSvgElement { :self :tagName |
-		self.createElementNS('http://www.w3.org/2000/svg', tagName)
-	}
-
-	createSvgElement { :self :tagName :attributeDictionary |
-		let element = self.createSvgElement(tagName);
-		element.setAttributesNS(nil, attributeDictionary);
-		element
-	}
-
 	createTextNode { :self :aString |
 		<primitive: return _self.createTextNode(_aString);>
 	}
@@ -111,10 +101,6 @@
 
 	createElement { :self :attributeDictionary |
 		system.window.document.createElement(self, attributeDictionary)
-	}
-
-	createSvgElement { :self :attributeDictionary |
-		system.window.document.createSvgElement(self, attributeDictionary)
 	}
 
 	getElementById { :self |
@@ -197,7 +183,13 @@
 	length { :self | <primitive: return _self.length;> }
 	namedItem { :self :aString | <primitive: return _self.namedItem(_aString);> }
 
-	asList { :self | <primitive: return Array.from(_self);> }
+	asList { :self |
+		<primitive: return Array.from(_self);>
+	}
+
+	at { :self :anInteger |
+		self.item(anInteger - 1)
+	}
 
 }
 
@@ -260,47 +252,6 @@
 			self.appendChild(each)
 		}
 	}
-
-}
-
-@SVGElement {
-
-	transform { :self |
-		<primitive: return _self.transform;>
-	}
-
-	transform { :self :transformList |
-		<primitive: return _self.transform = _transformList;>
-	}
-
-}
-
-+Rectangle {
-
-	viewBoxString { :self :margin |
-		[
-			self.origin.x - margin,
-			self.origin.y - margin,
-			self.width + (margin * 2),
-			self.height + (margin * 2)
-		].collect(asString:/1).unwords
-	}
-
-}
-
-@SVGGeometryElement {
-
-}
-
-@SVGGraphicsElement {
-
-}
-
-@SVGTextContentElement {
-
-}
-
-@SVGTextPositioningElement {
 
 }
 
@@ -419,14 +370,6 @@ DOMParser! : [Object] {
 
 	DOMParser {
 		<primitive: return new DOMParser();>
-	}
-
-}
-
-+String {
-
-	parseSvg { :self |
-		DOMParser().parseFromString(self, 'image/svg+xml').documentElement
 	}
 
 }
@@ -564,6 +507,22 @@ HTMLImageElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 }
 
 HTMLInputElement! : [Object, EventTarget, Node, Element, HtmlElement] {
+
+	selectionEnd { :self |
+		<primitive: return _self.selectionEnd;>
+	}
+
+	selectionStart { :self |
+		<primitive: return _self.selectionStart;>
+	}
+
+	setSelectionRange { :self :selectionStart :selectionEnd |
+		<primitive: return _self.setSelectionRange(selectionStart, selectionEnd);>
+	}
+
+	type { :self |
+		<primitive: return _self.type;>
+	}
 
 	value { :self |
 		<primitive: return _self.value;>
@@ -740,7 +699,12 @@ HTMLTextAreaElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 	readOnly { :self :aBoolean | <primitive: return _self.readOnly = _aBoolean;> }
 	readOnly { :self | <primitive: return _self.readOnly;> }
 	rows { :self :anInteger | <primitive: return _self.rows = _anInteger;> }
+	selectionEnd { :self | <primitive: return _self.selectionEnd;> }
+	selectionStart { :self | <primitive: return _self.selectionStart;> }
+	setSelectionRange { :self :i :j | <primitive: return _self.setSelectionRange(_i, _j);> }
+	type { :self | <primitive: return _self.type;> }
 	value { :self | <primitive: return _self.value;> }
+	value { :self :aString | <primitive: return _self.value = _aString;> }
 
 }
 
@@ -800,6 +764,10 @@ NodeList! : [Object] {
 	item { :self :anInteger | <primitive: return _self.item(_anInteger);> }
 	length { :self | <primitive: return _self.length;> }
 
+	at { :self :anInteger |
+		self.item(anInteger - 1)
+	}
+
 }
 
 OffscreenCanvas! : [Object, EventTarget] {
@@ -852,98 +820,6 @@ Selection! : [Object] {
 	toString { :self |
 		<primitive: return _self.toString();>
 	}
-
-}
-
-SVGCircleElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
-
-}
-
-SVGGElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement] {
-
-}
-
-SVGLineElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
-
-	p2 { :self :aPoint |
-		self.setAttribute('x2', aPoint.x);
-		self.setAttribute('y2', aPoint.y)
-	}
-
-}
-
-SVGPathElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
-
-}
-
-SVGPointList! : [Object] {
-
-	clear { :self | <primitive: return _self.clear();> }
-	getItem { :self :index | <primitive: return _self.getItem(_index);> }
-	length { :self | <primitive: return _self.length;> }
-	numberOfItems { :self | <primitive: return _self.numberOfItems;> }
-
-}
-
-SVGPolygonElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
-
-	points { :self | <primitive: return _self.points;> }
-
-}
-
-SVGPolylineElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
-
-}
-
-SVGRectElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
-
-}
-
-SVGSVGElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement] {
-
-	createSVGMatrix { :self | <primitive: return _self.createSVGMatrix();> }
-	createSVGRect { :self | <primitive: return _self.createSVGRect();> }
-	createSVGTransform { :self | <primitive: return _self.createSVGTransform();> }
-	createSVGTransformFromMatrix { :self :aMatrix | <primitive: return _self.createSVGTransformFromMatrix(_aMatrix);> }
-
-}
-
-SVGTextElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGTextContentElement, SVGTextPositioningElement] {
-
-}
-
-SVGTextPathElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGTextContentElement] {
-
-}
-
-SVGTitleElement! : [Object, EventTarget, Node, Element, SVGElement] {
-
-}
-
-SVGTransform! : [Object] {
-
-	setMatrix { :self :aMatric |
-		<primitive: _self.setMatrix(_aMatrix);>
-	}
-
-	setTranslate { :self :x :y |
-		<primitive: _self.setTranslate(_x, _y);>
-	}
-
-	setScale { :self :x :y |
-		<primitive: _self.setScale(_x, _y);>
-	}
-
-	setRotate { :self :angle :x :y |
-		<primitive: _self.setMatrix(_angle, _x, _y);>
-	}
-
-}
-
-SVGTransformList! : [Object] {
-
-	appendItem { :self :aTransform | <primitive: return _self.appendItem(_aTransform);> }
-	getItem { :self :index | <primitive: return _self.getItem(_index);> }
 
 }
 

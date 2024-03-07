@@ -13,14 +13,14 @@ PngViewer : [Object, View] { | pngPane title pngData pngUrl |
 
 	frame { :self :aFrame |
 		aFrame.addEventListener('close') { :event |
-			self.pngUrl.revokeObjectURL
+			self.pngUrl.revokeObjectUrl
 		}
 	}
 
 	initialize { :self :title :pngData |
 		self.title := title;
 		self.pngData := pngData;
-		self.pngUrl := pngData.createObjectURL;
+		self.pngUrl := pngData.createObjectUrl;
 		self.createElements;
 		self
 	}
@@ -33,16 +33,16 @@ PngViewer : [Object, View] { | pngPane title pngData pngUrl |
 
 +String {
 
-	PngViewer { :self :pngData |
-		newPngViewer().initialize(self, pngData)
+	PngViewer { :title :pngData |
+		newPngViewer().initialize(title, pngData)
 	}
 
 }
 
 +SmallKansas {
 
-	PngViewer { :self :title :png |
-		self.addFrame(PngViewer(title, png), nil)
+	PngViewer { :self :title :pngData |
+		self.addFrame(PngViewer(title, pngData), nil)
 	}
 
 }

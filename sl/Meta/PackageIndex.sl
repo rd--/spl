@@ -100,6 +100,7 @@
 	'Music-TuningLattice'
 	'Navigator-Dom'
 	'Navigator-Midi'
+	'Navigator-Svg'
 	'Number-Binary'
 	'Number-Complex'
 	'Number-Fraction'

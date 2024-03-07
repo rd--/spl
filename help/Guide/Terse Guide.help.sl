@@ -2559,14 +2559,14 @@ not:/1.iterate(true).next(10) = [true false true false true false true false tru
 ```
 system.includesPackage('Promise') {- package -}
 { Promise() }.ifError { true } {- there is no void contructor -}
-Error('f').Promise.catch { :err | (err.messageText = 'f').postLine }; true {- construct a rejected promise -}
+Error('The reason').rejectedPromise.catch { :err | err.messageText.postLine }; true {- construct a rejected promise -}
 1.resolvedPromise.then { :n | (n = 1).postLine }; true {- construct a resolved promise -}
 let p = Promise { :t:/1 :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isPromise
 let p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
 let p = Promise { :t :f:/1 | f('f') }; p.then { :t | t.postLine }.catch { :f | (f = 'f').postLine }; p.isPromise
 let p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }.finally { 'true'.postLine }; p.isPromise
-let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter(0.15.randomFloat) } }; [1.f, 2.f, 3.f].anyResolved.then { :t | [1, 2, 3].includes(t).postLine }; true
-let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter(0.05.randomFloat) } }; ['x'.f, 'y'.f, 'z'.f].allResolved.then { :t | (t = ['x', 'y', 'z']).postLine }; true
+let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter(0.15.randomFloat) } }; [1.f, 2.f, 3.f].anyFulfilled.then { :t | [1, 2, 3].includes(t).postLine }; true
+let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter(0.05.randomFloat) } }; ['x'.f, 'y'.f, 'z'.f].allFulfilled.then { :t | (t = ['x', 'y', 'z']).postLine }; true
 ```
 
 ## Pseudo variables

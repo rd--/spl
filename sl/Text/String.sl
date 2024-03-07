@@ -488,6 +488,12 @@ String! : [Object, Json, Iterable, Character] {
 		self.copyFromTo(self.size - count + 1, self.size)
 	}
 
+	lineCount { :self |
+		self.count { :each |
+			each.isLineFeed
+		}.max(1)
+	}
+
 	lines { :self |
 		self.isEmpty.if {
 			[]
