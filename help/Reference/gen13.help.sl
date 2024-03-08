@@ -1,11 +1,15 @@
 # gen13
 
-- _gen13(size, xMin, xMax, coefficients)_
+- _gen13(size, x=1, a=1, h0=0, h)_
 
-Generates a stored function table by evaluating a polynomial.
+Stores a polynomial whose coefficients derive from the Chebyshev polynomials of the first kind.
+Uses Chebyshev coefficients to generate stored polynomial functions which, under waveshaping, can be used to split a sinusoid into harmonic partials having a pre-definable spectrum.
 
-
-The specification consists of alternating level and duration items.
+- _size_: number of points in the table
+- _x_: provides the left and right values _(-x, +x)_ of the interval over which the polynomial is to be drawn
+- _a_: amplitude scaling factor of the sinusoid input that is expected to produce the spectrum at _h_
+- _h0_: offset
+- _h_: list of relative amplitudes of partials in waveshaped output signal
 
 Quasi-sawtooth transfer function:
 

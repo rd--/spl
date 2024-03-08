@@ -23,7 +23,7 @@ Interval(-0.5, 0.5).discretize(15, blackmanHarrisWindow:/1).plot
 
 * * *
 
-See also: Window Functions
+See also: blackmanWindow, Window Functions
 
 References:
 _Mathematica_

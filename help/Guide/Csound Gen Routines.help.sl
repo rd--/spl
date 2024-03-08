@@ -17,3 +17,11 @@
 
 - `gen03`: Generates a stored function table by evaluating a polynomial.
 - `gen13`: Stores a polynomial whose coefficients derive from the Chebyshev polynomials of the first kind.
+
+* * *
+
+See also: Osc, Shaper
+
+References:
+_Csound_
+[1](https://www.csounds.com/manual/html/ScoreGenRef.html)

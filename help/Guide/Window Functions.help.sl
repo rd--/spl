@@ -21,3 +21,4 @@
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ApodizationFunction.html)
+[2](https://reference.wolfram.com/language/guide/WindowFunctions.html)

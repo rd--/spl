@@ -23,7 +23,7 @@ Interval(-0.5, 0.5).discretize(15, hannWindow:/1).plot
 
 * * *
 
-See also: hammingWindow, hannWindow, Window Functions
+See also: hannTable, Window Functions
 
 References:
 _Mathematica_

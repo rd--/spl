@@ -3,9 +3,7 @@
 - _gen03(size, xMin, xMax, coefficients)_
 
 Generates a stored function table by evaluating a polynomial.
-
-
-The specification consists of alternating level and duration items.
+Answer a `List` of _size_ places tabulating a polynomial over a fixed interval _(xMin, xMax)_ and with specified _coefficients_.
 
 First-order Chebyshev, _x_:
 

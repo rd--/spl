@@ -11,7 +11,7 @@ The specification of each contributing partial requires 3 fields:
 
 The answer is scaled to unity.
 
-An approximation of square wave:
+An approximation of a square wave:
 
 ~~~
 (2 ^ 10).gen09([1 3 0; 3 1 0; 9 0.33333 180]).plot

@@ -29,7 +29,7 @@ Interval(-0.5, 0.5).discretize(15, gaussianWindow:/1).plot
 
 * * *
 
-See also: gaussianTable, Window Functions
+See also: Window Functions
 
 References:
 _Mathematica_
