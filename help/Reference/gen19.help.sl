@@ -20,7 +20,7 @@ A rising sigmoid:
 
 * * *
 
-See also: gen09, gen10, gen11
+See also: Csound Gen Routines, gen09, gen10, gen11
 
 References:
 _Csound_

@@ -21,7 +21,7 @@ and then from 0.5 to 0.0001 in 20 points:
 
 * * *
 
-See also: gen07, gen09, gen10
+See also: Csound Gen Routines, gen07, gen16
 
 References:
 _Csound_

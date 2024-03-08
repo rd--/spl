@@ -1,0 +1,50 @@
+# gen03
+
+- _gen03(size, xMin, xMax, coefficients)_
+
+Generates a stored function table by evaluating a polynomial.
+
+
+The specification consists of alternating level and duration items.
+
+First-order Chebyshev, _x_:
+
+~~~
+513.gen03(-1, 1, [0 1]).plot
+Interval(-1, 1).discretize(513) { :x | x }.plot
+~~~
+
+Second-order Chebyshev, _2x^2 - 1_:
+
+~~~
+513.gen03(-1, 1, [-1 0 2]).plot
+Interval(-1, 1).discretize(513) { :x | 2 * (x ^ 2) - 1 }.plot
+~~~
+
+Third-order Chebyshev, _4x^3 - 3x_:
+
+~~~
+513.gen03(-1, 1, [0 -3 0 4]).plot
+Interval(-1, 1).discretize(513) { :x | (4 * (x ^ 3)) - (3 * x) }.plot
+~~~
+
+Seventh-order Chebyshev, _64x^7 - 112x^5 + 56x^3 - 7x_:
+
+~~~
+513.gen03(-1, 1, [0 -7 0 56 0 -112 0 64]).plot
+Interval(-1, 1).discretize(513) { :x | (64 * (x ^ 7)) - (112 * (x ^ 5)) + (56 * (x ^ 3)) - (7 * x) }.plot
+~~~
+
+A 4th order polynomial function:
+
+~~~
+513.gen03(-1, 1, [5 4 3 2 2 1]).plot
+~~~
+
+* * *
+
+See also: Csound Gen Routines, gen13
+
+References:
+_Csound_
+[1](https://www.csounds.com/manual/html/GEN03.html)

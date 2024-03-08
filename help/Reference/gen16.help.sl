@@ -35,7 +35,7 @@ let curve = -4;
 
 * * *
 
-See also: gen05, gen09, gen10, gen11
+See also: Csound Gen Routines, gen05, gen07
 
 References:
 _Csound_

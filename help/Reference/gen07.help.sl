@@ -25,7 +25,7 @@ A sawtooth down, a straight line from positive to negative:
 
 * * *
 
-See also: gen05, gen09, gen10
+See also: Csound Gen Routines, gen05, gen16
 
 References:
 _Csound_

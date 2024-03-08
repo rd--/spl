@@ -41,6 +41,18 @@
 
 +@Integer {
 
+	gen03 { :self :xMin :xMax :coefficients |
+		let k = coefficients.size;
+		Interval(xMin, xMax).discretize(self) { :x |
+			let sum = coefficients[k];
+			(k - 1).toByDo(1, -1) { :i |
+				sum := sum * x;
+				sum := sum + coefficients[i]
+			};
+			sum
+		}
+	}
+
 	gen05 { :self :aSequence |
 		let answer = [];
 		let y1 = aSequence[1];
@@ -103,6 +115,32 @@
 		};
 		answer / answer.absMax
 	}
+
+	gen13 { :size :xint :xamp :h0 :h |
+		let qArcCos = { :x |
+			(x > 1).if {
+				0
+			} {
+				(x < -1).if {
+					1.pi
+				} {
+					x.arcCos
+				}
+			}
+		};
+		let answer = List(size, 0);
+		let xs = Interval(xint.-, xint).discretize(size);
+		((xamp ~= 1) || (h0 ~= 0)).ifTrue {
+			'gen13: xamp must be 1 and h0 must be 0'.error
+		};
+		h.withIndexDo { :a :k |
+			xs.withIndexDo { :x :index |
+				answer[index] := answer[index] + (a * (qArcCos(x) * k).cos)
+			}
+		};
+		answer / answer.absMax
+	}
+
 
 	gen16 { :self :aSequence |
 		let answer = [];

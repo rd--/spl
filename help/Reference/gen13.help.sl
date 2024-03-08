@@ -1,0 +1,53 @@
+# gen13
+
+- _gen13(size, xMin, xMax, coefficients)_
+
+Generates a stored function table by evaluating a polynomial.
+
+
+The specification consists of alternating level and duration items.
+
+Quasi-sawtooth transfer function:
+
+~~~
+513.gen13(1, 1, 0, [100 -50 -33 25 20 -16.7 -14.2 12.5 11.1 -10 -9.09 8.333 7.69 -7.14 -6.67 6.25 5.88 -5.55 -5.26 5]).plot
+~~~
+
+Quasi-square wave transfer function:
+
+~~~
+513.gen13(1, 1, 0, [100 0 -33 0 20 0 -14.2 0 11.1 0 -9.09 0 7.69 0 -6.67 0 5.88 0 -5.26]).plot
+~~~
+
+Quasi-triangle wave transfer function:
+
+~~~
+513.gen13(1, 1, 0, [100 0 -11.11 0 4 0 -2.04 0 1.23 0 -0.826 0 0.59 0 -0.444 0 0.346 0 -0.277]).plot
+~~~
+
+Transfer function:
+
+~~~
+513.gen13(1, 1, 0, [1 -0.8 0 0.6 0 0 0 0.4 0 0 0 0 0.1 -0.2 -0.3 0.5]).plot
+~~~
+
+Transfer function, high partials, sometimes without a fundamental, give inharmonic spectra:
+
+~~~
+513.gen13(1, 1, 0, [0 0 -0.1 0 0.3 0 -0.5 0 0.7 0 -0.9 0 1 0 -1 0]).plot
+513.gen13(1, 1, 0, [0 0 0 0 0 0 -1 0 1 0 0 -0.1 0 0.1 0 -0.2 0.3 0 -0.7 0 0.2 0 -0.1]).plot
+~~~
+
+Split a sinusoid into 3 odd-harmonic partials of relative strength _5-3-1_:
+
+~~~
+513.gen13(1, 1, 0, [5 0 3 0 1]).plot
+~~~
+
+* * *
+
+See also: Csound Gen Routines, gen03
+
+References:
+_Csound_
+[1](https://www.csounds.com/manual/html/GEN13.html)
