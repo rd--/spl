@@ -85,6 +85,10 @@ Plot over a subset of the reals:
 (0, 0.01 .. 5).collect { :each | each ^ 3 }.plot
 ~~~
 
+~~~
+
+
+
 Where supported this operator is displayed as _ˆ_.
 
 The name of this operator is _circumflexAccent_.

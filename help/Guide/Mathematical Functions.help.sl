@@ -238,15 +238,9 @@
 
 ## Window Functions
 
-- `bartlettFunction`: Bartlett apodization function
-- `blackmanFunction`: Blackman apodization function
-- `dirichletFunction`: Dirichlet apodization function
-- `hammingFunction`: Hamming apodization function
-- `hannFunction`: Hann apodization function
-- `welchFunction`: Welch  apodization function
-
-BartlettHannWindow ▪  BartlettWindow ▪  BlackmanHarrisWindow ▪  BlackmanNuttallWindow ▪  BohmanWindow ▪  ExactBlackmanWindow ▪  FlatTopWindow ▪  KaiserBesselWindow ▪  LanczosWindow ▪  NuttallWindow ▪  ParzenWindow
-
-Parameterized Windows
-KaiserWindow —  HannWindow — 
-CauchyWindow ▪  ConnesWindow ▪  CosineWindow ▪  GaussianWindow ▪  HannPoissonWindow ▪  PoissonWindow ▪  TukeyWindow ▪  WelchWindow
+- `bartlettWindow`: Bartlett apodization function
+- `blackmanWindow`: Blackman apodization function
+- `dirichletWindow`: Dirichlet apodization function
+- `hammingWindow`: Hamming apodization function
+- `hannWindow`: Hann apodization function
+- `welchWindow`: Welch  apodization function

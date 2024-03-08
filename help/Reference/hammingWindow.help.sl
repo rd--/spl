@@ -1,15 +1,31 @@
 # hammingWindow
 
-- _hammingWindow(anInteger | aSequence)_
+- _hammingWindow(aNumber)_
 
-In the `Integer` case answer `List` describing a _hamming window_ of the indicated size.
+Answer the Hamming window function at _aNumber_.
 
-In the `Sequence` case fill the provided sequence with a _hamming window_.
+```
+>>> 0.1.hammingWindow
+0.912812
+```
+
+Plot:
 
 ~~~
-1024.hammingWindow.plot
+Interval(-0.5, 0.5).discretize(1024, hammingWindow:/1).plot
+~~~
+
+Discrete Hamming window of length 15:
+
+~~~
+Interval(-0.5, 0.5).discretize(15, hammingWindow:/1).plot
 ~~~
 
 * * *
 
-See also: hammingFunction, hanningWindow, welchWindow
+See also: hammingTable, Window Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/HammingFunction.html)
+[2](https://reference.wolfram.com/language/ref/HammingWindow.html)

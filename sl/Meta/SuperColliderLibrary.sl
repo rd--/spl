@@ -8,6 +8,9 @@
 	'Pitch'
 	'Scale'
 
+	{- Sound -}
+	'Wavetable'
+
 	{- Protocol -}
 	'OpenSoundControl'
 

@@ -1,6 +1,8 @@
+{- Requires: Interval -}
+
 +@Number {
 
-	bartlettFunction { :self |
+	bartlettWindow { :self |
 		(self.abs > 0.5).if {
 			0
 		}  {
@@ -12,7 +14,7 @@
 		}
 	}
 
-	blackmanFunction { :self |
+	blackmanWindow { :self |
 		(self.abs > 0.5).if {
 			0
 		}  {
@@ -20,7 +22,15 @@
 		}
 	}
 
-	dirichletFunction { :self |
+	blackmanHarrisWindow { :self |
+		(self.abs > 0.5).if {
+			0
+		}  {
+			((48829 * (2.pi * self).cos) + (14128 * (4.pi * self).cos) + (1168 * (6.pi * self).cos) + 35875) / 100000
+		}
+	}
+
+	dirichletWindow { :self |
 		(self.abs > 0.5).if {
 			0
 		}  {
@@ -28,7 +38,19 @@
 		}
 	}
 
-	hammingFunction { :self |
+	gaussianWindow { :self :sigma |
+		(self.abs > 0.5).if {
+			0
+		} {
+			(self.squared / (2 * sigma.squared)).negated.exp
+		}
+	}
+
+	gaussianWindow { :self |
+		self.gaussianWindow(3 / 10)
+	}
+
+	hammingWindow { :self |
 		(self.abs > 0.5).if {
 			0
 		}  {
@@ -36,7 +58,7 @@
 		}
 	}
 
-	hannFunction { :self :alpha |
+	hannWindow { :self :alpha |
 		(self.abs > 0.5).if {
 			0
 		}  {
@@ -45,7 +67,11 @@
 		}
 	}
 
-	welchFunction { :self :alpha |
+	hannWindow { :self |
+		self.hannWindow(0.5)
+	}
+
+	welchWindow { :self :alpha |
 		(self.abs > 0.5).if {
 			0
 		}  {
@@ -53,100 +79,78 @@
 		}
 	}
 
-	welchFunction { :self |
-		self.welchFunction(1)
+	welchWindow { :self |
+		self.welchWindow(1)
 	}
 
 }
 
 +@Collection {
 
-	bartlettFunction { :self |
-		self.collect(bartlettFunction:/1)
+	bartlettWindow { :self |
+		self.collect(bartlettWindow:/1)
 	}
 
-	blackmanFunction { :self |
-		self.collect(blackmanFunction:/1)
+	blackmanWindow { :self |
+		self.collect(blackmanWindow:/1)
 	}
 
-	dirichletFunction { :self |
-		self.collect(dirichletFunction:/1)
+	blackmanHarrisWindow { :self |
+		self.collect(blackmanHarrisWindow:/1)
 	}
 
-	hammingFunction { :self |
-		self.collect(hammingFunction:/1)
+	dirichletWindow { :self |
+		self.collect(dirichletWindow:/1)
 	}
 
-	hannFunction { :self :alpha |
+	gaussianWindow { :self :sigma |
 		self.collect { :each |
-			each.hannFunction(alpha)
+			each.gaussianWindow(sigma)
 		}
 	}
 
-	hannFunction { :self |
-		self.hannFunction(0.5)
+	gaussianWindow { :self |
+		self.collect(gaussianWindow:/1)
 	}
 
-	welchFunction { :self :alpha |
+	hammingWindow { :self |
+		self.collect(hammingWindow:/1)
+	}
+
+	hannWindow { :self :alpha |
 		self.collect { :each |
-			each.welchFunction(alpha)
+			each.hannWindow(alpha)
 		}
 	}
 
-	welchFunction { :self |
-		self.collect(welchFunction:/1)
+	hannWindow { :self |
+		self.hannWindow(0.5)
+	}
+
+	welchWindow { :self :alpha |
+		self.collect { :each |
+			each.welchWindow(alpha)
+		}
+	}
+
+	welchWindow { :self |
+		self.collect(welchWindow:/1)
 	}
 
 }
 
 +@Integer {
 
-	hammingWindow { :self |
-		let answer = List(self);
-		answer.hammingWindow;
-		answer
+	hammingTable { :self |
+		Interval(-0.5, 0.5).discretize(self, hammingWindow:/1)
 	}
 
-	hanningWindow { :self |
-		let answer = List(self);
-		answer.hanningWindow;
-		answer
+	hannTable { :self |
+		Interval(-0.5, 0.5).discretize(self, hannWindow:/1)
 	}
 
-	welchWindow { :self |
-		let answer = List(self);
-		answer.welchWindow;
-		answer
-	}
-
-}
-
-+@Sequence {
-
-	addSine { :self :harmonicNumber :amplitude :initialPhase |
-		let size = self.size;
-		let frequency = 1 / harmonicNumber;
-		let increment = 2 * pi / size * frequency;
-		let phase = initialPhase;
-		(1 .. size).do { :each |
-			self[each] := self[each] + (phase.sin * amplitude);
-			phase := phase + increment
-		}
-	}
-
-	hammingWindow { :self |
-		self.atAllPut(0.53836);
-		self.addSine(1, 0.46164, -0.5.pi)
-	}
-
-	hanningWindow { :self |
-		self.atAllPut(0.5);
-		self.addSine(1, 0.5, -0.5.pi)
-	}
-
-	welchWindow { :self |
-		self.atAllPut(0);
-		self.addSine(0.5, 1, 0)
+	welchTable { :self |
+		Interval(-0.5, 0.5).discretize(self, welchWindow:/1)
 	}
 
 }

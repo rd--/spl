@@ -13,6 +13,12 @@
 		self.anySatisfy(value:/1)
 	}
 
+	absMax { :self |
+		self.injectInto(self.anyOne.abs) { :answer :each |
+			answer.max(each.abs)
+		}
+	}
+
 	allSatisfy { :self :aBlock:/1 |
 		valueWithReturn { :return:/1 |
 			self.do { :each |

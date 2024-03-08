@@ -298,12 +298,6 @@
 		answer
 	}
 
-	sineTable { :self :amplitudes :phases |
-		let answer = List(self, 0);
-		answer.sineFill(amplitudes, phases);
-		answer
-	}
-
 }
 
 +Block {
@@ -680,13 +674,6 @@
 			1 - (self.levenshteinDistance(other, equalityBlock:/2) / maxDistance)
 		} {
 			1
-		}
-	}
-
-	sineFill { :self :amplitudes :phases |
-		self.atAllPut(0);
-		amplitudes.withIndexDo { :each :index |
-			self.addSine(index, each, phases.atWrap(index))
 		}
 	}
 

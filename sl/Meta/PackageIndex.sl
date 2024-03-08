@@ -161,6 +161,7 @@
 	'SmallKansas-WindowMenu'
 	'SmallKansas-Workspace'
 	'SmallKansas-WorldMenu'
+	'Sound-Wavetable'
 	'Stream-AsciiStream'
 	'Stream-BlockStream'
 	'Stream-CollectionStream'

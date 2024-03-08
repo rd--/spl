@@ -59,6 +59,21 @@ Interval : [Object, Magnitude, Number] { | min max |
 		aBlock(aNumber.asInterval, self)
 	}
 
+	discretize { :self :size :aBlock:/1 |
+		let step = (self.max - self.min) / (size - 1);
+		let value = self.min;
+		let answer = List(size);
+		1.toDo(size) { :index |
+			answer[index] := aBlock(value);
+			value := value + step
+		};
+		answer
+	}
+
+	discretize { :self :size |
+		self.discretize(size, identity:/1)
+	}
+
 	equalBy { :self :operand :aBlock:/2 |
 		operand.isInterval & {
 			aBlock(self.min, operand.min) & {

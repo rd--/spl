@@ -124,7 +124,7 @@
 	'TerseGuide' {- Url -}
 	'TerseReference' {- Url -}
 
-	{- Sound -}
+	{- Collection -}
 	'SoundFile' {- Url -}
 
 	'Apl'
