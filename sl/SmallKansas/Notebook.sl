@@ -6,7 +6,7 @@ Notebook : [Object, View, SmallKansan] { | smallKansas notebookPane cells |
 		let cell = 'details'.createElement(class: 'notebookCell', open: 'true');
 		let summary = 'summary'.createElement(class: 'notebookSummary');
 		let cellNumber = self.count + 1;
-		let program = self.smallKansas.SmallProgram;
+		let program = self.smallKansas.SmallProgram('', '', '');
 		summary.textContent := cellNumber.asString;
 		program.addEventListener('evaluate') { :event |
 			program.readOnly := true;

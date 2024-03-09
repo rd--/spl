@@ -1,6 +1,8 @@
 {- Requires: SmallKansas Window -}
 
-SmallProgram : [Object, UserEventTarget, View, SmallKansan] { | smallKansas outerElement program answer historyCursor eventListeners |
+SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
+
+	| smallKansas outerElement description program expectedAnswer answer historyCursor eventListeners |
 
 	addToAnswer { :self :result |
 		let answerText = 'pre'.createElement(class: 'answerText');
@@ -33,13 +35,25 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] { | smallKansas oute
 		self.program.focus
 	}
 
-	initialize { :self :smallKansas |
+	initialize { :self :smallKansas :description :program :expectedAnswer |
+		[description, program, expectedAnswer].postLine;
 		self.smallKansas := smallKansas;
 		self.outerElement := 'div'.createElement(class: 'smallProgram');
+		self.description := 'div'.createElement(class: 'description');
+		expectedAnswer.isEmpty.ifFalse {
+			self.description.innerHTML := description.markdownToHtml
+		};
 		self.program := 'textarea'.createElement(class: 'program');
+		self.program.rows := 1;
+		program.isEmpty.ifFalse {
+			self.setProgramText(program)
+		};
+		self.expectedAnswer := 'div'.createElement(class: 'expectedAnswer');
+		expectedAnswer.isEmpty.ifFalse {
+			self.expectedAnswer.textContent := expectedAnswer
+		};
 		self.answer := 'div'.createElement(class: 'answer');
 		self.historyCursor := nil;
-		self.program.rows := 1;
 		self.program.addEventListener('contextmenu') { :event |
 			event.preventDefault;
 			self.programMenu(event)
@@ -64,7 +78,9 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] { | smallKansas oute
 			};
 			self.adjustRows
 		};
+		self.outerElement.appendChild(self.description);
 		self.outerElement.appendChild(self.program);
+		self.outerElement.appendChild(self.expectedAnswer);
 		self.outerElement.appendChild(self.answer);
 		self.eventListeners := Record();
 		self.focus;
@@ -84,7 +100,7 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] { | smallKansas oute
 
 	openIn { :self :smallKansas :event |
 		smallKansas.addFrame(
-			smallKansas.SmallProgram,
+			smallKansas.SmallProgram('', '', ''),
 			event
 		)
 	}
@@ -123,8 +139,8 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] { | smallKansas oute
 
 +SmallKansas {
 
-	SmallProgram { :self |
-		newSmallProgram().initialize(self)
+	SmallProgram { :self :description :program :expectedAnswer |
+		newSmallProgram().initialize(self, description, program, expectedAnswer)
 	}
 
 }

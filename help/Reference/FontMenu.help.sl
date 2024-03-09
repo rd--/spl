@@ -2,7 +2,7 @@
 
 A simple font selection menu.
 
-When opened from the WorldMenu it edits the font of SmallKansas.
+When opened from the `WorldMenu` it edits the font of `SmallKansas`.
 
 * * *
 

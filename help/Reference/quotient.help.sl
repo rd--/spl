@@ -12,7 +12,7 @@ Integer quotient defined by division with truncation toward zero.
 -2
 ```
 
-The operator form is _//_:
+The operator form is `//`:
 
 ```
 >>> 17 // 5
@@ -43,7 +43,7 @@ Quotient threads elementwise over lists:
 [0 0 1 1 1 2 2 2 3 3]
 ```
 
-Quotient is equivalent to floor of division for integers:
+Quotient is equivalent to `floor` of division for integers:
 
 ```
 >>> 83 // 16
@@ -60,7 +60,7 @@ For positive integers _quotient(m, n) + fractionPart(m / n)_ is always equal to 
 (24 / 7)
 ```
 
-Division by zero is an error:
+Division by `zero` is an `error`:
 
 ```
 { 3 // 0 }.ifError { true }
@@ -73,11 +73,11 @@ Plot the sequence of quotients:
 1:50.collect { :n | n // 8 }.plot
 ~~~
 
-_remainder_ answers the remainder from this division.
+`remainder` answers the remainder from this division.
 
 * * *
 
-See also: remainder
+See also: // remainder
 
 References:
 _Haskell_:

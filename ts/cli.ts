@@ -1,6 +1,9 @@
 import * as flags from 'https://deno.land/std/flags/mod.ts';
 
+import * as commonmark from "npm:commonmark@0.31.0";
+
 import { osc } from '../lib/scsynth-wasm-builds/lib/ext/osc.js';
+// import * as commonmark from '../lib/scsynth-wasm-builds/lib/ext/commonmark.js';
 
 import * as tcp from '../lib/jssc3/ts/kernel/tcp.ts';
 import * as scTcp from '../lib/jssc3/ts/sc3/scSynthTcp.ts';
@@ -335,6 +338,7 @@ declare global {
 	var sl: Record<string, any>;
 }
 
+globalThis.commonmark = commonmark;
 globalThis.sl = sl;
 globalThis.sc = sc;
 globalThis.host = host;

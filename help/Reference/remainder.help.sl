@@ -3,8 +3,7 @@
 - _remainder(aNumber, anotherNumber)_
 
 Remainder defined in terms of _quotient_.
-
-Answer a _Number_ with the same sign as _aNumber_
+Answers a _Number_ with the same sign as _aNumber_.
 
 ```
 >>> 9.remainder(4)
@@ -20,7 +19,7 @@ Answer a _Number_ with the same sign as _aNumber_
 0.375
 ```
 
-The operator form is _\\\\_:
+The operator form is `\\`:
 
 ```
 >>> 9 \\ 4
@@ -43,7 +42,9 @@ Quotient & remainder:
 (3, 1)
 ```
 
-For two finite values x and y, the remainder r of dividing x by y satisfies x = y * q + r, where q is the integer nearest to x / y.
+For two finite values _x_ and _y_,
+the remainder _r_ of dividing _x_ by _y_ satisfies _x = y * q + r_,
+where _q_ is the integer nearest to _x / y_.
 
 ```
 >>> let x = 8.625;
