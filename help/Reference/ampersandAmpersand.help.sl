@@ -3,8 +3,8 @@
 - _aBoolean && anotherBoolean_
 
 Evaluating conjunction.
-The _evaluating_ form of &.
-The operand must be a Boolean.
+The _evaluating_ form of `&`.
+The operand must be a `Boolean`.
 
 ```
 >>> true && true
@@ -21,7 +21,7 @@ Collects over lists:
 [false false false true]
 ```
 
-As a reduction decides if all elements are true:
+As a reduction decides if all elements are `true`:
 
 ```
 >>> [true true true true true].reduce(&&)
@@ -31,7 +31,7 @@ true
 false
 ```
 
-Combine assertions with &&:
+Combine assertions with `&&`:
 
 ```
 >>> (2 > 1) && (pi > 3)

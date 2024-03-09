@@ -2,7 +2,7 @@
 
 - _thenTo(start, then, stop)_
 
-Construct a Range by counting up or down from _start_ to _then_ through until _stop_.
+Construct a `Range` by counting up or down from _start_ to _then_ through until _stop_.
 
 ```
 >>> 1.thenTo(3, 9).asList
@@ -14,6 +14,6 @@ Construct a Range by counting up or down from _start_ to _then_ through until _s
 
 * * *
 
-See also: downTo, Range, to, toBy, upTo
+See also: Range, to, toBy, upOrDownTo
 
-Categories: Interval constructor
+Categories: Interval, Range, Type

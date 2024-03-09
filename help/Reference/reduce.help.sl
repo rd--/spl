@@ -1,6 +1,6 @@
 # reduce
 
-_reduce(anIterable, aBlock:/2)_
+- _reduce(anIterable, aBlock:/2)_
 
 Apply _aBlock_ cumulatively to the elements of _anIterable_.
 

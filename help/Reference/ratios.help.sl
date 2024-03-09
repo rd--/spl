@@ -1,6 +1,6 @@
 # ratios
 
-_ratios(aSequence)_
+- _ratios(aSequence)_
 
 Answer the successive ratios of elements in list.
 
@@ -27,3 +27,5 @@ See also: /, differences, powerRange
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Ratios.html)
+
+Categories: Math

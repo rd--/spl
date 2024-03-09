@@ -838,6 +838,14 @@ Text! : [Object, EventTarget, Node, CharacterData] {
 	innerHeight { :self | <primitive: return _self.innerHeight;> }
 	innerWidth { :self | <primitive: return _self.innerWidth;> }
 
+	currentWord { :self |
+		let text = self.getSelectedText;
+		text.isEmpty.if {
+			self.wordAtCaret
+		} {
+			text
+		}
+	}
 
 	wordAtCaret { :self |
 		let selection = self.getSelection;

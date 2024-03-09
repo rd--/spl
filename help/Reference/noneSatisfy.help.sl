@@ -1,9 +1,9 @@
 # noneSatisfy
 
-_noneSatisfy(aCollection, aBlock:/1)_
+- _noneSatisfy(aCollection, aBlock:/1)_
 
 Evaluate _aBlock_ with the elements of _aCollection_.
-If _aBlock_ answers true for any element answer false, otherwise answer true.
+If _aBlock_ answers `true` for any element answer `false`, otherwise answer `true`.
 
 ```
 >>> [].noneSatisfy(isOdd:/1)
@@ -16,7 +16,7 @@ true
 false
 ```
 
-At Record:
+At `Record`:
 
 ```
 >>> (a: 2, b: 3, c: 6).noneSatisfy(isOdd:/1)

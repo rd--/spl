@@ -1,8 +1,8 @@
 # not
 
-_not(aBoolean)_
+- _not(aBoolean)_
 
-True if argument is false, else false.
+Answer `true` if argument is `false`, else `false`.
 
 ```
 >>> true.not
@@ -26,14 +26,14 @@ Collects over `List`:
 [true false false true false]
 ```
 
-Not is it’s own inverse:
+`not` is its own inverse:
 
 ```
 >>> true.not.not
 true
 ```
 
-Where supported _not_ is displayed as ¬.
+Where supported `not` is displayed as ¬.
 
 * * *
 

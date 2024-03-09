@@ -2,7 +2,7 @@
 
 - _toBy(start, stop, step)_
 
-Construct a Range by counting up or down from _start_ to _stop_ by _step_.
+Construct a `Range` by counting up or down from _start_ to _stop_ by _step_.
 
 ```
 >>> 1.toBy(9, 2).asList
@@ -21,7 +21,7 @@ true
 
 * * *
 
-See also: downTo, Range, thenTo, to, upOrDownTo, upTo
+See also: Range, thenTo, to, upOrDownTo
 
 References:
 _Smalltalk_

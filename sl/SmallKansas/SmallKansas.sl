@@ -8,7 +8,7 @@
 
 }
 
-SmallKansas : [Object, Cache] { | container frameSet cache |
+SmallKansas : [Object, Cache] { | container frameSet cache history |
 
 	addFrameWithAnimator { :self :subject :event :delay :aBlock:/0 |
 		let timerId = aBlock:/0.valueEveryMilliseconds(delay.asSeconds * 1000);
@@ -59,6 +59,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 	}
 
 	evaluate { :self :aString :event |
+		self.history.add(aString);
 		system.evaluateNotifying(aString) { :err |
 			self.inspectorOn(err, event);
 			err
@@ -113,6 +114,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache |
 		self.container := 'smallKansas'.getElementById;
 		self.frameSet := Set();
 		self.cache := Record();
+		self.history := [];
 		self.container.addEventListener('contextmenu') { :event |
 			(event.target == self.container).ifTrue {
 				event.preventDefault;

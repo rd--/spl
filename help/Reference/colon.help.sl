@@ -16,6 +16,13 @@ A colon suffix indicates key names in `Dictionary Syntax`:
 ['x', 'y']
 ```
 
+An infix colon defines a `Range` in `Range Syntax`:
+
+```
+>>> 1:9 % 2
+[1 0 1 0 1 0 1 0 1]
+```
+
 * * *
 
-See also: ,, ., ;, :;, :=
+See also: ,, ., ;, :;, :=, Block Syntax, Dictionary Syntax, Range Syntax

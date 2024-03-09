@@ -13,6 +13,7 @@
 	'Frame'
 	'ListChooser'
 	'Menu'
+	'SmallProgram'
 	'TextEditor'
 	'TextElement'
 

@@ -2,7 +2,7 @@
 
 - _upOrDownTo(start, stop)_
 
-Construct a Range by counting up or down from _start_ to _stop_ by one.
+Construct a `Range` by counting up or down from _start_ to _stop_ by one.
 
 ```
 >>> 1.upOrDownTo(5).asList
@@ -14,6 +14,6 @@ Construct a Range by counting up or down from _start_ to _stop_ by one.
 
 * * *
 
-See also: downTo, Range, thenTo, to, toBy, upTo
+See also: downTo, Range, thenTo, to, toBy
 
 Categories: Constructor, Range

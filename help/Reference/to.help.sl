@@ -18,7 +18,7 @@ If _stop_ is less than _start_ the `Range` is empty:
 
 * * *
 
-See also: downTo, Range, thenTo, toBy, upTo, upOrDownTo
+See also: Range, thenTo, toBy, upOrDownTo
 
 References:
 _Smalltalk_

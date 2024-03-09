@@ -2,7 +2,7 @@
 
 - _Range(start, stop, step)_
 
-A Range represents a finite arithmetic progression.
+A `Range` is a `Type` that represents a finite arithmetic progression.
 
 ```
 >>> Range(1, 9, 2).asList
@@ -65,7 +65,7 @@ Range of large integers:
 
 * * *
 
-See also: downTo, Interval, thenTo, to, toBy, upOrDownTo, upTo
+See also: downTo, Interval, Range Syntax, thenTo, to, toBy, upOrDownTo
 
 References:
 _Mathematica_

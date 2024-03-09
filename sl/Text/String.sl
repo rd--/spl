@@ -489,9 +489,17 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	lineCount { :self |
-		self.count { :each |
-			each.isLineFeed
-		}.max(1)
+		self.isEmpty.if {
+			1
+		} {
+			let answer = self.count { :each |
+				each.isLineFeed
+			} + 1;
+			self.last.isLineFeed.ifTrue {
+				answer := answer - 1
+			};
+			answer
+		}
 	}
 
 	lines { :self |

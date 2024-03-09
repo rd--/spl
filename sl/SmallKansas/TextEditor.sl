@@ -1,9 +1,9 @@
 {- Requires: SmallKansas Window -}
 
-TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorText mimeType title clientKeyBindings eventListeners |
+TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorText mimeType title clientMenuItems eventListeners |
 
-	addKeyBindings { :self :aCollection |
-		self.clientKeyBindings.addAll(aCollection)
+	addMenuItems { :self :aCollection |
+		self.clientMenuItems.addAll(aCollection)
 	}
 
 	createElements { :self |
@@ -23,25 +23,8 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 		self.editorPane.appendChild(self.editorText)
 	}
 
-	currentSelection { :self |
-		let text = system.window.getSelectedText;
-		text.isEmpty.ifTrue {
-			text := self.editorText.textContent
-		};
-		text
-	}
-
 	currentText { :self |
 		self.editorText.textContent
-	}
-
-	currentWord { :self |
-		let text = system.window.getSelectedText;
-		text.isEmpty.if {
-			system.window.wordAtCaret
-		} {
-			text
-		}
 	}
 
 	editable { :self :aBoolean |
@@ -52,7 +35,7 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 		self.smallKansas := smallKansas;
 		self.title := title;
 		self.mimeType := mimeType;
-		self.clientKeyBindings := [];
+		self.clientMenuItems := [];
 		self.createElements;
 		self.setEventHandlers;
 		self.setEditorText(contents);
@@ -64,8 +47,8 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 		aString.insertAtCursor
 	}
 
-	keyBindings { :self |
-		self.smallKansas.standardTextEditorBindings(self) ++ self.clientKeyBindings
+	menuItems { :self |
+		self.smallKansas.standardTextEditorMenuItems(self) ++ self.clientMenuItems
 	}
 
 	outerElement { :self |
@@ -78,15 +61,12 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 			self.textEditorMenu(event)
 		};
 		self.editorText.addEventListener('keydown') { :event |
-			let bindingsList = self.keyBindings.collect { :menuItem |
-				menuItem.accessKey -> {
-					event.preventDefault;
-					menuItem.onSelect . (nil)
-				}
+			let bindings = self.menuItems.collect { :each |
+				each.keyBinding(event)
 			};
 			event.ctrlKey.ifTrue {
 				event.key.caseOfOtherwise(
-					bindingsList,
+					bindings,
 					{ :key | nil }
 				)
 			}
@@ -112,7 +92,7 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 	textEditorMenu { :self :event |
 		self.smallKansas.menu(
 			'Text Editor Menu',
-			self.keyBindings,
+			self.menuItems,
 			true,
 			event
 		)
@@ -122,7 +102,14 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 
 +SmallKansas {
 
-	standardTextEditorBindings { :self :subject |
+	standardTextEditorMenuItems { :self :subject |
+		let currentSelection = {
+			let text = system.window.getSelectedText;
+			text.isEmpty.ifTrue {
+				text := subject.currentText
+			};
+			text
+		};
 		[
 			MenuItem('Accept It', 's') { :event |
 				subject.dispatchEvent(
@@ -135,33 +122,33 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 				)
 			},
 			MenuItem('Browse It', 'b') { :event |
-				self.browserOn([subject.currentWord], event)
+				self.browserOn([system.window.currentWord], event)
 			},
 			MenuItem('Do It', 'd') { :event |
-				self.evaluate(subject.currentSelection, event)
+				self.evaluate(currentSelection(), event)
 			},
 			MenuItem('Help For It', 'h') { :event |
-				self.helpFor(subject.currentWord.asMethodName, event)
+				self.helpFor(system.window.currentWord.asMethodName, event)
 			},
 			MenuItem('Implementors Of It', 'm') { :event |
-				self.implementorsOf(subject.currentWord.asMethodName, event)
+				self.implementorsOf(system.window.currentWord.asMethodName, event)
 			},
 			MenuItem('Inspect It', 'i') { :event |
-				self.inspectorOn(self.evaluate(subject.currentWord, event), event)
+				self.inspectorOn(self.evaluate(system.window.currentWord, event), event)
 			},
 			MenuItem('Play It', 'Enter') { :event |
-				let text = '{ ' ++ subject.currentSelection ++ ' }.value.play';
+				let text = '{ ' ++ currentSelection() ++ ' }.value.play';
 				text.postLine;
 				self.evaluate(text, event)
 			},
 			MenuItem('Print It', 'p') { :event |
-				subject.insertText(' ' ++ self.evaluate(subject.currentSelection, event).asString)
+				subject.insertText(' ' ++ self.evaluate(currentSelection(), event).asString)
 			},
 			MenuItem('References To It', nil) { :event |
-				self.referencesTo(subject.currentWord.asMethodName, event)
+				self.referencesTo(system.window.currentWord.asMethodName, event)
 			},
 			MenuItem('Require It', nil) { :event |
-				system.package(subject.currentWord).require.then { :unused |
+				system.package(system.window.currentWord).require.then { :unused |
 					subject.insertText('*Package loaded*')
 				}
 			},

@@ -3,8 +3,8 @@
 - _aBoolean || anotherBoolean_
 
 Evaluating conjunction.
-The evaluating form of |.
-The operand must be a Boolean.
+The evaluating form of `|`.
+The operand must be a `Boolean`.
 
 ```
 >>> false || true
@@ -21,7 +21,7 @@ Collects over lists:
 [false true true true]
 ```
 
-As a reduction decides if any element is true:
+As a reduction decides if any element is `true`:
 
 ```
 >>> [false false false true].reduce(||)
@@ -31,7 +31,7 @@ true
 true
 ```
 
-Combine assertions with ||:
+Combine assertions with `||`:
 
 ```
 >>> (2 < 1) || (pi > 3)

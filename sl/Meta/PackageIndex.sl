@@ -148,6 +148,7 @@
 	'SmallKansas-ScalaJiTuningBrowser'
 	'SmallKansas-ScalaScaleBrowser'
 	'SmallKansas-SmallKansas'
+	'SmallKansas-SmallProgram'
 	'SmallKansas-SvgViewer'
 	'SmallKansas-SystemBrowser'
 	'SmallKansas-TableViewer'

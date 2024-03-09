@@ -20,11 +20,11 @@ false
 true
 ```
 
-Methods are: &, &&, |, ||, and, or, not, xor
+Methods are: &, &&, |, ||, not, xor
 
 * * *
 
-See also: &, &&, |, ||, false, not, true
+See also: &, &&, |, ||, false, not, true, xor
 
 References:
 _Haskell_

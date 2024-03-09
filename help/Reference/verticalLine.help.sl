@@ -4,8 +4,8 @@
 - _aBoolean | aBlock:/0_
 
 Nonevaluating conjunction.
-true if _aBoolean_ is true or _aBlock_ evaluates to true, else false.
-If _aBoolean_ is true then _aBlock_ is not evaluated.
+`true` if _aBoolean_ is `true` or _aBlock_ evaluates to `true`, else `false`.
+If _aBoolean_ is `true` then _aBlock_ is not evaluated.
 
 Combine assertions:
 
@@ -23,14 +23,14 @@ false
 true
 ```
 
-The unary form of | is _anySatisfy_ of _value_:
+The unary form of `|` is `anySatisfy` of `value`:
 
 ```
 >>> [1 < 0, { 2 < 1 }, { 3 < 2 }].|
 false
 ```
 
-The first element may also be a Block,
+The first element may also be a `Block`,
 and the unary operator syntax may be used:
 
 ```
@@ -42,7 +42,7 @@ The name of this operator is _verticalLine_.
 
 Where supported _or_ is displayed as ∨.
 
-Note that _|_ is not displayed as ∨ because it is part of the `Block Syntax.
+Note that _|_ is not displayed as ∨ because it is part of the `Block Syntax`.
 
 _Note:_
 In Smalltalk the evaluting form is called _or:_ and the non-evaluating form _|_.

@@ -16,6 +16,13 @@ MenuItem : [Object] { | name accessKey onSelect |
 		self.name ++ self.accessKeyDislayText
 	}
 
+	keyBinding { :self :event |
+		self.accessKey -> {
+			event.preventDefault;
+			self.onSelect . (nil)
+		}
+	}
+
 }
 
 +String {
