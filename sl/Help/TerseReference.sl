@@ -1,38 +1,6 @@
-{- Requires: Url -}
+{- Requires: DocumentTest, Url -}
 
 +String {
-
-	parseTerseDocumentTestBlocks { :self |
-		let answer = [];
-		let inBlock = false;
-		let block = [];
-		self.lines.do { :currentLine |
-			(
-				currentLine.beginsWith('>>> ') & {
-					inBlock.not
-				}
-			).ifTrue {
-				inBlock := true
-			};
-			(
-				(
-					currentLine.isEmpty | {
-						currentLine.beginsWith('```')
-					}
-				) & {
-					inBlock
-				}
-			).ifTrue {
-				answer.add(block.copy);
-				block.removeAll;
-				inBlock := false
-			};
-			inBlock.ifTrue {
-				block.add(currentLine)
-			}
-		};
-		answer
-	}
 
 	terseReferenceEntry { :self :name :options |
 		let testCount = 0;
@@ -40,16 +8,15 @@
 		options::verbose.ifTrue {
 			name.postLine
 		};
-		self.parseTerseDocumentTestBlocks.do { :each |
-			let test = each.formatTerseDocumentTestEntry;
+		self.lines.extractDocumentTests.do { :each |
 			testCount := testCount + 1;
 			options::verbose.ifTrue {
-				('	' ++ test).postLine
+				('	' ++ each.format).postLine
 			};
-			system.evaluate(test).if {
+			each.evaluate.if {
 				passCount := passCount + 1
 			} {
-				['Fail', each].postLine
+				['Fail', each.format].postLine
 			}
 		};
 		[testCount, passCount]
@@ -79,22 +46,6 @@
 				['Terse Reference Summary', totalTestCount, totalPassCount].postLine
 			}
 		}
-	}
-
-}
-
-+List {
-
-	formatTerseDocumentTestEntry { :self |
-		let lhs = self.select { :each |
-			each.beginsWith('>>> ')
-		}.collect { :each |
-			each.drop(4)
-		}.unwords;
-		let rhs = self.reject { :each |
-			each.beginsWith('>>> ')
-		}.unwords;
-		lhs ++ ' ~ (' ++ rhs ++ ')'
 	}
 
 }

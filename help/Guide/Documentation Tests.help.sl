@@ -1,7 +1,8 @@
 # Documentation Tests
 
 Documentation tests are written as any number of _>>>_ prefixed _program_ lines,
-followed by any number of unprefixed _answer_ lines.
+followed by any number of unprefixed _expected answer_ lines,
+ended by an empty line, or a _code fence_.
 
 The tests are written so that the _>>>_ prefixed lines,
 when unprefixed and concatenated,
@@ -18,7 +19,7 @@ e + pi
 e * pi
 ```
 
-Multiple _program_ and _answer_ lines:
+Multiple _program_ and _expected answer_ lines:
 
 ```
 >>> let m = [3 2 4].iota;
@@ -30,18 +31,17 @@ Multiple _program_ and _answer_ lines:
 ]
 ```
 
-Documentation tests are written in _Fenced Code Blocks_.
+Documentation tests are written in `Fenced Code Blocks`.
 
-The `terseReferenceSummary` method collects and runs all such tests and summarises the results.
+`terseReferenceSummary` collects and runs all such tests and summarises the results.
 
-The `parseTerseDocumentTestBlocks` parses a documentation test block.
-
-The `formatTerseDocumentTestEntry` method formats a parsed documenation test block for evaluation.
+The `DocumentTest` type holds a documentation test, and
+`extractDocumentTests` finds all documentation test blocks in a `List` of `String` items.
 
 Where supported the token `>>>` is displayed as ⋙.
 
 * * *
 
-Unicode: U+22D9 ⋙ Very Much Greater-Than
+See also: ~, DocumentTest, extractDocumentTests, Fenced Code Blocks, isCodeFence, Reference Help Files, terseReferenceSummary
 
-See also: ~, Reference Help Files, terseReferenceSummary
+Unicode: U+22D9 ⋙ Very Much Greater-Than

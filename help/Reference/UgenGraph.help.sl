@@ -11,17 +11,15 @@ Accessors are:
 - `controlList`: the list of `LocalControl` inputs
 - `ugenList`: the sorted list of `ScUgen` values
 
-```
->>> let freq = NamedControl('freq', 440);
->>> let ugenGraph = UgenGraph('sin', SinOsc(freq, 0) * 0.1);
->>> (
->>> 	ugenGraph.name,
->>> 	ugenGraph.constantList,
->>> 	ugenGraph.controlList.collect(name:/1),
->>> 	ugenGraph.ugenList.collect(displayName:/1)
->>> )
-('sin', [0 0.1], ['freq'], ['Control' 'SinOsc' 'Mul' 'Out'])
-```
+	>>> let freq = NamedControl('freq', 440);
+	>>> let ugenGraph = UgenGraph('sin', SinOsc(freq, 0) * 0.1);
+	>>> (
+	>>> 	ugenGraph.name,
+	>>> 	ugenGraph.constantList,
+	>>> 	ugenGraph.controlList.collect(name:/1),
+	>>> 	ugenGraph.ugenList.collect(displayName:/1)
+	>>> )
+	('sin', [0 0.1], ['freq'], ['Control' 'SinOsc' 'Mul' 'Out'])
 
 * * *
 

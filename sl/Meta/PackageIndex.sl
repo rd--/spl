@@ -74,6 +74,7 @@
 	'Geometry-Sphere'
 	'Geometry-SphericalCoordinate'
 	'Graphics-Colour'
+	'Help-DocumentTest'
 	'Help-HelpIndex'
 	'Help-TerseGuide'
 	'Help-TerseReference'

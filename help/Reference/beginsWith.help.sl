@@ -33,6 +33,16 @@ true
 true
 ```
 
+Code fences:
+
+```
+>>> '```spl'.beginsWith('```')
+true
+
+>>> '~~~spl'.beginsWith('~~~')
+true
+```
+
 The empty `String` begins with the empty string, and with nothing else:
 
 ```

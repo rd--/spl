@@ -121,8 +121,9 @@
 	'Categories'
 
 	{- Help -}
+	'DocumentTest'
 	'TerseGuide' {- Url -}
-	'TerseReference' {- Url -}
+	'TerseReference' {- DocumentTest Url -}
 
 	{- Collection -}
 	'SoundFile' {- Url -}

@@ -4,12 +4,12 @@
 
 Create an uninitialized instance of _aType_.
 
-~~~
+```
 >>> let colourType = system.typeLookup('Colour');
 >>> let colourValue = colourType.instanceOf;
 >>> (colourType.isType, colourValue.isColour, colourValue.red)
 (true, true, nil)
-~~~
+```
 
 * * *
 

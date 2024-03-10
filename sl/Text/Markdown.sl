@@ -1,5 +1,20 @@
 +String {
 
+	isCodeFence { :self |
+		{- ['isCodeFence', self.beginsWith('~~~')].postLine; -}
+		self.beginsWith('~~~') | {
+			self.beginsWith('```')
+		}
+	}
+
+	isTildeCodeFence { :self |
+		self.beginsWith('~~~')
+	}
+
+	isGraveAccentCodeFence { :self |
+		self.beginsWith('```')
+	}
+
 	parseMarkdownIndentedCodeBlocks { :self |
 		let answer = [];
 		let previous = '';

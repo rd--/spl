@@ -8,7 +8,7 @@ If the collection is empty it is an error.
 
 ```
 >>> let list = [1 .. 9];
->>> list.removeLast = 9 & { l.size = 8 }
+>>> list.removeLast = 9 & { list.size = 8 }
 true
 ```
 
