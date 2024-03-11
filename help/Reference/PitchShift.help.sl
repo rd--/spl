@@ -1,7 +1,8 @@
-# PitchShift -- granular pitch shifter
+# PitchShift
 
-_PitchShift(in, windowSize, pitchRatio, pitchDispersion, timeDispersion)_
+- _PitchShift(in, windowSize, pitchRatio, pitchDispersion, timeDispersion)_
 
+Granular pitch shifter.
 A time domain granular pitch shifter.
 Grains have a triangular amplitude envelope and an overlap of 4:1.
 
@@ -31,9 +32,10 @@ PitchShift(
 ```
 
 Use PitchShift to granulate input.
-__Use headphones__ to prevent feedback.
+Use headphones to prevent feedback.
 Upper left corner is normal playback.
-x = pitch dispersion, y = time dispersion.
+`MouseX` controls pitch dispersion,
+`MouseY` controls time dispersion.
 
 ```
 let grainSize = 0.5;
@@ -44,3 +46,12 @@ PitchShift(
 	pitchDispersion: MouseX(0, 1, 0, 0.2),
 	timeDispersion: MouseY(0, grainSize, 0, 0.2)
 )
+```
+
+* * *
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/PitchShift.html)
+
+Categories: Ugen

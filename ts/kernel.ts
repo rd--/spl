@@ -825,3 +825,8 @@ export function murmur3Generator(str: string, seed: number) {
 		return h >>> 0;
 	};
 }
+
+/* https://regex101.com/r/Awcj1k/1 */
+export function stringToSentences(str: string): Array<string> {
+	return str.match(/(?=[^])(?:\P{Sentence_Terminal}|\p{Sentence_Terminal}(?!['"`\p{Close_Punctuation}\p{Final_Punctuation}\s]))*(?:\p{Sentence_Terminal}+['"`\p{Close_Punctuation}\p{Final_Punctuation}]*|$)/guy);
+}

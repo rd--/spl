@@ -2,26 +2,6 @@
 
 +String {
 
-	terseReferenceEntry { :self :name :options |
-		let testCount = 0;
-		let passCount = 0;
-		options::verbose.ifTrue {
-			name.postLine
-		};
-		self.lines.extractDocumentTests.do { :each |
-			testCount := testCount + 1;
-			options::verbose.ifTrue {
-				('	' ++ each.format).postLine
-			};
-			each.evaluate.if {
-				passCount := passCount + 1
-			} {
-				['Fail', each.format].postLine
-			}
-		};
-		[testCount, passCount]
-	}
-
 	terseReferenceSummary { :directoryName |
 		directoryName.terseReferenceSummary(verbose: false)
 	}
@@ -30,14 +10,20 @@
 		let totalTestCount = 0;
 		let totalPassCount = 0;
 		directoryName.readDirectoryFileNames.then { :fileNameList |
-			fileNameList.sort;
-			fileNameList.readTextFileList.then { :textList |
+			let helpFileNameList = fileNameList.sort.select { :each |
+				each.endsWith('.help.sl')
+			};
+			helpFileNameList.readTextFileList.then { :textList |
 				textList.withIndexDo { :text :index |
-					let [testCount, passCount] = text.terseReferenceEntry(fileNameList[index], options);
-					(testCount > 0 & {
-						testCount ~= passCount
-					}).ifTrue {
-						fileNameList[index].postLine;
+					let fileName = helpFileNameList[index];
+					let helpFile = HelpFile(fileName.asFileUrl, text);
+					let [testCount, passCount] = helpFile.terseReferenceEntry(options);
+					(
+						testCount > 0 & {
+							testCount ~= passCount
+						}
+					).ifTrue {
+						fileName.postLine;
 						['Failure', testCount, passCount].postLine
 					};
 					totalTestCount := totalTestCount + testCount;

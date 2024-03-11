@@ -46,6 +46,8 @@ File `Url`:
 ```
 let url = '/home/rohan/sw/spl/help/Reference/Url.help.sl'.asFileUrl;
 url.fetchText.then { :aString | aString.postLine }
+
+'/home/rohan/sw/spl/help/Reference/add.help.sl'.asFileUrl
 ```
 
 * * *

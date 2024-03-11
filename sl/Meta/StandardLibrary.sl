@@ -122,6 +122,7 @@
 
 	{- Help -}
 	'DocumentTest'
+	'HelpFile' {- Cache -}
 	'TerseGuide' {- Url -}
 	'TerseReference' {- DocumentTest Url -}
 

@@ -17,7 +17,17 @@ DocumentTest : [Object] { | program expectedAnswer |
 	}
 
 	format { :self |
-		self.program ++ ' ~ (' ++ self.expectedAnswer ++ ')'
+		self.program.unwords ++ ' ~ (' ++ self.expectedAnswer.unwords ++ ')'
+	}
+
+	storeString { :self |
+		[
+			'DocumentTest(',
+			self.program.storeString,
+			', ',
+			self.expectedAnswer.storeString,
+			')'
+		].join
 	}
 
 }
@@ -29,10 +39,10 @@ DocumentTest : [Object] { | program expectedAnswer |
 			each.beginsWith('>>> ')
 		}.collect { :each |
 			each.drop(4)
-		}.unwords;
+		};
 		let expectedAnswer = self.reject { :each |
 			each.beginsWith('>>> ')
-		}.unwords;
+		};
 		DocumentTest(program, expectedAnswer)
 	}
 
@@ -70,7 +80,7 @@ DocumentTest : [Object] { | program expectedAnswer |
 
 }
 
-+String {
++List {
 
 	DocumentTest { :program :expectedAnswer |
 		newDocumentTest().initializeSlots(program, expectedAnswer)

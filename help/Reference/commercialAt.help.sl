@@ -1,26 +1,51 @@
 # @
 
 - _aNumber @ anotherNumber_
+- _aCollection @ anIndex_
 
-This operator is the point constructor in Smalltalk.
+In the `Number` case this operator is the point constructor, as in Smalltalk:
 
 ```
 >>> 0@0
-Point(0,0)
+Point(0, 0)
+```
+
+In the `Collection` case this is the operator form of `at`:
+
+```
+>>> let c = 1:9;
+>>> c @ 3
+3
+```
+
+This form is rarely used since `at` is ordinarily written using `At Syntax` as:
+
+```
+>>> let c = 1:9;
+>>> c[3]
+3
+```
+
+However it is nice to have operator forms for variants of `at`,
+such as `atAll` and `atPath`. `@*` is a mnemonic for `atAll`:
+
+```
+>>> let c = [1 .. 9];
+>>> c @* [3 5 7]
+[3 5 7]
+```
+
+and `@>` for `atPath`:
+
+```
+>>> let c = [1 2 3; 4 5 6];
+>>> c @> [2 3]
+6
 ```
 
 The name of this operator is _commercialAt_.
 
-_Rationale_:
-This operator is not given the simpler name of _at_ because that is the name of the lookup and indexing method in Smalltalk.
-
-```
->>> let c = [1 2 3];
->>> c.at(2)
-2
-```
-
-We want to ensure that the following is an error:
+Note that `at` at `Number` is an error:
 
 ```
 >>> let n = 23;
@@ -28,21 +53,15 @@ We want to ensure that the following is an error:
 true
 ```
 
-We do however wish to have operator forms for variants of at,
-such as atAll and atPath, and @* is a nice mnemonic for atAll.
-
-```
->>> let c = [1 .. 9];
->>> c @ 3
-3
-
->>> let c = [1 .. 9];
->>> c @* [3 5 7]
-[3 5 7]
-```
+_Rationale_:
+These two uses are somewhat at odds.
+The `Point` constructor form should properly thread over lists.
+However using `@*` and `@>` as `at` variants is odd if `@` is not `at`.
 
 * * *
 
-See also: at, At Syntax
+See also: at, At Syntax, Point
+
+Unicode: U+0040 @ Commercial At
 
 Categories: Graphics, Accessing

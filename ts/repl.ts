@@ -35,7 +35,8 @@ export async function perLine(verbose: boolean): Promise<void> {
 				console.log(withoutBlanks);
 			}
 			const answer = evaluate.evaluateFor('Repl', withoutBlanks);
-			console.log(answer);
+			const answerText = _printString_1(answer);
+			console.log(answerText);
 		}
 	});
 }

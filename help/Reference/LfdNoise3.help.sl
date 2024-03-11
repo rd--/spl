@@ -1,6 +1,8 @@
-# LfdNoise3 -- dynamic cubic noise
+# LfdNoise3
 
-_LfdNoise3(freq)_
+- _LfdNoise3(freq)_
+
+Dynamic cubic noise.
 
 - freq: rate at which to generate random values.
 
@@ -22,3 +24,7 @@ SinOsc(
 * * *
 
 See also: LfNoise3
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LFDNoise3.html)

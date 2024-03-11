@@ -25,7 +25,7 @@ true
 
 * * *
 
-See also: detectIfNone, findFirst, reject, select
+See also: detectIfFoundIfNone, detectIfNone, findFirst, reject, select
 
 References:
 _Smalltalk_

@@ -11,7 +11,7 @@ Convert a string holding _CommonMark_ to a string holding _Html_.
 
 * * *
 
-See also: String
+See also: Markdown, String
 
 References:
 _CommonMark_

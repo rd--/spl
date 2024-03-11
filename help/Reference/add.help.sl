@@ -3,12 +3,12 @@
 - _add(aCollection, newObject)_
 
 Include _newObject_ as one of the elements of _aCollection_.
-After adding an entry, the _size_ of the collection increases by one.
-Therefore, for collections with invariants such as _Dictionary_ and _Set_, add may fail.
-In these cases see _include_, which is like _add_ except that the size of the collection may stay the same.
+After adding an entry, the `size` of the collection increases by one.
+Therefore, for collections with invariants such as `Dictionary` and `Set`, add may fail.
+In these cases see `include`, which is like `add` except that the size of the collection may stay the same.
 Answers _newObject_.
 
-At Bag:
+At `Bag`:
 
 ```
 >>> let b = Bag();
@@ -17,7 +17,7 @@ At Bag:
 true
 ```
 
-At List:
+At `List`:
 
 ```
 >>> let l = List();
@@ -26,7 +26,7 @@ At List:
 true
 ```
 
-At Map:
+At `Map`:
 
 ```
 >>> let m = Map();
@@ -35,7 +35,7 @@ At Map:
 true
 ```
 
-At Record:
+At `Record`:
 
 ```
 >>> let r = Record();
@@ -44,7 +44,7 @@ At Record:
 true
 ```
 
-At Set, add will include _newObject_ as one of the set elements only if not already present:
+At `Set`, add will include _newObject_ as one of the set elements only if not already present:
 
 ```
 >>> let s = Set();
@@ -56,7 +56,7 @@ true
 true
 ```
 
-At String, which is not Extensible:
+At `String`, which is not `Extensible`:
 
 ```
 >>> let s = 'string';

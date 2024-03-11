@@ -7,13 +7,8 @@ If _aBoolean_ is `true` answer the result of  _whenTrue()_, else answer _whenFal
 
 Note that the branches are not evaluated using `value`, and therefore _must_ be no-argument blocks.
 
-Ordinarily _whenTrue_ and _whenFalse_ are literal no-argument blocks written using `Trailing Block Syntax`.
-
-_Rationale:_
-Spl follows Smalltalk in having no special purpose conditional evaluation mechanisms.
-Conditionals expressions are implemented as ordinary blocks.
-To delay evaluation of alternatives each must be written as a no argument block.
-`Trailing Block Syntax` provides an idiomatic notation for writing conditionals.
+Ordinarily _whenTrue_ and _whenFalse_ are literal no-argument blocks.
+`Trailing Block Syntax` provides an idiomatic notation for writing such conditionals.
 The standard libraries write if conditions as:
 
 ```
@@ -28,7 +23,7 @@ where there are two branches and as either:
 true
 ```
 
-or
+or:
 
 ```
 >>> (3 < 2).ifFalse { true }
@@ -36,6 +31,11 @@ true
 ```
 
 where there is one.
+
+_Rationale:_
+Spl follows Smalltalk in having no special purpose conditional evaluation mechanisms.
+Conditionals expressions are implemented as ordinary blocks.
+To delay evaluation of alternatives each must be written as a no argument block.
 
 * * *
 

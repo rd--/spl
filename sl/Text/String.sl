@@ -518,14 +518,6 @@ String! : [Object, Json, Iterable, Character] {
 		self.asList.longestCommonSubsequence(aString.asList).join
 	}
 
-	markdownToHtml { :self |
-		<primitive:
-		const reader = new commonmark.Parser({smart: true});
-		const writer = new commonmark.HtmlRenderer();
-		return writer.render(reader.parse(_self));
-		>
-	}
-
 	notEmpty { :self |
 		self.isEmpty.not
 	}
@@ -663,6 +655,10 @@ String! : [Object, Json, Iterable, Character] {
 			}
 		};
 		list.join
+	}
+
+	sentences { :self |
+		<primitive: return sl.stringToSentences(_self);>
 	}
 
 	shallowCopy { :self |

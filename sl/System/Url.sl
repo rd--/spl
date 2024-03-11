@@ -6,6 +6,14 @@
 		self.typeReponsibility('asUrl')
 	}
 
+	fileName { :self |
+		self.pathName.splitBy('/').last
+	}
+
+	fileNameWithoutExtensions { :self |
+		self.fileName.splitBy('.').first
+	}
+
 	hash { :self |
 		<primitive: return _self.hash;>
 	}
@@ -44,6 +52,10 @@
 
 	search { :self |
 		<primitive: return _self.search;>
+	}
+
+	storeString { :self |
+		self.href.storeString ++ '.asUrl'
 	}
 
 }

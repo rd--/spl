@@ -34,3 +34,9 @@ true
 >>> '~~~'.isTildeCodeFence
 true
 ```
+
+* * *
+
+See also: Fenced Code Blocks
+
+Categories: Testing

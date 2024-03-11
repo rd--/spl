@@ -214,7 +214,7 @@ function evaluateInteractive(text: string): unknown {
 
 function scEvalText(splText: string): unknown {
 	const answer = evaluateInteractive(splText);
-	console.log('scEvalText', answer);
+	console.log('scEvalText', _printString_1(answer));
 	return answer;
 }
 

@@ -1,8 +1,6 @@
 # ()
 
-_()_ is part of the `Dictionary Syntax`.
-
-It constructs an empty `Record`.
+_()_ is part of the `Dictionary Syntax`, where constructs an empty `Record`:
 
 ```
 >>> ()

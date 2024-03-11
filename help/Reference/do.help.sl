@@ -12,7 +12,7 @@ Evaluate _aBlock_ with each element of _aCollection_ as the argument.
 ```
 
 _Rationale:_
-_do_ is the only required method of the _Iterable_ trait.
+`do` is the only required method of the `Iterable` trait.
 All collection types are iterable.
 
 * * *

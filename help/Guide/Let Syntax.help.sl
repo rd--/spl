@@ -72,7 +72,8 @@ The notation _let (x, y) = p;_ initialises the variables _x_ and _y_ to the valu
 
 This rule can make writing temporaries with long initializers spanning multiple lines clearer.
 
-_Rationale_: Initialising temporary variables as they are declared makes it clear in which cases they are used simply as names (assigned to using the `=` notation) and in which cases they are used as mutable state (assigned to using `:=`).
+_Rationale_:
+Initialising temporary variables as they are declared makes it clear in which cases they are used simply as names (assigned to using the `=` notation) and in which cases they are used as mutable state (assigned to using `:=`).
 
 _Subtleties_:
 The list and dictionary initialisers must only evaluate the right hand side once.

@@ -38,8 +38,8 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 		Tuple:/1
 	}
 
-	storeString { :self:/1 |
-		'(' ++ self.collect(storeString:/1).joinSeparatedBy(', ') ++ ')'
+	storeString { :self |
+		'(' ++ self.contents.collect(storeString:/1).joinSeparatedBy(', ') ++ ')'
 	}
 
 }
