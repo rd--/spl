@@ -11,6 +11,6 @@ Answer a `List` of `String`, one for each paragraph in _aString_.
 
 * * *
 
-See also: lines, unlines, words
+See also: lines, sentences, unlines, words
 
 Categories: Converting

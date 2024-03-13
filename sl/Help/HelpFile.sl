@@ -1,9 +1,15 @@
 {- Requires: Cache -}
 
-HelpFile : [Object, Cache] { | origin text cache |
+HelpFile : [Object, Cache] { | origin contents cache |
 
 	categories { :self |
 		self.readCommaSeparatedField('Categories: ')
+	}
+
+	codeBlocks { :self |
+		self.cached('codeBlocks') {
+			self.markdown.codeBlocks
+		}
 	}
 
 	description { :self |
@@ -42,7 +48,7 @@ HelpFile : [Object, Cache] { | origin text cache |
 
 	lines { :self |
 		self.cached('lines') {
-			self.text.lines
+			self.contents.lines
 		}
 	}
 
@@ -59,6 +65,12 @@ HelpFile : [Object, Cache] { | origin text cache |
 			index := index + 1
 		};
 		answer
+	}
+
+	markdown { :self |
+		self.cached('name') {
+			Markdown(self.contents)
+		}
 	}
 
 	name { :self |
@@ -157,8 +169,8 @@ HelpFile : [Object, Cache] { | origin text cache |
 
 +[String, URL] {
 
-	HelpFile { :origin :text |
-		newHelpFile().initializeSlots(origin, text, Record())
+	HelpFile { :origin :contents |
+		newHelpFile().initializeSlots(origin, contents, Record())
 	}
 
 }

@@ -2,7 +2,7 @@
 
 - _deepDo(anIterable, aBlock:/1)_
 
-Do over _anIterable_,
+Run `do` over _anIterable_,
 descending into elements that are of the same type as _anIterable_,
 else applying _aBlock_.
 

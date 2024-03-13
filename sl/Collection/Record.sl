@@ -1,4 +1,4 @@
-Record! : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
+Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible, Dictionary] {
 
 	asRecord { :self |
 		self
@@ -85,15 +85,24 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Dictionary] {
 
 +List {
 
-	recordFromTwoElementLists { :self |
+	basicAsRecord { :self |
 		<primitive: return Object.fromEntries(_self);>
 	}
 
 	asRecord { :self |
-		self.collect(key:/1).allSatisfy(isString:/1).if {
-			self.collect(asList:/1).recordFromTwoElementLists
+		let matrix = self.collect(asList:/1);
+		(
+			matrix.isMatrix & {
+				matrix.shape.second = 2 & {
+					matrix.allSatisfy { :each |
+						each.first.isString
+					}
+				}
+			}
+		).if {
+			matrix.basicAsRecord
 		} {
-			self.error('List>>asRecord: not all keys are strings')
+			self.error('List>>asRecord: not of correct shape or invalid keys')
 		}
 	}
 

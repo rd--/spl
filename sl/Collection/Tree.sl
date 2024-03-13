@@ -8,6 +8,14 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		}
 	}
 
+	addChild { :self :child |
+		child.isTree.if {
+			self.subTrees.add(child)
+		} {
+			self.error('Tree>>addChild: not tree')
+		}
+	}
+
 	asList { :self |
 		self.subTrees.collect { :each |
 			each.isLeaf.if {

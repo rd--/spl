@@ -27,3 +27,7 @@ Including common Markdown cases:
 * * *
 
 See also: lines, paragraphs, words
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/TextSentences.html)

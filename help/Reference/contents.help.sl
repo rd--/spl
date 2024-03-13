@@ -1,10 +1,27 @@
 # contents
 
-- _contents(aStream | aString)_
+- _contents(anIterable | aStream | aCollection | aString)_
 
-The contents of a `Stream` is a `Sequence` of all of the items in the stream.
+The `contents` of an `Iterable` is a `List` of all of the items accessed by `do`.
+At `Tree`:
 
-The contents of a `String` is a `List` of single character `String`s.
+```
+>>> [1 [2 [3] 4] 5].asTree.contents.collect(value:/1)
+[nil 1 nil 2 nil 3 4 5]
+```
+
+The `contents` of a `Stream` is a `Sequence` of all of the items in the stream.
+
+The `contents` of a `Collection` is the collection itself.
+At `Record`:
+
+```
+>>> let r = (x: 1, y: 2);
+>>> r.contents == r
+true
+```
+
+The `contents` of a `String` is a `List` of single character `String`s.
 
 ```
 >>> 'abc'.contents

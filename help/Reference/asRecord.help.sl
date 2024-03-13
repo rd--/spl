@@ -1,15 +1,28 @@
 # asRecord
 
-- _asRecord(anAssociationList | aMap)_
+- _asRecord(anAssociationList | aMatrix | aMap)_
 
-Convert a `List` of `Association` or a `Map` to a `Record`.
+Convert a collection to a `Record`.
+
+At a `List` of `Association`:
 
 ```
->>> ['x' -> 1, 'y' -> 2].asRecord
-(x: 1, y: 2)
+>>> ['x' -> 1, 'y' -> 2, 'z' -> 3].asRecord
+(x: 1, y: 2, z: 3)
+```
 
->>> (x: 1, y: 2).asMap.asRecord
-(x: 1, y: 2)
+At a `List` holding a 2-column _matrix_:
+
+```
+>>> ['x' 1; 'y' 2; 'z' 3].asRecord
+(x: 1, y: 2, z: 3)
+```
+
+At a `Map`:
+
+```
+>>> (x: 1, y: 2, z: 3).asMap.asRecord
+(x: 1, y: 2, z: 3)
 ```
 
 * * *

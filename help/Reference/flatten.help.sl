@@ -2,23 +2,23 @@
 
 - _flatten(aCollection)_
 
-Similar to _concatenation_ but removes all nesting.
+Similar to `concatenation` but removes all nesting.
 
 ```
->>> [1, [2, [3, [4, [5], 6], 7], 8], 9].flatten
+>>> [1 [2 [3 [4 [5] 6] 7] 8] 9].flatten
 [1 .. 9]
 
->>> [1, [2, [3, [4, [5, [6, [7, [8, [9]]]]]]]]].flatten
+>>> [1 [2 [3 [4 [5 [6 [7 [8 [9]]]]]]]]].flatten
 [1 .. 9]
 
->>> [[[[[[[[[1], 2], 3], 4], 5], 6], 7], 8], 9].flatten
+>>> [[[[[[[[[1] 2] 3] 4] 5] 6] 7] 8] 9].flatten
 [1 .. 9]
 ```
 
-Strings are not flatten to sequences of characters.
+Strings are not flattened to sequences of characters:
 
 ```
->>> [1, [2, [3, ['45', 6], '78']], 9].flatten
+>>> [1 [2 [3 ['45' 6] '78']] 9].flatten
 [1 2 3 '45' 6 '78' 9]
 ```
 
@@ -36,27 +36,25 @@ Unravel a matrix:
 [1 1 1 1 2 4 8 16 3 9 27 81]
 ```
 
-As an inverse of _clump_:
+As an inverse of `clump`:
 
 ```
->>> let l = [1 .. 20];
->>> let m = l.clump(4);
->>> m.flatten = l
-true
+>>> [1 .. 20].clump(4).flatten
+[1 .. 20]
 ```
 
-At Tree:
+At `Tree`:
 
 ```
 >>> [1 [2 [3] 4] 5].asTree.flatten
 [1 2 3 4 5]
 ```
 
-_flatten_ is _flattenTo(inf)_.
+`flatten` is `flattenTo` of `inf`.
 
 * * *
 
-See also: ++, concatenation, flattenTo
+See also: ++, concatenation, deepDo, flattenTo
 
 References:
 _Apl_

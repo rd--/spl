@@ -10,6 +10,8 @@ Accessors to read the parts of the file are:
 - `signatures`: list of method signatures
 - `synopsis`: one sentence synopsis
 - `description`: one paragraph description
+- `codeBlocks`: list of code blocks
+- `documentTests`: list of `DocumentTest` entries
 - `rationale`: one paragraph rationale
 - `seeAlso`: list of related help topics
 - `references`: one paragraph of references
@@ -20,11 +22,18 @@ Accessors to read the parts of the file are:
 let url = '/home/rohan/sw/spl/help/Reference/add.help.sl'.asFileUrl;
 url.fetchText.then { :aString |
 	let help = HelpFile(url, aString);
+	help.markdown.codeBlocks.postLine
+}
+
+let url = '/home/rohan/sw/spl/help/Reference/add.help.sl'.asFileUrl;
+url.fetchText.then { :aString |
+	let help = HelpFile(url, aString);
 	[
 		help.name,
 		help.signatures,
 		help.synopsis,
 		help.description,
+		help.markdown,
 		help.documentTests,
 		help.rationale,
 		help.seeAlso,

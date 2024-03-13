@@ -1,9 +1,5 @@
 @Iterable {
 
-	+ { :self |
-		self.sum
-	}
-
 	& { :self |
 		self.allSatisfy(value:/1)
 	}
@@ -48,6 +44,14 @@
 			};
 			false
 		}
+	}
+
+	contents { :self |
+		let answer = [];
+		self.do { :each |
+			answer.add(each)
+		};
+		answer
 	}
 
 	count { :self :aBlock:/1 |

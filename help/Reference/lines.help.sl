@@ -68,7 +68,7 @@ list
 
 * * *
 
-See also: paragraphs, unlines, words
+See also: paragraphs, sentences, unlines, words
 
 References:
 _Haskell_

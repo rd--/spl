@@ -1,33 +1,56 @@
-Markdown : [Object] { | sourceString linesOrNil htmlOrNil parseTreeOrNil |
+{- Requires: Cache, Iterable, Tree -}
+
+Markdown : [Object, Cache, Iterable] { | source cache |
 
 	asHtml { :self |
-		self.html
+		self.cached('html') {
+			self.basicAsHtml
+		}
 	}
 
 	asMarkdown { :self |
-		self.sourceString
+		self.source
 	}
 
-	basicHtml { :self |
+	asTree { :self |
+		let items = [];
+		self.do { :each |
+			items.add(Tree(each, []))
+		};
+		items.withIndexDo { :each :index |
+			let value = each.value;
+			{
+				value::id = index
+			}.assert;
+			value.includesKey('parent').ifTrue {
+				items[value::parent].addChild(each)
+			}
+		};
+		items.first.do { :each |
+			each.value.removeAllKeys(['id' 'parent'])
+		};
+		items.first
+	}
+
+	basicAsHtml { :self |
 		<primitive:
-		const reader = new commonmark.Parser({smart: true});
 		const writer = new commonmark.HtmlRenderer();
-		return writer.render(reader.parse(_self.sourceString));
+		return writer.render(_parseTree_1(_self));
 		>
 	}
 
 	basicParseTree { :self |
 		<primitive:
 		const reader = new commonmark.Parser({smart: true});
-		return reader.parse(_self.sourceString);
+		return reader.parse(_self.source);
 		>
 	}
 
 	codeBlocks { :self |
 		let answer = [];
 		self.do { :each |
-			(each::type = 'code_block').ifTrue {
-				answer.add(each::contents)
+			(each::type = 'codeBlock').ifTrue {
+				answer.add(each::literal)
 			}
 		};
 		answer
@@ -37,105 +60,57 @@ Markdown : [Object] { | sourceString linesOrNil htmlOrNil parseTreeOrNil |
 		<primitive:
 		const walker = _parseTree_1(_self).walker();
 		let event = null;
+		let id = 1;
+		const nodeMap = new Map();
 		while (event = walker.next()) {
 			if (event.entering) {
 				const node = event.node;
 				const item = Object.create(null);
-				item['type'] = node.type;
-				if(node.isContainer) {
-					item['begin'] = true;
+				item.id = id;
+				nodeMap.set(node, id)
+				id = id + 1;
+				if(node.parent) {
+					item.parent = nodeMap.get(node.parent);
 				}
+				item.type = node.type;
 				if(node.literal) {
-					item['contents'] = node.literal;
+					item.literal = node.literal;
 				}
 				if(node.type === 'link' || node.type === 'image') {
-					item['destination'] = node.destination;
-					item['title'] = node.title;
+					item.destination = node.destination;
+					item.title = node.title;
 				}
-				if(node.type === 'code_block') {
-					item['info'] = node.info;
+				if(node.type === 'code_block' && node.info !== null && node.info !== '') {
+					item.info = node.info;
 				}
 				if(node.type === 'heading') {
-					item['level'] = node.level;
+					item.level = node.level;
 				}
 				if(node.type === 'list') {
-					item['listType'] = node.listType;
+					item.listType = node.listType;
+				}
+				if(node.sourcepos) {
+					item.sourcePosition = node.sourcepos;
+				}
+				switch(node.type) {
+					case 'code_block': item.type = 'codeBlock'; break;
+					case 'block_quote': item.type = 'blockQuote'; break;
+					case 'emph': item.type = 'emphasis'; break;
+					case 'html_block': item.type = 'htmlBlock'; break;
+					case 'html_inline': item.type = 'htmlInline'; break;
+					case 'item': item.type = 'listItem'; break;
+					case 'linebreak': item.type = 'lineBreak'; break;
+					case 'softbreak': item.type = 'softBreak'; break;
+					case 'thematic_break': item.type = 'thematicBreak'; break;
 				}
 				_aBlock_1(item);
-			} else {
-				const node = event.node;
-				if (node.isContainer) {
-					const item = Object.create(null);
-					item['type'] = node.type;
-					item['begin'] = false;
-					_aBlock_1(item);
-				}
 			}
 		}
 		>
 		self
 	}
 
-	html { :self |
-		self.htmlOrNil.ifNil {
-			self.htmlOrNil := self.basicHtml
-		} {
-			self.htmlOrNil
-		}
-	}
-
-	parseTree { :self |
-		self.parseTreeOrNil.ifNil {
-			self.parseTreeOrNil := self.basicParseTree
-		} {
-			self.parseTreeOrNil
-		}
-	}
-
-	lines { :self |
-		self.linesOrNil.ifNil {
-			self.linesOrNil := self.sourceString.lines
-		} {
-			self.linesOrNil
-		}
-	}
-
-	printString { :self |
-		'<Markdown>'
-	}
-
-	storeString { :self |
-		'Markdown(' ++ self.sourceString.storeString ++ ')'
-	}
-
-}
-
-
-+String {
-
-	isCodeFence { :self |
-		self.beginsWith('~~~') | {
-			self.beginsWith('```')
-		}
-	}
-
-	isTildeCodeFence { :self |
-		self.beginsWith('~~~')
-	}
-
-	isGraveAccentCodeFence { :self |
-		self.beginsWith('```')
-	}
-
-	Markdown { :self |
-		newMarkdown().initializeSlots(self, nil, nil, nil)
-	}
-
-	markdownToHtml { :self |
-		Markdown(self).html
-	}
-
-	parseMarkdownIndentedCodeBlocks { :self |
+	indentedCodeBlocks { :self |
 		let answer = [];
 		let previous = '';
 		let inBlock = false;
@@ -167,6 +142,53 @@ Markdown : [Object] { | sourceString linesOrNil htmlOrNil parseTreeOrNil |
 			previous := current
 		};
 		answer
+	}
+
+	parseTree { :self |
+		self.cached('parseTree') {
+			self.basicParseTree
+		}
+	}
+
+	lines { :self |
+		self.cached('lines') {
+			self.source.lines
+		}
+	}
+
+	printString { :self |
+		'<Markdown>'
+	}
+
+	storeString { :self |
+		'Markdown(' ++ self.source.storeString ++ ')'
+	}
+
+}
+
+
++String {
+
+	isCodeFence { :self |
+		self.beginsWith('~~~') | {
+			self.beginsWith('```')
+		}
+	}
+
+	isTildeCodeFence { :self |
+		self.beginsWith('~~~')
+	}
+
+	isGraveAccentCodeFence { :self |
+		self.beginsWith('```')
+	}
+
+	Markdown { :self |
+		newMarkdown().initializeSlots(self, Record())
+	}
+
+	markdownToHtml { :self |
+		Markdown(self).asHtml
 	}
 
 }

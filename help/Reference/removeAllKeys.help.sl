@@ -4,13 +4,20 @@
 
 Remove any elements from _aDictionary_ which are stored at the keys specified in _aCollection_.
 This message has the same effect on the receiver as repeatedly sending the `removeKey` message for each element in _aCollection_.
-The answer is `undefined` if duplicate keys, as defined by key equivalence, are in the keys or if any element in keys is not a valid key of the receiver.
+The answer is the keys removed.
 
 ```
 >>> let d = (x: 1, y: 2, z: 3);
->>> d.removeAllKeys(['x' 'z']);
->>> d
-(y: 2)
+>>> (d.removeAllKeys(['x' 'z']), d)
+(['x' 'z'], (y: 2))
+```
+
+The answer does not contain keys from _aCollection_ that do not exist at _aDictionary_:
+
+```
+>>> let d = (x: 1, y: 2, z: 3);
+>>> (d.removeAllKeys(['w' 'x' 'z']), d)
+(['x' 'z'], (y: 2))
 ```
 
 * * *

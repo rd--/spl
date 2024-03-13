@@ -7,9 +7,15 @@ Answer the removed element.
 
 ```
 >>> let d = (x: 1, y: 2, z:3);
->>> d.removeKey('y');
->>> d
-(x: 1, z: 3)
+>>> (d.removeKey('y'), d)
+('y', (x: 1, z: 3))
+```
+
+If the key does not exist it is an `error`:
+
+```
+>>> { (x: 1, y: 2).removeKey('w') }.ifError { true }
+true
 ```
 
 * * *
