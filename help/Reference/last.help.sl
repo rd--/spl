@@ -4,9 +4,14 @@
 
 Answer the last element of _aSequence_.
 
+```
+>>> 1:9.last
+9
+```
+
 * * *
 
-See also: first, middle
+See also: first, lastIndex, middle
 
 References:
 _Smalltalk_

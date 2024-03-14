@@ -68,7 +68,7 @@ Collections may implement extended arity forms as required.
 
 * * *
 
-See also: atPut, AtPut Syntax, At Syntax, Indexable, Quoted At Syntax, size
+See also: atFold, atPin, atPut, atWrap, AtPut Syntax, At Syntax, Indexable, Quoted At Syntax, size
 
 References:
 _Mathematica_

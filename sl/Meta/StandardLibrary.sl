@@ -17,6 +17,7 @@
 	'PriorityQueue'
 	'RunArray'
 	'Set'
+	'Slice'
 	'Stack' {- LinkedList -}
 	'SortedList'
 	'Tree'

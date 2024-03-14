@@ -1,8 +1,9 @@
 # first
 
 - _first(aSequence)_
+- _first(aSequence, anInteger)_
 
-Answer the first element of _aSequence_.
+The unary form answers the first element of _aSequence_.
 
 ```
 >>> 1:6.first
@@ -12,9 +13,19 @@ Answer the first element of _aSequence_.
 6
 ```
 
+The binary form answers the first _anInteger_ elements of _aSequence_:
+
+```
+>>> 1:99.first(23)
+1:23
+
+>>> [3 .. 9].first(4)
+[3 4 5 6]
+```
+
 * * *
 
-See also: fourth, last, middle, second, third
+See also: firstIndex, fourth, last, middle, second, third
 
 References:
 _Smalltalk_

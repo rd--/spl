@@ -1,6 +1,6 @@
 # prefixes
 
-_prefixes(aSequence)_
+- _prefixes(aSequence)_
 
 Answer a List of all of the prefixes of _aSequence_.
 

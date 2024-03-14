@@ -1,6 +1,7 @@
 # Interval
 
 - _Interval(min, max)_
+- _min -- max_ ⇒ _Interval(min, max)_
 
 An interval represents the range of values between _min_ and _max_.
 Intervals are closed, they includes both end points.
@@ -9,14 +10,14 @@ Use `+` to add intervals, getting an interval representing the result:
 
 ```
 >>> Interval(1, 6) + Interval(0, 2)
-Interval(1, 8)
+1 -- 8
 ```
 
 Squaring gives a non-negative interval:
 
 ```
->>> Interval(-2, 5).squared
-Interval(0, 25)
+>>> (-2 -- 5).squared
+0 -- 25
 ```
 
 Exact comparisons can be made with intervals:
@@ -95,7 +96,7 @@ true
 
 * * *
 
-See also: Range
+See also: --, Range
 
 References:
 _Mathematica_

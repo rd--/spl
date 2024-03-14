@@ -1,6 +1,7 @@
 # Association
 
 - _Association(key, value)_
+- _key -> value_ => _Association(key, value)_
 
 An `Association` is a type that connects a _key_ with a _value_.
 

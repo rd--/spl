@@ -20,7 +20,7 @@ Uniform distribution, bi-polar:
 true
 ```
 
-A List of random numbers:
+A `List` of random numbers:
 
 ```
 >>> -1.randomFloat(1, 9).allSatisfy { :each | each.betweenAnd(-1, 1) }
@@ -40,7 +40,7 @@ Plot:
 -1.randomFloat(1, 99).plot
 ~~~
 
-A random walk:
+Plot a random walk:
 
 ~~~
 -1.randomFloat(1, 99).accumulate.plot

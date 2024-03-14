@@ -216,7 +216,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
 (defvar spl-imenu-generic-expression
   (list
    (list nil "^\\({- .* -}\\)$" 1) ; Region Comment
-   (list nil "^\\(-- .*\\)$" 1) ; Line Comment
+   ;; (list nil "^\\(-- .*\\)$" 1) ; Line Comment
    (list nil "^\\(#+ .*\\)$" 1) ; Heading
    (list nil "^\\(\+?@?\[?[A-Z][, A-Za-z0-9]+[A-Za-z0-9]\]?\\).* {\\( |\\|$\\)" 1)
    (list nil "^\\(\t[*&|~+/%><=?!#^a-zA-Z0-9-]+\\) {" 1))
@@ -243,7 +243,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   (modify-syntax-entry ?\] ")[" st) ; close parenthesis
   (modify-syntax-entry ?\{ "(}1" st) ; open parenthesis & comment start
   (modify-syntax-entry ?\} "){4" st) ; close parenthesis & comment end
-  (modify-syntax-entry ?- ". 123" st) ; punctuation & comment
+  (modify-syntax-entry ?- ". 23" st) ; punctuation & comment
   (modify-syntax-entry ?\n ">" st) ; comment end
   (modify-syntax-entry ?' "\"" st) ; string quote
   (modify-syntax-entry ?\" "\"" st) ; string quote
@@ -273,6 +273,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("-<" . ?⤙) ; U+2919 ⤙ Leftwards Arrow-Tail
      ("->" . ?→) ; U+2190 → Rightwards Arrow
      ("->>" . ?↠) ; U+21A0 ↠ Rightwards Two Headed Arrow
+     ("--" . ?—) ; U+2014 — Em Dash
      (".." . ?…) ; U+2026 … Horizontal Ellipsis; U+2025 ‥ Two Dot Leader
      ("/" . ?÷) ; U+00F7 ÷ Division Sign
      (":." . ?‣) ; U+2023 ‣ Triangular Bullet

@@ -59,6 +59,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 		aBlock(aNumber.asInterval, self)
 	}
 
+	atRandom { :self |
+		self.min.randomFloat(self.max)
+	}
+
 	discretize { :self :size :aBlock:/1 |
 		let step = (self.max - self.min) / (size - 1);
 		let value = self.min;
@@ -120,6 +124,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 		answer
 	}
 
+	storeString { :self |
+		'Interval(' ++ self.min ++ ', ' ++ self.max ++ ')'
+	}
+
 	union { :self :operand |
 		operand.isInterval.if {
 			self.isDisjoint(operand).if {
@@ -139,6 +147,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 }
 
 +@Number {
+
+	-- { :min :max |
+		Interval(min, max)
+	}
 
 	adaptToIntervalAndApply { :self :anInterval :aBlock:/2 |
 		aBlock(anInterval, self.asInterval)

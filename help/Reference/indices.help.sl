@@ -5,8 +5,7 @@
 
 Answer the valid indices for _aCollection_.
 The binary form only answers indices where the associated item satisifes the predicate _aBlock_.
-
-For `Sequence`s, `indices` is _Range(1, aCollection.size, 1)_.
+At `Sequence`, `indices` answers a `Range` from the `firstIndex` to the `lastIndex` by `one`.
 
 At `List`:
 
@@ -41,8 +40,27 @@ At `Record`:
 ['x' 'y' 'z']
 ```
 
+At `Slice`:
+
+```
+>>> 1:9.slice(3, 7).indices
+3:7
+```
+
+The `size` of a collection is equal to the size of its `indices`:
+
+```
+>>> let c = 1:9;
+>>> (c.size, c.indices.size)
+(9, 9)
+
+>>> let c = 1:9.slice(3, 7);
+>>> (c.size, c.indices.size)
+(5, 5)
+```
+
 * * *
 
-See also: deepIndices, Dictionary, includesIndex, Indexable, keys
+See also: deepIndices, Dictionary, firstIndex, includesIndex, Indexable, keys, lastIndex
 
 Categories: Accessing

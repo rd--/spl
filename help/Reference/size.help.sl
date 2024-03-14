@@ -91,7 +91,7 @@ At `Tree` size is the number of sub-trees, see also _leafCount_:
 
 * * *
 
-See also: at, atPut, depth, do, isEmpty, leafCount
+See also: at, atPut, depth, do, firstIndex, indices, isEmpty, lastIndex, leafCount
 
 References:
 _Apl_

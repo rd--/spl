@@ -717,9 +717,9 @@ Bitset(64).with { :b | b.setBitAt(3); b.bitAt(3) = 1 } {- setBitAt is equal to a
 ## Blob -- system type
 ```
 system.includesPackage('Blob') {- blob package -}
-[].Blob.typeOf = 'Blob' {- type of Blob -}
-[].Blob.size = 0 {- empty Blob has size zero -}
-[].Blob.isEmpty {- empty Blob is empty -}
+[].asBlob.typeOf = 'Blob' {- type of Blob -}
+[].asBlob.size = 0 {- empty Blob has size zero -}
+[].asBlob.isEmpty {- empty Blob is empty -}
 ```
 
 ## Boolean -- logic type
@@ -2559,11 +2559,11 @@ not:/1.iterate(true).next(10) = [true false true false true false true false tru
 ```
 system.includesPackage('Promise') {- package -}
 { Promise() }.ifError { true } {- there is no void contructor -}
-Error('The reason').rejectedPromise.catch { :err | err.messageText.postLine }; true {- construct a rejected promise -}
+Error('The reason').rejectedPromise.onRejection { :err | err.messageText.postLine }; true {- construct a rejected promise -}
 1.resolvedPromise.then { :n | (n = 1).postLine }; true {- construct a resolved promise -}
 let p = Promise { :t:/1 :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isPromise
 let p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
-let p = Promise { :t :f:/1 | f('f') }; p.then { :t | t.postLine }.catch { :f | (f = 'f').postLine }; p.isPromise
+let p = Promise { :t :f:/1 | f('f') }; p.then { :t | t.postLine }.onRejection { :f | (f = 'f').postLine }; p.isPromise
 let p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }.finally { 'true'.postLine }; p.isPromise
 let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter(0.15.randomFloat) } }; [1.f, 2.f, 3.f].anyFulfilled.then { :t | [1, 2, 3].includes(t).postLine }; true
 let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter(0.05.randomFloat) } }; ['x'.f, 'y'.f, 'z'.f].allFulfilled.then { :t | (t = ['x', 'y', 'z']).postLine }; true
@@ -3991,7 +3991,7 @@ system.includesPackage('Url') {- package -}
 ## System -- fetch
 ```
 '/home/rohan/sw/spl/README.md'.asFileUrl.fetchText.then { :text | (text.size > 0).postLine }; true {- fetch text from file -}
-'/home/rohan/sw/spl/README'.asFileUrl.fetchText.catch { :err | err.postLine }; true {- file does not exist -}
+'/home/rohan/sw/spl/README'.asFileUrl.fetchText.onRejection { :err | err.postLine }; true {- file does not exist -}
 'file://localhost/home/rohan/sw/spl/README.md'.asUrl.fetchText.then { :text | (text.size > 0).postLine }; true {- fetch text from url (local) -}
 'https://rohandrape.net/sw/spl/README.md'.asUrl.fetchText.thenElse { :text | (text.size > 0).postLine } { :err | true }; true {- fetch text from url (remote, allow for no network connection) -}
 'file://localhost/home/rohan/sw/spl/sl/SmallKansas/PackageBrowser.sl'.asUrl.fetchText.then { :text | text.parsePackageHeader.includesIndex('Requires').postLine }; true

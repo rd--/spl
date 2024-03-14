@@ -10,7 +10,7 @@ equality is decided by `==`.
 1:4.asSet
 
 >>> ['a' 'b' 'c'].union(['b' 'c' 'd'])
-['a' 'b' 'c' 'd']
+['a' 'b' 'c' 'd'].asSet
 
 >>> [1 1 2 2 3 3].union([2 2 3 3 4 4])
 1:4.asSet

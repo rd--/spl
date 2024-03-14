@@ -1,8 +1,8 @@
 # suffixes
 
-_suffixes(aSequence)_
+- _suffixes(aSequence)_
 
-Answer a List of all of the suffixes of _aSequence_.
+Answer a `List` of all of the suffixes of _aSequence_.
 
 ```
 >>> [1 2 3].suffixes

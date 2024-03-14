@@ -9,6 +9,9 @@ At a `List` of `Association`:
 ```
 >>> ['x' -> 1, 'y' -> 2, 'z' -> 3].asRecord
 (x: 1, y: 2, z: 3)
+
+>>> ['Requires' -> ['ColumnBrowser' 'SmallKansas']].asRecord
+(Requires: ['ColumnBrowser' 'SmallKansas'])
 ```
 
 At a `List` holding a 2-column _matrix_:

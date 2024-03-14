@@ -1,7 +1,7 @@
 # atRandom
 
-- _atRandom(anInteger | aCollection)_
-- _atRandom(anInteger | aCollection, count)_
+- _atRandom(anInteger | aCollection | anInterval)_
+- _atRandom(anInteger | aCollection | anInterval, count)_
 
 Select an element of _aCollection_ or an integer in the range _1_ through _anInteger_ at random,
 or a List of _count_ random items.
@@ -28,11 +28,19 @@ true
 true
 ```
 
-Select an integer between one and five at random:
+Select an `Integer` between one and five at random:
 
 ```
 >>> let i = 5.atRandom;
 >>> i >= 1 & { i <= 5 }
+true
+```
+
+At `Interval`:
+
+```
+>>> let i = Interval(1, 5).atRandom;
+>>> i.isSmallFloat & { i >= 1 & { i <= 5 }}
 true
 ```
 

@@ -1,16 +1,20 @@
 # --
 
-Comment to end of line token.
+- _min -- max_ ⇒ _Interval(min, max)_
 
-Where supported this mark is displayed as ⍝.
+Operator form of `Interval`.
 
-_Rationale:_
-This is the Haskell end of line comment form.
+```
+>>> 1 -- 9
+Interval(1, 9)
+```
+
+Where supported `--` is displayed as an em dash, —.
 
 * * *
 
-See also: {-, -}
+See also: ->, Interval
 
-Unicode: U+235D ⍝ APL Functional Symbol Up Shoe Jot, U+22EF ⋯ Midline Horizontal Ellipsis
+Unicode: U+2014 — Em Dash
 
-Category: Comment, Syntax
+Categories: Constructor, Number, Operator

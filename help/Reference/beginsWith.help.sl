@@ -7,6 +7,9 @@ Answer `true` if _aSequence_ starts with _anotherSequence_, else `false`.
 ```
 >>> [1 .. 5].beginsWith([1 .. 3])
 true
+
+>>> 3:9.beginsWith(1:5)
+false
 ```
 
 Prefix must be a sequence:

@@ -48,6 +48,10 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		answer
 	}
 
+	isAssociationList { :self |
+		self.allSatisfy(isAssociation:/1)
+	}
+
 	isJson { :self |
 		self.allSatisfy(isJson:/1)
 	}

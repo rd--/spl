@@ -50,6 +50,7 @@
 	'Collection-RunArray'
 	'Collection-Sequence'
 	'Collection-Set'
+	'Collection-Slice'
 	'Collection-SortedList'
 	'Collection-SoundFile'
 	'Collection-Stack'
