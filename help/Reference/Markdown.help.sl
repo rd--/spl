@@ -40,7 +40,7 @@ and an _id_ field giving a unique `Integer` identifier (assigned in traversal or
 For all but the first node (of type _document_) a _parent_ field gives the _id_ of the parent node.
 Container nodes will have child nodes that point to them,
 leaf nodes that hold text will have a _literal_ field holding a `String`.
-_Block_ nodes have a _sourcePosition_ field given start and end line and column numbers.
+_Block_ nodes have a _sourcePosition_ field giving start and end line and column numbers.
 
 The `asTree` method answers a `Tree` of the parse tree:
 

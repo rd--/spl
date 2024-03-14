@@ -1,6 +1,6 @@
 {- Requires: Cache -}
 
-HelpFile : [Object, Cache] { | origin contents cache |
+HelpFile : [Object, Cache] { | origin source cache |
 
 	categories { :self |
 		self.readCommaSeparatedField('Categories: ')
@@ -9,6 +9,14 @@ HelpFile : [Object, Cache] { | origin contents cache |
 	codeBlocks { :self |
 		self.cached('codeBlocks') {
 			self.markdown.codeBlocks
+		}
+	}
+
+	codeBlockIndicesg { :self |
+		self.markdown.contents.select { :each |
+			each::type = 'codeBlock'
+		}.collect { :each |
+			each::sourcePosition
 		}
 	}
 
@@ -24,6 +32,10 @@ HelpFile : [Object, Cache] { | origin contents cache |
 		self.cached('documentTests') {
 			self.lines.extractDocumentTests
 		}
+	}
+
+	extractDocumentTests { :self |
+		self.lines.extractDocumentTests
 	}
 
 	hasDocumentTests { :self |
@@ -48,7 +60,7 @@ HelpFile : [Object, Cache] { | origin contents cache |
 
 	lines { :self |
 		self.cached('lines') {
-			self.contents.lines
+			self.source.lines
 		}
 	}
 
@@ -69,7 +81,7 @@ HelpFile : [Object, Cache] { | origin contents cache |
 
 	markdown { :self |
 		self.cached('name') {
-			Markdown(self.contents)
+			Markdown(self.source)
 		}
 	}
 
@@ -169,8 +181,8 @@ HelpFile : [Object, Cache] { | origin contents cache |
 
 +[String, URL] {
 
-	HelpFile { :origin :contents |
-		newHelpFile().initializeSlots(origin, contents, Record())
+	HelpFile { :origin :source |
+		newHelpFile().initializeSlots(origin, source, Record())
 	}
 
 }

@@ -110,6 +110,12 @@ Markdown : [Object, Cache, Iterable] { | source cache |
 		self
 	}
 
+	elements { :self |
+		self.cached('elements') {
+			self.contents
+		}
+	}
+
 	indentedCodeBlocks { :self |
 		let answer = [];
 		let previous = '';

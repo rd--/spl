@@ -440,6 +440,16 @@ String! : [Object, Json, Iterable, Character] {
 		self.allSatisfy(isAscii:/1)
 	}
 
+	isBlankLine { :self |
+		self.isEmpty | {
+			self.allSatisfy { :each |
+				each.isSpace | {
+					each.isTab
+				}
+			}
+		}
+	}
+
 	isCharacter { :self |
 		self.size = 1 | {
 			self.size = 2 & {

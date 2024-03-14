@@ -3,7 +3,6 @@
 - _isLetter(aCharacter)_
 
 Answer `true` if _aCharacter_ represents a letter, else `false`.
-There are twenty six letters and each has two cases.
 
 ```
 >>> 'x'.isLetter
@@ -17,6 +16,13 @@ false
 
 >>> ','.isLetter
 false
+```
+
+There are twenty six letters and each has two cases:
+
+```
+>>> 0:255.collect(asCharacter:/1).select(isLetter:/1).size
+2 * 26
 ```
 
 * * *

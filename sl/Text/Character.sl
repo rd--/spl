@@ -40,6 +40,12 @@
 		self.codePoint < 128
 	}
 
+	isBlank { :self |
+		self.isSpace | {
+			self.isTab
+		}
+	}
+
 	isCarriageReturn { :self |
 		self.codePoint = 13
 	}

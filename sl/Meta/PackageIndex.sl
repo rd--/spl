@@ -222,6 +222,7 @@
 	'Text-Markdown'
 	'Text-RegExp'
 	'Text-String'
+	'Text-Unicode'
 	'Time-Clock'
 	'Time-Date'
 	'Time-Duration'

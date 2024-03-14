@@ -25,6 +25,14 @@ true
 true
 ```
 
+CommonMark allows for code blocks to have up to three spaces of indentation,
+which this method does not allow:
+
+```
+>>> '   ```'.isCodeFence
+false
+```
+
 Typed code fence predicates:
 
 ```
@@ -38,5 +46,9 @@ true
 * * *
 
 See also: Fenced Code Blocks
+
+References:
+_CommonMark_
+[1](https://spec.commonmark.org/0.31.2/#fenced-code-blocks)
 
 Categories: Testing

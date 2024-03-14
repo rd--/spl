@@ -1,6 +1,6 @@
 # extractDocumentTests
 
-- _extractDocumentTests(aList)_
+- _extractDocumentTests(aHelpFile | aList)_
 
 Answer the sequence of `DocumentTest` blocks in the sequence of `String` items at _aList_.
 

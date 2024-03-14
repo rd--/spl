@@ -22,7 +22,7 @@ Accessors to read the parts of the file are:
 let url = '/home/rohan/sw/spl/help/Reference/add.help.sl'.asFileUrl;
 url.fetchText.then { :aString |
 	let help = HelpFile(url, aString);
-	help.markdown.codeBlocks.postLine
+	help.codeBlockIndices.postLine
 }
 
 let url = '/home/rohan/sw/spl/help/Reference/add.help.sl'.asFileUrl;

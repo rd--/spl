@@ -105,6 +105,7 @@
 	{- Text -}
 	'Markdown'
 	'RegExp'
+	'Unicode'
 
 	{- Time -}
 	'Clock'
