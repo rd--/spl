@@ -5,7 +5,7 @@
 An interval represents the range of values between _min_ and _max_.
 Intervals are closed, they includes both end points.
 
-Use _+_ to add intervals, getting an interval representing the result:
+Use `+` to add intervals, getting an interval representing the result:
 
 ```
 >>> Interval(1, 6) + Interval(0, 2)
@@ -36,7 +36,7 @@ Interval(1, 1)
 Interval(0, 1)
 ```
 
-Use _min_ and _max_ to find end points of intervals:
+Use `min` and `max` to find end points of intervals:
 
 ```
 >>> let i = Interval(-1.pi, pi);
@@ -44,7 +44,7 @@ Use _min_ and _max_ to find end points of intervals:
 (-1.pi, pi)
 ```
 
-Use _includes_ to determine if a point is in the interval:
+Use `includes` to determine if a point is in the interval (checking for containment):
 
 ```
 >>> let i = Interval(1, 5);
@@ -83,6 +83,13 @@ Cannot intersect disjoint intervals:
 
 ```
 >>> { Interval(-2, 0).intersection(Interval(1, 4)) }.ifError { true }
+true
+```
+
+It is an `error` if `min` exceeds `max`:
+
+```
+>>> { Interval(1, 0) }.ifError { true }
 true
 ```
 

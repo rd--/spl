@@ -6,6 +6,10 @@
 		self.size
 	}
 
+	\ { :self :aCollection |
+		self.difference(aCollection)
+	}
+
 	++ { :self :aCollection |
 		let answer = self.copy;
 		answer.addAll(aCollection.assertIsCollection);

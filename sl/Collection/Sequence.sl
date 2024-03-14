@@ -138,6 +138,22 @@
 		self.asDigitsAtInDo(1, aCollection, aBlock:/1)
 	}
 
+	asRange { :self |
+		self.isEmpty.if {
+			Range(1, 0, 1)
+		} {
+			(self.size = 1).if {
+				Range(self[1], self[1], 1)
+			} {
+				self.isArithmeticSeries.if {
+					Range(self.first, self.last, self.second - self.first)
+				} {
+					self.error('@Sequence>>asRange: not an arithmetic series')
+				}
+			}
+		}
+	}
+
 	assertShape { :self :shape |
 		self.assert {
 			self.shape = shape
@@ -357,6 +373,24 @@
 		self.withCollectCrossed(aSequence, *)
 	}
 
+	deleteAdjacentDuplicates { :self :aBlock:/2 |
+		self.isEmpty.if {
+			[]
+		} {
+			let answer = [self.first];
+			self.doAdjacentPairs { :i :j |
+				aBlock(i, j).ifFalse {
+					answer.add(j)
+				}
+			};
+			answer
+		}
+	}
+
+	deleteAdjacentDuplicates { :self |
+		self.deleteAdjacentDuplicates(=)
+	}
+
 	diagonal { :self :k |
 		self.isMatrix.if {
 			let l = self.shape.min - k.abs;
@@ -383,6 +417,12 @@
 			aBlock(self[index])
 		};
 		self
+	}
+
+	doAdjacentPairs { :self :aBlock:/2 |
+		2.toDo(self.size) { :i |
+			aBlock(self[i - 1], self[i])
+		}
 	}
 
 	doSeparatedBy { :self :elementBlock:/1 :separatorBlock:/0 |
@@ -883,6 +923,30 @@
 
 	iota { :self |
 		(1 .. self.product).reshape(self)
+	}
+
+	isArithmeticSeries { :self |
+		(self.size <= 1).if {
+			true
+		} {
+			self.isArithmeticSeriesBy(self[2] - self[1])
+		}
+	}
+
+	isArithmeticSeriesBy { :self :step |
+		(self.size <= 1).if {
+			true
+		} {
+			valueWithReturn { :return:/1 |
+				self.doAdjacentPairs { :a :b |
+					let diff = b - a;
+					(step ~= diff).ifTrue {
+						false.return
+					}
+				};
+				true
+			}
+		}
 	}
 
 	isArray { :self |

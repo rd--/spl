@@ -117,7 +117,6 @@ let s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); [1 2.flat 2 3 3.cancelFlat 4 5.flat 
 'x' ++ ' ' ++ 'y' = 'x y' {- catenation with space -}
 '/usr' +/+ 'local' = '/usr/local' {- file path catenation -}
 let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
-[1 3 5 7 9].isSeries = true {- is a list an arithmetic series -}
 [1 .. 7].collect { :x | x.asBinaryDigits(3) } = [0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1]
 1:9.atRandom.inclusivelyBetweenAnd(1, 9)
 1:9.atRandom.exclusivelyBetweenAnd(0, 10)
@@ -154,8 +153,6 @@ let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 9:1.detectIndex(isEven:/1) = 2 {- answer index of detected element, else nil -}
 9:1.detectIndex(isZero:/1).isNil {- answer index of detected element, else nil -}
 5.geom(3, 2) = [3, 6, 12, 24, 48] {- geometric series (size from by) -}
-(1, 3 .. 9).isSeries {- is arithmetic series -}
-(1, 3 .. 9).isSeriesBy(2) {- is arithmetic series by -}
 (1, 3 .. 9).indexOfGreaterThan(6) = 4
 [2, 3, 5, 6].indexInBetween(5.2) = 3.2 {- interpolated index for value (collection must be sorted) -}
 [2, 3, 5, 6].blendAt(3.2) = 5.2 {- interpolated value between indices -}

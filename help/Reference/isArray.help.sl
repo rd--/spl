@@ -1,8 +1,8 @@
 # isArray
 
-_isArray(aSequence)_
+- _isArray(aSequence)_
 
-A Sequence is an _array_ if it is has a _shape_.
+A `Sequence` is an _array_ if it is has a _shape_.
 
 Vectors are arrays:
 

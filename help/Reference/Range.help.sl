@@ -63,6 +63,28 @@ Range of large integers:
 [1237940039285380274899124224n 1237940039285380274899124226n]
 ```
 
+A `Range` may have only one place:
+
+```
+>>> 1:1.size
+1
+```
+
+By convention a `Range` where the step is in the wrong direction is empty:
+
+```
+>>> let r = Range(1, 0, 1);
+>>> (r.size, r.isEmpty, r.asList)
+(0, true, [])
+```
+
+A `Range` may not have a `step` of `zero`:
+
+```
+>>> { Range(1, 9, 0) }.ifError { true }
+true
+```
+
 * * *
 
 See also: downTo, Interval, Range Syntax, thenTo, to, toBy, upOrDownTo

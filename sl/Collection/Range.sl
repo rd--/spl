@@ -40,6 +40,10 @@ Range : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step 
 		self.collect(identity:/1)
 	}
 
+	asRange { :self |
+		self
+	}
+
 	at { :self :index |
 		self.includesIndex(index).if {
 			self.step * (index - 1) + self.start
@@ -101,8 +105,24 @@ Range : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step 
 		self.step
 	}
 
+	isArithmeticSeries { :self |
+		true
+	}
+
+	isArithmeticSeriesBy { :self :anInteger |
+		self.step = anInteger
+	}
+
 	isEmpty { :self |
 		self.size = 0
+	}
+
+	isIntegerRange { :self |
+		self.start.isInteger & {
+			self.stop.isInteger & {
+				self.step.isInteger
+			}
+		}
 	}
 
 	last { :self |

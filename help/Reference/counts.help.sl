@@ -2,7 +2,7 @@
 
 - _counts(aCollection)_
 
-Answer a List of Associations whose keys are the distinct elements of list,
+Answer a `List` of Associations whose keys are the distinct elements of list,
 and whose values give the number of times those elements appear in list.
 
 ```

@@ -12,14 +12,6 @@ HelpFile : [Object, Cache] { | origin source cache |
 		}
 	}
 
-	codeBlockIndicesg { :self |
-		self.markdown.contents.select { :each |
-			each::type = 'codeBlock'
-		}.collect { :each |
-			each::sourcePosition
-		}
-	}
-
 	description { :self |
 		let index = 3;
 		self.hasSignatures.ifTrue {
@@ -36,6 +28,19 @@ HelpFile : [Object, Cache] { | origin source cache |
 
 	extractDocumentTests { :self |
 		self.lines.extractDocumentTests
+	}
+
+	fencedCodeBlockLineRanges { :self |
+		let answer = [];
+		self.markdown.do { :each |
+			(each::type = 'codeBlock').ifTrue {
+				let [start, end] = each::sourcePosition;
+				self.lines[start[1]].isCodeFence.ifTrue {
+					answer.add(Range(start[1], end[1], 1))
+				}
+			}
+		};
+		answer
 	}
 
 	hasDocumentTests { :self |
@@ -80,7 +85,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 	}
 
 	markdown { :self |
-		self.cached('name') {
+		self.cached('markdown') {
 			Markdown(self.source)
 		}
 	}

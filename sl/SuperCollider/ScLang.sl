@@ -459,12 +459,6 @@
 		answer
 	}
 
-	doAdjacentPairs { :self :aBlock:/2 |
-		2.toDo(self.size) { :i |
-			aBlock(self[i - 1], self[i])
-		}
-	}
-
 	extendTo { :self :size |
 		1.toAsCollect(size, self.species) { :index |
 			self.atWrap(index)
@@ -530,31 +524,6 @@
 		};
 		answer
 	}
-
-	isSeries { :self |
-		self.isSeriesBy(nil)
-	}
-
-	isSeriesBy { :self :step |
-		(self.size <= 1).if {
-			true
-		} {
-			valueWithReturn { :return:/1 |
-				self.doAdjacentPairs { :a :b |
-					let diff = b - a;
-					step.ifNil {
-						step := diff
-					} {
-						(step ~= diff).ifTrue {
-							false.return
-						}
-					}
-				}
-			};
-			true
-		}
-	}
-
 
 	keep { :self :n |
 		self.first(n)

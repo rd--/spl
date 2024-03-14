@@ -125,6 +125,14 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		Set:/0
 	}
 
+	storeString { :self |
+		self.isEmpty.if {
+			'Set()'
+		} {
+			self.asList.storeString ++ '.asSet'
+		}
+	}
+
 }
 
 +List {
