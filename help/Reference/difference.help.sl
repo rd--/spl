@@ -17,6 +17,15 @@ The operator form is `\`:
 [1]
 ```
 
+`difference` is not symmetrical:
+
+>>> [1 2 3] \ [2 3 4]
+[1]
+
+>>> [2 3 4] \ [1 2 3]
+[4]
+```
+
 Find which elements in the first list are not in any of the subsequent lists:
 
 ```

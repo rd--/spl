@@ -154,6 +154,36 @@
 		}
 	}
 
+	asRangeList { :self |
+		self.isEmpty.if {
+			[]
+		} {
+			(self.size = 1).if {
+				[Range(self.first, self.first, 1)]
+			} {
+				let answer = [];
+				let start = self.first;
+				let step = self.second - self.first;
+				(self.firstIndex + 1).toDo(self.lastIndex) { :i |
+					(self[i] - self[i - 1] = step).ifFalse {
+						answer.add(Range(start, self[i - 1], step));
+						start := self[i];
+						(i = self.lastIndex).if {
+							answer.add(Range(self.last, self.last, 1));
+							start := nil
+						} {
+							step := self[i + 1] - self[i]
+						}
+					}
+				};
+				start.ifNotNil {
+					answer.add(Range(start, self.last, step))
+				};
+				answer
+			}
+		}
+	}
+
 	assertShape { :self :shape |
 		self.assert {
 			self.shape = shape
@@ -923,6 +953,35 @@
 		let answer = anObject;
 		self.indicesDo { :index |
 			answer := aBlock(answer, self[index])
+		};
+		answer
+	}
+
+	intercalate { :self :aCollection |
+		let answer = [];
+		self.doSeparatedBy { :each |
+			answer.add(each)
+		} {
+			answer.addAll(aCollection)
+		};
+		answer
+	}
+
+	interleave { :self :aSequence |
+		let answer = [];
+		1.toDo(self.size.max(aSequence.size)) { :i |
+			answer.add(self.atWrap(i));
+			answer.add(aSequence.atWrap(i))
+		};
+		answer
+	}
+
+	intersperse { :self :anObject |
+		let answer = [];
+		self.doSeparatedBy { :each |
+			answer.add(each)
+		} {
+			answer.add(anObject)
 		};
 		answer
 	}

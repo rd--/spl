@@ -4,7 +4,7 @@
 
 Answer the successive differences of elements in list.
 
-Differences of a Range:
+Differences of a `Range`:
 
 ```
 >>> 1:5.differences

@@ -261,6 +261,14 @@
 		}
 	}
 
+	differenceAll { :self :aCollection |
+		self.reject { :each |
+			aCollection.anySatisfy { :subCollection |
+				subCollection.includes(each)
+			}
+		}
+	}
+
 	doesNotInclude { :self :anObject |
 		self.includes(anObject).not
 	}
