@@ -136,7 +136,7 @@
 				3 -> {
 					let jiTuning = jiTunings[path[3]];
 					browser.setStatus(jiTuning.description);
-					jiTuning.htmlView.outerHTML
+					jiTuning.htmlView.outerHtml
 				}
 			])
 		}

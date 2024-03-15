@@ -7,7 +7,7 @@ Integer literals evaluate to the type `SmallFloat`.
 'SmallFloat'
 ```
 
-There is a `LargeInteger` type:
+There is a `LargeInteger` type, written with an `n` suffix:
 
 ```
 >>> 23n.isLargeInteger
@@ -21,7 +21,7 @@ and an `Integer` trait:
 [true true]
 ```
 
-There is a `Radix Syntax` for specifying non-decimal integers.
+There is a `Radix Syntax` for specifying non-decimal integers:
 
 ```
 >>> [2r1010 8r12 10r10 16ra]

@@ -14,7 +14,7 @@
 				2 -> {
 					jiMeta[path[1]].detect { :each |
 						each.description = path[2]
-					}.htmlView.outerHTML
+					}.htmlView.outerHtml
 				}
 			])
 		}

@@ -502,14 +502,16 @@ String! : [Object, Json, Iterable, Character] {
 		self.isEmpty.if {
 			1
 		} {
-			let answer = self.count { :each |
-				each.isLineFeed
-			} + 1;
+			let answer = self.lineFeedCount + 1;
 			self.last.isLineFeed.ifTrue {
 				answer := answer - 1
 			};
 			answer
 		}
+	}
+
+	lineFeedCount { :self |
+		self.count(isLineFeed:/1)
 	}
 
 	lines { :self |

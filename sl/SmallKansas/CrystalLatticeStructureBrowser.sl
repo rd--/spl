@@ -88,7 +88,7 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 					let cls = structures.detect { :each |
 						each.name = path[1]
 					};
-					cls.summary.outerHTML
+					cls.summary.outerHtml
 				}
 			])
 		}

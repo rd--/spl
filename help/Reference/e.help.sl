@@ -2,7 +2,7 @@
 
 - _e(aNumber)_
 
-The number _e_, also known as Eulers number, is a mathematical constant approximately equal to 2.71828.
+The number `e`, also known as Eulers number, is a mathematical constant approximately equal to 2.71828.
 It is the base of natural logarithms.
 
 Answer _aNumber_ times e.
@@ -15,23 +15,25 @@ Answer _aNumber_ times e.
 5.43656
 ```
 
-_e_ threads over lists:
+`e` threads over lists:
 
 ```
 >>> [0.5, 1.5].e
 [1.35914, 4.07742]
 ```
 
-_e_ is also defined as a constant:
+`e` is also defined as a constant:
 
 ```
 >>> e * 3
 8.15485
 ```
 
+_e_ is also a part of the _E Notation_ for `Number Literals`.
+
 * * *
 
-See also: exp, log, Mathematical Constants, pi
+See also: exp, log, Mathematical Constants, Number Literals, pi
 
 References:
 _Mathematica_

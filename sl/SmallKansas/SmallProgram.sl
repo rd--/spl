@@ -1,16 +1,19 @@
-{- Requires: SmallKansas Window -}
+{- Requires: DocumentTest SmallKansas Window -}
 
 SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 
 	| smallKansas outerElement description program expectedAnswer answer historyCursor eventListeners |
 
-	addToAnswer { :self :result |
-		let answerText = 'pre'.createElement(class: 'answerText');
+	addToAnswer { :self :programText :result |
+		let answerText = 'pre'.createElement(
+			class: 'answerText',
+			title: programText
+		);
 		answerText.textContent := result.printString;
 		self.answer.appendChild(answerText);
 		result.isPromise.ifTrue {
 			result.then { :nextResult |
-				self.addToAnswer(nextResult)
+				self.addToAnswer('...', nextResult)
 			}
 		}
 	}
@@ -36,12 +39,11 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 	}
 
 	initialize { :self :smallKansas :description :program :expectedAnswer |
-		[description, program, expectedAnswer].postLine;
 		self.smallKansas := smallKansas;
 		self.outerElement := 'div'.createElement(class: 'smallProgram');
 		self.description := 'div'.createElement(class: 'description');
 		expectedAnswer.isEmpty.ifFalse {
-			self.description.innerHTML := description.markdownToHtml
+			self.description.innerHtml := description.markdownToHtml
 		};
 		self.program := 'textarea'.createElement(class: 'program');
 		self.program.rows := 1;
@@ -53,6 +55,7 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 			self.expectedAnswer.textContent := expectedAnswer
 		};
 		self.answer := 'div'.createElement(class: 'answer');
+		self.answer.appendChild(self.expectedAnswer);
 		self.historyCursor := nil;
 		self.program.addEventListener('contextmenu') { :event |
 			event.preventDefault;
@@ -63,7 +66,7 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 				(event.key = 'Enter').ifTrue {
 					let result = self.smallKansas.evaluate(self.program.value, nil);
 					event.preventDefault;
-					self.addToAnswer(result);
+					self.addToAnswer(self.program.value, result);
 					self.onEvaluate;
 					self.historyCursor := nil
 				};
@@ -75,12 +78,13 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 					event.preventDefault;
 					self.readHistory(1)
 				}
-			};
+			}
+		};
+		self.program.addEventListener('keyup') { :unusedEvent |
 			self.adjustRows
 		};
 		self.outerElement.appendChild(self.description);
 		self.outerElement.appendChild(self.program);
-		self.outerElement.appendChild(self.expectedAnswer);
 		self.outerElement.appendChild(self.answer);
 		self.eventListeners := Record();
 		self.focus;
@@ -141,6 +145,14 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 
 	SmallProgram { :self :description :program :expectedAnswer |
 		newSmallProgram().initialize(self, description, program, expectedAnswer)
+	}
+
+}
+
++DocumentTest {
+
+	asSmallProgram { :self :smallKansas |
+		SmallProgram(smallKansas, '', self.program.unwords, self.expectedAnswer.unwords)
 	}
 
 }

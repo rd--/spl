@@ -204,6 +204,11 @@
 - `Request`, `Response`
 - `fetch`, `fetchText`, `fetchJson`, `fetchByteArray`
 
+## Numeric Literals
+
+- `Complex Literals`, `Fraction Literals`, `Integer Literals`, `Number Literals`
+- `Radix Syntax`
+
 ## Numeric Types & Traits
 
 - `Binary`, `Integer`, `Magnitude`, `Number`, `Random`

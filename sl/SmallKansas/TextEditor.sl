@@ -76,10 +76,10 @@ TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorTe
 	setEditorText { :self :aString |
 		self.mimeType.caseOfOtherwise([
 			'text/html' -> {
-				self.editorText.innerHTML := aString
+				self.editorText.innerHtml := aString
 			},
 			'text/markdown' -> {
-				self.editorText.innerHTML := aString.markdownToHtml
+				self.editorText.innerHtml := aString.markdownToHtml
 			},
 			'text/plain' -> {
 				self.editorText.textContent := aString

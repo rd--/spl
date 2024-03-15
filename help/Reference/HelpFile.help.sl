@@ -22,19 +22,6 @@ Accessors to read the parts of the file are:
 let url = '/home/rohan/sw/spl/help/Reference/add.help.sl'.asFileUrl;
 url.fetchText.then { :aString |
 	let help = HelpFile(url, aString);
-	let lines = help.lines;
-	let codeRanges = help.fencedCodeBlockLineRanges;
-	lines.size.postLine;
-	codeRanges.postLine;
-	codeRanges.do { :each |
-		(lines @* each).postLine
-	};
-	(lines @* 1:12).postLine
-}
-
-let url = '/home/rohan/sw/spl/help/Reference/add.help.sl'.asFileUrl;
-url.fetchText.then { :aString |
-	let help = HelpFile(url, aString);
 	[
 		help.name,
 		help.signatures,

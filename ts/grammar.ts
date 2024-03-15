@@ -168,7 +168,7 @@ Sl {
 	numberLiteral = scientificLiteral | complexLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
 	rangeLiteral = integerLiteral ":" (integerLiteral | identifier)
 	floatLiteral = "-"? digit+ "." digit+
-	scientificLiteral = (floatLiteral | integerLiteral) "e" integerLiteral
+	scientificLiteral = (floatLiteral | integerLiteral) ("e" | "E") integerLiteral
 	complexLiteral = (floatLiteral | integerLiteral) ("j" | "J") (floatLiteral | integerLiteral)
 	fractionLiteral = "-"? digit+ "/" digit+
 	largeIntegerLiteral = "-"? digit+ "n"

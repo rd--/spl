@@ -20,3 +20,7 @@ If the last character is a new line that does not add to the count:
 >>> 'a\nb c\n'.lineCount
 2
 ```
+
+* * *
+
+See also: isCarriageReturn, isLineFeed

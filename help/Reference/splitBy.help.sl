@@ -1,8 +1,17 @@
 # splitBy
 
-- _splitBy(aString, separator)_
+- _splitBy(aString | aSequence, separator)_
 
-Split _aString_ into a `List` of `String`s according to _separator_.
+Split a sequence or a string by a sub-sequence or a sbu-string.
+
+At `List`:
+
+```
+>>> [1 2 3 0 4 5 6 0 7 8 9].splitBy([0])
+[1 2 3; 4 5 6; 7 8 9]
+```
+
+Split _aString_ into a `List` of `String`s according to _separator_, which is also a `String`.
 
 ```
 >>> 'a,b,c'.splitBy(',')
@@ -15,7 +24,7 @@ Split _aString_ into a `List` of `String`s according to _separator_.
 ['a' '' '' 'b']
 ```
 
-The inverse is _joinSeparatedBy_:
+The inverse is `joinSeparatedBy`:
 
 ```
 >>> 'mississippi'.splitBy('i').joinSeparatedBy('i')
@@ -39,7 +48,7 @@ Split a string at every '--':
 ['a' 'bbb' '-ccc' 'dddd']
 ```
 
-Make a nested array by applying _splitBy_ twice:
+Make a nested array by applying `splitBy` twice:
 
 ```
 >>> '11:12:13//21:22:23//31:32:33'.splitBy('//').collect { :each | each.splitBy(':') }

@@ -1,6 +1,6 @@
 # :
 
-Colon is syntax token, it is not an operator.
+Colon is a syntax token, it is not an operator.
 
 A colon prefix indicates argument names in `Block Syntax`:
 

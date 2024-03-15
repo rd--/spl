@@ -3,7 +3,8 @@
 By default integers are written in decimal.
 Other radices are allowed using an infix _r_ syntax.
 The form is _radix_ followed by _r_ followed by the literal in the indicated radix.
-Below are equivalent ways of writing the integer twenty three:
+Below are equivalent ways of writing the integer twenty three
+(in binary, octal, decimal and hexadecimal):
 
 ```
 >>> [2r10111 8r27 10r23 16r17]
