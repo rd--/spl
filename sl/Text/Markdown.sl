@@ -62,7 +62,7 @@ Markdown : [Object, Cache, Iterable] { | source cache |
 		let event = null;
 		let id = 1;
 		const nodeMap = new Map();
-		while (event = walker.next()) {
+		while ((event = walker.next())) {
 			if (event.entering) {
 				const node = event.node;
 				const item = Object.create(null);
