@@ -13,7 +13,7 @@ so that _x.truncated + x.fractionPart = x_.
 -1.6
 ```
 
-At SmallFloat:
+At `SmallFloat`:
 
 ```
 >>> 0.5.fractionPart
@@ -33,21 +33,21 @@ Fractional part of a negative real number:
 -0.4
 ```
 
-At Integer:
+At `Integer`:
 
 ```
 >>> 1.fractionPart
 0
 ```
 
-At Fraction:
+At `Fraction`:
 
 ```
 >>> -5/4.fractionPart
 -1/4
 ```
 
-At Complex:
+At `Complex`:
 
 ```
 >>> (235 / 47).j(5.3).fractionPart

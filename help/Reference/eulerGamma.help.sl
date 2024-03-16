@@ -1,6 +1,6 @@
 # eulerGamma
 
-_eulerGamma(aNumber)_
+- _eulerGamma(aNumber)_
 
 _1.eulerGamma_ is Euler’s constant γ, with numerical value ~0.57722.
 

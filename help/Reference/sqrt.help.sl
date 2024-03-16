@@ -55,6 +55,8 @@ Plot over a subset of the reals:
 (0, 0.01 .. 10).sqrt.plot
 ~~~
 
+Where supported `sqrt` is displayed as √.
+
 * * *
 
 See also: cubeRoot, nthRoot, squared

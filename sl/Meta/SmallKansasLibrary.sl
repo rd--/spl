@@ -27,6 +27,7 @@
 	'HelpBrowser'
 	'HelpFileViewer'
 	'HelpTextViewer'
+	'ImageViewer'
 	'Inspector'
 	'MethodBrowser'
 	'MethodSignatureBrowser'

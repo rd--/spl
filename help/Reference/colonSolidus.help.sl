@@ -28,7 +28,7 @@ and must be called using _apply_ or _value_.
 [3 3 3 3]
 ```
 
-Where supported this operator is displayed as a big solidus, ⧸.
+Where supported `:/` is displayed as ⧸.
 
 * * *
 

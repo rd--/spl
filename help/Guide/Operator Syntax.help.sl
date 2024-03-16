@@ -39,3 +39,5 @@ When operators are written outside of `Apply Syntax` & `Method Syntax` they have
 * * *
 
 See also: Operator List, Operator Names, Operator Syntax
+
+Categories: Syntax, Operator

@@ -134,6 +134,7 @@
 	'SmallKansas-HelpBrowser'
 	'SmallKansas-HelpFileViewer'
 	'SmallKansas-HelpTextViewer'
+	'SmallKansas-ImageViewer'
 	'SmallKansas-Inspector'
 	'SmallKansas-ListChooser'
 	'SmallKansas-Menu'

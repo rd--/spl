@@ -4,9 +4,9 @@ Rewrite rule:
 
 - _c:.k := v_ ⟹ _atPutDelegateTo(c, k, v, 'parent')_
 
-Syntax for the _atPutDelegateTo_ protocol.
+Syntax for the `atPutDelegateTo` protocol.
 
-Where supported _c:.k_ is displayed as _c‣k_.
+Where supported `:.` is displayed as ‣.
 
 * * *
 

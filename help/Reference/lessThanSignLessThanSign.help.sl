@@ -11,7 +11,7 @@ The operator form or `bitShiftLeft`.
 >>> 3.bitShiftLeft(4)
 48
 ```
-Where supported << is displayed as ≪.
+Where supported `<<` is displayed as ≪.
 
 The name of this operator is _lessThanSignLessThanSign_.
 

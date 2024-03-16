@@ -38,6 +38,8 @@ at `List` retains duplicates and order:
 [1 9 1]
 ```
 
+Where supported `intersection` is displayed as ∩.
+
 * * *
 
 See also: difference, union
@@ -48,6 +50,6 @@ _Apl_
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Intersection.html)
 
-Unicode: ∩ U+2229 Intersection
+Unicode: U+2229 ∩ Intersection
 
 Categories: Enumerating

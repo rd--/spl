@@ -26,7 +26,7 @@ When the arguments to `>=` are `boole`, it is the converse implication `Boolean`
 [1 0; 1 1]
 ```
 
-Where supported this operator is displayed as ≥.
+Where supported `>=` is displayed as ≥.
 
 The name of this operator is _greaterThanSignEqualsSign_.
 

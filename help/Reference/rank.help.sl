@@ -2,7 +2,7 @@
 
 - _rank(aSequence | anObject)_
 
-In the Apl array model, the rank of an array is the number of dimensions or axes in its structure, or the length of its shape.
+In the Apl array model, the `rank` of an array is the number of dimensions or axes in its structure, or the length of its `shape`.
 
 Arrays are given names based on their rank.
 A rank zero array is a _scalar_:
@@ -65,4 +65,3 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Rank)
 [2](https://aplwiki.com/wiki/Rank_(operator))
-

@@ -12,12 +12,12 @@ true
 true
 ```
 
-Where supported this operator is displayed as ⪅.
+Where supported `<~` is displayed as ⪅.
 
 * * *
 
 See also: =, ~, <, >, >~
 
-Unicode: ⪅ U+2A85 Less-Than or Approximate, ⪝ U+2A9D Similar or Less-Than
+Unicode: U+2A85 ⪅ Less-Than or Approximate, U+2A9D ⪝ Similar or Less-Than
 
 Categories: Comparing

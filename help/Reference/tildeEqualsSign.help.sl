@@ -21,7 +21,7 @@ When the arguments to `~=` are `boole`, it is the exclusive or function:
 [0 1; 1 0]
 ```
 
-Where supported this operator is displayed as ≠.
+Where supported `~=` is displayed as ≠.
 
 The name of this operator is _tildeEquals_.
 

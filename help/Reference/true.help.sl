@@ -1,8 +1,8 @@
 # true
 
-The constant value inidicating the _Boolean_ true value.
+The constant value inidicating the `Boolean` value `true`.
 
-Where supported _true_ is displayed as ⊤.
+Where supported `true` is displayed as ⊤.
 
 * * *
 

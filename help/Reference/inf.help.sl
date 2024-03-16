@@ -14,6 +14,8 @@ Infinity is a SmallFloat value:
 true
 ```
 
+Where supported `inf` is displayed as ∞.
+
 * * *
 
 See also: eulerGamma, e, i, pi

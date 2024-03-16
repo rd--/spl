@@ -11,6 +11,37 @@ HelpFileViewer : [Object, UserEventTarget, View] { | smallKansas outerElement ev
 		self
 	}
 
+	showHelpFile { :self :helpFile |
+		let lines = helpFile.lines;
+		let codeRanges = helpFile.fencedCodeBlockLineRanges;
+		let nonCodeRanges = (1 .. lines.size).differenceAll(codeRanges).asRangeList;
+		let allRanges = (codeRanges ++ nonCodeRanges).sortBy { :p :q |
+			p.start < q.start
+		};
+		let fragments = allRanges.collect { :each |
+			lines @* each
+		};
+		let place = { :item |
+			let helpItem = 'div'.createElement(class: 'helpViewerItem');
+			helpItem.appendChild(item.outerElement);
+			self.outerElement.appendChild(helpItem)
+		};
+		self.outerElement.removeAllChildren;
+		fragments.do { :each |
+			each.first.isCodeFence.if {
+				each.allButFirstAndLast.splitBy(['']).do { :codeBlock |
+					codeBlock.first.beginsWith('>>> ').if {
+						codeBlock.asDocumentTest.asSmallProgram(self.smallKansas).place
+					} {
+						SmallProgram(self.smallKansas, '', codeBlock.unlines, '').place
+					}
+				}
+			} {
+				TextEditor(self.smallKansas, 'Help File Fragment', 'text/markdown', each.unlines).place
+			}
+		}
+	}
+
 	title { :self |
 		'Help File Viewer'
 	}
@@ -24,28 +55,8 @@ HelpFileViewer : [Object, UserEventTarget, View] { | smallKansas outerElement ev
 			helpIndex.fetchFor(topic).then { :aString |
 				aString.ifNotNil {
 					let subject = self.helpFileViewer(event).subject;
-					let pane = subject.outerElement;
 					let helpFile = HelpFile(topic, aString);
-					let lines = helpFile.lines;
-					let codeRanges = helpFile.fencedCodeBlockLineRanges;
-					let nonCodeRanges = (1 .. lines.size).differenceAll(codeRanges).asRangeList;
-					let allRanges = (codeRanges ++ nonCodeRanges).sortBy { :p :q | p.start < q.start };
-					let fragments = allRanges.collect { :each | lines @* each };
-					let place = { :item | pane.appendChild(item.outerElement) };
-					pane.removeAllChildren;
-					fragments.do { :each |
-						each.first.isCodeFence.if {
-							each.allButFirstAndLast.splitBy(['']).do { :codeBlock |
-								codeBlock.first.beginsWith('>>> ').if {
-									codeBlock.asDocumentTest.asSmallProgram(self).place
-								} {
-									SmallProgram(self, '', codeBlock.unlines, '').place
-								}
-							}
-						} {
-							TextEditor(self, 'Help File Fragment', 'text/markdown', each.unlines).place
-						}
-					}
+					subject.showHelpFile(helpFile)
 				}
 			}
 		}

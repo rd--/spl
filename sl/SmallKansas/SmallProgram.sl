@@ -46,7 +46,6 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 			self.description.innerHtml := description.markdownToHtml
 		};
 		self.program := 'textarea'.createElement(class: 'program');
-		self.program.rows := 1;
 		program.isEmpty.ifFalse {
 			self.setProgramText(program)
 		};
@@ -152,7 +151,7 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 +DocumentTest {
 
 	asSmallProgram { :self :smallKansas |
-		SmallProgram(smallKansas, '', self.program.unwords, self.expectedAnswer.unwords)
+		SmallProgram(smallKansas, '', self.program.unlines, self.expectedAnswer.unlines)
 	}
 
 }

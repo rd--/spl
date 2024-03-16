@@ -1,8 +1,8 @@
 # iota
 
-_iota(aNumber | aSequence)_
+- _iota(aNumber | aSequence)_
 
-Index Generator.
+Index generator.
 In the scalar case answer a list of indices:
 
 ```
@@ -29,10 +29,16 @@ In the sequence case answer a list of indices reshaped to the indicated shape:
 [1 2; 3 4; 5 6]
 ```
 
+Where supported `iota` is displayed as ⍳.
+
 * * *
+
+See also: reshape, shape
 
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Index_Generator),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/idot)
+
+Unicode: U+2373 ⍳ APL Functional Symbol Iota

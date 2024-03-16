@@ -67,7 +67,7 @@ The unary form is `sign`:
 [-1 0 1]
 ```
 
-Where supported this operator is displayed as _×_.
+Where supported `*` is displayed as ×.
 
 The name of this operator is _asterisk_.
 

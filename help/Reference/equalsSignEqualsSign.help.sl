@@ -32,7 +32,7 @@ false
 
 The name of this operator is _equalsSignEqualsSign_
 
-Where supported this operator is displayed as ≡.
+Where supported `==` is displayed as ≡.
 
 * * *
 

@@ -13,6 +13,9 @@ else the empty string.
 }
 ~~~
 
+Blob implements: `arrayBuffer`, `isEmpty`, `size`, `text` & `type`.
+`arrayBuffer` and `text` both answer `Promise` values.
+
 * * *
 
 See also: arrayBuffer, asBlob, File, size, text, type

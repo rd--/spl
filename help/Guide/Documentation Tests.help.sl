@@ -1,10 +1,10 @@
 # Documentation Tests
 
-Documentation tests are written as any number of _>>>_ prefixed _program_ lines,
+Documentation tests are written as any number of `>>>` prefixed _program_ lines,
 followed by any number of unprefixed _expected answer_ lines,
 ended by an empty line, or a _code fence_.
 
-The tests are written so that the _>>>_ prefixed lines,
+The tests are written so that the `>>>` prefixed lines,
 when unprefixed and concatenated,
 evaluate to a value that is similar to the answer lines when concatenated and placed in parentheses,
 as implemented by `~`.

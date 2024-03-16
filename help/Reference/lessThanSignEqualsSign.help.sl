@@ -26,7 +26,7 @@ When the arguments to `<=` are `boole`, it is the material implication `Boolean`
 [1 1; 0 1]
 ```
 
-Where supported this operator is displayed as ≤.
+Where supported `<=` is displayed as ≤.
 
 The name of this operator is _lessThanSignEqualsSign_.
 

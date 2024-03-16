@@ -58,4 +58,4 @@ false
 
 See also: Integer, isNumber, isGaussianInteger, isSmallInteger, isLargeInteger, Number
 
-Categories: Predicate
+Categories: Predicate, Testing

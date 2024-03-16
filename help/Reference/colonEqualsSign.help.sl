@@ -13,8 +13,7 @@
 
 The _:=_ symbol is also part of `AtPut Syntax` and `Quoted AtPut Syntax`.
 
-Where supported this operator is displayed either as a leftwards arrow, ←,
-or as a colon equals glyph, ≔.
+Where supported `:=` is displayed either as ← or ≔.
 
 * * *
 

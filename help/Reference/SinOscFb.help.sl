@@ -1,8 +1,10 @@
-# SinOscFb -- Feedback Fm oscillator
+# SinOscFb
 
-_SinOscFb(freq, feedback)_
+- _SinOscFb(freq=440, feedback=0)_
 
-SinOscFb is a sine oscillator that has phase modulation feedback; its output plugs back into the phase input.
+Feedback Fm oscillator.
+SinOscFb is a sine oscillator that has phase modulation feedback;
+its output plugs back into the phase input.
 Basically this allows a modulation between a sine wave and a sawtooth like wave.
 Overmodulation causes chaotic oscillation.
 It may be useful if you want to simulate feedback Fm synths.
@@ -30,3 +32,9 @@ Non-graph variant:
 			EqPan(SinOscFb(freq, fb), Rand(-1, 1)) / 16
 		} !+ 16
 	}.overlap(2, 6, 3)
+
+* * *
+
+See also: SinOsc
+
+Categories: Ugen

@@ -35,6 +35,6 @@ _Haskell_
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Union.html)
 
-Unicode: ∪ U+222A Union
+Unicode: U+222A ∪ Union
 
 Categories: Enumerating

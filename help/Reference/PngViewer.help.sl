@@ -2,7 +2,7 @@
 
 - _PngViewer(smallKansas, title, pngData)_
 
-_Png_ image viewer.
+A _Png_ (Portable Network Graphics) image viewer.
 Add a window to _smallKansas_ with the given _title_ displaying the _Png_ image encoded at _pngData_.
 
 The expression below fetches a Png file from a Url and displays it when it arrives:
@@ -19,7 +19,7 @@ url.fetchBlob.then { :answer |
 
 * * *
 
-See also: SmallKansas, SvgViewer
+See also: ImageViewer, SmallKansas, SvgViewer
 
 References:
 _W3c_

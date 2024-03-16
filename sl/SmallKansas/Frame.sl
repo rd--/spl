@@ -1,4 +1,6 @@
-Frame : [Object, UserEventTarget] { | smallKansas framePane titlePane closeButton menuButton titleText inMove x y x0 y0 subject eventListeners |
+Frame : [Object, UserEventTarget] {
+
+	| smallKansas framePane titlePane closeButton menuButton titleText inMove x y x0 y0 subject eventListeners |
 
 	bringToFront { :self |
 		self.zIndex := self.smallKansas.zIndices.max + 1
@@ -58,6 +60,11 @@ Frame : [Object, UserEventTarget] { | smallKansas framePane titlePane closeButto
 		self.setEventHandlers;
 		self.title := subject.title;
 		self.eventListeners := Record();
+		self
+	}
+
+	onClose { :self :aBlock:/1 |
+		self.addEventListener('close', aBlock:/1);
 		self
 	}
 

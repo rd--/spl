@@ -9,6 +9,8 @@ Answer _anObject_.
 'left'
 ```
 
+Where supported `leftIdentity` is displayed as ⊣.
+
 * * *
 
 See also: identity, rightIdentity
@@ -16,3 +18,5 @@ See also: identity, rightIdentity
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Identity)
+
+Unicode: U+22A3 ⊣ Left Tack

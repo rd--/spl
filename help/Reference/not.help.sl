@@ -45,6 +45,6 @@ _Apl_
 _Smalltalk_
 5.3.3.9
 
-Unicode: U+007E ~ TILDE, U+00AC ¬ Not sign
+Unicode: U+007E ~ Tilde, U+00AC ¬ Not sign
 
 Categories: Logic, Operator

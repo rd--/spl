@@ -18,6 +18,6 @@ false
 
 * * *
 
-See also: denominator, Fraction, numerator
+See also: denominator, Fraction, isNumber, numerator
 
 Categories: Arithmetic, Testing

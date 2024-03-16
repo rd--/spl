@@ -13,6 +13,8 @@ Answer _aNumber_ times epsilon.
 0.000000000000002
 ```
 
+Where supported `epsilon` is displayed as ε.
+
 * * *
 
 See also: closeTo, pi, smallFloatEpsilon, veryCloseTo

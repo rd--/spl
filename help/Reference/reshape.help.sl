@@ -24,7 +24,7 @@ and repeating cyclically if it has larger bound.
 [1 2 3 4 1 2 3 4 1 2 3 4]
 ```
 
-Reshape can decrease the rank or bound of a list:
+`reshape` can decrease the rank or bound of a list:
 
 ```
 >>> [1 2 3; 4 5 6; 7 8 9].reshape([9])
@@ -37,7 +37,7 @@ Reshape can decrease the rank or bound of a list:
 [1 2 3 4; 1 2 3 4]
 ```
 
-Reshape can be used to produce an identity matrix by reshaping a vector which is one longer than the desired side length.
+`reshape` can be used to produce an identity matrix by reshaping a vector which is one longer than the desired side length.
 
 ```
 >>> [1 0 0 0 0].reshape([4 4])
@@ -103,6 +103,8 @@ shape after reshape is requested shape:
 [2 3 1]
 ```
 
+Where supported `reshape` is displayed as ⍴.
+
 * * *
 
 See also: rank, reshapeLike, shape
@@ -112,3 +114,5 @@ _Apl_
 [1](https://aplwiki.com/wiki/Reshape),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ArrayReshape.html)
+
+Unicode: U+2374 ⍴ Apl Functional Symbol Rho

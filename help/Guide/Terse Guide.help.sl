@@ -1018,8 +1018,8 @@ let d = (w: (x: (y: (z: 1)))); d.atPathPut(['w', 'x', 'y', 'z'], -1); d::w::x::y
 [['w', 'x'], ['y', 'z']].atPath([1, 2]) = 'x' {- atPath of arrays -}
 [['w', 'x'], ['y', 'z']][1][2] = 'x' {- index sequence -}
 [['w', 'x'], ['y', 'z']] @> [1 2] = 'x' {- atPath operator on array or arrays -}
-(1, 3 .. 21).includes(9) {- does interval include value -}
-(1, 3 .. 21).doesNotInclude(6) {- does interval include value -}
+(1, 3 .. 21).includes(9) {- does range include value -}
+(1, 3 .. 21).doesNotInclude(6) {- does range include value -}
 (x: 1, y: 1, z: 1).allEqualBy { :p :q | p.value = q.value } {- are all items equal by comparator -}
 (x: 1, y: 2, z: 3).allEqualBy { :p :q | p.value = q.value }.not {- are all items equal by comparator -}
 [1, 1, 1].allEqual {- are all items equal -}

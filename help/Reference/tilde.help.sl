@@ -36,7 +36,7 @@ true
 true
 ```
 
-Where supported this operator is displayed as ≈.
+Where supported `~` is displayed as ≈.
 
 _Rationale_:
 Writing _~_ to indicate _similar to_ is a standard mathematical notation,
@@ -49,7 +49,7 @@ If these operators were written _!=_ and _!==_ it may be less confusing.
 
 See also: =, <~, >~, ~=, ~~, closeTo, veryCloseTo
 
-Unicode: ≈ U+2248 Almost Equal To
+Unicode: U+2248 ≈ Almost Equal To
 
 References:
 _Apl_

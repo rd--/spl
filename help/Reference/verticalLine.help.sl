@@ -40,9 +40,9 @@ false
 
 The name of this operator is _verticalLine_.
 
-Where supported _or_ is displayed as ∨.
+Where supported `or` is displayed as ∨.
 
-Note that _|_ is not displayed as ∨ because it is part of the `Block Syntax`.
+Note that `|` is not displayed as ∨ because it is part of the `Block Syntax`.
 
 _Note:_
 In Smalltalk the evaluting form is called _or:_ and the non-evaluating form _|_.

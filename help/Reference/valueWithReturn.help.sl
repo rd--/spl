@@ -21,8 +21,8 @@ By convention the return block is called return.
 100
 ```
 
-Where supported valueWithReturn is displayed as a downwards arrow, ↓,
-and both return and return:/1 are displayed as an upwards arrow, ↑.
+Where supported `valueWithReturn` is displayed as ↓,
+and both `return` and `return:/1` are displayed as ↑.
 
 Where supported an editor command inserts the conventional spelling of this construct,
 i.e. _spl-insert-non-local-return (C-c C-r)_ in Emacs.
@@ -31,5 +31,4 @@ i.e. _spl-insert-non-local-return (C-c C-r)_ in Emacs.
 
 See also: Non-local Return, repeat
 
-Unicode: U+2193 ↓ Downwards Arrow
-Unicode: U+2191 ↑ Upwards Arrow
+Unicode: U+2193 ↓ Downwards Arrow, U+2191 ↑ Upwards Arrow

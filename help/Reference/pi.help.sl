@@ -28,6 +28,8 @@ pi is also defined as a constant:
 2.pi
 ```
 
+Where supported `pi` is displayed as π.
+
 * * *
 
 See also: e, Mathematical Constants, pi

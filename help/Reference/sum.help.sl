@@ -45,7 +45,7 @@ Sum is implemented efficiently for `Bag` as a sum of products:
 (3 * 3) + (5 * 5)
 ```
 
-Where supported this method is displayed as _Σ_.
+Where supported `sum` is displayed as Σ.
 
 * * *
 

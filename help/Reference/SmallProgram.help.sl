@@ -32,6 +32,11 @@ then `SmallProgram` will add a listener to the `Promise` object and update the a
 }.Promise
 ~~~
 
+~~~
+let url = 'https://rohandrape.net/sw/stsc3/lib/png/squeak-mouse.png';
+url.fetchBlob
+~~~
+
 * * *
 
 See also: Notebook, SmallKansas

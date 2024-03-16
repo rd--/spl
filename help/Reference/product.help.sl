@@ -37,7 +37,7 @@ Factorial is product of a `Range`:
 1:50.collect { :j | 1:j.collect { :i | (11 / 12) ^ i * (2 + (i * 2 * pi / 15).sin) }.product }.plot
 ```
 
-Where supported this method is displayed as _Π_.
+Where supported `product` is displayed as Π.
 
 * * *
 

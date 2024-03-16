@@ -9,7 +9,7 @@ Operator form of `Interval`.
 Interval(1, 9)
 ```
 
-Where supported `--` is displayed as an em dash, —.
+Where supported `--` is displayed as —.
 
 * * *
 

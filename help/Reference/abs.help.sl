@@ -15,7 +15,7 @@ Answer a number that is the absolute value (positive magnitude) of _aNumber_.
 20
 ```
 
-Abs is defined at Complex:
+`abs` is defined at `Complex`:
 
 ```
 >>> 1j1.abs
@@ -31,7 +31,7 @@ Abs is defined at Complex:
 5
 ```
 
-Abs collects over lists:
+`abs` collects over lists:
 
 ```
 >>> [-2.5 3.141 1.4j2.3 -2j1].abs

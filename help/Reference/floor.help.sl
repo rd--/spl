@@ -24,6 +24,8 @@ Answer the integer nearest the receiver toward negative infinity.
 -2
 ```
 
+Where supported `floor` is displayed as ⌊.
+
 * * *
 
 See also: ceiling, max, min, rounded
@@ -40,5 +42,7 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Floor.html),
 _Smalltalk_
 5.6.2.19
+
+Unicode: U+0230a ⌊ Left Floor
 
 Categories: Truncating, Rounding

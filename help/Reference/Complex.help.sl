@@ -2,7 +2,7 @@
 
 - _Complex(real, imaginary)_
 
-Answer a Complex number with the indicated real and imaginary parts.
+Answer a `Complex` number with the indicated _real_ and _imaginary_ parts.
 
 ```
 >>> 1j2 * 2j-3
@@ -64,10 +64,10 @@ Combinations of operands of different types:
 -4j0
 ```
 
-_real_ & _imaginary_ answer the components.
-_abs_ (absolute value) answers the distance from zero.
-_absSquared_ answers the square of the absolute value.
-_arg_ answers the phase angle in radians.
+`real` & `imaginary` answer the components.
+`abs` (absolute value) answers the distance from zero.
+`absSquared` answers the square of the absolute value.
+`arg` answers the phase angle in radians.
 
 ```
 >>> 1j2.real
@@ -108,14 +108,14 @@ Standard functions:
 -0.48906j1.40312
 ```
 
-The store string of a Complex is the constructor notation:
+The `storeString` of a `Complex` number is the constructor notation:
 
 ```
 >>> 1j2.storeString
 'Complex(1, 2)'
 ```
 
-Use _real_ and _imaginary_ to extract parts of Complex numbers:
+Use `real` and `imaginary` to extract parts of `Complex` numbers:
 
 ```
 >>> let c = 1j2;
@@ -123,14 +123,14 @@ Use _real_ and _imaginary_ to extract parts of Complex numbers:
 (1, 2)
 ```
 
-The _asTuple_ method answers a two tuple of these:
+The `asTuple` method answers a two tuple of the real and imaginary components:
 
 ```
 >>> 1j2.asTuple
 (1, 2)
 ```
 
-The _asComplex_ method:
+`asComplex` method is defined at `List` and `Tuple`:
 
 ```
 >>> [1, 2].asComplex

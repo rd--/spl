@@ -9,7 +9,7 @@ Answer the imaginary part of a `Complex` number.
 2
 ```
 
-Inerse is `i`:
+Inverse is `i`:
 
 ```
 >>> 3.i.imaginary

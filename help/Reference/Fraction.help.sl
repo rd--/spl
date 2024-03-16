@@ -2,12 +2,12 @@
 
 - _Fraction(numerator, denominator)_
 
-`Fraction` is a numerical `Type` that provides methods for dealing with fractions like 1/3 as a ratio of two integers.
+`Fraction` is a numerical `Type` that provides methods for working with fractions like 1/3 as a ratio of two integers.
 
 Instance variables are:
 
-- numerator: the number appearing before the fraction bar (above)
-- denominator: the number appearing after the fraction bar (below)
+- `numerator`: the number appearing before the fraction bar (above)
+- `denominator`: the number appearing after the fraction bar (below)
 
 A Fraction can be written using the literal syntax _1/3_:
 
@@ -40,21 +40,21 @@ Fractions written using a literal syntax are _reduced_ by construction:
 1/2
 ```
 
-The _Fraction_ method reduces fractions on construction:
+The `Fraction` method reduces fractions on construction:
 
 ```
 >>> Fraction(2, 4)
 1/2
 ```
 
-The _ReducedFraction_ method does not, it assumes the fraction being specified is in reduced form:
+The `ReducedFraction` method does not, it assumes the fraction being specified is in reduced form:
 
 ```
 >>> ReducedFraction(2, 4).asTuple
 (2, 4)
 ```
 
-Literal fractions are _normalized_ and have the following invariants:
+Literal fractions are `normalized` and have the following invariants:
 
 - the denominator shall always be positive
 - the numerator and denominator shall never have common multiples
@@ -78,22 +78,22 @@ Fraction(4, 3)
 
 A Fraction that does not conform to the above invariants could be the cause of undefined behavior and unexpected results.
 
-The message _normalized:/1_ obtains a normal Fraction.
-The message _reduced:/1_ obtains a normal Fraction or an Integer.
+The message `normalized` obtains a normal Fraction.
+The message `reduced` obtains a normal Fraction or an Integer.
 
-Note that Fraction and Integer represent together the set of Rational numbers:
+Note that `Fraction` and `Integer` represent together the set of Rational numbers:
 
 - Integer is a subset of rational (those which are whole numbers)
 - Fraction is used for representing the complementary subset of rational (those which are not whole numbers)
 
-LargeInteger defines _/_ to answer a Fraction:
+`LargeInteger` defines `/` to answer a `Fraction`:
 
 ```
 >>> 2n / 3n
 2/3
 ```
 
-Fraction implements the ordinary mathematical operators:
+`Fraction` implements the ordinary mathematical operators:
 
 ```
 >>> 2/3 + 4/3
@@ -109,8 +109,8 @@ Fraction implements the ordinary mathematical operators:
 32/243
 ```
 
-A Fraction whose elements are of type SmallFloat will have odd behaviour for large components,
-a Fraction whose elements are of type LargeInteger will behave ordinarily.
+A `Fraction` whose elements are of type `SmallFloat` will have odd behaviour for large components,
+a `Fraction` whose elements are of type `LargeInteger` will behave ordinarily.
 
 ```
 >>> let x = Fraction(2 ^ 55, 2);

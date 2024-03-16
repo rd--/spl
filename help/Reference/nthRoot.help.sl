@@ -54,6 +54,8 @@ Plot over a subset of the reals:
 (-1, -0.99 .. 1).collect { :x | x.nthRoot(3) }.plot
 ~~~
 
+Where supported `nthRoot` is displayed as √.
+
 * * *
 
 See also: ^, sqrt, cubeRoot
@@ -69,3 +71,5 @@ _Maple_
 _Mathematica_
 [1](https://mathworld.wolfram.com/Surd.html)
 [2](https://reference.wolfram.com/language/ref/Surd.html)
+
+Unicode: U+221A √ Square Root

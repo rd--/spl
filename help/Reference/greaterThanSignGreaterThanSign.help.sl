@@ -12,7 +12,7 @@ The operator form or `bitShiftRight`.
 3
 ```
 
-Where supported >> is displayed as ≫.
+Where supported `>>` is displayed as ≫.
 
 The name of this operator is _greaterThanSignGreaterThanSign_.
 

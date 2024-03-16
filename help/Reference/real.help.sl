@@ -11,6 +11,6 @@ Answer the real part of a `Complex` number.
 
 * * *
 
-See also: Complex, real
+See also: Complex, imaginary, real
 
 Categories: Math, Accessing

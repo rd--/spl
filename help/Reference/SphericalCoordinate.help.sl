@@ -33,7 +33,7 @@ CartesianCoordinate(1, 1, 0)
 CartesianCoordinate(1, 1, 1)
 ```
 
-Where supported r is displayed as 𝑟, rho is displayed as ρ, theta as θ, and phi as φ.
+Where supported `r` is displayed as 𝑟, `rho` as ρ, `theta` as θ, and `phi` as φ.
 
 * * *
 
@@ -45,7 +45,6 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/ISO/IEC_80000)
 
-Unicode:
-U+1D45F 𝑟 Mathematical Italic Small R
+Unicode: U+1D45F 𝑟 Mathematical Italic Small R
 
 Categories: Geometry

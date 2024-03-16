@@ -46,7 +46,7 @@ The unary form is `reciprocal`:
 [0.5 0.25 0.125]
 ```
 
-Where supported this operator is displayed as _÷_.
+Where supported `/` is displayed as ÷.
 
 The name of this operator is _solidus_.
 

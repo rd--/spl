@@ -337,7 +337,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("reshape" . ?⍴) ; Apl
      ("rightIdentity" . ?⊢) ; Apl ; U+22A2 ⊢ Right Tack
      ("rotatedLeft" . ?⌽) ; Apl
-     ("shape" . ?⍴) ; Apl
+     ("shape" . ?⍴) ; Apl ; U+2374 ⍴ Apl Functional Symbol Rho
      ("swap" . ?⍨) ; Apl ; U+2368 ⍨ APL Functional Symbol Tilde Diaeresis
      ("take" . ?↑) ; Apl
      ("tally" . ?≢) ; Apl

@@ -8,6 +8,9 @@ Answers `true` if _anObject_ is a `LargeInteger`, else `false`.
 >>> 23n.isLargeInteger
 true
 
+>>> 23.isLargeInteger
+false
+
 >>> 3.141.isLargeInteger
 false
 ```

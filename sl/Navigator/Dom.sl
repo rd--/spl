@@ -218,6 +218,10 @@
 		true
 	}
 
+	{- Valid at <audio>, <img>, <link>, <script>, and <video> -}
+	crossOrigin { :self | <primitive: return _self.crossorigin;> }
+	crossOrigin { :self :aString | <primitive: return _self.crossorigin = _aString;> }
+
 }
 
 +@Object {

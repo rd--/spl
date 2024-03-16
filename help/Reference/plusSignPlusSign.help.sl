@@ -40,7 +40,7 @@ The unary form flattens the collection by one level into a `List`:
 [1, 2, 3, 4, 5]
 ```
 
-Where supported this operator is displayed as ⧺.
+Where supported `++` is displayed as ⧺.
 
 _Note:_ In Smalltalk the binary form is the comma operator.
 

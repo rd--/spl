@@ -9,7 +9,7 @@ The _->_ operator creates as Association object associating _key_ with _value_.
 Association(1, 2)
 ```
 
-Where supported `->` is displayed as a rightwards arrow, →.
+Where supported `->` is displayed as →.
 
 * * *
 

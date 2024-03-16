@@ -1,6 +1,6 @@
 # :@
 
-The _:@_ syntax directly reads and writes the value of a slot at a type.
+The `:@` syntax directly reads and writes the value of a slot at a type.
 
 * * *
 

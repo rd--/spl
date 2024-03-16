@@ -1,6 +1,8 @@
 {- Requires: SmallKansas Window -}
 
-TextEditor : [Object, UserEventTarget, View] { | smallKansas editorPane editorText mimeType title clientMenuItems eventListeners |
+TextEditor : [Object, UserEventTarget, View] {
+
+	| smallKansas editorPane editorText mimeType title clientMenuItems eventListeners |
 
 	addMenuItems { :self :aCollection |
 		self.clientMenuItems.addAll(aCollection)
