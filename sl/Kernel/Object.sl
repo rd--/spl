@@ -81,12 +81,6 @@
 		<primitive: return structuredClone(_self);>
 	}
 
-	equalSlots { :self :anObject |
-		self.typeOf = anObject.typeOf & {
-			self.slotList = anObject.slotList
-		}
-	}
-
 	errorMessage { :self :message |
 		[
 			self.typeOf, ': ',
@@ -98,6 +92,12 @@
 	error { :self :message |
 		let description = self.errorMessage(message);
 		Error(description).signal
+	}
+
+	hasEqualSlots { :self :anObject |
+		self.typeOf = anObject.typeOf & {
+			self.slotList = anObject.slotList
+		}
 	}
 
 	identity { :self |
@@ -114,7 +114,7 @@
 
 	inspectAsList { :self :maxIndices |
 		[
-			['Type' -> self.Type],
+			['Type' -> self.type],
 			self.slotList,
 			self.pseudoSlotList,
 			self.isIndexable.if {
@@ -229,13 +229,19 @@
 	}
 
 	slotList { :self |
-		self.Type.slotNameList.collect { :each |
+		self.type.slotNameList.collect { :each |
 			each -> self.perform(each)
 		}
 	}
 
 	slotNameList { :self |
-		self.Type.slotNameList
+		self.type.slotNameList
+	}
+
+	slotValueList { :self |
+		self.type.slotNameList.collect { :each |
+			self.slotRead(each)
+		}
 	}
 
 	slotRead { :self :key |
@@ -247,6 +253,10 @@
 		nil
 	}
 
+	storeStringAsInitializeSlots { :self |
+		self.typeOf ++ '(' ++ self.slotValueList.collect(storeString:/1).joinSeparatedBy(', ') ++ ')'
+	}
+
 	storeString { :self |
 		self.typeOf.withIndefiniteArticle
 	}
@@ -255,7 +265,7 @@
 		self.aBlock
 	}
 
-	Type { :self |
+	type { :self |
 		system.typeLookup(self.typeOf)
 	}
 

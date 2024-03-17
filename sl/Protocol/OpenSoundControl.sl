@@ -1,23 +1,27 @@
 {- Requires: ByteArray -}
 
-OscParameter : [Object] { | typeTag value |
+OscParameter : [Object] { | typeLetter value |
 
 	asRecord { :self |
 		(
-			type: self.typeTag,
+			type: self.typeLetter,
 			value: self.value
 		)
 	}
 
-	OscParameter { :self |
+	asOscParameter { :self |
 		self
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
 	}
 
 }
 
 +ByteArray {
 
-	OscParameter { :self |
+	asOscParameter { :self |
 		OscParameter('b', self)
 	}
 
@@ -25,7 +29,7 @@ OscParameter : [Object] { | typeTag value |
 
 +SmallFloat {
 
-	OscParameter { :self |
+	asOscParameter { :self |
 		self.isInteger.if {
 			OscParameter('i', self)
 		} {
@@ -37,7 +41,7 @@ OscParameter : [Object] { | typeTag value |
 
 +String {
 
-	OscParameter { :self |
+	asOscParameter { :self |
 		OscParameter('s', self)
 	}
 
@@ -46,7 +50,6 @@ OscParameter : [Object] { | typeTag value |
 	}
 
 }
-
 
 OscMessage : [Object] { | address parameterList |
 
@@ -61,6 +64,10 @@ OscMessage : [Object] { | address parameterList |
 		<primitive: return sc.encodeOscMessage(_asRecord_1(_self));>
 	}
 
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
 }
 
 +String {
@@ -68,7 +75,7 @@ OscMessage : [Object] { | address parameterList |
 	OscMessage { :self :parameterList |
 		newOscMessage().initializeSlots(
 			self,
-			parameterList.collect(OscParameter:/1)
+			parameterList.collect(asOscParameter:/1)
 		)
 	}
 
@@ -81,6 +88,10 @@ OscBundle : [Object] { | time messageList |
 			timeTag: (native: self.time * 1000),
 			packets: self.messageList.collect(asRecord:/1)
 		)
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
 	}
 
 }

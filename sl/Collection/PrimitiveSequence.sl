@@ -129,7 +129,7 @@
 	}
 
 	storeString { :self |
-		self.asList.storeString ++ '.as' ++ self.Type.name
+		self.asList.storeString ++ '.as' ++ self.typeOf
 	}
 
 }

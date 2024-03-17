@@ -4,6 +4,13 @@ A simple `View` for working with a small program.
 
 A _program_ is entered into a _text area_.
 Programs may span multiple lines and the text are will expand as required.
+To evaluate the program type _Shift-Enter_.
+When a program is evaluated the _answer_ is displayed in an answer cell.
+`SmallProgram` uses the `typeOf` the answer to decide how to display it.
+The answer cell stores the program use to construct it,
+which may be viewed by hovering over the answer.
+
+_Shift-UpArrow_ and _Shift-DownArrow_ allow retrieving previous programs.
 
 A small program may optionally have a _description_ and an _expected answer_.
 
@@ -15,11 +22,6 @@ let smallKansas = system.smallKansas;
 let smallProgram = smallKansas.SmallProgram(description, program, expectedAnswer);
 smallKansas.addFrame(smallProgram, nil)
 ~~~
-
-When a program is _evaluated_ (by typing _Shift-Enter_) the answer is displayed in an _answer cell_.
-`SmallProgram` uses the `typeOf` the answer to decide how to display it.
-
-_Shift-UpArrow_ and _Shift-DownArrow_ allow retrieving previous programs.
 
 If an answer is a `Promise`,
 then `SmallProgram` will add a listener to the `Promise` object and update the answer cell when the promise resolves:

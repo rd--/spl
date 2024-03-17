@@ -16,3 +16,5 @@ true
 * * *
 
 See also: System, traitLookup, Type
+
+Categories: Reflection

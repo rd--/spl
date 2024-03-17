@@ -1,24 +1,25 @@
 # OscParameter
 
-- _OscParameter(aNumber)_
-- _OscParameter(aString)_
-- _OscParameter(aByteArray)_
 - _OscParameter(typeString, anObject)_
 
-An _Open Sound Control_ parameter consists of a _type_ string and a value.
+An _Open Sound Control_ parameter consists of a _typeLetter_ and a _value_.
+The type letters are:
 
-Type strings can be inferred for numbers, strings and byte arrays.
+- _b_: byte array
+- _i_: integer
+- _f_: float (32-bit)
+- _s_: string
 
 ```
->>> OscParameter(23).asRecord
+>>> OscParameter('i', 23).asRecord
 (type: 'i', value: 23)
 
->>> OscParameter(3.141).asRecord
+>>> OscParameter('f', 3.141).asRecord
 (type: 'f', value: 3.141)
 ```
 
 * * *
 
-See also: OscMessage
+See also: asOscParameter, OscBundle, OscMessage
 
 Categories: OpenSoundControl

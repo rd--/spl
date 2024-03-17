@@ -26,6 +26,6 @@ true
 
 * * *
 
-See also: Method, System, Trait
+See also: Method, System, Trait, type
 
 Categories: Type
