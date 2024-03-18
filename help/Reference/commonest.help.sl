@@ -15,8 +15,11 @@ Answer a list of the elements that are the most common in list.
 Find the _mode_ for the heights of the children in a class:
 
 ```
->>> let h = [134 143 131 140 145 136 131 136 143 136 133 145 147 150 150 146 137 143 132 142 145 136 144 135 141];
->>> h.commonest
+>>> [
+>>> 	134 143 131 140 145 136 131 136 143
+>>> 	136 133 145 147 150 150 146 137 143
+>>> 	132 142 145 136 144 135 141
+>>> ].commonest
 [136]
 ```
 

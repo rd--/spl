@@ -25,8 +25,11 @@ Find the skewness for the heights of children in a class.
 Skewness close to 0 indicates distribution symmetric around the mean:
 
 ```
->>> let h = [134 143 131 140 145 136 131 136 143 136 133 145 147 150 150 146 137 143 132 142 145 136 144 135 141];
->>> h.skewness
+>>> [
+>>> 	134 143 131 140 145 136 131 136 143
+>>> 	136 133 145 147 150 150 146 137 143
+>>> 	132 142 145 136 144 135 141
+>>> ].skewness
 0.0113408
 ```
 
