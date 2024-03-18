@@ -23,6 +23,13 @@ If no match is found, report an error:
 true
 ```
 
+If _aCollection_ does not contain associations, report an `error`:
+
+```
+>>> { 'x'.caseOf(['x' 'y' 'z']) }.ifError { true }
+true
+```
+
 * * *
 
 See also: caseOfOtherwise

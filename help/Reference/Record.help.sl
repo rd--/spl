@@ -9,10 +9,10 @@ There is a literal syntax for records.
 true
 ```
 
-There is a conversion method from association lists:
+There is a conversion method from an `Association` `List`:
 
 ```
->>> ['x' -> 3.141, 'y' -> 23].asRecord.json
+>>> ['x' -> 3.141, 'y' -> 23].asRecord.asJson
 '{"x":3.141,"y":23}'
 
 >>> ['x' -> 3.141, 'y' -> 23].asRecord
@@ -35,6 +35,6 @@ true
 
 * * *
 
-See also: asRecord, Association, Dictionary, Dictionary Syntax, Map
+See also: asJson, asRecord, Association, Dictionary, Dictionary Syntax, Map
 
 Categories: Collection, Type

@@ -39,6 +39,6 @@ true
 
 * * *
 
-See also: methodDictionary, System, Trait, Type
+See also: methodDictionary, methodLookupAtType, parameterNames, System, Trait, Type
 
-Categories: Behaviour, Type
+Categories: Behaviour, Reflection, Type

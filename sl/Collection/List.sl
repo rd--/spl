@@ -162,7 +162,7 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 	}
 
 	List { :size |
-		<primitive: return Array(Number(_size));>
+		<primitive: return Array(Number(_size)).fill(null);>
 	}
 
 	List { :size :anObject |

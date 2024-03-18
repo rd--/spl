@@ -12,9 +12,14 @@ Construct a `Range` by counting from _start_ up to _stop_ by `one`.
 If _stop_ is less than _start_ the `Range` is empty:
 
 ```
->>> 5.to(1).asList
-[]
+>>> let r = 5.to(1);
+>>> (r.isEmpty, r.size, r.asList)
+(true, 0, [])
 ```
+
+_Rationale_:
+The behaviour when _stop < start_ is inherited from Smalltalk.
+It allows writing, for instance, _1.to(k)_ where _k_ may be zero.
 
 * * *
 

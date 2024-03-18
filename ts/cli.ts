@@ -339,6 +339,7 @@ declare global {
 }
 
 globalThis.commonmark = commonmark;
+globalThis.osc = osc;
 globalThis.sl = sl;
 globalThis.sc = sc;
 globalThis.host = host;

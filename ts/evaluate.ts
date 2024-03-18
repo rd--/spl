@@ -20,7 +20,8 @@ export function evaluateForSignalling(
 		} else {
 			try {
 				// console.debug(`eval: ${jsText}`);
-				return eval(jsText);
+				// <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_direct_eval!>
+				return eval?.(`"use strict"; ${jsText}`);
 			} catch (err) {
 				throw new Error('Evaluation failed', { cause: err });
 			}

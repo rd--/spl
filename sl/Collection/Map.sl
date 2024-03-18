@@ -56,20 +56,16 @@ Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictiona
 		>
 	}
 
+	asJson { :self |
+		self.asJson(nil, '')
+	}
+
+	asJson { :self :replacer :space |
+		self.asRecord.asJson(replacer, space)
+	}
+
 	basicAsRecord { :self |
 		<primitive: return Object.fromEntries(_self);>
-	}
-
-	json { :self |
-		self.json(nil, '')
-	}
-
-	json { :self :replacer :space |
-		self.indices.allSatisfy(isString:/1).if {
-			self.asRecord.json(replacer, space)
-		} {
-			self.error('json: not all keys are strings')
-		}
 	}
 
 	indices { :self |

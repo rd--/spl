@@ -1101,7 +1101,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'thenElse'
 	],
 	'serialization': [
-		'json'
+		'asJson'
 	],
 	'set logic': [
 		'difference'

@@ -15,4 +15,4 @@ Create an uninitialized instance of _aType_.
 
 See also: new, Type, typeLookup
 
-Categories: Instance Creation
+Categories: Instance Creation, Reflection

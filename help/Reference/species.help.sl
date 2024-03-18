@@ -2,7 +2,7 @@
 
 - _species(anObject)_
 
-Answers the primary factory method for the type of the receiver.
+Answers the primary factory method for the type of _anObject_.
 
 ```
 >>> [1 3 5].species
@@ -18,7 +18,7 @@ Set:/0
 Record:/0
 ```
 
-This is the mechanism by which trait methods can generate new values of the type of the receiver.
+This is the mechanism by which `Trait` methods can generate new values of the required `Type`.
 
 ```
 >>> [1 3 5].select { :x | x > 1 }
@@ -36,6 +36,6 @@ This is the mechanism by which trait methods can generate new values of the type
 
 * * *
 
-See also: new, newFrom, ofSize, typeOf
+See also: new, newFrom, ofSize, Trait, Type, typeOf
 
 Categories: Reflection

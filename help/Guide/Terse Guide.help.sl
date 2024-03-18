@@ -409,7 +409,7 @@ let a = List(1); a.basicAt(3).isNil = true {- basic (unsafe) indexing, out of bo
 let a = List(1); a.basicAtPut(3, 'x') = 'x' & { a.size = 3 } {- basic (unsafe) mutation, out of bounds indices extend array -}
 List:/1.newFrom(Range(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(isEven:/1) = 4
-[nil, true, false, 3.141, 23, 'str'].json = '[null,true,false,3.141,23,"str"]' {- json encodings -}
+[nil, true, false, 3.141, 23, 'str'].asJson = '[null,true,false,3.141,23,"str"]' {- json encodings -}
 '[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str'] {- json parsing -}
 [1, 2, 3].select { :x | x > 1 } = [2, 3] {- select items in collection -}
 [1 .. 9].select { :x | true } = [1 .. 9] {- select everything -}
@@ -787,7 +787,7 @@ true && true = true {- non-evaluating form of & (requires boolean operand) -}
 { false | false }.ifError { true } {- | applies the rhs, which must be a block -}
 false || true = true {- non-evaluating form of | (requires boolean operand) -}
 { false || 'true' }.ifError { true } {- it is an error if operand is not a boolean -}
-[true.json, false.json] = ['true', 'false'] {- booleans have json encodings -}
+[true.asJson, false.asJson] = ['true', 'false'] {- booleans have json encodings -}
 ['true', 'false'].collect(parseJson:/1) = [true, false] {- parse json booleans -}
 true.ifTrue { true }
 false.ifFalse { true }
@@ -2211,7 +2211,7 @@ let c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.re
 (x: 1, y: 2).asMap ++ (x: 2, y: 1) = (x: 2, y: 1).asMap {- appending a record to a Map answers a Map, biases right -}
 (x: 1, y: 2, z: 3).asMap ++ (x: 2, y: 1) = (x: 2, y: 1, z: 3).asMap {- append record to Map -}
 (x: 1, y: 2).asMap ++ (x: 2, y: 1, z: 3) = (x: 2, y: 1, z: 3).asMap {- append record to Map -}
-(x: 1, y: 2).asMap.json = '{"x":1,"y":2}' {- maps with string keys are encoded as records -}
+(x: 1, y: 2).asMap.asJson = '{"x":1,"y":2}' {- maps with string keys are encoded as records -}
 (x: 1, y: 2, z: 3).asMap.indices = ['x', 'y', 'z'] {- indices of map (an array) -}
 let m = (x: 1, y: 2).asMap; m.removeAssociation('x' -> 1); m = (y: 2).asMap {- remove association -}
 let m = (x: 1, y: 2).asMap; m.removeAll; m.isEmpty {- remove all entries -}
@@ -2301,7 +2301,7 @@ ifNil(nil) { true } = true {- nil conditional -}
 ifNil(0) { false } = 0 {- nil conditional -}
 nil.printString = 'nil' {- nil print string -}
 nil.storeString = 'nil' {- nil store string -}
-nil.json = 'null' {- nil has a Json representation -}
+nil.asJson = 'null' {- nil has a Json representation -}
 'null'.parseJson = nil {- nil has a Json representation -}
 let c = nil; c ? { 'red' } = 'red' {- nil-coalescing operator, if lhs is nil evaluate rhs -}
 let c = 'blue'; c ? { 'red' } = 'blue' {- nil-coalescing operator -}
@@ -2524,9 +2524,9 @@ let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 { '3' } ! 3 = ['3', '3', '3'] {- operator notation -}
 ({ system.nextRandomFloat } ! 9).size = 9 {- the size of the answer is as requested -}
 ({ system.nextRandomFloat } ! 3).allSatisfy(isNumber:/1) = true
-at:/2.parameterNames = ['self', 'index']
-json:/3.parameterNames = ['self', 'replacer', 'space']
-randomFloat:/2.parameterNames = ['self', 'aNumber']
+at:/2.parameterNames = ['self', 'index'] {- answer names of method parameters -}
+asJson:/3.parameterNames = ['self', 'replacer', 'space'] {- answer names of method parameters -}
+randomFloat:/2.parameterNames = ['self', 'aNumber'] {- answer names of method parameters -}
 system.methodDictionary::at[2]::Map.information.parameterNames = ['self', 'key']
 let c = []; let a = []; 1:3.do { :i | c.add { a.add(i) } }; c.do(value:/1); a = [1, 2, 3]
 let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] {- closure -}
@@ -2746,7 +2746,7 @@ let d = Record(); d::x := 1; d::y := 2; d.size = 2
 ['x' -> 1, 'y' -> 2].asRecord = (x: 1, y: 2) {- association array to record -}
 ['x' -> 1, 'y' -> 2].asRecord['y'] = 2 {- association array to record -}
 { Record().atPut(1, 1) }.ifError { true }
-(x: 3.141, y: 23).json = '{"x":3.141,"y":23}' {- records have a json encoding where values do -}
+(x: 3.141, y: 23).asJson = '{"x":3.141,"y":23}' {- records have a json encoding where values do -}
 '{"x":3.141,"y":23}'.parseJson = (x: 3.141, y: 23) {- parse json record -}
 let d = (x: 1, y: 2); let i = 9; d.associationsDo { :each | i := i - each.value }; i = 6 {- iterate over associations -}
 let d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
@@ -3239,7 +3239,7 @@ let total = 0; 9.timesRepeat { total := total + system.nextRandomFloat }; total 
 9.randomInteger.isInteger = true
 9.randomFloat.isInteger = false
 1.pi.randomFloat.isInteger = false
-[3.141.json, 23.json] = ['3.141', '23'] {- numbers have json encodings -}
+[3.141.asJson, 23.asJson] = ['3.141', '23'] {- numbers have json encodings -}
 ['3.141', '23'].collect(parseJson:/1) = [3.141, 23] {- parse json numbers -}
 let r = nil; 1.toDo(5) { :each | r := each }; r = 5
 let r = nil; 1.to(0).do { :each | r := each }; r = nil
@@ -3492,7 +3492,7 @@ system.includesPackage('String') {- package -}
 { 'string'[3] := nil }.ifError { true } {- strings are immutable -}
 '{"x": 3.141, "y": 23}'.parseJson = (x: 3.141, y: 23)
 { '_'.parseJson }.ifError { true }
-'a text string'.json = '"a text string"' {- json encoding of string -}
+'a text string'.asJson = '"a text string"' {- json encoding of string -}
 '"a text string"'.parseJson = 'a text string' {- parse json string -}
 'string'.first = 's'.asCharacter {- first character -}
 'element'.first.isVowel = true {- is first letter a vowel? -}

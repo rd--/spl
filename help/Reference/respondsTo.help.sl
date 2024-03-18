@@ -7,11 +7,14 @@ Answer whether the method dictionary at `Type` of _anObject_ contains an entry f
 ```
 >>> 9.respondsTo(sqrt:/1)
 true
+
+[1 2 3].respondsTo(select:/2)
+true
 ```
 
 * * *
 
-See also: Type, typeOf
+See also: perform, Type, typeOf
 
 References:
 _Smalltalk_

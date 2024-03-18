@@ -2,16 +2,16 @@
 
 - _asRecord(anAssociationList | aMatrix | aMap)_
 
-Convert a collection to a `Record`.
+Convert a collection type to a `Record`.
 
-At a `List` of `Association`:
+At a `List` of `Association`s:
 
 ```
 >>> ['x' -> 1, 'y' -> 2, 'z' -> 3].asRecord
 (x: 1, y: 2, z: 3)
 
->>> ['Requires' -> ['ColumnBrowser' 'SmallKansas']].asRecord
-(Requires: ['ColumnBrowser' 'SmallKansas'])
+>>> ['A' -> ['B' 'C']].asRecord
+(A: ['B' 'C'])
 ```
 
 At a `List` holding a 2-column _matrix_:

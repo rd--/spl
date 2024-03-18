@@ -47,7 +47,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 	writeLocalStorage { :self :anObject |
 		self.mimeType.caseOfOtherwise([
 			'application/json' -> {
-				system.localStorage[self.key] := anObject.json
+				system.localStorage[self.key] := anObject.asJson
 			},
 			'text/plain' -> {
 				system.localStorage[self.key] := anObject.asString

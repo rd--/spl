@@ -176,7 +176,7 @@
 
 ## Json
 
-- `isJson`, `Json`, `json`, `parseJson`
+- `asJson`, `isJson`, `Json`, `parseJson`
 
 ## Mathematical Constants
 
@@ -259,9 +259,10 @@
 
 ## Reflection
 
-- `perform`, `respondsTo`, `typeOf`
+- `perform`, `respondsTo`, `type`, `typeOf`
 - `elementType`, `elementTypeIfAbsent`, `elementTypes`
-- `traitDictionary`, `typeDictionary`
+- `methodDictionary`, `traitDictionary`, `typeDictionary`
+- `Method`, `Trait`, `Type`
 
 ## Regular Expressions
 
@@ -330,6 +331,7 @@
 ## Timing
 
 - `systemTimeInMilliseconds`, `unixTime`, `unixTimeInMilliseconds`
+- `millisecondsToRun`
 
 ## Tree Operations
 

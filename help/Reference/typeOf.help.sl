@@ -43,6 +43,6 @@ true
 
 * * *
 
-See also: elementTypes, species, Type
+See also: elementTypes, species, type, Type
 
 Categories: Reflection, Types

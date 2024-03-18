@@ -4,11 +4,11 @@
 		true
 	}
 
-	json { :self |
+	asJson { :self |
 		<primitive: return JSON.stringify(_self);>
 	}
 
-	json { :self :replacer :space |
+	asJson { :self :replacer :space |
 		<primitive: return JSON.stringify(_self, _replacer, _space);>
 	}
 

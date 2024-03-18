@@ -13,6 +13,6 @@ Evaluate _aBlock_ with each `Association` of _aDictionary_ as the argument.
 
 * * *
 
-See also: associationsDo, do, keysDo, keysAndValuesDo, valuesDo
+See also: associations, do, keysDo, keysAndValuesDo, valuesDo
 
 Categories: Enumerating

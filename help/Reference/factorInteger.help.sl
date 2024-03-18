@@ -44,11 +44,12 @@ Use `factorInteger` to test for prime powers:
 ```
 >>> 2401.factorInteger.size = 1
 true
+```
 
 Use `factorInteger` to find all prime divisors of a number:
 
 ```
-2434500.factorInteger.collect(key:/1)
+>>> 2434500.factorInteger.collect(key:/1)
 [2 3 5 541]
 ```
 

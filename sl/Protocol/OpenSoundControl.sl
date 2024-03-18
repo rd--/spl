@@ -61,7 +61,7 @@ OscMessage : [Object] { | address parameterList |
 	}
 
 	encode { :self |
-		<primitive: return sc.encodeOscMessage(_asRecord_1(_self));>
+		self.asRecord.basicEncodeOscMessage
 	}
 
 	storeString { :self |
@@ -90,6 +90,10 @@ OscBundle : [Object] { | time messageList |
 		)
 	}
 
+	encode { :self |
+		self.asRecord.basicEncodeOscBundle
+	}
+
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}
@@ -100,6 +104,18 @@ OscBundle : [Object] { | time messageList |
 
 	OscBundle { :self :messageList |
 		newOscBundle().initializeSlots(self, messageList)
+	}
+
+}
+
++Record {
+
+	basicEncodeOscMessage { :self |
+		<primitive: return osc.writeMessage(_self, { metadata: true });>
+	}
+
+	basicEncodeOscBundle { :self |
+		<primitive: return osc.writeBundle(_self, { metadata: true });>
 	}
 
 }

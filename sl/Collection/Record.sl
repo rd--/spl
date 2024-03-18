@@ -92,13 +92,15 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 	asRecord { :self |
 		let matrix = self.collect(asList:/1);
 		(
-			self.isAssociationList | {
-				matrix.isMatrix & {
-					matrix.shape.second = 2 & {
-						matrix.allSatisfy { :each |
-							each.first.isString
-						}
+			(
+				self.isAssociationList | {
+					matrix.isMatrix & {
+						matrix.shape.second = 2
 					}
+				}
+			) & {
+				matrix.allSatisfy { :each |
+					each.first.isString
 				}
 			}
 		).if {

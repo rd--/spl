@@ -21,7 +21,7 @@ Implements the Smalltalk idiom _aCollection.species.new(aSize)_.
 List:/1
 
 >>> [].species.new(3)
-[nil, nil, nil]
+[nil nil nil]
 ```
 
 * * *
@@ -32,4 +32,4 @@ References:
 _Smalltalk_
 5.3.9.1
 
-Categories: Instance Creation
+Categories: Instance Creation, Reflection

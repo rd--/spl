@@ -1458,7 +1458,7 @@
 
 	plot { :self |
 		let fileName = '/tmp/listPlot.json';
-		fileName.writeTextFile([self.asList].json).then { :unused |
+		fileName.writeTextFile([self.asList].asJson).then { :unused |
 			system.systemCommand(
 				'hsc3-plot',
 				[

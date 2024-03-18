@@ -38,4 +38,4 @@ true
 
 * * *
 
-See also: isImmediate, isJson, Json, json
+See also: isImmediate, Json, json

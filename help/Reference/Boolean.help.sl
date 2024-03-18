@@ -20,6 +20,13 @@ false
 true
 ```
 
+Boolean values have a `Json` encoding:
+
+```
+>>> [true, false].asJson
+'[true,false]'
+```
+
 Methods are: &, &&, |, ||, not, xor
 
 * * *

@@ -252,7 +252,8 @@ export function evaluatePackage(pkg: Package): unknown {
 	// console.debug(`evaluatePackage: ${pkg.name}, ${pkg.url}, ${pkg.preCompiled}`);
 	if (pkg.preCompiled) {
 		try {
-			return eval(pkg.text);
+			// <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_direct_eval!>
+			return eval?.(`"use strict"; ${pkg.text}`);
 		} catch (err) {
 			console.error('Error loading package', pkg, err);
 		}
@@ -638,23 +639,23 @@ export function addType(
 		const nilSlots = slotNames.map((each) => `${each}: null`).join(', ');
 		const defNewType = isHostType
 			? ''
-			: `addMethod('Void', '${packageName}', 'new${typeName}', [], function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
+			: `sl.addMethod('Void', '${packageName}', 'new${typeName}', [], function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
 		const defInitializeSlots = isHostType
 			? ''
-			: `addMethod('${typeName}', '${packageName}', 'initializeSlots', ${
+			: `sl.addMethod('${typeName}', '${packageName}', 'initializeSlots', ${
 				JSON.stringify(['self'].concat(slotNames))
 			}, function(anInstance, ${
 				slotNames.join(', ')
 			}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
 		const defPredicateFalse =
-			`extendTraitWithMethod('Object', '${packageName}', 'is${typeName}', ['self'], function(anObject) { return false; }, '<primitive: predicate>')`;
+			`sl.extendTraitWithMethod('Object', '${packageName}', 'is${typeName}', ['self'], function(anObject) { return false; }, '<primitive: predicate>')`;
 		const defPredicateTrue =
-			`addMethod('${typeName}', '${packageName}', 'is${typeName}', ['self'], function(anInstance) { return true; }, '<primitive: predicate>')`;
+			`sl.addMethod('${typeName}', '${packageName}', 'is${typeName}', ['self'], function(anInstance) { return true; }, '<primitive: predicate>')`;
 		const defSlotAccess = slotNames.map((each) =>
-			`addMethod('${typeName}', '${packageName}', '${each}', ['self'], function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`
+			`sl.addMethod('${typeName}', '${packageName}', '${each}', ['self'], function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`
 		).join('; ');
 		const defSlotMutate = slotNames.map((each) =>
-			`addMethod('${typeName}', '${packageName}', '${each}', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`
+			`sl.addMethod('${typeName}', '${packageName}', '${each}', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`
 		).join('; ');
 		// console.debug(`addType: ${typeName}, ${packageName}, ${slotNames}`);
 		const methodDictionary = typeExists(typeName)
@@ -664,12 +665,9 @@ export function addType(
 			typeName,
 			new Type(typeName, packageName, traitList, slotNames, methodDictionary),
 		);
-		eval(defNewType);
-		eval(defInitializeSlots);
-		eval(defPredicateFalse);
-		eval(defPredicateTrue);
-		eval(defSlotAccess);
-		eval(defSlotMutate);
+		const allDef = [defNewType, defInitializeSlots, defPredicateFalse, defPredicateTrue, defSlotAccess, defSlotMutate].join(';');
+		// <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_direct_eval!>
+		eval?.(`"use strict"; ${allDef}`);
 	} else {
 		throw new Error(`addType: type exists: ${typeName}`);
 	}

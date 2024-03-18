@@ -87,7 +87,7 @@ true
 
 * * *
 
-See also: downTo, Interval, Range Syntax, thenTo, to, toBy, upOrDownTo
+See also: downTo, Interval, isIntegerRange, Range Syntax, thenTo, to, toBy, upOrDownTo
 
 References:
 _Mathematica_

@@ -2022,8 +2022,8 @@ compute each successive element. The value of step can be positive or
 negative, but it must be non-zero. The elements conform to either the
 receiver’s or step’s protocol, according to the Default Conversion
 Table.  Note that stop may not be the last element in the sequence,
-which is given by the formula (((stop - receiver) // step) * step) +
-receiver The interval answered will be empty if:
+which is given by the formula _(((stop - receiver) // step) * step) +
+receiver_. The interval answered will be empty if:
 
 1. receiver < stop, and step < 0.
 2. receiver > stop, and step > 0.

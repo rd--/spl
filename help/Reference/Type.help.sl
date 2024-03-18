@@ -24,8 +24,16 @@ true
 true
 ```
 
+Type fields are: `category`, `name`, `packageName`.
+
+```
+>>> let c = system.typeLookup('Colour');
+>>> (c.typeOf, c.isType, c.category, c.name , c.packageName)
+('Type', true, 'Graphics', 'Colour', 'Colour')
+```
+
 * * *
 
-See also: Method, System, Trait, type
+See also: Method, System, Trait, traitNameList, type
 
 Categories: Type
