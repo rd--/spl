@@ -293,6 +293,15 @@
 - `sort`, `sortBy`, `sorted`, `sortOn`
 - `ordering`
 
+## Statistics
+
+- `mean`, `median`, `commonest`
+- `harmonicMean`, `geometricMean`, `contraharmonicMean`
+- `variance`, `standardDeviation`, `meanDeviation`
+- `skewness`, `kurtosis`
+- `moment`, `centralMoment`, `rootMeanSquare`
+- `interquartileRange`, `quantile`, `quartiles`
+
 ## Streams
 
 - `Iterator`, `Stream`, `WriteStream`

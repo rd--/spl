@@ -77,6 +77,17 @@
 		}
 	}
 
+	arithmeticGeometricMean { :self :aNumber |
+		let a = self;
+		let b = aNumber;
+		{
+			a.veryCloseTo(b)
+		}.whileFalse {
+			[a, b] := [0.5 * (a + b), (a * b).sqrt]
+		};
+		a
+	}
+
 	asInteger { :self |
 		self.truncated
 	}

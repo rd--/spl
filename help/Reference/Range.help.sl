@@ -91,8 +91,10 @@ See also: downTo, Interval, isIntegerRange, Range Syntax, thenTo, to, toBy, upOr
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Range.html)
-[2](https://reference.wolfram.com/language/ref/Span.html),
+[1](https://mathworld.wolfram.com/ArithmeticProgression.html)
+[2](https://mathworld.wolfram.com/CommonDifference.html)
+[3](https://reference.wolfram.com/language/ref/Range.html)
+[4](https://reference.wolfram.com/language/ref/Span.html),
 _Smalltalk_
 5.7.19
 

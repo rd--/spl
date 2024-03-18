@@ -215,18 +215,24 @@ Complex : [Object, Number] { | real imaginary |
 		(self.real, self.imaginary)
 	}
 
-	closeTo { :self :anObject |
+	closeToBy { :self :anObject :epsilon |
 		anObject.isNumber.if {
 			anObject.isComplex.if {
-				self.real.closeTo(anObject.real) & {
-					self.imaginary.closeTo(anObject.imaginary)
+				self.real.closeToBy(anObject.real, epsilon) & {
+					self.imaginary.closeToBy(anObject.imaginary, epsilon)
 				}
 			} {
-				anObject.adaptToComplexAndApply(self, closeTo:/2)
+				anObject.adaptToComplexAndApply(self) { :p :q |
+					p.closeToBy(q, epsilon)
+				}
 			}
 		} {
 			false
 		}
+	}
+
+	closeTo { :self :anObject |
+		self.closeToBy(anObject, 0.0001)
 	}
 
 	conjugated { :self |
@@ -404,6 +410,10 @@ Complex : [Object, Number] { | real imaginary |
 				self.imaginary.storeString,
 			')'
 		].join
+	}
+
+	veryCloseTo { :self :anObject |
+		self.closeToBy(anObject, 0.000000000001)
 	}
 
 	zero { :self |

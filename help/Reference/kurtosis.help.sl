@@ -28,8 +28,11 @@ Find the kurtosis for the heights of children in a class.
 Kurtosis larger than 3 would indicate a distribution highly concentrated around the mean:
 
 ```
->>> let h = [134 143 131 140 145 136 131 136 143 136 133 145 147 150 150 146 137 143 132 142 145 136 144 135 141];
->>> h.kurtosis
+>>> [
+>>> 	134 143 131 140 145 136 131 136 143
+>>> 	136 133 145 147 150 150 146 137 143
+>>> 	132 142 145 136 144 135 141
+>>> ].kurtosis
 1.8248
 ```
 

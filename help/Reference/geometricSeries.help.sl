@@ -16,4 +16,9 @@ Answer a List holding a geometric series:
 
 See also: arithemeticSeries
 
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/GeometricSequence.html)
+[2](https://mathworld.wolfram.com/CommonRatio.html)
+
 Categories: Arithmetic
