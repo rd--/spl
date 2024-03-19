@@ -177,7 +177,7 @@ ScSynth! : [Object] {
 +Record {
 
 	localControls { :self |
-		<primitive: return sc.localControls(_self);>
+		<primitive: return _asRecord_1(sc.localControls(_self));>
 	}
 
 }
