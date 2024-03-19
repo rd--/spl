@@ -339,6 +339,26 @@
 		self.++
 	}
 
+	coordinateBoundingBox { :self |
+		let minimum = self.anyOne.copy;
+		let maximum = minimum.copy;
+		self.do { :each |
+			each.withIndexDo { :n :i |
+				(n < minimum[i]).ifTrue {
+					minimum[i] := n
+				};
+				(n > maximum[i]).ifTrue {
+					maximum[i] := n
+				}
+			}
+		};
+		[minimum, maximum]
+	}
+
+	coordinateBounds { :self |
+		self.coordinateBoundingBox.transposed
+	}
+
 	copyFromTo { :self :start :stop |
 		1.toAsCollect(stop - start + 1, self.species) { :index |
 			self[index + start - 1]

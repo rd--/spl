@@ -40,6 +40,29 @@ Range(1, 4, 1)
 Range(1, 9, 2)
 ```
 
+A `Range` is _proper_ if it is not empty and if the _stop_ value is the last value:
+
+```
+>>> 1:9.isProper
+true
+
+>>> (1, 1.5 .. 3.75).isProper
+false
+
+>>> (1, 2 .. 0).isProper
+false
+```
+
+A `Range` is _normal_ if it is _proper_ and if the _start_ value is less than or equal to the _stop_ value:
+
+```
+>>> 1:9.isNormal
+true
+
+>>> 7:5.isNormal
+false
+```
+
 While the _p:q_ and _(p .. q)_ notations cannot make empty or _improper_ `Range` values,
 the _(p, q .. r)_ notation may:
 

@@ -47,3 +47,15 @@
 	}
 
 }
+
++@Collection {
+
+	centsToRatio { :self |
+		self.collect(centsToRatio:/1)
+	}
+
+	ratioToCents { :self |
+		self.collect(ratioToCents:/1)
+	}
+
+}

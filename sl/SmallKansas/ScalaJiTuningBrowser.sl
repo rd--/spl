@@ -160,7 +160,7 @@
 						} {
 							each::octave := 2/1
 						};
-						each.JiTuning
+						each.asJiTuning
 					}
 				}
 			)

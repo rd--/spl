@@ -125,6 +125,18 @@ Range : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step 
 		}
 	}
 
+	isNormal { :self |
+		self.isProper & {
+			self.start <= self.stop
+		}
+	}
+
+	isProper { :self |
+		self.isEmpty.not & {
+			self.stop ~ self.last
+		}
+	}
+
 	last { :self |
 		self.ifEmpty {
 			self.emptyError('Range>>last')

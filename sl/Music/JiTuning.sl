@@ -18,7 +18,7 @@
 
 +Record {
 
-	JiTuning { :self |
+	asJiTuning { :self |
 		JiTuning(
 			self::name,
 			self::description,
@@ -34,7 +34,7 @@
 
 +List {
 
-	JiTuning { :self |
+	asJiTuning { :self |
 		JiTuning(
 			'',
 			'',

@@ -25,14 +25,14 @@ let r = [1/1 10/9 20/17 4/3 3/2 5/3 30/17]; let t = r.RatioTuning; let p = t.lat
 
 ## Music-JiTuning
 ```
-let t = [63, 72, 84, 98, 112].JiTuning; [t.limit, t.size, t.octave] = [7, 5, 2]
-let t = [63, 72, 84, 98, 112].JiTuning; t.ratios = [1, 8/7, 4/3, 14/9, 16/9]
-let t = [63, 72, 84, 98, 112].JiTuning; t.cents.rounded = [0, 231, 498, 765, 996]
+let t = [63, 72, 84, 98, 112].asJiTuning; [t.limit, t.size, t.octave] = [7, 5, 2]
+let t = [63, 72, 84, 98, 112].asJiTuning; t.ratios = [1, 8/7, 4/3, 14/9, 16/9]
+let t = [63, 72, 84, 98, 112].asJiTuning; t.cents.rounded = [0, 231, 498, 765, 996]
 let r = [1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/63, 112]
 [1, 8/7, 4/3, 14/9, 16/9] / 1/63 = [63, 72, 84, 98, 112]
-[1, 8/7, 4/3, 14/9, 16/9].JiTuning.integers = [63, 72, 84, 98, 112]
-[63, 72, 84, 98, 112].JiTuning.ratios = [1, 8/7, 4/3, 14/9, 16/9]
-[1, 3].JiTuning.ratios = [1, 3]
+[1, 8/7, 4/3, 14/9, 16/9].asJiTuning.integers = [63, 72, 84, 98, 112]
+[63, 72, 84, 98, 112].asJiTuning.ratios = [1, 8/7, 4/3, 14/9, 16/9]
+[1, 3].asJiTuning.ratios = [1, 3]
 ```
 
 ## Music-RatioTuning
