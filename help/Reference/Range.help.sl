@@ -12,11 +12,19 @@ A `Range` is a `Type` that represents a finite arithmetic progression.
 [9 7 5 3 1]
 ```
 
-With non-integer values, may not reach _stop_:
+With non-integer values, _stop_ may not be in the list of values specified by the `Range`:
 
 ```
 >>> Range(1.2, 2.2, 0.15).asList
 [1.2 1.35 1.5 1.65 1.8 1.95 2.1]
+```
+
+The `last`, `min` and `max` methods report the true value:
+
+```
+>>> let r = Range(1.2, 2.2, 0.15);
+>>> (r.last, r.max)
+(2.1, 2.1)
 ```
 
 There is a `Range Syntax` for writing Ranges and interval lists:
@@ -30,6 +38,14 @@ Range(1, 4, 1)
 
 >>> (1, 3 .. 9)
 Range(1, 9, 2)
+```
+
+While the _p:q_ and _(p .. q)_ notations cannot make empty or _improper_ `Range` values,
+the _(p, q .. r)_ notation may:
+
+```
+>>> (7, 8 .. 5)
+Range(7, 5, 1)
 ```
 
 Use a step of 2:
@@ -53,7 +69,7 @@ Use a non-integer step:
 [0 3.14159 6.28319 9.42478]
 ```
 
-Range of large integers:
+`Range` of `LargeInteger`:
 
 ```
 >>> Range(1n, 2n ^ 90, 1n).size

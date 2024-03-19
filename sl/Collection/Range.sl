@@ -127,9 +127,25 @@ Range : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step 
 
 	last { :self |
 		self.ifEmpty {
-			self.emptyError('last')
+			self.emptyError('Range>>last')
 		} {
 			self.stop - (self.stop - self.start % self.step)
+		}
+	}
+
+	max { :self |
+		self.ifEmpty {
+			self.emptyError('Range>>max')
+		} {
+			self.start.max(self.last)
+		}
+	}
+
+	min { :self |
+		self.ifEmpty {
+			self.emptyError('Range>>min')
+		} {
+			self.start.min(self.last)
 		}
 	}
 
@@ -138,7 +154,11 @@ Range : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step 
 	}
 
 	printString { :self |
-		(self.step = 1).if {
+		(
+			self.step = 1 & {
+				self.isEmpty.not
+			}
+		).if {
 			self.start.printString ++ ':' ++ self.stop.printString
 		} {
 			self.storeString
