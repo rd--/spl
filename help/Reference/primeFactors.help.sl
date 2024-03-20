@@ -1,8 +1,9 @@
 # primeFactors
 
-- _primeFactors(anInteger)_
+- _primeFactors(aFraction)_
 
-Answer the `List` of prime integers the `product` of which is _anInteger_.
+Answer the `List` of prime factors the `product` of which is _aFraction_.
+In the `Integer` case all factors will be integers.
 
 ```
 >>> 60.primeFactors
@@ -35,9 +36,23 @@ The inverse of `primeFactors` is `product`:
 60
 ```
 
+At `Fraction`:
+
+```
+>>> 22/49.primeFactors
+[2 11 1/7 1/7]
+```
+
+Threads elementwise over lists:
+
+```
+>>> [60 22/49].primeFactors
+[2 2 3 5; 2 11 1/7 1/7]
+```
+
 * * *
 
-See also: factorInteger, isPrime, product
+See also: factorInteger, isPrime, primeLimit, product
 
 References:
 _J_

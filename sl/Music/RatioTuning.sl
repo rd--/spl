@@ -1,46 +1,54 @@
-{- Requires: Fraction Tuning -}
+{- Requires: Cache Fraction Tuning -}
 
-RatioTuning : [Object, Tuning] { | name description ratios octave cachedLimit |
+RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache |
 
 	= { :self :anObject |
 		anObject.isRatioTuning & {
 			self.name = anObject.name & {
 				self.description = anObject.description & {
-					self.ratios = anObject.ratios
+					self.asRatios = anObject.asRatios
 				}
 			}
 		}
 	}
 
-	cents { :self |
-		self.ratios.collect { :each |
+	asCents { :self |
+		self.asRatios.collect { :each |
 			each.asFloat.log2 * 1200
 		}
 	}
 
-	integers { :self |
-		(self.ratios / self.ratios.reduce(gcd:/2)).collect(asInteger:/1)
+	asIntegers { :self |
+		(self.asRatios / self.asRatios.reduce(gcd:/2)).collect(asInteger:/1)
 	}
 
 	isRational { :self |
-		self.ratios.allSatisfy(isFraction:/1)
+		self.asRatios.allSatisfy(isFraction:/1)
 	}
 
 	limit { :self |
-		self.cachedLimit.ifNil {
-			self.cachedLimit := self.ratios.collect(primeLimit:/1).max
-		} {
-			self.cachedLimit
+		self.cached('limit') {
+			self.asRatios.primeLimit.max
 		}
 	}
 
 	limit { :self :anInteger |
-		self.cachedLimit := anInteger;
+		anInteger.isInteger.ifTrue {
+			self.cache::limit := anInteger
+		};
 		self
 	}
 
 	size { :self |
-		self.ratios.size
+		self.asRatios.size
+	}
+
+	storeString { :self |
+		[
+			'RatioTuning(',
+			[self.name, self.description, self.asRatios, self.octave].collect(storeString:/1).joinSeparatedBy(', '),
+			')'
+		].join
 	}
 
 }
@@ -55,14 +63,14 @@ RatioTuning : [Object, Tuning] { | name description ratios octave cachedLimit |
 	}
 
 	RatioTuning { :self :description :ratios :octave |
-		newRatioTuning().initializeSlots(self, description, ratios, octave, nil)
+		newRatioTuning().initializeSlots(self, description, ratios, octave, Record())
 	}
 
 }
 
 +@Sequence {
 
-	RatioTuning { :self |
+	asRatioTuning { :self |
 		RatioTuning('Unnamed tuning', 'Undescribed tuning', self, 2)
 	}
 

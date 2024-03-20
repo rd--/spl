@@ -2,14 +2,14 @@
 
 +String {
 
-	JiTuning { :self :description :ratiosOrIntegers :octave :limit |
+	JiTuning { :name :description :ratiosOrIntegers :octave :limit |
 		ratiosOrIntegers.allSatisfy(isSmallInteger:/1).if {
-			IntegerTuning(self, description, ratiosOrIntegers, octave).limit(limit)
+			IntegerTuning(name, description, ratiosOrIntegers, octave).limit(limit)
 		} {
 			ratiosOrIntegers.allSatisfy(isFraction:/1).if {
-				RatioTuning(self, description, ratiosOrIntegers, octave).limit(limit)
+				RatioTuning(name, description, ratiosOrIntegers, octave).limit(limit)
 			} {
-				self.error('not ratios or integers')
+				name.error('JiTuning: not ratios or integers')
 			}
 		}
 	}

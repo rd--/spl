@@ -197,6 +197,14 @@
 		self.collect(pi:/1)
 	}
 
+	primeFactors { :self |
+		self.collect(primeFactors:/1)
+	}
+
+	primeLimit { :self |
+		self.collect(primeLimit:/1)
+	}
+
 	radiansToDegrees { :self |
 		self.collect(radiansToDegrees:/1)
 	}

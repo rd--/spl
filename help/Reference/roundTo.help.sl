@@ -21,11 +21,21 @@ Rounds away from zero, cf. `roundToTowardsZero`:
 -4
 ```
 
+Threads over lists:
+
+```
+>>> [1.5 2.5 3.5 4.5].roundTo(1)
+[2 3 4 5]
+```
+
 * * *
 
 See also: round, roundToTowardsZero, truncateTo
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/NearestIntegerFunction.html)
+[2](https://reference.wolfram.com/language/ref/Round.html),
 _Smalltalk_
 5.6.2.32
 

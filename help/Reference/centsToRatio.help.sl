@@ -2,12 +2,18 @@
 
 - _centsToRatio(aNumber)_
 
-Answer the size of the interval represented by the cents value _aNumber_ as a ratio.
+Answer a `SmallFloat` representing the size of the interval represented by the cents value _aNumber_ as a ratio.
 There are 1200 cents in an octave.
 
 ```
 >>> 1200.centsToRatio
 2
+
+>>> 386.3.centsToRatio
+1.25
+
+>>> 386.3.centsToRatio.asFraction
+5/4
 ```
 
 Threads over lists:
@@ -19,7 +25,7 @@ Threads over lists:
 
 * * *
 
-See also: centsToRatio, Tuning
+See also: asFraction, centsToRatio, Tuning
 
 References:
 _W_

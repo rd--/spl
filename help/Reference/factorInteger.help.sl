@@ -1,8 +1,9 @@
 # factorInteger
 
-- _factorInteger(anInteger)_
+- _factorInteger(aFraction)_
 
-Answer the `List` of prime factors of _anInteger_, together with their exponents.
+Answer the `List` of prime factors of _aFraction_, each associated with its exponent.
+In the `Integer` case all factors will be integers.
 
 ```
 >>> 36.factorInteger

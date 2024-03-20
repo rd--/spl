@@ -2,7 +2,7 @@
 
 - _latticeVectorString(aFraction, primes)_
 
-Print string for tuning lattice vector for _aFraction_ for each entry in _primes_.
+Answer a `String` describing the tuning `latticeVector` of _aFraction_ for each entry in _primes_.
 Entries indicate the multiplicity of the prime in either the numerator (positive) or denominator (negative).
 Ordinarily the two (octave) column is elided, and the first column is three (perfect fifth).
 
@@ -14,7 +14,7 @@ Ordinarily the two (octave) column is elided, and the first column is three (per
 ' 0 -1  0  1  0'
 ```
 
-If _primes_ does not contain all of the factors for _aFraction_ answers '*':
+If _primes_ does not contain all of the factors for _aFraction_, answer '*':
 
 >>> 17/13.latticeVectorString([3 5 7 11 13])
 '*'
@@ -28,6 +28,6 @@ If _primes_ does not contain all of the factors for _aFraction_ answers '*':
 
 * * *
 
-See also: latticePrimes, Tuning
+See also: latticePrimes, latticeVector, Tuning
 
 Categories: Tuning

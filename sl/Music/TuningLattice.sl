@@ -10,11 +10,15 @@
 	}
 
 	latticeVector { :self :primes |
-		let pf1 = self.numerator.primeFactors;
-		let pf2 = self.denominator.primeFactors.collect(negated:/1);
-		let pf3 = (pf1 ++ pf2).asBag;
-		primes.collect { :each |
-			pf3.occurrencesOf(each) - pf3.occurrencesOf(each.negated)
+		primes.includesAllOf(self.latticePrimes).if {
+			let pf1 = self.numerator.primeFactors;
+			let pf2 = self.denominator.primeFactors.collect(negated:/1);
+			let pf3 = (pf1 ++ pf2).asBag;
+			primes.collect { :each |
+				pf3.occurrencesOf(each) - pf3.occurrencesOf(each.negated)
+			}
+		} {
+			self.error('Fraction>>latticeVector: incomplete primes')
 		}
 	}
 
@@ -64,14 +68,14 @@
 
 	latticePrimes { :self |
 		let answer = Set();
-		self.ratios.do { :each |
+		self.asRatios.do { :each |
 			answer.includeAll(each.latticePrimes)
 		};
 		answer.asList.sort
 	}
 
 	latticeVertices { :self :primes |
-		self.ratios.collect { :each |
+		self.asRatios.collect { :each |
 			each.latticeVector(primes)
 		}
 	}

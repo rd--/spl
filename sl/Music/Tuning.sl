@@ -1,19 +1,27 @@
 @Tuning {
 
-	cents { :self |
-		self.typeResponsibility('cents')
+	asCents { :self |
+		self.typeResponsibility('@Tuning>>asCents')
 	}
 
-	integers { :self |
-		self.typeResponsibility('integers')
+	asIntegers { :self |
+		self.typeResponsibility('@Tuning>>asIntegers')
+	}
+
+	asRatios { :self |
+		self.typeResponsibility('@Tuning>>asRatios')
 	}
 
 	isRational { :self |
-		self.typeResponsibility('isRational')
+		self.typeResponsibility('@Tuning>>isRational')
+	}
+
+	isTuning { :self |
+		true
 	}
 
 	limit { :self |
-		self.integers.collect { :each |
+		self.asIntegers.collect { :each |
 			(each = 1).if {
 				each
 			} {
@@ -23,15 +31,19 @@
 	}
 
 	octave { :self |
-		self.typeResponsibility('octave')
-	}
-
-	ratios { :self |
-		self.typeResponsibility('ratios')
+		self.typeResponsibility('@Tuning>>octave')
 	}
 
 	size { :self |
-		self.typeResponsibility('size')
+		self.typeResponsibility('@Tuning>>size')
+	}
+
+}
+
++@Object {
+
+	isTuning { :self |
+		false
 	}
 
 }

@@ -1,0 +1,38 @@
+# latticePrimes
+
+- _latticePrimes(aFraction | aTuning)_
+
+Answer a `List` of the prime factors of _aFraction_ or _aTuning_ without sign and without the octave entry.
+
+```
+>>> 35/26.latticePrimes
+[5 7 13]
+
+>>> 185/98.latticePrimes
+[5 7 37]
+```
+
+At `Tuning`:
+
+```
+>>> let ratios = [1/1 10/9 20/17 4/3 3/2 5/3 30/17];
+>>> let tuning = ratios.asRatioTuning;
+>>> tuning.latticePrimes
+[3 5 17]
+```
+
+`latticePrimes` at `Fraction` answers a subset of the answer of `factorInteger`:
+
+```
+>>> 35/26.factorInteger
+[2 -> -1, 5 -> 1, 7 -> 1, 13 -> -1]
+
+>>> 185/98.factorInteger
+[2 -> -1, 5 -> 1, 7 -> -2, 37 -> 1]
+```
+
+* * *
+
+See also: factorInteger, latticeVector, latticeVertices, primeFactors
+
+Categories: Tuning

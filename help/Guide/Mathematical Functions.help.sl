@@ -26,6 +26,13 @@
 - `>=`: greater than or equal to
 - `<=>`: -1, 0, +1 for less than, equal to, greater than
 
+## Continued Fractions & Rational Approximations
+
+- `continuedFraction`: continued fraction expansion
+- `fromContinuedFraction`: construct exact or inexact numbers from continued fractions
+- `convergents`: a list of successive convergents of a continued fraction
+- `asFraction`: find rational approximations
+
 ## Piecewise Functions:
 
 - `min`: minimum value

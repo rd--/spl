@@ -1,16 +1,29 @@
 # primeLimit
 
-- _primeLimit(anInteger)_
+- _primeLimit(aFraction)_
 
-Answer the largest prime number that is a factor of _anInteger_.
+Answer the largest prime number that is a factor of _aFraction_.
 
 ```
 >>> 2:15.select { :each | each.primeLimit <= 5 }
 [2 3 4 5 6 8 9 10 12 15]
 ```
 
+Threads elementwise over lists:
+
+```
+>>> 2:15.primeLimit
+[2 3 2 5 3 7 2 3 5 11 3 13 7 5]
+```
+
+Plot:
+
+~~~
+2:99.primeLimit.plot
+~~~
+
 * * *
 
 See also: primeFactors
 
-Categories: Arithmetic
+Categories: Arithmetic, Primes

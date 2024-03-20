@@ -6,28 +6,28 @@
 [0 203.9 386.3 498 701.9 1200].collect(centsToRatio:/1) ~ [1 9/8 5/4 4/3 3/2 2]
 12.equalTemperamentTuning.name = 'ET-12'
 12.equalTemperamentTuning.description = 'Twelve tone equal-temperament'
-12.equalTemperamentTuning.cents = [0 100 200 300 400 500 600 700 800 900 1000 1100]
+12.equalTemperamentTuning.asCents = [0 100 200 300 400 500 600 700 800 900 1000 1100]
 12.equalTemperamentTuning.octave = 2
-12.equalTemperamentTuning.ratios.collect(asFraction:/1) = [1 18/17 46/41 107/90 63/50 4/3 140/99 3/2 73/46 37/22 139/78 185/98]
-7.equalTemperamentTuning.cents.rounded = [0 171 343 514 686 857 1029]
-7.equalTemperamentTuning.ratios.collect(asFraction:/1) = [1 85/77 89/73 35/26 107/72 64/39 163/90]
-[1 6/5 4/3 3/2 8/5].RatioTuning.ratios = [1 6/5 4/3 3/2 8/5]
-[1 6/5 4/3 3/2 8/5].RatioTuning.cents.rounded = [0 316 498 702 814]
-[1 6/5 4/3 3/2 8/5].RatioTuning.integers = [30 36 40 45 48]
-[1 6/5 4/3 3/2 8/5].RatioTuning.octave = 2
+12.equalTemperamentTuning.asRatios.collect(asFraction:/1) = [1 18/17 46/41 107/90 63/50 4/3 140/99 3/2 73/46 37/22 139/78 185/98]
+7.equalTemperamentTuning.asCents.rounded = [0 171 343 514 686 857 1029]
+7.equalTemperamentTuning.asRatios.collect(asFraction:/1) = [1 85/77 89/73 35/26 107/72 64/39 163/90]
+[1 6/5 4/3 3/2 8/5].asRatioTuning.asRatios = [1 6/5 4/3 3/2 8/5]
+[1 6/5 4/3 3/2 8/5].asRatioTuning.asCents.rounded = [0 316 498 702 814]
+[1 6/5 4/3 3/2 8/5].asRatioTuning.asIntegers = [30 36 40 45 48]
+[1 6/5 4/3 3/2 8/5].asRatioTuning.octave = 2
 30/17.latticePrimes = [3 5 17]
 30/17.latticeVector([3 5 17]) = [1 1 -1]
 30/17.latticeVectorString([3 5 17]) = ' 1  1 -1'
-[1/1 10/9 20/17 4/3 3/2 5/3 30/17].RatioTuning.latticePrimes = [3 5 17] {- Average Bac System -}
-[1/1 10/9 20/17 4/3 3/2 5/3 30/17].RatioTuning.latticeVertices([3 5 17]) = [0 0 0; -2 1 0; 0 1 -1; -1 0 0; 1 0 0; -1 1 0; 1 1 -1]
-let r = [1/1 10/9 20/17 4/3 3/2 5/3 30/17]; let t = r.RatioTuning; let p = t.latticePrimes; let v = t.latticeVertices(p); t.latticeEdges(v) = [1 4; 1 5; 2 6; 3 7; 4 6]
+[1/1 10/9 20/17 4/3 3/2 5/3 30/17].asRatioTuning.latticePrimes = [3 5 17] {- Average Bac System -}
+[1/1 10/9 20/17 4/3 3/2 5/3 30/17].asRatioTuning.latticeVertices([3 5 17]) = [0 0 0; -2 1 0; 0 1 -1; -1 0 0; 1 0 0; -1 1 0; 1 1 -1]
+let r = [1/1 10/9 20/17 4/3 3/2 5/3 30/17]; let t = r.asRatioTuning; let p = t.latticePrimes; let v = t.latticeVertices(p); t.latticeEdges(v) = [1 4; 1 5; 2 6; 3 7; 4 6]
 ```
 
 ## Music-JiTuning
 ```
 let t = [63, 72, 84, 98, 112].asJiTuning; [t.limit, t.size, t.octave] = [7, 5, 2]
-let t = [63, 72, 84, 98, 112].asJiTuning; t.ratios = [1, 8/7, 4/3, 14/9, 16/9]
-let t = [63, 72, 84, 98, 112].asJiTuning; t.cents.rounded = [0, 231, 498, 765, 996]
+let t = [63, 72, 84, 98, 112].asJiTuning; t.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
+let t = [63, 72, 84, 98, 112].asJiTuning; t.asCents.rounded = [0, 231, 498, 765, 996]
 let r = [1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/63, 112]
 [1, 8/7, 4/3, 14/9, 16/9] / 1/63 = [63, 72, 84, 98, 112]
 [1, 8/7, 4/3, 14/9, 16/9].asJiTuning.integers = [63, 72, 84, 98, 112]

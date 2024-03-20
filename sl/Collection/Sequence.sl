@@ -339,6 +339,10 @@
 		self.++
 	}
 
+	convergents { :self |
+		self.prefixes.collect(fromContinuedFraction:/1)
+	}
+
 	coordinateBoundingBox { :self |
 		let minimum = self.anyOne.copy;
 		let maximum = minimum.copy;
@@ -766,11 +770,18 @@
 	}
 
 	fromContinuedFraction { :self |
-		let answer = 0;
-		self.reverseDo { :each |
-			answer := 1 / (each + answer)
-		};
-		1 / answer
+		(self ~ [0]).if {
+			0
+		} {
+			let answer = 0/1;
+			self.reverseDo { :each |
+				let next = (each + answer);
+				(next > 0).ifTrue {
+					answer := 1 / next
+				}
+			};
+			1 / answer
+		}
 	}
 
 	fromToDo { :self :start :stop :aBlock:/1 |

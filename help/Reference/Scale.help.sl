@@ -1,22 +1,22 @@
-# Scale -- music type
+# Scale
 
 - _Scale(startIndex, intervals, description)_
 
-A _Scale_ is a sub-set of the indices of a _Tuning_.
+A `Scale` is a sub-set of the indices of a `Tuning`.
 
-The _startIndex_ is the index at the Tuning of the first note of the scale, and is usually one.
+_startIndex_ is the index at the `Tuning` of the first note of the scale, and is usually one.
 
-The _intervals_ are a sequence of integers giving the distance of each index from the last.
+_intervals_ is a sequence of integers giving the distance of each index from the last.
 
-The _description_ is a string describing the scale.
+_description_ is a `String` describing the scale.
 
-The _size_ of a scale is the size of the _intervals_ sequence,
+The `size` of a scale is the size of the _intervals_ sequence,
 a seven note scale has size seven.
 
-The _tuningSize_ of a scale is the _sum_ of the _intervals_ sequence,
+The `tuningSize` of a scale is the `sum` of the _intervals_ sequence,
 a seven note scale into a twelve-note tuning has a tuning size of twelve.
 
-The _tuningIndices_ of a scale are the indices into a Tuning of the required size.
+The `tuningIndices` of a scale are the indices into a `Tuning` of the required size.
 
 ```
 >>> Scale(1, [2 2 1 2 2 2 1], "Major").tuningIndices
@@ -28,3 +28,9 @@ The file _modename.par_ in the [Scala](https://www.huygens-fokker.org/scala/) di
 * * *
 
 See also: Tuning
+
+References:
+_Scala_
+[1](https://www.huygens-fokker.org/scala/)
+
+Categories: Music, Type

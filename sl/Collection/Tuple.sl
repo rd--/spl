@@ -30,6 +30,10 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 		self.noneSatisfy(isTuple:/1)
 	}
 
+	printString { :self |
+		'(' ++ self.contents.collect(printString:/1).joinSeparatedBy(', ') ++ ')'
+	}
+
 	size { :self |
 		self.contents.size
 	}

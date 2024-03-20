@@ -1,25 +1,29 @@
 {- Requires: Tuning -}
 
-CentsTuning : [Object, Tuning] { | name description cents octave |
+CentsTuning : [Object, Tuning] { | name description asCents octave |
+
+	asRatios { :self |
+		self.asCents.collect(centsToRatio:/1)
+	}
 
 	isRational { :self |
 		false
-	}
-
-	ratios { :self |
-		self.cents.collect(centsToRatio:/1)
 	}
 
 	size { :self |
 		self.cents.size
 	}
 
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
 }
 
 +String {
 
-	CentsTuning { :self :description :cents :octave |
-		newCentsTuning().initializeSlots(self, description, cents, octave)
+	CentsTuning { :name :description :cents :octave |
+		newCentsTuning().initializeSlots(name, description, cents, octave)
 	}
 
 }
@@ -34,6 +38,14 @@ CentsTuning : [Object, Tuning] { | name description cents octave |
 			[0, step .. 1200 - step],
 			2
 		)
+	}
+
+}
+
++@Sequence {
+
+	asCentsTuning { :self |
+		CentsTuning('Unnamed tuning', 'Undescribed tuning', self, 2)
 	}
 
 }

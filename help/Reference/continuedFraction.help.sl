@@ -1,17 +1,17 @@
 # continuedFraction
 
-_continuedFraction(aNumber, anInteger)_
+- _continuedFraction(aNumber, anInteger)_
 
 Answer a list of the first _anInteger_ terms in the continued fraction representation of _aNumber_.
 
-Rational number as SmallFloat:
+Rational number as `SmallFloat`:
 
 ```
 >>> (47 / 17).continuedFraction(9)
 [2 1 3 4]
 ```
 
-Rational number as Fraction:
+Rational number as `Fraction`:
 
 ```
 >>> 47/17.continuedFraction(9)
@@ -32,7 +32,7 @@ The continued fractions for _n-th_ roots of _e_ are very regular:
 [1 1 1 1 5 1 1 9 1 1 13 1 1 17 1 1 21]
 ```
 
-_fromContinuedFraction_ is effectively the inverse of _continuedFraction_:
+`fromContinuedFraction` is effectively the inverse of `continuedFraction`:
 
 ```
 >>> pi.continuedFraction(13)
@@ -42,7 +42,7 @@ _fromContinuedFraction_ is effectively the inverse of _continuedFraction_:
 pi
 ```
 
-The continued fraction of the _goldenRatio_ is uninformly one:
+The continued fraction of the `goldenRatio` is uniformly one:
 
 ```
 >>> 1.goldenRatio.continuedFraction(9)
@@ -63,4 +63,6 @@ See also: fromContinuedFraction
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ContinuedFraction.html)
-[2](https://reference.wolfram.com/language/ref/ContinuedFraction.html)
+[2](https://reference.wolfram.com/language/ref/ContinuedFraction.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Continued_fraction)

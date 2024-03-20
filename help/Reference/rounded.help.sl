@@ -30,9 +30,25 @@ Answer the integer nearest _aNumber_.
 -1
 ```
 
+Threads elementwise over lists:
+
+```
+>>> [e pi].rounded
+[3 3]
+```
+
+The definition is ambiguous for half-integers,
+the implementation follows Smalltalk and truncates:
+
+```
+>>> [1.5 2.5 3.5 4.5].rounded
+[2 3 4 5]
+
+>>> [-1.5 -2.5 -3.5 -4.5].rounded
+[-1 -2 -3 -4]
 * * *
 
-See also: ceiling, floor
+See also: ceiling, floor, roundTo
 
 References:
 _Smalltalk_
