@@ -1,4 +1,4 @@
-Range : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step |
+Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgression] { | start stop step |
 
 	= { :self :operand |
 		operand.isRange & {
@@ -26,95 +26,8 @@ Range : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step 
 		}
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
-		aBlock(aCollection, self.asList)
-	}
-
-	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
-		self.collect { :each |
-			aBlock(aNumber, each)
-		}
-	}
-
-	asList { :self |
-		self.collect(identity:/1)
-	}
-
 	asRange { :self |
 		self
-	}
-
-	at { :self :index |
-		self.includesIndex(index).if {
-			self.step * (index - 1) + self.start
-		} {
-			self.errorInvalidIndex('at', index)
-		}
-	}
-
-	basicAt { :self :index |
-		self.step * (index - 1) + self.start
-	}
-
-	collect { :self :aBlock:/1 |
-		let result = List(self.size);
-		let index = 1;
-		self.do { :nextValue |
-			result[index] := aBlock(nextValue);
-			index := index + 1
-		};
-		result
-	}
-
-	copyFromTo { :self :startIndex :stopIndex |
-		(startIndex = 1 & {
-			stopIndex = self.size
-		}).if {
-			self
-		} {
-			self[startIndex].toBy(self[stopIndex], self.step)
-		}
-	}
-
-	do { :self :aBlock:/1 |
-		let nextValue = self.start;
-		let endValue = self.stop;
-		(self.step > 0).if {
-			{
-				nextValue <= endValue
-			}.whileTrue {
-				aBlock(nextValue);
-				nextValue := nextValue + self.step
-			}
-		} {
-			{
-				nextValue >= endValue
-			}.whileTrue {
-				aBlock(nextValue);
-				nextValue := nextValue + self.step
-			}
-		};
-		self
-	}
-
-	emptyError { :self :methodName |
-		self.error('Range>>' ++ methodName ++ ': empty')
-	}
-
-	increment { :self |
-		self.step
-	}
-
-	isArithmeticSeries { :self |
-		true
-	}
-
-	isArithmeticSeriesBy { :self :anInteger |
-		self.step = anInteger
-	}
-
-	isEmpty { :self |
-		self.size = 0
 	}
 
 	isIntegerRange { :self |
@@ -135,34 +48,6 @@ Range : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step 
 		self.isEmpty.not & {
 			self.stop ~ self.last
 		}
-	}
-
-	last { :self |
-		self.ifEmpty {
-			self.emptyError('Range>>last')
-		} {
-			self.stop - (self.stop - self.start % self.step)
-		}
-	}
-
-	max { :self |
-		self.ifEmpty {
-			self.emptyError('Range>>max')
-		} {
-			self.start.max(self.last)
-		}
-	}
-
-	min { :self |
-		self.ifEmpty {
-			self.emptyError('Range>>min')
-		} {
-			self.start.min(self.last)
-		}
-	}
-
-	permutationsDo { :self :aBlock:/1 |
-		self.asList.permutationsDo(aBlock:/1)
 	}
 
 	printString { :self |
@@ -205,19 +90,6 @@ Range : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step 
 		}
 	}
 
-	reverseDo { :self :aBlock:/1 |
-		let each = self.last;
-		let predicate = (self.step < 0).if {
-			{ self.start >= each }
-		} {
-			{ self.start <= each }
-		};
-		predicate.whileTrue {
-			aBlock(each);
-			each := each - self.step
-		}
-	}
-
 	size { :self |
 		let derived = (self.stop - self.start).quotient(self.step) + 1;
 		(self.step < 0).if {
@@ -257,10 +129,6 @@ Range : [Object, Iterable, Collection, Indexable, Sequence] { | start stop step 
 				self.step,
 			')'
 		].join
-	}
-
-	sum { :self |
-		self.size * ((self.size - 1) * self.step + (self.start * 2)) / 2
 	}
 
 }

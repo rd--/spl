@@ -15,16 +15,17 @@ A `Range` is a `Type` that represents a finite arithmetic progression.
 With non-integer values, _stop_ may not be in the list of values specified by the `Range`:
 
 ```
->>> Range(1.2, 2.2, 0.15).asList
-[1.2 1.35 1.5 1.65 1.8 1.95 2.1]
+>>> let r = Range(1.2, 2.2, 0.15);
+>>> (r.size, r.asList)
+(7, [1.2 1.35 1.5 1.65 1.8 1.95 2.1])
 ```
 
 The `last`, `min` and `max` methods report the true value:
 
 ```
 >>> let r = Range(1.2, 2.2, 0.15);
->>> (r.last, r.max)
-(2.1, 2.1)
+>>> (r.last, r.end, r.max)
+(2.1, 2.1, 2.1)
 ```
 
 There is a `Range Syntax` for writing Ranges and interval lists:

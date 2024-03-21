@@ -54,6 +54,7 @@ See also: -, ratios
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Differences.html)
+[1](https://mathworld.wolfram.com/CommonDifference.html)
+[2](https://reference.wolfram.com/language/ref/Differences.html)
 
 Categories: Math

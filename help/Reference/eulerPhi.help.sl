@@ -1,6 +1,6 @@
 # eulerPhi
 
-_eulerPhi(n)_
+- _eulerPhi(n)_
 
 Answer the Euler totient function.
 Also known as the Euler totient function or phi function.

@@ -32,10 +32,13 @@ Factorial is product of a `Range`:
 362880
 ```
 
-```
+Plot the sequence of partial products:
+
+~~~
 1:50.collect { :i | (11 / 12) ^ i * (2 + (i * 2 * pi / 15).sin) }.plot
+
 1:50.collect { :j | 1:j.collect { :i | (11 / 12) ^ i * (2 + (i * 2 * pi / 15).sin) }.product }.plot
-```
+~~~
 
 Where supported `product` is displayed as Π.
 

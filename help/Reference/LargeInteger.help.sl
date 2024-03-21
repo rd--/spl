@@ -9,6 +9,13 @@ Large integers have a distinct literal syntax indicated by an _n_ suffix.
 'LargeInteger'
 ```
 
+Equality with `SmallFloat`:
+
+```
+>>> 1n = 1
+true
+```
+
 * * *
 
 See also: Binary, Integer, Magnitude, Number, SmallFloat

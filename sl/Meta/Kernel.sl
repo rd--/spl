@@ -11,6 +11,7 @@
 
 	{- Collection Traits -}
 	'PrimitiveSequence'
+	'ArithmeticProgression'
 	'Collection' {- > Object -}
 	'Extensible'
 	'Dictionary'

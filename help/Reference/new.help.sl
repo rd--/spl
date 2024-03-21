@@ -1,8 +1,9 @@
 # new
 
 - _new(aBlock:/0)_ ⟹ _aBlock()_
+- _new(aBlock:/1, anObject)_ ⟹ _aBlock(anObject)_
 
-Implements the Smalltalk idiom _aCollection.species.new()_.
+The unary form implements the Smalltalk idiom _aCollection.species.new()_.
 
 ```
 >>> Set().species
@@ -12,9 +13,7 @@ Set:/0
 Set()
 ```
 
-- _new(aBlock:/1, anObject)_ ⟹ _aBlock(anObject)_
-
-Implements the Smalltalk idiom _aCollection.species.new(aSize)_.
+The binary form implements the Smalltalk idiom _aCollection.species.new(aSize)_.
 
 ```
 >>> [].species

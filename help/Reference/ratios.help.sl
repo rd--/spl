@@ -36,6 +36,7 @@ See also: /, differences, geometricSeries, powerRange, scanLeft
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Ratios.html)
+[1](https://mathworld.wolfram.com/CommonRatio.html)
+[2](https://reference.wolfram.com/language/ref/Ratios.html)
 
 Categories: Math

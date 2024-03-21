@@ -2,6 +2,10 @@
 
 CentsTuning : [Object, Tuning] { | name description asCents octave |
 
+	= { :self :anObject |
+		self.hasEqualSlots(anObject)
+	}
+
 	asRatios { :self |
 		self.asCents.collect(centsToRatio:/1)
 	}

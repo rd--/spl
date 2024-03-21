@@ -524,6 +524,28 @@
 		answer
 	}
 
+	multiplicativeOrder { :k :n :r |
+		(n = 1).if {
+			1
+		} {
+			k.isCoprime(n).if {
+				let m = k.one;
+				{
+					r.includes(k ^ m % n)
+				}.whileFalse {
+					m := m + 1
+				};
+				m
+			} {
+				nil
+			}
+		}
+	}
+
+	multiplicativeOrder { :k :n |
+		k.multiplicativeOrder(n, [1])
+	}
+
 	modularInverse { :a :n |
 		let t = 0;
 		let t1 = 1;
