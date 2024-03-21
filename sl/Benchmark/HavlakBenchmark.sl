@@ -463,17 +463,17 @@ SimpleLoop : [Object] { | counter depthLevel parent isRoot nestingLevel header i
 		self.basicBlocks := Set();
 		self.children := Set();
 		aBB.ifNotNil {
-			self.basicBlocks.include(aBB)
+			self.basicBlocks.basicInclude(aBB)
 		};
 		self
 	}
 
 	addNode { :self :bb |
-		self.basicBlocks.include(bb)
+		self.basicBlocks.basicInclude(bb)
 	}
 
 	addChildLoop { :self :loop |
-		self.children.include(loop)
+		self.children.basicInclude(loop)
 	}
 
 	setParent { :self :value |

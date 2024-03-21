@@ -23,11 +23,19 @@ The `tuningIndices` of a scale are the indices into a `Tuning` of the required s
 [1 3 5 6 8 10 12]
 ```
 
+`degreeToKey` indexes a scale by _degree_:
+
+```
+>>> let s = Scale(1, [2 2 1 2 2 2 1], 'Major');
+>>> s.degreeToKey(1:7)
+[1 3 5 6 8 10 12]
+```
+
 The file _modename.par_ in the [Scala](https://www.huygens-fokker.org/scala/) distribution includes many scales.
 
 * * *
 
-See also: Tuning
+See also: degreeToKey, Tuning
 
 References:
 _Scala_

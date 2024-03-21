@@ -1,5 +1,15 @@
 Scale : [Object] { | startIndex intervals description |
 
+	degreeToKey { :self :degree |
+		degree.isCollection.if {
+			degree.collect { :each |
+				self.fractionalDegreeToKey(each)
+			}
+		} {
+			self.fractionalDegreeToKey(degree)
+		}
+	}
+
 	fractionalDegreeToKey { :self :scaleDegree |
 		let accidental = (scaleDegree.fractionPart * 10).rounded;
 		(accidental > 5).ifTrue {

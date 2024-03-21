@@ -6,13 +6,10 @@
 
 ## Blob
 ```
-[1 .. 9].ByteArray.Blob.size = 9 {- size of Blob -}
-[65 .. 69].ByteArray.Blob.text.then { :answer | (answer = 'ABCDE').postLine }; true {- Blob text -}
 ```
 
 ## Compatibility
 ```
-| n = 0; | (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value | n := n + value }; n = 6 {- iterate over keys and values -}
 ```
 
 ## Cons -- collection type
@@ -37,7 +34,6 @@ Cons([1 .. 9]).length = 9
 
 ## String -- markdown
 ```
-'# A Heading'.markdownToHtml.lines[1] = '<h1>A Heading</h1>'
 ```
 
 ## SmallHours

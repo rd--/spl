@@ -1,6 +1,6 @@
 # hammingDistance
 
-_hammingDistance(u, v)_
+- _hammingDistance(u, v)_
 
 Answer the Hamming distance between vectors _u_ and _v_.
 
@@ -38,6 +38,23 @@ The hammingDistance is greater than or equal to _editDistance_:
 4
 
 >>> 'bccbbcb'.editDistance('ccbcccb')
+3
+```
+
+The number of places at which element differs:
+
+```
+>>> [0 0 0 1 1 1].hammingDistance([0 0 1 1 0 0])
+3
+```
+
+If either side has fewer elements, includes the difference:
+
+```
+>>> [0 0 0 1 1 1].hammingDistance([0 0 1 1 0])
+3
+
+>>> [0 0 0 1 1].hammingDistance([0 0 1 1 0 0])
 3
 ```
 

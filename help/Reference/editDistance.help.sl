@@ -1,6 +1,6 @@
 # editDistance
 
-_editDistance(u, v)_
+- _editDistance(u, v)_
 
 Answer the edit or Levenshtein distance between vectors _u_ and _v_.
 
@@ -32,7 +32,7 @@ Compute distance between any strings of equal length:
 11
 ```
 
-editDistance is less than or equal to _hammingDistance_ for strings of equal length:
+`editDistance` is less than or equal to `hammingDistance` for strings of equal length:
 
 
 ```
@@ -49,4 +49,7 @@ See also: editDistance, levenshteinDistance, manhattanDistance
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/HammingDistance.html)
+[1](https://reference.wolfram.com/language/ref/EditDistance.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Levenshtein_distance)
+

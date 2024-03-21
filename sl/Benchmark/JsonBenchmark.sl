@@ -464,7 +464,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 			self.error('input nil')
 		};
 		(self.index <= self.input.size).if {
-			self.current := self.input[self.index].string
+			self.current := self.input[self.index].asString
 		} {
 			self.current := nil
 		}

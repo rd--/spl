@@ -30,26 +30,17 @@ let t = [63, 72, 84, 98, 112].asJiTuning; t.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
 let t = [63, 72, 84, 98, 112].asJiTuning; t.asCents.rounded = [0, 231, 498, 765, 996]
 let r = [1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/63, 112]
 [1, 8/7, 4/3, 14/9, 16/9] / 1/63 = [63, 72, 84, 98, 112]
-[1, 8/7, 4/3, 14/9, 16/9].asJiTuning.integers = [63, 72, 84, 98, 112]
-[63, 72, 84, 98, 112].asJiTuning.ratios = [1, 8/7, 4/3, 14/9, 16/9]
-[1, 3].asJiTuning.ratios = [1, 3]
+[1, 8/7, 4/3, 14/9, 16/9].asJiTuning.asIntegers = [63, 72, 84, 98, 112]
+[63, 72, 84, 98, 112].asJiTuning.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
+[1, 3].asJiTuning.asRatios = [1, 3]
 ```
 
 ## Music-RatioTuning
 ```
-let r = RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2); [r.size, r.limit, r.cents.rounded] = [5, 7, [0, 231, 498, 765, 996]]
-RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2).integers =  [63 72 84 98 112]
-IntegerTuning('', '', [63 72 84 98 112], 2).ratios = [1/1 8/7 4/3 14/9 16/9]
+let r = RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2); [r.size, r.limit, r.asCents.rounded] = [5, 7, [0, 231, 498, 765, 996]]
+RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2).asIntegers =  [63 72 84 98 112]
+IntegerTuning('', '', [63 72 84 98 112], 2).asRatios = [1/1 8/7 4/3 14/9 16/9]
 RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2) = IntegerTuning('', '', [63 72 84 98 112], 2)
-```
-
-## Music-Scale
-```
-let s = Scale(1, [2 2 1 2 2 2 1], 'Major'); 1:7.collect { :degree | s.integerDegreeToKey(degree, 0) } = [1 3 5 6 8 10 12]
-let s = Scale(1, [2 2 1 2 2 2 1], 'Major'); [1 1.sharp 2 2.sharp 3 4 4.sharp 5 5.sharp 6 6.sharp 7].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
-let s = Scale(1, [2 2 1 2 2 2 1], 'Major'); [1 2.flat 2 3.flat 3 4 5.flat 5 6.flat 6 7.flat 7].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
-let s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); [1 2.flat 2 3 3.sharp 4 5.flat 5 6 6.sharp 7 7.sharp].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
-let s = Scale(1, [2 1 2 2 1 2 2], 'Minor'); [1 2.flat 2 3 3.cancelFlat 4 5.flat 5 6 6.cancelFlat 7 7.cancelFlat].collect { :degree | s.fractionalDegreeToKey(degree) } = [1 .. 12]
 ```
 
 ## Music-Pitch
@@ -127,16 +118,6 @@ let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
 [1, 2, 4, 5, 7, 8].separate { :a :b | (b - a) > 1 } = [[1, 2], [4, 5], [7, 8]]
 [1, 3, 5].stutter(3) = [1, 1, 1, 3, 3, 3, 5, 5, 5]
 1:5.duplicateEach(2) = [1 1 2 2 3 3 4 4 5 5]
-[0, 0, 0, 1, 1, 1].hammingDistance([0, 0, 1, 1, 0, 0]) = 3 {- number places at which element differs -}
-[0, 0, 0, 1, 1, 1].hammingDistance([0, 0, 1, 1, 0]) = 3 {- rhs has fewer elements, includes difference -}
-[0, 0, 0, 1, 1].hammingDistance([0, 0, 1, 1, 0, 0]) = 3 {- lhs has fewer elements, includes difference -}
-[1, 2, 3].levenshteinDistance([1, 2, 3]) = 0 {- identity -}
-[1, 2, 3].levenshteinDistance([1, 2, -3]) = 1 {- substitution (at end) -}
-[1, 2, 3].levenshteinDistance([1, 2]) = 1 {- deletion (from end) -}
-[1, 2].levenshteinDistance([1, 2, 3]) = 1 {- addition (at end) -}
-[1, 3].levenshteinDistance([1, 2, 3]) = 1 {- addition (in interior) -}
-[1, 2, 3].levenshteinDistance([1, 3]) = 1 {- deletion (from interior) -}
-[1, 2, 3].levenshteinDistance([1, 3, 2]) = 2 {- substitutions -}
 [1 .. 4].similarity([1 .. 4]) = 1 {- similarity based on Levenshtein distance (1 = equal) -}
 [1 .. 4].similarity([5 .. 8]) = 0 {- similarity based on Levenshtein distance (0 = unequal) -}
 [1 .. 4].similarity([1 3 2 4]) = 0.5 {- similarity based on Levenshtein distance -}

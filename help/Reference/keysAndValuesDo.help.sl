@@ -6,9 +6,22 @@ Apply _aBlock_ to each `key` and `value` of _aDictionary_.
 
 ```
 >>> let list = [];
->>> (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value | list.addAll([key, value]) };
+>>> (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value |
+>>> 	list.addAll([key, value])
+>>> };
 >>> list
 ['x' 1 'y' 2 'z' 3]
+```
+
+Iterate over keys and values:
+
+```
+>>> let n = 0;
+>>> (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value |
+>>> 	n := n + value
+>>> };
+>>> n
+6
 ```
 
 * * *

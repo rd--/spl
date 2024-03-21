@@ -30,6 +30,14 @@ At `List`, joins multiple parts together:
 (2, 9, '')
 ```
 
+Fetch text from `Blob`:
+
+~~~
+[65 .. 69].asByteArray.asBlob.text.then { :answer |
+	answer.postLine
+}
+~~~
+
 * * *
 
 See also: Blob
