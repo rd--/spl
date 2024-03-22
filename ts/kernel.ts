@@ -678,6 +678,17 @@ export function shiftRight(lhs: number, rhs: number): number {
 	return lhs >> rhs;
 }
 
+export function signExponentMantissa(x: number): number[] {
+	const float = new Float64Array(1);
+	const bytes = new Uint8Array(float.buffer);
+	float[0] = x;
+	const sign = bytes[7] >> 7;
+	const exponent = ((bytes[7] & 0x7f) << 4 | bytes[6] >> 4) - 0x3ff;
+	bytes[7] = 0x3f;
+	bytes[6] |= 0xf0;
+	return [sign, exponent, float[0]];
+}
+
 /* spl = one-indexed.  The index is not decremented because in Js '1' - 1 is 0 &etc. */
 export function arrayCheckIndex(
 	anArray: unknown[],

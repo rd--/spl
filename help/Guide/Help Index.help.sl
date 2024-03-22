@@ -148,9 +148,16 @@
 - `^`, `exp`, `log`, `log2`, `log10`
 - `cubeRoot`, `sqrt`, `nthRoot`
 
+## Floating Point
+
+- `asFloat`, `SmallFloat`
+- `fromSignExponentMantissa`, `signExponentMantissa`
+
 ## Fractions, Rational Numbers
 
+- `asFraction`, `Fraction`
 - `denominator`, `numerator`
+- `limitDenominator`
 
 ## Functional Programming
 

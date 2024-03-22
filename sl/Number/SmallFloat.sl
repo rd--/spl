@@ -481,6 +481,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.sign(_self);>
 	}
 
+	signExponentMantissa { :self |
+		<primitive: return sl.signExponentMantissa(_self);>
+	}
+
 	sin { :self |
 		<primitive: return Math.sin(_self)>
 	}
@@ -587,6 +591,14 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			self.matchesRegExp('^[0-9e.+-]+$')
 		};
 		self.basicParseNumber
+	}
+
+}
+
++List {
+
+	fromSignExponentMantissa { :self |
+		(-1 ^ self[1]) * (2 ^ self[2]) * self[3]
 	}
 
 }
