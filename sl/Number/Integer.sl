@@ -2,10 +2,6 @@
 
 @Integer {
 
-	! { :self |
-		self.factorial
-	}
-
 	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
 		aFraction.aBlock(Fraction(self, self.one))
 	}
@@ -462,12 +458,6 @@
 
 	isInteger { :self |
 		self.typeResponsibility('@Integer>>isInteger')
-	}
-
-	isNonNegativeInteger { :self |
-		self.isInteger & {
-			self.isNonNegative
-		}
 	}
 
 	isPerfectNumber { :self |

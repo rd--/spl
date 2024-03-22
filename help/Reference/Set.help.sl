@@ -4,6 +4,7 @@
 
 A collection of objects without duplicates.
 The comparison operator is `==`, not `=`, i.e. `Set` is an identity set, not an equality set.
+
 The empty set constructor:
 
 ```
@@ -24,5 +25,9 @@ Note:
 * * *
 
 See also: asSet, add, Bag, isSet, List
+
+References:
+_Smalltalk_
+5.7.7
 
 Categories: Collection, Type

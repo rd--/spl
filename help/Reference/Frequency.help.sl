@@ -1,25 +1,47 @@
 # Frequency
 
-A type to represent the number of occurrences of a repeating event per unit of time.
-Frequency (f) is measured in hertz (Hz) which is equal to the number of events per second.
-The period (T) is the interval of time between events, the reciprocal of the frequency.
+A `Type` to represent the number of occurrences of a repeating event per unit of time.
+`Frequency` (_f_) is measured in `hertz` (_Hz_) which is equal to the number of events per second.
+The period (_T_) is the interval of time between events, the reciprocal of the frequency.
 
-Frequencies are constructed from _Number_ values using the method _hertz_:
+Frequencies are constructed from `Number` values using the methods `hertz`, `kilohertz` and `megaherz`:
 
 ```
->>> 3.hertz.isFrequency
-true
+>>> 3000.hertz
+3.kilohertz
 ```
 
 Frequencies are queried using the same methods:
 
 ```
->>> 3.kilohertz.hertz
-3000
+>>> 3000.hertz.kilohertz
+3
+```
+
+The `asHertz` method is `hertz` at `Frequency` and `identity` at `Number`:
+
+```
+>>> 440.asHertz
+440
+```
+
+Frequency is a _derived quantity_ in the _International System of Quantities_,
+and _hertz_ is a _derived unit_ in the _International System of Units_.
+
+A `Frequency` can be converted into a `Duration`, which gives the length of time of one cycle:
+
+```
+>>> 440.hertz.asDuration
+(1 / 440).seconds
 ```
 
 * * *
 
-See also: Duration
+See also: asHertz, Duration, hertz
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/International_System_of_Quantities)
+[2](https://en.wikipedia.org/wiki/International_System_of_Units)
 
 Categories: Temporal, Type

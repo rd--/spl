@@ -25,7 +25,7 @@ There are equivalent methods for `Angle` (`asRadians`) and `Frequency` (`asHertz
 
 * * *
 
-See also: Duration, seconds
+See also: asHertz, asMeters, asRadians, Duration, Frequency, seconds
 
 References:
 _Smalltalk_

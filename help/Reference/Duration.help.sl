@@ -3,14 +3,14 @@
 A `Type` to represent an interval of time.
 The base unit of time in the International System of Units (SI) is the second.
 
-Durations are constructed from `Number` values using the methods `milliseconds`, `seconds`, `minutes`, `hours`, `days`, `weeks`:
+Durations are constructed from `Number` values using the methods `milliseconds`, `centiseconds`, `seconds`, `minutes`, `hours`, `days`, `weeks`:
 
 ```
 >>> 3.centiseconds
 30.milliseconds
 
 >>> 3.seconds
-3000.milliseconds
+300.centiseconds
 
 >>> 3.minutes
 180.seconds
@@ -23,12 +23,16 @@ Durations are constructed from `Number` values using the methods `milliseconds`,
 
 >>> 3.weeks
 21.days
+```
 
->>> 1.siderealMonths.days.rounded
-27
+There are also calendrical units `siderealMonths`, `synodicMonths` and `julianYears`:
 
->>> 1.synodicMonths.days.rounded
-30
+```
+>>> 1.siderealMonths
+27.3217.days
+
+>>> 1.synodicMonths
+29.5306.days
 
 >>> 1.julianYears
 365.25.days
@@ -50,8 +54,22 @@ Durations are queried using the same methods:
 21
 ```
 
+Durations can be summed:
+
+```
+>>> 3.weeks + 4.days
+25.days
+```
+
+A `Duration` can be parsed from a `String` in ISO-8601 format using `parseDuration`:
+
+```
+>>> 'P3W4D'.parseDuration
+3.weeks + 4.days
+```
+
 * * *
 
-See also: asSeconds, Date, Frequency, TimeStamp
+See also: asSeconds, Date, Frequency, parseDuration, TimeStamp
 
 Categories: Temporal, Type

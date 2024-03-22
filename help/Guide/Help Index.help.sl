@@ -119,6 +119,13 @@
 
 - `divisors`, `divisorSigma`, `divisorSum`
 
+## Duration Functions
+
+- `asSeconds`, `parseDuration`
+- `milliseconds`, `centiseconds`, `seconds`
+- `minutes`, `hours`, `days`, `weeks`
+- `siderealMonths`, `synodicMonths`, `julianYears`
+
 ## Enumerating
 
 - `indices`, `shapeIndices`

@@ -101,6 +101,7 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/bang#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/BinomialCoefficient.html)
-[2](https://reference.wolfram.com/language/ref/Binomial.html),
+[2](https://mathworld.wolfram.com/Choose.html)
+[3](https://reference.wolfram.com/language/ref/Binomial.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Binomial_coefficient)

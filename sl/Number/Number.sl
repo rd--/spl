@@ -20,6 +20,10 @@
 		e ^ self
 	}
 
+	! { :self |
+		self.factorialOrGamma
+	}
+
 	// { :self :aNumber |
 		self.quotient(aNumber)
 	}
@@ -208,6 +212,14 @@
 		self * 0.577215664901532860606512090082402431042
 	}
 
+	factorialOrGamma { :self |
+		self.isNonNegativeInteger.if {
+			self.factorial
+		} {
+			(1 + self).gamma
+		}
+	}
+
 	factorialPower { :self :anInteger |
 		(self - (0 .. anInteger - 1)).product
 	}
@@ -270,6 +282,12 @@
 
 	isNonNegative { :self |
 		self >= self.zero
+	}
+
+	isNonNegativeInteger { :self |
+		self.isInteger & {
+			self.isNonNegative
+		}
 	}
 
 	isNonPositive { :self |

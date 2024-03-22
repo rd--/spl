@@ -18,6 +18,16 @@ The `product` of `one` up to _anInteger_.
 25852016738884976640000n
 ```
 
+Number of permutations of 6 elements:
+
+```
+>>> 1:6.permutations.size
+720
+
+>>> 6.factorial
+720
+```
+
 Exact `LargeInteger` and inexact `SmallFloat` results for 30!:
 
 ```

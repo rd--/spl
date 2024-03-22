@@ -3579,6 +3579,8 @@ whose elements can be added or removed, but cannot be individually
 accessed by external keys. A bag is similar to a set but can contain duplicate
 elements. Elements are duplicates if they are equivalent.
 
+Cf: Bag
+
 ### 5.7.6.2
 
 *Message*: add: newElement withOccurrences: count

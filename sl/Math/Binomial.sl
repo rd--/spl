@@ -40,6 +40,10 @@
 		(self.one / (self + 1)) * (2 * self).binomial(self)
 	}
 
+	multichoose { :n :k |
+		[n - 1, k].multinomial
+	}
+
 	partitionFunctionP { :self :anInteger |
 		let p = { :n :k |
 			(k > n).if {
@@ -86,7 +90,7 @@
 +@Collection {
 
 	multinomial { :self |
-		self.sum.factorial / self.factorial.product
+		self.sum.factorialOrGamma / self.factorialOrGamma.product
 	}
 
 }

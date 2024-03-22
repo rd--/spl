@@ -18,12 +18,12 @@
 		self.collect(reciprocal:/1)
 	}
 
-	^ { :self |
-		e ^ self
+	! { :self |
+		self.collect(factorialOrGamma:/1)
 	}
 
-	! { :self |
-		self.collect(factorial:/1)
+	^ { :self |
+		e ^ self
 	}
 
 	abs { :self |
@@ -104,6 +104,10 @@
 
 	factorial { :self |
 		self.collect(factorial:/1)
+	}
+
+	factorialOrGamma { :self |
+		self.collect(factorialOrGamma:/1)
 	}
 
 	floor { :self |

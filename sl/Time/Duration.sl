@@ -1,33 +1,39 @@
-Duration : [Object, Magnitude] { | milliseconds |
+Duration : [Object, Magnitude] { | seconds |
 
 	= { :self :anObject |
 		anObject.isDuration & {
-			self.milliseconds = anObject.milliseconds
+			self.seconds = anObject.seconds
+		}
+	}
+
+	~ { :self :anObject |
+		anObject.isDuration & {
+			self.seconds ~ anObject.seconds
 		}
 	}
 
 	< { :self :aDuration |
-		self.milliseconds < aDuration.asDuration.milliseconds
+		self.seconds < aDuration.asDuration.seconds
 	}
 
 	* { :self :aNumber |
-		(self.milliseconds * aNumber).milliseconds
+		(self.seconds * aNumber).seconds
 	}
 
 	/ { :self :aNumber |
-		(self.milliseconds / aNumber).milliseconds
+		(self.seconds / aNumber).seconds
 	}
 
 	+ { :self :aDuration |
-		(self.milliseconds + aDuration.asDuration.milliseconds).milliseconds
+		(self.seconds + aDuration.asDuration.seconds).seconds
 	}
 
 	- { :self :aDuration |
-		(self.milliseconds - aDuration.asDuration.milliseconds).milliseconds
+		(self.seconds - aDuration.asDuration.seconds).seconds
 	}
 
 	abs { :self |
-		self.milliseconds.abs.milliseconds
+		self.seconds.abs.seconds
 	}
 
 	asDuration { :self |
@@ -39,7 +45,7 @@ Duration : [Object, Magnitude] { | milliseconds |
 	}
 
 	centiseconds { :self |
-		self.milliseconds / 10
+		self.seconds * 10
 	}
 
 	days { :self |
@@ -51,19 +57,19 @@ Duration : [Object, Magnitude] { | milliseconds |
 	}
 
 	isZero { :self |
-		self.milliseconds = 0
+		self.seconds = 0
+	}
+
+	milliseconds { :self |
+		self.seconds * 1000
 	}
 
 	minutes { :self |
 		self.seconds / 60
 	}
 
-	seconds { :self |
-		self.milliseconds / 1000
-	}
-
 	storeString { :self |
-		self.milliseconds.storeString ++ '.milliseconds'
+		self.seconds.storeString ++ '.seconds'
 	}
 
 	weeks { :self |
@@ -107,7 +113,7 @@ Duration : [Object, Magnitude] { | milliseconds |
 	}
 
 	milliseconds { :self |
-		newDuration().initializeSlots(self)
+		(self / 1000).seconds
 	}
 
 	minutes { :self |
@@ -115,7 +121,7 @@ Duration : [Object, Magnitude] { | milliseconds |
 	}
 
 	seconds { :self |
-		(self * 1000).milliseconds
+		newDuration().initializeSlots(self)
 	}
 
 	siderealMonths { :self |

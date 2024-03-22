@@ -18,6 +18,10 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 		}
 	}
 
+	asFractions { :self |
+		self.asRatios
+	}
+
 	asIntegers { :self |
 		(self.asRatios / self.asRatios.reduce(gcd:/2)).collect(asInteger:/1)
 	}

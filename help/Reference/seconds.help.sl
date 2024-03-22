@@ -1,8 +1,9 @@
 # seconds
 
-- _seconds(aDuration)_
+- _seconds(aDuration | aNumber)_
 
-Answer the number of complete seconds in the _aDuration_.
+Answer the number of complete seconds in _aDuration_,
+or construct a `Duration` value holding _aNumber_ seconds.
 
 ```
 >>> 5.minutes.seconds
@@ -10,11 +11,14 @@ Answer the number of complete seconds in the _aDuration_.
 
 >>> 3.hours.seconds
 (3 * 60 * 60)
+
+>>> 180.seconds
+3.minutes
 ```
 
 * * *
 
-See also: Duration, hours, milliseconds, minutes
+See also: asSeconds, Duration, hours, milliseconds, minutes
 
 References:
 _Smalltalk_

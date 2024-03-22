@@ -3,7 +3,9 @@
 - _aNumber.!_
 - _anObject ! (anInteger | aSequence)_
 
-The unary form answers the `factorial` of _aNumber_:
+The unary form answers the `factorial` of _aNumber_ if it is a non-negative integer, else answers `gamma`:
+
+At integral `SmallFloat` and `LargeInteger`:
 
 ```
 >>> 9.!
@@ -11,8 +13,35 @@ The unary form answers the `factorial` of _aNumber_:
 
 >>> 1:9.!
 [1 2 6 24 120 720 5040 40320 362880]
+
+>>> 25n.!
+15511210043330985984000000n
 ```
 
+Evaluate at real values:
+
+```
+>>> 1.5.!
+1.32934
+
+>>> (22 / 10).!
+2.42397
+```
+
+Plot over a subset of the reals:
+
+~~~
+(-5 -- 5).discretize(100) { :x | x.!.clip(-10, 10) }.plot
+~~~
+
+Plot the volume of the unit hypersphere as a function of dimension:
+
+~~~
+let f = { :n | pi ^ (n / 2) / (n / 2).! };
+0:25.collect { :n | f(n) }.plot
+~~~
+
+In the binary case there two meanings depending on the type of the operand.
 In the `Integer` case,
 evaluate _value(anObject)_ _anInteger_ times and collect the results into a `List`.
 
