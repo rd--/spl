@@ -48,7 +48,9 @@ See also: *, injectInto, reduce, sum
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Product.html)
+[1](https://reference.wolfram.com/language/ref/Product.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Empty_product)
 
 Unicode: U+03A0 Π Greek capital letter pi
 

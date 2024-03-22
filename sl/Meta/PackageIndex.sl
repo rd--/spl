@@ -103,6 +103,7 @@
 	'Music-Scale'
 	'Music-Tuning'
 	'Music-TuningLattice'
+	'Music-Xenharmonic'
 	'Navigator-Dom'
 	'Navigator-Midi'
 	'Navigator-Svg'

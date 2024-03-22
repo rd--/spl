@@ -22,11 +22,13 @@ The `characterString` method retrieves the single element string:
 'x'
 ```
 
-Characters are cached on construction, and are therefore identical.
+Characters are cached on construction, and therefore equal charactres are identical.
 
 ```
->>> 'x'.asCharacter == 120.asCharacter
-true
+>>> let c1 = 'x'.asCharacter;
+>>> let c2 = 120.asCharacter;
+>>> (c1 = c2, c1 == c2)
+(true, true)
 ```
 
 There is no literal syntax for characters.

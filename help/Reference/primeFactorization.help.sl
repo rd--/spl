@@ -5,6 +5,9 @@
 Answer a `Bag` giving the prime factors of `anInteger` and their multiplicities (exponents).
 
 ```
+>>> 21.primeFactorization
+[3 7].asBag
+
 >>> 36.primeFactorization
 [2 2 3 3].asBag
 
@@ -43,6 +46,10 @@ Powerful numbers are numbers whose prime factors are all repeated:
 >>> 324.isPowerfulNumber
 true
 ```
+
+_Rationale_:
+Not implemented at `Fraction` since the usual notation is for the exponent to be negative for factors of the denominator,
+and a `Bag` cannot have negative counts.
 
 * * *
 

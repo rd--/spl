@@ -5,10 +5,14 @@
 	factorInteger { :self |
 		self.isNegative.if {
 			let answer = self.negated.factorInteger;
-			answer.addFirst(-1 -> -1);
+			answer.addFirst(-1 -> 1);
 			answer
 		} {
-			self.primeFactorization.sortedElements
+			self.isZero.if {
+				[0 -> 1]
+			} {
+				self.primeFactorization.sortedElements
+			}
 		}
 	}
 
@@ -146,6 +150,10 @@
 		}
 	}
 
+	primeFactorization { :self |
+		self.primeFactors.asBag
+	}
+
 	primeFactors { :self |
 		(self <= 1).if {
 			[]
@@ -175,10 +183,6 @@
 				answer
 			}
 		}
-	}
-
-	primeFactorization { :self |
-		self.primeFactors.asBag
 	}
 
 	primeNu { :self |

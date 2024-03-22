@@ -2,7 +2,7 @@
 
 - _key -> value_ ⇒ _Association(key, value)_
 
-The _->_ operator creates as Association object associating _key_ with _value_.
+The _->_ operator creates as `Association` object associating _key_ with _value_.
 
 ```
 >>> 1 -> 2

@@ -14,4 +14,4 @@ false
 
 * * *
 
-See also: asRatios, gCentsTuning, RatioTuning, Tuning
+See also: asRatios, CentsTuning, RatioTuning, Tuning

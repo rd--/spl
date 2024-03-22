@@ -14,6 +14,12 @@ There are 1200 cents in an octave.
 
 >>> 386.3.centsToRatio.asFraction
 5/4
+
+>>> 702.centsToRatio
+3/2
+
+>>> 2 ^ (702 / 1200)
+3/2
 ```
 
 Threads over lists:
@@ -29,6 +35,9 @@ See also: asFraction, centsToRatio, Tuning
 
 References:
 _W_
-[1](https://en.wikipedia.org/wiki/Cent_(music))
+[1](https://en.wikipedia.org/wiki/Cent_(music)),
+_Xenharmonic_
+[1](https://en.xen.wiki/w/Cent)
+[2](https://en.xen.wiki/w/Ratio)
 
 Categories: Converting, Tuning

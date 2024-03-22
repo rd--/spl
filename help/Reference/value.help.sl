@@ -1,6 +1,6 @@
 # value
 
-- _value(anObject | aBlock:/0)_
+- _value(anAssociation | anObject | aBlock:/0)_
 - _value(aBlock:/1, anObject)_
 - _value(aBlock:/n, anObject, ...)_
 
@@ -8,6 +8,13 @@ The unary form answers the answer of _aBlock_:
 
 ```
 >>> { 23 }.value
+23
+```
+
+or the value at an `Association`:
+
+```
+>>> ('w' -> 23).value
 23
 ```
 
@@ -51,7 +58,7 @@ The ternary and quaternary forms answer the result of _aBlock(anObject, ...)_.
 
 * * *
 
-See also: also, cull, identity, Value Protocol, with
+See also: also, Association, Block, cull, identity, Value Protocol, with
 
 References:
 _Smalltalk_

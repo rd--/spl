@@ -16,6 +16,7 @@ Ordinarily the two (octave) column is elided, and the first column is three (per
 
 If _primes_ does not contain all of the factors for _aFraction_ signal an `error`:
 
+```
 >>> { 17/13.latticeVector([3 5 7 11 13]) }.ifError { true }
 true
 

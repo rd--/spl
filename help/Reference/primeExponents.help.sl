@@ -1,6 +1,6 @@
 # primeExponents
 
-- _primeExponents(anInteger)
+- _primeExponents(anInteger)_
 
 Primes exponents in the factorization of `anInteger`.
 

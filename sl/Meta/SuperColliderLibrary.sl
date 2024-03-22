@@ -7,6 +7,7 @@
 	'JiTuning'
 	'Pitch'
 	'Scale'
+	'Xenharmonic'
 
 	{- Sound -}
 	'Wavetable'
