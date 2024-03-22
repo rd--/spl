@@ -1,13 +1,13 @@
 # asFraction
 
-- _asFraction(aSmallFloat, anInteger)_
-- _asFraction(α)_ ⇒ _asFraction(α, 100)_
+- _asFraction(aSmallFloat, epsilon)_
+- _asFraction(α)_ ⇒ _asFraction(α, 0.0001)_
 
-Derive a `Fraction` that approximates a floating point number given a maxima for the denominator.
+Derive a `Fraction` that approximates a floating point number given an error bound.
 
 ```
->>> 1:3.collect { :n | 1.pi.asFraction(10 ^ n) }
-[22/7 311/99 2862/911]
+>>> pi.asFraction(1E-5)
+355/113
 
 >>> 6.75.asFraction
 27/4
@@ -16,16 +16,23 @@ Derive a `Fraction` that approximates a floating point number given a maxima for
 Find rational approximations to within a given tolerance:
 
 ```
->>> pi.asFraction(7)
+>>> pi.asFraction(0.01)
 22/7
 
->>> 2.sqrt.exp.asFraction(53)
+>>> 2.sqrt.exp.asFraction(0.0001)
 218/53
+```
+
+Successive rational approximations to :
+
+```
+>>> -1:-10.collect { :n | 1.pi.asFraction(10 ^ n) }
+[16/5 22/7 201/64 333/106 355/113 355/113 75948/24175 100798/32085 103993/33102 312689/99532]
 ```
 
 * * *
 
-See also: asFloat, asInteger, asNumber, convergents, limitDenominator
+See also: asFloat, asInteger, asNumber, continuedFraction, convergents, limitDenominator
 
 References:
 _Mathematica_

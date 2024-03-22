@@ -398,6 +398,33 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 +SmallFloat {
 
 	asApproximateFraction { :self :epsilon |
+		self.rationalize
+	}
+
+	asFractionOver { :self :denominator |
+		self.isSmallInteger.if {
+			ReducedFraction(self, 1)
+		} {
+			Fraction(
+				(self * denominator).rounded,
+				denominator
+			)
+		}
+	}
+
+	asFraction { :self |
+		self.asFraction(1E-4)
+	}
+
+	asFraction { :self :epsilon |
+		self.isSmallInteger.if {
+			ReducedFraction(self, 1)
+		} {
+			self.rationalize(epsilon)
+		}
+	}
+
+	rationalize { :self :epsilon |
 		let c = self.continuedFraction(16);
 		let l = c.semiconvergents;
 		valueWithReturn { :return:/1 |
@@ -410,21 +437,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
-	asFraction { :self |
-		self.asFraction(100)
-	}
-
-	asFraction { :self :maxDenominator |
-		self.isSmallInteger.if {
-			ReducedFraction(self, 1)
-		} {
-			let k = 10 ^ (maxDenominator.log10.ceiling + 1);
-			Fraction(
-				(self * k).rounded,
-				k
-			).limitDenominator(maxDenominator)
-		}
-	}
 
 }
 

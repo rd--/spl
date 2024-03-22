@@ -2,12 +2,12 @@
 
 - _limitDenominator(aFraction, anInteger)_
 
-Find the nearest approximation to _aFraction_ that has a denominator less than or equal to the indicated maximum, _anInteger_.
+Find the nearest approximation to _aFraction_ that has a denominator less than or equal to _anInteger_.
 
 ```
->>> let r = Fraction(3141592653589793, 1E15);
->>> r.limitDenominator(1E4)
-355/113
+>>> let r = pi.asFractionOver(1E6);
+>>> (r, r.limitDenominator(1E4))
+(3141593/1000000, 355/113)
 
 >>> 355/113.limitDenominator(1E1)
 22/7
@@ -17,18 +17,18 @@ Recover a rational number that’s represented as a float:
 
 ```
 >>> let n = (pi / 3).cos;
->>> let r = n.asFraction(1E32);
+>>> let r = n.asFractionOver(1E23);
 >>> (r, r.limitDenominator(1E6))
-(3469446951953615/6938893903907229, 1/2)
+(1490116119384765/2980232238769531, 1/2)
 
->>> let r = 1.1.asFraction(1E32);
+>>> let r = 1.1.asFractionOver(1E23);
 >>> (r, r.limitDenominator(1E6))
-(693889390390723/630808536718839, 11/10)
+(6556510925292969/5960464477539062, 11/10)
 ```
 
 * * *
 
-See also: asFraction
+See also: asFraction, asFractionOver, rationalize
 
 References:
 _Python_

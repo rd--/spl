@@ -157,7 +157,7 @@
 	}
 
 	continuedFraction { :self |
-		self.continuedFraction(inf)
+		self.continuedFraction(24)
 	}
 
 	copySignTo { :self :aNumber |
