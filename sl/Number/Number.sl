@@ -143,17 +143,21 @@
 		let f = self - i;
 		{
 			(limit > 1) & {
-				f ~= 0
+				f.veryCloseTo(0).not
 			}
 		}.whileTrue {
 			answer.add(i);
 			f := 1 / f;
 			i := f.floor;
 			f := f - i;
-			limit := limit -1
+			limit := limit - 1
 		};
 		answer.add(i);
 		answer
+	}
+
+	continuedFraction { :self |
+		self.continuedFraction(inf)
 	}
 
 	copySignTo { :self :aNumber |

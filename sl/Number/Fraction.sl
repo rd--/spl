@@ -397,6 +397,19 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 +SmallFloat {
 
+	asApproximateFraction { :self :epsilon |
+		let c = self.continuedFraction(16);
+		let l = c.semiconvergents;
+		valueWithReturn { :return:/1 |
+			l.do { :r |
+				((self - r).abs < epsilon).ifTrue {
+					r.return
+				}
+			};
+			l.last
+		}
+	}
+
 	asFraction { :self |
 		self.asFraction(100)
 	}

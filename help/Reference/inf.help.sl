@@ -5,9 +5,12 @@ A constant representing floating point infinity.
 ```
 >>> inf > 0
 true
+
+>>> inf - 1
+inf
 ```
 
-Infinity is a SmallFloat value:
+Infinity is a `SmallFloat` value:
 
 ```
 >>> inf.isSmallFloat

@@ -1,21 +1,31 @@
 # continuedFraction
 
 - _continuedFraction(aNumber, anInteger)_
+- _continuedFraction(alpha)_ => _continuedFraction(alpha, inf)_
 
-Answer a list of the first _anInteger_ terms in the continued fraction representation of _aNumber_.
+Answer a list of at most the first _anInteger_ terms in the continued fraction representation of _aNumber_.
 
 Rational number as `SmallFloat`:
 
 ```
->>> (47 / 17).continuedFraction(9)
+>>> (47 / 17).continuedFraction(4)
 [2 1 3 4]
+
+>>> 2 + (1 / (1 + (1 / (3 + 1/4))))
+47/17
+
+>>> 0.84375.continuedFraction
+[0 1 5 2 2]
 ```
 
 Rational number as `Fraction`:
 
 ```
->>> 47/17.continuedFraction(9)
+>>> 47/17.continuedFraction
 [2 1 3 4]
+
+>>> 27/32.continuedFraction
+[0 1 5 2 2]
 ```
 
 Quadratic irrational (recurring continued fraction):
@@ -25,7 +35,7 @@ Quadratic irrational (recurring continued fraction):
 [3 1 1 1 1 6 1 1 1 1 6 1 1 1 1 6]
 ```
 
-The continued fractions for _n-th_ roots of _e_ are very regular:
+The continued fractions for _n-th_ roots of `e` are very regular:
 
 ```
 >>> e.sqrt.continuedFraction(17)

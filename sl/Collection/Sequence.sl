@@ -1843,6 +1843,27 @@
 		}
 	}
 
+	semiconvergents { :self |
+		let answer = [];
+		let final = self.fromContinuedFraction;
+		let lastError = final;
+		self.prefixesDo { :each |
+			let z = each.last;
+			let h = (z / 2).roundUpTo(1);
+			let p = each.allButLast;
+			h.toDo(z) { :k |
+				let c = p ++ [k];
+				let r = c.fromContinuedFraction;
+				let nextError = (final - r).abs;
+				(nextError < lastError).ifTrue {
+					answer.add(r);
+					lastError := nextError
+				}
+			}
+		};
+		answer
+	}
+
 	shape { :self |
 		(self.size = 0).if {
 			[0]

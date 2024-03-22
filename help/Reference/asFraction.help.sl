@@ -25,7 +25,7 @@ Find rational approximations to within a given tolerance:
 
 * * *
 
-See also: asFloat, asInteger, asNumber, limitDenominator
+See also: asFloat, asInteger, asNumber, convergents, limitDenominator
 
 References:
 _Mathematica_

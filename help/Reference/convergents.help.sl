@@ -4,6 +4,14 @@
 
 Answer a `List` of the convergents corresponding to the continued fraction terms in _aList_.
 
+```
+>>> [0 1 5 2 2].convergents
+[0 1/1 5/6 11/13 27/32]
+
+>>> 27 / 32
+0.84375
+```
+
 Generate the first 10 convergents to the `goldenRatio` and pi:
 
 ```
