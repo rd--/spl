@@ -1843,25 +1843,30 @@
 		}
 	}
 
-	semiconvergents { :self |
+	semiconvergents { :self :epsilon |
 		let answer = [];
 		let final = self.fromContinuedFraction;
 		let lastError = final;
-		self.prefixesDo { :each |
-			let z = each.last;
-			let h = (z / 2).roundUpTo(1);
-			let p = each.allButLast;
-			h.toDo(z) { :k |
-				let c = p ++ [k];
-				let r = c.fromContinuedFraction;
-				let nextError = (final - r).abs;
-				(nextError < lastError).ifTrue {
-					answer.add(r);
-					lastError := nextError
+		valueWithReturn { :return:/1 |
+			self.prefixesDo { :each |
+				let z = each.last;
+				let h = (z / 2).roundUpTo(1);
+				let p = each.allButLast;
+				h.toDo(z) { :k |
+					let c = p ++ [k];
+					let r = c.fromContinuedFraction;
+					let nextError = (final - r).abs;
+					(nextError < lastError).ifTrue {
+						answer.add(r);
+						lastError := nextError
+					};
+					((final - r).abs < epsilon).ifTrue {
+						answer.return
+					}
 				}
-			}
-		};
-		answer
+			};
+			answer
+		}
 	}
 
 	shape { :self |

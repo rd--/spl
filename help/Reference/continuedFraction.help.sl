@@ -16,6 +16,25 @@ Rational number as `SmallFloat`:
 
 >>> 0.84375.continuedFraction
 [0 1 5 2 2]
+
+>>> (22 / 45).continuedFraction
+[0 2 22]
+```
+
+Does not simplify final term:
+
+```
+>>> (13 / 27).continuedFraction
+[0 2 12 1]
+
+>>> 0 + (1 / (2 + (1 / (12 + 1/1))))
+13/27
+
+>>> 0 + (1 / (2 + (1/13)))
+13/27
+
+>>> [0 2 12 1].fromContinuedFraction
+[0 2 13].fromContinuedFraction
 ```
 
 Rational number as `Fraction`:

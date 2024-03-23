@@ -70,11 +70,11 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
-	^ { :self :anInteger |
-		anInteger.isSmallInteger.if {
-			self.raisedToInteger(anInteger)
+	^ { :self :operand |
+		operand.isSmallInteger.if {
+			self.raisedToInteger(operand)
 		} {
-			self.error('^ not an integer')
+			self.asFloat ^ operand
 		}
 	}
 
@@ -222,6 +222,13 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
+	mediant { :self :aFraction |
+		Fraction(
+			self.numerator + aFraction.numerator,
+			self.denominator + aFraction.denominator
+		)
+	}
+
 	negated { :self |
 		ReducedFraction(self.numerator.negated, self.denominator)
 	}
@@ -295,6 +302,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	reduced { :self |
 		self.copy.reduce
+	}
+
+	sqrt { :self |
+		self.asFloat.sqrt
 	}
 
 	storeString { :self |
@@ -389,6 +400,13 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		numerator.withCollectOrAdaptTo(denominator, Fraction:/2)
 	}
 
+	mediant { :self |
+		Fraction(
+			self.collect(numerator:/1).sum,
+			self.collect(denominator:/1).sum
+		)
+	}
+
 	r { :numerator :denominator |
 		Fraction(numerator, denominator)
 	}
@@ -413,7 +431,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	asFraction { :self |
-		self.asFraction(1E-4)
+		self.asFraction(1E-5)
 	}
 
 	asFraction { :self :epsilon |
@@ -426,7 +444,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	rationalize { :self :epsilon |
 		let c = self.continuedFraction(16);
-		let l = c.semiconvergents;
+		let l = c.semiconvergents(epsilon);
 		valueWithReturn { :return:/1 |
 			l.do { :r |
 				((self - r).abs < epsilon).ifTrue {

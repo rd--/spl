@@ -16,6 +16,13 @@ The base two logarithm of _aNumber_.
 (n.log / 2.log)
 ```
 
+Log base two of the first primes:
+
+```
+>>> 10.primesList.log2
+[1 1.585 2.322 2.8074 3.4594 3.7004 4.0875 4.248 4.524 4.858]
+```
+
 Plot over a subset of the reals:
 
 ~~~
@@ -28,4 +35,6 @@ See also: log, log10
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Log2.html)
+[1](https://reference.wolfram.com/language/ref/Log2.html),
+_Xenharmonic_
+[1](https://en.xen.wiki/w/Log2)

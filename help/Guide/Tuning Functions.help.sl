@@ -24,6 +24,12 @@
 - `degreeToKey`: convert from degree to key
 - `ratioToCents`: convert interval given as a ratio to cents
 
+## Fraction Functions
+
+- `continuedFraction`: continued fraction representation of a number
+- `convergents`: convergents corresponding to continued fraction
+- `semiconvergents`: semiconvergents corresponding to continued fraction
+
 ## Instance Creation
 
 - `asJiTuning`: construct ratio tuning

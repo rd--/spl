@@ -36,6 +36,8 @@ Note that this is not the same as _x ^ (1 / n)_.
 >>> -4.5j0 ^ (1 / 3)
 0.82548j1.42978
 
+>>> -1j0 ^ (1 / 3)
+0.5j0.866
 ```
 
 Threads elementwise over lists and matrices:

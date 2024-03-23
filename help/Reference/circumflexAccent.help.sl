@@ -79,6 +79,23 @@ e
 [2.71828 7.38906 15.15426]
 ```
 
+At `Fraction` answers a fraction if the exponent is an integer:
+
+```
+>>> 23/17 ^ 2
+529/289
+
+>>> Fraction(23 ^ 2, 17 ^ 2)
+529/289
+```
+
+and a `SmallFloat` if not:
+
+```
+>>> 3/2 ^ 1/2
+1.2247
+```
+
 Plot over a subset of the reals:
 
 ~~~

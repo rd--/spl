@@ -125,6 +125,16 @@ A `Range` may not have a `step` of `zero`:
 true
 ```
 
+Floating point ranges are subject to floating point errors:
+
+```
+>>> (1.80, 1.85 .. 1.90).asList
+[1.8 1.85]
+
+>>> 0:2 * 0.05 + 1.8
+[1.8 1.85 1.9]
+```
+
 * * *
 
 See also: downTo, Interval, isIntegerRange, Range Syntax, thenTo, to, toBy, upOrDownTo
@@ -135,6 +145,8 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/CommonDifference.html)
 [3](https://reference.wolfram.com/language/ref/Range.html)
 [4](https://reference.wolfram.com/language/ref/Span.html),
+_Octave_
+[1](https://docs.octave.org/latest/Ranges.html),
 _Smalltalk_
 5.7.19
 

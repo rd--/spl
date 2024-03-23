@@ -310,7 +310,7 @@
 ## Statistics
 
 - `mean`, `median`, `commonest`
-- `harmonicMean`, `geometricMean`, `contraharmonicMean`
+- `arithmeticMean`, `harmonicMean`, `geometricMean`, `contraharmonicMean`
 - `variance`, `standardDeviation`, `meanDeviation`
 - `skewness`, `kurtosis`
 - `moment`, `centralMoment`, `rootMeanSquare`

@@ -1,19 +1,42 @@
 # asFraction
 
-- _asFraction(aSmallFloat, epsilon)_
-- _asFraction(α)_ ⇒ _asFraction(α, 0.0001)_
+- _asFraction(aFraction | aList | aSmallFloat)_
 
-Derive a `Fraction` that approximates a floating point number given an error bound.
+In the `Fraction` case is identity:
 
 ```
->>> pi.asFraction(1E-5)
+>>> 3/4.asFraction
+3/4
+```
+
+In the integer case, form `Fraction` above `one`:
+
+```
+>>> 23.asFraction
+23/1
+```
+
+In the `List` case require the `size` to be two and answer _n/d_ for _[n, d]_:
+
+```
+>>> [3 4].asFraction
+3/4
+```
+
+In the `SmallFloat` case derive a `Fraction` using `rationalize`:
+
+```
+>>> pi.asFraction
 355/113
 
 >>> 6.75.asFraction
 27/4
+
+>>> 0.202898.asFraction
+14/69
 ```
 
-Find rational approximations to within a given tolerance:
+In the `SmallFloat` case a tolerance may be given:
 
 ```
 >>> pi.asFraction(0.01)
@@ -23,20 +46,11 @@ Find rational approximations to within a given tolerance:
 218/53
 ```
 
-Successive rational approximations to :
-
-```
->>> -1:-10.collect { :n | 1.pi.asFraction(10 ^ n) }
-[16/5 22/7 201/64 333/106 355/113 355/113 75948/24175 100798/32085 103993/33102 312689/99532]
-```
-
 * * *
 
-See also: asFloat, asInteger, asNumber, continuedFraction, convergents, limitDenominator
+See also: asFloat, asInteger, asNumber, rationalize
 
 References:
-_Mathematica_
-[1](https://reference.wolfram.com/language/ref/Rationalize.html),
 _Smalltalk_
 5.6.2.15
 
