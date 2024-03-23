@@ -1,6 +1,6 @@
 import * as flags from 'https://deno.land/std/flags/mod.ts';
 
-import * as commonmark from "npm:commonmark@0.31.0";
+import * as commonmark from 'npm:commonmark@0.31.0';
 
 import { osc } from '../lib/scsynth-wasm-builds/lib/ext/osc.js';
 // import * as commonmark from '../lib/scsynth-wasm-builds/lib/ext/commonmark.js';

@@ -46,7 +46,7 @@
 +RatioTuning {
 
 	htmlView { :self |
-		let ratios = self.ratios;
+		let ratios = self.asRatios;
 		let vectorLimit = self.limit.min(13);
 		let limitPrimes = vectorLimit.primesUpTo.allButFirst;
 		let tuningPrimes = self.latticePrimes;
@@ -78,8 +78,8 @@
 						each.latticeVectorString(primesVector)
 					}
 				},
-				self.cents.rounded,
-				self.integers
+				self.asCents.rounded,
+				self.asIntegers
 			].transposed.asHtmlTable,
 			primesVector.ifNil {
 				'No drawing'.TextParagraph

@@ -23,9 +23,9 @@ DocumentTest : [Object] { | program expectedAnswer |
 	storeString { :self |
 		[
 			'DocumentTest(',
-			self.program.storeString,
-			', ',
-			self.expectedAnswer.storeString,
+				self.program.storeString,
+				', ',
+				self.expectedAnswer.storeString,
 			')'
 		].join
 	}

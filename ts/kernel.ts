@@ -299,9 +299,10 @@ function traitExists(traitName: TraitName): boolean {
 }
 
 function getTrait(traitName: TraitName): Trait {
-	if(traitExists(traitName)) {
+	if (traitExists(traitName)) {
 		return system.traitDictionary.get(traitName)!;
-	} {
+	}
+	{
 		throw new Error(`getTrait: does not exist: ${traitName}`);
 	}
 }
@@ -319,9 +320,10 @@ function typeExists(typeName: TypeName): boolean {
 }
 
 function getType(typeName: TypeName): Type {
-	if(typeExists(typeName)) {
+	if (typeExists(typeName)) {
 		return system.typeDictionary.get(typeName)!;
-	} {
+	}
+	{
 		throw new Error(`getType: does not exist: ${typeName}`);
 	}
 }
@@ -355,7 +357,9 @@ export function addTraitMethod(
 		trait.methodDictionary.set(method.qualifiedName(), method);
 		return method;
 	} else {
-		throw new Error(`addTraitMethod: trait does not exist: ${traitName}, ${methodName}, ${parameterNames.length}`);
+		throw new Error(
+			`addTraitMethod: trait does not exist: ${traitName}, ${methodName}, ${parameterNames.length}`,
+		);
 	}
 }
 
@@ -372,7 +376,9 @@ export function copyTraitToType(
 			addMethodFor(typeName, method, true);
 		}
 	} else {
-		throw new Error(`copyTraitToType: trait or type does not exist: ${traitName}, ${typeName}`);
+		throw new Error(
+			`copyTraitToType: trait or type does not exist: ${traitName}, ${typeName}`,
+		);
 	}
 }
 
@@ -410,7 +416,9 @@ export function extendTraitWithMethod(
 		});
 		return method;
 	} else {
-		throw new Error(`extendTraitWithMethod: trait does not exist: ${traitName}, ${name}`);
+		throw new Error(
+			`extendTraitWithMethod: trait does not exist: ${traitName}, ${name}`,
+		);
 	}
 }
 
@@ -488,7 +496,11 @@ declare var globalThis: { [key: string]: unknown };
 
 // Is existingMethod more specific than method.
 // Todo: this is not a correct test, it needs to not over-write less specific traits as well... it works for stdlib...
-function isMoreSpecific(typeName: TypeName, existingMethod: Method, method: Method): boolean {
+function isMoreSpecific(
+	typeName: TypeName,
+	existingMethod: Method,
+	method: Method,
+): boolean {
 	const methodOrigin = method.information.origin;
 	const methodIsAtType = methodOrigin.name === typeName;
 	if (methodIsAtType) {
@@ -498,10 +510,14 @@ function isMoreSpecific(typeName: TypeName, existingMethod: Method, method: Meth
 		const existingIsAtType = existingOrigin.name === typeName;
 		if (existingIsAtType && !methodIsAtType) {
 			return true;
-		} else  {
+		} else {
 			const typeValue = getType(typeName);
-			const existingTraitIndex = typeValue.traitNameArray.findIndex((item) => item === existingOrigin.name);
-			const methodTraitIndex = typeValue.traitNameArray.findIndex((item) => item === methodOrigin.name);
+			const existingTraitIndex = typeValue.traitNameArray.findIndex((item) =>
+				item === existingOrigin.name
+			);
+			const methodTraitIndex = typeValue.traitNameArray.findIndex((item) =>
+				item === methodOrigin.name
+			);
 			/*
 			if((existingTraitIndex > methodTraitIndex)) {
 				console.debug(
@@ -526,7 +542,9 @@ export function addMethodFor(
 	requireTypeExists: boolean,
 ): Method {
 	if (requireTypeExists && !typeExists(typeName)) {
-		throw new Error (`addMethodFor: type does not exist: ${typeName} (${method})`);
+		throw new Error(
+			`addMethodFor: type does not exist: ${typeName} (${method})`,
+		);
 	}
 	// console.debug(`addMethodFor: ${typeName}, ${method.qualifiedName()}`);
 	if (!methodExists(method.information.name)) {
@@ -618,7 +636,9 @@ export function addMethod(
 		);
 		return addMethodFor(typeName, method, slOptions.requireTypeExists);
 	} else {
-		throw new Error(`addMethod: type does not exist: ${typeName}, ${methodName}, ${parameterNames.length}`);
+		throw new Error(
+			`addMethod: type does not exist: ${typeName}, ${methodName}, ${parameterNames.length}`,
+		);
 	}
 }
 
@@ -665,7 +685,14 @@ export function addType(
 			typeName,
 			new Type(typeName, packageName, traitList, slotNames, methodDictionary),
 		);
-		const allDef = [defNewType, defInitializeSlots, defPredicateFalse, defPredicateTrue, defSlotAccess, defSlotMutate].join(';');
+		const allDef = [
+			defNewType,
+			defInitializeSlots,
+			defPredicateFalse,
+			defPredicateTrue,
+			defSlotAccess,
+			defSlotMutate,
+		].join(';');
 		// <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_direct_eval!>
 		eval?.(`"use strict"; ${allDef}`);
 	} else {
@@ -837,5 +864,7 @@ export function murmur3Generator(str: string, seed: number) {
 
 /* https://regex101.com/r/Awcj1k/1 */
 export function stringToSentences(str: string): Array<string> {
-	return str.match(/(?=[^])(?:\P{Sentence_Terminal}|\p{Sentence_Terminal}(?!['"`\p{Close_Punctuation}\p{Final_Punctuation}\s]))*(?:\p{Sentence_Terminal}+['"`\p{Close_Punctuation}\p{Final_Punctuation}]*|$)/guy);
+	return str.match(
+		/(?=[^])(?:\P{Sentence_Terminal}|\p{Sentence_Terminal}(?!['"`\p{Close_Punctuation}\p{Final_Punctuation}\s]))*(?:\p{Sentence_Terminal}+['"`\p{Close_Punctuation}\p{Final_Punctuation}]*|$)/guy,
+	);
 }
