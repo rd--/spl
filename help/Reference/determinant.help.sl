@@ -20,14 +20,22 @@ The determinant of a _3×3_ `Integer` matrix:
 The determinant of a _3×3_ `SmallFloat` matrix:
 
 ```
->>> [1.7 7.1 -2.7; 2.2 8.7 3.2; 3.2 -9.2 1.2].determinant
+>>> [
+>>> 	1.7 7.1 -2.7;
+>>> 	2.2 8.7 3.2;
+>>> 	3.2 -9.2 1.2
+>>> ].determinant
 251.572
 ```
 
 Determinant of a _3×3_ `Complex` matrix:
 
 ```
->>> [1j1 2j0 3j-2; 0j0 12.56637j0 0j5; 3j0 0j0 6j0].determinant
+>>> [
+>>> 	1j1 2j0 3j-2;
+>>> 	0j0 12.56637j0 0j5;
+>>> 	3j0 0j0 6j0
+>>> ].determinant
 -37.6991j180.79644
 ```
 

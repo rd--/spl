@@ -62,6 +62,10 @@
 		self.collect(boole:/1)
 	}
 
+	cantorStaircase { :self |
+		self.collect(cantorStaircase:/1)
+	}
+
 	ceiling { :self |
 		self.collect(ceiling:/1)
 	}
@@ -191,6 +195,10 @@
 
 	minkowskiQuestionMark { :self |
 		self.collect(minkowskiQuestionMark:/1)
+	}
+
+	minkowskiQuestionMarkInverse { :self |
+		self.collect(minkowskiQuestionMarkInverse:/1)
 	}
 
 	mixedFractionParts { :self |

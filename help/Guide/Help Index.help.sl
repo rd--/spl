@@ -154,6 +154,10 @@
 - `asFloat`, `SmallFloat`
 - `fromSignExponentMantissa`, `signExponentMantissa`
 
+## Fractal Functions
+
+- `cantorStaircase`, `minkowskiQuestionMark`
+
 ## Fractions, Rational Numbers
 
 - `asFraction`, `Fraction`

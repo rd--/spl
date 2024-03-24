@@ -1,6 +1,6 @@
 # digitCount
 
-_digitCount(n, b, d)_
+- _digitCount(n, b, d)_
 
 Answer the number of _d_ digits in the base-_b_ representation of _n_.
 

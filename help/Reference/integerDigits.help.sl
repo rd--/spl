@@ -12,11 +12,14 @@ Find digits in base 10:
 [5 8 1 2 7]
 ```
 
-Find digits in base 2:
+Find digits in base 2 & 3:
 
 ```
 >>> 58127.integerDigits(2)
 [1 1 1 0 0 0 1 1 0 0 0 0 1 1 1 1 ]
+
+>>> 58127.integerDigits(3)
+[2 2 2 1 2 0 1 2 1 2]
 ```
 
 Bases larger than 10 can be used:
