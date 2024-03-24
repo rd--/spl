@@ -51,6 +51,12 @@ BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity byte
 		aBit
 	}
 
+	bitsDo { :self :aBlock:/1 |
+		0.toDo(self.capacity - 1) { :index |
+			aBlock(self[index])
+		}
+	}
+
 	clearBitAt { :self :anInteger |
 		let byteIndex = anInteger.bitShift(-3) + 1;
 		let value = self.bytes[byteIndex];
@@ -63,6 +69,14 @@ BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity byte
 			self.tally := self.tally - 1;
 			true
 		}
+	}
+
+	complement { :self |
+		let answer = BitSet(self.capacity);
+		0.toDo(self.capacity - 1) { :index |
+			answer[index] := 1 - self[index]
+		};
+		answer
 	}
 
 	do { :self :aBlock:/1 |

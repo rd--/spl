@@ -1,6 +1,6 @@
 # pairsCollect
 
-_pairsCollect(aSequence, aBlock:/2)_
+- _pairsCollect(aSequence, aBlock:/2)_
 
 Apply _aBlock_ to succesive adjacent pairs of _aSequence_.
 Answer a List of the answers.

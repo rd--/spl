@@ -3,6 +3,7 @@
 - _BitSet(anInteger)_
 
 Answer a new empty `BitSet` with capacity of `anInteger`.
+The capacity is fixed and need not be a multiple of eight.
 
 A `BitSet` is a `Dictionary`-like data structures mapping 0-1 values to integers between `zero` and _capacity - 1_.
 
@@ -97,9 +98,9 @@ Read entries using `at`, which answers `zero` or `one` values:
 Add elements using `addAll` and iterate over indices using `do`:
 
 ```
->>> let l = [];
 >>> let b = BitSet(64);
 >>> let c = [1 3 9 27];
+>>> let l = [];
 >>> b.addAll(c);
 >>> b.do { :each | l.add(each) };
 >>> (b.size, l)
@@ -146,6 +147,9 @@ Copy `BitSet` and mutate copy:
 ```
 >>> [0 2 4 5 7 9 11].asBitSet.asString
 '101011010101'
+
+>>> [0 2 5].asBitSet(8).asString
+'10100100'
 ```
 
 The `printString` of a `BitSet`:
@@ -153,6 +157,14 @@ The `printString` of a `BitSet`:
 ```
 >>> [0 2 4 5 7 9 11].asBitSet.printString
 '[0, 2, 4, 5, 7, 9, 11].asBitSet(12)'
+```
+
+The `complement` of a `BitSet` is a `BitSet` with each bit having the `not` of the initial set:
+
+```
+>>> let b = [0 2 4 5 7 9 11].asBitSet;
+>>> b.complement.asList
+[1 3 6 8 10]
 ```
 
 * * *

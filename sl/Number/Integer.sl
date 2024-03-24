@@ -74,6 +74,10 @@
 		(self .. anInteger).collect(asCharacter:/1)
 	}
 
+	commonResidue { :self :modulus |
+		self % modulus
+	}
+
 	denominator { :self |
 		1
 	}
@@ -502,6 +506,16 @@
 		}
 	}
 
+	minimalResidue { :self :modulus |
+		let p = self % modulus;
+		let q = p - modulus;
+		(p < q.abs).if {
+			p
+		} {
+			q
+		}
+	}
+
 	mixedRadixEncode { :self :factors |
 		let answer = List(factors.size);
 		factors.size.toByDo(1, -1) { :index |
@@ -642,6 +656,12 @@
 
 	randomIntegerBipolar { :self |
 		system.nextRandomIntegerBipolar(self)
+	}
+
+	reducedResidueSystem { :self |
+		(0 .. self - 1).select { :each |
+			each.isCoprime(self)
+		}
 	}
 
 	romanDigitsForOn { :self :digits :base :aStream |

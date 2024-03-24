@@ -47,6 +47,14 @@ Real numbers:
 [1.5 3 0]
 ```
 
+For integers _a % m_ answers the _common residue_ of _a_ modulo _m_,
+i.e. non-negative and smaller than _m_:
+
+```
+>>> [-2 -1 12 13] % 12
+[10 11 0 1]
+```
+
 Plot the sequence with fixed modulus:
 
 ~~~
@@ -63,7 +71,7 @@ The name of this operator is _percentSign_.
 
 * * *
 
-See also: /, //, \\, quotient, remainder
+See also: /, //, \\, minimalResidue, quotient, remainder
 
 References:
 _Apl_
@@ -71,6 +79,7 @@ _Apl_
 _Mathematica_
 [1](https://mathworld.wolfram.com/Mod.html)
 [2](https://mathworld.wolfram.com/Congruence.html)
-[3](https://reference.wolfram.com/language/ref/Mod.html)
+[3](https://mathworld.wolfram.com/CommonResidue.html)
+[4](https://reference.wolfram.com/language/ref/Mod.html)
 
 Categories: Math, Operator
