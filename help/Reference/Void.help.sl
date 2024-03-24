@@ -19,4 +19,4 @@ true
 
 See also: nil, Nil
 
-Categories: Type
+Categories: Object, Type

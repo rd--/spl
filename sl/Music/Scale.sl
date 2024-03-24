@@ -64,9 +64,8 @@ Scale : [Object] { | startIndex intervals description |
 
 +List {
 
-	Scale { :self |
-		let [startIndex, intervals, description] = self;
-		Scale(startIndex, intervals, description)
+	asScale { :self |
+		Scale(1, self, 'Undescribed scale')
 	}
 
 }

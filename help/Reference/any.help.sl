@@ -5,14 +5,14 @@
 Answer _anInteger_ elements from _aCollection_ as a new collection (using _species_).
 It is an error if there are not enough elements.
 
-At List:
+At `List`:
 
 ```
 >>> [1 .. 9].any(3)
 [1 .. 3]
 ```
 
-At Record:
+At `Record`:
 
 ```
 >>> (x: 1, y: 2, z: 3).any(2)
@@ -21,6 +21,6 @@ At Record:
 
 * * *
 
-See also: anyOne, take
+See also: anyAs, anyOne, take
 
 Categories: Accessing

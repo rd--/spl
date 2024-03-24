@@ -24,4 +24,4 @@ true
 
 See also: Cache, system
 
-Categories: System
+Categories: System, Type

@@ -22,4 +22,4 @@ References:
 _Smalltalk_
 5.3.2
 
-Categories: Nil, Type
+Categories: Object, Nil, Type

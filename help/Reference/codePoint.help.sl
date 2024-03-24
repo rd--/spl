@@ -17,7 +17,7 @@ Answer the Unicode code point of _aCharacter_.
 
 * * *
 
-See also: Character, String
+See also: asciiValue, Character, String
 
 References:
 _Smalltalk_

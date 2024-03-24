@@ -2,7 +2,7 @@
 
 - _asInteger(aBoolean | aCharacter | anInteger | aNumber | aString)_
 
-In the `Boolean` case, answer _asBit_.
+In the `Boolean` case, answer `asBit`:
 
 ```
 >>> false.asInteger
@@ -12,21 +12,21 @@ In the `Boolean` case, answer _asBit_.
 1
 ```
 
-In the `Character` case, answer _codePoint_.
+In the `Character` case, answer `codePoint`:
 
 ```
 >>> '~'.asCharacter.asInteger = 126
 true
 ```
 
-In the `Integer` case answer _identity_.
+In the `Integer` case answer `identity`:
 
 ```
 >>> 23.asInteger
 23
 ```
 
-In the `Number` case, i.e. `SmallFloat` or `Fraction`, answer `truncated`.
+In the `Number` case, i.e. `SmallFloat` or `Fraction`, answer `truncated`:
 
 ```
 >>> pi.asInteger
@@ -36,7 +36,7 @@ In the `Number` case, i.e. `SmallFloat` or `Fraction`, answer `truncated`.
 3
 ```
 
-In the `String` case answer _parseDecimalInteger_
+In the `String` case answer `parseDecimalInteger`:
 
 ```
 >>> '23'.asInteger

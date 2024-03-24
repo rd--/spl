@@ -416,7 +416,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 +SmallFloat {
 
 	asApproximateFraction { :self :epsilon |
-		self.rationalize
+		self.rationalize(epsilon)
 	}
 
 	asFractionOver { :self :denominator |

@@ -60,7 +60,8 @@
 
 - `Collection`, `Dictionary`, `Sequence`
 - `Extensible`, `Indexable`, `Keyed`, `Removable`, `Unordered`
-- `Bag`, `List`, `Map`, `PriorityQueue`, `Range`, `Record`, `Set`, `SortedList`, `Tree`, `Tuple`
+- `Bag`, `List`, `Map`, `Record`, `Set`, `Tree`, `Tuple`
+- `BitSet`, `PriorityQueue`, `Range`, `SortedList`
 - `Association`
 
 ## Combinations

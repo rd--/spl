@@ -1,11 +1,24 @@
 # asciiValue
 
-- _asciiValue(aCharacter)_
+- _asciiValue(aCharacter | aString)_
 
-Answer the Ascii code point of _aCharacter_, else an error.
+Answer the Ascii code point of _aCharacter_,
+or of _aString_ which must have a single character,
+else an error.
 
-- _asciiValue(aString)_
+```
+>>> ' '.asciiValue
+32
 
-Answer the Ascii code point of _aString_, which must have a single character, else an error.
+>>> '0'.asciiValue
+48
+
+>>> 'x'.asciiValue
+120
+```
+
+* * *
+
+See also: codePoint, Character, String
 
 Categories: Accessing

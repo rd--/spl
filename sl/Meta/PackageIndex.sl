@@ -23,7 +23,7 @@
 	'Collection-ArrayBuffer'
 	'Collection-Association'
 	'Collection-Bag'
-	'Collection-Bitset'
+	'Collection-BitSet'
 	'Collection-ByteArray'
 	'Collection-Cache'
 	'Collection-CategoryDictionary'

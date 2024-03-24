@@ -295,7 +295,7 @@ Reference/bitAtPut.help.sl
 Reference/bitCount.help.sl
 Reference/bitNot.help.sl
 Reference/bitOr.help.sl
-Reference/Bitset.help.sl
+Reference/BitSet.help.sl
 Reference/bitShift.help.sl
 Reference/bitShiftLeft.help.sl
 Reference/bitShiftRight.help.sl

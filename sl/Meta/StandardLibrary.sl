@@ -6,7 +6,7 @@
 	{- Collection -}
 	'ArrayBuffer'
 	'Bag'
-	'Bitset'
+	'BitSet'
 	'ByteArray'
 	'CategoryDictionary'
 	'Float32Array'

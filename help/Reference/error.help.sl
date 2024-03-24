@@ -20,4 +20,4 @@ References:
 _Smalltalk_
 5.3.1.8
 
-Categories: Error
+Categories: Error, Exception

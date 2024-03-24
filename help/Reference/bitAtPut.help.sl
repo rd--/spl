@@ -51,7 +51,7 @@ Show which bits have been set:
 
 * * *
 
-See also: bitAt, bitClear, BitSet, highBit, integerDigits
+See also: bitAt, bitClear, BitSet, highBit, integerDigits, setBitAt
 
 References:
 _Mathematica_

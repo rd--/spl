@@ -15,18 +15,23 @@ Twelve tone equal temperament:
 >>> (t.octave, t.asCents)
 (2, [0 100 200 300 400 500 600 700 800 900 1000 1100])
 
->>> 12.equalTemperamentTuning.asRatios.collect(asFraction:/1)
-[1 18/17 46/41 107/90 63/50 4/3 140/99 3/2 73/46 37/22 139/78 185/98]
+>>> let t = 12.equalTemperamentTuning;
+>>> let r = t.asRatios;
+>>> r.collect { :each | each.asFraction(1E-2) }
+[1/1 16/15 9/8 13/11 5/4 4/3 17/12 3/2 19/12 27/16 16/9 17/9]
 ```
 
 Seven tone equal temperament:
 
 ```
 >>> let t = 7.equalTemperamentTuning;
->>> (t.asCents.rounded, t.asRatios.collect(asFraction:/1))
+>>> (
+>>> 	t.asCents.rounded,
+>>> 	t.asRatios.collect { :each | each.asFraction(1E-2) }
+>>> )
 (
 	[0 171 343 514 686 857 1029],
-	[1 85/77 89/73 35/26 107/72 64/39 163/90]
+	[1/1 10/9 11/9 23/17 31/21 18/11 20/11]
 )
 ```
 

@@ -6,6 +6,12 @@ CentsTuning : [Object, Tuning] { | name description asCents octave |
 		self.hasEqualSlots(anObject)
 	}
 
+	asFractions { :self :epsilon |
+		self.asRatios.collect { :each |
+			each.asFraction(epsilon)
+		}
+	}
+
 	asFractions { :self |
 		self.asRatios.collect(asFraction:/1)
 	}

@@ -18,6 +18,13 @@ At `Record`:
 true
 ```
 
+At `BitSet`, which is notably _zero-indexed_:
+
+```
+>>> BitSet(11).includesIndex(0)
+true
+```
+
 * * *
 
 See also: at, includesKey, Indexable, indices

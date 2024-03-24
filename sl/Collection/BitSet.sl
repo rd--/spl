@@ -1,7 +1,7 @@
-Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
+BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity bytes tally |
 
 	= { :self :anObject |
-		anObject.isBitset & {
+		anObject.isBitSet & {
 			anObject.size = self.tally & {
 				anObject.bytes = self.bytes
 			}
@@ -13,6 +13,21 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 		anInteger
 	}
 
+	asList { :self |
+		let answer = [];
+		self.do { :each |
+			answer.add(each)
+		};
+		answer
+	}
+
+	asString { :self |
+		let ascii = ByteArray(self.capacity);
+		0.toDo(self.capacity - 1) { :index |
+			ascii[index + 1] := 48 + self[index]
+		};
+		ascii.asciiString
+	}
 
 	at { :self :anInteger |
 		self.bitAt(anInteger)
@@ -23,7 +38,9 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 	}
 
 	bitAt { :self :anInteger |
-		self.bytes[anInteger.bitShift(-3) + 1].bitShift(0 - anInteger.bitAnd(7)).bitAnd(1)
+		let byteIndex = anInteger.bitShift(-3) + 1;
+		let bitIndex = 0 - anInteger.bitAnd(7);
+		self.bytes[byteIndex].bitShift(bitIndex).bitAnd(1)
 	}
 
 	bitAtPut { :self :anInteger :aBit |
@@ -34,19 +51,15 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 		aBit
 	}
 
-	capacity { :self |
-		self.bytes.size * 8
-	}
-
 	clearBitAt { :self :anInteger |
-		let index = anInteger.bitShift(-3) + 1;
-		let value = self.bytes[index];
+		let byteIndex = anInteger.bitShift(-3) + 1;
+		let value = self.bytes[byteIndex];
 		let mask = 1.bitShift(anInteger.bitAnd(7));
 		let newValue = value.bitOr(mask) - mask;
 		(newValue = value).if {
 			false
 		} {
-			self.bytes[index] := newValue;
+			self.bytes[byteIndex] := newValue;
 			self.tally := self.tally - 1;
 			true
 		}
@@ -74,13 +87,23 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 	}
 
 	includes { :self :anInteger |
+		self.includesIndex(anInteger).if {
+			self.bitAt(anInteger) = 1
+		} {
+			false
+		}
+	}
+
+	includesIndex { :self :anInteger |
 		anInteger.isInteger & {
-			-1 < anInteger & {
-				anInteger < self.capacity & {
-					self.bitAt(anInteger) = 1
-				}
+			0 <= anInteger & {
+				anInteger < self.capacity
 			}
 		}
+	}
+
+	indices { :self |
+		(0 .. self.capacity - 1)
 	}
 
 	isEmpty { :self |
@@ -132,13 +155,19 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 		self.tally
 	}
 
+	storeString { :self |
+		self.asList.storeString ++ '.asBitSet(' ++ self.capacity ++ ')'
+	}
+
 }
 
-+SmallFloat {
++@Integer {
 
-	Bitset { :capacity |
-		newBitset().initializeSlots(
-			ByteArray(capacity // 8),
+	BitSet { :capacity |
+		let byteCount = capacity.min(capacity // 8 + 1);
+		newBitSet().initializeSlots(
+			capacity,
+			ByteArray(byteCount),
 			0
 		)
 	}
@@ -147,10 +176,39 @@ Bitset : [Object, Iterable, Collection, Extensible, Removable] { | bytes tally |
 
 +@Collection {
 
-	asBitset { :self |
-		let answer = Bitset(self.max.roundUpTo(8));
+	asBitSet { :self :capacity |
+		let answer = BitSet(capacity);
 		answer.addAll(self);
 		answer
+	}
+
+	asBitSet { :self |
+		self.asBitSet(self.max + 1)
+	}
+
+}
+
++String {
+
+	asBitSet { :self :capacity |
+		let answer = BitSet(self.size);
+		let ascii = self.asciiByteArray;
+		let zeroCodePoint = '0'.codePoint;
+		let oneCodePoint = '1'.codePoint;
+		ascii.withIndexDo { :each :index |
+			(each = oneCodePoint).if {
+				answer.add(index - 1)
+			} {
+				(each ~= zeroCodePoint).ifTrue {
+					self.error('String>>asBitSet: not 0 or 1: ' ++ each)
+				}
+			}
+		};
+		answer
+	}
+
+	asBitSet { :self |
+		self.asBitSet(self.size)
 	}
 
 }

@@ -674,26 +674,26 @@ system.includesPackage('Binary') {- binary package -}
 0.lowBit = 0 & { 0.highBit = 0 } {- the low and high bits of zero are zero -}
 ```
 
-## Bitset -- collection type
+## BitSet -- collection type
 ```
-system.includesPackage('Bitset') {- bitset package -}
-Bitset(64).isBitset {- bitset predicate -}
-Bitset(64).size = 0 {- a new bitset is empty -}
-Bitset(64).capacity = 64 {- the capacity of a bitset is set when initialized -}
-Bitset(64).isEmpty {- a new bitset is empty -}
-Bitset(64).bytes.allSatisfy { :each | each = 0 } {- all bytes at the empty bitset are zero -}
-[1, 3, 9].asBitset.capacity = 16 {- bitset from array, capacity is rounded up to nearest byte -}
-let b = Bitset(64); b.add(1); b.add(3); b.add(9); b.size = 3 {- add three integers to bitset -}
-let b = Bitset(64); b.add(5); b.add(5); b.add(5); b.size = 1 {- adding the same integer over again -}
-let b = [1, 3, 9].asBitset; b.includes(3) {- does bitset include element -}
-let b = [1, 3, 9].asBitset; [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
-let b = Bitset(64); b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 {- a three element bitset, atPut -}
-let b = [1, 3, 9].asBitset; [1, 3 .. 9].collect { :each | b[each] } = [1, 1, 0, 0, 1] {- at -}
-let a = []; let b = Bitset(64); let c = [1, 3, 9, 27]; b.addAll(c); b.do { :each | a.add(each) }; a = c
-let b = [1, 3].asBitset; let c = b.copy; c.add(7); b ~= c & { c = [1, 3, 7].asBitset } {- copy bitset -}
-[1, 3, 9].asBitset.bitAt(3) = 1 {- bitAt is equal to at -}
-Bitset(64).with { :b | b.setBitAt(3); b.bitAt(3) = 1 } {- setBitAt is equal to add -}
-[1, 3, 9].asBitset.with { :b | b.clearBitAt(3); b.asList = [1, 9] } {- clearBitAt is equal to remove -}
+system.includesPackage('BitSet') {- bitset package -}
+BitSet(64).isBitSet {- bitset predicate -}
+BitSet(64).size = 0 {- a new bitset is empty -}
+BitSet(64).capacity = 64 {- the capacity of a bitset is set when initialized -}
+BitSet(64).isEmpty {- a new bitset is empty -}
+BitSet(64).bytes.allSatisfy { :each | each = 0 } {- all bytes at the empty bitset are zero -}
+[1, 3, 9].asBitSet.capacity = 10 {- bitset from array, capacity is one more than largest index -}
+let b = BitSet(64); b.add(1); b.add(3); b.add(9); b.size = 3 {- add three integers to bitset -}
+let b = BitSet(64); b.add(5); b.add(5); b.add(5); b.size = 1 {- adding the same integer over again -}
+let b = [1, 3, 9].asBitSet; b.includes(3) {- does bitset include element -}
+let b = [1, 3, 9].asBitSet; [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
+let b = BitSet(64); b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 {- a three element bitset, atPut -}
+let b = [1, 3, 9].asBitSet; [1, 3 .. 9].collect { :each | b[each] } = [1, 1, 0, 0, 1] {- at -}
+let a = []; let b = BitSet(64); let c = [1, 3, 9, 27]; b.addAll(c); b.do { :each | a.add(each) }; a = c
+let b = [1, 7].asBitSet; let c = b.copy; c.add(3); b ~= c & { c = [1, 3, 7].asBitSet } {- copy bitset -}
+[1, 3, 9].asBitSet.bitAt(3) = 1 {- bitAt is equal to at -}
+BitSet(64).with { :b | b.setBitAt(3); b.bitAt(3) = 1 } {- setBitAt is equal to add -}
+[1, 3, 9].asBitSet.with { :b | b.clearBitAt(3); b.asList = [1, 9] } {- clearBitAt is equal to remove -}
 ```
 
 ## Bitwise Manipulation
@@ -1311,7 +1311,7 @@ let a = [1, [2]]; let c = a.shallowCopy; c[2][1] := -2; c = a & { a = [1, [-2]] 
 let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c ~= a & { a = [1, [2]] } {- deepCopy array -}
 let a = [1, [2]]; let c = a.copy; c[2][1] := -2; c = a {- copy of array is shallowCopy and postCopy -}
 let b = [1, 2, 2].asBag; let c = b.copy; c.add(3); c ~= b & { c = [1, 2, 2, 3].asBag } {- copy bag -}
-let b = [1, 2].asBitset; let c = b.copy; c.add(3); c ~= b & { c = [1, 2, 3].asBitset } {- copy bitset -}
+let b = [1, 2].asBitSet; let c = b.copy; c.add(3); c ~= b & { c = [1, 2, 3].asBitSet } {- copy bitset -}
 let b = [1, 2].asByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } {- copy byte array -}
 ```
 

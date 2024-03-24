@@ -30,6 +30,22 @@
 		self.codePoint.characterRange(aCharacter.codePoint)
 	}
 
+	digitValue { :self |
+		let integerValue = self.asCodePoint;
+		let digitValues = system.cache.atIfAbsentPut('digitValues') {
+			let answer = List(256, -1);
+			0.toDo(9) { :i |
+				answer[48 + i + 1] := i
+			};
+			10.toDo(35) { :i |
+				answer[55 + i + 1] := i;
+				answer[87 + i + 1] := i
+			};
+			answer
+		};
+		digitValues[integerValue + 1]
+	}
+
 	isAlphaNumeric { :self |
 		self.isDigit | {
 			self.isLetter
@@ -122,22 +138,6 @@ Character : [Object, Magnitude, Character] { | characterString codePoint |
 
 	asString { :self |
 		self.characterString
-	}
-
-	digitValue { :self |
-		let integerValue = self.asInteger;
-		let digitValues = system.cache.atIfAbsentPut('digitValues') {
-			let answer = List(256, -1);
-			0.toDo(9) { :i |
-				answer[48 + i + 1] := i
-			};
-			10.toDo(35) { :i |
-				answer[55 + i + 1] := i;
-				answer[87 + i + 1] := i
-			};
-			answer
-		};
-		digitValues[integerValue + 1]
 	}
 
 	printString { :self |
