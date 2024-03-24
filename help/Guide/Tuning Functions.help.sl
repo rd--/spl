@@ -8,6 +8,7 @@
 - `asRatios`: intervals of a tuning as ratios
 - `primeLimit`: prime limit of a fraction
 - `limit`: prime limit of a tuning
+- `octave`: the ratio of the octave of a tuning
 
 ## Alterations
 
@@ -28,7 +29,9 @@
 
 - `continuedFraction`: continued fraction representation of a number
 - `convergents`: convergents corresponding to continued fraction
+- `fromContinuedFraction`: reconstructs a number a continued fraction
 - `semiconvergents`: semiconvergents corresponding to continued fraction
+- `rationalize`: derive an approximate fraction given an error bound
 
 ## Instance Creation
 
@@ -59,6 +62,7 @@
 ## Testing
 
 - `isRational`: is a tuning rational
+- `isTuning`: is an object a tuning
 
 ## Types & Traits
 

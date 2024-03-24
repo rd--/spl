@@ -26,7 +26,7 @@ Find rational approximations to within a given tolerance:
 218/53
 ```
 
-Successive rational approximations to :
+Successive rational approximations to `pi`:
 
 ```
 >>> -1:-10.collect { :n | 1.pi.rationalize(10 ^ n) }
@@ -35,7 +35,7 @@ Successive rational approximations to :
 
 * * *
 
-See also: continuedFraction, convergents, limitDenominator, semiconvergents
+See also: asFraction, continuedFraction, convergents, limitDenominator, semiconvergents
 
 References:
 _Mathematica_

@@ -15,7 +15,7 @@ The Cartesian product of two sets A and B is the set of all (a, b) where a ∈ A
 [0 2; 0 3; 1 2; 1 3]
 ```
 
-cartesianProduct is a special case of _tuples_:
+`cartesianProduct` is a special case of `tuples`:
 
 ```
 >>> [0 1].cartesianProduct([2 3 4])

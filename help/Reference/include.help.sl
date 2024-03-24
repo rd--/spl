@@ -23,8 +23,8 @@ true
 true
 ```
 
-Attempting to _include_ a non-immediate object in a Set is an error,
-see instead _basicInclude_.
+Attempting to `include` a non-immediate object in a Set is an error,
+see instead `basicInclude`.
 
 ```
 >>> let s = Set();
@@ -40,6 +40,6 @@ true
 
 * * *
 
-See also: add, basicInclude, includeAll, remove
+See also: add, basicInclude, includeAll, isImmediate, remove
 
 Categories: Adding

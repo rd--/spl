@@ -18,7 +18,7 @@ true
 true
 ```
 
-Copy is defined in terms of _shallowCopy_ and _postCopy_.
+Copy is defined in terms of `shallowCopy` and `postCopy`.
 
 * * *
 

@@ -2,25 +2,29 @@
 
 - _asFraction(aFraction | aList | aSmallFloat)_
 
-In the `Fraction` case is identity:
+Convert an object to a `Fraction`.
+In the `Fraction` case answer `identity`:
 
 ```
 >>> 3/4.asFraction
 3/4
 ```
 
-In the integer case, form `Fraction` above `one`:
+In the `Integer` case, form `Fraction` above `one`:
 
 ```
 >>> 23.asFraction
 23/1
 ```
 
-In the `List` case require the `size` to be two and answer _n/d_ for _[n, d]_:
+In the `Sequence` case require the `size` to be two and answer _n/d_ for _[n, d]_:
 
 ```
 >>> [3 4].asFraction
 3/4
+
+>>> (5, 4).asFraction
+5/4
 ```
 
 In the `SmallFloat` case derive a `Fraction` using `rationalize`:

@@ -9,6 +9,11 @@ BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity byte
 	}
 
 	add { :self :anInteger |
+		self.assert {
+			anInteger.isInteger & {
+				self.includes(anInteger).not
+			}
+		};
 		self.setBitAt(anInteger);
 		anInteger
 	}
@@ -23,8 +28,8 @@ BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity byte
 
 	asString { :self |
 		let ascii = ByteArray(self.capacity);
-		0.toDo(self.capacity - 1) { :index |
-			ascii[index + 1] := 48 + self[index]
+		self.bitsDo { :each :index |
+			ascii[index + 1] := 48 + each
 		};
 		ascii.asciiString
 	}
@@ -51,9 +56,15 @@ BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity byte
 		aBit
 	}
 
-	bitsDo { :self :aBlock:/1 |
-		0.toDo(self.capacity - 1) { :index |
-			aBlock(self[index])
+	bitNot { :self |
+		self.bitsDo { :each :index |
+			self[index] := 1 - each
+		}
+	}
+
+	bitsDo { :self :aBlock:/2 |
+		self.indices.do { :index |
+			aBlock(self[index], index)
 		}
 	}
 
@@ -72,10 +83,8 @@ BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity byte
 	}
 
 	complement { :self |
-		let answer = BitSet(self.capacity);
-		0.toDo(self.capacity - 1) { :index |
-			answer[index] := 1 - self[index]
-		};
+		let answer = self.copy;
+		answer.bitNot;
 		answer
 	}
 
@@ -98,6 +107,11 @@ BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity byte
 				self
 			}
 		}
+	}
+
+	include { :self :anInteger |
+		self.setBitAt(anInteger);
+		anInteger
 	}
 
 	includes { :self :anInteger |

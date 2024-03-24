@@ -1,0 +1,104 @@
+# minkowskiQuestionMark
+
+- _minkowskiQuestionMark(aNumber)_
+
+Answer Minkowski’s question mark function.
+
+At a quadratic irrational number:
+
+```
+>>> ((3.sqrt - 1) / 2).minkowskiQuestionMark
+2/7
+```
+
+At `SmallFloat`:
+
+```
+>>> 0.123456.minkowskiQuestionMark
+0.00780487
+
+>>> (1 + 5.sqrt / 7).minkowskiQuestionMark
+11822865281537472/24019198012642645
+
+>>> pi.minkowskiQuestionMark
+3.015624761581421
+
+>>> (13.sqrt - 7 / 6).minkowskiQuestionMark
+-5/9
+```
+
+At `Integer`:
+
+```
+>>> 1.minkowskiQuestionMark
+1
+
+>>> 2.minkowskiQuestionMark
+2
+```
+
+At `goldenRatio`:
+
+```
+>>> 1.goldenRatio.minkowskiQuestionMark
+5/3
+
+>>> (1.goldenRatio - 1).minkowskiQuestionMark
+2/3
+```
+
+Threads over lists:
+
+```
+>>> [0 0.5 2.sqrt].minkowskiQuestionMark
+[0 0.5 7/5]
+
+>>> ([1 2] / 3).minkowskiQuestionMark
+[1/4 3/4]
+
+>>> [2.sqrt / 2, 3.sqrt / 2].minkowskiQuestionMark
+[4/5 84/85]
+```
+
+The question-mark function is continuous and monotonically increasing, so it has an inverse:
+
+```
+>>> (7 / 5).minkowskiQuestionMarkInverse
+2.sqrt
+
+>>> (5 / 3).minkowskiQuestionMarkInverse
+1.goldenRatio
+
+>>> 3.015624761581421.minkowskiQuestionMarkInverse
+pi
+
+>>> (1 / 4).minkowskiQuestionMarkInverse
+1/3
+```
+
+Plot over the unit interval:
+
+~~~
+(0 -- 1).discretize(500).minkowskiQuestionMark.plot
+~~~
+
+Plot difference from input:
+
+~~~
+(0 -- 2).discretize(500) { :x | x.minkowskiQuestionMark - x }.plot
+~~~
+
+Plot over from -2 to 2, is surjective:
+
+~~~
+(-2 -- 2).discretize(500).minkowskiQuestionMark.plot
+~~~
+
+* * *
+
+See also: continuedFraction, minkowskiQuestionMarkInverse
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/MinkowskisQuestionMarkFunction.html)
+[2](https://reference.wolfram.com/language/ref/MinkowskiQuestionMark.html)

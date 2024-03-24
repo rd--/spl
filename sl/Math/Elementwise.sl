@@ -189,6 +189,10 @@
 		self.collect(log2:/1)
 	}
 
+	minkowskiQuestionMark { :self |
+		self.collect(minkowskiQuestionMark:/1)
+	}
+
 	mixedFractionParts { :self |
 		self.collect(mixedFractionParts:/1)
 	}

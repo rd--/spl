@@ -50,13 +50,14 @@ Add three integers to a `BitSet`:
 (3, [1 3 9])
 ```
 
-Adding the same integer over again:
+Adding the same integer over again is not allowed,
+however including it is:
 
 ```
 >>> let b = BitSet(64);
 >>> b.add(5);
->>> b.add(5);
->>> b.add(5);
+>>> b.include(5);
+>>> b.include(5);
 >>> (b.size, b.asList)
 (1, [5])
 ```
@@ -159,12 +160,22 @@ The `printString` of a `BitSet`:
 '[0, 2, 4, 5, 7, 9, 11].asBitSet(12)'
 ```
 
-The `complement` of a `BitSet` is a `BitSet` with each bit having the `not` of the initial set:
+`bitNot` at `BitSet` flips the status of each bit:
 
 ```
 >>> let b = [0 2 4 5 7 9 11].asBitSet;
->>> b.complement.asList
+>>> b.bitNot;
+>>> b.asList
 [1 3 6 8 10]
+```
+
+The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` of the initial set:
+
+```
+>>> let l = [0 2 4 5 7 9 11];
+>>> let b = l.asBitSet;
+>>> (b.asList, b.complement.asList)
+(l, [1 3 6 8 10])
 ```
 
 * * *

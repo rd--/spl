@@ -1,9 +1,8 @@
 # bitNot
 
-- _bitNot(n)_
+- _bitNot(anInteger | aBitSet)_
 
-Answer bitwise not of _n_.
-Invert bits.
+Answer bitwise not, i.e. invert bits.
 
 ```
 >>> 3.bitNot
@@ -23,6 +22,15 @@ Invert bits.
 [-2 .. -11]
 ```
 
+At `BitSet`, mutates set:
+
+```
+>>> let b = '1001'.asBitSet;
+>>> b.bitNot;
+>>> b.asString
+'0110'
+```
+
 * * *
 
 See also: bitAnd, bitOr
@@ -30,3 +38,5 @@ See also: bitAnd, bitOr
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BitNot.html)
+
+Categories: Bit Manipulation, Binary

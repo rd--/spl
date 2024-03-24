@@ -347,6 +347,48 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		anObject.adaptToNumberAndApply(self, max:/2)
 	}
 
+	minkowskiQuestionMark { :x |
+		let y = (x / 1).floor;
+		let p = x % 1;
+		let q = 1 - p;
+		let d = 0.5;
+		{
+			y + d > y
+		}.whileTrue {
+			(p < q).if {
+				q := q - p
+			} {
+				p := p - q;
+				y := y + d
+			};
+			d := d / 2
+		};
+		y
+	}
+
+	minkowskiQuestionMarkInverse { :x |
+		let y = (x / 1).floor;
+		let bits = x % 1;
+		let lo = [0 1];
+		let hi = [1 1];
+		let iterationCount = 0;
+		{
+			iterationCount < 152 & {
+				(y + (lo[1] / lo[2])) < (y + (hi[1] / hi[2]))
+			}
+		}.whileTrue {
+			let bit = (2 * bits / 1).floor;
+			bits := 2 * bits % 1;
+			(bit > 0).if {
+				lo := lo + hi
+			} {
+				hi := hi + lo
+			};
+			iterationCount := iterationCount + 1
+		};
+		y + (lo[1] / lo[2])
+	}
+
 	nthRoot { :self :aPositiveInteger |
 		(aPositiveInteger = 2).if {
 			self.sqrt

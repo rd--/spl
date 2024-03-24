@@ -67,14 +67,10 @@ At `LargeInteger`:
 3888653852803216535842634400242612716809201918n
 ```
 
->>> 6.binomial(3)
-6.take(3)
-```
-
-If _k_ is greater than _n_ answer is zero:
+If _k_ is greater than _n_ the answer is zero:
 
 ```
->>> 3.take(6)
+>>> 3.binomial(6)
 0
 ```
 

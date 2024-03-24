@@ -3,7 +3,7 @@
 - _cancelSharp(aNumber)_
 
 Answer _aNumber - 0.1_.
-In some contexts, such as `degreeToKey`, a fraction scale degree indicates an _alteration_.
+In some contexts, such as `degreeToKey`, a fractional scale degree indicates an _alteration_.
 
 ```
 >>> 4.cancelSharp
