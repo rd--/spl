@@ -40,7 +40,7 @@
 ## Blocks
 
 - `Block`
-- `cull, `numArgs`, `value`
+- `cull`, `numArgs`, `value`
 
 ## Boolean, Logic
 
@@ -223,11 +223,13 @@
 
 - `fareySequence`, `sternBrocotSequence`
 - `calkinWilfTree`, `sternBrocotTree`
+- `numberCompose`, `numberDecompose`
+- `integerDigits`, `integerPartitions`
 
 ## Interval
 
 - `Interval`
-- `discretize`, `includes`, min`, `max`, `subdivide`
+- `discretize`, `includes`, `min`, `max`, `subdivide`
 
 ## Iteration
 

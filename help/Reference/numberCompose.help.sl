@@ -65,7 +65,7 @@ If the list of coefficients is shorter than the list of units, the former is lef
 
 * * *
 
-See also: *, dot, inner, sum
+See also: *, dot, inner, numberDecompose, sum
 
 References:
 _Mathematica_

@@ -333,6 +333,26 @@
 		self.zero - self
 	}
 
+	numberDecompose { :self :u |
+		(self < 0).if {
+			self.-.numberDecompose(u).-
+		} {
+			let answer = [];
+			let x = self;
+			let k = u.size;
+			u.withIndexDo { :each :index |
+				(index = k).if {
+					answer.add(x / each)
+				} {
+					let n = (x / each).floor;
+					x := x - (n * each);
+					answer.add(n)
+				}
+			};
+			answer
+		}
+	}
+
 	pi { :self |
 		self * 3.1415926535897932384626433
 	}
@@ -349,7 +369,11 @@
 		let answer = [];
 		let next = a;
 		{
-			next.abs <= b.abs
+			(r > 1).if {
+				next.abs <= b.abs
+			} {
+				next.abs >= b.abs
+			}
 		}.whileTrue {
 			answer.add(next);
 			next := next * r

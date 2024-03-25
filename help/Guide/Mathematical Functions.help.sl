@@ -128,7 +128,6 @@
 
 - `factorInteger`: list of prime factors
 - `divisors`: list of integer divisors
-- `integerPartitions`: partition an integer into smaller integers
 - `integerDigits`: list of the digits in integer
 - `fareySequence`: the Farey sequence
 

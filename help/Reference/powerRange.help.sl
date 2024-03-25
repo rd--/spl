@@ -55,9 +55,16 @@ A range with negative numbers:
 [5 35 245 1715]
 ```
 
+Descending:
+
+```
+>>> 1E4.powerRange(1, 1E-1)
+[10000 1000 100 10 1]
+```
+
 * * *
 
-See also: ^, exp, Range, ratios
+See also: ^, exp, geometricSeries, Range, ratios
 
 References:
 _Mathematica_
