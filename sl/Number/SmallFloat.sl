@@ -289,6 +289,11 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.exp(_self)>
 	}
 
+	fibonacci { :n |
+		let phi = 1.goldenRatio;
+		((phi ^ n) - (n.pi.cos * (phi ^ n.-))) / 5.sqrt
+	}
+
 	floor { :self |
 		<primitive: return Math.floor(_self)>
 	}

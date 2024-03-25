@@ -130,6 +130,10 @@
 		self.collect(eulerPhi:/1)
 	}
 
+	fibonacci { :self |
+		self.collect(fibonacci:/1)
+	}
+
 	gcd { :self |
 		self.reduce(gcd:/2)
 	}

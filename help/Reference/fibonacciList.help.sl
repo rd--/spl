@@ -1,8 +1,8 @@
 # fibonacciList
 
-_fibonacciList(anInteger)_
+- _fibonacciList(anInteger)_
 
-Answer a List of the first _anInteger_ Fibonacci numbers:
+Answer a `List` of the first _anInteger_ Fibonacci numbers:
 
 ```
 >>> 20.fibonacciList

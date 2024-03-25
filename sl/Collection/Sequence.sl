@@ -784,6 +784,10 @@
 		}
 	}
 
+	fromDms { :self |
+		self.numberCompose([1, 1 / 60, 1 / 3600])
+	}
+
 	fromToDo { :self :start :stop :aBlock:/1 |
 		start.toDo(stop) { :index |
 			aBlock(self[index])
@@ -1379,6 +1383,10 @@
 				true
 			}
 		}
+	}
+
+	numberCompose { :c :u |
+		(c * u.last(c.size)).sum
 	}
 
 	occurrencesOf { :self :anObject |

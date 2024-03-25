@@ -219,10 +219,15 @@
 - `firstIndex`, `indices`, `lastIndex`
 - `lastIndexOf`
 
+## Integer Functions
+
+- `fareySequence`, `sternBrocotSequence`
+- `calkinWilfTree`, `sternBrocotTree`
+
 ## Interval
 
 - `Interval`
-- `discretize`, `includes`, min`, `max`
+- `discretize`, `includes`, min`, `max`, `subdivide`
 
 ## Iteration
 
@@ -346,6 +351,11 @@
 ## Rearranging
 
 - `intercalate`, `interleave`, `intersperse`
+
+## Recurrence and Sum Functions
+
+- `fibonacci`, `fibonacciList`
+- `harmonicNumber`
 
 ## Reflection
 

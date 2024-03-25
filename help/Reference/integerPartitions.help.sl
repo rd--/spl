@@ -3,7 +3,7 @@
 - _integerPartitions(n)_
 - _integerPartitions(n, k)_
 
-Answer a List of all possible ways to partition the integer _n_ into smaller integers.
+Answer a `List` of all possible ways to partition the integer _n_ into smaller integers.
 The binary form only answers partitions of size _k_.
 
 All partitions of 5:

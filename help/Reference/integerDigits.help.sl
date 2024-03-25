@@ -3,7 +3,7 @@
 - _integerDigits(anInteger, base)_
 - _integerDigits(alpha)_ => _integerDigits(alpha, 10)_
 
-Answer a list of the decimal digits in the integer _anInteger_.
+Answer a `List` of the decimal digits in the integer _anInteger_.
 
 Find digits in base 10:
 

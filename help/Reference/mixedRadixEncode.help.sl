@@ -9,14 +9,23 @@ Mixed radix counting systems are common in calendrical calculations.
 >>> 571.mixedRadixEncode([12 9 6])
 [10 5 1]
 
+>>> (10 * 9 * 6) + (5 * 6) + 1
+571
+
 >>> 534.mixedRadixEncode([15 10 5])
 [10 6 4]
+
+>>> (10 * 10 * 5) + (6 * 5) + 4
+534
 
 >>> 1084.mixedRadixEncode([17 15 11])
 [6 8 6]
 
 >>> 12345.mixedRadixEncode([7 24 60])
 [1 1 13 45]
+
+>>> (1 * 7 * 24 * 60) + (1 * 24 * 60) + (13 * 60) + 45
+12345
 ```
 
 Encode can be used to convert a measure given in the smallest unit to a hierarchy of units.
@@ -25,9 +34,12 @@ For example, given that 1 day = 24 hours, 1 hour = 60 minutes, and 1 minute = 60
 ```
 >>> 210859.mixedRadixEncode([24 60 60])
 [2 10 34 19]
+
+>>> (2 * 24 * 60 * 60) + (10 * 60 * 60) + (34 * 60) + 19
+210859
 ```
 
-The inverse is _mixedRadixDecode_.
+The inverse is `mixedRadixDecode`.
 
 ```
 >>> [10 5 1].mixedRadixDecode([12 9 6])
