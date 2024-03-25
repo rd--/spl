@@ -44,6 +44,7 @@
 ## Resonant Filters
 
 - `Formlet`, `Resonz`, `Rhpf`, `Rlpf`, `Ringz`
+- `Dfm1`, `MoogFf`
 
 ## Smoothing Filters
 

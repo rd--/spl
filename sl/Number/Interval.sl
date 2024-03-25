@@ -124,6 +124,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 		answer
 	}
 
+	subdivide { :self :n |
+		self.discretize(n + 1)
+	}
+
 	storeString { :self |
 		'Interval(' ++ self.min ++ ', ' ++ self.max ++ ')'
 	}

@@ -13,8 +13,8 @@ At `Bag`:
 ```
 >>> let b = Bag();
 >>> b.add('x');
->>> b.add('y') = 'y' & { b.size = 2 }
-true
+>>> (b.add('y'), b.size, b.asList)
+('y', 2, ['x' 'y'])
 ```
 
 At `List`:
@@ -22,8 +22,8 @@ At `List`:
 ```
 >>> let l = List();
 >>> l.add('x');
->>> l.add('y') = 'y' & { l.size = 2 }
-true
+>>> (l.add('y'), l.size, l)
+('y', 2, ['x' 'y'])
 ```
 
 At `Map`:
@@ -31,8 +31,8 @@ At `Map`:
 ```
 >>> let m = Map();
 >>> m.add('x' -> 1);
->>> m.add('y' -> 2) = ('y' -> 2) & { m.size = 2 }
-true
+>>> (m.add('y' -> 2), m.size, m.asRecord)
+('y' -> 2, 2, (x: 1, y: 2))
 ```
 
 At `Record`:
@@ -40,8 +40,8 @@ At `Record`:
 ```
 >>> let r = Record();
 >>> r.add('x' -> 1);
->>> r.add('y' -> 2) = ('y' -> 2) & { r.size = 2 }
-true
+>>> (r.add('y' -> 2), r.size, r)
+('y' -> 2, 2, (x: 1, y: 2))
 ```
 
 At `Set`, add will include _newObject_ as one of the set elements only if not already present:
@@ -49,8 +49,8 @@ At `Set`, add will include _newObject_ as one of the set elements only if not al
 ```
 >>> let s = Set();
 >>> s.add('x');
->>> s.add('y') = 'y' & { s.size = 2 }
-true
+>>> (s.add('y'), s.size, s.asList)
+('y', 2, ['x' 'y'])
 
 >>> { [1].asSet.add(1) }.ifError { true}
 true

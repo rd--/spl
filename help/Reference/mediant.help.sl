@@ -8,6 +8,9 @@ For fractions _a/c_ and _b/d_ answer _a+b/c+d_.
 ```
 >>> 1/2.mediant(3/4)
 2/3
+
+>>> 3/2.mediant(3/1)
+2/1
 ```
 
 In the unary case answers the sum of the numerators divided by the sum of the denominators:

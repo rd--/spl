@@ -178,3 +178,47 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 	}
 
 }
+
++@Integer {
+
+	unfoldTree { :anInteger :anObject :aBlock:/1 |
+		(anInteger <= 1).if {
+			Tree(anObject, [])
+		} {
+			let children = aBlock(anObject);
+			Tree(
+				anObject,
+				children.collect { :each |
+					(anInteger - 1).unfoldTree(each, aBlock:/1)
+				}
+			)
+		}
+	}
+
+	calkinWilfTree { :n :r |
+		n.unfoldTree(r) { :each |
+			let [a, b] = [each.numerator, each.denominator];
+			[Fraction(a, a + b), Fraction(a + b, b)]
+		}
+	}
+
+	calkinWilfTree { :n |
+		n.calkinWilfTree(1/1)
+	}
+
+	sternBrocotTree { :n :r |
+		n.unfoldTree(r) { :each |
+			let a = each.continuedFraction;
+			let b = a.copy;
+			a[a.size] := a[a.size] + 1;
+			b[a.size] := b[a.size] - 1;
+			b.add(2);
+			[a.fromContinuedFraction, b.fromContinuedFraction].sort
+		}
+	}
+
+	sternBrocotTree { :n |
+		n.sternBrocotTree(1/1)
+	}
+
+}

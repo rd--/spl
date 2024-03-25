@@ -1,0 +1,69 @@
+# subdivide
+
+- _subdivide(anInteger)_
+- _subdivide(anInterval, anInteger)_
+
+Answer the `List` that subdivides either _(0 -- 1)_ or _anInterval_ into _anInteger_ parts,
+therefore having size _anInteger + 1_.
+
+Subdivide the unit interval into 10 equal parts:
+
+```
+>>> 10.subdivide
+[0/1 1/10 1/5 3/10 2/5 1/2 3/5 7/10 4/5 9/10 1/1]
+```
+
+Subdivide the interval 0 to 10 into 5 equal parts:
+
+```
+>>> (0 -- 10).subdivide(5)
+[0 2 4 6 8 10]
+```
+
+Subdivide the interval -1 to 1 into 8 equal parts:
+
+```
+>>> (-1 -- 1).subdivide(8)
+[-1 -0.75 -0.5 -0.25 0 0.25 0.5 0.75 1]
+```
+
+Subdivide the interval from `e` to `pi`:
+
+```
+>>> (e -- pi).subdivide(4)
+[2.7183 2.8241 2.9299 3.0358 3.1416]
+```
+
+Compare `subdivide` and `Range Syntax`:
+
+```
+>>> (3 -- 11).subdivide(4)
+[3 5 7 9 11]
+
+>>> [3, 5 .. 11]
+[3 5 7 9 11]
+
+>>> (-1 -- 2).subdivide(5)
+[-1 -0.4 0.2 0.8 1.4 2]
+
+>>> [-1, -0.4 .. 2]
+[-1 -0.4 0.2 0.8 1.4 2]
+```
+
+Compare `subdivide` and `discretize`:
+
+```
+>>> (1 -- 10).subdivide(9)
+[1 .. 10]
+
+>>> (1 -- 10).discretize(10)
+[1 .. 10]
+```
+
+* * *
+
+See also: discretize, Interval, Range
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Subdivide.html)

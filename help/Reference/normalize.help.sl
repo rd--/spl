@@ -23,3 +23,5 @@ See also: abs, dot, norm, sign, standardize, unitVector
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Normalize.html)
+
+Categories: Vector

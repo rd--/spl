@@ -3,14 +3,16 @@
 ## Accessing
 
 - `at`, `atModify`, `atPut`
-- `atPath`, `atPin`, `atWrap`, `atWrapPut`
+- `atFold`, `atPath`, `atPin`, `atWrap`, `atWrapPut`
 - `atAll`, `atAllPut`, `atAllPutAll`
 - `atIfAbsent`, `atIfAbsentPut`, `atIfPresent`
 - `associationAt`, `associationAtIfAbsent`
+- `any`, `anyAs`
+- `first`, `second`, `third`, `fourth`, `last`
 
 ## Adding
 
-- `addFirst`, `add`, `addLast`
+- `addFirst`, `add`, `addLast`, `addWithOccurrences`
 - `addAfter`, `addAfterIndex`, `addBefore`
 - `addAllFirst`, `addAll`, `addAllIfNotPresent`, `addAllLast`
 - `addIfNotPresent`, `ifAbsentAdd`
@@ -35,6 +37,11 @@
 - `<<`, `>>`, `bitCount`, `bitShift`, `bitShiftLeft`, `bitShiftRight`, `highBit`, `lowBit`
 - `bitAt`, `bitAtPut`
 
+## Blocks
+
+- `Block`
+- `cull, `numArgs`, `value`
+
 ## Boolean, Logic
 
 - `&`, `&&`, `|`, `||`, `not`
@@ -48,20 +55,24 @@
 - `asLowerCase`, `asString`, `asUpperCase`
 - `codePoint`
 - `isAlphaNumeric`, `isDigit`, `isLetter`, `isLowerCase`, `isUpperCase`
+- `isCarriageReturn`, `isFormFeed`, `isLineFeed`, `isSeparator`, `isSpace`, `isTab`
 
 ## Collection Tests
 
 - `isArray`, `isVector`, `isMatrix`
 - `isCollection`, `isDictionary`, `isIndexable`, `isSequence`
 - `isBag`, `isList`, `isMap`, `isRecord`, `isSet`
-- `depth`, `size`
+- `isBitSet`, `isPriorityQueue`, `isRange`, `isSortedList`
+- `isAssociation`, `isAssociationList`
+- `capacity`, `depth`, `size`
 
 ## Collection Types & Traits
 
 - `Collection`, `Dictionary`, `Sequence`
 - `Extensible`, `Indexable`, `Keyed`, `Removable`, `Unordered`
 - `Bag`, `List`, `Map`, `Record`, `Set`, `Tree`, `Tuple`
-- `BitSet`, `PriorityQueue`, `Range`, `SortedList`
+- `BitSet`, `PriorityQueue`, `SortedList`
+- `ArithmeticProgression`, `Range`
 - `Association`
 
 ## Combinations
@@ -93,19 +104,25 @@
 - `asBit`, `asBoolean`
 - `asComplex`, `asFloat`, `asFraction`, `asGaussianInteger`, `asInteger`, `asLargeInteger`, `asNumber`, `asSmallFloat`
 - `asCharacter`, `asCodePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`, `asWords`
-- `asBag`, `asCollection`, `asList`, `asMap`, `asRecord`, `asSet`, `asSortedList`, `asTree`
+- `asBag`, `asByteArray`, `asCollection`, `asList`, `asMap`, `asRecord`, `asSet`, `asSortedList`, `asTree`
 
 ## Copying
 
-- `copy`, `copyFromTo`, `copyUpTo`, `deepCopy`, `shallowCopy`
+- `copy`, `copyFromTo`, `copyUpTo`, `deepCopy`, `postCopy`, `shallowCopy`
 - `copyReplaceAllWith`, `copyWith`, `copyWithout`, `copyWithoutAll`, `copyWithoutIdenticalElements`
 - `#`, `replicateEach`, `replicateInteger`
 - `!`, `duplicateInteger`, `duplicateShape`
 
+## Date
+
+- `asDate`, `Date`
+- `dayOfMonth`, `dayOfWeek`, `month`, `year`
+- `parseDate`
+
 ## Distance Measures
 
 - `brayCurtisDistance`, `canberraDistance`, `chessboardDistance`, `euclideanDistance`, `manhattanDistance`
-- `editDistance`, `hammingDistance`
+- `editDistance`, `hammingDistance`, `levenshteinDistance`
 
 ## Division & Divisibility
 
@@ -135,14 +152,18 @@
 ## Equality Testing
 
 - `=`, `==`, `~=`, `~~`, `~`
+- `hasEqualElements`, `hasEqualElementsBy`
 
 ## Error Handling
 
+- `Error`, `error`, `signal`
 - `ensure`, `ifError`
+- `description`, `messageText`, `name`
 
 ## Evaluating
 
 - `cull`, `value`
+- `evaluate`
 
 ## Exponential Functions
 
@@ -160,9 +181,11 @@
 
 ## Fractions, Rational Numbers
 
-- `asFraction`, `Fraction`
+- `asFraction`, `Fraction`, `/`
 - `denominator`, `numerator`
-- `limitDenominator`
+- `limitDenominator`, `mediant`, `rationalize`
+- `continuedFraction`, `fromContinuedFraction`
+- `convergents`, `semiconvergents`
 
 ## Functional Programming
 
@@ -184,6 +207,22 @@
 - `asPoint`, `Point`, `IsoSphericalCoordinate`
 - `fromSphericalCoordinates`, `fromPolarCoordinates`
 - `toPolarCoordinates`
+- `coordinateBoundingBox`, `coordinateBounds`
+
+## Help Files
+
+- `DocumentTest`, `HelpFile`
+- `asDocumentTest`, `extractDocumentTests`
+
+## Indexing
+
+- `firstIndex`, `indices`, `lastIndex`
+- `lastIndexOf`
+
+## Interval
+
+- `Interval`
+- `discretize`, `includes`, min`, `max`
 
 ## Iteration
 
@@ -216,12 +255,18 @@
 - `isMatrix`, `isSquareMatrix`, `shape`
 - `determinant`, `diagonal`, `trace`, `transposed`
 
+## Methods
+
+- `methodLookupAtType`
+- `parameterNames`
+
 ## Network
 
 - `Location`, `Url`
 - `hostName`, `href`, `pathName`
 - `Request`, `Response`
 - `fetch`, `fetchText`, `fetchJson`, `fetchByteArray`
+- `decodeUri`, `encodeUri`
 
 ## Numeric Literals
 
@@ -241,8 +286,18 @@
 
 ## Open Sound Control
 
-- `OscMessage`, `OscParameter`
+- `OscBundle`, `OscMessage`, `OscParameter`
+- `asOscParameter`
 - `addOscListener`, `removeOscListener`
+
+## Operators
+
+- `operatorCharacterNameTable`, `operatorNameTable`
+
+## Package
+
+- `Package`
+- `packageDictionary`, `packageMethods`, `packageTraits`, `packageTypes`
 
 ## Parsing Numbers
 
@@ -263,6 +318,18 @@
 - `eulerPhi`
 - `randomPrime`
 
+## Printing
+
+- `printString`, `storeString`
+
+## Ranges
+
+- `ArithemeticProgression`, `Range`
+- `arithmeticSeries`, `isArithmeticSeries`, `isArithmeticSeriesBy`
+- `asRange`, `asRangeList`
+- `isIntegerRange`, `isRange`
+- `differences`
+
 ## Random Numbers
 
 - `nextRandomFloat`, `randomComplex`, `randomFloat`, `randomInteger`, `randomPrime`
@@ -276,12 +343,18 @@
 - `randomFloatCauchyDistribution`, `randomFloatGaussianDistribution`, `randomFloatLinearDistribution`
 - `randomFloatEulerianBetaDistribution`, `randomFloatWeibullDistribution`
 
+## Rearranging
+
+- `intercalate`, `interleave`, `intersperse`
+
 ## Reflection
 
 - `perform`, `respondsTo`, `type`, `typeOf`
 - `elementType`, `elementTypeIfAbsent`, `elementTypes`
 - `methodDictionary`, `traitDictionary`, `typeDictionary`
 - `Method`, `Trait`, `Type`
+- `slotList`, `slotRead`, `slotWrite`
+- `hasEqualSlots`, `storeStringAsInitializeSlots`
 
 ## Regular Expressions
 
@@ -290,7 +363,9 @@
 
 ## Removing
 
-- `removeAt`, `removeFirst`, `remove`, `removeLast`
+- `removeAt`, `remove`, `removeKey`
+- `removeFirst`, `removeLast`
+- `removeIfAbsent`, `removeKeyIfAbsent`
 - `removeAllEqualTo`, `removeAll`, `removeAllSuchThat`
 - `keysAndValuesRemove`
 
@@ -307,6 +382,11 @@
 - `allFulfilled`, `allSettled`, `anyFulfilled`, `anySettled`
 - `cancel`, `valueAfter`, `valueAfterWith`, `valueEvery`
 
+## Set operations
+
+- `difference`, `intersection`, `symmetricDifference`, `union`
+- `nub`
+
 ## Sorting
 
 - `sort`, `sortBy`, `sorted`, `sortOn`
@@ -316,6 +396,7 @@
 
 - `mean`, `median`, `commonest`
 - `arithmeticMean`, `harmonicMean`, `geometricMean`, `contraharmonicMean`
+- `arithmeticGeometricMean`
 - `variance`, `standardDeviation`, `meanDeviation`
 - `skewness`, `kurtosis`
 - `moment`, `centralMoment`, `rootMeanSquare`
@@ -331,6 +412,8 @@
 - `position`, `setToEnd`
 - `asIterator`, `asStream`
 - `collect`, `reject`, `select`
+- `peek`, `peekFor`
+- `skip`, `skipTo`
 
 ## String Operations
 
@@ -352,13 +435,25 @@
 - `,`, `;`, `:`, `:=`, `:;`
 - `[`, `(`, `{`
 
-## Temporal Types
+## Temporal Types and Functions
 
-- `Clock`, `Date`, `Duration`, `TimeStamp`
+- `Clock`, `Duration`, `TimeStamp`
+- `asTimeStamp`
+- `centiseconds`, `milliseconds`, `seconds`
+- `hours`, `minutes`
+- `days`, `weeks`
+- `julianYears`, `siderealMonths`, `synodicMonths`
+- `parseDuration`
+- `localTimeZoneOffset`, `localeTimeString`
+
+## Text
+
+- `isBlank`, `isBlankLine`, `isVowel`
+- `lines`, `paragraphs`, `sentences`, `words`
 
 ## Timing
 
-- `systemTimeInMilliseconds`, `unixTime`, `unixTimeInMilliseconds`
+- `now`, `systemTimeInMilliseconds`, `unixTime`, `unixTimeInMilliseconds`
 - `millisecondsToRun`
 
 ## Tree Operations
@@ -370,3 +465,32 @@
 - `arcCos`, `arcSin`, `arcTan`, `cos`, `sin`, `sinc`, `tan`
 - `arcCosh`, `arcSinh`, `arcTanh`, `cosh`, `sinh`, `tanh`
 - `haversine`
+
+## Tuning Type and Functions
+
+- `CentsTuning`, `RatioTuning`, `Scale`, `Tuning`
+- `asJiTuning`, `equalTemperamentTuning`
+- `asCents`, `asFractions`, `asIntegers`, `asRatios`
+- `limit`, `octave`
+- `centsToRatio`, `degreeToKey`, `ratioToCents`
+- `benedettiHeight`, `keesSemiHeight`, `tenneyHeight`, `weilHeight`, `wilsonHeight`
+- `latticePrimes`, `latticeVertices`, `latticeVector`
+
+## Units & Measures
+
+- `Angle`, `Distance`, `Frequency`, `Length`
+- `asHertz`, `hertz`, `kiloherz`
+- `metres`
+
+## Vector Operations
+
+- `dot`, `norm`, `normalize`, `standardize`
+
+## Window Functions
+
+- `bartlettWindow`, `dirichletWindow`
+- `blackmanHarrisWindow`, `blackmanWindow`
+- `gaussianWindow`
+- `hammingTable`, `hammingWindow`
+- `hannTable`, `hannWindow`
+- `welchTable`, `welchWindow`

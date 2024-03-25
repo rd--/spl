@@ -179,6 +179,19 @@
 		}
 	}
 
+	fareySequence { :n |
+		let [a, b, c, d] = [0, 1, 1, n];
+		let answer = [Fraction(a, b)];
+		{
+			c <= n
+		}.whileTrue {
+			let k = ((n + b) / d).floor;
+			[a, b, c, d] := [c, d, k * c - a, k * d - b];
+			answer.add(Fraction(a, b))
+		};
+		answer
+	}
+
 	foldIndex { :self :size |
 		self.foldBetweenAnd(1, size)
 	}
@@ -695,6 +708,24 @@
 		integer.romanDigitsForOn('MDC'.asciiByteArray, 100, aStream);
 		integer.romanDigitsForOn('CLX'.asciiByteArray, 10, aStream);
 		integer.romanDigitsForOn('XVI'.asciiByteArray, 1, aStream)
+	}
+
+	sternBrocotSequence { :n |
+		let answer = [1 1];
+		let index = 2;
+		{
+			answer.size < n
+		}.whileTrue {
+			let c = answer[index];
+			answer.add(c + answer[index - 1]);
+			answer.add(c);
+			index := index + 1
+		};
+		answer
+	}
+
+	subdivide { :self |
+		0:self.collect { :n | Fraction(n, self) }
 	}
 
 	threeDigitName { :self |
