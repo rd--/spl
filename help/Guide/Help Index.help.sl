@@ -128,7 +128,7 @@
 
 - `/`, `%`, `//`, `\\`
 - `mod`, `powerMod`, `quotient`, `remainder`
-- `gcd`, `lcm`
+- `extendedGcd`, `gcd`, `lcm`
 - `divisible`, `isEven`, `isOdd`
 - `isCoprime`, `isPrime`
 - `modularInverse`

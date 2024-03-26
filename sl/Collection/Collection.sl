@@ -314,8 +314,27 @@
 		self.error('is not indexed/keyed')
 	}
 
+	extendedGcd { :self |
+		(self.size < 2).if {
+			self.error('@Collection>>extendedGcd')
+		} {
+			let [g, c] = self[1].extendedGcd(self[2]);
+			3.toDo(self.size) { :each |
+				let [nextG, nextC] = g.extendedGcd(self[each]);
+				[each, g, c, nextG, nextC].postLine;
+				g := nextG;
+				c.add(nextC.last)
+			};
+			[g, c]
+		}
+	}
+
 	fillFrom { :self :aCollection |
 		self.fillFromWith(aCollection, identity:/1)
+	}
+
+	gcd { :self |
+		self.reduce(gcd:/2)
 	}
 
 	geometricMean { :self |

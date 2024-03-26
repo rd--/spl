@@ -1,6 +1,6 @@
 # modularInverse
 
-_modularInverse(k, n)_
+- _modularInverse(k, n)_
 
 Answer the modular inverse of _k_ modulo _n_,
 the number _r_ such that the remainder of the division of _r_ _k_ by _n_ is equal to 1.
@@ -44,7 +44,7 @@ Compute using integers:
 121
 ```
 
-ModularInverse is a periodic function:
+`modularInverse` is a periodic function:
 
 ```
 >>> [2.modularInverse(5), (2 + 5).modularInverse(5)]
@@ -61,7 +61,7 @@ If the results would be negative it is added to _n_:
 (-4 + 7)
 ```
 
-If  and  are coprime, then  is invertible modulo :
+If _k_ and _n_ are coprime, then _k_ is invertible modulo _n_ :
 
 ```
 >>> 7.isCoprime(12)
@@ -71,14 +71,14 @@ true
 7
 ```
 
-Computing ModularInverse twice yields the original argument:
+Computing `modularInverse` twice yields the original argument:
 
 ```
 >>> 7.modularInverse(9).modularInverse(9)
 7
 ```
 
-For nonzero integers k and n, _modularInverse(k, n) exists if and only if _k_ and _n_ are coprime:
+For nonzero integers _k_ and _n_, _modularInverse(k, n) exists if and only if _k_ and _n_ are coprime:
 
 ```
 >>> 10.isCoprime(21)
@@ -115,4 +115,9 @@ Plot the sequence with a fixed modulus:
 
 * * *
 
-See also: ^, eulerPhi, extendedGcd, isCoprime, mod, powerMod
+See also: ^, eulerPhi, extendedEuclideanAlgorithm, isCoprime, mod, powerMod
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/ModularInverse.html)
+[2](https://reference.wolfram.com/language/ref/ModularInverse.html)

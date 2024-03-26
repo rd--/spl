@@ -134,10 +134,6 @@
 		self.collect(fibonacci:/1)
 	}
 
-	gcd { :self |
-		self.reduce(gcd:/2)
-	}
-
 	harmonicNumber { :self |
 		self.collect(harmonicNumber:/1)
 	}

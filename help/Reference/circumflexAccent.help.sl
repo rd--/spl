@@ -11,6 +11,9 @@ The binary form answers _aNumber_ raised to the power of _anotherNumber_.
 
 >>> 2n ^ 100n
 1267650600228229401496703205376n
+
+>>> 3 ^ -2
+1/9
 ```
 
 At `Complex`:

@@ -70,6 +70,41 @@
 		{ system.nextRandomInteger(self) } ! count
 	}
 
+	bjorklundsAlgorithmDo { :k :n :aBlock:/1 |
+		let s = 1:n.collect { :i |
+			(i <= k).if {
+				[1]
+			} {
+				[0]
+			}
+		};
+		let d = n - k;
+		let z = d;
+		aBlock(s);
+		n := k.max(d);
+		k := k.min(d);
+		{
+			z > 0 | {
+				k > 1
+			}
+		}.whileTrue {
+			1:k.do { :i |
+				s[i].addAll(s[s.size - i + 1])
+			};
+			s.removeLast(k);
+			aBlock(s);
+			z := z - k;
+			d := n - k;
+			n := k.max(d);
+			k := k.min(d)
+		};
+		s.flatten
+	}
+
+	bjorklundsAlgorithm { :k :n |
+		k.bjorklundsAlgorithmDo(n) { :each | nil }
+	}
+
 	characterRange { :self :anInteger |
 		(self .. anInteger).collect(asCharacter:/1)
 	}
@@ -157,7 +192,15 @@
 			[s0, s] := [s, s0 - (quotient * s)];
 			[t0, t] := [t, t0 - (quotient * t)]
 		};
-		[r0, [s0, t0]]
+		(r0 < 0).if {
+			[r0.-, [s0, t0].-]
+		} {
+			[r0, [s0, t0]]
+		}
+	}
+
+	extendedGcd { :self :anInteger |
+		self.extendedEuclideanAlgorithm(anInteger)
 	}
 
 	factorial { :self |

@@ -1,6 +1,6 @@
 # euclideanAlgorithm
 
-_euclideanAlgorithm(a, b)_
+- _euclideanAlgorithm(a, b)_
 
 The Euclidean algorithm is an efficient method for computing the greatest common divisor of two integers.
 
@@ -14,4 +14,4 @@ The Euclidean algorithm is an efficient method for computing the greatest common
 
 * * *
 
-See also: gcd
+See also: extendedEuclideanAlgorithm, gcd

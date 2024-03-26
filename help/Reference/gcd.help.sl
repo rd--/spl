@@ -12,6 +12,9 @@ Greatest common divisor.
 >>> [2 6 10].reduce(gcd:/2)
 2
 
+>>> [2 6 10].gcd
+2
+
 >>> [-12 9 57].gcd
 3
 

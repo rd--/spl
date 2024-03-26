@@ -93,6 +93,8 @@
 ## Divisibility
 
 - `divisible`: is divisible predicate
+- `euclideanAlgorithm`: greatest common divisor
+- `extendedEuclideanAlgorithm`: greatest common divisor and Bézout coefficients
 - `gcd`: greatest common divisor
 - `isCoprime`: is coprime predicate
 - `isEven`: is even predicate

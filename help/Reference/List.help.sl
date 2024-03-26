@@ -10,7 +10,10 @@ Create a new `List` of _anInteger_ places, each initialised to `nil`, or to _anO
 
 ```
 >>> List(3, 1)
-[1, 1, 1]
+[1 1 1]
+
+>>> List(5, 0)
+[0 0 0 0 0]
 ```
 
 Lists are of variable `size`.

@@ -12,7 +12,7 @@ Answers _a ^ b % m_.
 2
 ```
 
-Use PowerMod to generate all coprime integers modulo 9:
+Use `powerMod` to generate all coprime integers modulo 9:
 
 ```
 >>> 2:10.collect { :each | 2.powerMod(each, 9) }.asSet.sorted

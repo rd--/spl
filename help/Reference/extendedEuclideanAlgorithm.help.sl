@@ -1,6 +1,6 @@
 # extendedEuclideanAlgorithm
 
-_extendedEuclideanAlgorithm(n1, n2)_
+- _extendedEuclideanAlgorithm(n1, n2)_
 
 Answer greatest common divisor and Bézout coefficients.
 
