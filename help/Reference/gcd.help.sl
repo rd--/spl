@@ -60,7 +60,7 @@ Plot the gcd for a number with 12:
 
 * * *
 
-See also: lcm
+See also: euclideanAlgorithm, extendedGcd, lcm
 
 References:
 _Apl_

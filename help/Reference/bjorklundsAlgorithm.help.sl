@@ -16,3 +16,7 @@ such that the _k_ ones are distributed as evenly as possible among the _n - k_ z
 * * *
 
 See also: bjorklundsAlgorithmDo, euclideanAlgorithm
+
+References:
+E. Bjorklund, 2003, _The theory of rep-rate pattern generation in the SNS timing system_,
+SNS ASD Technical Note, Los Alamos Laboratory.

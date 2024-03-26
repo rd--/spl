@@ -1,5 +1,9 @@
 # Further Reading
 
+E. Bjorklund.
+_The theory of rep-rate pattern generation in the SNS timing system_.
+SNS ASD Technical Note, Los Alamos Laboratory, 2003.
+
 Alessandro Warth, Patrick Dubroy, and Tony Garnock-Jones.
 Modular semantic actions.
 In _Proceedings of the Symposium on Dynamic Languages_, 108–119.

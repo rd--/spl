@@ -84,6 +84,21 @@
 		self >> anInteger
 	}
 
+	grayEncode { :n |
+		n.bitXor(n.bitShiftRight(1))
+	}
+
+	grayDecode { :n |
+		let answer = n;
+		{
+			n := n.bitShiftRight(1);
+			n ~= 0
+		}.whileTrue {
+			answer := answer.bitXor(n)
+		};
+		answer
+	}
+
 	highBit { :self |
 		(self < 0).if {
 			self.error('@Binary>>highBit is not defined for negative integers')

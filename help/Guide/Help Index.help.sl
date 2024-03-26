@@ -396,8 +396,9 @@
 
 ## Set operations
 
-- `difference`, `intersection`, `symmetricDifference`, `union`
+- `complement`, `difference`, `intersection`, `symmetricDifference`, `union`
 - `nub`
+- `combinations`, `powerSet`, `subsets`, `tuples`
 
 ## Sorting
 

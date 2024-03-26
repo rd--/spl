@@ -1,6 +1,6 @@
 # PolarCoordinate
 
-The _PolarCoordinate_ type represents a pair of numbers designating a location in Polar coordinate space.
+The `PolarCoordinate` type represents a pair of numbers designating a location in polar coordinate space.
 
 The usual mathematical notation is _(r, theta)_, where _r_ is the radius and _theta_ the angle.
 

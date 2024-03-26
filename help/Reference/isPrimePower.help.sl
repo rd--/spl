@@ -1,8 +1,8 @@
 # isPrimePower
 
-- _isPrimePower(anInteger | aFraction)_
+- _isPrimePower(aNumber)_
 
-Answers true if anInteger is an integer power of a prime number, else false.
+Answers `true` if _aNumber_ is an integer power of a prime number, else false.
 
 Test whether a number is a prime power:
 
@@ -58,6 +58,13 @@ The number of prime powers in intervals of size 1000:
 ```
 >>> 0:4.collect { :each | let i = 10 ^ each; (i  .. i + 999).select(isPrimePower:/1).size }
 [193, 187, 175, 140, 108]
+```
+
+Threads over lists:
+
+```
+>>> 1:9.isPrimePower
+b[false true true true true false true true true]
 ```
 
 * * *

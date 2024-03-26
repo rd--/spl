@@ -61,7 +61,7 @@ _tuples_ gives all possible combinations and reorderings of elements:
 
 * * *
 
-See also: powerSet, subsets, tuples
+See also: combinationsAtATimeDo, powerSet, subsets, tuples
 
 References:
 _Mathematica_

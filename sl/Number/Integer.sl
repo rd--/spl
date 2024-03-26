@@ -109,6 +109,14 @@
 		(self .. anInteger).collect(asCharacter:/1)
 	}
 
+	combinations { :n :m |
+		let answer = [];
+		1:n.combinationsAtATimeDo(m) { :each |
+			answer.add(each.copy)
+		};
+		answer
+	}
+
 	commonResidue { :self :modulus |
 		self % modulus
 	}
@@ -584,28 +592,6 @@
 		answer
 	}
 
-	multiplicativeOrder { :k :n :r |
-		(n = 1).if {
-			1
-		} {
-			k.isCoprime(n).if {
-				let m = k.one;
-				{
-					r.includes(k ^ m % n)
-				}.whileFalse {
-					m := m + 1
-				};
-				m
-			} {
-				nil
-			}
-		}
-	}
-
-	multiplicativeOrder { :k :n |
-		k.multiplicativeOrder(n, [1])
-	}
-
 	modularInverse { :a :n |
 		let t = 0;
 		let t1 = 1;
@@ -627,6 +613,28 @@
 				t
 			}
 		}
+	}
+
+	multiplicativeOrder { :k :n :r |
+		(n = 1).if {
+			1
+		} {
+			k.isCoprime(n).if {
+				let m = k.one;
+				{
+					r.includes(k ^ m % n)
+				}.whileFalse {
+					m := m + 1
+				};
+				m
+			} {
+				nil
+			}
+		}
+	}
+
+	multiplicativeOrder { :k :n |
+		k.multiplicativeOrder(n, [1])
 	}
 
 	numberOfCompositions { :n :k |
@@ -814,6 +822,35 @@
 			remaining := remaining - 1
 		};
 		self
+	}
+
+	thueMorseSequence { :k |
+		(k <= 0).if {
+			[]
+		} {
+			let answer = List(k);
+			let i =2;
+			let iMax = 1;
+			answer[1] := 0;
+			{
+				i <= k
+			}.whileTrue {
+				{
+					i <= k & {
+						i <= (2 * iMax)
+					}
+				}.whileTrue {
+					answer[i] := 1 - answer[i - iMax];
+					i := i + 1
+				};
+				iMax := iMax * 2
+			};
+			answer
+		}
+	}
+
+	thueMorse { :index |
+		index.digitCount(2, 1) % 2
 	}
 
 	wrapIndex { :self :size |

@@ -112,7 +112,9 @@
 ## Congruences
 
 - `%`: modulo
+- `chineseRemainder`: chinese remainder theorem
 - `powerMod`: power modulo
+- `multiplicativeOrder`: multiplicative order
 
 ## Combinatorial Functions
 
@@ -260,3 +262,13 @@
 - `hammingWindow`: Hamming apodization function
 - `hannWindow`: Hann apodization function
 - `welchWindow`: Welch  apodization function
+
+## Operations on Sets
+
+- `union`: find the union of any number of sets
+- `intersection`: find the intersection of any number of sets
+- `complement`: find the complement with respect to a universal set
+- `symmetricDifference`: find the symmetric difference of any number of sets
+- `subsets`: find all possible subsets of a set (the powerset)
+- `tuples`: find all possible tuples of n elements from a set
+- `groupings`: find all possible groupings of elements

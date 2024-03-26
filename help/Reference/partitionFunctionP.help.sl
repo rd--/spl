@@ -9,8 +9,8 @@ The binary form denotes the number of ways of writing _n_ as a sum of exactly _k
 or, equivalently, the number of partitions into parts of which the largest is exactly _k_.
 
 ```
->>> 0:12.collect(partitionFunctionP:/1)
-[1 1 2 3 5 7 11 15 22 30 42 56 77]
+>>> 0:15.collect(partitionFunctionP:/1)
+[1 1 2 3 5 7 11 15 22 30 42 56 77 101 135 176]
 ```
 
 _partitionFunctionP_ gives the length of _integerPartitions_:

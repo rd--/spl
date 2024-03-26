@@ -172,6 +172,10 @@
 		self.collect(isPrime:/1)
 	}
 
+	isPrimePower { :self |
+		self.collect(isPrimePower:/1)
+	}
+
 	lcm { :self |
 		self.reduce(lcm:/2)
 	}
@@ -259,6 +263,10 @@
 
 	tanh { :self |
 		self.collect(tanh:/1)
+	}
+
+	thueMorse { :self |
+		self.collect(thueMorse:/1)
 	}
 
 	truncated { :self |

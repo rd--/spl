@@ -9,6 +9,9 @@ Answer greatest common divisor and Bézout coefficients.
 >>> 2.extendedGcd(3)
 [1 [-1 1]]
 
+>>> (2 * -1) + (3 * 1)
+1
+
 >>> 6.extendedGcd(15)
 [3 [-2 1]]
 
@@ -48,6 +51,8 @@ At `Collection`:
 
 >>> (-12 * -1) + (9 * -1) + (57 * 0)
 3
+```
+
 * * *
 
 See also: extendedEuclideanAlgorithm, gcd

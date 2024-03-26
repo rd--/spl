@@ -311,6 +311,14 @@
 		(self - aSequence).abs.max
 	}
 
+	chineseRemainder { :r :m |
+		let p = m.product;
+		let q = m.withCollect(r) { :i :j |
+			j * (p / i).modularInverse(i) * (p / i)
+		}.sum;
+		q % p
+	}
+
 	collect { :self :aBlock:/1 |
 		let answer = self.species.ofSize(self.size);
 		self.indicesDo { :index |
