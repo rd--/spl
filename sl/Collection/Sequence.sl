@@ -1519,26 +1519,6 @@
 		}
 	}
 
-	powerSetDo { :self :aBlock:/1 |
-		let size = 2 ^ self.size;
-		let powersOfTwo = 2 ^ (0 .. self.size - 1);
-		let subset = [];
-		(0 .. size - 1).do { :i |
-			subset.removeAll;
-			powersOfTwo.withIndexDo { :each :j |
-				(i // each % 2 ~= 0).ifTrue {
-					subset.add(self[j])
-				}
-			};
-			aBlock(subset)
-		};
-		self
-	}
-
-	powerSet { :self |
-		self.subsets(true.constant)
-	}
-
 	prefixesDo { :self :aBlock:/1 |
 		1.toDo(self.size) { :each |
 			aBlock(self.copyFromTo(1, each))
@@ -2083,16 +2063,6 @@
 
 	subsequencesInCommon { :self :aSequence :k |
 		self.partition(k, 1).intersection(aSequence.partition(k, 1))
-	}
-
-	subsets { :self :aBlock:/1 |
-		let answer = [];
-		self.powerSetDo { :each |
-			aBlock(each).ifTrue {
-				answer.add(each.copy)
-			}
-		};
-		answer
 	}
 
 	swapWith { :self :oneIndex :anotherIndex |

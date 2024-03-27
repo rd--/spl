@@ -165,11 +165,12 @@ Sl {
 	operatorAssignment = operatorChar ":" "="
 
 	literal = rangeLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
-	numberLiteral = scientificLiteral | complexLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
+	numberLiteral = scientificLiteral | complexLiteral | residueLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
 	rangeLiteral = integerLiteral ":" (integerLiteral | identifier)
 	floatLiteral = "-"? digit+ "." digit+
 	scientificLiteral = (floatLiteral | integerLiteral) ("e" | "E") integerLiteral
 	complexLiteral = (floatLiteral | integerLiteral) ("j" | "J") (floatLiteral | integerLiteral)
+	residueLiteral = integerLiteral ("z" | "Z") digit+
 	fractionLiteral = "-"? digit+ "/" digit+
 	largeIntegerLiteral = "-"? digit+ "n"
 	radixIntegerLiteral = "-"? digit+ "r" letterOrDigit+

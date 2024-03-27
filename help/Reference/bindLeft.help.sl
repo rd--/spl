@@ -1,8 +1,8 @@
 # bindLeft
 
-_bindLeft(aBlock:/2, anObject)_
+- _bindLeft(aBlock:/2, anObject)_
 
-Answer a unary Block that evaluates _aBlock_ with _anObject_ bound to the first (left) argument.
+Answer a unary `Block` that evaluates _aBlock_ with _anObject_ bound to the first (left) argument.
 
 ```
 >>> [1 .. 5].collect(+.bindLeft(4))

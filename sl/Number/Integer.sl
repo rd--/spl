@@ -2,10 +2,6 @@
 
 @Integer {
 
-	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
-		aFraction.aBlock(Fraction(self, self.one))
-	}
-
 	asCodePoint { :self |
 		self
 	}

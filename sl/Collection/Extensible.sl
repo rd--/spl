@@ -49,12 +49,6 @@
 		self.add(anObject)
 	}
 
-	includeAll { :self :aCollection |
-		aCollection.do { :each |
-			self.include(each)
-		}
-	}
-
 	intersperse { :self :anObject |
 		let answer = self.species.new;
 		self.doSeparatedBy { :each |

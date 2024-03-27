@@ -6,6 +6,30 @@
 		self.size
 	}
 
+	+ { :self :anObject |
+		self.collect(+.bindRight(anObject))
+	}
+
+	- { :self :anObject |
+		self.collect(-.bindRight(anObject))
+	}
+
+	* { :self :anObject |
+		self.collect(*.bindRight(anObject))
+	}
+
+	/ { :self :anObject |
+		self.collect(/.bindRight(anObject))
+	}
+
+	^ { :self :anObject |
+		self.collect(^.bindRight(anObject))
+	}
+
+	% { :self :anObject |
+		self.collect(%.bindRight(anObject))
+	}
+
 	\ { :self :aCollection |
 		self.difference(aCollection)
 	}
@@ -321,7 +345,6 @@
 			let [g, c] = self[1].extendedGcd(self[2]);
 			3.toDo(self.size) { :each |
 				let [nextG, nextC] = g.extendedGcd(self[each]);
-				[each, g, c, nextG, nextC].postLine;
 				g := nextG;
 				c.add(nextC.last)
 			};
@@ -359,6 +382,16 @@
 	histogramOf { :self |
 		self.histogramOf { :each |
 			each
+		}
+	}
+
+	include { :self :anObject |
+		self.typeResponsibility('@Collection>>include')
+	}
+
+	includeAll { :self :aCollection |
+		aCollection.do { :each |
+			self.include(each)
 		}
 	}
 
@@ -547,6 +580,30 @@
 		}
 	}
 
+	powerSetDo { :self :aBlock:/1 |
+		let size = 2 ^ self.size;
+		let powersOfTwo = 2 ^ (0 .. self.size - 1);
+		let list = self.asList;
+		(0 .. size - 1).do { :i |
+			let subset = self.species.new;
+			powersOfTwo.withIndexDo { :each :j |
+				(i // each % 2 ~= 0).ifTrue {
+					subset.include(list[j])
+				}
+			};
+			aBlock(subset)
+		};
+		self
+	}
+
+	powerSet { :self |
+		let answer = [];
+		self.powerSetDo { :each |
+			answer.add(each)
+		};
+		answer
+	}
+
 	pseudoSlotNameList { :self |
 		['size']
 	}
@@ -643,7 +700,7 @@
 		let answer = self.species.new;
 		self.do { :each |
 			aBlock(each).ifTrue {
-				answer.add(each)
+				answer.include(each)
 			}
 		};
 		answer
@@ -675,6 +732,16 @@
 
 	sorted { :self :sortBlock:/2 |
 		self.asList.sortBy(sortBlock:/2)
+	}
+
+	subsets { :self :aBlock:/1 |
+		let answer = [];
+		self.powerSetDo { :each |
+			aBlock(each).ifTrue {
+				answer.add(each)
+			}
+		};
+		answer
 	}
 
 	standardDeviation { :self |

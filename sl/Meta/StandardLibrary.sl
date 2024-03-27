@@ -15,6 +15,7 @@
 	'Heap'
 	'LinkedList'
 	'PriorityQueue'
+	'ResidueSet'
 	'RunArray'
 	'Set'
 	'Slice'
@@ -52,6 +53,7 @@
 	'Fraction'
 	'Interval'
 	'LargeInteger'
+	'Residue'
 
 	{- Math -}
 	'Binomial'

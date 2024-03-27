@@ -367,6 +367,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 +@Integer {
 
+	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
+		aFraction.aBlock(Fraction(self, self.one))
+	}
+
 	ReducedFraction { :numerator :denominator |
 		denominator.isInteger.if {
 			(denominator = 0).if {
@@ -414,6 +418,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 }
 
 +SmallFloat {
+
+	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
+		aFraction.asSmallFloat.aBlock(self)
+	}
 
 	asApproximateFraction { :self :epsilon |
 		self.rationalize(epsilon)

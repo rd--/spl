@@ -677,6 +677,13 @@ const asJs: ohm.ActionDict<string> = {
 			${imaginary.sourceString}
 		)`;
 	},
+	residueLiteral(i, _z, m) {
+		// console.debug('residueLiteral', i.sourceString, m.sourceString);
+		return `_Residue_2(
+			${i.sourceString},
+			${m.sourceString}
+		)`;
+	},
 	largeIntegerLiteral(s, i, _n) {
 		return `${s.sourceString}${i.sourceString}n`;
 	},

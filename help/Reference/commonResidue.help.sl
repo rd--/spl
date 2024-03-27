@@ -5,11 +5,11 @@
 Answer the common residue of _anInteger_ (mod _modulus_).
 
 ```
->>> [0 1 2 3].collect { :each | each.commonResidue(4) }
-[0 1 2 3]
+>>> (0, 5 .. 20).collect { :each | each.commonResidue(4) }
+[0 1 2 3 0]
 
->>> [0 1 2 3] % 4
-[0 1 2 3]
+>>> (0, 5 .. 20) % 4
+[0 1 2 3 0]
 ```
 
 * * *

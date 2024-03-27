@@ -110,10 +110,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
-	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
-		aFraction.asSmallFloat.aBlock(self)
-	}
-
 	arcCos { :self |
 		<primitive: return Math.acos(_self)>
 	}

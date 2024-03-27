@@ -105,17 +105,17 @@ Complex : [Object, Number] { | real imaginary |
 	}
 
 	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
-		aCollection.collect { :element |
-			aBlock(element, self)
+		aCollection.collect { :each |
+			each.aBlock(self)
 		}
 	}
 
 	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
-		aBlock(aFraction.asComplex, self)
+		aFraction.asComplex.aBlock(self)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
-		aBlock(aNumber.asComplex, self)
+		aNumber.asComplex.aBlock(self)
 	}
 
 	arcCos { :self |
@@ -425,7 +425,7 @@ Complex : [Object, Number] { | real imaginary |
 +@Number {
 
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock:/2 |
-		aBlock(aComplexNumber, self.asComplex)
+		aComplexNumber.aBlock(self.asComplex)
 	}
 
 	asComplex { :self |
@@ -450,11 +450,11 @@ Complex : [Object, Number] { | real imaginary |
 
 }
 
-+List {
++@Collection {
 
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock:/2 |
 		self.collect { :each |
-			aBlock(aComplexNumber, each)
+			aComplexNumber.aBlock(each)
 		}
 	}
 
