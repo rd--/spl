@@ -91,3 +91,11 @@ ResidueSet : [Object, Iterable, Collection] { | modulus contents |
 	}
 
 }
+
++String {
+
+	asResidueSet { :self |
+		self.asBitSet.asResidueSet
+	}
+
+}

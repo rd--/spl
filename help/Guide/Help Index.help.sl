@@ -267,6 +267,13 @@
 - `methodLookupAtType`
 - `parameterNames`
 
+## Modular Arithmetic
+
+- `Residue`, `ResidueSet`
+- `%`, `commonResidue`, `minimalResidue`, `modularInverse`
+- `asResidueSet`, `leastResidueSystem`
+- `complement`
+
 ## Network
 
 - `Location`, `Url`

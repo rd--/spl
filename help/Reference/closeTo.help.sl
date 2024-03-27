@@ -1,10 +1,10 @@
 # closeTo
 
 - _closeTo(aNumber, anotherNumber)_
-- _p ~ q_ ⟹ _closeTo(p, q)_
 
-Answer true is _aNumber_ is close to _anotherNumber_, else false.
+Answer `true` if _aNumber_ is close to _anotherNumber_, else `false`.
 This takes magnitude into account, so that a million is close to a million and one, but one is not close to two.
+The operator form is `~`.
 
 ```
 >>> 1000000 ~ 1000001
