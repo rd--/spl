@@ -11,3 +11,7 @@ The equality operator is `=` not `==`.
 The identity operator is `==` not `===`.
 
 The inequality operator is `~=` not `!=`.
+
+* * *
+
+Further Reading: McCartney (1996, 1998, 2002)

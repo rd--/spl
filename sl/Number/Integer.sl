@@ -158,6 +158,34 @@
 		}
 	}
 
+	dyckWords { :n |
+		let f = { :x :i :n0 :n1 |
+			let d0 = { f(x ++ [0], i + 1, n0 + 1, n1) };
+			let d1 = { f(x ++ [1], i + 1, n0, n1 + 1) };
+			((n0 < n) && (n1 < n) && (n0 > n1)).if {
+				d0() ++ d1()
+			} {
+				(
+					((n0 < n) && (n1 < n) && (n0 = n1)) ||
+					((n0 < n) && (n1 = n))
+				).if {
+					d0()
+				} {
+					((n0 = n) && (n1 < n)).if {
+						d1()
+					} {
+						((n0 = n1) && (n1 = n)).if {
+							[x]
+						} {
+							n.error('Integer>>dyckWords')
+						}
+					}
+				}
+			}
+		};
+		f([0], 1, 1, 0)
+	}
+
 	euclideanAlgorithm { :a :b |
 		{
 			b ~= 0
