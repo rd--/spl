@@ -11,4 +11,4 @@ Answer a `List` of the first _anInteger_ Fibonacci numbers:
 
 * * *
 
-See also: goldenRatio
+See also: fibonacci, goldenRatio

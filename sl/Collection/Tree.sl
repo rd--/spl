@@ -140,6 +140,15 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		}
 	}
 
+	levelOrderDo { :self :aBlock:/1 |
+		self.subTrees.do { :each |
+			aBlock(each)
+		};
+		self.subTrees.do { :each |
+			each.levelOrderDo(aBlock:/1)
+		}
+	}
+
 	reverseDo { :self :aBlock:/1 |
 		self.subTrees.reverseDo { :each |
 			each.reverseDo(aBlock:/1)

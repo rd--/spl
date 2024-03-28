@@ -33,6 +33,10 @@
 		answer
 	}
 
+	+++ { :self :aSequence |
+		self ++.each aSequence
+	}
+
 	@* { :self :indexList |
 		self.atAll(indexList)
 	}
@@ -452,6 +456,16 @@
 
 	deleteAdjacentDuplicates { :self |
 		self.deleteAdjacentDuplicates(=)
+	}
+
+	derangements { :self |
+		let answer = [];
+		self.permutationsDo { :each |
+			self.withCollect(each, ~=).allSatisfy(identity:/1).ifTrue {
+				answer.add(each.copy)
+			}
+		};
+		answer
 	}
 
 	diagonal { :self :k |
@@ -1156,6 +1170,26 @@
 		self.isVector & {
 			self.elementType = elementType
 		}
+	}
+
+	kroneckerProduct { :a :b |
+		let m = a.size;
+		let n = a[1].size;
+		let p = b.size;
+		let q = b[1].size;
+		let r = m * p;
+		let c = n * q;
+		let answer = { List(c, 0) } ! r;
+		1.toDo(m) { :i |
+			1.toDo(n) { :j |
+				1.toDo(p) { :k |
+					1.toDo(q) { :l |
+						answer[p * (i - 1) + k][q * (j - 1) + l] := a[i][j] * b[k][l]
+					}
+				}
+			}
+		};
+		answer
 	}
 
 	last { :self |

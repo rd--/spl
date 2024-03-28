@@ -1,6 +1,6 @@
 # crossProduct
 
-_crossProduct(aVector, anotherVector)_
+- _crossProduct(aVector, anotherVector)_
 
 The cross product of two vectors in three dimensions:
 

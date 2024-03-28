@@ -18,6 +18,20 @@ There are _aSequence.size.take(anInteger) combinations.
 ]
 ```
 
+All Pythagorean triples with elements between 1 and _n_:
+
+```
+>>> let answer = [];
+>>> 1:20.combinationsAtATimeDo(3) { :each |
+>>> 	let [a, b, c] = each;
+>>> 	((a * a) + (b * b) = (c * c)).ifTrue {
+>>> 		answer.add(each.copy)
+>>> 	}
+>>> };
+>>> answer
+[3 4 5; 5 12 13; 6 8 10; 8 15 17; 9 12 15; 12 16 20]
+```
+
 * * *
 
 See also: combinations, subsets

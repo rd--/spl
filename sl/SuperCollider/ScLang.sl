@@ -346,12 +346,6 @@
 
 +@Sequence {
 
-	+++ { :self :aMatrix |
-		self.withIndexCollect { :each :index |
-			each ++ aMatrix.atWrap(index)
-		}
-	}
-
 	asRandomTable { :self :size |
 		let a = (size = self.size).if {
 			self

@@ -20,13 +20,15 @@ Adapts left and right operands to `LargeIntegers`:
 
 ```
 >>> 23n ^ 23
-20880467999847912034355032910567
+20880467999847912034355032910567n
 
 >>> 23 ^ 23n
-20880467999847912034355032910567
+20880467999847912034355032910567n
 
 >>> 23 ^ 23
 2.088E31
+```
+
 * * *
 
 See also: asLargeInteger, Binary, Integer, Magnitude, Number, SmallFloat

@@ -27,6 +27,9 @@ Join lists and individual elements:
 ```
 >>> [1:5, -1, 1:5, 1:5, -1].flatten
 [1 2 3 4 5 -1 1 2 3 4 5 1 2 3 4 5 -1]
+
+>>> [[1], 2, [[3, 4], 5], [[[]]], [[[6]]], 7, 8, []].flatten
+[1 .. 8]
 ```
 
 Unravel a matrix:

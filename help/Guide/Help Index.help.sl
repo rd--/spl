@@ -227,6 +227,11 @@
 - `numberCompose`, `numberDecompose`
 - `integerDigits`, `integerPartitions`
 
+## Integer Sequences
+
+- `fibonacciList`, `bernoulliSequence`
+- `primesList`
+
 ## Interval
 
 - `Interval`
@@ -262,6 +267,7 @@
 
 - `isMatrix`, `isSquareMatrix`, `shape`
 - `determinant`, `diagonal`, `trace`, `transposed`
+- `kroneckerProduct`
 
 ## Methods
 
@@ -364,7 +370,7 @@
 
 ## Recurrence and Sum Functions
 
-- `fibonacci`, `fibonacciList`
+- `fibonacci`, `fibonacciList`, `bernoulli`, `bernoulliSequence`
 - `harmonicNumber`
 
 ## Reflection

@@ -13,6 +13,9 @@ The subfactorial counts the number of derangements.
 
 >>> 1:9.collect(subfactorial:/1)
 [0 1 2 9 44 265 1854 14833 133496]
+
+>>> 20.subfactorial
+895014631192902121
 ```
 
 Plot the values on a log scale over a subset of the reals:
