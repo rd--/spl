@@ -25,11 +25,11 @@ and between 81/16 and 5/1:
 1.syntonicComma
 ```
 
-It has lattice coordinates _[-4 4 1>_:
+It has lattice coordinates _[-4 4 -1>_:
 
 ```
 >>> 1.syntonicComma.factorInteger
-[2 -> -4, 3 -> 4, 5 -> 1]
+[2 -> -4, 3 -> 4, 5 -> -1]
 ```
 
 It is the distance between the Ptolemaic and Pythagorean chromatic semitones:

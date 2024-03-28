@@ -1,6 +1,6 @@
 # constant
 
-_constant(anObject)_
+- _constant(anObject)_
 
 Answer a unary Block that always answers _anObject_.
 
@@ -13,6 +13,8 @@ Answer a unary Block that always answers _anObject_.
 ```
 
 * * *
+
+See also: bindLeft, bindRight
 
 References:
 _Apl_

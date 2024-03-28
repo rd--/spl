@@ -10,13 +10,20 @@ true
 
 >>> 3.141.isSmallInteger
 false
+```
 
+At `LargeInteger` and `Fraction` answers `false`:
+
+```
 >>> 23n.isSmallInteger
+false
+
+>>> 2/1.isSmallInteger
 false
 ```
 
 * * *
 
-See also: isInteger, isNumber, isSmallFloat, SmallFloat
+See also: isGaussianInteger, isInteger, isNumber, isSmallFloat, SmallFloat
 
 Categories: Testing

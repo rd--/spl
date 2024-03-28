@@ -22,8 +22,11 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	+ { :self :aNumber |
-		aNumber.isSmallInteger.if {
-			ReducedFraction(self.numerator + (self.denominator * aNumber), self.denominator)
+		aNumber.isInteger.if {
+			ReducedFraction(
+				self.numerator + (self.denominator * aNumber.asInteger),
+				self.denominator
+			)
 		} {
 			aNumber.isFraction.if {
 				let d = self.denominator.gcd(aNumber.denominator);
@@ -47,8 +50,11 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	- { :self :aNumber |
-		aNumber.isSmallInteger.if {
-			ReducedFraction(self.numerator - (self.denominator * aNumber), self.denominator)
+		aNumber.isInteger.if {
+			ReducedFraction(
+				self.numerator - (self.denominator * aNumber.asInteger),
+				self.denominator
+			)
 		} {
 			aNumber.isFraction.if {
 				self + aNumber.negated
@@ -59,8 +65,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	/ { :self :aNumber |
-		aNumber.isSmallInteger.if {
-			self * ReducedFraction(1, aNumber)
+		aNumber.isInteger.if {
+			self * ReducedFraction(1, aNumber.asInteger)
 		} {
 			aNumber.isFraction.if {
 				self * aNumber.reciprocal
@@ -70,11 +76,15 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
-	^ { :self :operand |
-		operand.isSmallInteger.if {
-			self.raisedToInteger(operand)
+	^ { :self :aNumber |
+		aNumber.isInteger.if {
+			self.raisedToInteger(aNumber)
 		} {
-			self.asFloat ^ operand
+			aNumber.isFraction.if {
+				self.asFloat ^ aNumber
+			} {
+				aNumber.adaptToFractionAndApply(self, ^)
+			}
 		}
 	}
 
@@ -113,7 +123,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
-		aNumber.isSmallInteger.if {
+		aNumber.isInteger.if {
 			aNumber.asFraction.aBlock(self)
 		} {
 			aNumber.aBlock(self.asFloat)
@@ -263,15 +273,16 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	raisedToInteger { :self :anInteger |
-		(anInteger = 0).if {
+		anInteger.isZero.if {
 			self.one
 		} {
 			(anInteger < 0).if {
 				self.reciprocal.raisedToInteger(anInteger.negated)
 			} {
+				let n = anInteger.asInteger;
 				ReducedFraction(
-					self.numerator.raisedToInteger(anInteger),
-					self.denominator.raisedToInteger(anInteger)
+					self.numerator.raisedToInteger(n),
+					self.denominator.raisedToInteger(n)
 				)
 			}
 		}
@@ -380,7 +391,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			(denominator = 0).if {
 				'@Integer>>ReducedFraction: zeroDenominatorError'.error
 			} {
-				newFraction().initializeSlots(numerator, denominator)
+				newFraction().initializeSlots(
+					numerator.asInteger,
+					denominator.asInteger
+				)
 			}
 		} {
 			denominator.adaptToNumberAndApply(numerator, Fraction:/2)
@@ -393,6 +407,16 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	r { :numerator :denominator |
 		Fraction(numerator, denominator)
+	}
+
+}
+
++@Collection {
+
+	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
+		self.collect { :each |
+			aFraction.aBlock(each)
+		}
 	}
 
 }
@@ -424,7 +448,11 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 +SmallFloat {
 
 	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
-		aFraction.asSmallFloat.aBlock(self)
+		self.isInteger.if {
+			aFraction.aBlock(Fraction(self, self.one))
+		} {
+			aFraction.asSmallFloat.aBlock(self)
+		}
 	}
 
 	asApproximateFraction { :self :epsilon |
@@ -432,7 +460,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	asFractionOver { :self :denominator |
-		self.isSmallInteger.if {
+		self.isInteger.if {
 			ReducedFraction(self, 1)
 		} {
 			Fraction(
@@ -447,7 +475,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	asFraction { :self :epsilon |
-		self.isSmallInteger.if {
+		self.isInteger.if {
 			ReducedFraction(self, 1)
 		} {
 			self.rationalize(epsilon)

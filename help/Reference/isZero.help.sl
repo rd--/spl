@@ -2,7 +2,7 @@
 
 - _isZero(aNumber)_
 
-Answer true if _aNumber_ is zero.
+Answer `true` if _aNumber_ is `zero`.
 
 ```
 >>> 0.isZero
@@ -34,5 +34,6 @@ false
 
 * * *
 
-See also: even, negative, odd, positive
+See also: isEven, isNegative, isOdd, isPositive
 
+Categories: Testing

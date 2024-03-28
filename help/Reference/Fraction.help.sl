@@ -110,6 +110,22 @@ Note that `Fraction` and `Integer` represent together the set of Rational number
 
 >>> 64/63 * (9/8 ^ 2)
 9/7
+
+>>> 5/4 ^ 3/1
+125/64
+```
+
+Operands may be collections:
+
+```
+>>> 5/4 * 3:7
+[15/4 5/1 25/4 15/2 35/4]
+
+>>> 5/4 / 3:7
+[5/12 5/16 1/4 5/24 5/28]
+
+>>> 5/4 ^ 3:7
+[125/64 625/256 3125/1024 15625/4096 78125/16384]
 ```
 
 A `Fraction` whose elements are of type `SmallFloat` will have odd behaviour for large components,

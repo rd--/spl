@@ -67,10 +67,10 @@
 	}
 
 	bernoulli { :k |
-		k.bernoulliSequence.last
+		k.bernoulliList.last
 	}
 
-	bernoulliSequence { :k |
+	bernoulliList { :k |
 		let a = List(k + 1);
 		let b = List(k + 1);
 		(0 .. k).do { :n |

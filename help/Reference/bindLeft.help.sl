@@ -19,3 +19,5 @@ See also: bind, bindRight, constant
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Bind)
+
+Categories: Evaluating

@@ -34,14 +34,14 @@ false
 true
 ```
 
-At `Complex`:
+At `Complex` answers `false`, see `isGaussianInteger`:
 
 ```
 >>> 2j3.isInteger
 false
 ```
 
-At non-number types:
+At non-number types answers `false`:
 
 ```
 >>> '23'.isInteger

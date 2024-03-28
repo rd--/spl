@@ -135,6 +135,13 @@ Floating point ranges are subject to floating point errors:
 [1.8 1.85 1.9]
 ```
 
+The elements of a simple integer range are all integers:
+
+```
+>>> 1:999.allSatisfy(isInteger:/1)
+true
+```
+
 * * *
 
 See also: downTo, Interval, isIntegerRange, Range Syntax, thenTo, to, toBy, upOrDownTo

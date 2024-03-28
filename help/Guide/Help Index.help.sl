@@ -323,6 +323,10 @@
 
 - `parseDecimalInteger`, `parseInteger`, `parseNumber`
 
+## Partial Application
+
+- `bindLeft`, `bindRight`, `constant`
+
 ## Permutations
 
 - `permutations`, `permutationsDo`
