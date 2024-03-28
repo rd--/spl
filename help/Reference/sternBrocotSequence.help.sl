@@ -28,7 +28,7 @@ Find the index where the number 100 first appears in the sequence:
 
 * * *
 
-See also: fareySequence
+See also: fareySequence, sternBrocotTree
 
 References:
 _Mathematica_

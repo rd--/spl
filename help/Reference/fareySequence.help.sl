@@ -9,6 +9,9 @@ The Farey sequence of order _n_ is the sorted sequence of reduced fractions betw
 ```
 >>> 5.fareySequence
 [0/1 1/5 1/4 1/3 2/5 1/2 3/5 2/3 3/4 4/5 1/1]
+
+>>> 6.fareySequence
+[0/1 1/6 1/5 1/4 1/3 2/5 1/2 3/5 2/3 3/4 4/5 5/6 1/1]
 ```
 
 Find the 17th element of the Farey sequence of order 24,
@@ -62,6 +65,9 @@ The product of all nonzero elements of the Farey sequence for a few small orders
 Lengths of longer Farey sequences:
 
 ```
+>>> 50.fareySequence.size
+775
+
 >>> (2:5 * 100).collect { :n | n.fareySequence.size }
 [12233 27399 48679 76117]
 ```
@@ -73,3 +79,4 @@ See also: Fraction, eulerPhi, gcd, minkowskiQuestionMark, sternBrocotSequence, s
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/FareySequence.html)
+[2](https://reference.wolfram.com/language/ref/FareySequence.html)

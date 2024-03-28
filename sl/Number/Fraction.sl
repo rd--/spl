@@ -170,6 +170,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.numerator.isNegative
 	}
 
+	isSuperparticular { :self |
+		self.numerator - 1 = self.denominator
+	}
+
 	isZero { :self |
 		self.numerator.isZero
 	}

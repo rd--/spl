@@ -583,6 +583,10 @@
 		}
 	}
 
+	isSmoothNumber { :self :k |
+		self.primeLimit <= k
+	}
+
 	isSquareFree { :self |
 		self.divisors.allButFirst.noneSatisfy(isPerfectSquare:/1)
 	}

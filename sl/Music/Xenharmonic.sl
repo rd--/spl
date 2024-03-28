@@ -11,6 +11,15 @@
 		n.max(d)
 	}
 
+	octaveReduced { :self |
+		self.octaveReduced(2)
+	}
+
+	octaveReduced { :self :octaveRatio |
+		let exponent = self.asFloat.log(octaveRatio.asFloat).floor.negated;
+		self * (2/1 ^ exponent)
+	}
+
 	tenneyHeight { :self |
 		(self.numerator * self.denominator).log2
 	}
@@ -51,6 +60,30 @@
 
 	wilsonHeight { :self |
 		self.collect(wilsonHeight:/1)
+	}
+
+}
+
++@Number {
+
+	pythagoreanComma { :self |
+		self * 531441/524288
+	}
+
+	pythagoreanChroma { :self |
+		self * 2187/2048
+	}
+
+	pythagoreanLimma { :self |
+		self * 256/243
+	}
+
+	septimalComma { :self |
+		self * 64/63
+	}
+
+	syntonicComma { :self |
+		self * 81/80
 	}
 
 }

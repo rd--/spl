@@ -1,8 +1,10 @@
 # iterate
 
 - _iterate(aBlock:/1, anObject)_
+- _iterate(aBlock:/1, anObject, anInteger)_
 
-Answer an infinite stream of repeated applications of _aBlock_ to _anObject_.
+In the binary case,
+answer an infinite stream of repeated applications of _aBlock_ to _anObject_.
 
 ```
 >>> not:/1.iterate(true).next(10)
@@ -15,16 +17,17 @@ Answer an infinite stream of repeated applications of _aBlock_ to _anObject_.
 [1 0.54030 0.85755 0.65429 0.79348 0.70137 0.76396 0.72210 0.75042 0.73140]
 ```
 
-- _iterate(aBlock:/1, anObject, anInteger)_
-
-Apply _aBlock_ iteratively _anInteger_ times, initially to _anObject_.
+In the ternary case,
+apply _aBlock_ iteratively _anInteger_ times, initially to _anObject_.
 
 ```
 >>> { :x | x ^ 2 }.iterate(2, 3)
 256
 
->>> let x = 2; 3.timesRepeat { x := x ^ 2}; x = 256
-true
+>>> let x = 2;
+>>> 3.timesRepeat { x := x ^ 2};
+>>> x
+256
 
 >>> 2 ^ 2 ^ 2 ^ 2
 256

@@ -222,15 +222,14 @@
 
 ## Integer Functions
 
-- `fareySequence`, `sternBrocotSequence`
-- `calkinWilfTree`, `sternBrocotTree`
 - `numberCompose`, `numberDecompose`
 - `integerDigits`, `integerPartitions`
 
 ## Integer Sequences
 
-- `fibonacciList`, `bernoulliSequence`
-- `primesList`
+- `bernoulliList`, `fibonacciList`, `primesList`
+- `fareySequence`, `sternBrocotSequence`
+- `calkinWilfTree`, `sternBrocotTree`
 
 ## Interval
 
@@ -338,6 +337,7 @@
 - `logIntegral`, `primePi`
 - `eulerPhi`
 - `randomPrime`
+- `isSmoothNumber`
 
 ## Printing
 
@@ -370,7 +370,8 @@
 
 ## Recurrence and Sum Functions
 
-- `fibonacci`, `fibonacciList`, `bernoulli`, `bernoulliSequence`
+- `bernoulli`, `fibonacci`
+- `bernoulliList`, `fibonacciList`
 - `harmonicNumber`
 
 ## Reflection

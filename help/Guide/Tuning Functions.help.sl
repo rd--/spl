@@ -19,6 +19,10 @@
 - `quarterToneFlat`: lower by half of one place (a quarter-tone)
 - `quarterToneSharp`: raise by half of one place (a quarter-tone)
 
+## Constants
+
+`pythagoreanComma`: the Pythagorean or ditonic comma
+
 ## Converting
 
 - `centsToRatio`: convert interval given as cents to a ratio
@@ -30,6 +34,7 @@
 - `continuedFraction`: continued fraction representation of a number
 - `convergents`: convergents corresponding to continued fraction
 - `fromContinuedFraction`: reconstructs a number a continued fraction
+- `octaveReduced`: reduce a number to within an octave
 - `semiconvergents`: semiconvergents corresponding to continued fraction
 - `rationalize`: derive an approximate fraction given an error bound
 

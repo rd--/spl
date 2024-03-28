@@ -7,7 +7,7 @@ Answer the _anInteger_-th Bernoulli number.
 First 10 Bernoulli numbers:
 
 ```
->>> 10.bernoulliSequence
+>>> 10.bernoulliList
 [1/1 1/2 1/6 0 -1/30 0 1/42 0 -1/30 0 5/66]
 ```
 
@@ -20,7 +20,7 @@ The 60th Bernoulli number:
 
 * * *
 
-See also: bernoulliSequence
+See also: bernoulliList
 
 References:
 _Mathematica_
