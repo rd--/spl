@@ -2,7 +2,7 @@
 
 - _harmonicNumber(anInteger | aCollection)_
 
-The _n_th harmonic number is the sum of the reciprocal of the range 1:n.
+The _n_th harmonic number is the `sum` of the `reciprocal` of the range _1:n_.
 
 ```
 >>> 11.harmonicNumber

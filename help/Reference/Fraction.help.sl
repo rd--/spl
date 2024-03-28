@@ -125,7 +125,7 @@ false
 true
 ```
 
-There are accessor methods for the _numerator_ and _denominator_:
+There are accessor methods for the `numerator` and `denominator`:
 
 ```
 >>> let n = 22/7;
@@ -133,7 +133,7 @@ There are accessor methods for the _numerator_ and _denominator_:
 (22, 7)
 ```
 
-The _asTuple_ method answers a two tuple of these:
+The `asTuple` method answers a two tuple of these:
 
 ```
 >>> 22/7.asTuple
@@ -179,7 +179,7 @@ The store string of a Fraction is the constructor notation:
 'Fraction(22, 7)'
 ```
 
-The reciprocal of a Fraction is a Fraction:
+The reciprocal of a `Fraction` is a `Fraction`:
 
 ```
 >>> 22/7./

@@ -10,7 +10,14 @@ Answers the bitwise and of the integers _aNumber_ and _anotherNumber_.
 13
 ```
 
-At LargeInteger:
+`bitAnd` of `one` is 1 when odd and 0 when even:
+
+```
+>>> 1:9.bitAnd(1)
+[1 0 1 0 1 0 1 0 1]
+```
+
+At `LargeInteger`:
 
 ```
 >>> (3n ^ 100).bitAnd(5n ^ 100)

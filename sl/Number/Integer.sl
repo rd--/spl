@@ -66,6 +66,23 @@
 		{ system.nextRandomInteger(self) } ! count
 	}
 
+	bernoulli { :k |
+		k.bernoulliSequence.last
+	}
+
+	bernoulliSequence { :k |
+		let a = List(k + 1);
+		let b = List(k + 1);
+		(0 .. k).do { :n |
+			a[n + 1] := Fraction(1n, n + 1);
+			(n, n - 1 .. 1).do { :j |
+				a[j] := j * (a[j] - a[j + 1])
+			};
+			b[n + 1] := a[1]
+		};
+		b
+	}
+
 	bjorklundsAlgorithmDo { :k :n :aBlock:/1 |
 		let s = 1:n.collect { :i |
 			(i <= k).if {
@@ -708,24 +725,31 @@
 		self
 	}
 
-	partitionFunctionP { :self |
-		let table = Map();
-		let p = { :n |
-			table.includesIndex(n).if {
-				table[n]
-			} {
-				(n < 1).if {
-					1
+	partitionFunctionP { :n |
+		let a = List(n + 1);
+		a[1] := 1n;
+		1.toDo(n) { :i |
+			let k = 1;
+			let s = 1;
+			a[i + 1] := 0n;
+			{
+				s <= i
+			}.whileTrue {
+				k.isOdd.if {
+					a[i + 1] := a[i + 1] + a[i - s + 1]
 				} {
-					let answer = (1 / n) * (0 .. n - 1).collect { :k |
-						1.divisorSigma(n - k) * p(k)
-					}.sum;
-					table[n] := answer;
-					answer
+					a[i + 1] := a[i + 1] - a[i - s + 1]
+				};
+				(k > 0).if {
+					s := s + k;
+					k := k.-
+				} {
+					k := 1 - k;
+					s := k * (3 * k - 1) / 2
 				}
 			}
 		};
-		p(self)
+		a[n + 1]
 	}
 
 	polygonalNumber { :r :n |
@@ -875,6 +899,10 @@
 
 	thueMorse { :index |
 		index.digitCount(2, 1) % 2
+	}
+
+	truncated { :self |
+		self
 	}
 
 	wrapIndex { :self :size |

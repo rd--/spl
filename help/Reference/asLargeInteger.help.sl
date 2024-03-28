@@ -9,6 +9,7 @@ At `SmallFloat`:
 ```
 >>> (2 ^ 23).asLargeInteger
 8388608n
+```
 
 At `ByteArray`:
 
@@ -26,6 +27,6 @@ At `ByteArray`:
 
 * * *
 
-See also: ByteArray, LargeInteger
+See also: ByteArray, isSmallInteger, LargeInteger
 
 Categories: Converting

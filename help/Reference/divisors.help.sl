@@ -28,6 +28,15 @@ Divisors threads element‐wise over list arguments:
 ```
 >>> [605 871 824].divisors
 [1 5 11 55 121 605; 1 13 67 871; 1 2 4 8 103 206 412 824]
+
+>>> [12 28 45 53 64].divisors
+[
+	1 2 3 4 6 12;
+	1 2 4 7 14 28;
+	1 3 5 9 15 45;
+	1 53;
+	1 2 4 8 16 32 64
+]
 ```
 
 Find all perfect numbers less than 500:

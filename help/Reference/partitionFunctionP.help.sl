@@ -3,17 +3,23 @@
 - _partitionFunctionP(n)_
 - _partitionFunctionP(n, k)_
 
-The unary form answers the number of unrestricted partitions of the Integer _n_.
+The unary form answers the number of unrestricted partitions of the `Integer` _n_.
 
-The binary form denotes the number of ways of writing _n_ as a sum of exactly _k_ terms
+The binary form denotes the number of ways of writing _n_ as a `sum` of exactly _k_ terms
 or, equivalently, the number of partitions into parts of which the largest is exactly _k_.
 
 ```
 >>> 0:15.collect(partitionFunctionP:/1)
 [1 1 2 3 5 7 11 15 22 30 42 56 77 101 135 176]
+
+>>> 121.partitionFunctionP
+2056148051
+
+>>> 666.partitionFunctionP
+11956824258286445517629485
 ```
 
-_partitionFunctionP_ gives the length of _integerPartitions_:
+`partitionFunctionP` gives the length of `integerPartitions`:
 
 ```
 >>> 5.integerPartitions
@@ -33,7 +39,7 @@ Initial triangle of _P(n, k)_:
 Plot the number of unrestricted partitions:
 
 ~~~
-0:50.collect(partitionFunctionP:/1).log10.plot
+0:50.collect(partitionFunctionP:/1).asFloat.log10.plot
 ~~~
 
 * * *

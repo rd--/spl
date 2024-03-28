@@ -13,7 +13,7 @@ The first 10 Catalan numbers:
 
 * * *
 
-See also:
+See also: binomial, dyckWords
 
 References:
 _Mathematica_

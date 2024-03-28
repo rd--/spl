@@ -1,6 +1,6 @@
 # LargeInteger
 
-Type representing an arbitrary precision integral number.
+A `Type` representing an arbitrary precision integral number.
 
 Large integers have a distinct literal syntax indicated by an _n_ suffix.
 
@@ -16,8 +16,19 @@ Equality with `SmallFloat`:
 true
 ```
 
+Adapts left and right operands to `LargeIntegers`:
+
+```
+>>> 23n ^ 23
+20880467999847912034355032910567
+
+>>> 23 ^ 23n
+20880467999847912034355032910567
+
+>>> 23 ^ 23
+2.088E31
 * * *
 
-See also: Binary, Integer, Magnitude, Number, SmallFloat
+See also: asLargeInteger, Binary, Integer, Magnitude, Number, SmallFloat
 
 Categories: Math, Type

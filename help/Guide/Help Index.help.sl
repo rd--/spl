@@ -75,12 +75,13 @@
 - `ArithmeticProgression`, `Range`
 - `Association`
 
-## Combinations
+## Combinatorial Functions
 
-- `!`, `factorial`, `factorialPower`, `hyperfactorial`, `subfactorial`
+- `!`, `doubleFactorial`, `factorial`, `factorialPower`, `hyperfactorial`, `subfactorial`
 - `binomial`, `catalanNumber`, `multinomial`
 - `polygonalNumber`
 - `partitionsP`, `partitionsQ`
+- `dyckWords`
 
 ## Comparison Operators
 

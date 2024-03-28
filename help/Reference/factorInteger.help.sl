@@ -142,7 +142,7 @@ Plot the number of distinct prime factors of the first 100 numbers:
 
 * * *
 
-See also: ->, Association, divisors, isPrime, primeFactorization, product
+See also: ->, Association, divisors, isPrime, primeFactors, primeFactorization, product
 
 References:
 _J_
