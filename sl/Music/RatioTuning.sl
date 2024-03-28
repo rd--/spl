@@ -26,6 +26,15 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 		(self.asRatios / self.asRatios.reduce(gcd:/2)).collect(asInteger:/1)
 	}
 
+	intervalMatrix { :self |
+		let n = self.asRatios;
+		n.withIndexCollect { :p :i |
+			n.rotatedLeft(i - 1).collect { :q |
+				(q / p).octaveReduced(self.octave)
+			}
+		}
+	}
+
 	isRational { :self |
 		self.asRatios.allSatisfy(isFraction:/1)
 	}
@@ -75,7 +84,7 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 +@Sequence {
 
 	asRatioTuning { :self |
-		RatioTuning('Unnamed tuning', 'Undescribed tuning', self, 2)
+		RatioTuning('Unnamed tuning', 'Undescribed tuning', self, 2/1)
 	}
 
 }
