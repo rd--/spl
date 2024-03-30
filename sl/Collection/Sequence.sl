@@ -468,6 +468,25 @@
 		answer
 	}
 
+	detectIndex { :self :predicate:/1 |
+		self.detectIndexIfFoundIfNone(predicate:/1) { :each |
+			each
+		} {
+			nil
+		}
+	}
+
+	detectIndexIfFoundIfNone { :self :predicate:/1 :ifFound:/1 :ifNone:/0 |
+		valueWithReturn { :return:/1 |
+			1.toDo(self.size) { :index |
+				predicate(self[index]).ifTrue {
+					ifFound(index).return
+				}
+			};
+			ifNone()
+		}
+	}
+
 	diagonal { :self :k |
 		self.isMatrix.if {
 			let l = self.shape.min - k.abs;
@@ -543,16 +562,16 @@
 		}
 	}
 
-	doWhileTrue { :self :activity:/1 :conditionBlock:/0 |
-		let nextIndex = 1;
-		let endIndex = self.size;
+	doWhile { :self :activity:/1 :conditionBlock:/1 |
+		let nextIndex = self.firstIndex;
+		let endIndex = self.lastIndex;
 		{
-			conditionBlock() & {
-				nextIndex <= endIndex
+			nextIndex <= endIndex & {
+				conditionBlock(self[nextIndex])
 			}
 		}.whileTrue {
 			activity(self[nextIndex]);
-			nextindex := index + 1
+			nextIndex := nextIndex + 1
 		}
 	}
 
@@ -561,6 +580,37 @@
 			(anItem = self[index]).ifFalse {
 				aBlock(self[index])
 			}
+		}
+	}
+
+
+	drop { :self :count |
+		(count.abs >= self.size).if {
+			self.species.new
+		} {
+			(count < 0).if {
+				self.dropLast(count.negated)
+			} {
+				self.dropFirst(count)
+			}
+		}
+	}
+
+	dropFirst { :self :count |
+		self.copyFromTo(count + 1, self.size)
+	}
+
+	dropLast { :self :count |
+		self.copyFromTo(1, self.size - count)
+	}
+
+	dropWhile { :self :aBlock:/1 |
+		self.detectIndexIfFoundIfNone { :each |
+			each.aBlock.not
+		} { :i |
+			self.copyFromTo(i, self.size)
+		} {
+			self.species.new
 		}
 	}
 
@@ -1289,6 +1339,10 @@
 	}
 
 	longestAscendingSequence { :self |
+		self.longestAscendingSequenceList.first
+	}
+
+	longestAscendingSequenceList { :self |
 		(self.size < 2).if {
 			[self]
 		} {
@@ -1305,8 +1359,8 @@
 			};
 			let all = (1 .. self.size).collect { :i |
 				increasing(self.first(i).last(1), self.drop(i + 1))
-			}.++.sortBy { :p :q | q.size < p.size };
-			all
+			}.concatenation.sortBy { :p :q | q.size < p.size };
+			all.takeWhile { :each | each.size = all.first.size }.reverse
 		}
 	}
 
@@ -2217,6 +2271,16 @@
 			startIndex := endIndex + 1
 		};
 		answer
+	}
+
+	takeWhile { :self :aBlock:/1 |
+		self.detectIndexIfFoundIfNone { :each |
+			each.aBlock.not
+		} { :i |
+			self.copyFromTo(1, i - 1)
+		} {
+			self
+		}
 	}
 
 	third { :self |

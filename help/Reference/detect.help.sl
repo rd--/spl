@@ -3,7 +3,7 @@
 - _detect(aCollection, aBlock:/1)_
 
 Evaluate _aBlock_ with each of the elements of _aCollection_ as the argument.
-Answer the first element for which _aBlock_ evaluates to true.
+Answer the first element for which _aBlock_ evaluates to `true`.
 If there is no such element, raise an error.
 
 Find the first element matching a predicate:

@@ -430,17 +430,6 @@
 		}
 	}
 
-	detectIndex { :self :aBlock:/1 |
-		valueWithReturn { :return:/1 |
-			1.toDo(self.size) { :index |
-				aBlock(self[index]).ifTrue {
-					index.return
-				}
-			};
-			nil
-		}
-	}
-
 	differentiate { :self |
 		let prev = 0;
 		let index = 1;

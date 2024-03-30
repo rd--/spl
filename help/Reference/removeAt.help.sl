@@ -11,7 +11,7 @@ Remove first item of a `List`, see also `removeFirst`:
 >>> let l = [1 2 3 4 5];
 >>> (l.removeAt(1), l)
 (1, [2 3 4 5])
-``
+```
 
 Remove third item:
 

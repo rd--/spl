@@ -2,7 +2,7 @@
 
 - _reverse(aSequence)_
 
-Reverse _aSequence_ in place, answering the receiver.
+Reverse _aSequence_ in place, answering _aSequence_.
 
 ```
 >>> [1 3 5 7].reverse

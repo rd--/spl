@@ -36,26 +36,6 @@
 
 +@Sequence {
 
-	drop { :self :count |
-		(count.abs >= self.size).if {
-			self.species.new
-		} {
-			(count < 0).if {
-				self.dropLast(count.negated)
-			} {
-				self.dropFirst(count)
-			}
-		}
-	}
-
-	dropFirst { :self :count |
-		self.copyFromTo(count + 1, self.size)
-	}
-
-	dropLast { :self :count |
-		self.copyFromTo(1, self.size - count)
-	}
-
 	expand { :self :counts |
 		let index = 0;
 		let zero = self.first.zero;
