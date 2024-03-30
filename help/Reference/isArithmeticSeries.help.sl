@@ -1,17 +1,20 @@
 # isArithmeticSeries
 
 - _isArithmeticSeries(aSequence)_
-- _isArithmeticSeriesBy(aSequence, anInteger | nil)_
 
-Answer `true` if _aSequence_ is an arithmetic series by _anInteger_.
-
-```
-(1, 3 .. 9).isArithmeticSeriesBy(3)
+Answer `true` if _aSequence_ is an arithmetic series.
 
 ```
+>>> [1 2 3 4 5].isArithmeticSeries
+true
 
-(1, 3 .. 9).isArithmeticSeriesBy(2) {- is arithmetic series by -}
+>>> [7 6 5 4 3].isArithmeticSeries
+true
+
+>>> [1 3 5 7 9].isArithmeticSeries
+true
+```
 
 * * *
 
-See also: isArithmeticSeriesBy, Range
+See also: arithmeticSeries, isArithmeticSeriesBy, isGeometricSeries, Range

@@ -180,6 +180,12 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.numerator.isNegative
 	}
 
+	isSquareSuperparticular { :self |
+		self.isSuperparticular & {
+			self.numerator.isSquareFree.not
+		}
+	}
+
 	isSuperparticular { :self |
 		self.numerator - 1 = self.denominator
 	}

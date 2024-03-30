@@ -1,6 +1,7 @@
 # subsequences
 
-_subsequences(aSequence)_
+- _subsequences(aSequence)_
+- _subsequences(aSequence, aBlock:/1)_
 
 All possible subsequences:
 
@@ -83,7 +84,7 @@ Subsequences generates only one list of length 0:
 [; 1; 1; 2; 1 1; 1 2; 1 1 2]
 ```
 
-This follows the behavior of _powerSet_:
+This follows the behavior of `powerSet`:
 
 ```
 >>> [1 1 2].powerSet

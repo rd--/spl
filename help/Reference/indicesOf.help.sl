@@ -1,10 +1,10 @@
 # indicesOf
 
-_indicesOf(aCollection, anObject)_
+- _indicesOf(aCollection, anObject)_
 
-Answer a List, possibly empty, of all the indices of _anObject_ in _aCollection_.
+Answer a `List`, possibly empty, of all the indices of _anObject_ in _aCollection_.
 
-At List:
+At `List`:
 
 ```
 >>> [1 2 3 2 3 4 3 4 5].indicesOf(3)
@@ -14,14 +14,14 @@ At List:
 [2]
 ```
 
-At Record:
+At `Record`:
 
 ```
 >>> (x: 1, y: 2, z: 1).indicesOf(1)
 ['x' 'z']
 ```
 
-At String:
+At `String`:
 
 ```
 >>> 'once at end'.indicesOf('d')
@@ -33,6 +33,6 @@ At String:
 
 * * *
 
-See also: occurrencesOf
+See also: indicesOfSubCollection, indexOf, occurrencesOf
 
 Categories: Indexing

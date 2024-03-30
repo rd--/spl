@@ -33,6 +33,17 @@ _Young Tableaux: With Applications to Representation Theory and Geometry_.\
 Cambridge University Press, 1996.
 [Doi](https://doi.org/:10.1017/CBO9780511626241)
 
+E. Kurenniemi.
+"Musical harmonies are divisor sets".\
+_Proc. of Nordic acoustical meeting_, 371–374, 1988.
+
+E. Kurenniemi.
+"Chords, scales, and divisor lattices".\
+_Writing and Unwriting (Media) Art History: Erkki Kurenniemi in 2048_.
+MIT Press, 2015.
+[Pdf](https://beige.org/projects/dimi/CSDL2.pdf)
+[Doi](https://doi.org/:10.7551/mitpress/10014.003.0026)
+
 J. McCartney.
 "SuperCollider: A new real time synthesis language".\
 _Proc. ICMC_, 1996.

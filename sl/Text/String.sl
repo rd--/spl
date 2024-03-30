@@ -522,6 +522,14 @@ String! : [Object, Json, Iterable, Character] {
 		}
 	}
 
+	longestAscendingSequence { :self |
+		self.asList.longestAscendingSequence.join
+	}
+
+	longestCommonSequence { :self :aString |
+		self.asList.longestCommonSequence(aString.asList).join
+	}
+
 	longestCommonSubsequences { :self :aString |
 		self.asList.longestCommonSubsequences(aString.asList).collect(join:/1)
 	}

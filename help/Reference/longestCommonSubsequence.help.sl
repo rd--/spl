@@ -1,6 +1,6 @@
 # longestCommonSubsequence
 
-_longestCommonSubsequence(aSequence, anotherSequence)_
+- _longestCommonSubsequence(aSequence, anotherSequence)_
 
 Answer the longest contiguous subsequence of elements common to two sequences.
 If there are several common subsequences of the same length, answer the one that appears earliest.
@@ -27,8 +27,10 @@ Find the longest contiguous subsequence common to two lists:
 
 * * *
 
-See also: longestCommonSubsequences, partition, subsequences, subsequencesInCommon
+See also: longestCommonSequence, longestCommonSubsequences, partition, subsequences, subsequencesInCommon
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/LongestCommonSubsequence.html)
+[1](https://reference.wolfram.com/language/ref/LongestCommonSubsequence.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Longest_common_substring)

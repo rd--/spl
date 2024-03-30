@@ -2,7 +2,7 @@
 
 - _splitBy(aString | aSequence, separator)_
 
-Split a sequence or a string by a sub-sequence or a sbu-string.
+Split a sequence or a string by a sub-sequence or a sub-string.
 
 At `List`:
 

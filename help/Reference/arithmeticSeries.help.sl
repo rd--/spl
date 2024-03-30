@@ -2,7 +2,9 @@
 
 - _arithmeticSeries(count, start, step)_
 
-Arithmetic series:
+Answer a `List` holding a geometric series:
+
+Arithmetic series of five places from one by two:
 
 ```
 >>> 5.arithmeticSeries(1, 2)

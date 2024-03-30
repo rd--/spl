@@ -87,3 +87,11 @@
 	}
 
 }
+
++@Collection {
+
+	octaveReduced { :self |
+		self.collect(octaveReduced:/1)
+	}
+
+}

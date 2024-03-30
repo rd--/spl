@@ -1,6 +1,6 @@
 # zeroMatrix
 
-_zeroMatrix(anInteger, anotherInteger)_
+- _zeroMatrix(anInteger, anotherInteger)_
 
 Answers the _anInteger x anotherInteger_ zero matrix.
 

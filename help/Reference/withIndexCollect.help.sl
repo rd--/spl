@@ -2,9 +2,9 @@
 
 - _withIndexCollect(aSequence, aBlock:/2)_
 
-Like _withCollect_ except that the iteration index supplies the second argument to the block.
+Like `withCollect` except that the iteration index supplies the second argument to the block.
 
-At Range:
+At `Range`:
 
 ```
 >>> 9:1.withIndexCollect { :each :index | each * 2 + index }
@@ -14,7 +14,7 @@ At Range:
 [19 .. 11]
 ```
 
-At Record:
+At `Record`:
 
 ```
 >>> (x: 1, y: 2, z: 3).withIndexCollect { :each :index | each -> index }
@@ -24,5 +24,9 @@ At Record:
 * * *
 
 See also: collect, withCollect, withIndexDo, withIndexReplace
+
+References:
+_Julia_
+[1](https://docs.julialang.org/en/v1/base/iterators/#Base.Iterators.enumerate)
 
 Categories: Enumerating

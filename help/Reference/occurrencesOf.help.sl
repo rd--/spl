@@ -41,7 +41,7 @@ At `String`:
 
 * * *
 
-See also: includes, indicesOf
+See also: count, includes, indicesOf
 
 References:
 _Smalltalk_

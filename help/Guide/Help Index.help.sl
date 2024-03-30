@@ -349,10 +349,10 @@
 
 ## Ranges
 
-- `ArithemeticProgression`, `Range`
+- `ArithmeticProgression`, `Range`
 - `arithmeticSeries`, `isArithmeticSeries`, `isArithmeticSeriesBy`
 - `asRange`, `asRangeList`
-- `isIntegerRange`, `isRange`
+- `isIntegerRange`, `isNormal`, `isProper`, `isRange`
 - `differences`
 
 ## Random Numbers
@@ -368,9 +368,10 @@
 - `randomFloatCauchyDistribution`, `randomFloatGaussianDistribution`, `randomFloatLinearDistribution`
 - `randomFloatEulerianBetaDistribution`, `randomFloatWeibullDistribution`
 
-## Rearranging
+## Rearranging & Restructuring Lists
 
 - `intercalate`, `interleave`, `intersperse`
+- `subsequences`, `subsets`
 
 ## Recurrence and Sum Functions
 
@@ -412,6 +413,12 @@
 - `finally`, `onRejection`, `then`, `thenElse`
 - `allFulfilled`, `allSettled`, `anyFulfilled`, `anySettled`
 - `cancel`, `valueAfter`, `valueAfterWith`, `valueEvery`
+
+## Sequence Alignment and Comparison
+
+- `indexOfSubcollection`, `indexOfSubcollectionStartingAt`, `indexOfSubcollectionStartingAtIfAbsent`
+- `indicesOfSubCollection`
+- `longestCommonSubsequence`, `longestCommonSubsequences`
 
 ## Set operations
 

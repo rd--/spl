@@ -24,7 +24,7 @@ The `powerRange` method gives the same sequence, requiring a _stop_ value rather
 
 * * *
 
-See also: arithemeticSeries, powerRange, Range, ratios
+See also: arithmeticSeries, isGeometricSeries, powerRange, Range, ratios
 
 References:
 _Mathematica_

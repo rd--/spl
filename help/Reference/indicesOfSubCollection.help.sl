@@ -1,8 +1,8 @@
 # indicesOfSubCollection
 
-_indicesOfSubCollection(aCollection, anotherCollection)_
+- _indicesOfSubCollection(aCollection, anotherCollection)_
 
-Answer a List, possibly empty, of all the start indices of _anotherCollection_ in _aCollection_.
+Answer a `List`, possibly empty, of all the start indices of _anotherCollection_ in _aCollection_.
 
 ```
 >>> 1:9.indicesOfSubCollection(3:5)
@@ -14,6 +14,6 @@ Answer a List, possibly empty, of all the start indices of _anotherCollection_ i
 
 * * *
 
-See also: indicesOf
+See also: indexOfSubCollection, indicesOf
 
 Categories: Indexing

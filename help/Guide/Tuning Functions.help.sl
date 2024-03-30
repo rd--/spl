@@ -6,6 +6,7 @@
 - `asFractions`: intervals of a tuning as ratios in fraction form
 - `asIntegers`: intervals of a tuning as integers
 - `asRatios`: intervals of a tuning as ratios
+- `intervalMatrix`:  all possible intervals in a tuning
 - `primeLimit`: prime limit of a fraction
 - `limit`: prime limit of a tuning
 - `octave`: the ratio of the octave of a tuning
@@ -21,7 +22,9 @@
 
 ## Constants
 
-`pythagoreanComma`: the Pythagorean or ditonic comma
+- `pythagoreanComma`: the Pythagorean or ditonic comma
+- `septimalComma`: the septimal comma
+- `syntonicComma`: syntonic comma
 
 ## Converting
 
@@ -67,6 +70,8 @@
 ## Testing
 
 - `isRational`: is a tuning rational
+- `isSquareSuperparticular`: is a fraction square superparticular
+- `isSuperparticular`: is a fraction superparticular
 - `isTuning`: is an object a tuning
 
 ## Types & Traits

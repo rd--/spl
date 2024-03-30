@@ -1055,14 +1055,13 @@
 		}
 	}
 
-	isArithmeticSeriesBy { :self :step |
+	isArithmeticSeriesBy { :self :aNumber |
 		(self.size <= 1).if {
 			true
 		} {
 			valueWithReturn { :return:/1 |
 				self.doAdjacentPairs { :a :b |
-					let diff = b - a;
-					(step ~= diff).ifTrue {
+					(b - a ~= aNumber).ifTrue {
 						false.return
 					}
 				};
@@ -1083,6 +1082,29 @@
 	isColumnVector { :self |
 		self.isMatrix & {
 			self.anyOne.size = 1
+		}
+	}
+
+	isGeometricSeries { :self |
+		(self.size <= 1).if {
+			true
+		} {
+			self.isGeometricSeriesBy(self.second / self.first)
+		}
+	}
+
+	isGeometricSeriesBy { :self :aNumber |
+		(self.size <= 1).if {
+			true
+		} {
+			valueWithReturn { :return:/1 |
+				self.doAdjacentPairs { :a :b |
+					(b / a ~= aNumber).ifTrue {
+						false.return
+					}
+				};
+				true
+			}
 		}
 	}
 
@@ -1264,6 +1286,63 @@
 			};
 			matrix[other.size + 1]
 		}
+	}
+
+	longestAscendingSequence { :self |
+		(self.size < 2).if {
+			[self]
+		} {
+			let increasing = { :done :remaining |
+				remaining.isEmpty.if {
+					[done]
+				} {
+					(remaining.first > done.last).if {
+						increasing(done ++ [remaining.first], remaining.allButFirst)
+					} {
+						[]
+					} ++ increasing(done, remaining.allButFirst)
+				}
+			};
+			let all = (1 .. self.size).collect { :i |
+				increasing(self.first(i).last(1), self.drop(i + 1))
+			}.++.sortBy { :p :q | q.size < p.size };
+			all
+		}
+	}
+
+	longestCommonSequence { :a :b |
+		let m = a.size + 1;
+		let n = b.size + 1;
+		let lengths = (m).zeroMatrix(n);
+		let answer = [];
+		a.withIndexCollect { :x :i |
+			b.withIndexCollect { :y :j |
+				(x = y).if {
+					lengths[i + 1, j + 1] := lengths[i, j] + 1
+				} {
+					lengths[i + 1, j + 1] := lengths[i + 1, j].max(lengths[i, j + 1])
+				}
+			}
+		};
+		{
+			(m > 1) && (n > 1)
+		}.whileTrue {
+			(lengths[m, n] = lengths[m - 1, n]).if {
+				m := m - 1
+			} {
+				(lengths[m, n] = lengths[m, n -  1]).if {
+					n := n - 1
+				} {
+					(a[m - 1] = b[n - 1]).ifFalse {
+						'@Sequence>>longestCommonSequence: error?'.error
+					};
+					answer.addFirst(a[m - 1]);
+					m := m - 1;
+					n := n - 1
+				}
+			}
+		};
+		answer
 	}
 
 	longestCommonSubsequences { :self :aSequence |

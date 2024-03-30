@@ -1,9 +1,8 @@
 # isArithmeticSeriesBy
 
-- _isArithmeticSeriesBy(aSequence, anInteger | nil)_
+- _isArithmeticSeriesBy(aSequence, anInteger)_
 
-Answer `true` if _aSequence_ is an arithmetic series by _anInteger_,
-or by any integer if `nil`.
+Answer `true` if _aSequence_ is an arithmetic series by _anInteger_.
 
 At `List`:
 
