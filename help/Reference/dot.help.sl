@@ -147,6 +147,13 @@ For a vector _v_ with real entries, _v.norm_ equals _(v.v).sqrt_:
 v.norm
 ```
 
+Multiply two integer matrices:
+
+```
+>>> [2 1 4; 0 1 1].dot([6 3 -1 0; 1 1 0 4; -2 5 0 2])
+[5 27 -2 12; -1 6 0 6]
+```
+
 * * *
 
 See also: +, *, inner, outer

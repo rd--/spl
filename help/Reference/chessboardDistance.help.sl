@@ -1,6 +1,6 @@
 # chessboardDistance
 
-_chessboardDistance(u, v)_
+- _chessboardDistance(u, v)_
 
 Answer the chessboard, Chebyshev, or sup norm distance between vectors _u_ and _v_.
 

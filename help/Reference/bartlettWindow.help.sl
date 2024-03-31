@@ -13,13 +13,13 @@ The _Bartlett window_ is triangular.
 Plot:
 
 ~~~
-Interval(-0.5, 0.5).discretize(1024, bartlettWindow:/1).plot
+(-0.5 -- 0.5).discretize(1024, bartlettWindow:/1).plot
 ~~~
 
 Discrete _Bartlett window_ of length 15:
 
 ~~~
-Interval(-0.5, 0.5).discretize(15, bartlettWindow:/1).plot
+(-0.5 -- 0.5).discretize(15, bartlettWindow:/1).plot
 ~~~
 
 * * *

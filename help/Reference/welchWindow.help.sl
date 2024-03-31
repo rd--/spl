@@ -12,19 +12,19 @@ Answer the _Welch_ window function at _aNumber_.
 Plot:
 
 ~~~
-Interval(-0.5, 0.5).discretize(1024, welchWindow:/1).plot
+(-0.5 -- 0.5).discretize(1024, welchWindow:/1).plot
 ~~~
 
 Shape of a _Welch_ window using a specified parameter:
 
 ~~~
-Interval(-1, 1).discretize(1024).welchWindow(1.2).plot
+(-1 -- 1).discretize(1024).welchWindow(1.2).plot
 ~~~
 
 Discrete _Welch_ window of length 15:
 
 ~~~
-Interval(-0.5, 0.5).discretize(15, welchWindow:/1).plot
+(-0.5 -- 0.5).discretize(15, welchWindow:/1).plot
 ~~~
 
 * * *

@@ -212,6 +212,10 @@
 		self * 0.000000000000001
 	}
 
+	euclideanDistance { :self :aNumber |
+		(aNumber - self).abs
+	}
+
 	eulerGamma { :self |
 		self * 0.577215664901532860606512090082402431042
 	}

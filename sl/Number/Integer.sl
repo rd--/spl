@@ -828,7 +828,7 @@
 	}
 
 	subdivide { :self |
-		0:self.collect { :n | Fraction(n, self) }
+		Range(0, 1, Fraction(1, self))
 	}
 
 	threeDigitName { :self |

@@ -12,13 +12,13 @@ Answer the Hamming window function at _aNumber_.
 Plot:
 
 ~~~
-Interval(-0.5, 0.5).discretize(1024, hammingWindow:/1).plot
+(-0.5 -- 0.5).discretize(1024, hammingWindow:/1).plot
 ~~~
 
 Discrete Hamming window of length 15:
 
 ~~~
-Interval(-0.5, 0.5).discretize(15, hammingWindow:/1).plot
+(-0.5 -- 0.5).discretize(15, hammingWindow:/1).plot
 ~~~
 
 * * *

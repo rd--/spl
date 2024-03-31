@@ -1,6 +1,6 @@
 # canberraDistance
 
-_canberraDistance(u,v)_
+- _canberraDistance(u,v)_
 
 Answer the Canberra distance between vectors _u_ and _v_.
 

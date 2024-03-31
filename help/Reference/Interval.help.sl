@@ -1,7 +1,6 @@
 # Interval
 
 - _Interval(min, max)_
-- _min -- max_ ⇒ _Interval(min, max)_
 
 An interval represents the range of values between _min_ and _max_.
 Intervals are closed, they includes both end points.
@@ -94,9 +93,23 @@ It is an `error` if `min` exceeds `max`:
 true
 ```
 
+`Interval` values can be converted to `Range` values using `discretize`:
+
+```
+>>> (1 -- 10).discretize(10)
+1:10
+```
+
+or `subdivide`:
+
+```
+>>> (1 -- 10).subdivide(9)
+1:10
+```
+
 * * *
 
-See also: --, Range
+See also: --, discretize, Range, Range Syntax, subdivide
 
 References:
 _Mathematica_

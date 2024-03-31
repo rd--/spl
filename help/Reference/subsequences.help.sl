@@ -46,7 +46,7 @@ Obtain all subsequences common to two lists:
 [2 3; 3 5]
 ```
 
-Compare to longestCommonSubsequence:
+Compare to `longestCommonSubsequence`:
 
 ```
 >>> [1 2 3 5 4].longestCommonSubsequence([2 3 5 1 4])
@@ -93,7 +93,7 @@ This follows the behavior of `powerSet`:
 
 * * *
 
-See also: partition, powerSet, longestCommonSubsequence
+See also: partition, powerSet, longestCommonSubsequence, subsets, tuples
 
 References:
 _Mathematica_

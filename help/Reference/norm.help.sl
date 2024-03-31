@@ -1,6 +1,6 @@
 # norm
 
-_norm(z)_
+- _norm(z)_
 
 _norm_ answers the norm of a number or vector.
 For complex numbers _norm_ is _abs_.

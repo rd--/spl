@@ -530,8 +530,8 @@ String! : [Object, Json, Iterable, Character] {
 		self.asList.longestCommonSequence(aString.asList).join
 	}
 
-	longestCommonSubsequences { :self :aString |
-		self.asList.longestCommonSubsequences(aString.asList).collect(join:/1)
+	longestCommonSubsequenceList { :self :aString |
+		self.asList.longestCommonSubsequenceList(aString.asList).collect(join:/1)
 	}
 
 	longestCommonSubsequence { :self :aString |

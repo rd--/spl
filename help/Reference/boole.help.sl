@@ -23,6 +23,13 @@ The inverse of `boole` is `asBoolean`:
 [true false true true false]
 ```
 
+It is an error if _anObject_ is not a `Boolean`:
+
+```
+>>> { 'true'.boole }.ifError { true }
+true
+```
+
 * * *
 
 See also: asBit, asBoolean, asInteger

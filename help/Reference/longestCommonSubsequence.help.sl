@@ -11,7 +11,7 @@ Find the longest contiguous subsequence common to two strings:
 >>> 'AAABBBBCCCCC'.longestCommonSubsequence('CCCBBBAAABABA')
 'AAAB'
 
->>> 'AAABBBBCCCCC'.longestCommonSubsequences('CCCBBBAAABABA')
+>>> 'AAABBBBCCCCC'.longestCommonSubsequenceList('CCCBBBAAABABA')
 ['AAAB']
 ```
 

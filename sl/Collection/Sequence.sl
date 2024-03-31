@@ -508,6 +508,18 @@
 		}
 	}
 
+	distanceMatrix { :u :v :aBlock:/2 |
+		aBlock:/2.table(u, v)
+	}
+
+	distanceMatrix { :u :v |
+		distanceMatrix(u, v, euclideanDistance:/2)
+	}
+
+	distanceMatrix { :u |
+		distanceMatrix(u, u)
+	}
+
 	do { :self :aBlock:/1 |
 		self.indicesDo { :index |
 			aBlock(self[index])
@@ -1351,7 +1363,10 @@
 					[done]
 				} {
 					(remaining.first > done.last).if {
-						increasing(done ++ [remaining.first], remaining.allButFirst)
+						increasing(
+							done ++ [remaining.first],
+							remaining.allButFirst
+						)
 					} {
 						[]
 					} ++ increasing(done, remaining.allButFirst)
@@ -1399,7 +1414,7 @@
 		answer
 	}
 
-	longestCommonSubsequences { :self :aSequence |
+	longestCommonSubsequenceList { :self :aSequence |
 		let find = { :k |
 			self.partition(k, 1).intersection(aSequence.partition(k, 1))
 		};
@@ -1416,7 +1431,7 @@
 	}
 
 	longestCommonSubsequence { :self :aSequence |
-		let common = self.longestCommonSubsequences(aSequence);
+		let common = self.longestCommonSubsequenceList(aSequence);
 		common.isEmpty.if {
 			[]
 		} {
@@ -1426,6 +1441,41 @@
 
 	manhattanDistance { :self :aSequence |
 		(self - aSequence).abs.sum
+	}
+
+	matrixPower { :m :p |
+		let [a, b] = m.shape;
+		(a = b).if {
+			let r = b.zeroMatrix(a);
+			p.caseOfOtherwise([
+				0 -> {
+					1:b.do { :i |
+						1:a.do { :j |
+							(i = j).if {
+								r[i][j] := 1
+							} {
+								r[i][j] := 0
+							}
+						}
+					}
+				},
+				1 -> {
+					1:b.do { :i |
+						1:a.do { :j |
+							r[i][j] := m[i][j]
+						}
+					}
+				}
+			]) {
+				r := m;
+				2:p.do { :i |
+					r := r.dot(m)
+				}
+			};
+			r
+		} {
+			m.error('@Sequence>>matrixPower: invalid matrix')
+		}
 	}
 
 	median { :self |

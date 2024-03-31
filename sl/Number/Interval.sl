@@ -64,18 +64,14 @@ Interval : [Object, Magnitude, Number] { | min max |
 	}
 
 	discretize { :self :size :aBlock:/1 |
-		let step = (self.max - self.min) / (size - 1);
-		let value = self.min;
-		let answer = List(size);
-		1.toDo(size) { :index |
-			answer[index] := aBlock(value);
-			value := value + step
-		};
-		answer
+		self.discretize(size).collect(aBlock:/1)
 	}
 
 	discretize { :self :size |
-		self.discretize(size, identity:/1)
+		let start = self.min;
+		let stop = self.max;
+		let step = (stop - start) / (size - 1);
+		Range(start, stop, step)
 	}
 
 	equalBy { :self :operand :aBlock:/2 |

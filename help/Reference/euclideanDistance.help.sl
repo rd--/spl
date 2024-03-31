@@ -1,6 +1,6 @@
 # euclideanDistance
 
-_euclideanDistance(u, v)_
+- _euclideanDistance(u, v)_
 
 Answer the Euclidean distance between vectors _u_ and _v_.
 
@@ -16,10 +16,20 @@ Euclidean distance between numeric vectors:
 21.49419
 ```
 
+The Euclidean distance in one dimension is the absolute value of the difference:
+
+```
+>>> 3.euclideanDistance(1)
+(1 - 3).abs
+```
+
 * * *
 
 See also: brayCurtisDistance, canberraDistance, chessboardDistance, editDistance, hammingDistance, manhattanDistance
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/BrayCurtisDistance.html)
+[1](https://mathworld.wolfram.com/Distance.html)
+[2](https://reference.wolfram.com/language/ref/EuclideanDistance.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Euclidean_distance)

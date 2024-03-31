@@ -1,6 +1,6 @@
 # brayCurtisDistance
 
-_brayCurtisDistance(u, v)_
+- _brayCurtisDistance(u, v)_
 
 Answer the Bray-Curtis distance between vectors _u_ and _v_.
 Equivalent to _(u - v).abs.sum / (u + v).abs.sum_
