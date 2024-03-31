@@ -7,7 +7,9 @@ A `Graph` is a collection of `vertices` and `edges`.
 
 The number of vertices is the `size` of the graph.
 
-The vertices are the integers from one up to `size`.
+The `vertices` are the integers from one up to `size`.
+
+The `edges` are two-element sequences of vertices.
 
 Vertices may be labeled,
 in which case `vertexLabels` is a `List` of `size` labels, one for each vertex.

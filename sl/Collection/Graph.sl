@@ -1,4 +1,4 @@
-Graph : [Object] { | size edges vertexLabels edgeLabels |
+@Graph {
 
 	addEdge { :self :beginVertex :endVertex |
 		self.edges.add([beginVertex, endVertex])
@@ -21,6 +21,21 @@ Graph : [Object] { | size edges vertexLabels edgeLabels |
 		[self.size, self.edges.size]
 	}
 
+	edgeLabel { :self :beginVertex :endVertex |
+		[beginVertex, endVertex]
+	}
+
+	hasValidEdges { :self |
+		let v = self.vertices;
+		self.edges.allSatisfy { :edge |
+			edge.size = 2 & {
+				v.includes(edge.first) & {
+					v.includes(edge.second)
+				}
+			}
+		}
+	}
+
 	includeConverse { :self |
 		self.edges.do { :edge |
 			self.includeEdge(edge.second, edge.first)
@@ -29,7 +44,7 @@ Graph : [Object] { | size edges vertexLabels edgeLabels |
 
 	includeEdge { :self :beginVertex :endVertex |
 		self.includesEdge(beginVertex, endVertex).ifFalse {
-			self.edges.add([beginVertex, endVertex])
+			self.addEdge(beginVertex, endVertex)
 		}
 	}
 
@@ -41,39 +56,27 @@ Graph : [Object] { | size edges vertexLabels edgeLabels |
 		}
 	}
 
+	includesVertex { :self :vertex |
+		self.vertices.includes(vertex)
+	}
+
 	inEdgesOf { :self :vertex |
 		self.edges.select { :edge |
 			edge.second = vertex
 		}
 	}
 
+	isEmpty { :self |
+		self.size = 0
+	}
+
 	isValid { :self |
-		self.edges.allSatisfy { :edge |
-			edge.size = 2 & {
-				edge.allSatisfy { :vertex |
-					vertex.betweenAnd(1, self.size)
-				}
-			}
-		} & {
-			self.vertexLabels.isNil | {
-				self.vertexLabels.size = self.size
-			} & {
-				self.edgeLabels.isNil | {
-					self.edgeLabels.size = self.edges.size
-				}
-			}
-		}
+		self.hasValidEdges
 	}
 
 	labeledVertices { :self |
-		self.vertexLabels.ifNil {
-			self.vertices.collect { :each |
-				each -> ''
-			}
-		} {
-			self.vertices.withCollect(self.vertexLabels) { :vertex :label |
-				vertex -> label
-			}
+		self.vertices.collect { :each |
+			each -> self.vertexLabel(each)
 		}
 	}
 
@@ -83,8 +86,12 @@ Graph : [Object] { | size edges vertexLabels edgeLabels |
 
 	outEdgesOf { :self :vertex |
 		self.edges.select { :edge |
-			edge[1] = vertex
+			edge.first = vertex
 		}
+	}
+
+	vertexLabel { :self :vertex |
+		vertex
 	}
 
 	vertices { :self |
@@ -93,7 +100,37 @@ Graph : [Object] { | size edges vertexLabels edgeLabels |
 
 }
 
+Graph : [Object, Graph] { | size edges vertexLabels edgeLabels |
+
+	isValid {
+		self.hasValidEdges & {
+			self.edgeLabels.isNil | {
+				self.vertexLabels.size = self.vertexCount
+			} & {
+				self.edgeLabels.isNil | {
+					self.edgeLabels.size = self.edges.size
+				}
+			}
+		}
+	}
+
+	vertexLabel { :self :vertex |
+		self.vertexLabels.ifNil {
+			vertex
+		} {
+			self.vertexLabels[vertex]
+		}
+	}
+
+}
+
 +@Integer {
+
+	cycleGraph { :self |
+		1:self.collect { :each |
+			each -> (each % self + 1)
+		}.asGraph
+	}
 
 	Graph { :self :edges |
 		Graph(self, edges, nil, nil)

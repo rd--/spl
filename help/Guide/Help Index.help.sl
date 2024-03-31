@@ -20,6 +20,7 @@
 ## Array Operations
 
 - `depth`, `iota`, `reshape`, `rank`, `shape`
+- `cartesianIndex`, `linearIndex`
 
 ## Arithmetic Operators
 
@@ -217,6 +218,7 @@
 - `edgeLabels`, `vertexLabels`
 - `asGraph`, `asUndirectedGraph`
 - `adjacencyMatrix`
+- `cycleGraph`
 
 ## Help Files
 

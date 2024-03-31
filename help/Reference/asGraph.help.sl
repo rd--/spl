@@ -14,7 +14,6 @@ At association list:
 
 At matrix:
 
-
 ```
 >>> [1 2; 2 3; 3 1].asGraph.adjacencyMatrix
 [0 1 0; 0 0 1; 1 0 0]

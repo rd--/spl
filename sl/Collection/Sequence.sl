@@ -311,6 +311,10 @@
 		((self - aSequence).abs / (self.abs + aSequence.abs)).sum
 	}
 
+	cartesianIndex { :shape :anInteger |
+		(anInteger - 1).mixedRadixEncode(shape).reverse + 1
+	}
+
 	chessboardDistance { :self :aSequence |
 		(self - aSequence).abs.max
 	}
@@ -1348,6 +1352,10 @@
 			};
 			matrix[other.size + 1]
 		}
+	}
+
+	linearIndex { :shape :aSequence |
+		(aSequence - 1).reverse.mixedRadixDecode(shape) + 1
 	}
 
 	longestAscendingSequence { :self |

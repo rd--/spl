@@ -110,7 +110,11 @@ Counter in mixed radix counting system:
 ```
 >>> let b = [4 2 3];
 >>> let i = [0 .. 4 * 2 * 3 - 1];
->>> i.collect { :each | each.mixedRadixEncode(b) }.collect { :each | each.mixedRadixDecode(b) }
+>>> i.collect { :each |
+>>> 	each.mixedRadixEncode(b)
+>>> }.collect { :each |
+>>> 	each.mixedRadixDecode(b)
+>>> }
 i
 ```
 

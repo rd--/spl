@@ -55,6 +55,23 @@ Compute a distance matrix from strings:
 ]
 ```
 
+Distance matrix of cartesian coordinates for lattice using `manhattanDistance` measure:
+
+```
+>>> let x = [1 1; 2 1; 3 1; 4 1; 1 2; 2 2; 3 2; 4 2];
+>>> x.distanceMatrix(x, manhattanDistance:/2)
+[
+	0 1 2 3 1 2 3 4;
+	1 0 1 2 2 1 2 3;
+	2 1 0 1 3 2 1 2;
+	3 2 1 0 4 3 2 1;
+	1 2 3 4 0 1 2 3;
+	2 1 2 3 1 0 1 2;
+	3 2 1 2 2 1 0 1;
+	4 3 2 1 3 2 1 0
+]
+```
+
 * * *
 
-See also: outer, NearestNeighborGraph AdjacencyMatrix GraphDistanceMatrix Nearest Norm ClusterClassify FindClusters DistanceFunction
+See also: adjacencyMatrix, norm, outer
