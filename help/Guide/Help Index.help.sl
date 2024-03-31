@@ -210,6 +210,14 @@
 - `toPolarCoordinates`
 - `coordinateBoundingBox`, `coordinateBounds`
 
+## Graph Functions
+
+- `Graph`, `isGraph`, `isValid`
+- `edges`, `vertices`
+- `edgeLabels`, `vertexLabels`
+- `asGraph`, `asUndirectedGraph`
+- `adjacencyMatrix`
+
 ## Help Files
 
 - `DocumentTest`, `HelpFile`
@@ -265,6 +273,7 @@
 ## Matrix Operations
 
 - `isMatrix`, `isSquareMatrix`, `shape`
+- `dot`, `inner`, `matrixPower`, `outer`
 - `determinant`, `diagonal`, `trace`, `transposed`
 - `kroneckerProduct`
 

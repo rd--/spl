@@ -163,4 +163,5 @@ _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=VectorCalculus/DotProduct),
 _Mathematica_
 [1](https://mathworld.wolfram.com/DotProduct.html)
-[2](https://reference.wolfram.com/language/ref/Dot.html)
+[2](https://mathworld.wolfram.com/MatrixMultiplication.html)
+[3](https://reference.wolfram.com/language/ref/Dot.html)
