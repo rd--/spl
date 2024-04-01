@@ -18,7 +18,11 @@
 	}
 
 	degree { :self |
-		[self.size, self.edges.size]
+		[self.vertexCount, self.edgesCount]
+	}
+
+	edgeCount { :self |
+		self.edges.size
 	}
 
 	edgeLabel { :self :beginVertex :endVertex |
@@ -67,7 +71,9 @@
 	}
 
 	isEmpty { :self |
-		self.size = 0
+		self.vertexCount = 0 & {
+			self.edgeCount = 0
+		}
 	}
 
 	isValid { :self |
@@ -90,22 +96,22 @@
 		}
 	}
 
+	vertextCount { :self |
+		self.vertices.size
+	}
+
 	vertexLabel { :self :vertex |
 		vertex
 	}
 
-	vertices { :self |
-		Range(1, self.size, 1)
-	}
-
 }
 
-Graph : [Object, Graph] { | size edges vertexLabels edgeLabels |
+Graph : [Object, Graph] { | lastVertex edges vertexLabels edgeLabels |
 
 	isValid {
 		self.hasValidEdges & {
 			self.edgeLabels.isNil | {
-				self.vertexLabels.size = self.vertexCount
+				self.vertexLabels.size = self.lastVertex
 			} & {
 				self.edgeLabels.isNil | {
 					self.edgeLabels.size = self.edges.size
@@ -122,14 +128,28 @@ Graph : [Object, Graph] { | size edges vertexLabels edgeLabels |
 		}
 	}
 
+	vertices { :self |
+		Range(1, self.lastVertex, 1)
+	}
+
 }
 
 +@Integer {
 
+	completeGraph { :self |
+		let edges = [];
+		1.toDo(self) { :i |
+			(i + 1).toDo(self) { :j |
+				edges.add(i -> j)
+			}
+		};
+		edges.asUndirectedGraph
+	}
+
 	cycleGraph { :self |
 		1:self.collect { :each |
 			each -> (each % self + 1)
-		}.asGraph
+		}.asUndirectedGraph
 	}
 
 	Graph { :self :edges |
@@ -145,23 +165,45 @@ Graph : [Object, Graph] { | size edges vertexLabels edgeLabels |
 		)
 	}
 
+	pathGraph { :self |
+		(1 .. self - 1).collect { :each |
+			each -> (each + 1)
+		}.asUndirectedGraph
+	}
+
+	starGraph { :self |
+		2:self.collect { :each |
+			1 -> each
+		}.asUndirectedGraph
+	}
+
+	wheelGraph { :self |
+		let cycle = 2:self.collect { :each |
+			each -> (each = self).if { 2 } { each + 1 }
+		};
+		let star = 2:self.collect { :each |
+			1 -> each
+		};
+		(cycle ++ star).asUndirectedGraph
+	}
+
 }
 
 +List {
 
-	asGraph { :self |
+	asDirectedGraph { :self |
 		let e = self.collect(asList:/1);
 		let [i, j] = e.shape;
 		(j = 2).if {
 			let k = e.collect(max:/1).max;
 			Graph(k, e)
 		} {
-			self.error('List>>asGraph: invalid edge list')
+			self.error('List>>asDirectedGraph: invalid edge list')
 		}
 	}
 
 	asUndirectedGraph { :self |
-		let g = self.asGraph;
+		let g = self.asDirectedGraph;
 		g.includeConverse;
 		g
 	}

@@ -218,7 +218,7 @@
 - `edgeLabels`, `vertexLabels`
 - `asGraph`, `asUndirectedGraph`
 - `adjacencyMatrix`
-- `cycleGraph`
+- `completeGraph`, `cycleGraph`, `pathGraph`, `starGraph`, `wheelGraph`
 
 ## Help Files
 
