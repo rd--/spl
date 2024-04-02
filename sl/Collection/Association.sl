@@ -28,6 +28,10 @@ Association : [Object] { | key value |
 		self.key
 	}
 
+	asAssociation { :self |
+		self
+	}
+
 	asList { :self |
 		[self.key, self.value]
 	}
@@ -74,6 +78,18 @@ Association : [Object] { | key value |
 
 	Association { :self :anObject |
 		newAssociation().initializeSlots(self, anObject)
+	}
+
+}
+
++@Sequence {
+
+	asAssociation { :self |
+		(self.size = 2).if {
+			self.first -> self.second
+		} {
+			self.error('@Sequence>>asAssociation: not two-element sequence')
+		}
 	}
 
 }

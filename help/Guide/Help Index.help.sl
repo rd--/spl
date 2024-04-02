@@ -213,12 +213,14 @@
 
 ## Graph Functions
 
-- `Graph`, `isGraph`, `isValid`
-- `edges`, `vertices`
-- `edgeLabels`, `vertexLabels`
-- `asGraph`, `asUndirectedGraph`
+- `Graph`
+- `asGraph`, `isEdge`, `isGraph`
+- `edgeCount`, `vertexCount`
+- `edgeList`, `vertexList`
+- `vertexDegree`, `vertexInDegree`, `vertexOutDegree`
 - `adjacencyMatrix`
 - `completeGraph`, `cycleGraph`, `pathGraph`, `starGraph`, `wheelGraph`
+- `edgeLabels`, `vertexLabels`
 
 ## Help Files
 

@@ -34,4 +34,5 @@ _Mathematica_
 [5](https://mathworld.wolfram.com/MixedGraph.html)
 [6](https://mathworld.wolfram.com/Multigraph.html)
 [7](https://mathworld.wolfram.com/LabeledGraph.html)
-[8](https://mathworld.wolfram.com/GraphEdge.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics))

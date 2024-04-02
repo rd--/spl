@@ -1,45 +1,9 @@
-DirectedEdge : [Object] { | first second |
-
-	asEdge { :self |
-		self
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
-
-}
-
-UndirectedEdge : [Object] { | first second |
-
-	asEdge { :self |
-		self
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
-
-}
-
-+@Object {
-
-	DirectedEdge { :self :anObject |
-		newDirectedEdge().initializeSlots(self, anObject)
-	}
-
-	UndirectedEdge { :self :anObject |
-		newUndirectedEdge().initializeSlots(self, anObject)
-	}
-
-}
-
 @Graph {
 
 	adjacencyMatrix { :self |
 		let v = self.vertexList;
 		{ :i :j |
-			self.includesEdge(i, j).boole
+			self.includesEdge(i -> j).boole
 		}.table(v, v)
 	}
 
@@ -67,31 +31,15 @@ UndirectedEdge : [Object] { | first second |
 	hasValidEdgeList { :self |
 		let v = self.vertexList;
 		self.edgeList.allSatisfy { :edge |
-			edge.size = 2 & {
-				v.includes(edge.first) & {
-					v.includes(edge.second)
-				}
+			v.includes(edge.first) & {
+				v.includes(edge.second)
 			}
 		}
 	}
 
-	includeConverse { :self |
-		self.edgeList.do { :edge |
-			self.includeEdge(edge.second, edge.first)
-		}
-	}
-
-	includeEdge { :self :beginVertex :endVertex |
-		self.includesEdge(beginVertex, endVertex).ifFalse {
-			self.addEdge(beginVertex, endVertex)
-		}
-	}
-
-	includesEdge { :self :beginVertex :endVertex |
+	includesEdge { :self :edge |
 		self.edgeList.anySatisfy { :each |
-			each.first = beginVertex & {
-				each.second = endVertex
-			}
+			each.matchesEdge(edge)
 		}
 	}
 
@@ -105,10 +53,22 @@ UndirectedEdge : [Object] { | first second |
 		}
 	}
 
+	isDirected { :self |
+		self.edgeList.allSatisfy(isDirectedEdge:/1)
+	}
+
 	isEmpty { :self |
-		self.vertexCount = 0 & {
-			self.edgeCount = 0
+		self.edgeCount = 0
+	}
+
+	isLoopFree { :self |
+		self.edgeList.allSatisfy { :each |
+			each.first ~= each.second
 		}
+	}
+
+	isUndirected { :self |
+		self.edgeList.allSatisfy(isUndirectedEdge:/1)
 	}
 
 	isValid { :self |
@@ -131,16 +91,33 @@ UndirectedEdge : [Object] { | first second |
 		}
 	}
 
+	undirectedGraph { :self |
+		Graph(
+			self.vertexList,
+			self.edgeList.collect(asUndirectedEdge:/1).nubBy(matchesEdge:/2)
+		)
+	}
+
 	vertexCount { :self |
 		self.vertexList.size
+	}
+
+	vertexIndex { :self :vertex |
+		self.vertexList.indexOf(vertex)
 	}
 
 }
 
 Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties |
 
-	addEdge { :self :beginVertex :endVertex |
-		self.edgeList.add([beginVertex, endVertex])
+	addEdge { :self :edge |
+		self.edgeList.add(edge)
+	}
+
+	includeEdge { :self :edge |
+		self.includesEdge(edge).ifFalse {
+			self.addEdge(edge)
+		}
 	}
 
 	isValid {
@@ -153,6 +130,67 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 				}
 			}
 		}
+	}
+
+	vertexDegree { :self |
+		self.vertexList.collect { :vertex |
+			self.vertexDegree(vertex)
+		}
+	}
+
+	vertexDegree { :self :vertex |
+		let answer = 0;
+		self.edgeList.do { :each |
+			(vertex = each.first).ifTrue {
+				answer := answer + 1
+			};
+			(vertex = each.second).ifTrue {
+				answer := answer + 1
+			}
+		};
+		answer
+	}
+
+	vertexInDegree { :self |
+		self.vertexList.collect { :vertex |
+			self.vertexInDegree(vertex)
+		}
+	}
+
+	vertexInDegree { :self :vertex |
+		let answer = 0;
+		self.edgeList.do { :each |
+			(vertex = each.second).ifTrue {
+				answer := answer + 1
+			};
+			each.isList.ifTrue {
+				(vertex = each.first).ifTrue {
+					answer := answer + 1
+				}
+			}
+		};
+		answer
+	}
+
+	vertexOutDegree { :self |
+		self.vertexList.collect { :vertex |
+			self.vertexOutDegree(vertex)
+		}
+	}
+
+	vertexOutDegree { :self :vertex |
+		let answer = 0;
+		self.edgeList.do { :each |
+			(vertex = each.first).ifTrue {
+				answer := answer + 1
+			};
+			each.isList.ifTrue {
+				(vertex = each.second).ifTrue {
+					answer := answer + 1
+				}
+			}
+		};
+		answer
 	}
 
 	vertexLabel { :self :vertex |
@@ -172,7 +210,7 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 		1.toDo(self) { :i |
 			edges.addAll(
 				(i + 1).to(self).collect { :j |
-					(i, j)
+					[i, j]
 				}
 			)
 		};
@@ -181,28 +219,28 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 
 	cycleGraph { :self |
 		1:self.collect { :each |
-			(each, each % self + 1)
+			[each, each % self + 1]
 		}.asGraph
 	}
 
 	pathGraph { :self |
 		(1 .. self - 1).collect { :each |
-			(each, each + 1)
+			[each, each + 1]
 		}.asGraph
 	}
 
 	starGraph { :self |
 		2:self.collect { :each |
-			(1, each)
+			[1, each]
 		}.asGraph
 	}
 
 	wheelGraph { :self |
 		let cycle = 2:self.collect { :each |
-			(each, (each = self).if { 2 } { each + 1 })
+			[each, (each = self).if { 2 } { each + 1 }]
 		};
 		let star = 2:self.collect { :each |
-			(1, each)
+			[1, each]
 		};
 		(cycle ++ star).asGraph
 	}
@@ -212,13 +250,13 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 +List {
 
 	asGraph { :self |
-		let edges = self.collect(asEdge:/1);
-		let vertices = [];
-		edges.do { :each |
-			vertices.add(each.first);
-			vertices.add(each.second)
+		let edgeList = self.collect(asEdge:/1).asList;
+		let vertexList = [];
+		edgeList.do { :each |
+			vertexList.add(each.first);
+			vertexList.add(each.second)
 		};
-		Graph(vertices.nub.sort, edges)
+		Graph(vertexList.nub, edgeList)
 	}
 
 	Graph { :vertices :edges |
@@ -239,7 +277,37 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 +Association {
 
 	asEdge { :self |
-		DirectedEdge(self.key, self.value)
+		self
+	}
+
+	asDirectedEdge { :self |
+		self.key
+	}
+
+	asUndirectedEdge { :self |
+		[self.key, self.value]
+	}
+
+	isDirectedEdge { :self |
+		true
+	}
+
+	isEdge { :self |
+		true
+	}
+
+	isUndirectedEdge { :self |
+		false
+	}
+
+	matchesEdge { :self :edge |
+		self = edge | {
+			edge.isList.if {
+				edge.matchesEdge(self)
+			} {
+				false
+			}
+		}
 	}
 
 }
@@ -247,10 +315,46 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 +List {
 
 	asEdge { :self |
-		(self.size = 2).if {
-			UndirectedEdge(self.min, self.max)
-		} {
+		(self.size ~= 2).if {
 			self.error('List>>asEdge: not two-list')
+		} {
+			self
+		}
+	}
+
+	asDirectedEdge { :self |
+		self.asEdge.asAssociation
+	}
+
+	asUndirectedEdge { :self |
+		self.asEdge
+	}
+
+	isDirectedEdge { :self |
+		false
+	}
+
+	isEdge { :self |
+		self.size = 2
+	}
+
+	isUndirectedEdge { :self |
+		self.size = 2
+	}
+
+	matchesEdge { :self :edge |
+		(self.size ~= 2).if {
+			self.error('List>>matchesEdge: not two-list')
+		} {
+			edge.isList.if {
+				self.sorted = edge.sorted
+			} {
+				edge.isAssociation.if {
+					self.sorted = edge.asList.sort
+				} {
+					false
+				}
+			}
 		}
 	}
 

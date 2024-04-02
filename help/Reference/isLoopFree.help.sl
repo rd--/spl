@@ -1,0 +1,28 @@
+# isLoopFree
+
+- _isLoopFree(aGraph)_
+
+Answers `true` if _aGraph_ has no self-loops, else `false`.
+
+```
+>>> 5.completeGraph.isLoopFree
+true
+
+>>> [1 1; 1 2].asGraph.isLoopFree
+false
+```
+
+The adjacency matrix of a graph without self-loops has a zero diagonal:
+
+```
+>>> 5.wheelGraph.adjacencyMatrix.diagonal
+[0 0 0 0 0]
+```
+
+* * *
+
+See also: asGraph, Graph, isDirected, isUndirected
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/LoopFreeGraphQ.html)

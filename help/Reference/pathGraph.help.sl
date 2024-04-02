@@ -23,12 +23,23 @@ The `adjacencyMatrix` of three small path graphs:
 ]
 ```
 
-The `vertices` and `edges` of a path graph:
+The `vertexList` and `edgeList` of a path graph:
 
 ```
 >>> let g = 7.pathGraph;
->>> (g.vertices, g.edges)
-(1:7, [1 2; 2 3; 3 4; 4 5; 5 6; 6 7])
+>>> (g.vertexList, g.edgeList)
+(
+	[1 2 3 4 5 6 7],
+	[1 2; 2 3; 3 4; 4 5; 5 6; 6 7]
+)
+```
+
+Use `vertexCount` and `edgeCount` to count vertices and edges:
+
+```
+>>> let g = 20.pathGraph;
+>>> (g.vertexCount, g.edgeCount)
+(20, 19)
 ```
 
 * * *

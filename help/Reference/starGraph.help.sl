@@ -24,12 +24,15 @@ The `adjacencyMatrix` of three small star graphs:
 ]
 ```
 
-The `vertices` and `edges` of a star graph:
+The `vertexList` and `edgeList` of a star graph:
 
 ```
 >>> let g = 7.starGraph;
->>> (g.vertices, g.edges)
-(1:7, [1 2; 1 3; 1 4; 1 5; 1 6; 1 7])
+>>> (g.vertexList, g.edgeList)
+(
+	[1 2 3 4 5 6 7],
+	[1 2; 1 3; 1 4; 1 5; 1 6; 1 7]
+)
 ```
 
 * * *

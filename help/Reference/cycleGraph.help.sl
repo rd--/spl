@@ -23,17 +23,20 @@ The `adjacencyMatrix` of three small cycle graphs:
 ]
 ```
 
-The `vertices` and `edges` of a cycle graph:
+The `vertexList` and `edgeList` of a cycle graph:
 
 ```
 >>> let g = 7.cycleGraph;
->>> (g.vertices, g.edges)
-(1:7, [1 2; 2 3; 3 4; 4 5; 5 6; 6 7; 7 1])
+>>> (g.vertexList, g.edgeList)
+(
+	[1 2 3 4 5 6 7],
+	[1 2; 2 3; 3 4; 4 5; 5 6; 6 7; 7 1]
+)
 ```
 
 * * *
 
-See also: Graph, pathGraph
+See also: completeGraph, Graph, pathGraph, starGraph, wheelGraph
 
 References:
 _Mathematica_
