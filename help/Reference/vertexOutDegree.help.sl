@@ -58,4 +58,5 @@ See also: adjacencyMatrix, asGraph, vertexCount, vertexDegree, vertexList, Graph
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/VertexOutDegree.html)
+[1](https://mathworld.wolfram.com/Outdegree.html)
+[2](https://reference.wolfram.com/language/ref/VertexOutDegree.html)

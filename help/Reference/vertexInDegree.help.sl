@@ -76,4 +76,5 @@ See also: adjacencyMatrix, asGraph, vertexCount, vertexDegree, vertexList, Graph
 
 References:
 _Mathematica_
+[1](https://mathworld.wolfram.com/Indegree.html)
 [1](https://reference.wolfram.com/language/ref/VertexInDegree.html)

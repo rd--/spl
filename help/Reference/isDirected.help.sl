@@ -22,3 +22,8 @@ false
 * * *
 
 See also: Graph, isUndirected
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/DirectedGraph.html)
+[2](http://reference.wolfram.com/language/ref/DirectedGraphQ.html)

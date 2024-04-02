@@ -80,4 +80,5 @@ See also: adjacencyMatrix, asGraph, vertexCount, vertexList, Graph
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/VertexDegree.html)
+[1](https://mathworld.wolfram.com/LocalDegree.html)
+[2](https://reference.wolfram.com/language/ref/VertexDegree.html)

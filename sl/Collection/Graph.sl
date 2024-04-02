@@ -13,8 +13,8 @@
 		}
 	}
 
-	degree { :self |
-		[self.vertexCount, self.edgeCount]
+	degreeSequence { :self |
+		self.vertexDegree.sortBy(>)
 	}
 
 	edgeCount { :self |
@@ -67,6 +67,16 @@
 		}
 	}
 
+	isRegular { :self |
+		self.vertexDegree.nub.size = 1
+	}
+
+	isSingleton { :self |
+		self.isEmpty & {
+			self.vertexCount = 1
+		}
+	}
+
 	isUndirected { :self |
 		self.edgeList.allSatisfy(isUndirectedEdge:/1)
 	}
@@ -100,36 +110,6 @@
 
 	vertexCount { :self |
 		self.vertexList.size
-	}
-
-	vertexIndex { :self :vertex |
-		self.vertexList.indexOf(vertex)
-	}
-
-}
-
-Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties |
-
-	addEdge { :self :edge |
-		self.edgeList.add(edge)
-	}
-
-	includeEdge { :self :edge |
-		self.includesEdge(edge).ifFalse {
-			self.addEdge(edge)
-		}
-	}
-
-	isValid {
-		self.hasValidEdges & {
-			self.edgeProperties.isNil | {
-				self.vertexProperties.size = self.vertexList.size
-			} & {
-				self.edgeProperties.isNil | {
-					self.edgeProperties.size = self.edgeList.size
-				}
-			}
-		}
 	}
 
 	vertexDegree { :self |
@@ -172,6 +152,10 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 		answer
 	}
 
+	vertexIndex { :self :vertex |
+		self.vertexList.indexOf(vertex)
+	}
+
 	vertexOutDegree { :self |
 		self.vertexList.collect { :vertex |
 			self.vertexOutDegree(vertex)
@@ -193,6 +177,32 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 		answer
 	}
 
+}
+
+Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties |
+
+	addEdge { :self :edge |
+		self.edgeList.add(edge)
+	}
+
+	includeEdge { :self :edge |
+		self.includesEdge(edge).ifFalse {
+			self.addEdge(edge)
+		}
+	}
+
+	isValid {
+		self.hasValidEdges & {
+			self.edgeProperties.isNil | {
+				self.vertexProperties.size = self.vertexList.size
+			} & {
+				self.edgeProperties.isNil | {
+					self.edgeProperties.size = self.edgeList.size
+				}
+			}
+		}
+	}
+
 	vertexLabel { :self :vertex |
 		self.vertexProperties.ifNil {
 			vertex
@@ -206,15 +216,15 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 +@Integer {
 
 	completeGraph { :self |
-		let edges = [];
+		let edgeList = [];
 		1.toDo(self) { :i |
-			edges.addAll(
+			edgeList.addAll(
 				(i + 1).to(self).collect { :j |
 					[i, j]
 				}
 			)
 		};
-		edges.asGraph
+		Graph([1 .. self], edgeList)
 	}
 
 	cycleGraph { :self |
@@ -247,7 +257,46 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 
 }
 
++Block {
+
+	relationGraph { :self:/2 :isDirected :vertexList |
+		let edgeList = [];
+		let v = vertexList;
+		let k = vertexList.size;
+		let addEdge = { :i :j |
+			isDirected.if {
+				edgeList.add(v[i] -> v[j])
+			} {
+				(i <= j).ifTrue {
+					edgeList.add([v[i], v[j]])
+				}
+			}
+		};
+		1:k.do { :i |
+			1:k.do { :j |
+				self(v[i], v[j]).ifTrue {
+					addEdge(i, j)
+				}
+			}
+		};
+		Graph(vertexList, edgeList)
+	}
+
+}
+
+
 +List {
+
+	adjacencyGraph { :self |
+		self.isSquareMatrix.if {
+			let isDirected = self.isSymmetricMatrix.not;
+			{ :i :j |
+				self[i, j] = 1
+			}.relationGraph(isDirected, [1 .. self.size])
+		} {
+			self.adjacencyGraph('List>>adjacencyGraph: not a square matrix')
+		}
+	}
 
 	asGraph { :self |
 		let edgeList = self.collect(asEdge:/1).asList;

@@ -1247,6 +1247,12 @@
 		}
 	}
 
+	isSymmetricMatrix { :self |
+		self.isSquareMatrix & {
+			self = self.transposed
+		}
+	}
+
 	isVector { :self |
 		let type = self.typeOf;
 		self.noneSatisfy { :each |
