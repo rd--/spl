@@ -1,5 +1,24 @@
 @Graph {
 
+	adjacencyList { :self |
+		self.vertexList.collect { :each |
+			self.adjacencyList(each)
+		}
+	}
+
+	adjacencyList { :self :vertex |
+		let answer = [];
+		self.edgeList.do { :each |
+			(each.first = vertex).ifTrue {
+				answer.add(each.second)
+			};
+			(each.second = vertex).ifTrue {
+				answer.add(each.first)
+			}
+		};
+		answer
+	}
+
 	adjacencyMatrix { :self |
 		let v = self.vertexList;
 		{ :i :j |
@@ -33,6 +52,54 @@
 		self.edgeList.allSatisfy { :edge |
 			v.includes(edge.first) & {
 				v.includes(edge.second)
+			}
+		}
+	}
+
+	incidenceList { :self :vertex |
+		self.edgeList.select { :each |
+			each.first = vertex | {
+				each.second = vertex
+			}
+		}
+	}
+
+	incidenceMatrix { :self |
+		self.vertexList.collect { :v |
+			self.edgeList.collect { :e |
+				e.isUndirectedEdge.if {
+					(e.first = v).if {
+						(e.second = v).if {
+							2
+						} {
+							1
+						}
+					} {
+						(e.second = v).if {
+							1
+						} {
+							0
+						}
+					}
+				} {
+					e.isDirectedEdge.if {
+						(e.first = v).if {
+							(e.second = v).if {
+								-2
+							} {
+								-1
+							}
+						} {
+							(e.second = v).if {
+								1
+							} {
+								0
+							}
+						}
+					} {
+						self.error('@Graph>>incidenceMatrix: invalid edge')
+					}
+				}
 			}
 		}
 	}
