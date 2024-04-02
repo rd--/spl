@@ -68,6 +68,10 @@ Association : [Object] { | key value |
 		Association(self, anObject)
 	}
 
+	<- { :self :anObject |
+		Association(anObject, self)
+	}
+
 	Association { :self :anObject |
 		newAssociation().initializeSlots(self, anObject)
 	}

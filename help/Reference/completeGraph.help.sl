@@ -32,9 +32,11 @@ The `edgeCount` of small complete graphs:
 
 >>> 2:9.collect { :n | (-1 + n) * n / 2 }
 [1 3 6 10 15 21 28 36]
+```
+
 * * *
 
-See also: cycleGraph, Graph, pathGraph, starGraph
+See also: adjacencyMatrix, cycleGraph, edgeCount, Graph, pathGraph, starGraph
 
 References:
 _Mathematica_

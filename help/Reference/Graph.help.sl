@@ -1,18 +1,17 @@
 # Graph
 
-- _Graph(size, edges, vertexLabels, edgeLabels)_
-- _Graph(k, e)_ ⟹ _Graph(k, e, nil, nil)_
+- _Graph(vertexList, edgeList)_
 
 A `Graph` is a collection of `vertices` and `edges`.
 
-The number of vertices is the `size` of the graph.
+The number of vertices is the `vertexCount`, or _order_, of the graph.
 
-The `vertices` are the integers from one up to `size`.
+The _vertices_ are ordinarily the integers from one up to _order_.
 
-The `edges` are two-element sequences of vertices.
+The _edges_ are pairs of vertices, either ordered or unordered.
 
 Vertices may be labeled,
-in which case `vertexLabels` is a `List` of `size` labels, one for each vertex.
+in which case `vertexLabels` is a `List` of `vertexCount` labels, one for each vertex.
 
 Edges may also be labeled,
 in which case `edgeLabels` is a `List` of labels, one for each edge.
@@ -25,3 +24,14 @@ The coherence of a Graph can be queried using `isValid`.
 * * *
 
 Categories: Collection, Type
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Graph.html)
+[2](https://mathworld.wolfram.com/SimpleGraph.html)
+[3](https://mathworld.wolfram.com/UndirectedGraph.html)
+[4](https://mathworld.wolfram.com/DirectedGraph.html)
+[5](https://mathworld.wolfram.com/MixedGraph.html)
+[6](https://mathworld.wolfram.com/Multigraph.html)
+[7](https://mathworld.wolfram.com/LabeledGraph.html)
+[8](https://mathworld.wolfram.com/GraphEdge.html)

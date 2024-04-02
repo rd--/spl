@@ -471,6 +471,7 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+2191 ↑ Upwards Arrow
 - U+2192 → Rightwards Arrow
 - U+2193 ↓ Downwards Arrow
+- U+2194 ↔ Left Right Arrow
 - U+21d2 ⇒ Rightwards Double Arrow
 - U+21e0 ⇠ Leftwards Dashed Arrow
 - U+21e2 ⇢ Rightwards Dashed Arrow
@@ -588,6 +589,7 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+2761 ❡ Curved Stem Paragraph Sign Ornament
 - U+27f5 ⟵ Long Leftwards Arrow
 - U+27f6 ⟶ Long Rightwards Arrow
+- U+27f7 ⟷ Long Left Right Arrow
 - U+27f9 ⟹ Long Rightwards Double Arrow
 - U+2919 ⤙ Leftwards Arrow-Tail
 - U+291b ⤛ Leftwards Double Arrow-Tail
@@ -600,8 +602,10 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+29c4 ⧄ Squared Rising Diagonal Slash
 - U+29c5 ⧅ Squared Falling Diagonal Slash
 - U+29c7 ⧇ Squared Small Circle
+- U+29df ⧟ Double-Ended Multimap
 - U+29f7 ⧷ Reverse Solidus With Horizontal Stroke
 - U+29fa ⧺ Double Plus
+- U+29FF ⧿ Miny
 - U+2a40 ⩀ Intersection With Dot
 - U+2a74 ⩴ Double Colon Equal
 - U+2a75 ⩵ Two Consecutive Equals Signs

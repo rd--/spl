@@ -14,6 +14,6 @@ Answer a `List` of the associations of _aDictionary_.
 
 * * *
 
-See also: ->, associationsDo, Dictionary, indexValueAssociations, keys, values
+See also: ->, associationsDo, Association, Dictionary, indexValueAssociations, keys, values
 
 Categories: Accessing

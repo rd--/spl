@@ -1,37 +1,72 @@
-@Graph {
+DirectedEdge : [Object] { | first second |
 
-	addEdge { :self :beginVertex :endVertex |
-		self.edges.add([beginVertex, endVertex])
+	asEdge { :self |
+		self
 	}
 
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
+}
+
+UndirectedEdge : [Object] { | first second |
+
+	asEdge { :self |
+		self
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
+}
+
++@Object {
+
+	DirectedEdge { :self :anObject |
+		newDirectedEdge().initializeSlots(self, anObject)
+	}
+
+	UndirectedEdge { :self :anObject |
+		newUndirectedEdge().initializeSlots(self, anObject)
+	}
+
+}
+
+@Graph {
+
 	adjacencyMatrix { :self |
-		let v = self.vertices;
-		{ :beginVertex :endVertex |
-			self.includesEdge(beginVertex, endVertex).boole
+		let v = self.vertexList;
+		{ :i :j |
+			self.includesEdge(i, j).boole
 		}.table(v, v)
 	}
 
 	allNeighbours { :self |
-		self.vertices.collect { :each |
+		self.vertexList.collect { :each |
 			each -> self.neighboursOf(each)
 		}
 	}
 
 	degree { :self |
-		[self.vertexCount, self.edgesCount]
+		[self.vertexCount, self.edgeCount]
 	}
 
 	edgeCount { :self |
-		self.edges.size
+		self.edgeList.size
 	}
 
-	edgeLabel { :self :beginVertex :endVertex |
-		[beginVertex, endVertex]
+	edgeIndex { :self :edge |
+		self.edgeList.indexOf(edge)
 	}
 
-	hasValidEdges { :self |
-		let v = self.vertices;
-		self.edges.allSatisfy { :edge |
+	edgeProperties { :self :beginVertex :endVertex |
+	}
+
+	hasValidEdgeList { :self |
+		let v = self.vertexList;
+		self.edgeList.allSatisfy { :edge |
 			edge.size = 2 & {
 				v.includes(edge.first) & {
 					v.includes(edge.second)
@@ -41,7 +76,7 @@
 	}
 
 	includeConverse { :self |
-		self.edges.do { :edge |
+		self.edgeList.do { :edge |
 			self.includeEdge(edge.second, edge.first)
 		}
 	}
@@ -53,7 +88,7 @@
 	}
 
 	includesEdge { :self :beginVertex :endVertex |
-		self.edges.anySatisfy { :each |
+		self.edgeList.anySatisfy { :each |
 			each.first = beginVertex & {
 				each.second = endVertex
 			}
@@ -61,11 +96,11 @@
 	}
 
 	includesVertex { :self :vertex |
-		self.vertices.includes(vertex)
+		self.vertexList.includes(vertex)
 	}
 
 	inEdgesOf { :self :vertex |
-		self.edges.select { :edge |
+		self.edgeList.select { :edge |
 			edge.second = vertex
 		}
 	}
@@ -77,11 +112,11 @@
 	}
 
 	isValid { :self |
-		self.hasValidEdges
+		self.hasValidEdgeList
 	}
 
-	labeledVertices { :self |
-		self.vertices.collect { :each |
+	labeledVertexList { :self |
+		self.vertexList.collect { :each |
 			each -> self.vertexLabel(each)
 		}
 	}
@@ -96,40 +131,36 @@
 		}
 	}
 
-	vertextCount { :self |
-		self.vertices.size
-	}
-
-	vertexLabel { :self :vertex |
-		vertex
+	vertexCount { :self |
+		self.vertexList.size
 	}
 
 }
 
-Graph : [Object, Graph] { | lastVertex edges vertexLabels edgeLabels |
+Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties |
+
+	addEdge { :self :beginVertex :endVertex |
+		self.edgeList.add([beginVertex, endVertex])
+	}
 
 	isValid {
 		self.hasValidEdges & {
-			self.edgeLabels.isNil | {
-				self.vertexLabels.size = self.lastVertex
+			self.edgeProperties.isNil | {
+				self.vertexProperties.size = self.vertexList.size
 			} & {
-				self.edgeLabels.isNil | {
-					self.edgeLabels.size = self.edges.size
+				self.edgeProperties.isNil | {
+					self.edgeProperties.size = self.edgeList.size
 				}
 			}
 		}
 	}
 
 	vertexLabel { :self :vertex |
-		self.vertexLabels.ifNil {
+		self.vertexProperties.ifNil {
 			vertex
 		} {
-			self.vertexLabels[vertex]
+			self.vertexProperties[vertex]['label']
 		}
-	}
-
-	vertices { :self |
-		Range(1, self.lastVertex, 1)
 	}
 
 }
@@ -139,73 +170,88 @@ Graph : [Object, Graph] { | lastVertex edges vertexLabels edgeLabels |
 	completeGraph { :self |
 		let edges = [];
 		1.toDo(self) { :i |
-			(i + 1).toDo(self) { :j |
-				edges.add(i -> j)
-			}
+			edges.addAll(
+				(i + 1).to(self).collect { :j |
+					(i, j)
+				}
+			)
 		};
-		edges.asUndirectedGraph
+		edges.asGraph
 	}
 
 	cycleGraph { :self |
 		1:self.collect { :each |
-			each -> (each % self + 1)
-		}.asUndirectedGraph
-	}
-
-	Graph { :self :edges |
-		Graph(self, edges, nil, nil)
-	}
-
-	Graph { :self :edges :vertexLabels :edgeLabels |
-		newGraph().initializeSlots(
-			self,
-			edges,
-			vertexLabels,
-			edgeLabels
-		)
+			(each, each % self + 1)
+		}.asGraph
 	}
 
 	pathGraph { :self |
 		(1 .. self - 1).collect { :each |
-			each -> (each + 1)
-		}.asUndirectedGraph
+			(each, each + 1)
+		}.asGraph
 	}
 
 	starGraph { :self |
 		2:self.collect { :each |
-			1 -> each
-		}.asUndirectedGraph
+			(1, each)
+		}.asGraph
 	}
 
 	wheelGraph { :self |
 		let cycle = 2:self.collect { :each |
-			each -> (each = self).if { 2 } { each + 1 }
+			(each, (each = self).if { 2 } { each + 1 })
 		};
 		let star = 2:self.collect { :each |
-			1 -> each
+			(1, each)
 		};
-		(cycle ++ star).asUndirectedGraph
+		(cycle ++ star).asGraph
 	}
 
 }
 
 +List {
 
-	asDirectedGraph { :self |
-		let e = self.collect(asList:/1);
-		let [i, j] = e.shape;
-		(j = 2).if {
-			let k = e.collect(max:/1).max;
-			Graph(k, e)
-		} {
-			self.error('List>>asDirectedGraph: invalid edge list')
-		}
+	asGraph { :self |
+		let edges = self.collect(asEdge:/1);
+		let vertices = [];
+		edges.do { :each |
+			vertices.add(each.first);
+			vertices.add(each.second)
+		};
+		Graph(vertices.nub.sort, edges)
 	}
 
-	asUndirectedGraph { :self |
-		let g = self.asDirectedGraph;
-		g.includeConverse;
-		g
+	Graph { :vertices :edges |
+		Graph(vertices, edges, nil, nil)
+	}
+
+	Graph { :vertices :edges :vertexProperties :edgeProperties |
+		newGraph().initializeSlots(
+			vertices,
+			edges,
+			vertexProperties,
+			edgeProperties
+		)
+	}
+
+}
+
++Association {
+
+	asEdge { :self |
+		DirectedEdge(self.key, self.value)
+	}
+
+}
+
++List {
+
+	asEdge { :self |
+		(self.size = 2).if {
+			UndirectedEdge(self.min, self.max)
+		} {
+			self.error('List>>asEdge: not two-list')
+		}
 	}
 
 }

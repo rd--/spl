@@ -11,7 +11,6 @@
 	'CategoryDictionary'
 	'Float32Array'
 	'Float64Array'
-	'Graph'
 	'Heap'
 	'LinkedList'
 	'PriorityQueue'
@@ -24,6 +23,7 @@
 	'Tree'
 	'Tuple' {- List -}
 	'WeakMap'
+	'Graph' {- Tuple -}
 
 	{- Geometry -}
 	'Angle'
