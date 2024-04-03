@@ -336,7 +336,6 @@
 		(self.vertexCount = aGraph.vertexCount).if {
 			let m = self.adjacencyMatrix;
 			let n = aGraph.adjacencyMatrix;
-			(m + n).postLine;
 			(m + n).adjacencyGraph
 		} {
 			self.error('@Graph>>sumGraph: non-equal vertex counts')
@@ -502,13 +501,17 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 	}
 
 	wheelGraph { :self |
-		let cycle = 2:self.collect { :each |
-			[each, (each = self).if { 2 } { each + 1 }]
-		};
-		let star = 2:self.collect { :each |
-			[1, each]
-		};
-		(cycle ++ star).asGraph
+		(self < 4).if {
+			self.error('Integer>>wheelGraph: n < 4')
+		} {
+			let cycle = 2.to(self).collect { :each |
+				[each, (each = self).if { 2 } { each + 1 }]
+			};
+			let star = 2.to(self).collect { :each |
+				[1, each]
+			};
+			(cycle ++ star).asGraph
+		}
 	}
 
 }

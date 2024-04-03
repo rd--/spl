@@ -5,12 +5,9 @@
 Answer the wheel graph with _anInteger_ vertices.
 A wheel graph of order _n_ is a graph formed by connecting a single vertex to all the vertices of a cycle of order _n - 1_.
 
-The `adjacencyMatrix` of three small wheel graphs:
+The `adjacencyMatrix` of two small wheel graphs:
 
 ```
->>> 3.wheelGraph.adjacencyMatrix
-[0 1 1; 1 0 1; 1 1 0]
-
 >>> 4.wheelGraph.adjacencyMatrix
 [0 1 1 1; 1 0 1 1; 1 1 0 1; 1 1 1 0]
 
