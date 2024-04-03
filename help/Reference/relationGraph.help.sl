@@ -2,6 +2,11 @@
 
 - _relationGraph(aBlock:/2, aBoolean, vertexList)_
 
+Answer a graph on _vertexList_,
+with edges from _u_ to _v_ whenever _aBlock(u, v)_ is `true`.
+
+Construct a graph with a lower triangle adjacency matrix:
+
 ```
 >>> relationGraph(>, true, [1 2 3 4]).adjacencyMatrix
 [
@@ -11,6 +16,8 @@
 	1 1 1 0
 ]
 ```
+
+An arbitrary boolean expression:
 
 ```
 >>> { :i :j |

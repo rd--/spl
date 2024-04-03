@@ -42,6 +42,16 @@ Use `vertexCount` and `edgeCount` to count vertices and edges:
 (20, 19)
 ```
 
+The `vertexDegree` of a `pathGraph`:
+
+```
+>>> 5.pathGraph.vertexDegree
+[1 2 2 2 1]
+
+>>> 9.pathGraph.vertexDegree
+[1 2 2 2 2 2 2 2 1]
+```
+
 * * *
 
 See also: cycleGraph, Graph

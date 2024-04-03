@@ -32,6 +32,11 @@
 		}
 	}
 
+	complement { :self |
+		let m = self.adjacencyMatrix;
+		(1 - m.size.identityMatrix - m).adjacencyGraph
+	}
+
 	degreeSequence { :self |
 		self.vertexDegree.sortBy(>)
 	}
@@ -134,6 +139,12 @@
 		}
 	}
 
+	isMixed { :self |
+		self.edgeList.anySatisfy(isDirectedEdge:/1) & {
+			self.edgeList.anySatisfy(isUndirectedEdge:/1)
+		}
+	}
+
 	isRegular { :self |
 		self.vertexDegree.nub.size = 1
 	}
@@ -156,6 +167,40 @@
 		self.vertexList.collect { :each |
 			each -> self.vertexLabel(each)
 		}
+	}
+
+	lineGraph { :self |
+		let k = self.edgeCount;
+		let v = [1 .. k];
+		let e = [];
+		self.isUndirected.ifTrue {
+			1.toDo(k) { :i |
+				(i + 1).toDo(k) { :j |
+					self.edgeList[i].hasCommonVertex(
+						self.edgeList[j]
+					).ifTrue {
+						e.add([i, j])
+					}
+				}
+			}
+		};
+		self.isDirected.ifTrue {
+			1.toDo(k) { :i |
+				(i + 1).toDo(k) { :j |
+					(
+						i ~= j & {
+							self.edgeList[i].second = self.edgeList[j].first
+						}
+					).ifTrue {
+						e.add(i -> j)
+					}
+				}
+			}
+		};
+		self.isMixed.ifTrue {
+			self.error('@Graph>>lineGraph: mixed graph')
+		};
+		Graph(v, e)
 	}
 
 	neighboursOf { :self :vertex |
@@ -324,6 +369,25 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 
 }
 
++List {
+
+	gridGraph { :shape |
+		let k = shape.product;
+		let v = [1 .. k];
+		let c = 1:k.collect { :i | shape.cartesianIndex(i) };
+		let e = [];
+		1.toDo(k) { :i |
+			(i + 1).toDo(k) { :j |
+				((c[j] - c[i]).abs.sum = 1).ifTrue {
+					e.add([i, j])
+				}
+			}
+		};
+		Graph(v, e)
+	}
+
+}
+
 +Block {
 
 	relationGraph { :self:/2 :isDirected :vertexList |
@@ -404,6 +468,10 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 		[self.key, self.value]
 	}
 
+	head { :self |
+		self.second
+	}
+
 	isDirectedEdge { :self |
 		true
 	}
@@ -426,6 +494,10 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 		}
 	}
 
+	tail { :self |
+		self.first
+	}
+
 }
 
 +List {
@@ -444,6 +516,12 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 
 	asUndirectedEdge { :self |
 		self.asEdge
+	}
+
+	hasCommonVertex { :self :anEdge |
+		self.includes(anEdge.first) | {
+			self.includes(anEdge.second)
+		}
 	}
 
 	isDirectedEdge { :self |

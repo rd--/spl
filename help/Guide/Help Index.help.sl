@@ -214,12 +214,15 @@
 ## Graph Functions
 
 - `Graph`
-- `asGraph`, `isEdge`, `isGraph`
+- `asGraph`, `lineGraph`, `undirectedGraph`
+- `isDirectedEdge`, `isEdge`, `isUndirectedEdge`
+- `isDirected`, `isMixed`, `isUndirected`
+- `isEmpty`, `isLoopFree`, `isRegular`, `isSingleton`
 - `edgeCount`, `vertexCount`
 - `edgeList`, `vertexList`
-- `vertexDegree`, `vertexInDegree`, `vertexOutDegree`
-- `adjacencyMatrix`
-- `completeGraph`, `cycleGraph`, `pathGraph`, `starGraph`, `wheelGraph`
+- `degreeSequence`, `vertexDegree`, `vertexInDegree`, `vertexOutDegree`
+- `adjacencyList`, `adjacencyMatrix`, `incidenceMatrix`
+- `completeGraph`, `cycleGraph`, `gridGraph`, `pathGraph`, `starGraph`, `wheelGraph`
 - `edgeLabels`, `vertexLabels`
 
 ## Help Files
@@ -276,7 +279,8 @@
 
 ## Matrix Operations
 
-- `isMatrix`, `isSquareMatrix`, `shape`
+- `isMatrix`, `shape`
+- `isSquareMatrix`, `isSymmetricMatrix`
 - `dot`, `inner`, `matrixPower`, `outer`
 - `determinant`, `diagonal`, `trace`, `transposed`
 - `kroneckerProduct`
@@ -431,7 +435,8 @@
 
 - `indexOfSubcollection`, `indexOfSubcollectionStartingAt`, `indexOfSubcollectionStartingAtIfAbsent`
 - `indicesOfSubCollection`
-- `longestCommonSubsequence`, `longestCommonSubsequences`
+- `longestCommonSequence`
+- `longestCommonSubsequence`, `longestCommonSubsequenceList`
 
 ## Set operations
 
