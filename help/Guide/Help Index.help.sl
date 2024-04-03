@@ -214,15 +214,18 @@
 ## Graph Functions
 
 - `Graph`
-- `asGraph`, `complementGraph`, `lineGraph`, `undirectedGraph`
+- `asGraph`
+- `complementGraph`, `lineGraph`, `undirectedGraph`
 - `isDirectedEdge`, `isEdge`, `isUndirectedEdge`
 - `isDirected`, `isMixed`, `isUndirected`
 - `isEmpty`, `isLoopFree`, `isRegular`, `isSingleton`
 - `edgeCount`, `vertexCount`
 - `edgeList`, `vertexList`
 - `degreeSequence`, `vertexDegree`, `vertexInDegree`, `vertexOutDegree`
-- `adjacencyList`, `adjacencyMatrix`, `incidenceMatrix`
-- `completeGraph`, `cycleGraph`, `gridGraph`, `pathGraph`, `starGraph`, `wheelGraph`
+- `adjacencyList`, `adjacencyMatrix`, `connectionMatrix`, `incidenceMatrix`
+- `completeGraph`, `completeBipartiteGraph`
+- `cycleGraph`, `gridGraph`, `pathGraph`, `starGraph`, `wheelGraph`
+- `sumGraph`
 - `edgeLabels`, `vertexLabels`
 
 ## Help Files

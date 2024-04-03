@@ -32,3 +32,7 @@ The complete bipartite graph _(2, 3)_:
 * * *
 
 See also: completeGraph
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/CompleteBipartiteGraph.html)

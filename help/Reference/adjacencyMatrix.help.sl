@@ -21,6 +21,23 @@ The adjacency matrix of an undirected graph:
 ]
 ```
 
+The adjacency matrix of the `completeBipartiteGraph` _K(1,3)_,
+which is isomorphic to the `starGraph` _S(4)_:
+
+```
+>>> let m = 1.completeBipartiteGraph(3).adjacencyMatrix;
+>>> (m = 4.starGraph.adjacencyMatrix, m)
+(
+	true,
+	[
+		0 1 1 1;
+		1 0 0 0;
+		1 0 0 0;
+		1 0 0 0
+	]
+)
+```
+
 The adjacency matrix of a directed graph:
 
 ```
@@ -100,4 +117,7 @@ See also: Graph
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/AdjacencyMatrix.html)
+[1](https://mathworld.wolfram.com/AdjacencyMatrix.html)
+[2](https://reference.wolfram.com/language/ref/AdjacencyMatrix.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Adjacency_matrix)

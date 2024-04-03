@@ -59,7 +59,11 @@ The incidence matrix of a graph with self-loops has some entries equal to 2:
 [-1 0 1 -2; 1 -1 0 0; 0 1 -1 0]
 ```
 
+* * *
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/IncidenceMatrix.html)
-[2](https://reference.wolfram.com/language/ref/IncidenceMatrix.html)
+[2](https://reference.wolfram.com/language/ref/IncidenceMatrix.html),
+_W_
+[1](completeBipartiteGraph.help.sl)

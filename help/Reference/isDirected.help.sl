@@ -9,19 +9,27 @@ A graph is directed if all of its edges are directed.
 ```
 >>> [1 -> 2, 2 -> 3, 3 -> 1].asGraph.isDirected
 true
+```
 
+`isDirectedEdge` of each item in `edgeList`:
+
+```
 >>> let g = [1 -> 2, 2 -> 3, 3 -> 1].asGraph;
 >>> let e = g.edgeList;
 >>> (g.isDirected, e.collect(isDirectedEdge:/1))
 (true, [true true true])
+```
 
+An undirected graph is not directed:
+
+```
 >>> [1 2; 2 3; 3 1].asGraph.isDirected
 false
 ```
 
 * * *
 
-See also: Graph, isUndirected
+See also: Graph, isMixed, isUndirected
 
 References:
 _Mathematica_

@@ -18,8 +18,6 @@ It is possible for two topologically distinct graphs to have the same degree seq
 [2 2 2 1 1]
 ```
 
-```
-
 * * *
 
 See also: vertexDegree

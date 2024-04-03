@@ -11,7 +11,11 @@ A graph is undirected if all of its edges are undirected.
 >>> let e = g.edgeList;
 >>> (g.isUndirected, e.collect(isUndirectedEdge:/1))
 (true, [true true true])
+```
 
+A directed graph is not undirected:
+
+```
 >>> [1 -> 2, 2 -> 3, 3 -> 1].asGraph.isUndirected
 false
 ```
@@ -28,7 +32,7 @@ Mixed graphs are neither directed not undirected:
 
 * * *
 
-See also: Graph, isDirected
+See also: Graph, isDirected, isMixed
 
 References:
 _Mathematica_
