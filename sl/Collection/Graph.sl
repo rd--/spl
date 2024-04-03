@@ -1,4 +1,110 @@
+{- UndirectedEdge -}
++List {
+
+	asEdge { :self |
+		(self.size ~= 2).if {
+			self.error('List>>asEdge: not two-list')
+		} {
+			self
+		}
+	}
+
+	asDirectedEdge { :self |
+		self.asEdge.asAssociation
+	}
+
+	asUndirectedEdge { :self |
+		self.asEdge
+	}
+
+	hasCommonVertex { :self :anEdge |
+		self.includes(anEdge.first) | {
+			self.includes(anEdge.second)
+		}
+	}
+
+	isDirectedEdge { :self |
+		false
+	}
+
+	isEdge { :self |
+		self.size = 2
+	}
+
+	isUndirectedEdge { :self |
+		self.size = 2
+	}
+
+	matchesEdge { :self :edge |
+		(self.size ~= 2).if {
+			self.error('List>>matchesEdge: not two-list')
+		} {
+			edge.isList.if {
+				self.sorted = edge.sorted
+			} {
+				edge.isAssociation.if {
+					self.sorted = edge.asList.sort
+				} {
+					false
+				}
+			}
+		}
+	}
+
+}
+
+{- DirectedEdge -}
++Association {
+
+	asEdge { :self |
+		self
+	}
+
+	asDirectedEdge { :self |
+		self.key
+	}
+
+	asUndirectedEdge { :self |
+		[self.key, self.value]
+	}
+
+	head { :self |
+		self.second
+	}
+
+	isDirectedEdge { :self |
+		true
+	}
+
+	isEdge { :self |
+		true
+	}
+
+	isUndirectedEdge { :self |
+		false
+	}
+
+	matchesEdge { :self :edge |
+		self = edge | {
+			edge.isList.if {
+				edge.matchesEdge(self)
+			} {
+				false
+			}
+		}
+	}
+
+	tail { :self |
+		self.first
+	}
+
+}
+
 @Graph {
+
+	+ { :self :aGraph |
+		self.sumGraph(aGraph)
+	}
 
 	adjacencyList { :self |
 		self.vertexList.collect { :each |
@@ -22,7 +128,9 @@
 	adjacencyMatrix { :self |
 		let v = self.vertexList;
 		{ :i :j |
-			self.includesEdge(i -> j).boole
+			self.edgeList.count { :each |
+				each.matchesEdge(i -> j)
+			}
 		}.table(v, v)
 	}
 
@@ -40,6 +148,13 @@
 		let m = self.adjacencyMatrix;
 		(1 - m.size.identityMatrix - m).adjacencyGraph
 	}
+
+        connectionMatrix { :self |
+                let v = self.vertexList;
+                { :i :j |
+			self.includesEdge(i -> j).boole
+                }.table(v, v)
+        }
 
 	degreeSequence { :self |
 		self.vertexDegree.sortBy(>)
@@ -217,6 +332,17 @@
 		}
 	}
 
+	sumGraph { :self :aGraph |
+		(self.vertexCount = aGraph.vertexCount).if {
+			let m = self.adjacencyMatrix;
+			let n = aGraph.adjacencyMatrix;
+			(m + n).postLine;
+			(m + n).adjacencyGraph
+		} {
+			self.error('@Graph>>sumGraph: non-equal vertex counts')
+		}
+	}
+
 	undirectedGraph { :self |
 		Graph(
 			self.vertexList,
@@ -331,6 +457,20 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 
 +@Integer {
 
+	completeBipartiteGraph { :self :anInteger |
+		let u = 1:self;
+		let v = (self + 1 .. self + anInteger);
+		let e = [];
+		u.do { :i |
+			e.addAll(
+				v.collect { :j |
+					[i, j]
+				}
+			)
+		};
+		Graph(u ++ v, e)
+	}
+
 	completeGraph { :self |
 		let edgeList = [];
 		1.toDo(self) { :i |
@@ -394,6 +534,30 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 
 +Block {
 
+	edgeCountGraph { :self:/2 :isDirected :vertexList |
+		let edgeList = [];
+		let v = vertexList;
+		let k = vertexList.size;
+		let addEdge = { :i :j |
+			isDirected.if {
+				edgeList.add(v[i] -> v[j])
+			} {
+				(i <= j).ifTrue {
+					edgeList.add([v[i], v[j]])
+				}
+			}
+		};
+		1:k.do { :i |
+			1:k.do { :j |
+				let n = self(v[i], v[j]);
+				n.timesRepeat {
+					addEdge(i, j)
+				}
+			}
+		};
+		Graph(vertexList, edgeList)
+	}
+
 	relationGraph { :self:/2 :isDirected :vertexList |
 		let edgeList = [];
 		let v = vertexList;
@@ -426,8 +590,8 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 		self.isSquareMatrix.if {
 			let isDirected = self.isSymmetricMatrix.not;
 			{ :i :j |
-				self[i, j] = 1
-			}.relationGraph(isDirected, [1 .. self.size])
+				self[i, j]
+			}.edgeCountGraph(isDirected, [1 .. self.size])
 		} {
 			self.adjacencyGraph('List>>adjacencyGraph: not a square matrix')
 		}
@@ -454,106 +618,6 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 			vertexProperties,
 			edgeProperties
 		)
-	}
-
-}
-
-+Association {
-
-	asEdge { :self |
-		self
-	}
-
-	asDirectedEdge { :self |
-		self.key
-	}
-
-	asUndirectedEdge { :self |
-		[self.key, self.value]
-	}
-
-	head { :self |
-		self.second
-	}
-
-	isDirectedEdge { :self |
-		true
-	}
-
-	isEdge { :self |
-		true
-	}
-
-	isUndirectedEdge { :self |
-		false
-	}
-
-	matchesEdge { :self :edge |
-		self = edge | {
-			edge.isList.if {
-				edge.matchesEdge(self)
-			} {
-				false
-			}
-		}
-	}
-
-	tail { :self |
-		self.first
-	}
-
-}
-
-+List {
-
-	asEdge { :self |
-		(self.size ~= 2).if {
-			self.error('List>>asEdge: not two-list')
-		} {
-			self
-		}
-	}
-
-	asDirectedEdge { :self |
-		self.asEdge.asAssociation
-	}
-
-	asUndirectedEdge { :self |
-		self.asEdge
-	}
-
-	hasCommonVertex { :self :anEdge |
-		self.includes(anEdge.first) | {
-			self.includes(anEdge.second)
-		}
-	}
-
-	isDirectedEdge { :self |
-		false
-	}
-
-	isEdge { :self |
-		self.size = 2
-	}
-
-	isUndirectedEdge { :self |
-		self.size = 2
-	}
-
-	matchesEdge { :self :edge |
-		(self.size ~= 2).if {
-			self.error('List>>matchesEdge: not two-list')
-		} {
-			edge.isList.if {
-				self.sorted = edge.sorted
-			} {
-				edge.isAssociation.if {
-					self.sorted = edge.asList.sort
-				} {
-					false
-				}
-			}
-		}
 	}
 
 }

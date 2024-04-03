@@ -40,7 +40,7 @@ For simple graphs, the complementGraph of the complementGraph is the original gr
 [1 2; 1 6; 2 3; 3 4; 4 5; 5 6]
 ```
 
-The complementGraph of the line graph of _K(5) is a Petersen graph:
+The complementGraph of the line graph of _K(5)_ is a Petersen graph:
 
 ```
 >>> 5.completeGraph.lineGraph.complementGraph.adjacencyMatrix

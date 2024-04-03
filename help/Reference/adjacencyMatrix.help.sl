@@ -87,6 +87,13 @@ The adjacency matrix of a graph with self-loops has diagonal entries:
 ]
 ```
 
+The adjacency matrix of a multi-graph has non-boole entries:
+
+```
+>>> [1 2; 1 2; 2 3].asGraph.adjacencyMatrix
+[0 2 0; 2 0 1; 0 1 0]
+```
+
 * * *
 
 See also: Graph
