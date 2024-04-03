@@ -34,8 +34,10 @@ The first few grid graphs:
 `gridGraph` of _(n, m)_ has _2 * n * m - n - m_ edges:
 
 ```
->>> let f = { :shape | let [n, m] = shape; [n * m, 2 * n * m - n - m] };
->>> [2 4; 2 5; 3 4; 3 5].collect(f:/1)
+>>> [2 4; 2 5; 3 4; 3 5].collect { :shape |
+>>> 	let [n, m] = shape;
+>>> 	[n * m, 2 * n * m - n - m]
+>>> }
 [8 10; 10 13; 12 17; 15 22]
 ```
 

@@ -214,7 +214,7 @@
 ## Graph Functions
 
 - `Graph`
-- `asGraph`, `lineGraph`, `undirectedGraph`
+- `asGraph`, `complementGraph`, `lineGraph`, `undirectedGraph`
 - `isDirectedEdge`, `isEdge`, `isUndirectedEdge`
 - `isDirected`, `isMixed`, `isUndirected`
 - `isEmpty`, `isLoopFree`, `isRegular`, `isSingleton`

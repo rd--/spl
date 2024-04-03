@@ -33,6 +33,10 @@
 	}
 
 	complement { :self |
+		self.complementGraph
+	}
+
+	complementGraph { :self |
 		let m = self.adjacencyMatrix;
 		(1 - m.size.identityMatrix - m).adjacencyGraph
 	}
