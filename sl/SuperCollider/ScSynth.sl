@@ -146,7 +146,7 @@ ScSynth! : [Object] {
 		} {
 			1
 		};
-		scSynDefFileName.writeFile(graphDef).then { :unused |
+		scSynDefFileName.writeBinaryFile(graphDef).then { :unused |
 			system.systemCommand(
 				'hsc3-plot',
 				[
@@ -165,7 +165,7 @@ ScSynth! : [Object] {
 
 	writeScSynDefFile { :self :scSynDefName :scSynDefFileName |
 		let graphDef = scSynDefName.encodeUgenAt(self.busOffset, self);
-		scSynDefFileName.writeFile(graphDef)
+		scSynDefFileName.writeBinaryFile(graphDef)
 	}
 
 }

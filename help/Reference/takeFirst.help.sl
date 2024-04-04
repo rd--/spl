@@ -1,6 +1,6 @@
 # takeFirst
 
-- _takeLast(aSequence, anInteger, anObject)_
+- _takeFirst(aSequence, anInteger, anObject)_
 
 Answer a copy of _aSequence_ with only the first _anInteger_ places.
 Fill any empty slots with _anObject_.
@@ -12,4 +12,4 @@ Fill any empty slots with _anObject_.
 
 * * *
 
-See also: take, takeFirst
+See also: take, takeLast

@@ -1,6 +1,6 @@
 # replaceFromToWith
 
-- replaceFromToWith(aSequence, start, stop, replacementElements)_
+- _replaceFromToWith(aSequence, start, stop, replacementElements)_
 
 Replace the elements of _aSequence_ between positions start and stop inclusive with the elements of _replacementElements_ in their original order.
 Answer _aSequence_.

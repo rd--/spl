@@ -1,21 +1,35 @@
 # drop
 
-_drop(aSequence, anInteger)_
+- _drop(aSequence, anInteger)_
 
 Answer a copy of _aSequence_ without the first _anInteger_ places.
+
+At `List`:
 
 ```
 >>> [5 4 3 2 1].drop(3)
 [2 1]
+```
 
->>> '>>> x'.drop(4)
-'x'
+Dropping zero items is the `identity`:
 
->>> 1:5.drop(3)
-4:5
-
+```
 >>> [1 2].drop(0)
 [1 2]
+```
+
+At `Range`:
+
+```
+>>> 1:5.drop(3)
+4:5
+```
+
+At `String`:
+
+```
+>>> '>>> x'.drop(4)
+'x'
 ```
 
 If _anInteger_ is negative, answer a copy of _aSequence_ without the last _anInteger_ places.

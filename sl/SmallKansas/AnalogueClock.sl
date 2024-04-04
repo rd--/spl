@@ -79,8 +79,8 @@ AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand se
 		self.minuteHand.p2 := PolarCoordinate(80, theta.negated)
 	}
 
-	moveSecondHand { :self :minute |
-		let theta = minute - 15 / 60 * 2 * pi;
+	moveSecondHand { :self :second |
+		let theta = second - 15 / 60 * 2 * pi;
 		self.secondHand.p2 := PolarCoordinate(85, theta.negated)
 	}
 

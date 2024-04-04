@@ -26,7 +26,7 @@ export function getOs(): string {
 	return Deno.build.os;
 }
 
-export async function readFile(path: string | URL): Promise<Uint8Array> {
+export async function readBinaryFile(path: string | URL): Promise<Uint8Array> {
 	return Deno.readFile(path);
 }
 
@@ -56,7 +56,7 @@ export async function systemCommand(
 	});
 }
 
-export async function writeFile(
+export async function writeBinaryFile(
 	path: string | URL,
 	data: Uint8Array,
 ): Promise<void> {

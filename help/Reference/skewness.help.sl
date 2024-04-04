@@ -40,3 +40,5 @@ See also: centralMoment, kurtosis
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Skewness.html)
+
+Categories: Statistics

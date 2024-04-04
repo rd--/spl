@@ -1,6 +1,10 @@
 {- UndirectedEdge -}
 +List {
 
+	asDot { :self |
+		[self[1], ' -- ', self[2], ';'].join
+	}
+
 	asEdge { :self |
 		(self.size ~= 2).if {
 			self.error('List>>asEdge: not two-list')
@@ -55,6 +59,10 @@
 
 {- DirectedEdge -}
 +Association {
+
+	asDot { :self |
+		[self.key.asString, ' -> ', self.value.asString, ';'].join
+	}
 
 	asEdge { :self |
 		self
@@ -140,6 +148,32 @@
 		}
 	}
 
+	asDot { :self |
+		let begin = self.isDirected.if {
+			[
+				'digraph {',
+				'graph [layout=neato];'
+			].unlines
+		} {
+			[
+				'graph {',
+				'graph [layout=neato];'
+			].unlines
+		};
+		let attributeText = [
+			'node [shape=point];',
+			'edge [penwidth=0.75, arrowsize=0.25];'
+		].unlines;
+		let edgeText = self.edgeList.collect(asDot:/1).unlines;
+		let end = '}';
+		[
+			begin,
+			attributeText,
+			edgeText,
+			end
+		].unlines
+	}
+
 	complement { :self |
 		self.complementGraph
 	}
@@ -166,9 +200,6 @@
 
 	edgeIndex { :self :edge |
 		self.edgeList.indexOf(edge)
-	}
-
-	edgeProperties { :self :beginVertex :endVertex |
 	}
 
 	hasValidEdgeList { :self |
@@ -420,7 +451,7 @@
 
 }
 
-Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties |
+Graph : [Object, Graph] { | vertexList edgeList properties |
 
 	addEdge { :self :edge |
 		self.edgeList.add(edge)
@@ -433,23 +464,16 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 	}
 
 	isValid {
-		self.hasValidEdges & {
-			self.edgeProperties.isNil | {
-				self.vertexProperties.size = self.vertexList.size
-			} & {
-				self.edgeProperties.isNil | {
-					self.edgeProperties.size = self.edgeList.size
-				}
-			}
-		}
+		self.hasValidEdges
 	}
 
-	vertexLabel { :self :vertex |
-		self.vertexProperties.ifNil {
-			vertex
-		} {
-			self.vertexProperties[vertex]['label']
-		}
+	vertexLabels { :self |
+		self.properties::vertexLabels
+	}
+
+	vertexLabels { :self :labels |
+		self.properties::vertexLabels := labels;
+		self
 	}
 
 }
@@ -611,15 +635,10 @@ Graph : [Object, Graph] { | vertexList edgeList vertexProperties edgeProperties 
 	}
 
 	Graph { :vertices :edges |
-		Graph(vertices, edges, nil, nil)
-	}
-
-	Graph { :vertices :edges :vertexProperties :edgeProperties |
 		newGraph().initializeSlots(
 			vertices,
 			edges,
-			vertexProperties,
-			edgeProperties
+			()
 		)
 	}
 

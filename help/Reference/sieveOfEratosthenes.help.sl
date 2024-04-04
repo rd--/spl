@@ -1,6 +1,6 @@
 # sieveOfEratosthenes
 
-_sieveOfEratosthenes(anInteger)_
+- _sieveOfEratosthenes(anInteger)_
 
 Answer the number of primes less than or equal to _anInteger_.
 

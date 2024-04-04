@@ -1,12 +1,12 @@
 # divisorSigma
 
-_divisorSigma(k, n)_
+- _divisorSigma(k, n)_
 
-Answer the divisor function σk(n).
+Answer the divisor function _σk(n)_.
 
-_divisorSigma_ is also known as the divisor function or sum-of-divisors function.
+`divisorSigma` is also known as the divisor function or sum-of-divisors function.
 
-_ivisorSigma(k, n) is the sum of the _k_th powers of the divisors of _n_.
+_divisorSigma(k, n)_ is the sum of the _k_-th powers of the divisors of _n_.
 
 Find the divisors of twenty:
 
@@ -89,7 +89,9 @@ Plot divisorSigma:
 
 ~~~
 0.divisorSigma(1:50).plot
+
 1.divisorSigma(1:50).plot
+
 2.divisorSigma(1:50).plot
 ~~~
 

@@ -7,7 +7,7 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 	}
 
 	graph { :self |
-		Graph(self.atoms.size, self.bonds, self.atoms, nil)
+		Graph([1 .. self.atoms.size], self.bonds).vertexLabels(self.atoms)
 	}
 
 	summary { :self |

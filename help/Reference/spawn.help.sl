@@ -1,4 +1,4 @@
-# spawn -- texture generator
+# spawn
 
 - _spawn(aBlock, nextTime)_
 
@@ -27,3 +27,5 @@ Texture of overlapping sine tones:
 * * *
 
 See also: overlap
+
+Categories: Texture generator

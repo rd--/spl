@@ -136,7 +136,7 @@
 	'Apl'
 
 ].primitiveLoadPackageSequence.then { :unused |
-	'config/preferences.json'.primitiveReadLocalFile.then { :byteList |
-		system.cache::preferences := byteList.utf8String.parseJson
+	'config/preferences.json'.primitiveReadLocalBinaryFile.then { :byteArray |
+		system.cache::preferences := byteArray.utf8String.parseJson
 	}
 }

@@ -1,6 +1,6 @@
 # replaceStringAll
 
-_replaceStringAll(aString, anotherString)_
+- _replaceStringAll(aString, anotherString)_
 
 Replace all occurences of one string with another:
 

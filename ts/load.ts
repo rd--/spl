@@ -22,7 +22,7 @@ export function packageFileName(pkg: kernel.Package): string {
 	return pkg.preCompiled ? ('.cache/' + pkg.name + '.js') : ('sl/' + pkg.url);
 }
 
-export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {
+export function primitiveReadLocalBinaryFile(fileName: string): Promise<Uint8Array> {
 	const resolvedFileName = resolveFileName(fileName);
 	return fetch(resolvedFileName).then(function (response) {
 		return response.arrayBuffer().then(function (arrayBuffer) {
@@ -86,9 +86,9 @@ export function addLoadUrlMethods(): void {
 	kernel.addMethod(
 		'String',
 		'Kernel',
-		'primitiveReadLocalFile',
+		'primitiveReadLocalBinaryFile',
 		['self'],
-		primitiveReadLocalFile,
+		primitiveReadLocalBinaryFile,
 		'<primitive: file reader>',
 	);
 }

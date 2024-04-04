@@ -5,16 +5,30 @@
 Answers the `List` of integers that are divisors of _anInteger_.
 For all positive integers, `divisors` includes `one` and _anInteger_ as the first and last entries.
 
+Divisors of 30:
+
 ```
 >>> 30.divisors
 [1 2 3 5 6 10 15 30]
+```
 
+Divisors of 60:
+
+```
 >>> 60.divisors
 [1 2 3 4 5 6 10 12 15 20 30 60]
+```
 
+Divisors of 1729:
+
+```
 >>> 1729.divisors
 [1 7 13 19 91 133 247 1729]
+```
 
+1729 divided by its divisors:
+
+```
 >>> 1729 / [1 7 13 19 91 133 247 1729]
 [1729 247 133 91 19 13 7 1]
 ```

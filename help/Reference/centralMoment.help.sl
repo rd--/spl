@@ -22,3 +22,5 @@ See also: kurtosis, moment, skewness, variance
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CentralMoment.html)
+
+Categories: Statistics

@@ -12,4 +12,4 @@ Fill any empty slots with _anObject_.
 
 * * *
 
-See also: take, takeLast
+See also: take, takeFirst

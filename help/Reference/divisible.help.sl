@@ -1,6 +1,6 @@
 # divisible
 
-_divisible(n, m)_
+- _divisible(n, m)_
 
 Answers _true_ if _n_ is divisible by _m_, else _false_.
 

@@ -1,6 +1,6 @@
 # scalingMatrix
 
-_scalingMatrix(aList)_
+- _scalingMatrix(aList)_
 
 Answer the matrix corresponding to scaling along each coordinate axis.
 

@@ -4,16 +4,16 @@
 		<primitive: return host.readDirectoryFileNames(_self);>
 	}
 
-	readFile { :self |
-		<primitive: return host.readFile(_self);>
+	readBinaryFile { :self |
+		<primitive: return host.readBinaryFile(_self);>
 	}
 
 	readTextFile { :self |
 		<primitive: return host.readTextFile(_self);>
 	}
 
-	writeFile { :self :aByteArray |
-		<primitive: return host.writeFile(_self, _aByteArray);>
+	writeBinaryFile { :self :aByteArray |
+		<primitive: return host.writeBinaryFile(_self, _aByteArray);>
 	}
 
 	writeTextFile { :self :aString |

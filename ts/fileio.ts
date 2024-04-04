@@ -19,10 +19,10 @@ export function rewriteFile(fileName: string): Promise<string> {
 	return host.readTextFile(fileName).then(rewrite.rewriteString);
 }
 
-export function primitiveReadLocalFile(fileName: string): Promise<Uint8Array> {
+export function primitiveReadLocalBinaryFile(fileName: string): Promise<Uint8Array> {
 	const resolvedFileName = load.resolveFileName(fileName);
-	// console.debug('primitiveReadLocalFile', fileName, resolvedFileName);
-	return host.readFile(resolvedFileName);
+	// console.debug('primitiveReadLocalBinaryFile', fileName, resolvedFileName);
+	return host.readBinaryFile(resolvedFileName);
 }
 
 // Fetch files asynchronously, store at packageIndex
@@ -68,9 +68,9 @@ export function addLoadFileMethods(): void {
 	kernel.addMethod(
 		'String',
 		'Kernel',
-		'primitiveReadLocalFile',
+		'primitiveReadLocalBinaryFile',
 		['self'],
-		primitiveReadLocalFile,
+		primitiveReadLocalBinaryFile,
 		'<primitive: file reader>',
 	);
 }

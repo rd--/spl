@@ -134,7 +134,7 @@ NaN.isNaN {- literal for NaN -}
 (0, 2 .. 14).collect(doubleFactorial:/1) = [1, 2, 8, 48, 384, 3840, 46080, 645120]
 (1, 3 .. 13).collect(doubleFactorial:/1) = [1, 3, 15, 105, 945, 10395, 135135]
 14.doubleFactorial = (2, 4 .. 14).product {- double factorial is product of equal parity interval -}
-13.doubleFactorial = (1, 3 .. 13).product {- double factorial is product of equal parity interval -}
+13.doubleFactorial ~ (1, 3 .. 13).product {- double factorial is product of equal parity interval -}
 28.gcd(12) = 4 {- greatest common denominator -}
 28.lcm(12) = 84 {- least common multiple -}
 1.exp.log = 1 {- natural logarithm -}
@@ -684,7 +684,7 @@ BitSet(64).isEmpty {- a new bitset is empty -}
 BitSet(64).bytes.allSatisfy { :each | each = 0 } {- all bytes at the empty bitset are zero -}
 [1, 3, 9].asBitSet.capacity = 10 {- bitset from array, capacity is one more than largest index -}
 let b = BitSet(64); b.add(1); b.add(3); b.add(9); b.size = 3 {- add three integers to bitset -}
-let b = BitSet(64); b.add(5); b.add(5); b.add(5); b.size = 1 {- adding the same integer over again -}
+let b = BitSet(64); b.add(5); b.include(5); b.include(5); b.size = 1 {- adding the same integer over again -}
 let b = [1, 3, 9].asBitSet; b.includes(3) {- does bitset include element -}
 let b = [1, 3, 9].asBitSet; [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
 let b = BitSet(64); b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 {- a three element bitset, atPut -}
@@ -1266,8 +1266,8 @@ true.asNumber = 1 {- asBit -}
 '0.03141e2'.asNumber = 3.141 {- parse scientific -}
 '23'.asNumber = 23 {- parse integer -}
 '-23'.asNumber = -23 {- parse integer -}
-1.pi.asFraction = 311/99 {- asFraction(100) -}
-1.pi.asFraction(10) = 22/7 {- with maximum denominator -}
+1.pi.asFraction = 355/113 {- asFraction -}
+1.pi.asFraction(0.01) = 22/7 {- with epsilon -}
 22/7.asFraction = 22/7 {- identity -}
 23.asFraction = 23 {- identity -}
 [0, 0].asPoint = (0 @ 0) {- array as point -}
@@ -1429,7 +1429,7 @@ let f = { :t0 | let t1 = 2.randomFloat.seconds; f:/1.valueAfterWith(t1, t1) }; f
 let d = 2.seconds; let c = d.copy; d ~~ c & { d = c } {- copy duration -}
 1.siderealMonths = 27.321661.days {- as defined with respect to the celestial sphere -}
 1.synodicMonths = 29.53059.days {- as define with respect to the line joining the sun and earth -}
-(29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).abs = 76.milliseconds
+(29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).abs ~ 76.milliseconds
 27.days + 7.hours + 43.minutes + 11.6.seconds - 1.siderealMonths < 1.seconds
 1.julianYears = 365.25.days
 3.minutes * 3 = 9.minutes {- multiply duration by number -}
@@ -1516,7 +1516,7 @@ ReducedFraction(4, 6) ~= 2/3 {- ReducedFraction assumes fraction is normal, and 
 4/3.numerator = 4 {- numerator -}
 2/3.raisedToInteger(5) = 32/243 {- fractions also can be exponentiated -}
 2/3 ^ 5 = 32/243 {- fractions also can be exponentiated using infix operator -}
-{ 2/3 ^ 3/4 }.ifError { true } {- only integer exponents are implemented -}
+2/3 ^ 3/4 ~ 0.737788 {- non integer exponents answer floatinput point values -}
 9/5.reciprocal = 5/9 {- reciprocal, mutiplicative inverse -}
 let n = 9/5; n.reciprocal * n = 1 {- mutiplicative inverse -}
 7/5.squared = 49/25 {- square of -}
@@ -1634,9 +1634,9 @@ let x = Fraction(2n ^ 55n, 2); x ~= (x - 1) {- fractions of large large integers
 22/7.limitDenominator(5) = 16/5
 355/113.limitDenominator(7) = 22/7
 [1/2, 5/10, 10/20, 50/100, 500/1000].collect { :n | n.limitDenominator(5) } = [1/2, 1/2, 1/2, 1/2, 1/2]
-[10, 100].collect { :n | 0.367879.asFraction(n) } = [3/8, 32/87]
-1:5.collect { :n | 1.pi.asFraction(10 ^ n) } = [22/7, 311/99, 2862/911, 9563/3044, 313842/99899]
-1.pi.asFraction = 311/99 {- with maximumDenominator set to one hundred -}
+[0.01, 0.0001].collect { :n | 0.367879.asFraction(n) } = [3/8, 32/87]
+1:5.collect { :n | 1.pi.asFraction(10 ^ n.-) } = [16/5, 22/7, 201/64, 333/106, 355/113]
+1.pi.asFraction = 355/113 {- with default epsilon -}
 (1 / [2, 3, 5, 7, 11, 13, 17]).collect(asFraction:/1) = [1/2, 1/3, 1/5, 1/7, 1/11, 1/13, 1/17]
 6/8 * 4 = 3 {- answer integer -}
 7/8 / 3 = 7/24 {- division by integer is fraction -}
@@ -1702,10 +1702,9 @@ system.includesPackage('Frequency') {- frequency package -}
 ## Graph -- collection type
 ```
 system.includesPackage('Graph') {- graph package -}
-Graph(0, []).typeOf = 'Graph' {- graph type -}
-Graph(0, []).isGraph {- graph predicate -}
-let g = Graph(3, [1 2; 2 3; 3 1]); g.size = 3 & { g.edges.size = 3 }
-Graph(3, [1 2; 2 3; 3 1], ['x' 'y' 'z'], ['i', 'j', 'k']).isValid {- query coherence -}
+Graph([], []).typeOf = 'Graph' {- graph type -}
+Graph([], []).isGraph {- graph predicate -}
+let g = [1 2; 2 3; 3 1].asGraph; g.vertexCount = 3 & { g.edgeCount = 3 }
 ```
 
 ## Hash -- murmur hash
@@ -3882,11 +3881,11 @@ system.allMethods.collect { :each | each.signature }.includes('@Iterable>>do:/2'
 '@Collection'.parseQualifiedTraitName = 'Collection'
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
 let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorNameOrQualifiedName = '+'
-system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Range') = true
+system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Bag') = true
 system.methodSignatures('add').includes('Map>>add:/2') = true
 system.methodLookupAtSignature('@Iterable>>sum:/1').isMethod = true
 system.methodLookupAtType('sum', 1, 'List').sourceCode = '{ :self |\n\t\tself.reduce(+)\n\t}'
-system.methodTypes('last:/1').includes('Range') = true
+system.methodTypes('last:/1').includes('String') = true
 system.multipleArityMethodList.includes('randomFloat') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
 system.operatorNameTable['^'] = 'circumflexAccent' = true
@@ -3926,7 +3925,7 @@ system.traitDictionary.includesIndex('Collection') = true
 system.traitTypes('Collection').includes('List') = true
 system.typeTraits('List').includes('PrimitiveSequence') = true
 system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'Sequence']) = true
-system.methodTraits('sum:/1') = ['Iterable']
+system.methodTraits('sum:/1') = ['ArithmeticProgression', 'Iterable']
 system.traitTypes('Object').includes('SmallFloat') = true
 system.traitLookup('Object').methodDictionary.includesIndex('respondsTo:/2') = true
 system.traitLookup('Collection').isTrait = true

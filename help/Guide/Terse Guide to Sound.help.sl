@@ -8,9 +8,7 @@
 12.equalTemperamentTuning.description = 'Twelve tone equal-temperament'
 12.equalTemperamentTuning.asCents = [0 100 200 300 400 500 600 700 800 900 1000 1100]
 12.equalTemperamentTuning.octave = 2
-12.equalTemperamentTuning.asRatios.collect(asFraction:/1) = [1 18/17 46/41 107/90 63/50 4/3 140/99 3/2 73/46 37/22 139/78 185/98]
 7.equalTemperamentTuning.asCents.rounded = [0 171 343 514 686 857 1029]
-7.equalTemperamentTuning.asRatios.collect(asFraction:/1) = [1 85/77 89/73 35/26 107/72 64/39 163/90]
 [1 6/5 4/3 3/2 8/5].asRatioTuning.asRatios = [1 6/5 4/3 3/2 8/5]
 [1 6/5 4/3 3/2 8/5].asRatioTuning.asCents.rounded = [0 316 498 702 814]
 [1 6/5 4/3 3/2 8/5].asRatioTuning.asIntegers = [30 36 40 45 48]

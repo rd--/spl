@@ -12,7 +12,7 @@
 				fill: 'black'
 			)
 		};
-		let lines = self.edges.collect { :each |
+		let lines = self.edgeList.collect { :each |
 			let [i, j] = each;
 			'line'.createSvgElement(
 				x1: points[i].x,
@@ -68,6 +68,11 @@
 				['Octave', self.octave.asString],
 				['Primes', tuningPrimes.asString]
 			].asHtmlTable,
+			primesVector.ifNil {
+				'No drawing'.TextParagraph
+			} {
+				self.latticeDrawing(primesVector)
+			},
 			[
 				[1 .. self.size],
 				ratios,
@@ -80,12 +85,7 @@
 				},
 				self.asCents.rounded,
 				self.asIntegers
-			].transposed.asHtmlTable,
-			primesVector.ifNil {
-				'No drawing'.TextParagraph
-			} {
-				self.latticeDrawing(primesVector)
-			}
+			].transposed.asHtmlTable
 		]);
 		div
 	}
@@ -95,10 +95,10 @@
 	}
 
 	latticeGraph { :self :primes |
-		let vertices = self.latticeVertices(primes);
-		let edges = self.latticeEdges(vertices);
-		let points = vertices.collect(wilsonLatticeCoordinates:/1) * 4;
-		Graph(vertices.size, edges, points, nil)
+		let primesList = self.latticeVertices(primes);
+		let edgeList = self.latticeEdges(primesList);
+		let coordinateList = primesList.collect(wilsonLatticeCoordinates:/1) * 4;
+		Graph([1 .. primesList.size], edgeList).vertexLabels(coordinateList)
 	}
 
 }

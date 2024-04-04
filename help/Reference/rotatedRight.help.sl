@@ -1,4 +1,4 @@
-# rotatedRight -- ordering
+# rotatedRight
 
 - _rotatedRight(aSequence, anInteger)_
 
@@ -12,3 +12,5 @@ The rotation is not in place, a new sequence is answered.
 * * *
 
 See also: atWrap, rotatedLeft
+
+Categories: Ordering
