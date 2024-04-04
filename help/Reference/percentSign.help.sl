@@ -1,10 +1,10 @@
 # %
 
-- _self % aNumber_
+- _aNumber % anotherNumber_
 
-Answer the floating-point remainder of dividing _self_ by _aNumber_.
+Answer the floating-point remainder of dividing _aNumber_ by _anotherNumber_.
 
-The answer is _self - n * aNumber_, where _n_ is the quotient of _self / aNumber_, rounded toward zero to an integer.
+_i % j_ is _i - n * j_, where _n_ is the quotient of _i / j_, rounded toward zero to an integer.
 
 ```
 >>> 5 % 3
@@ -12,6 +12,13 @@ The answer is _self - n * aNumber_, where _n_ is the quotient of _self / aNumber
 
 >>> 17 % 5
 2
+```
+
+At negative numbers:
+
+```
+>>> (-5 % 3, -5 % 4)
+(1, 3)
 ```
 
 Rational numbers:

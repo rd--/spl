@@ -67,7 +67,7 @@ When the arguments to `<` are `boole`, it is the converse non-implication `Boole
 [0 1; 0 0]
 ```
 
-The name of this operator is _lessThanSign_.
+The name of this operator is `lessThanSign`.
 
 * * *
 

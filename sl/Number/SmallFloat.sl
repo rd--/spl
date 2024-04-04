@@ -156,6 +156,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
+	basicSqrt { :self |
+		<primitive: return Math.sqrt(_self)>
+	}
+
 	atan2 { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
@@ -569,7 +573,11 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	sqrt { :self |
-		<primitive: return Math.sqrt(_self)>
+		self.isNegative.if {
+			Complex(self, 0).sqrt
+		} {
+			self.basicSqrt
+		}
 	}
 
 	storeString { :self |

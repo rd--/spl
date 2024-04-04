@@ -74,6 +74,16 @@ If _k_ is greater than _n_ the answer is zero:
 0
 ```
 
+Threads over lists:
+
+```
+>>> 11:13.binomial(1:3)
+[11 66 286]
+
+>>> [11.binomial(1), 12.binomial(2), 13.binomial(3)]
+[11 66 286]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~

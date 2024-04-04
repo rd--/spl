@@ -15,7 +15,7 @@ If the sequences are not of equal size the shorter will be cycled.
 ['iw' 'jx' 'ky' 'iz']
 ```
 
-The binary form of _map_ is _swap_ of _collect_,
+The binary form of `map` is `swap` of `collect`,
 i.e. _map(α, β) ⇒ collect(β, α)_.
 
 ```

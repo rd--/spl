@@ -2,7 +2,7 @@
 
 - _each(aBlock:/1 | aBlock:/2)_
 
-Answer a Block that will either apply a unary _aBlock_ to one argument using _collect_,
+Answer a `Block` that will either apply the unary _aBlock_ to one argument using _collect_,
 or will apply a binary `aBlock` to two arguments using _withCollect_.
 
 ```
@@ -32,6 +32,8 @@ or will apply a binary `aBlock` to two arguments using _withCollect_.
 ```
 
 * * *
+
+See also: collect, map, withCollect
 
 References:
 _Apl_

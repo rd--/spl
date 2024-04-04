@@ -18,11 +18,14 @@ Answer the number that, multiplied with itself, is _aNumber_.
 Negative numbers have imaginary square roots:
 
 ```
+>>> -9.sqrt
+0j3
+
 >>> -25j0.sqrt
 0j5
 ```
 
-At Complex:
+At `Complex`:
 
 ```
 >>> 5j1.sqrt
@@ -39,7 +42,7 @@ Threads elementwise over lists and matrices:
 [1 2 3 4]
 ```
 
-Values at zero and infinity:
+Values at `zero` and infinity:
 
 ```
 >>> 0.sqrt
