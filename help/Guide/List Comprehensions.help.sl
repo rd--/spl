@@ -54,3 +54,11 @@ might be written in Spl as:
 >>> answer
 [1 1; 2 1; 3 2; 4 1; 4 3; 5 2]
 ```
+
+* * *
+
+References:
+_Haskell_
+[1](https://www.haskell.org/onlinereport/haskell2010/haskellch3.html#x8-420003.11),
+_SuperCollider_
+[1](https://doc.sccode.org/Guides/ListComprehensions.html)
