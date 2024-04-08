@@ -3,11 +3,16 @@
 - _Exp(aNumber)_
 
 Exponential.
-Answer the value of _e_ (the base of natural logarithms) raised to the power of _aNumber_.
+Answer the value of `e` (the base of natural logarithms) raised to the power of _aNumber_.
+
+```
+>>> Exp(2)
+1.e ^ 2
+```
 
 * * *
 
-See also: ^
+See also: ^, e, Log, Pow
 
 References:
 _Csound_

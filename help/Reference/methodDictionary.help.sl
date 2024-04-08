@@ -1,31 +1,59 @@
 # methodDictionary
 
-- _methodDictionary(aSystem | aType)_
+- _methodDictionary(aSystem | aTrait | aType)_
 
-Fetch the `Method Dictionary` of the `System` or of a `Type`.
+Fetch the `Method Dictionary` of the `System` or of a `Trait` or `Type`.
+
+At `Trait` and `Type` the method dictionaries are keyed by qualified method names,
+and the entries are methods.
+
+The method dictionary of `String`:
 
 ```
->>> [1 2 3].type.methodDictionary.isDictionary
-true
+>>> let t = [1 2 3].type;
+>>> let d = t.methodDictionary;
+>>> (d.isDictionary, d['isList:/1'].isMethod)
+(true, true)
+```
 
->>> 'text'.type.methodDictionary.size > 200
-true
+The method dictionary of `String`:
 
->>> system.methodDictionary.isDictionary
-true
+```
+>>> let t = 'text'.type;
+>>> let d = t.methodDictionary;
+>>> (d.isDictionary, d['isString:/1'].isMethod)
+(true, true)
+```
 
->>> system.methodDictionary::collect.isDictionary
-true
+The system method dictionary is keyed by unqualified method names:
+and the entries are dictionaries:
 
->>> system.methodDictionary::collect[2].isDictionary
-true
+```
+>>> let d = system.methodDictionary;
+>>> (d.isDictionary, d['collect'].isDictionary)
+(true, true)
+```
 
->>> system.methodDictionary::collect[2]::List.isMethod
+The secondary dictionares are keyed by arity,
+and the entries are likewise dictionaries:
+
+```
+>>> let d = system.methodDictionary;
+>>> d['collect'][2].isDictionary
+true
+```
+
+The tertiary dictionaries are keyed by type,
+and the entries are methods:
+
+```
+>>> let d = system.methodDictionary;
+>>> d['collect'][2]['List'].isMethod
 true
 ```
 
 * * *
 
-See also: Method Dictionary, System
+See also: methodLookupAtType, Method Dictionary, System
 
 Categories: Reflection, System

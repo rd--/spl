@@ -441,3 +441,47 @@
 	>> { :self :anObject | <primitive: return sc.ShiftRight(_self, _anObject);> }
 
 }
+
++SmallFloat {
+
+	Gcd { :self :aNumber |
+		(
+			self.isNegative & {
+				aNumber.isNegative
+			}
+		).if {
+			self.negated.gcd(aNumber.negated).negated
+		} {
+			self.gcd(aNumber)
+		}
+	}
+
+	Lcm { :self :aNumber |
+		(
+			self.isNegative | {
+				aNumber.isNegative
+			}
+		).if {
+			self.abs.lcm(aNumber.abs).negated
+		} {
+			self.lcm(aNumber)
+		}
+	}
+
+	Pow { :self :aNumber |
+		self.isNegative.if {
+			(self.negated ^ aNumber).negated
+		} {
+			self ^ aNumber
+		}
+	}
+
+	Sqrt { :self |
+		self.isNegative.if {
+			self.negated.sqrt.negated
+		} {
+			self.sqrt
+		}
+	}
+
+}

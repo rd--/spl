@@ -7,7 +7,28 @@ Least common multiple.
 This definition extends the usual definition and returns a negative number if any of the operands is negative.
 This makes it consistent with the lattice-theoretical interpretation and it’s idempotency, commutative, associative, absorption laws.
 
-Following the example of the programming language _J_, `Lcm` is analogous to logical and.
+```
+>>> 1624.Lcm(-26)
+-2112
+
+>>> -1624.Lcm(-26)
+-21112
+
+>>> 513.Lcm(513.Gcd(44))
+513
+```
+
+Following the example of the programming language _J_, `Lcm` is analogous to logical and:
+
+```
+>>> Lcm:/2.table([0 1], [0 1])
+[0 0; 0 1]
+
+>>> &&.table([false true], [false true])
+[false false; false true]
+```
+
+Mouse control of frequency:
 
 ```
 let mx = MouseX(-200, 200, 0, 0.2);
@@ -18,7 +39,7 @@ SinOsc(freq, 0) * 0.1
 
 * * *
 
-See also: Gcd
+See also: gcd, Gcd, lcm
 
 References:
 _Apl_
@@ -28,3 +49,5 @@ _J_
 _Mathematica_
 [1](https://mathworld.wolfram.com/LeastCommonMultiple.html)
 [2](https://mathworld.wolfram.com/LCM.html)
+
+Further Reading: McDonnell (1975)

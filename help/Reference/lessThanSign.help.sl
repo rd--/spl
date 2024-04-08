@@ -85,4 +85,4 @@ _Smalltalk_
 _W_
 [1](https://en.wikipedia.org/wiki/Converse_nonimplication)
 
-Categories: Comparison operator
+Categories: Comparing

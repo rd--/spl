@@ -9,6 +9,15 @@ Least common multiple.
 >>> 0.lcm(9)
 0
 
+>>> 4.lcm(6)
+12
+
+>>> 1.lcm(1)
+1
+
+>>> 1624.lcm(26)
+21112
+
 >>> [2 3 5].reduce(lcm:/2)
 30
 
@@ -67,7 +76,7 @@ Plot the least common multiple for a number with 12:
 
 * * *
 
-See also: gcd
+See also: gcd, Gcd, Lcm
 
 References:
 _Apl_

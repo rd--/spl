@@ -1,17 +1,18 @@
 # Log
 
+- _Log(aNumber)_
+
 Natural logarithm.
 
-The _log_ of _e_ is 1:
+The `Log` of `e` is `one`:
 
 ```
->>> 1.e
-2.71828
-
->>> 1.e.log
+>>> 1.e.Log
 1
 ```
 
 * * *
 
-See also: exp
+See also: Exp, Log2, Log10, Pow
+
+Categories: Ugen

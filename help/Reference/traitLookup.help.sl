@@ -2,13 +2,18 @@
 
 - _traitLookup(aSystem, aString)_
 
-A method at `System` to lookup a `Trait` value by name.
+Answer the `Trait` named by _aString_ at _aSystem_.
 
 ```
 >>> system.traitLookup('Collection').isTrait
 true
+```
 
->>> system.traitLookup('Iterable').methodDictionary.includesKey('sum:/1')
+The `methodDictionary` at a `Trait` is keyed by qualified method names:
+
+```
+>>> let t = system.traitLookup('Iterable');
+>>> t.methodDictionary.includesKey('sum:/1')
 true
 ```
 

@@ -48,6 +48,7 @@ Guide/Initialised Temporaries Syntax.help.sl
 Guide/Integer Literals.help.sl
 Guide/Let Syntax.help.sl
 Guide/List Assignment Syntax.help.sl
+Guide/List comprehensions.help.sl
 Guide/List Syntax.help.sl
 Guide/Literals Syntax.help.sl
 Guide/Loading Libraries.help.sl

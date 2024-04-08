@@ -10,15 +10,24 @@ Methods have the fields:
 - _block_: the compiled implementation of the method
 - _sourceCode_: the definition of the method, a `String`
 
-The `methodDictionary` is reflected in the `System` type.
+The `methodDictionary` is reflected in the `System` type:
 
 ```
 >>> system.methodDictionary.isDictionary
 true
+```
 
->>> system.methodDictionary.includesKey('collect')
+The keys are unqualified method names:
+
+```
+>>> let d = system.methodDictionary;
+>>> d.includesKey('collect')
 true
+```
 
+`methodLookupAtType` answers a method given an unqualified name, an arity and a type name:
+
+```
 >>> system.methodLookupAtType('collect', 2, 'List').isMethod
 true
 

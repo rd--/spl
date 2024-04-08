@@ -1,1 +1,9 @@
-# Neg -- negation (inversion)
+# Neg
+
+Negation (inversion).
+
+* * *
+
+See also: -, negated
+
+Categories: Ugen

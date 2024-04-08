@@ -29,12 +29,15 @@
 
 ## Math Operators
 
+- `Abs`
 - `Clip`, `Fold`, `Wrap`
 - `Integrator`
 - `LinExp`, `LinLin`
 - `ModDif`
+- `Neg`
+- `Pow`
 - `RunningMax`, `RunningMin`, `RunningSum`
-- `Slope`
+- `Slope`, `Sqrt`
 
 ## Noise Generators
 

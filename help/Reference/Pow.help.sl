@@ -1,11 +1,25 @@
-# Pow -- math operator
+# Pow
 
-_Pow(self, aNumber)_
+- _Pow(aNumber, anotherNumber)_
 
-When used with Ugens which produce a negative signal this function extends the usual definition of exponentiation and answers _Neg(Pow(Neg(a), b))_.
+This method extends the usual definition of exponentiation and for negative _i_ in _Pow(i, j)_ answers _Neg(Pow(Neg(i), j))_.
 
-This allows exponentiation of negative signal values by noninteger exponents.
+This behavior allows exponentiation of negative signal values by noninteger exponents.
+
+```
+>>> -0.25.Pow(0.75)
+-0.353553
+```
+
+Compare with `^`:
+
+```
+>>> -0.25J0 ^ 0.75
+-0.25J0.25
+```
 
 * * *
 
-See also: Exp, Log
+See also: ^, Exp, Log, Sqrt
+
+Categories: Math operator

@@ -1,70 +1,77 @@
 # Further Reading
 
-E. Bjorklund.
+E. Bjorklund. 1989.
 _Algorithms for optimally distributed timing pulses._\
-Technical Report LA-UR-89-3558, Los Alamos National Laboratory, 1989.
+Technical Report LA-UR-89-3558, Los Alamos National Laboratory.
 
-E. Bjorklund.
+E. Bjorklund. 2003.
 _The theory of rep-rate pattern generation in the SNS timing system_.\
-SNS ASD Technical Note, Los Alamos Laboratory, 2003.
+SNS ASD Technical Note, Los Alamos Laboratory.
 
-E. Demaine et. al.
+E. Demaine et. al. 2005.
 "The distance geometry of deep rhythms and scales".\
-_Proc. Canadian Conference on Computational Geometry_, 163–166, 2005.
+_Proc. Canadian Conference on Computational Geometry_, 163–166.
 [Pdf](https://erikdemaine.org/papers/DeepRhythms_CCCG2005/paper.pdf)
 
-E. Demaine et. al.
+E. Demaine et. al. 2009.
 "The distance geometry of music".\
-Comput. Geom. Theory Appl., 42:429–454, 2009.
+Comput. Geom. Theory Appl., 42:429–454.
 [Doi](https://doi.org/10.1016/j.comgeo.2008.04.005)
 
-E. Deutsch.
+E. Deutsch. 1999.
 "Dyck path enumeration".\
-_Discrete Mathematics_, 204(1):167–202, 1999.
+_Discrete Mathematics_, 204(1):167–202.
 [Doi](https://doi.org/10.1016/S0012-365X(98)00371-9)
 
-P. Duchon.
+P. Duchon. 2000.
 "On the enumeration and generation of generalized Dyck words".\
-_Discrete Mathematics_, 225(1):121–135, 2000.
+_Discrete Mathematics_, 225(1):121–135.
 [Doi](https://doi.org/10.1016/S0012-365X(00)00150-3)
 
-W. Fulton.
+W. Fulton. 1996.
 _Young Tableaux: With Applications to Representation Theory and Geometry_.\
-Cambridge University Press, 1996.
+Cambridge University Press.
 [Doi](https://doi.org/:10.1017/CBO9780511626241)
 
-E. Kurenniemi.
+E. Kurenniemi. 1988.
 "Musical harmonies are divisor sets".\
-_Proc. of Nordic acoustical meeting_, 371–374, 1988.
+_Proc. of Nordic acoustical meeting_, 371–374.
 
-E. Kurenniemi.
+E. Kurenniemi. 2015.
 "Chords, scales, and divisor lattices".\
 _Writing and Unwriting (Media) Art History: Erkki Kurenniemi in 2048_.
-MIT Press, 2015.
+MIT Press.
 [Pdf](https://beige.org/projects/dimi/CSDL2.pdf)
 [Doi](https://doi.org/:10.7551/mitpress/10014.003.0026)
 
-J. McCartney.
+J. McCartney. 1996.
 "SuperCollider: A new real time synthesis language".\
-_Proc. ICMC_, 1996.
+_Proc. ICMC_.
 [Pdf](http://hdl.handle.net/2027/spo.bbp2372.1996.078)
 
-J. McCartney.
+J. McCartney. 1998.
 "Continued evolution of the SuperCollider real time synthesis environment".\
-_Proc. ICMC_, 133–136, 1998.
+_Proc. ICMC_, 133–136.
 [Pdf](https://quod.lib.umich.edu/i/icmc/bbp2372.1998.262)
 
-J. McCartney.
+J. McCartney. 2002.
 "Rethinking the computer music language: SuperCollider".\
-_Computer Music Journal_, 26(4):61–68, 2002
+_Computer Music Journal_, 26(4):61–68.
 [Doi](https://doi.org/:10.1162/014892602320991383)
 
-Z. Kása. "Generating and ranking of Dyck words".\
-_Acta Univ. Sapientiae, Informatica_, 1(1):109–118, 2009.
+E. McDonnell. 1975.
+"A notation for the GCD and LCM functions".\
+In Proc. Conference on APL, 240–243.
+[Doi](https://doi.org/10.1145/800117.803810)
+[Pdf](https://dl.acm.org/doi/pdf/10.1145/800117.803810)
+
+Z. Kása. 2009.
+"Generating and ranking of Dyck words".\
+_Acta Univ. Sapientiae, Informatica_, 1(1):109–118.
 [Pdf](https://arxiv.org/pdf/1002.2625.pdf)
 
-A. Warth et. al.
+A. Warth et. al. 2016.
 "Modular semantic actions".\
-_Proceedings of the Symposium on Dynamic Languages_, 108–119, 2016.
+_Proceedings of the Symposium on Dynamic Languages_, 108–119.
 [Doi](https://doi.org/10.1145/2989225.2989231)
 [Pdf](https://ohmjs.org/pubs/dls2016/modular-semantic-actions.pdf)

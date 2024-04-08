@@ -9,7 +9,8 @@ Ordinarily all `Type` definitions should implement `Object`.
 >>> system.traitTypes('Object').size + 1
 system.typeDictionary.size
 
->>> system.traitDictionary['Object'].methodDictionary.keys.includes('respondsTo:/2')
+>>> let t = system.traitDictionary['Object'];
+>>> t.methodDictionary.keys.includes('respondsTo:/2')
 true
 ```
 

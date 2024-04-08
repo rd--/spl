@@ -7,10 +7,28 @@ Greatest common divisor.
 This definition extends the usual definition and returns a negative number if both operands are negative.
 This makes it consistent with the lattice-theoretical interpretation and it’s idempotency, commutative, associative, absorption laws.
 
+```
+>>> -1024.Gcd(-256)
+-256
+
+>>> -1024.Gcd(-1024.Lcm(-256))
+-1024
+```
+
 "greater" means "divisible by" in this interpretation, so _Gcd(-1, -1)_ returns a negative number.
 This is necessary to make the whole system consistent (fundamental law of arithmetics, idempotency and absorption laws would fail).
 
-Following the example of the programming language _J_, Gcd is analogous to logical or.
+Following the example of the programming language _J_, `Gcd` is analogous to logical or:
+
+```
+>>> Gcd:/2.table([0 1], [0 1])
+[0 1; 1 1]
+
+>>> ||.table([false true], [false true])
+[false true; true true]
+```
+
+Mouse control of frequency:
 
 ```
 let mx = MouseX(-200, 200, 0, 0.2);
@@ -31,3 +49,5 @@ _J_
 _Mathematica_
 [1](https://mathworld.wolfram.com/GreatestCommonDivisor.html)
 [2](https://mathworld.wolfram.com/GCD.html)
+
+Further Reading: McDonnell (1975)
