@@ -173,7 +173,7 @@
 
 ## Exponential Functions
 
-- `^`, `exp`, `log`, `log2`, `log10`
+- `^`, `exp`, `log`, `log2`, `log10`, `squared`
 - `cubeRoot`, `sqrt`, `nthRoot`
 
 ## Floating Point

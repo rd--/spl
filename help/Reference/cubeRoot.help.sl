@@ -17,7 +17,7 @@ CubeRoot gives a real root:
 5.03968
 ```
 
-Values at zero & inf:
+Values at `zero` & `inf`:
 
 ```
 >>> 0.cubeRoot
@@ -35,7 +35,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: ^, sqrt
+See also: ^, nthRoot, sqrt
 
 References:
 _Mathematica_
