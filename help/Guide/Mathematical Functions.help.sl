@@ -253,6 +253,10 @@
 - `rescale`: rescale between
 - `normalize`: normalize vector
 - `standardize`: zero mean and unit sample variance
+- `movingAverage`: find the simple moving average with any span
+- `exponentialMovingAverage`: find the exponential moving average with damping
+- `movingMedian`: find the moving median with any span
+- `movingMap`: map a function over a moving window with any span
 
 ## Window Functions
 

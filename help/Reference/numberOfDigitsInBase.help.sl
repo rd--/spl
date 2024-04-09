@@ -21,4 +21,4 @@ This does not count any place for minus sign or radix prefix.
 
 * * *
 
-See also: printString
+See also: integerLength, printString

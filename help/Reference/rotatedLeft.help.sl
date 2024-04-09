@@ -8,9 +8,6 @@ i.e. _anInteger_ elements from the start are moved to the end.
 The rotation is not in place, a new sequence is answered.
 
 ```
->>> 0:5.rotatedLeft(2)
-[2 3 4 5 0 1]
-
 >>> [1 2 3 4 5 6 7].rotatedLeft(3)
 [4 5 6 7 1 2 3]
 
@@ -19,6 +16,33 @@ The rotation is not in place, a new sequence is answered.
 
 >>> [1 2 3 4 5 6 7].rotatedLeft(-4)
 [4 5 6 7 1 2 3]
+```
+
+Rotate two positions to the left:
+
+```
+>>> 1:5.rotatedLeft(2)
+[3 4 5 1 2]
+```
+
+Rotate one position to the left:
+
+```
+>>> 1:5.rotatedLeft(1)
+[2 3 4 5 1]
+```
+
+Successively rotate a list left:
+
+```
+>>> rotatedLeft:/1.nestList([1 2 3 4 5], 4)
+[
+	1 2 3 4 5;
+	2 3 4 5 1;
+	3 4 5 1 2;
+	4 5 1 2 3;
+	5 1 2 3 4
+]
 ```
 
 Rotate matrix:
@@ -43,4 +67,8 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Rotate),
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/bardot#dyadic)
+[1](https://code.jsoftware.com/wiki/Vocabulary/bardot#dyadic),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/RotateLeft.html)
+
+Categories: Ordering

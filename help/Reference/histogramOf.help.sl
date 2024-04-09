@@ -11,6 +11,6 @@ A more efficient form of _aCollection.collect(aBlock:/1).asBag_.
 
 * * *
 
-See also: Bag
+See also: asBag, Bag
 
 Categories: Converting

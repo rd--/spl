@@ -11,6 +11,12 @@ At `List`:
 ```
 >>> [1 2 3] ++ [4 5 6]
 [1 2 3 4 5 6]
+
+>>> [] ++ [1 2 3]
+[1 2 3]
+
+>>> [3 2 1] ++ []
+[3 2 1]
 ```
 
 At `Record`:
@@ -51,6 +57,10 @@ See also: ++, concatenation
 Unicode: U+29FA ⧺ Double plus
 
 References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:-43--43-)
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Catenate.html),
 _Smalltalk_
 5.7.8.1
 

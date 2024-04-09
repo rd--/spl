@@ -109,7 +109,21 @@ l
 Find runs of numbers in base 10 that contain the same number of 1s:
 
 ```
-1:50.collect { :n | n.digitCount(10, 1) }.split(=)
+>>> 1:50.collect { :n | n.digitCount(10, 1) }.split(=)
+[
+	1;
+	0 0 0 0 0 0 0 0;
+	1;
+	2;
+	1 1 1 1 1 1 1 1;
+	0;
+	1;
+	0 0 0 0 0 0 0 0 0;
+	1;
+	0 0 0 0 0 0 0 0 0;
+	1;
+	0 0 0 0 0 0 0 0 0
+]
 ```
 
 * * *

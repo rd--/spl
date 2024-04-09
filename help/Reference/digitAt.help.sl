@@ -1,10 +1,10 @@
 # digitAt
 
-_digitAt(anInteger)_
+- _digitAt(anInteger)_
 
 Answer the value of an apparent byte-indexable field in _anInteger_.
 
-At SmallFloat:
+At `SmallFloat`:
 
 ```
 >>> let n = 1 + (2 << 8) + (3 << 16) + (4 << 24);
@@ -12,7 +12,7 @@ At SmallFloat:
 (67305985, [1 2 3 4])
 ```
 
-At LargeInteger:
+At `LargeInteger`:
 
 ```
 >>> let n = 114605103402541699037609980192546360895434064385n;

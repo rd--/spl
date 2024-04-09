@@ -41,14 +41,12 @@ There is no literal syntax for characters.
 '120.asCharacter'
 ```
 
-Character predicates: `isCharacter`, `isDigit`, `isLetter`, `isUpperCase`, `isLowerCase`, `isAlphaNumeric`.
-
 _Note:_
 Strings in Spl are not Lists of Characters.
 Except where necessary Characters and Character lists are not recommended.
 
 * * *
 
-See also: asCharacter, String
+See also: asCharacter, isAlphaNumeric, isCharacter, isDigit, isLetter, isUpperCase, isLowerCase, String
 
 Categories: Text, Type

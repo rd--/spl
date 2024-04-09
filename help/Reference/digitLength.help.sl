@@ -1,6 +1,6 @@
 # digitLength
 
-_digitLength(anInteger)_
+- _digitLength(anInteger)_
 
 Answer the number of bytes required to represent _anInteger_.
 

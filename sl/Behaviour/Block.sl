@@ -162,6 +162,16 @@ Block! : [Object] {
 		system.millisecondsToRun(self:/0)
 	}
 
+	movingMap { :self:/1 :sequence :windowSize |
+		let answer = [];
+		1.toDo(sequence.size - windowSize + 1) { :i |
+			answer.add(
+				self(sequence.copyFromTo(i, i + windowSize - 1))
+			)
+		};
+		answer
+	}
+
 	name { :self |
 		<primitive: return _self.name;>
 	}

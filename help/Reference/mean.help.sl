@@ -2,7 +2,7 @@
 
 - _mean(alpha)_ => _arithmeticMean(alpha)_
 
-Answer the arithmeticMean of _aCollection_.
+Answer the `arithmeticMean` (the mean estimate)  of _aCollection_.
 
 ```
 >>> [1 .. 9].mean
@@ -10,6 +10,42 @@ Answer the arithmeticMean of _aCollection_.
 
 >>> [1.21 3.4 2.15 4 1.55].mean
 2.462
+```
+
+The `mean` is the `sum` divided by the `size:
+
+```
+>>> 1:4.mean
+5/2
+
+>>> let r = 1:4;
+>>> r.sum / r.size
+5/2
+```
+
+The mean of a matrix is a vector (columnwise):
+
+```
+>>> [1 2; 2 3; 3 4; 4 5; 5 6].mean
+[1:5.mean, 2:6.mean]
+```
+
+When the input is an `Dictionary`, `mean` works on its values:
+
+```
+>>> (x: 1, y: 2, z: 3).mean
+(1 + 2 + 3) / 3
+```
+
+Find the mean for the heights of children in a class.
+
+```
+>>> [
+>>> 	134 143 131 140 145 136 131 136 143
+>>> 	136 133 145 147 150 150 146 137 143
+>>> 	132 142 145 136 144 135 141
+>>> ].mean
+140.04
 ```
 
 * * *

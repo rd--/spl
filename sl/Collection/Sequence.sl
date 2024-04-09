@@ -673,6 +673,16 @@
 		(self - aSequence).norm
 	}
 
+	exponentialMovingAverage { :self :alpha |
+		let answer = List(self.size);
+		answer[1] := self[1];
+		2.toDo(self.size) { :i |
+			let y = answer[i - 1];
+			answer[i] := y + (alpha * (self[i] - y))
+		};
+		answer
+	}
+
 	fillFromWith { :self :aCollection :aBlock:/1 |
 		let index = 1;
 		aCollection.do { :each |
@@ -870,6 +880,16 @@
 			};
 			1 / answer
 		}
+	}
+
+	fromDigits { :self :radix |
+		let answer = 0;
+		let m = 1;
+		self.reverseDo { :each |
+			answer := answer + (each * m);
+			m := m * radix
+		};
+		answer
 	}
 
 	fromDms { :self |
@@ -1602,6 +1622,22 @@
 			answer := answer + (self[1] * base)
 		};
 		answer
+	}
+
+	movingAverage { :self :windowSize |
+		let answer = [];
+		1.toDo(self.size - windowSize + 1) { :i |
+			let n = 0;
+			i.toDo(i + windowSize - 1) { :j |
+				n := n + self[j]
+			};
+			answer.add(n / windowSize)
+		};
+		answer
+	}
+
+	movingMedian { :self :windowSize |
+		median:/1.movingMap(self, windowSize)
 	}
 
 	norm { :self |

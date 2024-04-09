@@ -47,7 +47,7 @@ Thue–Morse sequence:
 
 * * *
 
-See also: bitAnd, hammingDistance, integerDigits, thueMorse
+See also: bitAnd, hammingDistance, integerDigits, integerExponent, integerLength, thueMorse
 
 References:
 _Mathematica_

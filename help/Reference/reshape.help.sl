@@ -49,6 +49,9 @@ Create a 2×3 matrix:
 ```
 >>> 1:6.reshape([2 3])
 [1 2 3; 4 5 6]
+
+>>> 'abcdef'.characters.reshape([2 3])
+[['a', 'b', 'c'], ['d', 'e', 'f']]
 ```
 
 Reshape a vector into a depth-3 array:
@@ -66,7 +69,14 @@ Reshape a matrix into another matrix with different dimensions:
 ([1 2 3; 4 5 6; 7 8 9; 10 11 12], [1 2 3 4; 5 6 7 8; 9 10 11 12])
 ```
 
-Reversing matrix dimensions does not give the same element order as _transposed_:
+Reshape into a higher rank array:
+
+```
+>>> [1 2 3; 4 5 6; 7 8 9; 10 11 12].reshape([2 2 3])
+[1 2 3; 4 5 6:; 7 8 9; 10 11 12]
+```
+
+Reversing matrix dimensions does not give the same element order as `transposed`:
 
 ```
 >>> let s = [3 4];

@@ -9,7 +9,7 @@ This makes it consistent with the lattice-theoretical interpretation and it’s 
 
 ```
 >>> 1624.Lcm(-26)
--2112
+-21112
 
 >>> -1624.Lcm(-26)
 -21112

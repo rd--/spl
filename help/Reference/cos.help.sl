@@ -45,6 +45,12 @@ Plot over a subset of the reals:
 (0, 0.05 .. 2 * pi).cos.plot
 ~~~
 
+Increasing amplitude:
+
+~~~
+(0 -- 16.pi).subdivide(500).collect { :u | u * u.cos }.plot
+~~~
+
 Noncommensurate waves (quasiperiodic function):
 
 ~~~

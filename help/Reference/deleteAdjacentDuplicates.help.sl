@@ -29,7 +29,7 @@ Delete sublists that have the same total:
 
 * * *
 
-See also: deleteDuplicates
+See also: deleteDuplicates, split, union
 
 References:
 _Mathematica_

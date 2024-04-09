@@ -38,7 +38,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	++ { :self :anObject |
-		self.appendString(anObject.asString)
+		self.basicAppendString(anObject.asString)
 	}
 
 	allButFirst { :self |
@@ -55,10 +55,6 @@ String! : [Object, Json, Iterable, Character] {
 
 	allButLast { :self :n |
 		self.copyFromTo(1, self.size - n)
-	}
-
-	appendString { :self :aString |
-		<primitive: return _self + _aString;>
 	}
 
 	asAscii { :self |
@@ -173,6 +169,10 @@ String! : [Object, Json, Iterable, Character] {
 
 	atAll { :self :indices |
 		self.asList.atAll(indices).join
+	}
+
+	basicAppendString { :self :aString |
+		<primitive: return _self + _aString;>
 	}
 
 	basicAt { :self :index |

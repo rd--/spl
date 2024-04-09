@@ -83,6 +83,18 @@
 		b
 	}
 
+	bernsteinBasis { :d :n :x |
+		x.betweenAnd(0, 1).if {
+			d.binomial(n) * (x ^ n) * ((1 - x) ^ (d - n))
+		} {
+			0
+		}
+	}
+
+	bitLength { :self |
+		self.integerLength(2)
+	}
+
 	bjorklundsAlgorithmDo { :k :n :aBlock:/1 |
 		let s = 1:n.collect { :i |
 			(i <= k).if {
@@ -452,6 +464,14 @@
 			answer := answer + 1
 		};
 		answer
+	}
+
+	integerLength { :self :radix |
+		self.isZero.if {
+			0
+		} {
+			self.abs.log(radix).floor + 1
+		}
 	}
 
 	integerPartitionsDescendingDo { :self :aBlock:/1 |

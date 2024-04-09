@@ -55,6 +55,10 @@
 
 - `asLowerCase`, `asString`, `asUpperCase`
 - `codePoint`
+
+## Character Predicates
+
+- `isCharacter`
 - `isAlphaNumeric`, `isDigit`, `isLetter`, `isLowerCase`, `isUpperCase`
 - `isCarriageReturn`, `isFormFeed`, `isLineFeed`, `isSeparator`, `isSpace`, `isTab`
 
@@ -196,6 +200,7 @@
 - `foldLeft`, `foldRight`
 - `withCollect`
 - `atLevelCollect`, `deepCollect`, `withLevelCollect`
+- `map`, `movingMap`
 
 ## Geometry Types & Traits
 
@@ -390,7 +395,10 @@
 
 ## Rearranging & Restructuring Lists
 
+- `++`, `flatten`, `partition`
+- `reverse`, `rotatedLeft`, `rotatedRight`
 - `intercalate`, `interleave`, `intersperse`
+- `deleteAdjacentDuplicates, `deleteDuplicates`
 - `subsequences`, `subsets`
 
 ## Recurrence and Sum Functions
@@ -452,6 +460,10 @@
 - `sort`, `sortBy`, `sorted`, `sortOn`
 - `ordering`
 
+## Splines
+
+- `bernsteinBasis`
+
 ## Statistics
 
 - `mean`, `median`, `commonest`
@@ -461,6 +473,8 @@
 - `skewness`, `kurtosis`
 - `moment`, `centralMoment`, `rootMeanSquare`
 - `interquartileRange`, `quantile`, `quartiles`
+- `movingAverage`, `movingMedian`
+- `exponentialMovingAverage`
 
 ## Streams
 

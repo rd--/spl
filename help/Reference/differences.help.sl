@@ -11,6 +11,13 @@ Differences of a `Range`:
 [1 1 1 1]
 ```
 
+At `List`:
+
+```
+>>> [3 4 1 1].differences
+[1 -3 0]
+```
+
 First differences are constant for a linear function:
 
 ```
