@@ -1,8 +1,8 @@
 # FreeVerb
 
-A reverb.
+- _FreeVerb(in, mix=0.33, room=0.5, damp=0.5)_
 
-_FreeVerb(in, mix=0.33, room=0.5, damp=0.5)_
+A reverb.
 
 - in: input signal
 - mix: 0 = dry, 1 = wet

@@ -1,6 +1,8 @@
 # PulseDpw
 
-_PulseDpw(freq=440, width=0.5)_
+- _PulseDpw(freq=440, width=0.5)_
+
+Band limited pulse wave generator with pulse width modulation.
 
 Modulate frequency:
 
@@ -17,4 +19,3 @@ Rlpf(PulseDpw([100 250], 0.5) * 0.1, XLine(8000, 400, 5), 0.05)
 * * *
 
 See also: Pulse, SawDpw
-

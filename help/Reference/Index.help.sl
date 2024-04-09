@@ -19,4 +19,10 @@ SinOsc([f, f * 9], 0) * 0.1
 
 * * *
 
+See also: Shaper, WrapIndex
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Index.html)
+
 Categories: Ugen

@@ -2,7 +2,7 @@
 
 - _metres(aNumber)_
 
-Answer a `Length` representing `aNumber_ metres
+Answer a `Length` representing _aNumber_ metres.
 
 ```
 >>> 3.metres.isLength

@@ -1,8 +1,8 @@
-# LocalBuf -- buffer
-
-Allocate a buffer local to the synth
+# LocalBuf
 
 - _LocalBuf(numChannels, numFrames)_
+
+Allocate a buffer local to the synth
 
 - numChannels: number of channels for multiple channel buffers (default: 1)
 - numFrames: number of frames (default: 1)
@@ -13,3 +13,5 @@ Most but not all Ugens that require a buffer number input accept local buffers.
 * * *
 
 See also: asLocalBuf, ClearBuf, SetBuf
+
+Categories: Buffer

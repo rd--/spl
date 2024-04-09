@@ -1,12 +1,12 @@
 # Crackle
 
+- _Crackle(param)_
+
 Chaotic noise function.
-
-_Crackle(param)_
-
 A noise generator based on a chaotic function.
 
-- param: a parameter of the chaotic function with useful values from just below 1 to just above 2. Towards 2 the sound crackles.
+- param: a parameter of the chaotic function with useful values from just below 1 to just above 2.
+  Towards 2 the sound crackles.
 
 Fixed param:
 
@@ -21,5 +21,11 @@ Crackle(Line(1, 2, 10)) * 0.1
 ```
 
 * * *
+
+See also: LatoocarfianN, Logistic
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Crackle.html)
 
 Categories: Ugen, Noise

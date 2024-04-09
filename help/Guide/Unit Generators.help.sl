@@ -39,7 +39,9 @@
 ## Control Signals
 
 - `Integrator`: leaky integrator
+- `KeyState`: keyboard input unit generator
 - `Lag`: exponential lag
+- `MouseButton`: cursor unit generator
 - `MouseX`: cursor unit generator
 - `MouseY`: cursor unit generator
 - `Slew`: slew rate limiter

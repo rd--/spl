@@ -3,7 +3,10 @@
 -  _CombC(in, maxdelaytime=0.2, delaytime=0.2, decaytime=1)_
 
 Comb filter.
-Comb delay line. CombN uses no interpolation, CombL uses linear interpolation, CombC uses cubic interpolation.
+Comb delay line.
+`CombN` uses no interpolation,
+`CombL` uses linear interpolation,
+`CombC` uses cubic interpolation.
 
 - in: the input signal.
 - maxdelaytime: the maximum delay time in seconds. used to initialize the delay buffer size.
@@ -33,6 +36,10 @@ CombC(z, 0.2, 0.2, 3)
 
 * * *
 
-See also: AllpassC
+See also: AllpassC, CombL
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/CombC.html)
 
 Categories: Ugen, Filter

@@ -1,6 +1,6 @@
 # Latch
 
-_Latch(in=0, trig=0)_
+- _Latch(in=0, trig=0)_
 
 Sample and hold.
 Holds input signal value when triggered.
@@ -30,3 +30,7 @@ Blip(LfNoise0(9) * 400 + 500, 4) * 0.1
 * * *
 
 See also: Gate
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Latch.html)

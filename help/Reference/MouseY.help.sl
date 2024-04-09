@@ -4,10 +4,14 @@
 
 Cursor unit generator.
 
-Same as _MouseX_, but for Y axis.
+Same as `MouseX`, but for Y axis.
 
 * * *
 
 See also: MouseButton, MouseX
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/MouseY.html)
 
 Categories: Ugen

@@ -1,6 +1,6 @@
 # SparseMatrixMixer
 
-_SparseMatrixMixer(numOutputs, inputList, sparseMatrix)_
+- _SparseMatrixMixer(numOutputs, inputList, sparseMatrix)_
 
 Mixes _inputList_ to a list of _numOutputs_ places according to _sparseMatrix_.
 

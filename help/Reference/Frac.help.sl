@@ -1,10 +1,11 @@
 # Frac
 
-Fractional part.
+- _Frac(aNumber)_
 
+Fractional part.
 Answer only the fractional part of the signal.
 
-Here a phasor in (0,1) is scaled and the fractional part taken:
+In the program below a phasor in _(0, 1)_ is scaled and the fractional part taken:
 
 ```
 let mul = MouseX(1, 9, 0, 0.2).RoundTo(1);

@@ -19,3 +19,13 @@ InRange(
 	[0.15, 0.2]
 ) * PinkNoise() * 0.1
 ```
+
+* * *
+
+See also: InRect, Schmidt
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/InRange.html)
+
+Categories: Testing

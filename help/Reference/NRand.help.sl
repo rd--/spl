@@ -1,9 +1,8 @@
 # NRand
 
+- _NRand(lo, hi, n)_
+
 Random number generator.
-
-_NRand(lo, hi, n)_
-
 Generates a single random float value in a sum of n uniform distributions from lo to hi.
 
 - n = 1 : uniform distribution, same as Rand
@@ -28,3 +27,5 @@ See also: ExpRand, IRand, LinRand, Rand, TExpRand, TiRand, TRand
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/NRand.html)
+
+Categories: Ugen

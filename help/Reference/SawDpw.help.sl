@@ -1,8 +1,8 @@
 # SawDpw
 
-Efficient sawtooth oscillator with low aliasing.
+- _SawDpw(freq=440, iphase=0)_
 
-_SawDpw(freq=440, iphase=0)_
+Efficient sawtooth oscillator with low aliasing.
 
 A sawtooth oscillator using the "Differentiated Parabolic Wave" technique,
 which suppresses aliasing at a wide range of frequencies,
@@ -31,3 +31,4 @@ SawDpw(MouseX(50, 10000, 1, 0.2), 0) * 0.1
 
 See also: PulseDpw, Saw
 
+Categories: Ugen

@@ -1,11 +1,10 @@
 # AudioIn
 
+- _AudioIn(channelList)_
+
 Sound input.
-Read audio input from analogue-to-digital converter.
-
-_AudioIn(channelList)_
-
-Reads audio from the sound input hardware.
+Read audio input from analogue-to-digital converter,
+i.e. the sound input hardware.
 
 - channelList: input channel numbers to read, channel numbers are one-indexed
 

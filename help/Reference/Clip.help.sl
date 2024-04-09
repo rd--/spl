@@ -19,4 +19,8 @@ Clip(SinOsc(440, 0) * 0.2, -0.07, 0.07)
 
 See also: Clip2, Fold, Wrap
 
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Clip.html)
+
 Categories: Ugen

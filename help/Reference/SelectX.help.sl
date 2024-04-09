@@ -1,9 +1,9 @@
 # SelectX
 
+- _SelectX(which, array)_
+
 Mix one output from many sources.
 The output is mixed from an array of inputs, performing an equal power crossfade between two adjacent channels.
-
-_SelectX(which, array)_
 
 - which: integer index (zero indexed)
 - array: input array of signals

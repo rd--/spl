@@ -1,6 +1,6 @@
 # SphericalCoordinate
 
-_SphericalCoordinate(r, theta, phi)_
+- _SphericalCoordinate(r, theta, phi)_
 
 Construct a spherical coordinate following the convention:
 

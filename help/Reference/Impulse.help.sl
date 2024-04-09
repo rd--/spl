@@ -1,8 +1,8 @@
 # Impulse
 
-Impulse oscillator.
+- _Impulse(freq=440, phase=0)_
 
-_Impulse(freq=440, phase=0)_
+Impulse oscillator.
 
 Outputs non band limited single sample impulses.
 

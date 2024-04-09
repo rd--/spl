@@ -1,6 +1,6 @@
 # LagUd
 
-- LagUd(in, lagTimeU=0.1, lagTimeD=0.1)_
+- _LagUd(in, lagTimeU=0.1, lagTimeD=0.1)_
 
 This is essentially the same as `Lag` except that you can supply a different 60 dB time for when the signal goes up, from when the signal goes down.
 This is useful for smoothing out control signals, where _fade in_ should be different from _fade out_.

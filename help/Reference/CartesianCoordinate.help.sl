@@ -1,6 +1,6 @@
 # CartesianCoordinate
 
-_CartesianCoordinate(x, y, z)_
+- _CartesianCoordinate(x, y, z)_
 
 A coordinate in three-dimensional Cartesian space given by a triple _(x, y, z)_.
 

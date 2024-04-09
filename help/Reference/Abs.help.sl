@@ -1,6 +1,8 @@
 # Abs
 
-Absolute value.
+- _Abs(aNumber)_
+
+Answer the absolute value.
 
 Contrary motion:
 

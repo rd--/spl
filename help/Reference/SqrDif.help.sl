@@ -1,4 +1,6 @@
-# SqrDif -- math
+# SqrDif
+
+- _SqrDif(aNumber, anotherNumber)_
 
 Square of the difference.
 _SqrDif(a, b)_ is _(a - b) ^ 2_.
@@ -21,3 +23,4 @@ let c = a - b;
 
 See also: AbsDif
 
+Categories: Ugen, Math

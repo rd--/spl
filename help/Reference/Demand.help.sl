@@ -1,8 +1,8 @@
 # Demand
 
-Demand results from demand rate Ugens.
+- _Demand(trig, reset=0, demandUgens)_
 
-_Demand(trig, reset=0, demandUgens)_
+Demand results from demand rate Ugens.
 
 When there is a trigger at the _trig_ input, a value is demanded each Ugen in the list and output.
 The unit generators in the list should be _demand_ rate.

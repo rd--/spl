@@ -1,8 +1,8 @@
-# LeakDc -- remove Dc
+# LeakDc
 
-_LeakDc(in, coef=0.995)_
+- _LeakDc(in, coef=0.995)_
 
-This filter removes a Dc offset from a signal.
+Remove Dc offset from a signal.
 
 - in: input signal
 - coef: leak coefficient
@@ -17,3 +17,7 @@ let a = LfPulse(800, 0, 0.5) * 0.5 + 0.5;
 * * *
 
 See also: Dc
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LeakDC.html)

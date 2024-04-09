@@ -1,12 +1,12 @@
 # SelectXFocus
 
+- _SelectXFocus(which, list, focus=1, wrap=false)_
+
 Mix one output from many sources
 
 The output is mixed from a list of inputs,
 linearly interpolating from a number of adjacent channels.
 A focus argument allows to control how many adjacent sources are mixed.
-
-_SelectXFocus(which, list, focus=1, wrap=false)_
 
 - which: Index of the selected input, which is also the center of the selection for a focus > 0.
 - list: A collection of inputs.

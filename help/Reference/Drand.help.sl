@@ -1,8 +1,8 @@
 # Drand
 
-Demand rate random sequence generator.
+- _Drand(repeats, list)_
 
-_Drand(repeats, list)_
+Demand rate random sequence generator.
 
 - repeats: number of values to return
 - list: a list of values or other Ugens

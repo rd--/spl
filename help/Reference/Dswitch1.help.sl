@@ -1,8 +1,8 @@
 # Dswitch1
 
-Demand rate generator for switching between inputs.
+- _Dswitch1(index, list)_
 
-_Dswitch1(index, list)_
+Demand rate generator for switching between inputs.
 
 - index: Which of the inputs to return.
 - list: List of values or other UGens.
@@ -36,3 +36,7 @@ SinOsc(freq, 0) * 0.1
 * * *
 
 See also: Demand, Duty, TDuty, Dswitch
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Dswitch1.html)

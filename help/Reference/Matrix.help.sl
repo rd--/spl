@@ -17,7 +17,7 @@ Determinant:
 
 * * *
 
-See also: List, Matrix Operations, Sequence
+See also: asMatrix, List, Matrix Operations, Sequence
 
 References:
 _Apl_

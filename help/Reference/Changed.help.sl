@@ -1,9 +1,8 @@
 # Changed
 
+- _Changed(input, threshold=0)_
+
 Triggers when a value changes.
-
-_Changed(input, threshold=0)_
-
 A special case fixed filter.
 
 - input: signal input
@@ -11,7 +10,7 @@ A special case fixed filter.
 
 Implements the formula:
 
-> out(i) = abs(input(i) - input(i-1)) > threshold
+> _out(i) = abs(input(i) - input(i-1)) > threshold_
 
 Detect changes in a signal:
 
@@ -23,5 +22,11 @@ SinOsc(440 + ([s, d] * 440), 0) * 0.1
 ```
 
 * * *
+
+See also: Hpz1, Hpz2
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Changed.html)
 
 Categories: Ugen, Filter

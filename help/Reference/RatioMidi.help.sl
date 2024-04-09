@@ -1,8 +1,10 @@
 # RatioMidi
 
+- _RatioMidi(aNumber)_
+
 Convert interval as frequency ratio to midi note number.
 
-Inverse of _MidiRatio_.
+Inverse of `MidiRatio`.
 
 ```
 >>> 2.RatioMidi

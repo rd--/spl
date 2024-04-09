@@ -1,5 +1,7 @@
 # Distort
 
+- _Distort(aNumber)_
+
 Nonlinear distortion.
 Distortion increases with amplitude:
 

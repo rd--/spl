@@ -1,6 +1,6 @@
 # Silent
 
-_Silent(numChannels)_
+- _Silent(numChannels)_
 
 Output zero (silence).
 Equivalent to _Dc(0) # numChannels_.

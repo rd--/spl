@@ -1,8 +1,8 @@
 # Fos
 
-First order filter section.
+- _Fos(in, a0, a1, b1)_
 
-_Fos(in, a0, a1, b1)_
+First order filter section.
 
 A standard first order filter section. Filter coefficients are given directly rather than calculated for you. Formula is equivalent to _out(i) = (a0 * in(i)) + (a1 * in(i-1)) + (b1 * out(i-1))_.
 

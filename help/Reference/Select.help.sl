@@ -1,10 +1,8 @@
 # Select
 
+- _Select(which, list)_
+
 Select output from a list of inputs.
-
-_Select(which, list)_
-
-The output is selected from a list of inputs.
 
 All the Ugens are continuously running.
 This may not be the most efficient way if each input is Cpu-expensive.
@@ -52,3 +50,5 @@ See also: BufRd, SelectX, SelectXFocus, LinSelectX
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Select.html)
+
+Categories: Ugen

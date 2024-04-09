@@ -1,8 +1,8 @@
 # Dseq
 
-Sequence generator.
+- _Dseq(repeats=1, list)_
 
-_Dseq(repeats=1, list)_
+Sequence generator.
 
 - repeats: number of repeats
 - list: a list of values or other Ugens

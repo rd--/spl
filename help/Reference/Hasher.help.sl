@@ -1,8 +1,8 @@
 # Hasher
 
-Randomized value.
+- _Hasher(in)_
 
-_Hasher(in)_
+Randomized value.
 
 Returns a unique output value from zero to one for each input value according to a hash function.
 The same input value will always produce the same output value.

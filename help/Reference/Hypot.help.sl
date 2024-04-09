@@ -1,6 +1,6 @@
 # Hypot
 
-_Hypot(x, y)_
+- _Hypot(x, y)_
 
 Answer the square root of the sum of the squares of the arguments.
 Or equivalently, the distance from the origin to the point _(x, y)_.

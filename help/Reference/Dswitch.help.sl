@@ -1,12 +1,12 @@
 # Dswitch
 
+- _Dswitch(index, list)_
+
 Demand rate generator for embedding different inputs
 
 Demand rate generator for embedding different inputs.
 Unlike Dswitch1, Dswitch embeds all items of an input demand Ugen first,
 before looking up the next index.
-
-_Dswitch(index, list)_
 
 - list: list of values or other ugens
 - index: which of the inputs to return
@@ -48,3 +48,7 @@ SinOsc(
 * * *
 
 See also: Demand, Dswitch1
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Dswitch.html)

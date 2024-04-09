@@ -444,6 +444,18 @@
 
 +SmallFloat {
 
+	AbsDif { :self :aNumber |
+		Abs(Sub(self, aNumber))
+	}
+
+	AmClip { :self :aNumber |
+		(aNumber <= self.zero).if {
+			self.zero
+		} {
+			Mul(a, b)
+		}
+	}
+
 	Gcd { :self :aNumber |
 		(
 			self.isNegative & {

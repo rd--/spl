@@ -1,7 +1,8 @@
-# PulseDivider -- pulse divider
+# PulseDivider
 
-_PulseDivider(trig=0, div=2, startCount=0)_
+- _PulseDivider(trig=0, div=2, startCount=0)_
 
+Pulse divider.
 Outputs one impulse each time it receives a certain number of triggers at its input.
 
 - trig: trigger
@@ -39,3 +40,9 @@ let p16 = PulseDivider(p, 16, 0);
 * * *
 
 See also: Impulse
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/PulseDivider.html)
+
+Categories: Ugen

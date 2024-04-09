@@ -1,8 +1,8 @@
 # Duty
 
-Demand results from demand rate ugens.
+- _Duty(dur=1, reset=0, level=1)_
 
-_Duty(dur=1, reset=0, level=1)_
+Demand results from demand rate ugens.
 
 A value is demanded of _level_ and output according to a stream of duration values.
 
@@ -88,3 +88,7 @@ SinOsc([freq, latchFreq], 0) * 0.1
 * * *
 
 See also: Latch, TDuty
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Duty.html)

@@ -8,4 +8,4 @@ There are accessors for `picometres`, `millimetres`, `centimetres`, `metres` and
 
 * * *
 
-See also: asMetres, metres
+See also: Angle, asMetres, Duration, Frequency, metres

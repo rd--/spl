@@ -1,9 +1,16 @@
-# LocalOut -- define and write to an audio bus local to the enclosing synth
+# LocalOut
 
-_LocalOut(channelsList)_
+- _LocalOut(channelsList)_
 
-Write to local bus, which can be read from by _LocalIn_.
+Define and write to an audio bus local to the enclosing synth,
+which can be read from by `LocalIn`.
 
 * * *
 
 See also: FirstArg, LocalIn, <!
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LocalOut.html)
+
+Categories: Ugen

@@ -1,6 +1,26 @@
 # DbAmp
 
+- _DbAmp(aNumber)_
+
 Convert decibels to linear amplitude.
+
+```
+>>> DbAmp(-20)
+0.1
+```
+
+Threads over lists:
+
+```
+>>> [-120 -60 -40 -20 0 6].DbAmp
+[0.000001 0.001 0.01 0.1 1 1.9953]
+```
+
+Plot curve:
+
+~~~
+(-120 -- 0).discretize(500).DbAmp.plot
+~~~
 
 Fixed amplitude:
 
@@ -17,3 +37,9 @@ FSinOsc(800, 0) * Line(-12, -40, 10).DbAmp
 * * *
 
 See also: AmpDb
+
+References:
+_Csound_
+[1](https://csound.com/docs/manual/dbamp.html),
+_Max_
+[1](https://docs.cycling74.com/max8/refpages/dbtoa)

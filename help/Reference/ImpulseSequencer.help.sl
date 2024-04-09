@@ -1,9 +1,8 @@
 # ImpulseSequencer
 
+- _ImpulseSequencer(sequence, trig)_
+
 Clocked impulses.
-
-_ImpulseSequencer(sequence, trig)_
-
 Outputs a single sample impulse level from the sequence each time a trigger is received.
 
 - sequence: the values in the array are output cyclically

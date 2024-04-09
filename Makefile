@@ -22,4 +22,4 @@ doctest:
 	doctest -Wno-x-partial -Wno-incomplete-uni-patterns hs
 
 help-index:
-	(cd help; ls Guide/* Reference/* > Index.text)
+	(cd help; ls Guide/*.help.sl Reference/*.help.sl > Index.text)

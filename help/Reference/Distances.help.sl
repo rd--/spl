@@ -1,6 +1,6 @@
 # Distances
 
-_Distances(x=0, y=0, z=0, coordinateList)_
+- _Distances(x=0, y=0, z=0, coordinateList)_
 
 Calculate distances between an index location _(x, y, z)_ and each element of _coordinateList_.
 

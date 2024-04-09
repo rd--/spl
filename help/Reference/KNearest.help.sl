@@ -1,6 +1,6 @@
 # KNearest
 
-_KNearest(numChannels=1, x=0, y=0, z=0, coordinateList)_
+- _KNearest(numChannels=1, x=0, y=0, z=0, coordinateList)_
 
 Calculate distances between an index location _(x, y, z)_ and each element of _coordinateList_.
 Output a sequence of _numChannels_ zero-based indices into _coordinateList_,

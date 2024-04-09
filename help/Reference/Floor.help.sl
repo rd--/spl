@@ -1,6 +1,13 @@
 # Floor
 
+- _Floor(aNumber)_
+
 Next lower integer.
+
+```
+>>> 1.5.Floor
+1
+```
 
 Stepped line:
 
@@ -11,4 +18,6 @@ SinOsc([m, m.Floor].MidiCps, 0) * 0.1
 
 * * *
 
-See also: Ceiling, Round
+See also: Ceiling, floor, Round
+
+Categories: Truncating, Rounding

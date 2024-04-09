@@ -4,6 +4,11 @@
 
 Next higher integer.
 
+```
+>>> 1.5.Ceiling
+2
+```
+
 Stepped line:
 
 ```
@@ -13,7 +18,7 @@ SinOsc([m, m.Ceiling].MidiCps, 0) * 0.1
 
 * * *
 
-See also: Floor, RoundTo
+See also: ceiling, Floor, RoundTo
 
 References:
 _Csound_

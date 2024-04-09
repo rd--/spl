@@ -1,6 +1,6 @@
 # LatoocarfianC
 
-_LatoocarfianC(freq, a, b, c, d, xi, yi)_
+- _LatoocarfianC(freq=22050, a=1, b=3, c=0.5, d=0.5, xi=0.5, yi=0.5)_
 
 Latoocarfian chaotic generator.
 
@@ -16,6 +16,29 @@ A cubic-interpolating sound generator based on a function given in the Clifford 
 
 According to Pickover, parameters a and b should be in the range from -3 to +3, and parameters c and d should be in the range from 0.5 to 1.5. The function can, depending on the parameters given, give continuous chaotic output, converge to a single value (silence) or oscillate in a cycle (tone).
 
+Default initial parameters, mouse control of frequency:
+
+~~~
+let x = MouseX(20, SampleRate(), 0, 0.2);
+LatoocarfianC(x, 1, 3, 0.5, 0.5, 0.5, 0.5) * 0.1
+~~~
+
+Randomly modulate all parameters:
+
+~~~
+LatoocarfianC(
+	SampleRate() / 4,
+	LfNoise2(2) * 1.5 + 1.5,
+	LfNoise2(2) * 1.5 + 1.5,
+	LfNoise2(2) * 0.5 + 1.5,
+	LfNoise2(2) * 0.5 + 1.5,
+	0.5,
+	0.5
+) * 0.1
+~~~
+
+Randomly reset parameters in texture:
+
 ~~~
 { :tr |
 	let freq = TRand(400, SampleRate() / 3, tr);
@@ -28,9 +51,10 @@ According to Pickover, parameters a and b should be in the range from -3 to +3, 
 }.OverlapTexture(1, 4, 8).Mix
 ~~~
 
-This UGen is experimental and not optimized currently, so is rather hoggish of Cpu.
-
 * * *
 
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LatoocarfianC.html)
 
 Categories: Ugen

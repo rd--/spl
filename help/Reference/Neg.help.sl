@@ -1,6 +1,13 @@
 # Neg
 
+- _Neg(aNumber)_
+
 Negation (inversion).
+
+```
+>>> 9.Neg
+-9
+```
 
 * * *
 

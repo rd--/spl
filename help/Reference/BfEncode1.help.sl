@@ -1,10 +1,9 @@
 # BfEncode1
 
+- _BfEncode1(in, azimuth=0, elevation=0, rho=1, gain=1, wComp=0)_
+
 Ambisonic B format encoder
-
 Output channels are in order _w,x,y,z_.
-
-_BfEncode1(in, azimuth=0, elevation=0, rho=1, gain=1, wComp=0)_
 
 - in: Input signal
 - azimuth: In radians, -pi to pi

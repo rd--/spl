@@ -1,10 +1,10 @@
 # BLowPass
 
+- _BLowPass(in, freq=1200, rq=1)_
+
 12db/oct rolloff 2nd order resonant low pass filter.
 
 The B equalization suite is based on the Second Order Section (SOS) biquad UGen.
-
-_BLowPass(in, freq, rq)_
 
 - in: input signal to be processed.
 - freq: cutoff frequency

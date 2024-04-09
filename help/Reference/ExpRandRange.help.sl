@@ -1,8 +1,8 @@
 # ExpRandRange
 
-Exponentially distributed random number in indicated range.
+- _ExpRandRange(low, high)_
 
-_ExpRandRange(low, high)_
+Exponentially distributed random number in indicated range.
 
 As amplitude:
 

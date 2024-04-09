@@ -70,3 +70,10 @@ let z = WhiteNoise() + SinOsc(800, 0) * 0.1;
 LeakDc(Median(31, z), 0.9)
 ```
 
+* * *
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Median.html)
+
+Categories: Ugen

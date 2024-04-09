@@ -1,8 +1,8 @@
 # AbsDif
 
-- _AbsDif(a, b)_ => _Abs(a - b)_
+- _AbsDif(alpha, beta)_ => _Abs(alpha - beta)_
 
-Absolute value of the difference.
+Answer the absolute value of the difference.
 
 Simple rhythm:
 

@@ -1,9 +1,8 @@
 # FreqShift
 
+- _FreqShift(input, shift, phase)_
+
 Frequency shifter.
-
-_FreqShift(input, shift, phase)_
-
 FreqShift implements single sideband amplitude modulation, also known as frequency shifting, but not to be confused with pitch shifting.
 Frequency shifting moves all the components of a signal by a fixed amount but does not preserve the original harmonic relationships.
 

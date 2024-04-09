@@ -1,6 +1,6 @@
 # Dseries
 
-_Dseries(length=inf, start=1, step=1)_
+- _Dseries(length=inf, start=1, step=1)_
 
 Demand rate arithmetic series UGen.
 

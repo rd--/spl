@@ -18,3 +18,7 @@ K2A(WhiteNoise().kr * 0.2)
 * * *
 
 See also: kr
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/K2A.html)

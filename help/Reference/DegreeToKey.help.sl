@@ -1,8 +1,8 @@
 # DegreeToKey
 
-Convert signal to modal pitch.
+- _DegreeToKey(table, in, octave)_
 
-_DegreeToKey(table, in, octave)_
+Convert signal to modal pitch.
 
 The input signal value is truncated to an integer value and used as an index into an octave repeating table of note values. Indices wrap around the table and shift octaves as they do.
 

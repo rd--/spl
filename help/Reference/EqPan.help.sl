@@ -2,7 +2,7 @@
 
 - _EqPan(in, pos=0)_
 
-Equal power panner across the main output channels, as configured in Preferences.
+Equal power panner across the main output channels, as configured in `Preferences`.
 
 - in: input signal
 - pos: pan position, in range (-1, 1)
@@ -13,7 +13,7 @@ Pan pink noise:
 EqPan(PinkNoise(), LfSaw(1 / 4, 0)) * 0.1
 ```
 
-Sum of two panners (ie. channel-expansion at EqPan):
+Sum of two panners, ie. channel-expansion at `EqPan`:
 
 ```
 EqPan(

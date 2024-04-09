@@ -1,7 +1,8 @@
-# RandRange -- random number generator
+# RandRange
 
-_RandRange(lo, hi)_
+- _RandRange(lo, hi)_
 
+Random number generator.
 Generates random numbers between _lo_ and _hi_.
 
 White noise:

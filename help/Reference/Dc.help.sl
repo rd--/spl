@@ -1,9 +1,9 @@
 # Dc
 
+- _Dc(in=0)_
+
 Create a constant amplitude signal.
 This Ugen simply outputs the initial value you give it.
-
-_Dc(in=0)_
 
 - in: constant value to output, cannot be modulated, set at initialisation time
 

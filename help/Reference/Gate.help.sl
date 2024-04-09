@@ -1,8 +1,8 @@
 # Gate
 
-Gate or hold.
+- _Gate(in=0, gate=0)_
 
-_Gate(in=0, gate=0)_
+Gate or hold.
 
 Allows input signal value to pass when gate is positive, otherwise holds last value.
 

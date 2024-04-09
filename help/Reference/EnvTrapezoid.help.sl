@@ -1,6 +1,6 @@
 # EnvTrapezoid
 
-_EnvTrapezoid(trig=0, dur=1, shape=0, skew=0.5)_
+- _EnvTrapezoid(trig=0, dur=1, shape=0, skew=0.5)_
 
 Default parameters:
 

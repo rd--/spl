@@ -1,5 +1,8 @@
-# ScaleNeg -- waveshaping
+# ScaleNeg
 
+- _ScaleNeg(aNumber, anotherNumber)_
+
+Waveshaping.
 Scale negative part of input.
 
 ```

@@ -13,6 +13,7 @@ url.fetchBlob.then { :answer |
 	let url = answer.createObjectUrl;
 	system.smallKansas.ImageViewer(
 		'Smalltalk Balloon',
+		url
 	).onClose { :unused |
 		url.revokeObjectUrl
 	}

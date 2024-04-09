@@ -111,4 +111,8 @@ Compander(
 
 See also: Limiter
 
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Compander.html)
+
 Categories: Ugen, Amplitude

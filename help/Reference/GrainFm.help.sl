@@ -1,8 +1,8 @@
 # GrainFm
 
-Granular synthesis with frequency modulated sine tones.
+- _GrainFm(numChannels=1, trigger=0, dur=1, carfreq=440, modfreq=220, index=1, pan=0, envbufnum=-1, maxGrains=512)_
 
-_GrainFm(numChannels=1, trigger=0, dur=1, carfreq=440, modfreq=220, index=1, pan=0, envbufnum=-1, maxGrains=512)_
+Granular synthesis with frequency modulated sine tones.
 
 - numChannels: the number of channels to output
 - trigger: a trigger to start a new grain

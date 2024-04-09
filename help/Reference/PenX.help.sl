@@ -1,6 +1,6 @@
 # PenX
 
-_PenX(voiceNumber=1)_
+- _PenX(voiceNumber=1)_
 
 Read x-coordinate of the first Pen to control the frequency of a sine tone oscillator:
 

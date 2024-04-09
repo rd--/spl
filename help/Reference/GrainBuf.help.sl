@@ -1,6 +1,6 @@
 # GrainBuf
 
-_GrainBuf(numChannels=1, trigger=0, dur=1, sndbuf, rate=1, pos=0, interp=2, pan=0, envbufnum=-1, maxGrains=512)_
+- _GrainBuf(numChannels=1, trigger=0, dur=1, sndbuf, rate=1, pos=0, interp=2, pan=0, envbufnum=-1, maxGrains=512)_
 
 Granular synthesis with sound stored in a buffer.
 

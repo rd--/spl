@@ -1,8 +1,8 @@
 # Dwhite
 
-Noise generator.
+- _Dwhite(length, lo, hi)_
 
-_Dwhite(length, lo, hi)_
+Noise generator.
 
 Demand rate white noise random generator.
 Dwhite answers numbers in the continuous range between lo and hi.
@@ -23,5 +23,8 @@ SinOsc(freq, 0) * 0.1
 
 * * *
 
-See also: Dbrown, WhiteNoise
+See also: Dbrown, Diwhite, WhiteNoise
 
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Dwhite.html)

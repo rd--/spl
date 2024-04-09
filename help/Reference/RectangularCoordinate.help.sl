@@ -1,6 +1,6 @@
 # RectangularCoordinate
 
-_RectangularCoordinate(x, y)_
+- _RectangularCoordinate(x, y)_
 
 A coordinate in two-dimensional Cartesian space given by an ordered pair _(x, y)_.
 

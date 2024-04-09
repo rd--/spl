@@ -1,9 +1,8 @@
 # BfDecode1
 
+- _BfDecode1(w, x, y, z, azimuth=0, elevation=0, wComp=0)_
+
 3D Ambisonic decoder.
-
-_BfDecode1(w, x, y, z, azimuth=0, elevation=0, wComp=0)_
-
 Decode a two dimensional ambisonic B-format signal for any speaker arrangement.
 
 Note:

@@ -1,7 +1,8 @@
-# Spring -- physical model of resonating spring
+# Spring
 
-_Spring(in, spring, damp)_
+- _Spring(in, spring, damp)_
 
+Physical model of resonating spring.
 Models the force of a resonating string
 
 - in: modulated input force

@@ -19,3 +19,10 @@ Modulate frequency:
 LfNoise1(XLine(1000, 10000, 10)) * 0.05
 ```
 
+* * *
+
+See also: LfNoise0, LfNoise2
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LFNoise1.html)

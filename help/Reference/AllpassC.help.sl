@@ -1,22 +1,28 @@
 # AllpassC
 
-- _AllpassC(in, maxdelaytime, delaytime, decaytime)_
+- _AllpassC(in, maxDelayTime=0.2, delayTime=0.2, decayTime=1)_
 
-All pass delay line. AllpassN uses no interpolation, AllpassL uses linear interpolation, AllpassC uses cubic interpolation.
+All pass delay line.
+`AllpassN` uses no interpolation,
+`AllpassL` uses linear interpolation,
+`AllpassC` uses cubic interpolation.
 
 - in: the input signal.
-- maxdelaytime: the maximum delay time in seconds. used to initialize the delay buffer size.
-- delaytime: delay time in seconds.
-- decaytime: time for the echoes to decay by 60 decibels. If this time is negative then the feedback coefficient will be negative, thus emphasizing only odd harmonics at an octave lower.
+- maxDelayTime: the maximum delay time in seconds.
+  Used to initialize the delay buffer size.
+- delayTime: delay time in seconds.
+- decayTime: time for the echoes to decay by 60 decibels.
+  If this time is negative then the feedback coefficient will be negative,
+  thus emphasizing only odd harmonics at an octave lower.
 
-Since the allpass delay has no audible effect as a resonator on steady state sound...
+The allpass delay has no audible effect as a resonator on steady state sound:
 
 ```
 let z = WhiteNoise() * 0.1;
 AllpassC(z, 0.01, XLine(0.0001, 0.01, 20), 0.2)
 ```
 
-...these examples add the input to the effected sound so that you can hear the effect of the phase comb:
+The examples below add the input to the effected sound so that you can hear the effect of the phase comb:
 
 ```
 let z = WhiteNoise() * 0.1;

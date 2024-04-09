@@ -1,10 +1,8 @@
 # BufFrames
 
+- _BufFrames(bufNum)_
+
 Read the current number of frames allocated in the buffer.
-
-_BufFrames(bufNum)_
-
-Get the current number of allocated frames.
 
 - bufNum: Buffer index.
 

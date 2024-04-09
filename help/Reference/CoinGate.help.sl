@@ -1,9 +1,8 @@
 # CoinGate
 
+- _CoinGate(prob, trig)_
+
 Statistical gate.
-
-_CoinGate(prob, trig)_
-
 When it receives a trigger, it tosses a coin, and either passes the trigger or does not.
 
 - prob: value between 0 and 1 determines probability of either possibilities
@@ -33,5 +32,11 @@ let trig = Impulse(20, 0) * (SinOsc(0.5, 0) + 1);
 ```
 
 * * *
+
+See also: Coin
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/CoinGate.html)
 
 Categories: Ugen
