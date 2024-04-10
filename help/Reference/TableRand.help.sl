@@ -1,12 +1,12 @@
 # TableRand
 
-_TableRand(trig, bufNum)_
-
-- trig: generate new random output value on each trigger
-- bufNum: table giving probability density function for random number generation
+- _TableRand(trig, bufNum)_
 
 Select random value in (0,1) at each trigger input.
 The value follows the probability density function given in the associated table.
+
+- trig: generate new random output value on each trigger
+- bufNum: table giving probability density function for random number generation
 
 Randomly set the frequency of a sine oscillator according to an indicated probablity table:
 
@@ -46,3 +46,5 @@ GrainFm(1, tr, 7 / x, carFreq, modFreq, index, 0, -1, 512).Mix / 23 / 7
 * * *
 
 See also: asRandomTable
+
+Categories: Ugen

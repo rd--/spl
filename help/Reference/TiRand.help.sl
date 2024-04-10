@@ -1,9 +1,8 @@
 # TiRand
 
+- _TiRand(lo, hi, tr)_
+
 Triggered integer random number generator.
-
-_TiRand(lo, hi, tr)_
-
 Generates a random integer value in uniform distribution from _lo_ to _hi_ each time the _trig_ signal is set.
 
 - lo: Lower limit of the output range
@@ -47,3 +46,5 @@ See also: IRand, Rand, TRand
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/TIRand.html)
+
+Categories: Ugen

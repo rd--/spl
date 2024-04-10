@@ -42,3 +42,5 @@ SinOsc({ Rand(111, 555) } ! 9, 0).Sum / 27
 * * *
 
 See also: Mix, sum, Sum4
+
+Categories: Ugen

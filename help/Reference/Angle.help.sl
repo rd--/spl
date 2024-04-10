@@ -2,8 +2,8 @@
 
 A type representing a unit of measure for angles.
 
-- _degrees(aNumber)_
-- _radians(aNumber)_
+- _degrees(aNumber | anAngle)_
+- _radians(aNumber | anAngle)_
 
 An angle is constructed by the _degrees_ and _radians_ methods at _Number_.
 
@@ -15,9 +15,6 @@ true
 true
 ```
 
-- _degrees(anAngle)_
-- _radians(anAngle)_
-
 There are _degrees_ and _radians_ accessors.
 
 ```
@@ -28,7 +25,7 @@ There are _degrees_ and _radians_ accessors.
 2.pi
 ```
 
-The circular functions are implemented:
+The circular (trigonometric) functions are implemented:
 
 ```
 >>> 30.degrees.cos

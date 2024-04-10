@@ -1,9 +1,8 @@
 # Trig1
 
+- _Trig1(in=0, dur=0.1)_
+
 Timed trigger.
-
-_Trig1(in=0, dur=0.1)_
-
 When a non-positive to positive transition occurs at _in_,
 _Trig1_ outputs one for the specified _dur_ seconds,
 otherwise it outputs zero.
@@ -35,3 +34,5 @@ See also: Trig
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Trig1.html)
+
+Categories: Ugen

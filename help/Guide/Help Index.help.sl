@@ -111,6 +111,7 @@
 - `asComplex`, `asFloat`, `asFraction`, `asGaussianInteger`, `asInteger`, `asLargeInteger`, `asNumber`, `asSmallFloat`
 - `asCharacter`, `asCodePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`, `asWords`
 - `asBag`, `asByteArray`, `asCollection`, `asList`, `asMap`, `asRecord`, `asSet`, `asSortedList`, `asTree`
+- `degreesToRadians`, `radiansToDegrees`
 
 ## Copying
 
@@ -150,6 +151,15 @@
 - `minutes`, `hours`, `days`, `weeks`
 - `siderealMonths`, `synodicMonths`, `julianYears`
 
+## Elementary Transcendental Functions
+
+- `exp`, `log`, `log2`, `log10`
+- `sin`, `cos`, `tan`
+- `arcSin`, `arcCos` , `arcTan`
+- `sinh`, cosh`, `tanh`
+- `sinc`
+- `haversine`
+
 ## Enumerating
 
 - `indices`, `shapeIndices`
@@ -173,7 +183,8 @@
 
 ## Exponential Functions
 
-- `^`, `exp`, `log`, `log2`, `log10`, `squared`
+- `log`, `log2`, `log10`
+- `^`, `exp`, `squared`
 - `cubeRoot`, `sqrt`, `nthRoot`
 
 ## Floating Point
@@ -237,6 +248,11 @@
 
 - `DocumentTest`, `HelpFile`
 - `asDocumentTest`, `extractDocumentTests`
+
+## Hyperbolic Functions
+
+- `sinh`, `cosh`, `tanh`
+- `i`
 
 ## Indexing
 
@@ -356,6 +372,11 @@
 
 - `permutations`, `permutationsDo`
 
+## Piecewise Functions
+
+- `abs`, `min`, `max`
+- `Piecewise`
+
 ## Prime Numbers
 
 - `factorInteger`, `integerExponent`
@@ -382,6 +403,8 @@
 
 ## Random Numbers
 
+- `Random`, `Stream`
+- `LinearCongruential`, `Mersenne`, `Sfc32`, `SplitMix`
 - `nextRandomFloat`, `randomComplex`, `randomFloat`, `randomInteger`, `randomPrime`
 - `atRandom`, `randomByteArray`, `randomSample`
 - `randomFloatBipolar`, `randomIntegerBipolar`
@@ -536,8 +559,13 @@
 
 ## Trigonometric Functions
 
-- `arcCos`, `arcSin`, `arcTan`, `cos`, `sin`, `sinc`, `tan`
-- `arcCosh`, `arcSinh`, `arcTanh`, `cosh`, `sinh`, `tanh`
+- `Angle`, `degrees`, `radians`
+- `degreesToRadians`, `radiansToDegrees`
+- `cos`, `sin`, `tan`
+- `cosh`, `sinh`, `tanh`
+- `sinc`
+- `arcCos`, `arcSin`, `arcTan`
+- `arcCosh`, `arcSinh`, `arcTanh`
 - `haversine`
 
 ## Tuning Type and Functions

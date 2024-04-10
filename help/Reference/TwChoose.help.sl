@@ -1,5 +1,7 @@
 # TwChoose
 
+- _TwChoose(trig, list, weights, normalize=0)_
+
 Indexing.
 Randomly select one of several inputs
 
@@ -9,9 +11,7 @@ The weights of this choice are determined from the weights list.
 
 If normalize is set to 1 the weights are continuously normalized (this is an extra overhead) when using fixed values the normalizeSum method can be used to normalize the values.
 
-TwChoose is a composite of TwIndex and Select.
-
-_TwChoose(trig, list, weights, normalize=0)_
+TwChoose is a composite of `TwIndex` and `Select`.
 
 ```
 let list = [
@@ -33,6 +33,10 @@ This may not be the most efficient way if each input is Cpu-expensive.
 
 * * *
 
+See also: Select, TwIndex
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/TWChoose.html)
+
+Categories: Ugen

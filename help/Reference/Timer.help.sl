@@ -1,8 +1,8 @@
 # Timer
 
-Returns time since last triggered.
+- _Timer(trig)_
 
-_Timer(trig)_
+Returns time since last triggered.
 
 Using timer to modulate sine frequency, the slower the trigger is the higher the frequency:
 
@@ -13,6 +13,8 @@ SinOsc([x * 20 + 100, Timer(trig) * 500 + 500], 0) * 0.1
 ```
 
 * * *
+
+See also: Changed, Gate, LastValue, Latch
 
 References:
 _SuperCollider_

@@ -2,7 +2,12 @@
 
 - _degrees(aNumber)_
 
-Answer an Angle representing _aNumber_ degrees.
+Answer an `Angle` representing _aNumber_ degrees.
+
+```
+>>> 90.degrees
+0.5.pi.radians
+```
 
 * * *
 

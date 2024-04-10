@@ -23,6 +23,13 @@ It is an error if no element is detected:
 true
 ```
 
+Detect the firs prime number in a `Range`:
+
+```
+>>> 99:111.detect(isPrime:/1)
+101
+```
+
 * * *
 
 See also: detectIfFoundIfNone, detectIfNone, findFirst, reject, select

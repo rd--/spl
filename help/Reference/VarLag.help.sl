@@ -1,8 +1,6 @@
 # VarLag
 
-Variable lag.
-
-_VarLag(input, time, curvature)_
+- _VarLag(input, time, curvature)_
 
 Variable shaped lag.
 Similar to Lag but with other curve shapes than exponential.
@@ -27,3 +25,5 @@ See also: Lag, Lag2, Lag3, LagUd
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/VarLag.html)
+
+Categories: Ugen

@@ -1,8 +1,8 @@
 # cos
 
-- _cos(z)_
+- _cos(aNumber)_
 
-Answers the cosine of _z_.
+Answers the cosine of _aNumber_.
 
 ```
 >>> (pi / 6).cos

@@ -1,6 +1,6 @@
 # Stepper
 
-_Stepper(trig, reset=0, min=0, max=7, step=1, resetVal=min)_
+- _Stepper(trig, reset=0, min=0, max=7, step=1, resetVal=min)_
 
 Pulse counter.
 Each trigger increments a counter which is output as a signal.
@@ -83,3 +83,9 @@ OnePole(out, 0.9) * 0.5
 * * *
 
 See also: PulseCount
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Stepper.html)
+
+Categories: Ugen

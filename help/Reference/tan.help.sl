@@ -1,8 +1,8 @@
 # tan
 
-- _tan(z)_
+- _tan(aNumber)_
 
-Answers the tangent of _z_.
+Answers the tangent of _aNumber_.
 
 ```
 >>> (pi / 6).tan

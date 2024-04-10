@@ -1,9 +1,11 @@
 # AmpComp
 
-- _AmpComp(freq, root, exp)_
+- _AmpComp(freq, root, exp=1/3)_
 
 Psychoacoustic amplitude compensation.
-Implements the (optimized) formula: _compensationFactor = (root / freq) ^ exp_.
+Implements the (optimized) formula:
+
+> _compensationFactor = (root / freq) ^ exp_
 
 Higher frequencies are normally perceived as louder, which AmpComp compensates.
 
@@ -30,3 +32,13 @@ so the exponent can be tuned:
 let freq = MouseX(300, 15000, 1, 0.2);
 Pulse(freq, 0.5) * 0.1 * AmpComp(freq, 300, 4 / 3).kr
 ```
+
+* * *
+
+See also: AmpCompA
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/AmpComp.html)
+
+Categories: Ugen

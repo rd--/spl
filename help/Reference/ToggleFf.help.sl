@@ -1,9 +1,8 @@
 # ToggleFf
 
+- _ToggleFf(trig)_
+
 Toggle flip flop.
-
-_ToggleFf(trig)_
-
 Toggles between zero and one upon receiving a trigger.
 
 - trig: trigger input
@@ -22,3 +21,5 @@ See also: SetResetFf
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/ToggleFF.html)
+
+Categories: Ugen

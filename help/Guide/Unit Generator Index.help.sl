@@ -45,6 +45,7 @@
 
 ## Dynamics
 
+- `AmpComp`
 - `Compander`, `Limiter`, `Normalizer`
 
 ## Envelopes
@@ -79,7 +80,7 @@
 
 ## Math Operators
 
-- `Abs`, `AbsDif`
+- `Abs`, `AbsDif`, `AmClip`
 - `Clip`, `Fold`, `Wrap`
 - `Integrator`
 - `LinExp`, `LinLin`

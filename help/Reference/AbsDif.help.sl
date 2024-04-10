@@ -1,8 +1,20 @@
 # AbsDif
 
-- _AbsDif(alpha, beta)_ => _Abs(alpha - beta)_
+- _AbsDif(alpha, beta)_ => _Abs(Sub(alpha, beta))_
 
 Answer the absolute value of the difference.
+
+```
+>>> AbsDif(1, 2)
+1
+```
+
+Written out:
+
+```
+>>> Abs(Sub(1, 2))
+1
+```
 
 Simple rhythm:
 

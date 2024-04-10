@@ -23,3 +23,5 @@ See also: Index, Shaper
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/WrapIndex.html)
+
+Categories: Ugen

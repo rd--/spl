@@ -25,3 +25,5 @@ See also: Line, TLine, TxLine
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/XLine.html)
+
+Categories: Ugen

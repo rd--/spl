@@ -19,4 +19,4 @@ n.Abs - n
 
 See also: BiLinRand, LinRand
 
-Categories: Math, Operator
+Categories: Ugen, Math, Operator

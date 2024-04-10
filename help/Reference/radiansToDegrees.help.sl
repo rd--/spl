@@ -11,10 +11,10 @@ Convert from radians to degrees.
 
 * * *
 
-See also: degreesToRadians
+See also: Angle, degrees, degreesToRadians, radians
 
 References:
 _Smalltalk_
 5.6.7.12
 
-Categories: Math
+Categories: Converting, Math

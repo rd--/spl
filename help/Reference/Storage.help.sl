@@ -1,13 +1,15 @@
-# Storage -- collection type
+# Storage
 
-Storage implements a persistent store for associations where both keys and values are Strings.
+Storage implements a persistent store for associations where both keys and values are of type `String`.
 
-Storage implements the _Dictionary_ protocol.
+Storage implements the `Dictionary` protocol.
 
-System provides a persistent local store at _system.localStorage_.
+`System` provides a persistent local store at `localStorage`.
 
-There may also be a per-session persistent local store at _system.sessionStorage_.
+There may also be a per-session persistent local store at `sessionStorage`.
 
 * * *
 
 See also: Dictionary, Indexable, System
+
+Categories: Collection, Type

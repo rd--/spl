@@ -1,5 +1,9 @@
 Angle : [Object, Magnitude] { | radians |
 
+	= { :self :anAngle |
+		self.radians = anAngle.radians
+	}
+
 	< { :self :anAngle |
 		self.radians < anAngle.radians
 	}

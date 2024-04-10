@@ -445,14 +445,14 @@
 +SmallFloat {
 
 	AbsDif { :self :aNumber |
-		Abs(Sub(self, aNumber))
+		(self - aNumber).Abs
 	}
 
 	AmClip { :self :aNumber |
 		(aNumber <= self.zero).if {
 			self.zero
 		} {
-			Mul(a, b)
+			self * aNumber
 		}
 	}
 

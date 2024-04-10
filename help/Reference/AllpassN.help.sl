@@ -7,3 +7,9 @@ All pass delay line, no interpolation.
 * * *
 
 See also: AllpassC, AllpassL
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/AllpassN.html)
+
+Categories: Ugen, Filter, Delay

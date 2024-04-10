@@ -1,6 +1,8 @@
 # TableWindow
 
-_TableWindow(trig, dur, bufNum)_
+- _TableWindow(trig, dur, bufNum)_
+
+Read window from table.
 
 - trig: initiate window read
 - dur: duration of window, in seconds
@@ -24,4 +26,6 @@ Splay(
 
 * * *
 
-See also: BufFrames, BufRd, Line, TableRand
+See also: BufFrames, BufRd, Line, TLine, TableRand
+
+Categories: Ugen

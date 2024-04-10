@@ -1,8 +1,8 @@
 # XFade2
 
-Equal power two channel cross fade.
+- _XFade2(inA, inB, pan=0, level=1)_
 
-_XFade2(inA, inB, pan=0, level=1)_
+Equal power two channel cross fade.
 
 - inA & inB: input signals
 - pan: at -1 hear only _inA_, at +1 hear only _inB_
@@ -37,3 +37,5 @@ See also: Balance2, LinXFade2
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/XFade2.html)
+
+Categories: Ugen, Panning

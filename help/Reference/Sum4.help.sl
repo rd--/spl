@@ -15,3 +15,5 @@ Sum4 requires all inputs be operating at the same rate, and will crash the synth
 * * *
 
 See also: Mix, Sum, sum
+
+Categories: Ugen

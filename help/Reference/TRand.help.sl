@@ -1,9 +1,8 @@
 # TRand
 
+- _TRand(lo=0, hi=1, trig=0)_
+
 Triggered random number generator.
-
-_TRand(lo=0, hi=1, trig=0)_
-
 Generates a random float value in uniform distribution from _lo_ to _hi_ each time the _trig_ is set.
 
 ```
@@ -25,3 +24,5 @@ See also: IRand, Rand, TiRand
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/TRand.html)
+
+Categories: Ugen

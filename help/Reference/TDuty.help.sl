@@ -1,8 +1,8 @@
 # TDuty
 
-Demand results as trigger from demand rate Ugens.
+- _TDuty(dur=1, reset=0, level=1)_
 
-_TDuty(dur=1, reset=0, level=1)_
+Demand results as trigger from demand rate Ugens.
 
 A value is demanded of each Ugen in the list and output as a trigger,
 according to a stream of duration values.

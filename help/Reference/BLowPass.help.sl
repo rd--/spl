@@ -29,3 +29,5 @@ See also: Sos, BLowPass4, BHiPass, BHiPass4, BPeakEQ, BLowShelf, BHiShelf, BBand
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/BLowPass.html)
+
+Categories: Ugen, Filter

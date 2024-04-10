@@ -1,9 +1,8 @@
 # TLine
 
+- _TLine(start, end, dur, tr)_
+
 Line generator.
-
-_TLine(start, end, dur, tr)_
-
 Generates a line from the start value to the end value.
 
 - start: starting value
@@ -11,7 +10,7 @@ Generates a line from the start value to the end value.
 - dur: duration in seconds
 - tr: trigger
 
-Random sine sweeps, Line is in linear pitch space:
+Random sine sweeps, `TLine` is in linear pitch space:
 
 ```
 {
@@ -28,3 +27,5 @@ Random sine sweeps, Line is in linear pitch space:
 * * *
 
 See also: Line, TxLine
+
+Categories: Ugen

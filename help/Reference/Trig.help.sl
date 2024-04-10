@@ -1,9 +1,8 @@
 # Trig
 
+- _Trig(in=0, dur=0.1)_
+
 Timed trigger.
-
-_Trig(in=0, dur=0.1)_
-
 When a non-positive to positive transition occurs at the input,
 _Trig_ outputs the level of the triggering input for the specified duration,
 otherwise it outputs zero.
@@ -40,3 +39,5 @@ See also: Trig1
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Trig.html)
+
+Categories: Ugen

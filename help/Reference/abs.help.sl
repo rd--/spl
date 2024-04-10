@@ -1,6 +1,6 @@
 # abs
 
-- _abs(aNumber|aSequence)_
+- _abs(aNumber)_
 
 Answer a number that is the absolute value (positive magnitude) of _aNumber_.
 
@@ -40,6 +40,18 @@ Answer a number that is the absolute value (positive magnitude) of _aNumber_.
 >>> [1 -2 3; -4 5 -6].abs
 [1 2 3; 4 5 6]
 ```
+
+Plot over a subset of the reals:
+
+~~~
+(-3 -- 3).subdivide(200).abs.plot
+~~~
+
+Plot _|1 + x|_:
+
+~~~
+((-3 -- 3).subdivide(200) + 1).abs.plot
+~~~
 
 * * *
 

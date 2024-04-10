@@ -44,6 +44,11 @@ MIT Press.
 [Pdf](https://beige.org/projects/dimi/CSDL2.pdf)
 [Doi](https://doi.org/:10.7551/mitpress/10014.003.0026)
 
+P. L’Ecuyer et. al. 2007.
+"TestU01: A C library for empirical testing of random number generators".\
+_ACM Trans. Math. Softw._ 33, 4.
+[Doi](https://doi.org/10.1145/1268776.1268777)
+
 J. McCartney. 1996.
 "SuperCollider: A new real time synthesis language".\
 _Proc. ICMC_.
@@ -69,6 +74,16 @@ Z. Kása. 2009.
 "Generating and ranking of Dyck words".\
 _Acta Univ. Sapientiae, Informatica_, 1(1):109–118.
 [Pdf](https://arxiv.org/pdf/1002.2625.pdf)
+
+Guy L. Steele et. al. 2014.
+"Fast splittable pseudorandom number generators".
+In _Proc. OOPSLA_, 453-472.
+[Doi](https://doi.org/10.1145/2660193.2660195)
+
+W. E. Thomson. 1958.
+"A Modified Congruence Method of Generating Pseudo-random Numbers".\
+_The Computer Journal_ 1(2):83.
+[Doi](https://doi.org/10.1093/comjnl/1.2.83)
 
 A. Warth et. al. 2016.
 "Modular semantic actions".\
