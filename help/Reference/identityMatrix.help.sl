@@ -17,6 +17,8 @@ Answers the _n x n_ identity matrix.
 
 * * *
 
+See also: diagonalMatrix, kroneckerDelta, UnitVector PermutationMatrix table
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/IdentityMatrix.html)

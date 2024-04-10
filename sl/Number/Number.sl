@@ -310,6 +310,22 @@
 		self > self.zero
 	}
 
+	kroneckerDelta { :self |
+		self.isZero.if {
+			1
+		} {
+			0
+		}
+	}
+
+	kroneckerDelta { :self :aNumber |
+		(self = aNumber).if {
+			1
+		} {
+			0
+		}
+	}
+
 	log2 { :self |
 		self.asSmallFloat.log2
 	}

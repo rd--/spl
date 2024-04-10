@@ -1,8 +1,8 @@
 # unitVector
 
-_unitVector(n, k)_
+- _unitVector(n, k)_
 
-Answers the _n_-dimensional unit vector in the _k_th direction.
+Answers the _n_-dimensional unit vector in the _k_-th direction.
 
 The unit vector in the _x_ direction in two dimensions:
 
@@ -11,7 +11,7 @@ The unit vector in the _x_ direction in two dimensions:
 [1 0]
 ```
 
-The unit vector in the_y_ direction in three dimensions:
+The unit vector in the _y_ direction in three dimensions:
 
 ```
 >>> 3.unitVector(2)
@@ -20,7 +20,7 @@ The unit vector in the_y_ direction in three dimensions:
 
 * * *
 
-See also: List
+See also: identityMatrix, kroneckerDelta, List, normalize, rotationMatrix
 
 References:
 _Mathematica_
