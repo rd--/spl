@@ -21,6 +21,7 @@
 
 - `depth`, `iota`, `reshape`, `rank`, `shape`
 - `cartesianIndex`, `linearIndex`
+- `constantArray`
 
 ## Arithmetic Operators
 
@@ -176,6 +177,7 @@
 
 - `=`, `==`, `~=`, `~~`, `~`
 - `hasEqualElements`, `hasEqualElementsBy`
+- `allEqual`, `allEqualBy`
 
 ## Error Handling
 
@@ -210,6 +212,14 @@
 - `limitDenominator`, `mediant`, `rationalize`
 - `continuedFraction`, `fromContinuedFraction`
 - `convergents`, `semiconvergents`
+
+## Functional Iteration
+
+- `foldLeft`, `scan`
+- `nestList`
+- `fixedPoint`, `fixedPointList`
+- `nestWhileList`
+- `dropWhile`, `takeWhile`
 
 ## Functional Programming
 
@@ -382,6 +392,9 @@
 ## Permutations
 
 - `permutations`, `permutationsDo`
+- `isPermutationCycles`, `isPermutationList`
+- `permutationCycle`, `permutationCycles`, `permutationList`
+- `permutationMatrix`
 
 ## Piecewise Functions
 
@@ -516,6 +529,7 @@
 - `BlockStream`, `CollectionStream`, `MutableCollectionStream`
 - `atEnd`, `next`, `reset`
 - `nextPut`, `nextPutAll`
+- `nextUntil`, `nextWhile`
 - `contents`
 - `position`, `setToEnd`
 - `asIterator`, `asStream`
