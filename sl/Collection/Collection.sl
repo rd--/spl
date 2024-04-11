@@ -293,6 +293,14 @@
 		}
 	}
 
+	discreteDelta { :self |
+		self.allSatisfy(isZero:/1).if {
+			1
+		} {
+			0
+		}
+	}
+
 	doesNotInclude { :self :anObject |
 		self.includes(anObject).not
 	}
@@ -467,6 +475,10 @@
 
 	isSequence { :self |
 		false
+	}
+
+	kroneckerDelta { :self |
+		self.allEqual.boole
 	}
 
 	kurtosis { :self |

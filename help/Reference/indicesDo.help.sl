@@ -1,4 +1,4 @@
-# indicesDo -- enumerating
+# indicesDo
 
 - _indicesDo(aCollection, aBlock:/1)_
 
@@ -7,4 +7,6 @@ For sequenceable collections indices are enumerated in sequence.
 
 * * *
 
-See also: includesIndex, Indexable, indices
+See also: includesIndex, Indexable, indices, withIndexDo
+
+Categories: Enumerating

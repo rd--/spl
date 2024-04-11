@@ -1,0 +1,37 @@
+# isDuplicateFree
+
+- _isDuplicateFree(aCollection, aBlock:/2)_
+
+Answer `true` if _aCollection_ has no duplicates according to _aBlock_, and `false` otherwise.
+
+Determine whether or not a list has duplicated elements:
+
+```
+>>> [1 7 8 4 3 4 1 9 9 2].isDuplicateFree(=)
+false
+```
+
+Use `asBag` to reveal duplicate elements:
+
+```
+>>> [1 7 8 4 3 4 1 9 9 2].asBag.sortedElements
+[1 -> 2, 2 -> 1, 3 -> 1, 4 -> 2, 7 -> 1, 8 -> 1, 9 -> 2]
+```
+
+Determine whether or not the sublists have the same total:
+
+```
+>>> let m = [0 0 0 1 0; 1 0 1 0 1; 1 1 1 0 0; 0 0 0 0 1; 1 1 1 0 1];
+>>> m.isDuplicateFree { :p :q | p.sum = q.sum }
+false
+```
+
+* * *
+
+See also: counts, deleteDuplicates, deleteAdjacentDuplicates, isSquareFree
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/DuplicateFreeQ.html)
+
+Categories: Testing

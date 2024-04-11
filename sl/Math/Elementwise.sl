@@ -225,6 +225,10 @@
 		self.collect(primeLimit:/1)
 	}
 
+	primePi { :self |
+		self.collect(primePi:/1)
+	}
+
 	radiansToDegrees { :self |
 		self.collect(radiansToDegrees:/1)
 	}

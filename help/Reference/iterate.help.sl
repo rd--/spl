@@ -4,7 +4,7 @@
 - _iterate(aBlock:/1, anObject, anInteger)_
 
 In the binary case,
-answer an infinite stream of repeated applications of _aBlock_ to _anObject_.
+answer an infinite `Stream` of repeated applications of _aBlock_ to _anObject_.
 
 ```
 >>> not:/1.iterate(true).next(10)

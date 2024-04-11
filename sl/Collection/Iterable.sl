@@ -216,6 +216,19 @@
 		nextValue
 	}
 
+	isDuplicateFree { :self :aBlock:/2 |
+		valueWithReturn { :return:/1 |
+			let items = [];
+			self.do { :each |
+				items.includesBy(each, aBlock:/2).ifTrue {
+					false.return
+				};
+				items.add(each)
+			};
+			true
+		}
+	}
+
 	max { :self |
 		self.injectInto(self.anyOne) { :answer :each |
 			answer.max(each)

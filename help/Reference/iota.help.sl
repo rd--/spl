@@ -3,7 +3,7 @@
 - _iota(aNumber | aSequence)_
 
 Index generator.
-In the scalar case answer a list of indices:
+In the scalar case answer a `List` of indices:
 
 ```
 >>> 5.iota
@@ -13,7 +13,7 @@ In the scalar case answer a list of indices:
 [2 4 8 16 32 64]
 ```
 
-In the sequence case answer a list of indices reshaped to the indicated shape:
+In the `Sequence` case answer a `List` of indices reshaped to the indicated shape:
 
 ```
 >>> [2 3].iota

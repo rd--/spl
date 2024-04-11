@@ -68,9 +68,23 @@ Successively rotate a list:
 [1 2 3 4; 2 3 4 1; 3 4 1 2; 4 1 2 3; 1 2 3 4]
 ```
 
+The orbit of 4 under the mapping _5 x mod 7_:
+
+```
+>>> { :x | (5 * x) % 7 }.nestList(4, 6)
+[4 6 2 3 1 5 4]
+```
+
+The first ten items in an integer sequence:
+
+```
+>>> { :x | (11 * x.primePi) + 1 }.nestList(2, 10)
+[2 12 56 177 441 936 1739 2971 4720 6986 9879]
+```
+
 * * *
 
-See also: iterate
+See also: foldLeft, iterate, reduce, scan
 
 References:
 _Mathematica_

@@ -244,7 +244,7 @@
 
 	primesUpToDo { :self :aBlock:/1 |
 		let primesList = system.primesList;
-		1.toDo(self.leastPrimeGreaterThanOrEqualTo.indexOfPrime - 1) { :index |
+		1.toDo(self.nextPrime.indexOfPrime - 1) { :index |
 			aBlock(primesList[index])
 		}
 	}

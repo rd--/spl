@@ -2,7 +2,7 @@
 
 - _nest(anObject|aCollection)_
 
-Enclose _anObject_ in a List only if it is not a collection.
+Enclose _anObject_ in a `List` only if it is not a collection.
 
 ```
 >>> 1.nest

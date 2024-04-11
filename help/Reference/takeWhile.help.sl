@@ -1,8 +1,8 @@
 # takeWhile
 
-- _takeWhile(aSequence, aBlock:/1)_
+- _takeWhile(aSequence | aStream, aBlock:/1)_
 
-Answer a `List` of the prefix of _aSequence_ for which a _aBlock_ answers `true`.
+Answer the prefix of _aSequence_ or _aStream_ for which a _aBlock_ answers `true`.
 
 ```
 >>> 1:9.takeWhile { :each | each < 5 }
@@ -19,6 +19,13 @@ Answer a `List` of the prefix of _aSequence_ for which a _aBlock_ answers `true`
 
 >>> [1 2 3; 4 5; 6].takeWhile { :each | each.size >= 2 }
 [1 2 3; 4 5]
+```
+
+At `Stream`:
+
+```
+>>> Sfc32(12345).takeWhile { :each | each > 0.35 }.upToEnd
+[0.80111 0.47353 0.98349 0.92329]
 ```
 
 * * *

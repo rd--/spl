@@ -32,7 +32,7 @@ Find the position of the largest element:
 4
 ```
 
-Find positions of elements from the 4^(th) smallest to the largest:
+Find positions of elements from the fourth smallest to the largest:
 
 ```
 >>> [2 6 1 9 1 2 3].ordering.drop(3)

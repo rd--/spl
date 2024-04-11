@@ -1,8 +1,8 @@
 # fixedPointList
 
-_fixedPointList(aBlock:/1, anObject, equalBlock:/2)_
+- _fixedPointList(aBlock:/1, anObject, equalBlock:/2)_
 
-Generates a list giving the results of applying _aBlock_ repeatedly,
+Generates a `List` giving the results of applying _aBlock_ repeatedly,
 starting with _anObject_,
 until the results no longer change according to _equalBlock_.
 
@@ -11,6 +11,15 @@ Find the sequence of values leading to a fixed point:
 ```
 >>> { :x | 1 + (x / 2).floor }.fixedPointList(1000, =)
 [1000 501 251 126 64 33 17 9 5 3 2 2]
+```
+
+Repeated application of a rule until the result no longer changes:
+
+Show convergence to `2.sqrt` in Newton’s method:
+
+```
+>>> { :x | (x + (2 / x)) / 2 }.fixedPointList(1)
+[1 1.5 1.41666 1.41422 1.41421]
 ```
 
 Convergence may fail in machine-precision computations due to oscillations in the final digits.
@@ -25,6 +34,8 @@ Use a test function with a specific tolerance to resolve this:
 ```
 
 * * *
+
+See also: fixedPoint, nestList, nestWhileList
 
 References:
 _Mathematica_

@@ -1,5 +1,6 @@
 # kroneckerDelta
 
+- _kroneckerDelta(aCollection)_
 - _kroneckerDelta(aNumber, anotherNumber)_
 
 Answer the Kronecker delta, equal to `one` if the numbers all are equal, and `zero` otherwise.
@@ -14,6 +15,19 @@ Evaluate numerically:
 1
 
 >>> 2.5.kroneckerDelta(3.5)
+0
+```
+
+At `List`:
+
+```
+>>> [0 1].kroneckerDelta
+0
+
+>>> [-3 -3].kroneckerDelta
+1
+
+>>> [2.5 3.5].kroneckerDelta
 0
 ```
 
@@ -35,7 +49,7 @@ Generate a banded matrix with two superdiagonals:
 
 ```
 >>> { :i :j |
->>> 	((i - j + 1).kroneckerDelta + (i - j + 2).kroneckerDelta) * i * (j ^ 2)
+>>> 	((i - j + 1).kroneckerDelta(0) + (i - j + 2).kroneckerDelta(0)) * i * (j ^ 2)
 >>> }.table(1:5, 1:5)
 [
 	0 4 9 0 0;
@@ -49,7 +63,7 @@ Generate a banded matrix with two superdiagonals:
 Plot over a subset of the integers:
 
 ~~~
--2:2.collect(kroneckerDelta:/1).plot
+-2:2.collect { :each | each.kroneckerDelta(0) }.plot
 ~~~
 
 * * *

@@ -79,6 +79,7 @@
 - `BitSet`, `PriorityQueue`, `SortedList`
 - `ArithmeticProgression`, `Range`
 - `Association`
+- `Slice`
 
 ## Combinatorial Functions
 
@@ -104,6 +105,12 @@
 - `if`, `ifEmpty`, `ifError`, `ifFalse`, `ifNil`, `ifTrue`
 - `whileTrue`, `whileFalse`
 - `doWhileTrue`, `doWhileFalse`
+
+## Congruences
+
+- `%`, `powerMod`
+- `multiplicativeOrder`
+- `chineseRemainder`
 
 ## Converting
 
@@ -155,8 +162,8 @@
 
 - `exp`, `log`, `log2`, `log10`
 - `sin`, `cos`, `tan`
-- `arcSin`, `arcCos` , `arcTan`
-- `sinh`, cosh`, `tanh`
+- `arcSin`, `arcCos`, `arcTan`
+- `sinh`, `cosh`, `tanh`
 - `sinc`
 - `haversine`
 
@@ -226,6 +233,7 @@
 - `fromSphericalCoordinates`, `fromPolarCoordinates`
 - `toPolarCoordinates`
 - `coordinateBoundingBox`, `coordinateBounds`
+- `unitVector`
 
 ## Graph Functions
 
@@ -256,8 +264,9 @@
 
 ## Indexing
 
-- `firstIndex`, `indices`, `lastIndex`
-- `lastIndexOf`
+- `firstIndex`, `lastIndex`
+- `indices`, `indicesDo`, `withIndexDo`
+- `firstIndex`, `lastIndexOf`
 
 ## Integer Functions
 
@@ -273,7 +282,8 @@
 ## Interval
 
 - `Interval`
-- `discretize`, `includes`, `min`, `max`, `subdivide`
+- `includes`, `min`, `max`
+- `discretize`, `subdivide`
 
 ## Iteration
 
@@ -303,7 +313,8 @@
 
 ## Matrix Operations
 
-- `isMatrix`, `shape`
+- `isMatrix`, `shape`, `reshape`, `table`
+- `zeroMatrix`, `identityMatrix`, `diagonalMatrix`
 - `isSquareMatrix`, `isSymmetricMatrix`
 - `dot`, `inner`, `matrixPower`, `outer`
 - `determinant`, `diagonal`, `trace`, `transposed`
@@ -421,7 +432,7 @@
 - `++`, `flatten`, `partition`
 - `reverse`, `rotatedLeft`, `rotatedRight`
 - `intercalate`, `interleave`, `intersperse`
-- `deleteAdjacentDuplicates, `deleteDuplicates`
+- `deleteAdjacentDuplicates`, `deleteDuplicates`
 - `subsequences`, `subsets`
 
 ## Recurrence and Sum Functions
@@ -511,6 +522,24 @@
 - `collect`, `reject`, `select`
 - `peek`, `peekFor`
 - `skip`, `skipTo`
+
+## Stream Library
+
+- `LsAccum`, `LsAtFold`, `LsAt`, `LsAtWrap`
+- `LsBeta`, `LsBind`, `LsBrown`
+- `LsCat`, `LsCauchy`, `LsCollect`, `LsCons`, `LsConstant`, `LsCyc`
+- `LsDiff`, `LsDrop`, `LsDupEach`
+- `LsFin`, `LsFold`, `LsForever`
+- `LsGeom`
+- `LsIBrown`
+- `LsLace`, `LsLast`
+- `LsN`
+- `LsOnce`
+- `LsRand`, `LsRemDup`
+- `LsScan`, `LsSelect`, `LsSeq`, `LsSer`, `LsSeries`, `LsSet`, `LsSlidingWindows`
+- `LsTake`, `LsTrace`, `LsTuple`
+- `LsUnfold`
+- `LsWhite`
 
 ## String Operations
 

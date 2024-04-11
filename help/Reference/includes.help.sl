@@ -8,6 +8,7 @@ Answer whether _aCollection_ contains as a member _anObject_.
 >>> 1:9.reshape([3 3]) includes.each [3 6 9]
 [true true true]
 ```
+
 Where supported `includes` is displayed as ∋.
 
 * * *

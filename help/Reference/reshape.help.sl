@@ -117,7 +117,7 @@ Where supported `reshape` is displayed as ⍴.
 
 * * *
 
-See also: rank, reshapeLike, shape
+See also: iota, rank, reshapeLike, shape
 
 References:
 _Apl_

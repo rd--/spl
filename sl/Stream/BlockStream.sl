@@ -22,6 +22,14 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 		newBlockStream().initializeSlots(onNext, onReset)
 	}
 
+	fixedPoint { :self:/1 :anObject |
+		self:/1.fixedPoint(anObject, ~)
+	}
+
+	fixedPoint { :self:/1 :anObject :aBlock:/2 |
+		self:/1.fixedPointList(anObject, aBlock:/2).last
+	}
+
 	fixedPointList { :self:/1 :anObject |
 		self:/1.fixedPointList(anObject, ~)
 	}
@@ -50,6 +58,10 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 
 	nestList { :self:/1 :anObject :count |
 		self:/1.iterate(anObject).next(count + 1)
+	}
+
+	nestWhileList { :self:/1 :anObject :aBlock:/1 |
+		self:/1.iterate(anObject).nextWhile(aBlock:/1)
 	}
 
 }
@@ -235,6 +247,19 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 			}
 		} {
 			count := 1;
+			self.reset
+		}
+	}
+
+	takeWhile { :self :aBlock:/1 |
+		BlockStream {
+			let answer = self.next;
+			aBlock(answer).if {
+				answer
+			} {
+				nil
+			}
+		} {
 			self.reset
 		}
 	}

@@ -355,6 +355,10 @@
 		self.++
 	}
 
+	constantArray { :self :anObject |
+		[anObject].reshape(self)
+	}
+
 	convergents { :self |
 		self.prefixes.collect(fromContinuedFraction:/1)
 	}
@@ -1221,6 +1225,26 @@
 		}
 	}
 
+	isPermutationCycles { :self |
+		let entries = self.concatenation;
+		entries.allSatisfy(isPositiveInteger:/1) & {
+			entries.isDuplicateFree(==)
+		}
+	}
+
+	isPermutationList { :self |
+		self.isEmpty.if {
+			true
+		} {
+			let ascending = self.sorted;
+			ascending.isArithmeticSeries & {
+				ascending.first = 1 & {
+					ascending.last = self.size
+				}
+			}
+		}
+	}
+
 	isRowVector { :self |
 		self.isMatrix & {
 			self.size = 1
@@ -1722,6 +1746,55 @@
 
 	partition { :self :windowSize |
 		self.partition(windowSize, windowSize)
+	}
+
+	permutationCycle { :self :anInteger |
+		let answer = [anInteger];
+		let nextItem = self[anInteger];
+		{
+			nextItem = anInteger
+		}.whileFalse {
+			answer.add(nextItem);
+			nextItem := self[nextItem]
+		};
+		answer
+	}
+
+	permutationCycles { :self |
+		let visited = Set();
+		let answer = [];
+		1.toDo(self.size) { :each |
+			visited.includes(each).ifFalse {
+				let cycle = self.permutationCycle(each);
+				visited.addAll(cycle);
+				answer.add(cycle)
+			}
+		};
+		answer
+	}
+
+	permutationList { :self |
+		self.permutationList(self.concatenation.max)
+	}
+
+	permutationList { :self :length |
+		let answer = [1 .. length];
+		self.do { :each |
+			1.toDo(each.size) { :index |
+				answer[each[index]] := each.atWrap(index + 1)
+			}
+		};
+		answer
+	}
+
+	permutationMatrix { :self |
+		let answer = [];
+		self.do { :each |
+			let row = List(self.size, 0);
+			row[each] := 1;
+			answer.add(row)
+		};
+		answer
 	}
 
 	permutations { :self |

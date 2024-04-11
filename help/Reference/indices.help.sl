@@ -35,7 +35,11 @@ At `Record`:
 
 >>> (x: 1, y: 2, z: 3).indices(isEven:/1)
 ['y']
+```
 
+Cf. `keys`:
+
+```
 >>> (x: 1, y: 2, z: 3).keys
 ['x' 'y' 'z']
 ```
@@ -61,6 +65,6 @@ The `size` of a collection is equal to the size of its `indices`:
 
 * * *
 
-See also: deepIndices, Dictionary, firstIndex, includesIndex, Indexable, keys, lastIndex
+See also: deepIndices, Dictionary, firstIndex, includesIndex, Indexable, indicesDo, keys, lastIndex, withIndexDo
 
 Categories: Accessing

@@ -17,4 +17,6 @@ true
 
 * * *
 
-See also: arithmeticSeries, isArithmeticSeriesBy, isGeometricSeries, Range
+See also: arithmeticSeries, asRange, isArithmeticSeriesBy, isGeometricSeries, Range
+
+Categories: Testing

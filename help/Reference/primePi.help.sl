@@ -14,6 +14,13 @@ Compute the number of primes up to 15:
 25
 ```
 
+Threads over lists:
+
+```
+>>> [3 5 17 25].primePi
+[2 3 7 9]
+```
+
 Plot the prime counting function:
 
 ~~~

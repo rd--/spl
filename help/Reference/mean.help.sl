@@ -1,8 +1,8 @@
 # mean
 
-- _mean(alpha)_ => _arithmeticMean(alpha)_
+- _mean(aCollection)_
 
-Answer the `arithmeticMean` (the mean estimate)  of _aCollection_.
+Answer the `arithmeticMean` (the mean estimate) of _aCollection_.
 
 ```
 >>> [1 .. 9].mean
@@ -12,7 +12,7 @@ Answer the `arithmeticMean` (the mean estimate)  of _aCollection_.
 2.462
 ```
 
-The `mean` is the `sum` divided by the `size:
+The `mean` is the `sum` divided by the `size`:
 
 ```
 >>> 1:4.mean

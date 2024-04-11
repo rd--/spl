@@ -23,7 +23,7 @@
 	}
 
 	at { :self :index |
-		self.error('@Indexable>>at: type responsibility')
+		self.typeResponsibility('@Indexable>>at')
 	}
 
 	at { :self :primaryIndex :secondaryIndex |
@@ -121,7 +121,7 @@
 	}
 
 	atPut { :self :index :anObject |
-		self.error('@Indexable>>atPut: type responsibility')
+		self.typeResponsibility('@Indexable>>atPut')
 	}
 
 	atPut { :self :primaryIndex :secondaryIndex :anObject |
@@ -137,11 +137,11 @@
 	}
 
 	basicAt { :self :index |
-		self.error('@Indexable>>basicAt: type responsibility')
+		self.typeResponsibility('@Indexable>>basicAt')
 	}
 
 	basicAtPut { :self :index :anObject |
-		self.error('@Indexable>>basicAtPut: type responsibility')
+		self.typeResponsibility('@Indexable>>basicAtPut')
 	}
 
 	deepIndices { :self |
@@ -202,7 +202,7 @@
 	}
 
 	indices { :self |
-		self.error('@Indexable>>indices: type responsibility')
+		self.typeResponsibility('@Indexable>>indices')
 	}
 
 	indices { :self :aBlock:/1 |

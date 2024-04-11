@@ -2,7 +2,8 @@
 
 - _multiplicativeOrder(k, n)_
 
-Answer the multiplicative order of _k_ modulo _n_, defined as the smallest integer _m_ such that _(k ^ m) % n = 1_.
+Answer the multiplicative order of _k_ modulo _n_,
+defined as the smallest integer _m_ such that _(k ^ m) % n = 1_.
 
 If _n_ is `one` answer _n_:
 
@@ -11,7 +12,7 @@ If _n_ is `one` answer _n_:
 1
 ```
 
-`multiplicativeOrder` answers `nil` if there is no integer  satisfying the necessary conditions:
+`multiplicativeOrder` answers `nil` if there is no integer satisfying the necessary conditions:
 
 ```
 >>> 1:4.collect { :n | 1:10.collect { :k | k.multiplicativeOrder(n) } }

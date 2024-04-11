@@ -18,7 +18,11 @@ as long as neither the collection nor the slice has been mutated since the slice
 >>> 	slice.size, slice.indices, slice.asList,
 >>> 	slice.first, slice.last, slice.sum
 >>> )
-(18, 1:18, 90, 7, 7:13, [7 8 9 9 8 7 6], 7, 6, 54)
+(
+	18, 1:18, 90,
+	7, 7:13, [7 8 9 9 8 7 6],
+	7, 6, 54
+)
 ```
 
 _Warning_:

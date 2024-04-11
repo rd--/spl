@@ -28,6 +28,6 @@ At `Record`, iterate over keys and values:
 
 * * *
 
-See also: do, withDo, withIndexCollect, withIndexReplace
+See also: do, indices, indicesDo, withDo, withIndexCollect, withIndexReplace
 
 Categories: Enumerating

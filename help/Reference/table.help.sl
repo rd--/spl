@@ -136,7 +136,7 @@ nthPrime:/1.table(1:50).plot
 
 * * *
 
-See also: collect, map, withCollect
+See also: collect, diagonalMatrix, identityMatrix, do, map, sum, product, nestList, withCollect
 
 References:
 _Mathematica_

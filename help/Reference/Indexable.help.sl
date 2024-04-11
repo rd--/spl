@@ -1,6 +1,6 @@
 # Indexable
 
-_Indexable_ is a collection `Trait`.
+`Indexable` is a collection `Trait`.
 The required methods are `at`, `atPut` and `indices`.
 
 ```
@@ -13,6 +13,6 @@ true
 
 * * *
 
-See also: at, atPut, includesIndex, indices
+See also: at, atPut, Collection, includesIndex, indices, indicesDo, Keyed, withIndexDo
 
 Categories: Trait

@@ -1,8 +1,8 @@
 # randomSample
 
-_randomSample(aCollection, anInteger)_
+- _randomSample(aCollection, anInteger)_
 
-Answer a pseudorandom sample of _anInteger_ elements of _aCollection_.
+Answer a pseudo-random sample of _anInteger_ elements of _aCollection_.
 
 Do not sample any of _aCollection_ more than once.
 

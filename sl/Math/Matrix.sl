@@ -19,7 +19,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 					(array[1, 2] * array[2, 1] * array[3, 3]) -
 					(array[1, 1] * array[2, 3] * array[3, 2])
 				} {
-					'Matrix>>determinant: not implemented'.error
+					'Matrix>>determinant: not implemented for this size'.error
 				}
 			}
 		} {
