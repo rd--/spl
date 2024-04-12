@@ -96,6 +96,16 @@ Conversion to cyclic form:
 ]
 ```
 
+Product of two permutation lists of the same length:
+
+```
+>>> let p = [9 10 3 7 4 8 5 2 1 6];
+>>> let q = [3 2 4 10 9 5 7 6 8 1];
+>>> let r = [p, q].permutationProduct;
+>>> r.permutationList
+[8 1 4 7 10 6 9 2 3 5]
+```
+
 * * *
 
 See also: ordering, permutationList, permutationCycles, isPermutationCycles

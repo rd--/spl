@@ -10,7 +10,11 @@ Find a sample in which no elements ever occur more than once:
 
 ```
 >>> let l = 1:30.randomSample(20);
->>> (l.mean.betweenAnd(10, 20), l.standardDeviation.betweenAnd(5, 10), l.nub.size)
+>>> (
+>>> 	l.mean.betweenAnd(10, 20),
+>>> 	l.standardDeviation.betweenAnd(5, 10),
+>>> 	l.nub.size
+>>> )
 (true, true, 20)
 ```
 

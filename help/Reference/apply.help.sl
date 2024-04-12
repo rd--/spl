@@ -6,7 +6,9 @@ Apply _aBlock_ to the arguments at _aList_.
 It is an error if _aList_ is not a `List` or has the wrong number of arguments.
 
 ```
->>> { :x :y | x * y + y }.apply([3.141, 23])
+>>> { :x :y | x * y + y }.apply(
+>>> 	[3.141, 23]
+>>> )
 95.243
 ```
 

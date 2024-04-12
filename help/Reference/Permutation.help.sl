@@ -2,6 +2,8 @@
 
 A `Type` holding a permutation.
 
+To construct a permutation use `asPermutation` or `cycles`.
+
 Is identity permutation:
 
 ```

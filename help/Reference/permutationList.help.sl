@@ -1,13 +1,15 @@
 # permutationList
 
 - _permutationList(aSequence)_
-- _permutationList(aSequence, anInteger)_
+- _permutationList(aPermutation | aSequence, anInteger)_
 
 In the binary case,
-answer a permutation list representation of the permutation given in cyclic form at _aSequence_ which is of length _anInteger_.
+answer a permutation list representation of _aPermutation_,
+which may be given in cyclic form at _aSequence_,
+which is of length _anInteger_.
 
 In the unary case,
-derive length from maximum element in cyclic form.
+derive length from the `permutationMax`.
 
 Convert permutation cycles to a permutation list:
 
