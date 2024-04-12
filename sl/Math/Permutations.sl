@@ -67,6 +67,10 @@ Permutation : [Object] { | permutationCycles |
 		}
 	}
 
+	permutationLength { :self |
+		self.permutationSupport.size
+	}
+
 	permutationList { :self |
 		self.permutationCycles.permutationList(self.size)
 	}
@@ -81,6 +85,22 @@ Permutation : [Object] { | permutationCycles |
 
 	permutationMatrix { :self |
 		self.permutationMatrix(self.size)
+	}
+
+	permutationMax { :self |
+		self.isIdentity.if {
+			0
+		} {
+			self.permutationSupport.max
+		}
+	}
+
+	permutationMin { :self |
+		self.isIdentity.if {
+			inf
+		} {
+			self.permutationSupport.min
+		}
 	}
 
 	permutationOrder { :self |
@@ -101,6 +121,10 @@ Permutation : [Object] { | permutationCycles |
 			next := next * self
 		};
 		answer
+	}
+
+	permutationSupport { :self |
+		self.permutationCycles.concatenation.sort
 	}
 
 	replace { :self :aSequence |

@@ -276,3 +276,35 @@
 - `subsets`: find all possible subsets of a set (the powerset)
 - `tuples`: find all possible tuples of n elements from a set
 - `groupings`: find all possible groupings of elements
+
+## Permutation Representation
+
+- `cycles`: cyclic permutation representation
+- `isPermutationCycles`: test validity
+- `permutationCycles`: convert to cyclic representation
+- `permutationList`: convert to permutation list representation
+- `isPermutationList`: test validity
+- `randomPermutation`: random generation of permutations
+
+## Permutation Operations
+
+- `permutationReplace`: standard action of a permutation on other objects
+- `permutationProduct`: product of permutations
+- `inversePermutation`: inverse of permutation
+- `permutationPower`: _n_-th power of permutation
+- `permute`: permute arguments of an expression
+- `findPermutation`: permutation linking two expressions
+- `permutations`: all permutations of arguments of an expression
+
+## Permutation Properties
+
+- `permutationOrder`: order of a permutation
+- `permutationSupport`: integers that are not fixed by permutation
+- `permutationLength`: number of integers moved by permutation
+- `permutationMin`: smallest integer moved by permutation
+- `permutationMax`: largest integer moved by permutation
+
+## Permutation Lists
+
+- `ordering`: inverse of a permutation list
+- `randomSample`: random generation of permutation lists
