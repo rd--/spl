@@ -80,3 +80,5 @@ See also: cycles, permutationPower, permutationReplace, permute
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PermutationProduct.html)
+
+Categories: Permutations

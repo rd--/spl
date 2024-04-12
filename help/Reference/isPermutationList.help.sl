@@ -69,3 +69,5 @@ See also: ordering, permutationList, permutationCycles, isPermutationCycles
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PermutationListQ.html)
+
+Categories: Permutations, Testing

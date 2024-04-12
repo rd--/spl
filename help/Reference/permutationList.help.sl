@@ -58,3 +58,5 @@ See also: isPermutationList, permutationCycles, permutationMatrix
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PermutationList.html)
+
+Categories: Permutations

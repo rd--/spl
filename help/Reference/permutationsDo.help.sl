@@ -16,4 +16,4 @@ Reorder the copy so that aBlock is presented all (_aSequence.size.factorial_) po
 
 See also: permutations
 
-Categories: Enumerating
+Categories: Enumerating, Permutations

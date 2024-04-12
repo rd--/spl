@@ -37,3 +37,5 @@ See also: cycles, permutationMax, permutationMin, permutationLength
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PermutationSupport.html)
+
+Categories: Permutations

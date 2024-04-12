@@ -21,3 +21,5 @@ A permutation in list notation:
 * * *
 
 See also: cycles, Permutation
+
+Categories: Permutations, Converting

@@ -18,3 +18,5 @@ See also: image, Permutation
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PermutationReplace.html)
+
+Categories: Permutations

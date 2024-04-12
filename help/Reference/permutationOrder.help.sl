@@ -47,3 +47,5 @@ See also: cycles, inversePermutation, permutationOrderList, permutationPower, pe
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PermutationOrder.html)
+
+Categories: Permutations

@@ -22,3 +22,5 @@ See also: permutationCycles
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PermutationCycle.html)
+
+Categories: Permutations

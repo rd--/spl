@@ -402,6 +402,8 @@
 - `permutationPower`, `permutationProduct`
 - `permutationReplace`
 - `permutationOrderList
+- `permutationLength`, `permutationSupport`
+- `permutationMax`, `permutationMin`
 
 ## Piecewise Functions
 

@@ -51,3 +51,5 @@ See also: cycles, Permutation, permutationPower
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/InversePermutation.html)
+
+Categories: Permutations

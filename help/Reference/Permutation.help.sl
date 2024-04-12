@@ -103,3 +103,5 @@ See also: inversePermutation, permutationCycle, permutationList, permutationProd
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Permutation.html)
+
+Categories: Permutations, Type

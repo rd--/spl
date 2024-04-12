@@ -18,3 +18,5 @@ Answer the `List` of permutations of successive self products until arriving at 
 * * *
 
 See also: permutationOrder
+
+Categories: Permutations
