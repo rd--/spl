@@ -79,7 +79,7 @@ let x = 1.pi.negated; x.fractionPart + x.integerPart = x {- fractional part and 
 6 * 3.1 = 18.6 {- auto convert to float -}
 5.squared = 25 {- square function -}
 25.sqrt = 5 {- square root -}
--1.sqrt.isNaN {- square root of a negative number is not a number -}
+-1.sqrt.isComplex {- the square root of a negative number is a complex number -}
 NaN.isNaN {- literal for NaN -}
 4.sqrt = 2 & { 1000000.sqrt = 1000 & { 1.sqrt = 1 } & { 0.sqrt = 0 } }
 2.sqrt = 1.4142135623730951

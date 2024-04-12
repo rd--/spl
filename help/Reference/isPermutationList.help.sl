@@ -13,12 +13,16 @@ A valid permutation list:
 true
 ```
 
-Invalid permutation lists:
+A permutation lists must not contain duplicates:
 
 ```
 >>> [3 2 2 4 1].isPermutationList
 false
+```
 
+A permutation lists must not contain non-positive integers:
+
+```
 >>> [0 1 2 3 4].isPermutationList
 false
 ```
@@ -33,24 +37,25 @@ true
 A complete `randomSample` of a `Range` from one always gives a valid permutation list:
 
 ```
->>> 1:10.randomSample(10).isPermutationList
+>>> let p = 1:10.randomSample(10);
+>>> p.isPermutationList
 true
 ```
 
 `ordering` always returns a permutation list, even if the elements of the expression are repeated:
 
 ```
->>> 'aabcbacb'.characters.ordering
-[6 2 1 8 5 3 7 4]
-
->>> [6 2 1 8 5 3 7 4].isPermutationList
-true
+>>> let p = 'aabcbacb'.characters.ordering;
+>>> (p, p.isPermutationList)
+([6 2 1 8 5 3 7 4], true)
 ```
 
 The integers up to 4321 whose decimal digits form permutation lists:
 
 ```
->>> 1:4321.select { :each | each.integerDigits.isPermutationList }
+>>> 1:4321.select { :each |
+>>> 	each.integerDigits.isPermutationList
+>>> }
 [
 	1
 	12 21
@@ -59,6 +64,35 @@ The integers up to 4321 whose decimal digits form permutation lists:
 	2134 2143 2314 2341 2413 2431
 	3124 3142 3214 3241 3412 3421
 	4123 4132 4213 4231 4312 4321
+]
+```
+
+The support of a permutation list is the list of points not at their natural positions:
+
+```
+>>> let p = [5 2 3 6 1 7 4 8 9 10];
+>>> p.permutationSupport
+[1 4 5 6 7]
+```
+
+Conversion to cyclic form:
+
+```
+>>> let p = [
+>>> 	 1  24 21  4 17 5 13 26  2 10 27 9 14  3 22
+>>> 	 29 28 23 25 18 6 15 11 20 19  8 7 12 16 30
+>>> ];
+>>> p.permutationCycles
+[
+	1;
+	2 24 20 18 23 11 27 7 13 14 3 21 6 5 17 28 12 9;
+	4;
+	8 26;
+	10;
+	15 22;
+	16 29;
+	19 25;
+	30
 ]
 ```
 

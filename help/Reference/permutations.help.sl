@@ -5,7 +5,7 @@
 
 Collect permutations containing at most _anInteger_ elements of _aSequence_ into a new `List`.
 
-Length three permutations three elements:
+Length three permutations of three elements:
 
 ```
 >>> 1:3.permutations
@@ -17,7 +17,11 @@ Length-two permutations of three elements:
 ```
 >>> 1:3.permutations(2)
 [1 2; 2 1; 1 3; 3 1; 2 3; 3 2]
+```
 
+These are the permutations of the two element subsets:
+
+```
 >>> 1:3.subsets { :each |
 >>> 	each.size = 2
 >>> }.collect(permutations:/1).++
@@ -34,13 +38,18 @@ The number of length-_n_ permutations of a length-_n_ list of distinct elements 
 120
 ```
 
-A permutation that leaves no element invariant is called a derangement,
-the number of derangements of _n_ distinct elements is _n.subfactorial_:
+A permutation that leaves no element invariant is called a derangement:
 
 ```
->>> 1:5.permutations.select { :each | (each =.map each.sorted).noneSatisfy(identity:/1) }.size
+>>> 1:5.permutations.select { :each |
+>>> (each =.map each.sorted).noneSatisfy(identity:/1)
+>>> }.size
 44
+```
 
+The number of derangements of _n_ distinct elements is _n.subfactorial_:
+
+```
 >>> 5.subfactorial
 44
 ```
@@ -49,7 +58,10 @@ Length-two permutations of four elements:
 
 ```
 >>> 1:4.permutations(2)
-[1 2; 2 1; 1 3; 3 1; 2 3; 3 2; 1 4; 4 1; 2 4; 4 2; 3 4; 4 3]
+[
+	1 2; 2 1; 1 3; 3 1; 2 3; 3 2;
+	1 4; 4 1; 2 4; 4 2; 3 4; 4 3
+]
 ```
 
 The number of _length-k_ permutations of _n_ elements is given by _k.stope(-1, n)_:

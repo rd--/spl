@@ -254,7 +254,8 @@
 	}
 
 	randomPrime { :iMin :iMax :count |
-		iMin.primesBetweenAnd(iMax).atRandom(count)
+		let c = iMin.primesBetweenAnd(iMax);
+		{ c.atRandom } ! count
 	}
 
 	sieveOfEratosthenes { :self |

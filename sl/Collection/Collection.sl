@@ -131,8 +131,8 @@
 		}
 	}
 
-	atRandom { :self |
-		let randomIndex = self.size.atRandom;
+	atRandom { :self :randomNumberGenerator |
+		let randomIndex = self.size.atRandom(randomNumberGenerator);
 		let index = 1;
 		valueWithReturn { :return:/1 |
 			self.do { :each |
@@ -144,8 +144,8 @@
 		}
 	}
 
-	atRandom { :self :size |
-		{ self.atRandom } ! size
+	atRandom { :self |
+		self.atRandom(system)
 	}
 
 	average { :self |
@@ -652,7 +652,7 @@
 		}
 	}
 
-	randomSampleSmallPool { :self :count |
+	randomSampleSmallPool { :self :count :randomNumberGenerator |
 		let pool = self.asList;
 		let answer = [];
 		(count > self.size).ifTrue {
@@ -661,7 +661,7 @@
 		{
 			count > 0
 		}.whileTrue {
-			let next = pool.atRandom;
+			let next = pool.atRandom(randomNumberGenerator);
 			answer.add(next);
 			pool.remove(next);
 			count := count - 1
@@ -669,7 +669,7 @@
 		answer
 	}
 
-	randomSampleLargePool { :self :count |
+	randomSampleLargePool { :self :count :randomNumberGenerator |
 		let answer = [];
 		(count > self.size).ifTrue {
 			count := self.size
@@ -677,7 +677,7 @@
 		{
 			count > 0
 		}.whileTrue {
-			let next = self.atRandom;
+			let next = self.atRandom(randomNumberGenerator);
 			answer.includes(next).ifFalse {
 				answer.add(next);
 				count := count - 1
@@ -686,8 +686,12 @@
 		answer
 	}
 
+	randomSample { :self :count :randomNumberGenerator |
+		self.randomSampleLargePool(count, randomNumberGenerator)
+	}
+
 	randomSample { :self :count |
-		self.randomSampleLargePool(count)
+		self.randomSample(count, system)
 	}
 
 	rescale { :self :min :max :ymin :ymax |

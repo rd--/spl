@@ -30,7 +30,9 @@ true
 A 3×4 matrix of random numbers:
 
 ```
->>> -1.randomFloat(1, [3 4]).allSatisfy { :each | each.sum.betweenAnd(-1 * 4, 1 * 4) }
+>>> -1.randomFloat(1, [3 4]).allSatisfy { :each |
+>>> 	each.sum.betweenAnd(-1 * 4, 1 * 4)
+>>> }
 true
 ```
 

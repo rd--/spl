@@ -404,6 +404,7 @@
 - `permutationOrderList
 - `permutationLength`, `permutationSupport`
 - `permutationMax`, `permutationMin`
+- `randomPermutation`
 
 ## Piecewise Functions
 

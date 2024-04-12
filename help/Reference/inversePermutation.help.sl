@@ -4,6 +4,8 @@
 
 Answer the inverse of _aPermutation_.
 
+Every permutation has a uniquely defined inverse.
+
 Inverse of a permutation:
 
 ```
@@ -11,11 +13,22 @@ Inverse of a permutation:
 [1 5 2 3; 4 7].cycles
 ```
 
-Their product gives the identity permutation:
+The product of a permutation with its inverse gives the identity permutation:
 
 ```
 >>> [3 2 5 1; 4 7:; 1 5 2 3; 4 7].permutationProduct
 [].cycles
+```
+
+The support of a permutation is the same as the support of its inverse:
+
+```
+>>> let p = [3 2 5 1; 4 7].cycles;
+>>> let q = p.inversePermutation;
+>>> let i = p.permutationSupport;
+>>> let j = q.permutationSupport;
+>>> i = j
+true
 ```
 
 Some permutations, called involutions, are their own inverse:

@@ -127,6 +127,10 @@ Permutation : [Object] { | permutationCycles |
 		self.permutationCycles.concatenation.sort
 	}
 
+	postCopy { :self |
+		self.permutationCycles := self.permutationCycles.copy
+	}
+
 	replace { :self :aSequence |
 		aSequence.collect { :each |
 			self.image(each)
@@ -148,12 +152,6 @@ Permutation : [Object] { | permutationCycles |
 }
 
 +@Sequence {
-
-	arePermutations { :self :aSequence |
-		(self.size = aSequence.size) & {
-			self.sort = aSequence.sort
-		}
-	}
 
 	asPermutation { :self |
 		self.isPermutationCycles.if {
@@ -200,13 +198,17 @@ Permutation : [Object] { | permutationCycles |
 		indices.findPermutation
 	}
 
+	isInvolution { :self |
+		self.asPermutation.isInvolution
+	}
+
 	isPermutationCycles { :self |
 		self.isEmpty | {
 			(self.depth = 3) & {
 				let entries = self.concatenation;
 				entries.allSatisfy { :each |
-					each.isNumber & {
-						each.isPositiveInteger
+					each.isInteger & {
+						each.isPositive
 					}
 				} & {
 					entries.isDuplicateFree(==)
@@ -225,6 +227,12 @@ Permutation : [Object] { | permutationCycles |
 					ascending.last = self.size
 				}
 			}
+		}
+	}
+
+	isPermutationOf { :self :aSequence |
+		(self.size = aSequence.size) & {
+			self.sort = aSequence.sort
 		}
 	}
 
@@ -302,6 +310,10 @@ Permutation : [Object] { | permutationCycles |
 		aPermutation.asPermutation.replace(self)
 	}
 
+	permutationSupport { :self |
+		self.asPermutation.permutationSupport
+	}
+
 	permutations { :self |
 		let answer = [];
 		self.permutationsDo { :each |
@@ -346,6 +358,24 @@ Permutation : [Object] { | permutationCycles |
 
 	permutationsDo { :self :aBlock:/1 |
 		self.asList.permutationsDo(aBlock:/1)
+	}
+
+}
+
++@Integer {
+
+	randomPermutation { :self :count :randomNumberGenerator |
+		{
+			(1 .. self).randomSample(self, randomNumberGenerator).asPermutation
+		} ! count
+	}
+
+	randomPermutation { :self :count |
+		self.randomPermutation(system, count)
+	}
+
+	randomPermutation { :self |
+		self.randomPermutation(1).first
 	}
 
 }

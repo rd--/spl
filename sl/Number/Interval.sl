@@ -59,6 +59,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 		aBlock(aNumber.asInterval, self)
 	}
 
+	atRandom { :self :randomNumberGenerator |
+		randomNumberGenerator.nextRandomFloat(self.min, self.max)
+	}
+
 	atRandom { :self |
 		self.min.randomFloat(self.max)
 	}

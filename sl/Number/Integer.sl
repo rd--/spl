@@ -54,16 +54,12 @@
 		}
 	}
 
-	atRandomUsing { :self :random |
-		random.nextRandomInteger(self)
+	atRandom { :self :randomNumberGenerator |
+		randomNumberGenerator.nextRandomInteger(1, self)
 	}
 
 	atRandom { :self |
-		system.nextRandomInteger(self)
-	}
-
-	atRandom { :self :count |
-		{ system.nextRandomInteger(self) } ! count
+		system.nextRandomInteger(1, self)
 	}
 
 	bernoulli { :k |

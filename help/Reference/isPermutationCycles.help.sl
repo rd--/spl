@@ -25,6 +25,34 @@ The identity permutation:
 true
 ```
 
+Cycles must be disjoint:
+
+```
+>>> [1 2; 1 3].isPermutationCycles
+false
+```
+
+Integers must be positive:
+
+```
+>>> [1 0; -2 3].isPermutationCycles
+false
+```
+
+Numbers other than integers are not accepted:
+
+```
+>>> [1 2; 3 1/2].isPermutationCycles
+false
+```
+
+The depth of the tree structure must be 3:
+
+```
+>>> [1 2:; 3 4].isPermutationCycles
+false
+```
+
 * * *
 
 See also: permutationCycles, permutationList, isPermutationList

@@ -256,12 +256,16 @@
 		self[k] := anObject
 	}
 
-	atRandomUsing { :self :random |
-		self[random.nextRandomInteger(self.firstIndex, self.lastIndex)]
+	atRandom { :self :randomNumberGenerator |
+		let index = randomNumberGenerator.nextRandomInteger(
+			self.firstIndex,
+			self.lastIndex
+		);
+		self[index]
 	}
 
 	atRandom { :self |
-		self.atRandomUsing(system)
+		self.atRandom(system)
 	}
 
 	before { :self :target |

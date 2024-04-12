@@ -2,17 +2,24 @@
 
 - _permutationPower(aPermutation, anInteger)_
 
-Answer the _anInteger_-th permutation power of the _aPermutation_.
-Effectively computes the product of _aPermutation_ with itself _anInteger_ times.
-
-When _anInteger_ is negative, `permutationPower` finds powers of the inverse of _aPermutation_.
-
-When _anInteger_ is zero, `permutationPower` answers the identity permutation.
+Answer the _anInteger_-th permutation power of _aPermutation_,
+i.e. the product of _aPermutation_ with itself _anInteger_ times.
+When _anInteger_ is negative,
+`permutationPower` finds powers of the inverse of _aPermutation_.
 
 Sixth power of a permutation:
 
 ```
->>> [4 2 5; 6 3 1 7].permutationPower(6)
+>>> let p = [4 2 5; 6 3 1 7];
+>>> p.permutationPower(6)
+[1 6; 3 7].cycles
+```
+
+The same answer arrived at using `permutationProduct`:
+
+```
+>>> let p = [4 2 5; 6 3 1 7].cycles;
+>>> (p # 6).permutationProduct
 [1 6; 3 7].cycles
 ```
 
@@ -27,6 +34,13 @@ Second power of the inverse permutation:
 
 ```
 >>> [4 2 5; 6 3 1 7].permutationPower(12)
+[].cycles
+```
+
+When _anInteger_ is zero, `permutationPower` answers the identity permutation.
+
+```
+>>> [4 2 5; 6 3 1 7].permutationPower(0)
 [].cycles
 ```
 
