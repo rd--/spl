@@ -122,10 +122,6 @@
 		}
 	}
 
-	permutationsDo { :self :aBlock:/1 |
-		self.asList.permutationsDo(aBlock:/1)
-	}
-
 	product { :self |
 		let a = self.start;
 		let d = self.step;

@@ -90,6 +90,7 @@
 	'Math-Gamma'
 	'Math-Matrix'
 	'Math-Primes'
+	'Math-Permutations'
 	'Math-WindowFunction'
 	'Meta-BenchmarkLibrary'
 	'Meta-Categories'

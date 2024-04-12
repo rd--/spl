@@ -44,6 +44,13 @@ Length specification:
 )
 ```
 
+At identity permutation:
+
+```
+>>> [].permutationList(5)
+[1 2 3 4 5]
+```
+
 * * *
 
 See also: isPermutationList, permutationCycles, permutationMatrix

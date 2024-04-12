@@ -3,7 +3,7 @@
 - _derangements(aSequence)_
 
 Answer a `List` of the derangements of _aSequence_.
-A derangement is a permutation in which no item appears in their original place.
+A derangement is a permutation in which no item appears in it’s original place.
 
 ```
 >>> 1:3.derangements
@@ -26,4 +26,8 @@ The number of derangements of _n_ distinct items is the `subfactorial` of _n_.
 
 * * *
 
-See also: permutations
+See also: permutations, subfactorial
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Derangement.html)

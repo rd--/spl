@@ -96,7 +96,7 @@ Depth of a nested `Record`:
 4
 ```
 
-_depth_ returns a depth one greater than that returned by _rank_:
+`depth` returns a depth one greater than that returned by `rank`:
 
 ```
 >>> let v = [1 2 3];

@@ -16,5 +16,4 @@ Collect the resulting values into _aCollection_.
 
 See also: collect
 
-
 Categories: Enumerating

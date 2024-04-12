@@ -60,6 +60,7 @@
 	'Elementwise'
 	'Gamma'
 	'Matrix'
+	'Permutations'
 	'Primes'
 	'WindowFunction'
 

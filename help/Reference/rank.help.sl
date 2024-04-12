@@ -2,7 +2,9 @@
 
 - _rank(aSequence | anObject)_
 
-In the Apl array model, the `rank` of an array is the number of dimensions or axes in its structure, or the length of its `shape`.
+In the Apl array model,
+the `rank` of an array is the number of dimensions or axes in its structure,
+or the length of its `shape`.
 
 Arrays are given names based on their rank.
 A rank zero array is a _scalar_:
@@ -42,14 +44,14 @@ and therefore do not have a rank:
 true
 ```
 
-Such structures do have a _depth_:
+Such structures do have a `depth`:
 
 ```
 >>> [1; 2 3].depth
 3
 ```
 
-The depth of an array is one greater than its rank:
+The `depth` of an array is one greater than its `rank`:
 
 ```
 >>> let a = [1 2; 3 4:; 5 6; 7 8];

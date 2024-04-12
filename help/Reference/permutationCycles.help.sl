@@ -1,8 +1,16 @@
 # permutationCycles
 
-- _permutationCycles(aSequence)_
+- _permutationCycles(aPermutation | aSequence)_
 
-Answer a disjoint cycle representation of the permutation list _aSequence_.
+Answer a disjoint cycle representation of _aPermutation_,
+or of the permutation list _aSequence_.
+
+Cyclic form of a permutation list of length 3:
+
+```
+>>> [3 2 1].permutationCycles
+[1 3; 2]
+```
 
 Cyclic form of a permutation list of length 10:
 
