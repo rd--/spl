@@ -395,6 +395,13 @@
 - `isPermutationCycles`, `isPermutationList`
 - `permutationCycle`, `permutationCycles`, `permutationList`
 - `permutationMatrix`
+- `Permutation`
+- `asPermutation`, `cycles`, `isInvolution`
+- `findPermutation`, `permute`
+- `inversePermutation`, `permutationOrder`
+- `permutationPower`, `permutationProduct`
+- `permutationReplace`
+- `permutationOrderList
 
 ## Piecewise Functions
 

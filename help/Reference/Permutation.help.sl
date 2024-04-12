@@ -1,3 +1,7 @@
+# Permutation
+
+A `Type` holding a permutation.
+
 Is identity permutation:
 
 ```
@@ -37,7 +41,7 @@ The identity permutation has size zero:
 Answer inverse permutation:
 
 ```
->>> [1 4 3; 2 5].cycles.inverse
+>>> [1 4 3; 2 5].cycles.inversePermutation
 [3 4 1; 5 2].cycles
 ```
 
@@ -91,3 +95,11 @@ Multiplication of permutations is not commutative:
 >>> q * p
 [[1 2]].cycles
 ```
+
+* * *
+
+See also: inversePermutation, permutationCycle, permutationList, permutationProduct, permutationPower, permute
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Permutation.html)

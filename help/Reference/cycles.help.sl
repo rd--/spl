@@ -42,7 +42,7 @@ Permutation applied to a single point:
 Points not present in the cycles are mapped onto themselves:
 
 ```
->>> [[1 3 2]].cycles.replace(4)
+>>> [[1 3 2]].cycles.image(4)
 4
 ```
 
@@ -55,7 +55,7 @@ true
 
 * * *
 
-See also: permute, replace
+See also: asPermutation, Permutation, permutationReplace, permute
 
 References:
 _Mathematica_

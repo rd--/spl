@@ -16,7 +16,7 @@ false
 The permutation matrices of an involution are symmetric:
 
 ```
->>> [1 2; 3 4].cycles.matrix(4).isSymmetricMatrix
+>>> [1 2; 3 4].cycles.permutationMatrix(4).isSymmetricMatrix
 true
 ```
 
