@@ -392,16 +392,20 @@
 ## Permutations
 
 - `permutations`, `permutationsDo`
-- `isPermutationCycles`, `isPermutationList`
+- `lexicographicPermutations`, `nextPermutationLexicographic`
+- `isPermutationCycles`, `isPermutationList`, `isPermutationOf`
+- `permutationListToPermutationCycle`
 - `permutationCycle`, `permutationCycles`, `permutationList`
 - `permutationMatrix`
 - `Permutation`
-- `asPermutation`, `cycles`, `isInvolution`
+- `asPermutation`, `cycles`, `isDerangement`, `isInvolution`
 - `findPermutation`, `permute`
 - `inversePermutation`, `permutationOrder`
 - `permutationPower`, `permutationProduct`
 - `permutationReplace`
-- `permutationOrderList
+- `permutationOrderList`
+- `permutationInversions`, `permutationSymbol`
+- `permutationFixedPoints`
 - `permutationLength`, `permutationSupport`
 - `permutationMax`, `permutationMin`
 - `randomPermutation`

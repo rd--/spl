@@ -11,7 +11,7 @@ A valid permutation in cyclic form:
 true
 ```
 
-A invalid permutation in cyclic form:
+An invalid permutation in cyclic form:
 
 ```
 >>> [1 1 2; 3 4].isPermutationCycles

@@ -2,13 +2,14 @@
 
 - _permutationList(aPermutation, anInteger)_
 
+Answer a permutation list representation of _aPermutation_,
+which may be given in cyclic form.
+
 In the binary case,
-answer a permutation list representation of _aPermutation_,
-which may be given in cyclic form,
-which is of length _anInteger_.
+the answer will have _anInteger_ places.
 
 In the unary case,
-derive length from the `permutationMax`.
+the size will is given by `permutationMax`.
 
 Convert permutation cycles to a permutation list:
 

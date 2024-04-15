@@ -4,17 +4,17 @@
 
 Answer whether _aPermutation_ is a derangement.
 
-A permutation is a derangement if has no fixed points.
+A permutation is a derangement if it has no fixed points.
 
 A permutation with fixed points:
 
 ```
 >>> let p = [1 4 2 3].asPermutation;
->>> p.isDerangement(4)
+>>> p.isDerangement
 false
 
 >>> let p = [2 3 1].asPermutation;
->>> p.isDerangement(3)
+>>> p.isDerangement
 true
 ```
 

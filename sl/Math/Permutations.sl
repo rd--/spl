@@ -100,8 +100,8 @@ Permutation : [Object] { | cycles |
 		answer
 	}
 
-	isDerangement { :self :anInteger |
-		self.support.size = anInteger
+	isDerangement { :self |
+		self.support.size = self.max
 	}
 
 	isIdentity { :self |
@@ -441,7 +441,7 @@ Permutation : [Object] { | cycles |
 	}
 
 	permutationMatrix { :self |
-		self.asPermutation.matrix
+		self.asPermutation.matrix(self.permutationDegree)
 	}
 
 	permutationMax { :self |

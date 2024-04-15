@@ -3,23 +3,23 @@
 - _permutations(aSequence, anInteger)_
 - _permutations(α)_ ⇒ _permutations(α, α.size)_
 
-Collect permutations containing at most _anInteger_ elements of _aSequence_ into a new `List`.
+Answer a `List` of the permutations containing at most _anInteger_ elements of _aSequence_.
 
-Length three permutations of three elements:
+The six length three permutations of three elements:
 
 ```
 >>> 1:3.permutations
 [1 2 3; 1 3 2; 2 1 3; 2 3 1; 3 2 1; 3 1 2]
 ```
 
-Length-two permutations of three elements:
+The six length-two permutations of three elements:
 
 ```
 >>> 1:3.permutations(2)
 [1 2; 2 1; 1 3; 3 1; 2 3; 3 2]
 ```
 
-These are the permutations of the two element subsets:
+Calculate as the permutations of the two element subsets:
 
 ```
 >>> 1:3.subsets { :each |
@@ -42,7 +42,7 @@ A permutation that leaves no element invariant is called a derangement:
 
 ```
 >>> 1:5.permutations.select { :each |
->>> (each =.map each.sorted).noneSatisfy(identity:/1)
+>>> 	(each =.map each.sorted).noneSatisfy(identity:/1)
 >>> }.size
 44
 ```
@@ -88,7 +88,7 @@ The four element permutations, not in lexicographic order:
 
 * * *
 
-See also: !, permutationsDo, stope, subfactorial, subsets
+See also: !, lexicographicPermutations, permutationsDo, stope, subfactorial, subsets
 
 References:
 _Mathematica_

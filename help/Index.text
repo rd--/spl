@@ -241,6 +241,7 @@ Reference/asLowerCase.help.sl
 Reference/asMap.help.sl
 Reference/asNumber.help.sl
 Reference/asOscParameter.help.sl
+Reference/asPermutation.help.sl
 Reference/asPoint.help.sl
 Reference/asPowerOfTwo.help.sl
 Reference/asRange.help.sl
@@ -475,6 +476,7 @@ Reference/cull.help.sl
 Reference/CuspL.help.sl
 Reference/Cutoff.help.sl
 Reference/cycleGraph.help.sl
+Reference/cycles.help.sl
 Reference/CylindricalCoordinate.help.sl
 Reference/Date.help.sl
 Reference/dayOfMonth.help.sl
@@ -634,6 +636,7 @@ Reference/finally.help.sl
 Reference/findBinaryDoIfNone.help.sl
 Reference/findFirst.help.sl
 Reference/findLast.help.sl
+Reference/findPermutation.help.sl
 Reference/first.help.sl
 Reference/firstIndex.help.sl
 Reference/fisherYatesShuffle.help.sl
@@ -760,6 +763,7 @@ Reference/ifNil.help.sl
 Reference/ifNotNil.help.sl
 Reference/ifTrue.help.sl
 Reference/i.help.sl
+Reference/image.help.sl
 Reference/ImageViewer.help.sl
 Reference/imaginary.help.sl
 Reference/Impulse.help.sl
@@ -813,6 +817,8 @@ Reference/intersection.help.sl
 Reference/intersperse.help.sl
 Reference/Interval.help.sl
 Reference/intervalMatrix.help.sl
+Reference/inversePermutation.help.sl
+Reference/inversionVector.help.sl
 Reference/iota.help.sl
 Reference/IRand.help.sl
 Reference/isAlmostPrime.help.sl
@@ -834,6 +840,7 @@ Reference/isColumnVector.help.sl
 Reference/isComplex.help.sl
 Reference/isCoprime.help.sl
 Reference/isDecimalIntegerString.help.sl
+Reference/isDerangement.help.sl
 Reference/isDigit.help.sl
 Reference/isDirectedEdge.help.sl
 Reference/isDirected.help.sl
@@ -848,10 +855,12 @@ Reference/isFraction.help.sl
 Reference/isGaussianInteger.help.sl
 Reference/isGaussianPrime.help.sl
 Reference/isGeometricSeries.help.sl
+Reference/isIdentity.help.sl
 Reference/isImmediate.help.sl
 Reference/isIndexable.help.sl
 Reference/isInteger.help.sl
 Reference/isIntegerRange.help.sl
+Reference/isInvolution.help.sl
 Reference/isJson.help.sl
 Reference/isLargeInteger.help.sl
 Reference/isLeaf.help.sl
@@ -875,6 +884,7 @@ Reference/isPerfectNumber.help.sl
 Reference/isPerfectSquare.help.sl
 Reference/isPermutationCycles.help.sl
 Reference/isPermutationList.help.sl
+Reference/isPermutationOf.help.sl
 Reference/isPositive.help.sl
 Reference/isPositiveInteger.help.sl
 Reference/isPowerfulNumber.help.sl
@@ -970,6 +980,7 @@ Reference/levelBy.help.sl
 Reference/levelEach.help.sl
 Reference/level.help.sl
 Reference/levenshteinDistance.help.sl
+Reference/lexicographicPermutations.help.sl
 Reference/LfBrownNoise1.help.sl
 Reference/LfClipNoise.help.sl
 Reference/LfCub.help.sl
@@ -1145,6 +1156,7 @@ Reference/next.help.sl
 Reference/nextMatchAll.help.sl
 Reference/nextMatchFor.help.sl
 Reference/nextOrUpToEnd.help.sl
+Reference/nextPermutationLexicographic.help.sl
 Reference/nextPrime.help.sl
 Reference/nextPutAll.help.sl
 Reference/nextPut.help.sl
@@ -1241,12 +1253,26 @@ Reference/peek.help.sl
 Reference/PenX.help.sl
 Reference/percentSign.help.sl
 Reference/perform.help.sl
-Reference/permutationCycle.help.sl
 Reference/permutationCycles.help.sl
+Reference/permutationFixedPoints.help.sl
+Reference/Permutation.help.sl
+Reference/permutationInversions.help.sl
+Reference/permutationLength.help.sl
 Reference/permutationList.help.sl
+Reference/permutationListToPermutationCycle.help.sl
 Reference/permutationMatrix.help.sl
+Reference/permutationMax.help.sl
+Reference/permutationMin.help.sl
+Reference/permutationOrder.help.sl
+Reference/permutationOrderList.help.sl
+Reference/permutationPower.help.sl
+Reference/permutationProduct.help.sl
+Reference/permutationReplace.help.sl
 Reference/permutationsDo.help.sl
 Reference/permutations.help.sl
+Reference/permutationSupport.help.sl
+Reference/permutationSymbol.help.sl
+Reference/permute.help.sl
 Reference/Phasor.help.sl
 Reference/Piecewise.help.sl
 Reference/pi.help.sl
@@ -1331,6 +1357,7 @@ Reference/Random.help.sl
 Reference/randomIntegerBipolar.help.sl
 Reference/randomInteger.help.sl
 Reference/randomIntegerPoissonDistribution.help.sl
+Reference/randomPermutation.help.sl
 Reference/randomPrime.help.sl
 Reference/randomSample.help.sl
 Reference/randomWeightedIndex.help.sl

@@ -3,7 +3,7 @@
 - _permutationsDo(aSequence, aBlock:/1)_
 
 Repeatly evaluate _aBlock_ with a single copy of _aSequence_.
-Reorder the copy so that aBlock is presented all (_aSequence.size.factorial_) possible permutations.
+Reorder the copy so that _aBlock_ is presented all _aSequence.size.factorial_ possible permutations.
 
 ```
 >>> let list = [];
