@@ -11,6 +11,13 @@ A three element permutation vector:
 [0 1 0; 0 0 1; 1 0 0]
 ```
 
+The identity permutation answers an identity matrix:
+
+```
+>>> [1 2 3].asPermutation.matrix(3)
+[1 0 0; 0 1 0; 0 0 1]
+```
+
 A four element permutation vector:
 
 ```
@@ -26,7 +33,7 @@ A four element permutation vector:
 A seven element permutation vector:
 
 ```
->>> [4 5 1 3 2 6 7].permutationMatrix
+>>> [4 5 1 3 2 6 7].asPermutation.matrix(7)
 [
 	0 0 0 1 0 0 0;
 	0 0 0 0 1 0 0;
@@ -48,7 +55,7 @@ The determinant is always one:
 The dot product of a permutation matrix _m_ with it’s transpose is the identity matrix:
 
 ```
->>> let m = [4 5 1 3 2 6 7].permutationMatrix;
+>>> let m = [4 5 1 3 2 6 7].asPermutation.matrix(7);
 >>> m.dot(m.transposed)
 7.identityMatrix
 ```

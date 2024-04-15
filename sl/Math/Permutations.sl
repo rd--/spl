@@ -1,13 +1,13 @@
-Permutation : [Object] { | permutationCycles |
+Permutation : [Object] { | cycles |
 
 	= { :self :anObject |
 		anObject.isPermutation & {
-			self.permutationCycles = anObject.permutationCycles
+			self.cycles = anObject.cycles
 		}
 	}
 
 	* { :self :aPermutation |
-		let length = self.size.max(aPermutation.size);
+		let length = self.max.max(aPermutation.max);
 		aPermutation.apply(
 			self.apply([1 .. length])
 		).ordering.asPermutation
@@ -15,9 +15,9 @@ Permutation : [Object] { | permutationCycles |
 
 	^ { :self :anInteger |
 		anInteger.isNegative.if {
-			self.inversePermutation ^ anInteger.negated
+			self.inverse ^ anInteger.negated
 		} {
-			(self # anInteger).permutationProduct
+			(self # anInteger).product
 		}
 	}
 
@@ -27,7 +27,7 @@ Permutation : [Object] { | permutationCycles |
 			aSequence
 		} {
 			let answer = List(length);
-			let indices = self.permutationList(length);
+			let indices = self.list(length);
 			1.toDo(length) { :i |
 				answer[indices[i]] := aSequence[i]
 			};
@@ -39,9 +39,24 @@ Permutation : [Object] { | permutationCycles |
 		self
 	}
 
+	fixedPoints { :self |
+		self.fixedPoints(self.max)
+	}
+
+	fixedPoints { :self :anInteger |
+		let support = self.support.asSet;
+		let answer = [];
+		1.toDo(anInteger) { :each |
+			support.includes(each).ifFalse {
+				answer.add(each)
+			}
+		};
+		answer
+	}
+
 	image { :self :anInteger |
 		valueWithReturn { :return:/1 |
-			self.permutationCycles.do { :each |
+			self.cycles.do { :each |
 				let i = each.indexOf(anInteger);
 				(i > 0).ifTrue {
 					each.atWrap(i + 1).return
@@ -51,67 +66,108 @@ Permutation : [Object] { | permutationCycles |
 		}
 	}
 
-	inversePermutation { :self |
-		self.permutationCycles.collect { :each |
+	inverse { :self |
+		self.cycles.collect { :each |
 			each.reversed
 		}.cycles
 	}
 
+	inversionVector { :self :anInteger |
+		let list = self.list;
+		let answer = List(anInteger);
+		1.toDo(anInteger) { :i |
+			let j = list.indexOf(i);
+			let c = 0;
+			1.toDo(j) { :k |
+				(list[k] > i).ifTrue {
+					c := c + 1
+				}
+			};
+			answer[i] := c
+		};
+		answer
+	}
+
+	inversions { :self :anInteger |
+		let list = self.list(anInteger);
+		let answer = [];
+		1.toDo(anInteger) { :j |
+			let e = list[j];
+			1.toDo(j - 1) { :i |
+				(list[i] > e).ifTrue {
+					answer.add([i j])
+				}
+			}
+		};
+		answer
+	}
+
+	isDerangement { :self :anInteger |
+		self.support.size = anInteger
+	}
+
 	isIdentity { :self |
-		self.permutationCycles.isEmpty
+		self.cycles.isEmpty
 	}
 
 	isInvolution { :self |
-		self.permutationCycles.allSatisfy { :each |
+		self.cycles.allSatisfy { :each |
 			each.size <= 2
 		}
 	}
 
-	permutationLength { :self |
-		self.permutationSupport.size
+	length { :self |
+		self.support.size
 	}
 
-	permutationList { :self |
-		self.permutationCycles.permutationList(self.size)
+	list { :self |
+		self.list(self.max)
 	}
 
-	permutationList { :self :anInteger |
-		self.permutationCycles.permutationList(anInteger)
+	list { :self :anInteger |
+		self.cycles.permutationCyclesToPermutationList(anInteger)
 	}
 
-	permutationMatrix { :self :anInteger |
-		self.permutationList(anInteger).permutationMatrix
+	matrix { :self :anInteger |
+		let list = self.list(anInteger);
+		let answer = [];
+		list.do { :each |
+			let row = List(anInteger, 0);
+			row[each] := 1;
+			answer.add(row)
+		};
+		answer
 	}
 
-	permutationMatrix { :self |
-		self.permutationMatrix(self.size)
+	matrix { :self |
+		self.matrix(self.max)
 	}
 
-	permutationMax { :self |
+	max { :self |
 		self.isIdentity.if {
 			0
 		} {
-			self.permutationSupport.max
+			self.support.max
 		}
 	}
 
-	permutationMin { :self |
+	min { :self |
 		self.isIdentity.if {
 			inf
 		} {
-			self.permutationSupport.min
+			self.support.min
 		}
 	}
 
-	permutationOrder { :self |
+	order { :self |
 		self.isIdentity.if {
 			1
 		} {
-			self.permutationCycles.collect(size:/1).lcm
+			self.cycles.collect(size:/1).lcm
 		}
 	}
 
-	permutationOrderList { :self |
+	orderList { :self |
 		let answer = [];
 		let next = self;
 		{
@@ -123,12 +179,8 @@ Permutation : [Object] { | permutationCycles |
 		answer
 	}
 
-	permutationSupport { :self |
-		self.permutationCycles.concatenation.sort
-	}
-
 	postCopy { :self |
-		self.permutationCycles := self.permutationCycles.copy
+		self.cycles := self.cycles.copy
 	}
 
 	replace { :self :aSequence |
@@ -137,16 +189,12 @@ Permutation : [Object] { | permutationCycles |
 		}
 	}
 
-	size { :self |
-		self.isIdentity.if {
-			0
-		} {
-			self.permutationCycles.concatenation.max
-		}
+	storeString { :self |
+		self.cycles.storeString ++ '.cycles'
 	}
 
-	storeString { :self |
-		self.permutationCycles.storeString ++ '.cycles'
+	support { :self |
+		self.cycles.concatenation.sort
 	}
 
 }
@@ -154,10 +202,12 @@ Permutation : [Object] { | permutationCycles |
 +@Sequence {
 
 	asPermutation { :self |
-		self.isPermutationCycles.if {
-			self.cycles
+		self.isPermutationList.if {
+			newPermutation().initializeSlots(
+				self.permutationListToPermutationCycles(true)
+			)
 		} {
-			self.permutationCycles.cycles
+			self.cycles
 		}
 	}
 
@@ -167,9 +217,7 @@ Permutation : [Object] { | permutationCycles |
 				self.isEmpty.if {
 					[]
 				} {
-					self.permutationList.permutationCycles.reject { :each |
-						each.size = 1
-					}
+					self.permutationCyclesToCanonicalForm(true)
 				}
 			)
 		} {
@@ -236,7 +284,70 @@ Permutation : [Object] { | permutationCycles |
 		}
 	}
 
-	permutationCycle { :self :anInteger |
+	nextPermutationLexicographic { :self |
+		let swap = { :i :j |
+			let t = self[i];
+			self[i] := self[j];
+			self[j] := t
+		};
+		let n = self.size;
+		let k = n;
+		{
+			k > 1 & {
+				self[k - 1] >= self[k]
+			}
+		}.whileTrue {
+			k := k - 1
+		};
+		k := k - 1;
+		(k = 0).if {
+			nil
+		} {
+			let l = n;
+			{
+				self[l] <= self[k]
+			}.whileTrue {
+				l := l - 1
+			};
+			swap(k, l);
+			k := k + 1;
+			l := n;
+			{
+				l > k
+			}.whileTrue {
+				swap(k, l);
+				l := l - 1;
+				k := k + 1
+			};
+			self
+		}
+	}
+
+
+	permutationCycles { :self |
+		self.asPermutation.cycles
+	}
+
+	permutationCyclesToCanonicalForm { :self :deleteUnaryCycles |
+		let list = self.permutationCyclesToPermutationList;
+		list.permutationListToPermutationCycles(deleteUnaryCycles)
+	}
+
+	permutationCyclesToPermutationList { :self |
+		self.permutationCyclesToPermutationList(self.concatenation.max)
+	}
+
+	permutationCyclesToPermutationList { :self :anInteger |
+		let answer = [1 .. anInteger];
+		self.do { :each |
+			1.toDo(each.size) { :index |
+				answer[each[index]] := each.atWrap(index + 1)
+			}
+		};
+		answer
+	}
+
+	permutationListToPermutationCycle { :self :anInteger |
 		let answer = [anInteger];
 		let nextItem = self[anInteger];
 		{
@@ -248,49 +359,59 @@ Permutation : [Object] { | permutationCycles |
 		answer
 	}
 
-	permutationCycles { :self |
+	permutationListToPermutationCycles { :self :deleteUnaryCycles |
 		let visited = Set();
 		let answer = [];
 		1.toDo(self.size) { :each |
 			visited.includes(each).ifFalse {
-				let cycle = self.permutationCycle(each);
+				let cycle = self.permutationListToPermutationCycle(each);
 				visited.addAll(cycle);
 				answer.add(cycle)
 			}
 		};
-		answer
+		deleteUnaryCycles.if {
+			answer.reject { :each |
+				each.size = 1
+			}
+		} {
+			answer
+		}
 	}
 
 	permutationList { :self |
-		self.permutationList(self.concatenation.max)
+		self.isPermutationList.if {
+			self
+		} {
+			self.asPermutation.list
+		}
 	}
 
-	permutationList { :self :length |
-		let answer = [1 .. length];
-		self.do { :each |
-			1.toDo(each.size) { :index |
-				answer[each[index]] := each.atWrap(index + 1)
-			}
-		};
-		answer
+	permutationList { :self :anInteger |
+		self.asPermutation.list(anInteger)
 	}
 
 	permutationMatrix { :self |
-		let answer = [];
-		self.do { :each |
-			let row = List(self.size, 0);
-			row[each] := 1;
-			answer.add(row)
-		};
-		answer
+		self.asPermutation.matrix
+	}
+
+	permutationMax { :self |
+		self.asPermutation.max
+	}
+
+	permutationMin { :self |
+		self.asPermutation.min
 	}
 
 	permutationOrder { :self |
-		self.asPermutation.permutationOrder
+		self.asPermutation.order
 	}
 
 	permutationPower { :self :anInteger |
-		self.asPermutation ^ anInteger
+		(anInteger = 0).if {
+			[].cycles
+		} {
+			self.asPermutation ^ anInteger
+		}
 	}
 
 	permutationProduct { :self |
@@ -311,7 +432,7 @@ Permutation : [Object] { | permutationCycles |
 	}
 
 	permutationSupport { :self |
-		self.asPermutation.permutationSupport
+		self.asPermutation.support
 	}
 
 	permutations { :self |
@@ -350,6 +471,21 @@ Permutation : [Object] { | permutationCycles |
 
 	permute { :self :anObject |
 		anObject.asPermutation.apply(self)
+	}
+
+	signature { :self |
+		self.isPermutationList.if {
+			let n = self.asPermutation.inversions(self.size).size;
+			-1 ^ n
+		} {
+			self.isPermutationCycles.if {
+				let p = self.asPermutation;
+				let n = p.inversions(p.max).size;
+				-1 ^ n
+			} {
+				0
+			}
+		}
 	}
 
 }

@@ -78,7 +78,7 @@ Applying `permute` to a vector is equivalent to multiplying the vector from the 
 ```
 >>> let l = [1 2 3 4 5];
 >>> let p = [1 4 3; 2 5].cycles;
->>> let m = p.permutationMatrix;
+>>> let m = p.matrix;
 >>> (l.permute(p), l.dot(m))
 (
 	[3 5 4 1 2],

@@ -1,5 +1,19 @@
 Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
+	= { :self :anObject |
+		anObject.isNumber.if {
+			anObject.isFraction.if {
+				self.numerator = anObject.numerator & {
+					self.denominator = anObject.denominator
+				}
+			} {
+				anObject.adaptToFractionAndApply(self, =)
+			}
+		} {
+			false
+		}
+	}
+
 	* { :self :aNumber |
 		aNumber.isFraction.if {
 			let d1 = self.numerator.gcd(aNumber.denominator);
@@ -84,14 +98,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 				self.asFloat ^ aNumber
 			} {
 				aNumber.adaptToFractionAndApply(self, ^)
-			}
-		}
-	}
-
-	= { :self :aFraction |
-		aFraction.isFraction & {
-			self.numerator = aFraction.numerator & {
-				self.denominator = aFraction.denominator
 			}
 		}
 	}

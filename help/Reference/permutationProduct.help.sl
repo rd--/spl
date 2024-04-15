@@ -56,7 +56,7 @@ Multiplication with the inverse permutation returns the identity:
 
 ```
 >>> let p = [1 7 2; 3 9].cycles;
->>> [p, p.inversePermutation].permutationProduct
+>>> [p, p.inverse].permutationProduct
 [].cycles
 ```
 
@@ -73,7 +73,7 @@ Multiplication of permutation lists:
 >>> let p = [5 3 2 4 6 1];
 >>> let q = [2 1 3 5 6 4];
 >>> let r = [q p].permutationProduct;
->>> r.permutationList
+>>> r.list
 [3 5 2 6 1 4]
 ```
 

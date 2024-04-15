@@ -10,23 +10,21 @@ The list of integers is answered sorted.
 Points moved by a permutation in disjoint cyclic form:
 
 ```
->>> let p = [1 7; 2 5 10 9; 4 6].cycles;
->>> p.permutationSupport
+>>> [1 7; 2 5 10 9; 4 6].permutationSupport
 [1 2 4 5 6 7 9 10]
 ```
 
 Points moved in a permutation list:
 
 ```
->>> let p = [1 4 3 5 2 6 10 7 9 8].asPermutation;
->>> p.permutationSupport
+>>> [1 4 3 5 2 6 10 7 9 8].permutationSupport
 [2 4 5 7 8 10]
 ```
 
 Support of identity permutation:
 
 ```
->>> [].cycles.permutationSupport
+>>> [].permutationSupport
 []
 ```
 

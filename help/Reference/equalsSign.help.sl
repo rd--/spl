@@ -51,6 +51,23 @@ true
 
 >>> [3j2 2j2 1j2] =.each [2j2]
 [false true false]
+
+>>> 1j0 = 1
+true
+```
+
+At `Fraction`:
+
+```
+>>> 6/4 = 3/2
+true
+```
+
+At `SmallFloat` and `Fraction`:
+
+```
+>>> 3/2 = 1.5 & { 1.5 = 3/2 }
+true
 ```
 
 When the arguments to `=` are `boole`, it is the logical biconditional function:
@@ -60,11 +77,11 @@ When the arguments to `=` are `boole`, it is the logical biconditional function:
 [1 0; 0 1]
 ```
 
-The _=_ method is not implemented at `Object`.
+The `=` method is not implemented at `Object`.
 
 The name of this operator is _equalsSign_.
 
-The _=_ symbol is also a part of `Let Syntax`.
+The `=` symbol is also a part of `Let Syntax`.
 
 * * *
 

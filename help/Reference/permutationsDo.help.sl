@@ -7,7 +7,9 @@ Reorder the copy so that aBlock is presented all (_aSequence.size.factorial_) po
 
 ```
 >>> let list = [];
->>> [1 2 3].permutationsDo { :each | list.add(each.copy) };
+>>> [1 2 3].permutationsDo { :each |
+>>> 	list.add(each.copy)
+>>> };
 >>> list
 [1 2 3; 1 3 2; 2 1 3; 2 3 1; 3 2 1; 3 1 2]
 ```

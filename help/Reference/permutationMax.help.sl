@@ -10,21 +10,21 @@ Another common definition of permutation degree is the number of integers moved.
 Largest point moved by a permutation:
 
 ```
->>> [1 6 3; 2 5 12 9].cycles.permutationMax
+>>> [1 6 3; 2 5 12 9].permutationMax
 12
 ```
 
 Largest point moved in a permutation list:
 
 ```
->>> [1 4 3 10 2 6 5 7 9 8 11].asPermutation.permutationMax
+>>> [1 4 3 10 2 6 5 7 9 8 11].permutationMax
 10
 ```
 
 Maximum of the support of the identity:
 
 ```
->>> [].cycles.permutationMax
+>>> [].permutationMax
 0
 ```
 

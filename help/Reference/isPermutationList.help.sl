@@ -84,15 +84,11 @@ Conversion to cyclic form:
 >>> ];
 >>> p.permutationCycles
 [
-	1;
 	2 24 20 18 23 11 27 7 13 14 3 21 6 5 17 28 12 9;
-	4;
 	8 26;
-	10;
 	15 22;
 	16 29;
-	19 25;
-	30
+	19 25
 ]
 ```
 
@@ -102,7 +98,7 @@ Product of two permutation lists of the same length:
 >>> let p = [9 10 3 7 4 8 5 2 1 6];
 >>> let q = [3 2 4 10 9 5 7 6 8 1];
 >>> let r = [p, q].permutationProduct;
->>> r.permutationList
+>>> r.list
 [8 1 4 7 10 6 9 2 3 5]
 ```
 

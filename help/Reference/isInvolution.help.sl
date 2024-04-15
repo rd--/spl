@@ -17,7 +17,7 @@ The permutation matrices of an involution are symmetric:
 
 ```
 >>> let p = [1 2; 3 4].cycles;
->>> let m = p.permutationMatrix(4);
+>>> let m = p.matrix(4);
 >>> m.isSymmetricMatrix
 true
 ```

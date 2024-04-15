@@ -7,43 +7,32 @@ Answer the `Permutation` given by the permutation cycles at _aSequence_.
 A permutation with two cycles:
 
 ```
->>> [1 4 3; 2 5].cycles.permutationCycles
-[1 4 3; 2 5]
+>>> let p = [1 4 3; 2 5].cycles;
+>>> (p.cycles, p.list)
+([1 4 3; 2 5], [4 5 1 3 2])
 ```
 
 Automatic evaluation to a canonical form:
 
 ```
->>> [4 10 2 5; 9; 7 1 18].cycles.permutationCycles
+>>> let p = [4 10 2 5; 9; 7 1 18].cycles;
+>>> p.cycles
 [1 18 7; 2 5 4 10]
 ```
 
 Identity permutation:
 
 ```
->>> [].cycles.permutationCycles
-[]
+>>> [].cycles.isIdentity
+true
 ```
 
 The identity permutation contains no cycles in its canonical form:
 
 ```
->>> [1; 2; 3; 4].cycles.permutationCycles
+>>> let p = [1; 2; 3; 4].cycles;
+>>> p.cycles
 []
-```
-
-Permutation applied to a single point:
-
-```
->>> [[1 3 2]].cycles.image(3)
-2
-```
-
-Points not present in the cycles are mapped onto themselves:
-
-```
->>> [[1 3 2]].cycles.image(4)
-4
 ```
 
 All integers must be distinct:

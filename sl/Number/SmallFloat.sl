@@ -2,8 +2,16 @@
 
 SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
-	= { :self :aNumber |
-		<primitive: return _self === _aNumber;>
+	= { :self :anObject |
+		anObject.isNumber.if {
+			anObject.isSmallFloat.if {
+				self == anObject
+			} {
+				anObject.adaptToNumberAndApply(self, =)
+			}
+		} {
+			false
+		}
 	}
 
 	< { :self :anObject |

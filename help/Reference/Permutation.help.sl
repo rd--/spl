@@ -11,6 +11,20 @@ Is identity permutation:
 true
 ```
 
+A `Permutation` applied to a single point using `image`:
+
+```
+>>> [1 3 2; 4 5].cycles.image(3)
+2
+```
+
+Points not present in the cycles are mapped onto themselves:
+
+```
+>>> [1 3 2; 4 5].cycles.image(7)
+7
+```
+
 Apply identity permutation:
 
 ```
@@ -25,32 +39,40 @@ Apply a permutation:
 [2 3 1 4 5]
 ```
 
-Answer the size of a permuation,
+Answer the `max` of a permuation,
 i.e. the maximum entry in any cycle:
 
 ```
->>> [1 4 3; 2 5].cycles.size
+>>> [1 4 3; 2 5].cycles.max
 5
 ```
 
-The identity permutation has size zero:
+The `max` of a `Permutation` is the `max` of the `support`:
 
 ```
->>> [].cycles.size
+>>> let p = [1 4 3; 2 5].cycles;
+>>> (p.max, p.support.max)
+(5, 5)
+```
+
+The identity permutation has `max` zero:
+
+```
+>>> [].cycles.max
 0
 ```
 
 Answer inverse permutation:
 
 ```
->>> [1 4 3; 2 5].cycles.inversePermutation
-[3 4 1; 5 2].cycles
+>>> [1 4 3; 2 5].cycles.inverse
+[1 3 4; 2 5].cycles
 ```
 
 Answer permutation list:
 
 ```
->>> [1 4 2; 3].cycles.permutationList
+>>> [1 4 2; 3].cycles.list
 [4 1 3 2]
 ```
 
@@ -64,14 +86,15 @@ Permutation list as permutation:
 Permutation cycles as permutation:
 
 ```
->>> [1 4 3; 2 5].asPermutation.permutationList
+>>> let p = [1 4 3; 2 5].cycles;
+>>> p.list
 [4 5 1 3 2]
 ```
 
 Answer permutation matrix:
 
 ```
->>> [1 4 2; 3].cycles.permutationMatrix
+>>> [1 4 2; 3].cycles.matrix
 [
 	0 0 0 1;
 	1 0 0 0;
@@ -96,6 +119,14 @@ Multiplication of permutations is not commutative:
 >>> let q = [[2 3]].cycles;
 >>> q * p
 [[1 2]].cycles
+```
+
+The inversions of a permutation:
+
+```
+>>> let p = [3,2,4,1,5].asPermutation;
+>>> p.inversions(5)
+[1 2; 1 4; 2 4; 3 4]
 ```
 
 * * *

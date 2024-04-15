@@ -2,7 +2,7 @@
 
 - _permutationReplace(aSequence, aPermutation)_
 
-Replaces each item in _aSequence_ by its image under _aPermutation_.
+Replaces each item in _aSequence_ by its `image` under _aPermutation_.
 
 `permutationReplace` on arrays of integers returns the list of respective images:
 

@@ -5,7 +5,7 @@
 Answer the `List` of permutations of successive self products until arriving at identity.
 
 ```
->>> [1 6 2; 3 5].cycles.permutationOrderList
+>>> [1 6 2; 3 5].cycles.orderList
 [
 	[[1 6 2] [3 5]].cycles,
 	[[1 2 6]].cycles,

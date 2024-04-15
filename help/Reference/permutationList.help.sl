@@ -1,11 +1,10 @@
 # permutationList
 
-- _permutationList(aSequence)_
-- _permutationList(aPermutation | aSequence, anInteger)_
+- _permutationList(aPermutation, anInteger)_
 
 In the binary case,
 answer a permutation list representation of _aPermutation_,
-which may be given in cyclic form at _aSequence_,
+which may be given in cyclic form,
 which is of length _anInteger_.
 
 In the unary case,
@@ -41,7 +40,7 @@ Length specification:
 >>> let c = l.permutationCycles;
 >>> (c, c.permutationList)
 (
-	[1 6 7 8; 2 3 5; 4],
+	[1 6 7 8; 2 3 5],
 	[6 3 5 4 2 7 8 1]
 )
 ```
@@ -51,6 +50,13 @@ At identity permutation:
 ```
 >>> [].permutationList(5)
 [1 2 3 4 5]
+```
+
+At a permutation list, answer the identity:
+
+```
+>>> [4 3 2 1].permutationList
+[4 3 2 1]
 ```
 
 * * *

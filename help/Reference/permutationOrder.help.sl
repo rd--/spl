@@ -32,8 +32,7 @@ This group is Abelian:
 The order of a permutation can be computed as the least common multiple of the lengths of its cycles:
 
 ```
->>> let p = [2 3 5; 1 6 7 4 10; 8 9].cycles;
->>> p.permutationOrder
+>>> [2 3 5; 1 6 7 4 10; 8 9].permutationOrder
 30
 
 >>> [3 5 2].lcm
