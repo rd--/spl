@@ -35,6 +35,13 @@ Values at zero:
 1
 ```
 
+The number of distinct permutations of _Mississippi_ is:
+
+```
+>>> [1 4 4 2].multinomial
+34650
+```
+
 Plot over a subset of the reals:
 
 ~~~

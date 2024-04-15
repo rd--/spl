@@ -1,6 +1,6 @@
 # asPermutation
 
-- _asPermutation(aSequence)_
+- _asPermutation(aSequence | aPermutation)_
 
 Answer the `Permutation` indicated by _aSequence_.
 It is an error if _aSequence_ is not a permutation.

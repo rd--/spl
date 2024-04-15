@@ -125,7 +125,7 @@ The inversions of a permutation:
 
 ```
 >>> let p = [3,2,4,1,5].asPermutation;
->>> p.inversions(5)
+>>> p.inversions
 [1 2; 1 4; 2 4; 3 4]
 ```
 

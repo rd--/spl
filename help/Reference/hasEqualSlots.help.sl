@@ -14,4 +14,4 @@ true
 
 See also: =, ==, hasEqualElements, slotList
 
-Categories: Comparing
+Categories: Comparing, Reflection
