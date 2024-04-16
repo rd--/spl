@@ -396,7 +396,7 @@
 - `minimumChangePermutations`
 - `plainChanges`
 - `isPermutationCycles`, `isPermutationList`, `isPermutationOf`
-- `permutationListToPermutationCycle`
+- `permutationCyclesToPermutationList`, `permutationListToPermutationCycle`
 - `permutationCycles`, `permutationList`
 - `permutationMatrix`
 - `Permutation`

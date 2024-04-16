@@ -12,6 +12,15 @@ Is identity permutation:
 true
 ```
 
+When comparing permutations, the degree is not considered:
+
+```
+>>> let p = [1 2 3; 4].cycles;
+>>> let q = [1 2 3; 4; 5].cycles;
+>>> p = q
+true
+```
+
 A `Permutation` applied to a single point using `image`:
 
 ```
@@ -134,6 +143,23 @@ The inversions of a permutation:
 >>> let p = [3,2,4,1,5].asPermutation;
 >>> p.inversions
 [1 2; 1 4; 2 4; 3 4]
+```
+
+The `runs` of a permutation:
+
+```
+>>> [2 4 1 3].asPermutation.runs
+[2 4; 1 3]
+```
+
+The runs of two random permutations:
+
+```
+>>> 13.randomPermutationList(2, Sfc32(12345)).collect(runs:/1)
+[
+	11; 7 13; 5 10; 9; 4; 1 12; 2 3 8; 6:;
+	7; 5; 3 10 13; 9; 8; 4 6 11; 2 12; 1
+]
 ```
 
 * * *

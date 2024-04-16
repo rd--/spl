@@ -416,7 +416,6 @@
 				let i = 1;
 				let k = old.size;
 				indexList.do { :j |
-					[answer, i, j, self.copyFromTo(i, j - 1)].postLine;
 					answer.add(self.copyFromTo(i, j - 1));
 					answer.add(new);
 					i := j + k

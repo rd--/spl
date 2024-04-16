@@ -1,0 +1,30 @@
+# asHex
+
+- _asHex(aString)_
+
+Answer a hex string encoding of the Ascii encoding of _aString_.
+
+At `String`:
+
+```
+>>> 'Ascii'.asHex
+'4173636969'
+```
+
+Radix notation of list:
+
+```
+>>> 'Ascii'.asciiByteArray.asList
+[16r41 16r73 16r63 16r69 16r69]
+```
+
+At `Ascii`:
+
+```
+>>> 'Ascii'.asAscii.asHex
+'4173636969'.asAscii
+```
+
+* * *
+
+See also: asciiByteArray, Ascii, hex

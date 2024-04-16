@@ -67,7 +67,7 @@ Another way of inverting the action of `permute` is using `findPermutation`:
 
 ```
 >>> let a = [3 1 2 4 5 6];
->>> let p = [[1 4 3 2]].cycles;
+>>> let p = [1 4 3 2; 5; 6].cycles;
 >>> let b = a.permute(p);
 >>> a.findPermutation(b)
 p

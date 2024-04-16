@@ -25,7 +25,10 @@ Multiplication of permutations is not commutative:
 
 ```
 >>> [2 3:; 1 2 3].permutationProduct
-[[1 2]].cycles
+[1 2; 3].cycles
+
+>>> [1 2 3:; 2 3].permutationProduct
+[1 3; 2].cycles
 ```
 
 Product of a single permutation is `identity`:
@@ -46,8 +49,8 @@ Product of the empty sequence gives the `identity` permutation:
 Multiplication with the identity permutation:
 
 ```
->>> let p = [[1 4 3 2]].cycles;
->>> let q = [].cycles;
+>>> let p = [1 4 3 2; 5].cycles;
+>>> let q = [1; 2; 3; 4; 5].cycles;
 >>> [p, q].permutationProduct
 p
 ```
@@ -55,16 +58,16 @@ p
 Multiplication with the inverse permutation returns the identity:
 
 ```
->>> let p = [1 7 2; 3 9].cycles;
+>>> let p = [1 7 2; 3 9; 4; 5; 6; 8].cycles;
 >>> [p, p.inverse].permutationProduct
-[].cycles
+[1; 2; 3; 4; 5; 6; 7; 8; 9].cycles
 ```
 
 Any cycle of length _k_ is equivalent to a product of _k_ transpositions (cycles of length 2) all having the same first point:
 
 ```
 >>> [3 5:; 3 7:; 3 4:; 3 9].permutationProduct
-[[3 5 7 4 9]].cycles
+[1; 2; 3 5 7 4 9; 6; 8].cycles
 ```
 
 Multiplication of permutation lists:

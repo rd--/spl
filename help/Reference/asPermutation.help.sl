@@ -28,6 +28,13 @@ A permutation in one-line (permutation list) notation:
 [1 3 2; 4 5].cycles
 ```
 
+The empty list answers the identity permutation:
+
+```
+>>> [].asPermutation.isIdentity
+true
+```
+
 * * *
 
 See also: cycles, isPermutationCycles, isPemutationList, Permutation

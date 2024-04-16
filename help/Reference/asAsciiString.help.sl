@@ -1,14 +1,14 @@
-# asAscii
+# asAsciiString
 
-- _asAscii(aString)_
+- _asAsciiString(aString)_
 
 Answer an Ascii string by removing all non-ascii characters from _aString_.
 
 ```
->>> 'ascii'.asAscii
+>>> 'ascii'.asAsciiString
 'ascii'
 
->>> '!!‼'.asAscii
+>>> '!!‼'.asAsciiString
 '!!'
 ```
 

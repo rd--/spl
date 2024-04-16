@@ -925,6 +925,20 @@
 		self
 	}
 
+	vanDerCorputNumber { :n :base |
+		let p = 0;
+		let q = 1;
+		let nn = n;
+		{
+			nn = 0
+		}.whileFalse {
+			p := (p * base) + (nn % base);
+			q := q * base;
+			nn := nn // base
+		};
+		Fraction(p, q)
+	}
+
 	wrapIndex { :self :size |
 		self - 1 % size + 1
 	}

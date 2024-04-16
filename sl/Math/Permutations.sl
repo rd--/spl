@@ -1,7 +1,9 @@
 Permutation : [Object] { | cycles degree |
 
 	= { :self :anObject |
-		self.hasEqualSlots(anObject)
+		anObject.isPermutation & {
+			self.cycles = anObject.cycles
+		}
 	}
 
 	* { :self :aPermutation |
@@ -187,6 +189,28 @@ Permutation : [Object] { | cycles degree |
 		}
 	}
 
+	runs { :self |
+		self.isIdentity.if {
+			[]
+		} {
+			let list = self.list;
+			let answer = [];
+			let run = [list.first];
+			2.toDo(list.size) { :i |
+				let item = list[i];
+				(list[i - 1] < item).if {
+					run.add(item)
+				} {
+					answer.add(run.copy);
+					run.removeAll;
+					run.add(item)
+				}
+			};
+			answer.add(run);
+			answer
+		}
+	}
+
 	signature { :self |
 		-1 ^ self.inversions.size
 	}
@@ -204,13 +228,17 @@ Permutation : [Object] { | cycles degree |
 +@Sequence {
 
 	asPermutation { :self |
-		self.isPermutationList.if {
-			newPermutation().initializeSlots(
-				self.permutationListToPermutationCycles(true),
-				self.max
-			)
-		} {
+		self.isPermutationCycles.if {
 			self.cycles
+		} {
+			self.isPermutationList.if {
+				newPermutation().initializeSlots(
+					self.permutationListToPermutationCycles(true),
+					self.max
+				)
+			} {
+				self.error('@Sequence>>asPermutation: not permutation')
+			}
 		}
 	}
 
@@ -536,7 +564,7 @@ Permutation : [Object] { | cycles degree |
 
 	permutationPower { :self :anInteger |
 		(anInteger = 0).if {
-			[].cycles
+			[1 .. self.permutationDegree].asPermutation
 		} {
 			self.asPermutation ^ anInteger
 		}
@@ -633,18 +661,22 @@ Permutation : [Object] { | cycles degree |
 		}
 	}
 
-	randomPermutation { :self :count :randomNumberGenerator |
-		{
-			(1 .. self).randomSample(self, randomNumberGenerator).asPermutation
-		} ! count
-	}
-
-	randomPermutation { :self :count |
-		self.randomPermutation(system, count)
+	randomPermutation { :self :randomNumberGenerator |
+		(1 .. self).randomSample(self, randomNumberGenerator).asPermutation
 	}
 
 	randomPermutation { :self |
-		self.randomPermutation(1).first
+		self.randomPermutation(system)
+	}
+
+	randomPermutationList { :self :count :randomNumberGenerator |
+		{
+			self.randomPermutation(randomNumberGenerator)
+		} ! count
+	}
+
+	randomPermutationList { :self :count |
+		self.randomPermutationList(count, system)
 	}
 
 }

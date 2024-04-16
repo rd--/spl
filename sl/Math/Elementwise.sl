@@ -277,6 +277,12 @@
 		self.collect(truncated:/1)
 	}
 
+	vanDerCorputNumber { :self :base |
+		self.collect { :n |
+			n.vanDerCorputNumber(base)
+		}
+	}
+
 	wrapIndex { :self :size |
 		self.collect { :each |
 			each.wrapIndex(size)

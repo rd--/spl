@@ -57,7 +57,7 @@ String! : [Object, Json, Iterable, Character] {
 		self.copyFromTo(1, self.size - n)
 	}
 
-	asAscii { :self |
+	asAsciiString { :self |
 		self.characters.select(isAscii:/1).joinCharacters
 	}
 

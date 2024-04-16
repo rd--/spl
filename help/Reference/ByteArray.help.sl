@@ -13,6 +13,21 @@ Unlike a `List`, a `ByteArray` is of fixed size.
 [0 0 0 0 0].asByteArray
 ```
 
+`ByteArray` implements `Collection`:
+
+```
+>>> [1 3 5 7].asByteArray ^ 2
+[1 9 25 49].asByteArray
+```
+
+
+`ByteArray` implements `Sequence`:
+
+```
+>>> [1 3 5 7 9].asByteArray.last(3)
+[5 7 9].asByteArray
+```
+
 * * *
 
 See also: asByteArray, List, Float64Array

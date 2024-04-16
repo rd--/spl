@@ -9,15 +9,15 @@ Every permutation has a uniquely defined inverse.
 Inverse of a permutation:
 
 ```
->>> [3 2 5 1; 4 7].cycles.inverse
+>>> [1 3 2 5; 4 7; 6].cycles.inverse
 [1 5 2 3; 4 7].cycles
 ```
 
 The product of a permutation with its inverse gives the identity permutation:
 
 ```
->>> [3 2 5 1; 4 7:; 1 5 2 3; 4 7].permutationProduct
-[].cycles
+>>> [1 3 2 5; 4 7; 6:; 1 5 2 3; 4 7; 6].permutationProduct
+[1; 2; 3; 4; 5; 6; 7].cycles
 ```
 
 The support of a permutation is the same as the support of its inverse:
