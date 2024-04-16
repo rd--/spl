@@ -30,7 +30,7 @@ _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:scanl1)
 [2](https://hackage.haskell.org/package/base/docs/Prelude.html#v:scanl),
 _Maple_
-[1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=reduce)
+[1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=reduce),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FoldList.html)
 

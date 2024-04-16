@@ -33,7 +33,7 @@ Count the number of rows whose first element is 1:
 
 * * *
 
-See also: select
+See also: counts, select
 
 References:
 _Mathematica_

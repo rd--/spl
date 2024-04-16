@@ -71,6 +71,20 @@
 		}
 	}
 
+	adjacentPairsDo { :self :aBlock:/2 |
+		2.toDo(self.size) { :i |
+			aBlock(self[i - 1], self[i])
+		}
+	}
+
+	adjacentPairsCollect { :self :aBlock:/2 |
+		let answer = [];
+		self.adjacentPairsDo { :p :q |
+			answer.add(aBlock(p, q))
+		};
+		answer
+	}
+
 	after { :self :target |
 		self.afterIfAbsent(target) {
 			self.errorNotFound(target)
@@ -484,7 +498,7 @@
 			[]
 		} {
 			let answer = [self.first];
-			self.doAdjacentPairs { :i :j |
+			self.adjacentPairsDo { :i :j |
 				aBlock(i, j).ifFalse {
 					answer.add(j)
 				}
@@ -554,12 +568,6 @@
 			aBlock(self[index])
 		};
 		self
-	}
-
-	doAdjacentPairs { :self :aBlock:/2 |
-		2.toDo(self.size) { :i |
-			aBlock(self[i - 1], self[i])
-		}
 	}
 
 	doSeparatedBy { :self :elementBlock:/1 :separatorBlock:/0 |
@@ -1171,7 +1179,7 @@
 			true
 		} {
 			valueWithReturn { :return:/1 |
-				self.doAdjacentPairs { :a :b |
+				self.adjacentPairsDo { :a :b |
 					(b - a ~= aNumber).ifTrue {
 						false.return
 					}
@@ -1209,7 +1217,7 @@
 			true
 		} {
 			valueWithReturn { :return:/1 |
-				self.doAdjacentPairs { :a :b |
+				self.adjacentPairsDo { :a :b |
 					(b / a ~= aNumber).ifTrue {
 						false.return
 					}

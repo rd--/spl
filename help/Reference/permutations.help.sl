@@ -113,7 +113,7 @@ the answer will too:
 
 * * *
 
-See also: !, lexicographicPermutations, permutationsDo, stope, subfactorial, subsets
+See also: !, lexicographicPermutations, minimumChangePermutations, permutationsDo, plainChanges, stope, subfactorial, subsets
 
 References:
 _Mathematica_

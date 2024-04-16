@@ -592,7 +592,7 @@
 	separate { :self :aBlock:/2 |
 		let answer = [];
 		let segment = [];
-		self.doAdjacentPairs { :a :b |
+		self.adjacentPairsDo { :a :b |
 			segment.add(a);
 			aBlock(a, b).ifTrue {
 				answer.add(segment);

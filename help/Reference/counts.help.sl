@@ -20,7 +20,7 @@ Count the number of items in a random list of 100 small integers:
 
 * * *
 
-See also: Bag, commonest, sort, sortedElements
+See also: Bag, commonest, count, sort, sortedElements
 
 References:
 _Mathematica_

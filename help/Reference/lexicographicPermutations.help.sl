@@ -2,7 +2,7 @@
 
 - _lexicographicPermutations(aSequence)_
 
-Answer a `List` of the distinct permutations of _aSequence_ in lexicographic order.
+Answer a `List` of the distinct permutations of _aSequence_, in lexicographic order.
 
 ```
 >>> [1 2 3 4].lexicographicPermutations
@@ -14,7 +14,7 @@ Answer a `List` of the distinct permutations of _aSequence_ in lexicographic ord
 ]
 ```
 
-Given a multiset, will provide the distinct permutations:
+Given a multiset, answers only the distinct permutations:
 
 ```
 >>> [1 2 3 3].lexicographicPermutations
@@ -35,7 +35,7 @@ The number of distinct permutations of a multiset is given by `multinomial`:
 
 * * *
 
-See also: lexicographicPermutationsDo, multinomial, nextPermutationLexicographic
+See also: lexicographicPermutationsDo, minimumChangePermutations, multinomial, nextPermutationLexicographic, permutations, plainChanges
 
 References:
 _Mathematica_

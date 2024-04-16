@@ -34,14 +34,9 @@ Show sequence of swaps:
 
 ```
 >>> let l = 4.plainChanges;
->>> let c = [];
->>> l.doAdjacentPairs { :p :q |
->>> 	let r = p.findPermutation(q);
->>> 	let s = r.asPermutation.cycles;
->>> 	{ s.size = 1 }.assert;
->>> 	c.add(s.first)
->>> };
->>> c
+>>> l.adjacentPairsCollect { :p :q |
+>>> 	p.findPermutation(q).cycles.first
+>>> }
 [
 	3 4; 2 3; 1 2;
 	3 4; 1 2; 2 3;

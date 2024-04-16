@@ -229,6 +229,8 @@
 - `withCollect`
 - `atLevelCollect`, `deepCollect`, `withLevelCollect`
 - `map`, `movingMap`
+- `adjacentPairsCollect`, `pairsCollect`
+- `windowedReduce`
 
 ## Geometry Types & Traits
 
@@ -317,9 +319,14 @@
 - `+`, `-`, `*`, `/`, `%`, `^`
 - `//`, `\\`
 
-## Mathematical Functions
+## Math & Counting Operations on Lists
 
+- `size`
 - `sum`, `product`
+- `accumulate`, `prefixSum`
+- `differences`, `ratios`
+- `max`, `min`, `minMax`
+- `count`, `counts`
 
 ## Matrix Operations
 

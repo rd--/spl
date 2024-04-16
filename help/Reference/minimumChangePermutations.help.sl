@@ -32,14 +32,9 @@ Show sequence of swaps:
 
 ```
 >>> let l = 4.minimumChangePermutations;
->>> let c = [];
->>> l.doAdjacentPairs { :p :q |
->>> 	let r = p.findPermutation(q);
->>> 	let s = r.asPermutation.cycles;
->>> 	{ s.size = 1 }.assert;
->>> 	c.add(s.first)
->>> };
->>> c
+>>> l.adjacentPairsCollect { :p :q |
+>>> 	p.findPermutation(q).cycles.first
+>>> }
 [
 	1 2; 1 3; 1 2; 1 3; 1 2; 1 4;
 	1 2; 1 3; 1 2; 1 3; 1 2; 2 4;
@@ -50,7 +45,7 @@ Show sequence of swaps:
 
 * * *
 
-See also: lexicographicPermutations, minimumChangePermutationsDo, plainChanges
+See also: lexicographicPermutations, permutations, plainChanges
 
 References:
 _W_
