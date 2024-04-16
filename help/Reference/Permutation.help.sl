@@ -7,35 +7,40 @@ To construct a permutation use `asPermutation` or `cycles`.
 Is identity permutation:
 
 ```
->>> [].cycles.isIdentity
+>>> let p = [].cycles;
+>>> p.isIdentity
 true
 ```
 
 A `Permutation` applied to a single point using `image`:
 
 ```
->>> [1 3 2; 4 5].cycles.image(3)
+>>> let p = [1 3 2; 4 5].cycles;
+>>> p.image(3)
 2
 ```
 
 Points not present in the cycles are mapped onto themselves:
 
 ```
->>> [1 3 2; 4 5].cycles.image(7)
+>>> let p = [1 3 2; 4 5].cycles;
+>>> p.image(7)
 7
 ```
 
 Apply identity permutation:
 
 ```
->>> [].cycles.apply([1 3 2 5 4])
+>>> let p = [].cycles;
+>>> p.apply([1 3 2 5 4])
 [1 3 2 5 4]
 ```
 
 Apply a permutation:
 
 ```
->>> [[1 3 2]].cycles.apply([1 2 3 4 5])
+>>> let p = [1 3 2; 4; 5].cycles;
+>>> p.apply([1 2 3 4 5])
 [2 3 1 4 5]
 ```
 
@@ -43,7 +48,8 @@ Answer the `max` of a permuation,
 i.e. the maximum entry in any cycle:
 
 ```
->>> [1 4 3; 2 5].cycles.max
+>>> let p = [1 4 3; 2 5];
+>>> p.cycles.max
 5
 ```
 
@@ -83,7 +89,7 @@ Permutation list as permutation:
 [1 4 3; 2 5].cycles
 ```
 
-Permutation cycles as permutation:
+Permutation cycles as permutation list:
 
 ```
 >>> let p = [1 4 3; 2 5].cycles;
@@ -94,7 +100,8 @@ Permutation cycles as permutation:
 Answer permutation matrix:
 
 ```
->>> [1 4 2; 3].cycles.matrix
+>>> let p = [1 4 2; 3].cycles;
+>>> p.matrix
 [
 	0 0 0 1;
 	1 0 0 0;
@@ -106,19 +113,19 @@ Answer permutation matrix:
 Product of two permutations:
 
 ```
->>> let p = [[1 2 3]].cycles;
->>> let q = [[2 3]].cycles;
+>>> let p = [1 2 3; 4].cycles;
+>>> let q = [1; 2 3; 4].cycles;
 >>> p * q
-[[1 3]].cycles
+[1 3; 2; 4].cycles
 ```
 
 Multiplication of permutations is not commutative:
 
 ```
->>> let p = [[1 2 3]].cycles;
->>> let q = [[2 3]].cycles;
+>>> let p = [1 2 3; 4].cycles;
+>>> let q = [1; 2 3; 4].cycles;
 >>> q * p
-[[1 2]].cycles
+[1 2; 3; 4].cycles
 ```
 
 The inversions of a permutation:

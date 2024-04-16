@@ -3,7 +3,7 @@
 - _pairsCollect(aSequence, aBlock:/2)_
 
 Apply _aBlock_ to succesive adjacent pairs of _aSequence_.
-Answer a List of the answers.
+Answer a `List` of the answers.
 
 ```
 >>> 1:8.pairsCollect(+)

@@ -1,11 +1,11 @@
-Permutation : [Object] { | cycles |
+Permutation : [Object] { | cycles degree |
 
 	= { :self :anObject |
 		self.hasEqualSlots(anObject)
 	}
 
 	* { :self :aPermutation |
-		let length = self.max.max(aPermutation.max);
+		let length = self.degree.max(aPermutation.degree);
 		aPermutation.apply(
 			self.apply([1 .. length])
 		).ordering.asPermutation
@@ -38,7 +38,7 @@ Permutation : [Object] { | cycles |
 	}
 
 	fixedPoints { :self |
-		self.fixedPoints(self.max)
+		self.fixedPoints(self.degree)
 	}
 
 	fixedPoints { :self :anInteger |
@@ -101,7 +101,7 @@ Permutation : [Object] { | cycles |
 	}
 
 	isDerangement { :self |
-		self.support.size = self.max
+		self.support.size = self.degree
 	}
 
 	isIdentity { :self |
@@ -119,7 +119,7 @@ Permutation : [Object] { | cycles |
 	}
 
 	list { :self |
-		self.list(self.max)
+		self.list(self.degree)
 	}
 
 	list { :self :anInteger |
@@ -138,7 +138,7 @@ Permutation : [Object] { | cycles |
 	}
 
 	matrix { :self |
-		self.matrix(self.max)
+		self.matrix(self.degree)
 	}
 
 	max { :self |
@@ -206,7 +206,8 @@ Permutation : [Object] { | cycles |
 	asPermutation { :self |
 		self.isPermutationList.if {
 			newPermutation().initializeSlots(
-				self.permutationListToPermutationCycles(true)
+				self.permutationListToPermutationCycles(true),
+				self.max
 			)
 		} {
 			self.cycles
@@ -220,7 +221,8 @@ Permutation : [Object] { | cycles |
 					[]
 				} {
 					self.permutationCyclesToCanonicalForm(true)
-				}
+				},
+				self.permutationDegree
 			)
 		} {
 			self.error('@Sequence>>cycles: not permutation cycles')
@@ -310,6 +312,44 @@ Permutation : [Object] { | cycles |
 		}
 	}
 
+	minimumChangePermutations { :self |
+		let answer = [];
+		self.minimumChangePermutationsDo { :each |
+			answer.add(each.copy)
+		};
+		answer
+	}
+
+	minimumChangePermutationsDo { :self :aBlock:/1 |
+		let a = self.copy;
+		let n = a.size;
+		let c = List(n, 1);
+		let i = 2;
+		let swap = { :i :j |
+			let t = a[i];
+			a[i] := a[j];
+			a[j] := t
+		};
+		aBlock(a);
+		{
+			i <= n
+		}.whileTrue {
+			(c[i] < i).if {
+				i.isOdd.if {
+					swap(1, i)
+				} {
+					swap(c[i], i)
+				};
+				aBlock(a);
+				c[i] := c[i] + 1;
+				i := 2
+			} {
+				c[i] := 1;
+				i := i + 1
+			}
+		}
+	}
+
 	nextPermutationLexicographic { :self |
 		let swap = { :i :j |
 			let t = self[i];
@@ -349,6 +389,40 @@ Permutation : [Object] { | cycles |
 		}
 	}
 
+	plainChanges { :self |
+		let answer = [];
+		self.plainChangesDo { :each |
+			answer.add(each.copy)
+		};
+		answer
+	}
+
+	plainChangesDo { :self :aBlock:/1 |
+		let p = self.copy;
+		let q = self.copy;
+		let n = p.size;
+		let d = List(n, -1);
+		let move = { :x :y |
+			let z = p[q[x] + y];
+			p[q[x]] := z;
+			p[q[x] + y] := x;
+			q[z] := q[x];
+			q[x] := q[x] + y
+		};
+		let perm = { :i |
+			(i > n).if {
+				aBlock(p)
+			} {
+				perm(i + 1);
+				(i - 1).timesRepeat {
+					move(i, d[i]);
+					perm(i + 1)
+				};
+				d[i] := 0 - d[i]
+			}
+		};
+		perm(1)
+	}
 
 	permutationCycles { :self |
 		self.asPermutation.cycles
@@ -379,7 +453,11 @@ Permutation : [Object] { | cycles |
 
 	permutationDegree { :self |
 		self.isPermutationCycles.if {
-			self.concatenation.max
+			self.isEmpty.if {
+				0
+			} {
+				self.concatenation.max
+			}
 		} {
 			self.isPermutationList.if {
 				self.max
@@ -542,6 +620,18 @@ Permutation : [Object] { | cycles |
 }
 
 +@Integer {
+
+	minimumChangePermutations { :self |
+		[1 .. self].minimumChangePermutations
+	}
+
+	plainChanges { :self |
+		(self < 1).if {
+			self.error('@Integer>>plainChanges: n < 1')
+		} {
+			[1 .. self].plainChanges
+		}
+	}
 
 	randomPermutation { :self :count :randomNumberGenerator |
 		{

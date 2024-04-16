@@ -399,6 +399,34 @@
 		}
 	}
 
+	copyReplaceAllWith { :self :old :new |
+		let indexList = self.indicesOfSubCollection(old);
+		indexList.isEmpty.if {
+			self.copy
+		} {
+			let n = new.size;
+			(old.size = n).if {
+				let answer = self.copy;
+				indexList.do { :i |
+					answer.replaceFromToWith(i, i + n - 1, new)
+				};
+				answer
+			} {
+				let answer = [];
+				let i = 1;
+				let k = old.size;
+				indexList.do { :j |
+					[answer, i, j, self.copyFromTo(i, j - 1)].postLine;
+					answer.add(self.copyFromTo(i, j - 1));
+					answer.add(new);
+					i := j + k
+				};
+				answer.add(self.copyFromTo(i, self.size));
+				answer.concatenation
+			}
+		}
+	}
+
 	copyReplaceFromToWith { :self :start :stop :aCollection |
 		let end = start - 1 + aCollection.size;
 		let newSize = self.size + end - stop;
@@ -2020,6 +2048,15 @@
 		(1 - anInteger).toAsCollect(self.size - anInteger, self.species) { :index |
 			self.atWrap(index)
 		}
+	}
+
+	rotateLeft { :self |
+		let n = self.size;
+		let left = self.first;
+		2.toDo(n) { :i |
+			self[i - 1] := self[i]
+		};
+		self[n] := z
 	}
 
 	scalarProduct { :self :aSequence |

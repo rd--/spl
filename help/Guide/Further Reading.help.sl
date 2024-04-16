@@ -31,7 +31,12 @@ _Discrete Mathematics_, 225(1):121–135.
 W. Fulton. 1996.
 _Young Tableaux: With Applications to Representation Theory and Geometry_.\
 Cambridge University Press.
-[Doi](https://doi.org/:10.1017/CBO9780511626241)
+[Doi](https://doi.org/10.1017/CBO9780511626241)
+
+B. Heap. 1963.
+"Permutations by Interchanges".\
+_The Computer Journal_. 6(3):293–294.
+[Doi](https://doi.org/10.1093/comjnl/6.3.293)
 
 E. Kurenniemi. 1988.
 "Musical harmonies are divisor sets".\
@@ -42,7 +47,7 @@ E. Kurenniemi. 2015.
 _Writing and Unwriting (Media) Art History: Erkki Kurenniemi in 2048_.
 MIT Press.
 [Pdf](https://beige.org/projects/dimi/CSDL2.pdf)
-[Doi](https://doi.org/:10.7551/mitpress/10014.003.0026)
+[Doi](https://doi.org/10.7551/mitpress/10014.003.0026)
 
 P. L’Ecuyer et. al. 2007.
 "TestU01: A C library for empirical testing of random number generators".\
@@ -62,7 +67,7 @@ _Proc. ICMC_, 133–136.
 J. McCartney. 2002.
 "Rethinking the computer music language: SuperCollider".\
 _Computer Music Journal_, 26(4):61–68.
-[Doi](https://doi.org/:10.1162/014892602320991383)
+[Doi](https://doi.org/10.1162/014892602320991383)
 
 E. McDonnell. 1975.
 "A notation for the GCD and LCM functions".\
@@ -74,6 +79,16 @@ Z. Kása. 2009.
 "Generating and ranking of Dyck words".\
 _Acta Univ. Sapientiae, Informatica_, 1(1):109–118.
 [Pdf](https://arxiv.org/pdf/1002.2625.pdf)
+
+F. Ruskey. 1988.
+"Adjacent interchange generation of combinations".\
+_J. Algorithms_, 9:162–180, 1988.
+[Doi](https://doi.org/10.1016/0196-6774(88)90036-3)
+
+R. Sedgewick. 1977.
+"Permutation generation methods".\
+_ACM Comput. Surv._, 9(2):137–164.
+[Doi](https://doi.org/10.1145/356689.356692)
 
 Guy L. Steele et. al. 2014.
 "Fast splittable pseudorandom number generators".

@@ -9,23 +9,35 @@ The six length three permutations of three elements:
 
 ```
 >>> 1:3.permutations
-[1 2 3; 1 3 2; 2 1 3; 2 3 1; 3 2 1; 3 1 2]
+[
+	1 2 3; 1 3 2;
+	2 1 3; 2 3 1;
+	3 2 1; 3 1 2
+]
 ```
 
 The six length-two permutations of three elements:
 
 ```
 >>> 1:3.permutations(2)
-[1 2; 2 1; 1 3; 3 1; 2 3; 3 2]
+[
+	1 2; 2 1;
+	1 3; 3 1;
+	2 3; 3 2
+]
 ```
 
-Calculate as the permutations of the two element subsets:
+Calculate the same sequence as the permutations of the two element subsets:
 
 ```
 >>> 1:3.subsets { :each |
 >>> 	each.size = 2
 >>> }.collect(permutations:/1).++
-[1 2; 2 1; 1 3; 3 1; 2 3; 3 2]
+[
+	1 2; 2 1;
+	1 3; 3 1;
+	2 3; 3 2
+]
 ```
 
 The number of length-_n_ permutations of a length-_n_ list of distinct elements is _n!_:
@@ -74,7 +86,8 @@ The number of _length-k_ permutations of _n_ elements is given by _k.stope(-1, n
 60
 ```
 
-The four element permutations, not in lexicographic order:
+The four element permutations,
+not that the answer is not in lexicographic order:
 
 ```
 >>> [1 2 3 4].permutations
@@ -83,6 +96,18 @@ The four element permutations, not in lexicographic order:
 	2 1 3 4; 2 1 4 3; 2 3 1 4; 2 3 4 1; 2 4 3 1; 2 4 1 3;
 	3 2 1 4; 3 2 4 1; 3 1 2 4; 3 1 4 2; 3 4 1 2; 3 4 2 1;
 	4 2 3 1; 4 2 1 3; 4 3 2 1; 4 3 1 2; 4 1 3 2; 4 1 2 3
+]
+```
+
+Note also that if the list contains duplicate elements,
+the answer will too:
+
+```
+>>> [1 2 2].permutations
+[
+	1 2 2; 1 2 2;
+	2 1 2; 2 2 1;
+	2 2 1; 2 1 2
 ]
 ```
 

@@ -204,6 +204,10 @@
 		}
 	}
 
+	downToDo { :self :anInteger :aBlock:/1 |
+		Range(self, anInteger, -1).do(aBlock:/1)
+	}
+
 	e { :self |
 		self * 2.71828182845904523536028747135266249775724709369995
 	}

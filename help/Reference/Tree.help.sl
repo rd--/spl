@@ -32,7 +32,7 @@ The `size` of a tree is the number of `subTrees`.
 3
 ```
 
-The size of a Tree is same as the size of an equivalent nested List:
+The size of a `Tree` is same as the size of an equivalent nested `List`:
 
 ```
 >>> [1 2 3 4 5].size
@@ -42,7 +42,7 @@ The size of a Tree is same as the size of an equivalent nested List:
 3
 ```
 
-A Tree is a _leaf_ if its size is `zero`:
+A `Tree` is a _leaf_ if its size is `zero`:
 
 ```
 >>> Tree(1, []).isLeaf
@@ -80,7 +80,7 @@ An empty `Tree` has `depth` of `one`.
 4
 ```
 
-The depth of a tree is the same as the depth of an equivalent nested List:
+The `depth` of a tree is the same as the `depth` of an equivalent nested `List`:
 
 ```
 >>> [1 [2 [3] 4] 5].depth

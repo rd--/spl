@@ -393,9 +393,11 @@
 
 - `permutations`, `permutationsDo`
 - `lexicographicPermutations`, `nextPermutationLexicographic`
+- `minimumChangePermutations`
+- `plainChanges`
 - `isPermutationCycles`, `isPermutationList`, `isPermutationOf`
 - `permutationListToPermutationCycle`
-- `permutationCycle`, `permutationCycles`, `permutationList`
+- `permutationCycles`, `permutationList`
 - `permutationMatrix`
 - `Permutation`
 - `asPermutation`, `cycles`, `isDerangement`, `isInvolution`
@@ -407,7 +409,7 @@
 - `permutationInversions`, `permutationSymbol`
 - `permutationFixedPoints`
 - `permutationLength`, `permutationSupport`
-- `permutationMax`, `permutationMin`
+- `permutationDegree`, `permutationMax`, `permutationMin`
 - `randomPermutation`
 
 ## Piecewise Functions
