@@ -30,23 +30,17 @@ Plain changes of _S4_:
 ]
 ```
 
-Show sequence of swaps:
+Show sequence of swaps, since swaps are always adjacent show only first place:
 
 ```
 >>> let l = 4.plainChanges;
 >>> l.adjacentPairsCollect { :p :q |
->>> 	p.findPermutation(q).cycles.first
+>>> 	p.findPermutation(q).cycles.first.first
 >>> }
 [
-	3 4; 2 3; 1 2;
-	3 4; 1 2; 2 3;
-	3 4; 1 2;
-	3 4; 2 3; 1 2;
-	3 4; 1 2; 2 3;
-	3 4; 1 2;
-	3 4; 2 3; 1 2;
-	3 4; 1 2; 2 3;
-	3 4
+	3 2 1 3 1 2 3 1
+	3 2 1 3 1 2 3 1
+	3 2 1 3 1 2 3
 ]
 ```
 

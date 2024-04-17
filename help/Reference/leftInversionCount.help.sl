@@ -1,0 +1,44 @@
+# leftInversionCount
+
+- _leftInversionCount(aPermutation)_
+
+Answer the left inversion count, also called the Lehmer co-code, of _aPermutation_.
+
+```
+>>> [2 1 3].leftInversionCount
+[0 1 0]
+
+>>> [3 1 2].leftInversionCount
+[0 1 1]
+```
+
+The left inversion counts of _S3_:
+
+```
+>>> let s3 = [1 .. 3].lexicographicPermutations;
+>>> s3.collect(leftInversionCount:/1)
+[0 0 0; 0 0 1; 0 1 0; 0 0 2; 0 1 1; 0 1 2]
+```
+
+The left inversion counts of _S4_:
+
+```
+>>> let s4 = [1 .. 4].lexicographicPermutations;
+>>> s4.collect(leftInversionCount:/1)
+[
+	0 0 0 0; 0 0 0 1; 0 0 1 0; 0 0 0 2; 0 0 1 1; 0 0 1 2;
+	0 1 0 0; 0 1 0 1; 0 0 2 0; 0 0 0 3; 0 0 2 1; 0 0 1 3;
+	0 1 1 0; 0 1 0 2; 0 1 2 0; 0 1 0 3; 0 0 2 2; 0 0 2 3;
+	0 1 1 1; 0 1 1 2; 0 1 2 1; 0 1 1 3; 0 1 2 2; 0 1 2 3
+]
+```
+
+* * *
+
+See also: inversionVector, rightInversionCount
+
+References:
+_Sage_
+[1](https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/permutation.html#sage.combinat.permutation.Permutation.to_lehmer_cocode)
+
+Categories: Permutations

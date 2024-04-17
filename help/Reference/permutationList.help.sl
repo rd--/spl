@@ -14,6 +14,9 @@ the size will is given by `permutationMax`.
 Convert permutation cycles to a permutation list:
 
 ```
+>>> [1 2 5 3 7; 4; 6].permutationList
+[2 5 7 4 3 6 1]
+
 >>> [1 6 7; 2 3; 4; 5].permutationList
 [6 3 2 4 5 7 1]
 

@@ -11,6 +11,20 @@ Cyclic form of a permutation list of length 3:
 [[1 3]]
 ```
 
+Permutation with two three-cycles:
+
+```
+>>> [4 1 5 2 6 3].permutationCycles
+[1 4 2; 3 5 6]
+```
+
+Permutation with three two-cycles:
+
+```
+>>> [6 4 5 2 3 1].permutationCycles
+[1 6; 2 4; 3 5]
+```
+
 Cyclic form of a permutation list of length 10:
 
 ```

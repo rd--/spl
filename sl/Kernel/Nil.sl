@@ -16,6 +16,10 @@ Nil! : [Object, Json] {
 		anObject.isNil
 	}
 
+	copy { :self |
+		nil
+	}
+
 	ifNil { :self :whenNil:/0 |
 		whenNil()
 	}

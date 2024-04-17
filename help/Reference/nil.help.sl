@@ -8,6 +8,13 @@ or for results which are meaningless.
 true
 ```
 
+`nil` can be copied, and answers `nil`:
+
+```
+>>> nil.copy
+nil
+```
+
 `nil` is a reserved word, like `true` and `false`.
 
 * * *

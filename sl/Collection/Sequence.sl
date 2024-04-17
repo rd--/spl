@@ -530,6 +530,26 @@
 		}
 	}
 
+	detectStartingAt { :self :predicate:/1 :startIndex |
+		self.detectStartingAtIfFoundIfNone(predicate:/1, startIndex) { :item |
+			item
+		} {
+			self.error('@Sequence>>detectStartingAt: no such item')
+		}
+	}
+
+	detectStartingAtIfFoundIfNone { :self :predicate:/1 :startIndex :ifFound:/1 :ifNone:/0 |
+		valueWithReturn { :return:/1 |
+			startIndex.toDo(self.size) { :index |
+				let item = self[index];
+				predicate(item).ifTrue {
+					ifFound(item).return
+				}
+			};
+			ifNone()
+		}
+	}
+
 	diagonal { :self :k |
 		self.isMatrix.if {
 			let l = self.shape.min - k.abs;

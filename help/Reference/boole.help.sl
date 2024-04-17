@@ -1,8 +1,8 @@
 # boole
 
-- _boole(anObject)_
+- _boole(aBoolean)_
 
-Answer 1 if _anObject_ is `true` and 0 if it is `false`.
+Answer 1 if _aBoolean_ is `true` and 0 if it is `false`.
 
 ```
 >>> [false.boole, true.boole]

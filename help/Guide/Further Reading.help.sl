@@ -38,6 +38,15 @@ B. Heap. 1963.
 _The Computer Journal_. 6(3):293–294.
 [Doi](https://doi.org/10.1093/comjnl/6.3.293)
 
+Z. Kása. 2009.
+"Generating and ranking of Dyck words".\
+_Acta Univ. Sapientiae, Informatica_, 1(1):109–118.
+[Pdf](https://arxiv.org/pdf/1002.2625.pdf)
+
+D. Knuth. 1973.
+_The Art of Computer Programming: Volume 3: Sorting and Searching_.\
+Addison-Wesley, Reading MA.
+
 E. Kurenniemi. 1988.
 "Musical harmonies are divisor sets".\
 _Proc. of Nordic acoustical meeting_, 371–374.
@@ -74,11 +83,6 @@ E. McDonnell. 1975.
 In Proc. Conference on APL, 240–243.
 [Doi](https://doi.org/10.1145/800117.803810)
 [Pdf](https://dl.acm.org/doi/pdf/10.1145/800117.803810)
-
-Z. Kása. 2009.
-"Generating and ranking of Dyck words".\
-_Acta Univ. Sapientiae, Informatica_, 1(1):109–118.
-[Pdf](https://arxiv.org/pdf/1002.2625.pdf)
 
 F. Ruskey. 1988.
 "Adjacent interchange generation of combinations".\

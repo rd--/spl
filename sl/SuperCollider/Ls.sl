@@ -131,6 +131,18 @@
 		LsLace(list).take(count)
 	}
 
+	LsPermutations { :list |
+		let local = list.copy;
+		let next = local;
+		BlockStream {
+			let answer = next.copy;
+			next := local.nextPermutationLexicographic;
+			answer
+		} {
+			local := list.copy
+		}
+	}
+
 	LsRand { :list |
 		BlockStream {
 			list.atRandom

@@ -44,6 +44,13 @@ When _anInteger_ is zero, `permutationPower` answers the identity permutation.
 [1; 2; 3; 4; 5; 6; 7].cycles
 ```
 
+Square of permutation given in list form:
+
+```
+>>> [1 4 5 6 2 3].permutationPower(2)
+[1 6 2 3 4 5].asPermutation
+```
+
 * * *
 
 See also: asPermutation, cycles, inversePermutation, permutationProduct

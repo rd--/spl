@@ -2,7 +2,7 @@
 
 - _Graph(vertexList, edgeList)_
 
-A `Graph` is a collection of `vertices` and `edges`.
+A `Graph` is a collection of _vertices_ and _edges_.
 
 The number of vertices is the `vertexCount`, or _order_, of the graph.
 

@@ -39,19 +39,29 @@ Permutation : [Object] { | cycles degree |
 		self
 	}
 
-	fixedPoints { :self |
-		self.fixedPoints(self.degree)
+	dictionary { :self |
+		(1 .. self.degree).collect { :i |
+			i -> self.image(i)
+		}.asMap
 	}
 
-	fixedPoints { :self :anInteger |
+	fixedPoints { :self |
 		let support = self.support.asSet;
 		let answer = [];
-		1.toDo(anInteger) { :each |
+		1.toDo(self.degree) { :each |
 			support.includes(each).ifFalse {
 				answer.add(each)
 			}
 		};
 		answer
+	}
+
+	graph { :self |
+		let l = self.list;
+		let i = self.inversions;
+		let e = i.collect { :each | l @* each };
+		let v = [1 .. self.degree];
+		Graph(v, e)
 	}
 
 	image { :self :anInteger |
@@ -72,10 +82,11 @@ Permutation : [Object] { | cycles degree |
 		}.cycles
 	}
 
-	inversionVector { :self :anInteger |
+	inversionVector { :self |
 		let list = self.list;
-		let answer = List(anInteger);
-		1.toDo(anInteger) { :i |
+		let n = list.size;
+		let answer = List(n);
+		1.toDo(n) { :i |
 			let j = list.indexOf(i);
 			let c = 0;
 			1.toDo(j) { :k |
@@ -114,6 +125,26 @@ Permutation : [Object] { | cycles degree |
 		self.cycles.allSatisfy { :each |
 			each.size <= 2
 		}
+	}
+
+	leftActionProduct { :self :aPermutation |
+		aPermutation * self
+	}
+
+	leftInversionCount { :self |
+		let list = self.list;
+		let n = list.size;
+		let answer = List(n);
+		1.toDo(n) { :i |
+			let c = 0;
+			1.toDo(i) { :k |
+				(list[k] > list[i]).ifTrue {
+					c := c + 1
+				}
+			};
+			answer[i] := c
+		};
+		answer
 	}
 
 	length { :self |
@@ -183,10 +214,36 @@ Permutation : [Object] { | cycles degree |
 		self.cycles := self.cycles.copy
 	}
 
+	rank { :self |
+		let c = self.rightInversionCount;
+		let r = [self.degree .. 1];
+		c.mixedRadixDecode(r)
+	}
+
 	replace { :self :aSequence |
 		aSequence.collect { :each |
 			self.image(each)
 		}
+	}
+
+	rightActionProduct { :self :aPermutation |
+		self * aPermutation
+	}
+
+	rightInversionCount { :self |
+		let list = self.list;
+		let n = list.size;
+		let answer = List(n);
+		1.toDo(n) { :i |
+			let c = 0;
+			(i + 1).toDo(n) { :k |
+				(list[k] < list[i]).ifTrue {
+					c := c + 1
+				}
+			};
+			answer[i] := c
+		};
+		answer
 	}
 
 	runs { :self |
@@ -221,6 +278,13 @@ Permutation : [Object] { | cycles degree |
 
 	support { :self |
 		self.cycles.concatenation.sort
+	}
+
+	twoLineNotation { :self |
+		[
+			[1 .. self.degree],
+			self.list
+		]
 	}
 
 }
@@ -278,8 +342,12 @@ Permutation : [Object] { | cycles degree |
 		indices.findPermutation
 	}
 
+	inversePermutation { :self |
+		self.asPermutation.inverse
+	}
+
 	inversionVector { :self |
-		self.asPermutation.inversionVector(self.permutationDegree)
+		self.asPermutation.inversionVector
 	}
 
 	isInvolution { :self |
@@ -318,6 +386,10 @@ Permutation : [Object] { | cycles degree |
 		(self.size = aSequence.size) & {
 			self.sort = aSequence.sort
 		}
+	}
+
+	leftInversionCount { :self |
+		self.asPermutation.leftInversionCount
 	}
 
 	lexicographicPermutations { :self |
@@ -496,7 +568,11 @@ Permutation : [Object] { | cycles degree |
 	}
 
 	permutationFixedPoints { :self |
-		self.asPermutation.fixedPoints(self.permutationDegree)
+		self.asPermutation.fixedPoints
+	}
+
+	permutationGraph { :self |
+		self.asPermutation.graph
 	}
 
 	permutationInversions { :self |
@@ -583,6 +659,10 @@ Permutation : [Object] { | cycles degree |
 		}
 	}
 
+	permutationRank { :self |
+		self.asPermutation.rank
+	}
+
 	permutationReplace { :self :aPermutation |
 		aPermutation.asPermutation.replace(self)
 	}
@@ -637,6 +717,18 @@ Permutation : [Object] { | cycles degree |
 		anObject.asPermutation.apply(self)
 	}
 
+	rightInversionCount { :self |
+		self.asPermutation.rightInversionCount
+	}
+
+	rightInversionCountToPermutation { :self |
+		let list = [1 .. self.size];
+		self.collect { :each |
+			list.removeAt(each + 1)
+		}.asPermutation
+	}
+
+
 }
 
 +@ArithmeticProgression {
@@ -679,4 +771,7 @@ Permutation : [Object] { | cycles degree |
 		self.randomPermutationList(count, system)
 	}
 
+	unrankPermutation { :rank :degree |
+		rank.mixedRadixEncode([degree .. 1]).rightInversionCountToPermutation
+	}
 }

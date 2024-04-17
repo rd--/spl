@@ -4,7 +4,7 @@
 
 Encode _anInteger_ using binary reflected Gray code.
 A Gray code is an encoding of numbers so that adjacent numbers have a single digit differing by 1.
-The inverse if `grayDecode`.
+The inverse is `grayDecode`.
 
 ```
 >>> 0:15.collect { :n |

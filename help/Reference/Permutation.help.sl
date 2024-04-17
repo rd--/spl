@@ -135,6 +135,30 @@ Multiplication of permutations is not commutative:
 >>> let q = [1; 2 3; 4].cycles;
 >>> q * p
 [1 2; 3; 4].cycles
+
+>>> let p = [2 1 3].asPermutation;
+>>> let q = [3 1 2].asPermutation;
+>>> ((p * q).list, (q * p).list)
+([1 3 2], [3 2 1])
+```
+
+For clarity there are the methods `leftActionProduct`:
+
+```
+>>> let p = [2 1 3].asPermutation;
+>>> let q = [3 1 2].asPermutation;
+>>> p.leftActionProduct(q).list
+[3 2 1]
+```
+
+and `rightActionProduct`:
+
+
+```
+>>> let p = [2 1 3].asPermutation;
+>>> let q = [3 1 2].asPermutation;
+>>> p.rightActionProduct(q).list
+[1 3 2]
 ```
 
 The inversions of a permutation:
@@ -160,6 +184,55 @@ The runs of two random permutations:
 	11; 7 13; 5 10; 9; 4; 1 12; 2 3 8; 6:;
 	7; 5; 3 10 13; 9; 8; 4 6 11; 2 12; 1
 ]
+```
+
+`dictionary` answers a `Map` form of a permutation:
+
+```
+>>> [2 1 3].asPermutation.dictionary
+[1 -> 2, 2 -> 1, 3 -> 3].asMap
+
+>>> [1 2 5 3 7; 4; 6].cycles.dictionary
+[1 -> 2, 2 -> 5, 3 -> 7, 4 -> 4, 5 -> 3, 6 -> 6, 7 -> 1].asMap
+```
+
+Cauchy’s two-line notation lists the elements of S in the first row,
+and the image of each element below it in the second row.
+
+```
+>>> [1 2 6; 3 5].cycles.twoLineNotation
+[
+	1 2 3 4 5 6;
+	2 6 5 4 3 1
+]
+
+>>> [1 2 5 3 7; 4; 6].cycles.twoLineNotation
+[
+	1 2 3 4 5 6 7;
+	2 5 7 4 3 6 1
+]
+```
+
+The `^` operator answers a permutation raised to an integer power:
+
+```
+>>> let p = [1 4 5 6 2 3].asPermutation;
+>>> p * p
+[1; 2 6 5 4 3].cycles
+```
+
+The `rank` of a permutation is its zero-based index into the lexicographic ordering of the symmetric group to which it belongs:
+
+```
+>>> [1 2 4 6 3 5].asPermutation.rank
+10
+```
+
+The rank of the identity permutation is in all cases zero:
+
+```
+>>> [1; 2; 3; 4; 5; 6].cycles.rank
+0
 ```
 
 * * *

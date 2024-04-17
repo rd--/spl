@@ -64,6 +64,23 @@ A factorial number system uses a range of integers as mixed radix. The last digi
 ```
 >>> 437.mixedRadixEncode([6 5 4 3 2 1])
 [3 3 0 2 1 0]
+
+>>> 463.mixedRadixEncode([6 5 4 3 2 1])
+[3 4 1 0 1 0]
+```
+
+There is a natural mapping between permutations in lexicographical order and integers expressed in a factorial number system:
+
+```
+>>> (0 .. 4.! - 1).collect { :each |
+>>> 	each.mixedRadixEncode([4 3 2 1])
+>>> }
+[
+	0 0 0 0; 0 0 1 0; 0 1 0 0; 0 1 1 0; 0 2 0 0; 0 2 1 0;
+	1 0 0 0; 1 0 1 0; 1 1 0 0; 1 1 1 0; 1 2 0 0; 1 2 1 0;
+	2 0 0 0; 2 0 1 0; 2 1 0 0; 2 1 1 0; 2 2 0 0; 2 2 1 0;
+	3 0 0 0; 3 0 1 0; 3 1 0 0; 3 1 1 0; 3 2 0 0; 3 2 1 0
+]
 ```
 
 Construct a list from the names of tactical units in a Roman army.

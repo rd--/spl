@@ -16,6 +16,9 @@ where _n_ is the number of transpositions of pairs of elements that must be comp
 
 >>> [].permutationSymbol
 -1 ^ 0
+
+>>> [4 1 5 2 3 7 8 6].permutationSymbol
+-1
 ```
 
 Even and odd permutations:

@@ -17,14 +17,29 @@ The inversion vector of a permutation indicates for each place the number of ele
 [3 1 0 0 0]
 ```
 
+The inversion vectors of _S4_:
+
+```
+>>> let s4 = [1 .. 4].lexicographicPermutations;
+>>> s4.collect(inversionVector:/1)
+[
+	0 0 0 0; 0 0 1 0; 0 1 0 0; 0 2 0 0; 0 1 1 0; 0 2 1 0;
+	1 0 0 0; 1 0 1 0; 2 0 0 0; 3 0 0 0; 2 0 1 0; 3 0 1 0;
+	1 1 0 0; 1 2 0 0; 2 1 0 0; 3 1 0 0; 2 2 0 0; 3 2 0 0;
+	1 1 1 0; 1 2 1 0; 2 1 1 0; 3 1 1 0; 2 2 1 0; 3 2 1 0
+]
+```
+
 * * *
 
-See also: Permutation, permutationSymbol
+See also: leftInversionCount, Permutation, permutationInversions, permutationSymbol
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/InversionVector.html),
 _Sage_
-[1](https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/permutation.html#sage.combinat.permutation.Permutation.to_inversion_vector)
+[1](https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/permutation.html#sage.combinat.permutation.Permutation.to_inversion_vector),
+_W_
+[1](https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics)#Inversion_related_vectors)
 
-Categories: Permutations, Type
+Categories: Permutations
