@@ -43,6 +43,10 @@ Z. Kása. 2009.
 _Acta Univ. Sapientiae, Informatica_, 1(1):109–118.
 [Pdf](https://arxiv.org/pdf/1002.2625.pdf)
 
+D. Knuth. 1968.
+_The Art of Computer Programming: Volume 1: Fundamental Algorithms_.\
+Addison-Wesley, Reading MA.
+
 D. Knuth. 1973.
 _The Art of Computer Programming: Volume 3: Sorting and Searching_.\
 Addison-Wesley, Reading MA.
@@ -83,6 +87,11 @@ E. McDonnell. 1975.
 In Proc. Conference on APL, 240–243.
 [Doi](https://doi.org/10.1145/800117.803810)
 [Pdf](https://dl.acm.org/doi/pdf/10.1145/800117.803810)
+
+D. Rotem. 1981.
+"Stack sortable permutations".\
+_Discrete Mathematics_, 33(2):185--196.
+[Doi](http://dx.doi.org/10.1016/0012-365X(81)90165-5)
 
 F. Ruskey. 1988.
 "Adjacent interchange generation of combinations".\

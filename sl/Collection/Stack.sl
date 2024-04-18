@@ -23,13 +23,21 @@ Stack : [Object] { | linkedList |
 	}
 
 	peek { :self |
-		self.notEmptyCheck;
-		self.linkedList.first.value
+		let list = self.linkedList;
+		list.isEmpty.if {
+			nil
+		} {
+			list.first.value
+		}
 	}
 
 	pop { :self |
-		self.notEmptyCheck;
-		self.linkedList.removeFirst.value
+		let list = self.linkedList;
+		list.isEmpty.if {
+			nil
+		} {
+			list.removeFirst.value
+		}
 	}
 
 	postCopy { :self |

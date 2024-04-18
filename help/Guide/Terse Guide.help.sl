@@ -3379,7 +3379,7 @@ Stack().size = 0 {- empty stack, size -}
 let s = Stack(); s.push(1.pi); [s.size, s.peek, s.size] = [1, 1.pi, 1] {- push element onto stack, inspect top of stack -}
 let s = Stack(); s.push(1.pi); [s.size, s.pop, s.size] = [1, 1.pi, 0] {- push element onto stack, fetch item from top of stack -}
 let s = Stack(); s.push('x'); s.push('y'); [s.size, s.pop, s.size, s.pop, s.size] = [2, 'y', 1, 'x', 0] {- push two elements, pop two elements -}
-{ let s = Stack(); s.pop }.ifError { true } {- cannot pop from empty stack -}
+let s = Stack(); s.pop = nil {- pop of empty stack answers nil -}
 let s = Stack(); s.push('x') = 'x' {- push answers object pushed -}
 let s = Stack(); s.push('x'); s.copy = s & { s.copy ~~ s } {- copy is equal but not identical -}
 ```

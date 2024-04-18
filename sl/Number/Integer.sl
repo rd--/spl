@@ -632,6 +632,17 @@
 		self.divisors.allButFirst.noneSatisfy(isPerfectSquare:/1)
 	}
 
+	lassalleNumber { :m |
+		let a = List(m, m.one);
+		2.toDo(m) { :n |
+			let z = (1 .. n - 1).collect { :j |
+				-1 ^ j * (2 * n - 1).binomial(2 * j - 1) * a[j] * (n - j).catalanNumber
+			}.sum;
+			a[n] := -1 ^ (n - 1) * (n.catalanNumber + z)
+		};
+		a[m]
+	}
+
 	lcm { :self :anInteger |
 		anInteger.isInteger.if {
 			let a = self;

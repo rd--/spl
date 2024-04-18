@@ -272,6 +272,10 @@ Permutation : [Object] { | cycles degree |
 		-1 ^ self.inversions.size
 	}
 
+	stackSort { :self |
+		self.list.stackSort.asPermutation
+	}
+
 	storeString { :self |
 		self.cycles.storeString ++ '.cycles'
 	}
@@ -730,6 +734,28 @@ Permutation : [Object] { | cycles degree |
 
 	rightInversionCountToPermutation { :self |
 		self.rightInversionCountToPermutationList.asPermutation
+	}
+
+	stackSort { :self |
+		let stack = Stack();
+		let answer = [];
+		self.do { :x |
+			{
+				let n = stack.peek;
+				n ~= nil & {
+					x > n
+				}
+			}.whileTrue {
+				answer.add(stack.pop)
+			};
+			stack.push(x)
+		};
+		{
+			stack.isEmpty
+		}.whileFalse {
+			answer.add(stack.pop)
+		};
+		answer
 	}
 
 }

@@ -15,7 +15,7 @@ The first 10 Catalan numbers:
 
 * * *
 
-See also: bellNumber, binomial, catalanTriangle, dyckWords
+See also: bellNumber, binomial, catalanTriangle, dyckWords, lassalleNumber
 
 References:
 _Mathematica_
