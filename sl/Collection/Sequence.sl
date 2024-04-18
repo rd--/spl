@@ -369,6 +369,20 @@
 		}
 	}
 
+	compare { :self :aSequence |
+		let n = self.size;
+		let m = aSequence.size;
+		valueWithReturn { :return:/1 |
+			1.toDo(n.min(m)) { :i |
+				let c = self[i] <=> aSequence[i];
+				(c ~= 0).ifTrue {
+					c.return
+				}
+			};
+			n <=> m
+		}
+	}
+
 	concatenation { :self |
 		self.++
 	}
@@ -1803,6 +1817,10 @@
 				]
 			)
 		}
+	}
+
+	precedes { :self :aSequence |
+		self.compare(aSequence) = -1
 	}
 
 	prefixesDo { :self :aBlock:/1 |

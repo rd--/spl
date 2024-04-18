@@ -377,6 +377,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("or" . ?∨) ; ∨ U+2228 Logical Or
      ("phi" . ?φ) ; U+03C6 φ Greek Small Letter Phi
      ("pi" . ?π) ; U+03C0 π Greek Small Letter Pi
+     ("precedes" . ?≺) ; U+227a ≺ Precedes
      ("product" . ?Π) ; U+03A0 Π Greek Capital Letter Pi
      ("quarterToneFlat" . ?𝄳) ; U+1D133 𝄳 Musical Symbol Quarter Tone Flat
      ("quarterToneSharp" . ?𝄲) ; U+1D132 𝄲 Musical Symbol Quarter Tone Sharp

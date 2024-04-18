@@ -9,7 +9,7 @@ Stack : [Object] { | linkedList |
 	}
 
 	errorEmptyStack { :self |
-		self.error('this stack is empty')
+		self.error('Stack is empty')
 	}
 
 	isEmpty { :self |
@@ -20,6 +20,11 @@ Stack : [Object] { | linkedList |
 		self.isEmpty.ifTrue {
 			self.errorEmptyStack
 		}
+	}
+
+	peek { :self |
+		self.notEmptyCheck;
+		self.linkedList.first.value
 	}
 
 	pop { :self |
@@ -38,11 +43,6 @@ Stack : [Object] { | linkedList |
 
 	size { :self |
 		self.linkedList.size
-	}
-
-	top { :self |
-		self.notEmptyCheck;
-		self.linkedList.first.value
 	}
 
 }

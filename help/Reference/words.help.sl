@@ -16,7 +16,7 @@ Trims any white spaces at the beginning and at the end before splitting.
 ['first' 'second' 'third' 'fourth']
 
 >>> 'The quick brown fox jumps over the lazy dog.'.words.sort
-['The' 'brown' 'dog.' 'fox' 'jumps' 'lazy' 'over' 'quick' 'the']
+['brown' 'dog.' 'fox' 'jumps' 'lazy' 'over' 'quick' 'the' 'The']
 ```
 
 `unwords` can sometimes undo `words`:

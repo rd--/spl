@@ -19,7 +19,7 @@ true
 ['a' 'b' 'c' 'd']
 
 >>> ['cat' 'fish' 'catfish' 'Cat'].sort
-['Cat' 'cat' 'catfish' 'fish']
+['cat' 'Cat' 'catfish' 'fish']
 ```
 
 * * *

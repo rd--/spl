@@ -111,6 +111,18 @@ the answer will too:
 ]
 ```
 
+Different algorithms answer the same permutations in different sequences:
+
+```
+>>> let a1 = [1 .. 4].permutations;
+>>> let a2 = [1 .. 4].minimumChangePermutations;
+>>> let a3 = [1 .. 4].lexicographicPermutations;
+>>> let a4 = [1 .. 4].plainChanges;
+>>> let a = [a1 a2 a3 a4];
+>>> { :p :q | p ~= q }.table(a, a).boole
+[0 1 1 1; 1 0 1 1; 1 1 0 1; 1 1 1 0]
+```
+
 * * *
 
 See also: !, lexicographicPermutations, minimumChangePermutations, permutationsDo, plainChanges, stope, subfactorial, subsets

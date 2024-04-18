@@ -1,9 +1,11 @@
 # peek
 
-- _peek(aStream)_
+- _peek(aCollection)_
 
-Answer what would be returned if the message _next_ were sent to the _aStream_.
-If the stream is at the end, answer nil.
+Answer what would be returned if the next item were requested from _aCollection_,
+for instance `next` at a `Stream`,
+or `pop` at a `Stack` or `PriorityQueue`.
+If there is not item, answer nil.
 
 ```
 >>> let stream = 1:5.asStream;

@@ -9,9 +9,10 @@ String! : [Object, Json, Iterable, Character] {
 	<=> { :self :aString |
 		<primitive:
 		if(typeof _aString == 'string') {
-			if(_self < _aString) {
+			const n = _self.localeCompare(_aString);
+			if(n < 0) {
 				return -1;
-			} else if(_self == _aString) {
+			} else if(n == 0) {
 				return 0;
 			} else {
 				return 1;
@@ -33,7 +34,7 @@ String! : [Object, Json, Iterable, Character] {
 		self <=> aString = 1
 	}
 
-	> { :self :aString |
+	>= { :self :aString |
 		self <=> aString >= 1
 	}
 

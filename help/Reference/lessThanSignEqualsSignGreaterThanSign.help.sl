@@ -1,10 +1,12 @@
 # <=>
 
-- _aMagnitude <=> anotherMagnitude_
+- _p <=> q_
 
 Answers a collation order of -1, 0, or 1,
-indicating whether the left operand should be collated
-before, equal to, or after the right operand.
+indicating whether the left operand _p_ should be collated
+before, equal to, or after the right operand _q_.
+
+Implemented for numbers and strings.
 
 Ascending:
 
@@ -13,6 +15,9 @@ Ascending:
 -1
 
 >>> (7 / 3).gamma <=> 2.sqrt
+-1
+
+>>> 'abc' <=> 'bcd'
 -1
 ```
 
@@ -24,6 +29,9 @@ Equal to:
 
 >>> 2.pi / 2 <=> pi
 0
+
+>>> 'abc' <=> 'abc'
+0
 ```
 
 Descending:
@@ -34,16 +42,19 @@ Descending:
 
 >>> e ^ 2 <=> pi
 1
+
+>>> 'bcd' <=> 'abc'
+1
 ```
 
-Mixed types, ascending:
+Mixed numeric types, ascending:
 
 ```
 >>> 1 <=> 3/2
 -1
 ```
 
-Mixed types, equal to:
+Mixed numeric types, equal to:
 
 ```
 >>> 1.5 <=> 3/2
@@ -62,6 +73,13 @@ Mixed types, equal to:
 ```
 >>> 1E53 <=> inf
 -1
+```
+
+Comparison of strings with equal base letters and different marks:
+
+```
+>>> 'réservé' <=> 'reserve'
+1
 ```
 
 * * *
