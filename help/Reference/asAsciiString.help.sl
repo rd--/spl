@@ -2,18 +2,13 @@
 
 - _asAsciiString(aString)_
 
-Answer an Ascii string by removing all non-ascii characters from _aString_.
+Answer an `AsciiString` value holding a byte-string encoding of _aString_.
 
 ```
->>> 'ascii'.asAsciiString
-'ascii'
-
->>> '!!‼'.asAsciiString
-'!!'
+>>> 'text'.asAsciiString.asByteArray
+[116 101 120 116].asByteArray
 ```
 
-* * *
-
-See also: asciiByteArray, asHex, isAsciiString
+See also: AsciiString, asciiByteArray, asHex, isAscii, removeDiacritics
 
 Categories: Converting

@@ -226,7 +226,7 @@
 	'System-UrlSearchParams'
 	'System-WebSocket'
 	'System-Window'
-	'Text-Ascii'
+	'Text-AsciiString'
 	'Text-Character'
 	'Text-Markdown'
 	'Text-RegExp'

@@ -18,13 +18,13 @@ Radix notation of list:
 [16r41 16r73 16r63 16r69 16r69]
 ```
 
-At `Ascii`:
+At `AsciiString`:
 
 ```
->>> 'Ascii'.asAscii.asHex
-'4173636969'.asAscii
+>>> 'Ascii'.asAsciiString.asHex
+'4173636969'.asAsciiString
 ```
 
 * * *
 
-See also: asciiByteArray, Ascii, hex
+See also: asciiByteArray, AsciiString, hex

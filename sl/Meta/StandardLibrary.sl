@@ -107,7 +107,7 @@
 	'Reflection' {- System -}
 
 	{- Text -}
-	'Ascii'
+	'AsciiString'
 	'Markdown'
 	'RegExp'
 	'Unicode'

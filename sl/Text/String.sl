@@ -57,10 +57,6 @@ String! : [Object, Json, Iterable, Character] {
 		self.copyFromTo(1, self.size - n)
 	}
 
-	asAsciiString { :self |
-		self.characters.select(isAscii:/1).joinCharacters
-	}
-
 	asBracketedComment { :self :open :close |
 		(self.includesSubstring(open) | {
 			self.includesSubstring(close)
@@ -159,7 +155,7 @@ String! : [Object, Json, Iterable, Character] {
 		codePoint.ifNil {
 			self.error('String>>at: invalid index')
 		} {
-			codePoint.isUtf16SurrogateCode.if {
+			codePoint.isUtf16SurrogateCodePoint.if {
 				self.error('String>>at: code point is lone surrogate')
 			} {
 				codePoint.asCharacter
@@ -436,8 +432,8 @@ String! : [Object, Json, Iterable, Character] {
 		<primitive: return _self.includes(_aString);>
 	}
 
-	isAsciiString { :self |
-		self.allSatisfy(isAscii:/1)
+	isAscii { :self |
+		self.utf8ByteArray.allSatisfy(isAsciiCodePoint:/1)
 	}
 
 	isBlankLine { :self |
@@ -453,7 +449,7 @@ String! : [Object, Json, Iterable, Character] {
 	isCharacter { :self |
 		self.size = 1 | {
 			self.size = 2 & {
-				self.codePointAt(2).isUtf16SurrogateCode
+				self.codePointAt(2).isUtf16SurrogateCodePoint
 			}
 		}
 	}
@@ -626,6 +622,12 @@ String! : [Object, Json, Iterable, Character] {
 		['size']
 	}
 
+	removeDiacritics { :self |
+		<primitive:
+		return _self.normalize("NFKD").replace(/[\u0300-\u036f]/g, '');
+		>
+	}
+
 	replaceString { :self :stringToFind :stringToReplaceWith |
 		stringToFind.assertIsString;
 		stringToReplaceWith.assertIsString;
@@ -722,7 +724,9 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	utf8ByteArray { :self |
-		<primitive: return new TextEncoder().encode(_self.normalize('NFC'));>
+		<primitive:
+		return new TextEncoder().encode(_self.normalize('NFC'));
+		>
 	}
 
 	utf16List { :self |
@@ -807,7 +811,7 @@ String! : [Object, Json, Iterable, Character] {
 		self.betweenAnd(0, 127)
 	}
 
-	isUtf16SurrogateCode { :self |
+	isUtf16SurrogateCodePoint { :self |
 		{- 0xD800 = 55296, 0xDfFF = 57343 -}
 		self.betweenAnd(55296, 57343)
 	}

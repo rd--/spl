@@ -1,4 +1,4 @@
-Ascii : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
+AsciiString : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 
 	= { :self :anObject |
 		self.hasEqualSlots(anObject)
@@ -9,7 +9,7 @@ Ascii : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 	}
 
 	asHex { :self |
-		self.contents.hex.asAscii
+		self.contents.hex.asAsciiString
 	}
 
 	asList { :self |
@@ -43,28 +43,27 @@ Ascii : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 	}
 
 	species { :self |
-		Ascii:/1
+		AsciiString:/1
 	}
 
 	storeString { :self |
-		self.contents.asciiString.storeString ++ '.asAscii'
+		self.contents.asciiString.storeString ++ '.asAsciiString'
 	}
 
 }
 
 +@Integer {
 
-	Ascii { :self |
-		newAscii().initializeSlots(ByteArray(self))
+	AsciiString { :self |
+		newAsciiString().initializeSlots(ByteArray(self))
 	}
 
 }
 
 +String {
 
-	asAscii { :self |
-		newAscii().initializeSlots(self.asciiByteArray)
+	asAsciiString { :self |
+		newAsciiString().initializeSlots(self.asciiByteArray)
 	}
 
 }
-

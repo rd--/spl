@@ -1208,7 +1208,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'testing-string': [
 		'includesSubstring'
-		'isUtf16SurrogateCode'
+		'isUtf16SurrogateCodePoint'
 		'isAscii'
 		'isAsciiCodePoint'
 		'isAsciiString'
