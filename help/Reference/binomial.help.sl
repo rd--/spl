@@ -3,7 +3,7 @@
 - _binomial(n, k)_
 
 The binomial coefficients are the positive integers that occur as coefficients in the binomial theorem.
-Commonly, a binomial coefficient is indexed by a pair of integers n ≥ k ≥ 0.
+Commonly, a binomial coefficient is indexed by a pair of integers _n ≥ k ≥ 0_.
 Tells the number of combinations of _n_ elements taken _k_ at a time.
 
 ```
@@ -29,7 +29,9 @@ Tells the number of combinations of _n_ elements taken _k_ at a time.
 _k_ may be a collection:
 
 ```
->>> [10 1 2 5].collect { :each | 10.binomial(each) }
+>>> [10 1 2 5].collect { :each |
+>>> 	10.binomial(each)
+>>> }
 [1 10 45 252]
 
 >>> 10.binomial([10 1 2 5])
@@ -46,8 +48,17 @@ Evaluate for half-integer arguments:
 Make Pascal’s triangle (this function is zero outside of Pascal’s triangle):
 
 ```
->>> 0:5.collect { :each | each.binomial(0:each) }
-[1; 1 1; 1 2 1; 1 3 3 1; 1 4 6 4 1; 1 5 10 10 5 1]
+>>> 0:5.collect { :each |
+>>> 	each.binomial(0:each)
+>>> }
+[
+	1;
+	1 1;
+	1 2 1;
+	1 3 3 1;
+	1 4 6 4 1;
+	1 5 10 10 5 1
+]
 ```
 
 At `zero`:

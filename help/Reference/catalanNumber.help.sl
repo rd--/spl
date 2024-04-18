@@ -13,11 +13,13 @@ The first 10 Catalan numbers:
 
 * * *
 
-See also: binomial, dyckWords
+See also: bellNumber, binomial, catalanTriangle, dyckWords
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CatalanNumber.html)
-[2](https://reference.wolfram.com/language/ref/CatalanNumber.html)
+[2](https://reference.wolfram.com/language/ref/CatalanNumber.html),
+_OEIS_
+[1](https://oeis.org/A000108),
 _W_
 [1](https://en.wikipedia.org/wiki/Catalan_number)

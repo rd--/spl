@@ -65,7 +65,7 @@ At `zero`:
 
 * * *
 
-See also: doubleFactorial
+See also: binomial, doubleFactorial, subfactorial
 
 References:
 _Apl_

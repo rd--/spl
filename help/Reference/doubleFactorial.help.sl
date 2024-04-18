@@ -45,7 +45,7 @@ At `LargeInteger`:
 
 * * *
 
-See also: factorial
+See also: factorial, subfactorial
 
 References:
 _Mathematica_

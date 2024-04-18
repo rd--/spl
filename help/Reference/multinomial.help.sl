@@ -55,4 +55,6 @@ See also: binomial, factorial
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/MultinomialCoefficient.html)
-[2](https://reference.wolfram.com/language/ref/Multinomial.html)
+[2](https://reference.wolfram.com/language/ref/Multinomial.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Multinomial_theorem)

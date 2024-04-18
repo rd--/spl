@@ -26,7 +26,7 @@ Plot the values on a log scale over a subset of the reals:
 
 * * *
 
-See also: factorial
+See also: doubleFactorial, factorial
 
 References:
 _Mathematica_

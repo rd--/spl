@@ -147,6 +147,10 @@
 		k.bjorklundsAlgorithmDo(n) { :each | nil }
 	}
 
+	catalanTriangle { :n :k |
+		((n - k + 1) / (n + 1)) * (n + k).binomial(k)
+	}
+
 	characterRange { :self :anInteger |
 		(self .. anInteger).collect(asCharacter:/1)
 	}

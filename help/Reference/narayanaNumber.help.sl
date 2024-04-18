@@ -26,8 +26,12 @@ that occur in various counting problems.
 
 * * *
 
+See also: binomial, catalanNumber, dyckWords
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/NarayanaNumber.html),
+_OEIS_
+[1](https://oeis.org/A001263),
 _W_
 [1](https://en.wikipedia.org/wiki/Narayana_number)

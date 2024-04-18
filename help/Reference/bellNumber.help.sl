@@ -20,8 +20,14 @@ Threads element-wise over lists:
 
 * * *
 
+See also: !, binomial, catalanNumber, lobbNumber, narayanaNumber
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BellNumber.html)
-[2](https://reference.wolfram.com/language/ref/BellB.html)
+[2](https://reference.wolfram.com/language/ref/BellB.html),
+_OEIS_
+[1](https://oeis.org/A000110),
+_W_
+[1](https://en.wikipedia.org/wiki/Bell_number)
 
