@@ -1,10 +1,12 @@
 # Stack
 
-A simple stack `Type`.  The protocol is:
+- _Stack()_
 
-- `push` adds a new object of any kind on top of the stack
-- `pop` answers the first element and removes it from the stack
-- `peek` answer the first element of the stack without removing it
+Answer a new, empty `Stack`.  The protocol is:
+
+- `push`: adds a new object of any kind on top of the stack
+- `pop`: answers the first element and removes it from the stack
+- `peek`: answer the first element of the stack without removing it
 
 A new stack is empty:
 

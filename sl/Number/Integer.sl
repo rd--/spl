@@ -62,6 +62,27 @@
 		system.nextRandomInteger(1, self)
 	}
 
+	bellNumber { :self |
+		(self < 0).if {
+			self.error('@Integer>>bellNumber: n < 0')
+		} {
+			(self < 2).if {
+				1
+			} {
+				let list = List(self);
+				list[1] := 1;
+				2.toDo(self) { :i |
+					1.toDo(i - 2) { :j |
+						let k = i - j - 1;
+						list[k] := list[k] + list[i - j]
+					};
+					list[i] := list[1] + list[i - 1]
+				};
+				list[self]
+			}
+		}
+	}
+
 	bernoulli { :k |
 		k.bernoulliList.last
 	}
@@ -631,6 +652,14 @@
 		}
 	}
 
+	lobbNumber { :m :n |
+		m.betweenAnd(0, n).if {
+			((2 * n).binomial(m + n) * (2 * m + 1)) // (m + n + 1)
+		} {
+			'@Integer>>lobbNumber: domain error'.error
+		}
+	}
+
 	minimalResidue { :self :modulus |
 		let p = self % modulus;
 		let q = p - modulus;
@@ -696,6 +725,14 @@
 
 	multiplicativeOrder { :k :n |
 		k.multiplicativeOrder(n, [1])
+	}
+
+	narayanaNumber { :n :k |
+		k.betweenAnd(1, n).if {
+			n.binomial(k) * binomial(n, k - 1) // n
+		} {
+			'narayanaNumber: domain error'.error
+		}
 	}
 
 	numberOfCompositions { :n :k |

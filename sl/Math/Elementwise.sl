@@ -50,6 +50,10 @@
 		self.collect(asFloat:/1)
 	}
 
+	bellNumber { :self |
+		self.collect(bellNumber:/1)
+	}
+
 	bitAnd { :self |
 		self.reduce(bitAnd:/2)
 	}
