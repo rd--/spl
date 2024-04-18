@@ -12,14 +12,14 @@ Answer the right inversion count, also called the Lehmer code, of _aPermutation_
 [2 0 0]
 ```
 
-The inverse is `rightInversionCountToPermutation`:
+The inverse is `rightInversionCountToPermutationList`:
 
 ```
 >>> [2 1 5 4 3].rightInversionCount
 [1 0 2 1 0]
 
->>> [1 0 2 1 0].rightInversionCountToPermutation
-[2 1 5 4 3].asPermutation
+>>> [1 0 2 1 0].rightInversionCountToPermutationList
+[2 1 5 4 3]
 ```
 
 Rothe (1800) defines the right inversion count under the name Stellenexponenten, with each place bigger by 1:

@@ -3,6 +3,8 @@
 - _catalanNumber(anInteger)_
 
 Answer the _anInteger_-th Catalan number.
+The Catalan numbers are a sequence of natural numbers that occur in various counting problems,
+often involving recursively defined objects.
 
 The first 10 Catalan numbers:
 

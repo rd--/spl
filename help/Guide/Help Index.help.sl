@@ -85,10 +85,11 @@
 ## Combinatorial Functions
 
 - `!`, `doubleFactorial`, `factorial`, `factorialPower`, `hyperfactorial`, `subfactorial`
-- `binomial`, `catalanNumber`, `multinomial`
+- `binomial`, `catalanNumber`, `catalanTriangle`, `multinomial`
 - `polygonalNumber`
 - `partitionsP`, `partitionsQ`
 - `dyckWords`
+- `bellNumber`, `lobbNumber`, `narayanaNumber`
 
 ## Comparison Operators
 
@@ -418,6 +419,9 @@
 - `permutationLength`, `permutationSupport`
 - `permutationDegree`, `permutationMax`, `permutationMin`
 - `randomPermutation`
+- `leftInversionCount`, `rightInversionCount`, `rightInversionCountToPermutation`
+- `permutationGraph`
+- `permutationRank`, `unrankPermutation`
 
 ## Piecewise Functions
 
@@ -611,8 +615,12 @@
 
 ## Text
 
+- `String`, `AsciiString`
 - `isBlank`, `isBlankLine`, `isVowel`
+- `isAscii`, `isAsciiCodePoint`
 - `lines`, `paragraphs`, `sentences`, `words`
+- `removeDiacritics`
+- `compare`, `precedes`
 
 ## Timing
 

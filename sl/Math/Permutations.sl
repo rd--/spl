@@ -721,13 +721,16 @@ Permutation : [Object] { | cycles degree |
 		self.asPermutation.rightInversionCount
 	}
 
-	rightInversionCountToPermutation { :self |
+	rightInversionCountToPermutationList { :self |
 		let list = [1 .. self.size];
 		self.collect { :each |
 			list.removeAt(each + 1)
-		}.asPermutation
+		}
 	}
 
+	rightInversionCountToPermutation { :self |
+		self.rightInversionCountToPermutationList.asPermutation
+	}
 
 }
 

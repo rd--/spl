@@ -2,6 +2,8 @@
 
 - _unrankPermutation(r, n)_
 
+Answer the _r_-th permutation in the lexicographic ordering of the symmetric group _n_.
+
 ```
 >>> [1 3 5 2 4].permutationRank
 10
@@ -12,4 +14,4 @@
 
 * * *
 
-See also: permutationRank
+See also: mixedRadixEncode, permutationRank

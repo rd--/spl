@@ -41,6 +41,7 @@ Further:
 - `LsIBrown`
 - `LsLast`
 - `LsOnce`
+- `LsPermutations`
 - `LsRemDup`
 - `LsScan`
 - `LsSelect`
