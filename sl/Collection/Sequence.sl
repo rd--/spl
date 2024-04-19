@@ -321,6 +321,28 @@
 		}
 	}
 
+	binarySearch { :self :item |
+		valueWithReturn { :return:/1 |
+			let low = 1;
+			let high = self.size;
+			{
+				low <= high
+			}.whileTrue {
+				let mid = (low + high) // 2;
+				(self[mid] > item).if {
+					high := mid - 1
+				} {
+					(self[mid] < item).if {
+						low := mid + 1
+					} {
+						mid.return
+					}
+				}
+			};
+			0
+		}
+	}
+
 	brayCurtisDistance { :self :aSequence |
 		(self - aSequence).abs.sum / (self + aSequence).abs.sum
 	}
@@ -1261,6 +1283,21 @@
 		}
 	}
 
+	isLowerTriangularMatrix { :self :k |
+		self.isMatrix & {
+			let [r, c] = self.shape;
+			1.to(r - k).allSatisfy { :i |
+				(i + 1 + k).to(c).allSatisfy { :j |
+					self[i][j] = 0
+				}
+			}
+		}
+	}
+
+	isLowerTriangularMatrix { :self |
+		self.isLowerTriangularMatrix(0)
+	}
+
 	isMatrix { :self |
 		let type = self.typeOf;
 		self.allSatisfy { :each |
@@ -1338,6 +1375,21 @@
 		self.isSquareMatrix & {
 			self = self.transposed
 		}
+	}
+
+	isUpperTriangularMatrix { :self :k |
+		self.isMatrix & {
+			let [r, c] = self.shape;
+			(2 - k).to(r).allSatisfy { :i |
+				1.to(i - 1 + k).allSatisfy { :j |
+					self[i][j] = 0
+				}
+			}
+		}
+	}
+
+	isUpperTriangularMatrix { :self |
+		self.isUpperTriangularMatrix(0)
 	}
 
 	isVector { :self |
@@ -1451,36 +1503,7 @@
 		(aSequence - 1).reverse.mixedRadixDecode(shape) + 1
 	}
 
-	longestAscendingSequence { :self |
-		self.longestAscendingSequenceList.first
-	}
-
-	longestAscendingSequenceList { :self |
-		(self.size < 2).if {
-			[self]
-		} {
-			let increasing = { :done :remaining |
-				remaining.isEmpty.if {
-					[done]
-				} {
-					(remaining.first > done.last).if {
-						increasing(
-							done ++ [remaining.first],
-							remaining.allButFirst
-						)
-					} {
-						[]
-					} ++ increasing(done, remaining.allButFirst)
-				}
-			};
-			let all = (1 .. self.size).collect { :i |
-				increasing(self.first(i).last(1), self.drop(i + 1))
-			}.concatenation.sortBy { :p :q | q.size < p.size };
-			all.takeWhile { :each | each.size = all.first.size }.reverse
-		}
-	}
-
-	longestCommonSequence { :a :b |
+	longestCommonSubsequence { :a :b |
 		let m = a.size + 1;
 		let n = b.size + 1;
 		let lengths = (m).zeroMatrix(n);
@@ -1515,7 +1538,7 @@
 		answer
 	}
 
-	longestCommonSubsequenceList { :self :aSequence |
+	longestCommonSubstringList { :self :aSequence |
 		let find = { :k |
 			self.partition(k, 1).intersection(aSequence.partition(k, 1))
 		};
@@ -1531,13 +1554,134 @@
 		}
 	}
 
-	longestCommonSubsequence { :self :aSequence |
-		let common = self.longestCommonSubsequenceList(aSequence);
+	longestCommonSubstring { :self :aSequence |
+		let common = self.longestCommonSubstringList(aSequence);
 		common.isEmpty.if {
 			[]
 		} {
 			common.first
 		}
+	}
+
+	longestIncreasingSubsequence { :self |
+		let x = self;
+		let n = x.size;
+		(n < 2).if {
+			x
+		} {
+			let p = List(n, 0);
+			let m = List(n + 1, 0);
+			let l = 0;
+			let answer = [];
+			let k = nil;
+			0.toDo(n - 1) { :i |
+				let lo = 1;
+				let hi = l;
+				let z = nil;
+				{
+					lo <= hi
+				}.whileTrue {
+					let mid = ((lo + hi) / 2).ceiling;
+					(x[m[mid + 1] + 1] < x[i + 1]).if {
+						lo := mid + 1
+					} {
+						hi := mid - 1
+					}
+				};
+				z := lo;
+				p[i + 1] := m[z];
+				m[z + 1] := i;
+				(z > l).ifTrue {
+					l := z
+				}
+			};
+			k := m[l + 1];
+			l.timesRepeat {
+				answer.addFirst(x[k + 1]);
+				k := p[k + 1]
+			};
+			answer
+		}
+	}
+
+	longestIncreasingSubsequenceListPartial { :self |
+		let piles = [];
+		let answer = [];
+		let pointer = { :i |
+			i.ifNil {
+				piles.ifEmpty {
+					nil
+				} {
+					piles.last.size
+				}
+			} {
+				(i < 2).if {
+					nil
+				} {
+					piles[i - 1].size
+				}
+			}
+		};
+		let unwind = { :i |
+			let n = piles.size;
+			let list = List(n);
+			let j = n;
+			{
+				j > 0
+			}.whileTrue {
+				let e = piles[j][i];
+				list[j] := e[1];
+				i := e[2];
+				j := j - 1
+			};
+			list
+		};
+		self.do { :card |
+			let i = piles.detectIndex { :each |
+				each.last.first >= card
+			};
+			let entry = [card, pointer(i)];
+			i.ifNil {
+				piles.addLast([entry])
+			} {
+				piles[i].addLast(entry)
+			}
+		};
+		(piles.last.size .. 1).collect(unwind:/1)
+	}
+
+	increasingSubsequenceList { :self |
+		(self.size < 2).if {
+			[self]
+		} {
+			let increasing = { :done :remaining |
+				remaining.isEmpty.if {
+					[done]
+				} {
+					(remaining.first > done.last).if {
+						increasing(
+							done ++ [remaining.first],
+							remaining.allButFirst
+						)
+					} {
+						[]
+					} ++ increasing(done, remaining.allButFirst)
+				}
+			};
+			(1 .. self.size).collect { :i |
+				increasing(self.first(i).last(1), self.drop(i))
+			}.concatenation
+		}
+	}
+
+	longestIncreasingSubsequenceList { :self |
+		let a = self.increasingSubsequenceList.sort { :p :q |
+			q.size < p.size
+		};
+		let k = a.first.size;
+		a.takeWhile { :each |
+			each.size = k
+		}.reverse
 	}
 
 	manhattanDistance { :self :aSequence |
@@ -1581,6 +1725,21 @@
 
 	median { :self |
 		self.asSortedList.median
+	}
+
+	mergeInPlace { :self :select:/1 :insert:/2 |
+		let answer = [];
+		{
+			self.isEmpty
+		}.whileFalse {
+			let x = self.collect(first:/1);
+			let i = x.indexOf(x.select);
+			answer.insert(self[i].removeFirst);
+			self[i].isEmpty.ifTrue {
+				self.removeAt(i)
+			}
+		};
+		answer
 	}
 
 	mergeFirstMiddleLastIntoBy { :self :first :middle :last :destination :aBlock:/2 |
@@ -1789,6 +1948,26 @@
 
 	partition { :self :windowSize |
 		self.partition(windowSize, windowSize)
+	}
+
+	patienceSortPiles { :self |
+		let piles = [];
+		let answer = [];
+		self.do { :card |
+			let index = piles.detectIndex { :each |
+				each.last >= card
+			};
+			index.ifNil {
+				piles.addLast([card])
+			} {
+				piles[index].addLast(card)
+			}
+		};
+		piles
+	}
+
+	patienceSort { :self |
+		self.patienceSortPiles.mergeInPlace(max:/1, addFirst:/2)
 	}
 
 	pinnedIndex { :self :index |

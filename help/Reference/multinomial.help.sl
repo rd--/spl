@@ -21,7 +21,9 @@ Answer the multinomial coefficient.
 Values of `multinomial` at fixed points:
 
 ```
->>> (1 .. 5).collect { :n | [n 2 3].multinomial }
+>>> (1 .. 5).collect { :n |
+>>> 	[n 2 3].multinomial
+>>> }
 [60 210 560 1260 2520]
 ```
 
@@ -45,7 +47,9 @@ The number of distinct permutations of _Mississippi_ is:
 Plot over a subset of the reals:
 
 ~~~
-(-2 -- 4).discretize(100).collect { :x | [x 0.5 3].multinomial }.plot
+(-2 -- 4).discretize(100).collect { :x |
+	[x 0.5 3].multinomial
+}.plot
 ~~~
 
 * * *

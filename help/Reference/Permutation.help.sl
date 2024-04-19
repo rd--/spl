@@ -235,6 +235,27 @@ The rank of the identity permutation is in all cases zero:
 0
 ```
 
+Answer the indices of the peaks of a permutation:
+
+```
+>>> [1 3 2 4 5].asPermutation.peaks
+[2]
+
+>>> [4 1 3 2 6 5].asPermutation.peaks
+[3 5]
+
+>>> [].asPermutation.peaks
+[]
+```
+
+The _standard_ 
+
+```
+>>> let l = [4 2 7];
+>>> l.findPermutation(l.sorted)
+[1 2; 3].cycles
+```
+
 * * *
 
 See also: inversePermutation, permutationCycle, permutationList, permutationProduct, permutationPower, permute

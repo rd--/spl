@@ -210,6 +210,15 @@ Permutation : [Object] { | cycles degree |
 		answer
 	}
 
+	peaks { :self |
+		let p = self.list;
+		2.to(p.size - 1).select { :i |
+			p[i - 1] < p[i] & {
+				p[i] > p[i + 1]
+			}
+		}
+	}
+
 	postCopy { :self |
 		self.cycles := self.cycles.copy
 	}
@@ -640,6 +649,10 @@ Permutation : [Object] { | cycles degree |
 
 	permutationOrder { :self |
 		self.asPermutation.order
+	}
+
+	permutationPeaks { :self |
+		self.asPermutation.peaks
 	}
 
 	permutationPower { :self :anInteger |

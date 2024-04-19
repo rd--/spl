@@ -50,7 +50,7 @@ Of the 120 permutations of _S5_, 42 are stack sortable:
 
 * * *
 
-See also: catalanNumber, dyckWord
+See also: catalanNumber, dyckWords, Permutation
 
 References:
 _Sage_

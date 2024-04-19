@@ -89,7 +89,7 @@
 - `polygonalNumber`
 - `partitionsP`, `partitionsQ`
 - `dyckWords`
-- `bellNumber`, `lobbNumber`, `narayanaNumber`
+- `bellNumber`, `lassalleNumber`, `lobbNumber`, `narayanaNumber`, `vanDerCorputNumber`
 
 ## Comparison Operators
 
@@ -331,9 +331,11 @@
 
 ## Matrix Operations
 
+- `elementType`, `numberOfColumns`, `numberOfRows`
 - `isMatrix`, `shape`, `reshape`, `table`
 - `zeroMatrix`, `identityMatrix`, `diagonalMatrix`
 - `isSquareMatrix`, `isSymmetricMatrix`
+- `isLowerTriangularMatrix`, `isUpperTriangularMatrix`
 - `dot`, `inner`, `matrixPower`, `outer`
 - `determinant`, `diagonal`, `trace`, `transposed`
 - `kroneckerProduct`
@@ -418,10 +420,12 @@
 - `permutationFixedPoints`
 - `permutationLength`, `permutationSupport`
 - `permutationDegree`, `permutationMax`, `permutationMin`
+- `permutationPeaks`
 - `randomPermutation`
 - `leftInversionCount`, `rightInversionCount`, `rightInversionCountToPermutation`
 - `permutationGraph`
 - `permutationRank`, `unrankPermutation`
+- `stackSort`
 
 ## Piecewise Functions
 
@@ -520,8 +524,9 @@
 
 - `indexOfSubcollection`, `indexOfSubcollectionStartingAt`, `indexOfSubcollectionStartingAtIfAbsent`
 - `indicesOfSubCollection`
-- `longestCommonSequence`
-- `longestCommonSubsequence`, `longestCommonSubsequenceList`
+- `longestCommonSubsequence`
+- `longestCommonSubstring`, `longestCommonSubstringList`
+- `longestIncreasingSubsequence`, `longestIncreasingSubsequenceList`
 
 ## Set operations
 

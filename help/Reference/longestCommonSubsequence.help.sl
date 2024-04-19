@@ -2,35 +2,37 @@
 
 - _longestCommonSubsequence(aSequence, anotherSequence)_
 
-Answer the longest contiguous subsequence of elements common to two sequences.
-If there are several common subsequences of the same length, answer the one that appears earliest.
+Answer the longest sequence of contiguous or disjoint elements common to two sequences.
+If there are several common sequences of the same length, answer the one that begins earliest in _aSequence_.
 
-Find the longest contiguous subsequence common to two strings:
+Find the longest noncontiguous sequence common to two strings:
 
 ```
+>>> 'XMJYAUZ'.longestCommonSubsequence('MZJAWXU')
+'MJAU'
+
 >>> 'AAABBBBCCCCC'.longestCommonSubsequence('CCCBBBAAABABA')
-'AAAB'
-
->>> 'AAABBBBCCCCC'.longestCommonSubsequenceList('CCCBBBAAABABA')
-['AAAB']
+'AAABB'
 ```
 
-Find the longest contiguous subsequence common to two lists:
+Find the longest noncontiguous sequence common to two lists:
 
 ```
->>> ['A' 'B' 'C' 'D'].longestCommonSubsequence(['B' 'C' 'A' 'D'])
-['B' 'C']
+>>> [1 2 3 4].longestCommonSubsequence([2 3 1 4])
+[2 3 4]
 
->>> ['A' 'B' 'C' 'D'].subsequencesInCommon(['B' 'C' 'A' 'D'], 2)
-[['B' 'C']]
+>>> [1 2 3 4].longestCommonSubsequence([1 2 2 4 5 3 3 3 2 4])
+[1 2 3 4]
 ```
 
 * * *
 
-See also: longestCommonSequence, longestCommonSubsequences, partition, subsequences, subsequencesInCommon
+See also: levenshteinDistance, longestCommonSubstring
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/LongestCommonSubsequence.html),
+[1](https://reference.wolfram.com/language/ref/LongestCommonSequence.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Longest_common_substring)
+[1](https://en.wikipedia.org/wiki/Longest_common_subsequence)
+
+Further Reading: Hirschberg (1975), Hunt (1977)

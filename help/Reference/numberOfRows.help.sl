@@ -5,11 +5,24 @@
 Answer the number of rows in an array.
 This is the first element of `shape`.
 
-```
->>> [1 2 3; 4 5 6].numberOfRows
-2
+A 2×3 matrix:
 
->>> [1 2; 3 4; 5 6].asMatrix.numberOfRows
+```
+>>> [
+>>> 	1 2 3;
+>>> 	4 5 6
+>>> ].numberOfRows
+2
+```
+
+A 3×2 matrix:
+
+```
+>>> [
+>>> 	1 2;
+>>>	3 4;
+>>> 	5 6
+>>> ].asMatrix.numberOfRows
 3
 ```
 

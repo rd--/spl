@@ -519,20 +519,20 @@ String! : [Object, Json, Iterable, Character] {
 		}
 	}
 
-	longestAscendingSequence { :self |
-		self.asList.longestAscendingSequence.join
-	}
-
-	longestCommonSequence { :self :aString |
-		self.asList.longestCommonSequence(aString.asList).join
-	}
-
-	longestCommonSubsequenceList { :self :aString |
-		self.asList.longestCommonSubsequenceList(aString.asList).collect(join:/1)
-	}
-
 	longestCommonSubsequence { :self :aString |
 		self.asList.longestCommonSubsequence(aString.asList).join
+	}
+
+	longestCommonSubstringList { :self :aString |
+		self.asList.longestCommonSubstringList(aString.asList).collect(join:/1)
+	}
+
+	longestCommonSubstring { :self :aString |
+		self.asList.longestCommonSubstring(aString.asList).join
+	}
+
+	longestIncreasingSubsequence { :self |
+		self.asList.longestIncreasingSubsequence.join
 	}
 
 	notEmpty { :self |

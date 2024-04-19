@@ -106,11 +106,24 @@ The two argument form of table is _collect_ with reversed arguments:
 1:9.collect { :i | i * i }
 ```
 
-A table of the values of _i^2_, with _i_ from 1 to 6:
+A `List` of the values of _i^2_, with _i_ from 1 to 6:
 
 ```
 >>> { :i | i ^ 2 }.table(1:6)
-[1, 4, 9, 16, 25, 36]
+[1 4 9 16 25 36]
+```
+
+Construct a contour matrix (Polansky, 1992):
+
+```
+>>> let l = [2 10 6 7];
+>>> <=>.table(l, l)
+[
+	0 -1 -1 -1;
+	1  0  1  1;
+	1 -1  0 -1;
+	1 -1  1  0
+]
 ```
 
 The unary form is _adverbial_,
