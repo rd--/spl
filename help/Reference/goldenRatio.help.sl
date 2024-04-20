@@ -1,21 +1,43 @@
 # goldenRatio
 
-_goldenRatio(aNumber)_
+- _goldenRatio(aNumber)_
 
-Answer _aNumber_ × the golden ratio, half of the square root of five plus one:
+Answer _aNumber_ × the golden ratio, usually written as Phi or phi, also as tau.
 
 ```
 >>> 1.goldenRatio
 1.61803
+```
 
+φ is half of the square root of five plus one:
+
+```
 >>> 2.goldenRatio
 (5.sqrt + 1)
+```
+
+φ is the number whose inversion is itself minus `one`:
+
+```
+>>> let x = 1.goldenRatio;
+>>> 1 / x
+(x - 1)
+```
+
+φ has minimal polynomial:
+
+```
+>>> let x = 1.goldenRatio;
+>>> x.squared - x - 1
+0
 ```
 
 Compute the Fibonacci numbers:
 
 ```
->>> 1:20.collect { :n | (1.goldenRatio ^ n / 5.sqrt).rounded }
+>>> 1:20.collect { :n |
+>>> 	(1.goldenRatio ^ n / 5.sqrt).rounded
+>>> }
 [1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765]
 
 >>> 20.fibonacciList
@@ -25,7 +47,9 @@ Compute the Fibonacci numbers:
 Position of 1s in a Fibonacci substitution system:
 
 ```
->>> 1:30.collect { :n | 2 - ((n + 1).goldenRatio.floor - n.goldenRatio.floor) }
+>>> 1:30.collect { :n |
+>>> 	2 - ((n + 1).goldenRatio.floor - n.goldenRatio.floor)
+>>> }
 [0 1 0 0 1 0 1 0 0 1 0 0 1 0 1 0 0 1 0 1 0 0 1 0 0 1 0 1 0 0]
 
 >>> [0 1 0 0 1 0 1 0 0 1 0 0 1 0 1 0 0 1 0 1 0 0 1 0 0 1 0 1 0 0].scan(+)
@@ -35,11 +59,13 @@ Position of 1s in a Fibonacci substitution system:
 Compute the effective "inverse" of the Fibonacci numbers:
 
 ```
->>> 1:25.collect { :n | (n * 5.sqrt).log(1.goldenRatio).rounded }
+>>> 1:25.collect { :n |
+>>> 	(n * 5.sqrt).log(1.goldenRatio).rounded
+>>> }
 [2 3 4 5 5 5 6 6 6 6 7 7 7 7 7 7 8 8 8 8 8 8 8 8 8]
 ```
 
-As continued fraction:
+As a continued fraction:
 
 ```
 >>> 1.goldenRatio.continuedFraction(20)
@@ -49,7 +75,9 @@ As continued fraction:
 Plot the fractional part of multiples of the golden ratio:
 
 ~~~
-1:100.collect { :n | n.goldenRatio.fractionPart }.plot
+1:100.collect { :n |
+	n.goldenRatio.fractionPart
+}.plot
 ~~~
 
 * * *

@@ -3,6 +3,7 @@
 - _indexOfPrime(anInteger)_
 
 Answer the one-index of _anInteger_ in the list of prime numbers.
+Also called `primePi`.
 
 ```
 >>> 97.indexOfPrime
@@ -21,4 +22,8 @@ Inverse is `nthPrime`:
 
 * * *
 
-See also: nthPrime, primesList
+See also: nthPrime, primePi, primesList
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/List_of_prime_numbers)

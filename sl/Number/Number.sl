@@ -120,6 +120,10 @@
 		}
 	}
 
+	brunsConstant { :self |
+		1.90216058 * self
+	}
+
 	ceiling { :self |
 		let truncation = self.truncated;
 		(self <= 0).if {
@@ -312,6 +316,14 @@
 
 	isPositive { :self |
 		self > self.zero
+	}
+
+	isOne { :self |
+		self = 1
+	}
+
+	isZero { :self |
+		self = 0
 	}
 
 	kroneckerDelta { :self :aNumber |

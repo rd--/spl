@@ -30,7 +30,7 @@ Plain changes of _S4_:
 ]
 ```
 
-Show sequence of swaps, since swaps are always adjacent show only first place:
+Show sequence of swaps, and since swaps are always adjacent show only first place:
 
 ```
 >>> let l = 4.plainChanges;

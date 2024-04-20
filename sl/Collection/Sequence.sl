@@ -1090,6 +1090,30 @@
 		}
 	}
 
+	increasingSubsequenceList { :self |
+		(self.size < 2).if {
+			[self]
+		} {
+			let increasing = { :done :remaining |
+				remaining.isEmpty.if {
+					[done]
+				} {
+					(remaining.first > done.last).if {
+						increasing(
+							done ++ [remaining.first],
+							remaining.allButFirst
+						)
+					} {
+						[]
+					} ++ increasing(done, remaining.allButFirst)
+				}
+			};
+			(1 .. self.size).collect { :i |
+				increasing(self.first(i).last(1), self.drop(i))
+			}.concatenation
+		}
+	}
+
 	indexOf { :self :anElement |
 		self.indexOfStartingAt(anElement, 1)
 	}
@@ -1601,76 +1625,6 @@
 				k := p[k + 1]
 			};
 			answer
-		}
-	}
-
-	longestIncreasingSubsequenceListPartial { :self |
-		let piles = [];
-		let answer = [];
-		let pointer = { :i |
-			i.ifNil {
-				piles.ifEmpty {
-					nil
-				} {
-					piles.last.size
-				}
-			} {
-				(i < 2).if {
-					nil
-				} {
-					piles[i - 1].size
-				}
-			}
-		};
-		let unwind = { :i |
-			let n = piles.size;
-			let list = List(n);
-			let j = n;
-			{
-				j > 0
-			}.whileTrue {
-				let e = piles[j][i];
-				list[j] := e[1];
-				i := e[2];
-				j := j - 1
-			};
-			list
-		};
-		self.do { :card |
-			let i = piles.detectIndex { :each |
-				each.last.first >= card
-			};
-			let entry = [card, pointer(i)];
-			i.ifNil {
-				piles.addLast([entry])
-			} {
-				piles[i].addLast(entry)
-			}
-		};
-		(piles.last.size .. 1).collect(unwind:/1)
-	}
-
-	increasingSubsequenceList { :self |
-		(self.size < 2).if {
-			[self]
-		} {
-			let increasing = { :done :remaining |
-				remaining.isEmpty.if {
-					[done]
-				} {
-					(remaining.first > done.last).if {
-						increasing(
-							done ++ [remaining.first],
-							remaining.allButFirst
-						)
-					} {
-						[]
-					} ++ increasing(done, remaining.allButFirst)
-				}
-			};
-			(1 .. self.size).collect { :i |
-				increasing(self.first(i).last(1), self.drop(i))
-			}.concatenation
 		}
 	}
 

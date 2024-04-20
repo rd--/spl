@@ -12,7 +12,7 @@ An upper triangular matrix:
 >>> 	0 4 5;
 >>> 	0 0 6
 >>> ].isUpperTriangularMatrix
-false
+true
 ```
 
 Test if a matrix is upper triangular starting from the first superdiagonal:

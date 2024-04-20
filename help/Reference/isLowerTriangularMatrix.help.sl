@@ -4,7 +4,7 @@
 
 Answer `true` if _aMatrix_ is lower triangular, else `false`.
 
-An lower triangular matrix:
+A lower triangular matrix:
 
 ```
 >>> [
@@ -12,7 +12,7 @@ An lower triangular matrix:
 >>> 	2 3 0;
 >>> 	4 5 6
 >>> ].isLowerTriangularMatrix
-false
+true
 ```
 
 Test if a matrix is lower triangular starting from the first superdiagonal:

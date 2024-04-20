@@ -25,7 +25,9 @@ In the unary case answers the sum of the numerators divided by the sum of the de
 
 * * *
 
-See also:
+See also: fareySequence, sternBrocotTree
+
+References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Mediant.html),
 _Xenharmonic_

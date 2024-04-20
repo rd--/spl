@@ -24,8 +24,22 @@ true
 Find twin primes, i.e. pairs of primes of the form _(p, p + 2)_:
 
 ```
->>> 1:100.select { :n | n.isPrime & { n.nextPrime = (n + 2) } }
+>>> 1:100.select { :n |
+>>> 	n.isPrime & {
+>>> 		n.nextPrime = (n + 2)
+>>> 	}
+>>> }
 [3  5 11 17 29 41 59 71]
+```
+
+It is conjectured that for any integer _n_, there is a prime _p_ with _n < p < 2 * n_:
+
+```
+>>> 2:200.allSatisfy { :n |
+>>> 	let p = n.nextPrime;
+>>> 	p < (n * 2)
+>>> }
+true
 ```
 
 Plot the sequence of primes:
@@ -36,7 +50,7 @@ Plot the sequence of primes:
 
 * * *
 
-See also: isPrime
+See also: isPrime, previousPrime
 
 References:
 _Maple_

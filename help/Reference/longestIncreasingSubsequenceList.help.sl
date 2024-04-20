@@ -8,7 +8,7 @@ Answer a `List` of the longest ascending sequences of contiguous or disjoint ele
 >>> [6 3 5 10 11 2 9 14 13 7 4 8 12].longestIncreasingSubsequenceList
 [
 	3 5 7 8 12;
-	3 5 10 11 11;
+	3 5 10 11 12;
 	3 5 10 11 13;
 	3 5 10 11 14
 ]

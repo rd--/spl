@@ -395,6 +395,8 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("squared" . ?²) ; U+00B2 ² Superscript Two
      ("cubed" . ?³) ; U+00B3 ³ Superscript Three
      ("sum" . ?Σ) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation
+     ("Tau" . ?Τ) ; U+03A4 Τ Greek Capital Letter Tau
+     ("tau" . ?τ) ; U+03C4 τ Greek Small Letter Tau
      ("theta" . ?θ) ; U+03B8 θ Greek Small Letter Theta
      ("Theta" . ?Θ) ; U+0398 Θ Greek Capital Letter Theta
      ("third" . ?₃) ; U+2083 ₃ Subscript Three

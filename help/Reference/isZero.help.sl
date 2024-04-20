@@ -34,6 +34,6 @@ false
 
 * * *
 
-See also: isEven, isNegative, isOdd, isPositive
+See also: isEven, isNegative, isOdd, isOne, isPositive, zero
 
 Categories: Testing

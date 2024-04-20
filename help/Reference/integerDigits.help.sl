@@ -57,6 +57,16 @@ Count from zero to seven in binary, answers to three places:
 [0 0 0; 0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1]
 ```
 
+Number of 1s in the ternary expansion of _n_,
+OEIS [A062756](https://oeis.org/A062756):
+
+```
+>>> 0:23.collect { :i |
+>>> 	i.integerDigits(3).count(isOne:/1)
+>>> }
+[0 1 0 1 2 1 0 1 0 1 2 1 2 3 2 1 2 1 0 1 0 1 2 1]
+```
+
 * * *
 
 See also: digitCount

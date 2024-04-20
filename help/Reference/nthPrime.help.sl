@@ -18,15 +18,25 @@ Answer the prime at one-index _anInteger_ in the sequence of prime numbers.
 33413
 ```
 
+The inverse is `primePi`:
+
+```
+>>> 33413.primePi
+3579
+```
+
 Threads over lists:
 
 ```
 >>> 1:9.nthPrime
 [2 3 5 7 11 13 17 19 23]
+
+>>> (10 ^ 1:3).nthPrime
+[29 541 7919]
 ```
 
 This value is cached (memoized) by the system,
-so that subsequenct accesses do not require recalculation.
+so that subsequent accesses do not require recalculation:
 
 ```
 >>> system.cache::primesList[5]

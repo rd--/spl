@@ -20,7 +20,7 @@ A 3×2 matrix:
 ```
 >>> [
 >>> 	1 2;
->>>	3 4;
+>>> 	3 4;
 >>> 	5 6
 >>> ].asMatrix.numberOfRows
 3

@@ -22,7 +22,7 @@ Answer the Stern-Brocot `Tree` of depth _anInteger_.
 
 * * *
 
-See also: calkinWilfTree, sternBrocotSequence
+See also: calkinWilfTree, mediant, sternBrocotSequence
 
 References:
 _Mathematica_

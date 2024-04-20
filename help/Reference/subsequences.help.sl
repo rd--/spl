@@ -60,7 +60,7 @@ Compare to `longestCommonSubsequence`:
 
 ```
 >>> [1 2 3 5 4].longestCommonSubsequence([2 3 5 1 4])
-[2 3 5]
+[2 3 5 4]
 ```
 
 Subsequences preserves the order of the input:

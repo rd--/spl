@@ -350,10 +350,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Number.isSafeInteger(_self);>
 	}
 
-	isZero { :self |
-		self = 0
-	}
-
 	log { :self |
 		<primitive: return Math.log(_self)>
 	}

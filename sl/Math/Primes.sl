@@ -64,6 +64,12 @@
 		}
 	}
 
+	isLesserTwinPrime { :self |
+		self.isPrime & {
+			self + 2 = self.nextPrime
+		}
+	}
+
 	leastPrimeGreaterThanOrEqualTo { :self |
 		let maybePrime = self;
 		{
@@ -130,6 +136,10 @@
 		} {
 			primesList[self]
 		}
+	}
+
+	nthPrimeGap { :self |
+		(self + 1).nthPrime - self.nthPrime
 	}
 
 	previousPrime { :self |
@@ -239,7 +249,10 @@
 	}
 
 	primesUpTo { :self |
-		system.primesList.copyFromTo(1, self.nextPrime.indexOfPrime - 1)
+		system.primesList.copyFromTo(
+			1,
+			self.nextPrime.indexOfPrime - 1
+		)
 	}
 
 	primesUpToDo { :self :aBlock:/1 |
