@@ -321,6 +321,10 @@
 		}
 	}
 
+	binaryDistance { :u :v |
+		(u = v).boole
+	}
+
 	binarySearch { :self :item |
 		valueWithReturn { :return:/1 |
 			let low = 1;
@@ -523,6 +527,16 @@
 		let answer = self.copy;
 		answer.addFirst(newElement);
 		answer
+	}
+
+	correlationDistance { :u :v |
+		let uu = (u - u.mean);
+		let vv = (v - v.mean);
+		1 - ((u - u.mean).dot(v - v.mean) / (uu.norm * vv.norm))
+	}
+
+	cosineDistance { :u :v |
+		1 - (u.dot(v) / (u.norm * v.norm))
 	}
 
 	crossedMultiply { :self :aSequence |
@@ -1828,6 +1842,12 @@
 		self / self.norm
 	}
 
+	normalizedSquaredEuclideanDistance { :u :v |
+		let uu = (u - u.mean);
+		let vv = (v - v.mean);
+		0.5 * (uu - vv).norm.squared / (uu.norm.squared + vv.norm.squared)
+	}
+
 	nubSieve { :self |
 		let seen = [];
 		self.collect { :each |
@@ -2334,6 +2354,10 @@
 				}
 			}
 		}
+	}
+
+	squaredEuclideanDistance { :self :aSequence |
+		(self - aSequence).norm.squared
 	}
 
 	standardize { :self :meanBlock:/1 :deviationBlock:/1 |

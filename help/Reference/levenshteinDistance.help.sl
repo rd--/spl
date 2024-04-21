@@ -2,7 +2,8 @@
 
 - _levenshteinDistance(u, v)_
 
-Answer the Levenshtein distance between vectors _u_ and _v_.
+Answer the Levenshtein distance between vectors _u_ and _v_,
+also known as `editDistance`.
 
 Identity:
 
@@ -60,3 +61,6 @@ See also: editDistance, hammingDistance, manhattanDistance
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Levenshtein_distance)
+
+Further Reading: Levenshtein (1966)
+

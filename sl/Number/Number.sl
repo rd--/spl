@@ -348,6 +348,10 @@
 		}
 	}
 
+	minkowskiDistance { :p :u :v |
+		((u - v).abs ^ p).sum ^ (1 / p)
+	}
+
 	mixedFractionParts { :self |
 		let i = self.integerPart;
 		[i, self - i]

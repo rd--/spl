@@ -21,11 +21,12 @@ Equivalent to _((u - v).abs / (u.abs + v.abs)).sum_.
 
 * * *
 
-
-* * *
-
 See also: brayCurtisDistance, chessboardDistance, euclideanDistance, editDistance, hammingDistance, manhattanDistance
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/CanberraDistance.html)
+[1](https://reference.wolfram.com/language/ref/CanberraDistance.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Canberra_distance)
+
+Further Reading: Lance (1966, 1967)

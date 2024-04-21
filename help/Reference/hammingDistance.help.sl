@@ -9,8 +9,12 @@ Hamming distance between two strings:
 ```
 >>> 'abc'.hammingDistance('cba')
 2
+```
 
->>> ['a' 'b' 'c'].hammingDistance(['c' 'b' 'a'])
+Hamming distance between two lists:
+
+```
+>>> [1 2 3].hammingDistance([3 2 1])
 2
 ```
 
@@ -64,4 +68,8 @@ See also: editDistance, manhattanDistance
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/HammingDistance.html)
+[1](https://reference.wolfram.com/language/ref/HammingDistance.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Hamming_distance)
+
+Further Reading: Hamming (1950)

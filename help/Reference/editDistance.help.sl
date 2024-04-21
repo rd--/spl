@@ -9,6 +9,9 @@ Edit distance between two strings:
 ```
 >>> 'abc'.editDistance('cba')
 2
+
+>>> 'kitten'.editDistance('sitting')
+3
 ```
 
 Edit distance between two vectors:
@@ -52,4 +55,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/EditDistance.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Levenshtein_distance)
-

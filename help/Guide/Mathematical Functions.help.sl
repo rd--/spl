@@ -308,3 +308,20 @@
 
 - `ordering`: inverse of a permutation list
 - `randomSample`: random generation of permutation lists
+
+## Distance and Similarity Measures
+
+- `euclideanDistance`: Euclidean distance
+- `squaredEuclideanDistance`: square of the Euclidean distance
+- `normalizedSquaredEuclideanDistance`: nomralized squared Euclidean distance
+- `manhattanDistance`: Manhattan or city block distance
+- `chessboardDistance`: chessboard or Chebyshev or sup norm distance
+- `brayCurtisDistance`: Bray–Curtis distance
+- `canberraDistance`: Canberra or Lance-Williams distance
+- `cosineDistance`: angular cosine distance
+- `correlationDistance`: correlation distance
+- `binaryDistance`:  binary distance
+- `minkowskiDistance`: Minkowski distance
+- `distanceMatrix`: distance matrix
+- `hammingDistance`: Hamming distance
+- `editDistance`: edit or Levenshtein distance

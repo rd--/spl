@@ -5,6 +5,7 @@
 - _distanceMatrix(alpha)_ => _distanceMatrix(alpha, alpha)_
 
 Answer the matrix of distances between each pair of elements.
+In the unary and binary cases the distance function is `euclideanDistance`.
 
 Compute a distance matrix from a list of integers:
 
