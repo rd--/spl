@@ -1,6 +1,11 @@
 # rowReduce
 
-- _rowReduce(aMatrix, aVector)_
+- _rowReduce(aMatrix)_
+
+Answer the row-reduced form of _aMatrix_.
+`rowReduce` performs a version of Gaussian elimination,
+adding multiples of rows together so as to produce zero elements when possible.
+The final matrix is in reduced row echelon form.
 
 Row reduction on square 3×3 integer matrices:
 
@@ -95,24 +100,15 @@ Indeed, the inverse can be found using `rowReduce`:
 ```
 >>> let m = [1 0 4; 2 0 3; 2 1 2];
 >>> let i = 3.identityMatrix;
->>> (m ++.each i).rowReduce.collect { :each | each.drop(3) }
+>>> (m ++.each i).rowReduce.collect { :each |
+>>> 	each.drop(3)
+>>> }
 [-3/5 4/5 0; 2/5 -6/5 1; 2/5 -1/5 0]
 ```
 
-```
->>> let m = [
->>> 	1 0.00 0.00  0.00  0.00   0.00 -0.01;
->>> 	1 0.63 0.39  0.25  0.16   0.10  0.61;
->>> 	1 1.26 1.58  1.98  2.49   3.13  0.91;
->>> 	1 1.88 3.55  6.70 12.62  23.80  0.99;
->>> 	1 2.51 6.32 15.88 39.90 100.28  0.60;
->>> 	1 3.14 9.87 31.01 97.41 306.02  0.02
->>> ];
->>> m.rowReduce.collect(last:/1)
-[-0.01 1.60279 -1.6132 1.24549 -0.49099 0.06576]
-```
-
 * * *
+
+See also: determinant, inverse, permanent, reducedRowEchelonForm
 
 References:
 _Mathematica_

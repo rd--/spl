@@ -175,51 +175,12 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 +@Sequence {
 
 	gaussianElimination { :m :v |
-		let n = v.size;
-		let a = List(n);
-		let answer = List(n, 0);
-		m.withIndexDo { :each :i |
-			a[i] := each.copy;
-			a[i].add(v[i])
+		let a = m.deepCopy;
+		a.withIndexDo { :each :i |
+			each.add(v[i])
 		};
-		1.toDo(n) { :k |
-			let iMax = 1;
-			let vMax = -1;
-			k.toDo(n) { :i |
-				let row = a[i];
-				let s = -1;
-				let z = nil;
-				k.toDo(n) { :j |
-					let e = row[j].abs;
-					(e > s).ifTrue {
-						s := e
-					}
-				};
-				z := row[k].abs / s;
-				(z > vMax).ifTrue {
-					iMax := i;
-					vMax := z
-				}
-			};
-			a[iMax][k].isZero.ifTrue {
-				self.error('@Sequence>>gaussianElimination: matrix is singular')
-			};
-			a.swapWith(k, iMax);
-			(k + 1).toDo(n) { :i |
-				(k + 1).toDo(n + 1) { :j |
-					a[i][j] := a[i][j] - (a[k][j] * a[i][k] / a[k][k])
-				};
-				a[i][k] := 0
-			}
-		};
-		n.downToDo(1) { :i |
-			answer[i] := a[i][n + 1];
-			(i + 1).toDo(n) { :j |
-				answer[i] := answer[i] - (a[i][j] * answer[j])
-			};
-			answer[i] := answer[i] / a[i][i]
-		};
-		answer
+		a.reducedRowEchelonForm;
+		a.collect(last:/1)
 	}
 
 	inverse { :self |
