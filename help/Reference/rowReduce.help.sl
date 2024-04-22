@@ -1,0 +1,123 @@
+# rowReduce
+
+- _rowReduce(aMatrix, aVector)_
+
+Row reduction on square 3×3 integer matrices:
+
+```
+>>> [1 2 3; 4 5 6; 7 8 9].rowReduce
+[1 0 -1; 0 1 2; 0 0 0]
+
+>>> [2 1 -1; -3 -1 2; -2 1 2].rowReduce
+3.identityMatrix
+```
+
+Square 5×5 matrix:
+
+```
+>>> [2 0 -1  0  0; 1 0  0 -1  0; 3 0  0 -2 -1; 0 1  0  0 -2; 0 1 -1  0  0].rowReduce
+[1 0 0 0 -1; 0 1 0 0 -2; 0 0 1 0 -2; 0 0 0 1 -1; 0 0 0 0 0]
+```
+
+Row reduction on rectangular integer matrices:
+
+```
+>>> [1 2 3 1 0 0; 4 5 6 0 1 0; 7 8 9 0 0 1].rowReduce
+[1 0 -1 0 -8/3 5/3; 0 1 2 0 7/3 -4/3; 0 0 0 1 -2 1]
+
+>>> [2 1 -1 8; -3 -1 2 -11; -2 1 2 -3].rowReduce
+[1 0 0 2; 0 1 0 3; 0 0 1 -1]
+
+>>> [1 2 -1 -4; 2 3 -1 -11; -2 0 -3 22].rowReduce
+[1 0 0 -8; -0 1 0 1; 0 0 1 -2]
+
+>>> [1 3 1 9; 1 1 -1 1; 3 11 5 35].rowReduce
+[1 0 -2 -3; 0 1 1 4; 0 0 0 0]
+```
+
+Rectangular 5×6 matrix:
+
+```
+>>> [
+>>> 	1 2 3 4 3 1;
+>>> 	2 4 6 2 6 2;
+>>> 	3 6 18 9 9 -6;
+>>> 	4 8 12 10 12 4;
+>>> 	5 10 24 11 15 -4
+>>> ].rowReduce
+[
+	1 2 0 0 3 4;
+	0 0 1 0 0 -1;
+	0 0 0 1 0 0;
+	0 0 0 0 0 0;
+	0 0 0 0 0 0
+]
+```
+
+```
+>>> let p = [0 0 -1 2 0; 0 0 -1 1 1; 2 8 1 -4 2];
+>>> let q = p.rowReduce;
+>>> (q, q.rowReduce = q)
+([1 4 0 0 0; 0 0 1 0 -2; 0 0 0 1 -1], true)
+```
+
+Find the row reduction of a real-valued square matrix:
+
+```
+>>> [1.5 4.75 -3.2; -1.7 6.7 -9.3; 4.9 -8.65 15.4].rowReduce
+[1 0 1.25434; 0 1 -1.06979; 0 0 0]
+```
+
+Find the row reduction of a real-valued rectangular matrix:
+
+```
+>>> [1.2 3.4; 5.6 7.8; 9.10 11.12].rowReduce
+[1 0; 0 1; 0 0]
+```
+
+Does not alter an identity matrix:
+
+```
+>>> let m = 5.identityMatrix;
+>>> m.rowReduce
+m
+```
+
+A square matrix is invertible if `rowReduce` answers the identity matrix:
+
+```
+>>> [1 0 4; 2 0 3; 2 1 2].rowReduce
+3.identityMatrix
+```
+
+Indeed, the inverse can be found using `rowReduce`:
+
+```
+>>> let m = [1 0 4; 2 0 3; 2 1 2];
+>>> let i = 3.identityMatrix;
+>>> (m ++.each i).rowReduce.collect { :each | each.drop(3) }
+[-3/5 4/5 0; 2/5 -6/5 1; 2/5 -1/5 0]
+```
+
+```
+>>> let m = [
+>>> 	1 0.00 0.00  0.00  0.00   0.00 -0.01;
+>>> 	1 0.63 0.39  0.25  0.16   0.10  0.61;
+>>> 	1 1.26 1.58  1.98  2.49   3.13  0.91;
+>>> 	1 1.88 3.55  6.70 12.62  23.80  0.99;
+>>> 	1 2.51 6.32 15.88 39.90 100.28  0.60;
+>>> 	1 3.14 9.87 31.01 97.41 306.02  0.02
+>>> ];
+>>> m.rowReduce.collect(last:/1)
+[-0.01 1.60279 -1.6132 1.24549 -0.49099 0.06576]
+```
+
+* * *
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/GaussianElimination.html)
+[2](https://reference.wolfram.com/language/ref/RowReduce.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Gaussian_elimination)
+[2](https://en.wikipedia.org/wiki/Row_echelon_form)

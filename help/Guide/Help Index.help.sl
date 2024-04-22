@@ -337,7 +337,7 @@
 - `isSquareMatrix`, `isSymmetricMatrix`
 - `isLowerTriangularMatrix`, `isUpperTriangularMatrix`
 - `dot`, `inner`, `matrixPower`, `outer`
-- `determinant`, `diagonal`, `trace`, `transposed`
+- `determinant`, `diagonal`, `inverse`, `matrixRank`, `permanent`, `trace`, `transposed`
 - `kroneckerProduct`
 
 ## Methods

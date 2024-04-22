@@ -19,11 +19,19 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 					(array[1, 2] * array[2, 1] * array[3, 3]) -
 					(array[1, 1] * array[2, 3] * array[3, 2])
 				} {
-					'Matrix>>determinant: not implemented for this size'.error
+					let answer = 0;
+					[1 .. size].plainChangesDo { :p |
+						let sign = p.permutationSymbol;
+						let entries = p.withIndexCollect { :i :j |
+							array[i][j]
+						};
+						answer := answer + (entries.product * sign)
+					};
+					answer
 				}
 			}
 		} {
-			'Matrix>>determinant: not defined at non-square matrices'.error
+			self.error('Matrix>>determinant: not defined at non-square matrices')
 		}
 	}
 
@@ -36,6 +44,30 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 
 	diagonal { :self |
 		self.diagonal(0)
+	}
+
+	inverse { :self |
+		(
+			self.isSquareMatrix & {
+				self.determinant ~= 0
+			}
+		).if {
+			let n = self.numberOfRows;
+			(n = 2).if {
+				let [a, b, c, d] = self.contents.concatenation;
+				let r = 1 / ((a * d) - (b * c));
+				let m = [[d, b.-], [c.-, a]];
+				r * m
+			} {
+				let m = self.contents;
+				let i = n.identityMatrix;
+				(m ++.each i).rowReduce.collect { :each |
+					each.drop(n)
+				}
+			}
+		} {
+			self.error('Matrix>>inverse: not square or determinant is zero')
+		}
 	}
 
 	isColumnVector { :self |
@@ -56,6 +88,24 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 
 	linearIndex { :self :i :j |
 		(i - 1) * self.numberOfRows + j
+	}
+
+	permanent { :self |
+		self.isSquareMatrix.if {
+			let size = self.numberOfRows;
+			let array = self.contents;
+			let answer = 0;
+			[1 .. size].plainChangesDo { :p |
+				let sign = p.permutationSymbol;
+				let entries = p.withIndexCollect { :i :j |
+					array[i][j]
+				};
+				answer := answer + entries.product
+			};
+			answer
+		} {
+			self.error('Matrix>>permanent: not defined at non-square matrices')
+		}
 	}
 
 	shape { :self |
@@ -118,6 +168,121 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		} {
 			self.error('@Sequence>>numberOfColumns: not an array')
 		}
+	}
+
+}
+
++@Sequence {
+
+	gaussianElimination { :m :v |
+		let n = v.size;
+		let a = List(n);
+		let answer = List(n, 0);
+		m.withIndexDo { :each :i |
+			a[i] := each.copy;
+			a[i].add(v[i])
+		};
+		1.toDo(n) { :k |
+			let iMax = 1;
+			let vMax = -1;
+			k.toDo(n) { :i |
+				let row = a[i];
+				let s = -1;
+				let z = nil;
+				k.toDo(n) { :j |
+					let e = row[j].abs;
+					(e > s).ifTrue {
+						s := e
+					}
+				};
+				z := row[k].abs / s;
+				(z > vMax).ifTrue {
+					iMax := i;
+					vMax := z
+				}
+			};
+			a[iMax][k].isZero.ifTrue {
+				self.error('@Sequence>>gaussianElimination: matrix is singular')
+			};
+			a.swapWith(k, iMax);
+			(k + 1).toDo(n) { :i |
+				(k + 1).toDo(n + 1) { :j |
+					a[i][j] := a[i][j] - (a[k][j] * a[i][k] / a[k][k])
+				};
+				a[i][k] := 0
+			}
+		};
+		n.downToDo(1) { :i |
+			answer[i] := a[i][n + 1];
+			(i + 1).toDo(n) { :j |
+				answer[i] := answer[i] - (a[i][j] * answer[j])
+			};
+			answer[i] := answer[i] / a[i][i]
+		};
+		answer
+	}
+
+	inverse { :self |
+		self.asMatrix.inverse
+	}
+
+	matrixRank { :self |
+		self.rowReduce.count { :each |
+			each.allSatisfy { :item |
+				item.veryCloseTo(0)
+			}.not
+		}
+	}
+
+	permanent { :self |
+		self.asMatrix.permanent
+	}
+
+	reducedRowEchelonForm { :self |
+		valueWithReturn { :return:/1 |
+			let lead = 1;
+			let [m, n] = self.shape;
+			let d = nil;
+			1.toDo(m) { :r |
+				let i = r;
+				(lead > n).ifTrue {
+					self.return
+				};
+				{
+					self[i][lead].isZero
+				}.whileTrue {
+					i := i + 1;
+					(i > m).ifTrue {
+						i := r;
+						lead := lead + 1;
+						(lead > n).ifTrue {
+							self.return
+						}
+					}
+				};
+				self.swapWith(i, r);
+				d := self[r][lead];
+				(d.abs > 1E-10).ifTrue {
+					self[r].replace { :each |
+						each / d
+					}
+				};
+				1.toDo(m) { :i |
+					(i ~= r).ifTrue {
+						let e = self[i][lead];
+						1.toDo(n) { :c |
+							self[i][c] := self[i][c] - (self[r][c] * e)
+						}
+					}
+				};
+				lead := lead + 1
+			};
+			self
+		}
+	}
+
+	rowReduce { :self |
+		self.deepCopy.reducedRowEchelonForm
 	}
 
 }

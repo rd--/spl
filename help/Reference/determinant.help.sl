@@ -1,20 +1,65 @@
 # determinant
 
-- _determinant(aSequence | aMatrix)_
+- _determinant(aMatrix)_
 
 Answer the determinant of a square matrix.
 
-The determinant of a _3×3_ `Integer` matrix:
+The determinant of a _2×2_ `Integer` matrix:
+
+```
+>>> [1 2; 3 4].determinant
+-2
+
+>>> [3 1; 7 -4].determinant
+-19
+
+>>> [1 2; 0 2].determinant
+2
+
+>>> [4 3; 2 5].determinant
+14
+```
+
+The determinants of _3×3_ `Integer` matrices:
 
 ```
 >>> [1 2 3; 4 5 6; 7 8 9].asMatrix.determinant
 0
+
+>>> [-1 4 -2; -2 -4 3; 6 -5 1].determinant
+1
 
 >>> [1 2 4; 5 4 5; 9 2 7].determinant
 -66
 
 >>> [-2 -1 2; 2 1 4; -3 3 -1].determinant
 54
+
+>>> [1 2 3; 4 1 6; 7 8 1].transposed.determinant
+104
+
+>>> [2 9 4; 7 5 3; 6 1 8].determinant
+-360
+```
+
+The determinants of _4×4_ `Integer` matrices:
+
+```
+>>> [1 2 3 4; 4 5 6 7; 7 8 9 10; 10 11 12 13].determinant
+0
+
+>>> [1 2 3 1; -1 -1 -1 2; 1 3 1 1; -2 -2 0 -1].determinant
+26
+
+>>> [7 2 -2 4; 4 4 1 7; 11 -8 9 10; 10 5 12 13].determinant
+-4319
+```
+
+The determinant of a _5×5_ `Integer` matrix:
+
+```
+>>> ([5 5].iota - 1).determinant
+0
 ```
 
 The determinant of a _3×3_ `SmallFloat` matrix:
@@ -61,6 +106,19 @@ Use to find the volume of a parallelepiped:
 ```
 >>> [1 4 3; -2 -5 2; -1 2 -2].determinant.abs
 45
+```
+
+Use Det to find hypervolume of a hyper-parallelepiped spanned by the following vectors:
+
+```
+>>> let m = [
+>>> 	6 -6 -1 6;
+>>> 	10 -1 0 -7;
+>>> 	3 -2 -9 -3;
+>>> 	4 5 6 -3
+>>> ];
+>>> m.determinant.abs
+3580
 ```
 
 Find the area of the image of the unit disk under the linear transformation associated to a matrix:
@@ -112,7 +170,7 @@ A square matrix has an inverse if and only if its determinant is nonzero:
 
 * * *
 
-See also: isSquareMatrix
+See also: isSquareMatrix, matrixRank, permanent, permutationSymbol, rowReduce, trace
 
 References:
 _Mathematica_

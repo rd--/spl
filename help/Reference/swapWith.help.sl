@@ -4,6 +4,8 @@
 
 Move the element at _oneIndex_ of _aSequence_ to _anotherIndex_, and vice-versa.
 
+At `List`, swap elements at indices one and four:
+
 ```
 >>> let list = [1 .. 5];
 >>> list.swapWith(1, 4);
@@ -14,7 +16,5 @@ Move the element at _oneIndex_ of _aSequence_ to _anotherIndex_, and vice-versa.
 * * *
 
 See also: at, atPut
-
-
 
 Categories: Accessing

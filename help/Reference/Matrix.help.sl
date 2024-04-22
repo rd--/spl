@@ -15,6 +15,17 @@ Determinant:
 0
 ```
 
+Inverse of a 2×2 matrix:
+
+```
+>>> [1.4 2; 3 -6.7].asMatrix.inverse
+[0.43563 0.13004; 0.19506 -0.09103]
+
+>>> [-1 1; 1.5 -1].asMatrix.inverse
+[2 2; 3 2]
+```
+inverse
+
 * * *
 
 See also: asMatrix, List, Matrix Operations, Sequence
