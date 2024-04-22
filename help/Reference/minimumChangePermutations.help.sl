@@ -51,6 +51,6 @@ References:
 _W_
 [1](https://en.wikipedia.org/wiki/Heap%27s_algorithm)
 
-Further Reading: Heap (1963)
+Further Reading: Heap 1963
 
 Categories: Enumerating, Permutations

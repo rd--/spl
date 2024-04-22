@@ -111,6 +111,7 @@
 	'Navigator-Svg'
 	'Number-Binary'
 	'Number-Complex'
+	'Number-Decimal'
 	'Number-Fraction'
 	'Number-Integer'
 	'Number-Interval'

@@ -35,4 +35,4 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Longest_common_subsequence)
 
-Further Reading: Hirschberg (1975), Hunt (1977)
+Further Reading: Hirschberg 1975, Hunt 1977

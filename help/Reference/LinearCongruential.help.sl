@@ -29,6 +29,6 @@ LinearCongruential(98765).next(99).plot
 
 See also: Mersenne, Random, Sfc32, SplitMix, Stream
 
-Further Reading: Thomson (1958)
+Further Reading: Thomson 1958
 
 Categories: Random

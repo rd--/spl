@@ -56,4 +56,4 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Longest_increasing_subsequence)
 
-Further Reading: Erdös (1935), Fredman (1975), Hammersley (1972), Schensted (1961)
+Further Reading: Erdös 1935, Fredman 1975, Hammersley 1972, Schensted 1961

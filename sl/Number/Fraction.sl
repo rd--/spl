@@ -186,6 +186,12 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.numerator.isNegative
 	}
 
+	isPowerOfTwo { :self |
+		self.isInteger & {
+			self.numerator.isPowerOfTwo
+		}
+	}
+
 	isSquareSuperparticular { :self |
 		self.isSuperparticular & {
 			self.numerator.isSquareFree.not

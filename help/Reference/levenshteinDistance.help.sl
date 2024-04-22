@@ -62,5 +62,5 @@ References:
 _W_
 [1](https://en.wikipedia.org/wiki/Levenshtein_distance)
 
-Further Reading: Levenshtein (1966)
+Further Reading: Levenshtein 1966
 

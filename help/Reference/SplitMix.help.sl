@@ -29,6 +29,6 @@ SplitMix(98765).next(99).plot
 
 See also: LinearCongruential, Mersenne, Random, Sfc32, Stream
 
-Further Reading: Steele (2014)
+Further Reading: Steele 2014
 
 Categories: Random

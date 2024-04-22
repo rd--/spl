@@ -54,6 +54,7 @@
 	'Interval'
 	'LargeInteger'
 	'Residue'
+	'Decimal' {- Fraction -}
 
 	{- Math -}
 	'Binomial'

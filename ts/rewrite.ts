@@ -660,6 +660,9 @@ const asJs: ohm.ActionDict<string> = {
 	floatLiteral(s, i, _, f) {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
 	},
+	decimalLiteral(s, i, _, f, _d) {
+		return `_parseDecimal_1('${s.sourceString}${i.sourceString}.${f.sourceString}')`;
+	},
 	scientificLiteral(base, _e, exponent) {
 		return `${base.sourceString}e${exponent.sourceString}`;
 	},

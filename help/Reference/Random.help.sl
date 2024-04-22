@@ -23,4 +23,4 @@ Random implements `next` as `nextRandomFloat`:
 
 See also: Iterator, Sfc32, Stream
 
-Further Reading: L’Ecuyer (2007)
+Further Reading: L’Ecuyer 2007

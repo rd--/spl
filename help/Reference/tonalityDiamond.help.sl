@@ -1,8 +1,11 @@
 # tonalityDiamond
 
-- _tonalityDiamond(anInteger)_
+- _tonalityDiamond(n)_
 
-A multiplication table of the odd integers _1, 3 .. _anInteger_, reduced to an octave and sorted, with their reciprocals.
+A multiplication table of the odd integers _1, 3 .. n_, reduced to an octave and sorted, with their reciprocals.
+The first row contain the harmonics (Otonality) and the first column the subharmonics (Utonality).
+
+Five limit:
 
 ```
 >>> 5.tonalityDiamond
@@ -11,7 +14,11 @@ A multiplication table of the odd integers _1, 3 .. _anInteger_, reduced to an o
 	8/5 1/1 6/5;
 	4/3 5/3 1/1
 ]
+```
 
+Seven limit:
+
+```
 >>> 7.tonalityDiamond
 [
 	1/1 5/4 3/2 7/4;
@@ -19,7 +26,11 @@ A multiplication table of the odd integers _1, 3 .. _anInteger_, reduced to an o
 	4/3 5/3 1/1 7/6;
 	8/7 10/7 12/7 1/1
 ]
+```
 
+Eleven limit:
+
+```
 >>> 11.tonalityDiamond
 [
 	1/1 9/8 5/4 11/8 3/2 7/4;
@@ -29,7 +40,11 @@ A multiplication table of the odd integers _1, 3 .. _anInteger_, reduced to an o
 	4/3 3/2 5/3 11/6 1/1 7/6;
 	8/7 9/7 10/7 11/7 12/7 1/1
 ]
+```
 
+Fifteen limit:
+
+```
 >>> 15.tonalityDiamond
 [
 	1/1 9/8 5/4 11/8 3/2 13/8 7/4 15/8;
@@ -74,9 +89,9 @@ See also: isSuperparticular, octaveReduced
 
 References:
 _W_
-[1](https://en.wikipedia.org/wiki/Tonality_diamond),
+[1](https://en.wikipedia.org/wiki/Tonality_diamond)
+[2](https://en.wikipedia.org/wiki/Otonality_and_utonality),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Tonality_diamond)
 
-Further Reading: Meyer 1929, Rasch 2000
-
+Further Reading: Meyer 1929, Partch 1949, Rasch 2000

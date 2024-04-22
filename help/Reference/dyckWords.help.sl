@@ -57,13 +57,13 @@ The number of Dyck words of length _2 * n_ is the _n_-th Catalan number.
 
 See also: catalanNumber
 
-Refernces:
+References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DyckLanguage.html)
 [2](https://mathworld.wolfram.com/DyckPath.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Dyck_language)
 
-Further Reading: Deutsch (1999), Duchon (2000), Kása (2009)
+Further Reading: Deutsch 1999, Duchon 2000, Kása 2009
 
 Categories: Enumerating

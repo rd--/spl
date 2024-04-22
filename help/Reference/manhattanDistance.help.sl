@@ -28,4 +28,7 @@ See also: editDistance, euclideanDistance, hammingDistance
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/ManhattanDistance.html)
+[1](https://mathworld.wolfram.com/TaxicabMetric.html)
+[2](https://reference.wolfram.com/language/ref/ManhattanDistance.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Taxicab_geometry)

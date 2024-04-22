@@ -92,6 +92,10 @@ Meyer, M. F. 1929.
 _The Musician’s Arithmetic_.\
 Oliver Ditson Company, Boston.
 
+Partch, H. 1949.
+_Genesis of a Music_.\
+University of Wisconsin Press, Madison.
+
 Rotem, D. 1981.
 "Stack sortable permutations".\
 _Discrete Mathematics_, 33(2):185--196.

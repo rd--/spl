@@ -50,4 +50,4 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/LeastCommonMultiple.html)
 [2](https://mathworld.wolfram.com/LCM.html)
 
-Further Reading: McDonnell (1975)
+Further Reading: McDonnell 1975

@@ -29,4 +29,4 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Canberra_distance)
 
-Further Reading: Lance (1966, 1967)
+Further Reading: Lance 1966

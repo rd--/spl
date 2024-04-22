@@ -17,4 +17,4 @@ such that the _k_ ones are distributed as evenly as possible among the _n - k_ z
 
 See also: bjorklundsAlgorithmDo, euclideanAlgorithm
 
-Further Reading: Bjorklund (1989 & 2003), Demaine (2005 & 2009)
+Further Reading: Bjorklund 1989, Demaine 2005

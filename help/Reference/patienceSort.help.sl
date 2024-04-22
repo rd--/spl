@@ -23,4 +23,4 @@ References:
 _W_
 [1](https://en.wikipedia.org/wiki/Patience_sorting)
 
-Further Reading: Mallows (1962)
+Further Reading: Mallows 1962

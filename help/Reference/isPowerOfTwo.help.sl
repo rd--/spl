@@ -12,6 +12,13 @@ true
 [1 2 4 8 16 32 64 128 256 512]
 ```
 
+At `Fraction`:
+
+```
+>>> [23/1 64/1].collect(isPowerOfTwo:/1)
+[false true]
+```
+
 * * *
 
 See also: asPowerOfTwo

@@ -52,4 +52,4 @@ References:
 _W_
 [1](https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm)
 
-Further Reading: Ruskey (1989), Sedgewick (1977)
+Further Reading: Ruskey 1989, Sedgewick 1977
