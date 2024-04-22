@@ -88,6 +88,17 @@
 
 }
 
++@Integer {
+
+	tonalityDiamond { :self |
+		let n = [1, 3 .. self];
+		let o = n.collect { :i | Fraction(i, 1).octaveReduced }.sort;
+		let u = 1 / o;
+		{ :i :j | (i * j).octaveReduced }.table(u, o)
+	}
+
+}
+
 +@Collection {
 
 	octaveReduced { :self |

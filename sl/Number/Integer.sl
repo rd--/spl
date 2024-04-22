@@ -2,6 +2,10 @@
 
 @Integer {
 
+	additivePersistence { :x :b |
+		x.digitalRootSet(b).second.size - 1
+	}
+
 	asCodePoint { :self |
 		self
 	}
@@ -169,6 +173,31 @@
 
 	denominator { :self |
 		1
+	}
+
+	digitalRootSet { :x :b |
+		let digitSum = { :x :b |
+			let total = 0;
+			{
+				x > 0
+			}.whileTrue {
+				total := total + (x % b);
+				x := x // b
+			};
+			total
+		};
+		let seen = Set();
+		{
+			seen.includes(x)
+		}.whileFalse {
+			seen.add(x);
+			x := digitSum(x, b)
+		};
+		(x, seen)
+	}
+
+	digitalRoot { :x :b |
+		x.digitalRootSet(b).first
 	}
 
 	digitCount { :n :b :d |
@@ -826,6 +855,15 @@
 
 	polygonalNumber { :r :n |
 		(1 / 2) * n * (n * (r - 2) - r + 4)
+	}
+
+	positiveResidue { :self :modulus |
+		let n = self % modulus;
+		n.isZero.if {
+			modulus
+		} {
+			n
+		}
 	}
 
 	printStringHex { :self |

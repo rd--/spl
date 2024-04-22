@@ -20,10 +20,6 @@ Residue : [Object, Magnitude, Number] { | commonResidue modulus |
 		self * aNumber.inverse
 	}
 
-	inverse { :self |
-		Residue(self.commonResidue.modularInverse(self.modulus), self.modulus)
-	}
-
 	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
 		aCollection.collect { :each |
 			each.aBlock(self)
@@ -59,6 +55,19 @@ Residue : [Object, Magnitude, Number] { | commonResidue modulus |
 
 	closeTo { :self :anObject |
 		self = anObject
+	}
+
+	inverse { :self |
+		Residue(self.commonResidue.modularInverse(self.modulus), self.modulus)
+	}
+
+	positiveResidue { :self |
+		let n = self.commonResidue;
+		n.isZero.if {
+			self.modulus
+		} {
+			n
+		}
 	}
 
 	storeString { :self |

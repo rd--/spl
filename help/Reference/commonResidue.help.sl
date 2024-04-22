@@ -5,7 +5,9 @@
 Answer the common residue of _anInteger_ (mod _modulus_).
 
 ```
->>> (0, 5 .. 20).collect { :each | each.commonResidue(4) }
+>>> (0, 5 .. 20).collect { :each |
+>>> 	each.commonResidue(4)
+>>> }
 [0 1 2 3 0]
 
 >>> (0, 5 .. 20) % 4
@@ -14,7 +16,7 @@ Answer the common residue of _anInteger_ (mod _modulus_).
 
 * * *
 
-See also: %, minimalResidue
+See also: %, minimalResidue, positiveResidue
 
 References:
 _Mathematica_

@@ -88,6 +88,10 @@ In Proc. Conference on APL, 240–243.
 [Doi](https://doi.org/10.1145/800117.803810)
 [Pdf](https://dl.acm.org/doi/pdf/10.1145/800117.803810)
 
+Meyer, M. F. 1929.
+_The Musician’s Arithmetic_.\
+Oliver Ditson Company, Boston.
+
 Rotem, D. 1981.
 "Stack sortable permutations".\
 _Discrete Mathematics_, 33(2):185--196.

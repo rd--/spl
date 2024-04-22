@@ -247,3 +247,14 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	}
 
 }
+
++@Integer {
+
+	vedicSquare { :self |
+		let l = [1 .. self];
+		{ :i :j |
+			(i * j).positiveResidue(self)
+		}.table(l, l)
+	}
+
+}
