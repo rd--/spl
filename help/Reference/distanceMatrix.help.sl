@@ -76,3 +76,7 @@ Distance matrix of cartesian coordinates for lattice using `manhattanDistance` m
 * * *
 
 See also: adjacencyMatrix, norm, outer
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/DistanceMatrix.html)

@@ -35,6 +35,19 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 		}
 	}
 
+	isConstantStructure { :self |
+		let m = self.intervalMatrix;
+		let t = m.transposed;
+		let i = m.flatten.nub.reject(isOne:/1);
+		i.collect { :each |
+			t.collect { :c |
+				c.includes(each)
+			}.boole.sum
+		}.allSatisfy { :k |
+			k = 1
+		}
+	}
+
 	isRational { :self |
 		self.asRatios.allSatisfy(isFraction:/1)
 	}
