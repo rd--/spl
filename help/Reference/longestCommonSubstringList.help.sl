@@ -28,18 +28,9 @@ Find the longest contiguous subsequences common to two strings:
 ]
 ```
 
-C.f. `longestCommonSubsequence`:
-
-```
->>> let s = 'BDACADBC';
->>> let t = 'ADBCABAD';
->>> s.longestCommonSubsequence(t)
-'BCAD'
-```
-
 * * *
 
-See also: longestCommonSubsequence
+See also: longestCommonSubsequence, longestCommonSubstring
 
 References:
 _W_

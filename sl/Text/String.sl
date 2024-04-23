@@ -429,6 +429,10 @@ String! : [Object, Json, Iterable, Character] {
 		}
 	}
 
+	includesSubsequence { :self :aString |
+		self.asList.includesSubsequence(aString.asList)
+	}
+
 	includesSubstring { :self :aString |
 		<primitive: return _self.includes(_aString);>
 	}

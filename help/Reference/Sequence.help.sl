@@ -11,7 +11,7 @@ true
 true
 ```
 
-Methods for accessing: `atAll`, `atAllPut`, `first`, `second`, `middle`, `last`, `allButFirst`, `allButLast`, `indexOf,indexOfIfAbsent`, `indexOfSubCollectionStartingAt`, `indexOfSubCollectionStartingAtIfAbsent`, `replaceFromToWith`, `replaceFromToWithStartingAt`
+Methods for accessing: `atAll`, `atAllPut`, `first`, `second`, `middle`, `last`, `allButFirst`, `allButLast`, `indexOf,indexOfIfAbsent`, `indexOfSubstringStartingAt`, `indexOfSubstringStartingAtIfAbsent`, `replaceFromToWith`, `replaceFromToWithStartingAt`
 
 Methods for copying: `++`, `copyFromTo`, `copyReplaceAllWith`, `copyReplaceFromToWith`, `copyWith`, `copyWithout`, `copyWithoutAll`, `forceToPaddingWith`, `reversed`, `shuffled`, `sortBy`
 

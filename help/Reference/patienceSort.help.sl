@@ -19,6 +19,8 @@ Sort a random permutation:
 
 * * *
 
+See also: longestIncreasingSubsequence
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Patience_sorting)

@@ -305,17 +305,17 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("Sum" . ?∑) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation
      ("^" . ?ˆ) ; U+02C6 ˆ Modifier Letter Circumflex Accent ; U+2191 ↑ Upwards Arrow
      ("[]" . ?⍬) ; Apl ; U+236C ⍬ APL Functional Symbol Zilde
-     ("bind" . ?∘) ; Apl
+     ;("bind" . ?∘) ; Apl
      ("ceiling" . ?⌈) ; Apl
-     ("constant" . ?⍨) ; Apl
-     ("drop" . ?↓) ; Apl
-     ("enclose" . ?⊂) ; Apl
-     ("exp" . ?*) ; Apl
-     ("expand" . ?\\) ; Apl
-     ("factorial" . ?!) ; Apl
-     ("find" . ?⍷) ; Apl
+     ;("constant" . ?⍨) ; Apl
+     ;("drop" . ?↓) ; Apl
+     ;("enclose" . ?⊂) ; Apl
+     ;("exp" . ?*) ; Apl
+     ;("expand" . ?\\) ; Apl
+     ;("factorial" . ?!) ; Apl
+     ;("find" . ?⍷) ; Apl
      ("floor" . ?⌊) ; Apl
-     ("foldRight" . ?/) ; Apl
+     ;("foldRight" . ?/) ; Apl
      ("gradeDown" . ?⍒) ; Apl
      ("gradeUp" . ?⍋) ; Apl
      ("identity" . ?⊣) ; Apl
@@ -326,23 +326,23 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("max" . ?⌈) ; Apl
      ("min" . ?⌊) ; Apl
      ("negated" . ?-) ; Apl
-     ("nest" . ?⊆) ; Apl
+     ;("nest" . ?⊆) ; Apl
      ("nthRoot" . ?√) ; Apl
-     ("nubSieve" . ?≠) ; Apl
+     ;("nubSieve" . ?≠) ; Apl
      ("over" . ?⍥) ; Apl
-     ("partition" . ?⊆) ; Apl
+     ;("partition" . ?⊆) ; Apl
      ("reciprocal" . ?÷) ; Apl
-     ("reduce" . ?/) ; Apl
-     ("replicateEach" . ?/) ; Apl
+     ;("reduce" . ?/) ; Apl
+     ;("replicateEach" . ?/) ; Apl
      ("reshape" . ?⍴) ; Apl
      ("rightIdentity" . ?⊢) ; Apl ; U+22A2 ⊢ Right Tack
      ("rotatedLeft" . ?⌽) ; Apl
      ("shape" . ?⍴) ; Apl ; U+2374 ⍴ Apl Functional Symbol Rho
      ("swap" . ?⍨) ; Apl ; U+2368 ⍨ APL Functional Symbol Tilde Diaeresis
-     ("take" . ?↑) ; Apl
-     ("tally" . ?≢) ; Apl
-     ("unique" . ?∪) ; Apl ; U+2191 ↑ Upwards Arrow; U+222A ∪ Union
-     ("windowedReduce" . ?/) ; Apl
+     ;("take" . ?↑) ; Apl
+     ;("tally" . ?≢) ; Apl
+     ;("unique" . ?∪) ; Apl ; U+2191 ↑ Upwards Arrow; U+222A ∪ Union
+     ;("windowedReduce" . ?/) ; Apl
      ("alpha" . ?α) ; U+03B1 α Greek Small Letter Alpha
      ("and" . ?∧) ; U+2227 ∧ Logical and
      ("beta" . ?β) ; U+03B2 β Greek Small Letter Beta

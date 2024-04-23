@@ -33,6 +33,6 @@ At `String`:
 
 * * *
 
-See also: indicesOfSubCollection, indexOf, occurrencesOf
+See also: indicesOfSubstring, indexOf, occurrencesOf
 
 Categories: Indexing

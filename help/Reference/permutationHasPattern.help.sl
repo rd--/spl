@@ -44,6 +44,8 @@ true
 
 * * *
 
+See also: permutationPatternPositions
+
 References:
 _Sage_
 [1](https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/permutation.html#sage.combinat.permutation.Permutation.has_pattern)

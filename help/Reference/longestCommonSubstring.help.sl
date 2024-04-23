@@ -18,15 +18,27 @@ Find the longest contiguous subsequence common to two lists:
 >>> [1 2 3 4].longestCommonSubstring([2 3 1 4])
 [2 3]
 
->>> [1 2 3 4].subsequencesInCommon([2 3 1 4], 2)
+>>> [1 2 3 4].substringsInCommon([2 3 1 4], 2)
 [
 	[2 3]
 ]
 ```
 
+C.f. `longestCommonSubsequence`:
+
+```
+>>> let s = 'BDACADBC';
+>>> let t = 'ADBCABAD';
+>>> (
+>>> 	s.longestCommonSubstring(t),
+>>> 	s.longestCommonSubsequence(t)
+>>> )
+('ADBC', 'BCAD')
+```
+
 * * *
 
-See also: longestCommonSubequence, longestCommonSubstring, partition, subsequences, subsequencesInCommon
+See also: longestCommonSubequence, longestCommonSubstring, partition, subsequences, substringsInCommon
 
 References:
 _Mathematica_

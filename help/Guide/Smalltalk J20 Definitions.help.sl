@@ -4057,7 +4057,7 @@ is empty.  The elements are traversed in the order specified by the
 
 *Errors*: start < 1.  start > the receiver’s size
 
-Cf: indexOfSubCollectionStartingAt
+Cf: indexOfSubstringStartingAt
 
 ### 5.7.8.23
 
@@ -4086,7 +4086,7 @@ receiver.
 
 *Errors*: start < 1.  start > the receiver’s size
 
-Cf: indexOfSubCollectionStartingAtIfAbsent
+Cf: indexOfSubstringStartingAtIfAbsent
 
 ### 5.7.8.24
 

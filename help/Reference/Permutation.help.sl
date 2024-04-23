@@ -248,12 +248,15 @@ Answer the indices of the peaks of a permutation:
 []
 ```
 
-The _standard_ 
+The permutation that maps a sequence to its sort is equal to `reducedPermutation`:
 
 ```
 >>> let l = [4 2 7];
 >>> l.findPermutation(l.sorted)
 [1 2; 3].cycles
+
+>>> [4 2 5].reducedPermutation
+[2 1 3]
 ```
 
 * * *

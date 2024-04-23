@@ -67,10 +67,8 @@ Permutation : [Object] { | cycles degree |
 	hasPattern { :self :pattern |
 		valueWithReturn { :return:/1 |
 			let list = self.list;
-			let k = list.size;
-			[1 .. k].powerSetDo { :each |
-				let subsequence = list @* each;
-				(subsequence.reducedPermutation = pattern).ifTrue {
+			list.subsequencesDo { :each |
+				(each.reducedPermutation = pattern).ifTrue {
 					true.return
 				}
 			};

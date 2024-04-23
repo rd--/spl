@@ -454,7 +454,7 @@
 	}
 
 	copyReplaceAllWith { :self :old :new |
-		let indexList = self.indicesOfSubCollection(old);
+		let indexList = self.indicesOfSubstring(old);
 		indexList.isEmpty.if {
 			self.copy
 		} {
@@ -1104,7 +1104,30 @@
 		}
 	}
 
-	increasingSubsequenceList { :self |
+	includesSubsequence { :self :aSequence |
+		valueWithReturn { :return:/1 |
+			let i = 1;
+			aSequence.do { :each |
+				i := self.indexOfStartingAt(each, i);
+				(i = 0).ifTrue {
+					false.return
+				}
+			};
+			true
+		}
+	}
+
+	includesSubstring { :self :aSequence |
+		let k = aSequence.size;
+		let c = aSequence.first;
+		self.indicesOf(c).anySatisfy { :i |
+			(1 .. k).allSatisfy { :j |
+				self[i + j - 1] = aSequence[j]
+			}
+		}
+	}
+
+	increasingSubsequenceList { :self :aBlock:/2 |
 		(self.size < 2).if {
 			[self]
 		} {
@@ -1112,7 +1135,7 @@
 				remaining.isEmpty.if {
 					[done]
 				} {
-					(remaining.first > done.last).if {
+					aBlock(done.last, remaining.first).if {
 						increasing(
 							done ++ [remaining.first],
 							remaining.allButFirst
@@ -1126,6 +1149,10 @@
 				increasing(self.first(i).last(1), self.drop(i))
 			}.concatenation
 		}
+	}
+
+	increasingSubsequenceList { :self |
+		self.increasingSubsequenceList(<)
 	}
 
 	indexOf { :self :anElement |
@@ -1152,28 +1179,28 @@
 		}
 	}
 
-	indexOfSubCollection { :self :aSubCollection |
-		self.indexOfSubCollectionStartingAt(aSubCollection, 1)
+	indexOfSubstring { :self :aSequence |
+		self.indexOfSubstringStartingAt(aSequence, 1)
 	}
 
-	indexOfSubCollectionStartingAt { :self :subCollection :start |
-		let subCollectionSize = subCollection.size;
-		(subCollectionSize = 0).if {
+	indexOfSubstringStartingAt { :self :aSequence :start |
+		let k = aSequence.size;
+		(k = 0).if {
 			0
 		} {
-			let first = subCollection[1];
+			let first = aSequence[1];
 			valueWithReturn { :return:/1 |
-				start.max(1).toDo(self.size - subCollectionSize + 1) { :startIndex |
+				start.max(1).toDo(self.size - k + 1) { :startIndex |
 					(self[startIndex] = first).ifTrue {
 						let index = 2;
 						{
-							index <= subCollectionSize & {
-								self[startIndex + index - 1] = subCollection[index]
+							index <= k & {
+								self[startIndex + index - 1] = aSequence[index]
 							}
 						}.whileTrue {
 							index := index + 1
 						};
-						(index <= subCollectionSize).ifFalse {
+						(index <= k).ifFalse {
 							startIndex.return
 						}
 					}
@@ -1203,15 +1230,15 @@
 		self.firstIndex.toDo(self.lastIndex, aBlock:/1)
 	}
 
-	indicesOfSubCollection { :self :subCollection |
-		self.indicesOfSubCollectionStartingAt(subCollection, self.firstIndex)
+	indicesOfSubstring { :self :aSequence |
+		self.indicesOfSubstringStartingAt(aSequence, self.firstIndex)
 	}
 
-	indicesOfSubCollectionStartingAt { :self :subCollection :initialIndex |
+	indicesOfSubstringStartingAt { :self :aSequence :initialIndex |
 		let answer = [];
 		let index = initialIndex - 1;
 		{
-			index := self.indexOfSubCollectionStartingAt(subCollection, index + 1);
+			index := self.indexOfSubstringStartingAt(aSequence, index + 1);
 			index = 0
 		}.whileFalse {
 			answer.add(index)
@@ -1565,7 +1592,7 @@
 					n := n - 1
 				} {
 					(a[m - 1] = b[n - 1]).ifFalse {
-						'@Sequence>>longestCommonSequence: error?'.error
+						'@Sequence>>longestCommonSubsequence: error?'.error
 					};
 					answer.addFirst(a[m - 1]);
 					m := m - 1;
@@ -2556,7 +2583,7 @@
 		let lastIndex = 1;
 		let nextIndex = nil;
 		{
-			nextIndex := self.indexOfSubCollectionStartingAt(aCollection, lastIndex);
+			nextIndex := self.indexOfSubstringStartingAt(aCollection, lastIndex);
 			nextIndex = 0
 		}.whileFalse {
 			aBlock(self.copyFromTo(lastIndex, nextIndex - 1));
@@ -2566,8 +2593,13 @@
 	}
 
 	subsequencesDo { :self :aBlock:/1 |
-		0.toDo(self.size) { :each |
-			self.partitionDo(each, 1, aBlock:/1)
+		self.isEmpty.if {
+			[]
+		} {
+			let k = self.size;
+			[1 .. k].powerSetDo { :each |
+				aBlock(self @* each)
+			}
 		}
 	}
 
@@ -2585,7 +2617,27 @@
 		self.subsequences(true.constant)
 	}
 
-	subsequencesInCommon { :self :aSequence :k |
+	substringsDo { :self :aBlock:/1 |
+		0.toDo(self.size) { :each |
+			self.partitionDo(each, 1, aBlock:/1)
+		}
+	}
+
+	substrings { :self :aPredicate:/1 |
+		let answer = [];
+		self.substringsDo { :each |
+			aPredicate(each).ifTrue {
+				answer.add(each.copy)
+			}
+		};
+		answer
+	}
+
+	substrings { :self |
+		self.substrings(true.constant)
+	}
+
+	substringsInCommon { :self :aSequence :k |
 		self.partition(k, 1).intersection(aSequence.partition(k, 1))
 	}
 

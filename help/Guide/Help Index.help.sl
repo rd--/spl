@@ -426,6 +426,8 @@
 - `permutationGraph`
 - `permutationRank`, `unrankPermutation`
 - `stackSort`
+- `lyndonWords`
+- `permutationHasPattern`, `permutationPatternPositions`, `reducedPermutation`
 
 ## Piecewise Functions
 
@@ -477,7 +479,7 @@
 - `reverse`, `rotatedLeft`, `rotatedRight`
 - `intercalate`, `interleave`, `intersperse`
 - `deleteAdjacentDuplicates`, `deleteDuplicates`
-- `subsequences`, `subsets`
+- `subsequences`, `subsets`, `substrings`
 
 ## Recurrence and Sum Functions
 
@@ -522,8 +524,8 @@
 
 ## Sequence Alignment and Comparison
 
-- `indexOfSubcollection`, `indexOfSubcollectionStartingAt`, `indexOfSubcollectionStartingAtIfAbsent`
-- `indicesOfSubCollection`
+- `indexOfSubstring`, `indexOfSubstringStartingAt`, `indexOfSubstringStartingAtIfAbsent`
+- `indicesOfSubstring`, `indicesOfSubstringStartingAt`
 - `longestCommonSubsequence`
 - `longestCommonSubstring`, `longestCommonSubstringList`
 - `longestIncreasingSubsequence`, `longestIncreasingSubsequenceList`
@@ -636,6 +638,7 @@
 ## Tree Operations
 
 - `asTree`, `depth`, `leafCount`, `size`
+- `deepCollect`, `deepDo`, `deepIndices`
 
 ## Trigonometric Functions
 
@@ -657,6 +660,7 @@
 - `centsToRatio`, `degreeToKey`, `ratioToCents`
 - `benedettiHeight`, `keesSemiHeight`, `tenneyHeight`, `weilHeight`, `wilsonHeight`
 - `latticePrimes`, `latticeVertices`, `latticeVector`
+- `intervalMatrix`, `isConstantStructure`
 
 ## Units & Measures
 

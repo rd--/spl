@@ -437,11 +437,11 @@ List:/1.newFrom(Range(1, 5, 2)) = [1, 3, 5]
 [1 .. 5].groupBy(isEven:/1)[true] = [2, 4]
 let a = []; [1, 'x', 2, 'y', 3, 'x'].pairsDo { :p :q | a.add(q -> p) }; a = ['x' -> 1, 'y' -> 2, 'x' -> 3] {- iterate adjacent pairs -}
 let r = (); [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | r.add(q -> p) }; r::elmer = 3 {- iterate adjacent pairs -}
-[1 .. 9].indexOfSubCollection([3 .. 5]) = 3
-[1 .. 9].indexOfSubCollectionStartingAt([3 .. 5], 9) = 0
-[1 .. 9].indexOfSubCollectionStartingAt([9], 9) = 9
+[1 .. 9].indexOfSubstring([3 .. 5]) = 3
+[1 .. 9].indexOfSubstringStartingAt([3 .. 5], 9) = 0
+[1 .. 9].indexOfSubstringStartingAt([9], 9) = 9
 let c = []; [1 .. 9].splitByDo([3 .. 5]) { :each | c.add(each) }; c = [[1, 2], [6, 7, 8, 9]]
-['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].indicesOfSubCollection(['']) = [3, 5, 7]
+['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].indicesOfSubstring(['']) = [3, 5, 7]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f'].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f']]
 ['a', 'b', '', 'c', '', 'd', '', 'e', 'f', ''].splitBy(['']) = [['a', 'b'], ['c'], ['d'], ['e', 'f'], []]
 [5, 6, 3, -3, 2, 1, 0, 4].minMax = [-3, 6] {- integer minMax -}
@@ -2958,7 +2958,7 @@ let c = [3, 2, 1]; let r = c.sorted; c ~= r {- sorted (answer a new array) -}
 [11, 9 .. 1].isSortedBy { :i :j | i > j } {- is sequence sorted by predicate -}
 [1, 5, 3, 7, 9].isSorted.not {- is sequence sorted -}
 [1, 3, 5, 7, 9].copyFromTo(3, 5) = [5, 7, 9] {- copy part of collection, one-indexed, inclusive -}
-[1, 3, 5, 7, 9].indexOfSubCollection([5, 7, 9]) = 3 {- locate index of subsequence -}
+[1, 3, 5, 7, 9].indexOfSubstring([5, 7, 9]) = 3 {- locate index of subsequence -}
 [1, 3, 5, 7, 9].indexOf(5) = 3 {- index of element (compared using =) -}
 [1, 3, 5, 7, 9].first = 1 {- first element of sequence -}
 1:9.first(5) = 1:5 {- first n elements of sequence -}
