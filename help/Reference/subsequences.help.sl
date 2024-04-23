@@ -3,7 +3,7 @@
 - _subsequences(aSequence)_
 - _subsequences(aSequence, aBlock:/1)_
 
-All possible subsequences:
+All possible contiguous subsequences (substrings):
 
 ```
 >>> 1:3.subsequences
@@ -99,6 +99,24 @@ This follows the behavior of `powerSet`:
 ```
 >>> [1 1 2].powerSet
 [; 1; 1; 1 1; 2; 1 2; 1 2; 1 1 2]
+```
+
+_123121321_ is a three-superpermutation, since it contains as substrings each of the possible permutations of _123_:
+
+```
+>>> let l = [1 2 3 1 2 1 3 2 1];
+>>> let s = l.subsequences;
+>>> [1 2 3].permutations.allSatisfy { :each | s.includes(each) }
+true
+```
+
+Likewise _123412314231243121342132413214321_ is a four-superpermutation:
+
+```
+>>> let l = [1 2 3 4 1 2 3 1 4 2 3 1 2 4 3 1 2 1 3 4 2 1 3 2 4 1 3 2 1 4 3 2 1];
+>>> let s = l.subsequences;
+>>> [1 2 3 4].permutations.allSatisfy { :each | s.includes(each) }
+true
 ```
 
 * * *

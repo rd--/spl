@@ -1652,6 +1652,42 @@
 		}.reverse
 	}
 
+	lyndonWordsDo { :alphabet :n :aBlock:/1 |
+		let nextWord = { :w |
+			let k = (n // w.size) + 1;
+			let x = ({ w } ! k).concatenation.first(n);
+			{
+				x.size > 0 & {
+					x.last = alphabet.last
+				}
+			}.whileTrue {
+				x.removeLast
+			};
+			x.isEmpty.ifFalse {
+				let i = alphabet.indexOf(x.last) + 1;
+				x[x.size] := alphabet[i]
+			};
+			x
+		};
+		let w = [alphabet.first];
+		{
+			w.size > 0 & {
+				w.size <= n
+			}
+		}.whileTrue {
+			aBlock(w);
+			w := nextWord(w)
+		}
+	}
+
+	lyndonWords { :self :anInteger |
+		let answer = [];
+		self.lyndonWordsDo(anInteger) { :each |
+			answer.add(each)
+		};
+		answer
+	}
+
 	manhattanDistance { :self :aSequence |
 		(self - aSequence).abs.sum
 	}

@@ -7,7 +7,9 @@ Answer the elements of the power set of _aCollection_ that satisfy the predicate
 All possible subsets containing up to 2 elements:
 
 ```
->>> [1 2 3 4].subsets { :each | each.size <= 2 }
+>>> [1 2 3 4].subsets { :each |
+>>> 	each.size <= 2
+>>> }
 [; 1; 2; 1 2; 3; 1 3; 2 3; 4; 1 4; 2 4; 3 4]
 ```
 
@@ -49,11 +51,11 @@ Find integers that have exactly 3 nonzero binary digits:
 [7 11 13 14 19 21 22 25 26 28]
 ```
 
-_tuples_ gives all possible combinations and reorderings of elements:
+`tuples` gives all possible combinations and reorderings of elements:
 
 ```
 >>> [1 2 3].tuples(2)
-[1 1; 1 2; 1 3; 2 1 ; 2 2; 2 3; 3 1; 3 2; 3 3]
+[1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
 
 >>> [1 2 3].subsets { :each | each.size = 2 }
 [1 2; 1 3; 2 3]

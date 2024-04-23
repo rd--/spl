@@ -64,6 +64,20 @@ Permutation : [Object] { | cycles degree |
 		Graph(v, e)
 	}
 
+	hasPattern { :self :pattern |
+		valueWithReturn { :return:/1 |
+			let list = self.list;
+			let k = list.size;
+			[1 .. k].powerSetDo { :each |
+				let subsequence = list @* each;
+				(subsequence.reducedPermutation = pattern).ifTrue {
+					true.return
+				}
+			};
+			false
+		}
+	}
+
 	image { :self :anInteger |
 		valueWithReturn { :return:/1 |
 			self.cycles.do { :each |
@@ -206,6 +220,19 @@ Permutation : [Object] { | cycles degree |
 		}.whileFalse {
 			answer.add(next);
 			next := next * self
+		};
+		answer
+	}
+
+	patternPositions { :self :pattern |
+		let list = self.list;
+		let k = list.size;
+		let answer = [];
+		[1 .. k].powerSetDo { :each |
+			let subsequence = list @* each;
+			(subsequence.reducedPermutation = pattern).ifTrue {
+				answer.add(each)
+			}
 		};
 		answer
 	}
@@ -580,6 +607,10 @@ Permutation : [Object] { | cycles degree |
 		}
 	}
 
+	permutationHasPattern { :self :pattern |
+		self.asPermutation.hasPattern(pattern)
+	}
+
 	permutationFixedPoints { :self |
 		self.asPermutation.fixedPoints
 	}
@@ -649,6 +680,10 @@ Permutation : [Object] { | cycles degree |
 
 	permutationOrder { :self |
 		self.asPermutation.order
+	}
+
+	permutationPatternPositions { :self :pattern |
+		self.asPermutation.patternPositions(pattern)
 	}
 
 	permutationPeaks { :self |
@@ -732,6 +767,13 @@ Permutation : [Object] { | cycles degree |
 
 	permute { :self :anObject |
 		anObject.asPermutation.apply(self)
+	}
+
+	reducedPermutation { :self |
+		let sequence = self.sorted;
+		self.collect { :each |
+			sequence.indexOf(each)
+		}
 	}
 
 	rightInversionCount { :self |
