@@ -2,7 +2,14 @@
 
 - _fillFrom(alpha, beta)_ => _fillFromWith(alpha, beta, identity:/1)_
 
-_fillFromWith_ with _identity_ Block.
+`fillFromWith` with `identity` `Block`.
+
+```
+>>> let p = [1 .. 9];
+>>> let q = List(9).fillFrom(p);
+>>> (p = q, p ~~ q)
+(true, true)
+```
 
 * * *
 

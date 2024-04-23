@@ -1886,6 +1886,24 @@
 		self *.outer aSequence
 	}
 
+	padLeft { :self :anInteger :anObject |
+		(self.size >= anInteger).if {
+			self
+		} {
+			let prefix = anObject # (anInteger - self.size);
+			prefix ++ self
+		}
+	}
+
+	padRight { :self :anInteger :anObject |
+		(self.size >= anInteger).if {
+			self
+		} {
+			let suffix = anObject # (anInteger - self.size);
+			self ++ suffix
+		}
+	}
+
 	pairsCollect { :self :aBlock:/2 |
 		(1 .. self.size // 2).collect { :index |
 			aBlock(self[2 * index - 1], self[2 * index])

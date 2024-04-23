@@ -111,6 +111,19 @@ The adjacency matrix of a multi-graph has non-boole entries:
 [0 2 0; 2 0 1; 0 1 0]
 ```
 
+The adjacency matrix of a path graph:
+
+```
+>>> 5.pathGraph.adjacencyMatrix
+[
+	0 1 0 0 0;
+	1 0 1 0 0;
+	0 1 0 1 0;
+	0 0 1 0 1;
+	0 0 0 1 0
+]
+```
+
 * * *
 
 See also: Graph
@@ -119,5 +132,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/AdjacencyMatrix.html)
 [2](https://reference.wolfram.com/language/ref/AdjacencyMatrix.html),
+_Sage_
+[1](https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/generic_graph.html#sage.graphs.generic_graph.GenericGraph.adjacency_matrix)
 _W_
 [1](https://en.wikipedia.org/wiki/Adjacency_matrix)

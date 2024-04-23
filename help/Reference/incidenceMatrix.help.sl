@@ -11,8 +11,8 @@ The incidence matrix of an undirected graph:
 [
 	1 1 0 0;
 	1 0 1 0;
-	0 1 0 1;
-	0 0 1 1
+	0 0 1 1;
+	0 1 0 1
 ]
 ```
 

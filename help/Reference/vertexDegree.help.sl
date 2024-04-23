@@ -46,7 +46,7 @@ Every graph has an even number of vertices with odd degree:
 
 ```
 >>> 5.wheelGraph.vertexDegree
-[3 3 3 3 4]
+[4 3 3 3 3]
 ```
 
 The vertex degrees of an undirected graph can be obtained from its adjacency matrix:

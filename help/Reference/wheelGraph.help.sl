@@ -9,15 +9,20 @@ The `adjacencyMatrix` of two small wheel graphs:
 
 ```
 >>> 4.wheelGraph.adjacencyMatrix
-[0 1 1 1; 1 0 1 1; 1 1 0 1; 1 1 1 0]
+[
+	0 1 1 1;
+	1 0 1 1;
+	1 1 0 1;
+	1 1 1 0
+]
 
 >>> 5.wheelGraph.adjacencyMatrix
 [
-	0 1 0 1 1;
+	0 1 1 1 1;
 	1 0 1 0 1;
-	0 1 0 1 1;
+	1 1 0 1 0;
 	1 0 1 0 1;
-	1 1 1 1 0
+	1 1 0 1 0
 ]
 ```
 
@@ -26,7 +31,7 @@ The `vertexCount`, `edgeCount` and `vertexDegree` of a wheel graph:
 ```
 >>> let g = 5.wheelGraph;
 >>> (g.vertexCount, g.edgeCount, g.vertexDegree)
-(5, 8, [3 3 3 3 4])
+(5, 8, [4 3 3 3 3])
 ```
 
 The `vertexList` and `edgeList` of a wheel graph:
@@ -35,7 +40,7 @@ The `vertexList` and `edgeList` of a wheel graph:
 >>> let g = 7.wheelGraph;
 >>> (g.vertexList, g.edgeList)
 (
-	[2 3 4 5 6 7 1],
+	[1 2 3 4 5 6 7],
 	[
 		2 3; 3 4; 4 5; 5 6; 6 7; 7 2;
 		1 2; 1 3; 1 4; 1 5; 1 6; 1 7

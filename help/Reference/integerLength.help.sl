@@ -21,10 +21,12 @@ The number of binary digits in _100!_:
 525
 ```
 
-Find how the number of digits in  decreases with the base:
+Find how the number of digits in _100!_ decreases with the base:
 
 ```
->>> 2:20.collect { :n | 100.!.integerLength(n) }
+>>> 2:20.collect { :n |
+>>> 	100.!.integerLength(n)
+>>> }
 [525 332 263 227 204 187 175 166 158 152 147 142 138 135 132 129 126 124 122]
 ```
 
@@ -52,4 +54,4 @@ See also: bitLength, digitCount, integerDigits, log, log2, log10, integerExponen
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/IntegerLength.html)
+[1](https://reference.wolfram.com/language/ref/IntegerLength.html)

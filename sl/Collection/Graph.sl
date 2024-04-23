@@ -506,6 +506,24 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		Graph([1 .. self], edgeList)
 	}
 
+	cubeGraph { :self |
+		let k = 2 ^ self;
+		let m = (k - 1).integerLength(2);
+		let n = (0 .. k - 1).collect { :each |
+			each.integerDigits(2).padLeft(m, 0)
+		};
+		let e = [];
+		1.toDo(k) { :i |
+			i.toDo(k) { :j |
+				let d = n[i].hammingDistance(n[j]);
+				(d = 1).ifTrue {
+					e.add([i, j])
+				}
+			}
+		};
+		e.asGraph
+	}
+
 	cycleGraph { :self |
 		1:self.collect { :each |
 			[each, each % self + 1]
@@ -631,7 +649,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			vertexList.add(each.first);
 			vertexList.add(each.second)
 		};
-		Graph(vertexList.nub, edgeList)
+		Graph(vertexList.nub.sort, edgeList)
 	}
 
 	Graph { :vertices :edges |

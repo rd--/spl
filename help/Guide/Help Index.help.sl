@@ -596,6 +596,7 @@
 - `trim`, `withBlanksTrimmed`, `withoutLeadingBlanks`, `withoutTrailingBlanks`
 - `lines`, `sentences`, `words`
 - `unlines`, `unsentences`, `unwords`
+- `padLeft`, `padRight`
 
 ## String Tests
 
