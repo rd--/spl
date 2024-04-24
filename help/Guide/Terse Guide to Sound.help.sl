@@ -105,7 +105,7 @@ RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2) = IntegerTuning('', '', [63 72 8
 ({ :x | x * 2 } <> { :x | x + 3 }).value(4) = 14 {- function composition, right to left -}
 'x' ++ ' ' ++ 'y' = 'x y' {- catenation with space -}
 '/usr' +/+ 'local' = '/usr/local' {- file path catenation -}
-let l = []; [1 .. 9].doAdjacentPairs { :a :b | l.add(a -> b) }; l.size = 8
+let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add(a -> b) }; l.size = 8
 [1 .. 7].collect { :x | x.asBinaryDigits(3) } = [0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1]
 1:9.atRandom.inclusivelyBetweenAnd(1, 9)
 1:9.atRandom.exclusivelyBetweenAnd(0, 10)

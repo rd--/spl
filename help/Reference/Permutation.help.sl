@@ -174,6 +174,25 @@ The `runs` of a permutation:
 ```
 >>> [2 4 1 3].asPermutation.runs
 [2 4; 1 3]
+
+>>> [6 1 7 3 4 5 2].asPermutation.runs
+[6; 1 7; 3 4 5; 2]
+
+>>> [1 2 3 4].asPermutation.runs
+[[1 2 3 4]]
+
+>>> [4 3 2 1].asPermutation.runs
+[4; 3; 2; 1]
+
+>>> [1].asPermutation.runs
+[[1]]
+```
+
+The `decreasingRuns`:
+
+```
+>>> [2,8,3,9,6,4,5,1,7].asPermutation.decreasingRuns
+[2; 8 3; 9 6 4; 5 1; 7]
 ```
 
 The runs of two random permutations:
@@ -257,6 +276,81 @@ The permutation that maps a sequence to its sort is equal to `reducedPermutation
 
 >>> [4 2 5].reducedPermutation
 [2 1 3]
+```
+
+A _descent_ of a permutation _p_ is an integer _i_ such that _p(i) > p(i + 1)_:
+
+```
+>>> [3 1 2].asPermutation.descents
+[1]
+
+>>> [1 4 3 2].asPermutation.descents
+[2 3]
+
+>>> [4 3 2 1].asPermutation.descents
+[1 2 3]
+```
+
+An _ascent_ is the inverse of a descent:
+
+```
+>>> [3 1 2].asPermutation.ascents
+[2]
+
+>>> [1 4 3 2].asPermutation.ascents
+[1]
+
+>>> [4 3 2 1].asPermutation.ascents
+[]
+
+>>> [1 2 3 4].asPermutation.ascents
+[1 2 3]
+```
+
+The sum of the `descents` is called the `majorIndex`:
+
+```
+>>> [2 1 3].asPermutation.majorIndex
+1
+
+>>> [3 4 1 2].asPermutation.majorIndex
+2
+
+>>> [4 3 2 1].asPermutation.majorIndex
+6
+
+>>> [4 6 2 5 1 3].asPermutation.majorIndex
+6
+```
+
+```
+>>> [2 1 3].asPermutation.reducedWords
+[[1]]
+
+>>> [3 1 2].asPermutation.reducedWords
+[[2 1]]
+
+>>> [3 2 1].asPermutation.reducedWords
+[1 2 1; 2 1 2]
+
+>>> [3 2 4 1].asPermutation.reducedWords
+[1 2 3 1; 1 2 1 3; 2 1 2 3]
+
+>>> [2 1 4 3].asPermutation.reducedWords
+[3 1; 1 3]
+
+>>> let r = [1 2 6 5 7 3 4].asPermutation.reducedWords;
+>>> r.includes([4 3 5 6 4 3 5])
+true
+
+>>> [4 3 2 1].asPermutation.reducedWords.size
+16
+
+>>> [5 4 3 2 1].asPermutation.reducedWords.size
+>>> 768
+
+>>> 5.binomial(2).! / ((1 ^ 4) * (3 ^ 3) * (5 ^ 2) * (7 ^ 1))
+768
 ```
 
 * * *

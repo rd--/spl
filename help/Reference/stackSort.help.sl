@@ -20,6 +20,9 @@ Stack-sortable permutations:
 
 >>> [3 1 2 6 5 4 7 8].stackSort
 [1 .. 8]
+
+>>> [6 2 1 3 4 5 8 7 9].stackSort
+[1 .. 9]
 ```
 
 Non-stack-sortable permutations:

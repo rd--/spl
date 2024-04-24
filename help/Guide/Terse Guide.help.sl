@@ -3388,10 +3388,10 @@ let s = Stack(); s.push('x'); s.copy = s & { s.copy ~~ s } {- copy is equal but 
 ```
 system.includesPackage('String') {- package -}
 'quoted string'.isString {- quoted string -}
-'string'.isAsciiString = true {- does string contain only ascii characters -}
-'Mačiūnas'.isAsciiString = false {- ascii does not include diacritics -}
+'string'.isAscii = true {- does string contain only ascii characters -}
+'Mačiūnas'.isAscii = false {- ascii does not include diacritics -}
 ''.isAsciiString = true {- the empty string is an ascii string -}
-128.asCharacter.characterString.isAsciiString = false {- not all byte arrays are ascii -}
+128.asCharacter.characterString.isAscii = false {- not all byte arrays are ascii -}
 'x' ++ 'y' = 'xy' {- append (catenation) -}
 'x' ++ 1 = 'x1' {- append, right hand side need not be a string -}
 'string'.asciiByteArray = [115, 116, 114, 105, 110, 103].asByteArray {- String to ByteArray of Ascii encoding -}

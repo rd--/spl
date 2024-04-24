@@ -15,6 +15,9 @@ The inversion vector of a permutation indicates for each place the number of ele
 
 >>> [3 2 4 1 5].inversionVector
 [3 1 0 0 0]
+
+>>> [6 2 1 3 4 5 8 7 9].inversionVector
+[2 1 1 1 1 0 1 0 0]
 ```
 
 The inversion vectors of _S4_:

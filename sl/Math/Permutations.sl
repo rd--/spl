@@ -35,8 +35,32 @@ Permutation : [Object] { | cycles degree |
 		}
 	}
 
+	ascents { :self :aBlock:/2 |
+		let p = self.list;
+		let k = p.size;
+		let answer = [];
+		1.toDo(k - 1) { :i |
+			aBlock(p[i], p[i + 1]).ifTrue {
+				answer.add(i)
+			}
+		};
+		answer
+	}
+
+	ascents { :self |
+		self.ascents(<)
+	}
+
 	asPermutation { :self |
 		self
+	}
+
+	decreasingRuns { :self |
+		self.runs(>)
+	}
+
+	descents { :self |
+		self.ascents(>)
 	}
 
 	dictionary { :self |
@@ -171,6 +195,10 @@ Permutation : [Object] { | cycles degree |
 		self.cycles.permutationCyclesToPermutationList(anInteger)
 	}
 
+	majorIndex { :self |
+		self.descents.sum
+	}
+
 	matrix { :self :anInteger |
 		let list = self.list(anInteger);
 		let answer = [];
@@ -254,6 +282,36 @@ Permutation : [Object] { | cycles degree |
 		c.mixedRadixDecode(r)
 	}
 
+	reducedWordsDo { :self :aBlock:/1 |
+		let f = { :p |
+			let isIdentity = true;
+			1.toDo(p.size - 1) { :d |
+				let e = d + 1;
+				(p[d] > p[e]).ifTrue {
+					isIdentity := false;
+					p.swapWith(d, e);
+					p.asPermutation.reducedWordsDo { :x |
+						x.add(d);
+						aBlock(x)
+					};
+					p.swapWith(d, e)
+				}
+			};
+			isIdentity.ifTrue {
+				aBlock([])
+			}
+		};
+		f(self.list)
+	}
+
+	reducedWords { :self |
+		let answer = [];
+		self.reducedWordsDo { :each |
+			answer.add(each)
+		};
+		answer
+	}
+
 	replace { :self :aSequence |
 		aSequence.collect { :each |
 			self.image(each)
@@ -280,16 +338,16 @@ Permutation : [Object] { | cycles degree |
 		answer
 	}
 
-	runs { :self |
-		self.isIdentity.if {
+	runs { :self :aBlock:/2 |
+		let list = self.list;
+		list.isEmpty.if {
 			[]
 		} {
-			let list = self.list;
 			let answer = [];
 			let run = [list.first];
 			2.toDo(list.size) { :i |
 				let item = list[i];
-				(list[i - 1] < item).if {
+				aBlock(list[i - 1], item).if {
 					run.add(item)
 				} {
 					answer.add(run.copy);
@@ -300,6 +358,10 @@ Permutation : [Object] { | cycles degree |
 			answer.add(run);
 			answer
 		}
+	}
+
+	runs { :self |
+		self.runs(<)
 	}
 
 	signature { :self |

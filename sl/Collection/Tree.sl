@@ -92,6 +92,14 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		(1 .. self.size)
 	}
 
+	isBinary { :self |
+		self.subTrees.isEmpty | {
+			self.subTrees.size = 2 & {
+				self.subTrees.allSatisfy(isBinary:/1)
+			}
+		}
+	}
+
 	isLeaf { :self |
 		self.subTrees.isEmpty
 	}

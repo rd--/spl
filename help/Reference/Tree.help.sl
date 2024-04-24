@@ -191,6 +191,17 @@ The `leafIndices` of a tree are the same as the `deepIndices` of an equivalent n
 Tree(2, [Tree(3, [Tree(4, [])])])
 ```
 
+A `Tree` is a binary tree if it, and every subtree, is of `size` two:
+
+```
+>>> let e = { Tree(nil, []) };
+>>> let l = { :n | Tree(n, []) };
+>>> let b = { :n :l :r | Tree(n, [l, r]) };
+>>> let t = b(6, b(2, l(1), b(3, e(), b(4, e(), l(5)))), b(8, l(7), l(9)));
+>>> (t.isBinary, t.contents.collect(value:/1))
+(true, [6 2 1 3 nil 4 nil 5 8 7 9])
+```
+
 * * *
 
 See also: asTree, List

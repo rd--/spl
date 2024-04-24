@@ -10,6 +10,9 @@ Answer the left inversion count, also called the Lehmer co-code, of _aPermutatio
 
 >>> [3 1 2].leftInversionCount
 [0 1 1]
+
+>>> [4 6 2 5 1 3].leftInversionCount.sum
+10
 ```
 
 The left inversion counts of _S3_:
