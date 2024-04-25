@@ -2,7 +2,7 @@
 
 - _includesSubstring(aSequence, anotherSequence)_
 
-Answer `true` if _aSequence_ includes _anotherSequence_ as a contiguous subsequence (a substring).
+Answer `true` if _aSequence_ includes _anotherSequence_ as a substring (a contiguous subsequence).
 
 _abcde_ includes _cd_:
 
@@ -11,7 +11,11 @@ _abcde_ includes _cd_:
 >>> let q = 'cd';
 >>> p.includesSubstring(q)
 true
+```
 
+_12345_ includes _34_:
+
+```
 >>> let p = [1 2 3 4 5];
 >>> let q = [3 4];
 >>> p.includesSubstring(q)

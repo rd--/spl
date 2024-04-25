@@ -339,25 +339,7 @@ Permutation : [Object] { | cycles degree |
 	}
 
 	runs { :self :aBlock:/2 |
-		let list = self.list;
-		list.isEmpty.if {
-			[]
-		} {
-			let answer = [];
-			let run = [list.first];
-			2.toDo(list.size) { :i |
-				let item = list[i];
-				aBlock(list[i - 1], item).if {
-					run.add(item)
-				} {
-					answer.add(run.copy);
-					run.removeAll;
-					run.add(item)
-				}
-			};
-			answer.add(run);
-			answer
-		}
+		self.list.orderedSubstrings(aBlock:/2)
 	}
 
 	runs { :self |
@@ -777,6 +759,10 @@ Permutation : [Object] { | cycles degree |
 
 	permutationReplace { :self :aPermutation |
 		aPermutation.asPermutation.replace(self)
+	}
+
+	permutationRuns { :self |
+		self.asPermutation.runs
 	}
 
 	permutationSupport { :self |

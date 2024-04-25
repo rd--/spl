@@ -1104,6 +1104,19 @@
 		}
 	}
 
+	includesScatteredSubsequence { :self :aSequence |
+		valueWithReturn { :return:/1 |
+			1.to(self.size).powerSetDo { :each |
+				each.isArithmeticSeriesBy(1).ifFalse {
+					(self @* each = aSequence).ifTrue {
+						true.return
+					}
+				}
+			};
+			false
+		}
+	}
+
 	includesSubsequence { :self :aSequence |
 		valueWithReturn { :return:/1 |
 			let i = 1;
@@ -1228,6 +1241,16 @@
 
 	indicesDo { :self :aBlock:/1 |
 		self.firstIndex.toDo(self.lastIndex, aBlock:/1)
+	}
+
+	indicesOfSubsequence { :self :aSequence |
+		let answer = [];
+		1.to(self.size).powerSetDo { :each |
+			(self @* each = aSequence).ifTrue {
+				answer.add(each)
+			}
+		};
+		answer
 	}
 
 	indicesOfSubstring { :self :aSequence |
@@ -1943,6 +1966,32 @@
 
 	ordering { :self :aBlock:/2|
 		self.sortedWithIndices(aBlock:/2).collect(value:/1)
+	}
+
+
+	orderedSubstrings { :self :aBlock:/2 |
+		self.isEmpty.if {
+			[]
+		} {
+			let answer = [];
+			let run = [self.first];
+			2.toDo(self.size) { :i |
+				let item = self[i];
+				aBlock(self[i - 1], item).if {
+					run.add(item)
+				} {
+					answer.add(run.copy);
+					run.removeAll;
+					run.add(item)
+				}
+			};
+			answer.add(run);
+			answer
+		}
+	}
+
+	orderedSubstrings { :self |
+		self.orderedSubstrings(<)
 	}
 
 	outerProduct { :self :aSequence |

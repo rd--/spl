@@ -169,7 +169,7 @@ The inversions of a permutation:
 [1 2; 1 4; 2 4; 3 4]
 ```
 
-The `runs` of a permutation:
+The `runs` of a permutation, c.f. `orderedSubstrings`:
 
 ```
 >>> [2 4 1 3].asPermutation.runs
@@ -347,7 +347,7 @@ true
 16
 
 >>> [5 4 3 2 1].asPermutation.reducedWords.size
->>> 768
+768
 
 >>> 5.binomial(2).! / ((1 ^ 4) * (3 ^ 3) * (5 ^ 2) * (7 ^ 1))
 768

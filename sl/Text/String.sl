@@ -339,12 +339,12 @@ String! : [Object, Json, Iterable, Character] {
 		<primitive: return _self.lastIndexOf(_subString, _start - 1) + 1;>
 	}
 
-	findStringStartingAt { :self :aString :aNumber |
-		<primitive: return _self.indexOf(_aString, _aNumber - 1) + 1;>
+	findStringStartingAt { :self :aString :anInteger |
+		self.indexOfSubstringStartingAt(aString, anInteger)
 	}
 
 	findString { :self :aString |
-		<primitive: return _self.indexOf(_aString) + 1;>
+		self.indexOfSubstring(aString)
 	}
 
 	first { :self |
@@ -403,6 +403,14 @@ String! : [Object, Json, Iterable, Character] {
 		} {
 			'a '
 		}
+	}
+
+	indexOfSubstringStartingAt { :self :aString :anInteger |
+		<primitive: return _self.indexOf(_aString, _anInteger - 1) + 1;>
+	}
+
+	indexOfSubstring { :self :aString |
+		<primitive: return _self.indexOf(_aString) + 1;>
 	}
 
 	indices { :self |

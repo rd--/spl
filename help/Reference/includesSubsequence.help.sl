@@ -11,7 +11,11 @@ _abcde_ includes _ce_:
 >>> let q = 'ce';
 >>> p.includesSubsequence(q)
 true
+```
 
+_12345_ includes _35_:
+
+```
 >>> let p = [1 2 3 4 5];
 >>> let q = [3 5];
 >>> p.includesSubsequence(q)
@@ -29,7 +33,7 @@ This is the same as, though it can be more efficient than, asking if any of the 
 true
 ```
 
-_abcde_ include _cd_, which is a substring as well as a subsequence:
+_abcde_ includes _cd_, which is a substring as well as a subsequence:
 
 ```
 >>> 'abcde'.includesSubsequence('cd')
@@ -41,4 +45,4 @@ true
 
 * * *
 
-See also: includesSubtring, subsequences
+See also: includesSubstring, subsequences

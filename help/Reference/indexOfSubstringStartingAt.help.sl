@@ -14,6 +14,13 @@ Begin the search at element _anIndex_ of _aSequence_.
 (true, 3)
 ```
 
+At `String`:
+
+```
+>>> 'abcabcdabcde'.indexOfSubstringStartingAt('bc', 6)
+9
+```
+
 The search string may have only one place:
 
 ```

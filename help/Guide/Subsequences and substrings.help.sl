@@ -26,18 +26,21 @@ Of _23_ and _35_ only the first is a substring of _12345_:
 ```
 
 - `includesSubsequence`
+- `includesScatteredSubsequence`
 - `includesSubstring`
 - `increasingSubsequenceList`
 - `indexOfSubstringStartingAt`
 - `indexOfSubstring`
+- `indicesOfSubsequence`
 - `indicesOfSubstringStartingAt`
-- `indicesOfSubstring`
 - `indicesOfSubstring`
 - `longestCommonSubsequence`
 - `longestCommonSubstringList`
 - `longestCommonSubstring`
 - `longestIncreasingSubsequenceList`
 - `longestIncreasingSubsequence`
+- `orderedSubstrings`
+- `partition`
 - `subsequencesDo`
 - `subsequences`
 - `substringsDo`
