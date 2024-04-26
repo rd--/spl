@@ -18,10 +18,13 @@ It is the difference between the two superparticular ratios 10/9 and 9/8:
 1.syntonicComma
 ```
 
-and between 81/16 and 5/1:
+and between 81/16 and 5/1 (or more usually between 81/64 and 5/4, the 3- and 5- limit major thirds):
 
 ```
 >>> 3/2 ^ 4 / 5
+1.syntonicComma
+
+>>> 81/64 / 5/4
 1.syntonicComma
 ```
 

@@ -2,8 +2,33 @@
 
 +Fraction {
 
+	barlowDisharmonicity { :self |
+		self.factorInteger.collect { :each |
+			each.value.abs * each.key.barlowIndigestibility
+		}.sum
+	}
+
+	barlowHarmonicity { :self |
+		1 / self.barlowDisharmonicity
+	}
+
 	benedettiHeight { :self |
 		self.numerator * self.denominator
+	}
+
+	eulerGradusSuavitatis { :self |
+		let n = self.numerator;
+		let d = self.denominator;
+		n.isCoprime(d).if {
+			let factors = n.primeFactors ++ d.primeFactors;
+			factors.sum - factors.size + 1
+		} {
+			self.error('Fraction>>eulerGradusSuavitatis: n/d not coprime')
+		}
+	}
+
+	isPythagorean { :self |
+		self.primeLimit <= 3
 	}
 
 	keesSemiHeight { :self |
@@ -20,8 +45,12 @@
 		self * (2/1 ^ exponent)
 	}
 
+	tenneyHeight { :self :base |
+		(self.numerator * self.denominator).log(base)
+	}
+
 	tenneyHeight { :self |
-		(self.numerator * self.denominator).log2
+		self.tenneyHeight(2)
 	}
 
 	weilHeight { :self |
@@ -40,14 +69,49 @@
 
 }
 
++@Integer {
+
+	barlowIndigestibility { :p |
+		(p - 1).squared / p * 2
+	}
+
+	eulerGradusSuavitatis { :self |
+		self.isOne.if {
+			1
+		} {
+			let factors = self.primeFactors;
+			factors.sum - factors.size + 1
+		}
+	}
+
+	octaveReduced { :self |
+		Fraction(self, 1).octaveReduced(2)
+	}
+
+}
+
 +@Collection {
 
 	benedettiHeight { :self |
 		self.collect(benedettiHeight:/1)
 	}
 
+	eulerGradusSuavitatis { :self |
+		self.collect(eulerGradusSuavitatis:/1)
+	}
+
 	keesSemiHeight { :self |
 		self.collect(keesSemiHeight:/1)
+	}
+
+	octaveReduced { :self |
+		self.collect(octaveReduced:/1)
+	}
+
+	tenneyHeight { :self :base |
+		self.collect { :each |
+			each.tenneyHeight(base)
+		}
 	}
 
 	tenneyHeight { :self |

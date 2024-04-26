@@ -3,7 +3,8 @@
 - _isSmoothNumber(anInteger)_
 
 An integer is _k_-smooth if it has no prime factors _> k_.
-The following table the first few k-smooth numbers for small k.
+
+List the first few _k_-smooth numbers for small _k_:
 
 ```
 >>> 1:512.select { :n | n.isSmoothNumber(2) }
@@ -37,10 +38,31 @@ The largest consecutive 19-smooth numbers:
 [true, true]
 ```
 
+Plot regular numbers:
+
+~~~
+1:999.select { :n | n.isSmoothNumber(5) }.plot
+~~~
+
 * * *
 
 See also: primeFactors, primeLimit
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/SmoothNumber.html)
+[1](https://mathworld.wolfram.com/SmoothNumber.html),
+_OEIS_
+[1](https://oeis.org/A000079)
+[2](https://oeis.org/A003586)
+[3](https://oeis.org/A051037)
+[4](https://oeis.org/A002473)
+[5](https://oeis.org/A051038)
+[6](https://oeis.org/A080197)
+[7](https://oeis.org/A080681)
+[8](https://oeis.org/A080682)
+[9](https://oeis.org/A080683),
+_W_
+[1](https://en.wikipedia.org/wiki/Smooth_number)
+[2](https://en.wikipedia.org/wiki/Regular_number)
+
+Further Reading: Clarke 1877

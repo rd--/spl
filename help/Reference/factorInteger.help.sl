@@ -130,17 +130,25 @@ true
 [3 -> 1, 13 -> 1]
 ```
 
-At zero:
+At zero and negative one and one:
 
 ```
 >>> 0.factorInteger
 [0 -> 1]
+
+>>> 1.factorInteger
+[1 -> 1]
+
+>>> -1.factorInteger
+[-1 -> 1]
 ```
 
 Plot the number of distinct prime factors of the first 100 numbers:
 
 ~~~
-1:99.collect { :each | each.factorInteger.size }.plot
+1:99.collect { :each |
+	each.factorInteger.size
+}.plot
 ~~~
 
 * * *

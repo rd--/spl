@@ -4,14 +4,22 @@
 
 	factorInteger { :self |
 		self.isNegative.if {
-			let answer = self.negated.factorInteger;
-			answer.addFirst(-1 -> 1);
-			answer
+			(self = -1).if {
+				[-1 -> 1]
+			} {
+				let answer = self.negated.factorInteger;
+				answer.addFirst(-1 -> 1);
+				answer
+			}
 		} {
 			self.isZero.if {
 				[0 -> 1]
 			} {
-				self.primeFactorization.sortedElements
+				self.isOne.if {
+					[1 -> 1]
+				} {
+					self.primeFactorization.sortedElements
+				}
 			}
 		}
 	}

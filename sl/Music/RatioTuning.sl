@@ -48,6 +48,10 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 		}
 	}
 
+	isPythagorean { :self |
+		self.limit = 3
+	}
+
 	isRational { :self |
 		self.asRatios.allSatisfy(isFraction:/1)
 	}

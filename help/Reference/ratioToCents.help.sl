@@ -9,7 +9,7 @@ There are 1200 cents in an octave.
 >>> 3/2.ratioToCents
 701.995
 
->>> 3/2.log2 * 1200
+>>> (3 / 2).log2 * 1200
 701.995
 
 >>> 2.ratioToCents
