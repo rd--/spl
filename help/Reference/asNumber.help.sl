@@ -1,16 +1,8 @@
 # asNumber
 
-- _asNumber(aBoolean | aNumber | aString)_
+- _asNumber(aNumber)_
 
-In the `Boolean` case, answer `asBit`.
-
-```
->>> false.asNumber
-0
-
->>> true.asNumber
-1
-```
+Answer _aNumber_, if it is a number, else error.
 
 In the `Number` case answer `identity`.
 
@@ -22,18 +14,28 @@ In the `Number` case answer `identity`.
 1.pi
 ```
 
-In the `String` case answer `parseNumber`.
+To convert a `Boolean` use `asBit` or `boole`:
 
 ```
->>> '23'.asNumber
+>>> false.asBit
+0
+
+>>> true.boole
+1
+```
+
+To convert a `String` use `parseNumber`:
+
+```
+>>> '23'.parseNumber
 23
 
->>> '3.141'.asNumber
+>>> '3.141'.parseNumber
 3.141
 ```
 
 * * *
 
-See also: asInteger
+See also: asBit, asInteger, boole, parseNumber
 
 Categories: Converting

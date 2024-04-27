@@ -28,6 +28,13 @@ At `LargeInteger`:
 23
 ```
 
+Threads over lists:
+
+```
+>>> [3/4 23n].asFloat
+[0.75 23]
+```
+
 * * *
 
 See also: asInteger, asNumber

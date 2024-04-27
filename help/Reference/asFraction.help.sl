@@ -1,8 +1,9 @@
 # asFraction
 
-- _asFraction(aFraction | aList | aSmallFloat)_
+- _asFraction(aNumber)_
 
-Convert an object to a `Fraction`.
+Convert _aNumber_ to a `Fraction`.
+
 In the `Fraction` case answer `identity`:
 
 ```
@@ -10,21 +11,11 @@ In the `Fraction` case answer `identity`:
 3/4
 ```
 
-In the `Integer` case, form `Fraction` above `one`:
+In the `Integer` case, answer a `Fraction` above `one`:
 
 ```
 >>> 23.asFraction
 23/1
-```
-
-In the `Sequence` case require the `size` to be two and answer _n/d_ for _[n, d]_:
-
-```
->>> [3 4].asFraction
-3/4
-
->>> (5, 4).asFraction
-5/4
 ```
 
 In the `SmallFloat` case derive a `Fraction` using `rationalize`:
@@ -48,6 +39,13 @@ In the `SmallFloat` case a tolerance may be given:
 
 >>> 2.sqrt.exp.asFraction(0.0001)
 218/53
+```
+
+Threads over lists:
+
+```
+>>> [0.25 0.5 0.75].asFraction
+[1/4 1/2 3/4]
 ```
 
 * * *

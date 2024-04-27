@@ -67,6 +67,17 @@ OEIS [A062756](https://oeis.org/A062756):
 [0 1 0 1 2 1 0 1 0 1 2 1 2 3 2 1 2 1 0 1 0 1 2 1]
 ```
 
+Find the the _population count_,
+the number of ones in the binary representation of a non-negative integer,
+for the first few powers of three:
+
+```
+>>> 0:29.collect { :i |
+>>> 	(3 ^ i).integerDigits(2).count(isOne:/1)
+>>> }
+[1 2 2 4 3 6 6 5 6 8 9 13 10 11 14 15 11 14 14 17 17 20 19 22 16 18 24 30 25 25]
+```
+
 * * *
 
 See also: digitCount

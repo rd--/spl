@@ -468,7 +468,7 @@
 	}
 
 	reciprocal { :self |
-		1 / self
+		self.one / self
 	}
 
 	reflectionMatrix { :self |

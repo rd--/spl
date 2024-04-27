@@ -620,14 +620,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 +String {
 
-	asInteger { :self |
-		self.parseDecimalInteger
-	}
-
-	asNumber { :self |
-		self.parseNumber
-	}
-
 	basicParseDecimalInteger { :self |
 		<primitive: return Number(_self);>
 	}

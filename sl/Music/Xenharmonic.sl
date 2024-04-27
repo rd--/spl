@@ -3,9 +3,13 @@
 +Fraction {
 
 	barlowDisharmonicity { :self |
-		self.factorInteger.collect { :each |
-			each.value.abs * each.key.barlowIndigestibility
-		}.sum
+		self.isOne.if {
+			0
+		} {
+			self.factorInteger.collect { :each |
+				each.value.abs * each.key.barlowIndigestibility
+			}.sum
+		}
 	}
 
 	barlowHarmonicity { :self |

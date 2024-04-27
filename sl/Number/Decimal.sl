@@ -233,11 +233,11 @@ Decimal : [Object] { | fraction scale |
 		let p = self.splitBy('.');
 		p.size.caseOfOtherwise([
 			{ 1 } -> {
-				Decimal(p.first.asInteger.asFraction, 0)
+				Decimal(p.first.parseInteger(10).asFraction, 0)
 			},
 			{ 2 } -> {
-				let i = p.first.asInteger;
-				let f = i.copySignTo(p.second.asInteger);
+				let i = p.first.parseInteger(10);
+				let f = i.copySignTo(p.second.parseInteger(10));
 				let k = p.second.size;
 				Decimal(i + Fraction(f, 10 ^ k), k)
 			}

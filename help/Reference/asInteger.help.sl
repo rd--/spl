@@ -1,23 +1,6 @@
 # asInteger
 
-- _asInteger(aBoolean | aCharacter | anInteger | aNumber | aString)_
-
-In the `Boolean` case, answer `asBit`:
-
-```
->>> false.asInteger
-0
-
->>> true.asInteger
-1
-```
-
-In the `Character` case, answer `codePoint`:
-
-```
->>> '~'.asCharacter.asInteger = 126
-true
-```
+- _asInteger(aNumber)_
 
 In the `Integer` case answer `identity`:
 
@@ -36,11 +19,35 @@ In the `Number` case, i.e. `SmallFloat` or `Fraction`, answer `truncated`:
 3
 ```
 
-In the `String` case answer `parseDecimalInteger`:
+To convert a `Boolean` to an integer use `asBit` or `boole`:
 
 ```
->>> '23'.asInteger
+>>> false.asBit
+0
+
+>>> true.boole
+1
+```
+
+To get the code point of a `Character` use `codePoint`:
+
+```
+>>> '~'.codePoint
+126
+```
+
+To parse a `String` as an integer use `parseDecimalInteger`:
+
+```
+>>> '23'.parseDecimalInteger
 23
+```
+
+Threads over lists:
+
+```
+>>> [23 23.3].asInteger
+[23 23]
 ```
 
 * * *

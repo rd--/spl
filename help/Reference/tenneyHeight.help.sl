@@ -45,7 +45,7 @@ Plot for a number of simple just ratios within the octave:
 
 * * *
 
-See also: benedettiHeight
+See also: benedettiHeight, eulerGradusSuavitatis
 
 References:
 _Xenharmonic_

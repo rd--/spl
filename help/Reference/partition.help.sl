@@ -69,7 +69,9 @@ Find pairs of successive elements in a list:
 Find successive ratios in a list:
 
 ```
->>> [1 .. 5].partition(2, 1).collect(asFraction:/1)
+>>> [1 .. 5].partition(2, 1).collect { :each |
+>>> 	Fraction(each.first, each.second)
+>>> }
 [1/2 2/3 3/4 4/5]
 ```
 

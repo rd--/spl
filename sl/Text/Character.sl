@@ -22,10 +22,6 @@
 		self.codePoint
 	}
 
-	asInteger { :self |
-		self.codePoint
-	}
-
 	characterRange { :self :aCharacter |
 		self.codePoint.characterRange(aCharacter.codePoint)
 	}

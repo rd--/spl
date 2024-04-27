@@ -44,14 +44,6 @@ Boolean! : [Object, Json] {
 		self
 	}
 
-	asInteger { :self |
-		self.asBit
-	}
-
-	asNumber { :self |
-		self.asBit
-	}
-
 	assertIsBoolean { :self |
 		self
 	}

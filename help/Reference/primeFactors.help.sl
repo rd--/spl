@@ -3,7 +3,8 @@
 - _primeFactors(aFraction)_
 
 Answer the `List` of prime factors the `product` of which is _aFraction_.
-In the `Integer` case all factors will be integers.
+
+In the `Integer` case all factors will be integers:
 
 ```
 >>> 60.primeFactors
@@ -12,8 +13,13 @@ In the `Integer` case all factors will be integers.
 >>> [2 2 3 5].product
 60
 
->>> 2:15.select { :each | each.primeFactors.max <= 5 }
+>>> 2:15.select { :each |
+>>> 	each.primeFactors.max <= 5
+>>> }
 [2 3 4 5 6 8 9 10 12 15]
+
+>>> 25.primeFactors
+[5 5]
 ```
 
 At answer of `^`:
@@ -41,6 +47,9 @@ At `Fraction`:
 ```
 >>> 22/49.primeFactors
 [2 11 1/7 1/7]
+
+>>> 1/25.primeFactors
+[1/5 1/5]
 ```
 
 Threads elementwise over lists:

@@ -16,6 +16,20 @@ false
 true
 ```
 
+Ascii does not include diacritics:
+
+```
+>>> 'Mačiūnas'.isAscii
+false
+```
+
+The empty string is an ascii string:
+
+```
+>>> ''.isAscii
+true
+```
+
 * * *
 
 See also: Character

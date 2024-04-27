@@ -441,11 +441,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 +@Sequence {
 
-	asFraction { :self |
-		let [numerator, denominator] = self;
-		Fraction(numerator, denominator)
-	}
-
 	Fraction { :numerator :denominator |
 		numerator.withCollectOrAdaptTo(denominator, Fraction:/2)
 	}
@@ -517,14 +512,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 }
 
 +String {
-
-	asNumber { :self |
-		self.includes('/'.asCharacter).if {
-			self.parseFraction
-		} {
-			self.parseNumber
-		}
-	}
 
 	parseFraction { :self :separator |
 		self.includesSubstring(separator).if {

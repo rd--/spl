@@ -50,6 +50,14 @@
 		self.collect(asFloat:/1)
 	}
 
+	asFraction { :self |
+		self.collect(asFraction:/1)
+	}
+
+	asInteger { :self |
+		self.collect(asInteger:/1)
+	}
+
 	bellNumber { :self |
 		self.collect(bellNumber:/1)
 	}

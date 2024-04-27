@@ -7,8 +7,14 @@ Compute the harmonicity of the interval _aFraction_.
 ```
 >>> 3/2.barlowHarmonicity
 0.27272
+
+>>> 1/1.barlowHarmonicity
+inf
 ```
 
+Table of harmonicities:
+
+```
 >>> [
 >>> 	1/1 16/15 10/9
 >>> 	9/8 8/7 7/6 32/27 6/5
@@ -37,4 +43,4 @@ Compute the harmonicity of the interval _aFraction_.
 
 * * *
 
-See also: barlowDisharmonicity, barlowIndigestibility
+See also: barlowDisharmonicity, barlowIndigestibility, eulerGradusSuavitatis, tenneyHeight

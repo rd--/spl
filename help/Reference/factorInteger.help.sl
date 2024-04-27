@@ -21,6 +21,13 @@ Answer the `List` of prime factors of _aFraction_, each associated with its expo
 [2 -> 18, 3 -> 8, 5 -> 4, 7 -> 2, 11 -> 1, 13 -> 1, 17 -> 1, 19 -> 1]
 ```
 
+A prime power has one prime factor:
+
+```
+>>> 25.factorInteger
+[5 -> 2]
+```
+
 For negative numbers, the item _-1 -> 1_ is included in the list of factors:
 
 ```
@@ -36,6 +43,9 @@ At `Fraction` the prime factors of the denominator are given with negative expon
 
 >>> 225/224.factorInteger
 [2 -> -5, 3 -> 2, 5 -> 2, 7 -> -1]
+
+>>> 1/25.factorInteger
+[5 -> -2]
 ```
 
 Every positive integer can be represented as a product of prime factors:
@@ -137,7 +147,7 @@ At zero and negative one and one:
 [0 -> 1]
 
 >>> 1.factorInteger
-[1 -> 1]
+[]
 
 >>> -1.factorInteger
 [-1 -> 1]

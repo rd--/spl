@@ -16,6 +16,7 @@ since each of its ratios is Pythagorean:
 
 ```
 >>> [1/1 256/243 32/27 4/3 3/2 128/81 16/9].allSatisfy(isPythagorean:/1)
+true
 ```
 
 * * *

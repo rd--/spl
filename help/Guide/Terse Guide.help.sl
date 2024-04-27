@@ -766,8 +766,7 @@ nil.isNil = true {- test if object is nil -}
 'a'.isLowerCase = true {- test if lower case character -}
 false.asBit = 0 {- boolean as bit, false is zero -}
 true.asBit = 1 {- boolean as bit, true is one -}
-true.asInteger > false.asInteger {- boolean as integer, c.f. asBit -}
-true.asNumber > false.asNumber {- boolean as number, c.f. asBit -}
+true.boole > false.boole {- boolean as integer, c.f. asBit -}
 true.printString = 'true' {- true print string -}
 true.storeString = 'true' {- true store string -}
 false.printString = 'false' {- false print string -}
@@ -885,7 +884,7 @@ system.includesPackage('Character') {- character package -}
 134071.asCharacter.characterString = '𠮷' {- integer as character, from code point -}
 '䶰䶱䶲䶳䶴䶵'.characters.collect(codePoint:/1) = [19888 .. 19893]
 'x'.asCharacter = 120.asCharacter {- characters are comparable -}
-'x'.asCharacter.asInteger = 120
+'x'.asCharacter.codePoint = 120
 'x'.asCharacter.printString = '\'x\''
 'x'.asCharacter.storeString = '120.asCharacter'
 'x'.asCharacter == 120.asCharacter {- characters are identical -}
@@ -1244,9 +1243,9 @@ inf.isNumber {- Infinity constant -}
 1.pi.asSmallFloat = 1.pi {- identity -}
 3/4.asSmallFloat = 0.75 {- fraction to small float -}
 23.asSmallFloat = 23.0 {- integral to small float -}
-true.asInteger = 1 {- boolean as integer, c.f. asBit -}
-false.asInteger = 0 {- boolean as integer, asBit -}
-'~'.asCharacter.asInteger = 126 {- character as integer, c.f. codePoint -}
+true.boole = 1 {- boolean as integer, c.f. asBit -}
+false.boole = 0 {- boolean as integer, asBit -}
+'~'.asCharacter.codePoint = 126 {- character as integer, c.f. codePoint -}
 23.asInteger = 23 {- small integer as integer, c.f. identity -}
 -23.asInteger = -23 {- identity -}
 1.pi.asInteger = 3 {- small float as integer, c.f. truncated -}
@@ -1254,18 +1253,18 @@ false.asInteger = 0 {- boolean as integer, asBit -}
 22/7.asInteger = 3 {- fraction as integer, c.f. truncated -}
 -22/7.asInteger = -3 {- fraction is truncated -}
 7/8.asInteger = 0 {- fraction is truncated -}
-'23'.asInteger = 23 {- string is parsed, c.f. parseDecimalInteger -}
-{ '3.141'.asInteger }.ifError { true } {- floating point strings are not decimal integers -}
-{ '3x'.asInteger }.ifError { true } {- large radix strings are not decimal integers -}
-false.asNumber = 0 {- asBit -}
-true.asNumber = 1 {- asBit -}
+'23'.parseInteger(10) = 23 {- string is parsed, c.f. parseDecimalInteger -}
+{ '3.141'.parseInteger(10) }.ifError { true } {- floating point strings are not decimal integers -}
+{ '3x'.parseDecimalInteger }.ifError { true } {- large radix strings are not decimal integers -}
+false.asBit = 0 {- asBit -}
+true.asBit = 1 {- asBit -}
 1.pi.asNumber = 1.pi {- identity -}
 23.asNumber = 23 {- identity -}
-'3.141'.asNumber = 3.141 {- parse floating point -}
-'-672.433244'.asNumber = -672.433244 {- parse negative floating point -}
-'0.03141e2'.asNumber = 3.141 {- parse scientific -}
-'23'.asNumber = 23 {- parse integer -}
-'-23'.asNumber = -23 {- parse integer -}
+'3.141'.parseNumber = 3.141 {- parse floating point -}
+'-672.433244'.parseNumber = -672.433244 {- parse negative floating point -}
+'0.03141e2'.parseNumber = 3.141 {- parse scientific -}
+'23'.parseNumber = 23 {- parse integer -}
+'-23'.parseNumber = -23 {- parse integer -}
 1.pi.asFraction = 355/113 {- asFraction -}
 1.pi.asFraction(0.01) = 22/7 {- with epsilon -}
 22/7.asFraction = 22/7 {- identity -}
@@ -1487,7 +1486,7 @@ let a = 1:3.asFloat64Array; let c = a.copy; c[1] := 3; c ~= a & { c.asList = [3,
 0.1 * 3.0 = 0.3 = false {- general floating point math -}
 1.0 + 1.0 + 1.0 = 3.0 = true {- integral floating point math -}
 0.1 + 0.1 + 0.1 = 0.3 = false {- general floating point math -}
-'-1.4'.asNumber = -1.4 {- parse float -}
+'-1.4'.parseNumber = -1.4 {- parse float -}
 ```
 
 ## Fraction -- numeric type
@@ -1622,7 +1621,7 @@ system.unicodeFractionsTable.associations.isList = true
 let n = system.unicodeFractionsTable.associations.collect(value:/1); n = n.sorted
 '4/3'.parseFraction = 4/3 {- parse fraction -}
 '4/3'.parseFraction('/') = 4/3 {- parse fraction given delimiter -}
-'4/3'.asNumber = 4/3 {- the fraction module modifies asNumber to parse fractions -}
+{ '4/3'.parseNumber = 4/3 }.ifError { true } {- the fraction module does not modify asNumber to parse fractions -}
 let x = Fraction(2 ^ 55, 2); x ~= (x - 1) = false {- fractions of large small floats behave strangely -}
 let x = Fraction(2n ^ 55n, 2); x ~= (x - 1) {- fractions of large large integers behave ordinarily -}
 2/3 ~= 3/4 {- unequal fractions -}
@@ -3390,14 +3389,14 @@ system.includesPackage('String') {- package -}
 'quoted string'.isString {- quoted string -}
 'string'.isAscii = true {- does string contain only ascii characters -}
 'Mačiūnas'.isAscii = false {- ascii does not include diacritics -}
-''.isAsciiString = true {- the empty string is an ascii string -}
+''.isAscii = true {- the empty string is an ascii string -}
 128.asCharacter.characterString.isAscii = false {- not all byte arrays are ascii -}
 'x' ++ 'y' = 'xy' {- append (catenation) -}
 'x' ++ 1 = 'x1' {- append, right hand side need not be a string -}
 'string'.asciiByteArray = [115, 116, 114, 105, 110, 103].asByteArray {- String to ByteArray of Ascii encoding -}
 { 'Mačiūnas'.asciiByteArray }.ifError { true } {- non-ascii characters -}
-'3.4'.asNumber = 3.4 {- parse float -}
-'3'.asInteger = 3 {- parse integer -}
+'3.4'.parseNumber = 3.4 {- parse float -}
+'3'.parseDecimalInteger = 3 {- parse integer -}
 'string'.at(4) = 'i'.asCharacter {- one-indexing -}
 'string'[4] = 'i'.asCharacter {- one-indexing (bracket notation) -}
 { 'string'[7] }.ifError { true } {- error on out of range index -}
@@ -3562,13 +3561,13 @@ let a = 'string'.characters; a.joinCharacters = 'string' & { a.join = 'string' }
 'XYZ'.asLowerCase = 'xyz'
 'xyz'.asUpperCase = 'XYZ'
 'hilaire'.capitalized = 'Hilaire'
-'1.54'.asNumber = 1.54 {- parse floating point number -}
-'154'.asNumber = 154 {- parse integral number -}
+'1.54'.parseNumber = 1.54 {- parse floating point number -}
+'154'.parseNumber = 154 {- parse integral number -}
 'A clear but rather long-winded summary'.contractTo(19) = 'A clear ... summary' {- contract string to be of size -}
 'antidisestablishmentarianism'.contractTo(10) = 'anti...ism' {- contract string to be of size -}
 'string'.asList.sort.join = 'ginrst'
 'x' ~= 'x'.asCharacter {- a single element string is not equal to a character -}
-'Mačiūnas'.asAscii = 'Mainas' {- transform to ascii by deleting non-ascii characters -}
+'Mačiūnas'.removeDiacritics = 'Maciunas' {- transform to ascii by deleting diacritics -}
 'string'.copy == 'string' {- copy is identity -}
 'string'.asHex = '737472696e67' {- hex string of ascii codes of string -}
 let s = 'string'; (s.size * 2) = s.asHex.size {- asHex, hex string is twice as long -}
