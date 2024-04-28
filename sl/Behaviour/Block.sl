@@ -154,6 +154,10 @@ Block! : [Object] {
 		aSequence.withCollect(anotherSequence, self:/2)
 	}
 
+	map { :self:/3 :aSequence :anotherSequence :aThirdSequence |
+		aSequence.withWithCollect(anotherSequence, aThirdSequence, self:/3)
+	}
+
 	methodName { :self |
 		<primitive: return _self.name.split(':')[0];>
 	}

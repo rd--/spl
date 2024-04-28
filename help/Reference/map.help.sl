@@ -3,6 +3,7 @@
 - _map(aBlock:/2)_
 - _map(aBlock:/1, aCollection)_
 - _map(aBlock:/2, aSequence, anotherSequence)_
+- _map(aBlock:/3, aSequence, anotherSequence, aThirdSequence)_
 
 The unary form answers a Block that will apply _aBlock_ element wise to two sequences.
 If the sequences are not of equal size the shorter will be cycled.
@@ -34,6 +35,13 @@ The ternary form is _map(α, β, γ) ⇒ withCollect(γ, α, β)_.
 
 >>> *.map([1 3 5], [3 5 7])
 [3 15 35]
+```
+
+The quaternary form is _map(α, β, γ, δ) ⇒ withWithCollect(γ, α, β, δ)_.
+
+```
+>>> { :p :q :r | p * q ^ r }.map(1:7, 9:3, 5:-1)
+[59049 65536 9261 576 25 1 0.04762]
 ```
 
 * * *

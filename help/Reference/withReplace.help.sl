@@ -2,7 +2,7 @@
 
 - _withCollect(aSequence, anotherSequence, aBlock:/2)_
 
-In place withCollect.
+In place `withCollect`.
 
 ```
 >>> let list = [9 .. 1];

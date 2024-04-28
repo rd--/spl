@@ -2,7 +2,7 @@
 
 - _Map()_
 
-`Map` is a `Dictionary` type where the keys are compared using the identitcal to (`==`) operator.
+`Map` is a `Dictionary` type where the keys are compared using the identical to (`==`) operator.
 
 Construct an empty `Map`:
 

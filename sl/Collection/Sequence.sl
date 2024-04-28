@@ -2875,10 +2875,17 @@
 		}
 	}
 
-	withCollectWrapping { :self :aCollection :aBlock:/2 |
-		let maximumSize = self.size.max(aCollection.size);
+	withCollectWrapping { :self :aSequence :aBlock:/2 |
+		let maximumSize = self.size.max(aSequence.size);
 		1.toAsCollect(maximumSize, self.species) { :index |
-			aBlock(self.atWrap(index), aCollection.atWrap(index))
+			aBlock(self.atWrap(index), aSequence.atWrap(index))
+		}
+	}
+
+	withWithCollect { :self :aSequence :anotherSequence :aBlock:/3 |
+		let maximumSize = [self, aSequence, anotherSequence].collect(size:/1).max;
+		1.toAsCollect(maximumSize, self.species) { :index |
+			aBlock(self.atWrap(index), aSequence.atWrap(index), anotherSequence.atWrap(index))
 		}
 	}
 

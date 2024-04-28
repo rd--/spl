@@ -1,8 +1,10 @@
 # Divisions of the Tetrachord
 
+## 1. The tetrachord in experimental music
+
 The tetrachord is the interval of a _perfect fourth_, the _diatessaron_ of the Greeks, divided into three subintervals by the interposition of two additional notes.
 The four notes, or strings, of the tetrachord were named _hypate_, _parhypate_, _lichanos_, and _mese_ in ascending order from I/I to 4/3 in the first tetrachord ofthe central octave of the Greater Perfect System, the region of the scale of most concern to theorists.
-Ascending through the second tetrachord, they were called _paramese_, _trite_, _paranete_, and _nete_. [p4]
+Ascending through the second tetrachord, they were called _paramese_, _trite_, _paranete_, and _nete_. [p.4]
 
 Harry Partch used the pentatonic form of the enharmonic (16/15 5/4 9/8 16/15 5/4)
 in the first of his _Two Studies on Ancient Greek Scales_ (1946) [p.5]:
@@ -25,15 +27,17 @@ and the microtonal form in the second (in Archytas’s tuning, 28/27 · 36/35 ·
 [0 63 112 498]
 ```
 
+## 2. Pythagoras, Ptolemy, and the arithmetic tradition
+
 The scale derived from the _Timaeus_ is the so-called Pythagorean
-tuning ofWestern European theory, but it is most likely of Babylonian origin [p.7]:
+tuning of Western European theory, but it is most likely of Babylonian origin [p.7]:
 
 ```
 >>> [1/1 9/8 81/64 4/3 3/2 27/16 243/128 2/1].ratioToCents.rounded
 [0 204 408 498 702 906 1110 1200]
 ```
 
-Archytas’s genera (enharmonic, chromatic, diatonic), p.8:
+Archytas’s genera (enharmonic, chromatic, diatonic) [p.8]:
 
 ```
 >>> [
@@ -48,7 +52,7 @@ Archytas’s genera (enharmonic, chromatic, diatonic), p.8:
 ]
 ```
 
-Eratosthene’s genera (enharmonic, chromatic, diatonic), p.8:
+Eratosthene’s genera (enharmonic, chromatic, diatonic) [p.8]:
 
 ```
 >>> [
@@ -63,7 +67,7 @@ Eratosthene’s genera (enharmonic, chromatic, diatonic), p.8:
 ]
 ```
 
-Didymos’s genera (enharmonic, chromatic, diatonic), p.8:
+Didymos’s genera (enharmonic, chromatic, diatonic) [p.8]:
 
 ```
 >>> [
@@ -187,6 +191,30 @@ Hofmann’s list of completely superparticular divisions. This table has been re
 ]
 ```
 
+The numerical technique employed by Eratosthenes, Didymos, and Ptolemy to define the majority of their tetrachords is called _linear division_ and may be identified with the process known in Greek as _katapyknosis_.
+
+```
+>>> let n = 16/15;
+>>> { :i :r |
+>>> 	let p = n.numerator * i;
+>>> 	let q = n.denominator * i;
+>>> 	r.if {
+>>> 		let m = Fraction(p, p - 1);
+>>> 		[m, n / m]
+>>> 	} {
+>>> 		let m = Fraction(q + 1, q);
+>>> 		[n / m, m]
+>>> 	}
+>>> }.map(2:6, [true, false])
+[
+	32/31 31/30;
+	24/23 46/45;
+	64/63 21/20;
+	20/19 76/75;
+	96/95 19/18
+]
+```
+
 Ptolemy’s interpretation of Aristoxenos’s genera [p.13]:
 
 ```
@@ -222,3 +250,144 @@ Boethius’s tuning for the tetrachords in the three principal genera (enharmoni
 	90 204 204
 ]
 ```
+
+Al-Farabi analogizes from the 256/243 · 9/8 · 9/8 of the Pythagorean tuning and proposes reduplicated genera such as 49/48 · 8/7 · 8/7 and 27/25 · 10/9 · 10/9.
+
+```
+>>> [
+>>> 	256/243 9/8 9/8;
+>>> 	49/48 8/7 8/7;
+>>> 	27/25 10/9 10/9
+>>> ].ratioToCents.rounded
+[
+	90 204 204;
+	36 231 231;
+	133 182 182
+]
+```
+
+Surprisingly, I have been unable to trace the apparently missing reduplicated genus, 1/10 · 1/10 · 400/363 (165 + 165 + 168 cents) that is a virtually equally-tempered division of the 4/3.
+
+```
+>>> [11/10 11/10 400/363].ratioToCents.rounded
+[165, 165, 168]
+```
+
+## 3 Aristoxenos and the geometrization of musical space
+
+Aristoxenos described his genera in units of twelfths of a tone (Macran 1902), but later theorists, notably Cleonides, translated these units into a cipher consisting of 30 parts (_moria_) to the fourth (Barbera 1978) ... These two medieval Islamic tetrachords are Aristoxenian approximations to Ptolemy’s equable diatonic ...  The intonation of the liturgical music of the Byzantine and Slavonic Orthodox churches is a complex problem ... [p.18-22]:
+
+```
+>>> [
+>>> 	3 3; 4 4; 4.5 4.5; 6 6; 6 9; 6 12;
+>>> 	4 8; 4 14; 4.5 13.5; 6 3; 4.5 3.5;
+>>> 	12 9; 10 10;
+>>> 	9 15; 6 18; 6 12; 12 12;
+>>> 	8 14; 10 8; 8 12; 8 16; 6 20;
+>>> 	7 16; 5 19; 12 11; 6 12
+>>> ].collect { :each |
+>>> 	let parts = (each ++ [30 - each.sum]);
+>>> 	let tones = Fraction(parts, 12);
+>>> 	let cents = parts.collect { :n |
+>>> 		(n * (50 / 3)).rounded
+>>> 	};
+>>> 	[tones, cents]
+>>> }
+[
+	1/4 1/4 2/1; 50 50 400:;
+	1/3 1/3 11/6; 67 67 367:;
+	1/3 1/3 7/4; 75 75 350:;
+	1/2 1/2 3/2; 100 100 300:;
+	1/2 3/4 5/4; 100 150 250:;
+	1/2 1/1 1/1; 100 200 200:;
+	1/3 2/3 3/2; 67 133 300:;
+	1/3 7/6 1/1; 67 233 200:;
+	1/3 13/12 1/1; 75 225 200:;
+	1/2 1/4 7/4; 100 50 350:;
+	1/3 1/4 11/6; 75 58 367:;
+	1/1 3/4 3/4; 200 150 150:;
+	5/6 5/6 5/6; 167 167 167:;
+	3/4 5/4 1/2; 150 250 100:;
+	1/2 3/2 1/2; 100 300 100:;
+	1/2 1/1 1/1; 100 200 200:;
+	1/1 1/1 1/2; 200 200 100:;
+	2/3 7/6 2/3; 133 233 133:;
+	5/6 2/3 1/1; 167 133 200:;
+	2/3 1/1 5/6; 133 200 167:;
+	2/3 4/3 1/2; 133 267 100:;
+	1/2 5/3 1/3; 100 333 67:;
+	7/12 4/3 7/12; 117 267 117:;
+	5/12 19/12 1/2; 83 317 100:;
+	1/1 11/12 7/12; 200 183 117:;
+	1/2 1/1 1/1; 100 200 200
+]
+```
+
+## 4. The construction of new genera
+
+The term hyperenharmonic is originally from Wilson ... [p.26]:
+
+```
+>>> [40 36 34 33 32 31 30 28 27 26 25].withIndexCollect { :n :i |
+>>> 	let pyknon = Fraction(n, n - 1);
+>>> 	let characteristicInterval = 4/3 / pyknon;
+>>> 	let cents = characteristicInterval.ratioToCents.rounded;
+>>> 	[i, characteristicInterval, pyknon, cents, 498 - cents]
+>>> }
+[
+	 1  13/10  40/39 454 44;
+	 2  35/27  36/35 449 49;
+	 3  22/17  34/33 446 52;
+	 4  128/99 33/32 445 53;
+	 5  31/24  32/31 443 55;
+	 6  40/31  31/30 441 57;
+	 7  58/45  30/29 439 59;
+	 8   9/7   28/27 435 63;
+	 9 104/81  27/26 433 65;
+	10  50/39  26/25 430 68;
+	11  32/25  25/24 427 71
+]
+```
+
+One useful technique, originated by Ervin Wilson, is a variation of the katapyknotic process [p.27]:
+
+```
+>>> [4 5 6].collect { :m |
+>>> 	let p = 4 * m;
+>>> 	let q = 3 * m;
+>>> 	(p - 1 .. q + 2).collect { :i |
+>>> 		(i - 1 .. q + 1).collect { :j |
+>>> 			[
+>>> 				[p, i, j, q],
+>>> 				[Fraction(p, i), Fraction(i, j), Fraction(j, q)].sort
+>>> 			]
+>>> 		}
+>>> 	}.concatenation
+>>> }
+[
+	16 15 14 12; 16/15 15/14 7/6:;
+	16 15 13 12; 16/15 13/12 15/13:;
+	16 14 13 12; 14/13 13/12 8/7:;
+	20 19 18 15; 20/19 19/18 6/5:;
+	20 19 17 15; 20/19 19/17 17/15:;
+	20 19 16 15; 20/19 16/15 19/16:;
+	20 18 17 15; 18/17 10/9 17/15:;
+	20 18 16 15; 16/15 10/9 9/8:;
+	20 17 16 15; 17/16 16/15 20/17:;
+	24 23 22 18; 24/23 23/22 11/9:;
+	24 23 21 18; 24/23 23/21 7/6:;
+	24 23 20 18; 24/23 10/9 23/20:;
+	24 23 19 18; 24/23 19/18 23/19:;
+	24 22 21 18; 22/21 12/11 7/6:;
+	24 22 20 18; 12/11 11/10 10/9:;
+	24 22 19 18; 19/18 12/11 22/19:;
+	24 21 20 18; 21/20 10/9 8/7:;
+	24 21 19 18; 19/18 21/19 8/7:;
+	24 20 19 18; 20/19 19/18 6/5
+]
+```
+
+* * *
+
+Further Reading: Chalmers 1993
+
