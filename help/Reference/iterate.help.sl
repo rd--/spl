@@ -36,6 +36,15 @@ apply _aBlock_ iteratively _anInteger_ times, initially to _anObject_.
 0.731404
 ```
 
+Derive the seven tone Pythagorean scale:
+
+```
+>>> { :n |
+>>> 	(n * 3/2).octaveReduced
+>>> }.iterate(1/1).next(7).sort
+[1/1, 9/8, 81/64, 729/512, 3/2, 27/16, 243/128]
+```
+
 _Rationale:_
 This notation can be more compact than a written out loop,
 and can also be written in the middle of a sequence of bindings,

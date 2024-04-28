@@ -25,13 +25,18 @@ The ratio between two successive superparticular ratios is always superparticula
 ```
 >>> 23/22 / 22/21
 483/484
+
+>>> 48/47 * 47/46
+24/23
 ```
 
 The ratio between two successive members of the Farey sequence is superparticular:
 
 ```
 >>> let f = 6.fareySequence;
->>> (2 .. f.size - 1).collect { :i | f[i + 1] / f[i] }
+>>> (2 .. f.size - 1).collect { :i |
+>>> 	f[i + 1] / f[i]
+>>> }
 [6/5 5/4 4/3 6/5 5/4 6/5 10/9 9/8 16/15 25/24 6/5]
 ```
 
