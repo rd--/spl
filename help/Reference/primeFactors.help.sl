@@ -57,6 +57,16 @@ Threads elementwise over lists:
 ```
 >>> [60 22/49].primeFactors
 [2 2 3 5; 2 11 1/7 1/7]
+
+>>> [4 231 315 8589298611].primeFactors
+[2 2; 3 7 11; 3 3 5 7; 3 2863099537]
+```
+
+At zero and one:
+
+```
+>>> [-1 0 1].primeFactors
+[[], [], []]
 ```
 
 * * *

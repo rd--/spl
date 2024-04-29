@@ -13,6 +13,23 @@ if the intervals are `Fraction` values they are understood to be ratios and the 
 [63 72 84 98 112]
 ```
 
+A seven-limit just intonation approximation of 13-tone equal temperament:
+
+```
+>>> let r = [1/1 135/128 9/8 7/6 5/4 21/16 48/35 35/24 32/21 8/5 27/16 9/5 243/128];
+>>> let t = r.asJiTuning;
+>>> let k = (1200 / 13);
+>>> let c = [0, k .. 1108];
+>>> let j = t.asCents;
+>>> (t.limit, c.rounded, j.rounded, (j - c).rounded)
+(
+	7,
+	[0 92 185 277 369 462 554 646 738 831 923 1015 1108],
+	[0 92 204 267 386 471 547 653 729 814 906 1018 1110],
+	[0  0  19 -10  17   9  -7   7  -9 -17 -17    2    2]
+)
+```
+
 If the intervals are `Integer` values they are understood to be integer pitches:
 
 ```

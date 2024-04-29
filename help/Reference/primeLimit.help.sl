@@ -16,6 +16,13 @@ Threads elementwise over lists:
 [2 3 2 5 3 7 2 3 5 11 3 13 7 5]
 ```
 
+At zero and one:
+
+```
+>>> [0 1].primeLimit
+[0 0]
+```
+
 Plot:
 
 ~~~

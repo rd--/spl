@@ -76,7 +76,17 @@
 +@Integer {
 
 	barlowIndigestibility { :p |
-		(p - 1).squared / p * 2
+		p.isOne.if {
+			0
+		} {
+			p.isPrime.if {
+				(p - 1).squared / p * 2
+			} {
+				p.primeFactors.collect { :n |
+					(n - 1).squared / n * 2
+				}.sum
+			}
+		}
 	}
 
 	eulerGradusSuavitatis { :self |
