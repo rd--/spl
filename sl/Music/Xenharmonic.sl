@@ -13,7 +13,13 @@
 	}
 
 	barlowHarmonicity { :self |
-		1 / self.barlowDisharmonicity
+		self.isOne.if {
+			inf
+		} {
+			let q = self.numerator.barlowIndigestibility;
+			let p = self.denominator.barlowIndigestibility;
+			(q - p).sign / (p + q)
+		}
 	}
 
 	benedettiHeight { :self |

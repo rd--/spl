@@ -301,6 +301,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      (">>>" . ?⋙) ; U+22D9 ⋙ Very Much Greater-Than
      ("|>" . ?▷) ; U+25B7 ▷ White Right-Pointing Triangle
      ("Phi" . ?ϕ) ; U+03D5 ϕ Greek Phi Symbol
+     ("Psi" . ?Ψ) ; U+03A8 Ψ Greek Capital Letter Psi
      ("Sqrt" . ?√) ; U+221A √ Square Root
      ("Sum" . ?∑) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation
      ("^" . ?ˆ) ; U+02C6 ˆ Modifier Letter Circumflex Accent ; U+2191 ↑ Upwards Arrow
@@ -376,6 +377,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("Omega" . ?Ω) ; U+03A9 Ω Greek Capital Letter Omega
      ("or" . ?∨) ; ∨ U+2228 Logical Or
      ("phi" . ?φ) ; U+03C6 φ Greek Small Letter Phi
+     ("psi" . ?ψ) ; U+03C8 ψ Greek Small Letter Psi
      ("pi" . ?π) ; U+03C0 π Greek Small Letter Pi
      ("precedes" . ?≺) ; U+227a ≺ Precedes
      ("product" . ?Π) ; U+03A0 Π Greek Capital Letter Pi

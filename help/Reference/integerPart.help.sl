@@ -1,8 +1,9 @@
 # integerPart
 
-_integerPart(aNumber)_
+- _integerPart(aNumber)_
 
 Answers the integer part of _aNumber_.
+`integerPart` is equivalent to `truncated`.
 
 Find the integer part of a real number:
 
@@ -24,21 +25,21 @@ Find the integer part of a negative real number:
 -2
 ```
 
-At Fraction:
+At `Fraction`:
 
 ```
 >>> -5/4.integerPart
 -1
 ```
 
-At Complex:
+At `Complex`:
 
 ```
 >>> (78 / 47).j(-4.2).integerPart
 1j-4
 ```
 
-Thread elementwise over lists:
+Threads elementwise over lists:
 
 ```
 >>> [2.4 2.5 3.0].integerPart
@@ -53,7 +54,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: fractionPart
+See also: ceiling, floor, fractionPart, truncated
 
 References:
 _Mathematica_

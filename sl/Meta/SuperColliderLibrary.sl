@@ -1,5 +1,6 @@
 [
 	{- Music -}
+	'Meter'
 	'Tuning'
 	'TuningLattice'
 	'CentsTuning'

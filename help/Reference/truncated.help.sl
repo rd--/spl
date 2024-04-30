@@ -2,7 +2,7 @@
 
 - _truncated(aNumber)_
 
-Answer an integer nearest _aNumber_ toward zero.
+Answer the integer nearest _aNumber_ toward `zero`.
 
 ```
 >>> 1.25.truncated
@@ -14,7 +14,7 @@ Answer an integer nearest _aNumber_ toward zero.
 
 * * *
 
-See also: rounded, truncateTo
+See also: integerPart, rounded, truncateTo
 
 References:
 _Mathematica_

@@ -3,10 +3,14 @@
 - _barlowHarmonicity(aFraction)_
 
 Compute the harmonicity of the interval _aFraction_.
+The answer is a signed real number.
+The magnitude indicates _harmonicity_,
+the sign indicates polarity.
+A negative sign indicates a polarity to the upper tone.
 
 ```
 >>> 48/25.barlowHarmonicity
-0.05137
+-0.05137
 
 >>> 3/2.barlowHarmonicity
 0.27272
@@ -32,14 +36,14 @@ Table of harmonicities:
 >>> 	(each.barlowHarmonicity * 100).rounded
 >>> }
 [
-	inf 5 5 8 5 8
-	12 8 7 5 8 10
-	12 6 6 5
-	21 6 5 6 6 5 6
+	inf 5 5 -8 -5 8
+	12 -8 7 5 -8 -10
+	12 6 -6 -5
+	-21 -6 5 6 -6 -5 6
 	27 6 6
-	11 4
-	11 8 7 8
-	11 9 5 8 5
+	-11 -4
+	11 8 -7 8
+	-11 -9 5 8 -5
 	100
 ]
 ```

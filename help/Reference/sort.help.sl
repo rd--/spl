@@ -8,12 +8,12 @@ If the sort block is omitted or is nil, sort by `<=`.
 
 ```
 >>> let a = [3 2 1];
->>> a.sort = a & { a = [1 2 3] }
-true
+>>> (a.sort = a, a)
+(true, [1 2 3])
 
 >>> let a = [1 2 3];
->>> a.sort(>) = a & { a = [3 2 1] }
-true
+>>> (a.sort(>) = a, a)
+(true, [3 2 1])
 
 >>> ['d' 'b' 'c' 'a'].sort
 ['a' 'b' 'c' 'd']
