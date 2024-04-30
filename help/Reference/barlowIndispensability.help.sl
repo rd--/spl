@@ -15,7 +15,7 @@ The sequence of all indispensability values a permutation of the integers from `
 ```
 >>> let f = { :p |
 >>> 	(1 .. p.product).collect { :each |
->>>		p.barlowIndispensability(each)
+>>> 		p.barlowIndispensability(each)
 >>> 	}
 >>> };
 >>> [

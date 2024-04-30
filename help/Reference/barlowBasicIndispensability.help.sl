@@ -15,7 +15,7 @@ The sequence of all indispensability values for a prime number is a permutation 
 ```
 >>> let f = { :k |
 >>> 	1:k.collect { :each |
->>>		k.barlowBasicIndispensability(each)
+>>> 		k.barlowBasicIndispensability(each)
 >>> 	}
 >>> };
 >>> [2 3 5 7 11 13 17 19 23].collect(f:/1)

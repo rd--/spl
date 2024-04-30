@@ -6,9 +6,7 @@
 		self.isOne.if {
 			0
 		} {
-			self.factorInteger.collect { :each |
-				each.value.abs * each.key.barlowIndigestibility
-			}.sum
+			1 / self.barlowHarmonicity
 		}
 	}
 
