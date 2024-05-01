@@ -108,6 +108,10 @@
 		[65 69 73 79 85].includes(self.asUpperCase.codePoint)
 	}
 
+	morseCode { :self |
+		system.morseCodeTable[self.characterString]
+	}
+
 }
 
 Character : [Object, Magnitude, Character] { | characterString codePoint |
@@ -181,5 +185,30 @@ Character : [Object, Magnitude, Character] { | characterString codePoint |
 }
 
 +String {
+
+}
+
++@Cache {
+
+	morseCodeTable { :self |
+		self.cached('morseCodeTable') {
+			(
+				a: '.-', i: '..', r: '.-.',
+				b: '-...', j: '.---', s: '...',
+				c: '-.-.', k: '-.-', t: '-',
+				d: '-..', l: '.-..', u: '..-',
+				e: '.', m: '--', v: '...-',
+				é: '..-..', n: '-.', w: '.--',
+				f: '..-.', o: '---', x: '-..-',
+				g: '--.', p: '.--.', y: '-.--',
+				h: '....', q: '--.-', z: '--..',
+				'1': '.----', '6': '-....',
+				'2': '..---', '7': '--...',
+				'3': '...--', '8': '---..',
+				'4': '....-', '9': '----.',
+				'5': '.....', '0': '-----'
+			)
+		}
+	}
 
 }
