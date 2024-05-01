@@ -56,6 +56,6 @@ false
 
 * * *
 
-See also: Integer, isNumber, isGaussianInteger, isSmallInteger, isLargeInteger, Number
+See also: Integer, isNumber, isGaussianInteger, isSmallInteger, isLargeInteger, Number, parseInteger
 
 Categories: Predicate, Testing

@@ -2,6 +2,9 @@
 
 - parseNumber(aString)_
 
+Answer the `Number` represented by _aString_,
+else signal an `error`.
+
 Parse decimal integer:
 
 ```
@@ -30,6 +33,15 @@ Parse negative decimal real number:
 -672.433244
 ```
 
+Signal error on failure:
+
+```
+>>> { 'three'.parseNumber }.ifError { true }
+true
+```
+
 * * *
 
 See also: parseFraction, parseInteger
+
+Categories: Parsing

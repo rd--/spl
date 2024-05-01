@@ -2,13 +2,25 @@
 
 - _parseFraction(aString, separator)_
 
-Answer the `Fraction` represented by _aString_.
+Answer the `Fraction` represented by _aString_,
+else signal an `error`.
+
+Parse fraction written with a _solidus_ as separator:
 
 ```
 >>> '3/4'.parseFraction('/')
 3/4
 ```
 
+Signal error if _aString_ is not a fraction:
+
+```
+>>> { '3.141'.parseFraction('/') }.ifError { true }
+true
+```
+
 * * *
 
 See also: parseInteger, parseNumber
+
+Categories: Converting
