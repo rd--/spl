@@ -17,14 +17,14 @@ Answer _aNumber_ rescaled to run from _yMin_ to _yMax_ over the range _min_ to _
 [0 0.5 1]
 ```
 
-At Fraction:
+At `Fraction`:
 
 ```
 >>> -3/2.rescale(-2, 2)
 1/8
 ```
 
-At SmallFloat:
+At `SmallFloat`:
 
 ```
 >>> pi.rescale(0, 2.5, 0, 1)
@@ -40,7 +40,7 @@ At SmallFloat:
 1.05517
 ```
 
-Rescale so that all the List elements run from 0 to 1:
+Rescale so that all the `List` elements run from 0 to 1:
 
 ```
 >>> [-0.7 0.5 1.2 5.6 1.8].rescale
@@ -63,19 +63,46 @@ Specify the maximum and minimum values:
 Make a Celsius-to-Fahrenheit conversion table:
 
 ```
->>> (-40, -30 .. 80).collect { :each | [each, each.rescale(-40, 100, -40, 212)] }
-[-40 -40; -30 -22; -20 -4; -10 14; 0 32;  10 50; 20 68;  30 86; 40 104; 50 122; 60 140; 70 158; 80 176]
+>>> (-40, -30 .. 80).collect { :each |
+>>> 	[each, each.rescale(-40, 100, -40, 212)]
+>>> }
+[
+	-40 -40;
+	-30 -22;
+	-20  -4;
+	-10  14;
+	  0  32;
+	 10  50;
+	 20  68;
+	 30  86;
+	 40 104;
+	 50 122;
+	 60 140;
+	 70 158;
+	 80 176
+]
+```
+
+Linear rescaling from (0, 1) to (3, 9):
+
+```
+>>> [0 0.5 1].collect { :each |
+>>> 	each.rescale(0, 1, 3, 9)
+>>> }
+[3 6 9]
 ```
 
 Plot over a subset of the reals:
 
 ~~~
-(-3, -2.99 .. 3).collect { :each | each.rescale(-2, 2) }.plot
+(-3, -2.99 .. 3).collect { :each |
+	each.rescale(-2, 2)
+}.plot
 ~~~
 
 * * *
 
-See also: clip, mean, scaled
+See also: clip, LinLin, mean, scaled
 
 References:
 _Mathematica_

@@ -24,7 +24,7 @@ Threads over lists:
 Plot the prime counting function:
 
 ~~~
-0:50.collect(primePi:/1).plot
+1:50.collect(primePi:/1).discretePlot
 ~~~
 
 * * *

@@ -30,6 +30,13 @@ The 5-smooth numbers are also called regular numbers:
 ]
 ```
 
+There are 34 regular numbers between one and one hundred:
+
+```
+>>> 1:100.select { :n | n.isSmoothNumber(5) }.size
+34
+```
+
 The largest consecutive 19-smooth numbers:
 
 ```

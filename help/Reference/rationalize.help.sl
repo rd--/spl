@@ -29,8 +29,21 @@ Find rational approximations to within a given tolerance:
 Successive rational approximations to `pi`:
 
 ```
->>> -1:-10.collect { :n | 1.pi.rationalize(10 ^ n) }
-[16/5 22/7 201/64 333/106 355/113 355/113 75948/24175 100798/32085 103993/33102 312689/99532]
+>>> -1:-10.collect { :n |
+>>> 	1.pi.rationalize(10 ^ n)
+>>> }
+[
+	16/5 22/7 201/64 333/106 355/113
+	355/113 75948/24175 100798/32085
+	103993/33102 312689/99532
+]
+```
+
+At negative number:
+
+```
+>>> -0.220472.rationalize(0.0001)
+-28/127
 ```
 
 * * *

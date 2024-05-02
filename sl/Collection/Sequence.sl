@@ -2086,7 +2086,7 @@
 		}
 	}
 
-	plot { :self |
+	cliPlot { :self :isDiscrete |
 		let fileName = '/tmp/listPlot.json';
 		fileName.writeTextFile([self.asList].asJson).then { :unused |
 			system.systemCommand(
@@ -2095,11 +2095,20 @@
 					'json',
 					'x',
 					'--rows',
+					'--impulse=' ++ isDiscrete.asString.capitalized,
 					fileName,
-					0
+					'0'
 				]
 			)
 		}
+	}
+
+	discretePlot { :self |
+		self.cliPlot(true)
+	}
+
+	plot { :self |
+		self.cliPlot(false)
 	}
 
 	precedes { :self :aSequence |

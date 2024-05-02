@@ -15,6 +15,13 @@ Clip sine:
 Clip(SinOsc(440, 0) * 0.2, -0.07, 0.07)
 ```
 
+At `SmallFloat`:
+
+```
+>>> -2:2.collect { :each | Clip(each, -1, 1) }
+[-1 -1 0 1 1]
+```
+
 * * *
 
 See also: Clip2, Fold, Wrap

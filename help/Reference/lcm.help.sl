@@ -17,8 +17,12 @@ Least common multiple.
 
 >>> 1624.lcm(26)
 21112
+```
 
->>> [2 3 5].reduce(lcm:/2)
+At `Collection`:
+
+```
+>>> [2 3 5].reduce\(lcm:/2)
 30
 
 >>> [2 3 5].lcm

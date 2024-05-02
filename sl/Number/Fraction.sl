@@ -160,6 +160,13 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.asFloat.closeToBy(aNumber.asFloat, epsilon)
 	}
 
+	dividesImmediately { :self :aNumber |
+		let r = self / aNumber;
+		r.denominator = 1 & {
+			r.numerator.isPrime
+		}
+	}
+
 	gcd { :self :aFraction |
 		aFraction.isFraction.if {
 			let d = self.denominator.gcd(aFraction.denominator);
@@ -252,6 +259,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 				}
 			}
 		}
+	}
+
+	log { :self |
+		self.asFloat.log
 	}
 
 	mediant { :self :aFraction |
@@ -496,15 +507,15 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	rationalize { :self :epsilon |
-		let c = self.continuedFraction(16);
+		let c = self.abs.continuedFraction(16);
 		let l = c.semiconvergents(epsilon);
 		valueWithReturn { :return:/1 |
 			l.do { :r |
 				((self - r).abs < epsilon).ifTrue {
-					r.return
+					self.copySignTo(r).return
 				}
 			};
-			l.last
+			self.copySignTo(l.last)
 		}
 	}
 

@@ -23,7 +23,8 @@ Written out:
 
 ```
 >>> [
->>> 	1, 2, 2 * 2,
+>>> 	1,
+>>> 	2, 2 * 2,
 >>> 	3, 3 * 2, 3 * 2 * 2,
 >>> 	5, 5 * 2, 5 * 2 * 2, 5 * 3, 5 * 3 * 2, 5 * 3 * 2 * 2
 >>> ].sort
@@ -51,7 +52,7 @@ For integer input, integer divisors are returned:
 [1 2 3 6]
 ```
 
-Divisors threads element‐wise over list arguments:
+Divisors threads element-wise over list arguments:
 
 ```
 >>> [605 871 824].divisors
@@ -67,10 +68,56 @@ Divisors threads element‐wise over list arguments:
 ]
 ```
 
+Divisor sets for all regular (5-smooth) numbers less than one hundred:
+
+```
+>>> 1:100.select { :each |
+>>> 	each.isSmoothNumber(5)
+>>> }.divisors
+[
+	1;
+	1 2;
+	1 3;
+	1 2 4;
+	1 5;
+	1 2 3 6;
+	1 2 4 8;
+	1 3 9;
+	1 2 5 10;
+	1 2 3 4 6 12;
+	1 3 5 15;
+	1 2 4 8 16;
+	1 2 3 6 9 18;
+	1 2 4 5 10 20;
+	1 2 3 4 6 8 12 24;
+	1 5 25;
+	1 3 9 27;
+	1 2 3 5 6 10 15 30;
+	1 2 4 8 16 32;
+	1 2 3 4 6 9 12 18 36;
+	1 2 4 5 8 10 20 40;
+	1 3 5 9 15 45;
+	1 2 3 4 6 8 12 16 24 48;
+	1 2 5 10 25 50;
+	1 2 3 6 9 18 27 54;
+	1 2 3 4 5 6 10 12 15 20 30 60;
+	1 2 4 8 16 32 64;
+	1 2 3 4 6 8 9 12 18 24 36 72;
+	1 3 5 15 25 75;
+	1 2 4 5 8 10 16 20 40 80;
+	1 3 9 27 81;
+	1 2 3 5 6 9 10 15 18 30 45 90;
+	1 2 3 4 6 8 12 16 24 32 48 96;
+	1 2 4 5 10 20 25 50 100
+]
+```
+
 Find all perfect numbers less than 500:
 
 ```
->>> 1:499.select { :each | each.divisors.sum = (2 * each) }
+>>> 1:499.select { :each |
+>>> 	each.divisors.sum = (2 * each)
+>>> }
 [6 28 496]
 ```
 
@@ -95,11 +142,13 @@ A logarithmic plot of the intervals between consecutive divisors:
 
 * * *
 
-See also: remainder
+See also: divisorSigma, divisorSum, gcd, remainder
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Divisor.html)
-[2](http://reference.wolfram.com/language/ref/Divisors.html)
+[2](http://reference.wolfram.com/language/ref/Divisors.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Table_of_divisors)
 
 Categories: Arithmetic

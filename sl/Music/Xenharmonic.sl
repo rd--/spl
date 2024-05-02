@@ -122,6 +122,14 @@
 		self.collect(keesSemiHeight:/1)
 	}
 
+	kurenniemiMajorMinorIndex { :self |
+		let l = self.lcm.log;
+		let g = self.gcd.log;
+		self.collect { :each |
+			each.log.rescale(g, l, -1, 1)
+		}.sum / self.size
+	}
+
 	octaveReduced { :self |
 		self.collect(octaveReduced:/1)
 	}

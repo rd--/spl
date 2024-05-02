@@ -38,7 +38,7 @@ true
 true
 ```
 
-At Fraction:
+At `Fraction`:
 
 ```
 >>> 3/2.divisible(1/2)
@@ -48,7 +48,7 @@ true
 true
 ```
 
-At SmallFloat:
+At `SmallFloat`:
 
 ```
 >>> 2.pi.divisible(0.5.pi)
@@ -64,7 +64,7 @@ false
 false
 ```
 
-At LargeInteger:
+At `LargeInteger`:
 
 ```
 >>> (10n ^ 3000 + 1).divisible(16001n)
@@ -83,6 +83,7 @@ Divisible threads elementwise over lists:
 >>> 1:6 % 2 =.each [0]
 [false true false true false true]
 ```
+
 
 * * *
 

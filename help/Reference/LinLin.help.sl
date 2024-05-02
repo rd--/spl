@@ -40,9 +40,18 @@ SinOsc(
 ) * 0.1
 ```
 
+At `SmallFloat`:
+
+```
+>>> [0 0.5 1].collect { :each |
+>>> 	each.LinLin(0, 3, 3, 9)
+>>> }
+[3 6 9]
+```
+
 * * *
 
-See also: LinExp
+See also: LinExp, rescale
 
 References:
 _Csound_

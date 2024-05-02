@@ -215,6 +215,10 @@
 		}
 	}
 
+	dividesImmediately { :self :aNumber |
+		Fraction(self, 1).dividesImmediately(Fraction(aNumber, 1))
+	}
+
 	divisorSum { :self :aBlock:/1 |
 		self.divisors.collect(aBlock:/1).sum
 	}

@@ -80,6 +80,14 @@
 		maybePrime
 	}
 
+	liouvilleLambda { :self |
+		self.primeFactors.size.isEven.if {
+			1
+		} {
+			-1
+		}
+	}
+
 	millerRabinPrimalityTest { :self :k |
 		var d, s, a, x, r;
 		valueWithReturn { :return:/1 |
@@ -122,6 +130,14 @@
 				}
 			};
 			true
+		}
+	}
+
+	moebiusMu { :self |
+		self.isSquareFree.if {
+			self.liouvilleLambda
+		} {
+			0
 		}
 	}
 

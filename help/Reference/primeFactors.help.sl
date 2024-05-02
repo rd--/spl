@@ -22,6 +22,14 @@ In the `Integer` case all factors will be integers:
 [5 5]
 ```
 
+The number 30 is the smallest 3-dimensional number,
+it contains each of the three smallest prime numbers (2, 3, and 5) once:
+
+```
+>>> 30.primeFactors
+[2 3 5]
+```
+
 At answer of `^`:
 
 ```
@@ -50,6 +58,9 @@ At `Fraction`:
 
 >>> 1/25.primeFactors
 [1/5 1/5]
+
+>>> 64/63.primeFactors
+[2 2 2 2 2 2 1/3 1/3 1/7]
 ```
 
 Threads elementwise over lists:

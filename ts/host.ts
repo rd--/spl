@@ -46,6 +46,7 @@ export async function systemCommand(
 	commandName: string,
 	argumentArray: string[],
 ) {
+	console.debug('systemCommand', commandName, argumentArray);
 	const command = new Deno.Command(commandName, { args: argumentArray });
 	return command.output().then(function (result) {
 		return {

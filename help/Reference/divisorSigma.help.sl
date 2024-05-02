@@ -22,6 +22,15 @@ The number of divisors:
 6
 ```
 
+The size of the `divisors` is equal to `divisorSigma` of `zero`:
+
+```
+>>> [60 1729 8640].collect { :each |
+>>> 	[each.divisors.size, 0.divisorSigma(each)]
+>>> }
+[12 12; 8 8; 56 56]
+```
+
 The sum of divisors:
 
 ```
@@ -36,7 +45,7 @@ The sum of squares of divisors:
 546
 ```
 
-DivisorSigma works over integers:
+At `Integer`:
 
 ```
 >>> 2.divisorSigma(6)
@@ -64,6 +73,16 @@ Threads elementwise over lists:
 [1 5 10 21 26]
 ```
 
+OEIS entry _A000005_:
+
+```
+>>> 0.divisorSigma(1:40)
+[
+	1 2 2 3 2 4 2 4 3 4 2 6 2 4 4 5 2 6 2 6
+	4 4 2 8 3 4 4 6 2 8 2 6 4 4 4 9 2 4 4 8
+]
+```
+
 Recognize perfect numbers, numbers _n_ such that the sum of their divisors is equal to _2n_:
 
 ```
@@ -85,21 +104,33 @@ Abundant numbers, numbers _n_ such that the sum of their divisors is greater tha
 [12 18 20 24 30]
 ```
 
-Plot divisorSigma:
+Plot divisor function _σ₀(n)_ up to _n = 250_:
 
 ~~~
-0.divisorSigma(1:50).plot
+0.divisorSigma(1:250).plot
+~~~
 
-1.divisorSigma(1:50).plot
+Plot divisor function _σ₁(n)_ up to _n = 250_:
 
-2.divisorSigma(1:50).plot
+~~~
+1.divisorSigma(1:250).plot
+~~~
+
+Plot divisor function _σ₂(n)_ up to _n = 250_:
+
+~~~
+2.divisorSigma(1:250).plot
 ~~~
 
 * * *
 
-See also: divisible, divisors, eulerPhi
+See also: divisible, divisors, divisorSum, eulerPhi
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DivisorFunction.html)
-[2](https://reference.wolfram.com/language/ref/DivisorSigma.html)
+[2](https://reference.wolfram.com/language/ref/DivisorSigma.html),
+_OEIS_
+[1](https://oeis.org/A000005),
+_W_
+[1](https://en.wikipedia.org/wiki/Divisor_function)

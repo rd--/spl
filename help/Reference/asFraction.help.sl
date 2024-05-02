@@ -16,6 +16,9 @@ In the `Integer` case, answer a `Fraction` above `one`:
 ```
 >>> 23.asFraction
 23/1
+
+>>> -23.asFraction
+-23/1
 ```
 
 In the `SmallFloat` case derive a `Fraction` using `rationalize`:
@@ -46,6 +49,13 @@ Threads over lists:
 ```
 >>> [0.25 0.5 0.75].asFraction
 [1/4 1/2 3/4]
+```
+
+At negative numbers:
+
+```
+>>> -0.22047.asFraction
+-28/127
 ```
 
 * * *

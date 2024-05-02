@@ -67,6 +67,18 @@ Compute for large integers:
 7n
 ```
 
+In a divisibility network, two numbers are connected if they share a common divisor:
+
+```
+>>> 1:9.tuples(2).select { :each |
+>>> 	let [i, j] = each;
+>>> 	i < j & {
+>>> 		i.gcd(j) > 1
+>>> 	}
+>>> }
+[2 4; 2 6; 2 8; 3 6; 3 9; 4 6; 4 8; 6 8; 6 9]
+```
+
 Plot the gcd for a number with 12:
 
 ~~~

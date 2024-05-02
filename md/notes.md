@@ -633,6 +633,11 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+2e4b ⹋ Triple Dagger
 - U+2e4d ⹍ Paragraphus Mark
 - U+3012 〒 Postal Mark
+- U+2080 ₀ Subscript Zero
+- U+2081 ₁ Subscript One
+- U+2082 ₂ Subscript Two
+- U+2083 ₃ Subscript Three
+- U+2084 ₄ Subscript Four
 
 - # Unicode
 
