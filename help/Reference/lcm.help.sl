@@ -22,7 +22,7 @@ Least common multiple.
 At `Collection`:
 
 ```
->>> [2 3 5].reduce\(lcm:/2)
+>>> [2 3 5].reduce(lcm:/2)
 30
 
 >>> [2 3 5].lcm

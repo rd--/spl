@@ -702,6 +702,15 @@
 		}
 	}
 
+	downsample { :self :anInteger |
+		(1, 1 + anInteger .. self.size).collect { :each |
+			self[each]
+		}
+	}
+
+	downsampleSteinarsson { :self :threshold |
+		<primitive: return sc.downsampleSteinarsson(_self, _threshold);>
+	}
 
 	drop { :self :count |
 		(count.abs >= self.size).if {
@@ -2816,6 +2825,14 @@
 
 	tuples { :self :count |
 		(self ! count).tuples
+	}
+
+	upsample { :self :anInteger |
+		let answer = List(self.size * anInteger, 0);
+		0.to(self.size - 1).do { :each |
+			answer[(each * anInteger) + 1] := self[each + 1]
+		};
+		answer
 	}
 
 	vectorAngle { :u :v |

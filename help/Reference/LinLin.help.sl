@@ -44,7 +44,7 @@ At `SmallFloat`:
 
 ```
 >>> [0 0.5 1].collect { :each |
->>> 	each.LinLin(0, 3, 3, 9)
+>>> 	each.LinLin(0, 1, 3, 9)
 >>> }
 [3 6 9]
 ```

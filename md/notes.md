@@ -638,6 +638,8 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - U+2082 ₂ Subscript Two
 - U+2083 ₃ Subscript Three
 - U+2084 ₄ Subscript Four
+- U+2295 ⊕ Circled Plus
+- U+2A01 ⨁ N-Ary Circled Plus Operator
 
 - # Unicode
 

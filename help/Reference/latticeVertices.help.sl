@@ -14,4 +14,4 @@ Answer a _matrix_ where each entry tells the `latticeVector` of the correspondin
 
 * * *
 
-See also: latticePrimes
+See also: latticePrimes, Tuning

@@ -2,7 +2,8 @@
 
 - _enclose(anObject)_
 
-Enclose _anObject_ in a List.
+Enclose _anObject_ in a `List`.
+Answers a `List` of one place.
 
 ```
 >>> 1.enclose
@@ -18,7 +19,7 @@ Enclose _anObject_ in a List.
 1
 ```
 
-_x.enclose_ can be written _[x]_.
+_enclose(x)_ can be written _[x]_.
 
 * * *
 

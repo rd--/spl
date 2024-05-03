@@ -1,8 +1,9 @@
 # nest
 
-- _nest(anObject|aCollection)_
+- _nest(anObject)_
 
 Enclose _anObject_ in a `List` only if it is not a collection.
+Answers either a `List` of one place, holding _anObject_, or _anObject_.
 
 ```
 >>> 1.nest
