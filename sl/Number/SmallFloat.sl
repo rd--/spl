@@ -366,6 +366,11 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.log10(_self)>
 	}
 
+	lucasNumber { :self |
+		let phi = 1.goldenRatio;
+		(phi ^ self) + (self.pi.cos * (phi ^ self.negated))
+	}
+
 	min { :self :anObject |
 		<primitive: if(sl.isSmallFloat(_anObject)) { return Math.min(_self, _anObject); }>
 		anObject.adaptToNumberAndApply(self, min:/2)

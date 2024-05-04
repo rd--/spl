@@ -291,6 +291,8 @@
 - `bernoulliList`, `fibonacciList`, `primesList`
 - `fareySequence`, `sternBrocotSequence`
 - `calkinWilfTree`, `sternBrocotTree`
+- `stolarskyArray`
+- `wythoffArray`, `wythoffLower`, `wythoffPair`, `wythoffUpper`
 
 ## Interval
 
@@ -483,8 +485,8 @@
 
 ## Recurrence and Sum Functions
 
-- `bernoulli`, `fibonacci`
-- `bernoulliList`, `fibonacciList`
+- `bernoulli`, `fibonacci`, `lucasNumber`
+- `bernoulliList`, `fibonacciList`, `fibonacciListUpTo`
 - `harmonicNumber`
 
 ## Reflection

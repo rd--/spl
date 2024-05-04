@@ -209,6 +209,10 @@
 		self.collect(log2:/1)
 	}
 
+	lucasNumber { :self |
+		self.collect(lucasNumber:/1)
+	}
+
 	minkowskiQuestionMark { :self |
 		self.collect(minkowskiQuestionMark:/1)
 	}

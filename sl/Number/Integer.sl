@@ -350,6 +350,10 @@
 		answer
 	}
 
+	fibonacciWord { :self |
+		2 + self.goldenRatio.floor - (self + 1).goldenRatio.floor
+	}
+
 	foldIndex { :self :size |
 		self.foldBetweenAnd(1, size)
 	}
@@ -708,6 +712,15 @@
 		}
 	}
 
+	lucasNumber { :self |
+		(self = 1).if {
+			1
+		} {
+			let phi = 1.goldenRatio;
+			(phi ^ self).rounded
+		}
+	}
+
 	minimalResidue { :self :modulus |
 		let p = self % modulus;
 		let q = p - modulus;
@@ -937,6 +950,37 @@
 		answer
 	}
 
+	stolarskyArray { :m :n |
+		let phi = 1.goldenRatio;
+		let g = { :x | (x * phi + 0.5).floor };
+		(n = 1).if {
+			(m = 1).if {
+				1
+			} {
+				let z = (m - 1).stolarskyArray(1) + 1;
+				let rowContains = { :r :x |
+					let k = r.stolarskyArray(1);
+					{
+						k < x
+					}.whileTrue {
+						k := g(k)
+					};
+					k = x
+				};
+				{
+					1.to(m - 1).anySatisfy { :r |
+						r.rowContains(z)
+					}
+				}.whileTrue {
+					z := z + 1
+				};
+				z
+			}
+		} {
+			g(m.stolarskyArray(n - 1))
+		}
+	}
+
 	subdivide { :self |
 		Range(0, 1, Fraction(1, self))
 	}
@@ -1033,8 +1077,53 @@
 		Fraction(p, q)
 	}
 
+	wythoffArray { :m :n |
+		let phi = 1.goldenRatio;
+		(n = 1).if {
+			((m * phi).floor * phi).floor
+		} {
+			(n = 2).if {
+				((m * phi).floor * phi.squared).floor
+			} {
+				m.wythoffArray(n - 2) + m.wythoffArray(n - 1)
+			}
+		}
+	}
+
+	wythoffLower { :self |
+		(self * 1.goldenRatio).floor
+	}
+
+	wythoffPair { :self |
+		let phi = 1.goldenRatio;
+		[(self * phi).floor, (self * phi.squared).floor]
+	}
+
+	wythoffUpper { :self |
+		(self * 1.goldenRatio.squared).floor
+	}
+
 	wrapIndex { :self :size |
 		self - 1 % size + 1
+	}
+
+	zeckendorfRepresentation { :self |
+		(self <= 0).if {
+			[0]
+		} {
+			let f = self.fibonacciListUpTo;
+			let k = f.size - 1;
+			let z = [];
+			f.removeFirst;
+			k.toByDo(1, -1) { :i |
+				let n = f[i];
+				z.add((n <= self).if { 1 } { 0 });
+				(n <= self).ifTrue {
+					self := self - n
+				}
+			};
+			z
+		}
 	}
 
 }
