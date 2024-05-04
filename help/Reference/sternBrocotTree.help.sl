@@ -5,7 +5,9 @@
 Answer the Stern-Brocot `Tree` of depth _anInteger_.
 
 ```
->>> 1:4.collect { :n | n.sternBrocotTree.contents.collect(value:/1).sort }
+>>> 1:4.collect { :n |
+>>> 	n.sternBrocotTree.contents.collect(value:/1).sort
+>>> }
 [
 	[1/1]
 	[1/2 1/1 2/1]
@@ -18,6 +20,13 @@ Answer the Stern-Brocot `Tree` of depth _anInteger_.
 
 >>> 15.sternBrocotSequence.first(15)
 [1 1 2 1 3 2 3 1 4 3 5 2 5 3 4]
+```
+
+The Stern-Brocot tree is a binary tree:
+
+```
+>>> 4.sternBrocotTree.isBinary
+true
 ```
 
 * * *

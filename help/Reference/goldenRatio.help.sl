@@ -16,6 +16,13 @@ Answer _aNumber_ × the golden ratio, usually written as Phi or phi, also as tau
 (5.sqrt + 1)
 ```
 
+The golden ratio is the `metallicMean` of `one`:
+
+```
+>>> 1.metallicMean
+1.61803
+```
+
 φ is the number whose inversion is itself minus `one`:
 
 ```
@@ -82,7 +89,7 @@ Plot the fractional part of multiples of the golden ratio:
 
 * * *
 
-See also: e, Mathematical Constants, pi
+See also: e, Mathematical Constants, metallicMean, pi
 
 References:
 _Mathematica_

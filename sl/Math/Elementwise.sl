@@ -134,6 +134,10 @@
 		self.collect(factorInteger:/1)
 	}
 
+	fibonacciWord { :self |
+		self.collect(fibonacciWord:/1)
+	}
+
 	fractionPart { :self |
 		self.collect(fractionPart:/1)
 	}

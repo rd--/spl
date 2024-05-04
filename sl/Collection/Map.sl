@@ -93,6 +93,18 @@ Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictiona
 		self.associations.storeString ++ '.asMap'
 	}
 
+	substitutionSystem { :self :aSequence :anInteger |
+		let answer = [aSequence];
+		anInteger.timesRepeat {
+			let next = [];
+			answer.last.do { :each |
+				next.addAll(self[each])
+			};
+			answer.add(next)
+		};
+		answer
+	}
+
 	values { :self |
 		<primitive: return Array.from(_self.values());>
 	}

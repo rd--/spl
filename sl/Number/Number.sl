@@ -348,6 +348,10 @@
 		}
 	}
 
+	metallicMean { :n |
+		(n + (n.squared + 4).sqrt) / 2
+	}
+
 	minkowskiDistance { :p :u :v |
 		((u - v).abs ^ p).sum ^ (1 / p)
 	}
@@ -387,6 +391,16 @@
 
 	pi { :self |
 		self * 3.1415926535897932384626433
+	}
+
+	perrinFunction { :n |
+		let rho = 1.plasticRatio;
+		let theta = ((rho ^ 3).sqrt.- / 2).arcCos;
+		(rho ^ n) + (2 * (n * theta).cos * (rho ^ n.-).sqrt)
+	}
+
+	plasticRatio { :self |
+		self * 1.3247179572447460259609089
 	}
 
 	powerMod { :self :exponent :modulo |
