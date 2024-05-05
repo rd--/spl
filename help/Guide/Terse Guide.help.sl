@@ -355,7 +355,7 @@ let a = [1 .. 9]; let r = Random(13579); a.shuffleUsing(r); a = [9, 8, 2, 3, 5, 
 let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } {- answer shuffled copy -}
 [1 .. 9].shuffled.sorted = [1 .. 9] {- resort after shuffle -}
 [].shuffled = []
-13.fibonacciList = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
+13.fibonacciSequence = [1 1 2 3 5 8 13 21 34 55 89 144 233]
 '3' # 3 = ['3', '3', '3']
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity:/1) = 4
 [1:3, 1:6, 1:9].detectMax(size:/1) = 1:9

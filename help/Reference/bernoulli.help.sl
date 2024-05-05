@@ -7,7 +7,7 @@ Answer the _anInteger_-th Bernoulli number.
 First 10 Bernoulli numbers:
 
 ```
->>> 10.bernoulliList
+>>> 10.bernoulliSequence
 [1/1 1/2 1/6 0 -1/30 0 1/42 0 -1/30 0 5/66]
 ```
 
@@ -20,9 +20,12 @@ The 60th Bernoulli number:
 
 * * *
 
-See also: bernoulliList
+See also: bernoulliSequence
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BernoulliNumber.html)
-[2](https://reference.wolfram.com/language/ref/BernoulliB.html)
+[2](https://reference.wolfram.com/language/ref/BernoulliB.html),
+_OEIS_
+[1](https://oeis.org/A000367)
+[2](https://oeis.org/A002445)

@@ -88,10 +88,10 @@
 	}
 
 	bernoulli { :k |
-		k.bernoulliList.last
+		k.bernoulliSequence.last
 	}
 
-	bernoulliList { :k |
+	bernoulliSequence { :k |
 		let a = List(k + 1);
 		let b = List(k + 1);
 		(0 .. k).do { :n |
@@ -110,6 +110,11 @@
 		} {
 			0
 		}
+	}
+
+	binetsFormula { :n |
+		let z = 5.sqrt;
+		((1 + z) ^ n) - ((1 - z) ^ n) / (2 ^ n * z)
 	}
 
 	bitLength { :self |
@@ -346,6 +351,24 @@
 			let k = ((n + b) / d).floor;
 			[a, b, c, d] := [c, d, k * c - a, k * d - b];
 			answer.add(Fraction(a, b))
+		};
+		answer
+	}
+
+	fibonacciSequence { :self |
+		self.fibonacciSequenceInto([])
+	}
+
+	fibonacciSequenceUpTo { :self |
+		let answer = [1];
+		let n = 1;
+		let k = 1;
+		{
+			n <= self
+		}.whileTrue {
+			answer.add(n);
+			n := n + answer[k];
+			k := k + 1
 		};
 		answer
 	}
@@ -843,6 +866,18 @@
 		self
 	}
 
+	padovanSequence { :self :initial |
+		let answer = initial.copy;
+		4.toDo(self) { :i |
+			answer.add(answer[i - 2] + answer[i - 3])
+		};
+		answer
+	}
+
+	padovanSequence { :self |
+		self.padovanSequence([1 1 1])
+	}
+
 	partitionFunctionP { :n |
 		let a = List(n + 1);
 		a[1] := 1n;
@@ -868,6 +903,10 @@
 			}
 		};
 		a[n + 1]
+	}
+
+	perrinSequence { :self |
+		self.padovanSequence([3 0 2])
 	}
 
 	polygonalNumber { :r :n |
@@ -1111,7 +1150,7 @@
 		(self <= 0).if {
 			[0]
 		} {
-			let f = self.fibonacciListUpTo;
+			let f = self.fibonacciSequenceUpTo;
 			let k = f.size - 1;
 			let z = [];
 			f.removeFirst;

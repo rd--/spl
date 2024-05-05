@@ -87,7 +87,7 @@ Log plot of positive and negative Fibonacci numbers:
 
 * * *
 
-See also: fibonacciList, goldenRatio
+See also: fibonacciSequence, goldenRatio
 
 References:
 _Mathematica_

@@ -19,7 +19,7 @@ The first few terms in both directions:
 The first fourteen prime Perrin numbers:
 
 ```
->>> [2 3 4 5 6 7 10 12 20 21 24 34 38].collect(perrinFunction:/1).rounded
+>>> [2 3 4 5 6 7 10 12 20 21 24 34 38].collect(perrinFunction:/1)
 [2 3 2 5 5 7 17 29 277 367 853 14197 43721]
 ```
 
@@ -35,6 +35,9 @@ See also: fibonacci, lucasNumber
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/PerrinSequence.html)
+[1](https://mathworld.wolfram.com/PerrinSequence.html),
+_OEIS_
+[1](https://oeis.org/A001608)
+[2](https://oeis.org/A112881),
 _W_
 [1](https://en.wikipedia.org/wiki/Perrin_number)

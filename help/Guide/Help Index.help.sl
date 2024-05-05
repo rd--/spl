@@ -288,7 +288,7 @@
 
 ## Integer Sequences
 
-- `bernoulliList`, `fibonacciList`, `primesList`
+- `bernoulliSequence`, `fibonacciSequence`, `primesList`
 - `fareySequence`, `sternBrocotSequence`
 - `calkinWilfTree`, `sternBrocotTree`
 - `stolarskyArray`
@@ -486,7 +486,7 @@
 ## Recurrence and Sum Functions
 
 - `bernoulli`, `fibonacci`, `lucasNumber`
-- `bernoulliList`, `fibonacciList`, `fibonacciListUpTo`
+- `bernoulliList`, `fibonacciSequence`, `fibonacciSequenceUpTo`
 - `harmonicNumber`
 
 ## Reflection

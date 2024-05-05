@@ -261,24 +261,6 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 +@Integer {
 
-	fibonacciList { :self |
-		self.fibonacciSequenceInto([])
-	}
-
-	fibonacciListUpTo { :self |
-		let answer = [1];
-		let n = 1;
-		let k = 1;
-		{
-			n <= self
-		}.whileTrue {
-			answer.add(n);
-			n := n + answer[k];
-			k := k + 1
-		};
-		answer
-	}
-
 	fill { :self :aBlock:/1 |
 		let answer = List(self);
 		answer.indicesDo { :index |

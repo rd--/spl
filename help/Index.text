@@ -311,7 +311,7 @@ Reference/beginsWithAnyOf.help.sl
 Reference/beginsWith.help.sl
 Reference/benedettiHeight.help.sl
 Reference/bernoulli.help.sl
-Reference/bernoulliList.help.sl
+Reference/bernoulliSequence.help.sl
 Reference/bernsteinBasis.help.sl
 Reference/beta.help.sl
 Reference/betweenAnd.help.sl
@@ -626,7 +626,7 @@ Reference/fetchMimeType.help.sl
 Reference/fetchText.help.sl
 Reference/fetchTextWithDefault.help.sl
 Reference/fibonacci.help.sl
-Reference/fibonacciList.help.sl
+Reference/fibonacciSequence.help.sl
 Reference/File.help.sl
 Reference/fileName.help.sl
 Reference/fillFrom.help.sl
