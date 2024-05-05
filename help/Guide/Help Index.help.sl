@@ -292,6 +292,7 @@
 - `fareySequence`, `sternBrocotSequence`
 - `calkinWilfTree`, `sternBrocotTree`
 - `stolarskyArray`
+- `narayanaSequence`, `vanDerLaanSequence`
 - `wythoffArray`, `wythoffLower`, `wythoffPair`, `wythoffUpper`
 
 ## Interval
@@ -316,6 +317,7 @@
 
 - `e`, `pi`
 - `eulerGamma`, `goldenAngle`, `goldenRatio`
+- `supergoldenRatio`, `plasticRatio`
 
 ## Mathematical Operators
 

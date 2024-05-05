@@ -819,6 +819,14 @@
 		}
 	}
 
+	narayanaSequence { :self |
+		let answer = [1 1 1];
+		4.toDo(self) { :i |
+			answer.add(answer[i - 1] + answer[i - 3])
+		};
+		answer
+	}
+
 	numberOfCompositions { :n :k |
 		(n - 1).factorial / ((k - 1).factorial * (n - k).factorial)
 	}
@@ -860,7 +868,6 @@
 			}
 		}
 	}
-
 
 	numerator { :self |
 		self
@@ -1114,6 +1121,10 @@
 			nn := nn // base
 		};
 		Fraction(p, q)
+	}
+
+	vanDerLaanSequence { :self |
+		self.padovanSequence([1 0 1])
 	}
 
 	wythoffArray { :m :n |

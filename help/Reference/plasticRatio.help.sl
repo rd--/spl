@@ -21,6 +21,14 @@ Powers of rho generate almost integers:
 3480
 ```
 
+The Plastic Number represents the smallest proportional growth of three-dimensional objects:
+
+```
+>>> let p = 1.plasticRatio;
+>>> (1 + p) = (p ^ 3)
+true
+```
+
 Sums of negative exponents answer integers:
 
 ```
@@ -35,6 +43,20 @@ C.f. `goldenRatio`:
 ```
 >>> (1.goldenRatio ^ [0 -1 -2]).sum
 2
+```
+
+The harmonic mean of _4/3, (3+4)/5 & 5/4_:
+
+```
+>>> [4/3 7/5 5/4].harmonicMean
+(1.plasticRatio + 1/4922)
+```
+
+The plastic ratio is close to the seventh root of seven:
+
+```
+>>> 7 ^ (1 / 7)
+(1.plasticRatio - 0.0042)
 ```
 
 * * *

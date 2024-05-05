@@ -34,9 +34,17 @@ The golden ratio is the `metallicMean` of `one`:
 φ has minimal polynomial:
 
 ```
->>> let x = 1.goldenRatio;
->>> x.squared - x - 1
+>>> let phi = 1.goldenRatio;
+>>> phi.squared - phi - 1
 0
+```
+
+Equivalently:
+
+```
+>>> let phi = 1.goldenRatio;
+>>> 1 + phi
+phi.squared
 ```
 
 Compute the Fibonacci numbers:
@@ -89,7 +97,7 @@ Plot the fractional part of multiples of the golden ratio:
 
 * * *
 
-See also: e, Mathematical Constants, metallicMean, pi
+See also: e, Mathematical Constants, metallicMean, pi, plasticRatio, supergoldenRatio
 
 References:
 _Mathematica_

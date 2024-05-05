@@ -588,6 +588,10 @@
 		self > 0
 	}
 
+	supergoldenRatio { :self |
+		self * 1.465571231876768
+	}
+
 	toByDo { :self :stop :step :aBlock:/1 |
 		(step = 0).if {
 			'@Number>>toByDo: step must be non-zero'.error
