@@ -21,7 +21,13 @@ Use `asBag` to reveal duplicate elements:
 Determine whether or not the sublists have the same total:
 
 ```
->>> let m = [0 0 0 1 0; 1 0 1 0 1; 1 1 1 0 0; 0 0 0 0 1; 1 1 1 0 1];
+>>> let m = [
+>>> 	0 0 0 1 0;
+>>> 	1 0 1 0 1;
+>>> 	1 1 1 0 0;
+>>> 	0 0 0 0 1;
+>>> 	1 1 1 0 1
+>>> ];
 >>> m.isDuplicateFree { :p :q | p.sum = q.sum }
 false
 ```

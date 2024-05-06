@@ -157,6 +157,29 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		}
 	}
 
+	levelOrderValues { :self |
+		let answer = [];
+		0.to(self.depth - 1).collect { :each |
+			answer.addAll(self.level(each).collect(value:/1))
+		};
+		answer
+	}
+
+	postOrderDo { :self :aBlock:/1 |
+		self.subTrees.do { :each |
+			each.postOrderDo(aBlock:/1)
+		};
+		aBlock(self)
+	}
+
+	postOrderValues { :self |
+		let answer = [];
+		self.postOrderDo { :each |
+			answer.add(each.value)
+		};
+		answer
+	}
+
 	reverseDo { :self :aBlock:/1 |
 		self.subTrees.reverseDo { :each |
 			each.reverseDo(aBlock:/1)
@@ -166,6 +189,14 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 
 	size { :self |
 		self.subTrees.size
+	}
+
+	values { :self |
+		let answer = [];
+		self.do { :each |
+			answer.add(each.value)
+		};
+		answer
 	}
 
 }

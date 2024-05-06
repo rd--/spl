@@ -21,15 +21,25 @@ Threads over lists:
 [2 3 7 9]
 ```
 
+Count the prime numbers up to 9999 & 99999:
+
+```
+>>> 9999.primePi
+1229
+
+>>> 99999.primePi
+9592
+```
+
 Plot the prime counting function:
 
 ~~~
-1:50.collect(primePi:/1).discretePlot
+1:100.collect(primePi:/1).discretePlot
 ~~~
 
 * * *
 
-See also: eulerPhi, nextPrime, primesList, primesUpTo
+See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes
 
 References:
 _Mathematica_

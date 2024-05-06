@@ -3,7 +3,7 @@
 - _uniqueId(aSystem)_
 
 Generate a unique idenfitier.
-Identifiers are integers, and unique only for the lifetime of _aSystem_.
+Identifiers are integers, and are unique only for the lifetime of _aSystem_.
 
 * * *
 

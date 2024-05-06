@@ -88,33 +88,67 @@ The `depth` of a tree is the same as the `depth` of an equivalent nested `List`:
 ```
 
 Trees are `Iterable`.
-`do` visits the tree and then each subTree in turn,
-and hence `contents` answers all of the subTrees:
+`do` visits the tree and then each subTree in turn (i.e. pre-order traversal),
+and hence `contents` answers all of the subTrees.
+`values` answers the value at each tree visited by `do`:
 
 ```
->>> let t = [1 [2 [3] 4] 5].asTree;
->>> t.contents.collect(value:/1)
-[nil 1 nil 2 nil 3 4 5]
+>>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.values
+[nil 1 nil 2 nil 4 nil 7 5 3 nil 6 nil 8 9]
+```
+
+`postOrderDo` visits each tree after visiting the its subtrees.
+`postOrderValues` collects the value of each tree visited by `postOrderDo`:
+
+```
+>>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.postOrderValues
+[1 2 4 7 nil 5 nil 3 6 8 9 nil nil nil nil]
+```
+
+`levelOrderDo` visits each level of each subtree in sequence.
+`levelOrderValues` collects the value of each tree visited by `levelOrderDo`:
+
+```
+>>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.levelOrderValues
+[nil 1 nil 2 nil 3 nil 4 nil 5 6 nil 7 8 9]
+```
+
+The values of a tree in each traversal order:
+
+```
+>>> let t = Tree(1, [
+>>> 	Tree(2, [Tree(4, [Tree(7, [])]),Tree(5, [])]),
+>>> 	Tree(3, [Tree(6, [Tree(8, []), Tree(9, [])])])
+>>> ]);
+>>> [t.values, t.postOrderValues, t.levelOrderValues]
+[
+	1 2 4 7 5 3 6 8 9;
+	7 4 5 2 8 9 6 3 1;
+	1 2 3 4 5 6 7 8 9
+]
 ```
 
 `reverseDo` visit each subTree in turn and then visits the tree:
 
 ```
->>> let t = [1 [2 [3] 4] 5].asTree;
+>>> let t = [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree;
 >>> let l = [];
->>> t.reverseDo { :each | l.add(each.value.printString) };
+>>> t.reverseDo { :each | l.add(each.value) };
 >>> l
-['5' '4' '3' 'nil' '2' 'nil' '1' 'nil']
+[9 8 nil 6 nil 3 5 7 nil 4 nil 2 nil 1 nil]
 ```
 
 `leavesDo` visits only the `value`s of the leaves of a `Tree`.
-`leaves` collects the items visited by `leavesDo` into a `List`.
-`flatten` at a `Tree` is equal to `leaves`.
+`leaves` collects the items visited by `leavesDo` into a `List`:
 
 ```
 >>> [1 [2 [3] 4] 5].asTree.leaves
 [1 2 3 4 5]
+```
 
+`flatten` at a `Tree` is equal to `leaves`.
+
+```
 >>> [1 [2 [3] 4] 5].asTree.flatten
 [1 2 3 4 5]
 ```

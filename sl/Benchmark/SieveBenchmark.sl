@@ -1,7 +1,7 @@
 +SmallFloat {
 
 	sieveBenchmark { :self |
-		self.sieveOfEratosthenes
+		self.sieveOfEratosthenes.size
 	}
 
 }

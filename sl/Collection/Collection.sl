@@ -413,10 +413,6 @@
 		}
 	}
 
-	isCollection { :self |
-		true
-	}
-
 	ifEmpty { :self :aBlock:/0 |
 		self.isEmpty.if {
 			aBlock()
@@ -461,6 +457,16 @@
 	interquartileRange { :self |
 		let [q1, q2, q3] = self.quartiles;
 		q3 - q1
+	}
+
+	isCollection { :self |
+		true
+	}
+
+	isDisjoint { :self :aCollection |
+		self.noneSatisfy { :each |
+			aCollection.includes(each)
+		}
 	}
 
 	isEmpty { :self |

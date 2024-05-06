@@ -43,7 +43,7 @@ Find divisors of 20 that are not also divisors of 12:
 The answer is not sorted and may contain repeated elements:
 
 ```
-'bedabcd'.contents \ 'bc'.contents
+>>> 'bedabcd'.contents \ 'bc'.contents
 'edad'.contents
 ```
 
@@ -53,7 +53,7 @@ See also: intersection, union
 
 References:
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:-92--92-)
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:-92--92-),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Complement.html)
 

@@ -2,7 +2,7 @@
 
 - leastPrimeGreaterThanOrEqualTo(anInteger)_
 
-Next prime after _anInteger_, or _anInteger_ if it is prime:
+Answer the next prime number after _anInteger_, or _anInteger_ if it is prime:
 
 ```
 >>> 19.leastPrimeGreaterThanOrEqualTo

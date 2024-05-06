@@ -17,13 +17,7 @@
 	}
 
 	indexOfPrime { :self |
-		let primesList = system.primesList;
-		(self <= primesList.last).if {
-			primesList.indexOf(self)
-		} {
-			(primesList.size + 8).primesListExtend(primesList);
-			self.indexOfPrime
-		}
+		system.cachedPrimesListExtendedToPrime(self).binarySearch(self)
 	}
 
 	isCoprime { :self :anInteger |
@@ -41,26 +35,33 @@
 	}
 
 	isPrime { :self |
+		system.isCachedPrime(self).if {
+			true
+		} {
+			self.isPrimeTrialDivision
+		}
+	}
+
+	isPrimeTrialDivision { :self |
 		(self <= 1).if {
 			false
 		} {
-			(self = 2).if {
-				true
+			(self % 2 = 0).if {
+				self = 2
 			} {
-				let selfSqrt = self.sqrt;
-				let i = 2;
-				valueWithReturn { :return:/1 |
-					{
-						i <= selfSqrt
-					}.whileTrue {
-						(self % i = 0).ifTrue {
-							false.return
-						};
-						i := i + 1
-					};
-					true.return
+				let limit = self.sqrt.floor;
+				(3, 5 .. limit).noneSatisfy { :each |
+					self % each = 0
 				}
 			}
+		}
+	}
+
+	isPrimeWilson { :self |
+		(self < 2).if {
+			false
+		} {
+			((self - 1).factorial + 1).divisible(self)
 		}
 	}
 
@@ -71,13 +72,13 @@
 	}
 
 	leastPrimeGreaterThanOrEqualTo { :self |
-		let maybePrime = self;
+		let answer = self;
 		{
-			maybePrime.isPrime.not
-		}.whileTrue {
-			maybePrime := maybePrime + 1
+			answer.isPrime
+		}.whileFalse {
+			answer := answer + 1
 		};
-		maybePrime
+		answer
 	}
 
 	liouvilleLambda { :self |
@@ -146,12 +147,8 @@
 	}
 
 	nthPrime { :self |
-		let primesList = system.primesList;
-		(self > primesList.size).if {
-			self.primesListExtend(primesList)
-		} {
-			primesList[self]
-		}
+		let primesList = system.cachedPrimesListExtendedToIndex(self);
+		primesList[self]
 	}
 
 	nthPrimeGap { :self |
@@ -160,7 +157,7 @@
 
 	previousPrime { :self |
 		let index = self.leastPrimeGreaterThanOrEqualTo.indexOfPrime - 1;
-		system.primesList[index]
+		system.cachedPrimesList[index]
 	}
 
 	primeDivisors { :self |
@@ -211,6 +208,32 @@
 		}
 	}
 
+	primeFactorsTrialDivision { :self |
+		let n = self;
+		let m = 3;
+		let answer = [];
+		{
+			n % 2 = 0
+		}.whileTrue {
+			answer.add(2);
+			n := n // 2
+		};
+		{
+			m * m <= n
+		}.whileTrue {
+			(n % m = 0).if {
+				answer.add(m);
+				n := n // m
+			} {
+				m := m + 2
+			}
+		};
+		(n ~= 1).ifTrue {
+			answer.add(n)
+		};
+		answer
+	}
+
 	primeNu { :self |
 		self.primeFactorization.asMap.size
 	}
@@ -221,7 +244,7 @@
 
 	primePi { :self |
 		let answer = 0;
-		self.primesUpToDo { :each |
+		self.sieveOfEratosthenesDo { :unusedItem |
 			answer := answer + 1
 		};
 		answer
@@ -239,41 +262,27 @@
 		} {
 			iMin.nextPrime.indexOfPrime
 		};
-		system.primesList.copyFromTo(
+		system.cachedPrimesList.copyFromTo(
 			startIndex,
 			iMax.nextPrime.indexOfPrime - 1
 		)
 	}
 
 	primesList { :self |
-		let answer = List(self);
-		let n = 1;
-		answer.indicesDo { :index |
-			n := n.nextPrime;
-			answer[index] := n
-		};
-		answer
-	}
-
-	primesListExtend { :self :aList |
-		let n = aList.last;
-		(self - aList.size).timesRepeat {
-			n := n.nextPrime;
-			aList.add(n)
-		};
-		n
+		system.cachedPrimesListExtendedToIndex(self).take(self)
 	}
 
 	primesUpTo { :self |
-		system.primesList.copyFromTo(
+		system.cachedPrimesList.copyFromTo(
 			1,
 			self.nextPrime.indexOfPrime - 1
 		)
 	}
 
 	primesUpToDo { :self :aBlock:/1 |
-		let primesList = system.primesList;
-		1.toDo(self.nextPrime.indexOfPrime - 1) { :index |
+		let k = self.nextPrime.indexOfPrime - 1;
+		let primesList = system.cachedPrimesListExtendedToIndex(k);
+		1.toDo(k) { :index |
 			aBlock(primesList[index])
 		}
 	}
@@ -287,15 +296,14 @@
 		{ c.atRandom } ! count
 	}
 
-	sieveOfEratosthenes { :self |
+	sieveOfEratosthenesDo { :self :aBlock:/1 |
 		let size = self;
 		let flags = List(size);
-		let primeCount = 0;
 		flags.atAllPut(true);
 		2.toDo(size) { :i |
 			flags[i - 1].ifTrue{
 				let k = i + i;
-				primeCount := primeCount + 1;
+				aBlock(i);
 				{
 					k <= size
 				}.whileTrue {
@@ -303,8 +311,15 @@
 					k := k + i
 				}
 			}
+		}
+	}
+
+	sieveOfEratosthenes { :self |
+		let answer = [];
+		self.sieveOfEratosthenesDo { :each |
+			answer.add(each)
 		};
-		primeCount
+		answer
 	}
 
 }
@@ -394,12 +409,47 @@
 
 }
 
++List {
+
+	primesListExtendedToIndex { :self :anInteger |
+		let p = self.last;
+		(anInteger - self.size).timesRepeat {
+			p := p.nextPrime;
+			self.add(p)
+		};
+		p
+	}
+
+}
+
 +@Cache {
 
-	primesList { :self |
+	isCachedPrime { :self :anInteger |
+		self.cachedPrimesList.binarySearch(anInteger) ~= 0
+	}
+
+	cachedPrimesList { :self |
 		self.cached('primesList') {
-			23.primesList
+			1:99.select(isPrimeTrialDivision:/1)
 		}
+	}
+
+	cachedPrimesListExtendedToIndex { :self :anInteger |
+		let primesList = self.cachedPrimesList;
+		(anInteger > primesList.size).ifTrue {
+			primesList.primesListExtendedToIndex(anInteger)
+		};
+		primesList
+	}
+
+	cachedPrimesListExtendedToPrime { :self :anInteger |
+		let primesList = self.cachedPrimesList;
+		{
+			primesList.last < anInteger
+		}.whileTrue {
+			primesList.primesListExtendedToIndex(primesList.size + 8)
+		};
+		primesList
 	}
 
 }

@@ -158,6 +158,17 @@ Block! : [Object] {
 		aSequence.withWithCollect(anotherSequence, aThirdSequence, self:/3)
 	}
 
+	memoize { :self:/1 |
+		let table = Map();
+		{ :input |
+			table.atIfAbsent(input) {
+				let answer = self(input);
+				table.atPut(input, answer);
+				answer
+			}
+		}
+	}
+
 	methodName { :self |
 		<primitive: return _self.name.split(':')[0];>
 	}

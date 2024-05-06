@@ -1,6 +1,6 @@
 # primesList
 
-- _primesList(anInteger | aSystem)_
+- _primesList(anInteger)_
 
 Answer the first _anInteger_ elements of the prime number sequence.
 
@@ -12,10 +12,7 @@ Answer the first _anInteger_ elements of the prime number sequence.
 The primes `List` is cached (memoized) by the system:
 
 ```
->>> system.cache::primesList[9]
-23
-
->>> system.primesList[9]
+>>> system.cachedPrimesList[9]
 23
 ```
 

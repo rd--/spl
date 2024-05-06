@@ -2,17 +2,17 @@
 
 Cache is used to implement initialise-on-demand global variables.
 
-The requried method is _cache_, which should answer a _Dictionary_.
+The requried method is `cache`, which should answer a `Dictionary`.
 
-Implements the methods _cached_, for where the initializer is synchronous, and _whenCached_ for where is is not.
+Implements the methods `cached`, for where the initializer is synchronous, and `whenCached` for where is is not.
 
-The _System_ type, which is instantiated once as _system_, implements _Cache_.
+The `System` type, which is instantiated once as `system`, implements `Cache`.
 
-The _primesList_ method caches previous requests, and continues any required calculations from the cached answers.
+The `primesList` method caches previous requests, and continues any required calculations from the cached answers.
 
 ```
 >>> 23.primesList
-system.primesList.first(23)
+system.cachedPrimesList.first(23)
 ```
 
 * * *

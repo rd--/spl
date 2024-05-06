@@ -61,9 +61,31 @@ Find integers that have exactly 3 nonzero binary digits:
 [1 2; 1 3; 2 3]
 ```
 
+Construct the _Petersen_ graph as the third _Odd Graph_.
+The _n_-th Odd Graph has as vertices the _n-1_-element subsets of _1 .. 2*n-1_,
+and an edge between two vertices if their corresponding sets are disjoint:
+
+```
+>>> let v = 1:5.subsets { :each | each.size = 2 };
+>>> v.collect { :i |
+>>> 	i -> v.select { :j |
+>>> 		i.precedes(j) & { i.isDisjoint(j) }
+>>> 	}
+>>> }.select { :each | each.value.notEmpty }
+[
+	[1 2] -> [[3 4] [3 5] [4 5]],
+	[1 3] -> [[2 4] [2 5] [4 5]],
+	[2 3] -> [[4 5]],
+	[1 4] -> [[2 3] [2 5] [3 5]],
+	[2 4] -> [[3 5]],
+	[1 5] -> [[2 3] [2 4] [3 4]],
+	[2 5] -> [[3 4]]
+]
+```
+
 * * *
 
-See also: combinationsAtATimeDo, powerSet, subsets, tuples
+See also: combinationsAtATimeDo, powerSet, tuples
 
 References:
 _Mathematica_

@@ -2,7 +2,9 @@
 
 - _values(aDictionary)_
 
-Answer the values of a dictionary.
+Answer a `List` of the values of a dictionary.
+
+At `Record`:
 
 ```
 >>> (x: 1, y: 2, z: 3).values

@@ -2,10 +2,13 @@
 
 - _intersection(aCollection, anotherCollection)_
 
-Answer a `Set` that is the set theoretic intersection of two collections.
+Answer the set theoretic intersection of two collections.
 
 ```
->>> [1 1 2 3].intersection([3 1 4]).intersection([4 1 3 3]).asSet
+>>> let s1 = [1 1 2 3].asSet;
+>>> let s2 = [3 1 4].asSet;
+>>> let s3 = [4 1 3 3].asSet;
+>>> s1.intersection(s2).intersection(s3)
 [1 3].asSet
 ```
 
@@ -36,6 +39,9 @@ at `List` retains duplicates and order:
 ```
 >>> [1 2 9 1].intersection([3 1 9])
 [1 9 1]
+
+>>> [1 1 2 3].intersection([3 1 4]).intersection([4 1 3 3])
+[1 1 3]
 ```
 
 Where supported `intersection` is displayed as ∩.

@@ -229,6 +229,16 @@
 		}
 	}
 
+	isProperSubsetOf { :self :aCollection |
+		aCollection.includesAllOf(self) & {
+			self ~= aCollection
+		}
+	}
+
+	isSubsetOf { :self :aCollection |
+		aCollection.includesAllOf(self)
+	}
+
 	max { :self |
 		self.injectInto(self.anyOne) { :answer :each |
 			answer.max(each)

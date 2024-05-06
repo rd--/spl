@@ -31,7 +31,7 @@ See also: difference, intersection, Set
 
 References:
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:union)
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:union),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Union.html)
 

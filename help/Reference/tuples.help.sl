@@ -116,7 +116,7 @@ All possible trigrams of A and B:
 
 * * *
 
-See also: cartesianProduct, tuplesDo, powerSet
+See also: cartesianProduct, powerSet, subsets, tuplesDo
 
 References:
 _J_

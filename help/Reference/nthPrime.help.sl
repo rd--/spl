@@ -39,11 +39,8 @@ This value is cached (memoized) by the system,
 so that subsequent accesses do not require recalculation:
 
 ```
->>> system.cache::primesList[5]
+>>> system.cachedPrimesList[5]
 11
-
->>> system.cache::primesList[3579]
-33413
 ```
 
 Plot first fifty primes:

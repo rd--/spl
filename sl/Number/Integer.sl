@@ -982,6 +982,22 @@
 		integer.romanDigitsForOn('XVI'.asciiByteArray, 1, aStream)
 	}
 
+	sternBrocotNumber { :self |
+		let f = { :n |
+			(n < 2).if {
+				n
+			} {
+				n.isEven.if {
+					f(n / 2)
+				} {
+					let m = (n - 1) / 2;
+					f(m) + f(m + 1)
+				}
+			}
+		};
+		f(self)
+	}
+
 	sternBrocotSequence { :n |
 		let answer = [1 1];
 		let index = 2;
