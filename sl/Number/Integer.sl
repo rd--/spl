@@ -684,6 +684,12 @@
 		}
 	}
 
+	isRoughNumber { :self :k |
+		self.primeFactors.allSatisfy { :each |
+			each >= k
+		}
+	}
+
 	isSmoothNumber { :self :k |
 		self.primeLimit <= k
 	}

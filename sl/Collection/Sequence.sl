@@ -2095,7 +2095,7 @@
 		}
 	}
 
-	cliPlot { :self :isDiscrete |
+	cliPlot { :self :format |
 		let fileName = '/tmp/listPlot.json';
 		fileName.writeTextFile([self.asList].asJson).then { :unused |
 			system.systemCommand(
@@ -2104,7 +2104,7 @@
 					'json',
 					'x',
 					'--rows',
-					'--impulse=' ++ isDiscrete.asString.capitalized,
+					'--format=' ++ format,
 					fileName,
 					'0'
 				]
@@ -2113,11 +2113,15 @@
 	}
 
 	discretePlot { :self |
-		self.cliPlot(true)
+		self.cliPlot('discrete')
+	}
+
+	scatterPlot { :self |
+		self.cliPlot('scatter')
 	}
 
 	plot { :self |
-		self.cliPlot(false)
+		self.cliPlot('line')
 	}
 
 	precedes { :self :aSequence |
@@ -2982,6 +2986,17 @@
 }
 
 +@Integer {
+
+	calkinWilfSequence { :self |
+		let answer = List(self);
+		answer[1] := 1/1;
+		2.toDo(self) { :i |
+			let p = answer[i - 1];
+			let t = p.floor * 2 - p + 1;
+			answer[i] := 1 / t
+		};
+		answer
+	}
 
 	fibonacciSequenceInto { :self :answer |
 		let a = 0;

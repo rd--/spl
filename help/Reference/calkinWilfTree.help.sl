@@ -5,7 +5,7 @@
 Answer the Calkin-Wilf `Tree` of depth _anInteger_.
 
 ```
->>> 1:4.collect { :n | n.calkinWilfTree.contents.collect(value:/1) }
+>>> 1:4.collect { :n | n.calkinWilfTree.values }
 [
 	1/1;
 	1/1 1/2 2/1;
@@ -14,9 +14,21 @@ Answer the Calkin-Wilf `Tree` of depth _anInteger_.
 ]
 ```
 
+The level-order values of the tree are the terms of the `calkinWilfSequence`:
+
+```
+>>> 5.calkinWilfTree.levelOrderValues
+[
+	1/1 1/2 2/1 1/3 3/2 2/3 3/1 1/4 4/3 3/5
+	5/2 2/5 5/3 3/4 4/1 1/5 5/4 4/7 7/3 3/8
+	8/5 5/7 7/2 2/7 7/5 5/8 8/3 3/7 7/4 4/5
+	5/1
+]
+```
+
 * * *
 
-See also: sternBrocotSequence, sternBrocotTree
+See also: calkinWilfSequence, sternBrocotSequence, sternBrocotTree
 
 References:
 _Mathematica_

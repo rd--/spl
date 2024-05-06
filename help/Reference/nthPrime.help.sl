@@ -35,6 +35,9 @@ Threads over lists:
 [29 541 7919]
 ```
 
+>>> 100000.nthPrime
+104729
+
 This value is cached (memoized) by the system,
 so that subsequent accesses do not require recalculation:
 

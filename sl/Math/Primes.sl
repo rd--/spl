@@ -272,6 +272,59 @@
 		system.cachedPrimesListExtendedToIndex(self).take(self)
 	}
 
+	primesListWheelSieve { :limit |
+		(limit < 2).if {
+			0
+		} {
+			let c = List(limit + 1, false);
+			let k = 9;
+			let p1 = 11;
+			let p2 = 121;
+			{- First differences of 11-rough numbers: not divisible by 2, 3, 5 or 7. -}
+			let z = [2 4 2 4 6 2 6 4 2 4 6 6 2 6 4 2 6 4 6 8 4 2 4 2 4 8 6 4 6 2 4 6 2 6 6 4 2 4 6 2 6 4 2 4 2 10 2 10];
+			let w = 0;
+			let answer = [2];
+			let j = 3;
+			c[1] := true;
+			c[2] := true;
+			{ k <= limit }.whileTrue {
+				c[k + 1] := true;
+				k := k + 6
+			};
+			k := 25;
+			{ k <= limit }.whileTrue {
+				c[k + 1] := true;
+				k := k + 10
+			};
+			k := 49;
+			{ k <= limit }.whileTrue {
+				c[k + 1] := true;
+				k := k + 14
+			};
+			{ p2 <= limit }.whileTrue {
+				let i = p2;
+				let ok = true;
+				{ i <= limit }.whileTrue {
+					c[i + 1] := true;
+					i := i + (2 * p1)
+				};
+				{ ok }.whileTrue {
+					p1 := p1 + z[w + 1];
+					w := (w + 1) % 48;
+					ok := c[p1 + 1]
+				};
+				p2 := p1 * p1
+			};
+			{ j <= limit }.whileTrue {
+				c[j + 1].ifFalse {
+					answer.add(j)
+				};
+				j := j + 2
+			};
+			answer
+		}
+	}
+
 	primesUpTo { :self |
 		system.cachedPrimesList.copyFromTo(
 			1,
