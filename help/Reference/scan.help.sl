@@ -21,7 +21,7 @@ Just as `reduce` is an alias for `foldLeft`, `scan` is an alias for `scanLeft`.
 
 * * *
 
-See also: foldLeft, foldRight, reduce, scanLeft, scanRight
+See also: accumulate, foldLeft, foldList, foldRight, reduce, scanLeft, scanRight
 
 References:
 _Apl_

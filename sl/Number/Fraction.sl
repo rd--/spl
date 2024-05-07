@@ -297,6 +297,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		ReducedFraction(1, 1)
 	}
 
+	parts { :self |
+		[self.numerator, self.denominator]
+	}
+
 	printString { :self |
 		[self.numerator, '/', self.denominator].join
 	}
@@ -372,6 +376,14 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	veryCloseTo { :self :aNumber |
 		self = aNumber
+	}
+
+	weightedMediant { :self :aFraction :m :n |
+		let a = self.numerator;
+		let b = self.denominator;
+		let c = aFraction.numerator;
+		let d = aFraction.denominator;
+		((m * a) + (n * c)) / ((m * b) + (n * d))
 	}
 
 	zero { :self |

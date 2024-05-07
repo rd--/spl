@@ -154,6 +154,11 @@ Multiply two integer matrices:
 [5 27 -2 12; -1 6 0 6]
 ```
 
+[1 12; 1 9; 1 1].dot([41 120])
+
+
+[41 120].dot([1 12; 1 9; 1 1])
+
 * * *
 
 See also: +, *, inner, outer

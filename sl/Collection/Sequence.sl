@@ -539,6 +539,16 @@
 		1 - (u.dot(v) / (u.norm * v.norm))
 	}
 
+	cross { :u :v |
+		let [ux, uy, uz] = u;
+		let [vx, vy, vz] = v;
+		[
+			(uy * vz) - (uz * vy),
+			(uz * vx) - (ux * vz),
+			(ux * vy) - (uy * vx)
+		]
+	}
+
 	crossedMultiply { :self :aSequence |
 		self.withCollectCrossed(aSequence, *)
 	}
@@ -938,6 +948,16 @@
 
 	foldLeft { :self :aBlock:/2 |
 		self.foldLeftPrefix(self.size, aBlock:/2)
+	}
+
+	foldList { :self :anObject :aBlock:/2 |
+		let answer = [anObject];
+		let accumulator = anObject;
+		self.do { :each |
+			accumulator := aBlock(accumulator, each);
+			answer.add(accumulator)
+		};
+		answer
 	}
 
 	foldRightPrefix { :self :count :aBlock:/2 |

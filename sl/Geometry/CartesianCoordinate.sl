@@ -52,7 +52,7 @@ CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
 		}
 	}
 
-	crossProduct { :u :v |
+	cross { :u :v |
 		CartesianCoordinate(
 			(u.y * v.z) - (u.z * v.y),
 			(u.z * v.x) - (u.x * v.z),

@@ -22,7 +22,23 @@ Calculate the first one hundred elements:
 ]
 ```
 
+The Fibonacci word can be generated using a substitution system,
+at the seventh step thirty-four terms have been generated:
+
+```
+>>> let rule = [0 -> [0 1], 1 -> [0]].asMap;
+>>> rule.substitutionSystem([0], 7).last
+[
+	0 1 0 0 1 0 1 0 0 1
+	0 0 1 0 1 0 0 1 0 1
+	0 0 1 0 0 1 0 1 0 0
+	1 0 0 1
+]
+```
+
 * * *
+
+See also: fibonacci, substitutionSystem
 
 References:
 _Mathematica_

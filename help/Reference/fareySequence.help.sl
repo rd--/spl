@@ -38,7 +38,8 @@ Denominators of Farey sequence of order 12:
 ]
 ```
 
-The length of a Farey sequence for a few small orders:
+The length of a Farey sequence for a few small orders,
+c.f. OEIS A005728:
 
 ```
 >>> 1:12.collect(fareySequence:/1).collect(size:/1)
@@ -48,7 +49,9 @@ The length of a Farey sequence for a few small orders:
 Compare with a closed-form formula in terms of Euler’s totient function:
 
 ```
->>> 1:12.collect { :n | 1 + 1:n.collect(eulerPhi:/1).sum }
+>>> 1:12.collect { :n |
+>>> 	1 + 1:n.collect(eulerPhi:/1).sum
+>>> }
 [2 3 5 7 11 13 19 23 29 33 43 47]
 ```
 
@@ -79,4 +82,6 @@ See also: Fraction, eulerPhi, gcd, minkowskiQuestionMark, sternBrocotSequence, s
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/FareySequence.html)
-[2](https://reference.wolfram.com/language/ref/FareySequence.html)
+[2](https://reference.wolfram.com/language/ref/FareySequence.html),
+_OEIS_
+[1](https://oeis.org/A005728)

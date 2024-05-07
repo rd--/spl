@@ -191,6 +191,16 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		self.subTrees.size
 	}
 
+	storeString { :self |
+		[
+			'Tree(',
+			self.value.storeString,
+			', ',
+			self.subTrees.storeString,
+			')'
+		].join
+	}
+
 	values { :self |
 		let answer = [];
 		self.do { :each |
@@ -252,6 +262,19 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 
 	calkinWilfTree { :n |
 		n.calkinWilfTree(1/1)
+	}
+
+	keplerTree { :depth |
+		depth.unfoldTree(1/1) { :each |
+			(each = 1/1).if {
+				[1/2]
+			} {
+				let n = each.numerator;
+				let d = each.denominator;
+				let z = n + d;
+				[Fraction(n, z), Fraction(d, z)]
+			}
+		}
 	}
 
 	sternBrocotTree { :n :r |

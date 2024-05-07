@@ -38,7 +38,7 @@ Answer the Kronecker product of two matrices, which is a block matrix.
 
 * * *
 
-See also: crossProduct, dot, inner, outer
+See also: cross, dot, inner, outer
 
 References:
 _Mathematica_

@@ -27,7 +27,7 @@ Diagonals of Pascal’s triangle:
 
 * * *
 
-See also: scan, prefixSum
+See also: foldList, scan, prefixSum
 
 References:
 _Mathematica_
