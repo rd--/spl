@@ -13,6 +13,8 @@ A coordinate in three-dimensional Cartesian space given by a triple _(x, y, z)_.
 
 See also: asPoint, Point, PolarCoordinate, RectangularCoordinate, SphericalCoordinate, x, y, z
 
+Guides: Geometry Types
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CartesianCoordinates.html)

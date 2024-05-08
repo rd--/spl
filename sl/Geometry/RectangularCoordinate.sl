@@ -72,6 +72,10 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 		(x: self.x, y: self.y)
 	}
 
+	asRectangularCoordinate { :self |
+		self
+	}
+
 	asTuple { :self |
 		(self.x, self.y)
 	}
@@ -173,9 +177,20 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 		self / self.norm
 	}
 
+	phi { :self |
+		atan2(self.y, self.x)
+	}
+
 	r { :self |
-		{- r = radius = rho -}
 		(self.x.squared + self.y.squared).sqrt
+	}
+
+	radius { :self |
+		self.r
+	}
+
+	rho { :self |
+		self.r
 	}
 
 	second { :self |

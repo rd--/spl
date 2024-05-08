@@ -106,6 +106,18 @@ CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
 		3
 	}
 
+	storeString { :self |
+		[
+			'CartesianCoordinate(',
+				self.x.storeString,
+				', ',
+				self.y.storeString,
+				', ',
+				self.z.storeString,
+			')'
+		].join
+	}
+
 	third { :self |
 		self.z
 	}

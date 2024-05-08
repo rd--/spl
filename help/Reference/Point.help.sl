@@ -5,10 +5,16 @@
 
 Constructs Cartesian coordinates of two and three dimensions.
 
+A two-dimensional cartesian co-ordinate:
+
 ```
 >>> Point(1, 2)
 RectangularCoordinate(1, 2)
+```
 
+A three-dimensional cartesian co-ordinate:
+
+```
 >>> Point(1, 2, 3)
 CartesianCoordinate(1, 2, 3)
 ```
@@ -16,5 +22,7 @@ CartesianCoordinate(1, 2, 3)
 * * *
 
 See also: asPoint, CartesianCoordinate, PolarCoordinate, RectangularCoordinate, SphericalCoordinate
+
+Guides: Geometry Types
 
 Categories: Geometry

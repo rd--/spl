@@ -67,6 +67,18 @@
 		self.r
 	}
 
+	storeString { :self |
+		[
+			'SphericalCoordinate(',
+				self.r.storeString,
+				', ',
+				self.theta.storeString,
+				', ',
+				self.phi.storeString,
+			')'
+		].join
+	}
+
 	x { :self |
 		self.r * self.theta.cos * self.phi.sin
 	}
@@ -141,6 +153,34 @@ SphericalCoordinate : [Object, SphericalCoordinate] { | r theta phi |
 			y.atan2(x),
 			(x.squared + y.squared).sqrt.atan2(z)
 		)
+	}
+
+	azimuth { :self |
+		self.theta
+	}
+
+	inclination { :self |
+		self.phi
+	}
+
+	phi { :self |
+		(self.x.squared + self.y.squared).sqrt.atan2(self.z)
+	}
+
+	r { :self |
+		(self.x.squared + self.y.squared + self.z.squared).sqrt
+	}
+
+	radius { :self |
+		self.r
+	}
+
+	rho { :self |
+		self.r
+	}
+
+	theta { :self |
+		self.y.atan2(self.x)
 	}
 
 }

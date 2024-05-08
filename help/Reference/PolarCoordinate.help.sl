@@ -1,23 +1,42 @@
 # PolarCoordinate
 
-The `PolarCoordinate` type represents a pair of numbers designating a location in polar coordinate space.
+- _PolarCoordinate(r, theta)_
+
+`PolarCoordinate` is a `Type` that represents a point in a polar coordinate system,
+where each point on a plane is determined by a distance from a reference point and an angle in radians from a reference direction.
 
 The usual mathematical notation is _(r, theta)_, where _r_ is the radius and _theta_ the angle.
+The ISO standardised notation is _(rho, phi)_, where _rho_ is the radius and _phi_ the angle.
 
-The ISO standardised notation is _(rho, phi)_.
-
+Theta, or phi, is the angle of counter-clockwise rotation from the positive _x_ axis,
+with _0 <= theta < 2 pi_.
 
 ```
->>> PolarCoordinate(2.sqrt, 0.25.pi).asRectangularCoordinate
-RectangularCoordinate(1, 1)
+>>> let p = PolarCoordinate(2.sqrt, 0.25.pi);
+>>> (
+>>> 	p.r, p.theta,
+>>> 	p.rho, p.phi,
+>>> 	p.x, p.y,
+>>> 	p.asRectangularCoordinate
+>>> )
+(
+	2.sqrt, 0.25.pi,
+	2.sqrt, 0.25.pi,
+	1, 1,
+	RectangularCoordinate(1, 1)
+)
 ```
 
 * * *
 
-See also: CartesianCoordinate, fromPolarCoordinates, Geometry Types, Point, RectangularCoordinate, SphericalCoordinate, toPolarCoordinates
+See also: CartesianCoordinate, fromPolarCoordinates, Point, RectangularCoordinate, SphericalCoordinate, toPolarCoordinates
+
+Guides: Geometry Types
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/PolarCoordinates.html)
+[1](https://mathworld.wolfram.com/PolarCoordinates.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Polar_coordinate_system)
 
 Categories: Geometry

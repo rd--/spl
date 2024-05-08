@@ -32,8 +32,22 @@ PolarCoordinate : [Object] { | r theta |
 		self.theta
 	}
 
+	radius { :self |
+		self.r
+	}
+
 	rho { :self |
 		self.r
+	}
+
+	storeString { :self |
+		[
+			'PolarCoordinate(',
+			self.r.storeString,
+			', ',
+			self.theta.storeString,
+			')'
+		].join
 	}
 
 	x { :self |

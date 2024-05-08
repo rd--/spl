@@ -2,13 +2,26 @@
 
 Two-dimensional (_planar_) coordinate types:
 
-- RectangularCoordinate: An _(x, y)_ Cartesian coordinate
-- PolarCoordinate: An _(r, theta)_ polar coordinate
+- `RectangularCoordinate`: An _(x, y)_ Cartesian coordinate
+- `PolarCoordinate`: An _(r, theta)_ polar coordinate
 
-Three-dimensional coordinate types:
+Three-dimensional (_volumetric_) coordinate types:
 
-- CartesianCoordinate: An _(x, y, z)_ Cartesian coordinate
-- SphericalCoordinate: An _(r, theta, phi)_ spherical coordinate
+- `CartesianCoordinate`: An _(x, y, z)_ Cartesian coordinate
+- `SphericalCoordinate`: An _(r, theta, phi)_ spherical coordinate
+
+Methods for accessing fields:
+
+- `x`, `y`, `z`
+- `r`, `theta`, `phi`
+- `azimuth`, `inclination`, `radius`, `rho`
+
+Methods for converting from generic to specific representations of coordinates:
+
+- `asRectangularCoordinate`
+- `asPolarCoordinate`
+- `asCartesianCoordinate`
+- `asSphericalCoordinate`
 
 * * *
 
