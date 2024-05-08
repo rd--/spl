@@ -40,6 +40,8 @@ The sum of the first eight subharmonics:
 
 See also: goldenRatio, narayanaSequence
 
+Guides: Mathematical Constants
+
 References:
 _OEIS_
 [1](https://oeis.org/A092526),

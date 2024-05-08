@@ -97,9 +97,13 @@ Plot the fractional part of multiples of the golden ratio:
 
 * * *
 
-See also: e, Mathematical Constants, metallicMean, pi, plasticRatio, supergoldenRatio
+See also: e, goldenAngle, metallicMean, pi, plasticRatio, supergoldenRatio
+
+Guides: Mathematical Constants
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GoldenRatio.html)
-[2](https://reference.wolfram.com/language/ref/GoldenRatio.html)
+[2](https://reference.wolfram.com/language/ref/GoldenRatio.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Golden_ratio)

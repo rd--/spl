@@ -32,6 +32,10 @@ Angle : [Object, Magnitude] { | radians |
 		self.radians.tan
 	}
 
+	vector { :self |
+		self.radians.angleVector
+	}
+
 }
 
 +@Number {

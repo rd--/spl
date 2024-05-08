@@ -1,6 +1,6 @@
 # radiansToDegrees
 
-- radiansToDegrees(aNumber)_
+- _radiansToDegrees(aNumber)_
 
 Convert from radians to degrees.
 

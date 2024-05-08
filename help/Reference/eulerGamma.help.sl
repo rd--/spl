@@ -11,7 +11,9 @@ _1.eulerGamma_ is Euler’s constant γ, with numerical value ~0.57722.
 
 * * *
 
-See also: e, Mathematical Constants, pi
+See also: e, pi
+
+Guides: Mathematical Constants
 
 References:
 _Mathematica_

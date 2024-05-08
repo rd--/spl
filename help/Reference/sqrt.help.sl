@@ -73,4 +73,4 @@ _Smalltalk_
 
 Unicode: U+221A √ Square Root
 
-Categories: Mathematical functions
+Categories: Math, Operator

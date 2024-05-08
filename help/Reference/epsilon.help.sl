@@ -19,6 +19,8 @@ Where supported `epsilon` is displayed as ε.
 
 See also: closeTo, pi, smallFloatEpsilon, veryCloseTo
 
+Guides: Mathematical constant
+
 Unicode: U+03B5 ε Greek Small Letter Epsilon
 
 References:

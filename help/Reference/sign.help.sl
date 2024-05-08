@@ -71,4 +71,4 @@ _Mathematica_
 _Smalltalk_
 5.6.2.33
 
-Categories: Mathematical functions
+Categories: Math, Operator

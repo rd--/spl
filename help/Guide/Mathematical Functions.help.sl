@@ -325,3 +325,7 @@
 - `distanceMatrix`: distance matrix
 - `hammingDistance`: Hamming distance
 - `editDistance`: edit or Levenshtein distance
+
+* * *
+
+Guides: Mathematical Constants

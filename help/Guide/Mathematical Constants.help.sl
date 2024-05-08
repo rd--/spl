@@ -1,33 +1,33 @@
 # Mathematical Constants
 
-Pi:
+- `arcMinute`: one sixtieth of an arc second
+- `arcSecond`: one sixtieth of a degree
+- `degree`: one one-hundred and eightieth of pi
+- `e`: Euler’s number, base of natural logarithm
+- `epsilon`: epsilon
+- `eulerGamma`: Euler’s constant
+- `goldenAngle`: golden angle
+- `goldenRatio`: golden ratio
+- `i`: square root of negative one
+- `pi`: ratio of circle circumference to diameter
+- `plasticRatio`: limiting ratio of Padovan sequence
+- `supergoldenRatio`: supergolden ratio
+
+Degree:
 
 ```
->>> pi
-3.14159
-
->>> 2.pi
-6.28319
+>>> 1.degree
+2.pi / 360
 ```
 
 E:
 
 ```
->>> e
+>>> 1.e
 2.71828
 
 >>> 2.e
 5.43656
-```
-
-Golden Ratio:
-
-```
->>> 1.goldenRatio
-1.61803
-
->>> 2.goldenRatio
-5.sqrt + 1
 ```
 
 Euler Gamma:
@@ -37,9 +37,31 @@ Euler Gamma:
 0.57722
 ```
 
+Golden ratio:
+
+```
+>>> 1.goldenRatio
+1.61803
+
+>>> 2.goldenRatio
+5.sqrt + 1
+```
+
+Pi:
+
+```
+>>> 1.pi
+3.14159
+
+>>> 2.pi
+6.28319
+```
+
 * * *
 
-See also: e, eulerGamma, goldenRatio, Mathematical Functions, pi
+See also: degree, e, eulerGamma, goldenRatio, pi
+
+Guides: Mathematical Functions
 
 References:
 _Mathematica_

@@ -14,7 +14,7 @@ approximately equal to _3.14159_.
 6.28319
 ```
 
-_pi_ threads over collections:
+`pi` threads over collections:
 
 ```
 >>> [0.5, 1.5].pi
@@ -32,7 +32,9 @@ Where supported `pi` is displayed as π.
 
 * * *
 
-See also: e, Mathematical Constants, pi
+See also: e, pi
+
+Guides: Mathematical Constants
 
 Unicode: U+03C0 π Greek Small Letter Pi
 

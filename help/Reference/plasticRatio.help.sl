@@ -63,6 +63,8 @@ The plastic ratio is close to the seventh root of seven:
 
 See also: goldenRatio, metallicMean
 
+Guides: Mathematical Constants
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PlasticConstant.html),

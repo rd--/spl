@@ -354,6 +354,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("concatenation" . ?⧻) ; U+29FB ⧻ Triple Plus
      ("conjugated" . ?*) ; U+002A * Asterisk ; U+203B ※ Reference Mark ; U+A673 ꙳ Slavonic Asterisk
      ("crossedMultiply" . ?⊗) ; U+2297 ⊗ Circled Times
+     ("degree" . ?°) ; U+00b0 ° Degree Sign
      ("delta" . ?δ) ; U+03B4 δ Greek Small Letter Delta
      ("doesNotInclude" . ?∌) ; Unicode: U+220C ∌ Does not contain as member
      ("duplicate" . ?!)

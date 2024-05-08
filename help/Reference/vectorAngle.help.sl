@@ -1,6 +1,6 @@
 # vectorAngle
 
-_vectorAngle(u, v)_
+- _vectorAngle(u, v)_
 
 Answers the angle between the vectors _u_ and _v_.
 

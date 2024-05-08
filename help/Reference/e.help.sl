@@ -2,7 +2,7 @@
 
 - _e(aNumber)_
 
-The number `e`, also known as Eulers number, is a mathematical constant approximately equal to 2.71828.
+The number `e`, also known as Euler’s number or Napier’s constant, is a mathematical constant approximately equal to 2.71828.
 It is the base of natural logarithms.
 
 Answer _aNumber_ times e.
@@ -33,7 +33,9 @@ _e_ is also a part of the _E Notation_ for `Number Literals`.
 
 * * *
 
-See also: exp, log, Mathematical Constants, Number Literals, pi
+See also: exp, log, pi
+
+Guides: Mathematical Constants, Number Literals
 
 References:
 _Mathematica_

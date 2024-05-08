@@ -73,6 +73,18 @@
 		abs * abs
 	}
 
+	arcMinute { :self |
+		self * 0.0002908882086657216
+	}
+
+	arcSecond { :self |
+		self * 0.00000484813681109536
+	}
+
+	angleVector { :self |
+		[self.cos, self.sin]
+	}
+
 	arg { :self |
 		self.isZero.if {
 			0
@@ -178,6 +190,10 @@
 
 	cubed { :self |
 		self * self * self
+	}
+
+	degree { :self |
+		self * 0.017453292519943295
 	}
 
 	degreeCos { :self |

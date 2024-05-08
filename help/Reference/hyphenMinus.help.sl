@@ -81,4 +81,4 @@ _Smalltalk_
 
 Unicode: U+002D - Hyphen-minus, U+2010 ‐ Hyphen, U+2212 − Minus Sign
 
-Categories: Mathematical operator
+Categories: Math, Operator
