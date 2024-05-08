@@ -9,7 +9,7 @@ Answer the _z_ coordinate of a three dimensional Cartesian coordinate.
 3
 
 >>> (x: 1, y: 2, z: 3).asCartesianCoordinate.z
-1
+3
 ```
 
 `SphericalCoordinate` implements `z`:

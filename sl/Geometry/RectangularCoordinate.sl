@@ -260,3 +260,27 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 	}
 
 }
+
++@Sequence {
+
+	lineLineIntersection { :l1 :l2 |
+		let [p1, p2] = l1;
+		let [p3, p4] = l2;
+		let [x1, y1] = p1;
+		let [x2, y2] = p2;
+		let [x3, y3] = p3;
+		let [x4, y4] = p4;
+		let a1 = y2 - y1;
+		let b1 = x1 - x2;
+		let c1 = (a1 * x1) + (b1 * y1);
+		let a2 = y4 - y3;
+		let b2 = x3 - x4;
+		let c2 = (a2 * x3) + (b2 * y3);
+		let delta = (a1 * b2) - (a2 * b1);
+		[
+			((b2 * c1) - (b1 * c2)) / delta,
+			((a1 * c2) - (a2 * c1)) / delta
+		]
+	}
+
+}

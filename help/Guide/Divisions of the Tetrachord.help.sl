@@ -10,7 +10,7 @@ Harry Partch used the pentatonic form of the enharmonic (16/15 5/4 9/8 16/15 5/4
 in the first of his _Two Studies on Ancient Greek Scales_ (1946) [p.5]:
 
 ```
->>> [1/1 16/15 5/4 9/8 16/15 5/4].prefixes.collect(product:/1)
+>>> [1/1 16/15 5/4 9/8 16/15 5/4].scan(*)
 [1/1 16/15 4/3 3/2 8/5 2/1]
 
 >>> [1/1 16/15 4/3 3/2 8/5 2/1].ratioToCents.rounded
@@ -20,7 +20,7 @@ in the first of his _Two Studies on Ancient Greek Scales_ (1946) [p.5]:
 and the microtonal form in the second (in Archytas’s tuning, 28/27 · 36/35 · 5/4) [p.6]:
 
 ```
->>> [1/1 28/27 36/35 5/4].prefixes.collect(product:/1)
+>>> [1/1 28/27 36/35 5/4].scan(*)
 [1/1 28/27 16/15 4/3]
 
 >>> [1/1 28/27 16/15 4/3].ratioToCents.rounded
@@ -109,14 +109,14 @@ Ptolemy’s own tunings (enharmonic, soft chromatic, intense chromatic, soft dia
 
 ```
 >>> [
->>>	46/45 24/23 5/4;
->>>	28/27 15/14 6/5;
->>>	22/21 12/11 7/6;
->>>	21/20 10/9 8/7;
->>>	28/27 8/7 9/8;
->>>	256/243 9/8 9/8;
->>>	16/15 9/8 10/9;
->>>	12/11 11/10 10/9
+>>> 	46/45 24/23 5/4;
+>>> 	28/27 15/14 6/5;
+>>> 	22/21 12/11 7/6;
+>>> 	21/20 10/9 8/7;
+>>> 	28/27 8/7 9/8;
+>>> 	256/243 9/8 9/8;
+>>> 	16/15 9/8 10/9;
+>>> 	12/11 11/10 10/9
 >>> ].ratioToCents.rounded
 [
 	38 74 386;
@@ -363,7 +363,7 @@ One useful technique, originated by Ervin Wilson, is a variation of the katapykn
 >>> 			]
 >>> 		}
 >>> 	}.concatenation
->>> }
+>>> }.concatenation
 [
 	16 15 14 12; 16/15 15/14 7/6:;
 	16 15 13 12; 16/15 13/12 15/13:;

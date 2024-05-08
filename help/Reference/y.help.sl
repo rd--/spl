@@ -28,7 +28,7 @@ Three-dimensional case:
 2
 
 >>> (x: 1, y: 2, z: 3).asCartesianCoordinate.y
-1
+2
 ```
 
 `SphericalCoordinate` implements `y`:
