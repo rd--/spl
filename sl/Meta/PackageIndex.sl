@@ -69,6 +69,7 @@
 	'Geometry-Length'
 	'Geometry-Matrix22'
 	'Geometry-Matrix33'
+	'Geometry-Plane'
 	'Geometry-Point'
 	'Geometry-PolarCoordinate'
 	'Geometry-Projection3'

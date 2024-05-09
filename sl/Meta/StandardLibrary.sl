@@ -29,6 +29,7 @@
 	'Angle'
 	'CartesianCoordinate'
 	'Length'
+	'Plane'
 	'PolarCoordinate'
 	'RectangularCoordinate'
 	'Circle'  {- RectangularCoordinate -}

@@ -73,7 +73,7 @@ The determinant of a _3×3_ `SmallFloat` matrix:
 251.572
 ```
 
-Determinant of a _3×3_ `Complex` matrix:
+The determinant of a _3×3_ `Complex` matrix:
 
 ```
 >>> [
@@ -108,7 +108,7 @@ Use to find the volume of a parallelepiped:
 45
 ```
 
-Use Det to find hypervolume of a hyper-parallelepiped spanned by the following vectors:
+Use `determinant` to find the hypervolume of a hyper-parallelepiped spanned by the following vectors:
 
 ```
 >>> let m = [

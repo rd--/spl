@@ -106,6 +106,23 @@ Indeed, the inverse can be found using `rowReduce`:
 [-3/5 4/5 0; 2/5 -6/5 1; 2/5 -1/5 0]
 ```
 
+Compute the rank of a matrix using `rowReduce`,
+the rank is the number of non-zero rows in the reduced matrix,
+in this case two:
+
+```
+>>> [
+>>> 	 1  2 1;
+>>> 	-2 -3 1;
+>>> 	 3  5 0
+>>> ].rowReduce
+[
+	1 0 -5;
+	0 1  3;
+	0 0  0
+]
+```
+
 * * *
 
 See also: determinant, inverse, permanent, reducedRowEchelonForm

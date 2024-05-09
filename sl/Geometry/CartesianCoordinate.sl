@@ -151,6 +151,30 @@ CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
 		CartesianCoordinate(x, y, z)
 	}
 
+	hessianNormalForm { :plane |
+		let [a, b, c, d] = plane;
+		let z = ((a * a) + (b * b) + (c * c)).sqrt;
+		let n = [a b c] / z;
+		let p = d / z;
+		[n, p]
+	}
+
+	pointLineDistance { :line :point |
+		let [x1, x2] = line;
+		let x0 = point;
+		(x0 - x1).cross(x0 - x2).norm / (x2 - x1).norm
+	}
+
+	pointPlaneDistance { :plane :point |
+		plane.signedPointPlaneDistance(point).abs
+	}
+
+	signedPointPlaneDistance { :plane :point |
+		let [a, b, c, d] = plane;
+		let [x, y, z] = point;
+		((a * x) + (b * y) + (c * z) + d) / ((a * a) + (b * b) + (c * c)).sqrt
+	}
+
 }
 
 +Record {
