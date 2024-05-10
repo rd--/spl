@@ -87,6 +87,20 @@ Zero of `arcTan`:
 0
 ```
 
+`arcTan` of two arguments gives the signed vector angle between the _x_-axis and the vector:
+
+```
+>>> let [x, y] = [1, 2];
+>>> x.arcTan(y)
+2.arcTan
+
+>>> [1 0].vectorAngle([1 2])
+(1 / 5.sqrt).arcCos
+
+>>> 2.arcTan = (1 / 5.sqrt).arcCos
+true
+~~~
+
 Plot over a subset of the reals:
 
 ~~~

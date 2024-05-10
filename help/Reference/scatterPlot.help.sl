@@ -2,7 +2,19 @@
 
 - _scatterPlot(aSequence)_
 
-Plot a sequence.
+Plot a sequence of numbers.
+
+Plot seven integers:
+
+~~~
+[1 1 2 2 3 4 4].scatterPlot
+~~~
+
+Plot the cocatenation of three Ranges:
+
+~~~
+(1:20 ++ 20:1 ++ 1:30).scatterPlot
+~~~
 
 Plot the first 4096 terms of the Stern-Brocot sequence:
 

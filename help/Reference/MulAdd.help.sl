@@ -15,3 +15,9 @@ At `SmallFloat`:
 * * *
 
 See also: +, *
+
+Categories: Ugen
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/MulAdd.html)

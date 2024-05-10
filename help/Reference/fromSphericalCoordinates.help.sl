@@ -1,6 +1,6 @@
 # fromSphericalCoordinates
 
-_fromSphericalCoordinates(aList | aTuple)_
+- _fromSphericalCoordinates(aSequence)_
 
 Answers the _(x,y,z)_ Cartesian coordinates corresponding to the spherical coordinates _(r,θ,ϕ)_,
 where θ is azimuth and ϕ is inclination.
@@ -35,9 +35,16 @@ Collects over lists:
 [1 0 1; -2 0 0; 0 1 -1]
 ```
 
+Inverse is `toSphericalCoordinates`:
+
+```
+>>> [3.sqrt, 0.25.pi, 2.sqrt.arcTan]
+[1 1 1].toSphericalCoordinates
+```
+
 * * *
 
-See also: arcTan, norm, fromPolarCoordinates, SphericalCoordinate
+See also: arcTan, norm, fromPolarCoordinates, SphericalCoordinate, toSphericalCoordinates
 
 References:
 _Mathematica_

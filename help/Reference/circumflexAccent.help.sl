@@ -72,7 +72,7 @@ At `LargeInteger`:
 129110040087761027839616029934664535539337183380513n
 ```
 
-The unary form is _exp_:
+The unary form is `exp`:
 
 ```
 >>> 1.^
@@ -97,6 +97,16 @@ and a `SmallFloat` if not:
 ```
 >>> 3/2 ^ 1/2
 1.2247
+```
+
+Operators are evaluated strictly left to right:
+
+```
+>>> 4 * 5 ^ 2 + 7
+407
+
+>>> (4 * (5 ^ 2)) + 7
+107
 ```
 
 Plot over a subset of the reals:

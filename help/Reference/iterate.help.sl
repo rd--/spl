@@ -45,6 +45,19 @@ Derive the seven tone Pythagorean scale:
 [1/1, 9/8, 81/64, 729/512, 3/2, 27/16, 243/128]
 ```
 
+The regular paper-folding (or dragon curve) sequence,
+c.f. OEIS [A014707](https://oeis.org/A014707):
+
+```
+>>> { :l | l ++ [0] ++ (1 - l).reversed }.iterate([0], 5)
+[
+	0 0 1 0 0 1 1 0 0 0 1 1 0 1 1 0 0 0 1 0
+	0 1 1 1 0 0 1 1 0 1 1 0 0 0 1 0 0 1 1 0
+	0 0 1 1 0 1 1 1 0 0 1 0 0 1 1 1 0 0 1 1
+	0 1 1
+]
+```
+
 _Rationale:_
 This notation can be more compact than a written out loop,
 and can also be written in the middle of a sequence of bindings,

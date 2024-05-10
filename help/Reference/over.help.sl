@@ -1,6 +1,7 @@
 # over
 
-_over(aBlock:/2, anotherBlock:/1)_
+- _over(aBlock:/2, anotherBlock:/1)_
+- _over(aColour, anotherColour)_
 
 Answer a Block that applies _anotherBlock_ to pre-processes the arguments of _aBlock_.
 
@@ -28,6 +29,15 @@ Add the max of two lists:
 9
 ```
 
+At `Colour` place one colour over another:
+
+```
+>>> let r = Colour(1, 0, 0, 0.5);
+>>> let g = Colour(0, 1, 0, 0.5);
+>>> r.over(g)
+Colour(1/3, 2/3, 0, 3/4)
+```
+
 * * *
 
 See also: atop
@@ -35,3 +45,6 @@ See also: atop
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Over)
+
+Further Reading: Porter 1984
+

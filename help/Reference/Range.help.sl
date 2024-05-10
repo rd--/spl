@@ -142,6 +142,13 @@ The elements of a simple integer range are all integers:
 true
 ```
 
+Compute the first ten squares:
+
+```
+>>> 1:10 ^ 2
+[1 4 9 16 25 36 49 64 81 100]
+```
+
 * * *
 
 See also: ArithmeticProgression, downTo, Interval, isIntegerRange, Range Syntax, thenTo, to, toBy, upOrDownTo

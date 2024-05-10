@@ -106,12 +106,6 @@
 		self
 	}
 
-	assertIsOfSize { :self :anInteger |
-		self.assert {
-			self.size = anInteger
-		}
-	}
-
 	associationsDo { :self :aBlock:/1 |
 		self.do(aBlock:/1)
 	}

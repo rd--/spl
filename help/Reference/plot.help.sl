@@ -14,6 +14,14 @@ Plot a random permutation of the integers up to ninety nine:
 1:99.randomSample(99).plot
 ~~~
 
+Plot a table:
+
+~~~
+(0, 0.01 .. 1).collect { :x |
+	x - (x ^ 2)
+}.scatterPlot
+~~~
+
 * * *
 
 See also: discretePlot

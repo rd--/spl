@@ -1,19 +1,27 @@
 Colour : [Object] { | red green blue alpha |
 
 	= { :self :aColour |
-		aColour.isColour & {
-			self.red = aColour.red & {
-				self.green = aColour.green & {
-					self.blue = aColour.blue & {
-						self.alpha = aColour.alpha
-					}
-				}
-			}
-		}
+		self.equalBy(aColour, =)
+	}
+
+	~ { :self :aColour |
+		self.equalBy(aColour, ~)
 	}
 
 	asNontranslucentColor { :self |
 		self.alpha := 1
+	}
+
+	equalBy { :self :aColour :aBlock:/2 |
+		aColour.isColour & {
+			aBlock(self.red, aColour.red) & {
+				aBlock(self.green, aColour.green) & {
+					aBlock(self.blue, aColour.blue) & {
+						aBlock(self.alpha, aColour.alpha)
+					}
+				}
+			}
+		}
 	}
 
 	fromSrgb { :self |
@@ -110,6 +118,10 @@ Colour : [Object] { | red green blue alpha |
 				(self.red - self.green).abs < 0.2
 			}
 		}
+	}
+
+	negated { :self |
+		Colour(1 - self.red, 1 - self.green, 1 - self.blue, self.alpha)
 	}
 
 	over { :self :aColour |

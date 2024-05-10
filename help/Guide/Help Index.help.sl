@@ -102,6 +102,11 @@
 - `abs`, `absArg`, `arg`, `conjugated`, `sign`
 - `randomComplex`
 
+## Computing Angles
+
+- `vectorAngle`
+- `planarAngle`
+
 ## Conditionals
 
 - `if`, `ifEmpty`, `ifError`, `ifFalse`, `ifNil`, `ifTrue`
@@ -113,6 +118,11 @@
 - `%`, `powerMod`
 - `multiplicativeOrder`
 - `chineseRemainder`
+
+## Coordinate Transformations
+
+- `fromPolarCoordinates`, `toPolarCoordinates`
+RotationMatrix — rotation matrix in any number of dimensions
 
 ## Converting
 
@@ -243,8 +253,8 @@
 ## Geometry Functions
 
 - `asPoint`, `Point`, `IsoSphericalCoordinate`
-- `fromSphericalCoordinates`, `fromPolarCoordinates`
-- `toPolarCoordinates`
+- `fromSphericalCoordinates`, `toSphericalCoordinates`
+- `fromPolarCoordinates`, `toPolarCoordinates`
 - `coordinateBoundingBox`, `coordinateBounds`
 - `unitVector`
 
@@ -545,6 +555,11 @@
 - `sort`, `sortBy`, `sorted`, `sortOn`
 - `ordering`
 
+## Specifying Angles
+
+- `Angle`, `degrees`, `radians`
+- `degree`, `fromDms`
+
 ## Splines
 
 - `bernsteinBasis`
@@ -675,6 +690,12 @@
 ## Vector Operations
 
 - `dot`, `norm`, `normalize`, `standardize`
+
+## Vectors and Paths
+
+- `angleVector`
+- `circlePoints`
+- `anglePath`
 
 ## Window Functions
 

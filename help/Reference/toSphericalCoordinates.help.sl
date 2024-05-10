@@ -1,18 +1,28 @@
 # toSphericalCoordinates
 
-_toSphericalCoordinates(aList | aTuple)_
+- _toSphericalCoordinates(aSequence)_
 
 Answers the _(r,θ,ϕ)_ spherical coordinates corresponding to the Cartesian coordinates _(x,y,z)_,
 where θ is azimuth & ϕ is inclination.
 Answers are in the range (r > 0, -pi < θ < pi, 0 < ϕ < pi).
 
+At `List`:
+
 ```
 >>> [1 1 1].toSphericalCoordinates
 [3.sqrt, 0.25.pi, 2.sqrt.arcTan]
+```
 
+At `Tuple`:
+
+```
 >>> (-1, -1, -1).toSphericalCoordinates
 [3.sqrt, -0.75.pi, -1.arcTan(2.sqrt)]
+```
 
+Equations are:
+
+```
 >>> let [x, y, z] = system.nextRandomFloat(3);
 >>> let r = (x.squared + y.squared + z.squared).sqrt;
 >>> let theta = x.arcTan(y);
@@ -41,7 +51,7 @@ Collects over lists:
 
 * * *
 
-See also: arcTan, norm, toPolarCoordinates, SphericalCoordinate
+See also: arcTan, fromSphericalCoordinates, norm, toPolarCoordinates, SphericalCoordinate
 
 References:
 _Mathematica_

@@ -1,6 +1,6 @@
 # permutationSymbol
 
-- _permutationSymbol(aSequence)
+- _permutationSymbol(aSequence)_
 
 Answer the permutation symbol of the permutation needed to place the elements of _aSequence_ in canonical order.
 
@@ -62,7 +62,7 @@ Rank-3 totally antisymmetric (Levi-Civita) tensor:
 	0 0 -1; 0 0 0; 1 0 0:;
 	0 1 0; -1 0 0; 0 0 0
 ]
-
+```
 
 The `permutationSymbol` is the _signature_ of a `Permutation`:
 

@@ -1,8 +1,8 @@
 # fromDms
 
-- _fromDms(degrees, minutes, seconds)_
+- _fromDms(aSequence)_
 
-Answer angle in decimal degrees.
+Answer angle in decimal degrees given a sequence of _degrees, minutes, seconds_.
 
 ```
 >>> [30 10 4].fromDms
@@ -27,7 +27,7 @@ A signed angle:
 
 * * *
 
-See also: numberCompose
+See also: degree, numberCompose
 
 References:
 _Mathematica_

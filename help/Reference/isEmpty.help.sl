@@ -29,7 +29,7 @@ At `String`:
 true
 ```
 
-At `Graph` is considered empty if it has no edges:
+A `Graph` is considered empty if it has no edges:
 
 ```
 >>> let g = Graph([1 2 3], []);

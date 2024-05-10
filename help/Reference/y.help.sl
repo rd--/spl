@@ -43,3 +43,8 @@ Three-dimensional case:
 See also: imaginary, real, x, z
 
 Guides: Geometry Types
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Ordinate.html)
+[2](https://mathworld.wolfram.com/y-Axis.html)

@@ -141,6 +141,19 @@ At matrices answers a volume:
 [5 12; 7 16:; 15 24; 21 32]
 ```
 
+A table of successively longer lists:
+
+```
+>>> { :n | [1 .. n] }.table(1:5)
+[
+	1;
+	1 2;
+	1 2 3;
+	1 2 3 4;
+	1 2 3 4 5
+]
+```
+
 Plot a table:
 
 ~~~

@@ -1,5 +1,16 @@
 # Mathematical Functions
 
+## Angle Computation
+
+- `vectorAngle`: angle between vectors
+- `planarAngle`: planar angle defined by three points
+
+## Array Bounds
+
+- `minMax`: `min` and `max` values
+- `coordinateBounds`: min and max coordinates
+- `coordinateBoundingBox`: min and max coordinates
+
 ## Arithmetic Operators
 
 - `+`: addition
@@ -325,6 +336,22 @@
 - `distanceMatrix`: distance matrix
 - `hammingDistance`: Hamming distance
 - `editDistance`: edit or Levenshtein distance
+
+## One-Dimensional Lists
+
+- `Range`: range of values in equal steps
+- `subdivide`: list of values from equal subdivisions
+
+## Vectors & Paths
+
+- `angleVector`: create a vector at a specified angle
+- `circlePoints`: equally distributed points around a circle
+- `anglePath`: form a path from a sequence steps
+
+## Coordinate Transformations
+
+- `fromPolarCoordinates`: convert from _(r,θ)_ to _(x,y)_
+- `toPolarCoordinates`: convert from _(x,y)_ to _(r,θ)_
 
 * * *
 

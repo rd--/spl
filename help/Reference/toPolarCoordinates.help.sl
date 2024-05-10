@@ -1,15 +1,15 @@
 # toPolarCoordinates
 
-_toPolarCoordinates(aList | aTuple)_
+- _toPolarCoordinates(aSequence)_
 
 Answers the _(r,θ)_ polar coordinates corresponding to the Cartesian coordinates _(x,y)_.
 
 ```
 >>> [1 1].toPolarCoordinates
-[2.sqrt, 0.25.pi]
+[2.sqrt 0.25.pi]
 
 >>> (-1, -1).toPolarCoordinates
-[2.sqrt, -0.75.pi]
+[2.sqrt -0.75.pi]
 ```
 
 Collects over lists:
@@ -19,18 +19,18 @@ Collects over lists:
 [1 0; 2 pi; 1 0.5.pi]
 ```
 
-_toPolarCoordinates_ converts pairs of real numbers to their polar representation:
+`toPolarCoordinates` converts pairs of real numbers to their polar representation:
 
 ```
 >>> [1 2].toPolarCoordinates
 [5.sqrt, 2.arcTan]
 ```
 
-_absArg_ converts complex numbers to their polar representation:
+`absArg` converts complex numbers to their polar representation:
 
 ```
 >>> 1j2.absArg
-[5.sqrt, 2.arcTan]
+[5.sqrt 2.arcTan]
 ```
 
 * * *

@@ -23,6 +23,16 @@ The binary form answers the first _anInteger_ elements of _aSequence_:
 [3 4 5 6]
 ```
 
+The first element in a sorted list is the same as finding the minimum element:
+
+```
+>>> [6 7 1 2 4 5].sort.first
+1
+
+>>> [6 7 1 2 4 5].min
+1
+```
+
 * * *
 
 See also: firstIndex, fourth, last, middle, second, third

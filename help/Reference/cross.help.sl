@@ -36,7 +36,9 @@ Find the area of the parallelogram defined by two vectors:
 29.sqrt
 ```
 
-See also:
+* * *
+
+See also: dot, kroneckerProduct, outer, permutationSymbol, vectorAngle
 
 References:
 _Mathematica_

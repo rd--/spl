@@ -36,12 +36,24 @@ Kurtosis larger than 3 would indicate a distribution highly concentrated around 
 1.8248
 ```
 
+Find kurtosis of ten random numbers:
+
+```
+>>> [
+>>> 	 0.5377  1.8339 -2.2588 0.8622 0.3188
+>>> 	-1.3077 -0.4336  0.3426 3.5784 2.7694
+>>> ].kurtosis
+2.3121
+```
+
 * * *
 
 See also: centralMoment, skewness
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Kurtosis.html)
+[1](https://reference.wolfram.com/language/ref/Kurtosis.html),
+_Mathworks_
+[1](https://mathworks.com/help/stats/kurtosis.html)
 
 Categories: Statistics

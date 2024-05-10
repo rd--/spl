@@ -22,10 +22,19 @@ Harmonic mean of columns of a matrix:
 [80/33 160/49]
 ```
 
+Harmonic mean of the first thirty integers:
+
+```
+>>> 1:30.harmonicMean
+7.5094
+```
+
 * * *
 
 See also: geometricMean, mean
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/HarmonicMean.html)
+[1](https://mathworld.wolfram.com/HarmonicMean.html),
+_Mathworks_
+[1](https://mathworks.com/help/stats/harmmean.html)

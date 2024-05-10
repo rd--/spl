@@ -38,7 +38,7 @@ The angle between orthogonal vectors:
 
 * * *
 
-See also: dot
+See also: arcCos, cross, degree, dot, planarAngle
 
 References:
 _Mathematica_

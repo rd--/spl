@@ -10,6 +10,10 @@ Circle : [Object] { | center radius |
 		}
 	}
 
+	arcLength { :self |
+		2.pi
+	}
+
 	area { :self |
 		self.radius.squared.pi
 	}
@@ -20,6 +24,10 @@ Circle : [Object] { | center radius |
 
 	diameter { :self |
 		self.radius * 2
+	}
+
+	r { :self |
+		self.radius
 	}
 
 	storeString { :self |
@@ -46,10 +54,10 @@ Circle : [Object] { | center radius |
 
 }
 
-+RectangularCoordinate {
++[List, RectangularCoordinate] {
 
 	Circle { :center :radius |
-		newCircle().initializeSlots(center, radius)
+		newCircle().initializeSlots(center.asRectangularCoordinate, radius)
 	}
 
 }

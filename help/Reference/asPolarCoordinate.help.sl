@@ -1,6 +1,6 @@
 # asPolarCoordinate
 
-- _asPolarCoordinate(aList | aRecord | aTuple)_
+- _asPolarCoordinate(aSequence | aDictionary)_
 
 Answer a `PolarCoordinate`.
 
@@ -35,7 +35,7 @@ p
 
 * * *
 
-See also: asCartesianCoordinate, asPoint, asRectangularCoordinate, PolarCoordinate
+See also: asCartesianCoordinate, asPoint, asRectangularCoordinate, PolarCoordinate, toPolarCoordinates
 
 Guides: Geometry Types
 

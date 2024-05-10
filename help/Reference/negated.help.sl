@@ -22,6 +22,15 @@ At `Complex`:
 [2.5 -1e20 -3j4]
 ```
 
+At `Colour`, inverts the value of the colour channels:
+
+```
+>>> let r = Colour(1, 0, 0);
+>>> let c = r.negated;
+>>> (r.isRed, c.isCyan)
+(true, true)
+```
+
 * * *
 
 See also: -, abs, sign
@@ -33,7 +42,8 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/minus),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Negative.html)
-[2](https://reference.wolfram.com/language/ref/Minus.html),
+[2](https://reference.wolfram.com/language/ref/Minus.html)
+[3](https://reference.wolfram.com/language/ref/ColorNegate.html),
 _Smalltalk_
 5.6.2.22
 

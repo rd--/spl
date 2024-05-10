@@ -98,6 +98,10 @@
 		self.collect(cubed:/1)
 	}
 
+	degree { :self |
+		self.collect(degree:/1)
+	}
+
 	degreesToRadians { :self |
 		self.collect(degreesToRadians:/1)
 	}

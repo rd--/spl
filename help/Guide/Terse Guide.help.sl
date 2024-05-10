@@ -1830,7 +1830,7 @@ system.cache::primesList[23] = 83 {- nthPrime extends the primesList cache as re
 6.factorial.factorInteger = [2 -> 4, 3 -> 2, 5 -> 1]
 324.factorInteger = [2 -> 2, 3 -> 4] {- powerful numbers are numbers whose prime factors are all repeated -}
 2401.isPrimePower {- the factorization has one place and the base is a prime number -}
-2:49.select(isPrimePower:/1) = [2 3 4 5 7 8 9 11 13 16 17 19 23 25 27 29 31 32 37 41 43 47 49] {- A246655 in the OEIS -}
+2:49.select(isPrimePower:/1) = [2 3 4 5 7 8 9 11 13 16 17 19 23 25 27 29 31 32 37 41 43 47 49] {- OEIS A246655 -}
 1.isPrimePower = false {- one is not a prime power -}
 [7, 9, 64].allSatisfy(isPrimePower:/1)
 [6, 12, 36].noneSatisfy(isPrimePower:/1)

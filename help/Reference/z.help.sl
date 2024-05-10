@@ -24,3 +24,7 @@ Answer the _z_ coordinate of a three dimensional Cartesian coordinate.
 See also: imaginary, real, x, y
 
 Guides: Geometry Types
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/z-Axis.html)
