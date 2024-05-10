@@ -28,6 +28,15 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		>
 	}
 
+	antidiagonalMatrix { :self |
+		let k = self.size;
+		let answer = k.zeroMatrix(k);
+		1.toDo(k) { :each |
+			answer[k - each + 1][each] := self[each]
+		};
+		answer
+	}
+
 	asList { :self |
 		self
 	}
@@ -260,6 +269,14 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 }
 
 +@Integer {
+
+	exchangeMatrix { :self |
+		let answer = self.zeroMatrix(self);
+		1:self.do { :each |
+			answer[self - each + 1][each] := 1
+		};
+		answer
+	}
 
 	fill { :self :aBlock:/1 |
 		let answer = List(self);

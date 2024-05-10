@@ -17,7 +17,7 @@ Answers the _n x n_ identity matrix.
 
 * * *
 
-See also: diagonalMatrix, kroneckerDelta, unitVector, permutationMatrix, table
+See also: diagonalMatrix, exchangeMatrix, kroneckerDelta, unitVector, permutationMatrix, table
 
 References:
 _Mathematica_

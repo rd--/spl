@@ -348,11 +348,12 @@
 
 - `elementType`, `numberOfColumns`, `numberOfRows`
 - `isMatrix`, `shape`, `reshape`, `table`
-- `zeroMatrix`, `identityMatrix`, `diagonalMatrix`
+- `zeroMatrix`, `identityMatrix`, `exchangeMatrix`
+- `antidiagonalMatrix`, `diagonalMatrix`
 - `isSquareMatrix`, `isSymmetricMatrix`
 - `isLowerTriangularMatrix`, `isUpperTriangularMatrix`
 - `dot`, `inner`, `matrixPower`, `outer`
-- `determinant`, `diagonal`, `inverse`, `matrixRank`, `permanent`, `trace`, `transposed`
+- `antidiagonal`, `determinant`, `diagonal`, `inverse`, `matrixRank`, `permanent`, `trace`, `transposed`
 - `kroneckerProduct`
 
 ## Methods

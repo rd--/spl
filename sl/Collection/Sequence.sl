@@ -140,6 +140,23 @@
 		}
 	}
 
+	antidiagonal { :self :k |
+		self.isMatrix.if {
+			let l = self.shape.min - k.abs;
+			(1 .. l).collect { :i |
+				let r = l - i + 1 - k.min(0);
+				let c = i - k.min(0);
+				self[r][c]
+			}
+		} {
+			self.error('@Sequence>>antidiagonal: non matrix argument')
+		}
+	}
+
+	antidiagonal { :self |
+		self.antidiagonal(0)
+	}
+
 	asDigitsAtInDo { :self :anInteger :aCollection :aBlock:/1 |
 		self.do { :each |
 			aCollection[anInteger] := each;

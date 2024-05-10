@@ -168,7 +168,7 @@ also show the diagonal and antidiagonal sums and the matrix rank:
 >>> 	m.dot(v),
 >>> 	v.dot(m),
 >>> 	m.diagonal.sum,
->>> 	m.collect(reversed:/1).diagonal.sum,
+>>> 	m.antidiagonal.sum,
 >>> 	m.matrixRank
 >>> )
 (34, [34 34 34 34], [34 34 34 34], 34, 34, 3)
