@@ -2,40 +2,40 @@
 
 _asTuple(anObject)_
 
-Composite types may provide an _asTuple_ method to answer a Tuple form of the value.
+Composite types may provide an `asTuple` method to answer a `Tuple` form of the value.
 
-At CartesianCoordinate:
+At `CartesianCoordinates`:
 
 ```
->>> CartesianCoordinate(1, 3, 5).asTuple
+>>> CartesianCoordinates(1, 3, 5).asTuple
 (1, 3, 5)
 ```
 
-At Complex:
+At `Complex`:
 
 ```
 >>> 1j3.asTuple
 (1, 3)
 ```
 
-At Fraction:
+At `Fraction`:
 
 ```
 >>> 1/3.asTuple
 (1, 3)
 ```
 
-At List:
+At `List`:
 
 ```
 >>> [1 3 5].asTuple
 (1, 3, 5)
 ```
 
-At SphericalCoordinate:
+At `SphericalCoordinates`:
 
 ```
->>> SphericalCoordinate(1, 3, 5).asTuple
+>>> SphericalCoordinates(1, 3, 5).asTuple
 (1, 3, 5)
 ```
 

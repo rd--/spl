@@ -1,7 +1,7 @@
-PolarCoordinate : [Object] { | r theta |
+PolarCoordinates : [Object] { | r theta |
 
 	= { :self :anObject |
-		anObject.isPolarCoordinate & {
+		anObject.isPolarCoordinates & {
 			self.r = anObject.r & {
 				self.theta = anObject.theta
 			}
@@ -12,7 +12,7 @@ PolarCoordinate : [Object] { | r theta |
 		[self.r, self.theta]
 	}
 
-	asPolarCoordinate { :self |
+	asPolarCoordinates { :self |
 		self
 	}
 
@@ -20,8 +20,8 @@ PolarCoordinate : [Object] { | r theta |
 		(r: self.r, theta: self.theta)
 	}
 
-	asRectangularCoordinate { :self |
-		RectangularCoordinate(self.x, self.y)
+	asRectangularCoordinates { :self |
+		RectangularCoordinates(self.x, self.y)
 	}
 
 	asTuple { :self |
@@ -42,7 +42,7 @@ PolarCoordinate : [Object] { | r theta |
 
 	storeString { :self |
 		[
-			'PolarCoordinate(',
+			'PolarCoordinates(',
 			self.r.storeString,
 			', ',
 			self.theta.storeString,
@@ -62,22 +62,22 @@ PolarCoordinate : [Object] { | r theta |
 
 +@Number {
 
-	PolarCoordinate { :r :theta |
-		newPolarCoordinate().initializeSlots(r, theta)
+	PolarCoordinates { :r :theta |
+		newPolarCoordinates().initializeSlots(r, theta)
 	}
 
 }
 
 +[List, Tuple] {
 
-	asPolarCoordinate { :self |
+	asPolarCoordinates { :self |
 		let [r, theta] = self;
-		PolarCoordinate(r, theta)
+		PolarCoordinates(r, theta)
 	}
 
 	fromPolarCoordinates { :self |
 		self.isVector.if {
-			self.asPolarCoordinate.asRectangularCoordinate.asList
+			self.asPolarCoordinates.asRectangularCoordinates.asList
 		} {
 			self.collect(fromPolarCoordinates:/1)
 		}
@@ -85,7 +85,7 @@ PolarCoordinate : [Object] { | r theta |
 
 	toPolarCoordinates { :self |
 		self.isVector.if {
-			self.asRectangularCoordinate.asPolarCoordinate.asList
+			self.asRectangularCoordinates.asPolarCoordinates.asList
 		} {
 			self.collect(toPolarCoordinates:/1)
 		}
@@ -95,8 +95,8 @@ PolarCoordinate : [Object] { | r theta |
 
 +Record {
 
-	asPolarCoordinate { :self |
-		PolarCoordinate(self::r, self::theta)
+	asPolarCoordinates { :self |
+		PolarCoordinates(self::r, self::theta)
 	}
 
 }

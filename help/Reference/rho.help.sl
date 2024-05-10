@@ -1,11 +1,11 @@
 # rho
 
-- _rho(aCoordinate)_
+- _rho(aPoint)_
 
 Another name for `r`:
 
 ```
->>> PolarCoordinate(1, 0).rho
+>>> PolarCoordinates(1, 0).rho
 1
 ```
 

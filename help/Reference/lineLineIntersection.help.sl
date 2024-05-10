@@ -18,4 +18,4 @@ If the lines are parallel, the intersection point will contain infinities:
 
 * * *
 
-See also: CartesianCoordinate, RectangularCoordinate
+See also: CartesianCoordinates, RectangularCoordinates

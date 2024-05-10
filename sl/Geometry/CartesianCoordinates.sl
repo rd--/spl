@@ -1,4 +1,4 @@
-CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
+CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 
 	= { :self :anObject |
 		self.equalBy(anObject, =)
@@ -8,7 +8,7 @@ CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
 		self.equalBy(anObject, ~)
 	}
 
-	asCartesianCoordinate { :self |
+	asCartesianCoordinates { :self |
 		self
 	}
 
@@ -53,7 +53,7 @@ CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
 	}
 
 	cross { :u :v |
-		CartesianCoordinate(
+		CartesianCoordinates(
 			(u.y * v.z) - (u.z * v.y),
 			(u.z * v.x) - (u.x * v.z),
 			(u.x * v.y) - (u.y * v.x)
@@ -81,7 +81,7 @@ CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
 	}
 
 	equalBy { :self :anObject :aBlock:/2 |
-		anObject.isCartesianCoordinate & {
+		anObject.isCartesianCoordinates & {
 			aBlock(self.x, anObject.x) & {
 				aBlock(self.y, anObject.y) & {
 					aBlock(self.z, anObject.z)
@@ -94,7 +94,7 @@ CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
 		self.x
 	}
 
-	isCartesianCoordinate { :self |
+	isCartesianCoordinates { :self |
 		true
 	}
 
@@ -116,7 +116,7 @@ CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
 
 	storeString { :self |
 		[
-			'CartesianCoordinate(',
+			'CartesianCoordinates(',
 				self.x.storeString,
 				', ',
 				self.y.storeString,
@@ -131,40 +131,40 @@ CartesianCoordinate : [Object, Magnitude, Indexable] { | x y z |
 	}
 
 	xy { :self |
-		RectangularCoordinate(self.x, self.y)
+		RectangularCoordinates(self.x, self.y)
 	}
 
 	xz { :self |
-		RectangularCoordinate(self.x, self.z)
+		RectangularCoordinates(self.x, self.z)
 	}
 
 	yz { :self |
-		RectangularCoordinate(self.y, self.z)
+		RectangularCoordinates(self.y, self.z)
 	}
 
 }
 
 +@Number {
 
-	CartesianCoordinate { :x :y :z |
-		newCartesianCoordinate().initializeSlots(x, y, z)
+	CartesianCoordinates { :x :y :z |
+		newCartesianCoordinates().initializeSlots(x, y, z)
 	}
 
 }
 
 +@Sequence {
 
-	asCartesianCoordinate { :self |
+	asCartesianCoordinates { :self |
 		let [x, y, z] = self;
-		CartesianCoordinate(x, y, z)
+		CartesianCoordinates(x, y, z)
 	}
 
 }
 
 +Record {
 
-	asCartesianCoordinate { :self |
-		CartesianCoordinate(self::x, self::y, self::z)
+	asCartesianCoordinates { :self |
+		CartesianCoordinates(self::x, self::y, self::z)
 	}
 
 }

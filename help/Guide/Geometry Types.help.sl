@@ -2,13 +2,13 @@
 
 Two-dimensional (_planar_) coordinate types:
 
-- `RectangularCoordinate`: An _(x, y)_ Cartesian coordinate
-- `PolarCoordinate`: An _(r, theta)_ polar coordinate
+- `RectangularCoordinates`: An _(x, y)_ Cartesian point
+- `PolarCoordinates`: An _(r, theta)_ polar point
 
 Three-dimensional (_volumetric_) coordinate types:
 
-- `CartesianCoordinate`: An _(x, y, z)_ Cartesian coordinate
-- `SphericalCoordinate`: An _(r, theta, phi)_ spherical coordinate
+- `CartesianCoordinates`: An _(x, y, z)_ Cartesian point
+- `SphericalCoordinates`: An _(r, theta, phi)_ spherical point
 
 Methods for accessing fields:
 
@@ -18,14 +18,15 @@ Methods for accessing fields:
 
 Methods for converting from generic to specific representations of coordinates:
 
-- `asRectangularCoordinate`
-- `asPolarCoordinate`
-- `asCartesianCoordinate`
-- `asSphericalCoordinate`
+- `asRectangularCoordinates`
+- `asPolarCoordinates`
+- `asCartesianCoordinates`
+- `asSphericalCoordinates`
+- `asCylindricalCoordinates`
 
 * * *
 
-See also: RectangularCoordinate, PolarCoordinate, CartesianCoordinate, SphericalCoordinate
+See also: RectangularCoordinates, PolarCoordinates, CartesianCoordinates, SphericalCoordinates
 
 References:
 _Mathematica_

@@ -122,7 +122,7 @@
 ## Coordinate Transformations
 
 - `fromPolarCoordinates`, `toPolarCoordinates`
-RotationMatrix — rotation matrix in any number of dimensions
+- `rotationMatrix`
 
 ## Converting
 
@@ -255,6 +255,7 @@ RotationMatrix — rotation matrix in any number of dimensions
 - `asPoint`, `Point`, `IsoSphericalCoordinate`
 - `fromSphericalCoordinates`, `toSphericalCoordinates`
 - `fromPolarCoordinates`, `toPolarCoordinates`
+- `fromCylindricalCoordinates`, `toCylindricalCoordinates`
 - `coordinateBoundingBox`, `coordinateBounds`
 - `unitVector`
 

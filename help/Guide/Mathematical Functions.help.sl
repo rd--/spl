@@ -352,6 +352,11 @@
 
 - `fromPolarCoordinates`: convert from _(r,θ)_ to _(x,y)_
 - `toPolarCoordinates`: convert from _(x,y)_ to _(r,θ)_
+- `fromSphericalCoordinates`: convert from _(r,θ,ϕ)_ to _(x,y,z)_
+- `toSphericalCoordinates`: convert from _(x,y,z)_ to _(r,θ,ϕ)_
+- `rotationMatrix`: rotation matrix
+- `reflectionMatrix`: reflection matrix
+- `scalingMatrix`: scaling matrix
 
 * * *
 

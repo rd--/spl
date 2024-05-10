@@ -1,40 +1,40 @@
 # y
 
-- _y(aCoordinate)_
+- _y(aPoint)_
 
-Answer the _y_ coordinate of a two or three dimensional Cartesian coordinate.
+Answer the _y_ coordinate of a two or three dimensional point.
 
 Two-dimensional case:
 
 ```
->>> RectangularCoordinate(1, 2).y
+>>> RectangularCoordinates(1, 2).y
 2
 
->>> (x: 1, y: 2).asRectangularCoordinate.y
+>>> (x: 1, y: 2).asRectangularCoordinates.y
 2
 ```
 
-`PolarCoordinate` implements `y`:
+`PolarCoordinates` implements `y`:
 
 ```
->>> PolarCoordinate(1, 3.pi / 2).y
+>>> PolarCoordinates(1, 3.pi / 2).y
 -1
 ```
 
 Three-dimensional case:
 
 ```
->>> CartesianCoordinate(1, 2, 3).y
+>>> CartesianCoordinates(1, 2, 3).y
 2
 
->>> (x: 1, y: 2, z: 3).asCartesianCoordinate.y
+>>> (x: 1, y: 2, z: 3).asCartesianCoordinates.y
 2
 ```
 
-`SphericalCoordinate` implements `y`:
+`SphericalCoordinates` implements `y`:
 
 ```
->>> SphericalCoordinate(1, -1.pi / 2, 1.pi / 2).y
+>>> SphericalCoordinates(1, -1.pi / 2, 1.pi / 2).y
 -1
 ```
 

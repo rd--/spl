@@ -1,6 +1,6 @@
-# RectangularCoordinate
+# RectangularCoordinates
 
-- _RectangularCoordinate(x, y)_
+- _RectangularCoordinates(x, y)_
 
 A `Type` holding the coordinates of a point in two-dimensional Cartesian space,
 given by an ordered pair _(x, y)_.
@@ -14,27 +14,27 @@ given by an ordered pair _(x, y)_.
 
 There are accessors for the _x_ and _y_ coordinates,
 as well as for _r_ and _theta_ (equivalently _rho_ and _phi_),
-and for converting to a `PolarCoordinate`:
+and for converting to a `PolarCoordinates`:
 
 ```
->>> let p = RectangularCoordinate(1, 1);
+>>> let p = RectangularCoordinates(1, 1);
 >>> (
 >>> 	p.x, p.y,
 >>> 	p.r, p.theta,
 >>> 	p.rho, p.phi,
->>> 	p.asPolarCoordinate
+>>> 	p.asPolarCoordinates
 >>> )
 (
 	1, 1,
 	2.sqrt, 0.25.pi,
 	2.sqrt, 0.25.pi,
-	PolarCoordinate(2.sqrt, 0.25.pi)
+	PolarCoordinates(2.sqrt, 0.25.pi)
 )
 ```
 
 * * *
 
-See also: asPoint, asPolarCoordinate, asRectangularCoordinate, CartesianCoordinate, Point, PolarCoordinate, x, y
+See also: asPoint, asPolarCoordinates, asRectangularCoordinates, CartesianCoordinates, Point, PolarCoordinates, x, y
 
 Guides: Geometry Types
 

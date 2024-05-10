@@ -1,21 +1,21 @@
 # z
 
-- _z(aCoordinate)_
+- _z(aPoint)_
 
-Answer the _z_ coordinate of a three dimensional Cartesian coordinate.
+Answer the _z_-coordinate of a three dimensional Cartesian coordinate.
 
 ```
->>> CartesianCoordinate(1, 2, 3).z
+>>> CartesianCoordinates(1, 2, 3).z
 3
 
->>> (x: 1, y: 2, z: 3).asCartesianCoordinate.z
+>>> (x: 1, y: 2, z: 3).asCartesianCoordinates.z
 3
 ```
 
-`SphericalCoordinate` implements `z`:
+`SphericalCoordinates` implements `z`:
 
 ```
->>> SphericalCoordinate(1, 0, 1.pi).z
+>>> SphericalCoordinates(1, 0, 1.pi).z
 -1
 ```
 

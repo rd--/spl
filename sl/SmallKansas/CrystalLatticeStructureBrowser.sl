@@ -46,8 +46,8 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 		newCrystalLatticeStructure().initializeSlots(
 			self::name,
 			self::description,
-			self::vertexLabels.withCollect(self::vertexCoordinates) { :label :coordinate |
-				[label, coordinate.asCartesianCoordinate]
+			self::vertexLabels.withCollect(self::vertexCoordinates) { :label :coordinates |
+				[label, coordinates.asCartesianCoordinates]
 			},
 			self::edges.collect { :edge |
 				edge.collect { :each |

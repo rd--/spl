@@ -19,11 +19,11 @@ Scaling factors can be negative or zero:
 [1 0 0; 0 1 0; 0 0 0]
 ```
 
-_scalingMatrix_ is an alias for _diagonalMatrix_.
+`scalingMatrix` is an alias for `diagonalMatrix`.
 
 * * *
 
-See also: identityMatrix, diagonalMatrix
+See also: diagonalMatrix, identityMatrix, reflectionMatrix, rotationMatrix
 
 References:
 _Mathematica_

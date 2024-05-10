@@ -1,4 +1,4 @@
-{- Requires: RectangularCoordinate -}
+{- Requires: RectangularCoordinates -}
 
 Matrix22 : [Object] { | a b c d |
 
@@ -15,7 +15,7 @@ Matrix22 : [Object] { | a b c d |
 	}
 
 	applyTo { :self :vector |
-		RectangularCoordinate(
+		RectangularCoordinates(
 			(self.a * vector.x) + (self.b * vector.y),
 			(self.c * vector.x) + (self.d * vector.y)
 		)

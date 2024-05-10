@@ -1,21 +1,21 @@
 # phi
 
-- _phi(aCoordinate)_
+- _phi(aPoint)_
 
-Answer the _phi_ (inclination) field of _aCoordinate_.
+Answer the `phi` (inclination) field of _aPoint_.
 
-At `SphericalCoordinate`, also called `inclination`:
+At `SphericalCoordinates`, also called `inclination`:
 
 ```
->>> let p = SphericalCoordinate(1, 0, pi);
+>>> let p = SphericalCoordinates(1, 0, pi);
 >>> (p.phi, p.inclination)
 (pi, pi)
 ```
 
-`CartesianCoordinate` implements `phi`:
+`CartesianCoordinates` implements `phi`:
 
 ```
->>> let p = CartesianCoordinate(1, 0, 1);
+>>> let p = CartesianCoordinates(1, 0, 1);
 >>> (p.phi, p.inclination)
 (pi / 4, pi / 4)
 ```

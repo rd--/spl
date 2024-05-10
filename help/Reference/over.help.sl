@@ -35,7 +35,7 @@ At `Colour` place one colour over another:
 >>> let r = Colour(1, 0, 0, 0.5);
 >>> let g = Colour(0, 1, 0, 0.5);
 >>> r.over(g)
-Colour(1/3, 2/3, 0, 3/4)
+Colour(1 / 3, 2 / 3, 0, 3 / 4)
 ```
 
 * * *

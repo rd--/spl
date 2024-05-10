@@ -1,4 +1,4 @@
-{- Requires: RectangularCoordinate CartesianCoordinate -}
+{- Requires: RectangularCoordinates CartesianCoordinates -}
 
 FourVector : [Object] { | w x y z |
 
@@ -31,11 +31,11 @@ FourVector : [Object] { | w x y z |
 	}
 
 	xy { :self |
-		RectangularCoordinate(self.x, self.y)
+		RectangularCoordinates(self.x, self.y)
 	}
 
 	xyz { :self |
-		CartesianCoordinate(self.x, self.y, self.z)
+		CartesianCoordinates(self.x, self.y, self.z)
 	}
 
 }

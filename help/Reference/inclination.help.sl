@@ -1,11 +1,11 @@
 # inclination
 
-- _inclination(aCoordinate)_
+- _inclination(aPoint)_
 
 Another name for `phi`:
 
 ```
->>> SphericalCoordinate(1, 0, pi).inclination
+>>> SphericalCoordinates(1, 0, pi).inclination
 pi
 ```
 

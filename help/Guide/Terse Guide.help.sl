@@ -2264,7 +2264,7 @@ Matrix22(1, 0, 0, 1).isMatrix22 {- matrix predicate -}
 Matrix22(1, 4, -1, 9).determinant = 13 {- determinant -}
 Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2) {- inverse, answers new matrix -}
 let m = Matrix22(-1, 3/2, 1,-1); m.invert; m = Matrix22(2, 3, 2, 2) {- inverse, in place -}
-Matrix22().rotation(1.pi / 2).applyTo(RectangularCoordinate(0, 1)).closeTo(1 @ 0)
+Matrix22().rotation(1.pi / 2).applyTo(RectangularCoordinates(0, 1)).closeTo(1 @ 0)
 Matrix22(1, 2, 3, 4).transposed = Matrix22(1, 3, 2, 4) {- transpose, answers new matrix -}
 let m = Matrix22(1, 2, 3, 4); m.transpose; m = Matrix22(1, 3, 2, 4) {- transpose, in place -}
 ```
@@ -2798,7 +2798,7 @@ Record().hasEqualElements(Record()) {- key sequence and equality -}
 ```
 system.includesPackage('Rectangle') {- Rectangle package -}
 Rectangle(0@0, 1@1).printString = 'Rectangle(0@0, 1@1)'
-Rectangle(0@0, 1@1).storeString = 'Rectangle(RectangularCoordinate(0, 0), RectangularCoordinate(1, 1))'
+Rectangle(0@0, 1@1).storeString = 'Rectangle(RectangularCoordinates(0, 0), RectangularCoordinates(1, 1))'
 Rectangle(0@0, 2@2).intersect(Rectangle(1@1, 4@4)) = Rectangle(1@1, 2@2)
 Rectangle(1@1, 3@3).area = 4
 Rectangle(1@1, 3@3).center = Point(2, 2)
@@ -4166,15 +4166,15 @@ system.includesPackage('Unordered') {- package -}
 { [1, 2, 3].asBag.at(1) }.ifError { true }
 ```
 
-## RectangularCoordinate -- geometry type
+## RectangularCoordinates -- geometry type
 ```
-system.includesPackage('RectangularCoordinate') {- package -}
-RectangularCoordinate(0, 0).typeOf = 'RectangularCoordinate' {- type of -}
-RectangularCoordinate(-1, 1).isRectangularCoordinate = true
-[1, 2].asRectangularCoordinate = RectangularCoordinate(1, 2) {- from list -}
-(1, 2).asRectangularCoordinate = RectangularCoordinate(1, 2) {- from tuple -}
-(x: 1, y: 2).asRectangularCoordinate = RectangularCoordinate(1, 2) {- from record -}
-Point(-1, 1).isRectangularCoordinate = true {- point constructor -}
+system.includesPackage('RectangularCoordinates') {- package -}
+RectangularCoordinates(0, 0).typeOf = 'RectangularCoordinates' {- type of -}
+RectangularCoordinates(-1, 1).isRectangularCoordinates = true
+[1, 2].asRectangularCoordinates = RectangularCoordinates(1, 2) {- from list -}
+(1, 2).asRectangularCoordinates = RectangularCoordinates(1, 2) {- from tuple -}
+(x: 1, y: 2).asRectangularCoordinates = RectangularCoordinates(1, 2) {- from record -}
+Point(-1, 1).isRectangularCoordinates = true {- point constructor -}
 [1, 2].asPoint = Point(1, 2) {- list as point -}
 (1, 2).asPoint = Point(1, 2) {- tuple as point -}
 (x: 1, y: 2).asPoint = Point(1, 2) {- record as point -}
@@ -4223,8 +4223,8 @@ Point(3, 4).size = 2 {- implements size -}
 let v = Point(3, 4); v.swapInPlace; v[1] = 4 {- swap fields in place -}
 Point(3, 4).swapped = Point(4, 3) {- answer swapped vector -}
 let v = (0 @ 0); let c = v.copy; c.x := 1; c ~= v & { c = (1 @ 0) } {- copy two vector -}
-Point(1, 1).asPolarCoordinate = PolarCoordinate(2.sqrt, 0.25.pi) {- radius and angle, r and theta -}
-[0, 0].asPoint.isRectangularCoordinate {- array as point, point predicate -}
+Point(1, 1).asPolarCoordinates = PolarCoordinates(2.sqrt, 0.25.pi) {- radius and angle, r and theta -}
+[0, 0].asPoint.isRectangularCoordinates {- array as point, point predicate -}
 (0, 0).asPoint.isZero {- are x and y both zero -}
 (1 @ 1).norm = 2.sqrt {- magnitude, distance to origin -}
 (1 @ 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude -}
@@ -4234,11 +4234,11 @@ Point(1, 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude
 Point(1, 1).normalized.norm ~ 1
 ```
 
-## CartesianCoordinate -- geometry type
+## CartesianCoordinates -- geometry type
 ```
-[1, 2, 3].asCartesianCoordinate = CartesianCoordinate(1, 2, 3) {- from list -}
-(1, 2, 3).asCartesianCoordinate = CartesianCoordinate(1, 2, 3) {- from tuple -}
-(x: 1, y: 2, z: 3).asCartesianCoordinate = CartesianCoordinate(1, 2, 3) {- from record -}
+[1, 2, 3].asCartesianCoordinates = CartesianCoordinates(1, 2, 3) {- from list -}
+(1, 2, 3).asCartesianCoordinates = CartesianCoordinates(1, 2, 3) {- from tuple -}
+(x: 1, y: 2, z: 3).asCartesianCoordinates = CartesianCoordinates(1, 2, 3) {- from record -}
 [1, 2, 3].asPoint = Point(1, 2, 3) {- array as point -}
 (1, 2, 3).asPoint = Point(1, 2, 3) {- tuple as point -}
 (x: 1, y: 2, z: 3).asPoint = Point(1, 2, 3) {- record as point -}
@@ -4248,26 +4248,26 @@ let v = Point(1, 2, 3); [v.x, v.y, v.z] = [1, 2, 3] {- fields are x, y, z -}
 let v = Point(3, 4, 5); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } {- implements at -}
 let v = Point(3, 4, 5); v[1] := 5; v[3] := 3; v.asList = [5, 4, 3] {- implements atPut -}
 let v = Point(3, 4, 5); [v.first, v.second, v.third] = [3, 4, 5] {- implements first &etc. -}
-Point(0, 0, 1).asSphericalCoordinate = SphericalCoordinate(1, 0, 0)
-SphericalCoordinate(1, 0, 0).asCartesianCoordinate = Point(0, 0, 1)
-Point(1, 1, 0).asSphericalCoordinate = SphericalCoordinate(2.sqrt, 1.pi / 4, 1.pi / 2)
-SphericalCoordinate(2.sqrt, 1.pi / 4, 1.pi / 2).asCartesianCoordinate ~ Point(1, 1, 0)
-IsoSphericalCoordinate(3.sqrt, 2.sqrt.arcTan, 0.25.pi).asCartesianCoordinate ~ Point(1, 1, 1)
-Point(1, 1, 1).asSphericalCoordinate ~ IsoSphericalCoordinate(3.sqrt, 2.sqrt.arcTan, 0.25.pi)
+Point(0, 0, 1).asSphericalCoordinates = SphericalCoordinates(1, 0, 0)
+SphericalCoordinates(1, 0, 0).asCartesianCoordinates = Point(0, 0, 1)
+Point(1, 1, 0).asSphericalCoordinates = SphericalCoordinates(2.sqrt, 1.pi / 4, 1.pi / 2)
+SphericalCoordinates(2.sqrt, 1.pi / 4, 1.pi / 2).asCartesianCoordinates ~ Point(1, 1, 0)
+IsoSphericalCoordinates(3.sqrt, 2.sqrt.arcTan, 0.25.pi).asCartesianCoordinates ~ Point(1, 1, 1)
+Point(1, 1, 1).asSphericalCoordinates ~ IsoSphericalCoordinates(3.sqrt, 2.sqrt.arcTan, 0.25.pi)
 Point(0, 0, 0).distance(Point(1, 1, 1)) = 3.sqrt
 Point(0, 0, 0).distance(Point(1, 1, 0)) = 2.sqrt
 Point(1, 2, 3).distance(Point(6, 5, 4)) = 35.sqrt
-Point(0, 0, 0).isCartesianCoordinate = true {- is Cartesian coordinate -}
+Point(0, 0, 0).isCartesianCoordinates = true {- is Cartesian coordinate -}
 Point(0, 0, 0).isZero = true {- is zero -}
-let v = Point(0, 0, 0); v.asCartesianCoordinate == v {- identity -}
+let v = Point(0, 0, 0); v.asCartesianCoordinates == v {- identity -}
 Point(1, 3, 5).asList = [1 3 5] {- point as array -}
 [1 3 5].asPoint = Point(1, 3, 5) {- array as point -}
 Point(1, 3, 5).asRecord = (x: 1, y: 3, z: 5)
 (x: 1, y: 3, z: 5).asPoint = Point(1, 3, 5) {- record as point -}
-SphericalCoordinate(1, 2, 3).asRecord = (r: 1, theta: 2, phi: 3)
-(r: 1, theta: 2, phi: 3).asSphericalCoordinate = SphericalCoordinate(1, 2, 3)
-CylindricalCoordinate(1, 1, 1).asCartesianCoordinate.asRecord = (x: 1.cos, y: 1.sin, z: 1)
-Point(1.cos, 1.sin, 1).asCylindricalCoordinate.asRecord = (rho: 1, phi: 1, z: 1)
+SphericalCoordinates(1, 2, 3).asRecord = (r: 1, theta: 2, phi: 3)
+(r: 1, theta: 2, phi: 3).asSphericalCoordinates = SphericalCoordinates(1, 2, 3)
+CylindricalCoordinates(1, 1, 1).asCartesianCoordinates.asRecord = (x: 1.cos, y: 1.sin, z: 1)
+Point(1.cos, 1.sin, 1).asCylindricalCoordinates.asRecord = (rho: 1, phi: 1, z: 1)
 ```
 
 ## FourVector -- geometry type

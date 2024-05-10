@@ -1,6 +1,6 @@
-{- Requires: CartesianCoordinate -}
+{- Requires: CartesianCoordinates -}
 
-@SphericalCoordinate {
+@SphericalCoordinates {
 
 	= { :self :anObject |
 		self.compareBy(anObject, =)
@@ -10,15 +10,15 @@
 		self.compareBy(anObject, ~)
 	}
 
-	asSphericalCoordinate { :self |
+	asSphericalCoordinates { :self |
 		self
 	}
 
-	asCartesianCoordinate { :self |
+	asCartesianCoordinates { :self |
 		let r = self.r;
 		let theta = self.theta;
 		let phi = self.phi;
-		CartesianCoordinate(
+		CartesianCoordinates(
 			r * theta.cos * phi.sin,
 			r * theta.sin * phi.sin,
 			r * phi.cos
@@ -42,7 +42,7 @@
 	}
 
 	compareBy { :self :anObject :aBlock:/2 |
-		anObject.isSphericalCoordinate & {
+		anObject.isSphericalCoordinates & {
 			aBlock(self.r, anObject.r) & {
 				aBlock(self.theta, anObject.theta) & {
 					aBlock(self.phi, anObject.phi)
@@ -69,7 +69,7 @@
 
 	storeString { :self |
 		[
-			'SphericalCoordinate(',
+			'SphericalCoordinates(',
 				self.r.storeString,
 				', ',
 				self.theta.storeString,
@@ -93,32 +93,32 @@
 
 }
 
-SphericalCoordinate : [Object, SphericalCoordinate] { | r theta phi |
+SphericalCoordinates : [Object, SphericalCoordinates] { | r theta phi |
 
 }
 
 +@Number {
 
-	IsoSphericalCoordinate { :r :theta :phi |
-		newSphericalCoordinate().initializeSlots(r, phi, theta)
+	IsoSphericalCoordinates { :r :theta :phi |
+		newSphericalCoordinates().initializeSlots(r, phi, theta)
 	}
 
-	SphericalCoordinate { :r :theta :phi |
-		newSphericalCoordinate().initializeSlots(r, theta, phi)
+	SphericalCoordinates { :r :theta :phi |
+		newSphericalCoordinates().initializeSlots(r, theta, phi)
 	}
 
 }
 
 +[List, Tuple] {
 
-	asSphericalCoordinate { :self |
+	asSphericalCoordinates { :self |
 		let [r, theta, phi] = self;
-		SphericalCoordinate(r, theta, phi)
+		SphericalCoordinates(r, theta, phi)
 	}
 
 	fromSphericalCoordinates { :self |
 		self.isVector.if {
-			self.asSphericalCoordinate.asCartesianCoordinate.asList
+			self.asSphericalCoordinates.asCartesianCoordinates.asList
 		} {
 			self.collect(fromSphericalCoordinates:/1)
 		}
@@ -126,7 +126,7 @@ SphericalCoordinate : [Object, SphericalCoordinate] { | r theta phi |
 
 	toSphericalCoordinates { :self |
 		self.isVector.if {
-			self.asCartesianCoordinate.asSphericalCoordinate.asList
+			self.asCartesianCoordinates.asSphericalCoordinates.asList
 		} {
 			self.collect(toSphericalCoordinates:/1)
 		}
@@ -136,19 +136,19 @@ SphericalCoordinate : [Object, SphericalCoordinate] { | r theta phi |
 
 +Record {
 
-	asSphericalCoordinate { :self |
-		SphericalCoordinate(self::r, self::theta, self::phi)
+	asSphericalCoordinates { :self |
+		SphericalCoordinates(self::r, self::theta, self::phi)
 	}
 
 }
 
-+CartesianCoordinate {
++CartesianCoordinates {
 
-	asSphericalCoordinate { :self |
+	asSphericalCoordinates { :self |
 		let x = self.x;
 		let y = self.y;
 		let z = self.z;
-		SphericalCoordinate(
+		SphericalCoordinates(
 			(x.squared + y.squared + z.squared).sqrt,
 			y.atan2(x),
 			(x.squared + y.squared).sqrt.atan2(z)

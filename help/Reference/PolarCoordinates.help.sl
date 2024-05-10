@@ -1,8 +1,8 @@
-# PolarCoordinate
+# PolarCoordinates
 
-- _PolarCoordinate(r, theta)_
+- _PolarCoordinates(r, theta)_
 
-`PolarCoordinate` is a `Type` that represents a point in a polar coordinate system,
+`PolarCoordinates` is a `Type` that represents a point in a polar coordinate system,
 where each point on a plane is determined by a distance from a reference point and an angle in radians from a reference direction.
 
 The usual mathematical notation is _(r, theta)_, where _r_ is the radius and _theta_ the angle.
@@ -12,24 +12,24 @@ Theta, or phi, is the angle of counter-clockwise rotation from the positive _x_ 
 with _0 <= theta < 2 pi_.
 
 ```
->>> let p = PolarCoordinate(2.sqrt, 0.25.pi);
+>>> let p = PolarCoordinates(2.sqrt, 0.25.pi);
 >>> (
 >>> 	p.r, p.theta,
 >>> 	p.rho, p.phi,
 >>> 	p.x, p.y,
->>> 	p.asRectangularCoordinate
+>>> 	p.asRectangularCoordinates
 >>> )
 (
 	2.sqrt, 0.25.pi,
 	2.sqrt, 0.25.pi,
 	1, 1,
-	RectangularCoordinate(1, 1)
+	RectangularCoordinates(1, 1)
 )
 ```
 
 * * *
 
-See also: CartesianCoordinate, fromPolarCoordinates, Point, RectangularCoordinate, SphericalCoordinate, toPolarCoordinates
+See also: CartesianCoordinates, fromPolarCoordinates, Point, RectangularCoordinates, SphericalCoordinates, toPolarCoordinates
 
 Guides: Geometry Types
 

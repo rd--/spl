@@ -1,8 +1,8 @@
-# CartesianCoordinate
+# CartesianCoordinates
 
-- _CartesianCoordinate(x, y, z)_
+- _CartesianCoordinates(x, y, z)_
 
-A coordinate in three-dimensional Cartesian space given by a triple _(x, y, z)_.
+A `Type` representing a point in three-dimensional Cartesian space given by a triple _(x, y, z)_.
 
 > The three-dimensional Cartesian coordinate system is an extension of
 > the two-dimensional system formed by the addition of a third axis
@@ -12,7 +12,7 @@ A coordinate in three-dimensional Cartesian space given by a triple _(x, y, z)_.
 Implements `size` and `at`:
 
 ```
->>> let p = CartesianCoordinate(1, 2, 3);
+>>> let p = CartesianCoordinates(1, 2, 3);
 >>> (p.size, [p[3], p[2], p[1]])
 (3, [3 2 1])
 ```
@@ -20,14 +20,14 @@ Implements `size` and `at`:
 allowing terms to be fetched using `List Assignment Syntax`:
 
 ```
->>> let [x, y, z] = CartesianCoordinate(1, 2, 3);
+>>> let [x, y, z] = CartesianCoordinates(1, 2, 3);
 >>> [z y x]
 [3 2 1]
 ```
 
 * * *
 
-See also: asPoint, Point, PolarCoordinate, RectangularCoordinate, SphericalCoordinate, x, y, z
+See also: asPoint, Point, PolarCoordinates, RectangularCoordinates, SphericalCoordinates, x, y, z
 
 Guides: Geometry Types
 

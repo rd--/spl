@@ -1,22 +1,21 @@
 # r
 
-- _r(aCoordinate)_
+- _r(aPoint)_
 
-
-Answer the _r_ (radius) field of _aCoordinate_.
+Answer the radius field of _aPoint_.
 
 The two-dimensional case, also named `rho` and `radius`:
 
 ```
->>> let p = PolarCoordinate(1, 0);
+>>> let p = PolarCoordinates(1, 0);
 >>> (p.r, p.rho, p.radius)
 (1, 1, 1)
 ```
 
-`RectangularCoordinate` implements `r`:
+`RectangularCoordinates` implements `r`:
 
 ```
->>> let p = RectangularCoordinate(1, 1);
+>>> let p = RectangularCoordinates(1, 1);
 >>> (p.r, p.rho, p.radius)
 (2.sqrt, 2.sqrt, 2.sqrt)
 ```
@@ -24,15 +23,15 @@ The two-dimensional case, also named `rho` and `radius`:
 The three-dimensional case:
 
 ```
->>> let p = SphericalCoordinate(1, 0, 0);
+>>> let p = SphericalCoordinates(1, 0, 0);
 >>> (p.r, p.rho, p.radius)
 (1, 1, 1)
 ```
 
-`CartesianCoordinate` implements `r`:
+`CartesianCoordinates` implements `r`:
 
 ```
->>> let p = CartesianCoordinate(1, 0, 1);
+>>> let p = CartesianCoordinates(1, 0, 1);
 >>> (p.r, p.rho, p.radius)
 (2.sqrt, 2.sqrt, 2.sqrt)
 ```

@@ -13,7 +13,9 @@ where θ is azimuth and ϕ is inclination.
 Equivalent to:
 
 ```
->>> [3.sqrt, 0.25.pi, 2.sqrt.arcTan].asSphericalCoordinate.asCartesianCoordinate.asList
+>>> let v = [3.sqrt, 0.25.pi, 2.sqrt.arcTan];
+>>> let p = v.asSphericalCoordinates;
+>>> p.asCartesianCoordinates.asList
 [1 1 1]
 ```
 
@@ -40,11 +42,28 @@ Inverse is `toSphericalCoordinates`:
 ```
 >>> [3.sqrt, 0.25.pi, 2.sqrt.arcTan]
 [1 1 1].toSphericalCoordinates
+
+>>> let u = [8, pi / 3, pi / 6];
+>>> let v = u.fromSphericalCoordinates;
+>>> (v.toSphericalCoordinates ~ u, v)
+(true, [2, 2 * 3.sqrt, 4 * 3.sqrt])
+```
+
+Convert to cyclindrical coordinates:
+
+```
+>>> let u = [2, -5 * pi / 6, pi / 6];
+>>> let v = u.fromSphericalCoordinates;
+>>> (v, v.toCylindricalCoordinates)
+(
+	[3.sqrt / -2, -1 / 2, 3.sqrt],
+	[1, -5 * pi / 6, 3.sqrt]
+)
 ```
 
 * * *
 
-See also: arcTan, norm, fromPolarCoordinates, SphericalCoordinate, toSphericalCoordinates
+See also: arcTan, norm, fromPolarCoordinates, SphericalCoordinates, toSphericalCoordinates
 
 References:
 _Mathematica_

@@ -1,35 +1,35 @@
 # theta
 
-- _theta(aCoordinate)_
+- _theta(aPoint)_
 
-Answer the _theta_ field of _aCoordinate_.
+Answer the `theta` field of _aPoint_.
 
 The two-dimensional case:
 
 ```
->>> PolarCoordinate(0, pi).theta
+>>> PolarCoordinates(0, pi).theta
 pi
 ```
 
-`RectangularCoordinate` implements `theta`:
+`RectangularCoordinates` implements `theta`:
 
 ```
->>> RectangularCoordinate(1, 1).theta
+>>> RectangularCoordinates(1, 1).theta
 (pi / 4)
 ```
 
 The three-dimensional case, also called `azimuth`:
 
 ```
->>> let p = SphericalCoordinate(1, pi, 0);
+>>> let p = SphericalCoordinates(1, pi, 0);
 >>> (p.theta, p.azimuth)
 (pi, pi)
 ```
 
-`CartesianCoordinate` implements `theta`:
+`CartesianCoordinates` implements `theta`:
 
 ```
->>> let p = CartesianCoordinate(1, 1, 0);
+>>> let p = CartesianCoordinates(1, 1, 0);
 >>> (p.theta, p.azimuth)
 (pi / 4, pi / 4)
 ```

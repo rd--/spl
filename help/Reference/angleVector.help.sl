@@ -42,10 +42,3 @@ C.f. `vector` at `Angle`:
 * * *
 
 See also: absArg, cos, degree, fromPolarCoordinates, sin, unitVector, vectorAngle
-
-Related Guides
-Trigonometric Functions
-Angles and Polar Coordinates
-Operations on Vectors
-History
-Introduced in 2015 (10.1)

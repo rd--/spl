@@ -1,6 +1,6 @@
-{- Requires: RectangularCoordinate CartesianCoordinate FourVector -}
+{- Requires: RectangularCoordinates CartesianCoordinates FourVector -}
 
-+RectangularCoordinate {
++RectangularCoordinates {
 
 	asPoint { :self |
 		self
@@ -16,7 +16,7 @@
 
 }
 
-+CartesianCoordinate {
++CartesianCoordinates {
 
 	asPoint { :self |
 		self
@@ -39,15 +39,15 @@
 +@Number {
 
 	@ { :x :y |
-		RectangularCoordinate(x, y)
+		RectangularCoordinates(x, y)
 	}
 
 	Point { :x :y |
-		RectangularCoordinate(x, y)
+		RectangularCoordinates(x, y)
 	}
 
 	Point { :x :y :z |
-		CartesianCoordinate(x, y, z)
+		CartesianCoordinates(x, y, z)
 	}
 
 	Point { :w :x :y :z |
@@ -60,8 +60,8 @@
 
 	asPoint { :self |
 		self.size.caseOfOtherwise([
-			{ 2 } -> { self.asRectangularCoordinate },
-			{ 3 } -> { self.asCartesianCoordinate },
+			{ 2 } -> { self.asRectangularCoordinates },
+			{ 3 } -> { self.asCartesianCoordinates },
 			{ 4 } -> { self.asFourVector }
 		]) {
 			'List>>asPoint: invalid size'.error
@@ -77,10 +77,10 @@
 			self.asFourVector
 		} {
 			self.includesAllIndices(['x','y','z']).if {
-				self.asCartesianCoordinate
+				self.asCartesianCoordinates
 			} {
 				self.includesAllIndices(['x','y']).if {
-					self.asRectangularCoordinate
+					self.asRectangularCoordinates
 				} {
 					'Record>>asPoint: invalid record'.error
 				}
@@ -94,8 +94,8 @@
 
 	asPoint { :self |
 		self.size.caseOfOtherwise([
-			{ 2 } -> { RectangularCoordinate(self.first, self.second) },
-			{ 3 } -> { CartesianCoordinate(self.first, self.second, self.third) },
+			{ 2 } -> { RectangularCoordinates(self.first, self.second) },
+			{ 3 } -> { CartesianCoordinates(self.first, self.second, self.third) },
 			{ 4 } -> { FourVector(self.first, self.second, self.third, self.fourth) }
 		]) {
 			'Tuple>>asPoint'.error

@@ -1,4 +1,4 @@
-RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
+RectangularCoordinates : [Object, Magnitude, Indexable] { | x y |
 
 	= { :self :anObject |
 		self.equalBy(anObject, =)
@@ -41,7 +41,7 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 	}
 
 	abs { :self |
-		RectangularCoordinate(self.x.abs, self.y.abs)
+		RectangularCoordinates(self.x.abs, self.y.abs)
 	}
 
 	abscissa { :self |
@@ -49,18 +49,18 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
-		aBlock(RectangularCoordinate(aNumber, aNumber), self)
+		aBlock(RectangularCoordinates(aNumber, aNumber), self)
 	}
 
 	applyUnaryOperator { :self :aBlock:/1 |
-		RectangularCoordinate(self.x.aBlock, self.y.aBlock)
+		RectangularCoordinates(self.x.aBlock, self.y.aBlock)
 	}
 
 	applyBinaryOperator { :self :anObject :aBlock:/2 |
-		anObject.isRectangularCoordinate.if {
-			RectangularCoordinate(aBlock(self.x, anObject.x), aBlock(self.y, anObject.y))
+		anObject.isRectangularCoordinates.if {
+			RectangularCoordinates(aBlock(self.x, anObject.x), aBlock(self.y, anObject.y))
 		} {
-			anObject.adaptToRectangularCoordinateAndApply(self, aBlock:/2)
+			anObject.adaptToRectangularCoordinatesAndApply(self, aBlock:/2)
 		}
 	}
 
@@ -68,15 +68,15 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 		[self.x, self.y]
 	}
 
-	asPolarCoordinate { :self |
-		PolarCoordinate(self.r, self.theta)
+	asPolarCoordinates { :self |
+		PolarCoordinates(self.r, self.theta)
 	}
 
 	asRecord { :self |
 		(x: self.x, y: self.y)
 	}
 
-	asRectangularCoordinate { :self |
+	asRectangularCoordinates { :self |
 		self
 	}
 
@@ -131,7 +131,7 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 	}
 
 	equalBy { :self :anObject :aBlock:/2 |
-		anObject.isRectangularCoordinate & {
+		anObject.isRectangularCoordinates & {
 			aBlock(self.x, anObject.x) & {
 				aBlock(self.y, anObject.y)
 			}
@@ -148,13 +148,13 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 		let x0 = inversionCenter.x;
 		let y0 = inversionCenter.y;
 		let k = inversionRadius;
-		RectangularCoordinate(
+		RectangularCoordinates(
 			x0 + ((k.squared * (x - x0)) / ((x - x0).squared + (y - y0).squared)),
 			y0 + ((k.squared * (y - y0)) / ((x - x0).squared + (y - y0).squared))
 		)
 	}
 
-	isRectangularCoordinate { :self |
+	isRectangularCoordinates { :self |
 		true
 	}
 
@@ -219,7 +219,7 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 
 	storeString { :self |
 		[
-			'RectangularCoordinate(',
+			'RectangularCoordinates(',
 				self.x.storeString,
 				', ',
 				self.y.storeString,
@@ -235,7 +235,7 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 	}
 
 	swapped { :self |
-		RectangularCoordinate(self.y, self.x)
+		RectangularCoordinates(self.y, self.x)
 	}
 
 	theta { :self |
@@ -250,29 +250,29 @@ RectangularCoordinate : [Object, Magnitude, Indexable] { | x y |
 
 +@Number {
 
-	adaptToRectangularCoordinateAndApply { :self :aRectangularCoordinate :aBlock:/2 |
-		aBlock(aRectangularCoordinate, RectangularCoordinate(self, self))
+	adaptToRectangularCoordinatesAndApply { :self :aRectangularCoordinates :aBlock:/2 |
+		aBlock(aRectangularCoordinates, RectangularCoordinates(self, self))
 	}
 
-	RectangularCoordinate { :x :y |
-		newRectangularCoordinate().initializeSlots(x, y)
+	RectangularCoordinates { :x :y |
+		newRectangularCoordinates().initializeSlots(x, y)
 	}
 
 }
 
 +[List, Tuple] {
 
-	asRectangularCoordinate { :self |
+	asRectangularCoordinates { :self |
 		let [x, y] = self;
-		RectangularCoordinate(x, y)
+		RectangularCoordinates(x, y)
 	}
 
 }
 
 +Record {
 
-	asRectangularCoordinate { :self |
-		RectangularCoordinate(self::x, self::y)
+	asRectangularCoordinates { :self |
+		RectangularCoordinates(self::x, self::y)
 	}
 
 }

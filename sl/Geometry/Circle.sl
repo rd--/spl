@@ -1,4 +1,4 @@
-{- Requires: RectangularCoordinate -}
+{- Requires: RectangularCoordinates -}
 
 Circle : [Object] { | center radius |
 
@@ -54,10 +54,10 @@ Circle : [Object] { | center radius |
 
 }
 
-+[List, RectangularCoordinate] {
++[List, RectangularCoordinates] {
 
 	Circle { :center :radius |
-		newCircle().initializeSlots(center.asRectangularCoordinate, radius)
+		newCircle().initializeSlots(center.asRectangularCoordinates, radius)
 	}
 
 }

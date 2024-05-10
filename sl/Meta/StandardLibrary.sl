@@ -27,21 +27,21 @@
 
 	{- Geometry -}
 	'Angle'
-	'CartesianCoordinate'
+	'CartesianCoordinates'
 	'Length'
 	'Plane'
-	'PolarCoordinate'
-	'RectangularCoordinate'
-	'Circle'  {- RectangularCoordinate -}
-	'Matrix22' {- RectangularCoordinate -}
-	'Matrix33' {- CartesianCoordinate -}
+	'PolarCoordinates'
+	'RectangularCoordinates'
+	'Circle'  {- RectangularCoordinates -}
+	'Matrix22' {- RectangularCoordinates -}
+	'Matrix33' {- CartesianCoordinates -}
 	'Projection3' {- Matrix33 -}
-	'Rectangle'  {- RectangularCoordinate -}
-	'FourVector' {- RectangularCoordinate CartesianCoordinate -}
-	'CylindricalCoordinate' {- CartesianCoordinate -}
-	'Sphere' {- CartesianCoordinate -}
-	'SphericalCoordinate' {- CartesianCoordinate -}
-	'Point' {- RectangularCoordinate CartesianCoordinate -}
+	'Rectangle'  {- RectangularCoordinates -}
+	'FourVector' {- RectangularCoordinates CartesianCoordinates -}
+	'CylindricalCoordinates' {- CartesianCoordinates -}
+	'Sphere' {- CartesianCoordinates -}
+	'SphericalCoordinates' {- CartesianCoordinates -}
+	'Point' {- RectangularCoordinates CartesianCoordinates -}
 
 	{- Graphics -}
 	'Colour'

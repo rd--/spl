@@ -1,11 +1,11 @@
 # radius
 
-- _radius(aCoordinate)_
+- _radius(aPoint)_
 
 Another name for `r`:
 
 ```
->>> PolarCoordinate(1, 0).radius
+>>> PolarCoordinates(1, 0).radius
 1
 ```
 

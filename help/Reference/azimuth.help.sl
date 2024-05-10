@@ -1,11 +1,11 @@
 # azimuth
 
-- _azimuth(aCoordinate)_
+- _azimuth(aPoint)_
 
 Another name for `theta`:
 
 ```
->>> SphericalCoordinate(1, pi, 0).azimuth
+>>> SphericalCoordinates(1, pi, 0).azimuth
 pi
 ```
 

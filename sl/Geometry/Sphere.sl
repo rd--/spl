@@ -1,4 +1,4 @@
-{- Requires: CartesianCoordinate -}
+{- Requires: CartesianCoordinates -}
 
 Sphere : [Object] { | center radius |
 
@@ -50,7 +50,7 @@ Sphere : [Object] { | center radius |
 
 }
 
-+CartesianCoordinate {
++CartesianCoordinates {
 
 	Sphere { :center :radius |
 		newSphere().initializeSlots(center, radius)
