@@ -154,10 +154,25 @@ Multiply two integer matrices:
 [5 27 -2 12; -1 6 0 6]
 ```
 
-[1 12; 1 9; 1 1].dot([41 120])
+Examine properties of a magic square,
+the matrix-vector product sums the rows,
+the vector-matrix product sums the columns,
+also show the diagonal and antidiagonal sums and the matrix rank:
 
-
-[41 120].dot([1 12; 1 9; 1 1])
+```
+>>> let mu = 4 * (4 * 4 + 1) / 2;
+>>> let m = [16 3 2 13; 5 10 11 8; 9 6 7 12; 4 15 14 1];
+>>> let v = [1 1 1 1];
+>>> (
+>>> 	mu,
+>>> 	m.dot(v),
+>>> 	v.dot(m),
+>>> 	m.diagonal.sum,
+>>> 	m.collect(reversed:/1).diagonal.sum,
+>>> 	m.matrixRank
+>>> )
+(34, [34 34 34 34], [34 34 34 34], 34, 34, 3)
+```
 
 * * *
 

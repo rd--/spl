@@ -22,6 +22,14 @@ Plot the first 4096 terms of the Stern-Brocot sequence:
 1:4096.collect(sternBrocotNumber:/1).scatterPlot
 ~~~
 
+Plot a table:
+
+~~~
+(0, 0.01 .. 1).collect { :x |
+	x - (x ^ 2)
+}.scatterPlot
+~~~
+
 * * *
 
 See also: discretePlot, plot

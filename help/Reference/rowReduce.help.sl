@@ -20,8 +20,20 @@ Row reduction on square 3×3 integer matrices:
 Square 5×5 matrix:
 
 ```
->>> [2 0 -1  0  0; 1 0  0 -1  0; 3 0  0 -2 -1; 0 1  0  0 -2; 0 1 -1  0  0].rowReduce
-[1 0 0 0 -1; 0 1 0 0 -2; 0 0 1 0 -2; 0 0 0 1 -1; 0 0 0 0 0]
+>>> [
+>>> 	2 0 -1  0  0;
+>>> 	1 0  0 -1  0;
+>>> 	3 0  0 -2 -1;
+>>> 	0 1  0  0 -2;
+>>> 	0 1 -1  0  0
+>>> ].rowReduce
+[
+	1 0 0 0 -1;
+	0 1 0 0 -2;
+	0 0 1 0 -2;
+	0 0 0 1 -1;
+	0 0 0 0 0
+]
 ```
 
 Row reduction on rectangular integer matrices:
