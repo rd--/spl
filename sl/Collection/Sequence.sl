@@ -141,15 +141,12 @@
 	}
 
 	antidiagonal { :self :k |
-		self.isMatrix.if {
-			let l = self.shape.min - k.abs;
-			(1 .. l).collect { :i |
-				let r = l - i + 1 - k.min(0);
-				let c = i - k.min(0);
-				self[r][c]
-			}
-		} {
-			self.error('@Sequence>>antidiagonal: non matrix argument')
+		let m = self.assertIsMatrix('@Sequence>>antidiagonal');
+		let l = m.shape.min - k.abs;
+		(1 .. l).collect { :i |
+			let r = l - i + 1 - k.min(0);
+			let c = i - k.min(0);
+			m[r][c]
 		}
 	}
 
@@ -216,6 +213,12 @@
 				};
 				answer
 			}
+		}
+	}
+
+	assertIsMatrix { :self :context |
+		self.assert(context) {
+			self.isMatrix
 		}
 	}
 
@@ -634,13 +637,10 @@
 	}
 
 	diagonal { :self :k |
-		self.isMatrix.if {
-			let l = self.shape.min - k.abs;
-			1:l.collect { :i |
-				self[i - k.min(0)][i + k.max(0)]
-			}
-		} {
-			self.error('@Sequence>>diagonal: non matrix argument')
+		let m = self.assertIsMatrix('@Sequence>>diagonal');
+		let l = m.shape.min - k.abs;
+		1:l.collect { :i |
+			m[i - k.min(0)][i + k.max(0)]
 		}
 	}
 
@@ -1646,7 +1646,7 @@
 	longestCommonSubsequence { :a :b |
 		let m = a.size + 1;
 		let n = b.size + 1;
-		let lengths = (m).zeroMatrix(n);
+		let lengths = m.zeroMatrix(n);
 		let answer = [];
 		a.withIndexCollect { :x :i |
 			b.withIndexCollect { :y :j |
@@ -1752,6 +1752,21 @@
 		a.takeWhile { :each |
 			each.size = k
 		}.reverse
+	}
+
+	lowerTriangularize { :self :k |
+		let m = self.assertIsMatrix('@Sequence>>lowerTriangularize');
+		let [r, c] = m.shape;
+		1.to(r - k).do { :i |
+			(i + 1 + k).to(c).do { :j |
+					m[i][j] := 0
+			}
+		};
+		m
+	}
+
+	lowerTriangularize { :self |
+		self.lowerTriangularize(0)
 	}
 
 	luDecompositionPivotMatrix { :m |
@@ -2923,6 +2938,21 @@
 
 	tuples { :self :count |
 		(self ! count).tuples
+	}
+
+	upperTriangularize { :self :k |
+		let m = self.assertIsMatrix('@Sequence>>upperTriangularize');
+		let [r, c] = m.shape;
+		(2 - k).toDo(r) { :i |
+			1.toDo(i - 1 + k) { :j |
+				m[i][j] := 0
+			}
+		};
+		m
+	}
+
+	upperTriangularize { :self |
+		self.upperTriangularize(0)
 	}
 
 	upsample { :self :anInteger |

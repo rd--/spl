@@ -3,7 +3,7 @@
 - _assert(anObject, aString, aBlock:/0)_
 - _assert(α)_ ⇒ _assert(nil, α)_
 
-Throw an assertion error if _aBlock_ does not evaluate to true.
+Signal an assertion `error` with message _aString_ if _aBlock_ does not evaluate to `true`.
 Answers _anObject_.
 
 ```
@@ -14,7 +14,7 @@ Answers _anObject_.
 true
 ```
 
-In the unary case assert that a block evaluates to true.
+In the unary case assert that a block evaluates to `true`.
 Answers nil.
 
 ```

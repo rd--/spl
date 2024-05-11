@@ -356,6 +356,8 @@
 - `dot`, `inner`, `matrixPower`, `outer`
 - `antidiagonal`, `determinant`, `diagonal`, `inverse`, `matrixRank`, `permanent`, `trace`, `transposed`
 - `kroneckerProduct`
+- `lowerTriangularize`, `upperTriangularize`
+- `luDecomposition`
 
 ## Methods
 
