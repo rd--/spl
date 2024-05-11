@@ -190,6 +190,10 @@
 - `hasEqualElements`, `hasEqualElementsBy`
 - `allEqual`, `allEqualBy`
 
+## Error Functions
+
+- `erf`, `erfc`
+
 ## Error Handling
 
 - `Error`, `error`, `signal`
@@ -488,6 +492,7 @@
 
 ## Random Number Distributions
 
+- `normalDistributionCdf`, `normalDistributionPdf`
 - `randomIntegerPoissonDistribution`
 - `randomFloatCauchyDistribution`, `randomFloatGaussianDistribution`, `randomFloatLinearDistribution`
 - `randomFloatEulerianBetaDistribution`, `randomFloatWeibullDistribution`

@@ -373,6 +373,18 @@
 		}
 	}
 
+	bisect { :self :anObject :aBlock:/2 |
+		let i = 1;
+		{ aBlock(anObject, self[i]) }.whileFalse {
+			i := i + 1
+		};
+		i
+	}
+
+	bisect { :self :anObject |
+		self.bisect(anObject, <)
+	}
+
 	brayCurtisDistance { :self :aSequence |
 		(self - aSequence).abs.sum / (self + aSequence).abs.sum
 	}

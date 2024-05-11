@@ -86,8 +86,23 @@ Interval : [Object, Magnitude, Number] { | min max |
 		}
 	}
 
-	includes { :self :aNumber |
-		aNumber.betweenAnd(self.min, self.max)
+	findDivisions { :self :dx :n |
+		let step = ((self.max - self.min) / (n + 1)).roundUpTo(dx);
+		let next = self.min.roundDownTo(dx);
+		let answer = [next];
+		{ next < self.max }.whileTrue {
+			next := next + step;
+			answer.add(next)
+		};
+		answer
+	}
+
+	findDivisions { :self :n |
+		let range = (self.max - self.min).niceNumberAbove;
+		let step = (range / n).niceNumberNear;
+		let start = (self.min / step).floor * step;
+		let end = (self.max / step).ceiling * step;
+		(start, start + step .. end)
 	}
 
 	intersection { :self :operand |

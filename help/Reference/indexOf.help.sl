@@ -32,7 +32,7 @@ Answers zero if the item is not in the sequence:
 
 * * *
 
-See also: indexOfIfAbsent, lastIndexOf
+See also: detect, detectIndex, indexOfIfAbsent, lastIndexOf
 
 References:
 _Smalltalk_

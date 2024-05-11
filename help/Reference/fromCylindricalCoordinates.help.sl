@@ -2,8 +2,8 @@
 
 - _fromCylindricalCoordinates(aVector)_
 
-Answers the _(x,y,z)_ Cartesian coordinates corresponding to the cylindrical coordinates _(rho,phi,z)_,
-where _(rho, phi)_ is the polar coordinate on the _x/y_ plane and _z_ is Cartesian _z_-coordinate.
+Answers the _(x,y,z)_ Cartesian coordinates corresponding to the cylindrical coordinates _(ρ,φ,z)_,
+where _(ρ,φ)_ is the polar coordinate on the _x/y_ plane and _z_ is Cartesian _z_-coordinate.
 
 ```
 >>> [4, 2.pi / 3, -2].fromCylindricalCoordinates

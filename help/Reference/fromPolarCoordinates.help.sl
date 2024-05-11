@@ -2,12 +2,18 @@
 
 - _fromPolarCoordinates(aSequence)_
 
-Answers the _(x, y)_ Cartesian coordinates corresponding to the polar coordinates _(r, θ)_
+Answer the _(x, y)_ Cartesian coordinates corresponding to the polar coordinates _(r, θ)_.
+
+At `List`:
 
 ```
 >>> [2.sqrt, 0.25.pi].fromPolarCoordinates
 [1 1]
+```
 
+At `Tuple`:
+
+```
 >>> (2.sqrt, -0.75.pi).fromPolarCoordinates
 [-1 -1]
 ```
@@ -21,7 +27,7 @@ Collects over lists:
 
 * * *
 
-See also: PolarCoordinate, toPolarCoordinates, fromSphericalCoordinates
+See also: PolarCoordinates, toPolarCoordinates, fromSphericalCoordinates
 
 References:
 _Mathematica_

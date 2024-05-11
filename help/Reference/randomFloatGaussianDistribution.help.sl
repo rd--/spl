@@ -12,3 +12,13 @@ Mean at zero, small deviation:
 ~~~
 ({ randomFloatGaussianDistribution(0, 1 / 9) } ! 99).plot
 ~~~
+
+* * *
+
+See also: randomFloat
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/NormalDistribution.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Normal_distribution)

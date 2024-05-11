@@ -354,6 +354,8 @@
 - `toPolarCoordinates`: convert from _(x,y)_ to _(r,θ)_
 - `fromSphericalCoordinates`: convert from _(r,θ,ϕ)_ to _(x,y,z)_
 - `toSphericalCoordinates`: convert from _(x,y,z)_ to _(r,θ,ϕ)_
+- `fromCylindricalCoordinates`: convert from _(ρ,φ,z)_ to _(x,y,z)_
+- `toCylindricalCoordinates`: convert from _(x,y,z)_ to _(ρ,φ,z)_
 - `rotationMatrix`: rotation matrix
 - `reflectionMatrix`: reflection matrix
 - `scalingMatrix`: scaling matrix

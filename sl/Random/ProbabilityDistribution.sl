@@ -2,6 +2,16 @@
 
 +@Number {
 
+	normalDistributionCdf { :mu :sigma :x |
+		0.5 * ((mu - x) / (2.sqrt * sigma)).erfc
+	}
+
+	normalDistributionPdf { :mu :sigma :x |
+		let n = (-0.5 * ((x - mu) / sigma).squared).exp;
+		let d = sigma * 2.pi.sqrt;
+		n / d
+	}
+
 	randomFloatEularianBetaDistribution { :x1 :x2 :p1 :p2 |
 		let p1r = 1 / p1;
 		let p2r = 1 / p2;

@@ -387,6 +387,22 @@
 		}
 	}
 
+	histogramList { :self |
+		let k = self.size.sqrt.ceiling;
+		let [min, max] = self.minMax;
+		let b = (min -- max).findDivisions(k);
+		let n = b.size;
+		let c = List(n - 1, 0);
+		self.do { :e |
+			let index = (2 .. n).detectIndex { :i |
+				e >= b[i - 1] & { e <= b[i] }
+			};
+			c[index] := c[index] + 1
+		};
+		[b.asList, c]
+	}
+
+
 	include { :self :anObject |
 		self.typeResponsibility('@Collection>>include')
 	}

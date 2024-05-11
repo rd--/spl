@@ -15,4 +15,4 @@ nil
 
 * * *
 
-See also: detect, indexOf
+See also: bisect, detect, indexOf

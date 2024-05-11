@@ -2,7 +2,7 @@
 
 - _scatterPlot(aSequence)_
 
-Plot a sequence of numbers.
+Plot a sequence of numbers, each drawn as a point.
 
 Plot seven integers:
 

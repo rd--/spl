@@ -51,7 +51,7 @@ Collects over lists:
 
 * * *
 
-See also: arcTan, fromSphericalCoordinates, norm, toPolarCoordinates, SphericalCoordinate
+See also: arcTan, fromSphericalCoordinates, norm, toPolarCoordinates, SphericalCoordinates
 
 References:
 _Mathematica_

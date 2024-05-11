@@ -4,10 +4,16 @@
 
 Answers the _(r,θ)_ polar coordinates corresponding to the Cartesian coordinates _(x,y)_.
 
+At `List`:
+
 ```
 >>> [1 1].toPolarCoordinates
 [2.sqrt 0.25.pi]
+```
 
+At `Tuple`:
+
+```
 >>> (-1, -1).toPolarCoordinates
 [2.sqrt -0.75.pi]
 ```

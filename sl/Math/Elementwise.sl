@@ -118,6 +118,14 @@
 		self.collect(e:/1)
 	}
 
+	erf { :self |
+		self.collect(erf:/1)
+	}
+
+	erfc { :self |
+		self.collect(erfc:/1)
+	}
+
 	exp { :self |
 		self.collect(exp:/1)
 	}

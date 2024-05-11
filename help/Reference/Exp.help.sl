@@ -5,6 +5,8 @@
 Exponential.
 Answer the value of `e` (the base of natural logarithms) raised to the power of _aNumber_.
 
+At `SmallFloat`:
+
 ```
 >>> Exp(2)
 1.e ^ 2
