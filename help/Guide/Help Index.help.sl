@@ -182,7 +182,7 @@
 ## Enumerating
 
 - `indices`, `shapeIndices`
-- `fill`
+- `fill`, `table`
 
 ## Equality Testing
 
@@ -347,7 +347,8 @@
 ## Matrix Operations
 
 - `elementType`, `numberOfColumns`, `numberOfRows`
-- `isMatrix`, `shape`, `reshape`, `table`
+- `isMatrix`, `shape`, `reshape`
+- `fill`, `table`
 - `zeroMatrix`, `identityMatrix`, `exchangeMatrix`
 - `antidiagonalMatrix`, `diagonalMatrix`
 - `isSquareMatrix`, `isSymmetricMatrix`

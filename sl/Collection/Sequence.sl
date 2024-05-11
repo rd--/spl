@@ -219,6 +219,12 @@
 		}
 	}
 
+	assertIsSquareMatrix { :self :context |
+		self.assert(context) {
+			self.isSquareMatrix
+		}
+	}
+
 	assertShape { :self :shape |
 		self.assert {
 			self.shape = shape
@@ -1746,6 +1752,52 @@
 		a.takeWhile { :each |
 			each.size = k
 		}.reverse
+	}
+
+	luDecompositionPivotMatrix { :m |
+		let n = m.size;
+		let p = n.identityMatrix;
+		1.toDo(n) { :i |
+			let max = m[i][i];
+			let row = i;
+			i.toDo(n) { :j |
+				let e = m[j][i];
+				(e > max).ifTrue {
+					max := e;
+					row := j
+				}
+			};
+			(i ~= row).ifTrue {
+				p.swapWith(i, row)
+			}
+		};
+		p
+	}
+
+	luDecomposition { :self |
+		let m = self.assertIsSquareMatrix('@Sequence>>luDecomposition');
+		let n = self.size;
+		let p = m.luDecompositionPivotMatrix;
+		let m2 = p.dot(m);
+		let l = n.identityMatrix;
+		let u = n.identityMatrix;
+		1.toDo(n) { :j |
+			1.toDo(j) { :i |
+				let sum = 0;
+				1.toDo(i - 1) { :k |
+					sum := sum + (u[k][j] * l[i][k])
+				};
+				u[i][j] := m2[i][j] - sum
+			};
+			j.toDo(n) { :i |
+				let sum = 0;
+				1.toDo(j - 1) { :k |
+					sum := sum + (u[k][j] * l[i][k])
+				};
+				l[i][j] := (m2[i][j] - sum) / u[j][j]
+			}
+		};
+		[l, u, p]
 	}
 
 	lyndonWordsDo { :alphabet :n :aBlock:/1 |

@@ -32,12 +32,16 @@
 		aBlock()
 	}
 
-	assert { :self :aBlock:/0 |
+	assert { :self :aString :aBlock:/0 |
 		aBlock().if {
 			self
 		} {
-			self.error('Assertion failed')
+			self.error('Assertion failed: ' ++ aString)
 		}
+	}
+
+	assert { :self :aBlock:/0 |
+		self.assert('*unknown context*', aBlock:/0)
 	}
 
 	asString { :self |

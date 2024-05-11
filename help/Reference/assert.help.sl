@@ -1,6 +1,6 @@
 # assert
 
-- _assert(anObject, aBlock:/0)_
+- _assert(anObject, aString, aBlock:/0)_
 - _assert(α)_ ⇒ _assert(nil, α)_
 
 Throw an assertion error if _aBlock_ does not evaluate to true.
