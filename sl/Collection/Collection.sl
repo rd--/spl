@@ -394,10 +394,12 @@
 		let n = b.size;
 		let c = List(n - 1, 0);
 		self.do { :e |
-			let index = (2 .. n).detectIndex { :i |
+			(2 .. n).detectIndexIfFoundIfNone { :i |
 				e >= b[i - 1] & { e <= b[i] }
-			};
-			c[index] := c[index] + 1
+			} { :i |
+				c[i] := c[i] + 1
+			} {
+			}
 		};
 		[b.asList, c]
 	}

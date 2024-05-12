@@ -2,7 +2,7 @@
 
 - _detectIndex(aSequence, aBlock:/1)_
 
-Answer the index of the first item that answers `true` to _aBlock_.
+Answer the index of the first item in _aSequence_ that answers `true` to _aBlock_.
 Answer `nil` if there is no such item.
 
 ```
@@ -15,4 +15,4 @@ nil
 
 * * *
 
-See also: bisect, detect, indexOf
+See also: bisect, detect, detectIndexIfFoundIfNone, indexOf
