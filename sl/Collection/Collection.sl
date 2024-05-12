@@ -388,7 +388,7 @@
 	}
 
 	histogramList { :self |
-		let k = self.size.sqrt.ceiling;
+		let k = self.size.sqrt.ceiling + 1;
 		let [min, max] = self.minMax;
 		let b = (min -- max).findDivisions(k);
 		let n = b.size;
@@ -401,7 +401,6 @@
 		};
 		[b.asList, c]
 	}
-
 
 	include { :self :anObject |
 		self.typeResponsibility('@Collection>>include')
@@ -569,6 +568,15 @@
 
 	moment { :self :r |
 		(1 / self.size) * (self ^ r).sum
+	}
+
+	nearest { :self :anObject :aBlock:/2 |
+		let leastDistance = self.collect { :each |
+			aBlock(each, anObject).abs
+		}.min;
+		self.select { :each |
+			aBlock(each, anObject).abs = leastDistance
+		}
 	}
 
 	not { :self |

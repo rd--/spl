@@ -236,7 +236,7 @@
 		self * 0.000000000000001
 	}
 
-	erfAS2 { :x |
+	erfAbramowitzStegun { :x |
 		(x >= 0).if {
 			let p = 0.47047;
 			let t = 1 / (1 + (p * x));
@@ -340,6 +340,40 @@
 		self.truncated
 	}
 
+	inverseErf { :x |
+		(x.abs >= 1).if {
+			inf * x.sign
+		} {
+			let a = [0.886226899 -1.645349621 0.914624893 -0.140543331];
+			let b = [1 -2.118377725 1.442710462 -0.329097515 0.012229801];
+			let c = [-1.970840454 -1.62490649 3.429567803 1.641345311];
+			let d = [1 3543889200 1.637067800];
+			let z = x.sign * x;
+			let r = nil;
+			(z <= 0.7).if {
+				let x2 = z * z;
+				r := z * (((a[4] * x2 + a[3]) * x2 + a[2]) * x2 + a[1]);
+				r := r / ((((b[5] * x2 + b[4]) * x2 + b[3]) * x2 + b[2]) * x2 + b[1])
+			} {
+				let y = ((1 - z) / 2).log.negated.sqrt;
+				r := (((c[4] * y + c[3]) * y + c[2]) * y + c[1]);
+				r := r / ((d[3] * y + d[2]) * y + d[1])
+			};
+			r := r * x.sign;
+			z := z * x.sign;
+			r := r - ((r.erf - z) / (2 / pi.sqrt * (r.negated * r).exp));
+			r := r - ((r.erf - z) / (2 / pi.sqrt * (r.negated * r).exp));
+			r
+		}
+	}
+
+	inverseErfWinitzki { :x |
+		let a = 0.147;
+		let b = (2 / a.pi);
+		let c = (1 - x.squared).log;
+		(((b + (c / 2)).squared - (c / a)).sqrt - (b + (c / 2))).sqrt * x.sign
+	}
+
 	isNegative { :self |
 		self < self.zero
 	}
@@ -436,23 +470,20 @@
 		niceFraction * (10 ^ exponent)
 	}
 
+	niceNumberAbove { :self |
+		self.niceNumberBy { :l :n | l[l.bisect(n, <=)] }
+	}
+
+	niceNumberBy { :self :aBlock:/2 |
+		let n = self;
+		let m = 10 ^ n.abs.log10.floor.negated;
+		let steps = [1 1.5 2 2.5 5 7.5 10];
+		let z = steps.aBlock(n * m);
+		z / m
+	}
+
 	niceNumberNear { :self |
-		let exponent = self.log10.floor;
-		let fraction = self / (10 ^ exponent);
-		let niceFraction = (fraction < 1.5).if {
-			1
-		} {
-			(fraction < 3).if {
-				2
-			} {
-				(fraction < 7).if {
-					5
-				} {
-					10
-				}
-			}
-		};
-		niceFraction * (10 ^ exponent)
+		self.niceNumberBy { :l :n | l.nearest(n, -).first }
 	}
 
 	numberDecompose { :self :u |

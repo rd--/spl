@@ -39,7 +39,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: erfc
+See also: erfc, inverseErf
 
 References:
 _Mathematica_

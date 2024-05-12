@@ -188,6 +188,10 @@
 		self.collect(integerPart:/1)
 	}
 
+	inverseErf { :self |
+		self.collect(inverseErf:/1)
+	}
+
 	isGaussianPrime { :self |
 		self.collect(isGaussianPrime:/1)
 	}

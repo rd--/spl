@@ -5,14 +5,21 @@
 Answer a list of bins boundaries and histogram heights of the values in _aCollection_.
 The number of bins is derived from the square root of the number of data points.
 
-Histogram of ten first ten integers:
+Histogram of the first ten integers:
 
 ```
 >>> 1:10.histogramList
 [0 2 4 6 8 10; 2 2 2 2 2]
 ```
 
-Histogram of ten first one-hundred integers:
+Histogram of the first fifteen integers:
+
+```
+>>> 1:15.histogramList
+[0 2.5 5 7.5 10 12.5 15; 2 3 2 3 2 3]
+```
+
+Histogram of the first one-hundred integers:
 
 ```
 >>> 1:100.histogramList
@@ -22,10 +29,12 @@ Histogram of ten first one-hundred integers:
 ]
 ```
 
-~~~
-({ randomFloatGaussianDistribution(0, 1) } ! 1000).histogramList.second.size
-~~~
+Plot histogram of random numbers with normal distribution:
 
+~~~
+let f = { randomFloatGaussianDistribution(0, 1) };
+(f:/0 ! 500).histogramList.second.plot
+~~~
 
 * * *
 

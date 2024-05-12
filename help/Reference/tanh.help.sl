@@ -4,7 +4,7 @@
 
 Answer the hyperbolic tangent of _aNumber_.
 
-Evaluate numerically:
+At `SmallFloat`:
 
 ```
 >>> 2.2.tanh

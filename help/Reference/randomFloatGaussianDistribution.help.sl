@@ -13,6 +13,12 @@ Mean at zero, small deviation:
 ({ randomFloatGaussianDistribution(0, 1 / 9) } ! 99).plot
 ~~~
 
+Plot sorted random list:
+
+```
+({ randomFloatGaussianDistribution(0, 1) } ! 500).sort.plot
+```
+
 * * *
 
 See also: randomFloat

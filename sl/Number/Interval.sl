@@ -105,6 +105,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 		(start, start + step .. end)
 	}
 
+	includes { :self :aNumber |
+		aNumber.betweenAnd(self.min, self.max)
+	}
+
 	intersection { :self :operand |
 		operand.isInterval.if {
 			self.isDisjoint(operand).if {
