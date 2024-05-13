@@ -84,7 +84,12 @@ Package! : [Object] {
 +@Dictionary {
 
 	derivePackageUrl { :self |
-		[self::Category, '/', self::Name, '.sl'].join
+		[
+			self::Category,
+			'/',
+			self::Name,
+			'.sl'
+		].stringJoin
 	}
 
 	Package { :self |

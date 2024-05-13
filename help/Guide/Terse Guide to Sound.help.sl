@@ -210,7 +210,7 @@ let k = 5; let x = 1:k; [x, x].tuples.size = (k ^ 2)
 let n = 0; [5, 5].shapeIndicesDo { :each | n := n + 1 }; n = 25 {- all indices to array of given shape -}
 let r = Random(98765); { r.nextRandomInteger(9) }.duplicateShape([3, 5]) = [[5, 4, 2, 7, 1], [5, 2, 5, 5, 9], [6, 2, 4, 1, 5]]
 let r = Random(98765); { r.nextRandomInteger(9) }.duplicateShape([2, 2, 3]) = [[[5, 4, 2], [7, 1, 5]], [[2, 5, 5], [9, 6, 2]]]
-let s = [2, 3]; let a = s.iota; s.shapeIndicesDo { :each | a.atPathPut(each, each.join.parseDecimalInteger) }; a = [[11, 12, 13], [21, 22, 23]]
+let s = [2, 3]; let a = s.iota; s.shapeIndicesDo { :each | a.atPathPut(each, each.stringJoin.parseDecimalInteger) }; a = [[11, 12, 13], [21, 22, 23]]
 [3, 2].iota = [[1, 2], [3, 4], [5, 6]]
 [3, 2].iota.bubble(0, 1) = [[[1, 2], [3, 4], [5, 6]]]
 [3, 2].iota.bubble(1, 1) = [[[1, 2]], [[3, 4]], [[5, 6]]]

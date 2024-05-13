@@ -224,7 +224,7 @@ RectangularCoordinates : [Object, Magnitude, Indexable] { | x y |
 				', ',
 				self.y.storeString,
 			')'
-		].join
+		].stringJoin
 	}
 
 	swapInPlace { :self |

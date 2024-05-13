@@ -136,7 +136,7 @@ async function cacheRewriteFileSequence(
 declare global {
 	var sc: Record<string, unknown>;
 	var globalScSynth: sc.ScSynth;
-	var _printString_1: ((s: unknown) => void);
+	var _printString_1: (s: unknown) => void;
 }
 
 /*

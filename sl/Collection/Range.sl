@@ -128,7 +128,7 @@ Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgressio
 				', ',
 				self.step,
 			')'
-		].join
+		].stringJoin
 	}
 
 }

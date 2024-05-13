@@ -27,7 +27,7 @@
 			' bytecodes/sec; ',
 			((r2 * 1000) // t2.roundTo(100)).asStringWithCommas,
 			' sends/sec'
-		].join
+		].stringJoin
 	}
 
 }

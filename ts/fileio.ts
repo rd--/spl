@@ -19,7 +19,9 @@ export function rewriteFile(fileName: string): Promise<string> {
 	return host.readTextFile(fileName).then(rewrite.rewriteString);
 }
 
-export function primitiveReadLocalBinaryFile(fileName: string): Promise<Uint8Array> {
+export function primitiveReadLocalBinaryFile(
+	fileName: string,
+): Promise<Uint8Array> {
 	const resolvedFileName = load.resolveFileName(fileName);
 	// console.debug('primitiveReadLocalBinaryFile', fileName, resolvedFileName);
 	return host.readBinaryFile(resolvedFileName);

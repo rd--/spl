@@ -58,6 +58,14 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		<primitive: return _self ** BigInt(_anInteger);>
 	}
 
+	^ { :self :anObject |
+		anObject.isInteger.if {
+			self.raisedToInteger(anObject)
+		} {
+			anObject.adaptToNumberAndApply(self, ^)
+		}
+	}
+
 	<< { :self :anObject |
 		<primitive:
 		if(sl.isLargeInteger(_anObject)) {
@@ -191,6 +199,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 	quotient { :self :anInteger |
 		self // anInteger
+	}
+
+	raisedToInteger { :self :anInteger |
+		<primitive: return _self ** BigInt(_anInteger);>
 	}
 
 	randomInteger { :self |

@@ -36,7 +36,7 @@ Colour : [Object] { | red green blue alpha |
 	hexString { :self |
 		'#' ++ [self.red, self.green, self.blue].collect { :each |
 			(each * 255).rounded.byteHexString
-		}.join
+		}.stringJoin
 	}
 
 	isBlack { :self |
@@ -142,9 +142,9 @@ Colour : [Object] { | red green blue alpha |
 					self.green,
 					self.blue,
 					self.alpha
-				].collect(storeString:/1).joinSeparatedBy(','),
+				].collect(storeString:/1).stringJoin(', '),
 			')'
-		].join
+		].stringJoin
 	}
 
 	toSrgb { :self |

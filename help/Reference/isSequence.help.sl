@@ -39,6 +39,13 @@ At `Set`:
 false
 ```
 
+At `String`:
+
+```
+>>> ''.isSequence
+true
+```
+
 `Object` answers false:
 
 ```

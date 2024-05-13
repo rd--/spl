@@ -29,7 +29,7 @@ Rectangle : [Object] { | origin corner |
 				', ',
 				self.corner.toString,
 			')'
-		].join
+		].stringJoin
 	}
 
 	bottomLeft { :self |

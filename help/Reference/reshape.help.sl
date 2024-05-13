@@ -54,6 +54,13 @@ Create a 2×3 matrix:
 [['a', 'b', 'c'], ['d', 'e', 'f']]
 ```
 
+Reshape a vector into a matrix:
+
+```
+>>> [1 2 3 4].reshape([2 2])
+[1 2; 3 4]
+```
+
 Reshape a vector into a depth-3 array:
 
 ```

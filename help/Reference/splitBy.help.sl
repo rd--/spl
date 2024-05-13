@@ -24,10 +24,10 @@ Split _aString_ into a `List` of `String`s according to _separator_, which is al
 ['a' '' '' 'b']
 ```
 
-The inverse is `joinSeparatedBy`:
+The inverse is `stringJoin`:
 
 ```
->>> 'mississippi'.splitBy('i').joinSeparatedBy('i')
+>>> 'mississippi'.splitBy('i').stringJoin('i')
 'mississippi'
 ```
 
@@ -57,7 +57,7 @@ Make a nested array by applying `splitBy` twice:
 
 * * *
 
-See also: join, joinSeparatedBy, split, splitByRegExp
+See also: join, split, splitByRegExp, stringJoin
 
 References:
 _Mathematica_

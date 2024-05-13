@@ -1,8 +1,8 @@
 # fromCharacterCode
 
-_fromCharacterCode(anInteger | aSequence)_
+- _fromCharacterCode(anInteger | aSequence)_
 
-Answer a String consisting of the character with integer code _anInteger_.
+Answer a `String` consisting of the character with integer code _anInteger_.
 
 Space character:
 
@@ -11,14 +11,14 @@ Space character:
 ' '
 ```
 
-A String consisting of the sequence of characters with codes 97, 98, and 99:
+A `String` consisting of the sequence of characters with codes 97, 98, and 99:
 
 ```
 >>> [97 98 99].fromCharacterCode
 'abc'
 ```
 
-A List of Strings:
+A `List` of `Strings`:
 
 ```
 >>> [97 98 99; 100 101 102].fromCharacterCode

@@ -8,7 +8,7 @@ Repeated values are stored singly and associated with a "run" length denoting th
 Construct a `RunArray` from runs and values:
 
 ```
->>> RunArray([1, 3, 5], ['a', 'b', 'c']).asList.join
+>>> RunArray([1, 3, 5], ['a', 'b', 'c']).asList.stringJoin
 'abbbccccc'
 ```
 

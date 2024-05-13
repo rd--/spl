@@ -80,7 +80,7 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 	}
 
 	printString { :self :toString:/1 |
-		'[' ++ self.collect(toString:/1).joinSeparatedBy(', ') ++ ']'
+		'[' ++ self.collect(toString:/1).stringJoin(', ') ++ ']'
 	}
 
 	printString { :self |

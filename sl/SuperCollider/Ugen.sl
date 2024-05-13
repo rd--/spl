@@ -25,7 +25,7 @@ Ugen! : [Object, Number] {
 			self.scUgen.printString,
 			':',
 			self.port.printString
-		].join
+		].stringJoin
 	}
 
 	pseudoSlotNameList { :self |

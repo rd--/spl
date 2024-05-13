@@ -19,18 +19,7 @@
 	}
 
 	++ { :self |
-		let answerSize = self.injectInto(0) { :sum :each |
-			sum + each.size
-		};
-		let answer = self.species.ofSize(answerSize);
-		let index = 1;
-		self.do { :each |
-			each.do { :item |
-				answer[index] := item;
-				index := index + 1
-			}
-		};
-		answer
+		self.concatenation
 	}
 
 	+++ { :self :aSequence |
@@ -447,8 +436,32 @@
 		}
 	}
 
+	concatenationSeparatedBy { :self :aSequence |
+		self.ifEmpty {
+			self.copy
+		} {
+			let answerSize = self.injectInto(0) { :sum :each |
+				sum + each.size
+			} + (self.size - 1 * aSequence.size);
+			let answer = self.species.ofSize(answerSize);
+			let index = 1;
+			let put = { :items |
+				items.do { :item |
+					answer[index] := item;
+					index := index + 1
+				}
+			};
+			self.allButLastDo { :each |
+				put(each);
+				put(aSequence)
+			};
+			put(self.last);
+			answer
+		}
+	}
+
 	concatenation { :self |
-		self.++
+		self.concatenationSeparatedBy([])
 	}
 
 	constantArray { :self :anObject |
@@ -1028,7 +1041,7 @@
 
 	fromCharacterCode { :self |
 		self.isVector.if {
-			self.collect(fromCharacterCode:/1).join
+			self.collect(fromCharacterCode:/1).stringJoin
 		} {
 			self.collect(fromCharacterCode:/1)
 		}
@@ -1557,6 +1570,18 @@
 		}
 	}
 
+	join { :self :separator |
+		self.allSatisfy(isString:/1).if {
+			self.stringJoin(separator ? { '' })
+		} {
+			self.concatenationSeparatedBy(separator ? { [] })
+		}
+	}
+
+	join { :self |
+		self.join(nil)
+	}
+
 	kroneckerProduct { :a :b |
 		let m = a.size;
 		let n = a[1].size;
@@ -1771,7 +1796,7 @@
 		let [r, c] = m.shape;
 		1.to(r - k).do { :i |
 			(i + 1 + k).to(c).do { :j |
-					m[i][j] := 0
+				m[i][j] := 0
 			}
 		};
 		m

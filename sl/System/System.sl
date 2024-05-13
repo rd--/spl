@@ -125,7 +125,7 @@ System! : [Object, Cache, Indexable, Random] {
 			].collect(words:/1).++.collect { :each |
 				each -> each.stringList.collect { :letter |
 					table[letter]
-				}.camelCase.join
+				}.camelCase.stringJoin
 			}.asRecord
 		}
 	}
@@ -274,7 +274,7 @@ System! : [Object, Cache, Indexable, Random] {
 		[
 			(count / (elapsedTime / 1000)).roundTo(0.001), ' per second; ',
 			((elapsedTime / 1000) / count).roundTo(0.001), ' per count'
-		].join
+		].stringJoin
 	}
 
 	millisecondsToRun { :self:/0 |

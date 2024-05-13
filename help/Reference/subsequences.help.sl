@@ -10,7 +10,7 @@ In the unary case answer all subsequences.
 The subsequences of _abc_:
 
 ```
->>> ['a' 'b' 'c'].subsequences.collect(join:/1)
+>>> ['a' 'b' 'c'].subsequences.collect(stringJoin:/1)
 ['', 'a', 'b', 'ab', 'c', 'ac', 'bc', 'abc']
 ```
 

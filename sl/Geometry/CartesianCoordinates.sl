@@ -123,7 +123,7 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 				', ',
 				self.z.storeString,
 			')'
-		].join
+		].stringJoin
 	}
 
 	third { :self |

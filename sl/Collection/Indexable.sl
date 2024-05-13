@@ -177,13 +177,15 @@
 	}
 
 	errorInvalidIndex { :self :for :index |
-		self.error([
-			'errorInvalidIndex: index not correct type or out of range.',
-			' index: ', index,
-			' for: ', for,
-			' index.typeOf: ', index.typeOf,
-			' self.size: ', self.size
-		].join)
+		self.error(
+			[
+				'errorInvalidIndex: index not correct type or out of range.',
+				' index: ', index,
+				' for: ', for,
+				' index.typeOf: ', index.typeOf,
+				' self.size: ', self.size
+			].stringJoin
+		)
 	}
 
 	includesIndex { :self :anObject |

@@ -14,7 +14,7 @@
 					traitNames
 				},
 				1 -> {
-					browser.setStatus(system.traitTypes(path[1]).joinSeparatedBy(', '));
+					browser.setStatus(system.traitTypes(path[1]).stringJoin(', '));
 					system.traitDictionary[path[1]].methodDictionary.indicesSorted
 				},
 				2 -> {

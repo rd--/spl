@@ -43,7 +43,7 @@
 				} {
 					''
 				}
-			].join.postLine
+			].stringJoin.postLine
 		};
 		('Total => ' ++ totalPassCount ++ ' / ' ++ totalTestCount).postLine
 	}

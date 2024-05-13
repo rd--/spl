@@ -16,7 +16,7 @@ which is an _n_-element sequence of any sized sequences.
 >>> [1 2; 7 8 9].tuples
 [1 7; 1 8; 1 9; 2 7; 2 8; 2 9]
 
->>> ['a' 'b'; 'x' 'y' 'z'; 'u' 'v'].tuples.collect(join:/1)
+>>> ['a' 'b'; 'x' 'y' 'z'; 'u' 'v'].tuples.collect(stringJoin:/1)
 ['axu' 'axv' 'ayu' 'ayv' 'azu' 'azv' 'bxu' 'bxv' 'byu' 'byv' 'bzu' 'bzv']
 
 >>> [0:2, 0:3].tuples
@@ -54,10 +54,10 @@ The number of tuples is the product of the size of each sequence:
 Word combinations:
 
 ```
->>> ['' 're' 'un'; 'wind'; '' 'ing' 's'].tuples.collect(join:/1)
+>>> ['' 're' 'un'; 'wind'; '' 'ing' 's'].tuples.collect(stringJoin:/1)
 ['wind' 'winding' 'winds' 'rewind' 'rewinding' 'rewinds' 'unwind' 'unwinding' 'unwinds']
 
->>> ['' '-'; '1'; 'j' ; '' '-' ; '1'].tuples.collect(join:/1)
+>>> ['' '-'; '1'; 'j' ; '' '-' ; '1'].tuples.collect(stringJoin:/1)
 ['1j1' '1j-1' '-1j1' '-1j-1']
 ```
 
@@ -110,7 +110,7 @@ Each occurrence of an element is picked separately:
 All possible trigrams of A and B:
 
 ```
->>> ['A' 'B'].tuples(3).collect(join:/1)
+>>> ['A' 'B'].tuples(3).collect(stringJoin:/1)
 ['AAA' 'AAB' 'ABA' 'ABB' 'BAA' 'BAB' 'BBA' 'BBB']
 ```
 

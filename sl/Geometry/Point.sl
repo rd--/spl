@@ -11,7 +11,7 @@
 	}
 
 	printString { :self |
-		[self.x, '@', self.y].join
+		[self.x, '@', self.y].stringJoin
 	}
 
 }

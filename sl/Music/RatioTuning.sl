@@ -76,9 +76,14 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 	storeString { :self |
 		[
 			'RatioTuning(',
-				[self.name, self.description, self.asRatios, self.octave].collect(storeString:/1).joinSeparatedBy(', '),
+				[
+					self.name,
+					self.description,
+					self.asRatios,
+					self.octave
+				].collect(storeString:/1).stringJoin(', '),
 			')'
-		].join
+		].stringJoin
 	}
 
 }

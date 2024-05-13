@@ -333,11 +333,11 @@ Complex : [Object, Number] { | real imaginary |
 	}
 
 	printString { :self |
-		(self.imaginary < 0).if {
-			[self.real, ' - ', self.imaginary.abs, '.i'].join
-		} {
-			[self.real, ' + ', self.imaginary, '.i'].join
-		}
+		[
+			self.real,
+			'J',
+			self.imaginary
+		].stringJoin
 	}
 
 	randomComplex { :self |
@@ -409,7 +409,7 @@ Complex : [Object, Number] { | real imaginary |
 				', ',
 				self.imaginary.storeString,
 			')'
-		].join
+		].stringJoin
 	}
 
 	veryCloseTo { :self :anObject |

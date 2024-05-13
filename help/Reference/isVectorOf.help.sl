@@ -1,6 +1,6 @@
 # isVectorOf
 
-_isVectorOf(aSequence, aString)_
+- _isVectorOf(aSequence, aString)_
 
 Answers _true_ if _aSequence_ is a vector with the indicated _elementType_,
 else _false_.

@@ -28,10 +28,13 @@ The `contents` of a `String` is a `List` of single character `String`s.
 ['a' 'b' 'c']
 ```
 
-The inverse is `join`:
+Inverse are `join` and `stringJoin`:
 
 ```
 >>> 'mississippi'.contents.join
+'mississippi'
+
+>>> 'mississippi'.contents.stringJoin
 'mississippi'
 ```
 

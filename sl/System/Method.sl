@@ -45,13 +45,15 @@ Method! : [Object] {
 	}
 
 	definition { :self :aString |
-		system.evaluate([
-			'+',
-			self.origin.qualifiedName,
-			'{ ',
-				aString,
-			' }'
-		].join)
+		system.evaluate(
+			[
+				'+',
+				self.origin.qualifiedName,
+				'{ ',
+					aString,
+				' }'
+			].stringJoin
+		)
 	}
 
 	information { :self |
@@ -91,7 +93,11 @@ Method! : [Object] {
 	}
 
 	provenance { :self |
-		[self.packageName, ':', self.origin.name].join
+		[
+			self.packageName,
+			':',
+			self.origin.name
+		].stringJoin
 	}
 
 	pseudoSlotNameList { :self |

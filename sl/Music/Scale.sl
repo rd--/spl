@@ -34,7 +34,13 @@ Scale : [Object] { | startIndex intervals description |
 	}
 
 	storeString { :self |
-		['Scale(', self.startIndex, ', ', self.intervals, ', "', self.description, '")'].join
+		[
+			'Scale(',
+				self.startIndex, ', ',
+				self.intervals, ',',
+				'"', self.description, '"',
+			')'
+		].stringJoin
 	}
 
 	tuningIndices { :self |

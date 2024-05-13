@@ -902,7 +902,7 @@ system.includesPackage('Character') {- character package -}
 let c = '𠮷'.asCharacter; c = c.copy & { c ~~ c.copy } {- copy is equal but not identical -}
 92.asCharacter.characterString = '\\' {- escaped character -}
 '0123456789abcdef'.characters.collect(digitValue:/1) = [0 .. 15] {- digit value of character -}
-0:15.collect(digitValue:/1).join = '0123456789ABCDEF' {- character of given digit value -}
+0:15.collect(digitValue:/1).stringJoin = '0123456789ABCDEF' {- character of given digit value -}
 { 36.digitValue }.ifError { true } {- error if integer is out of range -}
 'x'.asCharacter.asUpperCase = 'X'.asCharacter {- to upper case -}
 'X'.asCharacter.asLowerCase = 'x'.asCharacter {- to lower case -}
@@ -1758,7 +1758,7 @@ system.includesPackage('Integer') {- integer package -}
 -987654321.printString = '-987654321' {- negative integer print string -}
 4 / 2 = 2 {- integer division with integer result -}
 let n = 2; 3.timesRepeat { n := n * n }; n = 256 {- iteration -}
-0:15.collect(asHexDigit:/1).join = '0123456789ABCDEF' {- integer to hex character -}
+0:15.collect(asHexDigit:/1).stringJoin = '0123456789ABCDEF' {- integer to hex character -}
 let a = []; 1.toDo(5) { :each | a.add(each) }; a = [1 .. 5] {- iterate over integer sequence -}
 let a = []; 5.toDo(1) { :each | a.add(each) }; a = [] {- non-ascending sequences are empty -}
 let a = []; 5.toByDo(1, -1) { :each | a.add(each) }; a = [5 .. 1] {- iterate over integer sequence -}
@@ -3404,10 +3404,10 @@ system.includesPackage('String') {- package -}
 'string'.isEmpty = false {- is empty string -}
 'string'.size = 6 {- length -}
 ['m', 'ss', 'ss', 'pp', ''].join = 'msssspp' {- join -}
-['x', 1, 'y', 2, 'z', 3].join = 'x1y2z3' {- all items need not be strings -}
-[1, 2, 3].join = '123' {- no items need be strings -}
-[].join = '' {- join of empty sequence is the empty string -}
-['m', 'ss', 'ss', 'pp', ''].joinSeparatedBy('i') = 'mississippi' {- join with separator -}
+['x', 1, 'y', 2, 'z', 3].stringJoin = 'x1y2z3' {- stringJoin, all items need not be strings -}
+[1, 2, 3].stringJoin = '123' {- no items need be strings -}
+[].stringJoin = '' {- stringJoin of empty sequence is the empty string -}
+['m', 'ss', 'ss', 'pp', ''].join('i') = 'mississippi' {- join with separator -}
 'mississippi'.splitBy('i') = ['m', 'ss', 'ss', 'pp', ''] {- split at string -}
 'Ma.rch'.splitBy('.') = ['Ma', 'rch'] {- split by dot -}
 'str ing'.splitBy(' ') = ['str', 'ing'] {- split at char -}
@@ -3418,7 +3418,7 @@ system.includesPackage('String') {- package -}
 'string'.splitBy('') = ['s', 't', 'r', 'i', 'n', 'g']
 'Set-Of-Three-Words'.splitByLimitedTo('-', 3) = ['Set', 'Of', 'Three'] {- limited to count number of elements -}
 'mississippi'.contents.join = 'mississippi' {- List>>join is the inverse of String>>contents -}
-'mississippi'.splitBy('i').joinSeparatedBy('i') = 'mississippi' {- joinSeparatedBy is the inverse of splitBy -}
+'mississippi'.splitBy('i').join('i') = 'mississippi' {- join is an inverse of splitBy -}
 '/usr/local/bin'.splitBy('/') = ['', 'usr', 'local', 'bin']
 'Terse Guide.help.sl'.splitBy('.') = ['Terse Guide', 'help', 'sl']
 'a' < 'b' = true {- string comparison -}
@@ -3461,7 +3461,7 @@ system.includesPackage('String') {- package -}
 'Smalltalk'.findPreviousOccurrenceOfStringStartingAt('al', 9) = 7
 'Smalltalk'.findPreviousOccurrenceOfStringStartingAt('al', 7 - 1) = 3
 'the quick brown fox jumps'.copyFromTo(17, 19) = 'fox'
-['the', 'quick', 'brown', 'fox'].joinSeparatedBy(' ') = 'the quick brown fox'
+['the', 'quick', 'brown', 'fox'].join(' ') = 'the quick brown fox'
 ['the', 'quick', 'brown', 'fox'].join = 'thequickbrownfox'
 'the quick brown fox jumps'.splitBy(' ') = ['the', 'quick', 'brown', 'fox', 'jumps']
 'string'.splitBy('') = ['s', 't', 'r', 'i', 'n', 'g']
@@ -3525,13 +3525,13 @@ let x = ['a', 'bc', 'def']; x.unlines.lines = x
 'sndfile.wav'.endsWith('.wav') = true
 ['a','b','','c'].unlines.paragraphs.collect(lines:/1) = [['a', 'b'], ['c']]
 'string'.at(3) = 'r'.asCharacter {- string indexing -}
-let s = 'string'; [s[2], s[4], s[5]].join = 'tin' {- string subscripting -}
+let s = 'string'; [s[2], s[4], s[5]].stringJoin = 'tin' {- string subscripting -}
 ' x '.withBlanksTrimmed = 'x'
 ' x '.withoutLeadingBlanks = 'x '
 ' x '.withoutTrailingBlanks = ' x'
-let a = []; 'string'.do { :each | a.add(each) }; a.join = 'string'
+let a = []; 'string'.do { :each | a.add(each) }; a.stringJoin = 'string'
 'string'.contents.join = 'string'
-let a = 'string'.characters; a.joinCharacters = 'string' & { a.join = 'string' }
+let a = 'string'.characters; a.joinCharacters = 'string' & { a.stringJoin = 'string' }
 '𠮷'.countCharacters = 1
 '𠮷'.countUtf16CodeUnits = 2
 '𠮷'.size = 2
@@ -3565,7 +3565,7 @@ let a = 'string'.characters; a.joinCharacters = 'string' & { a.join = 'string' }
 '154'.parseNumber = 154 {- parse integral number -}
 'A clear but rather long-winded summary'.contractTo(19) = 'A clear ... summary' {- contract string to be of size -}
 'antidisestablishmentarianism'.contractTo(10) = 'anti...ism' {- contract string to be of size -}
-'string'.asList.sort.join = 'ginrst'
+'string'.asList.sort.stringJoin = 'ginrst'
 'x' ~= 'x'.asCharacter {- a single element string is not equal to a character -}
 'Mačiūnas'.removeDiacritics = 'Maciunas' {- transform to ascii by deleting diacritics -}
 'string'.copy == 'string' {- copy is identity -}

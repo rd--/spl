@@ -5,7 +5,9 @@
 Answer the first _anInteger_ elements of the Thue-Morse sequence.
 
 ```
->>> (2 ^ 0:6).collect { :k | k.thueMorseSequence.join }
+>>> (2 ^ 0:6).collect { :k |
+>>> 	k.thueMorseSequence.stringJoin
+>>> }
 [
 	'0'
 	'01'

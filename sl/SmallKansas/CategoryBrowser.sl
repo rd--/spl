@@ -33,7 +33,7 @@ CategoryBrowser : [Object, SmallKansan] {
 					}.sorted
 				},
 				2 -> {
-					browser.setStatus(system.typeTraits(path[2]).joinSeparatedBy(', '));
+					browser.setStatus(system.typeTraits(path[2]).stringJoin(', '));
 					completeMethodSet := system.typeMethodDictionary(path[2]).values.select { :each |
 						each.origin.name ~= 'Object'
 					};

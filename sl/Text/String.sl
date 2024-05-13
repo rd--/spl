@@ -64,7 +64,7 @@ String! : [Object, Json, Iterable, Character] {
 		}).if {
 			self.error('String>>asBracketedComment: includes comment brackets')
 		} {
-			[open, ' ', self, ' ', close].join
+			[open, ' ', self, ' ', close].stringJoin
 		}
 	}
 
@@ -165,7 +165,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	atAll { :self :indices |
-		self.asList.atAll(indices).join
+		self.asList.atAll(indices).stringJoin
 	}
 
 	basicAppendString { :self :aString |
@@ -277,7 +277,7 @@ String! : [Object, Json, Iterable, Character] {
 			self.copyFromTo(1, start - 1),
 			replacement,
 			self.copyFromTo(stop + 1, self.size)
-		].join
+		].stringJoin
 	}
 
 	countCharacters { :self |
@@ -532,19 +532,19 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	longestCommonSubsequence { :self :aString |
-		self.asList.longestCommonSubsequence(aString.asList).join
+		self.asList.longestCommonSubsequence(aString.asList).stringJoin
 	}
 
 	longestCommonSubstringList { :self :aString |
-		self.asList.longestCommonSubstringList(aString.asList).collect(join:/1)
+		self.asList.longestCommonSubstringList(aString.asList).collect(stringJoin:/1)
 	}
 
 	longestCommonSubstring { :self :aString |
-		self.asList.longestCommonSubstring(aString.asList).join
+		self.asList.longestCommonSubstring(aString.asList).stringJoin
 	}
 
 	longestIncreasingSubsequence { :self |
-		self.asList.longestIncreasingSubsequence.join
+		self.asList.longestIncreasingSubsequence.stringJoin
 	}
 
 	notEmpty { :self |
@@ -583,7 +583,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	onCharacters { :self :aBlock:/1 |
-		self.asList.aBlock.join
+		self.asList.aBlock.stringJoin
 	}
 
 	padLeft { :self :anInteger :aString |
@@ -689,7 +689,7 @@ String! : [Object, Json, Iterable, Character] {
 				list.add(each)
 			}
 		};
-		list.join
+		list.stringJoin
 	}
 
 	sentences { :self |
@@ -837,20 +837,16 @@ String! : [Object, Json, Iterable, Character] {
 		[self.first] ++ self.allButFirst.collect(capitalized:/1)
 	}
 
-	join { :self |
-		self.joinSeparatedBy('')
+	stringJoin { :self :aString |
+		self.flatten.collect(asString:/1).basicStringJoin(aString.asString)
 	}
 
-	join { :self :aString |
-		self.joinSeparatedBy(aString)
+	stringJoin { :self |
+		self.stringJoin('')
 	}
 
 	joinCharacters { :self |
-		self.collect(characterString:/1).joinSeparatedBy('')
-	}
-
-	joinSeparatedBy { :self :aString |
-		self.collect(asString:/1).joinStringsSeparatedBy(aString)
+		self.collect(characterString:/1).stringJoin
 	}
 
 	pascalCase { :self |
@@ -858,18 +854,18 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	unlines { :self |
-		self.joinSeparatedBy('\n')
+		self.stringJoin('\n')
 	}
 
 	unwords { :self |
-		self.joinSeparatedBy(' ')
+		self.stringJoin(' ')
 	}
 
 }
 
 +List {
 
-	joinStringsSeparatedBy { :self :aString |
+	basicStringJoin { :self :aString |
 		<primitive: return _self.join(_aString);>
 	}
 

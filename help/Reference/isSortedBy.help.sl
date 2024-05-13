@@ -1,26 +1,35 @@
 # isSortedBy
 
-_isSorted(aSequence, aBlock:/2)_
+- _isSorted(aSequence, aBlock:/2)_
 
-Return true if _aSequence_ is sorted by _aBlock_.
+Answer `true` if _aSequence_ is sorted by _aBlock_, else `false`.
 
-At List:
+At `List`:
 
 ```
+>>> [11, 9 .. 1].isSortedBy(>)
+true
+
 >>> [11, 9 .. 1].isSortedBy { :i :j | i > j }
 true
 ```
 
-At Tuple:
+At `Tuple`:
 
 ```
+>>> (11, 9, 7, 5, 3, 1).isSortedBy(>)
+true
+
 >>> (11, 9, 7, 5, 3, 1).isSortedBy { :i :j | i > j }
 true
 ```
 
-At Range:
+At `Range`:
 
 ```
+>>> 9:1.isSortedBy(>)
+true
+
 >>> 9:1.isSortedBy { :i :j | i > j }
 true
 ```
@@ -28,5 +37,9 @@ true
 * * *
 
 See also: isSorted, sort, sorted
+
+References:
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/issorted.html)
 
 Categories: Sorting

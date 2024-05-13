@@ -11,7 +11,7 @@ Benchmark : [Object] { | name verification benchmark |
 			': Parameter = ', parameter,
 			', Verified = ', answer = self.verification[parameter],
 			', Elapsed Time = ', elapsedTime
-		].join.postLine
+		].stringJoin.postLine
 	}
 
 }

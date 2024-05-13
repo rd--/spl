@@ -90,7 +90,7 @@
 			self.typeOf, ': ',
 			message,
 			': (', self.printStringLimitedTo(16), ')'
-		].join
+		].stringJoin
 	}
 
 	error { :self :message |
@@ -168,7 +168,7 @@
 			self.typeOf, ': ',
 			message,
 			': (' ++ self.printStringLimitedTo(16) ++ ')'
-		].join
+		].stringJoin
 	}
 
 	notify { :self :message |
@@ -258,7 +258,12 @@
 	}
 
 	storeStringAsInitializeSlots { :self |
-		self.typeOf ++ '(' ++ self.slotValueList.collect(storeString:/1).joinSeparatedBy(', ') ++ ')'
+		[
+			self.typeOf,
+			'(',
+				self.slotValueList.collect(storeString:/1).stringJoin(', '),
+			')'
+		].stringJoin
 	}
 
 	storeString { :self |
@@ -287,7 +292,7 @@
 			self.typeOf, ': ',
 			message,
 			': (' ++ self.printStringLimitedTo(16) ++ ')'
-		].join
+		].stringJoin
 	}
 
 	warning { :self :message |

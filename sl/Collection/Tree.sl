@@ -194,11 +194,11 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 	storeString { :self |
 		[
 			'Tree(',
-			self.value.storeString,
-			', ',
-			self.subTrees.storeString,
+				self.value.storeString,
+				', ',
+				self.subTrees.storeString,
 			')'
-		].join
+		].stringJoin
 	}
 
 	values { :self |

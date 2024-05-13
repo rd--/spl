@@ -52,7 +52,7 @@ _Note:_ In Smalltalk the binary form is the comma operator.
 
 * * *
 
-See also: ++, concatenation
+See also: +++, concatenation, flatten, join
 
 Unicode: U+29FA ⧺ Double plus
 

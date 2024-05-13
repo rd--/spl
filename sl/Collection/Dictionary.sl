@@ -358,6 +358,23 @@
 
 }
 
++@Collection {
+
+	dictionaryJoin { :self |
+		self.ifEmpty {
+			self.error('@Collection>>dictionaryJoin')
+		} {
+			let answer = self.first.copy;
+			self.allButFirstDo { :each |
+				answer.includeAll(each)
+			};
+			answer
+		}
+	}
+
+}
+
+
 {- Keys -}
 +@Dictionary {
 

@@ -11,7 +11,7 @@ The inverse is `grayDecode`.
 >>> 	let e = n.grayEncode;
 >>> 	let d = e.grayDecode;
 >>> 	[n, e, d].collect { :i |
->>> 		i.integerDigits(2).join
+>>> 		i.integerDigits(2).stringJoin
 >>> 	}
 >>> }
 [

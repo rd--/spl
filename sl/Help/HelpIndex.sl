@@ -3,7 +3,7 @@ HelpIndex : [Object] { | contents |
 	fetch { :self :path |
 		path.ifNotNil {
 			let url = self.url(path[1], path[2]);
-			self.notify('fetch: ' ++ path.joinSeparatedBy('/'));
+			self.notify('fetch: ' ++ path.stringJoin('/'));
 			url.fetchTextWithDefault('*Fetch Failed*')
 		}
 	}
@@ -38,7 +38,7 @@ HelpIndex : [Object] { | contents |
 			'/',
 			name,
 			'.help.sl'
-		].join
+		].stringJoin
 	}
 
 }

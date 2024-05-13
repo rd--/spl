@@ -33,7 +33,7 @@
 			transform: [
 				'translate(0, ' ++ (bbox.height + (2 * bbox.origin.y)) ++ ')',
 				'scale(' ++ scale ++ ', -' ++ scale ++ ')'
-			].join
+			].stringJoin
 		);
 		group.appendChildren(dots);
 		group.appendChildren(lines);
@@ -125,7 +125,12 @@
 					}.values.copyWithoutIdenticalElements.sort.collect(asString:/1)
 				},
 				2 -> {
-					browser.setStatus(['Size = ', path[1], ', Limit = ', path[2]].join);
+					browser.setStatus(
+						[
+							'Size = ', path[1], ', ',
+							'Limit = ', path[2]
+						].stringJoin
+					);
 					selectedLimit := path[2].parseInteger(10);
 					jiTunings.select { :each |
 						each.size = selectedSize & {

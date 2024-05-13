@@ -37,7 +37,7 @@ Circle : [Object] { | center radius |
 				', ',
 				self.radius.storeString,
 			')'
-		].join
+		].stringJoin
 	}
 
 	translateBy { :self :factor |

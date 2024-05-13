@@ -27,7 +27,7 @@ DocumentTest : [Object] { | program expectedAnswer |
 				', ',
 				self.expectedAnswer.storeString,
 			')'
-		].join
+		].stringJoin
 	}
 
 }
