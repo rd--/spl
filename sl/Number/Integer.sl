@@ -949,6 +949,27 @@
 		system.nextRandomIntegerBipolar(self)
 	}
 
+	recamanSequence { :self |
+		let seen = Set();
+		let answer = List(self, 0);
+		1.toDo(self - 1) { :n |
+			let trying = answer[n] - n;
+			(
+				(trying > 0) & {
+					seen.includes(trying).not
+				}
+			).if {
+				answer[n + 1] := trying;
+				seen.include(trying)
+			} {
+				let next = answer[n] + n;
+				answer[n + 1] := next;
+				seen.include(next)
+			}
+		};
+		answer
+	}
+
 	reducedResidueSystem { :self |
 		(0 .. self - 1).select { :each |
 			each.isCoprime(self)

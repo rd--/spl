@@ -80,6 +80,37 @@ c.f. OEIS [A126650](https://oeis.org/A126650):
 (369, List(9, 369), List(9, 369), 369, 369, 9)
 ```
 
+A 4×4×4 magic cube:
+
+```
+>>> let c = [
+>>> 	32  5 52 41;
+>>> 	 3 42 31 54;
+>>> 	61 24 33 12;
+>>> 	34 59 14 23:;
+>>> 		10 35 22 63;
+>>> 		37 64  9 20;
+>>> 		27  2 55 46;
+>>> 		56 29 44  1:;
+>>> 			49 28 45  8;
+>>> 			30  7 50 43;
+>>> 			36 57 16 21;
+>>> 			15 38 19 58:;
+>>> 				39 62 11 18;
+>>> 				60 17 40 13;
+>>> 				 6 47 26 51;
+>>> 				25  4 53 48
+>>> ];
+>>> let column = { :m :c | (1 .. m.size).collect { :r | m[r][c] } };
+>>> let s = (34, [130 130 130 130], [130 130 130 130], 130, 130, 4);
+>>> (
+>>> 	c.collect(magicSquareSummary:/1),
+>>> 	1:4.collect { :i | c.collect { :m | m[i] }.magicSquareSummary },
+>>> 	1:4.collect { :i | c.collect { :m | column(m, i) }.magicSquareSummary }
+>>> )
+([s s s s], [s s s s], [s s s s])
+```
+
 * * *
 
 References:
