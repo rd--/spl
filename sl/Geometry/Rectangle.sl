@@ -1,95 +1,115 @@
 {- Requires: RectangularCoordinates -}
 
-Rectangle : [Object] { | origin corner |
+Rectangle : [Object] { | lowerLeft upperRight |
 
 	= { :self :anObject |
 		anObject.isRectangle & {
-			self.origin = anObject.origin & {
-				self.corner = anObject.corner
+			self.lowerLeft = anObject.lowerLeft & {
+				self.upperRight = anObject.upperRight
 			}
 		}
+	}
+
+	arcLength { :self |
+		self.perimeter
 	}
 
 	area { :self |
 		let h = self.height;
 		let w = self.width;
-		(h <= 0 | {
-			w <= 0
-		}).if {
+		(
+			h <= 0 | {
+				w <= 0
+			}
+		).if {
 			0
 		} {
 			w * h
 		}
 	}
 
-	asString { :self :toString:/1 |
+	asString { :self :aBlock:/1 |
 		[
 			'Rectangle(',
-				self.origin.toString,
+				aBlock(self.lowerLeft),
 				', ',
-				self.corner.toString,
+				aBlock(self.upperRight),
 			')'
 		].stringJoin
 	}
 
-	bottomLeft { :self |
-		self.origin.x @ self.corner.y
-	}
-
-	bottomRight { :self |
-		self.corner
-	}
-
-	ceiling { :self |
-		self.isInteger.if {
-			self
-		} {
-			self.x.ceiling @ self.y.ceiling
-		}
-	}
-
 	center { :self |
-		self.topLeft + self.bottomRight / 2
+		self.lowerLeft + self.upperRight / 2
+	}
+
+	centerLeft { :self |
+		self.left @ self.center.y
+	}
+
+	centerRight { :self |
+		self.right @ self.center.y
+	}
+
+	circumcircle { :self |
+		Circle(self.center, self.circumradius)
+	}
+
+	circumradius { :self |
+		(self.width.squared + self.height.squared).sqrt
 	}
 
 	containsPoint { :self :aPoint |
-		self.origin <= aPoint & {
-			aPoint < self.corner
+		self.lowerLeft <= aPoint & {
+			aPoint < self.upperRight
 		}
+	}
+
+	dimension { :self |
+		2
+	}
+
+	embeddingDimension { :self |
+		2
 	}
 
 	encompass { :self :aPoint |
 		Rectangle(
-			self.origin.min(aPoint),
-			self.corner.max(aPoint)
+			self.lowerLeft.min(aPoint),
+			self.upperRight.max(aPoint)
 		)
 	}
 
 	extent { :self |
-		self.corner - self.origin
-	}
-
-	floor { :self |
-		self.isInteger.if {
-			self
-		} {
-			self.x.floor @ self.y.floor
-		}
+		self.upperRight - self.lowerLeft
 	}
 
 	height { :self |
-		self.corner.y - self.origin.y
+		self.upperRight.y - self.lowerLeft.y
+	}
+
+	incircle { :self |
+		Circle(self.center, self.inradius)
+	}
+
+	inradius { :self |
+		self.isSquare.if {
+			self.width / 2
+		} {
+			self.error('Rectangle>>inradius: not square')
+		}
 	}
 
 	intersect { :self :aRectangle |
 		Rectangle(
-			self.origin.max(aRectangle.origin),
-			self.corner.min(aRectangle.corner)
+			self.lowerLeft.max(aRectangle.lowerLeft),
+			self.upperRight.min(aRectangle.upperRight)
 		)
 	}
 
 	intersects { :self :aRectangle |
-		self.origin.max(aRectangle.origin) < self.corner.min(aRectangle.corner)
+		let ll = self.lowerLeft.max(aRectangle.lowerLeft);
+		let ur = self.upperRight.min(aRectangle.upperRight);
+		ll < ur
 	}
 
 	intersectsAny { :self :rectangleList |
@@ -103,25 +123,51 @@ Rectangle : [Object] { | origin corner |
 		}
 	}
 
-	isInteger { :self |
-		self.x.isInteger & {
-			self.y.isInteger
-		}
+	isSquare { :self |
+		self.width = self.height
 	}
 
 	left { :self |
-		self.origin.x
+		self.lowerLeft.x
+	}
+
+	lower { :self |
+		self.lowerLeft.y
+	}
+
+	lowerCenter { :self |
+		self.center.x @ self.lower
+	}
+
+	lowerHalf { :self |
+		Rectangle(self.lowerLeft, self.centerRight)
+	}
+
+	lowerLeftQuadrant { :self |
+		Rectangle(self.lowerLeft, self.center)
+	}
+
+	lowerRight { :self |
+		self.upperRight.x @ self.lowerLeft.y
+	}
+
+	lowerRightQuadrant { :self |
+		Rectangle(self.lowerCenter, self.centerRight)
 	}
 
 	merge { :self :aRectangle |
 		Rectangle(
-			self.origin.min(aRectangle.origin),
-			self.corner.max(aRectangle.corner)
+			self.lowerLeft.min(aRectangle.lowerLeft),
+			self.upperRight.max(aRectangle.upperRight)
 		)
 	}
 
+	perimeter { :self |
+		(self.width + self.height) * 2
+	}
+
 	pointAtFraction { :self :relativePoint |
-		self.origin + (self.extent * relativePoint)
+		self.lowerLeft + (self.extent * relativePoint)
 	}
 
 	printString { :self |
@@ -137,113 +183,92 @@ Rectangle : [Object] { | origin corner |
 	}
 
 	right { :self |
-		self.corner.x
-	}
-
-	rightCenter { :self |
-		self.corner.x @ self.center.y
-	}
-
-	rounded { :self |
-		self.isInteger.if {
-			self
-		} {
-			self.x.rounded @ self.y.rounded
-		}
+		self.upperRight.x
 	}
 
 	scaleBy { :self :scale |
-		Rectangle(self.origin * scale, self.corner * scale)
+		Rectangle(
+			self.lowerLeft * scale,
+			self.upperRight * scale
+		)
 	}
 
 	swallow { :self :aRectangle |
-		self.origin := self.origin.min(aRectangle.origin);
-		self.corner := self.corner.max(aRectangle.corner)
+		self.lowerLeft := self.lowerLeft.min(aRectangle.lowerLeft);
+		self.upperRight := self.upperRight.max(aRectangle.upperRight)
 	}
 
-	top { :self |
-		self.origin.y
+	upper { :self |
+		self.upperRight.y
 	}
 
-	topCenter { :self |
-		self.center.x @ self.origin.y
+	upperCenter { :self |
+		self.center.x @ self.upper
 	}
 
-	topHalf { :self |
-		self.withBottom(self.center.y)
+	upperHalf { :self |
+		Rectangle(self.centerLeft, self.upperRight)
 	}
 
-	topLeft { :self |
-		self.origin
+	upperLeft { :self |
+		self.lowerLeft.x @ self.upperRight.y
 	}
 
-	topLeftQuadrant { :self |
-		self.topLeft.corner(self.center)
+	upperLeftQuadrant { :self |
+		Rectangle(self.centerLeft, self.upperCenter)
 	}
 
-	topRight { :self |
-		self.corner.x @ self.origin.y
-	}
-
-	topRightQuadrant { :self |
-		self.topCenter.corner(self.rightCenter)
+	upperRightQuadrant { :self |
+		Rectangle(self.center, self.upperRight)
 	}
 
 	translateBy { :self :factor |
-		Rectangle(self.origin + factor, self.corner + factor)
+		Rectangle(
+			self.lowerLeft + factor,
+			self.upperRight + factor
+		)
 	}
 
 	width { :self |
-		self.corner.x - self.origin.x
+		self.upperRight.x - self.lowerLeft.x
 	}
 
-	withBottom { :self :y |
-		self.origin.corner(self.corner.x @ y)
+	withLower { :self :y |
+		self.lowerLeft.upperRight(self.upperRight.x @ y)
 	}
 
 	x { :self |
-		self.origin.x
+		self.lowerLeft.x
 	}
 
 	y { :self |
-		self.origin.y
+		self.lowerLeft.y
 	}
 
 }
 
 +RectangularCoordinates {
 
-	corner { :self :aPoint |
-		self.rectangleOriginCorner(aPoint)
+	RectangeCenterExtent { :centerPoint :extentPoint |
+		let half = extentPoint / 2;
+		Rectangle(centerPoint - half, centerPoint + half)
 	}
 
-	extent { :self :aPoint |
-		self.rectangleOriginExtent(aPoint)
-	}
-
-	rectangle { :self :aPoint |
-		rectangleOriginCorner(self.min(aPoint), self.max(aPoint))
-	}
-
-	rectangeCenterExtent { :centerPoint :extentPoint |
-		rectangleOriginExtent(centerPoint - (extentPoint // 2), extentPoint)
-	}
-
-	rectangleOriginCorner { :originPoint :cornerPoint |
-		newRectangle().initializeSlots(originPoint, cornerPoint)
-	}
-
-	rectangleOriginExtent { :originPoint :extentPoint |
-		rectangleOriginCorner(originPoint, originPoint + extentPoint)
-	}
-
-	Rectangle { :originPoint :cornerPoint |
-		rectangleOriginCorner(originPoint, cornerPoint)
+	Rectangle { :lowerLeft :upperRight |
+		newRectangle().initializeSlots(lowerLeft, upperRight)
 	}
 
 }
 
 +List {
+
+	asRectangle { :self |
+		(self.shape = [2 2]).if {
+			Rectangle(self.first, self.second)
+		} {
+			self.error('List>>asRectangle')
+		}
+	}
 
 	computeBoundingBox { :self |
 		let box = Rectangle(self[1], self[1]);
@@ -253,18 +278,22 @@ Rectangle : [Object] { | origin corner |
 		box
 	}
 
+	Rectangle { :lowerLeft :upperRight |
+		Rectangle(lowerLeft.asRectangularCoordinates, upperRight.asRectangularCoordinates)
+	}
+
 }
 
 +@Sequence {
 
 	rectangleMerging { :self |
-		let topLeft = self.first.topLeft;
-		let bottomRight = self.first.bottomRight;
+		let lowerLeft = self.first.lowerLeft;
+		let upperRight = self.first.upperRight;
 		self.allButFirstDo { :each |
-			topLeft := topLeft.min(each.topLeft);
-			bottomRight := bottomRight.max(each.bottomRight)
+			lowerLeft := lowerLeft.min(each.lowerLeft);
+			upperRight := upperRight.max(each.upperRight)
 		};
-		Rectangle(topLeft, bottomRight)
+		Rectangle(lowerLeft, upperRight)
 	}
 
 }

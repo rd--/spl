@@ -3,8 +3,8 @@
 - _asString(anObject)_
 
 Answer the _printString_ of the receiver,
-unless it is a _String_, in which case answer the receiver itself,
-or a _Character_, in which case answer a single character string.
+unless it is a `String`, in which case answer the receiver itself,
+or a `Character`, in which case answer a single character string.
 
 At `SmallFloat`:
 

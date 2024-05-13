@@ -38,6 +38,13 @@ Three-dimensional case:
 -1
 ```
 
+The _x_-coordinate of the center of a `Circle`:
+
+```
+>>> Circle([0 0], 1).x
+0
+```
+
 * * *
 
 See also: imaginary, real, y, z

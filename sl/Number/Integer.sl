@@ -950,22 +950,19 @@
 	}
 
 	recamanSequence { :self |
-		let seen = Set();
 		let answer = List(self, 0);
+		let seen = [0].asSet;
 		1.toDo(self - 1) { :n |
-			let trying = answer[n] - n;
+			let next = answer[n] - n;
 			(
-				(trying > 0) & {
-					seen.includes(trying).not
+				(next <= 0) | {
+					seen.includes(next)
 				}
-			).if {
-				answer[n + 1] := trying;
-				seen.include(trying)
-			} {
-				let next = answer[n] + n;
-				answer[n + 1] := next;
-				seen.include(next)
-			}
+			).ifTrue {
+				next := answer[n] + n
+			};
+			answer[n + 1] := next;
+			seen.include(next)
 		};
 		answer
 	}

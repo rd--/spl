@@ -31,7 +31,7 @@
 		);
 		let group = 'g'.createSvgElement(
 			transform: [
-				'translate(0, ' ++ (bbox.height + (2 * bbox.origin.y)) ++ ')',
+				'translate(0, ' ++ (bbox.height + (2 * bbox.lowerLeft.y)) ++ ')',
 				'scale(' ++ scale ++ ', -' ++ scale ++ ')'
 			].stringJoin
 		);

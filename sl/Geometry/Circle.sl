@@ -11,7 +11,7 @@ Circle : [Object] { | center radius |
 	}
 
 	arcLength { :self |
-		2.pi
+		self.circumference
 	}
 
 	area { :self |
@@ -24,6 +24,10 @@ Circle : [Object] { | center radius |
 
 	diameter { :self |
 		self.radius * 2
+	}
+
+	perimeter { :self |
+		self.circumference
 	}
 
 	r { :self |

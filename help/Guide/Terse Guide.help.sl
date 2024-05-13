@@ -2802,29 +2802,29 @@ Rectangle(0@0, 1@1).storeString = 'Rectangle(RectangularCoordinates(0, 0), Recta
 Rectangle(0@0, 2@2).intersect(Rectangle(1@1, 4@4)) = Rectangle(1@1, 2@2)
 Rectangle(1@1, 3@3).area = 4
 Rectangle(1@1, 3@3).center = Point(2, 2)
-Rectangle(1@1, 3@3).containsPoint(2@2) = true
+Rectangle(1@1, 3@3).containsPoint(2@2) = true {- includes -}
 let o = 0@0; let p = 10@10; let q = 0 - p; [Rectangle(q, o), Rectangle(o, p)].rectangleMerging = Rectangle(q, p)
-let r = (0@0).extent(10@20); r.area = (10 * 20) {- area is width by height -}
-let r = (0@0).extent(10@20); r.translateBy(-20@10).area = (10 * 20) {- translation preserves area -}
-let r = (10@20).corner(0@0); r.area = 0 {- the area of an empty rectangle is zero -}
-let r = (10@20).corner(0@20); r.area = 0 {- the area of an empty rectangle is zero -}
-let r = (0@20).corner(10@0); r.area = 0 {- the area of an empty rectangle is zero -}
-let r = (0@0).extent(10@20); let c = r.center; r.containsPoint(c) {- the center is inside the rectangle -}
-let r = (0@0).extent(10@20); let c = r.center; r.topLeft.distance(c) = r.bottomRight.distance(c)
-let r = (0@0).extent(10@20); let c = r.center; r.bottomLeft.distance(c) = r.topRight.distance(c)
-let r = (0@0).extent(10@20); let c = r.center; r.topLeft.distance(c) = r.bottomLeft.distance(c)
-let r = (0@0).extent(10@20); let c = r.center; r.translateBy(-20@10).center = c.translateBy(-20@10) {- the center is translated with the rectangle -}
-let r = (30@10).corner(10@20); let c = r.center; r.containsPoint(c).not {- an empty rectangle does not contain any point -}
-let r = (0@0).extent(50@50); [r.center, 1.5@1.5, r.topLeft, r.topRight, r.bottomLeft, r.bottomRight].collect { :each | r.containsPoint(each) } = [true, true, true, false, false, false]
-let r = (10@10).extent(20@30); r.containsPoint(r.origin) {- a rectangle does contain its origin -}
-let r = (10@10).extent(20@30); r.containsPoint(r.corner).not {- a rectangle does not contain its corner -}
-let r = (0@0).extent(50@50); let pt = r.randomPoint; r.containsPoint(pt) {- a rectangle contains any random point in it -}
-let r = (0@0).extent(50@50); r.pointAtFraction(0.5@0.5) = r.center {- pointAtFraction can find the center -}
-let r = (10@20).corner(30@50); (10@20).corner(30@35) = r.topHalf & { (10@20).corner(30@27.5) = r.topHalf.topHalf }
-let r = (10@20).corner(30@50); (10@20).corner(20@35) = r.topLeftQuadrant
-let r = (10@20).corner(30@50); (10@20).corner(15@27.5) = r.topLeftQuadrant.topLeftQuadrant
-let r = (10@20).corner(30@50); (20@20).corner(30@35) = r.topRightQuadrant
-let r = (10@20).corner(30@50); (25@20).corner(30@27.5) = r.topRightQuadrant.topRightQuadrant
+let r = Rectangle(0@0, 10@20); r.area = (10 * 20) {- area is width by height -}
+let r = Rectangle(0@0, 10@20); r.translateBy(-20@10).area = (10 * 20) {- translation preserves area -}
+let r = Rectangle(0@0, 0@0); r.area = 0 {- the area of an empty rectangle is zero -}
+let r = Rectangle(10@10, 0@0); r.area = 0 {- the area of an empty rectangle is zero -}
+let r = Rectangle(0@0, 10@0); r.area = 0 {- the area of an empty rectangle is zero -}
+let r = Rectangle(0@0, 10@20); let c = r.center; r.containsPoint(c) {- the center is inside the rectangle -}
+let r = Rectangle(0@0, 10@20); let c = r.center; r.upperLeft.distance(c) = r.lowerRight.distance(c)
+let r = Rectangle(0@0, 10@20); let c = r.center; r.lowerLeft.distance(c) = r.upperRight.distance(c)
+let r = Rectangle(0@0, 10@20); let c = r.center; r.upperLeft.distance(c) = r.lowerLeft.distance(c)
+let r = Rectangle(0@0, 10@20); let c = r.center; r.translateBy(-20@10).center = c.translateBy(-20@10) {- the center is translated with the rectangle -}
+let r = Rectangle(30@10, 10@20); let c = r.center; r.containsPoint(c).not {- an empty rectangle does not contain any point -}
+let r = Rectangle(0@0, 50@50); [r.center, 1.5@1.5, r.upperLeft, r.upperRight, r.lowerLeft, r.lowerRight].collect { :each | r.containsPoint(each) } = [true, true, false, false, true, false]
+let r = Rectangle(10@10, 20@30); r.containsPoint(r.lowerLeft) {- a rectangle does contain its lower left corner -}
+let r = Rectangle(10@10, 20@30); r.containsPoint(r.upperRight).not {- a rectangle does not contain its upper right corner -}
+let r = Rectangle(0@0, 50@50); let pt = r.randomPoint; r.containsPoint(pt) {- a rectangle contains any random point in it -}
+let r = Rectangle(0@0, 50@50); r.pointAtFraction(0.5@0.5) = r.center {- pointAtFraction can find the center -}
+let r = Rectangle(10@20, 30@50); r.upperHalf = Rectangle(10@35, 30@50) & { r.upperHalf.upperHalf = Rectangle(10@42.5, 30@50) }
+let r = Rectangle(10@20, 30@50); r.upperLeftQuadrant = Rectangle(10@35, 20@50)
+let r = Rectangle(10@20, 30@50); r.upperLeftQuadrant.upperLeftQuadrant = Rectangle(10@42.5, 15@50)
+let r = Rectangle(10@20, 30@50); r.upperRightQuadrant = Rectangle(20@35, 30@50)
+let r = Rectangle(10@20, 30@50); r.upperRightQuadrant.upperRightQuadrant = Rectangle(25@42.5, 30@50)
 ```
 
 ## RegExp -- text type
