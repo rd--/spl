@@ -26,8 +26,6 @@ Oeis [A117966](https://oeis.org/A117966):
 ]
 ~~~
 
-Map[FromDigits[#, 3] &, IntegerDigits[#, 3] /. 2 -> -1 & /@ Range@ 80] (* Michael De Vlieger, Nov 17 2015 *)
-
 Oeis [A265326](https://oeis.org/A265326):
 
 ```
@@ -44,3 +42,22 @@ Oeis [A265326](https://oeis.org/A265326):
 	 82  -8  98  28   0 -186 -84 -210 -60 -24
 ]
 ```
+
+Scatter plot of the first _k_ terms of Oeis [A342585](https://oeis.org/A342585):
+
+~~~
+let k = 5000;
+let a = [];
+let c = 0;
+let n = 0;
+let f = 1.toDo(k) { :i |
+	let n = a.occurrencesOf(c);
+	a.add(n);
+	(n = 0).if {
+		c := 0
+	} {
+		c := c + 1
+	}
+};
+a.collect { :n | n.isZero.if { 0 } { n.log } }.scatterPlot
+~~~
