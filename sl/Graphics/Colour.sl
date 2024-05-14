@@ -168,6 +168,14 @@ Colour : [Object] { | red green blue alpha |
 		newColour().initializeSlots(self, g, b, a)
 	}
 
+	greyLevel { :level :alpha |
+		Colour(level, level, level, alpha)
+	}
+
+	greyLevel { :level |
+		level.greyLevel(1)
+	}
+
 	Hsv { :self :saturation :brightness |
 		let s = saturation.min(1).max(0);
 		let v = brightness.min(1).max(0);
@@ -219,7 +227,7 @@ Colour : [Object] { | red green blue alpha |
 
 +List {
 
-	Colour { :self |
+	asColour { :self |
 		self.size.caseOf([
 			{ 3 } -> {
 				let [r, g, b] = self;

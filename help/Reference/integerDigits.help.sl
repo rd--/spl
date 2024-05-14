@@ -104,6 +104,25 @@ c.f. OEIS [A364024](https://oeis.org/A364024):
 [21546835860709877481n, 100017329596623853972439445621n]
 ```
 
+Scatter plot of first two-thousand terms of Oeis [A265326](https://oeis.org/A265326):
+
+~~~
+{ :n |
+	let m = n.nthPrime;
+	m - m.integerDigits(2).reversed.fromDigits(2)
+}.map(1:2000).scatterPlot
+~~~
+
+Scatter plot of first two-thousand terms of Oeis [A117966](https://oeis.org/A117966):
+
+~~~
+{ :i |
+	i.integerDigits(3).collect { :n |
+		(n = 2).if { -1 } { n }
+	}.fromDigits(3)
+}.map(0:2000).scatterPlot
+~~~
+
 * * *
 
 See also: digitCount

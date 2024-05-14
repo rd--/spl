@@ -2,7 +2,7 @@
 
 - _Colour(red, green, blue, alpha)_
 
-The `Type` representing a colour with an _alpha_ channel.
+The `Type` representing a colour with three colour component channels and an _alpha_ channel indicating transparency (or opacity).
 
 Parse colour from hash-prefixed hexadecimal string:
 
@@ -93,5 +93,9 @@ true
 * * *
 
 See also: alpha, blue, green, Hsv, red
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/RGBColor.html)
 
 Categories: Colour, Type
