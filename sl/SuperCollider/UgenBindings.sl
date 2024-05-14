@@ -161,6 +161,7 @@
 	LagUd { :in :lagTimeU :lagTimeD | <primitive: return sc.LagUd(_in, _lagTimeU, _lagTimeD);> }
 	Latch { :in :trig | <primitive: return sc.Latch(_in, _trig);> }
 	LatoocarfianC { :freq :a :b :c :d :xi :yi | <primitive: return sc.LatoocarfianC(_freq, _a, _b, _c, _d, _xi, _yi);> }
+	LatoocarfianL { :freq :a :b :c :d :xi :yi | <primitive: return sc.LatoocarfianL(_freq, _a, _b, _c, _d, _xi, _yi);> }
 	LeakDc { :in :coef | <primitive: return sc.LeakDc(_in, _coef);> }
 	Limiter { :in :level :dur | <primitive: return sc.Limiter(_in, _level, _dur);> }
 	LinCongC { :freq :a :c :m :xi | <primitive: return sc.LinCongC(_freq, _a, _c, _m, _xi);> }
@@ -352,6 +353,9 @@
 	LinRand { :self | <primitive: return sc.LinRand_(_self);> }
 	Sum3Rand { :self | <primitive: return sc.Sum3Rand(_self);> }
 	Coin { :self | <primitive: return sc.Coin(_self);> }
+	HanWindow { :self | <primitive: return sc.HanWindow(_self);> }
+	WelchWindow { :self | <primitive: return sc.WelchWindow(_self);> }
+	TriWindow { :self | <primitive: return sc.TriWindow(_self);> }
 
 }
 
