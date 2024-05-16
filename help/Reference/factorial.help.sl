@@ -63,6 +63,15 @@ At `zero`:
 1
 ```
 
+Calculate the third to twelfth terms of OEIS [A000435](https://oeis.org/A000435):
+
+```
+>>> 3:12.collect { :n |
+>>> 	(n - 1).factorial * (0 .. n - 2).collect { :k | n ^ k / k.factorial }.sum
+>>> }
+[8 78 944 13800 237432 4708144 105822432 2660215680 73983185000 2255828154624]
+```
+
 * * *
 
 See also: binomial, doubleFactorial, subfactorial

@@ -156,6 +156,19 @@
 		k.bjorklundsAlgorithmDo(n) { :each | nil }
 	}
 
+	blancmangeFunction { :d |
+		let k = 2 ^ d;
+		let b = List(k + 1);
+		b[0 + 1] := 0;
+		b[k + 1] := 0;
+		d.toByDo(1, -1) { :n |
+			0.toByDo(k - 1, 2 ^ n) { :m |
+				b[m + (2 ^ (n - 1)) + 1] := (2 ^ n) + (0.5 * (b[m + 1] + b[m + (2 ^ n) + 1]))
+			}
+		};
+		b
+	}
+
 	catalanTriangle { :n :k |
 		((n - k + 1) / (n + 1)) * (n + k).binomial(k)
 	}

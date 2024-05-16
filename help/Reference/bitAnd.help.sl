@@ -87,6 +87,25 @@ Plot bitAnd with double and triple:
 1:64.collect { :i | [i, i * 2, i * 3].bitAnd }.plot
 ~~~
 
+Plot first six-hundred terms of OEIS [A279125](https://oeis.org/A279125):
+
+~~~
+let n = 600;
+let g = List(n, 0);
+let answer = [];
+1.toDo(n - 1) { :i |
+	let j = 0;
+	{
+		g[j + 1].bitAnd(i) ~= 0
+	}.whileTrue {
+		j := j + 1
+	};
+	g[j + 1] := g[j + 1] + i;
+	answer.add := j
+};
+answer.scatterPlot
+~~~
+
 * * *
 
 See also: and, bitAnd, bitNot, bitXor

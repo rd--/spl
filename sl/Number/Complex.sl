@@ -211,6 +211,10 @@ Complex : [Object, Number] { | real imaginary |
 		self.real.rounded.j(self.imaginary.rounded)
 	}
 
+	asList { :self |
+		[self.real, self.imaginary]
+	}
+
 	asTuple { :self |
 		(self.real, self.imaginary)
 	}
@@ -410,6 +414,12 @@ Complex : [Object, Number] { | real imaginary |
 				self.imaginary.storeString,
 			')'
 		].stringJoin
+	}
+
+	weierstrassFunction { :x :a :m |
+		1:m.collect { :k |
+			(0J1 * pi * (k ^ a) * x).exp / (pi * (k ^ a))
+		}.sum
 	}
 
 	veryCloseTo { :self :anObject |
