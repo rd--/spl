@@ -20,6 +20,16 @@ Threads element-wise over lists:
 [10 15 20]
 ```
 
+Vector times matrix:
+
+```
+>>> [-1 0 1] * [1 2; 3 4; 5 6]
+[[-1, -2], [0, 0], [5, 6]]
+
+>>> [-1 1] * [1 2; 3 4; 5 6]
+[-1 -2; 3 4; -5 -6]
+```
+
 Matrix times vector:
 
 ```
@@ -47,7 +57,7 @@ As argument to `reduce`:
 362880
 ```
 
-Apply and method send syntaxes:
+Evaluate using both apply and method send syntaxes:
 
 ```
 >>> *(3, 4)

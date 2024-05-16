@@ -14,6 +14,9 @@ remote-update:
 remote-dist:
 	sftp rd@rohandrape.net:rohandrape.net/pub/spl/dist/ <<< $'put dist/sl.js'
 
+tags:
+	etags --regex=@emacs/spl.tag sl/*/*.sl
+
 indent:
 	spl-indent sl/*/*.sl help/SuperCollider/Graph/*.sl help/SuperCollider/Ugen/*.sl
 	(cd ts ; make format-ts)

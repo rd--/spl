@@ -49,7 +49,7 @@ As the argument to `reduce` and `foldRight`:
 (6 - (1 - 2))
 ```
 
-The unary form answers the negation of _aNumber_:
+The unary form is equivalent to `negated`, answering the negation of _aNumber_:
 
 ```
 >>> 3.-
