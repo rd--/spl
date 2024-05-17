@@ -4,11 +4,30 @@
 
 Answers `true` if _aNumber_ is negative, else `false`.
 
+Zero and one are not non-negative:
+
 ```
->>> 1.isNegative
+>>> 0.isNegative
 false
 
+>>> 1.isNegative
+false
+```
+
+Negative one is negative:
+
+```
 >>> -1.isNegative
+true
+```
+
+Negative zero is not negative, because zero and negative zero compare as equal, however it `isNegativeZero`:
+
+```
+>>> -0.isNegative
+false
+
+>>> -0.isNegativeZero
 true
 ```
 

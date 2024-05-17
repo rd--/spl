@@ -9,6 +9,9 @@ At `Integer`:
 ```
 >>> 23.printString
 '23'
+
+>>> -0.printString
+'-0'
 ```
 
 At `SmallFloat`:

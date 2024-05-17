@@ -5,6 +5,26 @@
 Answer a number that is the negation of _aNumber_.
 Equivalent to multiplication by negative `one`.
 
+At `zero` and `one`:
+
+```
+>>> 0.negated
+-0
+
+>>> 1.negated
+-1
+```
+
+At negative `zero` and negative `one`:
+
+```
+>>> -0.negated
+0
+
+>>> -1.negated
+1
+```
+
 Threads over lists and matrices:
 
 ```

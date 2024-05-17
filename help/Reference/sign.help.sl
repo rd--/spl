@@ -3,7 +3,11 @@
 - _sign(aNumber)_
 - _sign(aNumber, anotherNumber)_
 
-Sign function, -1 when _aNumber < 0_, +1 when _aNumber > 0_, 0 when _aNumber = 0_.
+Sign function.
+-1 when _aNumber < 0_.
+1 when _aNumber > 0_.
+-0 when _aNumber = -0_.
+0 when _aNumber = 0_.
 
 Real numbers:
 
@@ -13,6 +17,13 @@ Real numbers:
 
 >>> 3.14.sign
 1
+```
+
+At negative `zero` sign is negative zero:
+
+```
+>>> -0.sign.isNegativeZero
+true
 ```
 
 The unary operator `*` is `sign`:
@@ -32,14 +43,14 @@ Complex numbers:
 (1j1 / 2.sqrt)
 ```
 
-Pointwise sign function:
+Element-wise sign function:
 
 ```
->>> [-3 0 5 inf].sign
-[-1 0 1 1]
+>>> [-3 -0 0 5 inf].sign
+[-1 -0 0 1 1]
 ```
 
-The binary form answers a Number with the same sign as _anotherNumber_ and the same magnitude as _aNumber_.
+The binary form answers a `Number` with the same sign as _anotherNumber_ and the same magnitude as _aNumber_.
 
 ```
 >>> 3.sign(-2)

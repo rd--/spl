@@ -9,6 +9,9 @@ Answer _anObject_.
 ```
 >>> (1 + 3).postLine
 4
+
+>>> -0.postLine
+-0
 ```
 
 If a `Transcript` is loaded, the message will also be written to the transcript,

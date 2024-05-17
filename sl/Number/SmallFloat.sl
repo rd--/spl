@@ -342,6 +342,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Number.isNaN(_self);>
 	}
 
+	isNegativeZero { :self |
+		<primitive: return Object.is(_self, -0);>
+	}
+
 	isOdd { :self |
 		<primitive: return Math.abs(_self % 2) === 1;>
 	}
@@ -459,6 +463,9 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	printString { :self :radix |
 		<primitive:
+		if(Object.is(_self, -0)) {
+			return "-0"
+		};
 		if(Number.isFinite(_self)) {
 			return _self.toString(_radix);
 		}

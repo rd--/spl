@@ -4,8 +4,13 @@
 
 Answer `true` if _aNumber_ is `zero`.
 
+At `SmallFloat`:
+
 ```
 >>> 0.isZero
+true
+
+>>> -0.isZero
 true
 
 >>> 1.isZero

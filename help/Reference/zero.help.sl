@@ -4,18 +4,27 @@
 
 Answer a zero value of the same type as _anObject_.
 
+At `Complex`:
+
 ```
 >>> (2 + 3.i).zero
 Complex(0, 0)
+```
 
->>> 1/3.zero
+At `Fraction`:
+
+```>>> 1/3.zero
 Fraction(0, 1)
+```
 
+At `SmallFloat`:
+
+```
 >>> 3.141.zero
 0.0
 ```
 
-List answers with a zeroed collection of the same shape:
+At `List`, answers with a zeroed collection of the same `shape`:
 
 ```
 >>> [1 2 3; 4 5 6; 7 8 9].zero

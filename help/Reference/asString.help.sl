@@ -14,6 +14,9 @@ At `SmallFloat`:
 
 >>> 3.141.asString
 '3.141'
+
+>>> -0.asString
+'-0'
 ```
 
 At `Fraction`:

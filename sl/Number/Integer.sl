@@ -14,6 +14,14 @@
 		'0123456789ABCDEF'[self + 1]
 	}
 
+	assertIsInteger { :self :origin |
+		self.isInteger.if {
+			self
+		} {
+			self.error('Not an integer: ' ++ origin)
+		}
+	}
+
 	asWords { :self |
 		let mils = [
 			'',
@@ -520,7 +528,7 @@
 	}
 
 	integerDigitsReverseDo { :self :base :numDigits :aBlock:/1 |
-		let num = self;
+		let num = self.abs;
 		numDigits.timesRepeat {
 			aBlock(num % base);
 			num := num // base
@@ -536,10 +544,16 @@
 	}
 
 	integerDigits { :self :base |
+		self.assertIsInteger('@Integer>>integerDigits');
 		base.isInteger.if {
+			let numDigits = self.isZero.if {
+				1
+			} {
+				(self.abs.log / base.log + 0.0000000001).asInteger + 1
+			};
 			self.integerDigits(
 				base,
-				(self.log / base.log + 0.0000000001).asInteger + 1
+				numDigits
 			)
 		} {
 			base.adaptToNumberAndApply(self, integerDigits:/2)

@@ -22,8 +22,9 @@ Association('x', 1)
 Instances are ordinarily entries in a `Dictionary` type, i.e. `Map` or `Record`:
 
 ```
->>> (x: 1, y: 2).associations
-['x' -> 1, 'y' -> 2]
+>>> (x: 1, y: 2, z: -0).associations
+['x' -> 1, 'y' -> 2, 'z' -> -0]
+```
 
 A `List` with only `Association` entries is called an _association list_.
 

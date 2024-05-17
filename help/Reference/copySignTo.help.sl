@@ -9,6 +9,20 @@ Answer a number with same magnitude as _anotherNumber and the same sign as _aNum
 -3
 ```
 
+Equivalent to multiplying by the `sign` of _aNumber_:
+
+```
+>>> 3 * -1.sign
+-3
+```
+
+Copy sign to `zero`:
+
+```
+>>> -1.copySignTo(0)
+-0
+```
+
 * * *
 
 See also: negated, sign

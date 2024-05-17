@@ -2,6 +2,9 @@
 
 - _discretePlot(aSequence)_
 
+Plot discrete data.
+Also called _pin_ and _stem_ plots.
+
 Plot a sequence:
 
 ~~~
@@ -20,4 +23,6 @@ See also: plot
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/DiscretePlot.html)
+[1](https://reference.wolfram.com/language/ref/DiscretePlot.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/stem.html)

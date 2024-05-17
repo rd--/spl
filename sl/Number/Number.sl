@@ -448,7 +448,7 @@
 	}
 
 	negated { :self |
-		self.zero - self
+		-1 * self
 	}
 
 	niceNumberAbove { :self |
@@ -686,7 +686,11 @@
 	}
 
 	signBit { :self |
-		(self < 0).if {
+		(
+			self.isNegativeZero | {
+				self < 0
+			}
+		).if {
 			1
 		} {
 			0

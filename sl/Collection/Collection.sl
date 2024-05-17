@@ -776,6 +776,22 @@
 		self.asList.sortBy(sortBlock:/2)
 	}
 
+	stemLeafPlot { :self |
+		let map = Map();
+		self.collect { :each |
+			let d = each.integerDigits;
+			let rhs = d.last;
+			let lhsList = (d.size > 1).if { d.allButLast } { [0] };
+			let lhs = each.copySignTo(lhsList.fromDigits(10));
+			map.atIfPresentIfAbsent(lhs) { :entry |
+				entry.add(rhs)
+			} {
+				map.atPut(lhs, [rhs])
+			}
+		};
+		map.associations.sort
+	}
+
 	subsets { :self :aBlock:/1 |
 		let answer = [];
 		self.powerSetDo { :each |

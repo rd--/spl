@@ -67,6 +67,13 @@ When the arguments to `<` are `boole`, it is the converse non-implication `Boole
 [0 1; 0 0]
 ```
 
+Negative zero and positive zero are regarded as equal by the numerical comparison operations:
+
+```
+>>> -0 < 0
+false
+```
+
 The name of this operator is `lessThanSign`.
 
 * * *

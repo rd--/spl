@@ -32,8 +32,11 @@ Bases larger than 10 can be used:
 Threads over lists:
 
 ```
->>> [6 7 2].integerDigits(2)
-[1 1 0; 1 1 1; 1 0]
+>>> [0 7 23].integerDigits
+[0; 7; 2 3]
+
+>>> [6 7 2 0].integerDigits(2)
+[1 1 0; 1 1 1; 1 0; 0]
 ```
 
 Find the digits of 7 in different bases:
@@ -104,6 +107,20 @@ c.f. OEIS [A364024](https://oeis.org/A364024):
 [21546835860709877481n, 100017329596623853972439445621n]
 ```
 
+`integerDigits` discards the sign:
+
+```
+>>> -22.integerDigits
+[2 2]
+```
+
+It is an error if the operand is not an integer:
+
+```
+>>> { -3.141.integerDigits }.ifError { true }
+true
+```
+
 Scatter plot of first two-thousand terms of Oeis [A265326](https://oeis.org/A265326):
 
 ~~~
@@ -125,7 +142,7 @@ Scatter plot of first two-thousand terms of Oeis [A117966](https://oeis.org/A117
 
 * * *
 
-See also: digitCount
+See also: digitCount, fromDigits
 
 References:
 _Mathematica_

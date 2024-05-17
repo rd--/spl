@@ -20,6 +20,6 @@ The unary form answers all but the last element.
 
 * * *
 
-See also: allButFirst, first, last
+See also: allButFirst, copyFromTo, first, last
 
 Categories: Accessing
