@@ -251,7 +251,7 @@ Colour : [Object] { | red green blue alpha |
 			let b = self.copyFromTo(6, 7);
 			[r, g, b, 'ff'].collect { :each |
 				each.parseInteger(16) / 255
-			}.Colour
+			}.asColour
 		} {
 			self.error('parseHexColour')
 		}

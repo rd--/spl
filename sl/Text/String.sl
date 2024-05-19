@@ -247,6 +247,10 @@ String! : [Object, Json, Iterable, Character] {
 		}, [])
 	}
 
+	compare { :self :anObject |
+		self <=> anObject
+	}
+
 	contents { :self |
 		self.stringList
 	}
@@ -613,6 +617,10 @@ String! : [Object, Json, Iterable, Character] {
 
 	postLine { :self |
 		system.postLine(self)
+	}
+
+	precedes { :self :anObject |
+		self < anObject
 	}
 
 	primitiveCollectInto { :self :aBlock:/1 :aCollection |

@@ -8,7 +8,6 @@ answer 1 if _p_ succeeds _q_.
 
 The comparison uses lexicographical ordering.
 
-
 If all items of two sequences compare equal, the sequences are considered equal:
 
 ```
@@ -34,6 +33,9 @@ the shorter sequence is the lesser one:
 -1
 
 >>> ['a' 'b' 'c' 'd'].compare(['c' 'd'])
+-1
+
+>>> 'abcd'.compare('cd')
 -1
 ```
 

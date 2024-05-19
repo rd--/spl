@@ -2,22 +2,26 @@
 
 - _anObject == anotherObject_
 
-Answers _true_ if _anObject_ is identical to _anotherObject_, else _false_.
+Answers `true` if _anObject_ is identical to _anotherObject_, else `false`.
 
-This is the identity operator.
-It decides if two values are the same.
+This is the _identitical to_ operator.
+It decides if two values are references to the same object.
 
-String and integers are identical:
+Equal strings are identical:
 
 ```
 >>> 'abc' == 'abc'
 true
+```
 
+Equal integers are identical:
+
+```
 >>> 123 == 123
 true
 ```
 
-Complex numbers, fractions and lists are not:
+Equal complex numbers, fractions and lists are not identical:
 
 ```
 >>> 1j1 == 1j1
@@ -28,6 +32,13 @@ false
 
 >>> [1 2 3] == [1 2 3]
 false
+```
+
+Negative zero is equal to, and therefore identical to, zero:
+
+```
+>>> -0 == 0
+true
 ```
 
 The name of this operator is _equalsSignEqualsSign_

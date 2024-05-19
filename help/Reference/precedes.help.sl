@@ -11,11 +11,18 @@ At `List`:
 true
 ```
 
-Compare with `<`:
+C.f. `<`:
 
 ```
 >>> [1 2 3] < [2 3 4]
 [true true true]
+```
+
+At `String`:
+
+```
+>>> '-0'.precedes('-2')
+true
 ```
 
 Sort power-set lexicographically:

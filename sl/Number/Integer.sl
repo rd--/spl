@@ -945,6 +945,14 @@
 		a[n + 1]
 	}
 
+	pascalTriangle { :self |
+		0:self.collect { :n |
+			0:n.collect { :k |
+				n.binomial(k)
+			}
+		}
+	}
+
 	perrinSequence { :self |
 		self.padovanSequence([3 0 2])
 	}

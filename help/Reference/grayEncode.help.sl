@@ -15,7 +15,7 @@ The inverse is `grayDecode`.
 >>> 	}
 >>> }
 [
-	'' '' '';
+	'0' '0' '0';
 	'1' '1' '1';
 	'10' '11' '10';
 	'11' '10' '11';
@@ -34,6 +34,12 @@ The inverse is `grayDecode`.
 ]
 ```
 
+Scatter plot of the gray encodings of the first two-thousand integers:
+
+~~~
+0:2000.collect(grayEncode:/1).scatterPlot
+~~~
+
 * * *
 
 See also: Binary, bitShiftRight, bitXor, grayDecode
@@ -41,4 +47,9 @@ See also: Binary, bitShiftRight, bitXor, grayDecode
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GrayCode.html)
-
+[2](https://mathworld.wolfram.com/GrayCode.html),
+_OEIS_
+[1](https://oeis.org/A014550)
+[2](https://oeis.org/A003188),
+_W_
+[1](https://en.wikipedia.org/wiki/Gray_code)

@@ -34,6 +34,9 @@ true
 
 >>> 'five' < 'three'
 true
+
+>>> '-0' < '-2'
+true
 ```
 
 At `Complex`, inequalities are defined only for real numbers:

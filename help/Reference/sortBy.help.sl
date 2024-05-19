@@ -7,6 +7,6 @@ Unlike `sort`, the comparison block must be valid, not `nil`.
 
 * * *
 
-See also: sort, sorted, sortOn
+See also: sort, sorted, sortOn, sortOnBy
 
 Categories: Sorting

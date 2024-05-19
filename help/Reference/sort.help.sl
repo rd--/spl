@@ -1,7 +1,7 @@
 # sort
 
 - _sort(aSequence, aBlock:/2)_
-- _sort(aSequence)_ ≡ _sort(aSequence, <=)_
+- _sort(alpha)_ ≡ _sort(alpha, <=)_
 
 Sort _aSequence_ in place using the comparator _aBlock_.
 If the sort block is omitted or is nil, sort by `<=`.
@@ -24,7 +24,7 @@ If the sort block is omitted or is nil, sort by `<=`.
 
 * * *
 
-See also: sortBy, sorted, sortOn
+See also: sortBy, sorted, sortOn, sortOnBy
 
 References:
 _Mathematica_

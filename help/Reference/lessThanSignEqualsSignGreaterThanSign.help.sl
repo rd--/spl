@@ -19,6 +19,9 @@ Ascending:
 
 >>> 'abc' <=> 'bcd'
 -1
+
+>>> '-0' <=> '-2'
+-1
 ```
 
 Equal to:
@@ -84,7 +87,7 @@ Comparison of strings with equal base letters and different marks:
 
 * * *
 
-See also: ~, =, <, <=, >, >=
+See also: ~, =, <, <=, >, >=, compare
 
 References:
 _Mathematica_
