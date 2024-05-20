@@ -9,9 +9,16 @@ Answers `true` if _aNumber_ is greater than or equal to zero.
 [false true true]
 ```
 
+Note that negative zero is not negative according to `isNonNegative`, see instead `isNegativeZero`:
+
+```
+>>> -0.isNonNegative
+true
+```
+
 * * *
 
-See also: >=, isNegative, isPositive, isZero, zero
+See also: >=, isNegative, isNegativeZero, isPositive, isZero, zero
 
 References:
 _Smalltalk_

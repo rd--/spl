@@ -177,10 +177,10 @@
 	}
 
 	copySignTo { :self :aNumber |
-		(self.signBit = 0).if {
-			aNumber.abs
-		} {
+		self.signBit.if {
 			aNumber.abs.negated
+		} {
+			aNumber.abs
 		}
 	}
 
@@ -686,19 +686,17 @@
 	}
 
 	signBit { :self |
-		(
-			self.isNegativeZero | {
+		self.isNegativeZero | {
 				self < 0
-			}
-		).if {
-			1
-		} {
-			0
 		}
 	}
 
 	squared { :self |
 		self * self
+	}
+
+	stolarskyHarborthConstant { :self |
+		self * 0.81255655901600638769
 	}
 
 	stope { :x :p :y |

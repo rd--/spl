@@ -25,4 +25,4 @@ Copy sign to `zero`:
 
 * * *
 
-See also: negated, sign
+See also: negated, sign, signBit

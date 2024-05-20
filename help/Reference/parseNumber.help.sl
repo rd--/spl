@@ -33,6 +33,13 @@ Parse negative decimal real number:
 -672.433244
 ```
 
+Parse negative zero:
+
+```
+>>> '-0'.parseNumber
+-0
+```
+
 Signal error on failure:
 
 ```
@@ -42,6 +49,6 @@ true
 
 * * *
 
-See also: parseFraction, parseInteger
+See also: parseFraction, parseInteger, printString, storeString
 
 Categories: Parsing

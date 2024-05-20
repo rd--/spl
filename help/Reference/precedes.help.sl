@@ -21,6 +21,9 @@ C.f. `<`:
 At `String`:
 
 ```
+>>> 'abc'.precedes('bcd')
+true
+
 >>> '-0'.precedes('-2')
 true
 ```

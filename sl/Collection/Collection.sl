@@ -777,19 +777,21 @@
 	}
 
 	stemLeafPlot { :self |
-		let map = Map();
+		let negative = Map();
+		let positive = Map();
 		self.collect { :each |
 			let d = each.integerDigits;
 			let rhs = d.last;
 			let lhsList = (d.size > 1).if { d.allButLast } { [0] };
 			let lhs = each.copySignTo(lhsList.fromDigits(10));
+			let map = each.isNegative.if { negative } { positive };
 			map.atIfPresentIfAbsent(lhs) { :entry |
 				entry.add(rhs)
 			} {
 				map.atPut(lhs, [rhs])
 			}
 		};
-		map.associations.sort
+		negative.associations.sort ++ positive.associations.sort
 	}
 
 	subsets { :self :aBlock:/1 |

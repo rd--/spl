@@ -32,10 +32,11 @@ Plot of integers:
 Plot of integers with negative values:
 
 ```
->>> [-22 12 -28 52 39 -2 12 10 11 11 42 38 44 18 44].stemLeafPlot
+>>> [-22 12 -28 52 39 -2 12 10 11 11 42 38 44 18 44 9].stemLeafPlot
 [
 	-2 -> [2 8],
 	-0 -> [2],
+	 0 -> [9],
 	 1 -> [2 2 0 1 1 8],
 	 3 -> [9 8],
 	 4 -> [2 4 4],
@@ -59,7 +60,8 @@ Plot of larger data set:
 [
 	-2 -> [2 8],
 	-1 -> [3],
-	 0 -> [2 7 7 0 1 0],
+	-0 -> [2],
+         0 -> [7 7 0 1 0],
 	 1 -> [2 2 0 1 1 8 8 0],
 	 2 -> [9 3 7 9 5 7 7 7 7 8 1 3 0 1 0],
 	 3 -> [9 8 7 7 6 1 5 2 7 1 1 8 3 4 0 1 0 0],
@@ -73,6 +75,26 @@ Plot of larger data set:
 	12 -> [4 7 5 3 2 8 1 5 7 1 6 4 8 2 4 0 5 0 7],
 	13 -> [9 1 2 3],
 	14 -> [1 6]
+]
+```
+
+Formatted plot of primes up to one-hundred:
+
+```
+>>> 1:100.select(isPrime:/1).stemLeafPlot.collect { :each |
+>>> 	[each.key, '|', each.value].stringJoin
+>>> }
+[
+	'0|2357'
+	'1|1379'
+	'2|39'
+	'3|17'
+	'4|137'
+	'5|39'
+	'6|17'
+	'7|139'
+	'8|39'
+	'9|7'
 ]
 ```
 

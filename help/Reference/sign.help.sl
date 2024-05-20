@@ -8,6 +8,7 @@ Sign function.
 1 when _aNumber > 0_.
 -0 when _aNumber = -0_.
 0 when _aNumber = 0_.
+The sign of a `Complex` number _z_ is defined as _z / abs(z)_.
 
 Real numbers:
 
@@ -26,6 +27,13 @@ At negative `zero` sign is negative zero:
 true
 ```
 
+See also `signBit`:
+
+```
+>>> -0.signBit
+true
+```
+
 The unary operator `*` is `sign`:
 
 ```
@@ -33,14 +41,14 @@ The unary operator `*` is `sign`:
 [-1 1]
 ```
 
-Complex numbers:
+Complex numbers, division by absolute value:
 
 ```
 >>> 1.4j2.3.sign
 0.5199j0.8542
 
 >>> 1j1.sign
-(1j1 / 2.sqrt)
+(1j1 / 1j1.abs)
 ```
 
 Element-wise sign function:
@@ -67,7 +75,7 @@ Plot the `real` and `imaginary` parts of the `sign` function:
 
 * * *
 
-See also: *, abs, copySignTo, negated
+See also: *, abs, copySignTo, negated, signBit
 
 References:
 _Apl_
@@ -79,7 +87,11 @@ _J_
 _Mathematica_
 [1](https://mathworld.wolfram.com/Sign.html)
 [2](https://reference.wolfram.com/language/ref/Sign.html),
+_Mathworks_
+[1](https://mathworks.com/help/symbolic/sign.html),
 _Smalltalk_
-5.6.2.33
+5.6.2.33,
+_W_
+[1](https://en.wikipedia.org/wiki/Sign_function)
 
 Categories: Math, Operator

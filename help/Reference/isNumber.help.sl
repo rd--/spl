@@ -2,7 +2,7 @@
 
 - _isNumber(anObject)_
 
-Answers `true` if _anObject_ is a number, else `false`.
+Answers `true` if _anObject_ is a `Number`, else `false`.
 
 At `SmallFloat`:
 

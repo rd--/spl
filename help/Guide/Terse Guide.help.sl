@@ -58,7 +58,7 @@ system.includesPackage('Angle') {- angle package -}
 -5 = 5.negated {- unary minus -}
 5.sign = 1 {- numeric sign, positive->1 -}
 [-9, 0, 9].collect(sign:/1) = [-1, 0, 1] {- numeric sign, -1 or 0 or 1 -}
-[-9, 0, 9].collect(signBit:/1) = [1, 0, 0] {- numeric sign, 1 for negative else 0 -}
+[-9, 0, 9].collect(signBit:/1) = [true, false, false] {- numeric sign, true for negative else false -}
 5.sign(-1) = -5 {- answer number with sign of argument -}
 -1.copySignTo(5) = -5 {- answer argument with sign of number -}
 5.negated = -5 {- negate receiver, unary minus -}
