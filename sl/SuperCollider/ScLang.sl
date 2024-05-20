@@ -570,9 +570,35 @@
 				answer.addAll(self.copyFromTo(1, index))
 			}
 		};
+		(patternType = 3).ifTrue {
+			1.toDo(lastIndex) { :i |
+				answer.addAll(self.copyFromTo(1, i))
+			}
+		};
+		(patternType = 4).ifTrue {
+			1.toDo(lastIndex) { :i |
+				answer.addAll(self.copyFromTo(i, lastIndex))
+			}
+		};
+		(patternType = 5).ifTrue {
+			1.toDo(lastIndex) { :i |
+				answer.addAll(self.copyFromTo(1, i))
+			};
+			lastIndex.toByDo(1, -1) { :i |
+				answer.addAll(self.copyFromTo(1, i))
+			}
+		};
 		(patternType = 6).ifTrue {
 			0.toDo(lastIndex - 1) { :index |
 				answer.addAll(self.copyFromTo(lastIndex - index, lastIndex))
+			}
+		};
+		(patternType = 7).ifTrue {
+			lastIndex.toByDo(1, -1) { :i |
+				answer.addAll(self.copyFromTo(1, i))
+			};
+			1.toDo(lastIndex) { :i |
+				answer.addAll(self.copyFromTo(1, i))
 			}
 		};
 		self.species.newFrom(answer)

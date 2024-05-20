@@ -33,7 +33,7 @@ This may not be the most efficient way if each input is Cpu-expensive.
 
 * * *
 
-See also: Select, TwIndex
+See also: Multiplexer, Select, TChoose, TwIndex
 
 References:
 _SuperCollider_

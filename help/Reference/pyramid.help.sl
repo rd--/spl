@@ -1,4 +1,4 @@
-# pyramid -- counting
+# pyramid
 
 - _pyramid(aSequence, patternType)_
 
@@ -8,5 +8,17 @@ _patternType_ is an integer and selects the counting algorithm.
 Print counting algorithms:
 
 ```
-[1, 6].do { :each | [1 .. 5].pyramid(each).postLine }
+>>> [1 3 4 5 6 7].collect { :each | [1 .. 5].pyramid(each) }
+[
+	1 1 2 1 2 3 1 2 3 4 1 2 3 4 5;
+	1 1 2 1 2 3 1 2 3 4 1 2 3 4 5;
+	1 2 3 4 5 2 3 4 5 3 4 5 4 5 5;
+	1 1 2 1 2 3 1 2 3 4 1 2 3 4 5 1 2 3 4 5 1 2 3 4 1 2 3 1 2 1;
+	5 4 5 3 4 5 2 3 4 5 1 2 3 4 5;
+	1 2 3 4 5 1 2 3 4 1 2 3 1 2 1 1 1 2 1 2 3 1 2 3 4 1 2 3 4 5
+]
 ```
+
+* * *
+
+Categories: Counting
