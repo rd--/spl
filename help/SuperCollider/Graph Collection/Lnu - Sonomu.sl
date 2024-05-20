@@ -210,3 +210,64 @@ Splay(
 	) * 0.25,
 	l()
 )
+
+{- https://sonomu.club/@lukiss/109875835273563824 ; Feb 17 2023  -}
+let f = { :rt | Sweep(0, rt) };
+let t = f(4E4);
+let c = f(1);
+let r = [1 .. 5];
+let b = [
+	-1 * [24 5 0 10 8 15].MidiRatio * t,
+	(r + c).Wrap(1, 3333),
+	t.ShiftRight(105)
+].reduce(BitAnd:/2);
+let e = b.LinCurve(0, 127, -1, 1, -8).Fold2(1) / 2;
+Splay(
+	FreeVerb(
+		LfSaw(-1 * r, 2).Max(0).Lag3(0.1) * LeakDc(e, 0.999),
+		1 / 3,
+		c.Sin.Max(0),
+		LfSaw(c.Cos, 0)
+	),
+	c.Sin
+)
+
+{- https://sonomu.club/@lukiss/109733997253009229 ; Jan 23, 2023 -}
+let c = [9, 12 .. 61].degreeToKey([0 2 3 6 7 8 11], 12);
+let o = c.MidiCps.collect { :f | SinOsc(f, 0) };
+let e = SinOsc(2 / c.Log10, 0) * LfSaw(11 / c.Neg, 0).Max(0).Lag3(0.1);
+Splay(
+	LeakDc(o * e, 0.995),
+	SinOsc(1 / c @ 1, 0)
+)
+
+{- https://sonomu.club/@lukiss/110281639162399169 ; Apr 29, 2023 -}
+let m = Impulse(8, 0).kr;
+let c = { :a |
+	let z = [];
+	a.collect { :each |
+		z.addAll(each.integerDigits(2, 8))
+	};
+	Demand(m, 0, Dseq(inf, z))
+};
+let p = m * [
+	c([136 138]),
+	c([8 9 8 72 8 72 9]),
+	c([140 148 34]),
+	c([178 58]),
+	c([34])
+];
+let e = { :g |
+	Linen(g, 0.01, 1, 1, 0).kr
+};
+let h = HenonC(1 / [1 .. 5], 1.4, 0.3, 0, 0) < 0.9;
+Splay(
+	h * [
+		LfTri(e(p @ 1) ^ 18 * 133 + 80, 0) * (e(p @ 1) ^ 24),
+		HenonC(e(p @ 2) ^ 8 * 800 + 4E3, 1.4, 0.3, 0, 0) * (e(p @ 2) ^ 38),
+		LfTri(2E3, 0) * HenonC(1E4, 1.4, 0.3, 0, 0) * (e(p @ 3) ^ 5 ^ 16),
+		LfTri(110, 0) * LfTri((ToggleFf(p @ 4) * 7).MidiRatio * 220, 0) * (e(p @ 4) ^ 5 ^ 8),
+		0.3 * HenonC(22050, 1.4, 0.3, 0, 0) * (e(p @ 5) ^ 68 + (0.5 * e(p @ 5) ^ 3))
+	],
+	0.25
+)
