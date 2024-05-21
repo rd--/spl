@@ -5,7 +5,7 @@
 Answer what would be returned if the next item were requested from _aCollection_,
 for instance `next` at a `Stream`,
 or `pop` at a `Stack` or `PriorityQueue`.
-If there is not item, answer nil.
+If there is no item, answer nil.
 
 ```
 >>> let stream = 1:5.asStream;

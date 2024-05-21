@@ -1,17 +1,27 @@
 {- Requires: Iterator Stream -}
 
-BlockStream : [Object, Iterator, Stream] { | onNext onReset |
+BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 
 	copy { :self |
 		'BlockStream>>copy: not implemented'.error
 	}
 
 	next { :self |
-		self.onNext.value
+		let answer = self.nextItem;
+		answer.ifNotNil {
+			self.nextItem := self.onNext.value
+		};
+		answer
+	}
+
+	peek { :self |
+		self.nextItem
 	}
 
 	reset { :self |
-		self.onReset.value
+		self.onReset.value;
+		self.nextItem := self.onNext.value;
+		self
 	}
 
 }
@@ -19,7 +29,7 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 +Block {
 
 	BlockStream { :onNext :onReset |
-		newBlockStream().initializeSlots(onNext, onReset)
+		newBlockStream().initializeSlots(onNext, onReset, onNext.value)
 	}
 
 	fixedPoint { :self:/1 :anObject |
@@ -83,6 +93,10 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset |
 
 	- { :lhs :rhs |
 		rhs.adaptToStreamAndApply(lhs, -)
+	}
+
+	^ { :lhs :rhs |
+		rhs.adaptToStreamAndApply(lhs, ^)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |

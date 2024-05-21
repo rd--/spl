@@ -1,9 +1,12 @@
 # ifNotNil
 
-- _ifNotNil(anObject, aBlock:/1)_
+- _ifNotNil(anObject, whenNotNil:/1)_
+- _ifNotNil(anObject, whenNotNil:/1, whenNil:/0)_
 
 Conditional evaluation.
-If _anObject_ is not _nil_ answer the result of _aBlock(anObject)_, else answer _nil_.
+If _anObject_ is not `nil` answer the result of _whenNotNil(anObject)_,
+else answer _whenNil()_,
+or in the binary case `nil`.
 
 * * *
 

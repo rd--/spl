@@ -11,6 +11,14 @@
 9
 ```
 
+The value of an assignment expression is the value being assigned:
+
+```
+>>> let x = 0;
+>>> (x, 3 + (x := 4), x)
+(0, 7, 4)
+```
+
 The _:=_ symbol is also part of `AtPut Syntax` and `Quoted AtPut Syntax`.
 
 Where supported `:=` is displayed either as ← or ≔.

@@ -2,8 +2,8 @@
 
 - _LsLace(list, length)_
 
-Apply _LsForever_ at each element in _list_ and interlace the elements of the answers.
-This is a kind of _transposition_
+Apply `LsForever` at each element in _list_ and interlace the elements of the answers.
+This is a kind of _transposition_.
 
 ```
 >>> LsLace([1, LsCyc([2 5]), LsCyc([3 4])], 8).upToEnd
