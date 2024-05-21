@@ -6,13 +6,35 @@
 Print the `printString` of _anObject_ to the console, followed by a new line.
 Answer _anObject_.
 
-```
->>> (1 + 3).postLine
-4
+Print the answer of _3 + 4_ and answer it multiplied by _7_:
 
->>> -0.postLine
--0
 ```
+>>> (3 + 4).postLine * 7
+49
+```
+
+Print hounds-tooth like pattern to console:
+
+~~~
+let d = [3 6 13 11 223 191 111 207];
+4.timesRepeat {
+	1.toDo(8) { :l |
+		let s = [];
+		5.timesRepeat {
+			1.toDo(8) { :n |
+				let k = d[l].integerDigits(2, 8);
+				let c = (k[n] > 0).if {
+					'██'
+				} {
+					'░░'
+				};
+				s.add(c)
+			}
+		};
+		s.join.postLine
+	}
+}
+~~~
 
 If a `Transcript` is loaded, the message will also be written to the transcript,
 where it may be viewed using a `TranscriptViewer`.

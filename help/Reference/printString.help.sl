@@ -9,7 +9,11 @@ At `Integer`:
 ```
 >>> 23.printString
 '23'
+```
 
+Negative zero is printed as it is typed:
+
+```
 >>> -0.printString
 '-0'
 ```
@@ -81,7 +85,7 @@ At `Assocaition`:
 
 * * *
 
-See also: asString, storeString
+See also: asString, postLine, storeString
 
 References:
 _Mathematica_

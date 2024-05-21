@@ -393,6 +393,7 @@
 	Wrap2 { :self :anObject | <primitive: return sc.Wrap2(_self, _anObject);> }
 	Excess { :self :anObject | <primitive: return sc.Excess(_self, _anObject);> }
 	Ring1 { :self :anObject | <primitive: return sc.Ring1(_self, _anObject);> }
+	DifSqr { :self :anObject | <primitive: return sc.DifSqr(_self, _anObject);> }
 	AbsDif { :self :anObject | <primitive: return sc.AbsDif(_self, _anObject);> }
 	SqrDif { :self :anObject | <primitive: return sc.SqrDif(_self, _anObject);> }
 	FirstArg { :self :anObject | <primitive: return sc.FirstArg(_self, _anObject);> }

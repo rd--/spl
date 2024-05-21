@@ -1,4 +1,4 @@
-{- Feedback loop ; https://github.com/lukiss/Losers-Union-SC-Research -}
+{- Feedback loop ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110559281598022900 -}
 let i = LocalIn(2, [0 0]);
 let o = Splay2(
 	LeakDc(
@@ -12,7 +12,7 @@ let o = Splay2(
 );
 Lpf(o, 5000) / 5 <! LocalOut(o)
 
-{- Broken Saws ; https://github.com/lukiss/Losers-Union-SC-Research -}
+{- Broken Saws ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110561365086055899 -}
 let c = [49 175 98 147 65 233];
 let r = 3 / 4 / (1 .. c.size);
 Splay(
@@ -32,10 +32,15 @@ Splay(
 	VarSaw(1, 0, VarSaw(1, 0, 0.5))
 ) * Line(0, 1, 20)
 
-{- ChaosGen writes melodies ; https://github.com/lukiss/Losers-Union-SC-Research -}
+{- ChaosGen writes melodies ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110751954599483552 -}
+let p = 0.5.coin.if {
+	GbmanN([8 4 6 2], 1.2, 2.1).LinLin(-1, 1, 8, 32).Ceiling
+} {
+	StandardN([8 4 6 2], 1, 0.5, 0).LinLin(-1, 1, 12, 48).Ceiling
+};
 let f = DegreeToKey(
 	[0 2 3 5 7 8 10].asLocalBuf,
-	GbmanN([8 4 6 2], 1.2, 2.1).LinLin(-1, 1, 8, 32).Ceiling,
+	p,
 	12
 ).MidiCps;
 let m = SinOsc([8 4 0.5 1], 0);
@@ -92,7 +97,7 @@ Splay(
 	StandardN(e.last * 14, 1, 0.5, 0)
 )
 
-{- Phasing Patterns ; https://github.com/lukiss/Losers-Union-SC-Research -}
+{- Phasing Patterns ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110888653997752683 -}
 let f = (48 + 0:2.collect { :n |
 	[0 -5 15 10] + (n * 12)
 }.++).MidiCps;
@@ -152,7 +157,7 @@ LeakDc(
 	0.995
 ).SoftClip / 2
 
-{- Spa Saw Shower Wash ; https://github.com/lukiss/Losers-Union-SC-Research -}
+{- Spa Saw Shower Wash ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111427906537919703 -}
 let c = 4096.sineTable(1 / 1:128, [0]).normalize(0, 1).asWavetable.asLocalBuf;
 let w = { :freq |
 	LfdNoise3(freq).LinLin(-1, 1, 80, 6880) {- LinCurve -}
@@ -208,7 +213,7 @@ let o = SinOsc(
 ) * e(-6) * (SinOsc(d + 2, 0) * 0.25 + 0.5);
 Splay(o, 3 / 4)
 
-{- Phase Modulation Washer ; https://github.com/lukiss/Losers-Union-SC-Research -}
+{- Phase Modulation Washer ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111071167369230347 -}
 let p = (1, 3 .. 64);
 let n = 110;
 let f = p / pi * p.degreesToRadians * n;
@@ -249,7 +254,7 @@ Splay(
 	)
 ) <! RecordBuf(a, 0, 1, 0, 1, 0, 1, 0, LfdNoise3(500) + (PinkNoise() * 8))
 
-{- Drone for the Evening ; https://github.com/lukiss/Losers-Union-SC-Research -}
+{- Drone for the Evening ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111024677229943163 -}
 let p = (1, 3 .. 64);
 let f = (LfdNoise1(8) / 16 + 33).MidiCps;
 let c = p ^ (p / p.sum).ArcTan * f * p;
