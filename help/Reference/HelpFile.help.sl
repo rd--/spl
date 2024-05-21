@@ -18,7 +18,7 @@ Accessors to read the parts of the file are:
 - `unicode`: list of related unicode code points
 - `categories`: list of categories
 
-```
+~~~
 let url = '/home/rohan/sw/spl/help/Reference/add.help.sl'.asFileUrl;
 url.fetchText.then { :aString |
 	let help = HelpFile(url, aString);
@@ -36,7 +36,7 @@ url.fetchText.then { :aString |
 		help.categories
 	].do(postLine:/1)
 }
-```
+~~~
 
 * * *
 

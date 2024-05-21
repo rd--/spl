@@ -395,7 +395,7 @@ LeakDc(y, 0.995) {- eliminate DC -}
 
 {-********* Berlin 1977 ; mouse x controls clock rate ; Jmcc *********-}
 let clockRate = MouseX(5, 20, 0, 0.2);
-let clockTime = clockRate.reciprocal;
+let clockTime = 1 / clockRate;
 let clock = Impulse(clockRate, 0); {- sequencer trigger -}
 let patternList = [55 60 63 62 60 67 63 58];
 let note = Sequencer(patternList, clock); {- midi note pattern sequencer -}
@@ -438,7 +438,7 @@ let signal = Sum( {- mix a list of 4 instruments -}
 			0.2 {- gliss time -}
 		).MidiCps; {- convert to hertz -}
 		EqPan2( {- pan each intrument -}
-			CombL(excitation, 0.02, freq.reciprocal, 3), {- comb delay simulates string -}
+			CombL(excitation, 0.02, 1 / freq, 3), {- comb delay simulates string -}
 			1.Rand2{- random pan position -}
 		)
 	} ! 4

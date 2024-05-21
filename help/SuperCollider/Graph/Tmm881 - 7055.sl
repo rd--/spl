@@ -47,4 +47,4 @@ let tendencyMask = [
 	let rev = FreeVerb(dry, 0.33, 0.5, 0.5);
 	let del = CombC(dry, 0.2, 0.2, 1);
 	dry + rev + del * 0.2
-}.duplicate(4).Sum.transposed.Mix
+}.!(4).Sum.transposed.Mix

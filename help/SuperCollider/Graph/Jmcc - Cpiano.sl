@@ -11,7 +11,7 @@
 	let hammerEnv = Decay2(tr, 0.008, 0.04) * amp;
 	let src = [0.997, 1.0, 1.002].collect { :detune |
 		let hammer = LfNoise2(3000) * hammerEnv;
-		let delayTime = (freq * detune).reciprocal;
+		let delayTime = (freq * detune).Recip;
 		let decayTime = TRand(3, 6, tr);
 		CombL(hammer, delayTime, delayTime, decayTime)
 	}.Sum;
