@@ -818,6 +818,16 @@
 		self.any(maxNumberOfElements.min(self.size))
 	}
 
+	threshold { :self :epsilon |
+		self.deepCollect { :each |
+			(each.abs < epsilon).if {
+				each.zero
+			} {
+				each
+			}
+		}
+	}
+
 	union { :self :aCollection |
 		let answer = self.asSet;
 		answer.includeAll(aCollection);

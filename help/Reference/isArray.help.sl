@@ -2,7 +2,7 @@
 
 - _isArray(aSequence)_
 
-A `Sequence` is an _array_ if it is has a _shape_.
+A `Sequence` is an _array_ if it is has a `shape`.
 
 Vectors are arrays:
 
@@ -26,7 +26,7 @@ true
 ```
 
 In the Apl model scalars are zero dimensional arrays.
-However isArray is not implemented for Object.
+However `isArray` is not implemented for Object.
 
 ```
 >>> { 1.isArray = nil }.ifError { true }

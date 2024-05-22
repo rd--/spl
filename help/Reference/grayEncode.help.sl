@@ -34,6 +34,18 @@ The inverse is `grayDecode`.
 ]
 ```
 
+Gray encodings of the integers _(0, 2^k - 1)_ are a permutation:
+
+```
+>>> 0:15.collect(grayEncode:/1) + 1
+[
+	 1  2  4  3
+	 7  8  6  5
+	13 14 16 15
+	11 12 10  9
+]
+```
+
 Scatter plot of the gray encodings of the first two-thousand integers:
 
 ~~~

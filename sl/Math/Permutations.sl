@@ -871,6 +871,13 @@ Permutation : [Object] { | cycles degree |
 
 +@Integer {
 
+	bitReversalPermutation { :k |
+		let n = 2 ^ k;
+		(0 .. n - 1).collect { :i |
+			i.integerDigits(2, k).reverse.fromDigits(2) + 1
+		}
+	}
+
 	minimumChangePermutations { :self |
 		[1 .. self].minimumChangePermutations
 	}
