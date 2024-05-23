@@ -6,7 +6,10 @@ Answer a matrix with the elements of _aList_ on the antidiagonal, and `zero` els
 
 ```
 >>> [1 2 3].antidiagonalMatrix
-[0 0 3; 0 2 0; 1 0 0]
+[
+	0 0 3;
+	0 2 0;
+	1 0 0]
 ```
 
 An `exchangeMatrix` is a special case of an `antidiagonalMatrix`:

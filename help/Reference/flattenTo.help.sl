@@ -46,6 +46,19 @@ This is the same as using level `inf`:
 [0 1 2 -2 3 -3 4]
 ```
 
+All flattenings:
+
+```
+>>> let l = [1 2 [3 4 [5 6 [7 8 [9 10]]]]];
+>>> 1:4.collect { :n | l.flattenTo(n) }
+[
+	[1 2 3 4 [5 6 [7 8 [9 10]]]]
+	[1 2 3 4 5 6 [7 8 [9 10]]]
+	[1 2 3 4 5 6 7 8 [9 10]]
+	[1 2 3 4 5 6 7 8 9 10]
+]
+```
+
 * * *
 
 See also: ++, concatenation

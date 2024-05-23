@@ -28,3 +28,7 @@ A 3×2 matrix:
 * * *
 
 See also: identityMatrix, reshape
+
+References:
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/zeros.html)

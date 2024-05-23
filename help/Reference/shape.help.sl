@@ -18,7 +18,8 @@ The shape of a _vector_ is a one element list:
 [5]
 ```
 
-The shape of a _matrix_ is a two element list:
+The shape of a _matrix_ is a two element list,
+telling the number of rows and columns:
 
 ```
 >>> [1 2; 3 4; 5 6].shape

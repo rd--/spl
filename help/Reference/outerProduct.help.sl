@@ -1,6 +1,6 @@
 # outerProduct
 
-_outerProduct(aSequence, anotherSequence)_
+- _outerProduct(aSequence, anotherSequence)_
 
 Answer the outer product of two sequences.
 
@@ -12,7 +12,21 @@ Answer the outer product of two sequences.
 [3 4 5; 6 8 10]
 ```
 
-_outerProduct_ is _outer_ of _*_:
+`outerProduct` of two four vectors:
+
+```
+>>> let a = [1 1 0 0];
+>>> let b = [1 2 3 4];
+>>> b.outerProduct(a)
+[
+	1 1 0 0;
+	2 2 0 0;
+	3 3 0 0;
+	4 4 0 0
+]
+```
+
+`outerProduct` is `outer` of `*`:
 
 ```
 >>> [1 2 3] *.outer [4 5]

@@ -1,12 +1,18 @@
 # dot
 
-- _dot(aSequence, anotherSequence)_
+- _dot(a, b)_
+
+Answer products of vectors and matrices.
+If both _a_ and b_ are matrices, the number of columns in _a_ must be equal to the number of rows in _b_.
 
 Scalar product of vectors in two dimensions:
 
 ```
 >>> [1 1].dot([-1 1])
 0
+
+>>> [1 1].dot([-1; 1])
+[0]
 ```
 
 Scalar product of vectors in three dimensions:
@@ -37,6 +43,27 @@ Dot allows complex inputs, but does not conjugate any of them:
 >>> let v = [z 3];
 >>> u dot: v
 (6j-3 + z)
+```
+
+`dot` of a 1×4 row vector and a 4×1 column vector is a 1×1 scalar:
+
+```
+>>> let a = [1 1 0 0];
+>>> let b = [1; 2; 3; 4];
+>>> a.dot(b)
+[3]
+```
+
+`dot` of 2×3 and a 3×3 matrices is a 2×3 matrix:
+
+```
+>>> let a = [1 3 5; 2 4 7];
+>>> let b = [-5 8 11; 3 9 21; 4 0 8];
+>>> a.dot(b)
+[
+	24 35 114;
+	30 52 162
+]
 ```
 
 A 2×3 matrix can be multiplied by a 2-vector only on the left:
@@ -184,4 +211,6 @@ _Maple_
 _Mathematica_
 [1](https://mathworld.wolfram.com/DotProduct.html)
 [2](https://mathworld.wolfram.com/MatrixMultiplication.html)
-[3](https://reference.wolfram.com/language/ref/Dot.html)
+[3](https://reference.wolfram.com/language/ref/Dot.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/mtimes.html)

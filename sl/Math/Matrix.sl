@@ -143,6 +143,42 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.antidiagonal(0)
 	}
 
+	antidiagonalMatrix { :self |
+		let k = self.size;
+		let answer = k.zeroMatrix(k);
+		1.toDo(k) { :each |
+			answer[k - each + 1][each] := self[each]
+		};
+		answer
+	}
+
+	arrayFlatten { :self |
+		self.isArray.if {
+			let [r, c, i, j] = self.shape.take(4);
+			let n = r * i;
+			let m = c * j;
+			let p = 1;
+			let answer = List(n);
+			1.toDo(r) { :w |
+				1.toDo(i) { :x |
+					let row = List(m);
+					let q = 1;
+					answer[p] := row;
+					p := p + 1;
+					1.toDo(c) { :y |
+						1.toDo(j) { :z |
+							row[q] := self[w][y][x][z];
+							q := q + 1
+						}
+					}
+				}
+			};
+			answer
+		} {
+			self.error('@Sequence>>arrayFlatten: not array')
+		}
+	}
+
 	assertIsMatrix { :self :context |
 		self.assert(context) {
 			self.isMatrix
@@ -194,6 +230,15 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 
 	diagonal { :self |
 		self.diagonal(0)
+	}
+
+	diagonalMatrix { :self |
+		let k = self.size;
+		let answer = k.zeroMatrix(k);
+		1.toDo(k) { :each |
+			answer[each][each] := self[each]
+		};
+		answer
 	}
 
 	distanceMatrix { :u :v :aBlock:/2 |
@@ -563,6 +608,21 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 
 +@Integer {
 
+	exchangeMatrix { :self |
+		let answer = self.zeroMatrix(self);
+		1:self.do { :each |
+			answer[self - each + 1][each] := 1
+		};
+		answer
+	}
+
+	fourierMatrix { :n |
+		let m = 1 / n.sqrt;
+		let omega = e ^ (2.pi * 0J1 / n);
+		let l = (0 .. n - 1);
+		{ :i :j | m * (omega ^ (i * j)) }.table(l, l)
+	}
+
 	hadamardMatrix { :n |
 		(n = 0).if {
 			[1]
@@ -579,11 +639,16 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		}
 	}
 
-	fourierMatrix { :n |
-		let m = 1 / n.sqrt;
-		let omega = e ^ (2.pi * 0J1 / n);
-		let l = (0 .. n - 1);
-		{ :i :j | m * (omega ^ (i * j)) }.table(l, l)
+	identityMatrix { :n :m |
+		let answer = n.zeroMatrix(m);
+		1.toDo(m.min(n)) { :each |
+			answer[each][each] := 1
+		};
+		answer
+	}
+
+	identityMatrix { :self |
+		self.identityMatrix(self)
 	}
 
 	vedicSquare { :self |
@@ -598,6 +663,12 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		let z = h.collect(zeroCrossingCount:/1);
 		let p = z.ordering;
 		h @* p
+	}
+
+	zeroMatrix { :self :other |
+		1:self.collect { :unused |
+			List(other, 0)
+		}
 	}
 
 }

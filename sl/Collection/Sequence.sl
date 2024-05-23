@@ -2420,7 +2420,7 @@
 	}
 
 	shape { :self |
-		self.shapeOrNil.ifNil { |
+		self.shapeOrNil.ifNil {
 			self.error('@Sequence>>shape: irregular arrays do not have shape')
 		} { :answer |
 			answer

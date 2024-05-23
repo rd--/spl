@@ -76,9 +76,16 @@
 
 	outer { :self:/2 |
 		{ :u :v |
-			u.collect { :alpha |
-				v.collect { :beta |
-					self(alpha, beta)
+			u.isMatrix.if {
+				let [m, n] = u.shape;
+				{ :i :j |
+					u[i][j] * v
+				}.table(1:m, 1:n)
+			} {
+				u.collect { :alpha |
+					v.collect { :beta |
+						self(alpha, beta)
+					}
 				}
 			}
 		}
