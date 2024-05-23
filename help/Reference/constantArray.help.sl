@@ -16,6 +16,7 @@ A 3×4 array of fives:
 ```
 >>> [3 4].constantArray(5)
 [5 5 5 5; 5 5 5 5; 5 5 5 5]
+```
 
 A matrix of exact zeros:
 

@@ -348,6 +348,14 @@
 - `max`, `min`, `minMax`
 - `count`, `counts`
 
+## Matrix Constructors
+
+- `iota`, `reshape`
+- `table`
+- `identityMatrix`, `diagonalMatrix`, `constantArray`
+- `partition`
+- `boxMatrix`, `crossMatrix`, `diamondMatrix`, `diskMatrix`
+
 ## Matrix Operations
 
 - `elementType`, `numberOfColumns`, `numberOfRows`
@@ -358,10 +366,22 @@
 - `isSquareMatrix`, `isSymmetricMatrix`
 - `isLowerTriangularMatrix`, `isUpperTriangularMatrix`
 - `dot`, `inner`, `matrixPower`, `outer`
-- `antidiagonal`, `determinant`, `diagonal`, `inverse`, `matrixRank`, `permanent`, `trace`, `transposed`
+- `antidiagonal`, `determinant`, `diagonal`
+- `inverse`, `matrixRank`, `rowReduce`
+- `permanent`, `trace`
+- `conjugated`, `conjugateTranspose`, `transposed`
 - `kroneckerProduct`
 - `lowerTriangularize`, `upperTriangularize`
 - `luDecomposition`
+
+## Matrix Predicates
+
+- `isMatrix`, `isMatrixOf`
+- `isColumnVector`, `isRowVector`
+- `isSquareMatrix`, `isDiagonalMatrix`
+- `isUpperTriangularMatrix`, `isLowerTriangularMatrix`
+- `isSymmetricMatrix`
+- `isUnitaryMatrix`
 
 ## Methods
 

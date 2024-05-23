@@ -14,6 +14,18 @@ true
 true
 ```
 
+Operates over vectors, matrices and arrays:
+
+```
+>>> let l = [1 2 3];
+>>> l.closeTo(l + 1E-4)
+true
+
+>>> let l = [1E5 2E5; 3E5 4E5];
+>>> l.closeTo(l + 1)
+true
+```
+
 _Rationale_:
 The use of ~ as the operator to indicate _similar to_ is a standard mathematical notation.
 However it is a little confusing in this context because in Smalltalk ~= is the binary operator for _not equal to_,

@@ -6,18 +6,21 @@ Mathematical constant.
 Answer _aNumber_ times epsilon.
 
 ```
+>>> 1/2.epsilon
+0.0000000000000005
+
 >>> 1.epsilon
-0.000000000000001
+0.0000000000000010
 
 >>> 2.epsilon
-0.000000000000002
+0.0000000000000020
 ```
 
 Where supported `epsilon` is displayed as ε.
 
 * * *
 
-See also: closeTo, pi, smallFloatEpsilon, veryCloseTo
+See also: ~, closeTo, pi, smallFloatEpsilon, veryCloseTo
 
 Guides: Mathematical constant
 

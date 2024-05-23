@@ -176,6 +176,10 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.asMatrix(deepCopy:/1)
 	}
 
+	conjugateTranspose { :self |
+		self.transposed.conjugated
+	}
+
 	determinant { :self |
 		self.asMatrix(identity:/1).determinant
 	}
@@ -300,6 +304,15 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	isSymmetricMatrix { :self |
 		self.isSquareMatrix & {
 			self = self.transposed
+		}
+	}
+
+	isUnitaryMatrix { :self |
+		let [p, q] = self.shape;
+		(p >= q).if {
+			self.conjugateTranspose.dot(self).veryCloseTo(q.identityMatrix)
+		} {
+			self.dot(self.conjugateTranspose).veryCloseTo(p.identityMatrix)
 		}
 	}
 
@@ -564,6 +577,13 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 				}
 			}
 		}
+	}
+
+	fourierMatrix { :n |
+		let m = 1 / n.sqrt;
+		let omega = e ^ (2.pi * 0J1 / n);
+		let l = (0 .. n - 1);
+		{ :i :j | m * (omega ^ (i * j)) }.table(l, l)
 	}
 
 	vedicSquare { :self |

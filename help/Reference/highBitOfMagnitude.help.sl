@@ -4,7 +4,7 @@ _highBitOfMagnitude(anInteger)_
 
 Answer the index of the high order bit of the magnitude of the _anInteger_, or zero if _anInteger_ is zero.
 
-At LargeInteger:
+At `LargeInteger`:
 
 ```
 >>> (127n << 8).highBitOfMagnitude

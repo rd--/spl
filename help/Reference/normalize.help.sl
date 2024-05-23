@@ -9,7 +9,7 @@ Answer the normalized form of _aVector_.
 ([1 5 1] / (3 * 3.sqrt))
 ```
 
-At Complex:
+At `Complex`:
 
 ```
 >>> [1j0 0j2 3j0 0j4 5j0 0j6].normalize

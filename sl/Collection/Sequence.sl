@@ -372,6 +372,10 @@
 		q % p
 	}
 
+	closeTo { :self :anObject |
+		self.equalBy(anObject, closeTo:/2)
+	}
+
 	collect { :self :aBlock:/1 |
 		let answer = self.species.ofSize(self.size);
 		self.indicesDo { :index |
@@ -765,6 +769,16 @@
 		(self - aSequence).norm
 	}
 
+	eulerMatrix { :self |
+		let [ca, cb, cc] = self.cos;
+		let [sa, sb, sc] = self.sin;
+		[
+			[(ca * cb * cc) - (sa * sc), 0 - (cc * sa)  - (ca * cb * sc), ca * sb],
+			[(cb * cc * sa) + (ca * sc), (ca * cc) - (cb * sa * sc), sa * sb],
+			[0 - (cc * sb), sb * sc, cb]
+		]
+	}
+
 	exponentialMovingAverage { :self :alpha |
 		let answer = List(self.size);
 		answer[1] := self[1];
@@ -773,6 +787,29 @@
 			answer[i] := y + (alpha * (self[i] - y))
 		};
 		answer
+	}
+
+	fastWalshHadamardTransform { :self |
+		let h = 1;
+		let k = self.size;
+		k.isPowerOfTwo.ifFalse {
+			self.addAll(List(k.asLargerPowerOfTwo - k, 0));
+			k := self.size
+		};
+		{
+			h < k
+		}.whileTrue {
+			1.toByDo(k, h * 2) { :i |
+				i.toDo(i + h - 1) { :j |
+					let x = self[j];
+					let y = self[j + h];
+					self[j] := x + y;
+					self[j + h] := x - y
+				}
+			};
+			h := h * 2
+		};
+		self
 	}
 
 	fillFromWith { :self :aCollection :aBlock:/1 |
@@ -2705,6 +2742,10 @@
 		} {
 			self.error('@Sequence>>vectorAngle: not vectors')
 		}
+	}
+
+	veryCloseTo { :self :anObject |
+		self.equalBy(anObject, veryCloseTo:/2)
 	}
 
 	withCollect { :self :aSequence :aBlock:/2 |

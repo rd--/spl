@@ -259,7 +259,8 @@
 	}
 
 	nextPowerOf { :self :base |
-		base ^ (self.log / base.log).ceiling
+		let exponent = self.log(base).ceiling;
+		base ^ exponent
 	}
 
 	OctCps { :self |
@@ -267,7 +268,7 @@
 	}
 
 	previousPowerOf { :self :base |
-		base ^ ((self.log / base.log).ceiling - 1)
+		base ^ (self.log(base).ceiling - 1)
 	}
 
 	RatioCents { :self |

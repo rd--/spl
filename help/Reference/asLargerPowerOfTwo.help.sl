@@ -2,7 +2,7 @@
 
 - _asLargerPowerOfTwo(anInteger)_
 
-Answers the next power of two greater than or equal to _anInteger_.
+Answers a power of two that is not less than _anInteger_.
 
 ```
 >>> 300.asLargerPowerOfTwo
@@ -14,6 +14,6 @@ Answers the next power of two greater than or equal to _anInteger_.
 
 * * *
 
-See also: asPowerOfTwo, isPowerOfTwo
+See also: asPowerOfTwo, asSmallerPowerOfTwo, bitShift, highBit, isPowerOfTwo
 
 Categories: Truncation, Rounding

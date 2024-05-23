@@ -9,8 +9,15 @@ Answer `true` if _aNumber_ is very close to _anotherNumber_, else `false`.
 true
 ```
 
+Operates over vectors, matrices and arrays:
+
+```
+>>> [1 2 3].veryCloseTo([1 2 3] + 1/2.epsilon)
+true
+```
+
 * * *
 
-See also: ~, closeTo
+See also: =, ~, closeTo, epsilon
 
 Categories: Comparing
