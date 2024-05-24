@@ -58,7 +58,10 @@ Reshape a vector into a matrix:
 
 ```
 >>> [1 2 3 4].reshape([2 2])
-[1 2; 3 4]
+[
+	1 2;
+	3 4
+]
 ```
 
 Reshape a vector into a depth-3 array:
@@ -120,6 +123,28 @@ shape after reshape is requested shape:
 [2 3 1]
 ```
 
+The ordering is _row_ not _column_:
+
+```
+>>> 1:10.reshape([5 2])
+[
+	1  2;
+	3  4;
+	5  6;
+	7  8;
+	9 10
+]
+
+>>> 1:10.reshape([2 5]).transposed
+[
+	1  6;
+	2  7;
+	3  8;
+	4  9;
+	5 10
+]
+```
+
 Where supported `reshape` is displayed as ⍴.
 
 * * *
@@ -130,6 +155,8 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Reshape),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/ArrayReshape.html)
+[1](https://reference.wolfram.com/language/ref/ArrayReshape.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/reshape.html)
 
 Unicode: U+2374 ⍴ Apl Functional Symbol Rho

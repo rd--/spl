@@ -323,36 +323,6 @@ The sum of the `descents` is called the `majorIndex`:
 6
 ```
 
-```
->>> [2 1 3].asPermutation.reducedWords
-[[1]]
-
->>> [3 1 2].asPermutation.reducedWords
-[[2 1]]
-
->>> [3 2 1].asPermutation.reducedWords
-[1 2 1; 2 1 2]
-
->>> [3 2 4 1].asPermutation.reducedWords
-[1 2 3 1; 1 2 1 3; 2 1 2 3]
-
->>> [2 1 4 3].asPermutation.reducedWords
-[3 1; 1 3]
-
->>> let r = [1 2 6 5 7 3 4].asPermutation.reducedWords;
->>> r.includes([4 3 5 6 4 3 5])
-true
-
->>> [4 3 2 1].asPermutation.reducedWords.size
-16
-
->>> [5 4 3 2 1].asPermutation.reducedWords.size
-768
-
->>> 5.binomial(2).! / ((1 ^ 4) * (3 ^ 3) * (5 ^ 2) * (7 ^ 1))
-768
-```
-
 * * *
 
 See also: inversePermutation, permutationCycle, permutationList, permutationProduct, permutationPower, permute

@@ -72,7 +72,9 @@ See also: List, Range, thenTo, upOrDownTo
 
 References:
 _Fortress_
-[1](https://doi.org/10.1007/978-0-387-09766-4_190)
+[1](https://doi.org/10.1007/978-0-387-09766-4_190),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/colon.html),
 _R_
 [1](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Generating-regular-sequences)
 

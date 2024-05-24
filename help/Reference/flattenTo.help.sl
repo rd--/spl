@@ -1,6 +1,6 @@
 # flattenTo
 
-- _flatten(aSequence, anInteger)_
+- _flattenTo(aSequence, anInteger)_
 
 Flatten _aSequence_ to level _anInteger_.
 

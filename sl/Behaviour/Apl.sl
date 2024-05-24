@@ -107,6 +107,9 @@
 		answer
 	}
 
+	ravel { :self |
+		self.flatten
+	}
 
 	reciprocal { :self |
 		self.collect(reciprocal:/1)

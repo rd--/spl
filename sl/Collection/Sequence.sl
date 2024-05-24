@@ -2694,6 +2694,20 @@
 		self[self.lastIndex - 2]
 	}
 
+	transposed { :self :permutation |
+		permutation.isPermutationList.if {
+			let fromShape = self.shape;
+			let toShape = fromShape @* permutation;
+			let inverse = permutation.inversePermutation.list(permutation.size);
+			toShape.fill { :toIndex |
+				let fromIndex = toIndex @* inverse;
+				self @> fromIndex
+			}
+		} {
+			self.error('@Sequence>>transposed: not permutation')
+		}
+	}
+
 	transposed { :self |
 		1.toAsCollect(self.first.size, self.first.species) { :index |
 			self.collect { :row |

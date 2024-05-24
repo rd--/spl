@@ -310,6 +310,15 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return _self % 1;>
 	}
 
+	hypot { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return Math.hypot(_self, _anObject);
+		}
+		>
+		anObject.adaptToNumberAndApply(self, hypot:/2)
+	}
+
 	isBinary { :self |
 		<primitive: return sl.isBitwise(_self);>
 	}

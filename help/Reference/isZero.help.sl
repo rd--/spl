@@ -37,6 +37,14 @@ true
 false
 ```
 
+Very close to zero but not zero:
+
+```
+>>> let n = 1E-53;
+>>> (n.isZero, n.veryCloseTo(0))
+(false, true)
+```
+
 * * *
 
 See also: isEven, isNegative, isOdd, isOne, isPositive, zero

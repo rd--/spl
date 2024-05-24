@@ -48,6 +48,13 @@ Find the mean for the heights of children in a class.
 140.04
 ```
 
+Compute the mean of every row of a matrix:
+
+```
+>>> [3 5].iota.collect(mean:/1)
+[3 8 13]
+```
+
 * * *
 
 See also: arithmeticMean, geometricMean, median

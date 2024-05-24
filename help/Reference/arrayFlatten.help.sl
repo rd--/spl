@@ -52,3 +52,11 @@ Flatten only the first four levels of a rank-6 array:
 >>> k = o.arrayFlatten
 true
 ```
+
+* * *
+
+See also: ++, arrayReduce, concatenation, flatten, isArray, join, kroneckerProduct
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/ArrayFlatten.html)

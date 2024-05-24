@@ -46,8 +46,8 @@ A 3×2 matrix, each place holding the square of its two place _(i,j)_ index:
 >>> [3 2].fill { :i | i * i }
 [
 	1 1; 1 4:;
-	4 1; 4 4:;
-	9 1; 9 4
+		4 1; 4 4:;
+			9 1; 9 4
 ]
 ```
 

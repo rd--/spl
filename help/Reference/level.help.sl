@@ -41,7 +41,7 @@ At `Tree`:
 [Tree(2, []), Tree(nil, [Tree(3, [])]), Tree(4, [])]
 ```
 
-_depth_ answers the smallest value for which _level_ returns an empty list:
+`depth` answers the smallest value for which `level` returns an empty list:
 
 ```
 >>> let l = [2 3 2].iota;

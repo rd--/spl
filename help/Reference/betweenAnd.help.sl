@@ -2,7 +2,7 @@
 
 - _betweenAnd(aMagnitude, min, max)_
 
-Is _aMagnitude_ between (inclusively) _min_ and _max_?
+Answer `true` if _aMagnitude_ is between (inclusively) _min_ and _max_, else `false`.
 
 Check that a number is included in an interval:
 

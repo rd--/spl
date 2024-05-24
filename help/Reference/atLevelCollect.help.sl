@@ -2,7 +2,7 @@
 
 - _atLevelCollect(aCollection, anInteger | aCollection, aBlock:/1)_
 
-A variant of _withLevelCollect_,
+A variant of `withLevelCollect`,
 levels are selected if they are equal to _anInteger_ or are an element of _aCollection_.
 
 Select one level:

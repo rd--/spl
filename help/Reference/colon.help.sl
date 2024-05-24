@@ -25,4 +25,10 @@ An infix colon defines a `Range` in `Range Syntax`:
 
 * * *
 
-See also: ,, ., ;, :;, :=, Block Syntax, Dictionary Syntax, Range Syntax
+See also: ,, ., ;, :;, :=
+
+Guides: Block Syntax, Dictionary Syntax, Range Syntax
+
+References:
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/colon.html)

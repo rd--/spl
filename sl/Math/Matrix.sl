@@ -334,6 +334,15 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		}
 	}
 
+	isOrthogonalMatrix { :self |
+		let [p, q] = self.shape;
+		(p >= q).if {
+			self.transposed.dot(self).veryCloseTo(q.identityMatrix)
+		} {
+			self.dot(self.transposed).veryCloseTo(p.identityMatrix)
+		}
+	}
+
 	isRowVector { :self |
 		self.isMatrix & {
 			self.size = 1
@@ -457,6 +466,26 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		[l, u, p]
 	}
 
+	matrixColumn { :self :anInteger |
+		let [m, n] = self.shape;
+		anInteger.betweenAnd(1, n).if {
+			(1 .. m).collect { :each |
+				self[each][anInteger]
+			}
+		} {
+			self.error('@Sequence>>matrixColumn: illegal index')
+		}
+	}
+
+	matrixRow { :self :anInteger |
+		let [m, n] = self.shape;
+		anInteger.betweenAnd(1, m).if {
+			self[anInteger]
+		} {
+			self.error('@Sequence>>matrixRow: illegal index')
+		}
+	}
+
 	matrixPower { :m :p |
 		let [a, b] = m.shape;
 		(a = b).if {
@@ -520,6 +549,58 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.asMatrix.permanent
 	}
 
+	qrDecomposition { :self |
+		let [m, n] = self.shape;
+		let qr = self.deepCopy;
+		let q = m.zeroMatrix(n);
+		let r = m.zeroMatrix(n);
+		1.toDo(n) { :k |
+			let norm = 0;
+			k.toDo(m) { :i |
+				norm := norm.hypot(qr[i][k])
+			};
+			norm.isZero.ifFalse {
+				(qr[k][k] < 0).ifTrue {
+					norm := norm.negated
+				};
+				k.toDo(m) { :i |
+					qr[i][k] := qr[i][k] / norm
+				};
+				qr[k][k] := qr[k][k] + 1;
+				(k + 1).toDo(n) { :j |
+					let s = 0;
+					k.toDo(m) { :i |
+						s := s + (qr[i][k] * qr[i][j])
+					};
+					s := s.negated / qr[k][k];
+					k.toDo(m) { :i |
+						qr[i][j] := qr[i][j] + (s * qr[i][k]);
+						(i < j).ifTrue {
+							r[i][j] := qr[i][j]
+						}
+					}
+				}
+			};
+			r[k][k] := norm.negated
+		};
+		n.toByDo(1, -1) { :k |
+			q[k][k] := 1;
+			k.toDo(n) { :j |
+				qr[k][k].isZero.ifFalse {
+					let s = 0;
+					k.toDo(m) { :i |
+						s := s + (qr[i][k] * q[i][j])
+					};
+					s := s.negated / qr[k][k];
+					k.toDo(m) { :i |
+						q[i][j] := q[i][j] + (s * qr[i][k])
+					}
+				}
+			}
+		};
+		[q, r]
+	}
+
 	reducedRowEchelonForm { :self |
 		valueWithReturn { :return:/1 |
 			let lead = 1;
@@ -565,6 +646,12 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 
 	rowReduce { :self |
 		self.deepCopy.reducedRowEchelonForm
+	}
+
+	subMatrix { :self :r :c |
+		{ :i :j |
+			self[i][j]
+		}.table(r, c)
 	}
 
 	trace { :self :aBlock:/1 |
