@@ -168,3 +168,17 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 	}
 
 }
+
++@Sequence {
+
+	linePlaneIntersection { :p0 :n :l0 :l |
+		let ln = l.dot(n);
+		ln.veryCloseTo(0).if {
+			nil
+		} {
+			let d = (p0 - l0).dot(n) / ln;
+			l0 + (l * d)
+		}
+	}
+
+}

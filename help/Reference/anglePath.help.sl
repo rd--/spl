@@ -64,3 +64,5 @@ See also: absArg, accumulate, angleVector, cos, degree, foldList, sin, substitut
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/AnglePath.html)
+
+Categories: Geometry

@@ -74,7 +74,7 @@ Relation between `planarAngle` of _(q2, p, q1)_ and _(q1, p, q2)_:
 
 * * *
 
-See also: anglePath, dot vectorAngle
+See also: anglePath, dot, vectorAngle
 
 References:
 _Mathematica_

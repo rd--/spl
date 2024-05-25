@@ -1,5 +1,12 @@
 # Geometry Types
 
+- `Line`, `InfiniteLine`, `HalfLine`
+- `Plane`, `HalfPlane`
+- `Point`
+- `Rectangle`, `Parallelogram`
+- `Polygon`, `RegularPolygon`
+- `Circle`, `Disk`, `Ellipse`
+
 Two-dimensional (_planar_) coordinate types:
 
 - `RectangularCoordinates`: An _(x, y)_ Cartesian point
@@ -27,6 +34,8 @@ Methods for converting from generic to specific representations of coordinates:
 * * *
 
 See also: RectangularCoordinates, PolarCoordinates, CartesianCoordinates, SphericalCoordinates
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

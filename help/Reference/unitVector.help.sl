@@ -26,3 +26,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/UnitVector.html)
 [2](https://reference.wolfram.com/language/ref/UnitVector.html)
+
+Categories: Geometry

@@ -42,3 +42,9 @@ C.f. `vector` at `Angle`:
 * * *
 
 See also: absArg, cos, degree, fromPolarCoordinates, sin, unitVector, vectorAngle
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/AngleVector.html)
+
+Categories: Geometry

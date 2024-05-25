@@ -44,3 +44,5 @@ See also: %, ^, angleVector, Circle, cos, Range, sin
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CirclePoints.html)
+
+Categories: Geometry

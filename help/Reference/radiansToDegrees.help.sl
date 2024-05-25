@@ -17,4 +17,4 @@ References:
 _Smalltalk_
 5.6.7.12
 
-Categories: Converting, Math
+Categories: Converting, Math, Geometry
