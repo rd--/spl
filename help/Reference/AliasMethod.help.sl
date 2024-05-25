@@ -3,7 +3,7 @@
 - _AliasMethod(aSeqence, aRandom)_
 
 A `Type` that implements the alias method of sampling from a discrete probability distribution.
-The distribution is given as a sequence of probability values that sum to `one`.
+The distribution is given as a sequence of probability values that `sum` to `one`.
 
 ```
 >>> let d = [0.25 0.3 0.1 0.2 0.15];

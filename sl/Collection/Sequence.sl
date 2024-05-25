@@ -2159,8 +2159,16 @@
 		self.quickSort(<=)
 	}
 
-	randomWeightedIndex { :self |
-		let r = system.nextRandomFloat;
+	randomChoice { :self :n :r |
+		let k = self.size;
+		n.fill { :unused |
+			let i = r.nextRandomInteger(k);
+			self[i]
+		}
+	}
+
+	randomWeightedIndex { :self :random |
+		let r = random.nextRandomFloat;
 		let sum = 0;
 		let answer = 1;
 		valueWithReturn { :return:/1 |
@@ -2173,6 +2181,10 @@
 			};
 			answer
 		}
+	}
+
+	randomWeightedIndex { :self |
+		self.randomWeightedIndex(system)
 	}
 
 	rank { :self |

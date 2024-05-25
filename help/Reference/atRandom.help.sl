@@ -63,7 +63,7 @@ true
 
 * * *
 
-See also: anyOne, randomInteger, randomSample
+See also: anyOne, randomChoice, randomInteger, randomSample
 
 References:
 _Mathematica_

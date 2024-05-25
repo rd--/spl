@@ -50,6 +50,19 @@ Association : [Object] { | key value |
 		[self.key, ' -> ', self.value].stringJoin
 	}
 
+	randomChoice { :self :n :r |
+		let w = self.key;
+		let k = w.sum;
+		let e = self.value;
+		let x = (k = 1).if { w } { w / k };
+		let m = AliasMethod(x, r);
+		n.fill { :unused | e[m.next] }
+	}
+
+	randomChoice { :self :anInteger |
+		self.randomChoice(anInteger, sytem)
+	}
+
 	second { :self |
 		self.value
 	}
