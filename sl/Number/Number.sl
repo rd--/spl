@@ -132,12 +132,6 @@
 		}
 	}
 
-	boxMatrix { :self |
-		let r = self.ceiling;
-		let n = r * 2 + 1;
-		{ :i :j | 1 }.table(1:n, 1:n)
-	}
-
 	brunsConstant { :self |
 		1.90216058 * self
 	}
@@ -194,15 +188,6 @@
 		self.cosh / self.sinh
 	}
 
-	crossMatrix { :self |
-		let r = self.ceiling;
-		let n = r * 2 + 1;
-		let c = [r, r];
-		{ :i :j |
-			([i - 1, j - 1].editDistance(c) <= 1).boole
-		}.table(1:n, 1:n)
-	}
-
 	cubed { :self |
 		self * self * self
 	}
@@ -223,24 +208,16 @@
 		self * 0.01745329251994329547 {- pi / 180 -}
 	}
 
-	diamondMatrix { :self |
-		let r = self.ceiling;
-		let n = r * 2 + 1;
-		let c = [r, r];
-		let l = (self + 0.5).abs;
-		{ :i :j |
-			([i - 1, j - 1].manhattanDistance(c) <= l).boole
-		}.table(1:n, 1:n)
+	diracDelta { :self :aNumber |
+		self.isZero.if {
+			aNumber
+		} {
+			0
+		}
 	}
 
-	diskMatrix { :self |
-		let r = self.ceiling;
-		let n = r * 2 + 1;
-		let c = [r, r];
-		let l = (self + 0.5).abs;
-		{ :i :j |
-			([i - 1, j - 1].euclideanDistance(c) <= l).boole
-		}.table(1:n, 1:n)
+	diracDelta { :self |
+		self.diracDelta(inf)
 	}
 
 	divisible { :self :aNumber |
@@ -637,14 +614,6 @@
 		self.one / self
 	}
 
-	reflectionMatrix { :self |
-		let n = 2 * self;
-		[
-			[n.cos, n.sin],
-			[n.sin, n.cos.negated]
-		]
-	}
-
 	remainderBy { :self :aNumber :aBlock:/1 |
 		self - (self.quotientBy(aNumber, aBlock:/1) * aNumber)
 	}
@@ -659,23 +628,6 @@
 
 	rescale { :self :min :max :ymin :ymax |
 		((self - min) / (max - min)) * (ymax - ymin) + ymin
-	}
-
-	rotationMatrix { :self :vector |
-		vector.caseOfOtherwise([
-			{ [1,0,0] } -> { [[1,0,0],[0,self.cos,0 - self.sin],[0,self.sin,self.cos]] },
-			{ [0,1,0] } -> { [[self.cos,0,self.sin],[0,1,0],[0 - self.sin,0,self.cos]] },
-			{ [0,0,1] } -> { [[self.cos,0 - self.sin,0],[self.sin,self.cos,0],[0,0,1]] }
-		]) {
-			self.error('rotationMatrix: vector not axis aligned')
-		}
-	}
-
-	rotationMatrix { :self |
-		[
-			[self.cos, self.sin.negated],
-			[self.sin, self.cos]
-		]
 	}
 
 	roundDown { :self |
@@ -805,6 +757,22 @@
 
 	unit { :self |
 		1
+	}
+
+	unitize { :self :dx |
+		(self.abs < dx).if {
+			self.zero
+		} {
+			self.one
+		}
+	}
+
+	unitize { :self |
+		self.isZero.if {
+			self.zero
+		} {
+			self.one
+		}
 	}
 
 	unitVector { :n :k |

@@ -45,7 +45,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Erf.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/symbolic/erf.html),
+[1](https://mathworks.com/help/symbolic/erf.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Error_function)
 

@@ -3,17 +3,31 @@
 - _normalize(aVector)_
 
 Answer the normalized form of _aVector_.
+Equivalent to _v / v.norm_, except that zero vectors are returned unchanged.
+
+At `List` of `Integer`:
 
 ```
 >>> [1 5 1].normalize
 ([1 5 1] / (3 * 3.sqrt))
+
+>>> 1:5.normalize
+(1:5 / 1:5.norm)
+```
+
+At `zero`:
+
+```
+>>> [0 0 0].normalize
+[0 0 0]
 ```
 
 At `Complex`:
 
 ```
->>> [1j0 0j2 3j0 0j4 5j0 0j6].normalize
-[0.104828j0 0j0.209657 0.314485j0 0j0.419314 0.524142j0 0j0.628971]
+>>> let v = [1j0 0j2 3j0 0j4 5j0 0j6];
+>>> v.normalize
+(v / 91.sqrt)
 ```
 
 * * *

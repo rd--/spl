@@ -1835,12 +1835,21 @@
 		median:/1.movingMap(self, windowSize)
 	}
 
+	norm { :self :p |
+		(self.abs ^ p).sum ^ (1 / p)
+	}
+
 	norm { :self |
 		(self.scalarProduct(self.conjugated)).sqrt
 	}
 
 	normalize { :self |
-		self / self.norm
+		let n = self.norm;
+		n.isZero.if {
+			self
+		} {
+			self / n
+		}
 	}
 
 	normalizedSquaredEuclideanDistance { :u :v |

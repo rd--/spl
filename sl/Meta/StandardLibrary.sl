@@ -78,6 +78,7 @@
 	'Utf8Stream'
 
 	{- Random -}
+	'AliasMethod'
 	'LinearCongruential'
 	'Mersenne'
 	'ProbabilityDistribution'

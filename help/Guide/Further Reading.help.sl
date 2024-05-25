@@ -1,5 +1,19 @@
 # Further Reading
 
+Aiylam, D. et al. 2016.
+_Stern-Brocot Trees from Weighted Mediants._\
+[arXiv:1502.00682](https://doi.org/10.48550/arXiv.1502.00682) [math.NT]
+
+Andrews, W. S. et. al. 1908.
+_Magic squares and cubes_.\
+Open Court, Chicago.
+[Pdf](https://djm.cc/library/Magic_Squares_Cubes_Andrews_edited.pdf)
+
+Barlow, C. 1987.
+"Two Essays on Theory".\
+_Computer Music Journal_, 11(1):44–60.
+[Doi](https://doi.org/10.2307/3680177)
+
 Bjorklund, E. 1989.
 _Algorithms for optimally distributed timing pulses._\
 Technical Report LA-UR-89-3558, Los Alamos National Laboratory.
@@ -7,6 +21,11 @@ Technical Report LA-UR-89-3558, Los Alamos National Laboratory.
 Bjorklund, E. 2003.
 _The theory of rep-rate pattern generation in the SNS timing system_.\
 SNS ASD Technical Note, Los Alamos Laboratory.
+
+Chalmers, J. 1993.
+_Divisions of the Tetrachord: A Prolegomenon to the Construction of Musical Scales_.\
+Frog Peak Music, NH.
+[Html](http://eamusic.dartmouth.edu/~larry/published_articles/divisions_of_the_tetrachord)
 
 Demaine, E. et. al. 2005.
 "The distance geometry of deep rhythms and scales".\
@@ -24,7 +43,7 @@ _Discrete Mathematics_, 204(1):167–202.
 [Doi](https://doi.org/10.1016/S0012-365X(98)00371-9)
 
 Duchon, P. 2000.
-"On the enumeration and generation of generalized Dyck words".\
+"On the Enumeration and Generation of Generalized Dyck Words".\
 _Discrete Mathematics_, 225(1):121–135.
 [Doi](https://doi.org/10.1016/S0012-365X(00)00150-3)
 
@@ -32,6 +51,11 @@ Fulton, W. 1996.
 _Young Tableaux: With Applications to Representation Theory and Geometry_.\
 Cambridge University Press.
 [Doi](https://doi.org/10.1017/CBO9780511626241)
+
+Hardy, G. H. 1916.
+"Weierstrass’s Non-Differentiable Function".\
+_Transactions of the American Mathematical Society_, 17(3):301.
+[Doi](https://doi.org/10.2307/1989005)
 
 Heap, B. 1963.
 "Permutations by Interchanges".\
@@ -56,7 +80,7 @@ Kurenniemi, E. 1988.
 _Proc. of Nordic acoustical meeting_, 371–374.
 
 Kurenniemi, E. 2015.
-"Chords, scales, and divisor lattices".\
+"Chords, Scales, and Divisor Lattices".\
 _Writing and Unwriting (Media) Art History: Erkki Kurenniemi in 2048_.
 MIT Press.
 [Pdf](https://beige.org/projects/dimi/CSDL2.pdf)
@@ -111,10 +135,20 @@ Sedgewick, R. 1977.
 _ACM Comput. Surv._, 9(2):137–164.
 [Doi](https://doi.org/10.1145/356689.356692)
 
+Spinadel, V. W. de et. al. 2009.
+"Towards van der Laan’s Plastic Number in the Plane."\
+_Journal for Geometry and Graphics_, 13(2):163–175.
+[Pdf](https://www.heldermann-verlag.de/jgg/jgg13/j13h2spin.pdf)
+
 Steele, Guy L. et. al. 2014.
 "Fast splittable pseudorandom number generators".\
 In _Proc. OOPSLA_, 453-472.
 [Doi](https://doi.org/10.1145/2660193.2660195)
+
+Tenner, B. E. 2017.
+"Reduced word manipulation: patterns and enumeration".\
+_Journal of Algebraic Combinatorics_, 46(1):189–217.
+[Doi](https://doi.org/10.1007/s10801-017-0752-8).
 
 Thomson, W. E. 1958.
 "A Modified Congruence Method of Generating Pseudo-random Numbers".\

@@ -24,7 +24,7 @@ At `SmallFloat`:
 
 * * *
 
-See also: Clip2, Fold, Wrap
+See also: clip, Clip2, Fold, Wrap
 
 References:
 _SuperCollider_

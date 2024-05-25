@@ -124,6 +124,7 @@
 	'Number-SmallFloat'
 	'Protocol-Json'
 	'Protocol-OpenSoundControl'
+	'Random-AliasMethod'
 	'Random-LinearCongruential'
 	'Random-Mersenne'
 	'Random-ProbabilityDistribution'

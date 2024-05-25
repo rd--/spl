@@ -216,6 +216,13 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.transposed.conjugated
 	}
 
+	columnsCollect { :self :aBlock:/1 |
+		let [m, n] = self.shape;
+		1:n.collect { :i |
+			aBlock(self.matrixColumn(i))
+		}
+	}
+
 	determinant { :self |
 		self.asMatrix(identity:/1).determinant
 	}
@@ -756,6 +763,76 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		1:self.collect { :unused |
 			List(other, 0)
 		}
+	}
+
+}
+
++@Number {
+
+	boxMatrix { :self |
+		let r = self.ceiling;
+		let n = r * 2 + 1;
+		{ :i :j | 1 }.table(1:n, 1:n)
+	}
+
+	crossMatrix { :self |
+		let r = self.ceiling;
+		let n = r * 2 + 1;
+		let c = [r, r];
+		{ :i :j |
+			([i - 1, j - 1].editDistance(c) <= 1).boole
+		}.table(1:n, 1:n)
+	}
+
+	diamondMatrix { :self |
+		let r = self.ceiling;
+		let n = r * 2 + 1;
+		let c = [r, r];
+		let l = (self + 0.5).abs;
+		{ :i :j |
+			([i - 1, j - 1].manhattanDistance(c) <= l).boole
+		}.table(1:n, 1:n)
+	}
+
+	diskMatrix { :self |
+		let r = self.ceiling;
+		let n = r * 2 + 1;
+		let c = [r, r];
+		let l = (self + 0.5).abs;
+		{ :i :j |
+			([i - 1, j - 1].euclideanDistance(c) <= l).boole
+		}.table(1:n, 1:n)
+	}
+
+	reflectionMatrix { :self |
+		let n = 2 * self;
+		[
+			[n.cos, n.sin],
+			[n.sin, n.cos.negated]
+		]
+	}
+
+	rotationMatrix { :self :vector |
+		vector.caseOfOtherwise([
+			[1 0 0] -> {
+				[[1,0,0],[0,self.cos,0 - self.sin],[0,self.sin,self.cos]]
+			},
+			[0 1 0] -> {
+				[[self.cos,0,self.sin],[0,1,0],[0 - self.sin,0,self.cos]]
+			},
+			[0 0 1] -> {
+				[[self.cos,0 - self.sin,0],[self.sin,self.cos,0],[0,0,1]]
+			}
+		]) {
+			self.error('rotationMatrix: vector not axis aligned')
+		}
+	}
+
+	rotationMatrix { :self |
+		[
+			[self.cos, self.sin.negated],
+			[self.sin, self.cos]
+		]
 	}
 
 }

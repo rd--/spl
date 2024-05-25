@@ -48,6 +48,9 @@ Rescale so that all the `List` elements run from 0 to 1:
 
 >>> [-2 0 2].rescale
 [0 0.5 1]
+
+>>> 1:5.rescale
+[0 0.25 0.5 0.75 1]
 ```
 
 Specify the maximum and minimum values:
@@ -58,6 +61,9 @@ Specify the maximum and minimum values:
 
 >>> [-2 0 2].rescale(-5, 5, -1, 1)
 [-2 / 5, 0, 2 / 5]
+
+>>> 1:5.rescale(1, 5, -1, 1)
+[-1 -0.5 0 0.5 1]
 ```
 
 Make a Celsius-to-Fahrenheit conversion table:
@@ -106,4 +112,6 @@ See also: clip, LinLin, mean, scaled
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Rescale.html)
+[1](https://reference.wolfram.com/language/ref/Rescale.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/rescale.html)

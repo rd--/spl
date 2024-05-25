@@ -36,4 +36,4 @@ See also: cartesianIndex
 
 References:
 _MathWorks_
-[1](https://au.mathworks.com/help/matlab/ref/sub2ind.html)
+[1](https://mathworks.com/help/matlab/ref/sub2ind.html)

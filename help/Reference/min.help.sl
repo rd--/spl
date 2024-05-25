@@ -34,9 +34,30 @@ The binary form allows vector operands:
 [0 0 0.3 0.8 1 1]
 ```
 
+Smallest `Complex` element:
+
+```
+>>> [-2J2 4J1 -1J-3].min
+-2J2
+```
+
+Smallest element in each matrix column:
+
+```
+>>> [2 8 4; 7 3 9].min
+[2 3 4]
+```
+
+Smallest element in each matrix row:
+
+```
+>>> [1.7 1.2 1.5; 1.3 1.6 1.99].collect(min:/1)
+[1.2 1.3]
+```
+
 * * *
 
-See also: floor, max
+See also: floor, max, minBy
 
 References:
 _Apl_
@@ -49,6 +70,8 @@ _J_
 _Mathematica_
 [1](https://mathworld.wolfram.com/Minimum.html)
 [2](https://reference.wolfram.com/language/ref/Min.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/min.html),
 _Smalltalk_
 5.6.1.7
 

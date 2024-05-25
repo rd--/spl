@@ -316,6 +316,22 @@ Complex : [Object, Number] { | real imaginary |
 		self.log / aNumber.log
 	}
 
+	max { :self :anObject |
+		anObject.isComplex.if {
+			self.maxBy(anObject, abs:/1)
+		} {
+			anObject.adaptToComplexAndApply(self, max:/1)
+		}
+	}
+
+	min { :self :anObject |
+		anObject.isComplex.if {
+			self.minBy(anObject, abs:/1)
+		} {
+			anObject.adaptToComplexAndApply(self, min:/1)
+		}
+	}
+
 	negated { :self |
 		Complex(self.real.negated, self.imaginary.negated)
 	}

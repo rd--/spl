@@ -313,6 +313,14 @@
 		self.collect(truncated:/1)
 	}
 
+	truncated { :self |
+		self.collect(truncated:/1)
+	}
+
+	unitize { :self |
+		self.collect(unitize:/1)
+	}
+
 	vanDerCorputNumber { :self :base |
 		self.collect { :n |
 			n.vanDerCorputNumber(base)

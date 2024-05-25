@@ -36,6 +36,31 @@ Answer the _QR_ decompositionof a matrix _A_ into a product _A = QR_ of an ortho
 )
 ```
 
+QR decomposition of a magic square,
+note that corresponding rows and columns in _Q_ and _R_ can flip their signs,
+since this does not affect the value of the expression _A = Q*R_:
+
+```
+>>> let m = [16 5 9 4; 3 10 6 15; 2 11 7 14; 13 8 12 1];
+>>> let [q, r] = m.qrDecomposition;
+>>> (q, r, q.dot(r) ~ m)
+(
+	[
+		-0.764510   0.267789   0.542046   0.223607;
+		-0.143346  -0.620001   0.380855  -0.670820;
+		-0.095564  -0.733804  -0.048990   0.670820;
+		-0.621164  -0.073617  -0.747486  -0.223607
+	],
+	[
+		-20.92845  -11.27652  -15.86357   -7.16727;
+		        0  -13.52184   -7.32993  -18.57573;
+		        0          0   -2.14922    6.44777;
+		        0          0          0          0
+	],
+	true
+)
+```
+
 * * *
 
 See also: isOrthogonalMatrix, isUpperTriangularMatrix, luDecomposition
@@ -43,6 +68,8 @@ See also: isOrthogonalMatrix, isUpperTriangularMatrix, luDecomposition
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/QRDecomposition.html)
-[1](https://reference.wolfram.com/language/ref/QRDecomposition.html),
+[2](https://reference.wolfram.com/language/ref/QRDecomposition.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/qr.html),
 _W_
 [1](https://en.wikipedia.org/wiki/QR_decomposition)

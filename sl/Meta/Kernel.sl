@@ -1,12 +1,12 @@
 [
 	{- Kernel Traits -}
+	'Object'
 	'Cache'
 	'Binary' {- > Cache -}
 	'Integer' {- > Cache -}
 	'Json'
-	'Magnitude'
+	'Magnitude' {- > Object -}
 	'Number'
-	'Object'
 	'Random' {- > Object -}
 
 	{- Collection Traits -}

@@ -86,7 +86,8 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/star),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Sign.html)
-[2](https://reference.wolfram.com/language/ref/Sign.html),
+[2](https://reference.wolfram.com/language/ref/Sign.html)
+[3](https://reference.wolfram.com/language/ref/RealSign.html),
 _Mathworks_
 [1](https://mathworks.com/help/symbolic/sign.html),
 _Smalltalk_

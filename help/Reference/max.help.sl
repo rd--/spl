@@ -31,9 +31,30 @@ The binary form allows vector operands:
 [5 3 5]
 ```
 
+Largest `Complex` element of vector:
+
+```
+>>> [-2J2 4J1 -1J-3].max
+4J1
+```
+
+Largest element in each matrix column:
+
+``
+>>> [2 8 4; 7 3 9].max
+[7 8 9]
+```
+
+Largest element in each matrix row:
+
+```
+>>> [1.7 1.2 1.5; 1.3 1.6 1.99].collect(max:/1)
+[1.7 1.99]
+```
+
 * * *
 
-See also: ceiling, min
+See also: ceiling, maxBy, min
 
 References:
 _Apl_
@@ -46,6 +67,8 @@ _J_
 _Mathematica_
 [1](https://mathworld.wolfram.com/Maximum.html)
 [2](https://reference.wolfram.com/language/ref/Max.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/max.html),
 _Smalltalk_
 5.6.1.6
 
