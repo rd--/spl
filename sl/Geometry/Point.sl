@@ -103,3 +103,78 @@
 	}
 
 }
+
+Point : [Object] { | vector |
+
+	= { :self :anObject |
+		self.hasEqualSlots(anObject)
+	}
+
+	at { :self :index |
+		self.vector[index]
+	}
+
+	dimension { :self |
+		0
+	}
+
+	embeddingDimension { :self |
+		self.vector.size
+	}
+
+	midpoint { :self :aPoint |
+		Point(self.vector.midpoint(aPoint.vector))
+	}
+
+	size { :self |
+		self.vector.size
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
+}
+
+InfiniteLine : [Object] { | u v |
+
+	= { :self :anObject |
+		self.hasEqualSlots(anObject)
+	}
+
+	~ { :self :anObject |
+		self.hasEqualSlotsBy(anObject, ~)
+	}
+
+	includes { :self :aPoint |
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
+}
+
++@Sequence {
+
+	midpoint { :u :v |
+		u + ((v - u) / 2)
+	}
+
+	InfiniteLine { :aPoint :aVector |
+		newInfiniteLine().initializeSlots(aPoint, aVector)
+	}
+
+	perpendicularBisector { :u :v |
+		let m = (pi / 2).rotationMatrix;
+		InfiniteLine(
+			u.midpoint(v),
+			(v - u).dot(m)
+		)
+	}
+
+	Point { :vector |
+		newPoint().initializeSlots(vector)
+	}
+
+}

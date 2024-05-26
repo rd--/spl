@@ -1,6 +1,7 @@
 # minimumChangePermutations
 
-- _minimumChangePermutations(anInteger)_
+- _minimumChangePermutations(anInteger | aSequence)_
+- _heapsAlgorithm(alpha)_ => _minimumChangePermutations(alpha)_
 
 Answer a `List` of the permutations of _[1 .. anInteger]_ in minimum change order,
 following Heap’s algorithm.
@@ -19,7 +20,7 @@ _S3_ in minimum change sequence:
 _S4_ in minimum change sequence:
 
 ```
->>> 4.minimumChangePermutations
+>>> [1 2 3 4].heapsAlgorithm
 [
 	1 2 3 4; 2 1 3 4; 3 1 2 4; 1 3 2 4; 2 3 1 4; 3 2 1 4;
 	4 2 1 3; 2 4 1 3; 1 4 2 3; 4 1 2 3; 2 1 4 3; 1 2 4 3;

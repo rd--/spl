@@ -1,7 +1,7 @@
 # Geometry Types
 
 - `Line`, `InfiniteLine`, `HalfLine`
-- `Plane`, `HalfPlane`
+- `InfinitePlane`, `HalfPlane`
 - `Point`
 - `Rectangle`, `Parallelogram`
 - `Polygon`, `RegularPolygon`

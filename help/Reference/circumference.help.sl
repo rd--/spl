@@ -16,3 +16,5 @@ See also: arcLength, Circle, perimeter
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Circumference.html)
+
+Categories: Geometry

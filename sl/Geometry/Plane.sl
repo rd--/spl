@@ -1,11 +1,31 @@
-Plane : [Object] { | a b c d |
+HalfPlane : [Object] {
+
+}
+
+InfinitePlane : [Object] { | a b c d |
 
 	= { :self :anObject |
 		self.hasEqualSlots(anObject)
 	}
 
+	area { :self |
+		inf
+	}
+
+	dimension { :self |
+		2
+	}
+
 	distance { :self |
 		self.hessianNormalForm.second
+	}
+
+	distance { :self :aPoint |
+		self.terms.signedPointPlaneDistance(aPoint)
+	}
+
+	embeddingDimension { :self |
+		3
 	}
 
 	hessianNormalForm { :self |
@@ -37,7 +57,7 @@ Plane : [Object] { | a b c d |
 		[self.a, self.b, self.c, self.d]
 	}
 
-	unitNormalVector { :self |
+	unitNormal { :self |
 		self.hessianNormalForm.first
 	}
 
@@ -45,29 +65,29 @@ Plane : [Object] { | a b c d |
 
 +@Number {
 
-	Plane { :a :b :c :d |
-		newPlane().initializeSlots(a, b, c, d)
+	InfinitePlane { :a :b :c :d |
+		newInfinitePlane().initializeSlots(a, b, c, d)
 	}
 
 }
 
 +@Sequence {
 
-	asPlane { :self |
+	asInfinitePlane { :self |
 		(self.size = 4).if {
 			let [a, b, c, d] = self;
-			Plane(a, b, c, d)
+			InfinitePlane(a, b, c, d)
 		} {
-			(self.size = 4).if {
+			(self.size = 3).if {
 				let [p1, p2, p3] = self;
-				Plane(p1, p2, p2)
+				InfinitePlane(p1, p2, p2)
 			} {
-				self.error('@Sequence>>asPlane')
+				self.error('@Sequence>>asInfinitePlane')
 			}
 		}
 	}
 
-	Plane { :p1 :p2 :p3 |
+	InfinitePlane { :p1 :p2 :p3 |
 		let [x1, y1, z1] = p1;
 		let [x2, y2, z2] = p2;
 		let [x3, y3, z3] = p3;
@@ -82,7 +102,7 @@ Plane : [Object] { | a b c d |
 		[a b c].allSatisfy(isNonPositive:/1).ifTrue {
 			[a, b, c, d] := [a b c d].negated
 		};
-		Plane(a, b, c, d)
+		InfinitePlane(a, b, c, d)
 	}
 
 	pointPlaneDistance { :plane :point |

@@ -568,6 +568,11 @@
 		1 - (u.dot(v) / (u.norm * v.norm))
 	}
 
+	cross { :u |
+		let [x, y] = u;
+		[y.-, x]
+	}
+
 	cross { :u :v |
 		let [ux, uy, uz] = u;
 		let [vx, vy, vz] = v;
@@ -906,7 +911,7 @@
 		1
 	}
 
-	fisherYatesShuffleUsing { :self :random |
+	fisherYatesShuffle { :self :random |
 		self.size.toByDo(2, -1) { :each |
 			self.swapWith(each, random.nextRandomInteger(1, each))
 		};
@@ -914,7 +919,7 @@
 	}
 
 	fisherYatesShuffle { :self |
-		self.fisherYatesShuffleUsing(system)
+		self.fisherYatesShuffle(system)
 	}
 
 	flattenTo { :self :depth |
@@ -2339,6 +2344,22 @@
 			self[i - 1] := self[i]
 		};
 		self[n] := z
+	}
+
+	sattoloShuffle { :self :random |
+		let i = self.size;
+		{
+			i > 1
+		}.whileTrue {
+			let j = random.nextRandomInteger(1, i - 1);
+			self.swapWith(i, j);
+			i := i - 1
+		};
+		self
+	}
+
+	sattoloShuffle { :self |
+		self.sattoloShuffle(system)
 	}
 
 	scalarProduct { :self :aSequence |

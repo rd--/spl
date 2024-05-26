@@ -129,6 +129,10 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 
 +@Sequence {
 
+	adjugate { :self |
+		self.inverse * self.determinant
+	}
+
 	antidiagonal { :self :k |
 		let m = self.assertIsMatrix('@Sequence>>antidiagonal');
 		let l = m.shape.min - k.abs;
@@ -212,6 +216,29 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.asMatrix(deepCopy:/1)
 	}
 
+	choleskyBanachiewiczAlgorithm { :a |
+		let [m, n] = a.shape;
+		let l = m.zeroMatrix(n);
+		1.toDo(m) { :i |
+			1.toDo(i) { :k |
+				let sum = 0;
+				1.toDo(k) { :j |
+					sum := sum + (l[i][j] * l[k][j])
+				};
+				l[i][k] := (i = k).if {
+					(a[i][i] - sum).sqrt
+				} {
+					1 / l[k][k] * (a[i][k] - sum)
+				}
+			}
+		};
+		l
+	}
+
+	choleskyDecomposition { :self |
+		self.choleskyBanachiewiczAlgorithm
+	}
+
 	conjugateTranspose { :self |
 		self.transposed.conjugated
 	}
@@ -220,6 +247,20 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		let [m, n] = self.shape;
 		1:n.collect { :i |
 			aBlock(self.matrixColumn(i))
+		}
+	}
+
+	cramersRule { :m :d |
+		let k = m.size;
+		let divisor = m.determinant;
+		let numerators = { m.deepCopy } ! k;
+		1.toDo(k) { :i |
+			1.toDo(k) { :j |
+				numerators[i][j][i] := d[j]
+			}
+		};
+		1:k.collect { :i |
+			numerators[i].determinant / divisor
 		}
 	}
 
@@ -286,6 +327,30 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 				self.error('@Sequence>>dotProduct: self not vector or matrix')
 			}
 		}
+	}
+
+	gaussJordanInverse { :self |
+		let [m, n] = self.shape;
+		let a = m.zeroMatrix(m * 2);
+		let r = m.zeroMatrix(n);
+		(m ~= n).ifTrue {
+			self.error('@Sequence>>gaussJordanInverse: matrix is not square')
+		};
+		1.toDo(m) { :i |
+			a[i].replaceFromToWith(1, m, self[i]);
+			a[i][m + i] := 1
+		};
+		a.reducedRowEchelonForm;
+		1.toDo(n) { :i |
+			1.toDo(n) { :j |
+				(a[i][j] ~= (i = j).boole).if {
+					self.error('@Sequence>>gaussJordanInverse: matrix is singular')
+				} {
+					r[i][j] := a[i][m + j]
+				}
+			}
+		};
+		r
 	}
 
 	gaussianElimination { :m :v |

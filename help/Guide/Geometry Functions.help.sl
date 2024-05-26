@@ -18,6 +18,13 @@
 - `eulerMatrix`
 - `reflectionMatrix`
 - `scalingMatrix`
+- `area`
+- `circumference`
+- `arcLength`
+- `perimeter`
+- `hessianNormalForm`
+- `signedPointPlaneDistance`
+- `unitNormal`
 
 * * *
 

@@ -48,7 +48,11 @@ Rotation matrix about _x_-axis:
 ```
 >>> let theta = 30.degree;
 >>> theta.rotationMatrix([1 0 0])
-[[1, 0, 0], [0, theta.cos, 0 - theta.sin], [0, theta.sin, theta.cos]]
+[
+	[1, 0, 0],
+	[0, theta.cos, 0 - theta.sin],
+	[0, theta.sin, theta.cos]
+]
 ```
 
 * * *
@@ -61,3 +65,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/RotationMatrix.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Rotation_matrix)
+
+Categories: Geometry

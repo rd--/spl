@@ -32,3 +32,5 @@ See also: hessianNormalForm, pointPlaneDistance
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Point-PlaneDistance.html)
+
+Categories: Geometry

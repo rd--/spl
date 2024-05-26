@@ -26,6 +26,10 @@ Answer the distance from _aLine_ to _aPoint_.
 
 * * *
 
+See also: InfiniteLine, Line, Point
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Point-LineDistance3-Dimensional.html)
+
+Categories: Geometry

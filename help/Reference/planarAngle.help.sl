@@ -4,7 +4,7 @@
 
 Answer the angle subtended by the line segment _q1, q2_ from _p_.
 
-The angle between the half-lines from (0,0) through (1,1) and (1,0):
+The angle between the half-lines from _(0,0)_ through _(1,1)_ and _(1,0)_:
 
 ```
 >>> [1 0; 0 0; 1 1].planarAngle

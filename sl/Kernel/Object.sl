@@ -1,7 +1,8 @@
 @Object {
 
 	= { :self :anObject |
-		self.typeResponsibility('@Object>>=')
+		self.hasEqualSlots(anObject)
+		{- self.typeResponsibility('@Object>>=') -}
 	}
 
 	~ { :self :anObject |
@@ -98,9 +99,15 @@
 		Error(description).signal
 	}
 
+	hasEqualSlotsBy { :self :anObject :aBlock:/2 |
+		self.typeOf = anObject.typeOf & {
+			aBlock(self.slotValueList, anObject.slotValueList)
+		}
+	}
+
 	hasEqualSlots { :self :anObject |
 		self.typeOf = anObject.typeOf & {
-			self.slotList = anObject.slotList
+			self.slotValueList = anObject.slotValueList
 		}
 	}
 

@@ -75,6 +75,18 @@ A square matrix has an inverse if and only if its determinant is nonzero:
 true
 ```
 
+The classical adjoint (adjugate) of a square matrix is the `inverse` multiplied by the `determinant`:
+
+```
+>>> let m = [8 1 6; 3 5 7; 4 9 2];
+>>> m.inverse * m.determinant
+[
+	-53  52 -23;
+	 22  -8 -38;
+	  7 -68  37
+]
+```
+
 * * *
 
 See also: matrixRank, rowReduce

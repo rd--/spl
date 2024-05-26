@@ -424,6 +424,10 @@ Permutation : [Object] { | cycles degree |
 		indices.findPermutation
 	}
 
+	heapsAlgorithm { :self |
+		self.minimumChangePermutations
+	}
+
 	inversePermutation { :self |
 		self.asPermutation.inverse
 	}
@@ -878,6 +882,10 @@ Permutation : [Object] { | cycles degree |
 		}
 	}
 
+	heapsAlgorithm { :self |
+		[1 .. self].heapsAlgorithm
+	}
+
 	minimumChangePermutations { :self |
 		[1 .. self].minimumChangePermutations
 	}
@@ -908,7 +916,12 @@ Permutation : [Object] { | cycles degree |
 		self.randomPermutationList(count, system)
 	}
 
+	steinhausJohnsonTrotter { :self |
+		self.plainChanges
+	}
+
 	unrankPermutation { :rank :degree |
 		rank.mixedRadixEncode([degree .. 1]).rightInversionCountToPermutation
 	}
+
 }

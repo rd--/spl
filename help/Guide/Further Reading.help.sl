@@ -67,6 +67,11 @@ Kása, Z. 2009.
 _Acta Univ. Sapientiae, Informatica_, 1(1):109–118.
 [Pdf](https://arxiv.org/pdf/1002.2625.pdf)
 
+Johnson, S. M. 1963.
+"Generation of permutations by adjacent transposition"\
+_Mathematics of Computation_, 17 (83): 282–285.
+[Doi](https://doi.org/10.1090/S0025-5718-1963-0159764-2)
+
 Knuth, D. 1968.
 _The Art of Computer Programming: Volume 1: Fundamental Algorithms_.\
 Addison-Wesley, Reading MA.
@@ -130,6 +135,11 @@ Ruskey, F. 1988.
 _J. Algorithms_, 9:162–180, 1988.
 [Doi](https://doi.org/10.1016/0196-6774(88)90036-3)
 
+Sattolo, S. 1986.
+"An algorithm to generate a random cyclic permutation".\
+Information Processing Letters. 22 (6): 315–3017.
+[Doi](https://doi.org/10.1016/0020-0190(86)90073-6)
+
 Sedgewick, R. 1977.
 "Permutation generation methods".\
 _ACM Comput. Surv._, 9(2):137–164.
@@ -154,6 +164,11 @@ Thomson, W. E. 1958.
 "A Modified Congruence Method of Generating Pseudo-random Numbers".\
 _The Computer Journal_ 1(2):83.
 [Doi](https://doi.org/10.1093/comjnl/1.2.83)
+
+Trotter, H. F. 1962.
+"Algorithm 115: Perm".\
+_Communications of the ACM_, 5 (8): 434–435.
+[Doi](https://10.1145/368637.368660)
 
 Warth, A. et. al. 2016.
 "Modular semantic actions".\

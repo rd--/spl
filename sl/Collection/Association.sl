@@ -1,11 +1,11 @@
 Association : [Object] { | key value |
 
 	= { :self :anObject |
-		anObject.isAssociation & {
-			self.key = anObject.key & {
-				self.value = anObject.value
-			}
-		}
+		self.equalBy(anObject, =)
+	}
+
+	~ { :self :anObject |
+		self.equalBy(anObject, ~)
 	}
 
 	< { :self :anAssociation |
@@ -22,6 +22,14 @@ Association : [Object] { | key value |
 
 	>= { :self :anAssociation |
 		self.key >= anAssociation.key
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isAssociation & {
+			self.key = anObject.key & {
+				aBlock(self.value, anObject.value)
+			}
+		}
 	}
 
 	first { :self |

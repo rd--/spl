@@ -28,9 +28,25 @@ Instances are ordinarily entries in a `Dictionary` type, i.e. `Map` or `Record`:
 
 A `List` with only `Association` entries is called an _association list_.
 
+Equality considers both _key_ & _value_, unlike in Smalltalk-80:
+
+```
+>>> ('x' -> 1) ~= ('y' -> 1)
+true
+```
+
+The `~` operator compares keys using `=` and values using `~`:
+
+```
+>>> (3 -> 1) ~ (3 -> 1.0001)
+true
+
+>>> (1 -> 3) ~ (1.0001 -> 3)
+false
+```
+
 _Note_:
-Equality considers both _key_ & _value_, unlike in Smalltalk-80.
-In a `Dictionary` context there cannot be duplicate keys, hence considering only key for equality.
+In a `Dictionary` context there cannot be duplicate keys, hence considering only key for equality in St-80.
 
 * * *
 
