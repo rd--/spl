@@ -11,6 +11,13 @@ At `Circle`:
 2.pi
 ```
 
+At `Triangle`:
+
+```
+>>> Triangle([0 0], [1 0], [0 1]).arcLength
+(2 + 2.sqrt)
+```
+
 At `Rectangle`:
 
 ```

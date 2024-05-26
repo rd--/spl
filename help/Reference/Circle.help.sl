@@ -7,7 +7,7 @@ A `Type` that represents a circle of _radius_ at _center_.
 ```
 >>> let c = Circle([0 0], 1);
 >>> (c.isCircle, c.center, c.radius)
-(true, Point(0, 0), 1)
+(true, [0 0], 1)
 ```
 
 Implements `x`, `y` and `r`:
@@ -18,17 +18,23 @@ Implements `x`, `y` and `r`:
 (0, 0, 1)
 ```
 
-Calculate arc length, area, circumference and diameter:
+Calculate arc length, area, circumference, perimeter, centroid and diameter:
 
 ```
 >>> let c = Circle([0 0], 1);
->>> (c.arcLength, c.area, c.circumference, c.diameter)
-(2.pi, 1.pi, 2.pi, 2)
+>>> (
+>>> 	c.arcLength,
+>>> 	c.area,
+>>> 	c.circumference, c.perimeter,
+>>> 	c.centroid, c.center,
+>>> 	c.diameter, c.radius
+>>> )
+(2.pi, 1.pi, 2.pi, 2.pi, [0 0], [0 0], 2, 1)
 ```
 
 * * *
 
-See also: arcLength, area, r, x, y
+See also: arcLength, area, centroid, perimeter, r, x, y
 
 References:
 _Mathematica_

@@ -28,6 +28,9 @@ The Euclidean distance in two dimensions is the straight line distance:
 ```
 >>> [0 0].euclideanDistance([1 1])
 2.sqrt
+
+>>> [0 1].euclideanDistance([1 0])
+2.sqrt
 ```
 
 * * *

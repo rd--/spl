@@ -1,5 +1,3 @@
-{- Requires: RectangularCoordinates -}
-
 Circle : [Object] { | center radius |
 
 	= { :self :anObject |
@@ -16,6 +14,10 @@ Circle : [Object] { | center radius |
 
 	area { :self |
 		self.radius.squared.pi
+	}
+
+	centroid { :self |
+		self.center
 	}
 
 	circumference { :self |
@@ -49,19 +51,19 @@ Circle : [Object] { | center radius |
 	}
 
 	x { :self |
-		self.center.x
+		self.center[1]
 	}
 
 	y { :self |
-		self.center.y
+		self.center[2]
 	}
 
 }
 
-+[List, RectangularCoordinates] {
++@Sequence {
 
 	Circle { :center :radius |
-		newCircle().initializeSlots(center.asRectangularCoordinates, radius)
+		newCircle().initializeSlots(center, radius)
 	}
 
 }

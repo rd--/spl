@@ -23,6 +23,8 @@ _Note_: This is the Sc _XLine_ Ugen without the _doneAction_ input.
 See also: Line, TLine, TxLine
 
 References:
+_Csound_
+[1](https://www.csounds.com/manual/html/expon.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/XLine.html)
 

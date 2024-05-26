@@ -28,15 +28,15 @@
 	{- Geometry -}
 	'Angle'
 	'CartesianCoordinates'
+	'Circle'
 	'Length'
 	'Plane'
 	'PolarCoordinates'
 	'RectangularCoordinates'
-	'Circle'  {- RectangularCoordinates -}
 	'Matrix22' {- RectangularCoordinates -}
 	'Matrix33' {- CartesianCoordinates -}
 	'Projection3' {- Matrix33 -}
-	'Rectangle'  {- RectangularCoordinates -}
+	'Rectangle'
 	'FourVector' {- RectangularCoordinates CartesianCoordinates -}
 	'CylindricalCoordinates' {- CartesianCoordinates -}
 	'Sphere' {- CartesianCoordinates -}

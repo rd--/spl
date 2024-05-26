@@ -4,11 +4,25 @@
 
 Answer the area of _anObject_.
 
-At `Circle`:
+Find the area of a `Circle`:
 
 ```
 >>> Circle([0 0], 1).area
 1.pi
+```
+
+Find the area of a `Triangle`:
+
+```
+>>> Triangle([0 0], [1 0], [0 1]).area
+1/2
+```
+
+Find the area of a `Polygon`:
+
+```
+>>> Polygon([1 0; 0 3.sqrt; -1 0]).area
+3.sqrt
 ```
 
 * * *

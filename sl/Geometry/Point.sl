@@ -136,7 +136,7 @@ Point : [Object] { | vector |
 
 }
 
-InfiniteLine : [Object] { | u v |
+InfiniteLine : [Object] { | point vector |
 
 	= { :self :anObject |
 		self.hasEqualSlots(anObject)
@@ -155,6 +155,107 @@ InfiniteLine : [Object] { | u v |
 
 }
 
+Line : [Object] { | matrix |
+
+	arcLength { :self |
+		self[1].euclideanDistance(self[2])
+	}
+
+	at { :self :index |
+		self.matrix[index]
+	}
+
+	centroid { :self |
+		self.midpoint
+	}
+
+	midpoint { :self |
+		self[1].midpoint(self[2])
+	}
+
+}
+
+Triangle : [Object] { | coordinates |
+
+	= { :self :anObject |
+		self.hasEqualSlots(anObject)
+	}
+
+	~ { :self :anObject |
+		self.hasEqualSlotsBy(anObject, ~)
+	}
+
+	arcLength { :self |
+		self.coordinates.polygonArcLength
+	}
+
+	area { :self |
+		self.coordinates.shoelaceFormula
+	}
+
+	centroid { :self |
+		self.coordinates.polygonCentroid
+	}
+
+	interiorAngles { :self |
+		self.coordinates.polygonInteriorAngles
+	}
+
+	size { :self |
+		3
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
+}
+
+Polygon : [Object] { | coordinates |
+
+	= { :self :anObject |
+		self.hasEqualSlots(anObject)
+	}
+
+	~ { :self :anObject |
+		self.hasEqualSlotsBy(anObject, ~)
+	}
+
+	arcLength { :self |
+		self.coordinates.polygonArcLength
+	}
+
+	area { :self |
+		self.coordinates.shoelaceFormula
+	}
+
+	at { :self :index |
+		let n = self.size;
+		(index = (n + 1)).if {
+			self.coordinates[1]
+		} {
+			self.coordinates[index]
+		}
+	}
+
+	centroid { :self |
+		self.coordinates.polygonCentroid
+	}
+
+	interiorAngles { :self |
+		self.coordinates.polygonInteriorAngles
+	}
+
+	size { :self |
+		self.coordinates.size
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
+}
+
 +@Sequence {
 
 	midpoint { :u :v |
@@ -163,6 +264,10 @@ InfiniteLine : [Object] { | u v |
 
 	InfiniteLine { :aPoint :aVector |
 		newInfiniteLine().initializeSlots(aPoint, aVector)
+	}
+
+	Line { :u :v |
+		newLine().initializeSlots([u, v])
 	}
 
 	perpendicularBisector { :u :v |
@@ -175,6 +280,70 @@ InfiniteLine : [Object] { | u v |
 
 	Point { :vector |
 		newPoint().initializeSlots(vector)
+	}
+
+	Polygon { :self |
+		newPolygon().initializeSlots(self)
+	}
+
+	polygonArcLength { :p |
+		p.polylineArcLength + p.last.euclideanDistance(p.first)
+	}
+
+	polygonCentroid { :p |
+		let n = p.size;
+		let m = 1 / (p.shoelaceFormula * 6);
+		let x = 0;
+		let y = 0;
+		1.toDo(n) { :i |
+			let j = (i = n).if { 1 } { i + 1};
+			let d = (p[i][1] * p[j][2]) - (p[j][1] * p[i][2]);
+			x := x + ((p[i][1] + p[j][1]) * d);
+			y := y + ((p[i][2] + p[j][2]) * d)
+		};
+		[x y] * m
+	}
+
+	polygonInteriorAngles { :p |
+		let n = p.size;
+		let a = [];
+		1.toDo(n) { :i |
+			let j = (i = 1).if { n } { i - 1};
+			let k = (i = n).if { 1 } { i + 1};
+			let u = p[i] - p[j];
+			let v = p[i] - p[k];
+			a.add(u.vectorAngle(v))
+		};
+		a
+	}
+
+	polylineArcLength { :p |
+		p.adjacentPairsCollect(euclideanDistance:/2).sum
+	}
+
+	shoelaceFormula { :p |
+		let n = p.size;
+		let a = 0;
+		1.toDo(n) { :i |
+			let j = (i = n).if { 1 } { i + 1};
+			let d = (p[i][1] * p[j][2]) - (p[j][1] * p[i][2]);
+			a := a + d
+		};
+		a / 2
+	}
+
+	Triangle { :p1 :p2 :p3 |
+		newTriangle().initializeSlots([p1, p2, p3])
+	}
+
+}
+
++@Number {
+
+	sssTriangle { :a :b :c |
+		let y = ((a ^ 2).- + (b ^ 2) + (c ^ 2)) / (2 * c);
+		let z = ((a + b - c) * (a - b + c) * (a.- + b + c) * (a + b + c)).sqrt / (2 * c);
+		Triangle([0 0], [c 0], [y z])
 	}
 
 }

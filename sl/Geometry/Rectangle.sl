@@ -1,5 +1,3 @@
-{- Requires: RectangularCoordinates -}
-
 Rectangle : [Object] { | lowerLeft upperRight |
 
 	= { :self :anObject |
@@ -43,11 +41,15 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	centerLeft { :self |
-		self.left @ self.center.y
+		[self.left, self.center[2]]
 	}
 
 	centerRight { :self |
-		self.right @ self.center.y
+		[self.right, self.center[2]]
+	}
+
+	centroid { :self |
+		self.center
 	}
 
 	circumcircle { :self |
@@ -62,6 +64,13 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		self.lowerLeft <= aPoint & {
 			aPoint < self.upperRight
 		}
+	}
+
+	coordinates { :self |
+		[
+			self.lowerLeft, self.lowerRight,
+			self.upperRight, self.upperLeft
+		]
 	}
 
 	dimension { :self |
@@ -84,7 +93,7 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	height { :self |
-		self.upperRight.y - self.lowerLeft.y
+		self.upperRight[2] - self.lowerLeft[2]
 	}
 
 	incircle { :self |
@@ -128,15 +137,15 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	left { :self |
-		self.lowerLeft.x
+		self.lowerLeft[1]
 	}
 
 	lower { :self |
-		self.lowerLeft.y
+		self.lowerLeft[2]
 	}
 
 	lowerCenter { :self |
-		self.center.x @ self.lower
+		[self.center[1], self.lower]
 	}
 
 	lowerHalf { :self |
@@ -148,7 +157,7 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	lowerRight { :self |
-		self.upperRight.x @ self.lowerLeft.y
+		[self.upperRight[1], self.lowerLeft[2]]
 	}
 
 	lowerRightQuadrant { :self |
@@ -179,11 +188,11 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	randomPoint { :self |
-		self.pointAtFraction(1.randomFloat @ 1.randomFloat)
+		self.pointAtFraction([1.randomFloat, 1.randomFloat])
 	}
 
 	right { :self |
-		self.upperRight.x
+		self.upperRight[1]
 	}
 
 	scaleBy { :self :scale |
@@ -199,11 +208,11 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	upper { :self |
-		self.upperRight.y
+		self.upperRight[2]
 	}
 
 	upperCenter { :self |
-		self.center.x @ self.upper
+		[self.center[1], self.upper]
 	}
 
 	upperHalf { :self |
@@ -211,7 +220,7 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	upperLeft { :self |
-		self.lowerLeft.x @ self.upperRight.y
+		[self.lowerLeft[1], self.upperRight[2]]
 	}
 
 	upperLeftQuadrant { :self |
@@ -230,37 +239,24 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	width { :self |
-		self.upperRight.x - self.lowerLeft.x
+		self.upperRight[1] - self.lowerLeft[1]
 	}
 
 	withLower { :self :y |
-		self.lowerLeft.upperRight(self.upperRight.x @ y)
+		self.lowerLeft.upperRight([self.upperRight[1], y])
 	}
 
 	x { :self |
-		self.lowerLeft.x
+		self.lowerLeft[1]
 	}
 
 	y { :self |
-		self.lowerLeft.y
+		self.lowerLeft[2]
 	}
 
 }
 
-+RectangularCoordinates {
-
-	RectangeCenterExtent { :centerPoint :extentPoint |
-		let half = extentPoint / 2;
-		Rectangle(centerPoint - half, centerPoint + half)
-	}
-
-	Rectangle { :lowerLeft :upperRight |
-		newRectangle().initializeSlots(lowerLeft, upperRight)
-	}
-
-}
-
-+List {
++@Sequence {
 
 	asRectangle { :self |
 		(self.shape = [2 2]).if {
@@ -278,14 +274,6 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		box
 	}
 
-	Rectangle { :lowerLeft :upperRight |
-		Rectangle(lowerLeft.asRectangularCoordinates, upperRight.asRectangularCoordinates)
-	}
-
-}
-
-+@Sequence {
-
 	rectangleMerging { :self |
 		let lowerLeft = self.first.lowerLeft;
 		let upperRight = self.first.upperRight;
@@ -294,6 +282,15 @@ Rectangle : [Object] { | lowerLeft upperRight |
 			upperRight := upperRight.max(each.upperRight)
 		};
 		Rectangle(lowerLeft, upperRight)
+	}
+
+	Rectangle { :lowerLeft :upperRight |
+		newRectangle().initializeSlots(lowerLeft, upperRight)
+	}
+
+	RectangleCenterExtent { :centerPoint :extentPoint |
+		let half = extentPoint / 2;
+		Rectangle(centerPoint - half, centerPoint + half)
 	}
 
 }
