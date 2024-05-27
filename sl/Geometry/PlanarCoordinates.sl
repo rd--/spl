@@ -1,4 +1,4 @@
-RectangularCoordinates : [Object, Magnitude, Indexable] { | x y |
+PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 
 	= { :self :anObject |
 		self.equalBy(anObject, =)
@@ -41,7 +41,7 @@ RectangularCoordinates : [Object, Magnitude, Indexable] { | x y |
 	}
 
 	abs { :self |
-		RectangularCoordinates(self.x.abs, self.y.abs)
+		PlanarCoordinates(self.x.abs, self.y.abs)
 	}
 
 	abscissa { :self |
@@ -49,18 +49,18 @@ RectangularCoordinates : [Object, Magnitude, Indexable] { | x y |
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
-		aBlock(RectangularCoordinates(aNumber, aNumber), self)
+		aBlock(PlanarCoordinates(aNumber, aNumber), self)
 	}
 
 	applyUnaryOperator { :self :aBlock:/1 |
-		RectangularCoordinates(self.x.aBlock, self.y.aBlock)
+		PlanarCoordinates(self.x.aBlock, self.y.aBlock)
 	}
 
 	applyBinaryOperator { :self :anObject :aBlock:/2 |
-		anObject.isRectangularCoordinates.if {
-			RectangularCoordinates(aBlock(self.x, anObject.x), aBlock(self.y, anObject.y))
+		anObject.isPlanarCoordinates.if {
+			PlanarCoordinates(aBlock(self.x, anObject.x), aBlock(self.y, anObject.y))
 		} {
-			anObject.adaptToRectangularCoordinatesAndApply(self, aBlock:/2)
+			anObject.adaptToPlanarCoordinatesAndApply(self, aBlock:/2)
 		}
 	}
 
@@ -76,7 +76,7 @@ RectangularCoordinates : [Object, Magnitude, Indexable] { | x y |
 		(x: self.x, y: self.y)
 	}
 
-	asRectangularCoordinates { :self |
+	asPlanarCoordinates { :self |
 		self
 	}
 
@@ -89,7 +89,7 @@ RectangularCoordinates : [Object, Magnitude, Indexable] { | x y |
 			1 -> { self.x },
 			2 -> { self.y }
 		]) {
-			self.error('RectangularCoordinate>>at: index out of range')
+			self.error('PlanarCoordinates>>at: index out of range')
 		}
 	}
 
@@ -98,7 +98,7 @@ RectangularCoordinates : [Object, Magnitude, Indexable] { | x y |
 			1 -> { self.x := value },
 			2 -> { self.y := value }
 		]) {
-			self.error('RectangularCoordinate>>atPut: index out of range')
+			self.error('PlanarCoordinates>>atPut: index out of range')
 		}
 	}
 
@@ -131,7 +131,7 @@ RectangularCoordinates : [Object, Magnitude, Indexable] { | x y |
 	}
 
 	equalBy { :self :anObject :aBlock:/2 |
-		anObject.isRectangularCoordinates & {
+		anObject.isPlanarCoordinates & {
 			aBlock(self.x, anObject.x) & {
 				aBlock(self.y, anObject.y)
 			}
@@ -148,13 +148,13 @@ RectangularCoordinates : [Object, Magnitude, Indexable] { | x y |
 		let x0 = inversionCenter.x;
 		let y0 = inversionCenter.y;
 		let k = inversionRadius;
-		RectangularCoordinates(
+		PlanarCoordinates(
 			x0 + ((k.squared * (x - x0)) / ((x - x0).squared + (y - y0).squared)),
 			y0 + ((k.squared * (y - y0)) / ((x - x0).squared + (y - y0).squared))
 		)
 	}
 
-	isRectangularCoordinates { :self |
+	isPlanarCoordinates { :self |
 		true
 	}
 
@@ -219,7 +219,7 @@ RectangularCoordinates : [Object, Magnitude, Indexable] { | x y |
 
 	storeString { :self |
 		[
-			'RectangularCoordinates(',
+			'PlanarCoordinates(',
 				self.x.storeString,
 				', ',
 				self.y.storeString,
@@ -235,7 +235,7 @@ RectangularCoordinates : [Object, Magnitude, Indexable] { | x y |
 	}
 
 	swapped { :self |
-		RectangularCoordinates(self.y, self.x)
+		PlanarCoordinates(self.y, self.x)
 	}
 
 	theta { :self |
@@ -250,95 +250,29 @@ RectangularCoordinates : [Object, Magnitude, Indexable] { | x y |
 
 +@Number {
 
-	adaptToRectangularCoordinatesAndApply { :self :aRectangularCoordinates :aBlock:/2 |
-		aBlock(aRectangularCoordinates, RectangularCoordinates(self, self))
+	adaptToPlanarCoordinatesAndApply { :self :aPlanarCoordinates :aBlock:/2 |
+		aBlock(aPlanarCoordinates, PlanarCoordinates(self, self))
 	}
 
-	RectangularCoordinates { :x :y |
-		newRectangularCoordinates().initializeSlots(x, y)
+	PlanarCoordinates { :x :y |
+		newPlanarCoordinates().initializeSlots(x, y)
 	}
 
 }
 
 +[List, Tuple] {
 
-	asRectangularCoordinates { :self |
+	asPlanarCoordinates { :self |
 		let [x, y] = self;
-		RectangularCoordinates(x, y)
+		PlanarCoordinates(x, y)
 	}
 
 }
 
 +Record {
 
-	asRectangularCoordinates { :self |
-		RectangularCoordinates(self::x, self::y)
-	}
-
-}
-
-+@Sequence {
-
-	anglePath { :angles :distances :origin |
-		let answer = [origin];
-		let theta = 0;
-		let p = origin;
-		angles.withIndexDo { :each :index |
-			let r = distances.atWrap(index);
-			theta := (theta + each) % 2.pi;
-			p := p + (theta.angleVector * r);
-			answer.add(p)
-		};
-		answer
-	}
-
-	anglePath { :self |
-		self.anglePath([1], [0 0])
-	}
-
-	lineEquation { :p1 :p2 |
-		let [x1, y1] = p1;
-		let [x2, y2] = p2;
-		let a = y2 - y1;
-		let b = x1 - x2;
-		let c = (y1 * (x2 - x1)) - (x1 * (y2 - y1));
-		[a, b, c]
-	}
-
-	lineLineIntersection { :l1 :l2 |
-		let [p1, p2] = l1;
-		let [p3, p4] = l2;
-		let [x1, y1] = p1;
-		let [x2, y2] = p2;
-		let [x3, y3] = p3;
-		let [x4, y4] = p4;
-		let a1 = y2 - y1;
-		let b1 = x1 - x2;
-		let c1 = (a1 * x1) + (b1 * y1);
-		let a2 = y4 - y3;
-		let b2 = x3 - x4;
-		let c2 = (a2 * x3) + (b2 * y3);
-		let delta = (a1 * b2) - (a2 * b1);
-		[
-			((b2 * c1) - (b1 * c2)) / delta,
-			((a1 * c2) - (a2 * c1)) / delta
-		]
-	}
-
-	planarAngle { :self |
-		let [q1, p, q2] = self;
-		let [x1, y1] = q1;
-		let [x0, y0] = p;
-		let [x2, y2] = q2;
-		let n = ((x1 - x0) * (x2 - x0)) + ((y1 - y0) * (y2 - y0));
-		let d = ((x1 - x0).squared + (y1 - y0).squared).sqrt * ((x2 - x0).squared + (y2 - y0).squared).sqrt;
-		(n / d).arcCos
-	}
-
-	pointLineDistance { :line :point |
-		let [x1, x2] = line;
-		let x0 = point;
-		(x0 - x1).cross(x0 - x2).norm / (x2 - x1).norm
+	asPlanarCoordinates { :self |
+		PlanarCoordinates(self::x, self::y)
 	}
 
 }

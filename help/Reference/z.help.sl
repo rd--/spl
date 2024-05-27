@@ -4,6 +4,29 @@
 
 Answer the _z_-coordinate of a three dimensional Cartesian coordinate.
 
+At `List`, list must have three places:
+
+```
+>>> [1 2 3].z
+3
+```
+
+At `Tuple`, tuple must have three places::
+
+```
+>>> (1, 2, 3).z
+3
+```
+
+At `Record`:
+
+```
+>>> (x: 1, y: 2, z: 3).z
+3
+```
+
+At `CartesianCoordinates`:
+
 ```
 >>> CartesianCoordinates(1, 2, 3).z
 3

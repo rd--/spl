@@ -35,7 +35,7 @@ p
 
 * * *
 
-See also: asComplex, asPoint, asPolarCoordinates, asRectangularCoordinates, asSphericalCoordinates
+See also: asComplex, asPoint, asPolarCoordinates, asPlanarCoordinates, asSphericalCoordinates
 
 Guides: Geometry Types
 

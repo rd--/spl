@@ -268,7 +268,7 @@ Reference/asRangeList.help.sl
 Reference/asRatios.help.sl
 Reference/asRatioTuning.help.sl
 Reference/asRecord.help.sl
-Reference/asRectangularCoordinates.help.sl
+Reference/asPlanarCoordinates.help.sl
 Reference/asRegExp.help.sl
 Reference/asResidueSet.help.sl
 Reference/asRunArray.help.sl
@@ -1523,7 +1523,7 @@ Reference/Recip.help.sl
 Reference/reciprocal.help.sl
 Reference/RecordBuf.help.sl
 Reference/Record.help.sl
-Reference/RectangularCoordinates.help.sl
+Reference/PlanarCoordinates.help.sl
 Reference/red.help.sl
 Reference/ReducedFraction.help.sl
 Reference/reducedPermutation.help.sl

@@ -131,15 +131,15 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 	}
 
 	xy { :self |
-		RectangularCoordinates(self.x, self.y)
+		PlanarCoordinates(self.x, self.y)
 	}
 
 	xz { :self |
-		RectangularCoordinates(self.x, self.z)
+		PlanarCoordinates(self.x, self.z)
 	}
 
 	yz { :self |
-		RectangularCoordinates(self.y, self.z)
+		PlanarCoordinates(self.y, self.z)
 	}
 
 }

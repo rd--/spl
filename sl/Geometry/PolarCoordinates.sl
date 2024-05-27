@@ -20,8 +20,8 @@ PolarCoordinates : [Object] { | r theta |
 		(r: self.r, theta: self.theta)
 	}
 
-	asRectangularCoordinates { :self |
-		RectangularCoordinates(self.x, self.y)
+	asPlanarCoordinates { :self |
+		PlanarCoordinates(self.x, self.y)
 	}
 
 	asTuple { :self |
@@ -77,7 +77,7 @@ PolarCoordinates : [Object] { | r theta |
 
 	fromPolarCoordinates { :self |
 		self.isVector.if {
-			self.asPolarCoordinates.asRectangularCoordinates.asList
+			self.asPolarCoordinates.asPlanarCoordinates.asList
 		} {
 			self.collect(fromPolarCoordinates:/1)
 		}
@@ -85,7 +85,7 @@ PolarCoordinates : [Object] { | r theta |
 
 	toPolarCoordinates { :self |
 		self.isVector.if {
-			self.asRectangularCoordinates.asPolarCoordinates.asList
+			self.asPlanarCoordinates.asPolarCoordinates.asList
 		} {
 			self.collect(toPolarCoordinates:/1)
 		}

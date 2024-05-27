@@ -12,10 +12,10 @@ The two-dimensional case, also named `rho` and `radius`:
 (1, 1, 1)
 ```
 
-`RectangularCoordinates` implements `r`:
+`PlanarCoordinates` implements `r`:
 
 ```
->>> let p = RectangularCoordinates(1, 1);
+>>> let p = PlanarCoordinates(1, 1);
 >>> (p.r, p.rho, p.radius)
 (2.sqrt, 2.sqrt, 2.sqrt)
 ```

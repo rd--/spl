@@ -11,10 +11,10 @@ The two-dimensional case:
 pi
 ```
 
-`RectangularCoordinates` implements `theta`:
+`PlanarCoordinates` implements `theta`:
 
 ```
->>> RectangularCoordinates(1, 1).theta
+>>> PlanarCoordinates(1, 1).theta
 (pi / 4)
 ```
 

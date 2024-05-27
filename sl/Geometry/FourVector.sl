@@ -1,4 +1,4 @@
-{- Requires: RectangularCoordinates CartesianCoordinates -}
+{- Requires: PlanarCoordinates CartesianCoordinates -}
 
 FourVector : [Object] { | w x y z |
 
@@ -31,7 +31,7 @@ FourVector : [Object] { | w x y z |
 	}
 
 	xy { :self |
-		RectangularCoordinates(self.x, self.y)
+		PlanarCoordinates(self.x, self.y)
 	}
 
 	xyz { :self |

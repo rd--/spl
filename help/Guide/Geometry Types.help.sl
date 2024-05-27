@@ -9,7 +9,7 @@
 
 Two-dimensional (_planar_) coordinate types:
 
-- `RectangularCoordinates`: An _(x, y)_ Cartesian point
+- `PlanarCoordinates`: An _(x, y)_ Cartesian point
 - `PolarCoordinates`: An _(r, theta)_ polar point
 
 Three-dimensional (_volumetric_) coordinate types:
@@ -25,7 +25,7 @@ Methods for accessing fields:
 
 Methods for converting from generic to specific representations of coordinates:
 
-- `asRectangularCoordinates`
+- `asPlanarCoordinates`
 - `asPolarCoordinates`
 - `asCartesianCoordinates`
 - `asSphericalCoordinates`
@@ -33,7 +33,7 @@ Methods for converting from generic to specific representations of coordinates:
 
 * * *
 
-See also: RectangularCoordinates, PolarCoordinates, CartesianCoordinates, SphericalCoordinates
+See also: PlanarCoordinates, PolarCoordinates, CartesianCoordinates, SphericalCoordinates
 
 Guides: Geometry Functions
 

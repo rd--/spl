@@ -17,19 +17,19 @@ with _0 <= theta < 2 pi_.
 >>> 	p.r, p.theta,
 >>> 	p.rho, p.phi,
 >>> 	p.x, p.y,
->>> 	p.asRectangularCoordinates
+>>> 	p.asPlanarCoordinates
 >>> )
 (
 	2.sqrt, 0.25.pi,
 	2.sqrt, 0.25.pi,
 	1, 1,
-	RectangularCoordinates(1, 1)
+	PlanarCoordinates(1, 1)
 )
 ```
 
 * * *
 
-See also: CartesianCoordinates, fromPolarCoordinates, Point, RectangularCoordinates, SphericalCoordinates, toPolarCoordinates
+See also: CartesianCoordinates, fromPolarCoordinates, Point, PlanarCoordinates, SphericalCoordinates, toPolarCoordinates
 
 Guides: Geometry Types
 

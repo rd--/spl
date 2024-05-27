@@ -2264,7 +2264,7 @@ Matrix22(1, 0, 0, 1).isMatrix22 {- matrix predicate -}
 Matrix22(1, 4, -1, 9).determinant = 13 {- determinant -}
 Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2) {- inverse, answers new matrix -}
 let m = Matrix22(-1, 3/2, 1,-1); m.invert; m = Matrix22(2, 3, 2, 2) {- inverse, in place -}
-Matrix22().rotation(1.pi / 2).applyTo(RectangularCoordinates(0, 1)).closeTo(1 @ 0)
+Matrix22().rotation(1.pi / 2).applyTo(PlanarCoordinates(0, 1)).closeTo(1 @ 0)
 Matrix22(1, 2, 3, 4).transposed = Matrix22(1, 3, 2, 4) {- transpose, answers new matrix -}
 let m = Matrix22(1, 2, 3, 4); m.transpose; m = Matrix22(1, 3, 2, 4) {- transpose, in place -}
 ```
@@ -2798,7 +2798,7 @@ Record().hasEqualElements(Record()) {- key sequence and equality -}
 ```
 system.includesPackage('Rectangle') {- Rectangle package -}
 Rectangle(0@0, 1@1).printString = 'Rectangle(0@0, 1@1)'
-Rectangle(0@0, 1@1).storeString = 'Rectangle(RectangularCoordinates(0, 0), RectangularCoordinates(1, 1))'
+Rectangle(0@0, 1@1).storeString = 'Rectangle(PlanarCoordinates(0, 0), PlanarCoordinates(1, 1))'
 Rectangle(0@0, 2@2).intersect(Rectangle(1@1, 4@4)) = Rectangle(1@1, 2@2)
 Rectangle(1@1, 3@3).area = 4
 Rectangle(1@1, 3@3).center = Point(2, 2)
@@ -4166,15 +4166,15 @@ system.includesPackage('Unordered') {- package -}
 { [1, 2, 3].asBag.at(1) }.ifError { true }
 ```
 
-## RectangularCoordinates -- geometry type
+## PlanarCoordinates -- geometry type
 ```
-system.includesPackage('RectangularCoordinates') {- package -}
-RectangularCoordinates(0, 0).typeOf = 'RectangularCoordinates' {- type of -}
-RectangularCoordinates(-1, 1).isRectangularCoordinates = true
-[1, 2].asRectangularCoordinates = RectangularCoordinates(1, 2) {- from list -}
-(1, 2).asRectangularCoordinates = RectangularCoordinates(1, 2) {- from tuple -}
-(x: 1, y: 2).asRectangularCoordinates = RectangularCoordinates(1, 2) {- from record -}
-Point(-1, 1).isRectangularCoordinates = true {- point constructor -}
+system.includesPackage('PlanarCoordinates') {- package -}
+PlanarCoordinates(0, 0).typeOf = 'PlanarCoordinates' {- type of -}
+PlanarCoordinates(-1, 1).isPlanarCoordinates = true
+[1, 2].asPlanarCoordinates = PlanarCoordinates(1, 2) {- from list -}
+(1, 2).asPlanarCoordinates = PlanarCoordinates(1, 2) {- from tuple -}
+(x: 1, y: 2).asPlanarCoordinates = PlanarCoordinates(1, 2) {- from record -}
+Point(-1, 1).isPlanarCoordinates = true {- point constructor -}
 [1, 2].asPoint = Point(1, 2) {- list as point -}
 (1, 2).asPoint = Point(1, 2) {- tuple as point -}
 (x: 1, y: 2).asPoint = Point(1, 2) {- record as point -}
@@ -4224,7 +4224,7 @@ let v = Point(3, 4); v.swapInPlace; v[1] = 4 {- swap fields in place -}
 Point(3, 4).swapped = Point(4, 3) {- answer swapped vector -}
 let v = (0 @ 0); let c = v.copy; c.x := 1; c ~= v & { c = (1 @ 0) } {- copy two vector -}
 Point(1, 1).asPolarCoordinates = PolarCoordinates(2.sqrt, 0.25.pi) {- radius and angle, r and theta -}
-[0, 0].asPoint.isRectangularCoordinates {- array as point, point predicate -}
+[0, 0].asPoint.isPlanarCoordinates {- array as point, point predicate -}
 (0, 0).asPoint.isZero {- are x and y both zero -}
 (1 @ 1).norm = 2.sqrt {- magnitude, distance to origin -}
 (1 @ 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude -}

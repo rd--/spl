@@ -249,8 +249,8 @@
 
 ## Geometry Types & Traits
 
-- `PolarCoordinate`, `RectangularCoordinate`
-- `CartesianCoordinate`, `CylindricalCoordinate`, `SphericalCoordinate`
+- `PolarCoordinates`, `PlanarCoordinates`
+- `CartesianCoordinates`, `CylindricalCoordinates`, `SphericalCoordinates`
 - `Circle`, `Rectangle`, `Sphere`
 - `Angle`, `Projection3`
 

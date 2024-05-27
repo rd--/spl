@@ -37,7 +37,7 @@ Where supported `r` is displayed as 𝑟, `rho` as ρ, `theta` as θ, and `phi` 
 
 * * *
 
-See also: asCartesianCoordinates, CartesianCoordinates, PolarCoordinates, IsoSphericalCoordinates, RectangularCoordinates
+See also: asCartesianCoordinates, CartesianCoordinates, PolarCoordinates, IsoSphericalCoordinates, PlanarCoordinates
 
 Guides: Geometry Types
 

@@ -4,13 +4,34 @@
 
 Answer the _y_ coordinate of a two or three dimensional point.
 
+At `List`:
+
+```
+>>> ([1 2].y, [3 4 5].y)
+(2, 4)
+```
+
+At `Tuple`:
+
+```
+>>> [(1, 2).y, (3, 4, 5).y]
+[2 4]
+```
+
+At `Record`:
+
+```
+>>> (x: 1, y: 2, z: 3).y
+2
+```
+
 Two-dimensional case:
 
 ```
->>> RectangularCoordinates(1, 2).y
+>>> PlanarCoordinates(1, 2).y
 2
 
->>> (x: 1, y: 2).asRectangularCoordinates.y
+>>> (x: 1, y: 2).asPlanarCoordinates.y
 2
 ```
 

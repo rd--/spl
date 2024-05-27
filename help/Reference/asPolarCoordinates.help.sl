@@ -35,7 +35,7 @@ p
 
 * * *
 
-See also: asCartesianCoordinates, asPoint, asRectangularCoordinates, PolarCoordinates, toPolarCoordinates
+See also: asCartesianCoordinates, asPoint, asPlanarCoordinates, PolarCoordinates, toPolarCoordinates
 
 Guides: Geometry Types
 

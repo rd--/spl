@@ -1,6 +1,6 @@
-# RectangularCoordinates
+# PlanarCoordinates
 
-- _RectangularCoordinates(x, y)_
+- _PlanarCoordinates(x, y)_
 
 A `Type` holding the coordinates of a point in two-dimensional Cartesian space,
 given by an ordered pair _(x, y)_.
@@ -17,7 +17,7 @@ as well as for _r_ and _theta_ (equivalently _rho_ and _phi_),
 and for converting to a `PolarCoordinates`:
 
 ```
->>> let p = RectangularCoordinates(1, 1);
+>>> let p = PlanarCoordinates(1, 1);
 >>> (
 >>> 	p.x, p.y,
 >>> 	p.r, p.theta,
@@ -34,7 +34,7 @@ and for converting to a `PolarCoordinates`:
 
 * * *
 
-See also: asPoint, asPolarCoordinates, asRectangularCoordinates, CartesianCoordinates, Point, PolarCoordinates, x, y
+See also: asPoint, asPolarCoordinates, asPlanarCoordinates, CartesianCoordinates, Point, PolarCoordinates, x, y
 
 Guides: Geometry Types
 

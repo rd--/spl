@@ -8,7 +8,7 @@ Constructs Cartesian coordinates of two and three dimensions given an appropriat
 
 ```
 >>> [1, 2].asPoint
-RectangularCoordinates(1, 2)
+PlanarCoordinates(1, 2)
 
 >>> [1, 2, 3].asPoint
 CartesianCoordinates(1, 2, 3)
@@ -18,7 +18,7 @@ CartesianCoordinates(1, 2, 3)
 
 ```
 >>> (1, 2).asPoint
-RectangularCoordinates(1, 2)
+PlanarCoordinates(1, 2)
 
 >>> (1, 2, 3).asPoint
 CartesianCoordinates(1, 2, 3)
@@ -28,16 +28,16 @@ CartesianCoordinates(1, 2, 3)
 
 ```
 >>> (x: 1, y: 2).asPoint
-RectangularCoordinates(1, 2)
+PlanarCoordinates(1, 2)
 
 >>> (x: 1, y: 2, z: 3).asPoint
 CartesianCoordinates(1, 2, 3)
 ```
 
-In the `RectangularCoordinates` and `CartesianCoordinates` cases answer `identity`:
+In the `PlanarCoordinates` and `CartesianCoordinates` cases answer `identity`:
 
 ```
->>> let p = RectangularCoordinates(1, 2);
+>>> let p = PlanarCoordinates(1, 2);
 >>> p == p.asPoint
 true
 
@@ -48,6 +48,6 @@ true
 
 * * *
 
-See also: asComplex, CartesianCoordinates, Point, RectangularCoordinates
+See also: asComplex, CartesianCoordinates, Point, PlanarCoordinates
 
 Categories: Converting

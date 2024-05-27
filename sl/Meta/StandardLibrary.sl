@@ -32,16 +32,16 @@
 	'Length'
 	'Plane'
 	'PolarCoordinates'
-	'RectangularCoordinates'
-	'Matrix22' {- RectangularCoordinates -}
+	'PlanarCoordinates'
+	'Matrix22' {- PlanarCoordinates -}
 	'Matrix33' {- CartesianCoordinates -}
 	'Projection3' {- Matrix33 -}
 	'Rectangle'
-	'FourVector' {- RectangularCoordinates CartesianCoordinates -}
+	'FourVector' {- PlanarCoordinates CartesianCoordinates -}
 	'CylindricalCoordinates' {- CartesianCoordinates -}
 	'Sphere' {- CartesianCoordinates -}
 	'SphericalCoordinates' {- CartesianCoordinates -}
-	'Point' {- RectangularCoordinates CartesianCoordinates -}
+	'Point' {- PlanarCoordinates CartesianCoordinates -}
 
 	{- Graphics -}
 	'Colour'

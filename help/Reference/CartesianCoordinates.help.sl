@@ -27,7 +27,7 @@ allowing terms to be fetched using `List Assignment Syntax`:
 
 * * *
 
-See also: asPoint, Point, PolarCoordinates, RectangularCoordinates, SphericalCoordinates, x, y, z
+See also: asPoint, Point, PolarCoordinates, PlanarCoordinates, SphericalCoordinates, x, y, z
 
 Guides: Geometry Types
 
