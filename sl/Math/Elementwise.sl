@@ -90,8 +90,16 @@
 		self.collect(cos:/1)
 	}
 
+	cosecant { :self |
+		self.collect(cosecant:/1)
+	}
+
 	cosh { :self |
 		self.collect(cosh:/1)
+	}
+
+	cotangent { :self |
+		self.collect(cotangent:/1)
 	}
 
 	cubed { :self |
@@ -271,6 +279,10 @@
 
 	rounded { :self |
 		self.collect(rounded:/1)
+	}
+
+	secant { :self |
+		self.collect(secant:/1)
 	}
 
 	sign { :self |

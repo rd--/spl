@@ -19,7 +19,7 @@ Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axi
 
 * * *
 
-See also: Triangle
+See also: asaTriangle, sasTriangle, Triangle
 
 References:
 _Mathematica_

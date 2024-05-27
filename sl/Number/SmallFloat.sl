@@ -285,8 +285,16 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.cos(_self);>
 	}
 
+	cosecant { :self |
+		1 / self.sin
+	}
+
 	cosh { :self |
 		<primitive: return Math.cosh(_self);>
+	}
+
+	cotangent { :self |
+		1 / self.tan
 	}
 
 	cubeRoot { :self |
@@ -567,6 +575,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	rounded { :self |
 		<primitive: return Math.round(_self)>
+	}
+
+	secant { :self |
+		1 / self.cos
 	}
 
 	shallowCopy { :self |

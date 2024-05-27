@@ -308,11 +308,10 @@ Polygon : [Object] { | coordinates |
 		let n = p.size;
 		let a = [];
 		1.toDo(n) { :i |
-			let j = (i = 1).if { n } { i - 1};
-			let k = (i = n).if { 1 } { i + 1};
-			let u = p[i] - p[j];
-			let v = p[i] - p[k];
-			a.add(u.vectorAngle(v))
+			let j = (i + 1).wrapIndex(n);
+			let k = (i + 2).wrapIndex(n);
+			let r = (p @* [i, j, k]).planarAngle;
+			a.add(r)
 		};
 		a
 	}
@@ -340,9 +339,29 @@ Polygon : [Object] { | coordinates |
 
 +@Number {
 
+	aasTriangle { :alpha :beta :a |
+		let x2 = a * alpha.cosecant * (alpha + beta).sin;
+		let x3 = a * alpha.cotangent * beta.sin;
+		let y3 = a * beta.sin;
+		Triangle([0 0], [x2, 0], [x3, y3])
+	}
+
+	asaTriangle { :alpha :c :beta |
+		let x = alpha.cos * (alpha + beta).cosecant * beta.sin;
+		let y = alpha.sin * (alpha + beta).cosecant * beta.sin;
+		Triangle([0 0], [c 0], [c * x, c * y])
+	}
+
+	sasTriangle { :a :gamma :b |
+		let x = ((a ^ 2) + (b ^ 2) - (2 * a * b * gamma.cos)).sqrt;
+		let y = ((b ^ 2) - (a * b * gamma.cos)) / x;
+		let z = (a * b * gamma.sin) / x;
+		Triangle([0 0], [x 0], [y z])
+	}
+
 	sssTriangle { :a :b :c |
-		let y = ((a ^ 2).- + (b ^ 2) + (c ^ 2)) / (2 * c);
-		let z = ((a + b - c) * (a - b + c) * (a.- + b + c) * (a + b + c)).sqrt / (2 * c);
+		let y = ((a ^ 2).negated + (b ^ 2) + (c ^ 2)) / (2 * c);
+		let z = ((a + b - c) * (a - b + c) * (a.negated + b + c) * (a + b + c)).sqrt / (2 * c);
 		Triangle([0 0], [c 0], [y z])
 	}
 

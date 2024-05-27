@@ -2,8 +2,7 @@
 
 - _atRandom(anInteger | aCollection | anInterval, aRandom)_
 
-Select an element at random,
-or a `List` of _count_ random items.
+Select an element at random.
 
 At `Range`:
 

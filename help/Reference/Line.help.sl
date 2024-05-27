@@ -38,7 +38,7 @@ The `arcLength` of a `Line` in three-dimensions:
 3.sqrt
 ```
 
-Line generator.
+The ternary form is a Line generator.
 Generates a line from the start value to the end value.
 
 - start: starting value
@@ -67,7 +67,7 @@ _Note_: This is the Sc _Line_ Ugen without the _doneAction_ input.
 
 * * *
 
-See also: XLine
+See also: HalfLine, InfiniteLine, HalfPlane, InfinitePlane, Point, XLine
 
 References:
 _Csound_

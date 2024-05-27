@@ -247,6 +247,10 @@ Complex : [Object, Number] { | real imaginary |
 		self.i.cosh
 	}
 
+	cosecant { :self |
+		1 / self.sin
+	}
+
 	cosh { :self |
 		Complex(
 			self.real.cosh * self.imaginary.cos,
