@@ -9,7 +9,7 @@ The _program_ lines are prefixed by '>>> ' and the _expected answer_ lines follo
 >>> let string = '>>> a\n>>> b\nc\nd';
 >>> let list = string.lines;
 >>> list.asDocumentTest
-DocumentTest(['a' 'b'], ['c' 'd'])
+DocumentTest('>>>', ['a' 'b'], ['c' 'd'])
 ```
 
 * * *

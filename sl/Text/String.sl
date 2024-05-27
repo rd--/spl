@@ -193,6 +193,12 @@ String! : [Object, Json, Iterable, Character] {
 		self.error('String>>beginsWith: non string operand')
 	}
 
+	beginsWithAnyOf { :self :aCollection |
+		aCollection.anySatisfy { :prefix |
+			self.beginsWith(prefix)
+		}
+	}
+
 	capitalized { :self |
 		<primitive: return _self[0].toUpperCase() + _self.slice(1);>
 	}

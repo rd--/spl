@@ -1,11 +1,7 @@
-DocumentTest : [Object] { | program expectedAnswer |
+DocumentTest : [Object] { | prefix program expectedAnswer |
 
 	= { :self :anObject |
-		anObject.isDocumentTest & {
-			self.program = anObject.program & {
-				self.expectedAnswer = anObject.expectedAnswer
-			}
-		}
+		self.hasEqualSlots(anObject)
 	}
 
 	evaluate { :self |
@@ -17,17 +13,24 @@ DocumentTest : [Object] { | program expectedAnswer |
 	}
 
 	format { :self |
-		self.program.unwords ++ ' ~ (' ++ self.expectedAnswer.unwords ++ ')'
+		(self.prefix = '>>>').if {
+			self.program.unwords ++ ' ~ (' ++ self.expectedAnswer.unwords ++ ')'
+		} {
+			(self.prefix = '>>').if {
+				[
+					'(',
+					self.program.unwords,
+					').printString.utf8ByteArray = ',
+					self.expectedAnswer.unlines.utf8ByteArray.storeString
+				].stringJoin
+			} {
+				self.error('format: unknown prefix')
+			}
+		}
 	}
 
 	storeString { :self |
-		[
-			'DocumentTest(',
-				self.program.storeString,
-				', ',
-				self.expectedAnswer.storeString,
-			')'
-		].stringJoin
+		self.storeStringAsInitializeSlots
 	}
 
 }
@@ -35,15 +38,16 @@ DocumentTest : [Object] { | program expectedAnswer |
 +List {
 
 	asDocumentTest { :self |
+		let prefix = self[1].beginsWith('>>> ').if { '>>>' } { '>>' };
 		let program = self.select { :each |
-			each.beginsWith('>>> ')
+			each.beginsWith(prefix)
 		}.collect { :each |
-			each.drop(4)
+			each.drop(prefix.size + 1)
 		};
 		let expectedAnswer = self.reject { :each |
-			each.beginsWith('>>> ')
+			each.beginsWith(prefix)
 		};
-		DocumentTest(program, expectedAnswer)
+		DocumentTest(prefix, program, expectedAnswer)
 	}
 
 	extractDocumentTests { :self |
@@ -52,7 +56,7 @@ DocumentTest : [Object] { | program expectedAnswer |
 		let block = [];
 		self.do { :currentLine |
 			(
-				currentLine.beginsWith('>>> ') & {
+				currentLine.beginsWithAnyOf(['>> ' '>>> ']) & {
 					inBlock.not
 				}
 			).ifTrue {
@@ -80,10 +84,10 @@ DocumentTest : [Object] { | program expectedAnswer |
 
 }
 
-+List {
++String {
 
-	DocumentTest { :program :expectedAnswer |
-		newDocumentTest().initializeSlots(program, expectedAnswer)
+	DocumentTest { :prefix :program :expectedAnswer |
+		newDocumentTest().initializeSlots(prefix, program, expectedAnswer)
 	}
 
 }

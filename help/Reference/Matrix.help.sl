@@ -42,7 +42,7 @@ Inverse of a 2×2 matrix:
 ```
 >> [1.4 2; 3 -6.7].asMatrix.inverse
 2×2
-
+   
     0.4356    0.1300
     0.1951   -0.9100
 ```

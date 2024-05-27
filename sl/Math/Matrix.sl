@@ -612,7 +612,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		};
 		[
 			[m, '×', n].stringJoin,
-			'',
+			'   ',
 			text.unlines
 		].unlines
 	}

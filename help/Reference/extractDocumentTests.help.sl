@@ -8,7 +8,10 @@ Answer the sequence of `DocumentTest` blocks in the sequence of `String` items a
 >>> let string = 'a\nb\n\n```\n>>> c\nd\n```\ne\n```\n>>> f\ng\n```\nh';
 >>> let list = string.lines;
 >>> list.extractDocumentTests
-[DocumentTest(['c'], ['d']), DocumentTest(['f'], ['g'])]
+[
+	DocumentTest('>>>', ['c'], ['d']),
+	DocumentTest('>>>', ['f'], ['g'])
+]
 ```
 
 _Rationale_:
