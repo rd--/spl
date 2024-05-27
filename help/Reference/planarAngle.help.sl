@@ -50,8 +50,14 @@ All interior angles of a triangle:
 
 ```
 >>> let [a, b, c] = [[0, 0], [2, 0], [3 / 2, 3.sqrt / 2]];
->>> [b a c; c b a; a c b].collect(planarAngle:/1)
-[pi / 6, pi / 3, pi / 2]
+>>> (
+>>> 	[b a c; c b a; a c b].collect(planarAngle:/1),
+>>> 	Triangle(a, b, c).interiorAngles
+>>> )
+(
+	pi / [6 3 2],
+	pi / [6 3 2]
+)
 ```
 
 At specific values:

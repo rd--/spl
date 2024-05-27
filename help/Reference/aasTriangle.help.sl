@@ -12,11 +12,12 @@ and _C_ in the half-plane _y > 0_.
 
 ```
 >>> let t = aasTriangle(pi / 6, pi / 3, 1);
->>> (t.coordinates, t.area, t.centroid)
+>>> (t.coordinates, t.area, t.centroid, t.interiorAngles)
 (
 	[[0, 0], [2, 0], [3/2, 3.sqrt / 2]],
 	3.sqrt / 2,
-	[7/6, 1 / (2 * 3.sqrt)]
+	[7/6, 1 / (2 * 3.sqrt)],
+	pi / [6 3 2]
 )
 ```
 

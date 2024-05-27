@@ -9,7 +9,7 @@ Find the area, centroid and arc length and interior angles of a `Triangle`:
 ```
 >>> let t = Triangle([0 0], [1 0], [0 1]);
 >>> (t.area, t.centroid, t.arcLength, t.interiorAngles)
-(1/2, [1/3 1/3], 2 + 2.sqrt, [1/4.pi 1/4.pi 1/2.pi])
+(1/2, [1/3 1/3], 2 + 2.sqrt, pi / [2 4 4])
 ```
 
 Area, centroid and arc length of an equilateral triangle:
@@ -26,7 +26,7 @@ Area, centroid and arc length of an isosceles triangle:
 ```
 >>> let t = Triangle([0 0], [2 0], [1 3]);
 >>> (t.area, t.centroid, t.arcLength, t.interiorAngles)
-(3, [1, 1], 8.3246, [1.2490 0.6435 1.2490])
+(3, [1, 1], 8.3246, [1 / 10.sqrt, 1 / 10.sqrt, 4 / 5].arcCos)
 ```
 
 * * *

@@ -14,7 +14,7 @@ Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axi
 	[[0, 0], [5.sqrt, 0], [4 / 5.sqrt, 2 / 5.sqrt]],
 	1,
 	[3 / 5.sqrt, 2 / (3 * 5.sqrt)],
-	[1.10714 0.5.pi 0.46365]
+	[(2 / 5.sqrt).arcCos, (1 / 5.sqrt).arcCos, pi / 2]
 )
 ```
 

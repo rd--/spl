@@ -8,7 +8,7 @@ At `Polygon`:
 
 ```
 >>> [0 0; 1 0; 0 1].Polygon.interiorAngles
-(pi / [4 4 2])
+(pi / [2 4 4])
 ```
 
 * * *

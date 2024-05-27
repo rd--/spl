@@ -14,7 +14,7 @@ Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axi
 	[[0, 0], [1, 0], [3 / 4, 3.sqrt / 4]],
 	3.sqrt / 8,
 	[7 / 12, 1 / (4 * 3.sqrt)],
-	[pi / 3, pi / 2, pi / 6]
+	pi / [6 3 2]
 )
 ```
 

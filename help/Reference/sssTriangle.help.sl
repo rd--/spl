@@ -9,11 +9,12 @@ Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axi
 
 ```
 >>> let t = sssTriangle(3, 4, 5);
->>> (t.coordinates, t.area, t.centroid)
+>>> (t.coordinates, t.area, t.centroid, t.interiorAngles)
 (
 	[0 0; 5 0; 16/5 12/5],
 	6,
-	[41/15 4/5]
+	[41/15 4/5],
+	[(4 / 5).arcCos, (3 / 5).arcCos, pi / 2]
 )
 ```
 

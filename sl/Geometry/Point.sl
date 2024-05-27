@@ -307,9 +307,9 @@ Polygon : [Object] { | coordinates |
 	polygonInteriorAngles { :p |
 		let n = p.size;
 		let a = [];
-		1.toDo(n) { :i |
-			let j = (i + 1).wrapIndex(n);
-			let k = (i + 2).wrapIndex(n);
+		1.toDo(n) { :j |
+			let i = (j - 1).wrapIndex(n);
+			let k = (j + 1).wrapIndex(n);
 			let r = (p @* [i, j, k]).planarAngle;
 			a.add(r)
 		};
