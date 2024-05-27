@@ -25,6 +25,27 @@ Digits larger than the base are "carried":
 810122
 ```
 
+Calculate the first few decimal Smarandache–Wellin numbers,
+c.f. OEIS [A019518](https://oeis.org/A019518):
+
+```
+>>> 1:9.collect { :n |
+>>> 	n.primesList.collect(integerDigits:/1).flatten.fromDigits(10)
+>>> }
+[
+	2
+	23
+	235
+	2357
+	235711
+	23571113
+	2357111317
+	235711131719
+	23571113171923
+]
+
+```
+
 * * *
 
 See also: digitCount, fromContinuedFraction, integerDigits, powerRange, rationalize

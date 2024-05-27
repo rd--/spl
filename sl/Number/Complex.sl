@@ -364,6 +364,14 @@ Complex : [Object, Number] { | real imaginary |
 		].stringJoin
 	}
 
+	printStringShowingDecimalPlaces { :self :places |
+		[
+			self.real.printStringShowingDecimalPlaces(places),
+			'J',
+			self.imaginary.printStringShowingDecimalPlaces(places)
+		].stringJoin
+	}
+
 	randomComplex { :self |
 		0j0.randomComplex(self)
 	}

@@ -556,6 +556,23 @@
 		answer
 	}
 
+	printStringShowingDecimalPlaces { :self :placesDesired |
+		(placesDesired <= 0).if {
+			self.rounded.printString
+		} {
+			let rounder = 10 ^ placesDesired;
+			let rounded = self.roundTo(rounder.reciprocal);
+			let prefix = rounded.isNegative.if { '-' } { '' };
+			let roundedFractionPart = (rounded.abs.fractionPart * rounder).truncated;
+			[
+				prefix,
+				rounded.abs.integerPart.truncated,
+				'.',
+				roundedFractionPart.printString.padRight(placesDesired, '0')
+			].stringJoin
+		}
+	}
+
 	quotientBy { :self :aNumber :aBlock:/1 |
 		(aNumber = 0).if {
 			'@Number>>quotient: divideByZero'.error

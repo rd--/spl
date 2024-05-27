@@ -52,6 +52,9 @@ false
 
 >>> false.isInteger
 false
+
+>>> [1 2 3].isInteger
+false
 ```
 
 * * *

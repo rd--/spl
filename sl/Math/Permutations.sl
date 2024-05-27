@@ -916,6 +916,10 @@ Permutation : [Object] { | cycles degree |
 		self.randomPermutationList(count, system)
 	}
 
+	steinhausJohnsonTrotterDo { :self :aBlock:/1 |
+		self.plainChangesDo(aBlock:/1)
+	}
+
 	steinhausJohnsonTrotter { :self |
 		self.plainChanges
 	}

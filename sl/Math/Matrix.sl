@@ -1,38 +1,23 @@
 Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 
+	= { :self :anObject |
+		anObject.isMatrix & {
+			self.contents = anObject.contents
+		}
+	}
+
+	~ { :self :anObject |
+		anObject.isMatrix & {
+			self.contents ~ anObject.contents
+		}
+	}
+
 	at { :self :i :j |
 		self.contents[i, j]
 	}
 
 	determinant { :self |
-		self.isSquareMatrix.if {
-			let size = self.numberOfRows;
-			let array = self.contents;
-			(size = 2).if {
-				(array[1, 1] * array[2, 2]) - (array[1, 2] * array[2, 1])
-			} {
-				(size = 3).if {
-					(array[1, 1] * array[2, 2] * array[3, 3]) +
-					(array[1, 2] * array[2, 3] * array[3, 1]) +
-					(array[1, 3] * array[2, 1] * array[3, 2]) -
-					(array[1, 3] * array[2, 2] * array[3, 1]) -
-					(array[1, 2] * array[2, 1] * array[3, 3]) -
-					(array[1, 1] * array[2, 3] * array[3, 2])
-				} {
-					let answer = 0;
-					[1 .. size].plainChangesDo { :p |
-						let sign = p.permutationSymbol;
-						let entries = p.withIndexCollect { :i :j |
-							array[i][j]
-						};
-						answer := answer + (entries.product * sign)
-					};
-					answer
-				}
-			}
-		} {
-			self.error('Matrix>>determinant: not defined at non-square matrices')
-		}
+		self.contents.determinant
 	}
 
 	diagonal { :self :k |
@@ -47,31 +32,17 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	}
 
 	inverse { :self |
-		(
-			self.isSquareMatrix & {
-				self.determinant ~= 0
-			}
-		).if {
-			let n = self.numberOfRows;
-			(n = 2).if {
-				let [a, b, c, d] = self.contents.concatenation;
-				let r = 1 / ((a * d) - (b * c));
-				let m = [[d, b.-], [c.-, a]];
-				r * m
-			} {
-				let m = self.contents;
-				let i = n.identityMatrix;
-				(m ++.each i).rowReduce.collect { :each |
-					each.drop(n)
-				}
-			}
-		} {
-			self.error('Matrix>>inverse: not square or determinant is zero')
-		}
+		self.contents.inverse.asMatrix
 	}
 
 	isColumnVector { :self |
 		self.numberOfColumns = 1
+	}
+
+	isIntegerMatrix { :self |
+		self.elementType = 'LargeInteger' | {
+			self.contents.isIntegerMatrix
+		}
 	}
 
 	isMatrixOf { :self :elementType |
@@ -106,6 +77,10 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		} {
 			self.error('Matrix>>permanent: not defined at non-square matrices')
 		}
+	}
+
+	printString { :self |
+		self.contents.matrixPrintString
 	}
 
 	shape { :self |
@@ -265,7 +240,34 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	}
 
 	determinant { :self |
-		self.asMatrix(identity:/1).determinant
+		self.isSquareMatrix.if {
+			let size = self.size;
+			let array = self;
+			(size = 2).if {
+				(array[1, 1] * array[2, 2]) - (array[1, 2] * array[2, 1])
+			} {
+				(size = 3).if {
+					(array[1, 1] * array[2, 2] * array[3, 3]) +
+					(array[1, 2] * array[2, 3] * array[3, 1]) +
+					(array[1, 3] * array[2, 1] * array[3, 2]) -
+					(array[1, 3] * array[2, 2] * array[3, 1]) -
+					(array[1, 2] * array[2, 1] * array[3, 3]) -
+					(array[1, 1] * array[2, 3] * array[3, 2])
+				} {
+					let answer = 0;
+					[1 .. size].plainChangesDo { :p |
+						let sign = p.permutationSymbol;
+						let entries = p.withIndexCollect { :i :j |
+							array[i][j]
+						};
+						answer := answer + (entries.product * sign)
+					};
+					answer
+				}
+			}
+		} {
+			self.error('@Sequence>>determinant: not defined at non-square matrices')
+		}
 	}
 
 	diagonal { :self :k |
@@ -280,13 +282,19 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.diagonal(0)
 	}
 
-	diagonalMatrix { :self |
-		let k = self.size;
-		let answer = k.zeroMatrix(k);
-		1.toDo(k) { :each |
-			answer[each][each] := self[each]
+	diagonalMatrix { :self :k |
+		let n = self.size + k.abs;
+		let r = k.min(0).abs;
+		let c = k.max(0);
+		let answer = n.zeroMatrix(n);
+		1.toDo(self.size) { :each |
+			answer[each + r][each + c] := self[each]
 		};
 		answer
+	}
+
+	diagonalMatrix { :self |
+		self.diagonalMatrix(0)
 	}
 
 	distanceMatrix { :u :v :aBlock:/2 |
@@ -363,12 +371,40 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	}
 
 	inverse { :self |
-		self.asMatrix.inverse
+		(
+			self.isSquareMatrix & {
+				self.determinant ~= 0
+			}
+		).if {
+			let n = self.numberOfRows;
+			(n = 2).if {
+				let [a, b, c, d] = self.contents.concatenation;
+				let r = 1 / ((a * d) - (b * c));
+				let m = [[d, b.-], [c.-, a]];
+				r * m
+			} {
+				let m = self.contents;
+				let i = n.identityMatrix;
+				(m ++.each i).rowReduce.collect { :each |
+					each.drop(n)
+				}
+			}
+		} {
+			self.error('Sequence>>inverse: not square matrix or determinant is zero')
+		}
 	}
 
 	isColumnVector { :self |
 		self.isMatrix & {
 			self.anyOne.size = 1
+		}
+	}
+
+	isIntegerMatrix { :self |
+		self.isMatrix & {
+			self.allSatisfy { :row |
+				row.allSatisfy(isInteger:/1)
+			}
 		}
 	}
 
@@ -558,6 +594,29 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		}
 	}
 
+	matrixPrintString { :self |
+		let [m, n] = self.shape;
+		let print:/1 = self.isIntegerMatrix.if {
+			printString:/1
+		} {
+			{ :n |
+				n.printStringShowingDecimalPlaces(4)
+			}
+		};
+		let table = self.deepCollect(print:/1);
+		let columnWidth = table.flatten.collect(size:/1).max;
+		let text = table.collect { :row |
+			'   ' ++ row.collect { :each |
+				each.padLeft(columnWidth, ' ')
+			}.stringJoin('   ')
+		};
+		[
+			[m, '×', n].stringJoin,
+			'',
+			text.unlines
+		].unlines
+	}
+
 	matrixPower { :m :p |
 		let [a, b] = m.shape;
 		(a = b).if {
@@ -600,6 +659,21 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 			}.not
 		}
 	}
+
+	matrixRotate { :self :k |
+		k.caseOfOtherwise([
+			1 -> { self.collect(reversed:/1).transposed },
+			2 -> { self.collect(reversed:/1).reversed },
+			3 -> { self.transposed.collect(reversed:/1) }
+		]) {
+			self.error('@Sequence>>matrixRotate: k not 1,2,3')
+		}
+	}
+
+	matrixRotate { :self |
+		self.matrixRotate(1)
+	}
+
 
 	numberOfRows { :self |
 		self.isArray.if {

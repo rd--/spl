@@ -344,7 +344,7 @@ Polygon : [Object] { | coordinates |
 		(p0.size = 2).if {
 			(2 * [p0, p1, p2].shoelaceFormula).abs / p1.euclideanDistance(p2).abs
 		} {
-			(x0 - x1).cross(x0 - x2).norm / (x2 - x1).norm
+			(p0 - p1).cross(p0 - p2).norm / (p2 - p1).norm
 		}
 	}
 

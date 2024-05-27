@@ -35,7 +35,7 @@ Fixed point of a complex iteration:
 0.318132J1.33724
 ```
 
-Convergence may fail in machine-precision computations due to oscillations in the final digits.
+Convergence may fail due to oscillations in the final digits.
 Use a test function with a specific tolerance to resolve this:
 
 ```

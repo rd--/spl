@@ -6,11 +6,13 @@ Answer a number whose value is the difference between the _aNumber_ and its trun
 so that _x.truncated + x.fractionPart = x_.
 
 ```
->>> 1.6.fractionPart + 1.6.truncated
-1.6
+>>> let x = 1.6;
+>>> x.fractionPart + x.truncated
+x
 
->>> -1.6.fractionPart + -1.6.truncated
--1.6
+>>> let x = -1.6;
+>>> x.fractionPart + x.truncated
+x
 ```
 
 At `SmallFloat`:
@@ -22,8 +24,8 @@ At `SmallFloat`:
 >>> 2.4.fractionPart
 0.4
 
->>> 5.45533.fractionPart
-0.45533
+>>> -5.45533.fractionPart
+-0.45533
 ```
 
 Fractional part of a negative real number:

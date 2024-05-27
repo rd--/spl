@@ -22,7 +22,7 @@ Show convergence to `2.sqrt` in Newton’s method:
 [1 1.5 1.41666 1.41422 1.41421]
 ```
 
-Convergence may fail in machine-precision computations due to oscillations in the final digits.
+Convergence may fail due to oscillations in the final digits.
 Use a test function with a specific tolerance to resolve this:
 
 ```

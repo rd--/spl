@@ -24,6 +24,9 @@ At `String`:
 
 >>> 'Backwards text'.reversed
 'txet sdrawkcaB'
+
+>>> 'no word, no bond, row on.'.reversed
+'.no wor ,dnob on ,drow on'
 ```
 
 `reversed` is its own inverse:
@@ -31,6 +34,28 @@ At `String`:
 ```
 >>> 'Backwards text'.reversed.reversed
 'Backwards text'
+```
+
+Row-reversed matrix:
+
+```
+>>> [1 2 3].diagonalMatrix.reversed
+[
+	0 0 3;
+	0 2 0;
+	1 0 0
+]
+```
+
+Column-reversed matrix:
+
+```
+>>> [1 2 3].diagonalMatrix.collect(reversed:/1)
+[
+	0 0 1;
+	0 2 0;
+	3 0 0
+]
 ```
 
 Where supported `reversed` is displayed as ᴙ.

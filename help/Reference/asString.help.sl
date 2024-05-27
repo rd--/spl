@@ -2,7 +2,7 @@
 
 - _asString(anObject)_
 
-Answer the _printString_ of the receiver,
+Answer the `printString` of _anObject_,
 unless it is a `String`, in which case answer the receiver itself,
 or a `Character`, in which case answer a single character string.
 

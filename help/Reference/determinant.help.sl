@@ -168,6 +168,9 @@ A square matrix has an inverse if and only if its determinant is nonzero:
 0
 ```
 
+Find determinant of singular matrix:
+Examine a matrix that is exactly singular, but which has a large nonzero determinant. In theory, the determinant of any singular matrix is zero, but because of the nature of floating-point computation, this ideal is not always achievable.
+
 * * *
 
 See also: isSquareMatrix, matrixRank, permanent, permutationSymbol, rowReduce, trace

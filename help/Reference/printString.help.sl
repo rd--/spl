@@ -76,7 +76,7 @@ At `Record`:
 '(x: 23, y: 3.141)'
 ```
 
-At `Assocaition`:
+At `Association`:
 
 ```
 >>> (23 -> 3.141).printString
@@ -85,7 +85,7 @@ At `Assocaition`:
 
 * * *
 
-See also: asString, postLine, storeString
+See also: asString, postLine, printStringShowingDecimalPlaces, storeString
 
 References:
 _Mathematica_
