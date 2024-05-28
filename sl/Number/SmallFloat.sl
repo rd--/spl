@@ -503,22 +503,16 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		'SmallFloat>>raisedToSmallFloat: not SmallFloat'.error
 	}
 
-	randomFloat { :self |
-		self * system.nextRandomFloat
+	randomFloat { :min |
+		system.randomFloat(min)
 	}
 
-	randomFloat { :self :aNumber |
-		self + (aNumber - self).randomFloat
+	randomFloat { :min :max |
+		system.randomFloat(min, max)
 	}
 
 	randomFloat { :min :max :countOrShape |
-		countOrShape.isInteger.if {
-			{ min.randomFloat(max) } ! countOrShape
-		} {
-			countOrShape.fill { :unusedIndex |
-				min.randomFloat(max)
-			}
-		}
+		system.randomFloat(min, max, countOrShape)
 	}
 
 	randomFloatBipolar { :self |

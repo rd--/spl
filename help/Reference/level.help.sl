@@ -37,7 +37,7 @@ At `List`:
 At `Tree`:
 
 ```
->>> [1 [2 [3] 4] 5].asTree.level(2)
+>>> [1, [2, [3], 4], 5].asTree.level(2)
 [Tree(2, []), Tree(nil, [Tree(3, [])]), Tree(4, [])]
 ```
 

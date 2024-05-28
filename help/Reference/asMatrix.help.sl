@@ -4,6 +4,18 @@
 
 Answer a value of type `Matrix` representing the matrix at _aMatrix_.
 
+A 2×2 matrix:
+
+```
+>> [1 2; 3 4].asMatrix
+2×2
+   
+   1   2
+   3   4
+```
+
+A 3×3 matrix:
+
 ```
 >> [3 3].iota.asMatrix
 3×3
@@ -16,3 +28,7 @@ Answer a value of type `Matrix` representing the matrix at _aMatrix_.
 * * *
 
 See also: Matrix
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/MatrixForm.html)

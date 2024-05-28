@@ -9,7 +9,7 @@ Each subTree of a Tree is a Tree.
 The `asTree` method constructs a Tree from a `Sequence`:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.isTree
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.isTree
 true
 ```
 
@@ -18,8 +18,8 @@ and can be converted to a nested `List` using `asList`.
 Trees that have non-nil values at non-leaf sub-trees cannot be so converted.
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.asList
-[1 [2 [4 [7] 5] 3 [6 [8 9]]]]
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.asList
+[1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
 ```
 
 The `size` of a tree is the number of `subTrees`.
@@ -28,23 +28,23 @@ The `size` of a tree is the number of `subTrees`.
 >>> [1 2 3 4 5].asTree.size
 5
 
->>> [1 [2 3 4] 5].asTree.size
+>>> [1, [2, 3, 4], 5].asTree.size
 3
 
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.size
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.size
 2
 ```
 
 The size of a `Tree` is same as the size of an equivalent nested `List`:
 
 ```
->>> [1 2 3 4 5].size
+>>> [1, 2, 3, 4, 5].size
 5
 
->>> [1 [2 3 4] 5].size
+>>> [1, [2, 3, 4], 5].size
 3
 
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].size
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].size
 2
 ```
 
@@ -58,14 +58,14 @@ true
 The `leafCount` of a Tree is the number of its leaves:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.leafCount
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.leafCount
 9
 ```
 
 The `leafCount` of a `Tree` is the same as the `leafCount` of an equivalent nested `List`:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].leafCount
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].leafCount
 9
 ```
 
@@ -76,20 +76,20 @@ An empty `Tree` has `depth` of `one`.
 >>> [].asTree.depth
 1
 
->>> [1 2 3 4 5].asTree.depth
+>>> [1, 2, 3, 4, 5].asTree.depth
 2
 
->>> [1 [2 3 4] 5].asTree.depth
+>>> [1, [2, 3, 4], 5].asTree.depth
 3
 
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.depth
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.depth
 5
 ```
 
 The `depth` of a tree is the same as the `depth` of an equivalent nested `List`:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].depth
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].depth
 5
 ```
 
@@ -99,7 +99,7 @@ and hence `contents` answers all of the subTrees.
 `values` answers the value at each tree visited by `do`:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.values
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.values
 [nil 1 nil 2 nil 4 nil 7 5 3 nil 6 nil 8 9]
 ```
 
@@ -107,7 +107,7 @@ and hence `contents` answers all of the subTrees.
 `postOrderValues` collects the value of each tree visited by `postOrderDo`:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.postOrderValues
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.postOrderValues
 [1 2 4 7 nil 5 nil 3 6 8 9 nil nil nil nil]
 ```
 
@@ -115,7 +115,7 @@ and hence `contents` answers all of the subTrees.
 `levelOrderValues` collects the value of each tree visited by `levelOrderDo`:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.levelOrderValues
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.levelOrderValues
 [nil 1 nil 2 nil 3 nil 4 nil 5 6 nil 7 8 9]
 ```
 
@@ -137,7 +137,7 @@ The values of a tree in each traversal order:
 `reverseDo` visit each subTree in turn and then visits the tree:
 
 ```
->>> let t = [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree;
+>>> let t = [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree;
 >>> let l = [];
 >>> t.reverseDo { :each | l.add(each.value) };
 >>> l
@@ -148,14 +148,14 @@ The values of a tree in each traversal order:
 `leaves` collects the items visited by `leavesDo` into a `List`:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.leaves
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.leaves
 [1 2 4 7 5 3 6 8 9]
 ```
 
 `flatten` at a `Tree` is equal to `leaves`.
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.flatten
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.flatten
 [1 2 4 7 5 3 6 8 9]
 ```
 
@@ -163,13 +163,13 @@ The values of a tree in each traversal order:
 and the `flatten` of a `Tree` is the same as the `flatten` of an equivalent nested `List`:
 
 ```
->>> let l = [1 [2 [4 [7] 5] 3 [6 [8 9]]]];
+>>> let l = [1, [2, [4, [7], 5], 3, [6, [8, 9]]]];
 >>> let e = [];
 >>> l.deepDo { :each | e.add(each) };
 >>> e
 [1 2 4 7 5 3 6 8 9]
 
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].flatten
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].flatten
 [1 2 4 7 5 3 6 8 9]
 ```
 
@@ -177,21 +177,21 @@ and the `flatten` of a `Tree` is the same as the `flatten` of an equivalent nest
 `indices` answers a `Range` of the indices to the immediate sub-trees:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.indices
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.indices
 1:2
 ```
 
 The `indices` of a `Tree` are the same as the indices` of an equivalent nested `List`:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].indices
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].indices
 1:2
 ```
 
 `deepIndices` answers a `List` of Lists indicating the paths to the nested sub-tree:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.deepIndices
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.deepIndices
 [
 	1; 2;
 	2 1;
@@ -204,7 +204,7 @@ The `indices` of a `Tree` are the same as the indices` of an equivalent nested `
 `atPath` finds the value at a _deep index_:
 
 ```
->>> let t = [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree;
+>>> let t = [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree;
 >>> let i = t.deepIndices;
 >>> i.collect { :each | t.atPath(each).value }
 [1 nil 2 nil 4 nil 7 5 3 nil 6 nil 8 9]
@@ -213,7 +213,7 @@ The `indices` of a `Tree` are the same as the indices` of an equivalent nested `
 `leafIndices` answers the paths to leaf sub-trees only:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.leafIndices
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.leafIndices
 [
 	1;
 	2 1;
@@ -226,7 +226,7 @@ The `indices` of a `Tree` are the same as the indices` of an equivalent nested `
 The `leafIndices` of a tree are the same as the `deepIndices` of an equivalent nested `List`:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].deepIndices
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].deepIndices
 [
 	1;
 	2 1;
@@ -240,7 +240,7 @@ The `leafIndices` of a tree are the same as the `deepIndices` of an equivalent n
 Sub-trees at level two:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.level(2)
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.level(2)
 [
 	Tree(2, []),
 	Tree(nil, [Tree(4, []), Tree(nil, [Tree(7, [])]), Tree(5, [])]),
@@ -252,7 +252,7 @@ Sub-trees at level two:
 Sub-trees at level three:
 
 ```
->>> [1 [2 [4 [7] 5] 3 [6 [8 9]]]].asTree.level(3)
+>>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.level(3)
 [
 	Tree(4, []),
 	Tree(nil, [Tree(7, [])]),

@@ -36,6 +36,24 @@
 		self.nextRandomFloat(anInteger.negated, anInteger + 1).floor
 	}
 
+	randomFloat { :self :max |
+		self.nextRandomFloat * max
+	}
+
+	randomFloat { :self :min :max |
+		min + self.randomFloat(max - min)
+	}
+
+	randomFloat { :self :min :max :countOrShape |
+		countOrShape.isInteger.if {
+			{ self.randomFloat(min, max) } ! countOrShape
+		} {
+			countOrShape.fill { :unusedIndex |
+				self.randomFloat(min, max)
+			}
+		}
+	}
+
 }
 
 +@Object {

@@ -1,8 +1,8 @@
 # zeroMatrix
 
-- _zeroMatrix(n, m)_
+- _zeroMatrix(m, n)_
 
-Answers the `zero` matrix of the specified shape (_n×m_).
+Answers the `zero` matrix of the specified shape (_m×n_).
 
 A 2×2 matrix:
 

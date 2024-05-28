@@ -674,6 +674,17 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.matrixRotate(1)
 	}
 
+	gramSchmidt { :self |
+		let a = self.deepCopy;
+		let n = a.size;
+		1.toDo(n) { :k |
+			a[k] := a[k].normalize;
+			(k + 1).toDo(n) { :j |
+				a[j] := a[j] - (a[j].dot(a[k]) * a[k])
+			}
+		};
+		a
+	}
 
 	numberOfRows { :self |
 		self.isArray.if {

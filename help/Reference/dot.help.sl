@@ -15,23 +15,30 @@ Scalar product of vectors in two dimensions:
 [0]
 ```
 
+Vectors are perpendicular if their inner product is zero:
+
+```
+>>> [1 1].vectorAngle([-1 1])
+(pi / 2)
+```
+
 Scalar product of vectors in three dimensions:
 
 ```
 >>> [3.2 4.2 5.2].dot([0.75 1.1 0.0625])
 7.345
 
->>> [1 1 1] dot: [-1 -1 1]
+>>> [1 1 1].dot([-1 -1 1])
 -1
 
->>> [1 -1 2] dot: [0 1 1]
+>>> [1 -1 2].dot([0 1 1])
 1
 ```
 
 Dot product of exact vectors:
 
 ```
->>> [1 2 3 4 5] dot: [1 8 9 0 -1]
+>>> [1 2 3 4 5].dot([1 8 9 0 -1])
 39
 ```
 
@@ -41,8 +48,17 @@ Dot allows complex inputs, but does not conjugate any of them:
 >>> let u = [1 2j-1];
 >>> let z = 7;
 >>> let v = [z 3];
->>> u dot: v
+>>> u.dot(v)
 (6j-3 + z)
+```
+
+Compute the `norm` of a vector using the Hermitian inner product:
+
+```
+>>> let h = { :a :b | a.conjugated.dot(b) };
+>>> let u = [1 2J-1];
+>>> (h(u, u).sqrt, u.norm)
+(6.sqrt, 6.sqrt)
 ```
 
 `dot` of a 1×4 row vector and a 4×1 column vector is a 1×1 scalar:
@@ -50,8 +66,16 @@ Dot allows complex inputs, but does not conjugate any of them:
 ```
 >>> let a = [1 1 0 0];
 >>> let b = [1; 2; 3; 4];
->>> a.dot(b)
-[3]
+>>> (a.dot(b), b.outerProduct(a).++)
+(
+	[3],
+	[
+		1 1 0 0;
+		2 2 0 0;
+		3 3 0 0;
+		4 4 0 0
+	]
+)
 ```
 
 `dot` of 2×3 and a 3×3 matrices is a 2×3 matrix:
@@ -59,11 +83,14 @@ Dot allows complex inputs, but does not conjugate any of them:
 ```
 >>> let a = [1 3 5; 2 4 7];
 >>> let b = [-5 8 11; 3 9 21; 4 0 8];
->>> a.dot(b)
-[
-	24 35 114;
-	30 52 162
-]
+>>> (a.dot(b), [2 4 7].dot([11 21 8]))
+(
+	[
+		24 35 114;
+		30 52 162
+	],
+	162
+)
 ```
 
 A 2×3 matrix can be multiplied by a 2-vector only on the left:
@@ -118,31 +145,49 @@ Note that it is effectively multiplying _v_ on the left side of the matrix, not 
 (-0.02493, -0.02493, 1.15989)
 ```
 
-Multiply real machine-number matrices:
+Multiply real 3×3 matrices:
 
 ```
 >>> let m = [1.2 3.2 5.2; 2.2 4.2 -6.4; 3.1 5.1 7.3];
 >>> let n = [4.2 6.3 8.2; 2.5 -7.3 9.3; 6.3 8.3 -1.10];
 >>> m.dot(n)
-[45.8 27.36 33.88; -20.58 -69.92 64.14; 71.76 42.89 64.82]
+[
+	 45.8   27.36  33.88;
+	-20.58 -69.92  64.14;
+	 71.76  42.89  64.82
+]
 ```
 
-Product of complex matrices:
+Product of complex 3×3 matrices:
 
 ```
 >>> let m = [1j1 2j0 3j-2; 0j0 4j0 5j2; 0j0 0j0 6j0];
 >>> let n = [6j1 4j0 5j-7; 5j0 3j0 2j1; 5j0 2j0 7j0];
 >>> m.dot(n)
-[30j-3 16j0 37j-14; 45j10 22j4 43j18; 30j0 12j0 42j0]
+[
+	30j-3 16j0 37j-14;
+	45j10 22j4 43j18;
+	30j0  12j0 42j0
+]
 ```
 
-Product of exact matrices:
+Product of exact 3×2 and 2×3 matrices:
 
 ```
 >>> let m = [1 2; 3 4; 5 6];
 >>> let n = [6 5 4; 3 2 1];
 >>> (m.dot(n), n.dot(m))
-([12 9 6; 30 23 16; 48 37 26], [41 56; 14 20])
+(
+	[
+		12  9  6;
+		30 23 16;
+		48 37 26
+	],
+	[
+		41 56;
+		14 20
+	]
+)
 ```
 
 Project the vector _(-1, 3)_ on the line spanned by the vector _(1, 1)_:
@@ -162,8 +207,12 @@ Project the vector _(-1, -4, -2)_ on the plane spanned by the vectors _(1, 1, -1
 >>> let b2 = [-3 3 0];
 >>> let b3 = b2 - (b2.dot(b1) / b1.dot(b1) * b1);
 >>> let p = (v.dot(b1) / b1.dot(b1) * b1) + (v.dot(b3) / b3.dot(b3) * b3);
->>> v - p
-[9/22 9/22 27/22]
+>>> (b3, p, v - p)
+(
+	[-7/2 2 1/2],
+	[13/22 35/22 -8/11],
+	[9/22 9/22 27/22]
+)
 ```
 
 For a vector _v_ with real entries, _v.norm_ equals _(v.v).sqrt_:

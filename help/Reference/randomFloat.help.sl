@@ -1,51 +1,53 @@
 # randomFloat
 
-- _randomFloat(alpha)_ => _randomFloat(0, alpha)_
-- _randomFloat(min, max)_
-- _randomFloat(min, max, countOrShape)_
+- _randomFloat(r, alpha)_ => _randomFloat(0, alpha)_
+- _randomFloat(r, min, max)_
+- _randomFloat(r, min, max, countOrShape)_
 
-Generate a random number between _low_ and _high_.
+Generate one or more random numbers between _low_ and _high_ using the random number generator _r_.
 
 Uniform distribution, uni-polar:
 
 ```
->>> 1.randomFloat.betweenAnd(0, 1)
-true
+>>> Sfc32(1684).randomFloat(1)
+0.6949
 ```
 
 Uniform distribution, bi-polar:
 
 ```
->>> -1.randomFloat(1).betweenAnd(-1, 1)
-true
+>>> Sfc32(19442).randomFloat(-1, 1)
+-0.7021
 ```
 
 A `List` of random numbers:
 
 ```
->>> -1.randomFloat(1, 9).allSatisfy { :each | each.betweenAnd(-1, 1) }
-true
+>>> Sfc32(37194).randomFloat(-1, 1, 5)
+[0.2422 0.8461 -0.4622 -0.9531 0.4011]
 ```
 
 A 3×4 matrix of random numbers:
 
 ```
->>> -1.randomFloat(1, [3 4]).allSatisfy { :each |
->>> 	each.sum.betweenAnd(-1 * 4, 1 * 4)
->>> }
-true
+>>> Sfc32(73198).randomFloat(-1, 1, [3 4])
+[
+	-0.83962 -0.72375 -0.67470 -0.03642;
+	-0.62561 -0.33655  0.32850 -0.81299;
+	 0.19075 -0.80027 -0.52768  0.43139
+]
 ```
 
 Plot:
 
 ~~~
--1.randomFloat(1, 99).plot
+system.randomFloat(-1, 1, 99).plot
 ~~~
 
 Plot a random walk:
 
 ~~~
--1.randomFloat(1, 99).accumulate.plot
+system.randomFloat(-1, 1, 99).accumulate.plot
 ~~~
 
 * * *

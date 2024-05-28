@@ -67,7 +67,7 @@ Build up a binary tree:
 
 ```
 >>> [1 2 3 4].foldList(0) { :p :q | [p, q] }
-[0 [0 1] [[0 1] 2] [[[0 1] 2] 3] [[[[0 1] 2] 3] 4]]
+[0, [0, 1], [[0, 1], 2], [[[0, 1], 2], 3], [[[[0, 1], 2], 3], 4]]
 ```
 
 Build up a left-branching binary tree:
@@ -75,7 +75,7 @@ Build up a left-branching binary tree:
 
 ```
 >>> [1 2 3 4].foldList(0) { :p :q | [q, p] }
-[0 [1 0] [2 [1 0]] [3 [2 [1 0]]] [4 [3 [2 [1 0]]]]]
+[0, [1, 0], [2, [1, 0]], [3, [2, [1, 0]]], [4, [3, [2, [1, 0]]]]]
 ```
 
 `foldList` makes a list of length _n + 1_:

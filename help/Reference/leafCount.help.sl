@@ -41,7 +41,7 @@ At `Record`:
 At `Tree`:
 
 ```
->>> [1 [2 [3 4] 5]].asTree.leafCount
+>>> [1, [2, [3, 4], 5]].asTree.leafCount
 5
 ```
 

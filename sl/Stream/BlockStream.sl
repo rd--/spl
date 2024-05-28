@@ -169,6 +169,7 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 		}
 	}
 
+{-
 	randomFloat { :self |
 		self.collect(randomFloat:/1)
 	}
@@ -176,6 +177,7 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 	randomFloat { :lhs :rhs |
 		rhs.adaptToStreamAndApply(lhs, randomFloat:/2)
 	}
+-}
 
 	reject { :self :aBlock:/1 |
 		self.select { :each |

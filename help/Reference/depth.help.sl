@@ -59,7 +59,7 @@ At deeply nested `Tuple`:
 At `Tree`:
 
 ```
->>> [1 [2 [3] 4] 5].asTree.depth
+>>> [1, [2, [3], 4], 5].asTree.depth
 4
 ```
 

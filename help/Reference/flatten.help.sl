@@ -5,20 +5,20 @@
 Similar to `concatenation` but removes all nesting.
 
 ```
->>> [1 [2 [3 [4 [5] 6] 7] 8] 9].flatten
+>>> [1, [2, [3, [4, [5], 6], 7], 8], 9].flatten
 [1 .. 9]
 
->>> [1 [2 [3 [4 [5 [6 [7 [8 [9]]]]]]]]].flatten
+>>> [1, [2, [3, [4, [5, [6, [7, [8, [9]]]]]]]]].flatten
 [1 .. 9]
 
->>> [[[[[[[[[1] 2] 3] 4] 5] 6] 7] 8] 9].flatten
+>>> [[[[[[[[[1], 2], 3], 4], 5], 6], 7], 8], 9].flatten
 [1 .. 9]
 ```
 
 Strings are not flattened to sequences of characters:
 
 ```
->>> [1 [2 [3 ['45' 6] '78']] 9].flatten
+>>> [1, [2, [3, ['45', 6], '78']], 9].flatten
 [1 2 3 '45' 6 '78' 9]
 ```
 
@@ -49,7 +49,7 @@ As an inverse of `clump`:
 At `Tree`:
 
 ```
->>> [1 [2 [3] 4] 5].asTree.flatten
+>>> [1, [2, [3], 4], 5].asTree.flatten
 [1 2 3 4 5]
 ```
 

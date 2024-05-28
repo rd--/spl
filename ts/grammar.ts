@@ -71,7 +71,6 @@ Sl {
 		| VectorSyntax
 		| MatrixSyntax
 		| VolumeSyntax
-		| TreeSyntax
 		| ListExpression
 		| ParenthesisedExpression
 		| DictionaryExpression

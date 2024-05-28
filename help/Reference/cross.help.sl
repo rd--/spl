@@ -108,7 +108,8 @@ See also: dot, kroneckerProduct, outer, permutationSymbol, vectorAngle
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CrossProduct.html)
-[2](https://reference.wolfram.com/language/ref/Cross.html),
+[2](https://mathworld.wolfram.com/PerpendicularVector.html)
+[3](https://reference.wolfram.com/language/ref/Cross.html),
 _Mathworks_
 [1](https://au.mathworks.com/help/matlab/ref/cross.html),
 _W_

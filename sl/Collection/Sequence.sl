@@ -2003,6 +2003,11 @@
 		self.patienceSortPiles.mergeInPlace(max:/1, addFirst:/2)
 	}
 
+	projection { :u :v |
+		let w = v.conjugated;
+		u.dot(w) / v.dot(w) * v
+	}
+
 	pinnedIndex { :self :index |
 		(index < self.firstIndex).if {
 			self.firstIndex
