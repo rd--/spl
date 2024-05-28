@@ -50,7 +50,13 @@ Markdown : [Object, Cache, Iterable] { | source cache |
 		let answer = [];
 		self.do { :each |
 			(each::type = 'codeBlock').ifTrue {
-				answer.add(each::literal)
+				let codeBlock = (contents: each::literal);
+				codeBlock::information := each.includesKey('info').if {
+					each::info
+				} {
+					''
+				};
+				answer.add(codeBlock)
 			}
 		};
 		answer

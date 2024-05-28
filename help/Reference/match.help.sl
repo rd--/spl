@@ -13,6 +13,12 @@ Answer the part of _aString_ that matches _aRegExp_, else nil if there is no mat
 
 >>> RegExp('c(a|d)+r').match('xyz')
 nil
+
+>>> RegExp('(-|>)+').match('>>> ')
+'>>>'
+
+>>> RegExp('(-|>)+').match('>- ')
+'>-'
 ```
 
 * * *

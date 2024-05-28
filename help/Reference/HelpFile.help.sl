@@ -33,7 +33,8 @@ url.fetchText.then { :aString |
 		help.seeAlso,
 		help.references,
 		help.unicode,
-		help.categories
+		help.categories,
+		help.codeBlocks
 	].do(postLine:/1)
 }
 ~~~

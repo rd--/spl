@@ -24,7 +24,7 @@ DocumentTest : [Object] { | prefix program expectedAnswer |
 					self.expectedAnswer.unlines.utf8ByteArray.storeString
 				].stringJoin
 			} {
-				self.error('format: unknown prefix')
+				self.error('format: unknown prefix: ' ++ self.prefix)
 			}
 		}
 	}
@@ -38,7 +38,7 @@ DocumentTest : [Object] { | prefix program expectedAnswer |
 +List {
 
 	asDocumentTest { :self |
-		let prefix = self[1].beginsWith('>>> ').if { '>>>' } { '>>' };
+		let prefix = RegExp('>+').match(self[1]);
 		let program = self.select { :each |
 			each.beginsWith(prefix)
 		}.collect { :each |
@@ -56,7 +56,7 @@ DocumentTest : [Object] { | prefix program expectedAnswer |
 		let block = [];
 		self.do { :currentLine |
 			(
-				currentLine.beginsWithAnyOf(['>> ' '>>> ']) & {
+				currentLine.beginsWithAnyOf(['>> ', '>>> ']) & {
 					inBlock.not
 				}
 			).ifTrue {

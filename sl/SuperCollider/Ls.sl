@@ -495,7 +495,9 @@
 	}
 
 	LsWhite { :low :high :length |
-		LsConstant(low).randomFloat(high).take(length)
+		LsConstant(low).withCollect(LsConstant(high)) { :min :max |
+			system.randomFloat(min, max)
+		}.take(length)
 	}
 
 }

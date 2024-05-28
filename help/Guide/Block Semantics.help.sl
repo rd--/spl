@@ -25,4 +25,6 @@ using  `numArgs` to ignore excess parameters.
 
 * * *
 
-See also: Block Syntax, cull, numArgs, value
+See also: cull, numArgs, value
+
+Guides: Block Syntax

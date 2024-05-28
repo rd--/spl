@@ -13,14 +13,14 @@ A _matrix_, a two-dimensional array, can be written using `Matrix Syntax` as a s
 
 ```
 >>> [1 2; 3 4; 5 6]
-[[1 2] [3 4] [5 6]]
+[[1, 2], [3, 4], [5, 6]]
 ```
 
 A _volume_, a three-dimensional array, can be written using `Volume Syntax` as a sequence of matrices separated by _:;_ tokens:
 
 ```
 >>> [1 2; 3 4:; 5 6; 7 8]
-[[[1 2] [3 4]] [[5 6] [7 8]]]
+[[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
 ```
 
 The notations allow for writing irregular arrays,

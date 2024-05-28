@@ -21,4 +21,3 @@ LsWhite(
 * * *
 
 See also: LsBrown, LsRand
-

@@ -164,6 +164,11 @@ HelpFile : [Object, Cache] { | origin source cache |
 		options::verbose.ifTrue {
 			(self.origin.fileNameWithoutExtensions, self.name).postLine
 		};
+		self.codeBlocks.do { :each |
+			each::information.includesSubstring('methodDefinition').ifTrue {
+				system.evaluate(each::contents)
+			}
+		};
 		self.documentTests.do { :each |
 			testCount := testCount + 1;
 			options::verbose.ifTrue {

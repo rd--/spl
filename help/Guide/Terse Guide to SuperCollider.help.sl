@@ -8,10 +8,6 @@
 (w: [1 2], x: [3 4 5], y: 6).multiChannelExpand = [(w: 1, x: 3, y: 6), (w: 2, x: 4, y: 6), (w: 1, x: 5, y: 6)]
 ```
 
-## Nil -- extensions
-```
-```
-
 ## Number -- extensions
 ```
 1/3.coin.isBoolean {- probability may be a fraction -}
@@ -21,10 +17,6 @@ let c = 0.5.coin.if { 't' } { 'f' }; c = 't' | { c = 'f' }
 -3:13.collect { :each | each.fold(1, 9) } = [5, 4, 3, 2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5]
 -3:13.collect { :each | each.foldOnce(4, 7) } = [11, 10, 9, 8, 7, 6, 5, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1]
 -3:13.collect { :each | each.fold(4, 7) } = [5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7]
-```
-
-## Object -- extensions
-```
 ```
 
 ## Sequence -- extensions

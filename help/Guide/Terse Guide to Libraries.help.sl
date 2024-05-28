@@ -1,17 +1,5 @@
 # Terse Guide to Libraries
 
-## Benchmarks
-```
-```
-
-## Blob
-```
-```
-
-## Compatibility
-```
-```
-
 ## Cons -- collection type
 ```
 Cons(1, nil).length = 1
@@ -30,10 +18,6 @@ Cons([1 .. 9]).length = 9
 ```
 ::x := 4; ::x * ::x = 16
 ::a := 'x' -> 1; [::a.key, ::a.value] = ['x', 1]
-```
-
-## String -- markdown
-```
 ```
 
 ## SmallHours

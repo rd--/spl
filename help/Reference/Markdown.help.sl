@@ -50,12 +50,16 @@ The `asTree` method answers a `Tree` of the parse tree:
 [1 1; 2 1; 2 2; 3; 4 1 1; 5 1 1 1; 5 1 1 2 1; 6 1; 6 2 1 1]
 ~~~
 
-The `codeBlocks` method answers a `List` of each of the code block elements:
+The `codeBlocks` method answers a `List` of each of the code block elements,
+which are stored as a `Record`:
 
 ```
->>> let m = Markdown('# H\n\n```\na\n```\n\n\tb\n');
+>>> let m = Markdown('# H\n\n``` A\na\n```\n\n\tb\n');
 >>> m.codeBlocks
-['a\n' 'b\n']
+[
+	(contents: 'a\n', information: 'A'),
+	(contents: 'b\n', information: '')
+]
 ```
 
 * * *

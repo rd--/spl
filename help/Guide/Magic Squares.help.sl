@@ -2,23 +2,23 @@
 
 Define a method to summarise the properties of a magic square:
 
-```
->>> +List {
->>> 	magicSquareSummary { :m |
->>> 		let n = m.size;
->>> 		let mu = n * (n * n + 1) / 2;
->>> 		let v = List(n, 1);
->>> 		(
->>> 			mu,
->>> 			m.dot(v),
->>> 			v.dot(m),
->>> 			m.diagonal.sum,
->>> 			m.antidiagonal.sum,
->>> 			m.matrixRank
->>> 		)
->>> 	}
->>> }
-```
+~~~ spl methodDefinition
++List {
+	magicSquareSummary { :m |
+		let n = m.size;
+		let mu = n * (n * n + 1) / 2;
+		let v = List(n, 1);
+		(
+			mu,
+			m.dot(v),
+			v.dot(m),
+			m.diagonal.sum,
+			m.antidiagonal.sum,
+			m.matrixRank
+		)
+	}
+}
+~~~
 
 The only 3×3 magic square,
 c.f. OEIS [A033812](https://oeis.org/A033812):
