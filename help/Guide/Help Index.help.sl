@@ -49,7 +49,7 @@
 - `&`, `&&`, `|`, `||`, `not`
 - `false`, `true`
 - `boole`
-- `allSatisfy`, `anySatisfy`, `noneSatisfy`
+- `allSatisfy`, `anySatisfy`, `allTrue`, `noneSatisfy`
 - `if`, `ifFalse`, `ifTrue`
 
 ## Character
@@ -607,6 +607,7 @@
 - `interquartileRange`, `quantile`, `quartiles`
 - `movingAverage`, `movingMedian`
 - `exponentialMovingAverage`
+- `covariance`, `correlation`, `blomqvistBeta`
 
 ## Streams
 
@@ -679,7 +680,7 @@
 - `isAscii`, `isAsciiCodePoint`
 - `lines`, `paragraphs`, `sentences`, `words`
 - `removeDiacritics`
-- `compare`, `precedes`
+- `compare`, `precedes`, `precedesOrEqualTo`
 
 ## Timing
 

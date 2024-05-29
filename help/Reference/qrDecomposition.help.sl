@@ -61,6 +61,23 @@ since this does not affect the value of the expression _A = Q*R_:
 )
 ```
 
+The Gram-Schmidt process also answers an orthogonal matrix:
+
+```
+>>> let m = [3 4 2; 2 5 2; 1 2 6];
+>>> let [q, _] = m.transposed.qrDecomposition;
+>>> let z = q.transposed.negated;
+>>> (m.gramSchmidtProcess ~ z, z)
+(
+	true,
+	[
+		 0.55708  0.74278  0.37139;
+		-0.78707  0.61489 -0.04919;
+		-0.26491 -0.26491  0.92717
+	]
+)
+```
+
 * * *
 
 See also: isOrthogonalMatrix, isUpperTriangularMatrix, luDecomposition

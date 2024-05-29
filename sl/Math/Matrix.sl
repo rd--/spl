@@ -686,9 +686,9 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.matrixRotate(1)
 	}
 
-	gramSchmidt { :self |
+	gramSchmidtProcess { :self |
 		let a = self.deepCopy;
-		let n = a.size;
+		let [n, m] = a.shape;
 		1.toDo(n) { :k |
 			a[k] := a[k].normalize;
 			(k + 1).toDo(n) { :j |
@@ -823,6 +823,16 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		}.table(r, c)
 	}
 
+	toeplitzMatrix { :c :r |
+		{ :i :j |
+			(i >= j).if {
+				c[i - j + 1]
+			} {
+				r[j - i + 1]
+			}
+		}.table((1 .. r.size), (1 .. c.size))
+	}
+
 	trace { :self :aBlock:/1 |
 		self.isVector.if {
 			aBlock(self)
@@ -893,6 +903,12 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 				}
 			}
 		}
+	}
+
+	hilbertMatrix { :n |
+		{ :i :j |
+			1 / (i + j - 1)
+		}.table(1:n, 1:n)
 	}
 
 	identityMatrix { :n :m |
