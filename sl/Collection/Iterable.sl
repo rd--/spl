@@ -26,6 +26,10 @@
 		}
 	}
 
+	allTrue { :self |
+		self.allSatisfy(identity:/1)
+	}
+
 	anyOne { :self |
 		valueWithReturn { :return:/1 |
 			self.do { :each |

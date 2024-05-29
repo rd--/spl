@@ -61,8 +61,8 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	containsPoint { :self :aPoint |
-		self.lowerLeft <= aPoint & {
-			aPoint < self.upperRight
+		(self.lowerLeft <= aPoint).allTrue & {
+			(aPoint <self.upperRight).allTrue
 		}
 	}
 

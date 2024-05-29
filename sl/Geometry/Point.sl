@@ -1,109 +1,3 @@
-{- Requires: PlanarCoordinates CartesianCoordinates FourVector -}
-
-+PlanarCoordinates {
-
-	asPoint { :self |
-		self
-	}
-
-	isPoint { :self |
-		true
-	}
-
-	printString { :self |
-		[self.x, '@', self.y].stringJoin
-	}
-
-}
-
-+CartesianCoordinates {
-
-	asPoint { :self |
-		self
-	}
-
-	isPoint { :self |
-		true
-	}
-
-}
-
-+@Object {
-
-	isPoint { :self |
-		false
-	}
-
-}
-
-+@Number {
-
-	@ { :x :y |
-		PlanarCoordinates(x, y)
-	}
-
-	Point { :x :y |
-		PlanarCoordinates(x, y)
-	}
-
-	Point { :x :y :z |
-		CartesianCoordinates(x, y, z)
-	}
-
-	Point { :w :x :y :z |
-		FourVector(w, x, y, z)
-	}
-
-}
-
-+List {
-
-	asPoint { :self |
-		self.size.caseOfOtherwise([
-			{ 2 } -> { self.asPlanarCoordinates },
-			{ 3 } -> { self.asCartesianCoordinates },
-			{ 4 } -> { self.asFourVector }
-		]) {
-			'List>>asPoint: invalid size'.error
-		}
-	}
-
-}
-
-+Record {
-
-	asPoint { :self |
-		self.includesAllIndices(['w','x','y','z']).if {
-			self.asFourVector
-		} {
-			self.includesAllIndices(['x','y','z']).if {
-				self.asCartesianCoordinates
-			} {
-				self.includesAllIndices(['x','y']).if {
-					self.asPlanarCoordinates
-				} {
-					'Record>>asPoint: invalid record'.error
-				}
-			}
-		}
-	}
-
-}
-
-+Tuple {
-
-	asPoint { :self |
-		self.size.caseOfOtherwise([
-			{ 2 } -> { PlanarCoordinates(self.first, self.second) },
-			{ 3 } -> { CartesianCoordinates(self.first, self.second, self.third) },
-			{ 4 } -> { FourVector(self.first, self.second, self.third, self.fourth) }
-		]) {
-			'Tuple>>asPoint'.error
-		}
-	}
-
-}
-
 Point : [Object] { | vector |
 
 	= { :self :anObject |
@@ -429,8 +323,20 @@ Polygon : [Object] { | coordinates |
 
 +@Dictionary {
 
+	asPoint { :self |
+		self.includesAllIndices(['x','y','z']).if {
+			Point([self::x, self::y, self::z])
+		} {
+			self.includesAllIndices(['x','y']).if {
+				Point([self::x, self::y])
+			} {
+				self.error('@Dictionary>>asPoint: invalid dictionary')
+			}
+		}
+	}
+
 	x { :self |
-		self.keys.includesAllOf(['x' 'y']).if {
+		self.includesAllIndices(['x' 'y']).if {
 			self['x']
 		} {
 			self.error('@Dictionary>>x: incorrect keys')
@@ -438,7 +344,7 @@ Polygon : [Object] { | coordinates |
 	}
 
 	y { :self |
-		self.keys.includesAllOf(['x' 'y']).if {
+		self.includesAllIndices(['x' 'y']).if {
 			self['y']
 		} {
 			self.error('@Dictionary>>y: incorrect keys')
@@ -446,7 +352,7 @@ Polygon : [Object] { | coordinates |
 	}
 
 	z { :self |
-		self.keys.includesAllOf(['x' 'y' 'z']).if {
+		self.includesAllIndices(['x' 'y' 'z']).if {
 			self['z']
 		} {
 			self.error('@Dictionary>>z: incorrect keys')

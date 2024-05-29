@@ -1,16 +1,8 @@
 # @
 
-- _aNumber @ anotherNumber_
 - _aCollection @ anIndex_
 
-In the `Number` case this operator is the point constructor, as in Smalltalk:
-
-```
->>> 0@0
-Point(0, 0)
-```
-
-In the `Collection` case this is the operator form of `at`:
+Answer the item in _aCollection_ at _anIndex_.
 
 ```
 >>> let c = 1:9;
@@ -45,23 +37,10 @@ and `@>` for `atPath`:
 
 The name of this operator is _commercialAt_.
 
-Note that `at` at `Number` is an error:
-
-```
->>> let n = 23;
->>> { n[3] }.ifError { true }
-true
-```
-
-_Rationale_:
-These two uses are somewhat at odds.
-The `Point` constructor form should properly thread over lists.
-However using `@*` and `@>` as `at` variants is odd if `@` is not `at`.
-
 * * *
 
 See also: at, At Syntax, Point
 
 Unicode: U+0040 @ Commercial At
 
-Categories: Graphics, Accessing
+Categories: Accessing

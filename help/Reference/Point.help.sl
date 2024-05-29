@@ -1,22 +1,23 @@
 # Point
 
-- _Point(x, y)_ ⇒ _PlanarCoordinates(x, y)_
-- _Point(x, y, z)_ ⇒ _CartesianCoordinates(x, y, z)_
+- _Point(aVector)_
 
-Constructs Cartesian coordinates of two and three dimensions.
+A `Type` representing a geometric point in _n_-dimensions.
 
 A two-dimensional cartesian co-ordinate:
 
 ```
->>> Point(1, 2)
-PlanarCoordinates(1, 2)
+>>> let p = Point([1, 2]);
+>>> (p.dimension, p.embeddingDimension)
+(0, 2)
 ```
 
 A three-dimensional cartesian co-ordinate:
 
 ```
->>> Point(1, 2, 3)
-CartesianCoordinates(1, 2, 3)
+>>> let p = Point([1, 2, 3]);
+>>> (p.dimension, p.embeddingDimension)
+(0, 3)
 ```
 
 * * *
@@ -25,4 +26,9 @@ See also: asPoint, CartesianCoordinates, PolarCoordinates, PlanarCoordinates, Sp
 
 Guides: Geometry Types
 
-Categories: Geometry
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Point.html)
+[2](https://reference.wolfram.com/language/ref/Point.html)
+
+Categoriess: Geometry

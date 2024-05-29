@@ -1,5 +1,3 @@
-{- Requires: CartesianCoordinates -}
-
 Sphere : [Object] { | center radius |
 
 	= { :self :anObject |
@@ -37,20 +35,20 @@ Sphere : [Object] { | center radius |
 	}
 
 	x { :self |
-		self.center.x
+		self.center[1]
 	}
 
 	y { :self |
-		self.center.y
+		self.center[2]
 	}
 
 	z { :self |
-		self.center.z
+		self.center[3]
 	}
 
 }
 
-+CartesianCoordinates {
++@Sequence {
 
 	Sphere { :center :radius |
 		newSphere().initializeSlots(center, radius)

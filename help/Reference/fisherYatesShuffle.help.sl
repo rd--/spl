@@ -1,6 +1,6 @@
 # fisherYatesShuffle
 
-- _fisherYatesShuffle(aSequence, random)_
+- _fisherYatesShuffle(aSequence, aRandomNumberGenerator)_
 
 Shuffle _aSequence_ in place using the Fisher–Yates algorithm.
 

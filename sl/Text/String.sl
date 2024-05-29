@@ -629,6 +629,10 @@ String! : [Object, Json, Iterable, Character] {
 		self < anObject
 	}
 
+	precedesOrEqualTo { :self :anObject |
+		self <= anObject
+	}
+
 	primitiveCollectInto { :self :aBlock:/1 :aCollection |
 		self.primitiveDo { :each |
 			aCollection.add(aBlock(each))

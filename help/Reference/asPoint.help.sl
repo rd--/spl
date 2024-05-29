@@ -1,53 +1,21 @@
 # asPoint
 
-- _asPoint(aList | aRecord | aTuple)_
+- _asPoint(aDictionary)_
 
-Constructs Cartesian coordinates of two and three dimensions given an appropriate list, record or tuple.
+Constructs a `Point` of two and three dimensions given an appropriate dictionary.
 
-`List` case:
-
-```
->>> [1, 2].asPoint
-PlanarCoordinates(1, 2)
-
->>> [1, 2, 3].asPoint
-CartesianCoordinates(1, 2, 3)
-```
-
-`Tuple` case:
-
-```
->>> (1, 2).asPoint
-PlanarCoordinates(1, 2)
-
->>> (1, 2, 3).asPoint
-CartesianCoordinates(1, 2, 3)
-```
-
-`Record` case:
+At `Record`:
 
 ```
 >>> (x: 1, y: 2).asPoint
-PlanarCoordinates(1, 2)
+Point([1 2])
 
 >>> (x: 1, y: 2, z: 3).asPoint
-CartesianCoordinates(1, 2, 3)
-```
-
-In the `PlanarCoordinates` and `CartesianCoordinates` cases answer `identity`:
-
-```
->>> let p = PlanarCoordinates(1, 2);
->>> p == p.asPoint
-true
-
->>> let p = CartesianCoordinates(1, 2, 3);
->>> p == p.asPoint
-true
+Point([1 2 3])
 ```
 
 * * *
 
-See also: asComplex, CartesianCoordinates, Point, PlanarCoordinates
+See also: asComplex, Point
 
 Categories: Converting

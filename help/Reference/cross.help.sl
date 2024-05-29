@@ -79,7 +79,7 @@ The cross product of two _n×3_ matrices:
 Find the area of the parallelogram defined by two vectors:
 
 ```
->>> Point(1, 2, -2).cross(Point(1, -1, 2)).asList.norm
+>>> [1 2 -2].cross([1 -1 2]).norm
 29.sqrt
 ```
 

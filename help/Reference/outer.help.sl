@@ -27,7 +27,12 @@ Compare elements with each other using equal:
 ```
 >>> let x = [1 2 3 2];
 >>> (x =.outer x).boole
-[1 0 0 0; 0 1 0 1; 0 0 1 0; 0 1 0 1]
+[
+	1 0 0 0;
+	0 1 0 1;
+	0 0 1 0;
+	0 1 0 1
+]
 ```
 
 A multiplication table:
@@ -35,14 +40,26 @@ A multiplication table:
 ```
 >>> let x = [1 .. 5];
 >>> x *.outer x
-[1 2 3 4 5; 2 4 6 8 10; 3 6 9 12 15; 4 8 12 16 20; 5 10 15 20 25]
+[
+	1  2  3  4  5;
+	2  4  6  8 10;
+	3  6  9 12 15;
+	4  8 12 16 20;
+	5 10 15 20 25
+]
 ```
 
 Lower-triangular matrix:
 
 ```
 >>> (1:5 >.outer 1:5).boole
-[0 0 0 0 0; 1 0 0 0 0; 1 1 0 0 0; 1 1 1 0 0; 1 1 1 1 0]
+[
+	0 0 0 0 0;
+	1 0 0 0 0;
+	1 1 0 0 0;
+	1 1 1 0 0;
+	1 1 1 1 0
+]
 ```
 
 Apply a function on a tensor product grid:
@@ -50,8 +67,14 @@ Apply a function on a tensor product grid:
 ```
 >>> let x = [0, 0.1, 0.25, 0.5, 1];
 >>> let y = [-1, -0.5, 0, 1 / 3, 2 / 3, 1];
->>> { :x :y | (pi * (x ^ 2) * y).sin }.outer(x, y).first(3)
-[-0 -0 0 0 0 0; -0.03141 -0.015707 0 0.010472 0.020942 0.031411; -0.19509 -0.09802 0 0.06540 0.13053 0.19509]
+>>> { :x :y |
+>>> 	(pi * (x ^ 2) * y).sin
+>>> }.outer(x, y).first(3)
+[
+	-0        -0        0         0        0        0;
+	-0.031411 -0.015707 0         0.010472 0.020942 0.031411;
+	-0.195090 -0.098017 0         0.065403 0.130526 0.195090
+]
 ```
 
 Outer product of matrices:
@@ -68,6 +91,18 @@ Outer product of matrices:
 		[9 18 27; 36 45 54; 63 72 81]
 	]
 ]
+```
+
+Outer product of a three-vector and a two-square matrix:
+
+```
+>>> *.outer([1 2 3], [4 5; 6 7])
+[
+	 4  5;  6  7:;
+	 8 10; 12 14:;
+	12 15; 18 21
+]
+```
 
 * * *
 

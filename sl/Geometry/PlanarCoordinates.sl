@@ -263,8 +263,12 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 +[List, Tuple] {
 
 	asPlanarCoordinates { :self |
-		let [x, y] = self;
-		PlanarCoordinates(x, y)
+		self.isMatrix.if {
+			self.collect(asPlanarCoordinates:/1)
+		} {
+			let [x, y] = self;
+			PlanarCoordinates(x, y)
+		}
 	}
 
 }

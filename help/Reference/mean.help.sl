@@ -55,6 +55,13 @@ Compute the mean of every row of a matrix:
 [3 8 13]
 ```
 
+Mean of complex numbers:
+
+```
+>>> [2J1 3J-2 5J4].mean
+(10 / 3 + 1.i)
+```
+
 * * *
 
 See also: arithmeticMean, geometricMean, median

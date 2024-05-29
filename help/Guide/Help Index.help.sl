@@ -506,9 +506,11 @@
 - `Random`, `Stream`
 - `LinearCongruential`, `Mersenne`, `Sfc32`, `SplitMix`
 - `nextRandomFloat`, `randomComplex`, `randomFloat`, `randomInteger`, `randomPrime`
-- `atRandom`, `randomByteArray`, `randomSample`
+- `atRandom`, `randomByteArray`
+- `randomChoice`, `randomSample`
 - `randomFloatBipolar`, `randomIntegerBipolar`
 - `randomWeightedIndex`
+- `fisherYatesShuffle`, `sattoloShuffle`, `shuffle`, `shuffled`
 
 ## Random Number Distributions
 

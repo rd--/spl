@@ -351,7 +351,7 @@ let l = [1, 2, 3]; l.atModify(2, squared:/1) = 4 & { l = [1, 4, 3] } {- modify v
 [1 2 3; 4 5 6].transposed = [1 4; 2 5; 3 6] {- transposed, matrix syntax -}
 1.toAsCollect(9, List:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 let a = [1 .. 9]; a.shuffle; a ~= [1 .. 9] {- shuffle in place, using system Random -}
-let a = [1 .. 9]; let r = Random(13579); a.shuffleUsing(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] {- shuffle in place, using given Random -}
+let a = [1 .. 9]; let r = Random(13579); a.shuffle(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] {- shuffle in place, using given Random -}
 let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } {- answer shuffled copy -}
 [1 .. 9].shuffled.sorted = [1 .. 9] {- resort after shuffle -}
 [].shuffled = []
@@ -915,13 +915,13 @@ let s = 'string'; let a = []; a.addAll(s); a.size = 6 {- add elements from Strin
 ## Circle -- geometric type
 ```
 system.includesPackage('Circle') {- package -}
-Circle(Point(0, 0), 1).typeOf = 'Circle' {- type of -}
-Circle(Point(0, 0), 1).isCircle {- predicate -}
-Circle(Point(0, 0), 1).center = Point(0, 0) {- center -}
-Circle(Point(0, 0), 1).radius = 1 {- radius -}
-Circle(Point(0, 0), 1).diameter = 2 {- diameter -}
-Circle(Point(0, 0), 1).circumference = 2.pi {- circumference -}
-Circle(Point(0, 0), 1).area = 1.pi {- area -}
+Circle((0, 0), 1).typeOf = 'Circle' {- type of -}
+Circle((0, 0), 1).isCircle {- predicate -}
+Circle((0, 0), 1).center = (0, 0) {- center -}
+Circle((0, 0), 1).radius = 1 {- radius -}
+Circle((0, 0), 1).diameter = 2 {- diameter -}
+Circle((0, 0), 1).circumference = 2.pi {- circumference -}
+Circle((0, 0), 1).area = 1.pi {- area -}
 ```
 
 ## Clock -- temporal type
@@ -1068,8 +1068,8 @@ system.includesPackage('Colour') {- colour package -}
 Colour(1, 0, 0, 0.5).over(Colour(0, 1, 0, 0.5)) = Colour(1 / 3, 2 / 3, 0, 3 / 4)
 Colour(0, 0, 0).isBlack {- is colour black -}
 Colour(1, 1, 1).isWhite {- is colour white -}
-[0.1, 0.2, 0.3].Colour = Colour(0.1, 0.2, 0.3) {- three element array constructor -}
-[0.1, 0.2, 0.3, 0.4].Colour = Colour(0.1, 0.2, 0.3, 0.4) {- four element array constructor -}
+[0.1, 0.2, 0.3].asColour = Colour(0.1, 0.2, 0.3) {- three element array constructor -}
+[0.1, 0.2, 0.3, 0.4].asColour = Colour(0.1, 0.2, 0.3, 0.4) {- four element array constructor -}
 Colour(0.5, 0.5, 0.5).isGreyOf(0.5) {- is colour grey with particular value -}
 Colour(0.5, 0.5, 0.5).isGrey {- is colour grey -}
 Colour(1, 0.2, 0.2).isRed {- is colour "red" -}
@@ -1269,10 +1269,6 @@ true.asBit = 1 {- asBit -}
 1.pi.asFraction(0.01) = 22/7 {- with epsilon -}
 22/7.asFraction = 22/7 {- identity -}
 23.asFraction = 23 {- identity -}
-[0, 0].asPoint = (0 @ 0) {- array as point -}
-(0, 0).asPoint = Point(0, 0) {- tuple as point -}
-(0 @ 0).asPoint = (0 @ 0) {- identity -}
-Point(0, 0).asPoint = Point(0, 0) {- identity -}
 1.asComplex = Complex(1, 0) {- number to complex -}
 1.i = Complex(0, 1) {- number to complex -}
 (2 + 3.i).asComplex = Complex(2, 3) {- identity -}
@@ -2264,7 +2260,7 @@ Matrix22(1, 0, 0, 1).isMatrix22 {- matrix predicate -}
 Matrix22(1, 4, -1, 9).determinant = 13 {- determinant -}
 Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2) {- inverse, answers new matrix -}
 let m = Matrix22(-1, 3/2, 1,-1); m.invert; m = Matrix22(2, 3, 2, 2) {- inverse, in place -}
-Matrix22().rotation(1.pi / 2).applyTo(PlanarCoordinates(0, 1)).closeTo(1 @ 0)
+Matrix22().rotation(1.pi / 2).applyTo(PlanarCoordinates(0, 1)).closeTo(PlanarCoordinates(1, 0))
 Matrix22(1, 2, 3, 4).transposed = Matrix22(1, 3, 2, 4) {- transpose, answers new matrix -}
 let m = Matrix22(1, 2, 3, 4); m.transpose; m = Matrix22(1, 3, 2, 4) {- transpose, in place -}
 ```
@@ -2524,7 +2520,7 @@ let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 ({ system.nextRandomFloat } ! 3).allSatisfy(isNumber:/1) = true
 at:/2.parameterNames = ['self', 'index'] {- answer names of method parameters -}
 asJson:/3.parameterNames = ['self', 'replacer', 'space'] {- answer names of method parameters -}
-randomFloat:/2.parameterNames = ['self', 'aNumber'] {- answer names of method parameters -}
+randomFloat:/2.parameterNames = ['min', 'max'] {- answer names of method parameters -}
 system.methodDictionary::at[2]::Map.information.parameterNames = ['self', 'key']
 let c = []; let a = []; 1:3.do { :i | c.add { a.add(i) } }; c.do(value:/1); a = [1, 2, 3]
 let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] {- closure -}
@@ -2679,13 +2675,13 @@ let r = 1:9.asIterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] {- predi
 ## Sphere -- geometric type
 ```
 system.includesPackage('Sphere') {- package -}
-Sphere(Point(0, 0, 0), 1).typeOf = 'Sphere' {- type of -}
-Sphere(Point(0, 0, 0), 1).isSphere {- predicate -}
-Sphere(Point(0, 0, 0), 1).center = Point(0, 0, 0) {- center -}
-Sphere(Point(0, 0, 0), 1).radius = 1 {- radius -}
-Sphere(Point(0, 0, 0), 1).diameter = 2 {- diameter -}
-Sphere(Point(0, 0, 0), 1).surfaceArea = 4.pi {- surface area -}
-Sphere(Point(0, 0, 0), 1).volume = (4.pi / 3) {- volume -}
+Sphere([0 0 0], 1).typeOf = 'Sphere' {- type of -}
+Sphere([0 0 0], 1).isSphere {- predicate -}
+Sphere([0 0 0], 1).center = [0 0 0] {- center -}
+Sphere([0 0 0], 1).radius = 1 {- radius -}
+Sphere([0 0 0], 1).diameter = 2 {- diameter -}
+Sphere([0 0 0], 1).surfaceArea = 4.pi {- surface area -}
+Sphere([0 0 0], 1).volume = (4.pi / 3) {- volume -}
 ```
 
 ## Stream -- collection trait
@@ -2797,34 +2793,34 @@ Record().hasEqualElements(Record()) {- key sequence and equality -}
 ## Rectangle -- geometry type
 ```
 system.includesPackage('Rectangle') {- Rectangle package -}
-Rectangle(0@0, 1@1).printString = 'Rectangle(0@0, 1@1)'
-Rectangle(0@0, 1@1).storeString = 'Rectangle(PlanarCoordinates(0, 0), PlanarCoordinates(1, 1))'
-Rectangle(0@0, 2@2).intersect(Rectangle(1@1, 4@4)) = Rectangle(1@1, 2@2)
-Rectangle(1@1, 3@3).area = 4
-Rectangle(1@1, 3@3).center = Point(2, 2)
-Rectangle(1@1, 3@3).containsPoint(2@2) = true {- includes -}
-let o = 0@0; let p = 10@10; let q = 0 - p; [Rectangle(q, o), Rectangle(o, p)].rectangleMerging = Rectangle(q, p)
-let r = Rectangle(0@0, 10@20); r.area = (10 * 20) {- area is width by height -}
-let r = Rectangle(0@0, 10@20); r.translateBy(-20@10).area = (10 * 20) {- translation preserves area -}
-let r = Rectangle(0@0, 0@0); r.area = 0 {- the area of an empty rectangle is zero -}
-let r = Rectangle(10@10, 0@0); r.area = 0 {- the area of an empty rectangle is zero -}
-let r = Rectangle(0@0, 10@0); r.area = 0 {- the area of an empty rectangle is zero -}
-let r = Rectangle(0@0, 10@20); let c = r.center; r.containsPoint(c) {- the center is inside the rectangle -}
-let r = Rectangle(0@0, 10@20); let c = r.center; r.upperLeft.distance(c) = r.lowerRight.distance(c)
-let r = Rectangle(0@0, 10@20); let c = r.center; r.lowerLeft.distance(c) = r.upperRight.distance(c)
-let r = Rectangle(0@0, 10@20); let c = r.center; r.upperLeft.distance(c) = r.lowerLeft.distance(c)
-let r = Rectangle(0@0, 10@20); let c = r.center; r.translateBy(-20@10).center = c.translateBy(-20@10) {- the center is translated with the rectangle -}
-let r = Rectangle(30@10, 10@20); let c = r.center; r.containsPoint(c).not {- an empty rectangle does not contain any point -}
-let r = Rectangle(0@0, 50@50); [r.center, 1.5@1.5, r.upperLeft, r.upperRight, r.lowerLeft, r.lowerRight].collect { :each | r.containsPoint(each) } = [true, true, false, false, true, false]
-let r = Rectangle(10@10, 20@30); r.containsPoint(r.lowerLeft) {- a rectangle does contain its lower left corner -}
-let r = Rectangle(10@10, 20@30); r.containsPoint(r.upperRight).not {- a rectangle does not contain its upper right corner -}
-let r = Rectangle(0@0, 50@50); let pt = r.randomPoint; r.containsPoint(pt) {- a rectangle contains any random point in it -}
-let r = Rectangle(0@0, 50@50); r.pointAtFraction(0.5@0.5) = r.center {- pointAtFraction can find the center -}
-let r = Rectangle(10@20, 30@50); r.upperHalf = Rectangle(10@35, 30@50) & { r.upperHalf.upperHalf = Rectangle(10@42.5, 30@50) }
-let r = Rectangle(10@20, 30@50); r.upperLeftQuadrant = Rectangle(10@35, 20@50)
-let r = Rectangle(10@20, 30@50); r.upperLeftQuadrant.upperLeftQuadrant = Rectangle(10@42.5, 15@50)
-let r = Rectangle(10@20, 30@50); r.upperRightQuadrant = Rectangle(20@35, 30@50)
-let r = Rectangle(10@20, 30@50); r.upperRightQuadrant.upperRightQuadrant = Rectangle(25@42.5, 30@50)
+Rectangle([0, 0], [1, 1]).printString = 'Rectangle([0, 0], [1, 1])'
+Rectangle([0, 0], [1, 1]).storeString = 'Rectangle([0, 0], [1, 1])'
+Rectangle([0, 0], [2, 2]).intersect(Rectangle([1, 1], [4, 4])) = Rectangle([1, 1], [2, 2])
+Rectangle([1, 1], [3, 3]).area = 4
+Rectangle([1, 1], [3, 3]).center = [2, 2]
+Rectangle([1, 1], [3, 3]).containsPoint([2, 2]) = true {- includes -}
+let o = [0, 0]; let p = [10, 10]; let q = 0 - p; [Rectangle(q, o), Rectangle(o, p)].rectangleMerging = Rectangle(q, p)
+let r = Rectangle([0, 0], [10, 20]); r.area = (10 * 20) {- area is width by height -}
+let r = Rectangle([0, 0], [10, 20]); r.translateBy([-20, 10]).area = (10 * 20) {- translation preserves area -}
+let r = Rectangle([0, 0], [0, 0]); r.area = 0 {- the area of an empty rectangle is zero -}
+let r = Rectangle([10, 10], [0, 0]); r.area = 0 {- the area of an empty rectangle is zero -}
+let r = Rectangle([0, 0], [0, 0]); r.area = 0 {- the area of an empty rectangle is zero -}
+let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.containsPoint(c) {- the center is inside the rectangle -}
+let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.upperLeft.euclideanDistance(c) = r.lowerRight.euclideanDistance(c)
+let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.lowerLeft.euclideanDistance(c) = r.upperRight.euclideanDistance(c)
+let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.upperLeft.euclideanDistance(c) = r.lowerLeft.euclideanDistance(c)
+let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.translateBy([-20, 10]).center = (c + [-20, 10]) {- the center is translated with the rectangle -}
+let r = Rectangle([30, 10], [10, 20]); let c = r.center; r.containsPoint(c).not {- an empty rectangle does not contain any point -}
+let r = Rectangle([0, 0], [50, 50]); [r.center, [1.5, 1.5], r.upperLeft, r.upperRight, r.lowerLeft, r.lowerRight].collect { :each | r.containsPoint(each) } = [true, true, false, false, true, false]
+let r = Rectangle([10, 10], [20, 30]); r.containsPoint(r.lowerLeft) {- a rectangle does contain its lower left corner -}
+let r = Rectangle([10, 10], [20, 30]); r.containsPoint(r.upperRight).not {- a rectangle does not contain its upper right corner -}
+let r = Rectangle([0, 0], [50, 50]); let pt = r.randomPoint; r.containsPoint(pt) {- a rectangle contains any random point in it -}
+let r = Rectangle([0, 0], [50, 50]); r.pointAtFraction([0.5, 0.5]) = r.center {- pointAtFraction can find the center -}
+let r = Rectangle([10, 20], [30, 50]); r.upperHalf = Rectangle([10, 35], [30, 50]) & { r.upperHalf.upperHalf = Rectangle([10, 42.5], [30, 50]) }
+let r = Rectangle([10, 20], [30, 50]); r.upperLeftQuadrant = Rectangle([10, 35], [20, 50])
+let r = Rectangle([10, 20], [30, 50]); r.upperLeftQuadrant.upperLeftQuadrant = Rectangle([10, 42.5], [15, 50])
+let r = Rectangle([10, 20], [30, 50]); r.upperRightQuadrant = Rectangle([20, 35], [30, 50])
+let r = Rectangle([10, 20], [30, 50]); r.upperRightQuadrant.upperRightQuadrant = Rectangle([25, 42.5], [30, 50])
 ```
 
 ## RegExp -- text type
@@ -4174,64 +4170,58 @@ PlanarCoordinates(-1, 1).isPlanarCoordinates = true
 [1, 2].asPlanarCoordinates = PlanarCoordinates(1, 2) {- from list -}
 (1, 2).asPlanarCoordinates = PlanarCoordinates(1, 2) {- from tuple -}
 (x: 1, y: 2).asPlanarCoordinates = PlanarCoordinates(1, 2) {- from record -}
-Point(-1, 1).isPlanarCoordinates = true {- point constructor -}
-[1, 2].asPoint = Point(1, 2) {- list as point -}
-(1, 2).asPoint = Point(1, 2) {- tuple as point -}
-(x: 1, y: 2).asPoint = Point(1, 2) {- record as point -}
-Point(3, 4).isPoint & { true } = true
-(-1@1).isPoint.not = false
--1@1 = Point(-1, 1)
-(-1@1).x = -1
-(-1@1).y = 1
-(-1@1).x(-3) = -3
-(-1@1).y(3) = 3
-Point(-1, 1).x = -1
-Point(-1, 1).y = 1
-Point(-1, 1).x(-3) = -3
-Point(-1, 1).y(3) = 3
--1@1 * 9 = (-9@9)
--1@1 + 2 = (1@3)
-2 * (-1@1) * 2 = (-4@4)
-(-1@1).asString = '-1@1'
-(1 @ 1).negated = (-1 @ -1) {- negation -}
-0 - (1 @ 1) = (-1 @ -1) {- negation as subtraction from zero -}
-let p = -1@1; p.x := -3; p.y := 3; p = (-3@3) = true
-let p = -1@3; let a = [p]; a.first.x := -3; p = (-3@3) = true
-let x = 3.141; let y = 23; let p = x@y; p.x = x & { p.y = y }
-[1@0, 1@1, 0@1, -1@1, -1@0, 0 @ -1].collect(theta:/1) = (1.pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2]) {- theta = angle from (1,0) -}
-0@0 = Point(0,0)
-200 @ 100 = Point(200, 100) {- obtain a new point -}
-(200 @ 100).x = 200 {- x coordinate -}
-(200 @ 100).y = 100 {- y coordinate -}
-0 - (200 @ 100) = (-200 @ -100) {- negates x and y (note @- is an binary selector) -}
-(0 - (200 @ 100)).abs = (200 @ 100) {- absolute value of x and y -}
-200 @ 100 + 1 = (201 @ 101) {- add scale to both x and y -}
-200 @ 100 - 1 = (199 @ 99) {- subtract scale from both x and y -}
-200 @ 100 * 2 = (400 @ 200) {- multiply x and y by scale -}
-200 @ 100 / 2 = (100 @ 50) {- divide x and y by scale -}
-(200 @ 100) // 2 = (100 @ 50) {- divide x and y by scale -}
-200 @ 100 % 3 = (2 @ 1) {- modulo of x and y by scale -}
-200 @ 100 + (50 @ 25) = (250 @ 125) {- add points -}
-200 @ 100 - (50 @ 25) = (150 @ 75) {- subtract points -}
-200 @ 100 * (3 @ 4) = (600 @ 400) {- multiply points -}
-1800 @ 100 / (3 @ 4) = (600 @ 25) {- divide points -}
-(200 @ 100).asList = [200, 100] {- array of x and y -}
-let v = Point(3, 4); v.first = 3 & { v.second = 4 } {- implements first and second -}
-let v = Point(3, 4); v[1] = 3 & { v[2] = 4 } {- implements at -}
-let v = Point(3, 4); v[1] := 7; v.first = 7 {- implements atPut -}
-Point(3, 4).size = 2 {- implements size -}
-let v = Point(3, 4); v.swapInPlace; v[1] = 4 {- swap fields in place -}
-Point(3, 4).swapped = Point(4, 3) {- answer swapped vector -}
-let v = (0 @ 0); let c = v.copy; c.x := 1; c ~= v & { c = (1 @ 0) } {- copy two vector -}
-Point(1, 1).asPolarCoordinates = PolarCoordinates(2.sqrt, 0.25.pi) {- radius and angle, r and theta -}
-[0, 0].asPoint.isPlanarCoordinates {- array as point, point predicate -}
-(0, 0).asPoint.isZero {- are x and y both zero -}
-(1 @ 1).norm = 2.sqrt {- magnitude, distance to origin -}
-(1 @ 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude -}
-(1 @ 1).normalized.norm ~ 1
-Point(1, 1).norm = 2.sqrt {- magnitude, distance to origin -}
-Point(1, 1).normalized = ((1 @ 1) / 2.sqrt) {- normalized to have unit magnitude -}
-Point(1, 1).normalized.norm ~ 1
+PlanarCoordinates(-1, 1).isPlanarCoordinates = true {- point constructor -}
+[1, 2].asPlanarCoordinates = PlanarCoordinates(1, 2) {- list as point -}
+(1, 2).asPlanarCoordinates = PlanarCoordinates(1, 2) {- tuple as point -}
+(x: 1, y: 2).asPlanarCoordinates = PlanarCoordinates(1, 2) {- record as point -}
+[3, 4].asPlanarCoordinates.isPlanarCoordinates & { true } = true
+([-1, 1]).x = -1
+([-1, 1]).y = 1
+PlanarCoordinates(-1, 1).x = -1
+PlanarCoordinates(-1, 1).y = 1
+PlanarCoordinates(-1, 1).x(-3) = -3
+PlanarCoordinates(-1, 1).y(3) = 3
+[-1, 1] * 9 = [-9, 9]
+[-1, 1] + 2 = [1, 3]
+2 * ([1, 1].-) * 2 = ([4, 4].-)
+PlanarCoordinates(-1, 1).asString = 'PlanarCoordinates(-1, 1)'
+[1, 1].negated = [-1, -1] {- negation -}
+0 - [1, 1] = [-1, -1] {- negation as subtraction from zero -}
+let p = PlanarCoordinates(-1, 1); p.x := -3; p.y := 3; p = PlanarCoordinates(-3, 3) = true
+let p = PlanarCoordinates(-1, 3); let a = [p]; a.first.x := -3; p = PlanarCoordinates(-3, 3) = true
+let x = 3.141; let y = 23; let p = PlanarCoordinates(x, y); p.x = x & { p.y = y }
+[1 0; 1 1; 0 1; -1 1; -1 0; 0 -1].asPlanarCoordinates.collect(theta:/1) = (1.pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2]) {- theta = angle from (1,0) -}
+(PlanarCoordinates(200, 100)).x = 200 {- x coordinate -}
+(PlanarCoordinates(200, 100)).y = 100 {- y coordinate -}
+0 - (PlanarCoordinates(200, 100)) = PlanarCoordinates(-200, -100) {- negates x and y -}
+(0 - (PlanarCoordinates(200, 100))).abs = (PlanarCoordinates(200, 100)) {- absolute value of x and y -}
+PlanarCoordinates(200, 100) + 1 = PlanarCoordinates(201, 101) {- add scale to both x and y -}
+PlanarCoordinates(200, 100) - 1 = PlanarCoordinates(199, 99) {- subtract scale from both x and y -}
+PlanarCoordinates(200, 100) * 2 = PlanarCoordinates(400, 200) {- multiply x and y by scale -}
+PlanarCoordinates(200, 100) / 2 = PlanarCoordinates(100, 50) {- divide x and y by scale -}
+(PlanarCoordinates(200, 100)) // 2 = PlanarCoordinates(100, 50) {- divide x and y by scale -}
+PlanarCoordinates(200, 100) % 3 = PlanarCoordinates(2, 1) {- modulo of x and y by scale -}
+PlanarCoordinates(200, 100) + PlanarCoordinates(50, 25) = PlanarCoordinates(250, 125) {- add points -}
+PlanarCoordinates(200, 100) - PlanarCoordinates(50, 25) = PlanarCoordinates(150, 75) {- subtract points -}
+PlanarCoordinates(200, 100) * PlanarCoordinates(3, 4) = PlanarCoordinates(600, 400) {- multiply points -}
+PlanarCoordinates(1800, 100) / PlanarCoordinates(3, 4) = PlanarCoordinates(600, 25) {- divide points -}
+(PlanarCoordinates(200, 100)).asList = [200, 100] {- array of x and y -}
+let v = PlanarCoordinates(3, 4); v.first = 3 & { v.second = 4 } {- implements first and second -}
+let v = PlanarCoordinates(3, 4); v[1] = 3 & { v[2] = 4 } {- implements at -}
+let v = PlanarCoordinates(3, 4); v[1] := 7; v.first = 7 {- implements atPut -}
+PlanarCoordinates(3, 4).size = 2 {- implements size -}
+let v = PlanarCoordinates(3, 4); v.swapInPlace; v[1] = 4 {- swap fields in place -}
+PlanarCoordinates(3, 4).swapped = PlanarCoordinates(4, 3) {- answer swapped vector -}
+let v = PlanarCoordinates(0, 0); let c = v.copy; c.x := 1; c ~= v & { c = PlanarCoordinates(1, 0) } {- copy two vector -}
+PlanarCoordinates(1, 1).asPolarCoordinates = PolarCoordinates(2.sqrt, 0.25.pi) {- radius and angle, r and theta -}
+[0, 0].asPlanarCoordinates.isPlanarCoordinates {- array as point, point predicate -}
+(0, 0).asPlanarCoordinates.isZero {- are x and y both zero -}
+[1, 1].norm = 2.sqrt {- magnitude, distance to origin -}
+[1, 1].normalize = ([1, 1] / 2.sqrt) {- normalized to have unit magnitude -}
+[1, 1].normalize.norm ~ 1
+PlanarCoordinates(1, 1).norm = 2.sqrt {- magnitude, distance to origin -}
+PlanarCoordinates(1, 1).normalized = (PlanarCoordinates(1, 1) / 2.sqrt) {- normalized to have unit magnitude -}
+PlanarCoordinates(1, 1).normalized.norm ~ 1
 ```
 
 ## CartesianCoordinates -- geometry type
@@ -4239,35 +4229,32 @@ Point(1, 1).normalized.norm ~ 1
 [1, 2, 3].asCartesianCoordinates = CartesianCoordinates(1, 2, 3) {- from list -}
 (1, 2, 3).asCartesianCoordinates = CartesianCoordinates(1, 2, 3) {- from tuple -}
 (x: 1, y: 2, z: 3).asCartesianCoordinates = CartesianCoordinates(1, 2, 3) {- from record -}
-[1, 2, 3].asPoint = Point(1, 2, 3) {- array as point -}
-(1, 2, 3).asPoint = Point(1, 2, 3) {- tuple as point -}
-(x: 1, y: 2, z: 3).asPoint = Point(1, 2, 3) {- record as point -}
-let a = [1, 2, 3]; let v = a.asPoint; v.asList = [1, 2, 3] {- point as array -}
-Point(0, 0, 0).isZero {- are x, y and z all zero -}
-let v = Point(1, 2, 3); [v.x, v.y, v.z] = [1, 2, 3] {- fields are x, y, z -}
-let v = Point(3, 4, 5); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } {- implements at -}
-let v = Point(3, 4, 5); v[1] := 5; v[3] := 3; v.asList = [5, 4, 3] {- implements atPut -}
-let v = Point(3, 4, 5); [v.first, v.second, v.third] = [3, 4, 5] {- implements first &etc. -}
-Point(0, 0, 1).asSphericalCoordinates = SphericalCoordinates(1, 0, 0)
-SphericalCoordinates(1, 0, 0).asCartesianCoordinates = Point(0, 0, 1)
-Point(1, 1, 0).asSphericalCoordinates = SphericalCoordinates(2.sqrt, 1.pi / 4, 1.pi / 2)
-SphericalCoordinates(2.sqrt, 1.pi / 4, 1.pi / 2).asCartesianCoordinates ~ Point(1, 1, 0)
-IsoSphericalCoordinates(3.sqrt, 2.sqrt.arcTan, 0.25.pi).asCartesianCoordinates ~ Point(1, 1, 1)
-Point(1, 1, 1).asSphericalCoordinates ~ IsoSphericalCoordinates(3.sqrt, 2.sqrt.arcTan, 0.25.pi)
-Point(0, 0, 0).distance(Point(1, 1, 1)) = 3.sqrt
-Point(0, 0, 0).distance(Point(1, 1, 0)) = 2.sqrt
-Point(1, 2, 3).distance(Point(6, 5, 4)) = 35.sqrt
-Point(0, 0, 0).isCartesianCoordinates = true {- is Cartesian coordinate -}
-Point(0, 0, 0).isZero = true {- is zero -}
-let v = Point(0, 0, 0); v.asCartesianCoordinates == v {- identity -}
-Point(1, 3, 5).asList = [1 3 5] {- point as array -}
-[1 3 5].asPoint = Point(1, 3, 5) {- array as point -}
-Point(1, 3, 5).asRecord = (x: 1, y: 3, z: 5)
-(x: 1, y: 3, z: 5).asPoint = Point(1, 3, 5) {- record as point -}
+let a = [1, 2, 3]; let v = a.asCartesianCoordinates; v.asList = [1, 2, 3] {- point as array -}
+CartesianCoordinates(0, 0, 0).isZero {- are x, y and z all zero -}
+let v = CartesianCoordinates(1, 2, 3); [v.x, v.y, v.z] = [1, 2, 3] {- fields are x, y, z -}
+let v = CartesianCoordinates(3, 4, 5); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } {- implements at -}
+let v = CartesianCoordinates(3, 4, 5); v[1] := 5; v[3] := 3; v.asList = [5, 4, 3] {- implements atPut -}
+let v = CartesianCoordinates(3, 4, 5); [v.first, v.second, v.third] = [3, 4, 5] {- implements first &etc. -}
+CartesianCoordinates(0, 0, 1).asSphericalCoordinates = SphericalCoordinates(1, 0, 0)
+SphericalCoordinates(1, 0, 0).asCartesianCoordinates = CartesianCoordinates(0, 0, 1)
+CartesianCoordinates(1, 1, 0).asSphericalCoordinates = SphericalCoordinates(2.sqrt, 1.pi / 4, 1.pi / 2)
+SphericalCoordinates(2.sqrt, 1.pi / 4, 1.pi / 2).asCartesianCoordinates ~ CartesianCoordinates(1, 1, 0)
+IsoSphericalCoordinates(3.sqrt, 2.sqrt.arcTan, 0.25.pi).asCartesianCoordinates ~ CartesianCoordinates(1, 1, 1)
+CartesianCoordinates(1, 1, 1).asSphericalCoordinates ~ IsoSphericalCoordinates(3.sqrt, 2.sqrt.arcTan, 0.25.pi)
+CartesianCoordinates(0, 0, 0).distance(CartesianCoordinates(1, 1, 1)) = 3.sqrt
+CartesianCoordinates(0, 0, 0).distance(CartesianCoordinates(1, 1, 0)) = 2.sqrt
+CartesianCoordinates(1, 2, 3).distance(CartesianCoordinates(6, 5, 4)) = 35.sqrt
+CartesianCoordinates(0, 0, 0).isCartesianCoordinates = true {- is Cartesian coordinate -}
+CartesianCoordinates(0, 0, 0).isZero = true {- is zero -}
+let v = CartesianCoordinates(0, 0, 0); v.asCartesianCoordinates == v {- identity -}
+CartesianCoordinates(1, 3, 5).asList = [1 3 5] {- point as array -}
+[1 3 5].asCartesianCoordinates = CartesianCoordinates(1, 3, 5) {- array as point -}
+CartesianCoordinates(1, 3, 5).asRecord = (x: 1, y: 3, z: 5)
+(x: 1, y: 3, z: 5).asCartesianCoordinates = CartesianCoordinates(1, 3, 5) {- record as point -}
 SphericalCoordinates(1, 2, 3).asRecord = (r: 1, theta: 2, phi: 3)
 (r: 1, theta: 2, phi: 3).asSphericalCoordinates = SphericalCoordinates(1, 2, 3)
 CylindricalCoordinates(1, 1, 1).asCartesianCoordinates.asRecord = (x: 1.cos, y: 1.sin, z: 1)
-Point(1.cos, 1.sin, 1).asCylindricalCoordinates.asRecord = (rho: 1, phi: 1, z: 1)
+CartesianCoordinates(1.cos, 1.sin, 1).asCylindricalCoordinates.asRecord = (rho: 1, phi: 1, z: 1)
 ```
 
 ## FourVector -- geometry type
@@ -4275,12 +4262,12 @@ Point(1.cos, 1.sin, 1).asCylindricalCoordinates.asRecord = (rho: 1, phi: 1, z: 1
 [1, 2, 3, 4].asFourVector = FourVector(1, 2, 3, 4) {- from list -}
 (1, 2, 3, 4).asFourVector = FourVector(1, 2, 3, 4) {- from tuple -}
 (w: 1, x: 2, y: 3, z: 4).asFourVector = FourVector(1, 2, 3, 4) {- from record -}
-[1, 2, 3, 4].asPoint = Point(1, 2, 3, 4) {- array as point -}
-(1, 2, 3, 4).asPoint = Point(1, 2, 3, 4) {- tuple as point -}
-(w: 1, x: 2, y: 3, z: 4).asPoint = Point(1, 2, 3, 4) {- record as point -}
-let a = [1 2 3 4]; let v = a.asPoint; v.asList = [1 2 3 4] {- to list -}
-Point(0, 0, 0, 0).isZero {- are w, x, y and z all zero -}
-let v = Point(1, 2, 3, 4); [v.w, v.x, v.y, v.z] = [1, 2, 3, 4] {- fields are w, x, y, z -}
+[1, 2, 3, 4].asFourVector = FourVector(1, 2, 3, 4) {- array as point -}
+(1, 2, 3, 4).asFourVector = FourVector(1, 2, 3, 4) {- tuple as point -}
+(w: 1, x: 2, y: 3, z: 4).asFourVector = FourVector(1, 2, 3, 4) {- record as point -}
+let a = [1 2 3 4]; let v = a.asFourVector; v.asList = [1 2 3 4] {- to list -}
+FourVector(0, 0, 0, 0).isZero {- are w, x, y and z all zero -}
+let v = FourVector(1, 2, 3, 4); [v.w, v.x, v.y, v.z] = [1, 2, 3, 4] {- fields are w, x, y, z -}
 ```
 
 ## WeakMap -- collection type

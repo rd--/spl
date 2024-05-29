@@ -348,6 +348,12 @@
 		self.bisect(anObject, <)
 	}
 
+	blomqvistBeta { :v :w |
+		(v - v.median).sign.correlation(
+			(w - w.median).sign
+		)
+	}
+
 	brayCurtisDistance { :self :aSequence |
 		(self - aSequence).abs.sum / (self + aSequence).abs.sum
 	}
@@ -558,6 +564,14 @@
 		answer
 	}
 
+	correlation { :v :w |
+		v.isMatrix.if {
+			v.matrixCorrelation(w)
+		} {
+			v.covariance(w) / (v.standardDeviation * w.standardDeviation)
+		}
+	}
+
 	correlationDistance { :u :v |
 		let uu = (u - u.mean);
 		let vv = (v - v.mean);
@@ -566,6 +580,20 @@
 
 	cosineDistance { :u :v |
 		1 - (u.dot(v) / (u.norm * v.norm))
+	}
+
+	covariance { :v :w |
+		v.isMatrix.if {
+			v.matrixCovariance(w)
+		} {
+			let n = v.size;
+			let m = w.size;
+			(n = m).if {
+				(1 / (n - 1)) * (v - v.mean).dot((w - w.mean).conjugated)
+			} {
+				[v, w].error('@Sequence>>covariance: vectors must be equal')
+			}
+		}
 	}
 
 	cross { :u |
@@ -2058,6 +2086,10 @@
 		self.compare(aSequence) = -1
 	}
 
+	precedesOrEqualTo { :self :aSequence |
+		self.compare(aSequence) ~= 1
+	}
+
 	prefixesDo { :self :aBlock:/1 |
 		1.toDo(self.size) { :each |
 			aBlock(self.copyFromTo(1, each))
@@ -2532,16 +2564,16 @@
 		self.species.newFrom(answer)
 	}
 
-	shuffleUsing { :self :random |
-		self.fisherYatesShuffleUsing(random)
+	shuffle { :self :random |
+		self.fisherYatesShuffle(random)
 	}
 
 	shuffle { :self |
 		self.fisherYatesShuffle
 	}
 
-	shuffledBy { :self :random |
-		self.copy.fisherYatesShuffleBy(random)
+	shuffled { :self :random |
+		self.copy.fisherYatesShuffle(random)
 	}
 
 	shuffled { :self |

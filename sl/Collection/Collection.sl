@@ -805,7 +805,13 @@
 	}
 
 	standardDeviation { :self |
-		self.variance.sqrt
+		self.isMatrix.if {
+			self.transposed.collect { :each |
+				each.variance.sqrt
+			}
+		} {
+			self.variance.sqrt
+		}
 	}
 
 	symmetricDifference { :self :aCollection |
