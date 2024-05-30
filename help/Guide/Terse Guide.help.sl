@@ -83,17 +83,17 @@ let x = 1.pi.negated; x.fractionPart + x.integerPart = x {- fractional part and 
 NaN.isNaN {- literal for NaN -}
 4.sqrt = 2 & { 1000000.sqrt = 1000 & { 1.sqrt = 1 } & { 0.sqrt = 0 } }
 2.sqrt = 1.4142135623730951
-2.sqrt.squared.closeTo(2) {- floating point errors -}
+2.sqrt.squared.isCloseTo(2) {- floating point errors -}
 2.sqrt.squared ~ 2 {- almost equal to, or similar to, unicode = ≈ -}
 2.sqrt.squared <~ 2 {- less than or similar to -}
 2.sqrt.squared >~ 2 {- greater than or similar to -}
 2 !~ 3 {- not almost equal to -}
-2.sqrt.squared.veryCloseTo(2) {- floating point errors -}
+2.sqrt.squared.isVeryCloseTo(2) {- floating point errors -}
 5.0 ^ 2.0 = 25.0 {- raisedTo (power) function -}
 5 ^ 2 = 25 {- raisedTo integer -}
 3 ^ 4 = 81 {- 3 * 3 * 3 * 3 = 81 -}
 { :each | each ^ 0.5 } . (16) = 4 {- square root -}
-1.exp.veryCloseTo(2.718281828459) {- exponential -}
+1.exp.isVeryCloseTo(2.718281828459) {- exponential -}
 -5.abs = 5 {- absolute value -}
 (0 - 1.pi).abs = 1.pi {- absolute value of floating point numbers -}
 0.abs = 0 & { 5.abs = 5 } {- absolute value of zero and positive numbers -}
@@ -155,7 +155,7 @@ NaN.isNaN {- literal for NaN -}
 (2 * 1.pi).cos = 1 {- cosine -}
 2.pi.cos = 1 {- pi as unary operator -}
 1.mu = 1e-6 {- mu as unary operator -}
-(1.pi / 2).cos.veryCloseTo(0) {- cosine -}
+(1.pi / 2).cos.isVeryCloseTo(0) {- cosine -}
 0.0.tan = 0.0 {- tangent -}
 [0, 45, 90, 180].collect(degreeSin:/1) = [0, 0.7071067811865475, 1, 0] {- sine given angle in degree -}
 [0, 45, 90, 180].collect(degreeCos:/1) = [1, 0.7071067811865475, 0, -1] {- cosine given angle in degree -}
@@ -165,8 +165,8 @@ NaN.isNaN {- literal for NaN -}
 10.maxBy(20, negated:/1) = 10 {- comparison of translated values -}
 10.min(20) = 10 {- get minimum of two numbers -}
 10.minBy(20, negated:/1) = 20 {- comparison of translated values -}
-1.pi.veryCloseTo(3.141592653589793) {- pi = 3.141592653589793 -}
-1.exp.veryCloseTo(2.718281828459) {- e = 2.718281828459 -}
+1.pi.isVeryCloseTo(3.141592653589793) {- pi = 3.141592653589793 -}
+1.exp.isVeryCloseTo(2.718281828459) {- e = 2.718281828459 -}
 let n = 100.randomFloat; (n >= 0) & { n < 100 } {- random number in (0, self-1) -}
 4 + 5 * 6 = 54 {- operators are evaluated left to right -}
 0.arcCos = (1.pi / 2) {- arc cosine -}
@@ -1130,8 +1130,8 @@ Complex(-1, 0) + 1 = Complex(0, 0) {- complex addition with scalar -}
 1 + (1 + 2.i) = (2 + 2.i)
 ((1 + 2.i) + 1) = (2 + 2.i)
 (1 + (1 + 2.i)) = (2 + 2.i)
-((1 + 2.i) + (2 / 3)).closeTo((5 / 3) + 2.i)
-((2 / 3) + (1 + 2.i)).closeTo((5 / 3) + 2.i)
+((1 + 2.i) + (2 / 3)).isCloseTo((5 / 3) + 2.i)
+((2 / 3) + (1 + 2.i)).isCloseTo((5 / 3) + 2.i)
 (0 + 5.i).arg = (1.pi / 2)
 let c = (5 - 6.i); (c * 1.i) = c.i
 (2 + 5.i).negated = (-2 - 5.i)
@@ -2222,7 +2222,7 @@ let v = [2 2.8 -2 -2.8]; v.ceiling = v.negated.floor.negated {- ceiling is equal
 0.cos = 1 {- cosine -}
 180.degreesToRadians = 1.pi {- degreesToRadians -}
 2.isEven = true {- eveness predicate -}
-1.exp.veryCloseTo(2.718281828459045) {- base e exponent function -}
+1.exp.isVeryCloseTo(2.718281828459045) {- base e exponent function -}
 1.5.floor = 1 {- floor (round down) -}
 1.exp.log = 1 {- base e (natural) logarithm -}
 1.2.isNumber = true {- is x a number -}
@@ -2232,7 +2232,7 @@ let v = [2 2.8 -2 -2.8]; v.ceiling = v.negated.floor.negated {- ceiling is equal
 1.min(2) = 1 {- minimum -}
 3.negated = -3 {- negation -}
 3.isOdd = true {- oddness predicate -}
-1.pi.veryCloseTo(3.1415926535898) {- constant pi (Float pi) -}
+1.pi.isVeryCloseTo(3.1415926535898) {- constant pi (Float pi) -}
 inf.isNumber {- constant positive infinity (is a number) -}
 2 ^ 3 = 8 {- i to the power of j -}
 5.reciprocal = 0.2 {- 1 / x -}
@@ -2260,7 +2260,7 @@ Matrix22(1, 0, 0, 1).isMatrix22 {- matrix predicate -}
 Matrix22(1, 4, -1, 9).determinant = 13 {- determinant -}
 Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2) {- inverse, answers new matrix -}
 let m = Matrix22(-1, 3/2, 1,-1); m.invert; m = Matrix22(2, 3, 2, 2) {- inverse, in place -}
-Matrix22().rotation(1.pi / 2).applyTo(PlanarCoordinates(0, 1)).closeTo(PlanarCoordinates(1, 0))
+Matrix22().rotation(1.pi / 2).applyTo(PlanarCoordinates(0, 1)).isCloseTo(PlanarCoordinates(1, 0))
 Matrix22(1, 2, 3, 4).transposed = Matrix22(1, 3, 2, 4) {- transpose, answers new matrix -}
 let m = Matrix22(1, 2, 3, 4); m.transpose; m = Matrix22(1, 3, 2, 4) {- transpose, in place -}
 ```
@@ -3269,23 +3269,23 @@ system.smallFloatEpsilon > (10 ^ -16)
 1.pi = 3.141592653589793 {- 1.pi is a number -}
 1.epsilon = 0.000000000000001 {- epsilon is a number -}
 1.e = 2.718281828459045 {- e is a number -}
-(1 - 1.epsilon).veryCloseTo(1)
+(1 - 1.epsilon).isVeryCloseTo(1)
 Infinity.isFinite = false {- Infinity is not finite -}
 NaN.isFinite = false {- NaN is not finite -}
 inf.isFinite = false {- Infinity is not finite -}
 1.pi.isFinite = true {- 1.pi is finite -}
 { nil.isFinite }.ifError { true } {- nil is not a number, so we cannot ask if it is finite -}
-5.closeTo(5) = true
-5.closeTo('5') = false
-5.closeTo(3) = false
-(5/3).closeTo(5/3) = true
-(1/3).closeTo(0.3333) = true
-(1/3).closeTo(0.333) = false
+5.isCloseTo(5) = true
+5.isCloseTo('5') = false
+5.isCloseTo(3) = false
+(5/3).isCloseTo(5/3) = true
+(1/3).isCloseTo(0.3333) = true
+(1/3).isCloseTo(0.333) = false
 [-1000000000000000, -100, -5, -3, -2, -1, 0, 1].select(isPrime:/1).isEmpty
 [17, 78901, 104729, 15485863, 2038074743].allSatisfy(isPrime:/1)
 [561, 2821, 6601, 10585, 15841, 256, 29996224275831].noneSatisfy(isPrime:/1) {- no primes here -}
-1.00001.reduce = 1 {- round if number is closeTo an integer -}
-1.5.reduce = 1.5 {- identity if number is not closeTo an integer -}
+1.00001.reduce = 1 {- round if number is close to an integer -}
+1.5.reduce = 1.5 {- identity if number is not close to an integer -}
 let x = (2 ^ 54); x ~= (x - 1) = false {- large numbers behave strangely -}
 let x = (2.0 ^ 54.0); x ~= (x - 1.0) = false {- large numbers behave strangely -}
 [-1, 0, 1].collect(asString:/1) = ['-1', '0', '1']
@@ -3507,7 +3507,7 @@ let x = ['a', 'bc', 'def']; x.unlines.lines = x
 '12345'.asLowerCase = '12345' {- only if letters -}
 'Word'.asUpperCase = 'WORD'
 '12345'.asUpperCase = '12345' {- only if letters -}
-'x' ~= 'X' & { 'x'.sameAs('X') & { 'x'.sameAs('x') } } {- considered without case -}
+'x' ~= 'X' & { 'x'.isSameAs('X') & { 'x'.isSameAs('x') } } {- considered without case -}
 'word'.capitalized = 'Word' {- uppercase first letter only -}
 'anotherWord'.capitalized = 'AnotherWord' {- uppercase first letter only, do not lower case interior letters -}
 '12345'.capitalized = '12345' {- only if a letter -}

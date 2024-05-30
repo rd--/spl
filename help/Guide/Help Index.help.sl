@@ -93,8 +93,10 @@
 
 ## Comparison Operators
 
+- `=`, `~=`
+- `==`, `~~`
 - `>`, `<`, `<=`, `>=`, `<=>`
-- `closeTo`, `veryCloseTo`
+- `~`, `!~`, `isCloseTo`, `isVeryCloseTo`, `isSameAs`
 
 ## Complex Numbers
 

@@ -1,6 +1,6 @@
-# closeTo
+# isCloseTo
 
-- _closeTo(aNumber, anotherNumber)_
+- _isCloseTo(aNumber, anotherNumber)_
 
 Answer `true` if _aNumber_ is close to _anotherNumber_, else `false`.
 This takes magnitude into account, so that a million is close to a million and one, but one is not close to two.
@@ -18,11 +18,11 @@ Operates over vectors, matrices and arrays:
 
 ```
 >>> let l = [1 2 3];
->>> l.closeTo(l + 1E-4)
+>>> l.isCloseTo(l + 1E-4)
 true
 
 >>> let l = [1E5 2E5; 3E5 4E5];
->>> l.closeTo(l + 1)
+>>> l.isCloseTo(l + 1)
 true
 ```
 
@@ -33,7 +33,7 @@ and ~~ is the binary operator for _not identical to_.
 
 * * *
 
-See also: =, <~, >~, veryCloseTo
+See also: =, <~, >~, isVeryCloseTo
 
 References:
 _Apl_

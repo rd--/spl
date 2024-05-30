@@ -140,16 +140,16 @@ Character : [Object, Magnitude, Character] { | characterString codePoint |
 		self.characterString
 	}
 
-	printString { :self |
-		self.characterString.printString
-	}
-
-	sameAs { :self :aCharacter |
+	isSameAs { :self :aCharacter |
 		(self == aCharacter).if {
 			true
 		} {
 			self.asLowerCase == aCharacter.asLowerCase
 		}
+	}
+
+	printString { :self |
+		self.characterString.printString
 	}
 
 	storeString { :self |

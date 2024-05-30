@@ -431,7 +431,7 @@ Reference/clip.help.sl
 Reference/Clip.help.sl
 Reference/ClipNoise.help.sl
 Reference/Clock.help.sl
-Reference/closeTo.help.sl
+Reference/isCloseTo.help.sl
 Reference/clump.help.sl
 Reference/codePoint.help.sl
 Reference/codePoints.help.sl
@@ -1604,7 +1604,7 @@ Reference/roundUpTo.help.sl
 Reference/rowReduce.help.sl
 Reference/RunArray.help.sl
 Reference/RunningSum.help.sl
-Reference/sameAs.help.sl
+Reference/isSameAs.help.sl
 Reference/SawDpw.help.sl
 Reference/Saw.help.sl
 Reference/ScalaJiTuningBrowser.help.sl
@@ -1877,7 +1877,7 @@ Reference/vertexList.help.sl
 Reference/vertexOutDegree.help.sl
 Reference/verticalLine.help.sl
 Reference/verticalLineVerticalLine.help.sl
-Reference/veryCloseTo.help.sl
+Reference/isVeryCloseTo.help.sl
 Reference/View.help.sl
 Reference/Void.help.sl
 Reference/Vosim.help.sl

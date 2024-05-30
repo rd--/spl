@@ -1,6 +1,6 @@
 # !~
 
-- _p !~ q_ ⟹ p.closeTo(q).not
+- _p !~ q_ ⟹ p.isCloseTo(q).not
 
 Answer true if _p_ is not almost equal to (or not similar to) _q_, else false.
 
@@ -12,7 +12,7 @@ If these operators were written != and !== then !~ could indicate _not similar t
 
 * * *
 
-See also: =, <~, >~, closeTo, veryCloseTo
+See also: =, <~, >~, isCloseTo, isVeryCloseTo
 
 Unicode: ≉ U+2249 Not Almost Equal To, ≁ U+2241 Not Tilde
 

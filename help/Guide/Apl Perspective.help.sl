@@ -39,7 +39,7 @@ Methods:
 - [bindRight](https://aplwiki.com/wiki/Bind) Bind ∘
 - [binomial](https://aplwiki.com/wiki/Binomial) Binomial !
 - [ceiling](https://aplwiki.com/wiki/Ceiling) Ceiling ⌈
-- [closeTo](https://aplwiki.com/wiki/Match) Match ≡
+- [isCloseTo](https://aplwiki.com/wiki/Match) Match ≡
 - [composeLeft](https://aplwiki.com/wiki/Compose) Compose
 - [conjugated](https://aplwiki.com/wiki/Conjugate) Conjugate
 - [constant](https://aplwiki.com/wiki/Constant) Constant ⍨

@@ -72,6 +72,7 @@ Project the vector _v_ on the plane spanned by the vectors _b1_ and _b2_:
 	[9 9 27] / 22,
 	[9 9 27] / 22
 )
+```
 
 Use `projection` to reflect the vector _v_ with respect to the line normal to the vector _n_:
 

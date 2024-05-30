@@ -3,7 +3,7 @@
 - _normalize(aVector)_
 
 Answer the normalized form of _aVector_.
-Equivalent to _v / v.norm_, except that zero vectors are returned unchanged.
+Equivalent to _v / v.norm_, except that zero vectors (or vectors with `norm` very close to zero) are returned unchanged.
 
 At `List` of `Integer`:
 
@@ -20,6 +20,14 @@ At `zero`:
 ```
 >>> [0 0 0].normalize
 [0 0 0]
+```
+
+At very close to `zero`:
+
+```
+>>> let v = [3E-15, 9E-16, 2E-15];
+>>> v.normalize
+v
 ```
 
 At `Complex`:

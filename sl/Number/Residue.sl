@@ -53,12 +53,12 @@ Residue : [Object, Magnitude, Number] { | commonResidue modulus |
 		}
 	}
 
-	closeTo { :self :anObject |
-		self = anObject
-	}
-
 	inverse { :self |
 		Residue(self.commonResidue.modularInverse(self.modulus), self.modulus)
+	}
+
+	isCloseTo { :self :anObject |
+		self = anObject
 	}
 
 	positiveResidue { :self |

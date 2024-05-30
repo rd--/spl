@@ -4275,7 +4275,7 @@ and operand do not need to conform to the same protocols.
 
 *Return Values*: ⧼boolean⧽
 
-Cf: sameAs
+Cf: isSameAs
 
 ### 5.7.10.15
 

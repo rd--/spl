@@ -558,8 +558,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'~='
 		'~~'
 		'betweenAnd'
-		'closeTo'
-		'closeToBy'
+		'isCloseTo'
+		'isCloseToBy'
 		'crc16'
 		'equalBy'
 		'exclusivelyBetweenAnd'
@@ -567,8 +567,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'hasEqualElementsBy'
 		'inclusivelyBetweenAnd'
 		'inRangeOfAnd'
-		'sameAs'
-		'veryCloseTo'
+		'isSameAs'
+		'isVeryCloseTo'
 	],
 	'controlling': [
 		'?'
@@ -1049,7 +1049,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'indexForInserting'
 		'initializeSlots'
 		'pseudoSlotNameList'
-		'reduced'
+		'simplified'
 	],
 	'random': [
 		'nextRandomFloat'

@@ -173,7 +173,7 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 
 	linePlaneIntersection { :p0 :n :l0 :l |
 		let ln = l.dot(n);
-		ln.veryCloseTo(0).if {
+		ln.isVeryCloseTo(0).if {
 			nil
 		} {
 			let d = (p0 - l0).dot(n) / ln;

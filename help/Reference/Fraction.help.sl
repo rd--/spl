@@ -33,7 +33,7 @@ true
 true
 ```
 
-Fractions written using a literal syntax are _reduced_ by construction:
+Fractions written using a literal syntax are `simplified` by construction:
 
 ```
 >>> 2/4
@@ -59,17 +59,17 @@ Literal fractions are `normalized` and have the following invariants:
 - the denominator shall always be positive
 - the numerator and denominator shall never have common multiples
 
-Properly reduced fractions have the additional invariant:
+Properly simplified fractions have the additional invariant:
 
 - the denominator shall allways be greater than 1
 
 For instance:
 
 ```
->>> Fraction(3, -2).reduced
+>>> Fraction(3, -2)
 Fraction(-3, 2)
 
->>> Fraction(2, 1).reduced
+>>> Fraction(2, 1).simplified
 2
 
 >>> 8/6

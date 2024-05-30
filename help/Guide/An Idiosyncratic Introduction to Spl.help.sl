@@ -69,7 +69,7 @@ Shorter lists are extended by _recyling_:
 [0.4 0.5 0.28571]
 ```
 
-Some function make arrays.
+Some functions make arrays.
 _iota(n)_ is a list of the integers from 1 to _n_.
 
 ```
@@ -90,11 +90,19 @@ _reshape(v, s)_ makes an array of shape _s_ using the elements _v_.
 
 ```
 >>> [3 1 4 2].reshape([3 5])
-[3 1 4 2 3; 1 4 2 3 1; 4 2 3 1 4]
+[
+	3 1 4 2 3;
+	1 4 2 3 1;
+	4 2 3 1 4
+]
 
 >>> let x = [3 1 4 2].reshape([3 5]);
 >>> x * x
-[9 1 16 4 9; 1 16 4 9 1; 16 4 9 1 16]
+[
+	 9  1 16  4  9;
+	 1 16  4  9  1;
+	16  4  9  1 16
+]
 ```
 
 # Assignment
@@ -135,11 +143,11 @@ A function can be monadic or dyadic, depending on whether there is an argument o
 
 ## More Primitives
 
-The primitive functions include +, -, *, and /,
-as well as ^, log, <, >, min, max, gcd, lcm, %, // &etc.
+The primitive functions include `+`, `-`, `*`, and `/`,
+as well as `^`, `log`, `<`, `>`, `min`, `max`, `gcd`, `lcm`, `%`, `//` &etc.
 And all of these can be monadic or dyadic, and apply to arrays.
 
-^:
+`^` (raised to):
 
 ```
 >>> 2 ^ [3 4 5 6]
@@ -152,7 +160,7 @@ And all of these can be monadic or dyadic, and apply to arrays.
 [0j1.41421 64 -128]
 ```
 
-_gcd_ & _lcm_:
+`gcd` & `lcm`:
 
 ```
 >>> [0 0 1 1].gcd([0 1 0 1])
@@ -165,7 +173,7 @@ _gcd_ & _lcm_:
 [10 60 60 40]
 ```
 
-%, min & max:
+`%`, `min` & `max`:
 
 ```
 >>> [10 20 30 40] % [2 3 4 5]
@@ -182,9 +190,13 @@ _gcd_ & _lcm_:
 
 Reduce inserts its verb argument between the items of its argument.
 
-Thus, reduce(+) is summation and reduce(*) is product.
+Thus, _reduce(+)_ is `sum` and _reduce(*)_ is `product`.
 
 These are the _big sigma_ and _big pi_ of conventional notation.
+
+Moreover, `reduce` can be applied to any function:
+`reduce` of `max` is maximum,
+`reduce` of `min` is minimum, &etc.
 
 ```
 >>> 1:7.reduce(+)
@@ -192,11 +204,19 @@ These are the _big sigma_ and _big pi_ of conventional notation.
 
 >>> 1:7.reduce(*)
 5040
-```
 
-Moreover, reduce can be applied to any function:
-reduce of max is maximum,
-reduce od min is minimum, &etc.
+>>> 1:7.reduce(max:/2)
+7
+
+>>> 1:7.reduce(min:/2)
+1
+
+>>> 1:7.reduce(gcd:/2)
+1
+
+>>> 1:7.reduce(lcm:/2)
+420
+```
 
 Many of these idioms are already named:
 
@@ -224,34 +244,138 @@ Many of these idioms are already named:
 
 Adverbs modify verbs to produce new verbs.
 
-_t_ is an adverb that means _function table_.
+_outer_ is an adverb that means _function table_.
 
 Function tables are a good way to organize systematic experimentation on unfamiliar functions.
 
 ```
->>> 0:3 +.t 0:3
-[0 1 2 3; 1 2 3 4; 2 3 4 5; 3 4 5 6]
+>>> 0:8 +.outer 0:8
+[
+	0  1  2  3  4  5  6  7  8;
+	1  2  3  4  5  6  7  8  9;
+	2  3  4  5  6  7  8  9 10;
+	3  4  5  6  7  8  9 10 11;
+	4  5  6  7  8  9 10 11 12;
+	5  6  7  8  9 10 11 12 13;
+	6  7  8  9 10 11 12 13 14;
+	7  8  9 10 11 12 13 14 15;
+	8  9 10 11 12 13 14 15 16
+]
 
->>> 0:3 *.t 0:3
-[0 0 0 0; 0 1 2 3; 0 2 4 6; 0 3 6 9]
+>>> 0:8 *.outer 0:8
+[
+	0  0  0  0  0  0  0  0  0;
+	0  1  2  3  4  5  6  7  8;
+	0  2  4  6  8 10 12 14 16;
+	0  3  6  9 12 15 18 21 24;
+	0  4  8 12 16 20 24 28 32;
+	0  5 10 15 20 25 30 35 40;
+	0  6 12 18 24 30 36 42 48;
+	0  7 14 21 28 35 42 49 56;
+	0  8 16 24 32 40 48 56 64
+]
 
->>> (0:3 <.t 0:3).boole
-[0 1 1 1; 0 0 1 1; 0 0 0 1; 0 0 0 0]
+>>> (0:8 <.outer 0:8).boole
+[
+	0 1 1 1 1 1 1 1 1;
+	0 0 1 1 1 1 1 1 1;
+	0 0 0 1 1 1 1 1 1;
+	0 0 0 0 1 1 1 1 1;
+	0 0 0 0 0 1 1 1 1;
+	0 0 0 0 0 0 1 1 1;
+	0 0 0 0 0 0 0 1 1;
+	0 0 0 0 0 0 0 0 1;
+	0 0 0 0 0 0 0 0 0
+]
 
->>> (0:3 >.t 0:3).boole
-[0 0 0 0; 1 0 0 0; 1 1 0 0; 1 1 1 0]
+>>> (0:8 >.outer 0:8).boole
+[
+	0 0 0 0 0 0 0 0 0;
+	1 0 0 0 0 0 0 0 0;
+	1 1 0 0 0 0 0 0 0;
+	1 1 1 0 0 0 0 0 0;
+	1 1 1 1 0 0 0 0 0;
+	1 1 1 1 1 0 0 0 0;
+	1 1 1 1 1 1 0 0 0;
+	1 1 1 1 1 1 1 0 0;
+	1 1 1 1 1 1 1 1 0
+]
 
->>> 0:3 max.t 0:3
-[0 1 2 3; 1 1 2 3; 2 2 2 3; 3 3 3 3]
+>>> 0:8 max.outer 0:8
+[
+	0 1 2 3 4 5 6 7 8;
+	1 1 2 3 4 5 6 7 8;
+	2 2 2 3 4 5 6 7 8;
+	3 3 3 3 4 5 6 7 8;
+	4 4 4 4 4 5 6 7 8;
+	5 5 5 5 5 5 6 7 8;
+	6 6 6 6 6 6 6 7 8;
+	7 7 7 7 7 7 7 7 8;
+	8 8 8 8 8 8 8 8 8
+]
 
->>> 0:3 min.t 0:3
-[0 0 0 0; 0 1 1 1; 0 1 2 2; 0 1 2 3]
+>>> 0:8 min.outer 0:8
+[
+	0 0 0 0 0 0 0 0 0;
+	0 1 1 1 1 1 1 1 1;
+	0 1 2 2 2 2 2 2 2;
+	0 1 2 3 3 3 3 3 3;
+	0 1 2 3 4 4 4 4 4;
+	0 1 2 3 4 5 5 5 5;
+	0 1 2 3 4 5 6 6 6;
+	0 1 2 3 4 5 6 7 7;
+	0 1 2 3 4 5 6 7 8
+]
 
->>> 0:3 gcd.t 0:3
-[0 1 2 3; 1 1 1 1; 2 1 2 1; 3 1 1 3]
+>>> 0:8 gcd.outer 0:8
+[
+	0 1 2 3 4 5 6 7 8;
+	1 1 1 1 1 1 1 1 1;
+	2 1 2 1 2 1 2 1 2;
+	3 1 1 3 1 1 3 1 1;
+	4 1 2 1 4 1 2 1 4;
+	5 1 1 1 1 5 1 1 1;
+	6 1 2 3 2 1 6 1 2;
+	7 1 1 1 1 1 1 7 1;
+	8 1 2 1 4 1 2 1 8
+]
 
->>> 0:3 lcm.t 0:3
-[0 0 0 0; 0 1 2 3; 0 2 2 6; 0 3 6 3]
+>>> 0:8 lcm.outer 0:8
+[
+	0  0  0  0  0  0  0  0  0;
+	0  1  2  3  4  5  6  7  8;
+	0  2  2  6  4 10  6 14  8;
+	0  3  6  3 12 15  6 21 24;
+	0  4  4 12  4 20 12 28  8;
+	0  5 10 15 20  5 30 35 40;
+	0  6  6  6 12 30  6 42 24;
+	0  7 14 21 28 35 42  7 56;
+	0  8  8 24  8 40 24 56  8
+]
+```
+
+The Hilbert matrix is a simple function on the addition table.
+
+```
+>>> 1 r: (1:7 +.outer 0:6)
+[
+	1/1  1/2  1/3  1/4  1/5  1/6  1/7;
+	1/2  1/3  1/4  1/5  1/6  1/7  1/8;
+	1/3  1/4  1/5  1/6  1/7  1/8  1/9;
+	1/4  1/5  1/6  1/7  1/8  1/9 1/10;
+	1/5  1/6  1/7  1/8  1/9 1/10 1/11;
+	1/6  1/7  1/8  1/9 1/10 1/11 1/12;
+	1/7  1/8  1/9 1/10 1/11 1/12 1/13
+]
+```
+
+The reciprocal determinant of the Hilbert matrix of order _n_, has prime factors that are the primes less than _2 * n_.
+
+```
+>>> let n = 5n;
+>>> let h = 1 r: (1:n +.outer (1:n - 1));
+>>> (1 / h.determinant).primeFactors.nub
+[2 3 5 7]
 ```
 
 The _triangle_ of Pascal is an example of a function table,
@@ -263,7 +387,13 @@ is that one can then apply matrix operations to it, such as matrix inverse.
 ```
 >>> let x = 0:4;
 >>> x binomial.t x
-[1 0 0 0 0; 1 1 0 0 0; 1 2 1 0 0; 1 3 3 1 0; 1 4 6 4 1]
+[
+	1 0 0 0 0;
+	1 1 0 0 0;
+	1 2 1 0 0;
+	1 3 3 1 0;
+	1 4 6 4 1
+]
 ```
 
 # Prefix
@@ -296,21 +426,21 @@ applying a unary block to the prefixes of the argument.
 
 # Permutations
 
-The dyadic function _atAll(y, x)_ indexes _y_ by _x_.
-If _p_ is a permutation, _atAll(y, p)_ permutes _y_ by _p_.
+The dyadic function `@*` indexes a collection by a collection.
+If _p_ is a permutation, _y @* p_ permutes _y_ by _p_.
 
 ```
 >>> let p = [4 22 16 15 18 14 7 8 0 21 3 13 20 9 11 19 6 17 2 5 1 10 12] + 1;
->>> let u = p atAll: p;
->>> u atAll: p - 1
+>>> let u = p @* p;
+>>> u @* (p - 1)
 [2 20 7 5 16 13 0 4 18 3 19 21 22 10 9 14 8 17 6 11 12 15 1]
 ```
 
-Reducing _m_ copies of _p_ using _atAll_ computes the _m_-th power of _p_.
+Reducing _m_ copies of _p_ using _@*_ computes the _m_-th power of _p_.
 
 ```
 >>> let p = [4 22 16 15 18 14 7 8 0 21 3 13 20 9 11 19 6 17 2 5 1 10 12] + 1;
->>> p.reshape([3 23]).reduce(atAll:/2) - 1
+>>> p.reshape([3 23]).reduce(@*) - 1
 [2 20 7 5 16 13 0 4 18 3 19 21 22 10 9 14 8 17 6 11 12 15 1]
 ```
 
@@ -318,8 +448,19 @@ The corresponding prefixes are the successive powers of _p_.
 
 ```
 >>> let p = [4 22 16 15 18 14 7 8 0 21 3 13 20 9 11 19 6 17 2 5 1 10 12] + 1;
->>> p.reshape([3 23]).prefixes.collect { :each | each.reduce(atAll:/2) - 1 }.middle
+>>> p.reshape([3 23]).prefixes.collect { :each |
+>>> 	each.reduce(@*) - 1
+>>> }.middle
 [18 12  6 19  2 11 8 0  4 10 15  9  1 21 13  5 7 17 16 14 22  3 20]
+```
+
+`permutationCycles` computes the cycles of a permutation.
+The `lcm` of the cycle lengths is the order of the subgroup generated by the permutation.
+
+```
+>>> let p = [4 22 16 15 18 14 7 8 0 21 3 13 20 9 11 19 6 17 2 5 1 10 12] + 1;
+>>> p.permutationCycles.collect(size:/1).lcm
+40
 ```
 
 * * *

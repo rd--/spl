@@ -47,7 +47,7 @@ If these operators were written _!=_ and _!==_ it may be less confusing.
 
 * * *
 
-See also: =, <~, >~, ~=, ~~, closeTo, veryCloseTo
+See also: =, <~, >~, ~=, ~~, isCloseTo, isVeryCloseTo
 
 Unicode: U+2248 ≈ Almost Equal To
 

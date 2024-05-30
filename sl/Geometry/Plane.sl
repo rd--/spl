@@ -37,7 +37,7 @@ InfinitePlane : [Object] { | a b c d |
 	}
 
 	includes { :self :aPoint |
-		self.terms.pointPlaneDistance(aPoint).veryCloseTo(0)
+		self.terms.pointPlaneDistance(aPoint).isVeryCloseTo(0)
 	}
 
 	intercepts { :self |

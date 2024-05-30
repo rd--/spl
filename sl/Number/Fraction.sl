@@ -152,14 +152,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		(self.numerator, self.denominator)
 	}
 
-	closeTo { :self :aNumber |
-		self.closeToBy(aNumber, 0.0001)
-	}
-
-	closeToBy { :self :aNumber :epsilon |
-		self.asFloat.closeToBy(aNumber.asFloat, epsilon)
-	}
-
 	dividesImmediately { :self :aNumber |
 		let r = self / aNumber;
 		r.denominator = 1 & {
@@ -179,6 +171,14 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		} {
 			aFraction.adaptToFractionAndApply(self, lcm:/2)
 		}
+	}
+
+	isCloseTo { :self :aNumber |
+		self.isCloseToBy(aNumber, 0.0001)
+	}
+
+	isCloseToBy { :self :aNumber :epsilon |
+		self.asFloat.isCloseToBy(aNumber.asFloat, epsilon)
 	}
 
 	isInteger { :self |
@@ -207,6 +207,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	isSuperparticular { :self |
 		self.numerator - 1 = self.denominator
+	}
+
+	isVeryCloseTo { :self :aNumber |
+		self = aNumber
 	}
 
 	isZero { :self |
@@ -330,9 +334,9 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
-	reduce { :self |
+	simplify { :self |
 		(self.denominator = 0).if {
-			self.error('reduced: zeroDenominatorError')
+			self.error('Fraction>>simplify: zeroDenominatorError')
 		} {
 			let x = self.numerator * self.denominator.sign;
 			let y = self.denominator.abs;
@@ -348,8 +352,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
-	reduced { :self |
-		self.copy.reduce
+	simplified { :self |
+		self.copy.simplify
 	}
 
 	sqrt { :self |
@@ -372,10 +376,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	unicode { :self |
 		system.unicodeFractionsTable.indexOf(self)
-	}
-
-	veryCloseTo { :self :aNumber |
-		self = aNumber
 	}
 
 	weightedMediant { :self :aFraction :m :n |
@@ -443,7 +443,11 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	Fraction { :numerator :denominator |
-		ReducedFraction(numerator, denominator).reduce
+		denominator.isInteger.if {
+			ReducedFraction(numerator, denominator).simplify
+		} {
+			denominator.adaptToNumberAndApply(numerator, Fraction:/2)
+		}
 	}
 
 	r { :numerator :denominator |

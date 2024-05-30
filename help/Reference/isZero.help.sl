@@ -41,7 +41,7 @@ Very close to zero but not zero:
 
 ```
 >>> let n = 1E-53;
->>> (n.isZero, n.veryCloseTo(0))
+>>> (n.isZero, n.isVeryCloseTo(0))
 (false, true)
 ```
 

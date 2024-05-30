@@ -35,7 +35,7 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 	}
 
 	/ { :self :anInteger |
-		let fraction = Fraction(self, anInteger.asLargeInteger).reduced;
+		let fraction = Fraction(self, anInteger.asLargeInteger);
 		fraction.isInteger.if {
 			fraction.numerator
 		} {
@@ -181,6 +181,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		(self % 2n) = 1n
 	}
 
+	isVeryCloseTo { :self :aNumber |
+		self = aNumber
+	}
+
 	isZero { :self |
 		self = 0n
 	}
@@ -240,10 +244,6 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 	unit { :self |
 		1n
-	}
-
-	veryCloseTo { :self :aNumber |
-		self = aNumber
 	}
 
 	zero { :self |

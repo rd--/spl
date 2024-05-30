@@ -219,26 +219,6 @@ Complex : [Object, Number] { | real imaginary |
 		(self.real, self.imaginary)
 	}
 
-	closeToBy { :self :anObject :epsilon |
-		anObject.isNumber.if {
-			anObject.isComplex.if {
-				self.real.closeToBy(anObject.real, epsilon) & {
-					self.imaginary.closeToBy(anObject.imaginary, epsilon)
-				}
-			} {
-				anObject.adaptToComplexAndApply(self) { :p :q |
-					p.closeToBy(q, epsilon)
-				}
-			}
-		} {
-			false
-		}
-	}
-
-	closeTo { :self :anObject |
-		self.closeToBy(anObject, 0.0001)
-	}
-
 	conjugated { :self |
 		Complex(self.real, self.imaginary.negated)
 	}
@@ -288,6 +268,26 @@ Complex : [Object, Number] { | real imaginary |
 		Complex(self.real.integerPart, self.imaginary.integerPart)
 	}
 
+	isCloseToBy { :self :anObject :epsilon |
+		anObject.isNumber.if {
+			anObject.isComplex.if {
+				self.real.isCloseToBy(anObject.real, epsilon) & {
+					self.imaginary.isCloseToBy(anObject.imaginary, epsilon)
+				}
+			} {
+				anObject.adaptToComplexAndApply(self) { :p :q |
+					p.isCloseToBy(q, epsilon)
+				}
+			}
+		} {
+			false
+		}
+	}
+
+	isCloseTo { :self :anObject |
+		self.isCloseToBy(anObject, 0.0001)
+	}
+
 	isComplex { :self |
 		true
 	}
@@ -304,6 +304,10 @@ Complex : [Object, Number] { | real imaginary |
 
 	isNumber { :self |
 		true
+	}
+
+	isVeryCloseTo { :self :anObject |
+		self.isCloseToBy(anObject, 0.000000000001)
 	}
 
 	isZero { :self |
@@ -448,10 +452,6 @@ Complex : [Object, Number] { | real imaginary |
 		1:m.collect { :k |
 			(0J1 * pi * (k ^ a) * x).exp / (pi * (k ^ a))
 		}.sum
-	}
-
-	veryCloseTo { :self :anObject |
-		self.closeToBy(anObject, 0.000000000001)
 	}
 
 	zero { :self |

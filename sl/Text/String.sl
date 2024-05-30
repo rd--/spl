@@ -497,6 +497,14 @@ String! : [Object, Json, Iterable, Character] {
 		<primitive: return /^[a-z]+$/.test(_self);>
 	}
 
+	isSameAs { :self :aString |
+		(self = aString).if {
+			true
+		} {
+			self.asLowerCase = aString.asLowerCase
+		}
+	}
+
 	isSequence { :self |
 		true
 	}
@@ -690,14 +698,6 @@ String! : [Object, Json, Iterable, Character] {
 			v2 := v1
 		};
 		value
-	}
-
-	sameAs { :self :aString |
-		(self = aString).if {
-			true
-		} {
-			self.asLowerCase = aString.asLowerCase
-		}
 	}
 
 	select { :self :aBlock:/1 |

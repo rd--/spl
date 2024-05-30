@@ -254,33 +254,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		x.cantorStaircase(12)
 	}
 
-	closeToBy { :self :aNumber :epsilon |
-		aNumber.isNumber.not.if {
-			{ self = aNumber }.ifError { false }
-		} {
-			(self = 0).if {
-				aNumber.abs < epsilon
-			} {
-				(aNumber = 0).if {
-					self.abs < epsilon
-				} {
-					self = aNumber.asSmallFloat | {
-						let z = self.abs;
-						(z < epsilon).if {
-							aNumber.abs < epsilon
-						} {
-							(self - aNumber).abs / (z.max(aNumber.abs)) < epsilon
-						}
-					}
-				}
-			}
-		}
-	}
-
-	closeTo { :self :aNumber |
-		self.closeToBy(aNumber, 0.0001)
-	}
-
 	cos { :self |
 		<primitive: return Math.cos(_self);>
 	}
@@ -331,6 +304,33 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return sl.isBitwise(_self);>
 	}
 
+	isCloseToBy { :self :aNumber :epsilon |
+		aNumber.isNumber.not.if {
+			{ self = aNumber }.ifError { false }
+		} {
+			(self = 0).if {
+				aNumber.abs < epsilon
+			} {
+				(aNumber = 0).if {
+					self.abs < epsilon
+				} {
+					self = aNumber.asSmallFloat | {
+						let z = self.abs;
+						(z < epsilon).if {
+							aNumber.abs < epsilon
+						} {
+							(self - aNumber).abs / (z.max(aNumber.abs)) < epsilon
+						}
+					}
+				}
+			}
+		}
+	}
+
+	isCloseTo { :self :aNumber |
+		self.isCloseToBy(aNumber, 0.0001)
+	}
+
 	isEven { :self |
 		<primitive: return _self % 2 === 0;>
 	}
@@ -369,6 +369,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	isSmallInteger { :self |
 		<primitive: return Number.isSafeInteger(_self);>
+	}
+
+	isVeryCloseTo { :self :aNumber |
+		self.isCloseToBy(aNumber, 0.000000000001)
 	}
 
 	log { :self |
@@ -551,7 +555,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	reduce { :self |
-		self.closeTo(self.rounded).if {
+		self.isCloseTo(self.rounded).if {
 			self.rounded
 		} {
 			self
@@ -625,10 +629,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	truncated { :self |
 		<primitive: return Math.trunc(_self)>
-	}
-
-	veryCloseTo { :self :aNumber |
-		self.closeToBy(aNumber, 0.000000000001)
 	}
 
 	weierstrassFunction { :x :a :m |

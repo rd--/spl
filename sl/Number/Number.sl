@@ -37,22 +37,22 @@
 	}
 
 	~ { :self :aNumber |
-		self.closeTo(aNumber)
+		self.isCloseTo(aNumber)
 	}
 
 	!~ { :self :aNumber |
-		self.closeTo(aNumber).not
+		self.isCloseTo(aNumber).not
 	}
 
 	<~ { :self :aNumber |
 		self < aNumber | {
-			self.closeTo(aNumber)
+			self.isCloseTo(aNumber)
 		}
 	}
 
 	>~ { :self :aNumber |
 		self > aNumber | {
-			self.closeTo(aNumber)
+			self.isCloseTo(aNumber)
 		}
 	}
 
@@ -97,7 +97,7 @@
 		let a = self;
 		let b = aNumber;
 		{
-			a.veryCloseTo(b)
+			a.isVeryCloseTo(b)
 		}.whileFalse {
 			[a, b] := [0.5 * (a + b), (a * b).sqrt]
 		};
@@ -159,7 +159,7 @@
 		let f = self - i;
 		{
 			(limit > 1) & {
-				f.veryCloseTo(0).not
+				f.isVeryCloseTo(0).not
 			}
 		}.whileTrue {
 			answer.add(i);
@@ -222,7 +222,7 @@
 
 	divisible { :self :aNumber |
 		aNumber.isNumber.if {
-			(self % aNumber).veryCloseTo(0)
+			(self % aNumber).isVeryCloseTo(0)
 		} {
 			aNumber.adaptToNumberAndApply(self, divisible:/2)
 		}

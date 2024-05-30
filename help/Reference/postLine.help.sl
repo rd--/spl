@@ -43,4 +43,18 @@ where it may be viewed using a `TranscriptViewer`.
 
 See also: system, Transcript
 
+References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base-4.20.0.0/docs/Prelude.html#v:print),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Print.html)
+[2](https://reference.wolfram.com/language/ref/Echo.html)
+[3](https://reference.wolfram.com/language/ref/Message.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/disp.html),
+_Python_
+[1](https://docs.python.org/3/library/functions.html#print),
+_Whatwg_
+[1](https://console.spec.whatwg.org/#log)
+
 Categories: Printing

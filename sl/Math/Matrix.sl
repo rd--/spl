@@ -445,9 +445,9 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	isOrthogonalMatrix { :self |
 		let [p, q] = self.shape;
 		(p >= q).if {
-			self.transposed.dot(self).veryCloseTo(q.identityMatrix)
+			self.transposed.dot(self).isVeryCloseTo(q.identityMatrix)
 		} {
-			self.dot(self.transposed).veryCloseTo(p.identityMatrix)
+			self.dot(self.transposed).isVeryCloseTo(p.identityMatrix)
 		}
 	}
 
@@ -472,9 +472,9 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	isUnitaryMatrix { :self |
 		let [p, q] = self.shape;
 		(p >= q).if {
-			self.conjugateTranspose.dot(self).veryCloseTo(q.identityMatrix)
+			self.conjugateTranspose.dot(self).isVeryCloseTo(q.identityMatrix)
 		} {
-			self.dot(self.conjugateTranspose).veryCloseTo(p.identityMatrix)
+			self.dot(self.conjugateTranspose).isVeryCloseTo(p.identityMatrix)
 		}
 	}
 
@@ -667,7 +667,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	matrixRank { :self |
 		self.rowReduce.count { :each |
 			each.allSatisfy { :item |
-				item.veryCloseTo(0)
+				item.isVeryCloseTo(0)
 			}.not
 		}
 	}
@@ -712,6 +712,10 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		} {
 			self.error('@Sequence>>numberOfColumns: not an array')
 		}
+	}
+
+	orthogonalize { :self |
+		self.gramSchmidtProcess
 	}
 
 	permanent { :self |

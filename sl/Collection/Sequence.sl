@@ -378,10 +378,6 @@
 		q % p
 	}
 
-	closeTo { :self :anObject |
-		self.equalBy(anObject, closeTo:/2)
-	}
-
 	collect { :self :aBlock:/1 |
 		let answer = self.species.ofSize(self.size);
 		self.indicesDo { :index |
@@ -1406,6 +1402,10 @@
 		self.shapeOrNil.notNil
 	}
 
+	isCloseTo { :self :anObject |
+		self.equalBy(anObject, isCloseTo:/2)
+	}
+
 	isGeometricSeries { :self |
 		(self.size <= 1).if {
 			true
@@ -1878,7 +1878,7 @@
 
 	normalize { :self |
 		let n = self.norm;
-		n.isZero.if {
+		n.isVeryCloseTo(0).if {
 			self
 		} {
 			self / n
@@ -2837,8 +2837,8 @@
 		}
 	}
 
-	veryCloseTo { :self :anObject |
-		self.equalBy(anObject, veryCloseTo:/2)
+	isVeryCloseTo { :self :anObject |
+		self.equalBy(anObject, isVeryCloseTo:/2)
 	}
 
 	withCollect { :self :aSequence :aBlock:/2 |

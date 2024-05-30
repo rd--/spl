@@ -36,6 +36,14 @@ Divide is applied sequentially:
 (3 / (5 * 7 * 9))
 ```
 
+At `LargeInteger` answers a `Fraction`:
+
+```
+>>> let r = 2n / 3n;
+>>> (r, r.isFraction)
+(2/3, true)
+```
+
 The unary form is `reciprocal`:
 
 ```

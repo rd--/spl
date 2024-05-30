@@ -33,7 +33,7 @@ Plot thresholding:
 
 * * *
 
-See also: abs, closeTo, veryCloseTo, zero
+See also: abs, isCloseTo, isVeryCloseTo, zero
 
 References:
 _Mathematica_

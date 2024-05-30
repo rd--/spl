@@ -102,10 +102,6 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 		}
 	}
 
-	closeTo { :self :anObject |
-		self.compareBy(anObject, closeTo:/2)
-	}
-
 	compareBy { :self :anObject :aBlock:/2 |
 		aBlock(self.x, anObject.x) & {
 			aBlock(self.y, anObject.y)
@@ -152,6 +148,10 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 			x0 + ((k.squared * (x - x0)) / ((x - x0).squared + (y - y0).squared)),
 			y0 + ((k.squared * (y - y0)) / ((x - x0).squared + (y - y0).squared))
 		)
+	}
+
+	isCloseTo { :self :anObject |
+		self.compareBy(anObject, isCloseTo:/2)
 	}
 
 	isPlanarCoordinates { :self |
