@@ -15,6 +15,7 @@ Answer the _n×n_ square Fourier matrix.
 	1 -1    1 -1;
 	1 -1.i -1  1.i
 ]
+```
 
 Fourier matrices are unitary, that is the inverse is equal to the conjugate transpose:
 

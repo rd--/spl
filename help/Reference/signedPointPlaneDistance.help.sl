@@ -1,6 +1,6 @@
 # signedPointPlaneDistance
 
-- signedPointPlaneDistance(aPlane, aPoint)_
+- _signedPointPlaneDistance(aPlane, aPoint)_
 
 Answer the signed distance from _aPoint_ to _aPlane_.
 The plane is given as _ax + by + cz + d = 0_,

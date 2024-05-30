@@ -23,4 +23,8 @@ Random implements `next` as `nextRandomFloat`:
 
 See also: Iterator, Sfc32, Stream
 
+References:
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/randstream.html)
+
 Further Reading: L’Ecuyer 2007

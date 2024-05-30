@@ -2,20 +2,20 @@
 
 ## Angle Computation
 
-- `vectorAngle`: angle between vectors
 - `planarAngle`: planar angle defined by three points
+- `vectorAngle`: angle between vectors
 
 ## Array Bounds
 
-- `minMax`: `min` and `max` values
-- `coordinateBounds`: min and max coordinates
 - `coordinateBoundingBox`: min and max coordinates
+- `coordinateBounds`: min and max coordinates
+- `minMax`: `min` and `max` values
 
 ## Arithmetic Operators
 
+- `*`: multiplication
 - `+`: addition
 - `-`: subtraction
-- `*`: multiplication
 - `/`: division
 - `^`: raised to
 
@@ -31,36 +31,36 @@
 
 ## Comparison Operators
 
-- `<`: less than
-- `>`: greater than
-- `<=`: less than or equal to
-- `>=`: greater than or equal to
 - `<=>`: -1, 0, +1 for less than, equal to, greater than
+- `<=`: less than or equal to
+- `<`: less than
+- `>=`: greater than or equal to
+- `>`: greater than
 
 ## Continued Fractions & Rational Approximations
 
-- `continuedFraction`: continued fraction expansion
-- `fromContinuedFraction`: construct exact or inexact numbers from continued fractions
-- `convergents`: a list of successive convergents of a continued fraction
 - `asFraction`: find rational approximations
+- `continuedFraction`: continued fraction expansion
+- `convergents`: a list of successive convergents of a continued fraction
+- `fromContinuedFraction`: construct exact or inexact numbers from continued fractions
 
 ## Piecewise Functions:
 
-- `min`: minimum value
-- `max`: maximum value
-- `abs`: absolute value
 - `Piecewise`: general piecewise function
+- `abs`: absolute value
+- `max`: maximum value
+- `min`: minimum value
 
 ## Exponential Functions
 
-- `log`: logarithm
-- `log2`: base-2 logarithms
-- `log10`: base-10 logarithms
-- `exp`: exponential
 - `^`: raised to
-- `sqrt`: square root
 - `cubeRoot`: real-number fractional powers
+- `exp`: exponential
+- `log10`: base-10 logarithms
+- `log2`: base-2 logarithms
+- `log`: logarithm
 - `nthRoot`: surd
+- `sqrt`: square root
 
 ## Trigonometric Functions
 
@@ -83,36 +83,39 @@
 
 ## Matrix Functions
 
-- `inverse`: inverse of a square matrix
-- `transposed`: transposition
-- `conjugateTranspose`: conjugate transpose (Hermitian conjugate)
-- `determinant`: determinant
-- `minor`: the indicated minor of a matrix
-- `minors`: the minors of a matrix
-- `trace`: trace
-- `matrixRank`: matrix rank, the number of linearly independent rows or columns
-- `matrixPower`: matrix power
-- `rowReduce`: simplified matrix obtained by making linear combinations of rows
-- `luDecomposition`: the LU decomposition
-- `choleskyDecomposition`: the Cholesky decomposition
-- `qrDecomposition`: the QR decomposition
-- `shape`: list the dimensions of a matrix
-- `outer`: outer product
-- `inner`: outer product
-- `dot`: outer product
 - `arrayFlatten`: flatten a matrix of matrices
 - `arrayRules`: positions and values of nonzero elements
+- `choleskyDecomposition`: the Cholesky decomposition
+- `conjugateTranspose`: conjugate transpose (Hermitian conjugate)
+- `determinant`: determinant
+- `dot`: outer product
+- `inner`: outer product
+- `inverse`: inverse of a square matrix
+- `isIntegerMatrix`: is integer matrix
+- `luDecomposition`: the LU decomposition
+- `matrixPower`: matrix power
+- `matrixPrintString`: two dimensional matrix text format
+- `matrixRank`: matrix rank, the number of linearly independent rows or columns
+- `matrixRotate`: matrix rotation
+- `minor`: the indicated minor of a matrix
+- `minors`: the minors of a matrix
+- `outer`: outer product
+- `qrDecomposition`: the QR decomposition
+- `rowReduce`: simplified matrix obtained by making linear combinations of rows
+- `shape`: list the dimensions of a matrix
+- `trace`: trace
+- `transposed`: transposition
 
 ## Numerical Functions
 
-- `round`: round to nearest integer
-- `floor`: round towards -∞
-- `ceiling`: round towards +∞
-- `integerPart`: integer part
-- `fractionPart`: fractional part
-- `mixedFractionParts`: integer and fractional parts
-- `sign`: sign of
 - `boole`: 1 for true, 0 for false
+- `ceiling`: round towards +∞
+- `floor`: round towards -∞
+- `fractionPart`: fractional part
+- `integerPart`: integer part
+- `mixedFractionParts`: integer and fractional parts
+- `round`: round to nearest integer
+- `sign`: sign of
 
 ## Division Functions
 
@@ -138,35 +141,35 @@
 
 ## Divisors
 
-- `divisors`: list of integers that divide
 - `divisorSigma`: the divisor function
 - `divisorSum`: sum of divisors
+- `divisors`: list of integers that divide
 
 ## Congruences
 
 - `%`: modulo
 - `chineseRemainder`: chinese remainder theorem
-- `powerMod`: power modulo
 - `multiplicativeOrder`: multiplicative order
+- `powerMod`: power modulo
 
 ## Combinatorial Functions
 
-- `factorial`: factorial function (total arrangements of n objects)
-- `subfactorial`: number of derangements of  objects, leaving none unchanged
-- `factorialPower`: factorial power
-- `hyperfactorial`: hyperfactorial function
-- `doubleFactorial`: double factorial
 - `binomial`: binomial coefficients
-- `multinomial`: multinomial coefficients
 - `catalanNumber`: Catalan numbers
+- `doubleFactorial`: double factorial
+- `factorialPower`: factorial power
+- `factorial`: factorial function (total arrangements of n objects)
+- `hyperfactorial`: hyperfactorial function
+- `multinomial`: multinomial coefficients
 - `polygonalNumber`: triangular and other polygonal numbers
+- `subfactorial`: number of derangements of  objects, leaving none unchanged
 
 ## Integer Decompositions
 
-- `factorInteger`: list of prime factors
 - `divisors`: list of integer divisors
-- `integerDigits`: list of the digits in integer
+- `factorInteger`: list of prime factors
 - `fareySequence`: the Farey sequence
+- `integerDigits`: list of the digits in integer
 
 ## Integer Partitions
 
@@ -177,23 +180,23 @@
 ## Base-Like Representations
 
 - `integerDigits`: gives a list of the decimal digits in the integer n.
-- `mixedRadixEncode`: mixed radix encoding
 - `mixedRadixDecode`: mixed radix decoding
+- `mixedRadixEncode`: mixed radix encoding
 
 ## Generating Primes
 
-- `primesList`: the list of primes
-- `nthPrime`: the nth prime number
 - `nextPrime`: next prime
-- `randomPrime`: pick a random prime
+- `nthPrime`: the nth prime number
 - `primePi`: the number of primes up to
+- `primesList`: the list of primes
+- `randomPrime`: pick a random prime
 
 ## Primality Testing
 
 - `isAlmostPrime`: test if a number is _k_-almost prime
+- `isCoprime`: test if numbers are coprime
 - `isGaussianPrime`: test if a complex number is a Gaussian prime
 - `isPrime`: test if a number is prime
-- `isCoprime`: test if numbers are coprime
 - `millerRabinPrimalityTest`: test if a number is likely prime
 
 ## Factoring
@@ -203,40 +206,40 @@
 
 ## Testing for Types
 
-- `isNumber`: is number predicate
-- `isInteger`: is integer predicate
-- `isSmallFloat`: is float predicate
 - `isComplex`: is complex predicate
 - `isFraction`: is fraction predicate
+- `isInteger`: is integer predicate
 - `isLargeInteger`: is extended precision integer predicate
+- `isNumber`: is number predicate
+- `isSmallFloat`: is float predicate
 
 ## Rational Numbers
 
-- `numerator`: numerator of a fraction
 - `denominator`: denominator of a fraction
+- `numerator`: numerator of a fraction
 
 ## Complex Numbers
 
-- `real`: real component of a complex number
-- `imaginary`: imaginary component of a complex number
+- `absArg`: absolute value and argument
 - `abs`: absolute value
 - `arg`: argument
-- `absArg`: absolute value and argument
 - `conjugated`: complex conjugate
+- `imaginary`: imaginary component of a complex number
+- `real`: real component of a complex number
 - `sign`: sign of
 
 ## Bitwise Logic Operations
 
 - `bitAnd`: bitwise and
+- `bitNot`: bitwise not
 - `bitOr`: bitwise or
 - `bitXor`: bitwise exclusive or
-- `bitNot`: bitwise not
 
 ## Structural Bitwise Operations
 
-- `highBit`: bit length
 - `bitShiftLeft`: bit shift right
 - `bitShiftRight`: bit shift left
+- `highBit`: bit length
 
 ## Single-Bit Operations
 
@@ -245,51 +248,51 @@
 
 ## Location Statistics
 
+- `commonest`: most common items
+- `contraharmonicMean`: contraharmonic mean
+- `geometricMean`: geometric mean
+- `harmonicMean`: harmonic mean
 - `mean`: mean of collection
 - `median`: median of sequence
-- `commonest`: most common items
-- `harmonicMean`: harmonic mean
-- `geometricMean`: geometric mean
-- `contraharmonicMean`: contraharmonic mean
 
 ## Dispersion Statistics
 
-- `variance`: unbiased estimate of variance
-- `standardDeviation`: standard deviation
-- `meanDeviation`: mean absolute deviation
 - `interquartileRange`: difference between the upper and lower quartiles
+- `meanDeviation`: mean absolute deviation
+- `standardDeviation`: standard deviation
+- `variance`: unbiased estimate of variance
 
 ## Shape Statistics
 
-- `skewness`: coefficient of skewness
 - `kurtosis`: coefficient of kurtosis
+- `skewness`: coefficient of skewness
 
 ## General Statistics
 
-- `moment`: order r moment
 - `centralMoment`: order r central moment
+- `moment`: order r moment
 - `rootMeanSquare`: root mean square
 
 ## Order Statistics
 
-- `min`: minimum
 - `max`: maximun
 - `minMax`: minimum and maximun
-- `sort`: sort
+- `min`: minimum
 - `ordering`: grade
 - `quantile`: quantile estimate
 - `quartiles`: quartile estimate
+- `sort`: sort
 
 ## Data Transforms and Smoothing
 
 - `clip`: clip between
-- `rescale`: rescale between
-- `normalize`: normalize vector
-- `standardize`: zero mean and unit sample variance
-- `movingAverage`: find the simple moving average with any span
 - `exponentialMovingAverage`: find the exponential moving average with damping
-- `movingMedian`: find the moving median with any span
+- `movingAverage`: find the simple moving average with any span
 - `movingMap`: map a function over a moving window with any span
+- `movingMedian`: find the moving median with any span
+- `normalize`: normalize vector
+- `rescale`: rescale between
+- `standardize`: zero mean and unit sample variance
 
 ## Window Functions
 
@@ -302,62 +305,69 @@
 
 ## Operations on Sets
 
-- `union`: find the union of any number of sets
-- `intersection`: find the intersection of any number of sets
 - `complement`: find the complement with respect to a universal set
-- `symmetricDifference`: find the symmetric difference of any number of sets
-- `subsets`: find all possible subsets of a set (the powerset)
-- `tuples`: find all possible tuples of n elements from a set
 - `groupings`: find all possible groupings of elements
+- `intersection`: find the intersection of any number of sets
+- `subsets`: find all possible subsets of a set (the powerset)
+- `symmetricDifference`: find the symmetric difference of any number of sets
+- `tuples`: find all possible tuples of n elements from a set
+- `union`: find the union of any number of sets
 
 ## Permutation Representation
 
 - `cycles`: cyclic permutation representation
 - `isPermutationCycles`: test validity
+- `isPermutationList`: test validity
 - `permutationCycles`: convert to cyclic representation
 - `permutationList`: convert to permutation list representation
-- `isPermutationList`: test validity
 - `randomPermutation`: random generation of permutations
 
 ## Permutation Operations
 
-- `permutationReplace`: standard action of a permutation on other objects
-- `permutationProduct`: product of permutations
+- `findPermutation`: permutation linking two expressions
 - `inversePermutation`: inverse of permutation
 - `permutationPower`: _n_-th power of permutation
-- `permute`: permute arguments of an expression
-- `findPermutation`: permutation linking two expressions
+- `permutationProduct`: product of permutations
+- `permutationReplace`: standard action of a permutation on other objects
 - `permutations`: all permutations of arguments of an expression
+- `permute`: permute arguments of an expression
 
 ## Permutation Properties
 
+- `permutationLength`: number of integers moved by permutation
+- `permutationMax`: largest integer moved by permutation
+- `permutationMin`: smallest integer moved by permutation
 - `permutationOrder`: order of a permutation
 - `permutationSupport`: integers that are not fixed by permutation
-- `permutationLength`: number of integers moved by permutation
-- `permutationMin`: smallest integer moved by permutation
-- `permutationMax`: largest integer moved by permutation
 
 ## Permutation Lists
 
 - `ordering`: inverse of a permutation list
 - `randomSample`: random generation of permutation lists
 
+## Permutations
+
+- `lexicographicPermutations`: permutations in lexicographic sequence
+- `minimumChangePermutations`: permutations in minimum change sequence (Heap’s algorithm)
+- `permutations`: permutations
+- `plainChanges`: permutations in plain changes sequence (Steinhaus-Johnson-Trotter)
+
 ## Distance and Similarity Measures
 
-- `euclideanDistance`: Euclidean distance
-- `squaredEuclideanDistance`: square of the Euclidean distance
-- `normalizedSquaredEuclideanDistance`: nomralized squared Euclidean distance
-- `manhattanDistance`: Manhattan or city block distance
-- `chessboardDistance`: chessboard or Chebyshev or sup norm distance
+- `binaryDistance`:  binary distance
 - `brayCurtisDistance`: Bray–Curtis distance
 - `canberraDistance`: Canberra or Lance-Williams distance
-- `cosineDistance`: angular cosine distance
+- `chessboardDistance`: chessboard or Chebyshev or sup norm distance
 - `correlationDistance`: correlation distance
-- `binaryDistance`:  binary distance
-- `minkowskiDistance`: Minkowski distance
+- `cosineDistance`: angular cosine distance
 - `distanceMatrix`: distance matrix
-- `hammingDistance`: Hamming distance
 - `editDistance`: edit or Levenshtein distance
+- `euclideanDistance`: Euclidean distance
+- `hammingDistance`: Hamming distance
+- `manhattanDistance`: Manhattan or city block distance
+- `minkowskiDistance`: Minkowski distance
+- `normalizedSquaredEuclideanDistance`: nomralized squared Euclidean distance
+- `squaredEuclideanDistance`: square of the Euclidean distance
 
 ## One-Dimensional Lists
 
@@ -376,21 +386,21 @@
 
 ## Vectors & Paths
 
+- `anglePath`: form a path from a sequence steps
 - `angleVector`: create a vector at a specified angle
 - `circlePoints`: equally distributed points around a circle
-- `anglePath`: form a path from a sequence steps
 
 ## Coordinate Transformations
 
-- `fromPolarCoordinates`: convert from _(r,θ)_ to _(x,y)_
-- `toPolarCoordinates`: convert from _(x,y)_ to _(r,θ)_
-- `fromSphericalCoordinates`: convert from _(r,θ,ϕ)_ to _(x,y,z)_
-- `toSphericalCoordinates`: convert from _(x,y,z)_ to _(r,θ,ϕ)_
 - `fromCylindricalCoordinates`: convert from _(ρ,φ,z)_ to _(x,y,z)_
-- `toCylindricalCoordinates`: convert from _(x,y,z)_ to _(ρ,φ,z)_
-- `rotationMatrix`: rotation matrix
+- `fromPolarCoordinates`: convert from _(r,θ)_ to _(x,y)_
+- `fromSphericalCoordinates`: convert from _(r,θ,ϕ)_ to _(x,y,z)_
 - `reflectionMatrix`: reflection matrix
+- `rotationMatrix`: rotation matrix
 - `scalingMatrix`: scaling matrix
+- `toCylindricalCoordinates`: convert from _(x,y,z)_ to _(ρ,φ,z)_
+- `toPolarCoordinates`: convert from _(x,y)_ to _(r,θ)_
+- `toSphericalCoordinates`: convert from _(x,y,z)_ to _(r,θ,ϕ)_
 
 * * *
 

@@ -21,7 +21,7 @@ InfinitePlane : [Object] { | a b c d |
 	}
 
 	distance { :self :aPoint |
-		self.terms.signedPointPlaneDistance(aPoint)
+		self.terms.signedPointPlaneDistance(aPoint.vector)
 	}
 
 	embeddingDimension { :self |

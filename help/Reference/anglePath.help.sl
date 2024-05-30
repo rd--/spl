@@ -6,6 +6,7 @@
 ```
 >>> (90.degree # 3).anglePath
 [0 0; 0 1; -1 1; -1 0]
+```
 
 A polyline of three segments:
 

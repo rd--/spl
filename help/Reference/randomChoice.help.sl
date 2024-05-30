@@ -54,6 +54,17 @@ Generate a weighted random string:
 '---..-...--.....-........--.--...-.-....--.....--.'
 ```
 
+Choose 48 characters randomly and with replacement from the sequence _ACGT_,
+according to the specified probabilities.
+
+```
+>>> let r = Sfc32(36814);
+>>> let w = [0.15 0.35 0.35 0.15];
+>>> let e = 'ACGT'.contents;
+>>> (w -> e).randomChoice(48, r).join
+'CTTGTAGGGTCCCGGAGGTCGCGGCAGGGGTCAGGAGTGGTTCCATCC'
+```
+
 Generate integers according to a _1 / n_ distribution:
 
 ```
@@ -77,6 +88,10 @@ See also: anyOne, atRandom, randomInteger, randomSample
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/RandomChoice.html)
+[1](https://reference.wolfram.com/language/ref/RandomChoice.html),
+_Mathworks_
+[1](https://mathworks.com/help/stats/randsample.html),
+_R_
+[1](https://search.r-project.org/R/refmans/base/html/sample.html)
 
 Categories: Random

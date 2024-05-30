@@ -2,6 +2,7 @@
 
 - _eulerGradusSuavitatis(anInteger)_
 
+Euler’s _Gradus Suavitatis_, or degree of harmoniousness, consonance or pleasantness.
 
 At `Integer`:
 
@@ -48,8 +49,10 @@ Plot:
 
 * * *
 
-See also:
+See also: Fraction, isCoprime, primeFactors
 
 References:
 _OEIS_
 [1](https://oeis.org/A275314)
+
+Further Reading: Euler 1739

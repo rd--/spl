@@ -1,5 +1,9 @@
 # Polygon
 
+- _Polygon(aSequence)_
+
+A Polygon is a `Type` representing a polygon with vertices given by _aSequence_.
+
 The `area` and `centroid` of two triangle:
 
 ```

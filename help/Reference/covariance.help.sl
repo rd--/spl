@@ -13,6 +13,7 @@ Answer the covariance between the vectors _v_ and _w_, or the matrices _a_ and _
 
 >>> [1 2 5 6].covariance([2 3 6 8])
 6.5
+```
 
 Covariance between vectors of complexes:
 

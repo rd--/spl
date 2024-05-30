@@ -1,6 +1,6 @@
 # simplified
 
-- simplified(anObject)_
+- _simplified(anObject)_
 
 Answer a simplified form of an _anObject_, without changing an _anOject_ in the process.
 

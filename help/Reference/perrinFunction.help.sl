@@ -5,13 +5,16 @@
 The Perrin numbers are a doubly infinite constant-recursive integer sequence with characteristic equation _x ^ 3 = x + 1_.
 The Perrin numbers bear the same relationship to the Padovan sequence as the Lucas numbers do to the Fibonacci sequence.
 
-The first few terms in both directions:
+The first few terms in positive direction:
 
 ```
 >>> 0:17.collect(perrinFunction:/1)
 [3 0 2 3 2 5 5 7 10 12 17 22 29 39 51 68 90 119]
 ```
 
+The first few terms in negative direction:
+
+```
 >>> 0:-17.collect(perrinFunction:/1)
 [3 -1 1 2 -3 4 -2 -1 5 -7 6 -1 -6 12 -13 7 5 -18]
 ```

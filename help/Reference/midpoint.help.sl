@@ -10,6 +10,7 @@ Find the midpoint of two points:
 ```
 >>> [1 1].midpoint([2 3])
 [3/2 2]
+```
 
 Midpoint in two dimensions:
 

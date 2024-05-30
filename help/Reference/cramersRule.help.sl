@@ -2,6 +2,8 @@
 
 - _cramersRule(aMatrix, aVector)_
 
+Cramer’s rule is an explicit formula for the solution of a system of linear equations with as many equations as unknowns,
+valid whenever the system has a unique solution.
 
 Use Cramer’s rule to solve a system of linear equations with as many equations as unknowns:
 
@@ -53,3 +55,11 @@ _2x + 5y = 45_ and _6x - 15y = -135_ are equal lines so there are infinite solut
 >>> [2 5; 6 -15].cramersRule([45 -135])
 [0 9]
 ```
+
+* * *
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/CramersRule.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Cramer%27s_rule)

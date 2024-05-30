@@ -1,6 +1,6 @@
 # barlowIndigestibility
 
-- _barlowIndigestibility(anInteger)
+- _barlowIndigestibility(anInteger)_
 
 The indigestibility of a prime number _p_ is defined as _2 * (p - 1) * 2 / p_.
 The indigestibility of a composite number is the sum of the indigestibilities of its prime factors.
