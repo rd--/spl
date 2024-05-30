@@ -11,10 +11,10 @@ The second row of a 3×3 matrix:
 [4 5 6]
 ```
 
-C.f. `subMatrix` to answer a one row matrix:
+C.f. `submatrix` to answer a one row matrix:
 
 ```
->>> [3 3].iota.subMatrix(2:2, 1:3)
+>>> [3 3].iota.submatrix(2:2, 1:3)
 [[4 5 6]]
 ```
 
@@ -27,4 +27,4 @@ C.f. `at`, which does not require the input be a matrix:
 
 * * *
 
-See also: at, matrixColumn, subMatrix
+See also: at, matrixColumn, submatrix

@@ -714,7 +714,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 
 	minor { :self :i :j |
 		let [m, n] = self.shape;
-		self.subMatrix([1 .. m].without(i), [1 .. n].without(j)).determinant
+		self.submatrix([1 .. m].without(i), [1 .. n].without(j)).determinant
 	}
 
 	minors { :self |
@@ -722,7 +722,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		{ :i :j |
 			let r = m - i + 1;
 			let c = n - j + 1;
-			self.subMatrix([1 .. m].without(r), [1 .. n].without(c)).determinant
+			self.submatrix([1 .. m].without(r), [1 .. n].without(c)).determinant
 		}.table(1:m, 1:n)
 	}
 
@@ -849,7 +849,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.deepCopy.reducedRowEchelonForm
 	}
 
-	subMatrix { :self :r :c |
+	submatrix { :self :r :c |
 		{ :i :j |
 			self[i][j]
 		}.table(r, c)

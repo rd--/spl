@@ -11,10 +11,10 @@ The second column of a 3×3 matrix:
 [2 5 8]
 ```
 
-C.f. `subMatrix` to answer a column vector:
+C.f. `submatrix` to answer a column vector:
 
 ```
->>> [3 3].iota.subMatrix(1:3, 2:2)
+>>> [3 3].iota.submatrix(1:3, 2:2)
 [2; 5; 8]
 ```
 
@@ -27,4 +27,4 @@ C.f. `transposed` to answer all columns:
 
 * * *
 
-See also: at, matrixRow, subMatrix, transposed
+See also: at, matrixRow, submatrix, transposed

@@ -40,7 +40,7 @@ Minors of an exact 4×4 matrix:
 
 * * *
 
-See also: adjugate, determinant, minor, subMatrix, trace
+See also: adjugate, determinant, minor, submatrix, trace
 
 References:
 _Mathematica_
