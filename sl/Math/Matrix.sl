@@ -158,6 +158,20 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		}
 	}
 
+	arrayRules { :self :zero |
+		let [m, n] = self.shape;
+		let answer = [];
+		1.toDo(m) { :i |
+			1.toDo(n) { :j |
+				let e = self[i][j];
+				(e = zero).ifFalse {
+					answer.add([i, j] -> e)
+				}
+			}
+		};
+		answer
+	}
+
 	assertIsMatrix { :self :context |
 		self.assert(context) {
 			self.isMatrix
@@ -368,6 +382,18 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		};
 		a.reducedRowEchelonForm;
 		a.collect(last:/1)
+	}
+
+	gramSchmidtProcess { :self |
+		let a = self.deepCopy;
+		let [n, m] = a.shape;
+		1.toDo(n) { :k |
+			a[k] := a[k].normalize;
+			(k + 1).toDo(n) { :j |
+				a[j] := a[j] - (a[j].dot(a[k]) * a[k])
+			}
+		};
+		a
 	}
 
 	inverse { :self |
@@ -686,16 +712,18 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.matrixRotate(1)
 	}
 
-	gramSchmidtProcess { :self |
-		let a = self.deepCopy;
-		let [n, m] = a.shape;
-		1.toDo(n) { :k |
-			a[k] := a[k].normalize;
-			(k + 1).toDo(n) { :j |
-				a[j] := a[j] - (a[j].dot(a[k]) * a[k])
-			}
-		};
-		a
+	minor { :self :i :j |
+		let [m, n] = self.shape;
+		self.subMatrix([1 .. m].without(i), [1 .. n].without(j)).determinant
+	}
+
+	minors { :self |
+		let [m, n] = self.shape;
+		{ :i :j |
+			let r = m - i + 1;
+			let c = n - j + 1;
+			self.subMatrix([1 .. m].without(r), [1 .. n].without(c)).determinant
+		}.table(1:m, 1:n)
 	}
 
 	numberOfRows { :self |

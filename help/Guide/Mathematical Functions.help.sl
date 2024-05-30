@@ -81,6 +81,28 @@
 - `sinh`: hyperbolic sine
 - `tanh`: hyperbolic tangent
 
+## Matrix Functions
+
+- `inverse`: inverse of a square matrix
+- `transposed`: transposition
+- `conjugateTranspose`: conjugate transpose (Hermitian conjugate)
+- `determinant`: determinant
+- `minor`: the indicated minor of a matrix
+- `minors`: the minors of a matrix
+- `trace`: trace
+- `matrixRank`: matrix rank, the number of linearly independent rows or columns
+- `matrixPower`: matrix power
+- `rowReduce`: simplified matrix obtained by making linear combinations of rows
+- `luDecomposition`: the LU decomposition
+- `choleskyDecomposition`: the Cholesky decomposition
+- `qrDecomposition`: the QR decomposition
+- `shape`: list the dimensions of a matrix
+- `outer`: outer product
+- `inner`: outer product
+- `dot`: outer product
+- `arrayFlatten`: flatten a matrix of matrices
+- `arrayRules`: positions and values of nonzero elements
+
 ## Numerical Functions
 
 - `round`: round to nearest integer
@@ -341,6 +363,16 @@
 
 - `Range`: range of values in equal steps
 - `subdivide`: list of values from equal subdivisions
+
+## Vector Functions
+
+- `at`: the _i_-th element of a vector
+- `dot`: dot product of two vectors
+- `norm`: the norm of a vector
+- `normalize`: scale to be unit vector
+- `standardize`: shift to have zero mean and unit sample variance
+- `projection`: orthogonal projection
+- `orthogonalize`: orthonormal to vectors
 
 ## Vectors & Paths
 

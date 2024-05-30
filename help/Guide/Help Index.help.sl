@@ -149,7 +149,8 @@
 
 ## Distance Measures
 
-- `brayCurtisDistance`, `canberraDistance`, `chessboardDistance`, `euclideanDistance`, `manhattanDistance`
+- `euclideanDistance`
+- `brayCurtisDistance`, `canberraDistance`, `chessboardDistance`, `manhattanDistance`
 - `editDistance`, `hammingDistance`, `levenshteinDistance`
 
 ## Division & Divisibility
@@ -375,6 +376,7 @@
 - `kroneckerProduct`
 - `lowerTriangularize`, `upperTriangularize`
 - `luDecomposition`
+- `minor`, `minors`
 
 ## Matrix Predicates
 
@@ -722,9 +724,18 @@
 - `asHertz`, `hertz`, `kiloherz`
 - `metres`
 
+## Vector Constructors
+
+- `table`, `!`, `reshape`
+
 ## Vector Operations
 
-- `dot`, `norm`, `normalize`, `standardize`
+- `isVector`, `size`
+- `@`, `@*`, `at`
+- `dot`, `cross`, `norm`
+- `sum`, `product`
+- `normalize`, `projection`, `standardize`
+- `orthogonalize`, `kroneckerProduct`
 
 ## Vectors and Paths
 

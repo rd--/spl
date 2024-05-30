@@ -3,7 +3,7 @@
 - _inner(f:/2, g:/2)_
 - _inner(f:/2, α, β, g:/2)_
 
-_inner_ is a generalization of _dot_ in which _f_ plays the role of multiplication and _g_ of addition.
+`inner` is a generalization of `dot` in which _f_ plays the role of multiplication and _g_ of addition.
 
 ```
 >>> inner(*, [1 1], [-1 1], +)
@@ -12,7 +12,17 @@ _inner_ is a generalization of _dot_ in which _f_ plays the role of multiplicati
 >>> let m = [1 2; 3 4; 5 6];
 >>> let n = [6 5 4; 3 2 1];
 >>> (inner(*, m, n, +), inner(*, n, m, +))
-([12 9 6; 30 23 16; 48 37 26], [41 56; 14 20])
+(
+	[
+		12  9  6;
+		30 23 16;
+		48 37 26
+	],
+	[
+		41 56;
+		14 20
+	]
+)
 ```
 
 Generalized inner product of:
@@ -45,7 +55,11 @@ The binary form is _adverbial_, it answers a `Block` that will perform _inner(f,
 
 >>> let m = [0 0 1; 1 0 0; 0 1 0];
 >>> m *.inner(+) m.transposed
-[1 0 0; 0 1 0; 0 0 1]
+[
+	1 0 0;
+	0 1 0;
+	0 0 1
+]
 
 >>> let x = [1 3 -5];
 >>> let y = [4 -2 -1];

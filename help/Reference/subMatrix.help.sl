@@ -3,6 +3,7 @@
 - _subMatrix(aMatrix, rows, columns)_
 
 Answer a sub-matrix of _aMatrix_ given sequences of row and column indices.
+A submatrix of a matrix is a matrix obtained by deleting any collection of rows and or columns.
 
 A 2×2 sub-matrix of a 3×3 matrix:
 
@@ -23,6 +24,16 @@ the row and column indices need not be in order and may have repetitions:
 [
 	0 1 2 1;
 	2 3 4 3
+]
+```
+
+A 2×3 sub-matrix of a 3×4 matrix by deleting row three and column two:
+
+```
+>>> [3 4].iota.subMatrix([1 2], [1 3 4])
+[
+	1 3 4;
+	5 7 8
 ]
 ```
 

@@ -68,9 +68,19 @@ Solve the matrix equation _m.x = y_, where _y_ is a matrix:
 ([158/29 -305/58 -234/29; 4 -15/4 -7; -1/29 9/116 -11/29], true)
 ```
 
-A square matrix has an inverse if and only if its determinant is nonzero:
+A square matrix has an inverse if and only if it is non-singular, in which case its determinant is nonzero.
+It is an error to invert a singular matrix:
 
 ```
+>>> [1 2; 1 2].determinant
+0
+
+>>> { [1 2; 1 2].inverse }.ifError { true }
+true
+
+>>> [1 2 3; 4 5 6; 7 8 9].determinant
+0
+
 >>> { [1 2 3; 4 5 6; 7 8 9].inverse }.ifError { true }
 true
 ```
@@ -84,6 +94,18 @@ The classical adjoint (adjugate) of a square matrix is the `inverse` multiplied 
 	-53  52 -23;
 	 22  -8 -38;
 	  7 -68  37
+]
+```
+
+Inverse of a matrix of rational numbers:
+
+```
+>>> { :i :j | Fraction(1, i + j) }.table(1:4, 1:4).inverse
+[
+	  200  -1200   2100  -1120;
+	-1200   8100 -15120   8400;
+	 2100 -15120  29400 -16800;
+	-1120   8400 -16800   9800
 ]
 ```
 
