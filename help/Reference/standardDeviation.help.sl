@@ -2,6 +2,8 @@
 
 - _standardDeviation(aCollection)_
 
+Answer an unbiased estimate of the variance of _aCollection_, using Bessel’s correction.
+
 The standard deviation is the square root of the `variance`.
 
 ```
@@ -13,6 +15,9 @@ The standard deviation is the square root of the `variance`.
 
 >>> [7 8 9].standardDeviation
 1
+
+>>> [2 4 4 4 5 5 7 9].standardDeviation
+(32 / 7).sqrt
 ```
 
 Standard deviation at a matrix is column-wise:
@@ -29,6 +34,7 @@ See also: variance
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/StandardDeviation.html)
-[2](https://reference.wolfram.com/language/ref/StandardDeviation.html)
+[2](https://mathworld.wolfram.com/BesselsCorrection.html)
+[3](https://reference.wolfram.com/language/ref/StandardDeviation.html)
 
 Categories: Statistics

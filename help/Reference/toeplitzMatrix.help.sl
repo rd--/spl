@@ -16,6 +16,8 @@ Answer the _n×n_ Toeplitz matrix with elements of the form _1 / (i + j - 1)_.
 ]
 ```
 
+4×4 Toeplitz matrix:
+
 ```
 >>> [1 2 4 8].toeplitzMatrix([1 0.5 0.25 0.125])
 [

@@ -15,6 +15,14 @@ Answer the mean absolute deviation from the mean of the elements in _aCollection
 (9 / 2)
 ```
 
+Calculation in terms of `-`, `mean`, `abs`, `sum`, `/` and `size`:
+
+```
+>>> let l = [2 4 4 4 5 5 7 9];
+>>> ((l - l.mean).abs.sum / l.size, l.meanDeviation)
+(12 / 8, 12 / 8)
+```
+
 * * *
 
 See also: mean, standardDeviation

@@ -564,8 +564,7 @@
 	}
 
 	meanDeviation { :self |
-		let mean = self.mean;
-		(self - mean).abs.sum / self.size
+		(self - self.mean).abs.sum / self.size
 	}
 
 	moment { :self :r |
@@ -738,6 +737,10 @@
 		self.squared.sum.sqrt / 2
 	}
 
+	sampleStandardDeviation { :self |
+		(self - self.mean).squared.mean.sqrt
+	}
+
 	select { :self :aBlock:/1 |
 		let answer = self.species.new;
 		self.do { :each |
@@ -805,13 +808,11 @@
 	}
 
 	standardDeviation { :self |
-		self.isMatrix.if {
-			self.transposed.collect { :each |
-				each.variance.sqrt
-			}
-		} {
-			self.variance.sqrt
-		}
+		self.variance.sqrt
+	}
+
+	standardizedMoment { :self :r |
+		self.centralMoment(r) / (self.sampleStandardDeviation ^ r)
 	}
 
 	symmetricDifference { :self :aCollection |

@@ -6,18 +6,31 @@ Answer `true` if _aFraction_ is a superparticular ratio, else `false`.
 
 A superparticular, or epimoric ratio, is the ratio of two consecutive integer numbers.
 
+2/1 is superparticular:
+
 ```
 >>> 2/1.isSuperparticular
 true
+```
 
+2/3 is not superparticular:
+
+```
 >>> 2/3.isSuperparticular
 false
+```
 
->>> 2:9.r(1:8).allSatisfy(isSuperparticular:/1)
-true
+The first eight superparticular ratios, and their values in `cents`:
 
->>> 2:9.r(1:8).ratioToCents.rounded
-[1200 702 498 386 316 267 231 204]
+```
+>>> let r = 2:9.r(1:8);
+>>> let c = r.ratioToCents.rounded;
+>>> (r, c, r.allSatisfy(isSuperparticular:/1))
+(
+	[2/1 3/2 4/3 5/4 6/5 7/6 8/7 9/8],
+	[1200 702 498 386 316 267 231 204],
+	true
+)
 ```
 
 The ratio between two successive superparticular ratios is always superparticular:
@@ -42,7 +55,7 @@ The ratio between two successive members of the Farey sequence is superparticula
 
 * * *
 
-See also: Fraction, isSquareSuperparticular
+See also: fareySequence, Fraction, isSquareSuperparticular
 
 References:
 _W_

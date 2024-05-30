@@ -76,6 +76,16 @@ pi
 1/3
 ```
 
+The question-mark function has fixed points at 0, 1/2 and 1, and at least two more,
+symmetric about the midpoint,
+one at approximately 0.42037,
+cf. OEIS [A048819](https://oeis.org/A048819):
+
+```
+>>> [0 0.5 1 0.420372339423223].minkowskiQuestionMark
+[0 0.5 1 0.4203723394232]
+```
+
 Plot over the unit interval:
 
 ~~~
@@ -88,7 +98,7 @@ Plot difference from input:
 (0 -- 2).discretize(500) { :x | x.minkowskiQuestionMark - x }.plot
 ~~~
 
-Plot over from -2 to 2, is surjective:
+Plot over from -2 to 2, _?(x)_ is surjective:
 
 ~~~
 (-2 -- 2).discretize(500).minkowskiQuestionMark.plot
@@ -101,4 +111,8 @@ See also: continuedFraction, minkowskiQuestionMarkInverse
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/MinkowskisQuestionMarkFunction.html)
-[2](https://reference.wolfram.com/language/ref/MinkowskiQuestionMark.html)
+[2](https://reference.wolfram.com/language/ref/MinkowskiQuestionMark.html),
+_OEIS_
+[1](https://oeis.org/A048819),
+_W_
+[1](https://en.wikipedia.org/wiki/Minkowski%27s_question-mark_function)

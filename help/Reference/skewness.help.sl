@@ -21,16 +21,18 @@ Skewness for a matrix gives columnwise skewness:
 [0.49221 0.23906 -0.23906]
 ```
 
-Find the skewness for the heights of children in a class.
-Skewness close to 0 indicates distribution symmetric around the mean:
+Find the `skewness` for the heights of children in a class.
+Skewness is the normalised third central moment.
+A value close to `zero` indicates the distribution is symmetric around the mean:
 
 ```
->>> [
+>>> let h = [
 >>> 	134 143 131 140 145 136 131 136 143
 >>> 	136 133 145 147 150 150 146 137 143
 >>> 	132 142 145 136 144 135 141
->>> ].skewness
-0.0113408
+>>> ];
+>>> (h.skewness, h.standardizedMoment(3))
+(0.0113408, 0.0113408)
 ```
 
 Skewness of random numbers:

@@ -2510,6 +2510,16 @@
 		(self - aSequence).norm.squared
 	}
 
+	standardDeviation { :self |
+		self.isMatrix.if {
+			self.transposed.collect { :each |
+				each.variance.sqrt
+			}
+		} {
+			self.variance.sqrt
+		}
+	}
+
 	standardize { :self :meanBlock:/1 :deviationBlock:/1 |
 		let deviation = deviationBlock(self);
 		(deviation = 0).if {
@@ -2827,6 +2837,14 @@
 			answer[(each * anInteger) + 1] := self[each + 1]
 		};
 		answer
+	}
+
+	variance { :self |
+		self.isMatrix.if {
+			self.transposed.collect(variance:/1)
+		} {
+			((self - self.mean) ^ 2).sum / (self.size - 1)
+		}
 	}
 
 	vectorAngle { :u :v |

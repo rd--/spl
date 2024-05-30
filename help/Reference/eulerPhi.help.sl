@@ -30,7 +30,8 @@ Threads over lists:
 [1 2 2]
 ```
 
-Length of the _nth_-order Farey sequence can be expressed in terms of `eulerPhi`:
+Length of the _nth_-order Farey sequence can be expressed in terms of `eulerPhi`,
+c.f. OEIS [A002088](https://oeis.org/A002088):
 
 ```
 >>> 1:15.collect { :k | 1:k.eulerPhi.sum + 1 }
@@ -73,4 +74,6 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/pco#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/TotientFunction.html)
-[2](https://reference.wolfram.com/language/ref/EulerPhi.html)
+[2](https://reference.wolfram.com/language/ref/EulerPhi.html),
+_OEIS_
+[1](https://oeis.org/A002088)

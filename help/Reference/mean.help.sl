@@ -37,15 +37,17 @@ When the input is an `Dictionary`, `mean` works on its values:
 (1 + 2 + 3) / 3
 ```
 
-Find the mean for the heights of children in a class.
+Find the `mean` for the heights of children in a class.
+The mean is the `moment` of ordinal one:
 
 ```
->>> [
+>>> let h = [
 >>> 	134 143 131 140 145 136 131 136 143
 >>> 	136 133 145 147 150 150 146 137 143
 >>> 	132 142 145 136 144 135 141
->>> ].mean
-140.04
+>>> ];
+>>> (h.mean, h.moment(1))
+(140.04, 140.04)
 ```
 
 Compute the mean of every row of a matrix:

@@ -24,16 +24,18 @@ Kurtosis for a matrix gives columnwise kurtosis:
 [3/2 3/2 3/2]
 ```
 
-Find the kurtosis for the heights of children in a class.
+Find the `kurtosis` for the heights of children in a class.
+The kurtosis is the standardized fourth central moment.
 Kurtosis larger than 3 would indicate a distribution highly concentrated around the mean:
 
 ```
->>> [
+>>> let h = [
 >>> 	134 143 131 140 145 136 131 136 143
 >>> 	136 133 145 147 150 150 146 137 143
 >>> 	132 142 145 136 144 135 141
->>> ].kurtosis
-1.8248
+>>> ];
+>>> (h.kurtosis, h.standardizedMoment(4))
+(1.8248, 1.8248)
 ```
 
 Find kurtosis of ten random numbers:
