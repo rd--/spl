@@ -2,6 +2,10 @@
 
 +@Number {
 
+	NormalDistribution { :mu :sigma |
+		newNormalDistribution().initializeSlots(mu, sigma)
+	}
+
 	normalDistributionCdf { :mu :sigma :x |
 		0.5 * ((mu - x) / (2.sqrt * sigma)).erfc
 	}
@@ -40,8 +44,8 @@
 		spread * (r * pi).tan + mean
 	}
 
-	randomFloatGaussianDistribution { :mean :deviation |
-		(((-2 * 1.randomFloat.log).sqrt * 2.pi.randomFloat.sin) * deviation) + mean
+	randomFloatGaussianDistribution { :mu :sigma |
+		(((-2 * 1.randomFloat.log).sqrt * 2.pi.randomFloat.sin) * sigma) + mu
 	}
 
 	randomFloatLinearDistribution { :x1 :x2 |
@@ -83,6 +87,109 @@
 			r := 1.randomFloat
 		};
 		spread * (r.log.negated ^ (1 / shape)) + location
+	}
+
+	UniformDistribution { :min :max |
+		newUniformDistribution().initializeSlots(min, max)
+	}
+
+}
+
+UniformDistribution : [Object] { | min max |
+
+	cdf { :self :x |
+		let [min, max] = [self.min, self.max];
+		(x < min).if {
+			0
+		} {
+			(x > max).if {
+				1
+			} {
+				(x - min) / (max - min)
+			}
+		}
+	}
+
+	entropy { :self |
+		(self.max - self.min).log
+	}
+
+	kurtosis { :self |
+		9/5
+	}
+
+	mean { :self |
+		(self.min + self.max) / 2
+	}
+
+	median { :self |
+		(self.min + self.max) / 2
+	}
+
+	pdf { :self :x |
+		x.betweenAnd(self.min, self.max).if {
+			1
+		} {
+			0
+		}
+	}
+
+	randomVariate { :self |
+		randomFloat(self.min, self.max)
+	}
+
+	randomVariate { :self :shape |
+		let [min, max] = [self.min, self.max];
+		{
+			randomFloat(min, max)
+		} ! shape
+	}
+
+	skewness { :self |
+		0
+	}
+
+	standardDeviation { :self |
+		self.variance.sqrt
+	}
+
+	variance { :self |
+		(self.max - self.min).squared / 12
+	}
+
+}
+
+NormalDistribution : [Object] { | mu sigma |
+
+	cdf { :self :x |
+		normalDistributionCdf(self.mu, self.sigma, x)
+	}
+
+	mean { :self |
+		self.mu
+	}
+
+	pdf { :self :x |
+		normalDistributionPdf(self.mu, self.sigma, x)
+	}
+
+	randomVariate { :self |
+		randomFloatGaussianDistribution(self.mu, self.sigma)
+	}
+
+	randomVariate { :self :shape |
+		let [mu, sigma] = [self.mu, self.sigma];
+		{
+			randomFloatGaussianDistribution(mu, sigma)
+		} ! shape
+	}
+
+	standardDeviation { :self |
+		self.sigma
+	}
+
+	variance { :self |
+		self.sigma.squared
 	}
 
 }
