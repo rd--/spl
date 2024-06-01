@@ -29,6 +29,24 @@ Evaluate numerically:
 
 >>> 2.5.gamma
 1.32934
+
+>>> 0.5.gamma
+1.7725
+```
+
+Evaluate several values of the gamma function between [-3.5 3.5]:
+
+```
+>>> (-3.5, -2.5 .. 3.5).gamma
+[0.2701 -0.9453 2.3633 -3.5449 1.7725 0.8862 1.3293 3.3234]
+```
+
+The gamma function interpolates the factorial function.
+For integers, _n.gamma = (n - 1).!_:
+
+```
+>>> 9:13.gamma
+8:12.factorial
 ```
 
 Plot the Euler gamma function:
@@ -48,4 +66,6 @@ _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=GAMMA),
 _Mathematica_
 [1](http://mathworld.wolfram.com/GammaFunction.html)
-[2](https://reference.wolfram.com/language/ref/Gamma.html)
+[2](https://reference.wolfram.com/language/ref/Gamma.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/gamma.html)

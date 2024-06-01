@@ -15,7 +15,7 @@ Answer the logarithm of the gamma function.
 [2 6 24 120].log
 ```
 
-At Integer:
+At `Integer`:
 
 ```
 >>> 5.logGamma
@@ -23,9 +23,13 @@ At Integer:
 
 >>> 6.logGamma
 6.gamma.log
+```
 
+At half integer:
+
+```
 >>> 0.5.logGamma
-0.57236
+0.5724
 ```
 
 Plot over a subset of the reals:
@@ -43,4 +47,6 @@ _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=GAMMA),
 _Mathematica_
 [1](http://mathworld.wolfram.com/GammaFunction.html)
-[2](https://reference.wolfram.com/language/ref/LogGamma.html)
+[2](https://reference.wolfram.com/language/ref/LogGamma.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/gammaln.html)

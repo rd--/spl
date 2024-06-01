@@ -134,6 +134,10 @@
 		self.collect(erfc:/1)
 	}
 
+	eulerPhi { :self |
+		self.collect(eulerPhi:/1)
+	}
+
 	exp { :self |
 		self.collect(exp:/1)
 	}
@@ -162,12 +166,12 @@
 		self.collect(fractionPart:/1)
 	}
 
-	eulerPhi { :self |
-		self.collect(eulerPhi:/1)
-	}
-
 	fibonacci { :self |
 		self.collect(fibonacci:/1)
+	}
+
+	gamma { :self |
+		self.collect(gamma:/1)
 	}
 
 	harmonicNumber { :self |

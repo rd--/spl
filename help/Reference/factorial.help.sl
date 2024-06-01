@@ -56,6 +56,26 @@ Notable limits:
 61
 ```
 
+At `SmallFloat` factorial is accurate to 15 digits:
+
+```
+>>> 23.factorial
+258520167388849E8
+
+>>> 23n.factorial
+25852016738884976640000n
+```
+
+Factorial of natrix elements:
+
+```
+>>> [0 1 2; 3 4 5].factorial
+[
+	1   1   2;
+	6  24 120
+]
+```
+
 At `zero`:
 
 ```
@@ -84,6 +104,8 @@ _J_
 _Mathematica_
 [1](https://mathworld.wolfram.com/Factorial.html)
 [2](https://reference.wolfram.com/language/ref/Factorial.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/matlab/ref/factorial.html),
 _Smalltalk_
 5.6.5.11
 
