@@ -70,9 +70,26 @@ Generate integers according to a _1 / n_ distribution:
 ```
 >>> ((1 / 1:10) -> 1:10).randomChoice(30, Sfc32(38014))
 [
-	3 9 10 1 4 2 4 3  3 7
-	6 2  2 2 1 4 3 2  5 1
-	1 2  1 2 4 7 9 1 10 1
+	3  9 10  1  4  2  4  3  3  7
+	6  2  2  2  1  4  3  2  5  1
+	1  2  1  2  4  7  9  1 10  1
+]
+```
+
+Generate a random 9×9 matrix of `zero` and `one` entries:
+
+```
+>>> [0 1].randomChoice([9 9], Sfc32(97415))
+[
+	0 0 1 0 0 1 0 0 0;
+	1 1 1 0 0 1 0 0 1;
+	0 0 0 1 0 0 1 0 1;
+	0 1 1 1 0 1 0 1 1;
+	1 0 0 1 1 1 0 1 0;
+	0 1 1 1 0 1 0 1 1;
+	1 1 1 1 0 1 0 1 1;
+	1 1 1 0 0 0 0 1 0;
+	0 0 1 0 0 1 1 1 1
 ]
 ```
 
@@ -87,10 +104,14 @@ Plot a random walk with steps of unit length:
 See also: anyOne, atRandom, randomInteger, randomSample
 
 References:
+_Julia_
+[1](https://docs.julialang.org/en/v1/stdlib/Random/#Base.rand),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomChoice.html),
 _Mathworks_
 [1](https://mathworks.com/help/stats/randsample.html),
+_Python_
+[1](https://docs.python.org/3/library/random.html#random.choices),
 _R_
 [1](https://search.r-project.org/R/refmans/base/html/sample.html)
 

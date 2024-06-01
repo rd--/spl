@@ -29,7 +29,7 @@ false
 
 * * *
 
-See also: Graph, isMixed, isUndirected
+See also: Graph, isDirectedEdge, isMixed, isUndirected
 
 References:
 _Mathematica_

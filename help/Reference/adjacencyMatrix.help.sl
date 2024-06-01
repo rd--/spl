@@ -126,7 +126,7 @@ The adjacency matrix of a path graph:
 
 * * *
 
-See also: Graph
+See also: adjacencyGraph, adjacencyList, Graph, incidenceList
 
 References:
 _Mathematica_

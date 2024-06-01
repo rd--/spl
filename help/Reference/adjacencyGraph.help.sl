@@ -1,7 +1,7 @@
 # adjacencyGraph
 
-- _adjacencyGraph(aMatrix)
-- _adjacencyGraph(aMatrix, vertexList)
+- _adjacencyGraph(aMatrix)_
+- _adjacencyGraph(aMatrix, vertexList)_
 
 In the ternary case,
 answer the graph with adjacency matrix _aMatrix_ and vertices from _vertexList_.
@@ -25,7 +25,7 @@ A symmetric adjacency matrix results in an undirected graph:
 
 * * *
 
-See also: adjacencyMatrix
+See also: adjacencyList, adjacencyMatrix
 
 References:
 _Mathematica_

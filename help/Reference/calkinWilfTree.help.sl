@@ -28,7 +28,7 @@ The level-order values of the tree are the terms of the `calkinWilfSequence`:
 
 * * *
 
-See also: calkinWilfSequence, sternBrocotSequence, sternBrocotTree
+See also: calkinWilfSequence, sternBrocotSequence, sternBrocotTree, Tree
 
 References:
 _Mathematica_

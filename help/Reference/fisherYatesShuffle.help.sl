@@ -24,7 +24,7 @@ noting that the permutation contains three cycles:
 
 * * *
 
-See also: sattoloShuffle, shuffled
+See also: randomPermutation, sattoloShuffle, shuffled
 
 References:
 _W_

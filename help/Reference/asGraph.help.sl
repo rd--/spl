@@ -5,18 +5,26 @@
 Answer a `Graph` having the specified edges.
 The `vertexList` of the graph is inferred.
 
-The association list case makes a directed graph:
+The `Association` `List` case makes a directed graph:
 
 ```
 >>> [1 -> 2, 2 -> 3, 3 -> 1].asGraph.adjacencyMatrix
-[0 1 0; 0 0 1; 1 0 0]
+[
+	0 1 0;
+	0 0 1;
+	1 0 0
+]
 ```
 
 The two-column matrix case makes an undirected graph:
 
 ```
 >>> [1 2; 2 3; 3 1].asGraph.adjacencyMatrix
-[0 1 1; 1 0 1; 1 1 0]
+[
+	0 1 1;
+	1 0 1;
+	1 1 0
+]
 ```
 
 * * *

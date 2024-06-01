@@ -935,9 +935,12 @@
 		1
 	}
 
-	fisherYatesShuffle { :self :random |
+	fisherYatesShuffle { :self :aRandomNumberGenerator |
 		self.size.toByDo(2, -1) { :each |
-			self.swapWith(each, random.nextRandomInteger(1, each))
+			self.swapWith(
+				each,
+				aRandomNumberGenerator.nextRandomInteger(1, each)
+			)
 		};
 		self
 	}
@@ -2207,6 +2210,16 @@
 			let i = r.nextRandomInteger(k);
 			self[i]
 		}
+	}
+
+	randomSubsequence { :self :aNumber :aRandom |
+		let answer = [];
+		self.do { :each |
+			(aRandom.nextRandomFloat < aNumber).ifTrue {
+				answer.add(each)
+			}
+		};
+		answer
 	}
 
 	randomWeightedIndex { :self :random |

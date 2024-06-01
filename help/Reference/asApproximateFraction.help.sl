@@ -2,6 +2,9 @@
 
 - _asApproximateFraction(aNumber, epsilon)_
 
+Convert _aNumber_ to a `Fraction` given error bound _epsilon_.
+
+
 ```
 >>> -1:-3.collect { :each | (27 / 32).asApproximateFraction(10 ^ each) }
 [3/4 11/13 27/32]
@@ -12,4 +15,4 @@
 
 * * *
 
-See also: convergents, rationalize, semiconvergents
+See also: asFraction, convergents, rationalize, semiconvergents

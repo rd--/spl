@@ -1,4 +1,4 @@
-# AdjacencyList
+# adjacencyList
 
 - _adjacencyList(aGraph)_
 - _adjacencyList(aGraph, aVertex)_
@@ -49,6 +49,8 @@ Relation to `incidenceList`:
 ```
 
 * * *
+
+See also: adjacencyGraph, adjacencyMatrix, incidenceList
 
 References:
 _Mathematica_

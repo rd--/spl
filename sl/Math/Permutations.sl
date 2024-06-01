@@ -898,8 +898,16 @@ Permutation : [Object] { | cycles degree |
 		}
 	}
 
-	randomPermutation { :self :randomNumberGenerator |
-		(1 .. self).randomSample(self, randomNumberGenerator).asPermutation
+	randomCycle { :self :aRandomNumberGenerator |
+		[1 .. self].sattoloShuffle(aRandomNumberGenerator).asPermutation
+	}
+
+	randomCycle { :self |
+		self.randomCycle(system)
+	}
+
+	randomPermutation { :self :aRandomNumberGenerator |
+		[1 .. self].fisherYatesShuffle(aRandomNumberGenerator).asPermutation
 	}
 
 	randomPermutation { :self |

@@ -1,20 +1,22 @@
 # randomPermutation
 
-- _randomPermutation(anInteger, aRandom)_
+- _randomPermutation(anInteger, aRandomNumberGenerator)_
 
 Answer a pseudo-random permutation of the integers from `one` to _anInteger_.
 
 A random permutation in the symmetric group _S10_:
 
 ```
->>> 10.randomPermutation(Sfc32(12345))
-[1 9; 2 5 8 3 10; 4; 6; 7].cycles
+>>> 10.randomPermutation(Sfc32(47123))
+[1 7 5 3 6; 2 4 10; 8 9].cycles
 ```
 
 * * *
 
-See also: cycles, randomPermutationList, randomSample
+See also: cycles, fisherYatesShuffle, randomCycle, randomPermutationList, randomSample, shuffle, shuffled
 
 References:
+_Julia_
+[1](https://docs.julialang.org/en/v1/stdlib/Random/#Random.randperm),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomPermutation.html)

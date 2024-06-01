@@ -2,7 +2,7 @@
 
 - _binarySearch(aSequence, anObject)_
 
-Answer and index of _anObject_ in _aSequence_, which is known to be sorted.
+Answer the index of _anObject_ in _aSequence_, which is known to be sorted.
 If _anObject_ is not in _aSequence_ answer `zero`.
 
 ```

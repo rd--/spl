@@ -60,7 +60,7 @@ At negative numbers:
 
 * * *
 
-See also: asFloat, asInteger, asNumber, rationalize
+See also: asApproximateFraction, asFloat, asInteger, asNumber, rationalize
 
 References:
 _Smalltalk_

@@ -46,6 +46,6 @@ Where supported `precedes` is displayed as ≺.
 
 * * *
 
-See also: =, <, >, <=>, compare
+See also: =, <, >, <=>, compare, precedesOrEqualTo
 
 Unicode: U+227a ≺ Precedes

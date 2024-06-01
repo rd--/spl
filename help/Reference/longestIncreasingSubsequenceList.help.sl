@@ -1,6 +1,6 @@
 # longestIncreasingSubsequenceList
 
-- longestIncreasingSubsequenceList(aSequence)_
+- _longestIncreasingSubsequenceList(aSequence)_
 
 Answer a `List` of the longest ascending sequences of contiguous or disjoint elements in _aSequence_.
 

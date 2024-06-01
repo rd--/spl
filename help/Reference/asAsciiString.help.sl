@@ -9,6 +9,8 @@ Answer an `AsciiString` value holding a byte-string encoding of _aString_.
 [116 101 120 116].asByteArray
 ```
 
+* * *
+
 See also: AsciiString, asciiByteArray, asHex, isAscii, removeDiacritics
 
 Categories: Converting

@@ -11,6 +11,6 @@ Collect over the items of _aSequence_ taken two at a time, moving forward one pl
 
 * * *
 
-See also: collect, pairsCollect
+See also: adjacentPairsDo, collect, pairsCollect
 
 Categories: Enumerating

@@ -468,7 +468,7 @@
 - `permutationLength`, `permutationSupport`
 - `permutationDegree`, `permutationMax`, `permutationMin`
 - `permutationPeaks`
-- `randomPermutation`
+- `randomPermutation`, `randomCycle`
 - `leftInversionCount`, `rightInversionCount`, `rightInversionCountToPermutation`
 - `permutationGraph`
 - `permutationRank`, `unrankPermutation`
@@ -514,7 +514,9 @@
 - `randomChoice`, `randomSample`
 - `randomFloatBipolar`, `randomIntegerBipolar`
 - `randomWeightedIndex`
-- `fisherYatesShuffle`, `sattoloShuffle`, `shuffle`, `shuffled`
+- `fisherYatesShuffle`, `sattoloShuffle`
+- `shuffle`, `shuffled`
+- `randomPermutation`, `randomCycle`
 
 ## Random Number Distributions
 

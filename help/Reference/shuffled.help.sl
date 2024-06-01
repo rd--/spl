@@ -10,11 +10,12 @@ Answer a copy of _aSequence_, randomly shuffled using the Fisher-Yates algorithm
 ([1 9 3 2 6 8 7 4 5], [1 .. 9])
 ```
 
+See `randomPermutation` for an alternate name for the same function.
 See `shuffle` for an in place variant.
 See `sattoloShuffle` for a variant algorithm generating only single cycle permutations.
 
 * * *
 
-See also: fisherYatesShuffle, sattoloShuffle, shuffle
+See also: fisherYatesShuffle, randomPermutation, sattoloShuffle, shuffle
 
 Categories: Copying

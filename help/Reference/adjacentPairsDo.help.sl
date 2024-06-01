@@ -7,6 +7,6 @@ The iterative form of `adjacentPairsCollect`.
 
 * * *
 
-See also: do, pairsDo
+See also: adjacentPairsCollect, do, pairsDo
 
 Categories: Enumerating

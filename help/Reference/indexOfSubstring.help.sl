@@ -1,6 +1,6 @@
 # indexOfSubstring
 
-- _indexOfSubstring(aCollection, aSubstring)_
+- _indexOfSubstring(aSequence, aSubstring)_
 
 Answer the index of the first element of _aCollection_, where that element equals the first element of _aSubstring_,
 and the next elements equal the rest of the elements of _aSubstring_.

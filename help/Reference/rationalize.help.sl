@@ -3,7 +3,7 @@
 - _rationalize(aSmallFloat, epsilon)_
 - _rationalize(α)_ ⇒ _rationalize(α, 1E-5)_
 
-Derive a `Fraction` that approximates a floating point number given an error bound.
+Answer a `Fraction` that approximates a floating point number given an error bound.
 
 ```
 >>> pi.rationalize(1E-5)

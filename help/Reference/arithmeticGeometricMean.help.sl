@@ -50,7 +50,7 @@ Special values: Oeis A068521, A084895, A084896 & A084897:
 
 * * *
 
-See also: arithmeticMean, geometricMean, median
+See also: arithmeticMean, geometricMean, mean, median, moment
 
 References:
 _Mathematica_
