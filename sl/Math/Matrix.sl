@@ -205,6 +205,26 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.asMatrix(deepCopy:/1)
 	}
 
+	blockDiagonalMatrix { :d |
+		let n = d.size;
+		let s = d.collect(shape:/1);
+		let answer = [];
+		1.toDo(n) { :i |
+			1.toDo(d[i].size) { :j |
+				answer.add(
+					1:n.collect { :k |
+						(i = k).if {
+							d[i][j]
+						} {
+							(0 # s[k][2])
+						}
+					}.concatenation
+				)
+			}
+		};
+		answer
+	}
+
 	choleskyBanachiewiczAlgorithm { :a |
 		let [m, n] = a.shape;
 		let l = m.zeroMatrix(n);
@@ -231,6 +251,26 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	circulantMatrix { :self |
 		(1 .. self.size).collect { :i |
 			self.rotatedRight(i)
+		}
+	}
+
+	conjugateGradientMethod { :a :b :x :epsilon :n |
+		valueWithReturn { :return:/1 |
+			let r = b - a.dot(x);
+			let p = r.copy;
+			1.toDo(n) { :i |
+				let ap = a.dot(p);
+				let alpha = p.dot(r) / p.dot(ap);
+				x := x + (alpha * p);
+				r := b - a.dot(x);
+				((r ^ 2).sum.sqrt < epsilon).if {
+					x.return
+				} {
+					let beta = r.dot(ap).negated / p.dot(ap);
+					p := r + (beta * p)
+				}
+			};
+			x
 		}
 	}
 
@@ -357,6 +397,23 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		}
 	}
 
+	eigenvalues { :m :epsilon :n |
+		let x = m.deepCopy;
+		let i = 0;
+		{
+			x.isUpperTriangularMatrix.not & { i < n }
+		}.whileTrue {
+			let [q, r] = x.qrDecomposition;
+			x := r.dot(q);
+			i := i + 1
+		};
+		x.diagonal
+	}
+
+	eigenvalues { :m |
+		m.eigenvalues(1E-15, 100)
+	}
+
 	frobeniusCompanionMatrix { :self |
 		let n = self.size - 1;
 		let w = self.negated / self.last;
@@ -371,6 +428,10 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 			}
 			}
 		}.table(1:n, 1:n)
+	}
+
+	frobeniusNorm { :self |
+		self.flatten.collect(squared:/1).sum.sqrt
 	}
 
 	gaussJordanInverse { :self |
@@ -461,7 +522,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 			let [r, c] = self.shape;
 			1.to(r - k).allSatisfy { :i |
 				(i + 1 + k).to(c).allSatisfy { :j |
-					self[i][j] = 0
+					self[i][j].isVeryCloseTo(0)
 				}
 			}
 		}
@@ -531,7 +592,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 			let [r, c] = self.shape;
 			(2 - k).to(r).allSatisfy { :i |
 				1.to(i - 1 + k).allSatisfy { :j |
-					self[i][j] = 0
+					self[i][j].isVeryCloseTo(0)
 				}
 			}
 		}
@@ -871,6 +932,20 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		}
 	}
 
+	rowConcatenation { :self |
+		let n = self.size;
+		let k = self.first.size;
+		let answer = [];
+		1.toDo(k) { :i |
+			let row = [];
+			1.toDo(n) { :j |
+				row.addAll(self[j][i])
+			};
+			answer.add(row)
+		};
+		answer
+	}
+
 	rowReduce { :self |
 		self.deepCopy.reducedRowEchelonForm
 	}
@@ -1083,6 +1158,22 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 			[self.cos, self.sin.negated],
 			[self.sin, self.cos]
 		]
+	}
+
+}
+
++Block {
+
+	arrayReduce { :self:/1 :anArray :anInteger |
+		(anInteger = 1).if {
+			anArray.collect(self:/1)
+		} {
+			(anInteger = 2).if {
+				anArray.columnsCollect(self:/1)
+			} {
+				self.error('Block>>arrayReduce: not implemented')
+			}
+		}
 	}
 
 }

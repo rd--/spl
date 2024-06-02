@@ -86,6 +86,7 @@
 	'Kernel-Nil'
 	'Kernel-Object'
 	'Logic-Boolean'
+	'Math-Bessel'
 	'Math-Binomial'
 	'Math-Elementwise'
 	'Math-Gamma'

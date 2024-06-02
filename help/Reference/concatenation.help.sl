@@ -16,6 +16,19 @@ Is `identity` at the empty `List`:
 []
 ```
 
+Concatenate two matrices vertically, ie. columnwise:
+
+```
+>>> [[1 2; 3 4], [5 6; 7 8; 9 0]].concatenation
+[
+	1 2;
+	3 4;
+	5 6;
+	7 8;
+	9 0
+]
+```
+
 Where supported `concatenation` is displayed as ⧻.
 
 * * *

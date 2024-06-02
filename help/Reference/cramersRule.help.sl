@@ -56,6 +56,34 @@ _2x + 5y = 45_ and _6x - 15y = -135_ are equal lines so there are infinite solut
 [0 9]
 ```
 
+Solve a system that has four equations and four unknowns:
+
+```
+>>> let c = [
+>>> 	 6  -2   2   4;
+>>> 	12  -8   6  10;
+>>> 	 3 -13   9   3;
+>>> 	-6   4   1 -18
+>>> ];
+>>> let r = [16 26 -19 -34];
+>>> c.cramersRule(r)
+[3 1 -2 1]
+```
+
+Solve a system that has four equations and four unknowns:
+
+```
+>>> let c = [
+>>> 	0.4096 0.1234 0.3678 0.2943;
+>>> 	0.2246 0.3872 0.4015 0.1129;
+>>> 	0.3645 0.1920 0.3781 0.0643;
+>>> 	0.1784 0.4002 0.2786 0.3927
+>>> ];
+>>> let r = [0.4043 0.1550 0.4240 0.2557];
+>>> c.cramersRule(r)
+[3.46058 1.56095 -2.93423 -0.43006]
+```
+
 * * *
 
 References:

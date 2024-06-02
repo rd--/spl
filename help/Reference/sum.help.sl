@@ -22,18 +22,26 @@ At `Range`:
 45
 ```
 
-Sums of matrices:
+Row-wise sums of a matrix:
 
 ```
 >>> [1 2 3; 4 5 6; 7 8 9].collect(sum:/1)
 [6 15 24]
+```
 
->>> [1 2 3; 4 5 6; 7 8 9].transposed.collect(sum:/1)
-[12 15 18]
+Column-wise sums of a matrix:
 
+```
 >>> [1 2 3; 4 5 6; 7 8 9].sum
 [12 15 18]
 
+>>> [1 2 3; 4 5 6; 7 8 9].transposed.collect(sum:/1)
+[12 15 18]
+```
+
+Total sum of a matrix:
+
+```
 >>> [1 2 3; 4 5 6; 7 8 9].sum.sum
 45
 ```

@@ -20,4 +20,4 @@ C.f. `collect`:
 
 * * *
 
-See also: collect, isMatrix, matrixColumn
+See also: arrayReduce, collect, isMatrix, matrixColumn

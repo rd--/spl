@@ -1,6 +1,6 @@
 # diagonal
 
-- _diagonal(aSequence | aMatrix, anInteger)_
+- _diagonal(aMatrix, anInteger)_
 - _diagonal(alpha)_ => _diagonal(alpha, 0)_
 
 Answer the list of elements on the leading diagonal,

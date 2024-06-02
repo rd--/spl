@@ -56,9 +56,31 @@ LU decomposition of three 3×3 matrices:
 )
 ```
 
-LU decomposition of a 4×4 matrix:
+LU decomposition of two 4×4 matrices:
 
 ```
+>>> [4 3 2 1; 3 3 2 1; 2 2 2 1; 1 1 1 1].luDecomposition
+[
+	[
+		1   0   0   0;
+		3/4 1   0   0;
+		1/2 2/3 1   0;
+		1/4 1/3 1/2 1
+	],
+	[
+		4   3   2   1;
+		0   3/4 1/2 1/4;
+		0   0   2/3 1/3;
+		0   0   0   1/2
+	],
+	[
+		1 0 0 0;
+		0 1 0 0;
+		0 0 1 0;
+		0 0 0 1
+	]
+]
+
 >>> let m = [11 9 24 2; 1 5 2 6; 3 17 18 1; 2 5 7 1];
 >>> let [l, u, p] = m.luDecomposition;
 >>> let t = (l.isLowerTriangularMatrix, u.isUpperTriangularMatrix);

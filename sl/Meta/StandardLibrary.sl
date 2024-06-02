@@ -58,6 +58,7 @@
 	'Decimal' {- Fraction -}
 
 	{- Math -}
+	'Bessel'
 	'Binomial'
 	'Elementwise'
 	'Gamma'
