@@ -1,7 +1,13 @@
 +@Number {
 
 	beta { :self :aNumber |
-		self.logBeta(aNumber).exp
+		aNumber.isCollection.if {
+			aNumber.collect { :each |
+				self.beta(each)
+			}
+		} {
+			self.logBeta(aNumber).exp
+		}
 	}
 
 	gammaLanczosFormulaLeadingFactor { :self |

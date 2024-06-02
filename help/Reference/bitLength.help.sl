@@ -18,9 +18,9 @@ Equivalent to `floor` of `log` plus `one`:
 
 Plot is a kind of staircase:
 
-```
->>> -25:25.collect { :n | n.bitLength }.plot
-```
+~~~
+-25:25.collect { :n | n.bitLength }.plot
+~~~
 
 * * *
 

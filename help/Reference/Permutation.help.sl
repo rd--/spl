@@ -198,11 +198,18 @@ The `decreasingRuns`:
 The runs of two random permutations:
 
 ```
->>> 13.randomPermutationList(2, Sfc32(12345)).collect(runs:/1)
-[
-	11; 7 13; 5 10; 9; 4; 1 12; 2 3 8; 6:;
-	7; 5; 3 10 13; 9; 8; 4 6 11; 2 12; 1
-]
+>>> let p = 13.randomPermutationList(2, Sfc32(12345));
+>>> (p, p.collect(runs:/1))
+(
+	[
+		[1 2 3; 4 5 8 7 9; 6 12; 11 13].cycles,
+		[1 7 10 11; 2 8 3; 4 12 9 13 5 6].cycles
+	],
+	[
+		[2 3; 1 5 8 12; 9; 7; 4 10 13; 6 11],
+		[7 8; 2 12; 6; 4 10; 3 13; 11; 1 9; 5]
+	]
+)
 ```
 
 `dictionary` answers a `Map` form of a permutation:

@@ -405,6 +405,10 @@
 		self.collect(arg:/1)
 	}
 
+	beta { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, beta:/2)
+	}
+
 	binomial { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, binomial:/2)
 	}

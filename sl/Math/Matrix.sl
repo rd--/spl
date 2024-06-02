@@ -228,6 +228,12 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.choleskyBanachiewiczAlgorithm
 	}
 
+	circulantMatrix { :self |
+		(1 .. self.size).collect { :i |
+			self.rotatedRight(i)
+		}
+	}
+
 	conjugateTranspose { :self |
 		self.transposed.conjugated
 	}
@@ -349,6 +355,22 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 				self.error('@Sequence>>dotProduct: self not vector or matrix')
 			}
 		}
+	}
+
+	frobeniusCompanionMatrix { :self |
+		let n = self.size - 1;
+		let w = self.negated / self.last;
+		{ :i :j |
+			(i = (j + 1)).if {
+				1
+			} {
+				(j = n).if {
+					w[i]
+				} {
+					0
+			}
+			}
+		}.table(1:n, 1:n)
 	}
 
 	gaussJordanInverse { :self |
@@ -802,6 +824,10 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		[q, r]
 	}
 
+	resultant { :p :q |
+		p.sylvesterMatrix(q).determinant
+	}
+
 	reducedRowEchelonForm { :self |
 		valueWithReturn { :return:/1 |
 			let lead = 1;
@@ -853,6 +879,20 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		{ :i :j |
 			self[i][j]
 		}.table(r, c)
+	}
+
+	sylvesterMatrix { :p :q |
+		let m = p.size - 1;
+		let n = q.size - 1;
+		let d = m + n;
+		let x = d - m - 1;
+		let y = d - n - 1;
+		let a = p.reversed ++ (0 # x);
+		let b = q.reversed ++ (0 # y);
+		[
+			0:x.collect { :i | a.rotatedRight(i) },
+			0:y.collect { :i | b.rotatedRight(i) }
+		].concatenation
 	}
 
 	toeplitzMatrix { :c :r |

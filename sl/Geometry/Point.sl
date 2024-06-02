@@ -4,6 +4,10 @@ Point : [Object] { | vector |
 		self.hasEqualSlots(anObject)
 	}
 
+	asList { :self |
+		self.vector
+	}
+
 	at { :self :index |
 		self.vector[index]
 	}

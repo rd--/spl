@@ -8,9 +8,10 @@ Variance of a `List` of numbers:
 
 ```
 >>> [1.21 3.4 2 4.66 1.5 5.61 7.22].variance
-5.16122
+5.1612
 
 >>> [2 4 4 4 5 5 7 9].variance
+4.5714
 ```
 
 Variance of elements in each column:

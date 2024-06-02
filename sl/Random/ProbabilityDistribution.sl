@@ -1,10 +1,4 @@
-{- https://github.com/supercollider/sc3-plugins/blob/main/source/LoopBufUGens/sc/classes/LJP%20Classes/ProbabilityDistributions.sc -}
-
 +@Number {
-
-	NormalDistribution { :mu :sigma |
-		newNormalDistribution().initializeSlots(mu, sigma)
-	}
 
 	normalDistributionCdf { :mu :sigma :x |
 		0.5 * ((mu - x) / (2.sqrt * sigma)).erfc
@@ -89,8 +83,88 @@
 		spread * (r.log.negated ^ (1 / shape)) + location
 	}
 
-	UniformDistribution { :min :max |
-		newUniformDistribution().initializeSlots(min, max)
+}
+
+CauchyDistribution : [Object] { | x0 gamma |
+
+	cdf { :self :x |
+		let [x0, gamma] = [self.x0, self.gamma];
+		(1 / pi) * ((x - x0) / gamma).arcTan + 0.5
+	}
+
+	entropy { :self |
+		(4.pi * self.gamma).log
+	}
+
+	mean { :self |
+		self.error('CauchyDistribution>>mean: undefined')
+	}
+
+	median { :self |
+		self.x0
+	}
+
+	mode { :self |
+		self.x0
+	}
+
+	pdf { :self :x |
+		let [x0, gamma] = [self.x0, self.gamma];
+		1 / (gamma.pi * (1 + ((x - x0) / gamma).squared))
+	}
+
+	quantile { :self :p |
+		self.x0 + (self.gamma * (p - 0.5).pi.tan)
+	}
+
+	randomVariate { :self |
+		randomFloatCauchyDistribution(self.x0, self.gamma)
+	}
+
+	randomVariate { :self :shape |
+		let [x0, gamma] = [self.x0, self.gamma];
+		{
+			randomFloatCauchyDistribution(x0, gamma)
+		} ! shape
+	}
+
+	variance { :self |
+		self.error('CauchyDistribution>>variance: undefined')
+	}
+
+}
+
+NormalDistribution : [Object] { | mu sigma |
+
+	cdf { :self :x |
+		normalDistributionCdf(self.mu, self.sigma, x)
+	}
+
+	mean { :self |
+		self.mu
+	}
+
+	pdf { :self :x |
+		normalDistributionPdf(self.mu, self.sigma, x)
+	}
+
+	randomVariate { :self |
+		randomFloatGaussianDistribution(self.mu, self.sigma)
+	}
+
+	randomVariate { :self :shape |
+		let [mu, sigma] = [self.mu, self.sigma];
+		{
+			randomFloatGaussianDistribution(mu, sigma)
+		} ! shape
+	}
+
+	standardDeviation { :self |
+		self.sigma
+	}
+
+	variance { :self |
+		self.sigma.squared
 	}
 
 }
@@ -159,37 +233,18 @@ UniformDistribution : [Object] { | min max |
 
 }
 
-NormalDistribution : [Object] { | mu sigma |
++@Number {
 
-	cdf { :self :x |
-		normalDistributionCdf(self.mu, self.sigma, x)
+	CauchyDistribution { :x0 :gamma |
+		newCauchyDistribution().initializeSlots(x0, gamma)
 	}
 
-	mean { :self |
-		self.mu
+	NormalDistribution { :mu :sigma |
+		newNormalDistribution().initializeSlots(mu, sigma)
 	}
 
-	pdf { :self :x |
-		normalDistributionPdf(self.mu, self.sigma, x)
-	}
-
-	randomVariate { :self |
-		randomFloatGaussianDistribution(self.mu, self.sigma)
-	}
-
-	randomVariate { :self :shape |
-		let [mu, sigma] = [self.mu, self.sigma];
-		{
-			randomFloatGaussianDistribution(mu, sigma)
-		} ! shape
-	}
-
-	standardDeviation { :self |
-		self.sigma
-	}
-
-	variance { :self |
-		self.sigma.squared
+	UniformDistribution { :min :max |
+		newUniformDistribution().initializeSlots(min, max)
 	}
 
 }

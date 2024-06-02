@@ -4,7 +4,7 @@
 
 Answer the Euler beta function.
 
-Exact values:
+At specific exact values:
 
 ```
 >>> 5.beta(4)
@@ -12,30 +12,45 @@ Exact values:
 
 >>> (5 / 2).beta(7 / 2)
 (3.pi / 256)
+```
 
+At specific real values:
+
+```
 >>> 2.3.beta(3.2)
 0.0540298
 
 >>> 1.1.beta(2.1)
-0.410722
+0.4107217
 
->>> 2:5.collect { :b | 2.beta(b) }
+>>> 2.2.beta(3.3)
+0.0564857
+```
+
+Threads elementwise over lists:
+
+```
+>>> 2.beta(2:5)
 [6 12 20 30]./
 ```
 
 Plot over a subset of the reals:
 
 ~~~
-(0.025, 0.050 .. 3).collect { :x | 0.5.beta(x) }.plot
+let a = 0.5;
+let b = (0.025, 0.050 .. 3);
+a.beta(b).plot
 ~~~
 
 * * *
 
-See also: gamma, logGamma
+See also: binomial, gamma, logGamma
 
 References:
 _Dlmf_
 [1](https://dlmf.nist.gov/5.12),
 _Mathematica_
 [1](https://mathworld.wolfram.com/BetaFunction.html)
-[2](https://reference.wolfram.com/language/ref/Beta.html)
+[2](https://reference.wolfram.com/language/ref/Beta.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Beta_function)

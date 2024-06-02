@@ -364,7 +364,8 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("first" . ?₁) ; U+2081 ₁ Subscript One
      ("flat" . ?♭) ; U+266D ♭ Music Flat Sign
      ("fourth" . ?₄) ; U+2084 ₄ Subscript Four
-     ("gamma" . ?γ) ; U+03B3 γ Greek Small Letter Gamma
+     ("gamma" . ?γ) ; U+03B3 γ Greek Small Letter Gamma ; U+1D6FE 𝛾 Mathematical Italic Small Gamma
+     ("Gamma" . ?Γ) ; U+0393 Γ Greek Capital Letter Gamma
      ("i" . ?𝒊) ; U+1D48A 𝒊 Mathematical Italic Small I
      ("includes" . ?∋) ; U+220B ∋ Contains as Member
      ("index" . ?𝒊) ; U+1D48A 𝒊 Mathematical Italic Small I
