@@ -1,4 +1,4 @@
-{- Requires: Random Iterator Stream -}
+{- Requires: RandomNumberGenerator Iterator Stream -}
 
 +SmallFloat {
 
@@ -8,7 +8,7 @@
 
 }
 
-Mersenne : [Object, Iterator, Random, Stream] { | seed block |
+Mersenne : [Object, Iterator, RandomNumberGenerator, Stream] { | seed block |
 
 	initialize { :self :aNumber |
 		self.seed := aNumber;

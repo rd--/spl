@@ -1,4 +1,4 @@
-{- Requires: Random Iterator Stream -}
+{- Requires: RandomNumberGenerator Iterator Stream -}
 
 +List {
 
@@ -42,7 +42,7 @@
 
 }
 
-Sfc32 : [Object, Iterator, Random, Stream] { | seed block |
+Sfc32 : [Object, Iterator, RandomNumberGenerator, Stream] { | seed block |
 
 	initialize { :self :aNumber |
 		self.seed := aNumber;
@@ -70,10 +70,6 @@ Sfc32 : [Object, Iterator, Random, Stream] { | seed block |
 
 +SmallFloat {
 
-	Random { :self |
-		Sfc32(self)
-	}
-
 	Sfc32 { :self |
 		Sfc32(self.truncated.asWords)
 	}
@@ -81,10 +77,6 @@ Sfc32 : [Object, Iterator, Random, Stream] { | seed block |
 }
 
 +Void {
-
-	Random {
-		Sfc32()
-	}
 
 	Sfc32 {
 		Sfc32(system.unixTimeInMilliseconds)

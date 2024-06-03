@@ -498,15 +498,20 @@
 
 }
 
-+@Random {
++@RandomNumberGenerator {
 
 	randomPrime { :self :iMin :iMax |
-		iMin.primesBetweenAnd(iMax).atRandom(self)
+		let list = iMin.primesBetweenAnd(iMax);
+		let index = self.randomInteger(1, list.size);
+		list[index]
 	}
 
 	randomPrime { :self :iMin :iMax :shape |
-		let c = iMin.primesBetweenAnd(iMax);
-		{ c.atRandom(self) } ! shape
+		let list = iMin.primesBetweenAnd(iMax);
+		{
+			let index = self.randomInteger(1, list.size);
+			list[index]
+		} ! shape
 	}
 
 }

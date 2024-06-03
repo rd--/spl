@@ -1,7 +1,7 @@
 # randomPrime
 
 - _randomPrime(r, iMin, iMax)_
-- _randomPrime(r, iMin, iMax, count)_
+- _randomPrime(r, iMin, iMax, shape)_
 
 Answer random prime numbers between _iMin_ and _iMax_.
 

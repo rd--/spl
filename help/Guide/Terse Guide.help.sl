@@ -351,7 +351,7 @@ let l = [1, 2, 3]; l.atModify(2, squared:/1) = 4 & { l = [1, 4, 3] } {- modify v
 [1 2 3; 4 5 6].transposed = [1 4; 2 5; 3 6] {- transposed, matrix syntax -}
 1.toAsCollect(9, List:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 let a = [1 .. 9]; a.shuffle; a ~= [1 .. 9] {- shuffle in place, using system Random -}
-let a = [1 .. 9]; let r = Random(13579); a.shuffle(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] {- shuffle in place, using given Random -}
+let a = [1 .. 9]; let r = Sfc32(13579); a.shuffle(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] {- shuffle in place, using given Random -}
 let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } {- answer shuffled copy -}
 [1 .. 9].shuffled.sorted = [1 .. 9] {- resort after shuffle -}
 [].shuffled = []
@@ -377,8 +377,8 @@ let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } {- answer shuffled copy -}
 [5 .. 3].includesAllOf([3 .. 7]) = false
 [].includesAllOf([3 .. 7]) = false
 5.fill(negated:/1) = [-1 .. -5] {- fill array with answers of a block applied to each index -}
-let r = Random(12345); r.randomInteger(1, 9, 5) = [8, 5, 9, 9, 4] {- duplicate block -}
-let r = Random(12345); { r.randomInteger(1, 9) } ! 5 = [8, 5, 9, 9, 4] {- duplicate block -}
+let r = Sfc32(12345); r.randomInteger(1, 9, 5) = [8, 5, 9, 9, 4] {- duplicate block -}
+let r = Sfc32(12345); { r.randomInteger(1, 9) } ! 5 = [8, 5, 9, 9, 4] {- duplicate block -}
 List(5).fillFromWith(1:5, negated:/1) = [-1 .. -5]
 let a = List(5); a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
 let a = List(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
@@ -2572,11 +2572,11 @@ nil.isNil {- constant -}
 inf.isNumber {- constant (infinity) -}
 ```
 
-## Random -- trait and system random number generator
+## RandomNumberGenerator -- trait and system random number generator
 ```
-system.includesPackage('Random') {- package -}
-let r = Random(); r.isStream = true
-let r = Random(); r.randomInteger(1, 9).isInteger {- random integer between 1 and 9 inclusive -}
+system.includesPackage('RandomNumberGenerator') {- package -}
+let r = Sfc32(); r.isStream = true
+let r = Sfc32(); r.randomInteger(1, 9).isInteger {- random integer between 1 and 9 inclusive -}
 system.randomInteger(1, 9).isInteger {- random integers (1 to self) -}
 let s = Set(); 729.timesRepeat { s.include(9.atRandom) }; s.minMax = [1, 9] {- check distribution -}
 let s = Set(); 729.timesRepeat { s.include(9.atRandom) }; s = 1:9.asSet {- check distribution -}

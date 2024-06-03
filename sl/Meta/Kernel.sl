@@ -7,7 +7,7 @@
 	'Json'
 	'Magnitude' {- > Object -}
 	'Number'
-	'Random' {- > Object -}
+	'RandomNumberGenerator' {- > Object -}
 
 	{- Collection Traits -}
 	'PrimitiveSequence'

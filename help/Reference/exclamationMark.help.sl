@@ -74,7 +74,7 @@ With external state:
 >>> { x := x * 2; x } ! 5
 [2 4 8 16 32]
 
->>> let r = Random(12345);
+>>> let r = Sfc32(12345);
 >>> { r.randomInteger(1, 9) } ! 5
 [8 5 9 9 4]
 ```

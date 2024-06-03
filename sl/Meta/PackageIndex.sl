@@ -130,7 +130,7 @@
 	'Random-LinearCongruential'
 	'Random-Mersenne'
 	'Random-ProbabilityDistribution'
-	'Random-Random'
+	'Random-RandomNumberGenerator'
 	'Random-Sfc32'
 	'Random-SplitMix'
 	'Scheduling-Promise'

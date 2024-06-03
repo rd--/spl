@@ -1,3 +1,5 @@
+{- Requires: RandomNumberGenerator -}
+
 +@Number {
 
 	normalDistributionCdf { :mu :sigma :x |
@@ -16,7 +18,7 @@
 
 }
 
-+@Random {
++@RandomNumberGenerator {
 
 	randomFloatEularianBetaDistribution { :self :x1 :x2 :p1 :p2 |
 		let p1r = 1 / p1;

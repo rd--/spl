@@ -1,4 +1,4 @@
-@Random {
+@RandomNumberGenerator {
 
 	isRandom { :self |
 		true
@@ -9,7 +9,7 @@
 	}
 
 	nextRandomFloat { :self |
-		self.error('@Random>>nextRandomFloat: type responsibility')
+		self.error('@RandomNumberGenerator>>nextRandomFloat: type responsibility')
 	}
 
 	randomByteArray { :self :n |
@@ -24,7 +24,7 @@
 		} ! shape
 	}
 
-	randomChoice { :self :e :w :n |
+	randomWeightedChoice { :self :e :w :n |
 		let k = w.sum;
 		let x = (k = 1).if { w } { w / k };
 		let m = AliasMethod(x, self);

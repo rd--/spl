@@ -1,4 +1,4 @@
-System! : [Object, Cache, Indexable, Random] {
+System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 
 	= { :self :anObject |
 		self == anObject

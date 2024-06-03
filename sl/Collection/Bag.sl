@@ -49,7 +49,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 	atRandom { :self :r |
 		let e = self.contents.keys;
 		let w = self.contents.values;
-		r.randomChoice(e, w, 1).first
+		r.randomWeightedChoice(e, w, 1).first
 	}
 
 	basicAddWithOccurrences { :self :anObject :anInteger |
