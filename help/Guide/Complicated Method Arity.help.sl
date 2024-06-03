@@ -55,13 +55,13 @@ since the system inserts the binding _let f = f:/1;_.
 ```
 
 This model has different shadowing behaviour to the simple model.
-If the type _Point_ implements _x_ and _y_ methods, these would be shadowed by _x_ and _y_ temporaries in the simple model.
+If the type _PlanarCoordinates_ implements _x_ and _y_ methods, these would be shadowed by _x_ and _y_ temporaries in the simple model.
 Here the method _x:/1_ is not shadowed by a local variable _x_:
 
 ```
 >>> let x = 3.141;
 >>> let y = 23;
->>> let p = Point(x, y);
+>>> let p = PlanarCoordinates(x, y);
 >>> p.x = x & { p.y = y }
 true
 ```

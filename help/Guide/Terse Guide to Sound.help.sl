@@ -208,8 +208,8 @@ let k = 5; let x = 1:k; [x, x].tuples.size = (k ^ 2)
 ['a' 'b'; 1 2 3 4; 'x'].tuples = ['a' 1 'x'; 'a' 2 'x'; 'a' 3 'x'; 'a' 4 'x'; 'b' 1 'x'; 'b' 2 'x'; 'b' 3 'x'; 'b' 4 'x']
 [5, 5].shapeIndices = [[1 .. 5], [1 .. 5]].tuples {- all indices to array of given shape -}
 let n = 0; [5, 5].shapeIndicesDo { :each | n := n + 1 }; n = 25 {- all indices to array of given shape -}
-let r = Random(98765); { r.nextRandomInteger(9) }.duplicateShape([3, 5]) = [[5, 4, 2, 7, 1], [5, 2, 5, 5, 9], [6, 2, 4, 1, 5]]
-let r = Random(98765); { r.nextRandomInteger(9) }.duplicateShape([2, 2, 3]) = [[[5, 4, 2], [7, 1, 5]], [[2, 5, 5], [9, 6, 2]]]
+let r = Random(98765); r.randomInteger(1, 9, [3, 5]) = [[5, 4, 2, 7, 1], [5, 2, 5, 5, 9], [6, 2, 4, 1, 5]]
+let r = Random(98765); r.randomInteger(1, 9, [2, 2, 3]) = [[[5, 4, 2], [7, 1, 5]], [[2, 5, 5], [9, 6, 2]]]
 let s = [2, 3]; let a = s.iota; s.shapeIndicesDo { :each | a.atPathPut(each, each.stringJoin.parseDecimalInteger) }; a = [[11, 12, 13], [21, 22, 23]]
 [3, 2].iota = [[1, 2], [3, 4], [5, 6]]
 [3, 2].iota.bubble(0, 1) = [[[1, 2], [3, 4], [5, 6]]]

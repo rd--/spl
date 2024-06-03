@@ -2,14 +2,14 @@
 
 - _randomFloat(r, alpha)_ => _randomFloat(0, alpha)_
 - _randomFloat(r, min, max)_
-- _randomFloat(r, min, max, countOrShape)_
+- _randomFloat(r, min, max, shape)_
 
 Answer one or more random numbers between _min_ and _max_ using the random number generator _r_.
 
 Uniform distribution, uni-polar:
 
 ```
->>> Sfc32(1684).randomFloat(1)
+>>> Sfc32(1684).randomFloat(0, 1)
 0.6949
 ```
 
@@ -20,7 +20,7 @@ Uniform distribution, bi-polar:
 -0.7021
 ```
 
-A `List` of five random numbers:
+A vector of five random numbers:
 
 ```
 >>> Sfc32(37194).randomFloat(-1, 1, 5)
@@ -52,7 +52,7 @@ system.randomFloat(-1, 1, 99).accumulate.plot
 
 * * *
 
-See also: atRandom, nextRandomFloat, randomInteger, Random, System
+See also: atRandom, nextRandomFloat, Random, randomChoice, randomComplex, randomInteger, randomPoint, randomVariate, System
 
 References:
 _Mathematica_

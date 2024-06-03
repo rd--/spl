@@ -507,22 +507,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		'SmallFloat>>raisedToSmallFloat: not SmallFloat'.error
 	}
 
-	randomFloat { :min |
-		system.randomFloat(min)
-	}
-
-	randomFloat { :min :max |
-		system.randomFloat(min, max)
-	}
-
-	randomFloat { :min :max :countOrShape |
-		system.randomFloat(min, max, countOrShape)
-	}
-
-	randomFloatBipolar { :self |
-		self.negated.randomFloat(self)
-	}
-
 	reduce { :self |
 		self.isCloseTo(self.rounded).if {
 			self.rounded

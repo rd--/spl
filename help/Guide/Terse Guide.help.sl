@@ -377,8 +377,8 @@ let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } {- answer shuffled copy -}
 [5 .. 3].includesAllOf([3 .. 7]) = false
 [].includesAllOf([3 .. 7]) = false
 5.fill(negated:/1) = [-1 .. -5] {- fill array with answers of a block applied to each index -}
-let r = Random(12345); { r.nextRandomInteger(9) } ! 5 = [8, 5, 9, 9, 4] {- duplicate block -}
-let r = Random(12345); let f = { r.nextRandomInteger(9) }; f:/0 ! 5 = [8, 5, 9, 9, 4] {- duplicate block -}
+let r = Random(12345); r.randomInteger(1, 9, 5) = [8, 5, 9, 9, 4] {- duplicate block -}
+let r = Random(12345); { r.randomInteger(1, 9) } ! 5 = [8, 5, 9, 9, 4] {- duplicate block -}
 List(5).fillFromWith(1:5, negated:/1) = [-1 .. -5]
 let a = List(5); a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
 let a = List(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
@@ -2520,7 +2520,7 @@ let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 ({ system.nextRandomFloat } ! 3).allSatisfy(isNumber:/1) = true
 at:/2.parameterNames = ['self', 'index'] {- answer names of method parameters -}
 asJson:/3.parameterNames = ['self', 'replacer', 'space'] {- answer names of method parameters -}
-randomFloat:/2.parameterNames = ['min', 'max'] {- answer names of method parameters -}
+randomFloat:/3.parameterNames = ['self', 'min', 'max'] {- answer names of method parameters -}
 system.methodDictionary::at[2]::Map.information.parameterNames = ['self', 'key']
 let c = []; let a = []; 1:3.do { :i | c.add { a.add(i) } }; c.do(value:/1); a = [1, 2, 3]
 let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] {- closure -}
@@ -2576,15 +2576,15 @@ inf.isNumber {- constant (infinity) -}
 ```
 system.includesPackage('Random') {- package -}
 let r = Random(); r.isStream = true
-let r = Random(); randomInteger(1, 9).isInteger {- random integer between 1 and 9 inclusive -}
-9.randomInteger.isInteger {- random integers (1 to self) -}
-let s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s.minMax = [1, 9] {- check distribution -}
-let s = Set(); 729.timesRepeat { s.include(9.randomInteger) }; s = 1:9.asSet {- check distribution -}
-let s = Set(); 729.timesRepeat { s.include(3.randomIntegerBipolar) }; s = -3:3.asSet {- check distribution -}
-9.randomFloat.isNumber {- random floating point number (0 to self) -}
-let s = Set(); 729.timesRepeat { s.include(9.randomFloat.rounded) }; s.minMax = [0, 9] {- check distribution -}
-3.randomInteger(9).isInteger {- random integer in range -}
-3.randomFloat(9).isNumber {- random float in range -}
+let r = Random(); r.randomInteger(1, 9).isInteger {- random integer between 1 and 9 inclusive -}
+system.randomInteger(1, 9).isInteger {- random integers (1 to self) -}
+let s = Set(); 729.timesRepeat { s.include(9.atRandom) }; s.minMax = [1, 9] {- check distribution -}
+let s = Set(); 729.timesRepeat { s.include(9.atRandom) }; s = 1:9.asSet {- check distribution -}
+let s = Set(); 729.timesRepeat { s.include(system.randomInteger(-3, 3)) }; s = -3:3.asSet {- check distribution -}
+system.randomFloat(0, 9).isNumber {- random floating point number (0 to self) -}
+let s = Set(); 729.timesRepeat { s.include(system.randomFloat(0, 9).rounded) }; s.minMax = [0, 9] {- check distribution -}
+system.randomInteger(3, 9).isInteger {- random integer in range -}
+system.randomFloat(3, 9).isNumber {- random float in range -}
 let b = Bag(); 5000.timesRepeat { b.add(5.atRandom) }; b.contents.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
 { [].atRandom = nil }.ifError { true } {- random element of empty collection (nil if unsafe indexing is allowed) -}
 [1].atRandom = 1 {- random element of one-element collection -}
@@ -2599,13 +2599,13 @@ let r = Sfc32(98765); r.typeOf = 'Sfc32' {- type -}
 let r = Sfc32(98765); r.isSfc32 {- predicate -}
 let r = Sfc32(98765); r.isRandom {- predicate -}
 let r = Sfc32(98765); r.nextRandomFloat = 0.49556130869314075 {- random number in [0, 1) -}
-let r = Sfc32(98765); r.nextRandomFloat(10) = 4.9556130869314075 {- random number in [0, 10) -}
-let r = Sfc32(98765); r.nextRandomFloat(0, 100) = 49.556130869314075 {- random number in [0, 100) -}
-let r = Sfc32(98765); r.nextRandomInteger(1000) = 496 {- random integer in [1, 1000] -}
-let r = Sfc32(98765); r.nextRandomInteger(1, 10000) = 4956 {- random integer in [1, 10000] -}
+let r = Sfc32(98765); r.nextRandomFloat * 10 = 4.9556130869314075 {- random number in [0, 10) -}
+let r = Sfc32(98765); r.nextRandomFloat * 100 = 49.556130869314075 {- random number in [0, 100) -}
+let r = Sfc32(98765); r.randomInteger(1, 1000) = 496 {- random integer in [1, 1000] -}
+let r = Sfc32(98765); r.randomInteger(1, 10000) = 4956 {- random integer in [1, 10000] -}
 let r = Sfc32(); let n = r.nextRandomFloat; n >= 0 & { n < 1 } {- seed from system clock -}
-let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.nextRandomInteger(9)) }; s.minMax = [1, 9] {- check distribution -}
-let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.nextRandomInteger(9)) }; s.asList.sorted = [1 .. 9] {- check distribution -}
+let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.randomInteger(1, 9)) }; s.minMax = [1, 9] {- check distribution -}
+let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.randomInteger(1, 9)) }; s.asList.sorted = [1 .. 9] {- check distribution -}
 let r = Sfc32(98765); r.isStream {- stream predicate -}
 let r = Sfc32(98765); let a = r.next(9); r.reset; r.next(9) = a {- stream interface, next(k) answers next k items, reset resets -}
 ```
@@ -2617,14 +2617,14 @@ let m = Mersenne(98765); m.typeOf = 'Mersenne' {- type of -}
 let m = Mersenne(98765); m.isMersenne {- predicate -}
 let m = Mersenne(98765); m.isRandom {- predicate -}
 let m = Mersenne(98765); m.nextRandomFloat = 0.088898599949636 {- random number in [0, 1) -}
-let m = Mersenne(98765); m.nextRandomFloat(10) = 0.88898599949636 {- random number in [0, 10) -}
-let m = Mersenne(98765); m.nextRandomFloat(0, 100) = 8.8898599949636 {- random number in [0, 100) -}
-let m = Mersenne(98765); m.nextRandomInteger(1000) = 89 {- random integer in [1, 1000] -}
-let m = Mersenne(98765); m.nextRandomInteger(1, 10000) = 889 {- random integer in [1, 10000] -}
+let m = Mersenne(98765); m.nextRandomFloat * 10 = 0.88898599949636 {- random number in [0, 10) -}
+let m = Mersenne(98765); m.nextRandomFloat * 100 = 8.8898599949636 {- random number in [0, 100) -}
+let m = Mersenne(98765); m.randomInteger(1, 1000) = 89 {- random integer in [1, 1000] -}
+let m = Mersenne(98765); m.randomInteger(1, 10000) = 889 {- random integer in [1, 10000] -}
 let m = Mersenne(); let r = m.nextRandomFloat; r >= 0 & { r < 1 } {- seed from system clock -}
 Mersenne(123456).nextRandomFloat = 0.12696983303810094 {- test from standard tests -}
-let m = Mersenne(); let s = Set(); 729.timesRepeat { s.include(m.nextRandomInteger(9)) }; s.minMax = [1, 9] {- check distribution -}
-let m = Mersenne(); let s = Set(); 729.timesRepeat { s.include(m.nextRandomInteger(9)) }; s.asList.sorted = [1 .. 9] {- check distribution -}
+let m = Mersenne(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(1, 9)) }; s.minMax = [1, 9] {- check distribution -}
+let m = Mersenne(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(1, 9)) }; s.asList.sorted = [1 .. 9] {- check distribution -}
 let m = Mersenne(98765); m.isStream {- stream predicate -}
 let m = Mersenne(98765); let a = m.next(9); m.reset; m.next(9) = a {- stream interface, next(k) answers next k items, reset resets -}
 ```
@@ -2636,10 +2636,10 @@ let r = SplitMix(98765); r.typeOf = 'SplitMix' {- type of -}
 let r = SplitMix(98765); r.isSplitMix {- predicate -}
 let r = SplitMix(98765); r.isRandom {- predicate -}
 let r = SplitMix(98765); r.nextRandomFloat = 0.08824091404676437 {- random number in [0, 1) -}
-let r = SplitMix(98765); r.nextRandomFloat(10) = 0.8824091404676437 {- random number in [0, 10) -}
-let r = SplitMix(98765); r.nextRandomFloat(0, 100) = 8.824091404676437 {- random number in [0, 100) -}
-let r = SplitMix(98765); r.nextRandomInteger(1000) = 89 {- random integer in [1, 1000] -}
-let r = SplitMix(98765); r.nextRandomInteger(1, 10000) = 883 {- random integer in [1, 10000] -}
+let r = SplitMix(98765); r.randomFloat(0, 10) = 0.8824091404676437 {- random number in [0, 10) -}
+let r = SplitMix(98765); r.randomFloat(0, 100) = 8.824091404676437 {- random number in [0, 100) -}
+let r = SplitMix(98765); r.randomInteger(1, 1000) = 89 {- random integer in [1, 1000] -}
+let r = SplitMix(98765); r.randomInteger(1, 10000) = 883 {- random integer in [1, 10000] -}
 let r = SplitMix(98765); r.isStream {- stream predicate -}
 let r = SplitMix(98765); let a = r.next(9); r.reset; r.next(9) = a {- stream interface, next(k) answers next k items, reset resets -}
 ```
@@ -3230,9 +3230,9 @@ let total = 0; 9.timesRepeat { total := total + system.nextRandomFloat }; total 
 13.betweenAnd(11, 14) = true {- is number between two numbers, inclusive -}
 [1 .. 5].collect { :each | each.betweenAnd(2, 4) } = [false, true, true, true, false]
 9.atRandom.isInteger = true {- random number between 1 and 9 -}
-9.randomInteger.isInteger = true
-9.randomFloat.isInteger = false
-1.pi.randomFloat.isInteger = false
+system.randomInteger(1, 9).isInteger = true
+system.randomFloat(0, 9).isInteger = false {- possible it could be an integer, but very unlikely -}
+system.randomFloat(0, pi).isInteger = false
 [3.141.asJson, 23.asJson] = ['3.141', '23'] {- numbers have json encodings -}
 ['3.141', '23'].collect(parseJson:/1) = [3.141, 23] {- parse json numbers -}
 let r = nil; 1.toDo(5) { :each | r := each }; r = 5

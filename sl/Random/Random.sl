@@ -54,14 +54,8 @@
 		min + self.randomFloat(max - min)
 	}
 
-	randomFloat { :self :min :max :countOrShape |
-		countOrShape.isInteger.if {
-			{ self.randomFloat(min, max) } ! countOrShape
-		} {
-			countOrShape.fill { :unusedIndex |
-				self.randomFloat(min, max)
-			}
-		}
+	randomFloat { :self :min :max :shape |
+		{ self.randomFloat(min, max) } ! shape
 	}
 
 	randomInteger { :self :max |
@@ -194,3 +188,18 @@
 
 }
 
++SmallFloat {
+
+	randomFloat { :self |
+		system.randomFloat(0, self)
+	}
+
+	randomFloat { :self :shape |
+		system.randomFloat(0, self, shape)
+	}
+
+	randomFloatBipolar { :self |
+		system.randomFloat(self.negated, self)
+	}
+
+}

@@ -46,6 +46,13 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 		self.contents.indices.asSet
 	}
 
+	atRandom { :self :r |
+		let e = self.contents.keys;
+		let w = self.contents.values;
+		['e', 'w', e, w].postLine;
+		r.randomChoice(e, w, 1).first
+	}
+
 	basicAddWithOccurrences { :self :anObject :anInteger |
 		self.includes(anObject).if {
 			self.contents[anObject] := self.contents[anObject] + anInteger

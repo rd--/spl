@@ -12,7 +12,7 @@ Answer a `List` of `String` items giving the names of the parameters of _aMethod
 ['self' 'replacer' 'space']
 
 >>> randomFloat:/4.parameterNames
-['self' 'min' 'max' 'countOrShape']
+['self' 'min' 'max' 'shape']
 ```
 
 Note that literal `Block` values do not store their parameter names:

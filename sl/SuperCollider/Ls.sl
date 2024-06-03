@@ -458,7 +458,7 @@
 		p1 := LsConstant(p1);
 		p2 := LsConstant(p2);
 		BlockStream {
-			randomFloatEularianBetaDistribution(low.next, high.next, p1.next, p2.next)
+			system.randomFloatEularianBetaDistribution(low.next, high.next, p1.next, p2.next)
 		} {
 			low.reset;
 			high.reset;
@@ -467,31 +467,46 @@
 		}.take(length)
 	}
 
-	LsBrownUsing { :low :high :step :aBlock:/2 |
+	LsBrownUsing { :low :high :step :aBlock:/3 |
 		let next = nil;
 		low := LsConstant(low);
 		high := LsConstant(high);
 		step := LsConstant(step);
-		next := aBlock(low.next, high.next);
+		next := aBlock(system, low.next, high.next);
 		low.withAndCollect(high, step) { :low :high :step |
 			let answer = next;
-			next := (next + aBlock(step.negated, step)).foldBetweenAnd(low, high);
+			next := (next + aBlock(system, step.negated, step)).foldBetweenAnd(low, high);
 			answer
 		}
 	}
 
 	LsBrown { :low :high :step :length |
-		LsBrownUsing(low, high, step, randomFloat:/2).take(length)
+		LsBrownUsing(
+			low,
+			high,
+			step,
+			randomFloat:/3
+		).take(length)
 	}
 
 	LsCauchy { :mean :spread :length |
 		mean := LsConstant(mean);
 		spread := LsConstant(spread);
-		mean.withCollect(spread, randomFloatCauchyDistribution:/2).take(length)
+		mean.withCollect(
+			spread,
+			{ :p :q |
+				system.randomFloatCauchyDistribution(p, q)
+			}
+		).take(length)
 	}
 
 	LsIBrown { :low :high :step :length |
-		LsBrownUsing(low, high, step, randomIntegerExcludingZero:/2).take(length)
+		LsBrownUsing(
+			low,
+			high,
+			step,
+			randomIntegerExcludingZero:/3
+		).take(length)
 	}
 
 	LsWhite { :low :high :length |

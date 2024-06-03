@@ -1,7 +1,7 @@
 # randomChoice
 
-- _randomChoice(e, n, r)_
-- _randomChoice(w -> e, n, r)_
+- _randomChoice(r, e, n)_
+- _randomChoice(r, e, w, n)_
 
 Select _n_ elements at random from _e_ using the random number generator _r_.
 If _w_ is given it sets the probablity distribution.

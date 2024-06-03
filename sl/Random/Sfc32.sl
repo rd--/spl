@@ -18,22 +18,26 @@
 
 +String {
 
+	hash { :self |
+		self.murmur3Generator(1).value
+	}
+
 	murmur3Generator { :self :seed |
 		<primitive: return sl.murmur3Generator(_self, _seed);>
 	}
 
-	murmur3 { :self |
-		self.murmur3(2166136261)
+	murmur3 { :self :seed |
+		let generator:/0 = self.murmur3Generator(seed);
+		[
+			generator(),
+			generator(),
+			generator(),
+			generator()
+		]
 	}
 
-	murmur3 { :self :seed |
-		let generator = self.murmur3Generator(seed);
-		[
-			generator.value,
-			generator.value,
-			generator.value,
-			generator.value
-		]
+	murmur3 { :self |
+		self.murmur3(2166136261)
 	}
 
 }

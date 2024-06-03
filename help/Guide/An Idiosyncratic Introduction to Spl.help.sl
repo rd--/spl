@@ -428,12 +428,18 @@ applying a unary block to the prefixes of the argument.
 
 The dyadic function `@*` indexes a collection by a collection.
 If _p_ is a permutation, _y @* p_ permutes _y_ by _p_.
+(J is zero-indexed, hence adjustments.)
 
 ```
->>> let p = [4 22 16 15 18 14 7 8 0 21 3 13 20 9 11 19 6 17 2 5 1 10 12] + 1;
->>> let u = p @* p;
->>> u @* (p - 1)
-[2 20 7 5 16 13 0 4 18 3 19 21 22 10 9 14 8 17 6 11 12 15 1]
+>>> let p = [4 22 16 15 18 14 7 8 0 21 3 13 20 9 11 19 6 17 2 5 1 10 12];
+>>> let u = p @* (p + 1);
+>>> (p, u, u @* (p + 1), p @* (u + 1))
+(
+	[4 22 16 15 18 14 7 8 0 21 3 13 20 9 11 19 6 17 2 5 1 10 12],
+	[18 12 6 19 2 11 8 0 4 10 15 9 1 21 13 5 7 17 16 14 22 3 20],
+	[2 20 7 5 16 13 0 4 18 3 19 21 22 10 9 14 8 17 6 11 12 15 1],
+	[2 20 7 5 16 13 0 4 18 3 19 21 22 10 9 14 8 17 6 11 12 15 1]
+)
 ```
 
 Reducing _m_ copies of _p_ using _@*_ computes the _m_-th power of _p_.
