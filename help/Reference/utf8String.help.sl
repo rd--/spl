@@ -1,6 +1,6 @@
 # utf8String
 
-_utf8String(aByteArray)_
+- _utf8String(aByteArray)_
 
 Answer a String of the Utf-8 decoding of _aByteArray_,
 which must be a valid Utf-8 sequence.

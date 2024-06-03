@@ -12,6 +12,6 @@ Remove every element of _aCollection_ that compares equal to _anObject_ and answ
 
 * * *
 
-See also: removeAllEqualTo
+See also: removeAllEqualTo, withoutAll
 
 Categories: Removing

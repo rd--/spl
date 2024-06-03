@@ -754,6 +754,10 @@ String! : [Object, Json, Iterable, Character] {
 		}
 	}
 
+	unique { :self |
+		self ++ system.uniqueId
+	}
+
 	utf8ByteArray { :self |
 		<primitive:
 		return new TextEncoder().encode(_self.normalize('NFC'));

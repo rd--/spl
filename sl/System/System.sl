@@ -101,16 +101,6 @@ System! : [Object, Cache, Indexable, Random] {
 		self.systemTimeInMilliseconds - beginTime
 	}
 
-	nextUniqueId { :self |
-		self.cached('nextUniqueId') {
-			1
-		}
-	}
-
-	nextUniqueId { :self :aNumber |
-		self.cached::nextUniqueId := aNumber
-	}
-
 	operatorCharacterNameTable { :self |
 		<primitive: return sl.operatorCharacterNameTable;>
 	}
@@ -189,13 +179,9 @@ System! : [Object, Cache, Indexable, Random] {
 		<primitive: return Math.random();>
 	}
 
-	nextRandomFloat { :self :count |
-		{ system.nextRandomFloat } ! count
-	}
-
-	randomByteArray { :self :n |
+	randomByteArray { :self :anInteger |
 		<primitive:
-		let bytes = new Uint8Array(_n);
+		let bytes = new Uint8Array(_anInteger);
 		crypto.getRandomValues(bytes);
 		return bytes;
 		>
@@ -226,9 +212,15 @@ System! : [Object, Cache, Indexable, Random] {
 	}
 
 	uniqueId { :self |
-		let answer = self.cached('uniqueId') { 1 };
+		let answer = self.cached('uniqueId') {
+			1
+		};
 		self.cache::uniqueId := answer + 1;
 		answer
+	}
+
+	uniqueId { :self :anInteger |
+		self.cache::uniqueId := anInteger
 	}
 
 	unixTimeInMilliseconds { :self |

@@ -60,5 +60,7 @@ it answers a copy of the collection without the duplicate elements.
 See also: counts, nub, nubBy
 
 References:
+_Apl_
+[1](https://aplwiki.com/wiki/Unique),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DeleteDuplicates.html)

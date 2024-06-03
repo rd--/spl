@@ -586,20 +586,37 @@
 		self.isEmpty.not
 	}
 
+
+	nub { :self |
+		self.nubBy(=)
+	}
+
 	nubBy { :self :aBlock:/2 |
-		let seen = [];
-		self.select { :each |
-			seen.includesBy(each, aBlock:/2).if {
-				false
-			} {
-				seen.add(each);
-				true
+		(aBlock:/2 == equalsSignEqualsSign:/2).if {
+			self.nubIdentical
+		} {
+			let seen = [];
+			self.select { :each |
+				seen.includesBy(each, aBlock:/2).if {
+					false
+				} {
+					seen.add(each);
+					true
+				}
 			}
 		}
 	}
 
-	nub { :self |
-		self.nubBy(=)
+	nubIdentical { :self |
+		let seen = Set();
+		self.select { :each |
+			seen.includes(each).if {
+				false
+			} {
+				seen.include(each);
+				true
+			}
+		}
 	}
 
 	ofSize { :self :aNumber |

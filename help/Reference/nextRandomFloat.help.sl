@@ -2,15 +2,16 @@
 
 - _nextRandomFloat(aRandomNumberGenerator)_
 
-Answer the next random number at a random number generator, or at the system random number generator.
+Answer the next random number at _aRandomNumberGenerator_,
+or at the system random number generator.
 The answer will be between `zero` (inclusive) and `one` (exclusive).
 
 ```
->>> Sfc32(12345).nextRandomFloat * 6 + 3
-7.80664
-
 >>> Sfc32(54321).nextRandomFloat
 0.02639
+
+>>> Sfc32(12345).nextRandomFloat * 6 + 3
+7.80664
 ```
 
 Answer the next five random numbers scaled to lie between one and nine:

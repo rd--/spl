@@ -2818,6 +2818,26 @@
 		(self ! count).tuples
 	}
 
+	uniqueElements { :self |
+		self.uniqueElements(=)
+	}
+
+	uniqueElements { :self :aBlock:/2 |
+		self.withIndexCollect { :p :i |
+			let seen = [];
+			self.withIndexDo { :q :j |
+				(i ~= j).ifTrue {
+					q.do { :each |
+						seen.includesBy(each, aBlock:/2).ifFalse {
+							seen.add(each)
+						}
+					}
+				}
+			};
+			p.difference(seen).nubBy(aBlock:/2)
+		}
+	}
+
 	upsample { :self :anInteger |
 		let answer = List(self.size * anInteger, 0);
 		0.to(self.size - 1).do { :each |

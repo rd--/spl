@@ -23,7 +23,7 @@ At `Tuple`:
 Equations are:
 
 ```
->>> let [x, y, z] = system.nextRandomFloat(3);
+>>> let [x, y, z] = { system.nextRandomFloat } ! 3;
 >>> let r = (x.squared + y.squared + z.squared).sqrt;
 >>> let theta = x.arcTan(y);
 >>> let phi = z.arcTan((x.squared + y.squared).sqrt);

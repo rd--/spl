@@ -218,7 +218,7 @@ Project the vector _(-1, -4, -2)_ on the plane spanned by the vectors _(1, 1, -1
 For a vector _v_ with real entries, _v.norm_ equals _(v.v).sqrt_:
 
 ```
->>> let v = system.nextRandomFloat(3);
+>>> let v = { system.nextRandomFloat } ! 3;
 >>> v.dot(v).sqrt
 v.norm
 ```

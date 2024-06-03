@@ -107,18 +107,6 @@
 		self.collect(reciprocal:/1)
 	}
 
-	unique { :self |
-		let seen = Set();
-		self.select { :each |
-			seen.includes(each).if {
-				false
-			} {
-				seen.include(each);
-				true
-			}
-		}
-	}
-
 	windowedReduce { :self :windowSize :aBlock:/2 |
 		self.partition(windowSize.abs, 1).collect { :each |
 			windowSize.isNegative.ifTrue {
@@ -170,10 +158,6 @@
 
 	shape { :self |
 		[self.size]
-	}
-
-	unique { :self |
-		self.asList.unique.stringJoin
 	}
 
 }

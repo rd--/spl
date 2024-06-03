@@ -49,7 +49,6 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 	atRandom { :self :r |
 		let e = self.contents.keys;
 		let w = self.contents.values;
-		['e', 'w', e, w].postLine;
 		r.randomChoice(e, w, 1).first
 	}
 

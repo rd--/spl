@@ -55,6 +55,13 @@ Select numbers up to 100 that equal 1 modulo both 3 and 5:
 [1 16 31 46 61 76 91]
 ```
 
+Select characters from a `String`:
+
+```
+>>> 'aAbBcC'.select(isLowerCase:/1)
+'abc'
+```
+
 * * *
 
 See also: collect, detect, reject

@@ -13,6 +13,6 @@ Remove every element of _aCollection_ that compares equal to _anObject_.
 
 * * *
 
-See also: removeAllSuchThat
+See also: removeAllSuchThat, without
 
 Categories: Removing

@@ -1,6 +1,6 @@
 # complement
 
-- _complement(aBitSet | aResidueSet | aGraph)_
+- _complement(anObject)_
 
 The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` of the initial set:
 
@@ -11,7 +11,7 @@ The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` o
 (l, [1 3 6 8 10])
 ```
 
-At `ResidueSet`:
+The complement of a `ResidueSet` is the difference to the complete residue set _Z_:
 
 ```
 >>> [0 2 4 5 7 9 11].asResidueSet(12).complement.asList

@@ -2,6 +2,9 @@
 
 - _qrDecomposition(aMatrix)_
 
+Answer the QR decomposition for _aMatrix_, which must be numerical.
+The answer is a `List` _[q, r]_,
+where _q_ is a unitary matrix and _r_ is a lower-triangular matrix.
 
 The QR decomposition of a 2×2 matrix:
 
@@ -28,7 +31,7 @@ zero padded to be 3×3:
 ```
 >>> let m = [1 2 0; 3 4 0; 5 6 0];
 >>> let [q, r] = m.qrDecomposition;
->>> (q, r, m ~ q.dot(r))
+>>> (q, r, m ~ q.dot(r), q.transposed.dot(q))
 (
 	[
 		-0.16903   0.89709   0.40825;
@@ -40,7 +43,12 @@ zero padded to be 3×3:
 		 0         0.82808   0;
 		 0         0         0
 	],
-	true
+	true,
+	[
+		1 0 0;
+		0 1 0;
+		0 0 1
+	]
 )
 ```
 

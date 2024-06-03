@@ -25,7 +25,7 @@ The symmetric difference with an empty collection is the non-empty collection:
 
 * * *
 
-See also: intersection, union
+See also: difference, intersection, union
 
 References:
 _Mathematica_

@@ -146,7 +146,7 @@
 	}
 
 	expRand { :self :upperBound |
-		1.nextRandomFloat.linExpFromTo(self, upperBound)
+		system.randomFloat(1, self.linExpFromTo(upperBound))
 	}
 
 	foldOnce { :self :lo :hi |
@@ -669,7 +669,7 @@
 	}
 
 	tableRand { :self |
-		self.blendAt(1.nextRandomFloat(self.size))
+		self.blendAt(system.randomFloat(1, self.size))
 	}
 
 	waveFill { :self :aBlock:/3 :start :end |
