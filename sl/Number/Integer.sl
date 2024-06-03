@@ -67,11 +67,11 @@
 	}
 
 	atRandom { :self :randomNumberGenerator |
-		randomNumberGenerator.nextRandomInteger(1, self)
+		randomNumberGenerator.randomInteger(1, self)
 	}
 
 	atRandom { :self |
-		system.nextRandomInteger(1, self)
+		system.randomInteger(1, self)
 	}
 
 	bellNumber { :self |
@@ -978,10 +978,6 @@
 		{ :stream |
 			romanDigitsOn(self, stream)
 		}.asciiStringStreamContents
-	}
-
-	randomIntegerBipolar { :self |
-		system.nextRandomIntegerBipolar(self)
 	}
 
 	recamanSequence { :self |

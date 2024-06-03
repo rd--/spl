@@ -2,8 +2,8 @@
 
 - _counts(aCollection)_
 
-Answer a `List` of Associations whose keys are the distinct elements of list,
-and whose values give the number of times those elements appear in list.
+Answer an `Association` `List` whose keys are the distinct elements of _aCollection_,
+and whose values give the number of times those elements appear.
 
 ```
 >>> ['a' 'b' 'c' 'a'].counts
@@ -20,7 +20,7 @@ Count the number of items in a random list of 100 small integers:
 
 * * *
 
-See also: Bag, commonest, count, sort, sortedElements
+See also: Bag, commonest, count, sort, sortedElements, tally
 
 References:
 _Mathematica_

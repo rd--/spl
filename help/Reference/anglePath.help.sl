@@ -35,7 +35,7 @@ With specified step sizes:
 Make a random walk where successive steps change direction by at most 20°:
 
 ~~~
--20.randomFloat(20, 1000).degree.anglePath.plot
+Sfc32(57951).randomFloat(-20, 20, 1000).degree.anglePath.plot
 ~~~
 
 Generate a dragon curve:

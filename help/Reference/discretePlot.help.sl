@@ -14,7 +14,7 @@ Plot a sequence:
 Plot a random permutation of the integers up to ninety nine:
 
 ~~~
-1:99.randomSample(99).discretePlot
+system.randomSample(1:99, 99).discretePlot
 ~~~
 
 * * *

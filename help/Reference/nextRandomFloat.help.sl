@@ -1,27 +1,30 @@
 # nextRandomFloat
 
-- _nextRandomFloat(aRandom | aSystem, lowerBound, upperBound)_
-- _nextRandomFloat(alpha)_ => _nextRandomFloat(alpha, 0, 1)_
+- _nextRandomFloat(aRandomNumberGenerator)_
 
 Answer the next random number at a random number generator, or at the system random number generator.
-The answer will be between _lowerBound_ (inclusive) and _upperBound_ (exclusive).
+The answer will be between `zero` (inclusive) and `one` (exclusive).
 
 ```
->>> Sfc32(12345).nextRandomFloat(3, 9)
+>>> Sfc32(12345).nextRandomFloat * 6 + 3
 7.80664
-```
 
-If the lower and upper bounds are elided, they are set to `zero` and `one`.
-
-```
 >>> Sfc32(54321).nextRandomFloat
 0.02639
 ```
 
-Uniform distribution:
+Answer the next five random numbers scaled to lie between one and nine:
+
+```
+>>> let r = Sfc32(12345);
+>>> { (r.nextRandomFloat * 8 + 1).ceiling } ! 5
+[8 5 9 9 4]
+```
+
+Plot uniform distribution:
 
 ~~~
-({ system.nextRandomFloat(-1, 1) } ! 99).plot
+({ system.nextRandomFloat * 2 - 1 } ! 99).plot
 ~~~
 
 * * *

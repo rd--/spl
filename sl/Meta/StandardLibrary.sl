@@ -5,6 +5,7 @@
 
 	{- Collection -}
 	'ArrayBuffer'
+	'AssociationList'
 	'Bag'
 	'BitSet'
 	'ByteArray'

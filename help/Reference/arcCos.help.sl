@@ -41,7 +41,7 @@ Zero of `arcCos`:
 The inverse is `cos`:
 
 ```
->>> let n = 1.randomFloat;
+>>> let n = system.nextRandomFloat;
 >>> n.arcCos.cos
 n
 ```

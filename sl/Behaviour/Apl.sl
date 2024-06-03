@@ -14,14 +14,6 @@
 
 }
 
-+@Number {
-
-	tally { :self |
-		1
-	}
-
-}
-
 +@Iterable {
 
 }
@@ -115,10 +107,6 @@
 		self.collect(reciprocal:/1)
 	}
 
-	tally { :self |
-		self.size
-	}
-
 	unique { :self |
 		let seen = Set();
 		self.select { :each |
@@ -182,10 +170,6 @@
 
 	shape { :self |
 		[self.size]
-	}
-
-	tally { :self |
-		self.size
 	}
 
 	unique { :self |

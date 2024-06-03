@@ -2,7 +2,7 @@
 
 - _commonest(aCollection)_
 
-Answer a list of the elements that are the most common in list.
+Answer a `List` of the elements that are the most common in _aCollection_.
 
 ```
 >>> ['b' 'a' 'c' 2 'a' 'b' 1 2].commonest

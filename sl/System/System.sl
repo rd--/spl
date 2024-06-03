@@ -193,6 +193,14 @@ System! : [Object, Cache, Indexable, Random] {
 		{ system.nextRandomFloat } ! count
 	}
 
+	randomByteArray { :self :n |
+		<primitive:
+		let bytes = new Uint8Array(_n);
+		crypto.getRandomValues(bytes);
+		return bytes;
+		>
+	}
+
 	sessionStorage { :self |
 		self.window.sessionStorage
 	}

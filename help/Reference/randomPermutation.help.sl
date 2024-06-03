@@ -7,7 +7,7 @@ Answer a pseudo-random permutation of the integers from `one` to _anInteger_.
 A random permutation in the symmetric group _S10_:
 
 ```
->>> 10.randomPermutation(Sfc32(47123))
+>>> Sfc32(47123).randomPermutation(10)
 [1 7 5 3 6; 2 4 10; 8 9].cycles
 ```
 

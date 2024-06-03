@@ -10,7 +10,7 @@ A random single cycle permutation of the symmetric group _S10_:
 ```
 >>> let r = Sfc32(12345);
 >>> let c = [1 3 5 9 4 10 8 7 6 2];
->>> 10.randomCycle(r)
+>>> r.randomCycle(10)
 [c].cycles
 ```
 

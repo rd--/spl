@@ -1,7 +1,7 @@
 # !
 
 - _aNumber.!_
-- _anObject ! (anInteger | aSequence)_
+- _anObject ! shape_
 
 The unary form answers the `factorial` of _aNumber_ if it is a non-negative integer, else answers `gamma`:
 
@@ -75,13 +75,13 @@ With external state:
 [2 4 8 16 32]
 
 >>> let r = Random(12345);
->>> { r.nextRandomInteger(9) } ! 5
+>>> { r.randomInteger(1, 9) } ! 5
 [8 5 9 9 4]
 ```
 
 The name of this operator is _exclamationMark_.
 
-Answer a _List_ constructed by evaluating a no-argument block the indicated number of times.
+Answer a `List` constructed by evaluating a no-argument block the indicated number of times.
 
 ```
 {

@@ -1,8 +1,8 @@
 # randomInteger
 
-- _randomInteger(α)_ ⇒ _randomInteger(1, α)_
-- _randomInteger(min, max)_
-- _randomInteger(min, max, countOrShape)_
+- _randomInteger(r, α)_ ⇒ _randomInteger(r, 1, α)_
+- _randomInteger(r, min, max)_
+- _randomInteger(r, min, max, shape)_
 
 Random number generator.
 Generate a random integer between _min_ and _max_.
@@ -10,51 +10,40 @@ Generate a random integer between _min_ and _max_.
 Generate a random integer betwee one and nine, inclusive:
 
 ```
->>> 9.randomInteger.betweenAnd(1, 9)
-true
+>>> Sfc32(79143).randomInteger(9)
+5
 ```
 
 Generate a random integer between 3 and 11, inclusive:
 
 ```
->>> 3.randomInteger(11).betweenAnd(3, 11)
-true
+>>> Sfc32(79143).randomInteger(3, 11)
+7
 ```
 
-At `LargeInteger`:
-
-```
->>> (2n ^ 99n).digitLength
-13
-
->>> (2n ^ 99n).randomInteger.betweenAnd(1n, 633825300114114700748351602688n)
-true
-
->>> (2n ^ 98).randomInteger(2n ^ 99).betweenAnd(2n ^ 98, 2n ^ 99)
-true
-```
-
-The ternary form answers a List of _countOrShape_ random numbers.
+The ternary form answers a list or array of _shape_ random numbers.
 
 A `List` of 13 random integers:
 
 ```
->>> let l = 1.randomInteger(9, 13);
->>> (l.size, l.allSatisfy { :each | each.betweenAnd(1, 9) })
-(13, true)
+>>> Sfc32(76941).randomInteger(1, 9, 13)
+[4 1 3 5 4 2 6 4 9 1 3 8 4]
 ```
 
 A 3×4 matrix of random integers:
 
 ```
->>> let l = 1.randomInteger(9, [3 4]);
->>> (l.shape, l.allSatisfy { :each | each.sum.betweenAnd(4 * 1, 4 * 9) })
-([3 4], true)
+>>> Sfc32(49825).randomInteger(1, 9, [3 4])
+[
+	5 8 5 7;
+	8 3 7 4;
+	2 6 8 1
+]
 ```
 
 * * *
 
-See also: atRandom, randomFloat, randomSample
+See also: atRandom, randomByteArray, randomFloat, randomLargeInteger, randomSample
 
 References:
 _Mathematica_

@@ -60,11 +60,11 @@ Interval : [Object, Magnitude, Number] { | min max |
 	}
 
 	atRandom { :self :randomNumberGenerator |
-		randomNumberGenerator.nextRandomFloat(self.min, self.max)
+		randomNumberGenerator.randomFloat(self.min, self.max)
 	}
 
 	atRandom { :self |
-		self.min.randomFloat(self.max)
+		self.atRandom(system)
 	}
 
 	discretize { :self :size :aBlock:/1 |

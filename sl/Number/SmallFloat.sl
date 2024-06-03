@@ -523,37 +523,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		self.negated.randomFloat(self)
 	}
 
-	randomInteger { :self |
-		1.randomFloat(self + 1).floor
-	}
-
-	randomInteger { :self :anInteger |
-		self.randomFloat(anInteger + 1).floor
-	}
-
-	randomInteger { :min :max :countOrShape |
-		countOrShape.isInteger.if {
-			{ min.randomInteger(max) } ! countOrShape
-		} {
-			countOrShape.fill { :unusedIndex |
-				min.randomInteger(max)
-			}
-		}
-	}
-
-	randomIntegerExcluding { :self :anInteger :excluded |
-		let answer = self.randomInteger(anInteger);
-		(answer = excluded).if {
-			anInteger
-		} {
-			answer
-		}
-	}
-
-	randomIntegerExcludingZero { :self :anInteger |
-		self.randomIntegerExcluding(anInteger, 0)
-	}
-
 	reduce { :self |
 		self.isCloseTo(self.rounded).if {
 			self.rounded

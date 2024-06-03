@@ -9,6 +9,13 @@ Answer the number of bytes required to represent _anInteger_.
 [1 .. 9]
 ```
 
+A thirteen byte integer:
+
+```
+>>> (2n ^ 99n).digitLength
+13
+```
+
 A 128-bit (16-byte) integer:
 
 ```

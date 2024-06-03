@@ -1,6 +1,6 @@
 # atRandom
 
-- _atRandom(anInteger | aCollection | anInterval, aRandom)_
+- _atRandom(anInteger | aCollection, aRandom)_
 
 Select an element at random.
 

@@ -139,7 +139,7 @@ Determine whether the following basis for _R ^3_ is right-handed:
 The determinant of the transpose of _m_ equals the determinant of _m_:
 
 ```
->>> let m = 0.randomFloat(1, [3 3]);
+>>> let m = system.randomFloat(0, 1, [3 3]);
 >>> m.transposed.determinant
 m.determinant
 ```
@@ -148,8 +148,8 @@ The determinant is a multiplicative map,
 ie. the determinant of a matrix product equals the product of their determinants:
 
 ```
->>> let a = 0.randomFloat(1, [3 3]);
->>> let b = 0.randomFloat(1, [3 3]);
+>>> let a = system.randomFloat(0, 1, [3 3]);
+>>> let b = system.randomFloat(0, 1, [3 3]);
 >>> a.dot(b).determinant
 a.determinant * b.determinant
 ```

@@ -209,23 +209,6 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		<primitive: return _self ** BigInt(_anInteger);>
 	}
 
-	randomInteger { :self |
-		let k = self.digitLength;
-		let h = self.highBitOfMagnitude;
-		let m = (2n ^ h) - 1;
-		let answer = nil;
-		{
-			let bytes = k.randomByteArray;
-			answer := bytes.asLargeInteger.bitAnd(m);
-			answer <= 0 || (answer > self)
-		}.whileTrue;
-		answer
-	}
-
-	randomInteger { :min :max |
-		(max - min).randomInteger + min
-	}
-
 	remainder { :self :anInteger |
 		<primitive: return _self % BigInt(_anInteger);>
 	}

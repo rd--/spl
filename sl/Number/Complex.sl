@@ -376,17 +376,6 @@ Complex : [Object, Number] { | real imaginary |
 		].stringJoin
 	}
 
-	randomComplex { :self |
-		0j0.randomComplex(self)
-	}
-
-	randomComplex { :min :max |
-		Complex(
-			min.real.randomFloat(max.real),
-			min.imaginary.randomFloat(max.imaginary)
-		)
-	}
-
 	reciprocal { :self |
 		(self = 0).if {
 			self.error('reciprocal: zero divide')

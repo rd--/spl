@@ -41,7 +41,7 @@ Zero of `arcSin`:
 Inverse is `sin`:
 
 ```
->>> let n = 1.randomFloat;
+>>> let n = system.nextRandomFloat;
 >>> n.arcSin.sin
 n
 ```

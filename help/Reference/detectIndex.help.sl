@@ -16,3 +16,9 @@ nil
 * * *
 
 See also: bisect, detect, detectIndexIfFoundIfNone, indexOf
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/FirstPosition.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Linear_search)

@@ -1,5 +1,3 @@
-{- Require: Object -}
-
 @Collection {
 
 	# { :self |
@@ -126,7 +124,7 @@
 	}
 
 	atRandom { :self :randomNumberGenerator |
-		let randomIndex = self.size.atRandom(randomNumberGenerator);
+		let randomIndex = randomNumberGenerator.randomInteger(1, self.size);
 		let index = 1;
 		valueWithReturn { :return:/1 |
 			self.do { :each |
@@ -677,48 +675,6 @@
 		}
 	}
 
-	randomSampleSmallPool { :self :count :randomNumberGenerator |
-		let pool = self.asList;
-		let answer = [];
-		(count > self.size).ifTrue {
-			count := self.size
-		};
-		{
-			count > 0
-		}.whileTrue {
-			let next = pool.atRandom(randomNumberGenerator);
-			answer.add(next);
-			pool.remove(next);
-			count := count - 1
-		};
-		answer
-	}
-
-	randomSampleLargePool { :self :count :randomNumberGenerator |
-		let answer = [];
-		(count > self.size).ifTrue {
-			count := self.size
-		};
-		{
-			count > 0
-		}.whileTrue {
-			let next = self.atRandom(randomNumberGenerator);
-			answer.includes(next).ifFalse {
-				answer.add(next);
-				count := count - 1
-			}
-		};
-		answer
-	}
-
-	randomSample { :self :count :randomNumberGenerator |
-		self.randomSampleLargePool(count, randomNumberGenerator)
-	}
-
-	randomSample { :self :count |
-		self.randomSample(count, system)
-	}
-
 	rescale { :self :min :max :ymin :ymax |
 		self.collect { :each |
 			each.rescale(min, max, ymin, ymax)
@@ -823,6 +779,25 @@
 
 	take { :self :maxNumberOfElements |
 		self.any(maxNumberOfElements.min(self.size))
+	}
+
+	tally { :self :aBlock:/2 |
+		let answer = [];
+		self.do { :each |
+			answer.detectIndexIfFoundIfNone { :item |
+				aBlock(item.key,each)
+			} { :index |
+				let association = answer[index];
+				association.value := association.value + 1
+			} {
+				answer.add(each -> 1)
+			}
+		};
+		answer
+	}
+
+	tally { :self |
+		self.tally(=)
 	}
 
 	threshold { :self :epsilon |

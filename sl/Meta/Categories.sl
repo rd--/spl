@@ -1053,7 +1053,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'random': [
 		'nextRandomFloat'
-		'nextRandomInteger'
+		'randomInteger'
+		'randomLargeInteger'
+		'randomComplex'
+		'randomFloat'
 	],
 	'removing': [
 		'associationsRemove'

@@ -113,7 +113,7 @@
 				k := k - 1;
 				k >= 0
 			}.whileTrue {
-				a := (self.one * 2).randomInteger(self - 2);
+				a := system.randomLargeInteger(self.one * 2, self - 2);
 				x := (a ^ d) \\ self;
 				(x = 1).ifFalse {
 					r := -1;
@@ -340,15 +340,6 @@
 		}
 	}
 
-	randomPrime { :iMin :iMax |
-		iMin.primesBetweenAnd(iMax).atRandom
-	}
-
-	randomPrime { :iMin :iMax :count |
-		let c = iMin.primesBetweenAnd(iMax);
-		{ c.atRandom } ! count
-	}
-
 	sieveOfEratosthenesDo { :self :aBlock:/1 |
 		let size = self;
 		let flags = List(size);
@@ -503,6 +494,19 @@
 			primesList.primesListExtendedToIndex(primesList.size + 8)
 		};
 		primesList
+	}
+
+}
+
++@Random {
+
+	randomPrime { :self :iMin :iMax |
+		iMin.primesBetweenAnd(iMax).atRandom(self)
+	}
+
+	randomPrime { :self :iMin :iMax :shape |
+		let c = iMin.primesBetweenAnd(iMax);
+		{ c.atRandom(self) } ! shape
 	}
 
 }

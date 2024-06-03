@@ -10,7 +10,7 @@ If _r_ is ommitted it is set to _system_.
 A list of twenty random choices:
 
 ```
->>> [1 2 3].randomChoice(20, Sfc32(10841))
+>>> Sfc32(10841).randomChoice([1 2 3], 20)
 [2 3 3 2 3 1 3 3 1 2 3 1 1 1 3 1 3 3 2 1]
 ```
 
@@ -18,7 +18,7 @@ A 4×3 array of random choices:
 
 
 ```
->>> [1 2 3].randomChoice([4 3], Sfc32(81349))
+>>> Sfc32(81349).randomChoice([1 2 3], [4 3])
 [
 	2 2 3;
 	3 2 1;
@@ -31,11 +31,11 @@ Choices weighted with probabilities,
 weights are automatically normalized:
 
 ```
->>> let w = [2 2 5 1];
->>> let e = [1 2 3 4];
->>> let n = 100;
 >>> let r = Sfc32(19743);
->>> let c = (w -> e).randomChoice(n, r);
+>>> let e = [1 2 3 4];
+>>> let w = [2 2 5 1];
+>>> let n = 100;
+>>> let c = r.randomChoice(e, w, n);
 >>> c.asBag.sortedElements
 [1 -> 18, 2 -> 17, 3 -> 50, 4 -> 15]
 ```
@@ -43,14 +43,14 @@ weights are automatically normalized:
 Generate a random string:
 
 ```
->>> ['A' 'C' 'G' 'T'].randomChoice(50, Sfc32(37914)).join
+>>> Sfc32(37914).randomChoice(['A' 'C' 'G' 'T'], 50).join
 'TTCGGAGGGCCCCGCAGATCTAAGTATTACCCTGGGTGTGAACTTACACT'
 ```
 
 Generate a weighted random string:
 
 ```
->>> ([2 1] -> ['.' '-']).randomChoice(50, Sfc32(38014)).join
+>>> Sfc32(38014).randomChoice(['.' '-'], [2 1], 50).join
 '---..-...--.....-........--.--...-.-....--.....--.'
 ```
 
@@ -59,16 +59,16 @@ according to the specified probabilities.
 
 ```
 >>> let r = Sfc32(36814);
->>> let w = [0.15 0.35 0.35 0.15];
 >>> let e = 'ACGT'.contents;
->>> (w -> e).randomChoice(48, r).join
+>>> let w = [0.15 0.35 0.35 0.15];
+>>> r.randomChoice(e, w, 48).join
 'CTTGTAGGGTCCCGGAGGTCGCGGCAGGGGTCAGGAGTGGTTCCATCC'
 ```
 
 Generate integers according to a _1 / n_ distribution:
 
 ```
->>> ((1 / 1:10) -> 1:10).randomChoice(30, Sfc32(38014))
+>>> Sfc32(38014).randomChoice(1:10, 1 / 1:10, 30)
 [
 	3  9 10  1  4  2  4  3  3  7
 	6  2  2  2  1  4  3  2  5  1
@@ -79,7 +79,7 @@ Generate integers according to a _1 / n_ distribution:
 Generate a random 9×9 matrix of `zero` and `one` entries:
 
 ```
->>> [0 1].randomChoice([9 9], Sfc32(97415))
+>>> Sfc32(97415).randomChoice([0 1], [9 9])
 [
 	0 0 1 0 0 1 0 0 0;
 	1 1 1 0 0 1 0 0 1;
@@ -96,7 +96,7 @@ Generate a random 9×9 matrix of `zero` and `one` entries:
 Plot a random walk with steps of unit length:
 
 ~~~
-[-1 1].randomChoice(50, Sfc32(28974)).accumulate.plot
+Sfc32(28974).randomChoice([-1 1], 50).accumulate.plot
 ~~~
 
 * * *

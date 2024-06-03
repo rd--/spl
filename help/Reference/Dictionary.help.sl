@@ -1,6 +1,6 @@
 # Dictionary
 
-`Dictionary` is a `Trait` holding behaviours common to collections of (key, value) associations.
+`Dictionary` is a `Trait` that holds behaviours common to collections of _(key, value)_ associations.
 
 Dictionaries are homogenous sets of key and value pairs.
 These pairs are called associations.
@@ -26,6 +26,6 @@ Methods for enumerating: do, keysDo, valuesDo, keysAndValuesDo, associationsDo
 
 * * *
 
-See also: Association, Map, Record
+See also: Association, AssociationList, Map, Record
 
 Categories: Collection, Trait

@@ -1,4 +1,4 @@
-{- Require: Record -}
+{- Require: List, Record, Void -}
 
 @PrimitiveMap {
 
@@ -34,13 +34,13 @@
 		<primitive: return _self.has(_key);>
 	}
 
-	removeKeyIfAbsent { :self :key :aBlock |
+	removeKeyIfAbsent { :self :key :aBlock:/0 |
 		<primitive:
 		const existed = _self.delete(_key);
 		if(existed) {
 			return _key;
 		} else {
-			return _aBlock();
+			return _aBlock_0();
 		}
 		>
 	}

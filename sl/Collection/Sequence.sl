@@ -260,7 +260,7 @@
 	}
 
 	atRandom { :self :randomNumberGenerator |
-		let index = randomNumberGenerator.nextRandomInteger(
+		let index = randomNumberGenerator.randomInteger(
 			self.firstIndex,
 			self.lastIndex
 		);
@@ -939,7 +939,7 @@
 		self.size.toByDo(2, -1) { :each |
 			self.swapWith(
 				each,
-				aRandomNumberGenerator.nextRandomInteger(1, each)
+				aRandomNumberGenerator.randomInteger(1, each)
 			)
 		};
 		self
@@ -2085,6 +2085,18 @@
 		self.cliPlot('line')
 	}
 
+	positionIndex { :self |
+		let answer = Map();
+		self.withIndexDo { :each :index |
+			answer.includesKey(each).if {
+				answer.at(each).add(index)
+			} {
+				answer.atPut(each, [index])
+			}
+		};
+		answer
+	}
+
 	precedes { :self :aSequence |
 		self.compare(aSequence) = -1
 	}
@@ -2202,44 +2214,6 @@
 
 	quickSort { :self |
 		self.quickSort(<=)
-	}
-
-	randomChoice { :self :n :r |
-		let k = self.size;
-		n.fill { :unused |
-			let i = r.nextRandomInteger(k);
-			self[i]
-		}
-	}
-
-	randomSubsequence { :self :aNumber :aRandom |
-		let answer = [];
-		self.do { :each |
-			(aRandom.nextRandomFloat < aNumber).ifTrue {
-				answer.add(each)
-			}
-		};
-		answer
-	}
-
-	randomWeightedIndex { :self :random |
-		let r = random.nextRandomFloat;
-		let sum = 0;
-		let answer = 1;
-		valueWithReturn { :return:/1 |
-			self.do { :each |
-				sum := sum + each;
-				(sum > r).ifTrue {
-					answer.return
-				};
-				answer := answer + 1
-			};
-			answer
-		}
-	}
-
-	randomWeightedIndex { :self |
-		self.randomWeightedIndex(system)
 	}
 
 	rank { :self |
@@ -2401,7 +2375,7 @@
 		{
 			i > 1
 		}.whileTrue {
-			let j = random.nextRandomInteger(1, i - 1);
+			let j = random.randomInteger(1, i - 1);
 			self.swapWith(i, j);
 			i := i - 1
 		};

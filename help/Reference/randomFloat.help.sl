@@ -4,7 +4,7 @@
 - _randomFloat(r, min, max)_
 - _randomFloat(r, min, max, countOrShape)_
 
-Generate one or more random numbers between _low_ and _high_ using the random number generator _r_.
+Answer one or more random numbers between _min_ and _max_ using the random number generator _r_.
 
 Uniform distribution, uni-polar:
 
@@ -20,7 +20,7 @@ Uniform distribution, bi-polar:
 -0.7021
 ```
 
-A `List` of random numbers:
+A `List` of five random numbers:
 
 ```
 >>> Sfc32(37194).randomFloat(-1, 1, 5)
@@ -38,7 +38,7 @@ A 3×4 matrix of random numbers:
 ]
 ```
 
-Plot:
+Plot, uniform distribution:
 
 ~~~
 system.randomFloat(-1, 1, 99).plot

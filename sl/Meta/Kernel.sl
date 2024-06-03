@@ -12,9 +12,9 @@
 	{- Collection Traits -}
 	'PrimitiveSequence'
 	'ArithmeticProgression'
-	'Collection' {- > Object -}
+	'Collection'
+	'Dictionary' {- Collection -}
 	'Extensible'
-	'Dictionary'
 	'Indexable'
 	'Iterable'
 	'Ordered'

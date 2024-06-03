@@ -8,7 +8,7 @@ It is based on the properties of strong pseudoprimes.
 At `SmallFloat`:
 
 ```
->>> 1:30.select { :each | each.millerRabinPrimalityTest(10) }
+>>> (1 .. 30).select { :each | each.millerRabinPrimalityTest(10) }
 [2 3 5 7 11 13 17 19 23 29]
 ```
 

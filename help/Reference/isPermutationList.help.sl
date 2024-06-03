@@ -37,7 +37,7 @@ true
 A complete `randomSample` of a `Range` from one always gives a valid permutation list:
 
 ```
->>> let p = 1:10.randomSample(10);
+>>> let p = system.randomSample(1:10, 10);
 >>> p.isPermutationList
 true
 ```

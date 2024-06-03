@@ -1,4 +1,4 @@
-{- Require: Object -}
+{- Require: Collection -}
 
 @Dictionary {
 
@@ -373,7 +373,6 @@
 	}
 
 }
-
 
 {- Keys -}
 +@Dictionary {

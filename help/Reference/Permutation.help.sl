@@ -198,7 +198,7 @@ The `decreasingRuns`:
 The runs of two random permutations:
 
 ```
->>> let p = 13.randomPermutationList(2, Sfc32(12345));
+>>> let p = Sfc32(12345).randomPermutationList(13, 2);
 >>> (p, p.collect(runs:/1))
 (
 	[

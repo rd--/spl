@@ -17,5 +17,5 @@ Effects of _shape_:
 - _shape_ = 1: same as exponential distribution
 
 ~~~
-({ randomFloatWeibullDistribution(0, 1, 3 / 4) } ! 99).plot
+({ system.randomFloatWeibullDistribution(0, 1, 3 / 4) } ! 99).plot
 ~~~

@@ -9,7 +9,7 @@ It is unbounded above and below the mean similar to the Gaussian distribution bu
 - spread: determines horizontal dispersion of values along curve
 
 ~~~
-{ randomFloatCauchyDistribution(0, 1 / 9) }.!(99).plot
+{ system.randomFloatCauchyDistribution(0, 1 / 9) }.!(99).plot
 ~~~
 
 * * *

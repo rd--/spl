@@ -27,7 +27,7 @@ Schedule for the system clock to be cleared in nine seconds time:
 Print random numbers at random intervals until the interval is less than a tenth of a second:
 
 	system.clock.schedule(0) { :t |
-		let x = 1.randomFloat;
+		let x = system.nextRandomFloat;
 		[t, x].postLine;
 		(x > 0.1).if {
 			x
@@ -40,7 +40,7 @@ Print random numbers at random intervals until the interval is less than a tenth
 A scheduling process that passes an object between iterations:
 
 	system.clock.scheduleInjecting(0, 1) { :t :i |
-		let x = 1.randomFloat;
+		let x = system.nextRandomFloat;
 		[t, i, x].postLine;
 		(x > 0.1).if {
 			[x, i + 1]
@@ -54,7 +54,7 @@ _repeatEvery_ separates the _on wakeup_ and _next delay_ aspects into separate b
 	system.clock.repeatEvery { :t :d |
 		[t, d].postLine
 	} {
-		let x = 1.randomFloat;
+		let x = system.nextRandomFloat;
 		(x > 0.1).if {
 			x
 		} {
@@ -75,7 +75,7 @@ _recurseEvery_ is a related interface to _scheduleInjecting_, a _nil_ at either 
 		},
 		1
 	) {
-		let x = 1.randomFloat;
+		let x = system.nextRandomFloat;
 		(x > 0.1).if {
 			x
 		} {
