@@ -6,11 +6,11 @@ Answer a pseudo random number generator seeded with _anInteger_.
 Sfc stands for _Small Fast Counter_,
 the algorithm is part of the _PractRand_ test suite, which it passes.
 
-`Sfc32` implements `Random` and `Stream`:
+`Sfc32` implements `RandomNumberGenerator` and `Stream`:
 
 ```
 >>> let rng = Sfc32(12345);
->>> (rng.isSfc32, rng.isRandom, rng.isStream)
+>>> (rng.isSfc32, rng.isRandomNumberGenerator, rng.isStream)
 (true, true, true)
 ```
 
@@ -29,7 +29,7 @@ Sfc32(98765).next(99).plot
 
 * * *
 
-See also: LinearCongruential, Mersenne, Random, SplitMix, Stream
+See also: LinearCongruential, MersenneTwister, RandomNumberGenerator, SplitMix, Stream
 
 References:
 _PractRand_

@@ -16,4 +16,4 @@ Answer a ByteArray of _anInteger_ places, each randomly initialized.
 
 * * *
 
-See also: randomFloat, randomInteger, randomLargeInteger
+See also: randomInteger, randomLargeInteger, randomReal

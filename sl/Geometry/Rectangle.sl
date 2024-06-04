@@ -187,8 +187,10 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		self.asString(storeString:/1)
 	}
 
-	randomPoint { :self |
-		self.pointAtFraction([1.randomFloat, 1.randomFloat])
+	randomPoint { :self :shape |
+		{
+			self.pointAtFraction([system.nextRandomFloat, system.nextRandomFloat])
+		} ! shape
 	}
 
 	right { :self |

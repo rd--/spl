@@ -2,25 +2,40 @@
 
 - _hash(aString)_
 
-Answer an integer hash code for _aString_.
+Answer an integer hash code for _aString_ using the _Murmur_ hash algorithm.
 
 ```
 >>> 'abcdef'.hash
-572554180
+1027415244
 ```
 
 Similar strings answer disimilar hashes:
 
 ```
 >>> 'abcdee'.hash
-2814836336
+2196172908
 ```
 
 Hashes of the first six letters of the alphabet:
 
 ```
 >>> 'abcdef'.contents.collect(hash:/1)
-[3663734039 795374640 671592221 2541462361 2157972536 3052205057]
+[3007810216 448595256 1180910169 1461823195 2696877920 634392818]
+```
+
+Hash an integer by converting to a string:
+
+```
+>>> let n = 1987;
+>>> let w = n.asWords;
+>>> let s = n.asString;
+>>> (w, w.hash, s, s.hash)
+(
+	'one thousand, nine hundred eighty-seven',
+	1861050329,
+	'1987',
+	2500117931
+)
 ```
 
 * * *
@@ -31,3 +46,6 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HashFunction.html)
 [2](https://reference.wolfram.com/language/ref/Hash.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Hash_function)
+[1](https://en.wikipedia.org/wiki/MurmurHash)

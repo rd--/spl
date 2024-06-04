@@ -1,8 +1,6 @@
 # unixTimeInMilliseconds
 
-- _unixTimeInMilliseconds(aSystem)_
-- _unixTimeInMilliseconds(aTimeStamp)_
-- _unixTimeInMilliseconds(aNumber)_
+- _unixTimeInMilliseconds(aSystem | aTimeStamp | aNumber)_
 
 At `System`, get the current time in milliseconds since the Unix epoch as a `SmallFloat`.
 

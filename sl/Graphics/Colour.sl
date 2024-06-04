@@ -8,6 +8,10 @@ Colour : [Object] { | red green blue alpha |
 		self.equalBy(aColour, ~)
 	}
 
+	asList { :self |
+		[self.red, self.green, self.blue, self.alpha]
+	}
+
 	asNontranslucentColor { :self |
 		self.alpha := 1
 	}
@@ -37,6 +41,31 @@ Colour : [Object] { | red green blue alpha |
 		'#' ++ [self.red, self.green, self.blue].collect { :each |
 			(each * 255).rounded.byteHexString
 		}.stringJoin
+	}
+
+	hsv { :self |
+		let [r, g, b] = [self.red, self.green, self.blue];
+		let v = [r g b].max;
+		let c = v - [r g b].min;
+		let s = (v = 0).if { 0 } { c / v };
+		let h = (c = 0).if {
+			0
+		} {
+			(v = r).if {
+				60 * ((g - b) / c % 6)
+			} {
+				(v = g).if {
+					60 * ((b - r) / c + 2)
+				} {
+					60 * ((r - g) / c + 4)
+				}
+			}
+		};
+		[h / 360, s, v]
+	}
+
+	hue { :self |
+		self.hsv.first
 	}
 
 	isBlack { :self |
@@ -176,12 +205,12 @@ Colour : [Object] { | red green blue alpha |
 		level.greyLevel(1)
 	}
 
-	Hsv { :self :saturation :brightness |
+	Hsv { :hue :saturation :brightness |
 		let s = saturation.min(1).max(0);
 		let v = brightness.min(1).max(0);
-		let hf = self % 360;
-		let i = hf // 60;
-		let f = (hf % 60) / 60;
+		let h = (hue * 360) % 360;
+		let i = h // 60;
+		let f = (h % 60) / 60;
 		let p = (1 - s) * v;
 		let q = (1 - (s * f)) * v;
 		let t = (1 - (s * (1 - f))) * v;
@@ -239,6 +268,18 @@ Colour : [Object] { | red green blue alpha |
 			}
 		])
 	}
+
+	hsvToRgb { :self |
+		let [h, s, v] = self.asFloat;
+		let [r, g, b, a] = Hsv(h, s, v).asList;
+		[r g b]
+	}
+
+	rgbToHsv { :self |
+		let [r, g, b] = self.asFloat;
+		Colour(r, g, b, 1).hsv
+	}
+
 
 }
 

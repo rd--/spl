@@ -414,8 +414,9 @@
 
 ## Numeric Types & Traits
 
-- `Binary`, `Integer`, `Magnitude`, `Number`, `Random`
+- `Binary`, `Integer`, `Magnitude`, `Number`
 - `Complex`, `Fraction`, `Interval`, `SmallFloat`, `LargeInteger`
+- `RandomNumberGenerator`
 
 ## Numerical Properties
 
@@ -507,12 +508,12 @@
 
 ## Random Numbers
 
-- `Random`, `Stream`
-- `LinearCongruential`, `Mersenne`, `Sfc32`, `SplitMix`
-- `nextRandomFloat`, `randomComplex`, `randomFloat`, `randomInteger`, `randomPrime`
+- `RandomNumberGenerator`, `Stream`
+- `LinearCongruential`, `MersenneTwister`, `Sfc32`, `SplitMix`
+- `nextRandomFloat`, `randomComplex`, `randomReal`, `randomInteger`, `randomPoint`, `randomPrime`
 - `atRandom`, `randomByteArray`
-- `randomChoice`, `randomSample`
-- `randomFloatBipolar`, `randomIntegerBipolar`
+- `randomChoice`, `randomWeightedChoice`, `randomSample`
+- `randomRealBipolar`, `randomIntegerBipolar`
 - `randomWeightedIndex`
 - `fisherYatesShuffle`, `sattoloShuffle`
 - `shuffle`, `shuffled`
@@ -520,10 +521,14 @@
 
 ## Random Number Distributions
 
-- `normalDistributionCdf`, `normalDistributionPdf`
-- `randomIntegerPoissonDistribution`
-- `randomFloatCauchyDistribution`, `randomFloatGaussianDistribution`, `randomFloatLinearDistribution`
-- `randomFloatEulerianBetaDistribution`, `randomFloatWeibullDistribution`
+- `UniformDistribution`
+- `NormalDistribution`
+- `nextRandomIntegerPoissonDistribution`
+- `nextRandomFloatCauchyDistribution`
+- `nextRandomFloatGaussianDistribution`
+- `nextRandomFloatLinearDistribution`
+- `nextRandomFloatEulerianBetaDistribution`
+- `nextRandomFloatWeibullDistribution`
 
 ## Rearranging & Restructuring Lists
 

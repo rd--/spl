@@ -8,12 +8,19 @@ At `Circle`:
 
 ~~~
 let c = Circle([0, 0], 1);
-c.randomPoint(1000).scatterPlot
+c.randomPoint([1000]).scatterPlot
+~~~
+
+At `Rectangle`:
+
+~~~
+let c = Rectangle([0, 0], [2 3]);
+c.randomPoint([1000]).scatterPlot
 ~~~
 
 * * *
 
-See also: circlePoints, randomFloat, randomInteger, randomVariate
+See also: circlePoints, randomInteger, randomReal, randomVariate
 
 References:
 _Mathematica_

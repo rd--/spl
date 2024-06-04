@@ -1,6 +1,6 @@
 @RandomNumberGenerator {
 
-	isRandom { :self |
+	isRandomNumberGenerator { :self |
 		true
 	}
 
@@ -12,6 +12,18 @@
 		self.error('@RandomNumberGenerator>>nextRandomFloat: type responsibility')
 	}
 
+	nextRandomFloat { :self :min :max |
+		self.nextRandomFloat * (max - min) + min
+	}
+
+	nextRandomInteger { :self :min :max |
+		self.nextRandomFloat(min, max + 1).floor
+	}
+
+	randomBit { :self :probablity :shape |
+		{ (self.nextRandomFloat < probablity).boole } ! shape
+	}
+
 	randomByteArray { :self :n |
 		self.randomInteger(0, 255, n).asByteArray
 	}
@@ -19,26 +31,26 @@
 	randomChoice { :self :aSequence :shape |
 		let k = aSequence.size;
 		{
-			let i = self.randomInteger(1, k);
+			let i = self.randomInteger(1, k, []);
 			aSequence[i]
 		} ! shape
 	}
 
-	randomWeightedChoice { :self :e :w :n |
-		let k = w.sum;
-		let x = (k = 1).if { w } { w / k };
-		let m = AliasMethod(x, self);
-		{ e[m.next] } ! n
+	randomColour { :self :shape |
+		{
+			Colour(
+				self.randomReal(0, 1, []),
+				self.randomReal(0, 1, []),
+				self.randomReal(0, 1, []),
+				self.randomReal(0, 1, [])
+			)
+		} ! shape
 	}
 
-	randomComplex { :self :max |
-		self.randomComplex(0j0, max)
-	}
-
-	randomComplex { :self :min :max |
+	randomComplex { :self :min :max :shape |
 		Complex(
-			self.randomFloat(min.real, max.real),
-			self.randomFloat(min.imaginary, max.imaginary)
+			self.randomReal(min.real, max.real, shape),
+			self.randomReal(min.imaginary, max.imaginary, shape)
 		)
 	}
 
@@ -46,36 +58,12 @@
 		[1 .. anInteger].sattoloShuffle(self).asPermutation
 	}
 
-	randomFloat { :self :max |
-		self.nextRandomFloat * max
-	}
-
-	randomFloat { :self :min :max |
-		min + self.randomFloat(max - min)
-	}
-
-	randomFloat { :self :min :max :shape |
-		{ self.randomFloat(min, max) } ! shape
-	}
-
-	randomInteger { :self :max |
-		self.randomFloat(1, max + 1).floor
-	}
-
-	randomInteger { :self :min :max |
-		self.randomFloat(min, max + 1).floor
-	}
-
-	randomInteger { :self :min :max :countOrShape |
-		{ self.randomInteger(min, max) } ! countOrShape
-	}
-
-	randomIntegerBipolar { :self :max |
-		self.randomInteger(max.negated, max)
+	randomInteger { :self :min :max :shape |
+		self.randomReal(min, max + 1, shape).floor
 	}
 
 	randomIntegerExcluding { :self :min :max :excluded |
-		let answer = self.randomInteger(min, max);
+		let answer = self.randomInteger(min, max, []);
 		(answer = excluded).if {
 			max
 		} {
@@ -114,6 +102,10 @@
 		} ! shape
 	}
 
+	randomReal { :self :min :max :shape |
+		{ self.nextRandomFloat * (max - min) + min } ! shape
+	}
+
 	randomSampleSmallPool { :self :aCollection :count |
 		let pool = aCollection.asList;
 		let answer = [];
@@ -123,7 +115,7 @@
 		{
 			count > 0
 		}.whileTrue {
-			let next = pool.atRandom(self);
+			let next = self.randomChoice(pool, []);
 			answer.add(next);
 			pool.remove(next);
 			count := count - 1
@@ -139,7 +131,7 @@
 		{
 			count > 0
 		}.whileTrue {
-			let next = aCollection.atRandom(self);
+			let next = self.randomChoice(aCollection, []);
 			answer.includes(next).ifFalse {
 				answer.add(next);
 				count := count - 1
@@ -162,6 +154,13 @@
 		answer
 	}
 
+	randomWeightedChoice { :self :e :w :n |
+		let k = w.sum;
+		let x = (k = 1).if { w } { w / k };
+		let m = AliasMethod(x, self);
+		{ e[m.next] } ! n
+	}
+
 	randomWeightedIndex { :self :aSequence |
 		let r = self.nextRandomFloat;
 		let sum = 0;
@@ -182,7 +181,7 @@
 
 +@Object {
 
-	isRandom { :self |
+	isRandomNumberGenerator { :self |
 		false
 	}
 
@@ -190,16 +189,20 @@
 
 +SmallFloat {
 
-	randomFloat { :self |
-		system.randomFloat(0, self)
+	randomIntegerBipolar { :max |
+		system.randomInteger(max.negated, max, [])
 	}
 
-	randomFloat { :self :shape |
-		system.randomFloat(0, self, shape)
+	randomReal { :max :shape |
+		system.randomReal(0, max, shape)
 	}
 
-	randomFloatBipolar { :self |
-		system.randomFloat(self.negated, self)
+	randomReal { :max |
+		system.randomReal(0, max, [])
+	}
+
+	randomRealBipolar { :max |
+		system.randomReal(max.negated, max, [])
 	}
 
 }

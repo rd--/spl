@@ -71,7 +71,7 @@ let env = EnvLinen(2, 5, 2, 0.02, -4);
 		1.Rand2 {- place each bouncer at a random position in the stereo field -}
 	) * {- multiply by an envelope is necessary to make the sound end -}
 	Cutoff(3, 0.001, -4) {- 3 second cut off envelope to end sound -}
-}.spawn({ 0.6 + 0.6.randomFloat })
+}.spawn({ 0.6 + 0.6.atRandom })
 
 {-********* Bank of resonators excited by impulses ; Jmcc *********-}
 let n = 5; {- number of simultaneous instruments -}

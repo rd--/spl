@@ -271,6 +271,10 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 		}
 	}
 
+	PlanarCoordinates { :x :y |
+		y.adaptToCollectionAndApply(x, PlanarCoordinates:/2)
+	}
+
 }
 
 +Record {

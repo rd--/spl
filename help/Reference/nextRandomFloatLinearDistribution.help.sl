@@ -1,6 +1,6 @@
-# randomFloatLinearDistribution
+# nextRandomFloatLinearDistribution
 
-- randomFloatLinearDistribution(x1, x2)_
+- nextRandomFloatLinearDistribution(x1, x2)_
 
 This is similar to exprand, but with a looser distribution.
 Values closer to x1 are more likely to occur.
@@ -10,9 +10,9 @@ Values closer to x1 are more likely to occur.
 Biased to -1:
 
 ~~~
-({ system.randomFloatLinearDistribution(-1, 1) } ! 99).plot
+({ system.nextRandomFloatLinearDistribution(-1, 1) } ! 99).plot
 ~~~
 
 * * *
 
-See also: Random, randomFloat
+See also: Random, nextRandomFloat

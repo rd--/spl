@@ -186,6 +186,10 @@
 		self.collect(i:/1)
 	}
 
+	imaginary { :self |
+		self.collect(imaginary:/1)
+	}
+
 	integerDigits { :self :base :count |
 		self.collect { :each |
 			each.integerDigits(base, count)
@@ -279,6 +283,10 @@
 
 	radiansToDegrees { :self |
 		self.collect(radiansToDegrees:/1)
+	}
+
+	real { :self |
+		self.collect(real:/1)
 	}
 
 	rounded { :self |
@@ -419,6 +427,10 @@
 
 	bitOr { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, bitOr:/2)
+	}
+
+	Complex { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, Complex:/2)
 	}
 
 	divisible { :self :anObject |

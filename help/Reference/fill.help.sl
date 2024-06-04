@@ -5,12 +5,16 @@
 Allocate a vector or array of the indicated shape and fill each slot by applying _aBlock_ to the index.
 At `Integer` answers a vector, at `Sequence` answers an array.
 
-List of squares of indices, with literal block and then with named method:
+List of squares of indices with literal block:
 
 ```
 >>> 9.fill { :index | index * index }
 [1 4 9 16 25 36 49 64 81]
+```
 
+List of squares of indices with named method:
+
+```
 >>> 9.fill(squared:/1)
 [1 4 9 16 25 36 49 64 81]
 ```
@@ -45,9 +49,12 @@ A 3×2 matrix, each place holding the square of its two place _(i,j)_ index:
 ```
 >>> [3 2].fill { :i | i * i }
 [
-	1 1; 1 4:;
-		4 1; 4 4:;
-			9 1; 9 4
+	1 1;
+	1 4:;
+		4 1;
+		4 4:;
+			9 1;
+			9 4
 ]
 ```
 
@@ -55,7 +62,18 @@ A constant 3×3 matrix:
 
 ```
 >>> [3 3].fill(0.constant)
-[0 0 0; 0 0 0; 0 0 0]
+[
+	0 0 0;
+	0 0 0;
+	0 0 0
+]
+```
+
+If the shape is empty answer a scalar of _aBlock_ applied to `zero`:
+
+```
+>>> [].fill { :i | i }
+0
 ```
 
 * * *

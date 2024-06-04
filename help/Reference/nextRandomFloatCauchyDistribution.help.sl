@@ -1,6 +1,6 @@
-# randomFloatCauchyDistribution
+# nextRandomFloatCauchyDistribution
 
-- _randomFloatCauchyDistribution(mean, spread)_
+- _nextRandomFloatCauchyDistribution(mean, spread)_
 
 A symmetric distribution centered around mean.
 It is unbounded above and below the mean similar to the Gaussian distribution but with a higher occurance of remote values.
@@ -9,9 +9,9 @@ It is unbounded above and below the mean similar to the Gaussian distribution bu
 - spread: determines horizontal dispersion of values along curve
 
 ~~~
-{ system.randomFloatCauchyDistribution(0, 1 / 9) }.!(99).plot
+{ system.nextRandomFloatCauchyDistribution(0, 1 / 9) }.!(99).plot
 ~~~
 
 * * *
 
-See also: randomFloat
+See also: nextRandomFloat

@@ -87,7 +87,7 @@ Use `projection` to reflect the vector _v_ with respect to the line normal to th
 The projection of _u_ onto _v_ is in the direction of _v_:
 
 ```
->>> let [u, v] = Sfc32(17931).randomFloat(0, 1, [2 6]);
+>>> let [u, v] = Sfc32(17931).randomReal(0, 1, [2 6]);
 >>> vectorAngle(projection(u, v), v)
 0
 ```

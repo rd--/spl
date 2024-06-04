@@ -1,7 +1,7 @@
 AliasMethod : [Object, Iterator] { | alias probability random |
 
 	next { :self |
-		let column = self.random.randomInteger(1, self.probability.size);
+		let column = self.random.nextRandomInteger(1, self.probability.size);
 		let coinToss = self.random.nextRandomFloat < self.probability[column];
 		coinToss.if {
 			column

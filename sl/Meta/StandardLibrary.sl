@@ -82,7 +82,7 @@
 	{- Random -}
 	'AliasMethod'
 	'LinearCongruential'
-	'Mersenne'
+	'MersenneTwister'
 	'ProbabilityDistribution'
 	'Sfc32' {- Stream -}
 	'SplitMix'

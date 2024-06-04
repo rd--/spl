@@ -128,7 +128,7 @@
 	'Protocol-OpenSoundControl'
 	'Random-AliasMethod'
 	'Random-LinearCongruential'
-	'Random-Mersenne'
+	'Random-MersenneTwister'
 	'Random-ProbabilityDistribution'
 	'Random-RandomNumberGenerator'
 	'Random-Sfc32'

@@ -9,12 +9,12 @@ The provided methods are:
 
 - `randomComplex`: random complex number
 - `randomChoice`: random choice
-- `randomFloat`: random real number
 - `randomInteger`: random small integer
 - `randomLargeInteger`: random large integer
+- `randomReal`: random real number
 - `randomWeightedChoice`: random weighted choice
 
-`Random` implements `next` as `nextRandomFloat`:
+`RandomNumberGenerator` implements `next` as `nextRandomFloat`:
 
 - _next(r)_ ≡ _nextRandomFloat(r)_
 

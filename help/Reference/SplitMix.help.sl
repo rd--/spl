@@ -4,11 +4,11 @@
 
 Answer a pseudo random number generator seeded with _anInteger_.
 
-`SplitMix` implements `Random` and `Stream`:
+`SplitMix` implements `RandomNumberGenerator` and `Stream`:
 
 ```
 >>> let rng = SplitMix(12345);
->>> (rng.isSplitMix, rng.isRandom, rng.isStream)
+>>> (rng.isSplitMix, rng.isRandomNumberGenerator, rng.isStream)
 (true, true, true)
 ```
 
@@ -27,7 +27,7 @@ SplitMix(98765).next(99).plot
 
 * * *
 
-See also: LinearCongruential, Mersenne, Random, Sfc32, Stream
+See also: LinearCongruential, MersenneTwister, RandomNumberGenerator, Sfc32, Stream
 
 Further Reading: Steele 2014
 

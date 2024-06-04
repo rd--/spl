@@ -32,7 +32,7 @@ Histogram of the first one-hundred integers:
 Plot histogram of random numbers with normal distribution:
 
 ~~~
-let f = { randomFloatGaussianDistribution(0, 1) };
+let f = { system.nextRandomFloatGaussianDistribution(0, 1) };
 (f:/0 ! 500).histogramList.second.plot
 ~~~
 

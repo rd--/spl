@@ -83,6 +83,10 @@ PolarCoordinates : [Object] { | r theta |
 		}
 	}
 
+	PolarCoordinates { :radius :theta |
+		theta.adaptToCollectionAndApply(radius, PolarCoordinates:/2)
+	}
+
 	toPolarCoordinates { :self |
 		self.isVector.if {
 			self.asPlanarCoordinates.asPolarCoordinates.asList

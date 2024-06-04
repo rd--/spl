@@ -1,6 +1,6 @@
-# randomFloatEularianBetaDistribution
+# nextRandomFloatEularianBetaDistribution
 
-- _randomFloatEularianBetaDistribution(x1, x2, p1, p2)_
+- _nextRandomFloatEularianBetaDistribution(x1, x2, p1, p2)_
 
 Parameters are:
 
@@ -31,11 +31,11 @@ Special cases:
 Biased low:
 
 ~~~
-({ system.randomFloatEularianBetaDistribution(0, 1, 1 / 3, 3) } ! 99).plot
+({ system.nextRandomFloatEularianBetaDistribution(0, 1, 1 / 3, 3) } ! 99).plot
 ~~~
 
 Biased high:
 
 ~~~
-({ system.randomFloatEularianBetaDistribution(0, 1, 3, 1 / 3) } ! 99).plot
+({ system.nextRandomFloatEularianBetaDistribution(0, 1, 3, 1 / 3) } ! 99).plot
 ~~~

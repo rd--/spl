@@ -1,10 +1,10 @@
 # nextRandomFloat
 
-- _nextRandomFloat(aRandomNumberGenerator)_
+- _nextRandomFloat(aRandomNumberGenerator, min=0, max=1)_
 
-Answer the next random number at _aRandomNumberGenerator_,
-or at the system random number generator.
-The answer will be between `zero` (inclusive) and `one` (exclusive).
+Answer the next random number at _aRandomNumberGenerator_.
+The answer will be between _min_ (inclusive) and _max_ (exclusive).
+If these are omitted the answer is between `zero` and `one`.
 
 ```
 >>> Sfc32(54321).nextRandomFloat
@@ -14,12 +14,12 @@ The answer will be between `zero` (inclusive) and `one` (exclusive).
 7.80664
 ```
 
-Answer the next five random numbers scaled to lie between one and nine:
+Answer the next thirteen random numbers scaled to lie between one and nine as integers:
 
 ```
->>> let r = Sfc32(12345);
->>> { (r.nextRandomFloat * 8 + 1).ceiling } ! 5
-[8 5 9 9 4]
+>>> let r = Sfc32(29315);
+>>> { (r.nextRandomFloat * 8 + 1).ceiling } ! 13
+[6 3 4 8 4 9 7 3 7 6 4 2 3]
 ```
 
 Plot uniform distribution:
@@ -30,4 +30,4 @@ Plot uniform distribution:
 
 * * *
 
-See also: randomFloat, Random
+See also: nextRandomInteger, RandomNumberGenerator, randomReal

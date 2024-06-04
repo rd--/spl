@@ -1,6 +1,6 @@
-# randomFloatWeibullDistribution
+# nextRandomFloatWeibullDistribution
 
-_randomFloatWeibullDistribution(location, spread, shape)_
+_nextRandomFloatWeibullDistribution(location, spread, shape)_
 
 - location: offset
 - spread: distribution range scaling factor
@@ -17,5 +17,9 @@ Effects of _shape_:
 - _shape_ = 1: same as exponential distribution
 
 ~~~
-({ system.randomFloatWeibullDistribution(0, 1, 3 / 4) } ! 99).plot
+({ system.nextRandomFloatWeibullDistribution(0, 1, 3 / 4) } ! 99).plot
 ~~~
+
+* * *
+
+See also: nextRandomFloat

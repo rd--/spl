@@ -1,6 +1,6 @@
 # randomSample
 
-- _randomSample(r, aCollection, anInteger)_
+- _randomSample(aRandomNumberGenerator, aCollection, anInteger)_
 
 Answer a pseudo-random sample of _anInteger_ elements of _aCollection_.
 

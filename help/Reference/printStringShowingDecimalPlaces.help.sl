@@ -32,11 +32,21 @@ Truncate simple fraction:
 '0.33333'
 ```
 
+At `SmallFloat`:
+
+```
+>>> 3.01507.printStringShowingDecimalPlaces(5)
+'3.01507'
+```
+
 At `Complex`:
 
 ```
 >>> 3.141J23.printStringShowingDecimalPlaces(5)
 '3.14100J23.00000'
+
+>>> 7.81907J3.01507.printStringShowingDecimalPlaces(5)
+'7.81907J3.01507'
 ```
 
 * * *

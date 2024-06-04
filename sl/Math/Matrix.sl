@@ -716,12 +716,16 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	}
 
 	matrixPrintString { :self |
+		self.matrixPrintString(4)
+	}
+
+	matrixPrintString { :self :decimalPlaces |
 		let [m, n] = self.shape;
 		let print:/1 = self.isIntegerMatrix.if {
 			printString:/1
 		} {
 			{ :n |
-				n.printStringShowingDecimalPlaces(4)
+				n.printStringShowingDecimalPlaces(decimalPlaces)
 			}
 		};
 		let table = self.deepCollect(print:/1);

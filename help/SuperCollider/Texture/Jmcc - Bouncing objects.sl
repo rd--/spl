@@ -9,4 +9,4 @@
 	let fltRtm = { 0.01 + 0.1.Rand0 } ! 4;
 	let flt = RingzBank(exc, fltFreq, fltAmp, fltRtm);
 	EqPan(Release(flt, 0, 3, 0.001), 1.Rand2)
-}.playEvery { 0.6 + 0.6.randomFloat }
+}.playEvery { (0.6 -- 1.2).atRandom }

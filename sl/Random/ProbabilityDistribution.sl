@@ -20,7 +20,7 @@
 
 +@RandomNumberGenerator {
 
-	randomFloatEularianBetaDistribution { :self :x1 :x2 :p1 :p2 |
+	nextRandomFloatEularianBetaDistribution { :self :x1 :x2 :p1 :p2 |
 		let p1r = 1 / p1;
 		let p2r = 1 / p2;
 		let sum = 2;
@@ -34,7 +34,7 @@
 		((next / sum) * (x2 - x1)) + x1
 	}
 
-	randomFloatCauchyDistribution { :self :mean :spread |
+	nextRandomFloatCauchyDistribution { :self :mean :spread |
 		let r = 0.5;
 		{
 			r = 0.5
@@ -44,11 +44,11 @@
 		spread * (r * pi).tan + mean
 	}
 
-	randomFloatGaussianDistribution { :self :mu :sigma |
+	nextRandomFloatGaussianDistribution { :self :mu :sigma |
 		(((-2 * self.nextRandomFloat.log).sqrt * (2.pi * self.nextRandomFloat).sin) * sigma) + mu
 	}
 
-	randomFloatLinearDistribution { :self :x1 :x2 |
+	nextRandomFloatLinearDistribution { :self :x1 :x2 |
 		let r1 = self.nextRandomFloat;
 		let r2 = self.nextRandomFloat;
 		(r1 < r2).ifTrue {
@@ -57,16 +57,16 @@
 		r2 * (x2 - x1) + x1
 	}
 
-	randomFloatLogisticDistribution { :self :mean :spread |
+	nextRandomFloatLogisticDistribution { :self :mean :spread |
 		let u = self.nextRandomFloat;
 		(u / (1 - u)).log * spread + mean
 	}
 
-	randomFloatParetoDistribution { :self :shape |
+	nextRandomFloatParetoDistribution { :self :shape |
 		(self.nextRandomFloat ^ (-1 / shape)) * self
 	}
 
-	randomIntegerPoissonDistribution { :self :n |
+	nextRandomIntegerPoissonDistribution { :self :n |
 		let k = 0;
 		let r = self.nextRandomFloat;
 		let t = n.negated.exp;
@@ -79,7 +79,7 @@
 		k
 	}
 
-	randomFloatWeibullDistribution { :self :location :spread :shape |
+	nextRandomFloatWeibullDistribution { :self :location :spread :shape |
 		let r = 1;
 		{
 			r = 1
@@ -123,14 +123,10 @@ CauchyDistribution : [Object] { | x0 gamma |
 		self.x0 + (self.gamma * (p - 0.5).pi.tan)
 	}
 
-	randomVariate { :self |
-		system.randomFloatCauchyDistribution(self.x0, self.gamma)
-	}
-
 	randomVariate { :self :shape |
 		let [x0, gamma] = [self.x0, self.gamma];
 		{
-			system.randomFloatCauchyDistribution(x0, gamma)
+			system.nextRandomFloatCauchyDistribution(x0, gamma)
 		} ! shape
 	}
 
@@ -154,14 +150,10 @@ NormalDistribution : [Object] { | mu sigma |
 		normalDistributionPdf(self.mu, self.sigma, x)
 	}
 
-	randomVariate { :self |
-		system.randomFloatGaussianDistribution(self.mu, self.sigma)
-	}
-
 	randomVariate { :self :shape |
 		let [mu, sigma] = [self.mu, self.sigma];
 		{
-			system.randomFloatGaussianDistribution(mu, sigma)
+			system.nextRandomFloatGaussianDistribution(mu, sigma)
 		} ! shape
 	}
 
@@ -214,15 +206,8 @@ UniformDistribution : [Object] { | min max |
 		}
 	}
 
-	randomVariate { :self |
-		system.randomFloat(self.min, self.max)
-	}
-
 	randomVariate { :self :shape |
-		let [min, max] = [self.min, self.max];
-		{
-			system.randomFloat(min, max)
-		} ! shape
+		system.randomReal(self.min, self.max, shape)
 	}
 
 	skewness { :self |

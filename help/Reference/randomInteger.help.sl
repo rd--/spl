@@ -1,32 +1,27 @@
 # randomInteger
 
-- _randomInteger(r, α)_ ⇒ _randomInteger(r, 1, α)_
-- _randomInteger(r, min, max)_
 - _randomInteger(r, min, max, shape)_
 
-Random number generator.
-Generate a random integer between _min_ and _max_.
+Answer an array of the indicated _shape_ containg random integer between _min_ and _max_.
 
-Generate a random integer betwee one and nine, inclusive:
+Generate a random integer between one and nine, inclusive:
 
 ```
->>> Sfc32(79143).randomInteger(9)
+>>> Sfc32(79143).randomInteger(1, 9, [])
 5
 ```
 
 Generate a random integer between 3 and 11, inclusive:
 
 ```
->>> Sfc32(79143).randomInteger(3, 11)
+>>> Sfc32(79143).randomInteger(3, 11, [])
 7
 ```
 
-The ternary form answers a list or array of _shape_ random numbers.
-
-A `List` of 13 random integers:
+Generate a `List` of 13 random integers:
 
 ```
->>> Sfc32(76941).randomInteger(1, 9, 13)
+>>> Sfc32(76941).randomInteger(1, 9, [13])
 [4 1 3 5 4 2 6 4 9 1 3 8 4]
 ```
 
@@ -43,7 +38,7 @@ A 3×4 matrix of random integers:
 
 * * *
 
-See also: atRandom, randomByteArray, randomFloat, randomLargeInteger, randomSample
+See also: atRandom, randomByteArray, randomLargeInteger, randomReal, randomSample
 
 References:
 _Mathematica_

@@ -4,6 +4,22 @@
 
 Answer a `Complex` number with the indicated _real_ and _imaginary_ parts.
 
+Threads overs lists and arrays:
+
+```
+>>> 1:5.Complex(5:9)
+[1J5 2J6 3J7 4J8 5J9]
+```
+
+There is a literal syntax:
+
+```
+>>> 1J5
+Complex(1, 5)
+```
+
+Complex implements `*`, `/`, `+`, `-` and `^`:
+
 ```
 >>> 1j2 * 2j-3
 8j1
@@ -17,14 +33,18 @@ Answer a `Complex` number with the indicated _real_ and _imaginary_ parts.
 >>> -3j2 - 5j-1
 -8j3
 
+>>> -1j2 ^ 1j1
+-0.27910j0.08708
+```
+
+Complex adapts to non-Complex operands, and vice-versa:
+
+```
 >>> -1j2 ^ 2
 -3j-4
 
 >>> -1j2 ^ 2.5
 2.72962j-6.96066
-
->>> -1j2 ^ 1j1
--0.27910j0.08708
 
 >>> 3 * 2j-5
 6j-15

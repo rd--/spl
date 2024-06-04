@@ -1056,7 +1056,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'randomInteger'
 		'randomLargeInteger'
 		'randomComplex'
-		'randomFloat'
+		'randomReal'
 	],
 	'removing': [
 		'associationsRemove'
@@ -1297,7 +1297,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isPolarCoordinates'
 		'isPriorityQueue'
 		'isPromise'
-		'isRandom'
+		'isRandomNumberGenerator'
 		'isRange'
 		'isReadStream'
 		'isRecord'

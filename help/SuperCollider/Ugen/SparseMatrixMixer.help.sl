@@ -15,7 +15,7 @@ SparseMatrixMixer(24, SinOsc([220, 221], 0) * 0.1, [1 9 1; 2 13 1])
 			[
 				1:4.atRandom,
 				1:24.atRandom,
-				0.01 + 0.05.randomFloat
+				0.01 + 0.05.atRandom
 			]
 		} ! 6
 	)

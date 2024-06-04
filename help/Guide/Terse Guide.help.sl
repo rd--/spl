@@ -167,7 +167,7 @@ NaN.isNaN {- literal for NaN -}
 10.minBy(20, negated:/1) = 20 {- comparison of translated values -}
 1.pi.isVeryCloseTo(3.141592653589793) {- pi = 3.141592653589793 -}
 1.exp.isVeryCloseTo(2.718281828459) {- e = 2.718281828459 -}
-let n = 100.randomFloat; (n >= 0) & { n < 100 } {- random number in (0, self-1) -}
+let n = (0 -- 100).atRandom; (n >= 0) & { n < 100 } {- random number in (0, self-1) -}
 4 + 5 * 6 = 54 {- operators are evaluated left to right -}
 0.arcCos = (1.pi / 2) {- arc cosine -}
 1.arcCos = 0 {- arc cosine -}
@@ -2597,7 +2597,7 @@ let a = [1 .. 5].asSet; let b = Bag(); 250.timesRepeat { b.add(a.atRandom) }; a 
 system.includesPackage('Sfc32') {- Sfc32 package -}
 let r = Sfc32(98765); r.typeOf = 'Sfc32' {- type -}
 let r = Sfc32(98765); r.isSfc32 {- predicate -}
-let r = Sfc32(98765); r.isRandom {- predicate -}
+let r = Sfc32(98765); r.isRandomNumberGenerator {- predicate -}
 let r = Sfc32(98765); r.nextRandomFloat = 0.49556130869314075 {- random number in [0, 1) -}
 let r = Sfc32(98765); r.nextRandomFloat * 10 = 4.9556130869314075 {- random number in [0, 10) -}
 let r = Sfc32(98765); r.nextRandomFloat * 100 = 49.556130869314075 {- random number in [0, 100) -}
@@ -2610,23 +2610,23 @@ let r = Sfc32(98765); r.isStream {- stream predicate -}
 let r = Sfc32(98765); let a = r.next(9); r.reset; r.next(9) = a {- stream interface, next(k) answers next k items, reset resets -}
 ```
 
-## Random -- Mersenne
+## Random -- MersenneTwister
 ```
-system.includesPackage('Mersenne') {- Mersenne package -}
-let m = Mersenne(98765); m.typeOf = 'Mersenne' {- type of -}
-let m = Mersenne(98765); m.isMersenne {- predicate -}
-let m = Mersenne(98765); m.isRandom {- predicate -}
-let m = Mersenne(98765); m.nextRandomFloat = 0.088898599949636 {- random number in [0, 1) -}
-let m = Mersenne(98765); m.nextRandomFloat * 10 = 0.88898599949636 {- random number in [0, 10) -}
-let m = Mersenne(98765); m.nextRandomFloat * 100 = 8.8898599949636 {- random number in [0, 100) -}
-let m = Mersenne(98765); m.randomInteger(1, 1000) = 89 {- random integer in [1, 1000] -}
-let m = Mersenne(98765); m.randomInteger(1, 10000) = 889 {- random integer in [1, 10000] -}
-let m = Mersenne(); let r = m.nextRandomFloat; r >= 0 & { r < 1 } {- seed from system clock -}
-Mersenne(123456).nextRandomFloat = 0.12696983303810094 {- test from standard tests -}
-let m = Mersenne(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(1, 9)) }; s.minMax = [1, 9] {- check distribution -}
-let m = Mersenne(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(1, 9)) }; s.asList.sorted = [1 .. 9] {- check distribution -}
-let m = Mersenne(98765); m.isStream {- stream predicate -}
-let m = Mersenne(98765); let a = m.next(9); m.reset; m.next(9) = a {- stream interface, next(k) answers next k items, reset resets -}
+system.includesPackage('MersenneTwister') {- Mersenne package -}
+let m = MersenneTwister(98765); m.typeOf = 'MersenneTwisterTwister' {- type of -}
+let m = MersenneTwister(98765); m.isMersenneTwister {- predicate -}
+let m = MersenneTwister(98765); m.isRandomNumberGenerator {- predicate -}
+let m = MersenneTwister(98765); m.nextRandomFloat = 0.088898599949636 {- random number in [0, 1) -}
+let m = MersenneTwister(98765); m.nextRandomFloat * 10 = 0.88898599949636 {- random number in [0, 10) -}
+let m = MersenneTwister(98765); m.nextRandomFloat * 100 = 8.8898599949636 {- random number in [0, 100) -}
+let m = MersenneTwister(98765); m.randomInteger(1, 1000) = 89 {- random integer in [1, 1000] -}
+let m = MersenneTwister(98765); m.randomInteger(1, 10000) = 889 {- random integer in [1, 10000] -}
+let m = MersenneTwister(); let r = m.nextRandomFloat; r >= 0 & { r < 1 } {- seed from system clock -}
+MersenneTwister(123456).nextRandomFloat = 0.12696983303810094 {- test from standard tests -}
+let m = MersenneTwister(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(1, 9)) }; s.minMax = [1, 9] {- check distribution -}
+let m = MersenneTwister(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(1, 9)) }; s.asList.sorted = [1 .. 9] {- check distribution -}
+let m = MersenneTwister(98765); m.isStream {- stream predicate -}
+let m = MersenneTwister(98765); let a = m.next(9); m.reset; m.next(9) = a {- stream interface, next(k) answers next k items, reset resets -}
 ```
 
 ## Random -- SplitMix
@@ -2634,7 +2634,7 @@ let m = Mersenne(98765); let a = m.next(9); m.reset; m.next(9) = a {- stream int
 system.includesPackage('SplitMix') {- SplitMix package -}
 let r = SplitMix(98765); r.typeOf = 'SplitMix' {- type of -}
 let r = SplitMix(98765); r.isSplitMix {- predicate -}
-let r = SplitMix(98765); r.isRandom {- predicate -}
+let r = SplitMix(98765); r.isRandomNumberGenerator {- predicate -}
 let r = SplitMix(98765); r.nextRandomFloat = 0.08824091404676437 {- random number in [0, 1) -}
 let r = SplitMix(98765); r.randomFloat(0, 10) = 0.8824091404676437 {- random number in [0, 10) -}
 let r = SplitMix(98765); r.randomFloat(0, 100) = 8.824091404676437 {- random number in [0, 100) -}
@@ -2647,7 +2647,7 @@ let r = SplitMix(98765); let a = r.next(9); r.reset; r.next(9) = a {- stream int
 ## Random -- LinearCongruential
 ```
 system.includesPackage('LinearCongruential') {- LinearCongruential package -}
-let r = LinearCongruential(42); r.typeOf = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandom }
+let r = LinearCongruential(42); r.typeOf = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandomNumberGenerator }
 let r = LinearCongruential(42); [r.nextRandomFloat, r.nextRandomFloat] = [0.3746499199817101, 0.729023776863283]
 let r = LinearCongruential(42); r.isStream {- stream predicate -}
 let r = LinearCongruential(42); let a = r.next(9); r.reset; r.next(9) = a {- stream interface, next(k) answers next k items, reset resets -}

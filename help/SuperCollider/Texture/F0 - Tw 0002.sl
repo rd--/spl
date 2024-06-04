@@ -6,4 +6,4 @@
 		LinRand(0, 0.3, 0)
 	) * 5;
 	Release(EqPan(o, 1.Rand2), 0, 3, 9)
-}.playEvery { 2 + 1.randomFloat }
+}.playEvery { (2 -- 3).atRandom }

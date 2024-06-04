@@ -1,4 +1,4 @@
-# randomFloatGaussianDistribution
+# nextRandomFloatGaussianDistribution
 
 Generates a bell-shaped curve centered around mean.
 Good for simulating life-like behavior and mutations.
@@ -10,18 +10,18 @@ Also known as _Normal Distribution_.
 Mean at zero, small deviation:
 
 ~~~
-({ system.randomFloatGaussianDistribution(0, 1 / 9) } ! 99).plot
+({ system.nextRandomFloatGaussianDistribution(0, 1 / 9) } ! 99).plot
 ~~~
 
 Plot sorted random list:
 
 ```
-({ system.randomFloatGaussianDistribution(0, 1) } ! 500).sort.plot
+({ system.nextRandomFloatGaussianDistribution(0, 1) } ! 500).sort.plot
 ```
 
 * * *
 
-See also: randomFloat
+See also: nextRandomFloat
 
 References:
 _Mathematica_

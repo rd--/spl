@@ -12,6 +12,10 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		self.globalDictionary[key] := anObject
 	}
 
+	basicNextRandomFloat { :self |
+		<primitive: return Math.random();>
+	}
+
 	cache { :self |
 		<primitive: return _self.cache;>
 	}
@@ -176,7 +180,7 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 	}
 
 	nextRandomFloat { :self |
-		<primitive: return Math.random();>
+		self.randomNumberGenerator.next
 	}
 
 	randomByteArray { :self :anInteger |
@@ -185,6 +189,16 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		crypto.getRandomValues(bytes);
 		return bytes;
 		>
+	}
+
+	randomNumberGenerator { :self |
+		self.cached('randomNumberGenerator') {
+			Sfc32(self.unixTimeInMilliseconds)
+		}
+	}
+
+	seedRandom { :self :anInteger |
+		self.randomNumberGenerator.initialize(anInteger)
 	}
 
 	sessionStorage { :self |
@@ -281,6 +295,14 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		let startTime = system.systemTimeInMilliseconds;
 		self();
 		system.systemTimeInMilliseconds - startTime
+	}
+
+}
+
++[SmallFloat, String] {
+
+	seedRandom { :self |
+		system.seedRandom(self)
 	}
 
 }

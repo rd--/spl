@@ -59,12 +59,8 @@ Interval : [Object, Magnitude, Number] { | min max |
 		aBlock(aNumber.asInterval, self)
 	}
 
-	atRandom { :self :randomNumberGenerator |
-		randomNumberGenerator.randomFloat(self.min, self.max)
-	}
-
-	atRandom { :self |
-		self.atRandom(system)
+	atRandom { :self :shape :r |
+		r.randomReal(self.min, self.max, shape)
 	}
 
 	discretize { :self :size :aBlock:/1 |

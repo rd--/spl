@@ -66,14 +66,6 @@
 		}
 	}
 
-	atRandom { :self :randomNumberGenerator |
-		randomNumberGenerator.randomInteger(1, self)
-	}
-
-	atRandom { :self |
-		system.randomInteger(1, self)
-	}
-
 	bellNumber { :self |
 		(self < 0).if {
 			self.error('@Integer>>bellNumber: n < 0')

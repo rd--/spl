@@ -9,4 +9,4 @@
 	let a = AllpassC(z, 1, LfTri([6 4 6] / 4, [0 1]) + 1 / 2, 1);
 	let x = AllpassC(a * d, 1, 1 / 2, 4).Splay;
 	Release(x, 9, nextDelay, 24)
-}.playEvery { 9.randomFloat / 8 + 33.randomFloat + 8 }
+}.playEvery { (0 -- 9).atRandom / 8 + (8 -- 41).atRandom }

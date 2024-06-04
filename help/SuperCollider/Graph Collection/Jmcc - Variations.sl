@@ -132,7 +132,7 @@ let x = BrownNoise(2) * 0.007 * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(
 let k = RingzBank(x, 12.arithmeticSeries(f, f), 12.geometricSeries(1, Rand(0.7, 0.9)), { Rand(1, 3) } ! 12);
 (k * 0.1).SoftClip
 
-{- Bowed string (Jmcc) ; .randomFloat -}
+{- Bowed string (Jmcc) -}
 let root = 5;
 let scale = [0 2 4 5 7 9 11] + root;
 let oct = [24 36 48 60 72 84];
@@ -141,8 +141,8 @@ let x = BrownNoise(2) * 0.007 * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(
 let k = RingzBank(
 	x,
 	12.arithmeticSeries(f, f),
-	12.geometricSeries(1, 0.7.randomFloat(0.9)),
-	{ 1.randomFloat(3) } ! 12
+	12.geometricSeries(1, (0.7 -- 0.9).atRandom),
+	(1 -- 3).atRandom(12)
 );
 (k * 0.1).SoftClip
 
@@ -167,7 +167,7 @@ let k = Klank(x, 1, 0, 1, d);
 { RingzBank(OnePole(BrownNoise() * 0.002, 0.95), { Rand(40, 2040) } ! 10, nil, nil) } ! 2 * 0.1
 
 {- Coolant (Jmcc) ; Rand->rand -}
-{ RingzBank(OnePole(BrownNoise() * 0.002, 0.95), { 40 + 2000.randomFloat } ! 10, [0.1], [1]) } ! 2
+{ RingzBank(OnePole(BrownNoise() * 0.002, 0.95), { (40 -- 2040).atRandom } ! 10, [0.1], [1]) } ! 2
 
 {- Coolant (Jmcc) ; Ringz -}
 let o = OnePole(BrownNoise() * 0.01, 0.95);

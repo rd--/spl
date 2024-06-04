@@ -259,16 +259,14 @@
 		self[k] := anObject
 	}
 
-	atRandom { :self :randomNumberGenerator |
-		let index = randomNumberGenerator.randomInteger(
-			self.firstIndex,
-			self.lastIndex
-		);
-		self[index]
-	}
-
-	atRandom { :self |
-		self.atRandom(system)
+	atRandom { :self :shape :rng |
+		{
+			let index = rng.nextRandomInteger(
+				self.firstIndex,
+				self.lastIndex
+			);
+			self[index]
+		} ! shape
 	}
 
 	before { :self :target |
@@ -935,11 +933,11 @@
 		1
 	}
 
-	fisherYatesShuffle { :self :aRandomNumberGenerator |
+	fisherYatesShuffle { :self :rng |
 		self.size.toByDo(2, -1) { :each |
 			self.swapWith(
 				each,
-				aRandomNumberGenerator.randomInteger(1, each)
+				rng.nextRandomInteger(1, each)
 			)
 		};
 		self
@@ -2370,12 +2368,12 @@
 		self[n] := z
 	}
 
-	sattoloShuffle { :self :random |
+	sattoloShuffle { :self :rng |
 		let i = self.size;
 		{
 			i > 1
 		}.whileTrue {
-			let j = random.randomInteger(1, i - 1);
+			let j = rng.nextRandomInteger(1, i - 1);
 			self.swapWith(i, j);
 			i := i - 1
 		};
@@ -2561,16 +2559,16 @@
 		self.species.newFrom(answer)
 	}
 
-	shuffle { :self :random |
-		self.fisherYatesShuffle(random)
+	shuffle { :self :rng |
+		self.fisherYatesShuffle(rng)
 	}
 
 	shuffle { :self |
 		self.fisherYatesShuffle
 	}
 
-	shuffled { :self :random |
-		self.copy.fisherYatesShuffle(random)
+	shuffled { :self :rng |
+		self.copy.fisherYatesShuffle(rng)
 	}
 
 	shuffled { :self |

@@ -24,5 +24,5 @@ The expression below schedules random sine tones at random intervals.
 		Rand(1, 2),
 		Rand(2, 3)
 	)
-}.playEvery { 1 + system.randomFloat(0, 0.5) }
+}.playEvery { (1 -- 1.5).atRandom }
 ```

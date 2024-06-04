@@ -116,6 +116,14 @@
 		<primitive: return _self.toLocaleString('en-US');>
 	}
 
+	atRandom { :self :shape |
+		self.atRandom(shape, system)
+	}
+
+	atRandom { :self |
+		self.atRandom([], system)
+	}
+
 	basicPlus { :self :aNumber |
 		aNumber.isNumber.if {
 			self + aNumber
@@ -348,6 +356,10 @@
 		0.5 * (1 - self.cos)
 	}
 
+	imaginary { :self |
+		self.zero
+	}
+
 	integerPart { :self |
 		self.truncated
 	}
@@ -568,7 +580,7 @@
 				prefix,
 				rounded.abs.integerPart.truncated,
 				'.',
-				roundedFractionPart.printString.padRight(placesDesired, '0')
+				roundedFractionPart.printString.padLeft(placesDesired, '0')
 			].stringJoin
 		}
 	}
@@ -625,6 +637,10 @@
 				}
 			}
 		}
+	}
+
+	real { :self |
+		self
 	}
 
 	reciprocal { :self |

@@ -11,7 +11,7 @@ Answer a `List` of `String` items giving the names of the parameters of _aMethod
 >>> asJson:/3.parameterNames
 ['self' 'replacer' 'space']
 
->>> randomFloat:/4.parameterNames
+>>> randomReal:/4.parameterNames
 ['self' 'min' 'max' 'shape']
 ```
 

@@ -25,6 +25,13 @@ Make three copies of a three element sequence:
 [1 2 3; 1 2 3; 1 2 3]
 ```
 
+If the count is zero answer an empty list:
+
+```
+>>> { 1 }.duplicateInteger(0)
+[]
+```
+
 * * *
 
 See also: #, duplicateShape, replicateInteger, List, value

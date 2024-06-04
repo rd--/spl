@@ -36,13 +36,11 @@ Circle : [Object] { | center radius |
 		self.radius
 	}
 
-	randomPoint { :self |
-		let theta = system.randomFloat(0, 2.pi);
-		self.center + [self.radius, theta].fromPolarCoordinates
-	}
-
 	randomPoint { :self :shape |
-		{ self.randomPoint } ! shape
+		{
+			let theta = system.randomReal(0, 2.pi, []);
+			self.center + [self.radius, theta].fromPolarCoordinates
+		} ! shape
 	}
 
 	storeString { :self |

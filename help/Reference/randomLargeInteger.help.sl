@@ -19,7 +19,7 @@ At `LargeInteger`:
 
 * * *
 
-See also: atRandom, randomByteArray, randomFloat, randomInteger, randomSample
+See also: atRandom, randomByteArray, randomInteger, randomReal, randomSample
 
 References:
 _Mathematica_

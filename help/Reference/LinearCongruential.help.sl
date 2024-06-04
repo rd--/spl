@@ -4,11 +4,11 @@
 
 Answer a pseudo random number generator seeded with _anInteger_.
 
-`LinearCongruential` implements `Random` and `Stream`:
+`LinearCongruential` implements `RandomNumberGenerator` and `Stream`:
 
 ```
 >>> let rng = LinearCongruential(12345);
->>> (rng.isLinearCongruential, rng.isRandom, rng.isStream)
+>>> (rng.isLinearCongruential, rng.isRandomNumberGenerator, rng.isStream)
 (true, true, true)
 ```
 
@@ -27,7 +27,7 @@ LinearCongruential(98765).next(99).plot
 
 * * *
 
-See also: Mersenne, Random, Sfc32, SplitMix, Stream
+See also: MersenneTwister, RandomNumberGenerator, Sfc32, SplitMix, Stream
 
 Further Reading: Thomson 1958
 

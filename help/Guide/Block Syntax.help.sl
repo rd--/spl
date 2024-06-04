@@ -11,7 +11,7 @@ The general form is
 
 A no argument block that returns a random number between -1 and 1 is written
 
-> _{ randomFloat(-1, 1) }_
+> _{ (-1 -- 1).atRandom }_
 
 Arguments are written with a colon (`:`) prefix directly following the open brace and are terminated by a vertical bar (`|`).
 
@@ -27,7 +27,7 @@ Temporaries are written using a `var` keyword, statements are separated by semi-
 
 A one argument block that returns two random numbers, the second constrained by the first, is written
 
-> _{ :n | var i, j; i := randomFloat(0, n); j := randomFloat(0, i); [i, j] }_
+> _{ :n | var i, j; i := (0 -- n).atRandom; j := (0 -- i).atRandom; [i, j] }_
 
 There is no return operator, the value of a block is the value of the last statement.
 

@@ -65,6 +65,9 @@ evaluate _value(anObject)_ to fill an array of the indicated shape:
 
 >>> 'x' ! [3 2]
 ['x' 'x'; 'x' 'x'; 'x' 'x']
+
+>>> { 'x' } ! []
+'x'
 ```
 
 With external state:
@@ -75,7 +78,7 @@ With external state:
 [2 4 8 16 32]
 
 >>> let r = Sfc32(12345);
->>> { r.randomInteger(1, 9) } ! 5
+>>> r.randomInteger(1, 9, [5])
 [8 5 9 9 4]
 ```
 

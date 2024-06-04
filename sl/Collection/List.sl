@@ -197,11 +197,15 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 	}
 
 	fill { :shape :aBlock:/1 |
-		let answer = shape.iota;
-		shape.shapeIndicesDo { :index |
-			answer.atPathPut(index, aBlock(index))
-		};
-		answer
+		shape.isEmpty.if {
+			aBlock(0)
+		} {
+			let answer = shape.iota;
+			shape.shapeIndicesDo { :index |
+				answer.atPathPut(index, aBlock(index))
+			};
+			answer
+		}
 	}
 
 }
@@ -241,11 +245,19 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 	}
 
 	replicateInteger { :self :anInteger |
-		anInteger.fill(self.constant)
+		anInteger.isInteger.if {
+			anInteger.fill(self.constant)
+		} {
+			self.error('@Object>>replicateInteger: not integer')
+		}
 	}
 
 	replicateShape { :self :aSequence |
-		aSequence.fill(self.constant)
+		aSequence.isEmpty.if {
+			self.value
+		} {
+			aSequence.fill(self.constant)
+		}
 	}
 
 }

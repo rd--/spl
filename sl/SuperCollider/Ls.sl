@@ -458,7 +458,7 @@
 		p1 := LsConstant(p1);
 		p2 := LsConstant(p2);
 		BlockStream {
-			system.randomFloatEularianBetaDistribution(low.next, high.next, p1.next, p2.next)
+			system.nextRandomFloatEularianBetaDistribution(low.next, high.next, p1.next, p2.next)
 		} {
 			low.reset;
 			high.reset;
@@ -485,7 +485,7 @@
 			low,
 			high,
 			step,
-			randomFloat:/3
+			randomReal:/4
 		).take(length)
 	}
 
@@ -495,7 +495,7 @@
 		mean.withCollect(
 			spread,
 			{ :p :q |
-				system.randomFloatCauchyDistribution(p, q)
+				system.nextRandomFloatCauchyDistribution(p, q)
 			}
 		).take(length)
 	}
@@ -511,7 +511,7 @@
 
 	LsWhite { :low :high :length |
 		LsConstant(low).withCollect(LsConstant(high)) { :min :max |
-			system.randomFloat(min, max)
+			system.randomReal(min, max, [])
 		}.take(length)
 	}
 

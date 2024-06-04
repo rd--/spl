@@ -65,8 +65,8 @@ let n = 5;
 let m = 64;
 let a = {
 	let x = [
-		{ randomFloat(-0.2, 0.2) } ! m,
-		{ Drand(1, { randomFloat(-0.2, 0.2) } ! n) } ! m.atRandom
+		{ (-0.2 -- 0.2).atRandom } ! m,
+		{ Drand(1, { (-0.2 -- 0.2).atRandom } ! n) } ! m.atRandom
 	].++;
 	Dseq(inf, x.scramble)
 } ! n;

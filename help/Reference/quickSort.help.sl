@@ -43,7 +43,7 @@ Sort a descending sequence:
 Sort a random sequence of integers:
 
 ```
->>> system.randomInteger(1, 9, 99).quickSort.isSorted
+>>> system.randomInteger(1, 9, [99]).quickSort.isSorted
 true
 ```
 

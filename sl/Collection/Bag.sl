@@ -46,10 +46,10 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 		self.contents.indices.asSet
 	}
 
-	atRandom { :self :r |
+	atRandom { :self :shape :r |
 		let e = self.contents.keys;
 		let w = self.contents.values;
-		r.randomWeightedChoice(e, w, 1).first
+		r.randomWeightedChoice(e, w, shape)
 	}
 
 	basicAddWithOccurrences { :self :anObject :anInteger |
