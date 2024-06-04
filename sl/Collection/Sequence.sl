@@ -1550,6 +1550,14 @@
 		}
 	}
 
+	leastSquares { :m :b |
+		let x = m.transposed;
+		let y = [b];
+		let cx = m;
+		let cy = y.transposed;
+		x.dot(cx).inverse.dot(x).dot(cy).transposed.first
+	}
+
 	levenshteinDistance { :self :other |
 		self.levenshteinDistance(other, =)
 	}

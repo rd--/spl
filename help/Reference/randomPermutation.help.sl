@@ -1,8 +1,9 @@
 # randomPermutation
 
-- _randomPermutation(anInteger, aRandomNumberGenerator)_
+- _randomPermutation(r, n)_
 
-Answer a pseudo-random permutation of the integers from `one` to _anInteger_.
+Answer a pseudo-random permutation of the integers from `one` to _n_,
+using the random number generator _r_.
 
 A random permutation in the symmetric group _S10_:
 
@@ -19,4 +20,6 @@ References:
 _Julia_
 [1](https://docs.julialang.org/en/v1/stdlib/Random/#Random.randperm),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/RandomPermutation.html)
+[1](https://reference.wolfram.com/language/ref/RandomPermutation.html),
+_Mathworks_
+[1](https://www.mathworks.com/help/matlab/ref/randperm.html)
