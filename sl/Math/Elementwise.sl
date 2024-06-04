@@ -289,6 +289,10 @@
 		self.collect(real:/1)
 	}
 
+	realImaginary { :self |
+		self.collect(realImaginary:/1)
+	}
+
 	rounded { :self |
 		self.collect(rounded:/1)
 	}

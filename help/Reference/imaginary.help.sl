@@ -1,8 +1,10 @@
 # imaginary
 
-- _imaginary(aComplex)_
+- _imaginary(aNumber)_
 
-Answer the imaginary part of a `Complex` number.
+Answer the imaginary part of _aNumber_.
+
+At `Complex`:
 
 ```
 >>> 1j2.imaginary
@@ -32,7 +34,7 @@ C.f. `i`:
 
 * * *
 
-See also: Complex, i, real
+See also: Complex, i, real, realImaginary
 
 References:
 _Mathematica_

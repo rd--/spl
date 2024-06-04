@@ -18,36 +18,70 @@ Find the first few Fibonacci numbers:
 [1 1 2 3 5 8 13 21 34 55]
 ```
 
-Generate recursive sequences, including a Padovan sequence:
+`linearRecurrence` works if _i_ is a matrix:
+
+```
+>>> linearRecurrence([1 1], [1 2; 2 1], 10)
+[1 2; 2 1; 3 3; 5 4; 8 7; 13 11; 21 18; 34 29; 55 47; 89 76]
+```
+
+`linearRecurrence` works if _k_ and _i_ are both matrices:
+
+```
+>>> linearRecurrence([1 1; 0 1:; 1 0; -1 1], [1 2; 2 1], 6)
+[1 2; 2 1; 4 2; 8 1; 13 -1; 20 -8]
+```
+
+Padovan sequence, OEIS [A000931](http://oeis.org/A000931):
 
 ```
 >>> linearRecurrence([0 1 1], [1 1 1], 10)
 [1 1 1 2 2 3 4 5 7 9]
 ```
 
-Pell numbers:
+Lucas numbers, OEIS [A000204](http://oeis.org/A000204):
+
+```
+>>> linearRecurrence([1 1], [1 3], 10)
+[1 3 4 7 11 18 29 47 76 123]
+```
+
+Pell numbers, OEIS [A000129](http://oeis.org/A000129):
 
 ```
 >>> linearRecurrence([2 1], [0 1], 10)
 [0 1 2 5 12 29 70 169 408 985]
 ```
 
-Pell–Lucas numbers:
+Pell–Lucas numbers, OEIS [A002203](http://oeis.org/A002203):
 
 ```
 >>> linearRecurrence([2 1], [2 2], 10)
 [2 2 6 14 34 82 198 478 1154 2786]
 ```
 
-Perrin sequence:
+Perrin sequence, OEIS [A001608](http://oeis.org/A001608):
 
 ```
 >>> linearRecurrence([0 1 1], [3 0 2], 10)
 [3 0 2 3 2 5 5 7 10 12]
 ```
 
+Plot spiral:
+
+~~~
+let k = [(pi.i / 2.sqrt).exp, 1.i] / 1.1;
+let i = [1, 1];
+linearRecurrence(k, i, 100).collect(realImaginary:/1).plot
+~~~
+
 * * *
+
+See also: shiftRegisterSequence
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/LinearRecurrence.html)
+[1](https://mathworld.wolfram.com/LinearRecurrenceEquation.html)
+[2](https://reference.wolfram.com/language/ref/LinearRecurrence.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Recurrence_relation)

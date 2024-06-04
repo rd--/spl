@@ -380,6 +380,10 @@ Complex : [Object, Number] { | real imaginary |
 		].stringJoin
 	}
 
+	realImaginary { :self |
+		[self.real, self.imaginary]
+	}
+
 	reciprocal { :self |
 		(self = 0).if {
 			self.error('reciprocal: zero divide')

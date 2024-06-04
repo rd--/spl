@@ -643,6 +643,10 @@
 		self
 	}
 
+	realImaginary { :self |
+		[self, self.zero]
+	}
+
 	reciprocal { :self |
 		self.one / self
 	}

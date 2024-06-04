@@ -609,6 +609,13 @@
 		self.withCollectCrossed(aSequence, *)
 	}
 
+	deBruijnSequence { :self :anInteger |
+		self.lyndonWords(anInteger).select { :each |
+			let k = each.size;
+			k = 1 | { k.divisible(anInteger) }
+		}.concatenation
+	}
+
 	deleteAdjacentDuplicates { :self :aBlock:/2 |
 		self.isEmpty.if {
 			[]
@@ -1580,10 +1587,11 @@
 		let answer = init.copy;
 		let m = kernel.size;
 		let d = init.size;
+		let j:/2 = (kernel.isVector || init.isVector).if { * } { dot:/2 };
 		d.toDo(n - 1) { :k |
 			let z = 0;
 			1.toDo(m) { :i |
-				z := z + (kernel[i] * answer[k + 1 - i])
+				z := z + j(kernel[i], answer[k + 1 - i])
 			};
 			answer.add(z)
 		};
@@ -2504,6 +2512,24 @@
 		} { :answer |
 			answer
 		}
+	}
+
+	shiftRegisterSequence { :initialState :taps :count |
+		let register = initialState.copy;
+		let k = register.size;
+		let step = {
+			let bit = taps.collect { :i |
+				register[k + 1 - i]
+			}.reduce(+) % 2;
+			register.removeLast;
+			register.addFirst(bit);
+			bit
+		};
+		let answer = [register.first];
+		(count - 1).timesRepeat {
+			answer.add(step())
+		};
+		answer
 	}
 
 	squaredEuclideanDistance { :self :aSequence |

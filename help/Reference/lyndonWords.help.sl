@@ -36,9 +36,19 @@ The numbers of binary Lyndon words of each length:
 [2 1 2 3 6 9 18 30 56 99 186 335]
 ```
 
+The lexicographic sequence of Lyndon words of lengths divisible by _n_ gives the lexicographically smallest de Bruijn sequence:
+
+```
+>>> ['a' 'b' 'c'].lyndonWords(2).concatenation
+['a' 'a' 'b' 'a' 'c' 'b' 'b' 'c' 'c']
+
+>>> ['a' 'b' 'c'].deBruijnSequence(2)
+['a' 'a' 'b' 'a' 'c' 'b' 'b' 'c' 'c']
+```
+
 * * *
 
-See also:
+See also: deBruijnSequence
 
 References:
 _Mathematica_

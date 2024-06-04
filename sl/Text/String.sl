@@ -302,6 +302,10 @@ String! : [Object, Json, Iterable, Character] {
 		<primitive: return _self.length;>
 	}
 
+	deBruijnSequence { :self :anInteger |
+		self.characters.deBruijnSequence(anInteger).stringJoin
+	}
+
 	do { :self :aBlock:/1 |
 		self.primitiveDo { :each |
 			aBlock(each.asCharacter)

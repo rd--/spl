@@ -1,8 +1,10 @@
 # real
 
-- _real(aComplex)_
+- _real(aNumber)_
 
-Answer the real part of a `Complex` number.
+Answer the real part of _aNumber_.
+
+At `Complex`:
 
 ```
 >>> 1j2.real
@@ -25,7 +27,7 @@ At `SmallFloat` and `LargeInteger` and `Fraction`:
 
 * * *
 
-See also: Complex, imaginary, real
+See also: Complex, imaginary, real, realImaginary
 
 References:
 _Mathematica_
