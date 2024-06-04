@@ -1575,6 +1575,21 @@
 		(aSequence - 1).reverse.mixedRadixDecode(shape) + 1
 	}
 
+
+	linearRecurrence { :kernel :init :n |
+		let answer = init.copy;
+		let m = kernel.size;
+		let d = init.size;
+		d.toDo(n - 1) { :k |
+			let z = 0;
+			1.toDo(m) { :i |
+				z := z + (kernel[i] * answer[k + 1 - i])
+			};
+			answer.add(z)
+		};
+		answer
+	}
+
 	longestCommonSubsequence { :a :b |
 		let m = a.size + 1;
 		let n = b.size + 1;
