@@ -31,14 +31,17 @@ Evaluate at real values:
 Plot over a subset of the reals:
 
 ~~~
-(-5 -- 5).discretize(100) { :x | x.!.clip(-10, 10) }.plot
+(-5 -- 5).functionPlot { :x |
+	x.!.clip(-10, 10)
+}
 ~~~
 
 Plot the volume of the unit hypersphere as a function of dimension:
 
 ~~~
-let f = { :n | pi ^ (n / 2) / (n / 2).! };
-0:25.collect { :n | f(n) }.plot
+(0 -- 25).functionPlot { :n |
+	pi ^ (n / 2) / (n / 2).!
+}
 ~~~
 
 In the binary case there two meanings depending on the type of the operand.

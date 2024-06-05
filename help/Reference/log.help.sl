@@ -77,7 +77,7 @@ Log threads elementwise over lists:
 Plot over a subset of the reals:
 
 ~~~
-(0.01, 0.02 .. 5).log.plot
+(0.01 -- 5).functionPlot(log:/1)
 ~~~
 
 * * *

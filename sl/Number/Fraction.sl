@@ -468,17 +468,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 +@Sequence {
 
-	Fraction { :numerator :denominator |
-		numerator.withCollectOrAdaptTo(denominator, Fraction:/2)
-	}
-
-	mediant { :self |
-		Fraction(
-			self.collect(numerator:/1).sum,
-			self.collect(denominator:/1).sum
-		)
-	}
-
 	r { :numerator :denominator |
 		Fraction(numerator, denominator)
 	}

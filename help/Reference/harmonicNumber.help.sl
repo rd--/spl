@@ -15,7 +15,7 @@ The _n_th harmonic number is the `sum` of the `reciprocal` of the range _1:n_.
 Plot over a subset of the integers:
 
 ~~~
-1:100.collect(harmonicNumber:/1).plot
+1:100.functionPlot(harmonicNumber:/1)
 ~~~
 
 * * *

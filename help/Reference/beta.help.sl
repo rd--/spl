@@ -37,9 +37,7 @@ Threads elementwise over lists:
 Plot over a subset of the reals:
 
 ~~~
-let a = 0.5;
-let b = (0.025, 0.050 .. 3);
-a.beta(b).plot
+(0.025 -- 3).functionPlot { :x | 0.5.beta(x) }
 ~~~
 
 * * *

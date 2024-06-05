@@ -41,7 +41,7 @@ At `one` and `zero` and negative `one`:
 Plot over a subset of the reals:
 
 ~~~
-(-0.99 -- 0.99).subdivide(500).inverseErf.plot
+(-0.99 -- 0.99).functionPlot(inverseErf:/1)
 ~~~
 
 * * *

@@ -8,9 +8,9 @@ Plot over the positive integers:
 
 ~~~
 let lambda = 35;
-0:60.collect { :x |
+0:60.functionPlot { :x |
 	poissonDistributionPdf(lambda, x)
-}.plot
+}
 ~~~
 
 * * *

@@ -29,7 +29,7 @@ The first fourteen prime Perrin numbers:
 Plot over a subset of the reals:
 
 ~~~
-(-10 -- 10).subdivide(500).collect(perrinFunction:/1).plot
+(-10 -- 10).functionPlot(perrinFunction:/1)
 ~~~
 
 * * *

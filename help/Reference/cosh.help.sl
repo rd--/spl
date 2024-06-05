@@ -39,7 +39,7 @@ Minimum of `cosh`:
 Plot over a subset of the reals:
 
 ~~~
-(-4, -3.99 .. 4).cosh.plot
+(-4 -- 4).functionPlot(cosh:/1)
 ~~~
 
 * * *

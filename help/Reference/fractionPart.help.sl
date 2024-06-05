@@ -66,7 +66,7 @@ Threads element-wise over lists:
 Plot over a subset of the reals:
 
 ~~~
-(-2, -1.99 .. 2).fractionPart.plot
+(-2 -- 2).functionPlot(fractionPart:/1)
 ~~~
 
 * * *

@@ -44,9 +44,9 @@ Thue–Morse sequence:
 Plot the number of 1s in the base-2 representation:
 
 ~~~
-(1 .. 2 ^ 6 - 1).collect { :each |
+1:63.functionPlot { :each |
 	each.digitCount(2, 1)
-}.plot
+}
 ~~~
 
 Plot the number of odd elements in the first _n_ rows of Pascal’s triangle,
@@ -54,7 +54,9 @@ OEIS [A006046](https://oeis.org/A006046):
 
 ```
 let b = { :k | k.digitCount(2, 1) };
-1:200.collect { :n | (0 .. n - 1).collect { :k | 2 ^ b(k) }.sum }.plot
+1:200.functionPlot { :n |
+	(0 .. n - 1).collect { :k | 2 ^ b(k) }.sum
+}
 ~~~
 
 * * *

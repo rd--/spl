@@ -12,13 +12,13 @@ Answer the _Hann_ window function at _aNumber_.
 Plot:
 
 ~~~
-(-0.5 -- 0.5).discretize(1024, hannWindow:/1).plot
+(-0.5 -- 0.5).functionPlot(hannWindow:/1)
 ~~~
 
 Discrete _Hann_ window of length 15:
 
 ~~~
-(-0.5 -- 0.5).discretize(15, hannWindow:/1).plot
+(-0.5 -- 0.5).functionPlot(hannWindow:/1)
 ~~~
 
 * * *

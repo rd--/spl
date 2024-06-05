@@ -20,7 +20,7 @@ Threads over lists:
 Plot curve:
 
 ~~~
-(0.001 -- 1).discretize(500).AmpDb.plot
+(0.001 -- 1).functionPlot(AmpDb:/1)
 ~~~
 
 Compare linear and exponential curves as frequency control:

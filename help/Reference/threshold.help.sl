@@ -28,7 +28,8 @@ Threshold a matrix:
 Plot thresholding:
 
 ~~~
-(-1 -- 1).subdivide(250).threshold(0.3).plot
+let l = (-1 -- 1).subdivide(250);
+l.threshold(0.3).linePlot
 ~~~
 
 * * *

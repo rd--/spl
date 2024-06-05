@@ -19,7 +19,7 @@ The _n_-th iteration contains _2^n + 1_ points.
 Plot ninth iteration:
 
 ~~~
-9.blancmangeFunction.plot
+9.blancmangeFunction.linePlot
 ~~~
 
 * * *

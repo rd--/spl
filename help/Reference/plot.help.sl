@@ -8,6 +8,12 @@ Plot a sequence:
 1:50.collect(primePi:/1).plot
 ~~~
 
+C.f. `functionPlot`:
+
+~~~
+1:50.functionPlot(primePi:/1)
+~~~
+
 Plot a random permutation of the integers up to ninety nine:
 
 ~~~
@@ -18,6 +24,12 @@ Plot a function:
 
 ~~~
 (-6 -- 6).subdivide(500).collect { :x | 1 / (4 * x.cos + 5) }.plot
+~~~
+
+C.f. `functionPlot`:
+
+~~~
+(-6 -- 6).functionPlot { :x | 1 / (4 * x.cos + 5) }
 ~~~
 
 * * *

@@ -12,19 +12,19 @@ Answer the _Gaussian_ window function at _aNumber_.
 Plot:
 
 ~~~
-(-1 -- 1).discretize(1024, gaussianWindow:/1).plot
+(-1 -- 1).functionPlot(gaussianWindow:/1)
 ~~~
 
 Shape of a _Gaussian_ window using a specified parameter:
 
 ~~~
-(-1 -- 1).discretize(1024).gaussianWindow(0.2).plot
+(-1 -- 1).functionPlot { :x | x.gaussianWindow(0.2) }
 ~~~
 
 Discrete _Gaussian_ window of length 15:
 
 ~~~
-(-0.5 -- 0.5).discretize(15, gaussianWindow:/1).plot
+(-0.5 -- 0.5).functionPlot(gaussianWindow:/1)
 ~~~
 
 * * *

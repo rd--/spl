@@ -16,20 +16,21 @@ Plot `pdf` over a subset of the reals:
 
 ~~~
 let d = UniformDistribution(0, 1);
-(-1 -- 2).subdivide(500).collect { :x | d.pdf(x) }.plot
+(-1 -- 2).functionPlot { :x | d.pdf(x) }
 ~~~
 
 Plot `cdf` over a subset of the reals:
 
 ~~~
 let d = UniformDistribution(0, 1);
-(-1 -- 2).subdivide(500).collect { :x | d.cdf(x) }.plot
+(-1 -- 2).functionPlot { :x | d.cdf(x) }
 ~~~
 
 Plot `randomVariate`:
 
 ~~~
-UniformDistribution(0, 1).randomVariate(500).plot
+let d = UniformDistribution(0, 1);
+d.randomVariate(500).linePlot
 ~~~
 
 * * *

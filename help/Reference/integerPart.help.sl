@@ -49,7 +49,7 @@ Threads elementwise over lists:
 Plot over a subset of the reals:
 
 ~~~
-(-2, -1.99 .. 2).integerPart.plot
+(-2 -- 2).functionPlot(integerPart:/1)
 ~~~
 
 * * *

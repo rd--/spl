@@ -44,7 +44,7 @@ Threads over lists:
 Plot:
 
 ~~~
-1:99.eulerGradusSuavitatis.plot
+1:99.eulerGradusSuavitatis.linePlot
 ~~~
 
 * * *

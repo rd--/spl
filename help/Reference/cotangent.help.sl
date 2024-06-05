@@ -30,7 +30,9 @@ z.cotangent
 Plot over a subset of the reals:
 
 ~~~
-(-3 -- 3).subdivide(500).cotangent.clip(-6, 6).plot
+(-3 -- 3).functionPlot { :x |
+	x.cotangent.clip(-6, 6)
+}
 ~~~
 
 * * *

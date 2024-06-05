@@ -55,7 +55,7 @@ inf
 Plot over a subset of the reals:
 
 ~~~
-(0, 0.01 .. 10).sqrt.plot
+(0 -- 10).functionPlot(sqrt:/1)
 ~~~
 
 Where supported `sqrt` is displayed as √.

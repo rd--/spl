@@ -89,19 +89,19 @@ cf. OEIS [A048819](https://oeis.org/A048819):
 Plot over the unit interval:
 
 ~~~
-(0 -- 1).discretize(500).minkowskiQuestionMark.plot
+(0 -- 1).functionPlot(minkowskiQuestionMark:/1)
 ~~~
 
 Plot difference from input:
 
 ~~~
-(0 -- 2).discretize(500) { :x | x.minkowskiQuestionMark - x }.plot
+(0 -- 2).functionPlot { :x | x.minkowskiQuestionMark - x }
 ~~~
 
 Plot over from -2 to 2, _?(x)_ is surjective:
 
 ~~~
-(-2 -- 2).discretize(500).minkowskiQuestionMark.plot
+(-2 -- 2).functionPlot(minkowskiQuestionMark:/1)
 ~~~
 
 * * *

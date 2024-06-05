@@ -82,7 +82,7 @@ In a divisibility network, two numbers are connected if they share a common divi
 Plot the gcd for a number with 12:
 
 ~~~
-1:100.gcd(12).plot
+1:100.gcd(12).linePlot
 ~~~
 
 * * *

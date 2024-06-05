@@ -17,9 +17,9 @@ Find the sum of the divisors of thirty, c.f. `divisorSigma`:
 Plot the sum of divisors for the first 50 numbers:
 
 ~~~
-1:50.collect { :n |
+1:50.functionPlot { :n |
 	n.divisorSum(identity:/1)
-}.plot
+}
 ~~~
 
 * * *

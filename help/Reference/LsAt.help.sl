@@ -8,7 +8,7 @@ Plot:
 
 ~~~
 let l = [1, 3 .. 23];
-LsAt(l, LsIBrown(1, l.size, 2, 99)).upToEnd.plot
+LsAt(l, LsIBrown(1, l.size, 2, 99)).upToEnd.linePlot
 ~~~
 
 * * *

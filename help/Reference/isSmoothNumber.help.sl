@@ -45,10 +45,10 @@ The largest consecutive 19-smooth numbers:
 [true, true]
 ```
 
-Plot regular numbers:
+Plot sequence of regular numbers:
 
 ~~~
-1:999.select { :n | n.isSmoothNumber(5) }.plot
+1:999.select { :n | n.isSmoothNumber(5) }.linePlot
 ~~~
 
 * * *

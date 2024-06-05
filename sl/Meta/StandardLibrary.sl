@@ -26,6 +26,14 @@
 	'WeakMap'
 	'Graph' {- Tuple -}
 
+	{- Number -}
+	'Complex'
+	'Fraction'
+	'Interval'
+	'LargeInteger' {- ByteArray -}
+	'Residue'
+	'Decimal' {- Fraction -}
+
 	{- Geometry -}
 	'Angle'
 	'CartesianCoordinates'
@@ -46,17 +54,10 @@
 
 	{- Graphics -}
 	'Colour'
+	'Plot' {- Interval -}
 
 	{- Help -}
 	'HelpIndex'
-
-	{- Number -}
-	'Complex'
-	'Fraction'
-	'Interval'
-	'LargeInteger'
-	'Residue'
-	'Decimal' {- Fraction -}
 
 	{- Math -}
 	'Bessel'

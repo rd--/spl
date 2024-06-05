@@ -25,7 +25,7 @@ Answer a `ByteArray` of the Utf-8 encoding of _aString_.
 Plot Utf-8 code points of a String:
 
 ~~~
-'this is a string.'.utf8ByteArray.asList.plot
+'utf8ByteArray'.utf8ByteArray.asList.linePlot
 ~~~
 
 * * *

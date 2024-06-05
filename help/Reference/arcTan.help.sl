@@ -104,7 +104,7 @@ true
 Plot over a subset of the reals:
 
 ~~~
-(-5, -4.99 .. 5).arcTan.plot
+(-5 -- 5).functionPlot(arcTan:/1)
 ~~~
 
 Note:

@@ -65,13 +65,13 @@ i.e. non-negative and smaller than _m_:
 Plot the sequence with fixed modulus:
 
 ~~~
-(1:50 % 8).plot
+(1:50 % 8).linePlot
 ~~~
 
 Plot the sequence, varying the modulus:
 
 ~~~
-(100 % 1:50).plot
+(100 % 1:50).linePlot
 ~~~
 
 The name of this operator is _percentSign_.

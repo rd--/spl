@@ -7,27 +7,33 @@ A pathological function that is continuous but differentiable only on a set of p
 Plot over the reals in _(0,1)_ with _a=2_ and _m=100_:
 
 ~~~
-(0 -- 1).subdivide(500).collect { :x | weierstrassFunction(x, 2, 100) }.plot
+(0 -- 1).functionPlot { :x |
+	weierstrassFunction(x, 2, 100)
+}
 ~~~
 
 Plot over the reals in _(0,1)_ with _a=3_ and _m=100_:
 
 ~~~
-(0 -- 1).subdivide(500).collect { :x | weierstrassFunction(x, 3, 100) }.plot
+(0 -- 1).functionPlot { :x |
+	weierstrassFunction(x, 3, 100)
+}
 ~~~
 
 Plot over the reals in _(0,1)_ with _a=4_ and _m=100_:
 
 ~~~
-(0 -- 1).subdivide(500).collect { :x | weierstrassFunction(x, 4, 100) }.plot
+(0 -- 1).functionPlot { :x |
+	weierstrassFunction(x, 4, 100)
+}
 ~~~
 
 Plot over the complex numbers in _(0,1)J0_ with _a=2_ and _m=100_:
 
 ~~~
-(-0.5.pi -- 0.5.pi).subdivide(1000).collect { :x |
-	weierstrassFunction(x.j(0), 2, 100).asList
-}.plot
+(-0.5.pi -- 0.5.pi).complexFunctionPlot { :x |
+	weierstrassFunction(x.j(0), 2, 100)
+}
 ~~~
 
 * * *

@@ -13,13 +13,13 @@ The _Dirichlet window_ is rectangular.
 Plot:
 
 ~~~
-(-1 -- 1).discretize(1024, dirichletWindow:/1).plot
+(-1 -- 1).functionPlot(dirichletWindow:/1)
 ~~~
 
 Discrete _Dirichlet window_ of length 15:
 
 ~~~
-(-0.5 -- 0.5).discretize(15, dirichletWindow:/1).plot
+(-0.5 -- 0.5).functionPlot(dirichletWindow:/1)
 ~~~
 
 * * *

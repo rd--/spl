@@ -26,7 +26,7 @@ Log base two of the first primes:
 Plot over a subset of the reals:
 
 ~~~
-(0.01, 0.02 .. 5).log2.plot
+(0.01 -- 5).functionPlot(log2:/1)
 ~~~
 
 * * *

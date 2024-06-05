@@ -56,7 +56,7 @@ true
 Plot the `primeOmega` sequence for the first 100 numbers:
 
 ~~~
-1:100.collect(primeOmega:/1).plot
+(1:100).functionPlot(primeOmega:/1)
 ~~~
 
 * * *

@@ -44,13 +44,13 @@ Answer a number that is the absolute value (positive magnitude) of _aNumber_.
 Plot over a subset of the reals:
 
 ~~~
-(-3 -- 3).subdivide(200).abs.plot
+(-3 -- 3).functionPlot(abs:/1)
 ~~~
 
 Plot _|1 + x|_:
 
 ~~~
-((-3 -- 3).subdivide(200) + 1).abs.plot
+(-2 -- 4).functionPlot(abs:/1)
 ~~~
 
 * * *

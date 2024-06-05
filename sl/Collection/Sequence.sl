@@ -2080,40 +2080,6 @@
 		}
 	}
 
-	cliPlot { :self :format |
-		let plotData = self.isVector.if {
-			[[1 .. self.size], self.asList].transposed
-		} {
-			self.collect(asList:/1).asList
-		};
-		let fileName = '/tmp/listPlot.json';
-		fileName.writeTextFile(plotData.asJson).then { :unused |
-			system.systemCommand(
-				'hsc3-plot',
-				[
-					'json',
-					'xy',
-					'--format=' ++ format,
-					fileName,
-					'0',
-					'1'
-				]
-			)
-		}
-	}
-
-	discretePlot { :self |
-		self.cliPlot('discrete')
-	}
-
-	scatterPlot { :self |
-		self.cliPlot('scatter')
-	}
-
-	plot { :self |
-		self.cliPlot('line')
-	}
-
 	positionIndex { :self |
 		let answer = Map();
 		self.withIndexDo { :each :index |

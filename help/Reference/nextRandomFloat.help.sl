@@ -25,7 +25,7 @@ Answer the next thirteen random numbers scaled to lie between one and nine as in
 Plot uniform distribution:
 
 ~~~
-({ system.nextRandomFloat * 2 - 1 } ! 99).plot
+({ system.nextRandomFloat * 2 - 1 } ! 99).linePlot
 ~~~
 
 * * *

@@ -26,7 +26,7 @@ At zero and one:
 Plot:
 
 ~~~
-2:99.primeLimit.plot
+2:99.primeLimit.linePlot
 ~~~
 
 * * *

@@ -114,6 +114,10 @@
 		self.collect(degreesToRadians:/1)
 	}
 
+	denominator { :self |
+		self.collect(denominator:/1)
+	}
+
 	divisors { :self |
 		self.collect(divisors:/1)
 	}
@@ -263,6 +267,10 @@
 
 	negated { :self |
 		self.collect(negated:/1)
+	}
+
+	numerator { :self |
+		self.collect(numerator:/1)
 	}
 
 	pi { :self |
@@ -441,6 +449,10 @@
 		anObject.adaptToCollectionAndApply(self, divisible:/2)
 	}
 
+	Fraction { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, Fraction:/2)
+	}
+
 	gcd { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, gcd:/2)
 	}
@@ -451,6 +463,13 @@
 
 	lcm { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, lcm:/2)
+	}
+
+	mediant { :self |
+		Fraction(
+			self.collect(numerator:/1).sum,
+			self.collect(denominator:/1).sum
+		)
 	}
 
 	min { :self :anObject |

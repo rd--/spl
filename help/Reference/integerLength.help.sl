@@ -33,19 +33,19 @@ Find how the number of digits in _100!_ decreases with the base:
 Plot for base 10 from -25 to 25:
 
 ~~~
--25:25.collect { :each | each.integerLength(10) }.plot
+-25:25.functionPlot { :x | x.integerLength(10) }
 ~~~
 
 Plot for base 2 from 1 to 1023:
 
 ~~~
-1:1023.collect { :each | each.integerLength(2) }.plot
+1:1023.functionPlot { :x | x.integerLength(2) }
 ~~~
 
 Plot for base 10 for factorials, minus pre-factorial value:
 
 ~~~
-1:50.collect { :each | each.!.integerLength(10) - each }.plot
+1:50.functionPlot { :x | x.!.integerLength(10) - x }
 ~~~
 
 * * *

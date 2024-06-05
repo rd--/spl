@@ -106,7 +106,7 @@ At `zero` and `one`:
 Plot primes up to one-hundred-thousand:
 
 ~~~
-1:99999.select(isPrime:/1).plot
+1:99999.select(isPrime:/1).linePlot
 ~~~
 
 * * *

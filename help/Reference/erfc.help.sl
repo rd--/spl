@@ -24,7 +24,7 @@ Threads elementwise over lists:
 Plot over a subset of the reals:
 
 ~~~
-(-3 -- 3).subdivide(600).erfc.plot
+(-3 -- 3).functionPlot(erfc:/1)
 ~~~
 
 * * *

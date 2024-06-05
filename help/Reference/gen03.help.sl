@@ -9,34 +9,50 @@ First-order Chebyshev, _x_:
 
 ~~~
 513.gen03(-1, 1, [0 1]).plot
+~~~
 
-(-1 -- 1).discretize(513) { :x | x }.plot
+C.f.:
+
+~~~
+(-1 -- 1).functionPlot(identity:/1)
 ~~~
 
 Second-order Chebyshev, _2x^2 - 1_:
 
 ~~~
 513.gen03(-1, 1, [-1 0 2]).plot
+~~~
 
-(-1 -- 1).discretize(513) { :x | 2 * (x ^ 2) - 1 }.plot
+C.f.:
+
+~~~
+(-1 -- 1).functionPlot { :x | 2 * (x ^ 2) - 1 }
 ~~~
 
 Third-order Chebyshev, _4x^3 - 3x_:
 
 ~~~
 513.gen03(-1, 1, [0 -3 0 4]).plot
+~~~
 
-(-1 -- 1).discretize(513) { :x | (4 * (x ^ 3)) - (3 * x) }.plot
+C.f.
+
+~~~
+(-1 -- 1).functionPlot { :x | (4 * (x ^ 3)) - (3 * x) }
 ~~~
 
 Seventh-order Chebyshev, _64x^7 - 112x^5 + 56x^3 - 7x_:
 
 ~~~
 513.gen03(-1, 1, [0 -7 0 56 0 -112 0 64]).plot
+~~~
 
-(-1 -- 1).discretize(513) { :x |
+C.f.:
+
+~~~
+(-1 -- 1).functionPlot { :x |
 	(64 * (x ^ 7)) - (112 * (x ^ 5)) + (56 * (x ^ 3)) - (7 * x)
-}.plot
+}
 ~~~
 
 A 4th order polynomial function:

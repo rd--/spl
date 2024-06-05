@@ -7,7 +7,7 @@ Answer the cumulative distribution function for the normal distribution.
 Plot over a subset of the reals:
 
 ~~~
-(-5 -- 5).subdivide(600).collect { :x | 0.normalDistributionCdf(2, x) }.plot
+(-5 -- 5).functionPlot { :x | 0.normalDistributionCdf(2, x) }
 ~~~
 
 * * *

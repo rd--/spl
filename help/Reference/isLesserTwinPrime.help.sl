@@ -27,7 +27,7 @@ Twin primes are pairs of primes of the form _(p, p + 2)_.
 Plot:
 
 ~~~
-3:1607.select(isLesserTwinPrime:/1).plot
+3:1607.select(isLesserTwinPrime:/1).linePlot
 ~~~
 
 * * *

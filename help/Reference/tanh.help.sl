@@ -64,7 +64,7 @@ Continued fraction expansion:
 Plot over a subset of the reals:
 
 ~~~
-(-4 -- 4).discretize(500).tanh.plot
+(-4 -- 4).functionPlot(tanh:/1)
 ~~~
 
 * * *

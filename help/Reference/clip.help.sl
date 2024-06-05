@@ -54,13 +54,15 @@ To clip values only to an upper bound specify the lower bound as negative infini
 Plot the unit clip function over a subset of the reals:
 
 ~~~
-(-3, -2.9 .. 3).clip.plot
+(-3 -- 3).functionPlot(clip:/1)
 ~~~
 
 Plot the composition of clip with a periodic function:
 
 ~~~
-((-1, -0.99 .. 1) * 2 * pi).sin.clip(-0.5, 1).plot
+(0 -- 2.pi).functionPlot { :x |
+	x.sin.clip(-0.5, 1)
+}
 ~~~
 
 * * *

@@ -22,20 +22,20 @@ Use `powerMod` to generate all coprime integers modulo 9:
 Plot the sequence with fixed powers:
 
 ~~~
-1:50.collect { :each | each.powerMod(2, 11) }.plot
+1:50.functionPlot { :x | x.powerMod(2, 11) }
 ~~~
 
 Plot the sequence with varying powers:
 
 ~~~
-1:50.collect { :each | 2.powerMod(each, 11) }.plot
+1:50.functionPlot { :x | 2.powerMod(x, 11) }
 ~~~
 
 Plot a list of powers of 3 where the exponent is varied, modulo some prime number:
 
 ~~~
 let n = 44.nthPrime;
-(1 .. n - 1).collect { :each | 3.powerMod(each, n) }.plot
+1:n.functionPlot { :x | 3.powerMod(x, n) }
 ~~~
 
 * * *

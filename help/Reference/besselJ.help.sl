@@ -31,21 +31,21 @@ Elementwise threading over lists and matrices:
 Plot _J0_ over a subset of the reals:
 
 ~~~
-(0 -- 50).subdivide(500).collect { :x | 0.besselJ(x) }.plot
+(0 -- 50).functionPlot { :x | 0.besselJ(x) }
 ~~~
 
 Plot _J0_ for _(-1, 9)_, showing the first three zero crossings:
 
 ~~~
-(-1 -- 9).subdivide(500).collect { :x | 0.besselJ(x) }.plot
+(-1 -- 9).functionPlot { :x | 0.besselJ(x) }
 ~~~
 
 Plot the intensity of the Fraunhofer diffraction pattern of a circular aperture versus diffraction angle:
 
 ~~~
-(0.15 -- 1/3.pi).subdivide(500).collect { :theta |
+(0.15 -- 1/3.pi).functionPlot { :theta |
 	2 * ((besselJ1(20 * theta.sin) / (20 * theta.sin)) ^ 2)
-}.plot
+}
 ~~~
 
 * * *

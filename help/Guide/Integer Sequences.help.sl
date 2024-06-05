@@ -46,7 +46,7 @@ Oeis [A265326](https://oeis.org/A265326):
 Scatter plot of the first _k_ terms of Oeis [A342585](https://oeis.org/A342585):
 
 ~~~
-let k = 5000;
+let k = 1500;
 let a = [];
 let c = 0;
 let n = 0;

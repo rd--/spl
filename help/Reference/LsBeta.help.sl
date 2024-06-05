@@ -7,13 +7,13 @@ Random values that follow an Eulerian Beta distribution.
 Biased low:
 
 ~~~
-LsBeta(0, 1, 1 / 3, 3, 99).upToEnd.plot
+LsBeta(0, 1, 1 / 3, 3, 99).upToEnd.linePlot
 ~~~
 
 Biased high:
 
 ~~~
-LsBeta(0, 1, 3, 1 / 3, 99).upToEnd.plot
+LsBeta(0, 1, 3, 1 / 3, 99).upToEnd.linePlot
 ~~~
 
 * * *

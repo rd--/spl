@@ -42,9 +42,9 @@ A formula for digitCount:
 Plot it:
 
 ~~~
-(1 .. 2 ^ 7 - 1).collect { :n |
+(1:127).functionPlot { :n |
 	n.integerExponent(2)
-}.plot
+}
 ~~~
 
 * * *

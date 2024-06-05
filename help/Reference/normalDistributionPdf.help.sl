@@ -7,9 +7,9 @@ Answer the probability density function for the normal distribution.
 Plot over a subset of the reals:
 
 ~~~
-(-3 -- 3).subdivide(500).collect { :x |
+(-3 -- 3).functionPlot { :x |
 	normalDistributionPdf(0, 1, x)
-}.plot
+}
 ~~~
 
 * * *

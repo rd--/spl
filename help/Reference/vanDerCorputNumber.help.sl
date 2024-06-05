@@ -35,13 +35,13 @@ Quaternary van der Corput sequence:
 Plot decimal sequence:
 
 ~~~
-1:500.vanDerCorputNumber(10).asFloat.plot
+1:500.vanDerCorputNumber(10).asFloat.linePlot
 ~~~
 
 Plot numerators of decimal sequence:
 
 ~~~
-1:500.vanDerCorputNumber(10).collect(numerator:/1).plot
+1:500.vanDerCorputNumber(10).numerator.linePlot
 ~~~
 
 * * *

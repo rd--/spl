@@ -42,19 +42,19 @@ Fixed point:
 Plot over a subset of the reals:
 
 ~~~
-(0, 0.05 .. 2 * pi).cos.plot
+(0 -- 2.pi).functionPlot(cos:/1)
 ~~~
 
 Increasing amplitude:
 
 ~~~
-(0 -- 16.pi).subdivide(500).collect { :u | u * u.cos }.plot
+(0 -- 16.pi).functionPlot { :u | u * u.cos }
 ~~~
 
 Noncommensurate waves (quasiperiodic function):
 
 ~~~
-(0, 0.1 .. 40 * pi).collect { :x | x.cos + (x * 2.sqrt).cos }.plot
+(0 -- 40.pi).functionPlot { :x | x.cos + (x * 2.sqrt).cos }
 ~~~
 
 * * *

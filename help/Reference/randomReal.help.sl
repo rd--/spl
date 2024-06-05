@@ -39,13 +39,13 @@ A 3×4 matrix of random numbers:
 Plot, uniform distribution:
 
 ~~~
-system.randomReal(-1, 1, [99]).plot
+system.randomReal(-1, 1, [99]).linePlot
 ~~~
 
 Plot a random walk:
 
 ~~~
-system.randomReal(-1, 1, [99]).accumulate.plot
+system.randomReal(-1, 1, [99]).accumulate.linePlot
 ~~~
 
 * * *

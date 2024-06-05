@@ -51,13 +51,13 @@ Polar decomposition of a complex number:
 Plot over a subset of the reals:
 
 ~~~
-(-3, -2.95 .. 3).arg.plot
+(-3 -- 3).functionPlot(arg:/1)
 ~~~
 
 Plot _arg(x + i)_ on the reals:
 
 ~~~
-(-3, -2.95 .. 3).collect { :x | (x + 1.i).arg }.plot
+(-3 -- 3).functionPlot { :x | (x + 1.i).arg }
 ~~~
 
 * * *

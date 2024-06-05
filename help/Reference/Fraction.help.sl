@@ -242,6 +242,13 @@ The numerator and denominator of a rational are relatively prime:
 1
 ```
 
+`Fraction` threads over lists:
+
+```
+>>> Fraction([1 3 5], [3 5 7])
+[1/3 3/5 5/7]
+```
+
 _Note:_
 The _Fraction_ package re-defines _asNumber_ to call either _parseFraction_ or _parseNumber_ as appropriate.
 

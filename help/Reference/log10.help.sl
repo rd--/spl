@@ -28,7 +28,7 @@ Answers the base-10 logarithm of _aNumber_.
 Plot over a subset of the reals:
 
 ~~~
-(0.01, 0.02 .. 5).log10.plot
+(0.01 -- 5).functionPlot(log10:/1)
 ~~~
 
 * * *

@@ -79,6 +79,7 @@
 	'Geometry-Sphere'
 	'Geometry-SphericalCoordinates'
 	'Graphics-Colour'
+	'Graphics-Plot'
 	'Help-DocumentTest'
 	'Help-HelpFile'
 	'Help-HelpIndex'

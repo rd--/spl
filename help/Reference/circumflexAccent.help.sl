@@ -112,7 +112,7 @@ Operators are evaluated strictly left to right:
 Plot over a subset of the reals:
 
 ~~~
-(0, 0.01 .. 5).collect { :each | each ^ 3 }.plot
+(0 -- 5).functionPlot { :each | each ^ 3 }
 ~~~
 
 Where supported `^` is displayed as ˆ.

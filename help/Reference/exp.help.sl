@@ -62,7 +62,7 @@ The inverse of `exp` is `log`:
 Plot over a subset of the reals:
 
 ~~~
-(-1, -0.99 .. 1).exp.plot
+(-1 -- 1).functionPlot(exp:/1)
 ~~~
 
 * * *

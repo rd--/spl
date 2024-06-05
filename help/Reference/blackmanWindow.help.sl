@@ -12,13 +12,13 @@ Answer the _Blackman window_ function at _aNumber_.
 Plot:
 
 ~~~
-(-0.5 -- 0.5).discretize(1024, blackmanWindow:/1).plot
+(-0.5 -- 0.5).functionPlot(blackmanWindow:/1)
 ~~~
 
 Discrete _Blackman window_ of length 15:
 
 ~~~
-(-0.5 -- 0.5).discretize(15, blackmanWindow:/1).plot
+(-0.5 -- 0.5).functionPlot(blackmanWindow:/1)
 ~~~
 
 * * *

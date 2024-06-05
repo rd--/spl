@@ -69,13 +69,13 @@ Fixed point:
 Plot over a subset of the reals:
 
 ~~~
-(0, 0.05 .. 2 * pi).sin.plot
+(0 -- 2.pi).functionPlot(sin:/1)
 ~~~
 
 Noncommensurate waves (quasiperiodic function):
 
 ~~~
-(0, 0.1 .. 40 * pi).collect { :x | x.sin + (x * 2.sqrt).sin }.plot
+(0 -- 40.pi).functionPlot { :x | x.sin + (x * 2.sqrt).sin }.plot
 ~~~
 
 * * *

@@ -52,7 +52,7 @@ For integers, _n.gamma = (n - 1).!_:
 Plot the Euler gamma function:
 
 ~~~
-(-4, -3.9 .. 4).collect { :each | each.gamma.clip(-10, 10) }.plot
+(-4 -- 4).functionPlot { :x | x.gamma.clip(-10, 10) }
 ~~~
 
 * * *

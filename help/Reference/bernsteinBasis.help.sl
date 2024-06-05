@@ -14,7 +14,7 @@ Evaluate a Bernstein basis polynomial numerically:
 Plot:
 
 ~~~
-(0 -- 1).discretize(500).collect { :x | 4.bernsteinBasis(3, x) }.plot
+(0 -- 1).functionPlot { :x | 4.bernsteinBasis(3, x) }
 ~~~
 
 * * *

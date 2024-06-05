@@ -8,19 +8,19 @@ The specification consists of alternating level and duration items.
 Sawtooth up and down, starting and ending at zero:
 
 ~~~
-1024.gen07([0 512 1 0 -1 512 0]).plot
+1024.gen07([0 512 1 0 -1 512 0]).linePlot
 ~~~
 
 A square from positive to negative:
 
 ~~~
-1024.gen07([1 512 1 0 -1 512 -1]).plot
+1024.gen07([1 512 1 0 -1 512 -1]).linePlot
 ~~~
 
 A sawtooth down, a straight line from positive to negative:
 
 ~~~
-1024.gen07([1 1024 -1]).plot
+1024.gen07([1 1024 -1]).linePlot
 ~~~
 
 * * *

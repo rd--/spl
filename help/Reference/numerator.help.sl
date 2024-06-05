@@ -12,6 +12,13 @@ Answer the denominator of a _Fraction_ or itself for an _Integer_.
 2
 ```
 
+Threads over lists:
+
+```
+>>> [4/6 5/7].numerator
+[2 5]
+```
+
 * * *
 
 See also: denominator, Fraction, isFraction

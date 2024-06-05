@@ -107,19 +107,19 @@ Abundant numbers, numbers _n_ such that the sum of their divisors is greater tha
 Plot divisor function _σ₀(n)_ up to _n = 250_:
 
 ~~~
-0.divisorSigma(1:250).plot
+(1:250).functionPlot { :x | 0.divisorSigma(x) }
 ~~~
 
 Plot divisor function _σ₁(n)_ up to _n = 250_:
 
 ~~~
-1.divisorSigma(1:250).plot
+(1:250).functionPlot { :x | 1.divisorSigma(x) }
 ~~~
 
 Plot divisor function _σ₂(n)_ up to _n = 250_:
 
 ~~~
-2.divisorSigma(1:250).plot
+(1:250).functionPlot { :x | 2.divisorSigma(x) }
 ~~~
 
 * * *

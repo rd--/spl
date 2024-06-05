@@ -42,9 +42,9 @@ Zero of:
 Plot over a subset of the reals:
 
 ~~~
-(0, 0.01 .. 10).collect { :each |
-	each.logarithmicIntegralRamanujan(9)
-}.clip(-5, inf).plot
+(0 -- 10).functionPlot { :x |
+	x.logarithmicIntegralRamanujan(9).clip(-5, inf)
+}
 ~~~
 
 * * *

@@ -29,7 +29,7 @@ Threads elementwise over lists and matrices:
 Plot over a subset of the reals:
 
 ~~~
-(0, 0.05 .. 2 * pi).tan.clip(-6, 6).plot
+(0 -- 2.pi).functionPlot { :x | x.tan.clip(-6, 6) }
 ~~~
 
 * * *

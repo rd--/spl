@@ -38,7 +38,7 @@ The `reciprocal` of the arithmetic–geometric mean of `one` and the square root
 Plot over a subset of the reals:
 
 ~~~
-(0 -- 1).discretize(500) { :x | 1.arithmeticGeometricMean(x) }.plot
+(0 -- 1).functionPlot { :x | 1.arithmeticGeometricMean(x) }
 ~~~
 
 Special values: Oeis A068521, A084895, A084896 & A084897:

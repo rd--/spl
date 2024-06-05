@@ -10,7 +10,7 @@
 Plot over a subset of the reals:
 
 ~~~
-(1.05, 1.10 .. 10).arcCosh.plot
+(1 -- 10).functionPlot(arcCosh:/1)
 ~~~
 
 * * *
