@@ -954,7 +954,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.deepCopy.reducedRowEchelonForm
 	}
 
-	singularValueDecomposition { :self :tolerance |
+	singularValueDecompositionQr { :self :tolerance |
 		let a = self;
 		let [m, n] = a.shape;
 		let loopMax = 100 * m.max(n);
@@ -994,6 +994,47 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 				}
 			}
 		};
+		[u, s, v]
+	}
+
+	singularValueDecomposition { :a |
+		let tol = 1E-4;
+		let [n, m] = a.shape;
+		let u = a.conjugateTranspose;
+		let s = List(n);
+		let v = n.identityMatrix;
+		let converge = tol + 1;
+		{
+			converge > tol
+		}.whileTrue {
+			converge := 0;
+			1.toDo(n - 1) { :i |
+				(i + 1).toDo(n) { :j |
+					let alpha = u[i].sumOfSquares;
+					let beta = u[j].sumOfSquares;
+					let gamma = (u[i] * u[j]).sum;
+					let zeta = (beta - alpha) / (2 * gamma);
+					let t = zeta.sign / (zeta.abs + (1 + zeta.squared).sqrt);
+					let cs = 1 / (1 + t.squared).sqrt;
+					let sn = cs * t;
+					let tmp = nil;
+					converge := converge.max(gamma.abs / (alpha * beta).sqrt);
+					tmp := u[i];
+					u[i] := (cs * tmp) - (sn * u[j]);
+					u[j] := (sn * tmp) + (cs * u[j]);
+					tmp := v[i];
+					v[i] := (cs * tmp) - (sn * v[j]);
+					v[j] := (sn * tmp) + (cs * v[j])
+				}
+			}
+		};
+		1.toDo(n) { :j |
+			s[j] := u[j].norm;
+			u[j] := u[j] / s[j]
+		};
+		s := s.sorted(>).diagonalMatrix;
+		u := u.conjugateTranspose; {- not sorted! -}
+		v := v.conjugateTranspose; {- not sorted! -}
 		[u, s, v]
 	}
 

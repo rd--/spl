@@ -359,4 +359,10 @@
 		self.reduce(+)
 	}
 
+	sumOfSquares { :self |
+		self.injectInto(0) { :i :j |
+			i + j.squared
+		}
+	}
+
 }

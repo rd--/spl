@@ -1,0 +1,44 @@
+# sumOfSquares
+
+- _sumOfSquares(anArray)_
+
+Answer the sum of the squared elements of _anArray_.
+
+At a vector:
+
+```
+>>> [3].iota.sumOfSquares
+14
+```
+
+At a matrix, answers a vector:
+
+```
+>>> let v = [3 3].iota.sumOfSquares;
+>>> (v.sum, v)
+(285, [66 93 126])
+```
+
+At an array, answers a matrix:
+
+```
+>>> let m = [3 3 3].iota.sumOfSquares;
+>>> (m.sum.sum, m.sum, m)
+(
+	6930,
+	[2061 2304 2565],
+	[
+		462  525  594;
+		669  750  837;
+		930 1029 1134
+	]
+)
+```
+
+* * *
+
+See also: +, *, injectInto, squared, sum
+
+References:
+_Mathworks_
+[1](https://mathworks.com/help/deeplearning/ref/sumsqr.html)

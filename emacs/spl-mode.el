@@ -410,6 +410,8 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
      ("undefined" . ?⊥) ; U+22A5 ⊥ Up tack
      ("union" . ?∪) ; U+222A ∪ Union
      ("valueWithReturn" . ?↓) ; U+2193 ↓ Downwards Arrow
+     ("Zeta" . ?Ζ) ; U+0396 Ζ Greek Capital Letter Zeta
+     ("zeta" . ?ζ) ; U+03B6 ζ Greek Small Letter Zeta
      ("||" . ?‖) ; U+2016 ‖ Double Vertical Line
      ("~" . ?≈) ; U+2248 ≈ Almost Equal To
      ("~=" . ?≠) ; U+2260 ≠ Not equal to

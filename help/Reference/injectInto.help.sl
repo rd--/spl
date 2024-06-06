@@ -2,7 +2,7 @@
 
 - _injectInto(anIterable, thisValue, aBlock:/2)_
 
-Accumulate a running value associated with evaluating _aBlock_ with the current value _thisValue_ and the sucessive elements of _anIterable_ as arguments.
+Accumulate a running value associated with evaluating _aBlock_ with the current value _thisValue_ and the successive elements of _anIterable_ as arguments.
 
 For instance, to sum the numeric elements of a collection:
 
