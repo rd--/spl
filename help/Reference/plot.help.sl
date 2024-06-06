@@ -5,7 +5,7 @@
 Plot a sequence:
 
 ~~~
-1:50.collect(primePi:/1).plot
+1:50.collect(primePi:/1)1.plot
 ~~~
 
 C.f. `functionPlot`:

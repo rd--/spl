@@ -11,6 +11,13 @@ At `List`:
 true
 ```
 
+Not all items need precede their corresponding item:
+
+```
+>>> [1 1 2].precedes([1 2 1])
+true
+```
+
 C.f. `<`:
 
 ```

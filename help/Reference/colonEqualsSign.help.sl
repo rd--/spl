@@ -19,6 +19,15 @@ The value of an assignment expression is the value being assigned:
 (0, 7, 4)
 ```
 
+Assigning to multiple variables:
+
+```
+>>> var x, y;
+>>> x := y := 1;
+>>> (x, y)
+(1, 1)
+```
+
 The _:=_ symbol is also part of `AtPut Syntax` and `Quoted AtPut Syntax`.
 
 Where supported `:=` is displayed either as ← or ≔.

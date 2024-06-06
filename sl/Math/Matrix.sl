@@ -954,6 +954,49 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.deepCopy.reducedRowEchelonForm
 	}
 
+	singularValueDecomposition { :self :tolerance |
+		let a = self;
+		let [m, n] = a.shape;
+		let loopMax = 100 * m.max(n);
+		let loopCount = 0;
+		let u = m.identityMatrix;
+		let s = a.conjugateTranspose;
+		let v = n.identityMatrix;
+		let err = inf;
+		let ss = nil;
+		{
+			err > tolerance & {
+				loopCount < loopMax
+			}
+		}.whileTrue {
+			var q, e, f;
+			[q, s] := qrDecomposition(s.conjugateTranspose);
+			u := u.dot(q);
+			[q, s] := qrDecomposition(s.conjugateTranspose);
+			v := v.dot(q);
+			e := s.deepCopy.upperTriangularize(1).concatenation.norm;
+			f := s.diagonal.norm;
+			err := (f = 0 || (f = 1)).if {
+				0
+			} {
+				e / f
+			};
+			loopCount := loopCount + 1
+		};
+		ss := s.diagonal;
+		s := [0].reshape([m, n]);
+		1.toDo(ss.size) { :n |
+			let ssn = ss[n];
+			s[n][n] := ssn.abs;
+			(ssn < 0).ifTrue {
+				1.toDo(m) { :i |
+					u[i][n] := u[i][n].negated
+				}
+			}
+		};
+		[u, s, v]
+	}
+
 	submatrix { :self :r :c |
 		{ :i :j |
 			self[i][j]

@@ -6,18 +6,28 @@
 The unary form answers the maximum value in the collection.
 The collection must be non-empty and contain compatible Magnitudes.
 
+At `Range`:
+
 ```
 >>> 1:10.max
 10
+```
 
+At `List`:
+
+```
 >>> [4 1 7 2].max
 7
+```
 
+It is an error if the collection is empty:
+
+```
 >>> { [].max }.ifError { true }
 true
 ```
 
-The binary form answer the receiver or the argument, whichever has the greater magnitude.
+The binary form answers whichever argument has the greater magnitude:
 
 ```
 >>> 9.max(2)
@@ -29,6 +39,13 @@ The binary form allows vector operands:
 ```
 >>> [1 3 5].max([5 3 1])
 [5 3 5]
+```
+
+Largest element of an integer vector:
+
+```
+>>> [23 42 37 18 52].max
+52
 ```
 
 Largest `Complex` element of vector:

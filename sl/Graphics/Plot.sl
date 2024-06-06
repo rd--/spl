@@ -3,10 +3,21 @@
 +@Sequence {
 
 	cliPlot { :self :format |
-		let plotData = self.isVector.if {
-			[[1 .. self.size], self.asList].transposed
+		let shape = self.shape;
+		let d = shape.size;
+		let plotData = (d = 1).if {
+			[[1 .. self.size], self].transposed
 		} {
-			self.collect(asList:/1).asList
+			(d = 2).if {
+				let [m, n] = shape;
+				(m = 2).if {
+					self.transposed
+				} {
+					self
+				}
+			} {
+				self.error('cliPlot: dimensions > 2')
+			}
 		};
 		let fileName = '/tmp/listPlot.json';
 		fileName.writeTextFile(plotData.asJson).then { :unused |

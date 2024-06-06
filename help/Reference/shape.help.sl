@@ -108,6 +108,8 @@ _Apl_
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/dollar),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Dimensions.html)
+[1](https://reference.wolfram.com/language/ref/Dimensions.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/size.html)
 
 Unicode: U+2374 ⍴ Apl Functional Symbol Rho

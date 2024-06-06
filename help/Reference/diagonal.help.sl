@@ -1,7 +1,6 @@
 # diagonal
 
-- _diagonal(aMatrix, anInteger)_
-- _diagonal(alpha)_ => _diagonal(alpha, 0)_
+- _diagonal(aMatrix, anInteger=0)_
 
 Answer the list of elements on the leading diagonal,
 or on the _anInteger-th_ diagonal,
@@ -57,11 +56,24 @@ _diagonal(m, k)_ for an _n × n_ matrix gives non-empty results for _1 - n <= k 
 
 ```
 >>> [4 4].fill { :index | index[2] - index[1] }
-[0 1 2 3; -1 0 1 2; -2 -1 0 1; -3 -2 -1 0]
+[
+	 0  1  2  3;
+	-1  0  1  2;
+	-2 -1  0  1;
+	-3 -2 -1  0
+]
 
 >>> let m = [4 4].fill { :index | index[2] - index[1] };
 >>> -3:3.collect { :k | m.diagonal(k) }
-[-3; -2 -2; -1 -1 -1; 0 0 0 0; 1 1 1; 2 2; 3]
+[
+	-3;
+	-2 -2;
+	-1 -1 -1;
+	 0  0  0  0;
+	 1  1  1;
+	 2  2;
+	 3
+]
 ```
 
 * * *
@@ -70,4 +82,6 @@ See also: trace
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Diagonal.html)
+[1](https://reference.wolfram.com/language/ref/Diagonal.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/diag.html)

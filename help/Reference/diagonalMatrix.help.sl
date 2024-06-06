@@ -1,7 +1,6 @@
 # diagonalMatrix
 
-- _diagonalMatrix(aList)_
-- _diagonalMatrix(aList, anInteger)_
+- _diagonalMatrix(aList, anInteger=0)_
 
 Answer a matrix with the elements of _aList_ on the leading `diagonal`, and `zero` elsewhere.
 In the binary case answer super- or sub-diagonal matrices.
