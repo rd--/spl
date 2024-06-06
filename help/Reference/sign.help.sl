@@ -65,12 +65,16 @@ The binary form answers a `Number` with the same sign as _anotherNumber_ and the
 -3
 ```
 
-Plot the `real` and `imaginary` parts of the `sign` function:
+Plot the `real` part of the `sign` function:
 
 ~~~
-(-3, -2.95 .. 3).collect { :x | x.j(1).sign.real }.plot
+(-3 -- 3).functionPlot { :x | x.j(1).sign.real }
+~~~
 
-(-3, -2.95 .. 3).collect { :x | x.j(1).sign.imaginary }.plot
+Plot the `imaginary` part of the `sign` function:
+
+~~~
+(-3 -- 3).functionPlot { :x | x.j(1).sign.imaginary }
 ~~~
 
 * * *

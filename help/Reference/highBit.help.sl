@@ -39,7 +39,7 @@ true
 Plot it:
 
 ~~~
-(0 .. 2 ^ 11 - 1).collect(highBit:/1).plot
+(0 .. 2 ^ 11 - 1).functionPlot(highBit:/1)
 ~~~
 
 * * *

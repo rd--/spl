@@ -24,7 +24,7 @@ Plot of first two hundred terms of _f(n) / (n ^ theta)_, the minima of which :
 let b = { :k | k.digitCount(2, 1) };
 let f = { :n | (0 .. n - 1).collect { :k | 2 ^ b(k) }.sum };
 let n = 1:200;
-(n.collect(f:/1) / (n ^ 3.log(2))).plot
+(n.collect(f:/1) / (n ^ 3.log(2))).linePlot
 ~~~
 
 * * *

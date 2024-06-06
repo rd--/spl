@@ -23,16 +23,16 @@ In the ternary form apply _aBlock_ to each element during construction.
 [1 1.648721 2.718282]
 ```
 
-Plot `exp` function at one hundred places from zero to five:
+Plot `exp` function from `zero` to `five`:
 
 ~~~
-(0 -- 5).discretize(100, exp:/1).plot
+(0 -- 5).functionPlot(exp:/1)
 ~~~
 
 Plot `hannFunction`:
 
 ~~~
-(-0.5 -- 0.5).discretize(100, hannWindow:/1).plot
+(-0.5 -- 0.5).functionPlot(hannWindow:/1)
 ~~~
 
 * * *

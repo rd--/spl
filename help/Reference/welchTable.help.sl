@@ -5,7 +5,7 @@
 Answer a `List` describing a _Welch window_ of the indicated size.
 
 ~~~
-1024.welchTable.plot
+1024.welchTable.linePlot
 ~~~
 
 * * *

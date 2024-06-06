@@ -29,7 +29,7 @@ Threads elementwise over lists and matrices:
 Plot over a subset of the reals:
 
 ~~~
-(0, 0.05 .. 5 * pi).haversine.plot
+(0 -- 5.pi).functionPlot(haversine:/1)
 ~~~
 
 * * *

@@ -25,7 +25,7 @@ Most frequent gaps in initial primes sequence:
 Plot:
 
 ~~~
-1:999.collect(nthPrimeGap:/1).plot
+1:999.functionPlot(nthPrimeGap:/1)
 ~~~
 
 * * *

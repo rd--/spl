@@ -156,9 +156,9 @@ At zero and negative one and one:
 Plot the number of distinct prime factors of the first 100 numbers:
 
 ~~~
-1:99.collect { :each |
+1:99.functionPlot { :each |
 	each.factorInteger.size
-}.plot
+}
 ~~~
 
 * * *

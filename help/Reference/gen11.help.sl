@@ -9,19 +9,19 @@ The answer is scaled to unity.
 A cosine table:
 
 ~~~
-(2 ^ 10).gen11(1, 1, 1).plot
+(2 ^ 10).gen11(1, 1, 1).linePlot
 ~~~
 
 An approximation of a sawtooth wave, fundamental and eight harmonics:
 
 ~~~
-(2 ^ 10).gen11(10, 1, 0.7).plot
+(2 ^ 10).gen11(10, 1, 0.7).linePlot
 ~~~
 
 An approximation of a square wave, fundamental and eight harmonics, four zeroed:
 
 ~~~
-(2 ^ 10).gen11(10, 5, 2).plot
+(2 ^ 10).gen11(10, 5, 2).linePlot
 ~~~
 
 * * *

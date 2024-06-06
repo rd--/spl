@@ -101,9 +101,9 @@ Linear rescaling from (0, 1) to (3, 9):
 Plot over a subset of the reals:
 
 ~~~
-(-3, -2.99 .. 3).collect { :each |
+(-3 -- 3).functionPlot { :each |
 	each.rescale(-2, 2)
-}.plot
+}
 ~~~
 
 * * *

@@ -8,20 +8,20 @@ Plot `pdf` over a subset of the reals:
 
 ~~~
 let d = NormalDistribution(0, 1);
-(-3 -- 3).subdivide(500).collect { :x | d.pdf(x) }.plot
+(-3 -- 3).functionPlot { :x | d.pdf(x) }
 ~~~
 
 Plot `cdf` over a subset of the reals:
 
 ~~~
 let d = NormalDistribution(0, 1);
-(-3 -- 3).subdivide(500).collect { :x | d.cdf(x) }.plot
+(-3 -- 3).functionPlot { :x | d.cdf(x) }
 ~~~
 
 Plot `randomVariate`:
 
 ~~~
-NormalDistribution(0, 1).randomVariate(500).plot
+NormalDistribution(0, 1).randomVariate(500).linePlot
 ~~~
 
 * * *

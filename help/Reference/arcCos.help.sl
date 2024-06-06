@@ -49,7 +49,7 @@ n
 Plot over a subset of the reals:
 
 ~~~
-(-0.95, -0.90 .. 0.95).arcCos.plot
+(-0.95 -- 0.95).functionPlot(arcCos:/1)
 ~~~
 
 * * *

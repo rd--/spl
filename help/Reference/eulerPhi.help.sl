@@ -56,13 +56,13 @@ the totient of _n_ is equal to the `product` of the totients of each factor of _
 Plot the sequence:
 
 ~~~
-1:100.collect(eulerPhi:/1).plot
+1:100.functionPlot(eulerPhi:/1)
 ~~~
 
 Plot the cumulative `sum` of `eulerPhi`:
 
 ~~~
-1:50.eulerPhi.prefixSum.plot
+1:50.eulerPhi.prefixSum.linePlot
 ~~~
 
 * * *

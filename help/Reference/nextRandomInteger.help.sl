@@ -21,10 +21,10 @@ Answer the next thirteen random integers between one and nine:
 [5 2 4 7 3 9 6 2 7 6 3 1 3]
 ```
 
-Plot uniform distribution:
+Plot, uniform distribution:
 
 ~~~
-({ system.nextRandomInteger(1, 99) } ! 99).plot
+({ system.nextRandomInteger(1, 99) } ! 99).linePlot
 ~~~
 
 * * *

@@ -54,7 +54,7 @@ Fibonomial coefficients:
 Plot over a subset of the reals:
 
 ~~~
-(-2 -- 2).subdivide(500).fibonacci.plot
+(-2 -- 2).functionPlot(fibonacci:/1)
 ~~~
 
 The sequence of _F(n) % m_ is periodic with respect to _n_ for a fixed natural number _m_:
@@ -66,23 +66,23 @@ The sequence of _F(n) % m_ is periodic with respect to _n_ for a fixed natural n
 Fibonacci numbers modulo 10:
 
 ~~~
-(1:100.fibonacci % 10).plot
+(1:100.fibonacci % 10).discretePlot
 ~~~
 
 Plot Fibonacci modulo _n_:
 
 ~~~
-1:200.collect { :n |
+1:200.functionPlot { :n |
 	n.fibonacci % n
-}.plot
+}
 ~~~
 
 Log plot of positive and negative Fibonacci numbers:
 
 ~~~
-(-10 -- 10).subdivide(500).collect { :x |
+(-10 -- 10).functionPlot { :x |
 	(x.fibonacci.abs + 1).log
-}.plot
+}
 ~~~
 
 * * *

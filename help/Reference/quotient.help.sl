@@ -70,7 +70,7 @@ true
 Plot the sequence of quotients:
 
 ~~~
-1:50.collect { :n | n // 8 }.plot
+1:50.functionPlot { :n | n // 8 }
 ~~~
 
 `remainder` answers the remainder from this division.

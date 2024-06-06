@@ -19,7 +19,7 @@
 Line plot of the first one-thousand terms:
 
 ~~~
-1000.recamanSequence.plot
+1000.recamanSequence.linePlot
 ~~~
 
 Scatter plot of the first two-thousand terms:

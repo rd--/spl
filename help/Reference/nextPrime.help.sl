@@ -45,7 +45,7 @@ true
 Plot the sequence of primes:
 
 ~~~
-0:50.collect { :x | x.nextPrime }.plot
+0:50.functionPlot(nextPrime:/1)
 ~~~
 
 * * *

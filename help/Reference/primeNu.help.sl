@@ -39,7 +39,7 @@ true
 Plot the `primeNu` sequence for the first 100 numbers:
 
 ~~~
-1:100.collect(primeNu:/1).plot
+1:100.functionPlot(primeNu:/1)
 ~~~
 
 * * *

@@ -50,7 +50,7 @@ Generate a random 9×9 matrix of `zero` and `one` entries:
 Plot a random walk with steps of unit length:
 
 ~~~
-Sfc32(28974).randomChoice([-1 1], 50).accumulate.plot
+Sfc32(28974).randomChoice([-1 1], 50).accumulate.linePlot
 ~~~
 
 * * *

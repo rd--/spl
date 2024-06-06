@@ -63,7 +63,7 @@ Generate a banded matrix with two superdiagonals:
 Plot over a subset of the integers:
 
 ~~~
--2:2.collect { :each | each.kroneckerDelta(0) }.plot
+-2:2.functionPlot { :each | each.kroneckerDelta(0) }
 ~~~
 
 * * *

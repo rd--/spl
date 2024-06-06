@@ -10,7 +10,7 @@ Values closer to x1 are more likely to occur.
 Biased to -1:
 
 ~~~
-({ system.nextRandomFloatLinearDistribution(-1, 1) } ! 99).plot
+({ system.nextRandomFloatLinearDistribution(-1, 1) } ! 99).linePlot
 ~~~
 
 * * *

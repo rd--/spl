@@ -52,7 +52,7 @@ Approximations:
 Plot the prime counting function:
 
 ~~~
-1:999.collect { :each | each.sieveOfEratosthenes.size }.plot
+1:999.functionPlot { :each | each.sieveOfEratosthenes.size }
 ~~~
 
 * * *

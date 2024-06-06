@@ -24,7 +24,7 @@ The first three random numbers given the seed _12345_:
 Plot 99 random floating point numbers between `zero` and `one`:
 
 ~~~
-Sfc32(98765).next(99).plot
+Sfc32(98765).next(99).linePlot
 ~~~
 
 * * *

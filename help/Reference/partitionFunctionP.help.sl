@@ -39,7 +39,7 @@ Initial triangle of _P(n, k)_:
 Plot the number of unrestricted partitions:
 
 ~~~
-0:50.collect(partitionFunctionP:/1).asFloat.log10.plot
+0:50.functionPlot { :x | x.partitionFunctionP.asFloat.log10 }
 ~~~
 
 * * *

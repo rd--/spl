@@ -117,13 +117,13 @@ Solve the discrete log problem with _5 ^ m % 7 = 4:
 Plot the sequence with a fixed modulus:
 
 ~~~
-1:50.collect { :k | k.multiplicativeOrder(7) ? { 0 } }.plot
+1:50.functionPlot { :k | k.multiplicativeOrder(7) ? { 0 } }
 ~~~
 
 Plot the sequence, varying the modulus:
 
 ~~~
-1:22.collect { :n | 7.multiplicativeOrder(n) ? { 0 } }.plot
+1:22.functionPlot { :n | 7.multiplicativeOrder(n) ? { 0 } }
 ~~~
 
 * * *

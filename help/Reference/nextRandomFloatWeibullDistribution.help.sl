@@ -17,7 +17,7 @@ Effects of _shape_:
 - _shape_ = 1: same as exponential distribution
 
 ~~~
-({ system.nextRandomFloatWeibullDistribution(0, 1, 3 / 4) } ! 99).plot
+({ system.nextRandomFloatWeibullDistribution(0, 1, 3 / 4) } ! 99).linePlot
 ~~~
 
 * * *

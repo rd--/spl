@@ -35,7 +35,7 @@ At half integer:
 Plot over a subset of the reals:
 
 ~~~
-(0.02, 0.04 .. 5).collect(logGamma:/1).plot
+(0.02 -- 5).functionPlot(logGamma:/1)
 ~~~
 
 * * *

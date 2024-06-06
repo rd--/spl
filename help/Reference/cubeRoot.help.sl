@@ -30,7 +30,7 @@ inf
 Plot over a subset of the reals:
 
 ~~~
-(-2, -1.99 .. 2).cubeRoot.plot
+(-2 -- 2).functionPlot(cubeRoot:/1)
 ~~~
 
 * * *

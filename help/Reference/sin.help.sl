@@ -75,7 +75,7 @@ Plot over a subset of the reals:
 Noncommensurate waves (quasiperiodic function):
 
 ~~~
-(0 -- 40.pi).functionPlot { :x | x.sin + (x * 2.sqrt).sin }.plot
+(0 -- 40.pi).functionPlot { :x | x.sin + (x * 2.sqrt).sin }
 ~~~
 
 * * *

@@ -34,7 +34,7 @@ C.f. `functionPlot`:
 
 * * *
 
-See also: discretePlot
+See also: discretePlot, functionPlot, linePlot, scatterPlot
 
 References:
 _Mathematica_

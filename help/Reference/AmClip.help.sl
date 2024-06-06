@@ -14,7 +14,7 @@ WhiteNoise().AmClip(SinOsc(1, 0) * 0.2)
 Plot:
 
 ~~~
-(0 -- 4.pi).subdivide(512).collect { :x | AmClip(1, x.sin) }.plot
+(0 -- 4.pi).functionPlot { :x | AmClip(1, x.sin) }
 ~~~
 
 * * *

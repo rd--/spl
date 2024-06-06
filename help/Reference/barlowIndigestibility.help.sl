@@ -23,7 +23,7 @@ The indigestibility of the first sixteen integers:
 Plot the indigestibility of the first one hundred integers:
 
 ~~~
-1:100.collect(barlowIndigestibility:/1).plot
+1:100.functionPlot(barlowIndigestibility:/1)
 ~~~
 
 * * *

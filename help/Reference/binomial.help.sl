@@ -98,13 +98,13 @@ Threads over lists:
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~
-(-1.975, -1.95 .. 4).collect { :x | x.binomial(3) }.plot
+(-1.975 -- 4).functionPlot { :x | x.binomial(3) }
 ~~~
 
 Plot over a subset of the reals as a function of its second parameter:
 
 ~~~
-(-1.975, -1.95 .. 4).collect { :x | 3.binomial(x) }.plot
+(-1.975 -- 4).functionPlot { :x | 3.binomial(x) }
 ~~~
 
 * * *

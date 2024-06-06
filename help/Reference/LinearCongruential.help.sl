@@ -19,10 +19,10 @@ The first three random numbers given the seed _12345_:
 [0.15776 0.86476 0.89335]
 ```
 
-Plot 99 random floating point numbers between `zero` and `one`:
+Plot random floating point numbers between `zero` and `one`:
 
 ~~~
-LinearCongruential(98765).next(99).plot
+LinearCongruential(98765).next(99).linePlot
 ~~~
 
 * * *

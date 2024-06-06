@@ -72,19 +72,19 @@ Truth table for and:
 Plot a nested pattern:
 
 ~~~
-1:100.bitAnd(0:99).plot
+1:100.bitAnd(0:99).linePlot
 ~~~
 
 Plot bitAnd with double:
 
 ~~~
-1:63.bitAnd(2 * 1:64).plot
+1:63.bitAnd(2 * 1:64).linePlot
 ~~~
 
 Plot bitAnd with double and triple:
 
 ~~~
-1:64.collect { :i | [i, i * 2, i * 3].bitAnd }.plot
+1:64.functionPlot { :i | [i, i * 2, i * 3].bitAnd }
 ~~~
 
 Plot first six-hundred terms of OEIS [A279125](https://oeis.org/A279125):

@@ -75,7 +75,7 @@ Signs are discarded:
 Plot the least common multiple for a number with 12:
 
 ~~~
-1:100.lcm(12).plot
+1:100.lcm(12).linePlot
 ~~~
 
 * * *

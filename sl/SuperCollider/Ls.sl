@@ -467,15 +467,15 @@
 		}.take(length)
 	}
 
-	LsBrownUsing { :low :high :step :aBlock:/3 |
+	LsBrownUsing { :low :high :step :aBlock:/4 |
 		let next = nil;
 		low := LsConstant(low);
 		high := LsConstant(high);
 		step := LsConstant(step);
-		next := aBlock(system, low.next, high.next);
+		next := aBlock(system, low.next, high.next, []);
 		low.withAndCollect(high, step) { :low :high :step |
 			let answer = next;
-			next := (next + aBlock(system, step.negated, step)).foldBetweenAnd(low, high);
+			next := (next + aBlock(system, step.negated, step, [])).foldBetweenAnd(low, high);
 			answer
 		}
 	}

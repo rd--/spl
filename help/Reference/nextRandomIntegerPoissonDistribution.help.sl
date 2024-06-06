@@ -10,13 +10,13 @@ The mean and variance of the function are _aNumber_.
 Small mean and variance:
 
 ~~~
-({ system.nextRandomIntegerPoissonDistribution(1 / 9) } ! 99).plot
+({ system.nextRandomIntegerPoissonDistribution(1 / 9) } ! 99).linePlot
 ~~~
 
 Less small mean and variance:
 
 ~~~
-({ system.nextRandomIntegerPoissonDistribution(9) } ! 99).plot
+({ system.nextRandomIntegerPoissonDistribution(9) } ! 99).linePlot
 ~~~
 
 * * *

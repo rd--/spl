@@ -28,7 +28,7 @@ The base-10 digital roots of the first few integers:
 Plot:
 
 ~~~
-1:50.collect { :n | n.digitalRoot(10) }.plot
+1:50.functionPlot { :n | n.digitalRoot(10) }
 ~~~
 
 * * *

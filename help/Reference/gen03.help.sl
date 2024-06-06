@@ -8,7 +8,7 @@ Answer a `List` of _size_ places tabulating a polynomial over a fixed interval _
 First-order Chebyshev, _x_:
 
 ~~~
-513.gen03(-1, 1, [0 1]).plot
+513.gen03(-1, 1, [0 1]).linePlot
 ~~~
 
 C.f.:
@@ -20,7 +20,7 @@ C.f.:
 Second-order Chebyshev, _2x^2 - 1_:
 
 ~~~
-513.gen03(-1, 1, [-1 0 2]).plot
+513.gen03(-1, 1, [-1 0 2]).linePlot
 ~~~
 
 C.f.:
@@ -32,7 +32,7 @@ C.f.:
 Third-order Chebyshev, _4x^3 - 3x_:
 
 ~~~
-513.gen03(-1, 1, [0 -3 0 4]).plot
+513.gen03(-1, 1, [0 -3 0 4]).linePlot
 ~~~
 
 C.f.
@@ -44,7 +44,7 @@ C.f.
 Seventh-order Chebyshev, _64x^7 - 112x^5 + 56x^3 - 7x_:
 
 ~~~
-513.gen03(-1, 1, [0 -7 0 56 0 -112 0 64]).plot
+513.gen03(-1, 1, [0 -7 0 56 0 -112 0 64]).linePlot
 ~~~
 
 C.f.:
@@ -58,7 +58,7 @@ C.f.:
 A 4th order polynomial function:
 
 ~~~
-513.gen03(-1, 1, [5 4 3 2 2 1]).plot
+513.gen03(-1, 1, [5 4 3 2 2 1]).linePlot
 ~~~
 
 * * *

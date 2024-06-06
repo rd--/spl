@@ -31,11 +31,15 @@ Special cases:
 Biased low:
 
 ~~~
-({ system.nextRandomFloatEularianBetaDistribution(0, 1, 1 / 3, 3) } ! 99).plot
+({ system.nextRandomFloatEularianBetaDistribution(0, 1, 1 / 3, 3) } ! 99).linePlot
 ~~~
 
 Biased high:
 
 ~~~
-({ system.nextRandomFloatEularianBetaDistribution(0, 1, 3, 1 / 3) } ! 99).plot
+({ system.nextRandomFloatEularianBetaDistribution(0, 1, 3, 1 / 3) } ! 99).linePlot
 ~~~
+
+* * *
+
+See also: CauchyDistribution, LinearDistribution, NormalDistribution, PoissonDistribution, WeibullDistribution

@@ -19,7 +19,7 @@ Threads over lists:
 Plot curve:
 
 ~~~
-(-120 -- 0).discretize(500).DbAmp.plot
+(-120 -- 0).functionPlot(DbAmp:/1)
 ~~~
 
 Fixed amplitude:

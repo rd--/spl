@@ -40,7 +40,7 @@ Plot for a number of simple just ratios within the octave:
 [
 	1/1 9/8 7/6 6/5 5/4 21/16 7/5 4/3 11/8 3/2
 	10/7 13/8 8/5 5/3 27/16 7/4 9/5 15/8
-].tenneyHeight.plot
+].tenneyHeight.discretePlot
 ~~~
 
 * * *

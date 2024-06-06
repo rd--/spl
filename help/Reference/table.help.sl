@@ -157,7 +157,7 @@ A table of successively longer lists:
 Plot a table:
 
 ~~~
-nthPrime:/1.table(1:50).plot
+nthPrime:/1.table(1:50).linePlot
 ~~~
 
 * * *

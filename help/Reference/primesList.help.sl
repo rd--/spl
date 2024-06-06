@@ -19,7 +19,7 @@ The primes `List` is cached (memoized) by the system:
 Plot first 500 places:
 
 ~~~
-500.primesList.plot
+500.primesList.linePlot
 ~~~
 
 * * *

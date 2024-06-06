@@ -46,7 +46,7 @@ so that subsequent accesses do not require recalculation:
 Plot first fifty primes:
 
 ~~~
-1:50.collect(nthPrime:/1).plot
+1:50.functionPlot(nthPrime:/1)
 ~~~
 
 * * *

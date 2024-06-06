@@ -15,7 +15,7 @@ The answer is scaled to unity.
 A rising sigmoid:
 
 ~~~
-(2 ^ 10).gen19([[0.5 0.5 270 0.5]]).plot
+(2 ^ 10).gen19([[0.5 0.5 270 0.5]]).linePlot
 ~~~
 
 * * *

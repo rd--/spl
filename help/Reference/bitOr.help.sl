@@ -34,24 +34,6 @@ The unary form reduces over a collection:
 16383
 ```
 
-Plot a nested pattern:
-
-~~~
-1:100.bitOr(0:99).plot
-~~~
-
-Plot bitOr with double:
-
-~~~
-1:63.bitOr(2 * 1:64).plot
-~~~
-
-Plot bitOr with double and triple:
-
-~~~
-1:64.collect { :i | [i, i * 2, i * 3].bitOr }.plot
-~~~
-
 Truth table for or:
 
 ```
@@ -59,13 +41,31 @@ Truth table for or:
 [1 1; 1 0]
 ```
 
+Plot a nested pattern:
+
+~~~
+1:100.bitOr(0:99).linePlot
+~~~
+
+Plot `bitOr` with double:
+
+~~~
+1:63.bitOr(2 * 1:64).linePlot
+~~~
+
+Plot bitOr with double and triple:
+
+~~~
+1:64.functionPlot { :i | [i, i * 2, i * 3].bitOr }
+~~~
+
 * * *
 
 See also: and, bitNot, bitOr, bitXor
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/AND.html)
-[2](https://reference.wolfram.com/language/ref/BitAnd.html),
+[1](https://mathworld.wolfram.com/OR.html)
+[2](https://reference.wolfram.com/language/ref/BitOr.html),
 _Smalltalk_
 5.6.5.7

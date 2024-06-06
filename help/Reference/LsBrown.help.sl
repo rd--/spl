@@ -6,7 +6,7 @@ Brownian motion between _low_ and _high_ with maximum step size _step_.
 Steps have uniform distribution.
 
 ~~~
-LsBrown(-1, 1, 1 / 100, 99).upToEnd.plot
+LsBrown(-1, 1, 1 / 100, 99).upToEnd.linePlot
 ~~~
 
 * * *

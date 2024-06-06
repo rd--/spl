@@ -15,7 +15,7 @@ Answer the number of bits set to 1 in _anInteger_.
 Plot sequence:
 
 ~~~
-0:255.collect(bitCount:/1).plot
+0:255.functionPlot(bitCount:/1)
 ~~~
 
 * * *

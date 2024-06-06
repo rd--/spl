@@ -125,19 +125,19 @@ A logarithmic plot of `divisors` of the diatonic number 8640,
 showing the sigmoid shape typical of divisor sets:
 
 ~~~
-8640.divisors.log2.plot
+8640.divisors.log2.linePlot
 ~~~
 
 At higher resolution (ie. the divisor set of a moderately large integer):
 
 ~~~
-345600.divisors.log2.plot
+345600.divisors.log2.linePlot
 ~~~
 
 A logarithmic plot of the intervals between consecutive divisors:
 
 ~~~
-8640.divisors.log2.differences.plot
+8640.divisors.log2.differences.linePlot
 ~~~
 
 * * *

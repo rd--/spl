@@ -36,7 +36,7 @@ Threads elementwise over lists:
 Plot over a subset of the reals:
 
 ~~~
-(-5 -- 5).subdivide(200).lucasNumber.plot
+(-5 -- 5).functionPlot(lucasNumber:/1)
 ~~~
 
 * * *

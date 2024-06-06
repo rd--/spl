@@ -14,13 +14,13 @@ The answer is scaled to unity.
 An approximation of a square wave:
 
 ~~~
-(2 ^ 10).gen09([1 3 0; 3 1 0; 9 0.33333 180]).plot
+(2 ^ 10).gen09([1 3 0; 3 1 0; 9 0.33333 180]).linePlot
 ~~~
 
 The same partials and amplitude as above, with phase shifts:
 
 ~~~
-(2 ^ 10).gen09([1 3 180; 3 1 0; 9 0.33333 0]).plot
+(2 ^ 10).gen09([1 3 180; 3 1 0; 9 0.33333 0]).linePlot
 ~~~
 
 * * *

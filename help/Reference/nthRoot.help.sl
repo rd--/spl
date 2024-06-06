@@ -53,7 +53,7 @@ Threads elementwise over lists and matrices:
 Plot over a subset of the reals:
 
 ~~~
-(-1, -0.99 .. 1).collect { :x | x.nthRoot(3) }.plot
+(-1 -- 1).functionPlot { :x | x.nthRoot(3) }
 ~~~
 
 Where supported `nthRoot` is displayed as √.
