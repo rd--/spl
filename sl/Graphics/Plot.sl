@@ -5,18 +5,38 @@
 	cliPlot { :self :format |
 		let shape = self.shape;
 		let d = shape.size;
-		let plotData = (d = 1).if {
-			[[1 .. self.size], self].transposed
+		let a = 'x';
+		let c = [0];
+		let plotData = (format = 'matrix').if {
+			a := 'matrix';
+			c := [];
+			self.reversed
 		} {
-			(d = 2).if {
-				let [m, n] = shape;
-				(m = 2).if {
-					self.transposed
-				} {
-					self
-				}
+			(d = 1).if {
+				[self].transposed
 			} {
-				self.error('cliPlot: dimensions > 2')
+				(d = 2).if {
+					let [m, n] = shape;
+					(n = 1).if {
+						self
+					} {
+						(n = 2).if {
+							a := 'xy';
+							c := [0 1];
+							self
+						} {
+							(n = 3).if {
+								a := 'xyz';
+								c := [0 1 2];
+								self
+							} {
+								self.error('cliPlot: matrix columns > 3')
+							}
+						}
+					}
+				} {
+					self.error('cliPlot: array dimensions > 2')
+				}
 			}
 		};
 		let fileName = '/tmp/listPlot.json';
@@ -25,22 +45,24 @@
 				'hsc3-plot',
 				[
 					'json',
-					'xy',
+					a,
 					'--format=' ++ format,
-					fileName,
-					'0',
-					'1'
-				]
+					fileName
+				] ++ c.collect(asString:/1)
 			)
 		}
 	}
 
 	discretePlot { :self |
-		self.cliPlot('line')
+		self.cliPlot('discrete')
 	}
 
 	linePlot { :self |
 		self.cliPlot('line')
+	}
+
+	matrixPlot { :self |
+		self.cliPlot('matrix')
 	}
 
 	scatterPlot { :self |
@@ -55,20 +77,19 @@
 
 +@Collection {
 
-	basicFunctionPlot { :domain :functionBlock:/1 :processBlock:/2 |
-		domain.collect { :x |
-			processBlock(x, functionBlock(x))
-		}.linePlot
-	}
-
 	functionPlot { :domain :functionBlock:/1 |
-		domain.basicFunctionPlot(functionBlock:/1) { :x :y | [x, y] }
-	}
-
-	complexFunctionPlot { :domain :functionBlock:/1 |
-		domain.basicFunctionPlot(functionBlock:/1) { :_ :y |
-			y.asList
-		}
+		domain.collect { :x |
+			let y = functionBlock(x);
+			y.isSequence.if {
+				y
+			} {
+				y.isComplex.if {
+					y.asList
+				} {
+					[x, y]
+				}
+			}
+		}.linePlot
 	}
 
 }
@@ -77,10 +98,6 @@
 
 	functionPlot { :domain :functionBlock:/1 |
 		domain.subdivide(500).functionPlot(functionBlock:/1)
-	}
-
-	complexFunctionPlot { :domain :functionBlock:/1 |
-		domain.subdivide(1000).complexFunctionPlot(functionBlock:/1)
 	}
 
 }

@@ -61,6 +61,12 @@ The Walsh matrix can be used to implement the Walsh-Hadamard transform:
 [8 0 12 0 18 0 0 10]
 ```
 
+Plot the 64×64 Walsh matrix:
+
+~~~
+64.walshMatrix.matrixPlot
+~~~
+
 * * *
 
 See also: hadamardMatrix

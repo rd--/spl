@@ -24,6 +24,12 @@ Fourier matrices are unitary, that is the inverse is equal to the conjugate tran
 true
 ```
 
+Plot the imaginary part of the 33×33 Fourier matrix:
+
+~~~
+33.fourierMatrix.imaginary.matrixPlot
+~~~
+
 * * *
 
 See also: hadamardMatrix, walshMatrix

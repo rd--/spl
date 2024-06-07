@@ -30,6 +30,21 @@ Plot a table:
 }.scatterPlot
 ~~~
 
+Plot values of iterative map:
+
+~~~
+let f = { :a :b :c :d :p |
+	let [x, y] = p;
+	[
+		(x ^ 2) - (y ^ 2) + (a * x) + (b * y),
+		(2 * x * y) + (c * x) + (d * y)
+	]
+};
+{ :p |
+	f(0.9, -0.6013, 2.0, 0.5, p)
+}.nestList([0.1 0], 5000).scatterPlot
+~~~
+
 * * *
 
 See also: discretePlot, plot

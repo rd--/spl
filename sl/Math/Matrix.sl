@@ -480,11 +480,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	}
 
 	inverse { :self |
-		(
-			self.isSquareMatrix & {
-				self.determinant ~= 0
-			}
-		).if {
+		self.isSquareMatrix.if {
 			let n = self.numberOfRows;
 			(n = 2).if {
 				let [a, b, c, d] = self.contents.concatenation;
@@ -494,12 +490,13 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 			} {
 				let m = self.contents;
 				let i = n.identityMatrix;
-				(m ++.each i).rowReduce.collect { :each |
+				let e = (m ++.each i).rowReduce;
+				e.collect { :each |
 					each.drop(n)
 				}
 			}
 		} {
-			self.error('Sequence>>inverse: not square matrix or determinant is zero')
+			self.error('Sequence>>inverse: matrix not square')
 		}
 	}
 

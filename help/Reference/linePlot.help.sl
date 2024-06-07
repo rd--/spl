@@ -1,14 +1,25 @@
 # linePlot
 
-- _linePlot(aList)_
+- _linePlot(c)_
 
-Plot a list of _y_ values (a 6 vector):
+Plot data from a collection _c_.
+
+If _c_ is a vector, plot as list of _y_ values.
+Plot a six-vector:
 
 ~~~
 [1 1 2 3 5 8].linePlot
 ~~~
 
-Plot a list of _x,y_ pairs (a 8×2 matrix):
+If _c_ is a matrix of one column, plot as list of _y_ values.
+Plot a 5×1 matrix:
+
+~~~
+[1; 3; 2; 5; 4].linePlot
+~~~
+
+If _c_ is a matrix of two columns, plot a list of _x,y_ pairs.
+Plot an 8×2 matrix:
 
 ~~~
 (0, 3 .. 21).collect { :k |
@@ -16,7 +27,8 @@ Plot a list of _x,y_ pairs (a 8×2 matrix):
 }.linePlot
 ~~~
 
-Plot a list of _x,y,z_ triples (a 6×3 matrix):
+If _c_ is a matrix of three columns, plot a list of _x,y,z_ triples.
+Plot a 6×3 matrix:
 
 ~~~
 [0 0 0; 1 0 1; 1 1 2; 2 2 2; 2 4 3; 3 6 4].linePlot

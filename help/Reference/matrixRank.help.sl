@@ -12,6 +12,9 @@ Find the number of linearly independent rows of a numerical matrix:
 
 >>> [1 0 1; 0 1 1; 0 1 1].matrixRank
 2
+
+>>> [3 2 4; -1 1 2; 9 5 10].matrixRank
+2
 ```
 
 Compute the rank of a rectangular matrix:
@@ -61,5 +64,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/MatrixRank.html)
 [2](https://reference.wolfram.com/language/ref/MatrixRank.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/rank.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Rank_(linear_algebra))

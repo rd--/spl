@@ -5,7 +5,7 @@
 Plot discrete data.
 Also called _pin_ and _stem_ plots.
 
-Plot a sequence:
+Plot a sequence of fifty places:
 
 ~~~
 1:50.collect(primePi:/1).discretePlot
@@ -15,6 +15,14 @@ Plot a random permutation of the integers up to ninety nine:
 
 ~~~
 system.randomSample(1:99, 99).discretePlot
+~~~
+
+A dense discrete plot of a cosine function:
+
+~~~
+(-7.pi -- 13.pi).subdivide(1000).collect { :x |
+	x * (x / 3).cos
+}.discretePlot
 ~~~
 
 * * *

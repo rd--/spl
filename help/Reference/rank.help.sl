@@ -61,7 +61,7 @@ The `depth` of an array is one greater than its `rank`:
 
 * * *
 
-See also: depth, isArray, isMatrix, isVector, reshape, Sequence, shape
+See also: depth, isArray, isMatrix, isVector, matrixRank, reshape, Sequence, shape
 
 References:
 _Apl_

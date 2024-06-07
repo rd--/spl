@@ -28,6 +28,24 @@ The 3×3 magic square matrix is full rank, so the reduced row echelon form is an
 3.identityMatrix
 ```
 
+Use Gauss-Jordan elimination on augmented matrices to solve a linear system and calculate the matrix inverse.
+These techniques are mainly of academic interest.
+Create a 3*3 magic square matrix.
+Add an additional column to the end of the matrix.
+This augmented matrix represents a linear system _ax=b_, with the extra column corresponding to _b_.
+
+```
+>>> let a = [8 1 6; 3 5 7; 4 9 2];
+>>> let b = [1 1 1];
+>>> let m = [a, [b].transposed].rowConcatenation;
+>>> let x = m.rowReduce.matrixColumn(4);
+>>> (x, a.dot(x) ~ b)
+(
+	[1/15 1/15 1/15],
+	true
+)
+```
+
 The 4×4 magic square matrix is rank deficient, the result is not an identity matrix:
 
 ```

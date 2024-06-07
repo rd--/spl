@@ -56,6 +56,12 @@ A _21×21_ disk matrix:
 ]
 ```
 
+Plot the 32×32 disk matrix:
+
+~~~
+32.diskMatrix.matrixPlot
+~~~
+
 * * *
 
 See also: boxMatrix, crossMatrix, diamondMatrix, euclideanDistance

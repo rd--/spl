@@ -94,6 +94,12 @@ The product of a Boolean function and a Hadamard matrix is its Walsh spectrum:
 [4 2 0 -2 0 2 0 2]
 ```
 
+Plot the 64×64 Hadamard matrix:
+
+~~~
+64.hadamardMatrix.matrixPlot
+~~~
+
 * * *
 
 See also: walshMatrix

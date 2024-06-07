@@ -1,14 +1,26 @@
 # inverse
 
-- _inverse(aMatrix)_
+- _inverse(m)_
 
-Answer the inverse of the square matrix _aMatrix_.
+Answer the inverse of the square matrix _m_.
+The dot product of _m_ and its inverse is the identity matrix.
 
 Inverse of a 2×2 real valued matrix:
 
 ```
->>> [1.4 2; 3 -6.7].inverse
-[0.43563 0.13004; 0.19506 -0.09103]
+>>> let m = [1.4 2; 3 -6.7];
+>>> let i = m.inverse;
+>>> (i, i.dot(m))
+(
+	[
+		0.43563 0.13004;
+		0.19506 -0.09103
+	],
+	[
+		1 0;
+		0 1
+	]
+)
 ```
 
 Inverses of 3×3 integer matrices:
@@ -72,17 +84,20 @@ A square matrix has an inverse if and only if it is non-singular, in which case 
 It is an error to invert a singular matrix:
 
 ```
->>> [1 2; 1 2].determinant
-0
+>>> let m = [1 2; 1 2];
+>>> (m.determinant, m.inverse)
+(0, [inf inf.negated; inf.negated inf])
 
->>> { [1 2; 1 2].inverse }.ifError { true }
-true
-
->>> [1 2 3; 4 5 6; 7 8 9].determinant
-0
-
->>> { [1 2 3; 4 5 6; 7 8 9].inverse }.ifError { true }
-true
+>>> let m = [1 2 3; 4 5 6; 7 8 9];
+>>> (m.determinant, m.inverse.dot(m))
+(
+	0,
+	[
+		1  0 -1;
+		0  1  2;
+		0  0  0
+	]
+)
 ```
 
 The classical adjoint (adjugate) of a square matrix is the `inverse` multiplied by the `determinant`:
@@ -117,5 +132,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/MatrixInverse.html)
 [2](https://reference.wolfram.com/language/ref/Inverse.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/inv.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Invertible_matrix)

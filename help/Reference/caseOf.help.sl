@@ -10,7 +10,11 @@ Answer the evaluated value of the first association whose evaluated key equals _
 >>> 'b'.caseOf(c)
 2
 
->>> let c = [{ 'a' } -> { 1 * 1 }, { 'b' } -> { 2 * 2 }, { 'c' } -> { 3 * 3 }];
+>>> let c = [
+>>> 	{ 'a' } -> { 1 * 1 },
+>>> 	{ 'b' } -> { 2 * 2 },
+>>> 	{ 'c' } -> { 3 * 3 }
+>>> ];
 >>> 'b'.caseOf(c)
 4
 ```
@@ -32,6 +36,10 @@ true
 
 * * *
 
-See also: caseOfOtherwise
+See also: caseOfOtherwise, which
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Switch.html)
 
 Categories: Casing

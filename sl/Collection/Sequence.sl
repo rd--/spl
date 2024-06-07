@@ -2879,6 +2879,17 @@
 		self.equalBy(anObject, isVeryCloseTo:/2)
 	}
 
+	which { :self |
+		valueWithReturn { :return:/1 |
+			self.do { :each |
+				each.key.value.ifTrue {
+					each.value.value.return
+				}
+			};
+			nil
+		}
+	}
+
 	withCollect { :self :aSequence :aBlock:/2 |
 		self.withCollectWrapping(aSequence, aBlock:/2)
 	}
