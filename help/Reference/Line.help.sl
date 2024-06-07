@@ -1,41 +1,30 @@
 # Line
 
-- _Line(aPoint, anotherPoint)_
+- _Line(aMatrix)_
 - _Line(start, end, dur)_
 
 Compute the `arcLength` of a line:
 
 ```
->>> Line([0 0], [1 1]).arcLength
-2.sqrt
+>>> [0 0; 1 1; 1 0; 2 0].Line.arcLength
+(2.sqrt + 2)
 ```
 
 Compute the `midpoint` of a line:
 
 ```
->>> Line([0 0], [1 1]).midpoint
-[1/2 1/2]
-```
+>>> [0 0; 1 1; 1 0; 2 0].Line.midpoint
+[1, 2.sqrt / 2]
 
-The `centroid` of a `Line` is its `midpoint`:
-
-```
->>> Line([-1 -1], [1 1]).centroid
-[0 0]
-```
-
-The `arcLength` of a `Line` in two-dimensions:
-
-```
->>> Line([0 0], [1 1]).arcLength
-2.sqrt
+>>> [0 0 0; 1 1 1; 1 0 1; 0 0 1].Line.midpoint
+[1, 3.sqrt / 2, 1]
 ```
 
 The `arcLength` of a `Line` in three-dimensions:
 
 ```
->>> Line([0 0 0], [1 1 1]).arcLength
-3.sqrt
+>>> [0 0 0; 1 1 1; 0 1 1; 0 1 0].Line.arcLength
+(3.sqrt + 2)
 ```
 
 The ternary form is a Line generator.
@@ -75,6 +64,8 @@ _Csound_
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Line.html),
 _SuperCollider_
-[1](https://doc.sccode.org/Classes/Line.html)
+[1](https://doc.sccode.org/Classes/Line.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Polygonal_chain)
 
-Categories: Ugen
+Categories: Geometry, Ugen

@@ -21,9 +21,9 @@ There may be elements that are equally near:
 Plot the `nearest` of a list of:
 
 ~~~
-0:10.collect { :x |
+(0 -- 10).functionPlot { :x |
 	[1 3 4 7 8].nearest(x, -).first
-}.discretePlot
+}
 ~~~
 
 * * *

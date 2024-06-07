@@ -27,7 +27,7 @@ Sl {
 		TemporaryDictionaryInitializer |
 		TemporaryListInitializer
 	TemporaryBlockLiteralInitializer = varName "=" Block ~("." | operator)
-	TemporaryExpressionInitializer = varName "=" Expression
+	TemporaryExpressionInitializer = varNameOrUnused "=" Expression
 	TemporaryDictionaryInitializer = "(" NonemptyListOf<keyName, ","> ")" "=" Expression
 	TemporaryListInitializer = "[" NonemptyListOf<varNameOrUnused, ","> "]" "=" Expression
 	LetTemporary = "let" TemporaryInitializer ";"

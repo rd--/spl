@@ -53,22 +53,95 @@ InfiniteLine : [Object] { | point vector |
 
 }
 
-Line : [Object] { | matrix |
+LineSegment : [Object] { | u v |
 
 	arcLength { :self |
-		self[1].euclideanDistance(self[2])
+		self.u.euclideanDistance(self.v)
 	}
 
 	at { :self :index |
-		self.matrix[index]
+		index.caseOf([
+			1 -> { self.u },
+			2 -> { self.v }
+		])
 	}
 
 	centroid { :self |
 		self.midpoint
 	}
 
+	dimensions { :self |
+		1
+	}
+
+	distance { :self :aPoint |
+		[self.u, self.v].pointLineDistance(aPoint)
+	}
+
+	embeddingDimension { :self |
+		self.u.size
+	}
+
+	includes { :self :aPoint |
+		self.distance(aPoint).isVeryCloseTo(0)
+	}
+
 	midpoint { :self |
-		self[1].midpoint(self[2])
+		self.u.midpoint(self.v)
+	}
+
+	nearestPoint { :self :aPoint |
+	}
+
+	size { :self |
+		2
+	}
+
+}
+
+Line : [Object] { | matrix |
+
+	arcLength { :self |
+		let answer = 0;
+		self.matrix.adjacentPairsDo { :u :v |
+			answer := answer + u.euclideanDistance(v)
+		};
+		answer
+	}
+
+	at { :self :index |
+		self.matrix[index]
+	}
+
+	dimensions { :self |
+		1
+	}
+
+	embeddingDimension { :self |
+		self.matrix.first.size
+	}
+
+	midpoint { :self |
+		let p = self.matrix;
+		let l = self.arcLength;
+		let h = l / 2;
+		let i = 1;
+		let c1 = 0;
+		let c2 = c1;
+		let _ = {
+			c2 < h
+		}.whileTrue {
+			c1 := c2;
+			c2 := c1 + p[i].euclideanDistance(p[i + 1]);
+			i := i + 1
+		};
+		let d = h - c1;
+		let v = p[i] - p[i - 1];
+		p[i - 1] + (v.normalize * d)
+	}
+
+	size { :self |
+		self.matrix.size
 	}
 
 }
@@ -177,8 +250,12 @@ Polygon : [Object] { | coordinates |
 		newInfiniteLine().initializeSlots(aPoint, aVector)
 	}
 
-	Line { :u :v |
-		newLine().initializeSlots([u, v])
+	Line { :aMatrix |
+		newLine().initializeSlots(aMatrix)
+	}
+
+	LineSegment { :u :v |
+		newLineSegment().initializeSlots(u, v)
 	}
 
 	lineEquation { :p1 :p2 |
@@ -236,13 +313,44 @@ Polygon : [Object] { | coordinates |
 		newPoint().initializeSlots(vector)
 	}
 
-	pointLineDistance { :line :point |
-		let [p1, p2] = line;
-		let p0 = point;
+	pointLineDistance { :aLine :aPoint |
+		let [p1, p2] = aLine;
+		let p0 = aPoint;
 		(p0.size = 2).if {
 			(2 * [p0, p1, p2].shoelaceFormula).abs / p1.euclideanDistance(p2).abs
 		} {
 			(p0 - p1).cross(p0 - p2).norm / (p2 - p1).norm
+		}
+	}
+
+	pointLineNearest { :l :p |
+		let [a, b] = l;
+		let u = p - a;
+		let v = b - a;
+		let r = projection(u, v);
+		a + r
+	}
+
+	pointLineSegmentNearest { :l :p |
+		let [a, b] = l;
+		let d = a.euclideanDistance(b);
+		(d = 0).if {
+			a
+		} {
+			let u = p - a;
+			let v = b - a;
+			let r = projection(u, v);
+			let t = v.vectorAngle(r);
+			(t ~ pi).if {
+				a
+			} {
+				let i = a + r;
+				(a.euclideanDistance(i) > d).if {
+					b
+				} {
+					i
+				}
+			}
 		}
 	}
 

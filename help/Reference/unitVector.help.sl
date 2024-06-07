@@ -20,7 +20,7 @@ The unit vector in the _y_ direction in three dimensions:
 
 * * *
 
-See also: identityMatrix, kroneckerDelta, List, normalize, rotationMatrix
+See also: identityMatrix, kroneckerDelta, List, norm, normalize, rotationMatrix
 
 References:
 _Mathematica_

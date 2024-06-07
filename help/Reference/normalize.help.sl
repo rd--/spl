@@ -8,6 +8,9 @@ Equivalent to _v / v.norm_, except that zero vectors (or vectors with `norm` ver
 At `List` of `Integer`:
 
 ```
+>>> [1 1].normalize
+([1 1] / 2.sqrt)
+
 >>> [1 5 1].normalize
 ([1 5 1] / (3 * 3.sqrt))
 

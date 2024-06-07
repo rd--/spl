@@ -53,15 +53,25 @@ Sum is implemented efficiently for `Bag` as a sum of products:
 (3 * 3) + (5 * 5)
 ```
 
+The sum of an empty collection is `zero`:
+
+```
+>>> [].sum
+0
+```
+
 Where supported `sum` is displayed as Σ.
 
 * * *
 
-See also: +, product, reduce
+See also: +, product, injectInto, reduce
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Total.html)
+[1](https://mathworld.wolfram.com/Total.html),
+[2](https://mathworld.wolfram.com/Sum.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/sum.html)
 
 Unicode: U+03A3 Σ Greek Capital Letter Sigma
 

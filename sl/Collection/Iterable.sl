@@ -356,7 +356,7 @@
 	}
 
 	sum { :self |
-		self.reduce(+)
+		self.injectInto(0, +)
 	}
 
 	sumOfSquares { :self |

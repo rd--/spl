@@ -1,8 +1,8 @@
 # pointLineDistance
 
-- _pointLineDistance(aLine, aPoint)_
+- _pointLineDistance(l, p)_
 
-Answer the distance from _aLine_ to _aPoint_.
+Answer the distance from the infinite line _l_ to the point _p_.
 
 In two dimensions:
 

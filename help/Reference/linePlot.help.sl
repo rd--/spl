@@ -16,6 +16,12 @@ Plot a list of _x,y_ pairs:
 }.linePlot
 ~~~
 
+Plot a list of _x,y,z_ triples:
+
+~~~
+[0 0 0; 1 0 1; 1 1 2; 2 2 2; 2 4 3; 3 6 4].linePlot
+~~~
+
 * * *
 
 References:

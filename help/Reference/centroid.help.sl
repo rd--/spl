@@ -14,7 +14,7 @@ Find the centroid of a `Circle`:
 Find the centroid of a `Line`:
 
 ```
->>> Line([0 0], [2 2]).centroid
+>>> LineSegment([0 0], [2 2]).centroid
 [1 1]
 ```
 

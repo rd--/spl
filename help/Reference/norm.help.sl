@@ -18,6 +18,9 @@ At `Complex`:
 At `List`:
 
 ```
+>>> [1 1].norm
+2.sqrt
+
 >>> [1 -2 3].norm
 3.7417
 
