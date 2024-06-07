@@ -2,7 +2,7 @@
 
 - _randomInteger(r, min, max, shape)_
 
-Answer an array of the indicated _shape_ containg random integer between _min_ and _max_.
+Answer an array of the indicated _shape_ containing random integer between _min_ and _max_.
 
 Generate a random integer between one and nine, inclusive:
 

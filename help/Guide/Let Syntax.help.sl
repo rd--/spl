@@ -97,6 +97,8 @@ s + (0.2 * y)
 
 * * *
 
-See also: Var Syntax
+See also: =, _, let
+
+Guides: List Assignment Syntax, Var Syntax
 
 Categories: Syntax

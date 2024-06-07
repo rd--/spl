@@ -42,7 +42,7 @@ To write a descending `Range` see `Range Syntax` or `thenTo` or `toBy`:
 _Rationale_:
 The behaviour when _stop < start_ is inherited from Smalltalk,
 and mirrors the behaviour at Haskell.
-It allows writing _1.to(k)_ as a seqeuence of indices into collection of size _k_,
+It allows writing _1.to(k)_ as a sequence of indices into collection of size _k_,
 where _k_ may be zero.
 
 * * *

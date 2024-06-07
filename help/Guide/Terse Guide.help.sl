@@ -378,7 +378,7 @@ let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } {- answer shuffled copy -}
 [].includesAllOf([3 .. 7]) = false
 5.fill(negated:/1) = [-1 .. -5] {- fill array with answers of a block applied to each index -}
 let r = Sfc32(12345); r.randomInteger(1, 9, 5) = [8, 5, 9, 9, 4] {- duplicate block -}
-let r = Sfc32(12345); { r.randomInteger(1, 9) } ! 5 = [8, 5, 9, 9, 4] {- duplicate block -}
+let r = Sfc32(12345); { r.randomInteger(1, 9, []) } ! 5 = [8, 5, 9, 9, 4] {- duplicate block -}
 List(5).fillFromWith(1:5, negated:/1) = [-1 .. -5]
 let a = List(5); a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
 let a = List(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
@@ -1079,10 +1079,10 @@ Colour(0.9, 0.75, 0).isYellow {- is colour "yellow" -}
 Colour(0, 0.75, 0.9).isCyan {- is colour "cyan" -}
 Colour(0.9, 0, 0.75).isMagenta {- is colour "magenta" -}
 Hsv(0, 0, 0).isBlack & { Hsv(0, 0, 1).isWhite } {- hue (in degrees) & saturation & value (in 0-1) -}
-Hsv(0, 1, 1).isRed & { Hsv(120, 1, 1).isGreen } & { Hsv(240, 1, 1).isBlue }
-Hsv(60, 1, 1).isYellow & { Hsv(180, 1, 1).isCyan } & { Hsv(300, 1, 1).isMagenta }
+Hsv(0, 1, 1).isRed & { Hsv(120 / 360, 1, 1).isGreen } & { Hsv(240 / 360, 1, 1).isBlue }
+Hsv(60 / 360, 1, 1).isYellow & { Hsv(180 / 360, 1, 1).isCyan } & { Hsv(300 / 360, 1, 1).isMagenta }
 Hsv(0, 0, 0.5).isGreyOf(0.5) & { Hsv(0, 0, 0.75).isGreyOf(0.75) }
-Hsv(0, 1, 0.75).isRed & { Hsv(120, 1, 0.5).isGreen } & { Hsv(240, 1, 0.5).isBlue }
+Hsv(0, 1, 0.75).isRed & { Hsv(120 / 360, 1, 0.5).isGreen } & { Hsv(240 / 360, 1, 0.5).isBlue }
 0.5.srgbFromLinear = 0.7353569830524495 {- transfer function from (linear) rgb to srgb -}
 0.7353569830524495.srgbToLinear = 0.5 {- transfer function from srgb to (linear) rgb -}
 let c = Colour(1, 0, 0, 0.5); let z = c.copy; z.green := 1; c ~= z & { z = Colour(1, 1, 0, 0.5) } {- copy colour -}
@@ -1409,7 +1409,7 @@ system.includesPackage('Duration') {- duration package -}
 2.weeks - 12.days = 48.hours {- subtraction of durations -}
 0.25.seconds + 500.milliseconds = 750.milliseconds
 500.milliseconds + 0.25.seconds = 0.75.seconds
-let f = { :t0 | let t1 = 2.randomFloat.seconds; f:/1.valueAfterWith(t1, t1) }; f(2.seconds).cancel = nil
+let f = { :t0 | let t1 = system.randomReal(0, 2, []).seconds; f:/1.valueAfterWith(t1, t1) }; f(2.seconds).cancel = nil
 2.minutes < 2.hours {- durations are magnitudes -}
 2.hours > 2.minutes {- durations are magnitudes -}
 60.seconds.milliseconds = 60000 {- convert duration to milliseconds -}
@@ -1704,7 +1704,7 @@ let g = [1 2; 2 3; 3 1].asGraph; g.vertexCount = 3 & { g.edgeCount = 3 }
 
 ## Hash -- murmur hash
 ```
-'String Input'.murmur3(2166136261) = [2006581733, 2651545595, 2673830536, 2103835251]
+'String Input'.hash = 2006581733
 ```
 
 ## Heap -- collection type
@@ -2520,7 +2520,7 @@ let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 ({ system.nextRandomFloat } ! 3).allSatisfy(isNumber:/1) = true
 at:/2.parameterNames = ['self', 'index'] {- answer names of method parameters -}
 asJson:/3.parameterNames = ['self', 'replacer', 'space'] {- answer names of method parameters -}
-randomFloat:/3.parameterNames = ['self', 'min', 'max'] {- answer names of method parameters -}
+randomReal:/4.parameterNames = ['self', 'min', 'max', 'shape'] {- answer names of method parameters -}
 system.methodDictionary::at[2]::Map.information.parameterNames = ['self', 'key']
 let c = []; let a = []; 1:3.do { :i | c.add { a.add(i) } }; c.do(value:/1); a = [1, 2, 3]
 let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] {- closure -}
@@ -2559,8 +2559,8 @@ let p = Promise { :t:/1 :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isP
 let p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
 let p = Promise { :t :f:/1 | f('f') }; p.then { :t | t.postLine }.onRejection { :f | (f = 'f').postLine }; p.isPromise
 let p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }.finally { 'true'.postLine }; p.isPromise
-let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter(0.15.randomFloat) } }; [1.f, 2.f, 3.f].anyFulfilled.then { :t | [1, 2, 3].includes(t).postLine }; true
-let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter(0.05.randomFloat) } }; ['x'.f, 'y'.f, 'z'.f].allFulfilled.then { :t | (t = ['x', 'y', 'z']).postLine }; true
+let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter((0 -- 0.15).atRandom) } }; [1.f, 2.f, 3.f].anyFulfilled.then { :t | [1, 2, 3].includes(t).postLine }; true
+let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter((0 -- 0.05).atRandom) } }; ['x'.f, 'y'.f, 'z'.f].allFulfilled.then { :t | (t = ['x', 'y', 'z']).postLine }; true
 ```
 
 ## Pseudo variables
@@ -2576,15 +2576,15 @@ inf.isNumber {- constant (infinity) -}
 ```
 system.includesPackage('RandomNumberGenerator') {- package -}
 let r = Sfc32(); r.isStream = true
-let r = Sfc32(); r.randomInteger(1, 9).isInteger {- random integer between 1 and 9 inclusive -}
-system.randomInteger(1, 9).isInteger {- random integers (1 to self) -}
+let r = Sfc32(); r.randomInteger(1, 9, []).isInteger {- random integer between 1 and 9 inclusive -}
+system.randomInteger(1, 9, []).isInteger {- random integers (1 to self) -}
 let s = Set(); 729.timesRepeat { s.include(9.atRandom) }; s.minMax = [1, 9] {- check distribution -}
 let s = Set(); 729.timesRepeat { s.include(9.atRandom) }; s = 1:9.asSet {- check distribution -}
-let s = Set(); 729.timesRepeat { s.include(system.randomInteger(-3, 3)) }; s = -3:3.asSet {- check distribution -}
-system.randomFloat(0, 9).isNumber {- random floating point number (0 to self) -}
-let s = Set(); 729.timesRepeat { s.include(system.randomFloat(0, 9).rounded) }; s.minMax = [0, 9] {- check distribution -}
-system.randomInteger(3, 9).isInteger {- random integer in range -}
-system.randomFloat(3, 9).isNumber {- random float in range -}
+let s = Set(); 729.timesRepeat { s.include(system.randomInteger(-3, 3, [])) }; s = -3:3.asSet {- check distribution -}
+system.randomReal(0, 9, []).isNumber {- random floating point number (0 to self) -}
+let s = Set(); 729.timesRepeat { s.include(system.randomReal(0, 9, []).rounded) }; s.minMax = [0, 9] {- check distribution -}
+system.randomInteger(3, 9, []).isInteger {- random integer in range -}
+system.randomReal(3, 9, []).isNumber {- random float in range -}
 let b = Bag(); 5000.timesRepeat { b.add(5.atRandom) }; b.contents.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
 { [].atRandom = nil }.ifError { true } {- random element of empty collection (nil if unsafe indexing is allowed) -}
 [1].atRandom = 1 {- random element of one-element collection -}
@@ -2601,11 +2601,11 @@ let r = Sfc32(98765); r.isRandomNumberGenerator {- predicate -}
 let r = Sfc32(98765); r.nextRandomFloat = 0.49556130869314075 {- random number in [0, 1) -}
 let r = Sfc32(98765); r.nextRandomFloat * 10 = 4.9556130869314075 {- random number in [0, 10) -}
 let r = Sfc32(98765); r.nextRandomFloat * 100 = 49.556130869314075 {- random number in [0, 100) -}
-let r = Sfc32(98765); r.randomInteger(1, 1000) = 496 {- random integer in [1, 1000] -}
-let r = Sfc32(98765); r.randomInteger(1, 10000) = 4956 {- random integer in [1, 10000] -}
+let r = Sfc32(98765); r.randomInteger(1, 1000, []) = 496 {- random integer in [1, 1000] -}
+let r = Sfc32(98765); r.randomInteger(1, 10000, []) = 4956 {- random integer in [1, 10000] -}
 let r = Sfc32(); let n = r.nextRandomFloat; n >= 0 & { n < 1 } {- seed from system clock -}
-let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.randomInteger(1, 9)) }; s.minMax = [1, 9] {- check distribution -}
-let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.randomInteger(1, 9)) }; s.asList.sorted = [1 .. 9] {- check distribution -}
+let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.randomInteger(1, 9, [])) }; s.minMax = [1, 9] {- check distribution -}
+let r = Sfc32(); let s = Set(); 729.timesRepeat { s.include(r.randomInteger(1, 9, [])) }; s.asList.sorted = [1 .. 9] {- check distribution -}
 let r = Sfc32(98765); r.isStream {- stream predicate -}
 let r = Sfc32(98765); let a = r.next(9); r.reset; r.next(9) = a {- stream interface, next(k) answers next k items, reset resets -}
 ```
@@ -2613,18 +2613,18 @@ let r = Sfc32(98765); let a = r.next(9); r.reset; r.next(9) = a {- stream interf
 ## Random -- MersenneTwister
 ```
 system.includesPackage('MersenneTwister') {- Mersenne package -}
-let m = MersenneTwister(98765); m.typeOf = 'MersenneTwisterTwister' {- type of -}
+let m = MersenneTwister(98765); m.typeOf = 'MersenneTwister' {- type of -}
 let m = MersenneTwister(98765); m.isMersenneTwister {- predicate -}
 let m = MersenneTwister(98765); m.isRandomNumberGenerator {- predicate -}
 let m = MersenneTwister(98765); m.nextRandomFloat = 0.088898599949636 {- random number in [0, 1) -}
 let m = MersenneTwister(98765); m.nextRandomFloat * 10 = 0.88898599949636 {- random number in [0, 10) -}
 let m = MersenneTwister(98765); m.nextRandomFloat * 100 = 8.8898599949636 {- random number in [0, 100) -}
-let m = MersenneTwister(98765); m.randomInteger(1, 1000) = 89 {- random integer in [1, 1000] -}
-let m = MersenneTwister(98765); m.randomInteger(1, 10000) = 889 {- random integer in [1, 10000] -}
+let m = MersenneTwister(98765); m.randomInteger(1, 1000, []) = 89 {- random integer in [1, 1000] -}
+let m = MersenneTwister(98765); m.randomInteger(1, 10000, []) = 889 {- random integer in [1, 10000] -}
 let m = MersenneTwister(); let r = m.nextRandomFloat; r >= 0 & { r < 1 } {- seed from system clock -}
 MersenneTwister(123456).nextRandomFloat = 0.12696983303810094 {- test from standard tests -}
-let m = MersenneTwister(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(1, 9)) }; s.minMax = [1, 9] {- check distribution -}
-let m = MersenneTwister(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(1, 9)) }; s.asList.sorted = [1 .. 9] {- check distribution -}
+let m = MersenneTwister(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(1, 9, [])) }; s.minMax = [1, 9] {- check distribution -}
+let m = MersenneTwister(); let s = Set(); 729.timesRepeat { s.include(m.randomInteger(1, 9, [])) }; s.asList.sorted = [1 .. 9] {- check distribution -}
 let m = MersenneTwister(98765); m.isStream {- stream predicate -}
 let m = MersenneTwister(98765); let a = m.next(9); m.reset; m.next(9) = a {- stream interface, next(k) answers next k items, reset resets -}
 ```
@@ -2636,10 +2636,10 @@ let r = SplitMix(98765); r.typeOf = 'SplitMix' {- type of -}
 let r = SplitMix(98765); r.isSplitMix {- predicate -}
 let r = SplitMix(98765); r.isRandomNumberGenerator {- predicate -}
 let r = SplitMix(98765); r.nextRandomFloat = 0.08824091404676437 {- random number in [0, 1) -}
-let r = SplitMix(98765); r.randomFloat(0, 10) = 0.8824091404676437 {- random number in [0, 10) -}
-let r = SplitMix(98765); r.randomFloat(0, 100) = 8.824091404676437 {- random number in [0, 100) -}
-let r = SplitMix(98765); r.randomInteger(1, 1000) = 89 {- random integer in [1, 1000] -}
-let r = SplitMix(98765); r.randomInteger(1, 10000) = 883 {- random integer in [1, 10000] -}
+let r = SplitMix(98765); r.randomReal(0, 10, []) = 0.8824091404676437 {- random number in [0, 10) -}
+let r = SplitMix(98765); r.randomReal(0, 100, []) = 8.824091404676437 {- random number in [0, 100) -}
+let r = SplitMix(98765); r.randomInteger(1, 1000, []) = 89 {- random integer in [1, 1000] -}
+let r = SplitMix(98765); r.randomInteger(1, 10000, []) = 883 {- random integer in [1, 10000] -}
 let r = SplitMix(98765); r.isStream {- stream predicate -}
 let r = SplitMix(98765); let a = r.next(9); r.reset; r.next(9) = a {- stream interface, next(k) answers next k items, reset resets -}
 ```
@@ -2814,7 +2814,7 @@ let r = Rectangle([30, 10], [10, 20]); let c = r.center; r.containsPoint(c).not 
 let r = Rectangle([0, 0], [50, 50]); [r.center, [1.5, 1.5], r.upperLeft, r.upperRight, r.lowerLeft, r.lowerRight].collect { :each | r.containsPoint(each) } = [true, true, false, false, true, false]
 let r = Rectangle([10, 10], [20, 30]); r.containsPoint(r.lowerLeft) {- a rectangle does contain its lower left corner -}
 let r = Rectangle([10, 10], [20, 30]); r.containsPoint(r.upperRight).not {- a rectangle does not contain its upper right corner -}
-let r = Rectangle([0, 0], [50, 50]); let pt = r.randomPoint; r.containsPoint(pt) {- a rectangle contains any random point in it -}
+let r = Rectangle([0, 0], [50, 50]); let pt = r.randomPoint([]); r.containsPoint(pt) {- a rectangle contains any random point in it -}
 let r = Rectangle([0, 0], [50, 50]); r.pointAtFraction([0.5, 0.5]) = r.center {- pointAtFraction can find the center -}
 let r = Rectangle([10, 20], [30, 50]); r.upperHalf = Rectangle([10, 35], [30, 50]) & { r.upperHalf.upperHalf = Rectangle([10, 42.5], [30, 50]) }
 let r = Rectangle([10, 20], [30, 50]); r.upperLeftQuadrant = Rectangle([10, 35], [20, 50])
@@ -3230,9 +3230,9 @@ let total = 0; 9.timesRepeat { total := total + system.nextRandomFloat }; total 
 13.betweenAnd(11, 14) = true {- is number between two numbers, inclusive -}
 [1 .. 5].collect { :each | each.betweenAnd(2, 4) } = [false, true, true, true, false]
 9.atRandom.isInteger = true {- random number between 1 and 9 -}
-system.randomInteger(1, 9).isInteger = true
-system.randomFloat(0, 9).isInteger = false {- possible it could be an integer, but very unlikely -}
-system.randomFloat(0, pi).isInteger = false
+system.randomInteger(1, 9, []).isInteger = true
+system.randomReal(0, 9, []).isInteger = false {- possible it could be an integer, but very unlikely -}
+system.randomReal(0, pi, []).isInteger = false
 [3.141.asJson, 23.asJson] = ['3.141', '23'] {- numbers have json encodings -}
 ['3.141', '23'].collect(parseJson:/1) = [3.141, 23] {- parse json numbers -}
 let r = nil; 1.toDo(5) { :each | r := each }; r = 5
@@ -3814,8 +3814,8 @@ system.operatorCharacterNameTable['^'] = 'circumflexAccent' {- table of operator
 ## System -- cache
 ```
 system.cache.isMap {- cache is a map from string keys to cached values -}
-let f = { system.cached('aUniqueKey') { 1.randomFloat } }; f() = f() & { f() = system.cache::aUniqueKey }
-let f = { { 1.randomFloat }.once(system, 'anotherUniqueKey') }; f() = f() & { f() = system.cache::anotherUniqueKey }
+let f = { system.cached('aUniqueKey') { (0 -- 1).atRandom } }; f() = f() & { f() = system.cache::aUniqueKey }
+let f = { { (0 -- 1).atRandom }.once(system, 'anotherUniqueKey') }; f() = f() & { f() = system.cache::anotherUniqueKey }
 ```
 
 ## System -- categoryDictionary
@@ -3879,9 +3879,9 @@ let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorNameOr
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Bag') = true
 system.methodSignatures('add').includes('Map>>add:/2') = true
 system.methodLookupAtSignature('@Iterable>>sum:/1').isMethod = true
-system.methodLookupAtType('sum', 1, 'List').sourceCode = '{ :self |\n\t\tself.reduce(+)\n\t}'
+system.methodLookupAtType('sum', 1, 'List').sourceCode = '{ :self |\n\t\tself.injectInto(0, +)\n\t}'
 system.methodTypes('last:/1').includes('String') = true
-system.multipleArityMethodList.includes('randomFloat') = true
+system.multipleArityMethodList.includes('atRandom') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
 system.operatorNameTable['^'] = 'circumflexAccent' = true
 system.doesTraitImplementMethod('Collection', 'select') = true
@@ -3919,7 +3919,7 @@ system.traitDictionary.isDictionary = true
 system.traitDictionary.includesIndex('Collection') = true
 system.traitTypes('Collection').includes('List') = true
 system.typeTraits('List').includes('PrimitiveSequence') = true
-system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'Sequence']) = true
+system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'Number']) = true
 system.methodTraits('sum:/1') = ['ArithmeticProgression', 'Iterable']
 system.traitTypes('Object').includes('SmallFloat') = true
 system.traitLookup('Object').methodDictionary.includesIndex('respondsTo:/2') = true

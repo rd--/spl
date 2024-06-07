@@ -398,7 +398,7 @@
 		let n = b.size;
 		let c = List(n - 1, 0);
 		self.do { :e |
-			(2 .. n).detectIndexIfFoundIfNone { :i |
+			2:n.detectIndexIfFoundIfNone { :i |
 				e >= b[i - 1] & { e <= b[i] }
 			} { :i |
 				c[i] := c[i] + 1
@@ -640,9 +640,9 @@
 
 	powerSetDo { :self :aBlock:/1 |
 		let size = 2 ^ self.size;
-		let powersOfTwo = 2 ^ (0 .. self.size - 1);
+		let powersOfTwo = 2 ^ (0 .. (self.size - 1));
 		let list = self.asList;
-		(0 .. size - 1).do { :i |
+		0.toDo(size - 1) { :i |
 			let subset = self.species.new;
 			powersOfTwo.withIndexDo { :each :j |
 				(i // each % 2 ~= 0).ifTrue {

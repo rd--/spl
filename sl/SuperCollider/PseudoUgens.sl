@@ -144,11 +144,12 @@
 
 	EnvBreakPoint { :breakPointList :curves |
 		let n = breakPointList.size;
+		let m = n - 1;
 		Env(
-			(1, 3 .. n).collect { :index |
+			1:2:n.collect { :index |
 				breakPointList[index]
 			},
-			(2, 4 .. n - 1).collect { :index |
+			2:2:m.collect { :index |
 				breakPointList[index]
 			}.differentiate,
 			curves,

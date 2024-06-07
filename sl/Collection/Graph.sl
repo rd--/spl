@@ -492,7 +492,7 @@
 
 		completeBipartiteGraph { :self :anInteger |
 			let u = 1:self;
-			let v = (self + 1 .. self + anInteger);
+			let v = ((self + 1) .. (self + anInteger));
 			let e = [];
 			u.do { :i |
 				e.addAll(
@@ -519,7 +519,7 @@
 		cubeGraph { :self |
 			let k = 2 ^ self;
 			let m = (k - 1).integerLength(2);
-			let n = (0 .. k - 1).collect { :each |
+			let n = (0 .. (k - 1)).collect { :each |
 				each.integerDigits(2).padLeft(m, 0)
 			};
 			let e = [];
@@ -541,7 +541,7 @@
 		}
 
 		pathGraph { :self |
-			(1 .. self - 1).collect { :each |
+			(1 .. (self - 1)).collect { :each |
 				[each, each + 1]
 			}.asGraph
 		}
@@ -572,7 +572,7 @@
 
 		gridGraph { :shape |
 			let k = shape.product;
-			let v = [1 .. k];
+			let v = k.iota;
 			let c = 1:k.collect { :i | shape.cartesianIndex(i) };
 			let e = [];
 			1.toDo(k) { :i |
@@ -646,7 +646,7 @@
 				let isDirected = self.isSymmetricMatrix.not;
 				{ :i :j |
 					self[i, j]
-				}.edgeCountGraph(isDirected, [1 .. self.size])
+				}.edgeCountGraph(isDirected, self.size.iota)
 			} {
 				self.adjacencyGraph('List>>adjacencyGraph: not a square matrix')
 			}

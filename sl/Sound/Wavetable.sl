@@ -8,7 +8,7 @@
 		let size = self.size;
 		let increment = 2.pi * harmonicNumber / size;
 		let phase = initialPhase;
-		(1 .. size).do { :each |
+		1.toDo(size) { :each |
 			self[each] := self[each] + (phase.sin * amplitude + offset);
 			phase := phase + increment
 		}

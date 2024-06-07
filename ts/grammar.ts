@@ -165,7 +165,9 @@ Sl {
 
 	literal = rangeLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
 	numberLiteral = decimalLiteral | scientificLiteral | complexLiteral | residueLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
-	rangeLiteral = integerLiteral ":" (integerLiteral | identifier)
+	rangeLiteral = rangeFromByToLiteral | rangeFromToLiteral
+	rangeFromByToLiteral = integerLiteral ":" integerLiteral ":" (integerLiteral | identifier)
+	rangeFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
 	floatLiteral = "-"? digit+ "." digit+
 	decimalLiteral = "-"? digit+ "." digit+ ("d" | "D")
 	scientificLiteral = (floatLiteral | integerLiteral) ("e" | "E") integerLiteral

@@ -21,6 +21,9 @@ An infix colon defines a `Range` in `Range Syntax`:
 ```
 >>> 1:9 % 2
 [1 0 1 0 1 0 1 0 1]
+
+>>> 1:2:9.asList
+[1 3 5 7 9]
 ```
 
 * * *

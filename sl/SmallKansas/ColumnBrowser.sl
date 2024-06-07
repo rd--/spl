@@ -69,7 +69,7 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 	}
 
 	pathUpTo { :self :size |
-		(1 .. size).collect { :each |
+		1:size.collect { :each |
 			self.columnLists[each].select.value
 		}
 	}

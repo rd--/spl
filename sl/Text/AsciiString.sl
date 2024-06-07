@@ -35,7 +35,7 @@ AsciiString : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 	}
 
 	indices { :self |
-		(1 .. self.contents.size)
+		1.to(self.contents.size)
 	}
 
 	size { :self |

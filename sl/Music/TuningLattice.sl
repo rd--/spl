@@ -55,7 +55,7 @@
 +@Tuning {
 
 	latticeEdges { :self :vertices |
-		let indices = [1 .. self.size];
+		let indices = self.size.iota;
 		let answer = [];
 		indices.combinationsAtATimeDo(2) { :each |
 			let [i, j] = each;

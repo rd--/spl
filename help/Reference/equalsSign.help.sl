@@ -87,6 +87,8 @@ The `=` symbol is also a part of `Let Syntax`.
 
 See also: <, <=, >, >=, ~=, ==, ~, :=, equalSlots, Let Syntax
 
+Guides: Let Syntax
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Equal_to),

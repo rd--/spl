@@ -505,7 +505,7 @@
 			low,
 			high,
 			step,
-			randomIntegerExcludingZero:/3
+			randomIntegerExcludingZero:/4
 		).take(length)
 	}
 

@@ -94,9 +94,9 @@
 	bernoulliSequence { :k |
 		let a = List(k + 1);
 		let b = List(k + 1);
-		(0 .. k).do { :n |
+		0:k.do { :n |
 			a[n + 1] := Fraction(1n, n + 1);
-			(n, n - 1 .. 1).do { :j |
+			n.toByDo(1, -1) { :j |
 				a[j] := j * (a[j] - a[j + 1])
 			};
 			b[n + 1] := a[1]
@@ -226,7 +226,7 @@
 
 	digitCount { :n :b |
 		let digits = n.integerDigits(b);
-		(b - 1 .. 0).collect { :d |
+		((b - 1) .. 0).collect { :d |
 			digits.count { :each |
 				each = d
 			}
@@ -674,7 +674,7 @@
 	}
 
 	integerPartitionsRecursive { :n |
-		(1 .. n).collect { :k |
+		1:n.collect { :k |
 			n.integerPartitions(k)
 		}.concatenation
 	}
@@ -720,7 +720,7 @@
 	lassalleNumber { :m |
 		let a = List(m, m.one);
 		2.toDo(m) { :n |
-			let z = (1 .. n - 1).collect { :j |
+			let z = (1 .. (n - 1)).collect { :j |
 				-1 ^ j * (2 * n - 1).binomial(2 * j - 1) * a[j] * (n - j).catalanNumber
 			}.sum;
 			a[n] := -1 ^ (n - 1) * (n.catalanNumber + z)
@@ -991,7 +991,7 @@
 	}
 
 	reducedResidueSystem { :self |
-		(0 .. self - 1).select { :each |
+		0.to(self - 1).select { :each |
 			each.isCoprime(self)
 		}
 	}

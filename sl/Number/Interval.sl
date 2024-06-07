@@ -98,7 +98,7 @@ Interval : [Object, Magnitude, Number] { | min max |
 		let step = (range / n).niceNumberNear;
 		let start = (self.min / step).floor * step;
 		let end = (self.max / step).ceiling * step;
-		(start, start + step .. end)
+		Range(start, end, step)
 	}
 
 	includes { :self :aNumber |

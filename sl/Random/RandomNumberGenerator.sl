@@ -55,24 +55,27 @@
 	}
 
 	randomCycle { :self :anInteger |
-		[1 .. anInteger].sattoloShuffle(self).asPermutation
+		anInteger.iota.sattoloShuffle(self).asPermutation
 	}
 
 	randomInteger { :self :min :max :shape |
 		self.randomReal(min, max + 1, shape).floor
 	}
 
-	randomIntegerExcluding { :self :min :max :excluded |
-		let answer = self.randomInteger(min, max, []);
-		(answer = excluded).if {
-			max
-		} {
-			answer
-		}
+	randomIntegerExcluding { :self :min :max :aBlock:/1 :shape |
+		{
+			var x;
+			{
+				x := (self.nextRandomFloat * (max + 1 - min) + min).floor
+			}.doWhileTrue {
+				aBlock(x)
+			};
+			x
+		} ! shape
 	}
 
-	randomIntegerExcludingZero { :self :min :max |
-		self.randomIntegerExcluding(min, max, 0)
+	randomIntegerExcludingZero { :self :min :max :shape |
+		self.randomIntegerExcluding(min, max, isZero:/1, shape)
 	}
 
 	randomLargeInteger { :self :max |
@@ -93,7 +96,7 @@
 	}
 
 	randomPermutation { :self :anInteger |
-		[1 .. anInteger].fisherYatesShuffle(self).asPermutation
+		anInteger.iota.fisherYatesShuffle(self).asPermutation
 	}
 
 	randomPermutationList { :self :anInteger :shape |
@@ -103,7 +106,9 @@
 	}
 
 	randomReal { :self :min :max :shape |
-		{ self.nextRandomFloat * (max - min) + min } ! shape
+		{
+			self.nextRandomFloat * (max - min) + min
+		} ! shape
 	}
 
 	randomSampleSmallPool { :self :aCollection :count |

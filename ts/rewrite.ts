@@ -653,8 +653,10 @@ const asJs: ohm.ActionDict<string> = {
 	operatorAssignment(op, _colon, _equals) {
 		return op.sourceString;
 	},
-	rangeLiteral(start, _colon, end) {
-		// console.debug('rangeLiteral', start.sourceString, end.sourceString);
+	rangeFromByToLiteral(start, _colon, step, _anotherColon, end) {
+		return `_${genName('toBy', 3)}(${start.asJs}, ${end.asJs}, ${step.asJs})`;
+	},
+	rangeFromToLiteral(start, _colon, end) {
 		return genRange(start, end);
 	},
 	floatLiteral(s, i, _, f) {

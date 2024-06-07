@@ -1,7 +1,7 @@
 import { stringCapitalizeFirstLetter } from '../lib/jssc3/ts/kernel/string.ts';
 
 /*
-The characters :;.,()[]{}`"' aren't allowed in operator names.
+The characters :;.,()[]{}`"'_ aren't allowed in operator names.
 They're here so help file lookup can find them.
 */
 export const operatorCharacters = '+*-/&|@<>=%!\\~?^#$:;.,()[]{}`"\'';
@@ -37,6 +37,7 @@ export const operatorCharacterNameTable: Record<string, string> = {
 	'\\': 'reverseSolidus', // U+005c \ Reverse Solidus
 	']': 'rightSquareBracket', // U+005D ] Right Square Bracket
 	'^': 'circumflexAccent', // U+005e ^ Circumflex Accent
+	'_': 'lowLine', // Unicode U+005F _ Low Line
 	'`': 'graveAccent', // U+0060 ` Grave Accent
 	'{': 'leftCurlyBracket', // U+007B { Left Curly Bracket
 	'|': 'verticalLine', // - U+007c | Vertical Line

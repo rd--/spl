@@ -88,7 +88,7 @@ ContinuousEvent : [Object] { | contents |
 	}
 
 	Voicer { :part :voice :voiceBlock:/1 |
-		(1 .. voice).collect { :each |
+		1:voice.collect { :each |
 			let bus = part.voicerVoiceAddress(each);
 			ControlIn(8, bus).asContinuousEvent.voiceBlock
 		}
@@ -99,7 +99,7 @@ ContinuousEvent : [Object] { | contents |
 +@Integer {
 
 	VoiceWriter { :part :numVoices :voiceBlock:/0 |
-		(1 .. numVoices).collect { :voice |
+		1:numVoices.collect { :voice |
 			ControlOut(
 				part.voicerVoiceAddress(voice),
 				voiceBlock().asContinuousEvent.asList

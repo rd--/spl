@@ -19,6 +19,9 @@ Range(1, 9, (9 - 1).sign)
 
 >>> (1, 3 .. 9)
 Range(1, 9, 3 - 1)
+
+>>> 1:2:9
+Range(1, 9, 2)
 ```
 
 Answer descending _Range_ values:
@@ -32,6 +35,9 @@ Range(9, 1, (1 - 9).sign)
 
 >>> (9, 7 .. 1)
 Range(9, 1, 7 - 9)
+
+>>> 9:-2:1
+Range(9, 1, -2)
 ```
 
 Answer _List_ values:
