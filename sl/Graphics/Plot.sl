@@ -65,6 +65,12 @@
 		domain.basicFunctionPlot(functionBlock:/1) { :x :y | [x, y] }
 	}
 
+	complexFunctionPlot { :domain :functionBlock:/1 |
+		domain.basicFunctionPlot(functionBlock:/1) { :_ :y |
+			y.asList
+		}
+	}
+
 }
 
 +Interval {
@@ -74,9 +80,7 @@
 	}
 
 	complexFunctionPlot { :domain :functionBlock:/1 |
-		domain.subdivide(1000).basicFunctionPlot(functionBlock:/1) { :unused :y |
-			y.asList
-		}
+		domain.subdivide(1000).complexFunctionPlot(functionBlock:/1)
 	}
 
 }

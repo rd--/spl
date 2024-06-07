@@ -27,6 +27,9 @@ Exp can take complex number inputs:
 ```
 >>> 2.5j1.exp
 6.58223j10.2512
+
+>>> (2.pi.i / 23).exp
+0.9629J0.2698
 ```
 
 Exp threads elementwise over lists and matrices:

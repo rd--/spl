@@ -2,13 +2,13 @@
 
 - _linePlot(aList)_
 
-Plot a list of _y_ values:
+Plot a list of _y_ values (a 6 vector):
 
 ~~~
 [1 1 2 3 5 8].linePlot
 ~~~
 
-Plot a list of _x,y_ pairs:
+Plot a list of _x,y_ pairs (a 8×2 matrix):
 
 ~~~
 (0, 3 .. 21).collect { :k |
@@ -16,7 +16,7 @@ Plot a list of _x,y_ pairs:
 }.linePlot
 ~~~
 
-Plot a list of _x,y,z_ triples:
+Plot a list of _x,y,z_ triples (a 6×3 matrix):
 
 ~~~
 [0 0 0; 1 0 1; 1 1 2; 2 2 2; 2 4 3; 3 6 4].linePlot
