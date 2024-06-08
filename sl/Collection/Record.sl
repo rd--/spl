@@ -61,9 +61,9 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 	storeString { :self |
 		[
 			'(',
-				self.associations.collect { :each |
-					each.key ++ ': ' ++ each.value.storeString
-				}.stringJoin(', '),
+			self.associations.collect { :each |
+				each.key ++ ': ' ++ each.value.storeString
+			}.stringJoin(', '),
 			')'
 		].stringJoin
 	}

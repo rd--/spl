@@ -65,9 +65,9 @@ Association : [Object] { | key value |
 	storeString { :self |
 		[
 			'Association(',
-				self.key.storeString,
-				', ',
-				self.value.storeString,
+			self.key.storeString,
+			', ',
+			self.value.storeString,
 			')'
 		].stringJoin
 	}

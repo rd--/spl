@@ -4,8 +4,8 @@ import qualified Data.Word {- base -}
 
 import qualified Data.ByteString {- bytestring -}
 
-import qualified Data.Hash.Murmur {- murmur3 -}
 import qualified Data.Dish.Murmur3 {- Dish -}
+import qualified Data.Hash.Murmur {- murmur3 -}
 
 fromString :: String -> Data.ByteString.ByteString
 fromString = Data.ByteString.pack . map (fromIntegral . fromEnum)
@@ -29,7 +29,7 @@ seed = 2166136261
 dishMurmur3 :: Data.Dish.Murmur3.Murmur3Hashable a => Int -> a -> Int
 dishMurmur3 k x =
   case Data.Dish.Murmur3.murmur3 x k Data.Dish.Murmur3.X86_32 of
-    [r,_,_,_] -> r
+    [r, _, _, _] -> r
     _ -> error "dishMurmur3"
 
 {- | Murmer3

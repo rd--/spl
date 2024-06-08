@@ -15,9 +15,9 @@ Sphere : [Object] { | center radius |
 	storeString { :self |
 		[
 			'Sphere(',
-				self.center.storeString,
-				', ',
-				self.radius.storeString,
+			self.center.storeString,
+			', ',
+			self.radius.storeString,
 			')'
 		].stringJoin
 	}

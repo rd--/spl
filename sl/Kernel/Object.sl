@@ -268,7 +268,7 @@
 		[
 			self.typeOf,
 			'(',
-				self.slotValueList.collect(storeString:/1).stringJoin(', '),
+			self.slotValueList.collect(storeString:/1).stringJoin(', '),
 			')'
 		].stringJoin
 	}

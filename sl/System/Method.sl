@@ -50,7 +50,7 @@ Method! : [Object] {
 				'+',
 				self.origin.qualifiedName,
 				'{ ',
-					aString,
+				aString,
 				' }'
 			].stringJoin
 		)

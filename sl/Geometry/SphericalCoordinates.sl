@@ -70,11 +70,11 @@
 	storeString { :self |
 		[
 			'SphericalCoordinates(',
-				self.r.storeString,
-				', ',
-				self.theta.storeString,
-				', ',
-				self.phi.storeString,
+			self.r.storeString,
+			', ',
+			self.theta.storeString,
+			', ',
+			self.phi.storeString,
 			')'
 		].stringJoin
 	}

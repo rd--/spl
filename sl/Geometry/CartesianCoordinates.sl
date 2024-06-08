@@ -117,11 +117,11 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 	storeString { :self |
 		[
 			'CartesianCoordinates(',
-				self.x.storeString,
-				', ',
-				self.y.storeString,
-				', ',
-				self.z.storeString,
+			self.x.storeString,
+			', ',
+			self.y.storeString,
+			', ',
+			self.z.storeString,
 			')'
 		].stringJoin
 	}

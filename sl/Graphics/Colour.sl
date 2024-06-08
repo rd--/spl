@@ -166,12 +166,12 @@ Colour : [Object] { | red green blue alpha |
 	storeString { :self |
 		[
 			'Colour(',
-				[
-					self.red,
-					self.green,
-					self.blue,
-					self.alpha
-				].collect(storeString:/1).stringJoin(', '),
+			[
+				self.red,
+				self.green,
+				self.blue,
+				self.alpha
+			].collect(storeString:/1).stringJoin(', '),
 			')'
 		].stringJoin
 	}

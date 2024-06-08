@@ -363,9 +363,9 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	storeString { :self |
 		[
 			'Fraction(',
-				self.numerator.storeString,
-				', ',
-				self.denominator.storeString,
+			self.numerator.storeString,
+			', ',
+			self.denominator.storeString,
 			')'
 		].stringJoin
 	}

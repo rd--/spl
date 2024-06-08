@@ -11,8 +11,5 @@ let o = Blip(
 ) * (c + 5);
 CombN(o, 0.2, 0.2, 1).Tanh * 0.15
 
-{- ---- calculations ----
-
-	'AVVVF'.ascii.asList = [65 86 86 86 70]
-
--}
+{----- calculations -----}
+'AVVVF'.ascii.asList = [65 86 86 86 70]

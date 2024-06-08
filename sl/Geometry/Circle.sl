@@ -46,9 +46,9 @@ Circle : [Object] { | center radius |
 	storeString { :self |
 		[
 			'Circle(',
-				self.center.storeString,
-				', ',
-				self.radius.storeString,
+			self.center.storeString,
+			', ',
+			self.radius.storeString,
 			')'
 		].stringJoin
 	}

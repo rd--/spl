@@ -122,11 +122,11 @@ Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgressio
 	storeString { :self |
 		[
 			'Range(',
-				self.start,
-				', ',
-				self.stop,
-				', ',
-				self.step,
+			self.start,
+			', ',
+			self.stop,
+			', ',
+			self.step,
 			')'
 		].stringJoin
 	}

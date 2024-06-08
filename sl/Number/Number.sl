@@ -721,7 +721,7 @@
 
 	signBit { :self |
 		self.isNegativeZero | {
-				self < 0
+			self < 0
 		}
 	}
 

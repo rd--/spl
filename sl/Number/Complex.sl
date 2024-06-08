@@ -438,9 +438,9 @@ Complex : [Object, Number] { | real imaginary |
 	storeString { :self |
 		[
 			'Complex(',
-				self.real.storeString,
-				', ',
-				self.imaginary.storeString,
+			self.real.storeString,
+			', ',
+			self.imaginary.storeString,
 			')'
 		].stringJoin
 	}

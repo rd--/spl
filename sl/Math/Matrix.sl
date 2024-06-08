@@ -425,7 +425,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 					w[i]
 				} {
 					0
-			}
+				}
 			}
 		}.table(1:n, 1:n)
 	}

@@ -127,9 +127,9 @@
 					'+ ',
 					method.origin.qualifiedName,
 					' {\n\t',
-						method.name,
-						' ',
-						method.sourceCode,
+					method.name,
+					' ',
+					method.sourceCode,
 					'\n}'
 				].stringJoin
 			)

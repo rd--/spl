@@ -6,18 +6,15 @@ let e = SinOsc(b / 9, 0);
 let d = SinOsc(b / 999, 0).Abs + 0.01;
 CombC(o * e, 1.01, d, 9).Tanh / 2
 
-{- ---- calculations ----
-
-	9.fibonacciSequence.pyramid(1) = [
-		1
-		1 1
-		1 1 2
-		1 1 2 3
-		1 1 2 3 5
-		1 1 2 3 5 8
-		1 1 2 3 5 8 13
-		1 1 2 3 5 8 13 21
-		1 1 2 3 5 8 13 21 34
-	]
-
--}
+{----- calculations -----}
+9.fibonacciSequence.pyramid(1) = [
+	1
+	1 1
+	1 1 2
+	1 1 2 3
+	1 1 2 3 5
+	1 1 2 3 5 8
+	1 1 2 3 5 8 13
+	1 1 2 3 5 8 13 21
+	1 1 2 3 5 8 13 21 34
+]

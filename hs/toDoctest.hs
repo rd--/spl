@@ -8,8 +8,8 @@ rewriteTest :: String -> String
 rewriteTest string =
   let trim = reverse . dropWhile isSpace . reverse . dropWhile isSpace
   in case splitOneOf "=~" string of
-       [lhs, ' ' : rhs] -> unlines [">>> " ++ trim lhs, rhs]
-       _ -> unlines [">>> " ++ string, "true"]
+      [lhs, ' ' : rhs] -> unlines [">>> " ++ trim lhs, rhs]
+      _ -> unlines [">>> " ++ string, "true"]
 
 toDoctestAccum :: BlockState -> String -> (BlockState, String)
 toDoctestAccum state current =

@@ -29,9 +29,9 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	asString { :self :aBlock:/1 |
 		[
 			'Rectangle(',
-				aBlock(self.lowerLeft),
-				', ',
-				aBlock(self.upperRight),
+			aBlock(self.lowerLeft),
+			', ',
+			aBlock(self.upperRight),
 			')'
 		].stringJoin
 	}

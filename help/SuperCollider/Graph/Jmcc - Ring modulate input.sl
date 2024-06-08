@@ -4,9 +4,6 @@ let freq = MouseX(10, 4000, 1, 0.2);
 let modulator = SinOsc(freq, [0, 0.5 * pi]);
 input * modulator
 
-{- ---- notes.md ----
-
-	_MouseX_ controls ring modulator frequency.
-	Offset phase of one oscillator by 90 degrees (_pi_ / 2).
-
--}
+{----- notes.md -----}
+_MouseX_ controls ring modulator frequency.
+Offset phase of one oscillator by 90 degrees (_pi_ / 2).

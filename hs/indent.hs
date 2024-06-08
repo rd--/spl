@@ -13,13 +13,31 @@ The current line is shifted right if:
 
 - it begins with a period and the previous line does not
 
+-
 -}
+module Main where
 
 import qualified Data.Char {- base -}
 import Data.List {- base -}
 import System.Environment {- base -}
 
 import qualified Music.Theory.Io as Io {- hmt-base -}
+
+{- |
+
+>>> removeQuotedText "without 'q' and 'r'"
+"without '' and ''"
+-}
+removeQuotedText :: String -> String
+removeQuotedText s =
+  let k = '\''
+      f (q, r) c =
+        let q' = if c == k then not q else q
+        in if q
+            then (q', if q' then k : r else r)
+            else (q', c : r)
+      (_, s') = last (scanl f (False, []) s)
+  in reverse s'
 
 -- | Is opening token.
 isOpening :: Char -> Bool
@@ -33,7 +51,7 @@ firstIndexFor :: (a -> Bool) -> [a] -> Maybe Int
 firstIndexFor f s =
   case findIndices f s of
     [] -> Nothing
-    i:_ -> Just i
+    i : _ -> Just i
 
 lastIndexFor :: (a -> Bool) -> [a] -> Maybe Int
 lastIndexFor f s =
@@ -54,15 +72,19 @@ lastIndexFor f s =
 
 >>> countOpeningAndClosing "} {"
 (1,1)
+
+>>> countOpeningAndClosing (removeQuotedText "'} {'")
+(0,0)
 -}
 countOpeningAndClosing :: String -> (Int, Int)
 countOpeningAndClosing =
-  let f (l,r) c =
+  let f (l, r) c =
         if isOpening c
-        then (l + 1, r)
-        else if isClosing c
-             then (l, r + 1)
-             else (l, r)
+          then (l + 1, r)
+          else
+            if isClosing c
+              then (l, r + 1)
+              else (l, r)
   in last . scanl f (0, 0)
 
 {- | Count leading closing characters.
@@ -142,7 +164,6 @@ hasTrailingOpening s =
 firstNonWhiteSpaceChar :: String -> Maybe Char
 firstNonWhiteSpaceChar = find (not . Data.Char.isSpace)
 
-
 {- | Has leading dot
 
 >>> hasLeadingDot "\t.x(y)"
@@ -176,21 +197,24 @@ type State = (Int, Bool)
 -}
 indentLine :: State -> String -> (State, String)
 indentLine (i, d) s =
-  let d' = hasLeadingDot s
-      next = if indentNext s then 1 else 0
-      current = if d' && (not d)
-                then 1
-                else if hasLeadingClosing s
-                     then -1
-                     else 0
+  let t = removeQuotedText s
+      d' = hasLeadingDot t
+      next = if indentNext t then 1 else 0
+      current =
+        if d' && (not d)
+          then 1
+          else
+            if hasLeadingClosing t
+              then -1
+              else 0
       s' = if null s then s else replicate (i + current) '\t' ++ s
   in ((i + next + current, d'), s')
 
-{- | Indent sequence of non-indented lines. -}
+-- | Indent sequence of non-indented lines.
 indentRegion :: State -> [String] -> [String]
 indentRegion z0 = snd . mapAccumL (\z s -> indentLine z s) z0
 
-{- | Remove indentation from line. -}
+-- | Remove indentation from line.
 clearIndent :: String -> String
 clearIndent = dropWhile Data.Char.isSpace
 

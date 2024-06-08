@@ -14,3 +14,9 @@ toFenced : toFenced.hs
 
 clean:
 	rm -f fixCategory toDoctest toFenced *.hi *.o *~
+
+indent:
+	fourmolu -i *.hs
+
+doctest:
+	doctest -Wno-x-partial -Wno-incomplete-uni-patterns indent.hs

@@ -36,9 +36,9 @@ Scale : [Object] { | startIndex intervals description |
 	storeString { :self |
 		[
 			'Scale(',
-				self.startIndex, ', ',
-				self.intervals, ',',
-				'"', self.description, '"',
+			self.startIndex, ', ',
+			self.intervals, ',',
+			'"', self.description, '"',
 			')'
 		].stringJoin
 	}
