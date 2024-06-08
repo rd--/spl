@@ -5,6 +5,15 @@
 Answer the inverse of the square matrix _m_.
 The dot product of _m_ and its inverse is the identity matrix.
 
+Inverse of a 2×2 integer valued matrix:
+
+```
+>>> let m = [-1 3/2; 1 -3];
+>>> let i = m.inverse;
+>>> (i, i.dot(m))
+([-2 -1; -2/3 -2/3], [1 0; 0 1])
+```
+
 Inverse of a 2×2 real valued matrix:
 
 ```
@@ -37,6 +46,9 @@ Inverses of 3×3 integer matrices:
 
 >>> [2 -1 0; -1 2 -1; 0 -1 2].inverse
 [3/4 1/2 1/4; 1/2 1 1/2; 1/4 1/2 3/4]
+
+>>> [1 1 1; 1 0 0; 0 1 0].inverse
+[0 1 0; 0 0 1; 1 -1 -1]
 ```
 
 Find the inverse of a 3×3 real valued matrix:

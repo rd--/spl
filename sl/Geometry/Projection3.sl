@@ -1,17 +1,16 @@
-{- Requires: Matrix33 -}
-
 Projection3 : [Object] { | alpha beta x y z |
 
 	applyTo { :self :vector |
-		self.asMatrix33.applyTo(vector).xy
+		let [x, y, _] = vector;
+		self.asMatrix.dot([x, y])
 	}
 
-	asMatrix33 { :self |
-		Matrix33(
-			self.x * self.beta.cos.negated, 0, self.z * self.alpha.cos,
-			self.x * self.beta.sin, self.y , self.z * self.alpha.sin,
-			0, 0, 0
-		)
+	asMatrix { :self |
+		[
+			[self.x * self.beta.cos.negated, 0, self.z * self.alpha.cos],
+			[self.x * self.beta.sin, self.y , self.z * self.alpha.sin],
+			[0, 0, 0]
+		]
 	}
 
 	chinese { :self |
@@ -27,9 +26,10 @@ Projection3 : [Object] { | alpha beta x y z |
 	}
 
 	block { :self |
-		let matrix = self.asMatrix33;
+		let matrix = self.asMatrix;
 		{ :aVector |
-			matrix.applyTo(aVector).xy
+			let [x, y, _] = matrix.dot(aVector);
+			[x, y]
 		}
 	}
 

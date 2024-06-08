@@ -3,11 +3,11 @@ CrystalLatticeStructureOracle : [Object, SmallKansan] {
 	openIn { :self :smallKansas :event |
 		smallKansas.clsLeitner.then { :clsLeitner |
 			let cls = clsLeitner.atRandom;
-			let mtx = Projection3().chinese.asMatrix33;
+			let mtx = Projection3().chinese.asMatrix;
 			smallKansas.addFrame(SvgViewer(
 				'Cls - ' ++ cls.name,
 				cls.drawing(0.25) { :each |
-					mtx.applyTo(each).xy * 50
+					mtx.dot(each).first(2) * 50
 				}),
 				event
 			)

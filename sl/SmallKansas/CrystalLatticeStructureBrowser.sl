@@ -22,9 +22,9 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 		};
 		description.textContent := self.description;
 		projectionsA.appendChildren([
-			scaledDrawing(xy:/1),
-			scaledDrawing(yz:/1),
-			scaledDrawing(xz:/1)
+			scaledDrawing { :each | let [x, y, z] = each; [x y] },
+			scaledDrawing { :each | let [x, y, z] = each; [y z] },
+			scaledDrawing { :each | let [x, y, z] = each; [x z] }
 		]);
 		projectionsB.appendChildren([
 			scaledDrawing(Projection3().chinese.block),
@@ -47,7 +47,7 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 			self::name,
 			self::description,
 			self::vertexLabels.withCollect(self::vertexCoordinates) { :label :coordinates |
-				[label, coordinates.asCartesianCoordinates]
+				[label, coordinates]
 			},
 			self::edges.collect { :edge |
 				edge.collect { :each |

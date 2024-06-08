@@ -18,12 +18,15 @@ The determinant of a _2×2_ `Integer` matrix:
 
 >>> [4 3; 2 5].determinant
 14
+
+>>> [1 4; -1 9].determinant
+13
 ```
 
 The determinants of _3×3_ `Integer` matrices:
 
 ```
->>> [1 2 3; 4 5 6; 7 8 9].asMatrix.determinant
+>>> [1 2 3; 4 5 6; 7 8 9].determinant
 0
 
 >>> [-1 4 -2; -2 -4 3; 6 -5 1].determinant
@@ -167,9 +170,6 @@ A square matrix has an inverse if and only if its determinant is nonzero:
 >>> [1 2 1; 1 0 2; -1 2 -3].determinant
 0
 ```
-
-Find determinant of singular matrix:
-Examine a matrix that is exactly singular, but which has a large nonzero determinant. In theory, the determinant of any singular matrix is zero, but because of the nature of floating-point computation, this ideal is not always achievable.
 
 * * *
 

@@ -22,6 +22,12 @@ Bjorklund, E. 2003.
 _The theory of rep-rate pattern generation in the SNS timing system_.\
 SNS ASD Technical Note, Los Alamos Laboratory.
 
+Carlbom I. and Paciorek J. 1978.
+"Planar Geometric Projections and Viewing Transformations".\
+_ACM Computing Surveys_, 10(4):465-502.
+[Doi](https://doi:10.1145/356744.356750)
+[Pdf](http://www.cs.unzs.edu.ar/cg/clasespdf/p465carlbom.pdf)
+
 Chalmers, J. 1993.
 _Divisions of the Tetrachord: A Prolegomenon to the Construction of Musical Scales_.\
 Frog Peak Music, NH.

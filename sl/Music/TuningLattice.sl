@@ -47,7 +47,7 @@
 	}
 
 	wilsonLatticeCoordinates { :self |
-		self.latticeCoordinates([20@0, 0@20, 4@3, -3@4, -1@2])
+		self.latticeCoordinates([20 0; 0 20; 4 3; -3 4; -1 2])
 	}
 
 }
