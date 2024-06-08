@@ -578,10 +578,10 @@
 			let roundedFractionPart = (rounded.abs.fractionPart * rounder).truncated;
 			[
 				prefix,
-				rounded.abs.integerPart.truncated,
+				rounded.abs.integerPart.truncated.printString,
 				'.',
 				roundedFractionPart.printString.padLeft(placesDesired, '0')
-			].stringJoin
+			].join
 		}
 	}
 

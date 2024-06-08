@@ -306,7 +306,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	printString { :self |
-		[self.numerator, '/', self.denominator].stringJoin
+		[self.numerator.printString, '/', self.denominator.printString].join
 	}
 
 	raisedToInteger { :self :anInteger |
@@ -367,7 +367,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			', ',
 			self.denominator.storeString,
 			')'
-		].stringJoin
+		].join
 	}
 
 	truncated { :self |

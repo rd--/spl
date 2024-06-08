@@ -193,7 +193,7 @@ RegExp! : [Object] {
 
 	subStrings { :self :separators |
 		self.splitByRegExp(
-			separators.contents.stringJoin('|')
+			separators.contents.join('|')
 		).reject(isEmpty:/1)
 	}
 

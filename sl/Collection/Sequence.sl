@@ -1037,7 +1037,7 @@
 
 	fromCharacterCode { :self |
 		self.isVector.if {
-			self.collect(fromCharacterCode:/1).stringJoin
+			self.collect(fromCharacterCode:/1).join
 		} {
 			self.collect(fromCharacterCode:/1)
 		}
@@ -1379,8 +1379,14 @@
 		answer
 	}
 
-	iota { :self |
-		(1 .. self.product).reshape(self)
+	iota { :shape :start :step |
+		let count = shape.product;
+		let end = start + (count - 1 * step);
+		Range(start, end, step).reshape(shape)
+	}
+
+	iota { :shape |
+		(1 .. shape.product).reshape(shape)
 	}
 
 	isArithmeticSeries { :self |
@@ -1490,18 +1496,6 @@
 		self.isVector & {
 			self.elementType = elementType
 		}
-	}
-
-	join { :self :separator |
-		self.allSatisfy(isString:/1).if {
-			self.stringJoin(separator ? { '' })
-		} {
-			self.concatenationSeparatedBy(separator ? { [] })
-		}
-	}
-
-	join { :self |
-		self.join(nil)
 	}
 
 	last { :self |
@@ -3048,6 +3042,15 @@
 }
 
 +@Integer {
+
+	iota { :count :start :step |
+		let end = start + (count - 1 * step);
+		Range(start, end, step).asList
+	}
+
+	iota { :count |
+		Range(1, count, 1).asList
+	}
 
 	calkinWilfSequence { :self |
 		let answer = List(self);

@@ -52,7 +52,7 @@ Method! : [Object] {
 				'{ ',
 				aString,
 				' }'
-			].stringJoin
+			].join
 		)
 	}
 
@@ -97,7 +97,7 @@ Method! : [Object] {
 			self.packageName,
 			':',
 			self.origin.name
-		].stringJoin
+		].join
 	}
 
 	pseudoSlotNameList { :self |

@@ -1,10 +1,10 @@
 # stringJoin
 
-- _stringJoin(strings, string)_
+- _stringJoin(aSequence, anObject)_
 - _stringJoin(alpha)_ => _stringJoin(alpha, '')_
 
-Join _strings_ (a sequence of strings, or objects that implement `asString`) into a `String`,
-intercalating _string_ between each.
+First `flatten` and then join together the items of _aSequence_ (objects that implement `asString`) into a `String`,
+intercalating _anObject_ between each.
 
 At `List` of `String`:
 
@@ -50,7 +50,7 @@ The inverse of the binary form is `splitBy`:
 
 * * *
 
-See also: join, splitBy
+See also: join, splitBy, stringConcatenation
 
 References:
 _Mathematica_

@@ -1,55 +1,41 @@
 # join
 
-- _join(sequences, sequence)_
-- _join(alpha)_ => _join(alpha, [])_
+- _join(aList, separator=[])_
 
-Join _sequences_ (a sequence of sequences) into a sequence, intercalating _sequence_ between each.
+Join _list_ (which must be of lists or strings) into a list or a string, intercalating _separator_ between each.
+The list must be of uniform element type.
 
-At `List` of `Integer`:
+Join a matrix into a vector:
 
 ```
 >>> [1 2 3; 4 5 6; 7 8 9].join
 [1 2 3 4 5 6 7 8 9]
 ```
 
-With separator:
+With a separator vector:
 
 ```
 >>> [1 2 3; 4 5 6; 7 8 9].join([0 0])
 [1 2 3 0 0 4 5 6 0 0 7 8 9]
 ```
 
-At `List` of `String`:
+Join a list of strings into a string, this form is equal to `stringConcatenation`:
 
 ```
 >>> ['x' 'y' 'z'].join
 'xyz'
 ```
 
-With separator:
+With a separator string:
 
 ```
 >>> ['x' 'y' 'z'].join(', ')
 'x, y, z'
 ```
 
-The inverse of the unary form at a `List` of `String` is `contents`:
-
-```
->>> ['x' 'y' 'z'].join.contents
-['x' 'y' 'z']
-```
-
-The inverse of the binary form at a `List` of `String` is `splitBy`:
-
-```
->>> ['x' 'y' 'z'].join(', ').splitBy(', ')
-['x' 'y' 'z']
-```
-
 * * *
 
-See also: ++, +++, concatenation, flatten, splitBy, stringJoin
+See also: ++, +++, concatenation, flatten, splitBy, stringConcatenation, stringJoin
 
 References:
 _Mathematica_

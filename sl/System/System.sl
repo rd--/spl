@@ -119,7 +119,7 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 			].collect(words:/1).++.collect { :each |
 				each -> each.stringList.collect { :letter |
 					table[letter]
-				}.camelCase.stringJoin
+				}.camelCase.join
 			}.asRecord
 		}
 	}

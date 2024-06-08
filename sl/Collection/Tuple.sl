@@ -31,7 +31,7 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 	}
 
 	printString { :self |
-		'(' ++ self.contents.collect(printString:/1).stringJoin(', ') ++ ')'
+		'(' ++ self.contents.collect(printString:/1).join(', ') ++ ')'
 	}
 
 	size { :self |
@@ -43,7 +43,7 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 	}
 
 	storeString { :self |
-		'(' ++ self.contents.collect(storeString:/1).stringJoin(', ') ++ ')'
+		'(' ++ self.contents.collect(storeString:/1).join(', ') ++ ')'
 	}
 
 }

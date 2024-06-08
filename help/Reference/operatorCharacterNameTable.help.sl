@@ -7,7 +7,7 @@ Answer a `Dictionary` where the `keys` are operator characters and the values ar
 ```
 >>> let t = system.operatorCharacterNameTable;
 >>> (t.size, t['>'], t[':'], t['('])
-(31, 'greaterThanSign', 'colon', 'leftParenthesis')
+(32, 'greaterThanSign', 'colon', 'leftParenthesis')
 ```
 
 _Note_:

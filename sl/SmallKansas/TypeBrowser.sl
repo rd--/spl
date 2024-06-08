@@ -22,7 +22,7 @@ TypeBrowser : [Object, SmallKansan] {
 					typeNames
 				},
 				1 -> {
-					browser.setStatus(system.typeTraits(path[1]).stringJoin(', '));
+					browser.setStatus(system.typeTraits(path[1]).join(', '));
 					system.typeDictionary[path[1]].methodDictionary.indicesSorted
 				},
 				2 -> {

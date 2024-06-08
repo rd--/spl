@@ -35,6 +35,13 @@ With `Sequence` count:
 [1 1 3 3 3 5 5 5 5]
 ```
 
+At `String`:
+
+```
+>>> 'xyz'.replicateEach([2 3 4])
+'xxyyyzzzz'
+```
+
 * * *
 
 See also: !, #, replicateApplying

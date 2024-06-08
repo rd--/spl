@@ -366,10 +366,10 @@ Complex : [Object, Number] { | real imaginary |
 
 	printString { :self |
 		[
-			self.real,
+			self.real.printString,
 			'J',
-			self.imaginary
-		].stringJoin
+			self.imaginary.printString
+		].join
 	}
 
 	printStringShowingDecimalPlaces { :self :places |
@@ -377,7 +377,7 @@ Complex : [Object, Number] { | real imaginary |
 			self.real.printStringShowingDecimalPlaces(places),
 			'J',
 			self.imaginary.printStringShowingDecimalPlaces(places)
-		].stringJoin
+		].join
 	}
 
 	realImaginary { :self |
@@ -442,7 +442,7 @@ Complex : [Object, Number] { | real imaginary |
 			', ',
 			self.imaginary.storeString,
 			')'
-		].stringJoin
+		].join
 	}
 
 	weierstrassFunction { :x :a :m |

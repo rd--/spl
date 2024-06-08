@@ -180,11 +180,11 @@
 		self.error(
 			[
 				'errorInvalidIndex: index not correct type or out of range.',
-				' index: ', index,
+				' index: ', index.asString,
 				' for: ', for,
 				' index.typeOf: ', index.typeOf,
-				' self.size: ', self.size
-			].stringJoin
+				' self.size: ', self.size.asString
+			].join
 		)
 	}
 

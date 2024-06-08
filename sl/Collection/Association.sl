@@ -55,7 +55,7 @@ Association : [Object] { | key value |
 	}
 
 	printString { :self |
-		[self.key, ' -> ', self.value].stringJoin
+		[self.key.printString, ' -> ', self.value.printString].join
 	}
 
 	second { :self |
@@ -69,7 +69,7 @@ Association : [Object] { | key value |
 			', ',
 			self.value.storeString,
 			')'
-		].stringJoin
+		].join
 	}
 
 }

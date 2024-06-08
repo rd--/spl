@@ -3,11 +3,11 @@
 
 	asDot { :self |
 		[
-			self[1],
+			self[1].asString,
 			' -- ',
-			self[2],
+			self[2].asString,
 			';'
-		].stringJoin
+		].join
 	}
 
 	asEdge { :self |
@@ -71,7 +71,7 @@
 			' -> ',
 			self.value.asString,
 			';'
-		].stringJoin
+		].join
 	}
 
 	asEdge { :self |

@@ -131,7 +131,7 @@
 					' ',
 					method.sourceCode,
 					'\n}'
-				].stringJoin
+				].join
 			)
 		};
 		answer

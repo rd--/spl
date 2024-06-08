@@ -89,7 +89,7 @@ Package! : [Object] {
 			'/',
 			self::Name,
 			'.sl'
-		].stringJoin
+		].join
 	}
 
 	Package { :self |

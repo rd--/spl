@@ -58,7 +58,13 @@ Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgressio
 		).if {
 			self.start.printString ++ ':' ++ self.stop.printString
 		} {
-			self.storeString
+			[
+				self.start.printString,
+				':',
+				self.step.printString,
+				':',
+				self.stop.printString
+			].join
 		}
 	}
 
@@ -122,13 +128,13 @@ Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgressio
 	storeString { :self |
 		[
 			'Range(',
-			self.start,
+			self.start.storeString,
 			', ',
-			self.stop,
+			self.stop.storeString,
 			', ',
-			self.step,
+			self.step.storeString,
 			')'
-		].stringJoin
+		].join
 	}
 
 }

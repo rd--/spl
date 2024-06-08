@@ -81,9 +81,9 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 				self.description,
 				self.asRatios,
 				self.octave
-			].collect(storeString:/1).stringJoin(', '),
+			].collect(storeString:/1).join(', '),
 			')'
-		].stringJoin
+		].join
 	}
 
 }

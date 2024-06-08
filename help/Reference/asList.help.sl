@@ -32,7 +32,7 @@ At `String`:
 
 ```
 >>> 'string'.asList
-['s' 't' 'r' 'i' 'n' 'g'].collect(asCharacter:/1)
+['s' 't' 'r' 'i' 'n' 'g']
 ```
 
 This should not be defined for scalar values, see _asCollection_.

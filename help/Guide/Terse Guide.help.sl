@@ -891,8 +891,8 @@ system.includesPackage('Character') {- character package -}
 '𠮷'.asCharacter == '𠮷'.asCharacter {- characters are identical -}
 'x'.asCharacter.asciiValue = 120 {- ascii code point of character -}
 { '𠮷'.asCharacter.asciiValue }.ifError { true } {- it is an error is the character is not ascii -}
-'xyz'.asList = ['x'.asCharacter, 'y'.asCharacter, 'z'.asCharacter]
-'xyz'.asList.collect(codePoint:/1) = [120, 121, 122]
+'xyz'.characters = ['x'.asCharacter, 'y'.asCharacter, 'z'.asCharacter]
+'xyz'.characters.collect(codePoint:/1) = [120, 121, 122]
 32.asCharacter.characterString = ' ' {- 32 is space -}
 ' '.asCharacter.codePoint = 32 {- space is 32 -}
 97.asCharacter.characterString = 'a' {- 92 is a -}
@@ -1949,7 +1949,7 @@ let i = 1:9; i.last = i[9] {- one-indexed -}
 Range(-1, 1, 1).asList = [-1, 0, 1]
 1.to(99).asString = '1:99'
 1:99.asString = '1:99'
-toBy(1, -1, -1).asString = 'Range(1, -1, -1)'
+toBy(1, -1, -1).asString = '1:-1:-1'
 1.to(99).sum = 4950
 1.to(99).asList.sum = 4950
 1:9.size = 9

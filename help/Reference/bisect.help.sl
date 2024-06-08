@@ -10,7 +10,7 @@ showing equivalent use of `detectIndex`:
 
 ```
 >>> [8 9].collect { :n |
->>> 	let l = [1, 3 .. 15];
+>>> 	let l = 1:2:15;
 >>> 	let i = l.bisect(n, <);
 >>> 	let j = l.bisect(n, <=);
 >>> 	let k = l.detectIndex { :each | n < each };

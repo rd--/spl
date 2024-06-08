@@ -61,8 +61,26 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		self.noneSatisfy(isList:/1)
 	}
 
+	join { :self :separator |
+		let type = self.elementType;
+		type.caseOfOtherwise([
+			'List' -> {
+				self.concatenationSeparatedBy(separator ? { [] })
+			},
+			'String' -> {
+				self.basicStringJoin(separator ? { '' })
+			}
+		]) {
+			self.error('List>>join: element type not List or String: ' ++ type)
+		}
+	}
+
+	join { :self |
+		self.join(nil)
+	}
+
 	printString { :self :toString:/1 |
-		'[' ++ self.collect(toString:/1).stringJoin(', ') ++ ']'
+		'[' ++ self.collect(toString:/1).join(', ') ++ ']'
 	}
 
 	printString { :self |

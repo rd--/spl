@@ -198,7 +198,7 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 			', ',
 			self.subTrees.storeString,
 			')'
-		].stringJoin
+		].join
 	}
 
 	values { :self |

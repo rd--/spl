@@ -224,7 +224,7 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 			', ',
 			self.y.storeString,
 			')'
-		].stringJoin
+		].join
 	}
 
 	swapInPlace { :self |

@@ -18,14 +18,6 @@
 
 }
 
-+@Integer {
-
-	iota { :self |
-		[1 .. self]
-	}
-
-}
-
 +@Sequence {
 
 	expand { :self :counts |
@@ -125,7 +117,7 @@
 	}
 
 	expand { :self :counts |
-		self.asList.expand(counts).stringJoin
+		self.asList.expand(counts).join
 	}
 
 	find { :haystack :needle |
@@ -145,7 +137,7 @@
 	}
 
 	partitionApl { :self :aSequence |
-		self.asList.partitionApl(aSequence).collect(stringJoin:/1)
+		self.asList.partitionApl(aSequence).collect(join:/1)
 	}
 
 	rank { :self |
@@ -153,7 +145,7 @@
 	}
 
 	replicateEach { :self :counts |
-		self.asList.replicateEach(counts).stringJoin
+		self.asList.replicateEach(counts).join
 	}
 
 	shape { :self |
