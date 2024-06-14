@@ -8,7 +8,7 @@ Intervals are closed, they includes both end points.
 Use `+` to add intervals, getting an interval representing the result:
 
 ```
->>> Interval(1, 6) + Interval(0, 2)
+>>> (1 -- 6) + (0 -- 2)
 1 -- 8
 ```
 
@@ -22,7 +22,7 @@ Squaring gives a non-negative interval:
 Exact comparisons can be made with intervals:
 
 ```
->>> Interval(5, 8) > pi
+>>> (5 -- 8) > pi
 true
 ```
 
@@ -30,16 +30,16 @@ Numbers automatically turn into intervals:
 
 ```
 >>> 1.asInterval
-Interval(1, 1)
+(1 -- 1)
 
->>> Interval(-1, 1) + 1 * 0.5
-Interval(0, 1)
+>>> (-1 -- 1) + 1 * 0.5
+(0 -- 1)
 ```
 
 Use `min` and `max` to find end points of intervals:
 
 ```
->>> let i = Interval(-1.pi, pi);
+>>> let i = (-1.pi -- pi);
 >>> (i.min, i.max)
 (-1.pi, pi)
 ```
@@ -47,7 +47,10 @@ Use `min` and `max` to find end points of intervals:
 Use `includes` to determine if a point is in the interval (checking for containment):
 
 ```
->>> let i = Interval(1, 5);
+>>> (2 -- 5).includes(pi)
+true
+
+>>> let i = (1 -- 5);
 >>> [3.2, 5, 1, 9].collect { :each | i.includes(each) }
 [true, true, true, false]
 ```
@@ -55,41 +58,41 @@ Use `includes` to determine if a point is in the interval (checking for containm
 Combine intervals:
 
 ```
->>> Interval(1, 3).union(Interval(2, 4))
-Interval(1, 4)
+>>> (1 -- 3).union(2 -- 4)
+(1 -- 4)
 
->>> Interval(1, 9).union(Interval(3, 5))
-Interval(1, 9)
+>>> (1 -- 9).union(3 -- 5)
+(1 -- 9)
 ```
 
 Cannot combine disjoint intervals:
 
 ```
->>> { Interval(-2, 0).union(Interval(1, 4)) }.ifError { true }
+>>> { (-2 -- 0).union(1 -- 4) }.ifError { true }
 true
 ```
 
 Find where intervals overlap:
 
 ```
->>> Interval(-2, 3).intersection(Interval(1, 4))
-Interval(1, 3)
+>>> (-2 -- 3).intersection(1 -- 4)
+(1 -- 3)
 
->>> Interval(-2, pi).intersection(Interval(e, 4))
-Interval(e, pi)
+>>> (-2 -- pi).intersection(e -- 4)
+(e -- pi)
 ```
 
 Cannot intersect disjoint intervals:
 
 ```
->>> { Interval(-2, 0).intersection(Interval(1, 4)) }.ifError { true }
+>>> { (-2 -- 0).intersection(1 -- 4) }.ifError { true }
 true
 ```
 
 It is an `error` if `min` exceeds `max`:
 
 ```
->>> { Interval(1, 0) }.ifError { true }
+>>> { (1 -- 0) }.ifError { true }
 true
 ```
 

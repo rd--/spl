@@ -81,12 +81,27 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   (interactive)
   (spl-netcat-cmd 'evalFile 'fileName buffer-file-name))
 
+
+(defun spl-trim-leading-whitespace (str)
+  "Remove whitespace at the beginning of STR."
+  (save-match-data
+    (if (string-match "\\`[ \t\n\r]+" str)
+        (replace-match "" t t str)
+      str)))
+
 (defun spl-delete-markdown-code-fences (str)
-  "Remove Mardown code fences from the string STR if present."
-  (replace-regexp-in-string "^```\\|~~~" "" str))
+  "Remove Mardown code fences from the string STR if present.
+
+Delete any leading whitespace this creates."
+  (spl-trim-leading-whitespace
+   (replace-regexp-in-string "^```\\|~~~" "" str)))
 
 (defun spl-delete-doctest-prefixes (str)
-  "Remove Doctest prefixes from the string STR if present."
+  "Remove Doctest prefixes from the string STR if present.
+
+If the string begins with a doctest, also delete all non doctest lines."
+  (if (char-equal (string-to-char str) ?>)
+      (setq str (replace-regexp-in-string "^[^>].*" "" str)))
   (replace-regexp-in-string "^[> ]*" "" str))
 
 (defun spl-set-region-to-paragraph ()
@@ -98,8 +113,8 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
 
 (defun spl-get-text (start end)
   "Get the text from start to end as a string, with code fences deleted."
-  (spl-delete-markdown-code-fences
-   (spl-delete-doctest-prefixes
+  (spl-delete-doctest-prefixes
+   (spl-delete-markdown-code-fences
     (buffer-substring-no-properties start end))))
 
 (defun spl-get-paragraph ()

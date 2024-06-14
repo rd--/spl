@@ -15,7 +15,7 @@ At `SmallFloat`:
 At `Interval`:
 
 ```
->>> Interval(e, pi) ~ Interval(2.7183, 3.1416)
+>>> (e -- pi) ~ (2.7183 -- 3.1416)
 true
 ```
 

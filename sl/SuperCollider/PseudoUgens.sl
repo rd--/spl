@@ -1,21 +1,21 @@
 {- Requires: Ugen -}
 
-+@Integer {
++[List, SmallFloat] {
 
-	BrownNoise { :numChan |
-		{ BrownNoise() } ! numChan
+	BrownNoise { :shape |
+		{ BrownNoise() } ! shape
 	}
 
-	GrayNoise { :numChan |
-		{ GrayNoise() } ! numChan
+	GrayNoise { :shape |
+		{ GrayNoise() } ! shape
 	}
 
-	PinkNoise { :numChan |
-		{ PinkNoise() } ! numChan
+	PinkNoise { :shape |
+		{ PinkNoise() } ! shape
 	}
 
-	WhiteNoise { :numChan |
-		{ WhiteNoise() } ! numChan
+	WhiteNoise { :shape |
+		{ WhiteNoise() } ! shape
 	}
 
 }

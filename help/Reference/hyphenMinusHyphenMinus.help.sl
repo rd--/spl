@@ -2,7 +2,7 @@
 
 - _min -- max_ ⇒ _Interval(min, max)_
 
-Operator form of `Interval`.
+Operator form of `Interval`, a type representing a closed interval.
 
 ```
 >>> 1 -- 9

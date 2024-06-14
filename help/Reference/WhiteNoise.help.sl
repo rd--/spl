@@ -30,7 +30,11 @@ See also: BrownNoise, ClipNoise, PinkNoise, Rand, TRand
 References:
 _Csound_
 [1](https://csound.com/docs/manual/noise.html),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/WhiteNoiseProcess.html),
 _SuperCollider_
-[1](https://doc.sccode.org/Classes/WhiteNoise.html)
+[1](https://doc.sccode.org/Classes/WhiteNoise.html),
+_W_
+[1](https://en.wikipedia.org/wiki/White_noise)
 
 Categories: Ugen, Noise

@@ -107,7 +107,7 @@ At `Interval`, select between `one` and five at random:
 
 ```
 >>> let r = Sfc32(69197);
->>> let i = Interval(1, 5);
+>>> let i = (1 -- 5);
 >>> i.atRandom([3 3], r)
 [
 	1.8204 2.7704 2.1866;

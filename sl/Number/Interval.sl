@@ -131,6 +131,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 		1.asInterval
 	}
 
+	printString { :self |
+		'(' ++ self.min ++ ' -- ' ++ self.max ++ ')'
+	}
+
 	squared { :self |
 		let answer = self * self;
 		(answer.min < 0).ifTrue {

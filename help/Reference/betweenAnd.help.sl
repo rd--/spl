@@ -17,7 +17,7 @@ true
 Use `Interval` or `Range` and `includes` instead of `betweenAnd`:
 
 ```
->>> Interval(1, 10).includes(7)
+>>> (1 -- 10).includes(7)
 true
 
 >>> 1:10.includes(7)
