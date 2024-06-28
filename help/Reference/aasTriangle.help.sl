@@ -8,7 +8,7 @@ Vertices are placed so that _A_ is at the origin,
 _B_ is on the positive _x_ axis,
 and _C_ in the half-plane _y > 0_.
 
-`coordinates`, `area` and `centroid` of _aas_ triangle:
+Calculate the `coordinates`, `area` and `centroid` of an _aas_ triangle:
 
 ```
 >>> let t = aasTriangle(pi / 6, pi / 3, 1);

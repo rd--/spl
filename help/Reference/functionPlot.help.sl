@@ -12,7 +12,7 @@ Plot one cycle of the sine function:
 (0 -- 2.pi).functionPlot(sin:/1)
 ~~~
 
-Plot a `sin` function over an interval defined as a block literal:
+Plot a `sin` function, defined as a block literal, over an interval:
 
 ~~~
 (0 -- 15).functionPlot { :x |

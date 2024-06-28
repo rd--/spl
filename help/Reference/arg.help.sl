@@ -1,15 +1,21 @@
 # arg
 
-- _arg(aComplexNumber)_
+- _arg(z)_
 
-Answers the argument of _aComplexNumber_, the phase angle in radians between -pi and +pi.
+Answers the argument of _z_, the phase angle in radians between -pi and +pi.
 
 The answer is given in radians:
+
+At `SmallFloat`:
 
 ```
 >>> -1.arg
 pi
+```
 
+At `Complex`:
+
+```
 >>> 1j1.arg
 (pi / 4)
 
@@ -37,7 +43,7 @@ Threads elementwise over lists and matrices:
 Values at `zero` & infinity:
 
 ```
->>> [0, inf].arg
+>>> [0 inf].arg
 [0 0]
 ```
 
@@ -66,4 +72,8 @@ See also: abs, absArg, arcTan, conjugated, Complex, toPolarCoordinates
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Arg.html)
+[1](https://reference.wolfram.com/language/ref/Arg.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/matlab/ref/angle.html)
+
+Categories: Complex

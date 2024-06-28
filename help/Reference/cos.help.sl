@@ -57,6 +57,18 @@ Noncommensurate waves (quasiperiodic function):
 (0 -- 40.pi).functionPlot { :x | x.cos + (x * 2.sqrt).cos }
 ~~~
 
+
+Spiral:
+
+~~~
+(0 -- 6.pi).functionPlot { :t |
+	[
+		t / pi * t.cos,
+		t / pi * t.sin
+	]
+}
+~~~
+
 * * *
 
 See also: arcCos, sin, tan

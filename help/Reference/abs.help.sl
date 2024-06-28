@@ -36,7 +36,11 @@ Answer a number that is the absolute value (positive magnitude) of _aNumber_.
 ```
 >>> [-2.5 3.141 1.4j2.3 -2j1].abs
 [2.5 3.141 2.69258 2.23607]
+```
 
+`abs` collects over matrices:
+
+```
 >>> [1 -2 3; -4 5 -6].abs
 [1 2 3; 4 5 6]
 ```
@@ -55,7 +59,7 @@ Plot _|1 + x|_:
 
 * * *
 
-See also: sign
+See also: absArg, arg, hypot, imaginary, norm, sign, real
 
 References:
 _Apl_
@@ -67,6 +71,8 @@ _Maple_
 _Mathematica_
 [1](https://mathworld.wolfram.com/AbsoluteValue.html)
 [2](https://reference.wolfram.com/language/ref/Abs.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/matlab/ref/abs.html),
 _Smalltalk_
 5.6.2.10
 

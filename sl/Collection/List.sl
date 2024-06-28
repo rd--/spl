@@ -160,6 +160,14 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		}
 	}
 
+	fill { :self :aBlock:/1 |
+		let answer = List(self);
+		answer.indicesDo { :index |
+			answer[index] := aBlock(index)
+		};
+		answer
+	}
+
 	geometricSeries { :self :start :grow |
 		let answer = [];
 		let next = start;
@@ -178,6 +186,19 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		let answer = List(size);
 		answer.atAllPut(anObject);
 		answer
+	}
+
+}
+
++@Number {
+
+	linspace { :x1 :x2 :n |
+		let step = (x2 - x1) / (n - 1);
+		{ :x | x + step }.nestList(x1, n - 1)
+	}
+
+	logspace { :a :b :n |
+		10 ^ a.linspace(b, n)
 	}
 
 }
@@ -276,18 +297,6 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		} {
 			aSequence.fill(self.constant)
 		}
-	}
-
-}
-
-+@Integer {
-
-	fill { :self :aBlock:/1 |
-		let answer = List(self);
-		answer.indicesDo { :index |
-			answer[index] := aBlock(index)
-		};
-		answer
 	}
 
 }

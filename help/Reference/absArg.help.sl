@@ -1,6 +1,6 @@
 # absArg
 
-- _absArg(aComplexNumber)_
+- _absArg(z)_
 
 Answers the list _[z.abs, z.arg]_ of the number _z_.
 
@@ -9,6 +9,10 @@ The absolute value and argument of a complex number:
 ```
 >>> 5j12.absArg
 [13, (12 / 5).arcTan]
+
+>>> let z = 2 * 0.5.i.exp;
+>>> z.absArg
+[2 0.5]
 ```
 
 Real numbers are a special kind of complex number:
@@ -30,8 +34,10 @@ Collects over lists:
 
 * * *
 
-See also: abs, arg, toPolarCoordinates, angleVector
+See also: abs, angleVector, arg, Complex, toPolarCoordinates
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/AbsArg.html)
+
+Categories: Complex
