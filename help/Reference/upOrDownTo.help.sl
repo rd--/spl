@@ -25,8 +25,15 @@ The range cannot be empty, only singular:
 [1]
 ```
 
+Threads over lists:
+
+```
+>>> [1 3 5].upOrDownTo([5 6 7 8])
+[1:5, 3:6, 5:7, 1:8]
+```
+
 * * *
 
-See also: downTo, Range, thenTo, to, toBy
+See also: Range, thenTo, to, toBy
 
 Categories: Constructor, Range

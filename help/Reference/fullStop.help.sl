@@ -24,6 +24,8 @@ A full stop separates the _procedure_ from the _parameter list_ in `Value Apply 
 
 * * *
 
-See also: :, ,, ;, Method Syntax, Value Apply Syntax
+See also: :, ,, ;
+
+Guides: Method Syntax, Value Apply Syntax
 
 Categories: Syntax

@@ -24,7 +24,9 @@ If _then_ is in the wrong direction to arrive at _stop_, the `Range` is empty:
 
 * * *
 
-See also: Range, Range Syntax, to, toBy, upOrDownTo
+See also: Range, to, toBy, upOrDownTo
+
+Guides: Range Syntax
 
 References:
 _Haskell_

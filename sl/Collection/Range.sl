@@ -174,3 +174,15 @@ Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgressio
 	}
 
 }
+
++@Sequence {
+
+	to { :self :stop |
+		stop.adaptToCollectionAndApply(self, to:/2)
+	}
+
+	upOrDownTo { :self :stop |
+		stop.adaptToCollectionAndApply(self, upOrDownTo:/2)
+	}
+
+}

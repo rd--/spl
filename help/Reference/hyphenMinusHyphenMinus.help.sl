@@ -13,7 +13,9 @@ Where supported `--` is displayed as —.
 
 * * *
 
-See also: ->, Interval, Range, Range Syntax
+See also: ->, Interval, Range
+
+Guides: Range Syntax
 
 Unicode: U+2014 — Em Dash
 

@@ -52,10 +52,10 @@ true
 
 >>> let i = (1 -- 5);
 >>> [3.2, 5, 1, 9].collect { :each | i.includes(each) }
-[true, true, true, false]
+[true true true false]
 ```
 
-Combine intervals:
+Use `union` to combine intervals:
 
 ```
 >>> (1 -- 3).union(2 -- 4)
@@ -72,7 +72,7 @@ Cannot combine disjoint intervals:
 true
 ```
 
-Find where intervals overlap:
+Use `intersection` to find where intervals overlap:
 
 ```
 >>> (-2 -- 3).intersection(1 -- 4)
@@ -112,7 +112,9 @@ or `subdivide`:
 
 * * *
 
-See also: --, discretize, Range, Range Syntax, subdivide
+See also: --, discretize, includes, intersection, Range, subdivide, union
+
+Guides: Range Syntax
 
 References:
 _Mathematica_

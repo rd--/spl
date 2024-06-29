@@ -31,6 +31,8 @@ _().f_ means _f(())_.
 
 * * *
 
-See also: Apply Syntax, Dictionary Syntax
+See also: .
+
+Guides: Apply Syntax, Dictionary Syntax
 
 Categories: Syntax

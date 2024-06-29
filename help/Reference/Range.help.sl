@@ -151,7 +151,9 @@ Compute the first ten squares:
 
 * * *
 
-See also: ArithmeticProgression, downTo, Interval, isIntegerRange, Range Syntax, thenTo, to, toBy, upOrDownTo
+See also: .., :, ArithmeticProgression, downTo, Interval, isIntegerRange, thenTo, to, toBy, upOrDownTo
+
+Guides: Range Syntax
 
 References:
 _Mathematica_

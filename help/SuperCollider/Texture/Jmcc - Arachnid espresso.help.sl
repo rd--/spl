@@ -13,7 +13,7 @@
 	);
 	let e = Trig(t, Rand(0.3, 0.9) / r);
 	let f = pf * Sequencer(
-		{ Rand(24, 96).MidiCps } ! [1 .. 4].atRandom,
+		{ Rand(24, 96).MidiCps } ! 1:4.atRandom,
 		t
 	).Lag(0.1 / r);
 	let n = Lpz2(LfNoise2(Min(f * 24, 12000)) * 0.2 * e);

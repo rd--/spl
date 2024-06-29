@@ -18,6 +18,13 @@ At `Range`:
 false
 ```
 
+At `Interval`:
+
+```
+>>> (1 -- 5).includes(pi)
+true
+```
+
 At `Record`:
 
 ```

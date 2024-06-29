@@ -68,7 +68,7 @@ _Note_:
 In Smalltalk `alpha to: beta` is an empty Range if alpha <= beta.
 The re-write rule here calls `upOrDownTo` which allows descending intervals to be specified.
 Care must be taken not to use `(alpha .. beta)` where `alpha.to(beta)` is required.
-In notation `alpha:beta` is from Fortress.
+In notation `alpha:beta` is from Matlab and Fortress.
 The literal case is not written _p..q_ since it would make white space significant in the array case,
 i.e. _[p..q]_ would be an array of one interval, and not equal to _[p .. q]_.
 
