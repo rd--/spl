@@ -71,6 +71,7 @@
 	DelayMap { :bufNum :in :dynamic :spec | <primitive: return sc.DelayMap(_bufNum, _in, _dynamic, _spec);> }
 	DelayN { :in :maxdelaytime :delaytime | <primitive: return sc.DelayN(_in, _maxdelaytime, _delaytime);> }
 	Demand { :trig :reset :demandUGens | <primitive: return sc.Demand(_trig, _reset, _demandUGens);> }
+	DemandEnvGen { :level :dur :shape :curve :gate :reset :levelScale :levelBias :timeScale :doneAction | <primitive: return sc.DemandEnvGen(_level, _dur, _shape, _curve, _gate, _reset, _levelScale, _levelBias, _timeScale, _doneAction);> }
 	DetectIndex { :bufnum :input | <primitive: return sc.DetectIndex(_bufnum, _input);> }
 	DetectSilence { :in :amp :time :doneAction | <primitive: return sc.DetectSilence(_in, _amp, _time, _doneAction);> }
 	Ddup { :n :in | <primitive: return sc.Ddup(_n, _in);> }
