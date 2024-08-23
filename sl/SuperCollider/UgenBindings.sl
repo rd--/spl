@@ -163,6 +163,7 @@
 	LagUd { :in :lagTimeU :lagTimeD | <primitive: return sc.LagUd(_in, _lagTimeU, _lagTimeD);> }
 	Latch { :in :trig | <primitive: return sc.Latch(_in, _trig);> }
 	LatoocarfianC { :freq :a :b :c :d :xi :yi | <primitive: return sc.LatoocarfianC(_freq, _a, _b, _c, _d, _xi, _yi);> }
+	LatoocarfianN { :freq :a :b :c :d :xi :yi | <primitive: return sc.LatoocarfianN(_freq, _a, _b, _c, _d, _xi, _yi);> }
 	LatoocarfianL { :freq :a :b :c :d :xi :yi | <primitive: return sc.LatoocarfianL(_freq, _a, _b, _c, _d, _xi, _yi);> }
 	LeakDc { :in :coef | <primitive: return sc.LeakDc(_in, _coef);> }
 	Limiter { :in :level :dur | <primitive: return sc.Limiter(_in, _level, _dur);> }

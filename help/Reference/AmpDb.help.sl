@@ -42,6 +42,9 @@ See also: DbAmp
 References:
 _Csound_
 [1](https://csound.com/docs/manual/ampdb.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/signal/ref/mag2db.html)
+[2](https://au.mathworks.com/help/signal/ref/pow2db.html),
 _Max_
 [1](https://docs.cycling74.com/max8/refpages/atodb)
 
