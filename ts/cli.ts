@@ -87,6 +87,7 @@ function pathBasename(path: string): string {
 	return path.split(/[\\/]/).pop() || '';
 }
 
+/*
 function pathFinalExtension(path: string): string {
 	const basename = pathBasename(path);
 	const index = basename.lastIndexOf('.');
@@ -96,6 +97,7 @@ function pathFinalExtension(path: string): string {
 		return basename.slice(index + 1);
 	}
 }
+*/
 
 function pathWithoutAnyExtension(path: string): string {
 	const basename = pathBasename(path);

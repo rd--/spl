@@ -26,23 +26,23 @@ export function getOs(): string {
 	return Deno.build.os;
 }
 
-export async function readBinaryFile(path: string | URL): Promise<Uint8Array> {
+export function readBinaryFile(path: string | URL): Promise<Uint8Array> {
 	return Deno.readFile(path);
 }
 
-export async function readTextFile(path: string | URL): Promise<string> {
+export function readTextFile(path: string | URL): Promise<string> {
 	return Deno.readTextFile(path);
 }
 
 export async function statMtime(path: string | URL): Promise<number> {
 	return await Deno.stat(path).then(function (result) {
 		return result.mtime ? result.mtime.getTime() : 0;
-	}, function (reason) {
+	}, function (_reason) {
 		return 0;
 	});
 }
 
-export async function systemCommand(
+export function systemCommand(
 	commandName: string,
 	argumentArray: string[],
 ) {
@@ -57,14 +57,14 @@ export async function systemCommand(
 	});
 }
 
-export async function writeBinaryFile(
+export function writeBinaryFile(
 	path: string | URL,
 	data: Uint8Array,
 ): Promise<void> {
 	return Deno.writeFile(path, data);
 }
 
-export async function writeTextFile(
+export function writeTextFile(
 	path: string | URL,
 	data: string,
 ): Promise<void> {

@@ -91,7 +91,6 @@ export function typeOf(anObject: unknown): TypeName {
 				return objectType(<SlObject> anObject);
 			default:
 				throw new Error(`typeOf: unknown type: ${anObject}`);
-				return 'Unknown';
 		}
 	}
 }
@@ -617,10 +616,12 @@ export function addMethod(
 	if (isMeta && !typeExists(typeName)) {
 		// Lazily add meta-type entries as required
 		throw new Error('Meta Types Unused');
+		/*
 		system.typeDictionary.set(
 			typeName,
 			new Type(typeName, 'Kernel-System-Meta', ['Object'], [], new Map()),
 		);
+		*/
 	}
 	if (typeExists(typeName)) {
 		const typeValue = system.typeDictionary.get(typeName)!;

@@ -3,11 +3,7 @@ import ohm from 'https://unpkg.com/ohm-js@17/dist/ohm.esm.js';
 import { arraySum } from '../lib/jssc3/ts/kernel/array.ts';
 
 import { slParse, slSemantics } from './grammar.ts';
-import {
-	isOperatorName,
-	operatorMethodName,
-	resolveMethodName,
-} from './operator.ts';
+import { resolveMethodName } from './operator.ts';
 import { slOptions } from './options.ts';
 
 export const context = { packageName: 'UnknownPackage' };
@@ -475,9 +471,9 @@ const asJs: ohm.ActionDict<string> = {
 		return blockBody.asJs;
 	},
 	BlockBody(arg, tmp, prm, stm) {
-		let tmpJs = tmp.asJs;
-		let prmJs = prm.asJs;
-		let stmJs = stm.asJs;
+		const tmpJs = tmp.asJs;
+		const prmJs = prm.asJs;
+		const stmJs = stm.asJs;
 		let arityCheck = '';
 		if (slOptions.insertArityCheck) {
 			/* console.error(${JSON.stringify(stm.sourceString)});  */
