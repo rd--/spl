@@ -29,7 +29,7 @@ Find twin primes, i.e. pairs of primes of the form _(p, p + 2)_:
 >>> 		n.nextPrime = (n + 2)
 >>> 	}
 >>> }
-[3  5 11 17 29 41 59 71]
+[3 5 11 17 29 41 59 71]
 ```
 
 It is conjectured that for any integer _n_, there is a prime _p_ with _n < p < 2 * n_:

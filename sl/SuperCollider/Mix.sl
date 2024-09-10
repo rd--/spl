@@ -213,7 +213,9 @@
 		let orientation = system.scSynth.mainOrientation;
 		(
 			inList.size = numberOfChannels & {
-				spread = 1
+				spread.isSmallFloat & {
+					spread = 1
+				}
 			}
 		).if {
 			inList

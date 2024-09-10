@@ -1,6 +1,6 @@
 # degreesToRadians
 
-_degreesToRadians(aNumber)_
+- _degreesToRadians(aNumber)_
 
 Convert from degrees to radians.
 

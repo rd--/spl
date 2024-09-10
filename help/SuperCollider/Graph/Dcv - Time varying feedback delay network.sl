@@ -42,7 +42,7 @@ let inSig = Saw(XLine(100, 1000, 0.1)) * gainEnv;
 let order = 8;
 let size = ctl::size + modEnv.LinLin(0, 1, 0, ctl::sizeEnvAmount);
 let delTimes = {
-	randomInteger(1000, 4599).nextPrime
+	1000:4599.atRandom.nextPrime
 } ! order;
 let sampleRate = 48000;
 let delTimesSec = (delTimes * delMod) / sampleRate;

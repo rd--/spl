@@ -45,6 +45,13 @@ A `String` is not a number:
 false
 ```
 
+A `Ugen` is a number:
+
+```
+>>> SinOsc(440, 0).isNumber
+true
+```
+
 * * *
 
 See also: isFinite, isFraction, isInteger, isLargeInteger, isSmallFloat, Number
