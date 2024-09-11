@@ -40,28 +40,41 @@ function objectNameByConstructor(anObject: SlObject): TypeName {
 }
 
 function objectType(anObject: SlObject): TypeName {
-	return anObject instanceof Array
-		? 'List'
-		: (anObject instanceof Map
-			? 'Map'
-			: (anObject instanceof Set
-				? 'Set'
-				: (anObject instanceof Promise
-					? 'Promise'
-					: (anObject instanceof PriorityQueue
-						? 'PriorityQueue'
-						: (anObject instanceof Uint8Array
-							? 'ByteArray'
-							: (anObject instanceof Float64Array
-								? 'Float64Array'
-								: (anObject instanceof Error
-									? 'Error'
-									: (anObject instanceof WeakMap
-										? 'WeakMap'
-										: (anObject._type ||
-											(isRecord(anObject)
-												? 'Record'
-												: objectNameByConstructor(anObject)))))))))));
+	if (anObject instanceof Array) {
+		return 'List';
+	}
+	if (anObject instanceof Map) {
+		return 'Map';
+	}
+	if (anObject instanceof Set) {
+		return 'Set';
+	}
+	if (anObject instanceof Promise) {
+		return 'Promise';
+	}
+	if (anObject instanceof PriorityQueue) {
+		return 'PriorityQueue';
+	}
+	if (anObject instanceof Uint8Array) {
+		return 'ByteArray';
+	}
+	if (anObject instanceof Float64Array) {
+		return 'Float64Array';
+	}
+	if (anObject instanceof Error) {
+		return 'Error';
+	}
+	if (anObject instanceof WeakMap) {
+		return 'WeakMap';
+	}
+	const splType = anObject._type;
+	if (splType !== undefined) {
+		return splType;
+	}
+	if (isRecord(anObject)) {
+		return 'Record';
+	}
+	return objectNameByConstructor(anObject);
 }
 
 /* This runs slower than the form above, is .constructor.name slow?
