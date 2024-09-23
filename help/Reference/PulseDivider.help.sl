@@ -37,6 +37,12 @@ let p16 = PulseDivider(p, 16, 0);
 ].Splay * 0.3
 ```
 
+Array expansion:
+
+```
+Impulse(8, 0).PulseDivider([3 5], 0).Perc(0.1, 0.1, -4) * SinOsc([333, 555], 0) * 0.1
+```
+
 * * *
 
 See also: Impulse

@@ -11,13 +11,13 @@ LocalIn defines buses that are local to the enclosing synth.
 
 These are like the global buses, but are more convenient if you want to implement a self contained effect that uses a feedback processing loop.
 
-There can only be one audio rate and one control rate _LocalIn_ per synthesis program.
+There can only be one audio rate and one control rate `LocalIn` per synthesis program.
 
-The audio can be written to the bus using _LocalOut_.
+The audio can be written to the bus using `LocalOut`.
 
 Audio written to a LocalOut will not be read by a corresponding LocalIn until the next cycle, i.e. one block size of samples later.
 
-Simple delay with reversed channels sent to _LocalOut_ to give ping pong effect, mouse control of decay factor:
+Simple delay with reversed channels sent to `LocalOut` to give ping pong effect, mouse control of decay factor:
 
 ```
 {- LocalIn ; read feedback, add to source -}

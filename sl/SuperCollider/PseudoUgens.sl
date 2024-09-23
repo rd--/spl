@@ -47,8 +47,8 @@
 	HoldSequence { :inList :dur |
 		let gate = DurationGate(dur);
 		let trig = Trig1(gate, SampleDur());
-		let index = Stepper(trig, 1, 0, inList.size - 1, 1, 0);
-		Latch(Multiplexer(index, inList), trig)
+		let index = Stepper(trig.kr, 1, 0, inList.size - 1, 1, 0);
+		Latch(Select(index, inList), trig) {- Multiplexer -}
 	}
 
 	THoldSequence { :inList :dur |
@@ -226,10 +226,10 @@
 	}
 
 	Sequencer { :inList :trig |
-		Multiplexer(
-			Stepper(trig, 1, 0, inList.size - 1, 1, 0),
+		Select(
+			Stepper(trig.kr, 1, 0, inList.size - 1, 1, 0),
 			inList
-		)
+		) {- Multiplexer -}
 	}
 
 	DemandSequencer { :self :trig |

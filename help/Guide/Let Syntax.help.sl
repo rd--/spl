@@ -24,6 +24,17 @@ The sequence of initiliasers is retained, subsequent initialisations may refer t
 7
 ```
 
+Initialising a value to a `Block` literal rewrites the bound name to its arity qualified form:
+
+```
+>>> let f = { :x | x * 2 + 1 };
+>>> (
+>>> 	f:/1 . (11),
+>>> 	{ f . (11) }.ifError { 'undefined' }
+>>> )
+(23, 'undefined')
+```
+
 The syntax requires that all temporaries have initialisers, there is no implicit `nil` initialiser.
 
 Note that the initialiser syntax, _p = x_, is distinct from the assignment syntax, _p := x_.

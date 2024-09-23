@@ -27,6 +27,12 @@ _LfNoise0_ is a faster way to generate random steps:
 Blip(LfNoise0(9) * 400 + 500, 4) * 0.1
 ```
 
+Array expansion:
+
+```
+WhiteNoise().Latch(Impulse([2, 7], 0)).LinLin(-1, 1, 222, 777).SinOsc(0) * 0.1
+```
+
 * * *
 
 See also: Gate

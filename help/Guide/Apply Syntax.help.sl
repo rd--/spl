@@ -49,6 +49,15 @@ No argument method application is written _f()_.
 7
 ```
 
+Bindings to blocks with the same name in the same scope with different arities introduce distinct bindings:
+
+```
+>>> let f = { 1 };
+>>> let f = { :x | x + 1 };
+>>> [f(), f(1)]
+[1, 2]
+```
+
 * * *
 
 See also: ., Block, Method

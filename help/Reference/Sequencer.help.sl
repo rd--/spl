@@ -8,6 +8,14 @@ Outputs a different value from the sequence each time a trigger is received.
 - sequence: the values in the list are output cyclically
 - trig: step signal
 
+Arpeggio:
+
+```
+let t = Impulse(4, 0);
+let f = Sequencer([111 222 333 444], t);
+SinOsc(f, 0) * Perc(t, 0.1, 0.1, 0) * 0.1
+```
+
 Sequence triggered by square wave:
 
 ```

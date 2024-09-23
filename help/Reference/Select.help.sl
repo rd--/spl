@@ -41,7 +41,7 @@ As a sequencer:
 }.XFadeTexture(3, 4)
 ```
 
-For selecting from a list of constants consider also _BufRd_.
+For selecting from a list of constants consider also `BufRd`.
 
 * * *
 

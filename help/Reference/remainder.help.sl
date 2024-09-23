@@ -67,6 +67,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Remainder.html)
 [2](https://reference.wolfram.com/language/ref/QuotientRemainder.html)
 [3](https://reference.wolfram.com/language/ref/Mod.html),
+_Mathworks_
+[1](https://mathworks.com/help/symbolic/sym.quorem.html),
 _Smalltalk_
 5.6.2.30
 

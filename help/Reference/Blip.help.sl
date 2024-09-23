@@ -21,6 +21,12 @@ Modulate number of harmonics:
 Blip(200,Line(1, 100, 20)) * 0.2
 ```
 
+Modulate both:
+
+```
+Blip([3 33], LfNoise2(44) * 77 + 99) * LfTri(4, 0)
+```
+
 _Warning_:
 This waveform in its raw form could be damaging to your ears at high amplitudes or for long periods.
 

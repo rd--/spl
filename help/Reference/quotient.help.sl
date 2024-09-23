@@ -77,7 +77,7 @@ Plot the sequence of quotients:
 
 * * *
 
-See also: // remainder
+See also: //, remainder
 
 References:
 _Haskell_:
