@@ -2,9 +2,25 @@
 
 - _arcCosh(aNumber)_
 
+Answer the inverse hyperbolic cosine of the _aNumber_.
+
 ```
 >>> 1.5.arcCosh
 0.96242
+```
+
+Inverse is cosh:
+
+```
+>>> 2.arcCosh.cosh
+2
+```
+
+Threads over lists:
+
+```
+>>> [1 2 3 pi].arcCosh
+[0 1.31696 1.76275 1.81153]
 ```
 
 Plot over a subset of the reals:

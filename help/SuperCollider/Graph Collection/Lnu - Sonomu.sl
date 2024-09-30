@@ -437,6 +437,41 @@ Splay(
 {- https://sonomu.club/@lukiss/113019188464159465 ; Aug 25, 2024, 07:45 -}
 let k = 2 ^ StandardN([1.1, 0.9], 1, 0.5, 0) * 8;
 Splay(
-	LeakDc(StandardN(StandardN(k, 1, 0.5, 0).Max(0) * 22050, k.Sin, 0.5, 0) / 4, 0.995),
+	LeakDc(
+		StandardN(StandardN(k, 1, 0.5, 0).Max(0) * 22050, k.Sin, 0.5, 0) / 4,
+		0.995
+	),
 	StandardN(k.sum, 1, 0.5, 0)
+)
+
+{- https://sonomu.club/@lukiss/113199362402063463 ; Sep 26, 2024, 03:26 -}
+let t = {
+	CuspL(LfdNoise1([1, 1]).Max(0) ^ 2 * 32, 1, 1.9, 0)
+};
+let r = { :x :y |
+	TRand(x, y, t())
+};
+Sanitize(
+	Splay(
+		CompanderD(
+			LeakDc(
+				LorenzL(
+					t() * SampleRate(),
+					r(1, r(1, 11)),
+					r(1, r(2, 30)),
+					r(0.001 / 77, 1 / 17),
+					0.05,
+					0.1, 0, 0
+				).SoftClip,
+				0.995
+			),
+			1 / 2,
+			1 / 2,
+			1 / 2,
+			0.005,
+			0.1
+		),
+		t().first
+	),
+	0
 )

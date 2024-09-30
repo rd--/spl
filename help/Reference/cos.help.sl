@@ -71,7 +71,7 @@ Spiral:
 
 * * *
 
-See also: arcCos, sin, tan
+See also: arcCos, arcCosh, cosh, sin, tan
 
 References:
 _Mathematica_
