@@ -13,7 +13,6 @@ The current line is shifted right if:
 
 - it begins with a period and the previous line does not
 
--
 -}
 module Main where
 

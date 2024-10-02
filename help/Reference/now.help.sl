@@ -4,6 +4,11 @@
 
 Answer a `TimeStamp` indicating the current time.
 
+```
+>>> system.now.asDate > '2024-10-02'.parseDate
+true
+```
+
 * * *
 
 See also: TimeStamp

@@ -6,7 +6,7 @@ Schedule _aBlock_ be called if _aPromise_ is rejected,
 with the reason as argument.
 Answer an equivalent `Promise` object to _aPromise_.
 
-`onRejection` is an idiom over _thenElse_.
+`onRejection` is an idiom over `thenElse`.
 
 * * *
 
