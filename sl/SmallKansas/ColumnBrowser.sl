@@ -51,7 +51,7 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 		self.title := title;
 		self.numberOfColumns := columnProportions.size;
 		self.createElements(mimeType, withFilter, withStatus, columnProportions, 6);
-		self.setColumnEntries(1, onChange(self, []));
+		self.setColumnEntries(1, self.onChange([]));
 		self.setEventHandlers(onChange:/2);
 		clientKeyBindings.isBlock.ifTrue {
 			self.addKeyBindings(clientKeyBindings)
@@ -75,7 +75,7 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 	}
 
 	columnEdited { :self :index :onChange:/2 |
-		let next = onChange(self, self.pathUpTo(index));
+		let next = self.onChange(self.pathUpTo(index));
 		(index = self.numberOfColumns).if {
 			next.then { :view |
 				self.textEditor.setEditorText(view.asString)

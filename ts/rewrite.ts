@@ -692,7 +692,8 @@ const asJs: ohm.ActionDict<string> = {
 		return `_assertIsSmallInteger_1(parseInt('${s.sourceString}${i.sourceString}', ${b.sourceString}))`;
 	},
 	integerLiteral(s, i) {
-		return `${s.sourceString}${i.sourceString}`;
+		// Allow 03 for 3 and -03 for -3
+		return `parseInt('${s.sourceString}${i.sourceString}')`;
 	},
 	constantNumberLiteral(k) {
 		// console.debug('constantNumberLiteral: ', k.sourceString);
