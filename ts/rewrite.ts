@@ -693,7 +693,7 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	integerLiteral(s, i) {
 		// Allow 03 for 3 and -03 for -3
-		return `parseInt('${s.sourceString}${i.sourceString}')`;
+		return `${parseInt(s.sourceString + i.sourceString)}`;
 	},
 	constantNumberLiteral(k) {
 		// console.debug('constantNumberLiteral: ', k.sourceString);
