@@ -1,4 +1,4 @@
-{- Phase vocoder (nh) ; http://scsynth.org/t/old-school-vocoders/5198/6 ; warning: AudioIn ; requires=kr -}
+/* Phase vocoder (nh) ; http://scsynth.org/t/old-school-vocoders/5198/6 ; warning: AudioIn ; requires=kr */
 let src = AudioIn([1]);
 let notes = { Choose(Dust(0.5).kr, 60 + [-9, -7, -5, -3, -2, 0, 2, 3, 5, 7, 9, 10]) } ! 3;
 let numBands = 32;

@@ -1,4 +1,4 @@
-{- Tw 0134 (F0) -}
+/* Tw 0134 (F0) */
 let n = 50;
 1:n.collect { :i |
 	let o1 = LfSaw(i + 1 / [3, 4], 0);

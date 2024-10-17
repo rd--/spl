@@ -1,7 +1,7 @@
-{- Slow beating sines (Jmcc) #7 -}
+/* Slow beating sines (Jmcc) #7 */
 {
-	let n = 20; {- n * 3 components in each channel -}
-	let d = 5.0; {- beating frequency deviation -}
+	let n = 20; /* n * 3 components in each channel */
+	let d = 5.0; /* beating frequency deviation */
 	let p = [];
 	let q = [];
 	n.timesRepeat {

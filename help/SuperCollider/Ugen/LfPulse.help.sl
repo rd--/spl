@@ -1,25 +1,25 @@
-{- LfPulse ; phase value = (0, 1), offset to lowest point -}
+/* LfPulse ; phase value = (0, 1), offset to lowest point */
 LfPulse(110, 1 * 0.5, 0.5) * 0.1
 
-{- LfPulse ; as envelope -}
+/* LfPulse ; as envelope */
 SinOsc(200, 0) * Lag(LfPulse(7.83, 0, 0.5) > 0, 0.05) * 0.2
 
-{- LfPulse ; as envelope -}
+/* LfPulse ; as envelope */
 SinOsc(230, 0) * Lag(LfPulse(MouseX(2.3, 23, 1, 0.2), 0, 0.5).Max(0), 0.01) * 0.2
 
-{- LfPulse ; 50 Hz wave -}
+/* LfPulse ; 50 Hz wave */
 LfPulse(50, 0, 0.5) * 0.05
 
-{- LfPulse ; modulating frequency -}
+/* LfPulse ; modulating frequency */
 LfPulse(XLine(1, 200, 10), 0, 0.2) * 0.05
 
-{- LfPulse ; amplitude modulation -}
+/* LfPulse ; amplitude modulation */
 LfPulse(XLine(1, 200, 10), 0, 0.2) * SinOsc(440, 0) * 0.1
 
-{- LfPulse ; used as both oscillator and lfo -}
+/* LfPulse ; used as both oscillator and lfo */
 LfPulse(LfPulse(3, 0, 0.3) * 200 + 200, 0, 0.2) * 0.05
 
-{- LfPulse ; humm -}
+/* LfPulse ; humm */
 let freqBass = 50;
 let freq = 50;
 let pan = 0;
@@ -33,7 +33,7 @@ snd := Lpf(snd, MouseY(9000, 11000, 1, 0.2));
 snd := snd + SinOsc(freqBass, 0);
 EqPan2(snd, pan) * amp
 
-{- https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft -}
+/* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft */
 let p = { :freq :lo :hi |
 	LfPulse(freq, 0, 0.5).LinLin(0, 1, lo, hi)
 };
@@ -47,7 +47,7 @@ p(
 	0.1
 )
 
-{- ---- LfPulse ; jmcc ; process ; requires=eval -}
+/* ---- LfPulse ; jmcc ; process ; requires=eval */
 {
 	let p1 = LfPulse(ExpRand(0.1, 1), 0, 0.3) * 0.2 + 0.02;
 	let in = LfSaw([21000, 21001], 0) * p1;

@@ -1,4 +1,4 @@
-{- Synthetic piano (Jmcc) #3 -}
+/* Synthetic piano (Jmcc) #3 */
 {
 	let n = Rand(36, 90);
 	let e = Decay2(Impulse(Rand(0.1, 0.5), 1.Rand0) * 0.1, 0.008, 0.04);

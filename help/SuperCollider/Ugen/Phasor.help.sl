@@ -1,4 +1,4 @@
-{- Phasor ; phase modulation ; mouse control -}
+/* Phasor ; phase modulation ; mouse control */
 let carFreq = 440;
 let modFreq = MouseX(1, 1000, 1, 0.2);
 let modIndex = MouseY(0, 100, 0, 0.2);
@@ -8,13 +8,13 @@ let phase = Phasor(0, carFreq * rateConversion, 0, 2 * pi, 0);
 let phaseOffset = SinOsc(modFreq, 0) * modDev * rateConversion;
 [SinOsc(0, phase + phaseOffset), SinOsc(carFreq, 0)] * 0.1
 
-{- SinOsc ; phase input ; constant frequency -}
+/* SinOsc ; phase input ; constant frequency */
 let freq = 440;
 let rate = 2 * pi * freq / SampleRate();
 let phase = Phasor(1, rate, 0, 2 * pi, 0);
 SinOsc(0, phase) * 0.1
 
-{- Phasor ; https://scsynth.org/t/8528/2 -}
+/* Phasor ; https://scsynth.org/t/8528/2 */
 let raisedCos = { :phase :index |
 	let cosine = (phase * 2.pi).Cos;
 	(index.Abs * (cosine - 1)).Exp
@@ -30,7 +30,7 @@ let car = (carPhase * 2.pi + (mod * index)).Sin;
 let sig = car * raisedCosWindow;
 LeakDc(sig, 0.995) * 0.1
 
-{- IXA ; https://nathan.ho.name/posts/ixa-synthesis/ -}
+/* IXA ; https://nathan.ho.name/posts/ixa-synthesis/ */
 let ixa = { :freq :in :index |
 	let phase = Phasor(Impulse(0, 0), freq / SampleRate(), 0, 1, 0);
 	let w1 = (phase % 0.5 * 2.pi).Sin * (2 * (phase % 0.5 < 0.25) - 1);

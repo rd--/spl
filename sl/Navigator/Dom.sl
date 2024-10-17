@@ -1,4 +1,4 @@
-{- Requires: Blob Event EventTarget -}
+/* Requires: Blob Event EventTarget */
 
 @AbstractRange {
 
@@ -218,7 +218,7 @@
 		true
 	}
 
-	{- Valid at <audio>, <img>, <link>, <script>, and <video> -}
+	/* Valid at <audio>, <img>, <link>, <script>, and <video> */
 	crossOrigin { :self | <primitive: return _self.crossorigin;> }
 	crossOrigin { :self :aString | <primitive: return _self.crossorigin = _aString;> }
 
@@ -320,16 +320,16 @@ CanvasRenderingContext2D! : [Object] {
 }
 
 CSSStyleDeclaration! : [Object, CssProperties] {
-	{- Chromium... -}
+	/* Chromium... */
 }
 
 CSS2Properties! : [Object, CssProperties] {
-	{- Firefox... -}
+	/* Firefox... */
 }
 
 CustomEvent! : [Object, Event] {
 
-	detail { :self | <primitive: return _self.detail;> } {- Read only -}
+	detail { :self | <primitive: return _self.detail;> } /* Read only */
 
 }
 
@@ -406,7 +406,7 @@ DOMPointReadOnly! : [Object, DOMPointReadOnly] {
 
 }
 
-DOMRange! : [Object, AbstractRange] { {- Note: Renamed by Spl kernel from Range -}
+DOMRange! : [Object, AbstractRange] { /* Note: Renamed by Spl kernel from Range */
 
 	endOffset { :self | <primitive: return _self.endOffset;> }
 	startOffset { :self | <primitive: return _self.startOffset;> }
@@ -491,11 +491,11 @@ HTMLHeadingElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 HTMLImageElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	alt { :self | <primitive: return _self.value;> }
-	complete { :self | <primitive: return _self.complete;> } {- Read only -}
+	complete { :self | <primitive: return _self.complete;> } /* Read only */
 	height { :self | <primitive: return _self.height;> }
 	width { :self | <primitive: return _self.width;> }
-	x { :self | <primitive: return _self.x;> } {- Read only -}
-	y { :self | <primitive: return _self.y;> } {- Read only -}
+	x { :self | <primitive: return _self.x;> } /* Read only */
+	y { :self | <primitive: return _self.y;> } /* Read only */
 
 	src { :self | <primitive: return _self.src;> }
 	src { :self :url | <primitive: return _self.src = _url;> }
@@ -625,7 +625,7 @@ HTMLSpanElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	caption { :self | <primitive: return _self.caption;> }
-	rows { :self | <primitive: return _self.rows;> } {- Read only -}
+	rows { :self | <primitive: return _self.rows;> } /* Read only */
 
 	asHtmlTable { :self |
 		self
@@ -679,7 +679,7 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 HTMLTableCellElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
-	cellIndex { :self | <primitive: return _self.cellIndex;> } {- Read only -}
+	cellIndex { :self | <primitive: return _self.cellIndex;> } /* Read only */
 
 }
 
@@ -719,8 +719,8 @@ HTMLUListElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 ImageBitmap! : [Object] {
 
 	close { :self | <primitive: return _self.close();> }
-	height { :self | <primitive: return _self.height;> } {- Read only -}
-	width { :self | <primitive: return _self.width;> } {- Read only -}
+	height { :self | <primitive: return _self.height;> } /* Read only */
+	width { :self | <primitive: return _self.width;> } /* Read only */
 
 }
 
@@ -732,10 +732,10 @@ ImageBitmap! : [Object] {
 
 ImageData! : [Object] {
 
-	data { :self | <primitive: return _self.data;> } {- Read only -}
-	colorSpace { :self | <primitive: return _self.colorSpace;> } {- Read only -}
-	height { :self | <primitive: return _self.height;> } {- Read only -}
-	width { :self | <primitive: return _self.width;> } {- Read only -}
+	data { :self | <primitive: return _self.data;> } /* Read only */
+	colorSpace { :self | <primitive: return _self.colorSpace;> } /* Read only */
+	height { :self | <primitive: return _self.height;> } /* Read only */
+	width { :self | <primitive: return _self.width;> } /* Read only */
 
 }
 

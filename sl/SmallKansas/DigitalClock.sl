@@ -1,4 +1,4 @@
-{- Requires: SmallKansas -}
+/* Requires: SmallKansas */
 
 DigitalClock : [Object, SmallKansan] {
 

@@ -1,4 +1,4 @@
-{- MVerb ; static ; requires=keyword -}
+/* MVerb ; static ; requires=keyword */
 let in = Resonz({ Dust([0.3, 0.33]) } ! 3, 3333, 0.01).Sum * 33;
 MVerb(
 	in1: in[1],
@@ -14,7 +14,7 @@ MVerb(
 	earlyMix: 0.5
 )
 
-{- MVerb ; dynamic -}
+/* MVerb ; dynamic */
 let freq = [1, 2.1, 2.9] * 1000;
 let src = Resonz({ Dust([0.25, 0.5]) } ! 3, freq, 0.01).Sum * 33;
 let noiseIn = { :min :max |

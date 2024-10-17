@@ -1,5 +1,5 @@
 [
-	{- Music -}
+	/* Music */
 	'Meter'
 	'Tuning'
 	'TuningLattice'
@@ -10,28 +10,28 @@
 	'Scale'
 	'Xenharmonic'
 
-	{- Sound -}
+	/* Sound */
 	'Wavetable'
 
-	{- Protocol -}
+	/* Protocol */
 	'OpenSoundControl'
 
-	{- SuperCollider -}
+	/* SuperCollider */
 	'Ugen'
 	'ContinuousEvent'
 	'Env'
 	'J'
 	'LocalControl'
 	'Ls'
-	'Mix' {- < Ugen -}
-	'KeywordUgens' {- < Ugen -}
-	'PseudoUgens' {- < Ugen -}
+	'Mix' /* < Ugen */
+	'KeywordUgens' /* < Ugen */
+	'PseudoUgens' /* < Ugen */
 	'ScLang'
-	'ScSynth' {- < Ugen -}
+	'ScSynth' /* < Ugen */
 	'ScSynthOptions'
 	'ScSynthStatus'
 	'ScUgen'
-	'Texture' {- < Ugen -}
-	'UgenBindings' {- < Ugen -}
+	'Texture' /* < Ugen */
+	'UgenBindings' /* < Ugen */
 	'UgenGraph'
 ].primitiveLoadPackageSequence

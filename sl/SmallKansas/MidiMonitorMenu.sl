@@ -22,7 +22,7 @@
 		let onMidiMessage = { :midiMessageEvent |
 			let byteList = midiMessageEvent.data;
 			messages.add(midiMessageEvent);
-			{- Temporary: write Cc data to Sc known buses -}
+			/* Temporary: write Cc data to Sc known buses */
 			(byteList.size = 3 & {
 				byteList[1] = 176
 			}).ifTrue {

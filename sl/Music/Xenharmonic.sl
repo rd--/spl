@@ -1,4 +1,4 @@
-{- Requires: Fraction -}
+/* Requires: Fraction */
 
 +Fraction {
 

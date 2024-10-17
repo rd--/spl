@@ -1,4 +1,4 @@
-{- Require: Cache -}
+/* Require: Cache */
 
 @Binary {
 

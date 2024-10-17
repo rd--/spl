@@ -1,4 +1,4 @@
-{- Requires: RandomNumberGenerator Iterator Stream -}
+/* Requires: RandomNumberGenerator Iterator Stream */
 
 LinearCongruential : [Object, Iterator, RandomNumberGenerator, Stream] { | seed state |
 

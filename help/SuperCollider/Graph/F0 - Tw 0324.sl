@@ -1,4 +1,4 @@
-{- http://sccode.org/1-4Qy (F0) ; 0324 -}
+/* http://sccode.org/1-4Qy (F0) ; 0324 */
 let c = [1 3 5 6];
 let f = Duty(
 	c + 1 / 16,

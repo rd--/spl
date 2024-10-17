@@ -1,4 +1,4 @@
-{- Plucked strings (Jmcc) -}
+/* Plucked strings (Jmcc) */
 { :tr |
 	let i = {
 		let s0 = Impulse(TRand(2, 2.2, tr), 0) * 0.3;

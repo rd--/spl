@@ -1,4 +1,4 @@
-{- Requires: Object -}
+/* Requires: Object */
 
 @Blob {
 
@@ -15,7 +15,7 @@
 	}
 
 	size { :self |
-		<primitive: return _self.size;> {- Read only -}
+		<primitive: return _self.size;> /* Read only */
 	}
 
 	text { :self |
@@ -23,7 +23,7 @@
 	}
 
 	type { :self |
-		<primitive: return _self.type;> {- Read only -}
+		<primitive: return _self.type;> /* Read only */
 	}
 
 }

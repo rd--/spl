@@ -1,4 +1,4 @@
-{- Wuxia5 (Jmcc) ; http://www.iamas.ac.jp/~aka/dspss2004/materials/ ; Graph rewrite -}
+/* Wuxia5 (Jmcc) ; http://www.iamas.ac.jp/~aka/dspss2004/materials/ ; Graph rewrite */
 { :tr |
 	let amp = 0.1;
 	let eg = LinSeg(tr, [0, 0.03, 1, 4, 1, 2, 0]);

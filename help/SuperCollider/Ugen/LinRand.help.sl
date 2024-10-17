@@ -1,4 +1,4 @@
-{- LinRand -}
+/* LinRand */
 let minmax = 1;
 {
 	let freq = LinRand(200, 10000, minmax);

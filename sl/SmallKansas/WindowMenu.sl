@@ -1,4 +1,4 @@
-{- Requires: SmallKansas -}
+/* Requires: SmallKansas */
 
 WindowMenu : [Object, SmallKansan] {
 

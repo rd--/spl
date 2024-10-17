@@ -25,7 +25,7 @@ Shift 7 places to the right, leaving no nonzero bits:
 
 * * *
 
-See also: bitShift, bitShiftLeft
+See also: >>, bitShift, bitShiftLeft
 
 References:
 _Mathematica_

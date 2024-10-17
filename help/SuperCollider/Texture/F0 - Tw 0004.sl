@@ -1,4 +1,4 @@
-{- https://sccode.org/1-4Qy ; f0 ; 0004 -}
+/* https://sccode.org/1-4Qy ; f0 ; 0004 */
 { :currentTime |
 	let z = (6 -- 26).atRandom;
 	let d = 26 - z;

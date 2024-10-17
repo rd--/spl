@@ -1,19 +1,19 @@
 [
-	{- Kernel Traits -}
+	/* Kernel Traits */
 	'Object'
 	'Cache'
-	'Binary' {- > Cache -}
-	'Integer' {- > Cache -}
+	'Binary' /* > Cache */
+	'Integer' /* > Cache */
 	'Json'
-	'Magnitude' {- > Object -}
+	'Magnitude' /* > Object */
 	'Number'
-	'RandomNumberGenerator' {- > Object -}
+	'RandomNumberGenerator' /* > Object */
 
-	{- Collection Traits -}
+	/* Collection Traits */
 	'PrimitiveSequence'
 	'ArithmeticProgression'
 	'Collection'
-	'Dictionary' {- Collection -}
+	'Dictionary' /* Collection */
 	'Extensible'
 	'Indexable'
 	'Iterable'
@@ -22,26 +22,26 @@
 	'Sequence'
 	'Unordered'
 
-	{- Kernel Types -}
+	/* Kernel Types */
 	'Boolean'
 	'Error'
 	'Meta'
 	'Nil'
 	'Block'
-	'Adverb' {- Block -}
+	'Adverb' /* Block */
 	'Promise'
 	'Request'
 	'Response'
 	'SmallFloat'
 	'Character'
-	'String' {- Character -}
+	'String' /* Character */
 	'System'
-	'Package' {- System -}
+	'Package' /* System */
 
-	{- Collection Types -}
+	/* Collection Types */
 	'Association'
 	'List'
 	'Range'
 	'Record'
-	'Map' {- Record -}
+	'Map' /* Record */
 ].primitiveLoadPackageSequence

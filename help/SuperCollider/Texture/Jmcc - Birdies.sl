@@ -1,4 +1,4 @@
-{- birdies (jmcc) #6 -}
+/* birdies (jmcc) #6 */
 {
 	let p1 = MulAdd(
 		LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1),

@@ -1,4 +1,4 @@
-{- Requires: Cache -}
+/* Requires: Cache */
 
 HelpFile : [Object, Cache] { | origin source cache |
 

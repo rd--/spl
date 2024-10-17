@@ -1,4 +1,4 @@
-{- <http://twitter.com/redFrik/status/1452599226882535431> F0 -}
+/* <http://twitter.com/redFrik/status/1452599226882535431> F0 */
 let e = LfSaw(0.1, 0);
 let b = [1 .. 4] / 2;
 let f = [0 1];

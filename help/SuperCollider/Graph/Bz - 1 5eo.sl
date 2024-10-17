@@ -1,4 +1,4 @@
-{- http://sccode.org/1-5eo (bz) ; bohlen pierce scale ; graph edit ; requires=LfBrownNoise1 -}
+/* http://sccode.org/1-5eo (bz) ; bohlen pierce scale ; graph edit ; requires=LfBrownNoise1 */
 { :tr |
 	let dev = Rand(0.2, 0.4);
 	let root = TChoose(tr, [30, 32, 35, 37]);

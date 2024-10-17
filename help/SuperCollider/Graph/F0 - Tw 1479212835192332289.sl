@@ -1,4 +1,4 @@
-{- http://twitter.com/redFrik/status/1479212835192332289 (F0) ; requires=QuadC -}
+/* http://twitter.com/redFrik/status/1479212835192332289 (F0) ; requires=QuadC */
 let q = { :freq | QuadC(freq, 1, -1, -0.75, 0) };
 let q1 = q(5);
 let b = [5 2.5 6];

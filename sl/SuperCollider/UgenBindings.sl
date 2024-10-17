@@ -1,6 +1,6 @@
-{- Requires: Ugen -}
+/* Requires: Ugen */
 
-{- Auto-generated -}
+/* Auto-generated */
 +Void {
 	BlockSize { <primitive: return sc.BlockSize();> }
 	BrownNoise { <primitive: return sc.BrownNoise();> }
@@ -15,7 +15,7 @@
 	WhiteNoise { <primitive: return sc.WhiteNoise();> }
 }
 
-{- Auto-generated -}
+/* Auto-generated */
 +[List, SmallFloat, Ugen] {
 	A2K { :in | <primitive: return sc.A2K(_in);> }
 	AllpassC { :in :maxdelaytime :delaytime :decaytime | <primitive: return sc.AllpassC(_in, _maxdelaytime, _delaytime, _decaytime);> }
@@ -172,7 +172,7 @@
 	LinPan2 { :in :pos :level | <primitive: return sc.LinPan2(_in, _pos, _level);> }
 	LinRand { :lo :hi :minmax | <primitive: return sc.LinRand(_lo, _hi, _minmax);> }
 	LinXFade2 { :inA :inB :pan | <primitive: return sc.LinXFade2(_inA, _inB, _pan);> }
-	{-Line { :start :end :dur :doneAction | <primitive: return sc.Line(_start, _end, _dur, _doneAction);> }-}
+	/* Line { :start :end :dur :doneAction | <primitive: return sc.Line(_start, _end, _dur, _doneAction);> } */
 	Linen { :gate :attackTime :susLevel :releaseTime :doneAction | <primitive: return sc.Linen(_gate, _attackTime, _susLevel, _releaseTime, _doneAction);> }
 	LocalBuf { :numChannels :numFrames | <primitive: return sc.LocalBuf(_numChannels, _numFrames);> }
 	LocalIn { :numChan :default | <primitive: return sc.LocalIn(_numChan, _default);> }
@@ -264,14 +264,14 @@
 	Wrap { :in :lo :hi | <primitive: return sc.Wrap(_in, _lo, _hi);> }
 	WrapIndex { :bufnum :in | <primitive: return sc.WrapIndex(_bufnum, _in);> }
 	XFade2 { :inA :inB :pan :level | <primitive: return sc.XFade2(_inA, _inB, _pan, _level);> }
-	{-XLine { :start :end :dur :doneAction | <primitive: return sc.XLine(_start, _end, _dur, _doneAction);> }-}
+	/* XLine { :start :end :dur :doneAction | <primitive: return sc.XLine(_start, _end, _dur, _doneAction);> } */
 	ZeroCrossing { :in | <primitive: return sc.ZeroCrossing(_in);> }
 	MaxLocalBufs { :count | <primitive: return sc.MaxLocalBufs(_count);> }
 	MulAdd { :in :mul :add | <primitive: return sc.MulAdd(_in, _mul, _add);> }
 	SetBuf { :buf :offset :length :array | <primitive: return sc.SetBuf(_buf, _offset, _length, _array);> }
 }
 
-{- Auto-generated -}
+/* Auto-generated */
 +[List, SmallFloat, Ugen] {
 	AnalogFoldOsc { :freq :amp | <primitive: return sc.AnalogFoldOsc(_freq, _amp);> }
 	Bezier { :haltAfter :dx :freq :phase :param | <primitive: return sc.Bezier(_haltAfter, _dx, _freq, _phase, _param);> }
@@ -315,7 +315,7 @@
 	WkNearest { :numChannels :gate :x :y :z :coordinateList | <primitive: return sc.WkNearest(_numChannels, _gate, _x, _y, _z, _coordinateList);> }
 }
 
-{- Auto-generated -}
+/* Auto-generated */
 +[List, Ugen] {
 	Neg { :self | <primitive: return sc.Neg(_self);> }
 	Squared { :self | <primitive: return sc.Squared(_self);> }
@@ -331,7 +331,7 @@
 	SoftClip { :self | <primitive: return sc.SoftClip(_self);> }
 }
 
-{- Auto-generated -}
+/* Auto-generated */
 +[List, SmallFloat, Ugen] {
 	Abs { :self | <primitive: return sc.Abs(_self);> }
 	Ceiling { :self | <primitive: return sc.Ceil(_self);> }
@@ -362,7 +362,7 @@
 
 }
 
-{- Auto-generated -}
+/* Auto-generated */
 +[List, SmallFloat, Ugen] {
 	Add { :self :anObject | <primitive: return sc.Add(_self, _anObject);> }
 	Sub { :self :anObject | <primitive: return sc.Sub(_self, _anObject);> }
@@ -405,19 +405,19 @@
 
 +Ugen {
 
-	{-
+	/*
 		ceiling { :self | <primitive: return sc.Ceil(_self);> }
 		fractionPart { :self | <primitive: return sc.Frac(_self);> }
 		negated { :self | <primitive: return sc.Neg(_self);> }
 		reciprocal { :self | <primitive: return sc.Recip(_self);> }
-	-}
+	*/
 
 	bitShiftLeft { :self :anObject |
-		<primitive: return sc.ShiftLeft(_self, _anObject);>
+		ShiftLeft(self, anObject)
 	}
 
 	bitShiftRight { :self :anObject |
-		<primitive: return sc.ShiftRight(_self, _anObject);>
+		ShiftRight(self, anObject)
 	}
 
 	rounded { :self |
@@ -425,28 +425,29 @@
 	}
 
 	truncateTo { :self :anObject |
-		<primitive: return sc.Trunc(_self, _anObject);>
+		Trunc(self, anObject)
 	}
 
 	UnitCps { :self |
 		(self * 100).MidiCps
 	}
 
-	+ { :self :anObject | <primitive: return sc.Add(_self, _anObject);> }
-	* { :self :anObject | <primitive: return sc.Mul(_self, _anObject);> }
-	- { :self :anObject | <primitive: return sc.Sub(_self, _anObject);> }
-	/ { :self :anObject | <primitive: return sc.Fdiv(_self, _anObject);> }
-	// { :self :anObject | <primitive: return sc.Idiv(_self, _anObject);> }
-	% { :self :anObject | <primitive: return sc.Mod(_self, _anObject);> }
-	= { :self :anObject | <primitive: return sc.Eq(_self, _anObject);> }
-	~= { :self :anObject | <primitive: return sc.Ne(_self, _anObject);> }
-	< { :self :anObject | <primitive: return sc.Lt(_self, _anObject);> }
-	> { :self :anObject | <primitive: return sc.Gt(_self, _anObject);> }
-	<= { :self :anObject | <primitive: return sc.Le(_self, _anObject);> }
-	>= { :self :anObject | <primitive: return sc.Ge(_self, _anObject);> }
 	^ { :self :anObject | <primitive: return sc.Pow(_self, _anObject);> }
-	<< { :self :anObject | <primitive: return sc.ShiftLeft(_self, _anObject);> }
-	>> { :self :anObject | <primitive: return sc.ShiftRight(_self, _anObject);> }
+
+	+ { :self :anObject | Add(self, anObject) }
+	* { :self :anObject | Mul(self, anObject) }
+	- { :self :anObject | Sub(self, anObject) }
+	/ { :self :anObject | Fdiv(self, anObject) }
+	// { :self :anObject | Idiv(self, anObject) }
+	% { :self :anObject | Mod(self, anObject) }
+	= { :self :anObject | Eq(self, anObject) }
+	~= { :self :anObject | Ne(self, anObject) }
+	< { :self :anObject | Lt(self, anObject) }
+	> { :self :anObject | Gt(self, anObject) }
+	<= { :self :anObject | Le(self, anObject) }
+	>= { :self :anObject | Ge(self, anObject) }
+	<< { :self :anObject | ShiftLeft(self, anObject) }
+	>> { :self :anObject | ShiftRight(self, anObject) }
 
 }
 

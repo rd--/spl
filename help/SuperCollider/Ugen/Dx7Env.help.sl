@@ -1,4 +1,4 @@
-{- Dx7Env -}
+/* Dx7Env */
 let r1 = 35; let r2 = 64; let r3 = 55; let r4 = 25;
 let l1 = 99; let l2 = 65; let l3 = 75; let l4 = 0;
 let ol = 99;

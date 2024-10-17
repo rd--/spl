@@ -1,4 +1,4 @@
-{- http://sccode.org/1-9 (jl) -}
+/* http://sccode.org/1-9 (jl) */
 let n = 956;
 let a = Hpf(PinkNoise() * 0.005, 10) * Line(0, 1, 9);
 let z = 1:99.collect { :i |

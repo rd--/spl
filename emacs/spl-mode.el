@@ -230,7 +230,7 @@ If the string begins with a doctest, also delete all non doctest lines."
 
 (defvar spl-imenu-generic-expression
   (list
-   (list nil "^\\({- .* -}\\)$" 1) ; Region Comment
+   (list nil "^\\(/\\* .* \\*/\\)$" 1) ; Region Comment (C)
    ;; (list nil "^\\(-- .*\\)$" 1) ; Line Comment
    (list nil "^\\(#+ .*\\)$" 1) ; Heading
    (list nil "^\\(\+?@?\[?[A-Z][, A-Za-z0-9]+[A-Za-z0-9]\]?\\).* {\\( |\\|$\\)" 1)
@@ -256,16 +256,17 @@ If the string begins with a doctest, also delete all non doctest lines."
   (modify-syntax-entry ?\) ")(" st) ; close parenthesis
   (modify-syntax-entry ?\[ "(]" st) ; open parenthesis
   (modify-syntax-entry ?\] ")[" st) ; close parenthesis
-  (modify-syntax-entry ?\{ "(}1" st) ; open parenthesis & comment start
-  (modify-syntax-entry ?\} "){4" st) ; close parenthesis & comment end
-  (modify-syntax-entry ?- ". 23" st) ; punctuation & comment
-  (modify-syntax-entry ?\n ">" st) ; comment end
+  (modify-syntax-entry ?\{ "(}" st) ; open parenthesis
+  (modify-syntax-entry ?\} "){" st) ; close parenthesis
+  (modify-syntax-entry ?* ". 23n" st) ; punctuation & comment
+  (modify-syntax-entry ?/ ". 4b" st) ; punctuation & comment
+  ;; (modify-syntax-entry ?\n ">" st) ; comment end
   (modify-syntax-entry ?' "\"" st) ; string quote
   (modify-syntax-entry ?\" "\"" st) ; string quote
   ;; (modify-syntax-entry ?\` "\"" st) ; string quote
   (mapc (lambda (x)
-          (modify-syntax-entry x "." st)) ; punctuation
-        "!#$%&*+./:<=>?@^|~,;\\")
+          (modify-syntax-entry x "." st)) ; punctuation only
+        "!#$%&+-.:<=>?@^|~,;\\")
   st)
 
 (defvar spl-mode-syntax-table
@@ -472,8 +473,8 @@ If the string begins with a doctest, also delete all non doctest lines."
   (set (make-local-variable 'tab-width) spl-indent-level)
   (set (make-local-variable 'sclang-indent-level) spl-indent-level)
   (set (make-local-variable 'indent-line-function) 'sclang-indent-line)
-  (set (make-local-variable 'comment-start) "{\\- ")
-  (set (make-local-variable 'comment-end) " \\-}")
+  (set (make-local-variable 'comment-start) "/\\* ")
+  (set (make-local-variable 'comment-end) " \\*/")
   (set (make-local-variable 'font-lock-defaults) '(spl-font-lock-keywords))
   (setq-local imenu-sort-function 'imenu--sort-by-name)
   (setq-local imenu-generic-expression spl-imenu-generic-expression))

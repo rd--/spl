@@ -1,4 +1,4 @@
-{- http://twitter.com/redFrik/status/1319946903711338496 ; Graph rewrite (rd) -}
+/* http://twitter.com/redFrik/status/1319946903711338496 ; Graph rewrite (rd) */
 let c = [0 0.804 1.944 3.084 3.888 5.028 5.832 6.972 7.776 8.916 10.056 10.86];
 { :tr |
 	let i = PulseCount(tr, 0);

@@ -1,4 +1,4 @@
-{- 20061008 ; rd -}
+/* 20061008 ; rd */
 let t = Dust(9);
 let u = PulseDivider(t, 9, 0);
 let k = DegreeToKey(

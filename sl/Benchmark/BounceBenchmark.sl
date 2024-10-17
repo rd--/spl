@@ -1,4 +1,4 @@
-{- Requires: Benchmark SomRandom -}
+/* Requires: Benchmark SomRandom */
 
 Ball : [Object] { | x y xVel yVel |
 

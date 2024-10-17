@@ -1,4 +1,4 @@
-{- http://sccode.org/1-4Qy (F0) ; 0306 -}
+/* http://sccode.org/1-4Qy (F0) ; 0306 */
 let o = 0:1.collect { :i |
 	SinOsc(
 		Duty(

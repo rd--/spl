@@ -1,4 +1,4 @@
-{- Requires: Cache Collection Fraction Integer -}
+/* Requires: Cache Collection Fraction Integer */
 
 +@Integer {
 
@@ -280,7 +280,7 @@
 			let k = 9;
 			let p1 = 11;
 			let p2 = 121;
-			{- First differences of 11-rough numbers: not divisible by 2, 3, 5 or 7. -}
+			/* First differences of 11-rough numbers: not divisible by 2, 3, 5 or 7. */
 			let z = [2 4 2 4 6 2 6 4 2 4 6 6 2 6 4 2 6 4 6 8 4 2 4 2 4 8 6 4 6 2 4 6 2 6 6 4 2 4 6 2 6 4 2 4 2 10 2 10];
 			let w = 0;
 			let answer = [2];

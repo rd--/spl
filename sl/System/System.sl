@@ -174,8 +174,8 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 			'typeDictionary',
 			'packageDictionary',
 			'window',
-			'library', {- Package -}
-			'transcript' {- Package -}
+			'library', /* Package */
+			'transcript' /* Package */
 		]
 	}
 

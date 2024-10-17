@@ -1,4 +1,4 @@
-{- https://twitter.com/redFrik/status/1762790022623674534 (f0) -}
+/* https://twitter.com/redFrik/status/1762790022623674534 (f0) */
 let l = LocalIn(5, 0);
 let y = [0 3.084 5.028 6.972 10.056];
 let z = SinOsc(

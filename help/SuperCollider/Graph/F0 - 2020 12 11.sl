@@ -1,4 +1,4 @@
-{- F0 ; http://www.listarc.bham.ac.uk/lists/sc-users/msg69041.html ; requires=EnvLinen -}
+/* F0 ; http://www.listarc.bham.ac.uk/lists/sc-users/msg69041.html ; requires=EnvLinen */
 let freq1 = 174.61; let freq2 = 196.00; let freq3 = 130.81;
 let pan = 0.0;
 let atk = 0.1; let sus = 0.5; let rls = 2.0; let gate = 1;

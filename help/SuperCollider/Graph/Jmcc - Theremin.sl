@@ -1,4 +1,4 @@
-{- Theremin (Jmcc) -}
+/* Theremin (Jmcc) */
 let mod = 7;
 let detune = 0;
 let x = MouseX(0, 0.9, 0, 0.2);

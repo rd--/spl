@@ -1,4 +1,4 @@
-{- Convolution -}
+/* Convolution */
 let tr = Dust(100);
 {
 	let freq = TRand(2700, 2750, tr);

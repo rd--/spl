@@ -1,4 +1,4 @@
-{- pmi -}
+/* pmi */
 {
 	let pm = Line(0, Rand(0, 12), Rand(1, 12));
 	EqPan(

@@ -1,4 +1,4 @@
-{- <https://scsynth.org/t/1074> ao ; <https://raw.githubusercontent.com/Hyppasus/supercollider-examples/master/Benjolisc.scd> -}
+/* <https://scsynth.org/t/1074> ao ; <https://raw.githubusercontent.com/Hyppasus/supercollider-examples/master/Benjolisc.scd> */
 let freq1 = 'freq1'.kr(40);
 let freq2 = 'freq2'.kr(4);
 let scale = 'scale'.kr(1);

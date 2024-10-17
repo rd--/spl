@@ -1,7 +1,7 @@
-{- http://www.listarc.cal.bham.ac.uk/lists/sc-users-2002/msg00534.html (F0) ; edit (rd, duplicated) ; requires=SfAcquire -}
+/* http://www.listarc.cal.bham.ac.uk/lists/sc-users-2002/msg00534.html (F0) ; edit (rd, duplicated) ; requires=SfAcquire */
 {
 	let b = SfAcquireMono('floating_1');
-	{- K-rate noise is linearly interpolated to audio rate phase -}
+	/* K-rate noise is linearly interpolated to audio rate phase */
 	let a = (LfNoise1(1.6) * 10000).RoundTo((LfNoise0(0.1) * 6400).Abs).kr;
 	let z = {
 		AllpassL(

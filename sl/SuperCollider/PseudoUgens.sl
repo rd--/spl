@@ -1,4 +1,4 @@
-{- Requires: Ugen -}
+/* Requires: Ugen */
 
 +[List, SmallFloat] {
 
@@ -48,7 +48,7 @@
 		let gate = DurationGate(dur);
 		let trig = Trig1(gate, SampleDur());
 		let index = Stepper(trig.kr, 1, 0, inList.size - 1, 1, 0);
-		Latch(Select(index, inList), trig) {- Multiplexer -}
+		Latch(Select(index, inList), trig) /* Multiplexer */
 	}
 
 	THoldSequence { :inList :dur |
@@ -73,7 +73,7 @@
 
 	TableWindow { :trig :dur :bufNum |
 		let phase = TLine(0, BufFrames(bufNum), dur, trig);
-		BufRd(1, bufNum, phase, 0, 4) {- 4 = Cubic Interpolation -}
+		BufRd(1, bufNum, phase, 0, 4) /* 4 = Cubic Interpolation */
 	}
 
 	SelectXFocus { :which :array :focus :wrap |
@@ -102,7 +102,7 @@
 			buf,
 			TiRand(0, BufFrames(buf) - 1, tr),
 			0,
-			1 {- 1 = No Interpolation -}
+			1 /* 1 = No Interpolation */
 		)
 	}
 
@@ -118,7 +118,7 @@
 		}
 	}
 
-	{-
+	/*
 		ExpRand { :tr :lo :hi | TExpRand(lo, hi, tr) }
 		LinRand { :tr :lo :hi :minmax | TLinRand(lo, hi, minmax, tr) }
 		Line { :tr :start :end :dur | TLine(start, end, dur, tr) }
@@ -126,13 +126,13 @@
 		Scramble { :tr :inList | TScramble(tr, inList) }
 		IRand { :tr :lo :hi | TiRand(lo, hi, tr) }
 		XLine { :tr :start :end :dur | TxLine(start, end, dur, tr) }
-	-}
+	*/
 
-	{-
+	/*
 		AudioIn { :channelNumber |
 			In(1, NumOutputBuses() + channelNumber - 1)
 		}
-	-}
+	*/
 
 	AudioOut { :channelsList |
 		Out(0, channelsList)
@@ -229,7 +229,7 @@
 		Select(
 			Stepper(trig.kr, 1, 0, inList.size - 1, 1, 0),
 			inList
-		) {- Multiplexer -}
+		) /* Multiplexer */
 	}
 
 	DemandSequencer { :self :trig |
@@ -261,8 +261,8 @@
 			[center - normalizedSpread, center + normalizedSpread].resamp1(n)
 		};
 		levelComp.ifTrue {
-			{- Cf. <https://github.com/supercollider/supercollider/issues/5706>
-			Note that deleting .sqrt can dramatically alter feedback paths. -}
+			/* Cf. <https://github.com/supercollider/supercollider/issues/5706>
+			Note that deleting .sqrt can dramatically alter feedback paths. */
 			level := level * n.reciprocal.sqrt
 		};
 		PanAz(numChannels, inList, pos, level, width, orientation).flop.collect(sum:/1)

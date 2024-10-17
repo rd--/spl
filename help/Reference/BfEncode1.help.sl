@@ -20,9 +20,9 @@ let mouseRho = MouseY(0, 4, 0, 0.2);
 let cycleAzimuth = LfSaw(1 / 4, 0).LinLin(-1, 1, 0, 2 * pi);
 let [w, x, y, z] = BfEncode1(
 	PinkNoise(),
-	cycleAzimuth, {- mouseAzimuth -}
+	cycleAzimuth, /* mouseAzimuth */
 	0,
-	1, {- mouseRho -}
+	1, /* mouseRho */
 	0.3,
 	0
 );
@@ -37,9 +37,9 @@ let mouseRho = MouseY(0, 4, 0, 0.2);
 let cycleAzimuth = LfSaw(1 / 4, 0).LinLin(-1, 1, 0, 2 * pi);
 let [w, x, y, z] = BfEncode1(
 	PinkNoise(),
-	cycleAzimuth, {- mouseAzimuth -}
+	cycleAzimuth, /* mouseAzimuth */
 	0,
-	1, {- mouseRho -}
+	1, /* mouseRho */
 	0.3,
 	0
 );

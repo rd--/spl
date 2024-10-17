@@ -1030,8 +1030,8 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 			u[j] := u[j] / s[j]
 		};
 		s := s.sorted(>).diagonalMatrix;
-		u := u.conjugateTranspose; {- not sorted! -}
-		v := v.conjugateTranspose; {- not sorted! -}
+		u := u.conjugateTranspose; /* not sorted! */
+		v := v.conjugateTranspose; /* not sorted! */
 		[u, s, v]
 	}
 

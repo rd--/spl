@@ -1,4 +1,4 @@
-{- Requires: SmallKansas -}
+/* Requires: SmallKansas */
 
 ImageViewer : [Object, View] { | title url outerElement |
 

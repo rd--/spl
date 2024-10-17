@@ -1,4 +1,4 @@
-{- Forest sounds (Pj) -}
+/* Forest sounds (Pj) */
 {
 	let n1 = BrownNoise();
 	let n2 = LfNoise2(50);

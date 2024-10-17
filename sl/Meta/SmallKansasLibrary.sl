@@ -1,11 +1,11 @@
 [
 
-	{- Navigator -}
+	/* Navigator */
 	'Dom'
 	'Midi'
 	'Svg'
 
-	{- SmallKansas -}
+	/* SmallKansas */
 	'UserEventTarget'
 	'View'
 	'SmallKansas'
@@ -17,7 +17,7 @@
 	'TextEditor'
 	'TextElement'
 
-	{- SmallKansans -}
+	/* SmallKansans */
 	'AnalogueClock'
 	'CategoryBrowser'
 	'ColourChooser'

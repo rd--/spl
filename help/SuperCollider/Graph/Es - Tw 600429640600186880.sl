@@ -1,4 +1,4 @@
-{- Tw 600429640600186880 (es) ; http://twitter.com/sluyterrific_sc/status/600429640600186880 -}
+/* Tw 600429640600186880 (es) ; http://twitter.com/sluyterrific_sc/status/600429640600186880 */
 let m = MouseX(0.925, 1, 0, 0.2);
 let l = LocalIn(2, 0) * m + (Dust2([1, 1]) * 9);
 let s = 2:6.collect { :n |

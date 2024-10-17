@@ -1,4 +1,4 @@
-{- http://soundcloud.com/soundaspureform/harmonic-cloud-1 (Jmcc) ; roughguess -}
+/* http://soundcloud.com/soundaspureform/harmonic-cloud-1 (Jmcc) ; roughguess */
 let n = 48;
 { :tr |
 	{

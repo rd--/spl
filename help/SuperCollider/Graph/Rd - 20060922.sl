@@ -1,4 +1,4 @@
-{- 20060922 ; rd ; requires=Perc -}
+/* 20060922 ; rd ; requires=Perc */
 let t0 = Impulse(1 / 0.3, 0);
 let t1 = [t0, TDelay(t0, 0.15)];
 let k = TRand(56, 57, t1);

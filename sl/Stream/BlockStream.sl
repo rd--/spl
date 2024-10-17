@@ -1,4 +1,4 @@
-{- Requires: Iterator Stream -}
+/* Requires: Iterator Stream */
 
 BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 

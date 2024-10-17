@@ -1,4 +1,4 @@
-{- https://twitter.com/redFrik/status/1631979082622566400 ; f0 -}
+/* https://twitter.com/redFrik/status/1631979082622566400 ; f0 */
 { :t :i |
 	let e = [0 3.084 5.028 6.972 10.056 0 3.084 5.028 6.972 10.056];
 	let j = e.atWrap(i - (i // 11) + 1);

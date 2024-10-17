@@ -1,4 +1,4 @@
-{- http://sccode.org/1-4Qy (F0) ; 0010 -}
+/* http://sccode.org/1-4Qy (F0) ; 0010 */
 LeakDc(
 	SinOsc(
 		SinOsc(0.31, 0),

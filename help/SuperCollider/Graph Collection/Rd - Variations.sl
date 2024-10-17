@@ -1,4 +1,4 @@
-{- 20060909 ; rd -}
+/* 20060909 ; rd */
 let p = {
 	let x = MouseX(0.001, 0.02, 1, 0.1);
 	let y = MouseY(120, 400, 1, 0.1);
@@ -26,7 +26,7 @@ let r = {
 };
 p() + q() + r()
 
-{- 20060911 ; rd -}
+/* 20060911 ; rd */
 let t = Impulse(22, 0) * (SinOsc(0.5, 0) + 1);
 let x = MouseX(0.005, 0.12, 1, 0.1);
 let y = MouseY(0.01, 0.52, 1, 0.1);
@@ -38,7 +38,7 @@ let z = {
 } !> 3;
 z.Clip2(TRand(0, 1, Dust(8))) * 0.25
 
-{- 20060914 ; rd ; graph rewrite ; requires=Sine ; requires=arrayedEnv -}
+/* 20060914 ; rd ; graph rewrite ; requires=Sine ; requires=arrayedEnv */
 { :tr |
 	let chrd = { :m |
 		let ds = 3;
@@ -65,7 +65,7 @@ z.Clip2(TRand(0, 1, Dust(8))) * 0.25
 	} !+ 7
 }.OverlapTexture(21, 0, 3).Mix
 
-{- 20060916 ; rd -}
+/* 20060916 ; rd */
 let mkRead = { :l :t |
 	BufRd(1, l.asLocalBuf, TRand(0, 6, t), 0, 1)
 };
@@ -77,7 +77,7 @@ let mkRead = { :l :t |
 	EqPan2(SinOsc(f, 0) * a, p)
 }.Mix * 0.25
 
-{- 20060917 ; rd ; requires=DustRange -}
+/* 20060917 ; rd ; requires=DustRange */
 let b0 = [60 71 89 65 36 57 92 97 92 97].asLocalBuf;
 let b1 = [71 89 60 57 65 36 95 92 93 97].asLocalBuf;
 let clk = DustRange(0.2, 0.9);
@@ -89,7 +89,7 @@ let o1 = SinOsc(f1, 0) * env;
 let o2 = SinOsc(f2, 0) * env;
 o1 + o2 * 0.2
 
-{- 2006-09-17 ; rd ; two mono buffers -}
+/* 2006-09-17 ; rd ; two mono buffers */
 let b0 = [60 71 89 65 36 57 92 97 92 97].asLocalBuf;
 let b1 = [71 89 60 57 65 36 95 92 93 97].asLocalBuf;
 let clk = DustRange(0.2, 0.9);
@@ -99,7 +99,7 @@ let f1 = (BufRd(1, [b0, b1], idx, 1, 1) - 24).MidiCps;
 let f2 = LfNoise0([1, 3]) * 1.2 + f1;
 SinOsc(f1, 0) + SinOsc(f2, 0) * env * 0.2
 
-{- 20060919 ; rd -}
+/* 20060919 ; rd */
 let fw = { :r |
 	let t = Dust(3);
 	let r1 = TiRand(0, 6, t);
@@ -123,13 +123,13 @@ let fw = { :r |
 };
 fw(24) + fw(36)
 
-{- 20060920 ; rd -}
+/* 20060920 ; rd */
 let x = MouseX(0.012, 0.19, 1, 0.1) + (LfNoise2(0.2) * 0.1 + 0.05);
 let f = Formlet(Blip(10, 12), LfNoise0([20, 40]) * 43 + 700, 0.005, x);
 let o = SinOsc(40, 0) * LfNoise0([5, 10]);
 f + o * Line(0, 0.25, 2.5)
 
-{- 20060922 ; rd ; requires=Perc -}
+/* 20060922 ; rd ; requires=Perc */
 let t0 = Impulse(1 / 0.30, 0);
 let t1 = TDelay(t0, 0.15);
 let t = [t0, t1];
@@ -142,7 +142,7 @@ let e = Perc(t, 0.01, 0.9, [-4, -4]);
 let f = SinOsc(c, 0) * i + m;
 SinOsc(f, 0) * e * 0.1
 
-{- 20060922 ; rd ; requires=Perc -}
+/* 20060922 ; rd ; requires=Perc */
 let t0 = Impulse(1 / 0.30, 0);
 let t = [t0, TDelay(t0, 0.15)];
 let k = TRand(56, 57, t);
@@ -150,7 +150,7 @@ let m = (k + 1 + TRand(-1, 1, t)).MidiCps;
 let f = SinOsc(k.MidiCps, 0) * TRand(40, 480, t) + m;
 SinOsc(f, 0) * Perc(t, 0.01, 0.9, [-4, -4]) * 0.1
 
-{- 20060925 ; rd -}
+/* 20060925 ; rd */
 let b = BufAlloc(1, 2048);
 let x = MouseX(100, 12000, 0, 0.1);
 let y = MouseY(0.01, 0.15, 0, 0.1);
@@ -160,13 +160,13 @@ let o = Bpf(WhiteNoise() * e, TRand(10, x, t), TRand(0, 1, t));
 let p = PvRandComb(Fft(b, o, 0.5, 0, 1, 0), TExpRand(0.15, 1, t), t);
 (o * 0.05) + Ifft(p, 0, 0)
 
-{- 20060927 ; rd ; requires=kr -}
+/* 20060927 ; rd ; requires=kr */
 let e = Decay2(Impulse({ Rand(10, 13) } ! 2, 0), 0.001, 0.005);
 let f = { Rand(4, 7) } ! 2 * SinOsc({ Rand(10, 13) } ! 2, 0) * e;
 let r4 = { TRand(2220, 2227, Impulse(0.7, 0)) } ! 2;
 SinOsc(r4.kr, 0) * f.kr * 0.15
 
-{- 20061008 ; rd -}
+/* 20061008 ; rd */
 let x = MouseX(15, 0, 0, 0.1);
 let y = MouseY(15, 27, 0, 0.1);
 let t = Dust(9).kr;
@@ -182,7 +182,7 @@ let r0 = TRand(0.0075, 0.125, u);
 let r1 = TRand(0.05, 0.15, u);
 m * 0.5 + AllpassC(m, 0.15, r0, r1)
 
-{- 20061008 ; rd ; requires=kr -}
+/* 20061008 ; rd ; requires=kr */
 let t = Dust(9).kr;
 let u = PulseDivider(t, 9, 0);
 let d = TiRand(MouseX(15, 0, 0, 0.1), MouseY(15, 27, 0, 0.1), t);
@@ -191,14 +191,14 @@ let m = LfNoise1([3, 3.05]) * 0.04 + Choose(t, [36, 48, 60, 72]) + k;
 let o = SinOsc(m.MidiCps, 0) * Decay2(t, 0.005, TRand(0.02, 0.15, t)) * 0.2;
 o * 0.5 + AllpassC(o, 0.15, TRand(0.0075, 0.125, u), TRand(0.05, 0.15, u))
 
-{- 20061017 ; rd -}
+/* 20061017 ; rd */
 let o = SinOsc(LfNoise0([0.5, 1.5]), 0);
 let t = Impulse(Slope(o).Abs * [2, 3], 0);
 let x = MouseX(960, 3620, 1, 0.2);
 let y = MouseY(0.5, 2.0, 0, 0.2);
 Ringz(Decay2(t, 0.1, 0.2), TRand(x, 3940, t), TRand(0.005, 0.275, t) * y)
 
-{- 20061023 ; rd -}
+/* 20061023 ; rd */
 let n1 = LfNoise0([0.5, 1.5]);
 let o = SinOsc(n1, 0);
 let a = Slope(o).Abs * [2, 3];
@@ -210,7 +210,7 @@ let n2 = TRand(x, 3940, t);
 let n3 = TRand(0.005, 0.275, t);
 Ringz(i, n2, n3 * y)
 
-{- 20061027 ; rd -}
+/* 20061027 ; rd */
 let h0 = {
 	let a = LfNoise0(1) * 0.2 + 1.2;
 	let b = LfNoise0(1) * 0.15 + 0.15;

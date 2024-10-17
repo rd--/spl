@@ -58,7 +58,7 @@ let lfreq = Lag2(freq, 0.1) + [0, 0.3];
 let ffreq = Lag2(lfreq, 0.1) + [0, 0.3];
 let lfo = SinOsc(0.2, [0, 0.5 * pi]) * 0.0024 + 0.0025;
 let rvb = { :in |
-	let c = CombL(in, 1, 0.66 / rate, 2) * 0.8 + in; {- echo -}
+	let c = CombL(in, 1, 0.66 / rate, 2) * 0.8 + in; /* echo */
 	let z = c;
 	5.timesRepeat {
 		z := AllpassN(
@@ -76,7 +76,7 @@ out := Rlpf(out, ffreq, 0.3) * env;
 out := LeakDc(rvb(out * 0.02), 0.995);
 1.timesRepeat {
 	out := DelayL(out, 0.1, lfo) + out
-}; {- flanger -}
+}; /* flanger */
 OnePole(out, 0.9) * 0.5
 ```
 

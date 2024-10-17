@@ -1,4 +1,4 @@
-{- http://earslap.com/article/combination-tones-and-the-nonlinearities-of-the-human-ear.html -}
+/* http://earslap.com/article/combination-tones-and-the-nonlinearities-of-the-human-ear.html */
 let timesBase = 1 # 12 ++ [1.5 0.5 2];
 let times = Dseq(inf, (timesBase ++ timesBase) / 2);
 let pitchBase = [55 55 56 58 58 56 55 53 51 51 53 55];

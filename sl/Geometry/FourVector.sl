@@ -1,4 +1,4 @@
-{- Requires: PlanarCoordinates CartesianCoordinates -}
+/* Requires: PlanarCoordinates CartesianCoordinates */
 
 FourVector : [Object] { | w x y z |
 

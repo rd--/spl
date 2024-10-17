@@ -1,4 +1,4 @@
-{- http://sccode.org/1-5d6 (jpd) ; requires=SfAcquire -}
+/* http://sccode.org/1-5d6 (jpd) ; requires=SfAcquire */
 let sampleRate = 48000;
 let sndBuf = SfAcquireMono('floating_1');
 let envBuf = [-1 1].resamp1(sampleRate).collect { :x |
@@ -23,7 +23,7 @@ let grains = GrainBuf(
 	[pos1, pos2],
 	2,
 	0,
-	-1 {- EnvBuf -},
+	-1 /* EnvBuf */,
 	512
 ) * amp;
 let diffused = grains.collect { :item |

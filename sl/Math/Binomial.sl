@@ -1,4 +1,4 @@
-{- Requires: Collection Integer Number -}
+/* Requires: Collection Integer Number */
 
 +@Number {
 

@@ -1,4 +1,4 @@
-{- Repeating harmonic klank (Jmcc) -}
+/* Repeating harmonic klank (Jmcc) */
 {
 	let p = 8;
 	let s = Decay(Dust(0.8) * 0.01, 3.4) * LfSaw(LinRand(0, 40, 0), 0);

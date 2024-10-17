@@ -1,4 +1,4 @@
-{- Requires: List Number Object -}
+/* Requires: List Number Object */
 
 Complex : [Object, Number] { | real imaginary |
 

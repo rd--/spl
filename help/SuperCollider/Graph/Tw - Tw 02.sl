@@ -1,4 +1,4 @@
-{- http://swiki.hfbk-hamburg.de/MusicTechnology/899 ; Tw (Tim Walters) -}
+/* http://swiki.hfbk-hamburg.de/MusicTechnology/899 ; Tw (Tim Walters) */
 1:8.collect { :k |
 	let x = { :f :m :j |
 		SinOsc(f + (m * 4 * j), m) * LfNoise1(j + 1 / f * 4) / 2

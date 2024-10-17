@@ -1,4 +1,4 @@
-{- Requires: DocumentTest SmallKansas Window -}
+/* Requires: DocumentTest SmallKansas Window */
 
 SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 

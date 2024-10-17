@@ -1,4 +1,4 @@
-{- Require: SmallFloat -}
+/* Require: SmallFloat */
 
 @Sequence {
 

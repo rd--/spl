@@ -1,4 +1,4 @@
-{- pulse harmonic warbulence (jmcc) #12 -}
+/* pulse harmonic warbulence (jmcc) #12 */
 {
 	let f = Rand(24, 96).MidiCps;
 	let r = XLine(ExpRand(0.1, 20), ExpRand(0.1, 20), 25.6);

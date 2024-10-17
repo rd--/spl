@@ -2,7 +2,7 @@
 
 	= { :self :anObject |
 		self.hasEqualSlots(anObject)
-		{- self.typeResponsibility('@Object>>=') -}
+		/* self.typeResponsibility('@Object>>=') */
 	}
 
 	~ { :self :anObject |

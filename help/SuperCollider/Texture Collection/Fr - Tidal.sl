@@ -1,4 +1,4 @@
-{- tidal ; https://strudel.cc/#Ly8gIkZpYm9uYWNjaSBzb25pZmljYX... -}
+/* tidal ; https://strudel.cc/#Ly8gIkZpYm9uYWNjaSBzb25pZmljYX... */
 let seq = [
 	1
 	2
@@ -30,7 +30,7 @@ LsBind(
 	amp: 0.1
 ).play
 
-{- tidal ; graph variant -}
+/* tidal ; graph variant */
 let seq = [
 	1
 	2

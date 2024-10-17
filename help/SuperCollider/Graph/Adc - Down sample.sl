@@ -1,4 +1,4 @@
-{- Bit-reduction ; adc -}
+/* Bit-reduction ; adc */
 let f = LfNoise2(8) * 200 + 300;
 let nh = LfNoise2(3) * 10 + 20;
 let src = Blip(f, nh);

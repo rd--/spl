@@ -1,4 +1,4 @@
-{- Requires: CartesianCoordinates -}
+/* Requires: CartesianCoordinates */
 
 CylindricalCoordinates : [Object] { | rho phi z |
 

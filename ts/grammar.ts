@@ -186,10 +186,11 @@ Sl {
 
 	primitiveCharacter = ~">" sourceCharacter
 
-	comment = multiLineHsComment
+	comment = multiLineCComment
 	multiLineMlComment = "(*" (~"*)" sourceCharacter)* "*)"
 	singleLineMlComment = "(*)" (~lineTerminator sourceCharacter)*
 	multiLineHsComment = "{-" (~"-}" sourceCharacter)* "-}"
+	multiLineCComment = "/*" (~"*/" sourceCharacter)* "*/"
 	singleLineHsComment = "--" (~lineTerminator sourceCharacter)*
 	lineTerminator = "\n" | "\r"
 	space += comment

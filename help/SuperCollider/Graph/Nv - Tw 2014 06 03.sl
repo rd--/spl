@@ -1,4 +1,4 @@
-{- http://twitter.com/headcube/status/474064500564324352 (nv) -}
+/* http://twitter.com/headcube/status/474064500564324352 (nv) */
 let k = 9;
 {
 	let f = 1:8.collect{ :ix |

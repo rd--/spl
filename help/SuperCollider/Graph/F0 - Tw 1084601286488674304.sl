@@ -1,4 +1,4 @@
-{- http://twitter.com/redFrik/status/1084601286488a674304 -}
+/* http://twitter.com/redFrik/status/1084601286488a674304 */
 let b = [2 5 1 6 3];
 let x = PitchShift(LocalIn(2, 0), 1.5, 0.5, 0, 0);
 let y = VarSaw(LfSaw(1 / b, 0) > 0 / 4 + 1.25 ^ b * 99, 0, LfSaw(b / 9, 0) % 1);

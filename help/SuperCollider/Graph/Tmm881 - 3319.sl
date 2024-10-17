@@ -1,4 +1,4 @@
-{- Tmm881 ; http://scsynth.org/t/3319 ; edit (rd) ; requires=voicer -}
+/* Tmm881 ; http://scsynth.org/t/3319 ; edit (rd) ; requires=voicer */
 let pre = Voicer(1, 16) { :e |
 	let freq = (e.x * 25 + 48).MidiCps + [0, TRand(1, 4, e.w)];
 	let carriers = [SinOsc(freq, 0), Saw(freq), Pulse(freq, 0.5)];

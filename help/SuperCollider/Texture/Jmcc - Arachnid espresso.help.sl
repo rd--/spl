@@ -1,6 +1,6 @@
-{- Arachnid espresso ; Jmcc -}
+/* Arachnid espresso ; Jmcc */
 {
-	let [p, pf] = [1 1; 1 1; -1 2].atRandom; {- choose string or pipe -}
+	let [p, pf] = [1 1; 1 1; -1 2].atRandom; /* choose string or pipe */
 	let r = [8 4 2].atRandom;
 	let c = Impulse(r, 0);
 	let t = ImpulseSequencer(

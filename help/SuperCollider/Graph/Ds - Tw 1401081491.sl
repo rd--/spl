@@ -1,4 +1,4 @@
-{- https://twitter.com/mclduk/status/1401081491 ; ds -}
+/* https://twitter.com/mclduk/status/1401081491 ; ds */
 let x = Line(0, [0.9, 1], 30);
 5.timesRepeat {
 	let o:/1 = [

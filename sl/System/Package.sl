@@ -1,4 +1,4 @@
-{- Requires: List String System -}
+/* Requires: List String System */
 
 Package! : [Object] {
 

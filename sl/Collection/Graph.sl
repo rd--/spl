@@ -1,4 +1,4 @@
-{- UndirectedEdge -}
+/* UndirectedEdge */
 +List {
 
 	asDot { :self |
@@ -62,7 +62,7 @@
 
 }
 
-{- DirectedEdge -}
+/* DirectedEdge */
 +Association {
 
 	asDot { :self |

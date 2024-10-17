@@ -1,4 +1,4 @@
-{- Saucer base (Jmcc) #6 ; Graph rewrite -}
+/* Saucer base (Jmcc) #6 ; Graph rewrite */
 { :tr |
 	let b = TRand(0, 1000, tr);
 	let c = TRand(0, 5000, tr);

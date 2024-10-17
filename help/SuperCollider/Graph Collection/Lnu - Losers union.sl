@@ -1,4 +1,4 @@
-{- Feedback loop ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110559281598022900 -}
+/* Feedback loop ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110559281598022900 */
 let i = LocalIn(2, [0 0]);
 let o = Splay2(
 	LeakDc(
@@ -12,7 +12,7 @@ let o = Splay2(
 );
 Lpf(o, 5000) / 5 <! LocalOut(o)
 
-{- Broken Saws ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110561365086055899 -}
+/* Broken Saws ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110561365086055899 */
 let c = [49 175 98 147 65 233];
 let r = 3 / 4 / (1 .. c.size);
 Splay(
@@ -32,7 +32,7 @@ Splay(
 	VarSaw(1, 0, VarSaw(1, 0, 0.5))
 ) * Line(0, 1, 20)
 
-{- ChaosGen writes melodies ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110751954599483552 -}
+/* ChaosGen writes melodies ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110751954599483552 */
 let p = 0.5.coin.if {
 	GbmanN([8 4 6 2], 1.2, 2.1).LinLin(-1, 1, 8, 32).Ceiling
 } {
@@ -62,7 +62,7 @@ Splay(
 	m[3]
 ) / 2
 
-{- Stretching again ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* Stretching again ; https://github.com/lukiss/Losers-Union-SC-Research */
 let c = 16;
 let f = 41;
 let t = 0:c.collect { :n |
@@ -81,7 +81,7 @@ Splay(
 	7 / 8
 ) / 2
 
-{- KaosSprinkler ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* KaosSprinkler ; https://github.com/lukiss/Losers-Union-SC-Research */
 let c = 1.5 ^ [0, 4 .. 12];
 let e = StandardN(c, 1, 0.5, 0).ExpRange(0.01, 1);
 Splay(
@@ -97,7 +97,7 @@ Splay(
 	StandardN(e.last * 14, 1, 0.5, 0)
 )
 
-{- Phasing Patterns ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110888653997752683 -}
+/* Phasing Patterns ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110888653997752683 */
 let f = (48 + 0:2.collect { :n |
 	[0 -5 15 10] + (n * 12)
 }.++).MidiCps;
@@ -109,7 +109,7 @@ Splay(
 	SinOsc(1 / 8, 0)
 ) / 3
 
-{- Mistakes were made ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* Mistakes were made ; https://github.com/lukiss/Losers-Union-SC-Research */
 let p = 9 / 7 ^ 0:16;
 let c = { :freq |
 	LinCongC(freq, 1.1, 0.13, 1, 0)
@@ -134,7 +134,7 @@ Splay(
 	)
 ).Tanh / 3
 
-{- Grains, Daily ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* Grains, Daily ; https://github.com/lukiss/Losers-Union-SC-Research */
 let m = { :lo :hi |
 	StandardL(LfdNoise1(1).ExpRange(0.01, 1) * 8 + 0.1, 2, 0.5, 0).ExpRange(lo, hi)
 };
@@ -157,10 +157,10 @@ LeakDc(
 	0.995
 ).SoftClip / 2
 
-{- Spa Saw Shower Wash ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111427906537919703 -}
+/* Spa Saw Shower Wash ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111427906537919703 */
 let c = 4096.sineTable(1 / 1:128, [0]).normalize(0, 1).asWavetable.asLocalBuf;
 let w = { :freq |
-	LfdNoise3(freq).LinLin(-1, 1, 80, 6880) {- LinCurve -}
+	LfdNoise3(freq).LinLin(-1, 1, 80, 6880) /* LinCurve */
 };
 let f = SinOsc(
 	{ Rand(3.3, 4.4) } ! 6,
@@ -184,7 +184,7 @@ o := BHiPass4(o, w(1 / 7), 1) + Bpf(o, w(1 / 5), 1) + MoogFf(o, w(1 / 3), 2, 0);
 };
 o
 
-{- Suspect jazz ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* Suspect jazz ; https://github.com/lukiss/Losers-Union-SC-Research */
 let x = HenonL(1 + LfdNoise1(3).ExpRange(0.01, 1) * 8, 1.4, 0.3, 0, 0).Fold2(1);
 let t = 0:8.collect { :n |
 	PulseDivider(x, 8, 7 - n)
@@ -213,7 +213,7 @@ let o = SinOsc(
 ) * e(-6) * (SinOsc(d + 2, 0) * 0.25 + 0.5);
 Splay(o, 3 / 4)
 
-{- Phase Modulation Washer ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111071167369230347 -}
+/* Phase Modulation Washer ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111071167369230347 */
 let p = (1, 3 .. 64);
 let n = 110;
 let f = p / pi * p.degreesToRadians * n;
@@ -227,7 +227,7 @@ Splay(
 	SinOsc(SinOsc(0.1 / n, 0) * 8, 0) / SinOsc(1 / n, 0) / 2
 ) / 3
 
-{- Something awfully old ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=kr -}
+/* Something awfully old ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=kr */
 let a = LocalBuf(1, 8 * 2048);
 let f = {
 	LfdNoise3(0.001 # 7).Tan.Abs.kr
@@ -254,7 +254,7 @@ Splay(
 	)
 ) <! RecordBuf(a, 0, 1, 0, 1, 0, 1, 0, LfdNoise3(500) + (PinkNoise() * 8))
 
-{- Drone for the Evening ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111024677229943163 -}
+/* Drone for the Evening ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111024677229943163 */
 let p = (1, 3 .. 64);
 let f = (LfdNoise1(8) / 16 + 33).MidiCps;
 let c = p ^ (p / p.sum).ArcTan * f * p;
@@ -266,7 +266,7 @@ Splay(
 	SinOsc(1 / 3, 0) * SinOsc(1 / 32, 0)
 ) / 3
 
-{- Tw 14 Nov 2022 Ballad ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* Tw 14 Nov 2022 Ballad ; https://github.com/lukiss/Losers-Union-SC-Research */
 let d = Dseq(inf, [1, 3 .. 21]);
 let f = Ddup(
 	LfPar(0.05, 0) * d / [3 7 5 1],
@@ -282,13 +282,13 @@ LeakDc(
 		f,
 		f % d / 12,
 		LfPar(440, 0) / 2,
-		-1, {- Cannot be LocalBuf, Env.perc.discretize -}
+		-1, /* Cannot be LocalBuf, Env.perc.discretize */
 		512
 	).Splay * 0.23,
 	0.995
 ).Sum
 
-{- 12 May 2020 ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* 12 May 2020 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let l = { :freq :mul |
 	(LfdNoise3(freq) * mul).Abs
 };
@@ -310,7 +310,7 @@ CombC(
 	pi
 ) / 3
 
-{- 9 Jan 2019 ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* 9 Jan 2019 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let a = 40;
 let f = { :b |
 	LfNoise1(1).ExpRange(10, b)
@@ -329,7 +329,7 @@ Splay(
 	)
 ) / 5
 
-{- 3 Nov 2018 ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=kr -}
+/* 3 Nov 2018 ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=kr */
 let a = 9;
 let f = { :b |
 	LfNoise2(b.Sign).ExpRange(9, b)
@@ -351,7 +351,7 @@ Splay(
 	)
 ) / 13
 
-{- Drone 22 Maj 2021 ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* Drone 22 Maj 2021 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let n = 4;
 let l = { :mul |
 	(LfdNoise3(0.05 # n) * mul).Abs
@@ -382,7 +382,7 @@ Splay(
 	) * -12.DbAmp
 )
 
-{- 30 Apr. 2020 ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* 30 Apr. 2020 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let t = {
 	TDuty(Drand(inf, 1:8 / 16), 0, 1)
 };
@@ -414,7 +414,7 @@ Normalizer(
 	0.02
 ).Fold2(0.8)
 
-{- 22 Nov. 2021 ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* 22 Nov. 2021 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let k = 1 / 100000;
 let n = {
 	1 + ((k * 1:7)).scramble
@@ -427,7 +427,7 @@ Splay(
 	) * (LfSaw(5 / 3, 0) * (LfSaw(7 / 3 * n().Neg, 0).Tan)).Abs
 ).Tanh
 
-{- 12 Juli 2019 ; https://github.com/lukiss/Losers-Union-SC-Research ; rd edit -}
+/* 12 Juli 2019 ; https://github.com/lukiss/Losers-Union-SC-Research ; rd edit */
 let f = { :freq :mul |
 	let z = LfdNoise3(freq) * mul;
 	z.Ring1(z % 0.01).Hypot(z)
@@ -443,7 +443,7 @@ let a = Excess(
 );
 (o * a).EqPan2(0).SoftClip
 
-{- 12 Juli 2019 ; https://github.com/lukiss/Losers-Union-SC-Research ; rd edit -}
+/* 12 Juli 2019 ; https://github.com/lukiss/Losers-Union-SC-Research ; rd edit */
 let k = 8;
 let f = { :freq :mul |
 	let z = LfdNoise3(freq) * mul;
@@ -462,7 +462,7 @@ let a = {
 } ! k;
 (o * a).Splay.SoftClip / k.sqrt
 
-{- 5 Sep. 2020 ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=kr -}
+/* 5 Sep. 2020 ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=kr */
 let l = {
 	LfdNoise3(1).Abs.kr
 };
@@ -492,7 +492,7 @@ let r = { :freq :mul |
 	}
 )
 
-{- Ambient Ligeti inspired soundscape ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* Ambient Ligeti inspired soundscape ; https://github.com/lukiss/Losers-Union-SC-Research */
 let r = { :n |
 	{ LfdNoise3(1 / 86).Abs } ! n
 };
@@ -519,7 +519,7 @@ Splay(
 	2 / 4
 ).Tanh * Line(0, 1, 12)
 
-{- 27 Jan 2023 ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* 27 Jan 2023 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let d = Dust(1);
 let m = {
 	TRand(0.5, 2.5, d).Lag3(1 / 16)
@@ -546,7 +546,7 @@ Splay(
 	SinOsc(m() * m(), 0) * 0.5
 ) / 23
 
-{- 27 Oktober 2022 ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* 27 Oktober 2022 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let a = [41 73 123 196];
 let f = SinOsc(440, 0);
 0:8.do { :i |
@@ -558,7 +558,7 @@ Splay(
 	SinOsc(f.Sum.Abs, 0)
 )
 
-{- 23 Mars ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* 23 Mars ; https://github.com/lukiss/Losers-Union-SC-Research */
 let d = { :n |
 	{
 		Gendy3(1, 1, 1, 1, LfNoise1(2) + 1, 0.5, 0.5, 12, 12).Abs.RoundTo(1 / 16).kr
@@ -594,7 +594,7 @@ Splay(
 	0.5
 )
 
-{- 20 jan. 2023 ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* 20 jan. 2023 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let l = { :lo :hi |
 	TChoose(
 		Dust(3 # 2),
@@ -608,9 +608,9 @@ let g = Perc(e > 0.1, 0.005, 0.9 / f, -4);
 let p = (1 - g).LinLin(0, 1, -1, 1);
 (XFade2(e, (e * f).Sin, p, 1) + g).Tanh.Splay
 
-{- Tennis ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=NonLocalBuffer -}
-let nf = 48000; {- sample rate -}
-let b = 1000; {- BufAlloc(1, nf).BufClear -}
+/* Tennis ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=NonLocalBuffer */
+let nf = 48000; /* sample rate */
+let b = 1000; /* BufAlloc(1, nf).BufClear */
 let n = LeakDc(
 	StandardL(22050, LfNoise1(1).LinLin(-1, 1, 0.72, 1.40), 0.5, 0),
 	0.995
@@ -640,7 +640,7 @@ EqPan2(
 	TRand(-1, 1, t)
 )
 
-{- Cheap Singing Synth ; simpler (rd) ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* Cheap Singing Synth ; simpler (rd) ; https://github.com/lukiss/Losers-Union-SC-Research */
 let tab = [
 	600 1040 2250 2450 2750; 60 70 110 120 130; 0 -7 -9 -9 -20:;
 	400 1620 2400 2800 3100; 40 80 100 120 120; 0 -12 -9 -12 -18:;

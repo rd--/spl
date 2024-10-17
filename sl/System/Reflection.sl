@@ -1,4 +1,4 @@
-{- Requires: System -}
+/* Requires: System */
 
 +System {
 
@@ -56,7 +56,7 @@
 	}
 
 	methodArities { :self :methodName |
-		{- Arities methodName is implemented for. -}
+		/* Arities methodName is implemented for. */
 		self.methodDictionary[methodName].indices
 	}
 
@@ -78,7 +78,7 @@
 	}
 
 	methodImplementations { :self :methodName |
-		{- Implementations of methodName. -}
+		/* Implementations of methodName. */
 		self.isMethodName(methodName).if {
 			let answer = Set();
 			let table = self.methodDictionary[methodName];
@@ -119,7 +119,7 @@
 	}
 
 	methodPrintString { :self :methodName |
-		{- Print string of implementations of methodName. -}
+		/* Print string of implementations of methodName. */
 		let answer = [];
 		self.methodImplementations(methodName).do { :method |
 			answer.add(
@@ -138,7 +138,7 @@
 	}
 
 	methodSignatures { :self :methodName |
-		{- Signatures of each implementation of methodName. -}
+		/* Signatures of each implementation of methodName. */
 		self.methodImplementations(methodName).collect(signature:/1)
 	}
 
@@ -171,7 +171,7 @@
 	}
 
 	onlyZeroArityMethodList { :self |
-		{- Methods implemented by typeName. -}
+		/* Methods implemented by typeName. */
 		self.methodDictionary.indices.select { :methodName |
 			self.methodArities(methodName) = [0]
 		}
@@ -238,12 +238,12 @@
 	}
 
 	typeDirectMethodDictionary { :self :typeName |
-		{- Methods implemented directly at typeName. -}
+		/* Methods implemented directly at typeName. */
 		self.typeLookup(typeName).methodDictionary
 	}
 
 	typeInheritedMethodDictionary { :self :typeName |
-		{- Methods inherited from Traits at typeName, most specific only. -}
+		/* Methods inherited from Traits at typeName, most specific only. */
 		let answer = ();
 		self.typeLookup(typeName).traitNameList.do { :traitName |
 			self.traitLookup(traitName).methodDictionary.valuesDo { :method |

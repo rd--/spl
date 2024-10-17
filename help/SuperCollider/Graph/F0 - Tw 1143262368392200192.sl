@@ -1,4 +1,4 @@
-{- http://twitter.com/redFrik/status/1143262368392200192 -}
+/* http://twitter.com/redFrik/status/1143262368392200192 */
 let c = 4 / 4 / 4;
 let d = c * 4 / 44.4;
 let f = (VarSaw(d, c, -4.sin) * 4).Max(0).Ceiling * 44 + 44;

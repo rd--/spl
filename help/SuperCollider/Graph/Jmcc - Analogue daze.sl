@@ -1,4 +1,4 @@
-{- Analogue daze (Jmcc) #3 -}
+/* Analogue daze (Jmcc) #3 */
 let pattern = [55 63 60 63 57 65 62 65];
 let f = { :octave :clockRate :pwmRate :fltRate |
 	let tr = Impulse(clockRate, 0);

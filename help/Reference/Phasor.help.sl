@@ -24,8 +24,8 @@ let sr = SampleRate();
 let x = Phasor(trig, rate / sr, 0, 1, 0);
 SinOsc(
 	[
-		x.LinLin(0, 1, 600, 1000), {- convert range -}
-		1000 {- constant second frequency -}
+		x.LinLin(0, 1, 600, 1000), /* convert range */
+		1000 /* constant second frequency */
 	],
 	0
 ) * 0.1

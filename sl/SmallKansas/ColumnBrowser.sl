@@ -1,4 +1,4 @@
-{- Requires: ListChooser SmallKansas TextEditor -}
+/* Requires: ListChooser SmallKansas TextEditor */
 
 ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPane textEditor numberOfColumns columnLists statusPane statusText title |
 

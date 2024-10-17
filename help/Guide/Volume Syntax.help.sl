@@ -4,7 +4,7 @@ Rewrite rule:
 
 - _[p q; r s:; a b; c d:; ...]_ ⟹ _[[[p, q], [r, s]], [[a, b], [c, d]], ...]_
 
-Allows writing _volumes_, three-dimensional arrays, as _matrices_ separated by _:;_ tokens.
+Allows writing _volumes_, three-dimensional arrays, as _matrices_ separated by `:;` tokens.
 
 A _2×2×2_ array:
 
@@ -34,7 +34,7 @@ The empty field will be _[[]]_, an empty matrix, not an empty vector:
 [[[1, 2], [3, 4]], [[]], [[5, 6], [7, 8]]]
 ```
 
-Where supported, _:;_ is displayed as _↲_.
+Where supported, `:;` is displayed as ↲.
 This suggests the Apl notation where matrices are separated by empty lines.
 
 * * *

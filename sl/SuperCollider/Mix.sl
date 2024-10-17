@@ -4,7 +4,7 @@
 		let answer = Dc(0) # numOutputs;
 		sparseMatrix.do { :each |
 			let [inputIndex, outputIndex, gain] = each;
-			{- ['SparseMatrixMixer', each].postLine; -}
+			/* ['SparseMatrixMixer', each].postLine; */
 			answer[outputIndex] := answer[outputIndex] + inputList[inputIndex] * gain
 		};
 		answer
@@ -160,7 +160,7 @@
 		let derivedPrefix = runList.runsAndValuesCollect { :run :value |
 			[run.asString, '×', value.asString].join
 		}.join('+') ++ '→';
-		{- ['Mix', ruleTable, derivedPrefix].postLine; -}
+		/* ['Mix', ruleTable, derivedPrefix].postLine; */
 		self.mixByAvailableNamedRule(derivedPrefix, ruleTable)
 	}
 
@@ -169,7 +169,7 @@
 		valueWithReturn { :return:/1 |
 			ruleTable.do { :each |
 				let [name, busesByIndex] = each;
-				{- ['mixByAvailableNamedRule', each, prefix].postLine; -}
+				/* ['mixByAvailableNamedRule', each, prefix].postLine; */
 				sparseMatrixTable.atIfPresent(prefix ++ name) { :entries |
 					let inputs = self.concatenation;
 					let reindexedEntries = entries.collect { :entry |
@@ -180,7 +180,7 @@
 						]
 					};
 					let channelCount = reindexedEntries.collect(second:/1).max;
-					{- ['mixByAvailableNamedRule', channelCount, self.shape, reindexedEntries].postLine; -}
+					/* ['mixByAvailableNamedRule', channelCount, self.shape, reindexedEntries].postLine; */
 					SparseMatrixMixer(
 						channelCount,
 						self.concatenation,

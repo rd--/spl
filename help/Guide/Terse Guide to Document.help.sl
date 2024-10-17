@@ -10,13 +10,13 @@ system.window.typeOf = 'Window'
 ```
 system.window.navigator.typeOf = 'Navigator'
 system.window.navigator.userAgent.typeOf = 'String'
-system.window.document = nil {- cli -}
-system.window.navigator.maxTouchPoints = nil {- cli -}
-system.window.alert('An alert') {- cli -}
+system.window.document = nil /* cli */
+system.window.navigator.maxTouchPoints = nil /* cli */
+system.window.alert('An alert') /* cli */
 'Continue'
-system.window.alert('A confirm') {- cli -}
+system.window.alert('A confirm') /* cli */
 'Continue'
-system.window.prompt('A prompt ', '23') {- cli -}
+system.window.prompt('A prompt ', '23') /* cli */
 'Continue'
 ```
 

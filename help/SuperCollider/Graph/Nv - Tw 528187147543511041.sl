@@ -1,4 +1,4 @@
-{- http://twitter.com/headcube/status/528187147543511041 (nv) -}
+/* http://twitter.com/headcube/status/528187147543511041 (nv) */
 1:4.collect { :j |
 	let f = 32 ^ 1:10.collect { :i |
 		let n = LfNoise0(0.25 ^ (j - 1) / 8);

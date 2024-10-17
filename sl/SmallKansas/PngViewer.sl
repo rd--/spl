@@ -1,4 +1,4 @@
-{- Requires: ImageViewer SmallKansas -}
+/* Requires: ImageViewer SmallKansas */
 
 +SmallKansas {
 

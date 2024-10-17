@@ -1,4 +1,4 @@
-{- http://twitter.com/headcube/status/408145586970324992 (nv) -}
+/* http://twitter.com/headcube/status/408145586970324992 (nv) */
 1:9.collect { :i |
 	let a = Saw(1 / i + 1 / 6);
 	let p = Pluck(a, a, 1, 1 / i / (3 - LfPulse(1 / i, 0, 0.5)) / 30, 9, 0.9 / i);

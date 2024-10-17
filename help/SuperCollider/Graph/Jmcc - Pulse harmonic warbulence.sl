@@ -1,4 +1,4 @@
-{- Pulse harmonic warbulence (Jmcc) #12 -}
+/* Pulse harmonic warbulence (Jmcc) #12 */
 let z = { :tr |
 	let f = TRand(24, 96, tr).MidiCps;
 	let r = TxLine(TExpRand(0.1, 20, tr), TExpRand(0.1, 20, tr), 25.6, tr);

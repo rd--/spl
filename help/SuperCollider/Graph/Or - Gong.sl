@@ -1,4 +1,4 @@
-{- http://recarteblog.wordpress.com/2021/05/05/gongfm_sc/ ; or ; texture (rd) -}
+/* http://recarteblog.wordpress.com/2021/05/05/gongfm_sc/ ; or ; texture (rd) */
 let dur = 7;
 { :tr |
 	let freq = [67, 70, 74].MidiCps;

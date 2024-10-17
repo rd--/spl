@@ -1,4 +1,4 @@
-{- DelayWrite ; karplus-strong (adc) -}
+/* DelayWrite ; karplus-strong (adc) */
 let freq = 100;
 let repeatFreq = 0.3;
 let feedbackCoef = 0.997;

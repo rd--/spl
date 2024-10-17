@@ -1,4 +1,4 @@
-{- What was I thinking? (Jmcc) -}
+/* What was I thinking? (Jmcc) */
 let z = Rlpf(
 	Pulse(
 		Decay(LfPulse(0.1, 0, 0.05) * Impulse(8, 0) * 500, 2).Max(

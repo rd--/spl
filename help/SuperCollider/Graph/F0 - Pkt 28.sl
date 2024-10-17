@@ -1,4 +1,4 @@
-{- Pkt 28 (F0) ; http://www.fredrikolofsson.com/f0blog/?q=node/490 -}
+/* Pkt 28 (F0) ; http://www.fredrikolofsson.com/f0blog/?q=node/490 */
 let n = 28;
 let z = 1:n.collect { :i |
 	let a = LfSaw(i + 1 * 5, 0) * 0.5 * pi;

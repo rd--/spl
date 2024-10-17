@@ -1,4 +1,4 @@
-{- https://twitter.com/headcube/status/273708223440244736; nv ; kr... -}
+/* https://twitter.com/headcube/status/273708223440244736; nv ; kr... */
 let n = {
 	LfNoise1(1 / 8)
 };

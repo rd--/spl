@@ -1,4 +1,4 @@
-{- Requires: Url -}
+/* Requires: Url */
 
 LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 

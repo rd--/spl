@@ -1,4 +1,4 @@
-{- F0 ; http://twitter.com/redFrik/status/1374517800048291847 -}
+/* F0 ; http://twitter.com/redFrik/status/1374517800048291847 */
 let b = 1:9;
 let f0 = Lag(VarSaw(0.003, b / 9, 0.5).RoundTo(1 / 3), 1.9) * 91 + 252;
 let w0 = VarSaw(b / 9 / 99, 0, 0.5) % 1;

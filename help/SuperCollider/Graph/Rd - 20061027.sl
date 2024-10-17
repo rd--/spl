@@ -1,4 +1,4 @@
-{- 20061027 ; rd -}
+/* 20061027 ; rd */
 let h0 = {
 	let f = 40;
 	let h = HenonN(

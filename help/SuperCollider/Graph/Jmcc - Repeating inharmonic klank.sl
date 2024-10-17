@@ -1,4 +1,4 @@
-{- Repeating inharmonic klank (Jmcc) #6 ; Graph rewrite -}
+/* Repeating inharmonic klank (Jmcc) #6 ; Graph rewrite */
 let n = 4;
 let p = 8;
 { :tr |

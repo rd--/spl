@@ -27,7 +27,7 @@ Empty fields are allowed, both at the start, and at the end, and in the middle:
 [[], [2, 3], [], [5, 6], []]
 ```
 
-The _powerSet_ help file includes examples of this notation.
+The `powerSet` help file includes examples of this notation.
 
 * * *
 

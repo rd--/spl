@@ -1,4 +1,4 @@
-{- Requires: Cache Fraction Tuning -}
+/* Requires: Cache Fraction Tuning */
 
 RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache |
 

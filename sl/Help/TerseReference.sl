@@ -1,4 +1,4 @@
-{- Requires: DocumentTest, Url -}
+/* Requires: DocumentTest, Url */
 
 +String {
 

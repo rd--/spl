@@ -1,4 +1,4 @@
-{- https://twitter.com/redFrik/status/1591161283591782401 -}
+/* https://twitter.com/redFrik/status/1591161283591782401 */
 { :nextDelay |
 	let d = 1 / 12;
 	let b = 1:8 / 4;

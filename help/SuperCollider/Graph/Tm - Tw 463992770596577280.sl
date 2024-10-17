@@ -1,4 +1,4 @@
-{- http://twitter.com/thormagnusson/status/463992770596577280 (tm) -}
+/* http://twitter.com/thormagnusson/status/463992770596577280 (tm) */
 let k = 9 + 19.atRandom;
 {
 	1:k.collect { :x |

@@ -1,4 +1,4 @@
-{- http://sccode.org/1-4Qy ; tweet0007 ; texture variant (rd) ; requires=LinRand -}
+/* http://sccode.org/1-4Qy ; tweet0007 ; texture variant (rd) ; requires=LinRand */
 { :tr |
 	let p = Pluck(
 		Crackle([1.9, 1.8]),

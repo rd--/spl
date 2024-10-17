@@ -1,4 +1,4 @@
-{- Requires: SmallKansas SmallProgram Window -}
+/* Requires: SmallKansas SmallProgram Window */
 
 Notebook : [Object, View, SmallKansan] { | smallKansas notebookPane cells |
 

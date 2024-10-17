@@ -1,4 +1,4 @@
-{- Rhpf ; requires=ListedEnv -}
+/* Rhpf ; requires=ListedEnv */
 let tr = Impulse(1 / [3 5 7 9], 0);
 Rhpf(
 	PinkNoise() * Decay2(tr, 3, MouseX(3, 27, 0, 0.2)),

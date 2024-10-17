@@ -1,4 +1,4 @@
-{- Random panning sines (Jmcc) #4 -}
+/* Random panning sines (Jmcc) #4 */
 { :tr |
 	let n = 8;
 	{

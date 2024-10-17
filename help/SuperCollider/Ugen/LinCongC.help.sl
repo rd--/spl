@@ -1,4 +1,4 @@
-{- LinCongC ; texture -}
+/* LinCongC ; texture */
 { :tr |
 	let freq = SampleRate() / 2;
 	let m = TiRand(0, 1000000, tr);
@@ -7,7 +7,7 @@
 	LinCongC(freq, a, c, m, { TiRand(0, m, tr) } ! 2) * 0.1
 }.OverlapTexture(1, 2, 4).Mix
 
-{- LinCongC ; rd edit ; https://github.com/lukiss/Losers-Union-SC-Research -}
+/* LinCongC ; rd edit ; https://github.com/lukiss/Losers-Union-SC-Research */
 let p = 9 / 7 ^ 0:16;
 let c = { :freq |
 	LinCongC(freq, 1.1, 0.13, 1, 0)

@@ -1,4 +1,4 @@
-{- Require: List, Record, Void -}
+/* Require: List, Record, Void */
 
 @PrimitiveMap {
 

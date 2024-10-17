@@ -1,4 +1,4 @@
-{- http://sccode.org/1-4Qy (F0) ; 0239 -}
+/* http://sccode.org/1-4Qy (F0) ; 0239 */
 let b = 0.11 / 1:6;
 let q = ' #SuperCollider '.ascii.asList.MidiCps;
 let o = LfTri(Duty(b, 0, Dseq(inf, q)), 0);

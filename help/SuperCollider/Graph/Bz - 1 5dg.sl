@@ -1,4 +1,4 @@
-{- https://sccode.org/1-5dg (bz) kd=kick drum, sd = snare drum, hh = hi-hat, tm = tom, cl = clave, wd = wood block -}
+/* https://sccode.org/1-5dg (bz) kd=kick drum, sd = snare drum, hh = hi-hat, tm = tom, cl = clave, wd = wood block */
 let ctl = (
 	clVel: 30,
 	div: [2, 3, 4, 6, 8, 3],

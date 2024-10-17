@@ -1,4 +1,4 @@
-{- http://sccode.org/1-4Qy (F0) ; 0101 ; graph variant (rd) -}
+/* http://sccode.org/1-4Qy (F0) ; 0101 ; graph variant (rd) */
 let d = [0 9 17 24 30 35 39 42 44];
 1:9.collect { :c |
 	let a = DelayN(InFb(2, 0), 1, 1);

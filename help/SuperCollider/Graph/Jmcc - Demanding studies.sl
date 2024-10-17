@@ -1,4 +1,4 @@
-{- Demanding studies (Jmcc) -}
+/* Demanding studies (Jmcc) */
 let s1 = Drand(inf, [72 75 79 82]);
 let s2 = Drand(1, [82 84 86]);
 let s3 = Dseq(inf, [72 75 79 s2]);

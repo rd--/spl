@@ -1,4 +1,4 @@
-{- http://scsynth.org/t/5487 ; mv -}
+/* http://scsynth.org/t/5487 ; mv */
 let prime = LfNoise0(1 / 19) * 8 + 300;
 let diff = LfNoise0(1 / 29) + 10;
 let fade = 10;

@@ -1,4 +1,4 @@
-{- clustered sines (jmcc) #2 -}
+/* clustered sines (jmcc) #2 */
 {
 	let n = 80;
 	let f1 = Rand(100, 1100);

@@ -1,4 +1,4 @@
-{- http://scsynth.org/t/6353 ; io ; http://ingoogni.nl/ -}
+/* http://scsynth.org/t/6353 ; io ; http://ingoogni.nl/ */
 let shuheiKawachi = { :x :y :a :b |
 	[
 		(x.Cos * y.Cos),

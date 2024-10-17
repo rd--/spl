@@ -1,4 +1,4 @@
-{- http://twitter.com/HernaniVillase/status/517517924236795905 ; rewrite (rd) -}
+/* http://twitter.com/HernaniVillase/status/517517924236795905 ; rewrite (rd) */
 { :tr |
 	let f = TRand(97, 101, tr);
 	let o = LfTri(

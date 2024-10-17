@@ -1,4 +1,4 @@
-{- https://sonomu.club/@lukiss/112406789401906049 ; May 09, 2024 -}
+/* https://sonomu.club/@lukiss/112406789401906049 ; May 09, 2024 */
 let m = {
 	LfdNoise3(1 / 7).ExpRange(0.01, 1)
 };
@@ -24,7 +24,7 @@ let o = Splay(m:/0 ! 4 * b);
 let p = CompanderD(o, 1 / 2, 1 / 3, 1 / 2, 0.01, 0.1) / 3;
 (o / 3 + p).SoftClip.transposed.Sum
 
-{- https://sonomu.club/@lukiss/112280811322923333 ; Apr 16, 2024 -}
+/* https://sonomu.club/@lukiss/112280811322923333 ; Apr 16, 2024 */
 let f = [77 777 7777];
 let a = (GbmanL(f, 1.2, 2.1).Sin + 1 * 2).Ceiling / 9;
 let e = { :f |
@@ -36,7 +36,7 @@ Splay(
 	SinOsc((e(7) * 7), 0)
 ).transposed.Sum
 
-{- https://sonomu.club/@lukiss/112090216321959038 ; Mar 14, 2024 -}
+/* https://sonomu.club/@lukiss/112090216321959038 ; Mar 14, 2024 */
 let m = {
 	FbSineL(
 		LfdNoise1(2).ExpRange(0.01, 1) * 14 + 0.5,
@@ -71,7 +71,7 @@ let v = GVerb(
 );
 Splay((v + l).SoftClip * -6.DbAmp)
 
-{- https://sonomu.club/@lukiss/112015967098344604 ; Mar 01, 2024 -}
+/* https://sonomu.club/@lukiss/112015967098344604 ; Mar 01, 2024 */
 let f = 111 * [0 1.04955 2.97513 4.70781 7.01955 8.40528 9.68826 0].MidiRatio;
 let e = {
 	LfSaw(GrayNoise() * (1 / 7 # 8) - 7, 0).Lag3(0.001).Max(0)
@@ -99,7 +99,7 @@ let r = FreeVerb(
 ) * (1 - (e() ^ 4)) + (e() * v * o);
 Splay(r, (v[8] * 111).Sin)
 
-{- https://sonomu.club/@lukiss/111583491682015266 ; Dec 15, 2023 -}
+/* https://sonomu.club/@lukiss/111583491682015266 ; Dec 15, 2023 */
 let t = { :z |
 	LfSaw(z, 1) + 1 / 2
 };
@@ -122,7 +122,7 @@ BBandStop(
 	t(1 / 9) * 2 + 3
 )
 
-{- https://social.ordinal.garden/@f0/111583733632579377 ; Dec 15, 2023 (f0) -}
+/* https://social.ordinal.garden/@f0/111583733632579377 ; Dec 15, 2023 (f0) */
 let t = { :z |
 	LfSaw(z, 1) + 1 / 2
 };
@@ -151,7 +151,7 @@ CombN(
 	4
 ) / 2 + x
 
-{- https://sonomu.club/@lukiss/111577779507616435 ; Dec 14, 2023 -}
+/* https://sonomu.club/@lukiss/111577779507616435 ; Dec 14, 2023 */
 let r = { :a :b |
 	let t = HenonL(LfNoise2(1).ExpRange(0.01, 1) * 16, 1.4, 0.3, 0, 0);
 	TRand(a, b, t)
@@ -163,7 +163,7 @@ LeakDc(
 	0.995
 ) # 2
 
-{- https://sonomu.club/@lukiss/111534969935581348 ; Dec 7, 2023 -}
+/* https://sonomu.club/@lukiss/111534969935581348 ; Dec 7, 2023 */
 let p = {
 	let a = 0:3.collect { :n |
 		n * 12 + [0 3 7 10]
@@ -186,7 +186,7 @@ CombC(
 	0.2, 0.2, 1
 )
 
-{- https://sonomu.club/@lukiss/111534001937293189 ; Dec 07, 2023 -}
+/* https://sonomu.club/@lukiss/111534001937293189 ; Dec 07, 2023 */
 let t = TDuty(1 / (2 ^ Diwhite(inf, 0, 8)), 0, 1).kr;
 let l = {
 	let z = nil;
@@ -211,7 +211,7 @@ Splay(
 	l()
 )
 
-{- https://sonomu.club/@lukiss/109875835273563824 ; Feb 17 2023  -}
+/* https://sonomu.club/@lukiss/109875835273563824 ; Feb 17 2023  */
 let f = { :rt | Sweep(0, rt) };
 let t = f(4E4);
 let c = f(1);
@@ -232,7 +232,7 @@ Splay(
 	c.Sin
 )
 
-{- https://sonomu.club/@lukiss/109733997253009229 ; Jan 23, 2023 -}
+/* https://sonomu.club/@lukiss/109733997253009229 ; Jan 23, 2023 */
 let c = [9, 12 .. 61].degreeToKey([0 2 3 6 7 8 11], 12);
 let o = c.MidiCps.collect { :f | SinOsc(f, 0) };
 let e = SinOsc(2 / c.Log10, 0) * LfSaw(11 / c.Neg, 0).Max(0).Lag3(0.1);
@@ -241,7 +241,7 @@ Splay(
 	SinOsc(1 / c @ 1, 0)
 )
 
-{- https://sonomu.club/@lukiss/110281639162399169 ; Apr 29, 2023 -}
+/* https://sonomu.club/@lukiss/110281639162399169 ; Apr 29, 2023 */
 let m = Impulse(8, 0).kr;
 let c = { :a |
 	let z = [];
@@ -272,7 +272,7 @@ Splay(
 	0.25
 )
 
-{- https://sonomu.club/@lukiss/111422385501420073 ; Nov 17, 2023 -}
+/* https://sonomu.club/@lukiss/111422385501420073 ; Nov 17, 2023 */
 let x = CuspL(CuspL(3, 1, 1.9, 0).Exp * 12 + 1, 1, 1.9, 0).Fold2(1);
 let t = (0 .. 7).collect { :n | PulseDivider(x, 8, 7 - n) };
 let d = x.LinLin(-1, 1, 1 / 2, 2);
@@ -293,7 +293,7 @@ Splay(
 	1 / 4
 )
 
-{- https://sonomu.club/@lukiss/111455666847951601 ; Nov 23, 2023 -}
+/* https://sonomu.club/@lukiss/111455666847951601 ; Nov 23, 2023 */
 let t = {
 	TDuty(Dseq(inf, [3 4 2 1 2 4] / 8), 0, 1).kr
 };
@@ -315,7 +315,7 @@ let o = (Blip(r(11, 111), r(1 / 3, 333)) * e).Tanh;
 };
 o.SoftClip
 
-{- https://sonomu.club/@lukiss/110533029814503247 ; Jun 13, 2023 -}
+/* https://sonomu.club/@lukiss/110533029814503247 ; Jun 13, 2023 */
 let p = [1, 2 .. 14].degreeToKey([0 2 4 7 9], 12).MidiRatio;
 let f = SinOsc(p.Sin * 8, 0) * 0.005 + 1 * p * 52;
 let h = SinOsc(f * 2, 0) * SinOsc(1 / 4 / p, 0) * SinOsc(pi / p, 0).LinExp(-1, 1, 0.01, 1) * 8 * pi;
@@ -324,7 +324,7 @@ let e = m ^ (SinOsc(8 / p / f.ArcTan, 0) * 30 + 32);
 let o = SinOsc(f, h) * e;
 Splay(0.5 * o, SinOsc(pi, 0))
 
-{- https://sonomu.club/@lukiss/110538742878262809 ; Jun 14, 2023 -}
+/* https://sonomu.club/@lukiss/110538742878262809 ; Jun 14, 2023 */
 let c = [12 .. 38].shuffled.degreeToKey([0 2 4 7 9], 12);
 let w = LfSaw(8, 0) * 0.012 + 1;
 let t = [6, 3 / 2, 3, 3 / 4, 1 / 4];
@@ -341,7 +341,7 @@ Splay(
 	LfSaw(pi, 0)
 )
 
-{- https://sonomu.club/@lukiss/111518889311136686 ; Dec 04, 2023 -}
+/* https://sonomu.club/@lukiss/111518889311136686 ; Dec 04, 2023 */
 let t = TDuty(1 / (2 ^ Diwhite(inf, 0, 6)), 0, 1).kr;
 let r = { :lo :hi |
 	TRand(lo, hi, t)
@@ -371,7 +371,7 @@ let h = SinOsc(
 let b = SinOsc(f, h) * (1.1 - e ^ 2) * 0.5;
 (a + b).Sanitize(0)
 
-{- https://sonomu.club/@lukiss/111749211970689312 ; Jan 14, 2024 -}
+/* https://sonomu.club/@lukiss/111749211970689312 ; Jan 14, 2024 */
 let p = [1, 5 .. 96];
 let c = { :a :b :c |
 	StandardL(a / pi, 1, 0.5, 0).Sin.LinLin(-1, 1, b, c)
@@ -403,7 +403,7 @@ Lpf(
 	9E3
 )
 
-{- https://sonomu.club/@lukiss/112090171577198222 ; Mar 14, 2024 -}
+/* https://sonomu.club/@lukiss/112090171577198222 ; Mar 14, 2024 */
 let m = {
 	QuadL(LfdNoise1(1) + 1 ^ 2, 1, -1, -0.75, 0)
 };
@@ -422,7 +422,7 @@ let d = DelayC(i, 1, 1 / 3);
 let o = (d * (m() + 1 / 2) + u).Tanh;
 o * -6.DbAmp <! LocalOut(o)
 
-{- https://sonomu.club/@lukiss/113012278480517510 ; Aug 24, 2024, 02:28 -}
+/* https://sonomu.club/@lukiss/113012278480517510 ; Aug 24, 2024, 02:28 */
 let p = [1, 3 .. 64];
 let r = 2 ^ (Logistic(3.9, 3, 0.5) + 1 * 2.1).Floor;
 let e = Linen(TDuty(1 / r, 0, 1).kr, 0, 1, 0.9 / r, 0);
@@ -434,7 +434,7 @@ Splay(
 	Blip(r, 0.1)
 )
 
-{- https://sonomu.club/@lukiss/113019188464159465 ; Aug 25, 2024, 07:45 -}
+/* https://sonomu.club/@lukiss/113019188464159465 ; Aug 25, 2024, 07:45 */
 let k = 2 ^ StandardN([1.1, 0.9], 1, 0.5, 0) * 8;
 Splay(
 	LeakDc(
@@ -444,7 +444,7 @@ Splay(
 	StandardN(k.sum, 1, 0.5, 0)
 )
 
-{- https://sonomu.club/@lukiss/113199362402063463 ; Sep 26, 2024, 03:26 -}
+/* https://sonomu.club/@lukiss/113199362402063463 ; Sep 26, 2024, 03:26 */
 let t = {
 	CuspL(LfdNoise1([1, 1]).Max(0) ^ 2 * 32, 1, 1.9, 0)
 };

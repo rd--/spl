@@ -1,4 +1,4 @@
-{- Pm-crotale (dmc) #1.7 ; Graph rewrite -}
+/* Pm-crotale (dmc) #1.7 ; Graph rewrite */
 { :tr |
 	let midi = TiRand(48, 72, tr);
 	let tone = TRand(1, 6, tr);

@@ -1,6 +1,6 @@
-{- Swept resonant noise (Jmcc) #2 -}
+/* Swept resonant noise (Jmcc) #2 */
 {
-	let p = 10; {- number of partials -}
+	let p = 10; /* number of partials */
 	let n = WhiteNoise() * 0.007;
 	let f = (SinOsc(0.1 + 0.2.Rand0, 0) * (12 + 12.Rand2) + 60 + 24.Rand2).MidiCps;
 	let sweep = Resonz(n, f, 0.1);

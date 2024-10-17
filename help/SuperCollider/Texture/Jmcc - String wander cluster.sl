@@ -1,4 +1,4 @@
-{- String wander-cluster (Jmcc) #6 -}
+/* String wander-cluster (Jmcc) #6 */
 {
 	let note1 = 50 + 50.IRand0;
 	let note2 = Fold(note1 + 15.IRand0 - 7, 50, 120);

@@ -1,4 +1,4 @@
-{- Requires: List -}
+/* Requires: List */
 
 Tuple : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 

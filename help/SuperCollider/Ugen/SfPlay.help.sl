@@ -1,22 +1,22 @@
-{- SfPlay ; normal playback at same speed of recording ; loop ; requires=SfAcquire -}
+/* SfPlay ; normal playback at same speed of recording ; loop ; requires=SfAcquire */
 let sf = SfAcquireMono('floating_1');
 SfPlay(sf, 1, 1, 0, 1)
 
-{- SfPlay ; normal playback at same speed of recording ; no loop, retrigger -}
+/* SfPlay ; normal playback at same speed of recording ; no loop, retrigger */
 let sf = SfAcquireMono('floating_1');
 SfPlay(sf, 1, Impulse(1 / SfDur(sf), 0), 0, 0)
 
-{- SfPlay ; mouse controls playback rate and re-trigger interval ; loop -}
+/* SfPlay ; mouse controls playback rate and re-trigger interval ; loop */
 let sf = SfAcquireMono('floating_1');
 let rateMultiplier = MouseX(0.25, 4, 1, 0.2);
 SfPlay(sf, rateMultiplier, 1, 0, 1)
 
-{- SfPlay ; mouse controls playback rate and re-trigger interval ; no loop, retrigger -}
+/* SfPlay ; mouse controls playback rate and re-trigger interval ; no loop, retrigger */
 let sf = SfAcquireMono('floating_1');
 let rateMultiplier = MouseX(0.25, 4, 1, 0.2);
 SfPlay(sf, rateMultiplier, Impulse(rateMultiplier / SfDur(sf), 0), 0, 0)
 
-{- SfPlay ; recursive scrubbing (adc) ; https://www.listarc.cal.bham.ac.uk/lists/sc-users-2002/msg00736.html -}
+/* SfPlay ; recursive scrubbing (adc) ; https://www.listarc.cal.bham.ac.uk/lists/sc-users-2002/msg00736.html */
 let sf = SfAcquireMono('floating_1');
 let r = 10;
 1:6.do { :i |
@@ -24,7 +24,7 @@ let r = 10;
 };
 SfPlay(sf, r, 1, [0, 18000], 1)
 
-{- SfPlay ; floating dust (adc) ; https://www.listarc.cal.bham.ac.uk/lists/sc-users-2002/msg00736.html ; panning edit (rd) -}
+/* SfPlay ; floating dust (adc) ; https://www.listarc.cal.bham.ac.uk/lists/sc-users-2002/msg00736.html ; panning edit (rd) */
 let sf = SfAcquireMono('floating_1');
 0:9.collect { :n |
 	let r = 0.1 ^ (n - 1);
@@ -39,7 +39,7 @@ let sf = SfAcquireMono('floating_1');
 	EqPan2(r, Rand(-1, 1))
 }.Mix
 
-{- SfPlay ; 2 min (adc) ; https://www.listarc.cal.bham.ac.uk/lists/sc-users-2002/msg00736.html -}
+/* SfPlay ; 2 min (adc) ; https://www.listarc.cal.bham.ac.uk/lists/sc-users-2002/msg00736.html */
 let sf = SfAcquireMono('floating_1');
 let l = XLine(1, 0.007, 120);
 SfPlay(sf, Decay(Dust(1 / (l * l)) * l.Sqrt, 1), 1, l, 1)

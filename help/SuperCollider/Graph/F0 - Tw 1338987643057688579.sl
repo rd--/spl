@@ -1,4 +1,4 @@
-{- F0 <http://twitter.com/redFrik/status/1338987643057688579> -}
+/* F0 <http://twitter.com/redFrik/status/1338987643057688579> */
 let b = [8 .. 18];
 let x = VarSaw([18.1, 81.8, 1.81] + b, 1, VarSaw(b / 81, 0, 0.5));
 let t = VarSaw(8 / 1.818, [1, 8 / 18], 0.5);

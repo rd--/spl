@@ -1,4 +1,4 @@
-{- Unused: see Tuple -}
+/* Unused: see Tuple */
 Pair : [Object] { | first second |
 
 	= { :self :anObject |

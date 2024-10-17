@@ -1,4 +1,4 @@
-{- https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/130117soft -}
+/* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/130117soft */
 [
 	{
 		let amp = LfNoise2(0.6).LagUd(0, 15);
@@ -29,7 +29,7 @@
 	}
 ].collect(value:/1).Sum / 3
 
-{- https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft -}
+/* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft */
 Bpf(
 	WhiteNoise(2) * 0.2,
 	LfNoise2(0.4).ExpRange(880, 920),

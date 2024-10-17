@@ -1,4 +1,4 @@
-{- Jmcc ; http://www.iamas.ac.jp/~aka/dspss2004/materials/ -}
+/* Jmcc ; http://www.iamas.ac.jp/~aka/dspss2004/materials/ */
 let freq = 80;
 let trig = Impulse(4, 0) * 0.05;
 let m = Latch((WhiteNoise() * 3 + 3).RoundTo(0.5) + 1, trig);

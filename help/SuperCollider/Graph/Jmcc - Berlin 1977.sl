@@ -1,4 +1,4 @@
-{- Berlin 1977 (Jmcc) #4 -}
+/* Berlin 1977 (Jmcc) #4 */
 let clockRate = MouseX(5, 20, 1, 0.2);
 let clockTime = 1 / clockRate;
 let clock = Impulse(clockRate, 0);

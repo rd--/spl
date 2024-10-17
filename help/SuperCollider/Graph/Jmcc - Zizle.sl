@@ -1,4 +1,4 @@
-{- Zizle (Jmcc) #SC3d1.5 ; Graph rewrite -}
+/* Zizle (Jmcc) #SC3d1.5 ; Graph rewrite */
 { :tr |
 	let amp = { :f |
 		SinOsc(

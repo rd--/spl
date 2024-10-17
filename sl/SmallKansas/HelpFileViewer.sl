@@ -1,4 +1,4 @@
-{- Requires: DocumentTest HelpFile SmallKansas SmallProgram TextEditor -}
+/* Requires: DocumentTest HelpFile SmallKansas SmallProgram TextEditor */
 
 HelpFileViewer : [Object, UserEventTarget, View] { | smallKansas outerElement eventListeners |
 

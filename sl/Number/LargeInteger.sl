@@ -1,4 +1,4 @@
-{- Requires: SmallFloat String -}
+/* Requires: SmallFloat String */
 
 LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 

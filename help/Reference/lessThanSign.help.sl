@@ -77,7 +77,7 @@ Negative zero and positive zero are regarded as equal by the numerical compariso
 false
 ```
 
-The name of this operator is `lessThanSign`.
+The name of this operator is _lessThanSign_.
 
 * * *
 

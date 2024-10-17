@@ -1,4 +1,4 @@
-{- Modified from a patch by Landon Rose (Jmcc) #8 ; Graph rewrite -}
+/* Modified from a patch by Landon Rose (Jmcc) #8 ; Graph rewrite */
 1:4.collect { :i |
 	let s = { PinkNoise() * 0.001 } ! 2;
 	let p = [0 0.25 0.5 0.75];

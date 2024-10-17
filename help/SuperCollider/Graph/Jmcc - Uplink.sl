@@ -1,4 +1,4 @@
-{- Uplink (Jmcc) #2 ; Graph rewrite -}
+/* Uplink (Jmcc) #2 ; Graph rewrite */
 { :tr |
 	let osc = {
 		let e = MulAdd(

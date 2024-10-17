@@ -1,4 +1,4 @@
-{- DelayMap - one second delay at quarter gain -}
+/* DelayMap - one second delay at quarter gain */
 let b = LocalBuf(1, 2 * 48000).ZeroBuf;
 let a = [
 	-1 0 0 0.5
@@ -9,7 +9,7 @@ let y = MouseY(0.0, 0.2, 0, 0.1);
 let o = SinOsc(x, 0) * y;
 [DelayMap(b, o, 0, a), o]
 
-{- DelayMap ; event control -}
+/* DelayMap ; event control */
 Voicer(1, 16) { :e |
 	let b = LocalBuf(1, 2 * 48000).ZeroBuf;
 	let a = [

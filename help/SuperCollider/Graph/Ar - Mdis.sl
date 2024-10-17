@@ -1,4 +1,4 @@
-{- Ar ; http://github.com/alikthename/Musical-Design-in-Supercollider ; 1 -}
+/* Ar ; http://github.com/alikthename/Musical-Design-in-Supercollider ; 1 */
 Voicer(1, 16) { :e |
 	let withMod = true;
 	let level = e.z * e.w.LagUd(0, e.y * 4 + 0.1);

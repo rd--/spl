@@ -1,4 +1,4 @@
-{- Requires: SmallKansas TextEditor -}
+/* Requires: SmallKansas TextEditor */
 
 +SmallKansas {
 

@@ -1,4 +1,4 @@
-{- Sweepy noise (Jmcc) #6 -}
+/* Sweepy noise (Jmcc) #6 */
 let lfoDepth = MouseY(200, 8000, 1, 0.1);
 let lfoRate = MouseX(4, 60, 1, 0.1);
 let freq = LfSaw(lfoRate, 0) * lfoDepth + (lfoDepth * 1.2);

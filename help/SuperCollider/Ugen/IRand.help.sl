@@ -1,4 +1,4 @@
-{- IRand -}
+/* IRand */
 let scale = [0, 2, 4, 5, 7, 9, 10, 12].asLocalBuf;
 {
 	let degree = IRand(0, 7);
@@ -9,7 +9,7 @@ let scale = [0, 2, 4, 5, 7, 9, 10, 12].asLocalBuf;
 	Blip(mnn.MidiCps, numHarm) * 0.1
 } !^ 7
 
-{- ---- IRand ; scheduled texture ; requies=eval -}
+/* ---- IRand ; scheduled texture ; requies=eval */
 let scale = [0, 2, 4, 5, 7, 9, 10, 12].asLocalBuf;
 {
 	{

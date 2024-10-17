@@ -31,4 +31,8 @@ let d = ModDif (MouseX(0, nc * 2, 0, 0.2), [0 .. nc - 1], nc);
 
 See also: AbsDif
 
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/ModDif.html)
+
 Categories: Math, Ugen

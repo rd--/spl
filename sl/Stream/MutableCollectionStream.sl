@@ -1,4 +1,4 @@
-{- Requires: PositionableStream Stream WriteStream -}
+/* Requires: PositionableStream Stream WriteStream */
 
 MutableCollectionStream : [Object, Iterator, Stream, PositionableStream, WriteStream] { | collection positionIndex writeLimit |
 

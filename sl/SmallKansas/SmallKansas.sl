@@ -1,4 +1,4 @@
-{- Requires: Dom Duration Set -}
+/* Requires: Dom Duration Set */
 
 @SmallKansan {
 

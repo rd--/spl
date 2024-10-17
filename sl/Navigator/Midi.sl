@@ -52,9 +52,9 @@
 
 MIDIAccess! : [Object, EventTarget] {
 
-	inputs { :self | <primitive: return _self.inputs;> } {- Read only -}
-	outputs { :self | <primitive: return _self.outputs;> } {- Read only -}
-	sysexEnabled { :self | <primitive: return _self.sysexEnabled;> } {- Read only -}
+	inputs { :self | <primitive: return _self.inputs;> } /* Read only */
+	outputs { :self | <primitive: return _self.outputs;> } /* Read only */
+	sysexEnabled { :self | <primitive: return _self.sysexEnabled;> } /* Read only */
 
 	onstatechange { :self :aBlock |
 		<primitive: return _self.onstatechange = _aBlock;>

@@ -1,4 +1,4 @@
-{- Requires: BitSet Set -}
+/* Requires: BitSet Set */
 
 ResidueSet : [Object, Iterable, Collection] { | modulus contents |
 

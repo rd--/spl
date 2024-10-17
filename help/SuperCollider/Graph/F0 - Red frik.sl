@@ -1,4 +1,4 @@
-{- Red frik (F0) -}
+/* Red frik (F0) */
 let tr = Impulse(0.1, 0);
 let o1 = MulAdd(
 	SinOsc(TRand(0.3, 5, tr), 0),

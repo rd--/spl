@@ -1,34 +1,34 @@
-{- LfSaw ; phase value = (0, 2), offset to lowest and midpoint ascending -}
+/* LfSaw ; phase value = (0, 2), offset to lowest and midpoint ascending */
 LfSaw(110, 2 * [0.5, 0]) * 0.1
 
-{- LfSaw ; as phasor -}
+/* LfSaw ; as phasor */
 (LfSaw(220, 0) * pi + pi).Sin * 0.1
 
-{- LfSaw ; as phase input to sin ; scale using LinLin -}
+/* LfSaw ; as phase input to sin ; scale using LinLin */
 LinLin(LfSaw(440, 0), -1, 1, 0, 2 * pi).Sin * 0.1
 
-{- LfSaw ; as phasor -}
+/* LfSaw ; as phasor */
 let freq = LfNoise2(3) * 110 + 220;
 [(LfSaw(freq, 0) * pi + pi).Sin, SinOsc(freq, 0)] * 0.1
 
-{- LfSaw -}
+/* LfSaw */
 LfSaw(500, 1) * 0.05
 
-{- LfSaw ; used as both oscillator and lfo -}
+/* LfSaw ; used as both oscillator and lfo */
 LfSaw(LfSaw(4, 0) * 400 + 400, 0) * 0.05
 
-{- LfSaw ; output range is bi-polar -}
+/* LfSaw ; output range is bi-polar */
 let f = [LinLin(LfSaw(0.5, 1), -1, 1, 200, 1600), 200, 1600];
 (SinOsc(f, 0) * [0.1, 0.05, 0.05]).Sum
 
-{- LfSaw ; mixed with sin, then with distortions -}
+/* LfSaw ; mixed with sin, then with distortions */
 let f = XLine(220, 440, 10);
 let o1 = SinOsc(f + [0, 0.7], 0);
 let o2 = LfSaw (f + [0, 0.7], 0) * 0.3;
 let o3 = o1 + o2;
 o3.Distort.Distort.Cubed * 0.5
 
-{- LfSaw ; https://scsynth.org/t/6320/2 (nh) ; requires=voicer -}
+/* LfSaw ; https://scsynth.org/t/6320/2 (nh) ; requires=voicer */
 Voicer(1, 16) { :e |
 	let freq = e.p.UnitCps;
 	let auto = SinOsc(e.z * 2, 0).LinLin(-1, 1, 1, 1 + e.y);

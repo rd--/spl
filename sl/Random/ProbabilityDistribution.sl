@@ -1,4 +1,4 @@
-{- Requires: RandomNumberGenerator -}
+/* Requires: RandomNumberGenerator */
 
 +@Number {
 

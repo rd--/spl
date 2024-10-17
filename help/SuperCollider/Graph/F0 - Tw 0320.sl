@@ -1,4 +1,4 @@
-{- http://sccode.org/1-4Qy (F0) ; 0320 -}
+/* http://sccode.org/1-4Qy (F0) ; 0320 */
 let b = [2 4 9 3] * 9;
 let o = VarSaw(
 	VarSaw(1 / b, 0, 0.5) > 0 + 3 * b,

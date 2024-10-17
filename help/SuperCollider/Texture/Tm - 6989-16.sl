@@ -1,4 +1,4 @@
-{- https://scsynth.org/t/6989/16 ; tm -}
+/* https://scsynth.org/t/6989/16 ; tm */
 {
 	let num = 20;
 	let dur = 1 / 60;

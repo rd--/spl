@@ -1,4 +1,4 @@
-{- Deep Trip (Jmcc) #9 -}
+/* Deep Trip (Jmcc) #9 */
 {
 	let f = (LfNoise1(0.3.Rand0) * 60 + 70).MidiCps;
 	let a = Mul(

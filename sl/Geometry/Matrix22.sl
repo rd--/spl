@@ -1,4 +1,4 @@
-{- Requires: PlanarCoordinates -}
+/* Requires: PlanarCoordinates */
 
 Matrix22 : [Object] { | a b c d |
 

@@ -1,5 +1,5 @@
-{- Adc ; 8.1 ; http://www.audiosynth.com/files/SC2.2.16.sea.hqx -}
-let tapData = [ {- Early reflection tap data (times, levels) -}
+/* Adc ; 8.1 ; http://www.audiosynth.com/files/SC2.2.16.sea.hqx */
+let tapData = [ /* Early reflection tap data (times, levels) */
 	[0.0043, 0.841],
 	[0.0215, 0.504],
 	[0.0268, 0.379],
@@ -11,7 +11,7 @@ let tapData = [ {- Early reflection tap data (times, levels) -}
 	[0.0741, 0.142],
 	[0.0797, 0.134]
 ];
-let combData = [ {- Table of comb data (times, levels) -}
+let combData = [ /* Table of comb data (times, levels) */
 	[0.050,	0.46],
 	[0.056,	0.48],
 	[0.061,	0.50],
@@ -19,18 +19,18 @@ let combData = [ {- Table of comb data (times, levels) -}
 	[0.072,	0.53],
 	[0.078,	0.55]
 ];
-let revTime = 3; {- Global decay, time in seconds -}
-let revBalance = 0.5; {- Dry/wet balance, ratio -}
-let tapScale = revBalance / tapData.size; {- Tap amplitude scaling factor -}
-let combScale = revBalance / combData.size; {- Comb amplitude scaling factor -}
-let input = 0.5.coin.if { {- Audio input signal -}
+let revTime = 3; /* Global decay, time in seconds */
+let revBalance = 0.5; /* Dry/wet balance, ratio */
+let tapScale = revBalance / tapData.size; /* Tap amplitude scaling factor */
+let combScale = revBalance / combData.size; /* Comb amplitude scaling factor */
+let input = 0.5.coin.if { /* Audio input signal */
 	Impulse(0.2, 2)
 } {
 	Decay2(Impulse(0.2, 2), 0.001, 0.2) * PinkNoise()
 };
-let buffer = BufAlloc(1, 48000 * 0.1).BufClear; {- A buffer for the early reflections delay line -}
+let buffer = BufAlloc(1, 48000 * 0.1).BufClear; /* A buffer for the early reflections delay line */
 let revMonoInput = input.isList.if {
-	input.Sum / input.size {- Reverb input must be mono -}
+	input.Sum / input.size /* Reverb input must be mono */
 } {
 	input
 };
@@ -44,7 +44,7 @@ tapData.do { :params |
 1:6.do { :index |
 	combsOut := combsOut + (
 		CombC(
-			revMonoInput + tapsOut, {- TapsOut could be scaled -}
+			revMonoInput + tapsOut, /* TapsOut could be scaled */
 			0.1,
 			combData[index].first,
 			revTime

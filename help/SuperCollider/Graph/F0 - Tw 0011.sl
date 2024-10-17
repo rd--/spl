@@ -1,4 +1,4 @@
-{- http://twitter.com/redFrik/status/23182604046 (F0) ; 0011 -}
+/* http://twitter.com/redFrik/status/23182604046 (F0) ; 0011 */
 let s = { :o :i |
 	SinOsc([i, i + 0.0001] ^ 2 * f(o, i - 1), f(o, i - 1) * 0.0001) * f(o, i - 1)
 };

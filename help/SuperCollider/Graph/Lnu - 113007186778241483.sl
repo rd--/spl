@@ -1,4 +1,4 @@
-{- https://sonomu.club/@lukiss/113007186778241483 -}
+/* https://sonomu.club/@lukiss/113007186778241483 */
 let k = 0.13;
 let l = { :a :b |
 	k := k + k;

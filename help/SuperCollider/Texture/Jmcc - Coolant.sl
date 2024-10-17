@@ -1,4 +1,4 @@
-{- Coolant (Jmcc) #2 -}
+/* Coolant (Jmcc) #2 */
 {
 	let p = 10;
 	let exc = OnePole(BrownNoise() * 0.002, 0.95);

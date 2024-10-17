@@ -1,4 +1,4 @@
-{- Requires: Dom EventTarget Rectangle -}
+/* Requires: Dom EventTarget Rectangle */
 
 +@Document {
 

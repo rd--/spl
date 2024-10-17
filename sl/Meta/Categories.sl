@@ -250,7 +250,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 	]
 ));
 
-{- method categories -}
+/* method categories */
 system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethodName }, (
 	'accessing': [
 		'allButFirst'
@@ -502,12 +502,12 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'addWarning'
 	],
 	'arithmetic operators': [
-		'%' {- percentSign -}
-		'*' {- asterisk -}
-		'^' {- circumflexAccent -}
-		'+' {- plusSign -}
-		'-' {- hyphenMinus -}
-		'/' {- solidus -}
+		'%' /* percentSign */
+		'*' /* asterisk */
+		'^' /* circumflexAccent */
+		'+' /* plusSign */
+		'-' /* hyphenMinus */
+		'/' /* solidus */
 		'//'
 		'\\\\'
 		'*='

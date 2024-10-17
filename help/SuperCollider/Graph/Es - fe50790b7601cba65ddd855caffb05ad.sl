@@ -1,4 +1,4 @@
-{- http://gist.github.com/audionerd/fe50790b7601cba65ddd855caffb05ad (Eric Skogen) -}
+/* http://gist.github.com/audionerd/fe50790b7601cba65ddd855caffb05ad (Eric Skogen) */
 let detune = MouseX(0.5, 2, 0, 0.2);
 let detuneCurve = { :x |
 	(10028.7312891634 * (x ^ 11)) -

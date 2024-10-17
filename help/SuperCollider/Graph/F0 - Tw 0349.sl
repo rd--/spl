@@ -1,4 +1,4 @@
-{- http://sccode.org/1-4Qy (F0) ; 0349 -}
+/* http://sccode.org/1-4Qy (F0) ; 0349 */
 let c = {
 	Dseq(inf, [5 1 3 2])
 };

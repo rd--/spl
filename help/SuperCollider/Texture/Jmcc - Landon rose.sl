@@ -1,4 +1,4 @@
-{- Landon rose (Jmcc) #8 ; edit (simpler, Rd) -}
+/* Landon rose (Jmcc) #8 ; edit (simpler, Rd) */
 let ringTimes = 3 # 4;
 let noteList = [
 	32 43 54 89;

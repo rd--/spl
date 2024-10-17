@@ -1,4 +1,4 @@
-{- Requires: Interval -}
+/* Requires: Interval */
 
 +@Number {
 

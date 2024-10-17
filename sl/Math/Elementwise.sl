@@ -1,4 +1,4 @@
-{- Requires: Collection Sequence -}
+/* Requires: Collection Sequence */
 
 +@Collection {
 

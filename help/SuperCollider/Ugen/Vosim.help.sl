@@ -1,4 +1,4 @@
-{- Vosim -}
+/* Vosim */
 { :tr |
 	{
 		Vosim(
@@ -10,7 +10,7 @@
 	} ! 2
 }.OverlapTexture(3, 5, 3).Mix * 0.1
 
-{- Vosim -}
+/* Vosim */
 let p = TRand(0, 1, Impulse([3, 7], 0));
 let tr = Impulse([9, 27] * (1 + (p > 0.95)), 0);
 let f = TRand([40, 120, 220], [440, 990, 880], tr);
@@ -28,7 +28,7 @@ EqPan2(
 	l
 ).Mix * 0.25
 
-{- Vosim ; requires=voicer -}
+/* Vosim ; requires=voicer */
 Voicer(1, 16) { :e |
 	let tr = Impulse(e.p.UnitCps, 0);
 	let freq = LinExp(e.y, 0, 1, 440, 880);

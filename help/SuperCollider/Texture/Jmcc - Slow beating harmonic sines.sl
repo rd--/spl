@@ -1,8 +1,8 @@
-{- Slow beating harmonic sines (Jmcc) #7 -}
+/* Slow beating harmonic sines (Jmcc) #7 */
 {
-	let n = 8; {- number of notes -}
-	let d = 0.4; {- beat frequency deviation -}
-	let m = 5; {- harmonics per note -}
+	let n = 8; /* number of notes */
+	let d = 0.4; /* beat frequency deviation */
+	let m = 5; /* harmonics per note */
 	let p = [];
 	let q = [];
 	let k = 24 + 12.atRandom;

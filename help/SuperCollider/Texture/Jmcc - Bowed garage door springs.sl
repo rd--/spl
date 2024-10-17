@@ -1,4 +1,4 @@
-{- Bowed garage door springs (Jmcc) #9 -}
+/* Bowed garage door springs (Jmcc) #9 */
 {
 	let exc = PinkNoise() * (LfNoise1(3.Rand0) * 0.0008 + 0.0022);
 	let sig = RingzBank(

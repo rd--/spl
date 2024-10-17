@@ -10,7 +10,7 @@
 
 ## Number -- extensions
 ```
-1/3.coin.isBoolean {- probability may be a fraction -}
+1/3.coin.isBoolean /* probability may be a fraction */
 let c = 0.5.coin.if { 't' } { 'f' }; c = 't' | { c = 'f' }
 0:14.collect { :each | each.degreeToKey([0, 2, 4, 5, 7, 9, 11], 12) } = [0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24]
 -3:13.collect { :each | each.foldOnce(1, 9) } = [5, 4, 3, 2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5]
@@ -50,29 +50,29 @@ let x = [4, 4.5]; let y = [2, 3, 5, 6]; let z = [x, y]; z.withCollectTable(z, *)
 let x = [4, 4.5]; let y = [2, 3, 5, 6]; [x * [x, y], y * [x, y]] = [[[16, 18], [9, 13.5, 22.5, 27]], [[8, 9], [6, 9, 15, 18], [20, 22.5], [12, 18, 30, 36]]]
 [10, 20, 30, 40, 50].crossedMultiply([1, 2, 3]) = [10, 20, 30, 20, 40, 60, 30, 60, 90, 40, 80, 120, 50, 100, 150]
 [10, 20, 30, 40, 50].crossedMultiply([1, 2, 3]) = [10, 20, 30, 40, 50].withCollectCrossed([1, 2, 3], *)
-1.atExtending(-1) = 1 {- atWrap but answering self for scalar values -}
-[1].atExtending(-1) = 1 {- atWrap but answering self for scalar values -}
-1.sizeForExtending = 1 {- size but answering one for scalar values -}
-[1].sizeForExtending = 1 {- size but answering one for scalar values -}
-[1 .. 9].blendAt(4.5) = 4.5 {- linear interpolating indexing -}
-[1 .. 9].blendAtAll([3, 4.5, 5]) = [3, 4.5, 5] {- linear interpolating indexing -}
+1.atExtending(-1) = 1 /* atWrap but answering self for scalar values */
+[1].atExtending(-1) = 1 /* atWrap but answering self for scalar values */
+1.sizeForExtending = 1 /* size but answering one for scalar values */
+[1].sizeForExtending = 1 /* size but answering one for scalar values */
+[1 .. 9].blendAt(4.5) = 4.5 /* linear interpolating indexing */
+[1 .. 9].blendAtAll([3, 4.5, 5]) = [3, 4.5, 5] /* linear interpolating indexing */
 [1 .. 3].blendAtAll([1, 1.5 .. 3]) = [1, 1.5 .. 3]
-[1, 3 .. 9].resamp1(9) = [1 .. 9] {- linear interpolating resampler -}
+[1, 3 .. 9].resamp1(9) = [1 .. 9] /* linear interpolating resampler */
 [1 .. 4].resamp1(12).roundTo(0.01) = [1 1.27 1.55 1.82 2.09 2.36 2.64 2.91 3.18 3.45 3.73 4]
-[2 3 5 6].indexInBetween(5.2) = 3.2 {- interpolated index for value (collection must be sorted) -}
-[2 3 5 6].blendAt(3.2) = 5.2 {- interpolated value between indices -}
-[0 1 2 3 4 4 3 2].integrate = [0 1 3 6 10 14 17 19] {- cummulative sum -}
+[2 3 5 6].indexInBetween(5.2) = 3.2 /* interpolated index for value (collection must be sorted) */
+[2 3 5 6].blendAt(3.2) = 5.2 /* interpolated value between indices */
+[0 1 2 3 4 4 3 2].integrate = [0 1 3 6 10 14 17 19] /* cummulative sum */
 ([0 1 2 3 4 4 3 2].asRandomTable * 100).rounded = [0 23 35 44 53 61 72 88]
 ([0, 1, 2, 3, 2].asRandomTable * 100).rounded = [0, 30, 47, 60, 80]
 ([0 1 2 3 4 4 3 2].integrate.normalize(1, 8) * 100).rounded = [100 137 211 321 468 616 726 800]
-[1 2 4 7 11 16].differentiate = [1 1 2 3 4 5] {- differentiate, first entry is distance from zero -}
+[1 2 4 7 11 16].differentiate = [1 1 2 3 4 5] /* differentiate, first entry is distance from zero */
 ```
 
 ## String -- extensions
 ```
-'x' ++? 'y' = 'xy' {- optional (non-nil) append -}
-'x' ++? { 'y' } = 'xy' {- optional (non-nil) append -}
-'x' ++? nil = 'x' {- optional (non-nil) append -}
+'x' ++? 'y' = 'xy' /* optional (non-nil) append */
+'x' ++? { 'y' } = 'xy' /* optional (non-nil) append */
+'x' ++? nil = 'x' /* optional (non-nil) append */
 ```
 
 ## Ugen -- sound type
@@ -95,14 +95,14 @@ system.scSynth.isScSynth
 
 ## Ls -- lazy sequence library
 ```
-LsOnce(1).upToEnd = [1] {- value as one element stream -}
+LsOnce(1).upToEnd = [1] /* value as one element stream */
 let l = LsOnce(1); let a = l.upToEnd; l.reset ; l.upToEnd = a
 LsOnce(LsSeries(1, 1, 3)).upToEnd = [1 2 3]
-LsForever(1).next(5) = [1 1 1 1 1] {- value as infinite stream -}
+LsForever(1).next(5) = [1 1 1 1 1] /* value as infinite stream */
 LsForever(LsSeries(1, 1, 3)).next(9) = [1 2 3 1 2 3 1 2 3]
-LsSeries(1, 1, 9).upToEnd = [1 .. 9] {- arithmetic series -}
-LsGeom(1, 3, inf).next(5) = [1 3 9 27 81] {- geometric series -}
-LsGeom(1, 2, 9).upToEnd = [1 2 4 8 16 32 64 128 256] {- geometric series -}
+LsSeries(1, 1, 9).upToEnd = [1 .. 9] /* arithmetic series */
+LsGeom(1, 3, inf).next(5) = [1 3 9 27 81] /* geometric series */
+LsGeom(1, 2, 9).upToEnd = [1 2 4 8 16 32 64 128 256] /* geometric series */
 let l = LsGeom(1, 3, inf); let a = l.next(5); l.reset; l.next(5) = a
 let p = LsGeom(1, 3, inf); let q = LsGeom(3, 5, inf); p.next(4) ++ q.next(4) = [1 3 9 27 3 15 75 375]
 LsSeries(1, 3, inf).next(5) = [1 4 7 10 13]
@@ -139,13 +139,13 @@ LsTuple([1 2 3; 4 5; 6].collect(LsCyc:/1), inf).next(6) = [1 4 6; 2 5 6; 3 4 6; 
 LsTuple([LsCyc([1 .. 5]), LsSeq([5 6 7], 2)], 1).upToEnd = [1 5; 2 6; 3 7; 4 5; 5 6; 1 7; 1 5]
 LsSeries(1, 2, 5).drop(2).upToEnd = [5 7 9]
 let l = LsSeries(1, 2, 5).drop(2); let a = l.upToEnd; l.reset; l.upToEnd = a
-LsXRand([1 3 5 7 9], 99).upToEnd.differentiate.includes(0).not {- does not includes succesive duplicates -}
-LsRand([1 3 5 7 9], 99).upToEnd.differentiate.includes(0) {- includes succesive duplicates -}
+LsXRand([1 3 5 7 9], 99).upToEnd.differentiate.includes(0).not /* does not includes succesive duplicates */
+LsRand([1 3 5 7 9], 99).upToEnd.differentiate.includes(0) /* includes succesive duplicates */
 (LsGeom(1, 3, 4) + LsSeries(1, 3, inf)).upToEnd = [1 + 1, 3 + 4, 9 + 7, 27 + 10]
 (LsGeom(1, 3, 4) * LsSeries(1, 3, inf)).upToEnd = ([1 3 9 27] * [1 4 7 10])
 (LsGeom(2, 4, 5) / 2).upToEnd = [1 4 16 64 256]
 (512 / LsGeom(2, 4, 5)).upToEnd = [256 64 16 4 1]
-let l = LsWhite(-1, 1, inf); let a = l.next(99); l.reset; l.next(99) ~= a {- reset does not reset seed -}
+let l = LsWhite(-1, 1, inf); let a = l.next(99); l.reset; l.next(99) ~= a /* reset does not reset seed */
 LsWhite(LsSeries(1, 1, 9), LsSeries(2, 1, 9), inf).next(9).floor = [1 .. 9]
 LsAt([1 3 5 7 9], LsSeries(1, 1, 5)).upToEnd = [1 3 5 7 9]
 LsAtWrap([1 3 5 7 9], LsSeries(-1, 1, 9)).upToEnd = [7 9 1 3 5 7 9 1 3]

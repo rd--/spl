@@ -1,4 +1,4 @@
-{- Requires: Character List -}
+/* Requires: Character List */
 
 String! : [Object, Json, Iterable, Character] {
 
@@ -58,6 +58,27 @@ String! : [Object, Json, Iterable, Character] {
 		self.copyFromTo(1, self.size - n)
 	}
 
+	alphabet { :self |
+		self.caseOfOtherwise([
+			{ 'english' } -> {
+				[
+					'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j'
+					'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't'
+					'u' 'v' 'w' 'x' 'y' 'z'
+				]
+			},
+			{ 'greek' } -> {
+				[
+					'α' 'β' 'γ' 'δ' 'ε' 'ζ' 'η' 'θ' 'ι' 'κ'
+					'λ' 'μ' 'ν' 'ξ' 'ο' 'π' 'ρ' 'σ' 'τ' 'υ'
+					'φ' 'χ' 'ψ' 'ω'
+				]
+			}
+		]) {
+			self.error('String>>alphabet: unknown alphabet')
+		}
+	}
+
 	asBracketedComment { :self :open :close |
 		(self.includesSubstring(open) | {
 			self.includesSubstring(close)
@@ -89,6 +110,10 @@ String! : [Object, Json, Iterable, Character] {
 		}
 	}
 
+	asCodePoint { :self |
+		self.codePoint
+	}
+
 	asHaskellComment { :self |
 		self.asBracketedComment('{-', '-}')
 	}
@@ -109,31 +134,6 @@ String! : [Object, Json, Iterable, Character] {
 		self.asBracketedComment('(*', '*)')
 	}
 
-	asCodePoint { :self |
-		self.codePoint
-	}
-
-	alphabet { :self |
-		self.caseOfOtherwise([
-			{ 'english' } -> {
-				[
-					'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j'
-					'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't'
-					'u' 'v' 'w' 'x' 'y' 'z'
-				]
-			},
-			{ 'greek' } -> {
-				[
-					'α' 'β' 'γ' 'δ' 'ε' 'ζ' 'η' 'θ' 'ι' 'κ'
-					'λ' 'μ' 'ν' 'ξ' 'ο' 'π' 'ρ' 'σ' 'τ' 'υ'
-					'φ' 'χ' 'ψ' 'ω'
-				]
-			}
-		]) {
-			self.error('String>>alphabet: unknown alphabet')
-		}
-	}
-
 	assertIsString { :self |
 		self
 	}
@@ -151,7 +151,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	at { :self :index |
-		{- Note: index is in Utf-16 code units, not characters -}
+		/* Note: index is in Utf-16 code units, not characters */
 		let codePoint = self.codePointAt(index);
 		codePoint.ifNil {
 			self.error('String>>at: invalid index')
@@ -851,7 +851,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	isUtf16SurrogateCodePoint { :self |
-		{- 0xD800 = 55296, 0xDfFF = 57343 -}
+		/* 0xD800 = 55296, 0xDfFF = 57343 */
 		self.betweenAnd(55296, 57343)
 	}
 

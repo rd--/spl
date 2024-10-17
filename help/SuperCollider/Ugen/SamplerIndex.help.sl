@@ -1,4 +1,4 @@
-{- SamplerIndex ; event control ; stereo ; requires loaded bosendorfer (or equivalent) sample data -}
+/* SamplerIndex ; event control ; stereo ; requires loaded bosendorfer (or equivalent) sample data */
 let b0 = 0;
 Voicer(1, 16) { :e |
 	let seq = [

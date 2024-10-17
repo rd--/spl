@@ -1,4 +1,4 @@
-{- Strummable silk (Jmcc) #11 -}
+/* Strummable silk (Jmcc) #11 */
 let x = MouseX(0, 1, 0, 0.2);
 let str = 1:8.collect { :ix |
 	let n = 15;

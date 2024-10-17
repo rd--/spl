@@ -1,4 +1,4 @@
-{- Contamination zone (Jmcc) #9 -}
+/* Contamination zone (Jmcc) #9 */
 {
 	let f = ExpRand(800, 8000);
 	let pan = LfNoise1(1.Rand0);

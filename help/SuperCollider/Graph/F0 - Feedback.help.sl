@@ -1,4 +1,4 @@
-{- http://www.fredrikolofsson.com/f0blog/?q=node/619 ; texture -}
+/* http://www.fredrikolofsson.com/f0blog/?q=node/619 ; texture */
 { : tr |
 	let ch = { :aList |
 		Choose(tr, aList)
@@ -16,7 +16,7 @@
 	EqPan2(src <! LocalOut(src), 0)
 }.OverlapTexture(5, 0, 3).Mix
 
-{- http://www.fredrikolofsson.com/f0blog/?q=node/619 -}
+/* http://www.fredrikolofsson.com/f0blog/?q=node/619 */
 let freq = [100 300 400].atRandom;
 let amp = 0.1;
 let fb = [1 2 3].atRandom;

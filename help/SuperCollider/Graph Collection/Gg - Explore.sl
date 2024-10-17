@@ -1,4 +1,4 @@
-{- 2019-11-28_RESINICA.scd ; https://github.com/gosub/supercollider-explore -}
+/* 2019-11-28_RESINICA.scd ; https://github.com/gosub/supercollider-explore */
 let note = 60;
 let semi = [4, 7, 11, 12];
 let delayTimes = (note + ([0] ++ semi)).MidiCps.reciprocal;
@@ -17,7 +17,7 @@ let sumL = (c1 / 2 + c2 + c4) * -10.DbAmp;
 let sumR = (c1 / 2 + c3 + c5) * -10.DbAmp;
 Splay([sumL, sumR], 0.5)
 
-{- 2019-12-01_VICRIMA.scd ; https://github.com/gosub/supercollider-explore -}
+/* 2019-12-01_VICRIMA.scd ; https://github.com/gosub/supercollider-explore */
 let a = SinOsc(LfNoise0(1).LinExp(-1, 1, 100, 1000), 0);
 let e = Perc(Dust(8), 0.01, 1, -4);
 let f = { :x |

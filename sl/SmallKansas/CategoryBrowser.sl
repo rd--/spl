@@ -1,4 +1,4 @@
-{- Requires: ColumnBrowser Method SmallKansas -}
+/* Requires: ColumnBrowser Method SmallKansas */
 
 CategoryBrowser : [Object, SmallKansan] {
 

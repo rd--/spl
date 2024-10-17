@@ -1,9 +1,9 @@
 [
-	{- Behaviour -}
+	/* Behaviour */
 	'Piecewise'
 	'Prototype'
 
-	{- Collection -}
+	/* Collection */
 	'ArrayBuffer'
 	'AssociationList'
 	'Bag'
@@ -19,22 +19,22 @@
 	'RunArray'
 	'Set'
 	'Slice'
-	'Stack' {- LinkedList -}
+	'Stack' /* LinkedList */
 	'SortedList'
 	'Tree'
-	'Tuple' {- List -}
+	'Tuple' /* List */
 	'WeakMap'
-	'Graph' {- Tuple -}
+	'Graph' /* Tuple */
 
-	{- Number -}
+	/* Number */
 	'Complex'
 	'Fraction'
 	'Interval'
-	'LargeInteger' {- ByteArray -}
+	'LargeInteger' /* ByteArray */
 	'Residue'
-	'Decimal' {- Fraction -}
+	'Decimal' /* Fraction */
 
-	{- Geometry -}
+	/* Geometry */
 	'Angle'
 	'CartesianCoordinates'
 	'Circle'
@@ -42,24 +42,24 @@
 	'Plane'
 	'PolarCoordinates'
 	'PlanarCoordinates'
-	'Matrix22' {- PlanarCoordinates -}
-	'Matrix33' {- CartesianCoordinates -}
-	'Projection3' {- Matrix33 -}
+	'Matrix22' /* PlanarCoordinates */
+	'Matrix33' /* CartesianCoordinates */
+	'Projection3' /* Matrix33 */
 	'Rectangle'
-	'FourVector' {- PlanarCoordinates CartesianCoordinates -}
-	'CylindricalCoordinates' {- CartesianCoordinates -}
-	'Sphere' {- CartesianCoordinates -}
-	'SphericalCoordinates' {- CartesianCoordinates -}
-	'Point' {- PlanarCoordinates CartesianCoordinates -}
+	'FourVector' /* PlanarCoordinates CartesianCoordinates */
+	'CylindricalCoordinates' /* CartesianCoordinates */
+	'Sphere' /* CartesianCoordinates */
+	'SphericalCoordinates' /* CartesianCoordinates */
+	'Point' /* PlanarCoordinates CartesianCoordinates */
 
-	{- Graphics -}
+	/* Graphics */
 	'Colour'
-	'Plot' {- Interval -}
+	'Plot' /* Interval */
 
-	{- Help -}
+	/* Help */
 	'HelpIndex'
 
-	{- Math -}
+	/* Math */
 	'Bessel'
 	'Binomial'
 	'Elementwise'
@@ -69,7 +69,7 @@
 	'Primes'
 	'WindowFunction'
 
-	{- Stream -}
+	/* Stream */
 	'Iterator'
 	'Stream'
 	'PositionableStream'
@@ -80,19 +80,19 @@
 	'AsciiStream'
 	'Utf8Stream'
 
-	{- Random -}
+	/* Random */
 	'AliasMethod'
 	'LinearCongruential'
 	'MersenneTwister'
 	'ProbabilityDistribution'
-	'Sfc32' {- Stream -}
+	'Sfc32' /* Stream */
 	'SplitMix'
 
-	{- System -}
+	/* System */
 	'Blob'
 	'Event'
 	'EventTarget'
-	'File' {- Blob -}
+	'File' /* Blob */
 	'FileSystem'
 	'Headers'
 	'LibraryItem'
@@ -105,41 +105,41 @@
 	'Trait'
 	'Transcript'
 	'Type'
-	'Url' {- Blob File -}
+	'Url' /* Blob File */
 	'UrlSearchParams'
-	'WebSocket' {- EventTarget Url -}
+	'WebSocket' /* EventTarget Url */
 	'Window'
-	'Location' {- Url -}
-	'Reflection' {- System -}
+	'Location' /* Url */
+	'Reflection' /* System */
 
-	{- Text -}
+	/* Text */
 	'AsciiString'
 	'Markdown'
 	'RegExp'
 	'Unicode'
 
-	{- Time -}
+	/* Time */
 	'Clock'
 	'Date'
 	'Duration'
 	'Frequency'
 	'TimeStamp'
 
-	{- Unit -}
+	/* Unit */
 	'Mass'
 	'SiUnit'
 
-	{- Meta -}
+	/* Meta */
 	'Categories'
 
-	{- Help -}
+	/* Help */
 	'DocumentTest'
-	'HelpFile' {- Cache -}
-	'TerseGuide' {- Url -}
-	'TerseReference' {- DocumentTest Url -}
+	'HelpFile' /* Cache */
+	'TerseGuide' /* Url */
+	'TerseReference' /* DocumentTest Url */
 
-	{- Collection -}
-	'SoundFile' {- Url -}
+	/* Collection */
+	'SoundFile' /* Url */
 
 	'Apl'
 

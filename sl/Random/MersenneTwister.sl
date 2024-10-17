@@ -1,4 +1,4 @@
-{- Requires: RandomNumberGenerator Iterator Stream -}
+/* Requires: RandomNumberGenerator Iterator Stream */
 
 MersenneTwister : [Object, Iterator, RandomNumberGenerator, Stream] { | seed block |
 

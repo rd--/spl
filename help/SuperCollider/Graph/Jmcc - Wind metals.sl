@@ -1,4 +1,4 @@
-{- Wind metals (Jmcc) ; Graph rewrite -}
+/* Wind metals (Jmcc) ; Graph rewrite */
 { :tr |
 	let n = 6;
 	let exc = [
