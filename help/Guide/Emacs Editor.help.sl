@@ -25,6 +25,12 @@ Some of the notations are:
 1. `:/` as ⧸
 1. `pi` as π and `epsilon` as ε
 
+There are rules for generating [imenu](https://www.gnu.org/software/emacs/manual/html_node/emacs/Imenu.html) entries.
+To see the `imenu` for a file type _Ctl-'_. (' is the apostrophe key).
+The menu entries will include comments,
+markdown headers,
+and type and method definitions.
+
 * * *
 
 See also: Unicode Symbols

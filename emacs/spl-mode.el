@@ -259,7 +259,7 @@ If the string begins with a doctest, also delete all non doctest lines."
   (modify-syntax-entry ?\{ "(}" st) ; open parenthesis
   (modify-syntax-entry ?\} "){" st) ; close parenthesis
   (modify-syntax-entry ?* ". 23n" st) ; punctuation & comment
-  (modify-syntax-entry ?/ ". 4b" st) ; punctuation & comment
+  (modify-syntax-entry ?/ ". 14b" st) ; punctuation & comment
   ;; (modify-syntax-entry ?\n ">" st) ; comment end
   (modify-syntax-entry ?' "\"" st) ; string quote
   (modify-syntax-entry ?\" "\"" st) ; string quote
