@@ -4,7 +4,7 @@ let z = { :tr |
 	let f = TRand(24, 96, tr).MidiCps;
 	let a = (500 / f).Min(1);
 	let n = 12;
-	a * 1:n.collect { :i |
+	a * (1 .. n).collect { :i |
 		let g = TRand(0, n, tr) + 1;
 		let o1 = SinOsc(f * g, 0);
 		let o2 = SinOsc(

@@ -1,9 +1,5 @@
 /* Ring modulate input (Jmcc) #5 ; requires=AudioIn */
 let input = AudioIn([1, 2]);
-let freq = MouseX(10, 4000, 1, 0.2);
-let modulator = SinOsc(freq, [0, 0.5 * pi]);
+let modulatorFrequency = MouseX(10, 4000, 1, 0.2);
+let modulator = SinOsc(modulatorFrequency, [0, 0.5 * pi]); /* offset phase of one oscillator by ninety degrees */
 input * modulator
-
-{----- notes.md -----}
-_MouseX_ controls ring modulator frequency.
-Offset phase of one oscillator by 90 degrees (_pi_ / 2).

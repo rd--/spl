@@ -6,7 +6,7 @@ let tapTm = { Rand(0.015, maxTm) } ! n; /* Assign random tap times */
 let excFreq = MouseY(10, 8000, 0, 0.2); /* Excitation */
 let excTrig = Impulse(0.5, 0) * 0.1;
 let exc = Decay2(excTrig, 0.01, 0.2) * LfNoise2(excFreq);
-let del = 1:n.collect { :i |
+let del = (1 .. n).collect { :i |
 	DelayTap(buf[i], tapTm[i]) /* Tap the delay lines */
 };
 let fltFreq = MouseX(10, 5000, 0, 0.2); /* Filter the taps */

@@ -11,7 +11,7 @@ let ctl = (
 let numChans = 2;
 let input = AudioIn([1 .. numChans]);
 let localIn = LocalIn(numChans, 0 # numChans);
-let output = 1:numChans.collect { :cNum |
+let output = (1 .. numChans).collect { :cNum |
 	let randScale = Rand(0.95, 1.0);
 	let delayScale = cNum.isOdd.if {
 		ctl::delayWidth.LinLin(0, 1, 0.5, 1.5)
