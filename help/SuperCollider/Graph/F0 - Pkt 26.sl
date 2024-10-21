@@ -1,6 +1,6 @@
 /* Pkt 26 (F0) ; http://www.fredrikolofsson.com/f0blog/?q=node/490 */
 let n = 8;
-1:n.collect { :i |
+(1 .. n).collect { :i |
 	let t = i / n;
 	let a = VarSaw(0.02, t, 0.5) * 7.5;
 	let b = VarSaw(0.16, t, 2 / 3) * a.Abs + 300;

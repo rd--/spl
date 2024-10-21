@@ -1,6 +1,6 @@
 /* Pkt 28 (F0) ; http://www.fredrikolofsson.com/f0blog/?q=node/490 */
 let n = 28;
-let z = 1:n.collect { :i |
+let z = (1 .. n).collect { :i |
 	let a = LfSaw(i + 1 * 5, 0) * 0.5 * pi;
 	let b = SinOsc(i + 1 * 0.001, 0) * 0.5;
 	let c = LfSaw(0.2 + b, i / n) * 0.4;

@@ -4,5 +4,6 @@ let c = SinOscFb(f, 1);
 let m = c > 0 * [9 2 3 0 7 5] + 55;
 SinOscFb(m.MidiCps, SinOscFb(c / 999, 0) + 1 / 2).Splay / 3
 
-{----- calculations -----}
+/* ---- calculations ----
 12.fibonacciSequence = [1 1 2 3 5 8 13 21 34 55 89 144]
+*/

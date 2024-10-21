@@ -7,5 +7,6 @@ let f = SelectX(
 );
 SinOscFb(f, SinOscFb(1 / c, 0)).Splay / 3
 
-{----- calculations -----}
+/* ---- calculations ----
 ':.UODD.Ed'.ascii.asList = [58, 46, 85, 79, 68, 68, 46, 69, 100]
+*/

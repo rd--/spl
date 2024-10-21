@@ -4,5 +4,6 @@ let q = ' #SuperCollider '.ascii.asList.MidiCps;
 let o = LfTri(Duty(b, 0, Dseq(inf, q)), 0);
 Splay(CombC(o, 4, LfTri(b / 9, 0) % LfTri(b, 0) * 4 % 4, 5) / 6).Tanh
 
-{----- calculations -----}
+/* ---- calculations ----
 ' #SuperCollider '.ascii.asList = [32 35 83 117 112 101 114 67 111 108 108 105 100 101 114 32]
+*/
