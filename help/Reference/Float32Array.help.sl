@@ -13,6 +13,20 @@ Unlike `List`, a `Float32Array` is of fixed size.
 [0 0 0 0 0].asFloat32Array
 ```
 
+The `encode` method answers a `ByteArray`,
+the boolean parameter indicates if the encoding is in little (`true`) or big (`false`) endian form.
+
+```
+>>> [1 2 3 4 5].asFloat32Array.encode(true)
+[
+	0 0 128 63
+	0 0 0 64
+	0 0 64 64
+	0 0 128 64
+	0 0 160 64
+].asByteArray
+```
+
 * * *
 
 See also: asFloat32Array, ByteArray, List, Float64Array

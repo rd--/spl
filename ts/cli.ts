@@ -9,7 +9,7 @@ import * as tcp from '../lib/jssc3/ts/kernel/tcp.ts';
 import * as scTcp from '../lib/jssc3/ts/sc3/scSynthTcp.ts';
 import * as scUdp from '../lib/jssc3/ts/sc3/scSynthUdp.ts';
 
-import * as sc from '../lib/jssc3/ts/sc3.ts';
+import * as sc from '../lib/jssc3/ts/jssc3.ts'; // not sc3.ts
 
 import * as evaluate from './evaluate.ts';
 import * as host from './host.ts';

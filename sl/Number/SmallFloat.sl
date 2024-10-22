@@ -282,6 +282,22 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.cbrt(_self);>
 	}
 
+	encodeFloat32 { :self :littleEndian |
+		<primitive: return sc.encodeFloat32(_self, _littleEndian);>
+	}
+
+	encodeInt8 { :self |
+		<primitive: return sc.encodeInt8(_self);>
+	}
+
+	encodeInt16 { :self :littleEndian |
+		<primitive: return sc.encodeInt16(_self, _littleEndian);>
+	}
+
+	encodeInt32 { :self :littleEndian |
+		<primitive: return sc.encodeInt32(_self, _littleEndian);>
+	}
+
 	exp { :self |
 		<primitive: return Math.exp(_self)>
 	}

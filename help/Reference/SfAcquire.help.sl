@@ -4,6 +4,10 @@
 
 Caching sound-file loader.
 
+~~~
+SfAcquireMono('floating_1')
+~~~
+
 * * *
 
 See also: BufRd, BufWr

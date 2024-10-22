@@ -41,7 +41,7 @@ SoundFile! : [Object] {
 +ArrayBuffer {
 
 	SoundFile { :self :url |
-		<primitive: return sc.arraybuffer_to_soundfile(_url, _self);>
+		<primitive: return sc.arrayBufferToSoundFile(_url, _self);>
 	}
 
 }
@@ -49,7 +49,7 @@ SoundFile! : [Object] {
 +@Url {
 
 	SoundFile { :self |
-		<primitive: return sc.fetch_soundfile(_self);>
+		<primitive: return sc.fetchSoundFile(_self);>
 	}
 
 }
