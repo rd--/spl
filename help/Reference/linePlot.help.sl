@@ -23,7 +23,10 @@ Plot an 8×2 matrix:
 
 ~~~
 (0, 3 .. 21).collect { :k |
-	[(k * 2.pi / 7).cos, (k * 2.pi / 7).sin]
+	[
+		(k * 2.pi / 7).cos,
+		(k * 2.pi / 7).sin
+	]
 }.linePlot
 ~~~
 

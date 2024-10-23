@@ -23,13 +23,17 @@ system.randomSample(1:99, 99).plot
 Plot a function:
 
 ~~~
-(-6 -- 6).subdivide(500).collect { :x | 1 / (4 * x.cos + 5) }.plot
+(-6 -- 6).subdivide(500).collect { :x |
+	1 / (4 * x.cos + 5)
+}.plot
 ~~~
 
 C.f. `functionPlot`:
 
 ~~~
-(-6 -- 6).functionPlot { :x | 1 / (4 * x.cos + 5) }
+(-6 -- 6).functionPlot { :x |
+	1 / (4 * x.cos + 5)
+}
 ~~~
 
 * * *

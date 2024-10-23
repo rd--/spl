@@ -1,7 +1,23 @@
 SoundFile! : [Object] {
 
+	allocSendMessage { :self :bufferNumber |
+		<primitive:
+		return sc.b_allocMemcpyFloat32Array(
+			_bufferNumber,
+			_self.numberOfFrames,
+			_self.numberOfChannels,
+			_self.sampleRate,
+			_self.interleavedData
+		);
+		>
+	}
+
 	channelData { :self :index |
 		<primitive: return _self.channelData(_index - 1);>
+	}
+
+	interleavedData { :self |
+		<primitive: return _self.interleavedData;>
 	}
 
 	numberOfChannels { :self |
@@ -16,20 +32,8 @@ SoundFile! : [Object] {
 		<primitive: return _self.sampleRate;>
 	}
 
-	interleavedData { :self |
-		<primitive: return _self.interleavedData;>
-	}
-
-	allocSendMessage { :self :bufferNumber |
-		<primitive:
-		return sc.b_alloc_then_memcpy_float32array(
-			_bufferNumber,
-			_self.numberOfFrames,
-			_self.numberOfChannels,
-			_self.sampleRate,
-			_self.interleavedData
-		);
-		>
+	pseudoSlotNameList { :self |
+		['interleavedData', 'numberOfChannels', 'numberOfFrames', 'sampleRate', 'url']
 	}
 
 	url { :self |
@@ -42,6 +46,14 @@ SoundFile! : [Object] {
 
 	SoundFile { :self :url |
 		<primitive: return sc.arrayBufferToSoundFile(_url, _self);>
+	}
+
+}
+
++Float32Array {
+
+	SoundFile { :interleavedData :numberOfChannels :numberOfFrames :sampleRate :urlOrNil |
+		<primitive: return new sc.SoundFile(_urlOrNil, _numberOfChannels, _numberOfFrames, _sampleRate, _interleavedData);>
 	}
 
 }

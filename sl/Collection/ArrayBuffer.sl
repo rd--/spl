@@ -4,6 +4,10 @@ ArrayBuffer! : [Object] {
 		<primitive: return new Uint8Array(_self);>
 	}
 
+	asFloat32Array { :self |
+		<primitive: return new Float32Array(_self);>
+	}
+
 	asFloat64Array { :self |
 		<primitive: return new Float64Array(_self);>
 	}

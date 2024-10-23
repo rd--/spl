@@ -87,7 +87,10 @@ Answering two-dimensional values, plot answer as _x,y_:
 
 ~~~
 (-1.pi -- 1.pi).functionPlot { :x |
-	[x.cos, (x * 3).sin]
+	[
+		x.cos,
+		(x * 3).sin
+	]
 }
 ~~~
 
@@ -95,7 +98,11 @@ Answering three-dimensional values, plot answer as _x,y,z_:
 
 ~~~
 (-1.pi -- 1.pi).functionPlot { :x |
-	[x.cos, (x * 3).sin, (x * 3).cos]
+	[
+		x.cos,
+		(x * 3).sin,
+		(x * 3).cos
+	]
 }
 ~~~
 
