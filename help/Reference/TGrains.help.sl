@@ -25,7 +25,7 @@ Demand sequences for _rate_ and _pan_ inputs, mouse control of _trigger_ rate an
 let numChannels = 8;
 let triggerRate = MouseY(2, 200, 1, 0.2);
 let trigger = Impulse(triggerRate, 0);
-let sf = SfAcquireMono('floating_1');
+let sf = SfAcquireMono('Floating');
 let rate = Dseq(inf, [10, 1, 1, 0.5, 0.5, 0.2, 0.1]);
 let centerPos = MouseX(0, SfDur(sf), 0, 0.2);
 let dur = 4 / triggerRate;
@@ -41,7 +41,7 @@ Uniform unary rate, perturb _centerPos_ at clock rate
 let numChannels = 8;
 let triggerRate = MouseY(8, 120, 1, 0.2);
 let trigger = Impulse(triggerRate, 0);
-let sf = SfAcquireMono('floating_1');
+let sf = SfAcquireMono('Floating');
 let rate = 1;
 let centerPos0 = MouseX(0, SfDur(sf), 0, 0.2);
 let centerPos = centerPos0 + TRand(0, 0.01, trigger);
@@ -58,7 +58,7 @@ Stochastic clock (_Dust_):
 let numChannels = 8;
 let triggerRate = MouseY(8, 120, 1, 0.2);
 let trigger = Dust(triggerRate);
-let sf = SfAcquireMono('floating_1');
+let sf = SfAcquireMono('Floating');
 let rate = 1;
 let centerPos0 = MouseX(0, SfDur(sf), 0, 0.2);
 let centerPos = centerPos0 + TRand(0, 0.01, trigger);
@@ -75,7 +75,7 @@ Mouse control of _centerPos_ and _dur_:
 let numChannels = 8;
 let triggerRate = 12;
 let trigger = Impulse(triggerRate, 0);
-let sf = SfAcquireMono('floating_1');
+let sf = SfAcquireMono('Floating');
 let rate = 1;
 let centerPos0 = MouseX(0, SfDur(sf), 0, 0.2);
 let centerPos = centerPos0 + TRand(0, 0.01, trigger);
@@ -92,7 +92,7 @@ Stochastic _centerPos_, no external control:
 let numChannels = 8;
 let triggerRate = 100;
 let trigger = Impulse(triggerRate, 0);
-let sf = SfAcquireMono('floating_1');
+let sf = SfAcquireMono('Floating');
 let rate = 1;
 let centerPos = Integrator(BrownNoise().kr * 0.001, 1);
 let dur = 8 / triggerRate;
@@ -108,7 +108,7 @@ Stochastic _rate_:
 let numChannels = 8;
 let triggerRate = MouseY(1, 400, 1, 0.2);
 let trigger = Impulse(triggerRate, 0);
-let sf = SfAcquireMono('floating_1');
+let sf = SfAcquireMono('Floating');
 let rate = 2 ^ TRand(-2, 2, trigger);
 let centerPos = MouseX(0, SfDur(sf), 0, 0.2);
 let dur = 8 / triggerRate;
@@ -123,7 +123,7 @@ Stochastic _rate_, fixed clock rate:
 ```
 let numChannels = 8;
 let trigger = Impulse(440, 0);
-let sf = SfAcquireMono('floating_1');
+let sf = SfAcquireMono('Floating');
 let rate = 1.2 ^ TiRand(-3, 3, trigger);
 let centerPos = MouseX(0, SfDur(sf), 0, 0.2);
 let dur = 1.2 / MouseY(2, 120, 1, 0.2);

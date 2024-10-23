@@ -1,11 +1,11 @@
 /* SfRead ; phasor as phase input ; requires=SfAcquire */
-let sf = SfAcquireStereo('piano-c5');
+let sf = SfAcquireStereo('PianoC5');
 let tr = Impulse(1 / SfDur(sf), 0);
 let ph = Phasor(tr, SfRateScale(sf), 0, SfFrames(sf), 0);
 SfRead(sf, ph, 0, 2)
 
 /* SfRead ; phasor as phase input ; piano */
-let sf = SfAcquireStereo('piano-c5');
+let sf = SfAcquireStereo('PianoC5');
 {
 	let tr = Impulse(2 ^ Rand(1, 2) / SfDur(sf), 0).kr;
 	let mnn = TiRand(-2, 0, tr) * 12 + Choose(tr, [-3, 0, 2, 5, 7]);
@@ -15,7 +15,7 @@ let sf = SfAcquireStereo('piano-c5');
 } !> 6 / 4
 
 /* SfRead ; phasor as phase input ; harp */
-let sf = SfAcquireStereo('harp-a4');
+let sf = SfAcquireStereo('HarpA4');
 {
 	let tr = Impulse(2 ^ Rand(1, 3) / (SfDur(sf) * 4), 0).kr;
 	let mnn = TiRand(-2, 0, tr) * 12 + Choose(tr, [0, 2.1, 4.9, 7, 9.2]);
@@ -25,7 +25,7 @@ let sf = SfAcquireStereo('harp-a4');
 } !> 6 / 9
 
 /* SfRead ; phasor as phase input ; mono sound file ; multiple voices */
-let sf = SfAcquireMono('crotale-d6');
+let sf = SfAcquireMono('CrotaleD6');
 {
 	let tr = Impulse(2 ^ Rand(1, 3) / SfDur(sf), 0).kr;
 	let mnn = TiRand(-3, 0, tr) * 12 + Choose(tr, [0, 2.1, 4.9, 7, 9.2]);

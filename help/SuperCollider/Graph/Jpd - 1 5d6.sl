@@ -1,6 +1,6 @@
 /* http://sccode.org/1-5d6 (jpd) ; requires=SfAcquire */
 let sampleRate = 48000;
-let sndBuf = SfAcquireMono('floating_1');
+let sndBuf = SfAcquireMono('Floating');
 let envBuf = [-1 1].resamp1(sampleRate).collect { :x |
 	(1 - (x ^ 2)) ^ 1.25
 }.asLocalBuf;

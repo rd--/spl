@@ -5,7 +5,7 @@
 Caching sound-file loader.
 
 ~~~
-SfAcquireMono('floating_1')
+SfAcquireMono('Floating')
 ~~~
 
 * * *

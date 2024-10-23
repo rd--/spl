@@ -1,6 +1,6 @@
 /* TGrains ; requires=SfAcquire */
 let numChannels = 2;
-let sf = SfAcquireMono('crotale-d6');
+let sf = SfAcquireMono('CrotaleD6');
 let triggerRate = MouseY(2, 120, 1, 0.2);
 let trigger = Impulse(triggerRate, 0);
 let rate = 1.2 ^ (WhiteNoise() * 3).RoundTo(1);

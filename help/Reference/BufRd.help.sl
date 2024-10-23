@@ -18,7 +18,7 @@ BufRd has variable interpolation.
 Zig zag around sound:
 
 ```
-let sf = SfAcquire('floating_1', 1, [1]).first;
+let sf = SfAcquire('Floating', 1, [1]).first;
 let phase = LfNoise2(MouseX(2, 20, 1, 0.2)) * SfFrames(sf);
 BufRd(1, sf, phase, 1, 2)
 ```
@@ -26,7 +26,7 @@ BufRd(1, sf, phase, 1, 2)
 Ordinary playback, phase courtesy _LfSaw_:
 
 ```
-let sf = SfAcquire('floating_1', 1, [1]).first;
+let sf = SfAcquire('Floating', 1, [1]).first;
 let sw = LfSaw(1 / SfDur(sf), 0);
 let ph = sw.LinLin(-1, 1, 0, SfFrames(sf));
 BufRd(1, sf, ph, 1, 2)
@@ -35,7 +35,7 @@ BufRd(1, sf, ph, 1, 2)
 Ordinary playback, phase courtesy _Phasor_:
 
 ```
-let sf = SfAcquire('floating_1', 1, [1]).first;
+let sf = SfAcquire('Floating', 1, [1]).first;
 let ph = Phasor(0, SfRateScale(sf), 0, SfFrames(sf), 0);
 BufRd(1, sf, ph, 1, 2)
 ```

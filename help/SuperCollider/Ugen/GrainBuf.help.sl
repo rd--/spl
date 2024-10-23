@@ -1,5 +1,5 @@
 /* GrainBuf ; requires=keywords */
-let sndBuf = SfAcquireMono('floating_1');
+let sndBuf = SfAcquireMono('Floating');
 let envBuf = -1;
 let pan = MouseX(-1, 1, 0, 0.2);
 GrainBuf(

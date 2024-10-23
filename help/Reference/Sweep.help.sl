@@ -21,7 +21,7 @@ Using sweep to index into a buffer:
 
 ```
 let trig = Impulse(MouseX(0.5, 10, 1, 0.2), 0);
-let sf = SfAcquireMono('floating_1');
+let sf = SfAcquireMono('Floating');
 BufRd(1, sf, Sweep(trig, BufSampleRate(sf)), 1, 2)
 ```
 
@@ -29,7 +29,7 @@ Backwards, variable offset:
 
 ```
 let trig = Impulse(MouseX(0.5, 10, 1, 0.2), 0);
-let sf = SfAcquireMono('floating_1');
+let sf = SfAcquireMono('Floating');
 let rate = BufSampleRate(sf);
 let ph0 = BufFrames(sf) * LfNoise0(0.2);
 let ph = Sweep(trig, rate.Neg) + ph0;
@@ -40,7 +40,7 @@ Raising rate:
 
 ```
 let trig = Impulse(MouseX(0.5, 10, 1, 0.2), 0);
-let sf = SfAcquireMono('floating_1');
+let sf = SfAcquireMono('Floating');
 let rate = Sweep(trig, 2) + 0.5;
 BufRd(1, sf, Sweep(trig, BufSampleRate(sf) * rate), 1, 2)
 ```

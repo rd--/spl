@@ -71,7 +71,7 @@ let t = 0:c.collect { :n |
 Splay(
 	PlayBuf(
 		1,
-		SfAcquireMono('floating_1'),
+		SfAcquireMono('Floating'),
 		LfNoise2(1 # c) * 0.1 / c + 1,
 		t,
 		Sweep(0, MouseX(0.001, 1 / 5, 1, 0.2)) % 1 * 180000,
@@ -501,7 +501,7 @@ Splay(
 		FreeVerb(
 			Warp1(
 				1,
-				SfAcquireMono("floating_1"),
+				SfAcquireMono("Floating"),
 				r(9),
 				[-36 -9 -14 0 -19 -5 3 -2 -24 -7].MidiRatio,
 				8 * r(9) + 8 / 86,

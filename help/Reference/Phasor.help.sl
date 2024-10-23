@@ -49,7 +49,7 @@ which is perfect for driving BufRd.
 (See note above)
 
 ```
-let b = SfAcquire('crotale-d6', 1, [1]);
+let b = SfAcquire('CrotaleD6', 1, [1]);
 SfRead(b, Phasor(1, SfRateScale(b), 0, SfFrames(b), 0), 1, 2)
 ```
 
@@ -57,7 +57,7 @@ Two phasors control two sound file positions.
 _MouseX_ controls trigger frequency and _MouseY_ controls resetPos of the second:
 
 ```
-let b = SfAcquire('crotale-d6', 1, [1]);
+let b = SfAcquire('CrotaleD6', 1, [1]);
 let rate = MouseX(0.1, 100, 1, 0.2);
 let trig = Impulse(rate, 0);
 let bFrames = SfFrames(b);
