@@ -237,9 +237,9 @@ ScSynth! : [Object] {
 	}
 
 	/*
-		Mix { :self |
-			self.sum
-		}
+	Mix { :self |
+		self.sum
+	}
 	*/
 
 }

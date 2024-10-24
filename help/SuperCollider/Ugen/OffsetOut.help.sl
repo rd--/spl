@@ -1,4 +1,4 @@
-{----- Scheduling -----}
+/* ---- Scheduling ---- */
 
 let ctl = (
 	freq: 440,

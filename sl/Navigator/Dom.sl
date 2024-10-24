@@ -11,15 +11,13 @@
 
 }
 
-@CSSRule {
-
-}
-
 @CssProperties {
 
 	cssText { :self | <primitive: return _self.cssText;> }
 	cssText { :self :aString | <primitive: return _self.cssText = _aString;> }
+	getPropertyPriority { :self :name | <primitive: return _self.getPropertyPriority();> }
 	getPropertyValue { :self :name | <primitive: return _self.getPropertyValue(_name);> }
+	length { :self | <primitive: return _self.length;> } /* Read only */
 	removeProperty { :self :name | <primitive: return _self.removeProperty(_name);> }
 	setProperty { :self :name :value :priority | <primitive: return _self.setProperty(_name, _value, _priority);> }
 
@@ -36,6 +34,12 @@
 			self.setProperty(key, value, '')
 		}
 	}
+
+}
+
+@CssRule {
+
+	cssText { :self | <primitive: return _self.cssText;> } /* Read only */
 
 }
 
@@ -85,6 +89,14 @@
 
 	querySelectorAll { :self :aString |
 		<primitive: return _self.querySelectorAll(_aString);>
+	}
+
+	styleSheetList { :self |
+		<primitive: return [..._self.styleSheets];>
+	}
+
+	styleSheets { :self |
+		<primitive: return _self.styleSheets;>
 	}
 
 	visibilityState { :self |
@@ -259,6 +271,14 @@
 
 }
 
+@StyleSheet {
+
+	href { :self | <primitive: return _self.href;> } /* Read only */
+	title { :self | <primitive: return _self.title;> } /* Read only */
+	type { :self | <primitive: return _self.type;> } /* Read only */
+
+}
+
 @UiEvent {
 
 }
@@ -319,12 +339,47 @@ CanvasRenderingContext2D! : [Object] {
 
 }
 
+CSSFontFaceRule! : [Object, CssRule] {
+
+	style { :self | <primitive: return _self.style;> } /* Read only */
+
+}
+
+CSSRuleList! : [Object] {
+
+	length { :self | <primitive: return _self.length;> } /* Read only */
+	item { :self :index | <primitive: return _self.item(_index);> }
+
+	at { :self :index |
+		self.item(index - 1)
+	}
+
+	size { :self |
+		self.length
+	}
+
+}
+
 CSSStyleDeclaration! : [Object, CssProperties] {
 	/* Chromium... */
 }
 
 CSS2Properties! : [Object, CssProperties] {
 	/* Firefox... */
+}
+
+CSSStyleRule! : [Object, CssRule] {
+
+}
+
+CSSStyleSheet! : [Object, StyleSheet] {
+
+	cssRuleList { :self | <primitive: return [..._self.cssRules];> }
+	cssRules { :self | <primitive: return _self.cssRules;> } /* Read only */
+	deleteRule { :self :index | <primitive: return _self.deleteRule(_index);> }
+	insertRule { :self :rule | <primitive: return _self.insertRule(_rule);> }
+	insertRule { :self :rule :index | <primitive: return _self.insertRule(_rule, _index);> }
+
 }
 
 CustomEvent! : [Object, Event] {

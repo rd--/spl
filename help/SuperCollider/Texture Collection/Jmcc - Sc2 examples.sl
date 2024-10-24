@@ -1,4 +1,4 @@
-{-********* Hell is busy ; Jmcc *********-}
+/********** Hell is busy ; Jmcc **********/
 let n = 8; /* number of simultaneous events */
 {
 	EqPan2(
@@ -6,7 +6,7 @@ let n = 8; /* number of simultaneous events */
 		1.Rand2)
 }.overlap(4, 4, n)
 
-{-********* Pond life ; Jmcc *********-}
+/********** Pond life ; Jmcc **********/
 let n = 8; /* number of simultaneous events */
 {
 	EqPan2(
@@ -15,14 +15,14 @@ let n = 8; /* number of simultaneous events */
 		1.Rand2)
 }.overlap(8, 4, n)
 
-{-********* Alien froggies ; Jmcc *********-}
+/********** Alien froggies ; Jmcc **********/
 let rate = 11;
 { :rep |
 	rate := (rate * (0.2.BiLinRand.Exp)).Fold(1, 30);
 	Formant(rate, ExpRand(200, 3000), 9.Rand0 * rate + rate) * 0.05
 }.overlap(0.5, 0.25, 5)
 
-{-********* Random sine waves ; Jmcc *********-}
+/********** Random sine waves ; Jmcc **********/
 let n = 12; /* number of simultaneous events */
 let env = EnvLinen(2, 5, 2, 1, -4);
 {
@@ -31,7 +31,7 @@ let env = EnvLinen(2, 5, 2, 1, -4);
 		1.Rand2)
 }.spawn(9 / n)
 
-{-********* Random pulsations ; Jmcc *********-}
+/********** Random pulsations ; Jmcc **********/
 let n = 8; /* number of simultaneous events */
 let env = EnvLinen(2, 5, 2, 0.02, -4);
 {
@@ -40,7 +40,7 @@ let env = EnvLinen(2, 5, 2, 0.02, -4);
 		SinOsc(0.3 + 0.5.Rand0, 2.pi.Rand0) * 0.7)
 }.spawn(9 / n)
 
-{-********* Tremulate ; Jmcc *********-}
+/********** Tremulate ; Jmcc **********/
 {
 	let f = 500 + 400.Rand0;
 	let r = 30 + 60.Rand0;
@@ -54,7 +54,7 @@ let env = EnvLinen(2, 5, 2, 0.02, -4);
 }.xfade(2, 0.5)
 
 
-{-********* Bouncing lightbulbs, pencils, cans, and other assorted objects ; Jmcc *********-}
+/********** Bouncing lightbulbs, pencils, cans, and other assorted objects ; Jmcc **********/
 {
 	EqPan2(
 		RingzBank( /* resonant filter bank simulates resonant modes of bouncing objects */
@@ -73,7 +73,7 @@ let env = EnvLinen(2, 5, 2, 0.02, -4);
 	Cutoff(3, 0.001, -4) /* 3 second cut off envelope to end sound */
 }.spawn({ 0.6 + 0.6.atRandom })
 
-{-********* Bank of resonators excited by impulses ; Jmcc *********-}
+/********** Bank of resonators excited by impulses ; Jmcc **********/
 let n = 5; /* number of simultaneous instruments */
 let p = 15; /* number of partials per instrument */
 {
@@ -88,7 +88,7 @@ let p = 15; /* number of partials per instrument */
 	)
 }.overlap(6, 6, n)
 
-{-********* Excited by noise bursts ; Jmcc **********-}
+/********** Excited by noise bursts ; Jmcc ***********/
 let n = 5; /* number of simultaneous instruments */
 let p = 8; /* number of partials per instrument */
 {
@@ -103,7 +103,7 @@ let p = 8; /* number of partials per instrument */
 	} ! 2
 }.overlap(8, 8, n)
 
-{-********* Resonators at random frequencies excited by BrownNoise ; Jmcc **********-}
+/********** Resonators at random frequencies excited by BrownNoise ; Jmcc ***********/
 let p = 32; /* number of partials per channel */
 {
 	let noise = BrownNoise() * 0.001;
@@ -117,7 +117,7 @@ let p = 32; /* number of partials per channel */
 	} ! 2
 }.xfade(6, 6)
 
-{-********* Resonators tuned in a harmonic series with pitch ratios from a just scale ; Jmcc ********-}
+/********** Resonators tuned in a harmonic series with pitch ratios from a just scale ; Jmcc *********/
 let p = 12; /* number of overtones */
 {
 	let noise = BrownNoise() * 0.001;
@@ -135,7 +135,7 @@ let p = 12; /* number of overtones */
 	} ! 2
 }.xfade(1, 7)
 
-{-********* Odd harmonics only, short ring times, LfNoise source ; Jmcc *********-}
+/********** Odd harmonics only, short ring times, LfNoise source ; Jmcc **********/
 let p = 12; /* number of overtones */
 {
 	let noise = LfNoise2(8000) * 0.004;
@@ -153,7 +153,7 @@ let p = 12; /* number of overtones */
 	} ! 2
 }.xfade(1, 7)
 
-{-********* Pipe wander-cluster ; Jmcc *********-}
+/********** Pipe wander-cluster ; Jmcc **********/
 let n = 6;
 let t = 4;
 let t3 = t / 3;
@@ -164,7 +164,7 @@ let note = 80 + 40.atRandom;
 	EqPan2(CombL(Lpz2(WhiteNoise() * 0.01), 0.01, delay, -0.4), 1.Rand2)
 }.overlap(t3, t3, n)
 
-{-********* Fast LfOs with slow beats ; Jmcc *********-}
+/********** Fast LfOs with slow beats ; Jmcc **********/
 let n = 4; /* number of simultaneous events */
 {
 	let a0 = 200.Rand0 + 40;
@@ -175,7 +175,7 @@ let n = 4; /* number of simultaneous events */
 	SinOsc(SinOsc(a, 0).MulAdd(1.0.Rand0 * b, b), 0).Mul(SinOsc(c, 0).MulAdd(0.05, 0.05))
 }.overlap(8, 4, n)
 
-{-********* Birdies ; Jmcc *********-}
+/********** Birdies ; Jmcc **********/
 let n = 4; /* number of simultaneous events */
 {
 	EqPan2(SinOsc(
@@ -186,7 +186,7 @@ let n = 4; /* number of simultaneous events */
 		0).Mul(Lag(LfPulse(0.5.Rand0 + 0.2, 0, 0.4) * 0.02, 0.3)), 1.Rand2)
 }.overlap(7, 4, n)
 
-{-********* Birdies ; Jmcc *********-}
+/********** Birdies ; Jmcc **********/
 let n = 4; /* number of simultaneous events */
 {
 	let p1 = MulAdd(LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1), 3.Rand0 + 4, 2);
@@ -196,7 +196,7 @@ let n = 4; /* number of simultaneous events */
 	EqPan2(SinOsc(freq, 0) * amp, 1.Rand2)
 }.overlap(7, 4, n)
 
-{-********* Slight mod of "phase mod with slow beats" ; Jmcc *********-}
+/********** Slight mod of "phase mod with slow beats" ; Jmcc **********/
 let n = 4; /* number of simultaneous events */
 {
 	let x = MouseX(100, 6000, 1, 0.2); /* mouse x controls random freq of new events */

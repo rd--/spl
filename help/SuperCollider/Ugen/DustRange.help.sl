@@ -35,6 +35,6 @@ Trig(d, SampleDur()) * s.Sign * 0.1
 
 /* ---- notes.md ----
 
-	Inter-offset times generated randomly in range (seconds) with uniform distribution.
+Inter-offset times generated randomly in range (seconds) with uniform distribution.
 
--}
+*/

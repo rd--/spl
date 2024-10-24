@@ -7,6 +7,8 @@ let m = c - (2 ^ LfSaw([1 .. 5] / 32, 0)).Ceiling;
 let o = Saw(m.MidiCps);
 o.Splay / 2
 
-/* ---- ; calculations
-	':>AEH.'.ascii = [58, 62, 65, 69, 72, 46]
--}
+/* ---- calculations ----
+
+':>AEH.'.ascii = [58, 62, 65, 69, 72, 46]
+
+*/

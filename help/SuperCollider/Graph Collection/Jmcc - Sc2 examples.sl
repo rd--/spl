@@ -1,26 +1,26 @@
-{-********* Analog bubbles ; Jmcc *********-}
+/********** Analog bubbles ; Jmcc **********/
 let f = LfSaw(0.4, 0).MulAdd(24, LfSaw([8, 7.23], 0).MulAdd(3, 80)).MidiCps; /* glissando function */
 CombN(SinOsc(f, 0) * 0.04, 0.2, 0.2, 4) /* echoing sine wave */
 
-{-********* Lfo modulation of Pulse waves and resonant filters ; Jmcc *********-}
+/********** Lfo modulation of Pulse waves and resonant filters ; Jmcc **********/
 CombL(
 	Rlpf(LfPulse(SinOsc(0.05, 0).MulAdd(80, 160),0, 0.4) * 0.05,
 		SinOsc([0.6, 0.7], 0).MulAdd(3600, 4000), 0.2),
 	0.3, [0.2, 0.25], 2)
 
-{-********* Moto rev ; Jmcc *********-}
+/********** Moto rev ; Jmcc **********/
 Rlpf(LfPulse(SinOsc(0.2, 0).MulAdd(10, 21), 0, 0.1), 100, 0.1).Clip2(0.4)
 
-{-********* Scratchy ; Jmcc *********-}
+/********** Scratchy ; Jmcc **********/
 Rhpf(BrownNoise(2).MulAdd(0.5, -0.49).Max(0) * 20, 5000, 1)
 
-{-********* Sprinkler ; Jmcc *********-}
+/********** Sprinkler ; Jmcc **********/
 Bpz2(WhiteNoise() * LfPulse(LfPulse(0.09, 0, 0.16).MulAdd(10, 7), 0, 0.25) * 0.1)
 
-{-********* Sprinkler ; mouse ; Jmcc *********-}
+/********** Sprinkler ; mouse ; Jmcc **********/
 Bpz2(WhiteNoise() * LfPulse(MouseX(0.2, 50, 0, 0.2), 0, 0.25) * 0.1)
 
-{-********* Harmonic swimming ; Jmcc *********-}
+/********** Harmonic swimming ; Jmcc **********/
 let f = 50; /* fundamental frequency */
 let p = 20; /* number of partials per channel */
 let z = 0; /* start of oscil daisy chain */
@@ -40,7 +40,7 @@ let offset = Line(0, -0.02, 60); /* causes sound to separate and fade */
 };
 z
 
-{-********* Harmonic tumbling ; Jmcc *********-}
+/********** Harmonic tumbling ; Jmcc **********/
 let f = 80; /* fundamental frequency */
 let p = 10; /* number of partials per channel */
 let z = 0; /* start of oscil daisy chain */
@@ -59,7 +59,7 @@ let trig = XLine([10, 10], 0.1, 60); /* trigger probability decreases over time 
 };
 z
 
-{-********* Reso pulse ; Jmcc *********-}
+/********** Reso pulse ; Jmcc **********/
 let z = { :tr |
 	let f = TChoose(tr, [25 30 34 37 41 42 46 49 53 54 58 61 63 66]).MidiCps;
 	LfPulse(f, 0, 0.2) + LfPulse(2 * f + TRand(-0.5, 0.5, tr), 0, 0.2)
@@ -75,7 +75,7 @@ let delayTime = 2 / lfoFreq;
 let right = DelayN(left, delayTime, delayTime); /* delay right channel by two beats */
 [left, right]
 
-{-********* Pulsing bottles ; Jmcc *********-}
+/********** Pulsing bottles ; Jmcc **********/
 let n = 6; /* number of 'bottles' */
 {
         EqPan2(
@@ -88,7 +88,7 @@ let n = 6; /* number of 'bottles' */
         )
 } !> n
 
-{-********* What was I thinking? ; Jmcc *********-}
+/********** What was I thinking? ; Jmcc **********/
 let z = Rlpf(
 	Pulse(
 		Max(SinOsc(4, 0) + 80,
@@ -106,7 +106,7 @@ z +  [
 	+ CombL(y, 0.06, LfNoise1(0.3.Rand0).MulAdd(0.025, 0.035), 1)
 ]
 
-{-********* Police state ; Jmcc *********-}
+/********** Police state ; Jmcc **********/
 let n = 4; /* number of sirens */
 CombL(
 	{
@@ -120,7 +120,7 @@ CombL(
 	+ LfNoise2(LfNoise2([0.4, 0.4]).MulAdd(90, 620)).Mul(LfNoise2([0.3, 0.3]).MulAdd(0.15, 0.18)),
 	0.3, 0.3, 3)
 
-{-********* analogue daze (commented) ; Jmcc *********-}
+/********** analogue daze (commented) ; Jmcc **********/
 /* define a function so that I can make a couple of copies of this instrument */
 let anaSynFunc = { :octave :clockRate :pwmrate :fltrate |
 	/* create a list of frequencies */
@@ -175,7 +175,7 @@ let z = 0.4 * ( /* scale delayed part down */
 let e = EnvLinen(2, 56, 2, 1, -4); /* one minute trapezoid envelope */
 z * EnvGen(1, 1, 0, 1, 2, e.asList) /* wrap a one minute envelope around entire sound */
 
-{-********* Analogue daze (un-commented) ; Jmcc *********-}
+/********** Analogue daze (un-commented) ; Jmcc **********/
 let pattern = [55 63 60 63 57 65 62 65];
 let f = { :octave :clockRate :pwmrate :fltrate |
 	Rlpf(LfPulse(Lag(
@@ -196,7 +196,7 @@ let z = 0.4 * (CombN(g, 0.375, 0.375, 5) + g.reverse);
 let e = EnvLinen(2, 56, 2, 1, -4); /* one minute trapezoid envelope */
 z * EnvGen(1, 1, 0, 1, 2, e.asList) /* wrap a one minute envelope around entire sound */
 
-{-********* synthetic piano ; Jmcc *********-}
+/********** synthetic piano ; Jmcc **********/
 let n = 6; /* number of keys playing */
 { /* mix an list of notes */
 	let pitch = (36 + 54.Rand0); /* calculate delay based on a random note */
@@ -219,7 +219,7 @@ let n = 6; /* number of keys playing */
 	).sum
 } !> n
 
-{-********* Strummable silk ; Jmcc *********-}
+/********** Strummable silk ; Jmcc **********/
 let mousex = MouseX(0, 1, 0, 0.2);
 let out = 1:8.collect { :ix |
 	let n = 15;
@@ -238,7 +238,7 @@ let out = 1:8.collect { :ix |
 };
 out
 
-{-********* Reverberated sine percussion ; Jmc */
+/********** Reverberated sine percussion ; Jmc */
 let d = 10; /* number of percolators */
 let c = 7; /* number of comb delays */
 let a = 4; /* number of allpass delays */
@@ -250,7 +250,7 @@ a.timesRepeat { /* chain of 4 allpass delays on each of two channels (8 total) *
 };
 s + (0.2 * y) /* add original sound to reverb and play it */
 
-{-********* Reverberated noise bursts ; Jmcc *********-}
+/********** Reverberated noise bursts ; Jmcc **********/
 let s = Decay(Dust(0.6) * 0.2, 0.15) * PinkNoise(); /* pink noise percussion sound */
 let z = DelayN(s, 0.048, 0.048); /* reverb predelay time */
 let y = Sum(CombL(z, 0.1, LfNoise1({ 0.1.Rand0 } ! 6).MulAdd(0.04, 0.05), 15)); /* 6 modulated comb delays in parallel */
@@ -259,10 +259,10 @@ let y = Sum(CombL(z, 0.1, LfNoise1({ 0.1.Rand0 } ! 6).MulAdd(0.04, 0.05), 15)); 
 };
 s + y /* add original sound to reverb and play it */
 
-{-********* Mouse control ; Jmcc *********-}
+/********** Mouse control ; Jmcc **********/
 SinOsc(MouseX(200, 2000, 1, 0.2), 0) * 0.1
 
-{-********* Analog bubbles ; with mouse control ; Jmcc *********-}
+/********** Analog bubbles ; with mouse control ; Jmcc **********/
 let freq = LfSaw(
 	MouseY(0.1, 10, 1, 0.2), 0).MulAdd( /* lfo 1 rate */
 		24, /* lfo 1 depth in semitones */
@@ -273,14 +273,14 @@ let freq = LfSaw(
 	).MidiCps; /* convert to frequency */
 CombN(SinOsc(freq, 0) * 0.04, 0.2, 0.2, 2) /* echoing sine wave */
 
-{-********* Input thru ; Jmcc *********-}
+/********** Input thru ; Jmcc **********/
 AudioIn([1, 2])
 
-{-********* Distort input ; Jmcc *********-}
+/********** Distort input ; Jmcc **********/
 let gain = MouseX(1, 100, 1, 0.2); /* mouse x controls gain into distortion */
 AudioIn([1, 2]).Mul(gain).Distort * 0.4
 
-{-********* Ring modulate input ; Jmcc *********-}
+/********** Ring modulate input ; Jmcc **********/
 let input = AudioIn([1, 2]);
 let modulator = SinOsc(
 	MouseX(10, 4000, 1, 0.2), /* mouse x controls ring mod freq */
@@ -288,7 +288,7 @@ let modulator = SinOsc(
 );
 input * modulator
 
-{-********* Ring modulate input using Ring1 ; Jmcc *********-}
+/********** Ring modulate input using Ring1 ; Jmcc **********/
 let input = AudioIn([1, 2]) * 0.5;
 let modulator = SinOsc(
 	MouseX(10, 4000, 1, 0.2), /* mouse x controls ring mod freq */
@@ -296,7 +296,7 @@ let modulator = SinOsc(
 );
 input.Ring1(modulator)
 
-{-********* Filter the input ; Jmcc *********-}
+/********** Filter the input ; Jmcc **********/
 let rQ = MouseY(0.01, 1, 1, 0.2); /* bandwidth ratio = 1/Q */
 Rlpf(
 	AudioIn([1, 2]) * 0.4 * rQ.Sqrt, /* attenuate to offset resonance */
@@ -304,7 +304,7 @@ Rlpf(
 	rQ
 )
 
-{-********* Input noise gate ; Jmcc *********-}
+/********** Input noise gate ; Jmcc **********/
 let input = AudioIn([1, 2]);
 Compander(
 	input, input,
@@ -314,7 +314,7 @@ Compander(
 	0.01, 0.1
 )
 
-{-********* Pitch shift input ; Jmcc *********-}
+/********** Pitch shift input ; Jmcc **********/
 PitchShift(
 	AudioIn([1, 2]) * 0.5, /* stereo audio input */
 	0.04, /* grain size */
@@ -323,7 +323,7 @@ PitchShift(
 	0.004/* time dispersion */
 )
 
-{-********* Use PitchShift to granulate input ; upper left corner is normal playback ; Jmcc *********-}
+/********** Use PitchShift to granulate input ; upper left corner is normal playback ; Jmcc **********/
 let grainSize = 0.1;
 PitchShift(
 	AudioIn([1, 2]) * 0.5,
@@ -333,7 +333,7 @@ PitchShift(
 	MouseY(0, grainSize, 0, 0.2) /* time dispersion */
 )
 
-{-********* Echo input ; Jmcc *********-}
+/********** Echo input ; Jmcc **********/
 let in = AudioIn([1, 2]) * 0.1;
 CombL(
 	in,
@@ -342,7 +342,7 @@ CombL(
 	4) /* echo 60 dB decay time in seconds */
 + in /* mix with input */
 
-{-********* Ring modulate & echo input ; Jmc */
+/********** Ring modulate & echo input ; Jmc */
 let in = AudioIn([1, 2]) * 0.4 * SinOsc(MouseX(10, 2000, 1, 0.2), [0, 0.5.pi]);
 CombL(
 	in,
@@ -351,7 +351,7 @@ CombL(
 	4 /* echo 60 dB decay time in seconds */
 ) + in /* mix with input */
 
-{-********* Ring modulated and resonant filtered input ; Jmcc *********-}
+/********** Ring modulated and resonant filtered input ; Jmcc **********/
 let input = AudioIn([1, 2]) * 0.2;
 let modulator = SinOsc(
 	MouseX(10, 4000, 1, 0.2), /* mouse x controls ring mod freq */
@@ -362,7 +362,7 @@ Rlpf(
 	MouseY(100, 12000, 1, 0.2), /* mouse y controls cutoff freq */
 	0.1) /* bandwidth ratio = 1/Q */
 
-{-********* Distort, ring modulate & echo input, a real noise fest ; Jmcc *********-}
+/********** Distort, ring modulate & echo input, a real noise fest ; Jmcc **********/
 let in = (AudioIn([1, 2]) * 20).Distort.Ring1(
 	SinOsc(MouseX(10, 2000, 1, 0.2), [0, 0.5.pi])
 ) * 0.02;
@@ -373,7 +373,7 @@ CombL(
 	4
 ) + in
 
-{-********* Sweep verb ; Jmcc *********-}
+/********** Sweep verb ; Jmcc **********/
 let s = AudioIn([1, 2]) * 0.01;
 let z = DelayN(s.Sum, 0.048, 0.048); /* reverb predelay time */
 let y = CombL(z, 0.1, LfNoise1({ 0.1.Rand0 } ! 6).MulAdd(0.04, 0.05), 15).Sum; /* 6 modulated comb delays in parallel */
@@ -382,7 +382,7 @@ let y = CombL(z, 0.1, LfNoise1({ 0.1.Rand0 } ! 6).MulAdd(0.04, 0.05), 15).Sum; /
 };
 LeakDc(y, 0.995) /* eliminate DC */
 
-{-********* Monastic resonance ; mouse controls size and reverb time ; Jmcc *********-}
+/********** Monastic resonance ; mouse controls size and reverb time ; Jmcc **********/
 let decayTime = MouseX(0, 16, 0, 0.2);
 let delayScale = MouseY(0.01, 1, 0, 0.2);
 let s = AudioIn([1, 2]) * 0.005;
@@ -393,7 +393,7 @@ let y = Sum(CombL(z, 0.1, { 0.04.Rand2 + 0.05 } ! 8 * delayScale, decayTime)); /
 };
 LeakDc(y, 0.995) /* eliminate DC */
 
-{-********* Berlin 1977 ; mouse x controls clock rate ; Jmcc *********-}
+/********** Berlin 1977 ; mouse x controls clock rate ; Jmcc **********/
 let clockRate = MouseX(5, 20, 0, 0.2);
 let clockTime = 1 / clockRate;
 let clock = Impulse(clockRate, 0); /* sequencer trigger */
@@ -420,7 +420,7 @@ CombN(
 	1.5 /* max delay, actual delay(s), decay time */
 )
 
-{-********* Aleatoric quartet ; mouse x controls density ; Jmcc *********-}
+/********** Aleatoric quartet ; mouse x controls density ; Jmcc **********/
 let amp = 0.07;
 let density = MouseX(0.01, 1, 0, 0.2); /* mouse determines density of excitation */
 let dmul = density.Recip * 0.5 * amp; /* calculate multiply and add for excitation probability */
@@ -446,7 +446,7 @@ let signal = Sum( /* mix a list of 4 instruments */
 5.timesRepeat { signal := AllpassN(signal, 0.05, [0.05.Rand0, 0.05.Rand0], 1) }; /* add some reverb via allpass delays */
 LeakDc(signal, 0.995) /* delays build up a lot of DC, so leak it out here. */
 
-{-********* Modal space ; mouse x controls discrete pitch in dorian mode ; Jmcc *********-}
+/********** Modal space ; mouse x controls discrete pitch in dorian mode ; Jmcc **********/
 let mix = SinOsc( /* lead tone */
 	(DegreeToKey(
 		[0 2 3 5 7 9 10].asLocalBuf,

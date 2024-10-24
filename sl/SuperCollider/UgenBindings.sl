@@ -406,10 +406,10 @@
 +Ugen {
 
 	/*
-		ceiling { :self | <primitive: return sc.Ceil(_self);> }
-		fractionPart { :self | <primitive: return sc.Frac(_self);> }
-		negated { :self | <primitive: return sc.Neg(_self);> }
-		reciprocal { :self | <primitive: return sc.Recip(_self);> }
+	ceiling { :self | <primitive: return sc.Ceil(_self);> }
+	fractionPart { :self | <primitive: return sc.Frac(_self);> }
+	negated { :self | <primitive: return sc.Neg(_self);> }
+	reciprocal { :self | <primitive: return sc.Recip(_self);> }
 	*/
 
 	bitShiftLeft { :self :anObject |

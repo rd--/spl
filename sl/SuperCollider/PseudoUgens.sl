@@ -119,19 +119,19 @@
 	}
 
 	/*
-		ExpRand { :tr :lo :hi | TExpRand(lo, hi, tr) }
-		LinRand { :tr :lo :hi :minmax | TLinRand(lo, hi, minmax, tr) }
-		Line { :tr :start :end :dur | TLine(start, end, dur, tr) }
-		Rand { :tr :lo :hi | TRand(lo, hi, tr) }
-		Scramble { :tr :inList | TScramble(tr, inList) }
-		IRand { :tr :lo :hi | TiRand(lo, hi, tr) }
-		XLine { :tr :start :end :dur | TxLine(start, end, dur, tr) }
+	ExpRand { :tr :lo :hi | TExpRand(lo, hi, tr) }
+	LinRand { :tr :lo :hi :minmax | TLinRand(lo, hi, minmax, tr) }
+	Line { :tr :start :end :dur | TLine(start, end, dur, tr) }
+	Rand { :tr :lo :hi | TRand(lo, hi, tr) }
+	Scramble { :tr :inList | TScramble(tr, inList) }
+	IRand { :tr :lo :hi | TiRand(lo, hi, tr) }
+	XLine { :tr :start :end :dur | TxLine(start, end, dur, tr) }
 	*/
 
 	/*
-		AudioIn { :channelNumber |
-			In(1, NumOutputBuses() + channelNumber - 1)
-		}
+	AudioIn { :channelNumber |
+		In(1, NumOutputBuses() + channelNumber - 1)
+	}
 	*/
 
 	AudioOut { :channelsList |
