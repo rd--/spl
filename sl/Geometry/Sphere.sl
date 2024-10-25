@@ -19,7 +19,7 @@ Sphere : [Object] { | center radius |
 			', ',
 			self.radius.storeString,
 			')'
-		].join
+		].join('')
 	}
 
 	surfaceArea { :self |

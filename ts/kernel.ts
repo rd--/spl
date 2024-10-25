@@ -252,7 +252,7 @@ export class Package {
 
 export function parsePackageRequires(text: string): string[] {
 	const firstLine = text.split('\n', 1)[0];
-	const packageNames = firstLine.match(/Requires: (.*)-}/);
+	const packageNames = firstLine.match(/Requires: (.*)\*\//);
 	if (packageNames) {
 		return packageNames[1].trim().split(' ');
 	} else {

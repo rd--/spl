@@ -19,6 +19,13 @@ The inverse is `splitBy`:
 ['x' 'y' 'z']
 ```
 
+At the empty list:
+
+```
+>>> [].stringConcatenation(', ')
+''
+```
+
 * * *
 
 See also: concatenation, join, splitBy, stringJoin

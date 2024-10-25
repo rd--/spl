@@ -693,7 +693,7 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	integerLiteral(s, i) {
 		// Allow 03 for 3 and -03 for -3
-		return `${parseInt(s.sourceString + i.sourceString)}`;
+		return `${s.sourceString + parseInt(i.sourceString)}`;
 	},
 	constantNumberLiteral(k) {
 		// console.debug('constantNumberLiteral: ', k.sourceString);
@@ -827,9 +827,9 @@ function makeMethodList(
 }
 
 function slFirstLineComment(slText: string): string | null {
-	if (slText.startsWith('{-')) {
-		const index = slText.indexOf('\n');
-		return (index > 0) ? slText.slice(0, index) : null;
+	if (slText.startsWith('/*')) {
+		const index = slText.indexOf('*/');
+		return (index > 0) ? slText.slice(2, index) : null;
 	} else {
 		return null;
 	}

@@ -50,7 +50,7 @@ Circle : [Object] { | center radius |
 			', ',
 			self.radius.storeString,
 			')'
-		].join
+		].join('')
 	}
 
 	translateBy { :self :factor |

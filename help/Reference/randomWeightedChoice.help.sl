@@ -33,7 +33,7 @@ according to the specified probabilities.
 >>> let r = Sfc32(36814);
 >>> let e = 'ACGT'.contents;
 >>> let w = [0.15 0.35 0.35 0.15];
->>> r.randomWeightedChoice(e, w, 48).join
+>>> r.randomWeightedChoice(e, w, 48).join('')
 'CTTGTAGGGTCCCGGAGGTCGCGGCAGGGGTCAGGAGTGGTTCCATCC'
 ```
 

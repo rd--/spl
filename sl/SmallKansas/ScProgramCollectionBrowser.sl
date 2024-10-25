@@ -33,7 +33,7 @@ ScProgramCollectionIndex : [Object] { | contents |
 							' - ',
 							name,
 							'.sl'
-						].join;
+						].join('');
 						url.fetchTextWithDefault('*Fetch failed*')
 					}
 				])

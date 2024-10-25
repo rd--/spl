@@ -40,7 +40,7 @@ Scale : [Object] { | startIndex intervals description |
 			self.intervals.storeString, ',',
 			'"', self.description, '"',
 			')'
-		].join
+		].join('')
 	}
 
 	tuningIndices { :self |

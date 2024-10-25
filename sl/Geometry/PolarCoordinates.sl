@@ -47,7 +47,7 @@ PolarCoordinates : [Object] { | r theta |
 			', ',
 			self.theta.storeString,
 			')'
-		].join
+		].join('')
 	}
 
 	x { :self |

@@ -91,7 +91,7 @@
 			self.typeOf, ': ',
 			message,
 			': (', self.printStringLimitedTo(16), ')'
-		].join
+		].join('')
 	}
 
 	error { :self :message |
@@ -125,7 +125,7 @@
 
 	inspectAsList { :self :maxIndices |
 		[
-			['Type' -> self.type],
+			['Type' -> self.typeDefinition],
 			self.slotList,
 			self.pseudoSlotList,
 			self.isIndexable.if {
@@ -175,7 +175,7 @@
 			self.typeOf, ': ',
 			message,
 			': (' ++ self.printStringLimitedTo(16) ++ ')'
-		].join
+		].join('')
 	}
 
 	notify { :self :message |
@@ -240,17 +240,17 @@
 	}
 
 	slotList { :self |
-		self.type.slotNameList.collect { :each |
+		self.typeDefinition.slotNameList.collect { :each |
 			each -> self.perform(each)
 		}
 	}
 
 	slotNameList { :self |
-		self.type.slotNameList
+		self.typeDefinition.slotNameList
 	}
 
 	slotValueList { :self |
-		self.type.slotNameList.collect { :each |
+		self.typeDefinition.slotNameList.collect { :each |
 			self.slotRead(each)
 		}
 	}
@@ -270,7 +270,7 @@
 			'(',
 			self.slotValueList.collect(storeString:/1).join(', '),
 			')'
-		].join
+		].join('')
 	}
 
 	storeString { :self |
@@ -281,7 +281,7 @@
 		self.aBlock
 	}
 
-	type { :self |
+	typeDefinition { :self |
 		system.typeLookup(self.typeOf)
 	}
 
@@ -299,7 +299,7 @@
 			self.typeOf, ': ',
 			message,
 			': (' ++ self.printStringLimitedTo(16) ++ ')'
-		].join
+		].join('')
 	}
 
 	warning { :self :message |

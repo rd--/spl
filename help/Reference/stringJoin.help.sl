@@ -48,6 +48,13 @@ The inverse of the binary form is `splitBy`:
 ['x' 'y' 'z']
 ```
 
+At the empty list:
+
+```
+>>> [].stringJoin(', ')
+''
+```
+
 * * *
 
 See also: join, splitBy, stringConcatenation

@@ -22,7 +22,7 @@ DocumentTest : [Object] { | prefix program expectedAnswer |
 					self.program.unwords,
 					').printString.utf8ByteArray = ',
 					self.expectedAnswer.unlines.utf8ByteArray.storeString
-				].join
+				].join('')
 			} {
 				self.error('format: unknown prefix: ' ++ self.prefix)
 			}

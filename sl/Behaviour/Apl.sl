@@ -117,7 +117,7 @@
 	}
 
 	expand { :self :counts |
-		self.asList.expand(counts).join
+		self.asList.expand(counts).join('')
 	}
 
 	find { :haystack :needle |
@@ -137,7 +137,9 @@
 	}
 
 	partitionApl { :self :aSequence |
-		self.asList.partitionApl(aSequence).collect(join:/1)
+		self.asList.partitionApl(aSequence).collect { :each |
+			each.join('')
+		}
 	}
 
 	rank { :self |
@@ -145,7 +147,7 @@
 	}
 
 	replicateEach { :self :counts |
-		self.asList.replicateEach(counts).join
+		self.asList.replicateEach(counts).join('')
 	}
 
 	shape { :self |

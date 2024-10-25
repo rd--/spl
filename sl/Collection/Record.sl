@@ -65,7 +65,7 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 				each.key ++ ': ' ++ each.value.storeString
 			}.join(', '),
 			')'
-		].join
+		].join('')
 	}
 
 	values { :self |

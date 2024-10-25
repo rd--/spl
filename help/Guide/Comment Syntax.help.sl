@@ -4,14 +4,14 @@ There are ordinarily two kinds of comment syntax.
 A prefix form that uses a single token to comment until the end of a line,
 and a bracketed form that uses begin and end tokens, and which may span multiple lines.
 
-Spl follows the C bracketed comment notation.
+Spl follows the PL/I (or C) bracketed comment notation.
 
-The C-language family prefix token is `//` and the bracket tokens are `/*` and `*/`.
+The C-language family prefix token is `//` (from BCPL) and the bracket tokens are `/*` and `*/` (from PL/I).
 The bracket tokens would be legal operators,
 however they are not used and imply a kind of nonsense.
 `//` means quotient in Smalltalk.
 
-The Ml bracket tokens are `(*` and `*)`.
+The Ml (and Pascal and Mathematica and AppleScript) bracket tokens are `(*` and `*)`.
 `(*` dissallows `c.reduce(*)`.
 
 The Haskell prefix token is `--` and the bracket tokens are `{-` and `-}`.

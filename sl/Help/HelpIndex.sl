@@ -38,7 +38,7 @@ HelpIndex : [Object] { | contents |
 			'/',
 			name,
 			'.help.sl'
-		].join
+		].join('')
 	}
 
 }

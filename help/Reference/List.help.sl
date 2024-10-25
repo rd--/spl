@@ -58,6 +58,16 @@ Lists can be assigned names:
 [2, 4/3, 1.47619]
 ```
 
+The empty list is written `[]`:
+
+```
+>>> [].isEmpty
+true
+
+>>> [].storeString
+'[]'
+```
+
 * * *
 
 See also: asList, asCollection, ByteArray, enclose, Float64Array, nest, Type

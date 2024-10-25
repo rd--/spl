@@ -377,7 +377,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'third'
 		'thirdLast'
 		'top'
-		'type'
+		'typeOf'
 		'upToEnd'
 		'upToPosition'
 		'unlines'

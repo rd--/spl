@@ -31,7 +31,7 @@ The `contents` of a `String` is a `List` of single character `String`s.
 Inverse are `join` and `stringJoin`:
 
 ```
->>> 'mississippi'.contents.join
+>>> 'mississippi'.contents.join('')
 'mississippi'
 
 >>> 'mississippi'.contents.stringJoin

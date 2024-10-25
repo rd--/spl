@@ -24,10 +24,10 @@
 		};
 		[
 			((n1 * 500000 * 1000) // t1.roundTo(100)).asStringWithCommas,
-			' bytecodes/sec; ',
+			'bytecodes/sec;',
 			((r2 * 1000) // t2.roundTo(100)).asStringWithCommas,
-			' sends/sec'
-		].join
+			'sends/sec'
+		].join(' ')
 	}
 
 }

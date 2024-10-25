@@ -581,7 +581,7 @@
 				rounded.abs.integerPart.truncated.printString,
 				'.',
 				roundedFractionPart.printString.padLeft(placesDesired, '0')
-			].join
+			].join('')
 		}
 	}
 

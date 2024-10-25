@@ -60,11 +60,9 @@ Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgressio
 		} {
 			[
 				self.start.printString,
-				':',
 				self.step.printString,
-				':',
 				self.stop.printString
-			].join
+			].join(':')
 		}
 	}
 
@@ -134,7 +132,7 @@ Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgressio
 			', ',
 			self.step.storeString,
 			')'
-		].join
+		].join('')
 	}
 
 }

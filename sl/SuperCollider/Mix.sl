@@ -158,7 +158,7 @@
 		let ruleTable = system.preference('ScSynth/Outputs/Mixer/RuleTable', [['1×2', [1, 2]]]);
 		let runList = self.collect(size:/1).asRunArray;
 		let derivedPrefix = runList.runsAndValuesCollect { :run :value |
-			[run.asString, '×', value.asString].join
+			[run.asString, value.asString].join('×')
 		}.join('+') ++ '→';
 		/* ['Mix', ruleTable, derivedPrefix].postLine; */
 		self.mixByAvailableNamedRule(derivedPrefix, ruleTable)

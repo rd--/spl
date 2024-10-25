@@ -8,7 +8,7 @@ Answer the name of _anObject_, if it has one.
 >>> Error('message text').name
 'Error'
 
->>> [].type.name
+>>> [].typeDefinition.name
 'List'
 ```
 

@@ -5,20 +5,20 @@
 Answer a `List` of the letters in the named alphabet.
 
 ```
->>> 'english'.alphabet.join
+>>> 'english'.alphabet.join('')
 'abcdefghijklmnopqrstuvwxyz'
 
->>> 'greek'.alphabet.join
+>>> 'greek'.alphabet.join('')
 'αβγδεζηθικλμνξοπρστυφχψω'
 ```
 
 The answer has only lower case letters:
 
 ```
->>> 'english'.alphabet.join.asUpperCase
+>>> 'english'.alphabet.join('').asUpperCase
 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
->>> 'greek'.alphabet.join.asUpperCase
+>>> 'greek'.alphabet.join('').asUpperCase
 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ'
 ```
 

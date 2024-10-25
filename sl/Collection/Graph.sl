@@ -7,7 +7,7 @@
 			' -- ',
 			self[2].asString,
 			';'
-		].join
+		].join('')
 	}
 
 	asEdge { :self |
@@ -71,7 +71,7 @@
 			' -> ',
 			self.value.asString,
 			';'
-		].join
+		].join('')
 	}
 
 	asEdge { :self |

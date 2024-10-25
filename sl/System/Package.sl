@@ -60,7 +60,7 @@ Package! : [Object] {
 	}
 
 	pseudoSlotNameList { :self |
-		['category', 'name', 'requires', 'url', 'text', 'isLoaded']
+		['category', 'isLoaded', 'name', 'requires', 'text', 'url']
 	}
 
 	qualifiedName { :self |
@@ -89,7 +89,7 @@ Package! : [Object] {
 			'/',
 			self::Name,
 			'.sl'
-		].join
+		].join('')
 	}
 
 	Package { :self |
@@ -121,7 +121,7 @@ Package! : [Object] {
 	}
 
 	parsePackageHeader { :self |
-		let fields = self.firstHsComment.splitBy(',');
+		let fields = self.firstPliComment.splitBy(',');
 		fields.collect { :each |
 			let [key, value] = each.withBlanksTrimmed.splitBy(': ');
 			key.caseOfOtherwise([

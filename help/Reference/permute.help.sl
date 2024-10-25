@@ -25,7 +25,7 @@ Exchange the first and last characters of the english alphabet:
 ```
 >>> let a = 'english'.alphabet;
 >>> let p = [[1 26]].asPermutation;
->>> a.permute(p).join
+>>> a.permute(p).join('')
 'zbcdefghijklmnopqrstuvwxya'
 ```
 
@@ -34,7 +34,7 @@ Permute several characters:
 ```
 >>> let a = 'english'.alphabet;
 >>> let p = [1 6 18 2; 3 20 11].asPermutation;
->>> a.permute(p).join
+>>> a.permute(p).join('')
 'brkdeaghijtlmnopqfscuvwxyz'
 ```
 

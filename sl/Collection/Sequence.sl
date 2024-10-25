@@ -1037,7 +1037,7 @@
 
 	fromCharacterCode { :self |
 		self.isVector.if {
-			self.collect(fromCharacterCode:/1).join
+			self.collect(fromCharacterCode:/1).join('')
 		} {
 			self.collect(fromCharacterCode:/1)
 		}

@@ -83,7 +83,7 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 				self.octave
 			].collect(storeString:/1).join(', '),
 			')'
-		].join
+		].join('')
 	}
 
 }

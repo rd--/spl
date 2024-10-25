@@ -30,7 +30,7 @@ Answers the type name of _anObject_.
 'Block'
 ```
 
-The system includes a `typeDictionary` that maps type names to _Type_ values.
+The system includes a `typeDictionary` that maps type names to `Type` values.
 
 ```
 >>> system.typeLookup('String').isType
@@ -43,6 +43,6 @@ true
 
 * * *
 
-See also: elementTypes, species, type, Type
+See also: elementTypes, species, typeDefinition, Type
 
 Categories: Reflection, Types

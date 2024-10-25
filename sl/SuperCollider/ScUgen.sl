@@ -34,7 +34,7 @@ ScUgen! : [Object] {
 			'(',
 			self.inputList.collect(printString:/1).join(', ')
 			,')'
-		].join
+		].join('')
 	}
 
 	pseudoSlotNameList { :self |

@@ -76,7 +76,7 @@
 			', ',
 			self.phi.storeString,
 			')'
-		].join
+		].join('')
 	}
 
 	x { :self |

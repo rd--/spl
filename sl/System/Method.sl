@@ -52,7 +52,7 @@ Method! : [Object] {
 				'{ ',
 				aString,
 				' }'
-			].join
+			].join('')
 		)
 	}
 
@@ -95,9 +95,8 @@ Method! : [Object] {
 	provenance { :self |
 		[
 			self.packageName,
-			':',
 			self.origin.name
-		].join
+		].join(':')
 	}
 
 	pseudoSlotNameList { :self |

@@ -970,7 +970,7 @@ let c = 1:9; c.sum / c.size = 5 /* sum of collection divided by size */
 [].select { :each | 'select'.error } = []
 [].species.newFrom(Set()) = []
 Set().asList = []
-1:9.includesAnyOf([0, 6]) {-includes any element of a collection */
+1:9.includesAnyOf([0, 6]) /* includes any element of a collection */
 [4 .. 6].copyWithout(5) = [4, 6] /* copy without element */
 4:6.copyWithout(5) = [4, 6] /* copy without element, interval becomes array */
 [2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6] /* copy without element, removes multiples */
@@ -2420,9 +2420,11 @@ system.packageDictionary::PackageBrowser.dependencies.collect(name:/1).includesA
 'Time-Date'.parseQualifiedPackageName = ['Time', 'Date']
 system.packageDictionary.size > 100 /* number of packages */
 system.package('List').isPackage /* lookup package by unqualified name */
+let p = system.package('List'); (p.category, p.name, p.url, p.isLoaded) = ('Collection', 'List', 'Collection/List.sl', true)
 system.package('Collection-List') == system.package('List') /* lookup package by qualified name */
 { system.package('Kernel-List') }.ifError { true } /* for qualified names the system checks the category */
 system.package('BounceBenchmark').dependencies.collect(name:/1) = ['Benchmark', 'SomRandom']
+system.package('Tuple').requires = ['List']
 ```
 
 ## PriorityQueue -- collection type
@@ -2920,16 +2922,16 @@ RegExp('x|z', 'g').replaceAllModifying('x y z', asUpperCase:/1) = 'X y Z'
 ```
 system.includesPackage('RunArray') /* RunArray package */
 let a = RunArray([1, 3, 5], ['a', 'b', 'c']); a.isRunArray & { a.size = 9 } /* from runs and values, size is sum of runs */
-let a = RunArray([1, 3, 5], ['a', 'b', 'c']); a.size = 9 & { a.asList.join = 'abbbccccc' } /* as array */
-let a = [1 -> 'a', 3 -> 'b', 5 -> 'c'].associationListToRunArray; a.size = 9 & { a.asList.join = 'abbbccccc' } /* from associations */
+let a = RunArray([1, 3, 5], ['a', 'b', 'c']); a.size = 9 & { a.asList.join('') = 'abbbccccc' } /* as array */
+let a = [1 -> 'a', 3 -> 'b', 5 -> 'c'].associationListToRunArray; a.size = 9 & { a.asList.join('') = 'abbbccccc' } /* from associations */
 let a = RunArray([1 4 2 1], [9 7 5 3]); a.size = 8 & { a.asList = [9 7 7 7 7 5 5 3] }
 { let a = RunArray([1 3], ['a' 'b']); a[5] }.ifError { true } /* invalid index */
 let a = RunArray([1, 4, 2, 1], 'abca'.contents); a.first = 'a' & { a.last = 'a' } /* first and last are optimized */
 let a = RunArray([1, 4, 2], 'abc'.contents); a.includes('c') & { a.isSorted } /* includes and isSorted are optimized */
 RunArray([1, 4, 2], ['a', 'b', 'c']).reversed = [2 -> 'c', 4 -> 'b', 1 -> 'a'].associationListToRunArray /* reversed is optimized */
 let a = RunArray([23, 34, 45], ['a', 'b', 'a']); (a.allocatedSize / a.size * 100).rounded = 9 /* space saving, in % */
-RunArray([1, 3, 5], ['a', 'b', 'c']).asList.join = 'abbbccccc' /* from runs and values, as array */
-[1 -> 'a', 3 -> 'b', 5 -> 'c'].associationListToRunArray.asList.join = 'abbbccccc' /* from associations, as array */
+RunArray([1, 3, 5], ['a', 'b', 'c']).asList.join('') = 'abbbccccc' /* from runs and values, as array */
+[1 -> 'a', 3 -> 'b', 5 -> 'c'].associationListToRunArray.asList.join('') = 'abbbccccc' /* from associations, as array */
 [4 3 3 2 2 2 1 1 1 1].asRunArray = RunArray([1 2 3 4], [4 3 2 1]) /* from sequence */
 'abbbccccc'.asList.asRunArray.runs = [1 3 5]
 ```
@@ -3399,7 +3401,7 @@ system.includesPackage('String') /* package */
 ''.isEmpty = true /* empty string predicate */
 'string'.isEmpty = false /* is empty string */
 'string'.size = 6 /* length */
-['m', 'ss', 'ss', 'pp', ''].join = 'msssspp' /* join */
+['m', 'ss', 'ss', 'pp', ''].join('') = 'msssspp' /* join */
 ['x', 1, 'y', 2, 'z', 3].stringJoin = 'x1y2z3' /* stringJoin, all items need not be strings */
 [1, 2, 3].stringJoin = '123' /* no items need be strings */
 [].stringJoin = '' /* stringJoin of empty sequence is the empty string */
@@ -3413,7 +3415,7 @@ system.includesPackage('String') /* package */
 'string'.splitBy('absent') = ['string']
 'string'.splitBy('') = ['s', 't', 'r', 'i', 'n', 'g']
 'Set-Of-Three-Words'.splitByLimitedTo('-', 3) = ['Set', 'Of', 'Three'] /* limited to count number of elements */
-'mississippi'.contents.join = 'mississippi' /* List>>join is the inverse of String>>contents */
+'mississippi'.contents.join('') = 'mississippi' /* List>>join is the inverse of String>>contents */
 'mississippi'.splitBy('i').join('i') = 'mississippi' /* join is an inverse of splitBy */
 '/usr/local/bin'.splitBy('/') = ['', 'usr', 'local', 'bin']
 'Terse Guide.help.sl'.splitBy('.') = ['Terse Guide', 'help', 'sl']
@@ -3458,7 +3460,7 @@ system.includesPackage('String') /* package */
 'Smalltalk'.findPreviousOccurrenceOfStringStartingAt('al', 7 - 1) = 3
 'the quick brown fox jumps'.copyFromTo(17, 19) = 'fox'
 ['the', 'quick', 'brown', 'fox'].join(' ') = 'the quick brown fox'
-['the', 'quick', 'brown', 'fox'].join = 'thequickbrownfox'
+['the', 'quick', 'brown', 'fox'].join('') = 'thequickbrownfox'
 'the quick brown fox jumps'.splitBy(' ') = ['the', 'quick', 'brown', 'fox', 'jumps']
 'string'.splitBy('') = ['s', 't', 'r', 'i', 'n', 'g']
 'once at end'.occurrencesOf('d') = 1
@@ -3501,8 +3503,8 @@ let x = ['a', 'bc', 'def']; x.unlines.lines = x
 'A-B-C'.replaceStringAll('-', '/') = 'A/B/C' /* replace hyphens with forward slashes */
 'anAnalogueClock'.camelCaseToWords = 'an Analogue Clock' /* camel case begins with a lower case letter */
 'AnalogueClock'.pascalCaseToWords = 'Analogue Clock' /* pascal case begins with an upper case letter */
-'an analogue Clock'.words.pascalCase.join = 'AnAnalogueClock'
-'analogue clock'.words.camelCase.join = 'analogueClock'
+'an analogue Clock'.words.pascalCase.join('') = 'AnAnalogueClock'
+'analogue clock'.words.camelCase.join('') = 'analogueClock'
 'Word'.asLowerCase = 'word'
 '12345'.asLowerCase = '12345' /* only if letters */
 'Word'.asUpperCase = 'WORD'
@@ -3526,7 +3528,7 @@ let s = 'string'; [s[2], s[4], s[5]].stringJoin = 'tin' /* string subscripting *
 ' x '.withoutLeadingBlanks = 'x '
 ' x '.withoutTrailingBlanks = ' x'
 let a = []; 'string'.do { :each | a.add(each) }; a.stringJoin = 'string'
-'string'.contents.join = 'string'
+'string'.contents.join('') = 'string'
 let a = 'string'.characters; a.joinCharacters = 'string' & { a.stringJoin = 'string' }
 '𠮷'.countCharacters = 1
 '𠮷'.countUtf16CodeUnits = 2
@@ -3580,14 +3582,16 @@ let s = 'string'; (s.size * 2) = s.asHex.size /* asHex, hex string is twice as l
 '\r'.asCharacter.codePoint = 13 /* carriage return */
 'The quick brown fox jumps over the lazy dog'.crc16 = 16rFCDF /* 16 bit cyclic redundancy check, crc-16/arc */
 '* + - / ^ ? ~ = < >'.words.allSatisfy(isOperatorName:/1)
-'a comment'.asBracketedComment('/*', '*/') = '/* a comment */' /* add C comment brackets */
+'a comment'.asBracketedComment('<!--', '-->') = '<!-- a comment -->' /* add Html comment brackets */
+'a comment'.asPliComment = '/* a comment */' /* add PL/I (or C) comment brackets */
 'a comment'.asMlComment = '(* a comment *)' /* add Ml comment brackets */
-'a comment'.asHaskellComment = '/* a comment */' /* add Hs comment brackets */
+'a comment'.asHaskellComment = '{- a comment -}' /* add Hs comment brackets */
 { '(* a comment *)'.asMlComment }.ifError { true } /* it is an error if there are existing brackets */
-{ '/* a comment */'.asHaskellComment }.ifError { true } /* it is an error if there are existing brackets */
-'before and /* a comment */ then after'.firstBracketedComment('{-', '-}') = ' a comment '
+{ '{- a comment -}'.asHaskellComment }.ifError { true } /* it is an error if there are existing brackets */
+'before and <!-- a comment --> then after'.firstBracketedComment('<!--', '-->') = ' a comment '
+'before and /* a comment */ then after'.firstPliComment = ' a comment '
 'before and (* a comment *) then after'.firstMlComment = ' a comment '
-'before and /* a comment */ then after'.firstHsComment = ' a comment '
+'before and {- a comment -} then after'.firstHsComment = ' a comment '
 'no comment'.firstMlCommentIfAbsent { true }
 'List'.withIndefiniteArticle = 'a List' /* prepend indefinite article to, presumably, a noun or noun phrase */
 'Object'.withIndefiniteArticle = 'an Object' /* the article depends on the first letter of the noun */
@@ -4289,7 +4293,7 @@ let w = [].asWriteStream; w.nextPut(1); w.nextPutAll([2 .. 8]); w.nextPut(9); w.
 let w = [].asWriteStream; 1.putOn(w); w.contents = [1]
 let w = [].asWriteStream; 1.putOn(w); [2 .. 8].putOn(w); 9.putOn(w); w.contents = [1 .. 9]
 let w = [].asByteArray.asWriteStream; w.nextPutAll(1:9); w.contents = [1 .. 9].asByteArray
-let w = [nil, nil].asWriteStream; w.nextPut('a'); w.nextPut('b'); w.contents.join = 'ab'
+let w = [nil, nil].asWriteStream; w.nextPut('a'); w.nextPut('b'); w.contents.join('') = 'ab'
 ```
 
 ### Utf8Stream -- collection type

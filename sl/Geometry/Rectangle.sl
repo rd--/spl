@@ -33,7 +33,7 @@ Rectangle : [Object] { | lowerLeft upperRight |
 			', ',
 			aBlock(self.upperRight),
 			')'
-		].join
+		].join('')
 	}
 
 	center { :self |

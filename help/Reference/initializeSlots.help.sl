@@ -7,7 +7,7 @@ The method sets the slots of _anObject_ to the provided values, and answer _anOb
 
 ```
 >>> let i = 1 -- 9;
->>> let t = i.type;
+>>> let t = i.typeDefinition;
 >>> (t.name, t.slotNameList, i.initializeSlots(3, 7))
 ('Interval', ['min' 'max'], 3 -- 7)
 ```

@@ -10,7 +10,7 @@ and the entries are methods.
 The method dictionary of `String`:
 
 ```
->>> let t = [1 2 3].type;
+>>> let t = [1 2 3].typeDefinition;
 >>> let d = t.methodDictionary;
 >>> (d.isDictionary, d['isList:/1'].isMethod)
 (true, true)
@@ -19,7 +19,7 @@ The method dictionary of `String`:
 The method dictionary of `String`:
 
 ```
->>> let t = 'text'.type;
+>>> let t = 'text'.typeDefinition;
 >>> let d = t.methodDictionary;
 >>> (d.isDictionary, d['isString:/1'].isMethod)
 (true, true)

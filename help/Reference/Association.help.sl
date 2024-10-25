@@ -45,6 +45,17 @@ true
 false
 ```
 
+The print string is given using the `->` operator,
+the store string using the `Association` function:
+
+```
+>>> ('x' -> 1).printString
+"'x' -> 1"
+
+>>> ('x' -> 1).storeString
+"Association('x', 1)"
+```
+
 _Note_:
 In a `Dictionary` context there cannot be duplicate keys, hence considering only key for equality in St-80.
 

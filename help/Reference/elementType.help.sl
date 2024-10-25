@@ -33,6 +33,13 @@ At heterogeneous `List`:
 nil
 ```
 
+At the empty `List`:
+
+```
+>>> [].elementType
+nil
+```
+
 * * *
 
 See also: elementTypeIfAbsent, elementTypes, typeOf

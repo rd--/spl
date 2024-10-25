@@ -26,7 +26,7 @@ A 4×3 array of random choices:
 Generate a random string:
 
 ```
->>> Sfc32(37914).randomChoice(['A' 'C' 'G' 'T'], 50).join
+>>> Sfc32(37914).randomChoice(['A' 'C' 'G' 'T'], 50).join('')
 'TTCGGAGGGCCCCGCAGATCTAAGTATTACCCTGGGTGTGAACTTACACT'
 ```
 

@@ -85,7 +85,7 @@ String! : [Object, Json, Iterable, Character] {
 		}).if {
 			self.error('String>>asBracketedComment: includes comment brackets')
 		} {
-			[open, ' ', self, ' ', close].join
+			[open, self, close].join(' ')
 		}
 	}
 
@@ -134,6 +134,10 @@ String! : [Object, Json, Iterable, Character] {
 		self.asBracketedComment('(*', '*)')
 	}
 
+	asPliComment { :self |
+		self.asBracketedComment('/*', '*/')
+	}
+
 	assertIsString { :self |
 		self
 	}
@@ -165,7 +169,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	atAll { :self :indices |
-		self.contents.atAll(indices).join
+		self.contents.atAll(indices).join('')
 	}
 
 	basicAppendString { :self :aString |
@@ -287,7 +291,7 @@ String! : [Object, Json, Iterable, Character] {
 			self.copyFromTo(1, start - 1),
 			replacement,
 			self.copyFromTo(stop + 1, self.size)
-		].join
+		].join('')
 	}
 
 	countCharacters { :self |
@@ -303,7 +307,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	deBruijnSequence { :self :anInteger |
-		self.contents.deBruijnSequence(anInteger).join
+		self.contents.deBruijnSequence(anInteger).join('')
 	}
 
 	do { :self :aBlock:/1 |
@@ -400,6 +404,16 @@ String! : [Object, Json, Iterable, Character] {
 	firstMlComment { :self |
 		self.firstMlCommentIfAbsent {
 			self.error('String>>firstMlComment: no comment found')
+		}
+	}
+
+	firstPliCommentIfAbsent { :self :aBlock:/0 |
+		self.firstBracketedCommentIfAbsent('/*', '*/', aBlock:/0)
+	}
+
+	firstPliComment { :self |
+		self.firstPliCommentIfAbsent {
+			self.error('String>>firstPliComment: no comment found')
 		}
 	}
 
@@ -554,19 +568,21 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	longestCommonSubsequence { :self :aString |
-		self.contents.longestCommonSubsequence(aString.contents).join
+		self.contents.longestCommonSubsequence(aString.contents).join('')
 	}
 
 	longestCommonSubstringList { :self :aString |
-		self.contents.longestCommonSubstringList(aString.contents).collect(join:/1)
+		self.contents.longestCommonSubstringList(aString.contents).collect { :each |
+			each.join('')
+		}
 	}
 
 	longestCommonSubstring { :self :aString |
-		self.contents.longestCommonSubstring(aString.contents).join
+		self.contents.longestCommonSubstring(aString.contents).join('')
 	}
 
 	longestIncreasingSubsequence { :self |
-		self.contents.longestIncreasingSubsequence.join
+		self.contents.longestIncreasingSubsequence.join('')
 	}
 
 	notEmpty { :self |
@@ -605,7 +621,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	onCharacters { :self :aBlock:/1 |
-		self.asList.aBlock.join
+		self.asList.aBlock.join('')
 	}
 
 	padLeft { :self :anInteger :aString |
@@ -711,7 +727,7 @@ String! : [Object, Json, Iterable, Character] {
 				list.add(each)
 			}
 		};
-		list.join
+		list.join('')
 	}
 
 	sentences { :self |
@@ -880,7 +896,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	joinCharacters { :self |
-		self.collect(characterString:/1).join
+		self.collect(characterString:/1).join('')
 	}
 
 	pascalCase { :self |
