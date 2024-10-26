@@ -2,13 +2,10 @@
 
 Arity selector syntax.
 
-When a method is declared two names are bound to it.
+When a method is declared the name it is bound to indicates the arity of the method.
 
-An arity specific name which dispatches to the type table,
-and an arity generic name which dispatches to the arity table.
-
-When a temporary variable is initialised to a literal block value,
-the equivalent two names are bound.
+Likewise when a temporary variable is initialised to a literal block value,
+the variable defined indicates the arity of the block.
 
 The application syntax _f(x, y)_ rewrites _f_ to the arity-specific name, here _f:/2(x, y)_.
 This is the ordinary notation for applying methods.

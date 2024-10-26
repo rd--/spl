@@ -1,4 +1,4 @@
-import * as flags from 'https://deno.land/std/flags/mod.ts';
+import { parseArgs, type Args } from "jsr:@std/cli/parse-args";
 
 import * as commonmark from 'npm:commonmark@0.31.0';
 
@@ -175,7 +175,7 @@ async function scSynthFromPreferences(
 	}
 }
 
-async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
+async function loadSpl(opt: Args, lib: string[]): Promise<void> {
 	const splDir = opt.dir || getSplDirectory() || '../';
 	console.log(
 		`loadSpl: opt.dir=${opt.dir}`,
@@ -194,12 +194,12 @@ async function loadSpl(opt: flags.Args, lib: string[]): Promise<void> {
 	}
 }
 
-async function replPerLine(opt: flags.Args): Promise<void> {
+async function replPerLine(opt: Args): Promise<void> {
 	await loadSpl(opt, opt.lib);
 	repl.perLine(opt.verbose);
 }
 
-async function runFile(fileName: string, opt: flags.Args): Promise<void> {
+async function runFile(fileName: string, opt: Args): Promise<void> {
 	await loadSpl(opt, opt.lib);
 	console.log(await fileio.evaluateFile(fileName, 'RunFile'));
 	if (opt.exit) {
@@ -266,7 +266,7 @@ function scTcpServer(portNumber: number): void {
 					}
 				} catch (err) {
 					console.error(
-						`scTcpServer: message: '${datagramText}', err: ${err} -> ${err.cause}`,
+						`scTcpServer: message: '${datagramText}', err: ${sc.errorMessage(err)}`,
 					);
 				}
 			}
@@ -278,7 +278,7 @@ declare global {
 	var osc: Record<string, any>;
 }
 
-async function scCmd(cmd: string, opt: flags.Args): Promise<void> {
+async function scCmd(cmd: string, opt: Args): Promise<void> {
 	globalThis.osc = osc;
 	await loadSpl(opt, ['StandardLibrary', 'SuperColliderLibrary']);
 	switch (cmd) {
@@ -295,7 +295,7 @@ async function scCmd(cmd: string, opt: flags.Args): Promise<void> {
 }
 
 async function cli(): Promise<void> {
-	const args = flags.parse(Deno.args, {
+	const args = parseArgs(Deno.args, {
 		boolean: ['exit', 'strict', 'unsafe', 'verbose'],
 		collect: ['lib'],
 		string: ['dir', 'port'],

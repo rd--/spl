@@ -1,10 +1,14 @@
 # Complicated Method Arity
 
-The lexical structure of both block application, _f(...)_,
-and method definition, _f { ... | ...}_,
-tells us the arity of _f_.
+The lexical structure of block application,
+_f(...)_,
+and method definition,
+_f { ... | ...}_,
+and `let` binding of block literals,
+_let f = { ... | ...}_,
+all tell the arity of _f_.
 
-The method definition syntax can define a _qualified_ method name _f:/n_,
+The method definition and `let` binding syntaxes can define a _qualified_ name _f:/n_,
 where _n_ is the arity of _f_.
 
 The application syntax _f(x)_ can mean _f:/1 . (x)_.
@@ -19,9 +23,9 @@ In this model _:/_ is the syntax for writing the name of a method.
 [3 4 5]
 ```
 
-This rewriting rule can also be applied to local block definitions.
+This rewriting rule is also applied to local block definitions.
 Writing _let f = { :x | x + 1 };_ means _var f:/1; f:/1 = { :x | x + 1 };_.
-(This rule cannot be applied when assigning a block to a variable.)
+(Note that this rule cannot be applied when assigning a block to a variable.)
 
 However re-writing restricts how the application syntax can be used.
 In particular it cannot be used to apply a name that was not defined using one of these two mechanisms.

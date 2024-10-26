@@ -298,7 +298,7 @@ export class System {
 		this.typeDictionary = new Map(preinstalledTypes.map(function (each) {
 			return [each, new Type(each, 'Kernel', [], [], new Map())];
 		}));
-		this.window = globalThis;
+		this.window = globalThis; // ech...
 		this.packageDictionary = new Map();
 		this.cache = new Map();
 	}
@@ -460,29 +460,19 @@ export function applyGenericAt(
 
 export function dispatchByType(
 	name: string,
-	arity: number,
 	typeTable: ByTypeMethodDictionary,
 	parameterArray: unknown[],
 ) {
-	if (arity === 0) {
-		const method = typeTable.get('Void');
-		if (method) {
-			return method.block.apply(null, []);
-		} else {
-			throw new Error(`dispatchByType: no zero arity method: ${name}`);
-		}
+	const receiver = parameterArray[0]; // receiver will be undefined if the parameterArray is [], i.e. arity is zero
+	const receiverType = (receiver === undefined) ? 'Void' : typeOf(receiver); // if there is no receiver the special type 'Void' is used
+	const typeMethod = typeTable.get(receiverType);
+	if (typeMethod) {
+		// console.debug(`dispatchByType: name=${name}, arity=${parameterArray.length}, type=${receiverType}`);
+		return typeMethod.block.apply(null, parameterArray);
 	} else {
-		const receiver = parameterArray[0];
-		const receiverType = typeOf(receiver);
-		const typeMethod = typeTable.get(receiverType);
-		if (typeMethod) {
-			// console.debug(`dispatchByType: name=${name}, arity=${arity}, type=${receiverType}`);
-			return typeMethod.block.apply(null, parameterArray);
-		} else {
-			throw new Error(
-				`dispatchByType: no method ${name}:/${arity} for ${receiverType}`,
-			);
-		}
+		throw new Error(
+			`dispatchByType: no method ${name}:/${parameterArray.length} for ${receiverType}: args=${parameterArray}`,
+		);
 	}
 }
 
@@ -578,8 +568,7 @@ export function addMethodFor(
 			) {
 				// console.debug(`dispatchByType: ${method.qualifiedName()}, ${JSON.stringify(argumentsArray)}`);
 				return dispatchByType(
-					method.information.name,
-					method.information.arity,
+					method.information.name, /* for error reporting only */
 					typeTable,
 					argumentsArray,
 				);
@@ -880,5 +869,5 @@ export function murmur3Generator(str: string, seed: number) {
 export function stringToSentences(str: string): Array<string> {
 	return str.match(
 		/(?=[^])(?:\P{Sentence_Terminal}|\p{Sentence_Terminal}(?!['"`\p{Close_Punctuation}\p{Final_Punctuation}\s]))*(?:\p{Sentence_Terminal}+['"`\p{Close_Punctuation}\p{Final_Punctuation}]*|$)/guy,
-	);
+	) || [];
 }

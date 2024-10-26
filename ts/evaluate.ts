@@ -1,3 +1,5 @@
+import { errorMessage } from '../lib/jssc3/ts/kernel/error.ts';
+
 import * as rewrite from './rewrite.ts';
 
 // True if the input string contains only blanks.
@@ -36,7 +38,7 @@ export function evaluateFor(packageName: string, slText: string): unknown {
 		return evaluateForSignalling(packageName, slText);
 	} catch (err) {
 		console.error(
-			`evaluateFor: ${packageName}: "${slText}": ${err.message}: ${err.cause}`,
+			`evaluateFor: ${packageName}: "${slText}": ${errorMessage(err)}`,
 		);
 		return err;
 	}
