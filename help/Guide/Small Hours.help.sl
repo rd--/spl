@@ -26,6 +26,8 @@ let o3 = SinOscFb(
 
 To reset the synthesiser type _Ctrl-FullStop_.
 
+To evaluate an expression without playing it type _Ctrl-Shift-Enter_.
+
 To get help about a word, for instance `SinOscFb`, select it and type _Ctrl-QuestionMark_.
 
 Text in brackets, for instance `Simple Editor`, indicates that the bracketed text is the name of a help document,

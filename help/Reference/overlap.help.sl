@@ -1,7 +1,8 @@
-# overlap -- texture generator
+# overlap
 
 - _overlap(aBlock, sustainTime, transitionTime, overlap)_
 
+Texture generator.
 Schedules a periodic process on the system clock to evalute _aBlock()_, which should construct a Ugen graph, and apply a self-releasing envelope with attack and release times equal to _transitionTime_ and a sustain time equal to _sustainTime_ to the answer, and sends the result to the synthesiser.
 
 The process runs at the interval _sustainTime + (transitionTime * 2) / overlap_, so there will be at most _overlap_ number of instances of the sound playing together.
