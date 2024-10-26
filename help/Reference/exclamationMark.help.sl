@@ -85,7 +85,7 @@ With external state:
 [8 5 9 9 4]
 ```
 
-The name of this operator is _exclamationMark_.
+The name of this operator is `exclamationMark`.
 
 Answer a `List` constructed by evaluating a no-argument block the indicated number of times.
 

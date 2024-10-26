@@ -41,7 +41,7 @@ Negative zero is equal to, and therefore identical to, zero:
 true
 ```
 
-The name of this operator is _equalsSignEqualsSign_
+The name of this operator is `equalsSignEqualsSign`.
 
 Where supported `==` is displayed as ≡.
 

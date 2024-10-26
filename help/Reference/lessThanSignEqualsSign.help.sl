@@ -28,7 +28,7 @@ When the arguments to `<=` are `boole`, it is the material implication `Boolean`
 
 Where supported `<=` is displayed as ≤.
 
-The name of this operator is _lessThanSignEqualsSign_.
+The name of this operator is `lessThanSignEqualsSign`.
 
 * * *
 

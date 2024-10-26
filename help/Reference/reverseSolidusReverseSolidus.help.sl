@@ -18,7 +18,7 @@ The operator name for _remainder_.
 0.375
 ```
 
-The name of this operator is _reverseSolidusReverseSolidus_
+The name of this operator is `reverseSolidusReverseSolidus`.
 
 * * *
 

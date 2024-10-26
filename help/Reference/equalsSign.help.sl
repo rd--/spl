@@ -79,7 +79,7 @@ When the arguments to `=` are `boole`, it is the logical biconditional function:
 
 The `=` method is not implemented at `Object`.
 
-The name of this operator is _equalsSign_.
+The name of this operator is `equalsSign`.
 
 The `=` symbol is also a part of `Let Syntax`.
 

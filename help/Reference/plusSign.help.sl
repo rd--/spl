@@ -53,7 +53,7 @@ The unary form of `+` is `conjugated`:
 [2j-3 -4j3 -12 1.5j-1.5]
 ```
 
-The name of this operator is _plusSign_.
+The name of this operator is `plusSign`.
 
 * * *
 

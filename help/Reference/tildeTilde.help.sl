@@ -9,7 +9,7 @@ It decides if two values are not the same.
 
 Where supported `~~` is displayed as ≢.
 
-The name of this operator is _tildeTilde_.
+The name of this operator is `tildeTilde`.
 
 * * *
 

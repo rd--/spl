@@ -1,3 +1,3 @@
 # Small Kansas
 
-![](sw/spl/svg/ScProgramBrowser.svg)
+![](sw/spl/svg/ScProgramBrowser.2.svg)

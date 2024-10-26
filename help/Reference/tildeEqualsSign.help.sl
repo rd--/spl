@@ -23,7 +23,7 @@ When the arguments to `~=` are `boole`, it is the exclusive or function:
 
 Where supported `~=` is displayed as ≠.
 
-The name of this operator is _tildeEquals_.
+The name of this operator is `tildeEqualsSign`.
 
 * * *
 

@@ -1,6 +1,6 @@
 # ;
 
-Semicolon is a syntax token, it is not an operator.
+`;` is a syntax token, it is not an operator.
 
 A semicolon separates statements in `Block Syntax`:
 
@@ -15,6 +15,8 @@ A semicolon separates vectors in `Matrix Syntax`:
 >>> [1 3; 5 7]
 [[1, 3], [5, 7]]
 ```
+
+The name of this syntax token is `semicolon`.
 
 * * *
 

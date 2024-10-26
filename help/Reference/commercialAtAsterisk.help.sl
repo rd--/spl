@@ -18,7 +18,7 @@ At `Collection` the operator (infix) form of _atAll_.
 [3 5 7]
 ```
 
-The name of this operator is _commercialAtAsterisk_.
+The name of this operator is `commercialAtAsterisk`.
 
 * * *
 

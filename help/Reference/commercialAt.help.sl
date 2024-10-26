@@ -35,7 +35,7 @@ and `@>` for `atPath`:
 6
 ```
 
-The name of this operator is _commercialAt_.
+The name of this operator is `commercialAt`.
 
 * * *
 

@@ -79,7 +79,7 @@ The unary form is `sign`:
 
 Where supported `*` is displayed as ×.
 
-The name of this operator is _asterisk_.
+The name of this operator is `asterisk`.
 
 * * *
 

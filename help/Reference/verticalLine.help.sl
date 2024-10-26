@@ -3,8 +3,10 @@
 - _aCollection.|_
 - _aBoolean | aBlock:/0_
 
-Nonevaluating conjunction.
-`true` if _aBoolean_ is `true` or _aBlock_ evaluates to `true`, else `false`.
+`|` is both an operator and a syntax token.
+
+As on operator `|` is non-evaluating conjunction.
+It answers `true` if _aBoolean_ is `true` or _aBlock_ evaluates to `true`, else `false`.
 If _aBoolean_ is `true` then _aBlock_ is not evaluated.
 
 Combine assertions:
@@ -38,15 +40,16 @@ and the unary operator syntax may be used:
 false
 ```
 
-The name of this operator is _verticalLine_.
+As a syntax token `|` separates the parameter list from the body in `Block Syntax`.
+
+The name of this operator and syntax token is `verticalLine`.
 
 Where supported `or` is displayed as ∨.
-
-Note that `|` is not displayed as ∨ because it is part of the `Block Syntax`.
 
 _Note:_
 In Smalltalk the evaluting form is called _or:_ and the non-evaluating form _|_.
 In Spl the names are `|` and `||`.
+Note that `|` is not displayed as ∨ because it is part of the `Block Syntax`.
 
 * * *
 

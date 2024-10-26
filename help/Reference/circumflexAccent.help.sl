@@ -117,7 +117,7 @@ Plot over a subset of the reals:
 
 Where supported `^` is displayed as ˆ.
 
-The name of this operator is _circumflexAccent_.
+The name of this operator is `circumflexAccent`.
 
 _Note:_
 In Smalltalk ^ is the _return_ operator, in C it is the _exclusive or_ operator.

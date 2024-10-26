@@ -1,6 +1,6 @@
 # :
 
-Colon is a syntax token, it is not an operator.
+`:` is a syntax token, it is not an operator.
 
 A colon prefix indicates argument names in `Block Syntax`:
 
@@ -25,6 +25,8 @@ An infix colon defines a `Range` in `Range Syntax`:
 >>> 1:2:9.asList
 [1 3 5 7 9]
 ```
+
+The name of this syntax token is `colon`.
 
 * * *
 

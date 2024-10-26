@@ -55,7 +55,7 @@ false
 [false true; true true]
 ```
 
-The name of this operator is _verticalLineVerticalLine_.
+The name of this operator is `verticalLineVerticalLine`.
 
 * * *
 

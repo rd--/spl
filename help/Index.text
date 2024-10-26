@@ -75,6 +75,7 @@ Guide/Number Literals.help.sl
 Guide/Numerical Precision.help.sl
 Guide/Numeric Types.help.sl
 Guide/One Indexing.help.sl
+Guide/Open Sound Control.help.sl
 Guide/Operator Adverbs.help.sl
 Guide/Operator List.help.sl
 Guide/Operator Names.help.sl
@@ -110,6 +111,7 @@ Guide/Specialised Constructors.help.sl
 Guide/String Syntax.help.sl
 Guide/Subsequences and substrings.help.sl
 Guide/SuperCollider Perspective.help.sl
+Guide/SuperCollider Synthesiser.help.sl
 Guide/Syntax Guides.help.sl
 Guide/System Dictionary.help.sl
 Guide/Temporary Block Syntax.help.sl
@@ -313,6 +315,7 @@ Reference/asStream.help.sl
 Reference/asString.help.sl
 Reference/asStringWithCommas.help.sl
 Reference/asterisk.help.sl
+Reference/asteriskSolidus.help.sl
 Reference/asTimeStamp.help.sl
 Reference/asTree.help.sl
 Reference/asTuple.help.sl
@@ -887,6 +890,7 @@ Reference/hyperfactorial.help.sl
 Reference/hyphenMinusGreaterThanSign.help.sl
 Reference/hyphenMinus.help.sl
 Reference/hyphenMinusHyphenMinus.help.sl
+Reference/hyphenMinusRightCurlyBracket.help.sl
 Reference/hypot.help.sl
 Reference/Hypot.help.sl
 Reference/identity.help.sl
@@ -1138,10 +1142,13 @@ Reference/leastPrimeGreaterThanOrEqualTo.help.sl
 Reference/leastResidueSystem.help.sl
 Reference/leastSquares.help.sl
 Reference/leaves.help.sl
+Reference/leftCurlyBracket.help.sl
 Reference/leftCurlyBracketHyphenMinus.help.sl
 Reference/leftIdentity.help.sl
 Reference/leftInversionCount.help.sl
+Reference/leftParenthesis.help.sl
 Reference/leftParenthesisRightParenthesis.help.sl
+Reference/leftSquareBracket.help.sl
 Reference/leftSquareBracketRightSquareBracket.help.sl
 Reference/Length.help.sl
 Reference/lessThanSignEqualsSignGreaterThanSign.help.sl
@@ -1727,9 +1734,12 @@ Reference/rgbToHsv.help.sl
 Reference/r.help.sl
 Reference/rho.help.sl
 Reference/Rhpf.help.sl
+Reference/rightCurlyBracket.help.sl
 Reference/rightIdentity.help.sl
 Reference/rightInversionCount.help.sl
 Reference/rightInversionCountToPermutation.help.sl
+Reference/rightParenthesis.help.sl
+Reference/rightSquareBracket.help.sl
 Reference/RingzBank.help.sl
 Reference/Ringz.help.sl
 Reference/Rlpf.help.sl
@@ -1836,6 +1846,7 @@ Reference/SmallFloat.help.sl
 Reference/SmallKansas.help.sl
 Reference/SmallProgram.help.sl
 Reference/SoftClip.help.sl
+Reference/solidusAsterisk.help.sl
 Reference/solidus.help.sl
 Reference/solidusSolidus.help.sl
 Reference/sortBlock.help.sl
@@ -1890,6 +1901,7 @@ Reference/Stream.help.sl
 Reference/stringConcatenation.help.sl
 Reference/String.help.sl
 Reference/stringJoin.help.sl
+Reference/styleSheetList.help.sl
 Reference/subdivide.help.sl
 Reference/subfactorial.help.sl
 Reference/submatrix.help.sl
@@ -2000,8 +2012,8 @@ Reference/TwoPole.help.sl
 Reference/TwoZero.help.sl
 Reference/TxLine.help.sl
 Reference/TypeBrowser.help.sl
+Reference/typeDefinition.help.sl
 Reference/typeDictionary.help.sl
-Reference/type.help.sl
 Reference/Type.help.sl
 Reference/typeLookup.help.sl
 Reference/typeOf.help.sl

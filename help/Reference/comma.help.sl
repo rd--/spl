@@ -1,6 +1,6 @@
 # ,
 
-Comma is a syntax token, it is not an operator.
+`,` is a syntax token, it is not an operator.
 
 Comma separates items in `List Syntax`:
 
@@ -46,6 +46,8 @@ Range(1, 9, 2)
 >>> [1, 3 .. 9]
 [1, 3, 5, 7, 9]
 ```
+
+The name of this syntax token is `comma`.
 
 * * *
 

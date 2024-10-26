@@ -31,7 +31,7 @@ and the unary operator syntax may be used:
 true
 ```
 
-The name of this operator is _ampersand_.
+The name of this operator is `ampersand`.
 
 _Note:_
 In Smalltalk the evaluating form is called _and:_ and the non-evaluating form _&_.

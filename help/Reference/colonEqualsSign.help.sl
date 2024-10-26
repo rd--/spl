@@ -1,8 +1,8 @@
 # :=
 
-:= is a syntax token, it is not an operator.
+`:=` is a syntax token, it is not an operator.
 
-:= separates the variable name and the expression in `Assignment Syntax`.
+`:=` separates the variable name and the expression in `Assignment Syntax`.
 
 ```
 >>> var x;
@@ -28,13 +28,13 @@ Assigning to multiple variables:
 (1, 1)
 ```
 
-The _:=_ symbol is also part of `AtPut Syntax` and `Quoted AtPut Syntax`.
+The `:=` symbol is also part of `AtPut Syntax`, `List Assignment Syntax` and `Quoted AtPut Syntax`.
 
 Where supported `:=` is displayed either as ← or ≔.
 
 * * *
 
-See also: =, Assignment Syntax
+See also: =, Assignment Syntax, AtPut Syntax, List Assignment Syntax, Quoted AtPut Syntax
 
 References:
 _Apl_

@@ -1,6 +1,6 @@
 # .
 
-. is a syntax token, it is not an operator.
+`.` is a syntax token, it is not an operator.
 
 A full stop separates the _receiver_ from the _method selector_ in `Method Syntax`:
 
@@ -21,6 +21,8 @@ A full stop separates the _procedure_ from the _parameter list_ in `Value Apply 
 >>> max:/2 . (3, 7)
 7
 ```
+
+The name of this syntax token is `fullStop`.
 
 * * *
 

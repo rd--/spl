@@ -38,7 +38,7 @@ Combine assertions with `&&`:
 true
 ```
 
-The name of this operator is _ampersandAmpersand_.
+The name of this operator is `ampersandAmpersand`.
 
 * * *
 

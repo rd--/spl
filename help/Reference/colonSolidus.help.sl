@@ -30,6 +30,8 @@ and must be called using _apply_ or _value_.
 
 Where supported `:/` is displayed as ⧸.
 
+The name of this token is `colonSolidus`.
+
 * * *
 
 Unicode: U+00B0 ⧸ Big Solidus

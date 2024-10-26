@@ -6,15 +6,20 @@ and a bracketed form that uses begin and end tokens, and which may span multiple
 
 Spl follows the PL/I (or C) bracketed comment notation.
 
-The C-language family prefix token is `//` (from BCPL) and the bracket tokens are `/*` and `*/` (from PL/I).
+The C-language family prefix token is `//`,
+inherited from BCPL,
+and the bracket tokens are `/*` and `*/`,
+inherited from PL/I.
 The bracket tokens would be legal operators,
 however they are not used and imply a kind of nonsense.
 `//` means quotient in Smalltalk.
 
-The Ml (and Pascal and Mathematica and AppleScript) bracket tokens are `(*` and `*)`.
+The Ml bracket tokens,
+also used for Pascal and Mathematica and AppleScript.
+are `(*` and `*)`.
 `(*` dissallows `c.reduce(*)`.
 
-The Haskell prefix token is `--` and the bracket tokens are `{-` and `-}`.
+The Haskell prefix token is `--` (also used for Ada and Lua) and the bracket tokens are `{-` and `-}`.
 The Haskell comment token `{-` disallows `{-}`,
 however the ordinary notation for blocks includes spaces,
 and `{ - }` is allowed.

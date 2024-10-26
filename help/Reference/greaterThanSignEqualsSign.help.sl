@@ -28,7 +28,7 @@ When the arguments to `>=` are `boole`, it is the converse implication `Boolean`
 
 Where supported `>=` is displayed as ≥.
 
-The name of this operator is _greaterThanSignEqualsSign_.
+The name of this operator is `greaterThanSignEqualsSign`.
 
 * * *
 

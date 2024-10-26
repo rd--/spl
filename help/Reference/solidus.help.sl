@@ -56,7 +56,7 @@ The unary form is `reciprocal`:
 
 Where supported `/` is displayed as ÷.
 
-The name of this operator is _solidus_.
+The name of this operator is `solidus`.
 
 This glyph forms part of the `Fraction Literals` syntax:
 

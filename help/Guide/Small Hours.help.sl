@@ -1,8 +1,8 @@
 # Small Hours
 
-Small Hours is an experimental interpreter for the experimental [_Simple Programming Language_].
+Small Hours is an experimental interpreter for the experimental `Simple Programming Language`.
 
-It includes a library for communicating with the _SuperCollider_ synthesiser.
+It includes a library for communicating with the `SuperCollider Synthesiser`.
 
 To play a synthesiser program select it and type _Ctrl-Enter_.
 
@@ -31,4 +31,4 @@ To get help about a word, for instance `SinOscFb`, select it and type _Ctrl-Ques
 Text in brackets, for instance `Simple Editor`, indicates that the bracketed text is the name of a help document,
 which can be visited the same way.
 
-There is a language `Help Index` and an `Sc Help Index` where terms are sorted alphabetically.
+There is a language `Help Index` and a `Unit Generator Index` where terms are sorted alphabetically.

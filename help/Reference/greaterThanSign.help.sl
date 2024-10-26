@@ -26,7 +26,7 @@ When the arguments to `>` are `boole`, it is the material non-implication `Boole
 [0 0; 1 0]
 ```
 
-The name of this operator is _greaterThanSign_.
+The name of this operator is `greaterThanSign`.
 
 * * *
 

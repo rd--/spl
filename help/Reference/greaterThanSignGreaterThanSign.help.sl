@@ -14,7 +14,7 @@ The operator form or `bitShiftRight`.
 
 Where supported `>>` is displayed as ≫.
 
-The name of this operator is _greaterThanSignGreaterThanSign_.
+The name of this operator is `greaterThanSignGreaterThanSign`.
 
 * * *
 

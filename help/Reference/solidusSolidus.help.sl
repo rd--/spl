@@ -28,7 +28,7 @@ Threads over lists:
 [2 -2 -2 2]
 ```
 
-The name of this operator is _solidusSolidus_.
+The name of this operator is `solidusSolidus`.
 
 * * *
 

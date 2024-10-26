@@ -13,7 +13,7 @@ The operator form or `bitShiftLeft`.
 ```
 Where supported `<<` is displayed as ≪.
 
-The name of this operator is _lessThanSignLessThanSign_.
+The name of this operator is `lessThanSignLessThanSign`.
 
 * * *
 

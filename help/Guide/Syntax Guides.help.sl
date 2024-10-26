@@ -2,27 +2,27 @@
 
 ## Core Syntax
 
-- `Assignment Syntax`
-- `Block Syntax`
+- `Assignment Syntax`, `:=`
+- `Block Syntax`, `{`, `}`, `:`, `|`, `;`
 - `List Syntax`
-- `Literals Syntax`
+- `Literals Syntax`, `'`
 - `Program Syntax`
-- `Value Apply Syntax`
-- `Var Syntax`
+- `Value Apply Syntax`, `(`, `)`, `.`
+- `Var Syntax`, `var`
 
 ## Standard Syntax
 
 - `Apply Syntax`
 - `Binary Operator Syntax`
-- `Comment Syntax`
+- `Comment Syntax`, `/*`, `*/`
 - `Constant Syntax`
 - `Dictionary Assignment Syntax`
 - `Dictionary Syntax`
 - `Infix Method Syntax`
-- `Let Syntax`
+- `Let Syntax`, `let`
 - `List Assignment Syntax`
-- `Method Syntax`
-- `Range Syntax`
+- `Method Syntax`, `.`
+- `Range Syntax`, `:`
 - `Trailing Block Syntax`
 - `Trailing Dictionary Syntax`
 - `Unary Operator Syntax`
@@ -30,24 +30,21 @@
 ## Accessing Syntax
 
 - `At Syntax`
-- `AtPut Syntax`
-- `Quoted At Syntax`
-- `Quoted AtPut Syntax`
+- `AtPut Syntax`, `:=`
+- `Quoted At Syntax`, `::`
+- `Quoted AtPut Syntax`, `::`, `:=`
 
 ## Collection Notation Syntax
 
 - `Array Syntax`
-- `Matrix Syntax`
-- `Vector Syntax`
-- `Volume Syntax`
+- `Matrix Syntax`, `,`
+- `Vector Syntax`, `;`
+- `Volume Syntax`, `:;`
 
 ## Syntax Summaries
 
 - `Indexable Syntax`
 - `Quoted Indexable Syntax`
-
-##
-
 
 ## Experimental Syntax
 
