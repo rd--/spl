@@ -2,8 +2,10 @@
 
 - _anObject = anotherObject_
 
-The _structural equality_ operator.
-Answers `true` if _anObject_ is equal to _anotherObject_, else `false`.
+`=` is both a syntax token and an operator.
+
+As an operator it represents _structural equality_.
+It answers `true` if _anObject_ is equal to _anotherObject_, else `false`.
 The meaning of equality is determined by the type of _anObject_.
 
 At `SmallFloat`:
@@ -79,13 +81,13 @@ When the arguments to `=` are `boole`, it is the logical biconditional function:
 
 The `=` method is not implemented at `Object`.
 
-The name of this operator is `equalsSign`.
+As a syntax token the `=` symbol is a part of `Let Syntax`.
 
-The `=` symbol is also a part of `Let Syntax`.
+The name of this operator and syntax token is `equalsSign`.
 
 * * *
 
-See also: <, <=, >, >=, ~=, ==, ~, :=, equalSlots, Let Syntax
+See also: <, <=, >, >=, ~=, ==, ~, :=, hasEqualSlots, Let Syntax
 
 Guides: Let Syntax
 
