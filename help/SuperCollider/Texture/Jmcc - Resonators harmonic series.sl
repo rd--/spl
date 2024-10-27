@@ -1,4 +1,4 @@
-/* resonators harmonic series (jmcc) #2 ; just diatonic scale */
+/* Resonators harmonic series (Jmcc) #2 ; just diatonic scale */
 {
 	let p = 12;
 	let noise = BrownNoise() * 0.001;

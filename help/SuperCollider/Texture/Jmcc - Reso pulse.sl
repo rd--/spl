@@ -1,4 +1,4 @@
-/* reso-pulse ; jmcc #1 ; move post-processing inwards ; requires timed scheduling at synthesiser */
+/* Reso-pulse ; Jmcc #1 ; Move post-processing inwards ; Requires timed scheduling at synthesiser */
 {
 	let lfoFreq = 6;
 	let lfo = LfNoise0(lfoFreq) * 1000 + 1200;

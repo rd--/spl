@@ -1,4 +1,4 @@
-/* inharmonic warbulence (jmcc) #12 */
+/* Inharmonic warbulence (Jmcc) #12 */
 {
 	let f = Rand(24, 96).MidiCps;
 	let a = 1.Min(500 / f);

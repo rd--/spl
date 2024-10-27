@@ -1,4 +1,4 @@
-/* https://sccode.org/1-4Qy ; f0 ; 0202 */
+/* https://sccode.org/1-4Qy ; F0 ; 0202 */
 { :currentTime :each |
 	let b = 0.1;
 	let s = Dseq(9, [0, each % 9, 2, 3, 4, 0, 2, 1] * 150);

@@ -1,4 +1,4 @@
-/* https://sccode.org/1-4Qy ; f0 ; 0205 */
+/* https://sccode.org/1-4Qy ; F0 ; 0205 */
 { :t :i |
 	let a = Wrap(i * 9, 99, 8000);
 	let o = SinOsc(Duty(1 / [8, 9], 0, Dseq(99, a)), 0);

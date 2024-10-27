@@ -1,4 +1,4 @@
-/* dragtokeyboard (jmcc) ; http://www.iamas.ac.jp/~aka/dspss2004/materials/ */
+/* Dragtokeyboard (Jmcc) ; http://www.iamas.ac.jp/~aka/dspss2004/materials/ */
 {
 	let pw = { :u :w |
 		LfPulse(ExpRand(0.1, u), 0, w)

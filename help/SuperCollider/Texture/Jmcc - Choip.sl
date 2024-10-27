@@ -1,4 +1,4 @@
-/* choip (jmcc) #10 */
+/* Choip (Jmcc) #10 */
 {
 	let t = 12;
 	let i = Impulse(XLine(ExpRand(1, 30), ExpRand(1, 30), t), 0);

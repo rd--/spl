@@ -1,4 +1,4 @@
-/* random pulsations (jmcc) #1 */
+/* Random pulsations (Jmcc) #1 */
 {
 	let o1 = SinOsc(2000.Rand0, 0) * 0.02;
 	let o2 = SinOsc(LinRand(8, 88, 0), 0);

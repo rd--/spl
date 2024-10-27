@@ -1,4 +1,4 @@
-/* https://twitter.com/lukiss163/status/1581607231463731200 ; lnu ; requires=SfAcquire */
+/* https://twitter.com/lukiss163/status/1581607231463731200 ; Lnu ; requires=SfAcquire */
 {
 	let sf = SfAcquireMono('Floating');
 	let n = [-36 -9 -14 0 -19 -5 3 -2 -24 -7];

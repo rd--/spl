@@ -1,4 +1,4 @@
-/* pond life ; jmcc ; #1 */
+/* Pond life ; Jmcc ; #1 */
 {
 	let f = MulAdd(
 		SinOsc(20 + 30.Rand0, 0),

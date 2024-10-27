@@ -1,4 +1,4 @@
-/* tremulate (jmcc) #1 */
+/* Tremulate (Jmcc) #1 */
 {
 	let amp = 0.Max(LfNoise2(Rand(30, 90) # 4) * 0.1);
 	EqPan(

@@ -1,4 +1,4 @@
-/* cfstring1 (jmcc) ; http://www.iamas.ac.jp/~aka/dspss2004/materials/ */
+/* Cfstring1 (Jmcc) ; http://www.iamas.ac.jp/~aka/dspss2004/materials/ */
 {
 	let dgr = DegreeToKey(
 		[0 2 4 5 7 9 11].asLocalBuf,

@@ -1,4 +1,4 @@
-/* https://sccode.org/1-4Qy ; f0 ; 0006 */
+/* https://sccode.org/1-4Qy ; F0 ; 0006 */
 {
 	let n = MoogFf(
 		ClipNoise() * 0.4,

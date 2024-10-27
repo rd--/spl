@@ -1,4 +1,4 @@
-/* https://sccode.org/1-4Qy ; f0 ; 0101 */
+/* https://sccode.org/1-4Qy ; F0 ; 0101 */
 { :t :i |
 	let c = i % 8 + 1;
 	let a = DelayN(InFb(2, 0), 1, 1);

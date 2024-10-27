@@ -1,4 +1,4 @@
-/* lots-o-sins (jmcc) #2 */
+/* Lots-o-sins (Jmcc) #2 */
 {
 	let n = 60;
 	{
