@@ -32,7 +32,7 @@ z
 /* https://sccode.org/1-50L (Mk) */
 let freq = 100;
 let rt = 0.5;
-let z = PinkNoise(2);
+let z = PinkNoise(1 # 2, 0);
 let rw = { :f1 :f2 :q |
 	4.timesRepeat {
 		z := Brf(

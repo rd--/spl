@@ -461,7 +461,7 @@ export function applyGenericAt(
 // The typeTable for zero arity methods always has exactly one entry, for Void.
 export function dispatchVoid(
 	name: string,
-	typeTable: ByTypeMethodDictionary
+	typeTable: ByTypeMethodDictionary,
 ) {
 	// console.debug(`dispatchVoid: ${name}, ${typeTable.size}`);
 	const voidMethod = typeTable.get('Void');
@@ -571,7 +571,9 @@ export function addMethodFor(
 				return dispatchByType(name, typeTable, args);
 			};
 			const dispatchFunction = (arity === 0) ? voidFunction : typeFunction;
-			globalFunctionWithArity = globalThis[prefixedNameWithArity] = dispatchFunction;
+			globalFunctionWithArity =
+				globalThis[prefixedNameWithArity] =
+					dispatchFunction;
 			Object.defineProperty(globalFunctionWithArity, 'name', {
 				value: method.qualifiedName(),
 			});

@@ -1,4 +1,4 @@
-import { parseArgs, type Args } from "jsr:@std/cli/parse-args";
+import { type Args, parseArgs } from 'jsr:@std/cli/parse-args';
 
 import * as commonmark from 'npm:commonmark@0.31.0';
 
@@ -266,7 +266,9 @@ function scTcpServer(portNumber: number): void {
 					}
 				} catch (err) {
 					console.error(
-						`scTcpServer: message: '${datagramText}', err: ${sc.errorMessage(err)}`,
+						`scTcpServer: message: '${datagramText}', err: ${
+							sc.errorMessage(err)
+						}`,
 					);
 				}
 			}

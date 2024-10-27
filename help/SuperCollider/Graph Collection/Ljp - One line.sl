@@ -48,7 +48,7 @@ CombN(Bpf(d, LfNoise0(10) * 3000 + 3040, 0.001) * 200, 0.2, 0.2, 5)
 SinOsc(0, Bpf(Dust(10 # 2) * 20000, LfNoise1(10 # 2) * 4000 + 4000, 0.1)) * 0.2
 
 /* Noise slurps ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #11 */
-SinOsc(0, Bpf(WhiteNoise(2) * 1000, LfNoise1(0.1 # 2) * 2000 + 4000, 0.001)) * 0.1
+SinOsc(0, Bpf(WhiteNoise(1000 # 2, 0), LfNoise1(0.1 # 2) * 2000 + 4000, 0.001)) * 0.1
 
 /* feedback racket ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #12a */
 let p = Saw(440 + [0, 0.2]) * 0.02;
@@ -59,11 +59,11 @@ let p = Saw(440 + [0, 0.2]) * 0.02;
 p + CombC(p, 0.1, LfNoise1(10) * 0.08 + 0.08, -10000)
 
 /* Feedback racket ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #12c */
-let p = PinkNoise(2) * 0.03;
+let p = PinkNoise(0.03 # 2, 0);
 p + CombC(p, 0.2, LfNoise0(1) * 0.2 + 0.2, -10000)
 
 /* Feedback racket ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #12d */
-let p = WhiteNoise(2) * 0.02;
+let p = WhiteNoise(0.02 # 2, 0);
 p + CombC(p, 0.1, LfNoise1(10) * 0.08 + 0.08, -10000)
 
 /* Feedback racket ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #12e */

@@ -1,26 +1,26 @@
 # WhiteNoise
 
 - _WhiteNoise()_
-- _WhiteNoise(numChan=1)_ => _{ WhiteNoise() } ! numChan_
+- _WhiteNoise(mul, add)_ => _{ WhiteNoise() } ! mul.size * mul + add_
 
 Generates noise whose spectrum has equal power at all frequencies.
 
 De-correlated stereo white noise:
 
 ```
-WhiteNoise(2) * 0.1
+WhiteNoise(0.1 # 2, 0)
 ```
 
 High pass filtered:
 
 ```
-WhiteNoise(2).Hpz1 * 0.1
+WhiteNoise(0.1 # 2, 0).Hpz1
 ```
 
 Low pass filtered:
 
 ```
-WhiteNoise(2).Lpz1 * 0.1
+WhiteNoise(0.1 # 2, 0).Lpz1
 ```
 
 * * *

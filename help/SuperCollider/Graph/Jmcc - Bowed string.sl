@@ -5,7 +5,7 @@
 	let oct = [24 36 48 60 72 84];
 	let f = (Choose(tr, scale) + Choose(tr, oct)).MidiCps;
 	let e = (LfNoise1(TExpRand(0.125, 0.5, tr)) * 0.6 + 0.4).Max(0);
-	let x = BrownNoise(2) * 0.007 * e;
+	let x = BrownNoise(0.007 # 2, 0) * e;
 	let k = DynRingzBank(
 		x,
 		12.arithmeticSeries(f, f),

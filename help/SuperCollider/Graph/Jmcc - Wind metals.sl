@@ -2,7 +2,7 @@
 { :tr |
 	let n = 6;
 	let exc = [
-		BrownNoise(2),
+		BrownNoise(1 # 2, 0),
 		0.007,
 		(LfNoise1(TExpRand(0.125, 0.5, tr)) * 0.75 + 0.25).Max(0)
 	].product;

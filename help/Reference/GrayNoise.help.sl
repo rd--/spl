@@ -1,7 +1,7 @@
 # GrayNoise
 
 - _GrayNoise()_
-- _GrayNoise(numChan=1) ≡ { GrayNoise() } ! numChan_
+- _GrayNoise(mul, add) ≡ { GrayNoise() } ! mul.size * mul + add_
 
 Noise generator.
 Generates noise which results from flipping random bits in a word.

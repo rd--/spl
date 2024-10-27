@@ -16,7 +16,7 @@ Pan2(n, SinOsc([1 / 7, 1 / 13], [0, pi]), 0.1).Mix
 /* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft */
 Lpf(
 	Hpf(
-		WhiteNoise(2) / 5,
+		WhiteNoise(0.2 # 2, 0),
 		700
 	),
 	600

@@ -1,5 +1,5 @@
 /* BrownNoise */
-BrownNoise(2) * 0.05
+BrownNoise(0.05 # 2, 0)
 
 /* BrownNoise */
-Hpz1(BrownNoise(2)) * 0.05
+Hpz1(BrownNoise(0.05 # 2, 0))

@@ -2,8 +2,8 @@
 let above = MouseY(0, 2, 0, 0.2).RoundTo(1);
 let aside = MouseX(1, 1.6, 0, 0.2);
 let sources = [
-	WhiteNoise(2) * 0.3,
-	PinkNoise(2),
+	WhiteNoise(0.3 # 2, 0),
+	PinkNoise(1 # 2, 0),
 	LfdNoise3(10000) * 0.1
 ];
 let u1 = SelectX(LfdNoise1(4).LinLin(-1, 1, 0, sources.size), sources) * 0.1;

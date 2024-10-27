@@ -12,7 +12,7 @@ CombL(
 Rlpf(LfPulse(SinOsc(0.2, 0).MulAdd(10, 21), 0, 0.1), 100, 0.1).Clip2(0.4)
 
 /********** Scratchy ; Jmcc **********/
-Rhpf(BrownNoise(2).MulAdd(0.5, -0.49).Max(0) * 20, 5000, 1)
+Rhpf(BrownNoise(0.5 # 2, -0.49).Max(0) * 20, 5000, 1)
 
 /********** Sprinkler ; Jmcc **********/
 Bpz2(WhiteNoise() * LfPulse(LfPulse(0.09, 0, 0.16).MulAdd(10, 7), 0, 0.25) * 0.1)
