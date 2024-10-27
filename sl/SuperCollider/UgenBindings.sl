@@ -10,6 +10,7 @@
 	GrayNoise { <primitive: return sc.GrayNoise();> }
 	NumOutputBuses { <primitive: return sc.NumOutputBuses();> }
 	PinkNoise { <primitive: return sc.PinkNoise();> }
+	RadiansPerSample { <primitive: return sc.RadiansPerSample();> }
 	SampleDur { <primitive: return sc.SampleDur();> }
 	SampleRate { <primitive: return sc.SampleRate();> }
 	WhiteNoise { <primitive: return sc.WhiteNoise();> }

@@ -2940,7 +2940,7 @@ RunArray([1, 3, 5], ['a', 'b', 'c']).asList.join('') = 'abbbccccc' /* from runs 
 ```
 system.includesPackage('Sequence') /* package */
 [1, 3, 2] ++ [4, 5] = [1, 3, 2, 4, 5] /* append sequences */
-[1, 3, 2, 4, 5].reversed = [5, 4, 2, 3, 1] /* reverse sequence (anwer new array) */
+[1, 3, 2, 4, 5].reversed = [5, 4, 2, 3, 1] /* reverse sequence (answer new array) */
 [1, 3, 2, 4, 5].sorted = [1, 2, 3, 4, 5] /* sort using default comparison (answer new array) */
 [1, 3, 2, 4, 5].sorted { :i :j | i > j } = [5 .. 1] /* sort using provided comparison (answer new array) */
 [3, 3, 3, 2, 2, 1].sorted.size = 6 /* sort retains duplicates */

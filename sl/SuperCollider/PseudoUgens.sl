@@ -20,90 +20,48 @@
 
 }
 
++Ugen {
+
+	FeedforwardFeedbackward { :in :forward:/2 :backward:/1 |
+		let maxBlockSize = 512;
+		let buffer = BufAlloc(1, maxBlockSize + 1).BufClear;
+		let delayTime = ControlDur();
+		let reader = DelayTap(buffer, delayTime);
+		let backwardAnswer = backward(reader);
+		let forwardAnswer = forward(in, backwardAnswer);
+		let writer = DelayWrite(buffer, forwardAnswer);
+		[backwardAnswer, forwardAnswer].anySatisfy(isList:/1).ifTrue {
+			'FeedforwardFeedbackward: processors not monophonic'.error
+		};
+		forwardAnswer <! writer
+	}
+
+}
+
++List {
+
+	FeedforwardFeedbackward { :in :forward:/2 :backward:/1 |
+		in.collect { :x |
+			FeedforwardFeedbackward(x, forward:/2, backward:/1)
+		}
+	}
+
+}
 
 +[List, SmallFloat, Ugen] {
 
-	PulseDpw { :freq :width |
-		SawDpw(freq, 0) - SawDpw(freq, (width + width).Wrap(-1, 1))
+	/*
+	AudioIn { :channelNumber |
+		In(1, NumOutputBuses() + channelNumber - 1)
+	}
+	*/
+
+	AudioOut { :channelsList |
+		Out(0, channelsList)
 	}
 
-	LinCurve { :self :inMin :inMax :outMin :outMax :curve |
-		let grow = curve.Exp;
-		let a = outMax - outMin / (1 - grow);
-		let b = outMin + a;
-		let scaled = (self.Clip(inMin, inMax) - inMin) / (inMax - inMin);
-		let curvedResult = b - (a * (grow ^ scaled));
-		curve.isNumber.if {
-			curvedResult
-		} {
-			Select2(
-				curve.Abs >= 0.125,
-				curvedResult,
-				self.LinLin(inMin, inMax, outMin, outMax)
-			)
-		}
-	}
-
-	HoldSequence { :inList :dur |
-		let gate = DurationGate(dur);
-		let trig = Trig1(gate, SampleDur());
-		let index = Stepper(trig.kr, 1, 0, inList.size - 1, 1, 0);
-		Latch(Select(index, inList), trig) /* Multiplexer */
-	}
-
-	THoldSequence { :inList :dur |
-		HoldSequence(inList, dur).Trig1(SampleDur())
-	}
-
-	ZeroBuf { :self |
-		self <! ClearBuf(self)
-	}
-
-	WrapOut { :self |
-		<primitive: return sc.wrapOut(_busOffset_1(_self), _self);>
-	}
-
-	Distances { :x :y :z :coordinateList |
-		WDistances(1, x, y, z, coordinateList)
-	}
-
-	KNearest { :numChannels :x :y :z :coordinateList |
-		WkNearest(numChannels, 1, x, y, z, coordinateList)
-	}
-
-	TableWindow { :trig :dur :bufNum |
-		let phase = TLine(0, BufFrames(bufNum), dur, trig);
-		BufRd(1, bufNum, phase, 0, 4) /* 4 = Cubic Interpolation */
-	}
-
-	SelectXFocus { :which :array :focus :wrap |
-		wrap.if {
-			array.withIndexCollect { :input :index |
-				(1 - (ModDif(which, index - 1, array.size) * focus)).Max(0) * input
-			}.sum
-		} {
-			array.withIndexCollect { :input :index |
-				(1 - (AbsDif(which, index - 1) * focus)).Max(0) * input
-			}
-		}
-	}
-
-	CurveGen { :gate :levels :times :curves |
-		Env(levels, times, curves, nil, nil, 0).asEnvGen(gate)
-	}
-
-	LinGen { :gate :levels :times |
-		Env(levels, times, ['lin'], nil, nil, 0).asEnvGen(gate)
-	}
-
-	TBufChoose { :tr :buf |
-		BufRd(
-			1,
-			buf,
-			TiRand(0, BufFrames(buf) - 1, tr),
-			0,
-			1 /* 1 = No Interpolation */
-		)
+	Cc { :index |
+		ControlIn(1, 11000 + index - 1)
 	}
 
 	Choose { :tr :inList |
@@ -118,28 +76,24 @@
 		}
 	}
 
-	/*
-	ExpRand { :tr :lo :hi | TExpRand(lo, hi, tr) }
-	LinRand { :tr :lo :hi :minmax | TLinRand(lo, hi, minmax, tr) }
-	Line { :tr :start :end :dur | TLine(start, end, dur, tr) }
-	Rand { :tr :lo :hi | TRand(lo, hi, tr) }
-	Scramble { :tr :inList | TScramble(tr, inList) }
-	IRand { :tr :lo :hi | TiRand(lo, hi, tr) }
-	XLine { :tr :start :end :dur | TxLine(start, end, dur, tr) }
-	*/
-
-	/*
-	AudioIn { :channelNumber |
-		In(1, NumOutputBuses() + channelNumber - 1)
-	}
-	*/
-
-	AudioOut { :channelsList |
-		Out(0, channelsList)
+	CurveGen { :gate :levels :times :curves |
+		Env(levels, times, curves, nil, nil, 0).asEnvGen(gate)
 	}
 
-	Cc { :index |
-		ControlIn(1, 11000 + index - 1)
+	DemandSequencer { :self :trig |
+		Demand(trig, 0, Dseq(inf, self))
+	}
+
+	Distances { :x :y :z :coordinateList |
+		WDistances(1, x, y, z, coordinateList)
+	}
+
+	DurationSequencer { :self :dur |
+		Duty(dur, 0, Dseq(inf, self))
+	}
+
+	DemandImpulseSequencer { :self :trig |
+		DemandSequencer(self, trig) * Trig(trig, SampleDur())
 	}
 
 	EnvBreakPoint { :breakPointList :curves |
@@ -179,16 +133,15 @@
 		Fm7(ctlMatrix.concatenation, modMatrix.concatenation)
 	}
 
+	HoldSequence { :inList :dur |
+		let gate = DurationGate(dur);
+		let trig = Trig1(gate, SampleDur());
+		let index = Stepper(trig.kr, 1, 0, inList.size - 1, 1, 0);
+		Latch(Select(index, inList), trig) /* Multiplexer */
+	}
+
 	ImpulseSequencer { :self :trig |
 		Sequencer(self, trig) * Trig(trig, SampleDur())
-	}
-
-	DemandImpulseSequencer { :self :trig |
-		DemandSequencer(self, trig) * Trig(trig, SampleDur())
-	}
-
-	LinRand0 { :self |
-		LinRand(0, self, 1)
 	}
 
 	IRand0 { :self |
@@ -203,10 +156,47 @@
 		IRand(0 - self, self)
 	}
 
+	KNearest { :numChannels :x :y :z :coordinateList |
+		WkNearest(numChannels, 1, x, y, z, coordinateList)
+	}
+
+	LinCurve { :self :inMin :inMax :outMin :outMax :curve |
+		let grow = curve.Exp;
+		let a = outMax - outMin / (1 - grow);
+		let b = outMin + a;
+		let scaled = (self.Clip(inMin, inMax) - inMin) / (inMax - inMin);
+		let curvedResult = b - (a * (grow ^ scaled));
+		curve.isNumber.if {
+			curvedResult
+		} {
+			Select2(
+				curve.Abs >= 0.125,
+				curvedResult,
+				self.LinLin(inMin, inMax, outMin, outMax)
+			)
+		}
+	}
+
+	LinGen { :gate :levels :times |
+		Env(levels, times, ['lin'], nil, nil, 0).asEnvGen(gate)
+	}
+
 	LinLin { :self :srcLo :srcHi :dstLo :dstHi |
 		let mul = (dstHi - dstLo) / (srcHi - srcLo);
 		let add = dstLo - (mul * srcLo);
 		MulAdd(self.Clip(srcLo, srcHi), mul, add)
+	}
+
+	LinRand0 { :self |
+		LinRand(0, self, 1)
+	}
+
+	LinRange { :self :lo :hi |
+		LinLin(self, -1, 1, lo, hi)
+	}
+
+	PulseDpw { :freq :width |
+		SawDpw(freq, 0) - SawDpw(freq, (width + width).Wrap(-1, 1))
 	}
 
 	Rand0 { :self |
@@ -217,12 +207,16 @@
 		Rand(0 - self, self)
 	}
 
-	LinRange { :self :lo :hi |
-		LinLin(self, -1, 1, lo, hi)
-	}
-
-	ExpRange { :self :lo :hi |
-		LinExp(self, -1, 1, lo, hi)
+	SelectXFocus { :which :array :focus :wrap |
+		wrap.if {
+			array.withIndexCollect { :input :index |
+				(1 - (ModDif(which, index - 1, array.size) * focus)).Max(0) * input
+			}.sum
+		} {
+			array.withIndexCollect { :input :index |
+				(1 - (AbsDif(which, index - 1) * focus)).Max(0) * input
+			}
+		}
 	}
 
 	Sequencer { :inList :trig |
@@ -230,18 +224,6 @@
 			Stepper(trig.kr, 1, 0, inList.size - 1, 1, 0),
 			inList
 		) /* Multiplexer */
-	}
-
-	DemandSequencer { :self :trig |
-		Demand(trig, 0, Dseq(inf, self))
-	}
-
-	DurationSequencer { :self :dur |
-		Duty(dur, 0, Dseq(inf, self))
-	}
-
-	TDurationSequencer { :self :dur |
-		TDuty(dur, 0, Dseq(inf, self))
 	}
 
 	Silent { :numChannels |
@@ -268,6 +250,29 @@
 		PanAz(numChannels, inList, pos, level, width, orientation).flop.collect(sum:/1)
 	}
 
+	TableWindow { :trig :dur :bufNum |
+		let phase = TLine(0, BufFrames(bufNum), dur, trig);
+		BufRd(1, bufNum, phase, 0, 4) /* 4 = Cubic Interpolation */
+	}
+
+	TBufChoose { :tr :buf |
+		BufRd(
+			1,
+			buf,
+			TiRand(0, BufFrames(buf) - 1, tr),
+			0,
+			1 /* 1 = No Interpolation */
+		)
+	}
+
+	THoldSequence { :inList :dur |
+		HoldSequence(inList, dur).Trig1(SampleDur())
+	}
+
+	TDurationSequencer { :self :dur |
+		TDuty(dur, 0, Dseq(inf, self))
+	}
+
 	Tr { :self |
 		Trig(self, SampleDur())
 	}
@@ -276,10 +281,28 @@
 		Trig1(self, SampleDur())
 	}
 
+	WrapOut { :self |
+		<primitive: return sc.wrapOut(_busOffset_1(_self), _self);>
+	}
+
+	ZeroBuf { :self |
+		self <! ClearBuf(self)
+	}
+
+	/*
+	ExpRand { :tr :lo :hi | TExpRand(lo, hi, tr) }
+	IRand { :tr :lo :hi | TiRand(lo, hi, tr) }
+	LinRand { :tr :lo :hi :minmax | TLinRand(lo, hi, minmax, tr) }
+	Line { :tr :start :end :dur | TLine(start, end, dur, tr) }
+	Rand { :tr :lo :hi | TRand(lo, hi, tr) }
+	Scramble { :tr :inList | TScramble(tr, inList) }
+	XLine { :tr :start :end :dur | TxLine(start, end, dur, tr) }
+	*/
+
 }
 
 
-+ [List, SmallFloat, Ugen] {
++[List, SmallFloat, Ugen] {
 
 	Env { :levels :times :curves :releaseNode :loopNode :offset | <primitive: return new sc.Env(_levels, _times, _curves, _releaseNode, _loopNode, _offset);> }
 

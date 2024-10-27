@@ -1,10 +1,8 @@
 /* https://anticapitalist.party/@ahihi/113238943073232286 */
 let withDelayed = { :in :delayTime :feedbackMultiplier |
-	let buffer = BufAlloc(1, 48000 * delayTime + 1).BufClear;
-	let delayedSignal = DelayTap(buffer, delayTime);
-	let mixedSignal = in + (delayedSignal * feedbackMultiplier);
-	let writer = DelayWrite(buffer, mixedSignal);
-	mixedSignal <! writer
+	FeedforwardFeedbackward(in, +) { :x |
+		DelayN(x, delayTime, delayTime) * feedbackMultiplier
+	}
 };
 let r0 = 7;
 let root = 45;
