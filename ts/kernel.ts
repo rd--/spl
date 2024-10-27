@@ -458,46 +458,45 @@ export function applyGenericAt(
 	return method.block.apply(null, parameterArray);
 }
 
+// The typeTable for zero arity methods always has exactly one entry, for Void.
+export function dispatchVoid(
+	name: string,
+	typeTable: ByTypeMethodDictionary
+) {
+	// console.debug(`dispatchVoid: ${name}, ${typeTable.size}`);
+	const voidMethod = typeTable.get('Void');
+	if (voidMethod) {
+		return voidMethod.block.call(null);
+	} else {
+		throw new Error(`No Void method ${name}`);
+	}
+}
+
 export function dispatchByType(
 	name: string,
 	typeTable: ByTypeMethodDictionary,
 	parameterArray: unknown[],
 ) {
-	const receiver = parameterArray[0]; // receiver will be undefined if the parameterArray is [], i.e. arity is zero
-	const receiverType = (receiver === undefined) ? 'Void' : typeOf(receiver); // if there is no receiver the special type 'Void' is used
+	const receiver = parameterArray[0];
+	const receiverType = typeOf(receiver);
 	const typeMethod = typeTable.get(receiverType);
 	if (typeMethod) {
-		// console.debug(`dispatchByType: name=${name}, arity=${parameterArray.length}, type=${receiverType}`);
+		// console.debug(`dispatchByType: ${name}, ${parameterArray.length}, ${receiverType}`);
 		return typeMethod.block.apply(null, parameterArray);
 	} else {
+		const arity = parameterArray.length;
+		const qualifiedName = `${name}:/${arity}`;
 		throw new Error(
-			`dispatchByType: no method ${name}:/${parameterArray.length} for ${receiverType}: args=${parameterArray}`,
+			`dispatchByType: no method ${qualifiedName} for ${receiverType}`,
 		);
 	}
 }
-
-/*
-export function dispatchByArity(
-	name: string,
-	arity: number,
-	arityTable: ByArityMethodDictionary,
-	parameterArray: unknown[],
-) {
-	const typeTable = arityTable.get(arity);
-	if (typeTable) {
-		return dispatchByType(name, arity, typeTable, parameterArray);
-	} else {
-		throw new Error(
-			`dispatchbyArity: no entry for arity: name=${name}, arity=${arity}`,
-		);
-	}
-}
-*/
 
 declare var globalThis: { [key: string]: unknown };
 
 // Is existingMethod more specific than method.
-// Todo: this is not a correct test, it needs to not over-write less specific traits as well... it works for stdlib...
+// TODO: This is not a correct test.
+// It should not over-write less specific traits, however it works for stdlib.
 function isMoreSpecific(
 	typeName: TypeName,
 	existingMethod: Method,
@@ -548,47 +547,47 @@ export function addMethodFor(
 			`addMethodFor: type does not exist: ${typeName} (${method})`,
 		);
 	}
+	const name = method.information.name;
 	// console.debug(`addMethodFor: ${typeName}, ${method.qualifiedName()}`);
-	if (!methodExists(method.information.name)) {
+	if (!methodExists(name)) {
 		// console.debug(`addMethodFor: new method name`);
-		system.methodDictionary.set(method.information.name, new Map());
+		system.methodDictionary.set(name, new Map());
 	}
-	const arityTable = system.methodDictionary.get(method.information.name)!;
-	if (!arityTable.has(method.information.arity)) {
+	const arity = method.information.arity;
+	const arityTable = system.methodDictionary.get(name)!;
+	if (!arityTable.has(arity)) {
 		// console.debug(`addMethodFor: new method arity`);
-		arityTable.set(method.information.arity, new Map());
-		const prefixedNameWithArity =
-			`_${method.information.name}_${method.information.arity}`;
+		arityTable.set(arity, new Map());
+		const prefixedNameWithArity = `_${name}_${arity}`;
 		// console.debug(`addMethodFor: generate global: ${prefixedNameWithArity}`);
 		let globalFunctionWithArity = globalThis[prefixedNameWithArity];
 		if (globalFunctionWithArity === undefined) {
-			const typeTable = arityTable.get(method.information.arity)!;
-			globalFunctionWithArity = globalThis[prefixedNameWithArity] = function (
-				...argumentsArray: unknown[]
-			) {
-				// console.debug(`dispatchByType: ${method.qualifiedName()}, ${JSON.stringify(argumentsArray)}`);
-				return dispatchByType(
-					method.information.name, /* for error reporting only */
-					typeTable,
-					argumentsArray,
-				);
+			// Note that the method name is passed for error reporting only
+			const typeTable = arityTable.get(arity)!;
+			const voidFunction = function () {
+				return dispatchVoid(name, typeTable);
 			};
+			const typeFunction = function (...args: unknown[]) {
+				return dispatchByType(name, typeTable, args);
+			};
+			const dispatchFunction = (arity === 0) ? voidFunction : typeFunction;
+			globalFunctionWithArity = globalThis[prefixedNameWithArity] = dispatchFunction;
 			Object.defineProperty(globalFunctionWithArity, 'name', {
 				value: method.qualifiedName(),
 			});
 			Object.defineProperty(globalFunctionWithArity, 'length', {
-				value: method.information.arity,
+				value: arity,
 			}); // c.f. makeCheckedAritySpecificFunction
 			Object.defineProperty(globalFunctionWithArity, 'parameterNames', {
 				value: method.information.parameterNames,
 			});
 		}
 	}
-	const existingEntry = arityTable.get(method.information.arity)!.get(typeName);
+	const existingEntry = arityTable.get(arity)!.get(typeName);
 	if (existingEntry && isMoreSpecific(typeName, existingEntry, method)) {
 		// console.debug('addMethodFor: existing more specific entry');
 	} else {
-		arityTable.get(method.information.arity)!.set(typeName, method);
+		arityTable.get(arity)!.set(typeName, method);
 	}
 	if (typeName === method.information.origin.name) {
 		system.typeDictionary.get(typeName)!.methodDictionary.set(
