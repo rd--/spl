@@ -403,6 +403,7 @@ Reference/Blip.help.sl
 Reference/Blob.help.sl
 Reference/blockDiagonalMatrix.help.sl
 Reference/Block.help.sl
+Reference/BlockSize.help.sl
 Reference/BlockStream.help.sl
 Reference/blomqvistBeta.help.sl
 Reference/BLowPass.help.sl
@@ -520,7 +521,9 @@ Reference/contents.help.sl
 Reference/continuedFraction.help.sl
 Reference/contractTo.help.sl
 Reference/contraharmonicMean.help.sl
+Reference/ControlDur.help.sl
 Reference/ControlIn.help.sl
+Reference/ControlRate.help.sl
 Reference/convergents.help.sl
 Reference/coordinateBoundingBox.help.sl
 Reference/coordinateBounds.help.sl
@@ -735,6 +738,7 @@ Reference/false.help.sl
 Reference/fareySequence.help.sl
 Reference/fastWalshHadamardTransform.help.sl
 Reference/FbSineC.help.sl
+Reference/FeedforwardFeedbackward.help.sl
 Reference/fetchBlob.help.sl
 Reference/fetchByteArray.help.sl
 Reference/fetch.help.sl
@@ -757,6 +761,7 @@ Reference/findDivisions.help.sl
 Reference/findFirst.help.sl
 Reference/findLast.help.sl
 Reference/findPermutation.help.sl
+Reference/FirstArg.help.sl
 Reference/first.help.sl
 Reference/firstIndex.help.sl
 Reference/fisherYatesShuffle.help.sl
@@ -1358,6 +1363,7 @@ Reference/MulAdd.help.sl
 Reference/Mul.help.sl
 Reference/multichoose.help.sl
 Reference/multinomial.help.sl
+Reference/multipleRootGraph.help.sl
 Reference/multiplicativeOrder.help.sl
 Reference/MultiTapDelay.help.sl
 Reference/MutableCollectionStream.help.sl
@@ -1626,6 +1632,7 @@ Reference/quickSort.help.sl
 Reference/quotationMark.help.sl
 Reference/quotient.help.sl
 Reference/radians.help.sl
+Reference/RadiansPerSample.help.sl
 Reference/radiansToDegrees.help.sl
 Reference/radius.help.sl
 Reference/raisedToInteger.help.sl
@@ -1760,6 +1767,8 @@ Reference/rowReduce.help.sl
 Reference/RunArray.help.sl
 Reference/rungeKuttaMethod.help.sl
 Reference/RunningSum.help.sl
+Reference/SampleDur.help.sl
+Reference/SampleRate.help.sl
 Reference/sampleStandardDeviation.help.sl
 Reference/Sanitize.help.sl
 Reference/sasTriangle.help.sl

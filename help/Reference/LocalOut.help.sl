@@ -5,9 +5,30 @@
 Define and write to an audio bus local to the enclosing synth,
 which can be read from by `LocalIn`.
 
+A resonator, note that one must subtract the block size for correct tuning:
+
+~~~
+let p = LocalIn(1, 0);
+let i = Impulse(1, 0);
+let d = DelayC(i + (p * 0.995), 1, 440.reciprocal - ControlDur());
+[
+	p <! LocalOut(d),
+	SinOsc(440, 0) * 0.05
+]
+~~~
+
+A ping pong delay:
+
+~~~
+let n = Decay(Impulse(0.3, 0), 0.1) * PinkNoise() * 0.2;
+let l = LocalIn(2, 0) + [n, 0];
+let d = DelayN(l, 0.2, 0.2);
+d <! LocalOut(d.reversed * 0.8)
+~~~
+
 * * *
 
-See also: FirstArg, LocalIn, <!
+See also: <!, LocalIn
 
 References:
 _SuperCollider_

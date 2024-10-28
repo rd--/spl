@@ -4,6 +4,8 @@ The constant value inidicating the _Boolean_ false value.
 
 Where supported `false` is displayed as ⊥.
 
+`false` is a reserved word, like `true` and `nil`.
+
 * * *
 
 See also: Boolean, not, true
