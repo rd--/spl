@@ -45,6 +45,11 @@
 
 @Document {
 
+	adoptedStyleSheets { :self :styleSheets |
+		<primitive: _self.adoptedStyleSheets = _styleSheets;>
+		nil
+	}
+
 	body { :self |
 		<primitive: return _self.body;>
 	}
@@ -379,6 +384,25 @@ CSSStyleSheet! : [Object, StyleSheet] {
 	deleteRule { :self :index | <primitive: return _self.deleteRule(_index);> }
 	insertRule { :self :rule | <primitive: return _self.insertRule(_rule);> }
 	insertRule { :self :rule :index | <primitive: return _self.insertRule(_rule, _index);> }
+	replace { :self :text | <primitive: return _self.replace(_text);> }
+	replaceSync { :self :text | <primitive: return _self.replaceSync(_text);> }
+
+}
+
++Void {
+
+	CssStyleSheet {
+		<primitive: return new CSSStyleSheet();>
+	}
+
+}
+
+
++Record {
+
+	CssStyleSheet { :options |
+		<primitive: return new CSSStyleSheet(_options);>
+	}
 
 }
 
@@ -540,6 +564,10 @@ HTMLElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 }
 
 HTMLHeadingElement! : [Object, EventTarget, Node, Element, HtmlElement] {
+
+}
+
+HTMLHtmlElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
