@@ -15,7 +15,10 @@ the _backward_ block introduces a delay of a little over one second:
 
 ~~~
 FeedforwardFeedbackward(
-	SinOsc(LfNoise2(1 / [7, 9]).LinLin(-1, 1, 222, 555), 0) * 0.1,
+	SinOsc(
+		LfNoise2(1 / [7, 9]).LinLin(-1, 1, 222, 555),
+		0
+	) * 0.1,
 	+,
 	{ :x |
 		DelayC(x, 1.141, 1.141) * 0.7

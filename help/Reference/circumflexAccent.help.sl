@@ -46,6 +46,9 @@ Threads elementwise over lists and matrices:
 
 >>> 1:10 ^ 2
 [1 4 9 16 25 36 49 64 81 100]
+
+>>> [1 2 3] ^ [2 3 4]
+[1 8 81]
 ```
 
 Values at `zero`:
@@ -80,6 +83,10 @@ e
 
 >>> [1 2 e].^
 [2.71828 7.38906 15.15426]
+
+>>> let antiLog = { :x | 10 ^ x };
+>>> [1 0.699 -1].antiLog
+[10 5 0.1]
 ```
 
 At `Fraction` answers a fraction if the exponent is an integer:

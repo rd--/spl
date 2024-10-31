@@ -61,6 +61,20 @@ false
 true
 ```
 
+`reduce` of `+` of a matrix sums the columns:
+
+```
+>>> [3 3].iota
+[
+	1 2 3;
+	4 5 6;
+	7 8 9
+]
+
+>>> [3 3].iota.(+)
+[12 15 18]
+```
+
 * * *
 
 See also: injectInto, scan

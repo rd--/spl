@@ -9,6 +9,13 @@ Answer _aNumber_ multiplied by itself.
 (9, 9, 9)
 ```
 
+At `List`:
+
+```
+>>> [1 2 3 4].squared
+[1 4 9 16]
+```
+
 The inverse is `sqrt`:
 
 ```

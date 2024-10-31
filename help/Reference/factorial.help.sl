@@ -28,7 +28,7 @@ Number of permutations of 6 elements:
 720
 ```
 
-Exact `LargeInteger` and inexact `SmallFloat` results for 30!:
+Exact `LargeInteger` and inexact `SmallFloat` results for 30! and 47!:
 
 ```
 >>> 30n.factorial
@@ -36,6 +36,13 @@ Exact `LargeInteger` and inexact `SmallFloat` results for 30!:
 
 >>> 30.factorial
 2.652528598121911e32
+
+
+>>> 47n.factorial
+258623241511168180642964355153611979969197632389120000000000n
+
+>>> 47.factorial
+2.586232415111682e59
 ```
 
 Notable limits:
@@ -66,7 +73,7 @@ At `SmallFloat` factorial is accurate to 15 digits:
 25852016738884976640000n
 ```
 
-Factorial of natrix elements:
+Factorial of matrix elements:
 
 ```
 >>> [0 1 2; 3 4 5].factorial

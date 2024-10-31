@@ -31,7 +31,11 @@ Threads over lists:
 
 ```
 >>> [1 2 3].PolarCoordinates(pi / [1 2 3])
-[PolarCoordinates(1, pi), PolarCoordinates(2, pi / 2), PolarCoordinates(3, pi / 3)]
+[
+	PolarCoordinates(1, pi),
+	PolarCoordinates(2, pi / 2),
+	PolarCoordinates(3, pi / 3)
+]
 ```
 
 * * *

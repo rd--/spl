@@ -91,7 +91,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache history |
 	}
 
 	fontSizeMenuEntriesOn { :self :subject |
-		['8pt', '10pt', '12pt', '16pt', '24pt', '32pt'].collect { :fontSize |
+		['8pt', '10pt', '12pt', '16pt', '20pt', '24pt', '32pt'].collect { :fontSize |
 			MenuItem(fontSize, nil) { :unusedEvent |
 				subject.fontSize := fontSize
 			}
