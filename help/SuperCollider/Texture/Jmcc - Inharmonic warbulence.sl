@@ -14,4 +14,4 @@
 	{
 		CombN(z, 0.3, { Rand(0.1, 0.3) } ! 2, 8)
 	} !+ 5 * 0.3
-}.overlap(12.8, 6.4, 6)
+}.overlapTextureProgram(12.8, 6.4, 6)

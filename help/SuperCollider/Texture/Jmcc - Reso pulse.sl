@@ -12,4 +12,4 @@
 	let delayTime = 2 / lfoFreq;
 	let right = DelayC(left, delayTime, delayTime); /* delay right channel by two beats */
 	[left, right]
-}.overlap(4, 2, 4)
+}.overlapTextureProgram(4, 2, 4)

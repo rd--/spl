@@ -22,7 +22,7 @@ SinOscFb(100 * SinOscFb(y, 0) + 200, x) * 0.1
 	} ! 16
 }.OverlapTexture(2, 6, 3).Mix
 
-/* ---- SinOscFb ; overlap ; requires=eval */
+/* ---- SinOscFb ; overlap texture program ---- */
 {
 	let x = MouseX(0.15, 0.85, 0, 0.2);
 	let f0 = [110, 220, 440].atRandom;
@@ -31,4 +31,4 @@ SinOscFb(100 * SinOscFb(y, 0) + 200, x) * 0.1
 		let fb = LinLin(LfNoise2(1), -1, 1, 0, x);
 		EqPan2(SinOscFb(freq, fb), 1.Rand2) * 0.1
 	} !+ 16
-}.overlap(2, 6, 3)
+}.overlapTextureProgram(2, 6, 3)

@@ -17,4 +17,4 @@
 	[p, q].collect { :freq |
 		SinOscBank(freq, 0.1, { 2 * Rand(0, pi) } ! (m * n))
 	} / n
-}.xfade(6, 3)
+}.xFadeTextureProgram(6, 3)

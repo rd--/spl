@@ -31,7 +31,7 @@ Non-graph variant:
 			let fb = LfNoise2(1).LinLin(-1, 1, 0, x);
 			EqPan(SinOscFb(freq, fb), Rand(-1, 1)) / 16
 		} !+ 16
-	}.overlap(2, 6, 3)
+	}.overlapTextureProgram(2, 6, 3)
 
 * * *
 

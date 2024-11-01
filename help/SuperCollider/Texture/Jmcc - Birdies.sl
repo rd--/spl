@@ -18,4 +18,4 @@
 	let freq = Lag(sw, 0.05);
 	let amp = Lag(p3, 0.3);
 	EqPan(SinOsc(freq, 0) * amp, 1.Rand2) * 0.02
-}.overlap(7, 4, 4)
+}.overlapTextureProgram(7, 4, 4)

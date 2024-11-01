@@ -128,7 +128,7 @@ Non-graph variant:
 			0
 		) * 0.5;
 		(osc + snd) / 3 # 2
-	}.overlap(3, 3, 3)
+	}.overlapTextureProgram(3, 3, 3)
 
 * * *
 
@@ -137,3 +137,5 @@ See also: Hilbert, HilbertFir
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/FreqShift.html)
+
+Category: Ugen

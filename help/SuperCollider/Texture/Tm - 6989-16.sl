@@ -36,4 +36,4 @@
 		LfNoise1(dur * 3).LinLin(-1, 1, 0.2, 2),
 		0.5
 	)
-}.overlap(9, 3, 2)
+}.overlapTextureProgram(9, 3, 2)

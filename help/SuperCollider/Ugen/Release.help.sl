@@ -9,8 +9,15 @@ Release(
 	releaseTime: 7
 )
 
-/* ---- Release ; process ; requires=fork */
-9.timesRepeat {
-	Release(Pan2(SinOsc(Rand(200, 400), 0), Rand(-1, 1), Rand(0.01, 0.1)), 0.01, 3, 7).play;
-	3.seconds.wait
+/* ---- Release ; process ---- */
+let t = system.systemTimeInMilliseconds / 1000;
+0:9.do { :x |
+	Release(
+		Pan2(
+			SinOsc(Rand(200, 400), 0),
+			Rand(-1, 1),
+			Rand(0.01, 0.1)
+		),
+		0.01, 3, 7
+	).playAt(t + x)
 }

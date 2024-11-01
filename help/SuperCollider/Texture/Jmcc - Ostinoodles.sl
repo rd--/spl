@@ -11,4 +11,4 @@ let major = [0 2 4 5 7 9 11];
 		z := AllpassN(z, 0.040, { 0.04.Rand0 } ! 2, 16)
 	};
 	z
-}.overlap(6, 3, 6)
+}.overlapTextureProgram(6, 3, 6)

@@ -72,3 +72,7 @@ A very similar random linear sequence with _sustain_ and _gate_ parameters:
 		detune: LsRand([3 2 1.5 1 0.5] / 100 + 1, inf),
 		cutoff: LsRand(1000 * [1 .. 9], inf)
 	).play
+
+* * *
+
+See also: play

@@ -478,7 +478,7 @@ z
 /* Scratchy ; Jmcc ; left-to-right */
 BrownNoise(0.5 # 2, -0.49).Max(0).Mul(20).Rhpf(5000, 1)
 
-/* Slow beating sines (Jmcc) #7 ; texture=xfade,4,4,inf */
+/* Slow beating sines (Jmcc) #7 ; texture=xFade,4,4,inf */
 let n = 20;
 let d = 5;
 let p = [];

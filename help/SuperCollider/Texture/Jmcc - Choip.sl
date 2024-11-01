@@ -11,4 +11,4 @@
 		z := AllpassN(z, 0.1, { 0.05.Rand0 } ! 2, 4)
 	};
 	z
-}.overlap(10, 1, 8)
+}.overlapTextureProgram(10, 1, 8)

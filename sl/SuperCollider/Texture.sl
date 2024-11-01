@@ -1,5 +1,34 @@
 /* Requires: Clock Ugen */
 
+TextureProgram : [Object] { | iterationCounter soundBlock envelopeBlock delayTime |
+
+	play { :self |
+		{ :currentTime |
+			self.envelopeBlock.value(
+				self.soundBlock.cull(
+					self.iterationCounter
+				)
+			).playAt(currentTime);
+			self.iterationCounter := self.iterationCounter + 1;
+			self.delayTime.value
+		}.schedule
+	}
+
+}
+
++Block {
+
+	TextureProgram { :soundBlock:/0 :envelopeBlock:/1 :delayTime |
+		newTextureProgram().initializeSlots(
+			0,
+			soundBlock:/0,
+			envelopeBlock:/1,
+			delayTime
+		)
+	}
+
+}
+
 +[List, SmallFloat, Ugen] {
 
 	withOverlapEnvelope { :aUgen :sustainTime :transitionTime |
@@ -19,21 +48,15 @@
 
 +Block {
 
-	overlap { :self:/1 :sustainTime :transitionTime :overlap |
-		let period = (sustainTime + (transitionTime * 2)) / overlap;
-		let counter = 0;
-		system.clock.schedule(0) { :currentTime |
-			counter := counter + 1;
-			self:/1.cull(
-				counter
-			).withOverlapEnvelope(
+	overlapTextureProgram { :self :sustainTime :transitionTime :overlap |
+		let delayTime = (sustainTime + (transitionTime * 2)) / overlap;
+		let envelopeBlock = { :sound |
+			sound.withOverlapEnvelope(
 				sustainTime,
 				transitionTime
-			).playAt(
-				currentTime + 0.5 /* fixed delay... */
-			);
-			period
-		}
+			)
+		};
+		TextureProgram(self, envelopeBlock:/1, delayTime)
 	}
 
 	playEvery { :self:/1 :delay |
@@ -44,17 +67,12 @@
 		system.clock.recurseEvery(self:/2, anObject, delay)
 	}
 
-	spawn { :self:/1 :nextTime |
-		let counter = 0;
-		system.clock.schedule(0) { :currentTime |
-			counter := counter + 1;
-			self:/1.cull(counter).playAt(currentTime + 0.5); /* fixed delay... */
-			nextTime.value
-		}
+	spawnTextureProgram { :self :nextTime |
+		TextureProgram(self, identity:/1, nextTime)
 	}
 
-	xfade { :self :sustainTime :transitionTime |
-		self.overlap(sustainTime, transitionTime, 2)
+	xFadeTextureProgram { :self :sustainTime :transitionTime |
+		self.overlapTextureProgram(sustainTime, transitionTime, 2)
 	}
 
 }
@@ -64,7 +82,7 @@
 	collectTexture { :self :aCollection :aBlock:/1 :delay |
 		let end = aCollection.size;
 		self.recurseEvery({ :currentTime :index |
-			aBlock(aCollection[index]).playAt(currentTime + 0.5); /* fixed delay... */
+			aBlock(aCollection[index]).playAt(currentTime);
 			(index = end).if {
 				nil
 			} {
@@ -75,7 +93,7 @@
 
 	playEvery { :self :aBlock:/1 :delay |
 		self.repeatEvery({ :currentTime :nextDelay |
-			aBlock:/1.cull(nextDelay).playAt(currentTime + 0.5) /* fixed delay... */
+			aBlock(nextDelay).playAt(currentTime)
 		}, delay)
 	}
 

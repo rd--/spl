@@ -13,4 +13,4 @@
 			{ Rand(1, 4) } ! p
 		)
 	} ! 2
-}.xfade(4, 4)
+}.xFadeTextureProgram(4, 4)

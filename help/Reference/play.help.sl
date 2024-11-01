@@ -1,6 +1,6 @@
-# play -- synthesiser control
+# play
 
-- _play(aUgen)_
+- _play(aUgen | anEventStream)_
 
 Compile Ugen graph and send it to the synthesiser to be played.
 
@@ -11,9 +11,14 @@ Compile Ugen graph and send it to the synthesiser to be played.
 Lists of Ugens signals:
 
 ```
-[SinOsc(333, 0) * 0.1, Saw(111) * 0.02].play
+[
+	SinOsc(333, 0) * 0.1,
+	Saw(111) * 0.02
+].play
 ```
 
 * * *
 
 See also: List, Ugen
+
+Categories: Synthesiser

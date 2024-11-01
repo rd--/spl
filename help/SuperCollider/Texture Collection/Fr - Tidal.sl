@@ -28,7 +28,7 @@ LsBind(
 	dur: 1 / 16,
 	freq: LsSeq((60 + (seq - 1).degreeToKey([0 2 5 7 9], 12)).MidiCps, inf),
 	amp: 0.1
-).play
+)
 
 /* tidal ; graph variant */
 let seq = [

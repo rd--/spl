@@ -1,4 +1,4 @@
-/* ---- LfClipNoise ; process ; requires=eval */
+/* ---- LfClipNoise ; process ---- */
 {
 	let freq = Rand(47, 69) * [1, 1.1];
 	let mul = {
@@ -10,4 +10,4 @@
 		Pulse(freq * [3, 4], 0.5)
 	] * mul;
 	FreeVerb(snd.Sum, 0.33, 0.5, 0.5)
-}.overlap(7, 7, 3)
+}.overlapTextureProgram(7, 7, 3)

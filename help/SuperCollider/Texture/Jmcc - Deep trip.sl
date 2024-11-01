@@ -14,4 +14,4 @@
 		CombN(s, 0.5, { Rand(0.2, 0.5) } ! 2, 20)
 	} ! 2;
 	s + c.Sum
-}.overlap(12, 4, 4)
+}.overlapTextureProgram(12, 4, 4)

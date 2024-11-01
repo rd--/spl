@@ -22,4 +22,4 @@
 		EqPan(gen, Rand(-1, 1)) * 0.5 / n.sqrt
 	} !+ n;
 	Resonz(o, x, y) * 0.5
-}.overlap(5, 4, 3)
+}.overlapTextureProgram(5, 4, 3)

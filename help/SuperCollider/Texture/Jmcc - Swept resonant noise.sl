@@ -12,4 +12,4 @@
 			{ 0.5 + 2.Rand0 } ! p
 		)
 	} ! 2
-}.overlap(4, 4, 5)
+}.overlapTextureProgram(4, 4, 5)

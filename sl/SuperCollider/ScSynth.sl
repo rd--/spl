@@ -127,12 +127,13 @@ ScSynth! : [Object] {
 	}
 
 	play { :self |
-		self.playAt(nil)
+		self.playAt(system.systemTimeInSeconds)
 	}
 
 	playAt { :self :systemTimeInSeconds |
 		self.isOutputSignal.if {
-			self.basicPlayAt(systemTimeInSeconds)
+			let latency = 0.2; /* Preferences */
+			self.basicPlayAt(systemTimeInSeconds + latency)
 		} {
 			'playAt: not ouput signal?'.error
 		}

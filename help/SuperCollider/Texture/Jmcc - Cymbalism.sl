@@ -13,4 +13,4 @@
 			{ 1 + 4.Rand0 } ! p /* ring times */
 		)
 	} ! 2
-}.xfade(4, 4)
+}.xFadeTextureProgram(4, 4)

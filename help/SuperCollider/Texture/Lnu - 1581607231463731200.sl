@@ -18,4 +18,4 @@
 		4
 	);
 	LeakDc(FreeVerb(w, rk(), rk() + 0.5, rk()), 0.995).Splay2.Tanh
-}.overlap(4, 5, 2)
+}.overlapTextureProgram(4, 5, 2)

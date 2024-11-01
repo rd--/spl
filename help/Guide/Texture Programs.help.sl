@@ -14,7 +14,7 @@ let dur = 12;
 			Rand(0.01, 0.05)
 		)
 	} !+ 3
-}.overlap(dur // 3, dur // 3, 4)
+}.overlapTextureProgram(dur // 3, dur // 3, 4)
 ```
 
 To stop a texture program the clock on which it is scheduled must be cleared.
@@ -22,4 +22,6 @@ The keybinding _Ctrl-Shift->_ clears the _system::clock_.
 
 * * *
 
-See also: collectTexture, playEvery, xfade
+See also: collectTexture, overlapTextureProgram, playEvery, spawnTextureProgram, TextureProgram, xFadeTextureProgram
+
+Category: Scheduling

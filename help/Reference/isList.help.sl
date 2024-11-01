@@ -13,3 +13,4 @@ true
 
 See also: List
 
+Category: Predicate

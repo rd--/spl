@@ -7,4 +7,4 @@
 	let time = { Rand(0.1, 2) } ! n;
 	let s = RingzBank(exc, freq, nil, time);
 	(s * 0.1).SoftClip
-}.overlap(5, 2, 12)
+}.overlapTextureProgram(5, 2, 12)

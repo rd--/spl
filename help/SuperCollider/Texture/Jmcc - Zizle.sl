@@ -9,4 +9,4 @@
 		SinOsc(Rand(24, 108).MidiCps, 2 * pi.Rand0) * a1 * a2,
 		Rand(-1, 1)
 	)
-}.overlap(4, 4, 12)
+}.overlapTextureProgram(4, 4, 12)

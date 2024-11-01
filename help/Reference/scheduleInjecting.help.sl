@@ -19,7 +19,7 @@ with random inter-offset delays, durations and pan locations:
 			Rand(-1, 1)
 		),
 		0.01, Rand(3, 7), 0.9
-	).play;
+	).playAt(currentTime);
 	(midiNoteNumber <= 72).ifTrue {
 		[
 			[1 / 3, 1 / 2, 1, 3 / 2, 5].atRandom,
@@ -30,5 +30,7 @@ with random inter-offset delays, durations and pan locations:
 ~~~
 
 * * *
+
+See also: recurseEvery, repeatEvery, schedule
 
 Categories: Scheduling

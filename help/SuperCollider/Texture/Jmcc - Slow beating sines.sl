@@ -1,7 +1,7 @@
 /* Slow beating sines (Jmcc) #7 */
 {
 	let n = 20; /* n * 3 components in each channel */
-	let d = 5.0; /* beating frequency deviation */
+	let d = 5; /* beating frequency deviation */
 	let p = [];
 	let q = [];
 	n.timesRepeat {
@@ -17,4 +17,4 @@
 			{ 2 * pi.Rand0 } ! (3 * n)
 		)
 	} / n
-}.xfade(4, 4)
+}.xFadeTextureProgram(4, 4)

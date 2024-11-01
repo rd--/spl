@@ -7,4 +7,4 @@
 			LfNoise1(0.4 + 0.8.Rand0)
 		) * LfNoise1(0.4 + 0.8.Rand0).MulAdd(0.4, 0.5)
 	} !+ n * 0.4 / n
-}.xfade(8, 8)
+}.xFadeTextureProgram(8, 8)

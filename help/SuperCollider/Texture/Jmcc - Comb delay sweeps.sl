@@ -9,4 +9,4 @@
 	let dt = 1 / noteSweep.MidiCps;
 	let dc = 1 / note2.MidiCps * 1000;
 	EqPan(CombC(WhiteNoise() * 0.005, 0.01, dt, dc), 1.Rand2)
-}.overlap(4 / 3, 4 / 3, 6)
+}.overlapTextureProgram(4 / 3, 4 / 3, 6)

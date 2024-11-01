@@ -6,7 +6,7 @@ A type to organise scheduling.
 A priority queue maintains a list of scheduled blocks.
 When new elements are added to the schedule, the wakeup time of the clock is adjusted as required.
 
-There is a _clock_ method at _Cache_.
+There is a `clock` method at `Cache`.
 
 Start printing a message once per second using the system clock:
 
@@ -49,7 +49,7 @@ A scheduling process that passes an object between iterations:
 		}
 	}
 
-_repeatEvery_ separates the _on wakeup_ and _next delay_ aspects into separate blocks:
+`repeatEvery` separates the _on wakeup_ and _next delay_ aspects into separate blocks:
 
 	system.clock.repeatEvery { :t :d |
 		[t, d].postLine
@@ -62,7 +62,7 @@ _repeatEvery_ separates the _on wakeup_ and _next delay_ aspects into separate b
 		}
 	}
 
-_recurseEvery_ is a related interface to _scheduleInjecting_, a _nil_ at either block stops the sequence.
+`recurseEvery` is a related interface to `scheduleInjecting`, a `nil` at either block stops the sequence.
 
 	system.clock.recurseEvery(
 		{ :t :x |
@@ -84,5 +84,7 @@ _recurseEvery_ is a related interface to _scheduleInjecting_, a _nil_ at either 
 	}
 
 * * *
+
+See also: recurseEvery, repeatEvery, schedule, scheduleInjecting
 
 Categories: Scheduling

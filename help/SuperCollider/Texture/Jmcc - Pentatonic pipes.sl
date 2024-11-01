@@ -10,4 +10,4 @@ let root = 36 + 0:12.atRandom;
 		root := 36 + 0:12.atRandom /* maybe shift */
 	};
 	CombN(z, 0.3, 0.3, 8) + z.reversed
-}.overlap(10, 0.01, n)
+}.overlapTextureProgram(10, 0.01, n)

@@ -53,4 +53,3 @@ workspace::midi.sysexEnabled
 TextButton('Begin', (id: 'beginButton', title: 'Begin (b)', accesskey: 'b', onclick: 'globalScSynth.boot()'))
 TextButton('?', (id: 'helpButton', title: 'Help (?)', accesskey: '?', onclick: 'sh.loadInstructions()'))
 ```
-

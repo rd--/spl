@@ -24,6 +24,8 @@ There is also a set of standard non-standard type letters:
 - _d_: float (64-bit)
 - _m_: midi message (4-byte)
 
+To infer a type for a value see `asOscParameter`.
+
 * * *
 
 See also: asOscParameter, asRecord, OscBundle, OscMessage

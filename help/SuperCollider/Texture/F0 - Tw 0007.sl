@@ -1,5 +1,5 @@
 /* https://sccode.org/1-4Qy ; F0 ; 0007 */
-{
+{ :currentTime |
 	let o = Pluck(
 		Crackle([1.9 1.8]),
 		Impulse(IRand(1, 6), 0),
@@ -8,5 +8,6 @@
 		1,
 		0.5
 	);
-	Release(Bpf(o, 1200.IRand0, 1), 9, 0, 69)
-}.playEvery(9)
+	Release(Bpf(o, 1200.IRand0, 1), 9, 0, 69).playAt(currentTime);
+	9
+}.schedule

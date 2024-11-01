@@ -17,7 +17,7 @@ true
 true
 ```
 
-Implentations of the recursive `fibonacci` and `factorial` functions using Haskell Curry’s _Y_ combinator:
+Implementations of the recursive `fibonacci` and `factorial` functions using Haskell Curry’s _Y_ combinator:
 
 ```
 >>> let u = { :f:/1 | { :x:/1 | f(x(x:/1)) } };
@@ -32,9 +32,26 @@ Implentations of the recursive `fibonacci` and `factorial` functions using Haske
 (55, 3628800)
 ```
 
+The predicate is `isBlock`:
+
+```
+>>> { }.isBlock
+true
+```
+
+The arity is given by `numArgs`:
+
+```
+>>> { }.numArgs
+0
+
+>>> { :x | x * x }.numArgs
+1
+```
+
 * * *
 
-See also: apply, value
+See also: apply, isBlock, numArgs, value
 
 Guides: Apply Syntax, Block Syntax, Block Semantics, Value Apply Syntax
 

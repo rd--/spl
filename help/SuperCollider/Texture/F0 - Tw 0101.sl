@@ -1,8 +1,12 @@
 /* https://sccode.org/1-4Qy ; F0 ; 0101 */
-{ :t :i |
-	let c = i % 8 + 1;
-	let a = DelayN(InFb(2, 0), 1, 1);
-	let o = SinOsc(c * 99 + [0, 2], a.reversed);
-	Release(o / 9, 0, 9 - c, 16).playAt(t + 0.5);
-	[9 - c, c]
-}.scheduleInjecting(1)
+{ :currentTime :harmonicNumber |
+	let nextHarmonicNumber = harmonicNumber % 8 + 1;
+	let nextDelay = 9 - nextHarmonicNumber;
+	let delayedOutput = DelayN(InFb(2, 0), 1, 1);
+	let oscillator = SinOsc(
+		harmonicNumber * 99 + [0, 2],
+		delayedOutput.reversed
+	);
+	Release(oscillator / 9, 0, nextDelay, 16).playAt(currentTime);
+	[nextDelay, nextHarmonicNumber]
+}.scheduleInjecting(2)

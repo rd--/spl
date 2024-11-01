@@ -18,4 +18,4 @@ let blipProc = {
 	} {
 		Silent(2)
 	}
-}.overlap(2, 1, 12)
+}.overlapTextureProgram(2, 1, 12)

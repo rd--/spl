@@ -9,4 +9,4 @@
 		ph := SinOsc([f2, f2 + 1.Rand2], 0) * y + ph
 	};
 	SinOsc([f1, f1 + 1.Rand2], ph) * 0.1
-}.overlap(4, 4, 4)
+}.overlapTextureProgram(4, 4, 4)

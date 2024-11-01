@@ -29,4 +29,4 @@
 	let outL = pk1L + pk1R;
 	let outR = pk2L + pk2R;
 	[outL, outR] * 0.25 <! lOut <! drv
-}.overlap(1, 5, 3)
+}.overlapTextureProgram(1, 5, 3)

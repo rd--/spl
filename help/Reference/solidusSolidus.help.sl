@@ -28,6 +28,8 @@ Threads over lists:
 [2 -2 -2 2]
 ```
 
+Where supported `//` is displayed as ⫽.
+
 The name of this operator is `solidusSolidus`.
 
 * * *
@@ -43,3 +45,5 @@ _Smalltalk_
 5.6.2.5
 
 Categories: Math, Operator
+
+Unicode: U+02AFD ⫽ Double Solidus Operator

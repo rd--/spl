@@ -6,10 +6,10 @@
 	Splay2(o * a)
 }.OverlapTexture(6, 3, 3).Mix
 
-/* ---- Splay2 ; texture ; requires=eval */
+/* ---- Splay2 ; texture program ---- */
 {
 	let k = 7;
 	let o = SinOsc({ IRand(40, 90).MidiCps } ! k, 0);
 	let a = { Rand(0.05, 0.1) } ! k;
 	Splay2(o * a)
-}.overlap(6, 3, 3)
+}.overlapTextureProgram(6, 3, 3)

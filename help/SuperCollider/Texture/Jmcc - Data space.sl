@@ -16,4 +16,4 @@
 			LfNoise0(3.Rand0) * 0.8
 		) * 0.04, dt, dt, 3
 	)
-}.overlap(6, 1, 4)
+}.overlapTextureProgram(6, 1, 4)

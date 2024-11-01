@@ -8,4 +8,4 @@
 		let a = f1 / y;
 		SinOscBank(y, a, nil) / n
 	} ! 2
-}.xfade(4, 4)
+}.xFadeTextureProgram(4, 4)

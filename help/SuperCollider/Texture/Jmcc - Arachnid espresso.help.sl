@@ -25,4 +25,4 @@
 		z := AllpassL(z, 0.03, [0.03.Rand0, 0.03.Rand0], 3)
 	};
 	z
-}.overlap(19, 0.5, 5)
+}.overlapTextureProgram(19, 0.5, 5)

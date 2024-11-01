@@ -12,4 +12,4 @@
 	{
 		RingzBank(noise, frequencies, amplitudes, ringtimes)
 	} ! 2
-}.xfade(1, 7)
+}.xFadeTextureProgram(1, 7)

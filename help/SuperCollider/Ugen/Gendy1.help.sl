@@ -45,7 +45,7 @@ Resonz(
 	MouseY(0.01, 1.0, 0, 0.2)
 )
 
-/* ---- Gendy1 ; overlap texture ; requires=eval ; requires=keyword */
+/* ---- Gendy1 ; overlap texture ; requires=keyword ---- */
 {
 	let n = 11;
 	{
@@ -66,4 +66,4 @@ Resonz(
 		);
 		EqPan2(osc, Rand(-1, 1)) * 0.1 / n.sqrt
 	} !+ n
-}.overlap(4, 5, 3)
+}.overlapTextureProgram(4, 5, 3)

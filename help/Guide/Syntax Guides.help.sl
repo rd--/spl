@@ -14,7 +14,7 @@
 
 - `Apply Syntax`
 - `Binary Operator Syntax`
-- `Comment Syntax`, `/*`, `*/`
+- `Comment Syntax`, `/*`, `*/`, `>>>`
 - `Constant Syntax`
 - `Dictionary Assignment Syntax`
 - `Dictionary Syntax`

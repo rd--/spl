@@ -10,4 +10,4 @@
 		sr * (pw(12, 0.4) * 0.2 + 0.2 + (pw(12, 0.7) * 0.2)),
 		0.1
 	)
-}.overlap(4, 4, 2)
+}.overlapTextureProgram(4, 4, 2)

@@ -561,6 +561,7 @@ Reference/crossedMultiply.help.sl
 Reference/cross.help.sl
 Reference/crossMatrix.help.sl
 Reference/CrystalLatticeStructureBrowser.help.sl
+Reference/CssStyleSheet.help.sl
 Reference/cubed.help.sl
 Reference/Cubed.help.sl
 Reference/cubeGraph.help.sl
@@ -991,6 +992,7 @@ Reference/isAssociationList.help.sl
 Reference/isBinary.help.sl
 Reference/isBlank.help.sl
 Reference/isBlankLine.help.sl
+Reference/isBlock.help.sl
 Reference/isByte.help.sl
 Reference/isCachedPrime.help.sl
 Reference/isCarriageReturn.help.sl
@@ -1463,8 +1465,8 @@ Reference/outer.help.sl
 Reference/outerProduct.help.sl
 Reference/Out.help.sl
 Reference/over.help.sl
-Reference/overlap.help.sl
 Reference/OverlapTexture.help.sl
+Reference/overlapTextureProgram.help.sl
 Reference/packageDictionary.help.sl
 Reference/Package.help.sl
 Reference/packageMethods.help.sl
@@ -1870,7 +1872,7 @@ Reference/sortOn.help.sl
 Reference/Sos.help.sl
 Reference/SoundFile.help.sl
 Reference/SparseMatrixMixer.help.sl
-Reference/spawn.help.sl
+Reference/spawnTextureProgram.help.sl
 Reference/species.help.sl
 Reference/Sphere.help.sl
 Reference/SphericalCoordinates.help.sl
@@ -1963,6 +1965,7 @@ Reference/tenneyHeight.help.sl
 Reference/terseReferenceSummary.help.sl
 Reference/TExpRand.help.sl
 Reference/TextEditor.help.sl
+Reference/TextureProgram.help.sl
 Reference/TGrains.help.sl
 Reference/thenElse.help.sl
 Reference/then.help.sl
@@ -2135,8 +2138,8 @@ Reference/wythoffLower.help.sl
 Reference/wythoffPair.help.sl
 Reference/wythoffUpper.help.sl
 Reference/XFade2.help.sl
-Reference/xfade.help.sl
 Reference/XFadeTexture.help.sl
+Reference/xFadeTextureProgram.help.sl
 Reference/x.help.sl
 Reference/XLine.help.sl
 Reference/xor.help.sl

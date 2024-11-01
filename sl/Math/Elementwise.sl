@@ -363,6 +363,12 @@
 		}
 	}
 
+	wrapBetweenAnd { :self :lo :hi |
+		self.collect { :each |
+			each.wrapBetweenAnd(lo, hi)
+		}
+	}
+
 	wrapIndex { :self :size |
 		self.collect { :each |
 			each.wrapIndex(size)

@@ -13,4 +13,4 @@
 	let mnn = ([4 5 6 7] * 12) +.x [0 2 4 5 7 9 11];
 	let chd = { mnn.atRandom } ! 6;
 	{ chd.chord } !+ 9
-}.overlap(21, 0, 3)
+}.overlapTextureProgram(21, 0, 3)

@@ -60,4 +60,4 @@ let right = DelayC(left, delayTime, delayTime);
 
 * * *
 
-See also: overlap, xfade
+See also: overlapTextureProgram, XFadeTexture

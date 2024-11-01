@@ -4,7 +4,7 @@ let n = 8; /* number of simultaneous events */
 	EqPan2(
 		SinOsc(400 + 2000.Rand0, 0) * LfPulse(1 + 10.Rand0, 0, 0.7.Rand0) * 0.04,
 		1.Rand2)
-}.overlap(4, 4, n)
+}.overlapTextureProgram(4, 4, n)
 
 /********** Pond life ; Jmcc **********/
 let n = 8; /* number of simultaneous events */
@@ -13,14 +13,14 @@ let n = 8; /* number of simultaneous events */
 		SinOsc(SinOsc(20 + 30.Rand0, 0).MulAdd(100 + 300.Rand0, 500 + 2000.LinRand0), 0) *
 		LfPulse(3 / (1 + 8.Rand0), 0, 0.2 + 0.3.Rand0) * 0.04,
 		1.Rand2)
-}.overlap(8, 4, n)
+}.overlapTextureProgram(8, 4, n)
 
 /********** Alien froggies ; Jmcc **********/
 let rate = 11;
 { :rep |
 	rate := (rate * (0.2.BiLinRand.Exp)).Fold(1, 30);
 	Formant(rate, ExpRand(200, 3000), 9.Rand0 * rate + rate) * 0.05
-}.overlap(0.5, 0.25, 5)
+}.overlapTextureProgram(0.5, 0.25, 5)
 
 /********** Random sine waves ; Jmcc **********/
 let n = 12; /* number of simultaneous events */
@@ -29,7 +29,7 @@ let env = EnvLinen(2, 5, 2, 1, -4);
 	EqPan2(
 		SinOsc(2000.Rand0, 0) * EnvGen(1, 0.02, 0, 1, 2, env.asList),
 		1.Rand2)
-}.spawn(9 / n)
+}.spawnTextureProgram(9 / n)
 
 /********** Random pulsations ; Jmcc **********/
 let n = 8; /* number of simultaneous events */
@@ -38,7 +38,7 @@ let env = EnvLinen(2, 5, 2, 0.02, -4);
 	EqPan2(
 		(SinOsc(2000.Rand0, 0) * EnvGen(1, 1, 0, 1, 2, env.asList)).AmClip(SinOsc(8 + 80.LinRand0, 0)),
 		SinOsc(0.3 + 0.5.Rand0, 2.pi.Rand0) * 0.7)
-}.spawn(9 / n)
+}.spawnTextureProgram(9 / n)
 
 /********** Tremulate ; Jmcc **********/
 {
@@ -51,7 +51,7 @@ let env = EnvLinen(2, 5, 2, 0.02, -4);
 			[1.Rand2, 1.Rand2, 1.Rand2, 1.Rand2]
 		)
 	).CombN(0.1, 0.1, 1)
-}.xfade(2, 0.5)
+}.xFadeTextureProgram(2, 0.5)
 
 
 /********** Bouncing lightbulbs, pencils, cans, and other assorted objects ; Jmcc **********/
@@ -71,7 +71,7 @@ let env = EnvLinen(2, 5, 2, 0.02, -4);
 		1.Rand2 /* place each bouncer at a random position in the stereo field */
 	) * /* multiply by an envelope is necessary to make the sound end */
 	Cutoff(3, 0.001, -4) /* 3 second cut off envelope to end sound */
-}.spawn({ 0.6 + 0.6.atRandom })
+}.spawnTextureProgram({ 0.6 + 0.6.atRandom })
 
 /********** Bank of resonators excited by impulses ; Jmcc **********/
 let n = 5; /* number of simultaneous instruments */
@@ -86,7 +86,7 @@ let p = 15; /* number of partials per instrument */
 		),
 		1.Rand2
 	)
-}.overlap(6, 6, n)
+}.overlapTextureProgram(6, 6, n)
 
 /********** Excited by noise bursts ; Jmcc ***********/
 let n = 5; /* number of simultaneous instruments */
@@ -101,7 +101,7 @@ let p = 8; /* number of partials per instrument */
 			{ 0.2 + 4.Rand0 } ! p
 		)
 	} ! 2
-}.overlap(8, 8, n)
+}.overlapTextureProgram(8, 8, n)
 
 /********** Resonators at random frequencies excited by BrownNoise ; Jmcc ***********/
 let p = 32; /* number of partials per channel */
@@ -115,7 +115,7 @@ let p = 32; /* number of partials per channel */
 			{ 0.5 + 2.Rand0 } ! p
 		)
 	} ! 2
-}.xfade(6, 6)
+}.xFadeTextureProgram(6, 6)
 
 /********** Resonators tuned in a harmonic series with pitch ratios from a just scale ; Jmcc *********/
 let p = 12; /* number of overtones */
@@ -133,7 +133,7 @@ let p = 12; /* number of overtones */
 			{ 0.5 + 4.Rand0 } ! p
 		)
 	} ! 2
-}.xfade(1, 7)
+}.xFadeTextureProgram(1, 7)
 
 /********** Odd harmonics only, short ring times, LfNoise source ; Jmcc **********/
 let p = 12; /* number of overtones */
@@ -151,7 +151,7 @@ let p = 12; /* number of overtones */
 			{ 0.2 + 0.8.Rand0 } ! p
 		)
 	} ! 2
-}.xfade(1, 7)
+}.xFadeTextureProgram(1, 7)
 
 /********** Pipe wander-cluster ; Jmcc **********/
 let n = 6;
@@ -162,7 +162,7 @@ let note = 80 + 40.atRandom;
 	let delay = 1 / note.MidiCps;
 	note := (note + 15.atRandom - 7).fold(80, 120);
 	EqPan2(CombL(Lpz2(WhiteNoise() * 0.01), 0.01, delay, -0.4), 1.Rand2)
-}.overlap(t3, t3, n)
+}.overlapTextureProgram(t3, t3, n)
 
 /********** Fast LfOs with slow beats ; Jmcc **********/
 let n = 4; /* number of simultaneous events */
@@ -173,7 +173,7 @@ let n = 4; /* number of simultaneous events */
 	let b = 2000.Rand0;
 	let c = [a0 + 1.Rand2, a1 + 1.Rand2];
 	SinOsc(SinOsc(a, 0).MulAdd(1.0.Rand0 * b, b), 0).Mul(SinOsc(c, 0).MulAdd(0.05, 0.05))
-}.overlap(8, 4, n)
+}.overlapTextureProgram(8, 4, n)
 
 /********** Birdies ; Jmcc **********/
 let n = 4; /* number of simultaneous events */
@@ -184,7 +184,7 @@ let n = 4; /* number of simultaneous events */
 			+ LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1).Mul(3.Rand0 + 4), 0).MulAdd(
 				(1000 + 800.Rand0).Neg, 4000 + 1200.Rand2), 0.05),
 		0).Mul(Lag(LfPulse(0.5.Rand0 + 0.2, 0, 0.4) * 0.02, 0.3)), 1.Rand2)
-}.overlap(7, 4, n)
+}.overlapTextureProgram(7, 4, n)
 
 /********** Birdies ; Jmcc **********/
 let n = 4; /* number of simultaneous events */
@@ -194,7 +194,7 @@ let n = 4; /* number of simultaneous events */
 	let freq = Lag(MulAdd(LfSaw(p1 + p2, 0), (1000 + 800.Rand0).Neg, 4000 + 1200.Rand2), 0.05);
 	let amp = Lag(MulAdd(LfPulse(0.2 + 0.5.Rand0, 0, 0.4), 0.02, 0), 0.3);
 	EqPan2(SinOsc(freq, 0) * amp, 1.Rand2)
-}.overlap(7, 4, n)
+}.overlapTextureProgram(7, 4, n)
 
 /********** Slight mod of "phase mod with slow beats" ; Jmcc **********/
 let n = 4; /* number of simultaneous events */
@@ -210,4 +210,4 @@ let n = 4; /* number of simultaneous events */
 		ph := SinOsc([f2, f2 + 1.Rand2], 0).MulAdd(y, ph)
 	};
 	Adsr(gate, 0.001, 0.01, 0.25, 0.04, -4) * SinOsc([f1, f1 + 1.Rand2], ph) * 0.1
-}.overlap(4, 4, n)
+}.overlapTextureProgram(4, 4, n)

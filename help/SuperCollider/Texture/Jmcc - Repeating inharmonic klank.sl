@@ -11,4 +11,4 @@ let n = 4;
 			{ Rand(0.4, 4.4) } ! p
 		)
 	} ! 2
-}.overlap(8, 8, n)
+}.overlapTextureProgram(8, 8, n)

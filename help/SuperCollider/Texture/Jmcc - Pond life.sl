@@ -10,4 +10,4 @@
 		SinOsc(f, 0) * e,
 		1.Rand2
 	) * 0.04
-}.overlap(8, 8, 4)
+}.overlapTextureProgram(8, 8, 4)

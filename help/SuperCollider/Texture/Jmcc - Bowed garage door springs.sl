@@ -12,4 +12,4 @@
 		z := AllpassN(z, 0.04, { 0.04.Rand0 } ! 2, 16)
 	};
 	z
-}.overlap(8, 3, 4)
+}.overlapTextureProgram(8, 3, 4)

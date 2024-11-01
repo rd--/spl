@@ -26,4 +26,4 @@
 		}
 	].atRandom.value;
 	CombN(z, 0.5, [0.5, 0.47], 7) + z.reversed
-}.overlap(4, 4, 6)
+}.overlapTextureProgram(4, 4, 6)

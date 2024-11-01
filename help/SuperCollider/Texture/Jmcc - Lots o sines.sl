@@ -8,4 +8,4 @@
 			nil
 		)
 	} ! 2 * (0.1 / n)
-}.overlap(4, 4, 2)
+}.overlapTextureProgram(4, 4, 2)

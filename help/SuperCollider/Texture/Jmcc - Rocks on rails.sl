@@ -15,4 +15,4 @@ let n = 4; /* number of overlapping events */
 		),
 		Line(1.Rand2, 1.Rand2, 8) /* sweep pan */
 	)
-}.overlap(2, 3, n)
+}.overlapTextureProgram(2, 3, n)

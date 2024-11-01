@@ -7,4 +7,4 @@
 	let freq2 = SinOsc(Rand(4, 8), 0) * (0.01 * freq) + freq;
 	let delay = 1 / freq2;
 	EqPan(CombC(WhiteNoise() * 0.008, 0.01, delay, decayTime), Rand(-1, 1))
-}.overlap(4 / 3, 4 / 3, 6)
+}.overlapTextureProgram(4 / 3, 4 / 3, 6)

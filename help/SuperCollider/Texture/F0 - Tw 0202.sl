@@ -5,6 +5,6 @@
 	let f = Duty(b, 0, s);
 	let p = SinOsc(f, 0);
 	let o = EqPan(SinOsc(each, p), each % 3 - 1) * b;
-	o.playAt(currentTime + 0.5);
+	o.playAt(currentTime);
 	[each % 5 + 1, each + 1]
 }.scheduleInjecting(1)

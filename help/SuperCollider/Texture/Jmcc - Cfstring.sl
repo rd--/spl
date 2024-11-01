@@ -18,4 +18,4 @@
 	let eg = Decay2(Impulse(0, 0), 0.5, 1);
 	let out = eg * Rlpf(osc.Distort * 0.2, fc, 0.1);
 	EqPan(out, [pan, pan + 0.3]).Sum / 2
-}.overlap(2, 0, 10)
+}.overlapTextureProgram(2, 0, 10)
