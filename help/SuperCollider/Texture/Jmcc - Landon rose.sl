@@ -7,12 +7,11 @@ let noteList = [
 	14 23 34 45;
 	76 88 99 124
 ];
-{ :currentTime |
+{
 	RingzBank(
 		Release(PinkNoise(0.001 # 2, 0), 2, 1, 2),
 		noteList.atRandom.MidiCps,
 		1,
 		ringTimes
-	).playAt(currentTime);
-	2
-}.schedule
+	)
+}.spawnTextureProgram(2)

@@ -2,9 +2,9 @@
 
 - _xFadeTextureProgram(aBlock, sustainTime, transitionTime)_
 
-Texture generator.
-
-_overlapTextureProgram_ with two cross fading sounds.
+Answer a `TextureProgram`,
+\=0865321`qwt
+?, xapTextureProgram` but with only two cross fading sounds.
 
 * * *
 

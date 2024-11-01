@@ -1,5 +1,5 @@
 /* Tapping tools (Jmcc) #7 */
-{ :currentTime |
+{
 	let rate = XLine(64, 0.125, 60);
 	let exc = Decay(Impulse(LinRand(1, 20, 0) * rate, 0) * 0.03, 0.001);
 	let flt = RingzBank(
@@ -12,6 +12,5 @@
 	3.timesRepeat {
 		z := AllpassN(z, 0.05, { 0.05.Rand0 } ! 2, 2)
 	};
-	z.playAt(currentTime);
-	2
-}.schedule
+	z
+}.spawnTextureProgram(2)
