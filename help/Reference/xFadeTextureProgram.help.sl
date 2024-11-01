@@ -8,6 +8,6 @@ _overlapTextureProgram_ with two cross fading sounds.
 
 * * *
 
-See also: collectTexture, overlapTextureProgram, playEvery, recurseEvery, spawnTextureProgram, TextureProgram
+See also: collectTextureProgram, overlapTextureProgram, playEvery, recurseEvery, spawnTextureProgram, TextureProgram
 
 Categories: Scheduling

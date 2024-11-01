@@ -79,18 +79,6 @@ TextureProgram : [Object] { | iterationCounter soundBlock envelopeBlock delayTim
 
 +Clock {
 
-	collectTexture { :self :aCollection :aBlock:/1 :delay |
-		let end = aCollection.size;
-		self.recurseEvery({ :currentTime :index |
-			aBlock(aCollection[index]).playAt(currentTime);
-			(index = end).if {
-				nil
-			} {
-				index + 1
-			}
-		}, 1, delay.value)
-	}
-
 	playEvery { :self :aBlock:/1 :delay |
 		self.repeatEvery({ :currentTime :nextDelay |
 			aBlock(nextDelay).playAt(currentTime)
@@ -101,12 +89,28 @@ TextureProgram : [Object] { | iterationCounter soundBlock envelopeBlock delayTim
 
 +@Collection {
 
-	collectTexture { :self :aBlock:/1 :delay |
-		system.clock.collectTexture(
-			self,
-			aBlock:/1,
-			delay
-		)
+	collectTextureProgram { :self :soundBlock:/1 :delayTime |
+		let index = 1;
+		let endIndex = self.size;
+		self.isEmpty.if {
+			self.error('collectTextureProgram: empty collection')
+		} {
+			TextureProgram(
+				{
+					let answer = soundBlock(self[index]);
+					index := index + 1;
+					answer
+				},
+				identity:/1,
+				{
+					(index > endIndex).if {
+						nil
+					} {
+						delayTime.value
+					}
+				}
+			)
+		}
 	}
 
 }

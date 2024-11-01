@@ -1,5 +1,5 @@
 /* https://sccode.org/1-4Qy ; F0 ; 0112 */
-1:37.collectTexture { :i |
+1:37.collectTextureProgram { :i |
 	{
 		let lvl = Dseq(1, 12:0 * (i % 63 + 99));
 		let freq = Duty(1 / 12, 0, lvl) * [1, 1.01];

@@ -13,6 +13,6 @@ The process runs at the interval _delayTime_.
 
 * * *
 
-See also: collectTexture, OverlapTexture, overlapTextureProgram, spawnTextureProgram, xFadeTextureProgram
+See also: collectTextureProgram, OverlapTexture, overlapTextureProgram, spawnTextureProgram, xFadeTextureProgram
 
 Categories: Scheduling

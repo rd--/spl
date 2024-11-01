@@ -29,6 +29,6 @@ Texture of overlapping sine tone dyads:
 
 * * *
 
-See also: collectTexture, overlapTextureProgram
+See also: collectTextureProgram, overlapTextureProgram, TextureProgram
 
 Categories: Scheduling
