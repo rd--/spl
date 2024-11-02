@@ -28,7 +28,7 @@ EqPan2(
 	l
 ).Mix * 0.25
 
-/* Vosim ; requires=voicer */
+/* Vosim ; Event control */
 Voicer(1, 16) { :e |
 	let tr = Impulse(e.p.UnitCps, 0);
 	let freq = LinExp(e.y, 0, 1, 440, 880);

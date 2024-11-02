@@ -174,7 +174,7 @@ let n = 16;
 	)
 } !+ n
 
-/* SinOsc ; fm ; https://github.com/Thrifleganger/VisualSynth ; requires=Voicer */
+/* SinOsc ; Fm ; https://github.com/Thrifleganger/VisualSynth ; Event control */
 let fmSignal = Voicer(1, 16) { :e |
 	let index = e.y * 3;
 	let pitch = e.x * 24 + 48;

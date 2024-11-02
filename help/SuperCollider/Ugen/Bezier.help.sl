@@ -31,7 +31,7 @@ let w = { :l :r |
 	EqPan2(o, IRand(-1, 1)) * 0.1
 } !> 4
 
-/* Bezier ; event control ; requires=voicer */
+/* Bezier ; Event control */
 Voicer(1, 16) { :e |
 	let w = { :l :r |
 		LinLin(LfdNoise3(e.j * 5), -1, 1, l, r)

@@ -1,4 +1,4 @@
-/* BMoog ; requires=Voicer */
+/* BMoog ; Event control */
 Voicer(1, 16) { :e |
 	let md = TiRand(0, 2, e.w);
 	let f0 = LinExp(e.x, 0, 1, 12, 12000);

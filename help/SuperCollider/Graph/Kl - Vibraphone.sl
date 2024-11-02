@@ -1,4 +1,4 @@
-/* Vibraphone simulation ; Kevin Larke ; Real Time Vibraphone Pitch and Timbre Classification ; requires=voicer */
+/* Vibraphone simulation ; Kevin Larke ; Real Time Vibraphone Pitch and Timbre Classification ; Even control */
 Voicer(1, 16) { :e |
 	let freq = e.p.UnitCps;
 	let detune = e.y * 15;

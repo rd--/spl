@@ -1,4 +1,4 @@
-/* MembraneCircle ; event control */
+/* MembraneCircle ; Event control */
 Voicer(1, 16) { :e |
 	let loss = LinExp(e.y, 0, 1, 0.99999, 0.99950);
 	let wobble = SinOsc(2, 0);

@@ -1,6 +1,6 @@
-/* http://schollz.com/blog/phasedistortion/ ; requires=voicer */
+/* http://schollz.com/blog/phasedistortion/ ; Event control */
 Voicer(1, 16) { :e |
-	let freq = (e.x * 36 + 48).MidiCps; /* E.p.UnitCps */
+	let freq = (e.x * 36 + 48).MidiCps; /* e.p.UnitCps */
 	let amp = e.z;
 	let freqBase = freq;
 	let freqRes = LinLin(SinOsc(Rand(0, 0.2), 0), -1, 1, freqBase / 2, freqBase * 2);

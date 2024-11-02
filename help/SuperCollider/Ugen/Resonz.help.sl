@@ -26,7 +26,7 @@ Resonz(WhiteNoise() * 0.1, 2000, bw)
 let bw = XLine(0.001, 1, 8);
 Resonz(WhiteNoise() * 0.1, 2000, bw)
 
-/* Resonz ; PinkNoise ; event control */
+/* Resonz ; PinkNoise ; Event control */
 Voicer(1, 16) { :e |
 	EqPan2(
 		Resonz(
@@ -37,7 +37,7 @@ Voicer(1, 16) { :e |
 	) * e.z * e.w
 }.Mix
 
-/* Resonz ; PinkNoise ; event control */
+/* Resonz ; PinkNoise ; Event control */
 Voicer(1, 16) { :e |
 	let env = Perc(e.w, 0.01, 1 + e.j, -4);
 	let freq = e.p.UnitCps;

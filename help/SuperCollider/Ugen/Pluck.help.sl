@@ -7,7 +7,7 @@ snd := LeakDc(snd, 0.995).Sum;
 snd := MoogFf(snd, LinExp(LfNoise2(1), -1, 1, 500, 16000), 0, 0);
 EqPan(snd, freq)
 
-/* Pluck ; event control ; requires=voicer */
+/* Pluck ; Event control */
 Voicer(1, 16) { :e |
 	let dm = 1 / 220;
 	let dl = (e.x.negated * 0.9 + 1) * dm;
@@ -15,7 +15,7 @@ Voicer(1, 16) { :e |
 	EqPan2(sig, e.i * 2 - 1)
 }.Mix
 
-/* Pluck ; event control ; requires=record/voicer */
+/* Pluck ; Event control */
 (
 	w: SinOsc(Rand(2:9 / 11, 1), 0),
 	x: LfNoise2(Rand(2:9.reversed / 13, 1)).LinLin(-1, 1, 0, 2:9 / 17),

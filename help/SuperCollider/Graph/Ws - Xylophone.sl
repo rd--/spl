@@ -1,4 +1,4 @@
-/* Xylophone (Ws) ; event control ; http://scsynth.org/t/4681/ */
+/* Xylophone (Ws) ; Event control ; http://scsynth.org/t/4681/ */
 Voicer(1, 16) { :e |
 	let freq = e.p.UnitCps;
 	let amp = 1;

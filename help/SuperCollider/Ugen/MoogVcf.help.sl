@@ -1,4 +1,4 @@
-/* MoogVcf ; Voicer */
+/* MoogVcf ; Event control */
 Voicer(1, 16) { :e |
 	let freq = e.p.UnitCps;
 	let osc = {

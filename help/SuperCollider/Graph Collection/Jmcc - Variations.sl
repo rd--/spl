@@ -82,7 +82,7 @@ Mul(
 /* Analog bubbles (Jmcc) ; as above ; one line */
 Mul(CombN(Mul(SinOsc(MidiCps(MulAdd(LfSaw(0.4, 0), 24, MulAdd(LfSaw([8, 7.23], 0), 3, 80))), 0), 0.05), 0.2, 0.2, 4), 0.1)
 
-/* Berlin 1977 (Jmcc) #4 ; event control */
+/* Berlin 1977 (Jmcc) #4 ; Event control */
 Voicer(1, 16) { :e |
 	let freq = (e.x * 24 + 48).MidiCps;
 	let env = Decay2(Trig(e.w, 0.001), 0.05 * e.y, 2 * e.y);
@@ -263,14 +263,14 @@ Rhpf(f, 5000, 1)
 /* Sprinkler (Jmcc) #1 */
 Bpz2(WhiteNoise() * LfPulse(LfPulse(0.09, 0, 0.16) * 10 + 7, 0, 0.25) * 0.1)
 
-/* Theremin (Jmcc) ; event control */
+/* Theremin (Jmcc) ; Event control */
 Voicer(1, 16) { :e |
 	let freq = Lag(LinExp(e.y, 0, 1, 4000, 200), 0.8);
 	let a = SinOsc(freq + (freq * SinOsc(4 + 3 * e.j, 0) * 0.02), 0) * e.x * 0.6 * Lag(e.w, 0.2);
 	Pan2(a, e.i * 0.25, 0.5 + e.z)
 }.Mix * 0.5
 
-/* Tremulate (Jmcc) ; event control ; requires=voicer */
+/* Tremulate (Jmcc) ; Event control */
 let s = Voicer(1, 16) { :e |
 	let s = SinOsc(e.x * 400 + 500 * [1 1.2 1.5 1.8], 0); /* just minor seventh chord, 1:1 5:4 3:2 9:5 */
 	let a = LfNoise2({ Rand(30, 90) } ! 4 * (0.75 + e.j)).Max(0) * e.z;

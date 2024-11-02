@@ -1,4 +1,4 @@
-/* Event control ; http://www.listarc.bham.ac.uk/lists/sc-users/msg68844.html (ml) ; requires=voicer,kr */
+/* Event control ; http://www.listarc.bham.ac.uk/lists/sc-users/msg68844.html (ml) ; requires=kr */
 Voicer(1, 16) { :e |
 	let numPartials = 40;
 	let baseFreq = (e.x * 25 + 48).MidiCps;

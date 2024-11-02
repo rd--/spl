@@ -3,7 +3,7 @@ let numPartials = 24;
 let numVoices = 16;
 let partialList = [1 .. numPartials];
 let detune = 0.2;
-Voicer(1, 16) { :e |
+Voicer(1, numVoices) { :e |
 	let detuneList = (LfNoise1(0.2) # numPartials * detune).MidiRatio;
 	let freqEnv = TxLine(1 - e.y * 2, 1, partialList ^ 0.7 / 10, e.w);
 	let freq0 = e.p.UnitCps;

@@ -28,7 +28,7 @@ let o2 = LfSaw (f + [0, 0.7], 0) * 0.3;
 let o3 = o1 + o2;
 o3.Distort.Distort.Cubed * 0.5
 
-/* LfSaw ; https://scsynth.org/t/6320/2 (nh) ; requires=voicer */
+/* LfSaw ; https://scsynth.org/t/6320/2 (nh) ; Event control */
 Voicer(1, 16) { :e |
 	let freq = e.p.UnitCps;
 	let auto = SinOsc(e.z * 2, 0).LinLin(-1, 1, 1, 1 + e.y);

@@ -1,30 +1,30 @@
-/* SinOsc ; event control ; p-field */
+/* SinOsc ; Event control ; p */
 Voicer(1, 16) { :e |
 	SinOsc(e.p.UnitCps, 0) * e.w * e.z
 }.Splay
 
-/* SinOsc ; event control ; x-field */
+/* SinOsc ; Event control ; x */
 Voicer(1, 16) { :e |
 	EqPan2(SinOsc((e.x * 24 + 48).MidiCps, 0), e.i * 2 - 1) * e.z * e.w
 }.Mix
 
-/* Blip ; event control ; shared parameter */
+/* Blip ; Event control ; Shared parameter */
 let nh = 1;
 Voicer(1, 16) { :e |
 	Blip(e.p.UnitCps, nh) * e.w * e.z
 }.Splay
 
-/* Blip ; event control */
+/* Blip ; Event control */
 Voicer(1, 16) { :e |
 	EqPan2(Blip(e.p.UnitCps, e.y * 10 + 1), e.i * 2 - 1) * e.w * e.z * e.z
 }.Mix
 
-/* Blip ; event control */
+/* Blip ; Event control */
 Voicer(1, 16) { :e |
 	EqPan2(Blip(e.p.UnitCps, e.i * 10 + 1), e.j * 2 - 1) * e.w * e.z / 9
 }.Mix
 
-/* PanAz ; event control */
+/* PanAz ; Event control */
 let nc = 2;
 Voicer(1, 16) { :e |
 	PanAz(
@@ -45,7 +45,7 @@ Voicer(1, 16) { :e |
 	SinOsc(e.x * 222 + 333, 0) * e.w * 0.2
 }
 
-/* blip ; event control ; requires=keywords */
+/* Blip ; Event control ; requires=keywords */
 Voicer(
 	part: 1,
 	numVoices: 16,
@@ -60,7 +60,7 @@ Voicer(
 	}
 ).Sum
 
-/* MembraneCircle ; event control ; note limited voice count ; requires=keywords */
+/* MembraneCircle ; Event control ; Note limited voice count ; requires=keywords */
 Voicer(
 	part: 1,
 	numVoices: 6,
@@ -100,7 +100,7 @@ Voicer(
 	}
 ).Mix
 
-/* pluck ; event control ; requires=keywords */
+/* Pluck ; Event control ; requires=keywords */
 Voicer(
 	part: 1,
 	numVoices: 16,
@@ -122,7 +122,7 @@ Voicer(
 	}
 ).Sum
 
-/* resonz ; pinkNoise ; event control ; requires=keywords */
+/* Resonz ; PinkNoise ; Event control ; requires=keywords */
 Voicer(
 	part: 1,
 	numVoices: 16,
