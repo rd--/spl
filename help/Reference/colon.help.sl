@@ -28,13 +28,9 @@ An infix colon defines a `Range` in `Range Syntax`:
 
 An infix colon declares a type in `Type Definition Syntax`.
 
-```
->>> Foo : [Object] { |bar| }
-nil
-
->>> newFoo().isFoo
-true
-```
+~~~
+Foo : [Object] { |bar| foo { :self | 'foo' } }
+~~~
 
 The name of this syntax token is `colon`.
 

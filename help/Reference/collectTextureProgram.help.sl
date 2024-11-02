@@ -23,6 +23,8 @@ Play ascending diatonic scale:
 
 * * *
 
-See also: overlapTextureProgram, playEvery, recurseEvery, spawnTextureProgram, TextureProgram, xFadeTextureProgram
+See also: overlapTextureProgram, spawnTextureProgram, TextureProgram, xFadeTextureProgram
+
+Guides: Texture Programs
 
 Categories: Scheduling
