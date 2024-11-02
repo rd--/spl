@@ -22,7 +22,7 @@ HelpIndex : [Object] { | contents |
 	}
 
 	kind { :self |
-		['Guide', 'Reference']
+		['Guide', 'Reference', 'Terse']
 	}
 
 	names { :self :kind |
