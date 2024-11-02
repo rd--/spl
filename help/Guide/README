@@ -1,15 +1,3 @@
-'/home/rohan/sw/spl/help/Guide/Terse Guide.help.sl'.asFileUrl.terseGuideSummary
-
-Total => 3727
-
-'/home/rohan/sw/spl/help/Guide/Terse Guide to Sound.help.sl'.asFileUrl.terseGuideSummary
-
-Total => 219
-
-'/home/rohan/sw/spl/help/Guide/Terse Guide to SuperCollider.help.sl'.asFileUrl.terseGuideSummary
-
-Total => 141
-
 '/home/rohan/sw/spl/help/Guide'.terseReferenceSummary(verbose: true)
 
 Total => 330
