@@ -76,16 +76,17 @@ SmallKansas : [Object, Cache] { | container frameSet cache history |
 
 	fontMenuEntriesOn { :self :subject |
 		[
-			'APL 333', 'APL 385', 'APL 386',
-			'Computer Modern',
-			'Los Altos',
-			'Monaco',
-			'Neo Euler',
-			'Parc Place',
-			'Virtue'
+			'APL 333' -> 'APL333',
+			'APL 385' -> 'APL385 Unicode',
+			'Computer Modern' -> 'Computer Modern',
+			'Euler' -> 'Neo Euler',
+			'Los Altos' -> 'Los Altos',
+			'Monaco' -> 'Monaco',
+			'Parc Place' -> 'Parc Place',
+			'Virtue' -> 'Virtue'
 		].collect { :fontName |
-			MenuItem(fontName, nil) { :unusedEvent |
-				subject.font := fontName
+			MenuItem(fontName.key, nil) { :unusedEvent |
+				subject.font := fontName.value
 			}
 		}
 	}
