@@ -113,6 +113,7 @@ Guide/Subsequences and substrings.help.sl
 Guide/SuperCollider Perspective.help.sl
 Guide/SuperCollider Synthesiser.help.sl
 Guide/Syntax Guides.help.sl
+Guide/Syntax Tokens.help.sl
 Guide/System Dictionary.help.sl
 Guide/Temporary Block Syntax.help.sl
 Guide/Terse Guide.help.sl
@@ -127,6 +128,7 @@ Guide/Trailing Dictionary Syntax.help.sl
 Guide/Tree Syntax.help.sl
 Guide/Tuning Functions.help.sl
 Guide/Tuple Syntax.help.sl
+Guide/Type Definition Syntax.help.sl
 Guide/Unary Operator Syntax.help.sl
 Guide/Unicode Symbols.help.sl
 Guide/Unit Generator Index.help.sl
@@ -479,7 +481,7 @@ Reference/collect.help.sl
 Reference/collectInto.help.sl
 Reference/Collection.help.sl
 Reference/CollectionStream.help.sl
-Reference/collectTexture.help.sl
+Reference/collectTextureProgram.help.sl
 Reference/colonColon.help.sl
 Reference/colonCommercialAt.help.sl
 Reference/colonEqualsSign.help.sl
@@ -1461,6 +1463,7 @@ Reference/Osc1.help.sl
 Reference/OscBundle.help.sl
 Reference/OscMessage.help.sl
 Reference/OscParameter.help.sl
+Reference/outerElement.help.sl
 Reference/outer.help.sl
 Reference/outerProduct.help.sl
 Reference/Out.help.sl
@@ -1854,6 +1857,7 @@ Reference/slotRead.help.sl
 Reference/slotWrite.help.sl
 Reference/smallFloatEpsilon.help.sl
 Reference/SmallFloat.help.sl
+Reference/SmallKansan.help.sl
 Reference/SmallKansas.help.sl
 Reference/SmallProgram.help.sl
 Reference/SoftClip.help.sl

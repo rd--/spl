@@ -23,6 +23,8 @@ Variables defined using `let` may be mutated:
 
 * * *
 
-See also: :=, Let Syntax, Var Syntax
+See also: :=, let, var
+
+Guides: Let Syntax, Var Syntax
 
 Categories: Syntax

@@ -29,8 +29,17 @@ they are not considered comparison functions.
 Every remaining possibility is one of the comparisons:
 
 ```
->>> [<, <=, =, >=, >, ~=].collect { :f:/2 | [f(0, 1), f(0, 0), f(1, 0)] }.boole
-[1 0 0; 1 1 0; 0 1 0; 0 1 1; 0 0 1; 1 0 1]
+>>> [<, <=, =, >=, >, ~=].collect { :f:/2 |
+>>> 	[f(0, 1), f(0, 0), f(1, 0)]
+>>> }.boole
+[
+	1 0 0;
+	1 1 0;
+	0 1 0;
+	0 1 1;
+	0 0 1;
+	1 0 1
+]
 ```
 
 * * *

@@ -41,6 +41,7 @@ false
 ```
 
 As a syntax token `|` separates the parameter list from the body in `Block Syntax`.
+It also encloses and slot names in `Type Definition Syntax`.
 
 The name of this operator and syntax token is `verticalLine`.
 
@@ -54,6 +55,8 @@ Note that `|` is not displayed as ∨ because it is part of the `Block Syntax`.
 * * *
 
 See also: &, &&, ||, anySatisfy
+
+Guides: Logical Operators, Syntax Tokens
 
 References:
 _Apl_

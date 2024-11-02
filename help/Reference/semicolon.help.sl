@@ -20,6 +20,8 @@ The name of this syntax token is `semicolon`.
 
 * * *
 
-See also: :, ,, ., Block Syntax, Matrix Syntax
+See also: :, ,, .
+
+Guides: Block Syntax, Matrix Syntax, Syntax Tokens
 
 Categories: Syntax

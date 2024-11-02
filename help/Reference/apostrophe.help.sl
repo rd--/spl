@@ -2,7 +2,12 @@
 
 `'` is a syntax token, it is not an operator.
 
-`'` is part of `String Syntax`.
+It is part of `String Syntax`.
+
+```
+>>> 'quincunx'.isString
+true
+```
 
 The name of this syntax token is `apostrophe`.
 

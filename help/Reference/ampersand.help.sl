@@ -41,6 +41,8 @@ In Spl the names are _&_ and _&&_.
 
 See also: |, &&, allSatisfy
 
+Guides: Logical Operators
+
 Unicode: U+2227 ∧ Logical and
 
 References:

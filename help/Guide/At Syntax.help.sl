@@ -60,7 +60,9 @@ The @* operator expresses this method succinctly:
 
 * * *
 
-See also: @*, AtPut Syntax, Quoted At Syntax
+See also: @*
+
+Guides: AtPut Syntax, Quoted At Syntax
 
 References:
 _Apl_

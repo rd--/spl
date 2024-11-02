@@ -1,7 +1,7 @@
 # Document
 
-A system Trait.
-Not all systems will implement Document.
+A system `Trait`.
+Not all systems will implement `Document`.
 Where implemented it is accessed using `Window` and `Navigator`.
 
 ```
@@ -14,4 +14,6 @@ true
 
 * * *
 
-Categories: UserInterface
+See also: Navigator, Window
+
+Categories: System, UserInterface

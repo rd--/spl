@@ -19,13 +19,15 @@ Written out:
 'y'
 ```
 
-This is a form of _ternary syntax_, the operator _:?_ is also a part of `Quoted AtIfAbsent Syntax`.
+This is a form of _ternary syntax_, the operator :? is also a part of `Quoted AtIfAbsent Syntax`.
 
-Where supported _:?_ is displayed as _⍰_.
+Where supported `:?` is displayed as ⍰.
 
 * * *
 
-See also: At Synax, AtAll Syntax, AtPut Syntax, Quoted AtIfAbsent Syntax, Quoted At Syntax
+See also: ?
+
+Guides: At Synax, AtAll Syntax, AtPut Syntax, Quoted AtIfAbsent Syntax, Quoted At Syntax
 
 Unicode: U+2370 ⍰ Apl Functional Symbol Quad Question
 

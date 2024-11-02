@@ -33,7 +33,9 @@ A concise notation can allow the _score_ for a work to be written directly in Sp
 
 * * *
 
-See also: :;, List, List Syntax, Matrix Syntax, Tree Syntax, Vector Syntax, Volume Syntax
+See also: :;, List
+
+Guides: List Syntax, Matrix Syntax, Tree Syntax, Vector Syntax, Volume Syntax
 
 References:
 _Fortress_

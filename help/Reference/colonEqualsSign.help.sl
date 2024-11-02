@@ -34,7 +34,9 @@ Where supported `:=` is displayed either as ← or ≔.
 
 * * *
 
-See also: =, Assignment Syntax, AtPut Syntax, List Assignment Syntax, Quoted AtPut Syntax
+See also: :, =
+
+Guides: Assignment Syntax, AtPut Syntax, List Assignment Syntax, Quoted AtPut Syntax, Syntax Tokens
 
 References:
 _Apl_

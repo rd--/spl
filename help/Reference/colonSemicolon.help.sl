@@ -15,7 +15,9 @@ Where supported, `:;` is displayed as ↲.
 
 * * *
 
-See also: Volume Syntax
+See also: ;, :
+
+Guides: Syntax Tokens, Volume Syntax
 
 Unicode: ↲ U+021B2 Downwards Arrow With Tip Leftwards
 

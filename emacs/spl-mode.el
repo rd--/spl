@@ -317,8 +317,8 @@ If the string begins with a doctest, also delete all non doctest lines."
      (">>" . ?≫) ; U+226B ≫ Much Greater-Than ; U+00BB » Right-Pointing Double Angle Quotation Mark
      (">>>" . ?⋙) ; U+22D9 ⋙ Very Much Greater-Than
      ("|>" . ?▷) ; U+25B7 ▷ White Right-Pointing Triangle
-     ("/*" . ?«) ; U+000AB « Left-Pointing Double Angle Quotation Mark
-     ("*/" . ?») ; U+000BB » Right-Pointing Double Angle Quotation Mark
+     ;("/*" . ?«) ; U+000AB « Left-Pointing Double Angle Quotation Mark
+     ;("*/" . ?») ; U+000BB » Right-Pointing Double Angle Quotation Mark
      ("Phi" . ?ϕ) ; U+03D5 ϕ Greek Phi Symbol
      ("Psi" . ?Ψ) ; U+03A8 Ψ Greek Capital Letter Psi
      ("Sqrt" . ?√) ; U+221A √ Square Root

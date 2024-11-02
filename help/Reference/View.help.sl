@@ -15,4 +15,4 @@ If not redefined:
 
 See also: Frame, SmallKansas
 
-Categories: UserInterface
+Categories: Kansas

@@ -26,3 +26,9 @@ true
 >>> 3 + 4 == 7
 true
 ```
+
+* * *
+
+See also: =, :=, ==
+
+Guides: Assignment Syntax, Comparison Functions, Initialised Temporaries Syntax

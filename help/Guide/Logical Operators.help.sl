@@ -20,4 +20,8 @@ false
 
 * * *
 
-See also &, |, bitAnd, bitOr
+See also: &, &&, |, ||, anySatisfy, allSatisfy, bitAnd, bitOr
+
+Guides: Comparison Functions
+
+Categories: Logic

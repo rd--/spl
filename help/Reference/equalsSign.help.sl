@@ -87,9 +87,9 @@ The name of this operator and syntax token is `equalsSign`.
 
 * * *
 
-See also: <, <=, >, >=, ~=, ==, ~, :=, hasEqualSlots, Let Syntax
+See also: <, <=, >, >=, ~=, ==, ~, :=, hasEqualSlots
 
-Guides: Let Syntax
+Guides: Comparison Functions, Let Syntax, Syntax Tokens
 
 References:
 _Apl_

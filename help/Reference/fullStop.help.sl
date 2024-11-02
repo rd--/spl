@@ -28,6 +28,6 @@ The name of this syntax token is `fullStop`.
 
 See also: :, ,, ;
 
-Guides: Method Syntax, Value Apply Syntax
+Guides: Method Syntax, Syntax Tokens, Value Apply Syntax
 
 Categories: Syntax

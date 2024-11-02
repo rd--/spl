@@ -9,4 +9,8 @@ The name of this syntax token is `rightCurlyBracket`.
 
 * * *
 
-See also: {, Block Syntax
+See also: {
+
+Guides: Block Syntax, Syntax Tokens
+
+Categories: Syntax

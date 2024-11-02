@@ -63,9 +63,13 @@ Plot bitOr with double and triple:
 
 See also: and, bitNot, bitOr, bitXor
 
+Guides: Logical Operators
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/OR.html)
 [2](https://reference.wolfram.com/language/ref/BitOr.html),
 _Smalltalk_
 5.6.5.7
+
+Categories: Logic
