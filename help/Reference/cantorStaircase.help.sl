@@ -1,7 +1,7 @@
 # cantorStaircase
 
 - _cantorStaircase(x, n)_
-- _cantorStaircase(alpha)_ => _cantorStaircase(alpha, 12)_
+- _cantorStaircase(alpha)_ ⟹ _cantorStaircase(alpha, 12)_
 
 Answer the Cantor staircase function,
 a continuous but not absolutely continuous function on _[0,1]_. 

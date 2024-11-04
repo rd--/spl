@@ -1,7 +1,7 @@
 # deleteDuplicates
 
-- _deleteDuplicates(alpha, beta)_ => _nubBy(alpha, beta)_
-- _deleteDuplicates(alpha)_ => _nub(alpha, beta)_
+- _deleteDuplicates(alpha, beta)_ ⟹ _nubBy(alpha, beta)_
+- _deleteDuplicates(alpha)_ ⟹ _nub(alpha, beta)_
 
 An alias for `nub` and `nubBy`.
 

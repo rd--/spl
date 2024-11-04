@@ -12,3 +12,7 @@ LsBrown(-1, 1, 1 / 100, 99).upToEnd.linePlot
 * * *
 
 See also: LsWhite
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Pbrown.html)

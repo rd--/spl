@@ -1,5 +1,6 @@
 # take
 
+- _take(anInteger, anotherInteger)_ ⟹ _positiveIntegerBinomial(anInteger, anotherInteger)_
 - _take(aCollection, anInteger)_
 - _take(aSequence, anInteger, anObject)_
 
@@ -55,9 +56,7 @@ or as a prefix:
 [0 0 0 5 4 3 2 1]
 ```
 
-- _take(n, k)_ => _positiveIntegerBinomial(n, k)_
-
-At _Integer_ _take_ is an alias for _positiveIntegerBinomial_,
+At `Integer` `take` is an alias for `positiveIntegerBinomial`,
 which tells the number of combinations of _n_ elements taken _k_ at a time.
 
 ```

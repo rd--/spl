@@ -1,7 +1,7 @@
 # discretize
 
 - _discretize(anInterval, anInteger)_
-- _discretize(alpha, beta, gamma)_ => _discretize(alpha, beta).collect(gamma)_
+- _discretize(alpha, beta, gamma)_ ⟹ _discretize(alpha, beta).collect(gamma)_
 
 Answer a `Range` of _anInteger_ places having a linear interpolation of _anInterval_.
 

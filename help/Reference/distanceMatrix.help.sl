@@ -1,8 +1,8 @@
 # distanceMatrix
 
 - _distanceMatrix(aSequence, anotherSequence, aBlock:/1)_
-- _distanceMatrix(alpha, beta)_ => _distanceMatrix(alpha, beta, euclideanDistance:/2)_
-- _distanceMatrix(alpha)_ => _distanceMatrix(alpha, alpha)_
+- _distanceMatrix(alpha, beta)_ ⟹ _distanceMatrix(alpha, beta, euclideanDistance:/2)_
+- _distanceMatrix(alpha)_ ⟹ _distanceMatrix(alpha, alpha)_
 
 Answer the matrix of distances between each pair of elements.
 In the unary and binary cases the distance function is `euclideanDistance`.

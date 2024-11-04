@@ -1,6 +1,6 @@
 # removeLast
 
-- _removeLast(alpha)_ => _removeLast(alpha, 1)_
+- _removeLast(alpha)_ ⟹ _removeLast(alpha, 1)_
 - _removeLast(aSequence, anInteger)_
 
 In the unary case, remove the last element of _aSequence_ and answer it.

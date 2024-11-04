@@ -1,7 +1,7 @@
 # octaveReduced
 
 - _octaveReduced(aFraction, aNumber)_
-- _octaveReduced(alpha)_ => _octaveReduced(alpha, 2)_
+- _octaveReduced(alpha)_ ⟹ _octaveReduced(alpha, 2)_
 
 Answer _aFraction_ reduced to lie within `one` and the octave specified by _aNumber_.
 

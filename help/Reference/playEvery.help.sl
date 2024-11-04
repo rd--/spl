@@ -1,7 +1,7 @@
 # playEvery
 
 - _playEvery(aClock, aBlock:/1, interval)_
-- _playEvery(aBlock:/1, interval)_ => aClock=system.clock
+- _playEvery(aBlock:/1, interval)_ ⟹ aClock=system.clock
 
 Schedule sound generating block at intervals.
 Evaluate _aBlock.play_ now, and re-schedule recursively after _interval.value_ seconds.

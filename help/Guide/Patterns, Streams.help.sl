@@ -28,6 +28,7 @@ SuperCollider names:
 Further:
 
 - `LsAccum`
+- `LsAdjacent`
 - `LsAt`
 - `LsAtFold`
 - `LsAtWrap`

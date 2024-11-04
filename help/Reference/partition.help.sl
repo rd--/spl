@@ -1,7 +1,7 @@
 # partition
 
 - _partition(aSequence, windowSize, stepSize)_
-- _partition(alpha, beta)_ => _partition(alpha, beta, beta)_
+- _partition(alpha, beta)_ ⟹ _partition(alpha, beta, beta)_
 
 Answer a sequence of arrays of _windowSize_ places,
 each is a subsequence of _aSequence_,

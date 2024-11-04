@@ -75,4 +75,8 @@ A very similar random linear sequence with _sustain_ and _gate_ parameters:
 
 * * *
 
-See also: play
+See also: play, Record
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Pbind.html)

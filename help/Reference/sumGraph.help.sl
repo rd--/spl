@@ -1,7 +1,7 @@
 # sumGraph
 
 - _sumGraph(aGraph, anotherGraph)_
-- _alpha + beta_ => _sumGraph(alpha, beta)_
+- _alpha + beta_ ⟹ _sumGraph(alpha, beta)_
 
 The graph sum of two graphs is the graph with adjacency matrix given by the sum of the two adjacency matrices.
 A graph sum is defined when the orders of the two graphs are the same.

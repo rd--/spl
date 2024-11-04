@@ -1,6 +1,6 @@
 # asSortedList
 
-- _asSortedList(alpha)_ => _asSortedList(alpha, <)_
+- _asSortedList(alpha)_ ⟹ _asSortedList(alpha, <)_
 - _asSortedList(aCollection, aBlock:/2)_
 
 Answer a `SortedList` having as items those of _aCollection_,

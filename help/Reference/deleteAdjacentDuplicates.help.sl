@@ -1,7 +1,7 @@
 # deleteAdjacentDuplicates
 
 - _deleteAdjacentDuplicates(aSequence, aBlock:/2)_
-- _deleteAdjacentDuplicates(alpha)_ => _deleteAdjacentDuplicates(alpha, =)_
+- _deleteAdjacentDuplicates(alpha)_ ⟹ _deleteAdjacentDuplicates(alpha, =)_
 
 Answer a sequence that deletes all duplicates in runs of identical elements in _aSequence_.
 

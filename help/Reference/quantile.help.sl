@@ -1,7 +1,7 @@
 # quantile
 
 - _quantile(aCollection, p, a, b, c, d)_
-- _quantile(alpha, beta)_ => _quantile(alpha, beta, 0, 0, 1, 0)_
+- _quantile(alpha, beta)_ ⟹ _quantile(alpha, beta, 0, 0, 1, 0)_
 
 Answer the estimate of the _p-th_ quantile of _aCollection_,
 using the quantile definition specified by parameters _a_, _b_, _c_ and _d_.

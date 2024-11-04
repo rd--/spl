@@ -11,4 +11,8 @@ Answer a stream of the differences between the current and previous values of _i
 
 * * *
 
-See also: LsAdjacent
+See also: adjacentPairsCollect, adjacentPairsDo, LsAdjacent
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Pdiff.html)

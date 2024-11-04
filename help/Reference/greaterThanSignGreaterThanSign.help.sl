@@ -1,6 +1,6 @@
 # >>
 
-- _alpha >> beta_ => _bitShiftRight(alpha, beta)_
+- _alpha >> beta_ ⟹ _bitShiftRight(alpha, beta)_
 
 The operator form or `bitShiftRight`.
 

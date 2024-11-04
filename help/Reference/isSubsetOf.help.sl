@@ -1,6 +1,6 @@
 # isSubsetOf
 
-- _isSubsetOf(alpha, beta)_ => _includesAllOf(beta, alpha)_
+- _isSubsetOf(alpha, beta)_ ⟹ _includesAllOf(beta, alpha)_
 
 Answer `true` if the first collection is a subset of the second,
 the inverse of `includesAllOf` which answers if the second collection is a subset of the first.

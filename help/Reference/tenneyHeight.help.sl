@@ -1,7 +1,7 @@
 # tenneyHeight
 
 - _tenneyHeight(aFraction, base)_
-- _tenneyHeight(alpha)_ => _tenneyHeight(alpha, 2)_
+- _tenneyHeight(alpha)_ ⟹ _tenneyHeight(alpha, 2)_
 
 Answer the Tenney harmonic distance for _aFraction_.
 

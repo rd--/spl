@@ -1,8 +1,8 @@
 # clip
 
 - _clip(x, min, max, vMin, vMax)_
-- _clip(alpha, beta, gamma)_ => _clip(alpha, beta, gamma, beta, gamma)_
-- _clip(alpha)_ => _clip(alpha, -1, 1, -1, 1)_
+- _clip(alpha, beta, gamma)_ ⟹ _clip(alpha, beta, gamma, beta, gamma)_
+- _clip(alpha)_ ⟹ _clip(alpha, -1, 1, -1, 1)_
 
 Answers _x_ for _min ≤ x ≤ max_, _vMin_ for _x < min_ and _vMax_ for _x > max_.
 

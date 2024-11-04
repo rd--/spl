@@ -1,7 +1,7 @@
 # circlePoints
 
 - _circlePoints(n, r, theta)_
-- _circlePoints(alpha, beta)_ => _circlePoints(alpha, beta, (2 * pi) / alpha))_
+- _circlePoints(alpha, beta)_ ⟹ _circlePoints(alpha, beta, (2 * pi) / alpha))_
 
 Answer the positions of _n_ points equally spaced around a circle of radius _r_ given initial angle _theta_.
 

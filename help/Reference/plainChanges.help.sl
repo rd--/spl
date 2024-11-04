@@ -1,7 +1,7 @@
 # plainChanges
 
 - _plainChanges(anInteger)_
-- _steinhausJohnsonTrotter(alpha)_ => _plainChanges(alpha)_
+- _steinhausJohnsonTrotter(alpha)_ ⟹ _plainChanges(alpha)_
 
 Answer a `List` of the permutations of _[1 .. anInteger]_ in the _plain changes_ sequence,
 whereby only one swap is made at each step,

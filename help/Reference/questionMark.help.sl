@@ -1,6 +1,6 @@
 # ?
 
-- _alpha ? beta_ => _ifNil(alpha, beta)_
+- _alpha ? beta_ ⟹ _ifNil(alpha, beta)_
 
 ```
 >>> 1 ? { 2 }

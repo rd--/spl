@@ -1,7 +1,7 @@
 # sorted
 
 - _sorted(aCollection, aBlock:/2)_
-- _sorted(aCollection)_ => _sorted(aCollection, <=)_
+- _sorted(aCollection)_ ⟹ _sorted(aCollection, <=)_
 
 Answer a new `List` which contains the same elements as _aCollection_ where the elements are sorted by _aBlock_.
 

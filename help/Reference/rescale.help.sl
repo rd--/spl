@@ -1,8 +1,8 @@
 # rescale
 
 - _rescale(aNumber | aCollection, min, max, yMin, yMax)_
-- _rescale(alpha, beta, gamma)_ => _rescale(alpha, beta, gamma, 0, 1)_
-- _rescale(alpha)_ => _rescale(alpha, alpha.min, alpha.max, 0, 1)_
+- _rescale(alpha, beta, gamma)_ ⟹ _rescale(alpha, beta, gamma, 0, 1)_
+- _rescale(alpha)_ ⟹ _rescale(alpha, alpha.min, alpha.max, 0, 1)_
 
 Answer _aNumber_ rescaled to run from _yMin_ to _yMax_ over the range _min_ to _max_.
 

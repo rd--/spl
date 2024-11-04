@@ -2,7 +2,7 @@
 
 - _LsTuple(list, repeats)_
 
-Apply _LsForever_ at each element in _list_, and at each iteration answer a list of the next answer of each list item.
+Apply `LsForever` at each element in _list_, and at each iteration answer a list of the next answer of each list item.
 When any of list item ends, that repeat and all of the list items are reset.
 
 ```
@@ -12,4 +12,8 @@ When any of list item ends, that repeat and all of the list items are reset.
 
 * * *
 
-See also: LsLace
+See also: LsForever, LsLace
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Ptuple.html)

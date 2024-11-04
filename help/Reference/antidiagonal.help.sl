@@ -1,7 +1,7 @@
 # antidiagonal
 
 - _antidiagonal(aMatrix, anInteger)_
-- _antidiagonal(alpha)_ => _antidiagonal(alpha, 0)_
+- _antidiagonal(alpha)_ ⟹ _antidiagonal(alpha, 0)_
 
 Answer the list of elements on the antidiagonal,
 or on the _anInteger-th_ antidiagonal,

@@ -1,7 +1,7 @@
 # standardize
 
 - _standardize(aSequence, meanBlock:/1, deviationBlock:/1)_
-- _standardize(alpha)_ => _standardize(alpha, mean:/1, standardDeviation:/1)_
+- _standardize(alpha)_ ⟹ _standardize(alpha, mean:/1, standardDeviation:/1)_
 
 Shifts and rescales the elements of _aSequence_ to have zero mean and unit sample variance.
 

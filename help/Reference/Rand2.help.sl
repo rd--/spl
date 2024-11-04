@@ -1,6 +1,6 @@
 # Rand2
 
-- _Rand2(aNumber)_ => _Rand(aNumber.Neg, aNumber)_
+- _Rand2(aNumber)_ ⟹ _Rand(aNumber.Neg, aNumber)_
 
 Random number generator.
 

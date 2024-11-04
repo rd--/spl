@@ -1,6 +1,6 @@
 # fillFrom
 
-- _fillFrom(alpha, beta)_ => _fillFromWith(alpha, beta, identity:/1)_
+- _fillFrom(alpha, beta)_ ⟹ _fillFromWith(alpha, beta, identity:/1)_
 
 `fillFromWith` with `identity` `Block`.
 

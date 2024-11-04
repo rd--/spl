@@ -1,6 +1,6 @@
 # !^
 
-- _alpha !+ beta_ => _(alpha ! beta).Splay_
+- _alpha !+ beta_ ⟹ _(alpha ! beta).Splay_
 
 Duplicate and distribute.
 Names the idiom of generating an array and distributing it across the main ouput channels.

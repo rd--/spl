@@ -1,7 +1,7 @@
 # continuedFraction
 
 - _continuedFraction(aNumber, anInteger)_
-- _continuedFraction(alpha)_ => _continuedFraction(alpha, 24)_
+- _continuedFraction(alpha)_ ⟹ _continuedFraction(alpha, 24)_
 
 Answer a list of at most the first _anInteger_ terms in the continued fraction representation of _aNumber_.
 

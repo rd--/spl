@@ -1,6 +1,6 @@
 # onRejection
 
-- _onRejection(aPromise, aBlock:/1)_ => _thenElse(aPromise, { :unused | nil }, aBlock:/1)_
+- _onRejection(aPromise, aBlock:/1)_ ⟹ _thenElse(aPromise, { :unused | nil }, aBlock:/1)_
 
 Schedule _aBlock_ be called if _aPromise_ is rejected,
 with the reason as argument.

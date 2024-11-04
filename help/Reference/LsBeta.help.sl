@@ -4,13 +4,19 @@
 
 Random values that follow an Eulerian Beta distribution.
 
-Biased low:
+Biased low, line plot:
 
 ~~~
 LsBeta(0, 1, 1 / 3, 3, 99).upToEnd.linePlot
 ~~~
 
-Biased high:
+Biased low, histogram plot:
+
+~~~
+LsBeta(0, 1, 1 / 3, 3, 999).upToEnd.histogramList.second.discretePlot
+~~~
+
+Biased high, line plot:
 
 ~~~
 LsBeta(0, 1, 3, 1 / 3, 99).upToEnd.linePlot
@@ -19,3 +25,7 @@ LsBeta(0, 1, 3, 1 / 3, 99).upToEnd.linePlot
 * * *
 
 See also: LsWhite
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Pbeta.html)

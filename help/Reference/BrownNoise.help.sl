@@ -1,7 +1,7 @@
 # BrownNoise
 
 - _BrownNoise()_
-- _BrownNoise(mul, add)_ => _{ BrownNoise() } ! mul.size * mul + add_
+- _BrownNoise(mul, add)_ ⟹ _{ BrownNoise() } ! mul.size * mul + add_
 
 Generates noise whose spectrum falls off in power by 6 dB per octave.
 

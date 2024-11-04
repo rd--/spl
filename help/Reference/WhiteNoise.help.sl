@@ -1,7 +1,7 @@
 # WhiteNoise
 
 - _WhiteNoise()_
-- _WhiteNoise(mul, add)_ => _{ WhiteNoise() } ! mul.size * mul + add_
+- _WhiteNoise(mul, add)_ ⟹ _{ WhiteNoise() } ! mul.size * mul + add_
 
 Generates noise whose spectrum has equal power at all frequencies.
 

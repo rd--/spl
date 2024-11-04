@@ -13,3 +13,7 @@ This is a kind of _transposition_.
 * * *
 
 See also: LsTuple
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Place.html)

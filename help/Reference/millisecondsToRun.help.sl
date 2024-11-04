@@ -1,6 +1,6 @@
 # millisecondsToRun
 
-- _millisecondsToRun(alpha)_ => _millisecondsToRun(system, alpha)_
+- _millisecondsToRun(alpha)_ ⟹ _millisecondsToRun(system, alpha)_
 - _millisecondsToRun(aSystem, aBlock:/0)_
 
 Answers the number of milliseconds required to evaluate _aBlock:/0_.

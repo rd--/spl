@@ -1,6 +1,6 @@
 # IsoSphericalCoordinates
 
-- _IsoSphericalCoordinates(alpha, beta, gamma)_ => _SphericalCoordinates(alpha, gamma, beta)_
+- _IsoSphericalCoordinates(alpha, beta, gamma)_ ⟹ _SphericalCoordinates(alpha, gamma, beta)_
 
 There are differing conventions for notating spherical coordinates.
 `IsoSphericalCoordinates` follows the ISO convention,

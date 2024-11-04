@@ -1,7 +1,7 @@
 # anglePath
 
 - _anglePath(thetaList, radiusList, origin)_
-- _anglePath(alpha)_ => _anglePath(alpha, [1], [0, 0])_
+- _anglePath(alpha)_ ⟹ _anglePath(alpha, [1], [0, 0])_
 
 ```
 >>> (90.degree # 3).anglePath

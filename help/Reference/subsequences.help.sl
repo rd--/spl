@@ -1,7 +1,7 @@
 # subsequences
 
 - _subsequences(aSequence, aBlock:/1)_
-- _subsequences(alpha)_ => _subsequences(alpha, true.constant)_
+- _subsequences(alpha)_ ⟹ _subsequences(alpha, true.constant)_
 
 Answer a `List` of all of the subsequences (both contiguous and disjoint) of _aSequence_
 for which _aBlock_ answers `true`.

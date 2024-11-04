@@ -1,7 +1,7 @@
 # trace
 
 - _trace(aSequence | aMatrix, aBlock:/1)_
-- _trace(alpha)_ => _trace(alpha, +)_
+- _trace(alpha)_ ⟹ _trace(alpha, +)_
 
 Answer the trace of the matrix or tensor list.
 

@@ -1,7 +1,7 @@
 # Piecewise
 
 - _Piecewise(pieces, defaultValue)_
-- _Piecewise(alpha)_ => _Piecewise(alpha, 0.constant)_
+- _Piecewise(alpha)_ ⟹ _Piecewise(alpha, 0.constant)_
 
 A type that represents a piecewise function with values given by a sequence of _(function, predicate)_ pairs.
 The _predicate_ Blocks are typically inequalities such as _{ :x | x < 0 }_.

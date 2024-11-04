@@ -1,7 +1,7 @@
 # stringJoin
 
 - _stringJoin(aSequence, anObject)_
-- _stringJoin(alpha)_ => _stringJoin(alpha, '')_
+- _stringJoin(alpha)_ ⟹ _stringJoin(alpha, '')_
 
 First `flatten` and then join together the items of _aSequence_ (objects that implement `asString`) into a `String`,
 intercalating _anObject_ between each.

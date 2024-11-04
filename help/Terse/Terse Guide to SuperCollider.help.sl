@@ -139,8 +139,8 @@ LsTuple([1 2 3; 4 5; 6].collect(LsCyc:/1), inf).next(6) = [1 4 6; 2 5 6; 3 4 6; 
 LsTuple([LsCyc([1 .. 5]), LsSeq([5 6 7], 2)], 1).upToEnd = [1 5; 2 6; 3 7; 4 5; 5 6; 1 7; 1 5]
 LsSeries(1, 2, 5).drop(2).upToEnd = [5 7 9]
 let l = LsSeries(1, 2, 5).drop(2); let a = l.upToEnd; l.reset; l.upToEnd = a
-LsXRand([1 3 5 7 9], 99).upToEnd.differentiate.includes(0).not /* does not includes succesive duplicates */
-LsRand([1 3 5 7 9], 99).upToEnd.differentiate.includes(0) /* includes succesive duplicates */
+LsXRand([1 3 5 7 9], 99).upToEnd.differentiate.includes(0).not /* does not includes successive duplicates */
+LsRand([1 3 5 7 9], 99).upToEnd.differentiate.includes(0) /* includes successive duplicates */
 (LsGeom(1, 3, 4) + LsSeries(1, 3, inf)).upToEnd = [1 + 1, 3 + 4, 9 + 7, 27 + 10]
 (LsGeom(1, 3, 4) * LsSeries(1, 3, inf)).upToEnd = ([1 3 9 27] * [1 4 7 10])
 (LsGeom(2, 4, 5) / 2).upToEnd = [1 4 16 64 256]
