@@ -26,3 +26,6 @@ doctest:
 
 help-index:
 	(cd help; ls Guide/*.help.sl Reference/*.help.sl Terse/*.help.sl > Index.text)
+
+update-cache:
+	(cd sl; make)

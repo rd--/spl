@@ -46,3 +46,7 @@ SinOsc(OctPc(4, 9).asMidi.MidiCps, 0) * 0.1
 _Rationale:_
 The _constructor_ and _initializer_ are distinct because there is no rule for deciding what type or trait a combined block should be instantiated at.
 In the model provided the _constructor_ is defined at _Void_ and the _initializer_ is defined at the new type.
+
+* * *
+
+Guides: Defining Methods, Syntax Guides

@@ -2,7 +2,7 @@
 
 Methods can be appended to an existing type.
 
-The _Standard Library_ type _Duration_ represents an interval of time.
+The _Standard Library_ type `Duration` represents an interval of time.
 
 It has methods to construct and interpret Durations as seconds, but not as centiseconds.
 
@@ -28,3 +28,7 @@ If methods with these names already exist they are replaced by the new definitio
 ```
 100.centiseconds = 1000.milliseconds
 ```
+
+* * *
+
+Guides: Defining Types, Syntax Guides

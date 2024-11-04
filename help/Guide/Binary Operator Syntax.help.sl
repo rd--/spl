@@ -54,6 +54,7 @@ Binary operators may be written as names in non-operator contexts, i.e. _α.β(+
 ```
 
 Binary operators are rewritten as the arity qualified names of their symbols.
+The names are those given to the glyphs in _The Unicode Standard_.
 _+_ as _plusSign:/2_,
 _*_ as _asterisk:/2_, &etc.
 
@@ -105,8 +106,18 @@ Other binary operators:
 - `\\`: reverseSolidus
 - `?`: questionMark
 
+_Rationale_: While it is not neccesary to use the text names of the operators within the system,
+there are a number of places where they are required.
+The help entries for operators are named using the text names,
+as many file systems disallow the use of operator characters in file names.
+The help entry names are also used in Url addresses where operator characters must be escaped and are therefore not readable.
+The help lookup translates between the symbolic and text names.
+When compiling the operators are likewise given text names, again because of rules about which characters may be used in variable names.
+
 * * *
 
-See also: Operator Names, Unary Operator Syntax
+See also: Operator List, Operator Names, Unary Operator Syntax
+
+Further Reading: Unicode Consortium (1992)
 
 Categories: Syntax

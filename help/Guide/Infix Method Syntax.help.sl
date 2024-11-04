@@ -14,14 +14,14 @@ or using `Method Syntax` as:
 3
 ```
 
-Methods of arity two (binary methods) may also be written infix by appending a _:_ to the name:
+Methods of arity two (binary methods) may also be written infix by appending a `:` to the name:
 
 ```
 >>> 3 min: 4
 3
 ```
 
-When written infix, methods may also take an adverb, in which case the _:_ is elided:
+When written infix, methods may also take an adverb, in which case the `:` is elided:
 
 ```
 >>> [3 1 2] min.outer [4 1 2]
@@ -33,6 +33,8 @@ When written infix, methods may also take an adverb, in which case the _:_ is el
 
 * * *
 
-See also: Apply Syntax, Binary Operator Syntax, Method Syntax
+See also: :
+
+Guides: Apply Syntax, Binary Operator Syntax, Method Syntax, Operator Adverbs
 
 Categories: Syntax

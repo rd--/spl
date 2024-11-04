@@ -176,6 +176,10 @@ Trotter, H. F. 1962.
 _Communications of the ACM_, 5 (8): 434–435.
 [Doi](https://10.1145/368637.368660)
 
+Unicode Consortium. 1992.
+_Unicode Standard: Worldwide Character Encoding, Version 1.0_.
+Reading, MA: Addison-Wesley.
+
 Warth, A. et. al. 2016.
 "Modular semantic actions".\
 _Proceedings of the Symposium on Dynamic Languages_, 108–119.
