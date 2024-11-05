@@ -42,6 +42,8 @@ The `product` of a finite arithmetic progression has a closed form:
 
 See also: arithmeticSeries, geometricSeries, Range
 
+Guides: Range Syntax
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ArithmeticProgression.html)

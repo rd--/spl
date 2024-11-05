@@ -62,4 +62,6 @@ _Csound_
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pluck.html)
 
+Further Reading: Karplus 1983
+
 Categories: Ugen

@@ -2,11 +2,11 @@
 
 Rewrite rules:
 
-- _(alpha .. beta)_ ⇒ _Range(alpha, beta, (beta - alpha).sign)_
-- _[alpha .. beta]_ ⇒ _(alpha .. beta).asList_
-- _(alpha, beta .. gamma)_ ⇒ _Range(alpha, gamma, beta - alpha)_
-- _[alpha, beta .. gamma]_ ⇒ _(alpha, beta .. gamma).asList_
-- _alpha:beta_ => _(alpha .. beta)_
+- _(α .. β)_ ⇒ _Range(α, β, (β - α).sign)_
+- _[α .. β]_ ⇒ _(α .. β).asList_
+- _(α, β .. γ)_ ⇒ _Range(α, γ, β - α)_
+- _[α, β .. γ]_ ⇒ _(α, β .. γ).asList_
+- _α:β_ => _(α .. β)_
 
 Answer ascending _Range_ values:
 
@@ -50,8 +50,8 @@ Answer _List_ values:
 [1 3 5 7 9]
 ```
 
-In the case where alpha is an integer literal, and beta is an integer literal or an identifier, the interval can be written alpha:beta.
-In the literal form, as with literal Fractions, white space is significant, and `alpha : beta` is not allowed.
+In the case where α is an integer literal, and β is an integer literal or an identifier, the interval can be written α:β.
+In the literal form, as with literal Fractions, white space is significant, and `α : β` is not allowed.
 
 ```
 >>> 1:9
@@ -65,10 +65,10 @@ Range(1, 9, 1)
 Where supported the notations _.._ and _:_ are displayed as _‥_.
 
 _Note_:
-In Smalltalk `alpha to: beta` is an empty Range if alpha <= beta.
+In Smalltalk `α to: β` is an empty Range if α <= β.
 The re-write rule here calls `upOrDownTo` which allows descending intervals to be specified.
-Care must be taken not to use `(alpha .. beta)` where `alpha.to(beta)` is required.
-In notation `alpha:beta` is from Matlab and Fortress.
+Care must be taken not to use `(α .. β)` where `α.to(β)` is required.
+The notation `α:β` is from Matlab and Fortress.
 The literal case is not written _p..q_ since it would make white space significant in the array case,
 i.e. _[p..q]_ would be an array of one interval, and not equal to _[p .. q]_.
 

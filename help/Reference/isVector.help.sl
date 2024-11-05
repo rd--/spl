@@ -24,9 +24,16 @@ true
 false
 ```
 
+The elements need not be of the same type:
+
+```
+>>> [1 'Two' pi 4n 5j0].isVector
+true
+```
+
 * * *
 
-See also: isArray, isList, isMatrix
+See also: elementType, isArray, isList, isMatrix
 
 References:
 _Mathematica_

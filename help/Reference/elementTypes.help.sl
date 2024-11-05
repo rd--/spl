@@ -28,3 +28,5 @@ At a _matrix_:
 * * *
 
 See also: elementType, elementTypeIfAbsent, typeOf
+
+Categories: Reflection, Types

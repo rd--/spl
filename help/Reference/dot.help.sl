@@ -228,6 +228,9 @@ Multiply two integer matrices:
 ```
 >>> [2 1 4; 0 1 1].dot([6 3 -1 0; 1 1 0 4; -2 5 0 2])
 [5 27 -2 12; -1 6 0 6]
+
+>>> [1 2; 3 4].dot([1 0; 3 2])
+[7 4; 15 8]
 ```
 
 Examine properties of a magic square,

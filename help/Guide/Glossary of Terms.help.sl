@@ -10,7 +10,11 @@ also called the _result_.
 
 - _Argument_:
 A value that is supplied to a _block_ when it is evaluated,
-also called a _parameter_.
+also called a _parameter_ or an _input_.
+
+- _Arithmetic Progression_:
+A sequence of numbers such that the difference from each item to the preceding item is constant.
+Cf: ArithmeticProgression
 
 - _Arity_:
 The number of arguments a _behaviour_ can accept,
@@ -106,10 +110,18 @@ The second axis of a _matrix_ or a _table_.
 - _Column vector_:
 A _matrix_ with a single column, the _transpose_ of a _row vector_.
 
-- _Complex:_
+- _Complex_:
 A numeric _type_ that stores the real and imaginary parts of complex numbers.
 If the components are both _integers_ it is called a _Gaussian integer_.
 Cf: Complex
+
+- _Dispatch_:
+The process of selecting the precise meaning of a polymorphic name within a particular context.
+Selection that considers a single aspect of the context is called _single dispatch_,
+selection that considers multiple aspects is called _multiple dispatch_.
+
+- _Domain_:
+The domain of a _function_ is the set of values for which is is defined.
 
 - _Element_:
 An item in a _collection_.
@@ -135,6 +147,9 @@ Cf: Fraction
 A _behaviour_, particularly one that answers equal values for equal inputs and has no _side effects_.
 Informally used to refer to _blocks_ and _procedures_.
 [[1](https://mathworld.wolfram.com/Function.html)]
+
+- _Geometric Progression_:
+A sequence of non-zero numbers where ratio between each item and the preceding item is constant.
 
 - _Glyph_:
 A glyph is the specific shape, design, or representation of a _character_.
@@ -166,7 +181,8 @@ Cf: isImmediate
 
 - _Infinity_:
 The floating point numeric values representing positive or negative infinity,
-written _inf_.
+written `inf`.
+Cf: inf, isFinite
 
 - _Infix_:
 A form of notation where a _verb_ is written between two _nouns_,
@@ -179,7 +195,7 @@ Cf: Integer
 
 - _Interval_:
 A numeric _type_ described by minimum and maximum values.
-Cf. Interval, Range
+Cf: Interval
 
 - _Item_:
 An _element_ in a _collection_.
@@ -221,7 +237,7 @@ Cf: Number
 
 - _Numeric_:
 A type of value representing numbers.
-Numeric types include _SmallFloat_, _LargeInteger_, _Fraction_ and _Complex_.
+Cf: Complex, Fraction, LargeInteger, SmallFloat
 
 - _Object_:
 A _trait_ that implement the fundamental behaviours for values in the system,
@@ -238,6 +254,9 @@ Cf: Operator Syntax
 
 - _Parsing_:
 The process of analyzing a string of symbols as a sentence according to a formal grammar.
+
+- _Polymorphism_:
+The use of one symbol to represent different meanings in different contexts.
 
 - _Precedence_:
 The rules for deciding the order of evaluation of parts of a program.
@@ -256,6 +275,9 @@ An infix that includes the first, or head, index-0 item.
 A _behaviour_ whose definition is built in to the system.
 Cf: Primitive Syntax
 
+- _Primitive Type_:
+A _type_ that is built in to the language interpreter.
+
 - _Procedure_:
 A _behaviour_, particularly one whose execution involves _side effects_,
 as distinct from a _function_.
@@ -263,9 +285,18 @@ as distinct from a _function_.
 - _Program_:
 A _behaviour_ that can be _evaluated_ to give an _answer_.
 
+- _Range_:
+The range, also called _image_, of a function is the set of possible answer values.
+A range is also a finite arithmetic progression.
+Cf: Range
+
 - _Rank_:
 The number of axes along which the items of an _array_ are arranged.
 Cf: rank
+
+- _Rank Polymorphism_:
+Rank polymorphic functions operate on arrays of any shape and size.
+Cf: rank, shape, size
 
 - _Recursive_:
 Any value, including _behaviours_, whose definition refers to itself.
@@ -314,7 +345,7 @@ Cf: Tuple
 A _function_ of one _argument_, such as _negated_.
 
 - _Unicode Character_:
-A character encoded accoroding to the [Unicode](http://www.unicode.org/) specification.
+A character encoded according to the [Unicode](http://www.unicode.org/) specification.
 
 - _Utf-8_:
 A method of representing _unicode_ character values as a sequence of bytes.
@@ -332,7 +363,7 @@ When a name is encountered it is replaced by its value.
 - _Vector_:
 An array with one axis,
 also called a _list_ or a _sequence_.
-Cf: isVector
+Cf: isVector, Vector Syntax
 
 - _Verb_:
 A _behaviour_ object, as distinct from a _noun_ or _value_ object.

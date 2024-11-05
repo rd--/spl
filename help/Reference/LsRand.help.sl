@@ -17,9 +17,16 @@ The binary form is equivalent to `take` of the unary form:
 [1 3 5 7 9].asSet
 ```
 
+Can be implemented using `BlockStream` and `atRandom`:
+
+```
+>>> BlockStream { [1 3 5 7 9].atRandom } { }.take(99).upToEnd.asSet
+[1 3 5 7 9].asSet
+```
+
 * * *
 
-See also: LsXRand, LsWhite
+See also: atRandom, BlockStream, LsXRand, LsWhite
 
 References:
 _SuperCollider_

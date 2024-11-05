@@ -7,7 +7,7 @@ Rewrite rules:
 - _c[k] :? a_ ⟹ _atIfAbsent(c, k, a)_
 - _c[k] :=? a_ ⟹ _atIfAbsentPut(c, k, a)_
 
-Collection types implement the _at_ and _atPut_ protocols.
+Collection types implement the `at` and `atPut` protocols.
 
 The first rule, `At Syntax`, provides the usual indexing notation for reading from a collection.
 

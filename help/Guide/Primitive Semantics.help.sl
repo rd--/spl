@@ -7,4 +7,6 @@ if it fails the block continues with the remainder of the definition.
 
 * * *
 
-See also: Primitive Syntax
+See also: Block
+
+Guides: Primitive Syntax

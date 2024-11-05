@@ -8,6 +8,7 @@ There is no last element of an infinite Stream.
 ```
 >>> LsLast(LsSeries(1, 1, 9))
 9
+```
 
 * * *
 

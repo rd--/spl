@@ -8,4 +8,6 @@ The text between these tokens is written in the _host language_.
 
 * * *
 
-See also: Primitive Semantics
+See also: Method
+
+Guides: Primitive Semantics
