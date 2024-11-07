@@ -35,7 +35,7 @@ Moving averages of matrices are matrices:
 
 * * *
 
-See also: accumulate, exponentialMovingMedian, mean, movingMap, movingMedian, partition
+See also: accumulate, exponentialMovingMedian, mean, movingAverage, movingMap, partition
 
 References:
 _Mathematica_

@@ -1,4 +1,4 @@
-# Patterns, Streams
+# Patterns and Streams
 
 SuperCollider names:
 
@@ -7,6 +7,7 @@ SuperCollider names:
 - `LsBrown`: Pbrown
 - `LsCauchy`: Pcauchy
 - `LsClump`: Pclump
+- `LsClutch`: Pclutch
 - `LsDiff`: Pdiff
 - `LsDrop`: Pdrop
 - `LsDupEach`: Pdup
@@ -19,6 +20,8 @@ SuperCollider names:
 - `LsSeq`: Pseq
 - `LsSer`: Pser
 - `LsSeries`: Pseries
+- `LsSwitch`: Pswitch
+- `LsSwitch1`: Pswitch1
 - `LsTrace`: Ptrace
 - `LsTuple`: Ptuple
 - `LsWalk`: Pwalk
@@ -29,9 +32,9 @@ Further:
 
 - `LsAccum`
 - `LsAdjacent`
-- `LsAt`
 - `LsAtFold`
 - `LsAtWrap`
+- `LsAt`
 - `LsCat`
 - `LsCollect`
 - `LsCons`
@@ -46,6 +49,6 @@ Further:
 - `LsRemDup`
 - `LsScan`
 - `LsSelect`
+- `LsSlidingWindows`
 - `LsTake`
 - `LsUnfold`
-

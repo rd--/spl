@@ -312,7 +312,8 @@ The first axis of a _matrix_ or a _table_.
 A _matrix_ with a single row, the _transpose_ of a _column vector_.
 
 - _Scalar_:
-A mathematical term used to distinguish values that are not _vectors_ or _matrices_ or _arrays_.
+A scalar is any non-composite value.
+In particular used to distinguish values that are not _vectors_ or _matrices_ or _arrays_.
 
 - _Sequence_:
 A _collection trait_ for collections that have an ordering.

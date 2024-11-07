@@ -12,7 +12,7 @@ The library defines the following adverbs, which are all mnemonics:
 
 - _e_: equal, operands must be of equal size else an error is signalled (usual Smalltalk rule)
 - _s_: small, the larger operand is truncated to the size of the smaller (usual Lisp rule)
-- _w_: wrap, the smaller operand is extended by wrapped indexing (usual SuperCollider rule)
+- _w_: wrap, the smaller operand is extended by wrapped indexing (usual R, S and SuperCollider rule)
 - _f_: fold, the smaller operand is extended by folded indexing
 - _x_: cross, each item from the left is applied pointwise with the right (the Hakell list monad)
 - _t_: table, answers a matrix the row order vector of which is equal to cross

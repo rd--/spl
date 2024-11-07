@@ -1,6 +1,6 @@
 # movingMap
 
-- _movingAverage(aBlock:/1, aSequence, anInteger)_
+- _movingMap(aBlock:/1, aSequence, anInteger)_
 
 Answer a `List` of the answers of applying _aBlock_ to successive windows of _aSequence_, each of _anInteger_ elements.
 The `size` of the answer is _aSequence.size - anInteger + 1_.

@@ -23,6 +23,8 @@ starting _stepSize_ places after the last.
 true
 ```
 
+This is the stream equivalent of `partition`.
+
 * * *
 
-See also: slidingWindows, windowedReduce
+See also: partition, windowedReduce

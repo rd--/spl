@@ -68,9 +68,21 @@ Fraction(56, 3)
 18.666
 ````
 
+Integer division does not neccesarily answer an integer, c.f. `//`:
+
+```
+>>> 7 / 3
+2.3333
+
+>>> 7 // 3
+2
+```
+
 * * *
 
-See also: +, -, *, Fraction Literals
+See also: //, +, -, *
+
+Guides: Fraction Literals
 
 Unicode: U+00F7 ÷ Division Sign
 

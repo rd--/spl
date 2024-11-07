@@ -11,6 +11,20 @@ Evaluate _aBlock_ with each element of _aCollection_ as the argument.
 [1 .. 9]
 ```
 
+It is not safe to modify a mutable collection that is being iterated over,
+instead a copy should be used:
+
+```
+>>> let list = [1 .. 9];
+>>> list.copy.do { :each |
+>>> 	each.isOdd.ifTrue {
+>>> 		list.add(each)
+>>> 	}
+>>> };
+>>> list
+[1 2 3 4 5 6 7 8 9 1 3 5 7 9]
+```
+
 _Rationale:_
 `do` is the only required method of the `Iterable` trait.
 All collection types are iterable.

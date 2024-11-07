@@ -5,14 +5,30 @@
 A `Range` is a `Type` that represents a finite arithmetic progression.
 
 ```
+>>> Range(1, 9, 1).asList
+[1 2 3 4 5 6 7 8 9]
+
 >>> Range(1, 9, 2).asList
 [1 3 5 7 9]
+```
 
+_step_ may be negative:
+
+```
 >>> Range(9, 1, -2).asList
 [9 7 5 3 1]
 ```
 
-With non-integer values, _stop_ may not be in the list of values specified by the `Range`:
+Ordinarily the range is inclusive,
+both _start_ and _stop_ are elements of the answer.
+However the _step_ value may specify a range that not include _stop_.
+
+```
+>>> Range(1, 9, 3).asList
+[1 4 7]
+```
+
+Note in particular that with non-integer values _stop_ may not be in the list of values specified by the `Range`:
 
 ```
 >>> let r = Range(1.2, 2.2, 0.15);

@@ -1,4 +1,4 @@
-# Assignment, initialisation, equality, identity
+# Assignment and Equality
 
 The `Assignment Syntax` is _p := q_.
 
@@ -10,6 +10,7 @@ The `Assignment Syntax` is _p := q_.
 ```
 
 The `Initialised Temporaries Syntax` is _let p = q;_.
+It both declares a variable and assigns a value.
 
 ```
 >>> let x = 1;
@@ -29,6 +30,6 @@ true
 
 * * *
 
-See also: =, :=, ==
+See also: =, :=, ==, let, var
 
 Guides: Assignment Syntax, Comparison Functions, Initialised Temporaries Syntax
