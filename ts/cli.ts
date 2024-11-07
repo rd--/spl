@@ -3,6 +3,7 @@ import { type Args, parseArgs } from 'jsr:@std/cli/parse-args';
 import * as commonmark from 'npm:commonmark@0.31.0';
 
 import { osc } from '../lib/scsynth-wasm-builds/lib/ext/osc.js';
+import FFT from '../lib/scsynth-wasm-builds/lib/ext/fft.js';
 // import * as commonmark from '../lib/scsynth-wasm-builds/lib/ext/commonmark.js';
 
 import * as tcp from '../lib/jssc3/ts/kernel/tcp.ts';
@@ -278,10 +279,12 @@ function scTcpServer(portNumber: number): void {
 
 declare global {
 	var osc: Record<string, any>;
+	var fft: Record<string, any>;
 }
 
 async function scCmd(cmd: string, opt: Args): Promise<void> {
 	globalThis.osc = osc;
+	globalThis.fft = FFT;
 	await loadSpl(opt, ['StandardLibrary', 'SuperColliderLibrary']);
 	switch (cmd) {
 		case 'playFile':
@@ -345,6 +348,7 @@ declare global {
 
 globalThis.commonmark = commonmark;
 globalThis.osc = osc;
+globalThis.fft = FFT;
 globalThis.sl = sl;
 globalThis.sc = sc;
 globalThis.host = host;

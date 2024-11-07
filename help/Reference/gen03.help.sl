@@ -63,7 +63,9 @@ A 4th order polynomial function:
 
 * * *
 
-See also: Csound Gen Routines, gen13
+See also: gen13
+
+Guides: Csound Gen Routines
 
 References:
 _Csound_

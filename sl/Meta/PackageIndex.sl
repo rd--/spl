@@ -91,6 +91,7 @@
 	'Math-Bessel'
 	'Math-Binomial'
 	'Math-Elementwise'
+	'Math-Fourier'
 	'Math-Gamma'
 	'Math-Matrix'
 	'Math-Primes'

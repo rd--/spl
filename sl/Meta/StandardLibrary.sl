@@ -63,6 +63,7 @@
 	'Bessel'
 	'Binomial'
 	'Elementwise'
+	'Fourier'
 	'Gamma'
 	'Matrix'
 	'Permutations'
