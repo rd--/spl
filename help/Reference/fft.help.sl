@@ -18,30 +18,41 @@ For real input the answer is symetrical:
 [8 3.6955 0 1.5307 0 1.5307 0 3.6955]
 ```
 
+The inverse transform is `ifft`:
+
+```
+>>> [1 1 2 2 1 1 0 0].fft.ifft
+[1 1 2 2 1 1 0 0]
+```
+
 Plot complete symmetrical spectrum of two sine tones:
 
 ~~~
 let n = 512;
 let p = (0 -- 2.pi).discretize(n);
-let x = p.collect { :x | (x * [23 47]).sin.sum };
+let x = p.collect { :x | (x * [23 47]).sin.sum / 2 };
 (x.fft / n).abs.linePlot
 ~~~
 
-Plot half spectrum of white noise:
+Plot half spectrum of two sine tones with added white noise:
 
 ~~~
 let n = 512;
-let x = system.randomReal(-1, 1, [n]);
 let m = n / 2;
-(x.fft.take(m) / n).abs.linePlot
+let p = (0 -- 2.pi).discretize(n);
+let x = p.collect { :x | (x * [23 47]).sin.sum / 2 };
+let y = system.randomReal(-1, 1, [n]);
+((x + y).fft.take(m) / n).abs.linePlot
 ~~~
 
 * * *
 
-See also: Complex
+See also: ifft, Complex
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Fourier.html),
 _Matlab_
-[1](https://au.mathworks.com/help/matlab/ref/fft.html)
+[1](https://au.mathworks.com/help/matlab/ref/fft.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Signal.html#-fft)

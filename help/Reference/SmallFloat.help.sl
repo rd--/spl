@@ -59,6 +59,8 @@ There are also `encodeInt8`, `encodeInt16` and `encodeInt32` methods:
 
 * * *
 
-See also: asSmallFloat, Complex, Fraction, Integer, LargeInteger, Numeric Types
+See also: asSmallFloat, Complex, Fraction, Integer, LargeInteger
+
+Guides: Numeric Types
 
 Categories: Math, Type

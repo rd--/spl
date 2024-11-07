@@ -204,6 +204,10 @@
 - `factorInteger`: find the factors of an integer
 - `integerExponent`: highest divisble power of
 
+## Fourier Analysis
+
+- `fft`: fast Fourier transform
+
 ## Testing for Types
 
 - `isComplex`: is complex predicate

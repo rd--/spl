@@ -166,9 +166,9 @@ See also: abs, absArg, arg, isGaussianInteger, asInteger, asNumber, conjugated, 
 
 References:
 _Apl_
-[1](https://aplwiki.com/wiki/Complex_number)
+[1](https://aplwiki.com/wiki/Complex_number),
 _Julia_
-[1](https://docs.julialang.org/en/v1/manual/complex-and-rational-numbers/)
+[1](https://docs.julialang.org/en/v1/manual/complex-and-rational-numbers/),
 _Mathematica_
 [1](https://mathworld.wolfram.com/ComplexNumber.html)
 [2](https://reference.wolfram.com/language/ref/Complex.html)
