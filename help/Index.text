@@ -3,7 +3,7 @@ Guide/Apl Perspective.help.sl
 Guide/Apply Syntax.help.sl
 Guide/Arity Notation.help.sl
 Guide/Array Syntax.help.sl
-Guide/Assignment, initialisation, equality, identity.help.sl
+Guide/Assignment and Equality.help.sl
 Guide/Assignment Operator Syntax.help.sl
 Guide/Assignment Syntax.help.sl
 Guide/AtIfAbsentPut Syntax.help.sl
@@ -82,7 +82,7 @@ Guide/Operator Names.help.sl
 Guide/Operator Precedence.help.sl
 Guide/Operator Syntax.help.sl
 Guide/Parts of Speech.help.sl
-Guide/Patterns, Streams.help.sl
+Guide/Patterns and Streams.help.sl
 Guide/Primitive Semantics.help.sl
 Guide/Primitive Syntax.help.sl
 Guide/Primitive Types.help.sl
@@ -96,7 +96,7 @@ Guide/Radix Syntax.help.sl
 Guide/Random Number Generators.help.sl
 Guide/Range Syntax.help.sl
 Guide/Reference Help Files.help.sl
-Guide/Scalars, Lists, Operators.help.sl
+Guide/Scalars and Lists.help.sl
 Guide/Scheme Perspective.help.sl
 Guide/Simple Editor.help.sl
 Guide/Simple Method Arity.help.sl
@@ -1238,6 +1238,7 @@ Reference/Lpf.help.sl
 Reference/Lpz1.help.sl
 Reference/Lpz2.help.sl
 Reference/LsAccum.help.sl
+Reference/LsAdjacent.help.sl
 Reference/LsAtFold.help.sl
 Reference/LsAt.help.sl
 Reference/LsAtWrap.help.sl
@@ -1246,6 +1247,8 @@ Reference/LsBind.help.sl
 Reference/LsBrown.help.sl
 Reference/LsCat.help.sl
 Reference/LsCauchy.help.sl
+Reference/LsClump.help.sl
+Reference/LsClutch.help.sl
 Reference/LsCollect.help.sl
 Reference/LsCons.help.sl
 Reference/LsConstant.help.sl
@@ -1272,11 +1275,14 @@ Reference/LsSer.help.sl
 Reference/LsSeries.help.sl
 Reference/LsSet.help.sl
 Reference/LsSlidingWindows.help.sl
+Reference/LsSwitch1.help.sl
+Reference/LsSwitch.help.sl
 Reference/LsTake.help.sl
 Reference/LsTrace.help.sl
 Reference/LsTuple.help.sl
 Reference/LsUnfold.help.sl
 Reference/LsWhite.help.sl
+Reference/LsXRand.help.sl
 Reference/lucasNumber.help.sl
 Reference/luDecomposition.help.sl
 Reference/lyndonWords.help.sl
