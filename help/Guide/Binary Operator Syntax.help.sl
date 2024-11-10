@@ -55,15 +55,15 @@ Binary operators may be written as names in non-operator contexts, i.e. _α.β(+
 
 Binary operators are rewritten as the arity qualified names of their symbols.
 The names are those given to the glyphs in _The Unicode Standard_.
-`+` as _plusSign:/2_,
-`*` as _asterisk:/2_, &etc.
+`+` is _plusSign:/2_,
+`*` is _asterisk:/2_, &etc.
 
 ```
 >>> + == plusSign:/2
 true
 ```
 
-These names are in the same space as all other block names,
+These names are in the same space as all other method names,
 defining _&_ defines _ampersand_, and defining _+_ defines _plusSign_.
 
 ```
@@ -116,7 +116,9 @@ When compiling the operators are likewise given text names, again because of rul
 
 * * *
 
-See also: Operator List, Operator Names, Unary Operator Syntax
+See also: operatorCharacterNameTable, operatorNameTable
+
+Guides: Operator List, Operator Names, Unary Operator Syntax
 
 Further Reading: Unicode Consortium (1992)
 

@@ -273,7 +273,7 @@ Surprisingly, I have been unable to trace the apparently missing reduplicated ge
 [165, 165, 168]
 ```
 
-## 3 Aristoxenos and the geometrization of musical space
+## 3. Aristoxenos and the geometrization of musical space
 
 Aristoxenos described his genera in units of twelfths of a tone (Macran 1902), but later theorists, notably Cleonides, translated these units into a cipher consisting of 30 parts (_moria_) to the fourth (Barbera 1978) ... These two medieval Islamic tetrachords are Aristoxenian approximations to Ptolemy’s equable diatonic ...  The intonation of the liturgical music of the Byzantine and Slavonic Orthodox churches is a complex problem ... [p.18-22]:
 

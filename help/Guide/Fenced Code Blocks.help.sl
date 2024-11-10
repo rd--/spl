@@ -9,7 +9,9 @@ Tildes and backticks cannot be mixed.
 
 * * *
 
-See also: Documentation Tests, isCodeFence
+See also: isCodeFence
+
+Guides: Documentation Tests
 
 References:
 _CommonMark_

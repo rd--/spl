@@ -2,24 +2,24 @@
 
 The _Block_ syntax follows Smalltalk’s.
 
-Braces (`{` and `}`) replace brackets (`[` and `]`),
-and semi-colons (`;`) replace periods (`.`).
+Curly brackets (`{` and `}`) replace square brackets (`[` and `]`),
+and semicolons (`;`) replace periods (`.`).
 
-The general form is
+The general form is:
 
 > _{ arguments? temporaries? statements? }_
 
-A no argument block that returns a random number between -1 and 1 is written
+A no argument block that returns a random number between -1 and 1 can be written:
 
 > _{ (-1 -- 1).atRandom }_
 
 Arguments are written with a colon (`:`) prefix directly following the open brace and are terminated by a vertical bar (`|`).
 
-The one argument block to square a number is written
+The one argument block to square a number is written:
 
 > _{ :n | n * n }_
 
-The two argument sum of squares block is written
+The two argument sum of squares block is written:
 
 > _{ :x :y | (x * x) + (y * y) }_
 
@@ -37,6 +37,8 @@ _p.q(r)_ is _q(p, r)_, not _(q(p))(r)_.
 
 * * *
 
-See also: Block Semantics, Value Apply Syntax, Var Syntax
+See also: {, }, |, :, ;, var
+
+Guides: Block Semantics, Value Apply Syntax, Var Syntax
 
 Categories: Syntax

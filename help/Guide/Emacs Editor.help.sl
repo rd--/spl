@@ -11,7 +11,7 @@ Keybindings are:
 - _C-cC-k_: reset synthesiser
 - _C-cC-s_: clear scheduler and reset synthesiser
 
-Any ``` marks from _.help.sl_ files are removed from the region before sending.
+Any ``` and >>> marks from _.help.sl_ files are removed from the region before sending.
 
 The function _spl-prettier_ can be used to show Ascii block and operator names using prettier Unicode forms.
 Some of the notations are:

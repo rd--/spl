@@ -35,6 +35,8 @@ Initialising a value to a `Block` literal rewrites the bound name to its arity q
 (23, 'undefined')
 ```
 
+The syntax token `_` may be used to indicate a binding to an unused name.
+
 The syntax requires that all temporaries have initialisers, there is no implicit `nil` initialiser.
 
 Note that the initialiser syntax, _p = x_, is distinct from the assignment syntax, _p := x_.

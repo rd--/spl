@@ -20,4 +20,6 @@ the `SmallFloat` package can implement `Fraction` as `/`.
 
 * * *
 
-See also: Fraction, Number Literals
+See also: Fraction
+
+Guides: Number Literals

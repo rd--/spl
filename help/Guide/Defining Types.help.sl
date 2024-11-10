@@ -19,6 +19,7 @@ Reader methods have one argument, writer methods have two arguments.
 
 The expression below adds a type for representing pitch as an _(octave, pitchClass)_ tuple, with a single method _asMidi_.
 Note that methods are ordinary blocks and must declare their arguments.
+In some contexts the convention of naming the receiver _self_ is followed.
 Note also that slot access is mediated by the reader blocks, even for methods associated with the type.
 
 ```

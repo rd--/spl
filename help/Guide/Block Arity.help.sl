@@ -5,4 +5,6 @@ There are no optional parameters or _rest_ arguments.
 
 * * *
 
-See also: Smalltalk Arity]
+See also: numArgs
+
+Guides: Smalltalk Arity

@@ -28,6 +28,8 @@ See also: =, let
 
 Guides: Let Syntax, List Assignment Syntax
 
+Unicode: U+0005F _ Low Line
+
 References:
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/colon.html)

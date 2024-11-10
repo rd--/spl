@@ -29,7 +29,7 @@ _Scheme_:
 
 ```
 (lambda (n)
-	(let* ((i (random 0 n))
+	(let*	((i (random 0 n))
 		(j (random 0 i)))
 	(vector i j)))
 ```

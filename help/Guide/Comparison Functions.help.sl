@@ -4,7 +4,7 @@ A comparison function is one whose result is a `Boolean` determined by the numer
 
 The comparison functions can be subdivided into two equalities `=` and `~=`,
 which depend only on whether the arguments are equal and not on the ordering of the arguments,
-and may be applied values that are do not have `Magnitude`,
+and may be applied to values that do not implement `Magnitude`,
 and four inequalities `<` `<=` `>=` `>`, which depend on ordering.
 
 Comparisons are subject to comparison tolerance,
@@ -12,15 +12,14 @@ for which there are the distinct operators `<~` `~` `>~` `!~`.
 
 Because comparison functions have `Boolean` results on `boole` arguments they are Boolean functions.
 
-## Classification
-
+_Classification_:
 The result of a comparison function on real numbers is determined by their ordering,
 which falls into one of three possible cases:
 the left argument is smaller (more negative),
 the arguments are equal,
 or the right argument is larger.
 
-A particular comparison function can thus be thought of as a choice of one Boolean value (0 or 1) for each of these three cases,
+A particular comparison function can thus be thought of as a choice of one `Boolean` value (0 or 1) for each of these three cases,
 which implies that there are eight total possibilities.
 
 Two of the possibilities, all 0 and all 1, are trivial and cannot be said to depend on the ordering of the arguments;

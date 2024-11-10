@@ -131,6 +131,10 @@ Partch, H. 1949.
 _Genesis of a Music_.\
 University of Wisconsin Press, Madison.
 
+Rees, J.A. and W.D. Clinger.
+["Revised³ Report on the Algorithmic Language Scheme"](https://doi.org/10.1145/15042.15043).
+_SIGPLAN Notices_ Dec. 1986
+
 Rotem, D. 1981.
 "Stack sortable permutations".\
 _Discrete Mathematics_, 33(2):185--196.

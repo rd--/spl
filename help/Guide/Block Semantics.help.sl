@@ -11,8 +11,7 @@ _Block_ has the semantics of Smalltalk’s _BlockClosure_, which is a form of Sc
 > the corresponding actual argument values will be stored in those locations,
 > and the expressions in the body of the lambda expression will be evaluated sequentially in the extended environment.
 > The result of the last expression in the body will be returned as the result of the procedure call.
-> (J. Rees and W. Clinger. ["Revised³ Report on the Algorithmic Language Scheme"](https://doi.org/10.1145/15042.15043).
-> _SIGPLAN Notices_ Dec. 1986, p. 7)
+> (Rees and Clinger 1986, p. 7)
 
 Blocks have fixed arity, they must be applied to the number of arguments they require.
 

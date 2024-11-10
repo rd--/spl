@@ -2,18 +2,20 @@
 
 A complex number is a number consisting of a _real_ and an _imaginary_ component.
 
-Complex numbers may be written as literals using the syntax _rji_,
-i.e. `3j4` or `2j3`.
+Complex numbers may be written as literals using the syntax _rJi_,
+i.e. `3J4` or `2J3`.
 
 ```
->>> 3j4
+>>> 3J4
 Complex(3, 4)
 
->>> 2j3
+>>> 2J3
 Complex(2, 3)
 ```
 
-The rewrite rule is _rji => Complex(r, i)_.
+The rewrite rule is _rJi => Complex(r, i)_.
+
+The _J_ may also be written _j_.
 
 * * *
 

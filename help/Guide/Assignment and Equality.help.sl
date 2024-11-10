@@ -9,7 +9,7 @@ The `Assignment Syntax` is _p := q_.
 1
 ```
 
-The `Initialised Temporaries Syntax` is _let p = q;_.
+The `Initialised Temporaries Syntax` is _let p = q_.
 It both declares a variable and assigns a value.
 
 ```

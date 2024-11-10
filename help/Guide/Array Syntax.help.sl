@@ -6,7 +6,7 @@ A _vector_, a one-dimensional array, can be written using `Vector Syntax` as a s
 
 ```
 >>> [1 3 5 7 9]
-[1 3 5 7 9]
+[1, 3, 5, 7, 9]
 ```
 
 A _matrix_, a two-dimensional array, can be written using `Matrix Syntax` as a sequence of vectors separated by semicolons:
