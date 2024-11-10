@@ -26,3 +26,5 @@ See also: asGraph, Graph, isDirected, isUndirected
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/LoopFreeGraphQ.html)
+
+Categories: Testing, Collection

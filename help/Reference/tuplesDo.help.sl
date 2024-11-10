@@ -1,6 +1,6 @@
 # tuplesDo
 
-- _tuplesDo(aSequence, aBlock:/1)
+- _tuplesDo(aSequence, aBlock:/1)_
 
 Apply _aBlock_ to all of the possible n-tuples of each of the elements of _aSequence_,
 which is an n-element sequence of any sized sequences.

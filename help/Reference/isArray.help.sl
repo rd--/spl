@@ -57,3 +57,5 @@ See also: isMatrix, isSequence, isVector, rank, shape
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ArrayQ.html)
+
+Categories: Testing, Collection

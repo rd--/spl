@@ -5,21 +5,21 @@
 Answers whether the receiver contains any elements.
 Negation of _isEmpty_.
 
-At List:
+At `List`:
 
 ```
 >>> [].notEmpty
 false
 ```
 
-At Record:
+At `Record`:
 
 ```
 >>> ().notEmpty
 false
 ```
 
-At String:
+At `String`:
 
 ```
 >>> ''.notEmpty

@@ -5,7 +5,7 @@
 Evaluate _aBlock_ with _anObject_ as argument and answer the answer of _aBlock_.
 `in` is an alias for `with`, following the Squeak naming of this method.
 
-`in` is `value` with argument order reversed, ie. _in(alpha, beta)_ is equal to _value(beta, alpha)_.
+`in` is `value` with argument order reversed, ie. _in(α, β)_ is equal to _value(β, α)_.
 
 `in` can be used where a "cascade" would be in Smalltalk,
 to apply a sequence of message sends to an object and answer the value of the last.

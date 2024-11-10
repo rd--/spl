@@ -25,7 +25,10 @@ Generate the first 10 convergents to the `goldenRatio` and pi:
 [1 2 3/2 5/3 8/5 13/8 21/13 34/21 55/34 89/55]
 
 >>> 1.pi.continuedFraction(10).convergents
-[3 22/7 333/106 355/113 103993/33102 104348/33215 208341/66317 312689/99532 833719/265381 1146408/364913]
+[
+	3 22/7 333/106 355/113 103993/33102 104348/33215
+	208341/66317 312689/99532 833719/265381 1146408/364913
+]
 ```
 
 Generate convergents from the continued fraction terms for `goldenRatio`:

@@ -49,4 +49,4 @@ Very close to zero but not zero:
 
 See also: isEven, isNegative, isOdd, isOne, isPositive, zero
 
-Categories: Testing
+Categories: Testing, Math

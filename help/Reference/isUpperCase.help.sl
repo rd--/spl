@@ -20,4 +20,4 @@ References:
 _Smalltalk_
 5.3.4.10
 
-Categories: Testing
+Categories: Testing, Text

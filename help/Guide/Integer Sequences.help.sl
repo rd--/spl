@@ -1,6 +1,6 @@
 # Integer Sequences
 
-Scatter plot of Oeis [A063543](https://oeis.org/A063543):
+Scatter plot of OEIS [A063543](https://oeis.org/A063543):
 
 ~~~
 { :n |
@@ -8,7 +8,7 @@ Scatter plot of Oeis [A063543](https://oeis.org/A063543):
 }.map(1:2000).scatterPlot
 ~~~
 
-Oeis [A117966](https://oeis.org/A117966):
+OEIS [A117966](https://oeis.org/A117966):
 
 ~~~
 >>> { :i |
@@ -26,7 +26,7 @@ Oeis [A117966](https://oeis.org/A117966):
 ]
 ~~~
 
-Oeis [A265326](https://oeis.org/A265326):
+OEIS [A265326](https://oeis.org/A265326):
 
 ```
 >>> { :n |
@@ -43,7 +43,7 @@ Oeis [A265326](https://oeis.org/A265326):
 ]
 ```
 
-Scatter plot of the first _k_ terms of Oeis [A342585](https://oeis.org/A342585):
+Scatter plot of the first _k_ terms of OEIS [A342585](https://oeis.org/A342585):
 
 ~~~
 let k = 1500;

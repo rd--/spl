@@ -31,7 +31,7 @@ At `Fraction`:
 true
 ```
 
-[A246655](https://oeis.org/A246655) in the Oeis:
+[A246655](https://oeis.org/A246655) in the OEIS:
 
 ```
 >>> 2:49.select(isPrimePower:/1)

@@ -36,6 +36,7 @@ Treat numbers as equal if they differ by 0.01 or less:
 
 Similar to `union` with an empty set:
 
+```
 >>> [9 0 0 3 2 3 6 2 9 8 4 9 0 2 6 5 7 4 9 8].deleteDuplicates
 [9 0 3 2 6 8 4 5 7]
 

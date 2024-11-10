@@ -1,6 +1,6 @@
 # ifFalseIfTrue
 
-- _ifFalseIfTrue(alpha, beta, gamma)_ ⟹ _if(alpha, gamma, beta)_
+- _ifFalseIfTrue(α, β, γ)_ ⟹ _if(α, γ, β)_
 
 Ternary `if` with branches swapped.
 

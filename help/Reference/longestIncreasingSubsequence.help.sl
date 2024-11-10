@@ -39,7 +39,8 @@ Find the longest ascending sequence of elements in a list:
 >>> [6 3 4 8 10 5 7 1 9 2].longestIncreasingSubsequence
 [3 4 5 7 9]
 
->>> [7 4 4 5 2 7 1 8 13 2 10 4 9 1 4 5 5 4 3 10 3 4 5 8 15 7 11 19].longestIncreasingSubsequence
+>>> let l = [7 4 4 5 2 7 1 8 13 2 10 4 9 1 4 5 5 4 3 10 3 4 5 8 15 7 11 19];
+>>> l.longestIncreasingSubsequence
 [1 2 3 4 5 7 11 19]
 ```
 

@@ -42,3 +42,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CompleteGraph.html)
 [2](https://reference.wolfram.com/language/ref/CompleteGraph.html)
+
+Categories: Collection

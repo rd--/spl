@@ -3,7 +3,7 @@
 - _dot(a, b)_
 
 Answer products of vectors and matrices.
-If both _a_ and b_ are matrices, the number of columns in _a_ must be equal to the number of rows in _b_.
+If both _a_ and _b_ are matrices, the number of columns in _a_ must be equal to the number of rows in _b_.
 
 Scalar product of vectors in two dimensions:
 

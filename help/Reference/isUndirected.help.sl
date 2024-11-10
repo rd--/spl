@@ -38,3 +38,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/UndirectedGraph.html)
 [2](http://reference.wolfram.com/language/ref/UndirectedGraphQ.html)
+
+Categories: Testing, Collection

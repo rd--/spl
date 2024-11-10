@@ -1,6 +1,6 @@
 # tuplesIndicesDo
 
-- _tuplesIndicesDo(size, n, aBlock:/1)
+- _tuplesIndicesDo(size, n, aBlock:/1)_
 
 Iterates through each index sequence for a list of _size_ places to generate all _n_-tuples,
 evaluating _aBlock:/1_ at each index array.

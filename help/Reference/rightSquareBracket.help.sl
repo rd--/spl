@@ -11,4 +11,6 @@ The name of this syntax token is `rightSquareBracket`.
 
 * * *
 
-See also: [, List Syntax, Matrix Syntax, Vector Syntax, Volume Syntax
+See also: leftSquareBracket
+
+Guides: List Syntax, Matrix Syntax, Vector Syntax, Volume Syntax

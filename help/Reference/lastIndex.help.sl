@@ -14,7 +14,8 @@ At `Range`:
 
 At `List`:
 
-``>>> [3 4 5 6 7].lastIndex
+```
+>>> [3 4 5 6 7].lastIndex
 5
 ```
 

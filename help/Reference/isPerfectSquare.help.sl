@@ -6,7 +6,7 @@ Answer `true` if _anInteger_ is a perfect square.
 
 A perfect square is an `Integer` that is the square of an integer.
 
-The prefect squares (A000290 in Oeis) smaller than 200:
+The prefect squares (A000290 in OEIS) smaller than 200:
 
 ```
 >>> 0:200.select(isPerfectSquare:/1)
@@ -23,3 +23,4 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Square_number)
 
+Categories: Testing, Math

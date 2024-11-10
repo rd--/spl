@@ -24,7 +24,7 @@ Decompose an amount of seconds in days, hours, minutes, and seconds:
 
 Decompose an exact number using a basis of exact numbers:
 
-````
+```
 >>> 99.numberDecompose([10 5 2 1])
 [9 1 2 0]
 

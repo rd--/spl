@@ -15,7 +15,13 @@ Half-integer values:
 
 ```
 >>> (1.5 .. 5.5).collect(gamma:/1)
-[pi.sqrt / 2, (3 * pi.sqrt) / 4, (15 * pi.sqrt) / 8, (105 * pi.sqrt) / 16, (945 * pi.sqrt) / 32]
+[
+	pi.sqrt / 2,
+	(3 * pi.sqrt) / 4,
+	(15 * pi.sqrt) / 8,
+	(105 * pi.sqrt) / 16,
+	(945 * pi.sqrt) / 32
+]
 ```
 
 Evaluate numerically:

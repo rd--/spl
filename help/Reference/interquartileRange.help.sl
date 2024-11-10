@@ -18,7 +18,7 @@ Exact input yields exact output:
 2
 ```
 
-At SmallFloat:
+At `SmallFloat`:
 
 ```
 >>> [pi e 2].interquartileRange

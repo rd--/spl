@@ -104,7 +104,7 @@ Find which of the remainders above was matched:
 2
 ```
 
-Solve the discrete log problem with _5 ^ m % 7 = 4:
+Solve the discrete log problem with _5 ^ m % 7 = 4_:
 
 ```
 >>> 5.multiplicativeOrder(7, [4])

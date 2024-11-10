@@ -5,7 +5,7 @@ _ifAbsentAdd(aCollection, anObject)_
 Ensure anObject is part of _aCollection_.
 Answer whether it’s membership was newly acquired.
 
-At Set:
+At `Set`:
 
 ```
 >>> let s = Set();
@@ -15,7 +15,7 @@ At Set:
 ([1], true, false)
 ```
 
-At List:
+At `List`:
 
 ```
 >>> let l = [];
@@ -28,3 +28,5 @@ At List:
 * * *
 
 See also: add, include, Set
+
+Categories: Collection

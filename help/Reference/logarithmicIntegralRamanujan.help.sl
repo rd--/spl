@@ -1,6 +1,6 @@
 # logarithmicIntegralRamanujan
 
-_logarithmicIntegralRamanujan(aNumber, anInteger)_
+- _logarithmicIntegralRamanujan(aNumber, anInteger)_
 
 The logarithmic integral function.
 

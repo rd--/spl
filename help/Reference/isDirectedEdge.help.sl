@@ -19,3 +19,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Arc.html)
 [2](https://reference.wolfram.com/language/ref/DirectedEdge.html)
+
+Categories: Collection, Testing

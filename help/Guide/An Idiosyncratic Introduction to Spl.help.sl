@@ -442,7 +442,7 @@ If _p_ is a permutation, _y @* p_ permutes _y_ by _p_.
 )
 ```
 
-Reducing _m_ copies of _p_ using _@*_ computes the _m_-th power of _p_.
+Reducing _m_ copies of _p_ using `@*` computes the _m_-th power of _p_.
 
 ```
 >>> let p = [4 22 16 15 18 14 7 8 0 21 3 13 20 9 11 19 6 17 2 5 1 10 12] + 1;

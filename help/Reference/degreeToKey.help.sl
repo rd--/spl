@@ -47,7 +47,8 @@ Likewise the methods `cancelFlat` and `cancelSharp`:
 (1.1, 2.9)
 
 >>> let s = Scale(1, [2 1 2 2 1 2 2], 'Minor');
->>> s.degreeToKey([1 2.flat 2 3 3.cancelFlat 4 5.flat 5 6 6.cancelFlat 7 7.cancelFlat])
+>>> let d = [1 2.flat 2 3 3.cancelFlat 4 5.flat 5 6 6.cancelFlat 7 7.cancelFlat];
+>>> s.degreeToKey(d)
 [1 .. 12]
 ```
 

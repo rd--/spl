@@ -25,3 +25,5 @@ See also: Graph
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GraphEdge.html)
+
+Categories: Collection

@@ -20,4 +20,4 @@ false
 
 See also: denominator, Fraction, isNumber, numerator
 
-Categories: Arithmetic, Testing
+Categories: Testing, Arithmetic

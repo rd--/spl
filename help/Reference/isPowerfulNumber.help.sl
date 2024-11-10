@@ -2,21 +2,21 @@
 
 - _isPowerfulNumber(anInteger)_
 
-There are an infinite number of powerful numbers, Oeis A001694:
+There are an infinite number of powerful numbers, OEIS A001694:
 
 ```
 >>> 1:100.select(isPowerfulNumber:/1)
 [1 4 8 9 16 25 27 32 36 49 64 72 81 100]
 ```
 
-The numbers of powerful numbers `<=` _(10 ^ 1:4)_, Oeis A118896:
+The numbers of powerful numbers `<=` _(10 ^ 1:4)_, OEIS A118896:
 
 ```
 >>> 1:4.collect { :each | (1 .. 10 ^ each).select(isPowerfulNumber:/1).size }
 [4 14 54 185]
 ```
 
-There are infinitely many pairs of consecutive powerful numbers, Oeis A060355:
+There are infinitely many pairs of consecutive powerful numbers, OEIS A060355:
 
 ```
 >>> 1:1000.select { :each | each.isPowerfulNumber & { (each + 1).isPowerfulNumber } }

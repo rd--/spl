@@ -4,7 +4,7 @@
 
 Answer the _n×n_ Hadamard matrix, where _n_ is a power of two.
 
-The first four Hadamard matrices:
+The first Hadamard matrix:
 
 ```
 >>> 2.hadamardMatrix
@@ -12,7 +12,11 @@ The first four Hadamard matrices:
 	1  1;
 	1 -1
 ]
+```
 
+The second Hadamard matrix:
+
+```
 >>> 4.hadamardMatrix
 [
 	1  1  1  1;
@@ -20,7 +24,11 @@ The first four Hadamard matrices:
 	1  1 -1 -1;
 	1 -1 -1  1
 ]
+```
 
+The third Hadamard matrix:
+
+```
 >>> 8.hadamardMatrix
 [
 	1  1  1  1  1  1  1  1;
@@ -32,7 +40,11 @@ The first four Hadamard matrices:
 	1  1 -1 -1 -1 -1  1  1;
 	1 -1 -1  1 -1  1  1 -1
 ]
+```
 
+The fourth Haramard matrix:
+
+```
 >>> 16.hadamardMatrix
 [
 	1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1;

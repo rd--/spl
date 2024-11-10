@@ -1,6 +1,6 @@
 # Slot Access Syntax
 
-The _:@_ syntax directly reads the value of a slot at a type.
+The `:@` syntax directly reads the value of a slot at a type.
 
 ```
 ('x' -> 1).slotNameList = ['key', 'value']

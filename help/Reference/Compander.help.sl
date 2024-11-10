@@ -19,7 +19,7 @@ General purpose (hard-knee) dynamics processor.
 
 - relaxTime: The amount of time for the amplitude adjustment to be released. Usually a bit longer than clampTime; if both times are too short, you can get some (possibly unwanted) artifacts.
 
-If any of this is confusing, see <http://en.wikipedia.org/wiki/Audio_level_compression>
+<!-- If any of this is confusing, see <http://en.wikipedia.org/wiki/Audio_level_compression> -->
 
 Example signal to process:
 

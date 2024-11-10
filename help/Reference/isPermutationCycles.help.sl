@@ -61,4 +61,4 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PermutationCyclesQ.html)
 
-Categories: Permutations, Testing
+Categories: Testing, Permutations

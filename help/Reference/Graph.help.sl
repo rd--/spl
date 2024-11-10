@@ -23,7 +23,7 @@ The coherence of a Graph can be queried using `isValid`.
 
 * * *
 
-Categories: Collection, Type
+See also: edgeCount, edgeList, vertexCount, vertexList
 
 References:
 _Mathematica_
@@ -36,3 +36,5 @@ _Mathematica_
 [7](https://mathworld.wolfram.com/LabeledGraph.html)
 _W_
 [1](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics))
+
+Categories: Collection, Type

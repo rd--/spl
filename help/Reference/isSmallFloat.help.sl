@@ -25,4 +25,4 @@ true
 
 See also: isComplex, isFraction, isLargeInteger, isNumber, SmallFloat
 
-Categories: Testing
+Categories: Testing, Math

@@ -33,7 +33,7 @@ or will apply a binary `aBlock` to two arguments using _withCollect_.
 
 * * *
 
-See also: collect, map, withCollect
+See also: $, collect, map, withCollect
 
 References:
 _Apl_

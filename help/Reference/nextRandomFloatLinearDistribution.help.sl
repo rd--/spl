@@ -1,6 +1,6 @@
 # nextRandomFloatLinearDistribution
 
-- nextRandomFloatLinearDistribution(x1, x2)_
+- _nextRandomFloatLinearDistribution(x1, x2)_
 
 This is similar to exprand, but with a looser distribution.
 Values closer to x1 are more likely to occur.

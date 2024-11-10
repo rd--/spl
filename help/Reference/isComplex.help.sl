@@ -16,4 +16,4 @@ false
 
 See also: isNumber, Complex
 
-Categories: Testing
+Categories: Testing, Math

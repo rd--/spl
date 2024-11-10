@@ -7,6 +7,7 @@ Answer a `List` of the `Integer` code points of _aString_.
 ```
 >>> 'codePoints'.codePoints
 [99 111 100 101 80 111 105 110 116 115]
+```
 
 Find Ascii or Unicode character codes:
 

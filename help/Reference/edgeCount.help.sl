@@ -17,7 +17,11 @@ Answer the number of edges in _aGraph_.
 
 * * *
 
+See also: Graph
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/EdgeCount.html)
 [2](https://reference.wolfram.com/language/ref/EdgeCount.html)
+
+Categories: Collection

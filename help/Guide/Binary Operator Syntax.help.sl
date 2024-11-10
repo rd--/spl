@@ -55,8 +55,8 @@ Binary operators may be written as names in non-operator contexts, i.e. _α.β(+
 
 Binary operators are rewritten as the arity qualified names of their symbols.
 The names are those given to the glyphs in _The Unicode Standard_.
-_+_ as _plusSign:/2_,
-_*_ as _asterisk:/2_, &etc.
+`+` as _plusSign:/2_,
+`*` as _asterisk:/2_, &etc.
 
 ```
 >>> + == plusSign:/2

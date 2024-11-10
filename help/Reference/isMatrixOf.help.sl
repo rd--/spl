@@ -37,3 +37,5 @@ true
 * * *
 
 See also: elementType, isMatrix, isSequence, isVector, isVectorOf, typeOf
+
+Categories: Testing, Collection

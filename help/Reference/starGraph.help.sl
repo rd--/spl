@@ -56,3 +56,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/StarGraph.html)
 [2](https://reference.wolfram.com/language/ref/StarGraph.html)
+
+Categories: Collection

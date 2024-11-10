@@ -1,6 +1,6 @@
 # hammingNumbersFromUpTo
 
-_hammingNumbersFromUpTo(anInteger, anotherInteger)_
+- _hammingNumbersFromUpTo(anInteger, anotherInteger)_
 
 Answer a sorted List of the Hamming numbers starting from _anInteger_,
 which must be a Hamming number,

@@ -1,6 +1,6 @@
 # leastPrimeGreaterThanOrEqualTo
 
-- leastPrimeGreaterThanOrEqualTo(anInteger)_
+- _leastPrimeGreaterThanOrEqualTo(anInteger)_
 
 Answer the next prime number after _anInteger_, or _anInteger_ if it is prime:
 

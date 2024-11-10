@@ -33,3 +33,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Identity.html),
 _Smalltalk_
 5.3.1.20
+
+Categories: Functions

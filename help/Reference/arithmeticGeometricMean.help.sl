@@ -41,7 +41,7 @@ Plot over a subset of the reals:
 (0 -- 1).functionPlot { :x | 1.arithmeticGeometricMean(x) }
 ~~~
 
-Special values: Oeis A068521, A084895, A084896 & A084897:
+Special values: OEIS A068521, A084895, A084896 & A084897:
 
 ```
 >>> [1] arithmeticGeometricMean.each [2 3 4 5]

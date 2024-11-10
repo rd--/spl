@@ -57,7 +57,7 @@ Largest `Complex` element of vector:
 
 Largest element in each matrix column:
 
-``
+```
 >>> [2 8 4; 7 3 9].max
 [7 8 9]
 ```

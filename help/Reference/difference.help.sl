@@ -19,6 +19,7 @@ The operator form is `\`:
 
 `difference` is not symmetrical:
 
+```
 >>> [1 2 3] \ [2 3 4]
 [1]
 

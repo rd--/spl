@@ -56,4 +56,4 @@ true
 
 See also: isFinite, isFraction, isInteger, isLargeInteger, isSmallFloat, Number
 
-Categories: Predicate
+Categories: Testing, Math

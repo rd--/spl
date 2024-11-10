@@ -84,3 +84,5 @@ _Mathematica_
 [3](https://reference.wolfram.com/language/ref/LowerTriangularMatrixQ.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Triangular_matrix)
+
+Categories: Testing, Collection

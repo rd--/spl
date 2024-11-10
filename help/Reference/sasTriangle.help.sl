@@ -1,8 +1,8 @@
 # sasTriangle
 
-- _sasTriangle(a, gamma, b)_
+- _sasTriangle(a, γ, b)_
 
-Answer a `Triangle` with sides of lengths _a_ and _b_ and angle _gamma_ between them.
+Answer a `Triangle` with sides of lengths _a_ and _b_ and angle _γ_ between them.
 Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axis, and _C_ in the half-plane _y > 0_.
 
 `coordinates`, `area`, `centroid` and `interiorAngles` of a _1, pi/2, 2_ triangle:

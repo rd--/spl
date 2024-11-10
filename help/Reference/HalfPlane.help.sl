@@ -1,8 +1,8 @@
 # HalfPlane
 
-- _HalfPlane(aLine, aVector)
+- _HalfPlane(aLine, aVector)_
 
-A `Type` that represents the half-plane bounded by _aLine_ and extended in the direction _aVector.
+A `Type` that represents the half-plane bounded by _aLine_ and extended in the direction _aVector_.
 
 * * *
 

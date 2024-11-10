@@ -1,6 +1,6 @@
 # moment
 
-- _moment(aCollection, r)
+- _moment(aCollection, r)_
 
 Answer the order _r_ moment of _aCollection_.
 

@@ -136,3 +136,5 @@ _Sage_
 [1](https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/generic_graph.html#sage.graphs.generic_graph.GenericGraph.adjacency_matrix)
 _W_
 [1](https://en.wikipedia.org/wiki/Adjacency_matrix)
+
+Categories: Collection

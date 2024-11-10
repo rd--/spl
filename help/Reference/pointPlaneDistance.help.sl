@@ -1,6 +1,6 @@
 # pointPlaneDistance
 
-- pointPlaneDistance(aPlane, aPoint)_
+- _pointPlaneDistance(aPlane, aPoint)_
 
 Answer the distance from _aPoint_ to _aPlane_.
 The plane is given as _ax + by + cz + d = 0_,

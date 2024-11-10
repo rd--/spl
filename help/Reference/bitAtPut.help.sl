@@ -24,7 +24,6 @@ Set the bit corresponding to the coefficient at 2 ^ 0:
 
 Automatically creates an integer of the necessary size:
 
-``
 ```
 >>> 42.bitAtPut(10, 1)
 554

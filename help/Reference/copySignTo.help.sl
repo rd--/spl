@@ -2,7 +2,7 @@
 
 - _copySignTo(aNumber, anotherNumber)_
 
-Answer a number with same magnitude as _anotherNumber and the same sign as _aNumber_.
+Answer a number with same magnitude as _anotherNumber_ and the same sign as _aNumber_.
 
 ```
 >>> -1.copySignTo(3)

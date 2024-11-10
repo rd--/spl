@@ -19,4 +19,4 @@ false
 
 See also: isInteger, isNumber, isSmallFloat, LargeInteger
 
-Categories: Testing
+Categories: Testing, Math

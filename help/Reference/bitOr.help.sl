@@ -13,7 +13,7 @@ Answers the bitwise or of the integers _aNumber_ and _anotherNumber_.
 [1 1 1 1 0 1; 0 0 1 1 1 1; 1 1 1 1 1 1]
 ```
 
-At LargeInteger:
+At `LargeInteger`:
 
 ```
 >>> (3n ^ 100).bitOr(5n ^ 100)

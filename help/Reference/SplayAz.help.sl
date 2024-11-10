@@ -15,7 +15,7 @@ The distance between the input signals in the output range is determined by the 
 - spread: How far the input signals are apart in the output. If zero, everything is mixed on center position (see below).
 - level: Scaling for all signals
 - width: Over how much of the channels each signal is distributed.
-_ center: Which of the channels will be the first channel
+- center: Which of the channels will be the first channel
 - orientation: Should be zero if the front is a vertex of the polygon.
   The first speaker will be directly in front.
   Should be 0.5 if the front bisects a side of the polygon.

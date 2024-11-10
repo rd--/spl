@@ -5,7 +5,7 @@
 Compute the inverse discrete Fourier transform (DFT) of _aList_ using a fast Fourier transform (FFT) algorithm.
 The answer is the same size as _aList_.
 
-The input and output lists are complex.
+The input and output lists are `Complex`:
 
 ```
 >>> let x = [1 1 2 2 1 1 0 0].fft;

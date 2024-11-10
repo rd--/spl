@@ -4,7 +4,7 @@
 - _cantorStaircase(alpha)_ ⟹ _cantorStaircase(alpha, 12)_
 
 Answer the Cantor staircase function,
-a continuous but not absolutely continuous function on _[0,1]_. 
+a continuous but not absolutely continuous function on _[0,1]_.
 
 ```
 >>> 0.3.cantorStaircase(3)
@@ -51,7 +51,11 @@ c.f. OEIS [A095844](https://oeis.org/A095844) and [A095845](https://oeis.org/A09
 >>> 		0 -> { 1 },
 >>> 		1 -> { 1/2 }
 >>> 	]) {
->>> 		(1 / (3 * (2 ^ n) - 2)) * (2 + (1 .. n - 1).collect { :k | n.binomial(k) * f(k) }.sum)
+>>> 		let a = 1 / (3 * (2 ^ n) - 2);
+>>> 		let b = 2 + (1 .. n - 1).collect { :k |
+>>> 			n.binomial(k) * f(k)
+>>> 		}.sum;
+>>> 		a * b
 >>> 	}
 >>> };
 >>> 0:7.collect(f:/1)

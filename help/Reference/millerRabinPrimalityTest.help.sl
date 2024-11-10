@@ -16,13 +16,22 @@ At `LargeInteger`:
 
 ```
 >>> (1n .. 131n).select { :each | each.millerRabinPrimalityTest(10) }
-[2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 103 107 109 113 127 131]
+[
+	  2   3   5   7  11  13  17  19  23  29
+	 31  37  41  43  47  53  59  61  67  71
+	 73  79  83  89  97 101 103 107 109 113
+	127 131
+]
 
 >>> (827n .. 999n).select { :each | each.millerRabinPrimalityTest(10) }
-[827 829 839 853 857 859 863 877 881 883 887 907 911 919 929 937 941 947 953 967 971 977 983 991 997]
+[
+	827 829 839 853 857 859 863 877 881 883
+	887 907 911 919 929 937 941 947 953 967
+	971 977 983 991 997
+]
 ```
 
-The number _2 ^ 2 ^ 7 + 1_ is not a Fermat prime, & requires _millerRabinPrimalityTest_:
+The number _2 ^ 2 ^ 7 + 1_ is not a Fermat prime, & requires `millerRabinPrimalityTest:
 
 ```
 >>> let n = (2n ^ (2 ^ 7) + 1);

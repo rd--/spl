@@ -16,4 +16,4 @@ false
 
 See also: isEven, isNegative, isOdd, isOne, isPositive, one
 
-Categories: Testing
+Categories: Testing, Math

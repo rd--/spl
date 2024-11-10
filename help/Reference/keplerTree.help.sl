@@ -45,3 +45,5 @@ _W_
 [1](https://en.m.wikipedia.org/wiki/Calkin%E2%80%93Wilf_tree)
 
 Further Reading: Kepler 1619
+
+Category: Collection

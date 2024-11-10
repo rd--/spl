@@ -15,3 +15,5 @@ true
 * * *
 
 See also: isBlankLine, isSpace, isTab
+
+Categories: Testing

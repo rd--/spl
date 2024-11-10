@@ -21,7 +21,7 @@ Traits must be loaded before Types.
 When a type is added, methods for the traits that it implements are added to the dispatch table at the new type.
 When a trait is extended methods are added both to the trait entry and to the dispatch table for all types that implement the trait.
 
-To distinguish traits from types traits are sometimes written with an _@_ prefix, which corresponds to the syntax used to define them.
+To distinguish traits from types traits are sometimes written with an `@` prefix, which corresponds to the syntax used to define them.
 
 _Note:_ At present re-defining methods of traits is not safe.
 Redefinitions should not be applied to a type if there is a more specific method defined.

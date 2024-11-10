@@ -46,3 +46,5 @@ dominant seventh _(1 5/4 3/2 16/9 or 36 45 54 64)_:
 See also: gcd, lcm, log
 
 Further Reading: Kurenniemi 2015
+
+Category: Tuning

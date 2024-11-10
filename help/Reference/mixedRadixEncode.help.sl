@@ -143,7 +143,11 @@ Solving permutation puzzles, ie. <https://xkcd.com/287/>:
 >>> let factors = total // prices + 1;
 >>> let entries = (0 .. factors.product - 1);
 >>> let encode = { :z | z.mixedRadixEncode(factors) };
->>> entries.select { :each | (each.encode * prices).sum = 1505 }.collect { :each | each.encode }
+>>> entries.select { :each |
+>>> 	(each.encode * prices).sum = 1505
+>>> }.collect { :each |
+>>> 	each.encode
+>>> }
 [1 0 0 2 0 1; 7 0 0 0 0 0]
 ```
 

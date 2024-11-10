@@ -13,4 +13,4 @@ true
 
 See also: Block
 
-Category: Predicate
+Category: Testing

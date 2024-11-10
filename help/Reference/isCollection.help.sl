@@ -9,4 +9,4 @@ understaning the collection messages such as `size` and `do`.
 
 See also: Collection, collect, do, size, species
 
-Categories: Testing
+Categories: Testing, Collection

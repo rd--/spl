@@ -42,7 +42,7 @@ It also equates six 9/8 major seconds with an octave:
 1.pythagoreanComma
 ```
 
-It has lattice coordinates _[-19 12>_:
+It has lattice coordinates _-19 12_:
 
 ```
 >>> 1.pythagoreanComma.factorInteger

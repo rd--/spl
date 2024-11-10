@@ -13,4 +13,4 @@ true
 
 See also: List
 
-Category: Predicate
+Category: Testing, Collection

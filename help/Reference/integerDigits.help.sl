@@ -132,7 +132,7 @@ It is an error if the operand is not an integer:
 true
 ```
 
-Scatter plot of first two-thousand terms of Oeis [A265326](https://oeis.org/A265326):
+Scatter plot of first two-thousand terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~
 { :n |
@@ -141,7 +141,7 @@ Scatter plot of first two-thousand terms of Oeis [A265326](https://oeis.org/A265
 }.map(1:2000).scatterPlot
 ~~~
 
-Scatter plot of first two-thousand terms of Oeis [A117966](https://oeis.org/A117966):
+Scatter plot of first two-thousand terms of OEIS [A117966](https://oeis.org/A117966):
 
 ~~~
 { :i |

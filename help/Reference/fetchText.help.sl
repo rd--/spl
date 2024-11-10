@@ -13,7 +13,11 @@ Handle failure:
 
 ~~~
 let url = 'https://rohandrape.net/DoesNotExist';
-url.fetchText.thenElse { :aString | aString.postLine } { :err | '*Failed*'.postLine }
+url.fetchText.thenElse { :aString |
+	aString.postLine
+} { :err |
+	'*Failed*'.postLine
+}
 ~~~
 
 A file protocol `Url`:

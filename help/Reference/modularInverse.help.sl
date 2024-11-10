@@ -78,7 +78,7 @@ Computing `modularInverse` twice yields the original argument:
 7
 ```
 
-For nonzero integers _k_ and _n_, _modularInverse(k, n) exists if and only if _k_ and _n_ are coprime:
+For nonzero integers _k_ and _n_, _modularInverse(k, n)_ exists if and only if _k_ and _n_ are coprime:
 
 ```
 >>> 10.isCoprime(21)

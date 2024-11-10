@@ -19,3 +19,5 @@ See also: Graph, isDirected, isUndirected
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/MixedGraph.html)
+
+Categories: Testing, Collection

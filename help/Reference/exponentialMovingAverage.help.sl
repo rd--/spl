@@ -8,8 +8,8 @@ The `size` of the answer is _aSequence.size_.
 Lists of integers yield rational numbers:
 
 ```
->>> 1:10.exponentialMovingAverage(1/3)
-[1 4/3 17/9 70/27 275/81 1036/243 3773/729 13378/2187 46439/6561 158488/19683]
+>>> 1:9.exponentialMovingAverage(1/3)
+[1 4/3 17/9 70/27 275/81 1036/243 3773/729 13378/2187 46439/6561]
 ```
 
 Lists of approximate numbers yield approximate numbers:

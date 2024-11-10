@@ -1,8 +1,8 @@
 # aasTriangle
 
-- _aasTriangle(alpha, beta, a)_
+- _aasTriangle(α, β, a)_
 
-Answer a `Triangle` with angles _alpha_ and _beta_ and side of length _a_.
+Answer a `Triangle` with angles _α_ and _β_ and side of length _a_.
 _a_ is adjacent to one angle only.
 Vertices are placed so that _A_ is at the origin,
 _B_ is on the positive _x_ axis,

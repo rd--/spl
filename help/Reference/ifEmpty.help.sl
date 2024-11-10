@@ -1,7 +1,7 @@
 # ifEmpty
 
 - _ifEmpty(aCollection, emptyBlock:/0)_
-- _ifEmpty(aCollection, emptyBlock:/0, notEmptyBlock)_
+- _ifEmpty(aCollection, emptyBlock:/0, notEmptyBlock:/1)_
 
 Conditional evaluation.
 If _aCollection_ has no elements answer the result of  _emptyBlock_,

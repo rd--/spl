@@ -27,7 +27,7 @@ and two of three into two parts:
 [1 2; 2 1]
 ```
 
-The compositions of 1, 2, 3 & 5:
+The compositions of 1, 2, 3 & 4:
 
 ```
 >>> 1.integerCompositions
@@ -39,8 +39,20 @@ The compositions of 1, 2, 3 & 5:
 >>> 3.integerCompositions
 [3; 1 2; 2 1; 1 1 1]
 
+>>> 4.integerCompositions
+[4; 1 3; 2 2; 3 1; 1 1 2; 1 2 1; 2 1 1; 1 1 1 1]
+```
+
+The composition of 5:
+
+```
 >>> 5.integerCompositions.allButLast(2)
-[5; 1 4; 2 3; 3 2; 4 1; 1 1 3; 1 2 2; 1 3 1; 2 1 2; 2 2 1; 3 1 1; 1 1 1 2; 1 1 2 1; 1 2 1 1]
+[
+	5;
+	1 4; 2 3; 3 2; 4 1;
+	1 1 3; 1 2 2; 1 3 1; 2 1 2; 2 2 1; 3 1 1;
+	1 1 1 2; 1 1 2 1; 1 2 1 1
+]
 ```
 
 A positive integer _n_ has _2 ^ (n - 1)_ compositions:

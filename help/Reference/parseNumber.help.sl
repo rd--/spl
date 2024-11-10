@@ -1,6 +1,6 @@
 # parseNumber
 
-- parseNumber(aString)_
+- _parseNumber(aString)_
 
 Answer the `Number` represented by _aString_,
 else signal an `error`.

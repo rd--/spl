@@ -5,7 +5,7 @@
 Take the items in the _aSequence_, _anInteger_ at a time, and evaluate _aBlock:/1_ for each combination.
 Hand in a list of elements of _aSequence_ as the block argument.
 Each combination only occurs once, and order of the elements does not matter.
-There are _aSequence.size.take(anInteger) combinations.
+There are _aSequence.size.take(anInteger)_ combinations.
 
 ```
 >>> let l = [];

@@ -34,4 +34,4 @@ true
 
 See also: Character
 
-Categories: Testing
+Categories: Testing, Text

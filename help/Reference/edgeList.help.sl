@@ -26,7 +26,11 @@ At directed graphs:
 
 * * *
 
+See also: Graph, vertexList
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/EdgeSet.html)
 [2](https://reference.wolfram.com/language/ref/EdgeList.html)
+
+Categories: Collection

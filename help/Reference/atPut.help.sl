@@ -31,7 +31,7 @@ Answer _anObject_.
 true
 ```
 
-There is [AtPut Sytax] for mutating indexed values:
+There is `AtPut Syntax` for mutating indexed values:
 
 ```
 >>> let a = ['x' 'y'];
@@ -47,7 +47,9 @@ There is [AtPut Sytax] for mutating indexed values:
 
 * * *
 
-See also: at, AtPut Syntax, Quoted AtPut Syntax, size
+See also: at, size
+
+Guides: AtPut Syntax, Quoted AtPut Syntax
 
 References:
 _Smalltalk_

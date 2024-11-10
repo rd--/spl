@@ -49,4 +49,8 @@ true
 
 * * *
 
-See also: isImmediate, isJson, Literals Syntax
+See also: isImmediate, isJson
+
+Guides: Literals Syntax
+
+Categories: Testing

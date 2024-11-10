@@ -17,7 +17,12 @@ The indigestibility of the first sixteen integers:
 
 ```
 >>> 1:16.collect(barlowIndigestibility:/1)
-[0 1 2.6666 2 6.4 3.6666 10.2857 3 5.3333 7.4 18.1818 4.6666 22.1538 11.2857 9.0666 4]
+[
+	 0       1       2.6666 2
+	 6.4     3.6666 10.2857 3
+	 5.3333  7.4    18.1818 4.6666
+	22.1538 11.2857  9.0666 4
+]
 ```
 
 Plot the indigestibility of the first one hundred integers:

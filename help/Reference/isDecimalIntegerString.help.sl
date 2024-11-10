@@ -1,6 +1,6 @@
 # isDecimalIntegerString
 
-- isDecimalIntegerString_(aString)_
+- _isDecimalIntegerString(aString)_
 
 Answer true if _aString_ would be parsed as a floating point number by `parseDecimalInteger`.
 

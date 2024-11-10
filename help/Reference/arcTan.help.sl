@@ -99,7 +99,7 @@ Zero of `arcTan`:
 
 >>> 2.arcTan = (1 / 5.sqrt).arcCos
 true
-~~~
+```
 
 Plot over a subset of the reals:
 

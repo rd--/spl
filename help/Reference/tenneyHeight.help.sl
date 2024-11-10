@@ -17,6 +17,7 @@ The `log` in the indicated base (2 in the unary case) of the `benedettiHeight`:
 
 The heights of three increasingly _dissonant_ intervals:
 
+```
 >>> 3/2.tenneyHeight
 2.585
 

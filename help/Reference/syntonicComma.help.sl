@@ -28,7 +28,7 @@ and between 81/16 and 5/1 (or more usually between 81/64 and 5/4, the 3- and 5- 
 1.syntonicComma
 ```
 
-It has lattice coordinates _[-4 4 -1>_:
+It has lattice coordinates _-4 4 -1_:
 
 ```
 >>> 1.syntonicComma.factorInteger

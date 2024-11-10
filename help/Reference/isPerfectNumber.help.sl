@@ -19,7 +19,7 @@ Twelve is not a perfect number:
 false
 ```
 
-Select the first three perfect numbers (A000396 in Oeis):
+Select the first three perfect numbers (A000396 in OEIS):
 
 ```
 >>> 2:500.select(isPerfectNumber:/1)
@@ -50,3 +50,5 @@ _OEIS_
 [1](https://oeis.org/A000396),
 _W_
 [1](https://en.wikipedia.org/wiki/Perfect_number)
+
+Categories: Testing, Math

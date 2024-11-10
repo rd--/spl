@@ -12,3 +12,5 @@ Answer the _key_ of _anAssociation_.
 * * *
 
 See also: Association, keys, value
+
+Category: Accessing

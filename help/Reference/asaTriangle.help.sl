@@ -1,8 +1,8 @@
 # asaTriangle
 
-- _asaTriangle(alpha, c, beta)_
+- _asaTriangle(α, c, β)_
 
-Answer a `Triangle` with angles _alpha_ and _beta_ and sides of length _c_, _c_ is adjacent to both angles.
+Answer a `Triangle` with angles _α_ and _β_ and sides of length _c_, _c_ is adjacent to both angles.
 Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axis, and _C_ in the half-plane _y > 0_.
 
 `coordinates`, `area`, `centroid` and `interiorAngles` of a _1, pi/2, 2_ triangle:
@@ -20,7 +20,7 @@ Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axi
 
 * * *
 
-See also: sasTriangle, sssTriangle, Triangle
+See also: aasTriangle, sasTriangle, sssTriangle, Triangle
 
 References:
 _Mathematica_

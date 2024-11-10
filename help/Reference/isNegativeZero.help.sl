@@ -29,3 +29,5 @@ false
 * * *
 
 See also: =, ==, < isZero, isNegative
+
+Categories: Testing, Math

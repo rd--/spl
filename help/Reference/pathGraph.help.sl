@@ -60,3 +60,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PathGraph.html)
 [2](https://reference.wolfram.com/language/ref/PathGraph.html)
+
+Categories: Collection

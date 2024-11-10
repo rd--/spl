@@ -27,3 +27,5 @@ false
 * * *
 
 See also: isArithmeticSeries, Range
+
+Categories: Testing

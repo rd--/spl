@@ -18,6 +18,7 @@ A 2×2 identity matrix:
 
 A 3×3 identity matrix:
 
+```
 >>> 3.identityMatrix
 [
 	1 0 0;
@@ -69,3 +70,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/IdentityMatrix.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/eye.html)
+
+Categories: Collection, Matrices
