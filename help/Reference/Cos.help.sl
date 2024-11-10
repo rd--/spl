@@ -13,4 +13,4 @@ Answers the cosine of _aNumber_.
 
 See also: cos, Sin, Tan
 
-Categories: Ugen, Math
+Categories: Math, Ugen

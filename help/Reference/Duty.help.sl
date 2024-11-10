@@ -92,3 +92,5 @@ See also: Latch, TDuty
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Duty.html)
+
+Categories: Ugen

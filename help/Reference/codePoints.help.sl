@@ -16,7 +16,7 @@ Find Ascii or Unicode character codes:
 [65 97 66 98 67 99 913 945 914 946 915 947]
 ```
 
-The code points are not in any encoding, cf. `utf8ByteArray`:
+The code points are not in any encoding, c.f. `utf8ByteArray`:
 
 ```
 >>> 'AaBbCcΑαΒβΓγ'.utf8ByteArray

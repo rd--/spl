@@ -11,7 +11,7 @@ A focus argument allows to control how many adjacent sources are mixed.
 - which: Index of the selected input, which is also the center of the selection for a focus > 0.
 - list: A collection of inputs.
 - focus: The fuzziness of the selection: the larger the focus, the less adjacent inputs are mixed in.
-- wrap: If set to true, index will wrap around the list of inputs, cf. wrapAt.
+- wrap: If set to true, index will wrap around the list of inputs, c.f. `wrapAt`.
 
 Note:
 All the Ugens are continuously running.

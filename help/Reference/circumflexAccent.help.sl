@@ -116,6 +116,13 @@ Operators are evaluated strictly left to right:
 107
 ```
 
+Scientific notation:
+
+```
+>>> 10 ^ 4
+1E4
+```
+
 Plot over a subset of the reals:
 
 ~~~

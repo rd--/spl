@@ -25,6 +25,13 @@ Extend simple fraction:
 '0.50000'
 ```
 
+Negative fraction:
+
+```
+>>> -23/27.printStringShowingDecimalPlaces(4)
+-0.8519
+```
+
 Truncate simple fraction:
 
 ```
@@ -37,6 +44,9 @@ At `SmallFloat`:
 ```
 >>> 3.01507.printStringShowingDecimalPlaces(5)
 '3.01507'
+
+>>> 3.1416.printStringShowingDecimalPlaces(4)
+'3.1416'
 ```
 
 At `Complex`:

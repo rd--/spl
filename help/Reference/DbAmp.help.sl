@@ -43,3 +43,5 @@ _Csound_
 [1](https://csound.com/docs/manual/dbamp.html),
 _Max_
 [1](https://docs.cycling74.com/max8/refpages/dbtoa)
+
+Categories: Math, Ugen

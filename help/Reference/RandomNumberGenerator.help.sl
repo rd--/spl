@@ -27,3 +27,5 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/randstream.html)
 
 Further Reading: L’Ecuyer 2007
+
+Categories: Random

@@ -68,3 +68,5 @@ SinOsc(TExpRand(111, 555, tr), 0) * win / 3
 * * *
 
 See also: BufFrames, PlayBuf
+
+Categories: Ugen, Buffer

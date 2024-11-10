@@ -149,7 +149,7 @@ Decimal : [Object] { | fraction scale |
 	}
 
 	printString { :self |
-		'Decimal(' ++ self.fraction ++ ', ' ++ self.scale ++ ')'
+		self.fraction.printStringShowingDecimalPlaces(self.scale) ++ 'D'
 	}
 
 	raisedToInteger { :self :aNumber |
@@ -166,6 +166,10 @@ Decimal : [Object] { | fraction scale |
 
 	squared { :self |
 		Decimal(self.fraction.squared, self.scale)
+	}
+
+	storeString { :self |
+		'Decimal(' ++ self.fraction ++ ', ' ++ self.scale ++ ')'
 	}
 
 	truncated { :self |

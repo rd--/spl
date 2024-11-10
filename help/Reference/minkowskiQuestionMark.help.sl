@@ -79,7 +79,7 @@ pi
 The question-mark function has fixed points at 0, 1/2 and 1, and at least two more,
 symmetric about the midpoint,
 one at approximately 0.42037,
-cf. OEIS [A048819](https://oeis.org/A048819):
+c.f. OEIS [A048819](https://oeis.org/A048819):
 
 ```
 >>> [0 0.5 1 0.420372339423223].minkowskiQuestionMark

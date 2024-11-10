@@ -55,3 +55,5 @@ See also: atRandom, nextRandomFloat, RandomNumberGenerator, randomChoice, random
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomReal.html)
+
+Categories: Random

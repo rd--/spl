@@ -20,4 +20,4 @@ References:
 _Csound_
 [1](https://csound.com/docs/manual/exp.html)
 
-Categories: Ugen, Math
+Categories: Math, Ugen

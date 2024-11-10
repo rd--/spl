@@ -37,7 +37,7 @@ At `Record`:
 ['y']
 ```
 
-Cf. `keys`:
+C.f. `keys`:
 
 ```
 >>> (x: 1, y: 2, z: 3).keys

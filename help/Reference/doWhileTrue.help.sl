@@ -13,7 +13,7 @@ Evaluate _aBlock_ once, then again as long the value of _conditionBlock_ is true
 [2 3 4]
 ```
 
-Cf. `whileTrue`:
+C.f. `whileTrue`:
 
 ```
 >>> let n = 1;

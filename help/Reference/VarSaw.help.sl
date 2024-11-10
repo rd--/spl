@@ -6,7 +6,7 @@ Variable duty `Saw`.
 
 - freq: frequency in Hertz
 - iphase: initial phase offset in cycles (0-1)
-- width: duty cycle from zero to one.
+- width: duty cycle from zero to one
 
 Modulate frequency and width:
 

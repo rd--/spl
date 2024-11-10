@@ -22,4 +22,4 @@ SinOsc(x * 110 + 110, 0) * 0.1
 
 See also: arcCos, ArcSin, ArcTan, Cos, Sin
 
-Categories: Ugen, Math, Trigonometry
+Categories: Math, Ugen, Trigonometry

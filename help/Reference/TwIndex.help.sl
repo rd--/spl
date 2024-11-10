@@ -7,9 +7,9 @@ When triggered, answers a random index value based on array as a list of probabi
 By default the list of probabilities should sum to 1.
 When the normalize flag is set to 1, the values get normalized by the Ugen (less efficient).
 
-- input: the trigger.
-- normalize: Controls whether to normalize the probability values.
-- array: The list of probabilities.
+- input: the trigger
+- normalize: Controls whether to normalize the probability values
+- array: The list of probabilities
 
 Note: Normalize and array input values should be control rate only.
 

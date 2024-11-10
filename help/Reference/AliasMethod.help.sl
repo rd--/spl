@@ -25,3 +25,5 @@ _W_
 [1](https://en.wikipedia.org/wiki/Alias_method)
 
 Further Reading: Walker 1974, Vose 1991
+
+Categories: Random

@@ -1,5 +1,8 @@
 # Decimal
 
+`Decimal` is a numeric `Type` for fixed point decimal numbers.
+It is able to accurately represent arbitrary precision decimal fractions.
+
 Parse `String` as `Decimal`:
 
 ```
@@ -35,7 +38,7 @@ Addition preserves number of places:
 Decimal(5/2, 2)
 ```
 
-Exact addition, cf. `SmallFloat`:
+Exact addition, c.f. `SmallFloat`:
 
 ```
 >>> 1.1D + 2.2D = 3.3D
@@ -45,7 +48,7 @@ true
 true
 ```
 
-Exact addition and subtraction, cf. `SmallFloat`:
+Exact addition and subtraction, c.f. `SmallFloat`:
 
 ```
 >>> (0.1D + 0.1D + 0.1D - 0.3D).isZero
@@ -86,3 +89,5 @@ Decimal(1/7, 2)
 * * *
 
 See also: Fraction
+
+Category: Math, Type

@@ -16,7 +16,7 @@ At `RatioTuning`, will answer a list of `Fraction` values:
 [1/1 8/7 4/3 14/9 16/9]
 ```
 
-At `CentsTuning`, will answer a list of `SmallFloat` values (cf. `asFractions`):
+At `CentsTuning`, will answer a list of `SmallFloat` values (c.f. `asFractions`):
 
 ```
 >>> 12.equalTemperamentTuning.asRatios

@@ -4,6 +4,11 @@
 
 Answer the absolute value.
 
+```
+>>> -23.Abs
+23
+```
+
 Contrary motion:
 
 ```
@@ -40,4 +45,4 @@ let z = o * 0.25 + 0.25;
 
 See also: abs, AbsDif
 
-Categories: Ugen, Math
+Categories: Math, Ugen

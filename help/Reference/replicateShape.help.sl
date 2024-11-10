@@ -30,7 +30,7 @@ C.f. `reshape`:
 [3 3 3; 3 3 3]
 ```
 
-Cf. `replicateEach`:
+C.f. `replicateEach`:
 
 ```
 >>> [3 4].replicateShape([2 3])

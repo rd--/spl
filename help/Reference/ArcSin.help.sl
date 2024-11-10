@@ -15,4 +15,4 @@ At `SmallFloat`:
 
 See also: arcSin, ArcCos
 
-Category: Ugen, Math, Trigonometry
+Category: Math, Ugen, Trigonometry

@@ -48,3 +48,5 @@ _Csound_
 [2](https://csound.com/docs/manual/gbuzz.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Blip.html)
+
+Categories: Ugen

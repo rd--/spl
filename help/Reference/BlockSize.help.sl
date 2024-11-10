@@ -24,3 +24,5 @@ See also: ControlRate, RadiansPerSample, SampleRate
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/BlockSize.html)
+
+Categories: Ugen

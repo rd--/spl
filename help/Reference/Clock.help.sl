@@ -85,6 +85,6 @@ A scheduling process that passes an object between iterations:
 
 * * *
 
-See also: recurseEvery, repeatEvery, schedule, scheduleInjecting
+See also: clock, recurseEvery, repeatEvery, schedule, scheduleInjecting, system
 
 Categories: Scheduling

@@ -14,11 +14,18 @@ Round to integer:
 4
 ```
 
-Rounds away from zero, cf. `roundToTowardsZero`:
+Rounds away from zero, c.f. `roundToTowardsZero`:
 
 ```
 >>> -3.99.roundTo(1)
 -4
+```
+
+Round to precision:
+
+```
+>>> 3.1416.roundTo(1E4.reciprocal)
+3.1416
 ```
 
 Threads over lists:

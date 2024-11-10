@@ -40,3 +40,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Circle.html)
 [2](https://reference.wolfram.com/language/ref/Circle.html)
+
+Categories: Geometry

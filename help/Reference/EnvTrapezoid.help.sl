@@ -62,3 +62,5 @@ osc.Splay
 * * *
 
 See also: Env, EnvGen
+
+Categories: Ugen, Envelope

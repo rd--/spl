@@ -26,6 +26,6 @@ A pair of sine oscillators crossfading between randomly shifting pitches and ste
 
 * * *
 
-See also: OverlapTexture
+See also: OverlapTexture, xFadeTextureProgram
 
 Categories: Ugen, Texture

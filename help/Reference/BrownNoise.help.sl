@@ -13,4 +13,4 @@ BrownNoise(0.1 # 2, 0)
 
 See also: PinkNoise, WhiteNoise
 
-Categories: Noise, Ugen
+Categories: Ugen, Noise

@@ -49,3 +49,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/ArithmeticProgression.html)
 _W_
 [1](https://en.wikipedia.org/wiki/Arithmetic_progression)
+
+Categories: Arithmetic, Trait

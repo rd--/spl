@@ -28,7 +28,7 @@ Form un-reduced permutation cycles by collecting each orbit separately:
 [1 2 5; 3; 4 6 8 9; 7; 10]
 ```
 
-Cf. `permutationCycles`:
+C.f. `permutationCycles`:
 
 ```
 >>> [2 5 3 6 1 8 7 9 4 10].permutationCycles

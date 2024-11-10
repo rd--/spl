@@ -7,16 +7,16 @@ Implements the (optimized) formula:
 
 > _compensationFactor = (root / freq) ^ exp_
 
-Higher frequencies are normally perceived as louder, which AmpComp compensates.
+compensating for higher frequencies normally being perceived as louder.
 
 - freq: input frequency value. When _freq = root_, the output is 1
 - root: root frequency relative to which the curve is calculated (usually lowest frequency)
 - exp: exponent, how steep the curve decreases for increasing freq
 
 Note that for frequencies very much smaller than root the amplitudes can become very high.
-In this case limit the freq with _freq.Max(minval)_, or use _AmpCompA_.
+In this case limit the freq with _freq.Max(minval)_, or use `AmpCompA`.
 
-Compare a sine tone without compensation with one that uses amplitude compensation:
+Compare a sine tone with and without amplitude compensation:
 
 ```
 let freq = MouseX(300, 15000, 1, 0.2);

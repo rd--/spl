@@ -27,7 +27,7 @@ Use a literal block to test each element:
 [4 7 6]
 ```
 
-Only the first expression selected (cf. `detect`):
+Only the first expression selected (c.f. `detect`):
 
 ```
 >>> [1 2 4 7 6 2].select { :each | each > 2 }.first

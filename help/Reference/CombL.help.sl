@@ -7,3 +7,5 @@ Comb filter.
 * * *
 
 See also: AllpassL, CombC, CombN
+
+Categories: Ugen, Filter

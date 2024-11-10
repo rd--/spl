@@ -28,3 +28,5 @@ See also: Dbrown, Diwhite, WhiteNoise
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Dwhite.html)
+
+Categories: Ugen, Noise, Demand

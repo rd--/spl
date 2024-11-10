@@ -2,7 +2,7 @@
 
 - Adsr(gate, attackTime, decayTime, sustainLevel, releaseTime, curve)
 
-Attack decay sustain release envelope.
+Attack-decay-sustain-release envelope.
 
 ```
 let gate = LfPulse(0.5, 0, 0.5) > 0;

@@ -47,3 +47,5 @@ See also: ControlRate, RadiansPerSample, SampleDur, SampleRate
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/ControlDur.html)
+
+Categories: Ugen, Control

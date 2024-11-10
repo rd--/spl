@@ -16,7 +16,10 @@ If you want to zero one out, use Dc(0).
 - w,x,y,z: B-format signals
 - azimuth: Angle from 0 front and center of the speaker
 - elevation: Angle from 0 center of the speaker
-- wComp: Chooses how the W channels is scaled. If 0, a scaler of 0.707 is used. If 1, W is varied according to the scaling of the X, Y and Z channels. 1 is the default.
+- wComp: Chooses how the W channels is scaled.
+  If 0, a scaler of 0.707 is used.
+  If 1, W is varied according to the scaling of the X, Y and Z channels.
+  1 is the default
 
 B-format decode to cube _lfh, rfh, rrh, lrh, lfl, rfl, rrl, lrl_,
 where lfl = left front high, lfl = left front low &etc.

@@ -19,4 +19,6 @@ _C4_ is _4_, _A4_ is _4 + 9/12_.
 
 * * *
 
-See also: CpsOct
+See also: CpsOct, MidiCps
+
+Categories: Math, Ugen

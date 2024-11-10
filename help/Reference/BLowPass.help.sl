@@ -6,7 +6,7 @@
 
 The B equalization suite is based on the Second Order Section (SOS) biquad UGen.
 
-- in: input signal to be processed.
+- in: input signal to be processed
 - freq: cutoff frequency
 - rq: the reciprocal of Q. bandwidth / cutoffFreq
 

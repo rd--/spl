@@ -22,7 +22,7 @@ The `characterString` method retrieves the single element string:
 'x'
 ```
 
-Characters are cached on construction, and therefore equal charactres are identical.
+Characters are cached on construction, and therefore equal characters are identical.
 
 ```
 >>> let c1 = 'x'.asCharacter;

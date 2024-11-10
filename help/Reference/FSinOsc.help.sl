@@ -39,3 +39,5 @@ _Csound_
 [1](https://csound.com/docs/manual/oscils.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/FSinOsc.html)
+
+Categories: Ugen, Oscillator

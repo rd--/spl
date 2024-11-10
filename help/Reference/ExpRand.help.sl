@@ -23,4 +23,4 @@ _Csound_
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/ExpRand.html)
 
-Categories: Random
+Categories: Ugen, Random

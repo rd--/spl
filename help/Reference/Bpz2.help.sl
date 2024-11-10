@@ -28,4 +28,4 @@ References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/BPZ2.html)
 
-Categories: Ugen
+Categories: Ugen, Filter

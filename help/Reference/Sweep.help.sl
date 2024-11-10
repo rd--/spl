@@ -53,4 +53,4 @@ References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Sweep.html)
 
-Categories: Trigger
+Categories: Ugen, Trigger

@@ -11,7 +11,7 @@ Iterate over the prime numbers that are less than or equal to _anInteger_.
 [2 3 5 7 11 13]
 ```
 
-Cf. `primesUpTo`:
+C.f. `primesUpTo`:
 
 ```
 >>> 15.primesUpTo
@@ -27,7 +27,7 @@ Count number of primes less than or equal to a number:
 2002
 ```
 
-Cf. `primePi`:
+C.f. `primePi`:
 
 ```
 >>> 17401.primePi

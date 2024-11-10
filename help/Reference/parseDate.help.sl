@@ -2,6 +2,7 @@
 
 - _parseDate(aString)_
 
+Parse _aString_ as a `Date` value.
 A string parser that recognizes subsets of the ISO 8601 specification, _YYYY-MM-DDTHH:mm:ss.sssZ_:
 
 ```
@@ -13,4 +14,4 @@ A string parser that recognizes subsets of the ISO 8601 specification, _YYYY-MM-
 
 See also: Date, Duration, iso8601, TimeStamp
 
-Categories: Time, Type
+Categories: Time, Parsing

@@ -28,4 +28,4 @@ _Csound_
 _W_
 [1](https://en.wikipedia.org/wiki/Scientific_pitch_notation)
 
-Categories: Ugen, Arithmetic
+Categories: Math, Ugen

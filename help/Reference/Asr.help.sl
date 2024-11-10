@@ -2,7 +2,7 @@
 
 - Asr(gate, attackTime, releaseTime, curve)
 
-Attack sustain release envelope.
+Attack-sustain-release envelope.
 
 ```
 let gate = LfPulse(0.5, 0, 0.1) > 0;

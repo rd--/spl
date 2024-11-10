@@ -13,6 +13,10 @@ x
 >>> let x = -1.6;
 >>> x.fractionPart + x.truncated
 x
+
+>>> let x = 3.1416;
+>>> x.fractionPart + x.truncated
+x
 ```
 
 At `SmallFloat`:

@@ -5,7 +5,7 @@
 Answer an empty `PriorityQueue` with external numeric priority values.
 The item with the _least_ priority value is at the front of the queue.
 
-A new priority queue is empty, cf. `isEmpty` and `size`:
+A new priority queue is empty, c.f. `isEmpty` and `size`:
 
 ```
 >>> let p = PriorityQueue();

@@ -5,9 +5,9 @@
 Amplitude follower.
 Tracks the peak amplitude of a signal.
 
-- in: input signal.
-- attackTime: 60dB convergence time for following attacks.
-- releaseTime: 60dB convergence time for following decays.
+- in: input signal
+- attackTime: 60dB convergence time for following attacks
+- releaseTime: 60dB convergence time for following decays
 
 Use input amplitude to control Pulse amplitude, _use headphones to prevent feedback_.
 
@@ -35,4 +35,4 @@ SinOsc(
 
 See also: PeakFollower
 
-Categories: Ugen
+Categories: Ugen, Analysis

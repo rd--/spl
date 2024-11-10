@@ -11,8 +11,14 @@ At `SmallFloat`:
 7
 ```
 
+At `Ugen`:
+
+```
+SinOsc(220, 0).Add(Saw(110)) * 0.1
+```
+
 * * *
 
 See also: +, *, Mul, MulAdd
 
-Categories: Ugen
+Categories: Math, Ugen

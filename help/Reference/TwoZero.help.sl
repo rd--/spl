@@ -5,8 +5,8 @@
 A two zero filter.
 
 - in: input signal to be processed
-- freq: frequency of zero angle.
-- radius: radius of zero.
+- freq: frequency of zero angle
+- radius: radius of zero
 
 Modulate frequency:
 

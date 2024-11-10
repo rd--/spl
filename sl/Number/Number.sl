@@ -575,7 +575,7 @@
 			let rounder = 10 ^ placesDesired;
 			let rounded = self.roundTo(rounder.reciprocal);
 			let prefix = rounded.isNegative.if { '-' } { '' };
-			let roundedFractionPart = (rounded.abs.fractionPart * rounder).truncated;
+			let roundedFractionPart = (rounded.abs.fractionPart * rounder).rounded; /* truncated? */
 			[
 				prefix,
 				rounded.abs.integerPart.truncated.printString,

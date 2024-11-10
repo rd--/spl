@@ -49,3 +49,5 @@ Split on sub-string using `splitBy`:
 * * *
 
 See also: ByteArray, Character, String
+
+Categories: Type, Text

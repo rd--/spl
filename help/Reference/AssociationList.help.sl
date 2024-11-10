@@ -1,7 +1,6 @@
 # AssociationList
 
 - _AssociationList()_
-- _AssociationList(aList)_
 
 A `Type` that implements a `Dictionary` where the uniqueness of keys is determined using `=`.
 This type is less efficient than both `Map` and `Record`.
@@ -24,4 +23,6 @@ An `AssociationList` with lists for keys:
 
 * * *
 
-See also: Dictionary, Map, Record
+See also: asAssociationList, Association, Dictionary, List, Map, Record
+
+Categories: Collection, Type

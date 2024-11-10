@@ -1,6 +1,6 @@
 # Coin
 
-- _Coin(input)_
+- _Coin(probablity)_
 
 Generates a random number between zero and one and answers 1 if it is less than _probablity_, else 0.
 

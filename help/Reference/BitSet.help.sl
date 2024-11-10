@@ -10,9 +10,9 @@ A `BitSet` is a `Dictionary`-like data structures mapping 0-1 values to integers
 `BitSet` implements three different kind of protocols,
 each corresponding to a way of thinking about this data structure:
 
-- A `Set`-like protocol with `add`, `remove` and `includes`
-- A `Dictionary`-like protocl with `at` and `atPut`
-- A `Binary`-like protocol with `bitAt`, `clearBitAt` and `setBitAt`
+- a `Set`-like protocol with `add`, `remove` and `includes`
+- a `Dictionary`-like protocol with `at` and `atPut`
+- a `Binary`-like protocol with `bitAt`, `clearBitAt` and `setBitAt`
 
 A new `BitSet` is empty, the `size` of a `BitSet` is the number of non-zero bits:
 
@@ -62,7 +62,7 @@ however including it is:
 (1, [5])
 ```
 
-`BitSet` implements `includes`:
+`BitSet` implements the predicate `includes`:
 
 ```
 >>> [1 3 9].asBitSet.includes(3)

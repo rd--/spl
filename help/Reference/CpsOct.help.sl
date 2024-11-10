@@ -13,3 +13,5 @@ Inverse of `OctCps`.
 * * *
 
 See also: CpsMidi, CpsRatio, OctCps
+
+Categories: Math, Ugen

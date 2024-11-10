@@ -3,7 +3,7 @@
 - _DelayTap(buffer, delayTime)_
 
 `DelayTap` reads from a delay line.
-Cf. `DelayWrite`.
+C.f. `DelayWrite`.
 
 - buffer: memory for delay line
 - delayTime: delay time in seconds

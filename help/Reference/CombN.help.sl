@@ -7,3 +7,5 @@ Comb filter.
 * * *
 
 See also: CombC
+
+Categories: Ugen, Filter

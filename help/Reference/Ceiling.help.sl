@@ -24,4 +24,4 @@ References:
 _Csound_
 [1](https://csound.com/docs/manual/ceil.html)
 
-Categories: Ugen
+Categories: Math, Ugen

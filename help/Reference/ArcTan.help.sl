@@ -15,5 +15,4 @@ At `SmallFloat`:
 
 See also: arcTan, ArcCos
 
-Category: Ugen, Math, Trigonometry
-
+Category: Math, Ugen, Trigonometry
