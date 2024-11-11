@@ -1,2 +1,2 @@
-# Why Spl?
+# Why Sᴘʟ?
 

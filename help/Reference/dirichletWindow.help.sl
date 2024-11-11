@@ -19,13 +19,17 @@ Plot:
 Discrete _Dirichlet window_ of length 15:
 
 ~~~
-(-0.5 -- 0.5).functionPlot(dirichletWindow:/1)
+(-0.5 -- 0.5).discretize(15, dirichletWindow:/1).discretePlot
 ~~~
 
 * * *
 
-See also: Window Functions
+See also: gaussianWindow
+
+Guides: Window Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DirichletWindow.html)
+
+Categories: Windowing

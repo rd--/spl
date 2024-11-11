@@ -18,7 +18,7 @@ and in plain Haskell notation as:
 [1, 2, 7, 12] >>= \x -> guard (even x) >> return (x * x)
 ~~~
 
-In Spl this program might be written:
+In Sᴘʟ this program might be written:
 
 ```
 >>> let answer = [];
@@ -40,7 +40,7 @@ The Haskell list comprehension:
   isPrime (x + y) ]
 ~~~
 
-might be written in Spl as:
+might be written in Sᴘʟ as:
 
 ```
 >>> let answer = [];

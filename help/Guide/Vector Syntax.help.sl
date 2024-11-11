@@ -41,7 +41,7 @@ While most vector expressions are not valid list expressions,
 expressions such as  _[-1 -2 -3]_ are ambiguous.
 This expression could be parsed either as the one element list _[-1 - 2 - 3] = [-6]_,
 or as the three element vector _[-1 -2 -3]_.
-Spl parses it as the latter:
+Sᴘʟ parses it as the latter:
 
 ```
 >>> [-1 -2 -3]

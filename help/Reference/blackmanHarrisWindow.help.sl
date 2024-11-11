@@ -18,14 +18,18 @@ Plot:
 Discrete Blackman-Harris window of length 15:
 
 ~~~
-(-0.5 -- 0.5).functionPlot(blackmanHarrisWindow:/1)
+(-0.5 -- 0.5).discretize(15, blackmanHarrisWindow:/1).discretePlot
 ~~~
 
 * * *
 
-See also: blackmanWindow, Window Functions
+See also: blackmanWindow
+
+Guides: Window Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BlackmanHarrisFunction.html)
 [2](https://reference.wolfram.com/language/ref/BlackmanHarrisWindow.html)
+
+Categories: Windowing

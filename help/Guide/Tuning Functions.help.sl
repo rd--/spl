@@ -1,6 +1,6 @@
 # Tuning Functions
 
-## Accessing
+_Accessing_:
 
 - `asCents`: intervals of a tuning in cents
 - `asFractions`: intervals of a tuning as ratios in fraction form
@@ -11,7 +11,7 @@
 - `limit`: prime limit of a tuning
 - `octave`: the ratio of the octave of a tuning
 
-## Alterations
+_Alterations_:
 
 - `cancelFlat`: cancel flat
 - `cancelSharp`: cancel sharp
@@ -20,19 +20,19 @@
 - `quarterToneFlat`: lower by half of one place (a quarter-tone)
 - `quarterToneSharp`: raise by half of one place (a quarter-tone)
 
-## Constants
+_Constants_:
 
 - `pythagoreanComma`: the Pythagorean or ditonic comma
 - `septimalComma`: the septimal comma
 - `syntonicComma`: syntonic comma
 
-## Converting
+_Converting_:
 
 - `centsToRatio`: convert interval given as cents to a ratio
 - `degreeToKey`: convert from degree to key
 - `ratioToCents`: convert interval given as a ratio to cents
 
-## Fraction Functions
+_Fraction Functions_:
 
 - `continuedFraction`: continued fraction representation of a number
 - `convergents`: convergents corresponding to continued fraction
@@ -41,12 +41,12 @@
 - `semiconvergents`: semiconvergents corresponding to continued fraction
 - `rationalize`: derive an approximate fraction given an error bound
 
-## Instance Creation
+_Instance Creation_:
 
 - `asJiTuning`: construct ratio tuning
 - `equalTemperamentTuning`: construct equal tempered tuning
 
-## Interval complexity measures
+_Interval complexity measures_:
 
 - `benedettiHeight`: Benedetti height
 - `keesSemiHeight`: Kees semi-height
@@ -54,27 +54,27 @@
 - `weilHeight`: Weil height
 - `wilsonHeight`: Wilson height
 
-## Lattice Functions
+_Lattice Functions_:
 
 - `latticePrimes`: tuning lattice primes
 - `latticeVertices`: tuning lattice vertices
 - `latticeVector`: tuning lattice vector
 
-## Prime Numbers
+_Prime Numbers_:
 
 - `factorInteger`: primes factors
 - `primeExponents`: primes exponents of factorization
 - `primeFactorization`: prime factors of a fraction
 - `primeFactors`: prime factors of a fraction
 
-## Testing
+_Testing_:
 
 - `isRational`: is a tuning rational
 - `isSquareSuperparticular`: is a fraction square superparticular
 - `isSuperparticular`: is a fraction superparticular
 - `isTuning`: is an object a tuning
 
-## Types & Traits
+_Types & Traits_:
 
 - `CentsTuning`: tuning stored as cents
 - `RatioTuning`: tuning stored as ratios

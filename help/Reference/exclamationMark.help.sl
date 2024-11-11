@@ -11,11 +11,15 @@ At integral `SmallFloat` and `LargeInteger`:
 >>> 9.!
 362880
 
->>> 1:9.!
-[1 2 6 24 120 720 5040 40320 362880]
-
 >>> 25n.!
 15511210043330985984000000n
+```
+
+At `Range`:
+
+```
+>>> 1:9.!
+[1 2 6 24 120 720 5040 40320 362880]
 ```
 
 Evaluate at real values:
@@ -68,7 +72,11 @@ evaluate _value(anObject)_ to fill an array of the indicated shape:
 
 >>> 'x' ! [3 2]
 ['x' 'x'; 'x' 'x'; 'x' 'x']
+```
 
+An empty shape answers a scalar value:
+
+```
 >>> { 'x' } ! []
 'x'
 ```

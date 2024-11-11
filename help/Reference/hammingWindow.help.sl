@@ -23,9 +23,13 @@ Discrete Hamming window of length 15:
 
 * * *
 
-See also: hammingTable, Window Functions
+See also: hammingTable
+
+Guides: Window Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HammingFunction.html)
 [2](https://reference.wolfram.com/language/ref/HammingWindow.html)
+
+Categories: Windowing

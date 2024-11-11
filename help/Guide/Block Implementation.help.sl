@@ -4,7 +4,7 @@ The Smalltalk _BlockClosure_ semantics can be implemented in Scheme (using _lamb
 
 The table below shows equivalent notations for a simple one argument block.
 
-_Spl:_
+Sᴘʟ:
 
 ```
 { :n |
@@ -28,10 +28,11 @@ _Smalltalk:_
 _Scheme_:
 
 ```
-(lambda (n)
-	(let*	((i (random 0 n))
-		(j (random 0 i)))
-	(vector i j)))
+(lambda (n) (let* (
+	(i (random 0 n))
+	(j (random 0 i)))
+	(vector i j))
+)
 ```
 
 _Js_:

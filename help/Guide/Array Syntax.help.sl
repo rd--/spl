@@ -27,9 +27,9 @@ The notations allow for writing irregular arrays,
 see the individual entries below for details.
 
 _Rationale:_
-Spl is primarily used for writing music.
+Sᴘʟ is for writing music.
 Having a convenient notation for writing literal vectors, trees, and matrices is particularly important in this context.
-A concise notation can allow the _score_ for a work to be written directly in Spl.
+A concise notation can allow the _score_ for a work to be written directly in Sᴘʟ.
 
 * * *
 

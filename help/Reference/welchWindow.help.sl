@@ -29,9 +29,13 @@ Discrete _Welch_ window of length 15:
 
 * * *
 
-See also: welchTable, Window Functions
+See also: welchTable
+
+Guides: Window Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/WelchApodizationFunction.html)
 [2](https://reference.wolfram.com/language/ref/WelchWindow.html)
+
+Categories: Windowing

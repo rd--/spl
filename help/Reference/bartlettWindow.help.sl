@@ -19,14 +19,18 @@ Plot:
 Discrete _Bartlett window_ of length 15:
 
 ~~~
-(-0.5 -- 0.5).discretize(15, bartlettWindow:/1).linePlot
+(-0.5 -- 0.5).discretize(15, bartlettWindow:/1).discretePlot
 ~~~
 
 * * *
 
-See also: Window Functions
+See also: blackmanWindow
+
+Guides: Window Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BartlettFunction.html)
 [2](https://reference.wolfram.com/language/ref/BartlettWindow.html)
+
+Categories: Windowing

@@ -17,7 +17,7 @@ Where supported the syntax :@ is written ⋄.
 
 _Rationale:_
 Defining a type defines methods to read and write slots.
-In general the Spl libraries write all slot accesses as _message sends_,
+In general the Sᴘʟ libraries write all slot accesses as _message sends_,
 including _self_ slot access.
 If one wishes to rewrite the default slot access methods,
 perhaps to implement a verification stage,

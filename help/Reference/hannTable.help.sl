@@ -10,4 +10,8 @@ Answer a `List` describing a _Hann window_ of the indicated size.
 
 * * *
 
-See also: hannWindow, Window Functions
+See also: hannWindow
+
+Guides: Window Functions
+
+Categories: Windowing

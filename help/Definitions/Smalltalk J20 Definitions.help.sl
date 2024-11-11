@@ -4,7 +4,7 @@ Relevant extracts from the J20 draft for the
 [Ansi Smalltalk](https://wiki.squeak.org/squeak/172) Standard
 ([Pdf](https://wiki.squeak.org/squeak/uploads/172/standard_v1_9-indexed.pdf)).
 
-The _Cf:_ entries point to _Spl_ help files, which in turn reference the section number.
+The _Cf:_ entries point to Sᴘʟ help files, which in turn reference the section number.
 
 # 5.3 Fundamental Protocols
 

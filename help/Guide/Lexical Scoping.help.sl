@@ -1,6 +1,6 @@
 # Lexical scoping
 
-Spl is lexically scoped.
+Sᴘʟ is lexically scoped.
 
 In the following program the `Block` at _f₀_ refers to the _x_ that is in scope when it is defined,
 not to the _x_ that is in scope when it is evaluated.

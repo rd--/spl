@@ -3,7 +3,7 @@
 In SuperCollider language the method _lag_ has three meanings.
 _x.lag_ means _Lag(x, 0.1)_, _x.lag(y)_ means _Lag(x, y)_ and _x.lag(y, z)_ means LagUd(x, y, z).
 
-In Spl the second and third meanings are written as _x.Lag(y)_ and _x.LagUd(y, z)_ respectively.
+In Sᴘʟ the second and third meanings are written as _x.Lag(y)_ and _x.LagUd(y, z)_ respectively.
 
 Implementing the first meaning requires writing an additional method.
 

@@ -2,7 +2,8 @@
 
 The _adapt to_ family of protocols implement multiple polymorphism.
 
-The type dispatch inherent in message lookup reduces a polymorphic variable to a monomorphic one.
+The type dispatch inherent in message lookup reduces a polymorphic variable to a monomorphic one
+(Ingalls 1986, p. 348).
 Methods are, by definition, type-specialised on the type of the first parameter.
 If a method is independently polymorphic on a second parameter,
 a second message may be sent to select on the second type.
@@ -10,9 +11,8 @@ a second message may be sent to select on the second type.
 By informing the second parameter of the type of the first,
 and of the operation initially requested,
 the second dispatch can be achieved through a small and modular set of messages.
-This approach works well with methods that call a primitive,
-and where the primitive returns immediately if the second type is immediately compatible,
-and fails if it is not.
+This approach works well with methods that call a primitive that answers immediately if the second type is compatible,
+or continues if it is not.
 
 For instance,
 when evaluating _p + q_ the system selects the appropriate `+` given the type of _p_.

@@ -18,14 +18,18 @@ Plot:
 Discrete _Hann_ window of length 15:
 
 ~~~
-(-0.5 -- 0.5).functionPlot(hannWindow:/1)
+(-0.5 -- 0.5).discretize(15, hannWindow:/1).discretePlot
 ~~~
 
 * * *
 
-See also: hannTable, Window Functions
+See also: hammingTable
+
+Guide: Window Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HannningFunction.html)
 [2](https://reference.wolfram.com/language/ref/HannWindow.html)
+
+Categories: Windowing

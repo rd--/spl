@@ -1,6 +1,6 @@
 # Defining Types
 
-_Types_ in _Spl_ are _records_ having a sequence of named _slots_ (also called _fields_).
+_Types_ in Sᴘʟ are _records_ having a sequence of named _slots_ (also called _fields_).
 
 Defining a type defines a number of associated methods.
 

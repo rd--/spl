@@ -28,7 +28,7 @@ _ACM Computing Surveys_, 10(4):465-502.
 [Doi](https://doi:10.1145/356744.356750)
 [Pdf](http://www.cs.unzs.edu.ar/cg/clasespdf/p465carlbom.pdf)
 
-Chalmers, J. 1993.
+Chalmers, J.H. 1993.
 _Divisions of the Tetrachord: A Prolegomenon to the Construction of Musical Scales_.\
 Frog Peak Music, NH.
 [Html](http://eamusic.dartmouth.edu/~larry/published_articles/divisions_of_the_tetrachord)

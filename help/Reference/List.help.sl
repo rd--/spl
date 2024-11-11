@@ -16,6 +16,16 @@ Create a new `List` of _anInteger_ places, each initialised to `nil`, or to _anO
 [0 0 0 0 0]
 ```
 
+The `#` and `!` operators can also construct these lists:
+
+```
+>>> 1 # 3
+[1 1 1]
+
+>>> 0 ! 5
+[0 0 0 0 0]
+```
+
 Lists are of variable `size`.
 Elements can be added at the start, at the end, or in a place given by a relation to existing items.
 
@@ -70,7 +80,7 @@ true
 
 * * *
 
-See also: asList, asCollection, ByteArray, enclose, Float64Array, nest, Type
+See also: #, !, asList, asCollection, ByteArray, enclose, Float64Array, nest, Type
 
 References:
 _Haskell_

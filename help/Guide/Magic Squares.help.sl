@@ -10,7 +10,7 @@ also show the diagonal and antidiagonal sums and the matrix rank:
 	magicSquareSummary { :m |
 		let n = m.size;
 		let mu = n * (n * n + 1) / 2;
-		let v = List(n, 1);
+		let v = 1 # n;
 		(
 			mu,
 			m.dot(v),
@@ -46,7 +46,7 @@ c.f. OEIS [A127907](https://oeis.org/A127907):
 >>> 	10 12 19 21  3;
 >>> 	11 18 25  2  9
 >>> ].magicSquareSummary
-(65, List(5, 65), List(5, 65), 65, 65, 5)
+(65, 65 # 5, 65 # 5, 65, 65, 5)
 ```
 
 A 7×7 magic square,
@@ -62,7 +62,7 @@ c.f. OEIS [A126651](https://oeis.org/A126651):
 >>> 	33 53 15 68 16 44 58;
 >>> 	49 29 67 14 66 24 38
 >>> ].magicSquareSummary
-(175, List(7, 287), List(7, 287), 287, 322, 7)
+(175, 287 # 7, 287 # 7, 287, 322, 7)
 ```
 
 A 9×9 magic square,
@@ -80,7 +80,7 @@ c.f. OEIS [A126650](https://oeis.org/A126650):
 >>> 	76  4 70 73  8 37 36 30 35;
 >>> 	6  78 12  9 74 45 46 47 52
 >>> ].magicSquareSummary
-(369, List(9, 369), List(9, 369), 369, 369, 9)
+(369, 369 # 9, 369 # 9, 369, 369, 9)
 ```
 
 A 4×4×4 magic cube:
@@ -104,8 +104,10 @@ A 4×4×4 magic cube:
 >>> 				 6 47 26 51;
 >>> 				25  4 53 48
 >>> ];
->>> let column = { :m :c | (1 .. m.size).collect { :r | m[r][c] } };
->>> let s = (34, [130 130 130 130], [130 130 130 130], 130, 130, 4);
+>>> let column = { :m :c |
+>>> 	(1 .. m.size).collect { :r | m[r][c] }
+>>> };
+>>> let s = (34, 130 # 4, 130 # 4, 130, 130, 4);
 >>> (
 >>> 	c.collect(magicSquareSummary:/1),
 >>> 	1:4.collect { :i | c.collect { :m | m[i] }.magicSquareSummary },

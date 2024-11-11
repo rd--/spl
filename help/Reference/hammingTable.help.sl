@@ -10,4 +10,8 @@ Answer a `List` describing a _Hamming window_ of the indicated size.
 
 * * *
 
-See also: hammingWindow, Window Functions
+See also: hammingWindow
+
+Guides: Window Functions
+
+Categories: Windowing

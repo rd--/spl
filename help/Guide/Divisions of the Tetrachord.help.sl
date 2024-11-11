@@ -1,5 +1,9 @@
 # Divisions of the Tetrachord
 
+Chalmers, J.H.
+_Divisions of the Tetrachord: A Prolegomenon to the Construction of Musical Scales_
+Frog Peak Music, NH, 1993.
+
 ## 1. The tetrachord in experimental music
 
 The tetrachord is the interval of a _perfect fourth_, the _diatessaron_ of the Greeks, divided into three subintervals by the interposition of two additional notes.
@@ -390,4 +394,3 @@ One useful technique, originated by Ervin Wilson, is a variation of the katapykn
 * * *
 
 Further Reading: Chalmers 1993
-

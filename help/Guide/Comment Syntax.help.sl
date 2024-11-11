@@ -4,7 +4,7 @@ There are ordinarily two kinds of comment syntax.
 A prefix form that uses a single token to comment until the end of a line,
 and a bracketed form that uses begin and end tokens, and which may span multiple lines.
 
-Spl follows the PL/I (or C) bracketed comment notation.
+Sᴘʟ follows the PL/I (or C) bracketed comment notation.
 
 The C-language family prefix token is `//`,
 inherited from BCPL,
@@ -14,7 +14,7 @@ The bracket tokens would be legal operators,
 however they are not used and imply a kind of nonsense.
 `//` means quotient in Smalltalk.
 
-The Ml bracket tokens,
+The ML bracket tokens,
 also used for Pascal and Mathematica and AppleScript.
 are `(*` and `*)`.
 `(*` dissallows `c.reduce(*)`.
@@ -23,7 +23,7 @@ The Haskell prefix token is `--` (also used for Ada and Lua) and the bracket tok
 The Haskell comment token `{-` disallows `{-}`,
 however the ordinary notation for blocks includes spaces,
 and `{ - }` is allowed.
-In Spl lines often begin with `{` to open a block, and end with `}` to close a block,
+In Sᴘʟ lines often begin with `{` to open a block, and end with `}` to close a block,
 which makes Haskell comments confusing, especially where there is not colour distinction.
 
 _Rationale_:

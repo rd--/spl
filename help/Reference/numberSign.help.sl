@@ -44,12 +44,20 @@ If the count is `zero` answer the empty list:
 []
 ```
 
-With a `Sequence` count make the indicated number of copies of each element in turn:
+With a `Sequence` count,
+make the indicated number of copies of each element in turn:
 
 ```
 >>> [3] # [5]
 [3 3 3 3 3]
 
+>>> 1:3 # 3:1
+[1 1 1 2 2 3]
+```
+
+A zero count entry skips over the corresponding item
+
+```
 >>> 1:3 # [1 0 1]
 [1 3]
 

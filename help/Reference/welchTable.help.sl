@@ -10,4 +10,6 @@ Answer a `List` describing a _Welch window_ of the indicated size.
 
 * * *
 
-See also: welchWindow, Window Functions
+See also: welchWindow
+
+Guides: Window Functions

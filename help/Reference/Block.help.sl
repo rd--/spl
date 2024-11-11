@@ -49,9 +49,19 @@ The arity is given by `numArgs`:
 1
 ```
 
+_Rationale_:
+The name _block_ is from Smalltalk.
+It is used in Sᴘʟ in preference to _procedure_ or _function_.
+No-argument blocks are used very extensively,
+in particular to implement control structures.
+Because conditional branches are implemented as blocks,
+there is no _block return_ construct.
+Because methods are simply blocks there is no _method return_ construct.
+Instead there is the delimited control method `valueWithReturn`.
+
 * * *
 
-See also: apply, isBlock, numArgs, value
+See also: apply, isBlock, numArgs, value, valueWithReturn
 
 Guides: Apply Syntax, Block Syntax, Block Semantics, Value Apply Syntax
 

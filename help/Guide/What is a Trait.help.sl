@@ -2,7 +2,7 @@
 
 A _Trait_ is a collection of behaviours, in much the same way that _abstract classes_ are in Smalltalk.
 
-In Smalltalk _Collection_ is an abstract class, here it is a Trait.
+In Smalltalk _Collection_ is an abstract class, in Sᴘʟ it is a Trait.
 
 Types are said to implement a trait.
 
