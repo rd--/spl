@@ -1,3 +1,5 @@
+Definitions/Smalltalk J20 Definitions.help.sl
+Guide/AdaptTo Protocol.help.sl
 Guide/An Idiosyncratic Introduction to Spl.help.sl
 Guide/Apl Perspective.help.sl
 Guide/Apply Syntax.help.sl
@@ -42,7 +44,6 @@ Guide/Geometry Functions.help.sl
 Guide/Geometry Types.help.sl
 Guide/Glossary of Terms.help.sl
 Guide/Help Files.help.sl
-Guide/Help Index.help.sl
 Guide/Implicit Dictionary.help.sl
 Guide/Implicit Self.help.sl
 Guide/Indexable Syntax.help.sl
@@ -105,7 +106,6 @@ Guide/Slot Access Syntax.help.sl
 Guide/Small Hours.help.sl
 Guide/Small Kansas.help.sl
 Guide/Smalltalk Arity.help.sl
-Guide/Smalltalk J20 Definitions.help.sl
 Guide/Smalltalk Perspective.help.sl
 Guide/Specialised Constructors.help.sl
 Guide/String Syntax.help.sl
@@ -125,7 +125,6 @@ Guide/Tuple Syntax.help.sl
 Guide/Type Definition Syntax.help.sl
 Guide/Unary Operator Syntax.help.sl
 Guide/Unicode Symbols.help.sl
-Guide/Unit Generator Index.help.sl
 Guide/Unit Generators.help.sl
 Guide/Value Apply Syntax.help.sl
 Guide/Value Protocol.help.sl
@@ -139,6 +138,8 @@ Guide/What it a Trigger.help.sl
 Guide/Why Spl.help.sl
 Guide/Window Functions.help.sl
 Guide/Writing Primitives.help.sl
+Index/Help Index.help.sl
+Index/Unit Generator Index.help.sl
 Reference/aasTriangle.help.sl
 Reference/absArg.help.sl
 Reference/AbsDif.help.sl
@@ -146,6 +147,8 @@ Reference/abs.help.sl
 Reference/Abs.help.sl
 Reference/absMax.help.sl
 Reference/accumulate.help.sl
+Reference/adaptToCollectionAndApply.help.sl
+Reference/adaptToNumberAndApply.help.sl
 Reference/addAfter.help.sl
 Reference/addAfterIndex.help.sl
 Reference/addAllFirst.help.sl
@@ -228,6 +231,7 @@ Reference/arrayRules.help.sl
 Reference/asApproximateFraction.help.sl
 Reference/asAsciiString.help.sl
 Reference/asAssociation.help.sl
+Reference/asAssociationList.help.sl
 Reference/asaTriangle.help.sl
 Reference/asBag.help.sl
 Reference/asBit.help.sl
@@ -656,6 +660,7 @@ Reference/Document.help.sl
 Reference/DocumentTest.help.sl
 Reference/doesNotInclude.help.sl
 Reference/do.help.sl
+Reference/dollarSign.help.sl
 Reference/doSeparatedBy.help.sl
 Reference/dot.help.sl
 Reference/doubleFactorial.help.sl
@@ -743,6 +748,7 @@ Reference/fetchJson.help.sl
 Reference/fetchMimeType.help.sl
 Reference/fetchText.help.sl
 Reference/fetchTextWithDefault.help.sl
+Reference/fft.help.sl
 Reference/fibonacci.help.sl
 Reference/fibonacciSequence.help.sl
 Reference/fibonacciSequenceUpTo.help.sl
@@ -902,6 +908,7 @@ Reference/ifEmpty.help.sl
 Reference/ifError.help.sl
 Reference/ifFalse.help.sl
 Reference/ifFalseIfTrue.help.sl
+Reference/ifft.help.sl
 Reference/if.help.sl
 Reference/ifNil.help.sl
 Reference/ifNotNil.help.sl
