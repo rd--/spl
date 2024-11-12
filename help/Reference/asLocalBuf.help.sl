@@ -1,6 +1,6 @@
 # asLocalBuf
 
-_asLocalBuf(aList)_
+- _asLocalBuf(aList)_
 
 Make a local buffer from a list or matrix of numbers.
 
