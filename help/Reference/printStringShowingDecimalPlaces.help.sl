@@ -29,7 +29,7 @@ Negative fraction:
 
 ```
 >>> -23/27.printStringShowingDecimalPlaces(4)
--0.8519
+'-0.8519'
 ```
 
 Truncate simple fraction:
