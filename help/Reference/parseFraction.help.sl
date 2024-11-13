@@ -3,6 +3,7 @@
 - _parseFraction(aString, separator)_
 
 Answer the `Fraction` represented by _aString_,
+using _separator_ to delimit the numerator and denominator,
 else signal an `error`.
 
 Parse fraction written with a _solidus_ as separator:
@@ -12,7 +13,7 @@ Parse fraction written with a _solidus_ as separator:
 3/4
 ```
 
-Signal error if _aString_ is not a fraction:
+Signal an `error` if _aString_ is not a fraction:
 
 ```
 >>> { '3.141'.parseFraction('/') }.ifError { true }

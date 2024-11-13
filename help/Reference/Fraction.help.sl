@@ -205,9 +205,15 @@ The reciprocal of a `Fraction` is a `Fraction`:
 This is a close approximation to 2.sqrt:
 
 ```
->>> let f = { :r | let [x, y] = r.asTuple; (x ^ 2 + (2 * (y ^ 2))).r(2 * x * y) };
+>>> let f = { :r |
+>>> 	let [x, y] = r.asTuple;
+>>> 	(x ^ 2 + (2 * (y ^ 2))).r(2 * x * y)
+>>> };
 >>> (f:/1.iterate(3/2, 4), f:/1.iterate(3n r: 2n, 5))
-(886731088897 r: 627013566048, 1572584048032918633353217n r: 1111984844349868137938112n)
+(
+	886731088897 r: 627013566048,
+	1572584048032918633353217n r: 1111984844349868137938112n
+)
 
 >>> 886731088897 / 627013566048
 2.sqrt
@@ -249,12 +255,23 @@ The numerator and denominator of a rational are relatively prime:
 [1/3 3/5 5/7]
 ```
 
-_Note:_
-The _Fraction_ package re-defines _asNumber_ to call either _parseFraction_ or _parseNumber_ as appropriate.
+A `Fraction` multiplied by a `SmallFloat`,
+and vice-versa,
+answers a `SmallFloat`:
+
+```
+>>> 1/3 * 0.333
+0.111
+
+>>> 0.333 * 1/3
+0.111
+```
 
 * * *
 
-See also: denominator, Fraction Literals, normalized, numerator, ReducedFraction, reduced
+See also: denominator, normalized, numerator, ReducedFraction, reduced
+
+Guides: Fraction Literals
 
 References:
 _Haskell_

@@ -2,7 +2,7 @@
 
 - _parseNumber(aString)_
 
-Answer the `Number` represented by _aString_,
+Answer the `SmallFloat` represented by _aString_,
 else signal an `error`.
 
 Parse decimal integer:
@@ -40,15 +40,19 @@ Parse negative zero:
 -0
 ```
 
-Signal error on failure:
+Does not parse radix notation,
+signals `error` on failure:
 
 ```
->>> { 'three'.parseNumber }.ifError { true }
+>>> { '2r1001'.parseNumber }.ifError { true }
 true
+
+>>> 2r1001
+10r9
 ```
 
 * * *
 
-See also: parseFraction, parseInteger, printString, storeString
+See also: parseDecimalInteger, parseFraction, parseInteger, printString, storeString
 
 Categories: Parsing

@@ -48,6 +48,6 @@ true
 
 * * *
 
-See also: parseDecimalInteger, parseNumber
+See also: parseDecimalInteger, parseFraction, parseNumber
 
 Categories: Parsing

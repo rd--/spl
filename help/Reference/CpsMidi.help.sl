@@ -12,10 +12,25 @@ The A above middle C has a nominal frequency of 440 hertz:
 69
 ```
 
-Inverse of `MidiCps`:
+Threads over lists and answers fractional values:
 
 ```
-SinOsc(440.CpsMidi.MidiCps, 0) * 0.1
+>>> [261.6255 269.2918 277.1826].CpsMidi
+[60 60.5 61]
+```
+
+The inverse is `MidiCps`:
+
+```
+>>> 440.CpsMidi.MidiCps
+440
+```
+
+Quantize continuous frequency signals:
+
+```
+let f = LfNoise2([2 3]) * [333 222] + [222 333];
+SinOsc(f.CpsMidi.RoundTo([2 3]).Lag(1E-2).MidiCps, 0) * 0.1
 ```
 
 * * *

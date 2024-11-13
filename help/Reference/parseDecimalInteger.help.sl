@@ -11,11 +11,22 @@ If the string is not a decimal integer, signal an error.
 23
 ```
 
-Signal `error` on failure:
+Parses negative numbers:
 
 ```
->>> { 'three'.parseDecimalInteger }.ifError { true }
+>>> '-23'.parseDecimalInteger
+-23
+```
+
+Does not parse radix notation,
+signals `error` on failure:
+
+```
+>>> { '10r9'.parseDecimalInteger }.ifError { true }
 true
+
+>>> 10r9
+2r1001
 ```
 
 * * *
