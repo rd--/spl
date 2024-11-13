@@ -313,23 +313,13 @@
 	}
 
 	binarySearch { :self :item |
-		valueWithReturn { :return:/1 |
-			let low = 1;
-			let high = self.size;
-			{
-				low <= high
-			}.whileTrue {
-				let mid = (low + high) // 2;
-				(self[mid] > item).if {
-					high := mid - 1
-				} {
-					(self[mid] < item).if {
-						low := mid + 1
-					} {
-						mid.return
-					}
-				}
-			};
+		let n = self.size;
+		let i = n.binaryDetectIndex { :each |
+			self[each] >= item
+		};
+		((i <= n) & { self[i] = item }).if {
+			i
+		} {
 			0
 		}
 	}
@@ -3042,6 +3032,24 @@
 }
 
 +@Integer {
+
+	binaryDetectIndex { :self :aBlock:/1 |
+		valueWithReturn { :return:/1 |
+			let low = 1;
+			let high = self;
+			{
+				low <= high
+			}.whileTrue {
+				let mid = (low + high) // 2;
+				aBlock(mid).if {
+					high := mid - 1
+				} {
+					low := mid + 1
+				}
+			};
+			low
+		}
+	}
 
 	iota { :count :start :step |
 		let end = start + (count - 1 * step);
