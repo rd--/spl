@@ -43,16 +43,16 @@ Writing _~_ to indicate _similar to_ is a standard mathematical notation,
 as is writing _≈_ to indicate _approximately_.
 However the notation is a little confusing in this context.
 In Smalltalk `~=` is the operator for _not equal to_, and `~~` is the operator for _not identical to_.
-If these operators were written _!=_ and _!==_ it may be less confusing.
+If these operators were written `!=` and `!==` it may be less confusing.
 
 * * *
 
 See also: =, <~, >~, ~=, ~~, isCloseTo, isVeryCloseTo
 
-Unicode: U+2248 ≈ Almost Equal To
-
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Match)
+
+Unicode: U+0007E ~ Tilde, U+2248 ≈ Almost Equal To
 
 Categories: Comparing

@@ -24,4 +24,6 @@ See also: :, ,, .
 
 Guides: Block Syntax, Matrix Syntax, Syntax Tokens
 
+Unicode: U+0003B ; Semicolon
+
 Categories: Syntax

@@ -2,12 +2,18 @@
 
 - _isRowVector(aSequence | aMatrix)_
 
-A _row vector_ is a _matrix_ with a single row, ie. a _1×n_ matrix:
+A _row vector_ is a _matrix_ with a single row, ie. a _1×n_ matrix.
+
+At `List`:
 
 ```
 >>> [[1 2 3]].isRowVector
 true
+```
 
+At `Matrix`:
+
+```
 >>> [[1 2 3]].asMatrix.isRowVector
 true
 ```
@@ -21,7 +27,6 @@ false
 
 * * *
 
-See also: isColumnVector, isMatrix, isVector
+See also: isColumnVector, isMatrix, isVector, List, Matrix
 
-Category: Testing
-
+Categories: Testing

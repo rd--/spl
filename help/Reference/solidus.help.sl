@@ -84,8 +84,6 @@ See also: //, +, -, *
 
 Guides: Fraction Literals
 
-Unicode: U+00F7 ÷ Division Sign
-
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Divide),
@@ -99,5 +97,7 @@ _Mathematica_
 _Smalltalk_
 5.6.2.4
 5.6.2.29
+
+Unicode: U+0002F / Solidus, U+00F7 ÷ Division Sign
 
 Categories: Math, Operator

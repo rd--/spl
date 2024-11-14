@@ -88,8 +88,6 @@ The name of this operator is `asterisk`.
 
 See also: +, -, /, ^, sign, product
 
-Unicode: U+00D7 × Multiplication Sign
-
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Times),
@@ -102,5 +100,7 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Times.html),
 _Smalltalk_
 5.6.2.1
+
+Unicode: U+00D7 × Multiplication Sign
 
 Categories: Math, Operator

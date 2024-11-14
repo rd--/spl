@@ -48,3 +48,5 @@ See also: ~, DocumentTest, extractDocumentTests, isCodeFence, terseReferenceSumm
 Guides: Fenced Code Blocks, Reference Help Files
 
 Unicode: U+22D9 ⋙ Very Much Greater-Than
+
+Categories: Help

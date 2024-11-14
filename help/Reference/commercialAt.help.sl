@@ -37,10 +37,15 @@ and `@>` for `atPath`:
 
 The name of this operator is `commercialAt`.
 
+`@` is also a syntax token.
+`@` prefixes `Trait` names in contexts where they must be distinguished from `Type` names, see `Defining Methods`.
+
 * * *
 
-See also: at, At Syntax, Point
+See also: at, Point
+
+Guides: At Syntax, Defining Methods
 
 Unicode: U+0040 @ Commercial At
 
-Categories: Accessing
+Categories: Accessing, Syntax

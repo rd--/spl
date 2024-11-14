@@ -29,6 +29,8 @@ this syntax would allow compilation to a slot index.
 
 * * *
 
+See also: slotNameList
+
 Unicode: U+22C4 ⋄ Diamond Operator
 
 Categories: Syntax

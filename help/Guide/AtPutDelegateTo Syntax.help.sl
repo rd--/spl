@@ -13,3 +13,5 @@ Where supported `:.` is displayed as ‣.
 See also: AtPut Syntax, MessageSend Syntax
 
 Unicode: ‣ U+2023 Triangular Bullet
+
+Categories: Syntax

@@ -140,8 +140,6 @@ In Smalltalk ^ is the _return_ operator, in C it is the _exclusive or_ operator.
 
 See also: +, -, *, /, exp, sqrt, log
 
-Unicode: U+02C6 ˆ Modifier Letter Circumflex Accent
-
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Power_(function)),
@@ -154,5 +152,7 @@ _Smalltalk_
 5.6.2.27,
 _W_
 [1](https://en.wikipedia.org/wiki/Exponentiation)
+
+Unicode: U+0005E ^ Circumflex Accent, U+02C6 ˆ Modifier Letter Circumflex Accent
 
 Categories: Math, Operator

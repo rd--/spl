@@ -30,4 +30,6 @@ See also: :, ,, ;
 
 Guides: Method Syntax, Syntax Tokens, Value Apply Syntax
 
+Unicode: U+0002E . Full Stop
+
 Categories: Syntax

@@ -25,4 +25,4 @@ system.clock.removeAll
 
 See also: recurseEvery, schedule
 
-Category: Scheduling
+Categories: Scheduling

@@ -22,7 +22,7 @@ The number of occurrences of an element in set will be zero or one.
 At `Set`:
 
 ```
->> [1 2 2 3 3 3].asSet.occurrencesOf(3)
+>>> [1 2 2 3 3 3].asSet.occurrencesOf(3)
 1
 ```
 

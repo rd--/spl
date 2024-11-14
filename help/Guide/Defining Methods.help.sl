@@ -32,3 +32,5 @@ If methods with these names already exist they are replaced by the new definitio
 * * *
 
 Guides: Defining Types, Syntax Guides
+
+Categories: Methods, Syntax

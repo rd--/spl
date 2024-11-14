@@ -13,9 +13,10 @@ The name of this syntax token is `apostrophe`.
 
 * * *
 
-See also: String Syntax
+See also: String
 
-Unicode: U+0027 ' Apostrophe
+Guides: Literals Syntax, String Syntax
 
-Category: Syntax
+Unicode: U+0027 Apostrophe
 
+Categories: Syntax

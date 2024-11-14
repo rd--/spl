@@ -43,8 +43,6 @@ See also: |, &&, allSatisfy
 
 Guides: Logical Operators
 
-Unicode: U+2227 ∧ Logical and
-
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/And),
@@ -53,5 +51,7 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/And.html),
 _Smalltalk_
 5.3.3.3
+
+Unicode: U+00026 & Ampersand, U+2227 ∧ Logical and
 
 Categories: Logic, Operator

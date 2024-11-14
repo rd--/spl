@@ -24,4 +24,4 @@ See also: :, {, }, Trait, Type
 
 Guides: Defining Types, Syntax Guides, Syntax Tokens
 
-Category: Syntax
+Categories: Syntax

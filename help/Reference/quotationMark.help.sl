@@ -4,6 +4,10 @@
 
 * * *
 
-See also: String Syntax
+See also: String
 
-Unicode: U+0022 " Quotation Mark
+Guides: String Syntax
+
+Unicode: U+0022 Quotation Mark
+
+Categories: Syntax

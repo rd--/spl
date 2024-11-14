@@ -6,4 +6,4 @@
 
 See also: bitAnd, bitAt, bitAtPut, bitCount, bitNot, bitOr, bitShiftLeft, bitShiftRight, bitXor, isBinary
 
-Categories: Numeric, Trait
+Categories: Numeric, Bits, Trait

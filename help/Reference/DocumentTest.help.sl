@@ -26,8 +26,8 @@ The `format` method prints the equivalence predicate:
 >>> DocumentTest('>>>', ['let x = 3 + 4;' 'x * x'], ['49']).format
 'let x = 3 + 4; x * x ~ (49)'
 
->>> DocumentTest('>>', ['3 + 4'], ['7']).format
-'(3 + 4).printString.utf8ByteArray = [55].asByteArray'
+>>> DocumentTest('>>', ['let x = 3 + 4;' 'x * x'], ['49']).format
+'(let x = 3 + 4; x * x).printString.utf8ByteArray = [52, 57].asByteArray'
 ```
 
 The `evaluate` method evaluates the test:

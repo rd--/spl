@@ -5,7 +5,8 @@
 
 `|` is both an operator and a syntax token.
 
-As on operator `|` is non-evaluating conjunction.
+As an operator,
+`|` is non-evaluating conjunction.
 It answers `true` if _aBoolean_ is `true` or _aBlock_ evaluates to `true`, else `false`.
 If _aBoolean_ is `true` then _aBlock_ is not evaluated.
 
@@ -32,8 +33,7 @@ The unary form of `|` is `anySatisfy` of `value`:
 false
 ```
 
-The first element may also be a `Block`,
-and the unary operator syntax may be used:
+Naturally, the first element may also be a `Block`:
 
 ```
 >>> [{ 1 < 0 }, { 2 < 1 }, { 3 < 2 }].|
@@ -69,6 +69,6 @@ _Smalltalk_
 _W_
 [1](https://en.wikipedia.org/wiki/Logical_disjunction)
 
-Unicode: U+2228 ∨ Logical or
+Unicode: U+0007C | Vertical Line, U+2228 ∨ Logical or
 
 Categories: Logic, Operator

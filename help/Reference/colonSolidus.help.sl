@@ -31,4 +31,10 @@ The name of this token is `colonSolidus`.
 
 * * *
 
+See also: Block
+
+Guides: Arity Notation
+
 Unicode: U+00B0 ⧸ Big Solidus
+
+Categories: Syntax

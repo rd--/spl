@@ -24,4 +24,4 @@ The keybinding _Ctrl-Shift->_ clears the _system::clock_.
 
 See also: collectTextureProgram, overlapTextureProgram, playEvery, spawnTextureProgram, TextureProgram, xFadeTextureProgram
 
-Category: Scheduling
+Categories: Scheduling

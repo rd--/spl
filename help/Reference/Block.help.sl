@@ -65,10 +65,10 @@ See also: apply, isBlock, numArgs, value, valueWithReturn
 
 Guides: Apply Syntax, Block Syntax, Block Semantics, Value Apply Syntax
 
-Unicode: U+03BB λ Greek Small Letter Lamda
-
 References:
 _Smalltalk_
 5.4.3
+
+Unicode: U+03BB λ Greek Small Letter Lamda
 
 Categories: Behaviour, Type

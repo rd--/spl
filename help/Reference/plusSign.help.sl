@@ -55,11 +55,13 @@ The unary form of `+` is `conjugated`:
 
 The name of this operator is `plusSign`.
 
+`+` is also a syntax token, see `Defining Methods`.
+
 * * *
 
 See also: -, *, /, conjugated, sum
 
-Unicode: U+002B + Plus Sign
+Guides: Defining Methods
 
 References:
 _Apl_
@@ -75,4 +77,6 @@ _Mathematica_
 _Smalltalk_
 5.6.2.2
 
-Categories: Arithmetic, Math, Operator
+Unicode: U+002B + Plus Sign
+
+Categories: Arithmetic, Math, Operator, Syntax

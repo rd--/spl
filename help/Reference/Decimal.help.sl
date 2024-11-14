@@ -88,6 +88,6 @@ Decimal(1/7, 2)
 
 * * *
 
-See also: Fraction
+See also: Complex, Fraction, LargeInteger, SmallFloat
 
-Category: Math, Type
+Categories: Math, Type

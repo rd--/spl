@@ -32,4 +32,4 @@ The expression below schedules random sine tones of random durations at random i
 
 See also: repeatEvery, scheduleInjecting, Clock
 
-Category: Scheduling
+Categories: Scheduling

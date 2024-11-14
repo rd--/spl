@@ -24,10 +24,10 @@ See also: ~, isCloseTo, pi, smallFloatEpsilon, isVeryCloseTo
 
 Guides: Mathematical constant
 
-Unicode: U+03B5 ε Greek Small Letter Epsilon
-
 References:
 _Smalltalk_
 5.6.8.5
+
+Unicode: U+03B5 ε Greek Small Letter Epsilon
 
 Categories: Math

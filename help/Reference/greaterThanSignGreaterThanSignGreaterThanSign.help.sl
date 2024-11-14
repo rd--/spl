@@ -8,7 +8,9 @@ The name of this token is `greaterThanSignGreaterThanSignGreaterThanSign`.
 
 * * *
 
-See also: Documentation Tests
+See also: >>, DocumentTest
+
+Guides: Documentation Tests
 
 Unicode: U+22D9 ⋙ Very Much Greater-Than
 

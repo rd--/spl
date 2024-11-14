@@ -138,4 +138,4 @@ References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/FreqShift.html)
 
-Category: Ugen
+Categories: Ugen

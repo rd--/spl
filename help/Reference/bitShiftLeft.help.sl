@@ -30,3 +30,5 @@ See also: bitShift, bitShiftRight
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BitShiftLeft.html)
+
+Categories: Bits, Binary

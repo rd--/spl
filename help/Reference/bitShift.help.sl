@@ -23,3 +23,5 @@ See also: <<, >>, bitShiftLeft, bitShiftRight
 References:
 _Smalltalk_
 5.6.5.8
+
+Categories: Bits, Binary

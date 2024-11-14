@@ -9,8 +9,15 @@ Answer `true` if _anObject_ is a `List`.
 true
 ```
 
+A `Tuple` is not a `List`:
+
+```
+>>> (1, 2, 3).isList
+false
+```
+
 * * *
 
 See also: List
 
-Category: Testing, Collection
+Categories: Testing, Collection

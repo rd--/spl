@@ -47,4 +47,4 @@ See also: gcd, lcm, log
 
 Further Reading: Kurenniemi 2015
 
-Category: Tuning
+Categories: Tuning
