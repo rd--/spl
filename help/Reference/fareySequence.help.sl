@@ -87,6 +87,8 @@ Lengths of longer Farey sequences, _50_ then _200, 300, 400, 500_:
 
 See also: Fraction, eulerPhi, gcd, minkowskiQuestionMark, sternBrocotSequence, subdivide
 
+Guides: Mathematical Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/FareySequence.html)
@@ -95,3 +97,5 @@ _OEIS_
 [1](https://oeis.org/A005728)
 [2](https://oeis.org/A006842)
 [3](https://oeis.org/A006843)
+
+Categories: Math, Sequence

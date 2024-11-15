@@ -47,3 +47,5 @@ _OEIS_
 [1](https://oeis.org/A182097)
 
 Further Reading: Spinadel 2009
+
+Categories: Math, Sequence

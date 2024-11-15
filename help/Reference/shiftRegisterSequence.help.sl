@@ -60,3 +60,5 @@ _W_
 [1](https://en.wikipedia.org/wiki/Linear-feedback_shift_register)
 
 Further Reading: Golomb 1967, Tausworthe 1965
+
+Categories: Math, Sequence

@@ -31,7 +31,13 @@ The Fibonacci Q-matrix:
 
 See also: binetsFormula, fibonacci, goldenRatio
 
+Guides: Mathematical Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/FibonacciNumber.html)
-[2](https://mathworld.wolfram.com/FibonacciQ-Matrix.html)
+[2](https://mathworld.wolfram.com/FibonacciQ-Matrix.html),
+_OEIS_
+[1](https://oeis.org/A000045)
+
+Categories: Math, Sequence

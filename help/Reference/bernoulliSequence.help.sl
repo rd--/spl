@@ -16,7 +16,11 @@ Answer the first _anInteger_ Bernoulli numbers.
 
 See also: bernoulli
 
+Guides: Mathematical Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BernoulliNumber.html)
 [2](https://reference.wolfram.com/language/ref/BernoulliB.html)
+
+Categories: Math, Sequence

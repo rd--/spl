@@ -4,7 +4,7 @@
 
 Answer `true` if _aFraction_ is a superparticular ratio, else `false`.
 
-A superparticular, or epimoric ratio, is the ratio of two consecutive integer numbers.
+A superparticular ratio, or epimoric ratio, is the ratio of two consecutive integer numbers.
 
 2/1 is superparticular:
 
@@ -62,3 +62,5 @@ _W_
 [1](https://en.wikipedia.org/wiki/Superparticular_ratio),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Superparticular_ratio)
+
+Categories: Testing, Math

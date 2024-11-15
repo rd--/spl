@@ -1,7 +1,7 @@
 # Mathematical Constants
 
-- `arcMinute`: one sixtieth of an arc second
-- `arcSecond`: one sixtieth of a degree
+- `arcMinute`: one sixtieth of a degree
+- `arcSecond`: one sixtieth of an arc second
 - `degree`: one one-hundred and eightieth of pi
 - `e`: Euler’s number, base of natural logarithm
 - `epsilon`: epsilon
@@ -11,6 +11,7 @@
 - `i`: square root of negative one
 - `pi`: ratio of circle circumference to diameter
 - `plasticRatio`: limiting ratio of Padovan sequence
+- `smallFloatEpsilon`: the smallest interval above `one`
 - `supergoldenRatio`: supergolden ratio
 
 Degree:
@@ -61,8 +62,10 @@ Pi:
 
 See also: degree, e, eulerGamma, goldenRatio, pi
 
-Guides: Mathematical Functions
+Guides: Mathematical Functions, Mathematical Sequences
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/guide/MathematicalConstants.html)
+
+Categories: Math, Constant

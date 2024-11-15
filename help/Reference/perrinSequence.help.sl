@@ -20,8 +20,12 @@ C.f. `perrinFunction`:
 
 See also: padovanSequence, perrinFunction, plasticRatio
 
+Guides: Mathematical Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PerrinSequence.html),
 _OEIS_
 [1](https://oeis.org/A001608)
+
+Categories: Math, Sequence

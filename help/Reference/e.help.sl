@@ -29,7 +29,8 @@ Answer _aNumber_ times e.
 8.15485
 ```
 
-_e_ is also a part of the _E Notation_ for `Number Literals`.
+_e_ is also a part of the _E Notation_ for `Number Literals`,
+however in that context an upper case _E_ is ordinary.
 
 * * *
 

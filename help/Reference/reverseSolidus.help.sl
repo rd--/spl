@@ -9,4 +9,6 @@ This is also the usual mathematical notation for `quotient`.
 
 * * *
 
-See also: difference
+See also: -, difference
+
+Categories: Math

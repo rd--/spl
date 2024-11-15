@@ -34,7 +34,6 @@ The Van der Laan sequence, c.f. OEIS A182097:
 [1 0 1 1 1 2 2 3 4 5 7 9 12 16 21 28 37 49 65 86 114 151 200 265 351 465 616]
 ```
 
-
 Padovan L-system, the size of the sequence at each step gives the Padovan sequence:
 
 ```
@@ -72,6 +71,8 @@ A matrix analogous to the Fibonacci Q-matrix exists for Padovan numbers:
 
 See also: perrinFunction, perrinSequence, plasticRatio
 
+Guides: Mathematical Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PadovanSequence.html)
@@ -82,3 +83,5 @@ _OEIS_
 [3](https://oeis.org/A182097),
 _W_
 [1](https://en.wikipedia.org/wiki/Padovan_sequence)
+
+Categories: Math, Sequence

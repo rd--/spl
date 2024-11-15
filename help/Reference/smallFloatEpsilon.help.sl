@@ -19,4 +19,8 @@ true
 
 * * *
 
-See also: Numerical Precision, SmallFloat
+See also: epsilon, one, SmallFloat
+
+Guides: Numerical Precision
+
+Categories: Math, Constant

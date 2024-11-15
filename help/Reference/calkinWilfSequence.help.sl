@@ -34,12 +34,25 @@ c.f. OEIS A002487:
 ]
 ```
 
+The numerator of each succesive term is equal to the denominator of the previous term:
+
+```
+>>> let c = 99.calkinWilfSequence;
+>>> c.adjacentPairsCollect { :p :q |
+>>> 	q.numerator = p.denominator
+>>> }.allTrue
+```
+
 * * *
 
 See also: calkinWilfTree
+
+Guides: Mathematical Sequences
 
 References:
 _OEIS_
 [1](https://oeis.org/A002487)
 
 Further Reading: Calkin 2000
+
+Categories: Math, Sequence

@@ -15,14 +15,14 @@ A de Bruijn sequence of order 3:
 
 ```
 >>> [0 1].deBruijnSequence(3)
-[0, 0, 0, 1, 0, 1, 1, 1]
+[0 0 0 1 0 1 1 1]
 ```
 
 A de Bruijn sequence on the elements _0,1,2,3_:
 
 ```
 >>> 0:3.deBruijnSequence(2)
-[0, 0, 1, 0, 2, 0, 3, 1, 1, 2, 1, 3, 2, 2, 3, 3]
+[0 0 1 0 2 0 3 1 1 2 1 3 2 2 3 3]
 ```
 
 A de Bruijn sequence on a string:
@@ -85,3 +85,4 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/De_Bruijn_sequence)
 
+Categories: Math, Sequence

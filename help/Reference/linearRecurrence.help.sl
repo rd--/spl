@@ -85,3 +85,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/LinearRecurrence.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Recurrence_relation)
+
+Categories: Math, Sequence

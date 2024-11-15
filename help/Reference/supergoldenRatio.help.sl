@@ -47,3 +47,5 @@ _OEIS_
 [1](https://oeis.org/A092526),
 _W_
 [1](https://en.wikipedia.org/wiki/Supergolden_ratio)
+
+Categories: Math, Constant

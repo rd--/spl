@@ -38,3 +38,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Degree.html)
 
 Unicode: U+00b0 ° Degree Sign
+
+Categories: Math, Constant

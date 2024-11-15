@@ -45,3 +45,5 @@ See also: phi, radius, rho, theta, x, y, z
 Guides: Geometry Types
 
 Unicode: U+1D45F 𝑟 Mathematical Italic Small R
+
+Categories: Geometry

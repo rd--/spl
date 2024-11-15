@@ -21,3 +21,7 @@ The limit ratio between consecutive terms is the supergolden ratio:
 * * *
 
 See also: supergoldenRatio
+
+Guides: Mathematical Sequences
+
+Categories: Math, Sequence

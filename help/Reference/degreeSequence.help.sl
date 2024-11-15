@@ -11,7 +11,10 @@ It is possible for two topologically distinct graphs to have the same degree seq
 ```
 >>> let g = 5.pathGraph;
 >>> (g.degreeSequence, g.edgeList)
-([2 2 2 1 1], [1 2; 2 3; 3 4; 4 5])
+(
+	[2 2 2 1 1],
+	[1 2; 2 3; 3 4; 4 5]
+)
 
 >>> let g = [1 2; 2 3; 3 1; 4 5].asGraph;
 >>> g.degreeSequence
@@ -25,3 +28,5 @@ See also: vertexDegree
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DegreeSequence.html)
+
+Categories: Collection
