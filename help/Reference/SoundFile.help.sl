@@ -1,7 +1,7 @@
 # SoundFile
 
 - _SoundFile(aUrl)_
-- _SoundFile(anArrayBuffer, aUrl)_
+- _SoundFile(anArrayBuffer, numberOfChannels, numberOfFrames, sampleRate, aUrl)_
 
 A type representing a sound file.
 The methods `numberOfChannels`, `numberOfFrames` and `sampleRate` read the file meta data.
@@ -10,7 +10,7 @@ The method `interleavedData` reads the indicated interleave channel data as a `F
 The method `channelData` reads the indicated one-indexed channel data as a `Float32Array`.
 
 ~~~
-let url = 'https://rohandrape.net/pub/jssc3/flac/then.wav'.asUrl;
+let url = 'https://rohandrape.net/pub/jssc3/flac/Then.wav'.asUrl;
 SoundFile(url).then { :soundFile |
 	let channelData = soundFile.channelData(1);
 	(
@@ -44,3 +44,5 @@ SinOsc(freq, 0) * 0.1
 * * *
 
 See also: Float32Array, Url
+
+Categories: Collection, Type

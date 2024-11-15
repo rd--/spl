@@ -52,3 +52,7 @@ Further:
 - `LsSlidingWindows`
 - `LsTake`
 - `LsUnfold`
+
+* * *
+
+Further Reading: Taube 1994

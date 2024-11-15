@@ -63,6 +63,7 @@ Guide/Logical Operators.help.sl
 Guide/Magic Squares.help.sl
 Guide/Mathematical Constants.help.sl
 Guide/Mathematical Functions.help.sl
+Guide/Mathematical Sequences.help.sl
 Guide/Matrix Operations.help.sl
 Guide/Matrix Syntax.help.sl
 Guide/MessageSend Syntax.help.sl
@@ -254,6 +255,7 @@ Reference/asComplex.help.sl
 Reference/asDate.help.sl
 Reference/asDocumentTest.help.sl
 Reference/asFileUrl.help.sl
+Reference/asFloat32Array.help.sl
 Reference/asFloat.help.sl
 Reference/asFraction.help.sl
 Reference/asFractionOver.help.sl
@@ -373,6 +375,7 @@ Reference/betweenAnd.help.sl
 Reference/BfDecode1.help.sl
 Reference/BfEncode1.help.sl
 Reference/BiLinRand.help.sl
+Reference/binaryDetectIndex.help.sl
 Reference/binaryDistance.help.sl
 Reference/Binary.help.sl
 Reference/binarySearch.help.sl
