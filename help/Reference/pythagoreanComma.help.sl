@@ -11,6 +11,13 @@ The Pythagorean or ditonic comma is the interval with the ratio 531441/524288.
 531441/524288
 ```
 
+It is approximated by the superparticular ratio 74/73:
+
+```
+>>> 1.pythagoreanComma
+74/73
+```
+
 It is the amount by which twelve fifths exceed seven octaves.
 
 ```
@@ -49,6 +56,20 @@ It has lattice coordinates _-19 12_:
 [2 -> -19, 3 -> 12]
 ```
 
+The twelfth part of the ditonic comma is very nearly two cents:
+
+```
+>>> 1.pythagoreanComma.ratioToCents / 12
+1.955
+```
+
+and it is conventionally taken as 24 cents:
+
+```
+>>> 1.pythagoreanComma.ratioToCents.ceiling
+24
+```
+
 * * *
 
 See also: octaveReduced, septimalComma, syntonicComma
@@ -56,3 +77,5 @@ See also: octaveReduced, septimalComma, syntonicComma
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Pythagorean_comma)
+
+Categories: Math, Contant, Tuning

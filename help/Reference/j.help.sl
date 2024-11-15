@@ -2,7 +2,7 @@
 
 - _j(real, imaginary)_
 
-Answer a _Complex_ number with a real part of _real_ and an imaginary part of _imaginary_.
+Answer a `Complex` number with a real part of `real` and an imaginary part of `imaginary`.
 
 ```
 >>> (1 + -2.i) + (3 + 4.i)
@@ -24,7 +24,9 @@ Threads over lists:
 
 * * *
 
-See also: Complex, Complex Literals, i, imaginary, real
+See also: Complex, i, imaginary, real
+
+Guides: Complex Literals
 
 References:
 _Apl_
@@ -32,4 +34,4 @@ _Apl_
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/jdot#dyadic)
 
-Categories: Complex numbers
+Categories: Math, Number

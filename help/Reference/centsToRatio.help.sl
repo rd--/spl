@@ -22,6 +22,16 @@ There are 1200 cents in an octave.
 3/2
 ```
 
+The ratio of one cent:
+
+```
+>>> 1.centsToRatio
+2.nthRoot(1200)
+
+>>> 1.centsToRatio ^ 1200
+2
+```
+
 Threads over lists:
 
 ```

@@ -39,3 +39,5 @@ See also: pythagoreanComma, syntonicComma
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/64/63)
+
+Categories: Math, Contant, Tuning

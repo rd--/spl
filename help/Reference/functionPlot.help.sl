@@ -141,3 +141,5 @@ See also: discretePlot, linePlot, scatterPlot
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Plot.html)
+
+Categories: Plotting

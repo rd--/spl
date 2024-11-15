@@ -44,6 +44,18 @@ The first few squareful numbers are:
 [4 8 9 12 16 18 20 24 25]
 ```
 
+Plot the first few squarefree numbers:
+
+~~~
+1:99.select(isSquareFree:/1).linePlot
+~~~
+
+Plot the first few squareful numbers:
+
+~~~
+1:99.select { :n | n.isSquareFree.not }.linePlot
+~~~
+
 * * *
 
 See also: isPerfectSquare
@@ -53,3 +65,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Squarefree.html)
 [2](https://mathworld.wolfram.com/Squareful.html)
 [3](https://reference.wolfram.com/language/ref/SquareFreeQ.html)
+
+Categories: Testing, Math

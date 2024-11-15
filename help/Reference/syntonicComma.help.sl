@@ -4,7 +4,7 @@
 
 Answer _aNumber_ times the syntonic comma.
 
-The syntonic comma is the interval with the superparticular ratio 81/80.
+The syntonic (or syntonic or Ptolemaic) comma is the interval with the superparticular ratio 81/80.
 
 ```
 >>> 1.syntonicComma
@@ -18,12 +18,17 @@ It is the difference between the two superparticular ratios 10/9 and 9/8:
 1.syntonicComma
 ```
 
-and between 81/16 and 5/1 (or more usually between 81/64 and 5/4, the 3- and 5- limit major thirds):
+and between 81/16 and 5/1:
 
 ```
 >>> 3/2 ^ 4 / 5
 1.syntonicComma
+```
 
+or more usually between 81/64 and 5/4, the 3- and 5- limit major thirds
+(the just major third and the Pythagorean ditone):
+
+```
 >>> 81/64 / 5/4
 1.syntonicComma
 ```
@@ -49,3 +54,5 @@ See also: pythagoreanComma, septimalComma
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/81/80)
+
+Categories: Math, Contant, Tuning

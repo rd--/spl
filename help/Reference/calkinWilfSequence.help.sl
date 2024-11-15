@@ -41,6 +41,7 @@ The numerator of each succesive term is equal to the denominator of the previous
 >>> c.adjacentPairsCollect { :p :q |
 >>> 	q.numerator = p.denominator
 >>> }.allTrue
+true
 ```
 
 * * *

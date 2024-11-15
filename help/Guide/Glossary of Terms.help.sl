@@ -90,6 +90,10 @@ A drawing of a character is called a _glyph_.
 A character has a _unicode code point_.
 Cf: Character
 
+- _Cent_:
+The unit of interval measure.
+The hundredth part of an equal semitone.
+
 - _Closed interval_:
 A closed interval is an interval that includes its limit points.
 Closed intervals are written in square brackets.
@@ -330,6 +334,10 @@ Of a _behaviour_ that has an observable effect other than its primary effect of 
 - _String_:
 A _sequence_ of _characters_.
 Cf: String
+
+- _Superparticular Ratio_:
+A superparticular or epimoric ratio is the ratio of two consecutive integers.
+Cf: isSuperparticular
 
 - _Ternary Function_:
 A _function_ of three _arguments_, such as _betweenAnd_.
