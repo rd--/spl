@@ -74,7 +74,7 @@ URL! : [Object, Url] {
 		<primitive: return _self.searchParams;>
 	}
 
-	username { :self |
+	userName { :self |
 		<primitive: return _self.username;> /* Read only */
 	}
 

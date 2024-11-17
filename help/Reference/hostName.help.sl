@@ -1,8 +1,11 @@
 # hostName
 
-- _hostName(aUrl)_
+- _hostName(aSystem | aUrl)_
 
-Answer a `String` having the domain of the Url.
+At `System` answer the name of the local host.
+
+At `Url`,
+answer a `String` having the name of the `host` subcomponent of _aUrl_.
 
 ```
 >>> 'http://audiosynth.com/readinglist.html'.asUrl.hostName
@@ -19,6 +22,6 @@ The `hostName` does not include the port number:
 
 * * *
 
-See also: host, href, Location, Url
+See also: fragment, host, href, pathName, port, protocol, query, Url
 
 Categories: Network

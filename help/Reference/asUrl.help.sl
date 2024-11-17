@@ -24,7 +24,7 @@ Component qeuries:
 >>> 'http://cern.ch/'.asUrl.protocol
 'http:'
 
->>> 'http://cern.ch/#home'.asUrl.hash
+>>> 'http://cern.ch/#home'.asUrl.fragment
 '#home'
 ```
 
@@ -57,6 +57,6 @@ url.fetchText.then { :aString |
 
 * * *
 
-See also: asFileUrl, href, hostName, Location, origin, pathName, Url
+See also: asFileUrl, fragment, href, hostName, Location, origin, pathName, query, Url
 
 Categories: Network

@@ -187,6 +187,11 @@
 - `indices`, `shapeIndices`
 - `fill`, `table`
 
+## Environment
+
+- `instructionSetArchitecture`, `operatingSystem`
+- `environmentVariable`,
+
 ## Equality Testing
 
 - `=`, `==`, `~=`, `~~`, `~`

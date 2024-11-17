@@ -10,7 +10,7 @@ Implements `size`, `associations`, `keys`, `values` and `asString`.
 >>> let u = 'x://?p=i&q=j'.asUrl;
 >>> let q = u.queryParameters;
 >>> (q.size, q.associations, q.asString)
-(2, ['p' -> 'i', 'q' -> 'j'], '?p=i&q=j')
+(2, ['p' -> 'i', 'q' -> 'j'], 'p=i&q=j')
 ```
 
 Note that the type has the non-standard name `URLSeachParams`, which is defined by the system.

@@ -8,7 +8,7 @@
 
 ```
 >>> let url = 'https://rohandrape.net/?t=spl&e=help/Reference/Url.help.sl'.asUrl;
->>> (url.protocol, url.hostName, url.pathName, url.search)
+>>> (url.protocol, url.hostName, url.pathName, url.query)
 ('https:', 'rohandrape.net', '/', '?t=spl&e=help/Reference/Url.help.sl')
 ```
 

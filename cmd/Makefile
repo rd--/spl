@@ -1,10 +1,10 @@
 spl = (cd ../sl ; make update-cache) ; ./spl
 
-spl-repl-core:
-	$(spl) replPerLine --strict
-
 spl-repl:
 	$(spl) replPerLine --lib=StandardLibrary --strict
+
+spl-repl-core:
+	$(spl) replPerLine --strict
 
 spl-repl-non-strict:
 	$(spl) replPerLine --lib=StandardLibrary

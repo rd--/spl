@@ -14,6 +14,11 @@ export function getEnv(variableName: string): string | null {
 	return Deno.env.get(variableName) || null;
 }
 
+export function setEnv(variableName: string, variableValue: string): null {
+	Deno.env.set(variableName, variableValue);
+	return null;
+}
+
 export function getEnviron(): Record<string, string> {
 	return Deno.env.toObject();
 }

@@ -1,3 +1,3 @@
 #!/bin/sh
 export SplDirectory=$HOME/sw/spl
-rlwrap --always-readline deno run --allow-read --allow-env --allow-net --allow-run --allow-write --allow-import --unstable-fs --unstable-net --location http://localhost:8000 $SplDirectory/ts/cli.ts --dir=$SplDirectory "$@"
+rlwrap --always-readline deno run --allow-read --allow-env --allow-net --allow-run --allow-write --allow-import --allow-sys --unstable-fs --unstable-net --location http://localhost:8000 $SplDirectory/ts/cli.ts --dir=$SplDirectory "$@"
