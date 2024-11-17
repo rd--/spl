@@ -107,7 +107,7 @@
 	'Transcript'
 	'Type'
 	'Url' /* Blob File */
-	'UrlSearchParams'
+	'UrlQueryParameters'
 	'WebSocket' /* EventTarget Url */
 	'Window'
 	'Location' /* Url */

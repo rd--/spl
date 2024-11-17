@@ -356,6 +356,9 @@ A _function_ of one _argument_, such as _negated_.
 - _Unicode Character_:
 A character encoded according to the [Unicode](http://www.unicode.org/) specification.
 
+- _Url_:
+A _Uniform Resource Locator_, the address of a unique resource on the internet.
+
 - _Utf-8_:
 A method of representing _unicode_ character values as a sequence of bytes.
 

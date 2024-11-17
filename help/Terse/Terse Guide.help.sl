@@ -247,7 +247,7 @@ let x = 8.625; let y = 0.75; let q = x.quotientBy(y, rounded:/1); let r = x.rema
 
 ## List -- collection type
 ```
-system.includesPackage('List') /* array package */
+system.includesPackage('List') /* list package */
 [].typeOf = 'List' /* type of List */
 [].species = List:/1 /* species of List */
 [].species.new = [] /* new empty array */
@@ -3995,26 +3995,26 @@ system.includesPackage('Url') /* package */
 'file://localhost/home/rohan/sw/spl/sl/SmallKansas/PackageBrowser.sl'.asUrl.fetchText.then { :text | text.parsePackageHeader.includesIndex('Requires').postLine }; true
 ```
 
-## System -- UrlSearchParams
+## System -- UrlQueryParameters
 ```
-system.includesPackage('UrlSearchParams') /* timestamp package */
-'x=1'.asUrlSearchParams.typeOf = 'URLSearchParams' /* string constructor, type name (note case) */
-'x=1'.asUrlSearchParams.isUrlSearchParams /* type predicate */
-'x=3.141&y=23'.asUrlSearchParams.includes('x') = true
-'x=3.141&y=23'.asUrlSearchParams::y = '23'
-'x=3.141&y=23&z=pi'.asUrlSearchParams.keys = ['x' 'y' 'z'] /* keys */
-'x=3.141&y=23&z=pi'.asUrlSearchParams.values = ['3.141' '23' 'pi'] /* values */
-'x=a&x=b&x=c'.asUrlSearchParams.keys = ['x' 'x' 'x'] /* keys, allows duplicates */
-'x=a&x=b&x=c'.asUrlSearchParams.values = ['a' 'b' 'c'] /* values */
-let p = 'x=3.141&y=23&z=pi'; p.asUrlSearchParams.asString = p /* as search string */
-'z=a&y=b&x=c'.asUrlSearchParams.associations = ['z' -> 'a', 'y' -> 'b', 'x' -> 'c']
-let p = 'z=a&y=b&x=c'.asUrlSearchParams; p.sort = p & { p.associations = ['x' -> 'c', 'y' -> 'b', 'z' -> 'a'] }
-let p = 'x=a&y=b'.asUrlSearchParams; p.add('z' -> 'c'); p.associations = ['x' -> 'a', 'y' -> 'b', 'z' -> 'c']
-let p = 'x=a&y=b'.asUrlSearchParams; p::x := 'c'; p.associations = ['x' -> 'c', 'y' -> 'b']
-'x=a&y=b&x=c'.asUrlSearchParams.atAllEntries('x') = ['a' 'c']
-let p = 'x=a&y=b&x=c'.asUrlSearchParams; p.removeKey('x'); p.asString = 'y=b'
-'x=a&x=b&x=c'.asUrlSearchParams.size = 3 /* size */
-(x: 1, y: 2, z: 3).asUrlSearchParams.asString = 'x=1&y=2&z=3' /* record constructor */
+system.includesPackage('UrlQueryParameters') /* package */
+'x=1'.asUrlQueryParameters.typeOf = 'URLSearchParams' /* string constructor, note type name! */
+'x=1'.asUrlQueryParameters.isUrlQueryParameters /* type predicate */
+'x=3.141&y=23'.asUrlQueryParameters.includes('x') = true
+'x=3.141&y=23'.asUrlQueryParameters::y = '23'
+'x=3.141&y=23&z=pi'.asUrlQueryParameters.keys = ['x' 'y' 'z'] /* keys */
+'x=3.141&y=23&z=pi'.asUrlQueryParameters.values = ['3.141' '23' 'pi'] /* values */
+'x=a&x=b&x=c'.asUrlQueryParameters.keys = ['x' 'x' 'x'] /* keys, allows duplicates */
+'x=a&x=b&x=c'.asUrlQueryParameters.values = ['a' 'b' 'c'] /* values */
+let p = 'x=3.141&y=23&z=pi'; p.asUrlQueryParameters.asString = p /* as search string */
+'z=a&y=b&x=c'.asUrlQueryParameters.associations = ['z' -> 'a', 'y' -> 'b', 'x' -> 'c']
+let p = 'z=a&y=b&x=c'.asUrlQueryParameters; p.sort = p & { p.associations = ['x' -> 'c', 'y' -> 'b', 'z' -> 'a'] }
+let p = 'x=a&y=b'.asUrlQueryParameters; p.add('z' -> 'c'); p.associations = ['x' -> 'a', 'y' -> 'b', 'z' -> 'c']
+let p = 'x=a&y=b'.asUrlQueryParameters; p::x := 'c'; p.associations = ['x' -> 'c', 'y' -> 'b']
+'x=a&y=b&x=c'.asUrlQueryParameters.atAllEntries('x') = ['a' 'c']
+let p = 'x=a&y=b&x=c'.asUrlQueryParameters; p.removeKey('x'); p.asString = 'y=b'
+'x=a&x=b&x=c'.asUrlQueryParameters.size = 3 /* size */
+(x: 1, y: 2, z: 3).asUrlQueryParameters.asString = 'x=1&y=2&z=3' /* record constructor */
 ```
 
 ## Temporaries

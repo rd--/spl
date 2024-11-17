@@ -120,6 +120,14 @@
 		>
 	}
 
+	sortedBy { :self :aBlock:/2 |
+		<primitive:
+		return _self.toSorted(function(p, q) {
+			return _aBlock_2(p, q) ? -1 : 1
+		});
+		>
+	}
+
 	sortOnBy { :self :keyBlock:/1 :compareBlock:/2 |
 		<primitive:
 		return _self.sort(function(p, q) {

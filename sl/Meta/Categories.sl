@@ -708,6 +708,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'encoding and decoding': [
 		'base64Decoded'
+		'base64Encoded'
 		'encode'
 	],
 	'enumerating': [

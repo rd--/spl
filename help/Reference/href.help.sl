@@ -11,6 +11,6 @@ Answer a `String` having the entire Url.
 
 * * *
 
-See also: hostName, Location, origin, pathName, Url
+See also: host, hostName, Location, origin, pathName, Url
 
 Categories: Network

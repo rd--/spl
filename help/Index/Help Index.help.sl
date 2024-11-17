@@ -401,8 +401,9 @@
 
 ## Network
 
-- `Location`, `Url`
-- `hostName`, `href`, `pathName`
+- `Location`, `Url`, `UrlQueryParameters`
+- `asUrl`, `asUrlQueryParameters`
+- `fragment`, `host`, `hostName`, `href`, `pathName`, `protocol`, `queryParameters`
 - `Request`, `Response`
 - `fetch`, `fetchText`, `fetchJson`, `fetchByteArray`
 - `decodeUri`, `encodeUri`

@@ -9,8 +9,16 @@ Answer a `String` having the domain of the Url.
 'audiosynth.com'
 ```
 
+The `hostName` does not include the port number:
+
+```
+>>> let url = 'http://cern.ch:8080/'.asUrl;
+>>> (url.hostName, url.host)
+('cern.ch', 'cern.ch:8080')
+```
+
 * * *
 
-See also: hostName, href, Location, Url
+See also: host, href, Location, Url
 
 Categories: Network

@@ -1,15 +1,15 @@
-@UrlSearchParams {
+@UrlQueryParameters {
 
-	asUrlSearchParams { :self |
-		self.typeReponsibility('asUrlSearchParams')
+	asUrlQueryParameters { :self |
+		self.typeReponsibility('asUrlQueryParameters')
 	}
 
 }
 
-URLSearchParams! : [Object, Iterable, UrlSearchParams] {
+URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 
 	= { :self :anObject |
-		anObject.isUrlSearchParams & {
+		anObject.isUrlQueryParameters & {
 			self.asString = anObject.asString
 		}
 	}
@@ -30,7 +30,7 @@ URLSearchParams! : [Object, Iterable, UrlSearchParams] {
 		<primitive: return _self.toString();>
 	}
 
-	asUrlSearchParams { :self |
+	asUrlQueryParameters { :self |
 		self
 	}
 
@@ -60,7 +60,7 @@ URLSearchParams! : [Object, Iterable, UrlSearchParams] {
 		<primitive: return _self.has(_name);>
 	}
 
-	isUrlSearchParams { :self |
+	isUrlQueryParameters { :self |
 		true
 	}
 
@@ -95,10 +95,7 @@ URLSearchParams! : [Object, Iterable, UrlSearchParams] {
 	}
 
 	sort { :self |
-		<primitive:
-		_self.sort();
-		return _self;
-		>
+		<primitive: _self.sort(); return null;>
 	}
 
 	values { :self |
@@ -115,7 +112,7 @@ URLSearchParams! : [Object, Iterable, UrlSearchParams] {
 
 +@Object {
 
-	isUrlSearchParams { :self |
+	isUrlQueryParameters { :self |
 		false
 	}
 
@@ -123,7 +120,7 @@ URLSearchParams! : [Object, Iterable, UrlSearchParams] {
 
 +String {
 
-	asUrlSearchParams { :self |
+	asUrlQueryParameters { :self |
 		<primitive: return new URLSearchParams(_self);>
 	}
 
@@ -131,7 +128,7 @@ URLSearchParams! : [Object, Iterable, UrlSearchParams] {
 
 +Record {
 
-	asUrlSearchParams { :self |
+	asUrlQueryParameters { :self |
 		<primitive: return new URLSearchParams(_self);>
 	}
 

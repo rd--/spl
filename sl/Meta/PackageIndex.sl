@@ -231,7 +231,7 @@
 	'System-Transcript'
 	'System-Type'
 	'System-Url'
-	'System-UrlSearchParams'
+	'System-UrlQueryParameters'
 	'System-WebSocket'
 	'System-Window'
 	'Text-AsciiString'

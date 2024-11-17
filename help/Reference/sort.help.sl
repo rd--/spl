@@ -5,6 +5,7 @@
 
 Sort _aSequence_ in place using the comparator _aBlock_.
 If the sort block is omitted or is nil, sort by `<=`.
+Answers _aSequence_.
 
 ```
 >>> let a = [3 2 1];

@@ -10,14 +10,13 @@ At `String`:
 ```
 >>> 'http://cern.ch/'.asUrl.isUrl
 true
+```
 
->>> let url = 'http://cern.ch/'.asUrl;
->>> (url.hostName, url.host)
-('cern.ch', 'cern.ch')
+Component qeuries:
 
->>> let url = 'http://cern.ch:8080/'.asUrl;
->>> (url.hostName, url.host)
-('cern.ch', 'cern.ch:8080')
+```
+>>> 'http://cern.ch/'.asUrl.hostName
+'cern.ch'
 
 >>> 'http://cern.ch:8080/'.asUrl.port
 '8080'
@@ -44,14 +43,20 @@ With base `Url`:
 File `Url`:
 
 ```
-let url = '/home/rohan/sw/spl/help/Reference/Url.help.sl'.asFileUrl;
-url.fetchText.then { :aString | aString.postLine }
+>>> '/home/rohan/sw/spl/help/Reference/add.help.sl'.asFileUrl
+'file:///home/rohan/sw/spl/help/Reference/add.help.sl'.asUrl
 
-'/home/rohan/sw/spl/help/Reference/add.help.sl'.asFileUrl
+Fetch text from file Url:
+
+```
+let url = '/home/rohan/sw/spl/help/Reference/asUrl.help.sl'.asFileUrl;
+url.fetchText.then { :aString |
+	aString.postLine
+}
 ```
 
 * * *
 
-See also: asFileUrl, href, hostName, Location, origin, pathName, UrlSearchParams
+See also: asFileUrl, href, hostName, Location, origin, pathName, Url
 
 Categories: Network

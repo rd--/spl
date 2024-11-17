@@ -1,6 +1,9 @@
 # HelpFile
 
+- _HelpFile(origin, source)_
+
 `HelpFile` is a `Type` holding an Spl help file.
+The constructor requires a `Url`
 
 Help files are written in Markdown.
 
@@ -41,4 +44,8 @@ url.fetchText.then { :aString |
 
 * * *
 
-See also: Documentation Tests
+See also:
+
+Guides: Documentation Tests
+
+Categories: Help

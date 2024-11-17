@@ -15,10 +15,10 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 
 	base64Encoded { :self |
 		<primitive:
-		const binString = Array.from(_self, function(x) {
+		const binaryString = Array.from(_self, function(x) {
 			return String.fromCodePoint(x)
 		}).join('');
-		return btoa(binString);
+		return btoa(binaryString);
 		>
 	}
 
@@ -112,8 +112,8 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 
 	base64Decoded { :self |
 		<primitive:
-		const binString = atob(_self);
-		return Uint8Array.from(binString, function(m) {
+		const binaryString = atob(_self);
+		return Uint8Array.from(binaryString, function(m) {
 			return m.codePointAt(0)
 		});
 		>

@@ -13,6 +13,6 @@ Construct a file protocol `Url`.
 
 * * *
 
-See also: asFileUrl, href, hostName, Location, origin, pathName, UrlSearchParams
+See also: asFileUrl, href, hostName, Location, origin, pathName, Url
 
 Categories: Network

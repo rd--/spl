@@ -14,7 +14,7 @@
 		self.fileName.splitBy('.').first
 	}
 
-	hash { :self |
+	fragment { :self |
 		<primitive: return _self.hash;>
 	}
 
@@ -50,7 +50,7 @@
 		<primitive: return _self.protocol;>
 	}
 
-	search { :self |
+	query { :self |
 		<primitive: return _self.search;>
 	}
 
@@ -70,7 +70,7 @@ URL! : [Object, Url] {
 		<primitive: return _self.password;>
 	}
 
-	searchParams { :self |
+	queryParameters { :self |
 		<primitive: return _self.searchParams;>
 	}
 

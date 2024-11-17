@@ -3,7 +3,7 @@
 - _base64Encoded(aByteArray)_
 
 Encode _aByteArray_ as a Base64 string.
-The answer is a String.
+The answer is a `String`.
 
 ```
 >>> 'Hello World'.ascii.base64Encoded
