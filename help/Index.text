@@ -35,7 +35,9 @@ Guide/Dictionary Syntax.help.sl
 Guide/Divisions of the Tetrachord.help.sl
 Guide/Documentation Tests.help.sl
 Guide/Emacs Editor.help.sl
+Guide/Error Handling.help.sl
 Guide/Fenced Code Blocks.help.sl
+Guide/File Functions.help.sl
 Guide/Filters and Method Syntax.help.sl
 Guide/Fraction Literals.help.sl
 Guide/Further Reading.help.sl
@@ -66,11 +68,13 @@ Guide/Mathematical Functions.help.sl
 Guide/Mathematical Sequences.help.sl
 Guide/Matrix Operations.help.sl
 Guide/Matrix Syntax.help.sl
+Guide/Message Cascades.help.sl
 Guide/MessageSend Syntax.help.sl
 Guide/Method Arity.help.sl
 Guide/Method Dictionary.help.sl
 Guide/Method Syntax.help.sl
 Guide/Named Controls.help.sl
+Guide/Network Functions.help.sl
 Guide/Non-local Return.help.sl
 Guide/Notational Conventions.help.sl
 Guide/Number Literals.help.sl
@@ -116,6 +120,7 @@ Guide/SuperCollider Synthesiser.help.sl
 Guide/Syntax Guides.help.sl
 Guide/Syntax Tokens.help.sl
 Guide/System Dictionary.help.sl
+Guide/System Functions.help.sl
 Guide/Temporary Block Syntax.help.sl
 Guide/Texture Programs.help.sl
 Guide/Trailing Block Syntax.help.sl
@@ -323,7 +328,7 @@ Reference/asTree.help.sl
 Reference/asTuple.help.sl
 Reference/asUpperCase.help.sl
 Reference/asUrl.help.sl
-Reference/asUrlSearchParams.help.sl
+Reference/asUrlQueryParameters.help.sl
 Reference/asWords.help.sl
 Reference/asWriteStream.help.sl
 Reference/atAll.help.sl
@@ -570,6 +575,7 @@ Reference/Cubed.help.sl
 Reference/cubeGraph.help.sl
 Reference/cubeRoot.help.sl
 Reference/cull.help.sl
+Reference/currentWorkingDirectory.help.sl
 Reference/CuspL.help.sl
 Reference/Cutoff.help.sl
 Reference/cycleGraph.help.sl
@@ -702,6 +708,8 @@ Reference/encodeUri.help.sl
 Reference/endsWith.help.sl
 Reference/ensure.help.sl
 Reference/EnvGen.help.sl
+Reference/environmentVariable.help.sl
+Reference/environmentVariables.help.sl
 Reference/EnvTrapezoid.help.sl
 Reference/epsilon.help.sl
 Reference/EqPan2.help.sl
@@ -721,6 +729,7 @@ Reference/eulerMatrix.help.sl
 Reference/eulerMethod.help.sl
 Reference/eulerPhi.help.sl
 Reference/evaluate.help.sl
+Reference/evaluateNotifying.help.sl
 Reference/Excess.help.sl
 Reference/exchangeMatrix.help.sl
 Reference/exclamationMarkCircumflexAccent.help.sl
@@ -757,6 +766,7 @@ Reference/fibonacciSequence.help.sl
 Reference/fibonacciSequenceUpTo.help.sl
 Reference/fibonacciWord.help.sl
 Reference/File.help.sl
+Reference/fileInformation.help.sl
 Reference/fileName.help.sl
 Reference/fillFrom.help.sl
 Reference/fillFromWith.help.sl
@@ -798,6 +808,7 @@ Reference/fourth.help.sl
 Reference/Frac.help.sl
 Reference/Fraction.help.sl
 Reference/fractionPart.help.sl
+Reference/fragment.help.sl
 Reference/Frame.help.sl
 Reference/FreeVerb.help.sl
 Reference/FreqShift.help.sl
@@ -887,6 +898,7 @@ Reference/highBitOfMagnitude.help.sl
 Reference/hilbertMatrix.help.sl
 Reference/histogramList.help.sl
 Reference/histogramOf.help.sl
+Reference/host.help.sl
 Reference/hostName.help.sl
 Reference/hour.help.sl
 Reference/hours.help.sl
@@ -897,6 +909,7 @@ Reference/href.help.sl
 Reference/hsv.help.sl
 Reference/Hsv.help.sl
 Reference/hsvToRgb.help.sl
+Reference/hue.help.sl
 Reference/hyperfactorial.help.sl
 Reference/hyphenMinusGreaterThanSign.help.sl
 Reference/hyphenMinus.help.sl
@@ -962,6 +975,7 @@ Reference/inner.help.sl
 Reference/innerProduct.help.sl
 Reference/InRange.help.sl
 Reference/instanceOf.help.sl
+Reference/instructionSetArchitecture.help.sl
 Reference/integerCompositionsDo.help.sl
 Reference/integerCompositions.help.sl
 Reference/integerCompositionsWeak.help.sl
@@ -1297,6 +1311,7 @@ Reference/lucasNumber.help.sl
 Reference/luDecomposition.help.sl
 Reference/lyndonWords.help.sl
 Reference/Magnitude.help.sl
+Reference/makeDirectory.help.sl
 Reference/manhattanDistance.help.sl
 Reference/map.help.sl
 Reference/Map.help.sl
@@ -1342,6 +1357,7 @@ Reference/MidiPortBrowser.help.sl
 Reference/MidiRatio.help.sl
 Reference/midpoint.help.sl
 Reference/millerRabinPrimalityTest.help.sl
+Reference/millisecond.help.sl
 Reference/milliseconds.help.sl
 Reference/millisecondsToRun.help.sl
 Reference/minBy.help.sl
@@ -1361,6 +1377,7 @@ Reference/mixedFractionParts.help.sl
 Reference/mixedRadixEncode.help.sl
 Reference/Mix.help.sl
 Reference/ModDif.help.sl
+Reference/modificationTime.help.sl
 Reference/modularInverse.help.sl
 Reference/moebiusMu.help.sl
 Reference/moment.help.sl
@@ -1430,6 +1447,7 @@ Reference/norm.help.sl
 Reference/Notebook.help.sl
 Reference/notEmpty.help.sl
 Reference/not.help.sl
+Reference/notify.help.sl
 Reference/notNil.help.sl
 Reference/now.help.sl
 Reference/NRand.help.sl
@@ -1462,6 +1480,7 @@ Reference/one.help.sl
 Reference/OnePole.help.sl
 Reference/OneZero.help.sl
 Reference/onRejection.help.sl
+Reference/operatingSystem.help.sl
 Reference/operatorCharacterNameTable.help.sl
 Reference/operatorNameTable.help.sl
 Reference/OrderedCollection.help.sl
@@ -1511,8 +1530,13 @@ Reference/partitionFunctionP.help.sl
 Reference/partitionFunctionQ.help.sl
 Reference/partition.help.sl
 Reference/pascalTriangle.help.sl
+Reference/pathDirectory.help.sl
+Reference/pathExtension.help.sl
 Reference/pathGraph.help.sl
+Reference/pathIsAbsolute.help.sl
+Reference/pathJoin.help.sl
 Reference/pathName.help.sl
+Reference/pathNormalize.help.sl
 Reference/patienceSort.help.sl
 Reference/PeakFollower.help.sl
 Reference/peekFor.help.sl
@@ -1588,6 +1612,7 @@ Reference/polygonalNumber.help.sl
 Reference/Polygon.help.sl
 Reference/polygonInteriorAngles.help.sl
 Reference/pop.help.sl
+Reference/port.help.sl
 Reference/PositionableStream.help.sl
 Reference/position.help.sl
 Reference/positionIndex.help.sl
@@ -1627,6 +1652,7 @@ Reference/ProgramBrowser.help.sl
 Reference/ProgramOracle.help.sl
 Reference/projection.help.sl
 Reference/Promise.help.sl
+Reference/protocol.help.sl
 Reference/PulseCount.help.sl
 Reference/PulseDivider.help.sl
 Reference/PulseDpw.help.sl
@@ -1641,6 +1667,8 @@ Reference/quantile.help.sl
 Reference/quarterToneFlat.help.sl
 Reference/quarterToneSharp.help.sl
 Reference/quartiles.help.sl
+Reference/query.help.sl
+Reference/queryParameters.help.sl
 Reference/questionMark.help.sl
 Reference/quickSortFromToBy.help.sl
 Reference/quickSort.help.sl
@@ -1684,6 +1712,9 @@ Reference/ratios.help.sl
 Reference/ratioToCents.help.sl
 Reference/RatioTuning.help.sl
 Reference/ravel.help.sl
+Reference/readBinaryFile.help.sl
+Reference/readDirectoryFileNames.help.sl
+Reference/readDirectory.help.sl
 Reference/readTextFile.help.sl
 Reference/real.help.sl
 Reference/realImaginary.help.sl
@@ -1715,6 +1746,8 @@ Reference/removeAllKeys.help.sl
 Reference/removeAllSuchThat.help.sl
 Reference/removeAt.help.sl
 Reference/removeDiacritics.help.sl
+Reference/removeDirectory.help.sl
+Reference/removeFile.help.sl
 Reference/removeFirst.help.sl
 Reference/remove.help.sl
 Reference/removeIfAbsent.help.sl
@@ -1734,6 +1767,7 @@ Reference/replaceWith.help.sl
 Reference/replicateEach.help.sl
 Reference/replicateInteger.help.sl
 Reference/replicateShape.help.sl
+Reference/Request.help.sl
 Reference/rescale.help.sl
 Reference/reset.help.sl
 Reference/reshape.help.sl
@@ -1976,6 +2010,7 @@ Reference/TChoose.help.sl
 Reference/TDelay.help.sl
 Reference/TDuty.help.sl
 Reference/tenneyHeight.help.sl
+Reference/terseGuideSummary.help.sl
 Reference/terseReferenceSummary.help.sl
 Reference/TExpRand.help.sl
 Reference/TextEditor.help.sl
@@ -2068,8 +2103,9 @@ Reference/upsample.help.sl
 Reference/upToEnd.help.sl
 Reference/upTo.help.sl
 Reference/Url.help.sl
-Reference/UrlSearchParams.help.sl
+Reference/UrlQueryParameters.help.sl
 Reference/UserEventTarget.help.sl
+Reference/userName.help.sl
 Reference/utf8ByteArray.help.sl
 Reference/utf8String.help.sl
 Reference/valueAfter.help.sl
@@ -2099,6 +2135,7 @@ Reference/View.help.sl
 Reference/Void.help.sl
 Reference/Vosim.help.sl
 Reference/walshMatrix.help.sl
+Reference/warning.help.sl
 Reference/Warp1.help.sl
 Reference/WeakMap.help.sl
 Reference/WebSocket.help.sl
@@ -2145,6 +2182,7 @@ Reference/wrapBetweenAnd.help.sl
 Reference/Wrap.help.sl
 Reference/wrapIndex.help.sl
 Reference/WrapIndex.help.sl
+Reference/writeBinaryFile.help.sl
 Reference/WriteStream.help.sl
 Reference/writeTextFile.help.sl
 Reference/wythoffArray.help.sl
