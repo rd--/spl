@@ -2,7 +2,7 @@
 
 - _supergoldenRatio(aNumber)_
 
-Answer _aNumber_ times the supergolden ratio.
+Answer _aNumber_ times the supergolden ratio, written ψ.
 
 The supergolden ratio is a geometrical proportion close to 85/58:
 
@@ -52,9 +52,11 @@ See also: goldenRatio, narayanaSequence
 
 Guides: Mathematical Constants
 
+Unicode: U+003C8 ψ Greek Small Letter Psi
+
 References:
 _OEIS_
-[1](https://oeis.ozrg/A092526),
+[1](https://oeis.org/A092526),
 _W_
 [1](https://en.wikipedia.org/wiki/Supergolden_ratio)
 

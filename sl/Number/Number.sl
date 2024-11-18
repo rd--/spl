@@ -725,6 +725,14 @@
 		}
 	}
 
+	silverConstant { :self |
+		self * (2 + (2 * (2 / 7).pi.cos))
+	}
+
+	silverRatio { :self |
+		self * (2.sqrt + 1)
+	}
+
 	smallFloatEpsilon { :self |
 		self * system.smallFloatEpsilon
 	}
@@ -747,6 +755,10 @@
 
 	supergoldenRatio { :self |
 		self * 1.465571231876768
+	}
+
+	supersilverRatio { :self |
+		self * 2.2055694304005903
 	}
 
 	toByDo { :self :stop :step :aBlock:/1 |

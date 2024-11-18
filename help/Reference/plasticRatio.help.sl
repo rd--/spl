@@ -73,3 +73,4 @@ _OEIS_
 _W_
 [1](https://en.wikipedia.org/wiki/Plastic_ratio)
 
+Categories: Math, Constant

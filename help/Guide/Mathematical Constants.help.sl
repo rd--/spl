@@ -2,6 +2,7 @@
 
 - `arcMinute`: one sixtieth of a degree
 - `arcSecond`: one sixtieth of an arc second
+- `berahaConstant`: Beraha constants
 - `degree`: one one-hundred and eightieth of pi
 - `e`: Euler’s number, base of natural logarithm
 - `epsilon`: epsilon
@@ -11,8 +12,10 @@
 - `i`: square root of negative one
 - `pi`: ratio of circle circumference to diameter
 - `plasticRatio`: limiting ratio of Padovan sequence
+- `silverRatio`: silver ratio
 - `smallFloatEpsilon`: the smallest interval above `one`
 - `supergoldenRatio`: supergolden ratio
+- `supersilverRatio`: supersilver ratio
 
 Degree:
 

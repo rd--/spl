@@ -11,7 +11,7 @@ There are five ways three numbers can be partitioned:
 5
 ```
 
-Threads element-wise over lists:
+Threads element-wise over lists (OEIS A000110):
 
 ```
 >>> 1:11.bellNumber
@@ -31,3 +31,4 @@ _OEIS_
 _W_
 [1](https://en.wikipedia.org/wiki/Bell_number)
 
+Categories: Math, Combinatorics

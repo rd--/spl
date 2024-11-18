@@ -16,7 +16,7 @@ Find digits in base 2 & 3:
 
 ```
 >>> 58127.integerDigits(2)
-[1 1 1 0 0 0 1 1 0 0 0 0 1 1 1 1 ]
+[1 1 1 0 0 0 1 1 0 0 0 0 1 1 1 1]
 
 >>> 58127.integerDigits(3)
 [2 2 2 1 2 0 1 2 1 2]
@@ -159,3 +159,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Digit.html)
 [2](https://reference.wolfram.com/language/ref/IntegerDigits.html)
+
+Categories: Converting

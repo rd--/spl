@@ -122,3 +122,5 @@ _Mathematica_
 [3](https://reference.wolfram.com/language/ref/Binomial.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Binomial_coefficient)
+
+Categories: Math, Combinatorics

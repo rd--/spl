@@ -5,7 +5,7 @@
 A van der Corput sequence is a low-discrepancy sequence over the unit interval,
 first published in 1935 by the Dutch mathematician J. G. van der Corput.
 
-Binary van der Corput sequence:
+Binary van der Corput sequence (OEIS A030101):
 
 ```
 >>> 0:9.vanDerCorputNumber(2)
@@ -15,7 +15,7 @@ Binary van der Corput sequence:
 [0 1 1 3 1 5 3 7 1 9 5 13 3 11 7 15 1 17 9 25]
 ```
 
-Ternary van der Corput sequence:
+Ternary van der Corput sequence (OEIS A030102):
 
 ```
 >>> 0:9.vanDerCorputNumber(3)
@@ -30,6 +30,18 @@ Quaternary van der Corput sequence:
 ```
 >>> 0:9.vanDerCorputNumber(4)
 [0 1/4 1/2 3/4 1/16 5/16 9/16 13/16 1/8 3/8]
+
+>>> 0:19.vanDerCorputNumber(4).collect(numerator:/1)
+[0 1 1 3 1 5 9 13 1 3 5 7 3 7 11 15 1 17 33 49]
+```
+
+The numerator is the reverse of the radix-_k_ representation:
+
+```
+>>> let k = 2;
+>>> let n = 47;
+>>> n.vanDerCorputNumber(k).numerator
+n.integerDigits(k).reversed.fromDigits(k)
 ```
 
 Plot decimal sequence:
@@ -46,8 +58,15 @@ Plot numerators of decimal sequence:
 
 * * *
 
+See also: fromDigits, integerDigits
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/vanderCorputSequence.html),
+_Oeis_
+[1](https://oeis.org/A030101)
+[2](https://oeis.org/A030102),
 _W_
 [1](https://en.wikipedia.org/wiki/Van_der_Corput_sequence)
+
+Categories: Math, Sequence

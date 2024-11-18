@@ -87,6 +87,10 @@
 		}
 	}
 
+	berahaConstant { :n |
+		2 + (2 * (2.pi / n).cos)
+	}
+
 	bernoulli { :k |
 		k.bernoulliSequence.last
 	}
@@ -769,6 +773,10 @@
 		}
 	}
 
+	lucasNumbers { :self |
+		[1 1].linearRecurrence([1 3], self)
+	}
+
 	minimalResidue { :self :modulus |
 		let p = self % modulus;
 		let q = p - modulus;
@@ -943,6 +951,20 @@
 				n.binomial(k)
 			}
 		}
+	}
+
+	pellNumber { :self |
+		let n = self;
+		let x = 2.sqrt;
+		(((1 + x) ^ n) - ((1 - x) ^ n)) / (2 * x)
+	}
+
+	pellNumbers { :self |
+		[2 1].linearRecurrence([0 1], self)
+	}
+
+	pellLucasNumbers { :self |
+		[2 1].linearRecurrence([2 2], self)
 	}
 
 	perrinSequence { :self |

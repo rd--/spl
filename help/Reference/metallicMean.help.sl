@@ -17,7 +17,7 @@ The first five metallic means:
 
 * * *
 
-See also: goldenRatio
+See also: goldenRatio, silverRatio
 
 References:
 _Mathematica_
@@ -30,3 +30,5 @@ _OEIS_
 [5](https://oeis.org/A098318),
 _W_
 [1](https://en.wikipedia.org/wiki/Metallic_mean)
+
+Categories: Math, Constant

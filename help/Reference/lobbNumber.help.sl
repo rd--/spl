@@ -5,6 +5,7 @@
 The Lobb number counts the number of ways that _n + m_ open parentheses and _n − m_ close parentheses can be arranged to form the start of a valid sequence of balanced parentheses.
 
 Lobb numbers form a natural generalization of the Catalan numbers, which count the number of complete strings of balanced parentheses of a given length.
+
 ```
 >>> 0:6.collect { :m |
 >>> 	0:m.collect { :n |
@@ -31,3 +32,5 @@ _OEIS_
 [1](https://oeis.org/A039599),
 _W_
 [1](https://en.wikipedia.org/wiki/Lobb_number)
+
+Categories: Math, Combinatorics

@@ -25,3 +25,5 @@ _OEIS_
 [1](https://oeis.org/A000108),
 _W_
 [1](https://en.wikipedia.org/wiki/Catalan_number)
+
+Categories: Math, Combinatorics

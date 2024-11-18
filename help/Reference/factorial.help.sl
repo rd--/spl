@@ -118,4 +118,4 @@ _Mathworks_
 _Smalltalk_
 5.6.5.11
 
-Categories: Math
+Categories: Math, Combinatorics

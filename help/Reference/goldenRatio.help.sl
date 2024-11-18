@@ -107,3 +107,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/GoldenRatio.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Golden_ratio)
+
+Categories: Math, Constant

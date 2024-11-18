@@ -25,4 +25,9 @@ See also: harmonicMean
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HarmonicNumber.html)
-[2](https://reference.wolfram.com/language/ref/HarmonicNumber.html)
+[2](https://reference.wolfram.com/language/ref/HarmonicNumber.html),
+_Oeis_
+[1](https://oeis.org/A002805)
+[2](https://oeis.org/A001008)
+
+Categories: Math, Sequence
