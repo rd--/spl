@@ -140,3 +140,5 @@ See also: GrainFm, Warp1
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/TGrains.html)
+
+Categories: Ugen

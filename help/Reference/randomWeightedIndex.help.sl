@@ -14,3 +14,5 @@ Plot one hundred draws, ~10% will be 1, ~60% will be 2, ~30% will be 3.
 * * *
 
 See also: atRandom, nextRandomFloat
+
+Categories: Random

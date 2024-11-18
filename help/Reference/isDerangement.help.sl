@@ -26,3 +26,5 @@ See also: derangements, Permutation
 
 References:
 [1](https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/permutation.html#sage.combinat.permutation.Permutation.is_derangement)
+
+Categories: Testing, Permutation

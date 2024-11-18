@@ -64,9 +64,10 @@ Descending:
 
 * * *
 
-See also: ^, exp, geometricSeries, Range, ratios
+See also: ^, arithmeticSeries, exp, geometricSeries, Range, ratios
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PowerRange.html)
 
+Categories: Arithmetic

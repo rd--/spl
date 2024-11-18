@@ -30,3 +30,5 @@ Plot, uniform distribution:
 * * *
 
 See also: nextRandomFloat, randomInteger, RandomNumberGenerator
+
+Categories: Random

@@ -34,3 +34,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/TrialDivision.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Trial_division)
+
+Categories: Testing

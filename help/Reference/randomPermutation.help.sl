@@ -23,3 +23,5 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomPermutation.html),
 _Mathworks_
 [1](https://www.mathworks.com/help/matlab/ref/randperm.html)
+
+Categories: Random, Permutation

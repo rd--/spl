@@ -30,3 +30,5 @@ See also: Pan2, Splay, SplayAz
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Splay.html)
+
+Categories: Ugen

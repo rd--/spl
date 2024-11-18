@@ -85,3 +85,5 @@ _Mathworks_
 [1](https://mathworks.com/help/symbolic/adjoint.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Adjugate_matrix)
+
+Categories: Matrix, Math

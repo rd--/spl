@@ -29,6 +29,10 @@ let n = LfNoise1([3, 3]);
 
 * * *
 
+See also: asLocalBuf, degreeToKey
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/DegreeToKey.html)
+
+Categories: Ugen

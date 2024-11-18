@@ -51,3 +51,5 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/GCD.html)
 
 Further Reading: McDonnell 1975
+
+Categories: Ugen

@@ -83,3 +83,5 @@ _Sage_
 [1](https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph_generators.html#sage.graphs.graph_generators.GraphGenerators.CubeGraph),
 _W_
 [1](https://en.wikipedia.org/wiki/Hypercube)
+
+Categories: Graph

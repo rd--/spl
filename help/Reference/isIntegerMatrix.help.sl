@@ -15,3 +15,5 @@ false
 * * *
 
 See also: isMatrix, isVector
+
+Categories: Testing

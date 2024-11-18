@@ -51,3 +51,5 @@ See also: GrainIn, GrainFm, GrainSin
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/GrainBuf.html)
+
+Categories: Ugen

@@ -30,3 +30,5 @@ See also: FreeVerb2, GVerb
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/FreeVerb.html)
+
+Categories: Ugen

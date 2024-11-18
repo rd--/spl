@@ -63,3 +63,5 @@ See also: boxMatrix, diamondMatrix, diskMatrix, editDistance
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CrossMatrix.html)
+
+Categories: Matrices

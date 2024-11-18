@@ -19,3 +19,5 @@ Answer a `CentsTuning` given a sequence of intervals in _cents_.
 * * *
 
 See also: asRatioTuning, CentsTuning, RatioTuning, Tuning
+
+Categories: Converting

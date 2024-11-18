@@ -74,3 +74,5 @@ _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:iterate)
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NestList.html)
+
+Categories: Enumerating

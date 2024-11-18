@@ -26,3 +26,5 @@ See also: crossMatrix, diamondMatrix, diskMatrix
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BoxMatrix.html)
+
+Categories: Matrices

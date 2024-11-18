@@ -48,3 +48,5 @@ See also: iterate, nestList, takeWhile
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NestWhileList.html)
+
+Categories: Enumerating

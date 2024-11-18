@@ -21,7 +21,7 @@ Construct a `Promise` that will resolve to the value _'Answer'_ after one second
 
 ```
 >>> let promise = { :resolve:/1 :unused | { resolve('Answer') }.valueAfter(1) }.Promise;
->>> promise.then { :answer | answer.postLine };
+>>> promise.then { :answer | { answer = 'Answer' }.assert };
 >>> promise.isPromise
 true
 ```

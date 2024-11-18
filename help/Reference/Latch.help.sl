@@ -40,3 +40,5 @@ See also: Gate
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Latch.html)
+
+Categories: Ugen

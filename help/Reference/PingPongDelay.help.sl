@@ -29,3 +29,5 @@ PingPongDelay(left, right, 0.5, MouseX(0.1, 0.5, 0, 0.2), 0.7)
 * * *
 
 See also: BufRd, ClearBuf, DelayTap, DelayWrite, LocalBuf, Phasor, RecordBuf, SampleRate, Wrap
+
+Categories: Ugen

@@ -2,7 +2,7 @@
 
 - _arithmeticSeries(count, start, step)_
 
-Answer a `List` holding a geometric series:
+Answer a `List` holding an arithmetic series.
 
 Arithmetic series of five places from one by two:
 

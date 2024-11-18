@@ -12,3 +12,5 @@ Convert a sequence of _run -> value_ associations into a `RunArray`:
 * * *
 
 See also: RunArray
+
+Categories: Converting

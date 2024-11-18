@@ -11,7 +11,7 @@ The smallest positive integer _x_ that satisfies _x%4 = 3_ and _x%5 = 4_:
 19
 ```
 
-Find the smallest positive integer giving remainders _2,3,5_  when divided by _3,5,7_:
+Find the smallest positive integer giving remainders _2,3,5_ when divided by _3,5,7_:
 
 ```
 >>> [2 3 5].chineseRemainder([3 5 7])
@@ -46,3 +46,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ChineseRemainderTheorem.html)
 [2](https://reference.wolfram.com/language/ref/ChineseRemainder.html)
+
+Categories: Math

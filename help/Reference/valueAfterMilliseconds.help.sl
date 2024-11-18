@@ -6,7 +6,7 @@ Evaluate _aBlock_ after _aNumber_ of milliseconds has passed.
 Answers an identifier that can be used to `cancel` the scheduled activity.
 
 ```
->>> let k = { nil.postLine }.valueAfterMilliseconds(1000);
+>>> let k = { nil }.valueAfterMilliseconds(1000);
 >>> k.isPositiveInteger
 true
 

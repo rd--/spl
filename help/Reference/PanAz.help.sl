@@ -49,3 +49,9 @@ let g = PanAz(3, Dc(1), MouseY(-2 / 3, 2 / 3, 0, 0.2), 1, MouseX(1, 3, 0, 0.2), 
 * * *
 
 See also: PanB2
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/PanAz.html)
+
+Categories: Ugen

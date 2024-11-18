@@ -23,4 +23,4 @@ _Smalltalk_
 5.9.2.3
 5.9.2.4
 
-Categories: Accessing
+Categories: Accessing, Stream

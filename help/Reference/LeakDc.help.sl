@@ -21,3 +21,5 @@ See also: Dc
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LeakDC.html)
+
+Categories: Ugen

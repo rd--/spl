@@ -30,3 +30,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/PermutationRun.html),
 _Sage_
 [1](https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/permutation.html#sage.combinat.permutation.Permutation.runs)
+
+Categories: Permutation

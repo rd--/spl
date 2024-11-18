@@ -23,3 +23,5 @@ Immediate objects are suitable for inclusion in `Set` and `Bag`.
 * * *
 
 See also: ==, ===, Bag, isJson, isLiteral, Set
+
+Categories: Testing

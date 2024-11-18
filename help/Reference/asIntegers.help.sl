@@ -19,3 +19,4 @@ Of a rational tuning, answer the interval ratios divided by their greatest commo
 
 See also: RatioTuning, Tuning
 
+Categories: Converting

@@ -19,3 +19,6 @@ The `ratios` of a geometic series are all equal:
 * * *
 
 See also: isArithmeticSeries, geometricSeries, ratios
+
+Categories: Testing
+

@@ -46,3 +46,7 @@ let m3 = Spring([m1, m2], 0.4 * k, d);
 let m4 = Spring(m3 - m1 + m2, 0.1 * k, d);
 CombL(t, 0.1, LinLin(m4, -10, 10, 1 / 8000, 1 / 100), 12)
 ```
+
+* * *
+
+Categories: Ugen

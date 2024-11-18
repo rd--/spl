@@ -15,3 +15,5 @@ true
 * * *
 
 See also: beginsWith, endsWithAnyOf
+
+Categories: Testing

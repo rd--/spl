@@ -42,3 +42,5 @@ Identity at string without diacritics:
 * * *
 
 See also: String
+
+Categories: Converting

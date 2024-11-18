@@ -28,3 +28,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/WilsonsTheorem.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Wilson%27s_theorem)
+
+Categories: Testing

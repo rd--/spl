@@ -69,6 +69,7 @@ _Prime Numbers_:
 
 _Testing_:
 
+- `isConstantStructure`: is a tuning a constant structure
 - `isRational`: is a tuning rational
 - `isSquareSuperparticular`: is a fraction square superparticular
 - `isSuperparticular`: is a fraction superparticular

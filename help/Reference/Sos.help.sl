@@ -26,4 +26,4 @@ References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/SOS.html)
 
-Categories: Filter
+Categories: Ugen, Filter

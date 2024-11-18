@@ -16,3 +16,5 @@ false
 * * *
 
 See also: Integer
+
+Categories: Testing

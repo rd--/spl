@@ -12,6 +12,15 @@ true
 true
 ```
 
+At non letters answers `false`:
+
+```
+>>> '?'.isVowel
+false
+```
+
 * * *
 
 See also: isLetter, isSpace, isTab
+
+Categories: Testing

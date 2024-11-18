@@ -46,3 +46,5 @@ See also: isPrime
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Rabin-MillerStrongPseudoprimeTest.html)
+
+Categories: Testing

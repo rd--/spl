@@ -13,3 +13,7 @@ Use the tempo to modulate an oscillator:
 `SinOsc(400 * GetTempo(), 0, 0.2)`
 
 _Note_: Not implemented in Spl
+
+* * *
+
+Categories: Ugen

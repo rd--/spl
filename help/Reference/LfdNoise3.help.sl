@@ -28,3 +28,5 @@ See also: LfNoise3
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LFDNoise3.html)
+
+Categories: Ugen

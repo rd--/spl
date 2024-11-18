@@ -36,3 +36,5 @@ Random non-zero integers:
 * * *
 
 See also: randomInteger, randomReal
+
+Categories: Random

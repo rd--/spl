@@ -2,6 +2,9 @@
 
 - _isPowerfulNumber(anInteger)_
 
+A powerful number is the product of a square and a cube.
+Powerful numbers are also known as squareful.
+
 There are an infinite number of powerful numbers, OEIS A001694:
 
 ```
@@ -25,9 +28,12 @@ There are infinitely many pairs of consecutive powerful numbers, OEIS A060355:
 
 * * *
 
+See also: isSquareFree
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PowerfulNumber.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Powerful_number)
 
+Categories: Testing, Math

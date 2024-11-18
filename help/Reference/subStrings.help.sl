@@ -14,8 +14,10 @@ Answer a `List` containing the substrings in _aString_ separated by the elements
 
 * * *
 
-See also: splitByRegExp
+See also: splitByRegExp, substrings
 
 References:
 _Smalltalk_
 5.7.10.15
+
+Categories: Converting

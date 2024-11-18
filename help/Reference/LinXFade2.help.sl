@@ -25,3 +25,5 @@ See also: XFade2
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LinXFade2.html)
+
+Categories: Ugen

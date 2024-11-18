@@ -22,3 +22,5 @@ See also: kr
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/K2A.html)
+
+Categories: Ugen

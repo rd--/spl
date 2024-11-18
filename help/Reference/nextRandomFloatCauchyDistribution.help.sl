@@ -15,3 +15,5 @@ It is unbounded above and below the mean similar to the Gaussian distribution bu
 * * *
 
 See also: nextRandomFloat
+
+Categories: Random

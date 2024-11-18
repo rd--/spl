@@ -53,3 +53,5 @@ See also: includes, includesAllOf, isProperSubsetOf
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SubsetQ.html)
+
+Categories: Testing

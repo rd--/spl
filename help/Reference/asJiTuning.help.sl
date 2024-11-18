@@ -44,3 +44,5 @@ If the intervals are `Integer` values they are understood to be integer pitches:
 * * *
 
 See also: asCents, asIntegers, asRatios, JiTuning, limit, RatioTuning, Tuning
+
+Categories: Converting

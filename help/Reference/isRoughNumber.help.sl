@@ -29,3 +29,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/RoughNumber.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Rough_number)
+
+Categories: Testing

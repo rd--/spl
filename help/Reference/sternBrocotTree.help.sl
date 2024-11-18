@@ -57,3 +57,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Stern-BrocotTree.html)
 
 Further Reading: Lehmer 1929, Stern 1858
+
+Categories: Tree

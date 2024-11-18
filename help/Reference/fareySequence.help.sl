@@ -83,6 +83,12 @@ Lengths of longer Farey sequences, _50_ then _200, 300, 400, 500_:
 [12233 27399 48679 76117]
 ```
 
+Plot first twenty three terms:
+
+~~~
+23.fareySequence.asFloat.linePlot
+~~~
+
 * * *
 
 See also: Fraction, eulerPhi, gcd, minkowskiQuestionMark, sternBrocotSequence, subdivide

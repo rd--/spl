@@ -26,4 +26,6 @@ The ordered substrings of a permutation are called `permutationRuns`:
 
 * * *
 
-See also: <, concatenation, hasEqualElements, permutationRuns
+See also: <, concatenation, hasEqualElements, permutationRuns, substrings
+
+Categories: Enumerating, Math

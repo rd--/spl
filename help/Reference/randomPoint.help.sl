@@ -25,3 +25,5 @@ See also: circlePoints, randomInteger, randomReal, randomVariate
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomPoint.html)
+
+Categories: Random

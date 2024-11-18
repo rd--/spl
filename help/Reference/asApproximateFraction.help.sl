@@ -16,3 +16,5 @@ Convert _aNumber_ to a `Fraction` given error bound _epsilon_.
 * * *
 
 See also: asFraction, convergents, rationalize, semiconvergents
+
+Categories: Converting

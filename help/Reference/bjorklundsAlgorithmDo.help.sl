@@ -22,3 +22,5 @@ to retain use `deepCopy` or `flatten`.
 * * *
 
 See also: bjorklundsAlgorithm, euclideanAlgorithm
+
+Categories: Algorithm, Math

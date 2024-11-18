@@ -16,3 +16,5 @@ false
 * * *
 
 See also: isEmpty, isSpace, isTab
+
+Categories: Testing

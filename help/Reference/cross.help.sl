@@ -114,3 +114,5 @@ _Mathworks_
 [1](https://au.mathworks.com/help/matlab/ref/cross.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Cross_product)
+
+Categories: Math, Operator

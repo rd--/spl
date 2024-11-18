@@ -43,3 +43,5 @@ Biased high:
 * * *
 
 See also: CauchyDistribution, LinearDistribution, NormalDistribution, PoissonDistribution, WeibullDistribution
+
+Categories: Random

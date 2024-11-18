@@ -58,3 +58,5 @@ See also: intervalMatrix, Tuning
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Constant_structure)
+
+Categories: Testing, Tuning

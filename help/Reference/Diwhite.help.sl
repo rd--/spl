@@ -21,3 +21,9 @@ SinOsc(f, 0) * 0.1
 * * *
 
 See also: Dwhite, WhiteNoise
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Diwhite.html)
+
+Categories: Ugen

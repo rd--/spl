@@ -21,3 +21,5 @@ See also: skip
 References:
 _Smalltalk_
 5.9.2.10
+
+Categories: Accessing, Stream

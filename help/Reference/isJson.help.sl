@@ -39,3 +39,5 @@ true
 * * *
 
 See also: isImmediate, Json, json
+
+Categories: Testing

@@ -29,3 +29,6 @@ See also: cycles, isSymmetricMatrix, Permutation
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PermutationInvolution.html)
+
+Categories: Testing, Permutation
+

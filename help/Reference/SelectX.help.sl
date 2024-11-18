@@ -34,3 +34,9 @@ SinOsc(SelectX(MouseX(0, 1, 0, 0.2) * a.size, a) * 300 + 400, 0) * 0.2
 * * *
 
 See also: Select, SelectXFocus, LinSelectX
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/SelectX.html)
+
+Categories: Ugen

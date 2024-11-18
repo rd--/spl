@@ -26,3 +26,5 @@ See also: Latch
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Gate.html)
+
+Categories: Ugen

@@ -10,8 +10,13 @@ Answer _aFraction_ with any factors of two deleted.
 
 >>> 7/6.withoutFactorsOfTwo
 7/3
+
+>>> 6/5.withoutFactorsOfTwo
+3/5
 ```
 
 * * *
 
 See also: primeFactors
+
+Categories: Math

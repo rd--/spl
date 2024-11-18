@@ -12,3 +12,5 @@ Answer the hyperbolic sine of _aNumber_.
 * * *
 
 See also: Cosh, sinh, Tanh
+
+Categories: Ugen

@@ -42,3 +42,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/SymmetricMatrixQ.html)
 _W_
 [1](https://en.wikipedia.org/wiki/Symmetric_matrix)
+
+Categories: Testing, Matrix

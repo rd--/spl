@@ -20,3 +20,5 @@ See also: ^, log2
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Octave_reduction)
+
+Categories: Tuning

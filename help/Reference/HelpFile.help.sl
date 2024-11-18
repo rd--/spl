@@ -42,6 +42,23 @@ url.fetchText.then { :aString |
 }
 ~~~
 
+Print the reference help files with an empty categories field:
+
+~~~
+let directory = '/home/rohan/sw/spl/help/Reference/';
+let fileList = directory.readDirectoryFileNames;
+fileList.select { :each |
+	each.endsWith('.help.sl')
+}.do { :each |
+	let text = each.readTextFile;
+	let help = HelpFile(each.asFileUrl, text);
+	help.categories.isEmpty.ifTrue {
+		each.asFileUrl.fileName.postLine
+	}
+};
+nil
+~~~
+
 * * *
 
 See also: terseReferenceSummary

@@ -14,3 +14,5 @@ SinOsc([l, l.RoundTo(1)].MidiCps, 0) * 0.1
 * * *
 
 See also: Ceiling, Floor
+
+Categories: Ugen

@@ -33,3 +33,5 @@ See also: LocalOut
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LocalIn.html)
+
+Categories: Ugen

@@ -781,6 +781,12 @@
 		}
 	}
 
+	endsWithAnyOf { :self :aCollection |
+		aCollection.anySatisfy { :suffix |
+			self.endsWith(suffix)
+		}
+	}
+
 	equalBy { :self :anObject :aBlock:/2 |
 		self == anObject | {
 			self.typeOf = anObject.typeOf & {

@@ -33,3 +33,5 @@ See also: skipTo
 References:
 _Smalltalk_
 5.9.2.9
+
+Categories: Accessing, Stream

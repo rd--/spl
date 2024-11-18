@@ -1,9 +1,11 @@
 # Rand2
 
-- _Rand2(aNumber)_ ⟹ _Rand(aNumber.Neg, aNumber)_
+- _Rand2(α)_ ⟹ _Rand(α.Neg, α)_
 
 Random number generator.
 
 * * *
 
 See also: Rand
+
+Categories: Ugen

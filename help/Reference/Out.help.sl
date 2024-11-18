@@ -33,3 +33,5 @@ See also: In, AudioIn, NumOutputBuses
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Out.html)
+
+Categories: Ugen

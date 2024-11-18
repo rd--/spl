@@ -61,3 +61,5 @@ let right = DelayC(left, delayTime, delayTime);
 * * *
 
 See also: overlapTextureProgram, XFadeTexture
+
+Categories: Texture, Ugen

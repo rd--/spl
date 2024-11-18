@@ -288,4 +288,4 @@ References:
 _Haskell_
 [1](https://hackage.haskell.org/package/containers/docs/Data-Tree.html)
 
-Categories: Type, Collection
+Categories: Type, Collection, Tree

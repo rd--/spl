@@ -73,3 +73,5 @@ _W_
 [2](https://en.wikipedia.org/wiki/Regular_number)
 
 Further Reading: Clarke 1877
+
+Categories: Testing

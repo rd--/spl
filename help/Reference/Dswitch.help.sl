@@ -52,3 +52,5 @@ See also: Demand, Dswitch1
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Dswitch.html)
+
+Categories: Ugen

@@ -16,3 +16,5 @@ This extends nicely to _n_-bit numbers, as long as they treat 0 as `false`, and 
 * * *
 
 See also: asBoolean, boole, Boolean
+
+Categories: Converting

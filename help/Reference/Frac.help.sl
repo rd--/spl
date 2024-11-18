@@ -18,3 +18,5 @@ SinOsc(mnn.MidiCps, 0) * 0.1
 * * *
 
 See also: fractionPart
+
+Categories: Ugen

@@ -33,3 +33,5 @@ See also: LfdNoise0, LfdNoise3, LfNoise1
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LFDNoise1.html)
+
+Categories: Ugen, Noise

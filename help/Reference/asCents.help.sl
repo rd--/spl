@@ -25,3 +25,5 @@ At `CentsTuning`:
 * * *
 
 See also: asIntegers, asRatios, equalTemperamentTuning, ratioToCents, RatioTuning, Tuning
+
+Categories: Converting

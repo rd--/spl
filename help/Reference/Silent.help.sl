@@ -15,3 +15,9 @@ Silent(8) ++ ({ SinOsc(Rand(200, 2000), 0) * 0.1 } ! 8)
 * * *
 
 See also: Dc
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Silent.html)
+
+Categories: Ugen

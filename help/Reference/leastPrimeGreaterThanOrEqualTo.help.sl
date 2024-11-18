@@ -19,3 +19,5 @@ See also: nextPrime, previousPrime
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/pco#dyadic)
+
+Categories: Arithmetic

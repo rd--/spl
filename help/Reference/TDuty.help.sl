@@ -42,3 +42,9 @@ Ringz(trig, 1000, 1) * 0.1
 * * *
 
 See also: Duty
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/TDuty.html)
+
+Categories: Ugen

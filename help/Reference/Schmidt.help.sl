@@ -22,3 +22,16 @@ let octave = Schmidt(in, -0.15, 0.15) + 1;
 SinOsc(in * 200 + 500 * octave, 0) * 0.1
 ```
 
+Misnomer for _Schmitt_.
+
+* * *
+
+See also:
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Schmidt.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Schmitt_trigger)
+
+Categories: Ugen

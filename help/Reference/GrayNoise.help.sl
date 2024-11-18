@@ -19,3 +19,5 @@ See also: BrownNoise, ClipNoise, PinkNoise, WhiteNoise
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/GrayNoise.html)
+
+Categories: Ugen

@@ -20,3 +20,9 @@ SetResetFf(Dust(5), Dust(5)) * BrownNoise() * 0.1
 * * *
 
 See also: ToggleFf
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/SetResetFF.html)
+
+Categories: Ugen

@@ -2,7 +2,7 @@
 
 - _manhattanDistance(u, v)_
 
-Answers the Manhattan or _city block_ distance between vectors _u_ and _v_.
+Answers the Manhattan or _city block_ distance between two vectors _u_ and _v_.
 
 ```
 >>> [1 2 3].manhattanDistance([2 4 6])
@@ -32,3 +32,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/ManhattanDistance.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Taxicab_geometry)
+
+Categories: Geometry

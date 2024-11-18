@@ -41,3 +41,5 @@ _OEIS_
 [1](https://oeis.org/A001359)
 [2](https://oeis.org/A014574)
 [3](https://oeis.org/A006512)
+
+Categories: Testing

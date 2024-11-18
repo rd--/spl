@@ -21,3 +21,5 @@ _Julia_
 [1](https://docs.julialang.org/en/v1/stdlib/Random/#Random.randsubseq),
 _W_
 [1](https://en.wikipedia.org/wiki/Bernoulli_sampling)
+
+Categories: Random

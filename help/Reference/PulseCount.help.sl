@@ -22,3 +22,5 @@ See also: Stepper
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/PulseCount.html)
+
+Categories: Ugen

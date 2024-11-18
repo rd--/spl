@@ -26,3 +26,5 @@ At `CentsTuning`, will answer a list of `SmallFloat` values (c.f. `asFractions`)
 * * *
 
 See also: asCents, asFractions, asIntegers, centsToRatio, RatioTuning, Tuning
+
+Categories: Converting

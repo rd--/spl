@@ -53,3 +53,9 @@ LfdClipNoise(XLine(1000, 20000, 10)) * 0.1
 * * *
 
 See also: LfClipNoise, LfdNoise0, LfdNoise1, LfdNoise3, LfNoise0, LfNoise1, LfNoise2
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LFDClipNoise.html)
+
+Categories: Ugen

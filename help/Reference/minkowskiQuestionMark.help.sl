@@ -98,7 +98,7 @@ Plot difference from input:
 (0 -- 2).functionPlot { :x | x.minkowskiQuestionMark - x }
 ~~~
 
-Plot over from -2 to 2, _?(x)_ is surjective:
+Plot from -2 to 2, _?(x)_ is surjective:
 
 ~~~
 (-2 -- 2).functionPlot(minkowskiQuestionMark:/1)
@@ -116,3 +116,5 @@ _OEIS_
 [1](https://oeis.org/A048819),
 _W_
 [1](https://en.wikipedia.org/wiki/Minkowski%27s_question-mark_function)
+
+Categories: Math

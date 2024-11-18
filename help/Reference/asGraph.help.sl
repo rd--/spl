@@ -30,3 +30,5 @@ The two-column matrix case makes an undirected graph:
 * * *
 
 See also: adjacencyMatrix, Graph
+
+Categories: Converting

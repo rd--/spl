@@ -26,4 +26,4 @@ true
 
 See also: isMatrix, List, Matrix, shape
 
-Categories: Testing
+Categories: Testing, Matrix

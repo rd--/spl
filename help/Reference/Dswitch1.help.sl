@@ -40,3 +40,5 @@ See also: Demand, Duty, TDuty, Dswitch
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Dswitch1.html)
+
+Categories: Ugen

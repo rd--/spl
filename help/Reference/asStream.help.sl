@@ -13,3 +13,5 @@ Answer a `CollectionStream` on _aCollection_.
 * * *
 
 See also: asIterator, asWriteStream, CollectionStream, Iterator, next, Stream
+
+Categories: Converting

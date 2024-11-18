@@ -58,7 +58,7 @@ Plot the first few squareful numbers:
 
 * * *
 
-See also: isPerfectSquare
+See also: isPerfectSquare, isPowerfulNumber
 
 References:
 _Mathematica_

@@ -19,4 +19,6 @@ let z = LfPulse(800, 0, 0.5) * 0.1;
 
 * * *
 
-See also: Lag
+See also: Lag, LagUd
+
+Categories: Ugen

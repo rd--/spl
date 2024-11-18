@@ -75,3 +75,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PrimePower.html)
 [2](https://reference.wolfram.com/language/ref/PrimePowerQ.html)
+
+Categories: Testing

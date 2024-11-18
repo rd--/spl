@@ -148,3 +148,5 @@ See also: partition, powerSet, longestCommonSubsequence, subsequences, subsets, 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Subsequences.html)
+
+Categories: Enumerating, Math

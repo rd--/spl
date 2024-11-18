@@ -29,3 +29,9 @@ SinOsc(freq.Lag(0.025), 0) * 0.1
 * * *
 
 See also: Demand, Dgeom, Duty, TDuty
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Dseries.html)
+
+Categories: Ugen

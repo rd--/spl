@@ -28,3 +28,5 @@ At `AsciiString`:
 * * *
 
 See also: asciiByteArray, AsciiString, hex
+
+Categories: Converting

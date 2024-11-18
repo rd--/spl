@@ -15,3 +15,5 @@ Opaque yellow:
 * * *
 
 See also: Colour
+
+Categories: Converting

@@ -57,3 +57,5 @@ See also: boxMatrix, crossMatrix, diskMatrix, manhattanDistance
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DiamondMatrix.html)
+
+Categories: Matrices

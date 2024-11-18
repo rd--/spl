@@ -28,3 +28,5 @@ See also: asaTriangle, sasTriangle, sssTriangle, Triangle
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/AASTriangle.html)
+
+Categories: Geometry

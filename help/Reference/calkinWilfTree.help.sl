@@ -35,3 +35,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Calkin-WilfTree.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Calkin%E2%80%93Wilf_tree)
+
+Categories: Tree

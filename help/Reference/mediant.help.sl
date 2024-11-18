@@ -34,3 +34,5 @@ _Xenharmonic_
 [1](https://en.xen.wiki/w/Mediant),
 _W_
 [1](https://en.wikipedia.org/wiki/Mediant_(mathematics))
+
+Categories: Math

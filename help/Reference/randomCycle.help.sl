@@ -21,3 +21,5 @@ See also: cycles, randomPermutation, randomSample, sattoloShuffle
 References:
 _Julia_
 [1](https://docs.julialang.org/en/v1/stdlib/Random/#Random.randcycle),
+
+Categories: Random, Permutation

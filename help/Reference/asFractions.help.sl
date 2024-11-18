@@ -16,3 +16,5 @@ At `CentsTuning`, will answer a list of approximate `Fraction` values derived fr
 * * *
 
 See also: asCents, asIntegers, asRatios, centsToRatio, RatioTuning, Tuning
+
+Categories: Converting

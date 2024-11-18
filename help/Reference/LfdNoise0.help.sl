@@ -35,3 +35,13 @@ LfNoise quantizes time steps at high freqs, LfdNoise does not:
 let f = XLine(1000, 20000, 10);
 [LfNoise0(f), LfdNoise0(f)] * 0.1
 ```
+
+* * *
+
+See also: LfdNoise0, LfNoise1
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LFDNoise0.html)
+
+Categories: Ugen

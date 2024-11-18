@@ -23,3 +23,5 @@ See also: completeGraph, Graph, isEmpty
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SingletonGraph.html)
+
+Categories: Testing, Graph

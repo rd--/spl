@@ -17,3 +17,5 @@ Answer a `RatioTuning` for _aList_, which describes the tuning as a set of ratio
 * * *
 
 See also: asJiTuning, CentsTuning, JiTuning, RatioTuning, Tuning
+
+Categories: Converting
