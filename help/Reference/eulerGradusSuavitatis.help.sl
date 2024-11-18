@@ -56,3 +56,5 @@ _OEIS_
 [1](https://oeis.org/A275314)
 
 Further Reading: Euler 1739
+
+Categories: Tuning

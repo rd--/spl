@@ -48,6 +48,10 @@ export function operatingSystem(): string {
 	return Deno.build.os;
 }
 
+export function makeDirectorySync(path: string | URL, allowRecursive: boolean, fileMode: number): void {
+	return Deno.mkdirSync(path, {recursive: allowRecursive, mode: fileMode});
+}
+
 export function readBinaryFileAsync(path: string | URL): Promise<Uint8Array> {
 	return Deno.readFile(path);
 }
@@ -62,6 +66,24 @@ export function readTextFileAsync(path: string | URL): Promise<string> {
 
 export function readTextFileSync(path: string | URL): string {
 	return Deno.readTextFileSync(path);
+}
+
+export function removeDirectorySync(path: string | URL, recursive: boolean): void {
+	const info = Deno.statSync(path);
+	if(info.isDirectory) {
+		return Deno.removeSync(path, {recursive: recursive});
+	} {
+		throw new Error(`removeDirectory: not a directory: ${path}`);
+	}
+}
+
+export function removeFileSync(path: string | URL): void {
+	const info = Deno.statSync(path);
+	if(info.isFile) {
+		return Deno.removeSync(path);
+	} {
+		throw new Error(`removeFile: not a file: ${path}`);
+	}
 }
 
 export function systemCommand(

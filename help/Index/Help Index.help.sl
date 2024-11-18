@@ -229,9 +229,12 @@
 
 ## File System
 
-- `readTextFile`, `writeTextFile`
 - `readBinaryFile`, `writeBinaryFile`
+- `readTextFile`, `writeTextFile`
+- `removeFile`
 - `readDirectory`, `readDirectoryFileNames`
+- `makeDirectory`, `removeDirectory`
+- `fileInformation`, `modificationTime`
 
 ## Floating Point
 

@@ -96,3 +96,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/RelativelyPrime.html)
 [2](https://reference.wolfram.com/language/ref/CoprimeQ.html)
+
+Categories: Math

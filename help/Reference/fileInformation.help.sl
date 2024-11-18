@@ -17,4 +17,4 @@ See also: modificationTime
 
 Guides: File Functions
 
-Categories: System
+Categories: Files, System

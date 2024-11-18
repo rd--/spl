@@ -23,3 +23,5 @@ See also: tenneyHeight
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Benedetti_height)
+
+Categories: Tuning

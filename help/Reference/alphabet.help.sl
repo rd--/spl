@@ -29,3 +29,5 @@ See also: Character, String
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Alphabet.html)
+
+Categories: Text

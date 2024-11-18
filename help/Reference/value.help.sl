@@ -56,6 +56,23 @@ The ternary and quaternary forms answer the result of _aBlock(anObject, ...)_.
 529
 ```
 
+It is an error if there are too few arguments:
+
+```
+>>> { { :i | i = nil }.value }.ifError { true }
+true
+```
+
+It is an error if there are too many arguments:
+
+```
+>>> { { :x | 0 - x }.value(3, 4) = -3 }.ifError { true }
+true
+```
+
+There is a _non-strict_ mode of the compiler that will elide arity checks at `Block` evaluations.
+This mode is off by default.
+
 * * *
 
 See also: also, Association, Block, cull, identity, Value Protocol, with

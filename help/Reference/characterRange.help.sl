@@ -87,3 +87,5 @@ See also: asCharacter, Character, String
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CharacterRange.html)
+
+Categories: Text

@@ -16,7 +16,7 @@ nil
 
 * * *
 
-See also: Promise, readBinaryFile, writeTextFile
+See also: makeDirectory, readBinaryFile, writeTextFile
 
 Guides: File Functions
 

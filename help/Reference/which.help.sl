@@ -34,3 +34,5 @@ See also: caseOf, caseOfOtherwise, if
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Which.html)
+
+Categories: Casing

@@ -23,4 +23,8 @@ system.systemCommand('wc', ['-w', '/etc/passwd']).then { :result |
 
 * * *
 
+See also: environmentVariable
+
+Guides: System Functions
+
 Categories: System, Subprocess

@@ -11,10 +11,10 @@ Answer the minute of _aDate_.
 
 * * *
 
-See also: asDate, Date, hour, month, parseDate, year
+See also: asDate, Date, hour, month, parseDate, second, year
 
 References:
 _Smalltalk_
 5.8.1.18
 
-Categories: Time, Type
+Categories: Accessing, Time, Type

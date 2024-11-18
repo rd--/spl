@@ -23,4 +23,4 @@ Else convert a _aTimeStamp_ to an equivalent `Date`, or answer _aDate_.
 
 See also: Date, Duration, iso8601, TimeStamp
 
-Categories: Time, Type
+Categories: Converting, Time

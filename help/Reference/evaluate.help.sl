@@ -14,8 +14,10 @@ Compile and execute _aString_ in the context of _aSystem_.
 
 * * *
 
-See also: System
+See also: evaluateNotifying, System
 
 References:
 _Tc39_
 [1](https://tc39.es/ecma262/multipage/global-object.html#sec-eval-x)
+
+Categories: Evaluating

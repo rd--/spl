@@ -51,3 +51,5 @@ See also: benedettiHeight, eulerGradusSuavitatis
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Tenney_height)
+
+Categories: Tuning

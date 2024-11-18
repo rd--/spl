@@ -32,3 +32,5 @@ See also: benedettiHeight, tenneyHeight
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Wilson_height)
+
+Categories: Tuning

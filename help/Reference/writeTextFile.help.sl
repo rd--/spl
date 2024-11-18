@@ -2,7 +2,7 @@
 
 - _writeTextFile(aPath, aString)_
 
-Write _aString_ to the named text file and answer `nil`.
+Write _aString_ to a text file at _aPath_ and answer `nil`.
 Over-writes any existing file.
 Signals an error if the write fails.
 
@@ -12,11 +12,14 @@ nil
 
 >>> '/tmp/spl.text'.readTextFile
 'Sᴘʟ'
+
+>>> '/tmp/spl.text'.removeFile
+nil
 ~~~
 
 * * *
 
-See also: Promise, readTextFile, writeBinaryFile
+See also: makeDirectory, readTextFile, removeFile, writeBinaryFile
 
 Guides: File Functions
 

@@ -77,3 +77,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/EulerPhi.html),
 _OEIS_
 [1](https://oeis.org/A002088)
+
+Categories: Math

@@ -11,4 +11,8 @@ true
 
 * * *
 
+See also: environmentVariable, systemCommand
+
+Guides: System Functions
+
 Categories: System

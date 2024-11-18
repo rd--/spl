@@ -7,10 +7,10 @@ _Environment Variables_:
 
 _Local Host_:
 
+- `currentWorkingDirectory`: current working directory of process
 - `hostName`: name of local host
 - `instructionSetArchitecture`: instruction set architecture of local host
 - `operatingSystem`: operating system of local host
-- `currentWorkingDirectory`: current working directory of process
 
 _Subprocess_:
 
@@ -19,3 +19,5 @@ _Subprocess_:
 * * *
 
 Guides: File Functions, Network Functions
+
+Categories: System

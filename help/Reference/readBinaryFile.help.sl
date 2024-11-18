@@ -22,7 +22,7 @@ however it should answer equivalently:
 
 * * *
 
-See also: fetchByteArray, Promise, readTextFile, writeBinaryFile
+See also: fetchByteArray, readTextFile, writeBinaryFile
 
 Guides: File Functions
 

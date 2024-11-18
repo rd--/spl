@@ -25,4 +25,6 @@ The `hostName` does not include the port number:
 
 See also: fragment, host, href, pathName, port, protocol, query, Url
 
-Categories: Network
+Guides: Network Functions, System Functions
+
+Categories: Network, System

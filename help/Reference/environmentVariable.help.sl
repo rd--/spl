@@ -23,4 +23,8 @@ Read _EDITOR_:
 
 * * *
 
+See also: environmentVariables
+
+Guides: System Functions
+
 Categories: System

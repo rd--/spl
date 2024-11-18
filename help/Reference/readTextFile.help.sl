@@ -22,8 +22,8 @@ however it should answer equivalently:
 
 * * *
 
-See also: fetchText, Promise, readBinaryFile, writeTextFile
+See also: fetchText, readBinaryFile, writeTextFile
 
 Guides: File Functions
 
-Categories: Files
+Categories: Files, System

@@ -12,6 +12,10 @@ _Hsv_ is a cylindrical-coordinate representation of points in an _Rgb_ color mod
 
 * * *
 
+See also: Colour, hue
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/HSL_and_HSV)
+
+Categories: Converting, Colour

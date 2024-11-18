@@ -64,6 +64,10 @@
 
 Error! : [Object, Exception, PrimitiveError] {
 
+	printString { :self |
+		'*ERROR* ' ++ self.description
+	}
+
 	storeString { :self |
 		'Error(\'' ++ self.messageText ++ '\')'
 	}

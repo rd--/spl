@@ -4,6 +4,10 @@
 		<primitive: return host.fileInformationSync(_self);>
 	}
 
+	makeDirectory { :self :allowRecursive :fileMode |
+		<primitive: return host.makeDirectorySync(_self, _allowRecursive, _fileMode);>
+	}
+
 	modificationTime { :self |
 		<primitive: return host.modificationTimeSync(_self);>
 	}
@@ -28,6 +32,14 @@
 
 	readTextFile { :self |
 		<primitive: return host.readTextFileSync(_self);>
+	}
+
+	removeDirectory { :self :recursive |
+		<primitive: return host.removeDirectorySync(_self, _recursive);>
+	}
+
+	removeFile { :self |
+		<primitive: return host.removeFileSync(_self);>
 	}
 
 	writeBinaryFile { :self :aByteArray |

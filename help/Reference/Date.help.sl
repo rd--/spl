@@ -20,7 +20,7 @@ true
 ```
 
 There are methods to access the elements of the date,
-i.e. `year`, `month`, `dayOfMonth`, `hour`, `minute`, `second` &etc.
+i.e. `year`, `month`, `dayOfMonth`, `hour`, `minute`, `second`, `millisecond` &etc.
 
 ```
 >>> let d = 0.asDate;

@@ -44,7 +44,7 @@ url.fetchText.then { :aString |
 
 * * *
 
-See also:
+See also: terseReferenceSummary
 
 Guides: Documentation Tests
 

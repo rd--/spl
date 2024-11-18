@@ -1,19 +1,19 @@
 # File Functions
 
-_Text Files_:
-
-- `readTextFile`: read named text file as String
-- `writeTextFile`: write String to named text file
-
-_Binary Files_:
+_Files_:
 
 - `readBinaryFile`: read named binary file as ByteArray
+- `readTextFile`: read named text file as String
+- `removeFile`: remove named file
 - `writeBinaryFile`: write ByteArray to named binary file
+- `writeTextFile`: write String to named text file
 
 _Directories_:
 
+- `makeDirectory`: make named directory
 - `readDirectory`: read list of entries in named directory
 - `readDirectoryFileNames`: read list of file names in named directory
+- `removeDirectory`: remove named directory
 
 _File Information_:
 
@@ -31,3 +31,5 @@ _File Paths_:
 * * *
 
 Guides: Network Functions, System Functions
+
+Categories: Files, System

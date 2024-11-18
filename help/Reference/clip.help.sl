@@ -67,10 +67,12 @@ Plot the composition of clip with a periodic function:
 
 * * *
 
-See also: max, min, piecewise, rescale, round, tanh, threshold, unitize
+See also: Clip, max, min, piecewise, rescale, round, tanh, threshold, unitize
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Clip.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/clip.html)
+
+Categories: Arithmetic

@@ -16,7 +16,7 @@ function genArityCheck(k: number, a: string): string {
 	return [
 		`if(arguments.length !== ${k}) {`,
 		`const errorMessage = 'Arity: expected ${k}, ${a}';`,
-		'console.error(errorMessage);',
+		'/* console.error(errorMessage); */',
 		'throw new Error(errorMessage);',
 		'}\n',
 	].join(' ');
@@ -856,7 +856,7 @@ export function rewriteStringFor(packageName: string, slText: string): string {
 		return jsText;
 	} catch (err) {
 		context.packageName = '*UnknownPackage*';
-		console.debug('rewriteStringFor', err);
+		// console.debug('rewriteStringFor', err);
 		throw new Error('Rewrite failed', { cause: err });
 	}
 }

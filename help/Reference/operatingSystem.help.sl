@@ -13,4 +13,6 @@ true
 
 See also: instructionSetArchitecture
 
+Guides: System Functions
+
 Categories: System

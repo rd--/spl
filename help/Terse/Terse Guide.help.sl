@@ -777,8 +777,8 @@ true.isInteger.not /* true is not an integer */
 true.isBoolean /* true is a Boolean */
 false.isBoolean /* false is a Boolean */
 true & { false } = false /* logical and (operator) */
-false & { 'false &'.postLine; false } = false
-true | { 'true |'.postLine; true } = true
+false & { false } = false
+true | { true } = true
 false | { true } = true /* logical or (operator) */
 { true & false }.ifError { true } /* & applies the rhs, which must be a block */
 true && true = true /* non-evaluating form of & (requires boolean operand) */
@@ -930,7 +930,7 @@ Clock().typeOf = 'Clock' /* type of clock */
 Clock().isClock /* clock predicate */
 Clock().priorityQueue.isPriorityQueue /* priority queue of clock */
 Clock().priorityQueue.isEmpty /* priority queue is initially empty */
-let c = Clock(); let i = 3; c.schedule(i) { :t | t.postLine; nil }; c.nextEntryTime <= (system.systemTimeInSeconds + i)
+let c = Clock(); let i = 3; c.schedule(i) { :t | nil }; c.nextEntryTime <= (system.systemTimeInSeconds + i)
 let c = Clock(); let i = 3; c.schedule(i) { :t | t.postLine }; c.removeAll; c.nextEntryTime = nil
 ```
 
@@ -2362,8 +2362,6 @@ let z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 }, { 'c' } -> { 3 + 3 } ]; 'b'
 4/3.numerator = 4/3.slotRead('numerator') /* slot read */
 let n = 4/3; n.slotWrite('denominator', 5); n = 4/5 /* slot write */
 1.pi.in { :x | x.rounded + 20 } = 23 /* evaluate block with object */
-1.pi.notify('pi') = 1.pi /* user notification */
-1.pi.warning('pi') = 1.pi /* user warning */
 { 1.pi.error('pi') }.ifError { true } /* user error */
 ```
 
@@ -2555,14 +2553,14 @@ not:/1.iterate(true).next(10) = [true false true false true false true false tru
 ```
 system.includesPackage('Promise') /* package */
 { Promise() }.ifError { true } /* there is no void contructor */
-Error('The reason').rejectedPromise.onRejection { :err | err.messageText.postLine }; true /* construct a rejected promise */
-1.resolvedPromise.then { :n | (n = 1).postLine }; true /* construct a resolved promise */
-let p = Promise { :t:/1 :f | t('t') }; p.then { :t | (t = 't').postLine }; p.isPromise
-let p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }; p.isPromise
-let p = Promise { :t :f:/1 | f('f') }; p.then { :t | t.postLine }.onRejection { :f | (f = 'f').postLine }; p.isPromise
-let p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t.postLine } { :f | (f = 'f').postLine }.finally { 'true'.postLine }; p.isPromise
-let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter((0 -- 0.15).atRandom) } }; [1.f, 2.f, 3.f].anyFulfilled.then { :t | [1, 2, 3].includes(t).postLine }; true
-let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter((0 -- 0.05).atRandom) } }; ['x'.f, 'y'.f, 'z'.f].allFulfilled.then { :t | (t = ['x', 'y', 'z']).postLine }; true
+Error('The reason').rejectedPromise.onRejection { :unused | nil }; true /* construct a rejected promise */
+1.resolvedPromise.then { :n | { n = 1 }.assert }; true /* construct a resolved promise */
+let p = Promise { :t:/1 :f | t('t') }; p.then { :t | { t = 't' }.assert }; p.isPromise
+let p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t } { :f | { f = 'f' }.assert }; p.isPromise
+let p = Promise { :t :f:/1 | f('f') }; p.then { :t | t }.onRejection { :f | { f = 'f' }.assert }; p.isPromise
+let p = Promise { :t :f:/1 | f('f') }; p.thenElse { :t | t } { :f | { f = 'f' }.assert }.finally { { true }.assert }; p.isPromise
+let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter((0 -- 0.15).atRandom) } }; [1.f, 2.f, 3.f].anyFulfilled.then { :t | { [1, 2, 3].includes(t) }.assert }; true
+let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter((0 -- 0.05).atRandom) } }; ['x'.f, 'y'.f, 'z'.f].allFulfilled.then { :t | { t = ['x', 'y', 'z'] }.assert }; true
 ```
 
 ## Pseudo variables
@@ -3851,9 +3849,9 @@ system.categoryDictionary.multiplyCategorized('method').isEmpty /* the set of to
 ## System -- evaluate
 ```
 system.evaluate('3 + 4') = 7 /* evaluate a string */
-system.evaluateNotifying('7.notAMethod') { :err | err.postLine; true } /* provide a block to receiver error notifications */
-system.evaluateNotifying('a syntax error') { :err | err.postLine; true } /* syntax errors likewise */
-system.evaluateNotifying('') { :err | err.postLine; true } /* empty input likewise */
+system.evaluateNotifying('7.notAMethod') { :unused | true } /* provide a block to receiver error notifications */
+system.evaluateNotifying('a syntax error') { :unused | true } /* syntax errors likewise */
+system.evaluateNotifying('') { :err | true } /* empty input likewise */
 ```
 
 ## System -- globalDictionary
@@ -3988,11 +3986,11 @@ system.includesPackage('Url') /* package */
 
 ## System -- fetch
 ```
-'/home/rohan/sw/spl/README.md'.asFileUrl.fetchText.then { :text | (text.size > 0).postLine }; true /* fetch text from file */
-'/home/rohan/sw/spl/README'.asFileUrl.fetchText.onRejection { :err | err.postLine }; true /* file does not exist */
-'file://localhost/home/rohan/sw/spl/README.md'.asUrl.fetchText.then { :text | (text.size > 0).postLine }; true /* fetch text from url (local) */
-'https://rohandrape.net/sw/spl/README.md'.asUrl.fetchText.thenElse { :text | (text.size > 0).postLine } { :err | true }; true /* fetch text from url (remote, allow for no network connection) */
-'file://localhost/home/rohan/sw/spl/sl/SmallKansas/PackageBrowser.sl'.asUrl.fetchText.then { :text | text.parsePackageHeader.includesIndex('Requires').postLine }; true
+'/home/rohan/sw/spl/README.md'.asFileUrl.fetchText.then { :text | { text.size > 0 }.assert }; true /* fetch text from file */
+'/home/rohan/sw/spl/README'.asFileUrl.fetchText.onRejection { :unused | nil }; true /* file does not exist */
+'file://localhost/home/rohan/sw/spl/README.md'.asUrl.fetchText.then { :text | { text.size > 0 }.assert }; true /* fetch text from url (local) */
+'https://rohandrape.net/sw/spl/README.md'.asUrl.fetchText.thenElse { :text | { text.size > 0 }.assert } { :err | true }; true /* fetch text from url (remote, allow for no network connection) */
+'file://localhost/home/rohan/sw/spl/sl/SmallKansas/PackageBrowser.sl'.asUrl.fetchText.then { :text | { text.parsePackageHeader.includesIndex('Requires') }.assert }; true
 ```
 
 ## System -- UrlQueryParameters
@@ -4008,7 +4006,7 @@ system.includesPackage('UrlQueryParameters') /* package */
 'x=a&x=b&x=c'.asUrlQueryParameters.values = ['a' 'b' 'c'] /* values */
 let p = 'x=3.141&y=23&z=pi'; p.asUrlQueryParameters.asString = p /* as search string */
 'z=a&y=b&x=c'.asUrlQueryParameters.associations = ['z' -> 'a', 'y' -> 'b', 'x' -> 'c']
-let p = 'z=a&y=b&x=c'.asUrlQueryParameters; p.sort = p & { p.associations = ['x' -> 'c', 'y' -> 'b', 'z' -> 'a'] }
+let p = 'z=a&y=b&x=c'.asUrlQueryParameters; p.sort = nil & { p.associations = ['x' -> 'c', 'y' -> 'b', 'z' -> 'a'] }
 let p = 'x=a&y=b'.asUrlQueryParameters; p.add('z' -> 'c'); p.associations = ['x' -> 'a', 'y' -> 'b', 'z' -> 'c']
 let p = 'x=a&y=b'.asUrlQueryParameters; p::x := 'c'; p.associations = ['x' -> 'c', 'y' -> 'b']
 'x=a&y=b&x=c'.asUrlQueryParameters.atAllEntries('x') = ['a' 'c']

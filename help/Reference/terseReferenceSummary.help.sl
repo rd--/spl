@@ -8,4 +8,8 @@ evaluate each and summarise the results.
 
 * * *
 
-See also: Documentation Tests, terseGuideSummary
+See also: HelpFile, terseGuideSummary
+
+Guides: Documentation Tests
+
+Categories: Help
