@@ -189,8 +189,10 @@
 
 ## Environment
 
-- `instructionSetArchitecture`, `operatingSystem`
-- `environmentVariable`,
+- `hostName`, `instructionSetArchitecture`, `operatingSystem`
+- `currentWorkingDirectory`
+- `environmentVariable`, `environmentVariables`
+- `systemCommand`
 
 ## Equality Testing
 
@@ -218,6 +220,18 @@
 - `log`, `log2`, `log10`
 - `^`, `exp`, `squared`
 - `cubeRoot`, `sqrt`, `nthRoot`
+
+## File Path
+
+- `pathDirectory`, `pathExtension`, `pathNormalize`
+- `pathIsAbsolute`
+- `pathJoin`
+
+## File System
+
+- `readTextFile`, `writeTextFile`
+- `readBinaryFile`, `writeBinaryFile`
+- `readDirectory`, `readDirectoryFileNames`
 
 ## Floating Point
 

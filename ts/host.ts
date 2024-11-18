@@ -1,50 +1,67 @@
-export function exit(code: number): never {
-	return Deno.exit(code);
-}
-
-export function getArch(): string {
-	return Deno.build.arch;
-}
-
-export function getCwd(): string {
+export function currentWorkingDirectory(): string {
 	return Deno.cwd();
 }
 
-export function getEnv(variableName: string): string | null {
+export function environmentVariableGet(variableName: string): string | null {
 	return Deno.env.get(variableName) || null;
 }
 
-export function setEnv(variableName: string, variableValue: string): null {
+export function environmentVariableSet(variableName: string, variableValue: string): null {
 	Deno.env.set(variableName, variableValue);
 	return null;
 }
 
-export function getEnviron(): Record<string, string> {
+export function environmentVariables(): Record<string, string> {
 	return Deno.env.toObject();
 }
 
-export function getHostname(): string {
+export function exit(code: number): never {
+	return Deno.exit(code);
+}
+
+export function fileInformationAsync(path: string | URL): Promise<Deno.FileInfo> {
+	return Deno.stat(path);
+}
+
+export function fileInformationSync(path: string | URL): Deno.FileInfo {
+	return Deno.statSync(path);
+}
+
+export function hostName(): string {
 	return Deno.hostname();
 }
 
-export function getOs(): string {
+export function instructionSetArchitecture(): string {
+	return Deno.build.arch;
+}
+
+export function modificationTimeSync(path: string | URL): number {
+	try {
+		const info = Deno.statSync(path);
+		return info.mtime ? info.mtime.getTime() : 0;
+	} catch(_) {
+		return 0;
+	}
+}
+
+export function operatingSystem(): string {
 	return Deno.build.os;
 }
 
-export function readBinaryFile(path: string | URL): Promise<Uint8Array> {
+export function readBinaryFileAsync(path: string | URL): Promise<Uint8Array> {
 	return Deno.readFile(path);
 }
 
-export function readTextFile(path: string | URL): Promise<string> {
+export function readBinaryFileSync(path: string | URL): Uint8Array {
+	return Deno.readFileSync(path);
+}
+
+export function readTextFileAsync(path: string | URL): Promise<string> {
 	return Deno.readTextFile(path);
 }
 
-export async function statMtime(path: string | URL): Promise<number> {
-	return await Deno.stat(path).then(function (result) {
-		return result.mtime ? result.mtime.getTime() : 0;
-	}, function (_reason) {
-		return 0;
-	});
+export function readTextFileSync(path: string | URL): string {
+	return Deno.readTextFileSync(path);
 }
 
 export function systemCommand(
@@ -62,39 +79,66 @@ export function systemCommand(
 	});
 }
 
-export function writeBinaryFile(
+export function writeBinaryFileAsync(
 	path: string | URL,
 	data: Uint8Array,
 ): Promise<void> {
 	return Deno.writeFile(path, data);
 }
 
-export function writeTextFile(
+export function writeBinaryFileSync(
+	path: string | URL,
+	data: Uint8Array,
+): void {
+	return Deno.writeFileSync(path, data);
+}
+
+export function writeTextFileAsync(
 	path: string | URL,
 	data: string,
 ): Promise<void> {
 	return Deno.writeTextFile(path, data);
 }
 
-export async function readDirectoryFileNames(
+export function writeTextFileSync(
 	path: string | URL,
-): Promise<string[]> {
-	const fileNameArray: string[] = [];
-	for await (const dirEntry of Deno.readDir(path)) {
-		// console.debug('readDirectoryFileNames', dirEntry.name);
-		if (dirEntry.isFile) {
-			fileNameArray.push(path + '/' + dirEntry.name);
-		}
-	}
-	return fileNameArray;
+	data: string,
+): void {
+	return Deno.writeTextFileSync(path, data);
 }
 
-export function readTextFileArray(pathArray: string[]): Promise<string[]> {
+export async function readDirectoryAsync(
+	path: string | URL,
+): Promise<Deno.DirEntry[]> {
+	const answer: Deno.DirEntry[] = [];
+	for await (const dirEntry of Deno.readDir(path)) {
+		answer.push(dirEntry);
+	}
+	return answer;
+}
+
+export function readDirectorySync(
+	path: string | URL,
+): Deno.DirEntry[] {
+	const answer: Deno.DirEntry[] = [];
+	for (const dirEntry of Deno.readDirSync(path)) {
+		answer.push(dirEntry);
+	}
+	return answer;
+}
+
+export function readTextFileArrayAsync(pathArray: string[]): Promise<string[]> {
 	return Promise.all(
 		pathArray.map(function (path: string): Promise<string> {
 			return Deno.readTextFile(path);
 		}),
 	);
+}
+
+export function readTextFileArraySync(pathArray: string[]): string[] {
+	return pathArray.map(function (path: string): string {
+		return Deno.readTextFileSync(path);
+	});
 }
 
 /*

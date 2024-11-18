@@ -2,19 +2,22 @@
 
 - _writeBinaryFile(aString | aUrl, aByteArray)_
 
-Answer a `Promise` that will either resolve to a `nil` value,
-or reject with an `Error` value.
+Write _aByteArray_ to the named file and answer `nil`.
+Over-writes any existing file.
+Signals an error if the write fails.
 
-~~~
-'/tmp/spl.binary'.writeBinaryFile(1:9.asByteArray).then { :unused |
-	'Write completed'.postLine
-}
-~~~
+```
+>>> '/tmp/spl.binary'.writeBinaryFile(1:9.asByteArray)
+nil
+
+>>> '/tmp/spl.binary'.readBinaryFile
+1:9.asByteArray
+```
 
 * * *
 
 See also: Promise, readBinaryFile, writeTextFile
 
-Guides: File System Functions
+Guides: File Functions
 
 Categories: Files

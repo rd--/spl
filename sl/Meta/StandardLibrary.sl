@@ -94,6 +94,7 @@
 	'Event'
 	'EventTarget'
 	'File' /* Blob */
+	'FilePath'
 	'FileSystem'
 	'Headers'
 	'LibraryItem'

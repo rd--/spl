@@ -41,4 +41,4 @@ _Types & Traits_:
 
 * * *
 
-Guides: File System Functions
+Guides: File Functions

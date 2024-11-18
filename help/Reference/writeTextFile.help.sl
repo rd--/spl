@@ -1,21 +1,23 @@
 # writeTextFile
 
-- _writeTextFile(aString | aUrl, aString)_
+- _writeTextFile(aPath, aString)_
 
-Write _aString_ to the named file.
-Answer a `Promise` that will either resolve to a `nil` value,
-or reject with an `Error` value.
+Write _aString_ to the named text file and answer `nil`.
+Over-writes any existing file.
+Signals an error if the write fails.
 
 ~~~
-'/tmp/spl.text'.writeTextFile('Sᴘʟ').then { :unused |
-	'Write completed'.postLine
-}
+>>> '/tmp/spl.text'.writeTextFile('Sᴘʟ')
+nil
+
+>>> '/tmp/spl.text'.readTextFile
+'Sᴘʟ'
 ~~~
 
 * * *
 
 See also: Promise, readTextFile, writeBinaryFile
 
-Guides: File System Functions
+Guides: File Functions
 
 Categories: Files

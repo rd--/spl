@@ -18,8 +18,8 @@ Only ordinary files are listed, not sub-directories.
 
 * * *
 
-See also: Promise, readBinaryFile, readTextFile
+See also: pathJoin, Promise, readBinaryFile, readDirectory, readTextFile
 
-Guides: File System Functions
+Guides: File Functions
 
 Categories: Files

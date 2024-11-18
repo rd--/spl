@@ -2,18 +2,15 @@
 
 - _readBinaryFile(aString | aUrl)_
 
-Answer a `Promise` that will either resolve to a `ByteArray` holding the contents of the named file,
-or reject with an `Error` value.
+Answer a `ByteArray` holding the contents of the named file.
+Signal an `Error` if the file does not exist.
 
 ~~~
-'/etc/passwd'.readBinaryFile.thenElse { :aByteArray |
-	aByteArray.base64Encoded.postLine
-} { :reason |
-	reason.postLine
-}
+'/etc/passwd'.readBinaryFile.base64Encoded.postLine
 ~~~
 
-This may use a different primitive to `fetch`, however it should answer equivalently:
+This uses a different primitive to `fetch` and is synchronous,
+however it should answer equivalently:
 
 ~~~
 '/etc/passwd'.asFileUrl.fetchByteArray.thenElse { :answer |
@@ -27,6 +24,6 @@ This may use a different primitive to `fetch`, however it should answer equivale
 
 See also: fetchByteArray, Promise, readTextFile, writeBinaryFile
 
-Guides: File System Functions
+Guides: File Functions
 
 Categories: Files

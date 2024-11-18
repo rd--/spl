@@ -1,0 +1,32 @@
+# readDirectory
+
+- _readDirectory(aString | aUrl)_
+
+Answer a `Promise` that will either resolve to a `List` of the entries in the specified directory,
+or reject with an `Error` value.
+
+The entries are given as `Record` values.
+Keys are _name_, _isFile_, _isDirectory_ and _isSymlink_.
+The name is given relative to the specified directory.
+
+Print only the names of sub-directories:
+
+~~~
+'/etc'.readDirectory.thenElse { :answer |
+	answer.select { :each |
+		each::isDirectory
+	}.collect { :each |
+		each::name
+	}.postLine
+} { :reason |
+	reason.postLine
+}
+~~~
+
+* * *
+
+See also: Promise, readBinaryFile, readDirectoryFileNames, readTextFile
+
+Guides: File Functions
+
+Categories: Files

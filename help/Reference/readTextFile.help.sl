@@ -1,19 +1,16 @@
 # readTextFile
 
-- _readTextFile(aString | aUrl)_
+- _readTextFile(aPath)_
 
-Answer a `Promise` that will either resolve to a `String` holding the contents of the named file,
-or reject with an `Error` value.
+Answer a `String` holding the contents of the named file.
+If the file does not exists signal an `Error`.
 
 ~~~
-'/etc/passwd'.readTextFile.thenElse { :answer |
-	answer.postLine
-} { :reason |
-	reason.postLine
-}
+'/etc/passwd'.readTextFile.postLine
 ~~~
 
-This may use a different primitive to `fetch`, however it should answer equivalently:
+This uses a different primitive to `fetch` and is synchronous,
+however it should answer equivalently:
 
 ~~~
 '/etc/passwd'.asFileUrl.fetchText.thenElse { :answer |
@@ -27,6 +24,6 @@ This may use a different primitive to `fetch`, however it should answer equivale
 
 See also: fetchText, Promise, readBinaryFile, writeTextFile
 
-Guides: File System Functions
+Guides: File Functions
 
 Categories: Files

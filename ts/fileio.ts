@@ -9,14 +9,14 @@ export function evaluateFile(
 	packageName: string,
 ): Promise<unknown> {
 	// console.debug(`evaluateFile: ${fileName} ${packageName}`);
-	return host.readTextFile(fileName).then(function (text) {
+	return host.readTextFileAsync(fileName).then(function (text) {
 		return evaluate.evaluateFor(packageName, text);
 	});
 }
 
 export function rewriteFile(fileName: string): Promise<string> {
 	// console.debug(`rewriteFile: ${fileName}`);
-	return host.readTextFile(fileName).then(rewrite.rewriteString);
+	return host.readTextFileAsync(fileName).then(rewrite.rewriteString);
 }
 
 export function primitiveReadLocalBinaryFile(
@@ -24,7 +24,7 @@ export function primitiveReadLocalBinaryFile(
 ): Promise<Uint8Array> {
 	const resolvedFileName = load.resolveFileName(fileName);
 	// console.debug('primitiveReadLocalBinaryFile', fileName, resolvedFileName);
-	return host.readBinaryFile(resolvedFileName);
+	return host.readBinaryFileAsync(resolvedFileName);
 }
 
 // Fetch files asynchronously, store at packageIndex
@@ -41,7 +41,7 @@ export async function primitiveReadLocalPackages(
 	});
 	const fetchedTextArray = await Promise.all(
 		resolvedFileNameArray.map(function (fileName: string) {
-			return host.readTextFile(fileName);
+			return host.readTextFileAsync(fileName);
 		}),
 	);
 	fetchedTextArray.map(function (text, index) {

@@ -2,7 +2,8 @@
 
 - _hostName(aSystem | aUrl)_
 
-At `System` answer the name of the local host.
+At `System`,
+answer the name of the local host.
 
 At `Url`,
 answer a `String` having the name of the `host` subcomponent of _aUrl_.

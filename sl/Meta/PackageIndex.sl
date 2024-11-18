@@ -211,6 +211,7 @@
 	'System-Event'
 	'System-EventTarget'
 	'System-File'
+	'System-FilePath'
 	'System-FileSystem'
 	'System-Headers'
 	'System-LibraryItem'

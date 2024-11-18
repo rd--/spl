@@ -24,12 +24,12 @@ import * as options from './options.ts';
 import * as repl from './repl.ts';
 
 function getSplDirectory(): string {
-	return host.getEnv('SplDirectory') || '?';
+	return host.environmentVariableGet('SplDirectory') || '?';
 }
 
 /*
 function getHomeDirectory(): string {
-	return getEnv('HOME') || '?';
+	return environmentVariableGet('HOME') || '?';
 }
 */
 
@@ -49,7 +49,7 @@ function getSplPreferencesFilename(): string {
 
 async function readSplPreferencesFile(): Promise<string> {
 	const fileName = getSplPreferencesFilename();
-	return await host.readTextFile(fileName).catch(function (err) {
+	return await host.readTextFileAsync(fileName).catch(function (err) {
 		console.error('readSplPreferencesFile', err);
 		return '{}';
 	});
@@ -114,25 +114,25 @@ function pathWithoutAnyExtension(path: string): string {
 	}
 }
 
-async function cacheRewriteFile(slFileName: string): Promise<void> {
+function cacheRewriteFile(slFileName: string): void {
 	const packageName = pathWithoutAnyExtension(pathBasename(slFileName));
 	const jsFileName = '../.cache/' + packageName + '.js';
-	const slMtime = await host.statMtime(slFileName);
-	const jsMtime = await host.statMtime(jsFileName);
+	const slMtime = host.modificationTimeSync(slFileName);
+	const jsMtime = host.modificationTimeSync(jsFileName);
 	if (jsMtime < slMtime) {
-		const slText = await host.readTextFile(slFileName);
+		const slText = host.readTextFileSync(slFileName);
 		console.debug('cacheRewriteFile', slFileName, packageName, jsFileName);
 		const jsText = rewrite.rewriteStringFor(packageName, slText);
-		host.writeTextFile(jsFileName, jsText);
+		host.writeTextFileSync(jsFileName, jsText);
 	}
 }
 
-async function cacheRewriteFileSequence(
+function cacheRewriteFileSequence(
 	fileNameSequence: string[],
-): Promise<void> {
+): void {
 	for (const fileName of fileNameSequence) {
 		// console.debug(`cacheRewriteFileSequence: ${fileName}`);
-		await cacheRewriteFile(fileName);
+		cacheRewriteFile(fileName);
 	}
 }
 
@@ -144,9 +144,9 @@ declare global {
 
 /*
 async function scSynthFromEnv(): Promise<sc.ScSynth> {
-	const protocol: string = host.getEnv('ScProtocol') || 'Tcp';
-	const hostname: string = host.getEnv('ScHostname') || '127.0.0.1';
-	const port: number = Number(host.getEnv('ScPort') || '57110');
+	const protocol: string = host.environmentVariableGet('ScProtocol') || 'Tcp';
+	const hostname: string = host.environmentVariableGet('ScHostname') || '127.0.0.1';
+	const port: number = Number(host.environmentVariableGet('ScPort') || '57110');
 	console.debug('cli: scSynthFromEnv (await)', protocol, hostname, port);
 	if (protocol == 'Tcp') {
 		return await scTcp.ScSynthTcp(hostname, port);
@@ -223,12 +223,12 @@ function scEvalText(splText: string): unknown {
 }
 
 async function scEvalFile(fileName: string): Promise<unknown> {
-	const splText = await host.readTextFile(fileName);
+	const splText = await host.readTextFileAsync(fileName);
 	return scEvalText(splText);
 }
 
 async function scPlayFile(fileName: string): Promise<void> {
-	const splText = await host.readTextFile(fileName);
+	const splText = await host.readTextFileAsync(fileName);
 	scEvalText(`{ ${splText} }.play`);
 }
 
