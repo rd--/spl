@@ -16,3 +16,5 @@ See also: LsWhite
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pbrown.html)
+
+Categories: Stream

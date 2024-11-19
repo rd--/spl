@@ -9,3 +9,5 @@ There are accessors for `picometres`, `millimetres`, `centimetres`, `metres` and
 * * *
 
 See also: Angle, asMetres, Duration, Frequency, metres
+
+Categories: Unit, Type

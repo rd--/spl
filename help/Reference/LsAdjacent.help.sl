@@ -21,3 +21,5 @@ Product of adjacent items:
 * * *
 
 See also: adjacentPairsCollect, adjacentPairsDo, LsDiff
+
+Categories: Stream

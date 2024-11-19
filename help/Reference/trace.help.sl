@@ -56,3 +56,5 @@ See also: diagonal, transposed
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Tr.html)
+
+Categories: Math, Matrix

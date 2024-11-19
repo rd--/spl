@@ -2,7 +2,9 @@
 
 - _eulerMatrix([alpha, beta, gamma])_
 
-Answer the Euler rotation matrix formed by rotating by _α_ around the _z_-axis, then by β around the _y_-axis, and then by γ around the current _z_-axis.
+Answer the Euler rotation matrix formed by rotating by _α_ around the _z_-axis,
+then by β around the _y_-axis,
+and then by γ around the current _z_-axis.
 
 Rotate a vector:
 
@@ -38,4 +40,4 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/RotationMatrix.html)
 [3](https://reference.wolfram.com/language/ref/EulerMatrix.html)
 
-Categories: Geometry
+Categories: Geometry, Matrix

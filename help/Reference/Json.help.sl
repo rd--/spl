@@ -12,3 +12,5 @@ See also: Boolean, isJson, json, List, parseJson, Nil, Record, SmallFloat, Strin
 References:
 _Json_
 [1](https://www.json.org/json-en.html)
+
+Categories: Protocol, Trait

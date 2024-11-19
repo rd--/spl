@@ -86,8 +86,12 @@ Solve a system that has four equations and four unknowns:
 
 * * *
 
+See also: conjugateGradientMethod
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CramersRule.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Cramer%27s_rule)
+
+Categories: Solver

@@ -14,3 +14,5 @@ LsAt(l, LsIBrown(1, l.size, 2, 99)).upToEnd.linePlot
 * * *
 
 See also: LsAtFold, LsAtWrap
+
+Categories: Stream

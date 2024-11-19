@@ -9,3 +9,5 @@ When a program is _evaluated_, the `SmallProgram` is made read only, and a new p
 * * *
 
 See also: SmallKansas, SmallProgram, Workspace
+
+Categories: Kansas

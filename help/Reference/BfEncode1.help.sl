@@ -57,4 +57,4 @@ References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/BFEncode1.html)
 
-Categories: Panning
+Categories: Ugen, Panning

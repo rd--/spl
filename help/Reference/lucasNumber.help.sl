@@ -41,7 +41,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: fibonacci
+See also: fibonacci, lucasNumbers
 
 References:
 _Mathematica_
@@ -51,3 +51,5 @@ _OEIS_
 [1](https://oeis.org/A000032),
 _W_
 [1](https://en.wikipedia.org/wiki/Lucas_number)
+
+Categories: Math, Function, Sequence

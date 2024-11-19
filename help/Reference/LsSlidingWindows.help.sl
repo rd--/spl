@@ -28,3 +28,5 @@ This is the stream equivalent of `partition`.
 * * *
 
 See also: partition, windowedReduce
+
+Categories: Stream

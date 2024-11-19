@@ -33,4 +33,4 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Taxicab_geometry)
 
-Categories: Geometry
+Categories: Distance, Geometry

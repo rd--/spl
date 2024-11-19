@@ -65,3 +65,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Correlation.html)
 [2](https://reference.wolfram.com/language/ref/Correlation.html)
+
+Categories: Statistics

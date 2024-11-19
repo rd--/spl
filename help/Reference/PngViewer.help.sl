@@ -24,3 +24,5 @@ See also: ImageViewer, SmallKansas, SvgViewer
 References:
 _W3c_
 [1](https://www.w3.org/TR/2003/REC-PNG-20031110/)
+
+Categories: Kansas

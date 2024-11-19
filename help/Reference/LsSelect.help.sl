@@ -12,3 +12,5 @@ Answer a stream that skips over items from α that do not answer true for the pr
 * * *
 
 See also: LsCollect, LsReject
+
+Categories: Stream

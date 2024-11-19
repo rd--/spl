@@ -23,3 +23,5 @@ See also: brayCurtisDistance, canberraDistance, euclideanDistance, editDistance,
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BrayCurtisDistance.html)
+
+Categories: Distance

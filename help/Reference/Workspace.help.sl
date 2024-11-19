@@ -9,3 +9,5 @@ such as _Do It_ and _Print It_ and so on.
 * * *
 
 See also: Notebook, SmallKansas, SmallProgram
+
+Categories: Kansas

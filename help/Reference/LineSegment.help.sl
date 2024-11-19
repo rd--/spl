@@ -53,3 +53,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Line.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Line_segment)
+
+Categories: Geometry

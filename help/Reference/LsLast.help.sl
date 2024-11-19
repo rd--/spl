@@ -13,3 +13,5 @@ There is no last element of an infinite Stream.
 * * *
 
 See also: last
+
+Categories: Stream

@@ -19,3 +19,5 @@ where _(rho, phi)_ is the polar coordinate on the _x/y_ plane and _z_ is Cartesi
 * * *
 
 See also: CylindricalCoordinates, fromCylindricalCoordinates
+
+Categories: Converting, Geometry

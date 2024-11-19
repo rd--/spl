@@ -17,8 +17,13 @@ Answer the _n×n_ Hilbert matrix with elements of the form _1 / (i + j - 1)_.
 
 * * *
 
+See also: toeplitzMatrix
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HilbertMatrix.html)
+[2](https://reference.wolfram.com/language/ref/HilbertMatrix.html),
 _W_
 [1](https://reference.wolfram.com/language/ref/HilbertMatrix.html)
+
+Categories: Math, Matrix

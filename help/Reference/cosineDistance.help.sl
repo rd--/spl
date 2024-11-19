@@ -24,4 +24,4 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CosineDistance.html),
 
-Categories: Geometry
+Categories: Distance, Geometry

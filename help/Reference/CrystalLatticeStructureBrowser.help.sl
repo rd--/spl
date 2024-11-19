@@ -1,6 +1,6 @@
 # CrystalLatticeStructureBrowser
 
-The _CrystalLatticeStructureBrowser_ is a one column _ColumnBrowser_.
+The `CrystalLatticeStructureBrowser` is a one column `ColumnBrowser`.
 
 The single column shows the names of the crytsal lattice structures from the Leitner collection.
 
@@ -29,4 +29,6 @@ Chinese projection:
 
 * * *
 
-Categories: SmallKansas
+See also: ColumnBrowser
+
+Categories: Kansas

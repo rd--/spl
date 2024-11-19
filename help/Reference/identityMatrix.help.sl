@@ -71,4 +71,4 @@ _Mathematica_
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/eye.html)
 
-Categories: Collection, Matrices
+Categories: Math, Matrix

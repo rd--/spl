@@ -12,3 +12,5 @@ At each step answer _atWrap_ of _indices_ into _list_.
 * * *
 
 See also: LsAt, LsAtWrap
+
+Categories: Stream

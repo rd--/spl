@@ -6,4 +6,6 @@ Selecting a `Frame` brings it to the front of the viewing plane.
 
 * * *
 
-See also: Frame, SmallKansas
+See also: Frame, Menu, SmallKansas
+
+Categories: Kansas

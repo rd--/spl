@@ -23,3 +23,5 @@ The _size_ value may be a stream:
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pclump.html)
+
+Categories: Stream

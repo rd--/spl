@@ -23,3 +23,5 @@ See also: LsCat, LsN, LsSer
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pseq.html)
+
+Categories: Stream

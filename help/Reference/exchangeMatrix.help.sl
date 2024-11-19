@@ -91,3 +91,5 @@ See also: antidiagonalMatrix, diagonalMatrix, identityMatrix, kroneckerDelta, un
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Exchange_matrix)
+
+Categories: Math, Matrix

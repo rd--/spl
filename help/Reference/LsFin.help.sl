@@ -23,3 +23,5 @@ See also: LsTake
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pfin.html)
+
+Categories: Stream

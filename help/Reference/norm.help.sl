@@ -91,3 +91,5 @@ _Mathematica_
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/norm.html)
 [2](https://mathworks.com/help/matlab/ref/vecnorm.html)
+
+Categories: Math, Vector

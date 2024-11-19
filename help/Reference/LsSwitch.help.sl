@@ -34,3 +34,5 @@ See also: LsSwitch1
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pswitch.html)
+
+Categories: Stream

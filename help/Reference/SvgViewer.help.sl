@@ -68,3 +68,5 @@ system.smallKansas.SvgViewer('Circle and Line', svg)
 * * *
 
 See also: PngViewer, SmallKansas
+
+Categories: Kansas

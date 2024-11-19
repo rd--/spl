@@ -44,4 +44,4 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Euclidean_distance)
 
-Categories: Geometry
+Categories: Distance, Geometry

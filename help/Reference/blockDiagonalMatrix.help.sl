@@ -74,6 +74,8 @@ A 7×7 block diagonal matrix of 2×2, 3×2 and 2×3 submatrices:
 
 * * *
 
+See also: diagonalMatrix
+
 References:
 _Julia_
 [1](https://docs.julialang.org/en/v1/base/arrays/#Base.cat),
@@ -81,3 +83,5 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BlockDiagonalMatrix.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/blkdiag.html)
+
+Categories: Math, Matrix

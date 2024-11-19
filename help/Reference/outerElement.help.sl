@@ -6,4 +6,4 @@
 
 See also: Frame, SmallKansas, View
 
-Categories: Small Kansas
+Categories: Kansas

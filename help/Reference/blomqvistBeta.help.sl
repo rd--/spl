@@ -5,9 +5,9 @@
 Answer Blomqvist’s medial correlation coefficient β for the vectors _v_ and _w_.
 
 ```
->>> let p = [-20, -24, 0, 4, 24, 36, -12, -12, 56, -14];
->>> let q = [3, -4, 1, 4, 22, 17, -2, 2, 13, -11];
->>> let r = [-20, -21, 1, 7, 24, 36, -10, -12, 56, -14];
+>>> let p = [-20 -24 0 4 24 36 -12 -12 56 -14];
+>>> let q = [3 -4 1 4 22 17 -2 2 13 -11];
+>>> let r = [-20 -21 1 7 24 36 -10 -12 56 -14];
 >>> (p.blomqvistBeta(q), q.blomqvistBeta(r))
 (3/5, 3/5)
 ```
@@ -27,3 +27,5 @@ See also: correlation
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BlomqvistBeta.html)
+
+Categories: Statistics

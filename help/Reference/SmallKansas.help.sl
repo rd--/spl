@@ -7,4 +7,4 @@ It is modelled on the Smalltalk-80 system and runs inside a _Web Browser_.
 
 See also: SmallKansan
 
-Categories: Small Kansas
+Categories: Kansas

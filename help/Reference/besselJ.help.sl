@@ -40,6 +40,12 @@ Plot _J0_ for _(-1, 9)_, showing the first three zero crossings:
 (-1 -- 9).functionPlot { :x | 0.besselJ(x) }
 ~~~
 
+Plot _J1_ for _(0, 15)_, showing the first four zero crossings:
+
+~~~
+(0 -- 15).functionPlot { :x | 1.besselJ(x) }
+~~~
+
 Plot the intensity of the Fraunhofer diffraction pattern of a circular aperture versus diffraction angle:
 
 ~~~
@@ -56,3 +62,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/BesselJ.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Bessel_function)
+
+Categories: Math

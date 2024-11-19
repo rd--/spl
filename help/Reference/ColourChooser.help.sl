@@ -7,3 +7,5 @@ When opened from the _WorldMenu_ it changes the background colour of _SmallKansa
 * * *
 
 See also: SmallKansas, WorldMenu
+
+Categories: Kansas

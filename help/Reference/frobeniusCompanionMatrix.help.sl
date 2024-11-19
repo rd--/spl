@@ -27,3 +27,5 @@ See also: sylvesterMatrix, toeplitzMatrix
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Companion_matrix)
+
+Categories: Math, Matrix

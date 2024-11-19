@@ -35,10 +35,12 @@ Calculate the `centroid`:
 
 * * *
 
-See also: Circle
+See also: Circle, Polygon, Triangle
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Rectangle.html)
 [2](https://mathworld.wolfram.com/Square.html)
 [3](https://reference.wolfram.com/language/ref/Rectangle.html)
+
+Categories: Geometry

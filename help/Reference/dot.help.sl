@@ -266,3 +266,5 @@ _Mathematica_
 [3](https://reference.wolfram.com/language/ref/Dot.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/mtimes.html)
+
+Categories: Math

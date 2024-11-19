@@ -70,4 +70,4 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DiskMatrix.html)
 
-Categories: Matrices
+Categories: Math, Matrix

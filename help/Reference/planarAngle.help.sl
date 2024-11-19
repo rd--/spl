@@ -85,3 +85,5 @@ See also: anglePath, dot, vectorAngle
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PlanarAngle.html)
+
+Categories: Geometry

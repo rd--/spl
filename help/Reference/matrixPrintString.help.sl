@@ -47,4 +47,4 @@ Of `Complex` matrix:
 
 See also: Matrix, printString, storeString
 
-Categories: Printing
+Categories: Printing, Matrix

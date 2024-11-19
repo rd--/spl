@@ -16,3 +16,5 @@ See also: adjacentPairsCollect, adjacentPairsDo, LsAdjacent
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pdiff.html)
+
+Categories: Stream

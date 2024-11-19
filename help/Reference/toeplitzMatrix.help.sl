@@ -30,8 +30,12 @@ Answer the _n×n_ Toeplitz matrix with elements of the form _1 / (i + j - 1)_.
 
 * * *
 
+See also: circulantMatrix, hilbertMatrix
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ToeplitzMatrix.html)
 _W_
 [1](https://reference.wolfram.com/language/ref/ToeplitzMatrix.html)
+
+Categories: Math, Matrix

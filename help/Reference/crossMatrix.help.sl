@@ -64,4 +64,4 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CrossMatrix.html)
 
-Categories: Matrices
+Categories: Math, Matrix

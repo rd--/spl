@@ -164,3 +164,5 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/qr.html),
 _W_
 [1](https://en.wikipedia.org/wiki/QR_decomposition)
+
+Categories: Math, Matrix

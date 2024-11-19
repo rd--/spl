@@ -1,9 +1,9 @@
 # ImageViewer
 
-- _ImageViewer(smallKansas, title, url)_
+- _ImageViewer(smallKansas, title, aUrl)_
 
 A image viewer.
-Add a window to _smallKansas_ with the given _title_ displaying the image at _url_.
+Add a window to _smallKansas_ with the given _title_ displaying the image at _aUrl_.
 
 Fetch a Png file, and display by creating an object Url:
 
@@ -47,3 +47,5 @@ system.smallKansas.ImageViewer(
 * * *
 
 See also: PngViewer, SmallKansas, SvgViewer
+
+Categories: Kansas

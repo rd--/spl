@@ -45,3 +45,5 @@ _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3663.htm)
 _W_
 [1](https://en.wikipedia.org/wiki/Cauchy_distribution)
+
+Categories: Random

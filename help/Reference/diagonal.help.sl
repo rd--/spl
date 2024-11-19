@@ -85,3 +85,5 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Diagonal.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/diag.html)
+
+Categories: Math, Matrix

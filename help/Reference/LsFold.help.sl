@@ -18,3 +18,5 @@ Answer the last element of an LsScan.
 * * *
 
 See also: LsLast, LsScan, LsUnfold
+
+Categories: Stream

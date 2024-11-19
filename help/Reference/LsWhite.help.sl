@@ -25,3 +25,5 @@ See also: LsBrown, LsRand
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pwhite.html)
+
+Categories: Stream

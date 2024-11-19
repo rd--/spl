@@ -60,3 +60,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Matrix.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Matrix_(mathematics))
+
+Categories: Collection, Type

@@ -12,3 +12,5 @@ There is a context menu attached to the title bar that allows making the menu ei
 * * *
 
 See also: Frame, MenuItem, SmallKansas
+
+Categories: Kansas

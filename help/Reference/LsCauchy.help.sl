@@ -15,3 +15,5 @@ See also: LsBeta
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pcauchy.html)
+
+Categories: Stream

@@ -16,4 +16,4 @@ false
 
 See also: isMatrix, isVector
 
-Categories: Testing
+Categories: Testing, Matrix

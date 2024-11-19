@@ -46,3 +46,5 @@ See also: absArg, arcTan, norm, toSphericalCoordinates
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ToPolarCoordinates.html)
+
+Categories: Converting, Geometry

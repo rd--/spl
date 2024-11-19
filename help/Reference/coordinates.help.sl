@@ -36,6 +36,10 @@ c
 
 * * *
 
+See also: Polygon, Rectangle, Triangle
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PolygonCoordinates.html)
+
+Categories: Geometry

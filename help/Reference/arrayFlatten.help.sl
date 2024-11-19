@@ -60,3 +60,5 @@ See also: ++, arrayReduce, concatenation, flatten, isArray, join, kroneckerProdu
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ArrayFlatten.html)
+
+Categories: Math, Matrix

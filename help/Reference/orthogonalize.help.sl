@@ -115,3 +115,5 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/orth.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process)
+
+Categories: Math, Vector

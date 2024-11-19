@@ -68,3 +68,5 @@ See also: arcTan, norm, fromPolarCoordinates, SphericalCoordinates, toSphericalC
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FromSphericalCoordinates.html)
+
+Categories: Converting, Geometry

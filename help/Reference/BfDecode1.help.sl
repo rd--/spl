@@ -44,8 +44,10 @@ BfDecode1(
 
 * * *
 
+See also: BfEncode1
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/BFDecode1.html)
 
-Categories: Panning
+Categories: Ugen, Panning

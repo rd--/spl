@@ -16,3 +16,4 @@ system.smallKansas.TableViewer(
 
 See also: PngViewer, SmallKansas, SvgViewer
 
+Categories: Kansas

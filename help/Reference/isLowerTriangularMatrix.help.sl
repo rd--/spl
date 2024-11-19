@@ -85,4 +85,4 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Triangular_matrix)
 
-Categories: Testing, Collection
+Categories: Testing, Matrix, Collection

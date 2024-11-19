@@ -31,3 +31,5 @@ See also: atRandom, BlockStream, LsXRand, LsWhite
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Prand.html)
+
+Categories: Stream

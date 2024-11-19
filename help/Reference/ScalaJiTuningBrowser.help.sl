@@ -2,7 +2,7 @@
 
 Tuning browser.
 
-A _ColumnBrowser_ on the just-intonation tunings subset of the _Scala_ scale database.
+A `ColumnBrowser` on the just-intonation tunings subset of the _Scala_ scale database.
 
 The browser is organised by degree and limit.
 
@@ -11,3 +11,9 @@ The browser is organised by degree and limit.
 		let ji = answer.collect(JiTuning:/1);
 		sk.addFrame(ScalaJiTuningBrowser(sk, ji), nil)
 	}
+
+* * *
+
+See also: JiTuning, SmallKansas
+
+Categories: Kansas

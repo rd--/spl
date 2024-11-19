@@ -80,3 +80,5 @@ See also: adjacencyMatrix, norm, outer
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DistanceMatrix.html)
+
+Categories: Math, Matrix

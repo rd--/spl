@@ -23,3 +23,5 @@ See also: drop, LsTake
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pdrop.html)
+
+Categories: Stream

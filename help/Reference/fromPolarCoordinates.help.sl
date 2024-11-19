@@ -32,3 +32,5 @@ See also: PolarCoordinates, toPolarCoordinates, fromSphericalCoordinates
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FromPolarCoordinates.html)
+
+Categories: Converting, Geometry

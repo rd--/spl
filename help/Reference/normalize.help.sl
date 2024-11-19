@@ -49,4 +49,4 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Normalize.html)
 
-Categories: Vector
+Categories: Math, Vector

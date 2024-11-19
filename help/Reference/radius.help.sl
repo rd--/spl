@@ -14,3 +14,5 @@ Another name for `r`:
 See also: r, rho
 
 Guides: Geometry Types
+
+Categories: Accessing, Geometry

@@ -52,7 +52,7 @@ fileList.select { :each |
 }.do { :each |
 	let text = each.readTextFile;
 	let help = HelpFile(each.asFileUrl, text);
-	help.seeAlso.isEmpty.ifTrue {
+	help.categories.isEmpty.ifTrue {
 		each.asFileUrl.fileName.postLine
 	}
 };

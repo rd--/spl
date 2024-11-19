@@ -9,3 +9,5 @@ DigitalClock().openIn(system.smallKansas, nil)
 * * *
 
 See also: AnalogueClock, SmallKansas
+
+Categories: Kansas

@@ -24,3 +24,5 @@ See also: LsRand, LsRemDup
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pxrand.html)
+
+Categories: Stream

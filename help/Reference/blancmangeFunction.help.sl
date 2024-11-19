@@ -34,3 +34,4 @@ _W_
 
 Further Reading: Takagi 1901
 
+Categories: Math, Function

@@ -19,3 +19,5 @@ where _(ρ,φ)_ is the polar coordinate on the _x/y_ plane and _z_ is Cartesian 
 * * *
 
 See also: CylindricalCoordinates, toCylindricalCoordinates
+
+Categories: Converting, Geometry

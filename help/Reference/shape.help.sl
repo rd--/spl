@@ -113,3 +113,5 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/size.html)
 
 Unicode: U+2374 ⍴ Apl Functional Symbol Rho
+
+Categories: Math, Array

@@ -76,3 +76,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Abscissa.html)
 [2](https://mathworld.wolfram.com/x-Axis.html)
+
+Categories: Accessing, Geometry

@@ -18,3 +18,5 @@ See also: r, radius
 Guides: Geometry Types
 
 Unicode: U+03C1 ρ Greek Small Letter Rho
+
+Categories: Accessing, Geometry

@@ -22,3 +22,5 @@ See also: LsDupEach
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pclutch.html)
+
+Categories: Stream

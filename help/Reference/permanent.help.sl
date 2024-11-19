@@ -129,3 +129,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Permanent.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Permanent_(mathematics))
+
+Categories: Math, Matrix

@@ -98,3 +98,5 @@ See also: Matrix, reversed, transposed
 References:
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/rot90.html)
+
+Categories: Math, Matrix

@@ -42,3 +42,5 @@ See also: dot
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/MatrixPower.html)
+
+Categories: Math, Matrix

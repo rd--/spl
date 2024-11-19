@@ -51,3 +51,5 @@ Guides: Geometry Types
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/z-Axis.html)
+
+Categories: Accessing, Geometry

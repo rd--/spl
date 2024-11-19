@@ -20,6 +20,8 @@ Calculate the flattened _outer product_ (⊗) of two vectors.
 
 * * *
 
+See also: *, cross, dot, withCollectCrossed
+
 Unicode: ⊗ U+2297 Circled Times
 
 Categories: Arithmetic

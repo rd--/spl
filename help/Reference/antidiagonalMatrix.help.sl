@@ -26,3 +26,5 @@ See also: antidiagonal, diagonal, diagonalMatrix, exchangeMatrix, identityMatrix
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Anti-diagonal_matrix)
+
+Categories: Math, Matrix

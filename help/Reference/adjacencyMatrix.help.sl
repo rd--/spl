@@ -137,4 +137,4 @@ _Sage_
 _W_
 [1](https://en.wikipedia.org/wiki/Adjacency_matrix)
 
-Categories: Collection
+Categories: Collection, Graph, Matrix

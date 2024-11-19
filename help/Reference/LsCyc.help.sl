@@ -12,3 +12,5 @@ Infinite _LsSeq_.
 * * *
 
 See also: LsSeq
+
+Categories: Stream

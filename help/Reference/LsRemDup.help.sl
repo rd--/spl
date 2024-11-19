@@ -12,3 +12,5 @@ Remove successive duplicates from _input_.
 * * *
 
 See also: LsDupEach
+
+Categories: Stream

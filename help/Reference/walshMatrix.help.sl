@@ -81,3 +81,5 @@ _Mathworks_
 [3](https://mathworks.com/help/signal/ug/discrete-walsh-hadamard-transform.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Walsh_matrix)
+
+Categories: Math, Matrix

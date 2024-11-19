@@ -47,3 +47,5 @@ _W_
 [1](https://en.wikipedia.org/wiki/Weierstrass_function)
 
 Further Reading: Hardy 1916
+
+Categories: Math, Function

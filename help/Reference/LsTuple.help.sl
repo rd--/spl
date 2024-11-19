@@ -17,3 +17,5 @@ See also: LsForever, LsLace
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Ptuple.html)
+
+Categories: Stream

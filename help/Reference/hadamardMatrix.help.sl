@@ -124,3 +124,5 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/hadamard.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Hadamard_matrix)
+
+Categories: Math, Matrix

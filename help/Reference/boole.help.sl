@@ -38,3 +38,4 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Boole.html)
 
+Categories: Math, Numerical

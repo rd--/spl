@@ -84,14 +84,13 @@
 ## Matrix Functions
 
 - `arrayFlatten`: flatten a matrix of matrices
-- `arrayRules`: positions and values of nonzero elements
+- `arrayRules`: positions and values of non-zero elements
 - `choleskyDecomposition`: the Cholesky decomposition
 - `conjugateTranspose`: conjugate transpose (Hermitian conjugate)
 - `determinant`: determinant
 - `dot`: outer product
 - `inner`: outer product
 - `inverse`: inverse of a square matrix
-- `isIntegerMatrix`: is integer matrix
 - `luDecomposition`: the LU decomposition
 - `matrixPower`: matrix power
 - `matrixPrintString`: two dimensional matrix text format
@@ -100,7 +99,9 @@
 - `minor`: the indicated minor of a matrix
 - `minors`: the minors of a matrix
 - `outer`: outer product
+- `permanent`: permanent of a square matrix
 - `qrDecomposition`: the QR decomposition
+- `reducedRowEchelonForm`: in place row reduce
 - `rowReduce`: simplified matrix obtained by making linear combinations of rows
 - `shape`: list the dimensions of a matrix
 - `trace`: trace
@@ -405,6 +406,23 @@
 - `toCylindricalCoordinates`: convert from _(x,y,z)_ to _(ρ,φ,z)_
 - `toPolarCoordinates`: convert from _(x,y)_ to _(r,θ)_
 - `toSphericalCoordinates`: convert from _(x,y,z)_ to _(r,θ,ϕ)_
+
+## Error Functions
+
+- `erf`: error function
+- `erfc`: complementary error function
+- `inverseErf`: inverse error function
+
+## Fractal Functions
+
+- `blancmangeFunction`: blancmange function
+- `minkowskiQuestionMark`: Minkowski ? function
+- `minkowskiQuestionMarkInverse`: inverse Minkowski ? function
+- `weierstrassFunction`: Weierstrass function
+
+## Special Functions
+
+- `besselJ`: Bessel function of the first kind
 
 * * *
 

@@ -84,3 +84,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PartitionFunctionq.html)
 [2](https://reference.wolfram.com/language/ref/IntegerPartitions.html)
+
+Categories: Math, Combinatorics

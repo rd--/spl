@@ -12,3 +12,6 @@ Answer the stream that is first _anObect_ and thereafter _aStream_.
 * * *
 
 See also: LsCat
+
+Categories: Stream
+

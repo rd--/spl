@@ -64,3 +64,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Resultant.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Sylvester_matrix)
+
+Categories: Math, Matrix

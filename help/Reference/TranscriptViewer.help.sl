@@ -1,3 +1,9 @@
 # TranscriptViewer
 
-A text viewer that displays the messages written to the _Transcript_.
+A text viewer that displays the messages written to the `Transcript`.
+
+* * *
+
+See also: SmallKansas, Transcript
+
+Categories: Kansas

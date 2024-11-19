@@ -28,3 +28,5 @@ See also: diagonalMatrix, identityMatrix, reflectionMatrix, rotationMatrix
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ScalingMatrix.html)
+
+Categories: Geometry, Matrix

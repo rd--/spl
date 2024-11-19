@@ -18,3 +18,5 @@ See also: revokeObjectUrl
 References:
 _W3c_
 [1](https://w3c.github.io/FileAPI/#dfn-createObjectURL)
+
+Categories: Network, Address

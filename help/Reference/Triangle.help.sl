@@ -36,3 +36,5 @@ See also: Circle, Line, Polygon, Rectangle
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Triangle.html)
+
+Categories: Geometry

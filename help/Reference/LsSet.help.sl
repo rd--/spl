@@ -25,3 +25,5 @@ See also: LsBind
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pset.html)
+
+Categories: Stream

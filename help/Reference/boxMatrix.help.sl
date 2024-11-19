@@ -2,7 +2,7 @@
 
 - _boxMatrix(radius)_
 
-Answer a matrix whose elements are 1 in a box-shaped region that extends _r_ index positions to each side.
+Answer a matrix whose elements are 1 in a box-shaped region that extends _radius_ index positions to each side.
 
 A _7×7_ box matrix:
 
@@ -27,4 +27,4 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BoxMatrix.html)
 
-Categories: Matrices
+Categories: Math, Matrix

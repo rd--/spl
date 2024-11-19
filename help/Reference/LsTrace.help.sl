@@ -16,3 +16,5 @@ See also: LsCollect
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Ptrace.html)
+
+Categories: Stream

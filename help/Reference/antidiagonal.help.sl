@@ -76,3 +76,5 @@ See also: diagonal, trace
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Diagonal.html)
+
+Categories: Math, Matrix

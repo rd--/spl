@@ -46,4 +46,4 @@ Guides: Geometry Types
 
 Unicode: U+1D45F 𝑟 Mathematical Italic Small R
 
-Categories: Geometry
+Categories: Accessing, Geometry

@@ -14,3 +14,5 @@ An in place variant of `rowReduce`.
 * * *
 
 See also: rowReduce
+
+Categories: Math, Matrix

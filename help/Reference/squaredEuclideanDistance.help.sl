@@ -23,3 +23,5 @@ See also: chessboardDistance, editDistance, euclideanDistance, manhattanDistance
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SquaredEuclideanDistance.html),
+
+Categories: Distance

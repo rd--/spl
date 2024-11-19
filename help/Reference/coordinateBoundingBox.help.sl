@@ -23,3 +23,5 @@ See also: coordinateBounds, minMax, transposed
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CoordinateBoundingBox.html)
+
+Categories: Array, Geometry

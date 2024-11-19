@@ -15,3 +15,5 @@ Answer a stream that answers at most β elements of α and thereafter answers _n
 * * *
 
 See also: LsFin, take
+
+Categories: Stream

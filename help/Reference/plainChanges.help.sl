@@ -54,3 +54,5 @@ _W_
 [1](https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm)
 
 Further Reading: Johnson 1963, Ruskey 1989, Sedgewick 1977, Trotter 1962
+
+Categories: Enumerating, Permutations

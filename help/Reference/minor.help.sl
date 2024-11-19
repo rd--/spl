@@ -16,3 +16,5 @@ See also: minors
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Minor.html)
+
+Categories: Math, Matrix

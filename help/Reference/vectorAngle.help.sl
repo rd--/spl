@@ -50,3 +50,5 @@ See also: arcCos, cross, degree, dot, planarAngle
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/VectorAngle.html)
+
+Categories: Geometry

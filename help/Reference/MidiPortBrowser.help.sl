@@ -1,6 +1,6 @@
 # MidiPortBrowser
 
-A _ColumnBrowser_ where:
+A `ColumnBrowser` where:
 
 - the first column select input or output ports
 - the second column selects the _manufacturer_
@@ -8,3 +8,8 @@ A _ColumnBrowser_ where:
 
 The selected port is described in the text pane.
 
+* * *
+
+See also: MidiMonitorMenu, SmallKansas
+
+Categories: Kansas

@@ -34,7 +34,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: fibonacci, lucasNumber
+See also: fibonacci, lucasNumber, perrinSequence
 
 References:
 _Mathematica_
@@ -44,3 +44,5 @@ _OEIS_
 [2](https://oeis.org/A112881),
 _W_
 [1](https://en.wikipedia.org/wiki/Perrin_number)
+
+Categories: Math, Function, Sequence

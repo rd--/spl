@@ -19,3 +19,5 @@ Can be used to calculate the prefix sum and product.
 * * *
 
 See also: LsAccum, LsFold
+
+Categories: Stream

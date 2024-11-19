@@ -19,3 +19,5 @@ Equivalent to `LsScan` of `+`:
 * * *
 
 See also: +, LsScan
+
+Categories: Stream

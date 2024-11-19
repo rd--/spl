@@ -16,3 +16,5 @@ See also: LsRemDup
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pdup.html)
+
+Categories: Stream

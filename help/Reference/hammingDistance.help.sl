@@ -73,3 +73,5 @@ _W_
 [1](https://en.wikipedia.org/wiki/Hamming_distance)
 
 Further Reading: Hamming 1950
+
+Categories: Distance

@@ -80,3 +80,5 @@ See also: play, Record
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pbind.html)
+
+Categories: Stream

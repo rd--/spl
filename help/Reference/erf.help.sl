@@ -50,3 +50,5 @@ _W_
 [1](https://en.wikipedia.org/wiki/Error_function)
 
 Further Reading: Abramowitz 1964
+
+Categories: Math

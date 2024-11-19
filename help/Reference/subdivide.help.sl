@@ -70,3 +70,5 @@ See also: --, discretize, Interval, Range
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Subdivide.html)
+
+Categories: Math, Vector

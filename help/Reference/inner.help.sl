@@ -79,3 +79,5 @@ _J_
 _Mathematica_
 [1](https://mathworld.wolfram.com/InnerProduct.html)
 [2](https://reference.wolfram.com/language/ref/Inner.html)
+
+Categories: Math, Matrix

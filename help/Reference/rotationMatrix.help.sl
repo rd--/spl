@@ -66,4 +66,4 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Rotation_matrix)
 
-Categories: Geometry
+Categories: Geometry, Matrix

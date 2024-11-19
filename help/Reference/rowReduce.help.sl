@@ -243,3 +243,5 @@ _Mathworks_
 _W_
 [1](https://en.wikipedia.org/wiki/Gaussian_elimination)
 [2](https://en.wikipedia.org/wiki/Row_echelon_form)
+
+Categories: Math, Matrix

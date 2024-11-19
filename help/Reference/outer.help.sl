@@ -118,3 +118,5 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/VectorSpaceTensorProduct.html)
 [3](https://reference.wolfram.com/language/ref/Outer.html)
 [4](https://reference.wolfram.com/language/ref/Table.html)
+
+Categories: Math, Matrix

@@ -16,3 +16,5 @@ else answer a stream that will answer _anObject_ forever.
 * * *
 
 See also: LsConstant, LsOnce
+
+Categories: Stream

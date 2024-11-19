@@ -32,6 +32,10 @@ A 3×3 matrix with three `zero` elements answers a list of six places:
 
 * * *
 
+See also: Association, List, Matrix
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ArrayRules.html)
+
+Categories: Math, Matrix

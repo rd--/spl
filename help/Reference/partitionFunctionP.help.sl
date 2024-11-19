@@ -50,3 +50,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PartitionFunctionP.html)
 [2](https://reference.wolfram.com/language/ref/PartitionsP.html)
+
+Categories: Math, Combinatorics

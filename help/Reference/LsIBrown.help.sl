@@ -12,3 +12,5 @@ LsIBrown(1, 99, 3, 99).upToEnd.linePlot
 * * *
 
 See also: LsBrown
+
+Categories: Stream

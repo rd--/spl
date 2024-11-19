@@ -44,3 +44,6 @@ See also: rescale
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Standardize.html)
+
+Categories: Math, Vector
+

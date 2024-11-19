@@ -24,3 +24,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/CirculantMatrix.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Circulant_matrix)
+
+Categories: Math, Matrix

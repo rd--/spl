@@ -34,3 +34,5 @@ See also: LsGeom, LsUnfold
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pseries.html)
+
+Categories: Stream

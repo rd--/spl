@@ -21,3 +21,5 @@ The first five entries of _S4_:
 * * *
 
 See also: nextPermutationLexicographic
+
+Categories: Stream

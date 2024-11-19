@@ -13,3 +13,5 @@ Answer a stream that is first _start_, and applies _aBlock_ to the previous valu
 * * *
 
 See also: LsCollect, LsSelect
+
+Categories: Stream
