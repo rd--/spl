@@ -7,4 +7,6 @@ Answers _aCollection_.
 
 * * *
 
-See also: addIfNotPresent, ifAbsentAdd
+See also: add, addIfNotPresent, ifAbsentAdd
+
+Categories: Adding

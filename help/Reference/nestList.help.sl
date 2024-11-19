@@ -2,7 +2,7 @@
 
 - _nestList(aBlock:/1, anObject, count)_
 
-Answer a _count + 1_ element List of repeated applications of _aBlock_ to _anObject_.
+Answer a _count + 1_ element `List` of repeated applications of _aBlock_ to _anObject_.
 
 ```
 >>> cos:/1.nestList(1, 10)
@@ -89,3 +89,5 @@ See also: foldLeft, iterate, reduce, scan
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NestList.html)
+
+Categories: Enumerating

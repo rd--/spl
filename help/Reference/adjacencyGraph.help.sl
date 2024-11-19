@@ -4,7 +4,7 @@
 - _adjacencyGraph(aMatrix, vertexList)_
 
 In the ternary case,
-answer the graph with adjacency matrix _aMatrix_ and vertices from _vertexList_.
+answer the `Graph` with adjacency matrix _aMatrix_ and vertices from _vertexList_.
 
 In the binary case,
 vertices are numbered from `one`.
@@ -30,3 +30,5 @@ See also: adjacencyList, adjacencyMatrix
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/AdjacencyGraph.html)
+
+Categories: Graph

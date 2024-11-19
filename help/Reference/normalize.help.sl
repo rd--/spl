@@ -1,9 +1,10 @@
 # normalize
 
 - _normalize(aVector)_
+- _normalize(aCollection, minima, maxima)_
 
-Answer the normalized form of _aVector_.
-Equivalent to _v / v.norm_, except that zero vectors (or vectors with `norm` very close to zero) are returned unchanged.
+The unary form answers the normalized form of _aVector_.
+Equivalent to _v / v.norm_, except that zero vectors (or vectors with `norm` very close to zero) are answered unchanged.
 
 At `List` of `Integer`:
 
@@ -41,9 +42,28 @@ At `Complex`:
 (v / 91.sqrt)
 ```
 
+The ternary form answers the collection rescaled to the indicated range
+taking as the domain the `min` and `max` of the collection:
+
+```
+>>> [-0.2 -0.1 0.4 0.9].normalize(-1, 1)
+[-1 -9/11 1/11 1]
+
+>>> [-0.2 -0.1 0.4 0.9].rescale(-0.2, 0.9, -1, 1)
+[-1 -9/11 1/11 1]
+```
+
+Note that this is not the ordinary normalize signal function,
+which takes the domain as ± of the `max` of the absolute values of the `min` and `max`:
+
+```
+>>> [-0.2 -0.1 0.4 0.9].rescale(-0.9, 0.9, -1, 1)
+[-2/9 -1/9 4/9 1]
+```
+
 * * *
 
-See also: abs, dot, norm, sign, standardize, unitVector
+See also: abs, dot, norm, normalizeSignal, rescale, sign, standardize, unitVector
 
 References:
 _Mathematica_

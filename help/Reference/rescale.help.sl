@@ -108,7 +108,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: clip, LinLin, mean, scaled
+See also: clip, linLin, mean, normalize, scaled
 
 References:
 _Mathematica_

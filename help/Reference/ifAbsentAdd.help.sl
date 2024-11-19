@@ -29,4 +29,4 @@ At `List`:
 
 See also: add, include, Set
 
-Categories: Collection
+Categories: Adding

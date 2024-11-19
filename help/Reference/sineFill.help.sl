@@ -1,0 +1,24 @@
+# sineFill
+
+- _sineFill(aSequence, amplitudeList, phaseList)_
+
+Fill _aSequence_ with a sum of sines at the indicated amplitudes and phases.
+The table is _not_ normalised.
+
+Approximation of sawtooth wave:
+
+~~~
+let list = List(1024, 0);
+list.sineFill(1 / 1:6, [0]);
+list.linePlot
+~~~
+
+* * *
+
+See also: addSine, normalize, rescale
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Signal.html#*sineFill)
+
+Categories: Wavetable

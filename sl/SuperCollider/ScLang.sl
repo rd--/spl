@@ -16,12 +16,14 @@
 		self.error('extendTo: not a sequence')
 	}
 
-	MidiCps { :self |
-		self.collect(MidiCps:/1)
+	linLin { :self :inMin :inMax :outMin :outMax |
+		self.collect { :each |
+			each.linLin(inMin, inMax, outMin, outMax)
+		}
 	}
 
-	normalize { :self :outMin :outMax |
-		self.linLin(self.min, self.max, outMin, outMax)
+	MidiCps { :self |
+		self.collect(MidiCps:/1)
 	}
 
 	powersetBitwise { :self |
@@ -546,10 +548,6 @@
 				each.atExtending(index)
 			}
 		}
-	}
-
-	normalize { :self :min :max |
-		self.rescale(self.min, self.max, min, max)
 	}
 
 	normalizeSum { :self |

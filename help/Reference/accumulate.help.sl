@@ -3,7 +3,7 @@
 - _accumulate(aSequence)_
 
 Answer a List of the successive accumulated totals of elements in _aSequence_.
-This operation is also called _prefixSum_, and is equivalent to _scan(aSequence, +)_.
+This operation is also called `prefixSum`, and is equivalent to _scan(aSequence, +)_.
 
 Triangular numbers:
 
@@ -33,7 +33,7 @@ Diagonals of Pascal’s triangle:
 
 * * *
 
-See also: foldList, scan, prefixSum
+See also: +, foldList, scan, prefixSum
 
 References:
 _Mathematica_
@@ -41,3 +41,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Accumulate.html)
 _W_
 [1](https://en.wikipedia.org/wiki/Prefix_sum)
+
+Categories: Enumerating

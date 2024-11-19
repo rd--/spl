@@ -28,3 +28,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/AdditivePersistence.html),
 _OEIS_
 [1](https://oeis.org/A031286)
+
+Categories: Math

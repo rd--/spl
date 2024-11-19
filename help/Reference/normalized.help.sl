@@ -10,7 +10,7 @@ Answer the normalized form of _aFraction_.
 ((2, 4), (1, 2))
 ```
 
-Fractions are ordinarily normalized anby construction.
+Fractions are ordinarily normalized by construction.
 
 ```
 >>> (Fraction(2, 4).asTuple, 2/4.asTuple)

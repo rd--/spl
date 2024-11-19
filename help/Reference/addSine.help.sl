@@ -17,3 +17,5 @@ list.linePlot
 * * *
 
 See also: sineFill
+
+Categories: Wavetable

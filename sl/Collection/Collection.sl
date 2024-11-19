@@ -584,6 +584,15 @@
 		}
 	}
 
+	normalize { :self :minima :maxima |
+		self.rescale(self.min, self.max, minima, maxima)
+	}
+
+	normalizeSignal { :self :minima :maxima |
+		let x = self.min.abs.max(self.max.abs);
+		self.rescale(x.negated, x, minima, maxima)
+	}
+
 	not { :self |
 		self.collect(not:/1)
 	}
@@ -591,7 +600,6 @@
 	notEmpty { :self |
 		self.isEmpty.not
 	}
-
 
 	nub { :self |
 		self.nubBy(=)
