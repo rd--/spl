@@ -64,6 +64,16 @@ Mean of complex numbers:
 (10 / 3 + 1.i)
 ```
 
+Mean of a probability distribution:
+
+```
+>>> UniformDistribution(-1, 1).mean
+0
+
+>>> NormalDistribution(0, 1).mean
+0
+```
+
 * * *
 
 See also: arithmeticMean, geometricMean, median

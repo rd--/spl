@@ -1,8 +1,8 @@
 # UniformDistribution
 
-- _UniformDistribution(mu, sigma)_
+- _UniformDistribution(min, max)_
 
-Answer a `Type` that represents a normal (Gaussian) distribution with mean `μ` and standard deviation `σ`.
+Answer a `Type` that represents a uniform distribution with minima _min_ and maxima _max_.
 
 Calculate `entropy`, `mean`, `median`, `kurtosis`, `skewness`, `standardDeviation` and `variance`:
 

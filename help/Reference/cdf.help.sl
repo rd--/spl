@@ -17,4 +17,11 @@ let d = NormalDistribution(0, 1);
 
 See also: pdf
 
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/DistributionFunction.html)
+[1](https://reference.wolfram.com/language/ref/CDF.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Cumulative_distribution_function)
+
 Categories: Random
