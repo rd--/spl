@@ -120,6 +120,6 @@ See also: operatorCharacterNameTable, operatorNameTable
 
 Guides: Operator List, Operator Names, Unary Operator Syntax
 
-Further Reading: Unicode Consortium (1992)
+Further Reading: Unicode Consortium 1992
 
 Categories: Syntax

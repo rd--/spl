@@ -30,6 +30,6 @@ References:
 _W_
 [1](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
 
-Further Reading: Durstenfeld 1964, Knuth 1969
+Further Reading: Durstenfeld 1964, Knuth 1968
 
 Categories: Shuffling

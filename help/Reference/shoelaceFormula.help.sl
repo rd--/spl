@@ -36,3 +36,5 @@ _W_
 [1](https://en.wikipedia.org/wiki/Shoelace_formula)
 
 Further Reading: Meister 1769
+
+Categories: Geometry
