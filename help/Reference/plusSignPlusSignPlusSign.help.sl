@@ -42,3 +42,5 @@ Wraps around at right hand side if required:
 * * *
 
 See also: ++, concatenation, flatten, join
+
+Categories: Rearranging

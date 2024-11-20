@@ -8,15 +8,23 @@ intercalating _aString_ between each.
 At `List`:
 
 ```
->>> ['x' 'y' 'z'].stringConcatenation(',')
-'x,y,z'
+>>> ['a' 'b'].stringConcatenation(' ')
+'a b'
+
+>>> ['x' 'y' 'z'].stringConcatenation(', ')
+'x, y, z'
+
+>>> ['p' 'q' 'r' 's'].stringConcatenation('/')
+'p/q/r/s'
 ```
 
 The inverse is `splitBy`:
 
 ```
->>> ['x' 'y' 'z'].stringJoin(', ').splitBy(', ')
-['x' 'y' 'z']
+>>> let l = ['x' 'y' 'z'];
+>>> let s = ', ';
+>>> l.stringConcatenation(s).splitBy(s)
+l
 ```
 
 At the empty list:
@@ -28,6 +36,6 @@ At the empty list:
 
 * * *
 
-See also: concatenation, join, splitBy, stringJoin
+See also: concatenation, join, interleave, intersperse, splitBy, stringJoin
 
-Categories: String
+Categories: Rearranging, String

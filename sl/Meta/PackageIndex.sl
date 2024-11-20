@@ -246,6 +246,7 @@
 	'Time-Duration'
 	'Time-Frequency'
 	'Time-TimeStamp'
+	'Text-QuotedString' /* String */
 	'Unit-Mass'
 	'Unit-SiUnit'
 ].primitiveReadLocalPackages

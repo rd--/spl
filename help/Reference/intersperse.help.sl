@@ -18,10 +18,12 @@ Insert zeroes between successive integers:
 
 * * *
 
-See also: intercalate, interleave, transposed
+See also: intercalate, interleave, stringConcatenation, stringJoin, transposed
 
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:intersperse),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Riffle.html)
+
+Categories: Rearranging

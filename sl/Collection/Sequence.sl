@@ -1358,7 +1358,8 @@
 
 	interleave { :self :aSequence |
 		let answer = [];
-		1.toDo(self.size.max(aSequence.size)) { :i |
+		let k = self.size.max(aSequence.size);
+		1.toDo(k) { :i |
 			answer.add(self.atWrap(i));
 			answer.add(aSequence.atWrap(i))
 		};
@@ -2318,6 +2319,29 @@
 		} {
 			self.size.toByDo(1, -1) { :index |
 				aBlock(self[index], aSequence[index])
+			}
+		}
+	}
+
+	riffle { :self :anObject |
+		self.isEmpty.if {
+			[]
+		} {
+			anObject.isSequence.if {
+				let k = self.size;
+				(anObject.size >= k).if {
+					self.error('riffle: too many items to insert')
+				} {
+					let answer = [];
+					1.toDo(k - 1) { :i |
+						answer.add(self[i]);
+						answer.add(anObject.atWrap(i))
+					};
+					answer.add(self.last);
+					answer
+				}
+			} {
+				self.intersperse(anObject)
 			}
 		}
 	}

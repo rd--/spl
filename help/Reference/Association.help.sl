@@ -49,11 +49,11 @@ The print string is given using the `->` operator,
 the store string using the `Association` function:
 
 ```
->>> ('x' -> 1).printString
-"'x' -> 1"
+>>> (0 -> 1).printString
+'0 -> 1'
 
->>> ('x' -> 1).storeString
-"Association('x', 1)"
+>>> (0 -> 1).storeString
+'Association(0, 1)'
 ```
 
 _Note_:

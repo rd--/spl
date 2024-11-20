@@ -1,6 +1,6 @@
 # contents
 
-- _contents(anIterable | aStream | aCollection | aString)_
+- _contents(anIterable | aStream | aCollection | aString | aQuotedString)_
 
 The `contents` of an `Iterable` is a `List` of all of the items accessed by `do`.
 At `Tree`:
@@ -38,9 +38,19 @@ Inverse are `join` and `stringJoin`:
 'mississippi'
 ```
 
+The `contents` of quoted strings are the quoted `String` values:
+
+```
+>>> "Double Quoted String".contents
+'Double Quoted String'
+
+>>> `Backtick Quoted String`.contents
+'Backtick Quoted String'
+```
+
 * * *
 
-See also: join, next, reset, splitBy
+See also: BacktickQuotedString, DoubleQuotedString, join, next, reset, splitBy
 
 References:
 _Smalltalk_

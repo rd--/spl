@@ -28,7 +28,7 @@ Create a string from a ByteArray, assuming it contains UTF-8 data:
 _utf8String_ is the inverse of _utf8ByteArray_:
 
 ```
->>> let string = "Input and output";
+>>> let string = 'Input and output';
 >>> string.utf8ByteArray.utf8String
 string
 ```

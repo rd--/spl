@@ -263,7 +263,7 @@ If the string begins with a doctest, also delete all non doctest lines."
   ;; (modify-syntax-entry ?\n ">" st) ; comment end
   (modify-syntax-entry ?' "\"" st) ; string quote
   (modify-syntax-entry ?\" "\"" st) ; string quote
-  ;; (modify-syntax-entry ?\` "\"" st) ; string quote
+  (modify-syntax-entry ?\` "\"" st) ; string quote
   (mapc (lambda (x)
           (modify-syntax-entry x "." st)) ; punctuation only
         "!#$%&+-.:<=>?@^|~,;\\")

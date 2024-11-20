@@ -178,7 +178,6 @@ Markdown : [Object, Cache, Iterable] { | source cache |
 
 }
 
-
 +String {
 
 	isCodeFence { :self |

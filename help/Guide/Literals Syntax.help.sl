@@ -28,6 +28,6 @@ There is also a `Dictionary` expression syntax.
 
 * * *
 
-See also: Dictionary Syntax, Integer Literals, List Syntax, Number Literals, Range Syntax
+See also: Dictionary Syntax, Integer Literals, List Syntax, Number Literals, Range Syntax, String Syntax
 
 Categories: Syntax

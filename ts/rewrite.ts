@@ -703,10 +703,10 @@ const asJs: ohm.ActionDict<string> = {
 		return `'${quoteNewLines(s.sourceString)}'`;
 	},
 	doubleQuotedStringLiteral(_l, s, _r) {
-		return `_${genName('parseDoubleQuotedString', 1)}("${s.sourceString}")`;
+		return `_${genName('DoubleQuotedString', 1)}("${s.sourceString}")`;
 	},
 	backtickQuotedStringLiteral(_l, s, _r) {
-		return `_${genName('parseBacktickQuotedString', 1)}(\`${s.sourceString}\`)`;
+		return `_${genName('BacktickQuotedString', 1)}(\`${s.sourceString}\`)`;
 	},
 
 	NonemptyListOf(first, _sep, rest) {

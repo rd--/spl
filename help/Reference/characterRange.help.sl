@@ -54,8 +54,8 @@ Printable Ascii characters that are not letters or numbers:
 ```
 >>> ' '.characterRange('@').reject(isDigit:/1)
 [
-	' ' '!' '"' '#' '$' '%' '&' "'" '(' ')'
-	'*' '+' ',' '-' '.' '/' ':' ';' '<' '='
+	' ' '!' '"' '#' '$' '%' '&' '\'' '(' ')'
+	'*' '+' ',' '-' '.' '/' ':' ';'  '<' '='
 	'>' '?' '@'
 ]
 

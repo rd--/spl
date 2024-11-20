@@ -30,22 +30,28 @@ At a tree flattens list structure:
 With separator:
 
 ```
+>>> ['two' 'words'].stringJoin(' ')
+'two words'
+
 >>> ['x' 'y' 'z'].stringJoin(', ')
 'x, y, z'
+
+>>> ['p' 'q' 'r'].stringJoin('/')
+'p/q/r'
 ```
 
-The inverse of the unary form is `contents`:
+The unary form will undo `contents`:
 
 ```
->>> ['x' 'y' 'z'].stringJoin.contents
-['x' 'y' 'z']
+>>> 'xyz'.contents.stringJoin
+'xyz'
 ```
 
-The inverse of the binary form is `splitBy`:
+The binary form will undo `splitBy`:
 
 ```
->>> ['x' 'y' 'z'].stringJoin(', ').splitBy(', ')
-['x' 'y' 'z']
+>>> 'x, y, z'.splitBy(', ').stringJoin(', ')
+'x, y, z'
 ```
 
 At the empty list:

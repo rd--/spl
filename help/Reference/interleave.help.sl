@@ -2,14 +2,15 @@
 
 - _interleave(aSequence, anotherSequence)_
 
-Answer a `List` that has, alternately, the elements of _aSequence_ and _anotherSequence_
+Answer a `List` that has, alternately, the elements of _aSequence_ and _anotherSequence_.
 
 ```
 >>> [3 4 5].interleave([0 1 2])
 [3 0 4 1 5 2]
 ```
 
-The shorter sequence is cycled as required:
+The shorter sequence, at either side, is cycled as required,
+meaning that the answer is always twice the size of the longest sequence:
 
 ```
 >>> [3 4 5].interleave([1 2])
@@ -33,3 +34,5 @@ See also: intercalate, intersperse, transposed
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Riffle.html)
+
+Categories: Rearranging

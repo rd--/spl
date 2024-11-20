@@ -185,4 +185,4 @@ _Mathematica_
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/permute.html)
 
-Categories: Ordering, Math, Matrix
+Categories: Rearranging, Math, Matrix

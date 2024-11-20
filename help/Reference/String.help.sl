@@ -33,7 +33,11 @@ String indexing only makes sense for strings that are in the _Basic Multilingual
 
 * * *
 
-See also: ascii, characters, Character, String Syntax, utf8, utf16
+See also: ascii, BacktickQuotedString, characters, Character, DoubleQuotedString, utf8, utf16
+
+Guides: String Syntax
+
+Unicode: U+00027 Apostrophe
 
 References:
 _Smalltalk_

@@ -6,8 +6,8 @@ Answer a `RatioTuning` given intervals expressed as _integers_.
 
 ```
 >>> IntegerTuning(
->>> 	"Wilson Class",
->>> 	"Erv Wilson, 9 July 1967",
+>>> 	'Wilson Class',
+>>> 	'Erv Wilson, 9 July 1967',
 >>> 	[600 625 672 700 750 800 840 875 960 1000 1050 1120],
 >>> 	2
 >>> ).asRatios

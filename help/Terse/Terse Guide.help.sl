@@ -1072,12 +1072,12 @@ Colour(1, 1, 1).isWhite /* is colour white */
 [0.1, 0.2, 0.3, 0.4].asColour = Colour(0.1, 0.2, 0.3, 0.4) /* four element array constructor */
 Colour(0.5, 0.5, 0.5).isGreyOf(0.5) /* is colour grey with particular value */
 Colour(0.5, 0.5, 0.5).isGrey /* is colour grey */
-Colour(1, 0.2, 0.2).isRed /* is colour "red" */
-Colour(0.2, 1, 0.2).isGreen /* is colour "green" */
-Colour(0.2, 0.2, 1).isBlue /* is colour "blue" */
-Colour(0.9, 0.75, 0).isYellow /* is colour "yellow" */
-Colour(0, 0.75, 0.9).isCyan /* is colour "cyan" */
-Colour(0.9, 0, 0.75).isMagenta /* is colour "magenta" */
+Colour(1, 0.2, 0.2).isRed /* is colour red */
+Colour(0.2, 1, 0.2).isGreen /* is colour green */
+Colour(0.2, 0.2, 1).isBlue /* is colour blue */
+Colour(0.9, 0.75, 0).isYellow /* is colour yellow */
+Colour(0, 0.75, 0.9).isCyan /* is colour cyan */
+Colour(0.9, 0, 0.75).isMagenta /* is colour magenta */
 Hsv(0, 0, 0).isBlack & { Hsv(0, 0, 1).isWhite } /* hue (in degrees) & saturation & value (in 0-1) */
 Hsv(0, 1, 1).isRed & { Hsv(120 / 360, 1, 1).isGreen } & { Hsv(240 / 360, 1, 1).isBlue }
 Hsv(60 / 360, 1, 1).isYellow & { Hsv(180 / 360, 1, 1).isCyan } & { Hsv(300 / 360, 1, 1).isMagenta }
@@ -2501,7 +2501,7 @@ valueWithReturn { :return:/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.retu
 { 1.pi.assert { false } }.ifError { true } /* raise an error if block does not evaluate to true */
 { true }.assert = nil /* assert that block evaluates to true, answers nil */
 { { false }.assert }.ifError { true } /* raise an error if block does not evaluate to true */
-valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeat } /* repeat a block until it "returns" */
+valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeat } /* repeat a block until it returns */
 { 1.anUnknownMessage }.ifError { :err | err }.isError = true /* evaluate error block on error */
 { 1.anUnknownMessage }.ifError { true } = true /* error block is culled (i.e. may elide error argument) */
 let f = { let x = 0; { x := x + 1; x } }; let g = f:/0.value; [g.value, g.value] = [1, 2] /* closure */
@@ -2831,7 +2831,7 @@ RegExp('ab+c').isRegExp = true /* type predicate */
 RegExp('x.x').source = 'x.x' /* retrieve source */
 RegExp('x.x', 'g').flags = 'g' /* retreive flags */
 RegExp('x.x', 'g').isGlobal = true /* is global flag set */
-RegExp('x.x', 'g').printString = "RegExp('x.x', 'g')" /* print string is contructor */
+RegExp('x.x', 'g').printString = 'RegExp(\'x.x\', \'g\')' /* print string is contructor */
 RegExp('x.x', 'g').stringLiteral = '/x.x/g' /* a string indicating both source and flags */
 RegExp('ab*c').search('abc') = true /* predicate to determine if a string contains a match for a regular expression */
 RegExp('ab*c').search('-abc-') = true /* the entire string is not required to match */
@@ -3470,18 +3470,19 @@ system.includesPackage('String') /* package */
 'sum:/1'.splitBy(':/') = ['sum', '1']
 'ascii'.asUpperCase = 'ASCII'
 'ASCII'.asLowerCase = 'ascii'
-`'x'` = '\'x\'' /* backtick quotes quoting single quote */
-`"x"` = '"x"' /* backtick quotes quoting double quote */
-`x'""'y` = 'x\'""\'y'.parseBacktickQuotedString
-"'x'" = '\'x\'' /* double quotes quoting single quote */
+`'x'` = BacktickQuotedString('\'x\'') /* backtick quotes quoting single quote */
+`"x"` = BacktickQuotedString('"x"') /* backtick quotes quoting double quote */
+`x'""'y` = BacktickQuotedString('x\'""\'y')
+"'x'" = DoubleQuotedString('\'x\'') /* double quotes quoting single quote */
+"`x`" = DoubleQuotedString('`x`') /* double quotes quoting backtick quote */
 '"'.first.codePoint = 34 /* double quote code point */
-"'".first.codePoint = 39 /* single quote code point */
+"'".contents.first.codePoint = 39 /* single quote code point */
 '`'.first.codePoint = 96 /* back tick quote code point */
 '"quoted"'.withoutQuoting = 'quoted' /* remove double quotes */
-"'quoted'".withoutQuoting = 'quoted' /* remove single quotes */
+"'quoted'".contents.withoutQuoting = 'quoted' /* remove single quotes */
 '`quoted`'.withoutQuoting = 'quoted' /* remove backtick quotes */
-"`x`" = '`x`' /* double quotes quoting backtick quote */
-"'x'" = '\'x\''.parseDoubleQuotedString
+"x" = DoubleQuotedString('x') /* double quoted string */
+`x` = BacktickQuotedString('x') /* backtick quoted string */
 'string'[3] = 'r'.asCharacter /* string indexing */
 { 'string'[3] := nil }.ifError { true } /* strings are immutable */
 '{"x": 3.141, "y": 23}'.parseJson = (x: 3.141, y: 23)

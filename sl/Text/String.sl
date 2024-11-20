@@ -417,6 +417,15 @@ String! : [Object, Json, Iterable, Character] {
 		}
 	}
 
+	format { :self :arguments |
+		let parts = self.splitBy('%');
+		(arguments.size + 1 = parts.size).if {
+			parts.riffle(arguments.collect(printString:/1)).stringConcatenation('')
+		} {
+			self.error('format: incorrect number of arguments')
+		}
+	}
+
 	hammingDistance { :self :aString |
 		self.stringList.hammingDistance(aString.stringList)
 	}
@@ -635,14 +644,6 @@ String! : [Object, Json, Iterable, Character] {
 
 	paragraphs { :self |
 		<primitive: return _self.split('\n\n');>
-	}
-
-	parseBacktickQuotedString { :self |
-		self
-	}
-
-	parseDoubleQuotedString { :self |
-		self
 	}
 
 	parseJson { :self |

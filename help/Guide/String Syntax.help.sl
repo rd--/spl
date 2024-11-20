@@ -1,18 +1,56 @@
 # String Syntax
 
-Strings are written between single quote marks, i.e. _'...'_.
+Strings are written between single quote marks, i.e. _'Single Quoted String'_.
 
 ```
->>> 'a string'
-'a string'
+>>> 'Single Quoted String'
+'Single Quoted String'
 ```
 
-_"..."_ means _parseDoubleQuotedString('...')_.
+Strings may include double quotes and backtick quotes:
 
-_\`...\`_ means _parseBacktickQuotedString('...')_.
+```
+>>> 'A single quoted "double quoted" string'.size
+38
+
+>>> 'A single quoted `backtick quoted` string'.size
+40
+```
+
+Double quoted and back tick quoted strings answer as simple types,
+`DoubleQuotedString` and `BacktickQuotedString` respectively,
+holding the quoted string.
+
+A double quoted string:
+
+```
+>>> "Double Quoted String"
+DoubleQuotedString('Double Quoted String')
+```
+
+A backtick quoted string:
+
+```
+>>> `Backtick Quoted String`
+BacktickQuotedString('Backtick Quoted String')
+```
+
+The `contents` method answers the quoted string:
+
+```
+>>> "Double Quoted String".contents
+'Double Quoted String'
+
+>>> `Backtick Quoted String`.contents
+'Backtick Quoted String'
+```
 
 * * *
 
-See also: '
+See also: apostrophe, BacktickQuotedString, DoubleQuotedString, graveAccent, quotationMark, String
+
+Guides: Literals Syntax
+
+Unicode: U+00022 Quotation Mark, U+00027 Apostrophe, U+00060 Grave Accent
 
 Categories: Syntax

@@ -117,6 +117,7 @@
 	/* Text */
 	'AsciiString'
 	'Markdown'
+	'QuotedString'
 	'RegExp'
 	'Unicode'
 

@@ -7,6 +7,7 @@
 - `List Syntax`
 - `Literals Syntax`
 - `Program Syntax`
+- `String Syntax`
 - `Value Apply Syntax`
 - `Var Syntax`
 - `Type Definition Syntax`
@@ -58,7 +59,6 @@
 - `Quoted AtIfAbsent Syntax`
 - `Quoted AtIfAbsentPut Syntax`
 - `Slot Access Syntax`
-- `String Syntax`
 - `Temporary Block Syntax`
 
 * * *
