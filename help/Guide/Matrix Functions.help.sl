@@ -2,8 +2,20 @@
 
 ## Types
 
+- `List`: list type
 - `Matrix`: matrix type
+
+## Converting
+
+- `asList`: convert matrix to list of lists
 - `asMatrix`: convert list of lists to matrix
+
+## Querying
+
+- `elementType`: type of elements
+- `numberOfColumns`: number of columns
+- `numberOfRows`: number of rows
+- `shape`: number of rows and columns
 
 ## Predicates
 
@@ -38,6 +50,32 @@
 - `toeplitzMatrix`: Toeplitz matrix
 - `walshMatrix`: Walsh matrix
 - `zeroMatrix`: zero matrix
+
+## Matrix Functions
+
+- `arrayFlatten`: flatten a matrix of matrices
+- `arrayRules`: positions and values of non-zero elements
+- `choleskyDecomposition`: the Cholesky decomposition
+- `conjugateTranspose`: conjugate transpose (Hermitian conjugate)
+- `determinant`: determinant
+- `dot`: outer product
+- `inner`: outer product
+- `inverse`: inverse of a square matrix
+- `luDecomposition`: the LU decomposition
+- `matrixPower`: matrix power
+- `matrixPrintString`: two dimensional matrix text format
+- `matrixRank`: matrix rank, the number of linearly independent rows or columns
+- `matrixRotate`: matrix rotation
+- `minor`: the indicated minor of a matrix
+- `minors`: the minors of a matrix
+- `outer`: outer product
+- `permanent`: permanent of a square matrix
+- `qrDecomposition`: the QR decomposition
+- `reducedRowEchelonForm`: in place row reduce
+- `rowReduce`: simplified matrix obtained by making linear combinations of rows
+- `shape`: list the dimensions of a matrix
+- `trace`: trace
+- `transposed`: transposition
 
 ## Graph
 

@@ -44,3 +44,5 @@ _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3662.htm)
 _W_
 [1](https://en.wikipedia.org/wiki/Continuous_uniform_distribution)
+
+Categories: Probability, Random

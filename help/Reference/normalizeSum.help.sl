@@ -12,7 +12,7 @@ so that the answer will `sum` to `one`.
 
 * * *
 
-See also: normalize, rescale
+See also: normalize, normalizeRange, normalizeSignal, rescale
 
 References:
 _SuperCollider_

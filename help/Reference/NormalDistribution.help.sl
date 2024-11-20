@@ -26,7 +26,7 @@ NormalDistribution(0, 1).randomVariate(500).linePlot
 
 * * *
 
-See also: cdf, mean, pdf, randomVariate, standardDeviation
+See also: CauchyDistribution, cdf, mean, pdf, randomVariate, standardDeviation, UniformDistribution
 
 References:
 _Mathematica_
@@ -35,3 +35,5 @@ _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm),
 _W_
 [1](https://en.wikipedia.org/wiki/Normal_distribution)
+
+Categories: Probability, Random

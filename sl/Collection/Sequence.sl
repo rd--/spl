@@ -2274,6 +2274,13 @@
 		self.replicateEachApplying(counts, identity:/1)
 	}
 
+	resample { :self :newSize |
+		let factor = (self.size - 1) / (newSize - 1).max(1);
+		0.to(newSize - 1).collect { :each |
+			self.blendAt(1 + (each * factor))
+		}
+	}
+
 	reshape { :self :shape |
 		shape.ifEmpty {
 			self.error('@Sequence>>reshape: empty shape?')

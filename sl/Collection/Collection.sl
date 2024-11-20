@@ -584,13 +584,21 @@
 		}
 	}
 
-	normalize { :self :minima :maxima |
+	normalizeRange { :self :minima :maxima |
 		self.rescale(self.min, self.max, minima, maxima)
 	}
 
 	normalizeSignal { :self :minima :maxima |
 		let x = self.min.abs.max(self.max.abs);
 		self.rescale(x.negated, x, minima, maxima)
+	}
+
+	normalizeSignal { :self |
+		self.normalizeSignal(-1, 1)
+	}
+
+	normalizeSum { :self |
+		self / self.sum
 	}
 
 	not { :self |

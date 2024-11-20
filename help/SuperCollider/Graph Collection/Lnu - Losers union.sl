@@ -158,7 +158,7 @@ LeakDc(
 ).SoftClip / 2
 
 /* Spa Saw Shower Wash ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111427906537919703 */
-let c = 4096.sineTable(1 / 1:128, [0]).normalize(0, 1).asWavetable.asLocalBuf;
+let c = 2048.sineTable(1 / 1:128, [0]).normalizeSignal.asWavetable.asLocalBuf;
 let w = { :freq |
 	LfdNoise3(freq).LinLin(-1, 1, 80, 6880) /* LinCurve */
 };

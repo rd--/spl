@@ -20,7 +20,9 @@ The provided methods are:
 
 * * *
 
-See also: Iterator, Sfc32, Stream
+See also: Iterator, randomComplex, randomChoice, randomInteger, randomLargeInteger, randomReal, randomWeightedChoice, Sfc32, Stream
+
+Guides: Random Number Generators
 
 References:
 _Mathworks_

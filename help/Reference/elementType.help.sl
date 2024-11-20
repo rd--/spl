@@ -15,14 +15,22 @@ At `Range`:
 At `List`:
 
 ```
->>> [1 2 3; 4 5 6; 7 8 9].elementType
+>>> [
+>>> 	1 2 3;
+>>> 	4 5 6;
+>>> 	7 8 9
+>>> ].elementType
 'List'
 ```
 
 At `Matrix`:
 
 ```
->>> [1 2 3; 4 5 6; 7 8 9].asMatrix.elementType
+>>> [
+>>> 	1 2 3;
+>>> 	4 5 6;
+>>> 	7 8 9
+>>> ].asMatrix.elementType
 'SmallFloat'
 ```
 

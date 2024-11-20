@@ -55,7 +55,7 @@ Sfc32(28974).randomChoice([-1 1], 50).accumulate.linePlot
 
 * * *
 
-See also: anyOne, atRandom, randomInteger, randomSample
+See also: anyOne, atRandom, randomInteger, RandomNumberGenerator, randomSample
 
 References:
 _Julia_

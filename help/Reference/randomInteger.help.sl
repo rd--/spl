@@ -38,7 +38,7 @@ A 3×4 matrix of random integers:
 
 * * *
 
-See also: atRandom, randomByteArray, randomLargeInteger, randomReal, randomSample
+See also: atRandom, randomByteArray, randomLargeInteger, RandomNumberGenerator, randomReal, randomSample
 
 References:
 _Mathematica_

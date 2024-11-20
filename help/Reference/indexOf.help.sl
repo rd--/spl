@@ -14,6 +14,9 @@ Find index of first occurrence of element in sequence:
 
 >>> 9:1.indexOf(3)
 7
+
+>>> [2 3 5 6].indexOf(5)
+3
 ```
 
 Answers first of multiple occurrences:

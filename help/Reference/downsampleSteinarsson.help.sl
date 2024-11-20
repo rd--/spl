@@ -12,4 +12,8 @@ Downsample time series data at the two column _aMatrix_ to have _anInteger_ plac
 
 * * *
 
+See also: downsample, resample, upsample
+
 Further Reading: Steinarsson 2013
+
+Categories: Rearranging

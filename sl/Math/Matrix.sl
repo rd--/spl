@@ -12,6 +12,10 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		}
 	}
 
+	asList { :self |
+		self.contents
+	}
+
 	at { :self :i :j |
 		self.contents[i, j]
 	}

@@ -24,7 +24,7 @@ Plot `quantile` over a subset of the reals:
 
 ~~~
 let d = CauchyDistribution(10, 3.5);
-(0 -- 1).functionPlot { :x | d.quantile(x).clip(-30, 50) }
+(0.05 -- 0.95).functionPlot { :x | d.quantile(x).clip(-30, 50) }
 ~~~
 
 Plot `randomVariate`:
@@ -46,4 +46,4 @@ _NIST_
 _W_
 [1](https://en.wikipedia.org/wiki/Cauchy_distribution)
 
-Categories: Random
+Categories: Probability, Random

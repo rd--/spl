@@ -354,11 +354,11 @@
 		let a = (size = self.size).if {
 			self
 		} {
-			self.resamp1(size)
+			self.resample(size)
 		};
-		a := a.integrate.normalize(1, size);
+		a := a.integrate.normalizeRange(1, size);
 		1:size.collect { :index |
-			a.indexInBetween(index) - 1 / size
+			a.indexOfInBetween(index) - 1 / size
 		}
 	}
 
@@ -463,7 +463,13 @@
 		self.multiChannelExpand
 	}
 
-	indexInBetween { :self :aNumber |
+	indexOfGreaterThan { :self :aMagnitude |
+		self.detectIndex { :each |
+			each > aMagnitude
+		}
+	}
+
+	indexOfInBetween { :self :aNumber |
 		self.isEmpty.if {
 			nil
 		} {
@@ -484,12 +490,6 @@
 					}
 				}
 			}
-		}
-	}
-
-	indexOfGreaterThan { :self :aMagnitude |
-		self.detectIndex { :each |
-			each > aMagnitude
 		}
 	}
 
@@ -550,10 +550,6 @@
 		}
 	}
 
-	normalizeSum { :self |
-		self / self.sum
-	}
-
 	obtain { :self :index :default |
 		(index > self.size).if {
 			default
@@ -602,13 +598,6 @@
 			}
 		};
 		self.species.newFrom(answer)
-	}
-
-	resamp1 { :self :newSize |
-		let factor = (self.size - 1) / (newSize - 1).max(1);
-		0.to(newSize - 1).collect { :each |
-			self.blendAt(1 + (each * factor))
-		}
 	}
 
 	scramble { :self |

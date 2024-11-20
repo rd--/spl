@@ -20,8 +20,10 @@ Upsample a `List` by a factor of two:
 
 * * *
 
-See also: downsample
+See also: downsample, resample
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Upsample.html)
+
+Categories: Rearranging

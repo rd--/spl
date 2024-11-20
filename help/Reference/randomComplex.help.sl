@@ -27,7 +27,9 @@ A 3×4 matrix of random complex numbers in the rectangle with corners at _10j10_
 
 * * *
 
-See also: Complex, randomInteger, randomReal, seedRandom
+See also: Complex, randomInteger, RandomNumberGenerator, randomReal, seedRandom
+
+Guides: Random Number Generators
 
 References:
 _Mathematica_

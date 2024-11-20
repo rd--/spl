@@ -3,7 +3,11 @@
 `Matrix` is a `Type` holding a rectangular array arranged in rows and columns.
 
 ```
->>> let m = [1 2 3; 4 5 6; 7 8 9].asMatrix;
+>>> let m = [
+>>> 	1 2 3;
+>>> 	4 5 6;
+>>> 	7 8 9
+>>> ].asMatrix;
 >>> (
 >>> 	m.numberOfRows,
 >>> 	m.numberOfColumns,

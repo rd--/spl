@@ -29,3 +29,5 @@ A 3×2 matrix:
 * * *
 
 See also: isArray, isMatrix, isVolume, numberOfColumns, shape
+
+Categories: Querying

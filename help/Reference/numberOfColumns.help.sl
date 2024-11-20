@@ -28,4 +28,4 @@ A 3×2 matrix:
 
 * * *
 
-See also: isArray, isMatrix, isVolume, numberOfRows, shape
+See also: isArray, isMatrix, isVolume, List, Matrix, numberOfRows, shape

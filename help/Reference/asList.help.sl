@@ -35,6 +35,13 @@ At `String`:
 ['s' 't' 'r' 'i' 'n' 'g']
 ```
 
+At `Matrix`:
+
+```
+>>> [1 2; 3 4; 5 6].asMatrix.asList
+[1 2; 3 4; 5 6]
+```
+
 This should not be defined for scalar values, see _asCollection_.
 
 * * *

@@ -7,6 +7,9 @@ Answer a downsampled copy of _aSequence_ by sampling every _anInteger_-th elemen
 Downsample a `Range` by a factor of two:
 
 ```
+>>> 1:9.downsample(2)
+[1 3 5 7 9]
+
 >>> 1:10.downsample(2)
 [1 3 5 7 9]
 ```
@@ -20,8 +23,10 @@ Downsample a `List` by a factor of three:
 
 * * *
 
-See also: downsampleSteinarsson, upsample
+See also: downsampleSteinarsson, resample, upsample
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Downsample.html)
+
+Categories: Rearranging
