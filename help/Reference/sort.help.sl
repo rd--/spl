@@ -1,21 +1,27 @@
 # sort
 
 - _sort(aSequence, aBlock:/2)_
-- _sort(alpha)_ ≡ _sort(alpha, <=)_
+- _sort(α)_ ⟹ _sort(α, <=)_
 
 Sort _aSequence_ in place using the comparator _aBlock_.
 If the sort block is omitted or is nil, sort by `<=`.
 Answers _aSequence_.
 
+At `List` of numbers:
+
 ```
 >>> let a = [3 2 1];
->>> (a.sort = a, a)
+>>> (a.sort == a, a)
 (true, [1 2 3])
 
 >>> let a = [1 2 3];
->>> (a.sort(>) = a, a)
+>>> (a.sort(>) == a, a)
 (true, [3 2 1])
+```
 
+At `List` of `String`:
+
+```
 >>> ['d' 'b' 'c' 'a'].sort
 ['a' 'b' 'c' 'd']
 
@@ -25,7 +31,7 @@ Answers _aSequence_.
 
 * * *
 
-See also: sortBy, sorted, sortOn, sortOnBy
+See also: isSorted, mergeSort, ordering, sortBy, sorted, sortOn, sortOnBy
 
 References:
 _Mathematica_

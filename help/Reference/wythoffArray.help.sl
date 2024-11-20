@@ -38,3 +38,5 @@ _W_
 [1](https://en.wikipedia.org/wiki/Wythoff_array)
 
 Further Reading: Fraenkel 1994, Morrison 1980
+
+Categories: Matrix

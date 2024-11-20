@@ -2,24 +2,27 @@
 
 - _sortOnBy(aSequence, keyBlock:/1, compareBlock:/2)_
 
-Sort _aSequence_ using _compareBlock_ to compare items according to _keyBlock_.
+Sort _aSequence_ in place using _compareBlock_ to compare items according to _keyBlock_.
+Answers _aSequence_.
 
 Sort into descending order according to last item:
 
 ```
->>> [2 3 1; 2 2 2; 2 1 3].sortOnBy(last:/1, >)
-[2 1 3; 2 2 2; 2 3 1]
+>>> let a = [2 3 1; 2 2 2; 2 1 3];
+>>> (a.sortOnBy(last:/1, >) == a, a)
+(true, [2 1 3; 2 2 2; 2 3 1])
 ```
 
-Sort into ascending order according to second item:
+Sort into ascending order according to the `second` item:
 
 ```
->>> [2 3 1; 2 2 2; 2 1 3].sortOnBy(second:/1, <)
-[2 1 3; 2 2 2; 2 3 1]
+>>> let a = [2 3 1; 2 2 2; 2 1 3];
+>>> (a.sortOnBy(second:/1, <) == a, a)
+(true, [2 1 3; 2 2 2; 2 3 1])
 ```
 
 * * *
 
-See also: <, <=, sort, sortBy, sortOn
+See also: <, <=, sort, sortBy, sorted, sortOn
 
 Categories: Sorting

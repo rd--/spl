@@ -18,4 +18,4 @@ See `sattoloShuffle` for a variant algorithm generating only single cycle permut
 
 See also: fisherYatesShuffle, randomPermutation, sattoloShuffle, shuffle
 
-Categories: Copying
+Categories: Rearranging, Copying

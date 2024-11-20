@@ -544,14 +544,15 @@
 
 ## Random Number Distributions
 
-- `UniformDistribution`
+- `CauchyDistribution`
 - `NormalDistribution`
-- `nextRandomIntegerPoissonDistribution`
+- `UniformDistribution`
 - `nextRandomFloatCauchyDistribution`
+- `nextRandomFloatEulerianBetaDistribution`
 - `nextRandomFloatGaussianDistribution`
 - `nextRandomFloatLinearDistribution`
-- `nextRandomFloatEulerianBetaDistribution`
 - `nextRandomFloatWeibullDistribution`
+- `nextRandomIntegerPoissonDistribution`
 
 ## Rearranging & Restructuring Lists
 
@@ -618,8 +619,13 @@
 
 ## Sorting
 
-- `sort`, `sortBy`, `sorted`, `sortOn`
+- `sort`, `sorted`
+- `sortBy`, `sortOn`, `sortOnBy`
+- `sortedWithIndices`
+- `mergeSort`, `mergeSortBy`, `mergeSortByFromTo`
+- `quickSort`, `quickSortBy`, `quickSortByFromTo`
 - `ordering`
+- `isSorted`, `isSortedBy`
 
 ## Specifying Angles
 

@@ -2,15 +2,15 @@
 
 _mergeSort(aSequence)_
 
-Sort _aSequence_ using the mergesort algorithm.
+Sort _aSequence_ in place using the mergesort algorithm.
 Mergesort is a worst-case _O(N log N)_ sorting algorithm that usually does only half as many comparisons as heapsort or quicksort.
 
 Sort two items in place:
 
 ```
 >>> let l = [2 1];
->>> l.mergeSort = l & { l = [1 2] }
-true
+>>> (l.mergeSort == l, l)
+(true, [1 2])
 ```
 
 Sort three items:
@@ -51,3 +51,5 @@ Sort a random sequence of integers:
 * * *
 
 See also: isSorted, mergeSortBy, mergeSortByFromTo, sort
+
+Categories: Sorting

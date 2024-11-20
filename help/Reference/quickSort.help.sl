@@ -1,6 +1,6 @@
 # quickSort
 
-_quickSort(aSequence)_
+- _quickSort(aSequence)_
 
 Sort elements of _aSequence_ to be non-descending according to _<=_ using an in-place quicksort with simple median-of-three partitioning with guaranteed _O(log(n))_ space usage.
 
@@ -8,8 +8,8 @@ Sort two items in place:
 
 ```
 >>> let l = [2 1];
->>> l.quickSort = l & { l = [1 2] }
-true
+>>> (l.quickSort == l, l)
+(true, [1 2])
 ```
 
 Sort three items:
@@ -43,10 +43,12 @@ Sort a descending sequence:
 Sort a random sequence of integers:
 
 ```
->>> system.randomInteger(1, 9, [99]).quickSort.isSorted
-true
+>>> Sfc32(24015).randomInteger(1, 23, [17]).quickSort
+[1 3 3 6 7 8 9 10 10 12 13 15 17 18 21 22 23]
 ```
 
 * * *
 
 See also: isSorted, quickSortBy, quickSortByFromTo, sort
+
+Categories: Sorting

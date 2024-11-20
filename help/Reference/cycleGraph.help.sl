@@ -43,4 +43,4 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/CycleGraph.html)
 [2](https://reference.wolfram.com/language/ref/CycleGraph.html)
 
-Categories: Collection
+Categories: Graph, Collection

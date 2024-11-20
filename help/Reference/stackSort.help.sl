@@ -62,3 +62,5 @@ _W_
 [1](https://en.wikipedia.org/wiki/Stack-sortable_permutation)
 
 Further Reading: Knuth 1968, Rotem 1981
+
+Categories: Permutations, Sorting

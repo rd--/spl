@@ -41,4 +41,4 @@ false
 
 See also: isSortedBy, sort, sorted
 
-Categories: Sorting
+Categories: Testing, Sorting

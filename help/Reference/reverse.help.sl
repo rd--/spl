@@ -2,19 +2,19 @@
 
 - _reverse(aSequence)_
 
-Reverse _aSequence_ in place, answering _aSequence_.
+Reverse _aSequence_ in place.
+Answer _aSequence_.
+
+At `List`:
 
 ```
->>> [1 3 5 7].reverse
-[7 5 3 1]
-
 >>> let a = [1 3 5 7];
->>> a.reverse = a
-true
+>>> (a.reverse == a, a)
+(true, [7 5 3 1])
 ```
 
 * * *
 
-See also: reversed
+See also: reversed, reverseDo, reverseWithDo
 
-Categories: Converting
+Categories: Rearranging

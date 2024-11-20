@@ -15,6 +15,6 @@ See `shuffled` for a copying variant.
 
 * * *
 
-See also: fisherYatesShuffle, shuffled
+See also: fisherYatesShuffle, randomPermutation, sattoloShuffle, shuffled
 
-Categories: Copying
+Categories: Rearranging, Random

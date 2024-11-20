@@ -9,7 +9,11 @@ At `List`:
 ```
 >>> [11, 9 .. 1].isSortedBy(>)
 true
+```
 
+With literal sort block:
+
+```
 >>> [11, 9 .. 1].isSortedBy { :i :j | i > j }
 true
 ```
@@ -42,4 +46,4 @@ References:
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/issorted.html)
 
-Categories: Sorting
+Categories: Testing, Sorting
