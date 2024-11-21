@@ -1,6 +1,6 @@
 # crossedMultiply
 
-_crossedMultiply(aSequence, anotherSequence)_
+- _crossedMultiply(aSequence, anotherSequence)_
 
 Calculate the flattened _outer product_ (⊗) of two vectors.
 

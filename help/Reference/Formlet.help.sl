@@ -13,7 +13,7 @@ It is possible to control the attacktime and decaytime.
 
 Formlet is equivalent to:
 
->  _Ringz(in, freq, decayTime) - Ringz(in, freq, attackTime)_
+> _Ringz(in, freq, decayTime) - Ringz(in, freq, attackTime)_
 
 Note that if _attackTime = decayTime_ then the signal cancels out and if _attackTime > decayTime_ then the impulse response is inverted.
 

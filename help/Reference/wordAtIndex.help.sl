@@ -1,6 +1,6 @@
 # wordAtIndex
 
-_wordAtIndex(aString, anInteger)_
+- _wordAtIndex(aString, anInteger)_
 
 Get the word in _aString_ at index _anInteger_:
 
@@ -21,3 +21,4 @@ If the index points to a space look backwards for a word:
 
 See also: String
 
+Categories: Accessing

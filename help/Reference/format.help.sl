@@ -3,7 +3,7 @@
 - _format(aString, aSequence)_
 
 Answer a `String` that is like _aString_ but where _%_ characters are replaced with items from _aSequence_.
-Items in _aSequence_ are formatted using `printString`.
+Items in _aSequence_ are formatted using `asString`.
 
 ```
 >>> 'pi=% & e=%'.format([pi, e])
@@ -16,6 +16,20 @@ instead we can adapt the items:
 ```
 >>> '`pi` = % and `e` = %.'.format([pi, e].roundTo(1E-4))
 '`pi` = 3.1416 and `e` = 2.7183.'
+```
+
+Format `Boolean`:
+
+```
+>>> '% > % = %'.format([3, 4, 3 > 4])
+'3 > 4 = false'
+```
+
+Format `String`:
+
+```
+>>> '% ≺ % = %'.format(['pqr', 'xyz', 'pqr'.precedes('xyz')])
+'pqr ≺ xyz = true'
 ```
 
 * * *

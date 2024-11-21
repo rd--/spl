@@ -6,7 +6,7 @@ The four primitive immediate types are `Nil`, `Boolean`, `SmallFloat` and `Strin
 - _true_ ⇒ `Boolean`
 - _false_ ⇒ `Boolean`
 - _23_ ⇒ `SmallFloat`
--  _3.141_ ⇒ `SmallFloat`
+- _3.141_ ⇒ `SmallFloat`
 - _'xyz'_ ⇒ `String`
 
 The _Block_ syntax is similar to Smalltalk,

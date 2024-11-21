@@ -40,9 +40,6 @@ The `arcLength` in three-dimensions:
 3.sqrt
 ```
 
-Compute the distance of a point to a line segment:
-
-
 * * *
 
 See also: HalfLine, InfiniteLine, HalfPlane, InfinitePlane, Line, Point

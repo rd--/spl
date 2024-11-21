@@ -1,6 +1,6 @@
 # partitionFunctionQ
 
-_partitionFunctionQ(n, k)_
+- _partitionFunctionQ(n, k)_
 
 Denotes the number of ways of partitioning _n_ into exactly _k_ distinct parts.
 

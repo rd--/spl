@@ -2,4 +2,8 @@
 
 - _parseSvg(aString)_
 
-Answer an 
+Answer an Svg element parsed from _aString_.
+
+* * *
+
+See also: Navigator

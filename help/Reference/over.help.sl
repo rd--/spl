@@ -48,3 +48,4 @@ _Apl_
 
 Further Reading: Porter 1984
 
+Categories: Adverbs

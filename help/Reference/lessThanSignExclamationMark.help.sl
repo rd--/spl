@@ -1,4 +1,4 @@
-# <!
+# <! (lessThanSignExclamationMark)
 
 - _aUgen <! anotherUgen_
 
@@ -26,6 +26,8 @@ Pan2(LeakDc(car.Sum, 0.995), pan, amp) <! LocalOut(car * fb)
 _Note_:
 This uses `FirstArg` where _anotherUgen_ has output ports,
 else it uses `multipleRootGraph`.
+
+The name of this operator is `lessThanSignExclamationMark`.
 
 * * *
 

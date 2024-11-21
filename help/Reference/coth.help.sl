@@ -1,6 +1,6 @@
 # coth
 
-_coth(aNumber)_
+- _coth(aNumber)_
 
 Answer the hyperbolic cotangent of _aNumber_.
 
@@ -18,3 +18,4 @@ Evaluate numerically:
 
 See also: cosh, sinh
 
+Categories: Trigonometry, Math

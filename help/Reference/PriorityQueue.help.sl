@@ -60,6 +60,7 @@ Reading, using either `pop`, `peek` or `peekPriority`, from an empty queue answe
 >>> (p.pop, p.peek, p.peekPriority)
 (nil, nil, nil)
 ```
+
 * * *
 
 See also: isEmpty, peek, peekPriority, pop, pushAllWithPriority, pushWithPriority, size

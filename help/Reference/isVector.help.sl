@@ -1,6 +1,6 @@
 # isVector
 
-_isVector(aSequence)_
+- _isVector(aSequence)_
 
 A `Sequence` is a vector if none of the elements in the sequence has the type of the sequence:
 

@@ -1,6 +1,6 @@
 # atAllPutAll
 
-_atAllPutAll(aSequence, indexList, valueList)_
+- _atAllPutAll(aSequence, indexList, valueList)_
 
 Store the elements of _valueList_ into the slots of _aSequence_ selected by _indexList_.
 Answer _valueList_.

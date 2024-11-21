@@ -1,6 +1,6 @@
 # ifAbsentAdd
 
-_ifAbsentAdd(aCollection, anObject)_
+- _ifAbsentAdd(aCollection, anObject)_
 
 Ensure anObject is part of _aCollection_.
 Answer whether it’s membership was newly acquired.

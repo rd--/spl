@@ -22,5 +22,6 @@ The number of channels is fixed, it cannot vary depending on which buffer you us
 
 * * *
 
+See also: PlayBuf
 
-Categories: Recording
+Categories: Ugen, Recording

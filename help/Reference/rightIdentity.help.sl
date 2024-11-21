@@ -21,3 +21,4 @@ _Apl_
 
 Unicode: U+22A2 ⊢ Right Tack
 
+Categories: Functions

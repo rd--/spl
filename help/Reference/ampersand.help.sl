@@ -7,7 +7,6 @@ Nonevaluating conjunction.
 true if _aBoolean_ is true and _aBlock_ evaluates to true, else false.
 If _aBoolean_ is false then _aBlock_ is not evaluated.
 
-
 ```
 >>> true & { true }
 true

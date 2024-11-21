@@ -1,6 +1,6 @@
 # highBitOfByte
 
-_highBitOfByte(anInteger)_
+- _highBitOfByte(anInteger)_
 
 Answer the high bit of _anInteger_ in the range (0, 255).
 
@@ -21,4 +21,6 @@ Consults a lookup table:
 
 * * *
 
-See also: highBit
+See also: highBit, highBitOfMagnitude
+
+Categories: Bitwise

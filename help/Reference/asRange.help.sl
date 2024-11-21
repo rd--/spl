@@ -24,6 +24,7 @@ At `Range` is identity:
 >>> 1:9.asRange
 1:9
 ```
+
 * * *
 
 See also: isArithmeticSeries, Range

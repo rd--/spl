@@ -25,7 +25,6 @@ Skip to a position:
 (5, 7 .. 9)
 ```
 
-
 * * *
 
 See also: skipTo

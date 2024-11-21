@@ -1,8 +1,8 @@
 # GetTempo
 
-Continuous tempo.
+- _GetTempo()_
 
-_GetTempo()_
+Continuous tempo.
 
 Gives the current tempo as a control rate signal. Tempo is always in beats per second.
 

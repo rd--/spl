@@ -22,4 +22,3 @@ The _x_ in the `Block` at _f₀_ is a reference to the _x_ in lexical scope and 
 >>> f()
 2
 ```
-

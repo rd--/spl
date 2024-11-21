@@ -1,6 +1,6 @@
 # mergeSort
 
-_mergeSort(aSequence)_
+- _mergeSort(aSequence)_
 
 Sort _aSequence_ in place using the mergesort algorithm.
 Mergesort is a worst-case _O(N log N)_ sorting algorithm that usually does only half as many comparisons as heapsort or quicksort.

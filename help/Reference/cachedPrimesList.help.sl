@@ -23,7 +23,6 @@ true
 
 The list can be extended to a specified prime number:
 
-
 ```
 >>> system.cachedPrimesListExtendedToPrime(7919).size >= 1000
 true

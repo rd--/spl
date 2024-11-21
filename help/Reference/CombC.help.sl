@@ -1,6 +1,6 @@
 # CombC
 
--  _CombC(in, maxDelayTime=0.2, delayTime=0.2, decayTime=1)_
+- _CombC(in, maxDelayTime=0.2, delayTime=0.2, decayTime=1)_
 
 Comb filter.
 Comb delay line.

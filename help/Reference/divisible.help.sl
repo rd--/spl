@@ -84,7 +84,6 @@ Divisible threads elementwise over lists:
 [false true false true false true]
 ```
 
-
 * * *
 
 See also: %, divisors, even, gcd, mod, quotient, round
@@ -92,3 +91,5 @@ See also: %, divisors, even, gcd, mod, quotient, round
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Divisible.html)
+
+Categories: Math

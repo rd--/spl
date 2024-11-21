@@ -133,7 +133,6 @@ let n = 250;
 }
 ~~~
 
-
 * * *
 
 See also: discretePlot, linePlot, scatterPlot

@@ -51,7 +51,7 @@
 - `walshMatrix`: Walsh matrix
 - `zeroMatrix`: zero matrix
 
-## Matrix Functions
+## General
 
 - `arrayFlatten`: flatten a matrix of matrices
 - `arrayRules`: positions and values of non-zero elements
@@ -97,4 +97,3 @@
 * * *
 
 Guides: Mathematical Functions
-

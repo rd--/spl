@@ -64,3 +64,4 @@ _W_
 
 Further Reading: Levenshtein 1966
 
+Categories: Distance

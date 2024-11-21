@@ -39,4 +39,3 @@ _Xenharmonic_
 [1](https://en.xen.wiki/w/Kees_semi-height)
 
 Categories: Tuning
-

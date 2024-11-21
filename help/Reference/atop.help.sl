@@ -1,6 +1,6 @@
 # atop
 
-_atop(aBlock:/2, anotherBlock:/1)_
+- _atop(aBlock:/2, anotherBlock:/1)_
 
 Answer a Block that applies _anotherBlock_ to post-processes the result of _aBlock_.
 

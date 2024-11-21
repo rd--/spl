@@ -1,4 +1,4 @@
-# ;;
+# ;; (semicolonSemicolon)
 
 Double semicolon is a syntax token, it is not an operator.
 
@@ -8,6 +8,8 @@ This is a Lisp end of line comment form.
 The convention is to write comments that begin a line using two semicolons.)
 The Haskell comment to end of line token is `--`.
 Where supported the comment to end of line token is displayed as ⍝.
+
+The name of this token is `semicolonSemicolon`.
 
 * * *
 

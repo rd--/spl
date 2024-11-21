@@ -43,4 +43,4 @@ _Mathematica_
 _Smalltalk_
 5.6.7.14
 
-Categories: Math, Trigonometry
+Categories: Trigonometry, Math

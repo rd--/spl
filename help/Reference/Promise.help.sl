@@ -25,6 +25,7 @@ Construct a `Promise` that will resolve to the value _'Answer'_ after one second
 >>> promise.isPromise
 true
 ```
+
 * * *
 
 See also: allFulfilled, allSettled, anyFulfilled, anySettled, rejectedPromise, resolvedPromise, then, thenElse

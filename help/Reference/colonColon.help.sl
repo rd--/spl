@@ -1,4 +1,4 @@
-# ::
+# :: (colonColon)
 
 `::` is a syntax token, it is not an operator.
 

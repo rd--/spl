@@ -1,6 +1,6 @@
 # timesRepeat
 
-_timesRepeat(anInteger, aBlock:/0)_
+- _timesRepeat(anInteger, aBlock:/0)_
 
 Evaluate the argument, _aBlock:/0_, the number of times represented by the receiver.
 

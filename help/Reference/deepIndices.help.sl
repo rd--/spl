@@ -1,7 +1,7 @@
 # deepIndices
 
--  _deepIndices(aCollection, aBlock:/1)_
--  _deepIndices(alpha)_ ⟹ _deepIndices(alpha, true.constant)_
+- _deepIndices(aCollection, aBlock:/1)_
+- _deepIndices(alpha)_ ⟹ _deepIndices(alpha, true.constant)_
 
 Answer a `List` of indices, each a `List`, of the paths to each leaf element in _aCollection_
 that satisfies the predicate _aBlock_.

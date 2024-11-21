@@ -17,19 +17,13 @@
 		textList.withIndexDo { :text :index |
 			let fileName = helpFileNameList[index];
 			let helpFile = HelpFile(fileName.asFileUrl, text);
-			let [testCount, passCount] = helpFile.terseReferenceEntry(options);
-			(
-				testCount > 0 & {
-					testCount ~= passCount
-				}
-			).ifTrue {
-				fileName.postLine;
-				['Failure', testCount, passCount].postLine
-			};
-			totalTestCount := totalTestCount + testCount;
-			totalPassCount := totalPassCount + passCount
+			(helpFile.documentTests.size > 0).ifTrue {
+				let [testCount, passCount] = helpFile.terseReferenceEntry(options);
+				totalTestCount := totalTestCount + testCount;
+				totalPassCount := totalPassCount + passCount
+			}
 		};
-		['Terse Reference Summary', totalTestCount, totalPassCount].postLine
+		'Terse Reference Summary: Pass % of %'.format([totalPassCount, totalTestCount]).postLine
 	}
 
 }

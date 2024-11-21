@@ -16,7 +16,6 @@ Binary operators associate to the left, _α + β * γ_ = _(α + β) * γ_:
 
 Binary operators are grouped using parentheses:
 
-
 ```
 >>> 3 + (4 * 5)
 23

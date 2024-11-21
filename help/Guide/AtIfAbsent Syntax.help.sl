@@ -8,8 +8,10 @@ Syntax for the _atIfAbsent_ protocol.
 Read the value at the index _k_ of the collection _c_, if it is absent evaluate _a_.
 _a_ must be a literal block.
 
-	let c = ();
-	c['x'] :? { 'y' }
+~~~
+let c = ();
+c['x'] :? { 'y' }
+~~~
 
 Written out:
 

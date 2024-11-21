@@ -7,7 +7,6 @@ _n_ is an integer in the range _(1, p.product)_ and
 the answer is an integer in the range _(0, p.product - 1)_.
 This is Barlow’s lower case psi (ψ) function.
 
-
 The answer at index `one` is always _p.product - 1_.
 The answer at index two is always `zero`.
 The sequence of all indispensability values a permutation of the integers from `zero` to `one` less than _p.product_:

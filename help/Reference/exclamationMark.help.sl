@@ -1,4 +1,4 @@
-# !
+# ! (exclamationMark)
 
 - _aNumber.!_
 - _anObject ! shape_
@@ -122,5 +122,7 @@ This can be more written more simply using the _!^_ operator as:
 * * *
 
 See also: !^, !+, #, duplicateInteger, duplicateShape, factorial, fill, List
+
+Unicode: ! U+00021 Exclamation Mark
 
 Categories: Copying

@@ -1,6 +1,6 @@
 # isMatrixOf
 
-_isMatrixOf(aSequence | aMatrix, aString)_
+- _isMatrixOf(aSequence | aMatrix, aString)_
 
 Answers _true_ if _aSequence_ is a matrix with the indicated _elementType_,
 else _false_.

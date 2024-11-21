@@ -47,7 +47,6 @@ Not all byte sequences are valid UTF-8 codes:
 
 See also: asciiString, ByteArray, String, utf8ByteArray, utf16List
 
-
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ByteArrayToString.html)

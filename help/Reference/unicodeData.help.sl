@@ -18,11 +18,11 @@ system.unicodeData.then { :unicodeTable |
 
 The most commonly used fields are:
 
-- 1. Code point (four character hexadecimal string)
-- 2. Name
-- 3. General category
-- 13. Simple uppercase mapping
-- 14. Simple lowercase mapping
+- 1\. Code point (four character hexadecimal string)
+- 2\. Name
+- 3\. General category
+- 13\. Simple uppercase mapping
+- 14\. Simple lowercase mapping
 
 If the library has been acquired it may be accessed directly:
 

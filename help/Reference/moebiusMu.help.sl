@@ -38,5 +38,4 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A008683)
 
-
 Categories: Math

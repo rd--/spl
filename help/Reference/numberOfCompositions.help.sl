@@ -1,6 +1,6 @@
 # numberOfCompositions
 
-_numberOfCompositions(n, k)_
+- _numberOfCompositions(n, k)_
 
 The number of compositions of a number _n_ of length _k_ (where 0 is allowed).
 
@@ -25,3 +25,5 @@ See also: integerCompositions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Composition.html)
+
+Categories: Combinatorics

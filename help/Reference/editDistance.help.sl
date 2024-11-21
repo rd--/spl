@@ -37,7 +37,6 @@ Compute distance between any strings of equal length:
 
 `editDistance` is less than or equal to `hammingDistance` for strings of equal length:
 
-
 ```
 >>> 'bccbbcb'.editDistance('ccbbccb')
 2

@@ -1,5 +1,4 @@
-# ]
-
+# ] (rightSquareBracket)
 
 `]` is a syntax token, it is not an operator.
 
@@ -14,3 +13,5 @@ The name of this syntax token is `rightSquareBracket`.
 See also: leftSquareBracket
 
 Guides: List Syntax, Matrix Syntax, Vector Syntax, Volume Syntax
+
+Categories: Syntax

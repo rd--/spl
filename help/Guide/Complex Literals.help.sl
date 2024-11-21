@@ -25,3 +25,4 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Complex_number)
 
+Categories: Literals

@@ -8,6 +8,7 @@ Answer the hyperbolic cosine of _aNumber_.
 >>> 1.2.cosh
 1.81066
 ```
+
 `cosh` can take `Complex` number inputs:
 
 ```
@@ -51,4 +52,4 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/HyperbolicCosine.html)
 [2](https://reference.wolfram.com/language/ref/Cosh.html)
 
-Categories: Math, Trigonometry
+Categories: Trigonometry, Math

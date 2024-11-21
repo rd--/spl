@@ -22,3 +22,4 @@ Answer the prime divisors of `anInteger`.
 
 See also: primeExponents, primeFactorization
 
+Categories: Math

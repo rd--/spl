@@ -20,7 +20,6 @@ Area, centroid and arc length of an equilateral triangle:
 (3.sqrt, [1, 3.sqrt / 3], 6, 1/3.pi # 3)
 ```
 
-
 Area, centroid and arc length of an isosceles triangle:
 
 ```

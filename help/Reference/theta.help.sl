@@ -44,3 +44,4 @@ Guides: Geometry Types
 
 Unicode: U+03B8 θ Greek Small Letter Theta
 
+Categories: Accessing

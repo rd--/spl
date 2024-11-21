@@ -420,7 +420,7 @@ String! : [Object, Json, Iterable, Character] {
 	format { :self :arguments |
 		let parts = self.splitBy('%');
 		(arguments.size + 1 = parts.size).if {
-			parts.riffle(arguments.collect(printString:/1)).stringConcatenation('')
+			parts.riffle(arguments.collect(asString:/1)).stringConcatenation('')
 		} {
 			self.error('format: incorrect number of arguments')
 		}

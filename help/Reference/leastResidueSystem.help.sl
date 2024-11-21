@@ -13,3 +13,4 @@ Answer a complete `ResidueSet` with modulus _anInteger_.
 
 See also: asResidueSet, ResidueSet
 
+Categories: Enumerating

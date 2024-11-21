@@ -13,7 +13,7 @@ A one zero filter.
 
 Implements the formula:
 
->  _out(i) = ((1 - abs(coef)) * in(i)) + (coef * in(i-1))_
+> _out(i) = ((1 - abs(coef)) * in(i)) + (coef * in(i-1))_
 
 Low pass:
 

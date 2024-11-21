@@ -1,6 +1,6 @@
 # nextRandomFloatWeibullDistribution
 
-_nextRandomFloatWeibullDistribution(location, spread, shape)_
+- _nextRandomFloatWeibullDistribution(location, spread, shape)_
 
 - location: offset
 - spread: distribution range scaling factor
@@ -23,3 +23,5 @@ Effects of _shape_:
 * * *
 
 See also: nextRandomFloat
+
+Categories: Random

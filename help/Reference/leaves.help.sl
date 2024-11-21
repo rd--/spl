@@ -1,6 +1,6 @@
 # leaves
 
-_leaves(aTree)_
+- _leaves(aTree)_
 
 Answer a List of the _value_ of each of the leaf trees:
 

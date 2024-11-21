@@ -57,7 +57,6 @@ Noncommensurate waves (quasiperiodic function):
 (0 -- 40.pi).functionPlot { :x | x.cos + (x * 2.sqrt).cos }
 ~~~
 
-
 Spiral:
 
 ~~~

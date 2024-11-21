@@ -13,7 +13,6 @@ At `ByteArray` encloses data:
 
 At `Float64Array` encloses data as a byte array:
 
-
 ```
 >>> let float64Array = [1 .. 9].asFloat64Array;
 >>> let blob = float64Array.asBlob;

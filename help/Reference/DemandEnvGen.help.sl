@@ -47,7 +47,6 @@ let freq = DemandEnvGen(
 SinOsc(freq * [1 1.21], 0) * 0.1
 ```
 
-
 Sample and hold (0.5 > gate > 0),
 `MouseX` on right side of screen toggles gate,
 `MouseY` scales frequency:
@@ -96,7 +95,6 @@ DemandEnvGen(
 ```
 
 Softsyncing a saw:
-
 
 ```
 DemandEnvGen(

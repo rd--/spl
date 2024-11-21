@@ -1,6 +1,6 @@
 # asTuple
 
-_asTuple(anObject)_
+- _asTuple(anObject)_
 
 Composite types may provide an `asTuple` method to answer a `Tuple` form of the value.
 

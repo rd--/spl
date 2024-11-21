@@ -39,6 +39,7 @@ The midpoint between two `Point` values is a `Point` value:
 >>> [1 1].Point.midpoint([2 3].Point)
 [3/2 2].Point
 ```
+
 The midpoint is equidistant from the two points:
 
 ```
@@ -67,3 +68,4 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Midpoint)
 
+Categories: Geometry

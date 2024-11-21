@@ -72,7 +72,6 @@ Build up a binary tree:
 
 Build up a left-branching binary tree:
 
-
 ```
 >>> [1 2 3 4].foldList(0) { :p :q | [q, p] }
 [0, [1, 0], [2, [1, 0]], [3, [2, [1, 0]]], [4, [3, [2, [1, 0]]]]]

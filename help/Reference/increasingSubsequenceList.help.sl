@@ -24,3 +24,4 @@ Find all of the longest increasing subsequences of the permutation _326451_:
 
 See also: longestIncreasingSubsequence
 
+Categories: Enumerating

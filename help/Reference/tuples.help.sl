@@ -89,7 +89,6 @@ The first element given is always picked first:
 [0 1].tuples(3).reversed
 ```
 
-
 All ways of picking one element from each list:
 
 ```

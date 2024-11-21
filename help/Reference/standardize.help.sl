@@ -46,4 +46,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Standardize.html)
 
 Categories: Math, Vector
-

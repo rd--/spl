@@ -153,7 +153,6 @@ For clarity there are the methods `leftActionProduct`:
 
 and `rightActionProduct`:
 
-
 ```
 >>> let p = [2 1 3].asPermutation;
 >>> let q = [3 1 2].asPermutation;

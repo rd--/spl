@@ -49,12 +49,9 @@ At `Nil`:
 'nil'
 ```
 
-At `String`:
+At `String`, the string is quoted:
 
 ```
->>> 'x'.printString
-'\'x\''
-
 >>> 'x'.printString.size
 3
 

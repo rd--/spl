@@ -162,7 +162,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 		let testCount = 0;
 		let passCount = 0;
 		options::verbose.ifTrue {
-			(self.origin.fileNameWithoutExtensions, self.name).postLine
+			(self.origin.fileNameWithoutExtensions.decodeUri, self.name).postLine
 		};
 		self.codeBlocks.do { :each |
 			each::information.includesSubstring('methodDefinition').ifTrue {
@@ -177,8 +177,11 @@ HelpFile : [Object, Cache] { | origin source cache |
 			each.evaluate.if {
 				passCount := passCount + 1
 			} {
-				['Fail', each.format].postLine
+				('	FAIL: ' ++ each.format).postLine
 			}
+		};
+		options::verbose.ifTrue {
+			'	Pass % of %'.format([passCount, testCount]).postLine
 		};
 		[testCount, passCount]
 	}

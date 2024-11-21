@@ -20,7 +20,6 @@ Unlike a `List`, a `ByteArray` is of fixed size.
 [1 9 25 49].asByteArray
 ```
 
-
 `ByteArray` implements `Sequence`:
 
 ```

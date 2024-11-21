@@ -1,6 +1,6 @@
 # asStringWithCommas
 
-_asStringWithCommas(aNumber)_
+- _asStringWithCommas(aNumber)_
 
 Answer the number formatted with commas every three digits.
 

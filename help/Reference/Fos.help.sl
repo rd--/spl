@@ -29,4 +29,3 @@ _SuperCollider_
 [1](https://doc.sccode.org/Classes/FOS.html)
 
 Categories: Ugen
-

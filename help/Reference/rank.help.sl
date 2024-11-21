@@ -20,6 +20,7 @@ A rank one array is a _vector_:
 >>> [1 2 3 4 5 6 7 8].rank
 1
 ```
+
 A rank two array is a _matrix_:
 
 ```
