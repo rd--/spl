@@ -2,7 +2,7 @@
 
 - _primeExponents(anInteger)_
 
-Primes exponents in the factorization of `anInteger`.
+Prime exponents in the factorization of `anInteger`.
 
 An exponent of `zero` means that the corresponding prime is not a factor of `anInteger`.
 

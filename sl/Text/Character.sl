@@ -48,6 +48,10 @@
 		}
 	}
 
+	isApostrophe { :self |
+		self.codePoint = 39
+	}
+
 	isAscii { :self |
 		self.codePoint < 128
 	}
@@ -82,6 +86,14 @@
 
 	isLowerCase { :self |
 		self.codePoint.betweenAnd(97, 122)
+	}
+
+	isQuotationMark { :self |
+		self.codePoint = 34
+	}
+
+	isReverseSolidus { :self |
+		self.codePoint = 92
 	}
 
 	isSeparator { :self |

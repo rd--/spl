@@ -63,7 +63,7 @@ See also: fromDigits, integerDigits
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/vanderCorputSequence.html),
-_Oeis_
+_OEIS_
 [1](https://oeis.org/A030101)
 [2](https://oeis.org/A030102),
 _W_

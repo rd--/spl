@@ -33,6 +33,10 @@ See also: isSquareFree
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PowerfulNumber.html),
+_OEIS_
+[1](http://oeis.org/A001694)
+[2](http://oeis.org/A118896)
+[3](http://oeis.org/A060355),
 _W_
 [1](https://en.wikipedia.org/wiki/Powerful_number)
 

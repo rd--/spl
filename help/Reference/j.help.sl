@@ -11,15 +11,15 @@ Answer a `Complex` number with a real part of `real` and an imaginary part of `i
 >>> 1.j(-2) + 3.j(4)
 4.j(2)
 
->>> 1j-2 + 3j4
-4j2
+>>> 1J-2 + 3J4
+4J2
 ```
 
 Threads over lists:
 
 ```
 >>> [-2 9 5].j([3 -4 6])
-[-2j3 9j-4 5j6]
+[-2J3 9J-4 5J6]
 ```
 
 * * *

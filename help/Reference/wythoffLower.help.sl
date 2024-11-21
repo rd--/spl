@@ -3,7 +3,7 @@
 - _wythoffLower(anInteger)_
 
 Answer the _anInteger_-th element of the _lower Wythoff sequence_,
-c.f. OEIS A000201.
+c.f. OEIS A000201:
 
 ```
 >>> 1:19.collect(wythoffLower:/1)
@@ -13,3 +13,9 @@ c.f. OEIS A000201.
 * * *
 
 See also: wythoffArray, wythoffPair, wythoffUpper
+
+References:
+_OEIS_
+[1](https://oeis.org/A000201)
+
+Categories: Math

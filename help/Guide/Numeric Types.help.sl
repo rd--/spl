@@ -14,6 +14,22 @@ and `LargeInteger`:
 true
 ```
 
+The non-primitive numeric types are `Complex`:
+
+```
+>>> 1J1.isComplex
+true
+```
+
+and `Fraction`:
+
+```
+>>> 3/4.isFraction
+true
+```
+
 * * *
 
 See also: Binary, Complex, Fraction, Integer, isImmediate, LargeInteger, Number, SmallFloat
+
+Guides: Number Literals, Numerical Precision

@@ -20,7 +20,9 @@ Plot over the unit interval:
 Plot difference from input:
 
 ~~~
-(0 -- 2).functionPlot { :x | x.minkowskiQuestionMarkInverse - x }
+(0 -- 2).functionPlot { :x |
+	x.minkowskiQuestionMarkInverse - x
+}
 ~~~
 
 Plot from -2 to 2:

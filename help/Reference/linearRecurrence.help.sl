@@ -83,6 +83,12 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/LinearRecurrenceEquation.html)
 [2](https://reference.wolfram.com/language/ref/LinearRecurrence.html),
+_OEIS_
+[1](http://oeis.org/A000931)
+[2](http://oeis.org/A000204)
+[3](http://oeis.org/A000129)
+[4](http://oeis.org/A002203)
+[5](http://oeis.org/A001608),
 _W_
 [1](https://en.wikipedia.org/wiki/Recurrence_relation)
 

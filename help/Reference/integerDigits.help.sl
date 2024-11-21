@@ -158,6 +158,12 @@ See also: digitCount, fromDigits
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Digit.html)
-[2](https://reference.wolfram.com/language/ref/IntegerDigits.html)
+[2](https://reference.wolfram.com/language/ref/IntegerDigits.html),
+_OEIS_
+[1](https://oeis.org/A062756)
+[2](https://oeis.org/A364024)
+[3](https://oeis.org/A007376)
+[4](https://oeis.org/A265326)
+[5](https://oeis.org/A117966)
 
 Categories: Converting

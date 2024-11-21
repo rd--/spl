@@ -19,7 +19,7 @@ See also: berahaConstant
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SilverConstant.html),
-_Oeis_
+_OEIS_
 [1](https://oeis.org/A116425),
 
 Categories: Math, Constant

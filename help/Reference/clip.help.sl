@@ -67,7 +67,7 @@ Plot the composition of clip with a periodic function:
 
 * * *
 
-See also: Clip, max, min, piecewise, rescale, round, tanh, threshold, unitize
+See also: Clip, max, min, normalizeRange, noralizeSignal, piecewise, rescale, round, tanh, threshold, unitize
 
 References:
 _Mathematica_

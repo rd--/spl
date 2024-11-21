@@ -74,6 +74,8 @@ See also: isGaussianPrime, isPrime
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PrimePower.html)
-[2](https://reference.wolfram.com/language/ref/PrimePowerQ.html)
+[2](https://reference.wolfram.com/language/ref/PrimePowerQ.html),
+_OEIS_
+[1](https://oeis.org/A246655)
 
 Categories: Testing

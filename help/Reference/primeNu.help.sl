@@ -49,3 +49,5 @@ See also: factorInteger, gcd, isPrime, isPrimePower, isSquareFree, primeOmega
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PrimeNu.html)
+
+Categories: Math

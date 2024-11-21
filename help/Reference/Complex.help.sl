@@ -2,6 +2,7 @@
 
 - _Complex(real, imaginary)_
 
+A `Type` representing a complex number.
 Answer a `Complex` number with the indicated _real_ and _imaginary_ parts.
 
 Threads overs lists and arrays:
@@ -18,70 +19,70 @@ There is a literal syntax:
 Complex(1, 5)
 ```
 
-Complex implements `*`, `/`, `+`, `-` and `^`:
+`Complex` implements `*`, `/`, `+`, `-` and `^`:
 
 ```
->>> 1j2 * 2j-3
-8j1
+>>> 1J2 * 2J-3
+8J1
 
->>> 1j2 / 1j-2
--0.6j0.8
+>>> 1J2 / 1J-2
+-0.6J0.8
 
->>> 1j2 + 1j-2
-2j0
+>>> 1J2 + 1J-2
+2J0
 
->>> -3j2 - 5j-1
--8j3
+>>> -3J2 - 5J-1
+-8J3
 
->>> -1j2 ^ 1j1
--0.27910j0.08708
+>>> -1J2 ^ 1J1
+-0.27910J0.08708
 ```
 
-Complex adapts to non-Complex operands, and vice-versa:
+`Complex` adapts to non-`Complex` operands, and vice-versa:
 
 ```
->>> -1j2 ^ 2
--3j-4
+>>> -1J2 ^ 2
+-3J-4
 
->>> -1j2 ^ 2.5
-2.72962j-6.96066
+>>> -1J2 ^ 2.5
+2.72962J-6.96066
 
->>> 3 * 2j-5
-6j-15
+>>> 3 * 2J-5
+6J-15
 
->>> 3 * (2j-5 ^ 2)
--63j-60
+>>> 3 * (2J-5 ^ 2)
+-63J-60
 
->>> 3 * (2j-5 ^ -1)
-0.20690j0.51724
+>>> 3 * (2J-5 ^ -1)
+0.20690J0.51724
 ```
 
 Combinations of operands of different types:
 
 ```
->>> 2 * 1j-1
-2j-2
+>>> 2 * 1J-1
+2J-2
 
->>> 2j3 - 1
-1j3
+>>> 2J3 - 1
+1J3
 
->>> 1j2 + 0.5
-1.5j2
+>>> 1J2 + 0.5
+1.5J2
 
->>> 2j3 - 0j0.5
-2j2.5
+>>> 2J3 - 0J0.5
+2J2.5
 
->>> 0.75 * 1j2
-0.75j1.5
+>>> 0.75 * 1J2
+0.75J1.5
 
->>> 2j3 / 2
-1j1.5
+>>> 2J3 / 2
+1J1.5
 
->>> 1j-3 / 2j2
--0.5j-1
+>>> 1J-3 / 2J2
+-0.5J-1
 
->>> 0j2 ^ 2
--4j0
+>>> 0J2 ^ 2
+-4J0
 ```
 
 `real` & `imaginary` answer the components.
@@ -90,22 +91,22 @@ Combinations of operands of different types:
 `arg` answers the phase angle in radians.
 
 ```
->>> 1j2.real
+>>> 1J2.real
 1
 
->>> 1j2.imaginary
+>>> 1J2.imaginary
 2
 
->>> 1j2.conjugated
+>>> 1J2.conjugated
 1j-2
 
->>> 1j2.abs
+>>> 1J2.abs
 2.23607
 
->>> 1j2.absSquared
+>>> 1J2.absSquared
 5
 
->>> 1j2.arg
+>>> 1J2.arg
 1.10715
 ```
 
@@ -115,30 +116,37 @@ Standard functions:
 >>> 0j1.sqrt
 0.70711j0.70711
 
->>> 1j2.sqrt
+>>> 1J2.sqrt
 1.27202j0.78615
 
->>> 1j2.cos
+>>> 1J2.cos
 2.03272j-3.05190
 
->>> 1j2.exp
+>>> 1J2.exp
 -1.13120j2.47173
 
->>> 1j2.sinh
+>>> 1J2.sinh
 -0.48906j1.40312
+```
+
+The `printString` of a `Complex` number is the literal notation:
+
+```
+>>> 1J2.printString
+'1J2'
 ```
 
 The `storeString` of a `Complex` number is the constructor notation:
 
 ```
->>> 1j2.storeString
+>>> 1J2.storeString
 'Complex(1, 2)'
 ```
 
 Use `real` and `imaginary` to extract parts of `Complex` numbers:
 
 ```
->>> let c = 1j2;
+>>> let c = 1J2;
 >>> (c.real, c.imaginary)
 (1, 2)
 ```
@@ -146,18 +154,18 @@ Use `real` and `imaginary` to extract parts of `Complex` numbers:
 The `asTuple` method answers a two tuple of the real and imaginary components:
 
 ```
->>> 1j2.asTuple
+>>> 1J2.asTuple
 (1, 2)
 ```
 
-`asComplex` method is defined at `List` and `Tuple`:
+The `asComplex` method is defined at `List` and `Tuple`:
 
 ```
 >>> [1, 2].asComplex
-1j2
+1J2
 
 >>> (1, 2).asComplex
-1j2
+1J2
 ```
 
 * * *

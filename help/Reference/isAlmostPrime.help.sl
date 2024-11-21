@@ -46,6 +46,11 @@ See also: primeFactors, size
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/AlmostPrime.html),
+_OEIS_
+[1](https://oeis.org/A000040)
+[2](https://oeis.org/A001358)
+[3](https://oeis.org/A046308)
+[4](https://oeis.org/A069272),
 _W_
 [1](https://en.wikipedia.org/wiki/Almost_prime)
 

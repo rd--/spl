@@ -13,7 +13,7 @@
 - `pi`: ratio of circle circumference to diameter
 - `plasticRatio`: limiting ratio of Padovan sequence
 - `silverRatio`: silver ratio
-- `smallFloatEpsilon`: the smallest interval above `one`
+- `smallFloatEpsilon`: the smallest interval above one
 - `supergoldenRatio`: supergolden ratio
 - `supersilverRatio`: supersilver ratio
 

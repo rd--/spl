@@ -17,4 +17,4 @@ If _aString_ has multiple characters it is an `error`.
 
 See also: Character, String
 
-Categories: Converting
+Categories: Accessing, Converting

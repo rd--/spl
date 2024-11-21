@@ -19,7 +19,7 @@ The _J_ may also be written _j_.
 
 * * *
 
-See also: Complex
+See also: Complex, i, j
 
 References:
 _Apl_

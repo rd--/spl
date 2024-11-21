@@ -78,6 +78,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/XOR.html)
 [2](https://reference.wolfram.com/language/ref/BitXor.html),
+_OEIS_
+[1](https://oeis.org/A003188),
 _Smalltalk_
 5.6.5.9,
 _W_

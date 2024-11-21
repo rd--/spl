@@ -46,7 +46,7 @@ Guides: Mathematical Constants
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SilverRatio.html),
-_Oeis_
+_OEIS_
 [1](https://oeis.org/A014176),
 _W_
 [1](https://en.wikipedia.org/wiki/Silver_ratio)

@@ -65,4 +65,8 @@ See also: bitAnd, hammingDistance, integerDigits, integerExponent, integerLength
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/DigitCount)
+[1](https://reference.wolfram.com/language/ref/DigitCount),
+_OEIS_
+[1](https://oeis.org/A006046)
+
+Categories: Querying

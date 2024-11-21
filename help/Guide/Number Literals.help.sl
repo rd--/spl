@@ -41,7 +41,6 @@ The parser does not require that _1 <= a < 10_:
 ```
 >>> 10E2
 1E3
-
 ```
 
 * * *

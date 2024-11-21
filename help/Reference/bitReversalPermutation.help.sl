@@ -4,6 +4,8 @@
 
 Answer the _bit-reversal permutation_ for a sequence of size _2 ^ k_.
 
+The first five bit-reversal permutations, OEIS A030109 (one-indexed):
+
 ```
 >>> 0:4.collect(bitReversalPermutation:/1)
 [

@@ -32,3 +32,5 @@ See also: isPrime, primeFactors
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Trial_division)
+
+Categories: Math

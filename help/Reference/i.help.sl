@@ -6,14 +6,14 @@ Answer a _Complex_ number with a real part of `zero` and an imaginary part of _a
 
 ```
 >>> 1.i
-0j1
+0J1
 ```
 
 At `List`:
 
 ```
 >>> [3 -4 6].i
-[0j3 0j-4 0j6]
+[0J3 0J-4 0J6]
 ```
 
 * * *

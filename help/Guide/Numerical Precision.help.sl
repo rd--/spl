@@ -15,6 +15,9 @@ Integers from _−2 ^ 53_ to _2 ^ 53_ can be exactly represented.
 `LargeInteger` has an implementation dependent maximum size:
 
 ```
+>>> 47n ^ 47n
+3877924263464448622666648186154330754898344901344205917642325627886496385062863
+
 >>> { (99n ^ (99 ^ 99)) }.ifError { true }
 true
 ```
@@ -31,6 +34,22 @@ true
 true
 ```
 
+Print a `SmallFloat` to a specified precision:
+
+```
+>>> (1 / 3).printStringShowingDecimalPlaces(3)
+'0.333'
+```
+
+Round a `SmallFloat` to a specified precision:
+
+```
+>>> (1 / 3).roundTo(1E-3).printString
+'0.333'
+```
+
 * * *
 
-See also: SmallFloat, smallFloatEpsilon, LargeInteger
+See also: printStringShowingDecimalPlaces, roundTo, SmallFloat, smallFloatEpsilon, LargeInteger
+
+Guides: Numeric Types

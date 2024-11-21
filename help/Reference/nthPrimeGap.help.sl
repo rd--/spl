@@ -3,7 +3,7 @@
 - _nthPrimeGap(anInteger)_
 
 A prime gap is the difference between two successive prime numbers.
-The _n_-th prime gap is the difference between the _(n + 1)_-st and the _n_-th prime numbers.
+The _n_-th prime gap is the difference between the _(n + 1)_-st and the _n_-th prime numbers.
 
 ```
 >>> 1:20.collect(nthPrimeGap:/1)

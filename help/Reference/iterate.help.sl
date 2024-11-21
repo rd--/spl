@@ -71,8 +71,10 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Power_(operator)),
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:iterate)
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:iterate),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/NestList.html)
+[1](https://reference.wolfram.com/language/ref/NestList.html),
+_OEIS_
+[1](https://oeis.org/A014707)
 
 Categories: Enumerating

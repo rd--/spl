@@ -30,19 +30,19 @@
 - `mixedRadixDecode`: mixed radix decoding
 - `mixedRadixEncode`: mixed radix encoding
 
-## Bitwise Funtions - Logic
+## Bitwise Functions - Logic
 
 - `bitAnd`: bitwise and
 - `bitNot`: bitwise not
 - `bitOr`: bitwise or
 - `bitXor`: bitwise exclusive or
 
-## Bitwise Funtions - Single-Bit
+## Bitwise Functions - Single-Bit
 
 - `bitAt`: read bit
 - `bitAtPut`: write bit
 
-## Bitwise Funtions - Structural
+## Bitwise Functions - Structural
 
 - `bitShiftLeft`: bit shift right
 - `bitShiftRight`: bit shift left
@@ -178,6 +178,7 @@
 ## Fourier Analysis
 
 - `fft`: fast Fourier transform
+- `ifft`: inverse fast Fourier transform
 
 ## Fractal Functions
 
@@ -271,21 +272,46 @@
 - `max`: maximum value
 - `min`: minimum value
 
-## Prime Number Functions - Generating
+## Prime Numbers
 
+- `indexOfPrime`: index of prime number in list of primes
+- `leastPrimeGreaterThanOrEqualTo`: next prime or identity
 - `nextPrime`: next prime
+- `nthPrimeGap`: the nth prime gap
 - `nthPrime`: the nth prime number
-- `primePi`: the number of primes up to
-- `primesList`: the list of primes
+- `previousPrime`: previous prime
+- `primeDivisors`: prime divisors
+- `primeExponents`: prime exponents
+- `primeFactorization`:  prime factors
+- `primeFactors`: prime factors
+- `primeLimit`: largest prime factor
+- `primeNu`: number of distinct prime factors
+- `primeOmega`: number of prime factors
+- `primePi`: number of primes less than or equal to
+- `primesBetweenAnd`: prime numbers in range
+- `primesList`: list of primes
+- `primesUpToDo`: iterate over primes
+- `primesUpTo`: list of primes
 - `randomPrime`: pick a random prime
 
-## Prime Number Functions - Testing
+## Prime Numbers - Testing
 
-- `isAlmostPrime`: test if a number is _k_-almost prime
-- `isCoprime`: test if numbers are coprime
-- `isGaussianPrime`: test if a complex number is a Gaussian prime
-- `isPrime`: test if a number is prime
-- `millerRabinPrimalityTest`: test if a number is likely prime
+- `isAlmostPrime`: is _k_-almost prime
+- `isCoprime`: are coprime
+- `isGaussianPrime`: is Gaussian prime
+- `isLesserTwinPrime`: is lesser of twin primes
+- `isPrime`: is prime
+- `isPrimePower`: is integer power of a prime
+
+## Prime Numbers - Algorithms
+
+- `cachedPrimesList`: cached list of primes
+- `isCachedPrime`: is in cached list of primes
+- `isPrimeTrialDivision`: is prime by trial division
+- `isPrimeWilson`: is prime by Wilson
+- `millerRabinPrimalityTest`: is likely prime by Miller-Rabin
+- `primeFactorsTrialDivision`: prime factors by trial division
+- `primesListWheelSieve`: list of primes by wheel sieve
 
 ## Rational Number Functions
 
@@ -381,11 +407,13 @@
 
 - `bartlettWindow`: Bartlett apodization function
 - `blackmanWindow`: Blackman apodization function
+- `blackmanHarrisWindow`: Blackman-Harris apodization function
 - `dirichletWindow`: Dirichlet apodization function
+- `gaussianWindow`: Gaussian apodization function
 - `hammingWindow`: Hamming apodization function
 - `hannWindow`: Hann apodization function
 - `welchWindow`: Welch  apodization function
 
 * * *
 
-Guides: Geometry Functions, Mathematical Constants, Matrix Functions
+Guides: Geometry Functions, Mathematical Constants, Matrix Functions, Window Functions

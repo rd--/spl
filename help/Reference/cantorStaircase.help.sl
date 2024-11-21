@@ -75,6 +75,9 @@ See also: integerDigits, minkowskiQuestionMark
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CantorFunction.html)
-[2](https://reference.wolfram.com/language/ref/CantorStaircase.html)
+[2](https://reference.wolfram.com/language/ref/CantorStaircase.html),
+_OEIS_
+[1](https://oeis.org/A095844)
+[2](https://oeis.org/A095845)
 
 Categories: Math, Function

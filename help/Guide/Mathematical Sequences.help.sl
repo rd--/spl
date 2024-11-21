@@ -37,4 +37,4 @@ Sequence generators:
 
 * * *
 
-Guides: Mathematical Constants, Mathematical Functions
+Guides: Integer Sequences, Mathematical Constants, Mathematical Functions
