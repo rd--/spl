@@ -2,7 +2,9 @@
 
 - _replaceFromToWith(aSequence, start, stop, replacementElements)_
 
-Replace the elements of _aSequence_ between positions start and stop inclusive with the elements of _replacementElements_ in their original order.
+Replace the elements of _aSequence_ between positions start and stop,
+inclusive,
+with the elements of _replacementElements_ in their original order.
 Answer _aSequence_.
 
 ```
@@ -18,3 +20,5 @@ See also: atPut, fromToDo
 References:
 _Smalltalk_
 5.7.12.4
+
+Categories: Replacing

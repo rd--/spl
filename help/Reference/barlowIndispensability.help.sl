@@ -9,7 +9,7 @@ This is Barlow’s lower case psi (ψ) function.
 
 The answer at index `one` is always _p.product - 1_.
 The answer at index two is always `zero`.
-The sequence of all indispensability values a permutation of the integers from `zero` to `one` less than _p.product_:
+The sequence of all indispensability values is a permutation of the integers from `zero` to `one` less than _p.product_:
 
 ```
 >>> let f = { :p |

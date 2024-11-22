@@ -62,7 +62,11 @@ let a = {
 let b = OnePole({ PinkNoise() * 0.5 } ! 2, 0.4);
 a.add(
 	SinOsc(
-		(LfdNoise0(11) * SetResetFf(Dust(1) * 0.3, Dust(1) * 0.3)).LinLin(-1, 1, 0, 700) + 220,
+		(
+			LfdNoise0(11)
+			*
+			SetResetFf(Dust(1) * 0.3, Dust(1) * 0.3)
+		).LinLin(-1, 1, 0, 700) + 220,
 		0
 	)
 );

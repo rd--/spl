@@ -11,7 +11,9 @@ At `List`:
 [1 2 3; 4 5 6; 7 8 9]
 ```
 
-Split _aString_ into a `List` of `String`s according to _separator_, which is also a `String`.
+Split _aString_ into a `List` of `String`s,
+according to _separator_,
+which is also a `String`.
 
 ```
 >>> 'a,b,c'.splitBy(',')
@@ -51,8 +53,14 @@ Split a string at every '--':
 Make a nested array by applying `splitBy` twice:
 
 ```
->>> '11:12:13//21:22:23//31:32:33'.splitBy('//').collect { :each | each.splitBy(':') }
-['11' '12' '13'; '21' '22' '23'; '31' '32' '33']
+>>> '11:12:13//21:22:23//31:32:33'.splitBy('//').collect { :each |
+>>> 	each.splitBy(':')
+>>> }
+[
+	'11' '12' '13';
+	'21' '22' '23';
+	'31' '32' '33'
+]
 ```
 
 * * *

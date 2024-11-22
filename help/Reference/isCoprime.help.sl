@@ -42,7 +42,12 @@ Numbers up to 100 that that are coprime to 12:
 
 ```
 >>> 1:100.select { :each | each.isCoprime(12) }
-[1 5 7 11 13 17 19 23 25 29 31 35 37 41 43 47 49 53 55 59 61 65 67 71 73 77 79 83 85 89 91 95 97]
+[
+	 1  5  7 11 13 17 19 23 25 29
+	31 35 37 41 43 47 49 53 55 59
+	61 65 67 71 73 77 79 83 85 89
+	91 95 97
+]
 ```
 
 Find the fraction of pairs of the first 100 numbers that are relatively prime:

@@ -31,7 +31,8 @@ z + AllpassC(z, 0.01, XLine(0.0001, 0.01, 20), 0.2)
 
 The interpolation schemes result in different signals.
 
-Used as an echo this does not really sound different than _Comb_, but it outputs the input signal immediately (inverted) and the echoes are lower in amplitude.
+Used as an echo this does not really sound different than _Comb_,
+but it outputs the input signal immediately (inverted) and the echoes are lower in amplitude.
 
 ```
 AllpassC(

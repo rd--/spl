@@ -34,7 +34,8 @@ true
 >>> system.methodLookupAtType('collect', 2, 'List').origin.name
 'PrimitiveSequence'
 
->>> system.methodLookupAtType('collect', 2, 'List').block . ([3, 4, 5], { :x | x * x })
+>>> let m = system.methodLookupAtType('collect', 2, 'List');
+>>> m.block . ([3, 4, 5], { :x | x * x })
 [9, 16, 25]
 
 >>> collect([3, 4, 5], { :x | x * x })

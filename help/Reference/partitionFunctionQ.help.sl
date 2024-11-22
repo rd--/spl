@@ -4,7 +4,10 @@
 
 Denotes the number of ways of partitioning _n_ into exactly _k_ distinct parts.
 
-For example, _Q(10,3)=4_ since there are four partitions of 10 into three distinct parts: {1,2,7}, {1,3,6}, {1,4,5}, and {2,3,5}.
+For example,
+_Q(10,3)=4_,
+since there are four partitions of 10 into three distinct parts:
+{1,2,7}, {1,3,6}, {1,4,5}, and {2,3,5}.
 
 ```
 >>> 10.partitionFunctionQ(3)
@@ -17,8 +20,25 @@ For example, _Q(10,3)=4_ since there are four partitions of 10 into three distin
 The following table gives the first few values of _Q(n,k)_:
 
 ```
-1:10.collect { :n | 1:4.collect { :k | n.partitionFunctionQ(k) }.select { :i | i > 0 } }
-[1; 1; 1 1 ; 1 1; 1 2; 1 2 1; 1 3 1; 1 3 2; 1 4 3; 1 4 4 1]
+>>> 1:10.collect { :n |
+>>> 	1:4.collect { :k |
+>>> 		n.partitionFunctionQ(k)
+>>> 	}.select { :i |
+>>> 		i > 0
+>>> 	}
+>>> }
+[
+	1;
+	1;
+	1 1;
+	1 1;
+	1 2;
+	1 2 1;
+	1 3 1;
+	1 3 2;
+	1 4 3;
+	1 4 4 1
+]
 ```
 
 * * *

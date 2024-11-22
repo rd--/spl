@@ -2,7 +2,9 @@
 
 - _quickSort(aSequence)_
 
-Sort elements of _aSequence_ to be non-descending according to _<=_ using an in-place quicksort with simple median-of-three partitioning with guaranteed _O(log(n))_ space usage.
+Sort elements of _aSequence_ to be non-descending according to _<=_,
+using an in-place quicksort with simple median-of-three partitioning,
+with guaranteed _O(log(n))_ space usage.
 
 Sort two items in place:
 

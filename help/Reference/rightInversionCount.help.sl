@@ -22,14 +22,17 @@ The inverse is `rightInversionCountToPermutationList`:
 [2 1 5 4 3]
 ```
 
-Rothe (1800) defines the right inversion count under the name Stellenexponenten, with each place bigger by 1:
+Rothe (1800) defines the right inversion count under the name Stellenexponenten,
+with each place bigger by 1:
 
 ```
 >>> [6 4 3 9 8 10 1 7 2 5].rightInversionCount
 [6 4 3 6 5 5 1 3 1 1] - 1
 ```
 
-Laisant (1888), after defining the factorial number system, defines the right inversion count under the name _signe figuratif_.
+Laisant (1888),
+after defining the factorial number system,
+defines the right inversion count under the name _signe figuratif_.
 For the permutation _4 3 6 5 1 2_ the signe figuratif is given as _(3 2 3 2 0)_:
 
 ```
@@ -58,7 +61,9 @@ The right inversion counts of _S4_:
 ]
 ```
 
-Interpreted in the factorial number system, the right inversion count indicates the position of a permutation in the lexicographic ordering on the symmetric group to which it belongs:
+Interpreted in the factorial number system,
+the right inversion count indicates the position of a permutation in the lexicographic ordering,
+on the symmetric group to which it belongs:
 
 ```
 >>> let c = [1 2 4 6 3 5].rightInversionCount;

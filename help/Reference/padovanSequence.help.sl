@@ -2,9 +2,19 @@
 
 - _padovanSequence(anInteger, initialSequence)_
 
+Answer the first _anInteger_ elements of the Padovan sequence.
+This is the same recurrence relation as for the `perrinSequence`,
+but with different initial conditions.
+
+First few places:
+
 ```
->>> 22.padovanSequence
-[1 1 1 2 2 3 4 5 7 9 12 16 21 28 37 49 65 86 114 151 200 265]
+>>> 22.padovanSequence([1 1 1])
+[
+	  1   1   1   2   2   3   4   5   7   9
+	 12  16  21  28  37  49  65  86 114 151
+	200 265
+]
 ```
 
 Begin sequence with _1 0 0_, c.f. OEIS A000931:
@@ -12,8 +22,9 @@ Begin sequence with _1 0 0_, c.f. OEIS A000931:
 ```
 >>> 27.padovanSequence([1 0 0])
 [
-	1 0 0 1 0
-	1 1 1 2 2 3 4 5 7 9 12 16 21 28 37 49 65 86 114 151 200 265
+	  1   0   0   1   0   1   1   1   2   2
+	  3   4   5   7   9  12  16  21  28  37
+	 49  65  86 114 151 200 265
 ]
 ```
 
@@ -24,14 +35,22 @@ c.f. OEIS A001608:
 
 ```
 >>> 27.padovanSequence([3 0 2])
-[3 0 2 3 2 5 5 7 10 12 17 22 29 39 51 68 90 119 158 209 277 367 486 644 853 1130 1497]
+[
+	   3    0    2    3    2    5    5    7   10   12
+	  17   22   29   39   51   68   90  119  158  209
+	 277  367  486  644  853 1130 1497
+]
 ```
 
 The Van der Laan sequence, c.f. OEIS A182097:
 
 ```
 >>> 27.padovanSequence([1 0 1])
-[1 0 1 1 1 2 2 3 4 5 7 9 12 16 21 28 37 49 65 86 114 151 200 265 351 465 616]
+[
+	  1   0   1   1   1   2   2   3   4   5
+	  7   9  12  16  21  28  37  49  65  86
+	114 151 200 265 351 465 616
+]
 ```
 
 Padovan L-system, the size of the sequence at each step gives the Padovan sequence:
@@ -83,5 +102,7 @@ _OEIS_
 [3](https://oeis.org/A182097),
 _W_
 [1](https://en.wikipedia.org/wiki/Padovan_sequence)
+
+Further Reading: Padovan 1994
 
 Categories: Math, Sequence

@@ -4,7 +4,8 @@
 
 Answer the order of _aPermutation_.
 
-The order of a permutation _p_ is the smallest positive integer _m_ such that the product of the permutation _p_ with itself _m_ times yields the identity permutation.
+The order of a permutation _p_ is the smallest positive integer _m_,
+such that the product of the permutation _p_ with itself _m_ times yields the identity permutation.
 
 The only permutation with order 1 is the identity permutation:
 
@@ -21,7 +22,8 @@ Find the order of a permutation:
 ```
 
 Group elements with order 2 are called involutions.
-If all elements of a group (except the identity) have order 2, then the group is Abelian (the opposite implication does not hold).
+If all elements of a group (except the identity) have order 2,
+then the group is Abelian (the opposite implication does not hold).
 This group is Abelian:
 
 ```

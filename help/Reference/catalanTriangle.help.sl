@@ -2,7 +2,8 @@
 
 - _catalanTriangle(n, k)_
 
-A Catalan triangle give the number of strings consisting of _n_ zeroes and _k_ ones such that no initial segment of the string has more ones than zeroes.
+A Catalan triangle give the number of strings consisting of _n_ zeroes and _k_ ones,
+such that no initial segment of the string has more ones than zeroes.
 It is a generalization of the Catalan numbers.
 
 ```

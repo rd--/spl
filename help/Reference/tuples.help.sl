@@ -55,7 +55,11 @@ Word combinations:
 
 ```
 >>> ['' 're' 'un'; 'wind'; '' 'ing' 's'].tuples.collect(stringJoin:/1)
-['wind' 'winding' 'winds' 'rewind' 'rewinding' 'rewinds' 'unwind' 'unwinding' 'unwinds']
+[
+	'wind' 'winding' 'winds'
+	'rewind' 'rewinding' 'rewinds'
+	'unwind' 'unwinding' 'unwinds'
+]
 
 >>> ['' '-'; '1'; 'j' ; '' '-' ; '1'].tuples.collect(stringJoin:/1)
 ['1j1' '1j-1' '-1j1' '-1j-1']
@@ -76,7 +80,11 @@ The first nine three-tuples of the base-three counting system:
 
 ```
 >>> [0 1 2].tuples(3).first(9)
-[0 0 0; 0 0 1; 0 0 2; 0 1 0; 0 1 1; 0 1 2; 0 2 0; 0 2 1; 0 2 2]
+[
+	0 0 0; 0 0 1; 0 0 2;
+	0 1 0; 0 1 1; 0 1 2;
+	0 2 0; 0 2 1; 0 2 2
+]
 ```
 
 The first element given is always picked first:
@@ -93,7 +101,10 @@ All ways of picking one element from each list:
 
 ```
 >>> ['a' 'b'; 1 2 3 4; 'x'].tuples
-['a' 1 'x'; 'a' 2 'x'; 'a' 3 'x'; 'a' 4 'x'; 'b' 1 'x'; 'b' 2 'x'; 'b' 3 'x'; 'b' 4 'x']
+[
+	'a' 1 'x'; 'a' 2 'x'; 'a' 3 'x'; 'a' 4 'x';
+	'b' 1 'x'; 'b' 2 'x'; 'b' 3 'x'; 'b' 4 'x'
+]
 ```
 
 Each occurrence of an element is picked separately:

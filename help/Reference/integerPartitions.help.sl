@@ -65,8 +65,18 @@ Partitions of 8 into exactly 3 integers:
 Find all partitions of 8 that involve only 1, 2, and 5:
 
 ```
->>> 8.integerPartitions.select { :each | each.allSatisfy { :n | [1 2 5].includes(n) } }
-[5 2 1; 5 1 1 1; 2 2 2 2; 2 2 2 1 1; 2 2 1 1 1 1; 2 1 1 1 1 1 1; 1 1 1 1 1 1 1 1]
+>>> 8.integerPartitions.select { :each |
+>>> 	each.allSatisfy { :n | [1 2 5].includes(n) }
+>>> }
+[
+	5 2 1;
+	5 1 1 1;
+	2 2 2 2;
+	2 2 2 1 1;
+	2 2 1 1 1 1;
+	2 1 1 1 1 1 1;
+	1 1 1 1 1 1 1 1
+]
 ```
 
 Find partitions of 6 of even length only:

@@ -2,7 +2,9 @@
 
 - _split(aSequence, aBlock:/2)_
 
-Split _aSequence_ into parts at points where _aBlock_, when applied to adjacent elements, answers `false`.
+Split _aSequence_ into parts at points where _aBlock_,
+when applied to adjacent elements,
+answers `false`.
 
 Split when adjacent elements are not equal:
 
@@ -28,8 +30,14 @@ Decreasing runs of elements:
 Split based on key:
 
 ```
->>> [1 -> 'a', 1 -> 'b', 2 -> 'a', 2 -> 'c', 3 -> 'a'].split { :i :j | i.key = j.key }
-[[1 -> 'a', 1 -> 'b'], [2 -> 'a', 2 -> 'c'], [3 -> 'a']]
+>>> [1 -> 'a', 1 -> 'b', 2 -> 'a', 2 -> 'c', 3 -> 'a'].split { :i :j |
+>>> 	i.key = j.key
+>>> }
+[
+	[1 -> 'a', 1 -> 'b'],
+	[2 -> 'a', 2 -> 'c'],
+	[3 -> 'a']
+]
 ```
 
 Split at jumps:
@@ -77,17 +85,23 @@ Split by sign:
 Only split when there is a change from non-positive to positive sign (rising edge):
 
 ```
->>> [3 0 -4 3 3 -2 0 -3 -4 5].split { :i :j | (i.sign <= 0 & { j.sign > 0 }).not }
+>>> [3 0 -4 3 3 -2 0 -3 -4 5].split { :i :j |
+>>> 	(i.sign <= 0 & { j.sign > 0 }).not
+>>> }
 [3 0 -4; 3 3 -2 0 -3 -4; 5]
 ```
 
 Only split when there is a change from positive to negative (or non-positive) sign (falling edge):
 
 ```
->>> [3 0 -4 3 3 -2 0 -3 -4 5].split { :i :j | (i.sign > 0 & { j.sign < 0 }).not }
+>>> [3 0 -4 3 3 -2 0 -3 -4 5].split { :i :j |
+>>> 	(i.sign > 0 & { j.sign < 0 }).not
+>>> }
 [3 0 -4 3 3; -2 0 -3 -4 5]
 
->>> [3 0 -4 3 3 -2 0 -3 -4 5].split { :i :j | (i.sign > 0 & { j.sign <= 0 }).not }
+>>> [3 0 -4 3 3 -2 0 -3 -4 5].split { :i :j |
+>>> 	(i.sign > 0 & { j.sign <= 0 }).not
+>>> }
 [3; 0 -4 3 3; -2 0 -3 -4 5]
 ```
 

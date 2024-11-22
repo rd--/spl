@@ -2,7 +2,8 @@
 
 - _adaptToNumberAndApply(anObject, aNumber, aBlock:/2)_
 
-Request that _anObject_ adapt itself to operating with the number _aNumber_ and then apply _aBlock_ with itself as the second parameter.
+Request that _anObject_ adapt itself to operating with the number _aNumber_,
+and then apply _aBlock_ with itself as the second parameter.
 
 At `List`:
 

@@ -3,7 +3,9 @@
 - _gen13(size, x=1, a=1, h0=0, h)_
 
 Stores a polynomial whose coefficients derive from the Chebyshev polynomials of the first kind.
-Uses Chebyshev coefficients to generate stored polynomial functions which, under waveshaping, can be used to split a sinusoid into harmonic partials having a pre-definable spectrum.
+Uses Chebyshev coefficients to generate stored polynomial functions which,
+under waveshaping,
+can be used to split a sinusoid into harmonic partials having a pre-definable spectrum.
 
 - _size_: number of points in the table
 - _x_: provides the left and right values _(-x, +x)_ of the interval over which the polynomial is to be drawn
@@ -14,7 +16,10 @@ Uses Chebyshev coefficients to generate stored polynomial functions which, under
 Quasi-sawtooth transfer function:
 
 ~~~
-let h = [100 -50 -33 25 20 -16.7 -14.2 12.5 11.1 -10 -9.09 8.333 7.69 -7.14 -6.67 6.25 5.88 -5.55 -5.26 5];
+let h = [
+	100 -50 -33 25 20 -16.7 -14.2 12.5 11.1 -10
+	-9.09 8.333 7.69 -7.14 -6.67 6.25 5.88 -5.55 -5.26 5
+];
 513.gen13(1, 1, 0, h).linePlot
 ~~~
 

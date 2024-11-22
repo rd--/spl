@@ -16,14 +16,21 @@ Primes up to one hundred:
 
 ```
 >>> 1:99.select(isPrime:/1)
-[2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97]
+[
+	 2  3  5  7 11 13 17 19 23 29
+	31 37 41 43 47 53 59 61 67 71
+	73 79 83 89 97
+]
 ```
 
 Non-primes up to thirty:
 
 ```
 >>> 1:30.reject(isPrime:/1)
-[1 4 6 8 9 10 12 14 15 16 18 20 21 22 24 25 26 27 28 30]
+[
+	 1  4  6  8  9 10 12 14 15 16
+	18 20 21 22 24 25 26 27 28 30
+]
 ```
 
 Number of primes up to one-thousand:
@@ -37,10 +44,19 @@ Select primes:
 
 ```
 >>> (1 .. 131).select(isPrime:/1)
-[2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 103 107 109 113 127 131]
+[
+	  2   3   5   7  11  13  17  19  23  29
+	 31  37  41  43  47  53  59  61  67  71
+	 73  79  83  89  97 101 103 107 109 113
+	127 131
+]
 
 >>> (827 .. 999).select(isPrime:/1)
-[827 829 839 853 857 859 863 877 881 883 887 907 911 919 929 937 941 947 953 967 971 977 983 991 997]
+[
+	827 829 839 853 857 859 863 877 881 883
+	887 907 911 919 929 937 941 947 953 967
+	971 977 983 991 997
+]
 ```
 
 Number of primes up to ten-thousand:
@@ -64,7 +80,11 @@ Threads over lists:
 [false true true false true false]
 
 >>> 0:24.isPrime.boole
-[0 0 1 1 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0]
+[
+	0 0 1 1 0 1 0 1 0 0
+	0 1 0 1 0 0 0 1 0 1
+	0 0 0 1 0
+]
 ```
 
 Recognize Fermat primes, prime numbers of the form _2 ^ 2 ^ n + 1_:
@@ -84,7 +104,9 @@ false
 Recognize Wieferich primes, prime numbers _p_ such that _p^2_ divides _2^(p-1) - 1_:
 
 ```
->>> let f = { :n | n.isPrime & { (2 ^ (n - 1) - 1) % (n ^ 2) = 0 } };
+>>> let f = { :n |
+>>> 	n.isPrime & { (2 ^ (n - 1) - 1) % (n ^ 2) = 0 }
+>>> };
 >>> (1n .. 9999n).select(f:/1)
 [1093n, 3511n]
 ```
@@ -92,8 +114,13 @@ Recognize Wieferich primes, prime numbers _p_ such that _p^2_ divides _2^(p-1) -
 Find twin primes:
 
 ```
->>> 1:333.select { :each | each.isPrime & { each.nextPrime = (each + 2) } }
-[3 5 11 17 29 41 59 71 101 107 137 149 179 191 197 227 239 269 281 311]
+>>> 1:333.select { :each |
+>>> 	each.isPrime & { each.nextPrime = (each + 2) }
+>>> }
+[
+	  3   5  11  17  29  41  59  71 101 107
+	137 149 179 191 197 227 239 269 281 311
+]
 ```
 
 At `zero` and `one`:

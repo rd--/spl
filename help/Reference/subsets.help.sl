@@ -41,7 +41,11 @@ All possible non-empty subsets of the divisors of 10:
 
 ```
 >>> 10.divisors.subsets  { :each | each.notEmpty }
-[1; 2; 1 2; 5; 1 5; 2 5; 1 2 5; 10; 1 10; 2 10; 1 2 10; 5 10; 1 5 10; 2 5 10; 1 2 5 10]
+[
+	1; 2; 1 2;
+	5; 1 5; 2 5; 1 2 5;
+	10; 1 10; 2 10; 1 2 10; 5 10; 1 5 10; 2 5 10; 1 2 5 10
+]
 ```
 
 Find integers that have exactly 3 nonzero binary digits:

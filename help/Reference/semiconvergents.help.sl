@@ -16,14 +16,14 @@ Stop when the current semiconvergent is within _epsilon_ of the last convergent.
 [1/1 3/4 4/5 5/6 11/13 16/19 27/32]
 ```
 
-The best rational approximations to _(3 / 2).log2_ define equal divisions of the octave that have especially good approximations to the just fifth:
+The best rational approximations to _(3 / 2).log2_ define equal divisions of the octave,
+that have especially good approximations to the just fifth:
 
 ```
 >>> let n = (3 / 2).log2;
 >>> let c = n.continuedFraction(7);
 >>> c.semiconvergents(1E-4)
 [1/1 1/2 2/3 3/5 4/7 7/12 17/29 24/41 31/53]
-
 
 >>> 53.equalTemperamentTuning.asCents[31 + 1]
 701.89

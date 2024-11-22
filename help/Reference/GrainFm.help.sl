@@ -27,7 +27,14 @@ let index = Line(-1, 1, envDur);
 let pan = Line(-0.85, 0.85, envDur);
 let envBufNum = -1;
 let maxGrains = 512;
-GrainFm(numChannels, trigger, dur, carFreq, modFreq, index, pan, envBufNum, maxGrains).Splay * 0.1
+GrainFm(
+	numChannels,
+	trigger, dur,
+	carFreq, modFreq, index,
+	pan,
+	envBufNum,
+	maxGrains
+).Splay * 0.1
 ```
 
 Mouse controls panning, noise and mouse control deviation from center pitch:
