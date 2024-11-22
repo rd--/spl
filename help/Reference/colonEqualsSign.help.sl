@@ -1,4 +1,4 @@
-# :=
+# := (colonEqualsSign)
 
 `:=` is a syntax token, it is not an operator.
 
@@ -29,6 +29,8 @@ Assigning to multiple variables:
 ```
 
 The `:=` symbol is also part of `AtPut Syntax`, `List Assignment Syntax` and `Quoted AtPut Syntax`.
+
+The name of this token is `colonEqualsSign`.
 
 Where supported `:=` is displayed either as ← or ≔.
 

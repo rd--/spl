@@ -8,3 +8,5 @@ Answers `nil`.
 * * *
 
 See also: add, addFirst, addLast, PriorityQueue
+
+Categories: Adding

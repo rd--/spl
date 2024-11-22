@@ -1,4 +1,4 @@
-# `
+# ` (graveAccent)
 
 ` is a syntax token, it is not an operator.
 
@@ -11,6 +11,8 @@ BacktickQuotedString('Backtick Quoted String')
 >>> `Backtick Quoted String`.isBacktickQuotedString
 true
 ```
+
+The name of this syntax token is `graveAccent`.
 
 * * *
 

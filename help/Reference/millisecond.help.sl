@@ -13,4 +13,4 @@ Answer the millisecond of _aDate_:
 
 See also: Date, dayOfMonth, first, hour, minute, month, parseDate, second, year
 
-Categories: Accessing, Time, Type
+Categories: Accessing, Time

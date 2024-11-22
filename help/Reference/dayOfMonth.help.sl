@@ -20,4 +20,4 @@ References:
 _Smalltalk_
 5.8.1.8
 
-Categories: Time, Type
+Categories: Accessing, Date, Type

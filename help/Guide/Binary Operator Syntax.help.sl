@@ -81,66 +81,6 @@ i.e. `++` is `plusSignPlusSign` not `append`, and `<=` is `lessThanSignEqualsSig
 true
 ```
 
-Binary operators:
-
-- `ampersand`: &
-- `asterisk`: *
-- `circumflexAccent`: ^
-- `commercialAt`: @
-- `dollarSign`: $
-- `equalsSign`: =
-- `exclamationMark`: !
-- `greaterThanSign`: >
-- `hyphenMinus`: -
-- `lessThanSign`: <
-- `numberSign`: #
-- `percentSign`: %
-- `plusSign`: +
-- `questionMark`: ?
-- `reverseSolidus`: \
-- `solidus`: /
-- `tilde`: ~
-- `verticalLine`: |
-
-Two character operators:
-
-- `ampersandAmpersand`: &&
-- `commercialAtAsterisk`: @*
-- `commercialAtGreaterThanSign`: @>
-- `equalsSignEqualsSign`: ==
-- `exclamationMarkCircumflexAccent`: !^
-- `exclamationMarkPlusSign`: !+
-- `exclamationMarkTilde`: !~
-- `greaterThanSignEqualsSign`: >=
-- `greaterThanSignGreaterThanSign`: >>
-- `greaterThanSignTilde`: >~
-- `hyphenMinusGreaterThanSign`: ->
-- `hyphenMinusHyphenMinus`: --
-- `lessThanSignEqualsSign`: <=
-- `lessThanSignExclamationMark`: <!
-- `lessThanSignHyphenMinus`: <-
-- `lessThanSignLessThanSign`: <<
-- `lessThanSignTilde`: <~
-- `reverseSolidusReverseSolidus`: \\
-- `solidusSolidus`: //
-- `tildeEqualsSign`: ~=
-- `tildeTilde`: ~~
-- `verticalLineVerticalLine`: ||
-
-Three character binary operators:
-
-- `lessThanSignEqualsSignGreaterThanSign`: <=>
-- `greaterThanSignGreaterThanSignGreaterThanSign`: >>>
-
-Operator-like syntax tokens:
-
-- `asteriskSolidus`: */
-- `colonColon`: ::
-- `colonSolidus`: :/
-- `fullStop`: .
-- `semicolonSemicolon`: ;;
-- `solidusAsterisk`: /\*
-
 _Rationale_: While it is not neccesary to use the text names of the operators within the system,
 there are a number of places where they are required.
 The help entries for operators are named using the text names,
@@ -153,7 +93,7 @@ When compiling the operators are likewise given text names, again because of rul
 
 See also: operatorCharacterNameTable, operatorNameTable
 
-Guides: Operator List, Operator Names, Unary Operator Syntax
+Guides: Binary Operators, Operator List, Operator Names, Syntax Tokens, Unary Operator Syntax
 
 Further Reading: Unicode Consortium 1992
 

@@ -180,6 +180,7 @@ hasLeadingDot s =
 indentNext :: String -> Bool
 indentNext s = inOrOutDent s > 0 || hasTrailingOpening s
 
+-- | (Indent, LeadingDot?)
 type State = (Int, Bool)
 
 {- | Indent line by indicated amount and return:
@@ -198,14 +199,9 @@ indentLine :: State -> String -> (State, String)
 indentLine (i, d) s =
   let t = removeQuotedText s
       d' = hasLeadingDot t
+      -- dx = if d' && not d then 1 else if d && not d' then -1 else 0 -- the outdent rule is not correct...
       next = if indentNext t then 1 else 0
-      current =
-        if d' && (not d)
-          then 0 -- 1 (0 to ignore)
-          else
-            if hasLeadingClosing t
-              then -1
-              else 0
+      current = if hasLeadingClosing t then -1 else 0
       s' = if null s then s else replicate (i + current) '\t' ++ s
   in ((i + next + current, d'), s')
 

@@ -1,4 +1,4 @@
-# "
+# " (quotationMark)
 
 " is a syntax token, it is not an operator.
 
@@ -11,6 +11,8 @@ DoubleQuotedString('Double Quoted String')
 >>> "Double Quoted String".isDoubleQuotedString
 true
 ```
+
+The name of this token is `quotationMark`.
 
 * * *
 

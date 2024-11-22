@@ -2,11 +2,13 @@
 
 Math operators:
 
-- `+`: plus
-- `-`: minus
-- `*`: times (×)
-- `/`: divided by (÷)
-- `^`: raised to (ˆ)
+- `+`: add
+- `-`: subtract
+- `*`: multiply (×)
+- `/`: divide (÷)
+- `^`: raise to (ˆ)
+- `%`: modulo
+- `//`: quotient (⫽)
 
 Comparison operators:
 
@@ -22,12 +24,13 @@ Comparison operators:
 - `<~`: less than or similar to (⪅)
 - `~`: similar to
 - `!~`: not similar to (≉)
+- `<=>`: collation order
 
 Logical operators:
 
 - `&`: and
-- `&&`: evaluting and
 - `|`: or
+- `&&`: evaluting and
 - `||`: evaluating or (‖)
 
 Conditional operators:
@@ -42,6 +45,10 @@ Collection operators:
 - `@*`: at all
 - `@>`: at path
 
+Evaluating operators:
+
+- `$`: apply
+
 Iteration operators:
 
 - `!`: duplicate
@@ -49,4 +56,4 @@ Iteration operators:
 
 * * *
 
-See also: Operator Names, Operator Syntax
+Guides: Binary Operators, Operator Names, Operator Syntax

@@ -56,4 +56,4 @@ true
 
 See also: methodLookupAtType, Method Dictionary, System
 
-Categories: Reflection, System
+Categories: Reflection, Accessing, System

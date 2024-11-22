@@ -2,24 +2,24 @@
 
 ## Separators
 
-- `;`, `semicolon`
-- `,`, `comma`
-- `:;`, `colonSemicolon`
-- `.`, `fullStop`
-- `|`, `verticalLine`
-- `:`, `colon`
-- `=`, `equalsSign`
-- `::`, `colonColon`
-- `:=`, `colonEqualsSign`
+- `colonColon`: ::
+- `colonEqualsSign`: :=
+- `colonSemicolon`: :;
+- `colon`: :
+- `comma`: ,
+- `equalsSign`: =
+- `fullStop`: .
+- `semicolon`: ;
+- `verticalLine`: |
 
 ## Brackets
 
-- `{`, `leftCurlyBracket`
-- `}`, `rightCurlyBracket`
-- `(`, `leftParenthesis`
-- `)`, `rightParenthesis`
-- `leftSquareBracket`
-- `rightSquareBracket`
+- `leftCurlyBracket`: {
+- `rightCurlyBracket`: }
+- `leftParenthesis`: (
+- `rightParenthesis`: )
+- `leftSquareBracket`: [
+- `rightSquareBracket`: ]
 
 ## Quotes
 
@@ -29,9 +29,8 @@
 
 ## Comments
 
-- `/*`, `solidusAsterisk`
-- `*/`, `asteriskSolidus`
-- `>>>`, `greaterThanSignGreaterThanSignGreaterThanSign`
+- `solidusAsterisk`: /\*
+- `asteriskSolidus`: */
 
 ## Reserved Words
 
@@ -40,6 +39,10 @@
 - `false`
 - `let`
 - `var`
+
+## Documentation
+
+- `greaterThanSignGreaterThanSignGreaterThanSign`: >>>
 
 * * *
 

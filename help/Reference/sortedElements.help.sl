@@ -2,7 +2,7 @@
 
 - _sortedElements(aBag)_
 
-Answer with a List of Associations between elements and counts, sorted by increasing element.
+Answer a `List` of `Association`s between elements and counts, sorted by increasing element.
 
 ```
 >>> [1 3 5 1 3 1].asBag.sortedElements
