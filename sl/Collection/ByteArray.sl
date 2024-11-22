@@ -22,6 +22,14 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 		>
 	}
 
+	bitCount { :self |
+		let answer = 0;
+		self.do { :each |
+			answer := answer + each.bitCount
+		};
+		answer
+	}
+
 	crc16 { :self |
 		let table = [
 			16r0000 16rC0C1 16rC181 16r0140 16rC301 16r03C0 16r0280 16rC241

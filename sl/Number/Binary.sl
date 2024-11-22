@@ -84,6 +84,10 @@
 		self >> anInteger
 	}
 
+	bitShiftRightUnsigned { :self :anInteger |
+		self >>> anInteger
+	}
+
 	grayEncode { :n |
 		n.bitXor(n.bitShiftRight(1))
 	}

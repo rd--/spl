@@ -1,4 +1,4 @@
-# #
+# \# (numberSign)
 
 - _#(aCollection)_
 - _anObject # (anInteger | aSequence)_
@@ -64,6 +64,8 @@ A zero count entry skips over the corresponding item
 >>> 1:5 # [0 1 1 0 2]
 [2 3 5 5]
 ```
+
+The name of this operator is `numberSign`.
 
 * * *
 

@@ -1,4 +1,4 @@
-# <~
+# <~ (lessThanSignTilde)
 
 - _p <~ q_ ⟹ _p < q | { p ~ q }_
 
@@ -11,6 +11,8 @@ true
 >>> 3.1416 > pi
 true
 ```
+
+The name of this operator is `lessThanSignTilde`.
 
 Where supported `<~` is displayed as ⪅.
 

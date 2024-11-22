@@ -1,4 +1,4 @@
-# :/
+# :/ (colonSolidus)
 
 Arity selector syntax.
 

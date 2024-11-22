@@ -1,4 +1,4 @@
-/* Requires: Blob, ByteArray, Float64Array, Sequence */
+/* Requires: Blob ByteArray Float64Array Sequence */
 
 File! : [Object, Blob] {
 

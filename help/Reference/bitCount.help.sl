@@ -1,6 +1,6 @@
 # bitCount
 
-- _bitCount(anInteger)_
+- _bitCount(anInteger | aByteArray)_
 
 Answer the number of bits set to 1 in _anInteger_.
 
@@ -10,6 +10,16 @@ Answer the number of bits set to 1 in _anInteger_.
 
 >>> 31.bitCount
 5
+```
+
+At `ByteArray`, sum `bitCount` of each byte:
+
+```
+>>> 5.encodeInt32(true).bitCount
+2
+
+>>> -5.encodeInt32(true).bitCount
+31
 ```
 
 Plot sequence:

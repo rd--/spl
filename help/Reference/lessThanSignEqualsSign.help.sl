@@ -1,4 +1,4 @@
-# <=
+# <= (lessThanSignEqualsSign)
 
 - _aMagnitude <= anotherMagnitude_
 

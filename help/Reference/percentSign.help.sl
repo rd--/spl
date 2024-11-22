@@ -1,4 +1,4 @@
-# %
+# % (percentSign)
 
 - _aNumber % anotherNumber_
 
@@ -74,7 +74,7 @@ Plot the sequence, varying the modulus:
 (100 % 1:50).linePlot
 ~~~
 
-The name of this operator is `percentSign.
+The name of this operator is `percentSign`.
 
 * * *
 

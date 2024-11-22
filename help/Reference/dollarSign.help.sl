@@ -1,4 +1,4 @@
-# $
+# $ (dollarSign)
 
 - _aBlock:/1 $ anObject_
 
@@ -15,6 +15,8 @@ This is the operator form of `value`:
 >>> { :x | x * x * x }.value(3)
 27
 ```
+
+The name of this operator is `dollarSign`.
 
 * * *
 

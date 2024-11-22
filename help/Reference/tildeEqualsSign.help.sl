@@ -1,4 +1,4 @@
-# ~=
+# ~= (tildeEqualsSign)
 
 - _anObject ~= anotherObject_
 

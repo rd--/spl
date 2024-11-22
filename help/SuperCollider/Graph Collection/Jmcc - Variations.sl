@@ -18,34 +18,38 @@
 	SinOsc(f, 0).Pan2(trRand(-1, 1), a)
 }.OverlapTexture(6, 2, 6).Mix
 
-/* Analog bubbles (Jmcc) ; method notation */
+/* Analog bubbles (Jmcc) ; Method notation */
 0.4
+.LfSaw(0)
+.MulAdd(
+	24,
+	[8, 7.23]
 	.LfSaw(0)
-	.MulAdd(24, [8, 7.23]
-		.LfSaw(0)
-		.MulAdd(3, 80)
-	)
-	.MidiCps
-	.SinOsc(0)
-	.Mul(0.04)
-	.CombN(0.2, 0.2, 4)
-	.Mul(0.1)
+	.MulAdd(3, 80)
+)
+.MidiCps
+.SinOsc(0)
+.Mul(0.04)
+.CombN(0.2, 0.2, 4)
+.Mul(0.1)
 
 /* Analog bubbles (Jmcc) ; as above ; one line */
 0.4.LfSaw(0).Mul(24).Add([8, 7.23].LfSaw(0).MulAdd(3, 80)).MidiCps.SinOsc(0).Mul(0.04).CombN(0.2, 0.2, 4).Mul(0.1)
 
-/* Analog bubbles (Jmcc) ; alternate linearisation */
-[8, 7.23].LfSaw(0)
-	.MulAdd(3, 80)
-	.Add(0.4
-		 .LfSaw(0)
-		 .Mul(24)
-	)
-	.MidiCps
-	.SinOsc(0)
-	.Mul(0.05)
-	.CombN(0.2, 0.2, 4)
-	.Mul(0.1)
+/* Analog bubbles (Jmcc) ; Alternate linearisation */
+[8 7.23]
+.LfSaw(0)
+.MulAdd(3, 80)
+.Add(
+	0.4
+	.LfSaw(0)
+	.Mul(24)
+)
+.MidiCps
+.SinOsc(0)
+.Mul(0.05)
+.CombN(0.2, 0.2, 4)
+.Mul(0.1)
 
 /* Analog bubbles (Jmcc) ; as above ; one line */
 [8, 7.23].LfSaw(0).MulAdd(3, 80).Add(0.4.LfSaw(0).Mul(24)).MidiCps.SinOsc(0).Mul(0.05).CombN(0.2, 0.2, 4).Mul(0.1)

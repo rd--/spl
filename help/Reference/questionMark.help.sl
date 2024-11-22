@@ -1,4 +1,4 @@
-# ?
+# ? (questionMark)
 
 - _alpha ? beta_ ⟹ _ifNil(alpha, beta)_
 
@@ -9,6 +9,8 @@
 >>> nil ? { 2 }
 2
 ```
+
+The name of this operator is `questionMark`.
 
 * * *
 

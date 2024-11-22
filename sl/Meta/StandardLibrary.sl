@@ -7,7 +7,6 @@
 	'ArrayBuffer'
 	'AssociationList'
 	'Bag'
-	'BitSet'
 	'ByteArray'
 	'CategoryDictionary'
 	'Float32Array'
@@ -15,7 +14,6 @@
 	'Heap'
 	'LinkedList'
 	'PriorityQueue'
-	'ResidueSet'
 	'RunArray'
 	'Set'
 	'Slice'
@@ -24,7 +22,9 @@
 	'Tree'
 	'Tuple' /* List */
 	'WeakMap'
+	'BitSet' /* ByteArray */
 	'Graph' /* Tuple */
+	'ResidueSet' /* BitSet Set */
 
 	/* Number */
 	'Complex'

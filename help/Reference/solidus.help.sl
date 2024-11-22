@@ -1,4 +1,4 @@
-# /
+# / (solidus)
 
 - _aNumber / anotherNumber_
 - _aNumber./_

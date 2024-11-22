@@ -1,4 +1,4 @@
-# ~
+# ~ (tilde)
 
 - _anObject ~ anotherObject_
 
@@ -35,6 +35,8 @@ true
 >>> [e pi; pi e] ~ [2.7183 3.1416; 3.1416 2.7183]
 true
 ```
+
+The name of this operator is `tilde`.
 
 Where supported `~` is displayed as ≈.
 

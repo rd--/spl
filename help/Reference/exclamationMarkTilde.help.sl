@@ -1,4 +1,4 @@
-# !~
+# !~ (exclamationMarkTilde)
 
 - _p !~ q_ ⟹ p.isCloseTo(q).not
 
@@ -9,6 +9,8 @@ Writing ~ to indicate _similar to_ is a standard mathematical notation.
 However it is a little confusing in this context.
 In Smalltalk ~= is the operator for _not equal to_, and ~~ is the operator for _not identical to_.
 If these operators were written != and !== then !~ could indicate _not similar to_.
+
+The name of this operator is `exclamationMarkTilde`.
 
 * * *
 

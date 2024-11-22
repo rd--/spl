@@ -6,7 +6,10 @@ export function environmentVariableGet(variableName: string): string | null {
 	return Deno.env.get(variableName) || null;
 }
 
-export function environmentVariableSet(variableName: string, variableValue: string): null {
+export function environmentVariableSet(
+	variableName: string,
+	variableValue: string,
+): null {
 	Deno.env.set(variableName, variableValue);
 	return null;
 }
@@ -19,7 +22,9 @@ export function exit(code: number): never {
 	return Deno.exit(code);
 }
 
-export function fileInformationAsync(path: string | URL): Promise<Deno.FileInfo> {
+export function fileInformationAsync(
+	path: string | URL,
+): Promise<Deno.FileInfo> {
 	return Deno.stat(path);
 }
 
@@ -39,7 +44,7 @@ export function modificationTimeSync(path: string | URL): number {
 	try {
 		const info = Deno.statSync(path);
 		return info.mtime ? info.mtime.getTime() : 0;
-	} catch(_) {
+	} catch (_) {
 		return 0;
 	}
 }
@@ -48,8 +53,12 @@ export function operatingSystem(): string {
 	return Deno.build.os;
 }
 
-export function makeDirectorySync(path: string | URL, allowRecursive: boolean, fileMode: number): void {
-	return Deno.mkdirSync(path, {recursive: allowRecursive, mode: fileMode});
+export function makeDirectorySync(
+	path: string | URL,
+	allowRecursive: boolean,
+	fileMode: number,
+): void {
+	return Deno.mkdirSync(path, { recursive: allowRecursive, mode: fileMode });
 }
 
 export function readBinaryFileAsync(path: string | URL): Promise<Uint8Array> {
@@ -68,20 +77,25 @@ export function readTextFileSync(path: string | URL): string {
 	return Deno.readTextFileSync(path);
 }
 
-export function removeDirectorySync(path: string | URL, recursive: boolean): void {
+export function removeDirectorySync(
+	path: string | URL,
+	recursive: boolean,
+): void {
 	const info = Deno.statSync(path);
-	if(info.isDirectory) {
-		return Deno.removeSync(path, {recursive: recursive});
-	} {
+	if (info.isDirectory) {
+		return Deno.removeSync(path, { recursive: recursive });
+	}
+	{
 		throw new Error(`removeDirectory: not a directory: ${path}`);
 	}
 }
 
 export function removeFileSync(path: string | URL): void {
 	const info = Deno.statSync(path);
-	if(info.isFile) {
+	if (info.isFile) {
 		return Deno.removeSync(path);
-	} {
+	}
+	{
 		throw new Error(`removeFile: not a file: ${path}`);
 	}
 }

@@ -1,4 +1,4 @@
-# =
+# = (equalsSign)
 
 - _anObject = anotherObject_
 

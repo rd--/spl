@@ -1,4 +1,4 @@
-/* Requires: Cache, Iterable, Tree */
+/* Requires: Cache Iterable Tree */
 
 Markdown : [Object, Cache, Iterable] { | source cache |
 

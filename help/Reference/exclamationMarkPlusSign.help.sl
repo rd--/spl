@@ -1,4 +1,4 @@
-# !+
+# !+ (exclamationMarkPlusSign)
 
 - _alpha !+ beta_ ⟹ _(alpha ! beta).Sum_
 
@@ -21,6 +21,8 @@ This operator does not need to construct the intermediate list structure to calc
 	} !+ 10
 }.OverlapTexture(2, 3, 4).Mix
 ```
+
+This name of this operator is `exclamationMarkPlusSign`.
 
 * * *
 

@@ -1,3 +1,5 @@
+/* Requires: ByteArray */
+
 BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity bytes tally |
 
 	= { :self :anObject |
@@ -237,6 +239,26 @@ BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity byte
 
 	asBitSet { :self |
 		self.asBitSet(self.size)
+	}
+
+}
+
++ByteArray {
+
+	asBitSet { :self :capacity |
+		(self.size * 8 ~= capacity).if {
+			self.error('asBitSet: incorrect capacity')
+		} {
+			newBitSet().initializeSlots(
+				capacity,
+				self,
+				self.bitCount
+			)
+		}
+	}
+
+	asBitSet { :self |
+		self.asBitSet(self.size * 8)
 	}
 
 }

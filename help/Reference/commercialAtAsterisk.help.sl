@@ -1,4 +1,4 @@
-# @*
+# @* (commercialAtAsterisk)
 
 - aBlock:/1 @* aBlock:/1
 - aCollection @* aCollection

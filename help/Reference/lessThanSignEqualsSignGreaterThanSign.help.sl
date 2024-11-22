@@ -1,4 +1,4 @@
-# <=>
+# <=> (lessThanSignEqualsSignGreaterThanSign)
 
 - _p <=> q_
 
@@ -84,6 +84,8 @@ Comparison of strings with equal base letters and different marks:
 >>> 'réservé' <=> 'reserve'
 1
 ```
+
+The name of this operator is `lessThanSignEqualsSignGreaterThanSign`.
 
 * * *
 

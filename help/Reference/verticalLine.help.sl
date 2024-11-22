@@ -1,4 +1,4 @@
-# |
+# | (verticalLine)
 
 - _aCollection.|_
 - _aBoolean | aBlock:/0_

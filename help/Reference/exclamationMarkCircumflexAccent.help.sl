@@ -1,6 +1,6 @@
-# !^
+# !^ (exclamationMarkCircumflexAccent)
 
-- _alpha !+ beta_ ⟹ _(alpha ! beta).Splay_
+- _alpha !^ beta_ ⟹ _(alpha ! beta).Splay_
 
 Duplicate and distribute.
 Names the idiom of generating an array and distributing it across the main ouput channels.
@@ -14,6 +14,8 @@ Names the idiom of generating an array and distributing it across the main ouput
 	} !^ 10
 }.OverlapTexture(2, 3, 4).Mix
 ```
+
+The name of this operator is `exclamationMarkCircumflexAccent`.
 
 * * *
 

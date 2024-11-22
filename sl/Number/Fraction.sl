@@ -312,20 +312,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		].join('/')
 	}
 
-/*
-	printStringShowingDecimalPlaces { :self :placesDesired |
-		(placesDesired <= 0).if {
-			self.truncated.printString
-		} {
-			let scaling = 10.raisedToInteger(placesDesired);
-			let integerPart = self.numerator.abs // self.denominator;
-			let truncatedFractionPart = (self.numerator.abs - (integerPart * self.denominator)) * scaling // denominator;
-			let sign = self.numerator.negative.if { '-' } { '' };
-			sign ++ integerPart.printString ++ '.' ++ truncatedFractionPart.printStringShowingDecimalPlaces(placesDesired)
-		}
-	}
-*/
-
 	raisedToInteger { :self :anInteger |
 		anInteger.isZero.if {
 			self.one

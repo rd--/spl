@@ -1,4 +1,4 @@
-# &&
+# && (ampersandAmpersand)
 
 - _aBoolean && anotherBoolean_
 

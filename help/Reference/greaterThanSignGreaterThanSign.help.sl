@@ -1,4 +1,4 @@
-# >>
+# >> (greaterThanSignGreaterThanSign)
 
 - _alpha >> beta_ ⟹ _bitShiftRight(alpha, beta)_
 
@@ -13,6 +13,23 @@ The operator form or `bitShiftRight`.
 
 >>> 48.bitShiftRight(4)
 3
+```
+
+Signed and unsigned shifts:
+
+```
+>>> 5 >> 2
+1
+
+>>> -5 >> 2
+-2
+```
+
+Compare with `>>>` (unsigned right shift):
+
+```
+>>> -5 >>> 2
+1073741822
 ```
 
 `>>` is also a syntax token used when writing `Documentation Tests`.

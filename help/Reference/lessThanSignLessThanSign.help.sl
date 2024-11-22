@@ -1,4 +1,4 @@
-# <<
+# << (lessThanSignLessThanSign)
 
 - _alpha << beta_ ⟹ _bitShiftLeft(alpha, beta)_
 

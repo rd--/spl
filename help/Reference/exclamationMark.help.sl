@@ -3,7 +3,11 @@
 - _aNumber.!_
 - _anObject ! shape_
 
-The unary form answers the `factorial` of _aNumber_ if it is a non-negative integer, else answers `gamma`:
+`!` is both an operator and a syntax token.
+
+As an operator,
+the unary form answers the `factorial` of _aNumber_ if it is a non-negative integer,
+else it answers `gamma`:
 
 At integral `SmallFloat` and `LargeInteger`:
 
@@ -95,6 +99,8 @@ With external state:
 
 The name of this operator is `exclamationMark`.
 
+As a syntax token `!` is part of `Type Definition Syntax`.
+
 Answer a `List` constructed by evaluating a no-argument block the indicated number of times.
 
 ```
@@ -122,6 +128,8 @@ This can be more written more simply using the _!^_ operator as:
 * * *
 
 See also: !^, !+, #, duplicateInteger, duplicateShape, factorial, fill, List
+
+Guides: Type Definition Syntax
 
 Unicode: ! U+00021 Exclamation Mark
 

@@ -201,7 +201,7 @@ indentLine (i, d) s =
       next = if indentNext t then 1 else 0
       current =
         if d' && (not d)
-          then 1
+          then 0 -- 1 (0 to ignore)
           else
             if hasLeadingClosing t
               then -1

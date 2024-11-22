@@ -15,7 +15,7 @@ If the _capacity_ is omitted it is set to one more than the largest index.
 ```
 
 In the `String` case,
-answers a `BitSet` of with indices at character set to `one`.
+answers a `BitSet` with indices set at places where the corresponding character is `one`.
 If the _capacity_ is omitted it is set to the `size` of the string.
 
 ```
@@ -24,6 +24,19 @@ If the _capacity_ is omitted it is set to the `size` of the string.
 >>> let l = b.asList;
 >>> (b.capacity, b.size, l)
 (12, 7, [0 2 4 5 7 9 11])
+```
+
+In the particular case of `ByteArray`,
+create a `BitSet` that utilises the given array as its backing store,
+deriving the `capacity` and the `tally` from the size and contents of the array.
+Print the 32-bit twos-complement encodings of five and negative five:
+
+```
+>>> 5.encodeInt32(true).asBitSet.asString
+'10100000000000000000000000000000'
+
+>>> -5.encodeInt32(true).asBitSet.asString
+'11011111111111111111111111111111'
 ```
 
 * * *

@@ -1,4 +1,4 @@
-# */
+# */ (asteriskSolidus)
 
 `*/` is the close comment syntax token for PL/I, used also for the C family of languages.
 

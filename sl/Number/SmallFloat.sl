@@ -91,7 +91,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	<< { :self :anObject |
 		<primitive:
-		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
+		if(sl.isBitwise(_anObject)) {
 			return _self << _anObject;
 		}
 		>
@@ -100,13 +100,22 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	>> { :self :anObject |
 		<primitive:
-		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
+		if(sl.isBitwise(_anObject)) {
 			return sl.shiftRight(_self, _anObject);
 		}
 		>
 		anObject.adaptToNumberAndApply(self, >>)
 	}
 
+
+	>>> { :self :anObject |
+		<primitive:
+		if(sl.isBitwise(_anObject)) {
+			return sl.shiftRightUnsigned(_self, _anObject);
+		}
+		>
+		anObject.adaptToNumberAndApply(self, >>>)
+	}
 
 	abs { :self |
 		<primitive: return Math.abs(_self)>

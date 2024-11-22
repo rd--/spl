@@ -709,6 +709,10 @@ export function shiftRight(lhs: number, rhs: number): number {
 	return lhs >> rhs;
 }
 
+export function shiftRightUnsigned(lhs: number, rhs: number): number {
+	return lhs >>> rhs;
+}
+
 export function signExponentMantissa(x: number): number[] {
 	const float = new Float64Array(1);
 	const bytes = new Uint8Array(float.buffer);

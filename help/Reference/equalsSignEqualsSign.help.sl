@@ -1,4 +1,4 @@
-# ==
+# == (equalsSignEqualsSign)
 
 - _anObject == anotherObject_
 

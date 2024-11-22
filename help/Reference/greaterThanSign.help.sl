@@ -1,4 +1,4 @@
-# >
+# > (greaterThanSign)
 
 - _aMagnitude > anotherMagnitude_
 

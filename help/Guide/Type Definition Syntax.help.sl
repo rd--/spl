@@ -18,6 +18,8 @@ Foo : [Object] { |bar|
 A `Type` definition implicitly defines a constructor, a slot initializer and a predicate,
 as well as methods to read and write instance variables.
 
+To define a _primitive_ type the name is suffixed with an `!`, as in _Nil!_.
+
 * * *
 
 See also: :, {, }, Trait, Type
