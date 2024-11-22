@@ -282,7 +282,7 @@ A `Tree` is a binary tree if it, and every subtree, is of `size` two:
 
 * * *
 
-See also: asTree, List, Tree Syntax
+See also: asTree, List
 
 References:
 _Haskell_

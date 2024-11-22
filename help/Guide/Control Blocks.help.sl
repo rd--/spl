@@ -2,8 +2,17 @@
 
 Control structures are ordinary blocks, as in Smalltalk.
 
-Evaluation of the arguments to _if_, _whileTrue_, _timesRepeat_ &etc. must be delayed manually.
+Evaluation of the arguments to `do`, `if`, `timesRepeat`, `whileTrue` &etc.
+must be delayed manually.
 
 The notation to delay the evaluation of a value _x_ is _{ x }_.
 
-`Trailing Block Syntax` allows control structures to be written as _p.if { q } { r }_ and _{ p }.whileTrue { q }_.
+`Trailing Block Syntax` allows control structures to be written concisely,
+as _p.if { q } { r }_,
+and _{ p }.whileTrue { q }_.
+
+* * *
+
+See also: do, if, timesRepeat, whileTrue
+
+Guides: Trailing Block Syntax

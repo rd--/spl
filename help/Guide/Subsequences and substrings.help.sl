@@ -25,27 +25,48 @@ Of _23_ and _35_ only the first is a substring of _12345_:
 [true false]
 ```
 
+Functions for collecting:
+
+- `subsequences`
+- `substrings`
+
+Functions for enumerating:
+
+- `subsequencesDo`
+- `substringsDo`
+
+Functions for testing:
+
 - `includesSubsequence`
 - `includesScatteredSubsequence`
 - `includesSubstring`
-- `increasingSubsequenceList`
+
+Functions for locating:
+
 - `indexOfSubstringStartingAt`
 - `indexOfSubstring`
 - `indicesOfSubsequence`
 - `indicesOfSubstringStartingAt`
 - `indicesOfSubstring`
+
+Functions for partitioning:
+
+- `partition`
+- `partitionDo`
+
+Longest functions:
+
 - `longestCommonSubsequence`
 - `longestCommonSubstringList`
 - `longestCommonSubstring`
 - `longestIncreasingSubsequenceList`
 - `longestIncreasingSubsequence`
+
+Order functions:
+
+- `increasingSubsequenceList`
 - `orderedSubstrings`
-- `partition`
-- `subsequencesDo`
-- `subsequences`
-- `substringsDo`
 - `substringsInCommon`
-- `substrings`
 
 * * *
 

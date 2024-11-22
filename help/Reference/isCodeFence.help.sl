@@ -3,7 +3,8 @@
 - _isCodeFence(aString)_
 
 Answer `true` if _aString_ is a _code fence_, else `false`.
-A _code fence_ is a sequence of at least three consecutive grave accent characters ('```') or tilde characters ('~~~').
+A _code fence_ is a line that begins with three consecutive _fence characters_.
+Opening code fences may contain _attributes_.
 
 Plain code fences:
 
@@ -45,10 +46,12 @@ true
 
 * * *
 
-See also: Fenced Code Blocks
+See also: isGraveAccentCodeFence, isTildeCodeFence
+
+Guides: Fenced Code Blocks
 
 References:
 _CommonMark_
 [1](https://spec.commonmark.org/0.31.2/#fenced-code-blocks)
 
-Categories: Testing
+Categories: Testing, Help

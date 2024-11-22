@@ -11,14 +11,17 @@ To calculate the square root of each number in a collection an anonymous block m
 [3 4 5]
 ```
 
-If we are to write this directly it must be possible to refer to _sqrt_ by name.
+If we are to write this directly it must be possible to refer to `sqrt` by name.
 There are two models for this, the first called `Simple Method Arity`, the second `Complicated Method Arity`.
 There is a compiler switch to select between these two models.
 
-In the simple model the name _sqrt_ refers to a variable arity block.
-It dispatches first on the number of arguments it receives, and second on the type of the first argument.
+In the simple model the name `sqrt` refers to a variable arity block.
+It dispatches firstly on the number of arguments it receives,
+and secondly on the type of the first argument.
 While simple this model requires the interpreter perform two indirections at each block application,
-and introduces into the system a kind of value (a variable arity block) that is not permitted in the language.
+and introduces into the system a kind of value
+(a variable arity block)
+that is not permitted in the language.
 The simple arity model allows eliding the arity qualifier (:/1) in the expression below:
 
 ```
@@ -42,12 +45,12 @@ This syntax is allowed in the simple model, where the arity qualifier is treated
 
 In both models asking for the arity of a method is an error, though of different kinds.
 
-In the simple model _sqrt.numArgs_ is an error because _sqrt_ is a variable arity block.
-In the complicated model _sqrt.numArgs_ is an error because _sqrt_ is not the name of a block.
+In the simple model _sqrt.numArgs_ is an error because `sqrt` is a variable arity block.
+In the complicated model _sqrt.numArgs_ is an error because `sqrt` is not the name of a block.
 In the complicated model _sqrt:/1.numArgs = 1_, however it is also a tautology.
 
 In both models there is no general mechanism to invoke a block at an array of arguments.
-(At present _apply_ is implemented, but it should not be.)
+(At present `apply` is implemented, but it should not be.)
 
 If the host language does not support variable arity blocks then the rule is decided for us.
 

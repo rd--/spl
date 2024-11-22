@@ -38,7 +38,7 @@ The binary form answer the result of _aBlock(anObject)_.
 529
 ```
 
-The variant formulation of this with the arguments reversed is _in_ or _with_,
+The variant formulation of this with the arguments reversed is `in` or `with`,
 so that _f.value(x)_ is equal to _x.in(f)_ or _x.with(f)_.
 
 ```
@@ -75,7 +75,9 @@ This mode is off by default.
 
 * * *
 
-See also: also, Association, Block, cull, identity, Value Protocol, with
+See also: also, Association, Block, cull, identity, in, with
+
+Guides: Value Protocol
 
 References:
 _Smalltalk_

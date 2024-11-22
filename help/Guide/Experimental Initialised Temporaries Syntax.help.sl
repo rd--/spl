@@ -1,4 +1,4 @@
-# Initialised Temporaries Syntax
+# Experimental Initialised Temporaries Syntax
 
 Rewrite rules:
 

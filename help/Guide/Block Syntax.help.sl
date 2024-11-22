@@ -39,6 +39,6 @@ _p.q(r)_ is _q(p, r)_, not _(q(p))(r)_.
 
 See also: {, }, |, :, ;, var
 
-Guides: Block Semantics, Value Apply Syntax, Var Syntax
+Guides: Block Semantics, Temporary Block Syntax, Value Apply Syntax, Var Syntax
 
 Categories: Syntax

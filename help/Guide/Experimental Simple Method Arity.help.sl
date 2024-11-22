@@ -1,4 +1,4 @@
-# Simple Method Arity
+# Experimental Simple Method Arity
 
 The expression _sqrt(9)_ can be implemented by providing a variable arity block _sqrt_ that dynamically checks how many arguments it receives and dispatches to the appropriate place in the `Method Dictionary`.
 

@@ -112,6 +112,6 @@ s + (0.2 * y)
 
 See also: =, _, let
 
-Guides: List Assignment Syntax, Var Syntax
+Guides: List Assignment Syntax, Temporary Block Syntax, Var Syntax
 
 Categories: Syntax

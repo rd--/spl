@@ -27,6 +27,13 @@ Trims any white spaces at the beginning and at the end before splitting.
 string
 ```
 
+Multiple spaces are treated as one space:
+
+```
+>>> '  a   b    c     '.words
+['a' 'b' 'c']
+```
+
 * * *
 
 See also: lines, paragraphs, sentences, splitByRegExp, unwords

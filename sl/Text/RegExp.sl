@@ -191,12 +191,6 @@ RegExp! : [Object] {
 		aRegExp.asRegExp.splitBy(self)
 	}
 
-	subStrings { :self :separators |
-		self.splitByRegExp(
-			separators.contents.join('|')
-		).reject(isEmpty:/1)
-	}
-
 	RegExp { :self :flags |
 		<primitive: return new RegExp(_self, _flags);>
 	}
@@ -211,8 +205,14 @@ RegExp! : [Object] {
 		before ++ after
 	}
 
+	wordsBy { :self :separators |
+		self.splitByRegExp(
+			separators.contents.join('|')
+		).reject(isEmpty:/1)
+	}
+
 	words { :self |
-		self.trim.splitByRegExp('\\s')
+		self.trim.splitByRegExp('\\s+')
 	}
 
 }

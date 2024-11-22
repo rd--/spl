@@ -1,6 +1,6 @@
 # What is a Protocol
 
-In _Smalltalk-80: The Language and its Implementation_ (Goldberg and Robson 1983) the description of the system is given in terms of _protocols_.
+In _Smalltalk-80: The Language and Its Implementation_ (Goldberg and Robson 1983) the description of the system is given in terms of _protocols_.
 
 > A protocol description lists the messages understood by instances of a particular class.
 > Each message is listed with a comment about its functionality.
@@ -15,10 +15,13 @@ Protocols help make the system coherent.
 
 Protocols are related to traits.
 Traits collect larger groups of behaviour around a small set of underlying protocols.
-For instance, the `Iterable` trait collects behaviours that can be derived given an implementation of the _do_ protocol.
+For instance,
+the `Iterable` trait collects behaviours that can be derived given an implementation of the `do` protocol.
 
 * * *
 
 See also: Trait
 
 Guides: What is a Trait
+
+Further Reading: Goldberg and Robson 1983

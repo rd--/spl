@@ -1,22 +1,29 @@
 # Temporary Block Syntax
 
-In the case where a temporary variable is initialised to a literal block,
-the system may bind both the arity strict and arity generic names.
+In the case where a temporary variable is `let` bound to a literal block,
+the system appends the appropriate arity qualified to the bound name.
 
-There is a compiler switch to select the behaviour.
-
-In both cases the program:
+This allows the defined block to be applied using `Apply Syntax`:
 
 ```
->>> let f = { :x | x * x };
+>>> let f = { :x | x * x * x};
+>>> f(3)
+27
+```
+
+To refer to the block by name the qualified must be written:
+
+```
+>>> let f = { :x | x * x * x };
 >>> [3, 5, 7].collect(f:/1)
-[9, 25, 49]
+[27, 125, 343]
 ```
 
-is correct.
-
+_Experimental_:
+The system may bind either only the arity strict name,
+or additionaly the arity generic name.
+There is a compiler switch to select the behaviour.
 The switch allows one to elide the rate qualified (:/1).
-
 This notation is not allowed by default.
 
 * * *

@@ -31,6 +31,10 @@ The menu entries will include comments,
 markdown headers,
 and type and method definitions.
 
+The file _emacs/spl.tag_` can be used by _etags_ to make a _TAGS_ file for Spl.
+This allows _M-._ to navigate to the definition of the name at the cursor.
+It also allows auto-complete, for instance using _company-mode_.
+
 * * *
 
 See also: Unicode Symbols

@@ -21,6 +21,6 @@ C.f. `value`:
 
 * * *
 
-See also: List, cull, Block, value
+See also: Block, cull, List, value
 
 Categories: Evaluating

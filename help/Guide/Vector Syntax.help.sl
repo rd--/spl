@@ -5,7 +5,7 @@ Rewrite rule:
 - _[p q r ...]_ ⟹ _[p, q, r, ...]_
 
 Allows writing lists of literals without comma separators.
-A Vector cannot contain other Vectors, see `Matrix Syntax` and `Tree Syntax`.
+A Vector cannot contain other Vectors, see `Matrix Syntax`.
 
 Literal items:
 

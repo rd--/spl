@@ -14,4 +14,6 @@ will display as:
 
 * * *
 
-See also: Emacs Editor, withReturn
+See also: valueWithReturn
+
+Guides: Emacs Editor
