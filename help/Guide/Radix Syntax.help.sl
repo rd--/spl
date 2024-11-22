@@ -18,6 +18,22 @@ Negative integers are written with a leading minus sign:
 [-23 -23 -23 -23]
 ```
 
+Larger integers:
+
+```
+>>> 2r11010101
+213
+
+>>> 8r325
+213
+
+>>> 16rD5
+213
+
+>>> 16rACCEDED
+181202413
+```
+
 _Note_:
 The radices two, eight, ten and sixteen should be implemented by all systems,
 other radices may raise errors.

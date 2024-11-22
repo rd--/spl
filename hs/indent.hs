@@ -9,10 +9,6 @@ The current line is shifted left if:
 
 - there is a leading closing token
 
-The current line is shifted right if:
-
-- it begins with a period and the previous line does not
-
 -}
 module Main where
 
@@ -170,40 +166,41 @@ True
 
 >>> hasLeadingDot "\tf.x(y)"
 False
--}
 hasLeadingDot :: String -> Bool
 hasLeadingDot s =
   case firstNonWhiteSpaceChar s of
     Just '.' -> True
     _ -> False
+-}
 
 indentNext :: String -> Bool
 indentNext s = inOrOutDent s > 0 || hasTrailingOpening s
 
--- | (Indent, LeadingDot?)
-type State = (Int, Bool)
+{- | (Indent, LeadingDot?)
+type StateWithDot = (Int, Bool)
+-}
+
+-- | Indent
+type State = Int
 
 {- | Indent line by indicated amount and return:
 
 - indent for next line
-- leading dot for this line
 - indented line
 
->>> indentLine (1,False) "f("
-((2,False),"\tf(")
+>>> indentLine 1 "f("
+(2,"\tf(")
 
->>> indentLine (1,False) ""
-((1,False),"")
+>>> indentLine 1 ""
+(1,"")
 -}
 indentLine :: State -> String -> (State, String)
-indentLine (i, d) s =
+indentLine i s =
   let t = removeQuotedText s
-      d' = hasLeadingDot t
-      -- dx = if d' && not d then 1 else if d && not d' then -1 else 0 -- the outdent rule is not correct...
       next = if indentNext t then 1 else 0
       current = if hasLeadingClosing t then -1 else 0
       s' = if null s then s else replicate (i + current) '\t' ++ s
-  in ((i + next + current, d'), s')
+  in (i + next + current, s')
 
 -- | Indent sequence of non-indented lines.
 indentRegion :: State -> [String] -> [String]
@@ -219,7 +216,7 @@ clearIndent = dropWhile Data.Char.isSpace
 "f(\n\tx,\n\ty\n)\n"
 -}
 indentText :: String -> String
-indentText = unlines . indentRegion (0, False) . map clearIndent . lines
+indentText = unlines . indentRegion 0 . map clearIndent . lines
 
 indentFileInPlace :: FilePath -> IO ()
 indentFileInPlace fn = do

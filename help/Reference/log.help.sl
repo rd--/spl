@@ -35,6 +35,9 @@ The binary form answers the _base_ logarithm of _aNumber_.
 >>> 1.5.log(3)
 0.36907
 
+>>> 2.log(10)
+3.0103E-1
+
 >>> 1024.log(2)
 10
 
