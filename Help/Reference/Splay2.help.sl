@@ -21,6 +21,28 @@ Splay2(
 )
 ```
 
+Texture graph:
+
+```
+{ :tr |
+	let k = 7;
+	let o = SinOsc({ TiRand(40, 90, tr).MidiCps } ! k, 0);
+	let a = { TRand(0.05, 0.1, tr) } ! k;
+	Splay2(o * a)
+}.OverlapTexture(6, 3, 3).Mix
+```
+
+Texture program:
+
+~~~
+{
+	let k = 7;
+	let o = SinOsc({ IRand(40, 90).MidiCps } ! k, 0);
+	let a = { Rand(0.05, 0.1) } ! k;
+	Splay2(o * a)
+}.overlapTextureProgram(6, 3, 3)
+~~~
+
 _Note:_ The Sc Ugen is called _Splay_.
 
 * * *

@@ -1,4 +1,4 @@
-/* ---- shift register (dm) ; http://sccode.org/1-590 ; erratic ? */
+/* shift register (dm) ; http://sccode.org/1-590 ; erratic ? */
 let amp = 0.1;
 let pulse = Impulse(1 / 16, 0);
 let rate = Choose(pulse, [3, 5, 10]);

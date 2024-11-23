@@ -95,7 +95,16 @@ ScSynth! : [Object] {
 	}
 
 	basicPlayAt { :self :systemTimeInSeconds |
-		<primitive: globalScSynth.playUgenAt(_self, _busOffset_1(_self), -1, 1, [], _systemTimeInSeconds);>
+		<primitive:
+		globalScSynth.playUgenAt(
+			_self,
+			_busOffset_1(_self),
+			-1,
+			1,
+			[],
+			_systemTimeInSeconds
+		);
+		>
 	}
 
 	draw { :self |
@@ -140,14 +149,16 @@ ScSynth! : [Object] {
 	}
 
 	plot { :self :duration |
-		let graphDef = 'Anonymous'.encodeUgenAt(self.busOffset, self);
 		let scSynDefFileName = '/tmp/splPlot.scsyndef';
-		let numberOfChannels = self.isCollection.if {
-			self.size
-		} {
-			1
-		};
-		scSynDefFileName.writeBinaryFile(graphDef).then { :unused |
+		self.writeScSynDefFile(
+			'Anonymous',
+			scSynDefFileName
+		).then { :unused |
+			let numberOfChannels = self.isCollection.if {
+				self.size
+			} {
+				1
+			};
 			system.systemCommand(
 				'hsc3-plot',
 				[

@@ -26,6 +26,29 @@ let freq = Demand(trig, 0, seq) % [15, 45] * 30 + 340;
 SinOsc(freq.Lag(0.025), 0) * 0.1
 ```
 
+Plotting:
+
+~~~
+Duty(
+	0.004,
+	0,
+	Dseries(inf, 1, [1, 2])
+).plot(0.1)
+~~~
+
+Note that a very similar,
+but not identical,
+signal can be generated using `PulseCount` and `Impulse` as:
+
+~~~
+(
+	PulseCount(
+		Impulse(1 / 0.004, 0),
+		0
+	) * [1, 2]
+).plot(0.1)
+~~~
+
 * * *
 
 See also: Demand, Dgeom, Duty, TDuty

@@ -143,6 +143,7 @@ Guide/Vector Syntax.help.sl
 Guide/Volume Syntax.help.sl
 Guide/What is a Protocol.help.sl
 Guide/What is a Trait.help.sl
+Guide/What is a Type.help.sl
 Guide/What is Spl.help.sl
 Guide/What it a Trigger.help.sl
 Guide/Why Spl.help.sl
@@ -703,6 +704,7 @@ Reference/duplicateShape.help.sl
 Reference/Duration.help.sl
 Reference/Dust2.help.sl
 Reference/Dust.help.sl
+Reference/DustRange.help.sl
 Reference/Duty.help.sl
 Reference/Dwhite.help.sl
 Reference/dyckWords.help.sl
@@ -724,6 +726,7 @@ Reference/encodeUri.help.sl
 Reference/endsWithAnyOf.help.sl
 Reference/endsWith.help.sl
 Reference/ensure.help.sl
+Reference/EnvBreakPoint.help.sl
 Reference/EnvGen.help.sl
 Reference/environmentVariable.help.sl
 Reference/environmentVariables.help.sl
@@ -863,6 +866,7 @@ Reference/gen11.help.sl
 Reference/gen13.help.sl
 Reference/gen16.help.sl
 Reference/gen19.help.sl
+Reference/Gendy1.help.sl
 Reference/geometricMean.help.sl
 Reference/geometricSeries.help.sl
 Reference/GetTempo.help.sl
@@ -1228,6 +1232,7 @@ Reference/limitDenominator.help.sl
 Reference/Limiter.help.sl
 Reference/limit.help.sl
 Reference/LinCongC.help.sl
+Reference/LinCurve.help.sl
 Reference/LinearCongruential.help.sl
 Reference/linearIndex.help.sl
 Reference/linearRecurrence.help.sl
@@ -1496,6 +1501,7 @@ Reference/occurrencesOf.help.sl
 Reference/octave.help.sl
 Reference/octaveReduced.help.sl
 Reference/OctCps.help.sl
+Reference/OffsetOut.help.sl
 Reference/ofSize.help.sl
 Reference/once.help.sl
 Reference/one.help.sl

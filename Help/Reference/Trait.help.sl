@@ -41,6 +41,8 @@ true
 
 See also: Method, System, Type
 
-Further Reading: Cannon 1982, Curry 1982, Moon 1986, Weinreb 1980
+Guides: What is a Trait
+
+Further Reading: Cannon 1982, Curry 1982, Moon 1986, Weinreb 1980, Ungar and Smith 1987
 
 Categories: Behaviour, Type

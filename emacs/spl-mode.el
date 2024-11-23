@@ -63,7 +63,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   "Lookup up the name at point in the Spl help files."
   (interactive)
   (let ((rgx (concat "^" (thing-at-point 'symbol) "\\.help\\.sl$")))
-    (spl-find-files (concat spl-directory "help/") rgx)))
+    (spl-find-files (concat spl-directory "Help/") rgx)))
 
 (defun spl-write-text-file (filename text)
   "Write TEXT to FILENAME"

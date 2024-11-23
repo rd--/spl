@@ -11,6 +11,18 @@ let o = Blip(
 ) * (c + 5);
 CombN(o, 0.2, 0.2, 1).Tanh * 0.15
 
-/* ---- calculations ----
-'AVVVF'.ascii.asList = [65 86 86 86 70]
-*/
+# Notes
+
+`ascii` answers the Ascii byte encoding of a `String`:
+
+```
+>>> 'AVVVF'.ascii
+[65 86 86 86 70].asByteArray
+```
+
+`asList` at `ByteArray` answers a `List` of `SmallFloat`s:
+
+```
+>>> 'AVVVF'.ascii.asList
+[65 86 86 86 70]
+```

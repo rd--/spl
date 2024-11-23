@@ -13,6 +13,20 @@ let o = SinOsc(freq, 0) * ampl;
 o.Splay
 ```
 
+`TextureProgram` of pulsing sine tones (Jmcc):
+
+~~~
+{
+	EqPan(
+		SinOsc(
+			ExpRand(300, 3000),
+			0
+		) * 0.Max(SinOsc(ExpRand(1, 15),0) * 0.05),
+		Rand(-1,1)
+	)
+}.overlapTextureProgram(4, 4, 4)
+~~~
+
 * * *
 
 See also: IRand, LinRand, NRand, Rand, TExpRand, TiRand, TRand

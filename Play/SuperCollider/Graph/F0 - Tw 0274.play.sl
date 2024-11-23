@@ -4,8 +4,19 @@ let q = ' #SuperCollider '.ascii.asList.pyramid(1);
 let f = Duty(b, 0, Dseq(inf, q * 9 ^ 1.0595 / 2));
 SinOsc(f, SinOsc(b, 0) * Lag(SinOsc(0 - b, 0) < 0.9, 0.1) * 5000) / 4
 
-/* ---- calculations ----
-' #SuperCollider '.ascii.asList.pyramid(1) = [
+# Notes
+
+`ascii` derives note numbers from character encodings:
+
+```
+>>> ' #SuperCollider '.ascii.asList
+[32 35 83 117 112 101 114 67 111 108 108 105 100 101 114 32]
+```
+
+`pyramid` applies a counting algorithm to a sequence:
+
+```
+>>> ' #SuperCollider '.ascii.asList.pyramid(1) = [
 	32
 	32 35
 	32 35 83
@@ -23,4 +34,5 @@ SinOsc(f, SinOsc(b, 0) * Lag(SinOsc(0 - b, 0) < 0.9, 0.1) * 5000) / 4
 	32 35 83 117 112 101 114 67 111 108 108 105 100 101 114
 	32 35 83 117 112 101 114 67 111 108 108 105 100 101 114 32
 ]
-*/
+```
+

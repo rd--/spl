@@ -37,8 +37,40 @@ Plot a 6×3 matrix:
 [0 0 0; 1 0 1; 1 1 2; 2 2 2; 2 4 3; 3 6 4].linePlot
 ~~~
 
+Plot the prime counting sequence:
+
+~~~
+1:50.collect(primePi:/1).linePlot
+~~~
+
+C.f. `functionPlot`:
+
+~~~
+1:50.functionPlot(primePi:/1)
+~~~
+
+Plot a trigonometric function:
+
+~~~
+(-6 -- 6).subdivide(500).collect { :x |
+	1 / (4 * x.cos + 5)
+}.linePlot
+~~~
+
+C.f. `functionPlot`:
+
+~~~
+(-6 -- 6).functionPlot { :x |
+	1 / (4 * x.cos + 5)
+}
+~~~
+
 * * *
+
+See also: discretePlot, functionPlot, scatterPlot
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ListLinePlot.html)
+
+Categories: Plotting

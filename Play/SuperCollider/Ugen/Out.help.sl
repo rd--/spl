@@ -1,2 +1,8 @@
-/* ---- Out; two _Out_ nodes summing one _SinOsc_ to a bus each ; buffer colouring error */
+# Notes
+
+Two `Out` nodes summing one `SinOsc` to a bus each.
+Buffer colouring error.
+
+~~~
 Out([0, 1], SinOsc(440, 0) * 0.1)
+~~~

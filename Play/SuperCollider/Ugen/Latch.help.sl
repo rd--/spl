@@ -7,7 +7,3 @@ Blip(Latch(WhiteNoise(), Impulse(9, 0)) * 400 + 500, 4) * 0.2
 /* Latch */
 let l = Latch(WhiteNoise (), Impulse(9, 0));
 SinOsc(l * 400 + 500, 0) * 0.2
-
-/* ---- ; Latch plots */
-let d = Dust([1 5] * 100);
-Latch(d, d)

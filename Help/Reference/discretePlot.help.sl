@@ -27,10 +27,12 @@ A dense discrete plot of a cosine function:
 
 * * *
 
-See also: plot
+See also: functionPlot, linePlot, plot, scatterPlot
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DiscretePlot.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/stem.html)
+
+Categories: Plotting

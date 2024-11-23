@@ -42,6 +42,15 @@ Decay(
 ) * FSinOsc(600, 0)
 ```
 
+Plot excitation function:
+
+~~~
+let strike = Impulse(1, 0);
+let env = Decay2(strike, 0.01, 0.06) * 0.4;
+let noise = LfNoise2(3000) * env;
+[env, noise].plot(0.1)
+~~~
+
 * * *
 
 See also: Decay

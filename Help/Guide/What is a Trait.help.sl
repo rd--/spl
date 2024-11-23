@@ -1,10 +1,17 @@
 # What is a Trait?
 
-A _Trait_ is a collection of behaviours, in much the same way that _abstract classes_ are in Smalltalk.
+A `Trait` is a collection of behaviours,
+in much the same way that _abstract classes_ are in Smalltalk.
 
-In Smalltalk _Collection_ is an abstract class, in Sᴘʟ it is a Trait.
+In Smalltalk `Collection` is an abstract class,
+in Sᴘʟ it is a trait.
 
-Types are said to implement a trait.
+The name trait is from Self (Ungar and Smith 1987).
+
+`Type`s are said to _implement_ traits.
+
+Each trait has a set of _required methods_,
+which a type must implement if it to implement the trait.
 
 We can ask the system which traits a given type implements:
 
@@ -26,3 +33,11 @@ To distinguish traits from types traits are sometimes written with an `@` prefix
 _Note:_ At present re-defining methods of traits is not safe.
 Redefinitions should not be applied to a type if there is a more specific method defined.
 A definition is more specific if it is defined at the type, or at a trait that is later in the trait sequence.
+
+* * *
+
+See also: Trait
+
+Guides: What is a Type
+
+Further Reading: Ungar and Smith 1987

@@ -21,7 +21,7 @@ SoundFile(url).then { :soundFile |
 		channelDataSize: channelData.size,
 		channelDataTypeOf: channelData.typeOf
 	).postLine;
-	channelData.asList.drop(1024 * 8).take(1024 * 1).plot
+	channelData.asList.drop(1024 * 8).take(1024 * 1).linePlot
 }
 ~~~
 
