@@ -371,6 +371,7 @@
 	Idiv { :self :anObject | <primitive: return sc.Idiv(_self, _anObject);> }
 	Fdiv { :self :anObject | <primitive: return sc.Fdiv(_self, _anObject);> }
 	Mod { :self :anObject | <primitive: return sc.Mod(_self, _anObject);> }
+	Eq { :self :anObject | <primitive: return sc.Eq(_self, _anObject);> }
 	Ne { :self :anObject | <primitive: return sc.Ne(_self, _anObject);> }
 	Lt { :self :anObject | <primitive: return sc.Lt(_self, _anObject);> }
 	Gt { :self :anObject | <primitive: return sc.Gt(_self, _anObject);> }

@@ -196,7 +196,7 @@ let n = 4; /* number of simultaneous events */
 	EqPan2(SinOsc(freq, 0) * amp, 1.Rand2)
 }.overlapTextureProgram(7, 4, n)
 
-/********** Slight mod of "phase mod with slow beats" ; Jmcc **********/
+/********** Slight mod of 'phase mod with slow beats' ; Jmcc **********/
 let n = 4; /* number of simultaneous events */
 {
 	let x = MouseX(100, 6000, 1, 0.2); /* mouse x controls random freq of new events */

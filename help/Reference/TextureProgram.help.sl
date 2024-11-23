@@ -13,7 +13,7 @@ In the program below the _soundBlock_ generates a random sine tone,
 the _envelopeBlock_ applies a `Release` envelope,
 and the _delayTime_ block selects a random integer to divide down:
 
-```
+~~~
 {
 	EqPan2(
 		SinOsc(Rand(111, 555), 0) * Rand(1, 5) / 100,
@@ -24,7 +24,7 @@ and the _delayTime_ block selects a random integer to divide down:
 } {
 	3:7.atRandom / 9
 }
-```
+~~~
 
 * * *
 

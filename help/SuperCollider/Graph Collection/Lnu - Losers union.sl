@@ -501,7 +501,7 @@ Splay(
 		FreeVerb(
 			Warp1(
 				1,
-				SfAcquireMono("Floating"),
+				SfAcquireMono('Floating'),
 				r(9),
 				[-36 -9 -14 0 -19 -5 3 -2 -24 -7].MidiRatio,
 				8 * r(9) + 8 / 86,

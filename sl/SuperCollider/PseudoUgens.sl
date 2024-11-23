@@ -240,7 +240,7 @@
 			center
 		} {
 			let normalizedSpread = spread * ((n - 1) / n);
-			[center - normalizedSpread, center + normalizedSpread].resamp1(n)
+			[center - normalizedSpread, center + normalizedSpread].resample(n)
 		};
 		levelComp.ifTrue {
 			/* Cf. <https://github.com/supercollider/supercollider/issues/5706>
