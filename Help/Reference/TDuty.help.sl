@@ -39,6 +39,13 @@ let trig = TDuty(
 Ringz(trig, 1000, 1) * 0.1
 ```
 
+Duration sequence:
+
+```
+let b = [3 3 2 2 2 1 2 2 2] / 3;
+TDuty(Dseq(inf, b), 0, 1)
+```
+
 * * *
 
 See also: Duty

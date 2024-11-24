@@ -11,6 +11,12 @@ At `SmallFloat`:
 12
 ```
 
+Quiet and quieter pink noise:
+
+```
+Mul(PinkNoise(), 1 / [10 25])
+```
+
 * * *
 
 See also: +, *, Add, MulAdd

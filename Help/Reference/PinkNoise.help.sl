@@ -23,6 +23,15 @@ Low pass filtered:
 PinkNoise(0.1 # 2, 0).Lpz1
 ```
 
+Compare to `WhiteNoise`:
+
+```
+[
+	PinkNoise() * 0.1,
+	WhiteNoise() * MouseX(0.01, 0.05, 0, 0.2)
+]
+```
+
 * * *
 
 See also: BrownNoise, ClipNoise, GrayNoise, WhiteNoise

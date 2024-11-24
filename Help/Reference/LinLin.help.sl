@@ -49,6 +49,13 @@ SinOsc(
 ) * 0.1
 ```
 
+Rescale low-frequency sawtooth oscillator output as frequency control:
+
+```
+let f = LfSaw(1, 1).LinLin(-1, 1, 220, 440);
+SinOsc(f.Lag(0.05), 0) * 0.1
+```
+
 At `SmallFloat`:
 
 ```

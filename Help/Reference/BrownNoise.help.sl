@@ -5,8 +5,16 @@
 
 Generates noise whose spectrum falls off in power by 6 dB per octave.
 
+Quiet stereo de-correlated brown noise:
+
 ```
 BrownNoise(0.1 # 2, 0)
+```
+
+High pass filtered:
+
+```
+Hpz1(BrownNoise(0.1 # 2, 0))
 ```
 
 * * *

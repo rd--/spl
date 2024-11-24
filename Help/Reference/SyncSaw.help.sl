@@ -17,7 +17,7 @@ Modulate saw frequency:
 SyncSaw(100, Line(100, 800, 12)) * 0.1
 ```
 
-Modulate saw frequency with mouse (view is oscilloscope, _Impulse_ shows sync frequency):
+Modulate saw frequency with mouse (view is oscilloscope, `Impulse` shows sync frequency):
 
 ```
 let freq = 400;
@@ -25,6 +25,15 @@ let freq = 400;
 	SyncSaw(freq, freq * MouseX(1, 3, 0, 0.2)),
 	Impulse(freq, 0)
 ] * 0.1
+```
+
+Mouse control of each frequency input:
+
+```
+SyncSaw(
+	MouseX(1, 400, 0, 0.2),
+	MouseY(400, 800, 0, 0.2)
+) * 0.05
 ```
 
 * * *
