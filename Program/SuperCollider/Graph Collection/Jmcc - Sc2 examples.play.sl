@@ -238,7 +238,7 @@ let out = 1:8.collect { :ix |
 };
 out
 
-/********** Reverberated sine percussion ; Jmc */
+/********** Reverberated sine percussion ; Jmcc **********/
 let d = 10; /* number of percolators */
 let c = 7; /* number of comb delays */
 let a = 4; /* number of allpass delays */
@@ -342,7 +342,7 @@ CombL(
 	4) /* echo 60 dB decay time in seconds */
 + in /* mix with input */
 
-/********** Ring modulate & echo input ; Jmc */
+/********** Ring modulate & echo input ; Jmcc **********/
 let in = AudioIn([1, 2]) * 0.4 * SinOsc(MouseX(10, 2000, 1, 0.2), [0, 0.5.pi]);
 CombL(
 	in,

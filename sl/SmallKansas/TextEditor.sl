@@ -105,16 +105,6 @@ TextEditor : [Object, UserEventTarget, View] {
 +SmallKansas {
 
 	standardTextEditorMenuItems { :self :subject |
-		let currentSelection = {
-			let text = system.window.selectedText;
-			text.isEmpty.ifTrue {
-				text := system.window.paragraphAtCaret
-			};
-			text.isEmpty.ifTrue {
-				text := subject.currentText
-			};
-			text
-		};
 		[
 			MenuItem('Accept It', 's') { :event |
 				subject.dispatchEvent(
@@ -128,12 +118,13 @@ TextEditor : [Object, UserEventTarget, View] {
 			},
 			MenuItem('Browse It', 'b') { :event |
 				self.browserOn(
-					[system.window.selectedTextOrWordAtCaret],
+					system.window.selectedTextOrWordAtCaret,
 					event
 				)
 			},
 			MenuItem('Do It', 'd') { :event |
-				self.evaluate(currentSelection(), event)
+				let text = system.window.selectedTextOrParagraphAtCaret;
+				self.evaluate(text, event)
 			},
 			MenuItem('Help For It', 'h') { :event |
 				self.helpFor(
@@ -157,13 +148,14 @@ TextEditor : [Object, UserEventTarget, View] {
 				)
 			},
 			MenuItem('Play It', 'Enter') { :event |
-				let text = '{ ' ++ currentSelection() ++ ' }.value.play';
-				self.evaluate(text, event)
+				let text = system.window.selectedTextOrParagraphAtCaret;
+				let decoratedText = ['{', text, '}.value.play'].unwords;
+				self.evaluate(decoratedText, event)
 			},
 			MenuItem('Print It', 'p') { :event |
-				subject.insertText(
-					' ' ++ self.evaluate(currentSelection(), event).asString
-				)
+				let text = system.window.selectedTextOrParagraphAtCaret;
+				let answer = self.evaluate(text, event).asString;
+				subject.insertText(' ' ++ answer)
 			},
 			MenuItem('References To It', nil) { :event |
 				self.referencesTo(

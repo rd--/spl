@@ -153,7 +153,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 	],
 	'Navigator-Node': [
 		'Attr'
-		'DOMRange'
+		'DocumentRange'
 		'NamedNodeMap'
 		'NodeList'
 		'Selection'

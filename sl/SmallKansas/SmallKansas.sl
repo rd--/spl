@@ -31,14 +31,14 @@ SmallKansas : [Object, Cache] { | container frameSet cache history |
 		frame
 	}
 
-	browserOn { :self :path :event |
-		system.isTypeName(path[1]).if {
-			self.addFrame(self.TypeBrowser.setPath(path), event)
+	browserOn { :self :name :event |
+		system.isTypeName(name).if {
+			self.addFrame(self.TypeBrowser.setPath([name]), event)
 		} {
-			system.isTraitName(path[1]).if {
-				self.addFrame(self.TraitBrowser.setPath(path), event)
+			system.isTraitName(name).if {
+				self.addFrame(self.TraitBrowser.setPath([name]), event)
 			} {
-				self.warning('browserOn: not type or trait: ' ++ path[1])
+				self.warning('browserOn: not type or trait: ' ++ name)
 			}
 		}
 	}

@@ -36,7 +36,7 @@ function isRecord(anObject: SlObject): boolean {
 
 function objectNameByConstructor(anObject: SlObject): TypeName {
 	const name = anObject.constructor.name;
-	return name == 'Range' ? 'DOMRange' : name;
+	return name == 'Range' ? 'DocumentRange' : name;
 }
 
 function objectType(anObject: SlObject): TypeName {

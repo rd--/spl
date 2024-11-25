@@ -4,11 +4,11 @@
 
 Answer the `Selection` associated with _aDocument_,
 or the `Document` at _aWindow_.
-May return `nil` if the document is not displayed.
+May answer `nil` if the document is not displayed.
 
 * * *
 
-See also: Document, Selection, Window
+See also: Document, DocumentRange, Selection, Window
 
 References:
 _W3c_

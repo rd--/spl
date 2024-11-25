@@ -2,7 +2,7 @@
 
 A system `Trait`.
 Not all systems will implement `Document`.
-Where implemented it is accessed using `Window` and `Navigator`.
+Where implemented it is accessed using the method `document` at `Window` and `Navigator`.
 
 ```
 >>> system.window.isWindow

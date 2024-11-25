@@ -278,6 +278,7 @@
 	nextSibling { :self | <primitive: return _self.nextSibling;> } /* Read only */
 	nodeType { :self | <primitive: return _self.nodeType;> } /* Read only */
 	nodeValue { :self | <primitive: return _self.nodeValue;> }
+	normalize { :self | <primitive: return _self.normalize();> }
 	parentElement { :self | <primitive: return _self.parentElement;> } /* Read only */
 	previousSibling { :self | <primitive: return _self.previousSibling;> } /* Read only */
 	textContent { :self :aString | <primitive: return _self.textContent = _aString;> }
@@ -550,7 +551,7 @@ DOMPointReadOnly! : [Object, DOMPointReadOnly] {
 
 }
 
-DOMRange! : [Object, AbstractRange] { /* Note: Renamed by Spl kernel from Range */
+DocumentRange! : [Object, AbstractRange] { /* Note: Renamed by Spl kernel from Range */
 
 	cloneRange { :self | <primitive: return _self.cloneRange();> }
 	commonAncestorContainer { :self | <primitive: return _self.commonAncestorContainer;> } /* Read only */
@@ -977,6 +978,7 @@ Selection! : [Object] {
 	collapseToEnd { :self | <primitive: return _self.collapseToEnd();> }
 	collapseToStart { :self | <primitive: return _self.collapseToStart();> }
 	containsNode{ :self :node :partialContainment | <primitive: return _self.containsNode(_node, _partialContainment);> }
+	direction { :self | <primitive: return _self.direction;> } /* Read only */
 	focusNode { :self | <primitive: return _self.focusNode;> }
 	focusOffset { :self | <primitive: return _self.focusOffset + 1;> } /* One-indexed */
 	getRangeAt { :self :anInteger | <primitive: return _self.getRangeAt(_anInteger - 1);> } /* One-indexed */
@@ -1044,15 +1046,33 @@ Text! : [Object, EventTarget, Node, CharacterData] {
 			textArea.value.paragraphAtIndex(textArea.selectionStart)
 		} {
 			range.startContainer.isText.if {
-				range.startContainer.nodeValue.paragraphAtIndex(range.startOffset)
+				let text = range.startContainer.nodeValue;
+				let index = range.startOffset;
+				(text.size + 1 = index).ifTrue {
+					index := index - 1
+				};
+				text.includesIndex(index).if {
+					text.paragraphAtIndex(index)
+				} {
+					self.error('paragraphAtCaret: invalid index')
+				}
 			} {
-				'not yet...'.error
+				self.error('paragraphAtCaret: unimplemented start container type')
 			}
 		}
 	}
 
 	selectedText { :self |
 		<primitive: return _self.getSelection().toString();>
+	}
+
+	selectedTextOrParagraphAtCaret { :self |
+		let text = self.selectedText;
+		text.isEmpty.if {
+			self.paragraphAtCaret
+		} {
+			text
+		}
 	}
 
 	selectedTextOrWordAtCaret { :self |
