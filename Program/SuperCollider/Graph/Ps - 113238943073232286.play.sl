@@ -56,16 +56,18 @@ let mel = Impulse(r0, 0).in { :t |
 					),
 					Sequencer([1, 2, 3, 2], t) * 12,
 					root
-				].sum.MidiCps, 0),
-				Perc(
-					t,
-					TExpRand(0.002, 0.05, t),
-					TExpRand(0.05, 0.11, t),
-					0
-				) ^ 2,
-				Sequencer([1, 1, 0, 1, 1, 1, 0], t)
-			].product,
-			TRand(-0.7, 0.7, t)
-		).withDelayed(2.01 / 24 * padt, 0.65) * 0.3
-	};
-	bass + pad + mel * 0.25
+				].sum.MidiCps,
+				0
+			),
+			Perc(
+				t,
+				TExpRand(0.002, 0.05, t),
+				TExpRand(0.05, 0.11, t),
+				0
+			) ^ 2,
+			Sequencer([1, 1, 0, 1, 1, 1, 0], t)
+		].product,
+		TRand(-0.7, 0.7, t)
+	).withDelayed(2.01 / 24 * padt, 0.65) * 0.3
+};
+bass + pad + mel * 0.25

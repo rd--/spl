@@ -188,6 +188,7 @@ Reference/adjugate.help.sl
 Reference/Adsr.help.sl
 Reference/after.help.sl
 Reference/afterIfAbsent.help.sl
+Reference/alert.help.sl
 Reference/AliasMethod.help.sl
 Reference/allButFirstAndLast.help.sl
 Reference/allButFirstDo.help.sl
@@ -445,6 +446,7 @@ Reference/cachedPrimesList.help.sl
 Reference/Cache.help.sl
 Reference/calkinWilfSequence.help.sl
 Reference/calkinWilfTree.help.sl
+Reference/camelCaseToWords.help.sl
 Reference/canberraDistance.help.sl
 Reference/cancelFlat.help.sl
 Reference/cancel.help.sl
@@ -531,6 +533,7 @@ Reference/Complex.help.sl
 Reference/composeLeft.help.sl
 Reference/composeRight.help.sl
 Reference/concatenation.help.sl
+Reference/confirm.help.sl
 Reference/conjugated.help.sl
 Reference/conjugateGradientMethod.help.sl
 Reference/conjugateTranspose.help.sl
@@ -679,6 +682,7 @@ Reference/divisorSigma.help.sl
 Reference/divisorSum.help.sl
 Reference/Diwhite.help.sl
 Reference/Document.help.sl
+Reference/DocumentRange.help.sl
 Reference/DocumentTest.help.sl
 Reference/doesNotInclude.help.sl
 Reference/do.help.sl
@@ -797,6 +801,8 @@ Reference/findDivisions.help.sl
 Reference/findFirst.help.sl
 Reference/findLast.help.sl
 Reference/findPermutation.help.sl
+Reference/findPreviousOccurrenceOfStringStartingAt.help.sl
+Reference/findStringStartingAt.help.sl
 Reference/FirstArg.help.sl
 Reference/first.help.sl
 Reference/firstIndex.help.sl
@@ -1023,6 +1029,7 @@ Reference/inversePermutation.help.sl
 Reference/inversionVector.help.sl
 Reference/iota.help.sl
 Reference/IRand.help.sl
+Reference/isAllWhiteSpace.help.sl
 Reference/isAlmostPrime.help.sl
 Reference/isAlphaNumeric.help.sl
 Reference/isArithmeticSeriesBy.help.sl
@@ -1330,6 +1337,7 @@ Reference/LsTuple.help.sl
 Reference/LsUnfold.help.sl
 Reference/LsWhite.help.sl
 Reference/LsXRand.help.sl
+Reference/Lt.help.sl
 Reference/lucasNumber.help.sl
 Reference/lucasNumbers.help.sl
 Reference/luDecomposition.help.sl
@@ -1337,6 +1345,7 @@ Reference/lyndonWords.help.sl
 Reference/Magnitude.help.sl
 Reference/makeDirectory.help.sl
 Reference/manhattanDistance.help.sl
+Reference/MantissaMask.help.sl
 Reference/map.help.sl
 Reference/Map.help.sl
 Reference/Markdown.help.sl
@@ -1542,6 +1551,8 @@ Reference/Pan2.help.sl
 Reference/PanAz.help.sl
 Reference/PanB2.help.sl
 Reference/PanB.help.sl
+Reference/paragraphAtCaret.help.sl
+Reference/paragraphAtIndex.help.sl
 Reference/paragraphs.help.sl
 Reference/parameterNames.help.sl
 Reference/parseDate.help.sl
@@ -1558,6 +1569,7 @@ Reference/partitionDo.help.sl
 Reference/partitionFunctionP.help.sl
 Reference/partitionFunctionQ.help.sl
 Reference/partition.help.sl
+Reference/pascalCaseToWords.help.sl
 Reference/pascalTriangle.help.sl
 Reference/pathDirectory.help.sl
 Reference/pathExtension.help.sl
@@ -1685,6 +1697,7 @@ Reference/ProgramBrowser.help.sl
 Reference/ProgramOracle.help.sl
 Reference/projection.help.sl
 Reference/Promise.help.sl
+Reference/prompt.help.sl
 Reference/protocol.help.sl
 Reference/PulseCount.help.sl
 Reference/PulseDivider.help.sl
@@ -1878,8 +1891,12 @@ Reference/secant.help.sl
 Reference/second.help.sl
 Reference/seconds.help.sl
 Reference/seedRandom.help.sl
+Reference/selectedText.help.sl
+Reference/selectedTextOrWordAtCaret.help.sl
 Reference/select.help.sl
 Reference/Select.help.sl
+Reference/selection.help.sl
+Reference/Selection.help.sl
 Reference/SelectXFocus.help.sl
 Reference/SelectX.help.sl
 Reference/semicolon.help.sl
@@ -2192,6 +2209,7 @@ Reference/which.help.sl
 Reference/whileFalse.help.sl
 Reference/whileTrue.help.sl
 Reference/WhiteNoise.help.sl
+Reference/whiteSpaceDelimitedWordAtIndex.help.sl
 Reference/wilsonHeight.help.sl
 Reference/windowedReduce.help.sl
 Reference/WindowMenu.help.sl
@@ -2213,7 +2231,9 @@ Reference/withoutFactorsOfTwo.help.sl
 Reference/without.help.sl
 Reference/withoutLeadingBlanks.help.sl
 Reference/withoutTrailingBlanks.help.sl
+Reference/withoutTrailingLineFeed.help.sl
 Reference/withReplace.help.sl
+Reference/wordAtCaret.help.sl
 Reference/wordAtIndex.help.sl
 Reference/wordsBy.help.sl
 Reference/words.help.sl

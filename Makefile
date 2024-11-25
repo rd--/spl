@@ -18,7 +18,7 @@ tags:
 	etags --regex=@emacs/spl.tag sl/*/*.sl
 
 indent:
-	spl-indent sl/*/*.sl help/SuperCollider/Graph/*.sl help/SuperCollider/Ugen/*.sl
+	spl-indent sl/*/*.sl Program/SuperCollider/Graph/*.sl Program/SuperCollider/Ugen/*.sl
 	(cd ts ; make format-ts)
 
 doctest:
