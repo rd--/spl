@@ -45,7 +45,10 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 		expectedAnswer.isEmpty.ifFalse {
 			self.description.innerHtml := description.markdownToHtml
 		};
-		self.program := 'textarea'.createElement(class: 'program');
+		self.program := 'textarea'.createElement(
+			class: 'program',
+			spellcheck: 'false'
+		);
 		program.isEmpty.ifFalse {
 			self.setProgramText(program)
 		};
@@ -61,21 +64,34 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 			self.programMenu(event)
 		};
 		self.program.addEventListener('keydown') { :event |
+			let bindings = self.menuItems.collect { :each |
+				each.keyBinding(event)
+			};
+			event.ctrlKey.ifTrue {
+				event.key.caseOfOtherwise(
+					bindings,
+					{ :key | nil }
+				)
+			};
 			event.shiftKey.ifTrue {
-				(event.key = 'Enter').ifTrue {
-					let result = self.smallKansas.evaluate(self.program.value, nil);
-					event.preventDefault;
-					self.addToAnswer(self.program.value, result);
-					self.onEvaluate;
-					self.historyCursor := nil
-				};
-				(event.key = 'ArrowUp').ifTrue {
-					event.preventDefault;
-					self.readHistory(-1)
-				};
-				(event.key = 'ArrowDown').ifTrue {
-					event.preventDefault;
-					self.readHistory(1)
+				event.key.caseOfOtherwise([
+					'Enter' -> {
+						let result = self.smallKansas.evaluate(self.program.value, nil);
+						event.preventDefault;
+						self.addToAnswer(self.program.value, result);
+						self.onEvaluate;
+						self.historyCursor := nil
+					},
+					'ArrowUp' -> {
+						event.preventDefault;
+						self.readHistory(-1)
+					},
+					'ArrowDown' -> {
+						event.preventDefault;
+						self.readHistory(1)
+					}
+				]) { :unused |
+					nil
 				}
 			}
 		};
@@ -88,6 +104,10 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 		self.eventListeners := Record();
 		self.focus;
 		self
+	}
+
+	menuItems { :self |
+		self.smallKansas.standardTextEditorMenuItems(self)
 	}
 
 	onEvaluate { :self |
@@ -111,7 +131,7 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 	programMenu { :self :event |
 		self.smallKansas.menu(
 			'Small Program Menu',
-			self.smallKansas.standardTextEditorMenuItems(self),
+			self.menuItems,
 			true,
 			event
 		)

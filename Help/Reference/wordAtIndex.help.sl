@@ -2,7 +2,7 @@
 
 - _wordAtIndex(aString, anInteger)_
 
-Get the word in _aString_ at index _anInteger_:
+Answer the word in _aString_ at index _anInteger_:
 
 ```
 >>> let s = 'a list of words';
@@ -13,8 +13,21 @@ Get the word in _aString_ at index _anInteger_:
 If the index points to a space look backwards for a word:
 
 ```
->>> 'a list of words'.wordAtIndex(7)
-'list'
+>>> 'inner space'.wordAtIndex(6)
+'inner'
+
+>>> ' leading space'.wordAtIndex(1)
+''
+
+>>> 'trailing space '.wordAtIndex(15)
+'space'
+```
+
+If the index is out of range answer signal an error:
+
+```
+>>> { 'four'.wordAtIndex(5) }.ifError { true }
+true
 ```
 
 * * *

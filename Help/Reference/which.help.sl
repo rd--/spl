@@ -1,8 +1,8 @@
 # which
 
-- _which(l)_
+- _which(aList)_
 
-Iterate over the association list _l_ and answer the `value` of the `value` associated with the first key whose `value` is `true`.
+Iterate over the association list _aList_ and answer the `value` of the `value` associated with the first key whose `value` is `true`.
 If no clause answers `true`, answer `nil`.
 
 ```

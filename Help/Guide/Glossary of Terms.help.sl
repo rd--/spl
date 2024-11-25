@@ -386,7 +386,7 @@ An _array_ of _rank_ three, or a three-dimensional array.
 Cf: isVolume, Volume Syntax
 
 - _Whitespace_:
-A string of one or more blank characters, either spaces, tabs, or newlines.
+A string of one or more blank characters, either spaces, tabs, carriage returns or line feeds (new lines).
 Cf: isSeparator
 
 * * *

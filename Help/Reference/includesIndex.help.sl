@@ -25,6 +25,13 @@ At `BitSet`, which is notably _zero-indexed_:
 true
 ```
 
+At `String`:
+
+```
+>>> [0 3 7].collect { :each | 'string'.includesIndex(each) }
+[false true false]
+```
+
 * * *
 
 See also: at, includesKey, Indexable, indices

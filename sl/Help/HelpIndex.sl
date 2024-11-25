@@ -33,7 +33,7 @@ HelpIndex : [Object] { | contents |
 
 	url { :self :kind :name |
 		[
-			'./lib/spl/help/',
+			'./lib/spl/Help/',
 			kind,
 			'/',
 			name,
@@ -62,7 +62,7 @@ HelpIndex : [Object] { | contents |
 		self.useLibraryItem(
 			LibraryItem(
 				'helpIndex',
-				'https://rohandrape.net/sw/spl/help/Index.text',
+				'https://rohandrape.net/sw/spl/Help/Index.text',
 				'text/plain',
 				HelpIndex:/1
 			)

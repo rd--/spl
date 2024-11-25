@@ -54,5 +54,5 @@ The ordinary mechanisms can be used to move about within this history.
 ## Portability
 
 There can be subtle differences in behaviour between browser implementations.
-For instance some browsers will insert a newline at Ctrl-Enter.
+For instance some browsers will insert a new line at Ctrl-Enter.
 In this case there is an equivalent binding defined, Ctrl-Comma.

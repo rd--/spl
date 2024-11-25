@@ -25,6 +25,6 @@ If no match is found, answer the result of evaluating _otherwiseBlock(anObject)_
 
 * * *
 
-See also: caseOf
+See also: caseOf, which
 
 Categories: Casing

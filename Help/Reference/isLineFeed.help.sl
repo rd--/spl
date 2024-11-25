@@ -2,7 +2,7 @@
 
 - _isLineFeed(aCharacter)_
 
-Answer `true` if _aCharacter_ is a line feed.
+Answer `true` if _aCharacter_ is a line feed (also called a new line).
 
 ```
 >>> '\n'.isLineFeed

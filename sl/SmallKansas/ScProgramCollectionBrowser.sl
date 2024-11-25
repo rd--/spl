@@ -26,7 +26,7 @@ ScProgramCollectionIndex : [Object] { | contents |
 					3 -> {
 						let [category, author, name] = path @* [1, 2, 3];
 						let url = [
-							'./lib/spl/help/',
+							'./lib/spl/Help/',
 							category,
 							'/',
 							author,

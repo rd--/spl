@@ -13,8 +13,8 @@
 
 @CssProperties {
 
-	cssText { :self | <primitive: return _self.cssText;> }
 	cssText { :self :aString | <primitive: return _self.cssText = _aString;> }
+	cssText { :self | <primitive: return _self.cssText;> }
 	getPropertyPriority { :self :name | <primitive: return _self.getPropertyPriority();> }
 	getPropertyValue { :self :name | <primitive: return _self.getPropertyValue(_name);> }
 	length { :self | <primitive: return _self.length;> } /* Read only */
@@ -66,6 +66,10 @@
 
 	createElementNS { :self :namespaceURI :qualifiedName |
 		<primitive: return _self.createElementNS(_namespaceURI, _qualifiedName);>
+	}
+
+	createRange { :self |
+		<primitive: return _self.createRange();>
 	}
 
 	createTextNode { :self :aString |
@@ -157,22 +161,29 @@
 	childElementCount { :self | <primitive: return _self.childElementCount;> }
 	children { :self | <primitive: return _self.children;> }
 	classList { :self | <primitive: return _self.classArray;> }
-	className { :self | <primitive: return _self.className;> }
 	className { :self :aString | <primitive: return _self.className = _aString;> }
+	className { :self | <primitive: return _self.className;> }
 	getAttribute { :self :name | <primitive: return _self.getAttribute(_name);> }
 	getBoundingClientRect { :self | <primitive: return _self.getBoundingClientRect();> }
 	hasPointerCapture { :self :pointerId | <primitive: return _self.hasPointerCapture(pointerId);> }
 	id { :self | <primitive: return _self.id;> }
-	innerHtml { :self | <primitive: return _self.innerHTML;> }
 	innerHtml { :self :aString | <primitive: return _self.innerHTML = _aString;> }
-	outerHtml { :self | <primitive: return _self.outerHTML;> }
+	innerHtml { :self | <primitive: return _self.innerHTML;> }
+	insertAdjacentElement { :self :position :element | <primitive: return _self.insertAdjacentElement(_position, _elementwhere);> }
+	insertAdjacentText { :self :where :data | <primitive: return _self.insertAdjacentText(_where, _data);> }
+	localName { :self | <primitive: return _self.localName;> } /* Read only */
+	matches { :self :selectors | <primitive: return _self.matches(_selectors);> }
+	nextElementSibling { :self | <primitive: return _self.nextElementSibling;> } /* Read only */
 	outerHtml { :self :aString | <primitive: return _self.outerHTML = _aString;> }
+	outerHtml { :self | <primitive: return _self.outerHTML;> }
+	previousElementSibling { :self | <primitive: return _self.previousElementSibling;> } /* Read only */
 	releasePointerCapture { :self :pointerId | <primitive: return _self.releasePointerCapture(_pointerId);> }
 	remove { :self | <primitive: return _self.remove();> }
 	removeAttribute { :self :aString | <primitive: return _self.removeAttribute(_aString);> }
 	setAttribute { :self :name :value | <primitive: return _self.setAttribute(_name, _value);> }
 	setAttributeNS { :self :namespace :name :value | <primitive: return _self.setAttributeNS(_namespace, _name, _value);> }
 	setPointerCapture { :self :pointerId | <primitive: return _self.setPointerCapture(_pointerId);> }
+	tagName { :self | <primitive: return _self.tagName;> } /* Read only */
 
 	removeAllChildren { :self |
 		self.children.asList.do { :each |
@@ -205,29 +216,29 @@
 	}
 
 	at { :self :anInteger |
-		self.item(anInteger - 1)
+		self.item(anInteger - 1) /* One-indexed */
 	}
 
 }
 
 @HtmlElement {
 
-	accessKey { :self | <primitive: return _self.accessKey;> }
 	accessKey { :self :aString | <primitive: return _self.accessKey = _aString;> }
+	accessKey { :self | <primitive: return _self.accessKey;> }
 	blur { :self | <primitive: return _self.blur();> }
 	click { :self | <primitive: return _self.click();> }
-	contentEditable { :self | <primitive: return _self.contentEditable;> }
 	contentEditable { :self :aString | <primitive: return _self.contentEditable = _aString;> }
-	focus { :self | <primitive: return _self.focus();> }
+	contentEditable { :self | <primitive: return _self.contentEditable;> }
 	focus { :self :options | <primitive: return _self.focus(options);> }
-	innerText { :self | <primitive: return _self.innerText;> }
+	focus { :self | <primitive: return _self.focus();> }
 	innerText { :self :aString | <primitive: return _self.innerText = _aString;> }
+	innerText { :self | <primitive: return _self.innerText;> }
 	isContentEditable { :self | <primitive: return _self.isContentEditable;> }
 	style { :self | <primitive: return _self.style;> }
-	tabIndex { :self | <primitive: return _self.tabIndex;> }
 	tabIndex { :self :anInteger | <primitive: return _self.tabIndex = _anInteger;> }
-	title { :self | <primitive: return _self.title;> }
+	tabIndex { :self | <primitive: return _self.tabIndex;> }
 	title { :self :aString | <primitive: return _self.title = _aString;> }
+	title { :self | <primitive: return _self.title;> }
 
 	computedStyle { :self | <primitive: return globalThis.getComputedStyle(_self);> }
 
@@ -236,8 +247,8 @@
 	}
 
 	/* Valid at <audio>, <img>, <link>, <script>, and <video> */
-	crossOrigin { :self | <primitive: return _self.crossorigin;> }
 	crossOrigin { :self :aString | <primitive: return _self.crossorigin = _aString;> }
+	crossOrigin { :self | <primitive: return _self.crossorigin;> }
 
 }
 
@@ -262,16 +273,52 @@
 @Node {
 
 	appendChild { :self :aChild | <primitive: return _self.appendChild(_aChild);> }
-	childNodes { :self | <primitive: return _self.childNodes;> }
-	firstChild { :self | <primitive: return _self.firstChild;> }
-	nodeType { :self | <primitive: return _self.nodeType;> }
-	textContent { :self | <primitive: return _self.textContent;> }
+	childNodes { :self | <primitive: return _self.childNodes;> } /* Read only */
+	firstChild { :self | <primitive: return _self.firstChild;> } /* Read only */
+	nextSibling { :self | <primitive: return _self.nextSibling;> } /* Read only */
+	nodeType { :self | <primitive: return _self.nodeType;> } /* Read only */
+	nodeValue { :self | <primitive: return _self.nodeValue;> }
+	parentElement { :self | <primitive: return _self.parentElement;> } /* Read only */
+	previousSibling { :self | <primitive: return _self.previousSibling;> } /* Read only */
 	textContent { :self :aString | <primitive: return _self.textContent = _aString;> }
+	textContent { :self | <primitive: return _self.textContent;> }
 
 	appendChildren { :self :aList |
 		aList.do { :each |
 			self.appendChild(each)
 		}
+	}
+
+	isAllWhiteSpace { :self |
+		self.textContent.isAllWhiteSpace
+	}
+
+	isAttribute { :self |
+		self.nodeType = 2
+	}
+
+	isCData { :self |
+		self.nodeType = 4
+	}
+
+	isComment { :self |
+		self.nodeType = 8
+	}
+
+	isCommentOrWhiteSpace { :self |
+		self.isComment | {
+			self.isText & {
+				self.isAllWhiteSpace
+			}
+		}
+	}
+
+	isElement { :self |
+		self.nodeType = 1
+	}
+
+	isText { :self |
+		self.nodeType = 3
 	}
 
 }
@@ -281,6 +328,14 @@
 	href { :self | <primitive: return _self.href;> } /* Read only */
 	title { :self | <primitive: return _self.title;> } /* Read only */
 	type { :self | <primitive: return _self.type;> } /* Read only */
+
+}
+
+@Text {
+
+	assignedSlot { :self | <primitive: return _self.assignedSlot;> } /* Read only */
+	splitText { :self :offset | <primitive: return _self.splitText(_offset);> }
+	wholeText { :self | <primitive: return _self.wholeText;> } /* Read only */
 
 }
 
@@ -344,6 +399,12 @@ CanvasRenderingContext2D! : [Object] {
 
 }
 
+ClipboardEvent! : [Object, Event] {
+
+	clipboardData { :self | <primitive: return _self.clipboardData;> } /* Read only */
+
+}
+
 CSSFontFaceRule! : [Object, CssRule] {
 
 	style { :self | <primitive: return _self.style;> } /* Read only */
@@ -352,11 +413,11 @@ CSSFontFaceRule! : [Object, CssRule] {
 
 CSSRuleList! : [Object] {
 
-	length { :self | <primitive: return _self.length;> } /* Read only */
 	item { :self :index | <primitive: return _self.item(_index);> }
+	length { :self | <primitive: return _self.length;> } /* Read only */
 
 	at { :self :index |
-		self.item(index - 1)
+		self.item(index - 1) /* One-indexed */
 	}
 
 	size { :self |
@@ -382,8 +443,8 @@ CSSStyleSheet! : [Object, StyleSheet] {
 	cssRuleList { :self | <primitive: return [..._self.cssRules];> }
 	cssRules { :self | <primitive: return _self.cssRules;> } /* Read only */
 	deleteRule { :self :index | <primitive: return _self.deleteRule(_index);> }
-	insertRule { :self :rule | <primitive: return _self.insertRule(_rule);> }
 	insertRule { :self :rule :index | <primitive: return _self.insertRule(_rule, _index);> }
+	insertRule { :self :rule | <primitive: return _self.insertRule(_rule);> }
 	replace { :self :text | <primitive: return _self.replace(_text);> }
 	replaceSync { :self :text | <primitive: return _self.replaceSync(_text);> }
 
@@ -397,7 +458,6 @@ CSSStyleSheet! : [Object, StyleSheet] {
 
 }
 
-
 +Record {
 
 	CssStyleSheet { :options |
@@ -409,6 +469,12 @@ CSSStyleSheet! : [Object, StyleSheet] {
 CustomEvent! : [Object, Event] {
 
 	detail { :self | <primitive: return _self.detail;> } /* Read only */
+
+}
+
+DataTransfer! : [Object] {
+
+	getData { :self :format |  <primitive: return _self.getData(_format);> }
 
 }
 
@@ -439,7 +505,6 @@ DOMMatrixReadOnly! : [Object, DOMMatrixReadOnly] {
 	}
 
 }
-
 
 DOMParser! : [Object] {
 
@@ -487,10 +552,24 @@ DOMPointReadOnly! : [Object, DOMPointReadOnly] {
 
 DOMRange! : [Object, AbstractRange] { /* Note: Renamed by Spl kernel from Range */
 
-	endOffset { :self | <primitive: return _self.endOffset;> }
-	startOffset { :self | <primitive: return _self.startOffset;> }
+	cloneRange { :self | <primitive: return _self.cloneRange();> }
+	commonAncestorContainer { :self | <primitive: return _self.commonAncestorContainer;> } /* Read only */
 	deleteContents { :self | <primitive: return _self.deleteContents();> }
+	endContainer { :self | <primitive: return _self.endContainer;> } /* Read only */
+	endOffset { :self | <primitive: return _self.endOffset + 1;> } /* One-indexed */
 	insertNode { :self :aNode | <primitive: return _self.insertNode(_aNode);> }
+	selectNodeContents { :self :aNode | <primitive: return _self.selectNodeContents(_aNode);> }
+	setEnd { :self :endNode :endOffset | <primitive: return _self.setEnd(_endNode, _endOffset - 1);> } /* One-indexed */
+	setStart { :self :startNode :startOffset | <primitive: return _self.setStart(_startNode, _startOffset - 1);> } /* One-indexed */
+	startContainer { :self | <primitive: return _self.startContainer;> } /* Read only */
+	startOffset { :self | <primitive: return _self.startOffset + 1;> } /* One-indexed */
+	toString { :self | <primitive: return _self.toString();> }
+
+	isInTextAreaElement { :self |
+		self.startContainer.isElement & {
+			self.startContainer.childNodes[self.startOffset].isHTMLTextAreaElement
+		}
+	}
 
 }
 
@@ -576,12 +655,11 @@ HTMLImageElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 	alt { :self | <primitive: return _self.value;> }
 	complete { :self | <primitive: return _self.complete;> } /* Read only */
 	height { :self | <primitive: return _self.height;> }
+	src { :self :url | <primitive: return _self.src = _url;> }
+	src { :self | <primitive: return _self.src;> }
 	width { :self | <primitive: return _self.width;> }
 	x { :self | <primitive: return _self.x;> } /* Read only */
 	y { :self | <primitive: return _self.y;> } /* Read only */
-
-	src { :self | <primitive: return _self.src;> }
-	src { :self :url | <primitive: return _self.src = _url;> }
 
 }
 
@@ -611,12 +689,12 @@ HTMLInputElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 		<primitive: return _self.type;>
 	}
 
-	value { :self |
-		<primitive: return _self.value;>
-	}
-
 	value { :self :aValue |
 		<primitive: return _self.value = _aValue;>
+	}
+
+	value { :self |
+		<primitive: return _self.value;>
 	}
 
 }
@@ -634,10 +712,10 @@ HTMLOptionElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 	index { :self | <primitive: return _self.index;> }
 	label { :self | <primitive: return _self.label;> }
 	selected { :self | <primitive: return _self.selected;> }
-	text { :self | <primitive: return _self.text;> }
 	text { :self :aString | <primitive: return _self.text = _aString;> }
-	value { :self | <primitive: return _self.value;> }
+	text { :self | <primitive: return _self.text;> }
 	value { :self :aString | <primitive: return _self.value = _aString;> }
+	value { :self | <primitive: return _self.value;> }
 
 }
 
@@ -654,14 +732,14 @@ HTMLSelectElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 	add { :self :item :before | <primitive: return _self.add(_item, _before);> }
 	item { :self :anInteger | <primitive: return _self.item(_anInteger);> }
 	labels { :self | <primitive: return _self.labels;> }
-	length { :self | <primitive: return _self.length;> }
 	length { :self :anInteger | <primitive: return _self.length = _anInteger;> }
+	length { :self | <primitive: return _self.length;> }
 	options { :self | <primitive: return _self.options;> }
 	remove { :self :anInteger | <primitive: return _self.remove(_anInteger);> }
-	selectedIndex { :self | <primitive: return _self.selectedIndex;> }
 	selectedIndex { :self :anInteger | <primitive: return _self.selectedIndex = _anInteger;> }
-	size { :self | <primitive: return _self.size;> }
+	selectedIndex { :self | <primitive: return _self.selectedIndex;> }
 	size { :self :anInteger | <primitive: return _self.size = _anInteger;> }
+	size { :self | <primitive: return _self.size;> }
 	type { :self | <primitive: return _self.type;> }
 
 	deselect { :self |
@@ -728,10 +806,6 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 		tr
 	}
 
-	asHtmlTable { :self |
-		self.asHtmlTable(asString:/1)
-	}
-
 	asHtmlTable { :self :toString:/1 |
 		let table = 'table'.createElement;
 		self.do { :row |
@@ -740,6 +814,10 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 			)
 		};
 		table
+	}
+
+	asHtmlTable { :self |
+		self.asHtmlTable(asString:/1)
 	}
 
 }
@@ -780,18 +858,19 @@ HTMLTableSectionElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 HTMLTextAreaElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
-	cols { :self | <primitive: return _self.cols;> }
 	cols { :self :anInteger | <primitive: return _self.cols = _anInteger;> }
-	rows { :self | <primitive: return _self.rows;> }
+	cols { :self | <primitive: return _self.cols;> }
 	readOnly { :self :aBoolean | <primitive: return _self.readOnly = _aBoolean;> }
 	readOnly { :self | <primitive: return _self.readOnly;> }
 	rows { :self :anInteger | <primitive: return _self.rows = _anInteger;> }
+	rows { :self | <primitive: return _self.rows;> }
 	selectionEnd { :self | <primitive: return _self.selectionEnd;> }
 	selectionStart { :self | <primitive: return _self.selectionStart;> }
+	setRangeText { :self :replacement :startSelection :endSelection :selectMode | <primitive: return _self.setRangeText(_replacement, _startSelection, _endSelection, _selectMode);> }
 	setSelectionRange { :self :i :j | <primitive: return _self.setSelectionRange(_i, _j);> }
 	type { :self | <primitive: return _self.type;> }
-	value { :self | <primitive: return _self.value;> }
 	value { :self :aString | <primitive: return _self.value = _aString;> }
+	value { :self | <primitive: return _self.value;> }
 
 }
 
@@ -815,8 +894,8 @@ ImageBitmap! : [Object] {
 
 ImageData! : [Object] {
 
-	data { :self | <primitive: return _self.data;> } /* Read only */
 	colorSpace { :self | <primitive: return _self.colorSpace;> } /* Read only */
+	data { :self | <primitive: return _self.data;> } /* Read only */
 	height { :self | <primitive: return _self.height;> } /* Read only */
 	width { :self | <primitive: return _self.width;> } /* Read only */
 
@@ -852,7 +931,7 @@ NodeList! : [Object] {
 	length { :self | <primitive: return _self.length;> }
 
 	at { :self :anInteger |
-		self.item(anInteger - 1)
+		self.item(anInteger - 1) /* One-indexed */
 	}
 
 }
@@ -892,20 +971,34 @@ PointerEvent! : [Object, UiEvent, Event, MouseEvent] {
 
 Selection! : [Object] {
 
-	focusNode { :self |
-		<primitive: return _self.focusNode;>
+	anchorNode { :self | <primitive: return _self.anchorNode;> }
+	anchorOffset { :self | <primitive: return _self.anchorOffset + 1;> } /* One-indexed */
+	collapse { :self :node :offset | <primitive: return _self.collapse(_node, _offset);> }
+	collapseToEnd { :self | <primitive: return _self.collapseToEnd();> }
+	collapseToStart { :self | <primitive: return _self.collapseToStart();> }
+	containsNode{ :self :node :partialContainment | <primitive: return _self.containsNode(_node, _partialContainment);> }
+	focusNode { :self | <primitive: return _self.focusNode;> }
+	focusOffset { :self | <primitive: return _self.focusOffset + 1;> } /* One-indexed */
+	getRangeAt { :self :anInteger | <primitive: return _self.getRangeAt(_anInteger - 1);> } /* One-indexed */
+	rangeCount { :self | <primitive: return _self.rangeCount;> } /* Read only */
+	removeAllRanges { :self | <primitive: return _self.removeAllRanges();> }
+	toString { :self | <primitive: return _self.toString();> }
+	type { :self | <primitive: return _self.type;> }
+
+	isCaret { :self |
+		self.type = 'Caret'
 	}
 
-	focusOffset { :self |
-		<primitive: return _self.focusOffset;>
+	isRange { :self |
+		self.type = 'Range'
 	}
 
-	getRangeAt { :self :anInteger |
-		<primitive: return _self.getRangeAt(_anInteger - 1);>
-	}
-
-	toString { :self |
-		<primitive: return _self.toString();>
+	range { :self |
+		(self.rangeCount = 1).if {
+			self.getRangeAt(1)
+		} {
+			self.error('Selection>>range: more than one range')
+		}
 	}
 
 }
@@ -920,13 +1013,50 @@ Text! : [Object, EventTarget, Node, CharacterData] {
 
 	document { :self | <primitive: return _self.document;> }
 	getComputedStyle { :self :element | <primitive: return _self.getComputedStyle(_element);> }
-	getSelectedText { :self | <primitive: return _self.getSelection().toString();> }
 	getSelection { :self | <primitive: return _self.getSelection();> }
 	innerHeight { :self | <primitive: return _self.innerHeight;> }
 	innerWidth { :self | <primitive: return _self.innerWidth;> }
 
-	currentWord { :self |
-		let text = self.getSelectedText;
+}
+
++[HTMLDocument, Window] {
+
+	caretIsInTextAreaElement { :self |
+		self.selection.range.isInTextAreaElement
+	}
+
+	caretIsInTextNode { :self |
+		self.selection.range.startContainer.isText
+	}
+
+	insertStringAtCaret { :self :aString |
+		self.selection.range.insertNode(
+			self.document.createTextNode(
+				aString
+			)
+		)
+	}
+
+	paragraphAtCaret { :self |
+		let range = self.selection.range;
+		range.isInTextAreaElement.if {
+			let textArea = range.startContainer.childNodes[range.startOffset];
+			textArea.value.paragraphAtIndex(textArea.selectionStart)
+		} {
+			range.startContainer.isText.if {
+				range.startContainer.nodeValue.paragraphAtIndex(range.startOffset)
+			} {
+				'not yet...'.error
+			}
+		}
+	}
+
+	selectedText { :self |
+		<primitive: return _self.getSelection().toString();>
+	}
+
+	selectedTextOrWordAtCaret { :self |
+		let text = self.selectedText;
 		text.isEmpty.if {
 			self.wordAtCaret
 		} {
@@ -934,25 +1064,15 @@ Text! : [Object, EventTarget, Node, CharacterData] {
 		}
 	}
 
+	selection { :self |
+		<primitive: return _self.getSelection();>
+	}
+
 	wordAtCaret { :self |
-		let selection = self.getSelection;
+		let selection = self.selection;
 		let text = selection.focusNode.textContent;
 		let index = selection.focusOffset;
 		text.wordAtIndex(index)
-	}
-
-}
-
-+String {
-
-	insertAtCursor { :self |
-		system.window.getSelection.getRangeAt(
-			1
-		).insertNode(
-			system.window.document.createTextNode(
-				self
-			)
-		)
 	}
 
 }

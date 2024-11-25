@@ -61,6 +61,9 @@ true
 
 >>> { 1:9.copyFromTo(7, 11) }.ifError { true }
 true
+
+>>> { 'text'.copyFromTo(0, 3) }.ifError { true }
+true
 ```
 
 * * *

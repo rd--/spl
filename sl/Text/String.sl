@@ -55,7 +55,12 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	allButLast { :self :n |
-		self.copyFromTo(1, self.size - n)
+		let end = self.size - n;
+		(end = 0).if {
+			''
+		} {
+			self.copyFromTo(1, end)
+		}
 	}
 
 	alphabet { :self |
@@ -176,6 +181,10 @@ String! : [Object, Json, Iterable, Character] {
 		<primitive: return _self + _aString;>
 	}
 
+	basicCopyFromTo { :self :start :end |
+		<primitive: return _self.substring(_start - 1, _end);>
+	}
+
 	basicAt { :self :index |
 		self.codePointAt(index).asCharacter
 	}
@@ -283,7 +292,17 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	copyFromTo { :self :start :end |
-		<primitive: return _self.substring(_start - 1, _end);>
+		self.includesIndex(start).ifFalse {
+			self.error('copyFromTo: invalid start index')
+		};
+		self.includesIndex(end).ifFalse {
+			self.error('copyFromTo: invalid end index')
+		};
+		(start > end).if {
+			''
+		} {
+			self.basicCopyFromTo(start, end)
+		}
 	}
 
 	copyReplaceFromToWith { :self :start :stop :replacement |
@@ -434,6 +453,10 @@ String! : [Object, Json, Iterable, Character] {
 		self.characters.includes(aCharacter)
 	}
 
+	includesIndex { :self :index |
+		index.betweenAnd(1, self.size)
+	}
+
 	indefiniteArticle { :self |
 		self.first.isVowel.if {
 			'an '
@@ -484,6 +507,10 @@ String! : [Object, Json, Iterable, Character] {
 
 	isAscii { :self |
 		self.utf8ByteArray.allSatisfy(isAsciiCodePoint:/1)
+	}
+
+	isAllWhiteSpace { :self |
+		<primitive: return !/[^\t\n\r ]/.test(_self);>
 	}
 
 	isBlankLine { :self |
@@ -572,7 +599,7 @@ String! : [Object, Json, Iterable, Character] {
 		self.isEmpty.if {
 			[]
 		} {
-			self.withoutTrailingNewline.splitBy('\n')
+			self.withoutTrailingLineFeed.splitBy('\n')
 		}
 	}
 
@@ -640,6 +667,18 @@ String! : [Object, Json, Iterable, Character] {
 
 	padRight { :self :anInteger :aString |
 		<primitive: return _self.padEnd(_anInteger, _aString);>
+	}
+
+	paragraphAtIndex { :self :index |
+		self[index].isLineFeed.if {
+			self.paragraphAtIndex(index - 1)
+		} {
+			let beforeIndex = self.findPreviousOccurrenceOfStringStartingAt('\n\n', index - 1);
+			let afterIndex = self.findStringStartingAt('\n\n', index);
+			let start = (beforeIndex < 1).if { 1 } { beforeIndex + 2 };
+			let end = (afterIndex < 1).if { self.size } { afterIndex };
+			self.copyFromTo(start, end)
+		}
 	}
 
 	paragraphs { :self |
@@ -798,11 +837,19 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	whiteSpaceDelimitedWordAtIndex { :self :index |
-		let previousSpaceIndex = self.findPreviousOccurrenceOfStringStartingAt(' ', index - 1);
-		let nextSpaceIndex = self.findStringStartingAt(' ', index);
-		let begin = (previousSpaceIndex < 1).if { 1 } { previousSpaceIndex + 1 };
-		let end = (nextSpaceIndex < 1).if { self.length } { nextSpaceIndex };
-		self.copyFromTo(begin, end - 1)
+		self.includesIndex(index).if {
+			let previousSpaceIndex = self.findPreviousOccurrenceOfStringStartingAt(' ', index - 1);
+			let nextSpaceIndex = self.findStringStartingAt(' ', index);
+			let begin = (previousSpaceIndex < 1).if { 1 } { previousSpaceIndex + 1 };
+			let end = (nextSpaceIndex < 1).if { self.size } { nextSpaceIndex - 1 };
+			(begin > end).if {
+				''
+			} {
+				self.copyFromTo(begin, end)
+			}
+		} {
+			self.error('whiteSpaceDelimitedWordAtIndex: invalid index')
+		}
 	}
 
 	withBlanksTrimmed { :self |
@@ -838,11 +885,11 @@ String! : [Object, Json, Iterable, Character] {
 		<primitive: return _self.trimEnd();>
 	}
 
-	withoutTrailingNewline { :self |
+	withoutTrailingLineFeed { :self |
 		self.isEmpty.if {
 			self
 		} {
-			(self.last.codePoint = 10).if {
+			self.last.isLineFeed.if {
 				self.allButLast
 			} {
 				self

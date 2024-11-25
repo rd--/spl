@@ -15,6 +15,6 @@ false
 
 * * *
 
-See also: isEmpty, isSpace, isTab
+See also: isAllWhiteSpace, isEmpty, isSpace, isTab
 
 Categories: Testing

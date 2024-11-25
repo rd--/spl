@@ -2,14 +2,24 @@
 
 - _caseOf(anObject, aCollection)_
 
-The elements of _aCollection_ are associations between blocks.
-Answer the evaluated value of the first association whose evaluated key equals _anObject_.
+The elements of _aCollection_ are `Association`s between blocks.
+Answer the evaluated `value` of the first association whose evaluated key equals _anObject_.
+
+With both `key` and `value` of each as constants:
 
 ```
->>> let c = ['a' -> 1, 'b' -> 2, 'c' -> 3];
+>>> let c = [
+>>> 	'a' -> 1,
+>>> 	'b' -> 2,
+>>> 	'c' -> 3
+>>> ];
 >>> 'b'.caseOf(c)
 2
+```
 
+With both `key` and `value` of each as `Block`s:
+
+```
 >>> let c = [
 >>> 	{ 'a' } -> { 1 * 1 },
 >>> 	{ 'b' } -> { 2 * 2 },

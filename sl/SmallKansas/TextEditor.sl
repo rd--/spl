@@ -46,7 +46,7 @@ TextEditor : [Object, UserEventTarget, View] {
 	}
 
 	insertText { :self :aString |
-		aString.insertAtCursor
+		system.window.insertStringAtCaret(aString)
 	}
 
 	menuItems { :self |
@@ -106,7 +106,10 @@ TextEditor : [Object, UserEventTarget, View] {
 
 	standardTextEditorMenuItems { :self :subject |
 		let currentSelection = {
-			let text = system.window.getSelectedText;
+			let text = system.window.selectedText;
+			text.isEmpty.ifTrue {
+				text := system.window.paragraphAtCaret
+			};
 			text.isEmpty.ifTrue {
 				text := subject.currentText
 			};
@@ -124,33 +127,54 @@ TextEditor : [Object, UserEventTarget, View] {
 				)
 			},
 			MenuItem('Browse It', 'b') { :event |
-				self.browserOn([system.window.currentWord], event)
+				self.browserOn(
+					[system.window.selectedTextOrWordAtCaret],
+					event
+				)
 			},
 			MenuItem('Do It', 'd') { :event |
 				self.evaluate(currentSelection(), event)
 			},
 			MenuItem('Help For It', 'h') { :event |
-				self.helpFor(system.window.currentWord.asMethodName, event)
+				self.helpFor(
+					system.window.selectedTextOrWordAtCaret.asMethodName,
+					event
+				)
 			},
 			MenuItem('Implementors Of It', 'm') { :event |
-				self.implementorsOf(system.window.currentWord.asMethodName, event)
+				self.implementorsOf(
+					system.window.selectedTextOrWordAtCaret.asMethodName,
+					event
+				)
 			},
 			MenuItem('Inspect It', 'i') { :event |
-				self.inspectorOn(self.evaluate(system.window.currentWord, event), event)
+				self.inspectorOn(
+					self.evaluate(
+						system.window.selectedTextOrWordAtCaret,
+						event
+					),
+					event
+				)
 			},
 			MenuItem('Play It', 'Enter') { :event |
 				let text = '{ ' ++ currentSelection() ++ ' }.value.play';
-				text.postLine;
 				self.evaluate(text, event)
 			},
 			MenuItem('Print It', 'p') { :event |
-				subject.insertText(' ' ++ self.evaluate(currentSelection(), event).asString)
+				subject.insertText(
+					' ' ++ self.evaluate(currentSelection(), event).asString
+				)
 			},
 			MenuItem('References To It', nil) { :event |
-				self.referencesTo(system.window.currentWord.asMethodName, event)
+				self.referencesTo(
+					system.window.selectedTextOrWordAtCaret.asMethodName,
+					event
+				)
 			},
 			MenuItem('Require It', nil) { :event |
-				system.package(system.window.currentWord).require.then { :unused |
+				system.package(
+					system.window.selectedTextOrWordAtCaret
+				).require.then { :unused |
 					subject.insertText('*Package loaded*')
 				}
 			},

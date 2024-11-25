@@ -200,9 +200,13 @@ RegExp! : [Object] {
 	}
 
 	wordAtIndex { :self :index |
-		let before = self.copyFromTo(1, index - 1).matchRegExp('[a-zA-Z0-9-_]+$') ? { '' };
-		let after = self.copyFromTo(index, self.size).matchRegExp('^[a-zA-Z0-9-_]+') ? { '' };
-		before ++ after
+		self.includesIndex(index).if {
+			let before = (index = 1).if { '' } { self.copyFromTo(1, index - 1).matchRegExp('[a-zA-Z0-9-_]+$') ? { '' } };
+			let after = self.copyFromTo(index, self.size).matchRegExp('^[a-zA-Z0-9-_]+') ? { '' };
+			before ++ after
+		} {
+			self.error('wordAtIndex: invalid index')
+		}
 	}
 
 	wordsBy { :self :separators |

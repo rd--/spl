@@ -80,13 +80,13 @@ ScProgramIndex : [Object] { | contents |
 					3 -> {
 						let [category, author, name] = path @* [1, 2, 3];
 						let url = [
-							'./lib/spl/help/SuperCollider/',
+							'./lib/spl/Program/SuperCollider/',
 							category,
 							'/',
 							author,
 							' - ',
 							name,
-							'.sl'
+							'.play.sl'
 						].join('');
 						url.fetchTextWithDefault('*Fetch failed*')
 					}

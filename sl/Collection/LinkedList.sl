@@ -68,7 +68,7 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequence] { |
 
 	atPutLink { :self :index :aLink |
 		/* Putting a link which is already in the list will create an infinite loop */
-		self.validIndex(index).ifFalse {
+		self.includesIndex(index).ifFalse {
 			'LinkedList>>atPutLink: errorOutOfBounds'.error
 		};
 		(index = 1).if {
@@ -114,6 +114,10 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequence] { |
 			aBlock(aLink.value);
 			aLink := aLink.nextLink
 		}
+	}
+
+	includesIndex { :self :index |
+		index.betweenAnd(1, self.size)
 	}
 
 	isEmpty { :self |
@@ -276,10 +280,6 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequence] { |
 
 	species { :self |
 		List:/1
-	}
-
-	validIndex { :self :index |
-		index.betweenAnd(1, self.size)
 	}
 
 }
