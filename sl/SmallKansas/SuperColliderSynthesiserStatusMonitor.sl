@@ -1,4 +1,4 @@
-ScSynthStatusMonitor : [Object, SmallKansan] {
+SuperColliderSynthesiserStatusMonitor : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		let textEditor = smallKansas.TextEditor(self.title, 'text/html', '---');
@@ -17,7 +17,7 @@ ScSynthStatusMonitor : [Object, SmallKansan] {
 	}
 
 	title { :self |
-		'ScSynth Status Monitor'
+		'SuperCollider Synthesiser Status Monitor'
 	}
 
 }
