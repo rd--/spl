@@ -8,12 +8,12 @@ All pass delay line.
 `AllpassC` uses cubic interpolation.
 
 - in: the input signal
-- maxDelayTime: the maximum delay time in seconds.
-  Used to initialize the delay buffer size
+- maxDelayTime: the maximum delay time in seconds, used to initialize the delay buffer size
 - delayTime: delay time in seconds
 - decayTime: time for the echoes to decay by 60 decibels
-  If this time is negative then the feedback coefficient will be negative,
-  thus emphasizing only odd harmonics at an octave lower
+
+If _decayTime_ is negative then the feedback coefficient will be negative,
+thus emphasizing only odd harmonics at an octave lower
 
 The allpass delay has no audible effect as a resonator on steady state sound:
 
