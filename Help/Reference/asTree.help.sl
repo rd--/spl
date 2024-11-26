@@ -16,7 +16,8 @@ Tree(
 				Tree(2, []),
 				Tree(nil, [Tree(3, [])]),
 				Tree(4, [])
-			]),
+			]
+		),
 		Tree(5, [])
 	]
 )

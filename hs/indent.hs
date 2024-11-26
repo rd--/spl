@@ -180,8 +180,15 @@ indentNext s = inOrOutDent s > 0 || hasTrailingOpening s
 type StateWithDot = (Int, Bool)
 -}
 
--- | Indent
-type State = Int
+data Where = InDocumentTestProgram | InDocumentTestExpectedAnswer | InPlain
+  deriving (Eq, Show)
+
+-- | (Indent, Where)
+type State = (Int, Where)
+
+hasDocumentTestProgramPrefix :: String -> Bool
+hasDocumentTestProgramPrefix s =
+  ">> " `isPrefixOf` s || ">>> " `isPrefixOf` s
 
 splitNonIndentingPrefix :: String -> (String, String)
 splitNonIndentingPrefix s =
@@ -190,6 +197,16 @@ splitNonIndentingPrefix s =
   else if ">>> " `isPrefixOf` s
        then (">>> ", drop 4 s)
        else ("", s)
+
+stepWhere :: Where -> String -> Where
+stepWhere w s =
+  case (w, hasDocumentTestProgramPrefix s) of
+    (InDocumentTestProgram, True) -> InDocumentTestProgram
+    (InDocumentTestProgram, False) -> InDocumentTestExpectedAnswer
+    (InDocumentTestExpectedAnswer, False) -> if null s then InPlain else InDocumentTestExpectedAnswer
+    (InDocumentTestExpectedAnswer, True) -> error "indentLine: wrong transition?"
+    (InPlain, True) -> InDocumentTestProgram
+    (InPlain, False) -> InPlain
 
 {- | Indent line by indicated amount and return:
 
@@ -203,13 +220,17 @@ splitNonIndentingPrefix s =
 (1,"")
 -}
 indentLine :: State -> String -> (State, String)
-indentLine i s =
-  let t = removeQuotedText s
+indentLine (i, w) u =
+  let s = if w == InDocumentTestExpectedAnswer then u else clearIndent u
+      w' = stepWhere w s
+      t = removeQuotedText s
       next = if indentNext t then 1 else 0
       current = if hasLeadingClosing t then -1 else 0
       (p, s') = splitNonIndentingPrefix s
-      s'' = if null s' then s' else replicate (i + current) '\t' ++ s'
-  in (i + next + current, p ++ s'')
+      s'' = if w == InDocumentTestExpectedAnswer || null s'
+            then s'
+            else replicate (i + current) '\t' ++ s'
+  in ((i + next + current, w'), p ++ s'')
 
 -- | Indent sequence of non-indented lines.
 indentRegion :: State -> [String] -> [String]
@@ -228,7 +249,7 @@ clearIndent s =
 "f(\n\tx,\n\ty\n)\n"
 -}
 indentText :: String -> String
-indentText = unlines . indentRegion 0 . map clearIndent . lines
+indentText = unlines . indentRegion (0, InPlain) . lines
 
 indentFileInPlace :: FilePath -> IO ()
 indentFileInPlace fn = do
