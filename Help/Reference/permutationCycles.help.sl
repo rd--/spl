@@ -58,7 +58,7 @@ Permutation cycles with unary cycles deleted can be considered a sparse represen
 
 ```
 >>> let l = [
->>> 	 2  3  1  4  5  6  7  8  9 10
+>>> 	02 03 01 04 05 06 07 08 09 10
 >>> 	12 11 13 14 15 16 17 18 19 20
 >>> ];
 >>> l.permutationCycles

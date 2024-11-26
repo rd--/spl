@@ -1,15 +1,15 @@
-# { (leftCurlyBracket)
+# '{' (leftCurlyBracket)
 
-`{` is a syntax token, it is not an operator.
+`{` is a balanced syntax token, closed by `}`, it is not an operator.
 
-It is a part of `Block Syntax` and `Trailing Block Syntax`,
-where it begins a block that is subsequently ended by `}`.
+It is a part of `Block Syntax` and `Trailing Block Syntax`.
+`{` begins a block that is subsequently ended by `}`.
 
 The name of this syntax token is `leftCurlyBracket`.
 
 * * *
 
-See also: }
+See also: }, (, )
 
 Guides: Block Syntax, Trailing Block Syntax, Syntax Tokens
 

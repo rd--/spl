@@ -162,22 +162,23 @@ Sl {
 	operatorWithBinaryAdverb = (operator | lowercaseIdentifier) "." selectorName "(" (operator | arityQualifiedIdentifier | numberLiteral) ")"
 	operatorChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
 	operatorAssignment = operatorChar ":" "="
+	plusOrMinus = "+" | "-"
 
 	literal = rangeLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
 	numberLiteral = decimalLiteral | scientificLiteral | complexLiteral | residueLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
 	rangeLiteral = rangeFromByToLiteral | rangeFromToLiteral
 	rangeFromByToLiteral = integerLiteral ":" integerLiteral ":" (integerLiteral | identifier)
 	rangeFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
-	floatLiteral = "-"? digit+ "." digit+
-	decimalLiteral = "-"? digit+ "." digit+ ("d" | "D")
+	floatLiteral = plusOrMinus? digit+ "." digit+
+	decimalLiteral = plusOrMinus? digit+ "." digit+ ("d" | "D")
 	scientificLiteral = (floatLiteral | integerLiteral) ("e" | "E") integerLiteral
 	complexLiteral = (floatLiteral | integerLiteral) ("j" | "J") (floatLiteral | integerLiteral)
 	residueLiteral = integerLiteral ("z" | "Z") digit+
-	fractionLiteral = "-"? digit+ "/" digit+
-	largeIntegerLiteral = "-"? digit+ "n"
-	radixIntegerLiteral = "-"? digit+ "r" letterOrDigit+
+	fractionLiteral = plusOrMinus? digit+ "/" digit+
+	largeIntegerLiteral = plusOrMinus? digit+ "n"
+	radixIntegerLiteral = plusOrMinus? digit+ "r" letterOrDigit+
 	constantNumberLiteral = "Infinity" | "NaN"
-	integerLiteral = "-"? digit+
+	integerLiteral = plusOrMinus? digit+
 	singleQuotedStringLiteral = "\'" (~"\'" ("\\\'" | "\\\\" | sourceCharacter))* "\'"
 	doubleQuotedStringLiteral = "\"" (~"\"" ("\\\"" | "\\\\" | sourceCharacter))* "\""
 	backtickQuotedStringLiteral = backtickCharacter (~backtickCharacter sourceCharacter)* backtickCharacter

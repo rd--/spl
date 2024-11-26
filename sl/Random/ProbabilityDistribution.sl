@@ -20,7 +20,7 @@
 
 +@RandomNumberGenerator {
 
-	nextRandomFloatEularianBetaDistribution { :self :x1 :x2 :p1 :p2 |
+	nextRandomFloatEulerianBetaDistribution { :self :x1 :x2 :p1 :p2 |
 		let p1r = 1 / p1;
 		let p2r = 1 / p2;
 		let sum = 2;

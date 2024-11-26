@@ -458,7 +458,7 @@
 		p1 := LsConstant(p1);
 		p2 := LsConstant(p2);
 		BlockStream {
-			system.nextRandomFloatEularianBetaDistribution(low.next, high.next, p1.next, p2.next)
+			system.nextRandomFloatEulerianBetaDistribution(low.next, high.next, p1.next, p2.next)
 		} {
 			low.reset;
 			high.reset;

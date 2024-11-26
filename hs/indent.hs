@@ -18,21 +18,23 @@ import System.Environment {- base -}
 
 import qualified Music.Theory.Io as Io {- hmt-base -}
 
-{- |
-
->>> removeQuotedText "without 'q' and 'r'"
-"without '' and ''"
--}
-removeQuotedText :: String -> String
-removeQuotedText s =
-  let k = '\''
-      f (q, r) c =
+removeQuotedByText :: Char -> String -> String
+removeQuotedByText k s =
+  let f (q, r) c =
         let q' = if c == k then not q else q
         in if q
             then (q', if q' then k : r else r)
             else (q', c : r)
       (_, s') = last (scanl f (False, []) s)
   in reverse s'
+
+{- |
+
+>>> removeQuotedText "without 'q' and `r` and \"s\""
+"without '' and `` and \"\""
+-}
+removeQuotedText :: String -> String
+removeQuotedText = removeQuotedByText '\'' . removeQuotedByText '`' . removeQuotedByText '"'
 
 -- | Is opening token.
 isOpening :: Char -> Bool

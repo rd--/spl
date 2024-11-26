@@ -1,6 +1,6 @@
-# nextRandomFloatEularianBetaDistribution
+# nextRandomFloatEulerianBetaDistribution
 
-- _nextRandomFloatEularianBetaDistribution(x1, x2, p1, p2)_
+- _nextRandomFloatEulerianBetaDistribution(x1, x2, p1, p2)_
 
 Parameters are:
 
@@ -15,29 +15,29 @@ As p1 and p2 increase the generator will slow down.
 Special cases:
 
 - p1 < 1 & p2 < 1:
-  The probabilities are greatest near x1 and x2.
+The probabilities are greatest near x1 and x2.
 
 - p1 = 1 & p2 = 1:
-  This is a uniform distribution.
+This is a uniform distribution.
 
 - p1 > 1 & p2 > 1:
-  This a bounded Gaussian-type distribution.
-  The mean is the midpoint of the range if p1 = p2.
-  If p1 ~= p2, the mean will be skewed to the lower probabilities respective bound.
+This a bounded Gaussian-type distribution.
+The mean is the midpoint of the range if p1 = p2.
+If p1 ≠ p2, the mean will be skewed to the lower probabilities respective bound.
 
 - p1 = 1 & p2 = 2:
-  This is a linear distribution.
+This is a linear distribution.
 
 Biased low:
 
 ~~~
-({ system.nextRandomFloatEularianBetaDistribution(0, 1, 1 / 3, 3) } ! 99).linePlot
+({ system.nextRandomFloatEulerianBetaDistribution(0, 1, 1 / 3, 3) } ! 99).linePlot
 ~~~
 
 Biased high:
 
 ~~~
-({ system.nextRandomFloatEularianBetaDistribution(0, 1, 3, 1 / 3) } ! 99).linePlot
+({ system.nextRandomFloatEulerianBetaDistribution(0, 1, 3, 1 / 3) } ! 99).linePlot
 ~~~
 
 * * *

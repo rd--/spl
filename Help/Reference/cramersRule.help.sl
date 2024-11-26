@@ -60,9 +60,9 @@ Solve a system that has four equations and four unknowns:
 
 ```
 >>> let c = [
->>> 	 6  -2   2   4;
+>>> 	06  -2   2   4;
 >>> 	12  -8   6  10;
->>> 	 3 -13   9   3;
+>>> 	03 -13   9   3;
 >>> 	-6   4   1 -18
 >>> ];
 >>> let r = [16 26 -19 -34];

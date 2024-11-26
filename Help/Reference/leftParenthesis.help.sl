@@ -1,6 +1,6 @@
-# ( (leftParenthesis)
+# '(' (leftParenthesis)
 
-`(` is a syntax token, it is not an operator.
+`(` is a balanced syntax token, closed by `)`, it is not an operator.
 
 `(` is a part of `Dictionary Syntax`, `Trailing Dictionary Syntax` and `Tuple Syntax`,
 where it begins either a dictionary or a tuple that is subsequently ended by `)`.

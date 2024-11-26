@@ -1,9 +1,8 @@
-# [ (leftSquareBracket)
+# '[' (leftSquareBracket)
 
-`[` is a syntax token, it is not an operator.
+`[` is a balanced syntax token, closed by `]`, it is not an operator.
 
-`[` is a part of `List Syntax`,
-where it begins a `List` that is subsequently closed by `]`.
+`[` is a part of `List Syntax`, where it begins a `List` that is subsequently closed by `]`.
 
 ```
 >>> [1, 2, 3].isList
