@@ -876,3 +876,11 @@ export function stringToSentences(str: string): Array<string> {
 		/(?=[^])(?:\P{Sentence_Terminal}|\p{Sentence_Terminal}(?!['"`\p{Close_Punctuation}\p{Final_Punctuation}\s]))*(?:\p{Sentence_Terminal}+['"`\p{Close_Punctuation}\p{Final_Punctuation}]*|$)/guy,
 	) || [];
 }
+
+export async function dotToSvg(dot: string, layoutEngine: string): Promise<string> {
+	const { Graphviz } = await import("../lib/scsynth-wasm-builds/lib/ext/graphviz.js");
+    const graphvizLoaded = Graphviz.load();
+    const graphviz = await graphvizLoaded;
+    const svg = await graphviz.layout(dot, "svg", layoutEngine, {});
+	return svg;
+}

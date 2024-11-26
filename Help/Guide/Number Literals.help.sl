@@ -1,5 +1,26 @@
 # Number Literals
 
+Numbers may be written with a sign, which is part of the literal syntax.
+
+```
+>>> -23
+23.negated
+```
+
+The sign may be either `+` or `-`:
+
+```
+>>> +23.negated
+-23
+```
+
+Integer literals may have leading zeroes:
+
+```
+>>> [023 23]
+[23 023]
+```
+
 The _scientific notation_ for a number _n_ is an equivalent expression _a * (10 ^ p)_,
 where _1 <= a < 10_.
 _a_ may be fractional, _p_ is required to be an integer.

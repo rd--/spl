@@ -671,3 +671,11 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 }
+
++String {
+
+	dotToSvg { :self :layoutEngine |
+		<primitive: return sl.dotToSvg(_self, _layoutEngine);>
+	}
+
+}
