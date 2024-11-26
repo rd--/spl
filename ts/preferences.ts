@@ -12,7 +12,9 @@ export function preferencesRead<T>(
 		if (entry) {
 			return entry;
 		} else {
-			throw new Error(`preferencesRead: known configuration: ${configurationKey}, unknown preference: ${preferenceKey}`);
+			throw new Error(
+				`preferencesRead: known configuration: ${configurationKey}, unknown preference: ${preferenceKey}`,
+			);
 		}
 	} else {
 		const defaultConfiguration = preferences['Default'];
@@ -21,7 +23,9 @@ export function preferencesRead<T>(
 			if (defaultEntry) {
 				return defaultEntry;
 			} else {
-				throw new Error(`preferencesRead: unknown configuration: ${configurationKey}, unknown preference at default: ${preferenceKey}`);
+				throw new Error(
+					`preferencesRead: unknown configuration: ${configurationKey}, unknown preference at default: ${preferenceKey}`,
+				);
 			}
 		} else {
 			throw new Error(`preferencesRead: no Default configuration`);

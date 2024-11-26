@@ -9,6 +9,8 @@ The current line is shifted left if:
 
 - there is a leading closing token
 
+Runs over .help.sl files and understands the document test layout rules.
+
 -}
 module Main where
 
@@ -32,9 +34,9 @@ removeQuotedByText k s =
 
 >>> removeQuotedText "without 'q' and `r` and \"s\""
 "without '' and `` and \"\""
--}
 removeQuotedText :: String -> String
 removeQuotedText = removeQuotedByText '\'' . removeQuotedByText '`' . removeQuotedByText '"'
+-}
 
 -- | Is opening token.
 isOpening :: Char -> Bool
@@ -70,7 +72,7 @@ lastIndexFor f s =
 >>> countOpeningAndClosing "} {"
 (1,1)
 
->>> countOpeningAndClosing (removeQuotedText "'} {'")
+>>> countOpeningAndClosing (removeQuotedByText '\'' "'} {'")
 (0,0)
 -}
 countOpeningAndClosing :: String -> (Int, Int)
@@ -188,6 +190,11 @@ data Where = InDocumentTestProgram | InDocumentTestExpectedAnswer | InPlain
 -- | (Indent, Where)
 type State = (Int, Where)
 
+{- | The markers are only valid at the start of a line, see definition of >> operator.
+
+>>> hasDocumentTestProgramPrefix "\t>> x"
+False
+-}
 hasDocumentTestProgramPrefix :: String -> Bool
 hasDocumentTestProgramPrefix s =
   ">> " `isPrefixOf` s || ">>> " `isPrefixOf` s
@@ -215,24 +222,26 @@ stepWhere w s =
 - indent for next line
 - indented line
 
->>> indentLine 1 ">>> f("
-(2,">>> \tf(")
+The document test split must be done before the indent is cleared.
 
->>> indentLine 1 ""
-(1,"")
+>>> indentLine (1, InPlain) ">>> f("
+((2,InDocumentTestProgram),">>> \tf(")
+
+>>> indentLine (1, InPlain) ""
+((1,InPlain),"")
 -}
 indentLine :: State -> String -> (State, String)
 indentLine (i, w) u =
-  let s = if w == InDocumentTestExpectedAnswer then u else clearIndent u
-      w' = stepWhere w s
-      t = removeQuotedText s
+  let w' = stepWhere w u
+      (p, u') = splitNonIndentingPrefix u
+      s = if w == InDocumentTestExpectedAnswer then u' else clearIndent u'
+      t = removeQuotedByText '\'' s
       next = if indentNext t then 1 else 0
       current = if hasLeadingClosing t then -1 else 0
-      (p, s') = splitNonIndentingPrefix s
-      s'' = if w == InDocumentTestExpectedAnswer || null s'
-            then s'
-            else replicate (i + current) '\t' ++ s'
-  in ((i + next + current, w'), p ++ s'')
+      s' = if w == InDocumentTestExpectedAnswer || null s
+            then s
+            else replicate (i + current) '\t' ++ s
+  in ((i + next + current, w'), p ++ s')
 
 -- | Indent sequence of non-indented lines.
 indentRegion :: State -> [String] -> [String]
@@ -240,10 +249,7 @@ indentRegion z0 = snd . mapAccumL (\z s -> indentLine z s) z0
 
 -- | Remove indentation from line.
 clearIndent :: String -> String
-clearIndent s =
-  let (p, s') = splitNonIndentingPrefix s
-      s'' = dropWhile Data.Char.isSpace s'
-  in p ++ s''
+clearIndent = dropWhile Data.Char.isSpace
 
 {- | Indent text starting at left (indent 0).
 
