@@ -17,7 +17,7 @@ The unary form answers all but the first and last element.
 >>> 1:9.allButFirstAndLast
 2:8
 
->>> 'cat'.characters.allButFirstAndLast
+>>> 'cat'.contents.allButFirstAndLast
 ['a']
 ```
 

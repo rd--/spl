@@ -5,10 +5,16 @@
 Answer a `String` of one place having the indicated `Character`.
 If _aString_ has multiple characters it is an `error`.
 
+At `String`:
+
 ```
 >>> 'x'.characterString
 'x'
+```
 
+At `Character`:
+
+```
 >>> 'x'.asCharacter.characterString
 'x'
 ```

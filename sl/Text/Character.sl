@@ -1,9 +1,7 @@
 @Character {
 
 	= { :self :anObject |
-		anObject.isCharacter & {
-			self.characterString = anObject.characterString
-		}
+		self == anObject
 	}
 
 	< { :self :anObject |
@@ -128,6 +126,12 @@
 
 Character : [Object, Magnitude, Character] { | characterString codePoint |
 
+	~ { :self :anObject |
+		anObject.isCharacter & {
+			self.characterString = anObject.characterString
+		}
+	}
+
 	asCharacter { :self |
 		self
 	}
@@ -150,6 +154,10 @@ Character : [Object, Magnitude, Character] { | characterString codePoint |
 
 	asString { :self |
 		self.characterString
+	}
+
+	copy { :self |
+		self
 	}
 
 	isSameAs { :self :aCharacter |

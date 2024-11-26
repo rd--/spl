@@ -882,7 +882,7 @@ system.includesPackage('Character') /* character package */
 '𠮷'.asCharacter.characterString = '𠮷' /* character string */
 '𠮷'.asCharacter.codePoint = 134071 /* code point */
 134071.asCharacter.characterString = '𠮷' /* integer as character, from code point */
-'䶰䶱䶲䶳䶴䶵'.characters.collect(codePoint:/1) = [19888 .. 19893]
+'䶰䶱䶲䶳䶴䶵'.characterList.collect(codePoint:/1) = [19888 .. 19893]
 'x'.asCharacter = 120.asCharacter /* characters are comparable */
 'x'.asCharacter.codePoint = 120
 'x'.asCharacter.printString = '\'x\''
@@ -891,24 +891,24 @@ system.includesPackage('Character') /* character package */
 '𠮷'.asCharacter == '𠮷'.asCharacter /* characters are identical */
 'x'.asCharacter.asciiValue = 120 /* ascii code point of character */
 { '𠮷'.asCharacter.asciiValue }.ifError { true } /* it is an error is the character is not ascii */
-'xyz'.characters = ['x'.asCharacter, 'y'.asCharacter, 'z'.asCharacter]
-'xyz'.characters.collect(codePoint:/1) = [120, 121, 122]
+'xyz'.characterList = ['x'.asCharacter, 'y'.asCharacter, 'z'.asCharacter]
+'xyz'.characterList.collect(codePoint:/1) = [120, 121, 122]
 32.asCharacter.characterString = ' ' /* 32 is space */
 ' '.asCharacter.codePoint = 32 /* space is 32 */
 97.asCharacter.characterString = 'a' /* 92 is a */
 'a'.asCharacter.printString = '\'a\'' /* print as single character string */
 'a'.asCharacter.asString = 'a' /* single element string of Character */
 { 'xy'.asCharacter }.ifError { true } /* it is an error is the string is not a single Character */
-let c = '𠮷'.asCharacter; c = c.copy & { c ~~ c.copy } /* copy is equal but not identical */
+let c = '𠮷'.asCharacter; c = c.copy & { c == c.copy } /* copy is not only equal to but identical */
 92.asCharacter.characterString = '\\' /* escaped character */
-'0123456789abcdef'.characters.collect(digitValue:/1) = [0 .. 15] /* digit value of character */
+'0123456789abcdef'.characterList.collect(digitValue:/1) = [0 .. 15] /* digit value of character */
 0:15.collect(digitValue:/1).stringJoin = '0123456789ABCDEF' /* character of given digit value */
 { 36.digitValue }.ifError { true } /* error if integer is out of range */
 'x'.asCharacter.asUpperCase = 'X'.asCharacter /* to upper case */
 'X'.asCharacter.asLowerCase = 'x'.asCharacter /* to lower case */
 let s = 'string'; let a = []; a.addAll(s); a.size = 6 /* add elements from String to end of List */
-'fgaguzst'.characters.minMax = ['a'.asCharacter, 'z'.asCharacter] /* character minMax */
-'alphabet'.characters.collect(isVowel:/1) = [true, false, false, false, true, false, true, false] /* is character a vowel */
+'fgaguzst'.characterList.minMax = ['a'.asCharacter, 'z'.asCharacter] /* character minMax */
+'alphabet'.characterList.collect(isVowel:/1) = [true, false, false, false, true, false, true, false] /* is character a vowel */
 'x'.asCharacter.zero = ' '.asCharacter
 ```
 
@@ -3528,12 +3528,12 @@ let s = 'string'; [s[2], s[4], s[5]].stringJoin = 'tin' /* string subscripting *
 ' x '.withoutTrailingBlanks = ' x'
 let a = []; 'string'.do { :each | a.add(each) }; a.stringJoin = 'string'
 'string'.contents.join('') = 'string'
-let a = 'string'.characters; a.joinCharacters = 'string' & { a.stringJoin = 'string' }
+let a = 'string'.characterList; a.joinCharacters = 'string' & { a.stringJoin = 'string' }
 '𠮷'.countCharacters = 1
 '𠮷'.countUtf16CodeUnits = 2
 '𠮷'.size = 2
 '𠮷'.isCharacter = true /* a string with one place is a character */
-'𠮷'.characters = ['𠮷'.asCharacter]
+'𠮷'.characterList = ['𠮷'.asCharacter]
 '𠮷'.codePointAt(1) = 134071 /* code point at index */
 '𠮷'.codePointAt(2) = 57271
 '𠮷'.codePointAt(3) = nil /* nil for out of range indices */
@@ -3551,7 +3551,7 @@ let a = 'string'.characters; a.joinCharacters = 'string' & { a.stringJoin = 'str
 { 'xy'.asciiValue }.ifError { true } /* it is an error is the string is not a single character */
 { '𠮷'.asciiValue }.ifError { true } /* it is an error is the character is not ascii */
 'string'.contents = ['s' 't' 'r' 'i' 'n' 'g'] /* the contents of a string is a list of one element strings */
-'string'.characters = [115, 116, 114, 105, 110, 103].collect(asCharacter:/1)
+'string'.characterList = [115, 116, 114, 105, 110, 103].collect(asCharacter:/1)
 'Gnu/Linux'.findString('Linux') = 5
 'Gnu/Linux'.findStringStartingAt('Linux', 1) = 5
 'Hello'.isEmpty = false

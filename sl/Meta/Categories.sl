@@ -697,7 +697,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'asciiByteArray'
 		'camelCaseToWords'
 		'characterRange'
-		'characters'
+		'characterList'
 		'codePoints'
 		'contractTo'
 		'lines'

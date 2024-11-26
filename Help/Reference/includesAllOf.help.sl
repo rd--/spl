@@ -59,7 +59,7 @@ false
 A short French word containing all five vowels:
 
 ```
->>> 'oiseau'.characters.includesAllOf('aeiou'.characters)
+>>> 'oiseau'.contents.includesAllOf('aeiou'.contents)
 true
 ```
 

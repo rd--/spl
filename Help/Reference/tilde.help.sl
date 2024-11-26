@@ -36,6 +36,24 @@ true
 true
 ```
 
+At `String`:
+
+```
+>>> 'text' ~ 'text'
+true
+```
+
+At `Character`,
+answers true to character and the equivalent one place `String`:
+
+```
+>>> 'x'.asCharacter ~ 'x'
+true
+
+>>> 'x' ~ 'x'.asCharacter
+true
+```
+
 The name of this operator is `tilde`.
 
 Where supported `~` is displayed as ≈.

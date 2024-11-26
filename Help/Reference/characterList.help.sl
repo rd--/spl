@@ -1,0 +1,102 @@
+# characterList
+
+- _characterList(aString)_
+
+Answer a `List` of the `Character` elements of _aString_.
+
+The `elementType` of the answer is `Character`:
+
+```
+>>> 'characters'.characterList.elementType
+'Character'
+```
+
+The elements of the answer are characters:
+
+```
+>>> 'text'.characterList
+['t'.asCharacter, 'e'.asCharacter, 'x'.asCharacter, 't'.asCharacter]
+```
+
+Code points of characters of a string:
+
+```
+>>> 'characters'.characterList.collect(codePoint:/1)
+[99 104 97 114 97 99 116 101 114 115]
+```
+
+Since `codePoint` is also defined for single character strings,
+the above is equivalent to:
+
+```
+>>> 'characters'.stringList.collect(codePoint:/1)
+[99 104 97 114 97 99 116 101 114 115]
+```
+
+A `Character` is not `=` to an equivalent `String` of one place,
+however it is `~` to such,
+and likewise lists of each:
+
+```
+>>> let s = 'x';
+>>> let c = 'x'.asCharacter;
+>>> (
+>>> 	s = c, s ~ c,
+>>> 	[s] = [c], [s] ~ [c],
+>>> 	[s].elementType, [c].elementType
+>>> )
+(
+	false, true,
+	false, true,
+	'String', 'Character'
+)
+```
+
+Break a string into a list of characters:
+
+```
+>>> let c = 'A string'.characterList;
+>>> (c.elementType, c)
+('Character', ['A' ' ' 's' 't' 'r' 'i' 'n' 'g'])
+```
+
+`joinCharacters` and `stringJoin` will reassemble the string:
+
+```
+>>> 'text'.characterList.joinCharacters
+'text'
+
+>>> 'text'.characterList.stringJoin
+'text'
+```
+
+Break a string into overlapping trigrams:
+
+```
+>>> 'trigrams'.characterList.partition(3, 1).collect(stringJoin:/1)
+['tri' 'rig' 'igr' 'gra' 'ram' 'ams']
+```
+
+Sort the characters in a string:
+
+```
+>>> 'characters'.characterList.sort
+['a' 'a' 'c' 'c' 'e' 'h' 'r' 'r' 's' 't']
+```
+
+Unicode strings:
+
+```
+>>> 'αβγ'.characterList
+['α'.asCharacter, 'β'.asCharacter, 'γ'.asCharacter]
+```
+
+* * *
+
+See also: Character, codePoints, String
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Characters.html)
+
+Categories: Converting

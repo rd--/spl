@@ -113,8 +113,8 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		let table = self.operatorCharacterNameTable;
 		self.cached('operatorNameTable') {
 			[
-				'+ ++ * - -> / // & && | ||',
-				'< << <= <~ <=> > >> >= >~ = == ==>',
+				'+ ++ +++ * - -> <- / // & && | ||',
+				'< << <= <~ <=> > >> >>> >= >~ = == ==>',
 				'% ! !~ \\ \\\\ ~ ~~ ~= ~? ? ?? ^'
 			].collect(words:/1).++.collect { :each |
 				each -> each.stringList.collect { :letter |

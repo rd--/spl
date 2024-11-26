@@ -35,14 +35,14 @@ A lipogrammatic panagram (Ezra 7:21):
 ```
 >>> let l = 'english'.alphabet.without('j');
 >>> let v = [
->>> 	'And I, even I Artaxerxes the king, do make a decree',
->>> 	'to all the treasurers which are beyond the river, ',
->>> 	'that whatsoever Ezra the priest, the scribe of the ',
->>> 	'law of the God of heaven, shall require of you, it ',
+>>> 	'And I, even I Artaxerxes the king, do make a decree'
+>>> 	'to all the treasurers which are beyond the river, '
+>>> 	'that whatsoever Ezra the priest, the scribe of the '
+>>> 	'law of the God of heaven, shall require of you, it '
 >>> 	'be done speedily'
 >>> ].stringJoin;
->>> let t = v.asLowerCase.characters.withoutAll([' ' ',']);
->>> l.isSubsetOf(t)
+>>> let t = v.asLowerCase.contents.withoutAll([' ' ',']);
+>>> t.isSubsetOf(t)
 true
 ```
 

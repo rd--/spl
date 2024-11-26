@@ -50,8 +50,8 @@ Create a 2×3 matrix:
 >>> 1:6.reshape([2 3])
 [1 2 3; 4 5 6]
 
->>> 'abcdef'.characters.reshape([2 3])
-[['a', 'b', 'c'], ['d', 'e', 'f']]
+>>> 'abcdef'.contents.reshape([2 3])
+['a' 'b' 'c'; 'd' 'e' 'f']
 ```
 
 Reshape a vector into a matrix:

@@ -21,10 +21,14 @@ At `Record`:
 true
 ```
 
-The `contents` of a `String` is a `List` of single character `String`s.
+The `contents` of a `String` is a `List` of single character `String`s,
+this behaviour is also called `stringList`:
 
 ```
 >>> 'abc'.contents
+['a' 'b' 'c']
+
+>>> 'abc'.stringList
 ['a' 'b' 'c']
 ```
 
@@ -50,7 +54,7 @@ The `contents` of quoted strings are the quoted `String` values:
 
 * * *
 
-See also: BacktickQuotedString, DoubleQuotedString, join, next, reset, splitBy
+See also: BacktickQuotedString, DoubleQuotedString, join, next, reset, splitBy, stringList
 
 References:
 _Smalltalk_

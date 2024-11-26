@@ -6,6 +6,14 @@ String! : [Object, Json, Iterable, Character] {
 		self == anObject
 	}
 
+	~ { :self :anObject |
+		self.isCharacter.if {
+			self.asCharacter = anObject.asCharacter
+		} {
+			self == anObject
+		}
+	}
+
 	<=> { :self :aString |
 		<primitive:
 		if(typeof _aString == 'string') {
@@ -148,7 +156,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	asSet { :self |
-		self.stringList.asSet
+		self.contents.asSet
 	}
 
 	asString { :self |
@@ -240,7 +248,7 @@ String! : [Object, Json, Iterable, Character] {
 		}
 	}
 
-	characters { :self |
+	characterList { :self |
 		self.collectInto(identity:/1, [])
 	}
 
@@ -271,7 +279,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	contents { :self |
-		self.stringList
+		self.primitiveCollectInto(identity:/1, [])
 	}
 
 	contractTo { :self :smallSize |
@@ -344,7 +352,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	editDistance { :self :aString |
-		self.stringList.editDistance(aString.stringList)
+		self.contents.editDistance(aString.contents)
 	}
 
 	endsWith { :self :aString |
@@ -446,11 +454,11 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	hammingDistance { :self :aString |
-		self.stringList.hammingDistance(aString.stringList)
+		self.contents.hammingDistance(aString.contents)
 	}
 
 	includes { :self :aCharacter |
-		self.characters.includes(aCharacter)
+		self.characterList.includes(aCharacter)
 	}
 
 	includesIndex { :self :index |
@@ -795,7 +803,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	stringList { :self |
-		self.primitiveCollectInto(identity:/1, [])
+		self.contents
 	}
 
 	take { :self :anInteger |
