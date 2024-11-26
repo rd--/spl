@@ -5,16 +5,15 @@
 Chaotic noise function.
 A noise generator based on a chaotic function.
 
-- param: a parameter of the chaotic function with useful values from just below 1 to just above 2.
-  Towards 2 the sound crackles.
+- param: useful values are from just below 1 to just above 2, towards 2 the sound crackles.
 
-Fixed param:
+Fixed _param_:
 
 ```
 Crackle(1.95) * 0.1
 ```
 
-Modulate param:
+Modulate _param_:
 
 ```
 Crackle(Line(1, 2, 10)) * 0.1

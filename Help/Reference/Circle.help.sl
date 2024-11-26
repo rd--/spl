@@ -18,16 +18,19 @@ Implements `x`, `y` and `r`:
 (0, 0, 1)
 ```
 
-Calculate arc length, area, circumference, perimeter, centroid and diameter:
+Calculate arc length, area, circumference, perimeter, centroid, diameter and radius:
 
 ```
 >>> let c = Circle([0 0], 1);
 >>> (
 >>> 	c.arcLength,
 >>> 	c.area,
->>> 	c.circumference, c.perimeter,
->>> 	c.centroid, c.center,
->>> 	c.diameter, c.radius
+>>> 	c.circumference,
+>>> 	c.perimeter,
+>>> 	c.centroid,
+>>> 	c.center,
+>>> 	c.diameter,
+>>> 	c.radius
 >>> )
 (2.pi, 1.pi, 2.pi, 2.pi, [0 0], [0 0], 2, 1)
 ```

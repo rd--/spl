@@ -11,9 +11,9 @@ Output channels are in order _w,x,y,z_.
 - rho: The speaker radius (1 places shound at the radius, <1 within the radius, >1 is outside the radius) beyond the radius, a distance scaling is applied (no filtering is done)
 - gain: A control rate level input
 - wComp: Chooses how the W channels is scaled.
-  If 0, a scaler of 0.707 is used.
-  If 1, W is varied according to the scaling of the X, Y and Z channels.
-  0 is the default
+
+If _wComp_ is 0, a scaler of 0.707 is used.
+If it is 1, W is varied according to the scaling of the X, Y and Z channels.
 
 Decode to octaphonic:
 
