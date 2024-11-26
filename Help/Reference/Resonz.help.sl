@@ -9,8 +9,9 @@ Based on K. Steiglitz, "A Note on Constant-Gain Digital Resonators," Computer Mu
 - in: input signal to be processed
 - freq: resonant frequency in Hertz
 - rq: bandwidth ratio (reciprocal of Q).
-  rq = bandwidth / centerFreq.
-  The reciprocal of Q is used rather than Q because it saves a divide operation inside the unit generator.
+
+_rq_ is the bandwidth divided by the center frequency.
+The reciprocal of Q is used rather than Q because it saves a divide operation inside the unit generator.
 
 Fixed frequency:
 

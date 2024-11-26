@@ -17,9 +17,9 @@ The distance between the input signals in the output range is determined by the 
 - width: Over how much of the channels each signal is distributed.
 - center: Which of the channels will be the first channel
 - orientation: Should be zero if the front is a vertex of the polygon.
-  The first speaker will be directly in front.
-  Should be 0.5 if the front bisects a side of the polygon.
-  Then the first speaker will be the one left of center.
+The first speaker will be directly in front.
+Should be 0.5 if the front bisects a side of the polygon.
+Then the first speaker will be the one left of center.
 - levelComp: If true, the signal level is adjusted to maintain overall loudness the same (n.reciprocal.sqrt).
 
 With mouse control:

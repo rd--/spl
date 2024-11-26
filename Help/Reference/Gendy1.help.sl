@@ -5,14 +5,6 @@
 Dynamic stochastic synthesis generator.
 
 - ampdist: Choice of probability distribution for the next perturbation of the amplitude of a control point.
-  The distributions are:
-  0: linear,
-  1: Cauchy,
-  2: logistic,
-  3: hyperbolic cosine,
-  4: arc sine,
-  5: exponential,
-  6: sinus
 - durdist: Choice of distribution for the perturbation of the current inter control point duration
 - adparam: A parameter for the shape of the amplitude probability distribution, requires values in the range 0.0001 to 1
 - ddparam: A parameter for the shape of the duration probability distribution, requires values in the range 0.0001 to 1
@@ -26,6 +18,15 @@ Dynamic stochastic synthesis generator.
 An implementation of the dynamic stochastic synthesis generator conceived by Iannis Xenakis,
 and described in _Formalized Music_ (Xenakis 1992).
 The BASIC program in the book was written by Marie-Helene Serra.
+
+The possible amplitude distributions are:
+0: linear,
+1: Cauchy,
+2: logistic,
+3: hyperbolic cosine,
+4: arc sine,
+5: exponential,
+6: sinus.
 
 A texture:
 

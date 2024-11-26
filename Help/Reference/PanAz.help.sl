@@ -11,7 +11,12 @@ Two channel equal power panner.
 modulate the pos.
 - level: a control rate level input.
 - width: The width of the panning envelope. Nominally this is 2.0 which pans between pairs of adjacent speakers. Width values greater than two will spread the pan over greater numbers of speakers. Width values less than one will leave silent gaps between speakers.
-- orientation: Should be zero if the front is a vertex of the polygon. The first speaker will be directly in front. Should be 0.5 if the front bisects a side of the polygon. Then the first speaker will be the one left of center.
+- orientation: specify speaker orientation
+
+_orientation_ should be zero if the front is a vertex of the polygon,
+the first speaker will be directly in front,
+and should be 0.5 if the front bisects a side of the polygon,
+in which case the first speaker will be the one left of center.
 
 Eight channel circular panning:
 

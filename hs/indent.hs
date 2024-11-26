@@ -217,7 +217,10 @@ indentRegion z0 = snd . mapAccumL (\z s -> indentLine z s) z0
 
 -- | Remove indentation from line.
 clearIndent :: String -> String
-clearIndent = dropWhile Data.Char.isSpace
+clearIndent s =
+  let (p, s') = splitNonIndentingPrefix s
+      s'' = dropWhile Data.Char.isSpace s'
+  in p ++ s''
 
 {- | Indent text starting at left (indent 0).
 

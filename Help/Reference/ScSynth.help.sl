@@ -5,15 +5,17 @@ An object representing a connection to the SuperCollider synthesiser, _scsynth_.
 The system instance of this type is at _system.scSynth_.
 
 By default an internal copy of the SuperCollider synthesiser is used.
-This instance can be started using _connect_, which the ordinary _play_ methods will do as required.
+This instance can be started using `connect`, which the ordinary `play` methods will do as required.
 
-However the system can also connect to an existing external instance of the synthesiser by calling the _useWebSocket_ method.
+However the system can also connect to an existing external instance of the synthesiser by calling the `useWebSocket` method.
 
-	system.scSynth.useWebSocket('ws://localhost:58110')
+~~~
+system.scSynth.useWebSocket('ws://localhost:58110')
+~~~
 
-This method must be called before a connection is established using _connect_.
+This method must be called before a connection is established using `connect`.
 
-The output connections and mixing behaviour of the synthesiser are defined as _Preferences_,
+The output connections and mixing behaviour of the synthesiser are defined as `Preferences`,
 which may be edited.
 
 At present _scsynth_ does not implement the

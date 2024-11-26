@@ -5,14 +5,16 @@
 Decode a two dimensional ambisonic B-format signal to a set of speakers in a regular polygon.
 The outputs will be in clockwise order.
 The position of the first speaker is either center or left of center.
-Answers a List of channels, one for each speaker.
+Answers a `List` of channels, one for each speaker.
 
-- numChans: Number of output speakers. Typically 4 to 8.
-- w,x,y: The B-format signal.
-- orientation: Should be zero if the front is a vertex of the polygon.
-  The first speaker will be directly in front.
-  Should be 0.5 if the front bisects a side of the polygon.
-  Then the first speaker will be the one left of center.
+- numChans: number of output speakers, typically 4 to 8
+- w,x,y: the B-format signal
+- orientation: specify speaker orientation
+
+_orientation_ should be zero if the front is a vertex of the polygon,
+the first speaker will be directly in front,
+and should be 0.5 if the front bisects a side of the polygon,
+in which case the first speaker will be the one left of center.
 
 ```
 let p = PinkNoise(); /* Source */

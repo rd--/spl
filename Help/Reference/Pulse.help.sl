@@ -5,8 +5,7 @@
 Band limited pulse wave generator with pulse width modulation.
 
 - freq: frequency in Hertz
-- width: pulse width ratio from zero to one.
-  0.5 makes a square wave.
+- width: pulse width ratio from zero to one, 0.5 makes a square wave.
 
 Modulate frequency:
 

@@ -10,16 +10,19 @@ Granular synthesis with sound stored in a buffer.
 - sndBuf: the buffer holding a mono audio signal. If using multi-channel files, use Buffer.readChannel.
 - rate: the playback rate of the sampled sound
 - pos: the playback position for the grain to start with (0 is beginning, 1 is end of file)
-- interp: the interpolation method used for pitchshifting grains:
-  1 = no interpolation,
-  2 = linear,
-  4 = cubic interpolation (more computationally intensive)
+- interp: the interpolation method used for pitchshifting grains.
 - pan: determines where to pan the output.
-  If numChannels = 1, no panning is done.
-  If numChannels = 2, panning is similar to Pan2.
-  If numChannels > 2, panning is the same as PanAz.
 - envbufnum: the buffer number containing a signal to use for the grain envelope. -1 uses a built-in Hann envelope.
 - maxGrains: the maximum number of overlapping grains that can be used at a given time. This value is set at the UGens init time and cannot be modified. Defaults to 512. This can be set lower for more efficient use of memory.
+
+The possible interpolation values are
+1 = no interpolation,
+2 = linear,
+4 = cubic interpolation (more computationally intensive).
+
+If _numChannels_ is one then no panning is done,
+if it is two then panning is similar to `Pan2`,
+and if it is more than two panning is the same as `PanAz`.
 
 All arguments except numChannels and trigger are polled at grain creation time.
 

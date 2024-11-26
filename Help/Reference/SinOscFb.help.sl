@@ -23,15 +23,17 @@ It may be useful if you want to simulate feedback Fm synths.
 
 Non-graph variant:
 
+~~~
+{
+	let x = MouseX(0.15, 0.85, 0, 0.2);
+	let f0 = [110 220 440].atRandom;
 	{
-		let x = MouseX(0.15, 0.85, 0, 0.2);
-		let f0 = [110 220 440].atRandom;
-		{
-			let freq = f0 + Rand(0, f0);
-			let fb = LfNoise2(1).LinLin(-1, 1, 0, x);
-			EqPan(SinOscFb(freq, fb), Rand(-1, 1)) / 16
-		} !+ 16
-	}.overlapTextureProgram(2, 6, 3)
+		let freq = f0 + Rand(0, f0);
+		let fb = LfNoise2(1).LinLin(-1, 1, 0, x);
+		EqPan(SinOscFb(freq, fb), Rand(-1, 1)) / 16
+	} !+ 16
+}.overlapTextureProgram(2, 6, 3)
+~~~
 
 * * *
 

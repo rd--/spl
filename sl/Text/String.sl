@@ -457,6 +457,14 @@ String! : [Object, Json, Iterable, Character] {
 		index.betweenAnd(1, self.size)
 	}
 
+	includesSubsequence { :self :aString |
+		self.contents.includesSubsequence(aString.contents)
+	}
+
+	includesSubstring { :self :aString |
+		<primitive: return _self.includes(_aString);>
+	}
+
 	indefiniteArticle { :self |
 		self.first.isVowel.if {
 			'an '
@@ -495,14 +503,6 @@ String! : [Object, Json, Iterable, Character] {
 		} {
 			self.error('String>>indicesOf: not a string: ' ++ aString)
 		}
-	}
-
-	includesSubsequence { :self :aString |
-		self.contents.includesSubsequence(aString.contents)
-	}
-
-	includesSubstring { :self :aString |
-		<primitive: return _self.includes(_aString);>
 	}
 
 	isAscii { :self |

@@ -8,7 +8,7 @@ evaluate each and summarise the results.
 
 * * *
 
-See also: HelpFile, terseGuideSummary
+See also: HelpFile, terseGuideSummary, terseReferenceEntry
 
 Guides: Documentation Tests
 

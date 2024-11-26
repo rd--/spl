@@ -142,15 +142,15 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		}
 	}
 
-	preferencesRead { :self :key :defaultValue |
-		<primitive: return sl.preferencesRead(_preferences_1(_self), _key, _defaultValue);>
+	preferencesRead { :self :key |
+		<primitive: return sl.preferencesRead(_preferences_1(_self), _key);>
 	}
 
 	preferencesReadPath { :self :path :defaultValue |
 		path.isEmpty.if {
 			self.error('System>>preferencesReadPath: empty path')
 		} {
-			let item = self.preferencesRead(path[1], nil);
+			let item = self.preferencesRead(path[1]);
 			let index = 2;
 			{
 				item.notNil & {

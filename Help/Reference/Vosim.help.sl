@@ -4,12 +4,13 @@
 
 Vosim pulse generator.
 
-- trig: starts a vosim pulse when a transition from non-positive to positive occurs and no other Vosim is still going.
-  Audio rate input will produce sample accurate triggering
+- trig: starts a vosim pulse when a transition from non-positive to positive occurs and no other Vosim is still going
 - freq: the frequency of the squared sinewave
 - nCycles: the number of squared sinewaves to use in one vosim pulse.
-  nCycles is checked when Vosim receives a trigger
 - decay: the decay factor
+
+Audio rate input will produce sample accurate triggering.
+_nCycles_ is checked each time `Vosim` receives a trigger.
 
 Mouse control of frequency:
 

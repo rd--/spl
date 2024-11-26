@@ -8,10 +8,8 @@ Karplus-strong algorithm.
 - trig: fill delay line on trigger
 - maxDelayTime: the max delay time in seconds (initializes the internal delay buffer)
 - delayTime: delay time in seconds
-- decayTime: time for the echoes to decay by 60 decibels.
-  Negative times emphasize odd partials
-- coef: the coef of the internal `OnePole` filter.
-  Values should be between -1 and +1 (larger values will be unstable... so be careful!)
+- decayTime: time for the echoes to decay by 60 decibels, negative times emphasize odd partials
+- coef: the coef of the internal `OnePole` filter, values should be between -1 and +1
 
 On _trig_, _n_ samples of the excitation signal are fed into the delay line, where _n = delaytime * SampleRate() / 2_.
 The delay line is filled using a rectangular envelope, that is there is no fading.

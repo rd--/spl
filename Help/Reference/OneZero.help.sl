@@ -5,11 +5,12 @@
 A one zero filter.
 
 - in: input signal to be processed
-- coef: feed forward coefficient.
-  +0.5 makes a two point averaging filter (see also `Lpz1`),
-  -0.5 makes a differentiator (see also `Hpz1`),
-  +1 makes a single sample delay (see also `Delay1`),
-  -1 makes an inverted single sample delay.
+- coef: feed forward coefficient
+
+A _coef_ of +0.5 makes a two point averaging filter (see also `Lpz1`),
+of -0.5 makes a differentiator (see also `Hpz1`),
+of +1 makes a single sample delay (see also `Delay1`),
+and of -1 makes an inverted single sample delay.
 
 Implements the formula:
 

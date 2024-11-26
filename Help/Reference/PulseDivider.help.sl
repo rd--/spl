@@ -8,8 +8,9 @@ Outputs one impulse each time it receives a certain number of triggers at its in
 - trig: trigger
 - div: number of pulses to divide by.
 - startCount: starting value for the trigger count.
-  This lets you start somewhere in the middle of a count,
-  or if startCount is negative it adds that many counts to the first time the output is triggers.
+
+The _startCount_ lets one start somewhere in the middle of a count,
+or if startCount is negative it adds that many counts to the first time the output is triggers.
 
 Lower tone at quarter the clock rate:
 
