@@ -689,6 +689,7 @@ Reference/do.help.sl
 Reference/dollarSign.help.sl
 Reference/doSeparatedBy.help.sl
 Reference/dot.help.sl
+Reference/dotLayout.help.sl
 Reference/doubleFactorial.help.sl
 Reference/DoubleQuotedString.help.sl
 Reference/doWhileFalse.help.sl
@@ -2068,6 +2069,7 @@ Reference/TDelay.help.sl
 Reference/TDuty.help.sl
 Reference/tenneyHeight.help.sl
 Reference/terseGuideSummary.help.sl
+Reference/terseReferenceEntry.help.sl
 Reference/terseReferenceSummary.help.sl
 Reference/TExpRand.help.sl
 Reference/TextEditor.help.sl
