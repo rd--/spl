@@ -134,7 +134,7 @@ inOrOutDent = signum . uncurry (-) . countOpeningAndClosing
 >>> hasLeadingClosing "x [] {"
 False
 
->>> hasLeadingClosing "]} {"
+>>> hasLeadingClosing ">>> ]} {"
 True
 -}
 hasLeadingClosing :: String -> Bool
@@ -183,13 +183,21 @@ type StateWithDot = (Int, Bool)
 -- | Indent
 type State = Int
 
+splitNonIndentingPrefix :: String -> (String, String)
+splitNonIndentingPrefix s =
+  if ">> " `isPrefixOf` s
+  then (">> ", drop 3 s)
+  else if ">>> " `isPrefixOf` s
+       then (">>> ", drop 4 s)
+       else ("", s)
+
 {- | Indent line by indicated amount and return:
 
 - indent for next line
 - indented line
 
->>> indentLine 1 "f("
-(2,"\tf(")
+>>> indentLine 1 ">>> f("
+(2,">>> \tf(")
 
 >>> indentLine 1 ""
 (1,"")
@@ -199,8 +207,9 @@ indentLine i s =
   let t = removeQuotedText s
       next = if indentNext t then 1 else 0
       current = if hasLeadingClosing t then -1 else 0
-      s' = if null s then s else replicate (i + current) '\t' ++ s
-  in (i + next + current, s')
+      (p, s') = splitNonIndentingPrefix s
+      s'' = if null s' then s' else replicate (i + current) '\t' ++ s'
+  in (i + next + current, p ++ s'')
 
 -- | Indent sequence of non-indented lines.
 indentRegion :: State -> [String] -> [String]
