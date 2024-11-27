@@ -6,6 +6,6 @@ Random number generator.
 
 * * *
 
-See also: Rand
+See also: Rand, Rand0
 
 Categories: Ugen
