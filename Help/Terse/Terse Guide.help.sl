@@ -3580,7 +3580,7 @@ let s = 'string'; (s.size * 2) = s.asHex.size /* asHex, hex string is twice as l
 '\f'.asCharacter.codePoint = 12 /* form feed, new page */
 '\r'.asCharacter.codePoint = 13 /* carriage return */
 'The quick brown fox jumps over the lazy dog'.crc16 = 16rFCDF /* 16 bit cyclic redundancy check, crc-16/arc */
-'* + - / ^ ? ~ = < >'.words.allSatisfy(isOperatorName:/1)
+'* + - / ^ ? ~ = < >'.words.allSatisfy(isOperator:/1)
 'a comment'.asBracketedComment('<!--', '-->') = '<!-- a comment -->' /* add Html comment brackets */
 'a comment'.asPliComment = '/* a comment */' /* add PL/I (or C) comment brackets */
 'a comment'.asMlComment = '(* a comment *)' /* add Ml comment brackets */
@@ -3803,14 +3803,14 @@ system.lowBitPerByteTable.asBag.sortedCounts = [128 -> 1, 64 -> 2, 32 -> 3, 16 -
 
 ## System -- system names
 ```
-'!'.isOperatorName = true /* operator name predicate */
+'!'.isOperator = true /* operator predicate */
 '*'.operatorMethodName = 'asterisk' /* operator name */
 ['~', '!', '@', '#', '$','%'].collect(operatorMethodName:/1) = ['tilde', 'exclamationMark', 'commercialAt', 'numberSign', 'dollarSign', 'percentSign']
 ['^', '&', '*', '-', '+', '='].collect(operatorMethodName:/1) = ['circumflexAccent', 'ampersand', 'asterisk', 'hyphenMinus', 'plusSign', 'equalsSign']
 ['?', '<', '>'].collect(operatorMethodName:/1) = ['questionMark', 'lessThanSign', 'greaterThanSign']
 '!^'.operatorMethodName = 'exclamationMarkCircumflexAccent' /* composite operator names capitalize non-initial names */
 '~='.operatorMethodName = 'tildeEqualsSign'
-system.operatorCharacterNameTable['^'] = 'circumflexAccent' /* table of operator names */
+system.punctuationCharacterNameTable['^'] = 'circumflexAccent' /* table of operator names */
 '+ ++ * / - %'.words.collect { :each | system.operatorNameTable[each] } = 'plusSign plusSignPlusSign asterisk solidus hyphenMinus percentSign'.words
 ```
 

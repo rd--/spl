@@ -105,21 +105,21 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		self.systemTimeInMilliseconds - beginTime
 	}
 
-	operatorCharacterNameTable { :self |
-		<primitive: return sl.operatorCharacterNameTable;>
+	operatorCharacters { :self |
+		self.cached('operatorCharacters') {
+			'&*^@$=!>-<#%+?\\/~|'.contents
+		}
 	}
 
 	operatorNameTable { :self |
-		let table = self.operatorCharacterNameTable;
+		let table = self.punctuationCharacterNameTable;
 		self.cached('operatorNameTable') {
 			[
-				'+ ++ +++ * - -> <- / // & && | ||',
-				'< << <= <~ <=> > >> >>> >= >~ = == ==>',
-				'% ! !~ \\ \\\\ ~ ~~ ~= ~? ? ?? ^'
+				'& * ^ @ $ = ! > - < # % + ? \\ / ~ |'
+				'&& @* @> == !^ !> !+ !~ >= >> >~ -> - <= <! <- << <~ ++ \\\\ // ~= ~~ ||'
+				'>>> <=> +++'
 			].collect(words:/1).++.collect { :each |
-				each -> each.stringList.collect { :letter |
-					table[letter]
-				}.camelCase.join('')
+				each -> each.operatorName(table)
 			}.asRecord
 		}
 	}
@@ -177,6 +177,14 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 			'library', /* Package */
 			'transcript' /* Package */
 		]
+	}
+
+	punctuationCharacterNameTable { :self |
+		<primitive: return sl.punctuationCharacterNameTable;>
+	}
+
+	punctuationCharacters { :self |
+		<primitive: return sl.punctuationCharacters.split('');>
 	}
 
 	nextRandomFloat { :self |
@@ -303,6 +311,42 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 
 	seedRandom { :self |
 		system.seedRandom(self)
+	}
+
+}
+
++String {
+
+	isOperator { :self |
+		<primitive: return sl.isOperator(_self);>
+	}
+
+	isPunctuationToken { :self |
+		<primitive: return sl.isPunctuationToken(_self);>
+	}
+
+	operatorName { :self :table |
+		self.isOperator.if {
+			self.contents.collect { :letter |
+				table[letter]
+			}.camelCase.join('')
+		} {
+			self.error('operatorName: not operator')
+		}
+	}
+
+	operatorName { :self |
+		self.operatorName(system.punctuationCharacterNameTable)
+	}
+
+	punctuationTokenName { :self :table |
+		self.contents.collect { :letter |
+			table[letter]
+		}.camelCase.join('')
+	}
+
+	punctuationTokenName { :self |
+		self.punctuationTokenName(system.punctuationCharacterNameTable)
 	}
 
 }

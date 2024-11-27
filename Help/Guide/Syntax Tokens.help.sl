@@ -21,11 +21,15 @@
 - `leftSquareBracket`: [
 - `rightSquareBracket`: ]
 
+## Naming
+
+- `lowLine`: _
+
 ## Quotes
 
-- `apostrophe`
-- `quotationMark`
-- `graveAccent`
+- `apostrophe`: single quote
+- `quotationMark`: double quote
+- `graveAccent`: backtick
 
 ## Comments
 

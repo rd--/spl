@@ -120,19 +120,19 @@ Method! : [Object] {
 +String {
 
 	asMethodName { :self |
-		self.isOperatorName.if {
+		self.isOperator.if {
 			self.operatorMethodName
 		} {
 			self
 		}
 	}
 
-	isOperatorName { :self |
-		<primitive: return sl.isOperatorName(_self);>
-	}
-
 	operatorMethodName { :self |
-		<primitive: return sl.operatorMethodName(_self);>
+		self.isOperator.if {
+			self.punctuationTokenName
+		} {
+			self.error('operatorMethodName: not operator')
+		}
 	}
 
 	parseQualifiedMethodName { :self |

@@ -1,6 +1,7 @@
 # Binary Operators
 
-One-character binary operators:
+The one-character binary operators,
+in alphabetical order:
 
 - `ampersand`: &
 - `asterisk`: *
@@ -21,7 +22,8 @@ One-character binary operators:
 - `tilde`: ~
 - `verticalLine`: |
 
-Two-character operators:
+Two-character binary operators,
+in alphabetical order:
 
 - `ampersandAmpersand`: &&
 - `commercialAtAsterisk`: @*
@@ -40,27 +42,22 @@ Two-character operators:
 - `lessThanSignHyphenMinus`: <-
 - `lessThanSignLessThanSign`: <<
 - `lessThanSignTilde`: <~
-- `reverseSolidusReverseSolidus`: \\
+- `plusSignPlusSign`: ++
+- `reverseSolidusReverseSolidus`: \\\\
 - `solidusSolidus`: //
 - `tildeEqualsSign`: ~=
 - `tildeTilde`: ~~
 - `verticalLineVerticalLine`: ||
 
-Three-character binary operators:
+Three-character binary operators,
+in alphabetical order:
 
-- `lessThanSignEqualsSignGreaterThanSign`: <=>
 - `greaterThanSignGreaterThanSignGreaterThanSign`: >>>
-
-Operator-like syntax tokens:
-
-- `asteriskSolidus`: */
-- `colonColon`: ::
-- `colonSolidus`: :/
-- `fullStop`: .
-- `semicolon`: ;
-- `semicolonSemicolon`: ;;
-- `solidusAsterisk`: /\*
+- `lessThanSignEqualsSignGreaterThanSign`: <=>
+- `plusSignPlusSignPlusSign`: +++
 
 * * *
+
+See also: isOperator, operatorCharacters, operatorName, operatorNameTable
 
 Guides: Binary Operator Syntax, Syntax Tokens

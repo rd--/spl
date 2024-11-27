@@ -1226,7 +1226,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'testing-system': [
 		'isMethodName'
-		'isOperatorName'
+		'isOperator'
 		'isQualifiedTraitName'
 		'isTraitName'
 		'isTraitOrTypeName'

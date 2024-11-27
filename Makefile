@@ -29,3 +29,6 @@ help-index:
 
 update-cache:
 	(cd sl; make)
+
+clear-cache:
+	rm -f .cache/*.js

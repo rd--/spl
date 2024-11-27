@@ -475,8 +475,8 @@ Reference/centsToRatio.help.sl
 Reference/CentsTuning.help.sl
 Reference/Changed.help.sl
 Reference/Character.help.sl
+Reference/characterList.help.sl
 Reference/characterRange.help.sl
-Reference/characters.help.sl
 Reference/characterString.help.sl
 Reference/chessboardDistance.help.sl
 Reference/chineseRemainder.help.sl
@@ -1521,6 +1521,7 @@ Reference/onRejection.help.sl
 Reference/openIn.help.sl
 Reference/operatingSystem.help.sl
 Reference/operatorCharacterNameTable.help.sl
+Reference/operatorName.help.sl
 Reference/operatorNameTable.help.sl
 Reference/OrderedCollection.help.sl
 Reference/orderedSubstrings.help.sl
@@ -2018,6 +2019,7 @@ Reference/Stream.help.sl
 Reference/stringConcatenation.help.sl
 Reference/String.help.sl
 Reference/stringJoin.help.sl
+Reference/stringList.help.sl
 Reference/styleSheetList.help.sl
 Reference/subdivide.help.sl
 Reference/subfactorial.help.sl

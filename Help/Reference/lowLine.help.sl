@@ -1,4 +1,4 @@
-# _
+# _ (lowLine)
 
 Low line (also called underscore or low dash) is a syntax token, it is not an operator.
 
