@@ -877,8 +877,15 @@ export function stringToSentences(str: string): Array<string> {
 	) || [];
 }
 
-export async function dotLayout(dotSource: string, outputFormat: string, layoutEngine: string): Promise<string> {
-	const { Graphviz } = await import("../lib/scsynth-wasm-builds/lib/ext/graphviz.js");
-    const graphviz = await Graphviz.load();
-    return graphviz.layout(dotSource, outputFormat, layoutEngine, {});
+export async function dotLayout(
+	dotSource: string,
+	outputFormat: string,
+	layoutEngine: string,
+): Promise<string> {
+	// console.log(`dotLayout: ${dotSource}, ${outputFormat}, ${layoutEngine}`);
+	const { Graphviz } = await import(
+		'../lib/scsynth-wasm-builds/lib/ext/graphviz.js'
+	);
+	const graphviz = await Graphviz.load();
+	return graphviz.layout(dotSource, outputFormat, layoutEngine, {});
 }

@@ -15,7 +15,7 @@ Print the _plain_ form of the graph layout:
 
 ~~~
 let dotGraph = 'digraph { a -> b; a -> c; b -> d; c -> d }';
-dotGraph.dotLayout('dot', 'plain').then { :answer |
+dotGraph.dotLayout('plain', 'dot').then { :answer |
 	answer.postLine
 }
 ~~~

@@ -12,11 +12,13 @@ export function isOperatorCharacter(character: string): boolean {
 }
 
 export function isNonOperatorPunctuationCharacter(character: string): boolean {
-	return (character.length === 1) && nonOperatorPunctuationCharacters.includes(character[0]);
+	return (character.length === 1) &&
+		nonOperatorPunctuationCharacters.includes(character[0]);
 }
 
 export function isPunctuationCharacter(character: string): boolean {
-	return (character.length === 1) && punctuationCharacters.includes(character[0]);
+	return (character.length === 1) &&
+		punctuationCharacters.includes(character[0]);
 }
 
 export function isOperator(name: string): boolean {
@@ -24,7 +26,7 @@ export function isOperator(name: string): boolean {
 		if (!operatorCharacters.includes(character)) {
 			return false;
 		}
-	};
+	}
 	return true;
 }
 
@@ -33,7 +35,7 @@ export function isPunctuationToken(name: string): boolean {
 		if (!punctuationCharacters.includes(character)) {
 			return false;
 		}
-	};
+	}
 	return true;
 }
 
@@ -72,7 +74,7 @@ export const punctuationCharacterNameTable: Record<string, string> = {
 	'`': 'graveAccent', // U+0060 ` Grave Accent
 	'{': 'leftCurlyBracket', // U+007B { Left Curly Bracket
 	'}': 'rightCurlyBracket', // U+007D } Right Curly Bracket
-}
+};
 
 export function punctuationTokenName(operator: string): string {
 	const words = [...operator].map((letter) =>
