@@ -11,7 +11,10 @@ A `Type` for a `Tuning` where the non-_octave_ intervals are stored as _cents_ v
 CentsTuning(
 	'ET-12',
 	'Twelve tone equal-temperament',
-	[0 100 200 300 400 500 600 700 800 900 1000 1100],
+	[
+		000  100  200  300   400  500
+		600  700  800  900  1000 1100
+	],
 	2
 )
 ```

@@ -5,12 +5,22 @@
 The elements of _aCollection_ are associations between blocks.
 Answer the evaluated value of the first association whose evaluated key equals _anObject_.
 
+With evaluated cases:
+
 ```
 >>> let c = ['a' -> 1, 'b' -> 2, 'c' -> 3];
 >>> 'b'.caseOfOtherwise(c, identity:/1)
 2
+```
 
->>> let c = [{ 'a' } -> { 1 * 1 }, { 'b' } -> { 2 * 2 }, { 'c' } -> { 3 * 3 }];
+With un-evaluated cases:
+
+```
+>>> let c = [
+>>> 	{ 'a' } -> { 1 * 1 },
+>>> 	{ 'b' } -> { 2 * 2 },
+>>> 	{ 'c' } -> { 3 * 3 }
+>>> ];
 >>> 'b'.caseOfOtherwise(c, identity:/1)
 4
 ```

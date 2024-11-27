@@ -8,20 +8,28 @@ If there is an error evaluate _aBlock_ with the error value.
 Non-existing method:
 
 ```
->>> system.evaluateNotifying('pi.notAMethod') { :unusedError | true }
+>>> system.evaluateNotifying(
+>>> 	'pi.notAMethod'
+>>> ) { :unusedError |
+>>> 	true
+>>> }
 true
 ```
 
 Syntax error:
 
 ```
->>> system.evaluateNotifying('not a valid expression') { :unusedError | true }
+>>> system.evaluateNotifying(
+>>> 	'not a valid expression'
+>>> ) { :unusedError |
+>>> 	true
+>>> }
 true
 ```
 
 * * *
 
-See also: evaluateNotifying, System
+See also: evaluate, ifError, System
 
 References:
 _Tc39_

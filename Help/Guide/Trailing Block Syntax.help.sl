@@ -16,12 +16,18 @@ The syntax does not preclude further message sends:
 >>> 1:9.collect { :x | x * x }.last
 81
 
->>> 1:9.collect { :x | x * x }.collect { :x | x * x }.last
+>>> 1:9.collect { :x |
+>>> 	x * x
+>>> }.collect { :x |
+>>> 	x * x
+>>> }.last
 6561
 ```
 
 * * *
 
-See also: Trailing Dictionary Syntax
+See also: Block
+
+Guides: Syntax Guides, Trailing Dictionary Syntax
 
 Categories: Syntax

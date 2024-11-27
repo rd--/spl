@@ -30,7 +30,11 @@ Decreasing runs of elements:
 Split based on key:
 
 ```
->>> [1 -> 'a', 1 -> 'b', 2 -> 'a', 2 -> 'c', 3 -> 'a'].split { :i :j |
+>>> [
+>>> 	1 -> 'a', 1 -> 'b',
+>>> 	2 -> 'a', 2 -> 'c',
+>>> 	3 -> 'a'
+>>> ].split { :i :j |
 >>> 	i.key = j.key
 >>> }
 [
@@ -44,7 +48,20 @@ Split at jumps:
 
 ```
 >>> 20.primesList.split { :i :j | j - i < 4 }
-[2 3 5 7; 11 13; 17 19; 23; 29 31; 37; 41 43; 47; 53; 59 61; 67; 71]
+[
+	2 3 5 7;
+	11 13;
+	17 19;
+	23;
+	29 31;
+	37;
+	41 43;
+	47;
+	53;
+	59 61;
+	67;
+	71
+]
 ```
 
 Split so that in each sublist successive elements are not the same:
@@ -78,7 +95,9 @@ Group together identical elements:
 Split by sign:
 
 ```
->>> [3 0 -4 3 3 -2 0 -3 -4 5].split { :i :j | i.sign = j.sign }
+>>> [3 0 -4 3 3 -2 0 -3 -4 5].split { :i :j |
+>>> 	i.sign = j.sign
+>>> }
 [3; 0; -4; 3 3; -2; 0; -3 -4; 5]
 ```
 
@@ -108,7 +127,9 @@ Only split when there is a change from positive to negative (or non-positive) si
 Run-length encoding:
 
 ```
->>> [1 1 1 2 2 1 1 3 3 3].split(=).collect { :each | [each.first, each.size] }
+>>> [1 1 1 2 2 1 1 3 3 3].split(=).collect { :each |
+>>> 	[each.first, each.size]
+>>> }
 [1 3; 2 2; 1 2; 3 3]
 ```
 

@@ -8,8 +8,24 @@ Calculate `entropy`, `mean`, `median`, `kurtosis`, `skewness`, `standardDeviatio
 
 ```
 >>> let d = UniformDistribution(0, 2.pi);
->>> (d.entropy, d.mean, d.median, d.kurtosis, d.skewness, d.standardDeviation, d.variance)
-(2.pi.log, pi, pi, 9/5, 0, pi / 3.sqrt, (pi / 3.sqrt).squared)
+>>> (
+>>> 	d.entropy,
+>>> 	d.mean,
+>>> 	d.median,
+>>> 	d.kurtosis,
+>>> 	d.skewness,
+>>> 	d.standardDeviation,
+>>> 	d.variance
+>>> )
+(
+	2.pi.log,
+	pi,
+	pi,
+	9/5,
+	0,
+	pi / 3.sqrt,
+	(pi / 3.sqrt).squared
+)
 ```
 
 Plot `pdf` over a subset of the reals:

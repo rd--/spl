@@ -58,7 +58,13 @@ Select thos that are not letters or numbers or the apostrophe or reverse solidus
 
 ```
 >>> ' '.characterRange('~').reject { :x |
->>> 	x.isDigit | { x.isLetter | { x.isApostrophe | { x.isReverseSolidus } } }
+>>> 	x.isDigit | {
+>>> 		x.isLetter | {
+>>> 			x.isApostrophe | {
+>>> 				x.isReverseSolidus
+>>> 			}
+>>> 		}
+>>> 	}
 >>> }
 [
 	' ' '!' '"' '#' '$' '%' '&' '(' ')' '*'
@@ -71,7 +77,9 @@ Select thos that are not letters or numbers or the apostrophe or reverse solidus
 At `Integer`:
 
 ```
-1000.characterRange(1020).collect(asString:/1)
+>>> 1000.characterRange(1020).collect(
+>>> 	asString:/1
+>>> )
 [
 	'Ϩ' 'ϩ' 'Ϫ' 'ϫ' 'Ϭ' 'ϭ' 'Ϯ' 'ϯ' 'ϰ' 'ϱ'
 	'ϲ' 'ϳ' 'ϴ' 'ϵ' '϶' 'Ϸ' 'ϸ' 'Ϲ' 'Ϻ' 'ϻ'
@@ -83,7 +91,11 @@ At `Character`:
 
 ```
 >>> 'a'.asCharacter.characterRange('c'.asCharacter)
-[Character('a', 97), Character('b', 99), Character('c', 99)]
+[
+	Character('a', 97),
+	Character('b', 99),
+	Character('c', 99)
+]
 ```
 
 * * *

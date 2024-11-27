@@ -8,17 +8,24 @@ export const nonOperatorPunctuationCharacters = '"\'(),:;.[]_`{}';
 export const punctuationCharacters = '!#$%&*+-/<=>?@\\^|~"\'(),:;.[]_`{}';
 
 export function isOperatorCharacter(character: string): boolean {
-	return (character.length === 1) && operatorCharacters.includes(character[0]);
+	if (character.length === 1) {
+		return operatorCharacters.includes(character[0]);
+	};
+	throw new Error('isOperatorCharacter: not character');
 }
 
 export function isNonOperatorPunctuationCharacter(character: string): boolean {
-	return (character.length === 1) &&
-		nonOperatorPunctuationCharacters.includes(character[0]);
+	if (character.length === 1) {
+		return nonOperatorPunctuationCharacters.includes(character[0]);
+	}
+	throw new Error('isNonOperatorPunctuationCharacter: not character');
 }
 
 export function isPunctuationCharacter(character: string): boolean {
-	return (character.length === 1) &&
-		punctuationCharacters.includes(character[0]);
+	if (character.length === 1) {
+		return punctuationCharacters.includes(character[0]);
+	}
+	throw new Error('isPunctuationCharacter: not character');
 }
 
 export function isOperator(name: string): boolean {

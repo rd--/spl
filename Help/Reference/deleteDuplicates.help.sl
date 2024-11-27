@@ -30,25 +30,39 @@ Delete elements that are preceded by at least one larger element:
 Treat numbers as equal if they differ by 0.01 or less:
 
 ```
->>> [3 3.1 3.11 3.5 3.51].deleteDuplicates { :i :j | (i - j).abs <= 0.01 }
+>>> [3 3.1 3.11 3.5 3.51].deleteDuplicates { :i :j |
+>>> 	(i - j).abs <= 0.01
+>>> }
 [3 3.1 3.5]
 ```
 
 Similar to `union` with an empty set:
 
 ```
->>> [9 0 0 3 2 3 6 2 9 8 4 9 0 2 6 5 7 4 9 8].deleteDuplicates
-[9 0 3 2 6 8 4 5 7]
-
->>> [9 0 0 3 2 3 6 2 9 8 4 9 0 2 6 5 7 4 9 8].union([])
-[9 0 3 2 6 8 4 5 7].asSet
+>>> let x = [9 0 0 3 2 3 6 2 9 8 4 9 0 2 6 5 7 4 9 8];
+>>> (
+>>> 	x.deleteDuplicates,
+>>> 	x.union([])
+>>> )
+(
+	[9 0 3 2 6 8 4 5 7],
+	[9 0 3 2 6 8 4 5 7].asSet
+)
 ```
 
 Delete items that sum to the same amount as an earlier item:
 
 ```
->>> let m = [0 0 0 1 0; 1 0 1 0 1; 1 1 1 0 0; 0 0 0 0 1; 1 1 1 0 1];
->>> m.deleteDuplicates { :i :j | i.sum = j.sum }
+>>> let m = [
+>>> 	0 0 0 1 0;
+>>> 	1 0 1 0 1;
+>>> 	1 1 1 0 0;
+>>> 	0 0 0 0 1;
+>>> 	1 1 1 0 1
+>>> ];
+>>> m.deleteDuplicates { :i :j |
+>>> 	i.sum = j.sum
+>>> }
 [0 0 0 1 0; 1 0 1 0 1; 1 1 1 0 1]
 ```
 

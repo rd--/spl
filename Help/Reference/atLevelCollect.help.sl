@@ -44,7 +44,9 @@ Construct a 2×3×4 element array and calculate the `mean` at each level:
 
 ```
 >>> let r = [2 3 4].iota(0, 1);
->>> let m = { :l :k | l.atLevelCollect([k], mean:/1) };
+>>> let m = { :l :k |
+>>> 	l.atLevelCollect([k], mean:/1)
+>>> };
 >>> (r, r.m(0), r.m(1), r.m(2))
 (
 	[

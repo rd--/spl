@@ -7,14 +7,20 @@ Preferences are stored in the system cache and can be accessed at `system.prefer
 To read a preference, providing a default value in case it does not exist, use `preference`:
 
 ```
->>> system.preference('ScSynth/Outputs/Main/NumberOfChannels', 2)
+>>> system.preference(
+>>> 	'ScSynth/Outputs/Main/NumberOfChannels',
+>>> 	2
+>>> )
 2
 ```
 
 or `preferencesReadPath`:
 
 ```
->>> system.preferencesReadPath(['ScSynth' 'Outputs' 'Main' 'NumberOfChannels'], 2)
+>>> system.preferencesReadPath(
+>>> 	['ScSynth' 'Outputs' 'Main' 'NumberOfChannels'],
+>>> 	2
+>>> )
 2
 ```
 

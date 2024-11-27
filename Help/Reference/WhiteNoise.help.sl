@@ -25,7 +25,7 @@ WhiteNoise(0.1 # 2, 0).Lpz1
 
 * * *
 
-See also: BrownNoise, ClipNoise, PinkNoise, Rand, TRand
+See also: BrownNoise, ClipNoise, GrayNoise, PinkNoise, Rand, TRand
 
 References:
 _Csound_

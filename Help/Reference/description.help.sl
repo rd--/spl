@@ -1,9 +1,10 @@
 # description
 
-- _description(anError)_
+- _description(anObject)_
 
-Answer a textual description of the exception.
-Describes in a human readable form an occurrence of an exception.
+Answer a textual description of _anObject_, if there is one.
+
+At `Error`, describes in a human readable form an occurrence of an exception.
 If an explicit message text was provided by the signaler of the exception, that text should be incorporated into the description.
 
 ```

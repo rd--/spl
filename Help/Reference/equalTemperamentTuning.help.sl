@@ -8,17 +8,29 @@ Twelve tone equal temperament:
 
 ```
 >>> let t = 12.equalTemperamentTuning;
->>> (t.isTuning, t.isCentsTuning, t.name, t.description)
-(true, true, 'ET-12', 'Twelve tone equal-temperament')
-
->>> let t = 12.equalTemperamentTuning;
->>> (t.octave, t.asCents)
-(2, [0 100 200 300 400 500 600 700 800 900 1000 1100])
-
->>> let t = 12.equalTemperamentTuning;
->>> let r = t.asRatios;
->>> r.collect { :each | each.asFraction(1E-2) }
-[1/1 16/15 9/8 13/11 5/4 4/3 17/12 3/2 19/12 27/16 16/9 17/9]
+>>> (
+>>> 	t.isTuning,
+>>> 	t.isCentsTuning,
+>>> 	t.name,
+>>> 	t.description,
+>>> 	t.octave,
+>>> 	t.asCents,
+>>> 	t.asRatios.collect { :each |
+>>> 		each.asFraction(1E-2)
+>>> 	}
+>>> )
+(
+	true,
+	true,
+	'ET-12',
+	'Twelve tone equal-temperament',
+	2,
+	0:11 * 100,
+	[
+		1/1 16/15 9/8 13/11 5/4 4/3
+		17/12 3/2 19/12 27/16 16/9 17/9
+	]
+)
 ```
 
 Seven tone equal temperament:
@@ -27,7 +39,9 @@ Seven tone equal temperament:
 >>> let t = 7.equalTemperamentTuning;
 >>> (
 >>> 	t.asCents.rounded,
->>> 	t.asRatios.collect { :each | each.asFraction(1E-2) }
+>>> 	t.asRatios.collect { :each |
+>>> 		each.asFraction(1E-2)
+>>> 	}
 >>> )
 (
 	[0 171 343 514 686 857 1029],
@@ -37,4 +51,4 @@ Seven tone equal temperament:
 
 * * *
 
-See also: CentsTuning, Tuning
+See also: asCents, asRatios, CentsTuning, description, isCentsTuning, isTuning, name, Tuning

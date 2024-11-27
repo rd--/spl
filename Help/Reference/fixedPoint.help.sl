@@ -2,7 +2,9 @@
 
 - _fixedPoint(aBlock:/1, anObject, equalBlock:/2)_
 
-Starts _anObject_, then applies _aBlock_ repeatedly until the result no longer changes according to _equalBlock_.
+Starting with _anObject_,
+apply _aBlock_ repeatedly until the answer no longer changes,
+according to _equalBlock_.
 
 Find the fixed point:
 
@@ -42,7 +44,9 @@ Use a test function with a specific tolerance to resolve this:
 >>> cos:/1.fixedPointList(0.5, ~).size
 24
 
->>> cos:/1.fixedPointList(0.5) { :alpha :beta | (alpha - beta).abs < 0.1 }
+>>> cos:/1.fixedPointList(0.5) { :alpha :beta |
+>>> 	(alpha - beta).abs < 0.1
+>>> }
 [0.5 0.8775 0.6390 0.8027 0.6948 0.7682]
 ```
 

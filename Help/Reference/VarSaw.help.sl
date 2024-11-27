@@ -31,10 +31,11 @@ VarSaw(
 Compare `VarSaw` and `LfPulse`:
 
 ```
+let freq = LfPulse(3, 0, 0.3);
 [
-	LfPulse(LfPulse(3, 0, 0.3) * 200 + 200, 0, 0.2) * 0.1,
-	VarSaw(LfPulse(3, 0, 0.3) * 200 + 200, 0, 0.2) * 0.1
-]
+	LfPulse(freq * 200 + 200, 0, 0.2),
+	VarSaw(freq * 200 + 200, 0, 0.2)
+] * 0.1
 ```
 
 * * *

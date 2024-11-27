@@ -27,7 +27,10 @@ Find how the number of digits in _100!_ decreases with the base:
 >>> 2:20.collect { :n |
 >>> 	100.!.integerLength(n)
 >>> }
-[525 332 263 227 204 187 175 166 158 152 147 142 138 135 132 129 126 124 122]
+[
+	525 332 263 227 204 187 175 166 158 152
+	147 142 138 135 132 129 126 124 122
+]
 ```
 
 Plot for base 10 from -25 to 25:

@@ -35,13 +35,21 @@ let freq = XLine(100, 3000, 10);
 Modulate ring time:
 
 ```
-Ringz(Impulse(6, 0) * 0.1, 2000, XLine(4, 0.04, 8))
+Ringz(
+	Impulse(6, 0) * 0.1,
+	2000,
+	XLine(4, 0.04, 8)
+)
 ```
 
 Modulate ring time opposite direction:
 
 ```
-Ringz(Impulse(6, 0) * 0.1, 2000, XLine(0.04, 4, 8))
+Ringz(
+	Impulse(6, 0) * 0.1,
+	2000,
+	XLine(0.04, 4, 8)
+)
 ```
 
 Parallel filters with frequency ramps:

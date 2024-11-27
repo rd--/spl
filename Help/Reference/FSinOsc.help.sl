@@ -27,7 +27,10 @@ FSinOsc(XLine(200, 4000, 1), 0) * 0.25
 Loses amplitude towards the end:
 
 ```
-FSinOsc(FSinOsc(XLine(4, 401, 8), 0) * 200 + 800, 0) * 0.25
+FSinOsc(
+	FSinOsc(XLine(4, 401, 8), 0) * 200 + 800,
+	0
+) * 0.25
 ```
 
 * * *

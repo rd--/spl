@@ -18,16 +18,24 @@ Reverse at each level of a rank three array:
 >>> [2 3 2].iota
 [1 2; 3 4; 5 6:; 7 8; 9 10; 11 12]
 
->>> [2 3 2].iota.withLevelCollect { :z :k | (k = 0).if { z.reversed } { z } }
+>>> [2 3 2].iota.withLevelCollect { :z :k |
+>>> 	(k = 0).if { z.reversed } { z }
+>>> }
 [7 8; 9 10; 11 12:; 1 2; 3 4; 5 6]
 
->>> [2 3 2].iota.withLevelCollect { :z :k | (k = 1).if { z.reversed } { z } }
+>>> [2 3 2].iota.withLevelCollect { :z :k |
+>>> 	(k = 1).if { z.reversed } { z }
+>>> }
 [5 6; 3 4; 1 2:; 11 12; 9 10; 7 8]
 
->>> [2 3 2].iota.withLevelCollect { :z :k | (k = 2).if { z.reversed } { z } }
+>>> [2 3 2].iota.withLevelCollect { :z :k |
+>>> 	(k = 2).if { z.reversed } { z }
+>>> }
 [2 1; 4 3; 6 5:; 8 7; 10 9; 12 11]
 
->>> [2 3 2].iota.withLevelCollect { :z :k | (k = 3).if { z.negated } { z } }
+>>> [2 3 2].iota.withLevelCollect { :z :k |
+>>> 	(k = 3).if { z.negated } { z }
+>>> }
 [-1 -2; -3 -4; -5 -6:; -7 -8; -9 -10; -11 -12]
 ```
 
@@ -69,7 +77,7 @@ Reverse at each two and three element combination of levels of a rank three arra
 
 * * *
 
-See also: atLevelCollect, collect, deepCollect, depth
+See also: atLevelCollect, collect, deepCollect, depth, withIndexCollect
 
 References:
 _Apl_

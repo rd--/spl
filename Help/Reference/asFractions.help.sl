@@ -10,7 +10,10 @@ At `CentsTuning`, will answer a list of approximate `Fraction` values derived fr
 
 ```
 >>> 12.equalTemperamentTuning.asFractions(1E-2)
-[1/1 16/15 9/8 13/11 5/4 4/3 17/12 3/2 19/12 27/16 16/9 17/9]
+[
+	1/1 16/15 9/8 13/11 5/4 4/3
+	17/12 3/2 19/12 27/16 16/9 17/9
+]
 ```
 
 * * *

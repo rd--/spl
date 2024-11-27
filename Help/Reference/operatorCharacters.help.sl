@@ -8,7 +8,9 @@ Answer the list of operator characters.
 >>> system.operatorCharacters.size
 18
 
->>> system.operatorCharacters.reject(isReverseSolidus:/1)
+>>> system.operatorCharacters.reject(
+>>> 	isReverseSolidus:/1
+>>> )
 [
 	'&' '*' '^' '@' '$' '=' '!' '>' '-' '<'
 	'#' '%' '+' '?' '/' '~' '|'

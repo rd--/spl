@@ -7,7 +7,13 @@ Answer a `Dictionary` where the `keys` are punctuation characters and the values
 ```
 >>> let t = system.punctuationCharacterNameTable;
 >>> (t.size, t['>'], t[':'], t['('], t['_'])
-(32, 'greaterThanSign', 'colon', 'leftParenthesis', 'lowLine')
+(
+	32,
+	'greaterThanSign',
+	'colon',
+	'leftParenthesis',
+	'lowLine'
+)
 ```
 
 * * *

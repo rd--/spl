@@ -72,7 +72,7 @@ true
 
 * * *
 
-See also: isOperator, isPunctuationToken, operatorCharacters, operatorNameTable, punctuationCharacterNameTable, punctuationTokenName
+See also: isOperator, isPunctuationToken, operatorCharacters, operatorNameTable, punctuationCharacterNameTable, punctuationCharacters, punctuationTokenName
 
 Guides: Binary Operators
 

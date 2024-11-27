@@ -19,7 +19,11 @@ Find the first element matching a predicate:
 It is an error if no element is detected:
 
 ```
->>> { 5:1.detect { :each | each % 7 = 0 } }.ifError { true }
+>>> {
+>>> 	5:1.detect { :each |
+>>> 		each % 7 = 0
+>>> 	}
+>>> }.ifError { true }
 true
 ```
 

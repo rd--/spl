@@ -16,11 +16,15 @@ the first speaker will be directly in front,
 and should be 0.5 if the front bisects a side of the polygon,
 in which case the first speaker will be the one left of center.
 
+`PanB2` B-format encodes the noise source,
+`DecodeB2` decodes the encoded signals to four channels,
+which are reordered for a given speaker arrangement:
+
 ```
-let p = PinkNoise(); /* Source */
-let [w, x, y] = PanB2(p, MouseX(-1, 1, 0, 0.2), 0.1); /* B-format encode */
-let [a, b, c, d] = DecodeB2(4, w, x, y, 0.5); /* B-format decode to quad */
-[a, b, d, c] /* Reorder for speaker arrangement */
+let p = PinkNoise();
+let [w, x, y] = PanB2(p, MouseX(-1, 1, 0, 0.2), 0.1);
+let [a, b, c, d] = DecodeB2(4, w, x, y, 0.5);
+[a, b, d, c]
 ```
 
 * * *

@@ -51,7 +51,9 @@ Obtain all substrings common to two lists:
 
 ```
 >>> let f = { :p :q :w:/1 |
->>> 	p.substrings(w:/1).intersection(q.substrings(w:/1))
+>>> 	p.substrings(w:/1).intersection(
+>>> 		q.substrings(w:/1)
+>>> 	)
 >>> };
 >>> [1 2 3 5 4].f([2 3 5 1 4], { :each |
 >>> 	each.size = 2
@@ -128,16 +130,25 @@ since it contains as substrings each of the possible permutations of _123_:
 ```
 >>> let l = [1 2 3 1 2 1 3 2 1];
 >>> let s = l.substrings;
->>> [1 2 3].permutations.allSatisfy { :each | s.includes(each) }
+>>> [1 2 3].permutations.allSatisfy { :each |
+>>> 	s.includes(each)
+>>> }
 true
 ```
 
 Likewise _123412314231243121342132413214321_ is a four-superpermutation:
 
 ```
->>> let l = [1 2 3 4 1 2 3 1 4 2 3 1 2 4 3 1 2 1 3 4 2 1 3 2 4 1 3 2 1 4 3 2 1];
+>>> let l = [
+>>> 	1 2 3 4 1 2 3 1 4 2
+>>> 	3 1 2 4 3 1 2 1 3 4
+>>> 	2 1 3 2 4 1 3 2 1 4
+>>> 	3 2 1
+>>> ];
 >>> let s = l.substrings;
->>> [1 2 3 4].permutations.allSatisfy { :each | s.includes(each) }
+>>> [1 2 3 4].permutations.allSatisfy { :each |
+>>> 	s.includes(each)
+>>> }
 true
 ```
 

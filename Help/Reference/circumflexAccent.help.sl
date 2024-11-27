@@ -19,27 +19,27 @@ The binary form answers _aNumber_ raised to the power of _anotherNumber_.
 At `Complex`:
 
 ```
->>> 2 ^ 0j1
-0.769239j0.638961
+>>> 2 ^ 0J1
+0.769239J0.638961
 
->>> 0j1 ^ 2
--1j0
+>>> 0J1 ^ 2
+-1J0
 
->>> 2 ^ (0j1 ^ 2)
-0.5j0
+>>> 2 ^ (0J1 ^ 2)
+0.5J0
 
->>> -5j0 ^ 0.5
+>>> -5J0 ^ 0.5
 0.j(5.sqrt)
 
->>> 1j1 ^ 1:11
-[1j1 0j2 -2j2 -4j0 -4j-4 0j-8 8j-8 16j0 16j16 0j32 -32j32]
+>>> 1J1 ^ 1:11
+[1J1 0J2 -2J2 -4J0 -4J-4 0J-8 8J-8 16J0 16J16 0J32 -32J32]
 ```
 
 Threads elementwise over lists and matrices:
 
 ```
->>> [0 1.5 0j1 pi inf] ^ 0.5
-[0, 1.22474, -1j0 ^ 0.25, pi.sqrt, inf]
+>>> [0 1.5 0J1 pi inf] ^ 0.5
+[0, 1.22474, -1J0 ^ 0.25, pi.sqrt, inf]
 
 >>> 2 ^ [1 2 3]
 [2 4 8]

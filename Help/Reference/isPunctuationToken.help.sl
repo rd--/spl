@@ -2,7 +2,7 @@
 
 - _isPunctuationToken(aString)_
 
-Answer `true` if _aString_ is a valid operator name.
+Answer `true` if each character of _aString_ answers `true` to `isPunctuationCharacter`.
 
 ```
 >>> '*'.isPunctuationToken
@@ -20,4 +20,4 @@ true
 
 * * *
 
-See also: isOperator, operatorName
+See also: isOperator, isPunctuationCharacter, operatorName

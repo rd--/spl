@@ -16,7 +16,11 @@ if the intervals are `Fraction` values they are understood to be ratios and the 
 A seven-limit just intonation approximation of 13-tone equal temperament:
 
 ```
->>> let r = [1/1 135/128 9/8 7/6 5/4 21/16 48/35 35/24 32/21 8/5 27/16 9/5 243/128];
+>>> let r = [
+>>> 	1/1 135/128 9/8 7/6 5/4
+>>> 	21/16 48/35 35/24 32/21 8/5
+>>> 	27/16 9/5 243/128
+>>> ];
 >>> let t = r.asJiTuning;
 >>> let k = (1200 / 13);
 >>> let c = [0, k .. 1108];

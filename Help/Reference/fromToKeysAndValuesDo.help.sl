@@ -6,7 +6,9 @@ Evaluate _aBlock_ for all elements of _aSequence_ between indices start and stop
 
 ```
 >>> let list = [];
->>> 1:9.fromToKeysAndValuesDo(3, 7) { :each :index | list.add([each.-, index]) };
+>>> 1:9.fromToKeysAndValuesDo(3, 7) { :each :index |
+>>> 	list.add([each.-, index])
+>>> };
 >>> list
 [-3 3; -4 4; -5 5; -6 6; -7 7]
 ```

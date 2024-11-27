@@ -321,6 +321,10 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		<primitive: return sl.isOperator(_self);>
 	}
 
+	isPunctuationCharacter { :self |
+		<primitive: return sl.isPunctuationCharacter(_self);>
+	}
+
 	isPunctuationToken { :self |
 		<primitive: return sl.isPunctuationToken(_self);>
 	}

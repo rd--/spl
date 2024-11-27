@@ -22,7 +22,11 @@ Pulse(200, Line(0.01, 0.99, 8)) * 0.1
 Two band limited square waves thru a resonant low pass filter:
 
 ```
-Rlpf(Pulse([100, 250], 0.5) * 0.1, XLine(8000, 400, 5), 0.05)
+Rlpf(
+	Pulse([100, 250], 0.5) * 0.1,
+	XLine(8000, 400, 5),
+	0.05
+)
 ```
 
 * * *

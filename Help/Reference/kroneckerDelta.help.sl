@@ -49,7 +49,9 @@ Generate a banded matrix with two superdiagonals:
 
 ```
 >>> { :i :j |
->>> 	((i - j + 1).kroneckerDelta(0) + (i - j + 2).kroneckerDelta(0)) * i * (j ^ 2)
+>>> 	let p = (i - j + 1).kroneckerDelta(0);
+>>> 	let q = (i - j + 2).kroneckerDelta(0);
+>>> 	(p + q) * i * (j ^ 2)
 >>> }.table(1:5, 1:5)
 [
 	0 4 9 0 0;

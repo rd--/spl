@@ -9,7 +9,9 @@ Answer the list of punctuation characters.
 32
 
 >>> system.punctuationCharacters.reject { :each |
->>> 	each.isApostrophe | { each.isReverseSolidus }
+>>> 	each.isApostrophe | {
+>>> 		each.isReverseSolidus
+>>> 	}
 >>> }
 [
 	'!' '#' '$' '%' '&' '*' '+' '-' '/' '<'

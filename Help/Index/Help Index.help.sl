@@ -455,7 +455,10 @@
 
 ## Operators
 
-- `operatorCharacterNameTable`, `operatorNameTable`
+- `isOperator`
+- `operatorCharacters`, `operatorName`, `operatorNameTable`
+- `isPunctuationCharacter`, `isPunctuationToken`
+- `punctuationCharacterNameTable`, `punctuationCharacters, `punctuationTokenName`
 
 ## Package
 

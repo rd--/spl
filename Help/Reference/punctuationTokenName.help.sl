@@ -20,7 +20,7 @@ For multiple character names, the indidual names are joined together:
 'colonSemicolon'
 ```
 
-It is an `error` if the string is not a n punctuation character:
+It is an `error` if the string is not a punctuation character:
 
 ```
 >>> { 'x'.punctuationTokenName }.ifError { true }

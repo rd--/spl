@@ -88,10 +88,18 @@ A legion was made of 10 cohorts, a cohort of 6 centuries, a century of 10 contub
 Decompose a number of Roman soldiers in these tactical units:
 
 ```
->>> let units = ['legion' 'cohort' 'century' 'contubernia' 'soldier'];
+>>> let units = [
+>>> 	'legion' 'cohort' 'century' 'contubernia' 'soldier'
+>>> ];
 >>> let bases = [10 6 10 8];
 >>> units ->.each 16894.mixedRadixEncode(bases)
-['legion' -> 3, 'cohort' -> 5, 'century' -> 1, 'contubernia' -> 1, 'soldier' -> 6]
+[
+	'legion' -> 3,
+	'cohort' -> 5,
+	'century' -> 1,
+	'contubernia' -> 1,
+	'soldier' -> 6
+]
 ```
 
 Conversely, the number of soldiers in a legion:
