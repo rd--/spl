@@ -1101,6 +1101,7 @@ Reference/isNumber.help.sl
 Reference/iso8601.help.sl
 Reference/isOdd.help.sl
 Reference/isOne.help.sl
+Reference/isOperator.help.sl
 Reference/isOrthogonalMatrix.help.sl
 Reference/IsoSphericalCoordinates.help.sl
 Reference/isPerfectNumber.help.sl
@@ -1117,6 +1118,7 @@ Reference/isPrimePower.help.sl
 Reference/isPrimeTrialDivision.help.sl
 Reference/isPrimeWilson.help.sl
 Reference/isProperSubsetOf.help.sl
+Reference/isPunctuationToken.help.sl
 Reference/isPythagorean.help.sl
 Reference/isRational.help.sl
 Reference/isRegular.help.sl
@@ -1520,7 +1522,7 @@ Reference/OneZero.help.sl
 Reference/onRejection.help.sl
 Reference/openIn.help.sl
 Reference/operatingSystem.help.sl
-Reference/operatorCharacterNameTable.help.sl
+Reference/operatorCharacters.help.sl
 Reference/operatorName.help.sl
 Reference/operatorNameTable.help.sl
 Reference/OrderedCollection.help.sl
@@ -1705,6 +1707,9 @@ Reference/PulseCount.help.sl
 Reference/PulseDivider.help.sl
 Reference/PulseDpw.help.sl
 Reference/Pulse.help.sl
+Reference/punctuationCharacterNameTable.help.sl
+Reference/punctuationCharacters.help.sl
+Reference/punctuationTokenName.help.sl
 Reference/pushAllWithPriority.help.sl
 Reference/pushWithPriority.help.sl
 Reference/putOn.help.sl
