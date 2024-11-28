@@ -89,6 +89,35 @@ Texture of above:
 }.OverlapTexture(5, 10, 9).Mix
 ```
 
+Fixed exponentially spaced resonators, stereo:
+
+```
+let k = 111;
+{
+	Ringz(
+		PinkNoise() * 0.1,
+		{ ExpRand(333, 22222) } ! k,
+		1
+	).mean
+} ! 2 * 0.22
+```
+
+As above with envelope:
+
+```
+let k = 222;
+{
+	Ringz(
+		Lpf(
+			PinkNoise() * 0.22,
+			Perc(1, 0, 5.5, -4) * 22222 + 10
+		),
+		{ ExpRand(333, 22222) } ! k,
+		1
+	).mean
+} ! 2 * 0.22
+```
+
 * * *
 
 See also: Formlet, Resonz, Rhpf, Rlpf
