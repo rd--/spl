@@ -265,6 +265,16 @@
 	buttons { :self | <primitive: return _self.buttons;> }
 	clientX { :self | <primitive: return _self.clientX;> }
 	clientY { :self | <primitive: return _self.clientY;> }
+	layerX { :self | <primitive: return _self.layerX;> }
+	layerY { :self | <primitive: return _self.layerY;> }
+	movementX { :self | <primitive: return _self.movementX;> }
+	movementY { :self | <primitive: return _self.movementY;> }
+	offsetX { :self | <primitive: return _self.offsetX;> }
+	offsetY { :self | <primitive: return _self.offsetY;> }
+	pageX { :self | <primitive: return _self.pageX;> }
+	pageY { :self | <primitive: return _self.pageY;> }
+	screenX { :self | <primitive: return _self.screenX;> }
+	screenY { :self | <primitive: return _self.screenY;> }
 	x { :self | <primitive: return _self.x;> }
 	y { :self | <primitive: return _self.y;> }
 
@@ -280,6 +290,7 @@
 	nodeValue { :self | <primitive: return _self.nodeValue;> }
 	normalize { :self | <primitive: return _self.normalize();> }
 	parentElement { :self | <primitive: return _self.parentElement;> } /* Read only */
+	parentNode { :self | <primitive: return _self.parentNode;> } /* Read only */
 	previousSibling { :self | <primitive: return _self.previousSibling;> } /* Read only */
 	textContent { :self :aString | <primitive: return _self.textContent = _aString;> }
 	textContent { :self | <primitive: return _self.textContent;> }
@@ -580,6 +591,11 @@ DOMRect! : [Object] {
 	width { :self | <primitive: return _self.width;> }
 	x { :self | <primitive: return _self.x;> }
 	y { :self | <primitive: return _self.y;> }
+
+
+	pseudoSlotNameList { :self |
+		['x' 'y' 'width' 'height']
+	}
 
 }
 
@@ -1023,12 +1039,29 @@ Text! : [Object, EventTarget, Node, CharacterData] {
 
 +[HTMLDocument, Window] {
 
+	caretBoundingBox { :self |
+		system.window.elementAtCaret.getBoundingClientRect
+	}
+
 	caretIsInTextAreaElement { :self |
 		self.selection.range.isInTextAreaElement
 	}
 
 	caretIsInTextNode { :self |
 		self.selection.range.startContainer.isText
+	}
+
+	elementAtCaret { :self |
+		let c = self.selection.range.startContainer;
+		c.isText.if {
+			c.parentElement
+		} {
+			c.isElement.if {
+				c
+			} {
+				self.error('elementAtCaret: not text or element?')
+			}
+		}
 	}
 
 	insertStringAtCaret { :self :aString |

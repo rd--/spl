@@ -11,8 +11,9 @@ system.smallKansas.clsLeitner.then { :clsLeitner |
 	system.smallKansas.SvgViewer(
 		'Cls',
 		clsLeitner.atRandom.drawing(1) { :each |
-			each.xy * 20
-		}
+			each * 20
+		},
+		nil
 	)
 }
 ~~~
@@ -21,12 +22,13 @@ Chinese projection:
 
 ~~~
 system.smallKansas.clsLeitner.then { :clsLeitner |
-	let m = Projection3().chinese.Matrix33;
+	let m = Projection3().chinese.asMatrix;
 	system.smallKansas.SvgViewer(
 		'Cls',
 		clsLeitner.atRandom.drawing(1) { :each |
-			m.applyTo(each).xy * 20
-		}
+			m.applyTo(each) * 20
+		},
+		nil
 	)
 }
 ~~~

@@ -130,6 +130,9 @@ SmallKansas : [Object, Cache] { | container frameSet cache history |
 				self.WorldMenu(true, event)
 			}
 		};
+		self.container.addEventListener('mousemove') { :event |
+			(event.type, event.x, event.y).postLine
+		};
 		self
 	}
 

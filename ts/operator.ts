@@ -10,7 +10,7 @@ export const punctuationCharacters = '!#$%&*+-/<=>?@\\^|~"\'(),:;.[]_`{}';
 export function isOperatorCharacter(character: string): boolean {
 	if (character.length === 1) {
 		return operatorCharacters.includes(character[0]);
-	};
+	}
 	throw new Error('isOperatorCharacter: not character');
 }
 

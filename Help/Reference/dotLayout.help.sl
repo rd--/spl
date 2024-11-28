@@ -27,7 +27,8 @@ let dotGraph = 'digraph { a -> b; a -> c; b -> d; c -> d }';
 dotGraph.dotLayout('svg', 'dot').then { :answer |
 	system.smallKansas.SvgViewer(
 		'Dot Drawing',
-		answer.parseSvg
+		answer.parseSvg,
+		nil
 	)
 }
 ~~~

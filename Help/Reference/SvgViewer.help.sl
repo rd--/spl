@@ -1,6 +1,6 @@
 # SvgViewer
 
-- _SvgViewer(aSmallKansas, aString, anSvg)_
+- _SvgViewer(aSmallKansas, aString, anSvg, where)_
 
 Image viewer.
 
@@ -13,7 +13,8 @@ let url = 'https://rohandrape.net/sw/stsc3/lib/svg/smalltalk-balloon.svg';
 url.fetchText.then { :answer |
 	system.smallKansas.SvgViewer(
 		'Smalltalk Balloon',
-		answer.parseSvg
+		answer.parseSvg,
+		nil
 	)
 }
 ~~~
@@ -62,7 +63,7 @@ group.appendChildren([
 	line
 ]);
 svg.appendChild(group);
-system.smallKansas.SvgViewer('Circle and Line', svg)
+system.smallKansas.SvgViewer('Circle and Line', svg, nil)
 ~~~
 
 * * *

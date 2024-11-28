@@ -92,7 +92,7 @@ MIDIConnectionEvent! : [Object, Event] {
 
 MIDIInput! : [Object, EventTarget, MidiPort] {
 
-	onmidimessage { :self :aBlock |
+	onMidiMessage { :self :aBlock |
 		<primitive: return _self.onmidimessage = _aBlock;>
 	}
 
